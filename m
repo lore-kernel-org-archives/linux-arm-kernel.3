@@ -4,168 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1074CC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 19:04:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B823C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 19:06:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pa18+lL6hd7n2hzp+rSu2D29gEv5bBuLrU8cXG4hBzc=; b=FiYq/2oP0fOUFXpRnkvVPr13Hz
-	X2VvjODDPhTMsDlmP/oQEq3ujYp3WHm6OCAcnQFQ3kktcwPI8Ny7VKHLyoEBGNA6vlzUrF37t8EWC
-	UxbgHx0J+TtA1YwR4510j3f+iU4RPZD9Eu3MMCCGgyGxf8GXIEbpGwtKiw2+T/mZtjVucE7FBGVnh
-	CBNreAORDOlGHLAeJ+2RFjPjDvHg4+UeuN1L9o27XLbdDvG4cW6MSY1a3mxL7U9xG3KTR42LiocdD
-	UaQNgctAeQvBDSNrSovrDeRtwexCsmII8V2Gxme76WIdSb06mcVLp0ue6R6JL8MCCaL5suNorGGce
-	5/DOyPeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ihwIKJtv6TLBR/OI0Dx++tOWSWHwkJU0gov7VsGhIAg=; b=aCvHnjp1aWSCw/woIYUwa3Zwk2
+	lRobajMo9OB5PEti8d5wS5bft4ufBbOYTHgzjq1pj3kUryKl2p4tltZiLd/yRFbL09TxhAWCErFFt
+	gIhQB3k5EzztbACW2xu+GzsE3Hch/nr5E5Lea6QB7JXZXN+uL9R9NISaLxVw2KrWTJ+PW10mmH6ug
+	Q4xu7pTun+pVRnf2v1zFD9j4p9IAz5udnP1qNHLRMFwLLEhZ5FYFmk9fK8mlBXHaMYo9jWIBg7lXJ
+	E5pfbyHzv3nxea1dM6YZrxFKWooXTMvogrVyRAa/455aahyvRWLMWJ26QrkFIPVnFnx+UrPwZyEK+
+	zwvcC39g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCNaG-0000000DBaw-1cbF;
-	Tue, 06 May 2025 19:04:04 +0000
-Received: from mail-db5eur02on20725.outbound.protection.outlook.com ([2a01:111:f403:2608::725] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	id 1uCNcC-0000000DBty-1vvf;
+	Tue, 06 May 2025 19:06:04 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCK34-0000000CSxA-29cs
+	id 1uCK4O-0000000CTAg-1ssi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 15:17:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KEE7n6N14/J9xLpFwXFl64h4nYmach/4VZJW0oNd41pXQgCGXEvtNQMAQbx6VImcZl+yai2g0iI+7pMLosB0URQXHg5AFHvaiNvAK7gsTUO9rHMT8g9uaJEEERaoiFyT0f/lvuBkk8FR1Z5/PTi/ewHq9Mo3IK5faU6DElaXEnvhNmcZqMM1JMh9zcVuJ4EXUrE+alrdtfWtKG6bT6P+0NgQC3cpdR/4Ttm7W8imCOCKF6QdUfwCQw2wTITcHvUVJULoV9Gx+/QLCHoKXgKfUrTqK108/7/3IdrWGe1opqDXY7vMzvLbnxzpKfpHvaMxbzGT7R6iufhAPH/qlrwESQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Pa18+lL6hd7n2hzp+rSu2D29gEv5bBuLrU8cXG4hBzc=;
- b=miwVHYnFNIwjWF9uqwsg9oQfqRByMBh2I1sWkLJlBGNXRXawggGG8iwXnNl9//Yk4/sqwWY4lsJsqJuT3qKCvDqNExf2con44MALoWZdjYSGart/tz7fKPymSdyIdlMvZU48MWs80X7iL91jKY2JH/u0ROFAjgpjzUo2G881PbXHW0wTC6sMfSR+EsTrbnPNAc2VL8nUbHc6Rq7iYrNZ2Qjeu2qlFW9TUWfY9ZuSmmITOqwqB4WTCZ8Dujqc+pytaME7BlDLkzR/4VSzFZpC3RPywAG29laGSgk7nvV0LrzXpEAu2KQ71BalEeaGRFvOo3MiuU2NkmcHKSSIfH4M9Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
- dkim=pass header.d=phytec.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Pa18+lL6hd7n2hzp+rSu2D29gEv5bBuLrU8cXG4hBzc=;
- b=Hw56btmJqn2s5ugb4shR74KI9R35knImbolAXr18V5SxhXgm4OgEFXTWeio2j+TjM3EzFOWHUP3QdMKCLprkjvLUxtus8C950f8VeI2IjVJEMMLY1x0nopr2e51DNXSjRgWZwKpzdob6aniiJdRhp+fHbq0rLC7awAD98LnR1nGmdEx2tgCiMbxZuhVoadBrb6YFE0BGsmh9yzB6FGKzjOdB2jikK/k1yTsEYEbuVQtAJx4zqMARnOj7wJYSVx8Ptgi0AMAuNgC3d2a1GlSKtnk6dfS0GItmfrriL0RTDNs08kypyun3RtqGj/NWi4a+TOizsrYbyYADskCsPqPCpA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phytec.de;
-Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:4b3::21)
- by PR3P195MB0508.EURP195.PROD.OUTLOOK.COM (2603:10a6:102:24::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.24; Tue, 6 May
- 2025 15:17:29 +0000
-Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
- ([fe80::369c:a760:5bf9:8d4a]) by AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
- ([fe80::369c:a760:5bf9:8d4a%4]) with mapi id 15.20.8699.022; Tue, 6 May 2025
- 15:17:28 +0000
-Message-ID: <98726488-4b51-46c4-ad6c-e1365635ff87@phytec.de>
-Date: Tue, 6 May 2025 18:17:26 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] arm64: dts: ti: k3-am62-phycore-som: Enable
- Co-processors
-To: Daniel Schultz <d.schultz@phytec.de>, nm@ti.com, vigneshr@ti.com,
- kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Cc: upstream@lists.phytec.de
-References: <20250506133604.294920-1-d.schultz@phytec.de>
- <20250506133604.294920-2-d.schultz@phytec.de>
-Content-Language: en-US
-From: Wadim Egorov <w.egorov@phytec.de>
-In-Reply-To: <20250506133604.294920-2-d.schultz@phytec.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: VE1PR03CA0056.eurprd03.prod.outlook.com
- (2603:10a6:803:118::45) To AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:4b3::21)
+	Tue, 06 May 2025 15:18:57 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7373aa99e2cso850015b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 08:18:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746544736; x=1747149536; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ihwIKJtv6TLBR/OI0Dx++tOWSWHwkJU0gov7VsGhIAg=;
+        b=P7z7vuoQwvWQ8zOlUnNrtSGb3KA/udWzaylPpLuKQsEurT/Q2wrwuh2lUjJg20W6bk
+         wDEJR+oDHgkZOayhGNCGlcXPw+oo3k1N/7v87MlViRN5qc0749txIxGZS3n5/Vpse62z
+         kLhPctEGBGam8gKV6Fu/hCdGG9b+smUjCMmSvtKX+OgJiyLxZe0WBRXPzOjXKQhF2ecV
+         1S3/D+wbyO+zXuYEVIqt0/iDdaJqXmdJIE38VQPYFg78xAWWGyX2PEDeVVBlehrYvXr1
+         nWKw37Ep0hKYktYMPUn31PnxoZK9R8L1RD7yV+LeFTDaD0bDTuxzOP/PLtNSQIr+Wsdl
+         KvmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746544736; x=1747149536;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ihwIKJtv6TLBR/OI0Dx++tOWSWHwkJU0gov7VsGhIAg=;
+        b=V1PS2yRJ+ERKVNP5t5icUwh33sox3y4aDIajt7NWxrMd9KazkaQT5FEtTk6dlFO20V
+         HFceCFEVpFzGfYyAPvPd2xdtkJh8cNPmHWPaDsomRIEw0LA61lrrblNu+ACih0UQyFwi
+         r7icgEw+jRiAdIg93BSBTsKafDHTj2Z3e1/2E5Zrp1Wfnt81B/12q092zgzgMzwTSNz7
+         F6zhLbOU0fxMn4M8ZAvMx73Vj7eljkW1uieB2aZ4hDKHW8eVUCEAxwzUnCPWopcWxJXb
+         g95mbrEQaNwiWhPUJUa0R/62iG4rI/iOrERFUPGgAyAX2hwXaF6+cGBc6UfREP+AeZwq
+         JI5w==
+X-Forwarded-Encrypted: i=1; AJvYcCXdC7t3X7Pyj7I3+1TFLC4I+4ISQSGjSji6+ucrnCIY1habxJxImycJ3owt/PhlPSFM47TB/EDQKiKmVqH39bc3@lists.infradead.org
+X-Gm-Message-State: AOJu0YzU66/axfS+/hRbYvENQfOvxBaVA5isDMwPzgUmWmijzBAEAc6l
+	gON2dL2k14IhtwyZSzJqkr1PWQHG/Sr8rN9GoSJOuG2PHAbZNgHLSSRqmlXygkoDmMBEnzazh++
+	yfbEaYAxHNavd8mtiBj2Qn2fruSg=
+X-Gm-Gg: ASbGncuCFcmMqbnavJEWcFv6YkjlnI0YYCjAHUPPHYZBWMhqG3esbfh5hdMZdHwP0sh
+	cD9R2nzGCxIwfNdGtSDB6K73Dk0iaulmIKJWuTsu99sk4LvAc+mhepzw7mg4M4glo5gHAenVVEC
+	60Yx6z8lYsU8KZ77/va/s/Pg==
+X-Google-Smtp-Source: AGHT+IGL6zvGfKRHCeOyJw86qk5Rtichxh0QI1NF1NjzDjI2bE5Xp0U89TjTculYg2ARVj82+Jn/HSEeNbzQmRWcjwY=
+X-Received: by 2002:a05:6a00:3394:b0:736:89bd:ffb9 with SMTP id
+ d2e1a72fcca58-7409b78f76bmr67926b3a.0.1746544735683; Tue, 06 May 2025
+ 08:18:55 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4P195MB1456:EE_|PR3P195MB0508:EE_
-X-MS-Office365-Filtering-Correlation-Id: 76acf4ba-1185-463a-e7c2-08dd8cb11d73
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VnNlWXBGYzZ5SytibWY0WlcxSHQ5Y3dDUWVvQ29zcGFiWGFwWVBaYXhKZDFw?=
- =?utf-8?B?eUtMZ0FEaVlVYy93ZG1XZy9lNm5ZMUZRdjJ3bGZJUWp0VmNFa3U3ZDYvY3JW?=
- =?utf-8?B?dUgxZXQvNGFWdlJlSUl2c0dtbGNzRG5QaXFyN2FnQ0JPZjcvSWkveWpzTlB4?=
- =?utf-8?B?ZjNvNjNuN3pLK3N3dWxDWlp0bzZ0ZnhBdy80SnNXM1ZUejAycVBLVmhRbmhw?=
- =?utf-8?B?ZG9lMmdHWGI4R3gxYzMzVzhSSjFvOFB3MEFtc0JBSU42TDgzV2lBUmpKWjJZ?=
- =?utf-8?B?Y3RyZG9RdjFGeC82NWVFS2Jad29HWW4yL2hWSk5wcGx1YzZVbW4zWFd1R3VH?=
- =?utf-8?B?WmRMV2w4WThKS2NjUll0QjJIVXZKYnAwbnZybHVJa204QlBSbUh1c2R6ZlV1?=
- =?utf-8?B?VW91dzM2WEFJbjJwS09NZEY2S0ZJVjg4Q0VOUUhYUEs0NTRTOEV4UVNnZi9l?=
- =?utf-8?B?eCtIRG9JdUdRejlreTJGbkhLZlVHNUwvZGtsMmQwUGFlakJLd2NxRS9KV0J3?=
- =?utf-8?B?RWY5dElRS0NzQVhnSHRVa0NoWlJqWEFxTjFacjVtc2Jzend5RFlyUmlaRHlT?=
- =?utf-8?B?WnFoRC8wREVFRU82TkJWVTIvd1RSejRxMkNxV3lha1g2Qm51cTFhb0dsU0Qy?=
- =?utf-8?B?dVc2VS9sTVc5RFpCLzRqTVdweWQyWXQ3emRxejF5bkkxVXVzYTZHelBaWTJD?=
- =?utf-8?B?Q1Y2R3JWR09uRGlhZC9NQzdNNHlTQ1JiK2Y1MzBOTHlPbmRHb2tOZTZoU2pt?=
- =?utf-8?B?UnVKaDAwZHpldUVkbGw2WDlEWUVyQUR2YzhsNi95bWVpLzNHWE9uQUFWL2hW?=
- =?utf-8?B?amNlSnZxNFpjYUlsc0FrMHZ6aVFtU2I5cSttU2xnV2VuZ0szeEVySE8reHg1?=
- =?utf-8?B?WnFFM3p0ZHU5R1F4cVBDWm4yaTBQeFQvdkUvVzNBdDVFM0VhQ1hWOGVtckhK?=
- =?utf-8?B?clpTRFVNNm5MSStoekkxMGtUZnAzdXhQY0JPejJRY2tHWU56LzcvbElteG9W?=
- =?utf-8?B?dWhmTjk0QzNIYlBHOUNhMVBpSm13dTZwK0E0VFA0ZkxrWFpLMTNKTXBxUWhs?=
- =?utf-8?B?T2IweHQvZGxDVlI4TzlOa3hMV1RkSTFpZitQSUdaeUhvc3ZXdjBWK2hhekZt?=
- =?utf-8?B?TkQzZ3ZhWHNsd0x4VXBkVWxKV0FrN1BZV09RWXdQeWRPTkpXRzJySWlLTzVG?=
- =?utf-8?B?cEl5SWJha0V3bEd4bXJicnBYWmZ1QXB6c0pvQ1lUYnZMRFBvM2MxYlp6b3Iv?=
- =?utf-8?B?bFc3Zm5ucCtpVjQybHpVN2lJMmdLakdIcUZzeVFGTkQyUnNya2plZ2QvNk5M?=
- =?utf-8?B?bHJ1aksyazRMTnZ0Mnk4bWdJeE9EL01CRHMrUE9hWnVvK2VUWHlPSE1OUnZR?=
- =?utf-8?B?SFI5U3FzVHRzNzRUOWtialY2NldjK1ZGUlM4RlNEMmswNXg4d1piTVVmSm5O?=
- =?utf-8?B?Tm00STV0NDcxNkFuYTN0QVA3bnRTUFdkY09aRk1jME5aaWc3L00wWjlENW9r?=
- =?utf-8?B?VDREeUYzeklnRnpWUE4yRk9wNXFyaGZMbkpBMmt0UHlzQTJOWEh0aHkwLzZL?=
- =?utf-8?B?ZEgybGczVnIyRDBncXhDQzQwL0NJOVNSM1ZIS1p5SFFaa0h2NWNIWGw2TThO?=
- =?utf-8?B?aFFxTmpvc00xc3plQitNbjRUUTBVUm9VOXhzTXJud1RRYlkzSGRsNnovVkdz?=
- =?utf-8?B?K1JpWVdIVlovdXYwNElkOXZ1VkVzZXFwcGhQVVI0Wm4zdGpXT1pjOURzV1pi?=
- =?utf-8?B?ckRPSkRIRDNyWmU5ekV1MjFQZWJMZ0FCNTVoaDBSNkNzS3BWVWh0NHAvaUxV?=
- =?utf-8?B?UzFTdVlFTlpnRmVOWWJzd1lveXcySERnaDhwSDJDQnZrMlAvcThVL282N2k5?=
- =?utf-8?B?Um1lSTd6enc0Wkc5aHB0c2VMK2FoOVF1MzMvMzZ4Wmpxall3V25vVXdCUHgv?=
- =?utf-8?B?R0JlUnRhTWp3SDFsVzYxMEN1YVcwOGxvYlpmKzVRRllLeHJNNTJWZlFKdzNH?=
- =?utf-8?B?dnhEcmZWS3pBPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4P195MB1456.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?amVUQjIxNVJRTkNTVE9qMVRLUUoxai8xbW9kTk1OK2JXcVRzd0xmTHBNbzQy?=
- =?utf-8?B?ei83TTkxNW8vMXlyd1VGWW5BV0VwaWtOLzFtRm1jbFU4M09aRWFRVkwzNndO?=
- =?utf-8?B?WVNmZm13TVhqZDFsYXFQcTVJcGxMaWNkUkp6QUxsc2ttL1M4NzV1eUY4d0Rx?=
- =?utf-8?B?b1dJVERjZ1FsSitsSjJzRXdqYmg2SC81YUdsRkI5VSswMzFPYWVrZ2hzb2VE?=
- =?utf-8?B?aGZXY09yMG4zb0dXK0cyWFpXYkpFcmZ1Ym96ejZIKzZzbGs4Ty8zbWQvbmZ6?=
- =?utf-8?B?ck0xaldlM0hlU0gzczRjcHRxd1hucW5YMjJIMFJ0MENySG95UTg2YTBNNTV2?=
- =?utf-8?B?Ujk3ekFRT3lJKzNjaEVyUStTNXlmMlRKYXVKaE9tcGk3RDVWenBtWDBUempF?=
- =?utf-8?B?cTd1VnNHbVZNdVVOUFJlWVZkQ1YwZEk0RDFuQlJQWTBlVlFzT2RJT0xHcFVP?=
- =?utf-8?B?N1FZb2RLcmVjdGxodUtnM0ozWWUvb2xYQ2VCaUIwMkVUS2c1UWxIczhxQ3Bn?=
- =?utf-8?B?R2h0K1ViOXIrQkdqSDVLOUZ2QlFYVnNkRHlveWttVUtlaG9pNFJoRHJ0TSt5?=
- =?utf-8?B?YkJwY0tYWUFNME1DbU5PcERUcHpITnB5QW5MTnp3czE1c0lyczdvbmhpS0dG?=
- =?utf-8?B?R0FNMjJGSG55M0xORFgvbGRyT0F5bDdvRXowek5oc1ZERHdwVC9jenVLbVAz?=
- =?utf-8?B?bkhESGpMcmtheS9ZaGhQNHNSeHlhcks5QmF3dWhFMkJvYU9mdlFUWnRPSHBF?=
- =?utf-8?B?UEFuSmhkWlA0dVA3VHRYM2lpMWUxYUhtek9COUlQQW04ejYxdC9kQUJ0ZGdP?=
- =?utf-8?B?MFVNbUFBZkR6bGRVU1BhMUJ2cmt4ZUkyb3VuOWZERnFzanJWbGNnUkorT3RM?=
- =?utf-8?B?eC9GWEo3YlNuMEdpOHFWSWNZZk9WWFVLZTVsQ3VPRGlVZzRVWExNWndyOFVw?=
- =?utf-8?B?NFRhZUhUa0xxVkxVNDdrclNkOWJhMTdaK0I2RTdFUThjN1pVTzV3QlJkajRH?=
- =?utf-8?B?UkdSZS9CV0FhWERaMDd1VVZndlBhN081bGZ6TlN4N1lINjNkVFNzMFk5bjZS?=
- =?utf-8?B?R3NVUFlZTHdYUzBreGVINHJJTkxpbEI4eTdXY29yNjRCODlpNURicEFjZjF4?=
- =?utf-8?B?a3oxbXJXUWZCU1ZHT3NJdFFlUmlybFVnbEIwdFhRdm1tVXA4UysvSFdtMWJH?=
- =?utf-8?B?eVJGZTNZWGhDMzlNNzJjdVU0U0R5Z1puWWtocVR6aWN0aDFhUnV5UVNFMmtW?=
- =?utf-8?B?SHFYNGRLVzdpYWtNUFRpQkh1UFdhdEtsdDEwUDNKM0RnQmdWN3R2OGM3ckxH?=
- =?utf-8?B?aGdtS0tUR2x2ZGw3NDF6c0taTDZJOVlwTllHLzJzRGxpTzUwZFdTUjJXVUNz?=
- =?utf-8?B?dTMrRG81cEFscVErMDUwbUxUUkhXaTkwWGNCL3FrZUM1Q0pSeHBDVWtWZG5a?=
- =?utf-8?B?VG8wSlg2eDZ2WktzUnlGb244ZGRVcG5NT1BYNHRya2VMUnVnOHVBczhsTFdX?=
- =?utf-8?B?MVhHMjRmQUJsZGoyemdHU3RtclYxamJ1ZUJkc0ZFb1pvRVJwbkEvcXhXM09D?=
- =?utf-8?B?YzV4UHBJZk1wZUk0OVNvd1VLN3BSSE1NNG80cnNtb0pMdkxnS2FVQytjSXFT?=
- =?utf-8?B?bTN4Tlg5SjJ6NG9jSldmcWRuMW5NWG9XdHIyMHlEYXgvcHU2alV2bGNwQmUr?=
- =?utf-8?B?RHFZMjI3cTZSeE5EeXVGOG5jeTVLTncwaEwxbEtkbXdoTy9xY3JsMGJhTGNJ?=
- =?utf-8?B?S0Zjd25HS0hsUWFWZFBFUFl5UGQ2Nlo1eDZpZzlXSXVxV0s3ZWxCWVdXa21k?=
- =?utf-8?B?OVdJNHlIRjBLSGc0L0FUdGJ3SEkzWnRCYWRpMGREeFE3dHc1MXFKdlR2N3N0?=
- =?utf-8?B?Z3JHV0t3cFRiUTUrUGFTdWtkcmJLMGQxR1FVdmRpaGVsc0NTQ1ZoRWJXRU9K?=
- =?utf-8?B?SkxhdEhSRC9objZJM2xtQllBU0I1Z1pPY3lJOEFsZzV5VTZZdGp6SFNLMEFN?=
- =?utf-8?B?TnNRb010TzM4ZW43OHQzNFkvSnJ3V09weWJ5aFY4Ry82Wi9RRXZtV29DbTR1?=
- =?utf-8?B?dHE3Y09zbUNrV0FoUFVHMzd6Q3JGUHVOS1ZBL28yZ1FzbmI2UkRsZXFEMXNv?=
- =?utf-8?Q?FYVno5n/GQcXx8SHkn69a0/2n?=
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 76acf4ba-1185-463a-e7c2-08dd8cb11d73
-X-MS-Exchange-CrossTenant-AuthSource: AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 15:17:28.8885
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JBPrY50jJLoZb1UJAjIIWK+IthkPIWAj5891k7kGYNH5sswawlrz5cFphz+S2Iwxo7jkEZDh5s+IBKhmiY231w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3P195MB0508
+References: <20250319-msm-gpu-fault-fixes-next-v5-0-97561209dd8c@gmail.com>
+ <20250319-msm-gpu-fault-fixes-next-v5-3-97561209dd8c@gmail.com>
+ <20250506122449.GB723@willie-the-truck> <CACu1E7FA0M_0Un3qPRNtqy4R_NbaMks6FSkpQZBuyqJpuT-p7w@mail.gmail.com>
+ <20250506145324.GA1246@willie-the-truck>
+In-Reply-To: <20250506145324.GA1246@willie-the-truck>
+From: Connor Abbott <cwabbott0@gmail.com>
+Date: Tue, 6 May 2025 11:18:44 -0400
+X-Gm-Features: ATxdqUHApCvIBLWVxzAKGWehj2Jn9c8bDSVhoYqNoYQYukt99xBU21U5GE3iI-8
+Message-ID: <CACu1E7FcQU3NXro8uYxzEJ1pvfYG5WLvY8BscbF9Sj+P3Wh_2A@mail.gmail.com>
+Subject: Re: [PATCH v5 3/5] iommu/arm-smmu: Fix spurious interrupts with stall-on-fault
+To: Will Deacon <will@kernel.org>
+Cc: Rob Clark <robdclark@gmail.com>, Robin Murphy <robin.murphy@arm.com>, 
+	Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, iommu@lists.linux.dev, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	freedreno@lists.freedesktop.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_081734_561520_7F88CA82 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20250506_081856_492879_EFCC22A0 
+X-CRM114-Status: GOOD (  38.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,87 +102,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 06.05.25 um 16:36 schrieb Daniel Schultz:
-> For every remote processor, set up dedicated memory regions and
-> associate the required mailbox channels. Allocate two memory areas
-> per remote core: one 1MB region for vring shared buffers, and
-> another for external memory used by the remote processor for its
-> resource table and trace buffer.
-> 
-> Signed-off-by: Daniel Schultz <d.schultz@phytec.de>
-Reviewed-by: Wadim Egorov <w.egorov@phytec.de>
+On Tue, May 6, 2025 at 10:53=E2=80=AFAM Will Deacon <will@kernel.org> wrote=
+:
+>
+> On Tue, May 06, 2025 at 10:08:05AM -0400, Connor Abbott wrote:
+> > On Tue, May 6, 2025 at 8:24=E2=80=AFAM Will Deacon <will@kernel.org> wr=
+ote:
+> > > On Wed, Mar 19, 2025 at 10:44:02AM -0400, Connor Abbott wrote:
+> > > > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/=
+arm/arm-smmu/arm-smmu.c
+> > > > index c7b5d7c093e71050d29a834c8d33125e96b04d81..9927f3431a2eab91375=
+0e6079edc6393d1938c98 100644
+> > > > --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> > > > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> > > > @@ -470,13 +470,52 @@ static irqreturn_t arm_smmu_context_fault(int=
+ irq, void *dev)
+> > > >       if (!(cfi->fsr & ARM_SMMU_CB_FSR_FAULT))
+> > > >               return IRQ_NONE;
+> > > >
+> > > > +     /*
+> > > > +      * On some implementations FSR.SS asserts a context fault
+> > > > +      * interrupt. We do not want this behavior, because resolving=
+ the
+> > > > +      * original context fault typically requires operations that =
+cannot be
+> > > > +      * performed in IRQ context but leaving the stall unacknowled=
+ged will
+> > > > +      * immediately lead to another spurious interrupt as FSR.SS i=
+s still
+> > > > +      * set. Work around this by disabling interrupts for this con=
+text bank.
+> > > > +      * It's expected that interrupts are re-enabled after resumin=
+g the
+> > > > +      * translation.
+> > >
+> > > s/translation/transaction/
+> > >
+> > > > +      *
+> > > > +      * We have to do this before report_iommu_fault() so that we =
+don't
+> > > > +      * leave interrupts disabled in case the downstream user deci=
+des the
+> > > > +      * fault can be resolved inside its fault handler.
+> > > > +      *
+> > > > +      * There is a possible race if there are multiple context ban=
+ks sharing
+> > > > +      * the same interrupt and both signal an interrupt in between=
+ writing
+> > > > +      * RESUME and SCTLR. We could disable interrupts here before =
+we
+> > > > +      * re-enable them in the resume handler, leaving interrupts e=
+nabled.
+> > > > +      * Lock the write to serialize it with the resume handler.
+> > > > +      */
+> > >
+> > > I'm struggling to understand this last part. If the resume handler ru=
+ns
+> > > synchronously from report_iommu_fault(), then there's no need for
+> > > locking because we're in interrupt context. If the resume handler can
+> > > run asynchronously from report_iommu_fault(), then the locking doesn'=
+t
+> > > help because the code below could clear CFIE right after the resume
+> > > handler has set it.
+> >
+> > The problem is indeed when the resume handler runs asynchronously.
+> > Clearing CFIE right after the resume handler has set it is normal and
+> > expected. The issue is the opposite, i.e. something like:
+> >
+> > - Resume handler writes RESUME and stalls for some reason
+> > - The interrupt handler runs through and clears CFIE while it's already=
+ cleared
+> > - Resume handler sets CFIE, assuming that the handler hasn't run yet
+> > but it actually has
+> >
+> > This wouldn't happen with only one context bank, because we wouldn't
+> > get an interrupt until the resume handler sets CFIE, but with multiple
+> > context banks and a shared interrupt line we could get a "spurious"
+> > interrupt due to a fault in an earlier context bank that becomes not
+> > spurious if the resume handler writes RESUME before the context fault
+> > handler for this bank reads FSR above.
+>
+> Ah, gotcha. Thanks for the explanation.
+>
+> If we moved the RESUME+CFIE into the interrupt handler after the call
+> to report_iommu_fault(), would it be possible to run the handler as a
+> threaded irq (see 'context_fault_needs_threaded_irq') and handle the
+> callback synchronously? In that case, I think we could avoid taking the
+> lock if we wrote CFIE _before_ RESUME.
+>
+> Will
 
-> ---
->   .../boot/dts/ti/k3-am62-phycore-som.dtsi      | 35 +++++++++++++++----
->   1 file changed, 29 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-> index 55ed418c023b..3075979935d5 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-> @@ -64,6 +64,18 @@ mcu_m4fss_memory_region: m4f-memory@9cc00000 {
->   			no-map;
->   		};
->   
-> +		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9da00000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9da00000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_memory_region: r5f-memory@9db00000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9db00000 0x00 0xc00000>;
-> +			no-map;
-> +		};
-> +
->   		secure_tfa_ddr: tfa@9e780000 {
->   			reg = <0x00 0x9e780000 0x00 0x80000>;
->   			alignment = <0x1000>;
-> @@ -75,12 +87,6 @@ secure_ddr: optee@9e800000 {
->   			alignment = <0x1000>;
->   			no-map;
->   		};
-> -
-> -		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9db00000 {
-> -			compatible = "shared-dma-pool";
-> -			reg = <0x00 0x9db00000 0x00 0x00c00000>;
-> -			no-map;
-> -		};
->   	};
->   
->   	vcc_5v0_som: regulator-vcc-5v0-som {
-> @@ -240,10 +246,17 @@ cpsw3g_phy1: ethernet-phy@1 {
->   };
->   
->   &mailbox0_cluster0 {
-> +	status = "okay";
-> +
->   	mbox_m4_0: mbox-m4-0 {
->   		ti,mbox-rx = <0 0 0>;
->   		ti,mbox-tx = <1 0 0>;
->   	};
-> +
-> +	mbox_r5_0: mbox-r5-0 {
-> +		ti,mbox-rx = <2 0 0>;
-> +		ti,mbox-tx = <3 0 0>;
-> +	};
->   };
->   
->   &main_pktdma {
-> @@ -386,3 +399,13 @@ &sdhci0 {
->   	bootph-all;
->   	status = "okay";
->   };
-> +
-> +&wkup_r5fss0 {
-> +	status = "okay";
-> +};
-> +
-> +&wkup_r5fss0_core0 {
-> +	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
-> +	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-> +			<&wkup_r5fss0_core0_memory_region>;
-> +};
+We need the lock anyway due to the parallel manipulation of CFCFG in
+the same register introduced in the next patch. Expanding it to also
+cover the write to RESUME is not a huge deal. Also, doing it
+synchronously would require rewriting the fault handling in drm/msm
+and again I'm trying to fix this serious stability problem now as soon
+as possible without getting dragged into rewriting the whole thing.
 
+Connor
 
