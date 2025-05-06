@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C205C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 19:38:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 287CFC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 19:40:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8G1MflcEmk7ZjG4eqzb4MYtIl2+5z648zl3vApSU0KQ=; b=WL2FnH5Hkpj0JE+f8NmIGDYDgM
-	OkfErAFpxqQiAAONUvmPxdZgL5cVrXWQ92LbjeuFoq7BY69uQ5rEEhLrimwSAFgcGkMjtxjog6smD
-	rqOGMIXGM+MYQhyzkZAaEa51i/qiNkgkw+qehbiePNWD44TBlYGoLF5fpqEZqpI5aNF6/bXTuMPFr
-	RJAzro2qJ4LYFhb2jmAUgluNfBYypiQFqN7xYWE9ZMc9k+ePKhZ/L8eYModIi3vvBkaewICa36kXT
-	8eFYGt++4gw0iwOtoS5WjfTgAX9aCLZQDJwoIoTvg94r9wG7STXfCm200T1qAjKZ1hV7Vsr25NATM
-	omQJUkjA==;
+	bh=3oOywI3lWUi+ThL0evAN+qRgbUGNCNJIAVRpALASeb0=; b=1i0bd+lFjMgDARHxH8M0tUSxys
+	5b/YnqQU35wRv9yiEXtEHWj+SqmvrU0sCt9ViR6vT7zStxUk/xy7/jV1TAnSa5UX++6waJH8DLFVy
+	bIwyRlaB87dy0xr1QKq/4GIAMWHSp/m16NIiTx2D1+kYLDGei/AzMBip5G0nfzCUPYV2mEnRZys3j
+	qbIb+ef2uZa8LUEY5j322CreJDn47eHH9UX8kDOTPwaJWc6ZY79bplR3fn7/9UkIeqpFK1n88A00H
+	seQktJG0yH+71mbu7V/KeB/ajIQirAkbETY0rJ/k0m0MKyI3s7Gf5JZ2T0RTUqRrsZMPEC/JWj+bB
+	PxjKKdFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCO7D-0000000DFZO-2Pl7;
-	Tue, 06 May 2025 19:38:07 +0000
+	id 1uCO99-0000000DFk0-10YK;
+	Tue, 06 May 2025 19:40:07 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCKBV-0000000CUVO-1Bcy
+	id 1uCKBX-0000000CUW5-26UA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 15:26:18 +0000
+	Tue, 06 May 2025 15:26:20 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F0AD1113E;
-	Tue,  6 May 2025 08:26:02 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 732B41007;
+	Tue,  6 May 2025 08:26:09 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 40F793F58B;
-	Tue,  6 May 2025 08:26:10 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BB66E3F58B;
+	Tue,  6 May 2025 08:26:16 -0700 (PDT)
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: broonie@kernel.org,
@@ -49,17 +49,17 @@ Cc: broonie@kernel.org,
 	tkjos@google.com,
 	will@kernel.org,
 	yury.khrustalev@arm.com
-Subject: [PATCH 12/20] arm64/fpsimd: Clear PSTATE.SM during clone()
-Date: Tue,  6 May 2025 16:25:15 +0100
-Message-Id: <20250506152523.1107431-13-mark.rutland@arm.com>
+Subject: [PATCH 14/20] arm64/fpsimd: ptrace/prctl: Ensure VL changes do not resurrect stale data
+Date: Tue,  6 May 2025 16:25:17 +0100
+Message-Id: <20250506152523.1107431-15-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20250506152523.1107431-1-mark.rutland@arm.com>
 References: <20250506152523.1107431-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_082617_366277_DD8A1D56 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20250506_082619_582352_9299DF53 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,72 +74,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently arch_dup_task_struct() doesn't handle cases where the parent
-task has PSTATE.SM==1. Since syscall entry exits streaming mode, the
-parent will usually have PSTATE.SM==0, but this can be change by ptrace
-after syscall entry. When this happens, arch_dup_task_struct() will
-initialise the new task into an invalid state. The new task inherits the
-parent's configuration of PSTATE.SM, but fp_type is set to
-FP_STATE_FPSIMD, TIF_SVE and SME may be cleared, and both sve_state and
-sme_state may be set to NULL.
+The SVE/SME vector lengths can be changed via prctl/ptrace syscalls.
+Changes to the SVE/SME vector lengths are documented as preserving the
+lower 128 bits of the Z registers (i.e. the bits shared with the FPSIMD
+V registers). To ensure this, vec_set_vector_length() explicitly copies
+register values from a task's saved SVE state to its saved FPSIMD state
+when dropping the task to FPSIMD-only.
 
-This can result in a variety of problems whenever the new task's state
-is manipulated, including kernel NULL pointer dereferences and leaking
-of streaming mode state between tasks.
+The logic for this was not updated when when FPSIMD/SVE state tracking
+was changed across commits:
 
-When ptrace is not invovled, the parent will have PSTATE.SM==0 as a
-result of syscall entry, and the documentation in
-Documentation/arch/arm64/sme.rst says:
+  baa8515281b3 ("arm64/fpsimd: Track the saved FPSIMD state type separately to TIF_SVE")
+  a0136be443d5 (arm64/fpsimd: Load FP state based on recorded data type")
+  bbc6172eefdb ("arm64/fpsimd: SME no longer requires SVE register state")
+  8c845e273104 ("arm64/sve: Leave SVE enabled on syscall if we don't context switch")
 
-| On process creation (eg, clone()) the newly created process will have
-| PSTATE.SM cleared.
+Since the last commit above, a task's FPSIMD/SVE state may be stored in
+FPSIMD format while TIF_SVE is set, and the stored SVE state is stale.
+When vec_set_vector_length() encounters this case, it will erroneously
+clobber the live FPSIMD state with stale SVE state by using
+sve_to_fpsimd().
 
-... so make this true by using task_smstop_sm() to exit streaming mode
-in the child task, avoiding the problems above.
+Fix this by using fpsimd_sync_from_effective_state() instead.
 
-Fixes: 8bd7f91c03d8 ("arm64/sme: Implement traps and syscall handling for SME")
+Related issues with streaming mode state will be addressed in subsequent
+patches.
+
+Fixes: 8c845e273104 ("arm64/sve: Leave SVE enabled on syscall if we don't context switch")
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: David Spickett <david.spickett@arm.com>
+Cc: Luis Machado <luis.machado@arm.com>
 Cc: Marc Zyngier <maz@kernel.org>
 Cc: Mark Brown <broonie@kernel.org>
 Cc: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kernel/process.c | 13 ++++---------
- 1 file changed, 4 insertions(+), 9 deletions(-)
+ arch/arm64/kernel/fpsimd.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 3bb7f65bf7b7c..27a5b0c7ec60b 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -355,16 +355,13 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
- 	*dst = *src;
- 
- 	/*
--	 * Detach src's sve_state (if any) from dst so that it does not
--	 * get erroneously used or freed prematurely.  dst's copies
--	 * will be allocated on demand later on if dst uses SVE.
--	 * For consistency, also clear TIF_SVE here: this could be done
--	 * later in copy_process(), but to avoid tripping up future
--	 * maintainers it is best not to leave TIF flags and buffers in
--	 * an inconsistent state, even temporarily.
-+	 * Drop stale reference to src's sve_state and convert dst to
-+	 * non-streaming FPSIMD mode.
- 	 */
-+	dst->thread.fp_type = FP_STATE_FPSIMD;
- 	dst->thread.sve_state = NULL;
- 	clear_tsk_thread_flag(dst, TIF_SVE);
-+	task_smstop_sm(dst);
- 
- 	/*
- 	 * In the unlikely event that we create a new thread with ZA
-@@ -393,8 +390,6 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
- 		clear_tsk_thread_flag(dst, TIF_SME);
+diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+index fe96e018e18c0..faeedaab0558e 100644
+--- a/arch/arm64/kernel/fpsimd.c
++++ b/arch/arm64/kernel/fpsimd.c
+@@ -852,7 +852,7 @@ int vec_set_vector_length(struct task_struct *task, enum vec_type type,
+ 	fpsimd_flush_task_state(task);
+ 	if (test_and_clear_tsk_thread_flag(task, TIF_SVE) ||
+ 	    thread_sm_enabled(&task->thread)) {
+-		sve_to_fpsimd(task);
++		fpsimd_sync_from_effective_state(task);
+ 		task->thread.fp_type = FP_STATE_FPSIMD;
  	}
- 
--	dst->thread.fp_type = FP_STATE_FPSIMD;
--
- 	/* clear any pending asynchronous tag fault raised by the parent */
- 	clear_tsk_thread_flag(dst, TIF_MTE_ASYNC_FAULT);
  
 -- 
 2.30.2
