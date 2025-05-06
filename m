@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6994DC3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 14:01:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 072EEC3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 14:03:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j+tjm4josKsxx1XYGwI2ueKPNoEguumH2AgRPhy7ttY=; b=IbHPR8cIgGi0c9vNVpMZVYXGed
-	/vC5BPwoHKCGNDWS4Xx1fAUgVo1/wakb9kHTCh59LVHAVYZVMR54fSZB/jq1l8AF+td0U1iOUeYPW
-	H7ztvl9eoJjMiWj1Ntzxj492muEfroMyO7N1gC6wWCKyWrUxVjyKduObEyPIBDlRfND5X+p+uw0o/
-	ObFyGjyoxXTiVn32uxybN9aRPOQidorobaiN48g0R+dMgWjiFajMx8ab/OtJyUOfALFZVzXbqP5ex
-	CahY+8Jr4QJILDNuwb1+UJFLE6S54CLKwX8wpmW0AA4HFNx0Y5yrKW9VmjeJslceofUIA3wX3mtYt
-	zxJDGKZg==;
+	bh=jT59FuCKnc7FOE1GgCngJapfm/iyYkKYjKq/CVbHSsw=; b=ST2Dwa6vmUDcMf7DGZOSkq9O0a
+	t1BgA+XsbBZsL9eFFhBqM8clE9JPw2Fq5m7V/q0+n35SIzm2x/RnXCwzGuDwjzFZ4T0j9dk7vxp5P
+	wM2VwLqoBkkgySWpHZWF8b3VLaQAeAZIhBwBXCdZt1NWKIQ2L3YAYhNJi9ABteEAIbOWZVj2JEK18
+	R3NPBLOHKAKchbPSCVMFGsCULak50T4EKyoCH6GZiwGuMIr/hM/4urYt04mKMI5xwoOpsyI58IJUZ
+	DyO8nojC8+jUP1Fycy4m9AKvm6A4dMuD0ojjqw/++vQZaufjz+AJ7ucb4xqBpWHDPhwRLH4zuIHIY
+	m/pMVwlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCIrL-0000000CEfO-1pJc;
-	Tue, 06 May 2025 14:01:23 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1uCItG-0000000CF1n-0eQa;
+	Tue, 06 May 2025 14:03:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCGV4-0000000BkNu-0Zb4
+	id 1uCGXd-0000000Bkvs-299q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 11:30:15 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9FA101048C2EF;
-	Tue,  6 May 2025 13:30:10 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1746531012; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=j+tjm4josKsxx1XYGwI2ueKPNoEguumH2AgRPhy7ttY=;
-	b=W6ahW4CdKTfVxM95VHuGYdddGdilzhWER2Uybu0fbJV8lhKvmzz6jyldsaXQYo1D6rxQed
-	/IEuy42LWI6CH6yGXVXl7Wc56T/ZLjItA5b/oRsCRX79p4jsPVSyv717zDHqFhi4AHOvBA
-	lwQR/DuRqPbOxCRvz3G8B6k2lI/v7ha/iOgJdQUsh2PpYgzFWu963NQkOtYSMCtdlfelaG
-	a5vUosABWOg9xbYof+5USgGRX39V61UGuVb0W6c4RhH2PXKYkBxeuszey34ueGpLi6vqPW
-	LbN/LUcrygAtvkk0m6fGRYM+QcSNZkZu+yXJoiRQmgQSdRvRSvGrmrcUycL1eA==
-Date: Tue, 6 May 2025 13:30:09 +0200
-From: Lukasz Majewski <lukma@denx.de>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Richard Cochran
- <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
- <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>, Andrew Lunn
- <andrew@lunn.ch>
-Subject: Re: [net-next v10 4/7] net: mtip: The L2 switch driver for imx287
-Message-ID: <20250506133009.3e945546@wsk>
-In-Reply-To: <20250505131611.0c779894@kernel.org>
-References: <20250502074447.2153837-1-lukma@denx.de>
-	<20250502074447.2153837-5-lukma@denx.de>
-	<20250502071328.069d0933@kernel.org>
-	<20250504082811.4893afaa@wsk>
-	<20250505131611.0c779894@kernel.org>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Tue, 06 May 2025 11:32:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BDFF0438CC;
+	Tue,  6 May 2025 11:32:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F4D4C4CEE4;
+	Tue,  6 May 2025 11:32:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746531172;
+	bh=mE1e1B9m9uhzxTNZaDZ3TY+lY86rVvjhSEag8/l7vDc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Q+FElNUNhdG5CYgnApQsUFYFp+lb9D4evnzqSTmmE3FJtKAA5aDKSQq9jDoh1b+uq
+	 Qmvb5zCPGb51aJ8iAHF1LRTFA4EdtPTaS7yN3EahbaJHl4AVY3Z3yy2TN5HoAfgZmW
+	 WfWzf+kPc5cHicOck1lE7ZB+j+UfmUzzpkximKT9KQmSyixoPaVzM3FlbXzht8aJQC
+	 LA3yNCAtSJX1w0hDiUB9QQ1iEhCG9qgFME2SviolTzXq+lEEjA9KRip8/v6JMUlftA
+	 anKqkQ+2LIoi1JtBxda8j9cG7AO5KGzAtZP5qML5SV0Es1CK7n/tlFEphi5y07Dewh
+	 yAxG4yeV/iD2A==
+Date: Tue, 6 May 2025 12:32:46 +0100
+From: Will Deacon <will@kernel.org>
+To: Connor Abbott <cwabbott0@gmail.com>
+Cc: Rob Clark <robdclark@gmail.com>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Abhinav Kumar <quic_abhinavk@quicinc.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	freedreno@lists.freedesktop.org
+Subject: Re: [PATCH v5 1/5] iommu/arm-smmu: Save additional information on
+ context fault
+Message-ID: <20250506113246.GA723@willie-the-truck>
+References: <20250319-msm-gpu-fault-fixes-next-v5-0-97561209dd8c@gmail.com>
+ <20250319-msm-gpu-fault-fixes-next-v5-1-97561209dd8c@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/VGhUyR7bm1Y+8Pq6wGW6=0i";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250319-msm-gpu-fault-fixes-next-v5-1-97561209dd8c@gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_043014_319169_BF773CCB 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20250506_043253_567921_AE056053 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,61 +81,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/VGhUyR7bm1Y+8Pq6wGW6=0i
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+On Wed, Mar 19, 2025 at 10:44:00AM -0400, Connor Abbott wrote:
+> This will be used by drm/msm for GPU page faults, replacing the manual
+> register reading it does.
+> 
+> Signed-off-by: Connor Abbott <cwabbott0@gmail.com>
+> Reviewed-by: Rob Clark <robdclark@gmail.com>
+> ---
+>  drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c |  6 ++--
+>  drivers/iommu/arm/arm-smmu/arm-smmu.c            | 35 ++++++++++++++----------
+>  drivers/iommu/arm/arm-smmu/arm-smmu.h            |  7 +++--
+>  3 files changed, 29 insertions(+), 19 deletions(-)
 
-Hi Jakub,
+[...]
 
-> On Sun, 4 May 2025 08:28:11 +0200 Lukasz Majewski wrote:
-> > > Now that basic build is green the series has advanced to full
-> > > testing, where coccicheck says:
-> > >=20
-> > > drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c:1961:1-6:
-> > > WARNING: invalid free of devm_ allocated data
-> > > drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c:1237:16-19:
-> > > ERROR: bus is NULL but dereferenced.   =20
-> >=20
-> > I'm sorry for not checking the code with coccinelle.
-> >=20
-> > I do have already used sparse and checkpatch. =20
->=20
-> No worries. Not testing a build W=3D1 is a bit of a faux pas.
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> index ade4684c14c9b2724a71e2457288dbfaf7562c83..a02078eb968b81a35c1c086ed7007ea2a453ef94 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> @@ -405,13 +405,20 @@ static const struct iommu_flush_ops arm_smmu_s2_tlb_ops_v1 = {
+>  };
+>  
+>  
+> -void arm_smmu_read_context_fault_info(struct arm_smmu_device *smmu, int idx,
+> +void arm_smmu_read_context_fault_info(struct arm_smmu_domain *smmu_domain,
+>  				      struct arm_smmu_context_fault_info *cfi)
+>  {
+> +	struct arm_smmu_device *smmu = smmu_domain->smmu;
+> +	int idx = smmu_domain->cfg.cbndx;
+> +
+>  	cfi->iova = arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_FAR);
+> +	cfi->ttbr0 = arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_TTBR0);
+>  	cfi->fsr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSR);
+> -	cfi->fsynr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR0);
+> +	cfi->fsynr0 = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR0);
+> +	cfi->fsynr1 = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR1);
+>  	cfi->cbfrsynra = arm_smmu_gr1_read(smmu, ARM_SMMU_GR1_CBFRSYNRA(idx));
+> +	if (smmu_domain->stage == ARM_SMMU_DOMAIN_S1)
+> +		cfi->contextidr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_CONTEXTIDR);
 
-Yes, I'm fully aware of them - mea culpa.
+I think this leaves 'cfi->contextidr' uninitialised for stage-2 domains.
+We should probably either zero it here or just zero-initialise the whole
+'cfi' struct in arm_smmu_context_fault() with a:
 
-(at least now by default I will have W=3D1 set :-) )
+	struct arm_smmu_context_fault_info cfi = {};
 
-> But coccinelle is finicky and slow.
+line.
 
-
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/VGhUyR7bm1Y+8Pq6wGW6=0i
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmgZ8sEACgkQAR8vZIA0
-zr2hpwgA4XcfexGrhhN6LFts0lR95BX5rhktdQBEW5FlLs57vikXMEzNzJqty9n3
-MqEjDsfAcdHJfe9vwMMVgoxBLBDahgnAki/tyn+PrtH78hmXIZ8p4ZOShnGalF11
-13lKMYA8oH/tCLonXLTvspvwR92/S0aUZKszFWwDq4VS8ZBLHRUMtU0TvkA/TZps
-7VrU+3V6SX16CPI73894dh5lkc+tV5bnJJu2PTQ+pMhL+DuLmEMSCkxyhAocLcdq
-bvcb6o3hjhXzQtE70wXbI2HfH5X/x4hEyliOfK8Q+/s/BsjWFjEsxCvtVCb4UCGR
-DQ7kBhb6w1Q4Q5B+D+d8g/R+O/iNbw==
-=4Uhq
------END PGP SIGNATURE-----
-
---Sig_/VGhUyR7bm1Y+8Pq6wGW6=0i--
+Will
 
