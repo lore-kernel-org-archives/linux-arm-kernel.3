@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3032C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 15:50:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80796C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 15:52:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7vGvn6v/JhWXDppMKqyR3MxE1Wuyes3IBGzkO+8ocyw=; b=HRmYqXTnQyJc/XOAKQgvffKZ0a
-	/ivjT9a5QAAp/xcHYAxaAwLcTibHzDwBWDHmQe8WybgmpipcTSoMz+Kex6fJGIrpLq3Gx0+TYg6fg
-	CvT5y/u1KrzlPnrZ4vAspBFe/hzJK2WtyT7lTPyoRP1ZeTfk3ExdrdAkhIwCt3c5p9oQ10HkduIBv
-	kKJ3cQpkcENEwDc3CP7JLDOpWqRim8hRQB8e/ROh1/RSPBIiG3i0NxxD3t+RQgHaE9PzqEC85sp5p
-	XQrjhsDQdY7N/REnEdGNjFBobQ5+410Xo7hShfIKusaPCxLNBsBnZ8Ik/z6R0UOil211aoEKufB2T
-	ruw5IgsQ==;
+	bh=+hKZIA+D2QHChYlx8x2iKgNjsn6+0BDfx+Ur4DoIGak=; b=lPWJDdVJuubAlgMl+0/x0tWAMe
+	I0F+1JwzJtRz2wM0VSq6/Kjl4c7/O+ZLcQgbOxMHI1Q54fUb92m3ZeVDi/nnSy/7qhWkPHmk7Dsvc
+	fQm3uqQiYYAixHMogrx4AZ5kncCb2guSNIRON4mWkB7pr17CgUosmI++C3fDWfC/8J0ow+wAWE6ZC
+	61vlWLq8galFEwMguwDUAKh0KO4CmbgUHS9/IA5dbUJjcj4nQUd05lhsJsqQLEg4VVEXHL+Gu/kmJ
+	bsRGav1hV2ceDlJ8OYrp3qGzzM1HtLviOONXgrxJoeI6Q3X2xxJcGtNUXfuYeg5Gz+1iC0rZ3SLyg
+	e1A1AglA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCKYn-0000000CYKd-437W;
-	Tue, 06 May 2025 15:50:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uCKai-0000000CYlm-2jJN;
+	Tue, 06 May 2025 15:52:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCHMF-0000000Btbe-25WX
+	id 1uCHMJ-0000000BtdE-3eag
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 12:25:12 +0000
+	Tue, 06 May 2025 12:25:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AFD8C5C0C3A;
-	Tue,  6 May 2025 12:22:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE7D8C4CEE4;
-	Tue,  6 May 2025 12:25:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 50C996154C;
+	Tue,  6 May 2025 12:25:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20921C4CEED;
+	Tue,  6 May 2025 12:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746534310;
-	bh=J4d+23jK1xcMwImyyVNILtAarSzyfyzelW1CaxCFjwc=;
+	s=k20201202; t=1746534315;
+	bh=dDrbPic70xFVMnGI2U6eslEy81yc+v4juJuGar89STY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=oMgVqzfhMhks+7LgtwSz3BViAVXuV2TpcsegwgPYw8M8RiCiir6can3wbiOx9eowt
-	 2FVIq5hS7eQM2Sh9S8UQ7Dupznk/PTJ+3MXjtwqRH9RbIsXeMsRG+n1Hx7rifEZgI3
-	 4vZI3NRD3OrZG9XaHD9JUtuScYsaYvm6RtfrWf/KOZHmS8wUF1eSglhWxhytBYOEIR
-	 ekljig2gLlyrgBMMBRePou2aCT8yc89Ap3bW0SxYscaAA4+u38YWshQoMTd/KAR4bC
-	 rZnRbOVe05Nmb0eccUXEHG0jOBlM5z7q2jW6zaIgkbfJDNtK91v4McJ5gP/Zj+MYt7
-	 kfSOptTJRvjLg==
+	b=LbjSjXAVhVSlEHcrJzX7tgIA89wQSsrb4eBKyzvPN3BFVrT5I+VhjxmR93MK4f8xk
+	 vBsXVFaL9vnObqFl9NCj7nCsNX2+T4Hky5kCCk8pW5om9qUQmAuei/8mhic7+yXnAV
+	 YrEtF1Lnq5CCc6UinWafNu7i7SVBcAYrqZoVMJX7uZ4r61CMupczbQJrICKbzDItF1
+	 YXg9mPeQhKV0CflYou/kMFz4Cq8p8v5QBAb3onCj2dK0mQ/cVwVBV8EPN1Ol0Klh5w
+	 1g8cXa0DDA/RHiXHhIbG+18fx2CR+sCESRONWTtAJYWAeP88wbMq7/SMCpS0fSmGKV
+	 vRb5G+7I54q+A==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Tue, 06 May 2025 14:23:45 +0200
-Subject: [PATCH v3 16/25] arm64: cpucaps: Rename GICv3 CPU interface
+Date: Tue, 06 May 2025 14:23:46 +0200
+Subject: [PATCH v3 17/25] arm64: cpucaps: Add GICv5 CPU interface (GCIE)
  capability
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250506-gicv5-host-v3-16-6edd5a92fd09@kernel.org>
+Message-Id: <20250506-gicv5-host-v3-17-6edd5a92fd09@kernel.org>
 References: <20250506-gicv5-host-v3-0-6edd5a92fd09@kernel.org>
 In-Reply-To: <20250506-gicv5-host-v3-0-6edd5a92fd09@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -64,9 +64,6 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>
 X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_052511_625018_F4EC6061 
-X-CRM114-Status: GOOD (  14.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,78 +78,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for adding a GICv5 CPU interface capability,
-rework the existing GICv3 CPUIF capability - change its name and
-description so that the subsequent GICv5 CPUIF capability
-can be added with a more consistent naming on top.
+Implement the GCIE capability as a strict boot cpu capability to
+detect whether architectural GICv5 support is available in HW.
 
-Suggested-by: Mark Rutland <mark.rutland@arm.com>
+Plug it in with a naming consistent with the existing GICv3
+CPU interface capability.
+
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 Cc: Will Deacon <will@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kernel/cpufeature.c | 10 +++++-----
- arch/arm64/tools/cpucaps       |  2 +-
- drivers/irqchip/irq-gic.c      |  2 +-
- 3 files changed, 7 insertions(+), 7 deletions(-)
+ arch/arm64/kernel/cpufeature.c | 7 +++++++
+ arch/arm64/tools/cpucaps       | 1 +
+ 2 files changed, 8 insertions(+)
 
 diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 9c4d6d552b25cb3a31d1fb267bd73d3f82513e69..cbb49de451f45fbee3100ea01e77b06352bd55ac 100644
+index cbb49de451f45fbee3100ea01e77b06352bd55ac..4d5163a20ee0fb09380ea5f1f2d37afb7257edfb 100644
 --- a/arch/arm64/kernel/cpufeature.c
 +++ b/arch/arm64/kernel/cpufeature.c
-@@ -2283,11 +2283,11 @@ static bool can_use_gic_priorities(const struct arm64_cpu_capabilities *entry,
- 				   int scope)
- {
- 	/*
--	 * ARM64_HAS_GIC_CPUIF_SYSREGS has a lower index, and is a boot CPU
-+	 * ARM64_HAS_GICV3_CPUIF has a lower index, and is a boot CPU
- 	 * feature, so will be detected earlier.
- 	 */
--	BUILD_BUG_ON(ARM64_HAS_GIC_PRIO_MASKING <= ARM64_HAS_GIC_CPUIF_SYSREGS);
--	if (!cpus_have_cap(ARM64_HAS_GIC_CPUIF_SYSREGS))
-+	BUILD_BUG_ON(ARM64_HAS_GIC_PRIO_MASKING <= ARM64_HAS_GICV3_CPUIF);
-+	if (!cpus_have_cap(ARM64_HAS_GICV3_CPUIF))
- 		return false;
- 
- 	return enable_pseudo_nmi;
-@@ -2483,8 +2483,8 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.matches = has_always,
+@@ -3041,6 +3041,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.matches = has_pmuv3,
  	},
- 	{
--		.desc = "GIC system register CPU interface",
--		.capability = ARM64_HAS_GIC_CPUIF_SYSREGS,
-+		.desc = "GICv3 CPU interface",
-+		.capability = ARM64_HAS_GICV3_CPUIF,
- 		.type = ARM64_CPUCAP_STRICT_BOOT_CPU_FEATURE,
- 		.matches = has_useable_gicv3_cpuif,
- 		ARM64_CPUID_FIELDS(ID_AA64PFR0_EL1, GIC, IMP)
+ #endif
++	{
++		.desc = "GICv5 CPU interface",
++		.type = ARM64_CPUCAP_STRICT_BOOT_CPU_FEATURE,
++		.capability = ARM64_HAS_GICV5_CPUIF,
++		.matches = has_cpuid_feature,
++		ARM64_CPUID_FIELDS(ID_AA64PFR2_EL1, GCIE, IMP)
++	},
+ 	{},
+ };
+ 
 diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 772c1b008e437ed34cedb1c0f663c4dcea8f6759..860ec49cc0530885c138b7dc7f67d58cd69b2593 100644
+index 860ec49cc0530885c138b7dc7f67d58cd69b2593..c36f4165e2bb460abde81baf453199f62dd265b0 100644
 --- a/arch/arm64/tools/cpucaps
 +++ b/arch/arm64/tools/cpucaps
-@@ -34,7 +34,7 @@ HAS_GENERIC_AUTH
- HAS_GENERIC_AUTH_ARCH_QARMA3
+@@ -35,6 +35,7 @@ HAS_GENERIC_AUTH_ARCH_QARMA3
  HAS_GENERIC_AUTH_ARCH_QARMA5
  HAS_GENERIC_AUTH_IMP_DEF
--HAS_GIC_CPUIF_SYSREGS
-+HAS_GICV3_CPUIF
+ HAS_GICV3_CPUIF
++HAS_GICV5_CPUIF
  HAS_GIC_PRIO_MASKING
  HAS_GIC_PRIO_RELAXED_SYNC
  HAS_HCR_NV1
-diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
-index 6503573557fdf295bc543b16b64e3e7dd6841321..1269ab8eb726afbb80849fd062612861680cb4d1 100644
---- a/drivers/irqchip/irq-gic.c
-+++ b/drivers/irqchip/irq-gic.c
-@@ -54,7 +54,7 @@
- 
- static void gic_check_cpu_features(void)
- {
--	WARN_TAINT_ONCE(this_cpu_has_cap(ARM64_HAS_GIC_CPUIF_SYSREGS),
-+	WARN_TAINT_ONCE(this_cpu_has_cap(ARM64_HAS_GICV3_CPUIF),
- 			TAINT_CPU_OUT_OF_SPEC,
- 			"GICv3 system registers enabled, broken firmware!\n");
- }
 
 -- 
 2.48.0
