@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC8FBC3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 03:46:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83BECC3ABC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 03:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V919qWwyvLrWtuoUDDDmSE0DZiI0jw/kL9JA3i8538E=; b=40iS7V51g71Y83WIWvmNriyXBY
-	BizKqYAe+y0AOIgbT5yALyght37wugWwPsPBpcPAsbqFRJ0kusduwhaf2eK6SdzYeGjfxhFzKfsE1
-	uWspDTxxF1fozH2iATeiVj4dnOBBlfG83HO+/P4H1eRPR2FN3y2MjAzs31ZpaeYAEdqfk1kQsnkKp
-	c5MlbxEwdrJw/O3qrnvPPPaaEo0+kW0b0iJQ7hNckABdtcnlmmy1GkdIjAHdL6WEvajK2MCTM0ZLb
-	NdgGlmOGKBOp9YLz4Qmo9YxwXIUbgYUTXs4QUKU1D3SXlYa1kI+e0jb6Z0HuykrU1fHg5g4YSDHrx
-	M2P1OF9w==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kI+NRuk7psd+JyQ1EIlBRRZqqJULw6TfeajNXY0xjVw=; b=SU77p4W0ZgcbEj5GNYXCYEsdhd
+	VON+JpVCLPDVKdy+hKkpHr9ojHEP8U2TwegJPKQYdPwJZSXIAU+LV619vSf5N2fSLm8A5779qLUTh
+	wRtUYjHoQ3UhWTb7haHE0/TQ6OPyJfLi+U1H7Wm4LLsGj/nQvtz4QPoi7RV1SCjyveVZcMGkyV5Cq
+	AMgytDzWFJCu/gYumvURFzWnV4Bf7MTaOOZiuunsm1O6vslCiPIqKSe8rWy6o1mSS99VvH1qaT2Ns
+	MUM8+YgjcT3Slh6SMg69Pexwbia/SzwwXqagPj64KnQiXlW2gygUmYipBbbKrxwF59IrFRWZGieX/
+	njBwsDWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCVjm-0000000E6sH-32fE;
-	Wed, 07 May 2025 03:46:26 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uCVjq-0000000E6y8-2bQG;
+	Wed, 07 May 2025 03:46:30 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCPyx-0000000DRWI-05UB;
-	Tue, 06 May 2025 21:37:44 +0000
+	id 1uCPzP-0000000DRdb-39Ll;
+	Tue, 06 May 2025 21:38:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 58CAEA4C374;
-	Tue,  6 May 2025 21:37:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C295DC4CEEE;
-	Tue,  6 May 2025 21:37:40 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 07C30A4A0F5;
+	Tue,  6 May 2025 21:38:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DDEBC4CEE4;
+	Tue,  6 May 2025 21:38:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746567461;
-	bh=WuayqM34DjU30K0wBirA7NlxyGuo4ZoD+IetHQ56Wwo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kByIgeOMB2BiccFyIYYiuRACKDhKNdjPYmd8RfECBKAAom1vNsfz8uoD2dWHqK9G9
-	 Brbde7OQaHRZZxwxnLGpMNAhKvDl8Fzqy9XbkqsFHHOyHH71Q5Z25jFHRWliPGn21j
-	 9P04X8e4riDBeHjny1d9YRL34u6MpLrh+f3cGNR4qGlv2ZVd9PYjUbbyGF7xNpENOH
-	 KFgLu2tmKBh19hZj12BD1xrZyjSBM/rjyzo7Tx2yd7UBCPByfbxlhLHds7wpFBxtEc
-	 9dwqEyj1ArOBGJI0xNKzKbt/wc1VAvSQ/cYr4t4kT4kbSyjgeiUQ4cir5aSvNnKRGG
-	 U7eyQY9rPPZ+A==
+	s=k20201202; t=1746567490;
+	bh=fpWKRGLUlfFcKgRhzd3YKEA/2o+6Sj2FNknpu5FvDG8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=tmRS9fKfYfOenJvpT2PZ76HrYRxLYoWbPRpc7Ga8BsLnjlO9uI26Wy/7E9RC2cgBp
+	 83Q8snZUHalNsE0OBgsj/7hrYs6ElY9raQPRuE5JmIhv4PFp77/6H4SiM7LAhan0aO
+	 jbD+NPxJWwXM3lwtnECqMggfA7pQX6t3fNYOYw1jY9skbkjSqLo9EZvXCRlYoiDsY4
+	 IaRdPdIaibTwwDrsU7EtPjbwpgn4wtYgvy8UFaNycHqXdS9wRa4gHRLe3wt3NWmbGN
+	 4WtdIZrnTdAWIHaiti8udr86MiyAg6akXXb2CKMNkoneJ0bBBYfPTQlhNu3/3TC+Ji
+	 F+Sfc0DhafEKA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
@@ -53,20 +53,18 @@ Cc: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-amlogic@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.15 2/5] pinctrl: meson: define the pull up/down resistor value as 60 kOhm
-Date: Tue,  6 May 2025 17:37:31 -0400
-Message-Id: <20250506213734.2983663-2-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.4 1/3] pinctrl: meson: define the pull up/down resistor value as 60 kOhm
+Date: Tue,  6 May 2025 17:38:03 -0400
+Message-Id: <20250506213805.2983809-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250506213734.2983663-1-sashal@kernel.org>
-References: <20250506213734.2983663-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.15.181
+X-stable-base: Linux 5.4.293
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_143743_123213_F0A28759 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20250506_143811_859731_87FD0903 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,10 +112,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/pinctrl/meson/pinctrl-meson.c b/drivers/pinctrl/meson/pinctrl-meson.c
-index 49851444a6e3b..d239ad85a510d 100644
+index aba479a1150c8..f3b381370e5ed 100644
 --- a/drivers/pinctrl/meson/pinctrl-meson.c
 +++ b/drivers/pinctrl/meson/pinctrl-meson.c
-@@ -486,7 +486,7 @@ static int meson_pinconf_get(struct pinctrl_dev *pcdev, unsigned int pin,
+@@ -480,7 +480,7 @@ static int meson_pinconf_get(struct pinctrl_dev *pcdev, unsigned int pin,
  	case PIN_CONFIG_BIAS_PULL_DOWN:
  	case PIN_CONFIG_BIAS_PULL_UP:
  		if (meson_pinconf_get_pull(pc, pin) == param)
