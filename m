@@ -4,90 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F0DC3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 10:57:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A58AC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 10:59:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j+WrS+ZGF7ajKhUyNAGyOnZkGrNQsEpRwCZdg328c+s=; b=eeEsBG9GaI+6gnBGiMebq8pHBK
-	VWimdlPtb6vpe9Vx3AVS2rrYhf+L/jPfCFLJdxExYgvuH+dtP3p9ey1S1BXaPuO5XDBqkIMLvcTjf
-	5f9oEgzcNLeRxkKQU25EGe26qSLtuS5rlKkNK4n3Y9D5zL07UEOdUs7N3uuCQj950Vn8vTv2KKyUV
-	QasfNmrIqLWIB5wCmkFdTx/jx3Diu3T46bzKRV6DHq03k9TRFSjYbqyt5IBQnP+dXjHQCSuvy9AUU
-	/gFWl6ghYZ8St08qVsO9sdKFA2gFLTD2wg7uVAh2FlNdhWdpUqiNPiPfKsiba64k7yrNomJnDQ8Wb
-	kjvb7ezA==;
+	bh=Ndb9sgZhNnNGw++XFUPabBuOqL+p7fuOqHT+haIpuKA=; b=cUbN76+0b7ofz/OxYkVoRB5TzH
+	DKUCbYPHhVp9RCBLn7+BRMoWlsLq3yAu6JJpAW1bb4UErzepEJDYWkAVo/WgybtIG5oUjOFzjve3g
+	DEjdN4p+jBlyjb1+IRjQnwQo2dRYz00ZMlNCCnW1+u07ip/0yitboyHxmC5AtNC7pN0pZpLPBx3bB
+	yAZRprCeWD7xHe69M+PDwHmWamXXvUM/qCNZWZBleUeZHU37dzDV/Xvcy06sykcYx89gfr6N8hCcN
+	Hj+D0KrK7jbzKngGiFbbRM3uLKdhG75+Y2PrRsSx5gVIzdCiDxmVceWSUU5SaeR+Bvs1R8qBTfaCK
+	f4cAsw+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCFze-0000000Be1j-0Acn;
-	Tue, 06 May 2025 10:57:46 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCEaS-0000000BN7g-3JxK
+	id 1uCG1Y-0000000BeHU-31lX;
+	Tue, 06 May 2025 10:59:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCEb3-0000000BNJl-1t6U
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 09:27:41 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43d07ca6a80so21039345e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 02:27:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746523659; x=1747128459; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:cc:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=j+WrS+ZGF7ajKhUyNAGyOnZkGrNQsEpRwCZdg328c+s=;
-        b=JPhEco1gLICM/sH3rkhC5tD2207PL59oLCLI44opBsTNRldcLAMSlYuNkkmP7D2Dmw
-         ARYDps1eqCLhj1OBJLEtOPli4KKx9tWJi9tAkFhXVlDi8V/Uiv2u7SAFae7N1Lse90cJ
-         l/krfSsH7k32rUVlpEWWqwds2epbTcq9TO6Dq7VSLw8XelsgrrhOMDG0qUb5Jw3YNcn9
-         3CCZZVXIIKPkXCql9yutZmjMQFSVpfa41KmTKrefzvqXHppSd/2lBflNjr5GCHy78ByT
-         3IiY7hYPY0MYhslGoe79FhySzEFXnmRe8QyOj6+dp88iviayjRNn41e4QwmsuJ4EocGq
-         guOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746523659; x=1747128459;
-        h=content-transfer-encoding:in-reply-to:from:cc:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=j+WrS+ZGF7ajKhUyNAGyOnZkGrNQsEpRwCZdg328c+s=;
-        b=w6cChMDA6afhBDJvNeIX0d3lgtNcR7Y4O6np3fTMQ6E+nDVIe9/lUeMzfTcnyi09OJ
-         VgLizk57C99u4w7r0XXB+FOESbKsEWQV+PS9shPldR/Q5rLCcFk/dah/pSSxLAcconzU
-         uMILICb4ZFdQlsfOkxO2Q8TTUH/U/+AAkHz9PCvF6fN0aqlTQGknMh4NTiazR7c028/U
-         12gqpCYRkammFfcp8kvT2OX3UiKJ+fcsF4JQSbL3g/69xVvX/ym5025PXFjoedc7+Ty1
-         1MlHZDJa0utSNctoXoGdTUIGyAgC83G6M4zkVJGMFZU4vLhiCNS0w7k5xfzd8jGv/imu
-         Wmkg==
-X-Forwarded-Encrypted: i=1; AJvYcCWFvhnx3s3HYQPOpfq9YuEnKMxQv/wFcZXwUl/7ES9MtpYctPy6o9uAlsylHfnCJ11s6AcieUEPGzjTPE4t0CNr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3YzH++CslQXtPM5F5RAPEsrAYWtFUcRsJ0mMwSZEMtlin+i+V
-	U1leIGS7HlecEnFITPqam8oFTfeS8o7EztkpXq/VjP7OVLHIH9U6d1OAn8MPtlU=
-X-Gm-Gg: ASbGnctJt/C8gsAb1SrhEOo3CGimlcR8sNNxRv07AlhRzJMWrjOFDjjW6ENf73INFD4
-	nyAe5gpP6o6NfJWC7ODgceWB2wiocQ9AOaMPddidkR9YOA85An+N0VsCcPtXQmO0IKa5NJlQ6Ly
-	w/p0E3o9p/KvGgyjjR3SSAG+FaJP6nC8Yc0+jWK+08VoPqBScQgG7KG/F83Nce4MnkKTITbhEgO
-	dgbsgqrn98cN4aQaZoLgU8ZOFIeAZjfh0QK1SxdAiicNLV3MI9bJtFolchp10xuarARrRc9yPIR
-	TBq+aD/kFH7uGY/Q56GSuaf2jsgw0gkBXvKJ2qhLFw8=
-X-Google-Smtp-Source: AGHT+IG5XXvRCx9XeVrs9fzQmCZyz79wKWVTD/0n1rorDH8LiUb2mKCXxid8ZfYYsDBB7YNr/KB5yg==
-X-Received: by 2002:a05:600c:a409:b0:43b:cd0d:9466 with SMTP id 5b1f17b1804b1-441d0a909b9mr19936035e9.9.1746523658914;
-        Tue, 06 May 2025 02:27:38 -0700 (PDT)
-Received: from [192.168.1.3] ([77.81.75.81])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b89cc441sm165112065e9.3.2025.05.06.02.27.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 May 2025 02:27:38 -0700 (PDT)
-Message-ID: <6f9346a0-03c5-4b00-85f9-0d54e24d0657@linaro.org>
-Date: Tue, 6 May 2025 10:27:37 +0100
+	Tue, 06 May 2025 09:28:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F0A28113E;
+	Tue,  6 May 2025 02:28:06 -0700 (PDT)
+Received: from [10.57.93.118] (unknown [10.57.93.118])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 754B53F5A1;
+	Tue,  6 May 2025 02:28:13 -0700 (PDT)
+Message-ID: <cbfad787-fcb8-43ce-8fd9-e9495116534d@arm.com>
+Date: Tue, 6 May 2025 10:28:11 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: replicator: Fix panic for clearing claim tag
-To: Leo Yan <leo.yan@arm.com>
-References: <20250502111108.2726217-1-leo.yan@arm.com>
-Content-Language: en-US
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250502111108.2726217-1-leo.yan@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [RFC PATCH v4 2/5] mm/readahead: Terminate async readahead on
+ natural boundary
+Content-Language: en-GB
+To: Jan Kara <jack@suse.cz>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, David Hildenbrand
+ <david@redhat.com>, Dave Chinner <david@fromorbit.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org
+References: <20250430145920.3748738-1-ryan.roberts@arm.com>
+ <20250430145920.3748738-3-ryan.roberts@arm.com>
+ <3myknukhnrtdb4y5i6ewcgpubg2fopxc35ii6a4oy5ffgn7xdf@uileryotgd7z>
+ <67wws7qs5v3poq6sefrrt4dgdn4ejh52mg5x7ycbxqvrfdvow3@zraqczowrvrl>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <67wws7qs5v3poq6sefrrt4dgdn4ejh52mg5x7ycbxqvrfdvow3@zraqczowrvrl>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_022740_844531_054A180B 
-X-CRM114-Status: GOOD (  16.88  )
+X-CRM114-CacheID: sfid-20250506_022817_585459_57039821 
+X-CRM114-Status: GOOD (  37.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,64 +75,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 02/05/2025 12:11 pm, Leo Yan wrote:
-> On platforms with a static replicator, a kernel panic occurs during boot:
+On 05/05/2025 10:37, Jan Kara wrote:
+> On Mon 05-05-25 11:13:26, Jan Kara wrote:
+>> On Wed 30-04-25 15:59:15, Ryan Roberts wrote:
+>>> Previously asynchonous readahead would read ra_pages (usually 128K)
+>>> directly after the end of the synchonous readahead and given the
+>>> synchronous readahead portion had no alignment guarantees (beyond page
+>>> boundaries) it is possible (and likely) that the end of the initial 128K
+>>> region would not fall on a natural boundary for the folio size being
+>>> used. Therefore smaller folios were used to align down to the required
+>>> boundary, both at the end of the previous readahead block and at the
+>>> start of the new one.
+>>>
+>>> In the worst cases, this can result in never properly ramping up the
+>>> folio size, and instead getting stuck oscillating between order-0, -1
+>>> and -2 folios. The next readahead will try to use folios whose order is
+>>> +2 bigger than the folio that had the readahead marker. But because of
+>>> the alignment requirements, that folio (the first one in the readahead
+>>> block) can end up being order-0 in some cases.
+>>>
+>>> There will be 2 modifications to solve this issue:
+>>>
+>>> 1) Calculate the readahead size so the end is aligned to a folio
+>>>    boundary. This prevents needing to allocate small folios to align
+>>>    down at the end of the window and fixes the oscillation problem.
+>>>
+>>> 2) Remember the "preferred folio order" in the ra state instead of
+>>>    inferring it from the folio with the readahead marker. This solves
+>>>    the slow ramp up problem (discussed in a subsequent patch).
+>>>
+>>> This patch addresses (1) only. A subsequent patch will address (2).
+>>>
+>>> Worked example:
+>>>
+>>> The following shows the previous pathalogical behaviour when the initial
+>>> synchronous readahead is unaligned. We start reading at page 17 in the
+>>> file and read sequentially from there. I'm showing a dump of the pages
+>>> in the page cache just after we read the first page of the folio with
+>>> the readahead marker.
 > 
->    [    4.999406]  replicator_probe+0x1f8/0x360
->    [    5.003455]  replicator_platform_probe+0x64/0xd8
->    [    5.008115]  platform_probe+0x70/0xf0
->    [    5.011812]  really_probe+0xc4/0x2a8
->    [    5.015417]  __driver_probe_device+0x80/0x140
->    [    5.019813]  driver_probe_device+0xe4/0x170
->    [    5.024032]  __driver_attach+0x9c/0x1b0
->    [    5.027900]  bus_for_each_dev+0x7c/0xe8
->    [    5.031769]  driver_attach+0x2c/0x40
->    [    5.035373]  bus_add_driver+0xec/0x218
->    [    5.039154]  driver_register+0x68/0x138
->    [    5.043023]  __platform_driver_register+0x2c/0x40
->    [    5.047771]  coresight_init_driver+0x4c/0xe0
->    [    5.052079]  replicator_init+0x30/0x48
->    [    5.055865]  do_one_initcall+0x4c/0x280
->    [    5.059736]  kernel_init_freeable+0x1ec/0x3c8
->    [    5.064134]  kernel_init+0x28/0x1f0
->    [    5.067655]  ret_from_fork+0x10/0x20
+> <snip>
 > 
-> A static replicator doesn't have registers, so accessing the claim
-> register results in a NULL pointer deference.  Fixes the issue by
-> accessing the claim registers only after the I/O resource has been
-> successfully mapped.
+>> Looks good. When I was reading this code some time ago, I also felt we
+>> should rather do some rounding instead of creating small folios so thanks
+>> for working on this. Feel free to add:
+>>
+>> Reviewed-by: Jan Kara <jack@suse.cz>
 > 
-> Fixes: 6f4c6f70575f ("coresight: Clear self hosted claim tag on probe")
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-replicator.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
-> index f1d2f764e898..06efd2b01a0f 100644
-> --- a/drivers/hwtracing/coresight/coresight-replicator.c
-> +++ b/drivers/hwtracing/coresight/coresight-replicator.c
-> @@ -262,6 +262,7 @@ static int replicator_probe(struct device *dev, struct resource *res)
->   		drvdata->base = base;
->   		desc.groups = replicator_groups;
->   		desc.access = CSDEV_ACCESS_IOMEM(base);
-> +		coresight_clear_self_claim_tag(&desc.access);
->   	}
->   
->   	if (fwnode_property_present(dev_fwnode(dev),
-> @@ -284,7 +285,6 @@ static int replicator_probe(struct device *dev, struct resource *res)
->   	desc.pdata = dev->platform_data;
->   	desc.dev = dev;
->   
-> -	coresight_clear_self_claim_tag(&desc.access);
->   	drvdata->csdev = coresight_register(&desc);
->   	if (IS_ERR(drvdata->csdev)) {
->   		ret = PTR_ERR(drvdata->csdev);
+> But now I've also remembered why what you do here isn't an obvious win.
+> There are storage devices (mostly RAID arrays) where optimum read size
+> isn't a power of 2. Think for example a RAID-0 device composed from three
+> disks. It will have max_pages something like 384 (512k * 3). Suppose we are
+> on x86 and max_order is 9. Then previously (if we were lucky with
+> alignment) we were alternating between order 7 and order 8 pages in the
+> page cache and do optimally sized IOs od 1536k. 
 
-Oops. The other occurrence of this is the funnel, but I got that one right.
+Sorry I'm struggling to follow some of this, perhaps my superficial
+understanding of all the readahead subtleties is starting to show...
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+How is the 384 figure provided? I'd guess that comes from bdi->io_pages, and
+bdi->ra_pages would remain the usual 32 (128K)? In which case, for mmap, won't
+we continue to be limited by ra_pages and will never get beyond order-5? (for
+mmap req_size is always set to ra_pages IIRC, so ractl_max_pages() always just
+returns ra_pages). Or perhaps ra_pages is set to 384 somewhere, but I'm not
+spotting it in the code...
+
+I guess you are also implicitly teaching me something about how the block layer
+works here too... if there are 2 read requests for an order-7 and order-8, then
+the block layer will merge those to a single read (upto the 384 optimal size?)
+but if there are 2 reads of order-8 then it won't merge because it would be
+bigger than the optimal size and it won't split the second one at the optimal
+size either? Have I inferred that correctly?
+
+> Now you will allocate all
+> folios of order 8 (nice) but reads will be just 1024k and you'll see
+> noticeable drop in read throughput (not nice). Note that this is not just a
+> theoretical example but a real case we have hit when doing performance
+> testing of servers and for which I was tweaking readahead code in the past.
+> 
+> So I think we need to tweak this logic a bit. Perhaps we should round_down
+> end to the minimum alignment dictated by 'order' and maxpages? Like:
+> 
+> 1 << min(order, ffs(max_pages) + PAGE_SHIFT - 1)
+
+Sorry I'm staring at this and struggling to understand the "PAGE_SHIFT - 1" part?
+
+I think what you are suggesting is that the patch becomes something like this:
+
+---8<---
++	end = ra->start + ra->size;
++	aligned_end = round_down(end, 1UL << min(order, ilog2(max_pages)));
++	if (aligned_end > ra->start)
++		ra->size -= end - aligned_end;
++	ra->async_size = ra->size;
+---8<---
+
+So if max_pages=384, then aligned_end will be aligned down to a maximum of the
+previous 1MB boundary?
+
+Thanks,
+Ryan
+
+> 
+> If you set badly aligned readahead size manually, you will get small pages
+> in the page cache but that's just you being stupid. In practice, hardware
+> induced readahead size need not be powers of 2 but they are *sane* :).
+> 
+> 								Honza
+> 
+>>> diff --git a/mm/readahead.c b/mm/readahead.c
+>>> index 8bb316f5a842..82f9f623f2d7 100644
+>>> --- a/mm/readahead.c
+>>> +++ b/mm/readahead.c
+>>> @@ -625,7 +625,7 @@ void page_cache_async_ra(struct readahead_control *ractl,
+>>>  	unsigned long max_pages;
+>>>  	struct file_ra_state *ra = ractl->ra;
+>>>  	pgoff_t index = readahead_index(ractl);
+>>> -	pgoff_t expected, start;
+>>> +	pgoff_t expected, start, end, aligned_end;
+>>>  	unsigned int order = folio_order(folio);
+>>>  
+>>>  	/* no readahead */
+>>> @@ -657,7 +657,6 @@ void page_cache_async_ra(struct readahead_control *ractl,
+>>>  		 * the readahead window.
+>>>  		 */
+>>>  		ra->size = max(ra->size, get_next_ra_size(ra, max_pages));
+>>> -		ra->async_size = ra->size;
+>>>  		goto readit;
+>>>  	}
+>>>  
+>>> @@ -678,9 +677,13 @@ void page_cache_async_ra(struct readahead_control *ractl,
+>>>  	ra->size = start - index;	/* old async_size */
+>>>  	ra->size += req_count;
+>>>  	ra->size = get_next_ra_size(ra, max_pages);
+>>> -	ra->async_size = ra->size;
+>>>  readit:
+>>>  	order += 2;
+>>> +	end = ra->start + ra->size;
+>>> +	aligned_end = round_down(end, 1UL << order);
+>>> +	if (aligned_end > ra->start)
+>>> +		ra->size -= end - aligned_end;
+>>> +	ra->async_size = ra->size;
+>>>  	ractl->_index = ra->start;
+>>>  	page_cache_ra_order(ractl, ra, order);
+>>>  }
+>>> -- 
+>>> 2.43.0
+>>>
+>> -- 
+>> Jan Kara <jack@suse.com>
+>> SUSE Labs, CR
 
 
