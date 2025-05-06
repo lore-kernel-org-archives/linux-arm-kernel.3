@@ -4,61 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED9CCC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 05:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B247C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 05:51:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mRobWP6n1AiKHaLfEqZBRc9yJTt8XaDKvvceGQNL7lY=; b=gp8bVFUU4NO39mldLc2tk43OZs
-	M30vTkDUBneQezEfI8cpk8BLeOZJ1xWQyQ6MaqpCzTKlGl2fSu74X7YJRbAgNQiwqC4cQvhdyxHQ8
-	7ZWipIJ2w2v0wXJb6rQzd5TR7pNJivrmknoRtOtCB+HTbpxAYtssI+fNY2ipt1QZi0Sm6j0KB7yk/
-	BacUm3Ka6squiUPQBngTU/A8XXV2KiXPgMA2W3xIq4PyeuYv59HzxvUt/oQ0QWHhYR/KBdp3LCfiJ
-	UlGtzsPrEgGY6rY02dIXxMeQz1nEuX8KX2GPTHcIUA7OPvmqmW7qtArw+D2AmFia9lADBywIfpUam
-	o7a0KaFA==;
+	bh=Ho7ItPFlA5lzXaeNVZSviOSWNKnifX9Cp67sSf2E5Q0=; b=pg40JtEmRvXseKmI1esNi3ncGu
+	aMktAtC6ecKjgddIvVC8xINkgbdn58+PJAYb3H6fXES7Qndowx00yDoC5tRUQqHK3i/Pg4XkLMg5N
+	mER/FsCuRWrdCni6zIx4vtWs8nC4gYnEkbrYCBJbMlHsPu+Vbi3Cbhruu3k3DozpMxCFg3EeyEpf4
+	Ndy7CAms+++jEm1kpwOp1tec4m9y5bcHDAAJvq2uoldApMjf4PmBJgQZYqcuzLqM0DyUK5CwIecs+
+	ONEp5GVUnAwPnzlmt2+FPZlaJaISgipYKjsxZRJeYlXeScPbBmeaHbFI9wnAVTmEfxNKelGNN47rL
+	5mOB5Fvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCBB0-0000000AWc4-2wDk;
-	Tue, 06 May 2025 05:49:10 +0000
-Received: from golan.tkos.co.il ([84.110.109.230] helo=mail.tkos.co.il)
+	id 1uCBD1-0000000AXAB-1Duh;
+	Tue, 06 May 2025 05:51:15 +0000
+Received: from mail-am6eur05on2061e.outbound.protection.outlook.com ([2a01:111:f403:2612::61e] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC8n8-00000009wVN-1nQA
+	id 1uC907-00000009zyz-1vD5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 03:16:24 +0000
-Received: from localhost (unknown [10.0.8.2])
-	by mail.tkos.co.il (Postfix) with ESMTP id 3A59B440EA1;
-	Tue,  6 May 2025 06:16:09 +0300 (IDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tkos.co.il;
-	s=default; t=1746501369;
-	bh=BvOr7NK5R2aGH1ZVeHRXfa7u1FmSfQWOwX4gQOAnSvo=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=QEzvMZMw4a6uOv9CxaGuj+i4uu+7yVAVgs3F74nLbhHrichdcXqSdsugr3kFzQ9+6
-	 K3kx5ajkGVv5PvRTcmX39/BLk8zKVJEMvknm/hXXLK8hRVLxWuImC2YC5UZHWKYaej
-	 hHwipghZCzA761JXtMh8W0mRjwTr8/EATBPR/g740s63+b9EUkFg+5Mprv8Q2+c9eN
-	 6zyhk1vm/xSeTaThKNpyQBO05/SwbkG17OqY6J4LFz9SUdnJNbgwdDpRY5NGBfd43D
-	 yNEEh8BeH26y9QtV35Xpd74blUl5Es+zr+rTb2GfKgMZ/fxMg8ZeK+f165JMpzfkAB
-	 q5bZ5X03sbq+g==
-From: Baruch Siach <baruch@tkos.co.il>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,  Thomas Gleixner
- <tglx@linutronix.de>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor
- Dooley <conor+dt@kernel.org>,  linux-kernel@vger.kernel.org,
-  devicetree@vger.kernel.org,  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] dt-bindings: timer: Convert cnxt,cx92755-timer to DT
- schema
-In-Reply-To: <20250506022232.2587186-1-robh@kernel.org> (Rob Herring's message
-	of "Mon, 5 May 2025 21:22:31 -0500")
-References: <20250506022232.2587186-1-robh@kernel.org>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Tue, 06 May 2025 06:16:16 +0300
-Message-ID: <87plgmzawv.fsf@tarshish>
+	Tue, 06 May 2025 03:29:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hmLQ3ZfSMgHWKNLjmbVtXDUhFZtFIyXE6Zh6cwcSo0VasLAUfER7VLXeMmEvxlF/HX4vz4e+orSy+qK1C+PZo01K7wPUtUPkskxBpBN7xgzD0zSnwmCzcjOoiUTrEw7FcxbHegMBkycsucCZRMoyzj6YsAUSIL/CWxxuvcjQd3rxOud6iR4I4bo6pS2RIDfWblFUn3SB2rLrjIdEHFQfmuiC6YV+LptIvw6nveiZ0R4PhA3cQRco6R64pMR0hs+BYvH23835rNzPBMJU0ymnKTkKKrbdjvmM3HA8mkQYysWBB2fBM1WAP3ekiLLH4F04E5cT9A3TOC5orZWHRE3jGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ho7ItPFlA5lzXaeNVZSviOSWNKnifX9Cp67sSf2E5Q0=;
+ b=L67eRBbeAefqLQ6emcFdEvdvppzMzUsqLno9Hp2LWUQcnFJT400BnizWAVyanrJbRJYsYOSk4KGxGLi23t6IfCjnCLb8mSy6cdbZJTrz2Oe47jWr+pXgm6FGBftr0NXi6oHOpJ64WETFONn5i22jfO98i6mjD/JGhbSuoEHqnOIB/8+P8+UNZEoIfhXQUIDFbsODt+cOsruZ/dd5pC8oTY8jnrER31VnB0poDOfabGAQuxdxD5Xv4CXPw5qyrZZ36LImMA8FCN5iPrBqK5Hkazm1t/c3psbZf8HGE+XkdbSq55Kmi0WnLwmMQV+2D7fQfJZkij1wgIaO4jj85oUERg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ho7ItPFlA5lzXaeNVZSviOSWNKnifX9Cp67sSf2E5Q0=;
+ b=u2c+1lbgbR8fiIEcUohNh7P5xi/hlMIJTOSuEntVhQy4t3mFKqjVjf61J5ApLPm9W9Fhat1LkEZyPHfmljJclTs+XPQdJKYo+xWFrrgzEFph5qOKpsPzHR6a49L3sqYFnHjEVQIBLiu2hAq7uDudynT7/HKjKyLPsRebVJPqIWgZ1cOJId5ALQC8iRFLw8CNuP05xm2T0i5CPCcLhKoWr1KF+lyBtgy7/c9ePlNDhp1dRV9H1OXJHvle6KmydZGJd5ncnztJyoJIPVl61T8az2/iBMzbIPgED76T0OvplHpdgYF1UldeKdL7g3scV5YrzDRI8Vny0We6j7P5v/e6kQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
+ by AS8PR04MB9143.eurprd04.prod.outlook.com (2603:10a6:20b:44a::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.24; Tue, 6 May
+ 2025 03:29:38 +0000
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::b1b9:faa9:901b:c197]) by DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::b1b9:faa9:901b:c197%4]) with mapi id 15.20.8699.022; Tue, 6 May 2025
+ 03:29:37 +0000
+Date: Tue, 6 May 2025 12:38:35 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Hiago De Franco <hiagofranco@gmail.com>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>, linux-pm@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	daniel.baluta@nxp.com, iuliana.prodan@oss.nxp.com,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: Re: [PATCH 1/3] remoteproc: imx_rproc: skip clock enable when M-core
+ is managed by the SCU
+Message-ID: <20250506043835.GB24259@nxa18884-linux>
+References: <20250505154849.64889-1-hiagofranco@gmail.com>
+ <20250505154849.64889-2-hiagofranco@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250505154849.64889-2-hiagofranco@gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SI2PR01CA0044.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:193::8) To DB9PR04MB8461.eurprd04.prod.outlook.com
+ (2603:10a6:10:2cf::20)
 MIME-Version: 1.0
-Content-Type: text/plain
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB8461:EE_|AS8PR04MB9143:EE_
+X-MS-Office365-Filtering-Correlation-Id: a8a48ff9-05b6-4c5b-37c2-08dd8c4e3a55
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|1800799024|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4kSN+gO89Y9pr9Hs2dUzbFx15M8lPRWJz+tuZOImHi/0UYyQ7yGPLAiM9fFj?=
+ =?us-ascii?Q?utqeLo2l6wpwVonc65h1zvZK3x1+NyeKo9BAqmcKWLtIWQ9ogQl9GI2t/mgY?=
+ =?us-ascii?Q?BBInjCvfMf7S/1I1COxnkHa1hKxGzT6KzacQXNItromndDLwpDdADXa8SRyM?=
+ =?us-ascii?Q?7Mn7vG4Ln6RKmI5/PuK6bOJC+R1swDZMCXXlU5P1+z7KhRqYUS4Bq09UDemf?=
+ =?us-ascii?Q?baU2SfbxGTMlo1pEyKIwZbXGURA9VCqGtIoaviCqHjgsetRczzTX0z1ABmbD?=
+ =?us-ascii?Q?vJ5YWgKFq3DBJcgN60F1JYZcP/X4h2F4XQE6EbTPA75QMDPXoWo3CQc1e9V8?=
+ =?us-ascii?Q?5r3ljzHjtlRYakElix7UYsWdfwwO5lfpAqKJJTQikhIawH/TeE4rjzRRJgWS?=
+ =?us-ascii?Q?gcl0DdYn5PuoMPiPBzJJbSD9bulLvYOemer/FBVCDFwPlMUgMSt6aWXbpwlk?=
+ =?us-ascii?Q?FsgMhp25w3SXq1rSvneeeO2NWPigZLdbMWbibS82bojolz7pdiuckI3Qg3nE?=
+ =?us-ascii?Q?QvLIbOUldeqDAowXSHuurqlWrZTgzfPcY6qCEgWryZFFP3jkUcKdueaOpzwv?=
+ =?us-ascii?Q?GYiNi2LHPMLE2rvXR9j7N+ZTCzGLfpq3C4ooh0Sv8lddW4q5PPD2KXxEj99A?=
+ =?us-ascii?Q?iSz2QIIxIcLcJ6ksAZqGJw7HRq/gg1p3Cls07ett6+3V9Q9atxB9batjIiaH?=
+ =?us-ascii?Q?MPc8ugDXh26Iuxo2S4ZZPrW2Np9LbjNe+LBdFVEOntvEF7D9WWwYZJx0SsPb?=
+ =?us-ascii?Q?9E7VEDVMWi1SKFRFKWagaSORi20E/EeQxQ3RB60yMEUYgjaby/Gyeesb2dEy?=
+ =?us-ascii?Q?AQacSN6To9rGXQVki4Y0KwYXyUxkjBIgIwqzueJw3FMzb8qk8RcSb9SUca1T?=
+ =?us-ascii?Q?O0euFyY0k77VKqTLMgJAxRwGzs8gP08fHh+CS3f38JT2YhFx48sRuvx3yyA1?=
+ =?us-ascii?Q?Y9CjkfHoW9EMIDIyD9HEmDQl9h1czae0mTSVW/hryM6i+wDPtG2maKwm2QuT?=
+ =?us-ascii?Q?KO814TV/CKdRv+wOzOJcufJ2lxSs3FgBenPoOU65zf4/Zt3jPsDm4du72BXV?=
+ =?us-ascii?Q?Ta+Z2w+JWpO3G5s2ndohLc5wfPzIdp46tsnw2x/74IlvjAJSeHNdPehwESWY?=
+ =?us-ascii?Q?e5LcUI+K//vUW8dennbso001qrsQPRMQDAJHZSDwF59bqTXwBxrt2azbWzxE?=
+ =?us-ascii?Q?IiXEhu00nrV+mbTwK+6aa5SSDWxooN68nRH7nMCGWW38r0bwfBJ3KDE8nDfe?=
+ =?us-ascii?Q?CCJQyEwliDE8Zdsj0bDwx0ixf2rtkZSlLS3l0pg3Tn3Rj7sJ2G2Iz7h/XjzQ?=
+ =?us-ascii?Q?XEzmLatKyPcodqhNdThXsQwq/x+8tx/UWA6nHa796SqZhPyuArylvgHD01Yt?=
+ =?us-ascii?Q?MT2hVB2QfGuRBFzAYIvwbZjC+WBPGcngfcwUz5ftOYBQrDpJRlLiZjRvItds?=
+ =?us-ascii?Q?I0kBs0o5MSmpibNCmOh+bTC4rr+t/rY8VHosrbcYdkxc54Izd/bBxXlAugf2?=
+ =?us-ascii?Q?D/xNCqP+MMtkmB8=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(1800799024)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/mgHYJ4qk1UjzdSpjvYkzOPjjyXgPsPOMLalNzW/XghCBqc9qEWsIf2H17/a?=
+ =?us-ascii?Q?ngmISWs7dIUqYeuEuiVL1cxbt//Gy2Lhq+lTqzeRttZEYz2wNt8o0ZHsiaez?=
+ =?us-ascii?Q?bWmQVraGf8eatwUm5Q55tLm3mgQ070ROt0vGBD7NL5Qz4l3oJkxiFwml8GHB?=
+ =?us-ascii?Q?zOw/kv4zpr0Us5KouZwibdU49J3gpsLDeY5+pn94SUvnj5bRn8/RWBXxiNaa?=
+ =?us-ascii?Q?+7wxE6H6AvbCQqsX17d6jHedHLg7HECyoHS+paJkoLK59/psDcwX20bQHT5W?=
+ =?us-ascii?Q?uDAVDDaipMm4O6/5J8N94B4YDa1Ke+bxL3L7boNIvQQlOITcSapxBq8JaVJd?=
+ =?us-ascii?Q?zqV73vjKDBkewfeO6pw1kdkDwr1Z7NAftfdk5FiORqOoRz+skZN7aUkkGtUk?=
+ =?us-ascii?Q?eo0X0mJPZXYolIv76vZQupXW+Vd2KVEhM6v1TVLQ68oyM033U92018C6+wZ+?=
+ =?us-ascii?Q?TNSiFMCGVPhLEEFfbfDOJ0qFHBvHDfFZjF4FwTPq3oxSMLBspf6o0bS0db1X?=
+ =?us-ascii?Q?shrbkawadyOGzsb+wFtN2h+94frc3+zwwPFnUjX3NY7hrkZt5lfvMutLKG4Y?=
+ =?us-ascii?Q?gLerKZlZS2GBjGj5BF7pCtKiIm4Ci5cJvw7hPzedHFwv9+ghhd0G4YVakXDM?=
+ =?us-ascii?Q?osGh+H3GAn7yO15C4KNfIQYzxoUjhFMZDX7FJRcZpEHTNC1F644Ey2ciAmkf?=
+ =?us-ascii?Q?6SeqZzwQ+D8HVCM+/MMWGZtMxcvktbFAikcAanMNekXaXMtFyFRAC4pK0MCf?=
+ =?us-ascii?Q?wh4i/aLyQZ+8qucZ8ANpHznMtOGYWlxJhlExqrw1QfPtJvL+q/840ohFykKJ?=
+ =?us-ascii?Q?Qouf+e18Dj+WbcmfWoWIXfRd3EsSYwVJv88MbSOdJ6U9qJBqozVhB79Nb3s1?=
+ =?us-ascii?Q?fGfTtPIhVXChgQVqefvJuHkzc2Xn/o3eUxgOWxKBCPdLIvLEK62xD5vSwtJP?=
+ =?us-ascii?Q?7C35lR//u2Zs+FUalWd30Gk0gJ3lCY0SCdbHjCwfaEAs+nINs18MO7gW1t/o?=
+ =?us-ascii?Q?9za7+C4qT12DVONxBZ0CTXryfMzqeYInzN0r4C65pPKmUR+p7b8qE+s9YPli?=
+ =?us-ascii?Q?iR6Id6K/oVlG4gYfw8w5cyp13LRW3rBv12kMITMJIF20FGVwp5lCX6K3QUIN?=
+ =?us-ascii?Q?EFKdO90LnCsZYvBn2E/qknXJXXSOc0tUtgT0Z8bCkGVv8xk9i31lLoZQgopu?=
+ =?us-ascii?Q?FX+E76dAR+SBHSLBd/UoTFerrZe3mx/g0VXmRulgcgcA6zg3Hw9gXsp/iII9?=
+ =?us-ascii?Q?sn+/T4b+Chk0vUh3gclUf7P0/MEXGuWt4FjJUQzjFGObn34CDU7Myy4EGwzI?=
+ =?us-ascii?Q?p+u/3exk7RXanCEreekeBbVKNGhqnyBtvt8stJlCMcaYkboZAm6aNamZLa66?=
+ =?us-ascii?Q?6FrNlNzq7c9kLUUTK+6NRSYAs8LZBIsYL9cXIt8ljeJWMpuyEheiQr5lKcF2?=
+ =?us-ascii?Q?BnRq7D94b5NcDK5wlMz7mpDZrEK7v8T/TnR3Ol+ZDB9LSgFW/+iZYiAWnGKq?=
+ =?us-ascii?Q?zpHQGqHLZp6ZATt6JEOhOZXF0QI2dZY4UjVInEt4ikCMm3u+zvqlkJouDOP+?=
+ =?us-ascii?Q?UFCkW/aWIOiyQyNxQLmua6A0VvVc6BODZsngSzWd?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a8a48ff9-05b6-4c5b-37c2-08dd8c4e3a55
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 03:29:37.2945
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /hGbwdMDmTIb+eZ1lgB5tY+5fqhyWucJmWw7kh2O4P//Tn9Fuygps5pKuQc3MkyyH6wVOlM6vznmXM8tlwVnNg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9143
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_201623_127851_142FC981 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20250505_202947_512512_5325FF30 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,111 +170,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
-
-On Mon, May 05 2025, Rob Herring (Arm) wrote:
-
-> Convert the Conexant Digicolor SoCs Timer binding to DT schema format.
-> It's a straight-forward conversion.
+On Mon, May 05, 2025 at 12:48:47PM -0300, Hiago De Franco wrote:
+>From: Hiago De Franco <hiago.franco@toradex.com>
 >
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+>For the i.MX8X and i.MX8 family SoCs, when the M-core is powered up
+>before Linux starts (e.g., by the bootloader) and it is being managed by
+>the SCU, the SCFW will not allow the kernel to enable the clock again.
+>This currently causes an SCU fault reset when the M-core is up and
+>running and the kernel boots, resetting the system.
+>
+>Therefore, add a check in the clock enable function to not execute it if
+>the M-core is being managed by the SCU.
+>
+>This change affects only the i.MX8X and i.MX8 family SoCs, as this is
+>under the IMX_RPROC_SCU_API method.
 
-Acked-by: Baruch Siach <baruch@tkos.co.il>
+I would rewrite as below: "
+
+For the i.MX8X and i.MX8 family SoCs, when the M-core is powered up
+by the bootloader, M-core and Linux are in same SCFW(System Controller
+Firmware) partition, so linux has permission to control M-core.
+
+But when M-core is started, the SCFW will automatically enable the clock
+and configure the rate, and any users that wanna to enable the clock
+will get error 'LOCKED' from SCFW. So current imx_rproc.c probe function
+gets failure because clk_prepare_enable returns failure. Then
+the power domain of M-core is powered off when M-core is still running,
+SCU(System Controller Unit) will get a fault reset, and system restarts.
+
+To address the issue, ignore handling the clk for i.MX8X and i.MX8 M-core,
+because SCFW automatically enables and configures the clock.
+"
+
+You may update if you wanna.
+
+>
+>Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
+>Suggested-by: Peng Fan <peng.fan@oss.nxp.com>
+
+-> peng.fan@nxp.com
 
 Thanks,
-baruch
+Peng
 
-> ---
->  .../bindings/timer/cnxt,cx92755-timer.yaml    | 49 +++++++++++++++++++
->  .../bindings/timer/digicolor-timer.txt        | 18 -------
->  2 files changed, 49 insertions(+), 18 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/timer/cnxt,cx92755-timer.yaml
->  delete mode 100644 Documentation/devicetree/bindings/timer/digicolor-timer.txt
+>---
+> drivers/remoteproc/imx_rproc.c | 4 ++--
+> 1 file changed, 2 insertions(+), 2 deletions(-)
 >
-> diff --git a/Documentation/devicetree/bindings/timer/cnxt,cx92755-timer.yaml
-> b/Documentation/devicetree/bindings/timer/cnxt,cx92755-timer.yaml
-> new file mode 100644
-> index 000000000000..8f1a5af32a36
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/timer/cnxt,cx92755-timer.yaml
-> @@ -0,0 +1,49 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/cnxt,cx92755-timer.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Conexant Digicolor SoCs Timer Controller
-> +
-> +maintainers:
-> +  - Baruch Siach <baruch@tkos.co.il>
-> +
-> +properties:
-> +  compatible:
-> +    const: cnxt,cx92755-timer
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    description: Contains 8 interrupts, one for each timer
-> +    items:
-> +      - description: interrupt for timer 0
-> +      - description: interrupt for timer 1
-> +      - description: interrupt for timer 2
-> +      - description: interrupt for timer 3
-> +      - description: interrupt for timer 4
-> +      - description: interrupt for timer 5
-> +      - description: interrupt for timer 6
-> +      - description: interrupt for timer 7
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    timer@f0000fc0 {
-> +      compatible = "cnxt,cx92755-timer";
-> +      reg = <0xf0000fc0 0x40>;
-> +      interrupts = <19>, <31>, <34>, <35>, <52>, <53>, <54>, <55>;
-> +      clocks = <&main_clk>;
-> +    };
-> diff --git a/Documentation/devicetree/bindings/timer/digicolor-timer.txt
-> b/Documentation/devicetree/bindings/timer/digicolor-timer.txt
-> deleted file mode 100644
-> index d1b659bbc29f..000000000000
-> --- a/Documentation/devicetree/bindings/timer/digicolor-timer.txt
-> +++ /dev/null
-> @@ -1,18 +0,0 @@
-> -Conexant Digicolor SoCs Timer Controller
-> -
-> -Required properties:
-> -
-> -- compatible : should be "cnxt,cx92755-timer"
-> -- reg : Specifies base physical address and size of the "Agent Communication"
-> -  timer registers
-> -- interrupts : Contains 8 interrupts, one for each timer
-> -- clocks: phandle to the main clock
-> -
-> -Example:
-> -
-> -	timer@f0000fc0 {
-> -		compatible = "cnxt,cx92755-timer";
-> -		reg = <0xf0000fc0 0x40>;
-> -		interrupts = <19>, <31>, <34>, <35>, <52>, <53>, <54>, <55>;
-> -		clocks = <&main_clk>;
-> -	};
-
--- 
-                                                     ~. .~   Tk Open Systems
-=}------------------------------------------------ooO--U--Ooo------------{=
-   - baruch@tkos.co.il - tel: +972.52.368.4656, http://www.tkos.co.il -
+>diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+>index 74299af1d7f1..627e57a88db2 100644
+>--- a/drivers/remoteproc/imx_rproc.c
+>+++ b/drivers/remoteproc/imx_rproc.c
+>@@ -1029,8 +1029,8 @@ static int imx_rproc_clk_enable(struct imx_rproc *priv)
+> 	struct device *dev = priv->dev;
+> 	int ret;
+> 
+>-	/* Remote core is not under control of Linux */
+>-	if (dcfg->method == IMX_RPROC_NONE)
+>+	/* Remote core is not under control of Linux or it is managed by SCU API */
+>+	if (dcfg->method == IMX_RPROC_NONE || dcfg->method == IMX_RPROC_SCU_API)
+> 		return 0;
+> 
+> 	priv->clk = devm_clk_get(dev, NULL);
+>-- 
+>2.39.5
+>
 
