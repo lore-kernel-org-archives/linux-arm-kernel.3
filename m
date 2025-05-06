@@ -4,57 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 357ABC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 18:42:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B19D6C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 18:44:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LLO17FglWgYSVBW2cYDBU2hPFlvOAFb4nPLQLayDh9U=; b=HMqdBcHCa3T3ryOujs0XzpOrKT
-	jIUe+c2jprOvbWHs0tiMIOT/eJEWIjoVuBmW5Y9n6pCHxyB6JwQWHSjy9vEbdeANoswuAx9Y6lgsp
-	4Z8PwCki52pcArEHlmKkQCd6pM1uMD6x1eylACniSI4hG9jH9r+x9KKYzO+n9Gs4HMhmy2Gnm04ON
-	XDE7bu4KEhLsG5cN2NU04Tr5xpDcFEXuFsFJvH5QxAU36EfMIp5q/aEbPGFCyt+tN/Ssr3fCZvj5Z
-	z4sD+CxY6f1Hg9xYUzMVpgx6V8RqB8EgeYm/Z+15V1HZec2rXbRKzaULMQJy983KAuOwFheagqxQK
-	vBBE40IQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vHtPpa7fk/+WmbaeABnVYOQ4UiQ1m9HPELX0+koO3cQ=; b=y+7M+XBX/rQ0kGFI9AvtwER/0A
+	qFV0JSstNE9W4l8R1neXwdMKI++nio1nSXwWcdd/p6NFWzd2F8X/ySE8lAkw7hg757VAoLVlRbveO
+	WTK/FgP6FpfUnBiQ1mVMbwDvUtyY2rJPz8QNoy85xf6suRjyhNFXPq3PyTbKt7CcNtUuFaH/9GZMI
+	yg0iWAKL7KgoGKXFwYdfjAxwmUSVW3A3EdUVo9lb7EJwglZct4X4khu1sojo9PGbSrAqSjqWZBzxN
+	SXPRdC8AmGQI7BVomhjR2CpV2MyUgsOaljdlApYVoT1nTU0rkmB7Q9eeUlm5RtMLnLeKno2HjdPjw
+	PjZdsQpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCNEn-0000000D8q7-39M7;
-	Tue, 06 May 2025 18:41:54 +0000
-Received: from mail-43166.protonmail.ch ([185.70.43.166])
+	id 1uCNGj-0000000D95E-0sDx;
+	Tue, 06 May 2025 18:43:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCJe4-0000000COOr-2hwN
+	id 1uCJeO-0000000COV2-1svC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 14:51:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail; t=1746543102; x=1746802302;
-	bh=LLO17FglWgYSVBW2cYDBU2hPFlvOAFb4nPLQLayDh9U=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector:List-Unsubscribe:List-Unsubscribe-Post;
-	b=ccm8KxW9LC7iFnHe38StTvImk0UJjsJhNM/yP14IzScKDGNntYNqyapZijEE0K2/6
-	 9mU/IZHZRZ1ViPMHaNWTgk6SiV8KyKinklKvCTqqLFp/lrZasWyBTqgV3tK/a0oBqw
-	 aP5TzCcZvfF8jhcHDxzPfJNmS9osqwI3aIoPWaMJjMlLdsMMj5/yKgZAFnUK6oJNnX
-	 xciJ1qkjdgjFCcaPXw6ro2dhLJ2ARZOlXlwYGzJXYSaS+/fKMnmKED3f42dMxAdo32
-	 1Q7TPNzCuKuhNgXTxsfPF4ctIAnHjSeQcFrsf5h5NkgRDS2AMeofnFeHl3dqWiDar5
-	 NnJa5CL86Tq9Q==
-Date: Tue, 06 May 2025 14:51:39 +0000
-To: Niklas Cassel <cassel@kernel.org>
-From: Laszlo Fiat <laszlo.fiat@proton.me>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, =?utf-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, Krishna chaitanya chundru <quic_krichai@quicinc.com>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, Damien Le Moal <dlemoal@kernel.org>, Hans Zhang <18255117159@163.com>, =?utf-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>, "linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>
-Subject: Re: [PATCH v2 0/4] PCI: dwc: Link Up IRQ fixes
-Message-ID: <-6f4j_eknGQJZqqLhxH5YFUXv6uIumEfiFbaPQXGPoQYpWZUrt2y8gx6gqw_mM0leAv7U3znZbcHtlmKKdt1xZVt0ASVpH0pBIoMChf0Iwk=@proton.me>
-In-Reply-To: <aBodwvmG6ENM7haH@ryzen>
-References: <20250506073934.433176-6-cassel@kernel.org> <aBodwvmG6ENM7haH@ryzen>
-Feedback-ID: 130963441:user:proton
-X-Pm-Message-ID: 5ad6aa2b5e02d5ecce87cb33b4d947670322600f
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Tue, 06 May 2025 14:52:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 714015C578C;
+	Tue,  6 May 2025 14:49:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49002C4CEE4;
+	Tue,  6 May 2025 14:52:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746543123;
+	bh=K+msrNcjslK8gX9r4hYRpdwGYgkStkMVQt+IJpV0k90=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=RVNAFcGxw3dHYXOyVRXh5fivxKa/N2jk5eKMAvqLohOS4UebVRQrVGdWVHoZgRJTv
+	 eVq6S9v7qPUlLp7O8jG2nR0PfRuQQZn4IG4n8Ftb4ml38TzmSYyqa4YwBI0wfGTkaC
+	 X4lbuLwA01LMCckukXI1VbLv38F57prx/ajNK0b/ez39T2+d4ZhxYdgq5D1ly9Gmw2
+	 +9IG3wM2dnjxxMFiVrKJhwZcb3ptz9+ga3aMhBTKeFQMhGMbhZMPLoMD4S2LQwJkXq
+	 OAAY4auq4X0QFYWLpPi3+HrDs2nzjIC8sdXdPoM2ehDVO5Asj84WtfcCvz7VfbN5Tx
+	 Sb/tZQ1xVT76g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uCJeK-00CHhs-JT;
+	Tue, 06 May 2025 15:52:00 +0100
+Date: Tue, 06 May 2025 15:51:59 +0100
+Message-ID: <86cyclhjw0.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: =?UTF-8?B?TWlrb8WCYWo=?= Lenczewski <miko.lenczewski@arm.com>,
+	ryan.roberts@arm.com,	suzuki.poulose@arm.com,	yang@os.amperecomputing.com,
+	corbet@lwn.net,	catalin.marinas@arm.com,	jean-philippe@linaro.org,
+	robin.murphy@arm.com,	joro@8bytes.org,	akpm@linux-foundation.org,
+	paulmck@kernel.org,	mark.rutland@arm.com,	joey.gouly@arm.com,
+	james.morse@arm.com,	broonie@kernel.org,	oliver.upton@linux.dev,
+	baohua@kernel.org,	david@redhat.com,	ioworker0@gmail.com,	jgg@ziepe.ca,
+	nicolinc@nvidia.com,	mshavit@google.com,	jsnitsel@redhat.com,
+	smostafa@google.com,	kevin.tian@intel.com,	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev
+Subject: Re: [RESEND PATCH v6 1/3] arm64: Add BBM Level 2 cpu feature
+In-Reply-To: <20250506142508.GB1197@willie-the-truck>
+References: <20250428153514.55772-2-miko.lenczewski@arm.com>
+	<20250428153514.55772-4-miko.lenczewski@arm.com>
+	<20250506142508.GB1197@willie-the-truck>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: will@kernel.org, miko.lenczewski@arm.com, ryan.roberts@arm.com, suzuki.poulose@arm.com, yang@os.amperecomputing.com, corbet@lwn.net, catalin.marinas@arm.com, jean-philippe@linaro.org, robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org, paulmck@kernel.org, mark.rutland@arm.com, joey.gouly@arm.com, james.morse@arm.com, broonie@kernel.org, oliver.upton@linux.dev, baohua@kernel.org, david@redhat.com, ioworker0@gmail.com, jgg@ziepe.ca, nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com, smostafa@google.com, kevin.tian@intel.com, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_075145_275212_4B9E902A 
-X-CRM114-Status: GOOD (  16.43  )
+X-CRM114-CacheID: sfid-20250506_075204_598591_CC3F456F 
+X-CRM114-Status: GOOD (  27.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,55 +95,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 06 May 2025 15:25:09 +0100,
+Will Deacon <will@kernel.org> wrote:
+>=20
+> On Mon, Apr 28, 2025 at 03:35:14PM +0000, Miko=C5=82aj Lenczewski wrote:
+> > The Break-Before-Make cpu feature supports multiple levels (levels 0-2),
+> > and this commit adds a dedicated BBML2 cpufeature to test against
+> > support for, as well as a kernel commandline parameter to optionally
+> > disable BBML2 altogether.
+> >=20
+> > This is a system feature as we might have a big.LITTLE architecture
+> > where some cores support BBML2 and some don't, but we want all cores to
+> > be available and BBM to default to level 0 (as opposed to having cores
+> > without BBML2 not coming online).
+> >=20
+> > To support BBML2 in as wide a range of contexts as we can, we want not
+> > only the architectural guarantees that BBML2 makes, but additionally
+> > want BBML2 to not create TLB conflict aborts. Not causing aborts avoids
+> > us having to prove that no recursive faults can be induced in any path
+> > that uses BBML2, allowing its use for arbitrary kernel mappings.
+> > Support detection of such CPUs.
+> >=20
+> > Signed-off-by: Miko=C5=82aj Lenczewski <miko.lenczewski@arm.com>
+> > Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> > Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+> > ---
+> >  .../admin-guide/kernel-parameters.txt         |  3 +
+> >  arch/arm64/Kconfig                            | 19 +++++
+> >  arch/arm64/include/asm/cpucaps.h              |  2 +
+> >  arch/arm64/include/asm/cpufeature.h           |  5 ++
+> >  arch/arm64/kernel/cpufeature.c                | 71 +++++++++++++++++++
+> >  arch/arm64/kernel/pi/idreg-override.c         |  2 +
+> >  arch/arm64/tools/cpucaps                      |  1 +
+> >  7 files changed, 103 insertions(+)
+> >=20
+> > diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Document=
+ation/admin-guide/kernel-parameters.txt
+> > index d9fd26b95b34..2749c67a4f07 100644
+> > --- a/Documentation/admin-guide/kernel-parameters.txt
+> > +++ b/Documentation/admin-guide/kernel-parameters.txt
+> > @@ -449,6 +449,9 @@
+> >  	arm64.no32bit_el0 [ARM64] Unconditionally disable the execution of
+> >  			32 bit applications.
+> > =20
+> > +	arm64.nobbml2	[ARM64] Unconditionally disable Break-Before-Make Level
+> > +			2 support
+>=20
+> Hmm, I'm not sure we really want this. It opens up the door for folks to
+> pass 'id_aa64mmfr2.bbm=3D2' without updating the allow-list which feels
+> like it's going to make crashes harder to reason about.
 
--------- Original Message --------
-On 06/05/2025 16:33, Niklas Cassel <cassel@kernel.org> wrote:
+Passing id_aa64mmfr2.bbm=3D2 shouldn't have any effect if the HW doesn't
+advertise it already, as you can only downgrade features. Trying to
+upgrade features should leave a nastygram in the kernel log.
 
->  On Tue, May 06, 2025 at 09:39:35AM +0200, Niklas Cassel wrote:
->  > Hello there,
->  >
->  > Commit 8d3bf19f1b58 ("PCI: dwc: Don't wait for link up if driver can d=
-etect
->  > Link Up event") added support for DWC to not wait for link up before
->  > enumerating the bus. However, we cannot simply enumerate the bus after
->  > receiving a Link Up IRQ, we still need to wait PCIE_T_RRS_READY_MS tim=
-e
->  > to allow a device to become ready after deasserting PERST. To avoid
->  > bringing back an conditional delay during probe, perform the wait in t=
-he
->  > threaded IRQ handler instead.
->  >
->  > Please review.
->  >
->  >
->  > Kind regards,
->  > Niklas
-> =20
->  Hello Laszlo,
-> =20
->  Since you have a RK3588 based board, sending a Tested-by
->  tag on testing patches 1-2 makes sense.
-> =20
->  However, patches 3-4 are for Qualcomm based boards.
->  I'm not sure if you also have a Qualcomm board at your disposal.
-> =20
->  If you don't, Manivannan can probably drop your Tested-by tags
->  on patches 3-4, but it might be good to know until next time.
+	M.
 
-Hello Niklas,
-
-You are right, I only have a Rockchip based board, which I have tested on.=
-=20
-Mannivan should drop my Tested-by tags on the qcom patches. My mistake, I a=
-m sorry.
-
-> =20
->  Thank you for testing!
->
-You are welcome! Thank you for making my board work again.
-
-Bye,
-
-Laszlo
-
+--=20
+Without deviation from the norm, progress is not possible.
 
