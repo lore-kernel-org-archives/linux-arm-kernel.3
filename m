@@ -4,81 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9E22C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 13:39:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8336C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 13:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RpHmsXnTE8Ah4aeveKhPrmGpWgl0nHpMPDu8HAWcLjI=; b=wwxsWQfrWxw4vCJkJlrYbH9eFc
-	LE6Lk3qH74tpwSF85U6fPif87cWy0tPrUbb3rkAkK+3ks3sPEHVn7nitIwT25VW7UOVcYknVriuRw
-	WAtdoxFA6/ieYtkKYW/fZ1ohdHtvhzgOwCc1+QCrxGJ4h9AF4nU+XOSiMCPt3KPBCBXqX4I45w+dr
-	8+07QNIQG6bxg0+JLBifPjAAcoeNkHeZ88891k5Sm7lxQIx34SACHna1UHvu9TEjr/Gbgjt1ZzFF4
-	zuiwpWyquYSTTKI+nTtNC2wLdnTUnav9ABf9nulgqVQXCQP0zraUxa0yGqNgo96ypTUY9VJstUapL
-	vzPDqjUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O2rqsS+7CIPhwzmnA7i4FOO8hEThqmeuLPa/ESAe03U=; b=Pv0ERakRz2RBMDESPZU9m7YRjf
+	W/7u6ESn+vdIQG8XIJ8n8bOKX0DLz2ajBQeXxh8L6hg3p3x6lLgMuN0IIteBaMdhDqTJ8LSwB3WLq
+	zjoku9Mxt4ZhvE7/wPawIiYoiF60D0GsejJUX6bzw0ydpNNX3Unaj3sDJCl2e0u8kRoKNDq7Ir/br
+	7o3l87wnn4AitLuppfYfZEV0O/Y5Lh7mJdsENvEid4Qu2bQXV8FDm+qlWSghV3IyZ52gqHCZBkT/l
+	KXob64d6DHlaqqseOMdfWYVlR64zyHOTj6DVcFyGZf1wJIt4hLyabAwe1aC3G4B8MW4Vs9FGKTrXo
+	t9jXjVHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCIWJ-0000000CABB-1fCa;
-	Tue, 06 May 2025 13:39:39 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uCIYE-0000000CAp6-1fEZ;
+	Tue, 06 May 2025 13:41:38 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCG85-0000000BfU3-13Ah
+	id 1uCGEK-0000000BgtY-0x5Y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 11:06:33 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 546B61Z8485503
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 6 May 2025 06:06:01 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746529561;
-	bh=RpHmsXnTE8Ah4aeveKhPrmGpWgl0nHpMPDu8HAWcLjI=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=mtGajJ+2ocilvtKLbYDb2fA4eaC6yhkid+AANZKiHs/wo99xmiAUbXhyqIAZ/9EeG
-	 9FxgLhpalUm3bdpHxcsZZJLsGioZ7tXeIS9RTsLNNvYU0Nf9ESwUdxOvkwITi+omZc
-	 Xhn77h3nhSEZV3fStZNG8j4T61STZj8Dveqp86HU=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 546B61Dw003211
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 6 May 2025 06:06:01 -0500
-Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 6
- May 2025 06:06:01 -0500
-Received: from fllvsmtp7.itg.ti.com (10.64.40.31) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 6 May 2025 06:06:00 -0500
-Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by fllvsmtp7.itg.ti.com (8.15.2/8.15.2) with ESMTP id 546B60II102224;
-	Tue, 6 May 2025 06:06:00 -0500
-Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 546B5xXU010352;
-	Tue, 6 May 2025 06:06:00 -0500
-From: Meghana Malladi <m-malladi@ti.com>
-To: <namcao@linutronix.de>, <horms@kernel.org>, <m-malladi@ti.com>,
-        <john.fastabend@gmail.com>, <hawk@kernel.org>, <daniel@iogearbox.net>,
-        <ast@kernel.org>, <pabeni@redhat.com>, <kuba@kernel.org>,
-        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Roger Quadros
-	<rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: [PATCH net v2 3/3] net: ti: icssg-prueth: Report BQL before sending XDP packets
-Date: Tue, 6 May 2025 16:35:46 +0530
-Message-ID: <20250506110546.4065715-4-m-malladi@ti.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250506110546.4065715-1-m-malladi@ti.com>
-References: <20250506110546.4065715-1-m-malladi@ti.com>
+	Tue, 06 May 2025 11:12:59 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43cfebc343dso36753825e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 04:12:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746529972; x=1747134772; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=O2rqsS+7CIPhwzmnA7i4FOO8hEThqmeuLPa/ESAe03U=;
+        b=lMtAtBvvsNJkcg0mZEDNrV2P+gcyBsd1fHPf1I4WlWpJLbJho0Jl2clCOhPN7H1Y/s
+         /IqBZZqHR+uXIWB9HTM5SfWxJ8Fb0X1msrrqkZN/pg6sgZRN4B6UjEkNmJeegTSJS/8e
+         Xg4Yf+kWzulplFr8dySzQaB6zt0cGkGs6r1ccqrIvJKyabZEu40MTwIU0F4+v4X+F+6Q
+         RhAjhejUfYz2Q7vRUNMpSU6LDXwyYON16crQ/MXaIsI0VER7pN0vIjBJ1kCdZuKxGjkb
+         XbDjYwBJS1gm+3Z6nt1VORuCJahgpLDORZJA6cNyP4XSP8v7HoLCoJqnH0LgjQ0CiORv
+         HzAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746529972; x=1747134772;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=O2rqsS+7CIPhwzmnA7i4FOO8hEThqmeuLPa/ESAe03U=;
+        b=U0/ek1w4JsMyxVtd5LNk25uampt8hXAmDhgvI+l0OVChsCt5vef1qM5FA7az0W6b2+
+         VXYHbxp55nEAnMHuKjEW46WRXXT1I6xsojOxGHiPOWsXBbW9xRipwoJc/LRmukXjeBvH
+         uoyvOVWxhv6j1dUBcS/Kwg1fkosVYUVY3omJMIqM4AGw/kg1CUFy2ILrpR5vz/pzqvMo
+         yHZ/rSfaWdS5clsasfzFf5uEPjwO5i61YYlCnRLeCkWUpb1QGm+aacGwh6PHys9jA6sJ
+         HmVnsquRlpJGB5/jQ8049XCYn5VJFTn6MRRuWs0aHA9ABYh0jU1UDgDbPM1ZVpjlJ8Ce
+         hVqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVnFZGMGRgZnTL2htH+L8kbm0iCngTm7h0sHRJmE0z4fnnf6rLHhrBREw7fHkiXL2Xxg2NDes58m1hbI+stNe5I@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKDZUbinEhsjXM0MRfeMH5ddBNpN1ZkbCxp9fcJ8bJxKAWgsV3
+	tgJKTRiWCpOn1894sWN7Y18ThjP9LMCIrLebhQkmOs3icC3n5WkNC54qbtcopBa+LSmAhTE1+4N
+	JXwTmafi6pxGGKJZR5yqf6KYBFvI=
+X-Gm-Gg: ASbGncsi9q6/K82QxPXtB6YUR4Z4Ro/jjXnZP6mmfu59k92iDfnDU023cMkikmBekP9
+	y7ljx9eYgL7Y0mIbnJh2H7Tx9nM6cJFnVCgPGp+8/GiASvPxoFUHqqS33SQph8J6mUAR/l5eBmJ
+	Z7eF8S+tG+PsY3YNgm+TwB06waqVh8SXeOGA==
+X-Google-Smtp-Source: AGHT+IEl8WOsOctZB6vC/J5QfmXY3sgD9nIFkIDBu4WcUX+Px3DXCBoXBfXgsmay8+RXay1gXsI3eMHzNv+p6FEZHbU=
+X-Received: by 2002:a05:600c:37ce:b0:43c:f4b3:b094 with SMTP id
+ 5b1f17b1804b1-441bbea0e40mr140979485e9.6.1746529971892; Tue, 06 May 2025
+ 04:12:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20250506104731.111876-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <3a11ba8a-a9f4-4829-8bcd-56f1702bee8f@linaro.org>
+In-Reply-To: <3a11ba8a-a9f4-4829-8bcd-56f1702bee8f@linaro.org>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Tue, 6 May 2025 12:12:26 +0100
+X-Gm-Features: ATxdqUEJZorzolIgvsTdLshEsTPYYiqnZz4o7Z9Dl-6jDsMyiFJ-9tbycLt3cAM
+Message-ID: <CA+V-a8s_98eGfBe353Tp6TxZMtkc8JyP2KtxW55c_uN9ZB=NxQ@mail.gmail.com>
+Subject: Re: [PATCH] arm64: defconfig: Build STMMAC Ethernet driver into the
+ kernel for NFS boot
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_040629_378568_6EAF949D 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20250506_041256_261967_671BE087 
+X-CRM114-Status: GOOD (  21.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,72 +100,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When sending out any kind of traffic, it is essential that the driver
-keeps reporting BQL of the number of bytes that have been sent so that
-BQL can track the amount of data in the queue and prevents it from
-overflowing. If BQL is not reported, the driver may continue sending
-packets even when the queue is full, leading to packet loss, congestion
-and decreased network performance. Currently this is missing in
-emac_xmit_xdp_frame() and this patch fixes it.
+Hi Krzysztof,
 
-Fixes: 62aa3246f462 ("net: ti: icssg-prueth: Add XDP support")
-Signed-off-by: Meghana Malladi <m-malladi@ti.com>
----
+On Tue, May 6, 2025 at 11:52=E2=80=AFAM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+>
+> On 06/05/2025 12:47, Prabhakar wrote:
+> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> >
+> > Enable `CONFIG_STMMAC_ETH` as built-in (`y`) instead of a module (`m`) =
+to
+> > ensure the Ethernet driver is available early in the boot process. This
+> > is necessary for platforms mounting the root filesystem via NFS, as the
+> > driver must be available before the root filesystem is accessed.
+> >
+> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>
+> Same comments as for previous patches like this (even the same?): you
+> are supposed to use initramfs for your arm74 boards. Even armv7 boards
+> use initramfs, so network driver does not have to be built in.
+>
+> For example all of our setups use it thus we do not have to populate all
+> other vendors with our own drivers.
+>
+> Sorry, but I am strongly against such change. Kernel is already way too
+> big and with KASAN it does not fit to boot partitions in some of the
+> devices (and I cannot change the boot partition size, at least not
+> without big effort).
+>
+Thanks for the feedback. I understand your concerns, and I agree with
+your comments regarding the use of initramfs and the impact on kernel
+size. I'll drop this change and avoid adding the driver as built-in.
 
-Changes from v1 (v2-v1):
-- reordered the patches in the series as suggested by Jakub Kicinski <kuba@kernel.org>
-- Dropped patch 3/4 from v1 as suggested by Jakub Kicinski <kuba@kernel.org>
-
- drivers/net/ethernet/ti/icssg/icssg_common.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
-index 36d5cb25c017..5b8fdb882172 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_common.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
-@@ -187,7 +187,6 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
- 			xdp_return_frame(xdpf);
- 			break;
- 		default:
--			netdev_err(ndev, "tx_complete: invalid swdata type %d\n", swdata->type);
- 			prueth_xmit_free(tx_chn, desc_tx);
- 			ndev->stats.tx_dropped++;
- 			continue;
-@@ -567,6 +566,7 @@ u32 emac_xmit_xdp_frame(struct prueth_emac *emac,
- {
- 	struct cppi5_host_desc_t *first_desc;
- 	struct net_device *ndev = emac->ndev;
-+	struct netdev_queue *netif_txq;
- 	struct prueth_tx_chn *tx_chn;
- 	dma_addr_t desc_dma, buf_dma;
- 	struct prueth_swdata *swdata;
-@@ -620,12 +620,17 @@ u32 emac_xmit_xdp_frame(struct prueth_emac *emac,
- 		swdata->data.xdpf = xdpf;
- 	}
- 
-+	/* Report BQL before sending the packet */
-+	netif_txq = netdev_get_tx_queue(ndev, tx_chn->id);
-+	netdev_tx_sent_queue(netif_txq, xdpf->len);
-+
- 	cppi5_hdesc_set_pktlen(first_desc, xdpf->len);
- 	desc_dma = k3_cppi_desc_pool_virt2dma(tx_chn->desc_pool, first_desc);
- 
- 	ret = k3_udma_glue_push_tx_chn(tx_chn->tx_chn, first_desc, desc_dma);
- 	if (ret) {
- 		netdev_err(ndev, "xdp tx: push failed: %d\n", ret);
-+		netdev_tx_completed_queue(netif_txq, 1, xdpf->len);
- 		goto drop_free_descs;
- 	}
- 
-@@ -984,6 +989,7 @@ enum netdev_tx icssg_ndo_start_xmit(struct sk_buff *skb, struct net_device *ndev
- 	ret = k3_udma_glue_push_tx_chn(tx_chn->tx_chn, first_desc, desc_dma);
- 	if (ret) {
- 		netdev_err(ndev, "tx: push failed: %d\n", ret);
-+		netdev_tx_completed_queue(netif_txq, 1, pkt_len);
- 		goto drop_free_descs;
- 	}
- 
--- 
-2.43.0
-
+Cheers,
+Prabhakar
 
