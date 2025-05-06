@@ -4,206 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A273CC3ABC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 23:36:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3421C3ABC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 23:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H/Ae/xqo8vTnF8ccaia1u51lsh7VJ3nmzVaPqCyCtr0=; b=sP5RnFtgiZUgfu5OqhJ470JYP/
-	b1XbdVT0I1aa34VUQuUnBPjxNsFs4vlpwy7pyeI9/4mY7Aep3Z7nFHXTkrdcF1OlQW2UU9TXHjBKK
-	EfjPi62n3NIZL3V848asYWpxypznN5ovs1cN3EuQv6Wm+UlDE+89vwWJkfiuuLyCxDJnEk9Gv6H0F
-	XUx2C698dx01tAHIfJwb6tvAi0afMrWpMGMYnmh1ZuJBvDkGa+USTLgDMvQZY8Jq97zWrLQOzRhmp
-	gjWaRwJbEwKDdV8Ht0ekpHbQcxQjdxjc+77tSteusJqbb+qd969Q6jJ1rtdiPfx33ig8C1tssPF/i
-	qByEbKdA==;
+	bh=vysEee6A+FvK+kmrD2/MPaMpXTHuhP73mvK1GtLdlgw=; b=DyU9G8juE7wO4GUZ6nEWY2M5Py
+	p0SahpyfzXYngqjHu3D+nRd4Aey+Juos51ZHNR3h7zSf26WtUSqM0v2y5uKLAWzdI1s/Fw83nHXzT
+	ts5M7rsTIEcVe3GQhprNAMYmGb4r1RRXlopcAtSJ1ORonf9xIgO3AU5WJNDjJ2bGqldE+kyyt0F5O
+	TxIBx3zaWdCmkzqBU/Wcdu9wAykjSaiHf5ZdW1nou1Byzpw3xpSDhxlArFVEV7puZ/7ajx51Jrslo
+	ChQCnpNrCSLGcugLshzcmeucWbGK2bI85C6DUsBvOYB4KfQJzuDaJ6JfchqHm3IVB5sE6+pATSMOi
+	e0yAlaBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCRpT-0000000Dg5C-2BY1;
-	Tue, 06 May 2025 23:36:03 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1uCRpW-0000000DgAd-35Iu;
+	Tue, 06 May 2025 23:36:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCMvx-0000000D04G-3Liu
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 18:22:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1746555746; x=1778091746;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=1pjRK5FcPhaq69Js353h58c48lk7/72ug7vaCr94lWg=;
-  b=gHycDAFaPUGFHvV6JgLc2htDLUfBIC2sqlYxUhcvJxpb8OXjnYvEA4Ib
-   n6NYbdPh+Adc+wRc2i/JzC55kYXwt74HxaYPLR6NYuh35lGk5dx30HFVt
-   1qRbBfhqs21TyQttovffUOa+zFikHylQ+P2cDRQwB4qC/p0oeuq6jatyc
-   0duqWvaXpqMJFuJHidyFmsJg0YVdG99JiSpgylhy1B8h+d5poEB7Vmn/C
-   0/Tr7h67DJtuSKJzzdXpWcGIi7cPihAGIUJv5qdXBCQLL+UA9l6NJ5tmA
-   n2KHmC1e22JhMOncJS+ta4w3PwJpubdWJTU85mXIhAypssdHS8w8V4Elr
-   A==;
-X-CSE-ConnectionGUID: XUQismtmTi+dY2CqorktRg==
-X-CSE-MsgGUID: 52lLXcRMRd+2Z6qAH70txg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11425"; a="70751024"
-X-IronPort-AV: E=Sophos;i="6.15,267,1739865600"; 
-   d="scan'208";a="70751024"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 May 2025 11:22:25 -0700
-X-CSE-ConnectionGUID: OIV02ipzQGSNjl8ptjrbnQ==
-X-CSE-MsgGUID: 2GzEAxGbT3q2uHvC2fQ0Yw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,267,1739865600"; 
-   d="scan'208";a="158994714"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 May 2025 11:22:24 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Tue, 6 May 2025 11:22:23 -0700
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Tue, 6 May 2025 11:22:23 -0700
-Received: from NAM10-DM6-obe.outbound.protection.outlook.com (104.47.58.43) by
- edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Tue, 6 May 2025 11:22:20 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uSS2QJQqrjMHCpLiAFAXcW5IjhLVpxPdBvkXNTfDiR/ZCSjtkQKKoXswTVwzhZnV/f8Pa4gnbR0FIXyh+DbW/GSUJa0J8HTV2HJZwKPZGbXXq54lgPynMmxNqBKhirOwu1hfLBks6JMVBocOSlxIytlT/K3Q/Vae8id2gGg3KA9d0uD8Nm9TWAwsN2IuKNEUNEkJHHjUl6xUgYCwH90e5R54qSp/11ImvpJuGBT8iSQ5bS1X9GqFcsiQHvpFnEPUGQSGaAQmZ7i+jqPFzhfYVNC1rfjHIFnC/FrSTJ0N332xHuKmDNdWssBvHbC/zgVOLbzi+k79PTYYB8N2X3Ml5Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=H/Ae/xqo8vTnF8ccaia1u51lsh7VJ3nmzVaPqCyCtr0=;
- b=BhqFyRLRoL9rPzZjvplI3NtGf6ZvA6vHDo04MfMwfPycP4Cf8rEcQCUox2OOtePZ8JOMAWz8Prv0JuWOqc5zdrLsKPSnxNmj6LXRYgJ1nxRepKsBTbnl899w8E1ZZBpD51WL9lmbFQRuFJZQ38txACBY2pDmGJE2KrlVI+vio/eZmppaVG73z4ivcmRKOczsSUS135Ur3CDV/BfEri0FU1xCRRhGaEVTRkGz4lTGHqm9HrYbL9N5Az6+ctkTLlDskfsAqy2e9Yv1RQYTarLmMMhDlRNqXGdsdPR/CG2O4rpkpDjlOqPogWppIIeosT/JJA7tutzQ+2oTM1JsI0aqzA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from CO1PR11MB5089.namprd11.prod.outlook.com (2603:10b6:303:9b::16)
- by DM3PR11MB8684.namprd11.prod.outlook.com (2603:10b6:0:4a::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.20; Tue, 6 May
- 2025 18:21:43 +0000
-Received: from CO1PR11MB5089.namprd11.prod.outlook.com
- ([fe80::7de8:e1b1:a3b:b8a8]) by CO1PR11MB5089.namprd11.prod.outlook.com
- ([fe80::7de8:e1b1:a3b:b8a8%5]) with mapi id 15.20.8699.019; Tue, 6 May 2025
- 18:21:43 +0000
-Message-ID: <b0c6e2e6-b433-4ffd-b12d-956abee0a0bb@intel.com>
-Date: Tue, 6 May 2025 11:21:41 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 2/3] net: ti: icssg-prueth: Fix kernel panic during
- concurrent Tx queue access
-To: Meghana Malladi <m-malladi@ti.com>, <namcao@linutronix.de>,
-	<horms@kernel.org>, <john.fastabend@gmail.com>, <hawk@kernel.org>,
-	<daniel@iogearbox.net>, <ast@kernel.org>, <pabeni@redhat.com>,
-	<kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
-	<andrew+netdev@lunn.ch>
-CC: <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Roger Quadros
-	<rogerq@kernel.org>, <danishanwar@ti.com>
-References: <20250506110546.4065715-1-m-malladi@ti.com>
- <20250506110546.4065715-3-m-malladi@ti.com>
-Content-Language: en-US
-From: Jacob Keller <jacob.e.keller@intel.com>
-In-Reply-To: <20250506110546.4065715-3-m-malladi@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR03CA0091.namprd03.prod.outlook.com
- (2603:10b6:303:b7::6) To CO1PR11MB5089.namprd11.prod.outlook.com
- (2603:10b6:303:9b::16)
+	id 1uCMxM-0000000D5pN-3SSi;
+	Tue, 06 May 2025 18:23:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2A64E61165;
+	Tue,  6 May 2025 18:23:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 952E3C4CEE4;
+	Tue,  6 May 2025 18:23:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746555831;
+	bh=k+mZaSBaKRCfObPQ+dsbeXUoUesj23G8rm5vuy4hQkg=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=WnILdT6026fJnLUCFRq2f39GIiWLmWFFlFKbCS1RkTbkN1Ro5NPLL00xt3IuzgWa6
+	 mVc4xqnnYIFJDIAcOP3UxzS0YhjdDeYW68pmBElrVVDgaTteoCRTxc1s0XmCbRX5J9
+	 kxX7arPEwlkC34yRC7p6xlfAPoRCbAYb9i/8T57lXtEg3BBYaPY1jmRUgJQtu/y7ei
+	 RjSUgSfNbg/ml2CZ8970EimefJA7q0+ja3kweOaNzMZUnTYV+5KoekMzB8cw8RAuAT
+	 EYX7tq1TuxxLTQNJGOjq0hwvd9ooa6auTWge7Qxfi/EjEJKbN244Oh/Rs7mPm8m8XW
+	 FbCPOJN0Jf+6g==
+Date: Tue, 06 May 2025 13:23:49 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PR11MB5089:EE_|DM3PR11MB8684:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2086215d-df26-4931-5a79-08dd8ccada6d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|921020|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?QjhDSFVRYUtncitLQW04V0RydXZJdUhTcnIwT1lxb2hJU3Mzdy9OckYrNmJa?=
- =?utf-8?B?TXRzZC94QkV1VE5QMGZkN3k2S0VyZFZxQlE5VHdPSWZqeGtvSTRJOWRQM2dp?=
- =?utf-8?B?TjBDWndzUWMyRmgxd0NWenB6YXF4Zm5SYnRQWXp0SWlBcFE3dERaR2JRS3Bi?=
- =?utf-8?B?eWtBbjc3a2hucWdLdWorV2wraFBuZFF6MFBLTHZNSUtBUFRHUExKNzAzeTFK?=
- =?utf-8?B?YUo3cTNMU3Q2WUkvVDM5L0NVQTdnMEpNcnFTaHlENk1hclFRbkR6aVFZYStE?=
- =?utf-8?B?MzdLYUQ4WWRabkJrcnBQNWxzeUxOcVJOMzN2bFNML2pROXp5TjJQQzRXV21L?=
- =?utf-8?B?RHRvcG1QNVdDT0ZJb3NSWjdORFQ5RmNlSUpDQjIwcHV2MEVFNFpqdUdSaGt5?=
- =?utf-8?B?MUVsY2oxSXFmQnFzU1pDNDZCOERvQ3hFTmJnRVI0NjkreVZ4aTlyQ2tsNFlU?=
- =?utf-8?B?d0kzNE5obllZK0JCNUNHcE85SUhHVHZncXZvVUZkd1FGUEM4Yk5TeVhmM0ls?=
- =?utf-8?B?a3l1a0xMYlFwVzRVeVFoaGRhcjc3ajlMYnM4OU1iYXc1YVpOampJOFh2OXNl?=
- =?utf-8?B?TnpTdndyby9WZW9hMEVHVzRGNlVQbDNiTWhpczg0VEgrZ1l6OTVKdFN2WGk3?=
- =?utf-8?B?VnVVV3FrS3BVVFBUSXRaRGQrMUNDWFZNQm5hT3owOUJsSG1OVWw5cEtkbkdD?=
- =?utf-8?B?RDN5UTRTeVFmWTBsKzZrRmFMazdxa245bVp0NjhIQjRBOW1DT2pBMTlyZzJ5?=
- =?utf-8?B?aGlhRW5EYWVRcmh5aEVWUnR1WkJSQlRUT2VISU5VSFBxMzFZbG90cStZcDZO?=
- =?utf-8?B?MVQvcERwWE1Vc3FVa05FWW5OOHJPaGJCVkpXWmVvc3hEZG9Pa0l4OXFmcFNM?=
- =?utf-8?B?a211UUllaDJ1U1BWd1dFUGVJK3huZ2RoUk1tS3A4d0tiOHlFUTNjOHZwcmRM?=
- =?utf-8?B?VW9ZTWhNR0VtdXRuRHFBYzFnMm1MY1dtYkxuVmNVdDYxSHZub3dvNXVibzBP?=
- =?utf-8?B?ZEdsZDdtVEdISzdERkF0ZnM5dDU4SlQ2UnBGNFJYM21zYlZGbFNRN3FNQUlY?=
- =?utf-8?B?SWM0VytySVN2MDlsMjZtSGU4TDBPdmlyOGVVZmgrcDRsc09Ud3dNZSs3cTEy?=
- =?utf-8?B?TDZJbFlNSGN4aVRIdGVIdzJVNXpubkxUUHBBR0wwdWNGeUJ1UGVlWFlHb2pF?=
- =?utf-8?B?RDFtQW1lcjFKbHlqQ2x1MXJlQ29BcnVlRFRRVC9XUktaRkUwVHZFVkZ3L01x?=
- =?utf-8?B?bFBEaHg2d3MyRWViR1pMOW5qa2hrdkVGVzZHamxjRnNSNGdydmJGM01OSENs?=
- =?utf-8?B?K0Z2amp0L0JndVcrd25EUWZxbFZjYjFFZ3k1SkE3bkFBUVIwRm1lSnBKcW9T?=
- =?utf-8?B?anUzUmFhV3pNREZBMlZGcm55bnNKOTBjaTNiNE1TWUVLOTNFZFNSbUYvWThY?=
- =?utf-8?B?OU1qUk1QOENtYzRwSDNIK09YdWowZ0lyNThyOGhZNk43czBuWFVFZ0RrUDV5?=
- =?utf-8?B?YjhRVE5GYzYrMGZaVHBCamxNZDlWYXdBWGQzVjdUZW43QWNJQnRtK09XRDY1?=
- =?utf-8?B?d2tsa1JGZjFmVXd3QVgzUkJYUG1CaTFndmJWanBSTTNUOFE3MG1USDR0cElu?=
- =?utf-8?B?REJoeUd4YkVvNFJRRHZ2VHpMbDNGdml1dUtGTllXbmlVdUZXQ3EyUytjWGdj?=
- =?utf-8?B?bVJZbThEK0QrbUptblRaVk5MdC90aEhTeWtvdjUwY1V2aXY1NHdlS3VKNytp?=
- =?utf-8?B?ZzRKaFZxdVlxTVNTck0wVlpqcmlhais3Ui9vZ0xHM0dUTElCYmtYdHlRSTFT?=
- =?utf-8?B?cEQwRXJ3ZXFIS1gxeEoxR3ZuRGNzMEF2eHVGeFg1OUJOZjlkN2QvdldQQWZG?=
- =?utf-8?B?UnlSQ3VYdEgwY2RhUE5Mb2VabHJWTFRGbHBsaUd6V1h4OXVVSGJObndvUmJa?=
- =?utf-8?Q?TLrZdzp/v8g=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5089.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(921020)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c01Sd2dCSk94bko5d2RFdXhqcVVPUlQ3SzJ2aHFLN2NyaTd1ajBPdWQrenVa?=
- =?utf-8?B?SDRoWWRFeE03NFZIcUNFY0h6dkY3ZTNNdzZhU1hVemFxcXpVRGluZFBWVjU5?=
- =?utf-8?B?cFNIanFRNytaMERERjhlNkF4aFhycEU0VnVqVEh3dmdnK3k1Wi81Y0xWclg0?=
- =?utf-8?B?YVFtSlRZbEIrRXcrVkFZTWxkTVAvWGVCUER2Q3dqVzZmWml1ekxnWmhCZU84?=
- =?utf-8?B?ekJqYUoyQVl6THV5dGlVNnhzeS9pQjI3cThoS1VlZWdEdkpuS3V6VVdpcXZJ?=
- =?utf-8?B?SmZIMGtrcERld2ZDYzdlM0tHL3RCNStETUZBdWdJaE9FZWtkZ1ZzNlBvQmRQ?=
- =?utf-8?B?enZWeHFNSDR4RzVmVjk4NnE0K3I5TDU0Z29qOExaL3NEbVpBelJiZU1za0lu?=
- =?utf-8?B?aENEdmxSWVZXK1p0RnlLOHNLcnh4VG9xRGZRUHZqT2J1ZHl4Ukh0NzZKSDFn?=
- =?utf-8?B?cHAzVFV4dGd1Wi9CV3Z6TjN3b2FnK0JEM09mak5jenZTcGIxdDRLanBxbXZa?=
- =?utf-8?B?eTAvQkZSWXV0bENvaWF6SDNXbzlHcGNzUUx6RE1rK2hpRU9zUFFsc1c1ZkZV?=
- =?utf-8?B?OUsxQzM1Y2NDNkFheitZNTNIblFEMzloZ2tuR1hrcmpkNXkxUjdLUDNBKzVX?=
- =?utf-8?B?Z0NVV1dua2NXM0xWWGxBcmdSRkYwNW1CSjlacDk4OHE5V1p0SnhYRFdOWXFi?=
- =?utf-8?B?TTN1Nld2bVlRSzIvWit4ZzFDZVBJVUp5SlVWN29ib1k2TVlGcFFpN0xnSHc0?=
- =?utf-8?B?YmNROWV1N0J3NnRZMkthdEk2T3FNeS9xdkRpSlFHL2FrUUU4RDZFMk9iV0Zt?=
- =?utf-8?B?bUh0azlDK0QyM1dlemJXSGo5eG1QNFA0d0RmdG8vKzlEUzcrVEljRkhyZjB5?=
- =?utf-8?B?bUZrYU5oT01jb2pOYXNHdnk3VzhVeWxNcTh0VlAvR3QrcVFtSkoxbENtTUI1?=
- =?utf-8?B?Ukh5cHhmWUZJamlZQUdSVVZSSHBCelROMEMrRDdJUmhTZU43SFppamVUWWp5?=
- =?utf-8?B?cUlLeDg1Q1NPNUNnandrYi8ycVdwVlJ2aE8xeWdwcS91aXcrb1VDTmxrNmQv?=
- =?utf-8?B?N1grTFY3ZlExOU1wcGtEMG05OU04UHpSYnpSUjVQRmxrTXlxRURPNzg1SWg4?=
- =?utf-8?B?U1FKQUNxaG4vQjljazV5ZkxqRkJrdHJnUGNqWDF4aG40WmdlS0FhMHFYTFhj?=
- =?utf-8?B?OTV5WEgyc1ZaOFNaeFplRTRIOWw2bGFNN0VBUzVCYnAzMVdFU2RlV1lEZ0Q2?=
- =?utf-8?B?a2o2ejRMQWhsTmMwU1VnZWRITzAvTG1yR3hRbnlQODM5MmtRZjZUWXFwK1lY?=
- =?utf-8?B?YURrWjBVZ2RleG1PSUdNeG1PVXFCd0tYMG5lckZlU2w3V1FKNm50bFh0OXJu?=
- =?utf-8?B?bmc1RnhjT3JmdlFSaEl1TjdQOXlvZ1RCY2JVS1RJTDdVK2pOcGxsZzRqUit4?=
- =?utf-8?B?b3dxZXZ5MTQzMmRRdE1pT2pJVVpoZzZWN0ovd3puRlA1MGQ5a1ppQkp3T2pN?=
- =?utf-8?B?bzR5OVg4cVFHZ2N4VVcvVlBvNFovTzBoTis2bERMY0JDRUpzaFRjUnFXL0p2?=
- =?utf-8?B?Vkd1cThwVVJuM1paQzZkbEZqV3FOQVI4Z3pKd1BnU1JVUnJ0Sk9aZ0NrWTBq?=
- =?utf-8?B?MmhseTBqV2s4cklpdEdyRGdCa2xmN3BsSTJXZjhkYVJBSzI5WExwZXFmZ0Nq?=
- =?utf-8?B?OVUvUWU4TFZQT284L1lORlljTXc4UG9CYUpRSHpoQ2Y4WXpYTnJBdnZmOWtC?=
- =?utf-8?B?UE1qYTZVSUxUZWJQeGZzTHNnbUptOS9hM21YaGY4NHFQcVg2dGpPZVlPRGow?=
- =?utf-8?B?YVRBcFJmR1F5T25vRkkvcys5Wks4dURvbHZEUGxybUFsa0FsZXRlZEZkVGVH?=
- =?utf-8?B?UHJOYjVleGg1NFpKUk9EL1IwbWdHZHI3YUdPOTBkNWNEUEdpbnhFK1dRdGhG?=
- =?utf-8?B?T2hvZ1RoR2pnN09Sd0R3QVVKT2h1aVlSc1N6N0JYSElNZWYwc2RjUGZ2OFVn?=
- =?utf-8?B?aHFBaFR1T3NnWXNsM09GWWhSVlg2YUlmdGhQSWJHcXBFNXZHSDNCamt5WnZu?=
- =?utf-8?B?eDduU3gxZGE2Y3JXYWZ3RGlPcUhpRVFJWVZGWmFqY2RJem50THh0YnVYdity?=
- =?utf-8?B?bGpPMmV6dVNqOU9LTkYyNTJYb01qZXZ4RGhqZUJJU2Njdys4bGxQL1FSZ2k3?=
- =?utf-8?B?b2c9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2086215d-df26-4931-5a79-08dd8ccada6d
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5089.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 18:21:43.3505
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hWOlkq0qWBAT7TnS+RKOrHIo2C650Gz0iSlNcRzqrZtb0/V+0Ou7UkPqS+nlSe0hITFn+wV5GSeQaFTe9GrFLVWovP3TiG9+1HMENv+XC60=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR11MB8684
-X-OriginatorOrg: intel.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_112225_891382_EA7FF893 
-X-CRM114-Status: GOOD (  11.28  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: devicetree@vger.kernel.org, kernel@collabora.com, 
+ linux-kernel@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Frank Wang <frank.wang@rock-chips.com>, Vinod Koul <vkoul@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-phy@lists.infradead.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ linux-rockchip@lists.infradead.org
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+In-Reply-To: <20250505-rk3576-sige5-usb-v2-0-d5ba4305f3be@collabora.com>
+References: <20250505-rk3576-sige5-usb-v2-0-d5ba4305f3be@collabora.com>
+Message-Id: <174655575105.2171003.12510940387691309807.robh@kernel.org>
+Subject: Re: [PATCH v2 0/5] RK3576 USB Enablement
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -219,26 +75,121 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On 5/6/2025 4:05 AM, Meghana Malladi wrote:
-> Add __netif_tx_lock() to ensure that only one packet is being
-> transmitted at a time to avoid race conditions in the netif_txq
-> struct and prevent packet data corruption. Failing to do so causes
-> kernel panic with the following error:
+On Mon, 05 May 2025 19:26:35 +0200, Nicolas Frattaroli wrote:
+> This series is the result of what I thought would be a quick 10 minute
+> job, but turned out to be more like 3 days of pain, suffering, and
+> confusion. This should be expected with USB Type C though.
 > 
-> [ 2184.746764] ------------[ cut here ]------------
-> [ 2184.751412] kernel BUG at lib/dynamic_queue_limits.c:99!
-> [ 2184.756728] Internal error: Oops - BUG: 00000000f2000800 [#1] PREEMPT SMP
+> The first patch in the series extends the inno usb2 PHY driver to fiddle
+> with some GRF flags in that driver when the PHY is connected to a USB
+> Type C port. Without this change, devices on USB-C simply don't
+> enumerate at all, as the state machine gets stuck waiting for vbus to go
+> low or something along those lines.
 > 
-> logs: https://gist.github.com/MeghanaMalladiTI/9c7aa5fc3b7fb03f87c74aad487956e9
+> An alternate way to implement this would've been a vendor property in
+> the PHY binding which is then checked for in the driver and needs to be
+> present in all rockchip inno u2phy instances that happen to be connected
+> to a USB Type C connector. This is what downstream does, for example.
 > 
-> The lock is acquired before calling emac_xmit_xdp_frame() and released after the
-> call returns. This ensures that the TX queue is protected from concurrent access
-> during the transmission of XDP frames.
+> Patch 2 and 3 allow Super Speed in reverse orientation on USB Type-C
+> connectors to work, but I am not entirely confident in the solution I
+> arrived at.
 > 
-> Fixes: 62aa3246f462 ("net: ti: icssg-prueth: Add XDP support")
-> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+> Patch 4 is what I think may have been the culprit of what originally
+> made me add the USB2 PHY suspension quirk, but I'm somehow unable to
+> reproduce that particular SError fest anymore.
+> 
+> Patch 5 adds the USB related nodes, including associated regulators and
+> Type C controllers, to the Sige5 tree.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 > ---
+> Changes in v2:
+> - Rebased onto next-20250505
+> - Drop the u2susphy quirk, as I can no longer reproduce the original
+>   problem with various amounts of ripping up the DT and changing the
+>   config. Yeah I'm not super hyped about this now being a heisenbug
+>   either.
+> - Drop the bindings patch, as Rob showed me there's a way to do this
+>   without extending the bindings
+> - Rewrite the usb 2 phy driver patch to no longer walk an OF graph from
+>   PHY to connector, but instead first find the USB controller that uses
+>   this PHY, and then use the USB controller's existing graph connection
+>   to the usb connector.
+> - Adjust the Sige5 DTS patch to now have two port connections from the
+>   USB connector to the drd0 USB controller, one for high-speed aka
+>   USB2, one for super-speed aka USB3, ordered as per its binding.
+> - Add a patch for rk3576.dtsi to reference u2phy1 as a clock in the drd1
+>   controller.
+> - Add two patches to fix USB Type-C super speed in reverse orientation.
+> - Link to v1: https://lore.kernel.org/r/20250407-rk3576-sige5-usb-v1-0-67eec166f82f@collabora.com
+> 
+> ---
+> Nicolas Frattaroli (5):
+>       phy: rockchip: inno-usb2: add soft vbusvalid control
+>       phy: rockchip: usbdp: move orientation handling further down
+>       phy: rockchip: usbdp: reset USB3 and reinit on orientation switch
+>       arm64: dts: rockchip: reference u2phy1 as clock on RK3576
+>       arm64: dts: rockchip: enable USB on Sige5
+> 
+>  .../boot/dts/rockchip/rk3576-armsom-sige5.dts      | 160 +++++++++++++++++++++
+>  arch/arm64/boot/dts/rockchip/rk3576.dtsi           |   5 +-
+>  drivers/phy/rockchip/phy-rockchip-inno-usb2.c      | 113 ++++++++++++++-
+>  drivers/phy/rockchip/phy-rockchip-usbdp.c          | 154 +++++++++++++-------
+>  4 files changed, 376 insertions(+), 56 deletions(-)
+> ---
+> base-commit: 214464d4c3491d4eb2c0e9d1310d7f60c408b94b
+> change-id: 20250328-rk3576-sige5-usb-230102aeeaca
+> 
+> Best regards,
+> --
+> Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> 
+> 
+> 
 
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: using specified base-commit 214464d4c3491d4eb2c0e9d1310d7f60c408b94b
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250505-rk3576-sige5-usb-v2-0-d5ba4305f3be@collabora.com:
+
+arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: usb@23400000 (rockchip,rk3576-dwc3): clock-names: ['ref_clk', 'suspend_clk', 'bus_clk', 'utmi'] is too long
+	from schema $id: http://devicetree.org/schemas/usb/rockchip,dwc3.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: usb@23400000 (rockchip,rk3576-dwc3): clocks: [[18, 262], [18, 263], [18, 261], [22]] is too long
+	from schema $id: http://devicetree.org/schemas/usb/rockchip,dwc3.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: usb@23400000 (rockchip,rk3576-dwc3): clock-names: ['ref_clk', 'suspend_clk', 'bus_clk', 'utmi'] is too long
+	from schema $id: http://devicetree.org/schemas/usb/rockchip,dwc3.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: usb@23400000 (rockchip,rk3576-dwc3): clocks: [[17, 262], [17, 263], [17, 261], [23]] is too long
+	from schema $id: http://devicetree.org/schemas/usb/rockchip,dwc3.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dtb: usb@23400000 (rockchip,rk3576-dwc3): clock-names: ['ref_clk', 'suspend_clk', 'bus_clk', 'utmi'] is too long
+	from schema $id: http://devicetree.org/schemas/usb/rockchip,dwc3.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dtb: usb@23400000 (rockchip,rk3576-dwc3): clocks: [[18, 262], [18, 263], [18, 261], [22]] is too long
+	from schema $id: http://devicetree.org/schemas/usb/rockchip,dwc3.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dtb: usb@23400000 (rockchip,rk3576-dwc3): clock-names: ['ref_clk', 'suspend_clk', 'bus_clk', 'utmi'] is too long
+	from schema $id: http://devicetree.org/schemas/usb/rockchip,dwc3.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dtb: usb@23400000 (rockchip,rk3576-dwc3): clocks: [[18, 262], [18, 263], [18, 261], [22]] is too long
+	from schema $id: http://devicetree.org/schemas/usb/rockchip,dwc3.yaml#
+
+
+
+
+
 
