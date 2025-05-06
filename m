@@ -4,159 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA637C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 16:33:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0888C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 16:35:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UHsb5Biwc68+U++GicnF8cxYKzJZSutDx7YuhkYaUms=; b=1YPzvYWP4kNFHa7B9W8OXgXYFl
-	GM1BCRb6p5g+GisYpegatfE9gYg6rrgfw4KEkxJStyDu6NneUidguFSreXXUwRom5NUnWpNxr9Rlv
-	GhMbHMdnmpoqOLeo0JBrb4Kf0jT7uWETAuZt5spMyDlnsC/BmhxLXLUkgY2KOQI7h1A3HxlNxShE6
-	faphY1x6CeOnRbjS9g6w2mMACFIdI2sjw6VepH5sso++NMjSDdoIicZdlLAft2g8bJXClsllkc9a9
-	SPjGlmLFg/+SVJx4q2BysP0sTteqhZ7OCRfalRCtjRwgprDzhIH7Fuc22xWn3o75HChGpf7nGJj20
-	GI9tixsQ==;
+	bh=lKbAvF7va5UdESVOfamVcDXW2ol3BOhQMwi8AC9a1lU=; b=SsbAZtugSUAfsHaq1/wNY5Maq7
+	h3B8GiLuBMoRuMAfWBMUVNAs4n1xkmO9tUYzXXYJbzJMpFenEpFlgmw9yo3qnHynU23Hz0RsqvLSy
+	+2+snz2eXZaSEq+6FATuijj+ZaKOq1nRAbbWZHj4zw/o53vP+xWN9bUwonY12f92v3pKIwK8u7GMl
+	ZP2qS/+RSMv+IUUoD5nJ0k3RCHUxaGOku7rK2sDFwJ9K8avwsxcf3ZauL68wtCX4Fq1C8UeoVNHyt
+	y8Dfb5BH9wkYVT4zSVZf6oyqpae4cCLbpmGLWbLKAHyDUGdiw8Uoftqx8vxmF59glec9ai932WCec
+	KsMtSMDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCLDz-0000000CgbX-30dL;
-	Tue, 06 May 2025 16:32:55 +0000
-Received: from mail-mw2nam12on20628.outbound.protection.outlook.com ([2a01:111:f403:200a::628] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1uCLFt-0000000Ch0s-33V9;
+	Tue, 06 May 2025 16:34:53 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCHsw-0000000BzqZ-1SgL
+	id 1uCHy8-0000000C180-3oOk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 12:58:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=r1Aqnt1lZ8cuvsArNT+g0ozdixcZgHx79Z2QYesIEuaJvXAZE9PV+pD8wKA2+TII1OjNfgB63g4liXkcph1uoAE4Dse1r4FdxHHNTGeZHkcfPaium603Hj6cUoSwByu+gfR1pt0s2puoxko0pp9CoPq3fxRo3zHCWU5L1xT4PyBFBw56kANIaylZ8y/QK7t5vQClR+CWSPYZFEV/b9DijIlqjRZFB0Rhcz8CqgSOZ9ZQlXQ1UIULjt8uImK1YVsGjNvU7jBgeRdEtGfZvRePqHi2Zw6tvIXnBVkm3JqWHKvyF40KDNjGSnjGvlNxceNVYBUKsQ7wPputVcMGQgfWNw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UHsb5Biwc68+U++GicnF8cxYKzJZSutDx7YuhkYaUms=;
- b=NW9ZTEgEqQob7guwY5hNl+qF+SszrMJJdw2YBsd0lUm3LgjhL85+7QD8oBKkgQdGDWSlsIiIMDN0Pi+VaMzMXkcuXyz6/RBhTnopXWD7tRWPkoX2WYl+9pD5j2yLEJIlxQ1p/poScwW5Q+ekj4Vp9hn5Wqr/9GjMjoWhnDt0ARNzvdMXsEb6ib0flQKArNoF2kkVwOc3Tba11Bn4xmj5OR7A9zc9AWRPWzOTTKeU6AWtSS3OSt1PXC9XJthcBJIstZHBMX8jya2vvP/X16OObicxvnaX8gH1uJkxLhw1y0+2uC16GU27CoEmvkC5rkTuyDB2rAeZUHqHaglxUfndjA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UHsb5Biwc68+U++GicnF8cxYKzJZSutDx7YuhkYaUms=;
- b=gVVRdNpmGNIYiYCmn1AfzgyV+rDBBBBzTQ+vvMPFD/eYzt5Dl50RCS6WeDbm1DU5ztqBNCDKpSJVx5yAnAIi9UQtrJTS0/4XtGAhP0dCzOZNXtvyk7gkVDSVU/VblfpjB055p99dBvndnBbVGHjcBoxLMsWqIk80NSKmuCrx8Ung58VSzQZegOLC3O7772me3Qx1yItw2+CRigncPTRXIIeKVjoDEzLUK/tUEz6jyKt2BMso58cTDP936qht1d7+mpziLw8Ut9eWPVbJ05RpZ1973Rg3sIOo/9ll4HsAKdDKPMQprljm1M9v1cIspINDi5rh9Y616ohv9NE4qx9BGA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by SJ5PPFEB07C8E34.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::9a8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.27; Tue, 6 May
- 2025 12:58:49 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8699.026; Tue, 6 May 2025
- 12:58:49 +0000
-Date: Tue, 6 May 2025 09:58:47 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Alexey Kardashevskiy <aik@amd.com>, kevin.tian@intel.com,
-	will@kernel.org, joro@8bytes.org, suravee.suthikulpanit@amd.com,
-	robin.murphy@arm.com, dwmw2@infradead.org, baolu.lu@linux.intel.com,
-	shuah@kernel.org, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, eric.auger@redhat.com,
-	jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
-	shameerali.kolothum.thodi@huawei.com, smostafa@google.com,
-	yi.l.liu@intel.com
-Subject: Re: [PATCH v2 06/19] iommufd/viommu: Add
- IOMMU_VIOMMU_SET/UNSET_VDEV_ID ioctl
-Message-ID: <20250506125847.GA2260709@nvidia.com>
-References: <cover.1724776335.git.nicolinc@nvidia.com>
- <6348cc7a72ce9f2ac0e9caf9737e70177a01eb74.1724776335.git.nicolinc@nvidia.com>
- <35701c5e-030a-4f52-b6f6-ed18368fb2cd@amd.com>
- <20241004114147.GF1365916@nvidia.com>
- <95ab62fa-bb1c-4e4a-a210-b0bdba0d4ad2@amd.com>
- <aBHYN39FcH+NG5Ab@Asurada-Nvidia>
- <20250505170807.GP2260709@nvidia.com>
- <aBl5uLOFCntuIYYz@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aBl5uLOFCntuIYYz@nvidia.com>
-X-ClientProxiedBy: BN9PR03CA0260.namprd03.prod.outlook.com
- (2603:10b6:408:ff::25) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Tue, 06 May 2025 13:04:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1746536659;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lKbAvF7va5UdESVOfamVcDXW2ol3BOhQMwi8AC9a1lU=;
+	b=GTyFE2ZueSAOtiL9SIMZK67W1dLCq3DigRd971VAVAGFHOLPpJzJUbjlzgO9Wt4hMSTDVq
+	Eq5ExKrEqHDqgXyYpiPnNW2+U+yQhrRWzoY/WLI8wNxhmy0K8jklYMqog0hg1vfWuVQhux
+	sk65U1ar/udJPD1pbOpKWD7DScGu+F0=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-341-Dk_asEFmNt2d-zr4bBwSjg-1; Tue, 06 May 2025 09:04:17 -0400
+X-MC-Unique: Dk_asEFmNt2d-zr4bBwSjg-1
+X-Mimecast-MFC-AGG-ID: Dk_asEFmNt2d-zr4bBwSjg_1746536656
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-39ee54d5a00so1811457f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 06:04:17 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746536656; x=1747141456;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lKbAvF7va5UdESVOfamVcDXW2ol3BOhQMwi8AC9a1lU=;
+        b=fo5cMnSMDzRsuxM8SsT/BnlGwLHCLMGngYpRmAn4TUSRFYDkAmu9DlWGP2c/QWoqCn
+         vyijOiqa3zpyOm+UzHgCMvBnbnXS7WETi76mkTu9+x61yiC04sKEfseVcI8c/uBG1M+k
+         E1mMq+bez7W9Stzc0ScpSeg5ByQiHSC/nhMLIqq90fHADKB7aI/LbRPTN4Z1W+zslJkU
+         m/9jZFVJ36+QHz8npxGO1kcfshcHaf8R1dhAIJTtkQq0IN2mRjFcsFLp06GojrP1iii5
+         iDtKn9gRnPwOCnD4A4pNdVXYQPWYY+TWKmqc0P69Bvmjq3lPb73TGK4nk4YDeIJyeTbk
+         xVVw==
+X-Forwarded-Encrypted: i=1; AJvYcCXyDzcnhHWXEAr9y18NX8J0oiYO+1YJ4Si3rSdTu5lyUvKBr0fluWljKUshpNDgDlb/1JML0ANI2CrxtPxjEJmv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/QwN0S9r83qRxpLoFObf2BycQsOdxgx+LCPlPJYbaroqy+EP2
+	UmEzv5rj1oVKctt7HambRg5veoFi9qdXjwR7ribKmCYIPaTuM74djPn+0LyonULpfo6+Kv7Dq+3
+	o2sS3IjoPGfOOcLRB+umUq9U+fWozYKtvWzDOkBdqjzs9KFx0wJsj11vVmmSy9T9GgGNj5uDP
+X-Gm-Gg: ASbGncvDJrMy5abONHMvXQ61xphIZuDSqF1OlBTjWYe81h3vOigkTSYUj8fsgzOx5Da
+	7ZWQwT/fnDoPRni4UAsnl8xnhqd1HO8vW+zEBQGuv6HigAJ7sN8Iv/mAORQ5eK+2iFKGVfAwtxt
+	RBvYO/q9al+/hwj5mas46kN06QrFAXG523rcWnZVCm82H88kxh498ULp1rJF3qDiLph3q09PrcN
+	snG7/xoW63JPGNUZh8zxukmbbeJNEzt2OEMMdxrcbjEwhhFgm7ukvd42+B0UkjPh5HX5U0YztF9
+	QkUGHoevOY+nxchE
+X-Received: by 2002:a05:6000:1449:b0:3a0:b334:6a9f with SMTP id ffacd0b85a97d-3a0b3346db1mr336483f8f.58.1746536656197;
+        Tue, 06 May 2025 06:04:16 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE370Uz9IXnYFrfg17BGYXqNHxKng1dMfBfML6vrtdO2n/0WVte8MSeTEzuWOfdUnMD7wyr2w==
+X-Received: by 2002:a05:6000:1449:b0:3a0:b334:6a9f with SMTP id ffacd0b85a97d-3a0b3346db1mr336409f8f.58.1746536655578;
+        Tue, 06 May 2025 06:04:15 -0700 (PDT)
+Received: from sgarzare-redhat ([193.207.145.28])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a099ae3c1fsm13748091f8f.37.2025.05.06.06.04.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 May 2025 06:04:14 -0700 (PDT)
+Date: Tue, 6 May 2025 15:03:38 +0200
+From: Stefano Garzarella <sgarzare@redhat.com>
+To: Jarkko Sakkinen <jarkko@kernel.org>, g@sgarzare-redhat
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Peter Huewe <peterhuewe@gmx.de>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Jens Wiklander <jens.wiklander@linaro.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Naveen N Rao <naveen@kernel.org>, Nicholas Piggin <npiggin@gmail.com>, 
+	linuxppc-dev@lists.ozlabs.org, Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	James Bottomley <James.Bottomley@hansenpartnership.com>, linux-integrity@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Sumit Garg <sumit.garg@kernel.org>, linux-kernel@vger.kernel.org, 
+	Jason Gunthorpe <jgg@ziepe.ca>
+Subject: Re: [PATCH v3 3/4] tpm/tpm_ftpm_tee: support TPM_CHIP_FLAG_SYNC
+Message-ID: <gnbagkqjrfvqqhfpl2yt6xougl3wws4h4actl6scotv4xbrqde@czy5dz4l25ui>
+References: <20250414145653.239081-1-sgarzare@redhat.com>
+ <20250414145653.239081-4-sgarzare@redhat.com>
+ <aBJGJwVyp3pvRlqE@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SJ5PPFEB07C8E34:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0b953e42-c672-4477-6bd4-08dd8c9dbe45
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6JTpekw6oDICFcSg1EHlTfW7PaIWaODPfhVKWhfnSX2FGrvEpe5bVmZE7pqg?=
- =?us-ascii?Q?QS0I4B2DzxDtox/wdcVo5wbzVI1Wyp17R1MfRKcc1wYHrNsejh/IKDtlDmB9?=
- =?us-ascii?Q?tuWoO3L9zr0EvNgs0f5qHGWtMeGCELib/c+x3vfhMpNErhq8yylNqqhngq/9?=
- =?us-ascii?Q?DwVmQZA8IWb3Py25jpaT0VcrZPibhaKwuJxCf/C8x0yTT9WjuZB3lfNeMvaF?=
- =?us-ascii?Q?RgL427HSYtfHgkWJDI3me3ggJtyG+mdHPyGEbOV0n2Bmktemiz8EQ4JuRGwR?=
- =?us-ascii?Q?Z5kE3TDnaVA0DpeVPEAzeE7izrZlxjjhxlc3RAApEHwvBUnfBsxTuC4WTY8H?=
- =?us-ascii?Q?CrT5CVKxJw0cv+O1JGuIanEiRDlWIWf2SSpgVEe9eaXtame/s/XtjQ1ujMTY?=
- =?us-ascii?Q?jTr/l4U3IYdvbEGdPQQQbDk/AYoZdZScKzZuW8O6KrpKeW+uT6FPrxteSba/?=
- =?us-ascii?Q?O1wmuiK8qekWD4qT6Nj+NOoKcw6WOfRvFoBsIyw9zy8E0NFKiLtdHzoyhkYy?=
- =?us-ascii?Q?grX5fj+kJ/vgcXfvCl5Vb8wmkOEdzSG6gZmLZayL17e2HPBNnjim6s+xREP/?=
- =?us-ascii?Q?LVelhqRMPdD2DhKfU6tlsi5ItHshPRFn8gFsLDKZlEYi1XjIWCy/340Z951f?=
- =?us-ascii?Q?lXqgKrGsgROcswmFog5bLocqlS7tstt/7f2Gsnc4tN184IaeNjtbszAaj0QB?=
- =?us-ascii?Q?hlJYF37+bj4TLWmHr99UFa5EdrBs2kA7PP6xMCS0JHPAxbKMuwpZAnHoIMLE?=
- =?us-ascii?Q?ltTJHBia7D3uovSTMRuzID4taldVyMi0UVb7hs4mTwembEVkPgWfU5ZkjHXG?=
- =?us-ascii?Q?wrOpagHmDB2p1gAW75ynx8CY36u/GJmyr7+sHdcUhKGWebjSNKZCwQ0PETgj?=
- =?us-ascii?Q?LoRYfvPHxpC2fucsDPzrPfq7TW2w1CAg0vh2Bteh9Xp7+5jTA3VEqf48512R?=
- =?us-ascii?Q?vkoxCg1fKt9mG9Qdpr4Fw7+YXD4itMrG31Py3qJQw5S5ZM2cnIMcHGTtjBdq?=
- =?us-ascii?Q?/Oqe7M5XGCnD82OgcSfwzgJ6ftg2ZbOFbXILOMi4Yf8OXiVIicuA7vetfcpW?=
- =?us-ascii?Q?DxK+GSsZDi5LUMVe4cwM8B7TcSxU+XdxoMjxBYYF10WF3K6ihnEHliM9ViJf?=
- =?us-ascii?Q?k8UN+JP/lDhJm2k6VZkpPD8Rt8/edy4Vei97UM3zCuhAVmyRAzqrzQuvRTrq?=
- =?us-ascii?Q?5hJpqE4LJTb6h7Io88t3VjArREQkrqaNg4Dsogd6CGH7fzbz3Tv0zYdlBeD2?=
- =?us-ascii?Q?dXibBWViAKCkQHOVRk5Ecz7ANyvrfdJdGgHUlVfc1gGddnr7kvk7XpSRj60d?=
- =?us-ascii?Q?5lf5vRJXTHmf2jqSK66M+79qm1bn+zSnLq+Kx7J6G7/hKXW+PAwzFRZdRavK?=
- =?us-ascii?Q?3Z4+2ZaWTWEQ2bRXi46zJEH2+3Gi6h52ai7o7lvpHOZFRIo4uSlybnk/uuXa?=
- =?us-ascii?Q?DErozIszmjk=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kPPFc+jrKdhhlGj9ghiTOwS9FD2KJz2+RSpTSLkrasbcz8CJlz03+WxA1wBX?=
- =?us-ascii?Q?oHFKxVlVCte0V5fTXIiulW50X91njTkiQ46JKFUUXG4IuYp6yEyxqRRpm+Dt?=
- =?us-ascii?Q?1H5BZf4USr2Eis0Q7g+OrUs8UQbqD1b6gx2mx+suy2Lhada9WrNvAZzk2jYA?=
- =?us-ascii?Q?Hv6ELFka9PKhaDjHJpGg8blHmREk91EB1AECBSPZNGdmZ5Vtc/WZ1SZ6OytC?=
- =?us-ascii?Q?O9jDmh6BPJrjTbtPb4B0ML0zNec8+IfRzb78iuWEz+xA0OrO3SnR/6ulQ0Dd?=
- =?us-ascii?Q?rkwSC2oJPBiX36B0zXQjbtdzz9kzcgK/k1UsUSV7CHEyPbZIalPLC4fs/ONo?=
- =?us-ascii?Q?dxab7k9ooJFnyGRY6k4dwXVwkS+jZkACnSIx+StDFnJtg9jDJGdpJnT2zfh7?=
- =?us-ascii?Q?dgQZ11wlEwjX+d9VZlqY6o9zmyKPtgVYVjWwE+2HKG8vbwm9Aa/hgvHRTTdO?=
- =?us-ascii?Q?w9xfAgNsbSE58Qtfc1jYw3CQvaczfa4BkPCFVTFpXvL9iZHTEdreMt1ZXy5v?=
- =?us-ascii?Q?zIrEV39NcFW9rZirGnvwHsHNc9L87AbW88pw3WWOAN+1YAyXP4RnPQSQiOtP?=
- =?us-ascii?Q?DPni8bY8ZA5yyMXpiorzpXypk6p9eqOlpsSNqMGgdDH8z41mYc2pgFMwhFJc?=
- =?us-ascii?Q?YAZ55TaerYsT+vesxITh703vCWtBvs99Sokre4HLCgtPJdH5inLY18A3lmIg?=
- =?us-ascii?Q?69CPyoRScAfu7MGEon63JlEAOa/EH+Su6dsrdlfJzkDePrCjDEHo17Wwi93n?=
- =?us-ascii?Q?GDvC+YJHU3lQscmZsad/pJ6fvDHQ10bIeNzOoz2VrvdzitcO1fGjTk23RWXj?=
- =?us-ascii?Q?YeVSsMBr7AWjxNnBFFWZPcNf/Su75G6oc5KqnhO31wpIuy6IggV2cyG/aI41?=
- =?us-ascii?Q?vdYFMkKuXA1gMHer4BmrjWPr3YuSRqYvGtojW9nVaaojgcI58HC91Gsqv9QY?=
- =?us-ascii?Q?5mTCRzwD4Cfn3zFnMP1s85XZXDcEawHsZ5yYJ6YYvcJITbz55EoINEPwQLSB?=
- =?us-ascii?Q?igPLuJbD6I2BornIlUWoYXPWoBeAV2i0l7u2Vh1g/DSajcU57ifLpRsZxE+X?=
- =?us-ascii?Q?Pi+dGNrqZlORHQXYUAFw+LfF1oAafsDcusn89bW8HFeMgBOdlXF2LFsZ4ne9?=
- =?us-ascii?Q?NnfbZ2LjiTQ8Z2uXON74JNFefoo/9IzGDIfnhLH2yUb7TFNRMGsA6U81PQKs?=
- =?us-ascii?Q?F6Q/Fz04LBQjJ1B1965YuqvOHXipmLxy0LS15rYcrbTkj0CPfrCj2WW0wmG3?=
- =?us-ascii?Q?FXwrAHoYVXuA4E+UDC297Qy2B12RCH3WFFmaCCIu9po4gjg06Z7QusJyl0Ht?=
- =?us-ascii?Q?50gKQgJvlVb6PiCtvnlXEbZlWdumGWyjzNb2my0GM5dAfuGGMckjzsgYjQCE?=
- =?us-ascii?Q?9BhP2Fl3B09rMkaermguaccsmJRwtE28Rsfqc9om3FDHfPkbtVJSbyy/gFBD?=
- =?us-ascii?Q?J5SUVWHjvySOItyPZkrBs711DChFkY7ljaoR0pfYBYxykegfIwxbsAUtaC62?=
- =?us-ascii?Q?zpqHd+PxGiS0eFoP0MbSEKl7EZQTtl28VynwdfG4dzFjNDzdZ8Fm/V7WIKCT?=
- =?us-ascii?Q?FA7hXdpWIRWfETGBRKYDcHwZyA680PP+LvCA89n/?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b953e42-c672-4477-6bd4-08dd8c9dbe45
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 12:58:48.9159
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: EDfNvopeChXPOQ2q+06yHBbnkHuux8IJbmNnO5I1OETc8embAysIiw4kaio9Z0vN
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPFEB07C8E34
+In-Reply-To: <aBJGJwVyp3pvRlqE@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: eo5Y54Nc9G3ImTZesAvh3w7dFDwMEJ_ikw7hR0LK5pQ_1746536656
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_055858_385146_E652FEB3 
-X-CRM114-Status: GOOD (  27.25  )
+X-CRM114-CacheID: sfid-20250506_060421_038843_5B4324CF 
+X-CRM114-Status: GOOD (  27.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,43 +115,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 05, 2025 at 07:53:44PM -0700, Nicolin Chen wrote:
-> On Mon, May 05, 2025 at 02:08:07PM -0300, Jason Gunthorpe wrote:
-> > On Wed, Apr 30, 2025 at 12:58:47AM -0700, Nicolin Chen wrote:
-> > 
-> > > > ... and I just hit a problem with it - this is basically guest BDFn
-> > > > and it works as long as I'm hotplugging the TEE-IO VF into an SNP VM
-> > > > but does not when I pass through via the QEMU cmdline - bus numbers
-> > > > are not assigned yet. So I have to postpone the vdevice allocation
-> > > > till run time, did I miss something here? Thanks,
-> > > 
-> > > I have a similar case with QEMU ARM64's VM: so vDEVICE on ARM is
-> > > allocated at runtime as well because the BDF number isn't ready
-> > > at the boot time.
-> > 
-> > Oh that's ugly then.. So you'll need to add some kind of 'modify
-> > sid/bdf' operation I think.
-> 
-> But the initial vDEVICE would be still unusable. Its BDF number is
-> literally 0 in my case. It can't be used for SID-based invalidation
-> nor the reverse vSID lookup for fault injection..
+On Wed, Apr 30, 2025 at 06:47:51PM +0300, Jarkko Sakkinen wrote:
+>On Mon, Apr 14, 2025 at 04:56:52PM +0200, Stefano Garzarella wrote:
+>> From: Stefano Garzarella <sgarzare@redhat.com>
+>>
+>> This driver does not support interrupts, and receiving the response is
+>> synchronous with sending the command.
+>>
+>> So we can set TPM_CHIP_FLAG_SYNC to support synchronous send() and
+>
+>"Enable synchronous send() with TPM_CHIP_FLAG_SYNC, which implies that
+>->send() already fills the provided buffer with a reponse, and ->recv()
+>is not implemented."
+>
+>So, instead of jargon it is better to explicitly state what the heck
+>is going on.
 
-That's fine, that is actually what it is in the vPCI topology. Until
-the bus numbers are assigned at least.
+Ack, I'll replace with your suggestion.
 
-So you'd have SID conflicts in the kernel, just pick the first one or
-something until it gets sorted out.
+Thanks,
+Stefano
 
-> > The bus numbers can be reassigned at any time on the fly by the guest
-> > by reprogramming the PCI hierarchy.
-> 
-> Yes. If we take some aggressive use case into account, where its
-> BDF number could change multiple times, I think it's natural for
-> VMM to simply destroy the previous vDEVICE and allocate a new one
-> with a new BDF number, right?
+>
+>> return responses in the same buffer used for commands. This way we
+>> don't need the 4KB internal buffer used to cache the response before
+>> .send() and .recv(). Also we don't need to implement recv() op.
+>>
+>> Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
+>> ---
+>> v2:
+>> - set TPM_CHIP_FLAG_SYNC and support it in the new send()
+>> - removed Jens' T-b
+>> v1:
+>> - added Jens' T-b
+>> ---
+>>  drivers/char/tpm/tpm_ftpm_tee.h |  4 ---
+>>  drivers/char/tpm/tpm_ftpm_tee.c | 64 ++++++++++-----------------------
+>>  2 files changed, 19 insertions(+), 49 deletions(-)
+>>
+>> diff --git a/drivers/char/tpm/tpm_ftpm_tee.h b/drivers/char/tpm/tpm_ftpm_tee.h
+>> index e39903b7ea07..8d5c3f0d2879 100644
+>> --- a/drivers/char/tpm/tpm_ftpm_tee.h
+>> +++ b/drivers/char/tpm/tpm_ftpm_tee.h
+>> @@ -22,16 +22,12 @@
+>>   * struct ftpm_tee_private - fTPM's private data
+>>   * @chip:     struct tpm_chip instance registered with tpm framework.
+>>   * @session:  fTPM TA session identifier.
+>> - * @resp_len: cached response buffer length.
+>> - * @resp_buf: cached response buffer.
+>>   * @ctx:      TEE context handler.
+>>   * @shm:      Memory pool shared with fTPM TA in TEE.
+>>   */
+>>  struct ftpm_tee_private {
+>>  	struct tpm_chip *chip;
+>>  	u32 session;
+>> -	size_t resp_len;
+>> -	u8 resp_buf[MAX_RESPONSE_SIZE];
+>>  	struct tee_context *ctx;
+>>  	struct tee_shm *shm;
+>>  };
+>> diff --git a/drivers/char/tpm/tpm_ftpm_tee.c b/drivers/char/tpm/tpm_ftpm_tee.c
+>> index 637cc8b6599e..b9adc040ca6d 100644
+>> --- a/drivers/char/tpm/tpm_ftpm_tee.c
+>> +++ b/drivers/char/tpm/tpm_ftpm_tee.c
+>> @@ -31,46 +31,18 @@ static const uuid_t ftpm_ta_uuid =
+>>  		  0x82, 0xCB, 0x34, 0x3F, 0xB7, 0xF3, 0x78, 0x96);
+>>
+>>  /**
+>> - * ftpm_tee_tpm_op_recv() - retrieve fTPM response.
+>> - * @chip:	the tpm_chip description as specified in driver/char/tpm/tpm.h.
+>> - * @buf:	the buffer to store data.
+>> - * @count:	the number of bytes to read.
+>> - *
+>> - * Return:
+>> - *	In case of success the number of bytes received.
+>> - *	On failure, -errno.
+>> - */
+>> -static int ftpm_tee_tpm_op_recv(struct tpm_chip *chip, u8 *buf, size_t count)
+>> -{
+>> -	struct ftpm_tee_private *pvt_data = dev_get_drvdata(chip->dev.parent);
+>> -	size_t len;
+>> -
+>> -	len = pvt_data->resp_len;
+>> -	if (count < len) {
+>> -		dev_err(&chip->dev,
+>> -			"%s: Invalid size in recv: count=%zd, resp_len=%zd\n",
+>> -			__func__, count, len);
+>> -		return -EIO;
+>> -	}
+>> -
+>> -	memcpy(buf, pvt_data->resp_buf, len);
+>> -	pvt_data->resp_len = 0;
+>> -
+>> -	return len;
+>> -}
+>> -
+>> -/**
+>> - * ftpm_tee_tpm_op_send() - send TPM commands through the TEE shared memory.
+>> + * ftpm_tee_tpm_op_send() - send TPM commands through the TEE shared memory
+>> + * and retrieve the response.
+>>   * @chip:	the tpm_chip description as specified in driver/char/tpm/tpm.h
+>> - * @buf:	the buffer to send.
+>> - * @len:	the number of bytes to send.
+>> + * @buf:	the buffer to send and to store the response.
+>> + * @cmd_len:	the number of bytes to send.
+>>   * @buf_size:	the size of the buffer.
+>>   *
+>>   * Return:
+>> - *	In case of success, returns 0.
+>> + *	In case of success, returns the number of bytes received.
+>>   *	On failure, -errno
+>>   */
+>> -static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t len,
+>> +static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t cmd_len,
+>>  				size_t buf_size)
+>>  {
+>>  	struct ftpm_tee_private *pvt_data = dev_get_drvdata(chip->dev.parent);
+>> @@ -82,16 +54,15 @@ static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t len,
+>>  	struct tee_param command_params[4];
+>>  	struct tee_shm *shm = pvt_data->shm;
+>>
+>> -	if (len > MAX_COMMAND_SIZE) {
+>> +	if (cmd_len > MAX_COMMAND_SIZE) {
+>>  		dev_err(&chip->dev,
+>>  			"%s: len=%zd exceeds MAX_COMMAND_SIZE supported by fTPM TA\n",
+>> -			__func__, len);
+>> +			__func__, cmd_len);
+>>  		return -EIO;
+>>  	}
+>>
+>>  	memset(&transceive_args, 0, sizeof(transceive_args));
+>>  	memset(command_params, 0, sizeof(command_params));
+>> -	pvt_data->resp_len = 0;
+>>
+>>  	/* Invoke FTPM_OPTEE_TA_SUBMIT_COMMAND function of fTPM TA */
+>>  	transceive_args = (struct tee_ioctl_invoke_arg) {
+>> @@ -105,7 +76,7 @@ static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t len,
+>>  		.attr = TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT,
+>>  		.u.memref = {
+>>  			.shm = shm,
+>> -			.size = len,
+>> +			.size = cmd_len,
+>>  			.shm_offs = 0,
+>>  		},
+>>  	};
+>> @@ -117,7 +88,7 @@ static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t len,
+>>  		return PTR_ERR(temp_buf);
+>>  	}
+>>  	memset(temp_buf, 0, (MAX_COMMAND_SIZE + MAX_RESPONSE_SIZE));
+>> -	memcpy(temp_buf, buf, len);
+>> +	memcpy(temp_buf, buf, cmd_len);
+>>
+>>  	command_params[1] = (struct tee_param) {
+>>  		.attr = TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INOUT,
+>> @@ -158,17 +129,20 @@ static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t len,
+>>  			__func__, resp_len);
+>>  		return -EIO;
+>>  	}
+>> +	if (resp_len > buf_size) {
+>> +		dev_err(&chip->dev,
+>> +			"%s: resp_len=%zd exceeds buf_size=%zd\n",
+>> +			__func__, resp_len, buf_size);
+>> +		return -EIO;
+>> +	}
+>>
+>> -	/* sanity checks look good, cache the response */
+>> -	memcpy(pvt_data->resp_buf, temp_buf, resp_len);
+>> -	pvt_data->resp_len = resp_len;
+>> +	memcpy(buf, temp_buf, resp_len);
+>>
+>> -	return 0;
+>> +	return resp_len;
+>>  }
+>>
+>>  static const struct tpm_class_ops ftpm_tee_tpm_ops = {
+>>  	.flags = TPM_OPS_AUTO_STARTUP,
+>> -	.recv = ftpm_tee_tpm_op_recv,
+>>  	.send = ftpm_tee_tpm_op_send,
+>>  };
+>>
+>> @@ -253,7 +227,7 @@ static int ftpm_tee_probe(struct device *dev)
+>>  	}
+>>
+>>  	pvt_data->chip = chip;
+>> -	pvt_data->chip->flags |= TPM_CHIP_FLAG_TPM2;
+>> +	pvt_data->chip->flags |= TPM_CHIP_FLAG_TPM2 | TPM_CHIP_FLAG_SYNC;
+>>
+>>  	/* Create a character device for the fTPM */
+>>  	rc = tpm_chip_register(pvt_data->chip);
+>> --
+>> 2.49.0
+>>
+>
+>BR, Jarkko
+>
 
-We should not destroy the vdevice for something like that. In a CC
-case that would unplug it from the VM which is not right.
-
-Jason
 
