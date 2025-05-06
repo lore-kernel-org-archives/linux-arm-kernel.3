@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0732AC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 07:40:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E533C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 07:42:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J21E+R+9FyXa98btHMk4gDTQIPeK9fAVsfswg1uIiks=; b=wVDhkdpLVYnwOqVFkte3WKMjhr
-	lQ9X1BUEnByYvJ3YzY1Hdc5cejO2VIwb69R/9d2I4TgtW68qlodjmOVwBkF+4hZ71rHBy10J4En5V
-	aQiHHh8zfyA4shCYwJ9ee4s/ZUMNBhnZjFb4kreMz5GFx2U/F7Mn3C8czZZowsnehJMVQnNJcqluX
-	cRnSTfvwhaUAP7mpsCkrQSY7S8BBHLtTZHz9dmV9+//fQun+jwDlgWfzEnp0gY3vAYAdkcrwHVNRH
-	Cdw9/eUKOAQ47e5B3dTL5ZAL5lTJ3uspR4T4OK9pZLr3Td6U0axlzHl4Xr+Eze3nXQhjspwXd2/lN
-	YiqLBRfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/LksMGCAHDbgW5q1U+/iEuAByuFAAYSoBipu9Zzq+rM=; b=RHMT7clRDAyTkNPQaFma7zhALr
+	sTsYSURBEquL/tmP8JqlOeH0n95XNsLFG6L5hfODUUMgnw0LYOGTDfu+ZHn0VxvmJ7FCRFak4zSei
+	17KKiPGgDktVCY0ws7k+HnMMEOTVYIiPtgsyvC/qWys1ShZ4TcYvRihBBPVWzQ0985hNDLVK9vaUp
+	aFcMf5NhfFqCyJx+FrM0fVRLDmT0BX1EaeCxFL4ZlrXFu2Tu4QGInssoPDkUfJmqkwZ+uElhplqkg
+	59IPGX7f8IiIcNayymLINLRss6hbgkEjOiPkX+ws8Oob9E3s5PZZxjNa79ksY0vJtCELhTv7/vgUq
+	RgMxRhQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCCut-0000000Ayen-3pfF;
-	Tue, 06 May 2025 07:40:39 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uCCwo-0000000AzBV-2ZoN;
+	Tue, 06 May 2025 07:42:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCCsv-0000000Ay3n-26tP
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 07:38:40 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1746517112;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=J21E+R+9FyXa98btHMk4gDTQIPeK9fAVsfswg1uIiks=;
-	b=qNX6OlNrbNz/106uHkRm/Oogx7L/ATXOKXNULrHV5oMPz/EqETEhqQXik79B6uKpRxGer7
-	m4uzxm2u/vU2QaScS8HXNFdOn15A29985rUYNKxJlEgIYMZ2w1+H1ulFRmwAG4w/R4TGle
-	YKATZD5GaPfs4/NpeES4MdSXrjy9A07JqqRJ6XrNJ4rHONUHOpSSOpoikeV4w7+jEnAgH3
-	wDyctZ2oP7z+VQkI4AWVjUjMFfSSZoanIzDawlr6ZPBGpm/TeVkNuWvcroBCq5GBHqDbDj
-	xUT3egzgSGYNncpVr2GHX29FoklcLoVilQE45pXYesGjB/QFnvKiuuztHb/aQw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1746517112;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=J21E+R+9FyXa98btHMk4gDTQIPeK9fAVsfswg1uIiks=;
-	b=GcoEX0hUKefceGwjO8kdQn1Zo2imgLEIYogfxjmB1jVL9zrjW9awLW1u2bvujo45XQjOxB
-	UceKLzvVYcKcEsCw==
-To: Alexey Charkov <alchark@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Alexey Charkov <alchark@gmail.com>
-Subject: Re: [PATCH 1/5] irqchip: vt8500: Split up ack/mask functions
-In-Reply-To: <20250424-vt8500-intc-updates-v1-1-4ab7397155b3@gmail.com>
-References: <20250424-vt8500-intc-updates-v1-0-4ab7397155b3@gmail.com>
- <20250424-vt8500-intc-updates-v1-1-4ab7397155b3@gmail.com>
-Date: Tue, 06 May 2025 09:38:32 +0200
-Message-ID: <87ldranq87.ffs@tglx>
+	id 1uCCu4-0000000AyOf-0NqX;
+	Tue, 06 May 2025 07:39:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7D1E161154;
+	Tue,  6 May 2025 07:39:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC72FC4CEE4;
+	Tue,  6 May 2025 07:39:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746517187;
+	bh=6TO1Noew8Rmq68imwQlh7EbC0TUncfmpyl6I2bKeN58=;
+	h=From:To:Cc:Subject:Date:From;
+	b=JhP+SbQS09oMuqBK/ge4+Dtfkcli4nE+FZi/DJzIVogt1qmZkjF48k/6ArdpNBpF7
+	 fFpvn2BM8nxjsNuRjWn/Oy4ES9XfnzeRFmso7qlS6CuJ+wGDm7JcMBKQ+EFTj8nJ8Y
+	 frQmn8JaoxioWRf0W4akI4K2ZfF18ktCkJClGOxDjmAa0isSVr3cddW+2WMRvnVTNm
+	 MoJckLJLERjy1VU8e8RRb4bJekKkX/5kY/ZEjIrHuo3A08eeqpmT+42310hMt657GZ
+	 ssitxgJA98PnbT92FxWQWdB9cq9QMUcl8i6mUWYCMrc62BkPbmHR2mYQ5kSYO8QTdG
+	 BEq/LbIifYFQw==
+From: Niklas Cassel <cassel@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Niklas Cassel <cassel@kernel.org>,
+	Krishna chaitanya chundru <quic_krichai@quicinc.com>
+Cc: Wilfred Mallawa <wilfred.mallawa@wdc.com>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Hans Zhang <18255117159@163.com>,
+	Laszlo Fiat <laszlo.fiat@proton.me>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org
+Subject: [PATCH v2 0/4] PCI: dwc: Link Up IRQ fixes
+Date: Tue,  6 May 2025 09:39:35 +0200
+Message-ID: <20250506073934.433176-6-cassel@kernel.org>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_003837_678104_2D3DBED2 
-X-CRM114-Status: UNSURE (   5.63  )
-X-CRM114-Notice: Please train this message.
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1085; i=cassel@kernel.org; h=from:subject; bh=6TO1Noew8Rmq68imwQlh7EbC0TUncfmpyl6I2bKeN58=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGDIk92wLWrd5lVmczqKAgpU7yzdY7pzss2OB3T/mIBs2t ajntpskO0pZGMS4GGTFFFl8f7jsL+52n3Jc8Y4NzBxWJpAhDFycAjCRp6aMDLvfL2tZ6iK56ULL O7UPdmfNE3btEPNWlTzPel9f0u1N6gGGv9KrbBesdFxjtkX1+JnUjDN/rkreCJjvVMrdING/cyF bDisA
+X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,15 +81,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 24 2025 at 22:35, Alexey Charkov wrote:
+Hello there,
 
-Please do not make up subject prefixes. See
+Commit 8d3bf19f1b58 ("PCI: dwc: Don't wait for link up if driver can detect
+Link Up event") added support for DWC to not wait for link up before
+enumerating the bus. However, we cannot simply enumerate the bus after
+receiving a Link Up IRQ, we still need to wait PCIE_T_RRS_READY_MS time
+to allow a device to become ready after deasserting PERST. To avoid
+bringing back an conditional delay during probe, perform the wait in the
+threaded IRQ handler instead.
 
-https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#patch-submission-notes
+Please review.
 
-and please read and follow _all_ of it.
 
-Thanks,
+Kind regards,
+Niklas
 
-        tglx
+
+Changes since v1:
+-Added missing include pci.h that was lost during rebase.
+
+
+Niklas Cassel (4):
+  PCI: dw-rockchip: Do not enumerate bus before endpoint devices are
+    ready
+  PCI: qcom: Do not enumerate bus before endpoint devices are ready
+  PCI: dw-rockchip: Replace PERST sleep time with proper macro
+  PCI: qcom: Replace PERST sleep time with proper macro
+
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 4 +++-
+ drivers/pci/controller/dwc/pcie-qcom.c        | 3 ++-
+ 2 files changed, 5 insertions(+), 2 deletions(-)
+
+-- 
+2.49.0
+
 
