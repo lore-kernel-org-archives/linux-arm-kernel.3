@@ -4,95 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A7A0C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 16:05:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC648C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 16:07:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fw+usroP3NgOGNx1hpYdeiF4dmvyltKLfFB52iURL84=; b=fUp0wXvQebp2p8Ax7gMQQPXeGS
-	QZQW0zuhixPOKLB00OH20W7ng9UpRWb8Odnx5T1l/0WDxIqYVDm+UoV8F00xYN3dAemuhPM59SonY
-	iWE7B7Efa04Z9/0XJxdzDxaEEV2LL8A4LwzCrESZKMKxkr+2G5QIToJ5lSHPaY0RP1Ml1qPl0kS2T
-	GtcGyrbDnyQxDni7g/am9zjNzcIOxHDgYBns7YnfqCiqDryGGUnpFRJIKqxMihc1Yw5RLCIKIVcN9
-	hiVtYoO+jHOSLhe0zEo1QVCPVUr3zVOdHLGteUdTKvLOP20nG4B/nolVvUA8RfHLB3ew1BUSDgzTU
-	iLVz3WVA==;
+	bh=5KktmeAFh0iInvvBLcrYESanNohFTS/OHe3yXdSHV54=; b=QrmYHGm1Mdurw34XYjpTBh9CkO
+	17Mxw6e/pMNuviC4nV0vr+NO8ZZ0otuTU37CFUj5b8r4H4+YLhoWDbiLscu9hv68Gm6ARGWYdN46b
+	CUkzRAAF7JbO0ViWkp9nX0W3hfHhpPnNrc0BdcrIx42ELsQ4hQEWjjZeQuSGvBhhu3fiDUjqZzEnn
+	dHbh3cHQaqJUCaJTqahv/mJJguy9R96eVh/S9R7Anf8E0Ic6y8WuQzArjQkf56Nn8ZSkODSv17zJC
+	CuEAMrmQpTMslm5+K42qx1l1akPLCVy74tMSTLCV2xcku/dm52Q2bGwtaBi4g9ZqyR480qtemuUm/
+	hv8bfLgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCKnE-0000000CcDe-29XT;
-	Tue, 06 May 2025 16:05:16 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1uCKp9-0000000CcT4-0lOO;
+	Tue, 06 May 2025 16:07:15 +0000
+Received: from mail-vk1-f177.google.com ([209.85.221.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCHX9-0000000BwNf-0qY8
+	id 1uCHcu-0000000BxBG-0Re5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 12:36:28 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-739be717eddso4465346b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 05:36:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746534986; x=1747139786; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=fw+usroP3NgOGNx1hpYdeiF4dmvyltKLfFB52iURL84=;
-        b=aJkcYU1pzE7p+3RkzxumFccfs6BGVGlJj8u3lLHW7NzU0+b+e6Iahpr3t6jxJ8KnlK
-         zHAirXWeQh0RtmqHMmS8MfI8FtzOHD1NpP1AwGfEvT5xjLtAS1K7f7V1ANLJQWJ++cjv
-         gvRGmPoQT9n8qFl7DN1bMI0eUra/peebn/1wwpFM55+fzi+lfk8n3zA95WLO1EehOMVP
-         iBk0yFTaBRCHtX4abEqsCBjuCs7pBBslDeZ6fus0yVRPTVwon1Yw8sYgyky5rW4x8hla
-         veDE+jrGGKq3dUdw7hg16S51ORSb57xQ03U4OCogoy7XIx9IIGFaJiTwtVcOci/FY9CV
-         zd+g==
+	Tue, 06 May 2025 12:42:25 +0000
+Received: by mail-vk1-f177.google.com with SMTP id 71dfb90a1353d-5290be1aedcso4616110e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 05:42:23 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746534986; x=1747139786;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fw+usroP3NgOGNx1hpYdeiF4dmvyltKLfFB52iURL84=;
-        b=xEZ2Ny1nwWNlLUR9FcvulkwRjZdac+kwYaeGpVGe9KwhGgbDTGfbKn6KvdNEHlQ5bQ
-         tg4xlwpQT2N3gP6xrtLDzWo2h6iK2fywjFmZJQdI6Bfg2bxbO3LOEi7siBJ3fvpoNA1M
-         x8rTjfGpjFQx5Fn2nTP3iOXQKsEDthF6qHCTGunqNzW84pJWypuRZpX0Zi6kzgAEGrn7
-         N82JFzjeUb800+3/d7j25wTTHHOLTB5qDrhu4vHzRONDlFX/+Bq4v25BngsDH5eQ87rC
-         6CyAHP+bU+KITs4hcql8HutNR3GHAvCdm1LDggPXAD6+yenM6kB7sxB7oBU0en1tdh3q
-         SEFg==
-X-Forwarded-Encrypted: i=1; AJvYcCWzRK2UEoyVbcU3tcfJuEf6coXwMe2lVkhjVs9BESV/59gGm++3kE6Gb/AB0ynEVFgd4RnkV0cs3PcaglBIaFpn@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBOv7GVJPPegcbgIWxszVPpnjTTFETzSg7KALL05SwSem6VPSF
-	bJLa/u6M/R/eFm0WHlo7V8NjMdnmH8wLLR44XCPA8IfFB6hne9me
-X-Gm-Gg: ASbGncsXYF1721YTMyL8I5n6b0iEuDUEMUXCME5WGNnrd2OgYpv1sUMz56xkWjTuHbn
-	eQi+iYzIFZ5fcbcNmWyO5C8rYTtOz/1vw+XCkjuGyUr8wwdjja8UYLaRgvfToqw3gk6MDRTMEei
-	oURR/mb7sPUnDWf8OXUaeRQAxY9XAbP+nQ6AUwWIz6azBaloA01x9X66IfZhRkEQ4u3F8UuQ6Ri
-	XaPAiBiwZJJcbPsn0xQVowwpYpMT3V28AJ99Xp2Kx5lWyTsTsoVvj38ehbnZuc/mbmenk2h0nOQ
-	AtEPM4m9p/NZKAS1Mc2SeNFgqCxClbqUpK9IGC0=
-X-Google-Smtp-Source: AGHT+IELVS4lhs43iILfpwkhJE1qzvUcBDpCZPSr8G03kGFiX1zF+uJrHmJifYxOzwmCsKQfm2eOFA==
-X-Received: by 2002:a05:6a00:1d21:b0:736:32d2:aa8e with SMTP id d2e1a72fcca58-74091a1ee5emr3278160b3a.6.1746534986102;
-        Tue, 06 May 2025 05:36:26 -0700 (PDT)
-Received: from hiago-nb ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74058d7ad6csm9089557b3a.17.2025.05.06.05.36.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 May 2025 05:36:25 -0700 (PDT)
-Date: Tue, 6 May 2025 09:36:19 -0300
-From: Hiago De Franco <hiagofranco@gmail.com>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>, linux-pm@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	daniel.baluta@nxp.com, iuliana.prodan@oss.nxp.com,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: Re: [PATCH 1/3] remoteproc: imx_rproc: skip clock enable when M-core
- is managed by the SCU
-Message-ID: <20250506123619.egobussm6b74imso@hiago-nb>
-References: <20250505154849.64889-1-hiagofranco@gmail.com>
- <20250505154849.64889-2-hiagofranco@gmail.com>
- <20250506043835.GB24259@nxa18884-linux>
+        d=1e100.net; s=20230601; t=1746535342; x=1747140142;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5KktmeAFh0iInvvBLcrYESanNohFTS/OHe3yXdSHV54=;
+        b=JynleIhCwO/UDC4wH2bTMutzDqUiWF8LwaNU03czZpLfIb4Jr41Pj34W/08/dw1MRG
+         5gFFy03uSsu9G0smYk5y4dILoskmwGr4/BNvAcEPR2Uc8IMc5E7hR6gT13CuXFJD84fO
+         qxgbhaelGdsEM7mU2vBjJDtKqEl+tMeG3UjlAkM2hh9Vs0B5Qdj5otfPWF4g7VK6yY+M
+         mxl1dGgGu46tbj3oyjCyRosUnpctcNOk4eICzYXvuIvKxbVevSt6Y+lGENcTsgnBSVYu
+         62MtAqF5IKJ8SdQ9xcCMTKmgPubZHkuvUpYaW+Rntd4MnC2ySMsuONZi+l+iSAn7Z0WF
+         LrIA==
+X-Forwarded-Encrypted: i=1; AJvYcCW0OIPRUlZ7g+ttbcEG5/jcPSckcetW3MpQce1jSKY9aMzNDs2KDeYfhZKmQ+5VjcnmqWm12b9ksOb70OQin3zu@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsYQkI7EHhAYqmi6/+kHdJKt2FfEs0YFKLM8cXEiDAHvDj4KD3
+	sXYKdBWr3h5n97L1qC6+8u/7ME4+wyhP2xzS6I3J8VqMM1p49Q+UKNIrVrW2
+X-Gm-Gg: ASbGncucDkQg4AyI5RKNhfGoJOnwQiJRJSF1bJKp0PrVxgccmNoyFiHvoRM62T1S5Ay
+	fqbfeLnLzt7k1veG4Rpiw/xacvoLKHSq7SOhe46RuBt1W0uUae/x7ejOowa/05Zbbn3U3+t3JqE
+	pCPEV8NoTHCRVpNxtdXGyB5Z8qNEvZGcUR4aIzNJW+1FK5ZTIHLYKx2imQ9rvRoPzwrM6u/UlRB
+	zw7x5RYEzsqnOdRGuoBAAInC3bPOnQ86eyccMhZ0Ngapbc1sdHWCVEOWXlNXgZ2eTN0B9PgaFN2
+	qBDRY2AZUsURf60/WJSMHdgJLEQYjqXE4xJ12SGXyi+eWTGuVnWnn4zuOVw9ywCWV1DkKBbrfvy
+	WFyGUNS8=
+X-Google-Smtp-Source: AGHT+IFkx6aC76OvwS+dQ8A6ij79HZHYFnUG/Bwdpmsj79byWSRFdwPxrnb3k8Ppw0fVZj1x5YWJXQ==
+X-Received: by 2002:a05:6122:44b:b0:523:eb47:2884 with SMTP id 71dfb90a1353d-52b2649a914mr1704676e0c.6.1746535342136;
+        Tue, 06 May 2025 05:42:22 -0700 (PDT)
+Received: from mail-vk1-f170.google.com (mail-vk1-f170.google.com. [209.85.221.170])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-52ae401e0a4sm1904185e0c.11.2025.05.06.05.42.21
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 06 May 2025 05:42:21 -0700 (PDT)
+Received: by mail-vk1-f170.google.com with SMTP id 71dfb90a1353d-5290be1aedcso4616095e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 05:42:21 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXr0zGk5NwFjEYpdoj/48l4k4G9SrB+rlL9YseL8JFWVxHApFNPO5nUmxbJeKRdL+qiJMEbaosqFUoHlJYzCS05@lists.infradead.org
+X-Received: by 2002:a05:6122:3663:b0:521:b3ee:4970 with SMTP id
+ 71dfb90a1353d-52b2637e2edmr1645488e0c.2.1746535340941; Tue, 06 May 2025
+ 05:42:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250506043835.GB24259@nxa18884-linux>
+References: <20250506104731.111876-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <3a11ba8a-a9f4-4829-8bcd-56f1702bee8f@linaro.org>
+In-Reply-To: <3a11ba8a-a9f4-4829-8bcd-56f1702bee8f@linaro.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 6 May 2025 14:42:08 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWmvHZPwppQR5OxB7QB9NOWxRWoVkiMFS-6ScdYw=ywTg@mail.gmail.com>
+X-Gm-Features: ATxdqUHw7Q2NW_6-Xmvb7jxJeESiwPHSgjGO1YW2JZ65Esp2QlMbSSehpB67yV4
+Message-ID: <CAMuHMdWmvHZPwppQR5OxB7QB9NOWxRWoVkiMFS-6ScdYw=ywTg@mail.gmail.com>
+Subject: Re: [PATCH] arm64: defconfig: Build STMMAC Ethernet driver into the
+ kernel for NFS boot
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Prabhakar <prabhakar.csengg@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Arnd Bergmann <arnd@arndb.de>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_053627_243902_71DA1E05 
-X-CRM114-Status: GOOD (  29.22  )
+X-CRM114-CacheID: sfid-20250506_054224_150281_068579BF 
+X-CRM114-Status: GOOD (  31.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,79 +99,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
+Hi Krzysztof,
 
-On Tue, May 06, 2025 at 12:38:35PM +0800, Peng Fan wrote:
-> On Mon, May 05, 2025 at 12:48:47PM -0300, Hiago De Franco wrote:
-> >From: Hiago De Franco <hiago.franco@toradex.com>
-> >
-> >For the i.MX8X and i.MX8 family SoCs, when the M-core is powered up
-> >before Linux starts (e.g., by the bootloader) and it is being managed by
-> >the SCU, the SCFW will not allow the kernel to enable the clock again.
-> >This currently causes an SCU fault reset when the M-core is up and
-> >running and the kernel boots, resetting the system.
-> >
-> >Therefore, add a check in the clock enable function to not execute it if
-> >the M-core is being managed by the SCU.
-> >
-> >This change affects only the i.MX8X and i.MX8 family SoCs, as this is
-> >under the IMX_RPROC_SCU_API method.
-> 
-> I would rewrite as below: "
-> 
-> For the i.MX8X and i.MX8 family SoCs, when the M-core is powered up
-> by the bootloader, M-core and Linux are in same SCFW(System Controller
-> Firmware) partition, so linux has permission to control M-core.
-> 
-> But when M-core is started, the SCFW will automatically enable the clock
-> and configure the rate, and any users that wanna to enable the clock
-> will get error 'LOCKED' from SCFW. So current imx_rproc.c probe function
-> gets failure because clk_prepare_enable returns failure. Then
-> the power domain of M-core is powered off when M-core is still running,
-> SCU(System Controller Unit) will get a fault reset, and system restarts.
-> 
-> To address the issue, ignore handling the clk for i.MX8X and i.MX8 M-core,
-> because SCFW automatically enables and configures the clock.
-> "
-> 
-> You may update if you wanna.
-> 
-> >
-> >Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
-> >Suggested-by: Peng Fan <peng.fan@oss.nxp.com>
-> 
-> -> peng.fan@nxp.com
+CC arnd
 
-Thanks for the review, I will update the suggestions on a v2. Meanwhile,
-I will wait a little bit for other feedbacks.
-
-> 
-> Thanks,
-> Peng
-> 
-> >---
-> > drivers/remoteproc/imx_rproc.c | 4 ++--
-> > 1 file changed, 2 insertions(+), 2 deletions(-)
+On Tue, 6 May 2025 at 12:52, Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+> On 06/05/2025 12:47, Prabhakar wrote:
+> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 > >
-> >diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-> >index 74299af1d7f1..627e57a88db2 100644
-> >--- a/drivers/remoteproc/imx_rproc.c
-> >+++ b/drivers/remoteproc/imx_rproc.c
-> >@@ -1029,8 +1029,8 @@ static int imx_rproc_clk_enable(struct imx_rproc *priv)
-> > 	struct device *dev = priv->dev;
-> > 	int ret;
-> > 
-> >-	/* Remote core is not under control of Linux */
-> >-	if (dcfg->method == IMX_RPROC_NONE)
-> >+	/* Remote core is not under control of Linux or it is managed by SCU API */
-> >+	if (dcfg->method == IMX_RPROC_NONE || dcfg->method == IMX_RPROC_SCU_API)
-> > 		return 0;
-> > 
-> > 	priv->clk = devm_clk_get(dev, NULL);
-> >-- 
-> >2.39.5
+> > Enable `CONFIG_STMMAC_ETH` as built-in (`y`) instead of a module (`m`) to
+> > ensure the Ethernet driver is available early in the boot process. This
+> > is necessary for platforms mounting the root filesystem via NFS, as the
+> > driver must be available before the root filesystem is accessed.
 > >
+> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>
+> Same comments as for previous patches like this (even the same?): you
+> are supposed to use initramfs for your arm74 boards. Even armv7 boards
+> use initramfs, so network driver does not have to be built in.
 
-Cheers,
-Hiago.
+Are we? When has that policy changed? Why are lots of network drivers
+still built-in?  Making network drivers built-in for systems where
+development is done using nfsroot has always been acceptable for the
+arm64 defconfig before.  For things not critical for booting, modular
+is indeed the preferred way.
+
+arm64/defconfig is for development and testing, not for production
+(which famous kernel developer said that before?)
+
+> For example all of our setups use it thus we do not have to populate all
+> other vendors with our own drivers.
+>
+> Sorry, but I am strongly against such change. Kernel is already way too
+
+The kernel will grow without this (it will just take a few more weeks ;-),
+so that is IMHO not a good argument.
+
+> big and with KASAN it does not fit to boot partitions in some of the
+> devices (and I cannot change the boot partition size, at least not
+> without big effort).
+
+arm64/defconfig does not have KASAN enabled?
+
+> Nacked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Doh...
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
