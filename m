@@ -4,62 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3421C3ABC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 23:36:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADFE2C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 23:36:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vysEee6A+FvK+kmrD2/MPaMpXTHuhP73mvK1GtLdlgw=; b=DyU9G8juE7wO4GUZ6nEWY2M5Py
-	p0SahpyfzXYngqjHu3D+nRd4Aey+Juos51ZHNR3h7zSf26WtUSqM0v2y5uKLAWzdI1s/Fw83nHXzT
-	ts5M7rsTIEcVe3GQhprNAMYmGb4r1RRXlopcAtSJ1ORonf9xIgO3AU5WJNDjJ2bGqldE+kyyt0F5O
-	TxIBx3zaWdCmkzqBU/Wcdu9wAykjSaiHf5ZdW1nou1Byzpw3xpSDhxlArFVEV7puZ/7ajx51Jrslo
-	ChQCnpNrCSLGcugLshzcmeucWbGK2bI85C6DUsBvOYB4KfQJzuDaJ6JfchqHm3IVB5sE6+pATSMOi
-	e0yAlaBw==;
+	bh=P0Mh8BiC5jUFlfWCTp2Te2k+siOOqT50yR4bR3/zYEM=; b=UZVrJr62U770gj7C74ZNJ8oZLX
+	Tq8EaBRsVxJWJXFJNc9LgjBGJUsiiI8oAoSB3R9B1USq1PPR9VvdYYGMWBr2FWvvnyBpebSLchhkH
+	vVzHx9o5A7yhRsJJlUDL/o2cTSMMke3Aqe/XpPzROuJz7SVOTJCBFYbj5HEGzAcfKdlfeAi0xAAc/
+	uyFxurIsMe8IwoT6rGeNJ0PZdhGzx4wtiYMZicSqHfawv0GHrZ0qkfVWjKkL+v+tcpuhTaeCvqTFZ
+	WN4MQVMDrLBfJoe7yUAM/sycJ/w9D+dS1RSdHAMDW9keSkl7Mm1rI0R4gMPkgXBUrbpsvCZ6lhsb4
+	DXOG4LTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCRpW-0000000DgAd-35Iu;
-	Tue, 06 May 2025 23:36:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uCRpY-0000000DgEw-3SH7;
+	Tue, 06 May 2025 23:36:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCMxM-0000000D5pN-3SSi;
-	Tue, 06 May 2025 18:23:52 +0000
+	id 1uCMxP-0000000D5q9-29LN;
+	Tue, 06 May 2025 18:23:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2A64E61165;
-	Tue,  6 May 2025 18:23:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 952E3C4CEE4;
-	Tue,  6 May 2025 18:23:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E4D5E5C4605;
+	Tue,  6 May 2025 18:21:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FB20C4CEE4;
+	Tue,  6 May 2025 18:23:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746555831;
-	bh=k+mZaSBaKRCfObPQ+dsbeXUoUesj23G8rm5vuy4hQkg=;
+	s=k20201202; t=1746555833;
+	bh=ZEAGjwIFjybc/HGuQRpeGkvdPGM1CPmJpu83eTHjeHY=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=WnILdT6026fJnLUCFRq2f39GIiWLmWFFlFKbCS1RkTbkN1Ro5NPLL00xt3IuzgWa6
-	 mVc4xqnnYIFJDIAcOP3UxzS0YhjdDeYW68pmBElrVVDgaTteoCRTxc1s0XmCbRX5J9
-	 kxX7arPEwlkC34yRC7p6xlfAPoRCbAYb9i/8T57lXtEg3BBYaPY1jmRUgJQtu/y7ei
-	 RjSUgSfNbg/ml2CZ8970EimefJA7q0+ja3kweOaNzMZUnTYV+5KoekMzB8cw8RAuAT
-	 EYX7tq1TuxxLTQNJGOjq0hwvd9ooa6auTWge7Qxfi/EjEJKbN244Oh/Rs7mPm8m8XW
-	 FbCPOJN0Jf+6g==
-Date: Tue, 06 May 2025 13:23:49 -0500
+	b=J2Axxfi7zb9TfRjQzYpz4uELBa1yRNXuJU2ZPxuI+nYb26O0ECUNZSZS6C5YYlBZo
+	 IMVZgxTBOuHoYLXXKxrxqfTFCLQCAXOvI45dc/Q3IQaUQdl6deseQnjljgop1uvTo/
+	 A/+9EnnfP9+WPeNv4aX98MskcNF/yhIGWJDIl7XdyDmN1LdMQXZ6nQVt4GBCEImAbv
+	 UXq5igTpjIrBkTGvu36607jrTnccYqTpiRXLpvJxu874m2HlocpzEVD73+GR9WZWBf
+	 9MmX4teM14pxvLlQp0PztgVQHt9SDAhS7qD0X1pnlcoQ0Oedcj4HUjx4O33ziLmPJl
+	 0Hh0zIv4dsoqw==
+Date: Tue, 06 May 2025 13:23:51 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, kernel@collabora.com, 
- linux-kernel@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>, 
- Kever Yang <kever.yang@rock-chips.com>, 
- Frank Wang <frank.wang@rock-chips.com>, Vinod Koul <vkoul@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-phy@lists.infradead.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- linux-rockchip@lists.infradead.org
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-In-Reply-To: <20250505-rk3576-sige5-usb-v2-0-d5ba4305f3be@collabora.com>
-References: <20250505-rk3576-sige5-usb-v2-0-d5ba4305f3be@collabora.com>
-Message-Id: <174655575105.2171003.12510940387691309807.robh@kernel.org>
-Subject: Re: [PATCH v2 0/5] RK3576 USB Enablement
+Cc: heiko@sntech.de, linux-kernel@vger.kernel.org, 
+ Jonas Karlman <jonas@kwiboo.se>, 
+ Detlev Casanova <detlev.casanova@collabora.com>, 
+ Dragan Simic <dsimic@manjaro.org>, Yao Zi <ziyao@disroot.org>, 
+ Junhao Xie <bigfoot@classfun.cn>, devicetree@vger.kernel.org, 
+ Elaine Zhang <zhangqing@rock-chips.com>, 
+ Marcin Juszkiewicz <marcin.juszkiewicz@linaro.org>, 
+ Jamie Iles <jamie@jamieiles.com>, Guenter Roeck <linux@roeck-us.net>, 
+ Frank Wang <frank.wang@rock-chips.com>, linux-rockchip@lists.infradead.org, 
+ linux-watchdog@vger.kernel.org, Jimmy Hon <honyuenkwun@gmail.com>, 
+ Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Finley Xiao <finley.xiao@rock-chips.com>, 
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+ FUKAUMI Naoki <naoki@radxa.com>, Diederik de Haas <didi.debian@cknow.org>, 
+ Shresth Prasad <shresthprasad7@gmail.com>, 
+ Quentin Schulz <quentin.schulz@cherry.de>, Johan Jonker <jbx6244@gmail.com>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Kever Yang <kever.yang@rock-chips.com>
+In-Reply-To: <20250506025715.33595-1-kever.yang@rock-chips.com>
+References: <20250506025715.33595-1-kever.yang@rock-chips.com>
+Message-Id: <174655575165.2171034.16453137338500014976.robh@kernel.org>
+Subject: Re: [PATCH v5 0/6] rockchip: Add rk3562 SoC and evb support
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250506_112355_643044_069442DF 
+X-CRM114-Status: GOOD (  25.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,75 +88,80 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 05 May 2025 19:26:35 +0200, Nicolas Frattaroli wrote:
-> This series is the result of what I thought would be a quick 10 minute
-> job, but turned out to be more like 3 days of pain, suffering, and
-> confusion. This should be expected with USB Type C though.
+On Tue, 06 May 2025 10:57:09 +0800, Kever Yang wrote:
 > 
-> The first patch in the series extends the inno usb2 PHY driver to fiddle
-> with some GRF flags in that driver when the PHY is connected to a USB
-> Type C port. Without this change, devices on USB-C simply don't
-> enumerate at all, as the state machine gets stuck waiting for vbus to go
-> low or something along those lines.
+> Patch series V5 remove [v4 1/7] which had taken by Manivannan, and move
+> scmi-shmem from soc node to reserved memory.
 > 
-> An alternate way to implement this would've been a vendor property in
-> the PHY binding which is then checked for in the driver and needs to be
-> present in all rockchip inno u2phy instances that happen to be connected
-> to a USB Type C connector. This is what downstream does, for example.
+> Patch series V4 remove patches already landed, and remove dts nodes for
+> modules still under review.
 > 
-> Patch 2 and 3 allow Super Speed in reverse orientation on USB Type-C
-> connectors to work, but I am not entirely confident in the solution I
-> arrived at.
+> This patch set adds rk3562 SoC and its evb support.
 > 
-> Patch 4 is what I think may have been the culprit of what originally
-> made me add the USB2 PHY suspension quirk, but I'm somehow unable to
-> reproduce that particular SError fest anymore.
+> I have split out patches need driver change for different subsystem.
+> And all the modules with dt-binding document update in this patch set
+> do not need any driver change. I put them together to make it clear we
+> have a new SoC and board to use the new compatible. Please pick up the
+> patch for your subsystem, or please let me know if the patch has to
+> send separate.
 > 
-> Patch 5 adds the USB related nodes, including associated regulators and
-> Type C controllers, to the Sige5 tree.
+> Test with USB, PCIe, EMMC, SD Card.
 > 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
+> This patch set is base on the patch set for rk3576 evb1 support.
+> 
+> V3:
+> https://lore.kernel.org/linux-rockchip/20250227111913.2344207-1-kever.yang@rock-chips.com/
+> V2:
+> https://lore.kernel.org/linux-rockchip/b4df8a73-58a2-4765-a9e4-3513cb2bc720@rock-chips.com/T/
+> 
+> 
+> Changes in v5:
+> - Collect review tag
+> - Update scmi-shmem from soc to reserved memory
+> 
+> Changes in v4:
+> - Collect ack tag
+> - Collect ack tag
+> - Collect ack tag
+> - remove gmac and otp nodes
+> - remove gmac nodes
+> 
+> Changes in v3:
+> - Collect reveiw tag
+> - Collect the Acked-by tag
+> - remove i2c/serial/spi alias
+> - add soc node
+> 
 > Changes in v2:
-> - Rebased onto next-20250505
-> - Drop the u2susphy quirk, as I can no longer reproduce the original
->   problem with various amounts of ripping up the DT and changing the
->   config. Yeah I'm not super hyped about this now being a heisenbug
->   either.
-> - Drop the bindings patch, as Rob showed me there's a way to do this
->   without extending the bindings
-> - Rewrite the usb 2 phy driver patch to no longer walk an OF graph from
->   PHY to connector, but instead first find the USB controller that uses
->   this PHY, and then use the USB controller's existing graph connection
->   to the usb connector.
-> - Adjust the Sige5 DTS patch to now have two port connections from the
->   USB connector to the drd0 USB controller, one for high-speed aka
->   USB2, one for super-speed aka USB3, ordered as per its binding.
-> - Add a patch for rk3576.dtsi to reference u2phy1 as a clock in the drd1
->   controller.
-> - Add two patches to fix USB Type-C super speed in reverse orientation.
-> - Link to v1: https://lore.kernel.org/r/20250407-rk3576-sige5-usb-v1-0-67eec166f82f@collabora.com
+> - Update in sort order
+> - remove grf in cru
+> - Update some properties order
 > 
-> ---
-> Nicolas Frattaroli (5):
->       phy: rockchip: inno-usb2: add soft vbusvalid control
->       phy: rockchip: usbdp: move orientation handling further down
->       phy: rockchip: usbdp: reset USB3 and reinit on orientation switch
->       arm64: dts: rockchip: reference u2phy1 as clock on RK3576
->       arm64: dts: rockchip: enable USB on Sige5
+> Finley Xiao (2):
+>   arm64: dts: rockchip: add core dtsi for RK3562 Soc
+>   arm64: dts: rockchip: Add RK3562 evb2 devicetree
 > 
->  .../boot/dts/rockchip/rk3576-armsom-sige5.dts      | 160 +++++++++++++++++++++
->  arch/arm64/boot/dts/rockchip/rk3576.dtsi           |   5 +-
->  drivers/phy/rockchip/phy-rockchip-inno-usb2.c      | 113 ++++++++++++++-
->  drivers/phy/rockchip/phy-rockchip-usbdp.c          | 154 +++++++++++++-------
->  4 files changed, 376 insertions(+), 56 deletions(-)
-> ---
-> base-commit: 214464d4c3491d4eb2c0e9d1310d7f60c408b94b
-> change-id: 20250328-rk3576-sige5-usb-230102aeeaca
+> Kever Yang (4):
+>   dt-bindings: watchdog: Add rk3562 compatible
+>   dt-bindings: rockchip: pmu: Add rk3562 compatible
+>   dt-bindings: soc: rockchip: Add rk3562 syscon compatibles
+>   dt-bindings: arm: rockchip: Add rk3562 evb2 board
 > 
-> Best regards,
+>  .../devicetree/bindings/arm/rockchip.yaml     |    5 +
+>  .../devicetree/bindings/arm/rockchip/pmu.yaml |    2 +
+>  .../devicetree/bindings/soc/rockchip/grf.yaml |    7 +
+>  .../bindings/watchdog/snps,dw-wdt.yaml        |    1 +
+>  arch/arm64/boot/dts/rockchip/Makefile         |    1 +
+>  .../boot/dts/rockchip/rk3562-evb2-v10.dts     |  488 ++++
+>  .../boot/dts/rockchip/rk3562-pinctrl.dtsi     | 2352 +++++++++++++++++
+>  arch/arm64/boot/dts/rockchip/rk3562.dtsi      | 1270 +++++++++
+>  8 files changed, 4126 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3562-evb2-v10.dts
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3562-pinctrl.dtsi
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3562.dtsi
+> 
 > --
-> Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> 2.25.1
 > 
 > 
 > 
@@ -164,29 +182,15 @@ make sure dt-schema is up to date:
 
 
 This patch series was applied (using b4) to base:
- Base: using specified base-commit 214464d4c3491d4eb2c0e9d1310d7f60c408b94b
+ Base: attempting to guess base-commit...
+ Base: tags/next-20250506 (exact match)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250505-rk3576-sige5-usb-v2-0-d5ba4305f3be@collabora.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250506025715.33595-1-kever.yang@rock-chips.com:
 
-arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: usb@23400000 (rockchip,rk3576-dwc3): clock-names: ['ref_clk', 'suspend_clk', 'bus_clk', 'utmi'] is too long
-	from schema $id: http://devicetree.org/schemas/usb/rockchip,dwc3.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: usb@23400000 (rockchip,rk3576-dwc3): clocks: [[18, 262], [18, 263], [18, 261], [22]] is too long
-	from schema $id: http://devicetree.org/schemas/usb/rockchip,dwc3.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: usb@23400000 (rockchip,rk3576-dwc3): clock-names: ['ref_clk', 'suspend_clk', 'bus_clk', 'utmi'] is too long
-	from schema $id: http://devicetree.org/schemas/usb/rockchip,dwc3.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: usb@23400000 (rockchip,rk3576-dwc3): clocks: [[17, 262], [17, 263], [17, 261], [23]] is too long
-	from schema $id: http://devicetree.org/schemas/usb/rockchip,dwc3.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dtb: usb@23400000 (rockchip,rk3576-dwc3): clock-names: ['ref_clk', 'suspend_clk', 'bus_clk', 'utmi'] is too long
-	from schema $id: http://devicetree.org/schemas/usb/rockchip,dwc3.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dtb: usb@23400000 (rockchip,rk3576-dwc3): clocks: [[18, 262], [18, 263], [18, 261], [22]] is too long
-	from schema $id: http://devicetree.org/schemas/usb/rockchip,dwc3.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dtb: usb@23400000 (rockchip,rk3576-dwc3): clock-names: ['ref_clk', 'suspend_clk', 'bus_clk', 'utmi'] is too long
-	from schema $id: http://devicetree.org/schemas/usb/rockchip,dwc3.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dtb: usb@23400000 (rockchip,rk3576-dwc3): clocks: [[18, 262], [18, 263], [18, 261], [22]] is too long
-	from schema $id: http://devicetree.org/schemas/usb/rockchip,dwc3.yaml#
+arch/arm64/boot/dts/rockchip/rk3562-evb2-v10.dtb: /soc/usb2-phy@ff740000: failed to match any schema with compatible: ['rockchip,rk3562-usb2phy']
 
 
 
