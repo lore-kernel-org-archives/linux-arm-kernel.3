@@ -4,77 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 581FEC3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 18:17:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C19FC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 18:19:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XwFxSS6/0etFSYGRDk49i+vv0sGzyJkpooN2+dhNmek=; b=ZVJO8FnX+Q9G9EewBE7b3A2IB/
-	+HOMdAwX4xae53mu/NzgRM7qmsWe3ejckTNjkoCfgTzZArtoESriAiv6A2hDbcagdnCIhuRvje3/P
-	SKPnlc2YdWDMAraNRXhNEiT72UI4uzVyYcW4BuXbwGY9sqLfho+XKpSshWTQwwEev0/v7l4K83PKo
-	og4weGIgi0e/Oh0Umfyte63g2GRQ49nFFo6x6nOy/NfDjL7atpD8WFYJEKyVRGarwUrZiZ5wwJ3nu
-	Q2VtRdBgud+HHax6ZA4XGMW7FGYO3NKPhO6k6W8Ujfd42xWtMPlM3JG5xACuQQbHKXhriTwY3Oiqm
-	nCQZ5uSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xPiaoAIQ8g5mgZTS1TOyFzBws4F6cTeoyTehuMwvClc=; b=DxSHu/q+0gc7QJ10l0dCrEdfLW
+	zTBKzNI+5dWzwNS9JyBpoSL+NaFcU5Wl9zew4L4JJXmnja7MjNqhr3/i3pc53cToECkbPD7amiJ/U
+	eUQ4T0teq8Ar9M4u3lEg3UcpePes2QONkPxz1JBARcCqZJmnRbbSo0GD0trYZnXl8kyAtjwSxJ1H5
+	gSeHBJMEqe1TnXwPJlTMFqxz52aMLe5gcg4RpD7B4wgqgivnjtqCxCrOS4T1Em3MaRyDZU57UNAvP
+	/XcS7LtD3uu551YMEsU2N8pkri4qKYIE6CjaumSvKwnSeu7mahcPwzOqcbQN2iVKw40GAPzFjIYtV
+	JteN4XHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCMqZ-0000000CxGS-3Ba6;
-	Tue, 06 May 2025 18:16:51 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uCMsV-0000000CxTX-1ueY;
+	Tue, 06 May 2025 18:18:51 +0000
+Received: from mail-westeuropeazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c201::7] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCJAA-0000000CIKy-2DQb
+	id 1uCJBL-0000000CIYW-32tx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 14:20:51 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 546EKlqT520569
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 6 May 2025 09:20:47 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746541247;
-	bh=XwFxSS6/0etFSYGRDk49i+vv0sGzyJkpooN2+dhNmek=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=uWRmYS2kcd1ZnrEn9vFIhYXxpWKNmBXhKhWwUX1I3R+l854ZjL9Sds8WRDalA615M
-	 53zKqJURtekMsaKqJ4MIlFtlc73pe2ShurCmtpXyafn1YAVwnTAvtQSSbKohqrVfBv
-	 wYF9t/hTXpZDzeAsEQ+SQJfB7+JFLNNlNJKqgyjc=
-Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 546EKl6S021374
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 6 May 2025 09:20:47 -0500
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 6
- May 2025 09:20:46 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 6 May 2025 09:20:46 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 546EKk23114438;
-	Tue, 6 May 2025 09:20:46 -0500
-Message-ID: <8ffefea3-e458-4a9e-968b-89b7541d3b5e@ti.com>
-Date: Tue, 6 May 2025 09:20:46 -0500
+	Tue, 06 May 2025 14:22:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pqWpBoMXGh055hTuMSJxgelPZLR0rpKA3FGbOYiBd6gmGdEpONukZ3rQJ62ty0uqutjNht5HobFBmW5RDzWux6caCcxyvHz0Z86npOIDyZottGXAONc/53G05uTZtmxpPgFacT0Vo0XoSQIvOZUkBVQ3hEh1Zp4O0UvBlvdPFcHyt02y9UrQbg0yldEMA7MJsnxqHfqXlQzs75hEs3Dd5PHiDwJCt8yXqmnYFgbvhlANhjJuYvguK+koG+oEfUSeO+uGkZ9abgxyVoxcFuoXAgCjLsaVDZOYxX31djYS1nejL/EFstNk1vu4OzFrOho5h6R0wIE9s7Gx8xLIn31apg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xPiaoAIQ8g5mgZTS1TOyFzBws4F6cTeoyTehuMwvClc=;
+ b=iGu6Gmi3IhcO9PJOAvpaVMRwIWlV4Devyu7h7PJEVphOCyoCVWvTTXu6Zw43qsBi/d95G0tnEaDSxqr/BHZbQW8osbclKubX7nEg0iBFeSi+g/vN/G72Xl/bEuL79YoKe54Ilfg/UWUo/xl9F4i4KaI/czofnJBWlFPKOTkGQDh7bn9vBkYtzxylCLdR74eQ0FO75UYo1eAGKHMvdtJKdipgjMIkqX7cG+UEpOevnwffgqzCeZ0R5aRN5VauBB86XW/+iurvVxM/mOEy7qNKoRIoU2fOlqECEZ9L8auVesv5VFt9ecaezR2baqQiQ+jI9UC7vrPaYfER8jP6B+Gzsw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xPiaoAIQ8g5mgZTS1TOyFzBws4F6cTeoyTehuMwvClc=;
+ b=FaxS4qOPwS0+RMvStuzzL8c2j5gpOUFbd/r8hmA88HGMiEL+R9i1xE/cs34aGQlW67ndF8Uf7ielUGCzM6wBxe51c1cnhUQayTvHYgaaKiFV4WSHkkzO3VdGkDEJQjnVYRE/2T4cYcBML5jYvcBle3EBj0GNDWhBFRAfy3KmtMNmedkvWpgDUs8nOM3IZT+1HVIPlrzJEbMQ4hJQPtcaaEd/5P4XpHmTYy5VLJGZ7e8tYrE1yeXoYUD3y99z2NTKaAblW04J0f7b6M6ilbMau6ZeSCHz0KRPRtYBqggo8LE0y0H5C2/7tm/vm7Xw2SZxC4pBGYiBaWKbgOmpWgaDEQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8868.eurprd04.prod.outlook.com (2603:10a6:20b:42f::6)
+ by AS8PR04MB7655.eurprd04.prod.outlook.com (2603:10a6:20b:292::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Tue, 6 May
+ 2025 14:22:00 +0000
+Received: from AS8PR04MB8868.eurprd04.prod.outlook.com
+ ([fe80::b317:9c26:147f:c06e]) by AS8PR04MB8868.eurprd04.prod.outlook.com
+ ([fe80::b317:9c26:147f:c06e%3]) with mapi id 15.20.8699.026; Tue, 6 May 2025
+ 14:22:00 +0000
+Date: Tue, 6 May 2025 17:21:57 +0300
+From: Ioana Ciornei <ioana.ciornei@nxp.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Vladimir Oltean <vladimir.oltean@nxp.com>
+Subject: Re: [PATCH 5/6] arm64: dts: ls1028a-qds: make the QIXIS CPLD use the
+ simple-mfd-i2c.c driver
+Message-ID: <smfuskvhdhrfrgbpjflgymoadms6vfiwgjmipsmkrxldtor6we@tyvafv626bwr>
+References: <20250430153634.2971736-1-ioana.ciornei@nxp.com>
+ <20250430153634.2971736-6-ioana.ciornei@nxp.com>
+ <20250502-savvy-eccentric-hog-b4fed5@kuoka>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250502-savvy-eccentric-hog-b4fed5@kuoka>
+X-ClientProxiedBy: AS4P189CA0051.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:20b:659::16) To AS8PR04MB8868.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42f::6)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] arm64: dts: ti: k3-am62a-phycore-som: Enable
- Co-processors
-To: Daniel Schultz <d.schultz@phytec.de>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: <upstream@lists.phytec.de>, <w.egorov@phytec.de>
-References: <20250506133604.294920-1-d.schultz@phytec.de>
- <20250506133604.294920-3-d.schultz@phytec.de>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250506133604.294920-3-d.schultz@phytec.de>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8868:EE_|AS8PR04MB7655:EE_
+X-MS-Office365-Filtering-Correlation-Id: 75195820-ed85-4985-c865-08dd8ca95d3a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0RDBgPSufAeafiO+QWvshJp0+4JRzl34iSSg6mvileeEhKnJ6uNL0iQJQres?=
+ =?us-ascii?Q?Oh06E1N+csSVFsxF9zvujlwpw81XDPJfPyvsumTlHC6XyTwbbErgIMZi2t52?=
+ =?us-ascii?Q?tcBOOym/Ekdx7hPPsa4d6eMpnyeeUvjRG1h2Ym3M1LdNnXoJ5cAKLYjB8rSM?=
+ =?us-ascii?Q?OnxmDsVKs8xWmNNyW+RI7+9VTD8TIRY6rz9TBR5NXneDkEJrQsQe5r13aPkx?=
+ =?us-ascii?Q?1QXMELO5dd5C+4BimEg4PovfqvXppBIgA0hrUV65nlDy9AuDWQe68oD/rMZI?=
+ =?us-ascii?Q?Xr44FYI/3OQe2D2NGGQeJNNmeLvnQSTXTOlgJYzXFpyhBr1PSTNQLnYmvLu1?=
+ =?us-ascii?Q?mPCAknLB480n/5rGf/L5SafdpXlfBjzKSm2Ol5jxvRDEWYGE6cROtD0Jh6ym?=
+ =?us-ascii?Q?UaZr9tx5m99eYAx3/IwIj/LEKl4qgqy4x2uSRfZtKWVxIK8uzM+8Ew9wG5Ye?=
+ =?us-ascii?Q?gtZSVXa39vcMz0fesYY98iN6pkvt+eK/pFSHkR/k63NKYexF3i/5CZoLIyoI?=
+ =?us-ascii?Q?ldOtddHJEBBbGMPy/f5EaFYTT9mfZ91pj50zkyWCHU2kyUpf++KYj3dkGGyS?=
+ =?us-ascii?Q?AU6YetDHOSHaLzZTLQB06Ebgzc62tJUyLVQm6tHkLJ87oABhPPMBdzO6WoNk?=
+ =?us-ascii?Q?o5mCI49Pmxn8RqTqSifyoPdh7LsypISoHNnWa+f4EqSJK3vgXduxfva4raSC?=
+ =?us-ascii?Q?ev4B24UVHCp/eYJrucUYXyJ7021mFV3KXYthV1dRCIcaJMyszyOorh63cawU?=
+ =?us-ascii?Q?WkWy6IA7aiqVxiZJGkjiceL6xtUCf2Jj5ZARAVSKxxPxMiWTcIB3kbc4X/4+?=
+ =?us-ascii?Q?ad0w9dbaepj0AyboNb0qSxqIVqXkQyx9BpoU2JQn5IbkfiOkVH3OdeQkAS3y?=
+ =?us-ascii?Q?G4TFHz2p3KNG3kEYGGPjYPFZRH6DhKGy3smIYZVpTRLVNYtZ3C9gRgkVNj5N?=
+ =?us-ascii?Q?GCPr9EOM/NbYGcx2yFcjOnRu6uBDrE0lBkm9zo0bG13Nt+/DHB/M6eE83itE?=
+ =?us-ascii?Q?7h3fZvUuEDV0GhNFCgV60ApISnss1OQSs6De/EJtNK3RAPxpyE8Wim51i2bZ?=
+ =?us-ascii?Q?uguc8t2CfBCIphJCB35mc/chYAIRXQtHRb+9y7b2BYzSZFh8Lh40r2wiYs2j?=
+ =?us-ascii?Q?zTKEd/VZpOqgiHiqYgxrk/f/Rf7+m7G5vh+JOgJSmR8hPttV7U4WUZHGatwZ?=
+ =?us-ascii?Q?umjPLq5sDbIOsa7J/+6/jJoHnI6eROH2MXXw2lHe3WYJqLagH6ysZm/6c20v?=
+ =?us-ascii?Q?I2AVy9bSgLsmrETpIWcFQw4MDS/2YVD13SP4fErMRJ4UOF2B1smkTpbAOlqR?=
+ =?us-ascii?Q?RakVTk6YaOBJ76DIgmN3P7nsLcAC8YnSuQCKGzWup4CJnA8dFfxgwf79fs0r?=
+ =?us-ascii?Q?BY+hHGuP+UMaLWyuU8yJFHwVtwfZ8+qvv0pdocY7droV4Gd4dwcA5wzlKpJq?=
+ =?us-ascii?Q?Z6szxXcDVJg=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8868.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2C23o+UwoF7pbAVVnzzdwN6J+TINIrBde+GdqpoA235HXhEIrcrW46/13jcI?=
+ =?us-ascii?Q?RqTOeVIhAFOFZSePVeYxsf/tOS4RNPOdT6I2ypqJLFwZ5NpDJJ8GxJzScRqX?=
+ =?us-ascii?Q?4to9z18gpEy6R+jxDj6PcaiPgGN9McWQV8WhstpUMWCh0Xbqsyvf77mH95vy?=
+ =?us-ascii?Q?aEm40ilNX+Li3aJFgJ/qymQG+HEzpSyFaDYu01tDt05tfJP7XMQpxgpgqyGx?=
+ =?us-ascii?Q?pHV5KyIi5yON/Wd3hHgqBKQJyHebwpsRNruJPQxXZ2/sYlf0UPj+438egaDZ?=
+ =?us-ascii?Q?t8oFY4tMxPyRg2C+kOzwFMK8SiiWDUucmGuosy40ChSLQ2lNTcM+sMMgyDJq?=
+ =?us-ascii?Q?e/5M+7t2SBUIJbC9l40jx+m/wDQW7DezSx9ZTi0frhdeZ9s2CvrXktXOZFDE?=
+ =?us-ascii?Q?rfKlV1qI93BB4/E9pxFj5SMKB0jn50ltXKJz6ba6PRxLvHkoWDjmDK9xjOU9?=
+ =?us-ascii?Q?sKXxH6CNP8DYs05v5XJv2aNhzETVAKBXiEeY5ZuaLC3hmePeuNBnNYfupMsR?=
+ =?us-ascii?Q?zROqmrYh0oRyVF6hK9gvYeBgN2aqV+UwS02An5T0VJN5TuO7DfcQTunxTo+j?=
+ =?us-ascii?Q?he4SGRiJWHGRpLWD3yvsGf34GPryFLPZ/B+05Zd2ipyRZsUIwD4gguAqy6nm?=
+ =?us-ascii?Q?1KH+T9vO56nzm4W/mCSfb+tM5yrLwCsQ4+tmA/FleAAcXlWxMpWO46MVjDY1?=
+ =?us-ascii?Q?XKfqYsbRBOPwNVb+AhlrjCsBt+PEXwXO0DD2Bq0F4IPiuIDHLS3grQxDYflP?=
+ =?us-ascii?Q?MEJfHwns5qSfZrbNLXMWLO4cPD6gYKj78A21I21bpwVyQi/fvo6HfGwWBUxX?=
+ =?us-ascii?Q?PFT2Q+FNXaFjecr2gY94sH4ZM95fP16R+sm3+FHqDmsZmkAvlJz0d44bOeU1?=
+ =?us-ascii?Q?sxh5M5OytfODGVDwlVYbtokSTyaYYLkTCN3+KvHq4QenSg0GShd651LhhNCA?=
+ =?us-ascii?Q?hb1KLMRnrJguw/tAsg0xWVGFjOCTbTypt0p/meX8l/XD3BKBHO8bl7250NwE?=
+ =?us-ascii?Q?kC8m36jWAYA5cwP8OweC7Neia6/r5RpK8iTY3jTD55S+xRC9zOFi4mjElEzO?=
+ =?us-ascii?Q?yEhF6gWxIUipHwFptHzuBPVs0UxPxib9bxLz5FCeYQ+a13gSqmL7eu9y+w67?=
+ =?us-ascii?Q?oTE1iyp53sfWbAxX0SCxu0EfJTZ9pulMJKuXOkwdkuSJnqZFlH5P0tYx8d3m?=
+ =?us-ascii?Q?CJJc8tQFLbIfo3x57KEf/cSABTR/npEOBMRn+7mvDB6VEJA44slpbLPbMCcs?=
+ =?us-ascii?Q?8sCobUVKjuTOGRbuROy+/VIrJ7HOcutYBDROJCQTD2AJb4same5lMIlVPvyS?=
+ =?us-ascii?Q?0HyWYJfUK+bvj1KzHeo75UNEPAkABmodsBP+NE0ocLp9JXBA2uHegDHu+VJG?=
+ =?us-ascii?Q?0fEQObxqmenyGsQZoekeBYOGOnrhMTCJO3dQX2QgHr5h7IeYh5OQICPKi5El?=
+ =?us-ascii?Q?WldYqDkV5qEj/a5/fyrgbCvbFWl5nSyMJtewcG6DTvJeNINXbGw51bLTCWDV?=
+ =?us-ascii?Q?ih9P1j8wvXCg4//dbRH++z0sWa8isRyF3b6lYSQMJc/Zyfm+nFxwM3boY1fE?=
+ =?us-ascii?Q?hG/JC/HL8gK0N5HoXc/z6vE0mKEM+b7Q26S7s3aV?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 75195820-ed85-4985-c865-08dd8ca95d3a
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8868.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 14:22:00.0074
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: D1caTNS1TbIbPcsflhslvil0eBVMUtcQgDziyrM1GSibDwfcS06fsbnw2h/PZK+GjNvgiX8oPEuJuoudN3MACA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7655
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_072050_666967_F7F266CE 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20250506_072203_767498_2B23E1E9 
+X-CRM114-Status: GOOD (  25.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,161 +160,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/6/25 8:36 AM, Daniel Schultz wrote:
-> For every remote processor, set up dedicated memory regions and
-> associate the required mailbox channels. Allocate two memory areas
-> per remote core: one 1MB region for vring shared buffers, and
-> another for external memory used by the remote processor for its
-> resource table and trace buffer.
+On Fri, May 02, 2025 at 09:04:03AM +0200, Krzysztof Kozlowski wrote:
+> On Wed, Apr 30, 2025 at 06:36:33PM GMT, Ioana Ciornei wrote:
+> > From: Vladimir Oltean <vladimir.oltean@nxp.com>
+> > 
+> > The MDIO mux on the LS1028A-QDS never worked in mainline. The device
+> > tree was submitted as-is, and there is a downstream driver for the QIXIS
+> > FPGA:
+> > 
+> > https://github.com/nxp-qoriq/linux/blob/lf-6.12.y/drivers/soc/fsl/qixis_ctrl.c
+> > 
+> > That driver is very similar to the already existing drivers/mfd/simple-mfd-i2c.c,
+> > and the hardware works with the simple-mfd-i2c driver, so there isn't
+> > any reason to upstream the other one.
+> > 
+> > Adapt the compatible string and child node format of the FPGA node, so
+> > that the simple-mfd-i2c driver accepts it.
 > 
-> Signed-off-by: Daniel Schultz <d.schultz@phytec.de>
-> ---
->   .../boot/dts/ti/k3-am62a-phycore-som.dtsi     | 96 +++++++++++++++++--
->   1 file changed, 90 insertions(+), 6 deletions(-)
+> Why do you break the users based on some driver differences? Fix the
+> drivers, not the DTS.
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-> index 147d56b87984..049aa358e796 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-> @@ -59,6 +59,42 @@ linux,cma {
->   			linux,cma-default;
->   		};
->   
-> +		c7x_0_dma_memory_region: c7x-dma-memory@99800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x99800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		c7x_0_memory_region: c7x-memory@99900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x99900000 0x00 0xf00000>;
-> +			no-map;
-> +		};
-> +
-> +		mcu_r5fss0_core0_dma_memory_region: r5f-dma-memory@9b800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		mcu_r5fss0_core0_memory_region: r5f-dma-memory@9b900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b900000 0x00 0xf00000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c900000 0x00 0xf00000>;
-> +			no-map;
-> +		};
-> +
->   		secure_tfa_ddr: tfa@9e780000 {
->   			reg = <0x00 0x9e780000 0x00 0x80000>;
->   			alignment = <0x1000>;
-> @@ -70,12 +106,6 @@ secure_ddr: optee@9e800000 {
->   			alignment = <0x1000>;
->   			no-map;
->   		};
-> -
-> -		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
-> -			compatible = "shared-dma-pool";
-> -			reg = <0x00 0x9c900000 0x00 0x01e00000>;
-> -			no-map;
-> -		};
->   	};
->   
->   	vcc_5v0_som: regulator-vcc-5v0-som {
-> @@ -170,6 +200,13 @@ AM62AX_IOPAD(0x1f4, PIN_INPUT, 0) /* (D16) EXTINTn */
->   	};
->   };
->   
-> +&c7x_0 {
-> +	mboxes = <&mailbox0_cluster1>, <&mbox_c7x_0>;
-> +	memory-region = <&c7x_0_dma_memory_region>,
-> +			<&c7x_0_memory_region>;
-> +	status = "okay";
-> +};
-> +
->   &cpsw3g {
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&main_rgmii1_pins_default>;
-> @@ -200,6 +237,33 @@ &fss {
->   	status = "okay";
->   };
->   
-> +&mailbox0_cluster0 {
-> +	status = "okay";
-> +
-> +	mbox_r5_0: mbox-r5-0 {
-> +		ti,mbox-rx = <0 0 0>;
-> +		ti,mbox-tx = <1 0 0>;
-> +	};
-> +};
-> +
-> +&mailbox0_cluster1 {
-> +	status = "okay";
-> +
-> +	mbox_c7x_0: mbox-c7x-0 {
-> +		ti,mbox-rx = <0 0 0>;
-> +		ti,mbox-tx = <1 0 0>;
-> +	};
-> +};
-> +
-> +&mailbox0_cluster2 {
-> +	status = "okay";
-> +
-> +	mbox_mcu_r5_0: mbox-mcu-r5-0 {
-> +		ti,mbox-rx = <0 0 0>;
-> +		ti,mbox-tx = <1 0 0>;
-> +	};
-> +};
-> +
->   &main_i2c0 {
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&main_i2c0_pins_default>;
-> @@ -315,6 +379,16 @@ &main_pktdma {
->   	bootph-all;
->   };
->   
-> +&mcu_r5fss0 {
-> +	status = "okay";
-> +};
-> +
-> +&mcu_r5fss0_core0 {
-> +	mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
+> > 
+> > Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+> > Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
+> > ---
+> >  arch/arm64/boot/dts/freescale/fsl-ls1028a-qds.dts | 9 +++++----
+> >  1 file changed, 5 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a-qds.dts b/arch/arm64/boot/dts/freescale/fsl-ls1028a-qds.dts
+> > index 0bb2f28a0441..58b54d521d75 100644
+> > --- a/arch/arm64/boot/dts/freescale/fsl-ls1028a-qds.dts
+> > +++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a-qds.dts
+> > @@ -338,17 +338,18 @@ sgtl5000: audio-codec@a {
+> >  	};
+> >  
+> >  	fpga@66 {
+> > -		compatible = "fsl,ls1028aqds-fpga", "fsl,fpga-qixis-i2c",
+> > -			     "simple-mfd";
+> > +		compatible = "fsl,ls1028a-qds-qixis-i2c";
+> 
+> This breaks all the existing users. NAK.
 
-These mboxes items should be combined as they are both part of a single
-two-element item, not a big deal for now as the output DTB is the same,
+Using a mainline kernel, this DT node was never used or probed by a
+driver since that driver was never submitted. I am not breaking any user
+of the mainline kernel.
 
-Reviewed-by: Andrew Davis <afd@ti.com>
+> 
+> >  		reg = <0x66>;
+> > +		#address-cells = <1>;
+> > +		#size-cells = <0>;
+> >  
+> > -		mux: mux-controller {
+> > +		mux: mux-controller@54 {
+> 
+> This was never tested. Your binding says something else.
 
-> +	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
-> +			<&mcu_r5fss0_core0_memory_region>;
-> +};
-> +
->   &ospi0 {
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&ospi0_pins_default>;
-> @@ -343,3 +417,13 @@ &sdhci0 {
->   	bootph-all;
->   	status = "okay";
->   };
-> +
-> +&wkup_r5fss0 {
-> +	status = "okay";
-> +};
-> +
-> +&wkup_r5fss0_core0 {
-> +	mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
-> +	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-> +			<&wkup_r5fss0_core0_memory_region>;
-> +};
+Will fix the binding in v2.
+
+Ioana
 
