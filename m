@@ -4,187 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 392E2C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 05:28:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B249C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 05:30:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=63b9Aunr8opOU4+8ybjrFTZV2qklprm0iPPtYTehS40=; b=midc5dJ+a3mlgGDGwpnHhLsS/Y
-	ldGptWpUvAwRD+pOBWrHnRrJr+oSN3P8dtq14Vn5SZ6YwmyIIdEV6MNyGOBL32jI0y5WWtfULM2+z
-	WwO5SAUPZCHk/ySO/2eIctTVy3UObnaP1+BTO08Y/zzj6RABjpCiP08Ivl7oJ8aBKlEfU693q/lzg
-	UnLoZv/bDdfNAQJS1WmT+r67ZFynO06pKNqBYsRDkMzBNAX3dstYKmME3uMJs1TXaSUzGPEnoZ/gN
-	UfyZ/UhbLkuEFy7neVqs2YhQHP8GqiN+V1rjEmdYBKbBM0IGzp6jm49wXOmf+41u/XZz8IqWBANcy
-	q4QwLMDw==;
+	bh=poh4flnsblOTuXQPZPNN2P3hxWXnOplQoLoK9Oy5wOo=; b=YTsO89lGExqgGf2fDjZI5NvymJ
+	b0eq4DBon01eJQxb8yOXkTNzKOeLLrd/x98MHdfLJl8izKsKN16eK7iosH+oGEty/KRUx9F9iX3Of
+	vJYzWa9Kz1bIcvq+sbJczTwz+8y82eUEdYUgy+gJzPPwo1MqUdVloQ14C155rLPf/WRvgfNq1jiK4
+	gXEKsV0tiikqm+y/t+dFGCS1VY5+wQiDKLW77rknO6WWg/zfl9JcDbdl84U+QE5Zd0enqxbC3Ip6B
+	BYiPUUaHKctZlrC3kh6VovCA0DQDNhLYpu9l+FyjF/LPdvghwtYLs1T2Gn8e0uDN9DrHQpOsvwl01
+	36vhW8lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCAqy-0000000ARW5-3BD3;
-	Tue, 06 May 2025 05:28:28 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1uCAt0-0000000AS1T-43Of;
+	Tue, 06 May 2025 05:30:34 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC7y2-00000009jZS-27Jx;
-	Tue, 06 May 2025 02:23:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XDaoqgEWgjyfSw/rB7H7hI7OvHydC/4EzkKF+wodstKmfWkTXWG6Vm5kSflbV9g17T0trNip9XJWcBmIbeGM2upOrwcsE3atnjWzzjbCPstL22XrhOViWRRaF6S/LoqUEIcZVUsWT3K/2uqiVssvdPODLAjG8jhVTDhlG0xZQKumLDg+5NBXpqIphe5dkeebgXYWTOe2p0ZjVJ9Kbd3SIUhV4FGb+7ZeiwK7kN4wQvjLYicUzagfUFy60OOgzaHEThG7U3T3GZ9/rLMvjL1nvEwKLr1ChJXRjs2Vbf5VrvBTSfFqcXTq5oHhWXMUFkb8wdr9A+bHBHGAlzZffX0DiA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=63b9Aunr8opOU4+8ybjrFTZV2qklprm0iPPtYTehS40=;
- b=lK9mxmjFxUQplUjrg/1aTVxY8IlFdBP8CIQm3UExl8sXUT8Y4q2psH2NqdpDhIKHBXMiH226lkIbN/A8rI+q7ee89K1kT9P7dwfpYBirtdpLamYidpZVFxwswtXOiw3o9G89+1D9M7SnTHfv9Fnnct2nwTQ1YaKx0hJ1MuVxQsr4SjphQdD5I3u6HVmBThUaM19GzxgOAaDN8LbZX4N9U2nBAzbUvkzJlMTHFj4muMkmOUQV5DQgvXQqQTx0Yo1mdVRYkYmyUf69J8Ihww1qXdX2KqywaL+IFTUAmWbPRFHQ7y3Hq1BaHOODAK3PawE2FjrM6Ae8E2ooR+BeCSZjQA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=63b9Aunr8opOU4+8ybjrFTZV2qklprm0iPPtYTehS40=;
- b=MGa1Acnpxa1YUxn0JeMOGaDDNSDAP0j9d80xA4kNPGtDKAIU3mwDAK0TEvjnJeVxdmuwFX/xXotQtQnPdbG/tC84vgou4D4tNReLww8slsnl+trg0U0ESgZxdOCd8fPlgaz1AjLRw2k2GLIZXEuYpCPuRkO2kJhZzrysDmLpRUtjUewIATn8EyT3LT3ncy49HBkSSizfjyM0qD/3TgHrTpKZYloWzGPcb+KdaVMs4Ek00EYgs3JM/NoLS13wk0rtcHNaryO3h213MkEmk9EMU9/g+CllnrPdvg8ncBu7B7UHspr1Jczqp8WlTYDnKJ8u4yS+3coViT/qId847oywRw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by PA4PR04MB9223.eurprd04.prod.outlook.com (2603:10a6:102:2a2::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Tue, 6 May
- 2025 02:23:23 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%4]) with mapi id 15.20.8699.026; Tue, 6 May 2025
- 02:23:22 +0000
-Message-ID: <f71d18d2-4271-4bb9-b54f-0e5a585778f3@nxp.com>
-Date: Tue, 6 May 2025 10:24:18 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 30/34] drm/bridge: imx8qxp-pixel-combiner: convert to
- devm_drm_bridge_alloc() API
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Jagan Teki <jagan@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Douglas Anderson
- <dianders@chromium.org>, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, Anusha Srivatsa
- <asrivats@redhat.com>, Paul Kocialkowski <paulk@sys-base.io>,
- Dmitry Baryshkov <lumag@kernel.org>, Hui Pu <Hui.Pu@gehealthcare.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- dri-devel@lists.freedesktop.org, asahi@lists.linux.dev,
- linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-renesas-soc@vger.kernel.org, platform-driver-x86@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20250424-drm-bridge-convert-to-alloc-api-v2-0-8f91a404d86b@bootlin.com>
- <20250424-drm-bridge-convert-to-alloc-api-v2-30-8f91a404d86b@bootlin.com>
- <553d62ed-976a-4e17-9678-cdc3d40ce4a7@nxp.com>
- <20250430112944.1b39caab@booty>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <20250430112944.1b39caab@booty>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI2PR06CA0003.apcprd06.prod.outlook.com
- (2603:1096:4:186::14) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+	id 1uC863-00000009lpr-3kCa;
+	Tue, 06 May 2025 02:31:53 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-736b0c68092so4481384b3a.0;
+        Mon, 05 May 2025 19:31:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746498710; x=1747103510; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=poh4flnsblOTuXQPZPNN2P3hxWXnOplQoLoK9Oy5wOo=;
+        b=jgKVbMUMMMd5eHO3MsgLImFIztlllvq08alEGpSj9QDoIcvy5VEsvi8578JTcviIH5
+         RwoMDkz0sEIYd9Oi9KSPy4PL4MYAyOGT7CeMB3UMWV9i7OxjBLNW/K6UT8yB76U4oLhp
+         mmtvpkTtETJOOcVZw0wH9QuMM36YpiikUA4j1rN7czW5ObFzOhhA3av1YqHx9ZAni8bu
+         2IauC6FWzDIrpkHiUz1rnY5hPJm8mLVFqeb7dBtn5JkQSzNW2HOQFmDSvEukVYoUj5sB
+         9F0MX161eHltLq2WKmtaCXB0FTno4yjSZoSKj9OlzNEBNproE+QQOih01br2XSvUwUjc
+         nS0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746498710; x=1747103510;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=poh4flnsblOTuXQPZPNN2P3hxWXnOplQoLoK9Oy5wOo=;
+        b=idRu4vajzDjAyb7r3Zj07bjX61ei2rP0qRrpY7SlJFIDQNSDT0JfLkh8L0q+fVNUKR
+         /55zW6CX8KYxlOMzfwb3UEvr+p/NX/ESjlKchdTYpQM4eCRm/27VTEQx9LkjqQg82QG+
+         QRiB6tSryjdRP/UU/vBxQ8vBmfMzZVzokojtnhU2jgCg9MAL4jVg7edmfUD5WNAKrT20
+         M2RSoptWSgm0koXObwq2kkw/WIUNx4XYYyxg0NlHoDb/dWBQRwJgoUFViE4NO+vCBwr8
+         40vgAc2EWvcDhY5xr6lHMUapcuQYxPj8SunOn0RI5JHO8ttv6iGda9IHdsR+IAgnVX2Q
+         yTHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU6qCKHJ+jG0axc3MLOyJOOEGdKD5cW5kN7ETkYF6nENfQdMPLUimApOVojmOZ07FpvbGBGOdVAwzmkRdbBhnbeVA==@lists.infradead.org, AJvYcCX/nxJo/GwHtdF4DHqW3hwwdid7qHqUZrrGtYJG4MmuP5W5+Llz7KHxDT1Cphhas+SiD12uGw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9qdGEokGCUfp62xMcrErr9FK+cHJI4Lz4BAmwiFRyfoDXksqn
+	2Z7S/Mk5nVoaFxicuv5PYXB3J1G5IsdpERAHcIQx8sVVyye9u0J+
+X-Gm-Gg: ASbGnctVqzAB5leOKYO6JPtNJLsrpFfeg0U7Zez3n93YI+udz24WCRzua2x19n7Heik
+	f+cwGKj+03x7hEIOzXy08HwElVCGN3egWnEBXuPI3PRedmDDFapGk1KYq48QAjYPGGo6zAkLExq
+	Zct0OlerU7/g3ViY8kMXGpEAdU3h0Q/qK7qCyMcsUKJ6TxR9IrFWI9V6hueCBzHkx+wns1mcUng
+	1jLrmu8JoDBKbYMuEOdmGsjmJk6TfWZvToZpEpYKjSkgJ/pvwB9VufUFncRtMugVkTi3XSQ4+HX
+	O2/HQNSL7Iv4UxM3f/VuCybeVE/wKS8pZPZmN9LE
+X-Google-Smtp-Source: AGHT+IFm2DxJzuwGUz6BKAo8aCcTy5T+PX1t2f2NG17JtptJTbCdw+A9Vy7/npC+48IEhStxuhVLiA==
+X-Received: by 2002:a05:6a00:4294:b0:736:6ecd:8e32 with SMTP id d2e1a72fcca58-74058b23ef3mr18912149b3a.21.1746498710367;
+        Mon, 05 May 2025 19:31:50 -0700 (PDT)
+Received: from archie.me ([103.124.138.155])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74058dbbb15sm7939011b3a.58.2025.05.05.19.31.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 May 2025 19:31:49 -0700 (PDT)
+Received: by archie.me (Postfix, from userid 1000)
+	id 3FFBD42439E4; Tue, 06 May 2025 09:31:45 +0700 (WIB)
+Date: Tue, 6 May 2025 09:31:45 +0700
+From: Bagas Sanjaya <bagasdotme@gmail.com>
+To: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org
+Cc: akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de,
+	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de,
+	catalin.marinas@arm.com, corbet@lwn.net,
+	dave.hansen@linux.intel.com, devicetree@vger.kernel.org,
+	dwmw2@infradead.org, ebiederm@xmission.com, graf@amazon.com,
+	hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org,
+	krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org,
+	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com,
+	pbonzini@redhat.com, peterz@infradead.org, ptyadav@amazon.de,
+	robh@kernel.org, rostedt@goodmis.org, rppt@kernel.org,
+	saravanak@google.com, skinsburskii@linux.microsoft.com,
+	tglx@linutronix.de, thomas.lendacky@amd.com, will@kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH v7 17/18] Documentation: add documentation for KHO
+Message-ID: <aBl0kUIKryH5AUD5@archie.me>
+References: <20250501225425.635167-1-changyuanl@google.com>
+ <20250501225425.635167-18-changyuanl@google.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|PA4PR04MB9223:EE_
-X-MS-Office365-Filtering-Correlation-Id: e11c5380-bd1a-484a-07d4-08dd8c44f8eb
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?di9meTl0cmhuNno2azdPN2k0YkZ5STNyMk94OTRTT2grWTJWQjRGazEreG5x?=
- =?utf-8?B?aWx1RWVaUTU4Q2t5M0JpeXZGVVd1MTc3N2JuVkZlanByQ3RxRFZhWFdqQXBI?=
- =?utf-8?B?NmdQTy9hL0NRNmJPWEc3TDhSS2FHc0p2WFdJc3R4bURwTVZxV1VhVzhPUmFI?=
- =?utf-8?B?elBHTGJQaHVEVTBSdG1XMkVFSlhYYzlpU1V5UHAzWDBDM1VpbjlhQjdBK2ov?=
- =?utf-8?B?TmlRSkgvU0RaQWJMSktKV3JoaUsvSFQ1SDVpV0IyeW4yd3ErZmk1cWhyanlB?=
- =?utf-8?B?d1pEcE9SV0RNYm5vUEdYSXA4d0JDTzMrV1crelhSWi9ETnNERVpkWGN2ekk2?=
- =?utf-8?B?QlhpZ1NsUElDVlZLdGFLd3NMcVMwOXh1VWtPMk1mTkdHbnp6cmFFQ2xhVzFY?=
- =?utf-8?B?aFdrUjlEUzVCVG5oUU5UcWpPWU1YNHl5SWxBSjRZVkx2YzdEYmI2dWVaMGNj?=
- =?utf-8?B?b0I1VlRMWWMzWGFmV1h3OXNVYzMwQmZBL2FMS2Jtc0dUdVdaeEtxcS9aZWU4?=
- =?utf-8?B?N0FNUjVoSURzMFBjMG9reHE3bTFoZHBuclB5bVpZVGhHMG9CNFJWUGlNTE1T?=
- =?utf-8?B?aldDbWRPV0x2Vm8zOVh2R3F6TjR5bHB2VVJVZ3pWUFpVdXR4UVRlV0Fwb0p2?=
- =?utf-8?B?clRjYlplQVBMWktjdXFKUGZtSThZZFAwK0d3S0kwM20veTVkaFNXWElCdUNu?=
- =?utf-8?B?ZjIzbWNIWmY3eVVlRm1EajlWenNYVlFiTGkyQmw0bXJTc1BWZDFFN0hZWERy?=
- =?utf-8?B?bVNrWlI3Zk5NcVdKVEdqVDZPek8rTG5FSnE1NWdPWXdxRlJrVjA1WWRKQXlz?=
- =?utf-8?B?UmREaW5YSkFQaVU3bzc4dUt2YkhiVzZzT0Q0dEgydWhINjBYNXBtYXhFdHVF?=
- =?utf-8?B?RThRViswcHAxdDdvR3J5cVltNWdjS3FKL3pzYjRrOHBjNjZpVVlUaFVIYWVT?=
- =?utf-8?B?cElyb1hGR1ZMRGVZOElJOGd0eGw0QkYxU2pBT21IUDAyQ0J4STRDbFNxb3R0?=
- =?utf-8?B?VEVtWkM0ekYvNGtJbmpNWGt1OHNtSTQ1VGE3c1hWcnkycWJkVjI3TEVNYmcy?=
- =?utf-8?B?ejZJWWphR2pmUlZ0dFFUaTJ1NEUrbFE5WmlKQ0xqOG4yRS9hZW1yMDByZ0RG?=
- =?utf-8?B?cyt4eFA2a1BrbEkyc3VNSmFZUTFzMlBaamFwRnMzNFVKSVRhV3lLQlk2QUVL?=
- =?utf-8?B?MXVjZm92NDVYRnlCV1FtaFg3Zi93NHp0akZEL1oraUpCc3dtY200WGRsTGdM?=
- =?utf-8?B?cGxWQXgrKzl1MzNJVUVDYWlQMWFUOE9nZ29jcTVBVHI5cWdZOVQwT3lndE5Y?=
- =?utf-8?B?NUJabnFKUEFZRnJvOEdabCtxR0I4MWJwU0EyekZ0b25sSzFBVGNDUkZmTGRr?=
- =?utf-8?B?a292azYwQUgrUWRqZWloU1hNY0tIcjBTQzFLY0daR0w3T1poYktYQkJvZXNY?=
- =?utf-8?B?YkpIYjlSUEJObkNOYm5hVWYxSzZOTEtzWkdPTjliOEhXYlVIMHN3ZzhNeDNU?=
- =?utf-8?B?MFZ0b25mUTloV1VtUXA0ODZZOTZaZVA0U01xdytiYkNuNy9ZUTV2a3c1U2hy?=
- =?utf-8?B?RWRXTmhYTlpuVGdGT0lOZHMrMmFIbWluQ0hEWWx1ZUhjWVFrQmpRbVI2TFo0?=
- =?utf-8?B?U1dNVlJzUWNKYWJkN203M3dlYWNWMDUyOG40RGJHZGY0WDhSWUxvTHNoNUVP?=
- =?utf-8?B?Z0MybTBJTXNNOWh1YjAya3hWb0xDNUcvU2xjTVhYWHY2bUlWM1RqeXhka0ww?=
- =?utf-8?B?c3BORGw0VURXZ2IxMmtOajA4NGJGVDdwTndTSDV3VVdwOGNmRTBIeUp1Ny9N?=
- =?utf-8?B?eE9ZcEdjYmxXTjZYRGw4R3RhNVBuNndqeko1ajROWmVZOEdPbzdEN3ZvSzhF?=
- =?utf-8?B?eHFCeHBxOUFCb25qS2ZrcTZsRE5ndks0QWhCYkMraXoxeWRzN3BXUUg0WUJG?=
- =?utf-8?Q?6kyeynkRelI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QkdjUzBrYm4xZThrUXpMNk93WjJTTDFUUko3Si9rd1RMeXlNREFrdjJ6TXJp?=
- =?utf-8?B?U1hBL3lyZ1prNlh5M3pwd2l2SUVXVGplWmdDRnZhYWMySjBVeGxkOXNGOUJC?=
- =?utf-8?B?ckc5TjNpMzQ0Yi83MGNaeTFGZXlnR1cyLzM4K2dIZ3FRMkpTSk9BUjRXR2lQ?=
- =?utf-8?B?eElMdTIwRWpqcnpuNUdwci84L0w0OUhxNUJweWJxMDBrbEltcGt3U0FKUC9Y?=
- =?utf-8?B?ZlVzSU1uQm83RzBOeWFhUGZzR2V0QXZqQVBRVlJjMnFBalBWK21EWVA3STAy?=
- =?utf-8?B?UFcxZmpUeEt3cFhUNUd6QXFOZEVKZTE0bWl2QW5IR2kzOFMvcEowd1pRVDR6?=
- =?utf-8?B?NFhQdW1VZXoxV0VIdWRHaERDdjFMNEd3UjlrQ21BODNWbnJWTW04Z2pBajRY?=
- =?utf-8?B?Njk0QWRCd1RQZmoycHZDOUZiYzY2eWEraVpmanBXSjdEa21zempFVElmS2sr?=
- =?utf-8?B?K1N6QTlRcVgrR1Brc2VzRSt6MTNBWGRMamRKT0R4b0NIUlRhQi9ubVlBSjR4?=
- =?utf-8?B?Y29yaXY3cGV4VXQvcldqcy9ZT29BVDZIeXhmYWFVdy9WVXdqVXBzdXptNVBQ?=
- =?utf-8?B?RnRJaGdwc2tRRkhnSWtRTDlHSFk1WGVCN094WVY0TVA3cEFGWGg1VE9ZckEw?=
- =?utf-8?B?djhHeVo1eEE3Nk1aaHc4cWw0dDUzWExkbWtpclZMYmQxRG03YVVtVHJLN0pH?=
- =?utf-8?B?M0Q1N1NXeWFscmg5M3lqaENUWmVyalZEYUdyL2ZMMUxvWlNNaFJJRUw4Tjlk?=
- =?utf-8?B?S1FoSTdsOE80ZCtmb25kYm5JVHJiN1NDUm1WTFZoclpUTkh5Rk1zS21paXlP?=
- =?utf-8?B?cU1FUC9uMmFtNG9tVzFuOVRtaDR2cmpCL3pqclVQSW51S1JORHJrVjJCV2NU?=
- =?utf-8?B?Ung5RHZMU1ArbWR3K09yUWdDQTR0RFJpVTU3M3daM1BxVjBvaWlWMjRPYmpk?=
- =?utf-8?B?RHdnUE9DT25GUEFXNlEra3FSSnB3RHQvU3ZyL0gvZDV2ZVBLUmozMEtLQncy?=
- =?utf-8?B?ZDlPS2ZNOFZ3LysvSmU1VkwzcVV2MFhTNDV2am94eUN3WnVqRU53R01rbUtZ?=
- =?utf-8?B?amVxM2gvRzZPOVV1UGtrdXRDL3BTcUdrVlBRL0NnVWFVUXRxWWJ6YnFvQ3d1?=
- =?utf-8?B?bmtaWTUyU1FnbVpncVgxYWNRU2pib1JQc0thQkxFNGpWak9QdW9UdlgrTS84?=
- =?utf-8?B?T1Bsckd5T3lLN0lkWmsydVJ2blJCWS93bi9YSVU1WjdTMGxyeDVmQU94SjZV?=
- =?utf-8?B?bkxDMTN6cWlsMmVrc2VkejlZejZHZTRVV2tpVHJ6Mm5YR2Q1ejkzT3ZtR1pZ?=
- =?utf-8?B?M09OWmlzSWtUMWdPOTFoT1FTS2VENHd5TGlpcnF2OG5QZ2ErUk52TGsvT3F2?=
- =?utf-8?B?YWt5Y3luQmhqdWJ1WkxLZXZZVGRXdDJkOXArL1NsV29ENFJHWm14TkpqVHE5?=
- =?utf-8?B?YS90aTlyelloNFZmSHFEV3IvWVJVNThlTTZlRkZGOVRnWUtjOTZhRVZvbmVQ?=
- =?utf-8?B?cmNJWnp1VndUaGhqNTZEZUthRk9LdHBJYWFtd2RQL0V3TGN1MUNYY1NUSFhZ?=
- =?utf-8?B?cmdpZmxsN0Ywc2NjcXphZmd5cWg3SHpRL2h4dyt0LzRhcWxhOFFaNFIvbnQ5?=
- =?utf-8?B?V3lsc0NSYWpHRndWTWZiSXRCdmV0OUY0NWEvcTAyYjRlQXppNUhmdnFKQTNz?=
- =?utf-8?B?NU5IK25RbzRKNVZQVkQ1V2hzdzdUUlNHTU12dDZ1MERaY1RXNUFmVFA4a1No?=
- =?utf-8?B?aGdoOGd6STRkL2ZGYWVFWXJibzhNc2Y1WGNDRWFxcWh0QVBuK2lETmgvWmJ3?=
- =?utf-8?B?WjBjNGVxWWlwWVo0cDVQSThtM1kyR2dpd0xvMU14RlVzRElyVTN5WVBsSVVo?=
- =?utf-8?B?V2RqTDZJaWU4ZWgwNjY4YWF2cW02ZlpYYU1mYXBoQS9TbXNPdURma01FRmtP?=
- =?utf-8?B?anpncDNFVTE4dS8zOVVoOVBtQ0xraHVwWS9SWDZPZ1U5TEIvRWtoaHA1cWJE?=
- =?utf-8?B?aWdGaVFzall5bWJ4WDVWZ3dxUiszanltS29UL1lSMUNmNUtNeVc2MEVlL2hI?=
- =?utf-8?B?bGlKd0VFOThGUk9LT08xY2pJRTlscWp0a0twbHAwTTc4dHo2dXJKc05LQTZo?=
- =?utf-8?Q?TXPOCszcRt+Zb5Jz8Y/x0VPyS?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e11c5380-bd1a-484a-07d4-08dd8c44f8eb
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 02:23:21.9794
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uUp1VcJJNpJskboapS7NuaShR20VTVbnHdxV7uJ7Q1ku2ku9Jw63SRw3TL7rd6/mvfxcqQQBrbKtozT5Kmfabg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9223
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7/7+Tnuu7kTtOC0+"
+Content-Disposition: inline
+In-Reply-To: <20250501225425.635167-18-changyuanl@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_192334_726343_0EADD237 
-X-CRM114-Status: GOOD (  34.22  )
+X-CRM114-CacheID: sfid-20250505_193151_937091_353C07B2 
+X-CRM114-Status: GOOD (  21.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -199,145 +111,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/30/2025, Luca Ceresoli wrote:
-> Hello Liu,
 
-Hi Luca,
+--7/7+Tnuu7kTtOC0+
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> 
-> On Tue, 29 Apr 2025 10:10:55 +0800
-> Liu Ying <victor.liu@nxp.com> wrote:
-> 
->> Hi,
->>
->> On 04/25/2025, Luca Ceresoli wrote:
->>> This is the new API for allocating DRM bridges.
->>>
->>> This driver embeds an array of channels in the main struct, and each
->>> channel embeds a drm_bridge. This prevents dynamic, refcount-based
->>> deallocation of the bridges.
->>>
->>> To make the new, dynamic bridge allocation possible:
->>>
->>>  * change the array of channels into an array of channel pointers
->>>  * allocate each channel using devm_drm_bridge_alloc()
->>>  * adapt the code wherever using the channels
->>>
->>> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> 
-> [...]
-> 
->>> @@ -345,8 +351,8 @@ static int imx8qxp_pc_bridge_probe(struct platform_device *pdev)
->>>  free_child:
->>>  	of_node_put(child);
->>>  
->>> -	if (i == 1 && pc->ch[0].next_bridge)
->>> -		drm_bridge_remove(&pc->ch[0].bridge);
->>> +	if (i == 1 && pc->ch[0]->next_bridge)  
->>
->> Since this patch makes pc->ch[0] and pc->ch[1] be allocated separately,
->> pc->ch[0] could be NULL if channel0 is not available, hence a NULL pointer
->> dereference here...
-> 
-> See below for this.
-> 
->>> +		drm_bridge_remove(&pc->ch[0]->bridge);
->>>  
->>>  	pm_runtime_disable(dev);
->>>  	return ret;
->>> @@ -359,7 +365,7 @@ static void imx8qxp_pc_bridge_remove(struct platform_device *pdev)
->>>  	int i;
->>>  
->>>  	for (i = 0; i < 2; i++) {
->>> -		ch = &pc->ch[i];
->>> +		ch = pc->ch[i];
->>>  
->>>  		if (!ch->is_available)  
->>
->> ...and here too.
-> 
-> This is indeed a bug, I should have checked the pointer for being
-> non-NULL.
-> 
-> Looking at that more closely, I think the is_available flag can be
-> entirely removed now. The allocation itself (ch != NULL) now is
-> equivalent. Do you think my reasoning is correct?
-> 
-> Ouch! After writing the previous paragraph I realized you proposed this
-> a few lines below! OK, removing is_available. :)
-> 
-> [...]
-> 
->> On top of this patch series, this issue doesn't happen if I apply the below
->> change:
-> 
-> [...]
-> 
->> @@ -351,7 +349,7 @@ static int imx8qxp_pc_bridge_probe(struct platform_device *pdev)
->>  free_child:
->>         of_node_put(child);
->>  
->> -       if (i == 1 && pc->ch[0]->next_bridge)
->> +       if (i == 1 && pc->ch[0])
->>                 drm_bridge_remove(&pc->ch[0]->bridge);
-> 
-> Unrelated to this patch, but as I looked at it more in depth now, I'm
-> not sure this whole logic is robust, even in the original code.
-> 
-> The 'i == 1' check here seems to mean "if some error happened when
-> handling channel@1, that means channel@0 was successfully initialized,
-> so let's clean up channel 0".
-> 
-> However my understanding of the bindings is that device tree is allowed
-> to have the channel@1 node before the channel@0 node (or even channel@1
-> without channel@0, but that's less problematic here).
-> 
-> In such case (channel@1 before channel@0), this would happen:
-> 
->  1. alloc and init ch[1], all OK
->  2. alloc and init ch[0], an error happens
->     (e.g. of_graph_get_remote_node() fails)
-> 
-> So we'd reach the free_child: label, and we should call
-> drm_bridge_remove() for ch[1]->bridge, but there's no code to do that.
-> 
-> To be robust in such a case, I think both channels need to be checked
-> independently, as the status of one does not imply the status of the
-> other. E.g.:
-> 
->   for (i = 0; i < 2; i++)
->       if (pc->ch[i] && pc->ch[i]->next_bridge)
->           drm_bridge_remove(&pc->ch[i]->bridge);
-> 
-> (which is similar to what .remove() does after the changes discussed in
-> this thread, and which I have queued for v3)
-> 
-> What's your opinion? Do you think I missed anything?
+On Thu, May 01, 2025 at 03:54:24PM -0700, Changyuan Lyu wrote:
+> +This document expects that you are familiar with the base KHO
+> +:ref:`concepts <concepts>`. If you have not read
+The reference label is generic and can collide with future patches.
+It should've been disambiguated as kho_concepts instead.
+> +them yet, please do so now.
+> +
+> +Prerequisites
+> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> +
+> +KHO is available when the ``CONFIG_KEXEC_HANDOVER`` config option is set=
+ to y
+> +at compile time. Every KHO producer may have its own config option that =
+you
+when the kernel is compiled with ``CONFIG_KEXEC_HANDOVER`` set to y.
+> +need to enable if you would like to preserve their respective state acro=
+ss
+> +kexec.
+> +
+> <snipped>...
+> +First, before you perform a KHO kexec, you need to move the system into
+> +the :ref:`KHO finalization phase <finalization_phase>` ::
 
-The pixel combiner DT node would be added in imx8-ss-dc{0,1}.dtsi, please
-see the case for imx8-ss-dc0.dtsi introduced by an in-flight patch[1].  As
-channel@{0,1} child nodes always exist(DT overlay cannot effectively delete
-any of them) and channel@0 always comes first, there is no problematic case.
+kho_finalization_phase to disambiguate label.
 
-> 
-> Thanks for taking the time to dig into this!
+> +Next, load the target payload and kexec into it. It is important that you
+> +use the ``-s`` parameter to use the in-kernel kexec file loader, as user
+> +space kexec tooling currently has no support for KHO with the user space
+> +based file loader ::
+> +
+> +  # kexec -l Image --initrd=3Dinitrd -s
+> +  # kexec -e
 
-After looking into this patch and patch 31(though I've already provided my A-b)
-more closely, I think the imx8qxp_pc and imx8{qm,qxp}_ldb main structures
-should have the same life time with the embedded DRM bridges, because for
-example the clk_apb clock in struct imx8qxp_pc would be accessed by the
-imx8qxp_pc_bridge_mode_set DRM bridge callback.  But, IIUC, your patches extend
-the life time for the embedded channel/bridge structures only, but not for the
-main structures.  What do you think ?
+Use full paths to kernel and initramfs image.
 
-> 
-> Best regards,
-> Luca
-> 
+> +``/sys/kernel/debug/kho/out/scratch_len``
+> +    To support continuous KHO kexecs, we need to reserve
+> +    physically contiguous memory regions that will always stay
+> +    available for future kexec allocations. This file describes
+> +    the length of these memory regions. Kexec user space tooling
+> +    can use this to determine where it should place its payload
+> +    images.
 
-[1] https://lore.kernel.org/dri-devel/20250414035028.1561475-17-victor.liu@nxp.com/
+"Length of KHO scratch region, which is a physically contiguous memory regi=
+ons
+that will always available for future kexec allocations. Kexec user space
+tools can use this file to determine where it should place its payload imag=
+es."
 
--- 
-Regards,
-Liu Ying
+> +
+> +``/sys/kernel/debug/kho/out/scratch_phys``
+> +    To support continuous KHO kexecs, we need to reserve
+> +    physically contiguous memory regions that will always stay
+> +    available for future kexec allocations. This file describes
+> +    the physical location of these memory regions. Kexec user space
+> +    tooling can use this to determine where it should place its
+> +    payload images.
+
+"Physical location of KHO scratch region. Kexec user space tools can use th=
+is
+file in conjunction to scratch_phys to determine where it should place its
+payload images."
+
+> +.. SPDX-License-Identifier: GPL-2.0-or-later
+> +.. _concepts:
+
+The label can be ambiguous. It should've been _kho_concepts instead.
+
+> +.. _finalization_phase:
+
+The label should be _kho_finalization_phase.
+
+> +Generally, A KHO user serialize its state into its own FDT and instructs
+"Generally, a KHO user ..."
+> +KHO to preserve the underlying memory, such that after kexec, the new ke=
+rnel
+> +can recover its state from the preserved FDT.
+> +
+
+Thanks.
+
+--=20
+An old man doll... just what I always wanted! - Clara
+
+--7/7+Tnuu7kTtOC0+
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCaBl0iQAKCRD2uYlJVVFO
+oy/8AP48Fa7VB0kwt+kqGg4VMR/+tEgBDGxzTX5HXZWYD5fZLQEAm6XrPJBViu5A
+Mpce1oumgUOmlwq+sRSgixha15i4eAo=
+=lxMZ
+-----END PGP SIGNATURE-----
+
+--7/7+Tnuu7kTtOC0+--
 
