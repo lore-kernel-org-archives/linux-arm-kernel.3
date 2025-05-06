@@ -4,140 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CEB7C3ABC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 23:36:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 503F6C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 23:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+VZZVGzbcYYx5hdX5nvsFRseHivi3VPKSjmAFBb2pNs=; b=W/MNCs5oJqurqdzwYjE46ncjJ4
-	LZs3Zt7xjZ/89ZrNmoXyz0mRMRsK0mNvFHQx0ioKbNLQeUSZOq7nx8w8JGY0o6ZQObTKrWMEoIydA
-	xILaRNAomsgXRg78dmSvaWhAYVJIzhttTOhIZ3kDuQuqCkTZkC3UEnJMs8xe/AJaskKIEP8GNCztU
-	2O9IJ3mVPBmIqiW/Nzm+TEG4BA3RY3U7hu+KdVU+UW5GotWCTl1q6fkFdDaDVo0EqpxGmHIl21vuT
-	ZCh3pWdbF2gVexA3DfOklY1zjs8M+6rAYlDoJLtykrlcRvTnoihYUaijqTVDzax2dQx8m4GEKu7+c
-	PIPv77hg==;
+	bh=MP3B5n8POM3WT0SLgvnt8i94xrlaCvjHvGrMzi6gdJo=; b=aFEC0ZH79gAvmVRexz8LQqkNim
+	PJYaLN6H8CBfioXpyrUhUikNGwmemZOT9fJppI9y0Y0saJvYa0R+SOidfOnWTR+NBEuDfbqgPBsFq
+	PIYhx9RiUfxqrwpBvO30Jx0gzez4/Je5j6fTRgechUIOdmH703YxUpcMpzwsmRMKMN+MmxgSSFqtm
+	OkxlokCrN7Cl6DOTDf/1nQG1Bw7oQHs19CEMf/Pjx81EY4FrRw3mFmtz8Eidk3gdoNlhP7AgtUb4L
+	0S16tzbAY0xjeFMMSrZB+RNW0a2h1hoeKKW1DbR6qs+a9y0RXUaPKozFHS5rdGJXcA/uAjxBQ+i/5
+	BCiEkNSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCRpC-0000000Dfnc-1iuJ;
-	Tue, 06 May 2025 23:35:46 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1uCRpI-0000000DfpM-0LfF;
+	Tue, 06 May 2025 23:35:52 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCKp8-0000000CcSj-3qCe
+	id 1uCLOs-0000000CiHg-0yjK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 16:07:16 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-22e331215dbso16475ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 09:07:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746547634; x=1747152434; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=+VZZVGzbcYYx5hdX5nvsFRseHivi3VPKSjmAFBb2pNs=;
-        b=iVniRfTQG12Ox/eP0eEoNP6bTAwGW0M1r8gBX0LYnd9WDolDRw7JBFmhLSEDhiotro
-         A0GtPRgL0owMT/TqtjYALU16UbQVv11ilgL4oR54qdZ1N+iMb1Qj7kEhlqrXxMU9sB7g
-         Bad9MDybBNsIEVNXWJo0YXFeug6yGAHPUaoVr5ih6+qyq6n5WttPVIZOZXr6SNAYA6T2
-         SJNpGmblq+mQmnaALYBN1yfLGcltMMogUcHbG+yUs2bZ8b1Qk1UQHpQ2zqPT54/sqsdX
-         TCVWuTLd2iZSxLRFPNgYZymexRF1TednUKWZdrNCe9egAyBs33MaGZyckbIHkmERDpno
-         wdXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746547634; x=1747152434;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+VZZVGzbcYYx5hdX5nvsFRseHivi3VPKSjmAFBb2pNs=;
-        b=dJvAsDJ9BnpAoTBd2b5lThHe2YBFkyBeeS6XSJy9vjql5R/m17VmU7YNFsxQlZ59RN
-         3Uty0ar14MtfJJe1zzej5MMX3f27pxXDsaAAKQBu5akAnhD9gUffHDXyPJroz03x9/ks
-         5rLHehU1i0XT/GL6mBchAZjazMKnQ9p9qb9a7C71ZWLlgYhADYJAON78V8c9aRg5S0kz
-         tlkniTXlibHrsnOxotHbMunfQupz3kb1PyYw76LjY0nkwrF07JyjynttKthSudvxT3Ed
-         4TMkDR7CstpHmiW4Xlaie0X3hYQ9SYXG9Qc38a5qcG6jl+98dUZ3CqoFTvfswvKvFziA
-         S/lg==
-X-Forwarded-Encrypted: i=1; AJvYcCWRMdYVk1THu/VDm6aQkvSXbcdsRQKYacRUxmVnPeIwDZY4QhZM4/qAW1lwhkgTjOc3US2TIGg0eCnMbUESRYIx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyzwuc2oNL5/YVYKXUz7W5WzWzmwWDeoeFdzxrg0wGsL/KZfMST
-	OHd1gSdeM666O7igGJ/KiWseJin/ltrVRXXp+AP2vmMOxx6hT4Kf
-X-Gm-Gg: ASbGncsngmA4Op2wbZTyala1LhI6h92Olby2uoYQ7hu6R70KhhvsdDcLtbcdunEijco
-	2uaHgPlVzC2zheqTWVDoVKySX8eZoQHrxT0H9g0UQ5hm2gKyP39S/IXKJ1MIXmL5S3bD5M6TyL3
-	Meaq9pFoEJKOT8/LgJ3XNynTUnW09n0mr9Owy1LgQQ1qk0aHG+CFlFOmINQ6I0+PAy7Cz33FvID
-	aDgpwFthQTPopNvejGfkIgE8ijDLvY9aGEErgwDjoclTFE+9nF/RQtgh2YhkklLpVBy9qOm4DW6
-	xzdOnZIY7pWHC9q2GzpH+nenQ8LMBa8F38klFqIo+QrjXtIMIV0f0nx8YGEFRYPnRGU+8j5Q5QX
-	dco/catZs0GbJrg==
-X-Google-Smtp-Source: AGHT+IEDY9vBp/pIzu68i4CFkgzkeq79wAIqKzRU7oNMRLAhiQ/uElBDfTlVuqGc6Qc1+lNzWzKU2Q==
-X-Received: by 2002:a17:903:41c1:b0:22e:5a9c:2853 with SMTP id d9443c01a7336-22e5d667e5bmr4368905ad.12.1746547633893;
-        Tue, 06 May 2025 09:07:13 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74058db91dasm9091614b3a.44.2025.05.06.09.07.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 May 2025 09:07:12 -0700 (PDT)
-Message-ID: <d7af43e4-6892-4f8b-a2a6-0c121429af32@roeck-us.net>
-Date: Tue, 6 May 2025 09:07:01 -0700
+	Tue, 06 May 2025 16:44:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 75191A4D6D2;
+	Tue,  6 May 2025 16:44:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD16BC4CEE4;
+	Tue,  6 May 2025 16:44:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746549849;
+	bh=zIuXOuE70Q1GXiobyRMlZzO7tuDph/PnlxNzzxHj+yI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=R9wn3abxNcdBoYuwckZI9du/lgAl0prxM+OYih8pyCP8QfyrpRM+A6YlZadZwfqCY
+	 HgxHuEOQpt30BdfPtSdsVnj07SBC0eNT6tStekEYxhcQdW086R2pkc03YVJxdtReRZ
+	 mtEKFuLlzQFFEM8f1zCMpLCV/lfvFZfilEfC4pUj7wEvLg9zieVhNc39a68rPQ1eYo
+	 RG8eXFJSqcdSWzWqrGqU9PYYToUW82/OGUM12KR5BUpW+DSMuL1ejYbpO1Qvay4EYX
+	 p8FpN/baulLiQ4m+pEggl9AG2s4pWlltW/NZBH5BPG+hdX210/LDMIJUpJ/95E6Fog
+	 m+c+VZdVe7ihA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uCLOo-00CJkN-S5;
+	Tue, 06 May 2025 17:44:06 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>
+Subject: [PATCH v4 04/43] arm64: sysreg: Replace HFGxTR_EL2 with HFG{R,W}TR_EL2
+Date: Tue,  6 May 2025 17:43:09 +0100
+Message-Id: <20250506164348.346001-5-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250506164348.346001-1-maz@kernel.org>
+References: <20250506164348.346001-1-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm: Fix up memory allocation tracing
-To: Vlastimil Babka <vbabka@suse.cz>, Christoph Lameter <cl@linux.com>
-Cc: David Rientjes <rientjes@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Roman Gushchin <roman.gushchin@linux.dev>, Harry Yoo <harry.yoo@oracle.com>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Russell King <linux@armlinux.org.uk>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20250506144531.3434190-1-linux@roeck-us.net>
- <62cf4450-c765-4641-b042-66cca71d5912@suse.cz>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <62cf4450-c765-4641-b042-66cca71d5912@suse.cz>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, mark.rutland@arm.com, tabba@google.com, will@kernel.org, catalin.marinas@arm.com, ben.horgan@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_090714_963331_89727F62 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20250506_094410_416334_1A0A01F4 
+X-CRM114-Status: GOOD (  17.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,32 +90,669 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/6/25 08:13, Vlastimil Babka wrote:
-> On 5/6/25 16:45, Guenter Roeck wrote:
->> intcp_init_early() calls syscon_regmap_lookup_by_compatible() which in
->> turn calls of_syscon_register(). This function allocates memory.
-> 
-> CCing people for intcp_init_early()
-> 
->> intcp_init_early() is called well before kmalloc caches are initialized.
->> As consequence, kmalloc_caches[] entries are NULL, and NULL is passed as
->> kmem_cache argument to __kmalloc_cache_noprof(). While slab_alloc_node()
->> handles this just fine, the trace code unconditionally dereferences it.
->> This results in crashes such as
-> 
-> OK, so we have crashes that are not deterministic. But also
-> intcp_init_early() deterministically fails, right? This means it's called
-> before mm_core_init(), and given the "_early" part of the name that's
-> probably expected (i.e. I don't think it's due to some random initcall
+Treating HFGRTR_EL2 and HFGWTR_EL2 identically was a mistake.
+It makes things hard to reason about, has the potential to
+introduce bugs by giving a meaning to bits that are really reserved,
+and is in general a bad description of the architecture.
 
-Yes, it is called before mm_core_init(), from setup_arch(). And, yes,
-you are correct, the call to syscon_regmap_lookup_by_compatible() from
-intcp_init_early() does indeed fail with -ENOMEM. That is interesting;
-I did not realize that. Thanks a lot for noticing.
+Given that #defines are cheap, let's describe both registers as
+intended by the architecture, and repaint all the existing uses.
 
-Please forget this patch; I'll submit an alternative specifically th address
-the integratorcp problem. Sorry for the noise.
+Yes, this is painful.
 
-Guenter
+The registers themselves are generated from the JSON file in
+an automated way.
+
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/include/asm/el2_setup.h      |  14 +-
+ arch/arm64/include/asm/kvm_arm.h        |   4 +-
+ arch/arm64/include/asm/kvm_host.h       |   3 +-
+ arch/arm64/kvm/emulate-nested.c         | 154 +++++++++----------
+ arch/arm64/kvm/hyp/include/hyp/switch.h |   4 +-
+ arch/arm64/kvm/hyp/vgic-v3-sr.c         |   8 +-
+ arch/arm64/kvm/nested.c                 |  42 ++---
+ arch/arm64/kvm/sys_regs.c               |  20 +--
+ arch/arm64/tools/sysreg                 | 194 +++++++++++++++---------
+ 9 files changed, 250 insertions(+), 193 deletions(-)
+
+diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+index ebceaae3c749b..055e69a4184ce 100644
+--- a/arch/arm64/include/asm/el2_setup.h
++++ b/arch/arm64/include/asm/el2_setup.h
+@@ -213,8 +213,8 @@
+ 	cbz	x1, .Lskip_debug_fgt_\@
+ 
+ 	/* Disable nVHE traps of TPIDR2 and SMPRI */
+-	orr	x0, x0, #HFGxTR_EL2_nSMPRI_EL1_MASK
+-	orr	x0, x0, #HFGxTR_EL2_nTPIDR2_EL0_MASK
++	orr	x0, x0, #HFGRTR_EL2_nSMPRI_EL1_MASK
++	orr	x0, x0, #HFGRTR_EL2_nTPIDR2_EL0_MASK
+ 
+ .Lskip_debug_fgt_\@:
+ 	mrs_s	x1, SYS_ID_AA64MMFR3_EL1
+@@ -222,8 +222,8 @@
+ 	cbz	x1, .Lskip_pie_fgt_\@
+ 
+ 	/* Disable trapping of PIR_EL1 / PIRE0_EL1 */
+-	orr	x0, x0, #HFGxTR_EL2_nPIR_EL1
+-	orr	x0, x0, #HFGxTR_EL2_nPIRE0_EL1
++	orr	x0, x0, #HFGRTR_EL2_nPIR_EL1
++	orr	x0, x0, #HFGRTR_EL2_nPIRE0_EL1
+ 
+ .Lskip_pie_fgt_\@:
+ 	mrs_s	x1, SYS_ID_AA64MMFR3_EL1
+@@ -231,7 +231,7 @@
+ 	cbz	x1, .Lskip_poe_fgt_\@
+ 
+ 	/* Disable trapping of POR_EL0 */
+-	orr	x0, x0, #HFGxTR_EL2_nPOR_EL0
++	orr	x0, x0, #HFGRTR_EL2_nPOR_EL0
+ 
+ .Lskip_poe_fgt_\@:
+ 	/* GCS depends on PIE so we don't check it if PIE is absent */
+@@ -240,8 +240,8 @@
+ 	cbz	x1, .Lset_fgt_\@
+ 
+ 	/* Disable traps of access to GCS registers at EL0 and EL1 */
+-	orr	x0, x0, #HFGxTR_EL2_nGCS_EL1_MASK
+-	orr	x0, x0, #HFGxTR_EL2_nGCS_EL0_MASK
++	orr	x0, x0, #HFGRTR_EL2_nGCS_EL1_MASK
++	orr	x0, x0, #HFGRTR_EL2_nGCS_EL0_MASK
+ 
+ .Lset_fgt_\@:
+ 	msr_s	SYS_HFGRTR_EL2, x0
+diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+index f36d067967c33..43a630b940bfb 100644
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -325,7 +325,7 @@
+  * Once we get to a point where the two describe the same thing, we'll
+  * merge the definitions. One day.
+  */
+-#define __HFGRTR_EL2_RES0	HFGxTR_EL2_RES0
++#define __HFGRTR_EL2_RES0	HFGRTR_EL2_RES0
+ #define __HFGRTR_EL2_MASK	GENMASK(49, 0)
+ #define __HFGRTR_EL2_nMASK	~(__HFGRTR_EL2_RES0 | __HFGRTR_EL2_MASK)
+ 
+@@ -336,7 +336,7 @@
+ #define __HFGRTR_ONLY_MASK	(BIT(46) | BIT(42) | BIT(40) | BIT(28) | \
+ 				 GENMASK(26, 25) | BIT(21) | BIT(18) | \
+ 				 GENMASK(15, 14) | GENMASK(10, 9) | BIT(2))
+-#define __HFGWTR_EL2_RES0	(__HFGRTR_EL2_RES0 | __HFGRTR_ONLY_MASK)
++#define __HFGWTR_EL2_RES0	HFGWTR_EL2_RES0
+ #define __HFGWTR_EL2_MASK	(__HFGRTR_EL2_MASK & ~__HFGRTR_ONLY_MASK)
+ #define __HFGWTR_EL2_nMASK	~(__HFGWTR_EL2_RES0 | __HFGWTR_EL2_MASK)
+ 
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index e98cfe7855a62..7a1ef5be7efb2 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -273,7 +273,8 @@ struct kvm_sysreg_masks;
+ 
+ enum fgt_group_id {
+ 	__NO_FGT_GROUP__,
+-	HFGxTR_GROUP,
++	HFGRTR_GROUP,
++	HFGWTR_GROUP = HFGRTR_GROUP,
+ 	HDFGRTR_GROUP,
+ 	HDFGWTR_GROUP = HDFGRTR_GROUP,
+ 	HFGITR_GROUP,
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index 0fcfcc0478f94..efe1eb3f1bd07 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -1296,81 +1296,81 @@ enum fg_filter_id {
+ 
+ static const struct encoding_to_trap_config encoding_to_fgt[] __initconst = {
+ 	/* HFGRTR_EL2, HFGWTR_EL2 */
+-	SR_FGT(SYS_AMAIR2_EL1,		HFGxTR, nAMAIR2_EL1, 0),
+-	SR_FGT(SYS_MAIR2_EL1,		HFGxTR, nMAIR2_EL1, 0),
+-	SR_FGT(SYS_S2POR_EL1,		HFGxTR, nS2POR_EL1, 0),
+-	SR_FGT(SYS_POR_EL1,		HFGxTR, nPOR_EL1, 0),
+-	SR_FGT(SYS_POR_EL0,		HFGxTR, nPOR_EL0, 0),
+-	SR_FGT(SYS_PIR_EL1,		HFGxTR, nPIR_EL1, 0),
+-	SR_FGT(SYS_PIRE0_EL1,		HFGxTR, nPIRE0_EL1, 0),
+-	SR_FGT(SYS_RCWMASK_EL1,		HFGxTR, nRCWMASK_EL1, 0),
+-	SR_FGT(SYS_TPIDR2_EL0,		HFGxTR, nTPIDR2_EL0, 0),
+-	SR_FGT(SYS_SMPRI_EL1,		HFGxTR, nSMPRI_EL1, 0),
+-	SR_FGT(SYS_GCSCR_EL1,		HFGxTR, nGCS_EL1, 0),
+-	SR_FGT(SYS_GCSPR_EL1,		HFGxTR, nGCS_EL1, 0),
+-	SR_FGT(SYS_GCSCRE0_EL1,		HFGxTR, nGCS_EL0, 0),
+-	SR_FGT(SYS_GCSPR_EL0,		HFGxTR, nGCS_EL0, 0),
+-	SR_FGT(SYS_ACCDATA_EL1,		HFGxTR, nACCDATA_EL1, 0),
+-	SR_FGT(SYS_ERXADDR_EL1,		HFGxTR, ERXADDR_EL1, 1),
+-	SR_FGT(SYS_ERXPFGCDN_EL1,	HFGxTR, ERXPFGCDN_EL1, 1),
+-	SR_FGT(SYS_ERXPFGCTL_EL1,	HFGxTR, ERXPFGCTL_EL1, 1),
+-	SR_FGT(SYS_ERXPFGF_EL1,		HFGxTR, ERXPFGF_EL1, 1),
+-	SR_FGT(SYS_ERXMISC0_EL1,	HFGxTR, ERXMISCn_EL1, 1),
+-	SR_FGT(SYS_ERXMISC1_EL1,	HFGxTR, ERXMISCn_EL1, 1),
+-	SR_FGT(SYS_ERXMISC2_EL1,	HFGxTR, ERXMISCn_EL1, 1),
+-	SR_FGT(SYS_ERXMISC3_EL1,	HFGxTR, ERXMISCn_EL1, 1),
+-	SR_FGT(SYS_ERXSTATUS_EL1,	HFGxTR, ERXSTATUS_EL1, 1),
+-	SR_FGT(SYS_ERXCTLR_EL1,		HFGxTR, ERXCTLR_EL1, 1),
+-	SR_FGT(SYS_ERXFR_EL1,		HFGxTR, ERXFR_EL1, 1),
+-	SR_FGT(SYS_ERRSELR_EL1,		HFGxTR, ERRSELR_EL1, 1),
+-	SR_FGT(SYS_ERRIDR_EL1,		HFGxTR, ERRIDR_EL1, 1),
+-	SR_FGT(SYS_ICC_IGRPEN0_EL1,	HFGxTR, ICC_IGRPENn_EL1, 1),
+-	SR_FGT(SYS_ICC_IGRPEN1_EL1,	HFGxTR, ICC_IGRPENn_EL1, 1),
+-	SR_FGT(SYS_VBAR_EL1,		HFGxTR, VBAR_EL1, 1),
+-	SR_FGT(SYS_TTBR1_EL1,		HFGxTR, TTBR1_EL1, 1),
+-	SR_FGT(SYS_TTBR0_EL1,		HFGxTR, TTBR0_EL1, 1),
+-	SR_FGT(SYS_TPIDR_EL0,		HFGxTR, TPIDR_EL0, 1),
+-	SR_FGT(SYS_TPIDRRO_EL0,		HFGxTR, TPIDRRO_EL0, 1),
+-	SR_FGT(SYS_TPIDR_EL1,		HFGxTR, TPIDR_EL1, 1),
+-	SR_FGT(SYS_TCR_EL1,		HFGxTR, TCR_EL1, 1),
+-	SR_FGT(SYS_TCR2_EL1,		HFGxTR, TCR_EL1, 1),
+-	SR_FGT(SYS_SCXTNUM_EL0,		HFGxTR, SCXTNUM_EL0, 1),
+-	SR_FGT(SYS_SCXTNUM_EL1, 	HFGxTR, SCXTNUM_EL1, 1),
+-	SR_FGT(SYS_SCTLR_EL1, 		HFGxTR, SCTLR_EL1, 1),
+-	SR_FGT(SYS_REVIDR_EL1, 		HFGxTR, REVIDR_EL1, 1),
+-	SR_FGT(SYS_PAR_EL1, 		HFGxTR, PAR_EL1, 1),
+-	SR_FGT(SYS_MPIDR_EL1, 		HFGxTR, MPIDR_EL1, 1),
+-	SR_FGT(SYS_MIDR_EL1, 		HFGxTR, MIDR_EL1, 1),
+-	SR_FGT(SYS_MAIR_EL1, 		HFGxTR, MAIR_EL1, 1),
+-	SR_FGT(SYS_LORSA_EL1, 		HFGxTR, LORSA_EL1, 1),
+-	SR_FGT(SYS_LORN_EL1, 		HFGxTR, LORN_EL1, 1),
+-	SR_FGT(SYS_LORID_EL1, 		HFGxTR, LORID_EL1, 1),
+-	SR_FGT(SYS_LOREA_EL1, 		HFGxTR, LOREA_EL1, 1),
+-	SR_FGT(SYS_LORC_EL1, 		HFGxTR, LORC_EL1, 1),
+-	SR_FGT(SYS_ISR_EL1, 		HFGxTR, ISR_EL1, 1),
+-	SR_FGT(SYS_FAR_EL1, 		HFGxTR, FAR_EL1, 1),
+-	SR_FGT(SYS_ESR_EL1, 		HFGxTR, ESR_EL1, 1),
+-	SR_FGT(SYS_DCZID_EL0, 		HFGxTR, DCZID_EL0, 1),
+-	SR_FGT(SYS_CTR_EL0, 		HFGxTR, CTR_EL0, 1),
+-	SR_FGT(SYS_CSSELR_EL1, 		HFGxTR, CSSELR_EL1, 1),
+-	SR_FGT(SYS_CPACR_EL1, 		HFGxTR, CPACR_EL1, 1),
+-	SR_FGT(SYS_CONTEXTIDR_EL1, 	HFGxTR, CONTEXTIDR_EL1, 1),
+-	SR_FGT(SYS_CLIDR_EL1, 		HFGxTR, CLIDR_EL1, 1),
+-	SR_FGT(SYS_CCSIDR_EL1, 		HFGxTR, CCSIDR_EL1, 1),
+-	SR_FGT(SYS_APIBKEYLO_EL1, 	HFGxTR, APIBKey, 1),
+-	SR_FGT(SYS_APIBKEYHI_EL1, 	HFGxTR, APIBKey, 1),
+-	SR_FGT(SYS_APIAKEYLO_EL1, 	HFGxTR, APIAKey, 1),
+-	SR_FGT(SYS_APIAKEYHI_EL1, 	HFGxTR, APIAKey, 1),
+-	SR_FGT(SYS_APGAKEYLO_EL1, 	HFGxTR, APGAKey, 1),
+-	SR_FGT(SYS_APGAKEYHI_EL1, 	HFGxTR, APGAKey, 1),
+-	SR_FGT(SYS_APDBKEYLO_EL1, 	HFGxTR, APDBKey, 1),
+-	SR_FGT(SYS_APDBKEYHI_EL1, 	HFGxTR, APDBKey, 1),
+-	SR_FGT(SYS_APDAKEYLO_EL1, 	HFGxTR, APDAKey, 1),
+-	SR_FGT(SYS_APDAKEYHI_EL1, 	HFGxTR, APDAKey, 1),
+-	SR_FGT(SYS_AMAIR_EL1, 		HFGxTR, AMAIR_EL1, 1),
+-	SR_FGT(SYS_AIDR_EL1, 		HFGxTR, AIDR_EL1, 1),
+-	SR_FGT(SYS_AFSR1_EL1, 		HFGxTR, AFSR1_EL1, 1),
+-	SR_FGT(SYS_AFSR0_EL1, 		HFGxTR, AFSR0_EL1, 1),
++	SR_FGT(SYS_AMAIR2_EL1,		HFGRTR, nAMAIR2_EL1, 0),
++	SR_FGT(SYS_MAIR2_EL1,		HFGRTR, nMAIR2_EL1, 0),
++	SR_FGT(SYS_S2POR_EL1,		HFGRTR, nS2POR_EL1, 0),
++	SR_FGT(SYS_POR_EL1,		HFGRTR, nPOR_EL1, 0),
++	SR_FGT(SYS_POR_EL0,		HFGRTR, nPOR_EL0, 0),
++	SR_FGT(SYS_PIR_EL1,		HFGRTR, nPIR_EL1, 0),
++	SR_FGT(SYS_PIRE0_EL1,		HFGRTR, nPIRE0_EL1, 0),
++	SR_FGT(SYS_RCWMASK_EL1,		HFGRTR, nRCWMASK_EL1, 0),
++	SR_FGT(SYS_TPIDR2_EL0,		HFGRTR, nTPIDR2_EL0, 0),
++	SR_FGT(SYS_SMPRI_EL1,		HFGRTR, nSMPRI_EL1, 0),
++	SR_FGT(SYS_GCSCR_EL1,		HFGRTR, nGCS_EL1, 0),
++	SR_FGT(SYS_GCSPR_EL1,		HFGRTR, nGCS_EL1, 0),
++	SR_FGT(SYS_GCSCRE0_EL1,		HFGRTR, nGCS_EL0, 0),
++	SR_FGT(SYS_GCSPR_EL0,		HFGRTR, nGCS_EL0, 0),
++	SR_FGT(SYS_ACCDATA_EL1,		HFGRTR, nACCDATA_EL1, 0),
++	SR_FGT(SYS_ERXADDR_EL1,		HFGRTR, ERXADDR_EL1, 1),
++	SR_FGT(SYS_ERXPFGCDN_EL1,	HFGRTR, ERXPFGCDN_EL1, 1),
++	SR_FGT(SYS_ERXPFGCTL_EL1,	HFGRTR, ERXPFGCTL_EL1, 1),
++	SR_FGT(SYS_ERXPFGF_EL1,		HFGRTR, ERXPFGF_EL1, 1),
++	SR_FGT(SYS_ERXMISC0_EL1,	HFGRTR, ERXMISCn_EL1, 1),
++	SR_FGT(SYS_ERXMISC1_EL1,	HFGRTR, ERXMISCn_EL1, 1),
++	SR_FGT(SYS_ERXMISC2_EL1,	HFGRTR, ERXMISCn_EL1, 1),
++	SR_FGT(SYS_ERXMISC3_EL1,	HFGRTR, ERXMISCn_EL1, 1),
++	SR_FGT(SYS_ERXSTATUS_EL1,	HFGRTR, ERXSTATUS_EL1, 1),
++	SR_FGT(SYS_ERXCTLR_EL1,		HFGRTR, ERXCTLR_EL1, 1),
++	SR_FGT(SYS_ERXFR_EL1,		HFGRTR, ERXFR_EL1, 1),
++	SR_FGT(SYS_ERRSELR_EL1,		HFGRTR, ERRSELR_EL1, 1),
++	SR_FGT(SYS_ERRIDR_EL1,		HFGRTR, ERRIDR_EL1, 1),
++	SR_FGT(SYS_ICC_IGRPEN0_EL1,	HFGRTR, ICC_IGRPENn_EL1, 1),
++	SR_FGT(SYS_ICC_IGRPEN1_EL1,	HFGRTR, ICC_IGRPENn_EL1, 1),
++	SR_FGT(SYS_VBAR_EL1,		HFGRTR, VBAR_EL1, 1),
++	SR_FGT(SYS_TTBR1_EL1,		HFGRTR, TTBR1_EL1, 1),
++	SR_FGT(SYS_TTBR0_EL1,		HFGRTR, TTBR0_EL1, 1),
++	SR_FGT(SYS_TPIDR_EL0,		HFGRTR, TPIDR_EL0, 1),
++	SR_FGT(SYS_TPIDRRO_EL0,		HFGRTR, TPIDRRO_EL0, 1),
++	SR_FGT(SYS_TPIDR_EL1,		HFGRTR, TPIDR_EL1, 1),
++	SR_FGT(SYS_TCR_EL1,		HFGRTR, TCR_EL1, 1),
++	SR_FGT(SYS_TCR2_EL1,		HFGRTR, TCR_EL1, 1),
++	SR_FGT(SYS_SCXTNUM_EL0,		HFGRTR, SCXTNUM_EL0, 1),
++	SR_FGT(SYS_SCXTNUM_EL1, 	HFGRTR, SCXTNUM_EL1, 1),
++	SR_FGT(SYS_SCTLR_EL1, 		HFGRTR, SCTLR_EL1, 1),
++	SR_FGT(SYS_REVIDR_EL1, 		HFGRTR, REVIDR_EL1, 1),
++	SR_FGT(SYS_PAR_EL1, 		HFGRTR, PAR_EL1, 1),
++	SR_FGT(SYS_MPIDR_EL1, 		HFGRTR, MPIDR_EL1, 1),
++	SR_FGT(SYS_MIDR_EL1, 		HFGRTR, MIDR_EL1, 1),
++	SR_FGT(SYS_MAIR_EL1, 		HFGRTR, MAIR_EL1, 1),
++	SR_FGT(SYS_LORSA_EL1, 		HFGRTR, LORSA_EL1, 1),
++	SR_FGT(SYS_LORN_EL1, 		HFGRTR, LORN_EL1, 1),
++	SR_FGT(SYS_LORID_EL1, 		HFGRTR, LORID_EL1, 1),
++	SR_FGT(SYS_LOREA_EL1, 		HFGRTR, LOREA_EL1, 1),
++	SR_FGT(SYS_LORC_EL1, 		HFGRTR, LORC_EL1, 1),
++	SR_FGT(SYS_ISR_EL1, 		HFGRTR, ISR_EL1, 1),
++	SR_FGT(SYS_FAR_EL1, 		HFGRTR, FAR_EL1, 1),
++	SR_FGT(SYS_ESR_EL1, 		HFGRTR, ESR_EL1, 1),
++	SR_FGT(SYS_DCZID_EL0, 		HFGRTR, DCZID_EL0, 1),
++	SR_FGT(SYS_CTR_EL0, 		HFGRTR, CTR_EL0, 1),
++	SR_FGT(SYS_CSSELR_EL1, 		HFGRTR, CSSELR_EL1, 1),
++	SR_FGT(SYS_CPACR_EL1, 		HFGRTR, CPACR_EL1, 1),
++	SR_FGT(SYS_CONTEXTIDR_EL1, 	HFGRTR, CONTEXTIDR_EL1, 1),
++	SR_FGT(SYS_CLIDR_EL1, 		HFGRTR, CLIDR_EL1, 1),
++	SR_FGT(SYS_CCSIDR_EL1, 		HFGRTR, CCSIDR_EL1, 1),
++	SR_FGT(SYS_APIBKEYLO_EL1, 	HFGRTR, APIBKey, 1),
++	SR_FGT(SYS_APIBKEYHI_EL1, 	HFGRTR, APIBKey, 1),
++	SR_FGT(SYS_APIAKEYLO_EL1, 	HFGRTR, APIAKey, 1),
++	SR_FGT(SYS_APIAKEYHI_EL1, 	HFGRTR, APIAKey, 1),
++	SR_FGT(SYS_APGAKEYLO_EL1, 	HFGRTR, APGAKey, 1),
++	SR_FGT(SYS_APGAKEYHI_EL1, 	HFGRTR, APGAKey, 1),
++	SR_FGT(SYS_APDBKEYLO_EL1, 	HFGRTR, APDBKey, 1),
++	SR_FGT(SYS_APDBKEYHI_EL1, 	HFGRTR, APDBKey, 1),
++	SR_FGT(SYS_APDAKEYLO_EL1, 	HFGRTR, APDAKey, 1),
++	SR_FGT(SYS_APDAKEYHI_EL1, 	HFGRTR, APDAKey, 1),
++	SR_FGT(SYS_AMAIR_EL1, 		HFGRTR, AMAIR_EL1, 1),
++	SR_FGT(SYS_AIDR_EL1, 		HFGRTR, AIDR_EL1, 1),
++	SR_FGT(SYS_AFSR1_EL1, 		HFGRTR, AFSR1_EL1, 1),
++	SR_FGT(SYS_AFSR0_EL1, 		HFGRTR, AFSR0_EL1, 1),
+ 	/* HFGITR_EL2 */
+ 	SR_FGT(OP_AT_S1E1A, 		HFGITR, ATS1E1A, 1),
+ 	SR_FGT(OP_COSP_RCTX, 		HFGITR, COSPRCTX, 1),
+@@ -2243,7 +2243,7 @@ static bool check_fgt_bit(struct kvm_vcpu *vcpu, bool is_read,
+ 		return false;
+ 
+ 	switch ((enum fgt_group_id)tc.fgt) {
+-	case HFGxTR_GROUP:
++	case HFGRTR_GROUP:
+ 		sr = is_read ? HFGRTR_EL2 : HFGWTR_EL2;
+ 		break;
+ 
+@@ -2319,7 +2319,7 @@ bool triage_sysreg_trap(struct kvm_vcpu *vcpu, int *sr_index)
+ 	case __NO_FGT_GROUP__:
+ 		break;
+ 
+-	case HFGxTR_GROUP:
++	case HFGRTR_GROUP:
+ 		if (is_read)
+ 			val = __vcpu_sys_reg(vcpu, HFGRTR_EL2);
+ 		else
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+index b741ea6aefa58..3150e42d79341 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -79,7 +79,7 @@ static inline void __activate_traps_fpsimd32(struct kvm_vcpu *vcpu)
+ 		switch(reg) {						\
+ 		case HFGRTR_EL2:					\
+ 		case HFGWTR_EL2:					\
+-			id = HFGxTR_GROUP;				\
++			id = HFGRTR_GROUP;				\
+ 			break;						\
+ 		case HFGITR_EL2:					\
+ 			id = HFGITR_GROUP;				\
+@@ -166,7 +166,7 @@ static inline void __activate_traps_hfgxtr(struct kvm_vcpu *vcpu)
+ 	update_fgt_traps(hctxt, vcpu, kvm, HFGRTR_EL2);
+ 	update_fgt_traps_cs(hctxt, vcpu, kvm, HFGWTR_EL2, 0,
+ 			    cpus_have_final_cap(ARM64_WORKAROUND_AMPERE_AC03_CPU_38) ?
+-			    HFGxTR_EL2_TCR_EL1_MASK : 0);
++			    HFGWTR_EL2_TCR_EL1_MASK : 0);
+ 	update_fgt_traps(hctxt, vcpu, kvm, HFGITR_EL2);
+ 	update_fgt_traps(hctxt, vcpu, kvm, HDFGRTR_EL2);
+ 	update_fgt_traps(hctxt, vcpu, kvm, HDFGWTR_EL2);
+diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+index ed363aa3027e5..f38565e28a23a 100644
+--- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
++++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+@@ -1052,11 +1052,11 @@ static bool __vgic_v3_check_trap_forwarding(struct kvm_vcpu *vcpu,
+ 	switch (sysreg) {
+ 	case SYS_ICC_IGRPEN0_EL1:
+ 		if (is_read &&
+-		    (__vcpu_sys_reg(vcpu, HFGRTR_EL2) & HFGxTR_EL2_ICC_IGRPENn_EL1))
++		    (__vcpu_sys_reg(vcpu, HFGRTR_EL2) & HFGRTR_EL2_ICC_IGRPENn_EL1))
+ 			return true;
+ 
+ 		if (!is_read &&
+-		    (__vcpu_sys_reg(vcpu, HFGWTR_EL2) & HFGxTR_EL2_ICC_IGRPENn_EL1))
++		    (__vcpu_sys_reg(vcpu, HFGWTR_EL2) & HFGWTR_EL2_ICC_IGRPENn_EL1))
+ 			return true;
+ 
+ 		fallthrough;
+@@ -1073,11 +1073,11 @@ static bool __vgic_v3_check_trap_forwarding(struct kvm_vcpu *vcpu,
+ 
+ 	case SYS_ICC_IGRPEN1_EL1:
+ 		if (is_read &&
+-		    (__vcpu_sys_reg(vcpu, HFGRTR_EL2) & HFGxTR_EL2_ICC_IGRPENn_EL1))
++		    (__vcpu_sys_reg(vcpu, HFGRTR_EL2) & HFGRTR_EL2_ICC_IGRPENn_EL1))
+ 			return true;
+ 
+ 		if (!is_read &&
+-		    (__vcpu_sys_reg(vcpu, HFGWTR_EL2) & HFGxTR_EL2_ICC_IGRPENn_EL1))
++		    (__vcpu_sys_reg(vcpu, HFGWTR_EL2) & HFGWTR_EL2_ICC_IGRPENn_EL1))
+ 			return true;
+ 
+ 		fallthrough;
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 4a3fc11f7ecf3..16f6129c70b59 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1103,40 +1103,40 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
+ 	res0 = res1 = 0;
+ 	if (!(kvm_vcpu_has_feature(kvm, KVM_ARM_VCPU_PTRAUTH_ADDRESS) &&
+ 	      kvm_vcpu_has_feature(kvm, KVM_ARM_VCPU_PTRAUTH_GENERIC)))
+-		res0 |= (HFGxTR_EL2_APDAKey | HFGxTR_EL2_APDBKey |
+-			 HFGxTR_EL2_APGAKey | HFGxTR_EL2_APIAKey |
+-			 HFGxTR_EL2_APIBKey);
++		res0 |= (HFGRTR_EL2_APDAKey | HFGRTR_EL2_APDBKey |
++			 HFGRTR_EL2_APGAKey | HFGRTR_EL2_APIAKey |
++			 HFGRTR_EL2_APIBKey);
+ 	if (!kvm_has_feat(kvm, ID_AA64MMFR1_EL1, LO, IMP))
+-		res0 |= (HFGxTR_EL2_LORC_EL1 | HFGxTR_EL2_LOREA_EL1 |
+-			 HFGxTR_EL2_LORID_EL1 | HFGxTR_EL2_LORN_EL1 |
+-			 HFGxTR_EL2_LORSA_EL1);
++		res0 |= (HFGRTR_EL2_LORC_EL1 | HFGRTR_EL2_LOREA_EL1 |
++			 HFGRTR_EL2_LORID_EL1 | HFGRTR_EL2_LORN_EL1 |
++			 HFGRTR_EL2_LORSA_EL1);
+ 	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, CSV2, CSV2_2) &&
+ 	    !kvm_has_feat(kvm, ID_AA64PFR1_EL1, CSV2_frac, CSV2_1p2))
+-		res0 |= (HFGxTR_EL2_SCXTNUM_EL1 | HFGxTR_EL2_SCXTNUM_EL0);
++		res0 |= (HFGRTR_EL2_SCXTNUM_EL1 | HFGRTR_EL2_SCXTNUM_EL0);
+ 	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, GIC, IMP))
+-		res0 |= HFGxTR_EL2_ICC_IGRPENn_EL1;
++		res0 |= HFGRTR_EL2_ICC_IGRPENn_EL1;
+ 	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, RAS, IMP))
+-		res0 |= (HFGxTR_EL2_ERRIDR_EL1 | HFGxTR_EL2_ERRSELR_EL1 |
+-			 HFGxTR_EL2_ERXFR_EL1 | HFGxTR_EL2_ERXCTLR_EL1 |
+-			 HFGxTR_EL2_ERXSTATUS_EL1 | HFGxTR_EL2_ERXMISCn_EL1 |
+-			 HFGxTR_EL2_ERXPFGF_EL1 | HFGxTR_EL2_ERXPFGCTL_EL1 |
+-			 HFGxTR_EL2_ERXPFGCDN_EL1 | HFGxTR_EL2_ERXADDR_EL1);
++		res0 |= (HFGRTR_EL2_ERRIDR_EL1 | HFGRTR_EL2_ERRSELR_EL1 |
++			 HFGRTR_EL2_ERXFR_EL1 | HFGRTR_EL2_ERXCTLR_EL1 |
++			 HFGRTR_EL2_ERXSTATUS_EL1 | HFGRTR_EL2_ERXMISCn_EL1 |
++			 HFGRTR_EL2_ERXPFGF_EL1 | HFGRTR_EL2_ERXPFGCTL_EL1 |
++			 HFGRTR_EL2_ERXPFGCDN_EL1 | HFGRTR_EL2_ERXADDR_EL1);
+ 	if (!kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_ACCDATA))
+-		res0 |= HFGxTR_EL2_nACCDATA_EL1;
++		res0 |= HFGRTR_EL2_nACCDATA_EL1;
+ 	if (!kvm_has_feat(kvm, ID_AA64PFR1_EL1, GCS, IMP))
+-		res0 |= (HFGxTR_EL2_nGCS_EL0 | HFGxTR_EL2_nGCS_EL1);
++		res0 |= (HFGRTR_EL2_nGCS_EL0 | HFGRTR_EL2_nGCS_EL1);
+ 	if (!kvm_has_feat(kvm, ID_AA64PFR1_EL1, SME, IMP))
+-		res0 |= (HFGxTR_EL2_nSMPRI_EL1 | HFGxTR_EL2_nTPIDR2_EL0);
++		res0 |= (HFGRTR_EL2_nSMPRI_EL1 | HFGRTR_EL2_nTPIDR2_EL0);
+ 	if (!kvm_has_feat(kvm, ID_AA64PFR1_EL1, THE, IMP))
+-		res0 |= HFGxTR_EL2_nRCWMASK_EL1;
++		res0 |= HFGRTR_EL2_nRCWMASK_EL1;
+ 	if (!kvm_has_s1pie(kvm))
+-		res0 |= (HFGxTR_EL2_nPIRE0_EL1 | HFGxTR_EL2_nPIR_EL1);
++		res0 |= (HFGRTR_EL2_nPIRE0_EL1 | HFGRTR_EL2_nPIR_EL1);
+ 	if (!kvm_has_s1poe(kvm))
+-		res0 |= (HFGxTR_EL2_nPOR_EL0 | HFGxTR_EL2_nPOR_EL1);
++		res0 |= (HFGRTR_EL2_nPOR_EL0 | HFGRTR_EL2_nPOR_EL1);
+ 	if (!kvm_has_feat(kvm, ID_AA64MMFR3_EL1, S2POE, IMP))
+-		res0 |= HFGxTR_EL2_nS2POR_EL1;
++		res0 |= HFGRTR_EL2_nS2POR_EL1;
+ 	if (!kvm_has_feat(kvm, ID_AA64MMFR3_EL1, AIE, IMP))
+-		res0 |= (HFGxTR_EL2_nMAIR2_EL1 | HFGxTR_EL2_nAMAIR2_EL1);
++		res0 |= (HFGRTR_EL2_nMAIR2_EL1 | HFGRTR_EL2_nAMAIR2_EL1);
+ 	set_sysreg_masks(kvm, HFGRTR_EL2, res0 | __HFGRTR_EL2_RES0, res1);
+ 	set_sysreg_masks(kvm, HFGWTR_EL2, res0 | __HFGWTR_EL2_RES0, res1);
+ 
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 005ad28f73068..6e01b06bedcae 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -5147,12 +5147,12 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
+ 	if (test_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags))
+ 		goto out;
+ 
+-	kvm->arch.fgu[HFGxTR_GROUP] = (HFGxTR_EL2_nAMAIR2_EL1		|
+-				       HFGxTR_EL2_nMAIR2_EL1		|
+-				       HFGxTR_EL2_nS2POR_EL1		|
+-				       HFGxTR_EL2_nACCDATA_EL1		|
+-				       HFGxTR_EL2_nSMPRI_EL1_MASK	|
+-				       HFGxTR_EL2_nTPIDR2_EL0_MASK);
++	kvm->arch.fgu[HFGRTR_GROUP] = (HFGRTR_EL2_nAMAIR2_EL1		|
++				       HFGRTR_EL2_nMAIR2_EL1		|
++				       HFGRTR_EL2_nS2POR_EL1		|
++				       HFGRTR_EL2_nACCDATA_EL1		|
++				       HFGRTR_EL2_nSMPRI_EL1_MASK	|
++				       HFGRTR_EL2_nTPIDR2_EL0_MASK);
+ 
+ 	if (!kvm_has_feat(kvm, ID_AA64ISAR0_EL1, TLB, OS))
+ 		kvm->arch.fgu[HFGITR_GROUP] |= (HFGITR_EL2_TLBIRVAALE1OS|
+@@ -5188,12 +5188,12 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
+ 						HFGITR_EL2_ATS1E1WP);
+ 
+ 	if (!kvm_has_s1pie(kvm))
+-		kvm->arch.fgu[HFGxTR_GROUP] |= (HFGxTR_EL2_nPIRE0_EL1 |
+-						HFGxTR_EL2_nPIR_EL1);
++		kvm->arch.fgu[HFGRTR_GROUP] |= (HFGRTR_EL2_nPIRE0_EL1 |
++						HFGRTR_EL2_nPIR_EL1);
+ 
+ 	if (!kvm_has_s1poe(kvm))
+-		kvm->arch.fgu[HFGxTR_GROUP] |= (HFGxTR_EL2_nPOR_EL1 |
+-						HFGxTR_EL2_nPOR_EL0);
++		kvm->arch.fgu[HFGRTR_GROUP] |= (HFGRTR_EL2_nPOR_EL1 |
++						HFGRTR_EL2_nPOR_EL0);
+ 
+ 	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, AMU, IMP))
+ 		kvm->arch.fgu[HAFGRTR_GROUP] |= ~(HAFGRTR_EL2_RES0 |
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 7f39c8f7f036d..4c51d9a67b14d 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -2464,73 +2464,6 @@ UnsignedEnum	2:0	F8S1
+ EndEnum
+ EndSysreg
+ 
+-SysregFields	HFGxTR_EL2
+-Field	63	nAMAIR2_EL1
+-Field	62	nMAIR2_EL1
+-Field	61	nS2POR_EL1
+-Field	60	nPOR_EL1
+-Field	59	nPOR_EL0
+-Field	58	nPIR_EL1
+-Field	57	nPIRE0_EL1
+-Field	56	nRCWMASK_EL1
+-Field	55	nTPIDR2_EL0
+-Field	54	nSMPRI_EL1
+-Field	53	nGCS_EL1
+-Field	52	nGCS_EL0
+-Res0	51
+-Field	50	nACCDATA_EL1
+-Field	49	ERXADDR_EL1
+-Field	48	ERXPFGCDN_EL1
+-Field	47	ERXPFGCTL_EL1
+-Field	46	ERXPFGF_EL1
+-Field	45	ERXMISCn_EL1
+-Field	44	ERXSTATUS_EL1
+-Field	43	ERXCTLR_EL1
+-Field	42	ERXFR_EL1
+-Field	41	ERRSELR_EL1
+-Field	40	ERRIDR_EL1
+-Field	39	ICC_IGRPENn_EL1
+-Field	38	VBAR_EL1
+-Field	37	TTBR1_EL1
+-Field	36	TTBR0_EL1
+-Field	35	TPIDR_EL0
+-Field	34	TPIDRRO_EL0
+-Field	33	TPIDR_EL1
+-Field	32	TCR_EL1
+-Field	31	SCXTNUM_EL0
+-Field	30	SCXTNUM_EL1
+-Field	29	SCTLR_EL1
+-Field	28	REVIDR_EL1
+-Field	27	PAR_EL1
+-Field	26	MPIDR_EL1
+-Field	25	MIDR_EL1
+-Field	24	MAIR_EL1
+-Field	23	LORSA_EL1
+-Field	22	LORN_EL1
+-Field	21	LORID_EL1
+-Field	20	LOREA_EL1
+-Field	19	LORC_EL1
+-Field	18	ISR_EL1
+-Field	17	FAR_EL1
+-Field	16	ESR_EL1
+-Field	15	DCZID_EL0
+-Field	14	CTR_EL0
+-Field	13	CSSELR_EL1
+-Field	12	CPACR_EL1
+-Field	11	CONTEXTIDR_EL1
+-Field	10	CLIDR_EL1
+-Field	9	CCSIDR_EL1
+-Field	8	APIBKey
+-Field	7	APIAKey
+-Field	6	APGAKey
+-Field	5	APDBKey
+-Field	4	APDAKey
+-Field	3	AMAIR_EL1
+-Field	2	AIDR_EL1
+-Field	1	AFSR1_EL1
+-Field	0	AFSR0_EL1
+-EndSysregFields
+-
+ Sysreg	HCR_EL2		3	4	1	1	0
+ Field	63:60	TWEDEL
+ Field	59	TWEDEn
+@@ -2635,11 +2568,134 @@ Field	4:0	HPMN
+ EndSysreg
+ 
+ Sysreg HFGRTR_EL2	3	4	1	1	4
+-Fields	HFGxTR_EL2
++Field	63	nAMAIR2_EL1
++Field	62	nMAIR2_EL1
++Field	61	nS2POR_EL1
++Field	60	nPOR_EL1
++Field	59	nPOR_EL0
++Field	58	nPIR_EL1
++Field	57	nPIRE0_EL1
++Field	56	nRCWMASK_EL1
++Field	55	nTPIDR2_EL0
++Field	54	nSMPRI_EL1
++Field	53	nGCS_EL1
++Field	52	nGCS_EL0
++Res0	51
++Field	50	nACCDATA_EL1
++Field	49	ERXADDR_EL1
++Field	48	ERXPFGCDN_EL1
++Field	47	ERXPFGCTL_EL1
++Field	46	ERXPFGF_EL1
++Field	45	ERXMISCn_EL1
++Field	44	ERXSTATUS_EL1
++Field	43	ERXCTLR_EL1
++Field	42	ERXFR_EL1
++Field	41	ERRSELR_EL1
++Field	40	ERRIDR_EL1
++Field	39	ICC_IGRPENn_EL1
++Field	38	VBAR_EL1
++Field	37	TTBR1_EL1
++Field	36	TTBR0_EL1
++Field	35	TPIDR_EL0
++Field	34	TPIDRRO_EL0
++Field	33	TPIDR_EL1
++Field	32	TCR_EL1
++Field	31	SCXTNUM_EL0
++Field	30	SCXTNUM_EL1
++Field	29	SCTLR_EL1
++Field	28	REVIDR_EL1
++Field	27	PAR_EL1
++Field	26	MPIDR_EL1
++Field	25	MIDR_EL1
++Field	24	MAIR_EL1
++Field	23	LORSA_EL1
++Field	22	LORN_EL1
++Field	21	LORID_EL1
++Field	20	LOREA_EL1
++Field	19	LORC_EL1
++Field	18	ISR_EL1
++Field	17	FAR_EL1
++Field	16	ESR_EL1
++Field	15	DCZID_EL0
++Field	14	CTR_EL0
++Field	13	CSSELR_EL1
++Field	12	CPACR_EL1
++Field	11	CONTEXTIDR_EL1
++Field	10	CLIDR_EL1
++Field	9	CCSIDR_EL1
++Field	8	APIBKey
++Field	7	APIAKey
++Field	6	APGAKey
++Field	5	APDBKey
++Field	4	APDAKey
++Field	3	AMAIR_EL1
++Field	2	AIDR_EL1
++Field	1	AFSR1_EL1
++Field	0	AFSR0_EL1
+ EndSysreg
+ 
+ Sysreg HFGWTR_EL2	3	4	1	1	5
+-Fields	HFGxTR_EL2
++Field	63	nAMAIR2_EL1
++Field	62	nMAIR2_EL1
++Field	61	nS2POR_EL1
++Field	60	nPOR_EL1
++Field	59	nPOR_EL0
++Field	58	nPIR_EL1
++Field	57	nPIRE0_EL1
++Field	56	nRCWMASK_EL1
++Field	55	nTPIDR2_EL0
++Field	54	nSMPRI_EL1
++Field	53	nGCS_EL1
++Field	52	nGCS_EL0
++Res0	51
++Field	50	nACCDATA_EL1
++Field	49	ERXADDR_EL1
++Field	48	ERXPFGCDN_EL1
++Field	47	ERXPFGCTL_EL1
++Res0	46
++Field	45	ERXMISCn_EL1
++Field	44	ERXSTATUS_EL1
++Field	43	ERXCTLR_EL1
++Res0	42
++Field	41	ERRSELR_EL1
++Res0	40
++Field	39	ICC_IGRPENn_EL1
++Field	38	VBAR_EL1
++Field	37	TTBR1_EL1
++Field	36	TTBR0_EL1
++Field	35	TPIDR_EL0
++Field	34	TPIDRRO_EL0
++Field	33	TPIDR_EL1
++Field	32	TCR_EL1
++Field	31	SCXTNUM_EL0
++Field	30	SCXTNUM_EL1
++Field	29	SCTLR_EL1
++Res0	28
++Field	27	PAR_EL1
++Res0	26:25
++Field	24	MAIR_EL1
++Field	23	LORSA_EL1
++Field	22	LORN_EL1
++Res0	21
++Field	20	LOREA_EL1
++Field	19	LORC_EL1
++Res0	18
++Field	17	FAR_EL1
++Field	16	ESR_EL1
++Res0	15:14
++Field	13	CSSELR_EL1
++Field	12	CPACR_EL1
++Field	11	CONTEXTIDR_EL1
++Res0	10:9
++Field	8	APIBKey
++Field	7	APIAKey
++Field	6	APGAKey
++Field	5	APDBKey
++Field	4	APDAKey
++Field	3	AMAIR_EL1
++Res0	2
++Field	1	AFSR1_EL1
++Field	0	AFSR0_EL1
+ EndSysreg
+ 
+ Sysreg HFGITR_EL2	3	4	1	1	6
+-- 
+2.39.2
 
 
