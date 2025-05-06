@@ -4,112 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10131C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 08:06:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D02C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 08:09:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=acC2k/T2k8CdtEi/rZl7rpP9JzJvzeCBAAqcuylgp8U=; b=0kg2mRYnVo2imhhZeiCGFRB6Ec
-	/ZD5eBt73UMPmCRI6Xiib0PyIb9X1KJg8BvDWBihsUBk4KVJmDBAxzIKbw3xjVNJTBqHhrwklJ4Q6
-	+aM4mWouplD9Fyoawpg4dEa8rmGrQo5xIKc/j92g030U2p7uCYCuAaWmYZ/k5DkapYMTGll1RahEI
-	xUSunlLyU1Zom7ux71nnBVhLk55pzfaVtCbdjircdtaPaIorDWNYSjTVAccsMUqJ90NrBmMbTwAaw
-	6xWfuUHw5zTR2W99E5kRCTGZZ82zzPT+vXJywWNKONINraLCl85LBwT6APJnKXAWZ2Nh1kvenjyyt
-	DmpKDb1w==;
+	bh=IWjI1WdrW4fw1LjYjyn2MNuK0dU9SDM3EHaXeQ0QWpk=; b=N+vyMZuLJLOzdO+2GXPIy805N/
+	jpTBv7A8xDgSAcU3Zp2YZxahDynv8i5j7rM87hS7j7JqFGX3qdscVm3mU1DT7pbV0lrz4rexiAqh/
+	vLVIIiQAdam4Jo62y1Zefv+J8czqX6YztRvN0TgA8w56Fo+B/wMx/idpwgzy1ENwPg5PoySqiwNrO
+	bxAr8REsS5Pu0SpKC43BK0e+DrWaUKmjmkWQ2zhZosEOWC/6Hvh1ddGy5SNMsvdZ2WvWQDyccysnM
+	8EOLhgBfO3LG/rcno9qb4MtQpmijVXNkmo0cjMH7v8XO9LwDMAibdTXuYybE4NCdBYTFjZtfbXnU/
+	IESPoLew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCDJe-0000000B5eF-0fSN;
-	Tue, 06 May 2025 08:06:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uCDMY-0000000B6KV-07OE;
+	Tue, 06 May 2025 08:09:14 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCDGZ-0000000B4uZ-0jR6
+	id 1uCDKc-0000000B5xP-034I
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 08:03:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 642775C557F;
-	Tue,  6 May 2025 08:00:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19026C4CEE4;
-	Tue,  6 May 2025 08:02:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746518582;
-	bh=vnJVR0fpUtnSD5YKrx/8xtPtn88K4qKx2bqXnh54DdI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pa1N40qwqtx14HtJEXcKMZiNFf9xZ57dRcdBQvzS52soq2Tds+0FJepell8WvX9th
-	 Nffen8WVRA07EJ7XKtECXhaEbF/iJNTAQB/9tVdcGnbdwdriLqcjMeRSbflOiRO8gm
-	 Mwd9HXllPirOmZQW3Cjn95FWuilvk27t+KxH1ofzzsv+UxO0U5WusBCdxcZ9+n0EjW
-	 0F9L9PKweuOAcPna+PPIPJ+sp3PS+yqyXWprJ6Y9Re0kYWOqdFIxvd46D7gkP0bsGC
-	 EQhmso3s+a0fCNFvxosbSAhtFmBQXPzzOE4SLaSyFvKyhBqyEOnrmaSB6cApZk/DsB
-	 JR6SNceDsfQtg==
-Message-ID: <88b463b2-6cd3-4b92-acc5-447bbfadabde@kernel.org>
-Date: Tue, 6 May 2025 10:02:57 +0200
+	Tue, 06 May 2025 08:07:15 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-54ea69e9352so6346404e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 01:07:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1746518832; x=1747123632; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IWjI1WdrW4fw1LjYjyn2MNuK0dU9SDM3EHaXeQ0QWpk=;
+        b=n0yFC6icCHEyUcpGKs5WlIB8d1trIm3uswq/jxk1O63nYdrMtT0/Tqpk5G3TGIJp7F
+         dCKoDC+Klm9CGYnb8KePUGfvqdIiUe3yjwrsWJ9szP958/oRPgpRG88HNflLkVmoUwcF
+         M+WLUPedEVLJFa5rER2v1jIGZgPCZq3RtdQydPA8zhE8K24u2eqB2IGb9KSQu8nPCB7t
+         twYZVvR3DQ/Q8CvtS6g/oictzSSlonY+5LjoDUB/F1kAe4jtcOP1VSt4dATotnT0JTVp
+         5sx+9dgIB4tpLiaQKw3hLSUbgub+MqBH2Iljw9sWaPR8MzL4IM4r6usraIHrlFjJjQXQ
+         6DTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746518832; x=1747123632;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=IWjI1WdrW4fw1LjYjyn2MNuK0dU9SDM3EHaXeQ0QWpk=;
+        b=E4X12y0kn032hzeGI860y/jpmNcELA5pgLwH6BIOV5rK/yeaRNGwueW+Vmv3iJcg1W
+         5n/AMiThXIuU7fJrokQ93WO8lZ6ASBqMZgJmeAjpTieAx3m3gCKy14pIwPOmWjaTD6eR
+         EMzwmVgnA/eTj52a180uQJMPf4unUxET/e4AAybiNDszU1o5YV9CaH9gIfwP0Hfd2tpl
+         W82RXWWi5g1THUs77b9Ro9haDVdYrjfd53oh27iBQ5QLueLS6JHudv9qK/mbpCf1pBNT
+         eIyjzE3J5sHnbmY3WI2v4ihDkmXoBtR9rTuhCcSTp497VXaBIUKvI7XtmfcoDZKHqfW/
+         ug7g==
+X-Forwarded-Encrypted: i=1; AJvYcCVy1jtl+eMR7IstVP5kfXFoig+F4s7QDbtgqUch7KX78deOLKdN0EyFnfQvlcdx9aqKw7kN6YncW6nCxpHN4qFZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4vuMtuib0hRIPhTZ2LWZaVuUwK/+MTjMcEyQtYT34j4s9bKwQ
+	L1K+j5fIw38IoGE90XedMfc+dWxd8sjo4PMhwCBVtz8uCnAsRWptwFvfFZ6L4TspmURGJSU+7gI
+	eQtp5G3ZXcCQ1/uJ8PuNNg2xiqhXG+/MDKKdOkA==
+X-Gm-Gg: ASbGncsoCSkFx1EO2oaYXaBbOnDfMNUBEbhgw9/6BcYuph+pPP8bm0WD1+IWxdndZ85
+	uiFw0DffufxqSFjhZO8YBj3nxMdAvawnCnuGSrL7GPjYyQpJjoza0bhSQ5o4Ml5hfQIjXgUGf94
+	UEogB6nu01SwfMNCY1kjOZghJ1Up43IM4DgEYhoUGmwNOPqx/yZy6Quw==
+X-Google-Smtp-Source: AGHT+IHqoCICO9862R9K2Lm84ouPAwINr3VP7krJifWUL5WSBoQ4Kvr33P34RfQvhWkjHIDMgMqYGqtI1g5tPyBwgtk=
+X-Received: by 2002:a05:6512:1048:b0:545:aa5:d44f with SMTP id
+ 2adb3069b0e04-54fb4a14406mr712084e87.30.1746518831752; Tue, 06 May 2025
+ 01:07:11 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 2/3] memory: Add STM32 Octo Memory Manager driver
-To: Patrice Chotard <patrice.chotard@foss.st.com>,
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: christophe.kerello@foss.st.com, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250506-upstream_ospi_v6-v12-0-e3bb5a0d78fb@foss.st.com>
- <20250506-upstream_ospi_v6-v12-2-e3bb5a0d78fb@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250506-upstream_ospi_v6-v12-2-e3bb5a0d78fb@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250503-smc-6-15-v4-0-500b9b6546fc@svenpeter.dev> <20250503-smc-6-15-v4-5-500b9b6546fc@svenpeter.dev>
+In-Reply-To: <20250503-smc-6-15-v4-5-500b9b6546fc@svenpeter.dev>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Tue, 6 May 2025 10:07:00 +0200
+X-Gm-Features: ATxdqUE_9uM4g2e9vDQcwVZ74pJhDseN0shdJbJ2G8cWvYqvkY72EGPX5Nyfbec
+Message-ID: <CAMRc=MebFf-DBh_=H0J4ORStaxBYhOnfY+jSk2d4UpdyS=m1LA@mail.gmail.com>
+Subject: Re: [PATCH v4 5/9] gpio: Add new gpio-macsmc driver for Apple Macs
+To: sven@svenpeter.dev
+Cc: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
+	Hector Martin <marcan@marcan.st>, Linus Walleij <linus.walleij@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Sebastian Reichel <sre@kernel.org>, Lee Jones <lee@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_010303_295566_7EBB98CB 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20250506_010714_207175_5A1872F2 
+X-CRM114-Status: GOOD (  17.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,48 +100,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/05/2025 09:52, Patrice Chotard wrote:
-> Octo Memory Manager driver (OMM) manages:
->   - the muxing between 2 OSPI busses and 2 output ports.
->     There are 4 possible muxing configurations:
->       - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
->         output is on port 2
->       - OSPI1 and OSPI2 are multiplexed over the same output port 1
->       - swapped mode (no multiplexing), OSPI1 output is on port 2,
->         OSPI2 output is on port 1
->       - OSPI1 and OSPI2 are multiplexed over the same output port 2
->   - the split of the memory area shared between the 2 OSPI instances.
->   - chip select selection override.
->   - the time between 2 transactions in multiplexed mode.
->   - check firewall access.
-> 
-> Signed-off-by: Christophe Kerello <christophe.kerello@foss.st.com>
-> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+On Sat, May 3, 2025 at 12:07=E2=80=AFPM Sven Peter via B4 Relay
+<devnull+sven.svenpeter.dev@kernel.org> wrote:
+>
+> From: Hector Martin <marcan@marcan.st>
+>
+> This driver implements the GPIO service on top of the SMC framework
+> on Apple Mac machines. In particular, these are the GPIOs present in the
+> PMU IC which are used to control power to certain on-board devices.
+>
+> Although the underlying hardware supports various pin config settings
+> (input/output, open drain, etc.), this driver does not implement that
+> functionality and leaves it up to the firmware to configure things
+> properly. We also don't yet support interrupts/events. This is
+> sufficient for device power control, which is the only thing we need to
+> support at this point. More features will be implemented when needed.
+>
+> To our knowledge, only Apple Silicon Macs implement this SMC feature.
+>
+> Signed-off-by: Hector Martin <marcan@marcan.st>
+> Reviewed-by: Bartosz Golaszewski <brgl@bgdev.pl>
+> Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+> Reviewed-by: Sven Peter <sven@svenpeter.dev>
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> Signed-off-by: Sven Peter <sven@svenpeter.dev>
 > ---
->  drivers/memory/Kconfig     |  18 ++
->  drivers/memory/Makefile    |   1 +
->  drivers/memory/stm32_omm.c | 476 +++++++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 495 insertions(+)
-> 
-> diff --git a/drivers/memory/Kconfig b/drivers/memory/Kconfig
-> index c82d8d8a16eaf154c247c0dbb9aff428b7c81402..bc7ab46bd8b98a89f0d9173e884a99b778cdc9c4 100644
-> --- a/drivers/memory/Kconfig
-> +++ b/drivers/memory/Kconfig
-> @@ -225,6 +225,24 @@ config STM32_FMC2_EBI
->  	  devices (like SRAM, ethernet adapters, FPGAs, LCD displays, ...) on
->  	  SOCs containing the FMC2 External Bus Interface.
->  
-> +config STM32_OMM
-> +	tristate "STM32 Octo Memory Manager"
-> +	depends on ARCH_STM32 || COMPILE_TEST
-> +	depends on SPI_STM32_OSPI
 
-I don't think you tested for the reported issue. I reported that
-firewall symbols are missing and you add dependency on ospi. How is that
-related? How does this solve any problem?
+[snip]
 
-And to be sure, I applied this and obviously - as expected - same errors.
+> +
+> +       smcgp->gc.label =3D "macsmc-pmu-gpio";
+> +       smcgp->gc.owner =3D THIS_MODULE;
+> +       smcgp->gc.get =3D macsmc_gpio_get;
+> +       smcgp->gc.set =3D macsmc_gpio_set;
 
-Best regards,
-Krzysztof
+I must have given my Reviewed-by under this driver before we started
+the conversion to the new GPIO driver setters. Could you please
+replace this with set_rv() as the old set() is now deprecated?
+
+> +       smcgp->gc.get_direction =3D macsmc_gpio_get_direction;
+> +       smcgp->gc.init_valid_mask =3D macsmc_gpio_init_valid_mask;
+> +       smcgp->gc.can_sleep =3D true;
+> +       smcgp->gc.ngpio =3D MAX_GPIO;
+> +       smcgp->gc.base =3D -1;
+> +       smcgp->gc.parent =3D &pdev->dev;
+> +
+
+Bart
 
