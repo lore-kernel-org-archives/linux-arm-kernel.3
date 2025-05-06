@@ -4,75 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5DAC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 06:34:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D3CAC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 06:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7S4X3SxK+Viy1VfLMyQ17LfbnAuxcmyA2FJ6Hooxjog=; b=qF+iiyVEm3X+IeljKjCtMbT4Bi
-	36M8PmGesoVl/1u6dhuPXXBJYuBgxbBpGujZ/xWmut/AZg24pn/Csa4GHsVUBwmdNWGmQC+wOkpXc
-	yEc9+gf//39uVkxYLtVJCvY6NAkTH+k9r39VVguqpn4Y5No20oaz/QF9qG065lCZMYMRdJGDaBlal
-	3SDmWRuOaISRvfSYKByGer3Bww58udBk4ZBRY2CQ8pVZeofdH7MAtsEEb6GC7bCDBA2WZANVyZeMX
-	AlDluzcUm1rSMr/E2OoIwdGpT0ZumdVD0klpBinl7+x99HSe91KmNzCJU6owhy+o/++Z+dshMa/sa
-	19fhj7Dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pm/hq5RxWKA3oBhwX5M3pYnjNEf8WRhoOjebq9Z0RwE=; b=Y++eZb3PG8bGsVPFh2N/zGf+EH
+	fo3TJre1fqJ7MrABhESJPUhgT4D4cnTs1JkvqAPNNLAstba2ik0dp39Vt3uGMxei2tUgDynCoA5Zg
+	swdIYQQb6ZXWU9Tf3xZK9ijuw6sUF1VpLFfw8etkRJ4Dzz/lrE/Di3yTOj9p4xInMBIzz+c1K6lRZ
+	MX5uhilD3ouLt9A38ExFVgrEzpXI3hS6fpCTtidP6SRhjtND34Ptjdii0E1CZ2s8UnVFENK2wOTOY
+	CjMnMSqinunKWGsj4YWAXzTY0DRnEFN3uW40lmTSd5m/0OKZgVyWj44lj0VrJQsqd+pE2V5GxrdUG
+	5O4A4r5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCBsG-0000000Ai22-2rBg;
-	Tue, 06 May 2025 06:33:52 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uCBuC-0000000Aib1-02pZ;
+	Tue, 06 May 2025 06:35:52 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCBes-0000000Ae27-0LKi
+	id 1uCBfL-0000000AeA9-2s7L
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 06:20:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7B2E95C515F;
-	Tue,  6 May 2025 06:17:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEE70C4CEEB;
-	Tue,  6 May 2025 06:19:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746512399;
-	bh=IaknPFqcP0N7YD+hkdGoIITlQSTa3FqWiaGwJ4M7xOc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZIRkTWuYiswfaOZhaA9mMbfIsTR/ZTklZu2Oe44c9xSTzghAJERx/3W0TESSm787U
-	 CLR3YOKZjtiYprxUIhVt6kY7tF0oYRoYxYxEpdimHmXA+u4dadKipt6WARl1mkRAU9
-	 DYMKW2mOUDdVzhaqf4Wxjsbw0BSWwQ66y/4ruC2EQ9FcSOQ6GdVOrAsYjqHoIEiGnQ
-	 rtslXz2wkE5IQdgaxJYYNss6cFHmKoW2P6+1getUhQIgG1bZT6T7bDzYUHGdGuJQJW
-	 R2M8i144n5z2YDH+umSx8sNUXhYwLbUKuUn2WZam2i7g8mOIGx5KAiU/OrXh/rGPk4
-	 3T3KMLHJBsjfQ==
-Date: Tue, 6 May 2025 06:19:57 +0000
-From: Wei Liu <wei.liu@kernel.org>
-To: Roman Kisel <romank@linux.microsoft.com>
-Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
-	catalin.marinas@arm.com, conor+dt@kernel.org,
-	dave.hansen@linux.intel.com, decui@microsoft.com,
-	haiyangz@microsoft.com, hpa@zytor.com, joey.gouly@arm.com,
-	krzk+dt@kernel.org, kw@linux.com, kys@microsoft.com,
-	lenb@kernel.org, lpieralisi@kernel.org,
-	manivannan.sadhasivam@linaro.org, mark.rutland@arm.com,
-	maz@kernel.org, mingo@redhat.com, oliver.upton@linux.dev,
-	rafael@kernel.org, robh@kernel.org, ssengar@linux.microsoft.com,
-	sudeep.holla@arm.com, suzuki.poulose@arm.com, tglx@linutronix.de,
-	wei.liu@kernel.org, will@kernel.org, yuzenghui@huawei.com,
-	linux-hyperv@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-arch@vger.kernel.org,
-	x86@kernel.org, apais@microsoft.com, benhill@microsoft.com,
-	bperkins@microsoft.com, sunilmut@microsoft.com
-Subject: Re: [PATCH hyperv-next v9 00/11] arm64: hyperv: Support Virtual
- Trust Level Boot
-Message-ID: <aBmqDU_UjxIAx2lP@liuwe-devbox-ubuntu-v2.tail21d00.ts.net>
-References: <20250428210742.435282-1-romank@linux.microsoft.com>
+	Tue, 06 May 2025 06:20:32 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 545M4uTu011184;
+	Tue, 6 May 2025 06:20:23 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	pm/hq5RxWKA3oBhwX5M3pYnjNEf8WRhoOjebq9Z0RwE=; b=ms5kAG6lvKTMV+ki
+	v51pu7lSKLT3bXYKaLvDqyvaHm4rdsDAZxSrJjzqeDUzLoDsy1tiZ67pGkKSks5Q
+	CjW3zfN2ZkuR5hmRDnWH6yexpeZztPDEQMYiVyCau1M/SQqiJ5lgn+s4NGbXGxXC
+	7oIbSl5FgR8k6dL2Cl2Jjg4Z1uAjb0rderRgbYkILVUghZvCC3cd4gpXu0tn5V+P
+	OoIh8UThfov83tvuMAl4xbI8YdE9L7CwXmPbXq4xgm8g8NrCxW3s7l17mOXUWXis
+	ZsqYZh27WeX+YGJ7OISNL1UoOioPItBe0kjxN1EaaPcFssgep5PYkfSqV6DOPAyK
+	XXILBw==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46f5tb95cq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 06 May 2025 06:20:23 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5466KMBZ016526
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 6 May 2025 06:20:22 GMT
+Received: from [10.239.133.49] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 5 May 2025
+ 23:20:19 -0700
+Message-ID: <fe714aaf-8e0b-432e-b238-240b46be64e2@quicinc.com>
+Date: Tue, 6 May 2025 14:20:16 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250428210742.435282-1-romank@linux.microsoft.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] dt-bindings: arm: Add Qualcomm extended CTI
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>
+References: <20250429071841.1158315-1-quic_jinlmao@quicinc.com>
+ <20250429071841.1158315-2-quic_jinlmao@quicinc.com>
+ <20250502-notorious-granite-gibbon-1abf15@kuoka>
+Content-Language: en-US
+From: Jinlong Mao <quic_jinlmao@quicinc.com>
+In-Reply-To: <20250502-notorious-granite-gibbon-1abf15@kuoka>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: JRacaERoASwWh4zXVuCOBYUfKxQt4QbP
+X-Proofpoint-GUID: JRacaERoASwWh4zXVuCOBYUfKxQt4QbP
+X-Authority-Analysis: v=2.4 cv=doXbC0g4 c=1 sm=1 tr=0 ts=6819aa27 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=COk6AnOGAAAA:8
+ a=zLDVIwd1xLDUi3fjDS0A:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTA2MDA1OCBTYWx0ZWRfX6lc+DLL4SLlR
+ ioV7f11FpdY6/SIiiMDTFDm0pdIS8hpGaPLKwHKP4JcHThtcjPj8o8yyz992Bxbj7QrvWfIPtpR
+ /oskDtQ7BStJGpUVZpR4UoGBJKEkKesiaqlUjoldzCCxCpSl7liXlLGzl2VgyeemuJjHP3pEjhQ
+ qoPp2M6pzJ7/K+gmm6D5S/zIBEM4IvajwjMQ2xlBdiaIZZG443jKG+1sd6GwRhUAng281xPbIIj
+ A+eWLYHw+Oc/k4ua8wAKX7BH9Pe62miFmUbjpruHlrvEF+moc6FTBWTXVC4tRXbqbdZbSecxarZ
+ YldBXV15JkXSHMf47Hqvu0j5N+eQdbOAAisLucySBueKbIHYk/VpHryRqCxcl2FPXO5bA+oUg71
+ yBAXO3znLWo2k2JE+q+BUrSzgmJzpadVq7YhwNapBvtzZOwP7nun3ZDftvMpG5TlsvKeXaeB
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-06_03,2025-05-05_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 bulkscore=0 adultscore=0 malwarescore=0 phishscore=0
+ mlxlogscore=826 impostorscore=0 clxscore=1015 mlxscore=0 priorityscore=1501
+ spamscore=0 lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2505060058
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_232002_207779_64718E69 
-X-CRM114-Status: GOOD (  21.50  )
+X-CRM114-CacheID: sfid-20250505_232031_852348_C35F5B16 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,58 +123,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 28, 2025 at 02:07:31PM -0700, Roman Kisel wrote:
-> This patch set allows the Hyper-V code to boot on ARM64 inside a Virtual Trust
-> Level. These levels are a part of the Virtual Secure Mode documented in the
-> Top-Level Functional Specification available at
-> https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/tlfs/vsm.
+
+
+On 2025/5/2 14:43, Krzysztof Kozlowski wrote:
+> On Tue, Apr 29, 2025 at 12:18:40AM GMT, Mao Jinlong wrote:
+>> Add Qualcomm extended CTI support in CTI binding file. Qualcomm
+>> extended CTI supports up to 128 triggers.
+>>
+>> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
+>> ---
+>>   Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml | 4 +++-
+>>   1 file changed, 3 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+>> index 2d5545a2b49c..1aa27461f5bc 100644
+>> --- a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+>> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+>> @@ -84,7 +84,9 @@ properties:
+>>             - const: arm,coresight-cti
+>>             - const: arm,primecell
+>>         - items:
+>> -          - const: arm,coresight-cti-v8-arch
+>> +          - enum:
+>> +              - arm,coresight-cti-v8-arch
+>> +              - qcom,coresight-cti-extended
 > 
-> The OpenHCL paravisor https://github.com/microsoft/openvmm/tree/main/openhcl
-> can serve as a practical application of these patches on ARM64.
+> cpu phandle is not required? Or not even valid?
+
+cpu phandle is not required for exteneded CTI.
+
 > 
-> For validation, I built kernels for the {x86_64, ARM64} x {VTL0, VTL2} set with
-> a small initrd embedded into the kernel and booted VMs managed by Hyper-V and
-> OpenVMM off of that.
+> Best regards,
+> Krzysztof
 > 
-> Starting from V5, the patch series includes a non-functional change to KVM on
-> arm64 which I tested as well.
-> 
-> I've kept the Acked-by tags given by Arnd and Bjorn. These patches (1 and 11)
-> have changed very slightly since then (V5 and V6), no functional changes:
-> in patch 1, removed macro's in favour of functions as Marc suggested to get rid
-> of "sparse" warnings, and in patch 11, fixed building as a module. Please let me
-> know if I should have not kept the tags.
-> 
-[...]
-> Roman Kisel (11):
->   arm64: kvm, smccc: Introduce and use API for getting hypervisor UUID
-
-I notice there were review comments from multiple people on this patch.
-To the best of my knowledge, those comments have been addressed in this
-version, but I only had a cursory look and am by no means an expert on
-ARM64.
-
-My assumption is Arnd's review is good enough for this patch to get
-merged.
-
-With that assumption, I have applied this whole series to hyperv-next.
-
-ARM64 maintainers, please let me know if you have an objection -- I can
-drop the series and let Roman address further comments.
-
-Thanks,
-Wei.
-
->   arm64: hyperv: Use SMCCC to detect hypervisor presence
->   Drivers: hv: Enable VTL mode for arm64
->   Drivers: hv: Provide arch-neutral implementation of get_vtl()
->   arm64: hyperv: Initialize the Virtual Trust Level field
->   arm64, x86: hyperv: Report the VTL the system boots in
->   dt-bindings: microsoft,vmbus: Add interrupt and DMA coherence
->     properties
->   Drivers: hv: vmbus: Get the IRQ number from DeviceTree
->   Drivers: hv: vmbus: Introduce hv_get_vmbus_root_device()
->   ACPI: irq: Introduce acpi_get_gsi_dispatcher()
->   PCI: hv: Get vPCI MSI IRQ domain from DeviceTree
 
 
