@@ -4,78 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A875C3ABC7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1131AC3ABC0
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 22:23:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gCLAehN5m8iGTMC5p3lfZ/Jr1wsAiJGwZJkQGDTz6Js=; b=LfxBBqjBT3WfPbi+3IWE7meVGa
-	myMR6jJzfmLTgznQbrPmytmQ4iOS2DBRJB1ewEPvW+BrJliio0tNNOV/Sgc2Vg1k70cdortxKV4wa
-	niWvvbhgEZnKTWdX6vzLDKJAxDuoxT64LhVeh7N95aJPl7mi3uCdTymNNsAr/mlUn/7mR1aiXU9gn
-	TIAr+xCQUOlmZUNMDpv/znw2TDw0FAQ+chc3Bc6xy4XVSAQVgbGYbU11W3SmmR6ltLgNjCBiBbQ4g
-	FDHzjdrWxUdcMGVr7pJj4V1+050Yp2TssvgY5ShKjQJeOW+XKo+7Zr2JNJtTtb0xpRa+iaBwFfgjs
-	IKXjJydQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y3yYRERUYUVytAtiWQSwuF+7Vjrvbm4KjZdNux6Gig8=; b=M6jaUAc1eqWEHIAI6KMirOLh54
+	ivpV/6sL/S8MZOYuWtVTV3XsvrHgADYMxSeK/3QbVytxzFqF813IL9tzGlIFHqd9YHceOGlHov+xx
+	+e1vho9rnGELd4tVWOvjdZrD8CFCfVssyQOVWo7Ncajc/TRloAer/B+dXCN8k/mktFlyzOud3dQA8
+	Isz9Gc0XsFeAWqNhaD6CqoctzzqWzyk8V8wOGU7FLhVShFYc/AbtaywWvLmynJSV+lnka9J9NAC0w
+	bgrEOiIWK6C1Py4XLTHrxFv/aT4RPr9vo/B1IK07T70TcEtmD8dMjn0ZZgxtXGnVf8fwkFXcQp1fq
+	hOoak8Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCQgm-0000000DWTL-1FGT;
-	Tue, 06 May 2025 22:23:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uCQgg-0000000DWPN-1uS3;
+	Tue, 06 May 2025 22:22:54 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCLOu-0000000CiLk-3SVl
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 16:44:14 +0000
+	id 1uCLG4-0000000Ch32-2aBD;
+	Tue, 06 May 2025 16:35:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2305A5C58F9;
-	Tue,  6 May 2025 16:41:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 229D8C4CEF7;
-	Tue,  6 May 2025 16:44:12 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id DE23CA4D6B2;
+	Tue,  6 May 2025 16:35:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AFBDC4CEE4;
+	Tue,  6 May 2025 16:35:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746549852;
-	bh=cXLy+//a+Wbc2PWFhsn34/2XszY14fVQQbnlUcjHWGg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Ygth1+urekfiF1GRYwFFvJEHLIbPemK0bhY89b4zJ/liMXixm3F4MhM2NYHsUJHE0
-	 vqC6Z/LsjU9njN3du52P5ckCK6DCNH1cFLGUo6dqNkIn1FQ8OYqG3G9yQxqOZgBvfC
-	 wNs/Bly56x6rUS2/GY1R7v253Na9nwlKGVtGXoOTr1gmcwg4+9uqXnE1Oq7LVm6rAm
-	 WG6621bg6lYO/U6wI4vCagZZNdvoOlyi7j0YMmtmEdKIuLY4VSHiE0l30j9+qJ9QWv
-	 sIkMpq33EELMWkjzBSKlkL3SKtvomLbuYHExsxI+vwB67cOi6Ia1PGQ37mKBU/0cMv
-	 byMxCmZNHrizQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uCLOs-00CJkN-Cj;
-	Tue, 06 May 2025 17:44:10 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>
-Subject: [PATCH v4 19/43] KVM: arm64: Restrict ACCDATA_EL1 undef to FEAT_LS64_ACCDATA being disabled
-Date: Tue,  6 May 2025 17:43:24 +0100
-Message-Id: <20250506164348.346001-20-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250506164348.346001-1-maz@kernel.org>
-References: <20250506164348.346001-1-maz@kernel.org>
+	s=k20201202; t=1746549303;
+	bh=uoptlTpW6qeK2AgUdwaGx1IisUVQuZQm4yEmqfnzTbI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Jxx0uI9/nEy5R97VUwfzVk64Y3uxY0P/9N69G2xEsBrshABBz6A7XyunpO7cDfLHy
+	 /6KzEl+Ul8L0n7E9r5DPzBowSEsIX3/tvLbu9y49wkVZJ206+mt8aYKXRVF04cWaUM
+	 qZB+6mMGzlwaFefNRQRB54mkuotGYGN7xxLhI2PaA0cicmE7Ami/iI/Y5BDGP9S34U
+	 w2zYZEXyDvTXY52pImHjYKUVAR7SUiy2WK6C/jLhz4KZ81aVSE99EFZiE2qWePP8Vo
+	 gjN37lTeMXPNGk7SvsP2lOelmt8TQqWUOrwQQR4I/FljuSZ6qd8oEJKrbZNpYqoClq
+	 YDKGZcg0qlaGg==
+Date: Tue, 6 May 2025 17:34:59 +0100
+From: Conor Dooley <conor@kernel.org>
+To: John Clark <inindev@gmail.com>
+Cc: heiko@sntech.de, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	robh@kernel.org, krzysztof.kozlowski@linaro.org,
+	conor+dt@kernel.org, jonas@kwiboo.se, frattaroli.nicolas@gmail.com,
+	andrew@lunn.ch
+Subject: Re: [PATCH v3 2/3] dt-bindings: arm: rockchip: Add Luckfox Omni3576
+ and Core3576 bindings
+Message-ID: <20250506-navigate-cannabis-19078e498781@spud>
+References: <20250506114115.613616-1-inindev@gmail.com>
+ <20250506114115.613616-3-inindev@gmail.com>
+ <20250506-almighty-uncork-f7a0bc42d763@spud>
+ <c8114ff8-f207-4ea8-aaf1-298dcea9f030@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, mark.rutland@arm.com, tabba@google.com, will@kernel.org, catalin.marinas@arm.com, ben.horgan@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="XP6d7CgI79zNHt7u"
+Content-Disposition: inline
+In-Reply-To: <c8114ff8-f207-4ea8-aaf1-298dcea9f030@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_094412_945013_D8D8A182 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20250506_093504_793223_965F5B76 
+X-CRM114-Status: GOOD (  21.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,35 +78,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently unconditionally make ACCDATA_EL1 accesses UNDEF.
 
-As we are about to support it, restrict the UNDEF behaviour to cases
-where FEAT_LS64_ACCDATA is not exposed to the guest.
+--XP6d7CgI79zNHt7u
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/sys_regs.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+On Tue, May 06, 2025 at 11:54:10AM -0400, John Clark wrote:
+> On 5/6/25 11:44 AM, Conor Dooley wrote:
+> > On Tue, May 06, 2025 at 07:41:14AM -0400, John Clark wrote:
+> > > Add device tree binding for the Luckfox Omni3576 Carrier Board with
+> > > Core3576 Module, based on the Rockchip RK3576 SoC.
+> > >=20
+> > > Signed-off-by: John Clark <inindev@gmail.com>
+> > > ---
+> > >   Documentation/devicetree/bindings/arm/rockchip.yaml | 10 ++++++++++
+> > >   1 file changed, 10 insertions(+)
+> > >=20
+> > > diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Do=
+cumentation/devicetree/bindings/arm/rockchip.yaml
+> > > index 455fbb290b77..826dede32145 100644
+> > > --- a/Documentation/devicetree/bindings/arm/rockchip.yaml
+> > > +++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+> > > @@ -715,6 +715,16 @@ properties:
+> > >             - const: lckfb,tspi-rk3566
+> > >             - const: rockchip,rk3566
+> > > +      - description: Luckfox Core3576 Module
+> > > +        items:
+> > > +          - const: luckfox,core3576
+> > > +          - const: rockchip,rk3576
+> > > +
+> > > +      - description: Luckfox Omni3576 Carrier Board
+> > > +        items:
+> > > +          - const: luckfox,omni3576
+> > > +          - const: rockchip,rk3576
+> >=20
+> > Not sure this is correct, does the module not have to be attached to
+> > this particular carrier to be used?
+>=20
+> The compute module and the carrier board together like the E25. Presumably
+> the compute module would be used in other applications
+> but the carrier board is not useful without it.
+>=20
+> Is the E25 done correctly here?  I can copy this format:
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 6e01b06bedcae..ce347ddb6fae0 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -5150,10 +5150,12 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
- 	kvm->arch.fgu[HFGRTR_GROUP] = (HFGRTR_EL2_nAMAIR2_EL1		|
- 				       HFGRTR_EL2_nMAIR2_EL1		|
- 				       HFGRTR_EL2_nS2POR_EL1		|
--				       HFGRTR_EL2_nACCDATA_EL1		|
- 				       HFGRTR_EL2_nSMPRI_EL1_MASK	|
- 				       HFGRTR_EL2_nTPIDR2_EL0_MASK);
- 
-+	if (!kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_ACCDATA))
-+		kvm->arch.fgu[HFGRTR_GROUP] |= HFGRTR_EL2_nACCDATA_EL1;
-+
- 	if (!kvm_has_feat(kvm, ID_AA64ISAR0_EL1, TLB, OS))
- 		kvm->arch.fgu[HFGITR_GROUP] |= (HFGITR_EL2_TLBIRVAALE1OS|
- 						HFGITR_EL2_TLBIRVALE1OS	|
--- 
-2.39.2
+Yeah, the format below looks good for these type of carrier situations.
 
+>=20
+> model =3D "Radxa E25 Carrier Board";
+> compatible =3D "radxa,e25", "radxa,cm3i", "rockchip,rk3568";
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/a=
+rch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dts?h=3Dv6.15-rc5
+>=20
+> compatible =3D "radxa,cm3i", "rockchip,rk3568";
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/a=
+rch/arm64/boot/dts/rockchip/rk3568-radxa-cm3i.dtsi?h=3Dv6.15-rc5
+>=20
+> - description: Radxa Compute Module 3 (CM3)
+> items:
+>   - enum:
+>       - radxa,cm3-io
+>   - const: radxa,cm3
+>   - const: rockchip,rk3566
+>=20
+> - description: Radxa CM3 Industrial
+> items:
+>   - enum:
+>       - radxa,e25
+>   - const: radxa,cm3i
+>   - const: rockchip,rk3568
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/D=
+ocumentation/devicetree/bindings/arm/rockchip.yaml?h=3Dv6.15-rc5
+>=20
+> >=20
+> > > +
+> > >         - description: Lunzn FastRhino R66S / R68S
+> > >           items:
+> > >             - enum:
+> > > --=20
+> > > 2.39.5
+> > >=20
+
+--XP6d7CgI79zNHt7u
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaBo6MwAKCRB4tDGHoIJi
+0geLAQDJ0izzs/rvcwECsDGYdXwC3w9wY2NmGbJVdF3BaY+1IwD/dtUh8DTEiNhe
+uHU2gI6ycQ+XgXFh1JRJ3eBwkC5n4QQ=
+=8jtU
+-----END PGP SIGNATURE-----
+
+--XP6d7CgI79zNHt7u--
 
