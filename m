@@ -4,99 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B249C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 05:30:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92557C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 05:32:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=poh4flnsblOTuXQPZPNN2P3hxWXnOplQoLoK9Oy5wOo=; b=YTsO89lGExqgGf2fDjZI5NvymJ
-	b0eq4DBon01eJQxb8yOXkTNzKOeLLrd/x98MHdfLJl8izKsKN16eK7iosH+oGEty/KRUx9F9iX3Of
-	vJYzWa9Kz1bIcvq+sbJczTwz+8y82eUEdYUgy+gJzPPwo1MqUdVloQ14C155rLPf/WRvgfNq1jiK4
-	gXEKsV0tiikqm+y/t+dFGCS1VY5+wQiDKLW77rknO6WWg/zfl9JcDbdl84U+QE5Zd0enqxbC3Ip6B
-	BYiPUUaHKctZlrC3kh6VovCA0DQDNhLYpu9l+FyjF/LPdvghwtYLs1T2Gn8e0uDN9DrHQpOsvwl01
-	36vhW8lg==;
+	bh=Nk4xzjyhRxvuRS9iUa8wmhA2oETlZwzpqF+tgsH7aYk=; b=hRg7qmlDQGKuGjyupA7m7Ku6vO
+	QEEKX9dcRvFE3Zr9WnD9rGpwe5yrN9NMDXTqHQ5yZpCq6HVAcS9Ucd9KeQiXfIkm5oGooM0tD7kND
+	Gsj2SfRgI0PnfRB4Hzr2enrRgptr3hdMVmBJn/ruK31TC5JTn2tWT7VvR3buLfn6I85PGzG0xdvuD
+	j9MgFyVEUmOMBkexF3Scqga4A34AjGS4oj3vv4rwb2ufQirnbCEoQAbrGTFDrIZrOLG18IQEnBL2U
+	406opn/1RNv2VXAjd/RsjmlcLNOoVKDE3nkiC27CwfYxGv4ViS2WAPpTM5VJggseW87gEdOgOQMW4
+	J+JJgLcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCAt0-0000000AS1T-43Of;
-	Tue, 06 May 2025 05:30:34 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1uCAv1-0000000ASbH-1LzR;
+	Tue, 06 May 2025 05:32:39 +0000
+Received: from mail-sn1nam02on2061d.outbound.protection.outlook.com ([2a01:111:f403:2406::61d] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC863-00000009lpr-3kCa;
-	Tue, 06 May 2025 02:31:53 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-736b0c68092so4481384b3a.0;
-        Mon, 05 May 2025 19:31:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746498710; x=1747103510; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=poh4flnsblOTuXQPZPNN2P3hxWXnOplQoLoK9Oy5wOo=;
-        b=jgKVbMUMMMd5eHO3MsgLImFIztlllvq08alEGpSj9QDoIcvy5VEsvi8578JTcviIH5
-         RwoMDkz0sEIYd9Oi9KSPy4PL4MYAyOGT7CeMB3UMWV9i7OxjBLNW/K6UT8yB76U4oLhp
-         mmtvpkTtETJOOcVZw0wH9QuMM36YpiikUA4j1rN7czW5ObFzOhhA3av1YqHx9ZAni8bu
-         2IauC6FWzDIrpkHiUz1rnY5hPJm8mLVFqeb7dBtn5JkQSzNW2HOQFmDSvEukVYoUj5sB
-         9F0MX161eHltLq2WKmtaCXB0FTno4yjSZoSKj9OlzNEBNproE+QQOih01br2XSvUwUjc
-         nS0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746498710; x=1747103510;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=poh4flnsblOTuXQPZPNN2P3hxWXnOplQoLoK9Oy5wOo=;
-        b=idRu4vajzDjAyb7r3Zj07bjX61ei2rP0qRrpY7SlJFIDQNSDT0JfLkh8L0q+fVNUKR
-         /55zW6CX8KYxlOMzfwb3UEvr+p/NX/ESjlKchdTYpQM4eCRm/27VTEQx9LkjqQg82QG+
-         QRiB6tSryjdRP/UU/vBxQ8vBmfMzZVzokojtnhU2jgCg9MAL4jVg7edmfUD5WNAKrT20
-         M2RSoptWSgm0koXObwq2kkw/WIUNx4XYYyxg0NlHoDb/dWBQRwJgoUFViE4NO+vCBwr8
-         40vgAc2EWvcDhY5xr6lHMUapcuQYxPj8SunOn0RI5JHO8ttv6iGda9IHdsR+IAgnVX2Q
-         yTHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU6qCKHJ+jG0axc3MLOyJOOEGdKD5cW5kN7ETkYF6nENfQdMPLUimApOVojmOZ07FpvbGBGOdVAwzmkRdbBhnbeVA==@lists.infradead.org, AJvYcCX/nxJo/GwHtdF4DHqW3hwwdid7qHqUZrrGtYJG4MmuP5W5+Llz7KHxDT1Cphhas+SiD12uGw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9qdGEokGCUfp62xMcrErr9FK+cHJI4Lz4BAmwiFRyfoDXksqn
-	2Z7S/Mk5nVoaFxicuv5PYXB3J1G5IsdpERAHcIQx8sVVyye9u0J+
-X-Gm-Gg: ASbGnctVqzAB5leOKYO6JPtNJLsrpFfeg0U7Zez3n93YI+udz24WCRzua2x19n7Heik
-	f+cwGKj+03x7hEIOzXy08HwElVCGN3egWnEBXuPI3PRedmDDFapGk1KYq48QAjYPGGo6zAkLExq
-	Zct0OlerU7/g3ViY8kMXGpEAdU3h0Q/qK7qCyMcsUKJ6TxR9IrFWI9V6hueCBzHkx+wns1mcUng
-	1jLrmu8JoDBKbYMuEOdmGsjmJk6TfWZvToZpEpYKjSkgJ/pvwB9VufUFncRtMugVkTi3XSQ4+HX
-	O2/HQNSL7Iv4UxM3f/VuCybeVE/wKS8pZPZmN9LE
-X-Google-Smtp-Source: AGHT+IFm2DxJzuwGUz6BKAo8aCcTy5T+PX1t2f2NG17JtptJTbCdw+A9Vy7/npC+48IEhStxuhVLiA==
-X-Received: by 2002:a05:6a00:4294:b0:736:6ecd:8e32 with SMTP id d2e1a72fcca58-74058b23ef3mr18912149b3a.21.1746498710367;
-        Mon, 05 May 2025 19:31:50 -0700 (PDT)
-Received: from archie.me ([103.124.138.155])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74058dbbb15sm7939011b3a.58.2025.05.05.19.31.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 May 2025 19:31:49 -0700 (PDT)
-Received: by archie.me (Postfix, from userid 1000)
-	id 3FFBD42439E4; Tue, 06 May 2025 09:31:45 +0700 (WIB)
-Date: Tue, 6 May 2025 09:31:45 +0700
-From: Bagas Sanjaya <bagasdotme@gmail.com>
-To: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org
-Cc: akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de,
-	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de,
-	catalin.marinas@arm.com, corbet@lwn.net,
-	dave.hansen@linux.intel.com, devicetree@vger.kernel.org,
-	dwmw2@infradead.org, ebiederm@xmission.com, graf@amazon.com,
-	hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org,
-	krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org,
-	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com,
-	pbonzini@redhat.com, peterz@infradead.org, ptyadav@amazon.de,
-	robh@kernel.org, rostedt@goodmis.org, rppt@kernel.org,
-	saravanak@google.com, skinsburskii@linux.microsoft.com,
-	tglx@linutronix.de, thomas.lendacky@amd.com, will@kernel.org,
-	x86@kernel.org
-Subject: Re: [PATCH v7 17/18] Documentation: add documentation for KHO
-Message-ID: <aBl0kUIKryH5AUD5@archie.me>
-References: <20250501225425.635167-1-changyuanl@google.com>
- <20250501225425.635167-18-changyuanl@google.com>
+	id 1uC8S4-00000009rOn-26hz
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 May 2025 02:54:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=q6eBExx1eL1zL/02yABWINFupkd8vGrXgWuNXIpvJODat07yMG33YgowKDhCCFC2ZcNiRW5xTjJCiaAIQeQzHCGofl/V1AmMkEJJnrw8FAIP5E5qog+ujONnHfb3O4HeOIkTguYz3CUy3hzI8WTSZgHkzUOlNGWgmF9UYMBibWpEvfpXAenpo1fybnu0XxeLrSDfqj97Te8qLDea1tJ6veO8t/aH2DSF+DcjFlWzcHeIrhI31ekGU2Ts9t8BcnOcKh6iCpTORZIxaJK+OM8H7/r74E3iajsaVk472T5Zfehy1yp6FBmvEMRZ7694cUkZgAgfSVLm1TmE1U5T/mt0eQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Nk4xzjyhRxvuRS9iUa8wmhA2oETlZwzpqF+tgsH7aYk=;
+ b=LTSKPqDpFs0nsK1mQ3Sw6E40nLRuPWUCUDqiyOIqVbFnJfvzmORJ4ZBWPXBm575qDChEfGny5o2tSE+Zch9linUwqka0OkIQPDM8VdJ5Rq10Afg9wyiTp3mXoacB1RWa0gcHrD4Jbt2kQuKoTSAlzhXGstRxZG2IcAzt+pS5bi2IMCLDO8LAFHznKA+T8tgwy0CqOod8l05U6Q08A+pN6sGkQp+2o4hzxyL5EPtMBS2fSArhhBQLFD7zlx9RZvPzeNcQX7RAmxtFbY8uIPI72vorbm8X3Kjqytm3aQu2V3oNGH/bfwqTx1JYqk21CQN63FCQ+WimO0h8Ja4jRkeo+g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=huawei.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Nk4xzjyhRxvuRS9iUa8wmhA2oETlZwzpqF+tgsH7aYk=;
+ b=qHr3baVdyD2lSsW+LyewBTM1Mv9tCJqTDfO2GGw09j/k9uLWDBRz9qzjRg4W9qxC8HhdAHMbRqwLSmZuHaNErEI+usm7aE9q1IiyVop+eQLnWRCUfS8NMxLCcZ2hobdRXFIGeaWWzO5ZGMIOsvG76JORhtxVVsUqsd46jn1d2C/YPpyUf4+SsSTmjy6VaP+ZQguvBC/sD5Ayxd0XblI2BoC4bgxkwtriXhp2/XQHXfolNewiJKhjN+yQ/VkgAStVTxVuFOQWOobdg4HjDVWjBZPHn5JMesYUZAaVZ07zD+lWw/smSq/ohFrhGi3f+/kECJshywzwsD/DdURJ3m0wnQ==
+Received: from BN9PR03CA0957.namprd03.prod.outlook.com (2603:10b6:408:108::32)
+ by CYYPR12MB8855.namprd12.prod.outlook.com (2603:10b6:930:bb::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.24; Tue, 6 May
+ 2025 02:54:25 +0000
+Received: from BN1PEPF00005FFE.namprd05.prod.outlook.com
+ (2603:10b6:408:108:cafe::e0) by BN9PR03CA0957.outlook.office365.com
+ (2603:10b6:408:108::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8699.28 via Frontend Transport; Tue,
+ 6 May 2025 02:54:24 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ BN1PEPF00005FFE.mail.protection.outlook.com (10.167.243.230) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8722.18 via Frontend Transport; Tue, 6 May 2025 02:54:23 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 5 May 2025
+ 19:54:17 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Mon, 5 May 2025 19:54:18 -0700
+Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.126.190.180)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Mon, 5 May 2025 19:53:54 -0700
+Date: Mon, 5 May 2025 19:53:44 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Alexey Kardashevskiy <aik@amd.com>, <kevin.tian@intel.com>,
+	<will@kernel.org>, <joro@8bytes.org>, <suravee.suthikulpanit@amd.com>,
+	<robin.murphy@arm.com>, <dwmw2@infradead.org>, <baolu.lu@linux.intel.com>,
+	<shuah@kernel.org>, <linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<eric.auger@redhat.com>, <jean-philippe@linaro.org>, <mdf@kernel.org>,
+	<mshavit@google.com>, <shameerali.kolothum.thodi@huawei.com>,
+	<smostafa@google.com>, <yi.l.liu@intel.com>
+Subject: Re: [PATCH v2 06/19] iommufd/viommu: Add
+ IOMMU_VIOMMU_SET/UNSET_VDEV_ID ioctl
+Message-ID: <aBl5uLOFCntuIYYz@nvidia.com>
+References: <cover.1724776335.git.nicolinc@nvidia.com>
+ <6348cc7a72ce9f2ac0e9caf9737e70177a01eb74.1724776335.git.nicolinc@nvidia.com>
+ <35701c5e-030a-4f52-b6f6-ed18368fb2cd@amd.com>
+ <20241004114147.GF1365916@nvidia.com>
+ <95ab62fa-bb1c-4e4a-a210-b0bdba0d4ad2@amd.com>
+ <aBHYN39FcH+NG5Ab@Asurada-Nvidia>
+ <20250505170807.GP2260709@nvidia.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="7/7+Tnuu7kTtOC0+"
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20250501225425.635167-18-changyuanl@google.com>
+In-Reply-To: <20250505170807.GP2260709@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF00005FFE:EE_|CYYPR12MB8855:EE_
+X-MS-Office365-Filtering-Correlation-Id: 881c4bed-d216-4ba9-03c5-08dd8c494ebd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|7416014|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?XTKWsnYJZe9EQhNnsgVDuZV76toPNa2/H8mWryRoRQb8iPCZMIG1w2fm8sFz?=
+ =?us-ascii?Q?oIgTJglbmNPJ8D+ZdmJclsPHXz/x9oCxYPDIcmpQnQyNrHwKZkMNWVycBorL?=
+ =?us-ascii?Q?C0s44QK+TnoLKKc40G7ZiCnMeJGyvm6b9w1PuKxcxMd8e6E3X/TG7dLCqNwN?=
+ =?us-ascii?Q?ZtYKgKYw0PCtVSHYZEJNj8lHY6lF0ftKCF8gViBkWSy1rS5w6cK/H7D4OHC4?=
+ =?us-ascii?Q?uv/nTlf+Ko04aBeo+25yqX4pcdov69QfidWSZR8DLsJMyXVNy7Jhdnl0hexq?=
+ =?us-ascii?Q?RIKKEt3dAbt25Tlodu2Rxs5d9upgB5PeHiIUe8A9bnnuxURTAQOJ8yxwbpeT?=
+ =?us-ascii?Q?ooyM7i3I7Xav3tNDDOWViCLfIUyFKlrWyQXXmJ77g+/Y3XzaFHM7hkUnsdg4?=
+ =?us-ascii?Q?oLZv14hQ05YxUEM+slNlck6ltcAFMjlOvygfG5I6AZqPCzIeOm/bF7tN0gM4?=
+ =?us-ascii?Q?nze/bKKD3PUKUbeeNPscZ9etHMKIJoRbkXALqxEfghOMi9M6qk5eOAe2+Z59?=
+ =?us-ascii?Q?MPUBoarTWxIskOr4vUXz4jqwe0ZgRx7tag4W2ezXjDK/cJ7gkWMK6k2vG4Cz?=
+ =?us-ascii?Q?WFZn/VSU0JobaCzOO4wrw9lAFlB5elSHrHl9orKSeKsZrzZcI9T+vrHz0w7X?=
+ =?us-ascii?Q?Iv497FTwBlaaBDgVH60Mk6T/txCxkr1LMmp0ieUV3f2Tx0KNVoGH/pl/u/p2?=
+ =?us-ascii?Q?8a/0fHnkvrfU7dNfdNA8inol+yQySsfBtSYC0F/vZpt4XFbpXgPcTfOTWdw1?=
+ =?us-ascii?Q?Xliu5hVwWpUPJyhnM1wwP2AtzU7l8ecQzHek4Wjt+pNOhGYNBaeWWByFYrlw?=
+ =?us-ascii?Q?SdrIlqB1oTEit3xlTUXmbDWLKoQKfw9KRU42I2QRUXPaoX/f5LjrHZQpdS5w?=
+ =?us-ascii?Q?A6+SKS0OxnYU79YoSRJN+ch/uqdNm8uFdvbR6WAtxX4iHfQHSWFYIPwoPEiq?=
+ =?us-ascii?Q?/xQqPSLuwO7gsnIUBoGWc62baRQQCS6QtqN8Xf7CUzXpr8o5DGkJiXCSV+yb?=
+ =?us-ascii?Q?5SYxzcTJ7FaCPMy0kMHQc0ruRbkExwT4r64EuCGVJ1BO9YNP0spOZHRqLScX?=
+ =?us-ascii?Q?XolQPP/cM71qAwhz7UQah9xGkN6jkI4RcNnpgd3MZIdAXKFa1ddOb9SX4/zi?=
+ =?us-ascii?Q?46LRjdsxE2uCJHuAiJVe+Aa/0a2IUCMYBN055KSYOsWfZKsstFbJhr/bIyY9?=
+ =?us-ascii?Q?+dnLTXb/tWL40jf5TCanY5WyWzA4P6PJXTHaXVcJS7Se4ub0RksRI+7XRsso?=
+ =?us-ascii?Q?ySOdkZms1+fhrPSZenZV5k7AogoGV6u+WAY+CXKwUqs4LVyLA+/d7lLMG9mn?=
+ =?us-ascii?Q?72vNbpDX2XHH8uWkvC59GmkpVLCyyDdJQD3gPHE8K+e8UU5Ok5lHFzs0j+F/?=
+ =?us-ascii?Q?YZAL5XgqUjdaoVW7JEaEFQ2uwacIt/bfgnF574witj2C1q5yPsadHQADH4O/?=
+ =?us-ascii?Q?Auw4b3ZzuX/Ix/oN39sMKU9yGYUSxWRqdid5qwgzpc6pPekQFIcIt9EgRws3?=
+ =?us-ascii?Q?NRevBnbPD1qvH3HNeZsUrBD47deFxgFwYAff?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(82310400026)(7416014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 02:54:23.6166
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 881c4bed-d216-4ba9-03c5-08dd8c494ebd
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00005FFE.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8855
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_193151_937091_353C07B2 
-X-CRM114-Status: GOOD (  21.00  )
+X-CRM114-CacheID: sfid-20250505_195436_558557_A42FCF29 
+X-CRM114-Status: GOOD (  20.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,106 +162,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, May 05, 2025 at 02:08:07PM -0300, Jason Gunthorpe wrote:
+> On Wed, Apr 30, 2025 at 12:58:47AM -0700, Nicolin Chen wrote:
+> 
+> > > ... and I just hit a problem with it - this is basically guest BDFn
+> > > and it works as long as I'm hotplugging the TEE-IO VF into an SNP VM
+> > > but does not when I pass through via the QEMU cmdline - bus numbers
+> > > are not assigned yet. So I have to postpone the vdevice allocation
+> > > till run time, did I miss something here? Thanks,
+> > 
+> > I have a similar case with QEMU ARM64's VM: so vDEVICE on ARM is
+> > allocated at runtime as well because the BDF number isn't ready
+> > at the boot time.
+> 
+> Oh that's ugly then.. So you'll need to add some kind of 'modify
+> sid/bdf' operation I think.
 
---7/7+Tnuu7kTtOC0+
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+But the initial vDEVICE would be still unusable. Its BDF number is
+literally 0 in my case. It can't be used for SID-based invalidation
+nor the reverse vSID lookup for fault injection..
 
-On Thu, May 01, 2025 at 03:54:24PM -0700, Changyuan Lyu wrote:
-> +This document expects that you are familiar with the base KHO
-> +:ref:`concepts <concepts>`. If you have not read
-The reference label is generic and can collide with future patches.
-It should've been disambiguated as kho_concepts instead.
-> +them yet, please do so now.
-> +
-> +Prerequisites
-> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> +
-> +KHO is available when the ``CONFIG_KEXEC_HANDOVER`` config option is set=
- to y
-> +at compile time. Every KHO producer may have its own config option that =
-you
-when the kernel is compiled with ``CONFIG_KEXEC_HANDOVER`` set to y.
-> +need to enable if you would like to preserve their respective state acro=
-ss
-> +kexec.
-> +
-> <snipped>...
-> +First, before you perform a KHO kexec, you need to move the system into
-> +the :ref:`KHO finalization phase <finalization_phase>` ::
+> The bus numbers can be reassigned at any time on the fly by the guest
+> by reprogramming the PCI hierarchy.
 
-kho_finalization_phase to disambiguate label.
+Yes. If we take some aggressive use case into account, where its
+BDF number could change multiple times, I think it's natural for
+VMM to simply destroy the previous vDEVICE and allocate a new one
+with a new BDF number, right?
 
-> +Next, load the target payload and kexec into it. It is important that you
-> +use the ``-s`` parameter to use the in-kernel kexec file loader, as user
-> +space kexec tooling currently has no support for KHO with the user space
-> +based file loader ::
-> +
-> +  # kexec -l Image --initrd=3Dinitrd -s
-> +  # kexec -e
-
-Use full paths to kernel and initramfs image.
-
-> +``/sys/kernel/debug/kho/out/scratch_len``
-> +    To support continuous KHO kexecs, we need to reserve
-> +    physically contiguous memory regions that will always stay
-> +    available for future kexec allocations. This file describes
-> +    the length of these memory regions. Kexec user space tooling
-> +    can use this to determine where it should place its payload
-> +    images.
-
-"Length of KHO scratch region, which is a physically contiguous memory regi=
-ons
-that will always available for future kexec allocations. Kexec user space
-tools can use this file to determine where it should place its payload imag=
-es."
-
-> +
-> +``/sys/kernel/debug/kho/out/scratch_phys``
-> +    To support continuous KHO kexecs, we need to reserve
-> +    physically contiguous memory regions that will always stay
-> +    available for future kexec allocations. This file describes
-> +    the physical location of these memory regions. Kexec user space
-> +    tooling can use this to determine where it should place its
-> +    payload images.
-
-"Physical location of KHO scratch region. Kexec user space tools can use th=
-is
-file in conjunction to scratch_phys to determine where it should place its
-payload images."
-
-> +.. SPDX-License-Identifier: GPL-2.0-or-later
-> +.. _concepts:
-
-The label can be ambiguous. It should've been _kho_concepts instead.
-
-> +.. _finalization_phase:
-
-The label should be _kho_finalization_phase.
-
-> +Generally, A KHO user serialize its state into its own FDT and instructs
-"Generally, a KHO user ..."
-> +KHO to preserve the underlying memory, such that after kexec, the new ke=
-rnel
-> +can recover its state from the preserved FDT.
-> +
-
-Thanks.
-
---=20
-An old man doll... just what I always wanted! - Clara
-
---7/7+Tnuu7kTtOC0+
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCaBl0iQAKCRD2uYlJVVFO
-oy/8AP48Fa7VB0kwt+kqGg4VMR/+tEgBDGxzTX5HXZWYD5fZLQEAm6XrPJBViu5A
-Mpce1oumgUOmlwq+sRSgixha15i4eAo=
-=lxMZ
------END PGP SIGNATURE-----
-
---7/7+Tnuu7kTtOC0+--
+Thanks
+Nicolin
 
