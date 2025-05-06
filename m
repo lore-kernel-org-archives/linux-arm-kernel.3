@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20470C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 12:18:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A2FC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 12:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H+9gFcmORa6/5IWzW3LxHc40hSptbFjZa934kGkDdXA=; b=mgXNb/jRh7CNL9XTYRoSh7nA8Y
-	QxiFgG0k4lyFgCuUJaYayIthQ7NazerSpxVCkSqEw9YSaZUcPHRmHEuN/3Oyj9a9gpRDNgJRrH7Or
-	MlTWXW3T9XvAEQrCiXrBf8RK4RDj1f/88gvGgjRVN+uC+UFySsH7Fhd28Th67AX+Q5+2wf84Is2rR
-	RlVeL7K0ofpBAbynM64LZOe5seFmwZU8BUky6mHcGh83TUm7dXphc4LQVK5Yfrsfh27TP1xToEr3s
-	SFG0f1+YitJw0udTGla7ekfy1x3LKRVC9VdMuhYezap/xf28VubztgiISxsScQPgyTCPJihOXmeem
-	pKPK83dA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yOh4WQfnuwV0RRmXk/kJZmjUbfSLzNUggJ67FJX7Euw=; b=kpGvYLv4ezZ4m3N8J7zZl4ttGo
+	xOAu435X5OLj6vmaKCO9J16wFGQVYzFnzt+fGbAy+DlKh7HwwD1iXRExdxlUquqkquozlVAjwY8NA
+	knRnKVkE223u+b1arfkrLfrcxBTnx3FWd7kr6VarhL2hFQ+YOFdfRcgixqU+F4P/GLcj5G0bM5cU1
+	WsYDqpollXUcP0/Bl27Pp+BaUUN0UYsL3/9LrzQOQnchB328GiCBnvFIx0oU+XdWji7CAjTUmzGb1
+	kl+z9K6X1Fzw1Ur2AKVsWcv/eSnoU1a8emkwzA0Nir/0ZeIO7OrPsq919sMS8Wk3Oy7EOs+vGcXeP
+	1WuS3EPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCHFp-0000000BsTk-17oU;
-	Tue, 06 May 2025 12:18:33 +0000
+	id 1uCHHj-0000000Bsm5-0EeN;
+	Tue, 06 May 2025 12:20:31 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCFKO-0000000BXOo-1HP4
+	id 1uCFLO-0000000BXZV-2Req
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 10:15:09 +0000
+	Tue, 06 May 2025 10:16:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 50D12113E;
-	Tue,  6 May 2025 03:14:58 -0700 (PDT)
-Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 828EC3F5A1;
-	Tue,  6 May 2025 03:15:06 -0700 (PDT)
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Johan Hovold <johan+linaro@kernel.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Sibi Sankar <quic_sibis@quicinc.com>,
-	Marc Zyngier <maz@kernel.org>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] firmware: arm_scmi: quirk: force perf level get fastchannel
-Date: Tue,  6 May 2025 11:15:04 +0100
-Message-Id: <174652648581.3776799.11461926125587533598.b4-ty@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250430135146.5154-1-johan+linaro@kernel.org>
-References: <20250430135146.5154-1-johan+linaro@kernel.org>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 353BF113E;
+	Tue,  6 May 2025 03:16:00 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7B1003F5A1;
+	Tue,  6 May 2025 03:16:09 -0700 (PDT)
+Date: Tue, 6 May 2025 11:16:04 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v2 9/9] coresight: Refactor runtime PM
+Message-ID: <20250506101604.GD177796@e132581.arm.com>
+References: <20250423151726.372561-1-leo.yan@arm.com>
+ <20250423151726.372561-10-leo.yan@arm.com>
+ <0ebbc509-9e17-4b93-9a72-b9e7cc03637e@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0ebbc509-9e17-4b93-9a72-b9e7cc03637e@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_031508_387494_6B69970F 
-X-CRM114-Status: UNSURE (   8.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250506_031610_660903_C8DB148E 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,22 +72,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Apr 2025 15:51:46 +0200, Johan Hovold wrote:
-> The Qualcomm SCP firmware in X1E machines like the Lenovo ThinkPad T14s
-> does not set the FastChannel supported attribute bit for PERF_LEVEL_GET
-> but crashes when falling back to regular messaging.
+On Fri, May 02, 2025 at 02:15:49PM +0530, Anshuman Khandual wrote:
 > 
-> Use the new SCMI quirk framework to force FastChannel initialisation for
-> this implementation.
+> On 4/23/25 20:47, Leo Yan wrote:
+> > The validation for driver data pointers and clock pointers are redundant
+> > in the runtime PM callbacks.  After a driver's probing, its driver data
+> > and clocks have been initialized successfully, this ensures it is safe
+> > to access driver data and clocks in the runtime PM callbacks.  A corner
+> > case is a clock pointer is NULL, in this case, the clock core layer can
+> > handle it properly.  So remove these redundant checking.
+> > 
+> > In runtime resume, respect values returned from clock function and add
+> > error handling.
 > 
-> [...]
+> Although not checking drvdata and drvdata->apb_clk does make sense, but
+> why change the semantics on the resume paths as well, which now returns
+> stored error value from clk_prepare_enable().
 
-Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
+Let us assume if a clock fails to enable during the resume flow, with
+current code, we miss a chance to detect issues in the first place.
 
-[1/1] firmware: arm_scmi: quirk: force perf level get fastchannel
-      https://git.kernel.org/sudeep.holla/c/397f802d06c4
---
-Regards,
-Sudeep
+I understand the clock enabling failures are rare, but propagating an
+error in the resume callbacks would help identify potential issues.
 
+It seems to me that this patch does not change the semantics of the
+resume paths.  It enhances the resume flow for early error reporting.
+
+Thanks,
+Leo
 
