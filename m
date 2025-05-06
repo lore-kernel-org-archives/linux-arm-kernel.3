@@ -4,72 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE934C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 09:02:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DA1CC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 09:04:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cUby8+oJiTXxmx37zu5laLL2CVtXZ3As/XtzHzaUktQ=; b=QkNizszXMS0xQTb4RsWkahXy/5
-	JddaTgVEoZLoXeCdFkL4tniDY47joqZp8yLMTkgZTCMyULxS76s6WI3bQubwN3Y/iR1pHyAAfxct0
-	npac1X5eBZJRdecZBJ03z6fWLgrpG/UDN9eMKYvKx+cc8a0V2KzoEMHVFjGqRisqod4i3IlNXNHy1
-	JgFx9mNmAr05yrYG8sRWlTtNMXcrRA38ND3QH+To3qcrnPePAQtwW0AfXIdK5Ua+JLSZ9mkBoVwAR
-	QK2xvw5gLwvW0muOYx31AnuryRpVNAvt2FqVCGlPvbcaMWHFsjCerfR0sSclRYST1wND7b2NOZrC2
-	OqnQj/ig==;
+	bh=zveFIEvzzEGg+UEVOqZmxBcPnjh2BP/NBRPkwAviQfU=; b=RMZmIRqtNObNBDl0q4x4gavty6
+	Ztw3l1JbzuqEo0on5iNCQ8WxU2uaR3Fjx1oiiYme0+2zwcQypVIwLPwdGeNPGKRYUTGg5iXsQdGxI
+	tAdRmFNhMbjY0eDjTc94Ly7dF9SrICqLdBrTu6yp2WjH4uEXnHTkbX/p+5vRtWGIVe3Dr4WbxaeLm
+	55Ilwtuw11C/a5MlEUw4YGc9Fmw9tNh7DBXQ+hQY0LkUfZPeJZYw7DUZg7gglMOFjuA6zr7MN/7NG
+	tIsf6R6OMYnYNAyjikR5wCrwbPXhEb01zPsX4scl0gGTkdclxsIsNYhA7w27VWkfDrAyVDgNawTlc
+	474ue4qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCEBw-0000000BG3M-2M8Q;
-	Tue, 06 May 2025 09:02:20 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uCEDq-0000000BGTI-2iEO;
+	Tue, 06 May 2025 09:04:18 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCDfK-0000000B9zw-01dg;
-	Tue, 06 May 2025 08:28:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1746520115;
-	bh=aKexJcbDf7RX3F6f/GBWM3WTi6g2qAawNgd8dqWrYnk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RyLGBYPq8471eD7UwJB9vj9G6r0qqaxS65kOUFBDqw4QGrLM+TnxnFTJN+X5G8rCB
-	 jpTZttf+CjjWZ+4e2eHvWo6HmZUhunROKFqnYnCkSfjMJaqPtNdVao1Hwjtzgp+FYx
-	 8OCxe0CdGaD2rNtlSQMHryGzRCQpSJzGETCwxwXmScintUXPD0wFiIRuf8NYGxW0CQ
-	 IFobyEtwrMLHWKwYZQTImV1iwTvsEV/l1ObZuo/rkVWicL3HoUlBIn2TO5aUw7BmI1
-	 1CscvnNxDbjzOIyl4dnmkLvTI7sTUJMprgVoLAtmJv7Ns1sZxVONyQnX4KtKStkHpN
-	 sGxLjhXmUp6og==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 720E217E09BE;
-	Tue,  6 May 2025 10:28:34 +0200 (CEST)
-Message-ID: <65012c1f-9888-4231-8e7f-c96b7f09053a@collabora.com>
-Date: Tue, 6 May 2025 10:28:33 +0200
+	id 1uCDiI-0000000BAkU-2Bh5
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 May 2025 08:31:43 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54619Bqa006484;
+	Tue, 6 May 2025 08:31:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	zveFIEvzzEGg+UEVOqZmxBcPnjh2BP/NBRPkwAviQfU=; b=TcLQQRe0sGPf3ahQ
+	N0uFSurxpChu88u9axyzPyFNDUnzar4tM2fmzcTpflBS+7Bem/bN0PGZXZX/nl+D
+	i7JrzgIb3/2fCRYk/7hbaDMWLFWjY+2i8YTDTrQwE8yNBLxgX1cgmD+A3nkDAgpH
+	Prc/D1ECaMqEqmlbEIkh1GZmOzsLfQe1kbVwXJNuD7Qw9Ax8A7imK5JavskrZNrC
+	Fion55lB6bkOZAM1gjiDzxDfOnX0u9MLbOqGfTfek7b2SCpAcx7jzRVoIa4sBvqg
+	/x/4FE2dgXPvtv8eOBB9HsmW2NurpUMbQgEmQgF35nxMAEA/PYhjGdjSVakwUYY3
+	BJGSzA==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46f8gw14wg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 06 May 2025 08:31:17 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5468VGsw021494
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 6 May 2025 08:31:16 GMT
+Received: from [10.239.132.50] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 6 May 2025
+ 01:31:09 -0700
+Message-ID: <b5c04110-c899-4aec-85bf-9978d80bf4ac@quicinc.com>
+Date: Tue, 6 May 2025 16:30:51 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/3] drm/panfrost: Add support for Mali on the MT8370
- SoC
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Boris Brezillon <boris.brezillon@collabora.com>,
- Steven Price <steven.price@arm.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20250502-mt8370-enable-gpu-v5-0-98e247b30151@collabora.com>
- <20250502-mt8370-enable-gpu-v5-2-98e247b30151@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH] firmware: SDEI: Allow sdei initialization without
+ ACPI_APEI_GHES
+To: Will Deacon <will@kernel.org>
+CC: <rafael@kernel.org>, <lenb@kernel.org>, <james.morse@arm.com>,
+        <tony.luck@intel.com>, <bp@alien8.de>, <xueshuai@linux.alibaba.com>,
+        <quic_aiquny@quicinc.com>, <quic_satyap@quicinc.com>,
+        <linux-acpi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <kernel@quicinc.com>,
+        <kernel@oss.qualcomm.com>
+References: <20250428095623.3220369-1-quic_hyiwei@quicinc.com>
+ <20250430102440.GA27570@willie-the-truck>
 Content-Language: en-US
-In-Reply-To: <20250502-mt8370-enable-gpu-v5-2-98e247b30151@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Huang Yiwei <quic_hyiwei@quicinc.com>
+In-Reply-To: <20250430102440.GA27570@willie-the-truck>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: yLN99YlpcPugfz7KBctlzqUlkGUI_Uw4
+X-Authority-Analysis: v=2.4 cv=fdSty1QF c=1 sm=1 tr=0 ts=6819c8d5 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10
+ a=BcfgLWrW9SB--Ltqr6oA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: yLN99YlpcPugfz7KBctlzqUlkGUI_Uw4
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTA2MDA4MCBTYWx0ZWRfXzz4kvG7TadUO
+ 8Pm3cmBF0uj9qvFT1ILJoCLh4AUj4YqjKjjX9/xEqpTLcn6o3N1xq67NU782QGt9AQ1Beuj17Xe
+ zcAxMIU/k4Kaz+kxP+DNjo7UU4GdgkleuNPtvRd2onx3hnW6xu9zW4d2LPNFfA59PCn4QZXPvEj
+ JfnDL4FBZ26DEiHataljfErO4ALUZm9kgiaBLNypcL1fSW909cscP9sKYOv/ookwV1IHobmL3S2
+ paAqTp1IJTX+91Bun4hYzZkKPEFBh2fjS+YCVZAXv4/UQ/3jp3HrxqyJUTfQsUJUqYJbp54JNqn
+ GOXXV2KnuSp+6VZchcEHsqZFWQp8mtQwySSqwSZ/kC6EVzXsxWBqXAaVrz0KA1HGHtzD2Ubv0bz
+ n6btC37jWJ8wubpFU5SkPgtCq8WtwXI2pP0CJ4tOMNbhXhVKefwStlNFLinGl/kWLs7A8PCk
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-06_04,2025-05-05_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 suspectscore=0 malwarescore=0 clxscore=1011 bulkscore=0
+ lowpriorityscore=0 priorityscore=1501 mlxlogscore=740 impostorscore=0
+ spamscore=0 mlxscore=0 phishscore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2504070000 definitions=main-2505060080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_012838_190004_9C57FE12 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20250506_013142_566284_7FC5DA2F 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,25 +116,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 02/05/25 14:17, Louis-Alexis Eyraud ha scritto:
-> Add a compatible for the MediaTek MT8370 SoC, with an integrated ARM
-> Mali G57 MC2 GPU (Valhall-JM, dual core), with new platform data for
-> its support in the panfrost driver.
-> It uses the same data as MT8186 for the power management features to
-> describe power supplies, pm_domains and enablement (one regulator, two
-> power domains) but also sets the FORCE_AARCH64_PGTABLE flag in the GPU
-> configuration quirks bitfield to enable AARCH64 4K page table format
-> mode.
-> As MT8186 and MT8370 SoC have different GPU architecture (Mali G52 2EE
-> MC2 for MT8186), making them not compatible, and this mode is only
-> enabled for Mediatek SoC that are Mali G57 based (compatible with
-> mediatek,mali-mt8188 or mediatek,mali-8192), having specific platform
-> data allows to set this flag for MT8370 without modifying MT8186
-> configuration and behaviour.
+> On Mon, Apr 28, 2025 at 05:56:23PM +0800, Huang Yiwei wrote:
+>> SDEI usually initialize with the ACPI table, but on platforms where
+>> ACPI is not used, the SDEI feature can still be used to handle
+>> specific firmware calls or other customized purposes. Therefore, it
+>> ......
+>>   	}
+>> +
+>> +	return ret;
+>>   }
+>> +#ifndef CONFIG_ACPI_APEI_GHES
+>> +subsys_initcall_sync(sdei_init);
+>> +#endif
 > 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> Using an initcall purely for the non-ACPI case feels like a hack to me.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Yeah, I agree with you actually, but to address the dependency chain 
+issue highlighted in commit dc4e8c07e9e2 ("ACPI: APEI: explicit init of 
+HEST and GHES in acpi_init()"), where the following relationships need 
+to be maintained:
 
+     ghes_init() => acpi_hest_init() => acpi_bus_init() => acpi_init()
+     ghes_init() => sdei_init()
+
+> Could we instead just call sdei_init() from the arch code (and remove
+> the call from acpi_ghes_init()) so that the platform device is
+> registered at the same time, regardless of the firmware?
+> 
+> Will
+
+I propose splitting sdei_init() into two separate functions: sdei_init() 
+and acpi_sdei_init(). This way, sdei_init() will be called by 
+arch_initcall and will only initialize the platform driver, while 
+acpi_sdei_init() will initialize the device from acpi_ghes_init() when 
+ACPI is ready. This approach should help maintain the dependency chain 
+without causing any breaks.
+
+     sdei_init --> platform_driver_register
+     arch_initcall(sdei_init)
+
+     acpi_init
+         acpi_bus_init();
+         acpi_hest_init();
+         acpi_ghes_init();
+             acpi_sdei_init(); --> platform_device_register_simple
+     subsys_initcall(acpi_init);
 
 
