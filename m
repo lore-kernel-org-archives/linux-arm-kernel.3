@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93292C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 11:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43DDAC3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 11:27:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yhaFKze9VG1/eFCN9G58dM2RFBh4W36ZYcYCtz7qr9g=; b=2CjKJIvWOrpFQoa2flmByhSM4W
-	FYMe/Q7f/x+d0znAcqTg8J2uETNogiRS2ZbzDmzP0KWPezvO8rHQAf9/hJOg1tZayYMnaj7n1t2Ft
-	lJ+MFo/yE1eYtqyicXewSe9HflgtCT5Gw5Zvf6bVc01iqUeUtLXGFUWPmtYH0FTvUEtpp1/I8laoR
-	grUtVaKqr+5etBHMDllqz9KvlHs3gP3aZILubP5lrlYbfmn8I7i4zEb0AntxYj91BRX2Qk1m7aQyI
-	hV1jbfNZLzCmRtDg7UpV3rpBRCXs3AndA2vrmgdtetRYT+Em2Ggu5E8BYTt6C9G/5IGAPsXKkov5C
-	Ti1OISSA==;
+	bh=4NGd39kNyH5imgbx4iJNuF/o2b5vxFS/Ovh2fwMTeXE=; b=bUAjqBkTOeO+GtQzg9tLygGZBr
+	BTx926rNvcTL8ALC7PqZDPGvMdTcNBkVUPu98kx6SvuqQCFAW5aHe7n+0Q9A1qALm/7p+lGc8zag3
+	uRy0Ahji+ODRiYLGqWvWJPXx+wAO7o/VOBONjCTKIp42cCTv82dtKJewkAL2MLJEKdvztQLvMv2So
+	L3jpGLWaBY3jzmLGwqa7RkwT/jw7P7Gaaati1HcN28de5cheMCfmqKHgb5+YzHE0/NVGZEb0JaUux
+	bzOF74ccsZruxfM34v518Eod+21EIt0ggWqZQsk1UPoigXhRKqZr1buRo2vcRdt1M40tI45AKcRKk
+	1UYcAo8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCGQN-0000000Bj35-2K9W;
-	Tue, 06 May 2025 11:25:23 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uCGSH-0000000BjZq-1H8B;
+	Tue, 06 May 2025 11:27:21 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCEyy-0000000BSvv-2nPN
+	id 1uCEyz-0000000BSwD-31pk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 09:53:01 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-441c0d42233so3220705e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 02:53:00 -0700 (PDT)
+	Tue, 06 May 2025 09:53:02 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-39127effa72so367359f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 02:53:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1746525179; x=1747129979; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1746525180; x=1747129980; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=yhaFKze9VG1/eFCN9G58dM2RFBh4W36ZYcYCtz7qr9g=;
-        b=Hq6P7BCDccfNk1gLo8BgNb8PKBF5JSU4EczDRXgBuDmUmb2QTAItGngVjLDCL+cOVJ
-         CV0Og7IHvAKvvsM5dW4QyPQUXct6U1d13JWL3VRDS3u4pSTDR7XPWEU24GD6yOEbiofE
-         IjQOgZ6yZGNxhFwBdg2mRAup2PhBXej+uCn5A=
+        bh=4NGd39kNyH5imgbx4iJNuF/o2b5vxFS/Ovh2fwMTeXE=;
+        b=NgW00nPV46JGsLed9kccjHxilmLN8YfnbEje9ONqOQH7yozxmBI5n7fl/R3aB7qRIS
+         g2DYx7zjU2BKUadBzJw1fc7QxZBO+JR8Pf8SwsAfrTbHl9d5CZmeZeSMGw5y8qze4dOL
+         LTHDneH6yl0p5FuiKPTziUvf2cjRwMY3Hy9OI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746525179; x=1747129979;
+        d=1e100.net; s=20230601; t=1746525180; x=1747129980;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=yhaFKze9VG1/eFCN9G58dM2RFBh4W36ZYcYCtz7qr9g=;
-        b=FAGRc4AIuLyq2SwUtpJIhd3qkEd/SzIFzUwkcVd/TlTwLExmcw9CifC7RP4QZqGayX
-         zwbHw+TLtdMT7QxzQK0u+yMisg/8m5hp6DQApSR4/2fwPHBFwKISIJmfa2dH+vnUcKBK
-         dTbDV+H33r5c79gCm8IvCLe3QCsK4fk3QWDdF7xeEad23ZhDtpDZqJROnCmRTUdkveJt
-         IFHCKTJ6TQONORRNLSV+Uqa2TsU7qfyttWRNsp+ckxAWPXgdyqk+cZxoomOkSKW3gpKP
-         vCkDvxips6PR33SES9f4sgZ/z+L/1W+E2/AhWOvzOq+XzgJaoM6R9kINNpYC7Bb9JUGf
-         fPSQ==
-X-Gm-Message-State: AOJu0YysMgGbdAq7ygdJ7+ngucCMdPLphgc/7SKgn+cxSb/1uuU6rSMM
-	IJ0VP+VCnsEcOBfJLjv2L+AyrTyEJKa2xugrYb8i3O2t5YsDzCHaD49APXEXCK9zek1XGdBbGng
+        bh=4NGd39kNyH5imgbx4iJNuF/o2b5vxFS/Ovh2fwMTeXE=;
+        b=wcaLQHy8AKMRQfobR3N6Fwr9xgEbFvn0gZdxIZ7DoH7Ls3vS2mbyyJcvGnw4cA1vtZ
+         1kJcd0xmppHqZbOoZLPfYe3wrVdGwuV6sDWHOUxYoPpJIeL5LM37/QjCB+CpSwAjerhF
+         Xw9TAcNSEuyog1Mmr+iDmz/paahf2+yLVTpdrHCycaABYz4sJbC0Xd8WUxWSfOik5i6l
+         nkiJZWiNz6lDCxMszf1q4SaAWHHB7NREe55uoAycKj8B3i725WvheBE79buNb9gZCYPu
+         1YvnbGTu1UkFAExBcZL4kNmeh+1XtzAvaYdxUqrAEzqFmohX3R5inbFvudp40AAcZV7P
+         ZosQ==
+X-Gm-Message-State: AOJu0Yy/YmbotfbSWGqWcD0GL6Yn2FArVIcuhbKVkKjPv87OenfNA2A2
+	tOfA+4TI/bvLrl3XVQhn9kBYpRwdxPX8MgHp7qfm9s6Yw64wLA9EqeP1OALsc35ovR61uBHqcP4
 	=
-X-Gm-Gg: ASbGncuvfXiLnRvO2JdHeFPB3Owlfq7ZnoJ3T0fyWZP2Uvu0TyOrvDB1oiMJqsSJhX6
-	oL2kgQD75ksJLjX/bGlo399YnzEWEUCVyourjB242GbZq0LPFYrcFvHxJhgaYehREHxNxbwQ5ZD
-	j0eL0760QXb/GKkE/iFcv2uhtuF37qNs2l3hAZonUAgBohv5BUaiFiItHFWeBhesU/e86NOLreW
-	NzkSAJr772CYlL74I57SV5MFnKw8Mr7D78GApYkyH9JqX2I4OCRSDGJPsLl5mMC01yCg/0f+M1U
-	oX16EuBMF34m/UxvS+1Iey0iqWKmiROjj3yrURBx0KQuMctiNjDLygNi
-X-Google-Smtp-Source: AGHT+IHeK+dFXjh9OrxfzRPfPF/LOpOuNNkj7QNpkKx/cJ7vvnj2X+5i334G41Ez0rqAejsL1kXepA==
-X-Received: by 2002:a05:600c:1382:b0:439:9c0e:36e6 with SMTP id 5b1f17b1804b1-441bbec38b2mr52734125e9.3.1746525178968;
-        Tue, 06 May 2025 02:52:58 -0700 (PDT)
+X-Gm-Gg: ASbGnctnyd0f6nz5UPLv6aZFPZ0r96oUbkET3ptGHHf3cKa4oiAVM7vUtKfdSBxM/of
+	6b0zbQ3yOwgCesaD4NsKpO0p9rBm2LBBJ+FBFd4CpAcXLZDFv+AIzJajTB+cNnOELIAIqTzkgsa
+	MTmmoAYmeofpYbVInoGLeg/FWBB6/KRTCHMI2lIawN2xzQSXbDWGVWfum3bHz3DfP7z+cODzRck
+	JcK3RWqTYpRURuH/8gHeOPi4HHgF2Nbj/kjgKeyyVDo9juqwzvimtuFfurdT3tcWqFEU0HualfF
+	w9otw+T2vAgeeq+5aKPJdYXanYfs1bkzr8wP0Mk3sNlbl8QE4LILz+Ur
+X-Google-Smtp-Source: AGHT+IFvoJ9VWnqzz0zwnnsYUFSbSXpLp8LA0nWbcwEm8mbzOzc2XLDUuiuHDk1KqlBG5f0OAuY0kw==
+X-Received: by 2002:a5d:64ef:0:b0:3a0:86f3:451f with SMTP id ffacd0b85a97d-3a099af1f69mr4374591f8f.12.1746525179837;
+        Tue, 06 May 2025 02:52:59 -0700 (PDT)
 Received: from revest.zrh.corp.google.com ([2a00:79e0:9d:6:7196:3093:b0e3:1016])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a099ae7a46sm12879860f8f.44.2025.05.06.02.52.58
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a099ae7a46sm12879860f8f.44.2025.05.06.02.52.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 May 2025 02:52:58 -0700 (PDT)
+        Tue, 06 May 2025 02:52:59 -0700 (PDT)
 From: Florent Revest <revest@chromium.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -81,19 +81,18 @@ Cc: catalin.marinas@arm.com,
 	broonie@kernel.org,
 	thiago.bauermann@linaro.org,
 	jackmanb@google.com,
-	Florent Revest <revest@chromium.org>,
-	stable@vger.kernel.org
-Subject: [PATCH 1/4] mm: fix VM_UFFD_MINOR == VM_SHADOW_STACK on USERFAULTFD=y && ARM64_GCS=y
-Date: Tue,  6 May 2025 11:52:21 +0200
-Message-ID: <20250506095224.176085-2-revest@chromium.org>
+	Florent Revest <revest@chromium.org>
+Subject: [PATCH 2/4] mm: remove CONFIG_ARCH_USES_HIGH_VMA_FLAGS
+Date: Tue,  6 May 2025 11:52:22 +0200
+Message-ID: <20250506095224.176085-3-revest@chromium.org>
 X-Mailer: git-send-email 2.49.0.967.g6a0df3ecc3-goog
 In-Reply-To: <20250506095224.176085-1-revest@chromium.org>
 References: <20250506095224.176085-1-revest@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_025300_706568_418C7409 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20250506_025301_756958_52C38831 
+X-CRM114-Status: GOOD (  15.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,38 +107,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On configs with CONFIG_ARM64_GCS=y, VM_SHADOW_STACK is bit 38.
-On configs with CONFIG_HAVE_ARCH_USERFAULTFD_MINOR=y (selected by
-CONFIG_ARM64 when CONFIG_USERFAULTFD=y), VM_UFFD_MINOR is _also_ bit 38.
+Over the years, include/linux/mm.h has grown to use high VMA flags bits
+in various ways. Some usages, like mseal(), are guarded by CONFIG_64BIT
+while others like CONFIG_ARM64_MTE select
+CONFIG_ARCH_USES_HIGH_VMA_FLAGS and depend on the VM_HIGH_ARCH* macros that
+are guarded by that config.
 
-This bit being shared by two different VMA flags could lead to all sorts
-of unintended behaviors. Presumably, a process could maybe call into
-userfaultfd in a way that disables the shadow stack vma flag. I can't
-think of any attack where this would help (presumably, if an attacker
-tries to disable shadow stacks, they are trying to hijack control flow
-so can't arbitrarily call into userfaultfd yet anyway) but this still
-feels somewhat scary.
+Since CONFIG_ARCH_USES_HIGH_VMA_FLAGS only guards bit mask definitions,
+it is safe to use on any CONFIG_64BIT config. Additionally, since all
+configs that currently select CONFIG_ARCH_USES_HIGH_VMA_FLAGS depend on
+CONFIG_64BIT, there should be no regressions.
 
-Fixes: ae80e1629aea ("mm: Define VM_SHADOW_STACK for arm64 when we support GCS")
-Cc: <stable@vger.kernel.org>
 Signed-off-by: Florent Revest <revest@chromium.org>
 ---
- include/linux/mm.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/Kconfig   | 3 ---
+ arch/powerpc/Kconfig | 1 -
+ arch/x86/Kconfig     | 2 --
+ include/linux/mm.h   | 4 ++--
+ mm/Kconfig           | 2 --
+ 5 files changed, 2 insertions(+), 10 deletions(-)
 
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index a182295e6f08b..2a0d45b16b7fd 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2149,7 +2149,6 @@ config ARM64_MTE
+ 	# Required for tag checking in the uaccess routines
+ 	select ARM64_PAN
+ 	select ARCH_HAS_SUBPAGE_FAULTS
+-	select ARCH_USES_HIGH_VMA_FLAGS
+ 	select ARCH_USES_PG_ARCH_2
+ 	select ARCH_USES_PG_ARCH_3
+ 	help
+@@ -2196,7 +2195,6 @@ menu "ARMv8.9 architectural features"
+ config ARM64_POE
+ 	prompt "Permission Overlay Extension"
+ 	def_bool y
+-	select ARCH_USES_HIGH_VMA_FLAGS
+ 	select ARCH_HAS_PKEYS
+ 	help
+ 	  The Permission Overlay Extension is used to implement Memory
+@@ -2235,7 +2233,6 @@ config ARM64_GCS
+ 	bool "Enable support for Guarded Control Stack (GCS)"
+ 	default y
+ 	select ARCH_HAS_USER_SHADOW_STACK
+-	select ARCH_USES_HIGH_VMA_FLAGS
+ 	depends on !UPROBES
+ 	help
+ 	  Guarded Control Stack (GCS) provides support for a separate
+diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+index 6722625a406a0..e444191206b32 100644
+--- a/arch/powerpc/Kconfig
++++ b/arch/powerpc/Kconfig
+@@ -1043,7 +1043,6 @@ config PPC_MEM_KEYS
+ 	def_bool y
+ 	depends on PPC_BOOK3S_64
+ 	depends on PPC_64S_HASH_MMU
+-	select ARCH_USES_HIGH_VMA_FLAGS
+ 	select ARCH_HAS_PKEYS
+ 	help
+ 	  Memory Protection Keys provides a mechanism for enforcing
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 4b9f378e05f6b..e74ba77a066e6 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -1818,7 +1818,6 @@ config X86_INTEL_MEMORY_PROTECTION_KEYS
+ 	def_bool y
+ 	# Note: only available in 64-bit mode
+ 	depends on X86_64 && (CPU_SUP_INTEL || CPU_SUP_AMD)
+-	select ARCH_USES_HIGH_VMA_FLAGS
+ 	select ARCH_HAS_PKEYS
+ 	help
+ 	  Memory Protection Keys provides a mechanism for enforcing
+@@ -1900,7 +1899,6 @@ config X86_USER_SHADOW_STACK
+ 	bool "X86 userspace shadow stack"
+ 	depends on AS_WRUSS
+ 	depends on X86_64
+-	select ARCH_USES_HIGH_VMA_FLAGS
+ 	select ARCH_HAS_USER_SHADOW_STACK
+ 	select X86_CET
+ 	help
 diff --git a/include/linux/mm.h b/include/linux/mm.h
-index bf55206935c46..fdda6b16263b3 100644
+index fdda6b16263b3..da8f99a026deb 100644
 --- a/include/linux/mm.h
 +++ b/include/linux/mm.h
-@@ -385,7 +385,7 @@ extern unsigned int kobjsize(const void *objp);
- #endif
+@@ -297,7 +297,7 @@ extern unsigned int kobjsize(const void *objp);
+ #define VM_NOHUGEPAGE	0x40000000	/* MADV_NOHUGEPAGE marked this vma */
+ #define VM_MERGEABLE	0x80000000	/* KSM may merge identical pages */
  
- #ifdef CONFIG_HAVE_ARCH_USERFAULTFD_MINOR
--# define VM_UFFD_MINOR_BIT	38
-+# define VM_UFFD_MINOR_BIT	41
- # define VM_UFFD_MINOR		BIT(VM_UFFD_MINOR_BIT)	/* UFFD minor faults */
- #else /* !CONFIG_HAVE_ARCH_USERFAULTFD_MINOR */
- # define VM_UFFD_MINOR		VM_NONE
+-#ifdef CONFIG_ARCH_USES_HIGH_VMA_FLAGS
++#ifdef CONFIG_64BIT
+ #define VM_HIGH_ARCH_BIT_0	32	/* bit only usable on 64-bit architectures */
+ #define VM_HIGH_ARCH_BIT_1	33	/* bit only usable on 64-bit architectures */
+ #define VM_HIGH_ARCH_BIT_2	34	/* bit only usable on 64-bit architectures */
+@@ -312,7 +312,7 @@ extern unsigned int kobjsize(const void *objp);
+ #define VM_HIGH_ARCH_4	BIT(VM_HIGH_ARCH_BIT_4)
+ #define VM_HIGH_ARCH_5	BIT(VM_HIGH_ARCH_BIT_5)
+ #define VM_HIGH_ARCH_6	BIT(VM_HIGH_ARCH_BIT_6)
+-#endif /* CONFIG_ARCH_USES_HIGH_VMA_FLAGS */
++#endif /* CONFIG_64BIT */
+ 
+ #ifdef CONFIG_ARCH_HAS_PKEYS
+ # define VM_PKEY_SHIFT VM_HIGH_ARCH_BIT_0
+diff --git a/mm/Kconfig b/mm/Kconfig
+index e113f713b4938..1fff7f8bfa96f 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -1127,8 +1127,6 @@ config DEVICE_PRIVATE
+ config VMAP_PFN
+ 	bool
+ 
+-config ARCH_USES_HIGH_VMA_FLAGS
+-	bool
+ config ARCH_HAS_PKEYS
+ 	bool
+ 
 -- 
 2.49.0.967.g6a0df3ecc3-goog
 
