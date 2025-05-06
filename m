@@ -4,153 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E02C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:33:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33B55C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:33:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g8OlaPzTgQwLF58wrbklL63f42htsLU0DiUMvyxJBpA=; b=0mwby0LFJxAxcDCt2wACgqIyvS
-	DgHJIxja0GJIqDIiZ2vSJWpl0k3gR8JeNriF+kMLmGjV8X8/nA1N65l8R5WMriaAogGWHtwH3l4/Q
-	PMCb5yL9zZIzzYzlYE52zdfpsLlB97lQeq6KwvosM/T8xCeDr1oWEiVSF4HJgmb5SEMpvFSapBmwo
-	hUIU6tb6XAYHXwq3OyQ1FTKAKZ1wPL2xl/WUV1prnVXWOkIodITLXEk1FOEd69yeh0MjTNfPZjg+k
-	gk/L7TQCyWrI2d3R5SECw1SAxs3LMN0hAYHIUimBn/ghPzoZvihf4P44F2zR0gPh5wek7Sh3S9Wot
-	K+lFKxIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hPphbwPW3jRb14mN9MVqvjGdvmGkxh1ARNk78hKTSio=; b=G4ucZPvVyhS1oL9L5W6avQI9Na
+	dQm85MW+CrW4Dv/IK8GTOqhK3Oa+uCCxxw+sAb0GgLbmiRlIo/3jRmv40CQFnqtFVwScXVOceCitO
+	B8DOUf26tVoVZhPdWgZPDSZKsJD/bxQXHdFucWmNBu85PRTS1+fPyXV6EbQp3/auFbbnULwxuHf8a
+	fjYrxWCf7ptG+15GMLeRU604YpIz+Hzs6D721YvrGXGC3ng/AT2ppRcy85/oKVqyyg+tWICoOt9dR
+	raQ3f2N7CQVbXLB1UKlBlJrGMUSQin6d4vm24H9HhhUfmVtCZUVZ1LneJmE+VJaeNwWHl4hZan46+
+	6D9+ULMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCUaw-0000000Dv9B-1y93;
-	Wed, 07 May 2025 02:33:14 +0000
-Received: from mail-bn7nam10on2060b.outbound.protection.outlook.com ([2a01:111:f403:2009::60b] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1uCUb1-0000000DvHn-0RRb;
+	Wed, 07 May 2025 02:33:19 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCPJT-0000000DOGx-35Qq
+	id 1uCPMF-0000000DOQE-1jPM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 20:54:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OPJuI+sza9P9pVYcViNPekhUcXd8MpQDX6sRrklQgr3kqNtTJD+5twcsYep23QZFQYgSAgBEyUIIJlWahQp81EAbHdwEsNBNS/8o91qsODzaoYIACCOnLwJOTn6/aaFKdZgTqQdlbgR8zcpf9pNp/pofGa4wqqJD8Y9sPj+FytUUP2sk4gVUqZIXcVo41ylfJ6NH3j/R3u/TpRqy67OcfdQmEVWOgo8+13eAGIL2+jyh0cp5PFhcOg3owo/+AIJqXB5jDf3lyvqkH3tpv6p0XCb85y6P1XpESCWoNQ7nlq/hnH1FZE9K7Z7InD4L9ZsN0b3z2P8vvCBffaWBkh0vkg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=g8OlaPzTgQwLF58wrbklL63f42htsLU0DiUMvyxJBpA=;
- b=JoXNJWZABxcvyaWg3nL5NorH3BtwcL9aBe1MJwQEv74vYqEKgE2tbzjbE5RE1jEd4Je2lwh2yw768JeQmjHYzELcRFIK8A6r9KJbrbnrpwfK3OUN57xYEWjlDwfr+SZZso87jaXd59FnDdR5sGU9xZIaGDC3ZxeWu57OOqa2TuLANdqwTS3GTFbmFwddlTgQm6qmPQD6+72+vqGZJQWZZcYkVblWaaO3G2fyKpgZGM9RovOYfCtJ2DBN+Jp4uIz9IGQZ+8InX7tfnfFYX1mpX1kQwaaDxFGCB5ZAHnhV1s7j/gzn1kIUbJGq+jcsc47xXR/Ks0Sk5HUlNF6lmJxxrg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=g8OlaPzTgQwLF58wrbklL63f42htsLU0DiUMvyxJBpA=;
- b=q/ZZUAQbLWWkBQJstAadPJJn1nrqjMcMy0BDPgJl0u/m6oa0KxIR+/BDEcRTS25rutVpD7PUG4ygkVDfE3/F8aNZqp3NIW0eREI32AhPTSNjK3UDDzXlEada5Skdax7l4S6FrarCGXljEgr5LQismmswbXiMI12cW8kqIxBjyEPMJKg4DSE7/nmisNNQP2aWYa9YPOCQcICqCrz/lETrSuQ9bfQVJnCzfGPqXteh16VvaLuuJGepT35ysSg/v08DZ3QroEyvapQytX1F6k6AW2uuonZNewQumIkG+gXZuO8CtSo53ZOfwTtz9SQgT6G2TP+zgKX4/bQOlxgAFuNQkg==
-Received: from SA1P222CA0081.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:35e::7)
- by DS0PR12MB9423.namprd12.prod.outlook.com (2603:10b6:8:192::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Tue, 6 May
- 2025 20:54:38 +0000
-Received: from SN1PEPF000252A4.namprd05.prod.outlook.com
- (2603:10b6:806:35e:cafe::91) by SA1P222CA0081.outlook.office365.com
- (2603:10b6:806:35e::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8699.31 via Frontend Transport; Tue,
- 6 May 2025 20:54:37 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SN1PEPF000252A4.mail.protection.outlook.com (10.167.242.11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8722.18 via Frontend Transport; Tue, 6 May 2025 20:54:37 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 6 May 2025
- 13:54:26 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 6 May
- 2025 13:54:18 -0700
-Received: from nvidia.com (10.127.8.14) by mail.nvidia.com (10.129.68.8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Tue, 6 May 2025 13:54:13 -0700
-Date: Tue, 6 May 2025 13:54:10 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Baolu Lu <baolu.lu@linux.intel.com>, <kevin.tian@intel.com>,
-	<corbet@lwn.net>, <will@kernel.org>, <bagasdotme@gmail.com>,
-	<robin.murphy@arm.com>, <joro@8bytes.org>, <thierry.reding@gmail.com>,
-	<vdumpa@nvidia.com>, <jonathanh@nvidia.com>, <shuah@kernel.org>,
-	<jsnitsel@redhat.com>, <nathan@kernel.org>, <peterz@infradead.org>,
-	<yi.l.liu@intel.com>, <mshavit@google.com>, <praan@google.com>,
-	<zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>
-Subject: Re: [PATCH v2 13/22] iommufd: Add mmap interface
-Message-ID: <aBp28sjZpPfDUfYr@nvidia.com>
-References: <cover.1745646960.git.nicolinc@nvidia.com>
- <7be26560c604b0cbc2fd218997b97a47e4ed11ff.1745646960.git.nicolinc@nvidia.com>
- <c4d03b52-422e-41ab-845b-1d2eda7ca9e2@linux.intel.com>
- <20250505165019.GM2260709@nvidia.com>
- <aBjzf9PrYnwF5uZN@nvidia.com>
- <20250505172813.GS2260709@nvidia.com>
- <aBkahmXQGxFC0Fdw@nvidia.com>
- <20250506125425.GX2260709@nvidia.com>
+	Tue, 06 May 2025 20:57:44 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3a07a7b4ac7so2809175f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 13:57:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1746565062; x=1747169862; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hPphbwPW3jRb14mN9MVqvjGdvmGkxh1ARNk78hKTSio=;
+        b=a3HgsUPZDRwXyLrC5ooyiahemdFUH1gOUJ4PklVSDdFltvhASLkGbHRdeg7ZH77i81
+         lxcyrF1aPp3z2wxV2ons0Y7C25V4VwI0Y6LqQj1K/a506OXR99wARBKfBCu3+2t9tVuy
+         k1zX4vjJn1cLZBUD85gSxJ4WyG4LQ1UZWOKzfpGbfyIgzS+5dURPmQy6z4NTOH+3mskq
+         NrXc6SVSdb2M9MLxsvufgmTf5w3oKbJ4vpEyfW3/op3ouFmy7txmB5krOOTZYmWq+VgC
+         53BE9K7/89CXqcKC3A6mrAgYm3lGOa8i5mMIxOV9VAkGzNxAbkCLJcvyY9OwCH/4gXJp
+         gKIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746565062; x=1747169862;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hPphbwPW3jRb14mN9MVqvjGdvmGkxh1ARNk78hKTSio=;
+        b=MM2PywGVaKyGwgoKHklaQOmefpzqiwnNi4IVH8MqjO7pMIXym2M1QKYAnrjyIC0ZhH
+         0R7GsWkj7MWqPhG7U/yF0KMO3tJbCh0/7kvX/TySCoItTd8nZqijfGZfT4h3KNKu0V/N
+         WamLB0drPU6UD2zdh/rXJl78v68lKI+UF5P0R4vXNkskDFtKkwcPveLLOIgVAhh3W+6j
+         DUutMXZoM2cS0wqDhU0q7eITadlMqPD+a8W+JxWiKpzS4kZR5l1KKRO5yc7E5IntjqJl
+         vF8tMKOVxdDyBOzJxnQJePZkcmgFXUepB/mJTr9WHUDh39vBybWo2gNAWG8+790dEeZD
+         ZZ9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXd8jdJlOrvR9/RCNma/JUuxkmsTc86ZgIeomwETiTrYXpeCdKXCH9RB1vYdXkouix7i7WgBMOBgONC1mI3nqOm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxd4P6tw4keWM/lPD4NWDSZESjC5IDWQ69wnv6QhaP0JM6ERi8E
+	g94pZlMe6YUTVMjsMQsL7iwgPMszdlVkaPOh1qa4CaKrfiv8sZbceCRioJ3wwx4=
+X-Gm-Gg: ASbGncuLyyB40TYY1rOtKzpU/yl39oO5fLWpmpkkLuU5+pqUYgD7Q9IpBWy+NXHabTO
+	DJDFd3FxlsE0FMs1g/KZmrL7A5jTKS9AWNQas4/mwBfbIW4YC+rJ1TyIL/OFNf3uVU4pTQv1DsC
+	UJ8eutOCIkNN0BD2MYo32CN7czVJn7XuwzYdDUEmn2RBxS+wbYiT91hSLvqkPMx0nUUg92z5ho1
+	k6Ax5jXet2x2JVHDb2hxREsDUXYPH3EILdeDUyJgdGL+GTZwzuWBBaFn1Az+DnDIy9/Q00nnfX1
+	Is07WQsnx0u7bK1sg2kY5kIDEuNX0zQ0Ab8Sn5HOY8xa40zRcWb7LnK3F44tXrvnm1oEggk=
+X-Google-Smtp-Source: AGHT+IFSlhDE95SzY++0BnY3/6yTVPg9tSQuJShvecTP8iv8glzD71jC6MAKKuiKrPDEpfjMgkK6Pw==
+X-Received: by 2002:a5d:64c7:0:b0:3a0:8495:cb75 with SMTP id ffacd0b85a97d-3a0b49ae884mr743025f8f.9.1746565061881;
+        Tue, 06 May 2025 13:57:41 -0700 (PDT)
+Received: from gpeter-l.roam.corp.google.com ([145.224.65.147])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a099b17022sm14671826f8f.89.2025.05.06.13.57.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 May 2025 13:57:40 -0700 (PDT)
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Tue, 06 May 2025 21:57:28 +0100
+Subject: [PATCH v4 2/5] dt-bindings: soc: samsung: exynos-pmu: gs101: add
+ google,pmu-intr-gen phandle
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250506125425.GX2260709@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF000252A4:EE_|DS0PR12MB9423:EE_
-X-MS-Office365-Filtering-Correlation-Id: bb339c00-ab95-4991-0735-08dd8ce036c5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|82310400026|376014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?UqtWU8WjBfdN9DNjIisTxCvXESjBqbEc7d1fViBguHWZQ1KmuXL/0oAZ6Ct9?=
- =?us-ascii?Q?cDG0Q0lThyJBaC+M21hv28Wnq7KAKVu8/rTcIURQr/KWg6VOkt2VNx5aJr8s?=
- =?us-ascii?Q?Ie9eYpIWutRiYXea0yttoBp0PKWBr/ToFIrnRogeVOySlDvdCCqSFD7X6mJO?=
- =?us-ascii?Q?hBrEIRTgPjvIyF4i6KXgSNuB9mibF9M0oRnfjRsqjyIDV5opP63Gp1I7YPw6?=
- =?us-ascii?Q?3hfKEF6XDNK9C1QjutYWybAiYGgOdvzEq7HVSFE4zIt9lKnYMgDY4B4VdD1x?=
- =?us-ascii?Q?z4kugNZZVOh/74+n3djvNZx8oJ4NmgkjNnbUsXpuBF3ucADmslNaRjW5EJz/?=
- =?us-ascii?Q?sB4XoSviQOWM0FG3Lc1CJ6VCnObvlZ09+lcH7cu2AmD+BbrRc97MBMiz2Vfv?=
- =?us-ascii?Q?ARbTGjkZ4SydTuf8EVc8bmKZ/vhss7qVH4k51SfyI37cQ5Z9Lfo2IX+0f4eT?=
- =?us-ascii?Q?tm3VyPL5dGR2GhJbmD4+0BsXwr51klYBv6/21ACBE5WXnAJ3SzjFjl9ZSKIs?=
- =?us-ascii?Q?WCdWV9OzZD9j5VVoT4/ilKvUHdKS/F3NHixTZLyKV8RzvjFI2gPd3XvE+gQj?=
- =?us-ascii?Q?bgLOdz4VZH7KS6NMhBbSv+D2MxRUeEqXObK6UHLb489ZxuW+OytSNSsSdOoD?=
- =?us-ascii?Q?J29YdWMroBRfVZQXzrjxJROwpNfJNf2wXqfSKfSo0KFJlOxBES5EM8IUkZaL?=
- =?us-ascii?Q?caL2UHWCfkkOEZP4lgtDLNotqDokzp6J61zRRn9s2PGCUIEMFqnFXbIr/p/7?=
- =?us-ascii?Q?8cIqMDEVsXe9XgowqH949XuOBhyU51349/9v0cCyxJ2vbAgsotFPUgDWmqnT?=
- =?us-ascii?Q?ZxZjAwffQtbQzqXLFQjIog2UXu2FtYyOjoNuPrucYQHq66ilOq1IBZQ6aZGI?=
- =?us-ascii?Q?dk54zkEzpk2qwESSj+VCQwmIkM7mLyUfPFMgKp+EgTytS+e6y/Nth9alHCfp?=
- =?us-ascii?Q?nAszOOg1UjvTmzlGhCE9z7bkRP0jQcQuR9dPLX7VqtnbMU9OyMZgJIlBPc5d?=
- =?us-ascii?Q?IJthQDc8ArFLU6UoBgAwdfVG3rCkUVus9ATMs+xvtn/yLUmuBo7bghfgpNbI?=
- =?us-ascii?Q?nMpSEcHvmrwgfISPlQNHVj/fxl4cC9COST+7sN2YIhrQUQ50kGKMD2NpDeau?=
- =?us-ascii?Q?cvyR8SR+FzwU+iZUWE0jSUMQ+auPo4dXBqZhaFXrkpkFrVHXLQomttt4svfj?=
- =?us-ascii?Q?x3jJG17p+/myKVzvpv9cpGhLFXrVlmoyBoONpVY+CUIVaSITnbU9pBGafcHe?=
- =?us-ascii?Q?yoYINOKjQwuI1TlWeUKNKMXFSiZu0lLDcW8nsYCGmKwW1Xo3srxFTL/bzaQ7?=
- =?us-ascii?Q?hir+Q2bOJrh5E31d8NWjYEot0pEEGiUxYZMshV+qEAIVDJ420klwNZo+onp6?=
- =?us-ascii?Q?ycvTrGcvco3bStx3L4qa/g5PHYO3bKEhZ9f4CBXeUnYBz3qZZvVu7XFpzf3C?=
- =?us-ascii?Q?uTlIyzoX4/XP/O1iUuEzp0D3f4oXLqi/Zq/8YD07yiwni0ngxEqYDPEkVLy7?=
- =?us-ascii?Q?eH0BqWOZbw6B4E6/xsIzj2HkSrbjF1dt8XjT?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(82310400026)(376014)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 20:54:37.4551
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: bb339c00-ab95-4991-0735-08dd8ce036c5
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000252A4.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB9423
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250506-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v4-2-9f64a2657316@linaro.org>
+References: <20250506-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v4-0-9f64a2657316@linaro.org>
+In-Reply-To: <20250506-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v4-0-9f64a2657316@linaro.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ tudor.ambarus@linaro.org, andre.draszik@linaro.org, willmcvicker@google.com, 
+ kernel-team@android.com, Peter Griffin <peter.griffin@linaro.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1458;
+ i=peter.griffin@linaro.org; h=from:subject:message-id;
+ bh=Dwi73w8Z6PrIgKWj8BhvUdNVPqAGEMJAhF7n320ltE0=;
+ b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBoGne9FqRL4vyvavqCGSB8WiKiy95ngApArMCaz
+ zSnaJhRQcWJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaBp3vQAKCRDO6LjWAjRy
+ umGjD/oCM4hr2TtaKL10ufwpnUe287uZhycwCFgtVwq8X/kssw87WV1sQqeAdEhvjjA3AUwy8/d
+ dOsVU8TNA7f0OmgwKvtAmB5tmgiCwt1ng69S2rn4/1M90mg86/YPwxeV08PYMdZffJi+eoges0V
+ B5zFC8IyYWK0NpRGRG5kKDEcuSZwbta2bROdJyh1r2Vfk3WFPJNeCBqusgpn7qZIOUWd8VUGYfQ
+ rg+qHDEM1uvD7WI4HX2rKZtwvoLchyB0eAao0xhzIVar7ALp2v5BK+99TQp/n/9ClPUwdI100Ni
+ bfDhWB2Vi2TRlwrECaQ5Cxh/xC1yxYz/oGYxc65Mo6Bfmx+MHoWuDVHOc9Cx3wD5mqgRmDS7GaE
+ ufmexxfCgwQQkaNKwCzATJLPv7QETXw9lSsYUFW7m0QccfqEsDXAcxo5tcF8mbp7yn3VMYcS52B
+ xv4FKTJDQl4DVRXNPnQGsYgDdzGM2pXyK7t8Y0FMrCx+I/MZNpLOpVpm6Cl7aNRRNjKJoJTgzVM
+ 2rcxQi9VmrGfKu9W5ygzhTe9LBybVMRgQn6EF+Ve/VTtpN7iQdLfBuswSepHiKy32jz5dcAsFIY
+ x0u0jaGtemD2MBIBfB6zCrpTLUwdx+nkifTxl8IaNMLRgFhG9p4HiESrcWc6/VDWlMKdEzjDce+
+ 0F23juvsfaJoLLg==
+X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
+ fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_135451_802137_9A877A7A 
-X-CRM114-Status: GOOD (  31.70  )
+X-CRM114-CacheID: sfid-20250506_135743_454711_0C5CE311 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,63 +121,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 09:54:25AM -0300, Jason Gunthorpe wrote:
-> On Mon, May 05, 2025 at 01:07:34PM -0700, Nicolin Chen wrote:
-> > On Mon, May 05, 2025 at 02:28:13PM -0300, Jason Gunthorpe wrote:
-> > > On Mon, May 05, 2025 at 10:21:03AM -0700, Nicolin Chen wrote:
-> > > > > > > +void iommufd_ctx_free_mmap(struct iommufd_ctx *ictx, unsigned long immap_id)
-> > > > > > > +{
-> > > > > > > +	kfree(mtree_erase(&ictx->mt_mmap, immap_id >> PAGE_SHIFT));
-> > > > > > 
-> > > > > > MMIO lifecycle question: what happens if a region is removed from the
-> > > > > > maple tree (and is therefore no longer mappable), but is still mapped
-> > > > > > and in use by userspace?
-> > > > > 
-> > > > > I think we should probably zap it and make any existing VMAs
-> > > > > SIGBUS... Otherwise it is hard to reason about from the kernel side
-> > > > 
-> > > > I added in v3 a pair of open/close op that would refcount the
-> > > > vIOMMU object (owner of the mmap region). This would EBUSY the
-> > > > vIOMMU destroy ioctl that would call this function.
-> > > 
-> > > That's no good, we can't have VMAs prevent cleaning up iommufd
-> > 
-> > Hmm, would you please elaborate why?
-> 
-> It would create weird dependencies in the kernel that become hard to
-> manage. If we really need to unplug the PFNs behind the VMA for some
-> reason then we should always allow that to progress. Requiring the VMA
-> to be unmapped first is not great.
+gs101 requires access to the pmu interrupt generation register region
+which is exposed as a syscon. Update the exynos-pmu bindings documentation
+to reflect this.
 
-OK.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+---
+ .../devicetree/bindings/soc/samsung/exynos-pmu.yaml       | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-Now I start to think about the FD situation: either a fault queue or
-an eventq returns an FD and holds a refcount on the event object. So
-the event object can't be destroyed unless the FD is released first.
-Are we doing it incorrectly here?
+diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+index 204da6fe458d2d4bfeee1471ebc5c38247477ae2..3109df43d5028c61cbcaa597e7bd8cb530eafb37 100644
+--- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
++++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+@@ -129,6 +129,11 @@ properties:
+     description:
+       Node for reboot method
+ 
++  google,pmu-intr-gen-syscon:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Phandle to PMU interrupt generation interface.
++
+ required:
+   - compatible
+   - reg
+@@ -189,6 +194,16 @@ allOf:
+       properties:
+         dp-phy: false
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - google,gs101-pmu
++    then:
++      required:
++        - google,pmu-intr-gen-syscon
++
+ examples:
+   - |
+     #include <dt-bindings/clock/exynos5250.h>
 
-> > > objects, the right thing is to zap it with invalidate_mapping_range()
-> > 
-> > Also, I can't find much info about invalidate_mapping_range(). Is
-> > it a user space call?
-> 
-> unmap_mapping_range(), see how VFIO uses it.
+-- 
+2.49.0.967.g6a0df3ecc3-goog
 
-I see! It just needs to call that function when we remove the mmap
-for a vIOMMU destroy().
-
-> > I do see a few drivers defining a fault op in vm_operations_struct,
-> > where VM_FAULT_SIGBUS is returned when there is page backing up the
-> > VMAs. Is it what we need here?
-> 
-> Probably as well
-
-Once the vma is unmapped, any further access would trigger a fault,
-right? That's how it works.
-
-I see do_fault() report a VM_FAULT_SIGBUS, when !vma->vm_ops->fault.
-So, perhaps we don't need an iommufd fault op at this moment.
-
-Thanks
-Nicolin
 
