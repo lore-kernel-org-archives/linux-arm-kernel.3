@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF04CC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 16:40:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6231C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 16:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QrTBUEMOym3jK4zrXFsi3KRht5oC7aG3ts/QqJWOXiY=; b=4Qa0fPXggCuaNTy78BKTVldCo4
-	dRHayooTRt6iQbIaxugfTgO1GBxju4O98htllsPX31ZmDcGViEj7eOwsASADUpDQpFmo/DvEL9qiz
-	xCG1nYm3icICIKaQFR0E8eHzi4ctkH/hiRzFZJ4ZLicbJ3suB6H5jFAxCjrp/fHh5JVtWqIqxwUbL
-	IzwP9yRoqM21jxduP7uZpVXTQFTzX0YAj1vUYkVWoDQCNEo9Dbk9n5drJRFaJ3cOU4ABFlbGO2Hdd
-	7z2BcOjxTU1iXjP4bZqW4Ow562lZ7l1+IrqAignWpd07A8MVkbzIe6OaHq6FbNYTXwrAESr6A5GoS
-	tnAGg86w==;
+	bh=a+oEfF96Z/IiSXPjQsuXB8B1jzzW8U5OwiYJRhUIYhk=; b=xMGyOBi5NfRwo35kVF8mn3/qe5
+	CzQRHMAAUiVSODpAYRMUb6gDkW7MLTdeXkH/LVSaHkNKUiIzJ8IVqrcxJgrlptOi8df9R2g8oVEY6
+	+1p7QPzq1kxaW3KyecOTrZH6PwDYe6dCDzQn3HTpNUOSva4BFHrt+j4OnqFu+vcc1RoAY0FqHillh
+	H4nzBlNSSw7E/zvt+YUpgCo5+k+7nXThQHRLGJ9YmM+WrnlkPbRZDghSHuUcIB5+Vs4DgBAlbhQLv
+	UuTqcQyhxWjGEmc+/RR+oA1PUE4xyMrr3dh1SqxW16wobdASs+0/dyp5MaohZS+WLAf0nLmluZ7hk
+	ZeCMxPWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCLLc-0000000ChxJ-3YEJ;
-	Tue, 06 May 2025 16:40:48 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uCLNW-0000000Ci7W-2GFi;
+	Tue, 06 May 2025 16:42:46 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCI2O-0000000C2BG-3PNx
+	id 1uCI37-0000000C2HD-3lp4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 13:08:46 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 546D8UTE1067731
+	Tue, 06 May 2025 13:09:31 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 546D9NTJ508993
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 6 May 2025 08:08:30 -0500
+	Tue, 6 May 2025 08:09:23 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746536910;
-	bh=QrTBUEMOym3jK4zrXFsi3KRht5oC7aG3ts/QqJWOXiY=;
+	s=ti-com-17Q1; t=1746536963;
+	bh=a+oEfF96Z/IiSXPjQsuXB8B1jzzW8U5OwiYJRhUIYhk=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=KlfoDDqi32hA0uDSkHEWy9dZCXUJwn/xbrEPfF90Vy9Q5ARfAdkE5O7loVw9JfwE/
-	 7QJxNyOajnuZ6ojWkVw+guAfFcIUJSbZ38Q2HeWcTSQk56eE8YtVQQSzOUIubAlmsH
-	 XzTyGi/z6r2P8ZAoNjNU6UxeGHMZI1Rk/bRy6xS8=
-Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 546D8USO102385
+	b=uGSdB/HEXLCHA3Ql0Kker3N+x/wSFZvA6xsPquc3iqjnps8qWr0R9IQuohuVvhthQ
+	 neNG2TU2mw3sNZxC/bkHaeGLclduM9t7M1QFlMOrBtpDKyN6PJkLVKphQ7q3zpziMb
+	 kTLFdz7tRJprwLg9nwhrWKYjr7d+H1xfAn5U0YBc=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 546D9N7Z007559
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 6 May 2025 08:08:30 -0500
-Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+	Tue, 6 May 2025 08:09:23 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 6
- May 2025 08:08:29 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
+ May 2025 08:09:22 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 6 May 2025 08:08:29 -0500
+ Frontend Transport; Tue, 6 May 2025 08:09:22 -0500
 Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 546D8TEu013595;
-	Tue, 6 May 2025 08:08:29 -0500
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 546D9M1Y014931;
+	Tue, 6 May 2025 08:09:22 -0500
 From: Nishanth Menon <nm@ti.com>
 To: <vigneshr@ti.com>, Rishikesh Donadkar <r-donadkar@ti.com>
 CC: Nishanth Menon <nm@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
@@ -60,20 +60,20 @@ CC: Nishanth Menon <nm@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
         <devarsht@ti.com>, <y-abhilashchandra@ti.com>, <s-jain1@ti.com>,
         <jai.luthra@linux.dev>, <jai.luthra@ideasonboard.com>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>
-Subject: Re: [PATCH v2 0/4] Fix dtbs_check warnings in sensor overlays
-Date: Tue, 6 May 2025 08:08:27 -0500
-Message-ID: <174653687807.699760.18005096784426539033.b4-ty@ti.com>
+        <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 0/2] Fix dtbs_check warnings in ov5640 sensor overlays
+Date: Tue, 6 May 2025 08:09:21 -0500
+Message-ID: <174653691513.707452.7671570412184180977.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250502162539.322091-1-r-donadkar@ti.com>
-References: <20250502162539.322091-1-r-donadkar@ti.com>
+In-Reply-To: <20250506045225.1246873-1-r-donadkar@ti.com>
+References: <20250506045225.1246873-1-r-donadkar@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_060844_942369_1F581906 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20250506_060930_026755_55B84ECB 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,28 +90,23 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Rishikesh Donadkar,
 
-On Fri, 02 May 2025 21:55:35 +0530, Rishikesh Donadkar wrote:
-> Fix the follwoing dtbs_check warnings
-> https://gist.github.com/Rishikesh-D/ba0876a26e35c3b9662c75563b8b77ce
+On Tue, 06 May 2025 10:22:23 +0530, Rishikesh Donadkar wrote:
+> Fix the follwoing dtbs_check warnings:
+> https://gist.github.com/Rishikesh-D/2f6e0a11f2f72ce70f75058d0caedc9f
 > 
 > Test Logs:
-> am62a7 + imx219 : https://gist.github.com/Rishikesh-D/f32d6a0ec3cbb0f9f4f29254239d3cd2
-> am62a7 + tevi-ov5640 : https://gist.github.com/Rishikesh-D/21aad1db1487b884c22527d6e1432ae7
-> am62a7 + ov5640 : https://gist.github.com/Rishikesh-D/da4489f1813e90d840fa5ca91df5923e
+> beagleplay + tevi-ov5640: https://gist.github.com/Rishikesh-D/38ac71408f108147f4de596f260ad7c3
+> beagleplay + ov5640: https://gist.github.com/Rishikesh-D/7911f4efdc935c22a2c97ff502c73189
 > 
 > [...]
 
 I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[1/4] arm64: dts: ti: k3-am62p5-sk: Add regulator nodes for AM62P
-      commit: 90770c243c384ddde070099e37a3ef2f3b71ff8a
-[2/4] arm64: dts: ti: k3-am62x: Add required voltage supplies for IMX219
-      commit: d44915df7592b27e3e8c8b3e87c03603e3b0103a
-[3/4] arm64: dts: ti: k3-am62x: Add required voltage supplies for OV5640
-      commit: 23a5409369b11e9174ba95ba8ddedcffacdf9529
-[4/4] arm64: dts: ti: k3-am62x: Add required voltage supplies for TEVI-OV5640
-      commit: 30ce5f163e4fb81d1467b15ecc508889be7eabca
+[1/2] arm64: dts: ti: k3-am625-beagleplay: Add required voltage supplies for OV5640
+      commit: a5da12f37b8532b7ea9196ae7c7927a535883194
+[2/2] arm64: dts: ti: k3-am625-beagleplay: Add required voltage supplies for TEVI-OV5640
+      commit: cabe662bd54b37deb7ebf0a4dbaabc7812fa411c
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
