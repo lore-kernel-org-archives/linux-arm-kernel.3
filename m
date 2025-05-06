@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FC4EC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 17:38:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 644B2C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 17:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6H8LOkGci6FIIJ9I0QZoRD/0L7b+7w0EP0Xmj9dsXFs=; b=QUtRXfKQwvyl2VLpfvMFyJ79Z9
-	/f4t1xPMlR8CRwHlJ0yZQLcGkDQG16SbYEevxuiqmQzP+mtOH3RS90Ykc4rUqK+ceMLwDMg6M5ZCH
-	/HoglHdCuGrPt/4eYCsHMP1NaOL7opJnSq73fI3m4Ig0jPpljr4NQGea0/fi2Z2kJ24v2E5MaLOBB
-	xMbmK3JkclrA50U/wYyVpVlWV158rAlclyRSKKmPySmJvmv9OwOVMCBRB6ciSgrhEivd5YO6Mobur
-	qz+fIMWWgOQNejjkkJpjFUmC66QqCQIuzjhvVblrMOuYqTdUZwLkEEFT08x7pKPce1aaKiETJsba1
-	+7RFy2Lg==;
+	bh=LzLJf5N2ogXoVu6YsLM/OVEhB7GuWwIt/oZeCYKTFyQ=; b=AVcJT7n24j2ExPl8Z8LT049ulx
+	oFCwq83LRT7fY/wTu4iStVZR20HqRL8zHN7GBDWVhqLhL2Xr3Qsv81FS17zBQjA30UukXZY5GMubJ
+	aBWJEWYEuc/EgNxcn6DYa7xquMkpOzUMEKpT83voH/20UshNNNGNSv3F79+ClLtORGky/49UAFrIL
+	yNxgsK518voUC4a0PeVYdjRTl+eag28yoPKW81ie/AgZBOYgWNV5dwlhuy6sOEBAXNmiVMuNLeBRf
+	Ky3H5/L0heRT8abctT+Ch/vJmwb9GBhi2xP1xBcB0s6sk4QM59Y9DVoG7npPDIkEP+GdmNNBxVkbw
+	o+ibYZIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCMF3-0000000Cs28-0kjU;
-	Tue, 06 May 2025 17:38:05 +0000
-Received: from mail-db8eur05on2070c.outbound.protection.outlook.com ([2a01:111:f403:2614::70c] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1uCMGx-0000000CsFr-3lL5;
+	Tue, 06 May 2025 17:40:03 +0000
+Received: from mail-vi1eur05on20728.outbound.protection.outlook.com ([2a01:111:f403:2613::728] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCITP-0000000C9SS-3jaH
+	id 1uCITQ-0000000C9SW-2Ajr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 13:36:41 +0000
+	Tue, 06 May 2025 13:36:42 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LJcIa4H7NwUxYJDyNgKEiY6dUNKtnP1wSYQ38Dv95vc8A5Rlpua4kJR3cJy/jTVyaIV7sdr+mBre6iSn/daAaccrefBmL/+31DT7QGS3QrUwrkU1Dj6Rr6SYWb2JpOPCOO1fIreBmUHjDNG3hBPvdI3+crx+U3q+lqjZHZgLXYZe/MjGLx/xpZ57HIjn+jto4yJeiB6rAQMqIR6D73xA0Pu+HJGTCjLh9vZyyutXmaRKjygp5kB189Qg7gDeuF3GB/rV243xFVPlU2AiOC9cuMf/V+u60V1Qc6uBwH/bNEGjJxvF5cifcfNg6DZNrqYbIU62dvU4EsS6Xf3ERlb5dw==
+ b=NAFATWRcqiFAdwZ5hUN2OPv51QvA0k8FZc7KyNHnu5vh84Ews5udsK28IBML0EGLxzN4hns6aWGotj3uuFVRzzvDpl+WbnuRIvUcV9BrLV66LHfAus/EWfFJpLJqPKxzWGQ7uhYQ+GcOZoCOur97yJ6ZaVVtDUER7DFfEvXBIAULiGDaMl681VXrRc/5NSMpHL0VcCMvEwsqVOC58+bco9S2j3ZMrhjkLHvpJmWUpCrwoZmLSxT0nJe5QQAirY5kICqZw78fyA1NcoGEq5yZm2kKQcZijXxWU7fe/vs9cAdy7bP4aLTnHoXh1L96bXAtgRKl0tz5KMN5m5UeZMN0kw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6H8LOkGci6FIIJ9I0QZoRD/0L7b+7w0EP0Xmj9dsXFs=;
- b=Bx9U3JMX9LIZGbe+n7Wd6Tmuw5lVJY/mW7JhJKhuKl5aSLecGZL0TSXF8SK2JZmf4/vbVFIIKP1zIHQVuFvUuuUHpy/bGGqmTzz0NkGnviw++rBDGAGRF1ax6yT+Ni11KHxnoMlsnAIEIQUkhnSYkjqRTkDpMGASdcoY/TXRHwhF+d4DoHlcQQBeG0c4WIqtZZ/hO5Oj0851Q+TcUbFv5dPmc11EZ+KnYl0o7BnGHpQGmvI9zA0XMenOzObav34EBSpqAPF9beg3jrJWOlkWFEYxj3npFVEOwTir3f+QnZV0NUN5tZ5dXYhHEDujRZAwthcmJSXYC5pfkDQpP7XPOw==
+ bh=LzLJf5N2ogXoVu6YsLM/OVEhB7GuWwIt/oZeCYKTFyQ=;
+ b=wp/pCu3BbnONVs37ZKaUl50phegkwvq10pxg4qzMJ9d4FM4BMxx/5RReBohZ45BcVYwX4NP900aO5QJIay5Z3lbkvpdoUo0h8q0eYgKs6V5GeWXq58AdnNR5NfGDjFLUuobqp78KmkgPLBq6RdPo9Lh9vERYi+SVCNtF1XLlDy8oXRLyhgixYRSfRATIDbTV3JWFew66FVAYEYSHxnuY3hZskPubgA1di+AxtCPUNXGKPJwO5Y3Mresq9qQyQC51BLreQOgg1vHvJKUICoyTgh9APhJTQt9HzY+0p9CxpkZKPH39oQgUuKXcuGPTTt2FFTibmmlBwpQaFLg93R0YTQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
  is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.de; dmarc=fail
  (p=quarantine sp=quarantine pct=100) action=quarantine header.from=phytec.de;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6H8LOkGci6FIIJ9I0QZoRD/0L7b+7w0EP0Xmj9dsXFs=;
- b=h1qK/ktbLFP04Xawa3iDte6gdP15Akqx4iTAUh7jjLKzHYT8vmmYWLwcQEAopfjtvhwNRLUp/5uJUduQXfsLGFXmgQAZHV9SANuyhVYj2fMH01DxTdXvFV06ZcdLnbU1+EO4xZDI9fdG/meddB8B1j1ZPKVmPFa/L7ztEqhY5v4JQ5dvC8ja4br+hlu0XGK9KrvH2j3QQwseIAqBNWf1seEDiC6KZKf/OQTVT/71bMXkyPM4z3WhR7ksBzR6WIoslAPxeeicpLI1WoFcpXCcP+6UOl6a8JR/LjXGlX3BoT3Is/ae4N9Quu2gSo4g/c4vhaAXGksCdZ89TbIDkH0xjw==
-Received: from AM0PR10CA0048.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:150::28)
- by DB8P195MB0469.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:158::22) with
+ bh=LzLJf5N2ogXoVu6YsLM/OVEhB7GuWwIt/oZeCYKTFyQ=;
+ b=dxhsoMc5fHX5jOK7K2ESLMq9GdnUlFrySSaj4idHHCbZUs2bar/nKBR4vqsX3VomKAJn8iDxN3js0NVSyh8lQ+MF3QC3T0QJR7IaONzi9DOCWqqWq/zt2NaX66ZN2W5DIslljZ1PECY8D46l6Q0vbOexPBnB7IarXWPbwg0STPq9Zlj+8L3AySLvZcB5C96jrFCm3vOxtQ6lIEgFI8rYNjsdQdlGp/G6lM8/FZaJn3ATm1R3xOTAMU3dGRUSisB0LCNDGufTcanpbCrq+XEYkPGZqGbcmlItSARx9Z56ljpGDKy18/r57BEITjuiCuszkfTLAU3lBImTKt7vUou9pw==
+Received: from AM0PR10CA0036.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:150::16)
+ by AS8P195MB1269.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:3ce::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Tue, 6 May
- 2025 13:36:34 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.33; Tue, 6 May
+ 2025 13:36:36 +0000
 Received: from AMS1EPF00000040.eurprd04.prod.outlook.com
- (2603:10a6:20b:150:cafe::2a) by AM0PR10CA0048.outlook.office365.com
- (2603:10a6:20b:150::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8699.33 via Frontend Transport; Tue,
- 6 May 2025 13:36:34 +0000
+ (2603:10a6:20b:150:cafe::85) by AM0PR10CA0036.outlook.office365.com
+ (2603:10a6:20b:150::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8699.31 via Frontend Transport; Tue,
+ 6 May 2025 13:36:36 +0000
 X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
  smtp.mailfrom=phytec.de; dkim=none (message not signed)
  header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
@@ -61,15 +61,15 @@ Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
 Received: from Diagnostix.phytec.de (91.26.50.189) by
  AMS1EPF00000040.mail.protection.outlook.com (10.167.16.37) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8722.18 via Frontend Transport; Tue, 6 May 2025 13:36:34 +0000
+ 15.20.8722.18 via Frontend Transport; Tue, 6 May 2025 13:36:36 +0000
 Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
  (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Tue, 6 May
- 2025 15:36:31 +0200
+ 2025 15:36:34 +0200
 Received: from ls-radium.phytec (172.25.39.17) by Florix.phytec.de
  (172.25.0.13) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Tue, 6 May
- 2025 15:36:29 +0200
+ 2025 15:36:32 +0200
 From: Daniel Schultz <d.schultz@phytec.de>
 To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
 	<krzk+dt@kernel.org>, <conor+dt@kernel.org>,
@@ -77,9 +77,9 @@ To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
 	<linux-kernel@vger.kernel.org>
 CC: <upstream@lists.phytec.de>, <w.egorov@phytec.de>, Daniel Schultz
 	<d.schultz@phytec.de>
-Subject: [PATCH v2 3/4] arm64: dts: ti: k3-am62a-phycore-som: Reserve main_rti4 for C7x DSP
-Date: Tue, 6 May 2025 06:36:03 -0700
-Message-ID: <20250506133604.294920-4-d.schultz@phytec.de>
+Subject: [PATCH v2 4/4] arm64: dts: ti: k3-am62a-phycore-som: Reserve main_timer2 for C7x DSP
+Date: Tue, 6 May 2025 06:36:04 -0700
+Message-ID: <20250506133604.294920-5-d.schultz@phytec.de>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250506133604.294920-1-d.schultz@phytec.de>
 References: <20250506133604.294920-1-d.schultz@phytec.de>
@@ -91,51 +91,51 @@ X-ClientProxiedBy: Diagnostix.phytec.de (172.25.0.14) To Florix.phytec.de
  (172.25.0.13)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS1EPF00000040:EE_|DB8P195MB0469:EE_
-X-MS-Office365-Filtering-Correlation-Id: c7b4ef94-007f-43f1-3448-08dd8ca304bf
+X-MS-TrafficTypeDiagnostic: AMS1EPF00000040:EE_|AS8P195MB1269:EE_
+X-MS-Office365-Filtering-Correlation-Id: c21dd712-4605-4cec-f81b-08dd8ca305d9
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8nWZVd/5qxxW25YjAb4tl176TMXRwBXWZvx1rjTKbXMA4agLkGqMnlbRfNMX?=
- =?us-ascii?Q?+00UyM85FjtueE2UFleWqhIrK0WZLAg9xLfoVSXXWhvVeAzsP5jdxt5bP9Vx?=
- =?us-ascii?Q?L0Po/IBfc5UyB2C9QEu77qfVJ2Tkgej2p9PJKIZ0d1y6Em24Qm3NqBOPYcG7?=
- =?us-ascii?Q?/3MTwe6HoUCBVd6bcf4Uzl7X+poq++xbaVR35jGFJNMY1mR0uqiJAiCcdpOb?=
- =?us-ascii?Q?R3/FwhkUxI+RUOX3WPcNSm4xhPdyCzMVapcFxe/NK8AsuhebDzQ0Df5eqH8h?=
- =?us-ascii?Q?goDbMYU8PhNzd4LAoxXfp2eNw/3JWf03WgXtpTzBUi29a1TzuRtX06cGVPyd?=
- =?us-ascii?Q?WtnYcY3zIlkLfXVyd3VLC4+PwQA655MjPmmoI3ZIclsmD7LeuZCUpLMqYdAs?=
- =?us-ascii?Q?QbGeUmgq4ZyVYlzm6eIioRCfeDesEa9VDJgxA7dFdauUbUZ5AiBNUcZpni1l?=
- =?us-ascii?Q?h6f6kUZeunpfvxsesuuvvK872EpTVvfPkN/I3o2aErkamIu+weFVb7rCE/KZ?=
- =?us-ascii?Q?1IUwQ8ikZbWzUK7hSJBeQ0kSuiUFxvGhtwTABTw95W4f137iOSiKEkAJdiCq?=
- =?us-ascii?Q?c5P9yiaY01KlbWn0HeMdWPA9VjJbmyWgP+aYlOkcX32R81XU29Llh6BXjde1?=
- =?us-ascii?Q?BegIDj8SmJ/gfFcmgsKRzPPddupzGYOYxWTmWyx2w9cT6DTft4TYENDXKg0j?=
- =?us-ascii?Q?xchrRb4q/P1NswGoTqCvE81nFgFVW4cGVC59U+d5wyzzQbmyuI2V6d/PyIOW?=
- =?us-ascii?Q?Gv6e3X2Bf7kyfSJPbYXPa0Vbfxx2JFddYfdCkMQrdttnZx7ozxA8oVtaR0xt?=
- =?us-ascii?Q?ZrAKFbOnw9UoygvVB48mx/DeiBv3uBuZ3klnnVyx/hdCUUaRAnkf5z/p9gjI?=
- =?us-ascii?Q?ZUT6+FpG0HdF69YjcA91k1VxVje6hO84N1xJIsQF0pB+Z+ILUfAUzn8ybKeI?=
- =?us-ascii?Q?JgKRYO+3jfhz+mNLcVX5qkqnlYSINR6q4Lj0ya61OOG6wGEvpm/iAPHYX0Pr?=
- =?us-ascii?Q?gVxbt7YxTKKpeGMcvQlLSFGCSs/p/C0G365f8IT7xAKfuKte5YDaonbHRNc6?=
- =?us-ascii?Q?YvjyzWGCXw7eDjBfB1b8CBakoD0XB0cHqkJooz6qu+PpPZCmp0nQsSBZWElK?=
- =?us-ascii?Q?fvBxi5bIb/0+ekgf8NU9VaaEPZhiVUGzXXw4SjJeJbIEHtg3UIt2Def7j31J?=
- =?us-ascii?Q?kouw+uxnnDbGhDTcdg0HwrHr9Vxq5yctjAYiwpW8etI1BgTnhDHuCB0GpUlo?=
- =?us-ascii?Q?SXo7F1GZhsODwQEdUr832zhL4tlQ0EKJtOjViSjlfE8ouc6J7MQpS+gjwqa5?=
- =?us-ascii?Q?zGgm1LD2aN1tr+BwCMan8yQO0j58k/Zs+J8ZIFLj4TpfmLw6M3x/Z8plEkR0?=
- =?us-ascii?Q?OnLriZB7dvFoV5gizIYuG1tuZVy0vlOscxhSjrL5LmWbaQhOCLCt0vH22cnI?=
- =?us-ascii?Q?he98WTq/zEUoqFiB5SJgtyanatpvLSbIFht+SIAVjx/cN9wDLxfFPl8oWoMa?=
- =?us-ascii?Q?g8cIWQpmgmh9v6IBEwJEfEtLLZic06m7toNW?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xA+Ky/dXoxr1I6RRpS7Kk5kjIqsCRZCzfHUwzIKXswLyouo6xy6NdIcibXfP?=
+ =?us-ascii?Q?sYPVPHz1pCA5NZpXX0EwLNQ7bxDaB2MuzJ6Hf8sknfaEgNmkrFp8zTWOelA6?=
+ =?us-ascii?Q?WgYqqbWHREcbxjdYFPLK8dxJs4i5CSc/XZ13xPrtM+cutu/lkB4oIMMNiho4?=
+ =?us-ascii?Q?7GSwv/V5Oke/nQAHbxu++C064OPoy/6mp38JDD6ixkyJnR5kxKI5FbctMS6M?=
+ =?us-ascii?Q?E7ECAMbZodHpT9DF78Odo4JDtUVjhHGqCebjirNtbex8ZmBKY1GmOD7ELiv8?=
+ =?us-ascii?Q?Z/mIkNu4vkc9t4S3pP5tlXmc/iVatvKIU8P/1R1z8ioUvmPJyV+GtusHEQSp?=
+ =?us-ascii?Q?muPb52EzQqHXe1sQilcxG0QwkNMobh1IJz88A63FKFf1aegHNHyd9sGxDQv2?=
+ =?us-ascii?Q?BVsxQzuCNhel0G9mxacNsauFVmEGIbN6sPKqL0/fHhe1Ez6a71cw29VmOpwC?=
+ =?us-ascii?Q?kdJzf3M6MYzUYUoJ0ZCIXS0kpQ0fQv/X8TcFtitn1IDWbSuo1Vbb8xOh/uIJ?=
+ =?us-ascii?Q?z4wgvgJtGEFhwebNsUTnjEwuZbHUQGIMrXieC4FATOLJVCTSqIRbKvnRIF74?=
+ =?us-ascii?Q?0lyiNsjW2ioyvYegB26mtZzkbrkdy4YEnYIIAUsUGIB5H7HwF7ifUQcdkwO2?=
+ =?us-ascii?Q?bJTiaDMB03lT/yov9/iAjFY+Lf20sAMvZR8Toh//awCXbj3xOs3eiNd+UecK?=
+ =?us-ascii?Q?/LzBTLyyWEw6ZOfv7oQRnDvujtn/IcYSKwYKNo+eDCEtC5HpzGHljUF3TRYQ?=
+ =?us-ascii?Q?53fz+l3Ij9Qtt1c0Onr80ZxACu2kE/SgUe1Inmz+FFGbm5hsI0xvKeHqH0Kd?=
+ =?us-ascii?Q?cy7nYQvRXbX1k2vtLPBB0ySwcNITTXc3wOyzyrskJYMsbeVGhi/USi8KGh8u?=
+ =?us-ascii?Q?nZZDiQOODLJEfcmdaJDJaGF62NI0BbBTqiLtXrhGUMBfLYTVH8/kk9rRUYuw?=
+ =?us-ascii?Q?8LmAKPuqQ2ZeCcuUJhTG4Fc97oIAbFAFNcbhH8NwJRZDeSfiD6pqZOPQQflQ?=
+ =?us-ascii?Q?t4UIQ1pEH8KtUAHq2CyeAVhgwbSjR2MYR6JFpldhG2ZgX4R/Wgnq5zbkXp8D?=
+ =?us-ascii?Q?8DoZrcDCT9Pk1Czq/9twUq/Tsle8zAR0N08TVJmLBe3H0e3AY67RcgiXXQ59?=
+ =?us-ascii?Q?zlXJ3EuKac0hpgBW/kRIpcRXmYImxzqQCGASPZpWDthnzAT9jmY5TGrhax9E?=
+ =?us-ascii?Q?+0ehdSng2+Yt8rUKu5vGqxGIQ2yYWynUwzmhiYGPKZOx+PTUDhAaZIktYs3P?=
+ =?us-ascii?Q?Y2bgweXYxqCaA4S9wGjtjP/Q6yER5GIUeteG8L7w0Jo2dqZyu9DksJn5NcDl?=
+ =?us-ascii?Q?C594gxhKWexzmmgijFPhPHfR/PYjeETdsbn3D1KbJ2pILgSCaO9AIY2Njx9k?=
+ =?us-ascii?Q?V9+5e61eo1Nwb1uRVq5V1nA3RNuRWWf5+2AoiVMrX6dWGb5OfRZF/QWJwh0g?=
+ =?us-ascii?Q?VXBV1wI8Ivsn574aSuuPDyuEfbFiRQ6KDSFZETA1tXNyKAMGeBjr1iP0y58g?=
+ =?us-ascii?Q?jBzn3aAn9SyhEuv71e/lUXz1gkmi2b5IdbKe?=
+X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(376014)(1800799024);DIR:OUT;SFP:1102;
 X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 13:36:34.3159
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 13:36:36.1753
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c7b4ef94-007f-43f1-3448-08dd8ca304bf
+X-MS-Exchange-CrossTenant-Network-Message-Id: c21dd712-4605-4cec-f81b-08dd8ca305d9
 X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
 X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000040.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8P195MB0469
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8P195MB1269
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_063639_952319_731986CF 
-X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-CacheID: sfid-20250506_063640_553353_E8D3C13C 
+X-CRM114-Status: UNSURE (   8.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -151,8 +151,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The main rti4 watchdog timer is used by the C7x DSP, so reserve the
-timer in the linux device tree.
+C7x DSP uses main_timer2, so mark it as reserved in linux DT.
 
 Signed-off-by: Daniel Schultz <d.schultz@phytec.de>
 ---
@@ -160,15 +159,15 @@ Signed-off-by: Daniel Schultz <d.schultz@phytec.de>
  1 file changed, 5 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-index 049aa358e796..7fa0060af4e8 100644
+index 7fa0060af4e8..14f7840ccf2f 100644
 --- a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
 +++ b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-@@ -379,6 +379,11 @@ &main_pktdma {
- 	bootph-all;
+@@ -384,6 +384,11 @@ &main_rti4 {
+ 	status = "reserved";
  };
  
-+/* main_rti4 is used by C7x DSP */
-+&main_rti4 {
++/* main_timer2 is used by C7x DSP */
++&main_timer2 {
 +	status = "reserved";
 +};
 +
