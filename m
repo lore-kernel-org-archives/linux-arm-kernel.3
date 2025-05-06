@@ -4,108 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56550C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:32:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41DBBC3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:33:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jkzGTyOITc308rJc6tl6Kyt48/Uz9TVy8Lf7s0aXZQQ=; b=p8syKuQqbbqGZbXdyLYIwblrFQ
-	bYX5SOcCs/pILU1RE4rVHAiaDEkhb/JLb/hUoZjEnpjoBiAIOcuVGi75vaN6AFHMznHLD7+CFPSEM
-	yiTusnTtHaQODqKmdLgPAVLVWkw9/dnHbTgav6H5n185Y9uO6upwSJzrMV78K8N84+1AVPyk46rNs
-	yQdGbrI/Nq5no4DT6oZiCWygxdFEtEIbjILIUPLkDLwmGJUZNlj5rGbDidKHWNmgNbpF8mbfEsjuX
-	UTZcd3niU6yUzcdUtpfYUuZJlKh3f7RuZFLOFRBrvkDnDWi5ISomzrDMDJUvpPLHtl6PZ0WJVDt6A
-	dfUOtKmw==;
+	bh=voBatGCVFVnkbsMGsX4/DSvQd0vsnFHO73aDqPhkgTM=; b=PAMQ9pxjhgAEzJNKrf4Vazqrzd
+	ofraZCCJtNAJGNHSo7KYyH7+kAzQV+Mw6t2rEX6rFfjybUB0RxQN5N9U4OwvhsDzKrT+PZ/dD1Kia
+	sMDnq5weACTChFzHGpRceFU6HXX1AGEk4Jy66IueGcE/KS9mYjZ2FiEOZ+E98l78tWTy1RCWOI7qX
+	s/cbYPIyzCsQRl+0P7G/iZO9erO66oBUIaNKrfdoQ9xY5MXT1E28stXyOIaHd/hO2+gqq+I0NNhES
+	0Z7fLmu0sWP3gGM6VxfVAQyHJPsJLenG3LimvMPfHZpzJKi2P+tmZnyMjohapPNruXXSfa7ALu7Wl
+	ip+UEW8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCUaR-0000000DuTA-3JxZ;
-	Wed, 07 May 2025 02:32:43 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uCUaT-0000000DuTQ-25sU;
+	Wed, 07 May 2025 02:32:45 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCNBs-0000000D8Bi-2pK2
+	id 1uCNYA-0000000DBEC-2Vor
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 18:38:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E05475C2E3A;
-	Tue,  6 May 2025 18:36:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B2DCC4CEE4;
-	Tue,  6 May 2025 18:38:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746556731;
-	bh=gENiHVaxO1cmf80wqivECEs5b1lWHjuxUFcc5Rj9v6s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hNW8K3TynJZ598S3ASeaKe4sOs3uOQkWpdFHo/Y28/zJqReUoGqgw96wPFLXEg7c8
-	 DXVCawoIXOjLNaeRRtRs6TI7X8px0pUVXuv1jsIuUB5zM16vPj2OBl0EcwaMlJGsor
-	 jWQtdG7gawM8KGta69yM5E3ZruZBgEK7GZ2v8w4ff3u+bwXR/cDakLDkZGrhHtLol4
-	 1nLRZM7rosYjZr5ljtrdzAiApiNT3j5ei5jrqJH+QmEtH/CaNyEo2XVtwO3ABD1vJm
-	 44/GUvOBqDGzRZTL8Tr0j/lWMttWjwj7zR3LoTeoarYbswG0gfh+gWoA5RqG8UX3yD
-	 30sr6kKqDZA2w==
-Message-ID: <2e0efc8f-516e-47fb-9a8f-f140bf8a47c9@kernel.org>
-Date: Tue, 6 May 2025 20:38:45 +0200
+	Tue, 06 May 2025 19:01:55 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5f624291db6so9183178a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 12:01:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746558112; x=1747162912; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=voBatGCVFVnkbsMGsX4/DSvQd0vsnFHO73aDqPhkgTM=;
+        b=DURqRlfvoFfz6otgdPVzHQlLq+KeA5GvE2Bvhd6way59l/BlnDf1ChpMvUMR4Yslpc
+         PJiaN8wGEJs64jkMFUsVMKQ6n4jYvRoNE1n/rOfA8VkPw1EHxK5DZnStXBbu8BgHYV2o
+         0Gqr/mnv5NVgwG82Y9THj2W9hNMXd5QJ8Mme++cyftH6xYH3AyMfF66vSqhQs/zLJ8Ch
+         HAIyH1D34x3B4joETFu3jczwuhoGthgilrpnYHwBIlxoM98qsxydiyP29Ip68oaDDwn8
+         5QqsHRyErNnB8BnJCYRraz5X/V1Pd3CmUC2ZmcUmCoW/4dRi1qPF7bfcEamO8Z+pg345
+         kJHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746558112; x=1747162912;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=voBatGCVFVnkbsMGsX4/DSvQd0vsnFHO73aDqPhkgTM=;
+        b=M6iF313uhCIgQUCKJo/W1dOrB7SfaJgbWHi0Rc71Fmx8P4dQRtfNA+k4ijBmzlaubI
+         6Og29MiINxXgQkimkiHIFaPFY+3MiXNT+1WRj0+35JC152LqjVnKHv9aWqqlN5aWPy4e
+         4LU9yC6Tdlj4zAMhCQiFPuk1/Uanv6pmMKTx+qhe6HlzMlMTQ4/7yycJd4mGVka4VclQ
+         CyNAIQrwS29qslxWeu6C/cpJ7DC0UIO80CvIxhEOkeztC/yubNGOBJnI7DLQkhwapCfv
+         WxjaHlUdDHTBJhMGyQO8S7QT+B0j1ud+q6v3nFPCrQd7TwjuoBwdnucOx24Kf05ks75F
+         SXgw==
+X-Forwarded-Encrypted: i=1; AJvYcCVmK0xoggBoze1r5aewJMuE7DxlQNg4gOfkfvJb/pfif6m/YAqbmaoYJEQodebfQzEP2LHm3PFjBhocssV7Ieyj@lists.infradead.org
+X-Gm-Message-State: AOJu0YxS+mZFQBJJnVYOvbPD/LrNWL1/t5cXVmekJHXo38XSEe5ztjko
+	0DrANoJjQVj2Yz/kfnp4toLbAGkDNY4cyzSWJtYM4pAvarSe03k0
+X-Gm-Gg: ASbGnctTBqfaKrw2RaGmO3WCVoND02Z2xYVP17BAWK626VHVge8jrdxvyA0FEPcjnJq
+	xCudb3o/zTcIxnQm59umx8rZpvvFV24CFruXWQ+RiQbsgjbidprAgg1o0xF5DObkFYyxsj9yFGN
+	cK5s9SYGk5sT+FqcFsjY4/thk//MHAhpDdE9LYWIU70JGWJ1SDXhwY3guuDTFsYJPzyi37ZwiGq
+	0DmsL9bZut2S8OyJNBFumzrjZcMSQyZ0jRw4zaTARIaLT7Q/EqZJtPCxAauz4KWUyARyX2gWHLk
+	3eliKqwblu9WlcFs2G6/LHLBQyx4+xzKXe62j5RwUUy+lQ==
+X-Google-Smtp-Source: AGHT+IFWEXs3lgGVsw8JtDGd7ANyYp0zdsacD9hO6mvpw5fW/FuafssUE5pgzZvlYTNbTtqLhfLFDw==
+X-Received: by 2002:a17:907:1b05:b0:ac7:e815:6e12 with SMTP id a640c23a62f3a-ad1e8c662f9mr60826966b.33.1746558112095;
+        Tue, 06 May 2025 12:01:52 -0700 (PDT)
+Received: from [192.168.0.100] ([188.27.128.5])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad1895087d1sm752900066b.128.2025.05.06.12.01.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 06 May 2025 12:01:51 -0700 (PDT)
+Message-ID: <f22f1343-9b7b-4ae6-9461-bc1b8108619f@gmail.com>
+Date: Tue, 6 May 2025 22:01:46 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 9/9] MAINTAINERS: Add CIX SoC maintainer entry
-To: Peter Chen <peter.chen@cixtech.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- maz@kernel.org, kajetan.puchalski@arm.com, sudeep.holla@arm.com,
- eballetb@redhat.com, Fugang Duan <fugang.duan@cixtech.com>
-References: <20250506090752.3695666-1-peter.chen@cixtech.com>
- <20250506090752.3695666-10-peter.chen@cixtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [RFC PATCH v2 12/16] media: i2c: add Maxim GMSL2/3 serializer and
+ deserializer drivers
+To: Jakub Kostiw <jakub.kostiw@videtronic.com>
+Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Cosmin Tanislav <cosmin.tanislav@analog.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, =?UTF-8?Q?Niklas_S=C3=B6derlund?=
+ <niklas.soderlund@ragnatech.se>, Julien Massot
+ <julien.massot@collabora.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
+ <brgl@bgdev.pl>, Bjorn Andersson <quic_bjorande@quicinc.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Arnd Bergmann
+ <arnd@arndb.de>, Taniya Das <quic_tdas@quicinc.com>,
+ Biju Das <biju.das.jz@bp.renesas.com>,
+ =?UTF-8?Q?N=C3=ADcolas_F_=2E_R_=2E_A_=2E_Prado?= <nfraprado@collabora.com>,
+ Eric Biggers <ebiggers@google.com>,
+ Javier Carrasco <javier.carrasco@wolfvision.net>,
+ Ross Burton <ross.burton@arm.com>, Hans Verkuil <hverkuil@xs4all.nl>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Zhi Mao <zhi.mao@mediatek.com>,
+ Kieran Bingham <kieran.bingham@ideasonboard.com>,
+ Dongcheng Yan <dongcheng.yan@intel.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
+ Tommaso Merciai <tomm.merciai@gmail.com>,
+ Dan Carpenter <dan.carpenter@linaro.org>,
+ Ihor Matushchak <ihor.matushchak@foobox.net>,
+ Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
+ linux-gpio@vger.kernel.org
+References: <20250309084814.3114794-1-demonsingur@gmail.com>
+ <20250309084814.3114794-13-demonsingur@gmail.com>
+ <b214bf8d-33d0-4da8-bf16-cc62bd1fbd55@videtronic.com>
+From: Cosmin Tanislav <demonsingur@gmail.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250506090752.3695666-10-peter.chen@cixtech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <b214bf8d-33d0-4da8-bf16-cc62bd1fbd55@videtronic.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_113852_811848_2402BF5E 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20250506_120154_638434_E98BB2EA 
+X-CRM114-Status: GOOD (  31.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,43 +134,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/05/2025 11:07, Peter Chen wrote:
-> Using this entry as the maintainers information for CIX SoCs.
+
+
+On 5/6/25 9:33 PM, Jakub Kostiw wrote:
+> Hi Cosmin
 > 
-> Acked-by: Fugang Duan <fugang.duan@cixtech.com>
-> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
-> ---
->  MAINTAINERS | 11 +++++++++++
->  1 file changed, 11 insertions(+)
+> Awesome work. The initiative to establish a common framework for GMSL 
+> devices is a great idea.
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index c59316109e3f..169b89eabea3 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2404,6 +2404,17 @@ F:	arch/arm/boot/compressed/misc-ep93xx.h
->  F:	arch/arm/mach-ep93xx/
->  F:	drivers/iio/adc/ep93xx_adc.c
->  
-> +ARM/CIX SOC SUPPORT
-> +M:	Peter Chen <peter.chen@cixtech.com>
-> +M:	Fugang Duan <fugang.duan@cixtech.com>
-> +R:	CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>
-> +L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-> +S:	Maintained
-> +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/peter.chen/cix.git
-I am confused. I see this patchset already applied (3 weeks ago!) to
-above git repo:
-https://web.git.kernel.org/pub/scm/linux/kernel/git/peter.chen/cix.git/log/?h=cix-for-next
 
-in a branch claiming this is for the next. This is the branch which you
-are supposed to be feeding next, so:
-1. Are you properly feeding linux-next (see for example my beginners
-talk from 2023 plumbers how to do it)?
+Hi! Thanks for the feedback.
 
-2. If so, how can you send something for review - v7 - while this is
-already applied and scheduled for next cycle (that is the meaning of
-"for-next")?
+> I believe that we have found few bugs:
+> 
+>> +#define MAX9296A_BACKTOP22(x)            (0x31d * (x) * 0x3)
+> 
+> The first multiplication is wrong and should be replaced with addition:
+> 
+> +#define MAX9296A_BACKTOP22(x)            (0x31d + (x) * 0x3)
+> 
 
-Best regards,
-Krzysztof
+I'm aware of this issue and had it fixed locally, just haven't submitted
+a new version yet.
+
+> The same goes for MAX96724 equivalent macro:
+> 
+>> +#define MAX96724_BACKTOP22(x)            (0x415 * (x) * 0x3)
+> 
+
+Although I haven't noticed that it applied to MAX96724 too, thanks.
+
+> In MAX96714 driver there is an issue with setting up lane-polarities.
+> 
+>> +static const struct max9296a_chip_info max96714_info = {
+>> +    .max_register = 0x5011,
+>> +    .set_pipe_stream_id = max96714_set_pipe_stream_id,
+>> +    .set_pipe_enable = max96714_set_pipe_enable,
+>> +    .set_pipe_tunnel_enable = max96714_set_pipe_tunnel_enable,
+>> +    .phys_configs = {
+>> +        .num_configs = ARRAY_SIZE(max96714_phys_configs),
+>> +        .configs = max96714_phys_configs,
+>> +    },
+>> +    .polarity_on_physical_lanes = true,
+>> +    .supports_phy_log = true,
+>> +    .adjust_rlms = true,
+>> +    .num_pipes = 1,
+>> +    .pipe_hw_ids = { 1 },
+>> +    .num_phys = 1,
+>> +    .phy_hw_ids = { 1 },
+>> +    .num_links = 1,
+>> +};
+> 
+> In order to make thing work we had to set
+> 
+>> +    .polarity_on_physical_lanes = true,
+> 
+> To false. So this field is either improperly set for MAX96714, or 
+> handling of this case is wrong:
+> 
+>> +        if (priv->info->polarity_on_physical_lanes)
+>> +            map = phy->mipi.data_lanes[i];
+>> +        else
+>> +            map = i;
+> 
+
+MAX96714 has different value meanings for the polarity register
+(compared to MAX9296A). On MAX96714, the bits represent the
+polarity of the hardware lane (not taking mapping into account).
+On MAX9296A, mapping is taken into account by hardware, so
+the polarity can be retrieved directly. See the comments surrounding
+that piece of code. It's entirely possible that I was wrong when
+writing this code, but this was cross-checked with the datasheet
+and the GMSL SerDes GUI. It's not out of the question that any of
+these could be wrong.
+
+Are you setting a specific polarity on the lanes? I've validated
+MAX96714 (after the upstream submission) myself and it works.
+
+> Upon mentioned changes we have successfully tested two GMSL2 
+> combinations on Raspberry 5 platform:
+> 
+> 1. MAX96724 + MAX96717 (only 2 MIPI-CSI2 lanes with single camera due to 
+> hardware limitations)
+> 
+> 2. MAX96714 + MAX96717
+> 
+> We have also been wondering about these registers:
+> 
+>> +#define MAX9296A_DPLL_0(x)            (0x1c00 + ((x) == 0 ? 1 : 2) * 
+>> 0x100)
+>> +#define MAX96724_DPLL_0(x)            (0x1c00 + (x) * 0x100)
+> 
+> There are writes to these addresses but we could not find any reference 
+> to these in either MAX96714 or MAX96724 datasheets.
+> 
+
+These registers are not mentioned in the datasheet of MAX96714 or
+MAX96724, as they're considered "hidden". You can look at MAX96716A
+datasheet for a description.
+
+> Are You willing to add support for mapping MIPI-CSI2 lanes? This is a 
+> very convenient feature which comes in handy during HW design.
+> 
+
+This should already be implemented by using different numbers in
+data-lanes property in devicetree.
+
 
