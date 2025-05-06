@@ -4,74 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C6A3C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 05:20:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB7BC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 05:22:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T7FGE6AoH/vHRtSya56lZy9yBi0uF/F6VeFnCBB1JOM=; b=Thzw86jcekwobXqgg7I/j+EAyP
-	RynB11DlFSF5+FBE/4R/xBderuPjTUaqm3YI8JYJEePnm67zD19LTjNnm/0Wm9OsQPO+KentUPw/7
-	IWOJIB6+EJJaTCaA83tM1Y0MI6E3Aw9E5q7JROkwLW+VJ+iczhq78UPZ7lTbC7MPe3thk2yYHIN9F
-	CkZbn/uzVi/F1a6oHnsyv5nPd3jnO3eg8YQYSP94zYmu10ybguSGl0mTuj7nH+9zJECfPCHYLydOE
-	5aLCgnUs2EHP3xx0/rbvunJLu8p4QzljSlfbepGfm4PNzZGvJ0kQ++g22TgyQYqD29KWoQKmRFsBq
-	wmWA25WA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nY2bkwe4Ms1YR5T2qpLvwGyBuZUiXgIpzcZu8MUXFDI=; b=CKgP5QSdF9XCm9jLfqKC62J/I0
+	QoQXIf6WnNFHpe/ZTkEY79Q6J13iJwhTNGdxGUBsZ8boso/ps6HJczMSVZmEBf9OX8lFMVI4yHFKJ
+	jTht+D+FNdPzmqfOKpfI0mRr7JeiWG9SVLOpU5FbMWRAhy1q74qA04n6qFqrNknYXsEnjmUhdPc/7
+	1iwgzkfYMLmEky9zhpCCkmaDA3Vg0OlZPO09M2DvJ19k0slGpgrV4uzGsT9H48305tQO6K/sMnqau
+	SdYL4Xi4CdQ/M8wsryEamvsjm0KgApbmz1k2aVOYskDSl89rX8QuqNeSMqH2A01voJNEVfUfsQwYm
+	W83tz36g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCAiy-0000000APU2-48SE;
-	Tue, 06 May 2025 05:20:13 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uCAkx-0000000APwX-1xnC;
+	Tue, 06 May 2025 05:22:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC7wi-00000009j2n-2C11;
-	Tue, 06 May 2025 02:22:14 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id CDEBD257FC;
-	Tue,  6 May 2025 04:22:05 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 4JOhvh70GMPC; Tue,  6 May 2025 04:22:05 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1746498124; bh=RzobY4XVcgkDJ0doe1YwuuhTaZEvjGgriYp4dbdw2KY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LGeMnYHh13eXvQTo6b7jVRLViK27EHHbt6IGVuHYYHpsIFoAkHvSmHGbngDO7cfAz
-	 wAsobVQPuGvv4+GR4WyjeK9NNLXQMp4Ov1vGVlIpk4dtb2liJA3MXhc38OlFxaMU9j
-	 oAEUu46pPkg24ZfAdG7sMr8L4CLSgOzPjJMjKhDWKB7y4JjZiJopx5LtZLzPHqWnDT
-	 UDaPlS9B27kMd8W9tEo0PLmUBQtLqFyGDJ7dtc2EY/YdGr9pzXMluLcTsHdPUw8yCk
-	 xArCj1nQZ7LzlKsbwlRfcStwfM25FiVr7y5bIMV+7hpL7JRqgXEHbYIub5rU9vq1lj
-	 C51EJbsxNlGmg==
-Date: Tue, 6 May 2025 02:21:48 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
-	Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+	id 1uC7wl-00000009j5O-29WJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 May 2025 02:22:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7C185629CB;
+	Tue,  6 May 2025 02:21:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7226C4CEE4;
+	Tue,  6 May 2025 02:22:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746498134;
+	bh=WwQNWZIozN2u7MiGY37rkvfNiCqmdGGwWW/oTcOrhIo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=cW3f+epTDMJ0pFITUeQWYQLmP+nRxKGT3UTgGn2S7txOjpaxghbPvjJdNWLL1ssFT
+	 uw/j0outlVGIri6j7UiYXAnHWzhIu32Fxmp83ryGjQhlGwyh7MCU5BOfmVDumbpiXO
+	 mS3uQ2/FRKJL6rR5yUlkFzvfnZDzQr7OVNXlq/cQo4TnH2CdK4+N3+E0anlJ4whiZ+
+	 B60SVH1tkYvOzuTXn558X6ZoX609GxU4pXKOfDvXC3/nZxS8+VWOlZOxHHdMBnIQKK
+	 ZHLqewR4eY5WJu5E6AFU32hHWPovgzVSXfBZlvamFn3WVwnaTG0SVS5NDSlyOTPEOQ
+	 qlATpXNe+curw==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Shresth Prasad <shresthprasad7@gmail.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Jonas Karlman <jonas@kwiboo.se>, Chukun Pan <amadeus@jmu.edu.cn>
-Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Subject: Re: [PATCH v4 2/5] clk: rockchip: Support MMC clocks in GRF region
-Message-ID: <aBlyPL_1TFh9lNr3@pie.lan>
-References: <20250417143647.43860-1-ziyao@disroot.org>
- <20250417143647.43860-3-ziyao@disroot.org>
- <2737556.Isy0gbHreE@diego>
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Vladimir Murzin <vladimir.murzin@arm.com>
+Cc: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] dt-bindings: timer: Convert arm,mps2-timer to DT schema
+Date: Mon,  5 May 2025 21:22:09 -0500
+Message-ID: <20250506022210.2586404-1-robh@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <2737556.Isy0gbHreE@diego>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_192212_983551_4DE90108 
-X-CRM114-Status: GOOD (  19.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,61 +74,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 05, 2025 at 11:39:05PM +0200, Heiko Stübner wrote:
-> Hi,
-> 
-> Am Donnerstag, 17. April 2025, 16:36:44 Mitteleuropäische Sommerzeit schrieb Yao Zi:
-> > Registers of MMC drive/sample clocks in Rockchip RV1106 and RK3528
-> > locate in GRF regions. Adjust MMC clock code to support register
-> > operations through regmap. Also add a helper to ease registration of GRF
-> > clocks.
-> > 
-> > Signed-off-by: Yao Zi <ziyao@disroot.org>
-> 
-> > diff --git a/drivers/clk/rockchip/clk.c b/drivers/clk/rockchip/clk.c
-> > index cbf93ea119a9..ce2f3323d84e 100644
-> > --- a/drivers/clk/rockchip/clk.c
-> > +++ b/drivers/clk/rockchip/clk.c
-> > @@ -590,6 +590,7 @@ void rockchip_clk_register_branches(struct rockchip_clk_provider *ctx,
-> >  				list->name,
-> >  				list->parent_names, list->num_parents,
-> >  				ctx->reg_base + list->muxdiv_offset,
-> > +				NULL, 0,
-> >  				list->div_shift
-> >  			);
-> >  			break;
-> > @@ -619,6 +620,11 @@ void rockchip_clk_register_branches(struct rockchip_clk_provider *ctx,
-> >  			break;
-> >  		case branch_linked_gate:
-> >  			/* must be registered late, fall-through for error message */
-> > +		case branch_mmc_grf:
-> > +			/*
-> > +			 * must be registered through rockchip_clk_register_grf_branches,
-> > +			 * fall-through for error message
-> > +			 */
-> >  			break;
-> 
-> please don't create separate structures for specific clock-types.
-> Being able to "just define" clock branches is helpful and starting
-> to require separate blocks just causes issues down the road.
-> 
-> For handling multiple GRF sources, I just merged Nicolas' patches for
-> handling auxiliary GRFs [0] and GRF-gate clock type [1] .
+Convert the Arm MPS2 Timer binding to DT schema format. It's a
+straight-forward conversion.
 
-Thanks for the hint, it does look like a better style which I'll adapt
-in the next version.
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../bindings/timer/arm,mps2-timer.txt         | 28 -----------
+ .../bindings/timer/arm,mps2-timer.yaml        | 49 +++++++++++++++++++
+ 2 files changed, 49 insertions(+), 28 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/timer/arm,mps2-timer.txt
+ create mode 100644 Documentation/devicetree/bindings/timer/arm,mps2-timer.yaml
 
-> So ideally, please base off from there.
-> 
-> Thanks a lot
-> Heiko
-> 
+diff --git a/Documentation/devicetree/bindings/timer/arm,mps2-timer.txt b/Documentation/devicetree/bindings/timer/arm,mps2-timer.txt
+deleted file mode 100644
+index 48f84d74edde..000000000000
+--- a/Documentation/devicetree/bindings/timer/arm,mps2-timer.txt
++++ /dev/null
+@@ -1,28 +0,0 @@
+-ARM MPS2 timer
+-
+-The MPS2 platform has simple general-purpose 32 bits timers.
+-
+-Required properties:
+-- compatible	: Should be "arm,mps2-timer"
+-- reg		: Address and length of the register set
+-- interrupts	: Reference to the timer interrupt
+-
+-Required clocking property, have to be one of:
+-- clocks	  : The input clock of the timer
+-- clock-frequency : The rate in HZ in input of the ARM MPS2 timer
+-
+-Examples:
+-
+-timer1: mps2-timer@40000000 {
+-	compatible = "arm,mps2-timer";
+-	reg = <0x40000000 0x1000>;
+-	interrupts = <8>;
+-	clocks = <&sysclk>;
+-};
+-
+-timer2: mps2-timer@40001000 {
+-	compatible = "arm,mps2-timer";
+-	reg = <0x40001000 0x1000>;
+-	interrupts = <9>;
+-	clock-frequency = <25000000>;
+-};
+diff --git a/Documentation/devicetree/bindings/timer/arm,mps2-timer.yaml b/Documentation/devicetree/bindings/timer/arm,mps2-timer.yaml
+new file mode 100644
+index 000000000000..64c6aedd7e8e
+--- /dev/null
++++ b/Documentation/devicetree/bindings/timer/arm,mps2-timer.yaml
+@@ -0,0 +1,49 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm,mps2-timer.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: ARM MPS2 timer
++
++maintainers:
++  - Vladimir Murzin <vladimir.murzin@arm.com>
++
++description:
++  The MPS2 platform has simple general-purpose 32 bits timers.
++
++properties:
++  compatible:
++    const: arm,mps2-timer
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  clock-frequency:
++    description: Rate in Hz of the timer input clock
++
++oneOf:
++  - required: [clocks]
++  - required: [clock-frequency]
++
++required:
++  - compatible
++  - reg
++  - interrupts
++
++additionalProperties: false
++
++examples:
++  - |
++    timer@40000000 {
++        compatible = "arm,mps2-timer";
++        reg = <0x40000000 0x1000>;
++        interrupts = <8>;
++        clocks = <&sysclk>;
++    };
+-- 
+2.47.2
 
-Regards,
-Yao Zi
-
-> [0] https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git/commit/?id=70a114daf2077472e58b3cac23ba8998e35352f4
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git/commit/?id=e277168cabe9fd99e647f5dad0bc846d5d6b0093
-> 
-> 
 
