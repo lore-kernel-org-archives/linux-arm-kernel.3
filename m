@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D311BC3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 19:12:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1CAEC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 19:14:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x/nMx09k8ctgwEbllfETLMdv/nByXxprATx5Arjen7k=; b=ML+BQ5HbrUVZkkloNR22F1lHyd
-	5AeJRzUH1toPMx+PlvhiYcoLGVia7tMTn9mTmRiU30xhfHYReusZ0kvMQc0e5Ek9FGEJO/dwNc2NG
-	9i8CbOjzmNAVNlcUy2XNE49iZdxOZGmU4DcFaeHk1DD7cgaETuOiv5xIkYzpeg/sPBFqPaJ4uRQne
-	P/QxyCiZQGfj1PmgZU2fCWgHopSs54JcQEbGtT4q1WUPicfI1xCxfQkN6mkTGNWfHRBeaH3saocIr
-	ye9M472OOTjd/ane2MYFDSKQcxvmy3Azl0z+weAGM0uNZb3Ip/py8qHjJb8e5xhfmGC5mGksAf9E7
-	gqfq85Pg==;
+	bh=70UZdr7zrdzE7EzKJ21K9JKH+jZ2rYQNVV/iOVzDvvM=; b=n+hyHivLwannNYV55CgqRaQeSo
+	7UPV3KM8JIqbMNkbL9JH9wswrf4xssPYNfhf+5fKcv1ngPjK1khqnrTlV6RrH2rS4/Ah4buEqVb4z
+	PZ6DfdWiOagPAk/z4G6ALYIN33fWaB+/cDt/JsX6a1gdPodzwU8sObt6mErQ+7kAaiczUKbYFRHYt
+	wTvccqT8qDevxdPg7w8b2RXDajileanQI8Ac7eW8XHGWXcSkIg5HYXBF0GNqRq8HpNCxs7opH9l3H
+	yO2+ydL4Az+4iKnR14BuFQGhOLSqJtZ5TD7IxvjMBmGOnG9fznQzzsOd4RO+gszBIY/mj0J95KAnN
+	iH2LLGDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCNi3-0000000DCTN-3ZWW;
-	Tue, 06 May 2025 19:12:07 +0000
+	id 1uCNjv-0000000DCfW-2OiO;
+	Tue, 06 May 2025 19:14:03 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCKAt-0000000CUG5-0RvB
+	id 1uCKAt-0000000CUGM-2tEb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 15:25:40 +0000
+	Tue, 06 May 2025 15:25:42 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 31040113E;
-	Tue,  6 May 2025 08:25:26 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A20C61007;
+	Tue,  6 May 2025 08:25:29 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7958A3F58B;
-	Tue,  6 May 2025 08:25:33 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EAB333F58B;
+	Tue,  6 May 2025 08:25:36 -0700 (PDT)
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: broonie@kernel.org,
@@ -49,17 +49,17 @@ Cc: broonie@kernel.org,
 	tkjos@google.com,
 	will@kernel.org,
 	yury.khrustalev@arm.com
-Subject: [PATCH 01/20] kselftest/arm64: fp-ptrace: Fix expected FPMR value when PSTATE.SM is changed
-Date: Tue,  6 May 2025 16:25:04 +0100
-Message-Id: <20250506152523.1107431-2-mark.rutland@arm.com>
+Subject: [PATCH 02/20] arm64/fpsimd: Do not discard modified SVE state
+Date: Tue,  6 May 2025 16:25:05 +0100
+Message-Id: <20250506152523.1107431-3-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20250506152523.1107431-1-mark.rutland@arm.com>
 References: <20250506152523.1107431-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_082539_273855_DAC8B71C 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20250506_082539_816374_63218FD6 
+X-CRM114-Status: GOOD (  33.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,94 +74,277 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The fp-ptrace test suite expects that FPMR is set to zero when PSTATE.SM
-is changed via ptrace, but ptrace has never altered FPMR in this way,
-and the test logic erroneously relies upon (and has concealed) a bug
-where task_fpsimd_load() would unexpectedly and non-deterministically
-clobber FPMR.
+Historically SVE state was discarded deterministically early in the
+syscall entry path, before ptrace is notified of syscall entry. This
+permitted ptrace to modify SVE state before and after the "real" syscall
+logic was executed, with the modified state being retained.
 
-Using ptrace, FPMR can only be altered by writing to the NT_ARM_FPMR
-regset. The value of PSTATE.SM can be altered by writing to the
-NT_ARM_SVE or NT_ARM_SSVE regsets, and/or by changing the SME vector
-length (when writing to the NT_ARM_SVE, NT_ARM_SSVE, or NT_ARM_ZA
-regsets), but none of these writes will change the value of FPMR.
+This behaviour was changed by commit:
 
-The task_fpsimd_load() bug was introduced with the initial FPMR support
-in commit:
+  8c845e2731041f0f ("arm64/sve: Leave SVE enabled on syscall if we don't context switch")
 
-  203f2b95a882 ("arm64/fpsimd: Support FEAT_FPMR")
+That commit was intended to speed up workloads that used SVE by
+opportunistically leaving SVE enabled when returning from a syscall.
+The syscall entry logic was modified to truncate the SVE state without
+disabling userspace access to SVE, and fpsimd_save_user_state() was
+modified to discard userspace SVE state whenever
+in_syscall(current_pt_regs()) is true, i.e. when
+current_pt_regs()->syscallno != NO_SYSCALL.
 
-The incorrect FPMR test code was introduced in commit:
+Leaving SVE enabled opportunistically resulted in a couple of changes to
+userspace visible behaviour which weren't described at the time, but are
+logical consequences of opportunistically leaving SVE enabled:
 
-  7dbd26d0b22d ("kselftest/arm64: Add FPMR coverage to fp-ptrace")
+* Signal handlers can observe the type of saved state in the signal's
+  sve_context record. When the kernel only tracks FPSIMD state, the 'vq'
+  field is 0 and there is no space allocated for register contents. When
+  the kernel tracks SVE state, the 'vq' field is non-zero and the
+  register contents are saved into the record.
 
-Subsequently, the task_fpsimd_load() bug was fixed in commit:
+  As a result of the above commit, 'vq' (and the presence of SVE
+  register state) is non-deterministically zero or non-zero for a period
+  of time after a syscall. The effective register state is still
+  deterministic.
 
-  e5fa85fce08b ("arm64/fpsimd: Don't corrupt FPMR when streaming mode changes")
+  Hopefully no-one relies on this being deterministic. In general,
+  handlers for asynchronous events cannot expect a deterministic state.
 
-... whereupon the fp-ptrace FPMR tests started failing reliably, e.g.
+* Similarly to signal handlers, ptrace requests can observe the type of
+  saved state in the NT_ARM_SVE and NT_ARM_SSVE regsets, as this is
+  exposed in the header flags. As a result of the above commit, this is
+  now in a non-deterministic state after a syscall. The effective
+  register state is still deterministic.
 
-| # # Mismatch in saved FPMR: 915058000 != 0
-| # not ok 25 SVE write, SVE 64->64, SME 64/0->64/1
+  Hopefully no-one relies on this being deterministic. In general,
+  debuggers would have to handle this changing at arbitrary points
+  during program flow.
 
-Fix this by changing the test to expect that FPMR is *NOT* changed when
-PSTATE.SM is changed via ptrace, matching the extant behaviour.
+Discarding the SVE state within fpsimd_save_user_state() resulted in
+other changes to userspace visible behaviour which are not desirable:
 
-I've chosen to update the test code rather than modifying ptrace to zero
-FPMR when PSTATE.SM changes. Not zeroing FPMR is simpler overall, and
-allows the NT_ARM_FPMR regset to be handled independently from other
-regsets, leaving less scope for error.
+* A ptrace tracer can modify (or create) a tracee's SVE state at syscall
+  entry or syscall exit. As a result of the above commit, the tracee's
+  SVE state can be discarded non-deterministically after modification,
+  rather than being retained as it previously was.
 
-Fixes: 7dbd26d0b22d ("kselftest/arm64: Add FPMR coverage to fp-ptrace")
-Fixes: e5fa85fce08b ("arm64/fpsimd: Don't corrupt FPMR when streaming mode changes")
+  Note that for co-operative tracer/tracee pairs, the tracer may
+  (re)initialise the tracee's state arbitrarily after the tracee sends
+  itself an initial SIGSTOP via a syscall, so this affects realistic
+  design patterns.
+
+* The current_pt_regs()->syscallno field can be modified via ptrace, and
+  can be altered even when the tracee is not really in a syscall,
+  causing non-deterministic discarding to occur in situations where this
+  was not previously possible.
+
+Further, using current_pt_regs()->syscallno in this way is unsound:
+
+* There are data races between readers and writers of the
+  current_pt_regs()->syscallno field.
+
+  The current_pt_regs()->syscallno field is written in interruptible
+  task context using plain C accesses, and is read in irq/softirq
+  context using plain C accesses. These accesses are subject to data
+  races, with the usual concerns with tearing, etc.
+
+* Writes to current_pt_regs()->syscallno are subject to compiler
+  reordering.
+
+  As current_pt_regs()->syscallno is written with plain C accesses,
+  the compiler is free to move those writes arbitrarily relative to
+  anything which doesn't access the same memory location.
+
+  In theory this could break signal return, where prior to restoring the
+  SVE state, restore_sigframe() calls forget_syscall(). If the write
+  were hoisted after restore of some SVE state, that state could be
+  discarded unexpectedly.
+
+  In practice that reordering cannot happen in the absence of LTO (as
+  cross compilation-unit function calls happen prevent this reordering),
+  and that reordering appears to be unlikely in the presence of LTO.
+
+Additionally, since commit:
+
+  f130ac0ae4412dbe ("arm64: syscall: unmask DAIF earlier for SVCs")
+
+... DAIF is unmasked before el0_svc_common() sets regs->syscallno to the
+real syscall number. Consequently state may be saved in SVE format prior
+to this point.
+
+Considering all of the above, current_pt_regs()->syscallno should not be
+used to infer whether the SVE state can be discarded. Luckily we can
+instead use cpu_fp_state::to_save to track when it is safe to discard
+the SVE state:
+
+* At syscall entry, after the live SVE register state is truncated, set
+  cpu_fp_state::to_save to FP_STATE_FPSIMD to indicate that only the
+  FPSIMD portion is live and needs to be saved.
+
+* At syscall exit, once the task's state is gauranteed to be live, set
+  cpu_fp_state::to_save to FP_STATE_CURRENT to indicate that TIF_SVE
+  must be considered to determine which state needs to be saved.
+
+* Whenever state is modified, it must be saved+flushed prior to
+  manipulation. The state will be truncated if necessary when it is
+  saved, and reloading the state will set fp_state::to_save to
+  FP_STATE_CURRENT, preventing subsequent discarding.
+
+This permits SVE state to be discarded *only* when it is known to have
+been truncated (and the non-FPSIMD portions must be zero), and ensures
+that SVE state is retained after it is explicitly modified.
+
+For backporting, note that this fix depends on the following commits:
+
+* b2482807fbd4 ("arm64/sme: Optimise SME exit on syscall entry")
+* f130ac0ae441 ("arm64: syscall: unmask DAIF earlier for SVCs")
+* 929fa99b1215 ("arm64/fpsimd: signal: Always save+flush state early")
+
+Fixes: 8c845e273104 ("arm64/sve: Leave SVE enabled on syscall if we don't context switch")
+Fixes: f130ac0ae441 ("arm64: syscall: unmask DAIF earlier for SVCs")
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: David Spickett <david.spickett@arm.com>
-Cc: Luis Machado <luis.machado@arm.com>
 Cc: Marc Zyngier <maz@kernel.org>
 Cc: Mark Brown <broonie@kernel.org>
 Cc: Will Deacon <will@kernel.org>
 ---
- tools/testing/selftests/arm64/fp/fp-ptrace.c | 14 +-------------
- 1 file changed, 1 insertion(+), 13 deletions(-)
+ arch/arm64/include/asm/fpsimd.h  |  3 +++
+ arch/arm64/kernel/entry-common.c | 46 ++++++++++++++++++++++++--------
+ arch/arm64/kernel/fpsimd.c       | 15 ++++++-----
+ 3 files changed, 47 insertions(+), 17 deletions(-)
 
-diff --git a/tools/testing/selftests/arm64/fp/fp-ptrace.c b/tools/testing/selftests/arm64/fp/fp-ptrace.c
-index 4930e03a7b990..762048eb354ff 100644
---- a/tools/testing/selftests/arm64/fp/fp-ptrace.c
-+++ b/tools/testing/selftests/arm64/fp/fp-ptrace.c
-@@ -891,18 +891,11 @@ static void set_initial_values(struct test_config *config)
+diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
+index b7adb2c72204b..11b9c6a5e0377 100644
+--- a/arch/arm64/include/asm/fpsimd.h
++++ b/arch/arm64/include/asm/fpsimd.h
+@@ -6,6 +6,7 @@
+ #define __ASM_FP_H
+ 
+ #include <asm/errno.h>
++#include <asm/percpu.h>
+ #include <asm/ptrace.h>
+ #include <asm/processor.h>
+ #include <asm/sigcontext.h>
+@@ -92,6 +93,8 @@ struct cpu_fp_state {
+ 	enum fp_type to_save;
+ };
+ 
++DECLARE_PER_CPU(struct cpu_fp_state, fpsimd_last_state);
++
+ extern void fpsimd_bind_state_to_cpu(struct cpu_fp_state *fp_state);
+ 
+ extern void fpsimd_flush_task_state(struct task_struct *target);
+diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+index b260ddc4d3e9a..fa8a090339e2b 100644
+--- a/arch/arm64/kernel/entry-common.c
++++ b/arch/arm64/kernel/entry-common.c
+@@ -393,20 +393,16 @@ static bool cortex_a76_erratum_1463225_debug_handler(struct pt_regs *regs)
+  * As per the ABI exit SME streaming mode and clear the SVE state not
+  * shared with FPSIMD on syscall entry.
+  */
+-static inline void fp_user_discard(void)
++static inline void fpsimd_syscall_enter(void)
  {
- 	int vq = __sve_vq_from_vl(vl_in(config));
- 	int sme_vq = __sve_vq_from_vl(config->sme_vl_in);
--	bool sm_change;
+-	/*
+-	 * If SME is active then exit streaming mode.  If ZA is active
+-	 * then flush the SVE registers but leave userspace access to
+-	 * both SVE and SME enabled, otherwise disable SME for the
+-	 * task and fall through to disabling SVE too.  This means
+-	 * that after a syscall we never have any streaming mode
+-	 * register state to track, if this changes the KVM code will
+-	 * need updating.
+-	 */
++	/* Ensure PSTATE.SM is clear, but leave PSTATE.ZA as-is. */
+ 	if (system_supports_sme())
+ 		sme_smstop_sm();
  
- 	svcr_in = config->svcr_in;
- 	svcr_expected = config->svcr_expected;
- 	svcr_out = 0;
++	/*
++	 * The CPU is not in streaming mode. If non-streaming SVE is not
++	 * supported, there is no SVE state that needs to be discarded.
++	 */
+ 	if (!system_supports_sve())
+ 		return;
  
--	if (sme_supported() &&
--	    (svcr_in & SVCR_SM) != (svcr_expected & SVCR_SM))
--		sm_change = true;
--	else
--		sm_change = false;
--
- 	fill_random(&v_in, sizeof(v_in));
- 	memcpy(v_expected, v_in, sizeof(v_in));
- 	memset(v_out, 0, sizeof(v_out));
-@@ -953,12 +946,7 @@ static void set_initial_values(struct test_config *config)
- 	if (fpmr_supported()) {
- 		fill_random(&fpmr_in, sizeof(fpmr_in));
- 		fpmr_in &= FPMR_SAFE_BITS;
--
--		/* Entering or exiting streaming mode clears FPMR */
--		if (sm_change)
--			fpmr_expected = 0;
--		else
--			fpmr_expected = fpmr_in;
-+		fpmr_expected = fpmr_in;
- 	} else {
- 		fpmr_in = 0;
- 		fpmr_expected = 0;
+@@ -416,6 +412,33 @@ static inline void fp_user_discard(void)
+ 		sve_vq_minus_one = sve_vq_from_vl(task_get_sve_vl(current)) - 1;
+ 		sve_flush_live(true, sve_vq_minus_one);
+ 	}
++
++	/*
++	 * Any live non-FPSIMD SVE state has been zeroed. Allow
++	 * fpsimd_save_user_state() to lazily discard SVE state until either
++	 * the live state is unbound or fpsimd_syscall_exit() is called.
++	 */
++	__this_cpu_write(fpsimd_last_state.to_save, FP_STATE_FPSIMD);
++}
++
++static __always_inline void fpsimd_syscall_exit(void)
++{
++	if (!system_supports_sve())
++		return;
++
++	/*
++	 * The current task's user FPSIMD/SVE/SME state is now bound to this
++	 * CPU. The fpsimd_last_state.to_save value is either:
++	 *
++	 * - FP_STATE_FPSIMD, if the state has not been reloaded on this CPU
++	 *   since fpsimd_syscall_enter().
++	 *
++	 * - FP_STATE_CURRENT, if the state has been reloaded on this CPU at
++	 *   any point.
++	 *
++	 * Reset this to FP_STATE_CURRENT to stop lazy discarding.
++	 */
++	__this_cpu_write(fpsimd_last_state.to_save, FP_STATE_CURRENT);
+ }
+ 
+ UNHANDLED(el1t, 64, sync)
+@@ -739,10 +762,11 @@ static void noinstr el0_svc(struct pt_regs *regs)
+ {
+ 	enter_from_user_mode(regs);
+ 	cortex_a76_erratum_1463225_svc_handler();
+-	fp_user_discard();
++	fpsimd_syscall_enter();
+ 	local_daif_restore(DAIF_PROCCTX);
+ 	do_el0_svc(regs);
+ 	exit_to_user_mode(regs);
++	fpsimd_syscall_exit();
+ }
+ 
+ static void noinstr el0_fpac(struct pt_regs *regs, unsigned long esr)
+diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+index 422b9d43b1e64..9f1890d692dfc 100644
+--- a/arch/arm64/kernel/fpsimd.c
++++ b/arch/arm64/kernel/fpsimd.c
+@@ -119,7 +119,7 @@
+  *   whatever is in the FPSIMD registers is not saved to memory, but discarded.
+  */
+ 
+-static DEFINE_PER_CPU(struct cpu_fp_state, fpsimd_last_state);
++DEFINE_PER_CPU(struct cpu_fp_state, fpsimd_last_state);
+ 
+ __ro_after_init struct vl_info vl_info[ARM64_VEC_MAX] = {
+ #ifdef CONFIG_ARM64_SVE
+@@ -451,12 +451,15 @@ static void fpsimd_save_user_state(void)
+ 		*(last->fpmr) = read_sysreg_s(SYS_FPMR);
+ 
+ 	/*
+-	 * If a task is in a syscall the ABI allows us to only
+-	 * preserve the state shared with FPSIMD so don't bother
+-	 * saving the full SVE state in that case.
++	 * Save SVE state if it is live.
++	 *
++	 * The syscall ABI discards live SVE state at syscall entry. When
++	 * entering a syscall, fpsimd_syscall_enter() sets to_save to
++	 * FP_STATE_FPSIMD to allow the SVE state to be lazily discarded until
++	 * either new SVE state is loaded+bound or fpsimd_syscall_exit() is
++	 * called prior to a return to userspace.
+ 	 */
+-	if ((last->to_save == FP_STATE_CURRENT && test_thread_flag(TIF_SVE) &&
+-	     !in_syscall(current_pt_regs())) ||
++	if ((last->to_save == FP_STATE_CURRENT && test_thread_flag(TIF_SVE)) ||
+ 	    last->to_save == FP_STATE_SVE) {
+ 		save_sve_regs = true;
+ 		save_ffr = true;
 -- 
 2.30.2
 
