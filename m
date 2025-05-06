@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE378C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 17:06:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED00C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 17:08:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CO2ACoq9K/NiDM+5zyO8LOqPTK7/saDpFlE2IMUvDMI=; b=ddQam76Jjk6tPq69YJ+u3hhxX8
-	ltgExdaz/7Lu1DA8q8CzYax0Re/0sv3GGSR3dOPwyOmMPz4Yp0r7Mx8ucX/m72mFqPXNiRZBb//RK
-	CEyQVQeDzYu+LpwcogB8qd8rlgP7AbAsxz05jojI13H/K+XKcCpRaeD9+jIqu9R5FYQ9wKkIknQ3o
-	Smr9YvUauDgAlP5qt8rL+GNBPx4FsMQBSrSUXaTTCA4g2E35Wkympvj8riXez+KdvaJBzQ25LtyBN
-	DBB0bPES6g2CmU5AjPtzttL8K1QX7JhnSU+/FCYRvIIj9wl4H6lcN+nL3FayU3t1i/guxdZGTz8Dr
-	6m/LxZTA==;
+	bh=r3zXV3HirDfRP3PUl3pFBh1c941K94R2FUpG7ljIx/I=; b=x+TjouVmF8+hT4cNS57/efMe2U
+	DqecxxUAjV2qLpYoFNpnx0jRPPmks29+9HDqoO8YqNQAdhhSa1h4Yw0KTPjsyUrEiVkGhIxa/BRSY
+	U07hEA7EKY+08M5oGFcHVz4aX6L9lyMFvLHgO84Dvni+r2yrAXW76iJC4CYkNFZCRKQoGp3ei1KHr
+	JKIHf9GV0hLTyHgrnjgi6vB5pZ7PBYMC0o6rE4lWzJTpN7du8jjjFYalsmslls7yxxC4biyv6F7wY
+	RH3WH2vSj79L30AFC1pSDhRguiZclw9dL2GI5p16IaRi6dwhtpIApr7vNyJ/iBblpZjElqGdMq3DQ
+	1h0rGdkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCLkW-0000000CncE-0DxR;
-	Tue, 06 May 2025 17:06:32 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1uCLmQ-0000000Cnp7-34Bn;
+	Tue, 06 May 2025 17:08:30 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCIOQ-0000000C88P-0vXQ
+	id 1uCIOT-0000000C89X-0tYo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 13:31:31 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-39c1ee0fd43so5929033f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 06:31:29 -0700 (PDT)
+	Tue, 06 May 2025 13:31:34 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43cfe574976so36078315e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 06:31:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746538288; x=1747143088; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1746538291; x=1747143091; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=CO2ACoq9K/NiDM+5zyO8LOqPTK7/saDpFlE2IMUvDMI=;
-        b=WUPsK+CclLH1BBmMBB6HpE8R2tfv66bDPTUYkBIwO9Ko/6uWE9e5+jn9CvfttEnOGt
-         mk+qG3tO5lMQlPnjS+v5zVaCYnWInasLtRWuvZ+mm90IIcRbKHKz9YO3qKTSoa5X0/MA
-         Gv5zu4DbXPB0VBfSzppkXEP/8y4wi0/4iTSHoHi4YbnsZue4sXhA7v+/VGJJlGuliZEp
-         +MHPRsf6Glss3uCB4q1wrnsheIC3h+RU476LJ46s/MSc1F4RYyj4USKEzyEdifgyZtAY
-         d4+iZwqiIU1JQyufovvbUn0ABenMD7ZAElvKdQQseYcLSOXBVrjRKu/RufKiuK/QZAtw
-         WpLA==
+        bh=r3zXV3HirDfRP3PUl3pFBh1c941K94R2FUpG7ljIx/I=;
+        b=Ktg6HpFAdUwYcQ1YZlGASdf76T8/XLXw5rPEATFewCLFiWs8Jafujy7wQuyBhaMf8Y
+         sSRy4GZwCXRDx0Rjwjl2nIXfd8gNy05Rd/CMY8BWb2wAXMaQbrwwHBfqyh1Gll7QWmDb
+         nhqSrW0FAjTgECNQA3ZeqlGBJ9kIqXUOyevsy41H2npvtHWW/B5aomNJPU0Ej4PvhVGG
+         ioIe0C59K7Uag6X+fc8suYT4Q2A5m3oUlfF8YRNuPGIK87Q6zlsADsJRH5tItcFzFKTE
+         FG93WtBSb7U/6ZS14qrSachBot6W8jq+n+ibTyoE/UNlbVHJeWLNTAKpmPjEZQAc6H9c
+         R+aQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746538288; x=1747143088;
+        d=1e100.net; s=20230601; t=1746538291; x=1747143091;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=CO2ACoq9K/NiDM+5zyO8LOqPTK7/saDpFlE2IMUvDMI=;
-        b=DCWU6WboQKqQ0u0etVVQmPpP/OTLxpRtDO6y8A2TrJ6dVjCanI2bY9ZEu7500unF8Y
-         pkXO6pVGhJLAbiWXerxSAfBp4lqMGBpogt8ayIoF3sBnSB4/K2dNchr67p7BKzRK/Y9e
-         K7RZz2OS14iuEsyMAoDFXK8rcbqO6Ljq9oaVD0QwXqTHKpcOQ0aTDqIvEyQFFrD+EWam
-         EgXv7CYVfFBhSnFnaDjrEvtO9EoKiyapec/Xj9qg1ThIamoRiqiSbNEQ8FMm+/aqCIB1
-         8alhFZCIchoCFGIJxjGH84C1qyBcWnHUxaFQu75/7m2dfbmneE3DvVp3jDCh5IKShFPE
-         gy2w==
-X-Forwarded-Encrypted: i=1; AJvYcCWV/0Z0n4Twp54/VMWcOQnQFENH+Em0UIpQO0ytnKKeRTvtPRmsROgsPjtFXLIKPmGwZO+7VfXzaYU4/alCpPmH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVop+9KiPV7GMjksxQX1rPsP7fTu6FjqesreBeSRoueJ36RljZ
-	5S1Uuoh3H8QB66uExcoamko4twkzRWsvUsU5YkPB6O1D4JH0/gH4fYw2yQ==
-X-Gm-Gg: ASbGncsMT8zqB/9auzz9kGboT69dT6ELTGbgXyO1rYARAngjI70nzmNwGfPMNIMH8/E
-	b76qhP19k9hn/0FIcotjeZArDDXZlmo3+TribOUCawgaS4PsOwnWVXXvdKE7JTAxHouElJwQV64
-	JsTM8vLXVLnxPVpgyT3ueRaE3Bc7nczF1QmRcSbGCrKd+CNG6Ny8+iKLr7+U9CpAJW9Xq5usdkA
-	hzG2SoLYx90qZ2okgjLoqZBZH8XbBlcKEOLgM4hRa7TRBnZzNieLRRo43mtXGYjdAHB8wJZxY1X
-	owmrRNH/sPivWoHfZWGk5VMp/of6aZbt0cCtwMwrNzAK/4dV8nqf+77I0rUQZfgZ5X/N27gEuF3
-	hD3Cn8gXg1eUEqz+d2Q+Ps2n6o/nei/bG
-X-Google-Smtp-Source: AGHT+IEDaXH62KwwI37pr4wDfcFSHeSXONX0vaETDZcKfgUX5r54cbwZDUoUROuqlyv3IXysrdKtyA==
-X-Received: by 2002:a05:6000:2501:b0:39a:c9b3:e1d7 with SMTP id ffacd0b85a97d-3a0ac0ec351mr1987214f8f.29.1746538288382;
-        Tue, 06 May 2025 06:31:28 -0700 (PDT)
+        bh=r3zXV3HirDfRP3PUl3pFBh1c941K94R2FUpG7ljIx/I=;
+        b=AkbQ/2shctZyFtmJmKwF/K7uqxdrs6Qbw+X8RLFXUxW/gmWC1nhviLt5HrbqhVp3cJ
+         3QHko/+CX9KHiff7/5U/CHkgrll3Kv/fdt0q2dYqaEq1u/CFSk+UgBJjXIVHSubE5Wsp
+         yuInpd0zS610nEsVw5q02kD3e2OHQuE1a0lmoMSmQFV6ZPwpu8LcNIjZ56Xbzw1Rj8Mm
+         DtFJzT4r2tCdX0a4RvYvhFxUsfs3YvSivJunAvdRaB++kalslZLt7uaAeXVVV8NmtQyN
+         TeN61qLFqpoeHbrFwo4Dx9NQii0Bm0E5jEyisE1OrX8X1gPMrCze1/Qma/qEPB40OTX9
+         R3/g==
+X-Forwarded-Encrypted: i=1; AJvYcCUSiORWmKQ9Am0lwRJB46VXflqWWo5tCfOWH8P9TnrvLqqS1h4HPhFI4jNCwjwH3ENlpZkKlK2Af4KPAu4ZmWSD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxI09Kt1768icR+j2D4h3ULMf0JqDKu2s5pkpMB7MwX/P6vh3ix
+	FeXV7wWeJYREhoWG96uRUzNqPw8qHhCa4LlXJfyrwmPfIZswWvkq
+X-Gm-Gg: ASbGnctvloFueTV2hYqb8QBrNE4TNO6dxEZ3CKLQ7azcz1h3doqLjOIKg5fBQFoFQSy
+	qUkVmviteKqDtva6goYN2CRS9T2i1ombYntrSYFhgCj5Z3qeXAhcmYZakCeERWwKcHyGniBrJqL
+	lY3d5uun60W5UIchAyLfmA2TRXA+07/h/8gD2Gj9fdIY41SPud/mYDOEavHvzxD5sBMlo5I13u7
+	QwS/v1t2SVXqzmPEhx8IHDksa4xFyK/h/XKHPFQ/p0NMU8mgg20IpLdN282v4l0OY5M8F/PzumZ
+	bMRRMC8gR61vgqg/C2aGie1dVTKz5NM/N77HjE536/3/c40Ov5EqZIgUhBWMLaMz45znwauugyT
+	E1iBa+hDSQcq0nbBqmSrZKaSEi44orgaF
+X-Google-Smtp-Source: AGHT+IFt+jAnp/1dorIrV5VN5se27tfdem9U33x4ONTBw1owAU8hcuV6CYu3Dsp/mq6lfYo+/yCW4w==
+X-Received: by 2002:a05:600c:4710:b0:43c:fa24:8721 with SMTP id 5b1f17b1804b1-441bbeda9d2mr172755895e9.17.1746538291112;
+        Tue, 06 May 2025 06:31:31 -0700 (PDT)
 Received: from localhost (p200300e41f281b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f28:1b00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3a0b300873dsm638165f8f.78.2025.05.06.06.31.27
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-441b2b28718sm217245765e9.36.2025.05.06.06.31.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 May 2025 06:31:27 -0700 (PDT)
+        Tue, 06 May 2025 06:31:30 -0700 (PDT)
 From: Thierry Reding <thierry.reding@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>
 Cc: Jon Hunter <jonathanh@nvidia.com>,
 	linux-tegra@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 02/11] dt-bindings: mailbox: tegra-hsp: Bump number of shared interrupts
-Date: Tue,  6 May 2025 15:31:09 +0200
-Message-ID: <20250506133118.1011777-3-thierry.reding@gmail.com>
+Subject: [PATCH 03/11] dt-bindings: mailbox: tegra-hsp: Properly sort compatible string list
+Date: Tue,  6 May 2025 15:31:10 +0200
+Message-ID: <20250506133118.1011777-4-thierry.reding@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250506133118.1011777-1-thierry.reding@gmail.com>
 References: <20250506133118.1011777-1-thierry.reding@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_063130_266164_FDF21234 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20250506_063133_249965_75FC55B2 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,54 +102,30 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Thierry Reding <treding@nvidia.com>
 
-It turns out that some instances of the HSP block on Tegra264 can have
-up to 16 shared interrupts, so bump the maximum number of allowed
-interrupts.
+We want these strings to be sorted in order of release date of the
+chips, so the Tegra264 entry should go after the Tegra234 entry.
 
 Signed-off-by: Thierry Reding <treding@nvidia.com>
 ---
- .../bindings/mailbox/nvidia,tegra186-hsp.yaml | 21 ++++++++++++++++++-
- 1 file changed, 20 insertions(+), 1 deletion(-)
+ .../devicetree/bindings/mailbox/nvidia,tegra186-hsp.yaml        | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Documentation/devicetree/bindings/mailbox/nvidia,tegra186-hsp.yaml b/Documentation/devicetree/bindings/mailbox/nvidia,tegra186-hsp.yaml
-index 2d14fc948999..df6784a7c96a 100644
+index df6784a7c96a..cbc02b2a156a 100644
 --- a/Documentation/devicetree/bindings/mailbox/nvidia,tegra186-hsp.yaml
 +++ b/Documentation/devicetree/bindings/mailbox/nvidia,tegra186-hsp.yaml
-@@ -76,7 +76,7 @@ properties:
- 
-   interrupts:
-     minItems: 1
--    maxItems: 9
-+    maxItems: 17
- 
-   interrupt-names:
+@@ -66,10 +66,10 @@ properties:
      oneOf:
-@@ -84,6 +84,25 @@ properties:
+       - const: nvidia,tegra186-hsp
+       - const: nvidia,tegra194-hsp
+-      - const: nvidia,tegra264-hsp
        - items:
-           - const: doorbell
+           - const: nvidia,tegra234-hsp
+           - const: nvidia,tegra194-hsp
++      - const: nvidia,tegra264-hsp
  
-+      - items:
-+          - const: doorbell
-+          - pattern: "^shared[1]?[0-9]$"
-+          - pattern: "^shared[1]?[0-9]$"
-+          - pattern: "^shared[1]?[0-9]$"
-+          - pattern: "^shared[1]?[0-9]$"
-+          - pattern: "^shared[1]?[0-9]$"
-+          - pattern: "^shared[1]?[0-9]$"
-+          - pattern: "^shared[1]?[0-9]$"
-+          - pattern: "^shared[1]?[0-9]$"
-+          - pattern: "^shared[1]?[0-9]$"
-+          - pattern: "^shared[1]?[0-9]$"
-+          - pattern: "^shared[1]?[0-9]$"
-+          - pattern: "^shared[1]?[0-9]$"
-+          - pattern: "^shared[1]?[0-9]$"
-+          - pattern: "^shared[1]?[0-9]$"
-+          - pattern: "^shared[1]?[0-9]$"
-+          - pattern: "^shared[1]?[0-9]$"
-+
-       - items:
-           - const: doorbell
-           - pattern: "^shared[0-7]$"
+   reg:
+     maxItems: 1
 -- 
 2.49.0
 
