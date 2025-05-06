@@ -4,56 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FBD2C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36441C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:34:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
 	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p2gBbpdh0MU9XUpo9IR2GfSrQFpk/4KHCIH0J7/qXS4=; b=sepJ8ct8EIkQpRabSeSWFSh7zj
-	6+g62zdCJEFvqqSXhJ0W2EO2j4vftL5ERALx6mlXOTH0OmaetoYX20TPzM6VJee1+2w76MnLxAk1T
-	QAfyfLELUR0s8/7SUc/oD27zQHFzgyaIDTGMqEbZz/iZvv6phCjZ1mwUW0XV7hJcjnpvN3uZcd5sh
-	8WnXGR3DtEHRdYkHxABWcR50fJ+VDbuFwIrdjCrKpxuiLL4aQQOEm1vICxYKOjiRxOARQ0oxyM2cx
-	wZfsou1Y4bpHds/XUiw0U1IJq64UjFqAPM0ML/4ID0uiqrCqIfW4uA4Ly/6aZPyFObLw0EItIaXmA
-	sWeoHTtg==;
+	bh=UKDHa0bNqRGou8tssWC4DP+HvyHvliqv34GyV/Vyj6Q=; b=41BaTlZB20wr0BR+SPKzLlH818
+	T1rgriGEY+uOhJpvXNDvbszCX9QNqC1PgNIONfyNx0XNHY/g2kbQxJq5LGSaTggeXxCS2TqXE+7Ij
+	PQm5aekptt3lZ8h1s117myE8k/KA4z1YMyAIs68+WrNwwm/OSpywweJt1dNQkQ7gRPLmkUoB2sOP5
+	BZb9JjAyOaRO2KzXychRMMKSa0dvmRI6eqsqIYGtqyU8f6p/l4R9rhIbWmxDsrtkMNNPiK0mN+27n
+	Xszxxnc3uY4/9A5h/FGMGzgayO9b8NVfWTX8V4YIuWJjF7KsFRUALsqG5mN7Az/SmcHGQozkU4od5
+	RPDQE1iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCUbN-0000000DvyD-2TCV;
-	Wed, 07 May 2025 02:33:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uCUbR-0000000Dw3Y-2Esb;
+	Wed, 07 May 2025 02:33:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCPcY-0000000DQ0M-3iZZ
+	id 1uCPd8-0000000DQ1U-3sP4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 21:14:34 +0000
+	Tue, 06 May 2025 21:15:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DB1AB6115D;
-	Tue,  6 May 2025 21:14:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66D3CC4CEE4;
-	Tue,  6 May 2025 21:14:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7A8F243D4F;
+	Tue,  6 May 2025 21:15:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41F4CC4CEE4;
+	Tue,  6 May 2025 21:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746566073;
-	bh=p2gBbpdh0MU9XUpo9IR2GfSrQFpk/4KHCIH0J7/qXS4=;
+	s=k20201202; t=1746566109;
+	bh=UKDHa0bNqRGou8tssWC4DP+HvyHvliqv34GyV/Vyj6Q=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=ANoedxDePhtZvl/6IQfyofQo7GLHiGR/KaIr7LrvkCemRtnMhlSEyT2QBHL+xfHVx
-	 j3TlgGwDCt82lTPWeSzokMYT435bmV14bm7suZ3sA2SJDQu7ITsb/5YcH4hWvq+S39
-	 Jr0LC++E0JvUVgBxRmiAySdjk/+ondjBshHMmZewy/l+Fpgj37M52sE3n4inzRCgvl
-	 s1NvI4hhYHLBUVoxZp111sSJLYWoE95VScl96+IcJeUXLWslRvR+MSXa2cLr/H3w4c
-	 cfc7uqYDlsGCF+qvNQJVSz9F54jf4iNBBzCAnFHQ+hAhTomOD35oZxMLTkrj+ms8ga
-	 YvdGQenSZA2EQ==
-Message-ID: <66f58453c245b08aa709cce3482ac4c0@kernel.org>
+	b=Lf5pmecR/+hvX5yBph9kRNqb/T/VN8CvscGLViGx20XpFvd204wWNIweCzGnFEs7f
+	 gbZ6Zh6B+ppM9NxyAehlXoYUbgdwThSzR33NLcZ6BEjaucB+2pvrXKSzvJFXYMFmW4
+	 M8RUbVPcZ2tUXBVtJpZTo7gglW50EsQemQ3SbHEe1dB/tR0tI3mdx/NpqykILiREKI
+	 D9n4KPuaBOav/Z4u7kt0SUA1UGz+x+RSFWeiqJSnHklfESqK1prvR9cmjN0A/YgErX
+	 Qcio5j9h/damgAm/3SD0UtpCcDyYgN7R9jVnalDF46wyj7JHPEYMM+PDKGR9u8mJjk
+	 zC8IdijU1AcLg==
+Message-ID: <673e96e58a1f5043c7a073b8f971d29c@kernel.org>
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250503080949.3945-1-wahrenst@gmx.net>
-References: <20250503080949.3945-1-wahrenst@gmx.net>
-Subject: Re: [PATCH] dt-bindings: clock: convert bcm2835-aux-clock to yaml
+In-Reply-To: <20250505161933.1432791-1-robh@kernel.org>
+References: <20250505161933.1432791-1-robh@kernel.org>
+Subject: Re: [PATCH] dt-bindings: clock: Drop st,stm32h7-rcc.txt
 From: Stephen Boyd <sboyd@kernel.org>
-Cc: Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com, kernel-list@raspberrypi.com, devicetree@vger.kernel.org, Stefan Wahren <wahrenst@gmx.net>
-To: Conor Dooley <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, Stefan Wahren <wahrenst@gmx.net>
-Date: Tue, 06 May 2025 14:14:31 -0700
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Michael Turquette <mturquette@baylibre.com>, Rob Herring (Arm) <robh@kernel.org>
+Date: Tue, 06 May 2025 14:15:07 -0700
 User-Agent: alot/0.12.dev8+g17a99a841c4b
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250506_141510_984252_CC049ED3 
+X-CRM114-Status: UNSURE (   5.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,12 +72,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Stefan Wahren (2025-05-03 01:09:49)
-> Convert the DT binding document for BCM2835 auxiliary peripheral clock
-> from .txt to YAML.
+Quoting Rob Herring (Arm) (2025-05-05 09:19:32)
+> The binding is already covered by st,stm32-rcc.yaml.
 >=20
-> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 > ---
 
-Applied to clk-next (and dropped the label)
+Applied to clk-next
 
