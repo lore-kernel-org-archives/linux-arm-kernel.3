@@ -4,75 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC8BC3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 09:36:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3107EC3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 09:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6d6BXuUJXXlNwGnFenAMUb1+dNhi1LLJW/o0DoOYUc4=; b=s/hPzALZXz7CqbZHKqHFJApTrT
-	vz8gCDdUenc3IesHxvKy+5KRnRUjJudVxJNmtttWdqW2YeuyHLViwwEftFl+aP1+SE/U5ktvU8/7g
-	NFXFla3DTaLSmb9fWg8dRFiBSgdaMtBovDyKK7cUjQvzztoNa6c98JqQCLgGe2p1BU5w5TnL0OD3k
-	NeK6vUFpRou5iDtnKPRqKTTNnzFXu8AMpfCK9q4szen77RDSUGiGHhTESkTF9oTO4GMVbEfIVfIml
-	uBjMMDWr6LTdeuuDsG6gkwWNzck/PmOeLTyoChJjo1UM7DhJe5xD1kY8+zliWDrfX61wi05zjVnKr
-	7uixm3lA==;
+	bh=JaF4HJ/DNDxWc7mYVleeWmEFWB04gncRwOOvOd0VtyU=; b=RI8DjdszFG0tILHTZnMCQ3EPX4
+	LKu6c+J2k81BmVeshkNUrxcb2SgpaiYzwsfAr9ecReTHhdC9AwaSLszK/aesPQpKomsEJYsRDTfkW
+	44ennSV2wSdBOfGp1p/JoDJ6LFUv8xK652lebzlyMEOsbmbZ5Bl/RX20EkixNIWCh3L2rlil8r6kZ
+	1twbE4A7g6Z/9iUxyd8A1yCrYcYCu8jKAe4yG7hN7mNG/S0CKiV/aydEqeC/X52Bm/TS5vC5cX659
+	DV0fCQfyX849VfPAxTu9negQc8cy+Gcmj1YHcdpGzbaSErHVAQfq3lGJepwmvLi3D4fQI7GV+i5J5
+	dynsxfDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCEiL-0000000BP9m-3jUD;
-	Tue, 06 May 2025 09:35:49 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uCEkG-0000000BPeS-0ZoE;
+	Tue, 06 May 2025 09:37:48 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCDtA-0000000BCfJ-0BaV;
-	Tue, 06 May 2025 08:42:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1746520974;
-	bh=F3dtZtfd8sl1XZfT8M5NMHOnj5cKiMAgsEOR1aqdr6U=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Rv++PX5YnRbe1dXiOufvraYla5D0NWb/6s+6JD5AA3B6FoN/SegaGrRC6IHGdxVD0
-	 TNIsIj0OE9zu65/1Qpmjhpj8lhBjHCcLa+ceewQZFQ1CgK0CHjob1zBMDC25c17rIc
-	 pzod58fsLIUPj6W/LkxLNKrVmY6r29JBY+BDKT/xslesJ9oS0EMgswwM1vmbKdJujI
-	 fDN2xvIH2Jpey+9r1zRx1jfA5TZAcvIegh5NyubUmaohozZ00Utw9tzE6KcdSDuFBQ
-	 juSiKrI+o82NKlLKgqWUo2C3qe98W0abkcAxWDsfz3DNrcIYGP35Y1W4nFd5/TQb+0
-	 dPg2LT6M9+17Q==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 75C2C17E153D;
-	Tue,  6 May 2025 10:42:53 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: kernel@collabora.com, Sen Chu <sen.chu@mediatek.com>, 
- Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
- Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
- Hui Liu <hui.liu@mediatek.com>, Yong Wu <yong.wu@mediatek.com>, 
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, 
- Tinghan Shen <tinghan.shen@mediatek.com>, 
- Julien Massot <julien.massot@collabora.com>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, iommu@lists.linux.dev
-In-Reply-To: <20250505-mt8395-dtb-errors-v1-0-9c4714dcdcdb@collabora.com>
-References: <20250505-mt8395-dtb-errors-v1-0-9c4714dcdcdb@collabora.com>
-Subject: Re: (subset) [PATCH 0/4] mt8395/mt6359: Fix several dtb-check
- errors
-Message-Id: <174652097340.119919.13115180921625978268.b4-ty@collabora.com>
-Date: Tue, 06 May 2025 10:42:53 +0200
+	id 1uCDwu-0000000BDG0-29oq
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 May 2025 08:46:50 +0000
+Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-47686580529so63151241cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 01:46:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746521207; x=1747126007; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JaF4HJ/DNDxWc7mYVleeWmEFWB04gncRwOOvOd0VtyU=;
+        b=kzLSMqlJrYa2sgtD3LyawJifp83dq/w6CxLFMC0d2wkvdP277j0hUa/dDIzWQUvolJ
+         H2mcH3FeFtIP3KUFUn+VZ4EjysjvEifytqMxoUwYDjfgbf9OcSB0tiaE9O4pA7XknR75
+         JncJYjDUQAFc4wXW5SvMxMROx3Xeng1ImYOMT2YECH7yIJhdHnvbbY9eMXUR9BlzGNCx
+         3F7VK0GZYhSq+1JwJaVheSWqP+IliSLyG5IT66vpgImzZ2kap9c8wnH66RyRJkwlpBB8
+         PIMFTodm9ZC0k8vllDHRSWka4n6v6V/3c0uUZ9o5Ytkniw+OII6WvN6DEmBx8P+hKL/w
+         m+Uw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746521207; x=1747126007;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JaF4HJ/DNDxWc7mYVleeWmEFWB04gncRwOOvOd0VtyU=;
+        b=T/s3byFlTkgGgksHWNd58AFHsyoIclbnqRSBb3EqOpNgYd0ycsy6IrYQUpbyGyFA+7
+         WERM+Eb6mzEVEz51cm2JBPq2Q5Kj5qTYSynlyWeZzL2z4+F5KrnGVl8pGhJSH89RXZED
+         X80WM+Qgc8hFqzP/OnXQrlA31EuSyK7ywi6nXziD7AhlN4c7wsjxaIgAnUtuXrlu8UoN
+         ZRCrN1eEhUCAlUmi4MshJwtBWv2xKWmcKTTZOLIGf8bWeqWQsaTu1V/6LRV2tQ+SQjkm
+         QYldrJ3/CUWrhkYclBIWsuiXW9EROzUh1vjIKVZwpwW62LX3y9U2xLecamPB6R9CFmx0
+         WzcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV4Thd5zob+D8PHYvGQ2v8YrEJKoi7X6gGRJe8SY83at0Y1f0ORqpL15GPPnmXmGu2zuzyGuuvPpm8m5M+FMHao@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywgbw5XG4RXagfef1Y26EYQRzdIqJK8geDDXRIiHp4iNbMNEk60
+	HbPxcYFPsQ5PrA3PA6yBhzWtnr16qyRkyuKdLnmgZiKNzhJcy+HkSOXtUER3WXA7wCK4rkXwfC9
+	H6XEGO3Ch2psFgRJCwimCjBNhIL0=
+X-Gm-Gg: ASbGncu1McDjrL+om7fIj3L6iRtLOr6iJRubyLJsrH2ieDNWT+7B9qlRkCrOuyvrwx4
+	RdEA/RZHHYsoRtfLOclffEUL+Wx813c1UzNo/u9nJutclhXddaZ6rvL6Hpz5CNmYcFWUopO38/o
+	fCYH/DxVEcCMq9K99fzfj+
+X-Google-Smtp-Source: AGHT+IGlEuItqzObUKcbXYxxDqx46QQtqpueW7Pn73XKkWFGhrY8Qavv/aSA1QhLFO/Kf1hJqBGFC2xioJ+yt8j06DE=
+X-Received: by 2002:a05:622a:14f:b0:48d:4887:982f with SMTP id
+ d75a77b69052e-48dff3e0ac5mr130626621cf.8.1746521206742; Tue, 06 May 2025
+ 01:46:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+References: <20250424-vt8500-intc-updates-v1-0-4ab7397155b3@gmail.com>
+ <20250424-vt8500-intc-updates-v1-1-4ab7397155b3@gmail.com> <87ldranq87.ffs@tglx>
+In-Reply-To: <87ldranq87.ffs@tglx>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Tue, 6 May 2025 12:46:35 +0400
+X-Gm-Features: ATxdqUGKBoSj_e6rwt1rEvtM0FWrRpwvATKmpnJREd3tdfy5PfkFv7VRK23vf54
+Message-ID: <CABjd4Yx5O-ivpyZ3ewx5dfLPR2q7N9HU5t9-uOoEDZa3y2woFQ@mail.gmail.com>
+Subject: Re: [PATCH 1/5] irqchip: vt8500: Split up ack/mask functions
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_014256_231205_558E64B3 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250506_014648_549634_9E9FBE78 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,24 +95,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 05 May 2025 15:23:36 +0200, Julien Massot wrote:
-> This patch series addresses several dtb-check errors reported for the mt8395-genio-1200-evk.dtb and mt8395-radxa-nio-12l.dtb device trees.
-> 
-> The fixes include:
-> - Adding the missing #sound-dai-cells property in the mt6397 binding.
-> - Allowing up to 5 interrupts in the MediaTek IOMMU binding to support MT8395 properly.
-> - Defining the required compatible property in the regulators node of the mt6359.dtsi.
-> - Renaming the rtc node to match expected schema naming.
-> 
-> [...]
+On Tue, May 6, 2025 at 11:38=E2=80=AFAM Thomas Gleixner <tglx@linutronix.de=
+> wrote:
+>
+> On Thu, Apr 24 2025 at 22:35, Alexey Charkov wrote:
+>
+> Please do not make up subject prefixes. See
+>
+> https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#patch-=
+submission-notes
 
-Applied to v6.15-next/dts64, thanks!
+Thanks for the pointer Thomas. Will change the prefix to
+"irqchip/irq-vt8500:" in v2.
 
-[3/4] arm64: dts: mt6359: Add missing 'compatible' property to regulators node
-      commit: 1fe38d2a19950fa6dbc384ee8967c057aef9faf4
+Looks like the older commits I was relying on for the preferred prefix
+didn't follow the prescribed format themselves - oh well :)
 
-Cheers,
-Angelo
+Ref:
+0953fb263714 ("irq: remove handle_domain_{irq,nmi}()")
+1a59d1b8e05e ("treewide: Replace GPLv2 boilerplate/reference with SPDX
+- rule 156")
+d17cab4451df ("irqchip: Kill off set_irq_flags usage")
+d2aa914d27f1 ("irqchip/vt8500: Use irq_set_handler_locked()")
+41a83e06e2bb ("irqchip: Prepare for local stub header removal")
+9600973656c6 ("irqchip: Constify irq_domain_ops")
+0beb65041e86 ("irqchip: vt8500: Convert to handle_domain_irq")
+8783dd3a37a5 ("irqchip: Remove asmlinkage from static functions")
+e658718e478f ("irqchip: vt8500: Staticize local symbols")
+06ff14c05426 ("irqchip: vt8500: Convert arch-vt8500 to new irqchip
+infrastructure")
 
-
+Best regards,
+Alexey
 
