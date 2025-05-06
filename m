@@ -4,102 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 638A8C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 12:46:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04A21C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 12:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OerV0UxutKOzCYvF95TGs6Kvaz5IA/e67MGn1c0G1iQ=; b=BqfknX8TZU2NNbouhnoR2ZskK2
-	QdXb4BzAClTOKi/nineJ3TUQKni5UF+an/HKVIvEedEaj20JJgFsp7uZJLXDjBVFFEgvjCZSmPmzh
-	gK7pCKpK7kH2CaSPMnDruF0GLze1Lw2ZdeYwpYb9amrCdhUhL6YWrX8wgVEhpEqboaqFiKwlkSxs9
-	hVLMccRXXhpmZFcxEpFmKp8eODTwARZp68RxJNXswqkQzdTrPhTR5i3ioxAC28HVsvHzDfXbTfIzj
-	jxZeIWnPkXBs7V88vBGQHhJtNgVCEgG973eRa8/wSRRPJgjbHVY66tXVIf95auQl8xjPOBDOzWwNc
-	UDORh7ZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=83BB7SmwDzPYUhpIg9noheded8S+cXeSPX7ePATlnPI=; b=fMiS39INoqdqXvVZ70FicO09am
+	fjEvP4eEHd/rh/t560wz/gMuK2rjBm8taLjQ6OACumRzu7cLbLcE/N4eO+pMTNZRTZI5eEfriVvLq
+	00jCkSL/mbQbloI+vj6JU5gFSF9koXqThhURUg+MzXeWcSzCuzLPAWj0cRHM/7FF7FX6h00K2amb5
+	VG3BXlys76W21fzQdfBRxAAUlYGr3MVRgk1bOdIiWwBXf9ipTGFvlwbIOhvtCnjIyeAg7waRT4Nhu
+	o0ccE+YcBR8BToLZycHB1LTaDQS6XaR/4CiyuPJ8Rnq0iZ3LxYVEXCg/FCQTwXJ36Um9F+TrytZyQ
+	AqIG8MjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCHgc-0000000BxbR-1IpZ;
-	Tue, 06 May 2025 12:46:14 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1uCHiW-0000000By0g-19CB;
+	Tue, 06 May 2025 12:48:12 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCFak-0000000BZuz-0haa
+	id 1uCFfH-0000000BadU-05gz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 10:32:03 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-39c1ef4acf2so4296906f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 03:32:01 -0700 (PDT)
+	Tue, 06 May 2025 10:36:45 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-39ee682e0ddso3666247f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 03:36:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746527521; x=1747132321; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OerV0UxutKOzCYvF95TGs6Kvaz5IA/e67MGn1c0G1iQ=;
-        b=dIyG3ADck3un8FuCXnD7+XKe2nLsLZRnpkJb0dhTn1q1no+o/+rmged2diBgQVTzKr
-         p8mQoXPObAimJrJ8tpfHZg/XyOC12SEJC1PnGIuF0aWjk6vZbpM85gMAyzTdnbmJNiN0
-         Gr7gS6FLQIOpwrqNVaKAzyNtHZGDdesHABiPeG91fv1D6HgqHcZhnxSWZKIqfcaCLTse
-         J/D1bxq542rXoQOICuwdzvHtZibbHGGiHWvLbhVFWevLiGxxZ5TG7dPpHWM03kJ3/QxP
-         HHya6UYaLtQqGxZ9olIyQ16Js9h0uArYkoicARgI4IJk5vodPZvQLNt2do6PM8/JwxoM
-         1BcQ==
+        d=google.com; s=20230601; t=1746527800; x=1747132600; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=83BB7SmwDzPYUhpIg9noheded8S+cXeSPX7ePATlnPI=;
+        b=DXaSFwpdT2CVZYXOlZat7kJr5wuD0/pzixIwU/hc566fIJpNrVjjG3XN2/a4tBOXIi
+         4yQsA1NoeJL7CrQgKD+vRi5dkxI/vObXeOzMo/xENN8ubXc1V7l84Hz1N1syEQ7yOnYX
+         81nYIPRBFJF2r1k1YzGy0X6cr9FlwT89y1jFEl8fXwqFXNg1H4oGe7mix4teDi3bgoSO
+         qg2j05ebGndKxIRxE0ycZBvhqLWAzKpY+iksocCiVhudhjhlJFwfkbMaMdtC4XaJPfCG
+         uRlOBR6PN/dU9ZxCjfRIpRsVajDCxXrlmSPjJGY/t68npKWOcWKMmZRpV1+1PxIuLjFv
+         rP1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746527521; x=1747132321;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=OerV0UxutKOzCYvF95TGs6Kvaz5IA/e67MGn1c0G1iQ=;
-        b=qWretEox8MhSENXwYzeiVSi+uaHTrtYhT4Xy0WzT9VmhvW/Z9BEM1YLwJnOjuhKCDV
-         QSQY/jIFfP3R3enhvPg/ksJSCriidgpHH1QrPmCWMrIt0jADCbbJswHjrmgynXE/yF+3
-         fCzi4O4igTjoXZiJDNJdbuWJDhxyfFmENcnSNkZPQH9yZGgcZc9HJbjecb/hITgGpRp0
-         b1rTCqrRM5D61kXcn5vIbW93b39IFOjaRH4sJfPKl/DJVrEqRYI5/z+pEzdx5/DHTkCJ
-         9gjew5aWEDPPrefpwrCeKeGBSxlFubphV9xTJhpVpyEBUuqQHixrRQMTQjTSkX6Mpm7+
-         ja3w==
-X-Forwarded-Encrypted: i=1; AJvYcCXxW57pyXaaa0vX74xq50/JT2w2tD18cJat7wnN9pbwKXpuCckq2J1gcOTvPcj7Gy8ELKiaq0x14HCrJYVisKF1@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRCz2Qx7XShCHGRzGxrJERNc+v3kzVhfhNofVfGoyO1j4ye0mM
-	5X5H5LIMC5ifFp5G+YdSBbL7Kn2IZN1cePraKj+Sb2y/mu6MjCbT
-X-Gm-Gg: ASbGnctnkeKJhxCIwyUOx3TqyGos4KqcA+VUw6mr0ybC5bSkYw24CnbGISGga/QQtWs
-	59Rzq4rQI5Yoo+tTb6+tFWSO7pnfBVnkFBLP/vhNIUXER9ra3YT3YRnvxBmAWU/0IJ4Ou9qaupS
-	BC3bIOJvASFEbSsZb+Igl7A64w5nYHtnKaIrcuYwR7TeTSVdfivlMKCUSolCBbIIz3M+7F4AE50
-	X6nqC0LM7RpNM/tOZib6bVLCIp0JM6IiD/2rBCR0zR84ngkO6LBZu/zYr4Bwf8rO6qfP1y9omwj
-	gPUzBSN2U7k73iIBf92tkLhYq7dIXf+6Jb0xXAHcHYpr0LAqslg6ZMOonGQA7UZVKA==
-X-Google-Smtp-Source: AGHT+IErh7yQXsQGDQe0taMpsU2js1b5QKttN2MDxoVzQ3fdYdk82BR9U6VsLRzI3uXhnHgTjePkyw==
-X-Received: by 2002:a5d:5f41:0:b0:3a0:85b5:463b with SMTP id ffacd0b85a97d-3a09fdd83bamr7522458f8f.48.1746527520309;
-        Tue, 06 May 2025 03:32:00 -0700 (PDT)
-Received: from iku.Home ([2a06:5906:61b:2d00:26ec:c7bf:3d4f:d8ea])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b89cc469sm166148695e9.6.2025.05.06.03.31.59
+        d=1e100.net; s=20230601; t=1746527800; x=1747132600;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=83BB7SmwDzPYUhpIg9noheded8S+cXeSPX7ePATlnPI=;
+        b=ZdRvo/UFDvEJMGoMNOoJn+w+7maYQpa35FgwMdM+9F00lT5FVtV47M/VWuDratIpOH
+         rYR7e/V828Qzc9KEgoEi+qi2tir+MKZGMIfMFb+zDlTYbtSrpurkZYJuKSVC7KltJ5ja
+         27EwhMIxJOCluGjO6+gZ/M+iLnmMPfAzgxKdNSIbu+nyMLJo5VAxdhBvQiGj/k7FQR3y
+         FUbChDqZcQYdg1LF/2M+Hq0muyNxl51NIk13x7lH+ZwvKJAraWS+C7Vgsph362JPC9vk
+         4IQK8CxIYsdegvMiF63sZbya3jeJ4E+uI4tIHF1ntOl1+y1GRjlFO1Uu3CvCMeSyNqvR
+         mzRg==
+X-Forwarded-Encrypted: i=1; AJvYcCXsEGWwbNZVY8W+HA+IkGUlHLVU53lWZGWZOQFxqZhThmi6lo2xZRx/VUlRGTfl4jV4pmGrlu19uosMPFKGmmXU@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVvrsg663oWfDpJGvflL30ACeovOifGaHVCL/qtL2vfeTFfluK
+	jYSJ1BaxepxFvElp9D1RWK9LfV08UY9LGZWSiqvYFc94c2CU4xD8fpsJWmaGag==
+X-Gm-Gg: ASbGncsG4f4nD4Bs88pziKQBUgL90mVosvJiVYUQVgoxbgTWnXhLDLEBq6lzy+UIE+y
+	sNVncYuMiUzJsrAo0OMbqk1924XaNxw69/fdP5oaRgQcl/1FBGsEh3eaKCT8I0K2seQVPoJ/VsF
+	glgYvF+FmVzxIh3Q9U199HKzAgVU/+47uClVi0dxtaC0UK0RNME0KlLRBm97pUOKDeqRMO6zy9T
+	gNDmfAe87c7zFVqcxVp+MWcBw5jnDdbWTLxdvN3GflNkaob+AFX8k9qJizaS873FDCHOJ3wwi1Z
+	Q0n7kf7OPUEW1lNzQnNjznZ+eq5UEtx4jwg52omoV2OGc/AsEwVq+nesmJXTfjr951MOxxBJnK8
+	V8/DsiQ==
+X-Google-Smtp-Source: AGHT+IG2CayH2yxmNUdwN95+efpUFPMFHxnxBFQj2axpQ8sGyin+5/PNn5XBefvcRCOTd+k50QaHVw==
+X-Received: by 2002:a5d:5f8a:0:b0:3a0:7a7c:2648 with SMTP id ffacd0b85a97d-3a0ac0eaa24mr2087956f8f.27.1746527800468;
+        Tue, 06 May 2025 03:36:40 -0700 (PDT)
+Received: from google.com (24.204.140.34.bc.googleusercontent.com. [34.140.204.24])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a0b0dffaa1sm1179414f8f.31.2025.05.06.03.36.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 May 2025 03:31:59 -0700 (PDT)
-From: Prabhakar <prabhakar.csengg@gmail.com>
-X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-To: Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Chris Brandt <chris.brandt@renesas.com>
-Cc: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Prabhakar <prabhakar.csengg@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v3 2/2] clocksource/drivers/renesas-ostm: Unconditionally enable reprobe support
-Date: Tue,  6 May 2025 11:31:52 +0100
-Message-ID: <20250506103152.109525-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250506103152.109525-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20250506103152.109525-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+        Tue, 06 May 2025 03:36:40 -0700 (PDT)
+Date: Tue, 6 May 2025 11:36:35 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Sebastian Ott <sebott@redhat.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Fix uninitialized memcache pointer in
+ user_mem_abort()
+Message-ID: <aBnmM7DSonZr_VHC@google.com>
+References: <20250505173148.33900-1-sebott@redhat.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250505173148.33900-1-sebott@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_033202_204754_FA0CE3F8 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20250506_033643_063178_A0988ADF 
+X-CRM114-Status: GOOD (  23.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,62 +103,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+On Mon, May 05, 2025 at 07:31:48PM +0200, Sebastian Ott wrote:
+> Commit fce886a60207 ("KVM: arm64: Plumb the pKVM MMU in KVM") made the
+> initialization of the local memcache variable in user_mem_abort()
+> conditional, leaving a codepath where it is used uninitialized via
+> kvm_pgtable_stage2_map().
+> 
+> This can fail on any path that requires a stage-2 allocation
+> without transition via a permission fault or dirty logging.
+> 
+> Fix this by making sure that memcache is always valid.
+> 
+> Fixes: fce886a60207 ("KVM: arm64: Plumb the pKVM MMU in KVM")
+> Signed-off-by: Sebastian Ott <sebott@redhat.com>
+> Reviewed-by: Marc Zyngier <maz@kernel.org>
+> Cc: stable@vger.kernel.org
+> Link: https://lore.kernel.org/kvmarm/3f5db4c7-ccce-fb95-595c-692fa7aad227@redhat.com/
+> ---
+>  arch/arm64/kvm/mmu.c | 13 ++++++++-----
+>  1 file changed, 8 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 754f2fe0cc67..eeda92330ade 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1501,6 +1501,11 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>  		return -EFAULT;
+>  	}
+>  
+> +	if (!is_protected_kvm_enabled())
+> +		memcache = &vcpu->arch.mmu_page_cache;
+> +	else
+> +		memcache = &vcpu->arch.pkvm_memcache;
+> +
+>  	/*
+>  	 * Permission faults just need to update the existing leaf entry,
+>  	 * and so normally don't require allocations from the memcache. The
+> @@ -1510,13 +1515,11 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>  	if (!fault_is_perm || (logging_active && write_fault)) {
+>  		int min_pages = kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu);
+>  
+> -		if (!is_protected_kvm_enabled()) {
+> -			memcache = &vcpu->arch.mmu_page_cache;
+> +		if (!is_protected_kvm_enabled())
+>  			ret = kvm_mmu_topup_memory_cache(memcache, min_pages);
+> -		} else {
+> -			memcache = &vcpu->arch.pkvm_memcache;
+> +		else
+>  			ret = topup_hyp_memcache(memcache, min_pages);
+> -		}
+> +
+>  		if (ret)
+>  			return ret;
+>  	}
+> 
+> base-commit: 92a09c47464d040866cf2b4cd052bc60555185fb
+> -- 
+> 2.49.0
+> 
+> 
 
-Previously, the OSTM driver's platform probe path was only enabled for
-selected SoCs (e.g., RZ/G2L and RZ/V2H) due to issues on RZ/Ax (ARM32)
-SoCs, which encountered IRQ conflicts like:
+For the pKVM part 
 
-    /soc/timer@e803b000: used for clock events
-    genirq: Flags mismatch irq 16. 00215201 (timer@e803c000) vs. 00215201 (timer@e803c000)
-    Failed to request irq 16 for /soc/timer@e803c000
-    renesas_ostm e803c000.timer: probe with driver renesas_ostm failed with error -16
+Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 
-These issues have since been resolved by commit 37385c0772a4
-("clocksource/drivers/renesas-ostm: Avoid reprobe after successful early
-probe"), which prevents reprobe on successfully initialized early timers.
-
-With this fix in place, there is no longer a need to restrict platform
-probing based on SoC-specific configs. This change unconditionally enables
-reprobe support for all SoCs, simplifying the logic and avoiding the need
-to update the configuration for every new Renesas SoC with OSTM.
-
-RZ/A1 and RZ/A2 remain unaffected with this change.
-
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
----
-v2->v3:
-- Dropped config check and unconditionally enabled reprobe support for all
-  SoCs.
-- Dropped Reviewed-by tag from Geert
-
-v1->v2:
-- Instead of adding config for new SoC, changed the probe condition to
-  `CONFIG_ARM64`.
-- Updated commit message
-- Added a Reviewed-by tag from Geert.
----
- drivers/clocksource/renesas-ostm.c | 2 --
- 1 file changed, 2 deletions(-)
-
-diff --git a/drivers/clocksource/renesas-ostm.c b/drivers/clocksource/renesas-ostm.c
-index 3fcbd02b2483..fcf7ac35a9f1 100644
---- a/drivers/clocksource/renesas-ostm.c
-+++ b/drivers/clocksource/renesas-ostm.c
-@@ -225,7 +225,6 @@ static int __init ostm_init(struct device_node *np)
- 
- TIMER_OF_DECLARE(ostm, "renesas,ostm", ostm_init);
- 
--#if defined(CONFIG_ARCH_RZG2L) || defined(CONFIG_ARCH_R9A09G057)
- static int __init ostm_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -246,4 +245,3 @@ static struct platform_driver ostm_device_driver = {
- 	},
- };
- builtin_platform_driver_probe(ostm_device_driver, ostm_probe);
--#endif
--- 
-2.49.0
-
+Thanks
 
