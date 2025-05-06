@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 260F9C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 19:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D311BC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 19:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WHYUOKK7U7WbuFeGCDoU47xdHUPnONWxq8l7VmN/M7s=; b=FilOYyKz8DAwbOlXQMI9JQZZW7
-	aBM9EkYtja6YzraCmG7A7DLLTEfuev9O9OOn5i9YPGu6m3KT4pU2YoBolo6fFxGLX0TEhjiCPfn7F
-	vxaYls2s0fA9EHY5ARxQzC/Os+OhXGP04/ptJWdIXXrw70CVM6J3MI1Bv6JJ9/ATpAvz1LYnPeS0i
-	KKS7WnHWKjTtSKaMgFcGxm2lvd1Bo5danvldpkCtkvuUcFktjm8WhH6RvclR/SyOCbL7W7fAKRMJX
-	MR1RgMy+4cwIkPdoSlZSa1/DQCMiKKHRz7oFKrPP49v7yvAvtRliv6Z35lnJIMdWUs9p+GFhpexAj
-	I5UCbIUg==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x/nMx09k8ctgwEbllfETLMdv/nByXxprATx5Arjen7k=; b=ML+BQ5HbrUVZkkloNR22F1lHyd
+	5AeJRzUH1toPMx+PlvhiYcoLGVia7tMTn9mTmRiU30xhfHYReusZ0kvMQc0e5Ek9FGEJO/dwNc2NG
+	9i8CbOjzmNAVNlcUy2XNE49iZdxOZGmU4DcFaeHk1DD7cgaETuOiv5xIkYzpeg/sPBFqPaJ4uRQne
+	P/QxyCiZQGfj1PmgZU2fCWgHopSs54JcQEbGtT4q1WUPicfI1xCxfQkN6mkTGNWfHRBeaH3saocIr
+	ye9M472OOTjd/ane2MYFDSKQcxvmy3Azl0z+weAGM0uNZb3Ip/py8qHjJb8e5xhfmGC5mGksAf9E7
+	gqfq85Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCNg3-0000000DCCJ-3Oe4;
-	Tue, 06 May 2025 19:10:03 +0000
+	id 1uCNi3-0000000DCTN-3ZWW;
+	Tue, 06 May 2025 19:12:07 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCKAp-0000000CUFM-0jP6
+	id 1uCKAt-0000000CUG5-0RvB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 15:25:36 +0000
+	Tue, 06 May 2025 15:25:40 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8722E1007;
-	Tue,  6 May 2025 08:25:22 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 31040113E;
+	Tue,  6 May 2025 08:25:26 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CD8833F58B;
-	Tue,  6 May 2025 08:25:29 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7958A3F58B;
+	Tue,  6 May 2025 08:25:33 -0700 (PDT)
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: broonie@kernel.org,
@@ -49,16 +49,17 @@ Cc: broonie@kernel.org,
 	tkjos@google.com,
 	will@kernel.org,
 	yury.khrustalev@arm.com
-Subject: [PATCH 00/20] arm64: FPSIMD/SVE/SME fixes + re-eanble SME
-Date: Tue,  6 May 2025 16:25:03 +0100
-Message-Id: <20250506152523.1107431-1-mark.rutland@arm.com>
+Subject: [PATCH 01/20] kselftest/arm64: fp-ptrace: Fix expected FPMR value when PSTATE.SM is changed
+Date: Tue,  6 May 2025 16:25:04 +0100
+Message-Id: <20250506152523.1107431-2-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20250506152523.1107431-1-mark.rutland@arm.com>
+References: <20250506152523.1107431-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_082535_257735_F3557DE9 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250506_082539_273855_DAC8B71C 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,65 +74,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+The fp-ptrace test suite expects that FPMR is set to zero when PSTATE.SM
+is changed via ptrace, but ptrace has never altered FPMR in this way,
+and the test logic erroneously relies upon (and has concealed) a bug
+where task_fpsimd_load() would unexpectedly and non-deterministically
+clobber FPMR.
 
-These patches fix a number of problems in the FPSIMD/SVE/SME code, and
-finally re-enable SME support.
+Using ptrace, FPMR can only be altered by writing to the NT_ARM_FPMR
+regset. The value of PSTATE.SM can be altered by writing to the
+NT_ARM_SVE or NT_ARM_SSVE regsets, and/or by changing the SME vector
+length (when writing to the NT_ARM_SVE, NT_ARM_SSVE, or NT_ARM_ZA
+regsets), but none of these writes will change the value of FPMR.
 
-There are a few (mostly minor) ABI changes detailed in the patches.
-Notably the clone() ABI is changed due to an incompatiblity with the
-AAPCS64 ZA lazy saving scheme and the way this has been deployed in
-userspace. The full details of that are in patch 13.
+The task_fpsimd_load() bug was introduced with the initial FPMR support
+in commit:
 
-The series is based on the for-next/sme-fixes branch from the arm64
-tree, and I've pushed the series to the 'arm64/fpsimd/sme-fixes' branch
-of my kernel.org repo, also tagged as 'arm64-fpsimd-fixes-20250506'.
+  203f2b95a882 ("arm64/fpsimd: Support FEAT_FPMR")
 
-That repo can be found at:
+The incorrect FPMR test code was introduced in commit:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git
-  https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/
+  7dbd26d0b22d ("kselftest/arm64: Add FPMR coverage to fp-ptrace")
 
-Mark.
+Subsequently, the task_fpsimd_load() bug was fixed in commit:
 
-Mark Rutland (20):
-  kselftest/arm64: fp-ptrace: Fix expected FPMR value when PSTATE.SM is
-    changed
-  arm64/fpsimd: Do not discard modified SVE state
-  arm64/fpsimd: signal: Clear PSTATE.SM when restoring FPSIMD frame only
-  arm64/fpsimd: signal: Mandate SVE payload for streaming-mode state
-  arm64/fpsimd: ptrace: Consistently handle partial writes to
-    NT_ARM_(S)SVE
-  arm64/fpsimd: Clarify sve_sync_*() functions
-  arm64/fpsimd: Factor out {sve,sme}_state_size() helpers
-  arm64/fpsimd: Add task_smstop_sm()
-  arm64/fpsimd: signal: Use SMSTOP behaviour in setup_return()
-  arm64/fpsimd: Remove redundant task->mm check
-  arm64/fpsimd: Consistently preserve FPSIMD state during clone()
-  arm64/fpsimd: Clear PSTATE.SM during clone()
-  arm64/fpsimd: Make clone() compatible with ZA lazy saving
-  arm64/fpsimd: ptrace/prctl: Ensure VL changes do not resurrect stale
-    data
-  arm64/fpsimd: ptrace/prctl: Ensure VL changes leave task in a valid
-    state
-  arm64/fpsimd: ptrace: Save task state before generating SVE header
-  arm64/fpsimd: ptrace: Do not present register data for inactive mode
-  arm64/fpsimd: ptrace: Mandate SVE payload for streaming-mode state
-  arm64/fpsimd: ptrace: Gracefully handle errors
-  arm64/fpsimd: Allow CONFIG_ARM64_SME to be selected
+  e5fa85fce08b ("arm64/fpsimd: Don't corrupt FPMR when streaming mode changes")
 
- Documentation/arch/arm64/sme.rst             |   6 +-
- arch/arm64/Kconfig                           |   1 -
- arch/arm64/include/asm/fpsimd.h              |  61 +++--
- arch/arm64/kernel/entry-common.c             |  46 +++-
- arch/arm64/kernel/fpsimd.c                   | 231 +++++++++----------
- arch/arm64/kernel/process.c                  | 112 +++++----
- arch/arm64/kernel/ptrace.c                   | 137 ++++++-----
- arch/arm64/kernel/signal.c                   |  36 ++-
- tools/testing/selftests/arm64/abi/tpidr2.c   |  14 +-
- tools/testing/selftests/arm64/fp/fp-ptrace.c |  62 +++--
- 10 files changed, 392 insertions(+), 314 deletions(-)
+... whereupon the fp-ptrace FPMR tests started failing reliably, e.g.
 
+| # # Mismatch in saved FPMR: 915058000 != 0
+| # not ok 25 SVE write, SVE 64->64, SME 64/0->64/1
+
+Fix this by changing the test to expect that FPMR is *NOT* changed when
+PSTATE.SM is changed via ptrace, matching the extant behaviour.
+
+I've chosen to update the test code rather than modifying ptrace to zero
+FPMR when PSTATE.SM changes. Not zeroing FPMR is simpler overall, and
+allows the NT_ARM_FPMR regset to be handled independently from other
+regsets, leaving less scope for error.
+
+Fixes: 7dbd26d0b22d ("kselftest/arm64: Add FPMR coverage to fp-ptrace")
+Fixes: e5fa85fce08b ("arm64/fpsimd: Don't corrupt FPMR when streaming mode changes")
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: David Spickett <david.spickett@arm.com>
+Cc: Luis Machado <luis.machado@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+---
+ tools/testing/selftests/arm64/fp/fp-ptrace.c | 14 +-------------
+ 1 file changed, 1 insertion(+), 13 deletions(-)
+
+diff --git a/tools/testing/selftests/arm64/fp/fp-ptrace.c b/tools/testing/selftests/arm64/fp/fp-ptrace.c
+index 4930e03a7b990..762048eb354ff 100644
+--- a/tools/testing/selftests/arm64/fp/fp-ptrace.c
++++ b/tools/testing/selftests/arm64/fp/fp-ptrace.c
+@@ -891,18 +891,11 @@ static void set_initial_values(struct test_config *config)
+ {
+ 	int vq = __sve_vq_from_vl(vl_in(config));
+ 	int sme_vq = __sve_vq_from_vl(config->sme_vl_in);
+-	bool sm_change;
+ 
+ 	svcr_in = config->svcr_in;
+ 	svcr_expected = config->svcr_expected;
+ 	svcr_out = 0;
+ 
+-	if (sme_supported() &&
+-	    (svcr_in & SVCR_SM) != (svcr_expected & SVCR_SM))
+-		sm_change = true;
+-	else
+-		sm_change = false;
+-
+ 	fill_random(&v_in, sizeof(v_in));
+ 	memcpy(v_expected, v_in, sizeof(v_in));
+ 	memset(v_out, 0, sizeof(v_out));
+@@ -953,12 +946,7 @@ static void set_initial_values(struct test_config *config)
+ 	if (fpmr_supported()) {
+ 		fill_random(&fpmr_in, sizeof(fpmr_in));
+ 		fpmr_in &= FPMR_SAFE_BITS;
+-
+-		/* Entering or exiting streaming mode clears FPMR */
+-		if (sm_change)
+-			fpmr_expected = 0;
+-		else
+-			fpmr_expected = fpmr_in;
++		fpmr_expected = fpmr_in;
+ 	} else {
+ 		fpmr_in = 0;
+ 		fpmr_expected = 0;
 -- 
 2.30.2
 
