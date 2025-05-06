@@ -4,163 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94FCCC3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 12:01:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A999C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 12:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vxxykNdg59t181owqQ4RUWtBGJ5yK1IONveQdMPC5Yk=; b=dgvpL74sfD/VVY45w5UKb8oc/j
-	sDOkhTLXVueyj0ST6zvucqxhK0GDlv6f/o/3VZZNx8OcWWAON8W1hy7LISbwt6bFgtw6l0aYQEUtE
-	rm4V0o2czd5O2S1iPj5ZKH2uVo/ANBGNzYws10hIraACiR5785/D50n0KHxCxoVRk6i1cdU34fXgq
-	/7VT+Z2LzAueh9lx6s9ZT1yxaUnYf+Taunxc9kFoP6y6U8Vm/NsMxe7lCK0Y/YUNqhsRNJDtY3oQq
-	Lwag1O0+vrA3k0jplPlpZhtfjKKwkMX41Xz3k7nS7pnkWCNSTE+7HIHGHQezFDUOIqVtQjPVVZgxp
-	hwYl2LmQ==;
+	bh=6PKyiTW7t9VlHIC0Fir8qyHkI243/6y/pnmH8hpJckY=; b=LcS6lh04AIGwA0HskEVgWtsYE/
+	05ivUZl2K8w2DWouBuUjIUzrWuRmF0ED3k++iIN8z3K93o5SI740z/nGtg1HaMxqXExJPeu9hQdyZ
+	ctkmZNTgBVzdDfl0kN5uLELurFGmxAHi5gbxE0SgiJR1Ua+5T/+0uf27V0KKSWA83i9Ryk0QGkaPe
+	HQxLTt7VFk0Zi1I5faQ030GvdVcJWBdQsvqrJv6laZ1lAtW5EL1jiHoBjVnob8B1ROKR56Fc0EwFR
+	No235hW1s2ewxH4DDdCBnW0MP8nIKm+9UAdghYdL/lRCywGFrABfWatZxVk4K5sgZbMbugwY1Sddm
+	+xSWQcbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCGyg-0000000BpdH-1Lcb;
-	Tue, 06 May 2025 12:00:50 +0000
-Received: from mx0a-001ae601.pphosted.com ([67.231.149.25] helo=mx0b-001ae601.pphosted.com)
+	id 1uCH0b-0000000Bq5P-0RoS;
+	Tue, 06 May 2025 12:02:49 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCETm-0000000BLAj-3okL
+	id 1uCEVc-0000000BLkU-3pEB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 09:20:48 +0000
-Received: from pps.filterd (m0077473.ppops.net [127.0.0.1])
-	by mx0a-001ae601.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5460Gxf4009174;
-	Tue, 6 May 2025 04:20:35 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=PODMain02222019; bh=vxxykNdg59t181owqQ
-	4RUWtBGJ5yK1IONveQdMPC5Yk=; b=MG0QX6wlVLpGTkvKQA3h1ObTmYSeX8ak2k
-	E8Tt2UX8M+88qHrEjfcv9pIxqlneWGG3p3VtZcdBmVTREgChQ/sqaLKT99BoN7Us
-	PUg3jtiCuy1+SQUed9RHoU2P059ASTK9R+EfgDH4V6bHV/rSvIpzfYvjllleaNBP
-	fnDK71IPGUfgxuJ11K1TYSbiqAS5iMfhue1ueeOOSF8jPy3gkqe6SEk/pCXj2iBU
-	nGPjSLuteHUdGi0kRp6fVJVjoFqIXfpceOSB47z6YxoKNMKeHK89lGe+nc8BpI62
-	CSXGMg4vfzpi8ZYlBSPRzYwAgwQsOSK17uteFpfEweA8qDG5itcQ==
-Received: from nam10-bn7-obe.outbound.protection.outlook.com (mail-bn7nam10lp2041.outbound.protection.outlook.com [104.47.70.41])
-	by mx0a-001ae601.pphosted.com (PPS) with ESMTPS id 46ew4n9cdc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 06 May 2025 04:20:35 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nDb9nh8iFwmkzxaZVEIKPBmcipeHwE53mpd8N/Kw9wicVvP9Wk0VaZkpiSfMuNWIiwNwocWgfjSLXd1tPxpuyJ/kL0T94FQk3Mq9nVtOq7a36kdWzw9y1TkKLVjCDOczg+PGW0yfVTDjKrEDQZB2qA6Ms3aLJQwx2fXcTSj7Dhb2HnPuNXAr6zvrYCNwL7BedYFhpFF1QGWc+4ILa4n91171hbbKFPlwL+ioJ+p6rypqjxyWpMc1D6ygEmp+W5rwFwmXt9bdjCU1WSfFsyPdBl8bIo+TqpipV2wWOsAHbulq0Z9LIBxBkbBSNHGaa7uu6ulPpW/3zlv7PvTDV+/Gfg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vxxykNdg59t181owqQ4RUWtBGJ5yK1IONveQdMPC5Yk=;
- b=BH1bxx8LkvuTU7dtvavj2Ia78+RyZduQ4l9/iLWDplBZKMw5zY9Xi3gOIfjxLi26+CzyDH6HNun3TLvJiRT99/+vq/dKIsEc5e9XPM8msu8M/8yO3saBeRM/6+qNdgqu59frFJJnXlWg8lijIZ3jkTmfkn9IZJNYHkPXBsU7CVvlUSbiK/O3krt7SJ0S2zGyV7WQLYwPnaBmV5LELgWmJROg2gb34Q0ex5CTTPjznQRpEWLO+Vt0d9088ldH0T7vJC5/VSNjxFn6o3L14PIQpybVGPziRicDDvQtlVvG2cdAIA9qq7ybIrKIb1AmaUrSmZAnRmRRrvjHnO+RVxEvrw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 84.19.233.75) smtp.rcpttodomain=bgdev.pl smtp.mailfrom=opensource.cirrus.com;
- dmarc=fail (p=reject sp=reject pct=100) action=oreject
- header.from=opensource.cirrus.com; dkim=none (message not signed); arc=none
- (0)
+	Tue, 06 May 2025 09:22:42 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43cfe808908so47955e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 02:22:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vxxykNdg59t181owqQ4RUWtBGJ5yK1IONveQdMPC5Yk=;
- b=af6PxPVWZFNx0ZdPCVzvkJn7t9GvpP/88iQaO4WTeHE70IAqCOQRiICsOC0HROP0gsEmsmlJzNWaHnpEVuC6pOhsuHIk44NcCghPChsM6thDE3yRC0Pm6DNexDO2rYKZ1tlwitovEiQnY6d3ZKJ2AwsGOtaf5CFVzc6iNgOVjzM=
-Received: from DS7P220CA0001.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:1ca::6) by
- PH7PR19MB6531.namprd19.prod.outlook.com (2603:10b6:510:1f5::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8699.22; Tue, 6 May 2025 09:20:28 +0000
-Received: from DS1PEPF00017095.namprd03.prod.outlook.com
- (2603:10b6:8:1ca:cafe::11) by DS7P220CA0001.outlook.office365.com
- (2603:10b6:8:1ca::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.21 via Frontend Transport; Tue,
- 6 May 2025 09:20:27 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 84.19.233.75)
- smtp.mailfrom=opensource.cirrus.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=oreject header.from=opensource.cirrus.com;
-Received-SPF: Fail (protection.outlook.com: domain of opensource.cirrus.com
- does not designate 84.19.233.75 as permitted sender)
- receiver=protection.outlook.com; client-ip=84.19.233.75;
- helo=edirelay1.ad.cirrus.com;
-Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
- DS1PEPF00017095.mail.protection.outlook.com (10.167.17.138) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.18
- via Frontend Transport; Tue, 6 May 2025 09:20:26 +0000
-Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id 59C5E406547;
-	Tue,  6 May 2025 09:20:25 +0000 (UTC)
-Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPS id 31129820270;
-	Tue,  6 May 2025 09:20:25 +0000 (UTC)
-Date: Tue, 6 May 2025 10:20:24 +0100
-From: Charles Keepax <ckeepax@opensource.cirrus.com>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-        Vladimir Zapolskiy <vz@mleia.com>,
-        Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-        Richard Fitzgerald <rf@opensource.cirrus.com>,
-        Andy Shevchenko <andy@kernel.org>, linux-gpio@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-sound@vger.kernel.org, patches@opensource.cirrus.com,
-        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH 05/12] gpio: madera: use new GPIO line value setter
- callbacks
-Message-ID: <aBnUWP0beLwAU19Q@opensource.cirrus.com>
-References: <20250506-gpiochip-set-rv-gpio-part3-v1-0-0fbdea5a9667@linaro.org>
- <20250506-gpiochip-set-rv-gpio-part3-v1-5-0fbdea5a9667@linaro.org>
+        d=google.com; s=20230601; t=1746523358; x=1747128158; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=6PKyiTW7t9VlHIC0Fir8qyHkI243/6y/pnmH8hpJckY=;
+        b=CBUypQgXCeY/o94BOaDuu4xZ8OVMQ4m4ZcfnXKtxdypwH4ADNSDpFV0CImR67wZpQX
+         bWGtD8sBjwW3loRUqstjy5nXGqdvG3MFJhh2+eFQ6tqaY+gukGW+ajWUH6GuwVGTrL08
+         3Ua3wVjN0iJfbt/sd86SpdNjBVf2FkniRLXpazq+T9Z1ezXEjb4kZnVPYQeybsiB8SG/
+         Hm5RKFR2lBi0E0JEj+T0VJgwvcmueCAySsNxKU2zTObCc83rsbZDMmfGY707C0Vqmjad
+         SaEGYCSc6GbdRJK+L3XWQcSuF3+YgPPXJz5fuHX93BF7oxSAToj0rhZFPe3z2n+qF5Qd
+         1cuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746523358; x=1747128158;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6PKyiTW7t9VlHIC0Fir8qyHkI243/6y/pnmH8hpJckY=;
+        b=M+l4Z8PO4Z2jF/1Vc/ZerF5dERL8W7bgLnSJ5xZlIKHNZRVV3qlwMQ5IVaimV+EUgl
+         +gdSouzmekT45U99nphGbNqle6R/YTNWwNW10Ay87kV3/uYZBPkbTj+vtwTFZ4MEWvTa
+         2TngJXem8aojeu6b88yQG2D8BN8FbOhK1xzjq6KpFXtgYNqncSMYpYwtM6R5pYbtsXQe
+         /qBzAPQsq1E32+8MYONiuBF0moJhjNb/O1KLU2a5VnsU4rcHfPAgwMFP09FC9DkM9ek/
+         5xZr23rlxMtYscYNPGVdPI/dU5nWwJsAUKINxDMH/G7UglyiBBHweP3bJrSOx3h2/RvZ
+         6jKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXcTLb6Pp/gXgb451zw3ks7ADrmr1LCVR8Vf3e0cub2/AmqJUHnO9x5iYZ8tW8LqbXAuZlx+M4vsVfbfHCotiIz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8vBa6O/M/pduCBRLKG61XUYBJICltcAuZ+ckiIDNbBObN4EkS
+	wql9KF3VZvj4jfTwJJGJmyAtttvdEWovjPXmw9wO2aRoEMuElxTA8d/Hl3eAKg==
+X-Gm-Gg: ASbGncsUviX8Jx2s6f/fNPMnIfMWBO4queXw81FbfkEabFm8BhCsrVMzG9m2T1liEZr
+	aK4p6FYoNaGJxLLRRRckO5oCH8je2k4JWIEFzW3d6RcuXyqbz2ltFv9AFjjAGUep3DQQL7zxQZZ
+	nmIIFVIwMJUGZ9WzpzFLamyE5c5wF7qfeXXkUnTp0bQIo7oOkFcfTynW4ZdM9o8lM6PPxqcPuQ3
+	x15vCnzcbcmd1iqOMhBgUV30BOVGkv5JfymnQdVB3B4lx/4XCQDQJYRa8Y7abX0gqDfqAa0F/5U
+	rC8oN/UMTMT/7b1Xqnz4zHI3657CtltF1R5c4uQUpQlYEqQSVZrfDYObrrOz/AdNefMxru/jA86
+	qXoE=
+X-Google-Smtp-Source: AGHT+IHDtwlAgJFzUnwiJ122yccBNhS4YJpQ3qlNsrd7r09OaCmmMYMxQB11yASqxuqK4r8lQg5APg==
+X-Received: by 2002:a7b:c04d:0:b0:43b:bf3f:9664 with SMTP id 5b1f17b1804b1-441d123cfd5mr707515e9.5.1746523358264;
+        Tue, 06 May 2025 02:22:38 -0700 (PDT)
+Received: from google.com (202.88.205.35.bc.googleusercontent.com. [35.205.88.202])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b2b287desm208303605e9.38.2025.05.06.02.22.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 May 2025 02:22:37 -0700 (PDT)
+Date: Tue, 6 May 2025 09:22:33 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, qperret@google.com
+Subject: Re: [PATCH] KVM: arm64: Fix memory check in
+ host_stage2_set_owner_locked()
+Message-ID: <aBnU2aXDvznmGU2l@google.com>
+References: <20250501162450.2784043-1-smostafa@google.com>
+ <86ikmegmw9.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250506-gpiochip-set-rv-gpio-part3-v1-5-0fbdea5a9667@linaro.org>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF00017095:EE_|PH7PR19MB6531:EE_
-X-MS-Office365-Filtering-Correlation-Id: f3ffb657-9e58-417e-d413-08dd8c7f3cf0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|61400799027|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Off82oPtOrfASdGKEstqtPCWCR6At7HqsTuCOSnHIURFSBSi+ALngrR8hzIV?=
- =?us-ascii?Q?ohQGyhnbGoQf7i0JqaWxdtZvfsqyLJw/FzYeBLgcptH5epgeNhxThAhQzDaY?=
- =?us-ascii?Q?VhAWGulvOpq66TqGUfNhxjAyQhsZkGrkL1rWZt5Q3vrrEiaMI9+6ACDUQpTF?=
- =?us-ascii?Q?40WhrKEJUDxAnglhm+HTGOk1qCOmxgmHEi0H+MPCjyByYMbgy24+tFWjHmQY?=
- =?us-ascii?Q?UULkqPFixVR1MJTvJzTOcE9SszCQnOvS5pSGNquiqnWmxOKYpUQJQrxTsdbG?=
- =?us-ascii?Q?WmDeQ/zV8cTDlkrnsL+MvSpT9zmh+gqPxj8fUTUjppUdR+bHW4HjbFnkGe1k?=
- =?us-ascii?Q?1pCv5RaxeNYPFaJ/Y7Q1RwCPFAOjYTgnAKL/91PQvYzuQ+2GFafPIBMNksec?=
- =?us-ascii?Q?5keK7mnDVdkuCdsaFy7gFee8mW8s37CNr05oLE8XZy95mBpIDLkv0a1nSRYy?=
- =?us-ascii?Q?PiQWPLsi2Y+qSO3CSrFhsF8W4z1FnX1aXp41uN2my4w/z1Kx1WcGwhmhzpCD?=
- =?us-ascii?Q?xJGeuPC661pv+IJCloDitHjZYSt1+yOB7aXSO2MIqEh42OTQ9uIPBlxAzZ7C?=
- =?us-ascii?Q?JJX1WkczqSpoG+ZQe2Q3ssreNfA1UAghyscfmDG/EXsguVnU6RoI4W8Q2HEt?=
- =?us-ascii?Q?ALUEK5Tp3qBvLwxuHEijmm184xmKnNRl5lMsivstpj2o7BQpM9F9ZdlFDuwx?=
- =?us-ascii?Q?i4WNX4M/pKzFv9YgxUSCZbFG7pX+3E307TFggRjXOzXAZskybazmEzJ1kML2?=
- =?us-ascii?Q?o3EbLiwriYwMKnYrHWQ8BO2Ehr9uEU0hzhyeH/xDiI6WnEQOlmhziZrhU3wN?=
- =?us-ascii?Q?v7hw05H4fahpSl8KLb13x/yYNQNMRElvAi+5QP/4ihm8PGnVTPW8q9fYMc3r?=
- =?us-ascii?Q?L2lnaubmlzEEOmJ01MmYWHvyp0gwD4aikN+fWtrIir0ndj3JVhGU2LX8zMBI?=
- =?us-ascii?Q?ImJ7lgv+xFj4ln1Tv1sYhH1+23hDNtKoiN7GV2lt9DXuA5Ksclgmj/nXI5eS?=
- =?us-ascii?Q?cXTFdMqMzp9qgxQ5OkdtTj0gngfkHaOwXa41yJCmfD9gC6iStHJbRCVQKO1v?=
- =?us-ascii?Q?oiOMCUdmzW+H/jAFqlzhtrUfSczvtirdRJn1YI5F/eRMRWcBE80EoGsmd/GF?=
- =?us-ascii?Q?ApLDYHm7cvuOy/MYuKvTC1HBVBuXJax8bYSRHgeO+4DZvqXXsk00Lhduq7p7?=
- =?us-ascii?Q?buZPfKpscyfUsmExLo0Jb+GaUI5GKzj+002WALD9yBsBiRXiltcRQvQrhJfV?=
- =?us-ascii?Q?szgLdih3TET8y6U5XFV+HC2WRMOZG3iOIYDvrSRUllSc0tZN0fIV/bGopqPL?=
- =?us-ascii?Q?7k08AEIZ6FqjcBj8kwpRp/mu2EH2ux4r5FgUmjeOXn5PZiNcz6AXk9HOS4b4?=
- =?us-ascii?Q?ehOzaqIJEtm/OeHd5n3ftB7zkjte/hk4/UCUV31aH/m31a8w5D4+36YyWNqb?=
- =?us-ascii?Q?mGZGf5F/Qs3ovNhGDlmBZP/U3urhHSGI/Qt+1faKOmERz1se6yprejfKMYWR?=
- =?us-ascii?Q?6rglebfko+aw6+UavzMD6wyHqhwTH0Eg3YTA?=
-X-Forefront-Antispam-Report: CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(61400799027)(36860700013);DIR:OUT;SFP:1102;
-X-OriginatorOrg: opensource.cirrus.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 09:20:26.4780
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f3ffb657-9e58-417e-d413-08dd8c7f3cf0
-X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017095.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR19MB6531
-X-Authority-Analysis: v=2.4 cv=KoJN2XWN c=1 sm=1 tr=0 ts=6819d463 cx=c_pps a=ybfeQeV9t1qutTZukg5VSg==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=kj9zAlcOel0A:10 a=dt9VzEwgFbYA:10
- a=RWc_ulEos4gA:10 a=KKAkSRfTAAAA:8 a=w1d2syhTAAAA:8 a=th__69AfSmJl4DDT63sA:9 a=CjuIK1q_8ugA:10 a=cvBusfyB2V15izCimMoJ:22 a=BGLuxUZjE2igh1l4FkT-:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTA2MDA4OSBTYWx0ZWRfX1ddquDyqyZDa y14VwFtLKoKHd7QYix43EwNghyaMOfJJZ4NJ7VOkyRgJPi9iO4K/94g3/0VAn8kxKLupLmaIUsL 4w8vTvEVzTUtBKzREvaoX7xyFgsT4KrJdaVO5Xu9bPP9O03lv97qz/BGQRVWcAtmYVCMgV3UuFF
- viD/u2SECidP+VoABk+fY91/MMwE3zb63dCnpIp46yPegeY2Krq7Gis9bPg3nFKE4A9EWTbiwfU tp3Gom3Tso++C4bdPfayArenq36U0I6Tj8Kyh+ACxSwv1MdW7OuXKtkH54sBcwkr1XEHnpIePH7 0zVq14pyHYR4htAQv4IZQKADbEBTYsOyZtwHqKWbWFAVo5/ICs6vaPehe3ZHWe9/3dZY4Karl/d
- Pm+es11dBVMAaaqNhv9dnP4nsC9u7ijN7m+rqb4ucVCbojqf1EHFrl9nNLFpbY2WG665vLad
-X-Proofpoint-ORIG-GUID: 5HP-PmTH-C7Np3SyJqTVgFcLdmKIZq5w
-X-Proofpoint-GUID: 5HP-PmTH-C7Np3SyJqTVgFcLdmKIZq5w
-X-Proofpoint-Spam-Reason: safe
+In-Reply-To: <86ikmegmw9.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_022046_973500_EF8B7FC2 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20250506_022240_954329_DEA0F9EE 
+X-CRM114-Status: GOOD (  24.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,18 +101,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 11:01:48AM +0200, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On Tue, May 06, 2025 at 09:32:22AM +0100, Marc Zyngier wrote:
+> On Thu, 01 May 2025 17:24:50 +0100,
+> Mostafa Saleh <smostafa@google.com> wrote:
+> > 
+> > I found this simple bug while preparing some patches for pKVM.
+> > AFAICT, it should be harmless (besides crashing the kernel if it
+> > was misbehaving)
+> > 
+> > Fixes: e94a7dea2972 ("KVM: arm64: Move host page ownership tracking to the hyp vmemmap")
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/mem_protect.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > index 2a5284f749b4..e80f3ebd3e2a 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > @@ -503,7 +503,7 @@ int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
+> >  {
+> >  	int ret;
+> >  
+> > -	if (!addr_is_memory(addr))
+> > +	if (!range_is_memory(addr, addr + size))
+> >  		return -EPERM;
+> >  
+> >  	ret = host_stage2_try(kvm_pgtable_stage2_set_owner, &host_mmu.pgt,
 > 
-> struct gpio_chip now has callbacks for setting line values that return
-> an integer, allowing to indicate failures. Convert the driver to using
-> them.
+> I vaguely seem to remember that there was an assumption around
+> addr/size representing a single page, and therefore addr_is_memory()
+> was doing the right thing.
 > 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> ---
+> Has this assumption changed? Or is this only a figment of my imagination?
 
-Reviewed-by: Charles Keepax <ckeepax@opensource.cirrus.com>
+From what I see, this might have size exceeding page size in the
+following cases:
+1- When creating a VM with 4K kernel as the struct pkvm_hyp_vm size
+   is at least 0x1130 (without vCPUs)
+2- When creating a VM and PGD size is bigger than one page (for cases
+   with concatenation as 52 bits and 4K would have 64K PGD)
 
 Thanks,
-Charles
+Mostafa
+
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
