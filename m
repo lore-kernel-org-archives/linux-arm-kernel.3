@@ -4,156 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36466C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 23:48:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B58F2C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 23:50:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/TqV+rltozNaPL/+E2J2ZBD7Fua7jbzPS2GDjLvoQsU=; b=RLqAWSsIBgBztGjVJ5et/jCnnK
-	fSDdu7WySx1qOUSFpAOzSK+9yaUPIonf9R5Hy68c8lSGSnud6a8qGFAqByTi2P5Gm9eX9/b6ni9ME
-	j/7aLrIhtqBKnZDiPzkL8tnSK065wo6g7L1ZSo3LwvgtH/1d+MIqjDYPqNouCRe5oiFZASdamiRF6
-	lQYs+ozjFfHU8O5WA9jwMI26CY/CVdmrb+lYM8K7GPH3b6TOZFrIj2RebEKrkBIIWiPZJ5CPZ6Zqt
-	e9KjNNWKFlv+bZ4QEd/zKDAwuh+p0b9EzACELjE2e6vjUxEPNXr68MaT51Ies73TwYJugPot7G0jC
-	00VHV3/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=smuCQykHT+vVpyG3o1FnOfymv4/KjoNvv2ZwLmkWFQc=; b=iPOIko57fATxwbgdoxNxeKbrDV
+	Hzh7qlgGk6vNZ6+e17fpL0uG+hkqh4ejVokjaEpPKg0pI/955Mshh8faczN/B5Y73lv6meNp0KgYO
+	aAjPdFyvD0srwf4czdBl4JEl+Ww3Yqlag+eQWcNFUdqiUQ4zntACj4t8h/NV+DWHme7KrqT3/umP1
+	XANF4G5sh4aC4UAqAqvoFFKsRuxCyKJhbLMci1xlK61YeChBX+dUUWsHRajDv7kTrfKHkByKvdsOJ
+	llEEBIQ8cnsSS3dYljbOX0fJ+VFs7TqOHJNZ7HFxWNKpyVD5mKz3nOSAeqxWQadcln7OwV/UB8UYm
+	XOnwmIwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCS12-0000000DjdD-18fu;
-	Tue, 06 May 2025 23:48:00 +0000
-Received: from mail-dm6nam10on20614.outbound.protection.outlook.com ([2a01:111:f403:2413::614] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1uCS2x-0000000DjrV-44Ft;
+	Tue, 06 May 2025 23:49:59 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCO0y-0000000DEsN-0jAx
+	id 1uCOFA-0000000DGSi-2dJO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 19:31:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bQYqCVvXfFdigsArQEzPjpKGBgQQhHZVAoSZm4T8a0yJawZK8gZVcLcIZvI57Iq2H2maNMh6cF+ztwRs2qYaSQomqERgkI03pmf6OAUenmojbRR8YzXNU1RejvzFwJqOHcRWyqWKM9cIWt8o12fNL/yINNGlPL4oO2SxMyTTEL1h+hFmwk2vzVZ9E7hf4FiGrCAsC4+gmumtv1uwzoEe1eguHukv3YeCULh24XKgvRZFgfakQKhA13knxy2CiFRADAmTFvl+VXfrVE82zX5FXksLQCwjD1BnEONA/NM8uNqdOOEPgOF71T1YoR2IqpwPAYw3BaE4QBxRUQEw+oWKrw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/TqV+rltozNaPL/+E2J2ZBD7Fua7jbzPS2GDjLvoQsU=;
- b=lzsDKZU+5V8ARe/kzHOxgmI1DWp7aE/jA93nWUWrgyQMv9gr2rKg1S9CLose8VFx6i+4GJlr0VyB389//p6tlnISilvR+2beKgWeO3gAq+djFX4Ic7SiBHNWikNTn5EY6JsO4LLFez/61pF3m1yKLH0JycMCHZgIrrrl+3hiKtfHx+yeDUplE4fdR9W2gy5BqctNcn4I9yZVTMljtY7s9LcOgOxP8U3bV83BAECbYD7BlTs7NVth8Tc0rkT78Mskc9zWngqgnaax0iz/+UBpz28ndxtH9cev/sE8M/IBYog8uaLac3NjQwtqq3G7NcnnQ0uYRNPmptCiJhwpDb855w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/TqV+rltozNaPL/+E2J2ZBD7Fua7jbzPS2GDjLvoQsU=;
- b=YYsbhnx6619AyAoc/FYfCEuu+8Tp3J/6Inn2iwkQYQCk2muZY/xN3eD4RQKAJGmwlLjuQTXGUUwGgv9aifZBQIIv0ZSVfOIk21Fo+R2NlDwleJ67IcGjQz/VXRy21SJkpr1n1j4Aaj3O3hajhdqdpLche/kNSc+hVV9qZBuVO4HMk7iYSW5D8hNET9IYiKp0KyWWKfhnCNuWlMlhjGrl7sp6t27SO9nFWkeGbZtAcbfjdLUDgv31ZCHQ+xOBHcPJx2S25EYCeeXl2AyfKdJ6a0yDcpChaLWKZNN7hWbcAjmf6HfvvPSyNm1Cn9zaKARkOXW50anAJTBLwM4QMBHUjg==
-Received: from BN0PR03CA0014.namprd03.prod.outlook.com (2603:10b6:408:e6::19)
- by MW6PR12MB8915.namprd12.prod.outlook.com (2603:10b6:303:23e::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.21; Tue, 6 May
- 2025 19:31:20 +0000
-Received: from BL02EPF0002992D.namprd02.prod.outlook.com
- (2603:10b6:408:e6:cafe::29) by BN0PR03CA0014.outlook.office365.com
- (2603:10b6:408:e6::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8699.29 via Frontend Transport; Tue,
- 6 May 2025 19:31:19 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BL02EPF0002992D.mail.protection.outlook.com (10.167.249.58) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8722.18 via Frontend Transport; Tue, 6 May 2025 19:31:19 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 6 May 2025
- 12:31:10 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 6 May
- 2025 12:31:02 -0700
-Received: from nvidia.com (10.127.8.14) by mail.nvidia.com (10.129.68.6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Tue, 6 May 2025 12:30:57 -0700
-Date: Tue, 6 May 2025 12:30:54 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Pranjal Shrivastava <praan@google.com>, <kevin.tian@intel.com>,
-	<corbet@lwn.net>, <will@kernel.org>, <bagasdotme@gmail.com>,
-	<robin.murphy@arm.com>, <joro@8bytes.org>, <thierry.reding@gmail.com>,
-	<vdumpa@nvidia.com>, <jonathanh@nvidia.com>, <shuah@kernel.org>,
-	<jsnitsel@redhat.com>, <nathan@kernel.org>, <peterz@infradead.org>,
-	<yi.l.liu@intel.com>, <mshavit@google.com>, <zhangzekun11@huawei.com>,
-	<iommu@lists.linux.dev>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-tegra@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
-	<patches@lists.linux.dev>, <mochs@nvidia.com>, <alok.a.tiwari@oracle.com>,
-	<vasant.hegde@amd.com>
-Subject: Re: [PATCH v2 13/22] iommufd: Add mmap interface
-Message-ID: <aBpjbtRgR1nK/LIm@nvidia.com>
-References: <aBE47aySzDp2lsAz@Asurada-Nvidia>
- <aBE800DsAOOZ4ybv@google.com>
- <aBE/CD4Ilbydnmud@Asurada-Nvidia>
- <aBFGCxcTh54pecsk@google.com>
- <aBFIsYg+ITU8RvTT@Asurada-Nvidia>
- <20250505165552.GN2260709@nvidia.com>
- <aBj1Av6Xaj8flMN+@nvidia.com>
- <20250505173101.GT2260709@nvidia.com>
- <aBkWoH23VysYake3@nvidia.com>
- <20250506125222.GW2260709@nvidia.com>
+	Tue, 06 May 2025 19:46:22 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5fbe7a65609so630550a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 12:46:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746560779; x=1747165579; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=smuCQykHT+vVpyG3o1FnOfymv4/KjoNvv2ZwLmkWFQc=;
+        b=A0UFlILE50JqdkTmqcLg2IfKpPy/cAdxONQdR6+wPOwPHUO7oNlynxEXxF+sYlnuK4
+         tZSy/6SQLUwMFcAoDXmSsKtD31xKcTvRojgk3uolBlTy/30P34xu/yRfjOmWIjs8OOgu
+         9LeNLsrTb2BQQ7z8Mp6LcQDPAcD9Z4rF/bRQMqRTMZYjl/Y01bgWexJd92uVXmHaN2fe
+         R/xzK1T0a4jvVEaH9oCeWFJ/jmce9Ja82ujZUD8ag0KXwhzw69tzzxr64T/scisjNPhm
+         wlZGjbWfp8XJ7LWTzFCljw3fBYIkc4qZO3aQRl9RKwnL4PKXHXrYYYy9L8KomWoX32NJ
+         GRRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746560779; x=1747165579;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=smuCQykHT+vVpyG3o1FnOfymv4/KjoNvv2ZwLmkWFQc=;
+        b=FgiyNyrRf4BzWHoY2bOiGMWrX3dnkd7NdLwByc1N+67a/8fC3c8YunSC5nUF63F9l3
+         J2SXqgCG6DgNr1qR4Dot0zKhYn2uujBrhb2ixWV3ICV2Wmu+/6bQ1Dui+E+2FhMVesIv
+         FWe/ePAJerz1p2B2lsRgInLqdwkJSnzBNkXVsre+eoZmBLVEo8vvQGt6wGp6bAew5f8U
+         ueeeSfz9sPgdAvHlFUj5zEfy0XaritJkjP5li7lxNJaG4z+khaeZNR/dt+KBjZIXh1Uk
+         qUw/NPbC8YR9+T0jZk/0fXJKZfFprn8TJGV3Pi3GzQgoTmjCtSRYwWdvVz6RgjmUoZmF
+         Lwmg==
+X-Forwarded-Encrypted: i=1; AJvYcCV6R+NGo0LUknxaLlwElwq/uPVMSahxQjMaC2+nkAow8Z+Uze0R3r5y01mtCbZjqXiDy7ufFFyRYTpOEOt4T132@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxdesl9alT7ylsOjubKRih155KGRag2UEOPjCpB6OSF7dlXuq+5
+	IMDdZPvszfNwxBlLZMogbuLpzC5qR7UkXfwUC5CksAJaO+7Yt+Gf
+X-Gm-Gg: ASbGncuy6/yzXReZ/XUXYs/yjmqX7A+6tmeidoIk8YGX3Dd+BPDyI3TVrRikVQyYwRf
+	ID2auniMoNZlQxWiKM7Iszz9GXCTDQDcVux2xR2N2b4L1/uapAUPADSTgl0r5YMNcGVQU5PXJfe
+	55mLedSabpfZ4xCeCcJVNJvEESi0HGOTxrQn0319r6t+c3SrP39oLR43IAGRnvkOfal49som2Iu
+	tAbuJIgC52RljD79GiySdK2L9cHCaYViKl7QS8Or4GGQfGcDQBifhxppk+pD90zqFNuDXZVdkPX
+	UrI4o+jd/yZYQZLcvbv/MCyz6mX/MzNBQgErGvAIkcm3kA==
+X-Google-Smtp-Source: AGHT+IHF3pcKHZxx5T+TWyDWO6i8RnZU06h3QHjYT6OlLwaA6F+B11QDpeLyDwyzcv9mQtYOntSFew==
+X-Received: by 2002:a05:6402:1d4e:b0:5fa:8277:6031 with SMTP id 4fb4d7f45d1cf-5fbe9f3c5a1mr395090a12.26.1746560778503;
+        Tue, 06 May 2025 12:46:18 -0700 (PDT)
+Received: from [192.168.0.100] ([188.27.128.5])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5fbcca170e0sm786106a12.3.2025.05.06.12.46.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 06 May 2025 12:46:17 -0700 (PDT)
+Message-ID: <eb2f0337-9261-4867-b6e2-dd6ca2fd25fa@gmail.com>
+Date: Tue, 6 May 2025 22:46:11 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250506125222.GW2260709@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF0002992D:EE_|MW6PR12MB8915:EE_
-X-MS-Office365-Filtering-Correlation-Id: 53cc0c1d-1a16-4319-ef44-08dd8cd493b4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|7416014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IdGe2a9jRaRdf4pnZRFStLwYNTj2WF7bBFDHzIJLvCWN4fov9wOxbqu/74J8?=
- =?us-ascii?Q?eDer8vFh4t0BBYlExI0cVnTxv48Ha97Q99WctLIzsBCwSTIpQGD1cvLIdeGQ?=
- =?us-ascii?Q?vz2i7HSR4rqZ3i6Q3PS0KtWQmhF/ZsZ6VpaB9XB+NiR/DbyTdCw/ltzWNrtG?=
- =?us-ascii?Q?yTAXJyGpCNX7Ghit0wwM7cfeAyl3mm8LQs8IBKbrtTuxz8lzdMpcYW27UBk1?=
- =?us-ascii?Q?DAAQ3Epu+eF/SonOR6vhQ40zgESRvQqoWR2ucfgMbTjZfXrSQ4FYho8ZqIvX?=
- =?us-ascii?Q?6XAadtbOv+3stLqnfsTTQ3pjgWIknHP512XReiDz2Q6Cj08V7kAC88pHQDSw?=
- =?us-ascii?Q?PoyLWHEvv2JdAJdQSfA4rsIbDPCCdDJAH81U+FJ3tbADCnlSxO1O3zVmei3W?=
- =?us-ascii?Q?W6cIS//amMTP0ljo41+qcklnVLnnR3DuTzjKFE8RoMHR1Y2EGVtkkhMiE312?=
- =?us-ascii?Q?HKYMXKnwGTqOUN1j7HHsZ7kqg5uMvwIrT1KzkStboYbC+00bAp58cD6io7Wl?=
- =?us-ascii?Q?oHucVs1P38o02bkder66BhqI/flUqr4l0zvZpQU1OVC1BhzHVN2mesOdy93r?=
- =?us-ascii?Q?KM7y2IFWf6fPqux28ojGtdUNI7xyVsW5YI4iLbmupdxIZzk1lnwoP1l+TF83?=
- =?us-ascii?Q?zeIJJguI6Rem1alaeTXmOUL1nkPyHS8BlK2nvKVeoMXOBA/U/BtV/2NId9OV?=
- =?us-ascii?Q?saMgzOdhxFCRNUHmMSA1mmhfGfYjZnT934/Er7RLGccstq5vqhElEVeV50BM?=
- =?us-ascii?Q?XLLjFTTt7Ol22SapixlGJYh7lPYNqww08GW8aJ74obxVnnAsnvaVzicyR5ON?=
- =?us-ascii?Q?RgHPyA0sgRQUONUnhs2H6Y8m/SkWr6xugV6dFz2XUtgH/e/yrk7rWzRHuRgX?=
- =?us-ascii?Q?HzxjXgizMvSaGV6GR6h11Wqobq0TPqBj7yMse0bVNVBBzFlckBPwaR8Ylav+?=
- =?us-ascii?Q?UNzPA9CaveMJtovURZbHtgLn6ayez39rvhfemNJP1KmZ4pyCIUZgWMiIXHNo?=
- =?us-ascii?Q?TUUw/NdcTOwOk2DxdmEYcjrg3rVj+kVpbCjgmZCUIeIuOe1h1tABXJ6Ky9qK?=
- =?us-ascii?Q?7kRyvNynUUP6HE1meDVGadxe2VRsvAIyh8hduk8oVnEnu7S5Jbu/2t/S4343?=
- =?us-ascii?Q?gMilVpPnihU0kI+7GfPUOE3805KdIItdD//PRsabvN7AglxbuVI27exDE4iW?=
- =?us-ascii?Q?z1yjCtXuvhPkPOYXVFsE6Xy+rGWOONr8d1ofmMIez57pHOfysUMwtbybdJEB?=
- =?us-ascii?Q?+ZJ0+VdfjZ2gB4pXubNDKgoKu/Lelchn66NHBcsi8N3+6pTO997BRNOwAJ9Z?=
- =?us-ascii?Q?0nTqW3NhzHH0d13fTrIgwHgxvIkfFJVn/KWNK5BNys2BCSWNgkwq3UYSRnpO?=
- =?us-ascii?Q?1vprGT5FyVTOkZUDe9kp0KQZnKRMBZGnabwiDjF81AxFjryiW7n9fs2x+2QI?=
- =?us-ascii?Q?q0xKzNsxBZcZsbiS8InQApCtCbx9ZduYCV+dfbo4twCmwVtJrxFD8J9P8fYm?=
- =?us-ascii?Q?ziVYCeJ4pr5NxGVrPY1AT4xrUX1bS8p07wUINq1mEao97GyDY1BLca54Lw?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(7416014)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 19:31:19.3510
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 53cc0c1d-1a16-4319-ef44-08dd8cd493b4
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0002992D.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB8915
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 12/16] media: i2c: add Maxim GMSL2/3 serializer and
+ deserializer drivers
+To: Jakub Kostiw <jakub.kostiw@videtronic.com>
+Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Cosmin Tanislav <cosmin.tanislav@analog.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, =?UTF-8?Q?Niklas_S=C3=B6derlund?=
+ <niklas.soderlund@ragnatech.se>, Julien Massot
+ <julien.massot@collabora.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
+ <brgl@bgdev.pl>, Bjorn Andersson <quic_bjorande@quicinc.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Arnd Bergmann
+ <arnd@arndb.de>, Taniya Das <quic_tdas@quicinc.com>,
+ Biju Das <biju.das.jz@bp.renesas.com>,
+ =?UTF-8?Q?N=C3=ADcolas_F_=2E_R_=2E_A_=2E_Prado?= <nfraprado@collabora.com>,
+ Eric Biggers <ebiggers@google.com>,
+ Javier Carrasco <javier.carrasco@wolfvision.net>,
+ Ross Burton <ross.burton@arm.com>, Hans Verkuil <hverkuil@xs4all.nl>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Zhi Mao <zhi.mao@mediatek.com>,
+ Kieran Bingham <kieran.bingham@ideasonboard.com>,
+ Dongcheng Yan <dongcheng.yan@intel.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
+ Tommaso Merciai <tomm.merciai@gmail.com>,
+ Dan Carpenter <dan.carpenter@linaro.org>,
+ Ihor Matushchak <ihor.matushchak@foobox.net>,
+ Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
+ linux-gpio@vger.kernel.org
+References: <20250309084814.3114794-1-demonsingur@gmail.com>
+ <20250309084814.3114794-13-demonsingur@gmail.com>
+ <b214bf8d-33d0-4da8-bf16-cc62bd1fbd55@videtronic.com>
+ <f22f1343-9b7b-4ae6-9461-bc1b8108619f@gmail.com>
+ <d4165e96-7587-471c-a7c5-ffa26531a796@videtronic.com>
+From: Cosmin Tanislav <demonsingur@gmail.com>
+Content-Language: en-US
+In-Reply-To: <d4165e96-7587-471c-a7c5-ffa26531a796@videtronic.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_123140_205874_24FFB68A 
-X-CRM114-Status: GOOD (  20.21  )
+X-CRM114-CacheID: sfid-20250506_124620_673508_DB86D9B3 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,43 +136,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 09:52:22AM -0300, Jason Gunthorpe wrote:
-> On Mon, May 05, 2025 at 12:50:56PM -0700, Nicolin Chen wrote:
-> 
-> > I wanted to ask: what should we pass in to the "entry"? An mmap
-> > structure that hold the pfn range? Or just pfn_start?
-> 
-> Some kind of struct telling you what is behind that pfn range so you
-> can invoke the right driver callback and retun the right pfns..
 
-I see.
 
-> > With that being said, it seems that I have been misusing the
-> > mtree data structure, treating it as an xarray. In your very
-> > first email suggesting the mmap design, where you mentioned
-> > "xarray" first and "maple tree" following. So, I thought they
-> > can be used in the similar way, especially after reading this:
-> > https://lwn.net/Articles/846175/
+On 5/6/25 10:15 PM, Jakub Kostiw wrote:
+>  > I'm aware of this issue and had it fixed locally, just haven't submitted
+>  > a new version yet.
 > 
-> This job requires a range based datastructure. Meaning you insert PFNs
-> A->B and then a lookup would search for any intersection with A->B.
+> Great !
 > 
-> In maple tree you can do this rather directly since it is inherently
-> range based.
+>  > Are you setting a specific polarity on the lanes? I've validated
+>  > MAX96714 (after the upstream submission) myself and it works.
 > 
-> In xarray you can do it with the multi-order feature or you can do it
-> by replicating the entry across the whole range.
+> Our design has all lanes inverted, so we used:
+> lane-polarities = <1 1 1>;
+> 
 
-So, if I understand it correctly, what we want to achieve is to
-have maple tree to manage all PFN ranges. And each range holds
-the same entry, a structure that we can use to verify the sanity
-of an mmap? Let's say for PFNs A->B, the tree should store the
-structure between index A and index B (inclusive)?
+Got it.
 
-If this is correct, mtree_alloc_range() that is given a range of
-[0, ULONG_MAX] would allocate the PFN range from the lowest index
-(i.e. 0) instead of PFN A?
+Can you revert the change you made to polarity_on_physical_lanes, and
+try the following?
 
-Thanks
-Nicolin
+diff --git a/drivers/media/i2c/maxim-serdes/max9296a.c 
+b/drivers/media/i2c/maxim-serdes/max9296a.c
+index f48f5b68a750..dea0518fd790 100644
+--- a/drivers/media/i2c/maxim-serdes/max9296a.c
++++ b/drivers/media/i2c/maxim-serdes/max9296a.c
+@@ -474,7 +474,7 @@ static int max9296a_init_phy(struct max_des *des, 
+struct max_des_phy *phy)
+                  */
+
+                 if (priv->info->polarity_on_physical_lanes)
+-                       map = phy->mipi.data_lanes[i];
++                       map = phy->mipi.data_lanes[i] - 1;
+                 else
+                         map = i;
+
+data_lanes is 1-based (since 0 is the clock lane), but the bits
+in register 0x335 start from 0. That means we should adjust the
+values in data_lanes to be 0-based.
+
+> Only after mentioned change we managed to get the video stream.
+> 
+>  > This should already be implemented by using different numbers in
+>  > data-lanes property in devicetree.
+> 
+> Awesome, this will come in handy for sure.
+> 
+
 
