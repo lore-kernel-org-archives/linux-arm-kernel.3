@@ -4,135 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4694EC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 22:29:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D94C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 22:31:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U+kTJ8sYQK4Dh3qh9Awi2Mx2WpsP+UuKqHDQv5gmiio=; b=cHbVgodjidw3gZKVTTe3TK0emm
-	MCpFYPY2EjwgYiHOJbZWOHoVie/my3QAAByY1H9WAORHFSZCtHMJfzt1tUxB4NspeBMRdcDD06fr6
-	cl5PkvDOMn3M7xqV0yVsUtr3Et1Ye8QrukXBC/OSJDpAdPEEM8jCCklFA4KJkOucLGpR32KEvbiSJ
-	Rw1nmtX1C6UU6fR1CV6ZH+Jp++SApX1zPmUIts5UHpWR916ewky0ER+qmTD13QwmBuknIrmYBeH8a
-	HcYAtBjqA4ef6wiL1P+x+85cmIU8SjePa4newgWQMHgUN+XDOgLq8lT4IO+9A5q71JJaAahYbdgfx
-	jpnc0kqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PA5PfY6NY12/5Zj2EnrTQIT9NGofA0ZwpHxyeT273M0=; b=WQ8ARhEZbUKdPDZREuRfvYmaZQ
+	eFdLfMdxttGIQMFdcgiQaLaTRjYVJOBqbqAsE4kj1MXief88iHnWo7mEfYa2nEwdO5V/Z1FlMnfIy
+	S8pqjTcdN5kGf4LBUrA7ZQc9RppbsCXgoaeDs3C5zXQCGGA5j5aRpoUTk8BSTp7kbDBsjcIBJbRvp
+	iTLkr0GpVOJF7bVtGosZK/d+ZkhNQLLVw3iW5kvsXiHhrGlixOBSaexprxPJPWqutvtnE0JKQ8lMM
+	QFnzZDp3ndJLQHuvQmG3y5mbDyZm49P65CnkH2zmMuv5hbndYUOSK2m+8kVI7lMIMg/tCSBPx1KX3
+	aOjRLQKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCQmg-0000000Db1m-2pU1;
-	Tue, 06 May 2025 22:29:06 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1uCQod-0000000DbGW-1nro;
+	Tue, 06 May 2025 22:31:07 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCLuD-0000000CpGG-2znN
+	id 1uCM5o-0000000CqmH-40yw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 17:16:35 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-440668acbf3so7636015e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 10:16:33 -0700 (PDT)
+	Tue, 06 May 2025 17:28:34 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-224341bbc1dso79550005ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 10:28:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746551792; x=1747156592; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=U+kTJ8sYQK4Dh3qh9Awi2Mx2WpsP+UuKqHDQv5gmiio=;
-        b=R55Ec667QQZOwu+iI9BlZwjd8e6ja8o32Knx4L2TFzLIquiljljFsH3xk1pxjKlCc+
-         Ayqch13N6Ftc/En0rXpFxRMOvsegWolpQjQsMF4hQFum7dOk6nmv5Ggpx2lpN12ZQNkj
-         rnE91ZNRQgdzGfTwWxETS/o/K7sA+N9nDt9JTqsTMgjZ7Xz2Pm/tXTtIrhlUwNRLDyNV
-         nFmR9c3SQJnaGR0G2GSyA07QdnNEX2rWGFa6YuuH9+ngHfWUeSXDzQOjKRcQbwiMiXHh
-         zL5csdlCZnUwV/FNAJ9jg4XAiqnvuTRz3P9oUQBo+xZg8Ho36/E9VQieuE3IxSrYj0br
-         9Exg==
+        d=linaro.org; s=google; t=1746552512; x=1747157312; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=PA5PfY6NY12/5Zj2EnrTQIT9NGofA0ZwpHxyeT273M0=;
+        b=yh71FLsBg2djK2TVmFxoPrBAVuw/4+OEx6j7IVxiZHppaulm8VmS0jDgvCX97t3Gq2
+         K/4ST2G910V0AQvSePW7CnEbemedMjfhuOdRsYC2mZNp3m4JzFLfWtkn4rH5gBFECch0
+         OxBDg0Xo9SecvWAyAaqCgNs71jPBRj4c/dnROoE0Dlu7STaLX1cOdci6l+FjTxyfOK6t
+         4ejCA7mZGTHKucrmxUOwSDdy6h1nU/u7Tui7/DMxXjTlT47OYz9anguG/sW+OPPleQ4O
+         AdMtT1W3dqZtalSnPPqn5VOyYyACDciH+hsRBEXzlnIN4HuAZE1aVbJA+lJqe7Jc4xqz
+         oXPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746551792; x=1747156592;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=U+kTJ8sYQK4Dh3qh9Awi2Mx2WpsP+UuKqHDQv5gmiio=;
-        b=Qp9abUL8VZVCXUcru6rO7hgmljCqruyDVw9SWhAbG8OS3z4BFO+uEZ/86xdyCEHSoj
-         ZvdB/E6SRPgPpa4TlDAqzT5S1tPWm2pab75pmGH9mytmf2adYkiUqhoAfa+L5alLv0NO
-         PEl3roO+XU66pnoZEif4mnzkeMYwz0Yzts6+dVIhkrb/gwv7qgjgrBYhkocNhE0rXG+3
-         7AXvSlLmTzFW31pU+BpZSwsWwp6V7GNzJZWSNEjWqefHy0nwB5BfAmeKXVaq4MRcCZLM
-         M5OjwnFOfKRr1eLJpOFXdKgb4ZHAEw23vIO17Mre/O+EtuZMo8zzDo2aNH4BgNXUqYob
-         oVKQ==
-X-Gm-Message-State: AOJu0YypRVmhEh0szSYq/ZQR39XKU6NhSGsHNnX2qmpD9wkmoCEgUhp/
-	ujxEAH8QPbjPEB0jFt2rT1lKSkTUpBCKmMjLK8JoEMksiNn6Y6ONjGeuWIGODnE=
-X-Gm-Gg: ASbGncsTjbfacy5MC8t9HVhhYTFNJh0bS053nGst17TTh+DKIY5zc6GBJQnqvMHpVTN
-	T5rCDmtUiM2Yl+4qNyc8HjWJRU07tcR7NGKezV5eJ1TR/RdYtCN4FoxX6CuE4tVRrsZFOV0I9C+
-	rxfXuvKtxCWxhZMkRZyq8SIm8iQTievgzhnHRdV/OGxzXkTw23Yz/TwWdxAQ+h9Ua201hK1iO67
-	xmUNuqPA2FIxWoZBcRLQR3qS0i8v0jYDxO8wqDNv7j1xkTJ30IBRA2lwwbsUpX/hZ5k/NddP7Wq
-	2Ajs9Qq0uxGfbBs0NvPF7lOLv5lqlVPt1b3SnLl9t0LOuZJ6uDGWtgIpVxU=
-X-Google-Smtp-Source: AGHT+IHLLTCdTzEr9la7CfSHtomODY0vn2YywNB3z9+jUpgq7KkKxtsQomE46L6MF0dSvXZMD1jdXA==
-X-Received: by 2002:a05:600c:3543:b0:43b:c938:1d0e with SMTP id 5b1f17b1804b1-441bbea0b06mr60690335e9.2.1746551792007;
-        Tue, 06 May 2025 10:16:32 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.207.88])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441d43466bfsm319495e9.16.2025.05.06.10.16.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 May 2025 10:16:31 -0700 (PDT)
-Message-ID: <8155920b-60bd-4dc7-aa2f-46064adb93e0@linaro.org>
-Date: Tue, 6 May 2025 19:16:29 +0200
+        d=1e100.net; s=20230601; t=1746552512; x=1747157312;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PA5PfY6NY12/5Zj2EnrTQIT9NGofA0ZwpHxyeT273M0=;
+        b=ptPcRpFMoiKX8hjbpJtPexII7JZ6/ZdTFzwqwD0JcG3Cf9WYiSMYQhpQfedPGD6TiU
+         wnAYhNxUS6gc+PNi/RmT5B4FayrdXsit9o3Agk2U5TdQI0eMZpEE6npBDLFn8Ar+eldC
+         jTJGfgbi2igdDCyxoEiFnn/0PceYz6UcGN3gexbz1BXVTmQ+SfL7iuIoP+IRUdxkG5xZ
+         ZmWwKZujsj+2T+HZ52VIoRQ3IBQSaTktTTpKgZRS3V/HLtnFvHpftFUHeqW/f+8RDh72
+         pBKUTZ6+jDDtuwReChd7WIwEl9T5uk/NhVlTV71n+IK8FZpd24a97kczbTnfCwUln9/t
+         wgjw==
+X-Forwarded-Encrypted: i=1; AJvYcCViT+Nhnib3k3/R95HOTSIdcTscc9U56zOkYllB3Z4ZXVTZazNFd2zApqLki8mBFW+F3ImG09VMURGMVI2waB+n@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAcHefwpG30eGN+cGGiKmsLZSUB0cwzC1Dq7bu9a7Qr/OK7Th2
+	fQZ06LIvzG23ROlYW58RbUOtPQ5ufRWPS+EUBSGsxWujKw3jA6zClodWlQ1PWZY=
+X-Gm-Gg: ASbGncsmIjPFRb2/LIF7/ETaeSTn/u6kWtjuw1nHMPjj2edlFN3Cnk0Qphm7y9P1NX+
+	b8nZStkOgQ3/df1Qsbt1ZFDIq4FDDH6gW0cEGLs49ZMs0zOWpPiUQngpq2J0LBRK6+ruOew+d9L
+	SshVqp0TVay3GUGis2AUKoO10VnQvXKFjW02G0mRPHiR/9ikq4TSG8o6RoEpcGUzyl017ei5yzQ
+	nlns7KLENadGIk0GElBvSxNSmgCBuO1bwfpa/TOCgdcok7rzL8qqqg2HlrinoRTaHYPagY8bklL
+	PbXA15YUmjYeTOZ9CYgCuWzlFA/uvY6ZLFJPS0zcRyTs
+X-Google-Smtp-Source: AGHT+IEp4L7HwxTnZry2N9O3p9S78d/8SkvTPJNQn4jH71NKYa7pBIcfwdlj+kdoxFRV2WoW6lG3zQ==
+X-Received: by 2002:a17:902:e5c8:b0:22e:421b:49b1 with SMTP id d9443c01a7336-22e5ecc5e65mr928185ad.48.1746552512052;
+        Tue, 06 May 2025 10:28:32 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:18ea:e7ed:8d1e:88a0])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22e15228b9asm76211715ad.172.2025.05.06.10.28.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 May 2025 10:28:31 -0700 (PDT)
+Date: Tue, 6 May 2025 11:28:29 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Xiaolei Wang <xiaolei.wang@windriver.com>
+Cc: andersson@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/2] Fix two memory leaks in rproc_attach()
+Message-ID: <aBpGvZ4U6VFpu1gl@p14s>
+References: <20250430092043.1819308-1-xiaolei.wang@windriver.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/3] Add Luckfox Omni3576 Carrier Board support for
- RK3576
-To: John Clark <inindev@gmail.com>, heiko@sntech.de
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-rockchip@lists.infradead.org, robh@kernel.org, conor+dt@kernel.org,
- jonas@kwiboo.se, frattaroli.nicolas@gmail.com, andrew@lunn.ch
-References: <20250506114115.613616-1-inindev@gmail.com>
- <bb857b7d-97f8-4505-9d2a-1ba9d6319710@linaro.org>
- <043117e7-9fd7-4ddc-8fd9-433c5b8c5dc6@gmail.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- 2+47PN9NZAOyb771QoVr8A==
-In-Reply-To: <043117e7-9fd7-4ddc-8fd9-433c5b8c5dc6@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250430092043.1819308-1-xiaolei.wang@windriver.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_101633_790254_E65FADF1 
-X-CRM114-Status: GOOD (  17.93  )
+X-CRM114-CacheID: sfid-20250506_102832_995815_B99F3D99 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,42 +98,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/05/2025 19:14, John Clark wrote:
-> On 5/6/25 1:05 PM, Krzysztof Kozlowski wrote:
->> On 06/05/2025 13:41, John Clark wrote:
->>> This series adds device tree support for the Luckfox Omni3576
->>> Carrier Board with the Core3576 Module, powered by the Rockchip
->>> RK3576 SoC (four Cortex-A72 cores, four Cortex-A53 cores, Mali-G52
->>> MC3 GPU). It enables essential functionality for booting Linux and
->>> basic connectivity, with plans for future support of peripherals
->>> like WiFi, MIPI-DSI, HDMI, and Ethernet.
->>>
->>> The series was first posted as v1 at:
->>> https://lore.kernel.org/linux-rockchip/20250502205533.51744-1-inindev@gmail.com
->>> v2 at:
->>> https://lore.kernel.org/linux-rockchip/20250504102447.153551-1-inindev@gmail.com
->> You got extensive guideline what to do in my reply to avoid exactly the
->> mistake you did ... yet you ignored the guideline.
+On Wed, Apr 30, 2025 at 05:20:41PM +0800, Xiaolei Wang wrote:
+> In the rproc_attach() function, if rproc_handle_resources() returns
+> failure, the resources requested in imx_rproc_prepare() should be
+> released, since almost the same thing is done in imx_rproc_prepare() and
+> rproc_resource_cleanup(), Function rproc_resource_cleanup() is able
+> to deal with empty lists so it is better to fix the "goto" statements
+> in rproc_attach(). replace the "unprepare_device" goto statement with
+> "clean_up_resources" and get rid of the "unprepare_device" label.
+> and rproc->clean_table should also be released
 > 
-> I did not ignore it, I took this to mean:
+> Changes in v3:
+>     Update patch1, replace the "unprepare_device" goto statement with
+>     "clean_up_resources" and get rid of the "unprepare_device" label.
 > 
->  > Do not attach (thread) your patchsets to some other threads (unrelated
->  > or older versions). This buries them deep in the mailbox and might
->  > interfere with applying entire sets."
+> V2:
+>     Updated the commit log of these two patches
+>     https://patchwork.kernel.org/project/linux-remoteproc/patch/20250426065348.1234391-2-xiaolei.wang@windriver.com/
+>     https://patchwork.kernel.org/project/linux-remoteproc/patch/20250426065348.1234391-3-xiaolei.wang@windriver.com/
 > 
-> that I should not use the "--in-reply-to" on my git submission which 
-> caused the emails to be nested. I see now that you were referring to 
-> adding the urls to my submission.
-> I realize this is probably painful to go through over and over again 
-> with new contributors as they try to carefully follow all of the linux 
-> submission guidelines and I apologize for my ignorance.
+> V1: https://patchwork.kernel.org/project/linux-remoteproc/patch/20250424122252.2777363-1-xiaolei.wang@windriver.com/
+>     https://patchwork.kernel.org/project/linux-remoteproc/patch/20250424122252.2777363-2-xiaolei.wang@windriver.com/
+> 
+> Xiaolei Wang (2):
+>   remoteproc: cleanup acquired resources when rproc_handle_resources()
+>     fails in rproc_attach()
+>   remoteproc: core: release rproc->clean_table after rproc_attach()
+>     fails
+> 
+>  drivers/remoteproc/remoteproc_core.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
 
-The next instruction, not that one. The instruction saying:
+I have applied this patchset.
 
-"...because many review tags are being ignored."
+Thanks,
+Mathieu
 
-with much bigger explanation what is expected now and what should you do.
-
-Best regards,
-Krzysztof
+> -- 
+> 2.25.1
+> 
 
