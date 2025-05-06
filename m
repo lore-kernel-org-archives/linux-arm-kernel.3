@@ -4,113 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA0EDC3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:33:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77A06C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:33:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pi47gK8MYhyGIqIdKO9+ShtObSRr4S3t2PvkIQxuaXA=; b=tyBuDrjZD8X7MW7SMQxlj5GIS8
-	2tmRgZDHouy+0Web+Q/CZXivavD50044OWRmiB8G0RtK4EGMn3PJ+ZCbvCrU/aYdo69HVevACjKN9
-	gDokWP9MDL1YzWCNZAhbFzZ/KidXbYMysIJ+qxPqwMhzTvZ3tWZaB8AIZvT2VnzaTVWBU39ewg21p
-	o+ioCy3Pagu5Axs6WbTNAzW/bcWFon5wA32xky0SXWCWnpKPr6X3gjE5WldcuE3C+nQpz/OwZWC/L
-	2tKLFi3yDsPeALckoO8DyVkDojI+t79FypY48KUEYBNrJCiiMtTd/OMQuc4BPNhbdHIsl1qXeDMBm
-	Xo0xBZnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RriJ3sQZL+/jAERO13sfWtP2FOfOc3okEQg5B7FnAeQ=; b=FnZFZdd1PygFZdl3BiNYKfbxPf
+	JM5Vexh1pFA8z6K6BrZAobHcbF8osoU4QtsPznN1TjSuPMps5xmunZyvhcgA7Hkd4K2bFWYsR2oYh
+	jAsg+M+xC9PbPXI7MPeF/7ws8E3tmCtUuR4NB9Wd+Rzd5OjUxcKFo8ItZZqyAK3u1t3Qd8KZ9T1a1
+	+HyEjriE86m2VkzpTCMxktRm9+c+33RG71OUUQk6VouR/4P8P2a/b77wkHI1yp4CpwaBi5mImp38B
+	a0VW0TksaqwUA+6EGWVZ/GQgHJkNS998jKTUbqjnJI/4fjWi5KVS/f5BVTPfAL9NyCefAoXILg/n3
+	i4RqIfcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCUau-0000000Dv5A-2Rwr;
-	Wed, 07 May 2025 02:33:12 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1uCUaq-0000000DuyQ-1Otq;
+	Wed, 07 May 2025 02:33:08 +0000
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCPCW-0000000DNcr-490I
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 20:47:42 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ac2aeada833so60497666b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 13:47:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1746564459; x=1747169259; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Pi47gK8MYhyGIqIdKO9+ShtObSRr4S3t2PvkIQxuaXA=;
-        b=LH+BeVfexEwPiA7JNmaygkza61I6+8FiVak9hkX18Xp2Ps5MimLpXp82W1OgE5l0EF
-         IgjLGgpIPFlR5d2JYtltxVKNY3PNSXXk3OukRRfpcRi8c57FkzP8emtasdixR5DTEWTl
-         ZuK8DdUsZDv0jV1F+FFBo07xqeDaGAZjqsDHOHKhJp76UWaMdcJMzN3iJlfC8rtuj1kX
-         2zutKvDmuAmbqFsIEn2mbZJJUsXNvt7wwFPj3cOeMXjdn5Q8fSfN1xwfu/JTDsFhXP6S
-         X0kIfHpQN9tkNCK+WmGJ48SsVaPJt83PFeuF4F8l7KS9CpecAGnpZH2xK0WdDWSa3gMW
-         XMQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746564459; x=1747169259;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Pi47gK8MYhyGIqIdKO9+ShtObSRr4S3t2PvkIQxuaXA=;
-        b=kDaQtLSZFviFwa5A2HHrRniizNPEkKqp/WungZBeeH49CQcRfU5fVBEII8cKdrTH9M
-         pmLstR3wreWb1g7URMqhXRWm28aYpVXPOJ5aN8B0LxH9twIEbq5T1qa9xz07GfYT8ofC
-         wuq07FVsaORPxaDoCX/ipf7AJtwpf/rdkGVFEOf0lnLhqTeaI5d086eyKlO4841QKIN+
-         3LN4+TmKFyfbvR6C5fjSMcz/EpSmMZnAjGGYJs9InwN6huC3TnihJR4LeeuemHORpnUq
-         JGsJBRAFP4hJjZgDYETE/WiXd4e9DYwi70E3M7E83ZCym+gr4h3bF87FlMdOlZN1WP09
-         rTFA==
-X-Forwarded-Encrypted: i=1; AJvYcCVmFNA6u8rhnBO/FY2cktujMvKM6RBPkaSooUjcOLG7tmWcnZH5Kt0nKShzT2oNA9OaZYCwHEYaM1POpJKcWx+2@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoTKMP+5UNZ7noojtG5Ih4UUcyK09CaEYCZNwL4PIjvduR9XvQ
-	LfdBjdC8SsqTuSiNnYQU/CquGJlE3W5M3E7yTDSP7VgDg5z/14OQr0fH49NeynE=
-X-Gm-Gg: ASbGnctDucgGMN5Ml4l9dwqoPjKerHWbrvPJCNPXyOFBPkoFvDlvO+lGUuUM9S6rrsQ
-	SR0+fSRvw582wK4U8s2G+zlFIAeHLTwaVobiAUnQuReQAyFp38TAieyvqJyPW8E/WpclLSGjwqx
-	+PXNG4eLXzh4G6StJR6s9NxtASgNJQnV5tfwAV6zBFqhiipPbxHlBK2XXYHGHjq67VarUOn+5Xg
-	N1Zii9gP+k/GWEEsPZ9zlg1lC2Ji/A2QU7BywTMA2D7FoaT75kQfPasFklsnO8hSQqvixOgfPqg
-	+9UCQWWjpAa51S6Oso+I8rp/QfCgtjIP9VC/CpuiXBCXwvULhKYZ2NGA/WhqkrVD1xQjv4U=
-X-Google-Smtp-Source: AGHT+IGdejKWhHgobANcBR0HkA6BZ7303l9tnuRyiuAvIspM7E6yB+9PaEvl5m9+eOZo13IwvIZIoA==
-X-Received: by 2002:a17:907:6d23:b0:ac7:3929:25fa with SMTP id a640c23a62f3a-ad1e79a28bamr109364566b.30.1746564459254;
-        Tue, 06 May 2025 13:47:39 -0700 (PDT)
-Received: from localhost (93-44-188-26.ip98.fastwebnet.it. [93.44.188.26])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad189540d5bsm770703266b.176.2025.05.06.13.47.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 May 2025 13:47:38 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Tue, 6 May 2025 22:49:07 +0200
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	kernel-list@raspberrypi.com, Matthias Brugger <mbrugger@suse.com>
-Subject: Re: [PATCH v9 -next 08/12] arm64: dts: bcm2712: Add external clock
- for RP1 chipset on Rpi5
-Message-ID: <aBp1wye0L7swfe1H@apocalypse>
-References: <cover.1745347417.git.andrea.porta@suse.com>
- <38514415df9c174be49e72b88410d56c8de586c5.1745347417.git.andrea.porta@suse.com>
+	id 1uCPCP-0000000DNbj-2cKY;
+	Tue, 06 May 2025 20:47:35 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id DA1D1439D4;
+	Tue,  6 May 2025 20:47:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1746564447;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RriJ3sQZL+/jAERO13sfWtP2FOfOc3okEQg5B7FnAeQ=;
+	b=I68mv2SZI/aGxHCIIcxXbjxxCbHWE9FzDtUtW4PEabsIrho1orzLQHyqR3AJklkXW4/0dS
+	sHotiUtnhB37DGcdh4NYEpar2pikiAW6HTYv6TIrN84SPWuBG8+xkiYWGDI06C2IrQ6ogR
+	QEZfsdyh/gBXzyxBU6I46Qn7ke+tHyGu4UC1rv5tEOBv61wdugOUnlQfQ6wAbRndu7RuwR
+	e6tObBPlpuwkypnH5/quJLTO/9FUmfvGMJGlxu/nMapt7Mz08+7BIwiLIchjrKyUveptAn
+	jJ7yDtYArwX8GIIYPRKbfbYPujq44+9hObwSCtfPOkZ15Ae8r3K9ETKKDMJTLA==
+Date: Tue, 6 May 2025 22:47:20 +0200
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+ <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Andrzej Hajda
+ <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Robert Foss <rfoss@kernel.org>, Laurent Pinchart
+ <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Jagan Teki
+ <jagan@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Douglas Anderson
+ <dianders@chromium.org>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, Krzysztof
+ Kozlowski <krzk@kernel.org>, Anusha Srivatsa <asrivats@redhat.com>, Paul
+ Kocialkowski <paulk@sys-base.io>, Dmitry Baryshkov <lumag@kernel.org>, Hui
+ Pu <Hui.Pu@gehealthcare.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, dri-devel@lists.freedesktop.org,
+ asahi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ chrome-platform@lists.linux.dev, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
+ platform-driver-x86@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
+ linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v2 30/34] drm/bridge: imx8qxp-pixel-combiner: convert to
+ devm_drm_bridge_alloc() API
+Message-ID: <20250506224720.5cbcf3e1@booty>
+In-Reply-To: <f71d18d2-4271-4bb9-b54f-0e5a585778f3@nxp.com>
+References: <20250424-drm-bridge-convert-to-alloc-api-v2-0-8f91a404d86b@bootlin.com>
+	<20250424-drm-bridge-convert-to-alloc-api-v2-30-8f91a404d86b@bootlin.com>
+	<553d62ed-976a-4e17-9678-cdc3d40ce4a7@nxp.com>
+	<20250430112944.1b39caab@booty>
+	<f71d18d2-4271-4bb9-b54f-0e5a585778f3@nxp.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <38514415df9c174be49e72b88410d56c8de586c5.1745347417.git.andrea.porta@suse.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvkeegleejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeelffefgfehhfdtvdefueefieevkefggfelkeeiudetkeektedvhedukefgvddvnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegsohhothihpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfeelpdhrtghpthhtohepvhhitghtohhrrdhlihhusehngihprdgtohhmpdhrtghpthhtohepmhgrrghrthgvnhdrlhgrnhhkhhhorhhstheslhhinhhugidrihhnthgvlhdrtghomhdprhgtphhtthhopehmrhhiphgrrhgusehkv
+ ghrnhgvlhdrohhrghdprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghpthhtoheprghirhhlihgvugesghhmrghilhdrtghomhdprhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomhdprhgtphhtthhopehnvghilhdrrghrmhhsthhrohhngheslhhinhgrrhhordhorhhg
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_134741_026002_5B249BD8 
-X-CRM114-Status: GOOD (  21.52  )
+X-CRM114-CacheID: sfid-20250506_134734_279164_59D938A8 
+X-CRM114-Status: GOOD (  49.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,64 +101,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Florian,
+Hello Liu,
 
-On 20:53 Tue 22 Apr     , Andrea della Porta wrote:
-> The RP1 found on Raspberry Pi 5 board needs an external crystal at 50MHz.
-> Add clk_rp1_xosc node to provide that.
+thanks for your further feedback.
+
+On Tue, 6 May 2025 10:24:18 +0800
+Liu Ying <victor.liu@nxp.com> wrote:
+
+> On 04/30/2025, Luca Ceresoli wrote:
+> > Hello Liu,  
 > 
-> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
-
-A gentle reminder for patches 8 through 12 of this series, which I guess
-would ideally be taken by you. Since the merge window is approaching, do
-you think it's feasible to iterate a second pull request to Arnd with my
-patches too?
-
-With respect to your devicetree/next branch, my patches have the following
-conflicts:
-
-PATCH 9:
-- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts: &pcie1 and &pcie2
-  reference at the end, my patch was rebased on linux-next which has them
-  while your devicetree branch has not. This is trivial to fix too.
-
-PATCH 9 and 10:
-- arch/arm64/boot/dts/broadcom/Makefile on your branch has a line recently
-  added by Stefan's latest patch for RPi2. The fix is trivial.
-
-PATCH 11 and 12:
-- arch/arm64/configs/defconfig: just a couple of fuzz lines.
-
-Please let me know if I should resend those patches adjusted for your tree.
-
-Many thanks,
-Andrea
-
-
-> ---
->  arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 7 +++++++
->  1 file changed, 7 insertions(+)
+> Hi Luca,
 > 
-> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-> index 34470e3d7171..6ea3c102e0d6 100644
-> --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-> +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-> @@ -16,6 +16,13 @@ chosen: chosen {
->  		stdout-path = "serial10:115200n8";
->  	};
->  
-> +	clk_rp1_xosc: clock-50000000 {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +		clock-output-names = "rp1-xosc";
-> +		clock-frequency = <50000000>;
-> +	};
-> +
->  	/* Will be filled by the bootloader */
->  	memory@0 {
->  		device_type = "memory";
-> -- 
-> 2.35.3
+> > 
+> > On Tue, 29 Apr 2025 10:10:55 +0800
+> > Liu Ying <victor.liu@nxp.com> wrote:
+> >   
+> >> Hi,
+> >>
+> >> On 04/25/2025, Luca Ceresoli wrote:  
+> >>> This is the new API for allocating DRM bridges.
+> >>>
+> >>> This driver embeds an array of channels in the main struct, and each
+> >>> channel embeds a drm_bridge. This prevents dynamic, refcount-based
+> >>> deallocation of the bridges.
+> >>>
+> >>> To make the new, dynamic bridge allocation possible:
+> >>>
+> >>>  * change the array of channels into an array of channel pointers
+> >>>  * allocate each channel using devm_drm_bridge_alloc()
+> >>>  * adapt the code wherever using the channels
+> >>>
+> >>> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>  
+> > 
+> > [...]
+> >   
+> >>> @@ -345,8 +351,8 @@ static int imx8qxp_pc_bridge_probe(struct platform_device *pdev)
+> >>>  free_child:
+> >>>  	of_node_put(child);
+> >>>  
+> >>> -	if (i == 1 && pc->ch[0].next_bridge)
+> >>> -		drm_bridge_remove(&pc->ch[0].bridge);
+> >>> +	if (i == 1 && pc->ch[0]->next_bridge)    
+> >>
+> >> Since this patch makes pc->ch[0] and pc->ch[1] be allocated separately,
+> >> pc->ch[0] could be NULL if channel0 is not available, hence a NULL pointer
+> >> dereference here...  
+> > 
+> > See below for this.
+> >   
+> >>> +		drm_bridge_remove(&pc->ch[0]->bridge);
+> >>>  
+> >>>  	pm_runtime_disable(dev);
+> >>>  	return ret;
+> >>> @@ -359,7 +365,7 @@ static void imx8qxp_pc_bridge_remove(struct platform_device *pdev)
+> >>>  	int i;
+> >>>  
+> >>>  	for (i = 0; i < 2; i++) {
+> >>> -		ch = &pc->ch[i];
+> >>> +		ch = pc->ch[i];
+> >>>  
+> >>>  		if (!ch->is_available)    
+> >>
+> >> ...and here too.  
+> > 
+> > This is indeed a bug, I should have checked the pointer for being
+> > non-NULL.
+> > 
+> > Looking at that more closely, I think the is_available flag can be
+> > entirely removed now. The allocation itself (ch != NULL) now is
+> > equivalent. Do you think my reasoning is correct?
+> > 
+> > Ouch! After writing the previous paragraph I realized you proposed this
+> > a few lines below! OK, removing is_available. :)
+> > 
+> > [...]
+> >   
+> >> On top of this patch series, this issue doesn't happen if I apply the below
+> >> change:  
+> > 
+> > [...]
+> >   
+> >> @@ -351,7 +349,7 @@ static int imx8qxp_pc_bridge_probe(struct platform_device *pdev)
+> >>  free_child:
+> >>         of_node_put(child);
+> >>  
+> >> -       if (i == 1 && pc->ch[0]->next_bridge)
+> >> +       if (i == 1 && pc->ch[0])
+> >>                 drm_bridge_remove(&pc->ch[0]->bridge);  
+> > 
+> > Unrelated to this patch, but as I looked at it more in depth now, I'm
+> > not sure this whole logic is robust, even in the original code.
+> > 
+> > The 'i == 1' check here seems to mean "if some error happened when
+> > handling channel@1, that means channel@0 was successfully initialized,
+> > so let's clean up channel 0".
+> > 
+> > However my understanding of the bindings is that device tree is allowed
+> > to have the channel@1 node before the channel@0 node (or even channel@1
+> > without channel@0, but that's less problematic here).
+> > 
+> > In such case (channel@1 before channel@0), this would happen:
+> > 
+> >  1. alloc and init ch[1], all OK
+> >  2. alloc and init ch[0], an error happens
+> >     (e.g. of_graph_get_remote_node() fails)
+> > 
+> > So we'd reach the free_child: label, and we should call
+> > drm_bridge_remove() for ch[1]->bridge, but there's no code to do that.
+> > 
+> > To be robust in such a case, I think both channels need to be checked
+> > independently, as the status of one does not imply the status of the
+> > other. E.g.:
+> > 
+> >   for (i = 0; i < 2; i++)
+> >       if (pc->ch[i] && pc->ch[i]->next_bridge)
+> >           drm_bridge_remove(&pc->ch[i]->bridge);
+> > 
+> > (which is similar to what .remove() does after the changes discussed in
+> > this thread, and which I have queued for v3)
+> > 
+> > What's your opinion? Do you think I missed anything?  
 > 
+> The pixel combiner DT node would be added in imx8-ss-dc{0,1}.dtsi, please
+> see the case for imx8-ss-dc0.dtsi introduced by an in-flight patch[1].  As
+> channel@{0,1} child nodes always exist(DT overlay cannot effectively delete
+> any of them) and channel@0 always comes first, there is no problematic case.
+
+I'm not questioning what existing and future dts files (will) contain,
+and surely I don't see a good reason someone would write channel@1
+before channel@0.
+
+My point is:
+
+ - the bindings _allow_ channel1 before channel@0
+ - the error management code after the free_child label won't work
+   correctly if channel1 is before channel@0 in the device tree
+
+IOW the driver is not robust against all legal device tree descriptions,
+and it could be easily made robust using the example code in my
+previous e-mail (quoted a few lines above).
+
+If you agree about this I'll be happy to send a patch doing that change.
+If you think I'm wrong, I won't fight a battle. This topic is
+orthogonal to the change I'm introducing in this patch, and I can
+continue the conversion independently from this discussion.
+
+> > Thanks for taking the time to dig into this!  
+> 
+> After looking into this patch and patch 31(though I've already provided my A-b)
+> more closely, I think the imx8qxp_pc and imx8{qm,qxp}_ldb main structures
+> should have the same life time with the embedded DRM bridges, because for
+> example the clk_apb clock in struct imx8qxp_pc would be accessed by the
+> imx8qxp_pc_bridge_mode_set DRM bridge callback.  But, IIUC, your patches extend
+> the life time for the embedded channel/bridge structures only, but not for the
+> main structures.  What do you think ?
+
+I see you concern, but I'm sure the change I'm introducing is not
+creating the problem you are concerned about.
+
+The key aspect is that my patch is merely changing the lifetime of the
+_allocation_ of the drm_bridge, not its usage. On drm_bridge_remove()
+the bridge is removed from its encoder chain and it is completely not
+reachable, both before and after my patch. With my patch it is not
+freed immediately, but it's just a piece of "wasted" memory that is
+still allocated until elsewhere in the kernel there are pointers to it,
+to avoid use-after-free.
+
+With this explanation, do you think my patch is correct (after fixing
+the bug we already discussed of course)?
+
+Best regards,
+Luca
+
+-- 
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
