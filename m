@@ -4,148 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C19FC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 18:19:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D4E5C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 18:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xPiaoAIQ8g5mgZTS1TOyFzBws4F6cTeoyTehuMwvClc=; b=DxSHu/q+0gc7QJ10l0dCrEdfLW
-	zTBKzNI+5dWzwNS9JyBpoSL+NaFcU5Wl9zew4L4JJXmnja7MjNqhr3/i3pc53cToECkbPD7amiJ/U
-	eUQ4T0teq8Ar9M4u3lEg3UcpePes2QONkPxz1JBARcCqZJmnRbbSo0GD0trYZnXl8kyAtjwSxJ1H5
-	gSeHBJMEqe1TnXwPJlTMFqxz52aMLe5gcg4RpD7B4wgqgivnjtqCxCrOS4T1Em3MaRyDZU57UNAvP
-	/XcS7LtD3uu551YMEsU2N8pkri4qKYIE6CjaumSvKwnSeu7mahcPwzOqcbQN2iVKw40GAPzFjIYtV
-	JteN4XHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9zc1ZtvmGJ5KapEi1iwLqXeN/vl2AD2R+iU1xpLs0mw=; b=AbWLO8kPGmu/OKEhHDimMcC9+f
+	in+jblA+AwnU2sANvQKe+QngOqWxevAiuoIW8K9TvBvAXfRsMqHSq24hy7rhmNqbn3/aGfliv9XT9
+	SOamKnOyuI8V2/P9nBrzKk7CwSXtfO46aU9MNZB/2r5s8PeuAwXO6N2IQMxcjb7pxxkCop8keI2d2
+	Jt9KjmyzfX2dQkwhvidolxbuPIeLwJ5Itokyj/XkRwMklIdyge8SszeMLT5AIMjBu9F1iDjds/ltd
+	vK7qoKvlwAuDznBjvqfGbfm/XSm3UHc1K5g6Ubqdg4INRgxZPYCtCuH0ve4l74IXAngvWAhgDafW8
+	kCRmg7Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCMsV-0000000CxTX-1ueY;
-	Tue, 06 May 2025 18:18:51 +0000
-Received: from mail-westeuropeazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c201::7] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1uCMuS-0000000Cy4W-37fA;
+	Tue, 06 May 2025 18:20:52 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCJBL-0000000CIYW-32tx
+	id 1uCJE9-0000000CJCq-0K1n
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 14:22:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pqWpBoMXGh055hTuMSJxgelPZLR0rpKA3FGbOYiBd6gmGdEpONukZ3rQJ62ty0uqutjNht5HobFBmW5RDzWux6caCcxyvHz0Z86npOIDyZottGXAONc/53G05uTZtmxpPgFacT0Vo0XoSQIvOZUkBVQ3hEh1Zp4O0UvBlvdPFcHyt02y9UrQbg0yldEMA7MJsnxqHfqXlQzs75hEs3Dd5PHiDwJCt8yXqmnYFgbvhlANhjJuYvguK+koG+oEfUSeO+uGkZ9abgxyVoxcFuoXAgCjLsaVDZOYxX31djYS1nejL/EFstNk1vu4OzFrOho5h6R0wIE9s7Gx8xLIn31apg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xPiaoAIQ8g5mgZTS1TOyFzBws4F6cTeoyTehuMwvClc=;
- b=iGu6Gmi3IhcO9PJOAvpaVMRwIWlV4Devyu7h7PJEVphOCyoCVWvTTXu6Zw43qsBi/d95G0tnEaDSxqr/BHZbQW8osbclKubX7nEg0iBFeSi+g/vN/G72Xl/bEuL79YoKe54Ilfg/UWUo/xl9F4i4KaI/czofnJBWlFPKOTkGQDh7bn9vBkYtzxylCLdR74eQ0FO75UYo1eAGKHMvdtJKdipgjMIkqX7cG+UEpOevnwffgqzCeZ0R5aRN5VauBB86XW/+iurvVxM/mOEy7qNKoRIoU2fOlqECEZ9L8auVesv5VFt9ecaezR2baqQiQ+jI9UC7vrPaYfER8jP6B+Gzsw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xPiaoAIQ8g5mgZTS1TOyFzBws4F6cTeoyTehuMwvClc=;
- b=FaxS4qOPwS0+RMvStuzzL8c2j5gpOUFbd/r8hmA88HGMiEL+R9i1xE/cs34aGQlW67ndF8Uf7ielUGCzM6wBxe51c1cnhUQayTvHYgaaKiFV4WSHkkzO3VdGkDEJQjnVYRE/2T4cYcBML5jYvcBle3EBj0GNDWhBFRAfy3KmtMNmedkvWpgDUs8nOM3IZT+1HVIPlrzJEbMQ4hJQPtcaaEd/5P4XpHmTYy5VLJGZ7e8tYrE1yeXoYUD3y99z2NTKaAblW04J0f7b6M6ilbMau6ZeSCHz0KRPRtYBqggo8LE0y0H5C2/7tm/vm7Xw2SZxC4pBGYiBaWKbgOmpWgaDEQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8868.eurprd04.prod.outlook.com (2603:10a6:20b:42f::6)
- by AS8PR04MB7655.eurprd04.prod.outlook.com (2603:10a6:20b:292::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Tue, 6 May
- 2025 14:22:00 +0000
-Received: from AS8PR04MB8868.eurprd04.prod.outlook.com
- ([fe80::b317:9c26:147f:c06e]) by AS8PR04MB8868.eurprd04.prod.outlook.com
- ([fe80::b317:9c26:147f:c06e%3]) with mapi id 15.20.8699.026; Tue, 6 May 2025
- 14:22:00 +0000
-Date: Tue, 6 May 2025 17:21:57 +0300
-From: Ioana Ciornei <ioana.ciornei@nxp.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Vladimir Oltean <vladimir.oltean@nxp.com>
-Subject: Re: [PATCH 5/6] arm64: dts: ls1028a-qds: make the QIXIS CPLD use the
- simple-mfd-i2c.c driver
-Message-ID: <smfuskvhdhrfrgbpjflgymoadms6vfiwgjmipsmkrxldtor6we@tyvafv626bwr>
-References: <20250430153634.2971736-1-ioana.ciornei@nxp.com>
- <20250430153634.2971736-6-ioana.ciornei@nxp.com>
- <20250502-savvy-eccentric-hog-b4fed5@kuoka>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250502-savvy-eccentric-hog-b4fed5@kuoka>
-X-ClientProxiedBy: AS4P189CA0051.EURP189.PROD.OUTLOOK.COM
- (2603:10a6:20b:659::16) To AS8PR04MB8868.eurprd04.prod.outlook.com
- (2603:10a6:20b:42f::6)
+	Tue, 06 May 2025 14:24:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1746541496;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=9zc1ZtvmGJ5KapEi1iwLqXeN/vl2AD2R+iU1xpLs0mw=;
+	b=RiiuwaVJ+7EHHJ2gpj7ANFkWAn4KTGnb/9v5OAuztEopnuAqmYamj3O9XoYvK6VNdRojRO
+	VVkn3cX9qhaE2dIGk6esRRHnata7GiqH7Djl3IG8bWhFaAmqlfTJquk998e0mQLQctACot
+	cKg3xThmKN28TSJaZafZnp4KlPIOX1k=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-631-kYOoBKffMnGfKKnmSvvsFA-1; Tue, 06 May 2025 10:24:52 -0400
+X-MC-Unique: kYOoBKffMnGfKKnmSvvsFA-1
+X-Mimecast-MFC-AGG-ID: kYOoBKffMnGfKKnmSvvsFA_1746541492
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3a0ac55e628so354357f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 07:24:52 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746541492; x=1747146292;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=9zc1ZtvmGJ5KapEi1iwLqXeN/vl2AD2R+iU1xpLs0mw=;
+        b=pOw0/XRHJzQoiNdSdhyd7X0uQrNj06vaKg3i48OmAfJ1xsVzww/GlWzPVUAjazdXCJ
+         DVMu0HFX3oA6oAkMz8t6ZVjNH3ffGpm1RSiEm3MEAIsRpU/KOlOqFmPBkW/uKCkh7vq9
+         RmJnIMzyW8UmTeNlpOqIAegL50trCs+KfIm68Wsmr/o9dOjjcnu/RoVHnxkLr0wRgs8N
+         6LGPkYoLwbsaejLCIbFvtVO3hsuXn7OJuCoHq2oamACHW4ka5veRahfAxoQoH2SJXm4r
+         SQYQ8UCgrG3vlqJquna1ikYkiFzLa+UAARdj1PIU7XA27NNosUb8vy8D/NNwA/A48BZ0
+         FcPw==
+X-Gm-Message-State: AOJu0YxNndEXHntBz4fy3DmuRyJvcW9gM/69RDVQjBn+eBJb0cWPufc2
+	AbkSJb+OcOl9ZjobdUppWBH9gOv8OcSqwvX6cOrP+QUAmR9ajG48EGTRM9dS+wU4amIexsBUP3/
+	TNXbOG3mnrrR6Al8bqcQ4nAXOVHXsFQcDAT1yZyR/rC101mEdgdZleqkEQCXkUofK7fUJ5A6h
+X-Gm-Gg: ASbGncvLdY+sXpWYblNfkLcccjgFdW64zFdjaeZcpuzAky6qlQwgRZWv6yhpEXFXA0s
+	1hF9CvHVi2/A2pGDKDyCB4MxnD33isc32qfaCK1M0ih2brH0d5R4eO3dUBHCDCX8vzdbVRYQXOT
+	wPElB7fRor+rcqvuO8zVYX/xCDZZTHP95vzGVcc2gNCJhPWjDoA4L26F2lE1hb1sPTZmHLbB7v/
+	NOmgSP9oUyx+touXYLJC9H7HW1iaFVE21S8CBfvZ7nsxlbRmJfUxompaCqZKxm3y/1KbdGRdVzb
+	jst6p9griaKz13OPNZWbn4nTLpwt1DLKFmWGrVA0fh+TvyghP7g=
+X-Received: by 2002:a05:6000:1882:b0:3a0:8c30:63dc with SMTP id ffacd0b85a97d-3a099adcademr12398435f8f.26.1746541491646;
+        Tue, 06 May 2025 07:24:51 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IELT3uhvXzYaDL4GC+mS3AuYh8FvYuciR4o2IRMpMPpmXJqrQKgtNFIpV3cWERG4orkT5s5GQ==
+X-Received: by 2002:a05:6000:1882:b0:3a0:8c30:63dc with SMTP id ffacd0b85a97d-3a099adcademr12398409f8f.26.1746541491233;
+        Tue, 06 May 2025 07:24:51 -0700 (PDT)
+Received: from ?IPV6:2a01:599:915:8911:b13f:d972:e237:7fe2? ([2a01:599:915:8911:b13f:d972:e237:7fe2])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a099b178absm14075606f8f.97.2025.05.06.07.24.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 06 May 2025 07:24:50 -0700 (PDT)
+Message-ID: <5ea287f0-24cb-4ad4-8448-6e397fbf1ec8@redhat.com>
+Date: Tue, 6 May 2025 16:24:48 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8868:EE_|AS8PR04MB7655:EE_
-X-MS-Office365-Filtering-Correlation-Id: 75195820-ed85-4985-c865-08dd8ca95d3a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0RDBgPSufAeafiO+QWvshJp0+4JRzl34iSSg6mvileeEhKnJ6uNL0iQJQres?=
- =?us-ascii?Q?Oh06E1N+csSVFsxF9zvujlwpw81XDPJfPyvsumTlHC6XyTwbbErgIMZi2t52?=
- =?us-ascii?Q?tcBOOym/Ekdx7hPPsa4d6eMpnyeeUvjRG1h2Ym3M1LdNnXoJ5cAKLYjB8rSM?=
- =?us-ascii?Q?OnxmDsVKs8xWmNNyW+RI7+9VTD8TIRY6rz9TBR5NXneDkEJrQsQe5r13aPkx?=
- =?us-ascii?Q?1QXMELO5dd5C+4BimEg4PovfqvXppBIgA0hrUV65nlDy9AuDWQe68oD/rMZI?=
- =?us-ascii?Q?Xr44FYI/3OQe2D2NGGQeJNNmeLvnQSTXTOlgJYzXFpyhBr1PSTNQLnYmvLu1?=
- =?us-ascii?Q?mPCAknLB480n/5rGf/L5SafdpXlfBjzKSm2Ol5jxvRDEWYGE6cROtD0Jh6ym?=
- =?us-ascii?Q?UaZr9tx5m99eYAx3/IwIj/LEKl4qgqy4x2uSRfZtKWVxIK8uzM+8Ew9wG5Ye?=
- =?us-ascii?Q?gtZSVXa39vcMz0fesYY98iN6pkvt+eK/pFSHkR/k63NKYexF3i/5CZoLIyoI?=
- =?us-ascii?Q?ldOtddHJEBBbGMPy/f5EaFYTT9mfZ91pj50zkyWCHU2kyUpf++KYj3dkGGyS?=
- =?us-ascii?Q?AU6YetDHOSHaLzZTLQB06Ebgzc62tJUyLVQm6tHkLJ87oABhPPMBdzO6WoNk?=
- =?us-ascii?Q?o5mCI49Pmxn8RqTqSifyoPdh7LsypISoHNnWa+f4EqSJK3vgXduxfva4raSC?=
- =?us-ascii?Q?ev4B24UVHCp/eYJrucUYXyJ7021mFV3KXYthV1dRCIcaJMyszyOorh63cawU?=
- =?us-ascii?Q?WkWy6IA7aiqVxiZJGkjiceL6xtUCf2Jj5ZARAVSKxxPxMiWTcIB3kbc4X/4+?=
- =?us-ascii?Q?ad0w9dbaepj0AyboNb0qSxqIVqXkQyx9BpoU2JQn5IbkfiOkVH3OdeQkAS3y?=
- =?us-ascii?Q?G4TFHz2p3KNG3kEYGGPjYPFZRH6DhKGy3smIYZVpTRLVNYtZ3C9gRgkVNj5N?=
- =?us-ascii?Q?GCPr9EOM/NbYGcx2yFcjOnRu6uBDrE0lBkm9zo0bG13Nt+/DHB/M6eE83itE?=
- =?us-ascii?Q?7h3fZvUuEDV0GhNFCgV60ApISnss1OQSs6De/EJtNK3RAPxpyE8Wim51i2bZ?=
- =?us-ascii?Q?uguc8t2CfBCIphJCB35mc/chYAIRXQtHRb+9y7b2BYzSZFh8Lh40r2wiYs2j?=
- =?us-ascii?Q?zTKEd/VZpOqgiHiqYgxrk/f/Rf7+m7G5vh+JOgJSmR8hPttV7U4WUZHGatwZ?=
- =?us-ascii?Q?umjPLq5sDbIOsa7J/+6/jJoHnI6eROH2MXXw2lHe3WYJqLagH6ysZm/6c20v?=
- =?us-ascii?Q?I2AVy9bSgLsmrETpIWcFQw4MDS/2YVD13SP4fErMRJ4UOF2B1smkTpbAOlqR?=
- =?us-ascii?Q?RakVTk6YaOBJ76DIgmN3P7nsLcAC8YnSuQCKGzWup4CJnA8dFfxgwf79fs0r?=
- =?us-ascii?Q?BY+hHGuP+UMaLWyuU8yJFHwVtwfZ8+qvv0pdocY7droV4Gd4dwcA5wzlKpJq?=
- =?us-ascii?Q?Z6szxXcDVJg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8868.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2C23o+UwoF7pbAVVnzzdwN6J+TINIrBde+GdqpoA235HXhEIrcrW46/13jcI?=
- =?us-ascii?Q?RqTOeVIhAFOFZSePVeYxsf/tOS4RNPOdT6I2ypqJLFwZ5NpDJJ8GxJzScRqX?=
- =?us-ascii?Q?4to9z18gpEy6R+jxDj6PcaiPgGN9McWQV8WhstpUMWCh0Xbqsyvf77mH95vy?=
- =?us-ascii?Q?aEm40ilNX+Li3aJFgJ/qymQG+HEzpSyFaDYu01tDt05tfJP7XMQpxgpgqyGx?=
- =?us-ascii?Q?pHV5KyIi5yON/Wd3hHgqBKQJyHebwpsRNruJPQxXZ2/sYlf0UPj+438egaDZ?=
- =?us-ascii?Q?t8oFY4tMxPyRg2C+kOzwFMK8SiiWDUucmGuosy40ChSLQ2lNTcM+sMMgyDJq?=
- =?us-ascii?Q?e/5M+7t2SBUIJbC9l40jx+m/wDQW7DezSx9ZTi0frhdeZ9s2CvrXktXOZFDE?=
- =?us-ascii?Q?rfKlV1qI93BB4/E9pxFj5SMKB0jn50ltXKJz6ba6PRxLvHkoWDjmDK9xjOU9?=
- =?us-ascii?Q?sKXxH6CNP8DYs05v5XJv2aNhzETVAKBXiEeY5ZuaLC3hmePeuNBnNYfupMsR?=
- =?us-ascii?Q?zROqmrYh0oRyVF6hK9gvYeBgN2aqV+UwS02An5T0VJN5TuO7DfcQTunxTo+j?=
- =?us-ascii?Q?he4SGRiJWHGRpLWD3yvsGf34GPryFLPZ/B+05Zd2ipyRZsUIwD4gguAqy6nm?=
- =?us-ascii?Q?1KH+T9vO56nzm4W/mCSfb+tM5yrLwCsQ4+tmA/FleAAcXlWxMpWO46MVjDY1?=
- =?us-ascii?Q?XKfqYsbRBOPwNVb+AhlrjCsBt+PEXwXO0DD2Bq0F4IPiuIDHLS3grQxDYflP?=
- =?us-ascii?Q?MEJfHwns5qSfZrbNLXMWLO4cPD6gYKj78A21I21bpwVyQi/fvo6HfGwWBUxX?=
- =?us-ascii?Q?PFT2Q+FNXaFjecr2gY94sH4ZM95fP16R+sm3+FHqDmsZmkAvlJz0d44bOeU1?=
- =?us-ascii?Q?sxh5M5OytfODGVDwlVYbtokSTyaYYLkTCN3+KvHq4QenSg0GShd651LhhNCA?=
- =?us-ascii?Q?hb1KLMRnrJguw/tAsg0xWVGFjOCTbTypt0p/meX8l/XD3BKBHO8bl7250NwE?=
- =?us-ascii?Q?kC8m36jWAYA5cwP8OweC7Neia6/r5RpK8iTY3jTD55S+xRC9zOFi4mjElEzO?=
- =?us-ascii?Q?yEhF6gWxIUipHwFptHzuBPVs0UxPxib9bxLz5FCeYQ+a13gSqmL7eu9y+w67?=
- =?us-ascii?Q?oTE1iyp53sfWbAxX0SCxu0EfJTZ9pulMJKuXOkwdkuSJnqZFlH5P0tYx8d3m?=
- =?us-ascii?Q?CJJc8tQFLbIfo3x57KEf/cSABTR/npEOBMRn+7mvDB6VEJA44slpbLPbMCcs?=
- =?us-ascii?Q?8sCobUVKjuTOGRbuROy+/VIrJ7HOcutYBDROJCQTD2AJb4same5lMIlVPvyS?=
- =?us-ascii?Q?0HyWYJfUK+bvj1KzHeo75UNEPAkABmodsBP+NE0ocLp9JXBA2uHegDHu+VJG?=
- =?us-ascii?Q?0fEQObxqmenyGsQZoekeBYOGOnrhMTCJO3dQX2QgHr5h7IeYh5OQICPKi5El?=
- =?us-ascii?Q?WldYqDkV5qEj/a5/fyrgbCvbFWl5nSyMJtewcG6DTvJeNINXbGw51bLTCWDV?=
- =?us-ascii?Q?ih9P1j8wvXCg4//dbRH++z0sWa8isRyF3b6lYSQMJc/Zyfm+nFxwM3boY1fE?=
- =?us-ascii?Q?hG/JC/HL8gK0N5HoXc/z6vE0mKEM+b7Q26S7s3aV?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 75195820-ed85-4985-c865-08dd8ca95d3a
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8868.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 14:22:00.0074
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: D1caTNS1TbIbPcsflhslvil0eBVMUtcQgDziyrM1GSibDwfcS06fsbnw2h/PZK+GjNvgiX8oPEuJuoudN3MACA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7655
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v4 4/5] mm/readahead: Store folio order in struct
+ file_ra_state
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ Dave Chinner <david@fromorbit.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org
+References: <20250430145920.3748738-1-ryan.roberts@arm.com>
+ <20250430145920.3748738-5-ryan.roberts@arm.com>
+ <c8f78fd6-c1fb-4884-b370-cb6b03e573b6@redhat.com>
+ <2b1ea3d9-6c9b-4700-ae21-5f65565a995a@arm.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <2b1ea3d9-6c9b-4700-ae21-5f65565a995a@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: BB5Ky6Akg73RQGaUUWGP11r_D3YT3VbtH2mfPFc1-Dw_1746541492
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_072203_767498_2B23E1E9 
-X-CRM114-Status: GOOD (  25.64  )
+X-CRM114-CacheID: sfid-20250506_072457_272784_1EBFE9C2 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,62 +165,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 02, 2025 at 09:04:03AM +0200, Krzysztof Kozlowski wrote:
-> On Wed, Apr 30, 2025 at 06:36:33PM GMT, Ioana Ciornei wrote:
-> > From: Vladimir Oltean <vladimir.oltean@nxp.com>
-> > 
-> > The MDIO mux on the LS1028A-QDS never worked in mainline. The device
-> > tree was submitted as-is, and there is a downstream driver for the QIXIS
-> > FPGA:
-> > 
-> > https://github.com/nxp-qoriq/linux/blob/lf-6.12.y/drivers/soc/fsl/qixis_ctrl.c
-> > 
-> > That driver is very similar to the already existing drivers/mfd/simple-mfd-i2c.c,
-> > and the hardware works with the simple-mfd-i2c driver, so there isn't
-> > any reason to upstream the other one.
-> > 
-> > Adapt the compatible string and child node format of the FPGA node, so
-> > that the simple-mfd-i2c driver accepts it.
+On 06.05.25 12:03, Ryan Roberts wrote:
+> On 05/05/2025 11:08, David Hildenbrand wrote:
+>> On 30.04.25 16:59, Ryan Roberts wrote:
+>>> Previously the folio order of the previous readahead request was
+>>> inferred from the folio who's readahead marker was hit. But due to the
+>>> way we have to round to non-natural boundaries sometimes, this first
+>>> folio in the readahead block is often smaller than the preferred order
+>>> for that request. This means that for cases where the initial sync
+>>> readahead is poorly aligned, the folio order will ramp up much more
+>>> slowly.
+>>>
+>>> So instead, let's store the order in struct file_ra_state so we are not
+>>> affected by any required alignment. We previously made enough room in
+>>> the struct for a 16 order field. This should be plenty big enough since
+>>> we are limited to MAX_PAGECACHE_ORDER anyway, which is certainly never
+>>> larger than ~20.
+>>>
+>>> Since we now pass order in struct file_ra_state, page_cache_ra_order()
+>>> no longer needs it's new_order parameter, so let's remove that.
+>>>
+>>> Worked example:
+>>>
+>>> Here we are touching pages 17-256 sequentially just as we did in the
+>>> previous commit, but now that we are remembering the preferred order
+>>> explicitly, we no longer have the slow ramp up problem. Note
+>>> specifically that we no longer have 2 rounds (2x ~128K) of order-2
+>>> folios:
+>>>
+>>> TYPE    STARTOFFS     ENDOFFS        SIZE  STARTPG    ENDPG   NRPG  ORDER  RA
+>>> -----  ----------  ----------  ----------  -------  -------  -----  -----  --
+>>> HOLE   0x00000000  0x00001000        4096        0        1      1
+>>> FOLIO  0x00001000  0x00002000        4096        1        2      1      0
+>>> FOLIO  0x00002000  0x00003000        4096        2        3      1      0
+>>> FOLIO  0x00003000  0x00004000        4096        3        4      1      0
+>>> FOLIO  0x00004000  0x00005000        4096        4        5      1      0
+>>> FOLIO  0x00005000  0x00006000        4096        5        6      1      0
+>>> FOLIO  0x00006000  0x00007000        4096        6        7      1      0
+>>> FOLIO  0x00007000  0x00008000        4096        7        8      1      0
+>>> FOLIO  0x00008000  0x00009000        4096        8        9      1      0
+>>> FOLIO  0x00009000  0x0000a000        4096        9       10      1      0
+>>> FOLIO  0x0000a000  0x0000b000        4096       10       11      1      0
+>>> FOLIO  0x0000b000  0x0000c000        4096       11       12      1      0
+>>> FOLIO  0x0000c000  0x0000d000        4096       12       13      1      0
+>>> FOLIO  0x0000d000  0x0000e000        4096       13       14      1      0
+>>> FOLIO  0x0000e000  0x0000f000        4096       14       15      1      0
+>>> FOLIO  0x0000f000  0x00010000        4096       15       16      1      0
+>>> FOLIO  0x00010000  0x00011000        4096       16       17      1      0
+>>> FOLIO  0x00011000  0x00012000        4096       17       18      1      0
+>>> FOLIO  0x00012000  0x00013000        4096       18       19      1      0
+>>> FOLIO  0x00013000  0x00014000        4096       19       20      1      0
+>>> FOLIO  0x00014000  0x00015000        4096       20       21      1      0
+>>> FOLIO  0x00015000  0x00016000        4096       21       22      1      0
+>>> FOLIO  0x00016000  0x00017000        4096       22       23      1      0
+>>> FOLIO  0x00017000  0x00018000        4096       23       24      1      0
+>>> FOLIO  0x00018000  0x00019000        4096       24       25      1      0
+>>> FOLIO  0x00019000  0x0001a000        4096       25       26      1      0
+>>> FOLIO  0x0001a000  0x0001b000        4096       26       27      1      0
+>>> FOLIO  0x0001b000  0x0001c000        4096       27       28      1      0
+>>> FOLIO  0x0001c000  0x0001d000        4096       28       29      1      0
+>>> FOLIO  0x0001d000  0x0001e000        4096       29       30      1      0
+>>> FOLIO  0x0001e000  0x0001f000        4096       30       31      1      0
+>>> FOLIO  0x0001f000  0x00020000        4096       31       32      1      0
+>>> FOLIO  0x00020000  0x00021000        4096       32       33      1      0
+>>> FOLIO  0x00021000  0x00022000        4096       33       34      1      0
+>>> FOLIO  0x00022000  0x00024000        8192       34       36      2      1
+>>> FOLIO  0x00024000  0x00028000       16384       36       40      4      2
+>>> FOLIO  0x00028000  0x0002c000       16384       40       44      4      2
+>>> FOLIO  0x0002c000  0x00030000       16384       44       48      4      2
+>>> FOLIO  0x00030000  0x00034000       16384       48       52      4      2
+>>> FOLIO  0x00034000  0x00038000       16384       52       56      4      2
+>>> FOLIO  0x00038000  0x0003c000       16384       56       60      4      2
+>>> FOLIO  0x0003c000  0x00040000       16384       60       64      4      2
+>>> FOLIO  0x00040000  0x00050000       65536       64       80     16      4
+>>> FOLIO  0x00050000  0x00060000       65536       80       96     16      4
+>>> FOLIO  0x00060000  0x00080000      131072       96      128     32      5
+>>> FOLIO  0x00080000  0x000a0000      131072      128      160     32      5
+>>> FOLIO  0x000a0000  0x000c0000      131072      160      192     32      5
+>>> FOLIO  0x000c0000  0x000e0000      131072      192      224     32      5
+>>> FOLIO  0x000e0000  0x00100000      131072      224      256     32      5
+>>> FOLIO  0x00100000  0x00120000      131072      256      288     32      5
+>>> FOLIO  0x00120000  0x00140000      131072      288      320     32      5  Y
+>>> HOLE   0x00140000  0x00800000     7077888      320     2048   1728
+>>>
+>>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+>>> ---
+>>>    include/linux/fs.h |  2 ++
+>>>    mm/filemap.c       |  6 ++++--
+>>>    mm/internal.h      |  3 +--
+>>>    mm/readahead.c     | 18 +++++++++++-------
+>>>    4 files changed, 18 insertions(+), 11 deletions(-)
+>>>
+>>> diff --git a/include/linux/fs.h b/include/linux/fs.h
+>>> index 44362bef0010..cde482a7270a 100644
+>>> --- a/include/linux/fs.h
+>>> +++ b/include/linux/fs.h
+>>> @@ -1031,6 +1031,7 @@ struct fown_struct {
+>>>     *      and so were/are genuinely "ahead".  Start next readahead when
+>>>     *      the first of these pages is accessed.
+>>>     * @ra_pages: Maximum size of a readahead request, copied from the bdi.
+>>> + * @order: Preferred folio order used for most recent readahead.
+>>
+>> Looking at other members, and how it relates to the other members, should we
+>> call this something like "ra_prev_order" / "prev_ra_order" to distinguish it
+>> from !ra members and indicate the "most recent" semantics similar to "prev_pos"?
 > 
-> Why do you break the users based on some driver differences? Fix the
-> drivers, not the DTS.
+> As you know, I'm crap at naming, but...
 > 
-> > 
-> > Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> > Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
-> > ---
-> >  arch/arm64/boot/dts/freescale/fsl-ls1028a-qds.dts | 9 +++++----
-> >  1 file changed, 5 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a-qds.dts b/arch/arm64/boot/dts/freescale/fsl-ls1028a-qds.dts
-> > index 0bb2f28a0441..58b54d521d75 100644
-> > --- a/arch/arm64/boot/dts/freescale/fsl-ls1028a-qds.dts
-> > +++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a-qds.dts
-> > @@ -338,17 +338,18 @@ sgtl5000: audio-codec@a {
-> >  	};
-> >  
-> >  	fpga@66 {
-> > -		compatible = "fsl,ls1028aqds-fpga", "fsl,fpga-qixis-i2c",
-> > -			     "simple-mfd";
-> > +		compatible = "fsl,ls1028a-qds-qixis-i2c";
+> start, size, async_size and order make up the parameters for the "most recent"
+> readahead request. Where "most recent" includes "current" once passed into
+> page_cache_ra_order(). The others don't include "ra" or "prev" in their name so
+> wasn't sure it was necessary here.
 > 
-> This breaks all the existing users. NAK.
+> ra_pages is a bit different; that's not part of the request, it's a (dynamic)
+> ceiling to use when creating requests.
+> 
+> Personally I'd leave it as is, but no strong opinion.
 
-Using a mainline kernel, this DT node was never used or probed by a
-driver since that driver was never submitted. I am not breaking any user
-of the mainline kernel.
+I'm fine with it staying that way; I was merely trying to make sense of 
+it all ...
+
+
+... maybe a better description of the parameters might make the 
+semantics easier to grasp.
+
+""most recent" includes "current" once passed into page_cache_ra_order()"
+
+is *really* hard to digest :)
 
 > 
-> >  		reg = <0x66>;
-> > +		#address-cells = <1>;
-> > +		#size-cells = <0>;
-> >  
-> > -		mux: mux-controller {
-> > +		mux: mux-controller@54 {
+>>
+>> Just a thought while digging through this patch ...
+>>
+>> ...
+>>
+>>> --- a/mm/filemap.c
+>>> +++ b/mm/filemap.c
+>>> @@ -3222,7 +3222,8 @@ static struct file *do_sync_mmap_readahead(struct
+>>> vm_fault *vmf)
+>>>            if (!(vm_flags & VM_RAND_READ))
+>>>                ra->size *= 2;
+>>>            ra->async_size = HPAGE_PMD_NR;
+>>> -        page_cache_ra_order(&ractl, ra, HPAGE_PMD_ORDER);
+>>> +        ra->order = HPAGE_PMD_ORDER;
+>>> +        page_cache_ra_order(&ractl, ra);
+>>>            return fpin;
+>>>        }
+>>>    #endif
+>>> @@ -3258,8 +3259,9 @@ static struct file *do_sync_mmap_readahead(struct
+>>> vm_fault *vmf)
+>>>        ra->start = max_t(long, 0, vmf->pgoff - ra->ra_pages / 2);
+>>>        ra->size = ra->ra_pages;
+>>>        ra->async_size = ra->ra_pages / 4;
+>>> +    ra->order = 0;
+>>>        ractl._index = ra->start;
+>>> -    page_cache_ra_order(&ractl, ra, 0);
+>>> +    page_cache_ra_order(&ractl, ra);
+>>>        return fpin;
+>>>    }
+>>
+>> Why not let page_cache_ra_order() consume the order and update ra->order (or
+>> however it will be called :) ) internally?
 > 
-> This was never tested. Your binding says something else.
+> You mean continue to pass new_order as a parameter to page_cache_ra_order()? The
+> reason I did it the way I'm doing it is because I thought it would be weird for
+> the caller of page_cache_ra_order() to set up all the parameters (start, size,
+> async_size) of the request except for order...
 
-Will fix the binding in v2.
+Agreed. As above, I think we might do better with the description of 
+these parameters in general ...
 
-Ioana
+or even document how page_cache_ra_order() acts on these inputs?
+
+-- 
+Cheers,
+
+David / dhildenb
+
 
