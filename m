@@ -4,99 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F09C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:35:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D606AC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S6PuN11kmLGkE9CdpXY3LsP08NiwndWR9cFcKMuKbeQ=; b=4PK/yjhrn4kE2TD5sq8mTtzDC8
-	3y/RqO0Gy5fjjDiwvPL4ayRDMf2VrXs7HU4m2PmYkLbkaqR6Yk3DlueBIiyJi9IdXi3FdhfvRQqnQ
-	h1mI5v09ZPry+5tm1DDXehz1MfmKOQ6kIv9FYaStHO3rXkGIcoAR3fIdLygLrksubA7lmw9h3/JVC
-	4KCEmZfllu4H1/I6NEf6IIdPe/WfjuyZb3R/AnI6FuBi6QJjOBtp7EOlURY4mvR4toCOCNcEVGF4t
-	Z3kG1WG0qWBRh+d1P75xham2/Gpo0JkA+SsEPr29Dyk0+cDe6zhRiqqGNiciL+EG2+64Z1rTVN4pv
-	qTJmOgVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gT+hqvYnvFoiGUuape8lhiuYp0FjZhhNlHilKAoqjy0=; b=SuJvevrrjlDh6+1s1oz20tP+qZ
+	NgPEyut6FBRwzb6IbLLaAROMhvimy2H15wKpHwTg0z8JFJxjcU0TM9mXOlMRcZ4exeNEtUjtDCI+i
+	oGZnbsRTeZcqJAEnalkumg/WcVCUhT0qZa1+UN44ihgvrrKe8W8YMzehc9bPWdHJKt0148Af+sn6n
+	4RSl/PHtn6dcugiJHp+xNPLipN4GkqSla5EP8pyXWSlJkHn03ESizpkipHmeuukugfVxmzn7gy1+f
+	7xIWvkrODijdrW31FAfHthdiqNMHUnM3/vc95deAk5LjXRZw5Et90ZT9r8iltcZJjwKlWOmyEhv4q
+	pNrtA2/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCUcc-0000000Dy8a-3yOP;
-	Wed, 07 May 2025 02:34:58 +0000
-Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
+	id 1uCUcf-0000000DyD7-2dB4;
+	Wed, 07 May 2025 02:35:01 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCQic-0000000DZtF-0jdH;
-	Tue, 06 May 2025 22:24:55 +0000
-Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-6e8fb83e137so59843216d6.0;
-        Tue, 06 May 2025 15:24:53 -0700 (PDT)
+	id 1uCQjH-0000000DaX7-44zL;
+	Tue, 06 May 2025 22:25:37 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43cfdc2c8c9so27958675e9.2;
+        Tue, 06 May 2025 15:25:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746570293; x=1747175093; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=S6PuN11kmLGkE9CdpXY3LsP08NiwndWR9cFcKMuKbeQ=;
-        b=Hxj1MzwZyoeC9xPbvssqbncR4LY7WdhM6GZdfZb9cPGoQZZDs5mHDHzc6+To8TT6kc
-         oDzAQG7SRwNYEVum32KEvmwYM76SRqBQQcHalASN97FJEftSrcZV5JQTYQ3o6O1SAsIS
-         5syXyOBgueSByQ2jtyQpk90QSrSB8jL5JbshTDz1Vhjrgl053g1r4bDJ+ldBcbXw/lWl
-         huX3IeaI3xTgxrf3jt0qj8ZaEbisJCNtGsOv3xgPlsPE1n/jfQLkIeHAzP7TVmSU/Rtu
-         dOPe93dYekYBRPQE29MaYF3fQD9O/ktSlg0V86B5vcDRurHSiekcw9zV3l5JckNkgEpR
-         TNZQ==
+        d=gmail.com; s=20230601; t=1746570334; x=1747175134; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=gT+hqvYnvFoiGUuape8lhiuYp0FjZhhNlHilKAoqjy0=;
+        b=chNd7Y8ZR7Mm9vY7MsUTwIgc5ldNim92Nb/9JCEEJkUh8pMCAn2MviQY5fbAldfj65
+         EfXP6gPjcJy1GN4Fi3mGNP1BskNsMHIpTb9MYixHFYcYm4mN4gw8+sgsLcsoh1672aJP
+         ffEo7eQjfYsqzJOQAvRfXAfZZdIaDm7HgosekAviq4IGw15KS7fNL+DificIVhFZTqXR
+         PtxiNBDSHcl5t9q8kYtmRYBfh8ZYAD7VS7VCV8F+YOZWjKFdRQ2N3vmY9kqPOPdICuTP
+         sDFQ6QXmUALS1v3nzYRSG+249iqKvfYkC41dX6lsyN9SWSCs97C4DKxq/4kJNRK5ULCi
+         4Cxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746570293; x=1747175093;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=S6PuN11kmLGkE9CdpXY3LsP08NiwndWR9cFcKMuKbeQ=;
-        b=Sk6oVPpkBXeAPdar7LMNqhuDl/hbldcQV5HUXHjFAbOsPL8BG+BULfA2ZuP8V6DBve
-         +UkRmkP7TA7GFo4g/hBkpwaD6rKFKF0wSjLZGwOMT2CflA5OT2ZVJ/8Bl45x3xnTZDA1
-         o8fThFV5YIbDb93aWwWiYMxexKz03sSYFH4D04C2VgXfcmX+DjhSkPT9LYU1EX8qfIc6
-         jmBTbXkDVzOscOEPT5VglXdP7XfT1rcPm4SahpcaWsjRWgTtcPqfgDEocPyMo9kN1skt
-         DXVTPj9dLmrEm6DDTX84vG9JbWbHmKnce+oKHa1tF+wO04HHomhcJkjnbcXqePp/Ze3+
-         PJPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUJzuSWnV5/DNRcZkCMjIglmENHLU/E+FaW2DobsJSiXwMCkenpxnE9tHQ0lXSLXd2TLZ/8b6ewLv5Hqm4=@lists.infradead.org, AJvYcCVWkhGWQrvZNWhG8G3NqjUPXahmq9RjC6Oa1kKkmGOn9GbjDYvxOZpw6IOI1deZlMlcfeKq/kEUeEbRGQcJAtUV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXdRJa/QKQYfqWcO9d7Q7S0nfPRXMq5pyeMKoKF2yXbZDFNBwj
-	jdffqjKPffRZHVwuJTMTv+fBZS72QSgrjrdXgHVv7k5DefjsXB1g
-X-Gm-Gg: ASbGncuOpXrveUXN281BFYgxvMTdPsjNKxLo2oGXBhx/6HaX4/aztdSHwbOq6nQ77Jg
-	HKpllexc/uoR9yiKiH2tQiWd6fkD1KwkO+utCaL8c7eOkas5Lcgz4MsLB3OOYwSnhPtZdZGNnbM
-	JydS/DzjvcQEuz8MAvYLEJE0Q+x27M7ZQLJXOoFo5TGaYbnHxLrKskuspWO/VfsP0T+nW4dwmTv
-	dwI9FFprhuiHPa3lVrk6clEo1ed40Ixkdt+6gjv96NR/ZNkth3jcx3qlBM3cv9i81cQDLJp3jYY
-	lswZXKrYUPjsLig9
-X-Google-Smtp-Source: AGHT+IE/HcOkUaQ1OjeZ76XLCIoAMcLQ4gb8y3bZBjcdCFJTsGZuHVr3Qr8wRx0H5mUFdFynUfAxQQ==
-X-Received: by 2002:ad4:5b87:0:b0:6f5:3e46:63f9 with SMTP id 6a1803df08f44-6f5429afe88mr16025426d6.7.1746570292605;
-        Tue, 06 May 2025 15:24:52 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6f5427b07e6sm3118126d6.106.2025.05.06.15.24.51
+        d=1e100.net; s=20230601; t=1746570334; x=1747175134;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gT+hqvYnvFoiGUuape8lhiuYp0FjZhhNlHilKAoqjy0=;
+        b=KqlsFpIj7lM1J3SFcSYIc5B0eoiH0srZxyBH6jVB+sn4U4TuqXCDCZZAVIZcEaQFbH
+         zXaaELRRw6YvVuMDjaioQP8IR1Bs2vlbUSn2o5EamWgz9FSFhQFWwMhzV0iDDqwAOMW+
+         fY+LafuSqtFKxKuoRhdDQPOIgZ2l0sIaSHlMTaOzhhpeHk61ws/UwuInPTooi5S0lMCU
+         L8gjIaioMEdH0VjC2t40TMQxN0RtcWY9Ll/sC6BQa0g8nAuqrAcG4y6FRwBVdNXeja91
+         oV7vdyeb9jB1i/kHjC8iCffqFDA4/aQ3H/QpxEirhf+vHSNtzlLgfFxh+JLODNI2nMqy
+         UDAw==
+X-Forwarded-Encrypted: i=1; AJvYcCVYdSgvHdHWWnSRPIxtnpIwiyiyTByMHYSckrw+dXjxWFJRYjRmR4thuURcupbobsrwvQwnKihH8RqpiekvoBZU@lists.infradead.org, AJvYcCWXa4/RRBI4oi4nb2f64WCasbwP2TWUOhY4Y5vCQy6NKSpgcVQUO9l+kEcAK0+V3W9luJVDQiJ+fLXsFGEtCAY=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFj7k+LDxC0Wv8Fnq/DUf4i9nHbZZLB3652dyvZtMiZKobcINN
+	FtTKiSD/Iol+xmL8X08ISyCJImjb8DxS4yAo1s3GNhwS88F6J2zW
+X-Gm-Gg: ASbGncuw1dgsu6x7YKwFzM7Re1nIu5DEVRl3JB17TPGkhvm5tgbJyuR/m3DGBqSvy3F
+	y9Au58lvrcFQ5P3R+Oc8jLZfyoTDvOVW+QnfGz1MMwqmMxKc6WVHyBMDCWGuSeTaqfFYW51/E1b
+	c5srrYtxF4mwS5UkQcS4IAXaDQvlbj/HuHtn+uJ014Sb7YfhnT5NSNulkd9WwseK5j6pMq9Y8Fw
+	t/tzNV+JWRClFVq2N3jRbRCLw7GaPAaOwQkktoNKdKaKwFYSEei9POYy/bTlCmX3vI80HnQ446o
+	U5cYAspVZX7eGaFQKWSDdQKPv0We5razj8erC4HnXpZ4rgQLSWTuzAE/Fw7WtamUxdN7v9e7DsW
+	as+dPqpl084vwPiwx/gXwSmQetPlczH/aiByBwFuwfdcQNfKl2ufVI/i5b+GvQ9BMzZsTb1euic
+	w=
+X-Google-Smtp-Source: AGHT+IGGW2UR02UyKr5m7oSO8uNudVCq7G0oipkdATajemKEbGILj6K3P8WqusgC9FWz3WuR33yVkQ==
+X-Received: by 2002:a05:600c:c10:b0:43c:e70d:4504 with SMTP id 5b1f17b1804b1-441d44c7c36mr4619785e9.19.1746570334058;
+        Tue, 06 May 2025 15:25:34 -0700 (PDT)
+Received: from cypher.home.roving-it.com (2.c.4.1.7.3.6.4.2.a.a.3.0.f.c.2.1.8.6.2.1.1.b.f.0.b.8.0.1.0.0.2.ip6.arpa. [2001:8b0:fb11:2681:2cf0:3aa2:4637:14c2])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-441d43cb59bsm8202305e9.2.2025.05.06.15.25.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 May 2025 15:24:52 -0700 (PDT)
-Date: Wed, 7 May 2025 06:24:29 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Richard Cochran <richardcochran@gmail.com>, 
-	Guo Ren <guoren@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
-	Romain Gantois <romain.gantois@bootlin.com>, Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, 
-	Lothar Rubusch <l.rubusch@gmail.com>, Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next 0/4] riscv: sophgo: Add ethernet support for
- SG2042
-Message-ID: <fgao5qnim6o3gvixzl7lnftgsish6uajlia5okylxskn3nrexe@gyvgrp72jvj6>
-References: <20250506093256.1107770-1-inochiama@gmail.com>
- <c7a8185e-07b7-4a62-b39b-7d1e6eec64d6@lunn.ch>
+        Tue, 06 May 2025 15:25:33 -0700 (PDT)
+From: Peter Robinson <pbrobinson@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Vasily Khoruzhick <anarsoul@gmail.com>,
+	Tianling Shen <cnsztl@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Cc: Peter Robinson <pbrobinson@gmail.com>
+Subject: [PATCH] arm64: dts: rockchip: Update eMMC for NanoPi R5 series
+Date: Tue,  6 May 2025 23:25:28 +0100
+Message-ID: <20250506222531.625157-1-pbrobinson@gmail.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c7a8185e-07b7-4a62-b39b-7d1e6eec64d6@lunn.ch>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_152454_229967_200FB213 
-X-CRM114-Status: GOOD (  17.75  )
+X-CRM114-CacheID: sfid-20250506_152536_011910_CEF5C6CD 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,40 +102,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 02:03:18PM +0200, Andrew Lunn wrote:
-> On Tue, May 06, 2025 at 05:32:50PM +0800, Inochi Amaoto wrote:
-> > The ethernet controller of SG2042 is Synopsys DesignWare IP with
-> > tx clock. Add device id for it.
-> > 
-> > This patch can only be tested on a SG2042 x4 evb board, as pioneer
-> > does not expose this device.
-> 
-> Do you have a patch for this EVB board? Ideally there should be a user
-> added at the same time as support for a device.
-> 
-> 	Andrew
+Add the 3.3v and 1.8v regulators that are connected to
+the eMMC on the R5 series devices, as well as adding the
+eMMC data strobe, and enable eMMC HS200 mode as the
+Foresee FEMDNN0xxG-A3A55 modules support it.
 
-Yes, I have one for this device. And Han Gao told me that he will send
-the board patch for the evb board. So I only send the driver.
-And the fragment for the evb board is likes below, I think it is kind
-of trivial:
+Fixes: c8ec73b05a95d ("arm64: dts: rockchip: create common dtsi for NanoPi R5 series")
+Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
+---
 
-&gmac0 {
-	phy-handle = <&phy0>;
-	phy-mode = "rgmii-txid";
-	status = "okay";
+I had reports from some Fedora users that their eMMC didn't work
+on the R5C and this fixes it, the schematic of the eMMC is the
+same across all of the R5 series of devices.
 
-	mdio {
-		phy0: phy@0 {
-			compatible = "ethernet-phy-ieee802.3-c22";
-			reg = <0>;
-			reset-gpios = <&port0a 27 GPIO_ACTIVE_LOW>;
-			reset-assert-us = <100000>;
-			reset-deassert-us = <100000>;
-		};
-	};
-};
+ arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtsi | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtsi b/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtsi
+index 00c479aa18711..a28b4af10d13a 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtsi
+@@ -486,9 +486,12 @@ &saradc {
+ &sdhci {
+ 	bus-width = <8>;
+ 	max-frequency = <200000000>;
++	mmc-hs200-1_8v;
+ 	non-removable;
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&emmc_bus8 &emmc_clk &emmc_cmd>;
++	pinctrl-0 = <&emmc_bus8 &emmc_clk &emmc_cmd &emmc_datastrobe>;
++	vmmc-supply = <&vcc_3v3>;
++	vqmmc-supply = <&vcc_1v8>;
+ 	status = "okay";
+ };
  
-Regards,
-Inochi
+-- 
+2.49.0
+
 
