@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 532C3C3ABBC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C083C3ABBF
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 22:23:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zRGbR1OHd0d2X8SZfvxsv6v1zI2FWugdielzphcA86w=; b=V58TrNGqUtNqQXJFxqAZbGPIV0
-	ZUNrqilKk17WLtDoUOg8pUMyzpkPs+cVJVm3dbKKZPg2p4/j1qxXKbNbMgWL3J80emrhpCnnyiNbc
-	Xm443oswIbpHy2zF1k5MUQQPR7uxGNMfoQNnR2uHESSwGzfIqAea5EtwZrb0f4ZkgVPj/0X0Igm6m
-	AnABmbnAr8ty4dTGmH75faHhwGOYDpNzRBcNaBKxOBGuFH/eMaS8X0VJILS8Ua635avunte9J/ASz
-	vQW5+fJpHln0jtbNVA9Kmz9IJ9nWe0umvu1pvQKYnTmMiNwJQZWEw+Rdt4nRbwRRLZBRYWMh2JEYR
-	SGW1b7Iw==;
+	bh=j22iHDMbOpCNZvTS7XoRGGnDdAk3cRORF/aI2NFwNQg=; b=WYmznoYc6zDD+n0tG7KoPYiS62
+	b23pQCA3W3rEkhLE2rOI40DX0RI2VIjMcO60eFYiE3Oi/yWDkJ7DUK2EiR2sLVesnJeIQ70u0dtGm
+	swrLz0qigd0xhFknn5pDo4a+c73rGysZrQxWtZeRlVH58hJemSHn1hqHwivpHSWvOvp88sQ3lSHe+
+	TsU/Rkxqydyy+/2wRx9lmL5YwkhgBNyK6Cx12Z5H/fS9ws7k0A9kRGQ6vjeGPwzFkRxw7pTFfzDZp
+	cqODPsSBpPEPNbz78EN270Jh7hZtLQOBck3tOyompJYvLr0Zi3PkXTGIMRqVTs6NeL0HKc1YFxBc+
+	CM9ftkFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCQgj-0000000DWQT-1lKG;
-	Tue, 06 May 2025 22:22:57 +0000
+	id 1uCQgt-0000000DWat-1M28;
+	Tue, 06 May 2025 22:23:07 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCLOt-0000000CiJN-2eov
+	id 1uCLOw-0000000CiJN-0ocd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 16:44:13 +0000
+	Tue, 06 May 2025 16:44:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 791B4A4D6D6;
-	Tue,  6 May 2025 16:44:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4154CC4CEEF;
-	Tue,  6 May 2025 16:44:10 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 038D1A4D6F4;
+	Tue,  6 May 2025 16:44:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0282C4CEEB;
+	Tue,  6 May 2025 16:44:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746549850;
-	bh=9pgxiWCL9Lomr3yxaonxBwT8LnBlQFBPORiK3/1n6t8=;
+	s=k20201202; t=1746549853;
+	bh=Y0zjLJEGkJrxaxp4SDctGpq7uyiWPRxobc1+3u1ZYhU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OKaooU1vaMH1e8FMVzAsGtVdE0doZ8eKPkepCxsD1juTxGAUO6HtZ98aHfFEFeAcb
-	 bSTDy9oxcI1ihu5Ovtf26kffF1d/wkmg+RYlSYfj7HKwXRAIsExF6OmJ/dmDE2Ajzj
-	 tO/QEzUq7Hc0HfhYUr6xD+8DhBgE4oYRcnsXk2aLxSEiBT9NGwRtz726qOd/O6sllS
-	 pUx1EQRObS5kHs6JGg8lLRDkAoBKjKSacQXzZJHatGgxDqE2luixzvGx2PZuTZsSNI
-	 cabUBsJWoARjQ/pzZrT4lrTbCLw8F34Xu9XbcEBneJ0P8U0T9xk54l5+tXnZES50aK
-	 RnqtjZAVRLicg==
+	b=QnfE+Pn2iGJXtZ6akqbzwmun/WrXpt4zH3y1dzyi9zAIJNA73ndrUggFcMERtQnL8
+	 nWWHuqeHUBRa/cPESclt9mqvKEr4ewKsubmLsMAJ6wTH6PHCxKqxjOnt45yo8gFM0Y
+	 CaISxUeqDVq/Rnb4PmNdjf5oHdzMHgNMfI7aPV6/DEk98+ixFwtzl5GWvSLHNhzMiz
+	 QNRxr7zVy7Mk8lH/RbDms6aAcHlwhixLwIq2+bpISilo7M+Av31TNi0Qx4bx0gzPnd
+	 fs8M7C3TkQr6gvwQYqcX7dCgv8qEIoy6/FjSQDX2jOVl/tG3csh8Q3LwyzHcciZ40u
+	 O2RNCGfiEsPZg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uCLOq-00CJkN-HR;
-	Tue, 06 May 2025 17:44:08 +0100
+	id 1uCLOt-00CJkN-St;
+	Tue, 06 May 2025 17:44:11 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -61,9 +61,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Ben Horgan <ben.horgan@arm.com>
-Subject: [PATCH v4 11/43] arm64: sysreg: Add system instructions trapped by HFGIRT2_EL2
-Date: Tue,  6 May 2025 17:43:16 +0100
-Message-Id: <20250506164348.346001-12-maz@kernel.org>
+Subject: [PATCH v4 25/43] KVM: arm64: Unconditionally configure fine-grain traps
+Date: Tue,  6 May 2025 17:43:30 +0100
+Message-Id: <20250506164348.346001-26-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250506164348.346001-1-maz@kernel.org>
 References: <20250506164348.346001-1-maz@kernel.org>
@@ -74,8 +74,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_094411_764150_BA257C5D 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20250506_094414_361184_0BA9AFE9 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,40 +90,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the new CMOs trapped by HFGITR2_EL2.
+From: Mark Rutland <mark.rutland@arm.com>
 
+... otherwise we can inherit the host configuration if this differs from
+the KVM configuration.
+
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+[maz: simplified a couple of things]
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/sysreg.h | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 39 ++++++++++---------------
+ 1 file changed, 15 insertions(+), 24 deletions(-)
 
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index a943eac446938..8908eec48f313 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -117,6 +117,7 @@
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+index 027d05f308f75..925a3288bd5be 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -107,7 +107,8 @@ static inline void __activate_traps_fpsimd32(struct kvm_vcpu *vcpu)
  
- #define SB_BARRIER_INSN			__SYS_BARRIER_INSN(0, 7, 31)
+ #define update_fgt_traps_cs(hctxt, vcpu, kvm, reg, clr, set)		\
+ 	do {								\
+-		u64 c = 0, s = 0;					\
++		u64 c = clr, s = set;					\
++		u64 val;						\
+ 									\
+ 		ctxt_sys_reg(hctxt, reg) = read_sysreg_s(SYS_ ## reg);	\
+ 		if (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu))		\
+@@ -115,14 +116,10 @@ static inline void __activate_traps_fpsimd32(struct kvm_vcpu *vcpu)
+ 									\
+ 		compute_undef_clr_set(vcpu, kvm, reg, c, s);		\
+ 									\
+-		s |= set;						\
+-		c |= clr;						\
+-		if (c || s) {						\
+-			u64 val = __ ## reg ## _nMASK;			\
+-			val |= s;					\
+-			val &= ~c;					\
+-			write_sysreg_s(val, SYS_ ## reg);		\
+-		}							\
++		val = __ ## reg ## _nMASK;				\
++		val |= s;						\
++		val &= ~c;						\
++		write_sysreg_s(val, SYS_ ## reg);			\
+ 	} while(0)
  
-+/* Data cache zero operations */
- #define SYS_DC_ISW			sys_insn(1, 0, 7, 6, 2)
- #define SYS_DC_IGSW			sys_insn(1, 0, 7, 6, 4)
- #define SYS_DC_IGDSW			sys_insn(1, 0, 7, 6, 6)
-@@ -153,11 +154,13 @@
- #define SYS_DC_CIGVAC			sys_insn(1, 3, 7, 14, 3)
- #define SYS_DC_CIGDVAC			sys_insn(1, 3, 7, 14, 5)
+ #define update_fgt_traps(hctxt, vcpu, kvm, reg)		\
+@@ -175,33 +172,27 @@ static inline void __activate_traps_hfgxtr(struct kvm_vcpu *vcpu)
+ 		update_fgt_traps(hctxt, vcpu, kvm, HAFGRTR_EL2);
+ }
  
--/* Data cache zero operations */
- #define SYS_DC_ZVA			sys_insn(1, 3, 7, 4, 1)
- #define SYS_DC_GVA			sys_insn(1, 3, 7, 4, 3)
- #define SYS_DC_GZVA			sys_insn(1, 3, 7, 4, 4)
+-#define __deactivate_fgt(htcxt, vcpu, kvm, reg)				\
++#define __deactivate_fgt(htcxt, vcpu, reg)				\
+ 	do {								\
+-		if ((vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu)) ||	\
+-		    kvm->arch.fgu[reg_to_fgt_group_id(reg)])		\
+-			write_sysreg_s(ctxt_sys_reg(hctxt, reg),	\
+-				       SYS_ ## reg);			\
++		write_sysreg_s(ctxt_sys_reg(hctxt, reg),		\
++			       SYS_ ## reg);				\
+ 	} while(0)
  
-+#define SYS_DC_CIVAPS			sys_insn(1, 0, 7, 15, 1)
-+#define SYS_DC_CIGDVAPS			sys_insn(1, 0, 7, 15, 5)
-+
- /*
-  * Automatically generated definitions for system registers, the
-  * manual encodings below are in the process of being converted to
+ static inline void __deactivate_traps_hfgxtr(struct kvm_vcpu *vcpu)
+ {
+ 	struct kvm_cpu_context *hctxt = host_data_ptr(host_ctxt);
+-	struct kvm *kvm = kern_hyp_va(vcpu->kvm);
+ 
+ 	if (!cpus_have_final_cap(ARM64_HAS_FGT))
+ 		return;
+ 
+-	__deactivate_fgt(hctxt, vcpu, kvm, HFGRTR_EL2);
+-	if (cpus_have_final_cap(ARM64_WORKAROUND_AMPERE_AC03_CPU_38))
+-		write_sysreg_s(ctxt_sys_reg(hctxt, HFGWTR_EL2), SYS_HFGWTR_EL2);
+-	else
+-		__deactivate_fgt(hctxt, vcpu, kvm, HFGWTR_EL2);
+-	__deactivate_fgt(hctxt, vcpu, kvm, HFGITR_EL2);
+-	__deactivate_fgt(hctxt, vcpu, kvm, HDFGRTR_EL2);
+-	__deactivate_fgt(hctxt, vcpu, kvm, HDFGWTR_EL2);
++	__deactivate_fgt(hctxt, vcpu, HFGRTR_EL2);
++	__deactivate_fgt(hctxt, vcpu, HFGWTR_EL2);
++	__deactivate_fgt(hctxt, vcpu, HFGITR_EL2);
++	__deactivate_fgt(hctxt, vcpu, HDFGRTR_EL2);
++	__deactivate_fgt(hctxt, vcpu, HDFGWTR_EL2);
+ 
+ 	if (cpu_has_amu())
+-		__deactivate_fgt(hctxt, vcpu, kvm, HAFGRTR_EL2);
++		__deactivate_fgt(hctxt, vcpu, HAFGRTR_EL2);
+ }
+ 
+ static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
 -- 
 2.39.2
 
