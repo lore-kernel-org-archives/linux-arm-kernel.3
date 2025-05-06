@@ -4,55 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2113C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 12:34:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38632C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 12:36:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OfwTmpKceop4AoHHJnLt97dOAU7bfMsiTCeofABdTDw=; b=iRIlQCpv1dR/z8IIopAeSEeCao
-	lTIk9/ApN2pdLiouIgHCRM3Qz6D7MmtpP1VrYf7hTqNdLrJ7MZz6LwhfkuvrCllLhrsgu8m+B6mmz
-	1sdpa3n4+bLLG5kYTCkfOsJ/ryyRO4e7LhIIsU77LI1j4dltp832GUCgNGBSbRe3yWWB4tNdiTVbV
-	dGvq/En+8tX21TO4zIvjEe6XJSTFKFXSJ3C9rPNAsu5sPxXl/y1QO4X4s/Db4qSuH9+hsWKMVrsc5
-	4Wbj9dkF8t1hRy+pMKdhy3lqEcCgbA83yMqIzaf6JZnDHN7WkpsP9LJlISK8HHranufV1LElmj5SE
-	CQRWT1NQ==;
+	bh=F7TtuFXQF6ZdeNPFZLC/9mukJqUYWiDLYJzLo0tePNQ=; b=Vy/AdmHJsGCup3Cqr0WNSlEfut
+	cJzPkakrieHba11JUne3Ee9DZpM4XqYtnf4J7sUQ1qtLhwTkQt7bI1Jb+LLKp/U8TYBRKoUTgXu0F
+	g20HOFsHL4Qng0V36bLUXl2p6e7pVOVnUrqxDdOQOduh5GfHR3enUrfmTibPPLsc+9ZLS7C4o9BEj
+	1Ox3rglkNs1UKhC/TMwfG0om8j+CAHdppeWiVDG6PsPA5a0stMny864xih8M3R3zZwj38q1Hp+1Ov
+	ohe7s1z+OuYbbvrOMLwrHtR87Yyu+kagTMgjDMb0jmBJusA+vmVmeRGO9KsMWUXtCG2+Tmm/nGL7p
+	VnLhu9IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCHVB-0000000Bw3M-1CDi;
-	Tue, 06 May 2025 12:34:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCFTA-0000000BYgI-0qob
+	id 1uCHX6-0000000BwN0-0Cng;
+	Tue, 06 May 2025 12:36:24 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCFUP-0000000BYwZ-17TX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 10:24:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1083D113E;
-	Tue,  6 May 2025 03:24:02 -0700 (PDT)
-Received: from [10.57.93.118] (unknown [10.57.93.118])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 94A743F5A1;
-	Tue,  6 May 2025 03:24:10 -0700 (PDT)
-Message-ID: <0d227893-38f5-4f77-a3d1-4caed29c7663@arm.com>
-Date: Tue, 6 May 2025 11:24:08 +0100
+	Tue, 06 May 2025 10:25:30 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZsDxM0Gqrz6L5hX;
+	Tue,  6 May 2025 18:23:03 +0800 (CST)
+Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
+	by mail.maildlp.com (Postfix) with ESMTPS id 99F731402F3;
+	Tue,  6 May 2025 18:25:26 +0800 (CST)
+Received: from localhost (10.47.68.20) by frapeml500003.china.huawei.com
+ (7.182.85.28) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 6 May
+ 2025 12:25:26 +0200
+Date: Tue, 6 May 2025 11:25:20 +0100
+From: Alireza Sanaee <alireza.sanaee@huawei.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: <devicetree@vger.kernel.org>, <robh@kernel.org>,
+	<jonathan.cameron@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linuxarm@huawei.com>,
+	<mark.rutland@arm.com>, <shameerali.kolothum.thodi@huawei.com>
+Subject: Re: [PATCH v2 6/6] of: of_cpu_phandle_to_id to support SMT threads
+Message-ID: <20250506112520.00004545.alireza.sanaee@huawei.com>
+In-Reply-To: <20250504-acoustic-skink-of-greatness-1e90ac@kuoka>
+References: <20250502161300.1411-1-alireza.sanaee@huawei.com>
+	<20250502161300.1411-7-alireza.sanaee@huawei.com>
+	<20250504-acoustic-skink-of-greatness-1e90ac@kuoka>
+Organization: Huawei
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V3] arm64/mm: Re-organise setting up FEAT_S1PIE registers
- PIRE0_EL1 and PIR_EL1
-Content-Language: en-GB
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- linux-kernel@vger.kernel.org
-References: <20250429050511.1663235-1-anshuman.khandual@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250429050511.1663235-1-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.47.68.20]
+X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
+ frapeml500003.china.huawei.com (7.182.85.28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_032412_333702_8072C112 
-X-CRM114-Status: GOOD (  20.28  )
+X-CRM114-CacheID: sfid-20250506_032529_449385_E4F92228 
+X-CRM114-Status: GOOD (  26.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,98 +75,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/04/2025 06:05, Anshuman Khandual wrote:
-> mov_q cannot really move PIE_E[0|1] macros into a general purpose register
-> as expected if those macro constants contain some 128 bit layout elements,
-> that are required for D128 page tables. The primary issue is that for D128,
-> PIE_E[0|1] are defined in terms of 128-bit types with shifting and masking,
-> which the assembler can't accommodate.
-> 
-> Instead pre-calculate these PIRE0_EL1/PIR_EL1 constants into asm-offsets.h
-> based PIE_E0_ASM/PIE_E1_ASM which can then be used in arch/arm64/mm/proc.S.
-> 
-> While here also drop PTE_MAYBE_NG/PTE_MAYBE_SHARED assembly overrides which
-> are not required any longer, as the compiler toolchains are smart enough to
-> compute both the PIE_[E0|E1]_ASM constants in all scenarios.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+On Sun, 4 May 2025 19:51:02 +0200
+Krzysztof Kozlowski <krzk@kernel.org> wrote:
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+> On Fri, May 02, 2025 at 05:13:00PM GMT, Alireza Sanaee wrote:
+> > Enhance the API to support SMT threads, this will allow sharing
+> > resources among multiple SMT threads.  
+> 
+> <form letter>
+> Please use scripts/get_maintainers.pl to get a list of necessary
+> people and lists to CC (and consider --no-git-fallback argument, so
+> you will not CC people just because they made one commit years ago).
+> It might happen, that command when run on an older kernel, gives you
+> outdated entries. Therefore please be sure you base your patches on
+> recent Linux kernel.
+> 
+> Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+> people, so fix your workflow. Tools might also fail if you work on
+> some ancient tree (don't, instead use mainline) or work on fork of
+> kernel (don't, instead use mainline). Just use b4 and everything
+> should be fine, although remember about 'b4 prep --auto-to-cc' if you
+> added new patches to the patchset.
+> </form letter>	
+> 
+> > 
+> > Enabled the sharing of resources, such as L1 Cache and clocks,
+> > between SMT threads. It introduces a fix that uses thread IDs to
+> > match each CPU thread in the register array within the cpu-node.
+> > This ensures that the cpu-map or any driver relying on this API is
+> > fine even when SMT threads share resources.
+> > 
+> > Additionally, I have tested this for CPU based on the discussions
+> > in [1], I adopted the new cpu-map layout, where the first parameter
+> > is a phandle and the second is the local thread index, as shown
+> > below:
+> > 
+> > In the CPU map, there are two cases that only one occurs at at time.
+> >     1) "cpu" = <phandle>
+> >     2) "cpus" = <phandle> <index>
+> > 
+> > The first case addresses non-SMTs and the second case addresses SMTs
+> > that the variable must be cpu(s) with an index where we later look
+> > up the reg array with that.
+> > 
+> >     core0 {
+> >       thread0 {
+> >         cpus = <&cpu0 0>;  
+> 
+> Not so sure, dtschema says only one item is allowed in the phandle
+> and I do not see here binding change.
+> 
+> Although this wasn't even sent to me, so I'll just ignore your
+> patchset.
+> 
+> Best regards,
+> Krzysztof
+> 
 
-> ---
-> This patch applies on v6.15-rc4
-> 
-> Changes in V3:
-> 
-> - Dropped off macros PTE_MAYBE_NG and PTE_MAYBE_SHARED as per Ryan
-> 
-> Changes in V2:
-> 
-> https://lore.kernel.org/all/20250416035604.2717188-1-anshuman.khandual@arm.com/
-> 
-> - Added asm-offsets.c based PIE_E0_ASM and PIE_E1_ASM symbols as per Ard
-> - Moved PTE_MAYBE_NG and PTE_MAYBE_SHARED overrides inside asm-offsets.c
->   along with the corresponding comment as per Ard
-> 
-> Changes in V1:
-> 
-> https://lore.kernel.org/linux-arm-kernel/20250410074024.1545768-1-anshuman.khandual@arm.com/
-> 
->  arch/arm64/kernel/asm-offsets.c |  2 ++
->  arch/arm64/mm/proc.S            | 19 ++-----------------
->  2 files changed, 4 insertions(+), 17 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
-> index eb1a840e4110..30d4bbe68661 100644
-> --- a/arch/arm64/kernel/asm-offsets.c
-> +++ b/arch/arm64/kernel/asm-offsets.c
-> @@ -182,5 +182,7 @@ int main(void)
->  #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
->    DEFINE(FTRACE_OPS_DIRECT_CALL,	offsetof(struct ftrace_ops, direct_call));
->  #endif
-> +  DEFINE(PIE_E0_ASM, PIE_E0);
-> +  DEFINE(PIE_E1_ASM, PIE_E1);
->    return 0;
->  }
-> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-> index fb30c8804f87..80d470aa469d 100644
-> --- a/arch/arm64/mm/proc.S
-> +++ b/arch/arm64/mm/proc.S
-> @@ -512,26 +512,11 @@ alternative_else_nop_endif
->  	ubfx	x1, x1, #ID_AA64MMFR3_EL1_S1PIE_SHIFT, #4
->  	cbz	x1, .Lskip_indirection
->  
-> -	/*
-> -	 * The PROT_* macros describing the various memory types may resolve to
-> -	 * C expressions if they include the PTE_MAYBE_* macros, and so they
-> -	 * can only be used from C code. The PIE_E* constants below are also
-> -	 * defined in terms of those macros, but will mask out those
-> -	 * PTE_MAYBE_* constants, whether they are set or not. So #define them
-> -	 * as 0x0 here so we can evaluate the PIE_E* constants in asm context.
-> -	 */
-> -
-> -#define PTE_MAYBE_NG		0
-> -#define PTE_MAYBE_SHARED	0
-> -
-> -	mov_q	x0, PIE_E0
-> +	mov_q	x0, PIE_E0_ASM
->  	msr	REG_PIRE0_EL1, x0
-> -	mov_q	x0, PIE_E1
-> +	mov_q	x0, PIE_E1_ASM
->  	msr	REG_PIR_EL1, x0
->  
-> -#undef PTE_MAYBE_NG
-> -#undef PTE_MAYBE_SHARED
-> -
->  	orr	tcr2, tcr2, TCR2_EL1_PIE
->  	msr	REG_TCR2_EL1, x0
->  
-
+Sorry, I didn't use the script, I will next time.
 
