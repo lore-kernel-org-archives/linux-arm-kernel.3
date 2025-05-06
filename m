@@ -4,65 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF687C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 06:10:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD781C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 06:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YiMYbVm/Ol7lA5XGwmxyBVPVoUAag7a8rnyIiY3gBBk=; b=ObfP2rWKe0cE99Ot6BrglifhfP
-	Uuvfs0eOLN8J8IJbrYEusoxq8wuLyOg7VZjGsF8KpvpXyiz745hrJLOrsEb8HXJo/CwexZeNhAL3X
-	mX1OpsP9i6LFxen1Y6F9/VRfoteynpLrLmeC+JjfxQtKaZE/iSCNv0JUOpRiaoTHPY0JHGygdcVl9
-	fqCcz+pQ+Ea1eqL20iUowV21vfIWpVhJ/sBZEHXcZzbazBgTlcnZ6d4+Vd3nMQn9Z9GCXspnx/Jw+
-	I5NQbzXezu+0HPyjBGTXbyc+TL31Ajah9ryVqart3lzGVfVihbA4usZrw69wvYHBBsW5/OYZ/V+al
-	LSKLaq/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cN5KvWUpB3A17ShSO0h0rLuAaDexnBhZx6mZhKdUYb0=; b=uPGcW3dLI7PbvWHg4dDUF23H9v
+	akaZ7VrcZzd8Jex/OhLVOQo4VAkN1mQzIT+dhTFEeanSoZGJC0BQo9feKtkcyrwNyiuuRha308bCN
+	aa7MyWx5mc+wYmWAKzG1/m7nlgdhGPwms8x6ieMKecnoTYerMwlEoXc/ozU2G6ABGT1lxO3bnc8la
+	iF/Vo0d00iLIgZHPyirDRyPN4nlS8Br2Mzso1qcg6ksCece7RsHv7+4J7S5Ki5R/phTWnJ+J4komf
+	j1ZwtQKnZGLZoJSqm3xI89GrqWGTImx0m4JW1v6nEH4SQGtaiu/Asanc+xgGeH1faqhzfuE19RoBx
+	I5K9Zmbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCBUz-0000000AbIc-20yd;
-	Tue, 06 May 2025 06:09:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC9tJ-0000000AD5U-1cPK
+	id 1uCBWy-0000000Ac3w-0ngk;
+	Tue, 06 May 2025 06:11:52 +0000
+Received: from mail-bn8nam04on20618.outbound.protection.outlook.com ([2a01:111:f403:2408::618] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCA1e-0000000AFGV-1RV3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 04:26:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F1FBD113E;
-	Mon,  5 May 2025 21:26:38 -0700 (PDT)
-Received: from [10.163.54.208] (unknown [10.163.54.208])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E8FB03F673;
-	Mon,  5 May 2025 21:26:38 -0700 (PDT)
-Message-ID: <90d92757-3a8d-4e13-8a5b-7b52080b8a37@arm.com>
-Date: Tue, 6 May 2025 09:56:34 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] perf: Allocate non-contiguous AUX pages by default
-To: Yabin Cui <yabinc@google.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Liang Kan <kan.liang@linux.intel.com>, Thomas Gleixner <tglx@linutronix.de>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org
-References: <20250501193556.23473-1-yabinc@google.com>
- <02c125c9-7a1f-4dfd-b058-02a38ed5b598@arm.com>
- <CALJ9ZPMYj=+ZsbPDWHe80R_i3GiMmKBviZ+WBRaj3jm96ZH+VQ@mail.gmail.com>
+	Tue, 06 May 2025 04:35:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HkTpN7J6FgNEYI1PDd+O1OQPCgKj5GcJXBjDc37Kjk2j63AHnSymF5uVQhAVILnj64NS5UDk7Q4LeIRwQ3dyqvxzVJSUy5IQieHPRoZzkumBfRBLuTWBhTMsPCgGunkiTDUaInY+pY5zFmk4Ahn/KY8KAvygUaL30w3UxHQbrN3RKqHn36ScnNYa78iJCytbdFw9A1nTHOXlGZbbyKYGrR/rSorvW5n5zw2R1Ic6Re64CMRrAiNNQ6MENPXVMfnhNqR3YpzvDCGB+GBc+fXDFeouR0Vr8GAqKPyRXjWphq1KepEBomv4bFFWDvo33WC9tqWkKlNzGcD/QFYq16rJdQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cN5KvWUpB3A17ShSO0h0rLuAaDexnBhZx6mZhKdUYb0=;
+ b=l09P5xzV5HgD/Gs+bCib/+OF0L76nZxi4yCOl6w2yklXiYYh2Tct6Cxl4NtlOhOVrhYIduOTaRu+oS/YeLpLZh7kz0XRFaMpJtegtn8GBVlN/Rw4Lv2jKUGcbPF6HIT98qG/sNfwB8nnRoRx2iOcNST0ecxQGx+7pozhRuI1+hRibylTQdJ5+iOCEoXb7CybLE+4fx/7Z50agcy1IIoOsdF/5ilvwEc3MT78aH2MIM2GdeXlAhz6TTmVSwJbbYRUBSURPp3wMjbM5muymh5pe4Od7D6VnVTpK17+6ZPQ/Kdu6H1qZj5xT8HCqWFbWmLHAwYUUXDwaOIMb0w6A6iVzw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cN5KvWUpB3A17ShSO0h0rLuAaDexnBhZx6mZhKdUYb0=;
+ b=NM1uCVYBMz4eq/unsTmxu5b5IZ/5uqqwk67tlUQhuprKgM2r0qO3q6vv636oSPun0hmZDcpDO40M6AnbTnOlTlBkNylcDupkEMxo5jkIu9sCei67abYGRHfYvAqgpmh0upF3QkLqf3M6JBtQXIrm5W23M2KBRoIWK6CfHXeutb0=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CH3PR12MB9194.namprd12.prod.outlook.com (2603:10b6:610:19f::7)
+ by CH3PR12MB9121.namprd12.prod.outlook.com (2603:10b6:610:1a1::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.24; Tue, 6 May
+ 2025 04:35:16 +0000
+Received: from CH3PR12MB9194.namprd12.prod.outlook.com
+ ([fe80::53fb:bf76:727f:d00f]) by CH3PR12MB9194.namprd12.prod.outlook.com
+ ([fe80::53fb:bf76:727f:d00f%5]) with mapi id 15.20.8699.026; Tue, 6 May 2025
+ 04:35:16 +0000
+Message-ID: <c6a011c4-e3d7-4f6a-a3bc-2000e415db74@amd.com>
+Date: Tue, 6 May 2025 14:35:07 +1000
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH v2 06/19] iommufd/viommu: Add
+ IOMMU_VIOMMU_SET/UNSET_VDEV_ID ioctl
+To: Nicolin Chen <nicolinc@nvidia.com>, Jason Gunthorpe <jgg@nvidia.com>
+Cc: kevin.tian@intel.com, will@kernel.org, joro@8bytes.org,
+ suravee.suthikulpanit@amd.com, robin.murphy@arm.com, dwmw2@infradead.org,
+ baolu.lu@linux.intel.com, shuah@kernel.org, linux-kernel@vger.kernel.org,
+ iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kselftest@vger.kernel.org, eric.auger@redhat.com,
+ jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
+ shameerali.kolothum.thodi@huawei.com, smostafa@google.com, yi.l.liu@intel.com
+References: <cover.1724776335.git.nicolinc@nvidia.com>
+ <6348cc7a72ce9f2ac0e9caf9737e70177a01eb74.1724776335.git.nicolinc@nvidia.com>
+ <35701c5e-030a-4f52-b6f6-ed18368fb2cd@amd.com>
+ <20241004114147.GF1365916@nvidia.com>
+ <95ab62fa-bb1c-4e4a-a210-b0bdba0d4ad2@amd.com>
+ <aBHYN39FcH+NG5Ab@Asurada-Nvidia> <20250505170807.GP2260709@nvidia.com>
+ <aBl5uLOFCntuIYYz@nvidia.com>
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <CALJ9ZPMYj=+ZsbPDWHe80R_i3GiMmKBviZ+WBRaj3jm96ZH+VQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From: Alexey Kardashevskiy <aik@amd.com>
+In-Reply-To: <aBl5uLOFCntuIYYz@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SYBPR01CA0111.ausprd01.prod.outlook.com
+ (2603:10c6:10:1::27) To CH3PR12MB9194.namprd12.prod.outlook.com
+ (2603:10b6:610:19f::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB9194:EE_|CH3PR12MB9121:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3f33a095-df82-4a44-584b-08dd8c576640
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SU50OGx4bFcraUUxNHh4ZXpjV09Uc216UFJTQlI1TG1zajFZRGxHNTlxR3lH?=
+ =?utf-8?B?THJNcHQvWFdYbmlrM1RJb3Exb0JQL2tPVXdKTVJaU1cwUWRFQ29Icm4vWkU0?=
+ =?utf-8?B?UThGWjNUZHlCR1hLelg0NU9HRENvZndEQzlDUnFCaTJTTHpEK2NqK3lCVnJk?=
+ =?utf-8?B?LytUeXgrR1FqQzVpY1J1YVg0NnVFcm9mZmtGSmNST1NPMXY5MDQyS2ZVZEFS?=
+ =?utf-8?B?emJkZE1rb0ViSnpqR3JLLzJDRmNmaHZDUjNBclk4S2NsZ0dMQm1OYkduZXJk?=
+ =?utf-8?B?cjhYRzg1Zm5YZkdaR2VaenJ4NVpPY1Y4ZXk2bkFDWmFzKysrZVZDSmdENGxs?=
+ =?utf-8?B?M0x4cXZySkkrMmF4OWdkTWVhcW81M0EzY0lYeWljTnZEZGxLMVVwQXhXb0Yv?=
+ =?utf-8?B?VEJRTW1KQk1QeXhlREh0dC9Pb21PNFJ0Q1AvVXBnaVpBV295M0F2NFp6eGR6?=
+ =?utf-8?B?M1ZwbXFVdFVHYUtFOFZFM2haajZEeG9uRW9zTXRhdHJiY2JJQ1dBVDBCMExV?=
+ =?utf-8?B?czdwMEtCcm9GQyt0YTdrOTJlcDNUcW5Hb0JKd0VFekxWaWU5MHc2Yk9VY0Fn?=
+ =?utf-8?B?RVExN1RjaU1wdmZjNzNVV09DUzhrWFI2QmI4TEV4Y2RGWWd5U2RZNHMyOU1h?=
+ =?utf-8?B?VldvRmViSVFSM29vVUorRTNoeS8rZE01UklFeWhwaG00RjJPN3poV3F3ZGhE?=
+ =?utf-8?B?QXNjZU0vMTgzK0ZlaWw2YWxkTzJYbC9GU1d4TmdJZ3FOUzUxZ01xRHVtSDRt?=
+ =?utf-8?B?N0Vja1NBQjlvT3UySFhDN1plbXFkZFdoUnpWTDc1bWVSUmI5NnEzazZsMVZp?=
+ =?utf-8?B?MEFRODhFNGh5WWY2eGlHQ25aZzk4ZjdwM2F3cE91SUdWb2dJSGcvV1BaekRH?=
+ =?utf-8?B?NER5cDNzR3BlbE1mcGdvMVNabU1HY091a3hYSi9ZVWNIWTNQUnR4N2F2WnVw?=
+ =?utf-8?B?elN1ckVabjUxRkJjRzRrQTRSTXJzek9hdWNYK0xTNWdjQktsOUpFODhieERr?=
+ =?utf-8?B?S2pRODh0MnNpcUR3SWNkbnV5SXVlZ3h4cElTQlZtZGlGdlgvYkQ4THg5SXB6?=
+ =?utf-8?B?aXZXd1BwZG5PbmxVeUlCaTFtUGlaQ21ZdHZPQjZkNDNZUUVVSmgrbmNVV2kx?=
+ =?utf-8?B?ZUt1KzBpRGtRM2FjMlZSaUhIR3VWVVplVWljM2JEMWtKeDNMa0lMSjFDZHpa?=
+ =?utf-8?B?cTZsbGFXTWhLVGN6Q0pVT3lBQmVWYnA4V243Rm9PbnVFOGp1aDFOSUVCZmtj?=
+ =?utf-8?B?TzNaUkhEd1BqZUdtcWQvSTZuZ0N6enJrazNGaUhQRHloV2dxRmFsNW01MXFT?=
+ =?utf-8?B?N0JPWkZVcGxaZXhmNzdkK1BzTUljTVlTUmRpSEF1dXZCTGl5Yjk1WTNycEhT?=
+ =?utf-8?B?T3N0NkRYd2dDMlc1TkVETTlnVXYzem9sTitrRlY0NWRWYmpBUjhIc3JFUFBk?=
+ =?utf-8?B?L1dYL2pJNWJzcWV0ZHNiZUluU2RsbTNqY2FQcmM2VFFWMW1tczUyZS9WbHZI?=
+ =?utf-8?B?WnJyc2NnOUN3S3FDMklHOERSbVBXSmswc3NpWjg1Vm1iczErNWMrZitsZjRq?=
+ =?utf-8?B?aTFhRDg3YTR2eGROdng1NlhQR3g2YnU1NnMvK1MvVDNRYnRJWUdjSW5FdStF?=
+ =?utf-8?B?OGh4MHI4Yi9oMTlXTGFLaFhoaW9odzJ6TVZ2d0htTjZxOTVGWmFBV3VmUVZi?=
+ =?utf-8?B?akJleG9Ld2pIa1ZMV1FYaUxub0JQd0ZxTU91ai9TMERsMUlZWjB2S1J3cmFa?=
+ =?utf-8?B?UTBCNmRGSzgwMVI2QkhIZlg2RmwxS29nTDVXZTlkQW44Smo4UTBjeTVJSWQ2?=
+ =?utf-8?B?VkYwNHQ2NXNzVk4yREt3TDhRLzRNZE52dXpuRmVkM0V3SHNmRERhYXIvYmZK?=
+ =?utf-8?B?d29OdmQ2NG92UTV3TmlLUU5rVFNUdExQV2RBSDJHbzRPRTd5K3FiOVVSN1pO?=
+ =?utf-8?Q?kdx14GLBrAM=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB9194.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WGQ1YXM2R0lXelNWQi9XeS9ydVd0OXk5ZlRsYlU5alI5VG94dk9PRGQzNHFj?=
+ =?utf-8?B?SkdsZnBwcG1FdTVrQ0tVTGtpZmE5b1YyZXNidWU5bnJQak5BR3E0RGNKZFFt?=
+ =?utf-8?B?NWw4WmNHQVRjaXI3MlNHZU9wbjRJc0VuTkpJcVE2dENTeUp2VnBESW5XVUh5?=
+ =?utf-8?B?QnFuN0E5SnRNbVdKVEk4a2RsUXRxNVRrdWpwR3o0aDJjSUVsdnRoc0NPSUhC?=
+ =?utf-8?B?bnNIN1ZEQ3JhOXlUMkFPUC9NUENESHZzdDZnS3NJWXNiaTZ2bkJ4UFU1ZUNO?=
+ =?utf-8?B?QlhiT3VXTXp5SzJHZkNiVmhNUTlKS21hVS9RMk13alBIUDFpQlkrTC9abnN0?=
+ =?utf-8?B?MWt6R2NQMmxmMm9RZWpWVGE1bVhrQ2JpdFdxRm9DNWdwVHFpeEFvK1gwK1Vh?=
+ =?utf-8?B?VWFaaGlRNlNOM0FjQkpKWWRPa2Mxa1NkK1lEWUF1QjVxcFJ6aks0QlRkZ0ZM?=
+ =?utf-8?B?ZW1EaU1zSU95aklyb2crWlRoZVZtQmF3S0F3L2dTVzBxUkxVcVJRK016blV6?=
+ =?utf-8?B?Y0k5ZjRCbnkxbmNhZldtZmdZK095ODNpemdDdDNQQ0Nla1lKTnp3czA3R3FN?=
+ =?utf-8?B?RUM3SVM5NHdKNlAxQjFNU2g0RUU5VWdHMFMwZ1BQZ0swT3JSa25reUh4Z045?=
+ =?utf-8?B?VkNDaXBQQVBuanhuemIzbGd1bklURlZEb0tUaFhRNnpDWE5kd3BVL0dsajUz?=
+ =?utf-8?B?SjNEQWxQTmhOZlg4NTNMNElEOFVhY0Q5K0hBSmJtQzc4ekhHNk5vN3plem4r?=
+ =?utf-8?B?WGIwRk9oQS9zNkZzWWtEaTlNSmV0QnpDOHBHQlgxMDlnUjdRdnBGYVU5VGUr?=
+ =?utf-8?B?RnhTL3JsUThHYnNISnpxQzk2RmVzSGZwU0ovb0J1L2VKaHVJUTM4dmFrQjc4?=
+ =?utf-8?B?SGRlejN5cHZkVEtTOTdHRjM1Q1dZdFN6cmo3d1A1RnFHRWx6Y1VzUnd0K0p3?=
+ =?utf-8?B?MWdLNlRMN3FCYnN0VCtpSkxoQkY3RWtURkZTRko3VDBjeWJMUGlzVUJPMzgr?=
+ =?utf-8?B?MDVEdlBST1Nobk5lc1dlbENFcDNpK1pOK09VL21UYkVqd2dLejk0bDBqaURF?=
+ =?utf-8?B?UlFhQXBQbmlNSUp1OUlnVUw4TGpMZ0hTSkNCdGRSZkNwdTNQS3Z0VlJ4N2lZ?=
+ =?utf-8?B?NFd5Vk4rWDFJTEhjSVY3VlJzbzQvaUlLdGFOYVdhT2lpVUFUbmx0cTk2Z1NN?=
+ =?utf-8?B?SjFqS3pzdXQvNVpwK0ZuY2k5cVB4QnR4TzhNRHNad1hYSXQxNTFnUStVcWp6?=
+ =?utf-8?B?bVYwaVBrd2tONkI4eU9GM1U2c28vYnVwS0lta2JaTmR6VTJWUjYvN0hjQVI2?=
+ =?utf-8?B?KzZpL0Fla09raVhBbWxrbG04bzZsV3puL2NRUndnVmN1YWdrU2V2cUlLOWor?=
+ =?utf-8?B?Z0VOeVo5M0x2TVFpQzF5RzF4VU1wK3FXUndGZ04wU3ZOWjJQWlpvam56NUxM?=
+ =?utf-8?B?ZmEwbldHSGc5YUhkQWhtTzJUZVE1L0xZZmRKcW5Ia2orKzJGZ24zRHBhamQw?=
+ =?utf-8?B?VlpGdTBWNDZMbmR5WlhQcUZ1VzI1ZVpZZGlTZS9PWVFQWE1TQThpeTZvZytX?=
+ =?utf-8?B?VTZHZ1g3YjNkQVdndHUzUnVaNWNRU3JhdDhDaEljUThkL0lWb0ozZTN1ZGQx?=
+ =?utf-8?B?K1YxdDFTaDh4OENUV3ZsOEtwQUpiVklyWjhzazArb0V3d0hjNExMN2M1djlo?=
+ =?utf-8?B?b2UxV0hxZmJUSzY4L3ROWjFUM1ZKRDgxeEYzNC9MamhxQnhGVEQyREZBSW9J?=
+ =?utf-8?B?dEtmVlNrVDVUOWhvdk5mRnBPRDhxQTdSbzl0aXZEd2piaWZja2Jad3FqMlEz?=
+ =?utf-8?B?bTJGQTl3NXRTR2FqUTFpdWk1Y2p6Nkh3akdCUEhPYmNsalB4QTNRd2ljQTRK?=
+ =?utf-8?B?ZXVFUFljWVFRK3VMbDhBTmZRS01HdDNJdHE3M1Z1a1YvaGs2R0twOGNENnNn?=
+ =?utf-8?B?Q2JFOFU2Z1YvRDVOVzl0Y3lxdDdNRktxNytVdFJYT1dyV1pVNlRLeEpxNUhG?=
+ =?utf-8?B?RGpkS1NOaU02U0RtK3k2RXBQUGpObHFQaEtCYktSblA4M3F0UnVpTm9KT2ts?=
+ =?utf-8?B?SjRtY3hqcHdZVnBJSmQvSHVyc0hTQjJ5dks2N2ZoTUpqT2dLZG13SUZDN1dE?=
+ =?utf-8?Q?s1iRnVdAa7vUAlRXfhg2/HOz4?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3f33a095-df82-4a44-584b-08dd8c576640
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB9194.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 04:35:16.6088
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BpCpxtsjr8vwW89D4FH8R6iYeuF00m7Wzd2FP7vKeC94C9NCx/Ivn0QF4fzbQNTo/M905Wmmspn33kguwYWkzw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_212649_517729_3204D217 
-X-CRM114-Status: GOOD (  23.51  )
+X-CRM114-CacheID: sfid-20250505_213526_428337_19303FB4 
+X-CRM114-Status: GOOD (  19.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,147 +188,42 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 5/2/25 23:00, Yabin Cui wrote:
-> On Fri, May 2, 2025 at 3:51 AM Anshuman Khandual
-> <anshuman.khandual@arm.com> wrote:
+On 6/5/25 12:53, Nicolin Chen wrote:
+> On Mon, May 05, 2025 at 02:08:07PM -0300, Jason Gunthorpe wrote:
+>> On Wed, Apr 30, 2025 at 12:58:47AM -0700, Nicolin Chen wrote:
 >>
->> On 5/2/25 01:05, Yabin Cui wrote:
->>> perf always allocates contiguous AUX pages based on aux_watermark.
->>> However, this contiguous allocation doesn't benefit all PMUs. For
->>> instance, ARM SPE and TRBE operate with virtual pages, and Coresight
->>> ETR allocates a separate buffer. For these PMUs, allocating contiguous
->>> AUX pages unnecessarily exacerbates memory fragmentation. This
->>> fragmentation can prevent their use on long-running devices.
+>>>> ... and I just hit a problem with it - this is basically guest BDFn
+>>>> and it works as long as I'm hotplugging the TEE-IO VF into an SNP VM
+>>>> but does not when I pass through via the QEMU cmdline - bus numbers
+>>>> are not assigned yet. So I have to postpone the vdevice allocation
+>>>> till run time, did I miss something here? Thanks,
 >>>
->>> This patch modifies the perf driver to be memory-friendly by default,
->>> by allocating non-contiguous AUX pages. For PMUs requiring contiguous
->>> pages (Intel BTS and some Intel PT), the existing
->>> PERF_PMU_CAP_AUX_NO_SG capability can be used. For PMUs that don't
->>> require but can benefit from contiguous pages (some Intel PT), a new
->>> capability, PERF_PMU_CAP_AUX_PREFER_LARGE, is added to maintain their
->>> existing behavior.
->>>
->>> Signed-off-by: Yabin Cui <yabinc@google.com>
->>> ---
->>> Changes since v2:
->>> Let NO_SG imply PREFER_LARGE. So PMUs don't need to set both flags.
->>> Then the only place needing PREFER_LARGE is intel/pt.c.
->>>
->>> Changes since v1:
->>> In v1, default is preferring contiguous pages, and add a flag to
->>> allocate non-contiguous pages. In v2, default is allocating
->>> non-contiguous pages, and add a flag to prefer contiguous pages.
->>>
->>> v1 patchset:
->>> perf,coresight: Reduce fragmentation with non-contiguous AUX pages for
->>> cs_etm
->>>
->>>  arch/x86/events/intel/pt.c  |  2 ++
->>>  include/linux/perf_event.h  |  1 +
->>>  kernel/events/ring_buffer.c | 20 +++++++++++++-------
->>>  3 files changed, 16 insertions(+), 7 deletions(-)
->>>
->>> diff --git a/arch/x86/events/intel/pt.c b/arch/x86/events/intel/pt.c
->>> index fa37565f6418..25ead919fc48 100644
->>> --- a/arch/x86/events/intel/pt.c
->>> +++ b/arch/x86/events/intel/pt.c
->>> @@ -1863,6 +1863,8 @@ static __init int pt_init(void)
->>>
->>>       if (!intel_pt_validate_hw_cap(PT_CAP_topa_multiple_entries))
->>>               pt_pmu.pmu.capabilities = PERF_PMU_CAP_AUX_NO_SG;
->>> +     else
->>> +             pt_pmu.pmu.capabilities = PERF_PMU_CAP_AUX_PREFER_LARGE;
->>>
->>>       pt_pmu.pmu.capabilities         |= PERF_PMU_CAP_EXCLUSIVE |
->>>                                          PERF_PMU_CAP_ITRACE |
+>>> I have a similar case with QEMU ARM64's VM: so vDEVICE on ARM is
+>>> allocated at runtime as well because the BDF number isn't ready
+>>> at the boot time.
 >>
->> Why this PMU has PERF_PMU_CAP_AUX_PREFER_LARGE fallback option but
->> not the other PMU in arch/x86/events/intel/bts.c even though both
->> had PERF_PMU_CAP_AUX_NO_SG ?
+>> Oh that's ugly then.. So you'll need to add some kind of 'modify
+>> sid/bdf' operation I think.
 > 
-> Because Intel BTS always use NO_SG, while in some cases Intel PT
-> doesn't use NO_SG.
-
-Makes sense.
-
->>
->>> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
->>> index 0069ba6866a4..56d77348c511 100644
->>> --- a/include/linux/perf_event.h
->>> +++ b/include/linux/perf_event.h
->>> @@ -301,6 +301,7 @@ struct perf_event_pmu_context;
->>>  #define PERF_PMU_CAP_AUX_OUTPUT                      0x0080
->>>  #define PERF_PMU_CAP_EXTENDED_HW_TYPE                0x0100
->>>  #define PERF_PMU_CAP_AUX_PAUSE                       0x0200
->>> +#define PERF_PMU_CAP_AUX_PREFER_LARGE                0x0400
->>>
->>>  /**
->>>   * pmu::scope
->>> diff --git a/kernel/events/ring_buffer.c b/kernel/events/ring_buffer.c
->>> index 5130b119d0ae..4d2f1c95673e 100644
->>> --- a/kernel/events/ring_buffer.c
->>> +++ b/kernel/events/ring_buffer.c
->>> @@ -679,7 +679,7 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
->>>  {
->>>       bool overwrite = !(flags & RING_BUFFER_WRITABLE);
->>>       int node = (event->cpu == -1) ? -1 : cpu_to_node(event->cpu);
->>> -     int ret = -ENOMEM, max_order;
->>> +     int ret = -ENOMEM, max_order = 0;
->>
->> 0 order is now the default allocation granularity. This might benefit
->> from a comment above explaining that max_order could change only with
->> PERF_PMU_CAP_AUX_NO_SG or PERF_PMU_CAP_AUX_PREFER_LARGE PMU flags etc.
->>
-> Will add the comment in the next respin.
->>>
->>>       if (!has_aux(event))
->>>               return -EOPNOTSUPP;
->>> @@ -689,8 +689,8 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
->>>
->>>       if (!overwrite) {
->>>               /*
->>> -              * Watermark defaults to half the buffer, and so does the
->>> -              * max_order, to aid PMU drivers in double buffering.
->>> +              * Watermark defaults to half the buffer, to aid PMU drivers
->>> +              * in double buffering.
->>>                */
->>>               if (!watermark)
->>>                       watermark = min_t(unsigned long,
->>> @@ -698,16 +698,22 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
->>>                                         (unsigned long)nr_pages << (PAGE_SHIFT - 1));
->>>
->>>               /*
->>> -              * Use aux_watermark as the basis for chunking to
->>> +              * For PMUs that need or prefer large contiguous buffers,
->>> +              * use aux_watermark as the basis for chunking to
->>>                * help PMU drivers honor the watermark.
->>>                */
->>> -             max_order = get_order(watermark);
->>> +             if (event->pmu->capabilities & (PERF_PMU_CAP_AUX_NO_SG |
->>> +                                             PERF_PMU_CAP_AUX_PREFER_LARGE))
->>> +                     max_order = get_order(watermark);
->>>       } else {
->>>               /*
->>> -              * We need to start with the max_order that fits in nr_pages,
->>> +              * For PMUs that need or prefer large contiguous buffers,
->>> +              * we need to start with the max_order that fits in nr_pages,
->>>                * not the other way around, hence ilog2() and not get_order.
->>>                */
->>> -             max_order = ilog2(nr_pages);
->>> +             if (event->pmu->capabilities & (PERF_PMU_CAP_AUX_NO_SG |
->>> +                                             PERF_PMU_CAP_AUX_PREFER_LARGE))
->>> +                     max_order = ilog2(nr_pages);
->>>               watermark = 0;
->>>       }
->>>
->>
->> Although not really sure, could event->pmu->capabilities check against the ORed
->> PMU flags PERF_PMU_CAP_AUX_NO_SG and PERF_PMU_CAP_AUX_PREFER_LARGE be contained
->> in a helper pmu_prefers_cont_alloc(struct *pmu ...) or something similar ?
+> But the initial vDEVICE would be still unusable. Its BDF number is
+> literally 0 in my case. It can't be used for SID-based invalidation
+> nor the reverse vSID lookup for fault injection..
 > 
-> Sure, but I feel it's not very worthwhile. Maybe add a local variable
-> use_contiguous_pages? It can also work as another comment near
-> max_order.
+>> The bus numbers can be reassigned at any time on the fly by the guest
+>> by reprogramming the PCI hierarchy.
+> 
+> Yes. If we take some aggressive use case into account, where its
+> BDF number could change multiple times, I think it's natural for
+> VMM to simply destroy the previous vDEVICE and allocate a new one
+> with a new BDF number, right?
 
-Probably that will be better.
+Yup, this sounds about right, recreate on the bus number change.
+
+> 
+> Thanks
+> Nicolin
+
+-- 
+Alexey
+
 
