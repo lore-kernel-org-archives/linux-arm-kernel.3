@@ -4,73 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E270C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:34:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93083C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:34:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=p+Dck54LelKfFHarJJxO87LH00lqZOeaegRHSKx0xqw=; b=m3mATc7GGXATSUNg51UEuaY0ID
-	mh+bgdYjKat+k5a4QdlqmyrJ5ERRcoXezX/gUtZVwWwx1PXxMC+7vZuq7Win2jwD6bmi+v7oJ63Qm
-	Q+sAlNB6xgjD4PXmD1TWslFgkcWAGWIF1cabZkC+GfcZBEEHT/GKrWS8jwOPUlx7+Va1OwjUV4KN0
-	G1C46/ieCFDzhSskvnRNaftqJvtpNhy6v6zUSz87lfvLVkaA+Rlua2ZUYAD4su2ybN5b8zoVU0ccd
-	L+5o0/m+YAbEBivtgMzkSxa++X8RY9gz3M0ARuLawU1IAexYq2lKkN2/3weS9joGmMyFIka0tRE7Q
-	QczqVOvQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f0q0dzFoJ3WrDK/qF/e5WkmphHVI//oWdwzj8ZPt1ow=; b=qO4br+CtUm1MnFx4ZeBc6LQiNr
+	Snt0M29Cz3KDH02bQzpfDFeWZ5GQ5/PZ+JKXkiLUyduyTOjYc9P6ZBr+yGvdDMm6MtdwobH3bXSNM
+	edtwDFMt9yHMj2ZToh2xkUjwssRUjm8vbdpWAYxAeJ34mPneav2/g/3IW7UWtZ/Rj379z3dnyS2v3
+	reA/2gt8mOsgFQNbkXiE9HzTp+qYNA68RtjyBy0RTl2p+88scAonrdkwW51FpguUWAY/Ze12y1F/Q
+	c6UR4xNM4seBvIUOQqmgHoqyXcpGfjkShAMLoDd7GN55JyPG0VVyHM7bb/Ak79eX7M1FfcJE4pNNR
+	TT4f82vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCUcH-0000000DxSc-33IE;
-	Wed, 07 May 2025 02:34:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uCUcJ-0000000DxWU-2fGe;
+	Wed, 07 May 2025 02:34:39 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCPyA-0000000DRIm-0WTn
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 21:36:55 +0000
+	id 1uCPyE-0000000DRJs-1ivn;
+	Tue, 06 May 2025 21:36:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 68B435C5A3E;
-	Tue,  6 May 2025 21:34:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC145C4CEE4;
-	Tue,  6 May 2025 21:36:51 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B11C1A4AFC3;
+	Tue,  6 May 2025 21:36:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 205D9C4CEEE;
+	Tue,  6 May 2025 21:36:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746567413;
-	bh=+fNJE1yTF2PALBlbEE+UifwLAvbWwqAE5ZTkWve7cD4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=V95BtymwV/E5DqMEVgxfcFw1cm+UfaeVTE4Ot+mz1hWuy5jquRBNrGqRbMcxK60gm
-	 kGgBDOHhzzVxIxKncgDuCr2T+PSlv9hDzWDuk9tpjo3a6/wKiHKvSZzqntNZohn9b/
-	 QfigwMXfLSE9koBDnxL1KxkO7bZMDv7XguJ3PNC9pPpF6k+TrKV93CaHY+NIgjFd0/
-	 snS4zfT2WYuuwQvRXNfGoCwgLuZatdeUpnuDrnzlrn7xcJ9tJ/zkrMH5vMdZs0slgG
-	 FfYLVyOlHNQsuvnsvytTfhx0CvCskXCzITY4/HG9Co3r94bAB5MmLdHbVsoJnz/FI6
-	 05om8T1x1HVIA==
+	s=k20201202; t=1746567417;
+	bh=1k5f6S15WEvZFIIAndx3JpAhTytTqx5CYGLFKaXK0Q4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=WGnlRfK5OjePuxU/kX0ROoYfCILPxOzE9wmm3CQ07DAH/YCszm4UlHZxHve605Sn0
+	 R06FhSrrurhiEIH5gaK0hR/E5R74YCg682J7RGjAVcvYhM6ZNi1Dw9lb/MqiAxcEJJ
+	 Gt1LYzTR03waqXEcCrf1pqu1Tt5UIbEvyu4BHiNrHI/x5RGX3WqZ0nlxnZUxQZw2ph
+	 J8U3p04HDd6k80s5QYnVFtdOYV9fN7k1yb/fTYUe4gw5aPvRiiaps5sAQIulstuTh2
+	 9S7YLmWzlgCQXQ7afDzTooU1P5w/6gXgAouCjjNGsY345J0h2hzG/EisSZ+DWoN7JU
+	 whhTS9cvpOSTQ==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Chenyuan Yang <chenyuan0y@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
+Cc: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
 	Sasha Levin <sashal@kernel.org>,
-	shengjiu.wang@gmail.com,
-	Xiubo.Lee@gmail.com,
-	lgirdwood@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com,
-	shawnguo@kernel.org,
-	linux-sound@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	imx@lists.linux.dev,
+	khilman@baylibre.com,
+	linux-gpio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.6 01/12] ASoC: imx-card: Adjust over allocation of memory in imx_card_parse_of()
-Date: Tue,  6 May 2025 17:36:36 -0400
-Message-Id: <20250506213647.2983356-1-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.6 03/12] pinctrl: meson: define the pull up/down resistor value as 60 kOhm
+Date: Tue,  6 May 2025 17:36:38 -0400
+Message-Id: <20250506213647.2983356-3-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250506213647.2983356-1-sashal@kernel.org>
+References: <20250506213647.2983356-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.6.89
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_143654_206918_A8345C65 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20250506_143658_520759_05110610 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,37 +81,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chenyuan Yang <chenyuan0y@gmail.com>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 
-[ Upstream commit a9a69c3b38c89d7992fb53db4abb19104b531d32 ]
+[ Upstream commit e56088a13708757da68ad035269d69b93ac8c389 ]
 
-Incorrect types are used as sizeof() arguments in devm_kcalloc().
-It should be sizeof(dai_link_data) for link_data instead of
-sizeof(snd_soc_dai_link).
+The public datasheets of the following Amlogic SoCs describe a typical
+resistor value for the built-in pull up/down resistor:
+- Meson8/8b/8m2: not documented
+- GXBB (S905): 60 kOhm
+- GXL (S905X): 60 kOhm
+- GXM (S912): 60 kOhm
+- G12B (S922X): 60 kOhm
+- SM1 (S905D3): 60 kOhm
 
-This is found by our static analysis tool.
+The public G12B and SM1 datasheets additionally state min and max
+values:
+- min value: 50 kOhm for both, pull-up and pull-down
+- max value for the pull-up: 70 kOhm
+- max value for the pull-down: 130 kOhm
 
-Signed-off-by: Chenyuan Yang <chenyuan0y@gmail.com>
-Link: https://patch.msgid.link/20250406210854.149316-1-chenyuan0y@gmail.com
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Use 60 kOhm in the pinctrl-meson driver as well so it's shown in the
+debugfs output. It may not be accurate for Meson8/8b/8m2 but in reality
+60 kOhm is closer to the actual value than 1 Ohm.
+
+Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Link: https://lore.kernel.org/20250329190132.855196-1-martin.blumenstingl@googlemail.com
+Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- sound/soc/fsl/imx-card.c | 2 +-
+ drivers/pinctrl/meson/pinctrl-meson.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/sound/soc/fsl/imx-card.c b/sound/soc/fsl/imx-card.c
-index 7128bcf3a743e..bb304de5cc38a 100644
---- a/sound/soc/fsl/imx-card.c
-+++ b/sound/soc/fsl/imx-card.c
-@@ -517,7 +517,7 @@ static int imx_card_parse_of(struct imx_card_data *data)
- 	if (!card->dai_link)
- 		return -ENOMEM;
- 
--	data->link_data = devm_kcalloc(dev, num_links, sizeof(*link), GFP_KERNEL);
-+	data->link_data = devm_kcalloc(dev, num_links, sizeof(*link_data), GFP_KERNEL);
- 	if (!data->link_data)
- 		return -ENOMEM;
- 
+diff --git a/drivers/pinctrl/meson/pinctrl-meson.c b/drivers/pinctrl/meson/pinctrl-meson.c
+index 524424ee6c4e7..5cc00fdc48d84 100644
+--- a/drivers/pinctrl/meson/pinctrl-meson.c
++++ b/drivers/pinctrl/meson/pinctrl-meson.c
+@@ -486,7 +486,7 @@ static int meson_pinconf_get(struct pinctrl_dev *pcdev, unsigned int pin,
+ 	case PIN_CONFIG_BIAS_PULL_DOWN:
+ 	case PIN_CONFIG_BIAS_PULL_UP:
+ 		if (meson_pinconf_get_pull(pc, pin) == param)
+-			arg = 1;
++			arg = 60000;
+ 		else
+ 			return -EINVAL;
+ 		break;
 -- 
 2.39.5
 
