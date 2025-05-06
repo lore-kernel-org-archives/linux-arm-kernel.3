@@ -4,169 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD6E7C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 06:38:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A413FC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 06:52:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pKEwj3fISM1EXF4w5M1QvnA6utU//3YE4m+TmndG4/8=; b=Rv+FkXrglZBlw8D5zuPdMo60Ha
-	jMWQNB1S5l+wxBwUC3nkNF2wjr00HoM4nx8S16/PmcsSyB4y4Up3GbTGN+dirCngQ6JIMSpocb64m
-	s4xooJTAhrQhVaSBxMyQrVoYBHaVlTYsmClPg9ESxKkEDH53VtMqQx3Aooi+BgFZbNT/BnaTzPfpR
-	s84OkeheWxjcgPyeNBI36OraHxLDlTKjVFeeMowzJN9iNKNcLl53iEa56WSsz+ZucTR/uOk8wE9l7
-	6Lyr60KgDecXkG7XmsWTFau3/WEm2Qxo+JYhqBJ4Kg+x4fmdyfhGbNA64eu1TneH8M9m2qMvMNOCn
-	bS/waWTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P+rnsBrnSg8rRMbhF6ZzJCKOKKucd9+x+mvQiH4XndI=; b=nS+P5GgGjH1CiCSVfXI50U5sr+
+	tEEKWw+/0yjuIEfJaA79fJhHbFwPcwElcXXaQbwuT++211FH9CXWog+QUu73/+rWZeYvzb//Uw9sZ
+	DlkARdb/UslLA2Wb2vW0ZX/HK21K7SkjHxEoQR8pSjwhM7ajb7/Dt5CywnsFGeNLQJJhZqJgV+j+F
+	FDuxzod2zadTuVFQAz0EOx1CmsA5lE6I4IvRuJIJIFvRYdlMRdK6Q6jJhoEOvOVJfdcGIQ6cI+Y6Y
+	khXt+DRNuvq2nlOS2ZtZ9geRLBkvHxpzPtZimiK9Dy+IZbN5KElWA+XKYvT+6IywnwWoTzy9zu0BJ
+	sWcjp3PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCBw8-0000000AjQJ-0AdE;
-	Tue, 06 May 2025 06:37:52 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1uCCAL-0000000Amut-16sT;
+	Tue, 06 May 2025 06:52:33 +0000
+Received: from mail-oa1-x34.google.com ([2001:4860:4864:20::34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCBnU-0000000AgSZ-1Mth
+	id 1uCC8O-0000000AmXD-2ilB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 06:28:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GJxrVv0BvfFW4HG2OY0usl61KMyM+g3tCYH8b5+Oj62GKnFBjefLPDjGEWOUAZJz7/i+SZOJaQ014aWnFnzLOe7W7jW2aZzEJ/JRDjiTLAowRkBtsQIretO/QgHN4Z0y753kp3jy0Jp1oocGiXtOkbFpEqJZBXLF8ITC8WYvZ4L0bCpl9GZnrZkWNY6mLi9Fskjuf9YvkacHLu+zr4OzcQE6JzEPyf9zdSIkz+zShn94nf8eIW0OIlGK8Ldi3bYncdJf3IObReMfkXCrAHtiJQVlTEH8tY42HpolLzxlRwDBgIP+/afiy7tKO4YeUGCx8hUyeb6mGV5F/yY3a3WXew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pKEwj3fISM1EXF4w5M1QvnA6utU//3YE4m+TmndG4/8=;
- b=J1SIfpvRnxoVE9fSbDJgajAtky04ZFWfrSvgAKCXcbJFOfFmudjUT6kA8wPqoyTtujUWiIBbbidZNYbDy3xBNlBvgCCRheRpQYCBlUABX6uQGIk4LsDMVOueLF7hmNw3zKt617mYzfcKHzDJAlmtJTWiIY2vEspcRV9EK6qaOPdgCgZAYqj8QYNPbZiU9FC0iTRmshVDK/5SbVrvVJXI7XIp9AQItltjd42rn6XzlsruJTXzx839NazCcLZKyLJkU77PRBDzT5I7D8j4gPOxmVR4yOo5JHd96i2UyPvZFTJgs1XuWZyldpZ4EFkr+KH/o7Lhx3CBAZ0QMkCIrx18FQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pKEwj3fISM1EXF4w5M1QvnA6utU//3YE4m+TmndG4/8=;
- b=e0DT4Ve3ms4eBq0OqNIVWB9hWGhdkhXC8lkpjQ2grlE82VKe7UHpGuVeAuSqhJiAyJzQpBY5Sijth6p2O0/BQeFlcGW+XOTjmmvcQCAP8ZygxrKo5GKWzASm2OdtCD0W083kEgmvfAlr8rvNI0WxCEHdLMhhbVGM3H4g4q8xj4JDh4d0xAMYmxEB4//NNhoQPyQpnXEiOLLFd3JY4Dyh32xlavFdCnj7g+KAweGE12yXx+bDxoc6fpFwe2oTRnaInG/ySdwC9NFwuCnH9Vkww6d4TdS4A9PlrvXJr+px8IEzlpwBVU3gcRgQRAkPEjIL97k8nsn2vvYtXaZnaFcpbw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
- by DU2PR04MB8709.eurprd04.prod.outlook.com (2603:10a6:10:2dc::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.23; Tue, 6 May
- 2025 06:28:45 +0000
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87%3]) with mapi id 15.20.8699.019; Tue, 6 May 2025
- 06:28:45 +0000
-Message-ID: <1f1207d0-c1ab-4d9a-8369-b8c6eadb289e@oss.nxp.com>
-Date: Tue, 6 May 2025 14:28:35 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] media: imx-jpeg: Account for data_offset when getting
- image address
-To: Nicolas Dufresne <nicolas@ndufresne.ca>, mchehab@kernel.org,
- hverkuil-cisco@xs4all.nl, mirela.rabulea@oss.nxp.com
-Cc: shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, xiahong.bao@nxp.com, eagle.zhou@nxp.com,
- linux-imx@nxp.com, imx@lists.linux.dev, linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250430053928.214-1-ming.qian@oss.nxp.com>
- <c9981a1e01281153748a1edd4096f4ce1aaae576.camel@ndufresne.ca>
-From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
-In-Reply-To: <c9981a1e01281153748a1edd4096f4ce1aaae576.camel@ndufresne.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SG2PR02CA0091.apcprd02.prod.outlook.com
- (2603:1096:4:90::31) To PAXPR04MB8254.eurprd04.prod.outlook.com
- (2603:10a6:102:1cd::24)
+	Tue, 06 May 2025 06:50:33 +0000
+Received: by mail-oa1-x34.google.com with SMTP id 586e51a60fabf-2da3c572a0bso3003670fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 23:50:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1746514231; x=1747119031; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=P+rnsBrnSg8rRMbhF6ZzJCKOKKucd9+x+mvQiH4XndI=;
+        b=KWZJXcYt+R3zMCbjjfLEcx/OZWtY+wfGNV3xMZgTZWQDEjxho1GlBQebl/RNbr0NoB
+         8JGoX7NpTNnZ/3++eBYSFCTx7VwMUe+aX0LKgJuqx4nrQ9sHhtCPiM3336izehAmd4St
+         29rhTtV16f/BLyYmolFEzoOWCQzR8fRDWkSDuAYLiJYqCzVX6y9R5SKXjRkcJ1308HY9
+         lFLxJgUIa80cWKyy+Ehq1xR9QhXPp3sgptXozgKV2j4IYsVuc5QHPHV9RBqi8Sk5QorK
+         i+7wfN8rJs4dSch6UYXCQ6R1w2ISqtLeP4lCHfyZrj17BfbP1mYJFy/F+sBOzF0Pz5xi
+         DuYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746514231; x=1747119031;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=P+rnsBrnSg8rRMbhF6ZzJCKOKKucd9+x+mvQiH4XndI=;
+        b=vDSKCbOHJM2ZaxyPAwfaYEqcS/OtIfxUvQAuTK/xrsqAfwRlMlJi3xZUCMkLBXctCr
+         4oBqTMbrKdlrMLXmL8qzK2VPFp9/uSVvgRKZbl2GlPubu6VyUxZbxYUqYD28B1+gfYtU
+         FVhCJ7K78MO8ZaXDV8uvCm+kgwgE4fx9eQ3pozRzxG15nKC5OyihiPTZDbobLI6Rn+7r
+         pIxLF2wu+vli+//5sVhETBPQ0BMKgxUbzDfwPrSDJJ03H/lzfLZnXewubJF5N3A/nEL+
+         OsAE/U7cEyyz/n2JdCx7EFCoOhrIaeV4VJqAIIWe69SbfWed9x1HGUyE4l1vYu8RN19L
+         QnlA==
+X-Forwarded-Encrypted: i=1; AJvYcCWE0iAy2Fo4oH/cZCi+4aO1t7G0ifJhvs+FvKBF9SIFQTiBJd81FV/sQrJT/0YK03mWnxXtMkzYIP56p0qSjOo9@lists.infradead.org
+X-Gm-Message-State: AOJu0YwqAiru3YBdz+XTslaVL5fiEMg5nV5Gu0X+wJHHfvUTV3qafT0s
+	kzityOuJhJc0m36GZeKaWhqzEltA/SKFQyGUBpaPbuYtavVtBPH9G2j8H/a74y0cx5ETGBPML4O
+	ja3xc/Rik8WGR1Kz2LOfv/NDpDNmZw96fgP6Pug==
+X-Gm-Gg: ASbGncuWLwnUCaZy3q0F02nVcbO96GCTjCeBcJ/rjrtWmz/mW5L5NWYBfxsD8z/LQcl
+	d8D5uVr/IoV8No20A3B9d9L3rvv5VEzt9jY34ek+x1K/+5+BrPLxENdmIB8lNfJFaN25peW43yp
+	DgRytHzkMXQUAHje+g7b4ymwM=
+X-Google-Smtp-Source: AGHT+IHNm5GVjhXN3B45lmCfKthx/G+NZUk5+CRKyT+Ba0DNEGI76r0X6+RqWLQrptXlWXRbeCBTBu5IP8WF2QNe6QA=
+X-Received: by 2002:a05:6870:a1a3:b0:2d4:e8fd:7ffb with SMTP id
+ 586e51a60fabf-2db3ccf9c7emr900510fac.1.1746514231320; Mon, 05 May 2025
+ 23:50:31 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|DU2PR04MB8709:EE_
-X-MS-Office365-Filtering-Correlation-Id: bafe497b-2860-4098-0108-08dd8c67406b
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eElkV0tJZDdWWXY2Q0J1SFBzSk13WW4zS0V6eitVaFR0R1pUUHp0NEp2VW5X?=
- =?utf-8?B?Q2JLVzRZTGpqNmdoYVZZNnFJSG9PVGRaMER3S1hna2xVbmhsa0lBRERoMENI?=
- =?utf-8?B?RmJCV2ZKbXNCNnJyeTFJNEQ3eDFsbGtaR1d3ZXViQVFsbm5wL3dwOC9BY09G?=
- =?utf-8?B?dCtoVEg1QUovY1RrR09xSTNGTW1RZ1FET2N6YlhwMUsvbFMwRlJhWDByMkpE?=
- =?utf-8?B?MXZJNlpUb1dtYVZUY3hsWUZQdnFraVg5a0tIVndNdWxmSmx6OTRPYzYwUTQz?=
- =?utf-8?B?aE9wbXhzcTFPdFl6NlBWckVxZWNPMFlOL2F2QkRIRVRJSllmdDJNc1U5Zkds?=
- =?utf-8?B?MUhud1IrL1lGR3loN0pKTXVRYmZ4bExlU24xZGJYcTRyYVNybFg4MjZPdzA3?=
- =?utf-8?B?bXFXN0I0UXZiRHFha0xQRjQzZEtTNURwbFZENFNhUUN3eHp4MTBHUlZDb1ds?=
- =?utf-8?B?SXVxSDdGcjJTdDFKVGVKT0c3c1ZickpPOWRTRTkxOHMyUVZ3cHR3VEpZMStL?=
- =?utf-8?B?YVB0VEJkSTduWHZ1ck82WWdINHVwcmd1Szd1VWJDRi9QL0FIZnViZ2lQK3JT?=
- =?utf-8?B?VW5CQ2xCQk1HZllMTGZUSXUraUc5Y0VBL2ppeitIc3ZxSWFJcFpqOVVKdmFK?=
- =?utf-8?B?eDY3c3d0QTErdHZ5aGRmUVlhcHJoV2xNejVCQVhNQlMyY0FTY0EwbTAxVU9j?=
- =?utf-8?B?RmxxRFVMcFZmNzRzcUZRN1hDVDhmbU9qaGQxUmgwdTErd1F3NUNqVUUwWkIw?=
- =?utf-8?B?SXFsdHhhbTdmcWFNNzBFaG00TjJCUk1VUlBnQzQyS3FpZ1VkRCtVbTFyeThO?=
- =?utf-8?B?WDlFYzVFOFBMMGZnZUV5Vk02THVRaUltayt3eFRzTHZsSnZhdVd4MlRPd1F3?=
- =?utf-8?B?WXNhaXJ2NFUwZ2R0dVEzcDlpSzRBK2hQODVsOTdhZjRrajV3Tk5HTzdhZW9p?=
- =?utf-8?B?MHA0UXRoUEJRV0tpa2RnNTUrbmJXRGU1VlZlMmE5SjF2T2JHNWtSSkIrUExW?=
- =?utf-8?B?ZlhqOEhzVVovSTVOT1VjVHc1c1RyUDdtQTBaODNsNnRmQ2xNV1AyT3F5aklZ?=
- =?utf-8?B?VnRZOGIzYS95emp4VUQxSVIyNXVRY2pkckZpc3NOSzN2WFY4MlAzZUl6NXBE?=
- =?utf-8?B?YzFkTkZXTk1CWXVFVlh1UzVzVUM5MWpVUWVYeXFGUCtkYnJCRkVPR0tNdmlS?=
- =?utf-8?B?Yk5Rc0txUnhGcXlsYTVIZVAzSVYwSkl2UGxDQWtVWHR5WWFyU0tIMlVPY3hp?=
- =?utf-8?B?MnovTmtTSjRwNXNoTGdyNHE1LzA1ZW9YNzJpN01hSXpZNGI3bU1HdVY5WWtL?=
- =?utf-8?B?RXVPY1RwVEt3ZUVacHdmM2g2YVBJUUtFZmg2UURFZFR3UU1mOGR6VUNZeFkv?=
- =?utf-8?B?OWRyYmhkL0dEdStpVExBNnZPV0tmcEhIdlVNS0NzdERiVnplaFdnWHZOUG5S?=
- =?utf-8?B?Y1doK0Z2L1dsZGltNGxNZGJiNzFEekFOdjdlRUg3MmlobGtaRk4xMnQxUmsv?=
- =?utf-8?B?MlZhcDJhWGNVOUxzYTAvTE9BOWtReU8zYkYzZlNBQkxjK3pSMWlrTkY4eVVB?=
- =?utf-8?B?ZGw5LzN0TGRMa3NyYTMxWlZJNTBzZ0N5YTNmdHZiUlQ1TzdKSEtzMWVKYjgx?=
- =?utf-8?B?SHQxVVBDWm8yV1pJNGpERGFwUzlVMnE2S1hXc2tGdG9RUVJxeFMrRjNQbko1?=
- =?utf-8?B?VnpWU2JITmQydUxkMU9UVEdqMC9MeXlWMkU0dDJWZjZxOHJXeDZ3cTR3L3Nx?=
- =?utf-8?B?T1U1NDI2bjFVcTVtNGVSNXVkdmpmanJSOENqWTNwVFVXV1BBTlFwWDhLTlhn?=
- =?utf-8?B?bEtwRlB1R3hUbXpSeTMxazc2LytvQ1h6MUp3cHp2czMvc0lVYlFlRWRMc29l?=
- =?utf-8?B?TkFsVnVCdlFSbVlUOTUzWTVGNGhwMWU2bXF1MkNXQWRTUll2MGtCOFZ0NlpF?=
- =?utf-8?Q?PGVIAdwjKBY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SGEzeURFN3ZKNWlVK0FBbmlSaGNpVUtBU21SZzVZcWVNNDFDYW1uelZ0aHdE?=
- =?utf-8?B?VTdOKzR2Z2lFOXNzRjFaMlBvT2xWSXNSR3U3T0kzV2RkejFjazE2ZXZWeElM?=
- =?utf-8?B?a1JpZkVCcFp0UjlwWGJYRHV0WHFTSjVhWGZoaWp4eUdvYWU5TFhLbkN1N25k?=
- =?utf-8?B?aFpUTzdZQnhDSk5WSGZ1QkVJRTRUME1mR0g2c1QxdVVpdkNBNWFSL2t4a0tV?=
- =?utf-8?B?d3VOeTZxcFhRTjM4eWJUUU5GaVUreUExMEhNUy81ZDgvOU1zYVZjTlY3K2NE?=
- =?utf-8?B?YVpqL0s1aUhhS2IrRlBBK1FBT3BVcTRjenhHQVg0V2FRRDI0aWNuaHlDZjJJ?=
- =?utf-8?B?YUg2VzIzY090ZFhoNE9MaEZrZENMbWYwOG9KZFhuQXFoaXRVWlRlUmFVUkVY?=
- =?utf-8?B?N0xlSXFGR1NjY1V2K3k0eE9sQk1YR1hTNzZaUEkzdW5rRlFFZXZ3RlBLeE5q?=
- =?utf-8?B?TkVVTEFta0d4ZFpyMVRXWVRBMFgranNxdE5EdWtqRFBzVmRxWVJqWkZFMFdm?=
- =?utf-8?B?R0ZWRzlDQXh2ZzNkRVhMcGR0VmZqbThvUnp1eXd4NXNxQWlDQ0huU1Bpc0lH?=
- =?utf-8?B?VTZZRVc5LzhNMWNTTEh0MTlCQStxOHVFZFVaNTBYMUREVVJ6YmMyUTY1d1d5?=
- =?utf-8?B?NjNmTHlDQnJTcW9EZzBZUElpUmRKYW5vbTU3dkZxQ0FxWHVveDlxU1QvZURu?=
- =?utf-8?B?RjJsKzhOR3BPbDhmTUdaQ01oOEJtREdYVHhCZklRbmpQWmJZa2tVdkhzNjBn?=
- =?utf-8?B?ZGVqT2p5WDNIL3QvcVBiaUVoTVpiOVpMWjNCSTJDdUExYnBCdU01bzRXQ0Vw?=
- =?utf-8?B?cXZwb09VamdPaUNhNXgreENwVUN0NCs2UExrb1kySlJsMFVTREhhcW93a3FU?=
- =?utf-8?B?VEZsRWRQWXU3eE56aXpvcGRsSVpiTjZzajM3dm92NnU0TU5LVURxMlNUTFdJ?=
- =?utf-8?B?QW1XWTZuSlI5VHQvUmNRS2tjOGtXbmhDc0ZiUVI4YnJrQ3VacUxxQi95ZHJZ?=
- =?utf-8?B?ZjliOVdiTWRNRFN4S3Q3VTM5MktJWmE2YnFBME00MzR5eUVlKzNuVGNTQzdi?=
- =?utf-8?B?NDMxV3VTUGNKRDloRVFENFcxNjZaZFdqWDhRMi9xcDhiWTBMS1gxMndKOHJN?=
- =?utf-8?B?aXdIa3F4WUFZQW52U1ovcnFsTlRXaGQwRmdyZisydm1jbTZHNTUyYTdDWXZM?=
- =?utf-8?B?TVVnSVdaN0xGVGFpdTFkaGQvajVCaWo0cWFVRmJFalNxSjFHOWNXS29qS0t2?=
- =?utf-8?B?YzBIeHFnN0h2Q2k2Y2hGY3V1Nk9YQ1BPYmxsaVpnY0dTUWhScSthVXJYTW82?=
- =?utf-8?B?ME9Wa0dpUUk4c0RjdS92ZVB5dEh6eGNhcEJIeWYrK254SmRSbXFSMDI5TlVK?=
- =?utf-8?B?TDJrUlVTZitHTkRiSVNuVUFWN2hudmZ1cmk3dkFRcjNkcUptbTJHRE9KRHYx?=
- =?utf-8?B?bElMdWdQZU5RTFE4K25WUTN2dlh1eEFKWDJoMjNwcHpleW5YVVpSd29iV1lS?=
- =?utf-8?B?d2h0TmQrZEt1d2RYelh4em1IYlkvaUZ4cjY3VSt3R3JQNGFMa1Q4TWxzUnox?=
- =?utf-8?B?MzNHNG9CV3F1YUNnL21wN09ONVVMQzRkMDcxK2RtZFAvaGg2SmNBZ1AyYkFr?=
- =?utf-8?B?OVlORWF0NFFJTFMrWGYwcWdTNkxOVHZ4YlFpalVNejBBV2lxUWorUmRSOUUr?=
- =?utf-8?B?aTQ5WjBPWXN2VkFrbGxseW9IdjJzZWNxeW9VV3UycTFiVGkwVTNSQ1E1Mlcw?=
- =?utf-8?B?eFVIOUZBTWFVV1psZHNZSldhVW5wekJWdC9JQkYxVXhBZ2Q3SVdid3djTEN3?=
- =?utf-8?B?MkxiNFBEU0l4MFBWWlVDMTE2NkV6R3h0dXVxNnNWbDFJTkZ4c1ZnYXFXZWZq?=
- =?utf-8?B?U0YyVHM5ZmdxamJxRTJzUVFKd05IbnpwV0ZTWWwzd0xCQlYzTFlKa0VVbWtI?=
- =?utf-8?B?RmVkd2s1RVdoanB0NzNQMlRwM3RvamExR28vdGcydGtjekpqSEtwY3FCRk56?=
- =?utf-8?B?YlNoeU5MWU9rY1dOR3VMWEMxZ1duZStjR1ludjk1Mi8xNUl3RTlDSFNMTXFG?=
- =?utf-8?B?bWlIK0g4b2svQXBIdjdrVnVzWjE0YzFZMG5uUDV5a2ZVSlhUQmNxWGoySmxP?=
- =?utf-8?Q?mck291qwTV/TbJsfoVevmmTN2?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bafe497b-2860-4098-0108-08dd8c67406b
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 06:28:45.2894
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gL6q+0t2XDF/u4Z+BjC7dqLQrZmy6BdD/bobHJrgghOHzATX1JcObydkNSvKlGmHTbOMOmDpXSUHNTisLMvFRg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8709
+References: <20250502100049.1746335-1-jens.wiklander@linaro.org>
+ <20250502100049.1746335-7-jens.wiklander@linaro.org> <6a33e85f-6b60-4260-993d-974dd29cf8e6@arm.com>
+In-Reply-To: <6a33e85f-6b60-4260-993d-974dd29cf8e6@arm.com>
+From: Jens Wiklander <jens.wiklander@linaro.org>
+Date: Tue, 6 May 2025 08:50:20 +0200
+X-Gm-Features: ATxdqUHZrVfop0JU0rG-vcdbXQsIPujzLICkuywbLk5p8m1md7a0mES_eJcPprM
+Message-ID: <CAHUa44EQV5O+KZbE19-d-Z6Wu=HAQuGQmZe+mXZRpmdvRDbmSA@mail.gmail.com>
+Subject: Re: [PATCH v8 06/14] tee: implement protected DMA-heap
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
+	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
+	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
+	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	Sumit Garg <sumit.garg@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
+	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_232856_507635_99DCA9E2 
-X-CRM114-Status: GOOD (  24.82  )
+X-CRM114-CacheID: sfid-20250505_235032_847637_BC93E897 
+X-CRM114-Status: GOOD (  28.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,134 +105,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+Hi,
 
-On 2025/5/2 1:02, Nicolas Dufresne wrote:
-> Le mercredi 30 avril 2025 à 13:39 +0800, ming.qian@oss.nxp.com a écrit :
->> From: Ming Qian <ming.qian@nxp.com>
->>
->> Applications may set data_offset when it refers to an output queue. So
->> driver need to account for it when getting the start address of input
->> image in the plane.
->>
->> Meanwhile data_offset is included in bytesused. So the data_offset
->> should be subtracted from the payload of input image.
-> 
-> I think you should revisit this commit message a little in the next version.
-> While the overall patch looks good, I believe you forgot to add code to verify
-> that addr + data_offset still falls within the HW needed alignment. I don't
-> have the HW documentation for that chip, but I have never seen HW capapble of
-> handlign random alignment.
-> 
-> Without the data_offset, the data is always page align, so we don't usually
-> have to validate that.
-> 
-> regards,
-> Nicolas
-> 
+On Fri, May 2, 2025 at 3:59=E2=80=AFPM Robin Murphy <robin.murphy@arm.com> =
+wrote:
+>
+> On 02/05/2025 10:59 am, Jens Wiklander wrote:
+> > Implement DMA heap for protected DMA-buf allocation in the TEE
+> > subsystem.
+> >
+> > Restricted memory refers to memory buffers behind a hardware enforced
+> > firewall. It is not accessible to the kernel during normal circumstance=
+s
+> > but rather only accessible to certain hardware IPs or CPUs executing in
+> > higher or differently privileged mode than the kernel itself. This
+> > interface allows to allocate and manage such protected memory buffers
+> > via interaction with a TEE implementation.
+> >
+> > The protected memory is allocated for a specific use-case, like Secure
+> > Video Playback, Trusted UI, or Secure Video Recording where certain
+> > hardware devices can access the memory.
+> >
+> > The DMA-heaps are enabled explicitly by the TEE backend driver. The TEE
+> > backend drivers needs to implement protected memory pool to manage the
+> > protected memory.
+>
+> [...]> +static struct sg_table *
+> > +tee_heap_map_dma_buf(struct dma_buf_attachment *attachment,
+> > +                  enum dma_data_direction direction)
+> > +{
+> > +     struct tee_heap_attachment *a =3D attachment->priv;
+> > +     int ret;
+> > +
+> > +     ret =3D dma_map_sgtable(attachment->dev, &a->table, direction,
+> > +                           DMA_ATTR_SKIP_CPU_SYNC);
+>
+> If the memory is inaccessible to the kernel, what does this DMA mapping
+> even mean? What happens when it tries to perform cache maintenance or
+> bounce-buffering on inaccessible memory (which presumably doesn't even
+> have a VA if it's not usable as normal kernel memory)?
 
-Thanks for the reminder, the mxc-jpeg codec requires addresses to be
-16-aligned. I'll fix it in v2.
+Doesn't DMA_ATTR_SKIP_CPU_SYNC say that the kernel shouldn't perform
+cache maintenance on the buffer since it's already in the device
+domain? The device is expected to be permitted to access the memory.
 
-Regards,
-Ming
+>
+> If we're simply housekeeping the TEE's resources on its behalf, and
+> giving it back some token to tell it which resource to go do its thing
+> with, then that's really not "DMA" as far as the kernel is concerned.
 
->>
->> Signed-off-by: Ming Qian <ming.qian@nxp.com>
->> ---
->>   .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 42 ++++++++++++++-----
->>   1 file changed, 31 insertions(+), 11 deletions(-)
->>
->> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
->> index 1221b309a916..035368d65913 100644
->> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
->> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
->> @@ -587,6 +587,27 @@ static void _bswap16(u16 *a)
->>   	*a = ((*a & 0x00FF) << 8) | ((*a & 0xFF00) >> 8);
->>   }
->>   
->> +static dma_addr_t mxc_jpeg_get_plane_dma_addr(struct vb2_buffer *buf, unsigned int plane_no)
->> +{
->> +	if (plane_no >= buf->num_planes)
->> +		return 0;
->> +	return vb2_dma_contig_plane_dma_addr(buf, plane_no) + buf->planes[plane_no].data_offset;
->> +}
->> +
->> +static void *mxc_jpeg_get_plane_vaddr(struct vb2_buffer *buf, unsigned int plane_no)
->> +{
->> +	if (plane_no >= buf->num_planes)
->> +		return NULL;
->> +	return vb2_plane_vaddr(buf, plane_no) + buf->planes[plane_no].data_offset;
->> +}
->> +
->> +static unsigned long mxc_jpeg_get_plane_payload(struct vb2_buffer *buf, unsigned int plane_no)
->> +{
->> +	if (plane_no >= buf->num_planes)
->> +		return 0;
->> +	return vb2_get_plane_payload(buf, plane_no) - buf->planes[plane_no].data_offset;
->> +}
->> +
->>   static void print_mxc_buf(struct mxc_jpeg_dev *jpeg, struct vb2_buffer *buf,
->>   			  unsigned long len)
->>   {
->> @@ -599,11 +620,11 @@ static void print_mxc_buf(struct mxc_jpeg_dev *jpeg, struct vb2_buffer *buf,
->>   		return;
->>   
->>   	for (plane_no = 0; plane_no < buf->num_planes; plane_no++) {
->> -		payload = vb2_get_plane_payload(buf, plane_no);
->> +		payload = mxc_jpeg_get_plane_payload(buf, plane_no);
->>   		if (len == 0)
->>   			len = payload;
->> -		dma_addr = vb2_dma_contig_plane_dma_addr(buf, plane_no);
->> -		vaddr = vb2_plane_vaddr(buf, plane_no);
->> +		dma_addr = mxc_jpeg_get_plane_dma_addr(buf, plane_no);
->> +		vaddr = mxc_jpeg_get_plane_vaddr(buf, plane_no);
->>   		v4l2_dbg(3, debug, &jpeg->v4l2_dev,
->>   			 "plane %d (vaddr=%p dma_addr=%x payload=%ld):",
->>   			  plane_no, vaddr, dma_addr, payload);
->> @@ -701,16 +722,15 @@ static void mxc_jpeg_addrs(struct mxc_jpeg_desc *desc,
->>   	struct mxc_jpeg_q_data *q_data;
->>   
->>   	q_data = mxc_jpeg_get_q_data(ctx, raw_buf->type);
->> -	desc->buf_base0 = vb2_dma_contig_plane_dma_addr(raw_buf, 0);
->> +	desc->buf_base0 = mxc_jpeg_get_plane_dma_addr(raw_buf, 0);
->>   	desc->buf_base1 = 0;
->>   	if (img_fmt == STM_CTRL_IMAGE_FORMAT(MXC_JPEG_YUV420)) {
->>   		if (raw_buf->num_planes == 2)
->> -			desc->buf_base1 = vb2_dma_contig_plane_dma_addr(raw_buf, 1);
->> +			desc->buf_base1 = mxc_jpeg_get_plane_dma_addr(raw_buf, 1);
->>   		else
->>   			desc->buf_base1 = desc->buf_base0 + q_data->sizeimage[0];
->>   	}
->> -	desc->stm_bufbase = vb2_dma_contig_plane_dma_addr(jpeg_buf, 0) +
->> -		offset;
->> +	desc->stm_bufbase = mxc_jpeg_get_plane_dma_addr(jpeg_buf, 0) + offset;
->>   }
->>   
->>   static bool mxc_jpeg_is_extended_sequential(const struct mxc_jpeg_fmt *fmt)
->> @@ -967,8 +987,8 @@ static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
->>   			vb2_set_plane_payload(&dst_buf->vb2_buf, 1, payload);
->>   		}
->>   		dev_dbg(dev, "Decoding finished, payload size: %ld + %ld\n",
->> -			vb2_get_plane_payload(&dst_buf->vb2_buf, 0),
->> -			vb2_get_plane_payload(&dst_buf->vb2_buf, 1));
->> +			mxc_jpeg_get_plane_payload(&dst_buf->vb2_buf, 0),
->> +			mxc_jpeg_get_plane_payload(&dst_buf->vb2_buf, 1));
->>   	}
->>   
->>   	/* short preview of the results */
->> @@ -1827,8 +1847,8 @@ static int mxc_jpeg_parse(struct mxc_jpeg_ctx *ctx, struct vb2_buffer *vb)
->>   	struct mxc_jpeg_sof *psof = NULL;
->>   	struct mxc_jpeg_sos *psos = NULL;
->>   	struct mxc_jpeg_src_buf *jpeg_src_buf = vb2_to_mxc_buf(vb);
->> -	u8 *src_addr = (u8 *)vb2_plane_vaddr(vb, 0);
->> -	u32 size = vb2_get_plane_payload(vb, 0);
->> +	u8 *src_addr = (u8 *)mxc_jpeg_get_plane_vaddr(vb, 0);
->> +	u32 size = mxc_jpeg_get_plane_payload(vb, 0);
->>   	int ret;
->>   
->>   	memset(&header, 0, sizeof(header));
->>
->> base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
->> prerequisite-patch-id: 0000000000000000000000000000000000000000
+These buffers are supposed to be passed to devices that might be under
+only partial control of the kernel.
+
+>
+> [...]
+> > +static int protmem_pool_op_static_alloc(struct tee_protmem_pool *pool,
+> > +                                     struct sg_table *sgt, size_t size=
+,
+> > +                                     size_t *offs)
+> > +{
+> > +     struct tee_protmem_static_pool *stp =3D to_protmem_static_pool(po=
+ol);
+> > +     phys_addr_t pa;
+> > +     int ret;
+> > +
+> > +     pa =3D gen_pool_alloc(stp->gen_pool, size);
+> > +     if (!pa)
+> > +             return -ENOMEM;
+> > +
+> > +     ret =3D sg_alloc_table(sgt, 1, GFP_KERNEL);
+> > +     if (ret) {
+> > +             gen_pool_free(stp->gen_pool, pa, size);
+> > +             return ret;
+> > +     }
+> > +
+> > +     sg_set_page(sgt->sgl, phys_to_page(pa), size, 0);
+>
+> Where does "pa" come from here (i.e. what's the provenance of the
+> initial "paddr" passed to tee_protmem_static_pool_alloc())? In general
+> we can't call {phys,pfn}_to_page() an arbitrary addresses without
+> checking pfn_valid() first. A bogus address might even crash
+> __pfn_to_page() itself under CONFIG_SPARSEMEM.
+
+That's a good point. Would it be enough to check the address with
+pfn_valid() in tee_protmem_static_pool_alloc()?
+
+I expect that the memory is normally carved out of DDR and made secure
+or protected in a platform-specific way, either at boot with a static
+carveout or dynamically after boot.
+
+Thanks,
+Jens
+
+
+>
+> Thanks,
+> Robin.
+>
+> > +     *offs =3D pa - stp->pa_base;
+> > +
+> > +     return 0;
+> > +}
 
