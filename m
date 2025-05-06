@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8FEBC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 06:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D3C9C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 06:32:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7QMw+5nA2GGVua9gtBE8dFrWvOjPIYNtXm8x/tSpfgU=; b=wkDlqqEk2ylhfvsZzFjuhKbFU9
-	oymXZ+FtXNJjiVufNibZDXQRHjIHvpXTIYnOagivwwoOemVcsv0gDYek57iYN9kYni4F0SvmqbZrD
-	sgcscIgyCft18X8oTQv01tS1AFGTgvffy8emt9DqI6aXcXVSKUKt5+KSc0hTtObFc6EZuh/NwRH8t
-	6mHEN6tabeg6yvRhlC/4ClwjN+1JvHwbH+dIQAubAIbi7rW1Bu86wcyPDHyINvGfwePGNuXMl4h6U
-	FCv5VBAYes+iKLBLVK4LulPAszt9pf1bHddARFgGlkuxzFbAkKGMZEzyVtHs8A04CnN99Q4YNCUxJ
-	PUmXyUIg==;
+	bh=SzOZk3IAQIFbUw4Ne76D3ImIMW3ziYe4M2KihJqGVRI=; b=18o/m0whnxlv27L8uhXX1My4oG
+	i25BxNjMaktiOS6C3VcnO0XSCsLos9r2Apnyxls8Aai+8Wfvom3OEMiDLsEBSjO2KsU0dEsxl2PRY
+	zOFqeiMdWvKXkAUubJbbXqq56q+H1fCtefI1Xp72sNUGY1B04elMbgu1CiO9R25kSmy+qR71RU+61
+	C0Y2m9nNvCeOJ9iTa7tnmGs0c0IRJQbkiqyWjUtad0Bv3yUC9B0TRipStPWr9OdFquJwlsQ4qF1HR
+	qT1XpLYiSqMK0OCrvSBysDZ3quBl1PY3sgFxYboYmwHoKO4J3p1g/znMc9hNZhIO9CK9+XhBNo8iX
+	4FfpY3zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCBoN-0000000Agch-0QYH;
-	Tue, 06 May 2025 06:29:51 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1uCBqI-0000000AhA2-3kSo;
+	Tue, 06 May 2025 06:31:50 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCB71-0000000AVmr-2lop;
-	Tue, 06 May 2025 05:45:05 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-22438c356c8so50925255ad.1;
-        Mon, 05 May 2025 22:45:03 -0700 (PDT)
+	id 1uCB7M-0000000AVur-2COx;
+	Tue, 06 May 2025 05:45:25 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-af91fc1fa90so4735121a12.0;
+        Mon, 05 May 2025 22:45:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1746510303; x=1747115103; darn=lists.infradead.org;
+        d=googlemail.com; s=20230601; t=1746510323; x=1747115123; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=7QMw+5nA2GGVua9gtBE8dFrWvOjPIYNtXm8x/tSpfgU=;
-        b=Ma/PMjLEAdIW571z2iDqemdeWJEJEtJEqf/lO03eIXuTcJJxGg78nmv8KScexBYwIX
-         UzN782RUukSGI6bwyKKeSVtdnGW9ugZZszQujHbqPYi1EjmcXeTq2yazHTeWHQH4BU7/
-         XG40Hda8Sy0NJWDuWDT4teDNSsRnF+YVHAW2e+8o7xS3HZQSP+z54l7eRzkiEejun4i8
-         dBQj1xdUWZwSNP/58Y951YE5N98eIRzQOj8DrwAZR/CUTXv5IpMptNUCdQOTFh64+kUN
-         IxzcYNou99FScYAypi+1hZQymbgcPh3SVnia091pnOhtrvSvyOA1PlEwYxBQRcQ5BltD
-         NUJg==
+        bh=SzOZk3IAQIFbUw4Ne76D3ImIMW3ziYe4M2KihJqGVRI=;
+        b=hO3B+TAJUeM4C+QGPJ2+Ao4m2JNz1lPiswFGbeuLAOjrmjNBq9jWXuUEYgWd6cJjDn
+         n3CYTy522lH03KY8kFRcN9+IGFobSaB/nCHnwykm5U2O5s0fubHgVOR8KDkE2Oe+5OR8
+         AfH0nEuz4UoP3yLDcjRWr+PccoS4tKaxsB9QyZVR5NOlx2oc22lUY5XpqulS+f7NBlkh
+         mdA9+DKeh1jJjHuuva8hcf9qxKRyBtAYR5OlfMWxpmKYu+A71+XtfhQSdjIaBIcmOA54
+         uw5YuhcB94viUzPIxp8VLtzwvqObkxsRevXBp5JDR95F9/B08sKCBCspcTj6fSIi2wg9
+         rvLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746510303; x=1747115103;
+        d=1e100.net; s=20230601; t=1746510323; x=1747115123;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=7QMw+5nA2GGVua9gtBE8dFrWvOjPIYNtXm8x/tSpfgU=;
-        b=pLO/lu6Zl6hNG25tcunKl5M7u5GHwHWgs/L9oQlWmA//BjeOJ3NO2tBKcMtdUre4dP
-         B+/RB3+EWCQM7zsuaefn8gf66b+yN5JEShokhcZ2NLtpNSbfEMy0BHrEl9vpdel3hpwP
-         Uc6EbaTXPDY8FJlcNzPIDy37nXOfclIdddUwgI4oBE07MtF//4OZZAvwP/2+KRunDhyo
-         lJGg5eT/EGvszUMALlXxSloz4KDJbOQ8a61PerxLVC4IJuRzJgLw6Kx4mClwfAaMmTdC
-         eMgPC6F2NXFI8NEzOQINr4196th+A/OtAQ0NVPyVnNf+KzWge+TqZRdNaocjLdjzWaC7
-         ge9A==
-X-Forwarded-Encrypted: i=1; AJvYcCUbAiDEaLnDztWjR86eWOUdEFVNEztZLMlYwX394JwtGF93oomySlzKH1i0REnUVG+EAD/ol6Z1EO0KsBFunpy8rg==@lists.infradead.org, AJvYcCXcLbdIb4dNM0UFdeR2QLcRk0XQig+lyjPn2fDgjFbT4RBjaOD730ZgaBWOe6oFPpNC9FZ4F0DJdjo9Bux5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHIcOtdaBk8KWu/mJhps0aN9nxZPBd7mQZ9aByqfQB8gwul7f0
-	qQEgz24jY16Xy1rSgLz9elFXr2wYn0QjykvaB4aHaSQfkuGOwz2t/PZ83TgIXz8azKkLm5Frk+2
-	HAZURIR43GXWusuRoaVZPYdzPfiQ=
-X-Gm-Gg: ASbGnctt7DsC/uhz1mZNJxfBIdN5/AVfAPbP10V8RO1Q73VYwhhlRrHMw2+bVDmExXb
-	Awh+L2pmkkagg3X8p2kjKke/nVIsTZ+Fh5g0LybYgdxciLkHAQvqAiuktxJzqhniOv/zaT1imDK
-	Gp/HAX6HJg/kVN4lC6VVlFc4ZBTiyuHAgTXyMlf78kIVBC4+Q=
-X-Google-Smtp-Source: AGHT+IEAtjZAiVW9FmeIPs+b2L0Cy/C7fmszykHtPtzqcf1LWGqQ9MrO3WWZWQisFX6hdN6dX2Pwfb6vvI+jq0mf724=
-X-Received: by 2002:a17:903:1ac3:b0:216:7926:8d69 with SMTP id
- d9443c01a7336-22e1ea95042mr127743175ad.47.1746510302790; Mon, 05 May 2025
- 22:45:02 -0700 (PDT)
+        bh=SzOZk3IAQIFbUw4Ne76D3ImIMW3ziYe4M2KihJqGVRI=;
+        b=DE6RyUXna4JRhnxO913wkbBO/K4gejz2GMv/myuP99Rvys+n4i6riin14f4bdgH1Uq
+         zovzNP5w5ItX6RkBvVvo80aOOHO+suJQYey8NjwDdanB4/OUM70xRf8NDgonQlphfqhm
+         oNr63mRxswAghhREKfsAlKQ98LmPKHWwd6NBDuAreHWvlRofCEYwLzlCUVamTb6GpJJO
+         ZPr295hpRthASJuDHpTw9sRtLayQ0v1Jq5+C3KpprWhGYnaiZyB4TrOmYZLmggM7dlCz
+         0G/xcwOmjxvahS59AKT5YjLmVJ5n79Or9ij/5zxinDVdgievE+c4Wkq60ur34cCDTdjr
+         F/zg==
+X-Forwarded-Encrypted: i=1; AJvYcCUGNqAQLmsFXFkA5FBcYlSSgma5sc7sv3bSSKbtXAHA6MME2un0e2ByJQeDtcZg3I6k+EE4MAcduILQXG+eZ9rbHg==@lists.infradead.org, AJvYcCVGmLOsXdHZqF2pWpAzexTRhai6pDZOzxBhEtPPff4cfr4p9pZUbPxmZIZDkWDxhjmA4p4wGGtk0+qmIGOK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4hifOspRAZVWPHAE82m8CMc029fgAONkPuDhoIArmp3kHx7dT
+	CNlzS0X7q+UM/UEhskOWKm5s013MmAnLI4P5GAj8MhC66d580QLy1qcyvzVSFs2c0NZ9WU6JJhg
+	KADJezcZiKfoGXctaLOYv3yYf9YY=
+X-Gm-Gg: ASbGncuabNfTWq0UAAghWhmKYg5YS3CYOBLxAieOijgHAU9Z9BJvc7TeDTgiy2vo3hV
+	pO7noDNpdHVVRd+LfL2WOndgJVmK/A3CHta0v65ZArlv+49U1fQg6oHwGijfL2qM5ootWu5QpDH
+	ZoXJr+KRoWmhFxfbaB+Hled4zyMH+kno5WNH2g
+X-Google-Smtp-Source: AGHT+IG9+XTY5gsqEu/5VO21buM3ao3qt5hN1Shgf6am5MZstz3wz0os2aGjV9duIeZ0pFO63t5UT9LAAOodm+H5DxI=
+X-Received: by 2002:a17:902:fc8d:b0:216:3d72:1712 with SMTP id
+ d9443c01a7336-22e365af0demr27207085ad.48.1746510323601; Mon, 05 May 2025
+ 22:45:23 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250428-fernsehfee-v2-0-293b98a43a91@posteo.net> <20250428-fernsehfee-v2-3-293b98a43a91@posteo.net>
-In-Reply-To: <20250428-fernsehfee-v2-3-293b98a43a91@posteo.net>
+References: <20250428-fernsehfee-v2-0-293b98a43a91@posteo.net> <20250428-fernsehfee-v2-4-293b98a43a91@posteo.net>
+In-Reply-To: <20250428-fernsehfee-v2-4-293b98a43a91@posteo.net>
 From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Tue, 6 May 2025 07:44:51 +0200
-X-Gm-Features: ATxdqUE0-lwrubrO18uAn6fPR3DZquMt1RXTKqplWpMfrQ3jLYv5ONhvDdTbeEQ
-Message-ID: <CAFBinCBVZeGk1QXMhwqQR9k9vJqDR3Hew2gxMxGZh4+SdbARFg@mail.gmail.com>
-Subject: Re: [PATCH v2 3/4] ARM: dts: amlogic: Add TCU Fernsehfee 3.0
+Date: Tue, 6 May 2025 07:45:12 +0200
+X-Gm-Features: ATxdqUHExb0y3TB0sGh-a9qJlHSjuGqizCi_ElK5QBzZ7JwOhNsd0f26AUxqkpg
+Message-ID: <CAFBinCBLvy=jBBZY2XKnmWJAxhne=8VCMJnWjmA=nUBWM4p2fg@mail.gmail.com>
+Subject: Re: [PATCH v2 4/4] ARM: dts: amlogic: meson8-fernsehfee3: Describe regulators
 To: j.ne@posteo.net
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
 	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -81,8 +81,8 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_224503_699375_8E3D38CE 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20250505_224524_562068_0271D6CB 
+X-CRM114-Status: GOOD (  16.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,27 +102,55 @@ On Mon, Apr 28, 2025 at 12:44=E2=80=AFPM J. Neusch=C3=A4fer via B4 Relay
 >
 > From: "J. Neusch=C3=A4fer" <j.ne@posteo.net>
 >
-> Fernsehfee[1] ("TV fairy") 3.0 is a set-top box with HDMI input and
-> output ports. It originally ran Android 4.4 and a Linux 3.10 kernel.
+> The fernsehfee3 board uses a Ricoh RN5T618 PMIC to generate various
+> voltages. Board schematics are not available, but the regulator voltages
+> found in /sys/kernel/debug/regulator/regulator_summary match those in
+> meson8m2-mxiii-plus.dts:
 >
-> The following features are tested and known to work:
+>  DCDC1               0    0      0 unknown  1100mV     0mA     0mV     0m=
+V
+>  DCDC2               0    0      0 unknown  1150mV     0mA     0mV     0m=
+V
+>  DCDC3               0    0      0 unknown  1500mV     0mA     0mV     0m=
+V
+>  LDO1                0    0      0 unknown  2900mV     0mA     0mV     0m=
+V
+>  LDO2                0    0      0 unknown  1800mV     0mA     0mV     0m=
+V
+>  LDO3                0    0      0 unknown  1800mV     0mA     0mV     0m=
+V
+>  LDO4                0    0      0 unknown  2850mV     0mA     0mV     0m=
+V
+>  LDO5                0    0      0 unknown  1800mV     0mA     0mV     0m=
+V
+>  LDORTC1             0    0      0 unknown  2700mV     0mA     0mV     0m=
+V
+>  LDORTC2             0    0      0 unknown   900mV     0mA     0mV     0m=
+V
 >
-> - Ethernet
-> - Power LED (switching between green and red)
-> - Power button
-> - eMMC
-> - SD Card
-> - USB
-> - Wifi
+> This patch takes the following approach:
 >
-> The following features are untested or not working:
+>  - Copy RN5T618 regulator nodes from meson8m2-mxiii-plus.dts
+>  - Remove some of the regulator names, which do not seem to apply
+>  - Verify regulator supply relations by starting without any relations
+>    (and without regulator-always-on) and seeing what breaks when the
+>    kernel turns off "unused" regulators.
 >
-> - HDMI input and output
-> - Infrared remote control input and output
+> This results in the following observations:
 >
-> [1]: https://fernsehfee.de/ (German), https://telefairy.com/ (English)
+>  - When LDO1 is turned off, the board resets
+>  - When DCDC1, DCDC2, DCDC3, LDO2, or LDO5 are turned off, the board (as
+>    observed through the serial port) stops running, so these must stay on
+>    at all times.
+>  - LDO4 (VCC2V8) appears to be unused on this board.
+>  - LDO3 (VCC1V8_USB) must stay on in order for USB to work, both the
+>    external USB ports and the internal USB wifi module.
 >
-> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+> The cpu-supply and mali-supply relations are also copied from
+> meson8m2-mxiii-plus.dts
+>
 > Signed-off-by: J. Neusch=C3=A4fer <j.ne@posteo.net>
 Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+
+Thanks for the detailed summary!
 
