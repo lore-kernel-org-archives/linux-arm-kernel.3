@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5C4FC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 20:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 733AFC3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 22:23:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yk89LHTXO3jss8gNOPcfJRUOju19BFvggSyJM9Digqk=; b=Xv0Fewol89xtDKcUQQEHq3C4/T
-	HRWEAWvJZ9g/F7m6p3Zbq9Gdmot5YWmHzV8xCwkKQkoASpI/apzLkU9U6wz5ukmQPAq2aePbqfdTu
-	lJo1RbnzgwcjHg4UtA/nD22e1yXEw9b6cCUX+3pArX6XDxq9vXKXWX6h/qnXO6PSCvNWUFT0O0wNZ
-	+kRfSPdG2fF2SGWSOBSml2HdBzASKgEhKsVH6Py0UuiuUOeAeq5aWCeCPDabUtsSlPPsOpibxYFne
-	lw/38KGXRWjNTE1gkafmNvmfWzoSshDXVt4LBXRR0ZF8gnJN6/Fer7GY2xihbx4GjBf6r9Zu/UqxO
-	wSKhbCsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l1vzWonbvw1kesRAEIztqlwEh1d74B2tbqL5td3IoWo=; b=zw/fAQO0ePOnB5/+uOI2iwvom0
+	4pgFdZUZMNOoHaJzLYtW9o+sTN/4UUR88Bx5E6HK67W0Q8hXVGpscIYFkbBUcLPofsUfKc91/kZeb
+	bVEF3YdhW/tpD1RDpCXrcK2NB7HjGGbEX0GDMqGn0dQF+TxxcmHiepmSXsG95JmBKYWM8PjKEtRCc
+	8TwIKStOfdI6uy7zTPDsEbSMbHHL+tpgm6ofqeppSYBvDOPNoSFCWJ1S3+6NxQXSBIJ97jFnVLSVl
+	htvtajoMTAmzbDLfN00xmk00k2YSrrkYgl//25EISl2r3cidDb/Lm3pqNadPwEyAoS1Whd2Gz9qQv
+	yjLRKe5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCOky-0000000DMCE-3rRI;
-	Tue, 06 May 2025 20:19:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uCQgl-0000000DWSG-0Sgr;
+	Tue, 06 May 2025 22:22:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCLBe-0000000CgB0-2W6C;
-	Tue, 06 May 2025 16:30:30 +0000
+	id 1uCLOt-0000000CiKD-411n
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 May 2025 16:44:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 140D361165;
-	Tue,  6 May 2025 16:30:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0129C4CEE4;
-	Tue,  6 May 2025 16:30:24 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 373345C58DC;
+	Tue,  6 May 2025 16:41:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B6ABC4CEF1;
+	Tue,  6 May 2025 16:44:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746549027;
-	bh=yk89LHTXO3jss8gNOPcfJRUOju19BFvggSyJM9Digqk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=i3FdGlF9r/zuuI40wyqxOzGvxDbf+SqGdyaiMBUoxowwEunFPrve3bRz6pb6552t/
-	 8FjCXrOBQ74tQ+RoKpFLwzTUyrMAVFx6Bvw/iQMYUltrNV9dY4T8/MMvkp42Mk5rXF
-	 ZxQuIWb1pxu7GYi4ObbFdg8EqUhg8c0rMLM1VzWR+WLqdwUaxfz+wnWhFXDVxvylgt
-	 WyY0dVl8Th4ieB14eCz59E/yzC1DzZlE4Tag+Hob7lUG2AKCv3PSkIWJcaG7xUVGAf
-	 OO7tUayKKhf4yr5NL8ZObm3CfyeOaZjVVYk3XoJJDhIWamkHUUohSiJYi9q3+WOkyq
-	 suD7hzhxBnK6A==
-Date: Tue, 6 May 2025 17:30:22 +0100
-From: Conor Dooley <conor@kernel.org>
-To: =?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Alexandre Mergnat <amergnat@baylibre.com>,
-	Amjad Ouled-Ameur <aouledameur@baylibre.com>,
-	Bernhard =?iso-8859-1?Q?Rosenkr=E4nzer?= <bero@baylibre.com>,
-	Fabien Parent <fparent@baylibre.com>, kernel@collabora.com,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 1/2] dt-bindings: mfd: syscon: Add
- mediatek,mt8365-infracfg-nao
-Message-ID: <20250506-safeguard-brisket-96da510a99d3@spud>
-References: <20250502-mt8365-infracfg-nao-compatible-v1-0-e40394573f98@collabora.com>
- <20250502-mt8365-infracfg-nao-compatible-v1-1-e40394573f98@collabora.com>
+	s=k20201202; t=1746549851;
+	bh=Bpk6RKCUS8mCcn0z7DGT1SGuzw/M+c16uxJw8Nsfl3s=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=HIIwlq62n7y9FTsT1zanNfv9ie0R7UBN4sc1bHE533TnMpQv+r+cFonbkotn4zKMP
+	 0vtzE9SXDk3LVuQhHRWsKJPq6+KdfuW+N4/S9yryc4/RL67a3Uvyrch9hZDMsWzEtK
+	 EUwK0Cs1e7Fkh0XlEX96+wFRYcYt9CZSLYKmzdoiPBRjcnCf+cZRLgehL+bWc0kHIw
+	 5BrWijnMPhJ4PKLYW+MkkrKHhUdo5EpW2i8JtI84iDFMOtoTJt59tikauJ5Zp1DSpt
+	 i0W3WhL6AO715f1348AD8Eq8DQc4SrfpaIGrYhs997adlSC8bwa5w4uRrCpSyH6il9
+	 gjkfY1DviUULg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uCLOr-00CJkN-Ez;
+	Tue, 06 May 2025 17:44:09 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>
+Subject: [PATCH v4 15/43] arm64: Add FEAT_FGT2 capability
+Date: Tue,  6 May 2025 17:43:20 +0100
+Message-Id: <20250506164348.346001-16-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250506164348.346001-1-maz@kernel.org>
+References: <20250506164348.346001-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="PZUhCmeqes3xNKnX"
-Content-Disposition: inline
-In-Reply-To: <20250502-mt8365-infracfg-nao-compatible-v1-1-e40394573f98@collabora.com>
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, mark.rutland@arm.com, tabba@google.com, will@kernel.org, catalin.marinas@arm.com, ben.horgan@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250506_094412_064045_3AD8D0A5 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,34 +90,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+As we will eventually have to context-switch the FEAT_FGT2 registers
+in KVM (something that has been completely ignored so far), add
+a new cap that we will be able to check for.
 
---PZUhCmeqes3xNKnX
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kernel/cpufeature.c | 7 +++++++
+ arch/arm64/tools/cpucaps       | 1 +
+ 2 files changed, 8 insertions(+)
 
-On Fri, May 02, 2025 at 12:43:21PM -0400, N=EDcolas F. R. A. Prado wrote:
-> The register space described by DT node of compatible
-> mediatek,mt8365-infracfg-nao exposes a variety of unrelated registers,
-> including registers for controlling bus protection on the MT8365 SoC,
-> which is used by the power domain controller through a syscon.
->=20
-> Add this compatible to the syscon binding.
->=20
-> Signed-off-by: N=EDcolas F. R. A. Prado <nfraprado@collabora.com>
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 9c4d6d552b25c..bb6058c7d144c 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2876,6 +2876,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.matches = has_cpuid_feature,
+ 		ARM64_CPUID_FIELDS(ID_AA64MMFR0_EL1, FGT, IMP)
+ 	},
++	{
++		.desc = "Fine Grained Traps 2",
++		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.capability = ARM64_HAS_FGT2,
++		.matches = has_cpuid_feature,
++		ARM64_CPUID_FIELDS(ID_AA64MMFR0_EL1, FGT, FGT2)
++	},
+ #ifdef CONFIG_ARM64_SME
+ 	{
+ 		.desc = "Scalable Matrix Extension",
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 772c1b008e437..39b154d2198fb 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -28,6 +28,7 @@ HAS_EPAN
+ HAS_EVT
+ HAS_FPMR
+ HAS_FGT
++HAS_FGT2
+ HAS_FPSIMD
+ HAS_GCS
+ HAS_GENERIC_AUTH
+-- 
+2.39.2
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
---PZUhCmeqes3xNKnX
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaBo5HgAKCRB4tDGHoIJi
-0o6IAQDuQXjMuejZZPZgecYQRVBoKrB/iTH2vnh1+sSpGOzoXwEA159pOsyZy5CJ
-3GifqtsxDfIlIV5zxXmOb+gRCw9eOg0=
-=ziAH
------END PGP SIGNATURE-----
-
---PZUhCmeqes3xNKnX--
 
