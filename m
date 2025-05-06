@@ -4,85 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33D82C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 06:26:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FC2DC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 06:28:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w5PP8pPqPAlFWPzr7SqBRYCQHZuRk2Mb8hKI7hyMvQs=; b=Ppddi4xg+DXnmnll2qunmNi9nC
-	9fk85KiV/Du9Dl+fMO+mwq4oapC7Kx6EPOHS0hqLfhxWRqo2c1sMe0IK4sZop+k63+Qx5QouxIZ8h
-	DXG3Es03K3ZDBHw9hvPdKoLuLb4kVtE0RVlMXF5bpGIDPl5ULjImhZd2xTogi+PoA/eJTDCgr2fxW
-	g7RIHPqISGb2OZ7ZtsSSOiAN1tJu6730ZEMNPV3/Tscg+OgJnYHrjs5EG3hIui9BS+6RnzoQwtuNf
-	0keOYmEICAvLt2hgOe49EvYBmdarlUav3nf0JT4ZussefwN8m43xFj48xR3rpI3uMzU7fIDOJNVzZ
-	ldhIgfoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6TWDYD3YAsYVgm/TgQCHdIyQnrhhQOVzwJrqm08xSTc=; b=IOSdHIbMXcKGsArAoo6HL1dyw6
+	bB8I1KYNXXBuPEHjfoIlzeYgpcyqVnx0SueAAhe0DKUYKPiVs4TJfmkOcyYxphxIj6AgFAZjuDSzO
+	ydiOqSEIp/vx/Rsyfjj+MGRWxXD2YelAGIy0+bhzL+ADukehaZoCOB9LYNbKXqqNJ0GheQAPw+ynj
+	f4dZhyjrmEpV6FWMtn1omHMdeI+83f+wqcjKbYabCicXF2plLt0ST+UeKwCYLEZlrQhZ9DT3y/8Xy
+	+v0alcl4TPh0d1ua5iS3qpGxNUppkq9T//7/+euqwKKx98vz41A1TWH7rRymB/lKSArkCRnpr2cGb
+	lyLYCCWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCBkX-0000000AfaZ-0lKl;
-	Tue, 06 May 2025 06:25:53 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1uCBmS-0000000Ag5m-0ncS;
+	Tue, 06 May 2025 06:27:52 +0000
+Received: from mail-bn8nam11on2060e.outbound.protection.outlook.com ([2a01:111:f403:2414::60e] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCB4o-0000000AVCp-2BN2;
-	Tue, 06 May 2025 05:42:50 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2264aefc45dso82311185ad.0;
-        Mon, 05 May 2025 22:42:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1746510165; x=1747114965; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=w5PP8pPqPAlFWPzr7SqBRYCQHZuRk2Mb8hKI7hyMvQs=;
-        b=NUIMOB0JX+8yCyMXPKp9N+7I/tiV/E+Ksc3HoQXNHUUE2hE2kG7xFU0maRAqzHWnkS
-         DB0wa1hyaWiBkvg4Uo2ADkgEU2rGlUicOnoo52HQDs7+pnO6Ka2YQK2/ii21UGEMAl2n
-         bMe0Rp0wu/pgXBaI6dYGXErwI1ufeJXFKPcJUs5RrGDcISIIksZ+dbdSuD/n6H07IzU3
-         zkkJyUALiTMHK+h78s/gxGMg/qry2JHOWNhTsV2fZfh5CUzcTtRXvARjiq6SJdzMh+W+
-         cpNPAndPfYRhfbj252l+o4dU8gk5bV+1VdSOIP7eYFTJcdnse2oALkvCWp4LpkzkhAkQ
-         uw9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746510165; x=1747114965;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=w5PP8pPqPAlFWPzr7SqBRYCQHZuRk2Mb8hKI7hyMvQs=;
-        b=CdcJyYIPxKFLOL45QgNJ4IhMCl0u9KMLup5RLY6GoId1/qHImCA1Alea2RVwlW0ajO
-         ueMTURmWLdKnQpgJ6FTy1KZjUDbdX4R3WA1wRGor1Gg3+P8iraEyyBEwhFtZVqd6lNJH
-         lyqaOYpYbc74tqbgf9XIhzQNHhGDTfpekVeAtEzVzE8/IZeo/fev4ECqVMrwJThKra1A
-         2d8C8dgPankYNcSgCpFs24jEQr9ce3cCKT9ZmbyE5t+sL+odfw8TFid3S/p+eRT4Z0+O
-         +CCXwUfvjJyN/vN+uEqA8jyMKFlHg8sAkTJFZYGxIia5r/0AsMUHGV07wrVBQfIDEL3O
-         oe9w==
-X-Forwarded-Encrypted: i=1; AJvYcCUfZ06XBcSHcHAMaTQId+0zBHoVJuZ4agUxrZ/EjdRtcHECZrT5i8cGDTHLOJH44EjbOl3M7DtJFzuyWzQO@lists.infradead.org, AJvYcCVnC5tU3Pa4kP5B2vH4bQOaPIzrQBidFIpLH35b6zGSTo4YI5HWs1P/v2g5xAf7Z3T3s5KbImcUM1f6EC2QAdnBuw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhogqL1bKZJd3z+PNR+5NFY2UvnqJu+tHwHvl0KxFzLhiNM6xq
-	sZlZOXMbLMGmMoWhEwHm1bg2NlJ3o+KcAD0Q0VIWObZPZY1h5YAITgo3VPe6HcoQ6V4potrdV6j
-	X62xawYezZ+5Jks47EODmCztPuTy4dYfa
-X-Gm-Gg: ASbGncuD2RxhC5e9xuWxD/kh2HtHu9Uc5kMh4TXs7fuCbq1T+AtuJ2vFChnez72kOD0
-	C6KlyV2y2u2FTK8vo2S3/qjaXoJcmvyD6uTxEfe896KBKsB8TM9cM9mz5CftFvATfCmMJgkR7pT
-	Ylw0i1fqhTMnl9n9EWaJxq72WODgGasVQ7Ap80
-X-Google-Smtp-Source: AGHT+IHWCctdzwcMCj5ZjU40zivptT8H7299TSSxDfB5fLI/6Bil0HTVn5o/o/QdVIGdyzwtB4e67QWfmRswaQICEjE=
-X-Received: by 2002:a17:903:3c2e:b0:22e:3c2:d477 with SMTP id
- d9443c01a7336-22e1ea60099mr185549235ad.25.1746510165582; Mon, 05 May 2025
- 22:42:45 -0700 (PDT)
+	id 1uCB5i-0000000AVT0-3Loe
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 May 2025 05:43:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LEJv4SpFtymIAn8AS4jRxzpG+XlQDk3xZqPkgBGRPiV3QY/bK6IoV4eLHdUENtlay191dvQrD4wiu6ng3Z+/HroI8RafjrtS0ycTZsFkDnXLLhSAg/+LXdiU2F4H4MMTJBrGPiIoujEpP8J7zRAKkmEFTkC3/539H4Cs8CZs3w66NHxRYZOYu3cJmuR0EwFQC+dfeBUBvlv0mpWLoWG+9OPYrEuz46OrwjtZjvBhWi0/rEab1PmFB1N+eOCJsLgWGyD+wZlUlNEt90JR7ovn85nLLIM/73b94WVkU6NwLKRK/jhHekQKtcplVqkC8a8/+McA32eHTUDIzho7TZRS6g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6TWDYD3YAsYVgm/TgQCHdIyQnrhhQOVzwJrqm08xSTc=;
+ b=L+21Z48PADzNfUQkQ8SE311E2K58zQZX7wplrYDR6Vrllddc0hPAtng/9h4qYL1WPB7uXZarA7vvfppj82xrC3rX84d4caSccC2+nNgmJq5XRNOCUEqclnG1an+ENk9E5/gpuEDR8946hhLGcQHFHwTSSHV7wSgKHjOX1HzIZvA/HkhKYcgGIDvV5Jomdfk5mC0+/oK3fNxHbal70h6BWa1qg5xDZzcCAR7AwbKO90RaJ2ZxxvDs08EstV+rsWikcW5x61t/VfkSstTXl5es1569PwZ4CtQsXc0iKPVIKUbozmEvbjvqkuEROPn3XYEPASpwI5p/VY2casti5aqk9g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6TWDYD3YAsYVgm/TgQCHdIyQnrhhQOVzwJrqm08xSTc=;
+ b=XzAtmtrcXyhMXGDxSBsp4BvLrG7XirQhwc5+nHwLqedxqHyRCE6rEtecNPDiOa17a6JjWNnG5/jF6ILEH0uEv/fLw1bDIdZKNoMaLJtWHsjqleCepaZ1jQLaONoBoUqw4zBdI009ZZoCkLZmZvMGA4xKLx1ATZEGBc+QPZzm1jQ=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from DS7PR12MB6048.namprd12.prod.outlook.com (2603:10b6:8:9f::5) by
+ LV3PR12MB9187.namprd12.prod.outlook.com (2603:10b6:408:194::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.25; Tue, 6 May
+ 2025 05:43:30 +0000
+Received: from DS7PR12MB6048.namprd12.prod.outlook.com
+ ([fe80::6318:26e5:357a:74a5]) by DS7PR12MB6048.namprd12.prod.outlook.com
+ ([fe80::6318:26e5:357a:74a5%5]) with mapi id 15.20.8699.019; Tue, 6 May 2025
+ 05:43:29 +0000
+Message-ID: <1d77be4f-4fea-477c-b09a-7f4fd5708cb0@amd.com>
+Date: Tue, 6 May 2025 11:13:14 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 02/23] iommu: Pass in a driver-level user data
+ structure to viommu_alloc op
+To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, kevin.tian@intel.com,
+ corbet@lwn.net, will@kernel.org
+Cc: bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
+ thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+ shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
+ peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
+ praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, patches@lists.linux.dev, mochs@nvidia.com,
+ alok.a.tiwari@oracle.com
+References: <cover.1746139811.git.nicolinc@nvidia.com>
+ <832c4116fde833ce36b3e6fd23f6bb98197a9996.1746139811.git.nicolinc@nvidia.com>
+Content-Language: en-US
+From: Vasant Hegde <vasant.hegde@amd.com>
+In-Reply-To: <832c4116fde833ce36b3e6fd23f6bb98197a9996.1746139811.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PN4PR01CA0087.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:2ae::8) To DS7PR12MB6048.namprd12.prod.outlook.com
+ (2603:10b6:8:9f::5)
 MIME-Version: 1.0
-References: <20250505143700.4029484-1-christianshewitt@gmail.com>
-In-Reply-To: <20250505143700.4029484-1-christianshewitt@gmail.com>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Tue, 6 May 2025 07:42:34 +0200
-X-Gm-Features: ATxdqUG_EIknxuU7AXpA0gnX9o4lB6z8IXOJ4Kfd6xvHmWt15cDgq86uJeQsSX0
-Message-ID: <CAFBinCBmBotJL=wC2=oV-o7piGckoBvN3S6ofYh20fEP9sn4XA@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: amlogic: sm1-bananapi: lower SD card speed
- for stability
-To: Christian Hewitt <christianshewitt@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR12MB6048:EE_|LV3PR12MB9187:EE_
+X-MS-Office365-Filtering-Correlation-Id: ac4900ce-9e3b-482a-92cf-08dd8c60ee05
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NXpPQk5MVnBBZUd4OWpGbURSb01VSEJHZ3V5Q3orUWtIaUwvV1YxdVBIb2lr?=
+ =?utf-8?B?TFl5UzdyN0cwU3B3T2x5b3JJZlFmNTJrMkRxanIxQUFqOXY4QUFSRGdSNDl2?=
+ =?utf-8?B?TGMyQXY5Mm9HeE9DL1dhS1NpSGpaNUFjM0NybFBhOFN3YytpWVRXbVY2ZlJq?=
+ =?utf-8?B?ek9rUk93aW5aZ0hkUUNpWXMreUtFVW5PT1duTmxZcnNJQmRkem9PWHBOYjBJ?=
+ =?utf-8?B?eEQ3Q1F5eXRUenBZMEtWRzg3cVJnN01QUDdmeXlqL0puK3UzNFdpQmY0aEU0?=
+ =?utf-8?B?MmZlcU1WdHpqbmFiU3N4eUcwN3pJMkcrak1GS2RsMDR2RjFtZEdMeTN3ZGlZ?=
+ =?utf-8?B?RGZ5OUwvNXJJVlJtVWhlSUI5UWV4Q0wrNWhvbkw5amRKdGVsMXVkYUNzbmxw?=
+ =?utf-8?B?eTVUMWRva2hKY0lta3ZSa1Fuek5NMUJRUXpXSHZwc1pldWdaYWVRZ293R25t?=
+ =?utf-8?B?SWlKMytNTVk1MG1ENmVKeFBsOTVWZzI4Ui9kc3RGQ2xEb3E3MVFJSDB4d1JM?=
+ =?utf-8?B?RU03K3hLc1h2Smx2ejQvM2MrNDNSQlVWZFR4d3R4enJzcXkyK3pjUDZKSE8v?=
+ =?utf-8?B?Z3Y0WW5NWmwrM0lMaEFveUhCT29HWng0YnJMaE1NdUJ2UDYyK1k5bjE5S01v?=
+ =?utf-8?B?cW1LTXkvNVpheERQT3RnR0N3UGx1ekgyQTJKMFF1OEMxNGRmbHVRYzQrN2Y1?=
+ =?utf-8?B?dHJHS3FXUlJrNjZ4RFE4bUI2eVIrSVluVWo2ZHBseU5SOWh1QlhkTnY3aHlm?=
+ =?utf-8?B?U2RJZFJCRmxiYkxhZitOQkdkK2lheWZPTTJpRk04UktjemxsUlRIOFdkKytY?=
+ =?utf-8?B?V0IxVVBmT1dSR1lXa3JZQ3d3Uk1xRlI1YWxuK2hZRTBlaUhDNlJIaHFUZFdE?=
+ =?utf-8?B?Yy9vV28xT3hRK0NTQ000OEQ2allQR3VIZnprQVU1NUJoYmRWNFhQN21UM3Mx?=
+ =?utf-8?B?bnBaZkNsa2Ewa1FYdlhyQlZiL3Z3YW5XdUJMR0Z5VExBNW1pc3IrWTBhcnR3?=
+ =?utf-8?B?dWJyM1ZEbGppdTcvajRRWEtZZXVHQUJGYTZMOFprcEorNEdrZFgrK0FmM2Rs?=
+ =?utf-8?B?dVNnVTc5cWdBL1FoWEg0NWk2WkNKZnRkaXp6cjdseVl3ejVFbmpFbEZ3YXor?=
+ =?utf-8?B?YlRtdzc3cytHaVpqVk9IVU5TeXRWMnVhODAwY3d2SXo4bkhtM29aVkIwdjdU?=
+ =?utf-8?B?eGZjNFNMbGZsTERySzFCanRWb1p0WFdKQzFvbXA0ZklFM3d5aVVoQWZvc2ts?=
+ =?utf-8?B?V2ZFdnp3cGxtTE1ZSkhJR3lqNlpJUFk4K0RJdmM4SmM0aHN3MXh6Z0RQR2gw?=
+ =?utf-8?B?Z01jblZxMzFnbHQ1WCtlbU5Jb3lBdnBEdHRyM0JZVUdxNUFlM010MjMzVDhp?=
+ =?utf-8?B?WXB5MTNQeWFnQ3JDQm9wcjQ4TzBGSVJvZVVwclplWlJNUG9rU2tISnJGdXZY?=
+ =?utf-8?B?MkhBNUNMTS9KdzF2V2tZS3k2eGdJWEE0akFadCtGQUdhMVFwZEJvQmgrNUNi?=
+ =?utf-8?B?MUJDd1Fud1czRXBVMWN5V2V5dE1pY25LTy9ueS8vMDVPUzB0TWF0SDBPL0tp?=
+ =?utf-8?B?TFJHdCtleit6dHJhdXJnUENDZkowK2VkYVpXMTFGZ21xbFplM2Q4TXZzRDVT?=
+ =?utf-8?B?M04vclAwTUNJajJDT1FHLzRUMDJBcFhnb0hiYk5PaHkycmFhcmJwejNwaVFr?=
+ =?utf-8?B?RTdVWU1VRi8wcUxWLzJKZUN5YnB1TDJWcVNnaEpwdThzWHlUVVM3MUJVRzZw?=
+ =?utf-8?B?ZUxDYzd3SkdYQVFRUHpoR3MzZVE3ZE9jMmpqdUJYOVV0T3ZCQXJzKzFzTVd6?=
+ =?utf-8?B?VEdQRytxK0dlT005b1N1cDgwMWNaUVh5L1lsYmtjLzdrTmpxTXl2TWliY29x?=
+ =?utf-8?B?UWZKM1pkeDA2K3FoclNkQWtvMVAwVkxGZW80VkxkSFVTaGwwcnJucSt0dExQ?=
+ =?utf-8?Q?+DfOfdtABbQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB6048.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dU1mUHBEeWY2ckVPaXBsR3J6d1hNcTlYc3pNNXBVczJ4M3N3d2xkN1ZIYyth?=
+ =?utf-8?B?dkltVGxVaGl5SzgvWHZSTUlIenVMUEZiTEVZZDZCOHpjMmVsOW1Ib2lUR1gy?=
+ =?utf-8?B?dklrR0ZmbTNaTDBOdEM0OTNETVY0bG9UUWk5T3V0UkplNWNTM0lFekpjbDVI?=
+ =?utf-8?B?RWtVYllmWWRJME5XK3JNTDhNc0dHMUNIZjV6Slo1eXhNMEsvMDBXeFN6Qk84?=
+ =?utf-8?B?aWtjSzJWNkZiRVBLamN5ZFBuMEtqU3R5QnJZbHE2R3BtSHNkUllqOFZldzlG?=
+ =?utf-8?B?czNBK3lRMXNBMC9tUDgwU2ZsM3NUb3Z2ODBmR3V5UVV6ZjFxQmI1aFc5MjRV?=
+ =?utf-8?B?TEhRbGFrcHIwMlBQRVRIb1UwRzBmdTczVlVqQnMwUGFUckRqVmV1Rnp3Y3cv?=
+ =?utf-8?B?YkNUdktzMFl1Y0JSYUF2VkptZFBNWmlKbUpCUjhyeVpsVXltVm43NmE2RERR?=
+ =?utf-8?B?c2ZUMXQ0VUcxUklyblo3T2hTV3BVb2RxZlFEVFY4RFZRZU9LdHFhMWlUOGVl?=
+ =?utf-8?B?OXV5dU9aaU9GbVlBSWVWZTFaemdYeU40Ym1nb1E4UmZvN2RYUkJFVC9JOHA1?=
+ =?utf-8?B?M0Zlcy9SUUVhM1RETjVXQUVDeisyL2p6VVY1WGNQd0dLOHcvZFRxUVdlSmFp?=
+ =?utf-8?B?TEpsbGNuZkNaaVFNbXd4UFpkVHB6STVmQitCZmNOMVRoUjBZYTA2b3pQdis3?=
+ =?utf-8?B?ejVEVWkvOFZwc0ZYWExLa1FjY1F0SzA3bWIrNHZuWHBrNDZ6aXQ5Y3ljN1hq?=
+ =?utf-8?B?SGNCTHZHMXZ4ZHpGVy9XTXpvSlFNMm80WDluV0pRQURoWDNSa2tCWVJYTk9y?=
+ =?utf-8?B?WkJHOUdKT1VjK2k4LzZ0K1ZhdWgwWkxGZHZmenlLUUdNWEZaNkd3VTB5eVBa?=
+ =?utf-8?B?MnBzV3RVZHJ0RkJiMTlkTCtSMjRuQ3l0RjM1TFpVQlNOVFAyK1Q5OGlwUWpB?=
+ =?utf-8?B?WithSUk1anp5Z3Bmekl0c3A4Tjk3UDZ3dEsvUlhVOGsvM1RTS3RmNzJad1g3?=
+ =?utf-8?B?K3Yyc0VuSkxxSXJhdVYzQUREYkdzTlhZaFh0SDNIbGVCRVFNa3B5KzhhQ3Nx?=
+ =?utf-8?B?My9hS1BWUmJxNG5mNGI0ZWZGemhqMGdMU084K1E2dzlnVy9SL205YS8yYmQr?=
+ =?utf-8?B?dGROSk8xMTBka3ZFdWI4ZjF0eDkydU9saXdNaTBpTzhGZUJXZ3BUV0hRTGIy?=
+ =?utf-8?B?Y0k1cHNIa21kb0JORERnZWhPNXdkKzJGbDlZUXB2eGFmS3dJUEErd3pDUXZo?=
+ =?utf-8?B?b0F2eUFhZzZYQXZ2R3JxN1QzektXTldXYytBRDVwSkVkZVVLOGxsVnpLWG9P?=
+ =?utf-8?B?MHhrY0hiUkc4Q29URUsrK1Z1WHZUSVJqcWs0SUQxdzloVkpmb1dWWGx5QVRv?=
+ =?utf-8?B?SGs5K2lteDlNNDkrUWJ4S3lYcFlRNndWYXdVOXhsTHV2b1g5eFJBUk1JTDdZ?=
+ =?utf-8?B?L2lJSy9Mai84enBaVmJtNlpjbmRiMU9DelorZGVrbER1YXZZRnA0emt6UzVC?=
+ =?utf-8?B?K3diT2k0bWc3OTFjVnpIdmwxeHVFeVczNlZnNjJ6U2FsUG9hcHQvcXFrZm8w?=
+ =?utf-8?B?bkgrYUZHTjAzRVFDR0FnbGlndjFsalp0aGtMb1J0VWVFdmg1TnlhMmRLb3Ra?=
+ =?utf-8?B?K3NKYmdFM2lka0dKNW9pcU1ab0dUQmZ6dFZ6NUtpa0tITExJU25Uekw3ODhv?=
+ =?utf-8?B?VFhWZTR5TmpDYm40dWlKUmpBaFhmNEtBT1lrVlQvT3VjUUw0RTA1dUZCZVdD?=
+ =?utf-8?B?b2pLUVd4N3NHWldMa245dmg2VDdIZUFLSmZxU3JWZG9pKy9FejB1Q25FSFhn?=
+ =?utf-8?B?Z3lFYjlQUnp0dE0yU1QvMUhPOFpGcS96U0cvSnpGV0V4RnJjZ3hwckovdzlq?=
+ =?utf-8?B?MUt6cUZHRE0zR0ZCQU1TR0JzT0hyRW92aDVXeUtwYXlWOWpzZmErNWk0bzM4?=
+ =?utf-8?B?TWFQQnZxRk9SVkd5QjZNU2hKQS9qd0w3Sm0rL21DaWE4YmR1dkJreHNxZmNy?=
+ =?utf-8?B?bWkzcXpHNU9xUk5wUEZhc3FCZGhaQStSTVBXSjVGeDZvV3BjdEY1S3lEZTZo?=
+ =?utf-8?B?QWxiUnNicjRkTXYybnVMS25HQ1BhNTdIYVFXNVlzV1Fhb1E0VGJ0U3BZcDR6?=
+ =?utf-8?Q?NhpuPvRTPuCZCQXi2oPrOilLw?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ac4900ce-9e3b-482a-92cf-08dd8c60ee05
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB6048.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 05:43:29.8325
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Rwup4K4Ziw9P7DnFvvM7cs0DPhffBU7ct4qOl0/hmphCGDyq4tL7HLBvJqRKtq+FhJntmBvsECICeBEp7nfvUg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9187
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_224246_558914_5EA58770 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20250505_224343_113167_0A90E97E 
+X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,26 +184,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 5, 2025 at 4:37=E2=80=AFPM Christian Hewitt
-<christianshewitt@gmail.com> wrote:
->
-> Users report being able to boot (u-boot) from SD card but kernel
-> init then fails to mount partitions on the card containing boot
-> media resulting in first-boot failure. System logs show only the
-> probe of the mmc devices: the SD card is seen, but no partitions
-> are found so init fails to mount them and boot stalls.
->
-> Reducing the speed of the SD card from 50MHz to 35MHz results in
-> complete probing of the card and successful boot.
->
-> Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
-Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 
+
+On 5/2/2025 4:31 AM, Nicolin Chen wrote:
+> The new type of vIOMMU for tegra241-cmdqv allows user space VM to use one
+> of its virtual command queue HW resources exclusively. This requires user
+> space to mmap the corresponding MMIO page from kernel space for direct HW
+> control.
+> 
+> To forward the mmap info (vm_pgoff and size), iommufd should add a driver
+> specific data structure to the IOMMUFD_CMD_VIOMMU_ALLOC ioctl, for driver
+> to output the info (during the allocation) back to user space.
+
+Thanks! AMD vIOMMU has similar requirement.  3rd 4K of IOMMU MMIO space is
+accelerated. We need to map VF MMIO BAR to guest. So this change is useful for
+AMD driver as well.
+
+-Vasant
+
+
+> 
+> Similar to the existing ioctls and their IOMMU handlers, add a user_data
+> to viommu_alloc op to bridge between iommufd and drivers.
+> 
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+> Reviewed-by: Pranjal Shrivastava <praan@google.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 > ---
-> The same workaround of dropping to 35MHz is also done with the
-> ac2xx dtsi; which has a comment about CRC errors being seen at
-> 50MHz. It's probable this is the same although I forget now how
-> that diagnosis was done (or who did it, Martin perhaps?).
-Maybe Jerome helped investigate/debug? I can't recall and at the same
-time: if it fixes the end user experience it's a win.
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h         | 3 ++-
+>  include/linux/iommu.h                               | 3 ++-
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c | 3 ++-
+>  drivers/iommu/iommufd/selftest.c                    | 8 ++++----
+>  drivers/iommu/iommufd/viommu.c                      | 2 +-
+>  5 files changed, 11 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> index dd1ad56ce863..6b8f0d20dac3 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> @@ -1062,7 +1062,8 @@ void *arm_smmu_hw_info(struct device *dev, u32 *length, u32 *type);
+>  struct iommufd_viommu *arm_vsmmu_alloc(struct device *dev,
+>  				       struct iommu_domain *parent,
+>  				       struct iommufd_ctx *ictx,
+> -				       unsigned int viommu_type);
+> +				       unsigned int viommu_type,
+> +				       const struct iommu_user_data *user_data);
+>  int arm_smmu_attach_prepare_vmaster(struct arm_smmu_attach_state *state,
+>  				    struct arm_smmu_nested_domain *nested_domain);
+>  void arm_smmu_attach_commit_vmaster(struct arm_smmu_attach_state *state);
+> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+> index 3a8d35d41fda..ba7add27e9a0 100644
+> --- a/include/linux/iommu.h
+> +++ b/include/linux/iommu.h
+> @@ -662,7 +662,8 @@ struct iommu_ops {
+>  
+>  	struct iommufd_viommu *(*viommu_alloc)(
+>  		struct device *dev, struct iommu_domain *parent_domain,
+> -		struct iommufd_ctx *ictx, unsigned int viommu_type);
+> +		struct iommufd_ctx *ictx, unsigned int viommu_type,
+> +		const struct iommu_user_data *user_data);
+>  
+>  	const struct iommu_domain_ops *default_domain_ops;
+>  	unsigned long pgsize_bitmap;
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> index e4fd8d522af8..66855cae775e 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> @@ -385,7 +385,8 @@ static const struct iommufd_viommu_ops arm_vsmmu_ops = {
+>  struct iommufd_viommu *arm_vsmmu_alloc(struct device *dev,
+>  				       struct iommu_domain *parent,
+>  				       struct iommufd_ctx *ictx,
+> -				       unsigned int viommu_type)
+> +				       unsigned int viommu_type,
+> +				       const struct iommu_user_data *user_data)
+>  {
+>  	struct arm_smmu_device *smmu =
+>  		iommu_get_iommu_dev(dev, struct arm_smmu_device, iommu);
+> diff --git a/drivers/iommu/iommufd/selftest.c b/drivers/iommu/iommufd/selftest.c
+> index 18d9a216eb30..8b8ba4fb91cd 100644
+> --- a/drivers/iommu/iommufd/selftest.c
+> +++ b/drivers/iommu/iommufd/selftest.c
+> @@ -733,10 +733,10 @@ static struct iommufd_viommu_ops mock_viommu_ops = {
+>  	.cache_invalidate = mock_viommu_cache_invalidate,
+>  };
+>  
+> -static struct iommufd_viommu *mock_viommu_alloc(struct device *dev,
+> -						struct iommu_domain *domain,
+> -						struct iommufd_ctx *ictx,
+> -						unsigned int viommu_type)
+> +static struct iommufd_viommu *
+> +mock_viommu_alloc(struct device *dev, struct iommu_domain *domain,
+> +		  struct iommufd_ctx *ictx, unsigned int viommu_type,
+> +		  const struct iommu_user_data *user_data)
+>  {
+>  	struct mock_iommu_device *mock_iommu =
+>  		iommu_get_iommu_dev(dev, struct mock_iommu_device, iommu_dev);
+> diff --git a/drivers/iommu/iommufd/viommu.c b/drivers/iommu/iommufd/viommu.c
+> index d4c7c5072e42..fffa57063c60 100644
+> --- a/drivers/iommu/iommufd/viommu.c
+> +++ b/drivers/iommu/iommufd/viommu.c
+> @@ -48,7 +48,7 @@ int iommufd_viommu_alloc_ioctl(struct iommufd_ucmd *ucmd)
+>  	}
+>  
+>  	viommu = ops->viommu_alloc(idev->dev, hwpt_paging->common.domain,
+> -				   ucmd->ictx, cmd->type);
+> +				   ucmd->ictx, cmd->type, NULL);
+>  	if (IS_ERR(viommu)) {
+>  		rc = PTR_ERR(viommu);
+>  		goto out_put_hwpt;
+
 
