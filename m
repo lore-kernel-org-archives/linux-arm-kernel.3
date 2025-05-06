@@ -4,111 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1187C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 13:53:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60BAEC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 13:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fBp4p4deqUzAG3SrieVeuIkuCgjpw2beSF6aI8YLfpc=; b=P07vt3aNT+mEidZUErzbACPGGl
-	yDbmtxTcvUR8XYj5ZQUmbwWAtl5qM5MYVmJDxn2bb70EIldWGqX7yvoNLrPD3teP+dBb4PC6RLyF+
-	eGgqDcZ33dqNim5NTptdHYWwUsm7dNbGShPGKO/JOCqTYxFAZzhOgQkERk2tXjtduANa3ieOGp99C
-	Sqvgf1MfVNFRAvFqEuOD5Zda4zWn5kCQC/NAU9PmgEYCBGQHXD8Pr7DblnVEhbBSI1cTwDbQE/W+x
-	Xjr8iqF9DeTNm2YVfbiehsPhnqz9Y+r/hOLD6qEgZiinVwCOOa9x2eVeRmPuFSqYO4Wu/ywyAKYdH
-	MW41m1Tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mbzv4QwHBzexPLJRjBnyyxv8zbjM0Wf/De5jjcjGd9I=; b=MY3I4OCexQ6zhYYCcVC555PQn+
+	g4W7uohoHmi5PwYsdilsqs840t7hWzIQlMLzFC6I/GWaRj3hnqVmIh6vE3LlZ8oIJ28cLsORf69/y
+	l7+QucxmNDF40VHaz5uf7JrqYKNqeeUr+xVR6otVBk6aw2w6yYDGjsyAIAyz3XJOysxlFveKoEgfy
+	SIZYVpZY20pRJ0YybACs6tPAEnH+W6VdzDBp+MKKY7yLgiPUWLpbEgQtW7aLpaiPdwLz7sTyvnhHT
+	jdFl8ELOU19DmIxQv2QQ7AVfElNXNHy0+2vdIbUs3LCOkOXW5cO42lvMImA9d30lrlm+YNbOtb2ZD
+	Q2pkVcuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCIjg-0000000CD6R-2p7I;
-	Tue, 06 May 2025 13:53:28 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uCIlb-0000000CDX0-2TiL;
+	Tue, 06 May 2025 13:55:27 +0000
+Received: from mail-am6eur05on20700.outbound.protection.outlook.com ([2a01:111:f403:2612::700] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCGOV-0000000Bigi-3NwK
+	id 1uCGQ9-0000000Bj18-0z0i
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 11:23:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746530606;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fBp4p4deqUzAG3SrieVeuIkuCgjpw2beSF6aI8YLfpc=;
-	b=dltudh91B+x5OHPma7F7RqaTfhA5qEuZiNW0QRMOsj0OeWydV1aVfHzPhjyhHE+l+9iP5C
-	PtWxgi8MfbNhHHUG01gTfN9eWfs91hdD2Czpb6jdnHcHHhX6DOogdbGgsFBxNHJ4Ra7TE8
-	9shA/x4hxsWgHfLdbp/q/i5TSrPR5Jk=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-581-RImgqNmlNnCsb4Ag8XNCdw-1; Tue, 06 May 2025 07:23:25 -0400
-X-MC-Unique: RImgqNmlNnCsb4Ag8XNCdw-1
-X-Mimecast-MFC-AGG-ID: RImgqNmlNnCsb4Ag8XNCdw_1746530605
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-43cf44b66f7so30954015e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 04:23:25 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746530604; x=1747135404;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fBp4p4deqUzAG3SrieVeuIkuCgjpw2beSF6aI8YLfpc=;
-        b=TEytmaP9Jl/b33FUMns19DLeYgIUl1Ugio2XAHENqxppxpwud6LVyGCLptxAWAGtk2
-         ZsK5Cidu+CCi5Kc1cS6mLMxI1VlcJWpPufXzEh/IUnEDHkFZF+D79RVeVheG9pcdvQa/
-         tcsc+M4pQaj491zx6wqfv/5K/w1xxPGQTdxBQw8rn7dLnF2nDHiCaW5hfsI/T+yTyj1m
-         NXOIWf7Aavk/HN96WRYUhIIzZQccGrtbjA9C0Dm90cKvaLAHx/1p4JQTlHF7nLPtr3/b
-         95oKOZkO8mXT6T666t13KoUw/AaU2JiYsPkNRXRur28i3w8+T961+lUJVqxCBsadoMi5
-         zpWw==
-X-Forwarded-Encrypted: i=1; AJvYcCVdF8GiGsZ97Iq5KXcpSrIAyBmqfh0VFDQUA2G7bx82j6EymXtugjo4LFnpBGU3mMCSRsX0f1idLYgqQv2a8MQ9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4Hdnu/uC8hK3FbBDlP6zprJ0eZJ/ZnCZPRJvjSZtUW3YDZCEJ
-	MuRR9r8wjbApCMqstF8R341QEShSwa9MWtI6BWNxubuMtcPD8FYm9F3D7VBDXhV5YqKUYnGa6pk
-	vamVORasuVUd6Sw93/DtKgiU5x7KOhtghaa5CYtPnXELTbvrgdxx0Ic3cP1+5jRYQFxOuxaPvSY
-	VXl647yLg=
-X-Gm-Gg: ASbGncvkoV8ODoCocipsUjwUPDegM70gsYR4Ps5UHdZtZ/fi6DGgFU9SU9iFS2tlQkg
-	D7pWmwDDtuxniVm1klsukBI4Y2TgiiaTc018a2nIJxmFSlP7F7bxbeCBu4YVIJ3ZRSUSREbhWSj
-	vnpNveK0cMDSV8dFZrEpfPVXrxCDR4mp/8Z02ggQwRCLJmnFMGdm2ka6fBm53X1fVlTFl1ITuM4
-	Gn4YPYBzK/tmqkxxrS6J00yvSrKIXR6QhLf62/oNM9JeA+T4vZPm49udW8O3QerTwvuVbDXMZ5T
-	3QJk/VDqcYU4uOGUDLL6NSBwNQWWdQktFg7f4lnYkbo08syfB4CpSMLeYps=
-X-Received: by 2002:a05:600c:1d1f:b0:43d:24d:bbe2 with SMTP id 5b1f17b1804b1-441d1014fcfmr16250015e9.28.1746530604240;
-        Tue, 06 May 2025 04:23:24 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEeYO2F4emx5hXi1uWB9URVLSGX9o9e7D7vvbT0onpTpSIZrGfufwgIJiasWRhRjn91m92mTQ==
-X-Received: by 2002:a05:600c:1d1f:b0:43d:24d:bbe2 with SMTP id 5b1f17b1804b1-441d1014fcfmr16249785e9.28.1746530603759;
-        Tue, 06 May 2025 04:23:23 -0700 (PDT)
-Received: from ?IPV6:2a0d:3344:2706:e010:b099:aac6:4e70:6198? ([2a0d:3344:2706:e010:b099:aac6:4e70:6198])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b2ad7ab1sm212836775e9.4.2025.05.06.04.23.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 May 2025 04:23:23 -0700 (PDT)
-Message-ID: <3e91e070-24a2-4dab-bca5-157fea921bf0@redhat.com>
-Date: Tue, 6 May 2025 13:23:21 +0200
-MIME-Version: 1.0
+	Tue, 06 May 2025 11:25:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=G7W/8CAyzeEOSMnas1Voa/u/dsrY9WMP+GFWpqurOyiJM6CMSvMSQ9NXsztbcCnyzYaH0/M1knFDyqzMQwyOItQLhh5knfGfYNvu9wgZGrnUThbkn/EtBZGkGGKm1+/AW5JcQ+XlUs7IBXlole+tevtITE21bW+A1TsZFFXYWYgSfVxsKkDMFvu0kA4bMdyIvt0qH+28mibRFYkSv7hw3zOgwrw/4Cug+79J9unPJJ7kfQln2qFu85fBrZ830e/QigCCRfZkOIaY8v4kIErQvs4h17FGLW273P4I8lo6CqjpFtRT2b/TpomGENVUlniz0wFDryFTXu774z83mMRrrQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mbzv4QwHBzexPLJRjBnyyxv8zbjM0Wf/De5jjcjGd9I=;
+ b=BcrdY4a/0Ft6O7HUH6vxZb+jAqOgY9Gn9RW5zTs3CAEuUfEd/6qLVzkn/8RINZ4JPva2i7mRdKkTOepYbc03270/SaPaeh0R6fIp1rudwL6GnqW8UecOxXbik4mOSFkPBMON31KHu8KqsfTbxy8blJ/t9CO3LGv8d81eR6eZYU26eIeUNs5kN8m/R8RCwftLiSKO4RrKITaDWTM8y16F5QltXAphCdtZRJQ43G3Ag7pAhfqlo8+ftcPEZ1kD5Bu2lYRpfqExonRG0fn1uokypM+j95/AGiQ2HvHSFvfN89LknjmbxBM29sv6OqlJ5KIjoDuS7d4xYi7u5NkIEiqR8w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
+ dkim=pass header.d=phytec.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mbzv4QwHBzexPLJRjBnyyxv8zbjM0Wf/De5jjcjGd9I=;
+ b=OPxArYS5RhxQFiu7hY36alSVeMuxiRtZoNV2YG8BSZOWW3jZfplcgQSgu8B5unDnconmuNazkBkZp9NpUOcZg/ZOXfGEPVSccp2xyX763TC1Z5uPA45147JI1NPWSHNFyJHBRoq1xzgG7a/YEIPfxhyFfyWyN3/1NDQQygvo2eSssRPTpg7faKDz6WvZQn96kNeoLoLjaBgyCfociwfu0ejE8/3r2VWz1K1Vg/QBkOprLoBbzPVxnsDFm0Q4ClZpxznV05h8nKKi+UDVPmLlrK76+ELeU5gNGS+sDqS6yZE9cZE7FToH/T+NMUvrYk2wZ6UOd9aSe5PeVAr2Ohe2DQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=phytec.de;
+Received: from VI0P195MB2484.EURP195.PROD.OUTLOOK.COM (2603:10a6:800:248::6)
+ by GV1P195MB2035.EURP195.PROD.OUTLOOK.COM (2603:10a6:150:5d::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Tue, 6 May
+ 2025 11:25:04 +0000
+Received: from VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
+ ([fe80::24f:8371:2871:5981]) by VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
+ ([fe80::24f:8371:2871:5981%4]) with mapi id 15.20.8699.019; Tue, 6 May 2025
+ 11:25:04 +0000
+Message-ID: <6ac1c6c3-a1fb-4e30-8ab3-9fabffea41c7@phytec.de>
+Date: Tue, 6 May 2025 13:24:53 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [net-next v11 4/7] net: mtip: The L2 switch driver for imx287
-To: Lukasz Majewski <lukma@denx.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Stefan Wahren <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>,
- Andrew Lunn <andrew@lunn.ch>
-References: <20250504145538.3881294-1-lukma@denx.de>
- <20250504145538.3881294-5-lukma@denx.de>
- <61ebe754-d895-47cb-a4b2-bb2650b9ff7b@redhat.com>
- <20250506130438.149c137e@wsk>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20250506130438.149c137e@wsk>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Bkon7cb9kR4upCjKIoZQcR118B8xxklyt3kj2aZXuwA_1746530605
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH v8 03/11] arm64: dts: ti: k3-am62a-mcu: Add R5F remote
+ proc node
+To: Andrew Davis <afd@ti.com>, "Mendez, Judith" <jm@ti.com>,
+ Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
+Cc: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Hari Nagalla <hnagalla@ti.com>,
+ Beleswar Padhi <b-padhi@ti.com>, Markus Schneider-Pargmann
+ <msp@baylibre.com>, Devarsh Thakkar <devarsht@ti.com>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250502220325.3230653-1-jm@ti.com>
+ <20250502220325.3230653-4-jm@ti.com>
+ <50039c49-a6c5-4f29-a35a-53b9af117fd8@phytec.de>
+ <6c5e786d-7581-492f-92fb-be92ecbecd87@ti.com>
+ <31d32966-05fe-4369-afda-3278822d8cb5@ti.com>
+ <646350fd-3dc5-47eb-ab1b-1a6a9acd69a8@phytec.de>
+ <84e6413e-4a61-40a5-acc7-85da76e6d540@ti.com>
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Daniel Schultz <d.schultz@phytec.de>
+In-Reply-To: <84e6413e-4a61-40a5-acc7-85da76e6d540@ti.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MW4PR03CA0209.namprd03.prod.outlook.com
+ (2603:10b6:303:b8::34) To VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:800:248::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0P195MB2484:EE_|GV1P195MB2035:EE_
+X-MS-Office365-Filtering-Correlation-Id: fee3b3e9-b9cf-4b5c-8841-08dd8c90a5d8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|10070799003|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?aVp2NEMzc1VqV2xmbUVzYWIyaEY0Z2gxaThJelNlcGF4Q0t4bksweXArUmtz?=
+ =?utf-8?B?YTdqU2dvYkkzTkI5YkJ4ak9aMzVrVm40anAxNEZBRWxxN1RPK0VCa2FlM0VN?=
+ =?utf-8?B?aHZuQVB5b3ZBV2tVTXU1cVBFcGY4VjdDZjdGVzZ5ZitqZjM4VzV3WFdYMnRM?=
+ =?utf-8?B?NENvSFBpd3MrVmZJK3JUcVFhZHArSnp6YU9RQVk3S3pkNW1oMjNaSmF3Vmlo?=
+ =?utf-8?B?bGhtV1ZOZHFxMXUzT2tsYjhTNFBQTmN5V1BSOWVTUGtHN0Z1VWo1TlpPNGsv?=
+ =?utf-8?B?Y25qYm1XbUFoK1FpVEZNRWE4VmdwYUlwMTBQb0dTdGRRV0VKR2ZKc1BURVRw?=
+ =?utf-8?B?eGRDTi9iOFRaOFhBZkd0QnFPVnVzTkZzVTdTWjc0VlZNTXQybEpPemNqWll4?=
+ =?utf-8?B?RTJCK3FhNzhJSjRNMUpGc1gyL29KZldUYTlnVFo4cUFiRHd2VFJrNG1sK1RW?=
+ =?utf-8?B?S2FTajdtMk1rTyswNUZEbnVRMjc2eHFXV2dWTVJVd2tWVW5EM2hVcFZqRWxH?=
+ =?utf-8?B?OVJXbC9JQXMyTnVLUmZ6UTJrY0Yzd0docGk5UTkvY1lNUmlCV1BvR1o4NHFN?=
+ =?utf-8?B?MlFhNm5yaWJOanlSZVlBaDVXNndZWDUwNEtWMG10aC84cGZRMU5YYUpHVkpW?=
+ =?utf-8?B?MWxCNk1Od0htSDlWU25MRXZEQVRWSWdFbTRjdlgzWVNxdldnMjltcmVNYWdM?=
+ =?utf-8?B?eExDN3loOWJDQ1k5YlhjZXMzRzNnWWZkU2hKdXU3c2pGbkE0b0RHTEVUeHNa?=
+ =?utf-8?B?T2V0ZHlvVTkzNHhkUWpYUVZoM0VBK2lSUWM3TEs4NWx2RVdHNWNCQWNYMmht?=
+ =?utf-8?B?cTkyL2orb0NlU2xsb1FJNVB1aHdnVzNncUx2cXhvUE9qSGhlVVhVNEEvR01y?=
+ =?utf-8?B?eFFKalNGbTJyOFJwWFJueGxaemdDZmI3cWlyTEF5UnQvTU8wbW9zTEZRNVR1?=
+ =?utf-8?B?ejBMNWh1RWVlSHpjY1BHakFNMGhWdGpRdS9RU0YvSnVVSDI4bHBOQVlPQ08v?=
+ =?utf-8?B?QU92SzRaLzZHaGdnWThaZlZ2eGR6cFo2ZnRDQTZyU1ZyZzRWekJGazYvNjVB?=
+ =?utf-8?B?dFZjWW5WL1NUeDQ4LzFEQkNVTUhOM1RKbEErQkV3eElPQUhIbWt6cENJeERI?=
+ =?utf-8?B?SExWaEZvU1o5TVA3b29DMTNYN2RYUmVTd2tHTnhhc2RqVWJOTW5uRmgybWth?=
+ =?utf-8?B?VTEvWWVKdnFuVEt2Z0IrL2hSL2JRL05sTWFxYlNrV0pKNkd4TTBNMzltVVBq?=
+ =?utf-8?B?STUwVUVUNWRtU2g5WXlOQ0JoTk5oNmw2bW5BTzlyVVgwekhYaTY4QVc4QWIr?=
+ =?utf-8?B?dmxvaUxwajJzamgrSjhqaHNlRWQ2RElTNmJXZDVHK0VNTHdHWWlIaFZLdDJD?=
+ =?utf-8?B?ajVvYVQ1OVNTek1heCtMY0RGb2Y2aEkyR2d3dFpyWkpZblBOczZWQUpEcXV1?=
+ =?utf-8?B?RkRHazI5T3JzMHduNG90V0FNaGNQUEtKUEs5UHFtRmUyaENEcnVJV3VOVXo1?=
+ =?utf-8?B?MGdwTENJcSszbURveW9IMkl5bitjQzhJWjNTUHZmWXZxa1RKbmRKeFRFN2ZU?=
+ =?utf-8?B?K01RY21tMTFvOUF2cjBiNG5JUjVHdE1YVjMyNk5HbGxtQk1IV253Um1UOU54?=
+ =?utf-8?B?N3Viejd5UUpNb0ZvT1p2OE5vTEdib0Q1VEhRK0dnM3pBcytrWVdZZzJPaCt1?=
+ =?utf-8?B?Y2dCWnFRcnhOZFc4MUhOS1dyOW9FajJ4Nlo2YVhFWjIvVjJETVRnZ3g5ZU1p?=
+ =?utf-8?B?eTRqY29aTGZJTzJ6S1Q4NldYTXA1dTEvVkUyWktnWGdiVmc3aFJ1dVZlSWZ1?=
+ =?utf-8?B?V3VHTXZIbVVoZlNraTdvRnBWbTUwRDdFTlRsNjJ4bmpIWDlBbklpRVZHS0gz?=
+ =?utf-8?B?ZktBTjJJRytONWl3WFpIZ1ZHY2NiY0FHdzR5endzY3o5bEYyZTRmVUZXM2dG?=
+ =?utf-8?Q?QcGG6Ck2sU8=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0P195MB2484.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(10070799003)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dzhLV0ZxWEVubVdxTFBESTcrZWtyb0pITThpVVRqZ01lOVVROTEvTitudE1l?=
+ =?utf-8?B?YWhhSHJ6emRPbDhoRk1ZSlNaSWlvOXg5ckt5N2tSLzZjUXFCQVNGa051SDAz?=
+ =?utf-8?B?Y2d3ZFc3d2dZeFRPd3l2b1dSM2VFSndWelIyQ1pkTGtBU1BReEdGQmdMMGJy?=
+ =?utf-8?B?WGVOK3BRRXNLWDI5WmlwOWpWLzRiVDdORjdENkNMWTk0RlhYMjdTb0NYSm5B?=
+ =?utf-8?B?RkVSbkVRZlhJbG9UcXB5amhiZEFoWHZyOERhVzFzd2VrRzVaSFBSY3UyOG04?=
+ =?utf-8?B?SUtiQ2IyUG9EUjNZTWc1ZGNEbFBQWDBhL3ZKZ0lKVkt4MExoTkhwc3MyaFVh?=
+ =?utf-8?B?aUFySklZejZxN0tKQi9RaStWcUFGNHBtUll6Zkx3T2laR2prQ01mYjZCVm5C?=
+ =?utf-8?B?dm5oL3d3a3FKTURHb3hDTUlQSzZuQTl2aitEOW5sRmg1UE96UEpZelFkbEdP?=
+ =?utf-8?B?MFg3RFUrTm05SWRmaXRlLzlUdGZQYkYybWo4YXRXVGdsdEloK3Y0Z3E5NUhx?=
+ =?utf-8?B?dDlRV29Qc3JNV1k4UnppUXZCRGdYSWgrdWdOVkJHUE4wTUJkY0VnSnh6bW1a?=
+ =?utf-8?B?SlNadHZEWEkzbW9vK0N2ckdhZm1QWEFxNDFQMFZGVVQyam1mdmlUUU1kZkJB?=
+ =?utf-8?B?ZEphZ01rMG9ueTNoY3hBVWhldlRLWDZQbmhmbDRlZlVMRzBKQ1RZb3V0M3RN?=
+ =?utf-8?B?UzJWbnNISHZDTUJOa21CN3NkazBnK1FrZFJiTGo4Zm5IT0QwUkJCb3IwRkpM?=
+ =?utf-8?B?R2M3cVRsdzVXdXY4OElBUUtVcmdEM01iUXRiK0Vhd29mWmV6eGcrODVTK21l?=
+ =?utf-8?B?ZFRMQlBUN1lpVVMxdThDRnRTd1VzLzBlZ2RROGwxTmoxR0hsTEw2a0tTalpW?=
+ =?utf-8?B?S2I3N25RWUVTUzJFVURWMUpxYzhNeXBkZVVneDYvMkdmSGljaGpPb09sTUhB?=
+ =?utf-8?B?dHNWVWlBR3liNXRrSUw2N1ZhQUlkNWlwekNJSEdnUkpzeXM4ZTV6d05DTlJx?=
+ =?utf-8?B?eXFWQkxEeFdnSGJiTEJudlJtd3d4ZTEyZjlhMHRLeXlQWXhkUzFIbmRQc01G?=
+ =?utf-8?B?S3dSUlpmclBNaWFNY2dleHlHdFU1WE9vZEgvelN6a0dSUEdtWCtYK21rQjN4?=
+ =?utf-8?B?L2ZUd0hzbkxGcjJ0ZVBvd3FXTjVlcGlPdlJESHBDdmpBaC9YcWh6ZlRoak5h?=
+ =?utf-8?B?V1IxZkFMazV4dkpLVUlRV0RGd2IzZ211eVVyMmVCQ0dldjNUemV1c21jOEhY?=
+ =?utf-8?B?b1FmVkdCMC8zelF2NHVUQUkxSlZCZWdLRGp3SGJObDFESWd6WkxMWnZKRnJk?=
+ =?utf-8?B?UjlkRXhwOWErdUYvN2lEelhKbjloZ0lQdWg0VWRsNkpMT3BoVzlpMkdaa0tt?=
+ =?utf-8?B?OFNUOGhHRXoxVmdCRlJ3L2FUaXl5UXR5UCtZUUQxbHhjb1V5T2s3N1hyblND?=
+ =?utf-8?B?RW5zdXo0UlZuSVRkancxL0VZK2k1NEx2d1BjMFhXNVJOalk1bW5rVmdlQWcr?=
+ =?utf-8?B?RURRTHladUo2QS9hL253QnFubWJnMjFXbHNGVit1dEtCWUtkenN5NXdTOEFw?=
+ =?utf-8?B?RHdVdVUrWURjdzluNWxoWlVsL3lqTEFGTXFVeTlRMzU0MG11Zm50RG1wTlBx?=
+ =?utf-8?B?cUljZzFVZjVWK01XbmNUcURNNWQ2R2hodlllVEdzTHJidElac0tNUHM2SFNH?=
+ =?utf-8?B?MDgwWDU5bll4ZVpqUmFsWFNWSXh5YjN0MC9kZDNKYWNScmpMakVpRkVxMXJK?=
+ =?utf-8?B?bXZOTm1oRFNha2kxbDhWVGVvL3RBK1pMUUhCa3UwbGNTUjJmcVNsMy9DeENB?=
+ =?utf-8?B?TFAzTHBYM01zd1U3Uko4WWtQZStmWitocXZLWEd1Zm5UejlockFpRjlIUmc0?=
+ =?utf-8?B?MStGNEF6dlZYN2Jqb1Z1ak9pVVFSRU5ZY1cvbGd3NG9rMTRBTXNFUzF0OE1z?=
+ =?utf-8?B?Mksvdkh2QUlGRFFmUXJ0S2dObXFjM1pyY2U2ZlcxdXNmUHg4d0E3SGE1RVVo?=
+ =?utf-8?B?VmIxd2NZMndtNVA4M0pwSkR4Z1I3aXhkQndJam10WDdGd0xzazdHa0p3VVVV?=
+ =?utf-8?B?U3JxRERJL01FSEFtcmpLZkJPQ2hYNUtPb2ZQYVIrU1ZadS9iL1g3QUtKMlg1?=
+ =?utf-8?B?a0E4MkhSeFExOFJpQVhES3Qzb254dFRQVkRUaUJ0dk1EejVDQ1pWaHlQUkky?=
+ =?utf-8?Q?ZSia0PhURS/MgQBSawJ43ktCJmoZRh0YbZiehb74Ob2S?=
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: fee3b3e9-b9cf-4b5c-8841-08dd8c90a5d8
+X-MS-Exchange-CrossTenant-AuthSource: VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 11:25:04.5663
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qyjOktXEUmhmwyyfUsA2XYkRBx/DtwLhYQ8O3Uap9EA6AxE4CU6N+LPvbARQz4+sxqQ1F7Uq1p0qB+iMWs7ZpA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1P195MB2035
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_042327_934931_2183E6DB 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20250506_042509_422793_1C31251F 
+X-CRM114-Status: GOOD (  30.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,87 +189,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/6/25 1:04 PM, Lukasz Majewski wrote:
->> On 5/4/25 4:55 PM, Lukasz Majewski wrote:
->>> +		/* This does 16 byte alignment, exactly what we
->>> need.
->>> +		 * The packet length includes FCS, but we don't
->>> want to
->>> +		 * include that when passing upstream as it messes
->>> up
->>> +		 * bridging applications.
->>> +		 */
->>> +		skb = netdev_alloc_skb(pndev, pkt_len +
->>> NET_IP_ALIGN);
->>> +		if (unlikely(!skb)) {
->>> +			dev_dbg(&fep->pdev->dev,
->>> +				"%s: Memory squeeze, dropping
->>> packet.\n",
->>> +				pndev->name);
->>> +			pndev->stats.rx_dropped++;
->>> +			goto err_mem;
->>> +		} else {
->>> +			skb_reserve(skb, NET_IP_ALIGN);
->>> +			skb_put(skb, pkt_len);      /* Make room */
->>> +			skb_copy_to_linear_data(skb, data,
->>> pkt_len);
->>> +			skb->protocol = eth_type_trans(skb, pndev);
->>> +			napi_gro_receive(&fep->napi, skb);
->>> +		}
->>> +
->>> +		bdp->cbd_bufaddr = dma_map_single(&fep->pdev->dev,
->>> data,
->>> +						  bdp->cbd_datlen,
->>> +						  DMA_FROM_DEVICE);
->>> +		if (unlikely(dma_mapping_error(&fep->pdev->dev,
->>> +					       bdp->cbd_bufaddr)))
->>> {
->>> +			dev_err(&fep->pdev->dev,
->>> +				"Failed to map descriptor rx
->>> buffer\n");
->>> +			pndev->stats.rx_errors++;
->>> +			pndev->stats.rx_dropped++;
->>> +			dev_kfree_skb_any(skb);
->>> +			goto err_mem;
->>> +		}  
+
+On 5/5/25 19:23, Andrew Davis wrote:
+> On 5/5/25 11:00 AM, Daniel Schultz wrote:
+>> Hey,
 >>
->> This is doing the mapping and ev. dropping the skb _after_ pushing the
->> skb up the stack, you must attempt the mapping first.
+>> On 5/5/25 17:22, Andrew Davis wrote:
+>>> On 5/5/25 10:05 AM, Mendez, Judith wrote:
+>>>> Hi Daniel,
+>>>>
+>>>> On 5/5/2025 4:55 AM, Daniel Schultz wrote:
+>>>>> Hi,
+>>>>>
+>>>>> I'm unable to load the latest TI firmware 
+>>>>> (98efd20ec71f8c1c8f909d34ab656731) with this patch.
+>>>>>
+>>>>> [    7.012889] remoteproc remoteproc1: 79000000.r5f is available
+>>>>> [    7.032640] remoteproc remoteproc1: powering up 79000000.r5f
+>>>>> [    7.038626] remoteproc remoteproc1: Booting fw image am62a-mcu- 
+>>>>> r5f0_0-fw, size 53140
+>>>>> [    7.057209] remoteproc remoteproc1: bad phdr da 0x79100000 mem 
+>>>>> 0x47ea0
+>>>
+>>> So this looks like the firmware has sections in the SRAM region. 
+>>> That would be the
+>>> issue here.
+>>>
+>>>>> [    7.064716] remoteproc remoteproc1: Failed to load program 
+>>>>> segments: -22
+>>>>>
+>>>>> I figured out that the mcu sram node disappeared in v5. Apparently 
+>>>>> adding it back manually doesn't solve this problem. Any idea 
+>>>>> what's wrong?
+>>>>
+>>>> For am62ax, there should be several items changed with this v8
+>>>> series in order for remoteproc to work with the TI default firmware:
+>> What firmware did you use? I was using the latest public default 
+>> firmware from ti-linux-firmware.
+>>>>
+>>>> 1. memory carveouts were reduced to 15MB [0] & edge-ai memory
+>>>> carveouts are not included here
+>>>
+>>> This shouldn't be an issue, the default firmware doesn't
+>>> use the extended carveouts.
+>> Yes, this is just the echo firmware.
+>>>
+>>>> 2. mcu_sram1 node removed [2]
+>>>>
+>>>
+>>> So when you say you added back the SRAM node, did you also add the
+>>> sram = <&mcu_ram>; in the core node?
 >>
->>> +static void mtip_free_buffers(struct net_device *dev)
->>> +{
->>> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
->>> +	struct switch_enet_private *fep = priv->fep;
->>> +	struct sk_buff *skb;
->>> +	struct cbd_t *bdp;
->>> +	int i;
->>> +
->>> +	bdp = fep->rx_bd_base;
->>> +	for (i = 0; i < RX_RING_SIZE; i++) {
->>> +		skb = fep->rx_skbuff[i];
->>> +
->>> +		if (bdp->cbd_bufaddr)
->>> +			dma_unmap_single(&fep->pdev->dev,
->>> bdp->cbd_bufaddr,
->>> +					 MTIP_SWITCH_RX_FRSIZE,
->>> +					 DMA_FROM_DEVICE);
->>> +		if (skb)
->>> +			dev_kfree_skb(skb);  
+>> With that property added, I can load the firmware again! So, what's 
+>> the problem with adding this sram node and did you remove it?
 >>
->> I suspect that on error paths mtip_free_buffers() can be invoked
->> multiple consecutive times with any successful allocation in between:
->> skb will be freed twice. Likely you need to clear fep->rx_skbuff[i]
->> here.
-> 
-> I don't know what I shall say now.... really... 
+>
+> Good to hear that fixed it.
+>
+> And we removed the SRAM node as I was unhappy with how we were 
+> handling reserving it.
+> The firmware should declare usage of shared resources like this in its 
+> resource table,
+> and the RProc driver should dynamically request the same from a normal 
+> SRAM pool.
+> What we were doing before was to statically block out the whole SRAM 
+> node for use by
+> the R5, and the driver would unconditionally map it, even if it was 
+> not used by the
+> loaded firmware at all.
+okay, that make sense.
+>
+> I wanted us to fix the above before upstreaming it so we left it out 
+> of this
+> series. Next cycle we should have the better solution ready and posted 
+> for
+> upstream.
 
-I suspect my email was not clear. AFAICS the current code contains at
-least 2 serious issues, possibly more not yet discovered due to the
-patch size. You need to submit (at least) a new revision coping with the
-provided feedback.
+thanks for the feedback. We're still on linux-ti 6.12 with this product. 
+So, I don't care if it's not fully working yet. I was just preparing our 
+device-trees with R5 and C7 nodes.
 
-Thanks,
+- Daniel
 
-Paolo
-
+>
+> Andrew
+>
+>> - Daniel
+>>
+>>>
+>>> Andrew
+>>>
+>>>> If you want to catch up on the general direction for this series,
+>>>> please refer to [3]. atm remoteproc can fail with the default FW,
+>>>> but we are trying to move away from that firmware and this is the
+>>>> first step in that direction.
+>>>>
+>>>> [0] 
+>>>> https://lore.kernel.org/linux-devicetree/0ab5c5ec-cde3-41f1-8adf-2419b31497c1@ti.com/
+>>>> [1] 
+>>>> https://lore.kernel.org/linux-devicetree/04e77daf-e775-44fa-82bf-8b6ebf73bcef@ti.com/
+>>>> [2] 
+>>>> https://lore.kernel.org/linux-devicetree/32358aa1-0c02-4f4d-9782-2d8376c0d9fc@ti.com/
+>>>> [3] 
+>>>> https://lore.kernel.org/linux-devicetree/e131298f-3713-482a-a740-ff89709270b4@ti.com/
+>>>>
+>>>> ~ Judith
+>>>>
+>>>>>
+>>>>> On 5/3/25 00:03, Judith Mendez wrote:
+>>>>>> From: Hari Nagalla <hnagalla@ti.com>
+>>>>>>
+>>>>>> AM62A SoCs have a single R5F core in the MCU voltage domain.
+>>>>>> Add the R5FSS node with the child node for core0 in MCU voltage
+>>>>>> domain .dtsi file.
+>>>>>>
+>>>>>> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+>>>>>> Signed-off-by: Judith Mendez <jm@ti.com>
+>>>>>> Acked-by: Andrew Davis <afd@ti.com>
+>>>>>> ---
+>>>>>>   arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi | 25 
+>>>>>> ++++++++++++++++++++++++
+>>>>>>   1 file changed, 25 insertions(+)
+>>>>>>
+>>>>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi 
+>>>>>> b/arch/arm64/ boot/dts/ti/k3-am62a-mcu.dtsi
+>>>>>> index 9ed9d703ff24..ee961ced7208 100644
+>>>>>> --- a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
+>>>>>> +++ b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
+>>>>>> @@ -174,4 +174,29 @@ mcu_mcan1: can@4e18000 {
+>>>>>>           bosch,mram-cfg = <0x0 128 64 64 64 64 32 32>;
+>>>>>>           status = "disabled";
+>>>>>>       };
+>>>>>> +
+>>>>>> +    mcu_r5fss0: r5fss@79000000 {
+>>>>>> +        compatible = "ti,am62-r5fss";
+>>>>>> +        #address-cells = <1>;
+>>>>>> +        #size-cells = <1>;
+>>>>>> +        ranges = <0x79000000 0x00 0x79000000 0x8000>,
+>>>>>> +             <0x79020000 0x00 0x79020000 0x8000>;
+>>>>>> +        power-domains = <&k3_pds 7 TI_SCI_PD_EXCLUSIVE>;
+>>>>>> +        status = "disabled";
+>>>>>> +
+>>>>>> +        mcu_r5fss0_core0: r5f@79000000 {
+>>>>>> +            compatible = "ti,am62-r5f";
+>>>>>> +            reg = <0x79000000 0x00008000>,
+>>>>>> +                  <0x79020000 0x00008000>;
+>>>>>> +            reg-names = "atcm", "btcm";
+>>>>>> +            resets = <&k3_reset 9 1>;
+>>>>>> +            firmware-name = "am62a-mcu-r5f0_0-fw";
+>>>>>> +            ti,atcm-enable = <0>;
+>>>>>> +            ti,btcm-enable = <1>;
+>>>>>> +            ti,loczrama = <0>;
+>>>>>> +            ti,sci = <&dmsc>;
+>>>>>> +            ti,sci-dev-id = <9>;
+>>>>>> +            ti,sci-proc-ids = <0x03 0xff>;
+>>>>>> +        };
+>>>>>> +    };
+>>>>>>   };
+>>>>
 
