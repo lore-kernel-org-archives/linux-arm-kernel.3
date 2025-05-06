@@ -4,69 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 072EEC3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 14:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5367DC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 14:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jT59FuCKnc7FOE1GgCngJapfm/iyYkKYjKq/CVbHSsw=; b=ST2Dwa6vmUDcMf7DGZOSkq9O0a
-	t1BgA+XsbBZsL9eFFhBqM8clE9JPw2Fq5m7V/q0+n35SIzm2x/RnXCwzGuDwjzFZ4T0j9dk7vxp5P
-	wM2VwLqoBkkgySWpHZWF8b3VLaQAeAZIhBwBXCdZt1NWKIQ2L3YAYhNJi9ABteEAIbOWZVj2JEK18
-	R3NPBLOHKAKchbPSCVMFGsCULak50T4EKyoCH6GZiwGuMIr/hM/4urYt04mKMI5xwoOpsyI58IJUZ
-	DyO8nojC8+jUP1Fycy4m9AKvm6A4dMuD0ojjqw/++vQZaufjz+AJ7ucb4xqBpWHDPhwRLH4zuIHIY
-	m/pMVwlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x7zG6gGQLY5b1I/ipuZi6m2HxyJ1+lEEa8n8tBP6azs=; b=oDvgdZ7caDdAPWW+VRIL7gQXdQ
+	pJ2ZQ5m4PEZtluOll1KaKCVB2/UFp2G9sPuTfOFWQUBuKgbnr/kHzd0zWXS6LjDQVn+a/nzJFmKhr
+	fu23hIAE63P71JEj5ZUK5+NDRrIOgGkqqWYQRCF9UwD1AnDKuZ/6LKXNlDcLw4eeu3mVENaiC16e6
+	O6ZnabfSh91fKiHvx/m7Uf9RzjUhDvvud68TSt2e1A7zKpN42BFgta98PxorKKaM2vHIwL3SCV7I+
+	soy3d08g+7IXodOec5xaUYSvAHkTH0/39FbL1MbH+HQPFwTYG5c64C7YuUY9TMwpxdd8dM07BxOrC
+	TrrokOyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCItG-0000000CF1n-0eQa;
-	Tue, 06 May 2025 14:03:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uCIvA-0000000CFQU-3Sdf;
+	Tue, 06 May 2025 14:05:21 +0000
+Received: from mail-4319.protonmail.ch ([185.70.43.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCGXd-0000000Bkvs-299q
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 11:32:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BDFF0438CC;
-	Tue,  6 May 2025 11:32:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F4D4C4CEE4;
-	Tue,  6 May 2025 11:32:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746531172;
-	bh=mE1e1B9m9uhzxTNZaDZ3TY+lY86rVvjhSEag8/l7vDc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Q+FElNUNhdG5CYgnApQsUFYFp+lb9D4evnzqSTmmE3FJtKAA5aDKSQq9jDoh1b+uq
-	 Qmvb5zCPGb51aJ8iAHF1LRTFA4EdtPTaS7yN3EahbaJHl4AVY3Z3yy2TN5HoAfgZmW
-	 WfWzf+kPc5cHicOck1lE7ZB+j+UfmUzzpkximKT9KQmSyixoPaVzM3FlbXzht8aJQC
-	 LA3yNCAtSJX1w0hDiUB9QQ1iEhCG9qgFME2SviolTzXq+lEEjA9KRip8/v6JMUlftA
-	 anKqkQ+2LIoi1JtBxda8j9cG7AO5KGzAtZP5qML5SV0Es1CK7n/tlFEphi5y07Dewh
-	 yAxG4yeV/iD2A==
-Date: Tue, 6 May 2025 12:32:46 +0100
-From: Will Deacon <will@kernel.org>
-To: Connor Abbott <cwabbott0@gmail.com>
-Cc: Rob Clark <robdclark@gmail.com>, Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Abhinav Kumar <quic_abhinavk@quicinc.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	freedreno@lists.freedesktop.org
-Subject: Re: [PATCH v5 1/5] iommu/arm-smmu: Save additional information on
- context fault
-Message-ID: <20250506113246.GA723@willie-the-truck>
-References: <20250319-msm-gpu-fault-fixes-next-v5-0-97561209dd8c@gmail.com>
- <20250319-msm-gpu-fault-fixes-next-v5-1-97561209dd8c@gmail.com>
+	id 1uCGXp-0000000Bky8-448c;
+	Tue, 06 May 2025 11:33:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail; t=1746531181; x=1746790381;
+	bh=x7zG6gGQLY5b1I/ipuZi6m2HxyJ1+lEEa8n8tBP6azs=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector:List-Unsubscribe:List-Unsubscribe-Post;
+	b=bopRE1omtcDaNh9yvphI/+KKkQ3NQObllNAsaGWTXZ4qr8+Emo9PXWsZKfU/zDKkr
+	 phtyxeNeijrMv21RvFoPntlZqt3cMAxbopbA8UvtfpZKGjicroo8kzrXJobJAr/kOP
+	 FDX6BtF+DZUsynXIhaFIE3XlQX6hQ2DUnSmqpUgCRNxbJAg1aaYYLr5ACv2jaFGZ72
+	 XZSeCaiEv9lHVGVBkY1j9z54IzWjHHLPNVns5Giy4v++3bL0GA1gtuzZ1n7DpH6kYv
+	 6v8hevWaqZa4Dif4P4xiPFVHMnKUo93aFMMmW3B+C9Sr1yqh0bN9Kyn8jJRikUXGOs
+	 KYWyxivZdJ0uQ==
+Date: Tue, 06 May 2025 11:32:57 +0000
+To: Niklas Cassel <cassel@kernel.org>
+From: Laszlo Fiat <laszlo.fiat@proton.me>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, =?utf-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, Damien Le Moal <dlemoal@kernel.org>, Hans Zhang <18255117159@163.com>, =?utf-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v2 1/4] PCI: dw-rockchip: Do not enumerate bus before endpoint devices are ready
+Message-ID: <sjCYTWsKGvCGBbOkCLKDjxQci2L3hMnKoXghzK-HzwO3ZFUGpOadN_Ro4Lbnq50p8CRvbNJy_WU1vDE831mbumbWcZzB8GAYh28IVmSx-ys=@proton.me>
+In-Reply-To: <20250506073934.433176-7-cassel@kernel.org>
+References: <20250506073934.433176-6-cassel@kernel.org> <20250506073934.433176-7-cassel@kernel.org>
+Feedback-ID: 130963441:user:proton
+X-Pm-Message-ID: 857b95d6fa8b1fd5a4f91774bd01c8466e60661c
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250319-msm-gpu-fault-fixes-next-v5-1-97561209dd8c@gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_043253_567921_AE056053 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20250506_043306_143961_1B7D6F0C 
+X-CRM114-Status: GOOD (  21.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,52 +68,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 19, 2025 at 10:44:00AM -0400, Connor Abbott wrote:
-> This will be used by drm/msm for GPU page faults, replacing the manual
-> register reading it does.
-> 
-> Signed-off-by: Connor Abbott <cwabbott0@gmail.com>
-> Reviewed-by: Rob Clark <robdclark@gmail.com>
+
+On Tuesday, May 6th, 2025 at 9:39 AM, Niklas Cassel <cassel@kernel.org> wro=
+te:
+
+> Commit ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can
+> detect Link Up") changed so that we no longer call dw_pcie_wait_for_link(=
+),
+> and instead enumerate the bus when receiving a Link Up IRQ.
+>=20
+> Laszlo Fiat reported (off-list) that his PLEXTOR PX-256M8PeGN NVMe SSD is
+> no longer functional, and simply reverting commit ec9fd499b9c6 ("PCI:
+> dw-rockchip: Don't wait for link since we can detect Link Up") makes his
+> SSD functional again.
+>=20
+> It seems that we are enumerating the bus before the endpoint is ready.
+> Adding a msleep(PCIE_T_RRS_READY_MS) before enumerating the bus in the
+> threaded IRQ handler makes the SSD functional once again.
+>=20
+> What appears to happen is that before ec9fd499b9c6, we called
+> dw_pcie_wait_for_link(), and in the first iteration of the loop, the link
+> will never be up (because the link was just started),
+> dw_pcie_wait_for_link() will then sleep for LINK_WAIT_SLEEP_MS (90 ms),
+> before trying again.
+>=20
+> This means that even if a driver was missing a msleep(PCIE_T_RRS_READY_MS=
+)
+> (100 ms), because of the call to dw_pcie_wait_for_link(), enumerating the
+> bus would essentially be delayed by that time anyway (because of the slee=
+p
+> LINK_WAIT_SLEEP_MS (90 ms)).
+>=20
+> While we could add the msleep(PCIE_T_RRS_READY_MS) after deasserting PERS=
+T,
+> that would essentially bring back an unconditional delay during synchrono=
+us
+> probe (the whole reason to use a Link Up IRQ was to avoid an unconditiona=
+l
+> delay during probe).
+>=20
+> Thus, add the msleep(PCIE_T_RRS_READY_MS) before enumerating the bus in t=
+he
+> IRQ handler. This way, we will not have an unconditional delay during boo=
+t
+> for unpopulated PCIe slots.
+>=20
+> Cc: Laszlo Fiat laszlo.fiat@proton.me
+>=20
+> Fixes: ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can =
+detect Link Up")
+> Signed-off-by: Niklas Cassel cassel@kernel.org
+>=20
 > ---
->  drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c |  6 ++--
->  drivers/iommu/arm/arm-smmu/arm-smmu.c            | 35 ++++++++++++++----------
->  drivers/iommu/arm/arm-smmu/arm-smmu.h            |  7 +++--
->  3 files changed, 29 insertions(+), 19 deletions(-)
+> drivers/pci/controller/dwc/pcie-dw-rockchip.c | 2 ++
+> 1 file changed, 2 insertions(+)
+>=20
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/=
+controller/dwc/pcie-dw-rockchip.c
+> index 3c6ab71c996e..6a7ec3545a7f 100644
+> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> @@ -23,6 +23,7 @@
+> #include <linux/reset.h>
+>=20
+>=20
+> #include "pcie-designware.h"
+> +#include "../../pci.h"
+>=20
+> /*
+> * The upper 16 bits of PCIE_CLIENT_CONFIG are a write
+> @@ -458,6 +459,7 @@ static irqreturn_t rockchip_pcie_rc_sys_irq_thread(in=
+t irq, void arg)
+> if (reg & PCIE_RDLH_LINK_UP_CHGED) {
+> if (rockchip_pcie_link_up(pci)) {
+> dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
+> + msleep(PCIE_T_RRS_READY_MS);
+> / Rescan the bus to enumerate endpoint devices */
+> pci_lock_rescan_remove();
+> pci_rescan_bus(pp->bridge->bus);
+>=20
+> --
+> 2.49.0
 
-[...]
-
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> index ade4684c14c9b2724a71e2457288dbfaf7562c83..a02078eb968b81a35c1c086ed7007ea2a453ef94 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> @@ -405,13 +405,20 @@ static const struct iommu_flush_ops arm_smmu_s2_tlb_ops_v1 = {
->  };
->  
->  
-> -void arm_smmu_read_context_fault_info(struct arm_smmu_device *smmu, int idx,
-> +void arm_smmu_read_context_fault_info(struct arm_smmu_domain *smmu_domain,
->  				      struct arm_smmu_context_fault_info *cfi)
->  {
-> +	struct arm_smmu_device *smmu = smmu_domain->smmu;
-> +	int idx = smmu_domain->cfg.cbndx;
-> +
->  	cfi->iova = arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_FAR);
-> +	cfi->ttbr0 = arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_TTBR0);
->  	cfi->fsr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSR);
-> -	cfi->fsynr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR0);
-> +	cfi->fsynr0 = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR0);
-> +	cfi->fsynr1 = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR1);
->  	cfi->cbfrsynra = arm_smmu_gr1_read(smmu, ARM_SMMU_GR1_CBFRSYNRA(idx));
-> +	if (smmu_domain->stage == ARM_SMMU_DOMAIN_S1)
-> +		cfi->contextidr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_CONTEXTIDR);
-
-I think this leaves 'cfi->contextidr' uninitialised for stage-2 domains.
-We should probably either zero it here or just zero-initialise the whole
-'cfi' struct in arm_smmu_context_fault() with a:
-
-	struct arm_smmu_context_fault_info cfi = {};
-
-line.
-
-Will
+Tested-by: Laszlo Fiat <laszlo.fiat@proton.me>
 
