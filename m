@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A746C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 17:44:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4F04C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 17:46:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TnsMB6oXDTL83dZ5GGXgMLoaKxr/HvwUPrxb2FLg/nk=; b=oAUWyNm7k9mt75GlpDzq/CcexV
-	AeQ8mryYXcQQ0NzV+r1D1USc0Phnj4Cn+KegGejpuvOrIt71rWNjE/HpejEYP6I18xquOvXsoN8Aw
-	1J362/QOMA6gAEDU6VrbetPUSsyqhohWsPQP5Rnvtcb/CEkOlmhZ2+oRthlStj3zv4Wi6bMt6uWi/
-	p4UVrsjhsFffBdFHAi8WBKXUjXPUDkuSRh2/UXnSGwTG6yVG21WCP5Ko7Rwj65iGY220WmuMR223q
-	xxLQCru5eT0fXoR+Exn7L0xYmPakM4WTVxCDT16W1xzA2wVWmSXD/pRqo1nsev1kotc9fmZHnrPU7
-	Wx040YAA==;
+	bh=myl+eOUkSv1i7ZHWBzatwTTJi8pcaChQmbzbWMeXAyc=; b=Nyag2zVd7+U9Qeg+yvV9ZmsQ8g
+	6RTZ42fXZM73bTMU6KLL40QJWRoOK2oE4x7Z4nJqQESzg98giZe+ZFbF8o+Rtz4FRvvTZPanF2iNq
+	fbzOXD1c4yh5t5rvmIjsmr65efYEEZYHlDloqT/pt8gLYWdgaCD5OL8Nf5Y+dt908mMUNzXfT8mpB
+	+i+3VreVdqAsnlLZdbd/8zHlT5Bk+iMaWkCbFPn9k4M8/7GEhjQ63yH6Mid5mJSo8Lbh1jIih9oM7
+	4Qx0yoBqYiD7DqXf2KTGImaKH0ZXikhvtq2GeFCvKO2Vly+GdC5N1zebKY31LJUaC0IvFk9o2sGNK
+	/R/RZMng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCMKq-0000000CsvT-1Hlp;
-	Tue, 06 May 2025 17:44:04 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uCMNU-0000000Cta5-44FS;
+	Tue, 06 May 2025 17:46:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCIXQ-0000000CAcQ-17Pp
+	id 1uCIvX-0000000CFWF-1EPz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 13:40:49 +0000
+	Tue, 06 May 2025 14:05:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 461AE5C4B7E;
-	Tue,  6 May 2025 13:38:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7FCAC4CEE4;
-	Tue,  6 May 2025 13:40:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 06FDD4430D;
+	Tue,  6 May 2025 14:05:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD6D5C4CEE4;
+	Tue,  6 May 2025 14:05:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746538847;
-	bh=TnsMB6oXDTL83dZ5GGXgMLoaKxr/HvwUPrxb2FLg/nk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CA/BBRABGSCouOyN2s3DHXWxIxY8k8K6lcCeP/Bp6YFHEubJsj4q+Ki9edUoAXCWZ
-	 zr1IX+FZJgWOfUse3y1JyM5uCIRKbEB8FMrpZd3qX/WEyfo9aYc2fA0QpPom8A2/hX
-	 Hjdhjx7Z1lrRpTvQXnokDcwF1QxPyMCNBF8Y1jd4OV5u1i6o/CHZDyJuX7Hoe2i6Vl
-	 f25johlq2LtiUN49ATle/TkFnWqP0PtEgxE7lDsBlqf/6//yxZHX9LHcG+StQonmjh
-	 H9WvZDxG7uIY2cU+51vrXsqkbGDhMkaQSxMoEndxI1wGaAkaf/r2X+rcYb/JPP5OJG
-	 PjeRWevC2sVYQ==
-Date: Tue, 6 May 2025 22:40:41 +0900
-From: Mark Brown <broonie@kernel.org>
-To: Florent Revest <revest@chromium.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, catalin.marinas@arm.com, will@kernel.org,
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	akpm@linux-foundation.org, thiago.bauermann@linaro.org,
-	jackmanb@google.com, stable@vger.kernel.org
-Subject: Re: [PATCH 1/4] mm: fix VM_UFFD_MINOR == VM_SHADOW_STACK on
- USERFAULTFD=y && ARM64_GCS=y
-Message-ID: <aBoRWZr3oGh94_qr@finisterre.sirena.org.uk>
-References: <20250506095224.176085-1-revest@chromium.org>
- <20250506095224.176085-2-revest@chromium.org>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="x2jWddA5IH0klT0O"
-Content-Disposition: inline
-In-Reply-To: <20250506095224.176085-2-revest@chromium.org>
-X-Cookie: Well begun is half done.
+	s=k20201202; t=1746540342;
+	bh=lwRmuP2GMcWJ8L+R/b+kXBU7HZjwjH6hqn/r0N3fvZM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=EvKnN4Ucmz+o7iRTO0Gy4X3NDy0tma/vf8EnkOdVJNlA7iglaUg3TUPnQei1OhhbP
+	 IbxjATWMkyzzU4c9/z1xRjR8gGDTT2qYC6IKzc5+/TbAkzLFkMngjvsCMsAn4ihQWe
+	 twvGJvWCL1NiSYBjT32Ip/Lbl9tJBFymL0mjTlxIDBwKbuBPz9VJQqLZGfkuNtpgGw
+	 BVZvxElF6fzJYdRN+gRXUkdCMYdCPoGtQ9fgZgkmaVFnuUnJcZj36y/lJoXxycqwCO
+	 9rO92UbnTDUbd5f58F6hnaNEHVQU0Y0DJXi5AAB33xvbHlWwwd2ip433GQKpEBvNQt
+	 kmL7ZtOzL8GXQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uCIvU-00CGRv-QZ;
+	Tue, 06 May 2025 15:05:40 +0100
+Date: Tue, 06 May 2025 15:05:39 +0100
+Message-ID: <86frhhhm18.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 00/25] Arm GICv5: Host driver implementation
+In-Reply-To: <20250506-gicv5-host-v3-0-6edd5a92fd09@kernel.org>
+References: <20250506-gicv5-host-v3-0-6edd5a92fd09@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, sascha.bischoff@arm.com, timothy.hayes@arm.com, Liam.Howlett@oracle.com, mark.rutland@arm.com, jirislaby@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_064048_350931_6DFF0A68 
-X-CRM114-Status: UNSURE (   9.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250506_070543_367704_261B6CDF 
+X-CRM114-Status: GOOD (  18.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,32 +96,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 06 May 2025 13:23:29 +0100,
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> 
+> =============
+> 2.5 GICv5 IWB
+> =============
+> 
+> The IWB driver has been dropped owing to issues encountered with
+> core code DOMAIN_BUS_WIRED_TO_MSI bus token handling:
+> 
+> https://lore.kernel.org/lkml/87tt6310hu.wl-maz@kernel.org/
 
---x2jWddA5IH0klT0O
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+This problem does not have much to do with DOMAIN_BUS_WIRED_TO_MSI.
 
-On Tue, May 06, 2025 at 11:52:21AM +0200, Florent Revest wrote:
-> On configs with CONFIG_ARM64_GCS=y, VM_SHADOW_STACK is bit 38.
-> On configs with CONFIG_HAVE_ARCH_USERFAULTFD_MINOR=y (selected by
-> CONFIG_ARM64 when CONFIG_USERFAULTFD=y), VM_UFFD_MINOR is _also_ bit 38.
+The issues are that:
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+- the core code calls into the .prepare domain on a per-interrupt
+  basis instead of on a per *device* basis. This is a complete
+  violation of the MSI API, because .prepare is when you are supposed
+  to perform resource reservation (in the GICv3 parlance, that's ITT
+  allocation + MAPD command).
 
---x2jWddA5IH0klT0O
-Content-Type: application/pgp-signature; name="signature.asc"
+- the same function calls .prepare for a *single* interrupt,
+  effectively telling the irqchip "my device has only one interrupt".
+  Because I'm super generous (and don't like wasting precious bytes),
+  I allocate 32 LPIs at the minimum. Only snag is that I could do with
+  300+ interrupts, and calling repeatedly doesn't help at all, since
+  we cannot *grow* an ITT.
 
------BEGIN PGP SIGNATURE-----
+So this code needs to be taken to the backyard and beaten into shape
+before we can make use of it. My D05 (with its collection of MBIGENs)
+only works by accident at the moment, as I found out yesterday, and
+GICv5 IWB is in the same boat, since it reuses the msi-parent thing,
+and therefore the same heuristic.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmgaEVkACgkQJNaLcl1U
-h9DNhQf+Od2vOQsm8ZSTF5BxQFaQvck4UfZc2SRgJP4yUv++XNZmdwyXQ3L5+JiS
-EQiK3uPOGueSO5nt3GBaP4Jmh6Ii1a2kLENKY5dpGf1Gp7cwvyJbVD6wSeoBX3Q8
-rHZvWoaDzvHS6xsmGpLfNKN6CcS9w8HR4t0g4em1pDeJCyo0CgF46fZE3ljtarcU
-VPrWEPGWqeccT5PfP5EexnEhR5ChJXLS9Gx8q36mIJivayq3mbwkvCTnPOKnNXxy
-l04gz3JAWDhZ9hvw+64iVK/FtcO7c4BGKfDyij1RZ8W15RJpRwHcy9aCNcQ0oRqd
-UyYKkkjph35w5vBvN4Cg49RoFXNGnA==
-=f8rh
------END PGP SIGNATURE-----
+I guess not having the IWB immediately isn't too big a deal, but I
+really didn't expect to find this...
 
---x2jWddA5IH0klT0O--
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
