@@ -4,80 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B73C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 16:48:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 109E4C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 16:50:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P7xJbqnsg/UWJ0m8ekbKleB5aKNbbovDyUEZ2H5aXQo=; b=n1J8CAjxov+D7vOhwxKIolsqDY
-	iif1c9AVWmh37vRi9EAt4JWL7zSsoBs80NwxgK9IeafDoZ8Fr4tbCDC7qS4RCX5zQ0M0bDs0t3p0S
-	KPZAmrY6OTzBzU5JbaSQdo6UV6wt1RUCwrD2Wn8PF2EweKhYTLUVZVMOXCUDX4H/Y+9Ey2Ibopw6D
-	hUEprIJbrluEw1eMJDtQ9z4EIusQ+eiknNdzYte6sRklWCfN+9XYTebmWr96ExUjM/EqBqzQHIwBL
-	U4egIJ8RHQk4rPweyOq6h8cTvanXIPDYulo9p+7TJS8Qq62N/Ao40kn2dyFCg4wtRUsJYpuIIUKeg
-	sKqH/VDw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=97146bnRb7DxtMXOPgE74bkmGZFjflM8kH4CqT8MYJM=; b=Eo9KUJpMt77Mty
+	nU2ZxNDUkF4T9u9cAHu/FdjSn2NLhICB086LX9YMyX2+Uq8h9GuL0LIUD0+Dk5NvL/Gr7TK1zfM05
+	Wo2cBeIRkYU4RkGd6QrzJLzJfbhEaN2CnLUUOmCDwy2cndsAEWKmNjkCBjzyNxd3K+24kGspYe9zc
+	4aH4d4GKGmB16wxILHwBZ1fhxXrSHsrgQ2lcZh4P3dxddUtMoutr3fFpcOA8k0PrlYt3pf1gR3hyF
+	JZbi6gHr3M8YepMEmS87Un9N7v0mLoX455CBXUJGFZzGUM4H/7Zga+5kE0phkabBNtuoZz7JBKq+t
+	hWkQrIzznyewdfuXppew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCLTG-0000000Cjnz-3ZTb;
-	Tue, 06 May 2025 16:48:42 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCI4A-0000000C2bH-0YFD
+	id 1uCLVB-0000000CkL2-2E4q;
+	Tue, 06 May 2025 16:50:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCI4Y-0000000C2ht-19QJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 13:10:35 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 546DARA91067998
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 6 May 2025 08:10:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746537028;
-	bh=P7xJbqnsg/UWJ0m8ekbKleB5aKNbbovDyUEZ2H5aXQo=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=ImM/YgyyuGT0EpwE0RaqQx/cecvmBY/uXK+jphlIafaQzdBc8RRaTMcjN1usOqlXH
-	 CpV6PEKu2oX5mMT0aF9nAsSMjz7mDIOZ/Zp+RgSzix4mFDFXsAGvQvpEEm13DTROZB
-	 oFbZu1HaVZuO5uxRfawnMp1+Jkr4JQkLwY/h2/bU=
-Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 546DAR12075507
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 6 May 2025 08:10:27 -0500
-Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 6
- May 2025 08:10:27 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 6 May 2025 08:10:27 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 546DARh6016604;
-	Tue, 6 May 2025 08:10:27 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Vignesh Raghavendra <vigneshr@ti.com>, Judith Mendez <jm@ti.com>
-CC: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Hari Nagalla
-	<hnagalla@ti.com>,
-        Beleswar Padhi <b-padhi@ti.com>
-Subject: Re: [PATCH v2] arm64: dts: ti: k3-am62-main: Add PRUSS-M node
-Date: Tue, 6 May 2025 08:10:25 -0500
-Message-ID: <174653701247.728098.5031447948468588924.b4-ty@ti.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250430144343.972234-1-jm@ti.com>
-References: <20250430144343.972234-1-jm@ti.com>
+	Tue, 06 May 2025 13:10:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8C48A1007;
+	Tue,  6 May 2025 06:10:45 -0700 (PDT)
+Received: from [10.1.39.190] (e137867.arm.com [10.1.39.190])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 74C083F5A1;
+	Tue,  6 May 2025 06:10:53 -0700 (PDT)
+Message-ID: <0be8e3be-a029-4eea-a79c-310b8e0a05c3@arm.com>
+Date: Tue, 6 May 2025 14:10:46 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/debug: Drop redundant DBG_MDSCR_* macros
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ inux-arm-kernel@lists.infradead.org
+References: <20250417105253.3188976-1-anshuman.khandual@arm.com>
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Content-Language: en-US
+Organization: Arm Ltd.
+In-Reply-To: <20250417105253.3188976-1-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_061034_259633_2ED4BBE9 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20250506_061058_364043_A46C94FD 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,44 +61,69 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Judith Mendez,
+Hi Anshuman,
 
-On Wed, 30 Apr 2025 09:43:43 -0500, Judith Mendez wrote:
-> Add the DT node for the PRUSS-M processor subsystem that is present
-> on the K3 AM62x SoCs. The K3 AM62x family of SoC has one PRUSS-M
-> instance and it has two Programmable Real-Time Units (PRU0 and PRU1).
-> 
-> 
+On 17/04/2025 11:52, Anshuman Khandual wrote:
+> MDSCR_EL1 has already been defined in tools sysreg format and hence can be
+> used in all debug monitor related call paths. Subsequently all DBG_MDSCR_*
+> macros become redundant and hence can be dropped off completely. While here
+> convert all variables handling MDSCR_EL1 register as u64 which reflects its
+> true width as well.
+>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
 
-I have applied the following to branch ti-k3-dts-next on [1].
-Thank you!
+I think the changes make sense, even more so given that `kvm/debug.c` 
+already uses the sysreg format definition for MDSCR_EL1.
 
-[1/1] arm64: dts: ti: k3-am62-main: Add PRUSS-M node
-      commit: 3df22a8622fafa1c5a0dba93c207f66f48366858
+It looks good to me, but I think there is a missing conversion to 64 
+bits below.
+Would it make sense to convert the two instances of MDSCR_EL1 used in 
+`tools/testing/selftests/kvm/arm64/debug-exceptions.c`, in 
+`enable_monitor_debug_exceptions()` and `install_ss()` , to 64 bits as 
+well ? (They don't rely on `DBG_MDSCR_*`, the test defines its own macros)
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+> index b260ddc4d3e9..6dbfc1008007 100644
+> --- a/arch/arm64/kernel/entry-common.c
+> +++ b/arch/arm64/kernel/entry-common.c
+> @@ -354,7 +354,7 @@ static void cortex_a76_erratum_1463225_svc_handler(void)
+>   
+>   	__this_cpu_write(__in_cortex_a76_erratum_1463225_wa, 1);
+>   	reg = read_sysreg(mdscr_el1);
+> -	val = reg | DBG_MDSCR_SS | DBG_MDSCR_KDE;
+> +	val = reg | MDSCR_EL1_SS | MDSCR_EL1_KDE;
+>   	write_sysreg(val, mdscr_el1);
+>   	asm volatile("msr daifclr, #8");
+>   	isb();
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+Given the change of width to 64 bits elsewhere, shouldn't we change val 
+and reg to u64 here as well ?
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+index 73cf6a5f41d8..d61a5ddf53d6 100644
+--- a/arch/arm64/kernel/entry-common.c
++++ b/arch/arm64/kernel/entry-common.c
+@@ -344,7 +344,7 @@ static DEFINE_PER_CPU(int, __in_cortex_a76_erratum_1463225_wa);
+  
+  static void cortex_a76_erratum_1463225_svc_handler(void)
+  {
+-	u32 reg, val;
++	u64 reg, val;
+  
+  	if (!unlikely(test_thread_flag(TIF_SINGLESTEP)))
+  		return;
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+Thanks,
+Ada
 
 
