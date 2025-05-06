@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E03FDC3ABC0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9159BC3ABC6
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 23:36:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5coaleiFMg4BJ0Ht6OeqyY9Mjs/E0Feiwpirc+lS1Tg=; b=g9dckUEcCKmGoVbtk9DJEUjT+t
-	8cAebNCZvijPbHv9dcrAjkY3YS/BnRvwTwzFXPfxgZvJoQgy12rT+xH3ralaL+2OMn/GTeJjQ63uj
-	TQdKmTswwvxDfEeNvx2iNyiQQF3lZxGKjEXe2na0r5DP6yZMLCRM/4kzitCBlreuce6TOe1jC431l
-	GMKoYdzENtXQ1ipOFA0XNMUm1fQ81IQtzHKI7GhiiU7JPK8MGCutZ6JaLIKHDY0yfwwTulo8VRT78
-	hXGieV0Pl5v6cyWsciyT00TtrGZOGNfPxeAEcCRZv202Yodu+WCQDFZCn/PiFPoCPwKR+sENHCW34
-	5hNjGUtg==;
+	bh=sKvgrOdZpLOOR7Do8qY+dt3WmoyXKmuAQydlk63pqCE=; b=elnfgOFK/HoBzqgKUmzQD6SbfX
+	vCTxHXjddKs4GlAbTjzyV4o3nhGkNfdShitIJ66XUnomf0ai/F/LXP7DEWfcUr5bX0IL/i8oI6vwE
+	N1b/JrEIZzh4hi5uDJZyiYfurKGbfzUVTkmZ/UokZ9U6tiRlJF2EBL8ghApzE6DaQOoaBjFxLStfB
+	aSsMQHhbazeE1k1S6MZtEejAdFPvf0S416F+nFz5k3je5drXzB3rPxoOLSmT3w9VxQy9nsxZpAsRx
+	5ZX1oWjTH+dQ9s896LQMzy8VWwQ2cbDSKpaDfsxeG+G8mQzYLLkrdNkdSxWm21A3dquX6r3qUCL/A
+	OuJdXUDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCRpI-0000000Dfr3-37Yt;
-	Tue, 06 May 2025 23:35:52 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uCRpG-0000000Dfor-1yZz;
+	Tue, 06 May 2025 23:35:50 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCLOs-0000000CiHm-1S1x
+	id 1uCLOr-0000000CiH4-1x8e
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 16:44:12 +0000
+	Tue, 06 May 2025 16:44:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6CD865C58CD;
-	Tue,  6 May 2025 16:41:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 494D1C4CEF3;
-	Tue,  6 May 2025 16:44:09 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B8C42A4D6CF;
+	Tue,  6 May 2025 16:44:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5386AC4CEF1;
+	Tue,  6 May 2025 16:44:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746549849;
-	bh=jJkIDne2hoOcyn91XOfMc176KV1oYdB63I9cuKD1rVA=;
+	s=k20201202; t=1746549848;
+	bh=7Vdiog1Yp+sWTxIrEPX+RwlsIaichWF0sK4N3/9NICs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bTFwxWv0B2E+RPBVdqgncmqMCp93NF/Xbl9jtyZtptrQQVn2QI/l7A6higB6p+9/K
-	 TRI8QR0FTtRO8Z4iwghRwx7eTRK8FYgQgqTYosSVR59iDPhEJcep80DMpacF99+MKY
-	 oxy7pP4KLU2H1wz1hGi71fKoB3udW3+TbPB0p+7Tdu2xx7dU0a+FAcMj7FwScla425
-	 fBy5W+73LjaywMBUqUIY42gZ8Y6owU57Q6N3f6bqvcIpFN6WX3wGiy+/cvPiyxRwTW
-	 Y10owDuIEVhsRVjoejWjimV6A6AfFTxskJZwmbUK+JqmkA8tkLuYwInMC2JZbELzuy
-	 eakochRwYEhRQ==
+	b=MXdBocBa/gnLHPLZU+fccO0D0YgOs+tB1LOFdxt6PeFwxkObczXksGI7BhsYAMxQf
+	 pIIfXbHjDLbcHyQh5tCsU+73iZFT7plYIZXsqyGrqHKAskn+iCs9RWXY1VUqpOjjVj
+	 10ObiiB0VNcTAuJdp/spRT/3MI06duMyyltwhYZVNJw6Sko/O4K4nZbH1v8zgKgNgm
+	 4bhEpcwOXirHEU8zf5GdALH1g1k2aJ8iVtBqzRQOvIZd3wKG8lKKHfufn9W4k78rHy
+	 nXfRjLk5g3xNOCFDHMKiBTMLDoMInGm0kEJPIUp6yA/s2g1pVL+8flp5yuOUK623Xe
+	 fyX92x4bawpKg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uCLOp-00CJkN-3n;
-	Tue, 06 May 2025 17:44:07 +0100
+	id 1uCLOo-00CJkN-Bx;
+	Tue, 06 May 2025 17:44:06 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -61,9 +61,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Ben Horgan <ben.horgan@arm.com>
-Subject: [PATCH v4 05/43] arm64: sysreg: Update ID_AA64PFR0_EL1 description
-Date: Tue,  6 May 2025 17:43:10 +0100
-Message-Id: <20250506164348.346001-6-maz@kernel.org>
+Subject: [PATCH v4 02/43] arm64: sysreg: Update ID_AA64MMFR4_EL1 description
+Date: Tue,  6 May 2025 17:43:07 +0100
+Message-Id: <20250506164348.346001-3-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250506164348.346001-1-maz@kernel.org>
 References: <20250506164348.346001-1-maz@kernel.org>
@@ -74,9 +74,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_094410_447192_3F90055B 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250506_094409_564329_1FE9E22A 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,25 +90,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the missing RASv2 description.
+Resync the ID_AA64MMFR4_EL1 with the architectue description.
 
+This results in:
+
+- the new PoPS field
+- the new NV2P1 value for the NV_frac field
+- the new RMEGDI field
+- the new SRMASK field
+
+These fields have been generated from the reference JSON file.
+
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/tools/sysreg | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/tools/sysreg | 19 ++++++++++++++++---
+ 1 file changed, 16 insertions(+), 3 deletions(-)
 
 diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 4c51d9a67b14d..6c64fd7d84951 100644
+index e5da8848b66b5..fce8328c7c00b 100644
 --- a/arch/arm64/tools/sysreg
 +++ b/arch/arm64/tools/sysreg
-@@ -907,6 +907,7 @@ UnsignedEnum	31:28	RAS
+@@ -1946,12 +1946,21 @@ EndEnum
+ EndSysreg
+ 
+ Sysreg	ID_AA64MMFR4_EL1	3	0	0	7	4
+-Res0	63:40
++Res0	63:48
++UnsignedEnum	47:44	SRMASK
++	0b0000	NI
++	0b0001	IMP
++EndEnum
++Res0	43:40
+ UnsignedEnum	39:36	E3DSE
  	0b0000	NI
  	0b0001	IMP
- 	0b0010	V1P1
-+	0b0011	V2
  EndEnum
- UnsignedEnum	27:24	GIC
+-Res0	35:28
++Res0	35:32
++UnsignedEnum	31:28	RMEGDI
++	0b0000	NI
++	0b0001	IMP
++EndEnum
+ SignedEnum	27:24	E2H0
+ 	0b0000	IMP
+ 	0b1110	NI_NV1
+@@ -1960,6 +1969,7 @@ EndEnum
+ UnsignedEnum	23:20	NV_frac
+ 	0b0000	NV_NV2
+ 	0b0001	NV2_ONLY
++	0b0010	NV2P1
+ EndEnum
+ UnsignedEnum	19:16	FGWTE3
  	0b0000	NI
+@@ -1979,7 +1989,10 @@ SignedEnum	7:4	EIESB
+ 	0b0010	ToELx
+ 	0b1111	ANY
+ EndEnum
+-Res0	3:0
++UnsignedEnum	3:0	PoPS
++	0b0000	NI
++	0b0001	IMP
++EndEnum
+ EndSysreg
+ 
+ Sysreg	SCTLR_EL1	3	0	1	0	0
 -- 
 2.39.2
 
