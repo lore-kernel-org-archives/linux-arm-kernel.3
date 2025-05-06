@@ -4,63 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A58AC3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 10:59:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 198FDC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 11:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ndb9sgZhNnNGw++XFUPabBuOqL+p7fuOqHT+haIpuKA=; b=cUbN76+0b7ofz/OxYkVoRB5TzH
-	DKUCbYPHhVp9RCBLn7+BRMoWlsLq3yAu6JJpAW1bb4UErzepEJDYWkAVo/WgybtIG5oUjOFzjve3g
-	DEjdN4p+jBlyjb1+IRjQnwQo2dRYz00ZMlNCCnW1+u07ip/0yitboyHxmC5AtNC7pN0pZpLPBx3bB
-	yAZRprCeWD7xHe69M+PDwHmWamXXvUM/qCNZWZBleUeZHU37dzDV/Xvcy06sykcYx89gfr6N8hCcN
-	Hj+D0KrK7jbzKngGiFbbRM3uLKdhG75+Y2PrRsSx5gVIzdCiDxmVceWSUU5SaeR+Bvs1R8qBTfaCK
-	f4cAsw+Q==;
+	bh=bhNqSOC5wF7s/DqPJd5V4+i1iqYVvZl6mD6sr2HXhSY=; b=bHFxeQgIrQrGLv+VmG79wEu/4m
+	s7NnVo8MXoxJ1OIpDFE51duN0BVHSJZmf6yzr6dJadttoUGw0vlyQnWRLDQJKpXnQO/bkwNyNWFvd
+	ryBkOv7BLziovBXun+74W4/cBXa1DKwTRQ2gLZ4OkGzsnomqOLdzwT6f4eorPyeag6AfrviuPPflU
+	waHFdwmjyitd1iMfFoE92o91W7RI/ArGMPotNWhZi9ZYGyqNX6fMwE5B7OczvKCMC5iA4kh61RfTf
+	T6iSmIT7kKLWzZbtPm2YZGZ4U5IvoFvQ+8gFr7cnfdWGG+Dnclke57ittasjnV+ZA+Hu/BsGIgkvQ
+	SwchFPRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCG1Y-0000000BeHU-31lX;
-	Tue, 06 May 2025 10:59:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCEb3-0000000BNJl-1t6U
+	id 1uCG3S-0000000BeX5-20pi;
+	Tue, 06 May 2025 11:01:42 +0000
+Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCEcT-0000000BNdR-1GH9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 09:28:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F0A28113E;
-	Tue,  6 May 2025 02:28:06 -0700 (PDT)
-Received: from [10.57.93.118] (unknown [10.57.93.118])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 754B53F5A1;
-	Tue,  6 May 2025 02:28:13 -0700 (PDT)
-Message-ID: <cbfad787-fcb8-43ce-8fd9-e9495116534d@arm.com>
-Date: Tue, 6 May 2025 10:28:11 +0100
+	Tue, 06 May 2025 09:29:46 +0000
+Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-7082e46880eso46460857b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 02:29:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=immunant-com.20230601.gappssmtp.com; s=20230601; t=1746523784; x=1747128584; darn=lists.infradead.org;
+        h=content-transfer-encoding:lines:status:content-disposition
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bhNqSOC5wF7s/DqPJd5V4+i1iqYVvZl6mD6sr2HXhSY=;
+        b=h3adcOIkrqQnJZABS4a0msPWR1+jW0e+JaiyQMJJa5A03psTxrKW/uBGT/tSXB/yba
+         Esl1DYnBJW2WsiXhpX42XYDPQxFlJX8gm8NUEgS+dgUtsZ2DwQSBk3A9hEePA9Kf2HeC
+         VKvy6DTOSLCGlwYRO7uo6mKc7st5a4vmv74YLjn15HqkUMkZHku4wfS1TjF3HYdng+41
+         o5QSl4VbqEvSivFVx+Rf6hgU2rhLa7+/dJBYThIiR5HtTVrCoCOXPz/5q65F5bCNgHFW
+         a/b0Q9iwp+758L8ZuIhN0IUNynzUcuMVB92Ovx+jgdj+KWJ1/Z0wkWXN/q0cNoMGGcgp
+         +DnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746523784; x=1747128584;
+        h=content-transfer-encoding:lines:status:content-disposition
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bhNqSOC5wF7s/DqPJd5V4+i1iqYVvZl6mD6sr2HXhSY=;
+        b=VIuJCh3t/eqkP8wmt2V1W4ttpq3tdnCtwNRQ+Q8hd+NjtFDSFPVIX5+SPHzS/RVvq5
+         CtQrhAeFOolLJiHBAncXz8+luHUDcjM6f36UfDBe47FxYeZoc52l8MYyFGFT9LflYGmZ
+         kJUFW7DcFHFSsdBaqV7Hvp1o/jPF9NnSwN2fv/CdlWB2rQ4m+kUZLPCLfDVC919zGisg
+         hOccBNTNZHJQN6ju5ZDKWuovRob4st7nESbx0NVbMH9lWHKIIijEAGvv8+AQHHiS08I+
+         pBkoDsL5p/eJbSKxC3BsMe025kUYw3rQOQtSoPrH7OW9i/BFAY3ykHU2mtkX/wo+r11V
+         EOMA==
+X-Forwarded-Encrypted: i=1; AJvYcCUvQyf9j8tfLYRHMwBO/HXMwOyQ4kEWQBTB160AGydUUXNyk4IN0PsLNM/A9k0ra+fFnArYNx2+qzw0qqluCwY8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1sh6acXF1mNZ6kMgdOX5dhMSyyG1kquXm/OnHkUbFTxkj5Wr4
+	/Cd1DBCEtVH872zJLaN5UDhAlGDeYAauhMGe6VAiWBF+lBPTReUfJFPGqzKxd30=
+X-Gm-Gg: ASbGnct7O9q1v92iA7M9X6Wz8ukSSsMVJLFljpOVGaLFmM+7BXIQPLm8NOtB7CGi9HY
+	+og/Vx1TNHT9ea0LFgG75n2JmnDF+wddNRljMJSj3nBSyLwuDtY3ua0rcHQemDUBjHnA0kgNkzF
+	JRudvJ+HZmACwhgUTrtbU0UiF2nkvFSadpfXfYLIIJT6/CjGyEhWfRLKpv4woMhJSaHpVxCg+kv
+	+HMkqw8Ifwhm9hm06t5sk9aDnu+w08N1zeZK3y7MO81vT8RYOE+HWFRNIpaxiXw566HMHQeR/jl
+	WI0LoCfkk25wYXrzshMcnjhobVubkl/0aAj1/NWUgw==
+X-Google-Smtp-Source: AGHT+IEiCZCpczG2uSgoLqesdF0FcNte2ltiX3d2EMvQ1sinI9JkU0e+3u0ocUrtlOW8Mx/0KHeawQ==
+X-Received: by 2002:a05:690c:6407:b0:700:a93e:3302 with SMTP id 00721157ae682-70919d40189mr34612227b3.37.1746523783798;
+        Tue, 06 May 2025 02:29:43 -0700 (PDT)
+Received: from donna.immunant.com ([12.9.190.3])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-708c3f3d939sm26255167b3.45.2025.05.06.02.29.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 May 2025 02:29:43 -0700 (PDT)
+From: Per Larsen <perl@immunant.com>
+To: maz@kernel.org
+Cc: armellel@google.com,
+	arve@android.com,
+	catalin.marinas@arm.com,
+	kernel-team@android.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	perl@immunant.com,
+	qperret@google.com,
+	sebastianene@google.com,
+	sudeep.holla@arm.com,
+	will@kernel.org,
+	yuzenghui@huawei.com,
+	Per Larsen <perlarsen@google.com>
+Subject: Re: [PATCH 1/3] KVM: arm64: Restrict FF-A host version renegotiation
+Date: Tue,  6 May 2025 02:29:41 -0700
+Message-ID: <aBnNXyJn818ZEKOS@google.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <86r017h00e.wl-maz@kernel.org>
+References: <CA+AY4XcaJa1_U3qXQUBj4wZJYc9hKmRX8FTNeDvV2auEnC_WrA@mail.gmail.com> <86r017h00e.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v4 2/5] mm/readahead: Terminate async readahead on
- natural boundary
-Content-Language: en-GB
-To: Jan Kara <jack@suse.cz>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, David Hildenbrand
- <david@redhat.com>, Dave Chinner <david@fromorbit.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org
-References: <20250430145920.3748738-1-ryan.roberts@arm.com>
- <20250430145920.3748738-3-ryan.roberts@arm.com>
- <3myknukhnrtdb4y5i6ewcgpubg2fopxc35ii6a4oy5ffgn7xdf@uileryotgd7z>
- <67wws7qs5v3poq6sefrrt4dgdn4ejh52mg5x7ycbxqvrfdvow3@zraqczowrvrl>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <67wws7qs5v3poq6sefrrt4dgdn4ejh52mg5x7ycbxqvrfdvow3@zraqczowrvrl>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-Mutt-References: <86r017h00e.wl-maz@kernel.org>
+X-Mutt-Fcc: ~/sent
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_022817_585459_57039821 
-X-CRM114-Status: GOOD (  37.51  )
+X-CRM114-CacheID: sfid-20250506_022945_511861_1732B057 
+X-CRM114-Status: GOOD (  36.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,155 +113,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/05/2025 10:37, Jan Kara wrote:
-> On Mon 05-05-25 11:13:26, Jan Kara wrote:
->> On Wed 30-04-25 15:59:15, Ryan Roberts wrote:
->>> Previously asynchonous readahead would read ra_pages (usually 128K)
->>> directly after the end of the synchonous readahead and given the
->>> synchronous readahead portion had no alignment guarantees (beyond page
->>> boundaries) it is possible (and likely) that the end of the initial 128K
->>> region would not fall on a natural boundary for the folio size being
->>> used. Therefore smaller folios were used to align down to the required
->>> boundary, both at the end of the previous readahead block and at the
->>> start of the new one.
->>>
->>> In the worst cases, this can result in never properly ramping up the
->>> folio size, and instead getting stuck oscillating between order-0, -1
->>> and -2 folios. The next readahead will try to use folios whose order is
->>> +2 bigger than the folio that had the readahead marker. But because of
->>> the alignment requirements, that folio (the first one in the readahead
->>> block) can end up being order-0 in some cases.
->>>
->>> There will be 2 modifications to solve this issue:
->>>
->>> 1) Calculate the readahead size so the end is aligned to a folio
->>>    boundary. This prevents needing to allocate small folios to align
->>>    down at the end of the window and fixes the oscillation problem.
->>>
->>> 2) Remember the "preferred folio order" in the ra state instead of
->>>    inferring it from the folio with the readahead marker. This solves
->>>    the slow ramp up problem (discussed in a subsequent patch).
->>>
->>> This patch addresses (1) only. A subsequent patch will address (2).
->>>
->>> Worked example:
->>>
->>> The following shows the previous pathalogical behaviour when the initial
->>> synchronous readahead is unaligned. We start reading at page 17 in the
->>> file and read sequentially from there. I'm showing a dump of the pages
->>> in the page cache just after we read the first page of the folio with
->>> the readahead marker.
+From: Per Larsen <perlarsen@google.com>
+
+On Fri, May 02, 2025 at 09:47:45AM +0100, Marc Zyngier wrote:
+> On Fri, 02 May 2025 04:52:39 +0100,
+> Per Larsen <perl@immunant.com> wrote:
+> > 
+> > FF-A implementations with the same major version must interoperate with
+> > earlier minor versions per DEN0077A 1.2 REL0 13.2.1 but FF-A version 1.1
+> > broke the ABI on several structures and 1.2 relies on SMCCC 1.2 is not
+> > backwards compatible with SMCCC 1.2 (see DEN0028 1.6 G BET0 Appendix F).
+> > 
+> > If we return the negotiated hypervisor version when the host requests a
+> > lesser minor version, the host will rely on the FF-A interoperability
+> > rules. Since the hypervisor does not currently have the necessary
+> > compatibility paths (e.g. to handle breaking changes to the SMC calling
+> > convention), return NOT_SUPPORTED.
+> > 
+> > Signed-off-by: Per Larsen <perlarsen@google.com>
+> > Signed-off-by: Per Larsen <perl@immunant.com>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/ffa.c | 19 ++++++++++++++++++-
+> >  1 file changed, 18 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > index 3369dd0c4009..10e88207b78e 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > @@ -712,7 +712,24 @@ static void do_ffa_version(struct arm_smccc_res *res,
+> > 
+> >   hyp_spin_lock(&version_lock);
+> >   if (has_version_negotiated) {
+> > - res->a0 = hyp_ffa_version;
+> > + /*
+> > + * FF-A implementations with the same major version must
+> > + * interoperate with earlier minor versions per DEN0077A 1.2
+> > + * REL0 13.2.1 but FF-A version 1.1 broke the ABI on several
+> > + * structures and 1.2 relies on SMCCC 1.2 is not backwards
+> > + * compatible with SMCCC 1.2 (see DEN0028 1.6 G BET0 Appendix F).
 > 
-> <snip>
+> I can't parse this sentence. Missing words?
 > 
->> Looks good. When I was reading this code some time ago, I also felt we
->> should rather do some rounding instead of creating small folios so thanks
->> for working on this. Feel free to add:
->>
->> Reviewed-by: Jan Kara <jack@suse.cz>
+
+Yes, I will fix this in v2.
+
+> > + *
+> > + * If we return the negotiated hypervisor version when the host
+> > + * requests a lesser minor version, the host will rely on the
+> > + * aforementioned FF-A interoperability rules. Since the
+> > + * hypervisor does not currently have the necessary compatibility
+> > + * paths (e.g. to paper over the above-mentioned calling
+> > + * convention changes), return NOT_SUPPORTED.
+> > + */
+> > + if (FFA_MINOR_VERSION(ffa_req_version) < FFA_MINOR_VERSION(hyp_ffa_version))
+> > + res->a0 = FFA_RET_NOT_SUPPORTED;
+> > + else
+> > + res->a0 = hyp_ffa_version;
+> >   goto unlock;
+> >   }
+> > 
 > 
-> But now I've also remembered why what you do here isn't an obvious win.
-> There are storage devices (mostly RAID arrays) where optimum read size
-> isn't a power of 2. Think for example a RAID-0 device composed from three
-> disks. It will have max_pages something like 384 (512k * 3). Suppose we are
-> on x86 and max_order is 9. Then previously (if we were lucky with
-> alignment) we were alternating between order 7 and order 8 pages in the
-> page cache and do optimally sized IOs od 1536k. 
-
-Sorry I'm struggling to follow some of this, perhaps my superficial
-understanding of all the readahead subtleties is starting to show...
-
-How is the 384 figure provided? I'd guess that comes from bdi->io_pages, and
-bdi->ra_pages would remain the usual 32 (128K)? In which case, for mmap, won't
-we continue to be limited by ra_pages and will never get beyond order-5? (for
-mmap req_size is always set to ra_pages IIRC, so ractl_max_pages() always just
-returns ra_pages). Or perhaps ra_pages is set to 384 somewhere, but I'm not
-spotting it in the code...
-
-I guess you are also implicitly teaching me something about how the block layer
-works here too... if there are 2 read requests for an order-7 and order-8, then
-the block layer will merge those to a single read (upto the 384 optimal size?)
-but if there are 2 reads of order-8 then it won't merge because it would be
-bigger than the optimal size and it won't split the second one at the optimal
-size either? Have I inferred that correctly?
-
-> Now you will allocate all
-> folios of order 8 (nice) but reads will be just 1024k and you'll see
-> noticeable drop in read throughput (not nice). Note that this is not just a
-> theoretical example but a real case we have hit when doing performance
-> testing of servers and for which I was tweaking readahead code in the past.
+> Something has gone seriously wrong with your email, and the patches
+> are badly mangled and unusable. They are also sent as individual
+> patches and not as a thread, which is a sign that you didn't send them
+> using git. Please fix this for your next posting.
 > 
-> So I think we need to tweak this logic a bit. Perhaps we should round_down
-> end to the minimum alignment dictated by 'order' and maxpages? Like:
+
+Yes, my apologies. I will use git send-email to post v2.
+
+> More to the meat of the patches: why should the hypervisor paper over
+> anything if the spec is broken? Why can't the host just as well decide
+> for itself what to do?
 > 
-> 1 << min(order, ffs(max_pages) + PAGE_SHIFT - 1)
 
-Sorry I'm staring at this and struggling to understand the "PAGE_SHIFT - 1" part?
+Asssuming we drop this patch from the series and apply the rest, the
+hypervisor and host can negotiate FF-A 1.2. If the host then calls
+FFA_VERSION a second time to request FF-A 1.1, the hypervisor would
+return version 1.2 (without this patch). Per the spec, that means the
+host is can use the compatibility rules (DEN0077A Sec 13.2.1) to go
+ahead and use FF-A 1.1 (every function in 1.A must work in a compatible
+way in 1.B if B>A). 
 
-I think what you are suggesting is that the patch becomes something like this:
+However, the hypervisor negotiated version stays at 1.2 so it will use
+SMCCC 1.2 for 64-bit interfaces. The host has no way of knowing this and
+might as well assume that the hypervisor was implemented to fall back to
+SMCCC 1.1 in this particular case. 
 
----8<---
-+	end = ra->start + ra->size;
-+	aligned_end = round_down(end, 1UL << min(order, ilog2(max_pages)));
-+	if (aligned_end > ra->start)
-+		ra->size -= end - aligned_end;
-+	ra->async_size = ra->size;
----8<---
+I don't even know that the host will ever try to renegotiate as it is
+explicitly not allowed by the FF-A spec. There is no way for the
+hypervisor to say, "stay at the negotiated version" so we must return
+NOT_SUPPORTED. 
 
-So if max_pages=384, then aligned_end will be aligned down to a maximum of the
-previous 1MB boundary?
-
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
+> 
 Thanks,
-Ryan
-
-> 
-> If you set badly aligned readahead size manually, you will get small pages
-> in the page cache but that's just you being stupid. In practice, hardware
-> induced readahead size need not be powers of 2 but they are *sane* :).
-> 
-> 								Honza
-> 
->>> diff --git a/mm/readahead.c b/mm/readahead.c
->>> index 8bb316f5a842..82f9f623f2d7 100644
->>> --- a/mm/readahead.c
->>> +++ b/mm/readahead.c
->>> @@ -625,7 +625,7 @@ void page_cache_async_ra(struct readahead_control *ractl,
->>>  	unsigned long max_pages;
->>>  	struct file_ra_state *ra = ractl->ra;
->>>  	pgoff_t index = readahead_index(ractl);
->>> -	pgoff_t expected, start;
->>> +	pgoff_t expected, start, end, aligned_end;
->>>  	unsigned int order = folio_order(folio);
->>>  
->>>  	/* no readahead */
->>> @@ -657,7 +657,6 @@ void page_cache_async_ra(struct readahead_control *ractl,
->>>  		 * the readahead window.
->>>  		 */
->>>  		ra->size = max(ra->size, get_next_ra_size(ra, max_pages));
->>> -		ra->async_size = ra->size;
->>>  		goto readit;
->>>  	}
->>>  
->>> @@ -678,9 +677,13 @@ void page_cache_async_ra(struct readahead_control *ractl,
->>>  	ra->size = start - index;	/* old async_size */
->>>  	ra->size += req_count;
->>>  	ra->size = get_next_ra_size(ra, max_pages);
->>> -	ra->async_size = ra->size;
->>>  readit:
->>>  	order += 2;
->>> +	end = ra->start + ra->size;
->>> +	aligned_end = round_down(end, 1UL << order);
->>> +	if (aligned_end > ra->start)
->>> +		ra->size -= end - aligned_end;
->>> +	ra->async_size = ra->size;
->>>  	ractl->_index = ra->start;
->>>  	page_cache_ra_order(ractl, ra, order);
->>>  }
->>> -- 
->>> 2.43.0
->>>
->> -- 
->> Jan Kara <jack@suse.com>
->> SUSE Labs, CR
+Per
 
 
