@@ -4,81 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8038C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 11:41:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D3DC3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 11:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PgnwHbz1AjhGioq038lpvG95tXZpXvS33HP9z+P5ExU=; b=KkGo9xaYZwYACVKcI8PLPdEazv
-	sguuafSSziJjcZUg7j7CDY+2iPggO0e3xkzqeqTHM7Q01MgAKnC+3RIYCV31Gh7nsU41JJl9lMOGD
-	xfsx+jTdTy3L8lbdt2dAZDtaNW4IR5rD7nR6dkp0HN4OB5y5N0i4hzNmDF3MoWG83SGPOj6mp+w72
-	p20onRUKsA11Te7pkgrbocvm0HwtF5xfNSdZ8X6JB2ROdFUcuA5drliqMQxtXIhalcJms8YeBF8At
-	+p9ytocMcz7kQb+S7bYLWQhHxPLnEh8zivXDJGcdmYwdd46tHOdpS+py15gKRc6A7WK5FjvDb6rsM
-	z1GZgt6Q==;
+	bh=BP6MXv/px388FKK/4Qo/qTUksnvTJw+tLho8gS88zQA=; b=AlRf7qlR6Isaag8x11Ka3klGq4
+	h45jhF5YnAnmsLqBXmbWZEZhf45lLcdN/AffHSxwgm13m7IqjyTsxSKMUTIyiBeczViq3vp+Q2sTA
+	z8+mTK9vISx+9behJsgRdJJcYSYbgM4uYBc7DgQ/M1PXnizDqOB5Pepp2gxgz5v7qM0lpV8u2WRJx
+	g0IoS5ZnJ3osvsTdIz0BuMmz1KOGRyKFNF8E9SBxOpB0ugzUuxC2mF1xB+83xcJwhMPXMa7I0jgst
+	m78vk1m8HBSy+bfJqHTrn3XuAuJa8yNAEzTxCTtUksFyJvSmT3I53enETugJXF8VXMZbI/zVr4Kfc
+	0W0+Z15w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCGfc-0000000Bm6m-1wiW;
-	Tue, 06 May 2025 11:41:08 +0000
-Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
+	id 1uCGhX-0000000BmaD-0dOT;
+	Tue, 06 May 2025 11:43:07 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCF6P-0000000BUfK-38RZ
+	id 1uCF7C-0000000BUob-3v6h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 10:00:42 +0000
-Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-72b8028dd8fso531887a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 03:00:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1746525640; x=1747130440; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PgnwHbz1AjhGioq038lpvG95tXZpXvS33HP9z+P5ExU=;
-        b=YbV6+iLWo1XLQUL4pHgwk1wIkRkvHI3kqLz4b+YTxbgJ/AfG32G+oQteWK5yHvF9ja
-         IpcYoaMDKqgOdiXVDNdNyODajctUAbSLkia1VvTOJeK2PRxZLFv5FNu90GCrjedQJ/Z4
-         bHBEWeXHpS7FqAbNlxfJTxWbFI0OmKNRR2F6Y=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746525640; x=1747130440;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PgnwHbz1AjhGioq038lpvG95tXZpXvS33HP9z+P5ExU=;
-        b=MOJLSDPX68gonIha8sGDZwhAYLXpiS+c8bH6aX86onEwsf1D3x6SpoaDwnqkSJ0V+g
-         obxH3sfk5qDuc+IYCQK+EwZ1Y+XCjEwA0wewMxy4hXmfSkOUZTwOvSmNszhgj6LKgOM6
-         QPTOqdymfFcAS9ALz5iLHBAXX9/hMPWHISHcAGMGhi11Bn7fI5aKSE8A1uw1/t7QoQyN
-         2/9CHlz0hhe7jrGU2Ix8ddVsVkMei7hiz2O/1wb1G2rmMIpAewgKBiVpGS0pEb+BDE12
-         zS+RHgiyNpmwpTXD2StkC2D3Mp2uu5DJgYn517VtcnFnq96rSRFSeZg2vj6MLXx7mgZC
-         r2ew==
-X-Gm-Message-State: AOJu0YyHxLxzRtJlaThcNKQ9yJDu2bImP7Ao/nBh9XNacz8Jdq5jP5iw
-	HcsVx9OpHja/40uT4uP4wntDPg2d1IZi1lpZXrBLTILiN1T7yS2aWCAtPvvQulS/A/J0Cwnkoqz
-	xFD4M3LtRM9fH3BqKV+3/uFhXojaPdljL0VW3HJllUS64+L2GUw==
-X-Gm-Gg: ASbGncuYw3hIs75k8+NNJv4Gfrci2mzYwPi0eSImVFiJKxSR3jEa1c026crh6aoadsD
-	LoWEBuyn/sqoAY+XbgmwT/KGbRgJrnm7t3+9Em2CNlNm8UFnMr3ny3i0S2QGMLroE+uz1T7SZ3C
-	ZGbkehJxXRbhUtjtaqgIHbew4LYGcuzNMao/6cKUONyUswy28dQQ==
-X-Google-Smtp-Source: AGHT+IHhiyIn/3nXmyB0TYKrtQeZw6wh97jFrO+F43EodTx1tAmH3sRUHkuhHaTX6F/Xwh2Vb3HsEaBkMH8rLIg5VLU=
-X-Received: by 2002:a4a:e0d9:0:b0:606:3a5d:c7ad with SMTP id
- 006d021491bc7-607ee513583mr2347984eaf.0.1746525640269; Tue, 06 May 2025
- 03:00:40 -0700 (PDT)
+	Tue, 06 May 2025 10:01:32 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5468avQ9027642;
+	Tue, 6 May 2025 10:01:21 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	BP6MXv/px388FKK/4Qo/qTUksnvTJw+tLho8gS88zQA=; b=B64dQsdkmZdG5/NK
+	ySYTiH+oAIfIw7NjlMcbLZ3ZoaEjlfiW/SqduJRUDWFTO4vUwetqa9ekHz9ZJoec
+	ZWxcBeDTf1UC20O1nnYEqOPGRAg2PHobEubuivhQapyFAJ11wq+QvvbDZbmI1aPi
+	ofw+l8agg41ygze1upan589Kk2Z6Tk7syx400Riw4FYCOGfe3okKt6rda40ofgth
+	lRQkSkIFvQbg4bPAiDTIQyJIjmAC/idLhbMPj7eoVFrh3t5abYhfwaUlf+RJ3BYw
+	nFgWFRKAzAJ6nYiGzsw1ODrF7muUuUWvLQQ3ekdaK2O8GMCNcz1m+hrthNK43t+T
+	CUBCKA==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46f5sv1tk9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 06 May 2025 10:01:21 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 546A1KcX002794
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 6 May 2025 10:01:20 GMT
+Received: from [10.239.133.114] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 6 May 2025
+ 03:01:17 -0700
+Message-ID: <8a9e1d41-3a75-4f67-b47b-4874c2706f8f@quicinc.com>
+Date: Tue, 6 May 2025 18:00:42 +0800
 MIME-Version: 1.0
-References: <20250506095224.176085-1-revest@chromium.org> <20250506095224.176085-5-revest@chromium.org>
-In-Reply-To: <20250506095224.176085-5-revest@chromium.org>
-From: Florent Revest <revest@chromium.org>
-Date: Tue, 6 May 2025 12:00:29 +0200
-X-Gm-Features: ATxdqUEWe64mgnWNWtDc2kPZf5XuKvFECDO9Vew2NFN-uLRlx3rHuyFczgLc0LE
-Message-ID: <CABRcYm+vgD+BNYQ6H7=n6Bdhvq8QXriKx5Ksjhsx+DpYq6064g@mail.gmail.com>
-Subject: Re: [PATCH 4/4] mm: consolidate VM_HIGH_ARCH_* macros into parametric macros
-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org
-Cc: catalin.marinas@arm.com, will@kernel.org, tglx@linutronix.de, 
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, 
-	hpa@zytor.com, akpm@linux-foundation.org, broonie@kernel.org, 
-	thiago.bauermann@linaro.org, jackmanb@google.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] coresight: add coresight Trace Network On Chip
+ driver
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>
+CC: <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20250415-trace-noc-v4-0-979938fedfd8@quicinc.com>
+ <20250415-trace-noc-v4-2-979938fedfd8@quicinc.com>
+Content-Language: en-US
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+In-Reply-To: <20250415-trace-noc-v4-2-979938fedfd8@quicinc.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: 2BO2gH0kAuSkZexp2U07LXhT57raLB54
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTA2MDA5MyBTYWx0ZWRfXxiSvdYz2SKIP
+ HW35yl0nb5bDn2yep0JZMGX8SwrtND/JV27SixL46FH+4wXkR3z51lAnUIwupP87nCxT+M1Z+Bc
+ UbzJeySSCaBLhX6UVlJrhWYGtEb88r1yNI/k8UuVW9cu9VkVMESimPd9flz6imDdZH8UiZlXv7K
+ Wu3JDqWrHNAsCcX9LdjOnUYJ8erdEAtnzYAWeCB0t0VHvkON29VdjiTIOt0HiWjz3FPwAbWmqtu
+ sUstfG8SPnrnt1AtLLmDiAblNhja5Sbn7ZDKNdNks2lO2gHJch7OH20Tl+idSiXmBfMYwYMRTy9
+ Z14qi+R7fdh/CFBzEvdqLRT2uUvoHjncFhU/ZXjOd/AIFz99/TuyxWGabMbSUMro86Dk7sfL4Kn
+ 99OnRjEPoq3m4SPBgjBLHs+8Y52k2q/Dv3LYETUQjuQjoFuZVVT1uX1u+fRafOWM0xzWPvYz
+X-Authority-Analysis: v=2.4 cv=cOXgskeN c=1 sm=1 tr=0 ts=6819ddf1 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=COk6AnOGAAAA:8
+ a=Sfw9CCg1thp9Ib4EHVEA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: 2BO2gH0kAuSkZexp2U07LXhT57raLB54
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-06_04,2025-05-05_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ mlxscore=0 clxscore=1015 suspectscore=0 priorityscore=1501 bulkscore=0
+ mlxlogscore=999 adultscore=0 impostorscore=0 malwarescore=0 spamscore=0
+ phishscore=0 lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2504070000 definitions=main-2505060093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_030041_803628_34E6824A 
-X-CRM114-Status: GOOD (  20.92  )
+X-CRM114-CacheID: sfid-20250506_030131_008524_E7820E3A 
+X-CRM114-Status: GOOD (  31.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,163 +122,334 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 6, 2025 at 11:53=E2=80=AFAM Florent Revest <revest@chromium.org=
-> wrote:
->
-> This reduces code duplication and chances of mistakes.
->
-> Signed-off-by: Florent Revest <revest@chromium.org>
+
+
+On 4/15/2025 5:25 PM, Yuanfang Zhang wrote:
+> Add a driver to support Coresight device Trace Network On Chip (TNOC),
+> which is an integration hierarchy integrating functionalities of TPDA
+> and funnels. It aggregates the trace and transports to coresight trace
+> bus.
+> 
+> Compared to current configuration, it has the following advantages:
+> 1. Reduce wires between subsystems.
+> 2. Continue cleaning the infrastructure.
+> 3. Reduce Data overhead by transporting raw data from source to target.
+> 
+>   +------------------------+                +-------------------------+
+>   | Video Subsystem        |                |Video Subsystem          |
+>   |       +-------------+  |                |       +------------+    |
+>   |       | Video TPDM  |  |                |       | Video TPDM |    |
+>   |       +-------------+  |                |       +------------+    |
+>   |            |           |                |              |          |
+>   |            v           |                |              v          |
+>   |   +---------------+    |                |        +-----------+    |
+>   |   | Video funnel  |    |                |        |Video TNOC |    |
+>   |   +---------------+    |                |        +-----------+    |
+>   +------------|-----------+                +------------|------------+
+>                |                                         |
+>                v-----+                                   |
+> +--------------------|---------+                         |
+> |  Multimedia        v         |                         |
+> |  Subsystem   +--------+      |                         |
+> |              |  TPDA  |      |                         v
+> |              +----|---+      |              +---------------------+
+> |                   |          |              |   Aggregator  TNOC  |
+> |                   |          |              +----------|----------+
+> |                   +--        |                         |
+> |                     |        |                         |
+> |                     |        |                         |
+> |              +------v-----+  |                         |
+> |              |  Funnel    |  |                         |
+> |              +------------+  |                         |
+> +----------------|-------------+                         |
+>                  |                                       |
+>                  v                                       v
+>       +--------------------+                    +------------------+
+>       |   Coresight Sink   |                    |  Coresight Sink  |
+>       +--------------------+                    +------------------+
+> 
+>        Current Configuration                            TNOC
+> 
+> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
 > ---
->  include/linux/mm.h | 50 ++++++++++++++--------------------------------
->  1 file changed, 15 insertions(+), 35 deletions(-)
->
-> diff --git a/include/linux/mm.h b/include/linux/mm.h
-> index b12549f0a6dce..6750020d5ea37 100644
-> --- a/include/linux/mm.h
-> +++ b/include/linux/mm.h
-> @@ -298,42 +298,22 @@ extern unsigned int kobjsize(const void *objp);
->  #define VM_MERGEABLE   0x80000000      /* KSM may merge identical pages =
-*/
->
->  #ifdef CONFIG_64BIT
-> -#define VM_HIGH_ARCH_BIT_0     32      /* bit only usable on 64-bit arch=
-itectures */
-> -#define VM_HIGH_ARCH_BIT_1     33      /* bit only usable on 64-bit arch=
-itectures */
-> -#define VM_HIGH_ARCH_BIT_2     34      /* bit only usable on 64-bit arch=
-itectures */
-> -#define VM_HIGH_ARCH_BIT_3     35      /* bit only usable on 64-bit arch=
-itectures */
-> -#define VM_HIGH_ARCH_BIT_4     36      /* bit only usable on 64-bit arch=
-itectures */
-> -#define VM_HIGH_ARCH_BIT_5     37      /* bit only usable on 64-bit arch=
-itectures */
-> -#define VM_HIGH_ARCH_BIT_6     38      /* bit only usable on 64-bit arch=
-itectures */
-> -#define VM_HIGH_ARCH_BIT_7     39      /* bit only usable on 64-bit arch=
-itectures */
-> -#define VM_HIGH_ARCH_BIT_8     40      /* bit only usable on 64-bit arch=
-itectures */
-> -#define VM_HIGH_ARCH_BIT_9     41      /* bit only usable on 64-bit arch=
-itectures */
-> -#define VM_HIGH_ARCH_BIT_10    42      /* bit only usable on 64-bit arch=
-itectures */
-> -#define VM_HIGH_ARCH_0 BIT(VM_HIGH_ARCH_BIT_0)
-> -#define VM_HIGH_ARCH_1 BIT(VM_HIGH_ARCH_BIT_1)
-> -#define VM_HIGH_ARCH_2 BIT(VM_HIGH_ARCH_BIT_2)
-> -#define VM_HIGH_ARCH_3 BIT(VM_HIGH_ARCH_BIT_3)
-> -#define VM_HIGH_ARCH_4 BIT(VM_HIGH_ARCH_BIT_4)
-> -#define VM_HIGH_ARCH_5 BIT(VM_HIGH_ARCH_BIT_5)
-> -#define VM_HIGH_ARCH_6 BIT(VM_HIGH_ARCH_BIT_6)
-> -#define VM_HIGH_ARCH_7 BIT(VM_HIGH_ARCH_BIT_7)
-> -#define VM_HIGH_ARCH_8 BIT(VM_HIGH_ARCH_BIT_8)
-> -#define VM_HIGH_ARCH_9 BIT(VM_HIGH_ARCH_BIT_9)
-> -#define VM_HIGH_ARCH_10        BIT(VM_HIGH_ARCH_BIT_10)
-> +#define VM_HIGH_ARCH_BIT(i)    (32+i)  /* bit only usable on 64-bit arch=
-itectures */
-> +#define VM_HIGH_ARCH_(i)       BIT(VM_HIGH_ARCH_BIT(i))
+>  drivers/hwtracing/coresight/Kconfig          |  13 ++
+>  drivers/hwtracing/coresight/Makefile         |   1 +
+>  drivers/hwtracing/coresight/coresight-tnoc.c | 191 +++++++++++++++++++++++++++
+>  drivers/hwtracing/coresight/coresight-tnoc.h |  34 +++++
+>  4 files changed, 239 insertions(+)
+> 
+> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
+> index ecd7086a5b83e86b6bc8ea039d6d26a628334ed3..f20600d58f38568f8178f69d3f678c2df2cbca7e 100644
+> --- a/drivers/hwtracing/coresight/Kconfig
+> +++ b/drivers/hwtracing/coresight/Kconfig
+> @@ -259,4 +259,17 @@ config CORESIGHT_DUMMY
+>  
+>  	  To compile this driver as a module, choose M here: the module will be
+>  	  called coresight-dummy.
+> +
+> +config CORESIGHT_TNOC
+> +	tristate "Coresight Trace Network On Chip driver"
+> +	help
+> +	  This driver provides support for Trace Network On Chip (TNOC) component.
+> +	  TNOC is an interconnect used to collect traces from various subsystems
+> +	  and transport to a coresight trace sink. It sits in the different
+> +	  tiles of SOC and aggregates the trace local to the tile and transports
+> +	  it another tile or to coresight trace sink eventually.
+> +
+> +	  To compile this driver as a module, choose M here: the module will be
+> +	  called coresight-tnoc.
+> +
+>  endif
+> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
+> index 8e62c3150aebd1e82b445fafc97a0a9b44397b0e..880e9ed6bfe9c711492c6a2cd972751f56dd8010 100644
+> --- a/drivers/hwtracing/coresight/Makefile
+> +++ b/drivers/hwtracing/coresight/Makefile
+> @@ -34,6 +34,7 @@ obj-$(CONFIG_CORESIGHT_SINK_TPIU) += coresight-tpiu.o
+>  obj-$(CONFIG_CORESIGHT_SINK_ETBV10) += coresight-etb10.o
+>  obj-$(CONFIG_CORESIGHT_LINKS_AND_SINKS) += coresight-funnel.o \
+>  					   coresight-replicator.o
+> +obj-$(CONFIG_CORESIGHT_TNOC) += coresight-tnoc.o
+>  obj-$(CONFIG_CORESIGHT_SOURCE_ETM3X) += coresight-etm3x.o
+>  coresight-etm3x-y := coresight-etm3x-core.o coresight-etm-cp14.o \
+>  		     coresight-etm3x-sysfs.o
+> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..112dca865f80aa29afa5a3fec2fa6b72ef2ebb0b
+> --- /dev/null
+> +++ b/drivers/hwtracing/coresight/coresight-tnoc.c
+> @@ -0,0 +1,191 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
+> + */
+> +
+> + #include <linux/amba/bus.h>
+> + #include <linux/coresight.h>
+> + #include <linux/device.h>
+> + #include <linux/io.h>
+> + #include <linux/kernel.h>
+> + #include <linux/module.h>
+> + #include <linux/of.h>
+> + #include <linux/platform_device.h>
+> +
+> +#include "coresight-priv.h"
+> +#include "coresight-tnoc.h"
+> +#include "coresight-trace-id.h"
+> +
+> +DEFINE_CORESIGHT_DEVLIST(trace_noc_devs, "traceNoc");
+> +
+> +static void trace_noc_enable_hw(struct trace_noc_drvdata *drvdata)
+> +{
+> +	u32 val;
+> +
+> +	/* Set ATID */
+> +	writel_relaxed(drvdata->atid, drvdata->base + TRACE_NOC_XLD);
+> +
+> +	/* Set the data word count between 'SYNC' packets */
+> +	writel_relaxed(TRACE_NOC_SYNC_INTERVAL, drvdata->base + TRACE_NOC_SYNCR);
+> +
+> +	/* Set the Control register:
+> +	 * - Set the FLAG packets to 'FLAG' packets
+> +	 * - Set the FREQ packets to 'FREQ_TS' packets
+> +	 * - Enable generation of output ATB traffic
+> +	 */
+> +
+> +	val = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
+> +
+> +	val = val & ~TRACE_NOC_CTRL_FLAGTYPE;
+> +	val = val | TRACE_NOC_CTRL_FREQTYPE;
+> +	val = val | TRACE_NOC_CTRL_PORTEN;
+> +
+> +	writel(val, drvdata->base + TRACE_NOC_CTRL);
+> +}
+> +
+> +static int trace_noc_enable(struct coresight_device *csdev, struct coresight_connection *inport,
+> +			    struct coresight_connection *outport)
+> +{
+> +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> +
+> +	spin_lock(&drvdata->spinlock);
+> +	if (csdev->refcnt == 0)
+> +		trace_noc_enable_hw(drvdata);
+> +
+> +	csdev->refcnt++;
+> +	spin_unlock(&drvdata->spinlock);
+> +
+> +	dev_dbg(drvdata->dev, "Trace NOC is enabled\n");
+> +	return 0;
+> +}
+> +
+> +static void trace_noc_disable_hw(struct trace_noc_drvdata *drvdata)
+> +{
+> +	writel(0x0, drvdata->base + TRACE_NOC_CTRL);
+> +}
+> +
+> +static void trace_noc_disable(struct coresight_device *csdev, struct coresight_connection *inport,
+> +			      struct coresight_connection *outport)
+> +{
+> +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> +
+> +	spin_lock(&drvdata->spinlock);
+> +	if (--csdev->refcnt == 0)
+> +		trace_noc_disable_hw(drvdata);
+> +
+> +	spin_unlock(&drvdata->spinlock);
+> +	dev_dbg(drvdata->dev, "Trace NOC is disabled\n");
+> +}
+> +
+> +static int trace_noc_id(struct coresight_device *csdev, __maybe_unused enum cs_mode mode,
+> +			__maybe_unused struct coresight_device *sink)
+> +{
+> +	struct trace_noc_drvdata *drvdata;
+> +
+> +	drvdata = dev_get_drvdata(csdev->dev.parent);
+> +
+> +	return drvdata->atid;
+> +}
+> +
+> +static const struct coresight_ops_link trace_noc_link_ops = {
+> +	.enable		= trace_noc_enable,
+> +	.disable	= trace_noc_disable,
+> +};
+> +
+> +static const struct coresight_ops trace_noc_cs_ops = {
+> +	.trace_id	= trace_noc_id,
+> +	.link_ops	= &trace_noc_link_ops,
+> +};
+> +
+> +static int trace_noc_init_default_data(struct trace_noc_drvdata *drvdata)
+> +{
+> +	int atid;
+> +
+> +	atid = coresight_trace_id_get_system_id();
+> +	if (atid < 0)
+> +		return atid;
+> +
+> +	drvdata->atid = atid;
+> +
+> +	return 0;
+> +}
+> +
+> +static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
+> +{
+> +	struct device *dev = &adev->dev;
+> +	struct coresight_platform_data *pdata;
+> +	struct trace_noc_drvdata *drvdata;
+> +	struct coresight_desc desc = { 0 };
+> +	int ret;
+> +
+> +	desc.name = coresight_alloc_device_name(&trace_noc_devs, dev);
+> +	if (!desc.name)
+> +		return -ENOMEM;
+> +	pdata = coresight_get_platform_data(dev);
+> +	if (IS_ERR(pdata))
+> +		return PTR_ERR(pdata);
+> +	adev->dev.platform_data = pdata;
+> +
+> +	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+> +	if (!drvdata)
+> +		return -ENOMEM;
+> +
+> +	drvdata->dev = &adev->dev;
+> +	dev_set_drvdata(dev, drvdata);
+> +
+> +	drvdata->base = devm_ioremap_resource(dev, &adev->res);
+> +	if (!drvdata->base)
+> +		return -ENOMEM;
+> +
+> +	spin_lock_init(&drvdata->spinlock);
+> +
+> +	ret = trace_noc_init_default_data(drvdata);
+> +	if (ret)
+> +		return ret;
+> +
+> +	desc.ops = &trace_noc_cs_ops;
+> +	desc.type = CORESIGHT_DEV_TYPE_LINK;
+> +	desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
+> +	desc.pdata = adev->dev.platform_data;
+> +	desc.dev = &adev->dev;
+> +	desc.access = CSDEV_ACCESS_IOMEM(drvdata->base);
+> +	drvdata->csdev = coresight_register(&desc);
+> +	if (IS_ERR(drvdata->csdev))
+> +		return PTR_ERR(drvdata->csdev);
+> +
+> +	pm_runtime_put(&adev->dev);
+> +
+> +	return 0;
+> +}
+> +
+> +static void trace_noc_remove(struct amba_device *adev)
+> +{
+> +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(&adev->dev);
+> +
+> +	coresight_trace_id_put_system_id(drvdata->atid);
+> +	coresight_unregister(drvdata->csdev);
+> +}
+> +
+> +static struct amba_id trace_noc_ids[] = {
+> +	{
+> +		.id     = 0x000f0c00,
+> +		.mask   = 0x00ffff00,
+> +	},
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(amba, trace_noc_ids);
+> +
+> +static struct amba_driver trace_noc_driver = {
+> +	.drv = {
+> +		.name   = "coresight-trace-noc",
+> +		.suppress_bind_attrs = true,
+> +	},
+> +	.probe          = trace_noc_probe,
+> +	.remove		= trace_noc_remove,
+> +	.id_table	= trace_noc_ids,
+> +};
+> +
+> +module_amba_driver(trace_noc_driver);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_DESCRIPTION("Trace NOC driver");
+> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.h b/drivers/hwtracing/coresight/coresight-tnoc.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..34c696965ec50e3664d55e04e22d5b854d6937a7
+> --- /dev/null
+> +++ b/drivers/hwtracing/coresight/coresight-tnoc.h
+> @@ -0,0 +1,34 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
+> + */
+> +
+> +#define TRACE_NOC_CTRL      0x008
+> +#define TRACE_NOC_XLD       0x010
+> +#define TRACE_NOC_FREQVAL   0x018
+> +#define TRACE_NOC_SYNCR     0x020
+> +
+> +/* Enable generation of output ATB traffic.*/
+> +#define TRACE_NOC_CTRL_PORTEN   BIT(0)
+> +/* Sets the type of issued ATB FLAG packets.*/
+> +#define TRACE_NOC_CTRL_FLAGTYPE BIT(7)
+> +/* Sets the type of issued ATB FREQ packet*/
+> +#define TRACE_NOC_CTRL_FREQTYPE BIT(8)
+> +
+> +#define TRACE_NOC_SYNC_INTERVAL	0xFFFF
+> +
+> +/*
+> + * struct trace_noc_drvdata - specifics associated to a trace noc component
+> + * @base:	memory mapped base address for this component.
+> + * @dev:	device node for trace_noc_drvdata.
+> + * @csdev:	component vitals needed by the framework.
+> + * @spinlock:	only one at a time pls.
+> + * @atid:	id for the trace packet.
+> + */
+> +struct trace_noc_drvdata {
+> +	void __iomem		*base;
+> +	struct device		*dev;
+> +	struct coresight_device	*csdev;
+> +	spinlock_t		spinlock; /* lock for the drvdata. */
+> +	u32			atid;
+> +};
+> 
 
-Argh, and of course I forgot to squash two local fixes before sending
-the series out...
-
-This should have been VM_HIGH_ARCH() here (the _ at the end is a typo)
-
->  #endif /* CONFIG_64BIT */
->
->  #ifdef CONFIG_ARCH_HAS_PKEYS
->  # define VM_PKEY_SHIFT VM_HIGH_ARCH_BIT_0
-
-And this should have been a VM_HIGH_ARCH_BIT(0)
-
-... Anyway, I think it still gets the point across that it could make
-some sense to change those VM_HIGH_ARCH macros.
-
-> -# define VM_PKEY_BIT0  VM_HIGH_ARCH_0
-> -# define VM_PKEY_BIT1  VM_HIGH_ARCH_1
-> -# define VM_PKEY_BIT2  VM_HIGH_ARCH_2
-> +# define VM_PKEY_BIT0  VM_HIGH_ARCH(0)
-> +# define VM_PKEY_BIT1  VM_HIGH_ARCH(1)
-> +# define VM_PKEY_BIT2  VM_HIGH_ARCH(2)
->  #if CONFIG_ARCH_PKEY_BITS > 3
-> -# define VM_PKEY_BIT3  VM_HIGH_ARCH_3
-> +# define VM_PKEY_BIT3  VM_HIGH_ARCH(3)
->  #else
->  # define VM_PKEY_BIT3  0
->  #endif
->  #if CONFIG_ARCH_PKEY_BITS > 4
-> -# define VM_PKEY_BIT4  VM_HIGH_ARCH_4
-> +# define VM_PKEY_BIT4  VM_HIGH_ARCH(4)
->  #else
->  # define VM_PKEY_BIT4  0
->  #endif
-> @@ -349,7 +329,7 @@ extern unsigned int kobjsize(const void *objp);
->   * (x86). See the comments near alloc_shstk() in arch/x86/kernel/shstk.c
->   * for more details on the guard size.
->   */
-> -# define VM_SHADOW_STACK       VM_HIGH_ARCH_5
-> +# define VM_SHADOW_STACK       VM_HIGH_ARCH(5)
->  #endif
->
->  #if defined(CONFIG_ARM64_GCS)
-> @@ -357,7 +337,7 @@ extern unsigned int kobjsize(const void *objp);
->   * arm64's Guarded Control Stack implements similar functionality and
->   * has similar constraints to shadow stacks.
->   */
-> -# define VM_SHADOW_STACK       VM_HIGH_ARCH_6
-> +# define VM_SHADOW_STACK       VM_HIGH_ARCH(6)
->  #endif
->
->  #ifndef VM_SHADOW_STACK
-> @@ -381,8 +361,8 @@ extern unsigned int kobjsize(const void *objp);
->  #endif
->
->  #if defined(CONFIG_ARM64_MTE)
-> -# define VM_MTE                VM_HIGH_ARCH_4  /* Use Tagged memory for =
-access control */
-> -# define VM_MTE_ALLOWED        VM_HIGH_ARCH_5  /* Tagged memory permitte=
-d */
-> +# define VM_MTE                VM_HIGH_ARCH(4) /* Use Tagged memory for =
-access control */
-> +# define VM_MTE_ALLOWED        VM_HIGH_ARCH(5) /* Tagged memory permitte=
-d */
->  #else
->  # define VM_MTE                VM_NONE
->  # define VM_MTE_ALLOWED        VM_NONE
-> @@ -393,7 +373,7 @@ extern unsigned int kobjsize(const void *objp);
->  #endif
->
->  #ifdef CONFIG_HAVE_ARCH_USERFAULTFD_MINOR
-> -# define VM_UFFD_MINOR         VM_HIGH_ARCH_9  /* UFFD minor faults */
-> +# define VM_UFFD_MINOR         VM_HIGH_ARCH(9) /* UFFD minor faults */
->  #else /* !CONFIG_HAVE_ARCH_USERFAULTFD_MINOR */
->  # define VM_UFFD_MINOR         VM_NONE
->  #endif /* CONFIG_HAVE_ARCH_USERFAULTFD_MINOR */
-> @@ -406,13 +386,13 @@ extern unsigned int kobjsize(const void *objp);
->   * if KVM does not lock down the memory type.
->   */
->  #ifdef CONFIG_64BIT
-> -#define VM_ALLOW_ANY_UNCACHED          VM_HIGH_ARCH_7
-> +#define VM_ALLOW_ANY_UNCACHED          VM_HIGH_ARCH(7)
->  #else
->  #define VM_ALLOW_ANY_UNCACHED          VM_NONE
->  #endif
->
->  #ifdef CONFIG_64BIT
-> -#define VM_DROPPABLE           VM_HIGH_ARCH_8
-> +#define VM_DROPPABLE           VM_HIGH_ARCH(8)
->  #elif defined(CONFIG_PPC32)
->  #define VM_DROPPABLE           VM_ARCH_1
->  #else
-> @@ -421,7 +401,7 @@ extern unsigned int kobjsize(const void *objp);
->
->  #ifdef CONFIG_64BIT
->  /* VM is sealed, in vm_flags */
-> -#define VM_SEALED      VM_HIGH_ARCH_10
-> +#define VM_SEALED      VM_HIGH_ARCH(10)
->  #endif
->
->  /* Bits set in the VMA until the stack is in its final location */
-> --
-> 2.49.0.967.g6a0df3ecc3-goog
->
+gently reminder
 
