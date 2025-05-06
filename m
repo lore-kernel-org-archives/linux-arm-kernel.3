@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05A69C3ABBC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7AF8C3ABBF
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 22:24:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,61 +12,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=StZLsBHNOuNl+tKb9Vl4bYLuw1HG3lhuSVUqOiGX97k=; b=BIiNpKZJb26KwB6g+qPFWD7lGv
-	ZmOt8UNKXMr0WB1TFhKNmmdWE5rBs2aklvFyR6EJ65qYjAXoQ4HSQp9s8p19pzbx5eR2Bze+Qeo02
-	d++8DdgUdS9yDzr8ZKfti+Gi72+hzpMzQc2sN7tUpXmxilFymXXV63y0deNMaIqq4VtclIFwSiYsy
-	8smz5Wrn3BjrQ7+MhWhRs8X67KeMdrjwbX9BYrg8/6D2iXwPfepaFBq6dqjlZDPjUBvnb39Y4vkM3
-	DEKI6NG/YrXVCFdp0555Rde4kCDWm/ppPwc8nl7q2aH6fC3IoKDBsWkrwzyxUAQbVUG00zjUgRAzW
-	pLkYhYcQ==;
+	bh=/Jp1lLJLaGjaKoXy64OEgzLoF8SWUPuFbMZNzmgUGvY=; b=zbE69H1QlvAxoOrk3pZT1B7pLF
+	ggsp8dQsXFSvho88U9shV1cr6ulcnBTb+lGHI95bYLTR6x/A/reTgc9fumidKLfhEpHMOwEVaIb6r
+	/ewwYCN11lS5g8gX375yrfe1+6hw08zfVTe6wI01erwvCpKWikAS5ydx+Ym9ppT+3UNTjEvSX7xFV
+	MPzFawjPtfuiZAWf0XkUWOPMiVZ4YjPsiaV11LCZIA5M9R1NLxUzhCT7rIuqUJKzP+18c4g3Mgq9v
+	DATbPpecgxRoGWFJT0Jb+cRtCEwkkddqO1f8TwNq58kwVJ4V2A9KN2vACDdI7Ils7mMQNypsgsLiA
+	zDPzxXzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCQhh-0000000DYAZ-0jo2;
-	Tue, 06 May 2025 22:23:57 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1uCQhk-0000000DYH8-22Nt;
+	Tue, 06 May 2025 22:24:00 +0000
+Received: from mail-lj1-x249.google.com ([2a00:1450:4864:20::249])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCLTY-0000000CjvV-3PjP
+	id 1uCLTZ-0000000Cjvs-3GHo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 16:49:01 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43ceb011ea5so33569425e9.2
+	Tue, 06 May 2025 16:49:03 +0000
+Received: by mail-lj1-x249.google.com with SMTP id 38308e7fff4ca-30c0c56a73aso27855731fa.1
         for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 09:49:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20230601; t=1746550139; x=1747154939; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=StZLsBHNOuNl+tKb9Vl4bYLuw1HG3lhuSVUqOiGX97k=;
-        b=NJJ5y5POLfZhOGuVyVKyOviaR8TNnbwc76iwzwaM/2c6U0VbrKZUfIS9A7gY0FTbXj
-         O4l3w2RJJlFhS/Ecsb+D4Arv6acFOXfQ2kvdeMZOFDePZVp3gP8xzgdDoe+hhFdXUeLs
-         YIl3/BOg1zbPmkb4tyf+IWk98FdCs/x1C9bTOpGHNyHg02YlHbJZlWokdjin9cNwj5rQ
-         Q1eZ7x4I88N3Znl2AgoM6DyaLT2mXVHohv6Pq97nYCzmafeXjHNlvoi3a4uLkLoGhnZe
-         rDU1QhF6bGtbC3F76600uTOoSkW3reg+WRHqh7z5Nb8EvKLOtgfi5nl0hp9a+/nIXVEx
-         cYnA==
+        bh=/Jp1lLJLaGjaKoXy64OEgzLoF8SWUPuFbMZNzmgUGvY=;
+        b=LDZcozmkdkYLVhXH0zX6qzlrfZ1j5rfyU40nZB+ZU7YLIJi8b2HBDAZtNM9n1GxocI
+         53iLeF5G+6cJemHLGVVGCLXIcEk8ZLGqNtUk2mSJoTkR8nzv6CIxImLJsurtPxy9YQ4H
+         28yNgkTGI3hekoEmrw0EFGV7+UK+OxcYLeubCQgKfSLjFD4dpA29qZzzm6redGtZELYr
+         qyB4AiZPqDGqXvVcEdnhL9qJI66DmeKUFYkNyZw75bjeCDnlv4JlLe2Yt7dwPrrJe2fk
+         4edC9rXdSfZ0pWkn8v6nrdWI+CUiOB2OS+/N2wRRSoVEiYoLEn7s92JnMeM4lXm2nFcw
+         i/4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1746550139; x=1747154939;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=StZLsBHNOuNl+tKb9Vl4bYLuw1HG3lhuSVUqOiGX97k=;
-        b=JPDMlsZjviL0NCett/Qx54Y4uxmXGSzLuMimdhdfIZNFHiUhBr/2qTmgHtGCr9yG4a
-         FtCS2n3OoyNlT2/aOHQDg62YWRkhOO+/AaWrfMRqhTwlsLGz8CDl/GPuwzqVIJBDFpwK
-         sq1IrYxTjR07XzUauj6tjatgWzEM+wytLPLuTkGOzfaP6K7Y0/gnDftqryYf0B6q+fPS
-         6HdE4HP/m0iHMgkw2MjCWrCGZdQ4s3ZwxbMz8k1jn7isFBJt09y5OpyiOHMUwC9jJb1o
-         EQzVW5PGQ+DRfVOyQEsSzCldeGmhxyBG65nMRS8EQApQeH8aBbs218Eid6EoNyw7wYBg
-         JkiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUJMPueCkphS9WspejGn0jaLPvdNOl0/zUHOzMd0k6WlWAfBvHYNBV+fI+srgMM5p+FSgqHlX3ao0vzU7Ivhbuq@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsGAwLFVmkzxdLZ1S+sLEwUUJ/U/LfoGfC3qpyJ4pKvxTp+b17
-	rUsenPNRVjNev0qiW+F3wYsVxBrWT1MvK3M7f6DYOd3jmk3Yrklx0c35ad3GNdKIB61H5Ny1mjW
-	YYcxQ6m6LMlixCbAJ5Q==
-X-Google-Smtp-Source: AGHT+IE4iNBpupyaQ3P75QFzmU9O/zuYSK3OEQZ8J4G0/UVK153ETEX0RF18FXE6x2Rnf6IDgYTafM4dkGCo96Dx
-X-Received: from wmhu9.prod.google.com ([2002:a05:600c:a369:b0:43d:1873:dbaf])
+        bh=/Jp1lLJLaGjaKoXy64OEgzLoF8SWUPuFbMZNzmgUGvY=;
+        b=TuUthJWHg3yn77GaK8MsHckqtCo6cD9IZCOyWSy7dh+ZHGRsCLedEt1ZqD4FVZLZwd
+         9YSxVkohLRq6JWChhvBGOyovK43N3uFREC9a4ekqTDo7ZOIPlnXFsqyKOV1W/RGq3zAB
+         UT5tIdrQx2MhgJKyf+eKR265hYLA+trn0n3Em1tCytGsJzvopUMbVn1wK2s+MBoMhkk6
+         evFK/drAQmIsKnzpW0c3+qtOvOTeptoxCsdGoq4eluC/3Q77TgsDqWaIuaiPW5dyyBoy
+         6b2yZqXsLtwd4x5dkJrVj5PTBb82IAtVgzONljQWiRhD3Gw7vteO2hGAU77Y+nrgNZlC
+         OJPw==
+X-Forwarded-Encrypted: i=1; AJvYcCX919NUnZ9OHB4arK6dvX+7SgtTGx2QHnZiH2kc1C4JSVPfZ2GfWulYsXMBaF59hC9GeL8prL7u8AyFysWqX/FN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0AumvV8GZx7FyAMIWD644lY/eR13vsiQbCjO80VV1kQ0Z1g8U
+	rW+YLDP5304GJQouyFwKgz6n/tRmZ3tpB6DTc3QNR9etBBXVMsFDG4DROcTaxviXdZNnpYZ8sJI
+	9pwBHZ0kUrR7/P08/lA==
+X-Google-Smtp-Source: AGHT+IGiXAgVMRbfLIS8SOyIvtLGncb5XoCWTw3YHC2KCY3kpynNJbuNPStX2fauF3TpS7pG9j8sT4PCVtP6V84+
+X-Received: from wmbdq15.prod.google.com ([2002:a05:600c:64cf:b0:441:d228:3918])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:1914:b0:43d:47e:3205 with SMTP id 5b1f17b1804b1-441c48bca55mr85552645e9.11.1746550139272;
- Tue, 06 May 2025 09:48:59 -0700 (PDT)
-Date: Tue,  6 May 2025 17:48:07 +0100
+ 2002:a05:600d:1c:b0:43c:fda5:41e9 with SMTP id 5b1f17b1804b1-441c4933d05mr112672305e9.31.1746550129253;
+ Tue, 06 May 2025 09:48:49 -0700 (PDT)
+Date: Tue,  6 May 2025 17:48:02 +0100
 In-Reply-To: <20250506164820.515876-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20250506164820.515876-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.49.0.967.g6a0df3ecc3-goog
-Message-ID: <20250506164820.515876-12-vdonnefort@google.com>
-Subject: [PATCH v4 11/24] tracing: selftests: Add trace remote tests
+Message-ID: <20250506164820.515876-7-vdonnefort@google.com>
+Subject: [PATCH v4 06/24] tracing: Add events/ root files to trace remotes
 From: Vincent Donnefort <vdonnefort@google.com>
 To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
 	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
@@ -77,8 +77,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_094900_855165_D71E9BF6 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20250506_094901_819555_EA414750 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,301 +93,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Exercise the tracefs interface for trace remote with a set of tests to
-check:
-
-  * loading/unloading (unloading.tc)
-  * reset (reset.tc)
-  * size changes (buffer_size.tc)
-  * event integrity (trace_pipe)
+Just like for the kernel events directory, add 'enable', 'header_page'
+and 'header_event' at the root of the trace remote events/ directory.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/buffer_size.tc b/tools/testing/selftests/ftrace/test.d/remotes/buffer_size.tc
-new file mode 100644
-index 000000000000..60bf431ccc91
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/buffer_size.tc
-@@ -0,0 +1,24 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test trace remote buffer size
-+
-+. $TEST_DIR/remotes/functions
-+
-+test_buffer_size()
+diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
+index a96a0b231fee..cff1e700d4b7 100644
+--- a/kernel/trace/ring_buffer.c
++++ b/kernel/trace/ring_buffer.c
+@@ -604,7 +604,8 @@ int ring_buffer_print_page_header(struct trace_buffer *buffer, struct trace_seq
+ 	trace_seq_printf(s, "\tfield: char data;\t"
+ 			 "offset:%u;\tsize:%u;\tsigned:%u;\n",
+ 			 (unsigned int)offsetof(typeof(field), data),
+-			 (unsigned int)buffer->subbuf_size,
++			 (unsigned int)(buffer ? buffer->subbuf_size :
++						 PAGE_SIZE - BUF_PAGE_HDR_SIZE),
+ 			 (unsigned int)is_signed_type(char));
+ 
+ 	return !trace_seq_has_overflowed(s);
+diff --git a/kernel/trace/trace_remote.c b/kernel/trace/trace_remote.c
+index 00ef80da043b..5c9f2b07941f 100644
+--- a/kernel/trace/trace_remote.c
++++ b/kernel/trace/trace_remote.c
+@@ -707,10 +707,118 @@ static int remote_event_callback(const char *name, umode_t *mode, void **data,
+ 	return 0;
+ }
+ 
++static ssize_t remote_events_dir_enable_write(struct file *filp, const char __user *ubuf,
++					      size_t count, loff_t *ppos)
 +{
-+    echo 0 > tracing_on
-+    assert_unloaded
++	struct trace_remote *remote = file_inode(filp)->i_private;
++	u8 enable;
++	int i, ret;
 +
-+    echo 4096 > buffer_size_kb
-+    echo 1 > tracing_on
-+    assert_loaded
++	ret = kstrtou8_from_user(ubuf, count, 10, &enable);
++	if (ret)
++		return ret;
 +
-+    echo 0 > tracing_on
-+    echo 7 > buffer_size_kb
++	guard(mutex)(&remote->lock);
++
++	for (i = 0; i < remote->nr_events; i++) {
++		struct remote_event *evt = &remote->events[i];
++
++		trace_remote_enable_event(remote, evt, enable);
++	}
++
++	return count;
 +}
 +
-+if [ -z "$SOURCE_REMOTE_TEST" ]; then
-+    set -e
-+    setup_remote_test
-+    test_buffer_size
-+fi
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/functions b/tools/testing/selftests/ftrace/test.d/remotes/functions
-new file mode 100644
-index 000000000000..504a495b3b1b
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/functions
-@@ -0,0 +1,33 @@
-+# SPDX-License-Identifier: GPL-2.0
++static const struct file_operations remote_events_dir_enable_fops = {
++	.write = remote_events_dir_enable_write,
++};
 +
-+setup_remote()
++static ssize_t
++remote_events_dir_header_page_read(struct file *filp, char __user *ubuf, size_t cnt, loff_t *ppos)
 +{
-+	local name=$1
++	struct trace_seq *s;
++	int ret;
 +
-+	[ -e $TRACING_DIR/remotes/$name/write_event ] || exit_unresolved
++	s = kmalloc(sizeof(*s), GFP_KERNEL);
++	if (!s)
++		return -ENOMEM;
 +
-+	cd remotes/$name/
-+	echo 0 > tracing_on
-+	clear_trace
-+	echo 7 > buffer_size_kb
-+	echo 0 > events/enable
-+	echo 1 > events/$name/selftest/enable
-+	echo 1 > tracing_on
++	trace_seq_init(s);
++
++	ring_buffer_print_page_header(NULL, s);
++	ret = simple_read_from_buffer(ubuf, cnt, ppos, s->buffer, trace_seq_used(s));
++	kfree(s);
++
++	return ret;
 +}
 +
-+setup_remote_test()
-+{
-+	[ -d $TRACING_DIR/remotes/test/ ] || modprobe remote_test || exit_unresolved
++static const struct file_operations remote_events_dir_header_page_fops = {
++	.read = remote_events_dir_header_page_read,
++};
 +
-+	setup_remote "test"
++static ssize_t
++remote_events_dir_header_event_read(struct file *filp, char __user *ubuf, size_t cnt, loff_t *ppos)
++{
++	struct trace_seq *s;
++	int ret;
++
++	s = kmalloc(sizeof(*s), GFP_KERNEL);
++	if (!s)
++		return -ENOMEM;
++
++	trace_seq_init(s);
++
++	ring_buffer_print_entry_header(s);
++	ret = simple_read_from_buffer(ubuf, cnt, ppos, s->buffer, trace_seq_used(s));
++	kfree(s);
++
++	return ret;
 +}
 +
-+assert_loaded()
++static const struct file_operations remote_events_dir_header_event_fops = {
++	.read = remote_events_dir_header_event_read,
++};
++
++static int remote_events_dir_callback(const char *name, umode_t *mode, void **data,
++				      const struct file_operations **fops)
 +{
-+	grep -q "(loaded)" buffer_size_kb
++	if (!strcmp(name, "enable")) {
++		*mode = 0200;
++		*fops = &remote_events_dir_enable_fops;
++		return 1;
++	}
++
++	if (!strcmp(name, "header_page")) {
++		*mode = TRACEFS_MODE_READ;
++		*fops = &remote_events_dir_header_page_fops;
++		return 1;
++	}
++
++	if (!strcmp(name, "header_event")) {
++		*mode = TRACEFS_MODE_READ;
++		*fops = &remote_events_dir_header_event_fops;
++		return 1;
++	}
++
++	return 0;
 +}
 +
-+assert_unloaded()
-+{
-+	grep -q "(unloaded)" buffer_size_kb
-+}
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/reset.tc b/tools/testing/selftests/ftrace/test.d/remotes/reset.tc
-new file mode 100644
-index 000000000000..93d6eb2a807f
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/reset.tc
-@@ -0,0 +1,105 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test trace remote reset
-+
-+. $TEST_DIR/remotes/functions
-+
-+get_cpu_ids()
-+{
-+    sed -n 's/^processor\s*:\s*\([0-9]\+\).*/\1/p' /proc/cpuinfo
-+}
-+
-+dump_trace()
-+{
-+    output=$(mktemp /tmp/remote_test.XXXXXX)
-+    cat trace_pipe > $output &
-+    pid=$!
-+    sleep 1
-+    kill -1 $pid
-+
-+    echo $output
-+}
-+
-+check_reset()
-+{
-+    write_event_path="write_event"
-+    taskset=""
-+
-+    clear_trace
-+
-+    # Is the buffer empty?
-+    output=$(dump_trace)
-+    test $(wc -l $output | cut -d ' ' -f1) -eq 0
-+
-+    if $(echo $(pwd) | grep -q "per_cpu/cpu"); then
-+        write_event_path="../../write_event"
-+        cpu_id=$(echo $(pwd) | sed -e 's/.*per_cpu\/cpu//')
-+        taskset="taskset -c $cpu_id"
-+    fi
-+    rm $output
-+
-+    # Can we properly write a new event?
-+    $taskset echo 7890 > $write_event_path
-+    output=$(dump_trace)
-+    test $(wc -l $output | cut -d ' ' -f1) -eq 1
-+    grep -q "id=7890" $output
-+    rm $output
-+}
-+
-+test_global_interface()
-+{
-+    output=$(mktemp /tmp/remote_test.XXXXXX)
-+
-+    # Confidence check
-+    echo 123456 > write_event
-+    output=$(dump_trace)
-+    grep -q "id=123456" $output
-+    rm $output
-+
-+    # Reset single event
-+    echo 1 > write_event
-+    check_reset
-+
-+    # Reset lost events
-+    for i in $(seq 1 10000); do
-+        echo 1 > write_event
-+    done
-+    check_reset
-+}
-+
-+test_percpu_interface()
-+{
-+    [ "$(get_cpu_ids | wc -l)" -ge 2 ] || return 0
-+
-+    for cpu in $(get_cpu_ids); do
-+        taskset -c $cpu echo 1 > write_event
-+    done
-+
-+    check_non_empty=0
-+    for cpu in $(get_cpu_ids); do
-+        cd per_cpu/cpu$cpu/
-+
-+        if [ $check_non_empty -eq 0 ]; then
-+            check_reset
-+            check_non_empty=1
-+        else
-+            # Check we have only reset 1 CPU
-+            output=$(dump_trace)
-+            test $(wc -l $output | cut -d ' ' -f1) -eq 1
-+            rm $output
-+        fi
-+        cd -
-+    done
-+}
-+
-+test_reset()
-+{
-+    test_global_interface
-+    test_percpu_interface
-+}
-+
-+if [ -z "$SOURCE_REMOTE_TEST" ]; then
-+    set -e
-+    setup_remote_test
-+    test_reset
-+fi
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/trace_pipe.tc b/tools/testing/selftests/ftrace/test.d/remotes/trace_pipe.tc
-new file mode 100644
-index 000000000000..f4bd2b3655e0
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/trace_pipe.tc
-@@ -0,0 +1,57 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test trace remote trace_pipe
-+
-+. $TEST_DIR/remotes/functions
-+
-+test_trace_pipe()
-+{
-+    echo 0 > tracing_on
-+    assert_unloaded
-+
-+    echo 1024 > buffer_size_kb
-+    echo 1 > tracing_on
-+    assert_loaded
-+
-+    output=$(mktemp /tmp/remote_test.XXXXXX)
-+
-+    cat trace_pipe > $output &
-+    pid=$!
-+
-+    for i in $(seq 1 1000); do
-+        echo $i > write_event
-+    done
-+
-+    echo 0 > tracing_on
-+    sleep 1
-+    kill $pid
-+
-+    prev_ts=0 # TODO: Init with proper clock value
-+    prev_id=0
-+
-+    # Only keep <timestamp> <id>
-+    sed -i -e 's/\[[0-9]*\]\s*\([0-9]*.[0-9]*\): [a-z]* id=\([0-9]*\)/\1 \2/' $output
-+
-+    IFS=$'\n'
-+    for line in $(cat $output); do
-+        ts=$(echo $line | cut -d ' ' -f 1)
-+        id=$(echo $line | cut -d ' ' -f 2)
-+
-+        test $(echo "$ts>$prev_ts" | bc) -eq 1
-+        test $id -eq $((prev_id + 1))
-+
-+        prev_ts=$ts
-+        prev_id=$id
-+    done
-+
-+    test $prev_id -eq 1000
-+
-+    rm $output
-+}
-+
-+if [ -z "$SOURCE_REMOTE_TEST" ]; then
-+    set -e
-+
-+    setup_remote_test
-+    test_trace_pipe
-+fi
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/unloading.tc b/tools/testing/selftests/ftrace/test.d/remotes/unloading.tc
-new file mode 100644
-index 000000000000..05bb21f80e34
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/unloading.tc
-@@ -0,0 +1,36 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test trace remote unloading
-+
-+. $TEST_DIR/remotes/functions
-+
-+test_unloading()
-+{
-+    # No reader, writing
-+    assert_loaded
-+
-+    # No reader, no writing
-+    echo 0 > tracing_on
-+    assert_unloaded
-+
-+    # 1 reader, no writing
-+    cat trace_pipe &
-+    pid=$!
-+    sleep 1
-+    assert_loaded
-+    kill $pid
-+    assert_unloaded
-+
-+    # No reader, no writing, events
-+    echo 1 > tracing_on
-+    echo 1 > write_event
-+    echo 0 > tracing_on
-+    assert_loaded
-+}
-+
-+if [ -z "$SOURCE_REMOTE_TEST" ]; then
-+    set -e
-+
-+    setup_remote_test
-+    test_unloading
-+fi
+ static int trace_remote_init_eventfs(const char *remote_name, struct trace_remote *remote,
+ 				     struct remote_event *evt)
+ {
+ 	struct eventfs_inode *eventfs = remote->eventfs;
++	static struct eventfs_entry dir_entries[] = {
++		{
++			.name		= "enable",
++			.callback	= remote_events_dir_callback,
++		}, {
++			.name		= "header_page",
++			.callback	= remote_events_dir_callback,
++		}, {
++			.name		= "header_event",
++			.callback	= remote_events_dir_callback,
++		}
++	};
+ 	static struct eventfs_entry entries[] = {
+ 		{
+ 			.name		= "enable",
+@@ -726,7 +834,8 @@ static int trace_remote_init_eventfs(const char *remote_name, struct trace_remot
+ 	bool eventfs_create = false;
+ 
+ 	if (!eventfs) {
+-		eventfs = eventfs_create_events_dir("events", remote->dentry, NULL, 0, NULL);
++		eventfs = eventfs_create_events_dir("events", remote->dentry, dir_entries,
++						    ARRAY_SIZE(dir_entries), remote);
+ 		if (IS_ERR(eventfs))
+ 			return PTR_ERR(eventfs);
+ 
 -- 
 2.49.0.967.g6a0df3ecc3-goog
 
