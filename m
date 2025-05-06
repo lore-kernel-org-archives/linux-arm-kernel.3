@@ -4,152 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E32C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57086C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uUATeyaFCWFUopb4n5zW3zLd+Y3fITC5gTACDpMQ2N0=; b=VrOhqh/1p8kRplf32Sd3bruPHw
-	EM5sKlgzqLDb+TrBb9VefgmtTvtLPrM1FdZhPCpENU+6VKugDyyxKJ+AYOfExGVeHAuVDworKViYT
-	a/yn6mSiOKP41ZVc61fdJ8Pk0+J67w2qLkloehdbn06DJBxxsNFbH0+CtkDDT0q6mZSKLjeIKZfvX
-	U5emd3eyeo/GEzNeVtJt33QsTQfSZbmMc5setdL2KgH6R12abmlfFf76E0BzY0F+od7crGO+Chfxq
-	PBw+HXX0IJbV3weM6N4SGhczA6iLEBpGE6vTWkCG9tl9PiwhJ+SogEF+RhI5Y9WBwR/Mtm4OJTlXI
-	Y08LA0gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=24I9h93NVDoUdXWB8s68CbbkJj5LLJ9KD0KfFZXlz1o=; b=X91Ts7vMsIFACBE1Riian+HPUj
+	wph6WcJw1Frlt9HUF5nQMwGznpIfnPCj7ZEzL6TknP3WFTz6qmZtERqkS3xzU44ADhnAUF6Dz0kp1
+	Bz/JCeShTEjct1RtK1Ylyp0H7mqPUX2084fGIt66CItGmbn1uIbiDjDVcJO7hJk/k+JpDimDjxEoo
+	lbYgQ6JUHP2bZeSc6QqgpMb449QzNdrysxAGyS4CB+4yDL/nxGmnUa/HyqUjAJ2HDtLUTifRxz3Rp
+	5mioll0HtkLE1HIx7M1jn/LkDORAqsc4JVPyfqm+uumiUuPB4PeJ9ymMl71kj4BF568jezZSJK82Z
+	rTCNL4VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCUaV-0000000DuUC-2HBA;
-	Wed, 07 May 2025 02:32:47 +0000
-Received: from mail-dm6nam12on20602.outbound.protection.outlook.com ([2a01:111:f403:2417::602] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1uCUaj-0000000Dulm-3QJP;
+	Wed, 07 May 2025 02:33:01 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCOO8-0000000DHzC-1bST
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 19:55:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fYRPm2focz7LNC3oUHp1Ti806Rtu8X5B0zErqmz+dC1Lw2k9CZGx45VEtaPeBEi2nwCIGgn4EDLCroLrzGiq3tZG8T4Aj2is46vpGS+jq5s39MrMTJ9b6gECuEukWlL0A296388NAipVEXqveAGCBu7fKsghlKsqymaUAPstgjxlR4QFCTAxSD4nOtP81Y+Qa5lgs24QXzVDfd2mxN4CPARyTQPey/OnP4paRdB1CHV2c43qim42hEod79ej6ljM0LMbAuuCy7kBf1DHjsbrGIQagCn644lW/xOGPik3vUUmos2MsTiw46zmtft5qX6JoBf2kn//aUuTtWOlvWRNTg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uUATeyaFCWFUopb4n5zW3zLd+Y3fITC5gTACDpMQ2N0=;
- b=qRlRFab7KdS5sMu7hf7Xm3t0Yh5zGXVLrXOg4pCpP1wuVMAkUvsldm1rfFO1SGjoGtG1jRH/+eDvlS+AP2NhinyCvOxjX1Nbqztdkl0gFS0oTj/ILSJ1MyAtYpN6PmF3UiEgKQoajxV8SLoUMadJiwSa95o5bkWoxR0sYd5VXqLjcSuw9hcBQcE6rLf42cufirg/N+G9UhPNC44Pu9URubtVl/+Icl84rC0nIXeiDWi0fdCX1xe4OBoyZdUViUxPeUvMBw/hYkdYkjPnoIyYbixfRX7S14kbj3pQ+Tc6N2VaJDYlIOyE7ol59uPdG4+trbYbiKqj3mcT8X5mpcBTvQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=huawei.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uUATeyaFCWFUopb4n5zW3zLd+Y3fITC5gTACDpMQ2N0=;
- b=oF4Nauc1o0D4xGayY1G89L9hh2RO9O0O/4zdAYLsNlrfd9Dg+lycfwfjSSXja30z/KDgJF8euQZz9d/Pva841+k7b4YZZWcjFN0MdIJp+Iyf7V/jSrWvPyp1z4OtdxDe3JfDK0hoC8qaYD61ffdPngKxPO58AHVsrf99/r1BKj38l6SjABVUZCsj7DKZYU8Xl9U3us2XcBE702COGjE1zsJYDz0z5hMMMDKkmkIY3hKUMR5cdhve5vrJ7viBQbWy6e+Plr5qEO7phUL5YIPJKHPpizOGuahsE/PubvbyD3Dn57FQegHnYu81+WKKEmRt0jMOmGhtSIah4rrnBNJmjA==
-Received: from MW4PR04CA0127.namprd04.prod.outlook.com (2603:10b6:303:84::12)
- by SA1PR12MB7248.namprd12.prod.outlook.com (2603:10b6:806:2be::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.23; Tue, 6 May
- 2025 19:55:28 +0000
-Received: from SJ5PEPF000001F5.namprd05.prod.outlook.com
- (2603:10b6:303:84:cafe::b4) by MW4PR04CA0127.outlook.office365.com
- (2603:10b6:303:84::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8699.31 via Frontend Transport; Tue,
- 6 May 2025 19:55:27 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SJ5PEPF000001F5.mail.protection.outlook.com (10.167.242.73) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8722.18 via Frontend Transport; Tue, 6 May 2025 19:55:26 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 6 May 2025
- 12:55:16 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 6 May
- 2025 12:55:08 -0700
-Received: from nvidia.com (10.127.8.14) by mail.nvidia.com (10.129.68.6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Tue, 6 May 2025 12:55:05 -0700
-Date: Tue, 6 May 2025 12:55:02 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Alexey Kardashevskiy <aik@amd.com>, <kevin.tian@intel.com>,
-	<will@kernel.org>, <joro@8bytes.org>, <suravee.suthikulpanit@amd.com>,
-	<robin.murphy@arm.com>, <dwmw2@infradead.org>, <baolu.lu@linux.intel.com>,
-	<shuah@kernel.org>, <linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<eric.auger@redhat.com>, <jean-philippe@linaro.org>, <mdf@kernel.org>,
-	<mshavit@google.com>, <shameerali.kolothum.thodi@huawei.com>,
-	<smostafa@google.com>, <yi.l.liu@intel.com>
-Subject: Re: [PATCH v2 06/19] iommufd/viommu: Add
- IOMMU_VIOMMU_SET/UNSET_VDEV_ID ioctl
-Message-ID: <aBppFi7eKngFipps@nvidia.com>
-References: <cover.1724776335.git.nicolinc@nvidia.com>
- <6348cc7a72ce9f2ac0e9caf9737e70177a01eb74.1724776335.git.nicolinc@nvidia.com>
- <35701c5e-030a-4f52-b6f6-ed18368fb2cd@amd.com>
- <20241004114147.GF1365916@nvidia.com>
- <95ab62fa-bb1c-4e4a-a210-b0bdba0d4ad2@amd.com>
- <aBHYN39FcH+NG5Ab@Asurada-Nvidia>
- <20250505170807.GP2260709@nvidia.com>
- <aBl5uLOFCntuIYYz@nvidia.com>
- <20250506125847.GA2260709@nvidia.com>
+	id 1uCOyN-0000000DN0f-3In5;
+	Tue, 06 May 2025 20:33:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1746563581;
+	bh=dD4DwROkTwpoPioZK4HAIdlHbwaPho1AHnFUGGwVwvQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Usd7J0+ngOk4O6lzDIUO1IavRAqJYnQ8OVmybkYwMkp48K4etqkOFw+gwUjIV61rD
+	 PRLMohal3DJpaWnZynIj6n+Wx0TemJeHIl38JcBwDKSrt0Ea1GHWCxFhbtKV6yH3mH
+	 edrBuaDBnOKg/UTEAcT+/XcUFl5Kg3UpJPlxhi1Bb2b4SdCNce9QbpD0OD3jInzuhq
+	 zvcGZFMrWbG+W649sqZJHq21UQUfGUOQaNnmqsBECta9gNsilQFpVZnjM4iKC1Ikqh
+	 cBkoBqbBI/zZNwmHj150qtM3k2YJph0X7hyUzDy7RqX/liwN8KcDqvPYt4hRv+D9LJ
+	 qCUSNc7ASS1lg==
+Received: from [IPV6:2a05:1141:1cc:8600:1cd7:9a7e:17d7:cd2c] (unknown [IPv6:2a05:1141:1cc:8600:1cd7:9a7e:17d7:cd2c])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: mriesch)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EDF2717E078A;
+	Tue,  6 May 2025 22:32:59 +0200 (CEST)
+Message-ID: <90192c74-f5ca-404b-8b95-3df0819e4bc9@collabora.com>
+Date: Tue, 6 May 2025 22:32:59 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250506125847.GA2260709@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001F5:EE_|SA1PR12MB7248:EE_
-X-MS-Office365-Filtering-Correlation-Id: fb43138a-a590-47e3-49c8-08dd8cd7f27f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8hMP+V7PxnIlYAytle0gPB1mbkVAYDGOTEkwM8k2LKr7mg7p7+M+34mLWZya?=
- =?us-ascii?Q?b63LtQJYPrlBzZU5uFlAzpd/JsCnNV1qHeDfxJzjKBvURgBucesmw7SPiEun?=
- =?us-ascii?Q?qrutaFcKjXUlxfGlFeX+KcTRYYD1+znH5MNOjmZFF9ABdOmR56wRQ5mCXCSG?=
- =?us-ascii?Q?Q4WlPtDdxd0jwX+DtWyFkZn748YYtXwc0vGOc7mE3KB46Pxe1MziXbr0PBpJ?=
- =?us-ascii?Q?/0tZ4rSPOnCXELBP4aqTGt5PvqXCODxNqOE0JlV1Z3HzpPKS/vb8HkDlEoAq?=
- =?us-ascii?Q?6CGa2F4uwcO9g3A3xe412853d7akpQ6faPjlfvCRDNRrtlE0/4NLsHkEOzxe?=
- =?us-ascii?Q?8IZ2o6m5Gik06Ib0hXuW2EoEQlPP7oVsinDMITxzp6uQ1CZFFvysk56zRzXK?=
- =?us-ascii?Q?O8vwu/uVsBnVxtXlViq7eXyhXoGhZMWG7xV/kPXRVwh63m7KMAiR9oZo82Kx?=
- =?us-ascii?Q?4sRIzlDxvp14WJoywWDufZGRRmF8W0/kV4ziQZXJTGTc9skM5KYRWkCx6EeK?=
- =?us-ascii?Q?AapBja9lLKYK3q2c3A//n50QWWOzLOM7gsm02a5rWn1Qxb4rJBmRRap/bfrZ?=
- =?us-ascii?Q?8juBGvPitfwxvTGWamlOZs3AfGICPmUIverujdFAKhNLkahQ2PV+ya1mQZ34?=
- =?us-ascii?Q?P3p65tXO7beEOiWexb00KbxhmyBk916st502ORejkpoDDBpSDFLsA+Jkvz6P?=
- =?us-ascii?Q?79OMOMXCmU0LTeX2hck/IGcEqjhEc7tB4USDiQWEiIAEsYnLF9ItXhC1lOik?=
- =?us-ascii?Q?9Ctax9ivQrT3nBSIt6z9b2URS0pxa2DEJ1mePHu+gKLobc+xrOq2LltdT4eo?=
- =?us-ascii?Q?7QDVIjyAEaOVPjkosubFjE60FZjYarX0UUzgAg/ERXKyg9XjdssurSow+zV5?=
- =?us-ascii?Q?DDZ2SxaAJYk/NWpKvQ0yCq7An3bd6b3iHJVL1og1xE7mKrQtAq8bnqpd3Dxi?=
- =?us-ascii?Q?1rtPNywd9CrIk3wPtURJs/0bcM5Nh6hKsUIECMEIoLqQYY83m3QdxgzKvIuV?=
- =?us-ascii?Q?YLSGyOpvQM3cWN8rdZw+pIFnMGnQUGpPL9bRqdBACN4p/oEA0r2026uk6pfI?=
- =?us-ascii?Q?eAZLrrCZcyJc5zheH6i/cBk5gcm6TFYb/Zu2GWUFGmhuHIUYPHpsAlkv1wB7?=
- =?us-ascii?Q?ikf/ks5IBzkC9/gJvuDylOfeDMhg160d5T4uNMnXm8ktRvl9CxgDg9rHTibG?=
- =?us-ascii?Q?FQxCZz1Bx4cq5A7dsR2d+9spywXeJZkz4KNdasPTh3BCw6bI3a42BZaDeIgx?=
- =?us-ascii?Q?DG/jHwZNI+cl96Rd6eyDqkZ1wdtXS45508+yiMvI5FMaqoksVOSeZsV3g7FC?=
- =?us-ascii?Q?b+nVCvwCw5F+TMI9J4z4fZQry0kKWR44gVmTz4T3gsIYsF8ltVNli6KQWPhW?=
- =?us-ascii?Q?CV+mHbh5LIWCumucQlmVFwiBHaGxQXGptWPN2z4mOsX/08DZd012c+8pGBCo?=
- =?us-ascii?Q?ihEekMz/cNu1W57d2jyoiNXW01ASYwQqgFavlqqY6nwEm3JSkPW5kGtkBc0o?=
- =?us-ascii?Q?lASYmzj2V3en/N1OYCtT/GGcQ2S3B2UUdkEb?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 19:55:26.9970
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fb43138a-a590-47e3-49c8-08dd8cd7f27f
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001F5.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7248
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 06/13] media: rockchip: add a driver for the rockchip
+ camera interface
+To: Mehdi Djait <mehdi.djait@linux.intel.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
+ Gerald Loacker <gerald.loacker@wolfvision.net>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Collabora Kernel Team <kernel@collabora.com>,
+ Paul Kocialkowski <paulk@sys-base.io>,
+ Alexander Shiyan <eagle.alexander923@gmail.com>,
+ Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ Michael Riesch <michael.riesch@wolfvision.net>,
+ Mehdi Djait <mehdi.djait@bootlin.com>
+References: <20240220-rk3568-vicap-v6-0-d2f5fbee1551@collabora.com>
+ <20240220-rk3568-vicap-v6-6-d2f5fbee1551@collabora.com>
+ <fx5zweayuzo2vcov7i5d6itlizw4bwmr3wwbd4m6mdjsiou5zb@osl3u2ijv3uj>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <fx5zweayuzo2vcov7i5d6itlizw4bwmr3wwbd4m6mdjsiou5zb@osl3u2ijv3uj>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_125536_413928_7FD9BBC6 
-X-CRM114-Status: GOOD (  18.73  )
+X-CRM114-CacheID: sfid-20250506_133304_184662_2109A54F 
+X-CRM114-Status: GOOD (  39.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,30 +96,351 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 09:58:47AM -0300, Jason Gunthorpe wrote:
-> On Mon, May 05, 2025 at 07:53:44PM -0700, Nicolin Chen wrote:
-> > On Mon, May 05, 2025 at 02:08:07PM -0300, Jason Gunthorpe wrote:
-> > > On Wed, Apr 30, 2025 at 12:58:47AM -0700, Nicolin Chen wrote:
-> > > The bus numbers can be reassigned at any time on the fly by the guest
-> > > by reprogramming the PCI hierarchy.
-> > 
-> > Yes. If we take some aggressive use case into account, where its
-> > BDF number could change multiple times, I think it's natural for
-> > VMM to simply destroy the previous vDEVICE and allocate a new one
-> > with a new BDF number, right?
+Hi Mehdi,
+
+Thanks for your review!
+
+On 5/6/25 12:37, Mehdi Djait wrote:
+> Hi Michael,
 > 
-> We should not destroy the vdevice for something like that. In a CC
-> case that would unplug it from the VM which is not right.
+> Thank you for the patch!
+> 
+> Is it possible to sent the v4l2-compliance output in the next version ?
+> 
+> On Wed, Apr 30, 2025 at 11:15:55AM +0200, Michael Riesch via B4 Relay wrote:
+>> From: Michael Riesch <michael.riesch@wolfvision.net>
+>>
+> 
+> SNIP
+> 
+>> +irqreturn_t rkcif_dvp_isr(int irq, void *ctx)
+>> +{
+>> +	struct device *dev = ctx;
+>> +	struct rkcif_device *rkcif = dev_get_drvdata(dev);
+>> +	struct rkcif_stream *stream;
+>> +	u32 intstat, lastline, lastpix, cif_frmst;
+>> +	irqreturn_t ret = IRQ_NONE;
+>> +
+>> +	if (!rkcif->match_data->dvp)
+>> +		return ret;
+>> +
+>> +	intstat = cif_dvp_read(rkcif, RKCIF_DVP_INTSTAT);
+>> +	cif_frmst = cif_dvp_read(rkcif, RKCIF_DVP_FRAME_STATUS);
+>> +	lastline = RKCIF_FETCH_Y(cif_dvp_read(rkcif, RKCIF_DVP_LAST_LINE));
+>> +	lastpix = RKCIF_FETCH_Y(cif_dvp_read(rkcif, RKCIF_DVP_LAST_PIX));
+>> +
+>> +	if (intstat & RKCIF_INTSTAT_FRAME_END) {
+>> +		cif_dvp_write(rkcif, RKCIF_DVP_INTSTAT,
+>> +			      RKCIF_INTSTAT_FRAME_END_CLR |
+>> +				      RKCIF_INTSTAT_LINE_END_CLR);
+>> +
+>> +		stream = &rkcif->interfaces[RKCIF_DVP].streams[RKCIF_ID0];
+>> +
+>> +		if (stream->stopping) {
+>> +			cif_dvp_stop_streaming(stream);
+>> +			wake_up(&stream->wq_stopped);
+>> +			return IRQ_HANDLED;
+>> +		}
+>> +
+>> +		if (lastline != stream->pix.height) {
+>> +			v4l2_err(&rkcif->v4l2_dev,
+>> +				 "bad frame, irq:%#x frmst:%#x size:%dx%d\n",
+>> +				 intstat, cif_frmst, lastpix, lastline);
+>> +
+>> +			cif_dvp_reset_stream(rkcif);
+>> +		}
+>> +
+>> +		rkcif_stream_pingpong(stream);
+>> +
+>> +		ret = IRQ_HANDLED;
+> 
+> just return IRQ_HANDLED like above ?
 
-CC needs BDF to allocate a VDEV in the CC world. So, it cannot
-allocate a VDEV with BDF=0 firstly, which is what Alex reported.
+I think I'll go along Bryan's suggestion to make it more consistent.
 
-And even for a normal case that the device is migrating between
-PCI buses, CC might not be able to update the BDF (which can be
-a part of CC_VDEV_ALLOC instruction), even if iommufd supports
-an update ioctl. So, the underlying handler for an update ioctl
-is still to first destroy the VDEV and re-allocate a new one?
+> 
+>> +	}
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +int rkcif_dvp_register(struct rkcif_device *rkcif)
+>> +{
+>> +	struct rkcif_interface *interface;
+>> +	int ret, i;
+>> +
+>> +	if (!rkcif->match_data->dvp)
+>> +		return 0;
+>> +
+>> +	interface = &rkcif->interfaces[RKCIF_DVP];
+>> +	interface->index = RKCIF_DVP;
+>> +	interface->type = RKCIF_IF_DVP;
+>> +	interface->in_fmts = rkcif->match_data->dvp->in_fmts;
+>> +	interface->in_fmts_num = rkcif->match_data->dvp->in_fmts_num;
+>> +	interface->set_crop = rkcif_dvp_set_crop;
+>> +	ret = rkcif_interface_register(rkcif, interface);
+>> +	if (ret)
+>> +		return 0;
+> 		|
+> 		+-> Copy-paste error ?
 
-Thanks
-Nicolin
+Hm. It's not a mistake. But maybe it is a bit misleading.
+
+The point here is that if something fails with registering the DVP, the
+driver may continue to register other entities, such as the MIPI capture
+thing.
+
+I'll have another look over this mechanism and will try to make it more
+comprehensible.
+
+> 
+>> +
+>> +	if (rkcif->match_data->dvp->setup)
+>> +		rkcif->match_data->dvp->setup(rkcif);
+>> +
+>> +	interface->streams_num = rkcif->match_data->dvp->has_ids ? 4 : 1;
+>> +	for (i = 0; i < interface->streams_num; i++) {
+>> +		struct rkcif_stream *stream = &interface->streams[i];
+>> +
+>> +		stream->id = i;
+>> +		stream->interface = interface;
+>> +		stream->out_fmts = rkcif->match_data->dvp->out_fmts;
+>> +		stream->out_fmts_num = rkcif->match_data->dvp->out_fmts_num;
+>> +		stream->queue_buffer = cif_dvp_queue_buffer;
+>> +		stream->start_streaming = cif_dvp_start_streaming;
+>> +		stream->stop_streaming = cif_dvp_stop_streaming;
+>> +
+>> +		ret = rkcif_stream_register(rkcif, stream);
+>> +		if (ret)
+>> +			goto err_streams_unregister;
+>> +	}
+>> +	return 0;
+>> +
+>> +err_streams_unregister:
+>> +	for (; i >= 0; i--)
+>> +		rkcif_stream_unregister(&interface->streams[i]);
+>> +	rkcif_interface_unregister(interface);
+>> +
+>> +	return ret;
+>> +}
+>> +
+> 
+> SNIP
+> 
+>> +static inline struct rkcif_buffer *to_rkcif_buffer(struct vb2_v4l2_buffer *vb)
+>> +{
+>> +	return container_of(vb, struct rkcif_buffer, vb);
+>> +}
+>> +
+>> +static inline struct rkcif_stream *to_rkcif_stream(struct video_device *vdev)
+>> +{
+>> +	return container_of(vdev, struct rkcif_stream, vdev);
+>> +}
+>> +
+>> +static struct rkcif_buffer *rkcif_stream_pop_buffer(struct rkcif_stream *stream)
+>> +{
+>> +	struct rkcif_buffer *buffer = NULL;
+>> +	unsigned long lock_flags;
+>> +
+>> +	spin_lock_irqsave(&stream->driver_queue_lock, lock_flags);
+> 
+> guard(spinlock_irqsave)(&stream->driver_queue_lock) will simplify this function.
+
+I'll guard up these methods in v7.
+
+> 
+>> +
+>> +	if (list_empty(&stream->driver_queue))
+>> +		goto err_empty;
+>> +
+>> +	buffer = list_first_entry(&stream->driver_queue, struct rkcif_buffer,
+>> +				  queue);
+>> +	list_del(&buffer->queue);
+>> +
+>> +err_empty:
+>> +	spin_unlock_irqrestore(&stream->driver_queue_lock, lock_flags);
+>> +	return buffer;
+>> +}
+>> +
+>> +static void rkcif_stream_push_buffer(struct rkcif_stream *stream,
+>> +				     struct rkcif_buffer *buffer)
+>> +{
+>> +	unsigned long lock_flags;
+>> +
+>> +	spin_lock_irqsave(&stream->driver_queue_lock, lock_flags);
+>> +	list_add_tail(&buffer->queue, &stream->driver_queue);
+>> +	spin_unlock_irqrestore(&stream->driver_queue_lock, lock_flags);
+>> +}
+>> +
+>> +static inline void rkcif_stream_return_buffer(struct rkcif_buffer *buffer,
+>> +					      enum vb2_buffer_state state)
+>> +{
+>> +	struct vb2_v4l2_buffer *vb = &buffer->vb;
+>> +
+>> +	vb2_buffer_done(&vb->vb2_buf, state);
+>> +}
+>> +
+>> +static void rkcif_stream_complete_buffer(struct rkcif_stream *stream,
+>> +					 struct rkcif_buffer *buffer)
+>> +{
+>> +	struct vb2_v4l2_buffer *vb = &buffer->vb;
+>> +
+>> +	vb->vb2_buf.timestamp = ktime_get_ns();
+>> +	vb->sequence = stream->frame_idx;
+>> +	vb2_buffer_done(&vb->vb2_buf, VB2_BUF_STATE_DONE);
+>> +	stream->frame_idx++;
+>> +}
+>> +
+>> +void rkcif_stream_pingpong(struct rkcif_stream *stream)
+>> +{
+>> +	struct rkcif_buffer *buffer;
+>> +
+>> +	buffer = stream->buffers[stream->frame_phase];
+>> +	if (!buffer->is_dummy)
+>> +		rkcif_stream_complete_buffer(stream, buffer);
+> 
+> You can actually keep this frame dropping mechanism without using the
+> dummy buffer.
+> 
+> You can set a drop flag to TRUE: keep overwriting the buffer you already have
+> without returning it to user-space until you can get another buffer, set
+> the flag again to FALSE and resume returning the buffers to user-space.
+
+The approach you describe is what the downstream driver does and I am
+not really happy with it. A perfectly fine frame is sacrificed in a
+buffer starvation situation.
+
+The approach in the patch series at hand follows the example in the
+rkisp1 driver, which should be a good reference.
+
+>> +
+>> +	buffer = rkcif_stream_pop_buffer(stream);
+>> +	if (buffer) {
+>> +		stream->buffers[stream->frame_phase] = buffer;
+>> +		stream->buffers[stream->frame_phase]->is_dummy = false;
+>> +	} else {
+>> +		stream->buffers[stream->frame_phase] = &stream->dummy.buffer;
+>> +		stream->buffers[stream->frame_phase]->is_dummy = true;
+>> +		dev_warn(stream->rkcif->dev,
+>> +			 "no buffer available, frame will be dropped\n");
+> 
+> This warning can quickly flood the kernel logs if the user-space is too slow in
+> enqueuing the buffers.
+
+True. dev_warn_ratelimited(...)?
+
+> 
+>> +	}
+>> +
+>> +	if (stream->queue_buffer)
+>> +		stream->queue_buffer(stream, stream->frame_phase);
+> 
+> is this if statement really needed ?
+
+I find it good practice to check the callbacks before calling them. But
+this is a matter of taste, of course.
+
+> 
+>> +
+>> +	stream->frame_phase = 1 - stream->frame_phase;
+>> +}
+>> +
+>> +static int rkcif_stream_init_buffers(struct rkcif_stream *stream)
+>> +{
+>> +	struct v4l2_pix_format_mplane *pix = &stream->pix;
+>> +	int i;
+>> +
+>> +	stream->buffers[0] = rkcif_stream_pop_buffer(stream);
+>> +	if (!stream->buffers[0])
+>> +		goto err_buff_0;
+>> +
+>> +	stream->buffers[1] = rkcif_stream_pop_buffer(stream);
+>> +	if (!stream->buffers[1])
+>> +		goto err_buff_1;
+>> +
+>> +	if (stream->queue_buffer) {
+>> +		stream->queue_buffer(stream, 0);
+>> +		stream->queue_buffer(stream, 1);
+>> +	}
+>> +
+>> +	stream->dummy.size = pix->num_planes * pix->plane_fmt[0].sizeimage;
+>> +	stream->dummy.vaddr =
+>> +		dma_alloc_attrs(stream->rkcif->dev, stream->dummy.size,
+>> +				&stream->dummy.buffer.buff_addr[0], GFP_KERNEL,
+>> +				DMA_ATTR_NO_KERNEL_MAPPING);
+>> +	if (!stream->dummy.vaddr)
+>> +		goto err_dummy;
+>> +
+>> +	for (i = 1; i < pix->num_planes; i++)
+>> +		stream->dummy.buffer.buff_addr[i] =
+>> +			stream->dummy.buffer.buff_addr[i - 1] +
+>> +			pix->plane_fmt[i - 1].bytesperline * pix->height;
+>> +
+>> +	return 0;
+>> +
+>> +err_dummy:
+>> +	rkcif_stream_return_buffer(stream->buffers[1], VB2_BUF_STATE_QUEUED);
+>> +	stream->buffers[1] = NULL;
+>> +
+>> +err_buff_1:
+>> +	rkcif_stream_return_buffer(stream->buffers[0], VB2_BUF_STATE_QUEUED);
+>> +	stream->buffers[0] = NULL;
+>> +err_buff_0:
+>> +	return -EINVAL;
+>> +}
+>> +
+> 
+> SNIP
+> 
+>> +static int rkcif_stream_init_vb2_queue(struct vb2_queue *q,
+>> +				       struct rkcif_stream *stream)
+>> +{
+>> +	q->type = V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
+>> +	q->io_modes = VB2_MMAP | VB2_DMABUF;
+>> +	q->drv_priv = stream;
+>> +	q->ops = &rkcif_stream_vb2_ops;
+>> +	q->mem_ops = &vb2_dma_contig_memops;
+>> +	q->buf_struct_size = sizeof(struct rkcif_buffer);
+>> +	q->min_queued_buffers = CIF_REQ_BUFS_MIN;
+> 
+> If I recall correctly min_queued_buffers should be the strict minimum
+> number of buffers you need to start streaming. So in this case it should
+> be 3 = 2 pingpong buffers + 1 dummy buffer.
+
+The dummy buffer is allocated separately and does not need to be
+accounted for.
+
+Two pingpong buffers is what the hardware can queue, but in practice, to
+start (and, above all, keep on) streaming you'll need more.
+
+> VIDIOC_REQBUFS will allocate min_queued_buffers + 1 and user-space will
+> probably allocate even more anyway.
+
+Is that so? I found that user space relies too much on this minimum
+buffer count and experienced several buffer starvation situations
+because kernel AND user space were to cheap in terms of buffer count.
+Maybe 8 is too many, but in practice four buffers are required at least
+for a decent 2160p stream (one ready for DMA write, one ongoing DMA
+write, one stable for processing (maybe DRM scanout or whatever the
+application is), one spare).
+
+I am open to suggestions but please keep real life situations in mind
+and move away from theoretical stand-alone-capture-hw setups.
+
+Thanks and best regards,
+Michael
+
+
+> 
+>> +	q->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_MONOTONIC;
+>> +	q->lock = &stream->vlock;
+>> +	q->dev = stream->rkcif->dev;
+>> +
+>> +	return vb2_queue_init(q);
+>> +}
+> 
+> --
+> Kind Regards
+> Mehdi Djait
+
 
