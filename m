@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11E32C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 12:14:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B92C5C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 12:16:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kZbHMEYmoB2XsE06m8WKH/EpVifmWorGtJm3oOhlpQ0=; b=tMH6hJzDk1wyF57KFZ7mTLu6GU
-	1dohC5GnK5X5QIje+I0sQkdVqQtnR8bC27hWIxvh59XaWUgyi7pxD/2lVbsv9l0oNgGG7Vkx+iQdr
-	qUU8JZ9rnxAvp7AvaYCswBw7bUd3xh2gbqSGghePRxSinn1N7nlL4AyErUThD+LnFyTf2atU4ooY3
-	0rvyxE4ZSh8BgwNp0LZVOrnIq9RGeYBb8C1UId/rmG2ucQNWwUZLf0HmH2ipWgqRSkGx49VF9WSK7
-	k+J1C1y7GHtTcJl9JpdJIpQIpl0v4AUBzlhZQ1Cll/gjUu3Et3p1VuFd+iH8Eu7s/pkX4JOPJp7Gh
-	PVN9L6cA==;
+	bh=C3FaoFU14PW+rNOhnwf0Pi5TYAewyK6FE1yGwFuCRzA=; b=BH2rJ+KR2wcKs8Hoqp+RLWuONK
+	CTqW5NEJkpgs4kH8nN0Izr4c9Ih14JAXqUKPSluXjuLEwqjDztqpNARwpzXYpzreKJh9GUf2xWfYc
+	akalkT3vHICeRp8cqjHKO3Q9FTHjz9LK2HEJts8+CgIfNrp8hpc7INJpxDy5T6ecvU0k7Wqi+REE/
+	RP7Scx2tWrx5oLeOd71uLeJvW99zrII4ggvXb02N7KNwUkf0bunkn3KCiJJsaLkpbNWQ4kXmnvKhb
+	OmdRyxmTDqYfRaFR5+HFhQHATGytlNT/jMW1jtjml2LQSR98a435NXh/cvY0FfIQtY6DTPUakGpy7
+	zSVHQ7mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCHC1-0000000Brxo-3mgx;
-	Tue, 06 May 2025 12:14:37 +0000
+	id 1uCHDv-0000000BsDF-2ZzU;
+	Tue, 06 May 2025 12:16:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCFIp-0000000BX4l-3wJw
+	id 1uCFJI-0000000BXBW-1bVA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 10:13:33 +0000
+	Tue, 06 May 2025 10:14:01 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC07C113E;
-	Tue,  6 May 2025 03:13:21 -0700 (PDT)
-Received: from [10.57.93.118] (unknown [10.57.93.118])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 921833F5A1;
-	Tue,  6 May 2025 03:13:28 -0700 (PDT)
-Message-ID: <5bc7e8a4-c79b-4977-a6a3-720381d13794@arm.com>
-Date: Tue, 6 May 2025 11:13:26 +0100
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 04E80113E;
+	Tue,  6 May 2025 03:13:50 -0700 (PDT)
+Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 528053F5A1;
+	Tue,  6 May 2025 03:13:57 -0700 (PDT)
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org,
+	Cristian Marussi <cristian.marussi@arm.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	quic_sibis@quicinc.com,
+	dan.carpenter@linaro.org,
+	maz@kernel.org,
+	johan@kernel.org
+Subject: Re: [PATCH v3 0/3] Introduce SCMI Quirks framework
+Date: Tue,  6 May 2025 11:13:51 +0100
+Message-Id: <174652639726.3776516.14512391795874302742.b4-ty@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250429141108.406045-1-cristian.marussi@arm.com>
+References: <20250429141108.406045-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64/cpufeature: annotate arm64_use_ng_mappings with
- ro_after_init to prevent wrong idmap generation
-Content-Language: en-GB
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, will@kernel.org,
- nathan@kernel.org, nick.desaulniers+lkml@gmail.com, morbo@google.com,
- justinstitt@google.com, broonie@kernel.org, maz@kernel.org,
- oliver.upton@linux.dev, joey.gouly@arm.com,
- shameerali.kolothum.thodi@huawei.com, james.morse@arm.com,
- hardevsinh.palaniya@siliconsignals.io, ardb@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- llvm@lists.linux.dev, stable@vger.kernel.org
-References: <20250502180412.3774883-1-yeoreum.yun@arm.com>
- <174626735218.2189871.10298017577558632540.b4-ty@arm.com>
- <aBYkGJmfWDZHBEzp@arm.com> <aBZ7P3/dUfSjB0oV@e129823.arm.com>
- <aBkL-zUpbg7_gCEp@arm.com> <aBnDqvY5c6a3qQ4H@e129823.arm.com>
- <fbfded61-cfe2-4416-9098-ef39ef3e2b62@arm.com>
- <aBnOJS6TZxlZiYQ/@e129823.arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <aBnOJS6TZxlZiYQ/@e129823.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_031332_071985_9CD64060 
-X-CRM114-Status: GOOD (  24.76  )
+X-CRM114-CacheID: sfid-20250506_031400_460284_6870FAB1 
+X-CRM114-Status: UNSURE (   7.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,123 +75,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/05/2025 09:53, Yeoreum Yun wrote:
-> Hi Ryan,
+On Tue, 29 Apr 2025 15:11:05 +0100, Cristian Marussi wrote:
+> with the increasing adoption of SCMI across arm64 ecosystems, we have to
+> start considering how to deal and take care of out-of-spec SCMI firmware
+> platforms that are actively deployed in the wild, in a consistent manner.
 > 
->> On 06/05/2025 09:09, Yeoreum Yun wrote:
->>> Hi Catalin,
->>>
->>>> On Sat, May 03, 2025 at 09:23:27PM +0100, Yeoreum Yun wrote:
->>>>> Hi Catalin,
->>>>>
->>>>>> On Sat, May 03, 2025 at 11:16:12AM +0100, Catalin Marinas wrote:
->>>>>>> On Fri, 02 May 2025 19:04:12 +0100, Yeoreum Yun wrote:
->>>>>>>> create_init_idmap() could be called before .bss section initialization
->>>>>>>> which is done in early_map_kernel().
->>>>>>>> Therefore, data/test_prot could be set incorrectly by PTE_MAYBE_NG macro.
->>>>>>>>
->>>>>>>> PTE_MAYBE_NG macro set NG bit according to value of "arm64_use_ng_mappings".
->>>>>>>> and this variable places in .bss section.
->>>>>>>>
->>>>>>>> [...]
->>>>>>>
->>>>>>> Applied to arm64 (for-next/fixes), with some slight tweaking of the
->>>>>>> comment, thanks!
->>>>>>>
->>>>>>> [1/1] arm64/cpufeature: annotate arm64_use_ng_mappings with ro_after_init to prevent wrong idmap generation
->>>>>>>       https://git.kernel.org/arm64/c/12657bcd1835
->>>>>>
->>>>>> I'm going to drop this for now. The kernel compiled with a clang 19.1.5
->>>>>> version I have around (Debian sid) fails to boot, gets stuck early on:
->>>>>>
->>>>>> $ clang --version
->>>>>> Debian clang version 19.1.5 (1)
->>>>>> Target: aarch64-unknown-linux-gnu
->>>>>> Thread model: posix
->>>>>> InstalledDir: /usr/lib/llvm-19/bin
->>>>>>
->>>>>> I didn't have time to investigate, disassemble etc. I'll have a look
->>>>>> next week.
->>>>>
->>>>> Just for your information.
->>>>> When I see the debian package, clang 19.1.5-1 doesn't supply anymore:
->>>>>  - https://ftp.debian.org/debian/pool/main/l/llvm-toolchain-19/
->>>>>
->>>>> and the default version for sid is below:
->>>>>
->>>>> $ clang-19 --version
->>>>> Debian clang version 19.1.7 (3)
->>>>> Target: aarch64-unknown-linux-gnu
->>>>> Thread model: posix
->>>>> InstalledDir: /usr/lib/llvm-19/bin
->>>>>
->>>>> When I tested with above version with arm64-linux's for-next/fixes
->>>>> including this patch. it works well.
->>>>
->>>> It doesn't seem to be toolchain related. It fails with gcc as well from
->>>> Debian stable but you'd need some older CPU (even if emulated, e.g.
->>>> qemu). It fails with Cortex-A72 (guest on Raspberry Pi 4) but not
->>>> Neoverse-N2. Also changing the annotation from __ro_after_init to
->>>> __read_mostly also works.
->>
->> I think this is likely because __ro_after_init is also "ro before init" - i.e.
->> if you try to write to it in the PI code an exception is generated due to it
->> being mapped RO. Looks like early_map_kernel() is writiing to it.
->>
->> I've noticed a similar problem in the past and it would be nice to fix it so
->> that PI code maps __ro_after_init RW.
->>
+> This small series introduces a simple framework, based on static_keys,
+> that allows a user to:
 > 
-> Personally, I don't believe this because the create_init_idmap()
-> maps the the .rodata section with PAGE_KERNEL pgprot
-> from __initdata_begin to _end.
+> [...]
 
-But __ro_after_init is in the ".data..ro_after_init" section, which is in the
-.rodata section. That's mapped PAGE_KERNEL_ROX as Ard says.
+Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
 
-> 
-> and at the mark_readonly() the pgprot is changed to PAGE_KERNEL_RO
-> But, arm64_use_ng_mappings is accessed with write before mark_readonly()
-> only via smp_cpus_done().
-> 
-> JFYI here is map information:
-> 
-> // mark_readlonly() changes to ro perm below ranges:
-> ffff800081b30000 g       .rodata	0000000000000000 __start_rodata
-> ffff800082560000 g       .rodata.text	0000000000000000 __init_begin
-> 
-> // create_init_idmap() maps below range with PAGE_KERNEL.
-> ffff8000826d0000 g       .altinstructions	0000000000000000 __initdata_begin
-> ffff800082eb0000 g       .bss	0000000000000000 _end
-> 
-> ffff8000824596d0 g     O .rodata	0000000000000001 arm64_use_ng_mappings
-> 
-> Thanks.
-> 
-> 
->> Thanks,
->> Ryan
->>
->>>
->>> Thanks to let me know. But still I've failed to reproduce this
->>> on Cortex-a72 and any older cpu on qeum.
->>> If you don't mind, would you share your Kconfig?
->>>
->>>> I haven't debugged it yet but I wonder whether something wants to write
->>>> this variable after it was made read-only (well, I couldn't find any by
->>>> grep'ing the code, so it needs some step-by-step debugging).
->>>>
->>> [...]
->>>
->>> Thanks!
->>>
->>> --
->>> Sincerely,
->>> Yeoreum Yun
->>
-> 
-> --
-> Sincerely,
-> Yeoreum Yun
+[1/3] firmware: arm_scmi: Ensure that the message-id supports fastchannel
+      https://git.kernel.org/sudeep.holla/c/94a263f981a3
+[2/3] firmware: arm_scmi: Add Quirks framework
+      https://git.kernel.org/sudeep.holla/c/487c407d57d6
+[3/3] firmware: arm_scmi: quirk: Fix CLOCK_DESCRIBE_RATES triplet
+      https://git.kernel.org/sudeep.holla/c/7b487beab7cd
+--
+Regards,
+Sudeep
 
 
