@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE45C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 06:18:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5991C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 06:20:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rJOn37yRDbTPe5b/0F9se2Ztdw3k1VMDaIj9PshkTME=; b=kHvy6QqIqjMSUbIpb+SqSOMaSn
-	aI9akJsuzcqtwlz7KSgA6dYLizx50PX+FygdhW4nAFqm41sFQqG90xiJFIcUAuWsTji6AKddJ2NYZ
-	SqWYq8OCrxP+2Kv3kWd1MndB1sLCdvGlUSpqqTnMTwmerP8vLXLUsw2rFJGTfsI540PvmYmTahqEJ
-	1rPa8tqR15935FKIWrSrh5bwe2xwwXOBB3BglMErIuM7ni5f68555f/v8EKiM9SxzPXQX0As23/tz
-	MQn6OySe9nP5Zgag2jmTeCaGPIXQ5kc8pCGcyA2yakzBUb+TxXpwPcAr7oPIBtlgF8Km2iOM/60i7
-	BoR4oj9Q==;
+	bh=FK9XnUrCtZQeTWZ9YMNn/I/qg2zjs0hWiSjFdXFm63Q=; b=DRO3v3Vq+OQp7ti49IeS7VDGIF
+	Dcd2+fxQGl8gcc/vtJ496tX+Kwysxth+yx8KFQyS8O76BEstm+Kk6fiSYfgvAWRBj0FfnWfKpAHiO
+	FHb7gNfT7fB6uWddPSxhkWQg7PGGS9Gqo9+N3QxNQSMWCmq+9c3KaT4AUxAQOuSSHAdo7b5atO0U7
+	y0bVowaa4oljFNOkklGtDcPckciykiFTns3kt3DRXW1SZBCcRL2yTFFYpEKGv4k2gUsvxOGsjBEvh
+	fsmJKJNesJoFPm9D6Uz9T5hoTXFBybOrP2WUFNpiyhpjqj9szb4yXpTVY1t9uiDG4rg4ayoTxCZc9
+	f1DVemLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCBco-0000000AdWL-26lk;
-	Tue, 06 May 2025 06:17:54 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uCBek-0000000Adyl-12ff;
+	Tue, 06 May 2025 06:19:54 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCAIZ-0000000AIzf-13Pz
+	id 1uCAIZ-0000000AIzN-3MOf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 04:52:56 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5464qaXZ432003
+	Tue, 06 May 2025 04:52:57 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5464qeZ11133658
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 5 May 2025 23:52:36 -0500
+	Mon, 5 May 2025 23:52:41 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746507156;
-	bh=rJOn37yRDbTPe5b/0F9se2Ztdw3k1VMDaIj9PshkTME=;
+	s=ti-com-17Q1; t=1746507161;
+	bh=FK9XnUrCtZQeTWZ9YMNn/I/qg2zjs0hWiSjFdXFm63Q=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=B9mQhQE5BO9YvihGpNsZEaWcp5OxQS1mYV1296/wdxkheMyWVS8mLtlUGeYKHDRkZ
-	 jGDXKE9QcN2gxtyfMzEHRGKbIvJ1qMQdItpnljQf2VSr5BnHkF4Y2W5CbQbRaSw7ev
-	 Nw3NBS4x5UWDILdYwWoW6sE4Yu4cf9YDBn/TKD6c=
-Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5464qaGa100682
+	b=x1ttBAGu4Ei/HaBNkXcLYwkpFopFkx2nv642DjG3/dKGFrpmKYfvmuV9cZqDKUDrs
+	 5cOeC+f2DVFTIqFK2UPgu6Y/2RiecwxzVDvHYtSxLhxFUVMc65zmxPMwT8ySRP2RVb
+	 fO8QwowWAqC1VkRbl493Ifa2TbYUomZ1VX7Xlekg=
+Received: from DFLE106.ent.ti.com (dfle106.ent.ti.com [10.64.6.27])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5464qesV050167
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 5 May 2025 23:52:36 -0500
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+	Mon, 5 May 2025 23:52:40 -0500
+Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 5
- May 2025 23:52:35 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ May 2025 23:52:40 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 5 May 2025 23:52:35 -0500
+ Frontend Transport; Mon, 5 May 2025 23:52:40 -0500
 Received: from ws.dhcp.ti.com (ws.dhcp.ti.com [10.24.69.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5464qPcU069139;
-	Mon, 5 May 2025 23:52:31 -0500
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5464qPcV069139;
+	Mon, 5 May 2025 23:52:36 -0500
 From: Rishikesh Donadkar <r-donadkar@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>
 CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
@@ -61,9 +61,9 @@ CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <jai.luthra@ideasonboard.com>, <linux-arm-kernel@lists.infradead.org>,
         <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <r-donadkar@ti.com>
-Subject: [PATCH 1/2] arm64: dts: ti: k3-am625-beagleplay: Add required voltage supplies for OV5640
-Date: Tue, 6 May 2025 10:22:24 +0530
-Message-ID: <20250506045225.1246873-2-r-donadkar@ti.com>
+Subject: [PATCH 2/2] arm64: dts: ti: k3-am625-beagleplay: Add required voltage supplies for TEVI-OV5640
+Date: Tue, 6 May 2025 10:22:25 +0530
+Message-ID: <20250506045225.1246873-3-r-donadkar@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250506045225.1246873-1-r-donadkar@ti.com>
 References: <20250506045225.1246873-1-r-donadkar@ti.com>
@@ -72,7 +72,7 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_215255_385018_14C93938 
+X-CRM114-CacheID: sfid-20250505_215255_930363_D8FD5C35 
 X-CRM114-Status: UNSURE (   9.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -89,27 +89,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The device tree overlay for OV5640 requires following voltage
+The device tree overlay for TEVI-OV5640 requires following voltage
 supplies:
 
 AVDD-supply: Analog voltage supply, 2.8 volts
 DOVDD-supply: Digital I/O voltage supply, 1.8 volts
-DVDD-supply: Digital core voltage supply, 1.5 volts
+DVDD-supply: Digital core voltage supply, 3.3 volts
 
 Add them in the overlay.
 
 Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
 ---
- .../ti/k3-am625-beagleplay-csi2-ov5640.dtso   | 31 +++++++++++++++++++
+ .../k3-am625-beagleplay-csi2-tevi-ov5640.dtso | 31 +++++++++++++++++++
  1 file changed, 31 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am625-beagleplay-csi2-ov5640.dtso b/arch/arm64/boot/dts/ti/k3-am625-beagleplay-csi2-ov5640.dtso
-index 3b4643b7d19c9..000305c9e3662 100644
---- a/arch/arm64/boot/dts/ti/k3-am625-beagleplay-csi2-ov5640.dtso
-+++ b/arch/arm64/boot/dts/ti/k3-am625-beagleplay-csi2-ov5640.dtso
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-beagleplay-csi2-tevi-ov5640.dtso b/arch/arm64/boot/dts/ti/k3-am625-beagleplay-csi2-tevi-ov5640.dtso
+index 81a2763d43c65..8a7a9ece08af6 100644
+--- a/arch/arm64/boot/dts/ti/k3-am625-beagleplay-csi2-tevi-ov5640.dtso
++++ b/arch/arm64/boot/dts/ti/k3-am625-beagleplay-csi2-tevi-ov5640.dtso
 @@ -15,6 +15,33 @@ clk_ov5640_fixed: ov5640-xclk {
  		#clock-cells = <0>;
- 		clock-frequency = <12000000>;
+ 		clock-frequency = <24000000>;
  	};
 +
 +	reg_2p8v: regulator-2p8v {
@@ -130,11 +130,11 @@ index 3b4643b7d19c9..000305c9e3662 100644
 +		regulator-always-on;
 +	};
 +
-+	reg_1p5v: regulator-1p5v {
++	reg_3p3v: regulator-3p3v {
 +		compatible = "regulator-fixed";
-+		regulator-name = "1P5V";
-+		regulator-min-microvolt = <1500000>;
-+		regulator-max-microvolt = <1500000>;
++		regulator-name = "3P3V";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
 +		vin-supply = <&vdd_3v3>;
 +		regulator-always-on;
 +	};
@@ -147,7 +147,7 @@ index 3b4643b7d19c9..000305c9e3662 100644
  
 +		AVDD-supply = <&reg_2p8v>;
 +		DOVDD-supply = <&reg_1p8v>;
-+		DVDD-supply = <&reg_1p5v>;
++		DVDD-supply = <&reg_3p3v>;
 +
  		port {
  			csi2_cam0: endpoint {
