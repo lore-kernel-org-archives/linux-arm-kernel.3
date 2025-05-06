@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A103C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 18:46:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 139CCC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 18:48:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=93D2qQVC/l5SgzdbvRL1HJFhFlr5BIFz0mpe9T2J2J4=; b=hiGbH1Dh/s/VLW3PyWkV4pV32g
-	ye8IW+H9f/n9FHdQqpX+dgTPaaK5re+8uxMy+QT6dYyMIOhldnMWz0MNfchF8Ctt+Cv7NChnZCRtH
-	lO3CoF7Chnuo9ox+y8PkqzQ43zfp6IREBdufEt9fvBQIsgZ7y5NZyRLTIoNsibPf3xXiovom3sexv
-	2b6vGFh8mowNP7IFouvWvAG5kmMT00WqfdK+jsIipdtn3BmfPqTUdNg3H7LU/ZJ13D2K0/YlZxeYa
-	S5T7dm+KZt72O7jo4hDhtDQlrpnIt36hRWbNp9StKVB9MewWUTBClDfE/AtoLxBmVrCIuGL66K+DS
-	JhDFHnPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bQqLQovPURlogwQaxmtA36avWPpHjeihXkbRVzxAkBU=; b=MB/f5uoogAzrA+dcVgZm5e4zMV
+	/BPC0rZ28biLculEyg8/TM+QB6olkeQ3I+6WwWJVINdti+iaqraIPmGBnHTwuScCEY2hZl3qKnjhI
+	z76TkZef8xTCUs3WM8w5f3CJP28lWWHIMA+mefdow3CrYENYYPKbl/teCEpTj5ofIS9+5Lsglblvy
+	R1WZ4IPLiMr7uU73yUIORG9/8HEfyvEldwQPSy3YaVe17ZDhLNmqNvGQXMu7OSUFB2rYxNVXdC21w
+	Jnw+tgN6cdrTHCR8qvT5wwZfPA92jiSWcu2heYW/rKcDs4IGJ/p+vBH15+gbHTQEMQjY6tkdyUhIK
+	jXlB2XYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCNIe-0000000D9Fn-3w6n;
-	Tue, 06 May 2025 18:45:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCJfR-0000000COl1-1WV7
+	id 1uCNKa-0000000D9NG-2pqq;
+	Tue, 06 May 2025 18:47:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCJfo-0000000COuD-3DVg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 14:53:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8887D339;
-	Tue,  6 May 2025 07:52:56 -0700 (PDT)
-Received: from [10.1.29.178] (XHFQ2J9959.cambridge.arm.com [10.1.29.178])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E80603F58B;
-	Tue,  6 May 2025 07:53:00 -0700 (PDT)
-Message-ID: <78fec33d-fe66-4352-be11-900f456c9af3@arm.com>
-Date: Tue, 6 May 2025 15:52:59 +0100
+	Tue, 06 May 2025 14:53:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EB822615F2;
+	Tue,  6 May 2025 14:53:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55D1AC4CEE4;
+	Tue,  6 May 2025 14:53:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746543210;
+	bh=mlHA7oTENsJhkBEE9KRVlu9szOgOr4t+vxxALv3XDvw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fG3F/80PyNXqPQAIHuUmfOxwo+KV7sFiP01r2zWkIdAfSWR9DxkeJEJmrTQHZDJpV
+	 8+kz8AF/iMG1dCY6nio+8ziCbFpytdvNiSrbgeGez7+1KiCOW0fs6uSkMUxzpsFfBS
+	 gqR6FiUsaFOgZaWx+l4Drydtcm+TkwghRjcXhciegpLrcrF11m3Y3AGn0s5LA06YV0
+	 XCeNvl1DQQD9V/oWCsK8GigyGdtLyN5avNJs92JfQuhZUWossF8cQMA6Yfkh43Opim
+	 R3sSmM2Vz4buzMxmeVeQGlYcc+Nxx3i+iXkpTsG+radUofEaj8YTyf5G6W5oqyFJ8I
+	 4ExAyIfVeY3Gg==
+Date: Tue, 6 May 2025 15:53:25 +0100
+From: Will Deacon <will@kernel.org>
+To: Connor Abbott <cwabbott0@gmail.com>
+Cc: Rob Clark <robdclark@gmail.com>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Abhinav Kumar <quic_abhinavk@quicinc.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	freedreno@lists.freedesktop.org
+Subject: Re: [PATCH v5 3/5] iommu/arm-smmu: Fix spurious interrupts with
+ stall-on-fault
+Message-ID: <20250506145324.GA1246@willie-the-truck>
+References: <20250319-msm-gpu-fault-fixes-next-v5-0-97561209dd8c@gmail.com>
+ <20250319-msm-gpu-fault-fixes-next-v5-3-97561209dd8c@gmail.com>
+ <20250506122449.GB723@willie-the-truck>
+ <CACu1E7FA0M_0Un3qPRNtqy4R_NbaMks6FSkpQZBuyqJpuT-p7w@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH v6 1/3] arm64: Add BBM Level 2 cpu feature
-Content-Language: en-GB
-To: Will Deacon <will@kernel.org>,
- =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>
-Cc: suzuki.poulose@arm.com, yang@os.amperecomputing.com, corbet@lwn.net,
- catalin.marinas@arm.com, jean-philippe@linaro.org, robin.murphy@arm.com,
- joro@8bytes.org, akpm@linux-foundation.org, paulmck@kernel.org,
- mark.rutland@arm.com, joey.gouly@arm.com, maz@kernel.org,
- james.morse@arm.com, broonie@kernel.org, oliver.upton@linux.dev,
- baohua@kernel.org, david@redhat.com, ioworker0@gmail.com, jgg@ziepe.ca,
- nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com,
- smostafa@google.com, kevin.tian@intel.com, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev
-References: <20250428153514.55772-2-miko.lenczewski@arm.com>
- <20250428153514.55772-4-miko.lenczewski@arm.com>
- <20250506142508.GB1197@willie-the-truck>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250506142508.GB1197@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_075309_496069_5A7E889A 
-X-CRM114-Status: GOOD (  35.08  )
+In-Reply-To: <CACu1E7FA0M_0Un3qPRNtqy4R_NbaMks6FSkpQZBuyqJpuT-p7w@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,166 +81,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/05/2025 15:25, Will Deacon wrote:
-> On Mon, Apr 28, 2025 at 03:35:14PM +0000, Mikołaj Lenczewski wrote:
->> The Break-Before-Make cpu feature supports multiple levels (levels 0-2),
->> and this commit adds a dedicated BBML2 cpufeature to test against
->> support for, as well as a kernel commandline parameter to optionally
->> disable BBML2 altogether.
->>
->> This is a system feature as we might have a big.LITTLE architecture
->> where some cores support BBML2 and some don't, but we want all cores to
->> be available and BBM to default to level 0 (as opposed to having cores
->> without BBML2 not coming online).
->>
->> To support BBML2 in as wide a range of contexts as we can, we want not
->> only the architectural guarantees that BBML2 makes, but additionally
->> want BBML2 to not create TLB conflict aborts. Not causing aborts avoids
->> us having to prove that no recursive faults can be induced in any path
->> that uses BBML2, allowing its use for arbitrary kernel mappings.
->> Support detection of such CPUs.
->>
->> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
->> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
->> ---
->>  .../admin-guide/kernel-parameters.txt         |  3 +
->>  arch/arm64/Kconfig                            | 19 +++++
->>  arch/arm64/include/asm/cpucaps.h              |  2 +
->>  arch/arm64/include/asm/cpufeature.h           |  5 ++
->>  arch/arm64/kernel/cpufeature.c                | 71 +++++++++++++++++++
->>  arch/arm64/kernel/pi/idreg-override.c         |  2 +
->>  arch/arm64/tools/cpucaps                      |  1 +
->>  7 files changed, 103 insertions(+)
->>
->> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
->> index d9fd26b95b34..2749c67a4f07 100644
->> --- a/Documentation/admin-guide/kernel-parameters.txt
->> +++ b/Documentation/admin-guide/kernel-parameters.txt
->> @@ -449,6 +449,9 @@
->>  	arm64.no32bit_el0 [ARM64] Unconditionally disable the execution of
->>  			32 bit applications.
->>  
->> +	arm64.nobbml2	[ARM64] Unconditionally disable Break-Before-Make Level
->> +			2 support
+On Tue, May 06, 2025 at 10:08:05AM -0400, Connor Abbott wrote:
+> On Tue, May 6, 2025 at 8:24 AM Will Deacon <will@kernel.org> wrote:
+> > On Wed, Mar 19, 2025 at 10:44:02AM -0400, Connor Abbott wrote:
+> > > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> > > index c7b5d7c093e71050d29a834c8d33125e96b04d81..9927f3431a2eab913750e6079edc6393d1938c98 100644
+> > > --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> > > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> > > @@ -470,13 +470,52 @@ static irqreturn_t arm_smmu_context_fault(int irq, void *dev)
+> > >       if (!(cfi->fsr & ARM_SMMU_CB_FSR_FAULT))
+> > >               return IRQ_NONE;
+> > >
+> > > +     /*
+> > > +      * On some implementations FSR.SS asserts a context fault
+> > > +      * interrupt. We do not want this behavior, because resolving the
+> > > +      * original context fault typically requires operations that cannot be
+> > > +      * performed in IRQ context but leaving the stall unacknowledged will
+> > > +      * immediately lead to another spurious interrupt as FSR.SS is still
+> > > +      * set. Work around this by disabling interrupts for this context bank.
+> > > +      * It's expected that interrupts are re-enabled after resuming the
+> > > +      * translation.
+> >
+> > s/translation/transaction/
+> >
+> > > +      *
+> > > +      * We have to do this before report_iommu_fault() so that we don't
+> > > +      * leave interrupts disabled in case the downstream user decides the
+> > > +      * fault can be resolved inside its fault handler.
+> > > +      *
+> > > +      * There is a possible race if there are multiple context banks sharing
+> > > +      * the same interrupt and both signal an interrupt in between writing
+> > > +      * RESUME and SCTLR. We could disable interrupts here before we
+> > > +      * re-enable them in the resume handler, leaving interrupts enabled.
+> > > +      * Lock the write to serialize it with the resume handler.
+> > > +      */
+> >
+> > I'm struggling to understand this last part. If the resume handler runs
+> > synchronously from report_iommu_fault(), then there's no need for
+> > locking because we're in interrupt context. If the resume handler can
+> > run asynchronously from report_iommu_fault(), then the locking doesn't
+> > help because the code below could clear CFIE right after the resume
+> > handler has set it.
 > 
-> Hmm, I'm not sure we really want this. It opens up the door for folks to
-> pass 'id_aa64mmfr2.bbm=2' without updating the allow-list which feels
-> like it's going to make crashes harder to reason about.
+> The problem is indeed when the resume handler runs asynchronously.
+> Clearing CFIE right after the resume handler has set it is normal and
+> expected. The issue is the opposite, i.e. something like:
 > 
-> Is there a compelling reason to add this right now?
-
-I don't think there is a *compelling* reason. This came about from Suzuki's
-feedback at [1]. He was keen to have a mechanism to disable BBML2 in case issues
-were found.
-
-But simpler is usually better; I'd be ok with removing.
-
-[1] https://lore.kernel.org/all/0ac0f1f5-e4a0-46ae-8ea0-2eba7e21a7e1@arm.com/
-
+> - Resume handler writes RESUME and stalls for some reason
+> - The interrupt handler runs through and clears CFIE while it's already cleared
+> - Resume handler sets CFIE, assuming that the handler hasn't run yet
+> but it actually has
 > 
->>  	arm64.nobti	[ARM64] Unconditionally disable Branch Target
->>  			Identification support
->>  
->> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
->> index a182295e6f08..613b4925ca06 100644
->> --- a/arch/arm64/Kconfig
->> +++ b/arch/arm64/Kconfig
->> @@ -2070,6 +2070,25 @@ config ARM64_TLB_RANGE
->>  	  The feature introduces new assembly instructions, and they were
->>  	  support when binutils >= 2.30.
->>  
->> +config ARM64_BBML2_NOABORT
->> +	bool "Enable support for Break-Before-Make Level 2 detection and usage"
->> +	default y
-> 
-> I don't think we need a new Kconfig option for this. It's a
-> kernel-internal detail and I'd prefer not to fragment the testing base.
+> This wouldn't happen with only one context bank, because we wouldn't
+> get an interrupt until the resume handler sets CFIE, but with multiple
+> context banks and a shared interrupt line we could get a "spurious"
+> interrupt due to a fault in an earlier context bank that becomes not
+> spurious if the resume handler writes RESUME before the context fault
+> handler for this bank reads FSR above.
 
-Fair enough. This originated based on a similar argument to above. Let's just
-remove then.
+Ah, gotcha. Thanks for the explanation.
 
-> 
->> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->> index 9c4d6d552b25..7a85a1bdc6e9 100644
->> --- a/arch/arm64/kernel/cpufeature.c
->> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -2200,6 +2200,70 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
->>  	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
->>  }
->>  
->> +static bool cpu_has_bbml2_noabort(unsigned int cpu_midr)
->> +{
->> +	/*
->> +	 * We want to allow usage of bbml2 in as wide a range of kernel contexts
->> +	 * as possible. This list is therefore an allow-list of known-good
->> +	 * implementations that both support bbml2 and additionally, fulfill the
->> +	 * extra constraint of never generating TLB conflict aborts when using
->> +	 * the relaxed bbml2 semantics (such aborts make use of bbml2 in certain
->> +	 * kernel contexts difficult to prove safe against recursive aborts).
->> +	 *
->> +	 * Note that implementations can only be considered "known-good" if their
->> +	 * implementors attest to the fact that the implementation never raises
->> +	 * TLBI conflict aborts for bbml2 mapping granularity changes.
->> +	 */
->> +	static const struct midr_range supports_bbml2_noabort_list[] = {
->> +		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
->> +		MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
->> +		{}
->> +	};
->> +
->> +	return is_midr_in_range_list(cpu_midr, supports_bbml2_noabort_list);
-> 
-> This doesn't compile against latest mainline as is_midr_in_range_list()
-> no longer takes the midr.
+If we moved the RESUME+CFIE into the interrupt handler after the call
+to report_iommu_fault(), would it be possible to run the handler as a
+threaded irq (see 'context_fault_needs_threaded_irq') and handle the
+callback synchronously? In that case, I think we could avoid taking the
+lock if we wrote CFIE _before_ RESUME.
 
-Will ask Miko to fix.
-
-> 
->> +static bool has_bbml2_noabort(const struct arm64_cpu_capabilities *caps, int scope)
->> +{
->> +	if (!IS_ENABLED(CONFIG_ARM64_BBML2_NOABORT))
->> +		return false;
->> +
->> +	if (scope & SCOPE_SYSTEM) {
->> +		int cpu;
->> +
->> +		/*
->> +		 * We are a boot CPU, and must verify that all enumerated boot
->> +		 * CPUs have MIDR values within our allowlist. Otherwise, we do
->> +		 * not allow the BBML2 feature to avoid potential faults when
->> +		 * the insufficient CPUs access memory regions using BBML2
->> +		 * semantics.
->> +		 */
->> +		for_each_online_cpu(cpu) {
->> +			if (!cpu_has_bbml2_noabort(cpu_read_midr(cpu)))
->> +				return false;
->> +		}
-> 
-> This penalises large homogeneous systems and it feels unnecessary given
-> that we have the ability to check this per-CPU. Can you use
-> ARM64_CPUCAP_BOOT_CPU_FEATURE instead of ARM64_CPUCAP_SYSTEM_FEATURE
-> to solve this?
-
-We are trying to solve for the case where the boot CPU has BBML2 but a secondary
-CPU doesn't. (e.g. hetrogeneous system where boot CPU is big and secondary is
-little and does not advertise the feature. I can't remember if we proved there
-are real systems with this config - I have vague recollection that we did but my
-memory is poor...).
-
-My understanding is that for ARM64_CPUCAP_BOOT_CPU_FEATURE, "If the boot CPU
-has enabled this feature already, then every late CPU must have it". So that
-would exclude any secondary CPUs without BBML2 from coming online?
-
-Suzuki guided us towards this solution.
-
-How do you see this working with ARM64_CPUCAP_BOOT_CPU_FEATURE? Or do you just
-think that all systems will always be homogeneous with respect to FEAT_BBM?
-
-Thanks,
-Ryan
-
-> 
-> Will
-
+Will
 
