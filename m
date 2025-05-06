@@ -4,88 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABAF3C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 17:50:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56ABDC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 17:52:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eMambQHHu9+TC3RPEGjqmbblfLTvr1IrSGG4pLfvj0w=; b=0esjLoppnYRbn4xaXrCIw/Qr9U
-	RQvX9FgiRXs9Odrz6VJZDLVKPMGabwrcfHS6H1yxxIjrLNmrOzJ13qR8YmlnOSNWMz0pnCGsPgHJ7
-	A+h9QTdISI3zT8rCMZRu7Jff9L1V/ysiR+TNghF0jAZn9d8G2/5d7D6xeDwCxMKwb0766jCTHp0GI
-	H7lT6J01dfwYHBqE1eQJXuT71XFBH7Q62KbpJ11VEMVdOtP4/xlhf7F+wcCnl30gYEEng82CVnFBT
-	I8II7dexzyGq3s7BIxySjiOxj19eYUiJtwcS09W12eMMPg4BhYib0qibpCZXrK5AZynYACRoDMX6v
-	amkyGvMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eQL56Q7NqYtCiE5fpYsCErKs3Ur7H1CmXSF/PcymfN8=; b=RtObT7RY52VBe+BrLj46YziJfB
+	vuNs55uMNTc88pka4Gey0a8xTqaPpn8GfN81HiAIHE6hAAo+5rdxWPIChYbqf5Cgom0i5Qt+Jwt88
+	lzIe9FGNxQDsCe9HKsHLS07SvyTJ/cB0PWP6P5B0+wZMNmrXU9ddt0QTzB4oxZKvj31EUd2xLJiHO
+	od7ZWiFTO+wzwBkA2Sm3rUgJoamybj9O/E8ZHtNpibRvx5PoxGyQP2/sdPOLOOO/asdNqHjMOKjtv
+	mWH3k6jnswXtNs1iZhlhMiHM1CghjUcL0BNO2XQHD/e5xPhsAleBUY8zbEM9zU6Mu1zfNiidB3Ao9
+	XadPjkPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCMRL-0000000Cu13-1cqN;
-	Tue, 06 May 2025 17:50:47 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1uCMTI-0000000CuNB-3VTr;
+	Tue, 06 May 2025 17:52:48 +0000
+Received: from mail-vi1eur03on2060e.outbound.protection.outlook.com ([2a01:111:f403:260c::60e] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCIy1-0000000CG4A-3u8S
+	id 1uCJ5p-0000000CHVq-1zxJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 14:08:19 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-b1276984386so776366a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 07:08:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746540497; x=1747145297; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eMambQHHu9+TC3RPEGjqmbblfLTvr1IrSGG4pLfvj0w=;
-        b=fbs43LklWXNUTdof+vNHBNs4nuPWI3i5xDtSqS1VpW8DBwx8mzCE/ntIMfZpMddoVf
-         wSj9zo2LVwkqPFFwJO/vFR75r/tMmeU2MQejye7SqL5R8/ij4EO0bZoTS1P6RTPldI46
-         EysCOPaI3TpT6y0Xl/sM40eUvT0zFsj0CxwnB1NN7rSMifbtDOUfg66nAv7Ry6t6KRvf
-         trwMTnsbh8LM0y8i//oLmRMCFl3m64U22+OQC/yS41QZMUlwcfEw44HKetXRKYTBUR1t
-         jfsmUhjy1mXj1Qzo9++affV3RhxnTJliR6KnxShLHwqB1I4n7I0ojvjGW1HEhn9WaiRs
-         Mw9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746540497; x=1747145297;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=eMambQHHu9+TC3RPEGjqmbblfLTvr1IrSGG4pLfvj0w=;
-        b=o3gbwoIS9E+BNVlq/rImG8vtRPoujPHZRsK55C/zrgnsUx+BpwzbQuxvZGwRN1Nrpy
-         XN+GdkR58faN0xhFXC0oGBg90EFiPSdp+sEctXtWLp/2CkuXXuOWi7ez0JpligDswyZI
-         dn6gKLPIaoW8MpvBY940aOCoYVlOcwQothTtbb2F7zVVOKGe5nKDXrN2cVVPudrvyvEv
-         eqzhnGqBJwovEFKHkmg2syWWWGtVFli5bJ24D8jKrwIj2EQra4fiubv8lQVgS3a8U0uF
-         Iy4wegDzG7dxzhZB+vtanBUrBDiFGqtXYxY/0aSuxTyf6FmRCHDyBm+Fgrw9zAH2q696
-         4MBA==
-X-Forwarded-Encrypted: i=1; AJvYcCUeAx2UJJplRiHz2KIKJwZCmbJB9OCXABujnOJXv8mmRzQ0VJxRBxD3rol+F6RJ2lQlA4BUyfHFdVcIHThVajm7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1HrMBC1S/sQ3w1XQJX7m01jYz4Y6b96I++deao3QWiW+YHrXM
-	PQkpSw7HrWIxd9kXBRPT3ps0n9oo6OuqEhBQCKBCmECkpEiE2646VIvUt9ccVh4y0arn+9oglP/
-	AYL6rReoejpsxBPXwBCRj8olVE70=
-X-Gm-Gg: ASbGnctoC+i9jAvqxmSaoFw2uopXY5jF0aTkwD9gH4hMm16vn8dC58tgMl1Ci26Mz9w
-	5QwUS5z6hbZbSpTF1NaZcO4Y52VKL7MCRqWn2GTg235cIvsbvMinX4ZeIIiEAq/GWf4cmHC4JFy
-	TH5tMEo9FAamgN++OpNI66Ow==
-X-Google-Smtp-Source: AGHT+IF23nCrJaH3Mng+oDEHNLDP6N6PfnCkKREry5Wzy8HtvIefEq1olFphNquoaJEf3Hy0gX7xlzc7Wvr6z2YpGbI=
-X-Received: by 2002:a17:903:41c2:b0:224:88c:9253 with SMTP id
- d9443c01a7336-22e102f3293mr93572875ad.6.1746540496500; Tue, 06 May 2025
- 07:08:16 -0700 (PDT)
+	Tue, 06 May 2025 14:16:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vtnrv2Tg4hYixmF2BwX7N4oxtB8J/RcN1EeyFE5+22u447UNuP4hqp2+l03TsavsdPHRupW0g40OUGYFqovhOHo7IhhKA0kcG9r4ItuTFME+/q33XrV9bzIXT1eVSoRDhqA4+8lhbE/8FvU9noA+GsGqY07Z0uJFyT7PIOB9rcvNhmzM+9arU3tFUHL/O8c7c1y1EmssK0fLbCSCUSoaz05TW4HQp4BtNFS7NAcuH359KC+AaMocGqPwvX0bKOoM/TO8xv8WrO7HRS2NYF/GEVcJ2chCRovEc9h0T4HJNynOtAmkt2PfpP/8aOpWeWcBhnj/1wos7ex4HNXiIyNnuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eQL56Q7NqYtCiE5fpYsCErKs3Ur7H1CmXSF/PcymfN8=;
+ b=Wz+fQBmWT/M25ASUL29dbvw4H98GdKosRksBNoTGdBfIkGt4UtKej5nXY52IuxGo7HSVaDxOs1Z2gfytLs5iCnsc7b3xHLk5mn0Eyls+6ebQ7d3D7+UeawSrZDL3hcI7H9yDcqKzYAq3cgR8VQqSqLHnN4M3llt0Zp5qJoINYLpCiEctQf+AzxJnjrLutk5ikiY1u2wzustm4PmiWWGzznVvz/b6Yej7WM3dm6OT1FzCDDyFpL7GDNy+/8+lz7BGBC9yuIQYw7/n/H6D22g/Cjx/nzNPXmpY5wLr3U7b695p9nrkVNRv0/T5dnESfMiuhDnVXvZOveOhiDxT/m190Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eQL56Q7NqYtCiE5fpYsCErKs3Ur7H1CmXSF/PcymfN8=;
+ b=DPSfZHO/Vf8UiaJCxRTv6IBKOUwcRkCTLZaLWhYZT1X2WenYoEodJaaCFwtFgfk9B9m/J60LdfcLhP5Y6lpJgNFw3Mtf8ZJZNc5ayWjJxI/lKHIXjgiAZHlkJSlGJau0AJEt1Zd0sHwyG1IJRaxrYVWJK7OUX+0qfsWfMwBq7LLfk+VWg1sHVbtqMb5H2mkbWiDJ6hHzyzGERVbIwVT2OkU4NaFPnEXuPIF+TZ/C3b5YW1xQ6wD9CsZWC1BrBkEfQt4LvZ1BNOd0k6vQYE6t+2IKx00BWcDlBg3h/H8MQZuq1W+uGn1t3ORzr23aNlp71jwneCNaJVqAF5/4iL7c2w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8868.eurprd04.prod.outlook.com (2603:10a6:20b:42f::6)
+ by PAXPR04MB8653.eurprd04.prod.outlook.com (2603:10a6:102:21c::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Tue, 6 May
+ 2025 14:16:16 +0000
+Received: from AS8PR04MB8868.eurprd04.prod.outlook.com
+ ([fe80::b317:9c26:147f:c06e]) by AS8PR04MB8868.eurprd04.prod.outlook.com
+ ([fe80::b317:9c26:147f:c06e%3]) with mapi id 15.20.8699.026; Tue, 6 May 2025
+ 14:16:16 +0000
+Date: Tue, 6 May 2025 17:16:13 +0300
+From: Ioana Ciornei <ioana.ciornei@nxp.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/6] dt-bindings: mfd: add bindings for QIXIS CPLD
+Message-ID: <miuxxgv73fmsl5plcoso73dk6bnuwgmlydzupnb7fcz6ub72ra@dro4cqbn67jt>
+References: <20250430153634.2971736-1-ioana.ciornei@nxp.com>
+ <20250430153634.2971736-2-ioana.ciornei@nxp.com>
+ <20250502-meticulous-bulky-wildebeest-c1a8b6@kuoka>
+ <wna3loahthqbn5hnw2pbt3yznmzzv3zppi7f2nblvq3t22jdc2@7cse4r4p6q5z>
+ <959b56f0-ff63-485b-86eb-96ae32bdeb88@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <959b56f0-ff63-485b-86eb-96ae32bdeb88@kernel.org>
+X-ClientProxiedBy: AS4P251CA0017.EURP251.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d3::6) To AS8PR04MB8868.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42f::6)
 MIME-Version: 1.0
-References: <20250319-msm-gpu-fault-fixes-next-v5-0-97561209dd8c@gmail.com>
- <20250319-msm-gpu-fault-fixes-next-v5-3-97561209dd8c@gmail.com> <20250506122449.GB723@willie-the-truck>
-In-Reply-To: <20250506122449.GB723@willie-the-truck>
-From: Connor Abbott <cwabbott0@gmail.com>
-Date: Tue, 6 May 2025 10:08:05 -0400
-X-Gm-Features: ATxdqUGXywpmRh-T8ACY0CkrWhxLattxcHrjANwJCwaesOG_LtpOol-JucgftpU
-Message-ID: <CACu1E7FA0M_0Un3qPRNtqy4R_NbaMks6FSkpQZBuyqJpuT-p7w@mail.gmail.com>
-Subject: Re: [PATCH v5 3/5] iommu/arm-smmu: Fix spurious interrupts with stall-on-fault
-To: Will Deacon <will@kernel.org>
-Cc: Rob Clark <robdclark@gmail.com>, Robin Murphy <robin.murphy@arm.com>, 
-	Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, iommu@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	freedreno@lists.freedesktop.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8868:EE_|PAXPR04MB8653:EE_
+X-MS-Office365-Filtering-Correlation-Id: db4d3261-f0a8-4112-9aeb-08dd8ca89052
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4r+akctB0YG+gppSifajH4kRCOEgwQp1A5OzXNj9wgUsztfXca04eblsN/MA?=
+ =?us-ascii?Q?4NTkDn2s3E18XwxlyegEmNQU3HLGcsgovdKATdwY1izVinZWcbqxBn+zLTd8?=
+ =?us-ascii?Q?GL2VrfSOPjcmd4VhqBOl+4eLPsYGFUS8FRU84IUkIozIAsY1H+NiwnVtwV5L?=
+ =?us-ascii?Q?NRdjj+++xrdy6eG5cO+8+KdkEh67mjXSN4QwMZVPrdVyRKJ8Oyi07yaaCIkZ?=
+ =?us-ascii?Q?HGUX0piLKGjBnZnkuz697t1BtQWcLuv2F+vqeiB2LWsB8hkJknVKuMnk0plD?=
+ =?us-ascii?Q?0rQ2xq+GqoUeV0NwrElWeavbP0a3/a+Pn3jC85hof9imL/kJUdadW0bzZ4Fl?=
+ =?us-ascii?Q?vrVW0TRH1zlGoRrrGAoTgfX3wIJxKYhmAC+j+eK9YG8uD9WD1Zm7G9KMTUCC?=
+ =?us-ascii?Q?+v37RAkIqAuCrboMgJm/jE1tBj6FuM/GsgMgUDgnTRFKeqawxPG78I4e3Qmm?=
+ =?us-ascii?Q?+Q0EzSXAY2IADgqZFsHbxSDzg41kQXvncoJdDvxzjYm45m95u+FBwbFcd1Nb?=
+ =?us-ascii?Q?vwtdy03owDOID55NGRHLnXEsoI+m1JJXCwS/fc/h3q5Tl+rhubn8Vd3peqHs?=
+ =?us-ascii?Q?mj8RydWgr4M3I1RUle+I6eEKIYV5LqCwVepiTpx2/55HSQVdZd17Dj/89Ctd?=
+ =?us-ascii?Q?Gf7BkjFq8mnCEinygnXSPZNU/ixtXfaFT3eqRDkwAkkTuFv6cBWXjwx2kN5L?=
+ =?us-ascii?Q?Dci+YNiR+j5mfNe8fakGx1pYzYNEkB0iaOhuXGbLhtIsh62DaSKd0lfqwJHr?=
+ =?us-ascii?Q?pysUA0omgDoQXQ/XKWf2ipKmPBUKqbaumUie9d5bCd1SVgyZGdylWdP/yvpy?=
+ =?us-ascii?Q?9bNoRY35uMX7Gg09nbVyxddv6MD1qm+yMNNodxkIqLb3+XGODfka79kQ/vlY?=
+ =?us-ascii?Q?6TG8EDxZjnclku018UHAqOS6krtYcL0CrCXHJLeJXH49D+wRKNnGt4wuJxX2?=
+ =?us-ascii?Q?x1qBaideDU1S+goCoE68QgE79DXQYG61JIlgL4YBaT8F1zaOqzjKHoxVwNHF?=
+ =?us-ascii?Q?hT4s8KlRm63mVrn/hAVBYC2YNZJduTPKG7efBlrbMg4KiAdNCEf2SarFN+E1?=
+ =?us-ascii?Q?32HAtpmlW4hl6FSNLaep25XKKTr+Gv3iZrRJ8fPs+OVkVVo0/DUVKyx/B2PP?=
+ =?us-ascii?Q?2dNl8fJKt35hRG4M/KjFOcXDzJanTSRJ19TYtocCAlkJcsuWQLGi5ben4s/H?=
+ =?us-ascii?Q?xUEDTmCjQ8wykTrb+CzP7L1jDs1EFA0I4JjNo4IWnQHTvMuLL+KegWiTg7XK?=
+ =?us-ascii?Q?oZqpavtUTofcv8PiEi36vbnaT41KOZcql7XIbI4/ZgusL9fzCf60jmJjQgPA?=
+ =?us-ascii?Q?K/oE7Ay9UOkF8ZB8UQcbcvw/rXMApCdcTzBXnl9EvphKqkAOhg1rRU46bJ61?=
+ =?us-ascii?Q?ZpEWM1g=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8868.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?A76dbCj2WAOurbFl1SCF/IbCKXlaG7rIXyjDVXUloRj4Wmo28vFG1pu7kMo/?=
+ =?us-ascii?Q?tjPKlxojmnDn0MVee85v9FdVfmk1YQgsFWP2pwzHGSkL5ihrT+v02bWnjiok?=
+ =?us-ascii?Q?QQkTGC64DLjTaiw4LQ4cpaykVrpcaybE26dbFnIEfouxeEeo17vixr+W8jrp?=
+ =?us-ascii?Q?wMzIkudMpaceTDdlPj7M7DssndVHioFf0kjANXe/fvn+ZYRbsCwczlMDVlgO?=
+ =?us-ascii?Q?Th4UrWi9pPE1UZiz2BsLz3yjRUNEOZJYx2/536A0dgIqXwXnQxHdQTGlUcwQ?=
+ =?us-ascii?Q?jGss446+LmwDBVRIOJPcHwBqh9ot88vcVaElkgJ9rep99T5ebf/LtAjgjslw?=
+ =?us-ascii?Q?3TayululfNZLV0hEXq6V3g7H775ZlCmZiWdat3igMUMfGQ/NJVw7u9ndmGn9?=
+ =?us-ascii?Q?24DaBp4nV54OG4g3XR+JP+T0hlO/SOrgN94uSnzh6O0Y9WQ00nxuDj01yJMz?=
+ =?us-ascii?Q?e8KyYbGfnuWUJBb1vn4yC6ppjTG66fqT+OKsVXXqFTq11triV9TFC/Se5Mty?=
+ =?us-ascii?Q?vCBu2VDHkodpvNVIosgybR/7LBl9sR16LFJKbUNDf30HSONnRBC5yonQ979a?=
+ =?us-ascii?Q?jFnxxNeH9zEXZeHp5llvypbvH+8lPhlp4fPFx/8/5iblA3QuPebwoqz4dHN2?=
+ =?us-ascii?Q?6iSqcg+dD+6Pmo11kDTbVcDYF4IJI4DPFxxl4KqdzAjK3phiCbQ0ARV01YYW?=
+ =?us-ascii?Q?YsVDOfM2x1ayyBzOqVZkYhyNBqyShopnmjrf7BlHE04EaUf31651WO3Xhh0H?=
+ =?us-ascii?Q?IeNuxWX4zGdgtPVCQNaNF7viLzM0pBhWMa9srhWrIYjJlXfjRWhwGkLN3kAM?=
+ =?us-ascii?Q?k1QOnPAjc07kJjFZDq8bBjeYuTkUijuzSb6HzukXXNlhIFxjoEYbR88TPvv2?=
+ =?us-ascii?Q?lepG4qM53JMmS8QYcQA75XrC21FUIvV1H4GlAOkBr0n7zGRnlRs5TefkPO/A?=
+ =?us-ascii?Q?jN1Sr5EfU6BQSr+wEz/MF7zcJcM6aoTnRAbLT9l2/RwNjanPfErM26o2a2Ue?=
+ =?us-ascii?Q?0xGaFQiH+xlvMkUgdXIBrvL8XJnTwqwo03EGt1nb6qDRaL+O2TWapfOKWgks?=
+ =?us-ascii?Q?PJEvQMiu3J+AoqCnyODFIeFVyBg1QnnNY+x6FLLjLYk6Zj+6ac9/FTzSQTZB?=
+ =?us-ascii?Q?xxxy7tdog1cj+QpHUC+3ymutruO6SwFGyohOupL5k0banXx1lmf3FSQ4LIou?=
+ =?us-ascii?Q?+7DlpUWQjEwDerFOls/WecSA4ueQTlnGQ3cV8oCPGFJYFmv921U2I8qTXFtj?=
+ =?us-ascii?Q?Z9gdcM8SmJhE+DKPZYqViRn6GeGFInJhE4MFSCyU59va3SdN64aqKwTIPYaL?=
+ =?us-ascii?Q?GxrEgplcUndCY94a349QJAU7lTESDxAj/oLHta0giQOEcGERBBkGcSnxbEFl?=
+ =?us-ascii?Q?HQbFm3j+V5OzbHpoXV9xNGbJ5Y4jMY+kmhbv9ycexSctaFppu42A7rXF8pnA?=
+ =?us-ascii?Q?sZt/D3glxiEq5wac1wtqgiD3NIDZPd12XTF/slHl2J5YaDoQt/H+j5tPz9o2?=
+ =?us-ascii?Q?4qVeCHrfQfAjHKjne4H5w2fKXzYOBSuplY5jpPk0Sm2hYmHIbmGqwSf/5EsS?=
+ =?us-ascii?Q?OJKlsi+jp5x7Qn0ZQJID/R7h6sZ2ixkW6I5WU+Ji?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: db4d3261-f0a8-4112-9aeb-08dd8ca89052
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8868.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 14:16:16.1804
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UyHlslfba2hw5ZNzfMY6dE5wwc4evGygnGCkHl/hm8s6Dxuh7rqLa2eCtgBMMJJxkNnmqcboBsexj5GnxhQYYg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8653
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_070817_970627_16096E99 
-X-CRM114-Status: GOOD (  44.35  )
+X-CRM114-CacheID: sfid-20250506_071621_516639_40EB2E31 
+X-CRM114-Status: GOOD (  36.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,170 +160,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 6, 2025 at 8:24=E2=80=AFAM Will Deacon <will@kernel.org> wrote:
->
-> On Wed, Mar 19, 2025 at 10:44:02AM -0400, Connor Abbott wrote:
-> > On some SMMUv2 implementations, including MMU-500, SMMU_CBn_FSR.SS
-> > asserts an interrupt. The only way to clear that bit is to resume the
-> > transaction by writing SMMU_CBn_RESUME, but typically resuming the
-> > transaction requires complex operations (copying in pages, etc.) that
-> > can't be done in IRQ context. drm/msm already has a problem, because
-> > its fault handler sometimes schedules a job to dump the GPU state and
-> > doesn't resume translation until this is complete.
-> >
-> > Work around this by disabling context fault interrupts until after the
-> > transaction is resumed. Because other context banks can share an IRQ
-> > line, we may still get an interrupt intended for another context bank,
-> > but in this case only SMMU_CBn_FSR.SS will be asserted and we can skip
-> > it assuming that interrupts are disabled which is accomplished by
-> > removing the bit from ARM_SMMU_CB_FSR_FAULT. SMMU_CBn_FSR.SS won't be
-> > asserted unless an external user enabled stall-on-fault, and they are
-> > expected to resume the translation and re-enable interrupts.
-> >
-> > Signed-off-by: Connor Abbott <cwabbott0@gmail.com>
-> > Reviewed-by Robin Murphy <robin.murphy@arm.com>
-> > Reviewed-by: Rob Clark <robdclark@gmail.com>
-> > ---
-> >  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 15 ++++++++++-
-> >  drivers/iommu/arm/arm-smmu/arm-smmu.c      | 41 ++++++++++++++++++++++=
-+++++++-
-> >  drivers/iommu/arm/arm-smmu/arm-smmu.h      |  1 -
-> >  3 files changed, 54 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu=
-/arm/arm-smmu/arm-smmu-qcom.c
-> > index 186d6ad4fd1c990398df4dec53f4d58ada9e658c..a428e53add08d451fb2152e=
-3ab80e0fba936e214 100644
-> > --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> > @@ -90,12 +90,25 @@ static void qcom_adreno_smmu_resume_translation(con=
-st void *cookie, bool termina
-> >       struct arm_smmu_domain *smmu_domain =3D (void *)cookie;
-> >       struct arm_smmu_cfg *cfg =3D &smmu_domain->cfg;
-> >       struct arm_smmu_device *smmu =3D smmu_domain->smmu;
-> > -     u32 reg =3D 0;
-> > +     u32 reg =3D 0, sctlr;
-> > +     unsigned long flags;
-> >
-> >       if (terminate)
-> >               reg |=3D ARM_SMMU_RESUME_TERMINATE;
-> >
-> > +     spin_lock_irqsave(&smmu_domain->cb_lock, flags);
-> > +
-> >       arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_RESUME, reg);
-> > +
-> > +     /*
-> > +      * Re-enable interrupts after they were disabled by
-> > +      * arm_smmu_context_fault().
-> > +      */
-> > +     sctlr =3D arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_SCTLR);
-> > +     sctlr |=3D ARM_SMMU_SCTLR_CFIE;
-> > +     arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_SCTLR, sctlr);
-> > +
-> > +     spin_unlock_irqrestore(&smmu_domain->cb_lock, flags);
-> >  }
-> >
-> >  #define QCOM_ADRENO_SMMU_GPU_SID 0
-> > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/=
-arm-smmu/arm-smmu.c
-> > index c7b5d7c093e71050d29a834c8d33125e96b04d81..9927f3431a2eab913750e60=
-79edc6393d1938c98 100644
-> > --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> > @@ -470,13 +470,52 @@ static irqreturn_t arm_smmu_context_fault(int irq=
-, void *dev)
-> >       if (!(cfi->fsr & ARM_SMMU_CB_FSR_FAULT))
-> >               return IRQ_NONE;
-> >
-> > +     /*
-> > +      * On some implementations FSR.SS asserts a context fault
-> > +      * interrupt. We do not want this behavior, because resolving the
-> > +      * original context fault typically requires operations that cann=
-ot be
-> > +      * performed in IRQ context but leaving the stall unacknowledged =
-will
-> > +      * immediately lead to another spurious interrupt as FSR.SS is st=
-ill
-> > +      * set. Work around this by disabling interrupts for this context=
- bank.
-> > +      * It's expected that interrupts are re-enabled after resuming th=
-e
-> > +      * translation.
->
-> s/translation/transaction/
->
-> > +      *
-> > +      * We have to do this before report_iommu_fault() so that we don'=
-t
-> > +      * leave interrupts disabled in case the downstream user decides =
-the
-> > +      * fault can be resolved inside its fault handler.
-> > +      *
-> > +      * There is a possible race if there are multiple context banks s=
-haring
-> > +      * the same interrupt and both signal an interrupt in between wri=
-ting
-> > +      * RESUME and SCTLR. We could disable interrupts here before we
-> > +      * re-enable them in the resume handler, leaving interrupts enabl=
-ed.
-> > +      * Lock the write to serialize it with the resume handler.
-> > +      */
->
-> I'm struggling to understand this last part. If the resume handler runs
-> synchronously from report_iommu_fault(), then there's no need for
-> locking because we're in interrupt context. If the resume handler can
-> run asynchronously from report_iommu_fault(), then the locking doesn't
-> help because the code below could clear CFIE right after the resume
-> handler has set it.
+On Tue, May 06, 2025 at 04:05:46PM +0200, Krzysztof Kozlowski wrote:
+> On 06/05/2025 15:57, Ioana Ciornei wrote:
+> > On Fri, May 02, 2025 at 09:01:59AM +0200, Krzysztof Kozlowski wrote:
+> >> On Wed, Apr 30, 2025 at 06:36:29PM GMT, Ioana Ciornei wrote:
+> >>> This adds device tree bindings for the board management controller -
+> >>> QIXIS CPLD - found on some Layerscape based boards such as LX2160A-RDB,
+> >>> LX2160AQDS, LS1028AQDS etc.
+> >>>
+> >>> Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
+> >>> ---
+> >>>  .../bindings/mfd/fsl,qixis-i2c.yaml           | 65 +++++++++++++++++++
+> >>>  1 file changed, 65 insertions(+)
+> >>>  create mode 100644 Documentation/devicetree/bindings/mfd/fsl,qixis-i2c.yaml
+> >>>
+> >>> diff --git a/Documentation/devicetree/bindings/mfd/fsl,qixis-i2c.yaml b/Documentation/devicetree/bindings/mfd/fsl,qixis-i2c.yaml
+> >>> new file mode 100644
+> >>> index 000000000000..562878050916
+> >>> --- /dev/null
+> >>> +++ b/Documentation/devicetree/bindings/mfd/fsl,qixis-i2c.yaml
+> >>
+> >> Filename matching compatible.
+> > 
+> > How to choose one if there are multiple compatible strings?
+> 
+> The fallback or the oldest or the lowest number or whichever you prefer
+> as a base.
+> 
+> > 
+> >>
+> >>> @@ -0,0 +1,65 @@
+> >>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> >>> +%YAML 1.2
+> >>> +---
+> >>> +$id: http://devicetree.org/schemas/mfd/fsl,qixis-i2c.yaml
+> >>> +$schema: http://devicetree.org/meta-schemas/core.yaml
+> >>> +
+> >>> +title: NXP's QIXIS CPLD board management controller
+> >>> +
+> >>> +maintainers:
+> >>> +  - Ioana Ciornei <ioana.ciornei@nxp.com>
+> >>> +
+> >>> +description: |
+> >>> +  The board management controller found on some Layerscape boards contains
+> >>> +  different IP blocks like GPIO controllers, interrupt controllers, reg-muxes
+> >>> +  etc.
+> >>> +
+> >>> +properties:
+> >>> +  compatible:
+> >>> +    enum:
+> >>> +      - fsl,lx2160a-qds-qixis-i2c
+> >>> +      - fsl,lx2162a-qds-qixis-i2c
+> >>> +      - fsl,ls1028a-qds-qixis-i2c
+> >>
+> >> Keep alphabetical order.
+> >>
+> >> What is actual device name? I2C? Is this an I2C controller or device?
+> 
+> I assume you will then drop the redundant part.
 
-The problem is indeed when the resume handler runs asynchronously.
-Clearing CFIE right after the resume handler has set it is normal and
-expected. The issue is the opposite, i.e. something like:
+Ok, I will drop the i2c part. Are you ok with the below compatible
+strings?
 
-- Resume handler writes RESUME and stalls for some reason
-- The interrupt handler runs through and clears CFIE while it's already cle=
-ared
-- Resume handler sets CFIE, assuming that the handler hasn't run yet
-but it actually has
+	- fsl,lx2160a-qds-qixis-cpld
+	- fsl,lx2162a-qds-qixis-cpld
+	- fsl,ls1028a-qds-qixis-cpld
 
-This wouldn't happen with only one context bank, because we wouldn't
-get an interrupt until the resume handler sets CFIE, but with multiple
-context banks and a shared interrupt line we could get a "spurious"
-interrupt due to a fault in an earlier context bank that becomes not
-spurious if the resume handler writes RESUME before the context fault
-handler for this bank reads FSR above.
+> 
+> >>
+> >>> +
+> >>> +  reg:
+> >>> +    description:
+> >>> +      I2C device address.
+> >>
+> >> This says device, so i2c in compatible is wrong.
+> >>
+> >> Anyway drop description, redundant.
+> > 
+> > Ok, will drop.
+> > 
+> >>
+> >>
+> >>> +    maxItems: 1
+> >>> +
+> >>> +  "#address-cells":
+> >>> +    const: 1
+> >>
+> >> Why?
+> >>
+> >>> +
+> >>> +  "#size-cells":
+> >>> +    const: 0
+> >>
+> >> Why? Drop cells.
+> >>
+> > 
+> > See below.
+> > 
+> >>> +
+> >>> +  mux-controller:
+> >>> +    $ref: /schemas/mux/reg-mux.yaml#
+> >>> +
+> >>> +required:
+> >>> +  - "#address-cells"
+> >>> +  - "#size-cells"
+> >>> +  - compatible
+> >>> +  - reg
+> >>
+> >> Keep same order as in properties
+> > 
+> > Ok.
+> > 
+> >>
+> >>> +
+> >>> +additionalProperties: false
+> >>> +
+> >>> +examples:
+> >>> +  - |
+> >>> +    i2c {
+> >>> +        #address-cells = <1>;
+> >>> +        #size-cells = <0>;
+> >>> +
+> >>> +        qixis@66 {
+> >>
+> >> Node names should be generic. See also an explanation and list of
+> >> examples (not exhaustive) in DT specification:
+> >> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+> > 
+> > In this case, an accepted node name is 'cpld'?
+> 
+> If this is CPLD then yes.
 
-Connor
+Yes, it is. Thanks for the confirmation.
 
->
-> I think the broader problem is that we can end up reporting a spurious
-> fault when the irq is shared between context banks. However, your change
-> to ARM_SMMU_CB_FSR_FAULT fixes that afaict:
->
-> > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.h b/drivers/iommu/arm/=
-arm-smmu/arm-smmu.h
-> > index ff84ce3b8d8567d3402e945e8277ca2a87df9a4e..5fe8e482457f905529a08ae=
-a14ea5656d3e31328 100644
-> > --- a/drivers/iommu/arm/arm-smmu/arm-smmu.h
-> > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.h
-> > @@ -214,7 +214,6 @@ enum arm_smmu_cbar_type {
-> >                                        ARM_SMMU_CB_FSR_TLBLKF)
-> >
-> >  #define ARM_SMMU_CB_FSR_FAULT                (ARM_SMMU_CB_FSR_MULTI | =
-       \
-> > -                                      ARM_SMMU_CB_FSR_SS |           \
-> >                                        ARM_SMMU_CB_FSR_UUT |          \
-> >                                        ARM_SMMU_CB_FSR_EF |           \
-> >                                        ARM_SMMU_CB_FSR_PF |           \
->
-> because now any subsequent spurious IRQs will return IRQ_NONE. So I
-> don't see why we need the locking at all. What am I missing?
->
-> Also, I think your change probably exposes a benign bug in the qcom
-> debug code as qcom_tbu_halt() has the following:
->
-> if ((fsr & ARM_SMMU_CB_FSR_FAULT) && (fsr & ARM_SMMU_CB_FSR_SS))
->         ...
->
-> Will
+> 
+> > 
+> >>
+> >>> +            compatible = "fsl,lx2160a-qds-qixis-i2c";
+> >>> +            reg = <0x66>;
+> >>> +            #address-cells = <1>;
+> >>> +            #size-cells = <0>;
+> >>
+> >> So were do you use address/size cells?
+> >>
+> > 
+> > For example, fsl-ls1028a-qds.dts looks like this:
+> > 
+> > 	fpga@66 {
+> > 		compatible = "fsl,ls1028a-qds-qixis-i2c";
+> > 		reg = <0x66>;
+> > 		#address-cells = <1>;
+> > 		#size-cells = <0>;
+> > 
+> > 		mux: mux-controller@54 {
+> > 			compatible = "reg-mux";
+> > 			reg = <0x54>;
+> > 			#mux-control-cells = <1>;
+> > 			mux-reg-masks = <0x54 0xf0>; /* 0: reg 0x54, bits 7:4 */
+> > 		};
+> > 	};
+> > 
+> > Also, some boards have in their qixis CPLD gpio controllers and I am
+> > planning to add them as the next step.
+> 
+> And if you tested that DTS you would see that binding does not work
+> well... so my arguments stay valid - these properties in current binding
+> make no sense. However binding is just wrong, so maybe these properties
+> make sense after fixing the binding but then in both cases: current
+> stage is not correct.
+> 
+
+Yes, I agree that the current binding file is wrong. I even said this in
+one of my ealier replies to the bot which found the new DTB warnings.
+I will fix it in v2.
+
+Ioana
 
