@@ -4,75 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE138C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 11:51:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D65C5C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 11:53:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bJyJ7jyIeAMfkphkSNgQEG8wgYNfIHi+6aTP9xuWgv8=; b=XOc7mcXnkC2LVIRUUXr5n3Zm3B
-	gC53h9pcwQx4eUjrxxzvRVsQUmpBkM695wmjxdnysluOxaCO79rXpEZPTGrX4YIFfwvc7rS9gdkcR
-	xB0HdW3yMU7uKUqeGDPJrdFP4bWLGDc5P+Vpf23PR8PxU6F02NLlu9fg239fsubOlcFJi4/zTi8B8
-	skM3scZPCnDhld6lDlxwKaWeCfDnSJ153bSHeGUaZcmuClw4FdoP77mGqNTnn5uK5kpF5IlsWdV00
-	FARl15zf12hDM1UCn6V7U2Ct0qQdh9kVwaq9MlEX2tMGUsKPrDIcQ7FBZY17CNr3FdI/ZPWlxepUK
-	lmhldn0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O93la1WGyI+VnhBtkGgEAAHk/pmN1JFxqNXja/4wWOg=; b=rkgXrYdd3etXOUzif/1TvKbFJo
+	dgMTL7R13LSLOiOy/HEfXQcwJK4bNsCvnPIuhltg1/0iBvz/Ax/irSnGCI+X5S05tGxJ6vNX+M0KS
+	cDHlZYv2XeqkvuM9cIE2Vc45Q7wvyEcXXskr334/OImhgSSoCfNuymr04s+rcHRFWOviu0fK/js4E
+	JdCgx1MngNngAsXQqDJi0vgm/byrvjqlS3CWeqjf8PH+9giVL/++xfgvmwdPpc8W3dpzr7N3s0Tpc
+	ztKH5YW4ymhc5y1RIEOhA5QbRXt4yNjWSi2PxgZuRH+u5l7e4KJIJIEDhMnW7C0tLnLPVMIIW8yKH
+	UHpsDG4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCGp9-0000000BnqG-0xyD;
-	Tue, 06 May 2025 11:50:59 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCF9S-0000000BVN0-3W4e;
-	Tue, 06 May 2025 10:03:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1746525829;
-	bh=bJyJ7jyIeAMfkphkSNgQEG8wgYNfIHi+6aTP9xuWgv8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=EkpS9PDJ/Fh5iHdAM4qMNFDGXu/z7Y4zulpt9PekKugbvg3VZ8WDRGbRC0xh9cH0l
-	 q3YBP51512gdwfgnKnbqw1XTN9XeeI1zU1F6NNitqWHFrwzeAJDpbgxsTSep5PccBh
-	 PfPd2vWVkH749k/4LmdKmEdZqB6fefI5xFphAw9LzCxRvaQcSkeHXU6R7j2PGMHZUt
-	 En6duHN3Sl7zcS94fCuXe1/4ddC91gp5rC7lQ9ABa9CzSOpDVFJFeIqiNZVAaTEejf
-	 2ui1sci/X+Fisxkdz4DH751jEIBRLqcJDfgXtXkiGRFm5WDzfh2OxIAgAXegJiLqaP
-	 WKpnPFPKFzWCA==
-Received: from apertis-1.home (2a01cb0892f2D600c8F85cf092D4aF51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: jmassot)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2793117E088B;
-	Tue,  6 May 2025 12:03:48 +0200 (CEST)
-Message-ID: <2d3a8e55105526c999b490a2e92dd448c099faab.camel@collabora.com>
-Subject: Re: [PATCH 2/4] dt-bindings: iommu: mediatek: mt8195 Accept up to 5
- interrupts
-From: Julien Massot <julien.massot@collabora.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	kernel@collabora.com, Sen Chu <sen.chu@mediatek.com>, Sean Wang	
- <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones
-	 <lee@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
- <matthias.bgg@gmail.com>, =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado"	
- <nfraprado@collabora.com>, Hui Liu <hui.liu@mediatek.com>, Yong Wu	
- <yong.wu@mediatek.com>, Joerg Roedel <joro@8bytes.org>, Will Deacon	
- <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, Tinghan Shen	
- <tinghan.shen@mediatek.com>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, iommu@lists.linux.dev
-Date: Tue, 06 May 2025 12:03:47 +0200
-In-Reply-To: <cb715936-3a44-4002-8d64-565f8d31820c@collabora.com>
-References: <20250505-mt8395-dtb-errors-v1-0-9c4714dcdcdb@collabora.com>
-	 <20250505-mt8395-dtb-errors-v1-2-9c4714dcdcdb@collabora.com>
-	 <cb715936-3a44-4002-8d64-565f8d31820c@collabora.com>
-Organization: Collabora Ltd.
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1 (3.56.1-1.fc42) 
+	id 1uCGr3-0000000Bo3f-2bXF;
+	Tue, 06 May 2025 11:52:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCFBD-0000000BVlR-0NXB
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 May 2025 10:05:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B1D0B113E;
+	Tue,  6 May 2025 03:05:28 -0700 (PDT)
+Received: from [10.57.93.118] (unknown [10.57.93.118])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 158083F5A1;
+	Tue,  6 May 2025 03:05:35 -0700 (PDT)
+Message-ID: <2a90ec6c-1725-4c32-8819-c46e8c0e4630@arm.com>
+Date: Tue, 6 May 2025 11:05:34 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v4 0/5] Readahead tweaks for larger folios
+Content-Language: en-GB
+To: Andrew Morton <akpm@linux-foundation.org>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ David Hildenbrand <david@redhat.com>, Dave Chinner <david@fromorbit.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org
+References: <20250430145920.3748738-1-ryan.roberts@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250430145920.3748738-1-ryan.roberts@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_030351_023395_CE93E903 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20250506_030539_256706_9C098B64 
+X-CRM114-Status: GOOD (  21.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,52 +70,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Angelo,
+On 30/04/2025 15:59, Ryan Roberts wrote:
+> Hi All,
+> 
+> This RFC series adds some tweaks to readahead so that it does a better job of
+> ramping up folio sizes as readahead extends further into the file. And it
+> additionally special-cases executable mappings to allow the arch to request a
+> preferred folio size for text.
+> 
+> Previous versions of the series focussed on the latter part only (large folios
+> for text). See [3]. But after discussion with Matthew Wilcox last week, we
+> decided that we should really be fixing some of the unintended behaviours in how
+> a folio size is selected in general before special-casing for text. As a result
+> patches 1-4 make folio size selection behave more sanely, then patch 5
+> introduces large folios for text. Patch 5 depends on patch 1, but does not
+> depend on patches 2-4.
+> 
+> ---
+> 
+> I'm leaving this marked as RFC for now as I intend to do more testing, and
+> haven't yet updated the benchmark results in patch 5 (although I expect them to
+> be similar).
 
-On Tue, 2025-05-06 at 10:34 +0200, AngeloGioacchino Del Regno wrote:
-> Il 05/05/25 15:23, Julien Massot ha scritto:
-> > Some Mediatek IOMMU can have up to five interrupts so increase
-> > the 'maxItems' to 5.
-> >=20
-> > Fix the following dtb-check error:
-> >=20
-> > mediatek/mt8395-radxa-nio-12l.dtb: infra-iommu@10315000: interrupts:
-> > [[0, 795, 4, 0], [0, 796, 4, 0], [0, 797, 4, 0], [0, 798, 4, 0], [0, 79=
-9, 4, 0]] is too long
-> >=20
-> > Fixes: 3b5838d1d82e3 ("arm64: dts: mt8195: Add iommu and smi nodes")
-> > Signed-off-by: Julien Massot <julien.massot@collabora.com>
-> > ---
-> > =C2=A0 Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml | 3 =
-++-
-> > =C2=A0 1 file changed, 2 insertions(+), 1 deletion(-)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/iommu/mediatek,iommu.yam=
-l
-> > b/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
-> > index 75750c64157c868725c087500ac81be4e282c829..035941c2db32170e9a69a53=
-63d8c05ef767bb251 100644
-> > --- a/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
-> > +++ b/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
-> > @@ -97,7 +97,8 @@ properties:
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
-> > =C2=A0=20
-> > =C2=A0=C2=A0=C2=A0 interrupts:
-> > -=C2=A0=C2=A0=C2=A0 maxItems: 1
-> > +=C2=A0=C2=A0=C2=A0 minItems: 1
->=20
-> Isn't minItems already implicitly 1? :-)
->=20
-> Looks not, from my understanding if 'minItems' is omitted then
-dt-schema is setting it to 'maxItems'.
-https://github.com/devicetree-org/dt-schema/blob/v2025.02/dtschema/fixups.p=
-y#L129
+Thanks Jan, David and Anshuman for the reviews! I'll do the suggested changes
+and complete my testing, then aim to post again against -rc1, to hopefully get
+it into linux-next.
 
-And you will have an error for a one item interrupts:
-Documentation/devicetree/bindings/iommu/mediatek,iommu.example.dtb: iommu@1=
-0205000: interrupts: [[0,
-139, 8]] is too short
+Thanks,
+Ryan
 
-Regards,
-Julien
+
+> 
+> Applies on top of Monday's mm-unstable (b18dec6a6ad3) and passes all mm
+> kselftests.
+> 
+> Changes since v3 [3]
+> ====================
+> 
+>  - Added patchs 1-4 to do better job of ramping up folio order
+>  - In patch 5:
+>    - Confine readahead blocks to vma boundaries (per Kalesh)
+>    - Rename arch_exec_folio_order() to exec_folio_order() (per Matthew)
+>    - exec_folio_order() now returns unsigned int and defaults to order-0
+>      (per Matthew)
+>    - readahead size is honoured (including when disabled)
+> 
+> Changes since v2 [2]
+> ====================
+> 
+>  - Rename arch_wants_exec_folio_order() to arch_exec_folio_order() (per Andrew)
+>  - Fixed some typos (per Andrew)
+> 
+> Changes since v1 [1]
+> ====================
+> 
+>  - Remove "void" from arch_wants_exec_folio_order() macro args list
+> 
+> [1] https://lore.kernel.org/linux-mm/20240111154106.3692206-1-ryan.roberts@arm.com/
+> [2] https://lore.kernel.org/all/20240215154059.2863126-1-ryan.roberts@arm.com/
+> [3] https://lore.kernel.org/linux-mm/20250327160700.1147155-1-ryan.roberts@arm.com/
+> 
+> Thanks,
+> Ryan
+> 
+> Ryan Roberts (5):
+>   mm/readahead: Honour new_order in page_cache_ra_order()
+>   mm/readahead: Terminate async readahead on natural boundary
+>   mm/readahead: Make space in struct file_ra_state
+>   mm/readahead: Store folio order in struct file_ra_state
+>   mm/filemap: Allow arch to request folio size for exec memory
+> 
+>  arch/arm64/include/asm/pgtable.h |  8 +++++
+>  include/linux/fs.h               |  4 ++-
+>  include/linux/pgtable.h          | 11 +++++++
+>  mm/filemap.c                     | 55 ++++++++++++++++++++++++--------
+>  mm/internal.h                    |  3 +-
+>  mm/readahead.c                   | 27 +++++++++-------
+>  6 files changed, 81 insertions(+), 27 deletions(-)
+> 
+> --
+> 2.43.0
+> 
+
 
