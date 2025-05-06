@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1131AC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 22:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE5F4C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 22:23:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y3yYRERUYUVytAtiWQSwuF+7Vjrvbm4KjZdNux6Gig8=; b=M6jaUAc1eqWEHIAI6KMirOLh54
-	ivpV/6sL/S8MZOYuWtVTV3XsvrHgADYMxSeK/3QbVytxzFqF813IL9tzGlIFHqd9YHceOGlHov+xx
-	+e1vho9rnGELd4tVWOvjdZrD8CFCfVssyQOVWo7Ncajc/TRloAer/B+dXCN8k/mktFlyzOud3dQA8
-	Isz9Gc0XsFeAWqNhaD6CqoctzzqWzyk8V8wOGU7FLhVShFYc/AbtaywWvLmynJSV+lnka9J9NAC0w
-	bgrEOiIWK6C1Py4XLTHrxFv/aT4RPr9vo/B1IK07T70TcEtmD8dMjn0ZZgxtXGnVf8fwkFXcQp1fq
-	hOoak8Fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d/DcuaVQAIM0MMCqrA/e+ttiOmDBAdtgQtzmFkmYrQM=; b=USzkvgvwJhtN3d/LuuWYoeH+gW
+	xiorxiGeveM37I73HdYGBZ1Q97fL8vwws3BJ8WVjTK1T6ku3WKJ2xQiftje8C3g8b/uPLBOq2tDFq
+	GlSOBOCyTkI0AWaeJPHE62Yxpi+V9B6rKZWikZm0wjh5BerWMMdq7khc0F5ioY4b+8J20Q8FsRvru
+	C061h+6e+z1aX1IxT5N03PgesFAn8kVbrfGK188ZHWcFch+lhApoEvZMdLHpRUChPHgISvEJM99Pl
+	Pfi3gbiSGCik66yKSmbMa6N5vBXilBSSViUrE80DSCdLE8RRRlqonag/O2/gcL3g0E23Fh3ouhDDH
+	nD2So4SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCQgg-0000000DWPN-1uS3;
-	Tue, 06 May 2025 22:22:54 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uCQgj-0000000DWQw-4ABn;
+	Tue, 06 May 2025 22:22:57 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCLG4-0000000Ch32-2aBD;
-	Tue, 06 May 2025 16:35:06 +0000
+	id 1uCLOt-0000000CiJQ-2vVY
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 May 2025 16:44:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DE23CA4D6B2;
-	Tue,  6 May 2025 16:35:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AFBDC4CEE4;
-	Tue,  6 May 2025 16:35:01 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0E9D6A4D6C3;
+	Tue,  6 May 2025 16:44:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF271C4CEF2;
+	Tue,  6 May 2025 16:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746549303;
-	bh=uoptlTpW6qeK2AgUdwaGx1IisUVQuZQm4yEmqfnzTbI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Jxx0uI9/nEy5R97VUwfzVk64Y3uxY0P/9N69G2xEsBrshABBz6A7XyunpO7cDfLHy
-	 /6KzEl+Ul8L0n7E9r5DPzBowSEsIX3/tvLbu9y49wkVZJ206+mt8aYKXRVF04cWaUM
-	 qZB+6mMGzlwaFefNRQRB54mkuotGYGN7xxLhI2PaA0cicmE7Ami/iI/Y5BDGP9S34U
-	 w2zYZEXyDvTXY52pImHjYKUVAR7SUiy2WK6C/jLhz4KZ81aVSE99EFZiE2qWePP8Vo
-	 gjN37lTeMXPNGk7SvsP2lOelmt8TQqWUOrwQQR4I/FljuSZ6qd8oEJKrbZNpYqoClq
-	 YDKGZcg0qlaGg==
-Date: Tue, 6 May 2025 17:34:59 +0100
-From: Conor Dooley <conor@kernel.org>
-To: John Clark <inindev@gmail.com>
-Cc: heiko@sntech.de, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	robh@kernel.org, krzysztof.kozlowski@linaro.org,
-	conor+dt@kernel.org, jonas@kwiboo.se, frattaroli.nicolas@gmail.com,
-	andrew@lunn.ch
-Subject: Re: [PATCH v3 2/3] dt-bindings: arm: rockchip: Add Luckfox Omni3576
- and Core3576 bindings
-Message-ID: <20250506-navigate-cannabis-19078e498781@spud>
-References: <20250506114115.613616-1-inindev@gmail.com>
- <20250506114115.613616-3-inindev@gmail.com>
- <20250506-almighty-uncork-f7a0bc42d763@spud>
- <c8114ff8-f207-4ea8-aaf1-298dcea9f030@gmail.com>
+	s=k20201202; t=1746549850;
+	bh=Wx52G5fJ77nIURvNqC1cFOpUV+HYXyuUHEQTcLPJWco=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=iy21rx+S+2O5/xcNahjzTZHhjRr43WI4mqBF/d5b/eLuP7mDqCWsW0CuHiQhbZfSP
+	 rNBzQmZCfNTCRom/LIAEPlAb5ht/oVs0xG9lwuKsQtYY97zkm4SPpeUN/KryDXImbJ
+	 SigmWJTW+8ekWCFPUzlxXNITRZ3u98xkpSYMZe5IeGmsL3YkwHulLWWLc5EfWoTZki
+	 tMtrPquhRzIBNn7MSl2yrjSPZaaQh/uXugPNO+PxsZxAkuE5p2IV7I3HTvhqjVDKvm
+	 Udhjr2iJQkzQjWidjoShJDNVOQQysCwVBLmWu+TzrmZuHqA3IV2+ooc5URe9FlOLQu
+	 5V61Ngh88YGQQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uCLOq-00CJkN-Vn;
+	Tue, 06 May 2025 17:44:09 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>
+Subject: [PATCH v4 13/43] arm64: tools: Resync sysreg.h
+Date: Tue,  6 May 2025 17:43:18 +0100
+Message-Id: <20250506164348.346001-14-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250506164348.346001-1-maz@kernel.org>
+References: <20250506164348.346001-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="XP6d7CgI79zNHt7u"
-Content-Disposition: inline
-In-Reply-To: <c8114ff8-f207-4ea8-aaf1-298dcea9f030@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, mark.rutland@arm.com, tabba@google.com, will@kernel.org, catalin.marinas@arm.com, ben.horgan@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_093504_793223_965F5B76 
-X-CRM114-Status: GOOD (  21.15  )
+X-CRM114-CacheID: sfid-20250506_094411_877935_815613AD 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,97 +90,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Perform a bulk resync of tools/arch/arm64/include/asm/sysreg.h.
 
---XP6d7CgI79zNHt7u
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ tools/arch/arm64/include/asm/sysreg.h | 65 ++++++++++++++++++++-------
+ 1 file changed, 48 insertions(+), 17 deletions(-)
 
-On Tue, May 06, 2025 at 11:54:10AM -0400, John Clark wrote:
-> On 5/6/25 11:44 AM, Conor Dooley wrote:
-> > On Tue, May 06, 2025 at 07:41:14AM -0400, John Clark wrote:
-> > > Add device tree binding for the Luckfox Omni3576 Carrier Board with
-> > > Core3576 Module, based on the Rockchip RK3576 SoC.
-> > >=20
-> > > Signed-off-by: John Clark <inindev@gmail.com>
-> > > ---
-> > >   Documentation/devicetree/bindings/arm/rockchip.yaml | 10 ++++++++++
-> > >   1 file changed, 10 insertions(+)
-> > >=20
-> > > diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Do=
-cumentation/devicetree/bindings/arm/rockchip.yaml
-> > > index 455fbb290b77..826dede32145 100644
-> > > --- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-> > > +++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-> > > @@ -715,6 +715,16 @@ properties:
-> > >             - const: lckfb,tspi-rk3566
-> > >             - const: rockchip,rk3566
-> > > +      - description: Luckfox Core3576 Module
-> > > +        items:
-> > > +          - const: luckfox,core3576
-> > > +          - const: rockchip,rk3576
-> > > +
-> > > +      - description: Luckfox Omni3576 Carrier Board
-> > > +        items:
-> > > +          - const: luckfox,omni3576
-> > > +          - const: rockchip,rk3576
-> >=20
-> > Not sure this is correct, does the module not have to be attached to
-> > this particular carrier to be used?
->=20
-> The compute module and the carrier board together like the E25. Presumably
-> the compute module would be used in other applications
-> but the carrier board is not useful without it.
->=20
-> Is the E25 done correctly here?  I can copy this format:
+diff --git a/tools/arch/arm64/include/asm/sysreg.h b/tools/arch/arm64/include/asm/sysreg.h
+index b6c5ece4fdee7..690b6ebd118f4 100644
+--- a/tools/arch/arm64/include/asm/sysreg.h
++++ b/tools/arch/arm64/include/asm/sysreg.h
+@@ -117,6 +117,7 @@
+ 
+ #define SB_BARRIER_INSN			__SYS_BARRIER_INSN(0, 7, 31)
+ 
++/* Data cache zero operations */
+ #define SYS_DC_ISW			sys_insn(1, 0, 7, 6, 2)
+ #define SYS_DC_IGSW			sys_insn(1, 0, 7, 6, 4)
+ #define SYS_DC_IGDSW			sys_insn(1, 0, 7, 6, 6)
+@@ -153,11 +154,13 @@
+ #define SYS_DC_CIGVAC			sys_insn(1, 3, 7, 14, 3)
+ #define SYS_DC_CIGDVAC			sys_insn(1, 3, 7, 14, 5)
+ 
+-/* Data cache zero operations */
+ #define SYS_DC_ZVA			sys_insn(1, 3, 7, 4, 1)
+ #define SYS_DC_GVA			sys_insn(1, 3, 7, 4, 3)
+ #define SYS_DC_GZVA			sys_insn(1, 3, 7, 4, 4)
+ 
++#define SYS_DC_CIVAPS			sys_insn(1, 0, 7, 15, 1)
++#define SYS_DC_CIGDVAPS			sys_insn(1, 0, 7, 15, 5)
++
+ /*
+  * Automatically generated definitions for system registers, the
+  * manual encodings below are in the process of being converted to
+@@ -475,6 +478,7 @@
+ #define SYS_CNTFRQ_EL0			sys_reg(3, 3, 14, 0, 0)
+ 
+ #define SYS_CNTPCT_EL0			sys_reg(3, 3, 14, 0, 1)
++#define SYS_CNTVCT_EL0			sys_reg(3, 3, 14, 0, 2)
+ #define SYS_CNTPCTSS_EL0		sys_reg(3, 3, 14, 0, 5)
+ #define SYS_CNTVCTSS_EL0		sys_reg(3, 3, 14, 0, 6)
+ 
+@@ -482,23 +486,36 @@
+ #define SYS_CNTP_CTL_EL0		sys_reg(3, 3, 14, 2, 1)
+ #define SYS_CNTP_CVAL_EL0		sys_reg(3, 3, 14, 2, 2)
+ 
++#define SYS_CNTV_TVAL_EL0		sys_reg(3, 3, 14, 3, 0)
+ #define SYS_CNTV_CTL_EL0		sys_reg(3, 3, 14, 3, 1)
+ #define SYS_CNTV_CVAL_EL0		sys_reg(3, 3, 14, 3, 2)
+ 
+ #define SYS_AARCH32_CNTP_TVAL		sys_reg(0, 0, 14, 2, 0)
+ #define SYS_AARCH32_CNTP_CTL		sys_reg(0, 0, 14, 2, 1)
+ #define SYS_AARCH32_CNTPCT		sys_reg(0, 0, 0, 14, 0)
++#define SYS_AARCH32_CNTVCT		sys_reg(0, 1, 0, 14, 0)
+ #define SYS_AARCH32_CNTP_CVAL		sys_reg(0, 2, 0, 14, 0)
+ #define SYS_AARCH32_CNTPCTSS		sys_reg(0, 8, 0, 14, 0)
++#define SYS_AARCH32_CNTVCTSS		sys_reg(0, 9, 0, 14, 0)
+ 
+ #define __PMEV_op2(n)			((n) & 0x7)
+ #define __CNTR_CRm(n)			(0x8 | (((n) >> 3) & 0x3))
++#define SYS_PMEVCNTSVRn_EL1(n)		sys_reg(2, 0, 14, __CNTR_CRm(n), __PMEV_op2(n))
+ #define SYS_PMEVCNTRn_EL0(n)		sys_reg(3, 3, 14, __CNTR_CRm(n), __PMEV_op2(n))
+ #define __TYPER_CRm(n)			(0xc | (((n) >> 3) & 0x3))
+ #define SYS_PMEVTYPERn_EL0(n)		sys_reg(3, 3, 14, __TYPER_CRm(n), __PMEV_op2(n))
+ 
+ #define SYS_PMCCFILTR_EL0		sys_reg(3, 3, 14, 15, 7)
+ 
++#define	SYS_SPMCGCRn_EL1(n)		sys_reg(2, 0, 9, 13, ((n) & 1))
++
++#define __SPMEV_op2(n)			((n) & 0x7)
++#define __SPMEV_crm(p, n)		((((p) & 7) << 1) | (((n) >> 3) & 1))
++#define SYS_SPMEVCNTRn_EL0(n)		sys_reg(2, 3, 14, __SPMEV_crm(0b000, n), __SPMEV_op2(n))
++#define	SYS_SPMEVFILT2Rn_EL0(n)		sys_reg(2, 3, 14, __SPMEV_crm(0b011, n), __SPMEV_op2(n))
++#define	SYS_SPMEVFILTRn_EL0(n)		sys_reg(2, 3, 14, __SPMEV_crm(0b010, n), __SPMEV_op2(n))
++#define	SYS_SPMEVTYPERn_EL0(n)		sys_reg(2, 3, 14, __SPMEV_crm(0b001, n), __SPMEV_op2(n))
++
+ #define SYS_VPIDR_EL2			sys_reg(3, 4, 0, 0, 0)
+ #define SYS_VMPIDR_EL2			sys_reg(3, 4, 0, 0, 5)
+ 
+@@ -518,7 +535,6 @@
+ #define SYS_VTCR_EL2			sys_reg(3, 4, 2, 1, 2)
+ 
+ #define SYS_VNCR_EL2			sys_reg(3, 4, 2, 2, 0)
+-#define SYS_HAFGRTR_EL2			sys_reg(3, 4, 3, 1, 6)
+ #define SYS_SPSR_EL2			sys_reg(3, 4, 4, 0, 0)
+ #define SYS_ELR_EL2			sys_reg(3, 4, 4, 0, 1)
+ #define SYS_SP_EL1			sys_reg(3, 4, 4, 1, 0)
+@@ -604,28 +620,18 @@
+ 
+ /* VHE encodings for architectural EL0/1 system registers */
+ #define SYS_BRBCR_EL12			sys_reg(2, 5, 9, 0, 0)
+-#define SYS_SCTLR_EL12			sys_reg(3, 5, 1, 0, 0)
+-#define SYS_CPACR_EL12			sys_reg(3, 5, 1, 0, 2)
+-#define SYS_SCTLR2_EL12			sys_reg(3, 5, 1, 0, 3)
+-#define SYS_ZCR_EL12			sys_reg(3, 5, 1, 2, 0)
+-#define SYS_TRFCR_EL12			sys_reg(3, 5, 1, 2, 1)
+-#define SYS_SMCR_EL12			sys_reg(3, 5, 1, 2, 6)
+ #define SYS_TTBR0_EL12			sys_reg(3, 5, 2, 0, 0)
+ #define SYS_TTBR1_EL12			sys_reg(3, 5, 2, 0, 1)
+-#define SYS_TCR_EL12			sys_reg(3, 5, 2, 0, 2)
+-#define SYS_TCR2_EL12			sys_reg(3, 5, 2, 0, 3)
+ #define SYS_SPSR_EL12			sys_reg(3, 5, 4, 0, 0)
+ #define SYS_ELR_EL12			sys_reg(3, 5, 4, 0, 1)
+ #define SYS_AFSR0_EL12			sys_reg(3, 5, 5, 1, 0)
+ #define SYS_AFSR1_EL12			sys_reg(3, 5, 5, 1, 1)
+ #define SYS_ESR_EL12			sys_reg(3, 5, 5, 2, 0)
+ #define SYS_TFSR_EL12			sys_reg(3, 5, 5, 6, 0)
+-#define SYS_FAR_EL12			sys_reg(3, 5, 6, 0, 0)
+ #define SYS_PMSCR_EL12			sys_reg(3, 5, 9, 9, 0)
+ #define SYS_MAIR_EL12			sys_reg(3, 5, 10, 2, 0)
+ #define SYS_AMAIR_EL12			sys_reg(3, 5, 10, 3, 0)
+ #define SYS_VBAR_EL12			sys_reg(3, 5, 12, 0, 0)
+-#define SYS_CONTEXTIDR_EL12		sys_reg(3, 5, 13, 0, 1)
+ #define SYS_SCXTNUM_EL12		sys_reg(3, 5, 13, 0, 7)
+ #define SYS_CNTKCTL_EL12		sys_reg(3, 5, 14, 1, 0)
+ #define SYS_CNTP_TVAL_EL02		sys_reg(3, 5, 14, 2, 0)
+@@ -1028,8 +1034,11 @@
+ #define PIE_RX		UL(0xa)
+ #define PIE_RW		UL(0xc)
+ #define PIE_RWX		UL(0xe)
++#define PIE_MASK	UL(0xf)
+ 
+-#define PIRx_ELx_PERM(idx, perm)	((perm) << ((idx) * 4))
++#define PIRx_ELx_BITS_PER_IDX		4
++#define PIRx_ELx_PERM_SHIFT(idx)	((idx) * PIRx_ELx_BITS_PER_IDX)
++#define PIRx_ELx_PERM_PREP(idx, perm)	(((perm) & PIE_MASK) << PIRx_ELx_PERM_SHIFT(idx))
+ 
+ /*
+  * Permission Overlay Extension (POE) permission encodings.
+@@ -1040,12 +1049,34 @@
+ #define POE_RX		UL(0x3)
+ #define POE_W		UL(0x4)
+ #define POE_RW		UL(0x5)
+-#define POE_XW		UL(0x6)
+-#define POE_RXW		UL(0x7)
++#define POE_WX		UL(0x6)
++#define POE_RWX		UL(0x7)
+ #define POE_MASK	UL(0xf)
+ 
+-/* Initial value for Permission Overlay Extension for EL0 */
+-#define POR_EL0_INIT	POE_RXW
++#define POR_ELx_BITS_PER_IDX		4
++#define POR_ELx_PERM_SHIFT(idx)		((idx) * POR_ELx_BITS_PER_IDX)
++#define POR_ELx_PERM_GET(idx, reg)	(((reg) >> POR_ELx_PERM_SHIFT(idx)) & POE_MASK)
++#define POR_ELx_PERM_PREP(idx, perm)	(((perm) & POE_MASK) << POR_ELx_PERM_SHIFT(idx))
++
++/*
++ * Definitions for Guarded Control Stack
++ */
++
++#define GCS_CAP_ADDR_MASK		GENMASK(63, 12)
++#define GCS_CAP_ADDR_SHIFT		12
++#define GCS_CAP_ADDR_WIDTH		52
++#define GCS_CAP_ADDR(x)			FIELD_GET(GCS_CAP_ADDR_MASK, x)
++
++#define GCS_CAP_TOKEN_MASK		GENMASK(11, 0)
++#define GCS_CAP_TOKEN_SHIFT		0
++#define GCS_CAP_TOKEN_WIDTH		12
++#define GCS_CAP_TOKEN(x)		FIELD_GET(GCS_CAP_TOKEN_MASK, x)
++
++#define GCS_CAP_VALID_TOKEN		0x1
++#define GCS_CAP_IN_PROGRESS_TOKEN	0x5
++
++#define GCS_CAP(x)	((((unsigned long)x) & GCS_CAP_ADDR_MASK) | \
++					       GCS_CAP_VALID_TOKEN)
+ 
+ #define ARM64_FEATURE_FIELD_BITS	4
+ 
+-- 
+2.39.2
 
-Yeah, the format below looks good for these type of carrier situations.
-
->=20
-> model =3D "Radxa E25 Carrier Board";
-> compatible =3D "radxa,e25", "radxa,cm3i", "rockchip,rk3568";
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/a=
-rch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dts?h=3Dv6.15-rc5
->=20
-> compatible =3D "radxa,cm3i", "rockchip,rk3568";
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/a=
-rch/arm64/boot/dts/rockchip/rk3568-radxa-cm3i.dtsi?h=3Dv6.15-rc5
->=20
-> - description: Radxa Compute Module 3 (CM3)
-> items:
->   - enum:
->       - radxa,cm3-io
->   - const: radxa,cm3
->   - const: rockchip,rk3566
->=20
-> - description: Radxa CM3 Industrial
-> items:
->   - enum:
->       - radxa,e25
->   - const: radxa,cm3i
->   - const: rockchip,rk3568
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/D=
-ocumentation/devicetree/bindings/arm/rockchip.yaml?h=3Dv6.15-rc5
->=20
-> >=20
-> > > +
-> > >         - description: Lunzn FastRhino R66S / R68S
-> > >           items:
-> > >             - enum:
-> > > --=20
-> > > 2.39.5
-> > >=20
-
---XP6d7CgI79zNHt7u
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaBo6MwAKCRB4tDGHoIJi
-0geLAQDJ0izzs/rvcwECsDGYdXwC3w9wY2NmGbJVdF3BaY+1IwD/dtUh8DTEiNhe
-uHU2gI6ycQ+XgXFh1JRJ3eBwkC5n4QQ=
-=8jtU
------END PGP SIGNATURE-----
-
---XP6d7CgI79zNHt7u--
 
