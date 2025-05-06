@@ -4,82 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE7B4C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 22:24:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DC21C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 22:24:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zaqt2aF+R21ZLRZCmibO0BCKtkQEu5NrJjYtBghM3iU=; b=OJeyn3yr8fJLKaCmYPqNNOGnqX
-	YMHPcTyt5kfIhcIuzR9lHjmIXeIjy1OEmGK+6AJNp1u4xmRG1a/zldzHVJh5IfuROB7JNKx1H5bTi
-	v/oGiLKrlEY98xul1Nj4KlF7XZQXsbs6BLWkbS6a+1gRJFpidqsFCD4/eOcV0ZCo0zADD6c4qnASN
-	BBodROKP8uCa9d7JqgGgdA4urt9PQk6ykTnMxZRGXxpA47JoW0i2GWqx2IP1W/bsLxH6kNVEO5gRY
-	Ptb22TOiluZtxciJX13VUFMBTDwa4GIcslwVcQM/UWe+fsSrYTYUkQ8lGJbQSGbiOA7Fzyv1iFGpy
-	cos7trfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8fcZXMq+Uule1vi5Cv/w6zskD2BmsKJF3dyESs8HYus=; b=pARNDkNRbzzrEKgfPM+zSafauV
+	ngQN8PlwU6OMlKbqV96Wl2ThRukQWM1pYCQPqiSyNKu6tJ2qBUrqHNnvyyR8w43c0JZtain1Q24MR
+	2DFcBEAchr+ICP6xM8vEz1BsDA4Xeqf7+TswvqOrqSnHYTxw5/uwckpP+g27OxGHqkL304jfZ8HHJ
+	XBBDueWPbh7IF87TCDwX5alK1HWTPcMW7QwAgFX8LdGCk+TYB5WYraBhwxXcG4MqQ0La8AjJ4UQ7p
+	Y+njH8W5z7xXl5BcE9FxjtT2xNAyVAt7K4a1GPTDwFQtk15S3yZi6fXylCLolyGQl3VtVcA3rhXb9
+	OEtEnFqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCQiO-0000000DZWP-1cgc;
-	Tue, 06 May 2025 22:24:40 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1uCQiQ-0000000DZaL-1pK5;
+	Tue, 06 May 2025 22:24:42 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCLTx-0000000Ck5o-3pUB
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 16:49:27 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-39c2da64df9so2643187f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 09:49:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746550164; x=1747154964; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Zaqt2aF+R21ZLRZCmibO0BCKtkQEu5NrJjYtBghM3iU=;
-        b=LA1/UoSeOgb5sOrDcXgG4PUMsFmQE4h8hu1X9czMaGuseQ/0786zLs2Ft0RmWNYMMG
-         ZP0opTFboGSQvROwOkmr8Xx0yuGh7DtMmUCWXUy984+p8kbtnEjfdC64zlR0Xd4ov1uT
-         JxCHh3IeQgl5lE2mpvwnLS2u1Qng4hYiMwlmxWdX8jkKU61WcwLR8uJ9aU5O14HCuwnN
-         q1FIn/svEWYfqIuTDVoqGfuoh+zl6vdNMLsNcSh8ynqdB3kvh5Zx7e0C2nlEPIH0tVfw
-         HBYuNVflw7iP1W2nSmnErD4JPkhVYzD+UXIYNOE1mFb4ssxHGI7cv5qnnimL/4FW1rhb
-         2XIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746550164; x=1747154964;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Zaqt2aF+R21ZLRZCmibO0BCKtkQEu5NrJjYtBghM3iU=;
-        b=VDbjfay1ZFjt5+K+EbImdfCyYY5Cgn9ol4/YxBAq+4pRDVlubkeBYchE+EtgL0dL49
-         jekicNzw7A2FY662PDvjYJe21xw1LHZV/y8lGQlfimib4HFojEmcRsPmXfpooIOe17vK
-         1qI8Ob4z7ApWZg1t9r0bGcv6nx1qP1B0C+8SPsRZXk9PKezUAwR9t0GpLBAW+uUASW7A
-         FZuDAUfGF4YZOxCesMLCnmHUibIGcGHY8RdkzDDAkXkE4dE37rM9NjoJkiw1Di3/lQ+1
-         wZ/BY1Lk1cuuHDGbfQe85F7Ip5KAo2vPGcpFhX6U03K7dXRjfS8gOIPOX0E/VsHzgVfm
-         V8Ww==
-X-Forwarded-Encrypted: i=1; AJvYcCXW6NiTN7BAOF7M1J2vj6SRV0eHFrSxU/hKHGsW0A/wQE4cCm3OOkev/xaUTTfPhf569q4b3er2comd9T1NcGuN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzr5YyjdddEvcVx8/JNKwWHSj2lChHyYoF/ETQaXNeGXn30lQ4c
-	1RDBjPB3Z6YoynKCt3RWqxMyNcKM3y7sm7+sxtQAno4UVuMQvYYqlHo9aVhhVhF7Ff6PUOiINC+
-	H8TdMMwjp/fPgSMVo+w==
-X-Google-Smtp-Source: AGHT+IFrqd+H2SeGnXjM2S5QS5+AEOUz3d6c3+Xi+kOr44Ta+o3bbgik0UkwmDoNUTqqJhmyWDUfjboZeaZZM1Ft
-X-Received: from wmrm12.prod.google.com ([2002:a05:600c:37cc:b0:440:68cb:bd4])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:22c2:b0:3a0:8098:b6c with SMTP id ffacd0b85a97d-3a0b4a186c4mr138331f8f.14.1746550164127;
- Tue, 06 May 2025 09:49:24 -0700 (PDT)
-Date: Tue,  6 May 2025 17:48:20 +0100
-In-Reply-To: <20250506164820.515876-1-vdonnefort@google.com>
-Mime-Version: 1.0
-References: <20250506164820.515876-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.49.0.967.g6a0df3ecc3-goog
-Message-ID: <20250506164820.515876-25-vdonnefort@google.com>
-Subject: [PATCH v4 24/24] tracing: selftests: Add pKVM trace remote tests
-From: Vincent Donnefort <vdonnefort@google.com>
-To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
-	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	jstultz@google.com, qperret@google.com, will@kernel.org, 
-	kernel-team@android.com, linux-kernel@vger.kernel.org, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1uCLbO-0000000Cln2-3J7x;
+	Tue, 06 May 2025 16:57:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CA0435C58F1;
+	Tue,  6 May 2025 16:54:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EC8FC4CEE4;
+	Tue,  6 May 2025 16:57:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746550625;
+	bh=ABOzDivVUxun6WUKZw1BVS9aK7ElmNBbTSdCr3O5K3k=;
+	h=From:Date:Subject:To:Cc:From;
+	b=vIwUl4szxr3mn6Ht3u4ZVPXR/v6wJMjbKlWscQEC/YHKl8rrGfxvpRBLGmzQU+mpS
+	 b+VeyEgmauFg4x3+41BUuqEY/Y22IlvN4CO7gj9MPt3hovP6Gxs/8cQIxbRqsrPtdn
+	 ziGBkUELy5D5jCyYlKizfzQL8Kd9fv9j204USMYHri5VsnfROEJZxb0PQNSEoSiz6U
+	 T4nBK7LaVnDyC82SxksY38gcPYZuhZTzzXQSQfKtqSzm17+25UvkTHOLSZu8h2KfLi
+	 0je2lxzb/80PrOiTVkb+gP8BdU+5lnCz4PBzxurBPdXePxJf604iDwjaH78B9PMGAh
+	 p1uRSGsPvwugg==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Tue, 06 May 2025 18:56:47 +0200
+Subject: [PATCH net v5] net: airoha: Add missing field to ppe_mbox_data
+ struct
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250506-airoha-en7581-fix-ppe_mbox_data-v5-1-29cabed6864d@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAE4/GmgC/43NTQ7CIBCG4as0rMUAhf648h7GNNSZtkSFBhpS0
+ /Tu0q50pct3Mnm+hQT0BgM5ZQvxGE0wzqZQh4zcBm17pAZSE8GEYlIIqo13g6ZoS1Vx2pmZjiM
+ 2z9bNDehJU1VAxwVI6EpBkjJ6TE/7wuWaejBhcv61D8Z8u/5vx5xyWpUAioGoVYHnO3qLj6PzP
+ dnwKD/B+jcoEwhCV23NOGhgX+C6rm/E/BQbIAEAAA==
+X-Change-ID: 20250422-airoha-en7581-fix-ppe_mbox_data-56df12d4df72
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ Simon Horman <horms@kernel.org>, Jacob Keller <jacob.e.keller@intel.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_094925_950943_731FE363 
-X-CRM114-Status: UNSURE (   7.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250506_095706_910591_5A854077 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,75 +79,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Run the trace remote selftests with the pKVM trace remote "hypervisor".
+The official Airoha EN7581 firmware requires adding max_packet field in
+ppe_mbox_data struct while the unofficial one used to develop the Airoha
+EN7581 flowtable support does not require this field.
+This patch does not introduce any real backwards compatible issue since
+EN7581 fw is not publicly available in linux-firmware or other
+repositories (e.g. OpenWrt) yet and the official fw version will use this
+new layout. For this reason this change needs to be backported.
+Moreover, make explicit the padding added by the compiler introducing
+the rsv array in init_info struct.
+At the same time use u32 instead of int for init_info and set_info
+struct definitions in ppe_mbox_data struct.
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+Fixes: 23290c7bc190d ("net: airoha: Introduce Airoha NPU support")
+Reviewed-by: Simon Horman <horms@kernel.org>
+Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+Changes in v5:
+- get rid of __packed attribute
+- fix typo in the commit subject
+- Link to v4: https://lore.kernel.org/r/20250429-airoha-en7581-fix-ppe_mbox_data-v4-1-d2a8b901dad0@kernel.org
 
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/buffer_size.tc b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/buffer_size.tc
-new file mode 100644
-index 000000000000..383ef7a84274
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/buffer_size.tc
-@@ -0,0 +1,10 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test pkvm hypervisor tracing buffer size
-+
-+SOURCE_REMOTE_TEST=1
-+. $TEST_DIR/remotes/buffer_size.tc
-+
-+set -e
-+setup_remote "hypervisor"
-+test_buffer_size
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/reset.tc b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/reset.tc
-new file mode 100644
-index 000000000000..679e31257d0b
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/reset.tc
-@@ -0,0 +1,10 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test pkvm hypervisor tracing reset
-+
-+SOURCE_REMOTE_TEST=1
-+. $TEST_DIR/remotes/reset.tc
-+
-+set -e
-+setup_remote "hypervisor"
-+test_reset
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace_pipe.tc b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace_pipe.tc
-new file mode 100644
-index 000000000000..4c77431e884f
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace_pipe.tc
-@@ -0,0 +1,10 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test pkvm hypervisor tracing pipe
-+
-+SOURCE_REMOTE_TEST=1
-+. $TEST_DIR/remotes/trace_pipe.tc
-+
-+set -e
-+setup_remote "hypervisor"
-+test_trace_pipe
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/unloading.tc b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/unloading.tc
-new file mode 100644
-index 000000000000..059c7ad1c008
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/unloading.tc
-@@ -0,0 +1,10 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test pkvm hypervisor tracing buffer unloading
-+
-+SOURCE_REMOTE_TEST=1
-+. $TEST_DIR/remotes/unloading.tc
-+
-+set -e
-+setup_remote "hypervisor"
-+test_unloading
+Changes in v4:
+- use u32 instead of int in ppe_mbox_data struct
+- add __packed attribute to struct definitions and make the fw layout
+  padding explicit in init_info struct
+- Link to v3: https://lore.kernel.org/r/20250422-airoha-en7581-fix-ppe_mbox_data-v3-1-87dd50d2956e@kernel.org
+
+Changes in v3:
+- resend targeting net tree
+- Link to v2: https://lore.kernel.org/r/20250417-airoha-en7581-fix-ppe_mbox_data-v2-1-43433cfbe874@kernel.org
+
+Changes in v2:
+- Add more details to commit log
+- Link to v1: https://lore.kernel.org/r/20250415-airoha-en7581-fix-ppe_mbox_data-v1-1-4408c60ba964@kernel.org
+---
+ drivers/net/ethernet/airoha/airoha_npu.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
+index 7a5710f9ccf6a4a4f555ab63d67cb6b318de9b52..ead0625e781f57cd7c5883b6dd3d441db62292d3 100644
+--- a/drivers/net/ethernet/airoha/airoha_npu.c
++++ b/drivers/net/ethernet/airoha/airoha_npu.c
+@@ -104,12 +104,14 @@ struct ppe_mbox_data {
+ 			u8 xpon_hal_api;
+ 			u8 wan_xsi;
+ 			u8 ct_joyme4;
+-			int ppe_type;
+-			int wan_mode;
+-			int wan_sel;
++			u8 max_packet;
++			u8 rsv[3];
++			u32 ppe_type;
++			u32 wan_mode;
++			u32 wan_sel;
+ 		} init_info;
+ 		struct {
+-			int func_id;
++			u32 func_id;
+ 			u32 size;
+ 			u32 data;
+ 		} set_info;
+
+---
+base-commit: e8716b5b0dff1b3d523b4a83fd5e94d57b887c5c
+change-id: 20250422-airoha-en7581-fix-ppe_mbox_data-56df12d4df72
+
+Best regards,
 -- 
-2.49.0.967.g6a0df3ecc3-goog
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
