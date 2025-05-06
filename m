@@ -4,193 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A062C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 23:36:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DC95C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 23:36:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sAv4CSxjHaXccTwHjb//9oyuxW8YW5Xr4ZxMtpmb/kA=; b=qRp+UyurdofEhWh0VGWrrf8pcY
-	cuWFCHkPkq6D1zpZCG+pr5ZyP9lw6+b7KjhoCbbf7I5zGeiitQG035sqBM2mYUq8Ne708Udffxa26
-	ZCkjNj0GRfOzyQBuoj3HCZeWaQIWti7ZFBg2xQUimPihMLuEPfDK9Xvx54X0SMhPYn9xLUIZ97qXk
-	n2ZfSQirgcok+CEAlP7rGDPwoB0cAgZ9hYTEqi+toMIJnI37u8LdWD4GNSjcZ713r4jq/obRNEvmr
-	UTfzQi6z0IjOoj+J5bzNTbi1KZccF8UOu3nA6CQrwrblxkC6XKpH6ERCRZ/+HjGI7sbOTytZLgild
-	8DDiD8MQ==;
+	bh=BwXoDzRvS+YsbHtUNjtpCGK6RTqznHYzIL2Zam2ecbI=; b=yQu00Xuw1f9g66QrIOxl3oWoxF
+	2UevyrUC+z5p4R/r8NL9rJ7f9lpWaRK9XeT2HAdPVqV4FZzVSC5Tk+SReCTd4QzHd8F5r4hyq2DLV
+	e8MsUAYjfVcKLlLwnUieGal1l8GG9Hc7utjjkryyUALUL557dDNwdR0KUrNjiWTdhkqo1bWzrE6DM
+	uZ+d/MACSNSgUXilGfuJDOswdg7H5YgGKzc3QA9oan3kPjg6d75xDzEBQPeYpAv6pklD0ObOc4X2M
+	/Gz87rZoKsXsR0TPUF9m2fb8hwYSf67c4vRV1Pn4QPuobqB/c1il9WpkQuvsdAdAoTFH/46PAfVJZ
+	Kxog9fTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCRpn-0000000Dgh0-3mhl;
-	Tue, 06 May 2025 23:36:23 +0000
-Received: from mail-polandcentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c211::7] helo=WA0P291CU002.outbound.protection.outlook.com)
+	id 1uCRpp-0000000Dgkg-32yL;
+	Tue, 06 May 2025 23:36:25 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCN7N-0000000D7Nn-3tfN
+	id 1uCN8U-0000000D7Yb-2V7J
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 18:34:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Knndpe4RV+yEYgpcXDw/Uzs3R6QoUscp7fWBJr3+aezL3ICkJ3zyLJNL0bxlkFnT1YBHKqX3Nuwv0n87SI8L7Dau5QBp65EsXqdyy7hwJRcC2+xqB7utQDXoYzVm/LPzDFjYWo6OT26qaWM+b87yMobaxWtGu+dnfDWFfCND1lMJX5DvYcHwR/MJPNLu8nGYc+Iucz4bnhOmh/wAa+CRdAWoPJAhnpCH0JyHZzzb0FQ4Uhf3Yx5WWKE3iBMdE0IPwRyexH4K6CW+wqdFDgA0NM/frf+aTSIIOieT0f+aTq3rgz9E4i2yPmxAaHbbG5Tl58sx9MW3ShOaHuBd5afs1g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sAv4CSxjHaXccTwHjb//9oyuxW8YW5Xr4ZxMtpmb/kA=;
- b=VHtGmOVkn/DlJQAd4+9xfa9f4c+/ZglilijQJklgGRwUHCVkDpZk+odyDdOD6EJV2FBgNI4GmeQDQsPQmptmrbrCfxWIi38xiIaZzDI43pV7sdHUTWN8N6v3utXHgcVvlYApDuhYVnoLIEwQJhMJaVaDNQ3odvDsPBcrJcOABPvKmIhjMrjL3WxFYnLCpIWo8ql/u4Tktq/WcUAlhHQsmnVChz8dRTK1PV9OeMAD/NpQukA73UNkLoeIkGK6vo8FyB6DtyWm7B/OxJLat6UsWd26cJJoL0HPCZXS/FgaTC4mOjJGryPdDIHD0lSd4uNI1UryB7hTTGr2G9t3UPfq+w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=videtronic.com; dmarc=pass action=none
- header.from=videtronic.com; dkim=pass header.d=videtronic.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=videtronic.com;
-Received: from WA2P291MB0309.POLP291.PROD.OUTLOOK.COM (2603:10a6:1d0:24::14)
- by WA1P291MB0278.POLP291.PROD.OUTLOOK.COM (2603:10a6:1d0:14::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.20; Tue, 6 May
- 2025 18:33:56 +0000
-Received: from WA2P291MB0309.POLP291.PROD.OUTLOOK.COM
- ([fe80::5b7e:db51:5934:a36f]) by WA2P291MB0309.POLP291.PROD.OUTLOOK.COM
- ([fe80::5b7e:db51:5934:a36f%3]) with mapi id 15.20.8678.028; Tue, 6 May 2025
- 18:33:55 +0000
-Message-ID: <b214bf8d-33d0-4da8-bf16-cc62bd1fbd55@videtronic.com>
-Date: Tue, 6 May 2025 20:33:54 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 12/16] media: i2c: add Maxim GMSL2/3 serializer and
- deserializer drivers
-To: Cosmin Tanislav <demonsingur@gmail.com>
-Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Cosmin Tanislav <cosmin.tanislav@analog.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, =?UTF-8?Q?Niklas_S=C3=B6derlund?=
- <niklas.soderlund@ragnatech.se>, Julien Massot
- <julien.massot@collabora.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
- <brgl@bgdev.pl>, Bjorn Andersson <quic_bjorande@quicinc.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Arnd Bergmann
- <arnd@arndb.de>, Taniya Das <quic_tdas@quicinc.com>,
- Biju Das <biju.das.jz@bp.renesas.com>,
- =?UTF-8?Q?N=C3=ADcolas_F_=2E_R_=2E_A_=2E_Prado?= <nfraprado@collabora.com>,
- Eric Biggers <ebiggers@google.com>,
- Javier Carrasco <javier.carrasco@wolfvision.net>,
- Ross Burton <ross.burton@arm.com>, Hans Verkuil <hverkuil@xs4all.nl>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Zhi Mao <zhi.mao@mediatek.com>,
- Kieran Bingham <kieran.bingham@ideasonboard.com>,
- Dongcheng Yan <dongcheng.yan@intel.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
- Tommaso Merciai <tomm.merciai@gmail.com>,
- Dan Carpenter <dan.carpenter@linaro.org>,
- Ihor Matushchak <ihor.matushchak@foobox.net>,
- Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
- linux-gpio@vger.kernel.org
-References: <20250309084814.3114794-1-demonsingur@gmail.com>
- <20250309084814.3114794-13-demonsingur@gmail.com>
-Content-Language: en-US
-From: Jakub Kostiw <jakub.kostiw@videtronic.com>
-In-Reply-To: <20250309084814.3114794-13-demonsingur@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: WA2P291CA0019.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d0:1e::26) To WA2P291MB0309.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d0:24::14)
+	Tue, 06 May 2025 18:35:23 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 546IZHqQ586234
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 6 May 2025 13:35:17 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746556517;
+	bh=BwXoDzRvS+YsbHtUNjtpCGK6RTqznHYzIL2Zam2ecbI=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=gSusIwAt5xnnc7Ahc7IxKAhUieiWzQM7E4oyZfp5AyY5uOyOd66JPeIhJyhpCyxLO
+	 RuUXsWp4ZicAQ+PBU0x8DXbZVH0caxvLiK/JakyCGW4D8igK0tr9UpdJj1H8HR4Uf2
+	 fdI1Y6oLEOJFo8Jn+NlwkNPPhT77PdvfqJA6tb5M=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 546IZGZ7075472
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 6 May 2025 13:35:17 -0500
+Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 6
+ May 2025 13:35:16 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 6 May 2025 13:35:16 -0500
+Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 546IZGH4077563;
+	Tue, 6 May 2025 13:35:16 -0500
+Date: Tue, 6 May 2025 13:35:16 -0500
+From: Bryan Brattlof <bb@ti.com>
+To: Daniel Schultz <d.schultz@phytec.de>
+CC: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
+Subject: Re: [PATCH v2 1/2] arm64: dts: ti: k3-am62a: Enable CPU freq
+ throttling on thermal alert
+Message-ID: <20250506183516.roxspxdjkcoiudfr@bryanbrattlof.com>
+X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
+References: <20250506114134.3514899-1-d.schultz@phytec.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: WA2P291MB0309:EE_|WA1P291MB0278:EE_
-X-MS-Office365-Filtering-Correlation-Id: b5f74079-f67a-45f6-1f97-08dd8ccc8ea9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?blZkWUtlcndiUVRRU0xuSC9nUy9JUHRaSDBPRENzWFFTL0srUStCRGJLSXp1?=
- =?utf-8?B?dmF3QVN4ZlF4b0Qvek5UQlpwWi9IZVMzb0lHYy9kQkJ3QUoxTGJlWGxjQWFv?=
- =?utf-8?B?NUJsNDZudEYrcWdxUlA0R0pTRDJtekMwOTJBRWlvcndFZDd3aUJ4bFBWVVRJ?=
- =?utf-8?B?c0prYzlodGhaejdXSkFuMTFJQzd0b0NJZzdhMDhTMndKYTJvS1U2WVBleG1w?=
- =?utf-8?B?S0JxNS9CRE8ycWd0dWNjY2IvanRHVXNpaXhKcmw4cWxleTFBZ3dKMDRhSStp?=
- =?utf-8?B?d0ZaWDRmYmdveGNaYzRwOW1Rd21PRGR2dTllb1FhWGpRWURRSENZVy96NmUr?=
- =?utf-8?B?eDB4WFI3MHFkbVVFWHQ3Qy9yK3pqL3J6N1R2VC8xd2pLU2lQb3FQQ0ltLzll?=
- =?utf-8?B?Z3VUVmRjMmhzZ0tsbk9oM21tNExnbVVublhYcDZjSWFLVkpyQnFJOVdqYVVh?=
- =?utf-8?B?T1ZJNCt6WktYYmcvajRHcHNOcWlFWC9ncENNNW51YXZ2NGI3cytlM1FGTUZW?=
- =?utf-8?B?SWZnTy9KT0RCUDVYMkNlMG9UZmFjY3ovRytVQ3p1Tnk4UTNwcXJvNi80ZXpE?=
- =?utf-8?B?R1BIZGM4RDJOUUp0RzJpanJsd2hkNVNoSnMzTWxPbDA4ZisxTjhlSFFBUUtR?=
- =?utf-8?B?S1hUUmZTOHpsN1ViNjFkcGtIS0QzTW8yQjlGc25vZHh4R0Vxbkd5YlVGc1Rk?=
- =?utf-8?B?ZytYQWpXOGxSZElKZHJxQXY0aUhhcVprRyt3UENab3lDMVRpRTdCN3Zid1J5?=
- =?utf-8?B?em8xcWJZZXRRK1dDSlhwdGRuZFZTNEhRNkxTVGpNRSt4M1dvaHFXQzRoWCtL?=
- =?utf-8?B?eGxzRG12RGdKRDRhOGgzUW9zdWhmeStUT1FsaklsS3R2S05ld0Vnd25OSkZt?=
- =?utf-8?B?aUYxRU1UOEVTOXViWDk0Z3JHcTJ3a0ZtVXl4K2dlb2k4T2NCQ0twd09QOG9V?=
- =?utf-8?B?c3lvMmVJVVJuMENvM0Z0aWF1RHJIWURNbnllWWNZU2V3QWtMUGhJT1c3ZUY3?=
- =?utf-8?B?amduUllORHkveTZHZUNGSGZOQ1g2WUIvV2FmaXVqeENITTNMVmdCOE85ZjBS?=
- =?utf-8?B?OTZnUnFCbFBua2UxRFRmdUhEQXFOTHZtUjVEZndtTStMNzMzbnRlVE14c3lY?=
- =?utf-8?B?bTRwOEdOcUFVdmdnTTdxUjZjQ3B0bERmOHloTnZPMEMxSXRHQXE1TWVnT0ly?=
- =?utf-8?B?d01aSGc3bnViSjRVRjBka0h1dUpFdE95TE1PWGxoRmF2bFJhMTB4QzVZWWdZ?=
- =?utf-8?B?RXVCT1BVL1FIeHczcDdQbzBJTDROTW94RmVad3dxQXg1ZUx5ckdYelRYTzdl?=
- =?utf-8?B?WXVqUEg5bEUySDU5Z1JSTHFpcTAwMGtWcUM0S2tnZWE4ZHJXYkNwYTh4c0lE?=
- =?utf-8?B?VTRyY3o2K29Pem5sdjNMV1ppUHJmUTVsc3lTTWR2OWoyN1hwMFhZaVNEVEU3?=
- =?utf-8?B?RU0xeHUwUlRnczZCcE5nWlB6YUFDQ012RmFOM3c2em9hbXg5bHRrQjI0cHlW?=
- =?utf-8?B?TVpQM09uSXVRRjdIdUQzcVNoaWFoZ2FHcDdYQmtTN3RLaG02MFJtQU9ISVR1?=
- =?utf-8?B?UWVyNzNQcFlhS0RtNGZSQnZKRVNLanE1QU5IT3dubEVpZzZuU0FZUW5iN2pH?=
- =?utf-8?B?VzFsTWZPcVMzaDFNS3ptTXU1S1I5WmFOQTZLTkZHbVJsU0hjRkZqUjM3L3Rx?=
- =?utf-8?B?dVBkNVZ2UDI1MnFYQkhmY1Z0OTlFcXRDanNWcm0zOFJOUzN4U3hQQ1g3em8w?=
- =?utf-8?B?elZtZFVlV1BFSVl1blY3ZHhEZFlFSlZ5Z3B3VU8raDVCVmdySU51RURsc2xT?=
- =?utf-8?B?VmRJMUI3NFQvaGNoeXhucVFoeW51eTlTWUVQMHBDTjNNSytOajBwTy9xRUE3?=
- =?utf-8?B?bGYwMGdETHNVblBxYXEzU2RmVERnTlNTK0F0Yk13Mm40U0dJWXQwMUdzZlFC?=
- =?utf-8?Q?MYJS7+XOX34=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:WA2P291MB0309.POLP291.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RHljVzBxUmJ3eXczNG1VR3JLRGRIaWlJR05CWDczME14Q2NodjE4cXYyM2la?=
- =?utf-8?B?ZUdtS0YwMVpEM1poY0llYjYxNnBvTlNhMDZnM0xYeVp5R204d3NtSk5SaThr?=
- =?utf-8?B?VDFyM0hIWWtteFFDd0Y2UEFQeTkwTGlkWHpMWjlaV0hvOXdPaXlqdENJcFVL?=
- =?utf-8?B?OE5UcmgzYjVNTW1xdFJLMWhvQUdwT3pLWkpnMmNtOHY4UHVNcVVyQ2xhSDNP?=
- =?utf-8?B?c2lIdUhjQUdMMXJsR01vd3hLVXMzNW5oTExRdEZHdEM0US9vdk9wZ3hCU1Jo?=
- =?utf-8?B?L0QwT0NBUU1adUZmSU9hQUdHOEt3VXZSZjNiNjVxSUtxeEFmQTJtVm42ZkdX?=
- =?utf-8?B?c3UzaGtYR2x4dThmaWQ5cFNUSUVwRWdPN2J5YjBCNU1VS0lzaVRaSG9XMmtz?=
- =?utf-8?B?U3ZKVFV4OHNia1RhdUNiU0lvblRmYUVYbEZyM0UreUJ0QkRSd0xDb0VxTVUr?=
- =?utf-8?B?bzZEUkVyVkk5YWs0WXd1U1g1K2FGWnZTdFNzbVl6RTlDeTFoSXQ2MkJqd1Ba?=
- =?utf-8?B?SEFadW52SlFsVXRucnFZcjkwaG5PL2liY0tYL0UvUEdPTXVRbWpGTkdGZms3?=
- =?utf-8?B?Y0RadzI0TGtvRVZBbVZyak5GVlpsZXdSdG4rL3ZYZVlkdkhwR3hEMFcxd0k0?=
- =?utf-8?B?ZFNTTnhHY1JiL091Qzk4eVllcjBYNkdZZW9HYUNtN1lRNnM5UDVsWk5LLy9Y?=
- =?utf-8?B?Q0IrVS96bVJkQUVvWGo4aG95SlM3anM0aytWZnFlbUJvYzZRM0prU0ljUXlr?=
- =?utf-8?B?endsZ2daNktGMjZMbWUxRWJ3c25zWU9Ebm9oRnpKaTdhV2tZOVYyZDM3bWVK?=
- =?utf-8?B?NElWbWszZUlwbzJJY3Q1R1BISk82NDFGY3BnUCt1MTR6VWVKd0E0ZHExbjRG?=
- =?utf-8?B?Yndlc2Y1Rzh1a2hCR21QbU1ycW5FL3g3TVpuZ0tGYnJKWk0zWmhmT0JWNmJq?=
- =?utf-8?B?TlFUakxsYnVmbVpRR2g2UlQ1S3p0cmtNRGR1Y1FsTUwyWWVJMkgxRjgxcGd3?=
- =?utf-8?B?OGJuNTY0ZDVpTDEySUVZTVlnT0dOZG1lVVgzM1pndDRjSE40QzVKZEEzMXdq?=
- =?utf-8?B?N3BONzJaZFlIQ3A0NWpiZjlLcjdEMnp1UjJVc2ozcW95NFc2anBLZGVuWGFt?=
- =?utf-8?B?c29LNmdsUGg4aWtFOHZ0Wno0N1k3UW9YbCtHNWM3Ykg3U1BlU2lMeFNibENY?=
- =?utf-8?B?bnUvTHRaYkQ1cS9nUmRVdEhhTHNvVE82UlQrbkk2MVYzdWQwMVFRbGRRSmkx?=
- =?utf-8?B?dVRKaTBNaGlBOUJHZktreU55cjNPMU9GUGxFYWlGVFNqVXNQR0tnZUc0dFEv?=
- =?utf-8?B?Wmw0aEExb0JKMjluZERxNVZucEhGa2ZDbW41anA0N1BLVlVYaUxhRXlPMyt5?=
- =?utf-8?B?SjhtTDY3d2NuNTJBZ3ZyWGgrTFl2bnBRNWZKdEIrWkhsMTB5Vityd3V1L21i?=
- =?utf-8?B?WE1OeDNSQy8xeUNHcGUyeWI4Qmw2ZzBBSmtnU0M2bFg2WHFkTVRvcXZKV0xN?=
- =?utf-8?B?ZSsvVCtnWnNpV216NjlONGFzc0pKallpU0VEeDRCUEpXS0NaOUx5QkhpQW15?=
- =?utf-8?B?ZHQrNzMxZzFTZFRPNXBKR1JxMFJIUDU2bDNpMHlYdjUycWIyV0JjZXZuSnlH?=
- =?utf-8?B?cnZ4a3ZRRnZIVHNKWlB6VDI2MWVNQTBWWm5ubDNqc2dWdmd4Q1FyZy9FM2hy?=
- =?utf-8?B?TzJQK3BwTWhLbjNBeThESVBmRmU1RlIwd1lSNk11L3k2RTcwcDZIMW11TzE5?=
- =?utf-8?B?eHpNbFgrdnc1MDZnSTh2bUlKS1BNT0JEaytTSWFxbDFWTUdBdjNabnprOWY2?=
- =?utf-8?B?Zys4bXdNaHoxOERUbDZMM2FRalJlRkdDYU9OTWpycVVFMC9ncDRyYTNuVzRw?=
- =?utf-8?B?UWdJaHhXQWZCRDhVNkVoZHo1V1hFV3k1cEYrWk1uUGdVTEE4Qm4rb2t0dW5K?=
- =?utf-8?B?UW5WMW54eG5xVlBFdnBTbFkyK2YrcDYzeXpSU3p6RFRIMWIzSWUza3pnSzZu?=
- =?utf-8?B?UHo2MFIrSDBwK2dxUTlGU0FVVEdQbHdFVkhTS21NMFpab21ETkovT0xMOHlj?=
- =?utf-8?B?YUhINi9qQXhCU0lEa0VQMUE2Y1BNRy9Jek5tbnpodTBmYk1iZWRRd0pIQS9U?=
- =?utf-8?B?MGtoWUVxaTgvRTZMTitwV2RheWN6Rm5kaGNzcWFPTm82NWNsUjlkNmlENTYx?=
- =?utf-8?B?QUE9PQ==?=
-X-OriginatorOrg: videtronic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b5f74079-f67a-45f6-1f97-08dd8ccc8ea9
-X-MS-Exchange-CrossTenant-AuthSource: WA2P291MB0309.POLP291.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 18:33:55.3041
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 42908bfd-23a4-4a6c-951d-1ef4d8e0c612
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0ZUhDPPrwaC9lwKkV210XZIAWKp/l2uYf7RUuNPCH0awqoiINlDesg+98j4IPjcx7aG9XR6eplq2j0myMzUXEMPFcxu7keH9Eufpl8h8Grw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: WA1P291MB0278
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+In-Reply-To: <20250506114134.3514899-1-d.schultz@phytec.de>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_113413_982508_5D5D267E 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20250506_113522_723572_6396921C 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -205,70 +87,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cosmin
+On May  6, 2025 thus sayeth Daniel Schultz:
+> Enable throttling down the CPU frequency when an alert temperature
+> threshold (lower than the critical threshold) is reached.
+> 
+> Signed-off-by: Daniel Schultz <d.schultz@phytec.de>
+> ---
+> Changes in v2:
+>   * Increased passive trip point to 115C (10C below crit)
+>   * Dropped patch which decreased critical trip point.
+> 
+>  arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi | 57 ++++++++++++++++++--
+>  arch/arm64/boot/dts/ti/k3-am62a7.dtsi        |  4 ++
+>  2 files changed, 58 insertions(+), 3 deletions(-)
+> 
 
-Awesome work. The initiative to establish a common framework for GMSL 
-devices is a great idea.
+Looks good to me :)
 
-I believe that we have found few bugs:
+Reviewed-by: Bryan Brattlof <bb@ti.com>
 
-> +#define MAX9296A_BACKTOP22(x)			(0x31d * (x) * 0x3)
-
-The first multiplication is wrong and should be replaced with addition:
-
-+#define MAX9296A_BACKTOP22(x)			(0x31d + (x) * 0x3)
-
-The same goes for MAX96724 equivalent macro:
-
-> +#define MAX96724_BACKTOP22(x)			(0x415 * (x) * 0x3)
-
-In MAX96714 driver there is an issue with setting up lane-polarities.
-
-> +static const struct max9296a_chip_info max96714_info = {
-> +	.max_register = 0x5011,
-> +	.set_pipe_stream_id = max96714_set_pipe_stream_id,
-> +	.set_pipe_enable = max96714_set_pipe_enable,
-> +	.set_pipe_tunnel_enable = max96714_set_pipe_tunnel_enable,
-> +	.phys_configs = {
-> +		.num_configs = ARRAY_SIZE(max96714_phys_configs),
-> +		.configs = max96714_phys_configs,
-> +	},
-> +	.polarity_on_physical_lanes = true,
-> +	.supports_phy_log = true,
-> +	.adjust_rlms = true,
-> +	.num_pipes = 1,
-> +	.pipe_hw_ids = { 1 },
-> +	.num_phys = 1,
-> +	.phy_hw_ids = { 1 },
-> +	.num_links = 1,
-> +};
-
-In order to make thing work we had to set
-
-> +	.polarity_on_physical_lanes = true,
-
-To false. So this field is either improperly set for MAX96714, or handling of this case is wrong:
-
-> +		if (priv->info->polarity_on_physical_lanes)
-> +			map = phy->mipi.data_lanes[i];
-> +		else
-> +			map = i;
-
-Upon mentioned changes we have successfully tested two GMSL2 
-combinations on Raspberry 5 platform:
-
-1. MAX96724 + MAX96717 (only 2 MIPI-CSI2 lanes with single camera due to 
-hardware limitations)
-
-2. MAX96714 + MAX96717
-
-We have also been wondering about these registers:
-
-> +#define MAX9296A_DPLL_0(x)			(0x1c00 + ((x) == 0 ? 1 : 2) * 0x100)
-> +#define MAX96724_DPLL_0(x)			(0x1c00 + (x) * 0x100)
-
-There are writes to these addresses but we could not find any reference to these in either MAX96714 or MAX96724 datasheets.
-
-Are You willing to add support for mapping MIPI-CSI2 lanes? This is a very convenient feature which comes in handy during HW design.
-
+~Bryan
 
