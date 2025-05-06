@@ -4,57 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30717C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 14:07:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C65C6C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 14:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n1y15ggPmlTmYTk4lxrzQIM3LojUkZqNoouqh7PA76Q=; b=zKtkxXBJc+Ri+TfogMLLPFwyCL
-	9DkFzk6OPfC1jOE1n2cIlO+ichUQLbXKqOyyavBzimEgAps8KA6JpGjdP8y+G7NntWCjdE/dXL2MN
-	s3QstSPa4yA14P+qO4hYnyeQ04EwJmUQnaojMpkH64ovnZTOXEJovKirpyIzEWCnbNuNfecEPjs91
-	iFalFqeQ8HpHjuN35Tk9Z6Rgel1rm0g8+yY/OWKLJ1dg9G4cBrsLERgKwjdgDJZRn3JdlWdCPPJ2U
-	3TrQj3TgSAVmN5PXiyJDNH6FrqPWetAKGUQsamG4E012MBsaBRUngzTBZ8KpRHYkN2WoMl46dBmgH
-	kJTe8nXw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1cthrBE/hKEN3eoQrm4i+nHKuGR4paL2rIAOIGOo2Fo=; b=b+ZlxGccBUPqAENoXKd6ylum72
+	GVeF/fbZdP+WNligEbJGB/iwbozOCOn15TcoC6DGtP7gkLI090HQWA1hHP063z4dRBmES+K5j/LbD
+	U1l6z9ALGmq/cTaf/QtUyjM+0kkVP2D+8oBcYaPkml8xj5emAtWcckZ+XyvIyit8AT9UZ9LVvON/n
+	ISVwMJ70YfMRLQGNhQ8i1A0DQylCV7IjST4KlG9esadkPxnMnVxVYHm7ihXm9l0Mu8N/KtDoV2E4w
+	G+ye5XIOg6QYhlwI4dGOdaSJhml+BP0ZJIwwHwOxqi9poUr1auTg0b/Q7lOBZhUW35wqyNY+kJb4g
+	DPs+Kq1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCIx4-0000000CFpK-2h5S;
-	Tue, 06 May 2025 14:07:18 +0000
-Received: from mail-24425.protonmail.ch ([109.224.244.25])
+	id 1uCIyz-0000000CGDH-2deu;
+	Tue, 06 May 2025 14:09:17 +0000
+Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCGas-0000000BlW5-1tcz
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 11:36:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail; t=1746531371; x=1746790571;
-	bh=n1y15ggPmlTmYTk4lxrzQIM3LojUkZqNoouqh7PA76Q=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector:List-Unsubscribe:List-Unsubscribe-Post;
-	b=K3vCZy14k5jbFdGrLIREvPiswYrJrBnEHX8fn/aYLHBKObUzVtGecYIujWl0h9zbW
-	 oNmSe4HmWO2TVucjFEeP5a/h5aujbtLvRIy1JSG8V3UCNmQd0Z50+rP6tXYQYdWc9Y
-	 Ej+W3F3SylUmnLEkAOAJgxGHl8doy/fVJDIGLMax79XnSiGOrYT3udLiPaVJ8XSYpL
-	 iyqmddgcFm5y7zuRhI3XGNp43vx7R61/L7W/xKbv8SNUtrxtpsBMeLpvUKtY7Got9V
-	 HpPza4rZcl4j361eGtKVf0ZJLR0AUo0XDHBAxOIzBY8M809lUxpIiAS5HV4wIdtsfj
-	 IH4AS4Fh6hlNA==
-Date: Tue, 06 May 2025 11:36:04 +0000
-To: Niklas Cassel <cassel@kernel.org>
-From: Laszlo Fiat <laszlo.fiat@proton.me>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, =?utf-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, Damien Le Moal <dlemoal@kernel.org>, Hans Zhang <18255117159@163.com>, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2 3/4] PCI: dw-rockchip: Replace PERST sleep time with proper macro
-Message-ID: <1reFy5Nwl2unAMz8eiJ8N2AJFavSwlPAjjrp8lv7ySl52ZYWZxTnpOfcTyejxHGfWDKFZdp0sKdIrs2v6QQqeEo0xm2hMPSFO_7j2WMOjo0=@proton.me>
-In-Reply-To: <20250506073934.433176-9-cassel@kernel.org>
-References: <20250506073934.433176-6-cassel@kernel.org> <20250506073934.433176-9-cassel@kernel.org>
-Feedback-ID: 130963441:user:proton
-X-Pm-Message-ID: 6be6925127c1ae6a773b742a8e5f443190ea74d1
+	id 1uCGfq-0000000BmA5-0TVU;
+	Tue, 06 May 2025 11:41:23 +0000
+Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-7c56a3def84so567928685a.0;
+        Tue, 06 May 2025 04:41:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746531680; x=1747136480; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=1cthrBE/hKEN3eoQrm4i+nHKuGR4paL2rIAOIGOo2Fo=;
+        b=T6j+f3v0MmNvalSFyYswmRaBILCDOsdEAGfDGfyFUczxnnqgFbNte+GDEMlHW15WXy
+         4RRknbWsYu9cWuFJ7GgUAPfB5VuVZpop4HdEwzMULV6EQl+Yz7PMztaVP1nb0DA9FMFM
+         fYzgpSJDh5mJDIjKbID2yH7LbEzX9uleG1JvABI75L9xNZL9C/CgvhsDPlV/olvEd6A8
+         1iscgiHpf5zy0vEKaX2GN5D7qvM9TgGq3BaL87Rpe7yhGNVjC/KgfZVS+4EYvPEIlf8L
+         ztqYCsRqapGyaniF6jI3tWHLojAV43J6/YIq2teMtqhlxpDe8qfrs2K8mLjD1VXGjTms
+         SKUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746531680; x=1747136480;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1cthrBE/hKEN3eoQrm4i+nHKuGR4paL2rIAOIGOo2Fo=;
+        b=Aev+ozrowrGpClOYqVxXYN5R6+JEvZgoiWQQdKDorDIGVGIRS621Ku2w7d2s9rs3ln
+         0B/lnyhUJgKLx4NxUkSY47a/x4iyp7PetuNbdDmTg2N86Ag4FL4+zKp7QuG/4gUt56qk
+         ai8UFfblS8urAaa7ZASZqdun3Uf3slr/jBYXlHjHG2CFiXWnmY/rWLjaKJQWcstzaLhK
+         dAXzunZcTYWkp7d7HAQ1YlCqNegynooXRGCA+EX2YCU9mlSdj38eO7ILmmEhpnwx20W6
+         cn+2iNmplkbkNQspCJVPPKl+4OUDRpz4EbwVTrG9HlHvwPCjcfw4Tzb9iGG3xt75HV17
+         VK6Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWgWq7u1yPCZIFpZ1WLvN4ePw4c+/vfnD95bzfQvhmFw1MO+kLhcp7OPI7MR7d0ucEx8R9nNoHR5qd9uF94Jg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIelgozvG9wg6RKU9qbpmVquKVzcOIyNYs/4VLf/NPNFPXR4vq
+	jOfNGjSwZlyaCrrtl+zvVPhX/S9SxXslZIEy6Iq71dru6uyQN0RR
+X-Gm-Gg: ASbGncvFGStfWrHYQHgE/m8W0p0ReXxsPCuyn+LOSCb3GdzUjSz+3SQDxOy3N1UJ6iC
+	DAFlKmFgMANnxOFx2pJXsVHH3KdRzL6kcr0AjNs8+vV6ZdA4VQwpuWI8MRbdjNYJqDZTvBAKQ0h
+	3wkY68iIGyd21IYxGJRe0gw3v2yzYIOTda8jKXy0+N+FuCPBW+peaamhwj2pSMoZJg8sgwrxGiQ
+	FLcKFoUTEp+3Bau2N0/2jGIFNWdE+kmyJfGGErvg0kpLPTJh7hwaEXE+N0dlXqePpF7fJ9LgYFA
+	XJ9FzXwKMummgBMAU3FsR6DN5BFa8uBt7AMpMLvn5JeLvpvJM9jBrE8EMVDlBkw=
+X-Google-Smtp-Source: AGHT+IEP6qIEAlepbHnWxP68BD3kTfUkbgfGRMwMADJPrH8tCOpAS0cFOSp6pVFkj9TKKKJqIT+RlA==
+X-Received: by 2002:a05:620a:c51:b0:7ca:c6c7:be14 with SMTP id af79cd13be357-7caf110be9fmr396054485a.1.1746531680390;
+        Tue, 06 May 2025 04:41:20 -0700 (PDT)
+Received: from localhost.localdomain ([216.237.233.165])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7cad23b51f9sm697408485a.21.2025.05.06.04.41.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 May 2025 04:41:19 -0700 (PDT)
+From: John Clark <inindev@gmail.com>
+To: heiko@sntech.de
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	robh@kernel.org,
+	krzysztof.kozlowski@linaro.org,
+	conor+dt@kernel.org,
+	jonas@kwiboo.se,
+	frattaroli.nicolas@gmail.com,
+	andrew@lunn.ch,
+	John Clark <inindev@gmail.com>
+Subject: [PATCH v3 0/3] Add Luckfox Omni3576 Carrier Board support for RK3576
+Date: Tue,  6 May 2025 07:41:12 -0400
+Message-Id: <20250506114115.613616-1-inindev@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_043614_639013_AE8BC111 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20250506_044122_153358_3942C141 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,37 +101,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series adds device tree support for the Luckfox Omni3576
+Carrier Board with the Core3576 Module, powered by the Rockchip
+RK3576 SoC (four Cortex-A72 cores, four Cortex-A53 cores, Mali-G52
+MC3 GPU). It enables essential functionality for booting Linux and
+basic connectivity, with plans for future support of peripherals
+like WiFi, MIPI-DSI, HDMI, and Ethernet.
 
-On Tuesday, May 6th, 2025 at 9:39 AM, Niklas Cassel <cassel@kernel.org> wro=
-te:
+The series was first posted as v1 at:
+https://lore.kernel.org/linux-rockchip/20250502205533.51744-1-inindev@gmail.com
+v2 at:
+https://lore.kernel.org/linux-rockchip/20250504102447.153551-1-inindev@gmail.com
 
-> Replace the PERST sleep time with the proper macro (PCIE_T_PVPERL_MS).
-> No functional change.
->=20
-> Signed-off-by: Niklas Cassel cassel@kernel.org
->=20
-> ---
-> drivers/pci/controller/dwc/pcie-dw-rockchip.c | 2 +-
-> 1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/=
-controller/dwc/pcie-dw-rockchip.c
-> index 6a7ec3545a7f..0baf9da3ac1c 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -225,7 +225,7 @@ static int rockchip_pcie_start_link(struct dw_pcie *p=
-ci)
-> * We need more extra time as before, rather than setting just
-> * 100us as we don't know how long should the device need to reset.
-> */
-> - msleep(100);
-> + msleep(PCIE_T_PVPERL_MS);
-> gpiod_set_value_cansleep(rockchip->rst_gpio, 1);
->=20
->=20
-> return 0;
-> --
-> 2.49.0
+Tested features (on Linux 6.15-rc4):
+ - UART: Serial console operational
+ - SD card: Mounts and reads/writes successfully
+ - PCIe: NVMe SSD detected, mounted, and fully functional
+ - USB 2.0: Host ports operational
+ - RTC: Timekeeping and wake-up tested
+ - LED: Heartbeat trigger functional
+ - eMMC: Enabled in device tree, not populated on tested hardware
 
-Tested-by: Laszlo Fiat <laszlo.fiat@proton.me>
+The series includes three patches:
+ 1. dt-bindings: vendor-prefixes: Add Luckfox vendor prefix
+ 2. dt-bindings: arm: rockchip: Add Luckfox Omni3576 and Core3576 bindings
+ 3. arm64: dts: rockchip: Add Luckfox Omni3576 board support
+
+The device tree is covered by the existing ROCKCHIP ARCHITECTURE
+entry in MAINTAINERS. I am aware of ongoing RK3576 upstreaming
+efforts (e.g., by Collabora) and welcome feedback or collaboration
+to align with mainline driver development.
+
+Changes in v3:
+ - Addressed Jonas Karlman's feedback on patch 3/3
+   (Luckfox Omni3576 device tree):
+   - Added pinctrl for green LED GPIO (gpio1 RK_PD5) for proper
+     pin setup.
+   - Reordered regulator node properties for consistent sequence
+     (e.g., regulator-name, regulator-min-microvolt,
+     regulator-max-microvolt, etc.).
+   - Updated regulator nodes (vcc_3v3_pcie, vbus_5v0_typec,
+     vcc_5v0_host, vcc_5v0_hdmi) to use 'gpios' property instead
+     of deprecated 'gpio'.
+   - Removed pmic-power-off pinctrl state and pinctrl-1 from RK806
+     PMIC node, as they are vendor-specific and undocumented in
+     bindings.
+   - Removed pwrkey node from PMIC, as it lacks binding
+     documentation.
+   - Added blank line between properties and child nodes in i2c2
+     node for DT style compliance.
+   - Removed no-mmc property from sdmmc node to enable MMC
+     support, aligning with RK3576 SD v3.0 and MMC v4.51
+     capabilities, allowing TF card slot to support MMC devices
+     or eMMC via adapter.
+ - Removed Ethernet support (gmac0/gmac1 nodes) per Andrew Lunn's
+   feedback, as it relied on the generic PHY driver with incorrect
+   RGMII delay settings, which would break with the upcoming
+   MAE0621A driver.
+ - Addressed Rob Herring's DTB check warnings, other warnings
+   (e.g., VOP, PCIe, OTP, HDMI PHY) originate from rk3576.dtsi and
+   are outside this patchset scope.
+ - Added RNG node to pick up Nicolas Frattaroli's "add RK3576 RNG
+   node" patch
+
+Changes in v2:
+ - Enabled HDMI node per feedback from Heiko Stuebner and Nicolas
+   Frattaroli; untested due to upstream driver issues.
+ - Enabled Ethernet 1 node per Heiko's device tree philosophy;
+   untested due to suspected PHY driver or configuration issues
+   (removed in v3 per Andrew Lunn).
+ - Clarified eMMC remains enabled but unpopulated on tested
+   board, per Heiko.
+
+Signed-off-by: John Clark <inindev@gmail.com>
+---
+John Clark (3):
+  dt-bindings: vendor-prefixes: Add luckfox prefix
+  dt-bindings: arm: rockchip: Add Luckfox Omni3576 and Core3576 bindings
+  arm64: dts: rockchip: Add Luckfox Omni3576 Board support
+
+ .../devicetree/bindings/arm/rockchip.yaml     |  10 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../dts/rockchip/rk3576-luckfox-core3576.dtsi | 683 ++++++++++++++++++
+ .../dts/rockchip/rk3576-luckfox-omni3576.dts  |  53 ++
+ 5 files changed, 749 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts
+
+-- 
+2.39.5
+
 
