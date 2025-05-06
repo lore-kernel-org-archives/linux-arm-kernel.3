@@ -4,99 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01FF3C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FFDFC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:33:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7q2D+DX8gUEt0LGQO16zlU47C6emYh/iTsjzICyS8DQ=; b=xM7EecIFqZB+1NpaFc580WI1kD
-	6/b18MIUjaIM6o2wsgeb8L5QskQU9IePxj8DdhWrsdfLQO6kV2Gj8NYcgT5J/SJTyFWm7NAVcsKBf
-	G0yKLi/u8QUZvBqd4j0qBlrFBqM+7rCtgqd7hoqC0r10V6as43HQDvtUZ0x8MiypwEjjUTzLT/VFV
-	XKf08ZY4Tq3Lf/WJgw9Uk2TxC7of8Tp3NkqmC7dZesYPdMZLi/5QoO2IuH1CfpFRAjQNyHnK0+udI
-	i5Wb+6J7CgXk+7kTGx00Q1NRsk/lS37lxix4VtimWUzqPdhG7dS1EcoAxQrk/3zb/8iyPQ4EPKFPl
-	IhHRhVsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GzXxf0Hnx2ZuZyJaAghD13+hNIZ5tC1zzw1pZ5Fbdb4=; b=c6vgjQuK/5Hjd/
+	PzSuV3fQTgFsmZG8KBrvOilRPtO93LF7bKTCG4bKgsTAKPdoX8GgRVRyZbaJ3HD2bB9rIODyc9Rw0
+	16P64AMXYM8zoPTm1IS1fnbcM3GC01GNWgGZhoMPBMHXlbd4HihffR1Kt1BPKFX1RBjj2V5VzFEme
+	a9xq0WAD6w8ejh7yoLfI2gd1F5zV49NhfiAYTsbc0TcnL7YE7jIjujAU5Q4uyZXa7J/o9mayFjvwD
+	eambnIu9nDRwM1VyTWzbDNueCeMHNc+X5g70umzaxg1CU0myhgOmkV9EOxk8RonZRr9vYu38EhwRg
+	KWDvuYTQUxZALwVRb1Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCUaU-0000000DuTb-0JMu;
-	Wed, 07 May 2025 02:32:46 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1uCUac-0000000Dub3-37FT;
+	Wed, 07 May 2025 02:32:54 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCNZX-0000000DBSL-18xx
+	id 1uCOZ1-0000000DK5S-109u
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 19:03:20 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5edc07c777eso8456751a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 12:03:18 -0700 (PDT)
+	Tue, 06 May 2025 20:06:52 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2295d78b45cso80102675ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 13:06:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746558197; x=1747162997; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=7q2D+DX8gUEt0LGQO16zlU47C6emYh/iTsjzICyS8DQ=;
-        b=CcH+fYGC1xTaH39HxVxoIA2ba3tCykWAe56OYQY2//8hLLsmS+Z5iNzrNyaD1WgFlL
-         8sEhKOTkekPyX7Iuw8QNJCGNQVWfOZj0hgC3bVK7S7Qf1Uy7zlKaxrwz4hMDG6EyZdxl
-         MbngQAlXgC7FlbQ0ThCy2TOLPWJNspWUxLUp2EbRWd77dveYwrnPPSKkaPky9c0cHZYK
-         1+Ls9zOBi3drXGdP1tE39+XPfqHNvIWtgDc3Hjn0fA1quPX9zCxKZdYBZGzmPiNCBS1T
-         ITsR1a2h9cm72xFiYKNRvTuYPAbiVs09TNOn67osM4oQOCWfXT82xGtHKO7NdnQNBnZP
-         UvDQ==
+        d=gmail.com; s=20230601; t=1746562010; x=1747166810; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=GzXxf0Hnx2ZuZyJaAghD13+hNIZ5tC1zzw1pZ5Fbdb4=;
+        b=Rkh//zLKbHRUm2GR8mwkqOtv+Lte+KamOS7gcgAyb6Mj1fwpLAQ57D2TdfIWwKrLyS
+         v6P3ASaDhqRIVIWBk182Feb1SEiD+SKvNAnVeGfr3MiDgXWaag88d2efw5HJbhGckuE/
+         ekbTIxOa9E6AauSeBfS2+turkcW+SWsUlPHsyKFue+4i+G4L74f5AJpsqWwEWbHRkYr5
+         whOWmwjTeA3kuuEqPBLz0Kf/GnjzhHVhatDZb+jmXqWuyDcTq5e/qI4jIvS+HdHHDWDq
+         ZLuR+paBhZV1Iv6PXOwNPZ3yWTLgSn1dK7OoHTIrMhtGjS1ydodo7Mad01UufakWjVwg
+         zSmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746558197; x=1747162997;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=7q2D+DX8gUEt0LGQO16zlU47C6emYh/iTsjzICyS8DQ=;
-        b=lNucQXkmAAEgBoGbmRSLmOoVf5aMsh84/imC2EIn/T1E4i9Ga/tI8dY99t+SJBn3tK
-         q5XaO89C8HDlivFSDbmk8ubv003O0ICcqQ7e0+dMGtPe6oVF13kJiE/8IAPfA2FAK3DM
-         Jrq6f7kAeDVb/3dEGLrwTOX1jktAn7POiMeVZnp31m/itVI1gwmQqI/NBvXV7hyXFEsq
-         icunMXF2Ymc/NqCi0/9XMI+WkgkvuYDnEnOrEeUmP7zE3UcHM6KaKAJtKTefW9IdRHxF
-         6ZLFyB1VUxJ49Zqgn41Nu4soenaq2BDvvfLDJwzlrb3lB7NMBDzfX8P5iubA93BaaHv8
-         fdhA==
-X-Forwarded-Encrypted: i=1; AJvYcCV9iO7CF/cNqLxnOja5NC8DytZDuHOKv4GWURP800Yw0tbKIibeo3OK6mImQ4LOVFQJZTIndl1sm/WrEM7P7JZt@lists.infradead.org
-X-Gm-Message-State: AOJu0YxybgD/JtRHBCI9IDo08jI/UN2oFn3hr0Qw3PrrFJ0Cj2Jjei3d
-	lE/COLneEFwejXP/gneDo94ggz9N3OLFeSo9pjISRBni4SklK2GH
-X-Gm-Gg: ASbGncvFeSS6rF8eWloh4MXlFSOYxlJCNyk86GfBgZGVIz16eEbmHrRaaqXfmZW2FWG
-	KvkRGj8oZFCTkpzDG9AaFHeRFD9iE/UUKzT/lpNc2p+c0PXNsJ+aIcfQoMYKU+TmNPKRIl80+t/
-	Cv39eL5O/wrxGo4AbP9xvTHB9pqHx7r4jFcn7Q9IcAMBvQx6b2h4IsVq/H7gCjPn36G+cJuPJTT
-	Eik47VN2jTqXNhTyLK41XBbxvn7ogrMluKTCaj5gbPhM+ESH6emgvSGuKjN9K8QkppxrJE5ZsRd
-	G8rjWHW3PS3qfKKT17A2eJC/Kg77WXE3gy+APaotrn3A7pBaT/5xGgpXRrfzJRhjkaw0OsnYvR5
-	QG7PGG9xpn8CGTgA=
-X-Google-Smtp-Source: AGHT+IGAIk6XhkOv4qY9hEVwQZjfW5uzWwoDsjl7pOXvlYuWalU+g9Aa0ZsyZk2gb/vxryl7lxtCng==
-X-Received: by 2002:a17:907:a70a:b0:aca:cc55:fd35 with SMTP id a640c23a62f3a-ad1e8d2cbf8mr54940966b.56.1746558196869;
-        Tue, 06 May 2025 12:03:16 -0700 (PDT)
-Received: from [192.168.50.244] (83.8.121.197.ipv4.supernova.orange.pl. [83.8.121.197])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad1895090f6sm753734566b.136.2025.05.06.12.03.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 May 2025 12:03:16 -0700 (PDT)
-Message-ID: <7eeaa7b4-b76d-4658-ac78-705a5f8e54df@gmail.com>
-Date: Tue, 6 May 2025 21:03:15 +0200
+        d=1e100.net; s=20230601; t=1746562010; x=1747166810;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GzXxf0Hnx2ZuZyJaAghD13+hNIZ5tC1zzw1pZ5Fbdb4=;
+        b=JMzpzbhapA8za+iIAjuAgVdCOo+WoCQu0wTXvwlNz5ZaNX3t08vVq5H5cJapBw/qEg
+         Qn6k9MX+9JAJ5J4/ZbBcfDWwLh3AIJZKT3zhShSL5pmipNyUja576LDTJETqtlbpz2zc
+         L2MvIRAugX6gDmKD5iQtXza+WJM845bLkJae7cby7t69Jd+1KAQn81l1icLxsTJe04r6
+         U4oxeuw4ZBXFUETUJb4KfbToYNc7EUgWw885scSBIvXXamy93tJSw/qXYwBbNZqT+YfV
+         KtSOVbPB4YyKP31gtZ3o2c+T5jWaPxb4oFoOavUjecB5HxkXZ58MRm3Q3Sfu/6yvFqfn
+         oUEA==
+X-Gm-Message-State: AOJu0YwfPl24Es5diPNi9WN0z3unfuLTj0zOjbDcRVKPpnCIixLQjGeo
+	bJ2OGA7hy6mLAj/3FIyMkA9WosCqNIBpG6XRxzp8LPugHdFW2Yty
+X-Gm-Gg: ASbGncuQs1axzDi57vv1QBtqQLmfnZwoQk+dYIzr96u1EUUaKdZaAe5fn8BYsXkrhCa
+	Z2JmNOKHgtvgzHlkfVgLpZ6dzgAnznTdby71YX2t7idzOlyua1xTU/y+ou8i1kJ+2pfYIvbzbqt
+	OpV16tvMxMUFzKVC8KROSv38fCo5UyXCt1VDPOTz64k4KcZoRrINwgBq9omCUYFYacmiSM/QxF/
+	h5VmC2Zm2tlx7wzMspY/Uh/WWKP2B+8gNeebFFnCPsVA3RA+6XmEwkQvd4hgqZkJNjRQHnLl7cG
+	WPQef/3hV/K5T9RisEU64uAXSPD6VnFKeEfsSWEYTuxMpmZHZc+6
+X-Google-Smtp-Source: AGHT+IGdwuldVbcmWLN0KkrUf8rKTSXH7NdW0ivuFj9VQtpVoZ4NgUzZQC4g3DwuL7LkRQ99v38W+A==
+X-Received: by 2002:a17:902:fc4c:b0:216:2bd7:1c4a with SMTP id d9443c01a7336-22e5ecc2696mr7068435ad.26.1746562010216;
+        Tue, 06 May 2025 13:06:50 -0700 (PDT)
+Received: from NB-GIGA003.letovo.school ([5.194.95.139])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22e151e97absm78378635ad.62.2025.05.06.13.06.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 May 2025 13:06:49 -0700 (PDT)
+From: Alexey Charkov <alchark@gmail.com>
+Subject: [PATCH 0/3] clocksource/drivers/timer-vt8500: clean up and add
+ watchdog function
+Date: Wed, 07 May 2025 00:06:11 +0400
+Message-Id: <20250507-vt8500-timer-updates-v1-0-6b76f7f340a6@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 5/9] mfd: bcm590xx: Add PMU ID/revision parsing
- function
-To: Stanislav Jakubek <stano.jakubek@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
- <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- ~postmarketos/upstreaming@lists.sr.ht
-References: <20250430-bcm59054-v8-0-e4cf638169a4@gmail.com>
- <20250430-bcm59054-v8-5-e4cf638169a4@gmail.com>
- <aBo0qzqHOkfFxaXs@standask-GA-A55M-S2HP>
-Content-Language: en-US
-From: Artur Weber <aweber.kernel@gmail.com>
-In-Reply-To: <aBo0qzqHOkfFxaXs@standask-GA-A55M-S2HP>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALNrGmgC/x3MPQqAMAxA4atIZgMxtCpeRRyKjZrBH9oqgnh3i
+ +M3vPdAlKASoSseCHJp1H3LqMoCxsVts6D6bGBiS5ZqvFJriTDpKgHPw7skEY1x5JlH3zBBTo8
+ gk97/th/e9wN7PQX7ZgAAAA==
+X-Change-ID: 20250506-vt8500-timer-updates-44a0d22cd720
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, Alexey Charkov <alchark@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1746562005; l=1116;
+ i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
+ bh=C/hqTH9fWgjvHIAlcqh9rsEMLpNaQkiA3cjX0v4rFQ4=;
+ b=OYx9UAzouM70vpNCQH3qouty7tsRpKFTtpa0JWKuPso00r10WEe4tlx4RQVdoEH34FMnVadUi
+ vlkxM9CYfvgBuejsWOwhg7DDo6ck4dKisIh/KF92tMHD0RSHr6KlVgN
+X-Developer-Key: i=alchark@gmail.com; a=ed25519;
+ pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_120319_322619_5837F123 
-X-CRM114-Status: GOOD (  18.72  )
+X-CRM114-CacheID: sfid-20250506_130651_282842_527EA327 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,55 +110,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/6/25 18:11, Stanislav Jakubek wrote:
-> Hi Artur,
-> one note below.
-> 
-> On Wed, Apr 30, 2025 at 09:07:09AM +0200, Artur Weber wrote:
->> The BCM590xx PMUs have two I2C registers for reading the PMU ID
->> and revision. The revision is useful for subdevice drivers, since
->> different revisions may have slight differences in behavior (for
->> example - BCM59054 has different regulator configurations for
->> revision A0 and A1).
->>
->> Check the PMU ID register and make sure it matches the DT compatible.
->> Fetch the digital and analog revision from the PMUREV register
->> so that it can be used in subdevice drivers.
->>
->> Also add some known revision values to bcm590xx.h, for convenience
->> when writing subdevice drivers.
->>
->> Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
->> ---
-> 
-> [snip]
-> 
->> diff --git a/include/linux/mfd/bcm590xx.h b/include/linux/mfd/bcm590xx.h
->> index 8d146e3b102a7dbce6f4dbab9f8ae5a9c4e68c0e..fbc458e94bef923ca1b69afe2cac944adf6fedf8 100644
->> --- a/include/linux/mfd/bcm590xx.h
->> +++ b/include/linux/mfd/bcm590xx.h
->> @@ -17,6 +17,16 @@
->>   #define BCM590XX_PMUID_BCM59054		0x54
->>   #define BCM590XX_PMUID_BCM59056		0x56
->>   
->> +/* Known chip revision IDs */
->> +#define BCM59054_REV_DIGITAL_A1		1
-> 
-> 1 seems to be the digital revision ID for A0 (couldn't find the analog
-> revision ID), see [1].
-> 
-> Other values seems to match downstream (as far as I can tell anyway).
-> 
-> [1] https://github.com/Samsung-KYLEPROXX/android_kernel_samsung_kyleproxx/blob/cm-13.0/include/linux/mfd/bcmpmu59xxx.h#L82
- From my testing on a device with the BCM59054A1 (BCM23550-based Samsung 
-Galaxy Grand Neo), the digital value is also 1 on this model:
+Add named defines for all registers and bits in timer-vt8500.
+Move the system events timer from channel 0 to channel 1 when enough
+information is provided by the device tree (i.e. more than one IRQ).
+Use channel 0 for the system watchdog
 
-   bcm590xx 0-0008: PMU ID 0x54 (BCM59054), revision: dig 1 ana 2
+Signed-off-by: Alexey Charkov <alchark@gmail.com>
+---
+Alexey Charkov (3):
+      clocksource/drivers/timer-vt8500: Add defines for magic constants
+      clocksource/drivers/timer-vt8500: Add watchdog functionality
+      ARM: dts: vt8500: list all four timer interrupts
 
-(This constant is not actually used anywhere in code yet - I just
-included it for the sake of completeness, since the BCM59056 headers
-in downstream listed both values...)
+ arch/arm/boot/dts/vt8500/vt8500.dtsi |   2 +-
+ arch/arm/boot/dts/vt8500/wm8505.dtsi |   2 +-
+ arch/arm/boot/dts/vt8500/wm8650.dtsi |   2 +-
+ arch/arm/boot/dts/vt8500/wm8750.dtsi |   2 +-
+ arch/arm/boot/dts/vt8500/wm8850.dtsi |   2 +-
+ drivers/clocksource/Kconfig          |   6 +-
+ drivers/clocksource/timer-vt8500.c   | 115 +++++++++++++++++++++++++++--------
+ 7 files changed, 101 insertions(+), 30 deletions(-)
+---
+base-commit: 0a00723f4c2d0b273edd0737f236f103164a08eb
+change-id: 20250506-vt8500-timer-updates-44a0d22cd720
 
-Best regards
-Artur
+Best regards,
+-- 
+Alexey Charkov <alchark@gmail.com>
+
 
