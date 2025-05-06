@@ -4,173 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD64EC3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 10:39:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31E14C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 10:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gr/mJFi+dYrEoj7vk321hSnXeIxlQ1zJqIUx63FEcxc=; b=FL+u2cL9oXtMOKFxDDb5ov3bAT
-	OMSikw1xRP5gmi6iH9z+OWvXRtSrHwIU6TELo7yPGi5mRojqL5qe0F8TfE/Tpp9E7Tc3GdSnn5AZ5
-	sQsp0IMfBN/v8fdiRiN7BgZWgNF5VyLBbxS0YbAAhgf37qnXutzIQmR4yfquongFjm2g42caXu776
-	Zalqf7zYwg/jm6SSQH9WDF7w+40Kz9K8eJQEQiS/DAoptGTJYrO61Pk3SIg4eHJhebsC7eCuDIijt
-	Ob4LEanV0BLZRurS9DoBVrHKeAayxDe1hCHvBVlZc2/tGxudo+s+TkdetmcmW8lK+1A1U1p4mnOB7
-	Ciy2Ofhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=K5lrwPXQAdIvSWBAjVyHQReeKyrfP5GxsI558AXqMso=; b=HKiyVQEidz1B9vKnp47rO1pu1F
+	04po0DlU4NWG9kF/+tlGa7s1TYvIW8S12o2DoZKDefk2kGdqoznW5dYCvk/86AMr+2c+Rpp519iq7
+	OjMFzsIclWslLwv/B4oxIAJW0uqPyZxHl+iLM/5Z4EF4HTZasYwFv2TcmZXikjidmxLlHh0NT7Z3o
+	ztd0WhbwJ49vHbBFFlrecxWSKaM7RUfO7kgsgjgTfcgbN37eh2J6lcIDVBfL5hRO7j1v84wqIbdsD
+	jetHz3z4uqheZUpxat08YM2OlmO1h7/e7pLf/sDI2SKzjoeUpdqghwIzhGlp1kCEMIN+5zWlwBc7K
+	9D5n8H/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCFhQ-0000000Bazz-30VA;
-	Tue, 06 May 2025 10:38:56 +0000
-Received: from mail-bn1nam02on20621.outbound.protection.outlook.com ([2a01:111:f403:2407::621] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
+	id 1uCFkL-0000000BbTL-2Evp;
+	Tue, 06 May 2025 10:41:57 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCEQs-0000000BKMO-1BsK
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 09:17:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=E4ux35e4UtY4zGFzpn2ThznXskTr+kAL7bgwBaPeo7ok7TEPxTMzk42ZDgGZL2LGWsOJzhoiqg/1YT2VBYRposC//VaMrlnNCzLW9c2Y7n8PRQjBhAlIWEITmppFo9KMTwF+Gt4i/H5OuO57tKZ7UpfATHyS8p+BdHz27ifF+qCKREZG2psNIYkoxIRq0NLH9k56g/9ASHOGrk+PzKHEEKK6nEzosk0gtBbNd1YhBkqlsQ5IzMLBQUId7rMN6O3mtxtAUqWbDTRYGgpLfpNHbYzpOrq9uvFffD95/Ma9lSsjrN41dwG3GgvSI6SN/hOPfN466lQ7aErwveQQ34NGlg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gr/mJFi+dYrEoj7vk321hSnXeIxlQ1zJqIUx63FEcxc=;
- b=L/+W4kGS8Lr62FKQsVgRPez5I2qtCCowjIgxTcuXzr6a2kl/HwqnHD0KEiGe4ZJrzrav5NhyuBPtFuJOg2oIjCxuW37yy3RAl9vZP4aR980y31WmIAfJVuYC/7BF6f/Y8VmJgw68uKosKzDov/JSF/Vmv9bhFca8DJJaydrqzoJTSFiqawunLOc5vXmXclShgQH5aZIoKUvpuZLXnvJ2HGC2HRqJBzIFL4G9i/yEv/tP10FkqC0GiePYGK/VXEVxzIZJaR2ZILvAq/WuIEPr8i7oTpw2/lKf/+W9M+uxlrDZ3dgCoC9y8EraLmmfATlAimBCTT0kRLz1hfBX3SWrpw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gr/mJFi+dYrEoj7vk321hSnXeIxlQ1zJqIUx63FEcxc=;
- b=UqBA6abmPoRirYJOBLRTlk39ywSsyw6XnStMU1mxesdUDMIwYVpTFeqy1b9j46HuXE6yB0pTjPt8jBh7qLu5iJB8vXT9zJrgD9oMmXZ6JHebVVG7CMr+Mjm56fdqvtLJ58nI4IZ5yuJ2fVxGt0ApB0sGPecCW9n6se+ISHWtLco=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DS7PR12MB6048.namprd12.prod.outlook.com (2603:10b6:8:9f::5) by
- SA1PR12MB7222.namprd12.prod.outlook.com (2603:10b6:806:2bf::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.23; Tue, 6 May
- 2025 09:17:37 +0000
-Received: from DS7PR12MB6048.namprd12.prod.outlook.com
- ([fe80::6318:26e5:357a:74a5]) by DS7PR12MB6048.namprd12.prod.outlook.com
- ([fe80::6318:26e5:357a:74a5%5]) with mapi id 15.20.8699.019; Tue, 6 May 2025
- 09:17:37 +0000
-Message-ID: <cc9d2ff7-ce8c-419a-970c-cec88572c0c8@amd.com>
-Date: Tue, 6 May 2025 14:47:22 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 10/23] iommufd/viommu: Introduce IOMMUFD_OBJ_VQUEUE and
- its related struct
-To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, kevin.tian@intel.com,
- corbet@lwn.net, will@kernel.org
-Cc: bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
- thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
- shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
- peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
- praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
- linux-kselftest@vger.kernel.org, patches@lists.linux.dev, mochs@nvidia.com,
- alok.a.tiwari@oracle.com
-References: <cover.1746139811.git.nicolinc@nvidia.com>
- <b44dfbe2d933949f4d93a23fdae5b26af9d6f624.1746139811.git.nicolinc@nvidia.com>
-Content-Language: en-US
-From: Vasant Hegde <vasant.hegde@amd.com>
-In-Reply-To: <b44dfbe2d933949f4d93a23fdae5b26af9d6f624.1746139811.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PN4P287CA0122.INDP287.PROD.OUTLOOK.COM
- (2603:1096:c01:2b2::11) To DS7PR12MB6048.namprd12.prod.outlook.com
- (2603:10b6:8:9f::5)
+	id 1uCEW0-0000000BLqt-47kA;
+	Tue, 06 May 2025 09:23:07 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id D02F520731;
+	Tue,  6 May 2025 11:22:57 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id ETRcuLb97ySV; Tue,  6 May 2025 11:22:57 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1746523377; bh=8YC/nlUWpEAJFTkya/c4smmCYNL/U+/Jg0o0Xd67Nvk=;
+	h=From:To:Cc:Subject:Date;
+	b=SQrXhASu87Ica13iGsBGL3hk/3b74IZ8UdE9gfAXvfCJpvbOJbELKAkUrgOOwQNNN
+	 +iZTHypK30d7KowSXDM7FsxHWtgTSdBct9iIDq/pzCDrYNBsohvfUW5Eq3ktTlpUD/
+	 maSDpQTD+dFEE/Zzhy+GVDpUoU1YxaIV8XTYPDCuWt3HaESekUZEhBCKoBkNLANiyG
+	 VTaWI2RL6OAnha+091ncXvB914teqnKFfRnE2n/CBjm8Z/waAjSfBzvabHFo8KA4Yv
+	 2fGLcKHUao6O0zf1+1NWAmsC9bXMJpGiDItexlX4d1rtinhc25jmJOsNFpKuuW6De6
+	 E2TBuSwgABhuw==
+From: Yao Zi <ziyao@disroot.org>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Shresth Prasad <shresthprasad7@gmail.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Cc: linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	Yao Zi <ziyao@disroot.org>
+Subject: [PATCH v5 0/5] Support SD/SDIO controllers on RK3528
+Date: Tue,  6 May 2025 09:22:01 +0000
+Message-ID: <20250506092206.46143-1-ziyao@disroot.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR12MB6048:EE_|SA1PR12MB7222:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6cf74808-32af-45e8-d651-08dd8c7ed7be
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y0g0S08vYjBvclZjajgyUXB3QWpjaFVNc0Q2ODliaHdHM2tIU3pieGxIR29M?=
- =?utf-8?B?amF2dnpsNEp2aVhaMUJlNCt4ODQwaHpaaW00UnlYL3Q4MkVyUHNKM1dBam1E?=
- =?utf-8?B?dDVDd29zck5tcGM2U2RkR1I1WUFCOHZuTWgvb0RmYUNocUNsSGFrT2llem1i?=
- =?utf-8?B?Yldnb2lYZktOL1h1TlNiMGl6ajN5WXUrSGovcG1QOXRWdTFXcHV1SXlaSFUx?=
- =?utf-8?B?WU9la2FYTk5JQkd5TVhMcm96cnFLakdGaXBhdVNHbjVFSnRtR0dyRzVlK2Fw?=
- =?utf-8?B?Q0dSTyt6ZTlOcHFFQ0lhOUU3bW9selhic0huV0QrdkNuRjlPc2RNZFFpVEkw?=
- =?utf-8?B?THU2OFUxd285MmFNRFdLVy9rV2xadmpSUUtLeEI3RzlDTEo4UHVwbUp5bmNv?=
- =?utf-8?B?NEJaYlJxQVN5WjR2M0R6aUViRGVidU1zbmV6ckZGck4wZDZTbzJCbE1relVS?=
- =?utf-8?B?OWlJS0J3N3Q4QU93N05GVXNxczc3MVk1cEQvY3QrV0dxVWlIZHo0ME90NWh6?=
- =?utf-8?B?Ym5BTXVpMENoWVY1djdRZ3FTTlBKem5tWE1TLzNLbWZlMXdHR3RZMkhuV01t?=
- =?utf-8?B?V0lQZEdBbDZNaXpkQ2lDWklFQk1zaWx2RTNwOERjeG9iZXFWZTVrRFRZZ1Nn?=
- =?utf-8?B?VTUxRFFNcVVuejB5a3lsOFJybDdXNm9vZm5kOE9HWjl4bFVqQ0lSdFJFWXRL?=
- =?utf-8?B?Uk43b0JKZ0oxWWRUc0h0Rml6d0RNbnhheGpLY0dhWUkzclBqcUxqQjZ2cTV5?=
- =?utf-8?B?WU9mZkdadE9hVTRoWjI0eHQxcFNzSHI2WFNhNGcyVHBHUVJ3dVV1TWNQb2Ru?=
- =?utf-8?B?RTRWYTJkWkd3OCtlRE9IK1dhOUJRMTlaYVM0ZkVCWFpiaklpL0tRYWRyT0Qv?=
- =?utf-8?B?OHZ3dnF6dS94Wnd1RVZMemgxQ0VYNC95d2loLzZlWnMyb3hWdVJmVWIvcy8v?=
- =?utf-8?B?bkh5QUFvV1VYRFJVVkVFTTk0elI3bml1QlBCa3VGcmdCUE9oaUtHSVA4UmNt?=
- =?utf-8?B?bVA4SUN3K3lXaVY4Q0lrd2UrWkVCNzN0VUQ1THU2RHRiNVhPeXQxdkhpZlBw?=
- =?utf-8?B?V293VG13MFVBbXhPK0YvNks5dGhCNlVXN01hcTFsUHNDejJiOGJyTklFcXRH?=
- =?utf-8?B?TjFEZlFwaVRqRVFsS0VveStGdGtrUWVHdkFtUUFZcURsZVpGRWdPMTFFWHZK?=
- =?utf-8?B?MmJvdjFNMGxMQTMrSFIzWWtNRVQ1NUpJbEZBSmNBVG82V2QzNjlsNHp1aEtq?=
- =?utf-8?B?aWFPK0F5UjJUMFE2RGpKTUQzZkphR01aWmJ1ZG9HTUVRbWtLM3lLOVRpd0lF?=
- =?utf-8?B?enpJSG5lcHlHeU5NZlE4ZmltSmhKR3pQRFJRSWtCRk16NFV4VXlnUXFoZUpw?=
- =?utf-8?B?T3hXbUpSNTRGdVVpdWgzcWIza2FpY281dGkyTllWZDRlUGZCb0R3M1lSUFU2?=
- =?utf-8?B?ajQ1MjFyNWNQVWxaZVBEd2FyUEN3VitmMHQ5OGR3SE1xNGx1bVAyclRGV3dD?=
- =?utf-8?B?Sm1PQTdKMlpVQkxxNGNuMXF5aTEyNDNxUE0zTFBlK2lrUEFTZXhpN3lrT0Vq?=
- =?utf-8?B?VU91S3pSTGRXNS90SXp5WGpWU3RabEd5MDhpZ25Gd01Vc0l0aVBkTEFMSWR3?=
- =?utf-8?B?UFZCM3NxQjF2TmRLa1NoWjhINTZpVDRBRUg0ejlWSHkzbGxReDZXYzdIZ1R2?=
- =?utf-8?B?enlXT1ZoTk1Sb2w3N3MwbldaQmhacDlySVNXUWhkVVhxZitNdXozaW96OVFL?=
- =?utf-8?B?TDAwemVOL09PN1lDQ3hOMi9VWGFvb05RR3g0WTVmMForQlB6enlWSTFhYzRm?=
- =?utf-8?B?RzUzYTVwc0ltZ0dLTExuc3BtYkgwWU43bTF3WHgzQTNYaFI2U09VNncyZkdu?=
- =?utf-8?B?V0d6RzhWN284K2pKenpEOXhKU3lBcUpGTXJocUFGYjkyK2tvWjNHRjErRTFQ?=
- =?utf-8?Q?TSfA4bVQ/pQ=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB6048.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Vml1ay8yVHpkTTRZeDJmZ1BqZEdzR2xzSDU3NG9VTGUzZmViK25sMmhWbUR5?=
- =?utf-8?B?T29ocFoweS93SFZrR1BtbGhJTVVzaHZkL25ONnFuZi9UOUdqc2N1T2RBWERz?=
- =?utf-8?B?UENJbzRYVWpINXlpMExGenpWaE83bUltbko2R1ZmTWo3ZWpJRzdBbnV0T1la?=
- =?utf-8?B?Z1UycEVGcFN4bGFRelZrNTVnL0RuVy8wa2hpNFlER0gvRUNNK2JiL2pmTlVt?=
- =?utf-8?B?ZC9tQ3Y3Ry95c3RtQ3RnWUt1V3pycHdnUjhWenVVeWJibmdId3JNYWFQRWdj?=
- =?utf-8?B?YXUxZ3NWNzB3RUkzU1BreVJkYUxXU0tTelhVMERXKzlkVkFtUU1zN0VDMVlZ?=
- =?utf-8?B?czd3ZXhQZkM2Y3RhSlRMWndVQ0VlRmw2ZnRnbCtZWTE5dzRKUzl3bXpYQWJn?=
- =?utf-8?B?R05TaVVlQ00yODVscVk1UnBXbUJDQzd5S29lZDZKSEtXUDRaTU9TVHJpa2VX?=
- =?utf-8?B?ZHF0NUpPcGFLWkRDUnBMa2NZSlU5R2NzNWlnWXVoUVFQeG5xSlE5d0ZxTEk5?=
- =?utf-8?B?YnE1MlJocjUyendOb0RvSWpTOUs3UzF0d0xvU2c0ZnI5ZFZMcHJaNHdFUi9m?=
- =?utf-8?B?dkhZY3g0QjV1MUhNcmdDbWNTNkVCN1g3bUIrSXJJcXpjclBLcmx4Mk5MVi8x?=
- =?utf-8?B?NUNObnZNZndySU5YQnlsaWpQTGM2VHdPNmJJdFZtUElMa3IxamRLTVBtUXVW?=
- =?utf-8?B?VWxVSEVGOWdYdUZTSnh3MmRQQmIrbzBveEVuc0w0WnNhTklBOVZzOWZrOHJz?=
- =?utf-8?B?UXRvY0dud3ZWYmRMOTFydFlneXRiSUoxdVNQbkdoM0FFSTc4c3NzVndOR0h4?=
- =?utf-8?B?WUtoTi9XUGZ5MHcxR09CQmNXakJGUkZqZXhFT0pJekRMMWRyOWJidXN5b2hq?=
- =?utf-8?B?eTZ4c0FIWlFqRkJicXcxeEgwWkhIVFprTjZuU1pub0JpY3JGLzFYRFlISkJB?=
- =?utf-8?B?VUYyMkVLQndmdm82TllZc0xYV0IwMm9RTHBQQVhxM3ZkVFdTZWpTSEdjRW5K?=
- =?utf-8?B?TVlvNDBmUDl5TUY5cWZDWXJKVEFtV29kNm03ay9VUGF5dktGVnFzalpyMWJr?=
- =?utf-8?B?eHpEMWFySWxkWnkyV0pkMWQ0eG52Q0JNZ1h0eG5ONTFkTXhYcUtxUnlKcVJ0?=
- =?utf-8?B?S1FVazBPTDFxZDVMVksxaloreDZMemxpNnA1UXpCYitSZkg0S0IvS1h3YzNi?=
- =?utf-8?B?UVBkZExQODY2cFZtQ3VSQVNoMVU3ZWpCaTdmZEF5NDhYZVF4V3RYcU9nNzJu?=
- =?utf-8?B?L2ZlQy9EQS9nUHVPMlliT2ZPSjkvUVBKdnRudDQ5Vmw4cUorcmtYVHA1OFpN?=
- =?utf-8?B?cWZGQmlIK09ETkRIMEdDeTlmOHBCQVhQMVBFUndHbGYrYkt3VjI0RDNaZnZX?=
- =?utf-8?B?NWdoTk5wczl5WHZrang3SnJjYVVTNTBnNllFOG1uUXV5WlVvU21XcU1WblRL?=
- =?utf-8?B?SXNFSllYUGp4cDE5S3lwTEZHWFhHTHJHdUt4THErYlN1cnBrNVdDVEU5Wkhy?=
- =?utf-8?B?S3FoK3dHc28xcVI5UDE1R3dvQm1zMXdWTWxjbkp0NlYrUXl1ajAvaGVPeUtw?=
- =?utf-8?B?RmNmY0VIT05ITWJ3VE85WWVnWjZtcUJsL1JIVEd6Tko2MWF3NDNtbGIyMndl?=
- =?utf-8?B?ejZOWDdtemJ6WFFjLzVzd1BsVTZRTm1OeW1sbGhGYXA5YmlkRW9SWENteFZE?=
- =?utf-8?B?Z2pjVkN5cWRoS2p5T3JaUlU2OERyVTRkaTNPQ0dXS0lxQ3FLUElRNVhTenNx?=
- =?utf-8?B?L1pUWmZuVlR3Nm51RS9pSzVUU3ZXRHBKZXp0dWVOZUY1ZnozVU5GSEpyZEdk?=
- =?utf-8?B?SnRXYWFtcUJMV3ljQUtqOWpRanQyN2Yrby9sWklEcGZWSTBiajl5NXU0YS9X?=
- =?utf-8?B?bDZvblJLbUI5V1RMU3oraU8yMVREdVhxVkRJa3pUcE4wZnZTdkhpSTY0cGpO?=
- =?utf-8?B?VDFJbldER09YLzc0N1FNdTB1b1lLR2ZkdEkvTUNNU3B4UkkwUkMrSWZtMWYz?=
- =?utf-8?B?WjVITk9sNDJlYjNFTFI1ZHk3Z2RkOWpBSStyV1VNRHIxRSt4QU5XZy9YaGt6?=
- =?utf-8?B?SFF6MS9RNUlqMkpLVHlXU0FiVEl3azdaOHFGRktWUXpzYVE2eTlDalRDTnE1?=
- =?utf-8?Q?+32Z09e7rCDC4M2t2pD0QQxJw?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6cf74808-32af-45e8-d651-08dd8c7ed7be
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB6048.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 09:17:37.3331
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: nPhu/uZLUv2ConyBCCwyNCo5A2bFiO7Ga7btSgtx6osyBC+buRkuSS7o8/wHaknZ0GnOT8KHb3YtAxA35j6XHA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7222
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_021746_322270_C5A41687 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250506_022305_429893_D7D3D0AA 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,28 +84,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+RK3528 features two SDIO controllers and one SD/MMC controller. This
+series adds essential support for their tuning clocks and brings the
+SD/MMC one up on Radxa E20C board. Both HS and SDR104 mode are verified.
 
+- Changed from v4
+  - rk3528 clock driver
+    - Switch to auxiliary GRF
+    - drop rockchip_clk_register_grf_branches
+    - Rename branch_mmc_grf to branch_grf_mmc to make style consistent
+      (with branch_grf_gate)
+  - Link to v4: https://lore.kernel.org/all/20250417143647.43860-1-ziyao@disroot.org/
+- Changed from v3
+  - Drop applied binding patch of MMC controller
+  - Rebase on top of linux-rockchip/for-next
+  - Link to v3: https://lore.kernel.org/all/20250309055348.9299-1-ziyao@disroot.org/
+- Changed from v2
+  - Apply review tags
+  - Rebase on top of linux-rockchip/for-next and drop applied patches
+  - RK3528 devicetree
+    - Fix accidentally dropped status property of saradc node
+    - drop det and pwren pinctrls for SDIO{0,1} according to the
+      reference design
+    - Correct max-frequency for SDIO{0,1}
+  - rk3528-radxa-e20c devicetree
+    - Don't disable sdio for sdmmc as claimed in the hw design guide
+  - Link to v2: https://lore.kernel.org/all/20250305194217.47052-1-ziyao@disroot.org/
+- Changed from v1
+  - Apply review tags
+  - Rebase on top of linux-rockchip/for-next and saradc v2 series
+  - rk3528 clock driver:
+    - explicitly include minmax.h, replace MAX() with more robust max()
+    - readability improvements
+    - fix error checks: ERR_PTR(-ENODEV), instead of ERR_PTR(ENODEV), is
+      returned when syscon_regmap_lookup_by_compatible() fails for missing
+      such syscon
+  - RK3528 devicetree
+    - Add default pinctrl
+    - Move the per-SoC property, rockchip,default-sample-phase, into the
+      SoC devicetree
+  - rk3528-radxa-e20c devicetree
+    - Assign sdcard to mmc1
+    - Add missing regulators
+    - Apply no-sdio for the sdmmc controller
+    - Sort nodes
+  - Link to v1: https://lore.kernel.org/all/20250301104250.36295-1-ziyao@disroot.org/
 
-On 5/2/2025 4:31 AM, Nicolin Chen wrote:
-> Add a new IOMMUFD_OBJ_VQUEUE with an iommufd_vqueue structure representing
-> a HW-accelerated queue type of physical IOMMU's passed to a user space VM.
-> This vQUEUE object, is a subset of vIOMMU resources of a physical IOMMU's,
-> such as:
->  - NVIDIA's Virtual Command Queue
->  - AMD vIOMMU's Command Buffer, Event Log Buffer, and PPR Log Buffer
-> 
-> Introduce a struct iommufd_vqueue and an allocator iommufd_vqueue_alloc().
-> Also, add a pair of viommu ops for iommufd to forward user space ioctls to
-> IOMMU drivers.
-> 
-> Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
-> Reviewed-by: Pranjal Shrivastava <praan@google.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+Thanks for your time and review.
 
+Yao Zi (5):
+  dt-bindings: clock: Add GRF clock definition for RK3528
+  clk: rockchip: Support MMC clocks in GRF region
+  clk: rockchip: rk3528: Add SD/SDIO tuning clocks in GRF region
+  arm64: dts: rockchip: Add SDMMC/SDIO controllers for RK3528
+  arm64: dts: rockchip: Enable SD-card interface on Radxa E20C
 
-Reviewed-by: Vasant Hegde <vasant.hegde@amd.com>
+ .../boot/dts/rockchip/rk3528-radxa-e20c.dts   | 30 +++++++
+ arch/arm64/boot/dts/rockchip/rk3528.dtsi      | 69 ++++++++++++++++
+ drivers/clk/rockchip/clk-mmc-phase.c          | 24 +++++-
+ drivers/clk/rockchip/clk-rk3528.c             | 82 +++++++++++++++++--
+ drivers/clk/rockchip/clk.c                    | 17 +++-
+ drivers/clk/rockchip/clk.h                    | 22 ++++-
+ .../dt-bindings/clock/rockchip,rk3528-cru.h   |  6 ++
+ 7 files changed, 236 insertions(+), 14 deletions(-)
 
--Vasant
-
+-- 
+2.49.0
 
 
