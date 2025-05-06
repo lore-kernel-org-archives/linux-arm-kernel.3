@@ -4,84 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57086C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:33:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA0EDC3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=24I9h93NVDoUdXWB8s68CbbkJj5LLJ9KD0KfFZXlz1o=; b=X91Ts7vMsIFACBE1Riian+HPUj
-	wph6WcJw1Frlt9HUF5nQMwGznpIfnPCj7ZEzL6TknP3WFTz6qmZtERqkS3xzU44ADhnAUF6Dz0kp1
-	Bz/JCeShTEjct1RtK1Ylyp0H7mqPUX2084fGIt66CItGmbn1uIbiDjDVcJO7hJk/k+JpDimDjxEoo
-	lbYgQ6JUHP2bZeSc6QqgpMb449QzNdrysxAGyS4CB+4yDL/nxGmnUa/HyqUjAJ2HDtLUTifRxz3Rp
-	5mioll0HtkLE1HIx7M1jn/LkDORAqsc4JVPyfqm+uumiUuPB4PeJ9ymMl71kj4BF568jezZSJK82Z
-	rTCNL4VA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Pi47gK8MYhyGIqIdKO9+ShtObSRr4S3t2PvkIQxuaXA=; b=tyBuDrjZD8X7MW7SMQxlj5GIS8
+	2tmRgZDHouy+0Web+Q/CZXivavD50044OWRmiB8G0RtK4EGMn3PJ+ZCbvCrU/aYdo69HVevACjKN9
+	gDokWP9MDL1YzWCNZAhbFzZ/KidXbYMysIJ+qxPqwMhzTvZ3tWZaB8AIZvT2VnzaTVWBU39ewg21p
+	o+ioCy3Pagu5Axs6WbTNAzW/bcWFon5wA32xky0SXWCWnpKPr6X3gjE5WldcuE3C+nQpz/OwZWC/L
+	2tKLFi3yDsPeALckoO8DyVkDojI+t79FypY48KUEYBNrJCiiMtTd/OMQuc4BPNhbdHIsl1qXeDMBm
+	Xo0xBZnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCUaj-0000000Dulm-3QJP;
-	Wed, 07 May 2025 02:33:01 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uCUau-0000000Dv5A-2Rwr;
+	Wed, 07 May 2025 02:33:12 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCOyN-0000000DN0f-3In5;
-	Tue, 06 May 2025 20:33:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1746563581;
-	bh=dD4DwROkTwpoPioZK4HAIdlHbwaPho1AHnFUGGwVwvQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Usd7J0+ngOk4O6lzDIUO1IavRAqJYnQ8OVmybkYwMkp48K4etqkOFw+gwUjIV61rD
-	 PRLMohal3DJpaWnZynIj6n+Wx0TemJeHIl38JcBwDKSrt0Ea1GHWCxFhbtKV6yH3mH
-	 edrBuaDBnOKg/UTEAcT+/XcUFl5Kg3UpJPlxhi1Bb2b4SdCNce9QbpD0OD3jInzuhq
-	 zvcGZFMrWbG+W649sqZJHq21UQUfGUOQaNnmqsBECta9gNsilQFpVZnjM4iKC1Ikqh
-	 cBkoBqbBI/zZNwmHj150qtM3k2YJph0X7hyUzDy7RqX/liwN8KcDqvPYt4hRv+D9LJ
-	 qCUSNc7ASS1lg==
-Received: from [IPV6:2a05:1141:1cc:8600:1cd7:9a7e:17d7:cd2c] (unknown [IPv6:2a05:1141:1cc:8600:1cd7:9a7e:17d7:cd2c])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: mriesch)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EDF2717E078A;
-	Tue,  6 May 2025 22:32:59 +0200 (CEST)
-Message-ID: <90192c74-f5ca-404b-8b95-3df0819e4bc9@collabora.com>
-Date: Tue, 6 May 2025 22:32:59 +0200
+	id 1uCPCW-0000000DNcr-490I
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 May 2025 20:47:42 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ac2aeada833so60497666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 13:47:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1746564459; x=1747169259; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Pi47gK8MYhyGIqIdKO9+ShtObSRr4S3t2PvkIQxuaXA=;
+        b=LH+BeVfexEwPiA7JNmaygkza61I6+8FiVak9hkX18Xp2Ps5MimLpXp82W1OgE5l0EF
+         IgjLGgpIPFlR5d2JYtltxVKNY3PNSXXk3OukRRfpcRi8c57FkzP8emtasdixR5DTEWTl
+         ZuK8DdUsZDv0jV1F+FFBo07xqeDaGAZjqsDHOHKhJp76UWaMdcJMzN3iJlfC8rtuj1kX
+         2zutKvDmuAmbqFsIEn2mbZJJUsXNvt7wwFPj3cOeMXjdn5Q8fSfN1xwfu/JTDsFhXP6S
+         X0kIfHpQN9tkNCK+WmGJ48SsVaPJt83PFeuF4F8l7KS9CpecAGnpZH2xK0WdDWSa3gMW
+         XMQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746564459; x=1747169259;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Pi47gK8MYhyGIqIdKO9+ShtObSRr4S3t2PvkIQxuaXA=;
+        b=kDaQtLSZFviFwa5A2HHrRniizNPEkKqp/WungZBeeH49CQcRfU5fVBEII8cKdrTH9M
+         pmLstR3wreWb1g7URMqhXRWm28aYpVXPOJ5aN8B0LxH9twIEbq5T1qa9xz07GfYT8ofC
+         wuq07FVsaORPxaDoCX/ipf7AJtwpf/rdkGVFEOf0lnLhqTeaI5d086eyKlO4841QKIN+
+         3LN4+TmKFyfbvR6C5fjSMcz/EpSmMZnAjGGYJs9InwN6huC3TnihJR4LeeuemHORpnUq
+         JGsJBRAFP4hJjZgDYETE/WiXd4e9DYwi70E3M7E83ZCym+gr4h3bF87FlMdOlZN1WP09
+         rTFA==
+X-Forwarded-Encrypted: i=1; AJvYcCVmFNA6u8rhnBO/FY2cktujMvKM6RBPkaSooUjcOLG7tmWcnZH5Kt0nKShzT2oNA9OaZYCwHEYaM1POpJKcWx+2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwoTKMP+5UNZ7noojtG5Ih4UUcyK09CaEYCZNwL4PIjvduR9XvQ
+	LfdBjdC8SsqTuSiNnYQU/CquGJlE3W5M3E7yTDSP7VgDg5z/14OQr0fH49NeynE=
+X-Gm-Gg: ASbGnctDucgGMN5Ml4l9dwqoPjKerHWbrvPJCNPXyOFBPkoFvDlvO+lGUuUM9S6rrsQ
+	SR0+fSRvw582wK4U8s2G+zlFIAeHLTwaVobiAUnQuReQAyFp38TAieyvqJyPW8E/WpclLSGjwqx
+	+PXNG4eLXzh4G6StJR6s9NxtASgNJQnV5tfwAV6zBFqhiipPbxHlBK2XXYHGHjq67VarUOn+5Xg
+	N1Zii9gP+k/GWEEsPZ9zlg1lC2Ji/A2QU7BywTMA2D7FoaT75kQfPasFklsnO8hSQqvixOgfPqg
+	+9UCQWWjpAa51S6Oso+I8rp/QfCgtjIP9VC/CpuiXBCXwvULhKYZ2NGA/WhqkrVD1xQjv4U=
+X-Google-Smtp-Source: AGHT+IGdejKWhHgobANcBR0HkA6BZ7303l9tnuRyiuAvIspM7E6yB+9PaEvl5m9+eOZo13IwvIZIoA==
+X-Received: by 2002:a17:907:6d23:b0:ac7:3929:25fa with SMTP id a640c23a62f3a-ad1e79a28bamr109364566b.30.1746564459254;
+        Tue, 06 May 2025 13:47:39 -0700 (PDT)
+Received: from localhost (93-44-188-26.ip98.fastwebnet.it. [93.44.188.26])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad189540d5bsm770703266b.176.2025.05.06.13.47.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 May 2025 13:47:38 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Tue, 6 May 2025 22:49:07 +0200
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	kernel-list@raspberrypi.com, Matthias Brugger <mbrugger@suse.com>
+Subject: Re: [PATCH v9 -next 08/12] arm64: dts: bcm2712: Add external clock
+ for RP1 chipset on Rpi5
+Message-ID: <aBp1wye0L7swfe1H@apocalypse>
+References: <cover.1745347417.git.andrea.porta@suse.com>
+ <38514415df9c174be49e72b88410d56c8de586c5.1745347417.git.andrea.porta@suse.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 06/13] media: rockchip: add a driver for the rockchip
- camera interface
-To: Mehdi Djait <mehdi.djait@linux.intel.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
- =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
- Gerald Loacker <gerald.loacker@wolfvision.net>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Kever Yang <kever.yang@rock-chips.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Collabora Kernel Team <kernel@collabora.com>,
- Paul Kocialkowski <paulk@sys-base.io>,
- Alexander Shiyan <eagle.alexander923@gmail.com>,
- Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- Michael Riesch <michael.riesch@wolfvision.net>,
- Mehdi Djait <mehdi.djait@bootlin.com>
-References: <20240220-rk3568-vicap-v6-0-d2f5fbee1551@collabora.com>
- <20240220-rk3568-vicap-v6-6-d2f5fbee1551@collabora.com>
- <fx5zweayuzo2vcov7i5d6itlizw4bwmr3wwbd4m6mdjsiou5zb@osl3u2ijv3uj>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <fx5zweayuzo2vcov7i5d6itlizw4bwmr3wwbd4m6mdjsiou5zb@osl3u2ijv3uj>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <38514415df9c174be49e72b88410d56c8de586c5.1745347417.git.andrea.porta@suse.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_133304_184662_2109A54F 
-X-CRM114-Status: GOOD (  39.39  )
+X-CRM114-CacheID: sfid-20250506_134741_026002_5B249BD8 
+X-CRM114-Status: GOOD (  21.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,351 +125,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mehdi,
+Hi Florian,
 
-Thanks for your review!
-
-On 5/6/25 12:37, Mehdi Djait wrote:
-> Hi Michael,
+On 20:53 Tue 22 Apr     , Andrea della Porta wrote:
+> The RP1 found on Raspberry Pi 5 board needs an external crystal at 50MHz.
+> Add clk_rp1_xosc node to provide that.
 > 
-> Thank you for the patch!
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+
+A gentle reminder for patches 8 through 12 of this series, which I guess
+would ideally be taken by you. Since the merge window is approaching, do
+you think it's feasible to iterate a second pull request to Arnd with my
+patches too?
+
+With respect to your devicetree/next branch, my patches have the following
+conflicts:
+
+PATCH 9:
+- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts: &pcie1 and &pcie2
+  reference at the end, my patch was rebased on linux-next which has them
+  while your devicetree branch has not. This is trivial to fix too.
+
+PATCH 9 and 10:
+- arch/arm64/boot/dts/broadcom/Makefile on your branch has a line recently
+  added by Stefan's latest patch for RPi2. The fix is trivial.
+
+PATCH 11 and 12:
+- arch/arm64/configs/defconfig: just a couple of fuzz lines.
+
+Please let me know if I should resend those patches adjusted for your tree.
+
+Many thanks,
+Andrea
+
+
+> ---
+>  arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 7 +++++++
+>  1 file changed, 7 insertions(+)
 > 
-> Is it possible to sent the v4l2-compliance output in the next version ?
+> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> index 34470e3d7171..6ea3c102e0d6 100644
+> --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> @@ -16,6 +16,13 @@ chosen: chosen {
+>  		stdout-path = "serial10:115200n8";
+>  	};
+>  
+> +	clk_rp1_xosc: clock-50000000 {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-output-names = "rp1-xosc";
+> +		clock-frequency = <50000000>;
+> +	};
+> +
+>  	/* Will be filled by the bootloader */
+>  	memory@0 {
+>  		device_type = "memory";
+> -- 
+> 2.35.3
 > 
-> On Wed, Apr 30, 2025 at 11:15:55AM +0200, Michael Riesch via B4 Relay wrote:
->> From: Michael Riesch <michael.riesch@wolfvision.net>
->>
-> 
-> SNIP
-> 
->> +irqreturn_t rkcif_dvp_isr(int irq, void *ctx)
->> +{
->> +	struct device *dev = ctx;
->> +	struct rkcif_device *rkcif = dev_get_drvdata(dev);
->> +	struct rkcif_stream *stream;
->> +	u32 intstat, lastline, lastpix, cif_frmst;
->> +	irqreturn_t ret = IRQ_NONE;
->> +
->> +	if (!rkcif->match_data->dvp)
->> +		return ret;
->> +
->> +	intstat = cif_dvp_read(rkcif, RKCIF_DVP_INTSTAT);
->> +	cif_frmst = cif_dvp_read(rkcif, RKCIF_DVP_FRAME_STATUS);
->> +	lastline = RKCIF_FETCH_Y(cif_dvp_read(rkcif, RKCIF_DVP_LAST_LINE));
->> +	lastpix = RKCIF_FETCH_Y(cif_dvp_read(rkcif, RKCIF_DVP_LAST_PIX));
->> +
->> +	if (intstat & RKCIF_INTSTAT_FRAME_END) {
->> +		cif_dvp_write(rkcif, RKCIF_DVP_INTSTAT,
->> +			      RKCIF_INTSTAT_FRAME_END_CLR |
->> +				      RKCIF_INTSTAT_LINE_END_CLR);
->> +
->> +		stream = &rkcif->interfaces[RKCIF_DVP].streams[RKCIF_ID0];
->> +
->> +		if (stream->stopping) {
->> +			cif_dvp_stop_streaming(stream);
->> +			wake_up(&stream->wq_stopped);
->> +			return IRQ_HANDLED;
->> +		}
->> +
->> +		if (lastline != stream->pix.height) {
->> +			v4l2_err(&rkcif->v4l2_dev,
->> +				 "bad frame, irq:%#x frmst:%#x size:%dx%d\n",
->> +				 intstat, cif_frmst, lastpix, lastline);
->> +
->> +			cif_dvp_reset_stream(rkcif);
->> +		}
->> +
->> +		rkcif_stream_pingpong(stream);
->> +
->> +		ret = IRQ_HANDLED;
-> 
-> just return IRQ_HANDLED like above ?
-
-I think I'll go along Bryan's suggestion to make it more consistent.
-
-> 
->> +	}
->> +
->> +	return ret;
->> +}
->> +
->> +int rkcif_dvp_register(struct rkcif_device *rkcif)
->> +{
->> +	struct rkcif_interface *interface;
->> +	int ret, i;
->> +
->> +	if (!rkcif->match_data->dvp)
->> +		return 0;
->> +
->> +	interface = &rkcif->interfaces[RKCIF_DVP];
->> +	interface->index = RKCIF_DVP;
->> +	interface->type = RKCIF_IF_DVP;
->> +	interface->in_fmts = rkcif->match_data->dvp->in_fmts;
->> +	interface->in_fmts_num = rkcif->match_data->dvp->in_fmts_num;
->> +	interface->set_crop = rkcif_dvp_set_crop;
->> +	ret = rkcif_interface_register(rkcif, interface);
->> +	if (ret)
->> +		return 0;
-> 		|
-> 		+-> Copy-paste error ?
-
-Hm. It's not a mistake. But maybe it is a bit misleading.
-
-The point here is that if something fails with registering the DVP, the
-driver may continue to register other entities, such as the MIPI capture
-thing.
-
-I'll have another look over this mechanism and will try to make it more
-comprehensible.
-
-> 
->> +
->> +	if (rkcif->match_data->dvp->setup)
->> +		rkcif->match_data->dvp->setup(rkcif);
->> +
->> +	interface->streams_num = rkcif->match_data->dvp->has_ids ? 4 : 1;
->> +	for (i = 0; i < interface->streams_num; i++) {
->> +		struct rkcif_stream *stream = &interface->streams[i];
->> +
->> +		stream->id = i;
->> +		stream->interface = interface;
->> +		stream->out_fmts = rkcif->match_data->dvp->out_fmts;
->> +		stream->out_fmts_num = rkcif->match_data->dvp->out_fmts_num;
->> +		stream->queue_buffer = cif_dvp_queue_buffer;
->> +		stream->start_streaming = cif_dvp_start_streaming;
->> +		stream->stop_streaming = cif_dvp_stop_streaming;
->> +
->> +		ret = rkcif_stream_register(rkcif, stream);
->> +		if (ret)
->> +			goto err_streams_unregister;
->> +	}
->> +	return 0;
->> +
->> +err_streams_unregister:
->> +	for (; i >= 0; i--)
->> +		rkcif_stream_unregister(&interface->streams[i]);
->> +	rkcif_interface_unregister(interface);
->> +
->> +	return ret;
->> +}
->> +
-> 
-> SNIP
-> 
->> +static inline struct rkcif_buffer *to_rkcif_buffer(struct vb2_v4l2_buffer *vb)
->> +{
->> +	return container_of(vb, struct rkcif_buffer, vb);
->> +}
->> +
->> +static inline struct rkcif_stream *to_rkcif_stream(struct video_device *vdev)
->> +{
->> +	return container_of(vdev, struct rkcif_stream, vdev);
->> +}
->> +
->> +static struct rkcif_buffer *rkcif_stream_pop_buffer(struct rkcif_stream *stream)
->> +{
->> +	struct rkcif_buffer *buffer = NULL;
->> +	unsigned long lock_flags;
->> +
->> +	spin_lock_irqsave(&stream->driver_queue_lock, lock_flags);
-> 
-> guard(spinlock_irqsave)(&stream->driver_queue_lock) will simplify this function.
-
-I'll guard up these methods in v7.
-
-> 
->> +
->> +	if (list_empty(&stream->driver_queue))
->> +		goto err_empty;
->> +
->> +	buffer = list_first_entry(&stream->driver_queue, struct rkcif_buffer,
->> +				  queue);
->> +	list_del(&buffer->queue);
->> +
->> +err_empty:
->> +	spin_unlock_irqrestore(&stream->driver_queue_lock, lock_flags);
->> +	return buffer;
->> +}
->> +
->> +static void rkcif_stream_push_buffer(struct rkcif_stream *stream,
->> +				     struct rkcif_buffer *buffer)
->> +{
->> +	unsigned long lock_flags;
->> +
->> +	spin_lock_irqsave(&stream->driver_queue_lock, lock_flags);
->> +	list_add_tail(&buffer->queue, &stream->driver_queue);
->> +	spin_unlock_irqrestore(&stream->driver_queue_lock, lock_flags);
->> +}
->> +
->> +static inline void rkcif_stream_return_buffer(struct rkcif_buffer *buffer,
->> +					      enum vb2_buffer_state state)
->> +{
->> +	struct vb2_v4l2_buffer *vb = &buffer->vb;
->> +
->> +	vb2_buffer_done(&vb->vb2_buf, state);
->> +}
->> +
->> +static void rkcif_stream_complete_buffer(struct rkcif_stream *stream,
->> +					 struct rkcif_buffer *buffer)
->> +{
->> +	struct vb2_v4l2_buffer *vb = &buffer->vb;
->> +
->> +	vb->vb2_buf.timestamp = ktime_get_ns();
->> +	vb->sequence = stream->frame_idx;
->> +	vb2_buffer_done(&vb->vb2_buf, VB2_BUF_STATE_DONE);
->> +	stream->frame_idx++;
->> +}
->> +
->> +void rkcif_stream_pingpong(struct rkcif_stream *stream)
->> +{
->> +	struct rkcif_buffer *buffer;
->> +
->> +	buffer = stream->buffers[stream->frame_phase];
->> +	if (!buffer->is_dummy)
->> +		rkcif_stream_complete_buffer(stream, buffer);
-> 
-> You can actually keep this frame dropping mechanism without using the
-> dummy buffer.
-> 
-> You can set a drop flag to TRUE: keep overwriting the buffer you already have
-> without returning it to user-space until you can get another buffer, set
-> the flag again to FALSE and resume returning the buffers to user-space.
-
-The approach you describe is what the downstream driver does and I am
-not really happy with it. A perfectly fine frame is sacrificed in a
-buffer starvation situation.
-
-The approach in the patch series at hand follows the example in the
-rkisp1 driver, which should be a good reference.
-
->> +
->> +	buffer = rkcif_stream_pop_buffer(stream);
->> +	if (buffer) {
->> +		stream->buffers[stream->frame_phase] = buffer;
->> +		stream->buffers[stream->frame_phase]->is_dummy = false;
->> +	} else {
->> +		stream->buffers[stream->frame_phase] = &stream->dummy.buffer;
->> +		stream->buffers[stream->frame_phase]->is_dummy = true;
->> +		dev_warn(stream->rkcif->dev,
->> +			 "no buffer available, frame will be dropped\n");
-> 
-> This warning can quickly flood the kernel logs if the user-space is too slow in
-> enqueuing the buffers.
-
-True. dev_warn_ratelimited(...)?
-
-> 
->> +	}
->> +
->> +	if (stream->queue_buffer)
->> +		stream->queue_buffer(stream, stream->frame_phase);
-> 
-> is this if statement really needed ?
-
-I find it good practice to check the callbacks before calling them. But
-this is a matter of taste, of course.
-
-> 
->> +
->> +	stream->frame_phase = 1 - stream->frame_phase;
->> +}
->> +
->> +static int rkcif_stream_init_buffers(struct rkcif_stream *stream)
->> +{
->> +	struct v4l2_pix_format_mplane *pix = &stream->pix;
->> +	int i;
->> +
->> +	stream->buffers[0] = rkcif_stream_pop_buffer(stream);
->> +	if (!stream->buffers[0])
->> +		goto err_buff_0;
->> +
->> +	stream->buffers[1] = rkcif_stream_pop_buffer(stream);
->> +	if (!stream->buffers[1])
->> +		goto err_buff_1;
->> +
->> +	if (stream->queue_buffer) {
->> +		stream->queue_buffer(stream, 0);
->> +		stream->queue_buffer(stream, 1);
->> +	}
->> +
->> +	stream->dummy.size = pix->num_planes * pix->plane_fmt[0].sizeimage;
->> +	stream->dummy.vaddr =
->> +		dma_alloc_attrs(stream->rkcif->dev, stream->dummy.size,
->> +				&stream->dummy.buffer.buff_addr[0], GFP_KERNEL,
->> +				DMA_ATTR_NO_KERNEL_MAPPING);
->> +	if (!stream->dummy.vaddr)
->> +		goto err_dummy;
->> +
->> +	for (i = 1; i < pix->num_planes; i++)
->> +		stream->dummy.buffer.buff_addr[i] =
->> +			stream->dummy.buffer.buff_addr[i - 1] +
->> +			pix->plane_fmt[i - 1].bytesperline * pix->height;
->> +
->> +	return 0;
->> +
->> +err_dummy:
->> +	rkcif_stream_return_buffer(stream->buffers[1], VB2_BUF_STATE_QUEUED);
->> +	stream->buffers[1] = NULL;
->> +
->> +err_buff_1:
->> +	rkcif_stream_return_buffer(stream->buffers[0], VB2_BUF_STATE_QUEUED);
->> +	stream->buffers[0] = NULL;
->> +err_buff_0:
->> +	return -EINVAL;
->> +}
->> +
-> 
-> SNIP
-> 
->> +static int rkcif_stream_init_vb2_queue(struct vb2_queue *q,
->> +				       struct rkcif_stream *stream)
->> +{
->> +	q->type = V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
->> +	q->io_modes = VB2_MMAP | VB2_DMABUF;
->> +	q->drv_priv = stream;
->> +	q->ops = &rkcif_stream_vb2_ops;
->> +	q->mem_ops = &vb2_dma_contig_memops;
->> +	q->buf_struct_size = sizeof(struct rkcif_buffer);
->> +	q->min_queued_buffers = CIF_REQ_BUFS_MIN;
-> 
-> If I recall correctly min_queued_buffers should be the strict minimum
-> number of buffers you need to start streaming. So in this case it should
-> be 3 = 2 pingpong buffers + 1 dummy buffer.
-
-The dummy buffer is allocated separately and does not need to be
-accounted for.
-
-Two pingpong buffers is what the hardware can queue, but in practice, to
-start (and, above all, keep on) streaming you'll need more.
-
-> VIDIOC_REQBUFS will allocate min_queued_buffers + 1 and user-space will
-> probably allocate even more anyway.
-
-Is that so? I found that user space relies too much on this minimum
-buffer count and experienced several buffer starvation situations
-because kernel AND user space were to cheap in terms of buffer count.
-Maybe 8 is too many, but in practice four buffers are required at least
-for a decent 2160p stream (one ready for DMA write, one ongoing DMA
-write, one stable for processing (maybe DRM scanout or whatever the
-application is), one spare).
-
-I am open to suggestions but please keep real life situations in mind
-and move away from theoretical stand-alone-capture-hw setups.
-
-Thanks and best regards,
-Michael
-
-
-> 
->> +	q->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_MONOTONIC;
->> +	q->lock = &stream->vlock;
->> +	q->dev = stream->rkcif->dev;
->> +
->> +	return vb2_queue_init(q);
->> +}
-> 
-> --
-> Kind Regards
-> Mehdi Djait
-
 
