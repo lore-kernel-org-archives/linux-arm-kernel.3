@@ -4,59 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F710C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:34:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E270C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:34:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UBhgoSu/5IdrEt42iorbB9s12SvmL417LsGOIHBC3lA=; b=d5zllvePahDDo4uHt0vy7ViQci
-	izNfzUe9F+0ceJP4WMCXOmRCHGkKoLK3sl4JzwZGrcs1+QrudJEeBFyh6V5GFPCh6tLDJ/xeCKB9E
-	YmT0xoEK72oVdCq5TseMRB+2idWrmEHk03RKcrEOsELUBo/6ig3bwDL34MOuKDHgLzOueaQ7sB+7H
-	UpK+3/FX/xkoRRqm6Uwc9l3jKzLaEIoe2re0UcyNjmK3ZF+rJGSNseE3kAO0DvbhNvMq2ox/I4TAj
-	/MVmur2p6iNpzaia4eJUE4zbUnv0pbB9CkPxA2/5+euDAdoLLtTOWgxjMq/cUZEj4/36fvcHNbu/C
-	dIa50BhA==;
+	bh=p+Dck54LelKfFHarJJxO87LH00lqZOeaegRHSKx0xqw=; b=m3mATc7GGXATSUNg51UEuaY0ID
+	mh+bgdYjKat+k5a4QdlqmyrJ5ERRcoXezX/gUtZVwWwx1PXxMC+7vZuq7Win2jwD6bmi+v7oJ63Qm
+	Q+sAlNB6xgjD4PXmD1TWslFgkcWAGWIF1cabZkC+GfcZBEEHT/GKrWS8jwOPUlx7+Va1OwjUV4KN0
+	G1C46/ieCFDzhSskvnRNaftqJvtpNhy6v6zUSz87lfvLVkaA+Rlua2ZUYAD4su2ybN5b8zoVU0ccd
+	L+5o0/m+YAbEBivtgMzkSxa++X8RY9gz3M0ARuLawU1IAexYq2lKkN2/3weS9joGmMyFIka0tRE7Q
+	QczqVOvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCUcE-0000000DxND-3Sgd;
-	Wed, 07 May 2025 02:34:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uCUcH-0000000DxSc-33IE;
+	Wed, 07 May 2025 02:34:37 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCPy4-0000000DRGo-0jBK
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 06 May 2025 21:36:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=UBhgoSu/5IdrEt42iorbB9s12SvmL417LsGOIHBC3lA=; b=Pa6Vd9RfI2PLhn7XdY5YUePv8E
-	MoOFjm+XrGzxKkvjJhfWlBokfpreRJqSHldubnjVAmv+to/f7WZx7N2wDIlE84FGHk4l54IrJpZ/x
-	c3o9HToIMyC4kf2fbIk5g6Syw69sZEoxMt9c4Ip5TJ/icl4EdMGoPvxfw6Wgi41NsOZ/2aVMYiubD
-	lIM3Af6MWXQQq57a84hmtaoQQ1lP54uSnrZvonrhZvQg4Q7ZkwwCqBBSu3cwH2q0CoPromOXgg8UT
-	5gRuU1kUCiu0ewghQMgWzDJNEgjhnUg//PzxMGF3nou3hOjuLNc8Imxlpa6WpQYPyt8thkELT1fOq
-	ekpghMmw==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uCPxn-0000000FhJL-2oXc
+	id 1uCPyA-0000000DRIm-0WTn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 21:36:43 +0000
+	Tue, 06 May 2025 21:36:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F2C89A4C3BB;
-	Tue,  6 May 2025 21:36:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E20E3C4CEE4;
-	Tue,  6 May 2025 21:36:13 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 68B435C5A3E;
+	Tue,  6 May 2025 21:34:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC145C4CEE4;
+	Tue,  6 May 2025 21:36:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746567375;
-	bh=yBu1az8/OZoi8PDKYPnp/10aiX5KHCwBplGq28w4TsA=;
+	s=k20201202; t=1746567413;
+	bh=+fNJE1yTF2PALBlbEE+UifwLAvbWwqAE5ZTkWve7cD4=;
 	h=From:To:Cc:Subject:Date:From;
-	b=dKl6VUYJMX/9CDIRIxh4vgqSY6j7YnuwWCtY00dsO63ca5MXGUmNHEi+pIBV8Ed6v
-	 Xx0nX0J1fXsa32qQa7du82v/3d+mR4Jfw+7nB9igMxxgzIZrKcXgWNYs/66tLZlzN5
-	 o6/mw0NtkejhOGrMQims4ChvY4JoDgkFmyDddnNsBkr+pzdtg9D4CQvTiCng4RzPMU
-	 H8VcYre60/8HIcTI+a9Xhe3r0Lub4LItq8Bj1YVELSAR84fCGCF7SaCmZF1fgF69VB
-	 Vgs8zeaB7g0FU3uvPfTkvUS5x3j3+ZKr5jqIJdYQc3q0nhh+DGpr+gKs7Ejlu7FMKH
-	 S3SoVOm/sKk8g==
+	b=V95BtymwV/E5DqMEVgxfcFw1cm+UfaeVTE4Ot+mz1hWuy5jquRBNrGqRbMcxK60gm
+	 kGgBDOHhzzVxIxKncgDuCr2T+PSlv9hDzWDuk9tpjo3a6/wKiHKvSZzqntNZohn9b/
+	 QfigwMXfLSE9koBDnxL1KxkO7bZMDv7XguJ3PNC9pPpF6k+TrKV93CaHY+NIgjFd0/
+	 snS4zfT2WYuuwQvRXNfGoCwgLuZatdeUpnuDrnzlrn7xcJ9tJ/zkrMH5vMdZs0slgG
+	 FfYLVyOlHNQsuvnsvytTfhx0CvCskXCzITY4/HG9Co3r94bAB5MmLdHbVsoJnz/FI6
+	 05om8T1x1HVIA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
@@ -74,18 +59,18 @@ Cc: Chenyuan Yang <chenyuan0y@gmail.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.12 01/18] ASoC: imx-card: Adjust over allocation of memory in imx_card_parse_of()
-Date: Tue,  6 May 2025 17:35:53 -0400
-Message-Id: <20250506213610.2983098-1-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.6 01/12] ASoC: imx-card: Adjust over allocation of memory in imx_card_parse_of()
+Date: Tue,  6 May 2025 17:36:36 -0400
+Message-Id: <20250506213647.2983356-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.12.27
+X-stable-base: Linux 6.6.89
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_223632_920325_547D6BBB 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20250506_143654_206918_A8345C65 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,10 +104,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/sound/soc/fsl/imx-card.c b/sound/soc/fsl/imx-card.c
-index 93dbe40008c00..e5ae435171d68 100644
+index 7128bcf3a743e..bb304de5cc38a 100644
 --- a/sound/soc/fsl/imx-card.c
 +++ b/sound/soc/fsl/imx-card.c
-@@ -516,7 +516,7 @@ static int imx_card_parse_of(struct imx_card_data *data)
+@@ -517,7 +517,7 @@ static int imx_card_parse_of(struct imx_card_data *data)
  	if (!card->dai_link)
  		return -ENOMEM;
  
