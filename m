@@ -4,104 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DA1CC3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 09:04:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 010C3C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 09:06:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zveFIEvzzEGg+UEVOqZmxBcPnjh2BP/NBRPkwAviQfU=; b=RMZmIRqtNObNBDl0q4x4gavty6
-	Ztw3l1JbzuqEo0on5iNCQ8WxU2uaR3Fjx1oiiYme0+2zwcQypVIwLPwdGeNPGKRYUTGg5iXsQdGxI
-	tAdRmFNhMbjY0eDjTc94Ly7dF9SrICqLdBrTu6yp2WjH4uEXnHTkbX/p+5vRtWGIVe3Dr4WbxaeLm
-	55Ilwtuw11C/a5MlEUw4YGc9Fmw9tNh7DBXQ+hQY0LkUfZPeJZYw7DUZg7gglMOFjuA6zr7MN/7NG
-	tIsf6R6OMYnYNAyjikR5wCrwbPXhEb01zPsX4scl0gGTkdclxsIsNYhA7w27VWkfDrAyVDgNawTlc
-	474ue4qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=riEVTCNhvMa4w2qA0xe2TV9KR7ZZHeuNlK4shvfIkRg=; b=N6GvihnfDVnY9Pgh7jRd1MwLVf
+	aqCISIGsqSOL90A46C2hqzkUYFSnc5wWdTpmM9CofIP5Z2tVIJQsO9ji9Fo9Zr/H0RJZIqO4CvvLn
+	oE1ZUZCyqH7xznvA0LiLVEN0KldA4nvWNFztEdo51pQEGfBaldnpLcBBtQxOLD5oRkXYFhMeuVBbK
+	R9w/FNRD8jhWRwK02fSbFQrxFHHGjYYGwvjlYrpftyyAZwoIitfIClQBBvFTELN/LMMTkZPr7Olpd
+	LRqiHHil6eBJ72qSpuCryoqu14R1aF2zajr6jMTeq/P+cmqhpZIzq7BqGKMYE6K4tUXKtRZkw97te
+	jZczYBQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCEDq-0000000BGTI-2iEO;
-	Tue, 06 May 2025 09:04:18 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uCEFk-0000000BGur-1RbF;
+	Tue, 06 May 2025 09:06:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCDiI-0000000BAkU-2Bh5
+	id 1uCDj0-0000000BAvK-3HHy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 08:31:43 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54619Bqa006484;
-	Tue, 6 May 2025 08:31:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	zveFIEvzzEGg+UEVOqZmxBcPnjh2BP/NBRPkwAviQfU=; b=TcLQQRe0sGPf3ahQ
-	N0uFSurxpChu88u9axyzPyFNDUnzar4tM2fmzcTpflBS+7Bem/bN0PGZXZX/nl+D
-	i7JrzgIb3/2fCRYk/7hbaDMWLFWjY+2i8YTDTrQwE8yNBLxgX1cgmD+A3nkDAgpH
-	Prc/D1ECaMqEqmlbEIkh1GZmOzsLfQe1kbVwXJNuD7Qw9Ax8A7imK5JavskrZNrC
-	Fion55lB6bkOZAM1gjiDzxDfOnX0u9MLbOqGfTfek7b2SCpAcx7jzRVoIa4sBvqg
-	/x/4FE2dgXPvtv8eOBB9HsmW2NurpUMbQgEmQgF35nxMAEA/PYhjGdjSVakwUYY3
-	BJGSzA==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46f8gw14wg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 06 May 2025 08:31:17 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5468VGsw021494
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 6 May 2025 08:31:16 GMT
-Received: from [10.239.132.50] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 6 May 2025
- 01:31:09 -0700
-Message-ID: <b5c04110-c899-4aec-85bf-9978d80bf4ac@quicinc.com>
-Date: Tue, 6 May 2025 16:30:51 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] firmware: SDEI: Allow sdei initialization without
- ACPI_APEI_GHES
-To: Will Deacon <will@kernel.org>
-CC: <rafael@kernel.org>, <lenb@kernel.org>, <james.morse@arm.com>,
-        <tony.luck@intel.com>, <bp@alien8.de>, <xueshuai@linux.alibaba.com>,
-        <quic_aiquny@quicinc.com>, <quic_satyap@quicinc.com>,
-        <linux-acpi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <kernel@quicinc.com>,
-        <kernel@oss.qualcomm.com>
-References: <20250428095623.3220369-1-quic_hyiwei@quicinc.com>
- <20250430102440.GA27570@willie-the-truck>
-Content-Language: en-US
-From: Huang Yiwei <quic_hyiwei@quicinc.com>
-In-Reply-To: <20250430102440.GA27570@willie-the-truck>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: yLN99YlpcPugfz7KBctlzqUlkGUI_Uw4
-X-Authority-Analysis: v=2.4 cv=fdSty1QF c=1 sm=1 tr=0 ts=6819c8d5 cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10
- a=BcfgLWrW9SB--Ltqr6oA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: yLN99YlpcPugfz7KBctlzqUlkGUI_Uw4
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTA2MDA4MCBTYWx0ZWRfXzz4kvG7TadUO
- 8Pm3cmBF0uj9qvFT1ILJoCLh4AUj4YqjKjjX9/xEqpTLcn6o3N1xq67NU782QGt9AQ1Beuj17Xe
- zcAxMIU/k4Kaz+kxP+DNjo7UU4GdgkleuNPtvRd2onx3hnW6xu9zW4d2LPNFfA59PCn4QZXPvEj
- JfnDL4FBZ26DEiHataljfErO4ALUZm9kgiaBLNypcL1fSW909cscP9sKYOv/ookwV1IHobmL3S2
- paAqTp1IJTX+91Bun4hYzZkKPEFBh2fjS+YCVZAXv4/UQ/3jp3HrxqyJUTfQsUJUqYJbp54JNqn
- GOXXV2KnuSp+6VZchcEHsqZFWQp8mtQwySSqwSZ/kC6EVzXsxWBqXAaVrz0KA1HGHtzD2Ubv0bz
- n6btC37jWJ8wubpFU5SkPgtCq8WtwXI2pP0CJ4tOMNbhXhVKefwStlNFLinGl/kWLs7A8PCk
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-06_04,2025-05-05_01,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 suspectscore=0 malwarescore=0 clxscore=1011 bulkscore=0
- lowpriorityscore=0 priorityscore=1501 mlxlogscore=740 impostorscore=0
- spamscore=0 mlxscore=0 phishscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2504070000 definitions=main-2505060080
+	Tue, 06 May 2025 08:32:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5E7A944065;
+	Tue,  6 May 2025 08:32:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3629DC4CEE4;
+	Tue,  6 May 2025 08:32:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746520346;
+	bh=ypJ9hdbekmAtwiansv/u/Vu9Y546qW0ilyEarbxlrvg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=IB6K6LxlTNc840zPic9i8KZTQDyAZLzCUPzmL2W2NFshYtVmaz2/GTPaMxcQtDNDc
+	 7QnQbD6zk0FraWGT1DnRrlzURslfrslxeA2w+UwB4W/KEYfdIBFXwvHzCexSW9VJTX
+	 DNULODwfnEwmZoJk9YphrRWlhjHnGt8sVSDJ19j/ThLOvc2AiSp8hXIUUKSgvI0fSU
+	 XRcRmTbWp28eLwsA02SCPRGHxV1vNv4Xp2L3FrMZxfcLsN5UZciY/k7SKv2NUlNPEn
+	 eU+iUiZmhA4NbiroTMwGaV2o5uRyLZ3HY8YO0HheLO6nX8Xk1LHBZ2DXvDSqbl9wxf
+	 Wp6kcj3BWKGdg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uCDiw-00C91n-Hp;
+	Tue, 06 May 2025 09:32:23 +0100
+Date: Tue, 06 May 2025 09:32:22 +0100
+Message-ID: <86ikmegmw9.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	qperret@google.com
+Subject: Re: [PATCH] KVM: arm64: Fix memory check in host_stage2_set_owner_locked()
+In-Reply-To: <20250501162450.2784043-1-smostafa@google.com>
+References: <20250501162450.2784043-1-smostafa@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: smostafa@google.com, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_013142_566284_7FC5DA2F 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20250506_013226_837081_70575082 
+X-CRM114-Status: GOOD (  21.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,50 +91,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Mon, Apr 28, 2025 at 05:56:23PM +0800, Huang Yiwei wrote:
->> SDEI usually initialize with the ACPI table, but on platforms where
->> ACPI is not used, the SDEI feature can still be used to handle
->> specific firmware calls or other customized purposes. Therefore, it
->> ......
->>   	}
->> +
->> +	return ret;
->>   }
->> +#ifndef CONFIG_ACPI_APEI_GHES
->> +subsys_initcall_sync(sdei_init);
->> +#endif
+On Thu, 01 May 2025 17:24:50 +0100,
+Mostafa Saleh <smostafa@google.com> wrote:
 > 
-> Using an initcall purely for the non-ACPI case feels like a hack to me.
-
-Yeah, I agree with you actually, but to address the dependency chain 
-issue highlighted in commit dc4e8c07e9e2 ("ACPI: APEI: explicit init of 
-HEST and GHES in acpi_init()"), where the following relationships need 
-to be maintained:
-
-     ghes_init() => acpi_hest_init() => acpi_bus_init() => acpi_init()
-     ghes_init() => sdei_init()
-
-> Could we instead just call sdei_init() from the arch code (and remove
-> the call from acpi_ghes_init()) so that the platform device is
-> registered at the same time, regardless of the firmware?
+> I found this simple bug while preparing some patches for pKVM.
+> AFAICT, it should be harmless (besides crashing the kernel if it
+> was misbehaving)
 > 
-> Will
+> Fixes: e94a7dea2972 ("KVM: arm64: Move host page ownership tracking to the hyp vmemmap")
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 2a5284f749b4..e80f3ebd3e2a 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -503,7 +503,7 @@ int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
+>  {
+>  	int ret;
+>  
+> -	if (!addr_is_memory(addr))
+> +	if (!range_is_memory(addr, addr + size))
+>  		return -EPERM;
+>  
+>  	ret = host_stage2_try(kvm_pgtable_stage2_set_owner, &host_mmu.pgt,
 
-I propose splitting sdei_init() into two separate functions: sdei_init() 
-and acpi_sdei_init(). This way, sdei_init() will be called by 
-arch_initcall and will only initialize the platform driver, while 
-acpi_sdei_init() will initialize the device from acpi_ghes_init() when 
-ACPI is ready. This approach should help maintain the dependency chain 
-without causing any breaks.
+I vaguely seem to remember that there was an assumption around
+addr/size representing a single page, and therefore addr_is_memory()
+was doing the right thing.
 
-     sdei_init --> platform_driver_register
-     arch_initcall(sdei_init)
+Has this assumption changed? Or is this only a figment of my imagination?
 
-     acpi_init
-         acpi_bus_init();
-         acpi_hest_init();
-         acpi_ghes_init();
-             acpi_sdei_init(); --> platform_device_register_simple
-     subsys_initcall(acpi_init);
+Thanks,
 
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
