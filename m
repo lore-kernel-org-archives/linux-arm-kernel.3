@@ -4,172 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E14DC3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 13:51:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1187C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 13:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0x5lLgtLetSozm2k0oNPLKn/8Cx9yWykGRASmBYbeeQ=; b=3QkUjKdjPJOI/MNW3rvNhDXG1w
-	s05fUn7j9Iiv5+ZHxV3y3GRVHabF+Aobwau1VZbokJvRmZpOSQYya6nky6BlmoCYKiCST6wt0wwl9
-	BzSanUkqeiimsLUuOhvS95n4QTnLOKSKizpuh+aRgzEceJuWbJE/byuztubw4pyeT8uFQrwyb9IzW
-	UEVIbb0T1i19DQ7hgClAf8zmN/6OL0mjXft3zMdBDs6D7cdujaZljjHj6ic66gl5GlkuCDRDbsNaz
-	abnHxs3wzDI+XmBFaeJ98rw/OcyXhsxATmVVlF5EbnhkbZmolfJjiBsc9EAegxtXJLUKcpwlkZz7x
-	gGhmR88Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fBp4p4deqUzAG3SrieVeuIkuCgjpw2beSF6aI8YLfpc=; b=P07vt3aNT+mEidZUErzbACPGGl
+	yDbmtxTcvUR8XYj5ZQUmbwWAtl5qM5MYVmJDxn2bb70EIldWGqX7yvoNLrPD3teP+dBb4PC6RLyF+
+	eGgqDcZ33dqNim5NTptdHYWwUsm7dNbGShPGKO/JOCqTYxFAZzhOgQkERk2tXjtduANa3ieOGp99C
+	Sqvgf1MfVNFRAvFqEuOD5Zda4zWn5kCQC/NAU9PmgEYCBGQHXD8Pr7DblnVEhbBSI1cTwDbQE/W+x
+	Xjr8iqF9DeTNm2YVfbiehsPhnqz9Y+r/hOLD6qEgZiinVwCOOa9x2eVeRmPuFSqYO4Wu/ywyAKYdH
+	MW41m1Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCIhm-0000000CCif-036x;
-	Tue, 06 May 2025 13:51:30 +0000
-Received: from mail-am6eur05on2071c.outbound.protection.outlook.com ([2a01:111:f403:2612::71c] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1uCIjg-0000000CD6R-2p7I;
+	Tue, 06 May 2025 13:53:28 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCGM5-0000000BiJh-0by1
+	id 1uCGOV-0000000Bigi-3NwK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 11:20:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AE027nnMp4RgfyIV8RU6jRNM4WyNe1Mg3JFowO7JfDZuH7azYDUqsgprIrz39wnMkm+SRAhdHLx+SYDdU0RmVS8/WdhWYtWtfSfdmfco1x/ZCKGF+e0HtQ/FIQo75VcXF7GLQCiITVaJ3jfwAqGuHna9SkmxdUlc8LR4CRRVwPZ3SlfmCTHSzqWWdEW9me+WyEitKoSuQcwx0o45jUtfJoLhCeXYBf2MDIegGNY0PEk96xD2hOVoWET39y+EMFEANzpzEYk2S0G7h814vu25Zh+qN0j/VEZFmMcLWAm9oVX/5olTxdGITDMNlgWWKcxFbqbc8CN71Ac7bLqYVK1lQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0x5lLgtLetSozm2k0oNPLKn/8Cx9yWykGRASmBYbeeQ=;
- b=BepDqzylAGEfwk+YTqI4FDQdoRiJ8KSqUtvErjtu4AYdVnNzXPQBFqFrPRixyMoKyg22/EyrckuYCsIHUgJR/rVAdN+E+g0WJR6gXPAVB34nYee9CKoyC8Dq/ayFikZIvJRFcEW+pgJFRhUOYFGIOQRN2BCbQuKr/I98+WTuB5u+hiBhynpgYAM3thyFALAvIAKa75px9VPEoKXYXvJgHG2yHbVR5Jq0CVn2C1j5G2GOfjHm6j58UNClsfG/EuOdCWTM9p3qqymbRcvLtqe+wVaHQLEjDoWqFeIJszTMmLrL5yeBQiPS76CUzye+a2eTADWZnTvxIRsUZZ0XY+34Ew==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
- dkim=pass header.d=phytec.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0x5lLgtLetSozm2k0oNPLKn/8Cx9yWykGRASmBYbeeQ=;
- b=NJHABPeQNNmzqzSknIKP9VzluRe58GKtrAhuEdA9XVPjf4aGA4eENiip8xA4XJajeAQbcfbwmHAS4oDJmJ+XRPcbdZXbBkw5M7/V70182XLIfNvcwDmFoFxYPm4tbr3vtTimobf8vkGidpjzWLqb7nbK8jMfDv3Qrem3NhfVBp0sFlcAleYq0OauG51xVPqlnW54UzTDwkiYj/IY/fnFiRyCv+aj39FPqzqYFBFFxXRQmmfguQrXC7or3LYdJangEol6l5gzrjccbCS5MtN/tpRPYOpw1LrGAp5cTuHgR79qD9Ye/P9VmXCGXGuWWd3O1kx/bUIXDgB7E8xT5hoPjA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phytec.de;
-Received: from VI0P195MB2484.EURP195.PROD.OUTLOOK.COM (2603:10a6:800:248::6)
- by VI1P195MB0560.EURP195.PROD.OUTLOOK.COM (2603:10a6:800:155::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Tue, 6 May
- 2025 11:20:49 +0000
-Received: from VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
- ([fe80::24f:8371:2871:5981]) by VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
- ([fe80::24f:8371:2871:5981%4]) with mapi id 15.20.8699.019; Tue, 6 May 2025
- 11:20:49 +0000
-Message-ID: <e996f88c-0e43-4935-89d4-46ebe07d6442@phytec.de>
-Date: Tue, 6 May 2025 13:20:37 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 03/11] arm64: dts: ti: k3-am62a-mcu: Add R5F remote
- proc node
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>
-Cc: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Hari Nagalla <hnagalla@ti.com>,
- Beleswar Padhi <b-padhi@ti.com>, Markus Schneider-Pargmann
- <msp@baylibre.com>, Andrew Davis <afd@ti.com>,
- Devarsh Thakkar <devarsht@ti.com>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250502220325.3230653-1-jm@ti.com>
- <20250502220325.3230653-4-jm@ti.com>
-Content-Language: en-US
-From: Daniel Schultz <d.schultz@phytec.de>
-In-Reply-To: <20250502220325.3230653-4-jm@ti.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR03CA0283.namprd03.prod.outlook.com
- (2603:10b6:303:b5::18) To VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:800:248::6)
+	Tue, 06 May 2025 11:23:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1746530606;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fBp4p4deqUzAG3SrieVeuIkuCgjpw2beSF6aI8YLfpc=;
+	b=dltudh91B+x5OHPma7F7RqaTfhA5qEuZiNW0QRMOsj0OeWydV1aVfHzPhjyhHE+l+9iP5C
+	PtWxgi8MfbNhHHUG01gTfN9eWfs91hdD2Czpb6jdnHcHHhX6DOogdbGgsFBxNHJ4Ra7TE8
+	9shA/x4hxsWgHfLdbp/q/i5TSrPR5Jk=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-581-RImgqNmlNnCsb4Ag8XNCdw-1; Tue, 06 May 2025 07:23:25 -0400
+X-MC-Unique: RImgqNmlNnCsb4Ag8XNCdw-1
+X-Mimecast-MFC-AGG-ID: RImgqNmlNnCsb4Ag8XNCdw_1746530605
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-43cf44b66f7so30954015e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 04:23:25 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746530604; x=1747135404;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fBp4p4deqUzAG3SrieVeuIkuCgjpw2beSF6aI8YLfpc=;
+        b=TEytmaP9Jl/b33FUMns19DLeYgIUl1Ugio2XAHENqxppxpwud6LVyGCLptxAWAGtk2
+         ZsK5Cidu+CCi5Kc1cS6mLMxI1VlcJWpPufXzEh/IUnEDHkFZF+D79RVeVheG9pcdvQa/
+         tcsc+M4pQaj491zx6wqfv/5K/w1xxPGQTdxBQw8rn7dLnF2nDHiCaW5hfsI/T+yTyj1m
+         NXOIWf7Aavk/HN96WRYUhIIzZQccGrtbjA9C0Dm90cKvaLAHx/1p4JQTlHF7nLPtr3/b
+         95oKOZkO8mXT6T666t13KoUw/AaU2JiYsPkNRXRur28i3w8+T961+lUJVqxCBsadoMi5
+         zpWw==
+X-Forwarded-Encrypted: i=1; AJvYcCVdF8GiGsZ97Iq5KXcpSrIAyBmqfh0VFDQUA2G7bx82j6EymXtugjo4LFnpBGU3mMCSRsX0f1idLYgqQv2a8MQ9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4Hdnu/uC8hK3FbBDlP6zprJ0eZJ/ZnCZPRJvjSZtUW3YDZCEJ
+	MuRR9r8wjbApCMqstF8R341QEShSwa9MWtI6BWNxubuMtcPD8FYm9F3D7VBDXhV5YqKUYnGa6pk
+	vamVORasuVUd6Sw93/DtKgiU5x7KOhtghaa5CYtPnXELTbvrgdxx0Ic3cP1+5jRYQFxOuxaPvSY
+	VXl647yLg=
+X-Gm-Gg: ASbGncvkoV8ODoCocipsUjwUPDegM70gsYR4Ps5UHdZtZ/fi6DGgFU9SU9iFS2tlQkg
+	D7pWmwDDtuxniVm1klsukBI4Y2TgiiaTc018a2nIJxmFSlP7F7bxbeCBu4YVIJ3ZRSUSREbhWSj
+	vnpNveK0cMDSV8dFZrEpfPVXrxCDR4mp/8Z02ggQwRCLJmnFMGdm2ka6fBm53X1fVlTFl1ITuM4
+	Gn4YPYBzK/tmqkxxrS6J00yvSrKIXR6QhLf62/oNM9JeA+T4vZPm49udW8O3QerTwvuVbDXMZ5T
+	3QJk/VDqcYU4uOGUDLL6NSBwNQWWdQktFg7f4lnYkbo08syfB4CpSMLeYps=
+X-Received: by 2002:a05:600c:1d1f:b0:43d:24d:bbe2 with SMTP id 5b1f17b1804b1-441d1014fcfmr16250015e9.28.1746530604240;
+        Tue, 06 May 2025 04:23:24 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEeYO2F4emx5hXi1uWB9URVLSGX9o9e7D7vvbT0onpTpSIZrGfufwgIJiasWRhRjn91m92mTQ==
+X-Received: by 2002:a05:600c:1d1f:b0:43d:24d:bbe2 with SMTP id 5b1f17b1804b1-441d1014fcfmr16249785e9.28.1746530603759;
+        Tue, 06 May 2025 04:23:23 -0700 (PDT)
+Received: from ?IPV6:2a0d:3344:2706:e010:b099:aac6:4e70:6198? ([2a0d:3344:2706:e010:b099:aac6:4e70:6198])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b2ad7ab1sm212836775e9.4.2025.05.06.04.23.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 06 May 2025 04:23:23 -0700 (PDT)
+Message-ID: <3e91e070-24a2-4dab-bca5-157fea921bf0@redhat.com>
+Date: Tue, 6 May 2025 13:23:21 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI0P195MB2484:EE_|VI1P195MB0560:EE_
-X-MS-Office365-Filtering-Correlation-Id: cde38d75-30a4-4b7f-97da-08dd8c900d7f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|1800799024|7416014|366016|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?cmMxNkVqWWtCMm5kUXlaUUx0TktjUFVyby9FZ2w1b0FDcWVKa1pFN3RDWmFt?=
- =?utf-8?B?UkNFNE5MQlpUL0Z2Y2l1N1pqemY5OFVzalVhWkt1WGJlNm55M1JWblI1SjF3?=
- =?utf-8?B?S282NUVXYVJrVUhiT2oxbitNWmZ4Nk82Vlo5T1hvMUhhSHhTZTFYVnQzTmVq?=
- =?utf-8?B?bjdRQkhkNWlnR1lJVm55MXlRYUdQamlHK2hZZ1NCb2FnVTNKZ200b3dQL00z?=
- =?utf-8?B?UVFmWkRPY013M2twQkJFcWxoc2xxZHhuNGRyOVFvQ0N0T0h5WHFobXRlZDhE?=
- =?utf-8?B?ZUpUYUNyMjFPR01RK0NTb3dzWkJEbVAzT1R6NFV2MHlxejJqNkc2Y1FVa0ta?=
- =?utf-8?B?Wm1wYmgvSGN5dmdHZjVBUkFmdFhCUDRwSnhTWjZESlVlNm5rd1ZONlAzcnY1?=
- =?utf-8?B?Q3BiOTB5VzdqVXIwNXdNWERzejdWUnZWSjExYjk2dnNBZGlDRWFXelZleHFK?=
- =?utf-8?B?a3RBaWx1MFQ2OTIrMUlNNjlSdGRlQXArVk02NG5HZ2JXRldJTFVpOVZaVWVj?=
- =?utf-8?B?WXkvTmRVSU1iTWFrRFBoSEVSN1YybGdNMHRHaHUwZ0sxa1lwZTRuZVJCbG5R?=
- =?utf-8?B?VHR1WlpWWHlKZWtQQ2lsV3N0bmpJdGRvbDFlNnlyTnJFTHJwTHlzblRKay9W?=
- =?utf-8?B?cjlKT3VOVFd2Rzl1MU9WWGlZdVpsSzN4T0RkcGlqR0o1R3ZYaXJjc21ia21T?=
- =?utf-8?B?Lzh4NlhkQ3hINWZQRGI4TjBjTzBpSW1QVXIrSW4wSXV2Q3RuS01pQmJWd3Nq?=
- =?utf-8?B?R3JJcUt0Z0xKb1JVNW93TDNaZVFEK25xT2JhT1E2MC9rVFNrVFpLUkttSllW?=
- =?utf-8?B?cW9zelowK2xOVWlpQ1BDZllEUCtwR2RFS2E0S0tuK29KL2lXdit4ODBBNUg0?=
- =?utf-8?B?RkFidTNrOHUxa1ZMbFExVDgzbVNiTTJUelJCeTgyUFRsRm5FMzBJZm9JVUU2?=
- =?utf-8?B?U3FJbnduNk9ieldpQm5lNVlVMWNlUnVHQmhJdGlLZyttdk1HVE9lQlF2dStB?=
- =?utf-8?B?R1AzbW9zQm9UbldHOU44UlFwbVVlSWt2bkhEd2Jkd3lqQXV3VTIyT1d3bEp3?=
- =?utf-8?B?NHVrc2hXZTR1dytUT2plS1BwZDR3SERIc01TYm5WUVlMRktjajIyQVVOcUV5?=
- =?utf-8?B?TTFhVmJ3NUhDNUZQcDNEdUpXb2RtUVV5bFNwcDVoMW1Tdm42U1Q1ejl4bnB2?=
- =?utf-8?B?bXhIVG4vdmlRcC93RUp3SS92bXdESVRlcWVoOTA4Zitmclptb1pQbURCTmlD?=
- =?utf-8?B?QkRhd0tGQ3lhMVdLQTVVUUUzRWJhN1h5dzlMdTZjcFZzRjNtSERaUGFsYmFN?=
- =?utf-8?B?eFJ4V3V0aitzcFE0QldXVzNqU3k5a25wUE5HQ05YcjJBSTVraUNzQlY3ODVB?=
- =?utf-8?B?c3hoNEFxZEYxUndaOTVzY3FOeFZqNFZKOUFFN1ZzV3ZGMWdsSlFGOFZQd2FE?=
- =?utf-8?B?d3A3U3JRbU1WYTV4KzZsK0RUWkVpeW9hQ25aWEFPWWFxK0xadTV0M3JsSGxo?=
- =?utf-8?B?S1BqZFJ0SUozendRNkw4dmdXdHRta1RRbVlHMXRKN2dmMkJxcXpBNktiNGEw?=
- =?utf-8?B?Sjg3Wi9LclA0WTNTcmNQVStzM0tLVHZxREdMYnh6RWQxOW1iR3g2dTZ2MXIr?=
- =?utf-8?B?dVlHVnBwZTdxWG1Vb0dhZFhmQUhXc1NkRUt4VFpOSVEzZ0JNVnd0WkRiTmFh?=
- =?utf-8?B?TWV5dUFPRGdqVjFSK0I5blRobWs4RzkzcFh4S3VBVkw0TEtrdGsxNkJQRjJk?=
- =?utf-8?B?NVM0SHZhQzk3emljRnEyL3RoeXZwN1FhUU8zSHRDU2lTYUlTb2NTQUtBTjBk?=
- =?utf-8?B?VmNncTA1M09Wb2ppbFdHbi9hQW9JTmJVc3QzOUVXVkpJNXVIZ0kzYkRhWjZL?=
- =?utf-8?B?cUwvcGxUL3JSa0VtcFFhN25LdFR2TkhDbUUxeGQ3VlQ1Q1psSmtiMjYxV1po?=
- =?utf-8?Q?NKmzeyaapGI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0P195MB2484.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(1800799024)(7416014)(366016)(376014)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YWhVWlFRZHNabEpCMUJlcWdTN0MrWG9xMUpCWWE5MFQ1OGNFVmR0VnphWURM?=
- =?utf-8?B?NGtFdi9OajZxU01heE01ZFFXMjZJbnFBeVFoS1BweHlRQjRCb0NvQjQyT05B?=
- =?utf-8?B?aTA1T1JaTHhDeUpiU2VVMmp6cGRDVStIN1Nyam41VnZwMWxuL1hmMDdoZVdK?=
- =?utf-8?B?NHptYzIrWlE3MHpCYVRxTVJzTEx2K09MTWZUVENlcFNOWDk0blRWbnRuNlo1?=
- =?utf-8?B?SEVhckxNdmdTRUJYMzJ0eUhCMXNTU0tOU213WHZZY2t6cFYyZExqSnFMOTEw?=
- =?utf-8?B?Vk9pVU5qUXlCVDVCL2haQzdnUTdWRDkwaTZXTFdXVVVDbDRVcE0wWXEybVBG?=
- =?utf-8?B?VEhyRkFNRTNIU2orWjNndTFCWjFIeDZ6RSt6TUY3WFpzb0sxd0V4QW1EeU1z?=
- =?utf-8?B?clRwREcxbFBjZXhTdW1Oek5mZ3FzYXdscXNCWGtvTlpnM3BleVlJc01tVTJj?=
- =?utf-8?B?R3NBdzQ2ZnBwN1hOVy9lMk9vdUhpSjcyTkVuS3MrVEdQVjNpUFR5c2dENE5h?=
- =?utf-8?B?WXhOUjlqZjdNSkNFSTkrSEovQnN5QTd5Uk1VQzhJeW9GaVEzaDlCUzlVNkF3?=
- =?utf-8?B?cEk5bGJEOEpHVm1IRXZrQ2J2YmF4aXF1MUJvWFRHbEJlQUpES2tscUF2bU41?=
- =?utf-8?B?VzZVRUY4VElLaFZVUXVqSDhYdllmR0JQcC9XQUlnQS9UOU04K20vLzVocjFV?=
- =?utf-8?B?MHY0ZEZtLzBiU1RuRHVlREZsRGZuSlNHSUx6T0NZcHd2T2RJR3U4RFhrOUdt?=
- =?utf-8?B?MlZla0RYTE51N2FqQy9Qdys5VVBPeTNKWlJjTDYzOVdrRCtjdWFFSGZxRGQ5?=
- =?utf-8?B?NW9HWHNrU3dXYnhzWVFaaldESFZScEdDSDl0eGFDYkVEUnB3SERlVENHWmlF?=
- =?utf-8?B?N25HcjF6MW1DVWxpNHFlak1mZFI2emJHRTUwdE85TGdQdnQ0SG0xNEpuUlg1?=
- =?utf-8?B?TDB2UEtLemhxUGdBdnViY09QSmVqUStzWGlrVEFXM3VSUWlBUU9uSmN0cWZo?=
- =?utf-8?B?VFY3SjZSWXZiWS9YMmxONUNXVDN1Wk9wMWQ2U1Vhbmp4Zi94b3JDNEdHbEFD?=
- =?utf-8?B?cCs0MFZKRWpSOW93SlA1UU9vdkZQT1QvWnFnclprOXIwSHNWL0k5SUN2MUll?=
- =?utf-8?B?b1ZGZTNGM0FZNGgwRFVnTk9aV0YySEk1Q04xUVRJbVJBa2pBTFVWc1lFUjhM?=
- =?utf-8?B?SnpOaTNIb3pmUVFaVzdjQnpxeG1vSituRnQ1SlRrd2wvYzVROXRERmlDQjlZ?=
- =?utf-8?B?TW4reFJFbHB1NCtNMXZGMGkzanpNT0ptdFplclFlMlFmbnVjamlzQ0tOUVg0?=
- =?utf-8?B?TnlqOUZ2Mm9wSDVpVEp3ZTVQay96bUdKQ3NRaitJVUxYZlQ4MS81QXUxZzhD?=
- =?utf-8?B?aGQ5eTNJYWVSeFllbkw5VDlISFdWWU04dGZ0a0UzNkgrUkg4Vk9ta0xJeWts?=
- =?utf-8?B?K2FtY3F1alVhdWFKWW5BUmErUGVoVWVIOC9UK1c1Q1I4a3J3Rmkya1pRc0lN?=
- =?utf-8?B?TVVKa01wMzhMSUlwYkE4elF1bkpxMmRacVRvMHFVTm9heXltZVdkekY3bis4?=
- =?utf-8?B?NnBsVnlLNlM4QWtuczlwbWVycFZDSGFqa2hrNUg1RlpuSWRDaUlzU0dBZEhV?=
- =?utf-8?B?bi9RSW9ESGRwSFlnVTNPdmNuWXg3WUJmVysrYkQ5QnZnOHpFUEc1VlhCRHJm?=
- =?utf-8?B?NmVKSHI0RkJxVVZDSWxidUZKRS8rSnBRSlZZYlRhem9KdUFHVjZuSGZ1T0cy?=
- =?utf-8?B?MGxXNXJaNXVqbDFPd1lWUEJ6dERhYndTckxybU4xOEN1SWRQUkRMRk5hc3Jn?=
- =?utf-8?B?djZaV3RpVVNPdm5HM3JlWWpnM1ZWdmpBemZvRStxc09ncW5JeWFQUmN4OVRx?=
- =?utf-8?B?OUhuUTdzUmJ6d01BS05LM2Nrd2VjRUFtMWh6WWFCQUp5TVlCaWx0L0lmK0FZ?=
- =?utf-8?B?b1V2U05CeTQ5UVR6YXFKSGMxelhReVByVDdONjB2aktPejFtV0JoQ0szcWNE?=
- =?utf-8?B?U1Q4emhrYm5FVjdDVkZ4Rjh5K25Mc1hOMUQrcnJVbzdadFBlVlRheVU3aUZh?=
- =?utf-8?B?d2ZLdU5SaG1qcGpBUEtsYXkrNTRRUnlDV1plM3VQSmhsY1VDVlliL1A5UmNG?=
- =?utf-8?B?UzBjTDJQMEVCU0lqM0VLTXhQZ1llUk1PNVpybDZTMjRnMlprRTZUdzZvWVhs?=
- =?utf-8?Q?mBjuHduRX56einBsDpVBm8Neev9hX4jwGF1guo/6mb3d?=
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: cde38d75-30a4-4b7f-97da-08dd8c900d7f
-X-MS-Exchange-CrossTenant-AuthSource: VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 11:20:48.9625
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vTqpgyMoQ5lirYIMAFtAScq3SmzcQMCF3ATMndtRWJJaiPEBYkjNO+i3ur3IEdrx2Yn0VwBOsP/Ndz3jCxp/tQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1P195MB0560
+User-Agent: Mozilla Thunderbird
+Subject: Re: [net-next v11 4/7] net: mtip: The L2 switch driver for imx287
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Stefan Wahren <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>,
+ Andrew Lunn <andrew@lunn.ch>
+References: <20250504145538.3881294-1-lukma@denx.de>
+ <20250504145538.3881294-5-lukma@denx.de>
+ <61ebe754-d895-47cb-a4b2-bb2650b9ff7b@redhat.com>
+ <20250506130438.149c137e@wsk>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20250506130438.149c137e@wsk>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Bkon7cb9kR4upCjKIoZQcR118B8xxklyt3kj2aZXuwA_1746530605
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_042057_479656_1F000A00 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20250506_042327_934931_2183E6DB 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,54 +123,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 5/6/25 1:04 PM, Lukasz Majewski wrote:
+>> On 5/4/25 4:55 PM, Lukasz Majewski wrote:
+>>> +		/* This does 16 byte alignment, exactly what we
+>>> need.
+>>> +		 * The packet length includes FCS, but we don't
+>>> want to
+>>> +		 * include that when passing upstream as it messes
+>>> up
+>>> +		 * bridging applications.
+>>> +		 */
+>>> +		skb = netdev_alloc_skb(pndev, pkt_len +
+>>> NET_IP_ALIGN);
+>>> +		if (unlikely(!skb)) {
+>>> +			dev_dbg(&fep->pdev->dev,
+>>> +				"%s: Memory squeeze, dropping
+>>> packet.\n",
+>>> +				pndev->name);
+>>> +			pndev->stats.rx_dropped++;
+>>> +			goto err_mem;
+>>> +		} else {
+>>> +			skb_reserve(skb, NET_IP_ALIGN);
+>>> +			skb_put(skb, pkt_len);      /* Make room */
+>>> +			skb_copy_to_linear_data(skb, data,
+>>> pkt_len);
+>>> +			skb->protocol = eth_type_trans(skb, pndev);
+>>> +			napi_gro_receive(&fep->napi, skb);
+>>> +		}
+>>> +
+>>> +		bdp->cbd_bufaddr = dma_map_single(&fep->pdev->dev,
+>>> data,
+>>> +						  bdp->cbd_datlen,
+>>> +						  DMA_FROM_DEVICE);
+>>> +		if (unlikely(dma_mapping_error(&fep->pdev->dev,
+>>> +					       bdp->cbd_bufaddr)))
+>>> {
+>>> +			dev_err(&fep->pdev->dev,
+>>> +				"Failed to map descriptor rx
+>>> buffer\n");
+>>> +			pndev->stats.rx_errors++;
+>>> +			pndev->stats.rx_dropped++;
+>>> +			dev_kfree_skb_any(skb);
+>>> +			goto err_mem;
+>>> +		}  
+>>
+>> This is doing the mapping and ev. dropping the skb _after_ pushing the
+>> skb up the stack, you must attempt the mapping first.
+>>
+>>> +static void mtip_free_buffers(struct net_device *dev)
+>>> +{
+>>> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
+>>> +	struct switch_enet_private *fep = priv->fep;
+>>> +	struct sk_buff *skb;
+>>> +	struct cbd_t *bdp;
+>>> +	int i;
+>>> +
+>>> +	bdp = fep->rx_bd_base;
+>>> +	for (i = 0; i < RX_RING_SIZE; i++) {
+>>> +		skb = fep->rx_skbuff[i];
+>>> +
+>>> +		if (bdp->cbd_bufaddr)
+>>> +			dma_unmap_single(&fep->pdev->dev,
+>>> bdp->cbd_bufaddr,
+>>> +					 MTIP_SWITCH_RX_FRSIZE,
+>>> +					 DMA_FROM_DEVICE);
+>>> +		if (skb)
+>>> +			dev_kfree_skb(skb);  
+>>
+>> I suspect that on error paths mtip_free_buffers() can be invoked
+>> multiple consecutive times with any successful allocation in between:
+>> skb will be freed twice. Likely you need to clear fep->rx_skbuff[i]
+>> here.
+> 
+> I don't know what I shall say now.... really... 
 
-On 5/3/25 00:03, Judith Mendez wrote:
-> From: Hari Nagalla <hnagalla@ti.com>
->
-> AM62A SoCs have a single R5F core in the MCU voltage domain.
-> Add the R5FSS node with the child node for core0 in MCU voltage
-> domain .dtsi file.
->
-> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
-> Signed-off-by: Judith Mendez <jm@ti.com>
-> Acked-by: Andrew Davis <afd@ti.com>
-Tested-by: Daniel Schultz <d.schultz@phytec.de>
-> ---
->   arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi | 25 ++++++++++++++++++++++++
->   1 file changed, 25 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
-> index 9ed9d703ff24..ee961ced7208 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
-> @@ -174,4 +174,29 @@ mcu_mcan1: can@4e18000 {
->   		bosch,mram-cfg = <0x0 128 64 64 64 64 32 32>;
->   		status = "disabled";
->   	};
-> +
-> +	mcu_r5fss0: r5fss@79000000 {
-> +		compatible = "ti,am62-r5fss";
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		ranges = <0x79000000 0x00 0x79000000 0x8000>,
-> +			 <0x79020000 0x00 0x79020000 0x8000>;
-> +		power-domains = <&k3_pds 7 TI_SCI_PD_EXCLUSIVE>;
-> +		status = "disabled";
-> +
-> +		mcu_r5fss0_core0: r5f@79000000 {
-> +			compatible = "ti,am62-r5f";
-> +			reg = <0x79000000 0x00008000>,
-> +			      <0x79020000 0x00008000>;
-> +			reg-names = "atcm", "btcm";
-> +			resets = <&k3_reset 9 1>;
-> +			firmware-name = "am62a-mcu-r5f0_0-fw";
-> +			ti,atcm-enable = <0>;
-> +			ti,btcm-enable = <1>;
-> +			ti,loczrama = <0>;
-> +			ti,sci = <&dmsc>;
-> +			ti,sci-dev-id = <9>;
-> +			ti,sci-proc-ids = <0x03 0xff>;
-> +		};
-> +	};
->   };
+I suspect my email was not clear. AFAICS the current code contains at
+least 2 serious issues, possibly more not yet discovered due to the
+patch size. You need to submit (at least) a new revision coping with the
+provided feedback.
+
+Thanks,
+
+Paolo
+
 
