@@ -4,55 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 145D9C3ABC6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 03:46:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D17ABC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 03:46:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
-	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l6RYs86PJokxxvprMkqJYSIOrLFEEYltj79aVKHMFEM=; b=uJm/Iu14qMXj8R6Bemkz0wg+xs
-	GHRT00lh9f/VIsO1RTy3sO2U0+Z5pvGQgfLUUGCVV9fIBHmNw1KlkHS03Gu1S/9L3VcMvIltxakPe
-	5qJQCjdasQxh28EJIAtJ9stzCXU18OxtK+Bcw/u8e9lNffIMhoFQr6CX7Cj6ajNt0UxCLfs5Xpu7L
-	twyEfeDCgOz9EBOqD2KLwUTyRmNVncfmvgBYgQXP772KP57zR2bADn8Jw1JXjoQdOWaUzjwcqe5ru
-	jaqqiq/dyd4c9n92f0g6lCenZ6Vv10b1bs62356QNB5pu1NpC6xedPBxi5T98RA9Msd3FAOd/GknG
-	/jF1fzSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cCAVKP7SrR333Gc2tei33vMDbZ4FO69ZTBSxGvMrZlo=; b=f5kPGUPl0Gr77cdZWkpf9iR9oL
+	ybkBRYHtcz3W/EnknBV3PM/tCqVz9d+YsGzw8yVssSEkl3AjGq25sZxM7TJ7oqPhA8/ZOdWr7QcIU
+	0zmlU3gLfNjqKTaEE/N5EgVwvIsXfm6MSlA6MIGjgwgxPPbs2nk7INFiEFZCoxvGEmGumqO52pik8
+	czzsdk2k3GmyA7IjaBNFuW7wjZU+qp4C1FMN8PsaiDo6exw6892haM/ultR3xZhlo1Tpe9y4k1hg3
+	KymB67ZJ4+b9Kop9W2pr35ERZPlzgrwkrpjP55AH0qurQ9SaWrCvLM6DUPDtOokF+GF95uqYqpdQH
+	28izfyXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCVjt-0000000E73O-2lL1;
-	Wed, 07 May 2025 03:46:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uCVjx-0000000E7AY-1uLh;
+	Wed, 07 May 2025 03:46:37 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCQ3N-0000000DSOC-2iVh;
-	Tue, 06 May 2025 21:42:17 +0000
+	id 1uCQKm-0000000DUqK-2B4v
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 May 2025 22:00:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C29D961136;
-	Tue,  6 May 2025 21:42:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4442DC4CEE4;
-	Tue,  6 May 2025 21:42:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A299C5C5A41;
+	Tue,  6 May 2025 21:57:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DC21C4CEE4;
+	Tue,  6 May 2025 22:00:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746567736;
-	bh=l6RYs86PJokxxvprMkqJYSIOrLFEEYltj79aVKHMFEM=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=JPbQV2TE9JMYlynQW3LOl2v8DFHIk++D8qK85nKqdbjKkrAwZlGLXd1xA5HD9t6Uz
-	 f8Z8dszsKIzo/VFoHAHM8orxJT2AkLjDXsQGpV3sGHp8LusAJx8SePLf7LwEAqovsY
-	 Sczjp2MC3lK7Yect2AAjyaQqJ06QgXLJ1+YQvKdJGpB2egQSW8VBTbVlCBcH+xdcaX
-	 vR/0Ch6TOEKRgu3UhcJ3FhEYUWVBSmXsXrk2ujxKh0kFlafyNTaJt8sZbkLik9IeOk
-	 i9ZdvAdwRqgXVL4LeOJAJ186P9DivLu4cgJ5gfAlmfGw1FU4cEP9HlvaHpuVjgE0rd
-	 ms5vg8nHsq+3A==
-Message-ID: <59c3c160b99f2cfce17d644534591952@kernel.org>
-Content-Type: text/plain; charset="utf-8"
+	s=k20201202; t=1746568815;
+	bh=/+KalfFDzI80dknz8+VTKph/XzS0C0WyqI20V4kemKk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=IPeFx3JtbKD48/vdr6KT0DoGPaB5rRo8NmKdt/oNs0fq7qPCowf98T3IfGWWcZ2pq
+	 Xo4sQ0pNkTafRBRslPstN/7rRpamTVyjBnvfJeeyeciDNXrnhf6SZJrD01MaZ9Kt5O
+	 KXHMxh9dDcHJMrFQdvA4WxJQOXHGdTf1DVDoLREMhndI5XyJ4GkRj3QYVf385seiHn
+	 EL8teOD+jLL6Y+N9tWPpxiIlKWjIAn7nl7ce1K3E4/bjGBYCM8ZH6PlaSCJwUyv7dP
+	 W6UWn4BUefJ86BuaIfSws2UyCU49dGgeWsF7pIh3ihByFzxA60K6avpN7fsFvLwxau
+	 a73SD/Tg8ghwg==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Vladimir Murzin <vladimir.murzin@arm.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] dt-bindings: serial: Convert arm,mps2-uart to DT schema
+Date: Tue,  6 May 2025 17:00:11 -0500
+Message-ID: <20250506220012.2545470-1-robh@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250402020513.42628-1-bsdhenrymartin@gmail.com>
-References: <CAPY8ntAFHW3kiqCnXjFtzL9FnRoQ69v8+3yJ+jR8_W8Bb+6d8A@mail.gmail.com> <20250402020513.42628-1-bsdhenrymartin@gmail.com>
-Subject: Re: [PATCH v2] clk: bcm: rpi: Add NULL check in raspberrypi_clk_register()
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: mturquette@baylibre.com, florian.fainelli@broadcom.com, bcm-kernel-feedback-list@broadcom.com, popcornmix@gmail.com, mripard@kernel.org, u.kleine-koenig@baylibre.com, linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, nathan@kernel.org, Henry Martin <bsdhenrymartin@gmail.com>
-To: Henry Martin <bsdhenrymartin@gmail.com>, dave.stevenson@raspberrypi.com
-Date: Tue, 06 May 2025 14:42:14 -0700
-User-Agent: alot/0.12.dev8+g17a99a841c4b
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250506_150016_600209_28217E1C 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,17 +78,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Henry Martin (2025-04-01 19:05:13)
-> devm_kasprintf() returns NULL when memory allocation fails. Currently,
-> raspberrypi_clk_register() does not check for this case, which results
-> in a NULL pointer dereference.
->=20
-> Add NULL check after devm_kasprintf() to prevent this issue.
->=20
-> Fixes: 93d2725affd6 ("clk: bcm: rpi: Discover the firmware clocks")
-> Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
-> Reviewed-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> ---
+Convert the Arm MPS2 UART binding to DT schema. It is a straight-forward
+conversion.
 
-Applied to clk-next
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../bindings/serial/arm,mps2-uart.txt         | 19 --------
+ .../bindings/serial/arm,mps2-uart.yaml        | 46 +++++++++++++++++++
+ 2 files changed, 46 insertions(+), 19 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/serial/arm,mps2-uart.txt
+ create mode 100644 Documentation/devicetree/bindings/serial/arm,mps2-uart.yaml
+
+diff --git a/Documentation/devicetree/bindings/serial/arm,mps2-uart.txt b/Documentation/devicetree/bindings/serial/arm,mps2-uart.txt
+deleted file mode 100644
+index 128cc6aed001..000000000000
+--- a/Documentation/devicetree/bindings/serial/arm,mps2-uart.txt
++++ /dev/null
+@@ -1,19 +0,0 @@
+-ARM MPS2 UART
+-
+-Required properties:
+-- compatible	: Should be "arm,mps2-uart"
+-- reg		: Address and length of the register set
+-- interrupts	: Reference to the UART RX, TX and overrun interrupts
+-
+-Required clocking property:
+-- clocks	  : The input clock of the UART
+-
+-
+-Examples:
+-
+-uart0: serial@40004000 {
+-	compatible = "arm,mps2-uart";
+-	reg = <0x40004000 0x1000>;
+-	interrupts = <0 1 12>;
+-	clocks = <&sysclk>;
+-};
+diff --git a/Documentation/devicetree/bindings/serial/arm,mps2-uart.yaml b/Documentation/devicetree/bindings/serial/arm,mps2-uart.yaml
+new file mode 100644
+index 000000000000..4a8df078e6f3
+--- /dev/null
++++ b/Documentation/devicetree/bindings/serial/arm,mps2-uart.yaml
+@@ -0,0 +1,46 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/serial/arm,mps2-uart.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Arm MPS2 UART
++
++maintainers:
++  - Vladimir Murzin <vladimir.murzin@arm.com>
++
++allOf:
++  - $ref: /schemas/serial/serial.yaml#
++
++properties:
++  compatible:
++    const: arm,mps2-uart
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    items:
++      - description: RX interrupt
++      - description: TX interrupt
++      - description: Overrun interrupt
++
++  clocks:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    serial@40004000 {
++        compatible = "arm,mps2-uart";
++        reg = <0x40004000 0x1000>;
++        interrupts = <0>, <1>, <12>;
++        clocks = <&sysclk>;
++    };
+-- 
+2.47.2
+
 
