@@ -4,156 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C109C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 09:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE934C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 09:02:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1wf2ZPHzooNqEyfUwWyL/hekmw6AY1g3HgCMe46dxtE=; b=Pqsvfdz8RzYKINJnGHYVmlm4U/
-	HdEKQZmQN27QAFQGTLO5Gnr/8FF+LNxwwPRNYd3oUnRaelBypSJWEVhe4z5W5TBcXUw0RwC4cTd4W
-	bFlyH6/2y7KpEvQsm6NI6TfoB72dzSUQga64S8pR0pXD3B2pimqlOBJiMSxH78hgKuLG21psK7uG7
-	sKNCyV/J/9GR/Fce0oU4yRV6XE/iq7htIMkoiiFqbyNb9KzknAh/5ybQbrm9P52UTBh7r0hqzl/ht
-	pNdpQmfjpZD8JAd0VceSwCjlBfgWLrv9QhCJZb275TXyluSXTWRGgWUUxTVjcGZC0A+Q0VvmNaK9X
-	q7E+7spg==;
+	bh=cUby8+oJiTXxmx37zu5laLL2CVtXZ3As/XtzHzaUktQ=; b=QkNizszXMS0xQTb4RsWkahXy/5
+	JddaTgVEoZLoXeCdFkL4tniDY47joqZp8yLMTkgZTCMyULxS76s6WI3bQubwN3Y/iR1pHyAAfxct0
+	npac1X5eBZJRdecZBJ03z6fWLgrpG/UDN9eMKYvKx+cc8a0V2KzoEMHVFjGqRisqod4i3IlNXNHy1
+	JgFx9mNmAr05yrYG8sRWlTtNMXcrRA38ND3QH+To3qcrnPePAQtwW0AfXIdK5Ua+JLSZ9mkBoVwAR
+	QK2xvw5gLwvW0muOYx31AnuryRpVNAvt2FqVCGlPvbcaMWHFsjCerfR0sSclRYST1wND7b2NOZrC2
+	OqnQj/ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCEA2-0000000BFaI-1Rfh;
-	Tue, 06 May 2025 09:00:22 +0000
-Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1uCEBw-0000000BG3M-2M8Q;
+	Tue, 06 May 2025 09:02:20 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCDeg-0000000B9jC-0KYZ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 08:27:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=C5ul9SjZZo/J3ZyPkFaUu5yJSJO+ieVoaFjV2DE53y78NXGyRN5Uwk0F/sryOn837CSoHvPnhyzPNhkTnzwKKsbSHz26vDnLcV6lmVk34b9+RzWDdzcw0NXhxzoYLXT5tVwjun8jNKQl1nibqQrU6URdS2wdW0uDyjUbnQqkVwUdet8fyr4Tqnpcl1C9QimRy2Gb6mmKR34kF8zecOEtxd9l129XiM8g4rMX5/nDrkezT1FvRpXk5Xcx667J3iId1H+3TP2Hp5rpjk4JD1gdo45XnnG5bLzF1j8aC/4rWSRkBuxdNjBcueH1wDWJDxOHESMIsgmBOGxDY8z3oWcORQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1wf2ZPHzooNqEyfUwWyL/hekmw6AY1g3HgCMe46dxtE=;
- b=wQ9k6exmZYSOWKchk9GoCRSa6FQOK94GhxY8ScJ5IW6LBFE+fxvh/EqUIxgxqKdpI5XAj4cY+yWYEwW/9l/rrgRN9nOdWbi3tjQPaWe+hWwqCa4Nwq1uKIC0B9gkpSo1WCnuJyEiJ3PzjpYZKRbr/YhApkDo1mbrc3wQ+ZZza6yL+n39PmvZ15siMuPbVK/NpUAvg1/HZVKzcVLUD0LLQ6aGw1tvFFPR8nyF2QaRQB6fsrpztGymX8xb4TLjmyF/4x6aMFZVF4c+L0V2B3EqDpt2u8i7ifbhOnw5Erf51ePe2xHQfwi/Ja9vn4jzrfLVdsrvtSmUg7M3ZyB1K6DTLw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1wf2ZPHzooNqEyfUwWyL/hekmw6AY1g3HgCMe46dxtE=;
- b=H0UEMypJb16QUHEMMinCJ3v+lFs8HpXJxtYd6g1VjnujXRxEDdcGmDCkXI+IWwHsXBQ4+Ur7wHhQ78RIlAMtZBJ6BSaJNrC/7WEk7v3p5MFE06WJCpbx5omFocZ+HbsOB5/QOElgw4wtvKOUbPOrM6av3JZj5STStVkgSG+sYyuGM6lf6xvBukkP8HMTWvgwNiQI3vcjPgIbTMNjMmMV993qt8tVBPC/W77qeGcpMEL/r38G37gpsAA7ICnrTXidrIWkECMn5KqSj5Prl95hGTfl6hwReiqiyOw8Yezug9YG0oMJ7DYfWmpNb8Yq5c7KvJ+tfVotkVzO2z2RzcW/4Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
- by PA4PR04MB7744.eurprd04.prod.outlook.com (2603:10a6:102:c9::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Tue, 6 May
- 2025 08:27:55 +0000
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::a7c2:e2fa:8e04:40db%4]) with mapi id 15.20.8699.022; Tue, 6 May 2025
- 08:27:55 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: claudiu.manoil@nxp.com,
-	vladimir.oltean@nxp.com,
-	xiaoning.wang@nxp.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com
-Cc: christophe.leroy@csgroup.eu,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	timur@kernel.org
-Subject: [PATCH v7 net-next 14/14] net: enetc: add loopback support for i.MX95 ENETC PF
-Date: Tue,  6 May 2025 16:07:35 +0800
-Message-Id: <20250506080735.3444381-15-wei.fang@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250506080735.3444381-1-wei.fang@nxp.com>
-References: <20250506080735.3444381-1-wei.fang@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR06CA0249.apcprd06.prod.outlook.com
- (2603:1096:4:ac::33) To PAXPR04MB8510.eurprd04.prod.outlook.com
- (2603:10a6:102:211::7)
+	id 1uCDfK-0000000B9zw-01dg;
+	Tue, 06 May 2025 08:28:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1746520115;
+	bh=aKexJcbDf7RX3F6f/GBWM3WTi6g2qAawNgd8dqWrYnk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RyLGBYPq8471eD7UwJB9vj9G6r0qqaxS65kOUFBDqw4QGrLM+TnxnFTJN+X5G8rCB
+	 jpTZttf+CjjWZ+4e2eHvWo6HmZUhunROKFqnYnCkSfjMJaqPtNdVao1Hwjtzgp+FYx
+	 8OCxe0CdGaD2rNtlSQMHryGzRCQpSJzGETCwxwXmScintUXPD0wFiIRuf8NYGxW0CQ
+	 IFobyEtwrMLHWKwYZQTImV1iwTvsEV/l1ObZuo/rkVWicL3HoUlBIn2TO5aUw7BmI1
+	 1CscvnNxDbjzOIyl4dnmkLvTI7sTUJMprgVoLAtmJv7Ns1sZxVONyQnX4KtKStkHpN
+	 sGxLjhXmUp6og==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 720E217E09BE;
+	Tue,  6 May 2025 10:28:34 +0200 (CEST)
+Message-ID: <65012c1f-9888-4231-8e7f-c96b7f09053a@collabora.com>
+Date: Tue, 6 May 2025 10:28:33 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8510:EE_|PA4PR04MB7744:EE_
-X-MS-Office365-Filtering-Correlation-Id: f576df2f-315b-4461-7363-08dd8c77e69e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8P30YHyQgJJKymYIRfzqg6MSwFRKGWkcS9o5s41+vNcRksr8e7OYu6CX7yPL?=
- =?us-ascii?Q?KHKk0HIYrxzl7EBo97TIxR+F81Q8qJkCV8SuRVKFP8jX2GbfmzvhhKaAIjkV?=
- =?us-ascii?Q?F/eWSaHkl/9IGXDs1PUEV7oazFE6ieEP4H9ylocqq0svCHljpWVI9iUMVuJb?=
- =?us-ascii?Q?4jJAoUbXiDULOnIXvp5TNGWEzHvM2XjvPuNIeQVC7yFcffWJ5VpqALk5f9CC?=
- =?us-ascii?Q?RV3RK20PD+3PekGfeAQVt3RDPVdj8ooNgavu28vk47nG/DdP1jCekZKYjuAK?=
- =?us-ascii?Q?UDN9UDf5MnpZcGmen/9ApvT6koNuw4CMbGgyqpzX2F8Xsp3U73EPTB6tXgkP?=
- =?us-ascii?Q?2NofKwqiqvLWePavVnoBKgjxLqEpQ0EsU0AANuU7X8j1L9Igv/5fq6yZNyXv?=
- =?us-ascii?Q?lcuerXuS+vCA4u1X2SVAGPTVX1jEGC0oH4hL7PN360Pda46CTXfZn4/tFEOd?=
- =?us-ascii?Q?dcinOg+Eufr7if5gYUaN6HDfr6TXl3NO5XT85PeBgtNdaer+6RTI5leAWWvw?=
- =?us-ascii?Q?//tzKSx7K765NlQm6PHUWPMu9GlnRVwaly7B49ti5LrBIHSCER7nFbi1rIHf?=
- =?us-ascii?Q?WsqCYJkA09rMXDYhCj/vOPc1PFSxOqozvLDh8gnAdyo/WwgXT8NtDFMVf1VW?=
- =?us-ascii?Q?ElKF5lxcTYiwtvmYIGLBj2v6f39xMK6ZUJadEO3zxCdy8mEqMrGLPudW5JM2?=
- =?us-ascii?Q?Dfy3NvHF307Q+eavurnpH7iwHCTqlMcX14ZcJDGHi0XsBznI1Q+RdjcFbiEL?=
- =?us-ascii?Q?iu//BmHQJ9m8dsRrBOrBq9bz1CS3Q1fBrCz5V5gh+uJURvm8J0WIwA1VmAYe?=
- =?us-ascii?Q?o+3qUZUgl0zv/qB7vDNU0zO6bh70+62gohPhXErEhF+PIzM8P3Vg3RbPhteZ?=
- =?us-ascii?Q?bCZqiAXh5fvx6zhQYZItD0fDPU6a8tg2CX2sMI9CvyCd2fhQ+wB3nmVaHRZU?=
- =?us-ascii?Q?ZYI9vRSROez994LycWE0dpPMFw0+wKIsKfK5fDY80BtnoGtAcc2fkQmwu9Cg?=
- =?us-ascii?Q?EkYKbQn4Da9+zLQ0KiIeMkLzxaW1WKYO+g7V4e06xCzrXyW8CjTcyM7fn77h?=
- =?us-ascii?Q?UR3J9Eq0obNF0RR055mTt5LqmBh38CM4RJMs47scklQsNdHFLSqh9Kza2gM8?=
- =?us-ascii?Q?w+AvIONarFFjojG8vZJcoNi8nW6uakw0NJYm9xR4sAemN/UMt10LGQAG4k75?=
- =?us-ascii?Q?TIB2V0kxKOJCOw7QNY74PVj18APrK3ACGe4G6uUeXkefISKB1luJer4/zWJm?=
- =?us-ascii?Q?EYyyG73lE6TJRYlLvsy1+zB5XzkUrhn0ABDdZi4zsNBjYr6J6WEPrH35rVlE?=
- =?us-ascii?Q?67WZmSc6BhUipmb8YmyL/LKdFVS9OV/jE8cgYnzxptIPb1I53EGeItf8xMgN?=
- =?us-ascii?Q?5P1s4BiHtI4Ze/0yjvgJtrGlC6nOrFQMr0hn04DWWlxagAVAru8mwauLw6cn?=
- =?us-ascii?Q?1P4eNyrUhrP4Jrn6aHCwWAZJ48iIOsvT1tjWD7Ny7dI/TwowaYCvfQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LjDt6nyTjDI89RRDnMVRb+SGd5QFULlUYQLFf//c16A99a43ZrX1BIz02p+e?=
- =?us-ascii?Q?4ZfWWLqOdlR8ChzdoixnCp/ZMFjXeBQw6Y8WJSwQX8wu/xhfzBycV06PGXgo?=
- =?us-ascii?Q?yaEmvVgCsRij1C72XbCie/cvlG1ygKp2d6qzGYet05h2HRf4tsSfr9gTHCN1?=
- =?us-ascii?Q?Z0y9i0sMgMpkW7tA/39Wgn+UJDvpRp4tiQb7U+kI10IAFMWvExHqsYpjGCtJ?=
- =?us-ascii?Q?JU8qdgC5NnAD+c0YRXcPn6IuIDXGQ6pEaiAg7aCo2PHYRnAX3WxJZEuTZBG/?=
- =?us-ascii?Q?tlFWSCMXZ+4F7B17Xw6M7zGzsK+00UmB2qNl9UZPxmAIk6yFyTax5sR2fCeN?=
- =?us-ascii?Q?umj9OhGXjf4b6Kv+VFLDM0SNpNJAATIVbQyJKILhL6AS87P9A5tNYg+omhy+?=
- =?us-ascii?Q?cx4uCOZUWpxYq3GDTTnzCXyrfm5r0T28H9haSgTWYduw4TePLrHLtCsNfyhh?=
- =?us-ascii?Q?DCT2hXC+AQTd8VAAX0sHS9f4h1L0M8hKLp6wBZynft/rqqSKWZhP6kQna6IP?=
- =?us-ascii?Q?pNGYifH7TJgyxUc9fm5LmdZEDPKA8BQYqUOS4Bb43DBzRJrIYWa1PHD7Nu8r?=
- =?us-ascii?Q?EumbZDX8gRtY4z+Cd2Gb9x9SXuoqDBalgGqYR79nTxm8wfJ7NDzF+C6TQuz7?=
- =?us-ascii?Q?st6bmDJqbSVeERnDVhbjhE1zNV3mAbxYQSJcdPnISuUaa/JUH4GUHG2/uBfN?=
- =?us-ascii?Q?IgIkzSuDvrYIZ2VjCF1mgFsUkqefkRKY+MUKFHDiPcJLVdMpD0S2clZH2Pif?=
- =?us-ascii?Q?z2DXCkxmvqPWo2q+nBQQCwhs9uGO8ewcTrUN2NPSq1NJYCTaohIZFtwYd/cT?=
- =?us-ascii?Q?XZ3Qp+7Yx4BdHPFlutc3XAx0b7eL6OMuuznmpRyrfchPweS3I7vh+L4dNyMM?=
- =?us-ascii?Q?5ccuK4cTWp0gkr2y+q8u1wY1Eu1ZaefXcIfl0dhu3Kzlrmja8Kg8sonDy3aY?=
- =?us-ascii?Q?qYyLY0saFucRysP8yCiC/FOy7dU1vXzyq2lv/mRs7iVOSiquagnrsiDHE79J?=
- =?us-ascii?Q?SLru0ZfI8lkN6AprOc4Vong/80oEGafTaDwM6HaA4S3W9c0y9lkGXhoW2o0a?=
- =?us-ascii?Q?XQPM6vQZWjMM9yIE7Q+mq1VTrZTa9H1OZ8ZNOBQ7eefadTMQ2tjHuRRnto2r?=
- =?us-ascii?Q?5nf5DZ6G6S1rA6mDFUuH1ljg0RpnNfVV/ldLLVTD64Hy3BBzYtqkcAhoxp1r?=
- =?us-ascii?Q?Jx15P/Zv4eNB9MkSbUl1kwa5tK9C1NmyUtIt2OW0o+zQkYwlO9YOtZW0AKlQ?=
- =?us-ascii?Q?FyadstVjwQN/hKPNwqfvAW2rNw4ptWeHTVBB3M6L8F6iSpPxl9EOF5e1GUAp?=
- =?us-ascii?Q?FRFm9ZivHs+8V2BlaAkYFbpWJJb9qrGmRJCjS9J4KV9T75NQe6BgDl+kGhi0?=
- =?us-ascii?Q?pHm+FZOZAgQP7/PbpRHQbke9qYhPBkLGbcpfG5XATn9ZByclfGU/tn+kA6Lw?=
- =?us-ascii?Q?uXanMVpOcbliFA2t+PZHAf1cStQhPykW1HEd32u7Gruhp9xjUU2HiGBZVb82?=
- =?us-ascii?Q?rDDzzTjaPiORqYS0DRnF5OtuwfZ7QSdcTOJ1diP10E319M8yJsPmpnRgfc4q?=
- =?us-ascii?Q?YURsh2DNb/cteCOuL5vShslm6t1VrBOp6vUaomUJ?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f576df2f-315b-4461-7363-08dd8c77e69e
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 08:27:55.6805
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5K7V8oes9kHCmmKqJHaKa1HsqP98HgDmznShiDZolGSF4nBZZ1biHomuRbaskWyCALJ89apCUG08PS98h5hX2A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7744
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/3] drm/panfrost: Add support for Mali on the MT8370
+ SoC
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250502-mt8370-enable-gpu-v5-0-98e247b30151@collabora.com>
+ <20250502-mt8370-enable-gpu-v5-2-98e247b30151@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250502-mt8370-enable-gpu-v5-2-98e247b30151@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_012758_127496_6A76BA72 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20250506_012838_190004_9C57FE12 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,71 +84,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add internal loopback support for i.MX95 ENETC PF, the default loopback
-mode is MAC level loopback, the MAC Tx data is looped back onto the Rx.
-The MAC interface runs at a fixed 1:8 ratio of NETC clock in MAC-level
-loopback mode, with no dependency on Tx clock.
+Il 02/05/25 14:17, Louis-Alexis Eyraud ha scritto:
+> Add a compatible for the MediaTek MT8370 SoC, with an integrated ARM
+> Mali G57 MC2 GPU (Valhall-JM, dual core), with new platform data for
+> its support in the panfrost driver.
+> It uses the same data as MT8186 for the power management features to
+> describe power supplies, pm_domains and enablement (one regulator, two
+> power domains) but also sets the FORCE_AARCH64_PGTABLE flag in the GPU
+> configuration quirks bitfield to enable AARCH64 4K page table format
+> mode.
+> As MT8186 and MT8370 SoC have different GPU architecture (Mali G52 2EE
+> MC2 for MT8186), making them not compatible, and this mode is only
+> enabled for Mediatek SoC that are Mali G57 based (compatible with
+> mediatek,mali-mt8188 or mediatek,mali-8192), having specific platform
+> data allows to set this flag for MT8370 without modifying MT8186
+> configuration and behaviour.
+> 
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
-Signed-off-by: Wei Fang <wei.fang@nxp.com>
-Reviewed-by: Vladimir Oltean <vladimir.oltean@nxp.com>
----
- .../net/ethernet/freescale/enetc/enetc4_pf.c   | 18 ++++++++++++++++++
- .../ethernet/freescale/enetc/enetc_pf_common.c |  4 +---
- 2 files changed, 19 insertions(+), 3 deletions(-)
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc4_pf.c b/drivers/net/ethernet/freescale/enetc/enetc4_pf.c
-index 1f6500f12bbb..c16378eb50bc 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc4_pf.c
-+++ b/drivers/net/ethernet/freescale/enetc/enetc4_pf.c
-@@ -101,6 +101,21 @@ static void enetc4_pf_set_si_mc_hash_filter(struct enetc_hw *hw, int si,
- 	enetc_port_wr(hw, ENETC4_PSIMMHFR1(si), upper_32_bits(hash));
- }
- 
-+static void enetc4_pf_set_loopback(struct net_device *ndev, bool en)
-+{
-+	struct enetc_ndev_priv *priv = netdev_priv(ndev);
-+	struct enetc_si *si = priv->si;
-+	u32 val;
-+
-+	val = enetc_port_mac_rd(si, ENETC4_PM_CMD_CFG(0));
-+	val = u32_replace_bits(val, en ? 1 : 0, PM_CMD_CFG_LOOP_EN);
-+	/* Default to select MAC level loopback mode if loopback is enabled. */
-+	val = u32_replace_bits(val, en ? LPBCK_MODE_MAC_LEVEL : 0,
-+			       PM_CMD_CFG_LPBK_MODE);
-+
-+	enetc_port_mac_wr(si, ENETC4_PM_CMD_CFG(0), val);
-+}
-+
- static void enetc4_pf_clear_maft_entries(struct enetc_pf *pf)
- {
- 	int i;
-@@ -536,6 +551,9 @@ static int enetc4_pf_set_features(struct net_device *ndev,
- 		enetc4_pf_set_si_vlan_promisc(hw, 0, promisc_en);
- 	}
- 
-+	if (changed & NETIF_F_LOOPBACK)
-+		enetc4_pf_set_loopback(ndev, !!(features & NETIF_F_LOOPBACK));
-+
- 	enetc_set_features(ndev, features);
- 
- 	return 0;
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc_pf_common.c b/drivers/net/ethernet/freescale/enetc/enetc_pf_common.c
-index 8c563e552021..edf14a95cab7 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc_pf_common.c
-+++ b/drivers/net/ethernet/freescale/enetc/enetc_pf_common.c
-@@ -134,10 +134,8 @@ void enetc_pf_netdev_setup(struct enetc_si *si, struct net_device *ndev,
- 	}
- 
- 	/* TODO: currently, i.MX95 ENETC driver does not support advanced features */
--	if (!is_enetc_rev1(si)) {
--		ndev->hw_features &= ~NETIF_F_LOOPBACK;
-+	if (!is_enetc_rev1(si))
- 		goto end;
--	}
- 
- 	ndev->xdp_features = NETDEV_XDP_ACT_BASIC | NETDEV_XDP_ACT_REDIRECT |
- 			     NETDEV_XDP_ACT_NDO_XMIT | NETDEV_XDP_ACT_RX_SG |
--- 
-2.34.1
 
 
