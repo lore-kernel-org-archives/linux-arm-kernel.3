@@ -4,72 +4,204 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31E14C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 10:42:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9FBFC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 10:44:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=K5lrwPXQAdIvSWBAjVyHQReeKyrfP5GxsI558AXqMso=; b=HKiyVQEidz1B9vKnp47rO1pu1F
-	04po0DlU4NWG9kF/+tlGa7s1TYvIW8S12o2DoZKDefk2kGdqoznW5dYCvk/86AMr+2c+Rpp519iq7
-	OjMFzsIclWslLwv/B4oxIAJW0uqPyZxHl+iLM/5Z4EF4HTZasYwFv2TcmZXikjidmxLlHh0NT7Z3o
-	ztd0WhbwJ49vHbBFFlrecxWSKaM7RUfO7kgsgjgTfcgbN37eh2J6lcIDVBfL5hRO7j1v84wqIbdsD
-	jetHz3z4uqheZUpxat08YM2OlmO1h7/e7pLf/sDI2SKzjoeUpdqghwIzhGlp1kCEMIN+5zWlwBc7K
-	9D5n8H/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9Q/islsk1sUlS0u61zaPCoHkIzLTxsvUFvAbUyi2Nik=; b=Fj22YboBQTzFvj3xZl47lYzTop
+	5f+iMOLYcfHUMqUBd5sKchtXSQKcbUqQGUTyf4sAnPazqqHiZpXsaoLM9bNbBPRG00Wszns/CLRUZ
+	nx30w/o/FYtIcZNrXu/N86fRbNXhCrhkAaaRQ31rbG1bgKlub6sO5B3EfZoYyZYeyCUp2dQwjrdo2
+	9Wu5q4RM+zghTS4YtScVZ3Cz+NwAWAwtKC+U63tm8yv1QuQLNcIxXAYbtpGnxOxEkPUI1Qv5GEtiv
+	kO5ARAMVnDgQX7s8mqOhmlbWStGmVULG3MUvu9enwSQGUOdNJad4HRf+8i0NbP3XzIwQQKxxCv3FC
+	5XQQlF7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCFkL-0000000BbTL-2Evp;
-	Tue, 06 May 2025 10:41:57 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uCFmF-0000000Bbl9-1GZe;
+	Tue, 06 May 2025 10:43:55 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCEW0-0000000BLqt-47kA;
-	Tue, 06 May 2025 09:23:07 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id D02F520731;
-	Tue,  6 May 2025 11:22:57 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id ETRcuLb97ySV; Tue,  6 May 2025 11:22:57 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1746523377; bh=8YC/nlUWpEAJFTkya/c4smmCYNL/U+/Jg0o0Xd67Nvk=;
-	h=From:To:Cc:Subject:Date;
-	b=SQrXhASu87Ica13iGsBGL3hk/3b74IZ8UdE9gfAXvfCJpvbOJbELKAkUrgOOwQNNN
-	 +iZTHypK30d7KowSXDM7FsxHWtgTSdBct9iIDq/pzCDrYNBsohvfUW5Eq3ktTlpUD/
-	 maSDpQTD+dFEE/Zzhy+GVDpUoU1YxaIV8XTYPDCuWt3HaESekUZEhBCKoBkNLANiyG
-	 VTaWI2RL6OAnha+091ncXvB914teqnKFfRnE2n/CBjm8Z/waAjSfBzvabHFo8KA4Yv
-	 2fGLcKHUao6O0zf1+1NWAmsC9bXMJpGiDItexlX4d1rtinhc25jmJOsNFpKuuW6De6
-	 E2TBuSwgABhuw==
-From: Yao Zi <ziyao@disroot.org>
-To: Ulf Hansson <ulf.hansson@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Shresth Prasad <shresthprasad7@gmail.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Chukun Pan <amadeus@jmu.edu.cn>
-Cc: linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	Yao Zi <ziyao@disroot.org>
-Subject: [PATCH v5 0/5] Support SD/SDIO controllers on RK3528
-Date: Tue,  6 May 2025 09:22:01 +0000
-Message-ID: <20250506092206.46143-1-ziyao@disroot.org>
+	id 1uCEW2-0000000BLrs-2XBi
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 May 2025 09:23:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1746523387; x=1778059387;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=BcC27oVTMLZeNGex4GHU8upglt374V7F9E1LDAT+QVc=;
+  b=WE5TQC7jimUIBC2Yzz/onVu0MbxJ7MyyQ25YljytGO1yKoKs4HY0JfmZ
+   PZPPhglu9Iy49iYgRBMYI4k2G5WspXUCKo3oeSf76BbVYyQzGHS7Pmcb7
+   VF5a8Cugzb+MjngFUQ4HOLF79ybc5gjM7O9UKakDoIX5PtI/qmgjITh++
+   TdQ34+H8+rjykHJZ1kErGjaIim4PBFHPjeEmgc+ebUqe/sWsv6s8BLTNI
+   8kuob1k2nV0JXFkvdpRXdKlryKkssj53NaLHiCF0T7OLeX0NVAdE42l7/
+   QMWXbVdJBXED6GtVnAani+foEjsvYMFbpRNXEgZlCBJmxzQ8IY0hA2svK
+   g==;
+X-CSE-ConnectionGUID: HaKvix/0Qny2sTAwELPj7g==
+X-CSE-MsgGUID: S4r83u0HRMGDNByZdmqvZA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11424"; a="59570076"
+X-IronPort-AV: E=Sophos;i="6.15,266,1739865600"; 
+   d="scan'208";a="59570076"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 May 2025 02:23:04 -0700
+X-CSE-ConnectionGUID: 4n3dy0kRTQeEaLYQOSFTtQ==
+X-CSE-MsgGUID: u1H3xC4aRBOR041qXSnfuA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,266,1739865600"; 
+   d="scan'208";a="135529736"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by fmviesa006.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 May 2025 02:23:03 -0700
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Tue, 6 May 2025 02:23:02 -0700
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14 via Frontend Transport; Tue, 6 May 2025 02:23:02 -0700
+Received: from NAM10-BN7-obe.outbound.protection.outlook.com (104.47.70.47) by
+ edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Tue, 6 May 2025 02:23:01 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nIMiD4MtrOa+DkWAt1I01404Xaq5n1tjQ7QH5NIVBZpHlvyUT7LJluQKVdjYYvpFIVbLjy0kkNeLQY1buG6EKHBBEB6th1qU8tQJgI83QjoaVr/PsoYDy9Nh4WnCK4u1DyJ36H3f4WB8TEzWuizZNBFwdNxPO2qcIgFT4O3STuk5Y7nJKpxZFRLhckpgamfs7xychwuRtgR/ehW3P4QY3QYKqK85ewqinBJgEyuy7rxeqo8C9PitmUtsLmzz6GURGuPRinR1hHSoCYBU/dF3DHcG8uqfNgLvSE097JD8reirUbMkfJ7TuK0De9kTJzC1C07nxdX98q2lJfeIIRAfFQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9Q/islsk1sUlS0u61zaPCoHkIzLTxsvUFvAbUyi2Nik=;
+ b=W9C1nLIGQ/5nYuPIY5gtCLJ09kjyCBif/NDvFvmy1IDIjM3F8/DG7UUDvjmxwwYbNitxWamHrWFTbNvN2ZtKSkqlFh/NYoy60jEiJEt1se6oSYKjuWwKYxo93tSsSwuGfin6L7dv7DZKvSC7UIBXYYWfT1xIAIPIwkTqoqNL/xoiI61Ta2OlyesEaY0Gxh/46S+rnpQKRcPdHUt3S4iCWdvo9NJ9rF6A0EXfP1JWGUBYKCn5ahbpqUPzG/60kIx17kh9ZpKB058BZBeMWPoALdtDzRQSrtiY3F+73erbwyuL52qe0SwYmgsGO2+6tAa4+/7Y139X3bLJ0zP+dEBt0Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by PH3PPF740777B0C.namprd11.prod.outlook.com (2603:10b6:518:1::d2f) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.23; Tue, 6 May
+ 2025 09:22:55 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1%5]) with mapi id 15.20.8699.026; Tue, 6 May 2025
+ 09:22:55 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, Jason Gunthorpe <jgg@nvidia.com>
+CC: Baolu Lu <baolu.lu@linux.intel.com>, "corbet@lwn.net" <corbet@lwn.net>,
+	"will@kernel.org" <will@kernel.org>, "bagasdotme@gmail.com"
+	<bagasdotme@gmail.com>, "robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"joro@8bytes.org" <joro@8bytes.org>, "thierry.reding@gmail.com"
+	<thierry.reding@gmail.com>, "vdumpa@nvidia.com" <vdumpa@nvidia.com>,
+	"jonathanh@nvidia.com" <jonathanh@nvidia.com>, "shuah@kernel.org"
+	<shuah@kernel.org>, "jsnitsel@redhat.com" <jsnitsel@redhat.com>,
+	"nathan@kernel.org" <nathan@kernel.org>, "peterz@infradead.org"
+	<peterz@infradead.org>, "Liu, Yi L" <yi.l.liu@intel.com>,
+	"mshavit@google.com" <mshavit@google.com>, "praan@google.com"
+	<praan@google.com>, "zhangzekun11@huawei.com" <zhangzekun11@huawei.com>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "patches@lists.linux.dev"
+	<patches@lists.linux.dev>, "mochs@nvidia.com" <mochs@nvidia.com>,
+	"alok.a.tiwari@oracle.com" <alok.a.tiwari@oracle.com>, "vasant.hegde@amd.com"
+	<vasant.hegde@amd.com>
+Subject: RE: [PATCH v2 13/22] iommufd: Add mmap interface
+Thread-Topic: [PATCH v2 13/22] iommufd: Add mmap interface
+Thread-Index: AQHbtnBluZ9uOQEPBUai7HCfuqREcrO4Y7wAgAvq9ICAAAiWgIAAAgGAgAAshgCAANzAkA==
+Date: Tue, 6 May 2025 09:22:55 +0000
+Message-ID: <BN9PR11MB5276BA11CB8BB5A46E118E558C892@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1745646960.git.nicolinc@nvidia.com>
+ <7be26560c604b0cbc2fd218997b97a47e4ed11ff.1745646960.git.nicolinc@nvidia.com>
+ <c4d03b52-422e-41ab-845b-1d2eda7ca9e2@linux.intel.com>
+ <20250505165019.GM2260709@nvidia.com> <aBjzf9PrYnwF5uZN@nvidia.com>
+ <20250505172813.GS2260709@nvidia.com> <aBkahmXQGxFC0Fdw@nvidia.com>
+In-Reply-To: <aBkahmXQGxFC0Fdw@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|PH3PPF740777B0C:EE_
+x-ms-office365-filtering-correlation-id: 628e2ee0-990d-4a3e-049a-08dd8c7f9564
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?Lt74L7H/gEDtcmlJz2XRIC2a7zmB/5496wncJmUzOSwAAsoQRn8zcMqbnMVg?=
+ =?us-ascii?Q?h8ZLKCzx0BBwbaJywbynpU0kr6g8RzcebqrmVqeBRfdhqydccAS09xXfbs87?=
+ =?us-ascii?Q?H4NMORT6vhpjqQNQmmnc8bp7rH1JF4cxPTyT4927n7AnGb8lbEHN7imB+Eml?=
+ =?us-ascii?Q?PWVpVP2YocA4zRxMFWoL6aVqot8R7FNlAw/B6kiLBHaZn+8/3b29DyGnWuV5?=
+ =?us-ascii?Q?7GUVYF0HYI9htU2taXO/wb/IVij+NPPewjkv/kWaKBJYIbx30VnMthXma5E8?=
+ =?us-ascii?Q?Ea4qB/H/TE5DgWgQZLa/e4SWQJKBUxTlJbzEZPaZGtggjSajYWsPMMlzbP1I?=
+ =?us-ascii?Q?7pYd9aXr1F1Q8iSqkyhVOYU5Hnv3CIMCfRSiEnLzbRpVqPq6CJggcDctoRx4?=
+ =?us-ascii?Q?o4z1M2N5h74BcV/Vi2iTOyYsTLCI+5IHY3C5wY4YN9fhwwpjGdfCFj1d6fUk?=
+ =?us-ascii?Q?ZZGd/bMlX1pndRV+przRJZC+4W5Eph9fYBzm8KG9nuCuMRAn+VVVV0olPdw+?=
+ =?us-ascii?Q?G1zFVXJBKlfrPFGAYHQ0/eC1sTNPLpgWAe8WbjKkdlLUxuz5AQdhNB6n1Skv?=
+ =?us-ascii?Q?Lzg+OcsSqjWmxWSo/ucrxlBY9JVCGjcR8bliMQdxoF0xxcXsZSwk1c9ijBr0?=
+ =?us-ascii?Q?+GCYwkK+zvG6dWjnwdiB3wLlyIfxRMzu+n3LG7Mma1GwqhrKZeMff7jMHbcd?=
+ =?us-ascii?Q?Gr5hpYbn4f6vv+aEGMigqPUa+3k4FZboCrzABLXjXH8JCiW6UICDVYHUsynQ?=
+ =?us-ascii?Q?Y3fmI8xjwXBGAzIPciKO0vNWIm4i1jvoNtwi3yfui0Xz3PkW+njGgyo/b0WH?=
+ =?us-ascii?Q?kf73I34zkFAJXRRCGOmP0fi6YhOph6wD03NFvlLajzyrPz82bc/VMFaMkSXu?=
+ =?us-ascii?Q?ioLOzgpFs0hwysfnypsCvC/juKZ9ehR2C76uirRqCBkDXZ/EYvA0FUbnfovW?=
+ =?us-ascii?Q?ok3n+Qa/A27qKXRl9T/qftnPS4b+6o3vcmsHNmIfGIC271dYa7dS7zPE1tHi?=
+ =?us-ascii?Q?MXu5wYQw4VlfFFZWTSlg4+CMYRhgK0nNfZCORFvvTXLRxOZHv9DxMu4DKeUS?=
+ =?us-ascii?Q?IyoLzctSjuaEZKurHUeCuAH3Lsz3bvGN72ffJpMlws8HegYzAwppOBqcmlt5?=
+ =?us-ascii?Q?0f9QmNgXg8xEMggiwyRzON53ovq04WNWZNhqFTD/OLJLnHwoR3qC0OHO25EV?=
+ =?us-ascii?Q?r000y5FT53+Xv02NJw8aeAg3oOCzAvKyNMeiAb0ELSVpOmI73yzEdKjgttH2?=
+ =?us-ascii?Q?FHaGwwmXxbMbbQrr7l/5+E2ESeoP6NZ7w+drEHpXvubfp6n8UKRCZUlSvLak?=
+ =?us-ascii?Q?I0GmvvqF50vPZ+5tBjTznZ5HiHOd6QNSdY2SfdZ/kx9dwEHFN0A8ZNd9jYAs?=
+ =?us-ascii?Q?AZ1lB0WdBp7guJuFv0YyM0xeuzFcDb7y2m9367LUh8EvXcyh0PjiCgjXmfsF?=
+ =?us-ascii?Q?6Gv+QYIz2vfX6dEqJuOiOI/isrnv+cF4C+rrqkrPqNkCmqT59xS5F5Dn8Ssl?=
+ =?us-ascii?Q?VkZlxmeLEO7qWrI=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?srDGtF5hLTwVcY5klxaHh+G3GyGgoftnoXTCMikd9OgNghbYsqgU9+pede+o?=
+ =?us-ascii?Q?fcD+nvAXWrLeWRRbrNgay3to53Jyd5vzahICM7JC2ptld/rd7vVlFsVNEkLh?=
+ =?us-ascii?Q?KaZ0ae94vooCz7BscE8L2HA67Hx5Rnagexu/PYbujaI6fQR8hJ9FhSKRTOYK?=
+ =?us-ascii?Q?Kdc8Gqefc+51q7FJhoEFEbGXgw/zOZvRESNJUmzJodIqolUbX33337f8kFbG?=
+ =?us-ascii?Q?E8bLVUJkVdz5fXR8I4PDUFDIaLD9Qwz20E54dq41x62oWgKMYEiVuJnmmvmk?=
+ =?us-ascii?Q?DeveRN7wEveXxq5xTroBcXuXKExyW9ysmgh8U4z6Lv6wKf/z7ItJISnlZjrN?=
+ =?us-ascii?Q?4VJCktG6cCHrZ1ZjDOxpGpJvD4xJXtqlF1SMnvcdJ8r8hJAYuBsJCL817crR?=
+ =?us-ascii?Q?QCxe5/0j5yWL6/FrNYYBHmEhNsbti9W8cNhz/NGlycjolKdBuRvCY4UlQiKg?=
+ =?us-ascii?Q?BMqaMRXLJl6jkeR57piLv8CiVZSVDmecTBvbPEMO8dyPgiWYZd7/9LgO4mN2?=
+ =?us-ascii?Q?EAbq5GxPC9WaBUnTvGmiUxJzEtjOV6FjppUJ/l/aSM5OfVlL/7WGA5st/ncD?=
+ =?us-ascii?Q?rIXQRHjNc3Dp47epVUiM4W3lCiBp/tJndqAXN2nQI3VWrvN9RECzhifI3seX?=
+ =?us-ascii?Q?i2lr952m7QfW0nag7Qg9ncVjpBH57aCZhI6qD0OxKBfI5IGNO8YYfQ/QW677?=
+ =?us-ascii?Q?rmtsRYnBVLAL27J/1tBD5HuJZYhbwhE8LsoWabj03KzhnN/m7duT0dCnQfRe?=
+ =?us-ascii?Q?fy0ojUGcDgo5RbaT9rE1mLoEG64IszH+LQlO9wiEA2g6OYUatXIQ7CH2fHlY?=
+ =?us-ascii?Q?ilXNsMUONl553eYFIQ9ayH3ZMw4ByR1zu1ctffzljGpK6Ix/wLQbou4CbkML?=
+ =?us-ascii?Q?b8S8gBht0lkYWdT2NUTd5n1Y5Cz3IHhQBqQ/RMkpaJoPSaMXhQIJy1QzHOmn?=
+ =?us-ascii?Q?BjJxEruV9Akl3xoNR5fGoTh0kDwriBp0AHaGskawmgU/4u4y5jsUgPEcz9Kb?=
+ =?us-ascii?Q?CQjwg6+6ar3KpSQA2XPWp82cW82l2BHxQAYBtKo93nt8enUAalkqYg+1kBCJ?=
+ =?us-ascii?Q?83awL71dpsxjA46xPFx/NtLF5dyyRFRVjknTOtWG8od3Bzq7yhdE+aGSygOd?=
+ =?us-ascii?Q?LdlHpOsSc5LZmhhJxezwiOrF2/2rVd1ZZuB+H9z91860naWwMPd7i+aM3NzI?=
+ =?us-ascii?Q?i/wKpSXUt74r+BiFocDIVdWvgUWacxE9qiM7EW6oGNeM9uBwZqnXb8KATsoi?=
+ =?us-ascii?Q?xOJ0Ce5Iovl7+dfynSYzPWgarA/ptkqMFIPpZUXgeXpyUNaKjp9CF8JXTnLr?=
+ =?us-ascii?Q?hNumxUqZeLN1wJVkaScF63FzpwMPyq19hSgc/B2M+k05YL2iX+NuTfn3apWQ?=
+ =?us-ascii?Q?KugoifhpuNOalyPl8R9EBZCi2h09ODDfGEDAj8lBKUX2ZwLiMJf32wn2PQu/?=
+ =?us-ascii?Q?N6K9JtDSIglNyy8M6A00LuaDo6ic5CdCHtwgBQcDdDfW4e+HTqN0KQAb7Hom?=
+ =?us-ascii?Q?Rngdmrdvm5SV8apTGElS4PXvjRXfoKyJObe4E+Ot8rJ/4nuy3xLpNUHnjZz+?=
+ =?us-ascii?Q?8YVYil4YaGM/4eQYiGijdEvmR3AgI9CoINpPbv/W?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 628e2ee0-990d-4a3e-049a-08dd8c7f9564
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 May 2025 09:22:55.0963
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 8Fs248NhPXgK5+xwcHA42c8gYniMiMZdxiItTSLdiUNyifz/gKBdQfuXtopYNgkXYu8cG7367E73DoZbpiGmsQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH3PPF740777B0C
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_022305_429893_D7D3D0AA 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20250506_022306_715716_201A9200 
+X-CRM114-Status: GOOD (  19.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,71 +216,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RK3528 features two SDIO controllers and one SD/MMC controller. This
-series adds essential support for their tuning clocks and brings the
-SD/MMC one up on Radxa E20C board. Both HS and SDR104 mode are verified.
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Tuesday, May 6, 2025 4:08 AM
+>=20
+> On Mon, May 05, 2025 at 02:28:13PM -0300, Jason Gunthorpe wrote:
+> > On Mon, May 05, 2025 at 10:21:03AM -0700, Nicolin Chen wrote:
+> > > > > > +void iommufd_ctx_free_mmap(struct iommufd_ctx *ictx, unsigned
+> long immap_id)
+> > > > > > +{
+> > > > > > +	kfree(mtree_erase(&ictx->mt_mmap, immap_id >>
+> PAGE_SHIFT));
+> > > > >
+> > > > > MMIO lifecycle question: what happens if a region is removed from
+> the
+> > > > > maple tree (and is therefore no longer mappable), but is still ma=
+pped
+> > > > > and in use by userspace?
+> > > >
+> > > > I think we should probably zap it and make any existing VMAs
+> > > > SIGBUS... Otherwise it is hard to reason about from the kernel side
+> > >
+> > > I added in v3 a pair of open/close op that would refcount the
+> > > vIOMMU object (owner of the mmap region). This would EBUSY the
+> > > vIOMMU destroy ioctl that would call this function.
+> >
+> > That's no good, we can't have VMAs prevent cleaning up iommufd
+>=20
+> Hmm, would you please elaborate why?
+>=20
 
-- Changed from v4
-  - rk3528 clock driver
-    - Switch to auxiliary GRF
-    - drop rockchip_clk_register_grf_branches
-    - Rename branch_mmc_grf to branch_grf_mmc to make style consistent
-      (with branch_grf_gate)
-  - Link to v4: https://lore.kernel.org/all/20250417143647.43860-1-ziyao@disroot.org/
-- Changed from v3
-  - Drop applied binding patch of MMC controller
-  - Rebase on top of linux-rockchip/for-next
-  - Link to v3: https://lore.kernel.org/all/20250309055348.9299-1-ziyao@disroot.org/
-- Changed from v2
-  - Apply review tags
-  - Rebase on top of linux-rockchip/for-next and drop applied patches
-  - RK3528 devicetree
-    - Fix accidentally dropped status property of saradc node
-    - drop det and pwren pinctrls for SDIO{0,1} according to the
-      reference design
-    - Correct max-frequency for SDIO{0,1}
-  - rk3528-radxa-e20c devicetree
-    - Don't disable sdio for sdmmc as claimed in the hw design guide
-  - Link to v2: https://lore.kernel.org/all/20250305194217.47052-1-ziyao@disroot.org/
-- Changed from v1
-  - Apply review tags
-  - Rebase on top of linux-rockchip/for-next and saradc v2 series
-  - rk3528 clock driver:
-    - explicitly include minmax.h, replace MAX() with more robust max()
-    - readability improvements
-    - fix error checks: ERR_PTR(-ENODEV), instead of ERR_PTR(ENODEV), is
-      returned when syscon_regmap_lookup_by_compatible() fails for missing
-      such syscon
-  - RK3528 devicetree
-    - Add default pinctrl
-    - Move the per-SoC property, rockchip,default-sample-phase, into the
-      SoC devicetree
-  - rk3528-radxa-e20c devicetree
-    - Assign sdcard to mmc1
-    - Add missing regulators
-    - Apply no-sdio for the sdmmc controller
-    - Sort nodes
-  - Link to v1: https://lore.kernel.org/all/20250301104250.36295-1-ziyao@disroot.org/
+According to [1]:
 
-Thanks for your time and review.
+" The mmap() function adds an extra reference to the file associated
+with the file descriptor fildes which is not removed by a subsequent
+close() on that file descriptor. This reference is removed when there
+are no more mappings to the file. "
 
-Yao Zi (5):
-  dt-bindings: clock: Add GRF clock definition for RK3528
-  clk: rockchip: Support MMC clocks in GRF region
-  clk: rockchip: rk3528: Add SD/SDIO tuning clocks in GRF region
-  arm64: dts: rockchip: Add SDMMC/SDIO controllers for RK3528
-  arm64: dts: rockchip: Enable SD-card interface on Radxa E20C
+what Nicoline proposed in v3 adopts a similar policy. So it kind of
+makes sense to me, except that we should not return -EBUSY in=20
+vIOMMU destroy ioctl. Instead, just decrement the reference.
 
- .../boot/dts/rockchip/rk3528-radxa-e20c.dts   | 30 +++++++
- arch/arm64/boot/dts/rockchip/rk3528.dtsi      | 69 ++++++++++++++++
- drivers/clk/rockchip/clk-mmc-phase.c          | 24 +++++-
- drivers/clk/rockchip/clk-rk3528.c             | 82 +++++++++++++++++--
- drivers/clk/rockchip/clk.c                    | 17 +++-
- drivers/clk/rockchip/clk.h                    | 22 ++++-
- .../dt-bindings/clock/rockchip,rk3528-cru.h   |  6 ++
- 7 files changed, 236 insertions(+), 14 deletions(-)
-
--- 
-2.49.0
-
+[1] https://pubs.opengroup.org/onlinepubs/7908799/xsh/mmap.html
 
