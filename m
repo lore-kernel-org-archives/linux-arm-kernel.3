@@ -4,137 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AAD4C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 14:23:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA91FC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 14:25:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RSo1FAVwgVeXi/ZxuZBYnfNMEzPQOLloqPgXNBGRqes=; b=HcbA73JdQ3PBu8sjH3lW+ZaM1K
-	HnYoDVD4eC3e6XIUKao9V30IJOm+Iu6+z99u1N+7yAhNt+1ZJLotbiT13ikUiMhhVL2pIlwIWjqWb
-	kRqewAOiec2oIeC9xuedVgWNPAx1MNWstfouXP2rAGoTJGxZ1GeyvRD/pd0ufjSbOO6ThmgVFo7qs
-	yqengKPF4H4kK17qp76gu1VfFMgAm0oc/i137NdWWEdCfOOe6Za6N2CjKMJOcl/1SpiVyjryBNnyq
-	sMFG3OqjowmHpy392Ef18VpHRL8niyUnzqUrQ1dASXW/rdqpmvlhnX60Op5Hjy/bpFC2vR66EZvsN
-	QSnUxTBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Nn7zwwW1+OwGIV0wfJqgAgTa7HI6crOwjPKwSXJSzwc=; b=VItjNEnzxMAYio
+	mwN8FknFyHAUHLh6V2x31VqDvTAewlh3KV6OJ19IjxV5nJBhNwybVQy45cPT1uAbfsuFnHsw+VFJY
+	9l8BQEkzwVLnIVSTxRRmrM/fpVdkqt9fgzcexNKTGZIqY4RvzAbQz8Bbh+2zdmXTF3ARotmvtedWE
+	ZevF/rIb6BP4om31M30als3PJfSGK4nTy8ej5v/kbniILwqLXUN2DpwK9mUVgmV0edbtaHMkIyk1l
+	YfgjcZyAM2RnKBoE++BWnoqudYbLTHDIeiTSqWww5F6MKq0CzD+TyZ9Ok0j8lFh5TfZhRpdCWl51p
+	9+PX0ozYLcOwfo00r4lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCJCc-0000000CIpB-3Xt4;
-	Tue, 06 May 2025 14:23:22 +0000
-Received: from mail-vi1eur02on2070a.outbound.protection.outlook.com ([2a01:111:f403:2607::70a] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
+	id 1uCJEX-0000000CJJ3-2Zr7;
+	Tue, 06 May 2025 14:25:21 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCGgW-0000000BmGj-100d
+	id 1uCGgz-0000000BmLQ-32J4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 11:42:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Kt3SMRJWRtMfPetReRc62xXw3PeXVDUq8EzaU8QQqgUfGd2wr4ddJfvN6l+Vxfq8X7WK7cGGlpO3Ay4b5gxhzeCmSwIzvCyjZI7PJ1lcZa4c18zX+VIrZjTDhEQK61ftyB6DTiclH5JLOulmUkH2IsgUa68FEuvJbKJ3JWmDSGm6nlRrPNyGTP31u5EFVPKiW6f+bsK253ejP8Ha4Z33ER1wmqYFkTN7HTEHSb3eenktSSwYb2VXgyEmlkx+B+8nS6p+Kb6DYAcdIvw58Wns30f9dwFbbbMBXWdJmCDv9JD0N7e+QAXT8I+McKYnJUPzBhpGFgF4mqvc+tf3CHSkhg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RSo1FAVwgVeXi/ZxuZBYnfNMEzPQOLloqPgXNBGRqes=;
- b=vK7AlqIzvv1Mn/Kd/qEx6DhJLAaFJ/0etN+R8emOPECg97OkBMqAcFkCyCBllKFPCFMRn74Gh2NqKGaVZad0VWf7mNQ2aLVKIVtiX58ZJcdIjn10fn7Q9ce2sLE7govswdM4i0TBuAEtupdulWxjcjdf13jkgG7ljFcsswsl8X1cBhYqnDb3JL0uLPT3dkHADmx3rPdZUKkoB7GnOkGVjjzjjGSSxAJrPfCLM59ot+QxCScy7sQqYul7sel9UaiU38fBFPFEJdDpecMaz3mK8Y/kymAPKrmfgHwTYF4jsyoGY297zDnYdRO618PQm7hNTNieN0g+DCPohGadG5m5hA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.de; dmarc=fail
- (p=quarantine sp=quarantine pct=100) action=quarantine header.from=phytec.de;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RSo1FAVwgVeXi/ZxuZBYnfNMEzPQOLloqPgXNBGRqes=;
- b=NN59mwBWRXH14S4DME4mpU3LpY1yIz3+pSgN0k6yWttoqiNqQxHDkC85YVx1M8qybxPfCvgdHdydUbD26FfyCHtektjFGcLVJ621GM6UnoJok8+dY5m2ySo2DFM/u7TS01DYNGSCuZtoBtc7ti59zpLPrCF1L53KMQ3OMWuaz/A/gofMl3gwclnoE1vm5zjph5yKgMnwBYIz4pu0Sn2i2Pna3Qka0oQmy9OegLk/MFsjnPMUo0gyWLzLINmFs+Y7SDANzBcqKWZDbdhVcs5zAEd/URXCjQvoku4AmljJsmUz0zEUeh2MQ4ST9vykNUcKR+EZSI4r/zH6eBjWm1CTVA==
-Received: from DUZPR01CA0348.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b8::7) by PR3P195MB0878.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:102:a3::5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Tue, 6 May
- 2025 11:41:58 +0000
-Received: from DU6PEPF0000A7E3.eurprd02.prod.outlook.com
- (2603:10a6:10:4b8:cafe::c7) by DUZPR01CA0348.outlook.office365.com
- (2603:10a6:10:4b8::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.20 via Frontend Transport; Tue,
- 6 May 2025 11:41:54 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.de discourages use of 91.26.50.189 as permitted sender)
-Received: from Diagnostix.phytec.de (91.26.50.189) by
- DU6PEPF0000A7E3.mail.protection.outlook.com (10.167.8.41) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8722.18 via Frontend Transport; Tue, 6 May 2025 11:41:57 +0000
-Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
- (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Tue, 6 May
- 2025 13:41:57 +0200
-Received: from ls-radium.phytec (172.25.39.17) by Florix.phytec.de
- (172.25.0.13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Tue, 6 May
- 2025 13:41:54 +0200
-From: Daniel Schultz <d.schultz@phytec.de>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <upstream@lists.phytec.de>, Daniel Schultz <d.schultz@phytec.de>
-Subject: [PATCH v2 2/2] arm64: dts: ti: k3-am62x-phyboard-lyra-gpio-fan: Update cooling maps
-Date: Tue, 6 May 2025 04:41:34 -0700
-Message-ID: <20250506114134.3514899-2-d.schultz@phytec.de>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250506114134.3514899-1-d.schultz@phytec.de>
-References: <20250506114134.3514899-1-d.schultz@phytec.de>
+	Tue, 06 May 2025 11:42:34 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43cfba466b2so46737525e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 04:42:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1746531752; x=1747136552; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Nn7zwwW1+OwGIV0wfJqgAgTa7HI6crOwjPKwSXJSzwc=;
+        b=MegdmJQ/v49OltBl59Vc2p0MJAIRH+/0h24xW3V5XjUCHs+tO3LodPuWXbSQE0q5A5
+         a/6vOTsPeoMhM94puUW/YSsOHJR9tkrOYvc5jrJ8VCi/xOcM6/foj2ptrekxSjRmv07K
+         TS/5+nw8WJub9pEeD3B8TvRHfFQfhdN/CqxKeAuRjClFI8PEZ7i6nATRVmuFsZ1QoXYz
+         s2EcRPNtI/WpFR4evMmqW9Cf8kekL207WL6L81DwS0akLx78liEp5XCiPDpeVrmhEKUd
+         boIlvIrRUNpDukObu+XGdDD9Tf2Dfh4etybTF+5QVmrEQJmqHMHaC+ohrxiYzhKDPINV
+         0EdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746531752; x=1747136552;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Nn7zwwW1+OwGIV0wfJqgAgTa7HI6crOwjPKwSXJSzwc=;
+        b=ZyTY8I2+EmBLbTnWK/PJoxGYqonNIpLo3yolm2UztPNfTshMiiLfW26JwPvGZdh8/j
+         ZNZHSfCOnkCSiJUDu2myihAmqnfJoTeQIXh/UDPHH8YajyWcUr15iiOzL+q8H4eJtXQC
+         Car0zSahq3KG0esJM1ueS06hJKGiVof4pv8rh3wV1nV7ICT0zzPZpPssTtjb3ming9q3
+         cVJ6SpUk85eX+Jv1f3n8wih2KSA4oKfDZDV+bnErd9hbgrC69b42aJ2NBahF8hdIzuSj
+         kx5PangRyxEU/cTs6s9lI4BugF5DFteKflCRvFIVFaJtkhBt5FFOKBHSIjTW+LDgKTKZ
+         L7RQ==
+X-Gm-Message-State: AOJu0Yzu7ug4elUCH3Z2j/Wt9P3rddtLQu9OsUHF+SQ8i0QS8aSviHLs
+	G3vaIqF1xMe1fk7kkKZMfVOAPlr4rQ4+zulFVE8yP/iOCIP939rbczcjep+4rLg=
+X-Gm-Gg: ASbGncunLVW2EZ74hXQP9UgwJJDDYsjhY/hbbo1yotdzpp5stZcRQwLMpvu4a9zeiIN
+	59/k2q7F24F6VAb+4UY6huaIHGKkKLwPttaJwHsNNZje26xuDu28GXtKtmpUj6I1oA0BlAMpWbk
+	eTwV3voq7IhJghv3lqgPUaS6kEEz4pewogx77YnJZhWj7szEzNZTFDm/x7toWu+D3DXRAOIaPny
+	WqPp4ZgYcKQGI4cXvI/UqzV44UYdY8MmjgiEf5GxU/vG+6+PDpMjWR5tkpMx9nUOm+kxuA81ZtP
+	H1vz0MoC7YdyqJStkqkqeoIE/DwN8AtDhhpOGFRC3CPHdeZ0R/jXDr5FbA==
+X-Google-Smtp-Source: AGHT+IFOFC/HYp+b/sLqshfj6fUDhVXxkvGd1k4jKO8z9uXGvrvvByGxLJkY/vukR63GyNj7W/KV9Q==
+X-Received: by 2002:a05:6000:2405:b0:3a0:80b2:eedc with SMTP id ffacd0b85a97d-3a0ac3eb337mr2198218f8f.52.1746531752133;
+        Tue, 06 May 2025 04:42:32 -0700 (PDT)
+Received: from ho-tower-lan.lan ([77.81.75.81])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a099ae344esm13198473f8f.25.2025.05.06.04.42.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 May 2025 04:42:31 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Subject: [PATCH 00/10] perf: arm_spe: Armv8.8 SPE features
+Date: Tue, 06 May 2025 12:41:32 +0100
+Message-Id: <20250506-james-perf-feat_spe_eft-v1-0-dd480e8e4851@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.25.39.17]
-X-ClientProxiedBy: Diagnostix.phytec.de (172.25.0.14) To Florix.phytec.de
- (172.25.0.13)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU6PEPF0000A7E3:EE_|PR3P195MB0878:EE_
-X-MS-Office365-Filtering-Correlation-Id: f576bb60-fb0e-4cd6-bdf9-08dd8c930219
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?c8pQ6R2SwVEo2EItQknsjSijZ+jhLjQ3Cu+LHgWzrAtbcFPaBOfg2aDOwFF1?=
- =?us-ascii?Q?HgnM5WXUbMz7rWQHaKUg5CclYyA7qSrawqwd2cbBC5LeDHgx0qdh9a2UYP1T?=
- =?us-ascii?Q?7L5g7Dc0fncgiW3mqgPMO0Y6H61wgecn1nd+IY9cTmKM7l1GepvK7VMOznI9?=
- =?us-ascii?Q?2k5ETG8pCyyO1V1W9SFz/t8RQaoODVJs9sCl1ixDBZCv3Ffjn6Cp82eB6QDt?=
- =?us-ascii?Q?AOc4kQEZA/H7etu0cBfQYFt/wtP4hIaTXRfVhetX5eD6Y7nRE9a31qhaIrij?=
- =?us-ascii?Q?wYjlQAp1Z+IrtJnx45IGv1ZMNl2UVADXLxXkp9emuvlmFV4q4lL44Azo1fnw?=
- =?us-ascii?Q?5u8g5xw6k1+YyG6zEdOFfM287cjEaGXU/qXSLC0C6ZRAa+8Fq5Wy5fGJgguv?=
- =?us-ascii?Q?dIjB94mlfAXK9VruvpIkOQrpEWB2BIsugwDffJTwr7y9DEqJ1uiO7pdZpQ9x?=
- =?us-ascii?Q?CGI1AwYEPVRWvVwz/HnBHyfH+Z++5FujAXIZ47ZxkQlZ5O2ks6J2VZW63Z8I?=
- =?us-ascii?Q?gMMv+PKeKbp84qpuFIjXKrzeUnhxed614KGREdPGACPA0V6pKppnHFBWv3Kw?=
- =?us-ascii?Q?ZUeyDkgxxZMr2GY+Xv6/ucnZGYU+DKH49aCjvY/h8gJ0dmie08OL/UhhoOTt?=
- =?us-ascii?Q?EMbTBw38kqt/We/3Imi/JosD0Qh/wXRTdfRsQdx03LmT3l4q/QZ0nUAs7J+b?=
- =?us-ascii?Q?XmFfa4N4StkSDrlvf4lXk/0tDBSGj5/TTNqgGZDDxkdtwI2OneurKzlKf5ry?=
- =?us-ascii?Q?eVcHfa7Gzeq4xVZq0buNNGtLo1psIRYNGrBF/wQZ9jf3P0QkDN+UyUCe2Gxf?=
- =?us-ascii?Q?GvxRrBWqU30WozSb2LByV7f+FlKb4xS+7tNf5TppXDJ7EGxL7q/RlW+w3Pia?=
- =?us-ascii?Q?af1NIVuaUhcdtm4Rb17jPWxP/lkytwYzovqHUwUs6WNMin4FicdT8AtN7MiC?=
- =?us-ascii?Q?vzmqRQ2OumWnd73p2lgRKLFx2l9na8TOQFZua/fKXyQXCE0TmNZX71XUpMn8?=
- =?us-ascii?Q?E8fydsJNd3h9o/XtdgKjjn5swL7esaSBmsarCFtU3xeSAHRBatXhc8RO+vqI?=
- =?us-ascii?Q?el0PJfHmvDbaajK2e0anpkTr+Pbe6Je1b9kcQvbO46GRMj9aPQgRQLQoS2cQ?=
- =?us-ascii?Q?uOsdHKuJQaAI1qpEdmrAgJRnrxgGHSOp0tbp8uvC4J096Rea6P03fN2Xdinl?=
- =?us-ascii?Q?3hgzW9JOhgIzNlSeMEQL7m35oBpWjsVQdSyMRRZcCykFqDaq3O3T4umKtVdt?=
- =?us-ascii?Q?ps+T8LMhJrCl1Lcldr/cZwsPP9y6f7CC+DXKuyW+d4L+YPOSyu+kW5xK8EvH?=
- =?us-ascii?Q?WoVIKRroWtmQylRe8qzwNGVLK0ik2a/G7+1hJH+y0GmUnE+wuvy163OgLTmw?=
- =?us-ascii?Q?mzwmii4528sNV/qNKijdUpm0NTxYgvecnnxR4qLaKJqmdlsw5ZR7KDuinxuz?=
- =?us-ascii?Q?tatGmEriplmZ9cMIow+oU+gllXoVnzVxq7hX5vnCLcI9FGPHAMrFQA1lKChY?=
- =?us-ascii?Q?06Z4EdcIPtYf6Gup1e/io5+FgQqguy5IAPot?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700013);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 11:41:57.9094
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f576bb60-fb0e-4cd6-bdf9-08dd8c930219
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7E3.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3P195MB0878
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGz1GWgC/3WNQQ6CMBBFr0Jm7Zi2IIIr72EIadop1GhLpoRoC
+ He3krh0+V7y318hEXtKcClWYFp88jFkkIcCzKjDQOhtZlBCnUQpFd71kxJOxA4d6blPE/XkZqx
+ rY11lG0dtC3k9MTn/2su3LvPo0xz5vR8t8mt/zfJvc5EoUGmjhK3E2Zjm+vBBczxGHqDbtu0D0
+ veHVL8AAAA=
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, leo.yan@arm.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-perf-users@vger.kernel.org, James Clark <james.clark@linaro.org>, 
+ linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_044204_275559_CBA6C591 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20250506_044233_768982_603D8C68 
+X-CRM114-Status: GOOD (  14.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,52 +109,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename 'main0_thermal_trip0' to a more descriptive name that
-includes 'fan', as the current name is too generic for a fan control
-trip point.
+Support 3 new SPE features: FEAT_SPEv1p4 filters, FEAT_SPE_EFT extended
+filtering, and SPE_FEAT_FDS data source filtering. The features are
+independent can be applied separately:
 
-Move the fan to a new cooling map to avoid overwriting the passive
-trip point used for CPU frequency throttling when this overlay is
-enabled. Also, add the fan to the existing cooling map.
+  * Prerequisite sysreg changes - patch 1
+  * FEAT_SPEv1p4 - patch 2
+  * FEAT_SPE_EFT - patch 3
+  * FEAT_SPE_FDS - patches 4 - 7
+  * FEAT_SPE_FDS Perf tool changes - patches 8 - 10
 
-Signed-off-by: Daniel Schultz <d.schultz@phytec.de>
+The first two features will work with old Perfs but a Perf change to
+parse the new config4 is required for the last feature.
+
+Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- .../dts/ti/k3-am62x-phyboard-lyra-gpio-fan.dtso    | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
+To: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+To: Jonathan Corbet <corbet@lwn.net>
+To: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+To: Joey Gouly <joey.gouly@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Zenghui Yu <yuzenghui@huawei.com>
+To: Peter Zijlstra <peterz@infradead.org>
+To: Ingo Molnar <mingo@redhat.com>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Namhyung Kim <namhyung@kernel.org>
+To: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+To: Jiri Olsa <jolsa@kernel.org>
+To: Ian Rogers <irogers@google.com>
+To: Adrian Hunter <adrian.hunter@intel.com>
+To: Liang, Kan <kan.liang@linux.intel.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-perf-users@vger.kernel.org
+Cc: linux-doc@vger.kernel.org
+Cc: kvmarm@lists.linux.dev
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra-gpio-fan.dtso b/arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra-gpio-fan.dtso
-index f0b2fd4165a7..1fd0aaff3193 100644
---- a/arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra-gpio-fan.dtso
-+++ b/arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra-gpio-fan.dtso
-@@ -33,7 +33,7 @@ AM62X_IOPAD(0x0a4, PIN_OUTPUT, 7) /* (M22) GPMC0_DIR.GPIO0_40 */
- &thermal_zones {
- 	main0_thermal: main0-thermal {
- 		trips {
--			main0_thermal_trip0: main0-thermal-trip {
-+			main0_fan: main0-fan {
- 				temperature = <65000>;  /* millicelsius */
- 				hysteresis = <2000>;    /* millicelsius */
- 				type = "active";
-@@ -42,7 +42,17 @@ main0_thermal_trip0: main0-thermal-trip {
- 
- 		cooling-maps {
- 			map0 {
--				trip = <&main0_thermal_trip0>;
-+				trip = <&main0_alert>;
-+				cooling-device =
-+					<&fan THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+					<&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+					<&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+					<&cpu2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+					<&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+			};
-+
-+			map1 {
-+				trip = <&main0_fan>;
- 				cooling-device = <&fan THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
- 			};
- 		};
+---
+James Clark (10):
+      arm64: sysreg: Add new PMSIDR_EL1 and PMSFCR_EL1 fields
+      perf: arm_spe: Support FEAT_SPEv1p4 filters
+      perf: arm_spe: Add support for FEAT_SPE_EFT extended filtering
+      arm64/boot: Enable EL2 requirements for SPE_FEAT_FDS
+      KVM: arm64: Add trap configs for PMSDSFR_EL1
+      perf: Add perf_event_attr::config4
+      perf: arm_spe: Add support for filtering on data source
+      tools headers UAPI: Sync linux/perf_event.h with the kernel sources
+      perf tools: Add support for perf_event_attr::config4
+      perf docs: arm-spe: Document new SPE filtering features
+
+ Documentation/arch/arm64/booting.rst      |  11 ++++
+ arch/arm64/include/asm/el2_setup.h        |  14 +++++
+ arch/arm64/include/asm/sysreg.h           |   7 +++
+ arch/arm64/kvm/emulate-nested.c           |   1 +
+ arch/arm64/kvm/sys_regs.c                 |   1 +
+ arch/arm64/tools/sysreg                   |  26 ++++++--
+ drivers/perf/arm_spe_pmu.c                | 100 +++++++++++++++++++++++++++++-
+ include/uapi/linux/perf_event.h           |   2 +
+ tools/include/uapi/linux/perf_event.h     |   2 +
+ tools/perf/Documentation/perf-arm-spe.txt |  86 ++++++++++++++++++++++---
+ tools/perf/tests/parse-events.c           |  14 ++++-
+ tools/perf/util/parse-events.c            |  11 ++++
+ tools/perf/util/parse-events.h            |   1 +
+ tools/perf/util/parse-events.l            |   1 +
+ tools/perf/util/pmu.c                     |   8 +++
+ tools/perf/util/pmu.h                     |   1 +
+ 16 files changed, 272 insertions(+), 14 deletions(-)
+---
+base-commit: 01f95500a162fca88cefab9ed64ceded5afabc12
+change-id: 20250312-james-perf-feat_spe_eft-66cdf4d8fe99
+
+Best regards,
 -- 
-2.25.1
+James Clark <james.clark@linaro.org>
 
 
