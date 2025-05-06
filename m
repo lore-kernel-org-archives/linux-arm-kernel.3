@@ -4,200 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44995C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 06:07:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF687C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 06:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N/FxIZA4dducx2/HkYGr+VOdDvguCI4UeQ13CLyC0EU=; b=wTgEwVcNQsrk1J60tc3ZLApqts
-	7l/euONTjII0P402deA2tzHdzIvj9MjBQldmlmGK2OYTPBBl9W2Xkjobx5hxbZBGAqKxTMrOv/njR
-	SyVU1asc+FFttc5AutasTU1Wq2n0oylV/2jMt1R5QIWIwmdsXjFEJfbySCIggfwY5FogjzyV188Y/
-	Kryirlh4g18tfq6463OsLhND77INRbFodqlnBjVv+OWbA7wwd2KgIvJ9ocarMkk1bqv2UcV5XIZxG
-	3eWOdOp4MEG/SFudiyOQsZmyA2oit/aiWs4fsjqlojk9Cu4+BhUfd9nB/8zolDukWOss3PRDmk2CP
-	f1duizBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YiMYbVm/Ol7lA5XGwmxyBVPVoUAag7a8rnyIiY3gBBk=; b=ObfP2rWKe0cE99Ot6BrglifhfP
+	Uuvfs0eOLN8J8IJbrYEusoxq8wuLyOg7VZjGsF8KpvpXyiz745hrJLOrsEb8HXJo/CwexZeNhAL3X
+	mX1OpsP9i6LFxen1Y6F9/VRfoteynpLrLmeC+JjfxQtKaZE/iSCNv0JUOpRiaoTHPY0JHGygdcVl9
+	fqCcz+pQ+Ea1eqL20iUowV21vfIWpVhJ/sBZEHXcZzbazBgTlcnZ6d4+Vd3nMQn9Z9GCXspnx/Jw+
+	I5NQbzXezu+0HPyjBGTXbyc+TL31Ajah9ryVqart3lzGVfVihbA4usZrw69wvYHBBsW5/OYZ/V+al
+	LSKLaq/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCBT2-0000000AasT-0zxc;
-	Tue, 06 May 2025 06:07:48 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC9db-0000000A9L3-2Xn1;
-	Tue, 06 May 2025 04:10:36 +0000
-X-UUID: 0c164d942a3011f0bed96b30c12bc3d6-20250505
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=N/FxIZA4dducx2/HkYGr+VOdDvguCI4UeQ13CLyC0EU=;
-	b=BPTLFCpWoY9l2IO+7bEutMz5+nVMdyNaj+7TvLq/jzcSIrShsbydA9cM+kZ0LSMr2Zu9omXZ1Vf2g9KPXVYsbfKRuzgHiI1kEVfxBYDfbwwJD7EXi2w/bSL6FFhEOuSKrT1+90G8wa7LqgMmIMA7nn94LyyBsP+Ci4B415ocst8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:9531f007-0f55-45f4-a45b-5a7ca8ef7a97,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:a999cc2b-be47-4281-8f30-e6479b5e1210,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111,TC:nil,Conte
-	nt:0|50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
-	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 0c164d942a3011f0bed96b30c12bc3d6-20250505
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
-	(envelope-from <sirius.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 519302731; Mon, 05 May 2025 21:10:29 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Tue, 6 May 2025 12:10:27 +0800
-Received: from SEYPR02CU001.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Tue, 6 May 2025 12:10:27 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NrFMicCnzRCIP5tdFpmXOAkwdSA3lId6gY+PbF3XEq4K2zUhfylxQuLnj5a3wFnToK/T58SVeey+QEcKoD2AJHA1q72hjk1MvAK62rjLmcBsUCV/O2cuWgOr0NE+Zhgm0g1SCHreUSJgHGgS7W50iEbGPuP9KnXOv0Lvp/S1YdSmAStldr5ZrGLj7bT9gf6uHqovboO4GVlKMTalbHENCyu9dc2jIPxGYzxHWSJl7SWgSXzzCxJ80vCb6BIGjzLEE0pYC5Z913U3rAqQMwMoASKMvCDScie9vHGqbCpsjaakoG876UVCx3C4AWthMwbX5j9FT7lMTctaNJTKEB++UA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=N/FxIZA4dducx2/HkYGr+VOdDvguCI4UeQ13CLyC0EU=;
- b=DhMKGNWtkZKV+5ySwVdhXgl4iSUBBr/875pJ8HgAeY4Yyu7Z5+csuD6LbtRwk42KeUdAvVzZKPNR1WNCBJqHOx5+ZD7zIbn7pkzwVpAMKJP8CNWSf4mtf3TrjtflxbKbsEvVj/JV6czk9uofe5hNYE/3a3e0vz7QUaEjfjtk2WI320378izkOP8b3ovXCkjmXX6teA6payFXPpvc4TL7WBnv4JbErOrniGMeXNtPMeYPl8cIx2pu3+a7nzRB1Z+ZVrSqi2vq9haxP5oFjTGFCLI9E6A0QY4FKSdAKMVXxaM4K7BjZZmlDlrJ9a7LrIS2J+jV/astAc/uau5M39UkZg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=N/FxIZA4dducx2/HkYGr+VOdDvguCI4UeQ13CLyC0EU=;
- b=DwEKdGxSJOCV/NFOtIhgu0VbYs9w1LxKfZPWHxyN4VSv9X4MrJtW2OAuMweKGDMqn0DYPT5+LhBDSN8mqgf2LAft8tiMl+k3QDVUCTm3VSm1fSVmzIaPnveUzJHWh4fUA8z1Z1c5Kmwxjn8WpltXHnkTtx/R6vXdsRVAuD+h2OA=
-Received: from TYZPR03MB6493.apcprd03.prod.outlook.com (2603:1096:400:1ca::11)
- by TYZPR03MB7963.apcprd03.prod.outlook.com (2603:1096:400:451::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.20; Tue, 6 May
- 2025 04:10:25 +0000
-Received: from TYZPR03MB6493.apcprd03.prod.outlook.com
- ([fe80::a3e2:fc8c:cc7b:4e12]) by TYZPR03MB6493.apcprd03.prod.outlook.com
- ([fe80::a3e2:fc8c:cc7b:4e12%5]) with mapi id 15.20.8699.021; Tue, 6 May 2025
- 04:10:24 +0000
-From: =?utf-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?= <Sirius.Wang@mediatek.com>
-To: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, Sean Wang
-	<Sean.Wang@mediatek.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "wenst@chromium.org" <wenst@chromium.org>
-Subject: Re: [PATCH 0/2] Add mt8189 dts evaluation board and Mafefile
-Thread-Topic: [PATCH 0/2] Add mt8189 dts evaluation board and Mafefile
-Thread-Index: AQHbvbeR9K5PTVGS4EuYPadxkaDdR7PE/iSA
-Date: Tue, 6 May 2025 04:10:24 +0000
-Message-ID: <231555a744a78096ed3f8247b5536fb58024e205.camel@mediatek.com>
-References: <20250505121627.3944728-1-sirius.wang@mediatek.com>
-In-Reply-To: <20250505121627.3944728-1-sirius.wang@mediatek.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6493:EE_|TYZPR03MB7963:EE_
-x-ms-office365-filtering-correlation-id: 67d98c2c-448c-43df-f1f2-08dd8c53ecfe
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?NTBWQTlVcFhNNHIrT0xOcEpnZ2cwdzNRdWRrY0NGSXY2RGJ6RGEwRy9UK2Er?=
- =?utf-8?B?a1g5NExydzBtbm5MMy9jR2pOM0R3enRaK3lwdGczZEZNRmVHOXZKWmJCUTgx?=
- =?utf-8?B?a05md3RWVDVNY1l3eWxzemVKczlVRi9zV09IUHp6ckVaUWlYZW84S3pVdVRm?=
- =?utf-8?B?Y0V1WXBqc0NYb3dlYUpnVkhMejJIc3RRYWhWaEl3cEk4ZVRFSTNTRENxYTVC?=
- =?utf-8?B?dFQ4a2dDZy9VWTZlUk9VZ2szeExvcmhmanRla2NHSkRDbUNQamp5MktsQVVr?=
- =?utf-8?B?NE1KV1ZQY0F1OElYeFc2NmI4M3RPcEZjYnZ0WnBlYWtkNFVhc3hCbUVOaHRP?=
- =?utf-8?B?Wk5ydVFNOHpGaVRIRnFJdEdleVpaZ011alRDNjljalFBd21sbTRYeERaK2Mx?=
- =?utf-8?B?V3Fkc21KeXNobW5ZbmEzRFhLVm9nci9LbDFORXF6RUNWTnZIYnN0dEV3Z0xr?=
- =?utf-8?B?bkRSdGxUdlRPVzdFcWNXc3pnRDRzWGJ4aG1ZYjRhMGJEYzNPbnMzRmtnaVFZ?=
- =?utf-8?B?cVZiUi9GUXJ4bXJ1a3dkZVNBSWg4TEV2bzRHNk55QTVTSW1aZk9QQTNnYUNn?=
- =?utf-8?B?ZGg0NWVyL0RvczJ3MldYY2NNMTh6L2o4T3ppRlBQRmFmRUJRSmFtd2NudW1z?=
- =?utf-8?B?Y29EalNsT2xNc2JmVTR0a09UVlRrN3pWYTZBeWVOQ1FQb0hua3VMOTJDL3Fk?=
- =?utf-8?B?WkpIVUIxRFNIeHpQMnVES3ZYcjRnL2N0NW1SRGV6VHNZazZmSFZwL1RESDAv?=
- =?utf-8?B?d0Q5UVF6RDFodmVSTHJOYzF4ZC9DOWdBWTUzbjJFU0piQTFkTkJUbXNtc0dC?=
- =?utf-8?B?L0tRMXpmeFc3dHVxN3l2MSs0NERyS1pHQ2RBdVVYY3VoWklVZEpFYzRERXJq?=
- =?utf-8?B?U0JRZDJkMmJPYmJvaTg5S09IWVBtWXAzb2FLRTBGNEhqUVFYTmtWanF3UjBF?=
- =?utf-8?B?Z0pUenhDc1Jwak1wanVqaWMvMXh4bHR0Qys2RXM5bEllcXV5dEVReGhvRFU5?=
- =?utf-8?B?eklhS3AvQ0FyZVBjMEN1eVZoRmN3bW95L0ZaM1VlcThHclkvMjN4YldSTEdX?=
- =?utf-8?B?UW9neUJCdjVwMG9qZzJhNmlieWNKemJaYnlMZlh0ejZRY2FhQmhFbjZKQ2R2?=
- =?utf-8?B?YXcwbzliNmRkOWtvK1c2Z1kycWJ4UWViQU03L2tqRHYyNnJoTW9zQ3NzVEFX?=
- =?utf-8?B?NVo4d2ExSFpGazRWS25wR3dROXBSR1dvU09MS20vckZHWStuMjIyODlDZ1dP?=
- =?utf-8?B?YWRsWlRTSmwzZVdocTZVRnZiUHdYSEkrRnZCRzJ6OStsRHZNWjlLenNSQXdN?=
- =?utf-8?B?dkVDdUZMUC9UZFBhUHhxUTQ4dE8vb2d6ZkUzeGJBWUdEcWwzWWJKZE0vWlJ3?=
- =?utf-8?B?NXRycnpRNlFIN0JrMDRqVmhPUmRlcmxmQ0tIejc3RTZzc1dTQnlCclJ4NWtW?=
- =?utf-8?B?TjF0V0pyV001aCs1aDNaKzVKZHJ1eE1jbHJtYzY5bjZRVFl6QVowdnpkSGxV?=
- =?utf-8?B?WUZ0UUdaZ2c2dzdCQXNybEhTUnhtNDJpS3FIN2pBcXkrbldBNWhvd3lxWkY4?=
- =?utf-8?B?eWcrWEk5aHN4d2lldmFpVEoyMVVuN1NCc1BVVDRJelQ5L0V4Wms5WVlUQzdL?=
- =?utf-8?B?b3NlYUJzRzd1b09EZW9NNldaUS8vS1Y3QXA0ZHRCci90MmRiUmFZMktLRnNS?=
- =?utf-8?B?MDUycnZrbExOM1o0YVFNaUJibmdyM1pNcHV6eENJdVBoalowbHNFeTlNRURn?=
- =?utf-8?B?ZFAvRFVBbUUybVZhaHhrNW1BU2JrUGh6NVRESHFxOXppVWxGbDUzQWtiNTlX?=
- =?utf-8?B?djRKVjdNbndwY1N5NGROQytjUUl3NUFpMEtQRmFqaDErRXhibHhyY1lHc3J6?=
- =?utf-8?B?Q3dhWGhRNnFYdVU1cUFJZXIwTGJZZTFtR2RhU0hjd1N2VmVvT1JVOTRadjhS?=
- =?utf-8?B?OEdZZ2QxZXJ2QWtVcEpFMk53TmdjWXUxNGhPcEc3NFJQTTUyckpSWlhRd3Nx?=
- =?utf-8?B?M2dOZk54eDRnPT0=?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6493.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?OG80RTFRVWJRZmlXWnQvNGd5Zkh2VFZsVzdTNnRVcnBpWHRjdmhpMjlLTnc5?=
- =?utf-8?B?K0U4eFZvQlZHRzJvM1Vqa293RXBXWWgwellmRkdWbC9wb2pONkN3Smd6UkMx?=
- =?utf-8?B?QmllWXBtNUtLSGZ2MVFZNkxPT1ZTOGEvOFBmaDRGbkMweVdxUGRjN0laR2hK?=
- =?utf-8?B?Y05lSzl1UDFabitabE1RbSs3TlVvWWtCcjd0MGd3VTc0NHExeXdaSFR1Q1BT?=
- =?utf-8?B?SkNpcTkwTWhTWkVESEp3dFBvSnhvekZWM1QxSjAvS3ZQWkhOSm1TeGdPS2V6?=
- =?utf-8?B?UWxtNEw3WG5OQTlHNFR1dUswRHEzdzRmeEVLRGFpWHBnOXhQa2VwNFNEZGxz?=
- =?utf-8?B?ZGtMWnVFUHRmTTlZcE9QcHAzZjVsUHNjQmVISy9LVm1sVk9ad0NleDhEQ0c5?=
- =?utf-8?B?L2M3SDZORVZXd3BWSWEyd2h5NVRRc3NhY3BtcEYzbkdJUjFhbVE4UnpTdkFp?=
- =?utf-8?B?aUxVdWtuQVU4WXZQZENSdkRESUIzY1RIVDJFejNiV2RvNzBQTG90VG9TREg0?=
- =?utf-8?B?enNZa2NuRkZDTjVJNW8xUVFRSWh5MnNzcis0UWZ0aU5VZW1peHJxdFIyVTFo?=
- =?utf-8?B?dSs0OXp3YVczN1dzMURnQ0piUTVIQWNvLzdjSW1yYWIzYUlGTmxUUk1PaDJa?=
- =?utf-8?B?ZHhsRTcwVE9nQ0d2ZVBmSmFBci9adEswYnVlNmd3ays2RGlnMS9wVVJtRng1?=
- =?utf-8?B?T0k4KzZlSjdNY3h4MkM5V1J2NldpQ0h4YzVicXlGb0FMRFU5M2FFb3ZXZlBG?=
- =?utf-8?B?ak1Ma3Z4UkFHcnJTdVYxTWRQTSt2VktMTGxsWjlBV2ZFQ0M3MTh5YzBaM09T?=
- =?utf-8?B?RWxLbzA4NGNFMmpLd1BUNjZIdERFdWd5WkJQVitWTlhxNitvd2pmSEl2NVRi?=
- =?utf-8?B?d3JzYzZNZzNzVXZMNnd0bHB6K3J0VWc5Wmw3dEU2YXBIU2lPTUtXU2RuVVo0?=
- =?utf-8?B?dTh2S3krV3lMckV4SFlvdmxvYktvQ3dJRjROcVZGZ0tNZmM3ZVJQZVNiTE5t?=
- =?utf-8?B?ZkExc2dOM0E1ZlJRRHoxeXhOYUxhTzcxQkw2RFMySUpFMkpDQ0Y4aERFR0I1?=
- =?utf-8?B?Rko5WGIySlJHUDRDUWxDbkw3a1l0OVFwMmRNS25uaEZXamc2S0hoYmpTUGRT?=
- =?utf-8?B?NkFnL1M5bmxzZ3RNYS91cG51VzZURVhlaVozancwVjc3SENyV2N4SElaSXhz?=
- =?utf-8?B?NU5ZMUZBdENOL2tNbncya0taREJUQ1Z0ZkdGOUhoQWlvaEVzdEhFcFlMTEQy?=
- =?utf-8?B?RHlXZnpSd0Nlc2gycGZhODFMZEJLSVRCaTk5SzVIY2Q3STQ4V2IremkzVmFN?=
- =?utf-8?B?YXZoZ2pMUlV4M0VEMC9mNUN0WmtJb05xWk1KOTg0WWtXN3l2VjNwaGVqMmJK?=
- =?utf-8?B?NkY2RzRRWUhZbUViOWdqQW4xZzY4SHVmbTlPcE1rbUNRS2VIaDYvTCtlSjhB?=
- =?utf-8?B?UENsZy9TYlJhS2QxYnk2NUFGa2MyVnlTMWN2emlYS000NVgwcWFkM1g4S0Z1?=
- =?utf-8?B?ZEE2cXlOVnJ4U0xHSUF2ZlBkSDZFaTlKOEl0M1pxVlJDS0NmdWJuazhDNXhU?=
- =?utf-8?B?VWE2cVhwKzM0RlJVbmdHM1UzblloREp1V1JSSUo2VFVQbFhrYlN0N05RQWwv?=
- =?utf-8?B?VmZzZURUMlNzYitINzdRRnZIQXRhN3dHWkJMSlBoOW8xRnQ4MktvSWdWVXMz?=
- =?utf-8?B?Y1RrU0ZlZjR4UFU1Yk92OWk5dmxJQW1UMTgyYndaTU1vL2YycXhMT0ZJTEpP?=
- =?utf-8?B?LzF5TThDVFJvc3I1clpZK2h6SXpseUdkdXFibDNWTGRRUkxWdGd0aXFtRndz?=
- =?utf-8?B?N3BjNGZ5Z2tOT3dTRDBJbEZiOHdNSGM3UmpGeWpWRWRoTzJ2OGRLZ2lHZ0xR?=
- =?utf-8?B?VHhKdlRjTTRmT3FOYW9sZFZ5eE5ianR5enV3a2ZIbDdtdDVPSy9TQXlrUzFX?=
- =?utf-8?B?VmNJRU5QSGJNZmc5Vk9GcDdXdG03bSswQjdVQ1BLQThXTGR4UkhWeHVpUXlL?=
- =?utf-8?B?ZVdjTzYrUTg3VFZtbjVuMkFkcWNLZEoyVk1nallxODFQZTNyN045aXBpanY5?=
- =?utf-8?B?MThISGtvWHl3dGNTdEhISEZyd2J4Ti9OczlyQUxzT3RSazFDNFc0Z1VGRjFl?=
- =?utf-8?B?RXdGd3N0UzFISHBtV2U4dU1JNWdNZGtZUWkwZVRVM1U5dFhDQVRhc2FxcFFx?=
- =?utf-8?B?T3c9PQ==?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <DA3E47DBB3E1E14EAB44E56160BDF123@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1uCBUz-0000000AbIc-20yd;
+	Tue, 06 May 2025 06:09:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uC9tJ-0000000AD5U-1cPK
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 May 2025 04:26:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F1FBD113E;
+	Mon,  5 May 2025 21:26:38 -0700 (PDT)
+Received: from [10.163.54.208] (unknown [10.163.54.208])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E8FB03F673;
+	Mon,  5 May 2025 21:26:38 -0700 (PDT)
+Message-ID: <90d92757-3a8d-4e13-8a5b-7b52080b8a37@arm.com>
+Date: Tue, 6 May 2025 09:56:34 +0530
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6493.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67d98c2c-448c-43df-f1f2-08dd8c53ecfe
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 May 2025 04:10:24.2409
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: D1HF22nkrSdcFsjztxnsrUjEaLvqz70ttWsv381t+qGANNlBI+NLXnyLPgOyy91tWMdKuRWlKsVa4FlhzbAOdPxSFqOp8vpl9wslav3HGiY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB7963
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] perf: Allocate non-contiguous AUX pages by default
+To: Yabin Cui <yabinc@google.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Liang Kan <kan.liang@linux.intel.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org
+References: <20250501193556.23473-1-yabinc@google.com>
+ <02c125c9-7a1f-4dfd-b058-02a38ed5b598@arm.com>
+ <CALJ9ZPMYj=+ZsbPDWHe80R_i3GiMmKBviZ+WBRaj3jm96ZH+VQ@mail.gmail.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <CALJ9ZPMYj=+ZsbPDWHe80R_i3GiMmKBviZ+WBRaj3jm96ZH+VQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_211035_665621_C02D5725 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20250505_212649_517729_3204D217 
+X-CRM114-Status: GOOD (  23.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -212,27 +77,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMDI1LTA1LTA1IGF0IDIwOjE1ICswODAwLCBTaXJpdXMgV2FuZyB3cm90ZToNCj4g
-TVQ4MTg5IGlzIGEgU29DIGJhc2VkIG9uIDY0Yml0IEFSTXY4IGFyY2hpdGVjdHVyZS4gSXQgY29u
-dGFpbnMgNiBDQTU1DQo+IGFuZCAyIENBNzggY29yZXMuIE1UODE4OSBzaGFyZSBtYW55IEhXIElQ
-IHdpdGggTVQ4MTg4IHNlcmllcy4NCj4gDQo+IFdlIGFkZCBiYXNpYyBjaGlwIHN1cHBvcnQgZm9y
-IE1lZGlhVGVrIE1UODE4OSBvbiBldmFsdWF0aW9uIGJvYXJkLg0KPiANCj4gSW4gdGhpcyBzZXJp
-ZXMsIHdlIGFsc28gYWRkIGR0LWJpbmRpbmdzIGRvY3VtZW50IGRlZmluaXRpb24gZm9yDQo+IE1U
-ODE4OS4NCj4gDQo+IFNpcml1cyBXYW5nICgyKToNCj4gwqAgV0lQOiBkdC1iaW5kaW5nczogYXJt
-OiBBZGQgY29tcGF0aWJsZSBmb3IgTWVkaWFUZWsgTVQ4MTg5DQo+IMKgIFdJUDogYXJtNjQ6IGR0
-czogbXQ4MTg5OiBBZGQgbXQ4MTg5IGR0cyBldmFsdWF0aW9uIGJvYXJkIGFuZA0KPiBNYWZlZmls
-ZQ0KPiANCj4gwqAuLi4vZGV2aWNldHJlZS9iaW5kaW5ncy9hcm0vbWVkaWF0ZWsueWFtbMKgwqDC
-oMKgIHzCoMKgIDQgKw0KPiDCoGFyY2gvYXJtNjQvYm9vdC9kdHMvbWVkaWF0ZWsvTWFrZWZpbGXC
-oMKgwqDCoMKgwqDCoMKgIHzCoMKgIDEgKw0KPiDCoGFyY2gvYXJtNjQvYm9vdC9kdHMvbWVkaWF0
-ZWsvbXQ4MTg5LWV2Yi5kdHPCoMKgIHzCoCAyMCArDQo+IMKgYXJjaC9hcm02NC9ib290L2R0cy9t
-ZWRpYXRlay9tdDgxODkuZHRzacKgwqDCoMKgwqAgfCA0NDENCj4gKysrKysrKysrKysrKysrKysr
-DQo+IMKgNCBmaWxlcyBjaGFuZ2VkLCA0NjYgaW5zZXJ0aW9ucygrKQ0KPiDCoGNyZWF0ZSBtb2Rl
-IDEwMDY0NCBhcmNoL2FybTY0L2Jvb3QvZHRzL21lZGlhdGVrL210ODE4OS1ldmIuZHRzDQo+IMKg
-Y3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvYXJtNjQvYm9vdC9kdHMvbWVkaWF0ZWsvbXQ4MTg5LmR0
-c2kNCj4gDQpEZWFyIG1haW50YWluZXJzIGFuZCByZXZpZXdlcnM6DQoNCkkgYXBvbG9naXplIGZv
-ciBpbmNvbnZlbmllbmNlIGZvciBzZW5kaW5nIHRoZSBpbmNvcnJlY3QgdmVyc2lvbiBvZiB0aGlz
-DQpwYXRjaC4NCg0KSSB3aWxsIGNvcnJlY3QgdGhlIGlzc3VlIGFuZCBzdWJtaXQgdGhlIGNvcnJl
-Y3QgdmVyc2lvbiBvZiB0aGUgcGF0Y2ggYXMNCnNvb24gYXMgcG9zc2libGUuDQoNClRoYW5rIHlv
-dSBmb3IgeW91ciB1bmRlcnN0YW5kaW5nIGFuZCBwYXRpZW5jZS4NCg0KQmVzdCByZWdhcmRzLA0K
-DQpTaXJpdXMNCg==
+
+
+On 5/2/25 23:00, Yabin Cui wrote:
+> On Fri, May 2, 2025 at 3:51 AM Anshuman Khandual
+> <anshuman.khandual@arm.com> wrote:
+>>
+>> On 5/2/25 01:05, Yabin Cui wrote:
+>>> perf always allocates contiguous AUX pages based on aux_watermark.
+>>> However, this contiguous allocation doesn't benefit all PMUs. For
+>>> instance, ARM SPE and TRBE operate with virtual pages, and Coresight
+>>> ETR allocates a separate buffer. For these PMUs, allocating contiguous
+>>> AUX pages unnecessarily exacerbates memory fragmentation. This
+>>> fragmentation can prevent their use on long-running devices.
+>>>
+>>> This patch modifies the perf driver to be memory-friendly by default,
+>>> by allocating non-contiguous AUX pages. For PMUs requiring contiguous
+>>> pages (Intel BTS and some Intel PT), the existing
+>>> PERF_PMU_CAP_AUX_NO_SG capability can be used. For PMUs that don't
+>>> require but can benefit from contiguous pages (some Intel PT), a new
+>>> capability, PERF_PMU_CAP_AUX_PREFER_LARGE, is added to maintain their
+>>> existing behavior.
+>>>
+>>> Signed-off-by: Yabin Cui <yabinc@google.com>
+>>> ---
+>>> Changes since v2:
+>>> Let NO_SG imply PREFER_LARGE. So PMUs don't need to set both flags.
+>>> Then the only place needing PREFER_LARGE is intel/pt.c.
+>>>
+>>> Changes since v1:
+>>> In v1, default is preferring contiguous pages, and add a flag to
+>>> allocate non-contiguous pages. In v2, default is allocating
+>>> non-contiguous pages, and add a flag to prefer contiguous pages.
+>>>
+>>> v1 patchset:
+>>> perf,coresight: Reduce fragmentation with non-contiguous AUX pages for
+>>> cs_etm
+>>>
+>>>  arch/x86/events/intel/pt.c  |  2 ++
+>>>  include/linux/perf_event.h  |  1 +
+>>>  kernel/events/ring_buffer.c | 20 +++++++++++++-------
+>>>  3 files changed, 16 insertions(+), 7 deletions(-)
+>>>
+>>> diff --git a/arch/x86/events/intel/pt.c b/arch/x86/events/intel/pt.c
+>>> index fa37565f6418..25ead919fc48 100644
+>>> --- a/arch/x86/events/intel/pt.c
+>>> +++ b/arch/x86/events/intel/pt.c
+>>> @@ -1863,6 +1863,8 @@ static __init int pt_init(void)
+>>>
+>>>       if (!intel_pt_validate_hw_cap(PT_CAP_topa_multiple_entries))
+>>>               pt_pmu.pmu.capabilities = PERF_PMU_CAP_AUX_NO_SG;
+>>> +     else
+>>> +             pt_pmu.pmu.capabilities = PERF_PMU_CAP_AUX_PREFER_LARGE;
+>>>
+>>>       pt_pmu.pmu.capabilities         |= PERF_PMU_CAP_EXCLUSIVE |
+>>>                                          PERF_PMU_CAP_ITRACE |
+>>
+>> Why this PMU has PERF_PMU_CAP_AUX_PREFER_LARGE fallback option but
+>> not the other PMU in arch/x86/events/intel/bts.c even though both
+>> had PERF_PMU_CAP_AUX_NO_SG ?
+> 
+> Because Intel BTS always use NO_SG, while in some cases Intel PT
+> doesn't use NO_SG.
+
+Makes sense.
+
+>>
+>>> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+>>> index 0069ba6866a4..56d77348c511 100644
+>>> --- a/include/linux/perf_event.h
+>>> +++ b/include/linux/perf_event.h
+>>> @@ -301,6 +301,7 @@ struct perf_event_pmu_context;
+>>>  #define PERF_PMU_CAP_AUX_OUTPUT                      0x0080
+>>>  #define PERF_PMU_CAP_EXTENDED_HW_TYPE                0x0100
+>>>  #define PERF_PMU_CAP_AUX_PAUSE                       0x0200
+>>> +#define PERF_PMU_CAP_AUX_PREFER_LARGE                0x0400
+>>>
+>>>  /**
+>>>   * pmu::scope
+>>> diff --git a/kernel/events/ring_buffer.c b/kernel/events/ring_buffer.c
+>>> index 5130b119d0ae..4d2f1c95673e 100644
+>>> --- a/kernel/events/ring_buffer.c
+>>> +++ b/kernel/events/ring_buffer.c
+>>> @@ -679,7 +679,7 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
+>>>  {
+>>>       bool overwrite = !(flags & RING_BUFFER_WRITABLE);
+>>>       int node = (event->cpu == -1) ? -1 : cpu_to_node(event->cpu);
+>>> -     int ret = -ENOMEM, max_order;
+>>> +     int ret = -ENOMEM, max_order = 0;
+>>
+>> 0 order is now the default allocation granularity. This might benefit
+>> from a comment above explaining that max_order could change only with
+>> PERF_PMU_CAP_AUX_NO_SG or PERF_PMU_CAP_AUX_PREFER_LARGE PMU flags etc.
+>>
+> Will add the comment in the next respin.
+>>>
+>>>       if (!has_aux(event))
+>>>               return -EOPNOTSUPP;
+>>> @@ -689,8 +689,8 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
+>>>
+>>>       if (!overwrite) {
+>>>               /*
+>>> -              * Watermark defaults to half the buffer, and so does the
+>>> -              * max_order, to aid PMU drivers in double buffering.
+>>> +              * Watermark defaults to half the buffer, to aid PMU drivers
+>>> +              * in double buffering.
+>>>                */
+>>>               if (!watermark)
+>>>                       watermark = min_t(unsigned long,
+>>> @@ -698,16 +698,22 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
+>>>                                         (unsigned long)nr_pages << (PAGE_SHIFT - 1));
+>>>
+>>>               /*
+>>> -              * Use aux_watermark as the basis for chunking to
+>>> +              * For PMUs that need or prefer large contiguous buffers,
+>>> +              * use aux_watermark as the basis for chunking to
+>>>                * help PMU drivers honor the watermark.
+>>>                */
+>>> -             max_order = get_order(watermark);
+>>> +             if (event->pmu->capabilities & (PERF_PMU_CAP_AUX_NO_SG |
+>>> +                                             PERF_PMU_CAP_AUX_PREFER_LARGE))
+>>> +                     max_order = get_order(watermark);
+>>>       } else {
+>>>               /*
+>>> -              * We need to start with the max_order that fits in nr_pages,
+>>> +              * For PMUs that need or prefer large contiguous buffers,
+>>> +              * we need to start with the max_order that fits in nr_pages,
+>>>                * not the other way around, hence ilog2() and not get_order.
+>>>                */
+>>> -             max_order = ilog2(nr_pages);
+>>> +             if (event->pmu->capabilities & (PERF_PMU_CAP_AUX_NO_SG |
+>>> +                                             PERF_PMU_CAP_AUX_PREFER_LARGE))
+>>> +                     max_order = ilog2(nr_pages);
+>>>               watermark = 0;
+>>>       }
+>>>
+>>
+>> Although not really sure, could event->pmu->capabilities check against the ORed
+>> PMU flags PERF_PMU_CAP_AUX_NO_SG and PERF_PMU_CAP_AUX_PREFER_LARGE be contained
+>> in a helper pmu_prefers_cont_alloc(struct *pmu ...) or something similar ?
+> 
+> Sure, but I feel it's not very worthwhile. Maybe add a local variable
+> use_contiguous_pages? It can also work as another comment near
+> max_order.
+
+Probably that will be better.
 
