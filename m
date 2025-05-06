@@ -4,101 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DF83C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 08:04:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10131C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 08:06:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=R8dssKgp38bn+aPY1QZCiTmgUUPkrCM2qDFlCseHqvA=; b=Cwy7JpSx/t6o+X3irRYYieNr+f
-	j15CkFRbrIPDFmIRG98rOWCBXX6u5SvtReA7W1vzudO96bCPbY0aeKwcX0SuGaIyBdmtghR+0q0Qv
-	uRbP9jFd+UZG15wwl3nNVbuBE+CBOi9ksSOZJT218NMTSlLj2SC0LXZSym7ihxDa/6O52KXaYp+ee
-	5NgfC577fsrYtyGen4IWF3A7vMBQSlJOZSFOyMigWBXyegRYhXgT3VyvTGpTAH25ISlcsSUcAw+Lh
-	ZLlz/1IsKKH73ClpvVpJTIfCTjz5UD9NFTPuMJlnE/5TlLpWXjWbJ8vfREdZLl812xw/gJ2jlU6rJ
-	oYVfBrsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=acC2k/T2k8CdtEi/rZl7rpP9JzJvzeCBAAqcuylgp8U=; b=0kg2mRYnVo2imhhZeiCGFRB6Ec
+	/ZD5eBt73UMPmCRI6Xiib0PyIb9X1KJg8BvDWBihsUBk4KVJmDBAxzIKbw3xjVNJTBqHhrwklJ4Q6
+	+aM4mWouplD9Fyoawpg4dEa8rmGrQo5xIKc/j92g030U2p7uCYCuAaWmYZ/k5DkapYMTGll1RahEI
+	xUSunlLyU1Zom7ux71nnBVhLk55pzfaVtCbdjircdtaPaIorDWNYSjTVAccsMUqJ90NrBmMbTwAaw
+	6xWfuUHw5zTR2W99E5kRCTGZZ82zzPT+vXJywWNKONINraLCl85LBwT6APJnKXAWZ2Nh1kvenjyyt
+	DmpKDb1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCDHj-0000000B59Y-1b3U;
-	Tue, 06 May 2025 08:04:15 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uCDJe-0000000B5eF-0fSN;
+	Tue, 06 May 2025 08:06:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCDBk-0000000B3Ww-0ikV
+	id 1uCDGZ-0000000B4uZ-0jR6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 07:58:06 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 545KTaM2007918;
-	Tue, 6 May 2025 07:57:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=R8dssKgp38bn+aPY1QZCiT
-	mgUUPkrCM2qDFlCseHqvA=; b=P3MwjMtWXAUk9RRAQHSNscda3U4Cn5XVd1/vwO
-	B0Uff7fgVeA9b/yjcZX/p/wVzyEOyQzelBPCIbVIfl7awZ/7a20j4r22Z3BEFvyz
-	Xoe5em4h8JT6+gHPntCh+lvxKdG3ku3opHscpkR1EThsC3OMsjsoPI+PqyJ4qCkn
-	es71mgybxDeWKiRoLwBO39wC/aPcwdHyA3heDnX61V37AjFiS7KWYsjmeVb0n/pr
-	VoRpYN3EMKpp9lH7uB3hdl1H4YPLeFrUx6IgmHp3fgt2RL3ytlXc6vPA3rYYllIh
-	619SJcu64sgeBGP3G+uf+PU+D8NYIkAToLLVvaLBjP5ppV3w==
-Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46d9ep6wpe-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 06 May 2025 07:57:58 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5467vvlp009306
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 6 May 2025 07:57:57 GMT
-Received: from hu-jinlmao-lv.qualcomm.com (10.49.16.6) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 6 May 2025 00:57:56 -0700
-From: Mao Jinlong <quic_jinlmao@quicinc.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>,
-        Leo Yan <leo.yan@arm.com>,
-        Anshuman Khandual <anshuman.khandual@arm.com>
-CC: Mao Jinlong <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2] coresight: Disable MMIO logging for coresight stm driver
-Date: Tue, 6 May 2025 00:57:43 -0700
-Message-ID: <20250506075743.1398257-1-quic_jinlmao@quicinc.com>
-X-Mailer: git-send-email 2.25.1
+	Tue, 06 May 2025 08:03:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 642775C557F;
+	Tue,  6 May 2025 08:00:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19026C4CEE4;
+	Tue,  6 May 2025 08:02:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746518582;
+	bh=vnJVR0fpUtnSD5YKrx/8xtPtn88K4qKx2bqXnh54DdI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pa1N40qwqtx14HtJEXcKMZiNFf9xZ57dRcdBQvzS52soq2Tds+0FJepell8WvX9th
+	 Nffen8WVRA07EJ7XKtECXhaEbF/iJNTAQB/9tVdcGnbdwdriLqcjMeRSbflOiRO8gm
+	 Mwd9HXllPirOmZQW3Cjn95FWuilvk27t+KxH1ofzzsv+UxO0U5WusBCdxcZ9+n0EjW
+	 0F9L9PKweuOAcPna+PPIPJ+sp3PS+yqyXWprJ6Y9Re0kYWOqdFIxvd46D7gkP0bsGC
+	 EQhmso3s+a0fCNFvxosbSAhtFmBQXPzzOE4SLaSyFvKyhBqyEOnrmaSB6cApZk/DsB
+	 JR6SNceDsfQtg==
+Message-ID: <88b463b2-6cd3-4b92-acc5-447bbfadabde@kernel.org>
+Date: Tue, 6 May 2025 10:02:57 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.49.16.6]
-X-ClientProxiedBy: nalasex01b.na.qualcomm.com (10.47.209.197) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=EOUG00ZC c=1 sm=1 tr=0 ts=6819c106 cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=3H110R4YSZwA:10 a=dt9VzEwgFbYA:10 a=COk6AnOGAAAA:8 a=7CQSdrXTAAAA:8
- a=21C3pMOLxur-W5BfXY8A:9 a=TjNXssC_j7lpFel5tvFf:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-ORIG-GUID: dpmJSzssu7uMYa7nqJtrEP3vru78PRkK
-X-Proofpoint-GUID: dpmJSzssu7uMYa7nqJtrEP3vru78PRkK
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTA2MDA3NCBTYWx0ZWRfX23bFD/n/kS0r
- AQp2zfE2yOs5Z3sc9Oz/9jurnwaWrWKXNim8MInnnmbcd6+/PF/g3MLbYH1zMWcuhWtl/s5bcq5
- dMzHYLu9li1a/UcZO35CWL5Yld8QhzTVeMrRECqdLKNd49f23VP5B5AYOGkDKYyK78wPZJaH7ck
- hyNPK6/Osw+VLca+TlmjVm7COCIXrC6gF9dqCYBz179X/vxj8Yd4knl/IPInVt3vVCuv9vCwg/G
- I5Zkr+SbUlC3Rrhca0wZQd6c9EEM9SNAFp7+UHBdvyroNd6QWhJlbBiupfX38KWPgvpdapnGvmB
- FqfczTRuSN6uXOUKQYtn8jJFRpSsx+/U8RsrQTHfCDaDkSIraG4RM7jg09aSBXdVobMcqlb/sWr
- fNbeWsEKe3H/BZuwsmFNxoEWoVTraEDcfyIT67NUE0reJv1I5JUi06e2HYSy/ghCZTIUoZpJ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-06_03,2025-05-05_01,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 clxscore=1011 impostorscore=0 spamscore=0 lowpriorityscore=0
- bulkscore=0 phishscore=0 suspectscore=0 mlxlogscore=995 mlxscore=0
- priorityscore=1501 malwarescore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2504070000 definitions=main-2505060074
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 2/3] memory: Add STM32 Octo Memory Manager driver
+To: Patrice Chotard <patrice.chotard@foss.st.com>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: christophe.kerello@foss.st.com, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20250506-upstream_ospi_v6-v12-0-e3bb5a0d78fb@foss.st.com>
+ <20250506-upstream_ospi_v6-v12-2-e3bb5a0d78fb@foss.st.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250506-upstream_ospi_v6-v12-2-e3bb5a0d78fb@foss.st.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_005804_331088_DAD98201 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20250506_010303_295566_7EBB98CB 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,49 +124,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With MMIO logging enabled, the MMIO access are traced and could be
-sent to an STM device. Thus, an STM driver MMIO access could create
-circular call chain with MMIO logging. Disable it for STM driver.
+On 06/05/2025 09:52, Patrice Chotard wrote:
+> Octo Memory Manager driver (OMM) manages:
+>   - the muxing between 2 OSPI busses and 2 output ports.
+>     There are 4 possible muxing configurations:
+>       - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
+>         output is on port 2
+>       - OSPI1 and OSPI2 are multiplexed over the same output port 1
+>       - swapped mode (no multiplexing), OSPI1 output is on port 2,
+>         OSPI2 output is on port 1
+>       - OSPI1 and OSPI2 are multiplexed over the same output port 2
+>   - the split of the memory area shared between the 2 OSPI instances.
+>   - chip select selection override.
+>   - the time between 2 transactions in multiplexed mode.
+>   - check firewall access.
+> 
+> Signed-off-by: Christophe Kerello <christophe.kerello@foss.st.com>
+> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+> ---
+>  drivers/memory/Kconfig     |  18 ++
+>  drivers/memory/Makefile    |   1 +
+>  drivers/memory/stm32_omm.c | 476 +++++++++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 495 insertions(+)
+> 
+> diff --git a/drivers/memory/Kconfig b/drivers/memory/Kconfig
+> index c82d8d8a16eaf154c247c0dbb9aff428b7c81402..bc7ab46bd8b98a89f0d9173e884a99b778cdc9c4 100644
+> --- a/drivers/memory/Kconfig
+> +++ b/drivers/memory/Kconfig
+> @@ -225,6 +225,24 @@ config STM32_FMC2_EBI
+>  	  devices (like SRAM, ethernet adapters, FPGAs, LCD displays, ...) on
+>  	  SOCs containing the FMC2 External Bus Interface.
+>  
+> +config STM32_OMM
+> +	tristate "STM32 Octo Memory Manager"
+> +	depends on ARCH_STM32 || COMPILE_TEST
+> +	depends on SPI_STM32_OSPI
 
-[] stm_source_write[stm_core]+0xc4
-[] stm_ftrace_write[stm_ftrace]+0x40
-[] trace_event_buffer_commit+0x238
-[] trace_event_raw_event_rwmmio_rw_template+0x8c
-[] log_post_write_mmio+0xb4
-[] writel_relaxed[coresight_stm]+0x80
-[] stm_generic_packet[coresight_stm]+0x1a8
-[] stm_data_write[stm_core]+0x78
-[] stm_source_write[stm_core]+0x7c
-[] stm_ftrace_write[stm_ftrace]+0x40
-[] trace_event_buffer_commit+0x238
-[] trace_event_raw_event_rwmmio_read+0x84
-[] log_read_mmio+0xac
-[] readl_relaxed[coresight_tmc]+0x50
+I don't think you tested for the reported issue. I reported that
+firewall symbols are missing and you add dependency on ospi. How is that
+related? How does this solve any problem?
 
-Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
-Reviewed-by: Leo Yan <leo.yan@arm.com>
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
-Changes in V2:
-update the commit message
+And to be sure, I applied this and obviously - as expected - same errors.
 
- drivers/hwtracing/coresight/Makefile | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
-index 4ba478211b31..f3158266f75e 100644
---- a/drivers/hwtracing/coresight/Makefile
-+++ b/drivers/hwtracing/coresight/Makefile
-@@ -22,6 +22,8 @@ condflags := \
- 	$(call cc-option, -Wstringop-truncation)
- subdir-ccflags-y += $(condflags)
- 
-+CFLAGS_coresight-stm.o := -D__DISABLE_TRACE_MMIO__
-+
- obj-$(CONFIG_CORESIGHT) += coresight.o
- coresight-y := coresight-core.o  coresight-etm-perf.o coresight-platform.o \
- 		coresight-sysfs.o coresight-syscfg.o coresight-config.o \
--- 
-2.25.1
-
+Best regards,
+Krzysztof
 
