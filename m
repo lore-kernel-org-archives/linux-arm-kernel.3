@@ -4,177 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60BAEC3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 13:55:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DE4CC3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 13:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mbzv4QwHBzexPLJRjBnyyxv8zbjM0Wf/De5jjcjGd9I=; b=MY3I4OCexQ6zhYYCcVC555PQn+
-	g4W7uohoHmi5PwYsdilsqs840t7hWzIQlMLzFC6I/GWaRj3hnqVmIh6vE3LlZ8oIJ28cLsORf69/y
-	l7+QucxmNDF40VHaz5uf7JrqYKNqeeUr+xVR6otVBk6aw2w6yYDGjsyAIAyz3XJOysxlFveKoEgfy
-	SIZYVpZY20pRJ0YybACs6tPAEnH+W6VdzDBp+MKKY7yLgiPUWLpbEgQtW7aLpaiPdwLz7sTyvnhHT
-	jdFl8ELOU19DmIxQv2QQ7AVfElNXNHy0+2vdIbUs3LCOkOXW5cO42lvMImA9d30lrlm+YNbOtb2ZD
-	Q2pkVcuQ==;
+	bh=tWsIcamJBKCW1LLn+/GWBAN99qwgm/lCnEVszYMLa1k=; b=LHltZI+SevLCxs2apg9ZnG2NA9
+	/p/7KHJ8kFqYW9KwKzF4c5Ly0kY1wcUac6//GDsgu5BPF6jjfaW/m5N+dm6woNP03A+cWrwEflG7m
+	kfUhZn5lILX5zdZ2ijxtN1rYG/TGGzFjhu8pbWy/gZLVDWHXfRTQ3odPve1VMz/fA1S923gcarr/8
+	+Nu4y8ZHNbkuFNzGmHyc6kkdMextLmhMJzfv28ZMBhEehscfI9m6kTdHg1LHL2DHHi+rshBp1Dqrt
+	OoF+YDbluQeOpgNUarf49JI3/+ydeVj8hnpmv3XxLIkqfvtEFzJA2N2nP/mMDR11Bq5bdCfTKDSVz
+	XGEv0q1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCIlb-0000000CDX0-2TiL;
-	Tue, 06 May 2025 13:55:27 +0000
-Received: from mail-am6eur05on20700.outbound.protection.outlook.com ([2a01:111:f403:2612::700] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1uCInV-0000000CDsZ-3niL;
+	Tue, 06 May 2025 13:57:25 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCGQ9-0000000Bj18-0z0i
+	id 1uCGUB-0000000Bk3v-21S8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 11:25:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=G7W/8CAyzeEOSMnas1Voa/u/dsrY9WMP+GFWpqurOyiJM6CMSvMSQ9NXsztbcCnyzYaH0/M1knFDyqzMQwyOItQLhh5knfGfYNvu9wgZGrnUThbkn/EtBZGkGGKm1+/AW5JcQ+XlUs7IBXlole+tevtITE21bW+A1TsZFFXYWYgSfVxsKkDMFvu0kA4bMdyIvt0qH+28mibRFYkSv7hw3zOgwrw/4Cug+79J9unPJJ7kfQln2qFu85fBrZ830e/QigCCRfZkOIaY8v4kIErQvs4h17FGLW273P4I8lo6CqjpFtRT2b/TpomGENVUlniz0wFDryFTXu774z83mMRrrQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mbzv4QwHBzexPLJRjBnyyxv8zbjM0Wf/De5jjcjGd9I=;
- b=BcrdY4a/0Ft6O7HUH6vxZb+jAqOgY9Gn9RW5zTs3CAEuUfEd/6qLVzkn/8RINZ4JPva2i7mRdKkTOepYbc03270/SaPaeh0R6fIp1rudwL6GnqW8UecOxXbik4mOSFkPBMON31KHu8KqsfTbxy8blJ/t9CO3LGv8d81eR6eZYU26eIeUNs5kN8m/R8RCwftLiSKO4RrKITaDWTM8y16F5QltXAphCdtZRJQ43G3Ag7pAhfqlo8+ftcPEZ1kD5Bu2lYRpfqExonRG0fn1uokypM+j95/AGiQ2HvHSFvfN89LknjmbxBM29sv6OqlJ5KIjoDuS7d4xYi7u5NkIEiqR8w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
- dkim=pass header.d=phytec.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mbzv4QwHBzexPLJRjBnyyxv8zbjM0Wf/De5jjcjGd9I=;
- b=OPxArYS5RhxQFiu7hY36alSVeMuxiRtZoNV2YG8BSZOWW3jZfplcgQSgu8B5unDnconmuNazkBkZp9NpUOcZg/ZOXfGEPVSccp2xyX763TC1Z5uPA45147JI1NPWSHNFyJHBRoq1xzgG7a/YEIPfxhyFfyWyN3/1NDQQygvo2eSssRPTpg7faKDz6WvZQn96kNeoLoLjaBgyCfociwfu0ejE8/3r2VWz1K1Vg/QBkOprLoBbzPVxnsDFm0Q4ClZpxznV05h8nKKi+UDVPmLlrK76+ELeU5gNGS+sDqS6yZE9cZE7FToH/T+NMUvrYk2wZ6UOd9aSe5PeVAr2Ohe2DQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phytec.de;
-Received: from VI0P195MB2484.EURP195.PROD.OUTLOOK.COM (2603:10a6:800:248::6)
- by GV1P195MB2035.EURP195.PROD.OUTLOOK.COM (2603:10a6:150:5d::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Tue, 6 May
- 2025 11:25:04 +0000
-Received: from VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
- ([fe80::24f:8371:2871:5981]) by VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
- ([fe80::24f:8371:2871:5981%4]) with mapi id 15.20.8699.019; Tue, 6 May 2025
- 11:25:04 +0000
-Message-ID: <6ac1c6c3-a1fb-4e30-8ab3-9fabffea41c7@phytec.de>
-Date: Tue, 6 May 2025 13:24:53 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 03/11] arm64: dts: ti: k3-am62a-mcu: Add R5F remote
- proc node
-To: Andrew Davis <afd@ti.com>, "Mendez, Judith" <jm@ti.com>,
- Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
-Cc: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Hari Nagalla <hnagalla@ti.com>,
- Beleswar Padhi <b-padhi@ti.com>, Markus Schneider-Pargmann
- <msp@baylibre.com>, Devarsh Thakkar <devarsht@ti.com>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250502220325.3230653-1-jm@ti.com>
- <20250502220325.3230653-4-jm@ti.com>
- <50039c49-a6c5-4f29-a35a-53b9af117fd8@phytec.de>
- <6c5e786d-7581-492f-92fb-be92ecbecd87@ti.com>
- <31d32966-05fe-4369-afda-3278822d8cb5@ti.com>
- <646350fd-3dc5-47eb-ab1b-1a6a9acd69a8@phytec.de>
- <84e6413e-4a61-40a5-acc7-85da76e6d540@ti.com>
-Content-Language: en-US
-From: Daniel Schultz <d.schultz@phytec.de>
-In-Reply-To: <84e6413e-4a61-40a5-acc7-85da76e6d540@ti.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MW4PR03CA0209.namprd03.prod.outlook.com
- (2603:10b6:303:b8::34) To VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:800:248::6)
+	Tue, 06 May 2025 11:29:21 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 9CCA9210F4;
+	Tue,  6 May 2025 11:29:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1746530957; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tWsIcamJBKCW1LLn+/GWBAN99qwgm/lCnEVszYMLa1k=;
+	b=2yH7gPjn31Qn8K+bOhIGJWYkJJqa+IIBWn6zVUY4wdLmUaEXPUxzU+S1G5OryNOqbR1529
+	qtljQxahgr9JcoiYAqeIvyGVL6h7kXnTvoWr1njgxJxo1g2k5SSQjbY45vWx0qFaBItZv/
+	KLvkx2iq6lcf8oCYggb0yRTllNIDeg4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1746530957;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tWsIcamJBKCW1LLn+/GWBAN99qwgm/lCnEVszYMLa1k=;
+	b=Gh6bh0xGqiSxLYImzkKJXichdiW+rLDUwEU1yXrflVpRXwUFX0rMWGHa/1fjqtxYlyXJXQ
+	tnU5mzZ1KDMLpZAQ==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=2yH7gPjn;
+	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=Gh6bh0xG
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1746530957; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tWsIcamJBKCW1LLn+/GWBAN99qwgm/lCnEVszYMLa1k=;
+	b=2yH7gPjn31Qn8K+bOhIGJWYkJJqa+IIBWn6zVUY4wdLmUaEXPUxzU+S1G5OryNOqbR1529
+	qtljQxahgr9JcoiYAqeIvyGVL6h7kXnTvoWr1njgxJxo1g2k5SSQjbY45vWx0qFaBItZv/
+	KLvkx2iq6lcf8oCYggb0yRTllNIDeg4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1746530957;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tWsIcamJBKCW1LLn+/GWBAN99qwgm/lCnEVszYMLa1k=;
+	b=Gh6bh0xGqiSxLYImzkKJXichdiW+rLDUwEU1yXrflVpRXwUFX0rMWGHa/1fjqtxYlyXJXQ
+	tnU5mzZ1KDMLpZAQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 8E19D137CF;
+	Tue,  6 May 2025 11:29:17 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id aKGrIo3yGWhSFgAAD6G6ig
+	(envelope-from <jack@suse.cz>); Tue, 06 May 2025 11:29:17 +0000
+Received: by quack3.suse.cz (Postfix, from userid 1000)
+	id 49933A09BE; Tue,  6 May 2025 13:29:13 +0200 (CEST)
+Date: Tue, 6 May 2025 13:29:13 +0200
+From: Jan Kara <jack@suse.cz>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Jan Kara <jack@suse.cz>, Andrew Morton <akpm@linux-foundation.org>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, David Hildenbrand <david@redhat.com>, 
+	Dave Chinner <david@fromorbit.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-mm@kvack.org
+Subject: Re: [RFC PATCH v4 2/5] mm/readahead: Terminate async readahead on
+ natural boundary
+Message-ID: <mq7vno6v7mrrquya4kogseej4fasfyq574ersgdxdhateho7md@bvmy6y4ccgyz>
+References: <20250430145920.3748738-1-ryan.roberts@arm.com>
+ <20250430145920.3748738-3-ryan.roberts@arm.com>
+ <3myknukhnrtdb4y5i6ewcgpubg2fopxc35ii6a4oy5ffgn7xdf@uileryotgd7z>
+ <67wws7qs5v3poq6sefrrt4dgdn4ejh52mg5x7ycbxqvrfdvow3@zraqczowrvrl>
+ <cbfad787-fcb8-43ce-8fd9-e9495116534d@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI0P195MB2484:EE_|GV1P195MB2035:EE_
-X-MS-Office365-Filtering-Correlation-Id: fee3b3e9-b9cf-4b5c-8841-08dd8c90a5d8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|10070799003|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aVp2NEMzc1VqV2xmbUVzYWIyaEY0Z2gxaThJelNlcGF4Q0t4bksweXArUmtz?=
- =?utf-8?B?YTdqU2dvYkkzTkI5YkJ4ak9aMzVrVm40anAxNEZBRWxxN1RPK0VCa2FlM0VN?=
- =?utf-8?B?aHZuQVB5b3ZBV2tVTXU1cVBFcGY4VjdDZjdGVzZ5ZitqZjM4VzV3WFdYMnRM?=
- =?utf-8?B?NENvSFBpd3MrVmZJK3JUcVFhZHArSnp6YU9RQVk3S3pkNW1oMjNaSmF3Vmlo?=
- =?utf-8?B?bGhtV1ZOZHFxMXUzT2tsYjhTNFBQTmN5V1BSOWVTUGtHN0Z1VWo1TlpPNGsv?=
- =?utf-8?B?Y25qYm1XbUFoK1FpVEZNRWE4VmdwYUlwMTBQb0dTdGRRV0VKR2ZKc1BURVRw?=
- =?utf-8?B?eGRDTi9iOFRaOFhBZkd0QnFPVnVzTkZzVTdTWjc0VlZNTXQybEpPemNqWll4?=
- =?utf-8?B?RTJCK3FhNzhJSjRNMUpGc1gyL29KZldUYTlnVFo4cUFiRHd2VFJrNG1sK1RW?=
- =?utf-8?B?S2FTajdtMk1rTyswNUZEbnVRMjc2eHFXV2dWTVJVd2tWVW5EM2hVcFZqRWxH?=
- =?utf-8?B?OVJXbC9JQXMyTnVLUmZ6UTJrY0Yzd0docGk5UTkvY1lNUmlCV1BvR1o4NHFN?=
- =?utf-8?B?MlFhNm5yaWJOanlSZVlBaDVXNndZWDUwNEtWMG10aC84cGZRMU5YYUpHVkpW?=
- =?utf-8?B?MWxCNk1Od0htSDlWU25MRXZEQVRWSWdFbTRjdlgzWVNxdldnMjltcmVNYWdM?=
- =?utf-8?B?eExDN3loOWJDQ1k5YlhjZXMzRzNnWWZkU2hKdXU3c2pGbkE0b0RHTEVUeHNa?=
- =?utf-8?B?T2V0ZHlvVTkzNHhkUWpYUVZoM0VBK2lSUWM3TEs4NWx2RVdHNWNCQWNYMmht?=
- =?utf-8?B?cTkyL2orb0NlU2xsb1FJNVB1aHdnVzNncUx2cXhvUE9qSGhlVVhVNEEvR01y?=
- =?utf-8?B?eFFKalNGbTJyOFJwWFJueGxaemdDZmI3cWlyTEF5UnQvTU8wbW9zTEZRNVR1?=
- =?utf-8?B?ejBMNWh1RWVlSHpjY1BHakFNMGhWdGpRdS9RU0YvSnVVSDI4bHBOQVlPQ08v?=
- =?utf-8?B?QU92SzRaLzZHaGdnWThaZlZ2eGR6cFo2ZnRDQTZyU1ZyZzRWekJGazYvNjVB?=
- =?utf-8?B?dFZjWW5WL1NUeDQ4LzFEQkNVTUhOM1RKbEErQkV3eElPQUhIbWt6cENJeERI?=
- =?utf-8?B?SExWaEZvU1o5TVA3b29DMTNYN2RYUmVTd2tHTnhhc2RqVWJOTW5uRmgybWth?=
- =?utf-8?B?VTEvWWVKdnFuVEt2Z0IrL2hSL2JRL05sTWFxYlNrV0pKNkd4TTBNMzltVVBq?=
- =?utf-8?B?STUwVUVUNWRtU2g5WXlOQ0JoTk5oNmw2bW5BTzlyVVgwekhYaTY4QVc4QWIr?=
- =?utf-8?B?dmxvaUxwajJzamgrSjhqaHNlRWQ2RElTNmJXZDVHK0VNTHdHWWlIaFZLdDJD?=
- =?utf-8?B?ajVvYVQ1OVNTek1heCtMY0RGb2Y2aEkyR2d3dFpyWkpZblBOczZWQUpEcXV1?=
- =?utf-8?B?RkRHazI5T3JzMHduNG90V0FNaGNQUEtKUEs5UHFtRmUyaENEcnVJV3VOVXo1?=
- =?utf-8?B?MGdwTENJcSszbURveW9IMkl5bitjQzhJWjNTUHZmWXZxa1RKbmRKeFRFN2ZU?=
- =?utf-8?B?K01RY21tMTFvOUF2cjBiNG5JUjVHdE1YVjMyNk5HbGxtQk1IV253Um1UOU54?=
- =?utf-8?B?N3Viejd5UUpNb0ZvT1p2OE5vTEdib0Q1VEhRK0dnM3pBcytrWVdZZzJPaCt1?=
- =?utf-8?B?Y2dCWnFRcnhOZFc4MUhOS1dyOW9FajJ4Nlo2YVhFWjIvVjJETVRnZ3g5ZU1p?=
- =?utf-8?B?eTRqY29aTGZJTzJ6S1Q4NldYTXA1dTEvVkUyWktnWGdiVmc3aFJ1dVZlSWZ1?=
- =?utf-8?B?V3VHTXZIbVVoZlNraTdvRnBWbTUwRDdFTlRsNjJ4bmpIWDlBbklpRVZHS0gz?=
- =?utf-8?B?ZktBTjJJRytONWl3WFpIZ1ZHY2NiY0FHdzR5endzY3o5bEYyZTRmVUZXM2dG?=
- =?utf-8?Q?QcGG6Ck2sU8=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0P195MB2484.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(10070799003)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dzhLV0ZxWEVubVdxTFBESTcrZWtyb0pITThpVVRqZ01lOVVROTEvTitudE1l?=
- =?utf-8?B?YWhhSHJ6emRPbDhoRk1ZSlNaSWlvOXg5ckt5N2tSLzZjUXFCQVNGa051SDAz?=
- =?utf-8?B?Y2d3ZFc3d2dZeFRPd3l2b1dSM2VFSndWelIyQ1pkTGtBU1BReEdGQmdMMGJy?=
- =?utf-8?B?WGVOK3BRRXNLWDI5WmlwOWpWLzRiVDdORjdENkNMWTk0RlhYMjdTb0NYSm5B?=
- =?utf-8?B?RkVSbkVRZlhJbG9UcXB5amhiZEFoWHZyOERhVzFzd2VrRzVaSFBSY3UyOG04?=
- =?utf-8?B?SUtiQ2IyUG9EUjNZTWc1ZGNEbFBQWDBhL3ZKZ0lKVkt4MExoTkhwc3MyaFVh?=
- =?utf-8?B?aUFySklZejZxN0tKQi9RaStWcUFGNHBtUll6Zkx3T2laR2prQ01mYjZCVm5C?=
- =?utf-8?B?dm5oL3d3a3FKTURHb3hDTUlQSzZuQTl2aitEOW5sRmg1UE96UEpZelFkbEdP?=
- =?utf-8?B?MFg3RFUrTm05SWRmaXRlLzlUdGZQYkYybWo4YXRXVGdsdEloK3Y0Z3E5NUhx?=
- =?utf-8?B?dDlRV29Qc3JNV1k4UnppUXZCRGdYSWgrdWdOVkJHUE4wTUJkY0VnSnh6bW1a?=
- =?utf-8?B?SlNadHZEWEkzbW9vK0N2ckdhZm1QWEFxNDFQMFZGVVQyam1mdmlUUU1kZkJB?=
- =?utf-8?B?ZEphZ01rMG9ueTNoY3hBVWhldlRLWDZQbmhmbDRlZlVMRzBKQ1RZb3V0M3RN?=
- =?utf-8?B?UzJWbnNISHZDTUJOa21CN3NkazBnK1FrZFJiTGo4Zm5IT0QwUkJCb3IwRkpM?=
- =?utf-8?B?R2M3cVRsdzVXdXY4OElBUUtVcmdEM01iUXRiK0Vhd29mWmV6eGcrODVTK21l?=
- =?utf-8?B?ZFRMQlBUN1lpVVMxdThDRnRTd1VzLzBlZ2RROGwxTmoxR0hsTEw2a0tTalpW?=
- =?utf-8?B?S2I3N25RWUVTUzJFVURWMUpxYzhNeXBkZVVneDYvMkdmSGljaGpPb09sTUhB?=
- =?utf-8?B?dHNWVWlBR3liNXRrSUw2N1ZhQUlkNWlwekNJSEdnUkpzeXM4ZTV6d05DTlJx?=
- =?utf-8?B?eXFWQkxEeFdnSGJiTEJudlJtd3d4ZTEyZjlhMHRLeXlQWXhkUzFIbmRQc01G?=
- =?utf-8?B?S3dSUlpmclBNaWFNY2dleHlHdFU1WE9vZEgvelN6a0dSUEdtWCtYK21rQjN4?=
- =?utf-8?B?L2ZUd0hzbkxGcjJ0ZVBvd3FXTjVlcGlPdlJESHBDdmpBaC9YcWh6ZlRoak5h?=
- =?utf-8?B?V1IxZkFMazV4dkpLVUlRV0RGd2IzZ211eVVyMmVCQ0dldjNUemV1c21jOEhY?=
- =?utf-8?B?b1FmVkdCMC8zelF2NHVUQUkxSlZCZWdLRGp3SGJObDFESWd6WkxMWnZKRnJk?=
- =?utf-8?B?UjlkRXhwOWErdUYvN2lEelhKbjloZ0lQdWg0VWRsNkpMT3BoVzlpMkdaa0tt?=
- =?utf-8?B?OFNUOGhHRXoxVmdCRlJ3L2FUaXl5UXR5UCtZUUQxbHhjb1V5T2s3N1hyblND?=
- =?utf-8?B?RW5zdXo0UlZuSVRkancxL0VZK2k1NEx2d1BjMFhXNVJOalk1bW5rVmdlQWcr?=
- =?utf-8?B?RURRTHladUo2QS9hL253QnFubWJnMjFXbHNGVit1dEtCWUtkenN5NXdTOEFw?=
- =?utf-8?B?RHdVdVUrWURjdzluNWxoWlVsL3lqTEFGTXFVeTlRMzU0MG11Zm50RG1wTlBx?=
- =?utf-8?B?cUljZzFVZjVWK01XbmNUcURNNWQ2R2hodlllVEdzTHJidElac0tNUHM2SFNH?=
- =?utf-8?B?MDgwWDU5bll4ZVpqUmFsWFNWSXh5YjN0MC9kZDNKYWNScmpMakVpRkVxMXJK?=
- =?utf-8?B?bXZOTm1oRFNha2kxbDhWVGVvL3RBK1pMUUhCa3UwbGNTUjJmcVNsMy9DeENB?=
- =?utf-8?B?TFAzTHBYM01zd1U3Uko4WWtQZStmWitocXZLWEd1Zm5UejlockFpRjlIUmc0?=
- =?utf-8?B?MStGNEF6dlZYN2Jqb1Z1ak9pVVFSRU5ZY1cvbGd3NG9rMTRBTXNFUzF0OE1z?=
- =?utf-8?B?Mksvdkh2QUlGRFFmUXJ0S2dObXFjM1pyY2U2ZlcxdXNmUHg4d0E3SGE1RVVo?=
- =?utf-8?B?VmIxd2NZMndtNVA4M0pwSkR4Z1I3aXhkQndJam10WDdGd0xzazdHa0p3VVVV?=
- =?utf-8?B?U3JxRERJL01FSEFtcmpLZkJPQ2hYNUtPb2ZQYVIrU1ZadS9iL1g3QUtKMlg1?=
- =?utf-8?B?a0E4MkhSeFExOFJpQVhES3Qzb254dFRQVkRUaUJ0dk1EejVDQ1pWaHlQUkky?=
- =?utf-8?Q?ZSia0PhURS/MgQBSawJ43ktCJmoZRh0YbZiehb74Ob2S?=
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: fee3b3e9-b9cf-4b5c-8841-08dd8c90a5d8
-X-MS-Exchange-CrossTenant-AuthSource: VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 11:25:04.5663
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qyjOktXEUmhmwyyfUsA2XYkRBx/DtwLhYQ8O3Uap9EA6AxE4CU6N+LPvbARQz4+sxqQ1F7Uq1p0qB+iMWs7ZpA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1P195MB2035
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cbfad787-fcb8-43ce-8fd9-e9495116534d@arm.com>
+X-Rspamd-Queue-Id: 9CCA9210F4
+X-Rspamd-Action: no action
+X-Spamd-Result: default: False [-4.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	RCVD_COUNT_THREE(0.00)[3];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[16];
+	MIME_TRACE(0.00)[0:+];
+	FROM_HAS_DN(0.00)[];
+	RCVD_TLS_LAST(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DWL_DNSWL_BLOCKED(0.00)[suse.cz:dkim];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received,2a07:de40:b281:104:10:150:64:97:from];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	MISSING_XM_UA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DKIM_TRACE(0.00)[suse.cz:+];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.cz:email,suse.cz:dkim]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_042509_422793_1C31251F 
-X-CRM114-Status: GOOD (  30.36  )
+X-CRM114-CacheID: sfid-20250506_042919_875776_4F273BDB 
+X-CRM114-Status: GOOD (  51.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,162 +150,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue 06-05-25 10:28:11, Ryan Roberts wrote:
+> On 05/05/2025 10:37, Jan Kara wrote:
+> > On Mon 05-05-25 11:13:26, Jan Kara wrote:
+> >> On Wed 30-04-25 15:59:15, Ryan Roberts wrote:
+> >>> Previously asynchonous readahead would read ra_pages (usually 128K)
+> >>> directly after the end of the synchonous readahead and given the
+> >>> synchronous readahead portion had no alignment guarantees (beyond page
+> >>> boundaries) it is possible (and likely) that the end of the initial 128K
+> >>> region would not fall on a natural boundary for the folio size being
+> >>> used. Therefore smaller folios were used to align down to the required
+> >>> boundary, both at the end of the previous readahead block and at the
+> >>> start of the new one.
+> >>>
+> >>> In the worst cases, this can result in never properly ramping up the
+> >>> folio size, and instead getting stuck oscillating between order-0, -1
+> >>> and -2 folios. The next readahead will try to use folios whose order is
+> >>> +2 bigger than the folio that had the readahead marker. But because of
+> >>> the alignment requirements, that folio (the first one in the readahead
+> >>> block) can end up being order-0 in some cases.
+> >>>
+> >>> There will be 2 modifications to solve this issue:
+> >>>
+> >>> 1) Calculate the readahead size so the end is aligned to a folio
+> >>>    boundary. This prevents needing to allocate small folios to align
+> >>>    down at the end of the window and fixes the oscillation problem.
+> >>>
+> >>> 2) Remember the "preferred folio order" in the ra state instead of
+> >>>    inferring it from the folio with the readahead marker. This solves
+> >>>    the slow ramp up problem (discussed in a subsequent patch).
+> >>>
+> >>> This patch addresses (1) only. A subsequent patch will address (2).
+> >>>
+> >>> Worked example:
+> >>>
+> >>> The following shows the previous pathalogical behaviour when the initial
+> >>> synchronous readahead is unaligned. We start reading at page 17 in the
+> >>> file and read sequentially from there. I'm showing a dump of the pages
+> >>> in the page cache just after we read the first page of the folio with
+> >>> the readahead marker.
+> > 
+> > <snip>
+> > 
+> >> Looks good. When I was reading this code some time ago, I also felt we
+> >> should rather do some rounding instead of creating small folios so thanks
+> >> for working on this. Feel free to add:
+> >>
+> >> Reviewed-by: Jan Kara <jack@suse.cz>
+> > 
+> > But now I've also remembered why what you do here isn't an obvious win.
+> > There are storage devices (mostly RAID arrays) where optimum read size
+> > isn't a power of 2. Think for example a RAID-0 device composed from three
+> > disks. It will have max_pages something like 384 (512k * 3). Suppose we are
+> > on x86 and max_order is 9. Then previously (if we were lucky with
+> > alignment) we were alternating between order 7 and order 8 pages in the
+> > page cache and do optimally sized IOs od 1536k. 
+> 
+> Sorry I'm struggling to follow some of this, perhaps my superficial
+> understanding of all the readahead subtleties is starting to show...
+> 
+> How is the 384 figure provided? I'd guess that comes from bdi->io_pages, and
+> bdi->ra_pages would remain the usual 32 (128K)?
 
-On 5/5/25 19:23, Andrew Davis wrote:
-> On 5/5/25 11:00 AM, Daniel Schultz wrote:
->> Hey,
->>
->> On 5/5/25 17:22, Andrew Davis wrote:
->>> On 5/5/25 10:05 AM, Mendez, Judith wrote:
->>>> Hi Daniel,
->>>>
->>>> On 5/5/2025 4:55 AM, Daniel Schultz wrote:
->>>>> Hi,
->>>>>
->>>>> I'm unable to load the latest TI firmware 
->>>>> (98efd20ec71f8c1c8f909d34ab656731) with this patch.
->>>>>
->>>>> [    7.012889] remoteproc remoteproc1: 79000000.r5f is available
->>>>> [    7.032640] remoteproc remoteproc1: powering up 79000000.r5f
->>>>> [    7.038626] remoteproc remoteproc1: Booting fw image am62a-mcu- 
->>>>> r5f0_0-fw, size 53140
->>>>> [    7.057209] remoteproc remoteproc1: bad phdr da 0x79100000 mem 
->>>>> 0x47ea0
->>>
->>> So this looks like the firmware has sections in the SRAM region. 
->>> That would be the
->>> issue here.
->>>
->>>>> [    7.064716] remoteproc remoteproc1: Failed to load program 
->>>>> segments: -22
->>>>>
->>>>> I figured out that the mcu sram node disappeared in v5. Apparently 
->>>>> adding it back manually doesn't solve this problem. Any idea 
->>>>> what's wrong?
->>>>
->>>> For am62ax, there should be several items changed with this v8
->>>> series in order for remoteproc to work with the TI default firmware:
->> What firmware did you use? I was using the latest public default 
->> firmware from ti-linux-firmware.
->>>>
->>>> 1. memory carveouts were reduced to 15MB [0] & edge-ai memory
->>>> carveouts are not included here
->>>
->>> This shouldn't be an issue, the default firmware doesn't
->>> use the extended carveouts.
->> Yes, this is just the echo firmware.
->>>
->>>> 2. mcu_sram1 node removed [2]
->>>>
->>>
->>> So when you say you added back the SRAM node, did you also add the
->>> sram = <&mcu_ram>; in the core node?
->>
->> With that property added, I can load the firmware again! So, what's 
->> the problem with adding this sram node and did you remove it?
->>
->
-> Good to hear that fixed it.
->
-> And we removed the SRAM node as I was unhappy with how we were 
-> handling reserving it.
-> The firmware should declare usage of shared resources like this in its 
-> resource table,
-> and the RProc driver should dynamically request the same from a normal 
-> SRAM pool.
-> What we were doing before was to statically block out the whole SRAM 
-> node for use by
-> the R5, and the driver would unconditionally map it, even if it was 
-> not used by the
-> loaded firmware at all.
-okay, that make sense.
->
-> I wanted us to fix the above before upstreaming it so we left it out 
-> of this
-> series. Next cycle we should have the better solution ready and posted 
-> for
-> upstream.
+Sorry, I have been probably too brief in my previous message :)
+bdi->ra_pages is actually set based on optimal IO size reported by the
+hardware (see blk_apply_bdi_limits() and how its callers are filling in
+lim->io_opt). The 128K you speak about is just a last-resort value if
+hardware doesn't provide one. And some storage devices do report optimal IO
+size that is not power of two.
 
-thanks for the feedback. We're still on linux-ti 6.12 with this product. 
-So, I don't care if it's not fully working yet. I was just preparing our 
-device-trees with R5 and C7 nodes.
+Also note that bdi->ra_pages can be tuned in sysfs and a lot of users
+actually do this (usually from their udev rules). We don't have to perform
+well when some odd value gets set but you definitely cannot assume
+bdi->ra_pages is 128K :).
 
-- Daniel
+> In which case, for mmap, won't
+> we continue to be limited by ra_pages and will never get beyond order-5? (for
+> mmap req_size is always set to ra_pages IIRC, so ractl_max_pages() always just
+> returns ra_pages). Or perhaps ra_pages is set to 384 somewhere, but I'm not
+> spotting it in the code...
+> 
+> I guess you are also implicitly teaching me something about how the block layer
+> works here too... if there are 2 read requests for an order-7 and order-8, then
+> the block layer will merge those to a single read (upto the 384 optimal size?)
 
->
-> Andrew
->
->> - Daniel
->>
->>>
->>> Andrew
->>>
->>>> If you want to catch up on the general direction for this series,
->>>> please refer to [3]. atm remoteproc can fail with the default FW,
->>>> but we are trying to move away from that firmware and this is the
->>>> first step in that direction.
->>>>
->>>> [0] 
->>>> https://lore.kernel.org/linux-devicetree/0ab5c5ec-cde3-41f1-8adf-2419b31497c1@ti.com/
->>>> [1] 
->>>> https://lore.kernel.org/linux-devicetree/04e77daf-e775-44fa-82bf-8b6ebf73bcef@ti.com/
->>>> [2] 
->>>> https://lore.kernel.org/linux-devicetree/32358aa1-0c02-4f4d-9782-2d8376c0d9fc@ti.com/
->>>> [3] 
->>>> https://lore.kernel.org/linux-devicetree/e131298f-3713-482a-a740-ff89709270b4@ti.com/
->>>>
->>>> ~ Judith
->>>>
->>>>>
->>>>> On 5/3/25 00:03, Judith Mendez wrote:
->>>>>> From: Hari Nagalla <hnagalla@ti.com>
->>>>>>
->>>>>> AM62A SoCs have a single R5F core in the MCU voltage domain.
->>>>>> Add the R5FSS node with the child node for core0 in MCU voltage
->>>>>> domain .dtsi file.
->>>>>>
->>>>>> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
->>>>>> Signed-off-by: Judith Mendez <jm@ti.com>
->>>>>> Acked-by: Andrew Davis <afd@ti.com>
->>>>>> ---
->>>>>>   arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi | 25 
->>>>>> ++++++++++++++++++++++++
->>>>>>   1 file changed, 25 insertions(+)
->>>>>>
->>>>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi 
->>>>>> b/arch/arm64/ boot/dts/ti/k3-am62a-mcu.dtsi
->>>>>> index 9ed9d703ff24..ee961ced7208 100644
->>>>>> --- a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
->>>>>> +++ b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
->>>>>> @@ -174,4 +174,29 @@ mcu_mcan1: can@4e18000 {
->>>>>>           bosch,mram-cfg = <0x0 128 64 64 64 64 32 32>;
->>>>>>           status = "disabled";
->>>>>>       };
->>>>>> +
->>>>>> +    mcu_r5fss0: r5fss@79000000 {
->>>>>> +        compatible = "ti,am62-r5fss";
->>>>>> +        #address-cells = <1>;
->>>>>> +        #size-cells = <1>;
->>>>>> +        ranges = <0x79000000 0x00 0x79000000 0x8000>,
->>>>>> +             <0x79020000 0x00 0x79020000 0x8000>;
->>>>>> +        power-domains = <&k3_pds 7 TI_SCI_PD_EXCLUSIVE>;
->>>>>> +        status = "disabled";
->>>>>> +
->>>>>> +        mcu_r5fss0_core0: r5f@79000000 {
->>>>>> +            compatible = "ti,am62-r5f";
->>>>>> +            reg = <0x79000000 0x00008000>,
->>>>>> +                  <0x79020000 0x00008000>;
->>>>>> +            reg-names = "atcm", "btcm";
->>>>>> +            resets = <&k3_reset 9 1>;
->>>>>> +            firmware-name = "am62a-mcu-r5f0_0-fw";
->>>>>> +            ti,atcm-enable = <0>;
->>>>>> +            ti,btcm-enable = <1>;
->>>>>> +            ti,loczrama = <0>;
->>>>>> +            ti,sci = <&dmsc>;
->>>>>> +            ti,sci-dev-id = <9>;
->>>>>> +            ti,sci-proc-ids = <0x03 0xff>;
->>>>>> +        };
->>>>>> +    };
->>>>>>   };
->>>>
+Correct. In fact readahead code will already perform this merging when
+submitting the IO.
+
+> but if there are 2 reads of order-8 then it won't merge because it would be
+> bigger than the optimal size and it won't split the second one at the optimal
+> size either? Have I inferred that correctly?
+
+With the code as you modify it, you would round down ra->size from 384 to
+256 and submit only one 1MB sized IO (with one order-8 page). And this will
+cause regression in read throughput for such devices because they now don't
+get buffer large enough to run at full speed.
+
+> > Now you will allocate all
+> > folios of order 8 (nice) but reads will be just 1024k and you'll see
+> > noticeable drop in read throughput (not nice). Note that this is not just a
+> > theoretical example but a real case we have hit when doing performance
+> > testing of servers and for which I was tweaking readahead code in the past.
+> > 
+> > So I think we need to tweak this logic a bit. Perhaps we should round_down
+> > end to the minimum alignment dictated by 'order' and maxpages? Like:
+> > 
+> > 1 << min(order, ffs(max_pages) + PAGE_SHIFT - 1)
+> 
+> Sorry I'm staring at this and struggling to understand the "PAGE_SHIFT -
+> 1" part?
+
+My bad. It should have been:
+
+1 << min(order, ffs(max_pages) - 1)
+
+> I think what you are suggesting is that the patch becomes something like
+> this:
+> 
+> ---8<---
+> +	end = ra->start + ra->size;
+> +	aligned_end = round_down(end, 1UL << min(order, ilog2(max_pages)));
+
+Not quite. ilog2() returns the most significant bit set but we really want
+to align to the least significant bit set. So when max_pages is 384, we
+want to align to at most order-7 (aligning the end more does not make sense
+when you want to do IO 384 pages large). That's why I'm using ffs() and not
+ilog2().
+
+> +	if (aligned_end > ra->start)
+> +		ra->size -= end - aligned_end;
+> +	ra->async_size = ra->size;
+> ---8<---
+> 
+> So if max_pages=384, then aligned_end will be aligned down to a maximum
+> of the previous 1MB boundary?
+
+No, it needs to be aligned only to previous 512K boundary because we want
+to do IOs 3*512K large.
+
+Hope things are a bit clearer now :)
+
+								Honza
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
 
