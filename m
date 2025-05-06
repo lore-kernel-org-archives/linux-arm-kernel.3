@@ -4,62 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2B44C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 11:33:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5261AC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 11:35:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dfAcbQ0T5CiHmNac9G6q+5xVGNfX5O+RIlqKDSEhc9I=; b=4WViADskPUuF9GHSnv7ayZ0Kmv
-	AES/RAel7GuMv419tVlpIkJH9J2dYpbiEhvpCBMvnICqNmb17L5HvvwsGzn0cHiJhnql1zmoksrYU
-	MKP9lHX3KcGQ3RM4EIq3GGuzhX1Mhk6RcRS0HYO4BKpFv/dZIFKsf8tUFjk9kWZclmDXJflA5tHlP
-	vRenZ0US51cwV1oG6lKPHigfT4yXQR5bvjUOY9/EE3X4y/jmUcO7203aFR/2bka77X3kWnpEaZINA
-	QTY1EyzoFnyilM9a64PYFt1IaaIcRxViokU5zPxWXrA26oaGqzXSVY0Vq4Q9LEgtZfDBaNlOofbk3
-	JVY8PjvQ==;
+	bh=yHRqxw11DkfIZ1YAQcw+HF7fx4joijTrq2tX7o6YmGM=; b=nCf2nuQDEl0ENyEAqXPDZgGCRt
+	ZWNC+2J8mKDS3M7G63aEZ6r/a6SYB4LsLKwaIw45CQuJ1pCq8NcETFnOyrUB+uvc/hcRi+EWZVehj
+	wKcC/rQP3Tp/nNjeBtGoIvbuVXr0RDCV3GaD+mqHBDVd+NFDFFr1tC3xEq8XCeFkY3Pmpo8/OCD7a
+	J53pnFB4wVSJ9t2ybLhIURh2iEk1yWqAFSp6d52hbcbu+jsImuU9U8ksZDfSQ1gw7kb7FszprZONf
+	Rzmx8mN4ir7/L22RwlFD1j+Nnhd5FO40vpLh33fmydBPT+SmLUb4emdv8rwBoClURedLGVkP1iWWm
+	Xf41nfQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCGY0-0000000Bl0r-2k2A;
-	Tue, 06 May 2025 11:33:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCEzA-0000000BT1p-3iVq
+	id 1uCGZu-0000000BlLf-1UOu;
+	Tue, 06 May 2025 11:35:14 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCEzC-0000000BT1z-2z8M
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 09:53:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 962BF113E;
-	Tue,  6 May 2025 02:53:02 -0700 (PDT)
-Received: from [10.57.93.118] (unknown [10.57.93.118])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3ED6E3F5A1;
-	Tue,  6 May 2025 02:53:09 -0700 (PDT)
-Message-ID: <df09f0f4-fd23-469e-94d7-864b3bdb17c6@arm.com>
-Date: Tue, 6 May 2025 10:53:07 +0100
+	Tue, 06 May 2025 09:53:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1746525192;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=yHRqxw11DkfIZ1YAQcw+HF7fx4joijTrq2tX7o6YmGM=;
+	b=eCswHKJXz8ujPl/1shc1kepGbjmjMaaOmzLAm19mEc+Xaio4Od5USAGuyLRKYvlJxWRAYb
+	JUNLagooPBefza1tzEsHu/9YOMsayGo/2OeBc/TrwRUKHlDewoz2JQx9e/rAQ0hjfkG14m
+	qMI2+ynvxwBQ++h3wewdGEwa+EG+fGQ=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-632-miuR4soGNuar8N-zbKPr8Q-1; Tue, 06 May 2025 05:53:11 -0400
+X-MC-Unique: miuR4soGNuar8N-zbKPr8Q-1
+X-Mimecast-MFC-AGG-ID: miuR4soGNuar8N-zbKPr8Q_1746525190
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-43cf5196c25so29615675e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 02:53:11 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746525190; x=1747129990;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=yHRqxw11DkfIZ1YAQcw+HF7fx4joijTrq2tX7o6YmGM=;
+        b=QHl6ibsenbZ0y5vAvgCYlhhxiK7gfRr6tmkmCO3KuEEIwwE8Lr2U11kkCKv5bKVVds
+         kRjM01Xd/+9jX2HsMjUdmpBxDwNGa0MSpW2UVftbcvOAEiuIMnvfub0EwcJEozg3e8de
+         XPEEtBwegrK8FqnLkH3xv1wW4dmXvEoxUUtZlvl2juAefQ61s0VVZy/XepwbSwKcNLZ+
+         7dvMQ6ss0UttNwU+ZJGha6pt6LTgkaSmuXtz0DyXKu6g272QtIE+rCM2yoOHTaMBHpMn
+         hbc7rRiQzV/kmyt9hyTYDrSUzVCOOtxrVId5ImkdDpTQ9nnk5elDNfa92so2c/bSADkn
+         CJXg==
+X-Gm-Message-State: AOJu0YwHhMXjutOkM1R+8kSSCYR63x8wMqxdz+pBJ62pjbtUHDlcbfmQ
+	VtdBV36YaaMpXFYZoypseS6nEuzaQjMDwcrfkOL0JbQfIUfkwQ6ufJi/bQ/VgJ7vd9vLXUULJBq
+	gMFreE4F+l6JtXpmSX/kPDVg0zmyjRSjK6aW08VWnkRnBfKMjX7n+MkOFdAUlItZLuJMNnvkV
+X-Gm-Gg: ASbGncs8L/3KM97OqDQlToiwJUS3amB0xCqnz6Vp5ZMxNNNFpyi2pKVFSEFPe8UDwu3
+	sarSieKhF0lI01lGCZ4/nGjVpaiQnlQcRSgHZzzJtlGucvLA7sfJbihRqnfqOX1u0p6XgI1Y4tT
+	WMBdogHbmmmGs4ZHhI/jwua0TFUAwZa54in08Rfd+rwYdgW1bG9p5FqoGQTjGHBESui8et5j93Z
+	+0RWFVAGsS3HN1sPiuboug+8Wn0wuUnbqet1lVnrmOwWJND3S2mwfHIOxq4zBG5ke/1SVO/dvab
+	hNE5pegDStNZz7hWAt/Ge6BTTOqnLullOam76G6XvgQf+9twEeAxHHbFnjg=
+X-Received: by 2002:a05:600c:3492:b0:43d:683:8caa with SMTP id 5b1f17b1804b1-441c48dc057mr110529435e9.15.1746525190276;
+        Tue, 06 May 2025 02:53:10 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEBClihtS9IZe3qn1YixeNsDYjWzT9jRKdwymrU9Lptja+rp5uq6be54s18DEHJEmCnLCf55A==
+X-Received: by 2002:a05:600c:3492:b0:43d:683:8caa with SMTP id 5b1f17b1804b1-441c48dc057mr110529075e9.15.1746525189959;
+        Tue, 06 May 2025 02:53:09 -0700 (PDT)
+Received: from ?IPV6:2a0d:3344:2706:e010:b099:aac6:4e70:6198? ([2a0d:3344:2706:e010:b099:aac6:4e70:6198])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b2ad7ab1sm209878815e9.4.2025.05.06.02.53.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 06 May 2025 02:53:09 -0700 (PDT)
+Message-ID: <ce36ce0e-ad16-4950-b601-ae1a555f2cfb@redhat.com>
+Date: Tue, 6 May 2025 11:53:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v4 4/5] mm/readahead: Store folio order in struct
- file_ra_state
-Content-Language: en-GB
-To: Jan Kara <jack@suse.cz>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, David Hildenbrand
- <david@redhat.com>, Dave Chinner <david@fromorbit.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org
-References: <20250430145920.3748738-1-ryan.roberts@arm.com>
- <20250430145920.3748738-5-ryan.roberts@arm.com>
- <hsh7gqrzzxmgihjnud6p6iqbysustua3rv7vkfgknz4vho4hhx@jvzfztjk4cc4>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <hsh7gqrzzxmgihjnud6p6iqbysustua3rv7vkfgknz4vho4hhx@jvzfztjk4cc4>
+Subject: Re: [PATCH net-next v7 04/11] net: ti: prueth: Adds link detection,
+ RX and TX support.
+To: Parvathi Pudi <parvathi@couthit.com>, danishanwar@ti.com,
+ rogerq@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, nm@ti.com, ssantosh@kernel.org, tony@atomide.com,
+ richardcochran@gmail.com, glaroque@baylibre.com, schnelle@linux.ibm.com,
+ m-karicheri2@ti.com, s.hauer@pengutronix.de, rdunlap@infradead.org,
+ diogo.ivo@siemens.com, basharath@couthit.com, horms@kernel.org,
+ jacob.e.keller@intel.com, m-malladi@ti.com, javier.carrasco.cruz@gmail.com,
+ afd@ti.com, s-anna@ti.com
+Cc: linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, pratheesh@ti.com,
+ prajith@ti.com, vigneshr@ti.com, praneeth@ti.com, srk@ti.com, rogerq@ti.com,
+ krishna@couthit.com, pmohan@couthit.com, mohan@couthit.com
+References: <20250503121107.1973888-1-parvathi@couthit.com>
+ <20250503131139.1975016-5-parvathi@couthit.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20250503131139.1975016-5-parvathi@couthit.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: -2JlRT-VDw3ZxQnfm8xQBuQ5RwI5XeSSoz40s21gHKc_1746525190
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_025313_023221_258328CD 
-X-CRM114-Status: GOOD (  22.90  )
+X-CRM114-CacheID: sfid-20250506_025314_824474_F40979EF 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,165 +120,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/05/2025 10:52, Jan Kara wrote:
-> On Wed 30-04-25 15:59:17, Ryan Roberts wrote:
->> Previously the folio order of the previous readahead request was
->> inferred from the folio who's readahead marker was hit. But due to the
->> way we have to round to non-natural boundaries sometimes, this first
->> folio in the readahead block is often smaller than the preferred order
->> for that request. This means that for cases where the initial sync
->> readahead is poorly aligned, the folio order will ramp up much more
->> slowly.
->>
->> So instead, let's store the order in struct file_ra_state so we are not
->> affected by any required alignment. We previously made enough room in
->> the struct for a 16 order field. This should be plenty big enough since
->> we are limited to MAX_PAGECACHE_ORDER anyway, which is certainly never
->> larger than ~20.
->>
->> Since we now pass order in struct file_ra_state, page_cache_ra_order()
->> no longer needs it's new_order parameter, so let's remove that.
->>
->> Worked example:
->>
->> Here we are touching pages 17-256 sequentially just as we did in the
->> previous commit, but now that we are remembering the preferred order
->> explicitly, we no longer have the slow ramp up problem. Note
->> specifically that we no longer have 2 rounds (2x ~128K) of order-2
->> folios:
->>
->> TYPE    STARTOFFS     ENDOFFS        SIZE  STARTPG    ENDPG   NRPG  ORDER  RA
->> -----  ----------  ----------  ----------  -------  -------  -----  -----  --
->> HOLE   0x00000000  0x00001000        4096        0        1      1
->> FOLIO  0x00001000  0x00002000        4096        1        2      1      0
->> FOLIO  0x00002000  0x00003000        4096        2        3      1      0
->> FOLIO  0x00003000  0x00004000        4096        3        4      1      0
->> FOLIO  0x00004000  0x00005000        4096        4        5      1      0
->> FOLIO  0x00005000  0x00006000        4096        5        6      1      0
->> FOLIO  0x00006000  0x00007000        4096        6        7      1      0
->> FOLIO  0x00007000  0x00008000        4096        7        8      1      0
->> FOLIO  0x00008000  0x00009000        4096        8        9      1      0
->> FOLIO  0x00009000  0x0000a000        4096        9       10      1      0
->> FOLIO  0x0000a000  0x0000b000        4096       10       11      1      0
->> FOLIO  0x0000b000  0x0000c000        4096       11       12      1      0
->> FOLIO  0x0000c000  0x0000d000        4096       12       13      1      0
->> FOLIO  0x0000d000  0x0000e000        4096       13       14      1      0
->> FOLIO  0x0000e000  0x0000f000        4096       14       15      1      0
->> FOLIO  0x0000f000  0x00010000        4096       15       16      1      0
->> FOLIO  0x00010000  0x00011000        4096       16       17      1      0
->> FOLIO  0x00011000  0x00012000        4096       17       18      1      0
->> FOLIO  0x00012000  0x00013000        4096       18       19      1      0
->> FOLIO  0x00013000  0x00014000        4096       19       20      1      0
->> FOLIO  0x00014000  0x00015000        4096       20       21      1      0
->> FOLIO  0x00015000  0x00016000        4096       21       22      1      0
->> FOLIO  0x00016000  0x00017000        4096       22       23      1      0
->> FOLIO  0x00017000  0x00018000        4096       23       24      1      0
->> FOLIO  0x00018000  0x00019000        4096       24       25      1      0
->> FOLIO  0x00019000  0x0001a000        4096       25       26      1      0
->> FOLIO  0x0001a000  0x0001b000        4096       26       27      1      0
->> FOLIO  0x0001b000  0x0001c000        4096       27       28      1      0
->> FOLIO  0x0001c000  0x0001d000        4096       28       29      1      0
->> FOLIO  0x0001d000  0x0001e000        4096       29       30      1      0
->> FOLIO  0x0001e000  0x0001f000        4096       30       31      1      0
->> FOLIO  0x0001f000  0x00020000        4096       31       32      1      0
->> FOLIO  0x00020000  0x00021000        4096       32       33      1      0
->> FOLIO  0x00021000  0x00022000        4096       33       34      1      0
->> FOLIO  0x00022000  0x00024000        8192       34       36      2      1
->> FOLIO  0x00024000  0x00028000       16384       36       40      4      2
->> FOLIO  0x00028000  0x0002c000       16384       40       44      4      2
->> FOLIO  0x0002c000  0x00030000       16384       44       48      4      2
->> FOLIO  0x00030000  0x00034000       16384       48       52      4      2
->> FOLIO  0x00034000  0x00038000       16384       52       56      4      2
->> FOLIO  0x00038000  0x0003c000       16384       56       60      4      2
->> FOLIO  0x0003c000  0x00040000       16384       60       64      4      2
->> FOLIO  0x00040000  0x00050000       65536       64       80     16      4
->> FOLIO  0x00050000  0x00060000       65536       80       96     16      4
->> FOLIO  0x00060000  0x00080000      131072       96      128     32      5
->> FOLIO  0x00080000  0x000a0000      131072      128      160     32      5
->> FOLIO  0x000a0000  0x000c0000      131072      160      192     32      5
->> FOLIO  0x000c0000  0x000e0000      131072      192      224     32      5
->> FOLIO  0x000e0000  0x00100000      131072      224      256     32      5
->> FOLIO  0x00100000  0x00120000      131072      256      288     32      5
->> FOLIO  0x00120000  0x00140000      131072      288      320     32      5  Y
->> HOLE   0x00140000  0x00800000     7077888      320     2048   1728
->>
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> 
-> ...
-> 
->> @@ -469,6 +469,7 @@ void page_cache_ra_order(struct readahead_control *ractl,
->>  	int err = 0;
->>  	gfp_t gfp = readahead_gfp_mask(mapping);
->>  	unsigned int min_ra_size = max(4, mapping_min_folio_nrpages(mapping));
->> +	unsigned int new_order = ra->order;
->>  
->>  	/*
->>  	 * Fallback when size < min_nrpages as each folio should be
->> @@ -483,6 +484,8 @@ void page_cache_ra_order(struct readahead_control *ractl,
->>  	new_order = min_t(unsigned int, new_order, ilog2(ra->size));
->>  	new_order = max(new_order, min_order);
->>  
->> +	ra->order = new_order;
->> +
->>  	/* See comment in page_cache_ra_unbounded() */
->>  	nofs = memalloc_nofs_save();
->>  	filemap_invalidate_lock_shared(mapping);
->> @@ -525,6 +528,7 @@ void page_cache_ra_order(struct readahead_control *ractl,
->>  	 * ->readahead() may have updated readahead window size so we have to
->>  	 * check there's still something to read.
->>  	 */
->> +	ra->order = 0;
-> 
-> Hum, so you reset desired folio order if readahead hit some pre-existing
-> pages in the page cache. Is this really desirable? Why not leave the
-> desired order as it was for the next request?
+On 5/3/25 3:11 PM, Parvathi Pudi wrote:
+> +/**
+> + * icssm_emac_rx_thread - EMAC Rx interrupt thread handler
+> + * @irq: interrupt number
+> + * @dev_id: pointer to net_device
+> + *
+> + * EMAC Rx Interrupt thread handler - function to process the rx frames in a
+> + * irq thread function. There is only limited buffer at the ingress to
+> + * queue the frames. As the frames are to be emptied as quickly as
+> + * possible to avoid overflow, irq thread is necessary. Current implementation
+> + * based on NAPI poll results in packet loss due to overflow at
+> + * the ingress queues. Industrial use case requires loss free packet
+> + * processing. Tests shows that with threaded irq based processing,
+> + * no overflow happens when receiving at ~92Mbps for MTU sized frames and thus
+> + * meet the requirement for industrial use case.
 
-My aim was to not let order grow unbounded. When the filesystem doesn't support
-large folios we end up here (from the "goto fallback") and without this, order
-will just grow and grow (perhaps it doesn't matter though). I think we should
-keep this.
+The above statement is highly suspicious. On an non idle system the
+threaded irq can be delayed for an unbound amount of time. On an idle
+system napi_poll should be invoked with a latency comparable - if not
+less - to the threaded irq. Possibly you tripped on some H/W induced
+latency to re-program the ISR?
 
-But I guess your point is that we can also end up here when the filesystem does
-support large folios but there is an error. In thta case, yes, I'll change to
-not reset order to 0; it has already been fixed up earlier in this path.
+In any case I think we need a better argumented statement to
+intentionally avoid NAPI.
 
-How's this:
+Cheers,
 
----8<---
-diff --git a/mm/readahead.c b/mm/readahead.c
-index 18972bc34861..0054ca18a815 100644
---- a/mm/readahead.c
-+++ b/mm/readahead.c
-@@ -475,8 +475,10 @@ void page_cache_ra_order(struct readahead_control *ractl,
-         * Fallback when size < min_nrpages as each folio should be
-         * at least min_nrpages anyway.
-         */
--       if (!mapping_large_folio_support(mapping) || ra->size < min_ra_size)
-+       if (!mapping_large_folio_support(mapping) || ra->size < min_ra_size) {
-+               ra->order = 0;
-                goto fallback;
-+       }
-
-        limit = min(limit, index + ra->size - 1);
-
-@@ -528,7 +530,6 @@ void page_cache_ra_order(struct readahead_control *ractl,
-         * ->readahead() may have updated readahead window size so we have to
-         * check there's still something to read.
-         */
--       ra->order = 0;
-        if (ra->size > index - start)
-                do_page_cache_ra(ractl, ra->size - (index - start),
-                                 ra->async_size);
----8<---
-
-Thanks,
-Ryan
-
-> 
->>  	if (ra->size > index - start)
->>  		do_page_cache_ra(ractl, ra->size - (index - start),
->>  				 ra->async_size);
-> 
-> 								Honza
+Paolo
 
 
