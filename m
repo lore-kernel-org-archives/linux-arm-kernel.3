@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53607C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 15:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3035C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 15:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U8JJ/3CV5wjhXkg+7uT/2bDGhAR4ZPkse9+QsO0gUnA=; b=dJjEBKifCpcjsQC+rahI3Ic1+C
-	cQFODpwnssEVvJEGPu7CQ7ljsTGCgXKvkF3jE3f4t/4wUbDWRKnZaJsOq9g4UtIekMk/9y4l0dgFI
-	BU7o18y0pkalgkMsWz/9HBJmDKsKOPaXLchegYzpp06k6OFRGXbW8U8mly7h+SOT8Y4QL0fxY3ma8
-	QbClcghnvTQwBoOJSO7t8vZUDXa2OPv8vfrQuN0b5PC2nD2Ab7iQoHuG34HNEN6kOkd5iCoBboxJk
-	74zmDmvtHPbBmPncgBVbP63LOf3smKcb5A7BrqeIm9ERgWQZuij8V562ES2w0kRnF6cM+7dOAsTb6
-	ZYyXRPKw==;
+	bh=8JFavAtgsloXzh/GLkUVm+0T2OM9EjBVwK5Uur8DR5U=; b=D4ki1vaQ4+culQT9InykPnd2T6
+	eC7NeQoW5ngQu6rYNJtXYogOH8/HiOML9jHmUNqoMSBspaflwrrxccRJ9KCtV9Au4W7paBBQC95/Y
+	KHeZAZ0ggFpdWGzbD8unOn53WUco/r32E2OlEudp5eNfbkxowrpgiKHYcH7xXW2BCt1A0v5gam1tH
+	qouApqbip7BgQTUoXLGtmhW5ydFTIFSFmUgyw2PTy3REMeohqRlRzRwmes5qyte34SRcvIHfILqic
+	brpsKe/q1dBcVgWbeoe7xhUPya1xJRuxma2RbJDXFr3OChLjxNJJ5n7p2Zch++6Eb4FCOuLYQaNHM
+	/aQutbUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCKHa-0000000CVck-0xh3;
-	Tue, 06 May 2025 15:32:34 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uCKJU-0000000CVrn-3ux2;
+	Tue, 06 May 2025 15:34:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCHLg-0000000BtOP-1wdk
+	id 1uCHLk-0000000BtQ2-11va
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 12:24:37 +0000
+	Tue, 06 May 2025 12:24:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BA4EBA4C799;
+	by sea.source.kernel.org (Postfix) with ESMTP id EE88A4A6DE;
+	Tue,  6 May 2025 12:24:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E898EC4CEEE;
 	Tue,  6 May 2025 12:24:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AF9FC4CEED;
-	Tue,  6 May 2025 12:24:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746534275;
-	bh=sQqjxedBfR/x/zpD52PYNFW1off5a3wsTQ0MTvz8038=;
+	s=k20201202; t=1746534279;
+	bh=aABGEIrWEsGcFFHRxubhJftIId76X0k2qcZSdwnplek=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=JH2FSbRhY49r/xBD0KCVu1vulpBsgkXAcRvCQwJ9rOfS0je6ogfP30fm29/ylIz0I
-	 vixas9Q2kwz4vBjvDJlNdt/TLrgA07aeHBsBuSS/wnjxj/1fGDXN2Es3P0REntBId8
-	 eNNxxFWWgrWVKxm67gsXNWDh8bxvycaTT7JUjrLmbHGFpTDc0ALp0fYTK6YRbvO9lR
-	 IIxe+PbWnhGm2s/Tqhza2uBriSYSLVcI8sEXxtun3fC/BpjPhEw43PDt9azthzQETS
-	 8/gKgIoDRkaAa8+PpDRPRmisO9sofRd+bTl4rizi0MPwCGEH+6ERJTnC/NXNj8aDk9
-	 FEGRnKpHHGz7g==
+	b=FBXDAf60a8RKPxrbybL/t+7ybaq34zNLfJnqrxZH5G2+Ypuo8p6AFSVmkz4PB7MT7
+	 NuJ4luoCgfaB/YrJTQJZuTawKzIFUoUXX4a5WJ3lu4F9EfApLF/o26nKAF+eo2NPD3
+	 v0q2YbWV/z/TQrHHmEEeK8/pFqXhJlxjZortkcVsqnHsCCM1tdeL5Bwguq3l0sXjtO
+	 uiWgRmDhlUsPPkoKy++SWFnEezwtno5n/tZOXyaTrKHk43RCTKMveocdIYsYyYUYeC
+	 VSjvFxwLaZPcLEKnWzrSF+5b1xCuTueqtAkb6xrcwJmEt3J2UqDEIjOFgKRoiKsU4c
+	 qDNPfONWVRVxA==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Tue, 06 May 2025 14:23:37 +0200
-Subject: [PATCH v3 08/25] arm64/sysreg: Add ICC_PPI_{C/S}PENDR<n>_EL1
+Date: Tue, 06 May 2025 14:23:38 +0200
+Subject: [PATCH v3 09/25] arm64/sysreg: Add ICC_CR0_EL1
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250506-gicv5-host-v3-8-6edd5a92fd09@kernel.org>
+Message-Id: <20250506-gicv5-host-v3-9-6edd5a92fd09@kernel.org>
 References: <20250506-gicv5-host-v3-0-6edd5a92fd09@kernel.org>
 In-Reply-To: <20250506-gicv5-host-v3-0-6edd5a92fd09@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -64,8 +64,8 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
  devicetree@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_052436_638301_2F494F1B 
-X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-CacheID: sfid-20250506_052440_319513_1BF70A86 
+X-CRM114-Status: UNSURE (   8.77  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,110 +81,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ICC_PPI_{C/S}PENDR<n>_EL1 registers description.
+Add ICC_CR0_EL1 register description.
 
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 Cc: Will Deacon <will@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/tools/sysreg | 83 +++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 83 insertions(+)
+ arch/arm64/tools/sysreg | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
 diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 0485721e1575c9ed158210c6f02fb9af2828f2d5..7acad93718c56729ce2a333ed007243ec554dbc9 100644
+index 7acad93718c56729ce2a333ed007243ec554dbc9..c96243505031ea680c04a693fee2c96ad19e30ea 100644
 --- a/arch/arm64/tools/sysreg
 +++ b/arch/arm64/tools/sysreg
-@@ -2557,6 +2557,89 @@ Sysreg	ICC_PPI_SACTIVER1_EL1	3	0	12	13	3
- Fields ICC_PPI_ACTIVERx_EL1
+@@ -2798,6 +2798,14 @@ Res0	14:12
+ Field	11:0	AFFINITY
  EndSysreg
  
-+SysregFields	ICC_PPI_PENDRx_EL1
-+Field	63	Pend63
-+Field	62	Pend62
-+Field	61	Pend61
-+Field	60	Pend60
-+Field	59	Pend59
-+Field	58	Pend58
-+Field	57	Pend57
-+Field	56	Pend56
-+Field	55	Pend55
-+Field	54	Pend54
-+Field	53	Pend53
-+Field	52	Pend52
-+Field	51	Pend51
-+Field	50	Pend50
-+Field	49	Pend49
-+Field	48	Pend48
-+Field	47	Pend47
-+Field	46	Pend46
-+Field	45	Pend45
-+Field	44	Pend44
-+Field	43	Pend43
-+Field	42	Pend42
-+Field	41	Pend41
-+Field	40	Pend40
-+Field	39	Pend39
-+Field	38	Pend38
-+Field	37	Pend37
-+Field	36	Pend36
-+Field	35	Pend35
-+Field	34	Pend34
-+Field	33	Pend33
-+Field	32	Pend32
-+Field	31	Pend31
-+Field	30	Pend30
-+Field	29	Pend29
-+Field	28	Pend28
-+Field	27	Pend27
-+Field	26	Pend26
-+Field	25	Pend25
-+Field	24	Pend24
-+Field	23	Pend23
-+Field	22	Pend22
-+Field	21	Pend21
-+Field	20	Pend20
-+Field	19	Pend19
-+Field	18	Pend18
-+Field	17	Pend17
-+Field	16	Pend16
-+Field	15	Pend15
-+Field	14	Pend14
-+Field	13	Pend13
-+Field	12	Pend12
-+Field	11	Pend11
-+Field	10	Pend10
-+Field	9	Pend9
-+Field	8	Pend8
-+Field	7	Pend7
-+Field	6	Pend6
-+Field	5	Pend5
-+Field	4	Pend4
-+Field	3	Pend3
-+Field	2	Pend2
-+Field	1	Pend1
-+Field	0	Pend0
-+EndSysregFields
-+
-+Sysreg	ICC_PPI_CPENDR0_EL1	3	0	12	13	4
-+Fields ICC_PPI_PENDRx_EL1
++Sysreg	ICC_CR0_EL1	3	1	12	0	1
++Res0	63:39
++Field	38	PID
++Field	37:32	IPPT
++Res0	31:1
++Field	0	EN
 +EndSysreg
 +
-+Sysreg	ICC_PPI_CPENDR1_EL1	3	0	12	13	5
-+Fields ICC_PPI_PENDRx_EL1
-+EndSysreg
-+
-+Sysreg	ICC_PPI_SPENDR0_EL1	3	0	12	13	6
-+Fields ICC_PPI_PENDRx_EL1
-+EndSysreg
-+
-+Sysreg	ICC_PPI_SPENDR1_EL1	3	0	12	13	7
-+Fields ICC_PPI_PENDRx_EL1
-+EndSysreg
-+
- SysregFields	ICC_PPI_PRIORITYRx_EL1
- Res0	63:61
- Field	60:56	Priority7
+ Sysreg	CSSELR_EL1	3	2	0	0	0
+ Res0	63:5
+ Field	4	TnD
 
 -- 
 2.48.0
