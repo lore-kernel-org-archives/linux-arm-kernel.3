@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C13CC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 18:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BDFDC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 18:15:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5GJcj0puvXJ2NX5TNsfEkpFArqZ2b8JXqNEm7oUpzKY=; b=LT5MseWRXEZxNkqkty8b6wNAkY
-	dajZJXEvcc8sY54pnjOsdYjNnFlq4/KZDfSeVzecvoCDzEtZX3ULYOPS658YdoqCztNh6zcsu4cVz
-	gaCTmeKiMfnD62LR8Ve6+KChnPoWJEmks+Xz0xpHtP/VXRxjOoOC9bAbTjdAdeFgw+DE3VYMCP3ge
-	lScdizRAMxHcerjhVyH9kI7ENp5rz8riELvtOmgAZ8HmMXfedGag3tD1fB7o7GzUBkU38hPD8QUMk
-	7cKe5PNwSLYtudevOpO8cBhdsT2MGuDM8KfBQZkSpA4v2Gd5scgxGcSagL6MlnGFMi4rM5dznlwYo
-	kr3Mlsig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qw2kxcgeI74CiAtO0Wk3Ge8irH3lcasW30DQVrbYrdY=; b=KPCLxp78q+4thnCixUzre+TxyJ
+	06sTPtWbHBjE7IsQzRfIt/VMfrDlqod2Xdtxo9ZJNYywiHNUc2tE/SWluvMZEzxZ/Vj652L18bE60
+	rLXtYoR1h2m3zDiULE0VdbSdIQEIgsUH24cPh8tpbDRLxiVzxKUdkkgNK9d/ZtYs6DRdj6eSyxA0Z
+	UbrTpa+7/gUlmX0kFJpcO1NwBXpPKzQ6XLHorfzHK6sTYgQ5Os950KoxHdGhl83KYkOhFi/KrMmRQ
+	pCScJUZ5JDeaKUJTosG5+5PD2/M0QpEvAGJTRs9PEqPDplOlAQpcKeELVegRvdXb0i0YNHDR7xob7
+	qrpwH+WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCMmf-0000000Cwhn-354X;
-	Tue, 06 May 2025 18:12:49 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uCMoc-0000000CwuS-1stb;
+	Tue, 06 May 2025 18:14:50 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCJ9K-0000000CIBj-3iNP
+	id 1uCJ9m-0000000CIGc-0KNN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 14:19:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0FD125C4BEB;
-	Tue,  6 May 2025 14:17:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C1F0C4CEE4;
-	Tue,  6 May 2025 14:19:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746541197;
-	bh=mTMRUMgR4L/7RvmPvU/2UmZ78JGiv9EeVU2GVr4rwT4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mjKpFh6x+eNnuikWStC2X+QGu1Fl0efOWw++cCFWdpDStaJJsRlBxvrhHbsLt8th+
-	 YkqLKUIUVSIzYYURi0ngt9sUpNErDhsod0lN+41Z1wNjdrT6fI/2PH9i/5S6nLjKn4
-	 KHB0jCRiniVTa6PqaSFdT16ATwKV51S47DKjDRc8v8YLEWT4U+RpaIivsw4NxDlEMB
-	 onLFp4YsRE7SJfcz2zs/JY6b9IEvpUqOgEkiMeykztAJ48sM60fZ9v6Um2lXAcnm1T
-	 Nl74zX5JyeBVL1E0HnrCQVL8L2e3iWHfnNRZ26cMEMM1bAfrveFOSulD96tWCGnfuh
-	 i0bnNYruJw3Hg==
-Date: Tue, 6 May 2025 15:19:49 +0100
-From: Will Deacon <will@kernel.org>
-To: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
-Cc: ryan.roberts@arm.com, suzuki.poulose@arm.com,
-	yang@os.amperecomputing.com, corbet@lwn.net,
-	catalin.marinas@arm.com, jean-philippe@linaro.org,
-	robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org,
-	paulmck@kernel.org, mark.rutland@arm.com, joey.gouly@arm.com,
-	maz@kernel.org, james.morse@arm.com, broonie@kernel.org,
-	oliver.upton@linux.dev, baohua@kernel.org, david@redhat.com,
-	ioworker0@gmail.com, jgg@ziepe.ca, nicolinc@nvidia.com,
-	mshavit@google.com, jsnitsel@redhat.com, smostafa@google.com,
-	kevin.tian@intel.com, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev
-Subject: Re: [RESEND PATCH v6 2/3] iommu/arm: Add BBM Level 2 smmu feature
-Message-ID: <20250506141949.GA1197@willie-the-truck>
-References: <20250428153514.55772-2-miko.lenczewski@arm.com>
- <20250428153514.55772-6-miko.lenczewski@arm.com>
+	Tue, 06 May 2025 14:20:27 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 546EKLcb540463
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 6 May 2025 09:20:21 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746541221;
+	bh=qw2kxcgeI74CiAtO0Wk3Ge8irH3lcasW30DQVrbYrdY=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=Cdvbh9HZGD0YdYS9IAFeVQZBEG3b5TzRxaPdKbiLe20RzCW/WWMZEmgBaUSEwv7B3
+	 0AEvpASl8CsgSOY1FFBHqesW1oVfYiHEeR6OL0P1d9oZJjuQnXZpRNGmVcr0c8X3xk
+	 2lWlky+ZKuHDDuzS6p3y2BiDYF3kKepegWghOOw0=
+Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 546EKKIH021102
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 6 May 2025 09:20:20 -0500
+Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 6
+ May 2025 09:20:20 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 6 May 2025 09:20:20 -0500
+Received: from [10.249.32.133] ([10.249.32.133])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 546EKJ7e113864;
+	Tue, 6 May 2025 09:20:19 -0500
+Message-ID: <4492a19c-9544-4240-bca5-00d82c76774f@ti.com>
+Date: Tue, 6 May 2025 09:20:19 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250428153514.55772-6-miko.lenczewski@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] Add global CMA areas for few TI SoCs
+To: Jayesh Choudhary <j-choudhary@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <linux-kernel@vger.kernel.org>
+CC: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <kristo@kernel.org>, <u-kumar1@ti.com>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devarsht@ti.com>,
+        <afd@ti.com>
+References: <20250424084415.66457-1-j-choudhary@ti.com>
+Content-Language: en-US
+From: Brandon Brnich <b-brnich@ti.com>
+In-Reply-To: <20250424084415.66457-1-j-choudhary@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_071958_966242_79B91A06 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20250506_072026_217625_EF313F62 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,26 +88,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 28, 2025 at 03:35:16PM +0000, Mikołaj Lenczewski wrote:
-> For supporting BBM Level 2 for userspace mappings, we want to ensure
-> that the smmu also supports its own version of BBM Level 2. Luckily, the
-> smmu spec (IHI 0070G 3.21.1.3) is stricter than the aarch64 spec (DDI
-> 0487K.a D8.16.2), so already guarantees that no aborts are raised when
-> BBM level 2 is claimed.
-> 
-> Add the feature and testing for it under arm_smmu_sva_supported().
-> 
-> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
-> Reviewed-by: Robin Murphy <robin.murphy@arm.com>
-> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 3 +++
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 3 +++
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 4 ++++
->  3 files changed, 10 insertions(+)
+Hi Jayesh
 
-This looks fine to me but please note that it doesn't apply against
-mainline (v6.15-rc5).
+On 4/24/2025 3:44 AM, Jayesh Choudhary wrote:
+> Hello All,
+> 
+> Following AM62* platforms[0], this patches add global CMA reserve area for:
+> - J721S2-EVM (1056 MiB)
+> - J784S4-EVM (1920 MiB)
+> - AM68-SK (1008 MiB)
+> - AM69-SK (1904 MiB)
+> 
+> These SoCs does not have MMU and hence they require contiguous memory
+> pool to support various multimedia usecase.
 
-Will
+This series will break multimedia support in our tree if accepted. I 
+gave a similar response to Devarsh when trying to get CMA carveout 
+accepted for AM62p[0]. Essentially, Wave5 still does not have support 
+for 48 bit addressing in upstream, so memory allocation still needs to 
+happen in 32-bit range. Can we force the memory carveout in this region 
+using the alloc-ranges? Devarsh did this with AM62A[1].
+
+Best,
+Brandon
+
+[0]: 
+https://lore.kernel.org/all/20240614170409.zu4vaatdac4o6w2o@udba0500997/
+[1]: https://lore.kernel.org/all/20240613150902.2173582-3-devarsht@ti.com/
+
+> 
+> The calculation was done considering H264 codec requirements, dual-display
+> supported in each platforms and multicamera use-cases.
+> Additional buffer was kept for other peripheral s and to account for
+> fragmentation.
+> The breakdown is mentioned in each commit message.
+> 
+> [0]: https://lore.kernel.org/all/20240613150902.2173582-1-devarsht@ti.com/
+> 
+> Jayesh Choudhary (4):
+>    arm64: dts: ti: k3-j721s2-som-p0: Reserve 1056MiB of global CMA
+>    arm64: dts: ti: k3-j784s4-j742s2-evm-common: Reserve 1920MiB of global
+>      CMA
+>    arm64: dts: ti: k3-am68-sk-som: Reserve 1008MiB of global CMA
+>    arm64: dts: ti: k3-am69-sk: Reserve 1904MiB of global CMA
+> 
+>   arch/arm64/boot/dts/ti/k3-am68-sk-som.dtsi              | 8 ++++++++
+>   arch/arm64/boot/dts/ti/k3-am69-sk.dts                   | 8 ++++++++
+>   arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi            | 8 ++++++++
+>   arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi | 8 ++++++++
+>   4 files changed, 32 insertions(+)
+> 
+
 
