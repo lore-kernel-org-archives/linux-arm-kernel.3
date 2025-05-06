@@ -4,64 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2D11C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 23:36:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EDC6C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 23:36:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wYQJgp+YqSaqLX+Gu3RwL9L3fPGOWiBg+qdbYxy4gD4=; b=XFEfpIGhVyOzMJYpTsq0HlTgNl
-	HoR6nJx3oraIMsiJ0ebp4b27716C9Towld3jziNGQA5e2fkfJNjDOPR9qD/6GpWFv14UB18m4G8Kz
-	4owColLxPhaavQDxrLb/G6CZtamTqx50hUD7aCBm8jd4DlLJrOZxQC/cqIg4iC4PgOcny4UT/TLBm
-	8jDAYBcTlVy5pYmNCxHn2ZzEb1xlhgd7OAW/urBRaMg3nCy87mrvDWcqT7pUCxATK4hB+Jzt0N3Qa
-	aOpS6CV0ZSyN6655PAvTz1PKatBqWhomj5VxTr0SDbJz6KJNLK8MsP/IpuLV3Q/oJmEytX7FYGiWp
-	vC4TBV5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4JC8l81P6iJNM0tJD/eaDDrEbi1Tx6SIz3vdun4iYWc=; b=ZsTHQVVQ79WZlyMLb6MwGpWMKy
+	0UEV4T5PVyf9seQJXmwh/cpMsYryGdN1Xs1YuT6rcYNYsMf1cvRt3nM0vI2ncuPU3GyLD4DFP7cmj
+	fjnrw3JbuXtr3WjHP1CKQL80tpYF1Hds3RxfEbVRcbMQ9AC+OxFyNd2d2RKjOdiXllO/C1Jyd7bjD
+	ExpeJe3qAhoqwsbmtEje9kFU5BbFedm9x6PnCTUczV8JeU8m4OTpmLAOlU6lRbO7t45IEkTo9VNQi
+	DM4Q1vtUuuS5RurQuJtiM6cm3mLfVpASI0WWoI8rYc6beNx2lWtdMbgReDmNy8BNSC82PNtUVNmM5
+	JAkyxktg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCRpE-0000000DfoV-2Q4c;
-	Tue, 06 May 2025 23:35:48 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uCRpH-0000000Dfp1-04z5;
+	Tue, 06 May 2025 23:35:51 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCLJV-0000000ChaI-0pck;
-	Tue, 06 May 2025 16:38:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=wYQJgp+YqSaqLX+Gu3RwL9L3fPGOWiBg+qdbYxy4gD4=; b=MkWdMOIuXbNbPdrDqke9a8CvVo
-	fwO/8nDlAA/RjKLAZALusRdWlAl9ik7oOTCmbecFwcgrv0oWv83AS8M45iBVGiJr24zpGmhW5fS5o
-	CXc38odJNP/lT3uwlSPjgyobgDNHgLax6TUVtQpoAiNwThoVow/8RZSArpbx8QAb5GQ87u+3IEL/n
-	coWcj3MWcqc6Jpm6JQoA7BZNNut/P2yxcTZJo68Z/i6SZqAw+HgSLbf8u7JA+t/Wq0aoYNdMTmXgI
-	asGjoGOc8QZrq27HuZJBV6i/d6S/a2h24qfaHpOC6SpVZc21uxk8/kTvwqPnadiWVRZE1JChfNiZh
-	9qnhjVXg==;
-Received: from i53875a1d.versanet.de ([83.135.90.29] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uCLJM-00039w-FT; Tue, 06 May 2025 18:38:28 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Conor Dooley <conor@kernel.org>, John Clark <inindev@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-rockchip@lists.infradead.org, robh@kernel.org,
- krzysztof.kozlowski@linaro.org, conor+dt@kernel.org, jonas@kwiboo.se,
- frattaroli.nicolas@gmail.com, andrew@lunn.ch
-Subject: Re: [PATCH v3 2/3] dt-bindings: arm: rockchip: Add Luckfox Omni3576 and
- Core3576 bindings
-Date: Tue, 06 May 2025 18:38:27 +0200
-Message-ID: <5007332.31r3eYUQgx@diego>
-In-Reply-To: <c8114ff8-f207-4ea8-aaf1-298dcea9f030@gmail.com>
-References: <20250506114115.613616-1-inindev@gmail.com>
- <20250506-almighty-uncork-f7a0bc42d763@spud>
- <c8114ff8-f207-4ea8-aaf1-298dcea9f030@gmail.com>
+	id 1uCLOr-0000000CiH5-2Z3a
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 May 2025 16:44:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D3542A4D6D1;
+	Tue,  6 May 2025 16:44:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7981EC4CEEF;
+	Tue,  6 May 2025 16:44:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746549848;
+	bh=7rmlahxvrrcBUJj2BNZYzM8TAD9zkT+yMcWCWUUIIbk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=TTR9RvPvNbOy8+HAAOz/7GNmZXgcreQYXY83kxqDUZpqmqPjvZZufQ3Zax4Kk1IQ2
+	 XeEsklCVw9lmkshrSLAvXZ1bo/zEppFMcXBJKFgSM080ShqO3pc7j0dt3enIQNy3+9
+	 P2/ju0CWdaF6LBvlk8l56m5HQo1xxQGQ5LynBdrr2zyHE2wYIAz/xuP8iloaFfNdfI
+	 YVsJJ+vwteuPGl/EOmsu2v50dodlYOcXwSXdi3aJz6Vx/Hgxfwiy4QQ1kqji9O6I1I
+	 UOzERd+7wNeO1SvNTrsBfPbHJz0E0GK5rfGgMqi4HlihaK2FmoD7zcpBooADb+uxBx
+	 ISqmr+1VCse/w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uCLOo-00CJkN-J4;
+	Tue, 06 May 2025 17:44:06 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>
+Subject: [PATCH v4 03/43] arm64: sysreg: Add layout for HCR_EL2
+Date: Tue,  6 May 2025 17:43:08 +0100
+Message-Id: <20250506164348.346001-4-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250506164348.346001-1-maz@kernel.org>
+References: <20250506164348.346001-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, mark.rutland@arm.com, tabba@google.com, will@kernel.org, catalin.marinas@arm.com, ben.horgan@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_093837_255364_F415C68C 
-X-CRM114-Status: GOOD (  21.77  )
+X-CRM114-CacheID: sfid-20250506_094409_782098_3A7DA11D 
+X-CRM114-Status: GOOD (  13.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,73 +90,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi John,
+Add HCR_EL2 to the sysreg file, more or less directly generated
+from the JSON file.
 
-Am Dienstag, 6. Mai 2025, 17:54:10 Mitteleurop=C3=A4ische Sommerzeit schrie=
-b John Clark:
-> On 5/6/25 11:44 AM, Conor Dooley wrote:
-> > On Tue, May 06, 2025 at 07:41:14AM -0400, John Clark wrote:
-> >> Add device tree binding for the Luckfox Omni3576 Carrier Board with
-> >> Core3576 Module, based on the Rockchip RK3576 SoC.
-> >>
-> >> Signed-off-by: John Clark <inindev@gmail.com>
-> >> ---
-> >>   Documentation/devicetree/bindings/arm/rockchip.yaml | 10 ++++++++++
-> >>   1 file changed, 10 insertions(+)
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Doc=
-umentation/devicetree/bindings/arm/rockchip.yaml
-> >> index 455fbb290b77..826dede32145 100644
-> >> --- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-> >> +++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-> >> @@ -715,6 +715,16 @@ properties:
-> >>             - const: lckfb,tspi-rk3566
-> >>             - const: rockchip,rk3566
-> >>  =20
-> >> +      - description: Luckfox Core3576 Module
-> >> +        items:
-> >> +          - const: luckfox,core3576
-> >> +          - const: rockchip,rk3576
-> >> +
-> >> +      - description: Luckfox Omni3576 Carrier Board
-> >> +        items:
-> >> +          - const: luckfox,omni3576
-> >> +          - const: rockchip,rk3576
-> >=20
-> > Not sure this is correct, does the module not have to be attached to
-> > this particular carrier to be used?
->=20
-> The compute module and the carrier board together like the E25.=20
-> Presumably the compute module would be used in other applications
-> but the carrier board is not useful without it.
->=20
-> Is the E25 done correctly here?  I can copy this format:
+Since the generated names significantly differ from the existing
+naming, express the old names in terms of the new one. One day, we'll
+fix this mess, but I'm not in any hurry.
 
-=46or the baseboard + module you should always have one of those
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/include/asm/kvm_arm.h | 125 ++++++++++++++++---------------
+ arch/arm64/tools/sysreg          |  68 +++++++++++++++++
+ 2 files changed, 132 insertions(+), 61 deletions(-)
 
-> >> +      - description: Luckfox Core3576 Module
-> >> +        items:
-> >> +          - const: luckfox,core3576
-> >> +          - const: rockchip,rk3576
-> >> +
-
-      - description: Luckfox Core3576 based boards
-        items:
-          - enum:
-              - luckfox,omni3576
-          - const: luckfox,core3576
-          - const: rockchip,rk3576
-
-I've looked at the product page [0] now and the Core3576 module itself
-can't work independently without a baseboard present, so the above should
-be enough, and also allows for possible future other baseboards to be
-integrated.
-
-
-Heiko
-
-
-[0] https://www.luckfox.com/EN-Core3576
-
+diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+index 974d72b5905b8..f36d067967c33 100644
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -12,67 +12,70 @@
+ #include <asm/sysreg.h>
+ #include <asm/types.h>
+ 
+-/* Hyp Configuration Register (HCR) bits */
+-
+-#define HCR_TID5	(UL(1) << 58)
+-#define HCR_DCT		(UL(1) << 57)
+-#define HCR_ATA_SHIFT	56
+-#define HCR_ATA		(UL(1) << HCR_ATA_SHIFT)
+-#define HCR_TTLBOS	(UL(1) << 55)
+-#define HCR_TTLBIS	(UL(1) << 54)
+-#define HCR_ENSCXT	(UL(1) << 53)
+-#define HCR_TOCU	(UL(1) << 52)
+-#define HCR_AMVOFFEN	(UL(1) << 51)
+-#define HCR_TICAB	(UL(1) << 50)
+-#define HCR_TID4	(UL(1) << 49)
+-#define HCR_FIEN	(UL(1) << 47)
+-#define HCR_FWB		(UL(1) << 46)
+-#define HCR_NV2		(UL(1) << 45)
+-#define HCR_AT		(UL(1) << 44)
+-#define HCR_NV1		(UL(1) << 43)
+-#define HCR_NV		(UL(1) << 42)
+-#define HCR_API		(UL(1) << 41)
+-#define HCR_APK		(UL(1) << 40)
+-#define HCR_TEA		(UL(1) << 37)
+-#define HCR_TERR	(UL(1) << 36)
+-#define HCR_TLOR	(UL(1) << 35)
+-#define HCR_E2H		(UL(1) << 34)
+-#define HCR_ID		(UL(1) << 33)
+-#define HCR_CD		(UL(1) << 32)
+-#define HCR_RW_SHIFT	31
+-#define HCR_RW		(UL(1) << HCR_RW_SHIFT)
+-#define HCR_TRVM	(UL(1) << 30)
+-#define HCR_HCD		(UL(1) << 29)
+-#define HCR_TDZ		(UL(1) << 28)
+-#define HCR_TGE		(UL(1) << 27)
+-#define HCR_TVM		(UL(1) << 26)
+-#define HCR_TTLB	(UL(1) << 25)
+-#define HCR_TPU		(UL(1) << 24)
+-#define HCR_TPC		(UL(1) << 23) /* HCR_TPCP if FEAT_DPB */
+-#define HCR_TSW		(UL(1) << 22)
+-#define HCR_TACR	(UL(1) << 21)
+-#define HCR_TIDCP	(UL(1) << 20)
+-#define HCR_TSC		(UL(1) << 19)
+-#define HCR_TID3	(UL(1) << 18)
+-#define HCR_TID2	(UL(1) << 17)
+-#define HCR_TID1	(UL(1) << 16)
+-#define HCR_TID0	(UL(1) << 15)
+-#define HCR_TWE		(UL(1) << 14)
+-#define HCR_TWI		(UL(1) << 13)
+-#define HCR_DC		(UL(1) << 12)
+-#define HCR_BSU		(3 << 10)
+-#define HCR_BSU_IS	(UL(1) << 10)
+-#define HCR_FB		(UL(1) << 9)
+-#define HCR_VSE		(UL(1) << 8)
+-#define HCR_VI		(UL(1) << 7)
+-#define HCR_VF		(UL(1) << 6)
+-#define HCR_AMO		(UL(1) << 5)
+-#define HCR_IMO		(UL(1) << 4)
+-#define HCR_FMO		(UL(1) << 3)
+-#define HCR_PTW		(UL(1) << 2)
+-#define HCR_SWIO	(UL(1) << 1)
+-#define HCR_VM		(UL(1) << 0)
+-#define HCR_RES0	((UL(1) << 48) | (UL(1) << 39))
++/*
++ * Because I'm terribly lazy and that repainting the whole of the KVM
++ * code with the proper names is a pain, use a helper to map the names
++ * inherited from AArch32 with the new fancy nomenclature. One day...
++ */
++#define	__HCR(x)	HCR_EL2_##x
++
++#define HCR_TID5	__HCR(TID5)
++#define HCR_DCT		__HCR(DCT)
++#define HCR_ATA_SHIFT	__HCR(ATA_SHIFT)
++#define HCR_ATA		__HCR(ATA)
++#define HCR_TTLBOS	__HCR(TTLBOS)
++#define HCR_TTLBIS	__HCR(TTLBIS)
++#define HCR_ENSCXT	__HCR(EnSCXT)
++#define HCR_TOCU	__HCR(TOCU)
++#define HCR_AMVOFFEN	__HCR(AMVOFFEN)
++#define HCR_TICAB	__HCR(TICAB)
++#define HCR_TID4	__HCR(TID4)
++#define HCR_FIEN	__HCR(FIEN)
++#define HCR_FWB		__HCR(FWB)
++#define HCR_NV2		__HCR(NV2)
++#define HCR_AT		__HCR(AT)
++#define HCR_NV1		__HCR(NV1)
++#define HCR_NV		__HCR(NV)
++#define HCR_API		__HCR(API)
++#define HCR_APK		__HCR(APK)
++#define HCR_TEA		__HCR(TEA)
++#define HCR_TERR	__HCR(TERR)
++#define HCR_TLOR	__HCR(TLOR)
++#define HCR_E2H		__HCR(E2H)
++#define HCR_ID		__HCR(ID)
++#define HCR_CD		__HCR(CD)
++#define HCR_RW		__HCR(RW)
++#define HCR_TRVM	__HCR(TRVM)
++#define HCR_HCD		__HCR(HCD)
++#define HCR_TDZ		__HCR(TDZ)
++#define HCR_TGE		__HCR(TGE)
++#define HCR_TVM		__HCR(TVM)
++#define HCR_TTLB	__HCR(TTLB)
++#define HCR_TPU		__HCR(TPU)
++#define HCR_TPC		__HCR(TPCP)
++#define HCR_TSW		__HCR(TSW)
++#define HCR_TACR	__HCR(TACR)
++#define HCR_TIDCP	__HCR(TIDCP)
++#define HCR_TSC		__HCR(TSC)
++#define HCR_TID3	__HCR(TID3)
++#define HCR_TID2	__HCR(TID2)
++#define HCR_TID1	__HCR(TID1)
++#define HCR_TID0	__HCR(TID0)
++#define HCR_TWE		__HCR(TWE)
++#define HCR_TWI		__HCR(TWI)
++#define HCR_DC		__HCR(DC)
++#define HCR_BSU		__HCR(BSU)
++#define HCR_BSU_IS	__HCR(BSU_IS)
++#define HCR_FB		__HCR(FB)
++#define HCR_VSE		__HCR(VSE)
++#define HCR_VI		__HCR(VI)
++#define HCR_VF		__HCR(VF)
++#define HCR_AMO		__HCR(AMO)
++#define HCR_IMO		__HCR(IMO)
++#define HCR_FMO		__HCR(FMO)
++#define HCR_PTW		__HCR(PTW)
++#define HCR_SWIO	__HCR(SWIO)
++#define HCR_VM		__HCR(VM)
+ 
+ /*
+  * The bits we set in HCR:
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index fce8328c7c00b..7f39c8f7f036d 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -2531,6 +2531,74 @@ Field	1	AFSR1_EL1
+ Field	0	AFSR0_EL1
+ EndSysregFields
+ 
++Sysreg	HCR_EL2		3	4	1	1	0
++Field	63:60	TWEDEL
++Field	59	TWEDEn
++Field	58	TID5
++Field	57	DCT
++Field	56	ATA
++Field	55	TTLBOS
++Field	54	TTLBIS
++Field	53	EnSCXT
++Field	52	TOCU
++Field	51	AMVOFFEN
++Field	50	TICAB
++Field	49	TID4
++Field	48	GPF
++Field	47	FIEN
++Field	46	FWB
++Field	45	NV2
++Field	44	AT
++Field	43	NV1
++Field	42	NV
++Field	41	API
++Field	40	APK
++Field	39	TME
++Field	38	MIOCNCE
++Field	37	TEA
++Field	36	TERR
++Field	35	TLOR
++Field	34	E2H
++Field	33	ID
++Field	32	CD
++Field	31	RW
++Field	30	TRVM
++Field	29	HCD
++Field	28	TDZ
++Field	27	TGE
++Field	26	TVM
++Field	25	TTLB
++Field	24	TPU
++Field	23	TPCP
++Field	22	TSW
++Field	21	TACR
++Field	20	TIDCP
++Field	19	TSC
++Field	18	TID3
++Field	17	TID2
++Field	16	TID1
++Field	15	TID0
++Field	14	TWE
++Field	13	TWI
++Field	12	DC
++UnsignedEnum	11:10	BSU
++	0b00	NONE
++	0b01	IS
++	0b10	OS
++	0b11	FS
++EndEnum
++Field	9	FB
++Field	8	VSE
++Field	7	VI
++Field	6	VF
++Field	5	AMO
++Field	4	IMO
++Field	3	FMO
++Field	2	PTW
++Field	1	SWIO
++Field	0	VM
++EndSysreg
++
+ Sysreg MDCR_EL2		3	4	1	1	1
+ Res0	63:51
+ Field	50	EnSTEPOP
+-- 
+2.39.2
 
 
