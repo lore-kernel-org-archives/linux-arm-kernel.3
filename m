@@ -4,199 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2628AC3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 13:27:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E76B0C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 13:29:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qT/R22UrU9WtOegr6kZ1JQpcjdw/tJ/+P+dXTPkOcco=; b=SZO+VXwtiaxq58j1UQwXAyfdQv
-	bnjak4q3EymCZGLZEDI2CJgR4hZVFQ9uh4qQnSWak2XHpZnwgg/P6527bf/uUqn0UUquSFrfneTs6
-	h7HG+G2YLsZFloy2Dn3lf9dxO1bkqZe7ZSQPr53xP/xqjOra0t7ad+m+/OIVzi54hs9EQCYpMWq2x
-	8IMiRvC0FmPZpRQF1WAjdkoCedGq8Prc1cYgIX8JvrnJ56xjV0k5OjzWcah331QUIjJn1ZGTI/2aP
-	tEsV6ZCjb+G7C3R0B+yJryrYz3GaRT7gYF7+CrR8Eku3I2Pv3C9zKn/i5ny0WBiuZBNAsMLtfNVZP
-	Vi7IifqA==;
+	bh=xoo6sbESeyMu4C1VAqN+/dYdjb4WLdeB4YQBhu0GSeE=; b=n+0/DnpFk3bATuzxCiOByA421u
+	zIlt7nHdibc4WqwhFw8BCJMu2v2wD/psoKvWUNT8b5ptO5XShaZJdQ4HyKLzTXPYZp4KB31pXazt+
+	9EOudSkMWUbrpDiz24IFPGhwpEFswYVGvaPX3iRdv4lyhOpaBeFcCwssvF7bVeVFTon53MYkmcsZ5
+	YJvaDWIXWqJoJWcWWHid0djkaPGs2UU+QKQx7tNZ+rEJQTQdJjCkZcnWSk2fdQxFtpXPZ6GdwSsT4
+	d2KecJRozlfEic4t/GnhcHeRVQG5fETQPzMiijfQYKXV1PxukJoPk4MFgmPHl98B6bB6+iA4QINyd
+	iT5pkopg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCIKm-0000000C6u2-2IC2;
-	Tue, 06 May 2025 13:27:44 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1uCIMh-0000000C7dz-2bnF;
+	Tue, 06 May 2025 13:29:43 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCFzt-0000000Be50-1cpO
+	id 1uCG6S-0000000Bf6q-2Ze8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 10:58:02 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=LApoV4VI9jU/3bDeWODtlCGA/kazqDDityHydEYC1weNRpNyV2QgVPSsMMqIP4FJHk461A9+q/TF+ADlniXh5vrfJ3fHb89XlX5+L5wMexyQR+5LTUUXwcixlBtD2Dv1V50EjMlMP0AvNnPMX0jSp8qvq6k3furGh5bJBtJB0sOXcHC0vrrTEe4SOand5BBjDsEC4xZxBDazErVLJhYpGc8P5U0vOB+/YOtsEiJUBrL6uzWRmweACWx0LalNJISrxbH0/WbLh2Dv/PtZs47rL2OTog3mkqoJ9l2cu99ESks7is2eBPqRaFM8pNYbCLhmll1kb6dT2RXd4IrP/M/Czg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qT/R22UrU9WtOegr6kZ1JQpcjdw/tJ/+P+dXTPkOcco=;
- b=xAFPC9NrLb1fackcUW1bjhvl/AKJ9WsIpTveBCeRHhDaiXyHEK8Xorlb65FCxQtUGeqlxHMmPstsAQzY+4hHxVS2LRYqVVcy0dhQMvpPF3PAwHLZvm5ZmApPHvEPp52kItJrI/H0Jv/EiaXKc31MPPI6yXK1qf+LkGm+Xy9lf5c9lalLUhS3LR/nlhl2TwD8/D+Ebtv/2t+og+wos118GXV2qiOvURRb2o96+2dXZVoZPCXlIMoUs5hsZfUR3kGKF0/Aibq9Miev+U7OSKW93LiALNbzZ/v3q0N0aAaPa62OMEiPo15ikJinWqMOrFVCUm6Smkzk7Vcaqtg70UlQfw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qT/R22UrU9WtOegr6kZ1JQpcjdw/tJ/+P+dXTPkOcco=;
- b=rrzZknUvaakyQxjBhjLHg8di+mAfFeVptHTMCQWdVpN4KZ3HKKLwqupFbm6ghtZiZ1HMHX63QgkGkJKXlLy8Ig7c69+qOFUdSmuCHNK9TKjtt2DA5eFLrtR4NcG85qNoKyVqX0MbVnsMXvVCBe9kmVwpPSj6TMU8m342Cb7uv/s=
-Received: from DU7P189CA0008.EURP189.PROD.OUTLOOK.COM (2603:10a6:10:552::10)
- by PAVPR08MB9082.eurprd08.prod.outlook.com (2603:10a6:102:32f::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.21; Tue, 6 May
- 2025 10:57:49 +0000
-Received: from DU6PEPF0000A7DE.eurprd02.prod.outlook.com
- (2603:10a6:10:552:cafe::98) by DU7P189CA0008.outlook.office365.com
- (2603:10a6:10:552::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.20 via Frontend Transport; Tue,
- 6 May 2025 10:57:49 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU6PEPF0000A7DE.mail.protection.outlook.com (10.167.8.38) with Microsoft SMTP
- Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.18 via
- Frontend Transport; Tue, 6 May 2025 10:57:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eKk4yGK5L6PNwkTLig2ySKfVO+/w9Nog8onhgRx+YOfz5oH7GfMRfzHYIOjOEaZmBaI5zEiZ0GRKxmtIWDC92u4SkFWOKWXHTbjYRdtlIwK9DASYwFue2qiDYnVNnztU0Si1VPtYtSnFiwFKOKpxa0DT419n6TJfBH0tw4QiLdZDSMWZGzUT/mYJ5Z6BJq0xn5gdIjeYF7w+WfZecdNL/0UlmcwUKjg25+INtsUfoHIUn+qdcwmfP8s17Yx4KkLLC4rXvSmwVICFhMx3iYlazYFhPTobHUCMelowjU3W+SaZHHaF3LclD24Qe+ajX3aPJfXNmWGZLiGeGzMGoIfEng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qT/R22UrU9WtOegr6kZ1JQpcjdw/tJ/+P+dXTPkOcco=;
- b=xEyRaqPPKNg/+iJEwLNBb6g6qc1Ie09STQ7wQJlkSqIBQTZxdElS2tfs9h73O4cdyp9F1nxGMYvZCqcXHh36Y9dLEbiWqzQ1yvBaQtydT+hFeIxRzCOgpVMsCy4pHG5lGwfJq6PEBOvCklsxYYBKui74Au1xg+iQ92NI5QJlO1UODenKz27KCFiJU+r7rA4FGaGc7h06WjymNtGViezJBfDbRCQFOSQEGMBt4aZlOmfgXT/lotYe1wo6hKSERCWka70d1s5UBVo9iikQX9d2t25DO+6/50MdnUAhlXHfDXFL7rRoUXn0quLxn6n9agqAdy8AZHiw+kcnryaTNBEJPQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qT/R22UrU9WtOegr6kZ1JQpcjdw/tJ/+P+dXTPkOcco=;
- b=rrzZknUvaakyQxjBhjLHg8di+mAfFeVptHTMCQWdVpN4KZ3HKKLwqupFbm6ghtZiZ1HMHX63QgkGkJKXlLy8Ig7c69+qOFUdSmuCHNK9TKjtt2DA5eFLrtR4NcG85qNoKyVqX0MbVnsMXvVCBe9kmVwpPSj6TMU8m342Cb7uv/s=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by DU0PR08MB9027.eurprd08.prod.outlook.com
- (2603:10a6:10:470::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.19; Tue, 6 May
- 2025 10:57:16 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%4]) with mapi id 15.20.8699.024; Tue, 6 May 2025
- 10:57:16 +0000
-Date: Tue, 6 May 2025 11:57:13 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
-	will@kernel.org, nathan@kernel.org, nick.desaulniers+lkml@gmail.com,
-	morbo@google.com, justinstitt@google.com, broonie@kernel.org,
-	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	shameerali.kolothum.thodi@huawei.com, james.morse@arm.com,
-	hardevsinh.palaniya@siliconsignals.io,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, stable@vger.kernel.org
-Subject: Re: [PATCH v2] arm64/cpufeature: annotate arm64_use_ng_mappings with
- ro_after_init to prevent wrong idmap generation
-Message-ID: <aBnrCXJWKh3O0Bai@e129823.arm.com>
-References: <174626735218.2189871.10298017577558632540.b4-ty@arm.com>
- <aBYkGJmfWDZHBEzp@arm.com>
- <aBZ7P3/dUfSjB0oV@e129823.arm.com>
- <aBkL-zUpbg7_gCEp@arm.com>
- <aBnDqvY5c6a3qQ4H@e129823.arm.com>
- <fbfded61-cfe2-4416-9098-ef39ef3e2b62@arm.com>
- <CAMj1kXFAYDeCgtPspQubkY688tcqwCMzCD+jEXb6Ea=9mBcdcQ@mail.gmail.com>
- <aa4241ce-02ea-4931-b60c-5ad0deba202d@arm.com>
- <aBno0C2RPQ2x8DG1@e129823.arm.com>
- <aBnpUqapTghz6E1R@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aBnpUqapTghz6E1R@arm.com>
-X-ClientProxiedBy: LO4P123CA0438.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:1a9::11) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Tue, 06 May 2025 11:04:50 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A24331048C2EF;
+	Tue,  6 May 2025 13:04:39 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1746529483; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=xoo6sbESeyMu4C1VAqN+/dYdjb4WLdeB4YQBhu0GSeE=;
+	b=EAAN14MyA20btevFZPvu6BMNnnlFaTyQAnW6z0GPRjzZk3Yi2rmN7FPCyS3PA2YvBQj3sl
+	FNhgRG9NVNpLKa+zBxYxtk+GbhVTaeScgVPKvzaRoM8/lYbWfq48kxtIijn92+jzPIPQiw
+	l8Ba8h9SsikRqx7ilXFTkrWNwrxmQkgXJJsTvkqt8iXiBEjUebFgo8lE6dqSf0EmESvUbF
+	cuOoIr0GteTs8hpT8shefM/KbYS8NHPRacoqlZW7Td93crdUK2o4dyjmO/6NJqB3PzqjYJ
+	3g0flqLo00vwJmk+yY/YB+O00BGgPi1JAIzGH04jBGJF+8NKlC7l/yjPPvkNCA==
+Date: Tue, 6 May 2025 13:04:38 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
+ <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>, Andrew Lunn
+ <andrew@lunn.ch>
+Subject: Re: [net-next v11 4/7] net: mtip: The L2 switch driver for imx287
+Message-ID: <20250506130438.149c137e@wsk>
+In-Reply-To: <61ebe754-d895-47cb-a4b2-bb2650b9ff7b@redhat.com>
+References: <20250504145538.3881294-1-lukma@denx.de>
+	<20250504145538.3881294-5-lukma@denx.de>
+	<61ebe754-d895-47cb-a4b2-bb2650b9ff7b@redhat.com>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DU0PR08MB9027:EE_|DU6PEPF0000A7DE:EE_|PAVPR08MB9082:EE_
-X-MS-Office365-Filtering-Correlation-Id: 462f0c0e-d778-4ff2-3542-08dd8c8cd76c
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?aPXpdLGIpV7RyuEU7m5SfwcJDqTIjpy0mT/PZR9N/OXz7amMAxozZ6GWFoLK?=
- =?us-ascii?Q?HgjKkedtA5mdR313is3Ytmiv6ieUTwV7OXyPqiBjgyiYVmy45RMkJvKI+83w?=
- =?us-ascii?Q?hkRVIASOJWpKC+q9J200HcCnUGy5lloU85gHc5Haat+iuuCmIlunqkkRx7or?=
- =?us-ascii?Q?xoEa7fRWFstbI2B8fg5q5CKN/fPmUJEgJEIksvDr0QJcmqH7TOYgu/n2VMsT?=
- =?us-ascii?Q?3k8WNJT1eedf6TNk32G8fD9o2uuiC58sOxBArRX9zZMNZojjW7fICtGCQH1D?=
- =?us-ascii?Q?O0leB+YF8l/Y3sXQTEwcfMCjy66WPZs2QQK8Lhjuae7rw/D9CvRrf+SgO3bw?=
- =?us-ascii?Q?WCczGFCUrLnmToQrdb+HUEWbv015VVh6XU3ckIs9VxVGjzOO8zLWg7WuKrUh?=
- =?us-ascii?Q?fgK/Fjg3H5dPq74/PeQhu1jcc+8ID34pLSdBTahssydngWVb4na5DD2P0fuw?=
- =?us-ascii?Q?DdY4NB/TLwn0G6FEni8JWxgn0W5N/ZgCTZAmUHdHL752rNSgSeAnToQgbm8B?=
- =?us-ascii?Q?fkwNexGmxvo+n0PcUMjKFfPn3A2gtMQ2gYOWSINmE/If0/KOZWVDJCgj80cW?=
- =?us-ascii?Q?NarQ8TLyK2iQzLLvNlckh7oEoZdvrcvhKBKnxLAHP89c15V9fcjMDoZ8/sC5?=
- =?us-ascii?Q?YH7itRkKySKQ7Q5QY3Af98xdpztUAT4ar6suaWTHuz59cs4UGbxfpVumbQ9w?=
- =?us-ascii?Q?br5PAesh6yNh1mQdjVxP9mTgdTHtSFYM8wywOFoEF0b6DDPFQdh8LoehPXEs?=
- =?us-ascii?Q?E8bCF2gC0XLMzvy3eIksDjc9Ce1t1ymifhVFFc0Ig/V//XcyNlhBzZq4AsKW?=
- =?us-ascii?Q?/u6zvJIppfvCvRNo1iqTu1XtO0NZV6+uMFm+RzE+NcxJSd1aOe1uVxueEJv7?=
- =?us-ascii?Q?i7HJm2PL+Lyjnsv58pyJbAT5WCxL+Esb3IEPJOaCY5N0kA5cL3gBhVSf6LIH?=
- =?us-ascii?Q?lIg2rvWC14HL0nZOs1sR/mNMA4YCyn+kkTGWg0abTfFClNh9fYfSlypEK1CX?=
- =?us-ascii?Q?I+SASAvxFZHAO65YxYuszCRa8SpZWn/+c/svGwYL5To6MD8l3YQVJw964UHN?=
- =?us-ascii?Q?AdYba8jW9RffoSS9kXDPemcCvQFO9DZ67WjLSA8NECOt0Ce0rTXxvLyxnu1z?=
- =?us-ascii?Q?XANQriQAZVysXPZkAjWlv8M1qphKnqDP5spvvssJWRF83sqxp+7TsbnfFlVe?=
- =?us-ascii?Q?mvK8pDzJ26F4lYo/MTr0D/zcGLT8XLGBXWxEgl0bCEd9bUuHhrqD0RGuO3SF?=
- =?us-ascii?Q?Jg3+EDn61DlxN+vfVuH/r/186alyywaKTzzkxMQCxJKJR4tL6bPdUD+XL/ny?=
- =?us-ascii?Q?plTKdSNa/LpAeom73xBbGcR1EkN+2FtPwUbCCnR9YnhZa8PWjwg4BV5VRjAB?=
- =?us-ascii?Q?1Obi508=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9027
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000A7DE.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: e81cd66c-72f2-4252-86cf-08dd8c8cc3c2
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|35042699022|82310400026|36860700013|7416014|376014|14060799003|13003099007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OE7I0ylA+xpB2Y8X8/jH3SnyH9SlGY0/WrCWfl6WVliuxdcSSqc0pOjvFh9B?=
- =?us-ascii?Q?MQdfBV/3v3fMEg8uSD1wWvw1fdbUTbrG9m8WAlEvCFOn4JHnzR2XXCyPGk61?=
- =?us-ascii?Q?6RDYQ/BsIlIi/IvFRIevZj3FVwnFlYtJtChrFXGhSWDlhRjMAEI+1gKHHkAv?=
- =?us-ascii?Q?xwhunAaWebi/QZK8Ru9Mb4oCzuopq78COt2a2gdbVgRuwQ6uJz50Pp4oSXEf?=
- =?us-ascii?Q?lkEL0SpQiz2phdNzlZG8UmeRhKkHnIisOZY++v4B43pmYuQuppNZt1y1O/u5?=
- =?us-ascii?Q?8cZtdbfRmGUKfwWIQd/r8Mb6ifJO0mFK29QrDdFbtGINGVcCHbl+r7kAe/6s?=
- =?us-ascii?Q?kchjad+clliiPw8DedNwGcLzk6ttKK9UQzQLxTmCqUm4Q/QFh3ZqaCctpXSK?=
- =?us-ascii?Q?5qaB+sx52FmVhNkdfSvf5dhcqilgVIrwWoHDuRxdvbsjEJs04kdnUvU1vLsV?=
- =?us-ascii?Q?rv3IJl/XYCzdMPvkAmd+XfvJT+zFLBew5yl5qpN1+qC6aSEynMFqVjOcvI8R?=
- =?us-ascii?Q?2BvCgK76+/LpqcrDuoYuu8HRA1u6l4KtQbUuFVdUdaBDUJgg3EAFopATdhh6?=
- =?us-ascii?Q?13EbtaaxpnXsE5/VBPEtq8eA5erBmUOO85FRdoAgxyxO8sb7r3ElqSQoI5eH?=
- =?us-ascii?Q?nqCmOjzHpJ5mPoSjCMCIp6yJnBcckvPX3sS/lw+ZewgWlEYpeAo+kwORyrc9?=
- =?us-ascii?Q?XugKojpHJ85gblqIUcSXeDncpRrBs9TO4Fv/Ka+yA2tfCWuV4AuwfiwISN+1?=
- =?us-ascii?Q?ExeYXr/8kRIZJvN4q2t9egIZKZhWHfffVKJzXAkROfKIAO33xjoSBTo1qJWY?=
- =?us-ascii?Q?+wOyz/4vY9CiQ7jKqODXWuluhl8CvGn3y610mTKICOHCsGb1tZMDeXvFWfBA?=
- =?us-ascii?Q?LXzeDXefGt9jsqVBMt11wftXs/64i+smTEqbmFHnD6gVMFTFiBQCvwrhR4jq?=
- =?us-ascii?Q?b5tb9iD7nvlTljO0gZkqcUOhb/5ceVxh3CNB4r47n50Uetu6WwTfYP7I9InS?=
- =?us-ascii?Q?Q7xk/1ePqTmmO5lA/U50ztIp7HwH/AIQAQnRux1C0n5Kv2PLXslUDGTu4Otb?=
- =?us-ascii?Q?me7Y4LcMx4+DgagkorRygEzXjBM16H2d/UcDTTcgP89koMSCk6PsZFO/Z8gJ?=
- =?us-ascii?Q?1X1wkiuOYGSVejFJ9LIe4bVVauhJILCemmkNoGC81yZmBluTs96sVBxbbYfj?=
- =?us-ascii?Q?May0XTUKwuMVAsWhwwYVtje+xO3Uj3b3FJQ+djZES4FXlbVKmamzKsFiH3DL?=
- =?us-ascii?Q?M7gmX1MwZqrhOWex4+MBrcJdTOn1LgLdQnVqUSqYHVINVNJCmsyZsd1s/jmw?=
- =?us-ascii?Q?KuUeZv4XrbUvN+xSeOTm/slWIlYC8kUalv0bPV4+dt/E8JJbhdaUkCEortzT?=
- =?us-ascii?Q?oPGgSgETp4qvkB6o5Ds3E1K+M7xQ+0FKBnaFYVodXMtB/9I4oYteUfoRUZWw?=
- =?us-ascii?Q?FzdWXRIbVA0anrcxDYVsa5+l+ekJ0f8M15ci+E2cpAJWpZ9OLuJ5uA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(35042699022)(82310400026)(36860700013)(7416014)(376014)(14060799003)(13003099007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 10:57:49.2965
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 462f0c0e-d778-4ff2-3542-08dd8c8cd76c
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7DE.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR08MB9082
+Content-Type: multipart/signed; boundary="Sig_/jzWygP56FGIH1XjAZKtG7zv";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_035801_588384_D4669CB0 
-X-CRM114-Status: GOOD (  22.27  )
+X-CRM114-CacheID: sfid-20250506_040448_964994_75E09BC7 
+X-CRM114-Status: GOOD (  27.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -211,94 +80,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Tue, May 06, 2025 at 11:47:44AM +0100, Yeoreum Yun wrote:
-> > > On 06/05/2025 10:41, Ard Biesheuvel wrote:
-> > > > On Tue, 6 May 2025 at 10:16, Ryan Roberts <ryan.roberts@arm.com> wrote:
-> > > >>
-> > > >> On 06/05/2025 09:09, Yeoreum Yun wrote:
-> > > >>> Hi Catalin,
-> > > >>>
-> > > >>>> On Sat, May 03, 2025 at 09:23:27PM +0100, Yeoreum Yun wrote:
-> > > >>>>> Hi Catalin,
-> > > >>>>>
-> > > >>>>>> On Sat, May 03, 2025 at 11:16:12AM +0100, Catalin Marinas wrote:
-> > > >>>>>>> On Fri, 02 May 2025 19:04:12 +0100, Yeoreum Yun wrote:
-> > > >>>>>>>> create_init_idmap() could be called before .bss section initialization
-> > > >>>>>>>> which is done in early_map_kernel().
-> > > >>>>>>>> Therefore, data/test_prot could be set incorrectly by PTE_MAYBE_NG macro.
-> > > >>>>>>>>
-> > > >>>>>>>> PTE_MAYBE_NG macro set NG bit according to value of "arm64_use_ng_mappings".
-> > > >>>>>>>> and this variable places in .bss section.
-> > > >>>>>>>>
-> > > >>>>>>>> [...]
-> > > >>>>>>>
-> > > >>>>>>> Applied to arm64 (for-next/fixes), with some slight tweaking of the
-> > > >>>>>>> comment, thanks!
-> > > >>>>>>>
-> > > >>>>>>> [1/1] arm64/cpufeature: annotate arm64_use_ng_mappings with ro_after_init to prevent wrong idmap generation
-> > > >>>>>>>       https://git.kernel.org/arm64/c/12657bcd1835
-> > > >>>>>>
-> > > >>>>>> I'm going to drop this for now. The kernel compiled with a clang 19.1.5
-> > > >>>>>> version I have around (Debian sid) fails to boot, gets stuck early on:
-> > > >>>>>>
-> > > >>>>>> $ clang --version
-> > > >>>>>> Debian clang version 19.1.5 (1)
-> > > >>>>>> Target: aarch64-unknown-linux-gnu
-> > > >>>>>> Thread model: posix
-> > > >>>>>> InstalledDir: /usr/lib/llvm-19/bin
-> > > >>>>>>
-> > > >>>>>> I didn't have time to investigate, disassemble etc. I'll have a look
-> > > >>>>>> next week.
-> > > >>>>>
-> > > >>>>> Just for your information.
-> > > >>>>> When I see the debian package, clang 19.1.5-1 doesn't supply anymore:
-> > > >>>>>  - https://ftp.debian.org/debian/pool/main/l/llvm-toolchain-19/
-> > > >>>>>
-> > > >>>>> and the default version for sid is below:
-> > > >>>>>
-> > > >>>>> $ clang-19 --version
-> > > >>>>> Debian clang version 19.1.7 (3)
-> > > >>>>> Target: aarch64-unknown-linux-gnu
-> > > >>>>> Thread model: posix
-> > > >>>>> InstalledDir: /usr/lib/llvm-19/bin
-> > > >>>>>
-> > > >>>>> When I tested with above version with arm64-linux's for-next/fixes
-> > > >>>>> including this patch. it works well.
-> > > >>>>
-> > > >>>> It doesn't seem to be toolchain related. It fails with gcc as well from
-> > > >>>> Debian stable but you'd need some older CPU (even if emulated, e.g.
-> > > >>>> qemu). It fails with Cortex-A72 (guest on Raspberry Pi 4) but not
-> > > >>>> Neoverse-N2. Also changing the annotation from __ro_after_init to
-> > > >>>> __read_mostly also works.
-> > > >>
-> > > >> I think this is likely because __ro_after_init is also "ro before init" - i.e.
-> > > >> if you try to write to it in the PI code an exception is generated due to it
-> > > >> being mapped RO. Looks like early_map_kernel() is writiing to it.
-> > > >>
-> > > >
-> > > > Indeed.
-> > > >
-> > > >> I've noticed a similar problem in the past and it would be nice to fix it so
-> > > >> that PI code maps __ro_after_init RW.
-> > > >>
-> > > >
-> > > > The issue is that the store occurs via the ID map, which only consists
-> > > > of one R-X and one RW- section. I'm not convinced that it's worth the
-> > > > hassle to relax this.
-> > > >
-> > > > If moving the variable to .data works, then let's just do that.
-> > >
-> > > Yeah, fair enough.
-> >
-> > Thanks.
-> > I've success to reproduce. and after check, Sending with this fix.
->
-> No need to resend, I modified it locally. Thanks.
->
+--Sig_/jzWygP56FGIH1XjAZKtG7zv
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-Thanks. and Sorry to all for making this because of my lack :\
+Hi Paolo,
+
+> On 5/4/25 4:55 PM, Lukasz Majewski wrote:
+> > +		/* This does 16 byte alignment, exactly what we
+> > need.
+> > +		 * The packet length includes FCS, but we don't
+> > want to
+> > +		 * include that when passing upstream as it messes
+> > up
+> > +		 * bridging applications.
+> > +		 */
+> > +		skb =3D netdev_alloc_skb(pndev, pkt_len +
+> > NET_IP_ALIGN);
+> > +		if (unlikely(!skb)) {
+> > +			dev_dbg(&fep->pdev->dev,
+> > +				"%s: Memory squeeze, dropping
+> > packet.\n",
+> > +				pndev->name);
+> > +			pndev->stats.rx_dropped++;
+> > +			goto err_mem;
+> > +		} else {
+> > +			skb_reserve(skb, NET_IP_ALIGN);
+> > +			skb_put(skb, pkt_len);      /* Make room */
+> > +			skb_copy_to_linear_data(skb, data,
+> > pkt_len);
+> > +			skb->protocol =3D eth_type_trans(skb, pndev);
+> > +			napi_gro_receive(&fep->napi, skb);
+> > +		}
+> > +
+> > +		bdp->cbd_bufaddr =3D dma_map_single(&fep->pdev->dev,
+> > data,
+> > +						  bdp->cbd_datlen,
+> > +						  DMA_FROM_DEVICE);
+> > +		if (unlikely(dma_mapping_error(&fep->pdev->dev,
+> > +					       bdp->cbd_bufaddr)))
+> > {
+> > +			dev_err(&fep->pdev->dev,
+> > +				"Failed to map descriptor rx
+> > buffer\n");
+> > +			pndev->stats.rx_errors++;
+> > +			pndev->stats.rx_dropped++;
+> > +			dev_kfree_skb_any(skb);
+> > +			goto err_mem;
+> > +		} =20
+>=20
+> This is doing the mapping and ev. dropping the skb _after_ pushing the
+> skb up the stack, you must attempt the mapping first.
+>=20
+> > +static void mtip_free_buffers(struct net_device *dev)
+> > +{
+> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
+> > +	struct switch_enet_private *fep =3D priv->fep;
+> > +	struct sk_buff *skb;
+> > +	struct cbd_t *bdp;
+> > +	int i;
+> > +
+> > +	bdp =3D fep->rx_bd_base;
+> > +	for (i =3D 0; i < RX_RING_SIZE; i++) {
+> > +		skb =3D fep->rx_skbuff[i];
+> > +
+> > +		if (bdp->cbd_bufaddr)
+> > +			dma_unmap_single(&fep->pdev->dev,
+> > bdp->cbd_bufaddr,
+> > +					 MTIP_SWITCH_RX_FRSIZE,
+> > +					 DMA_FROM_DEVICE);
+> > +		if (skb)
+> > +			dev_kfree_skb(skb); =20
+>=20
+> I suspect that on error paths mtip_free_buffers() can be invoked
+> multiple consecutive times with any successful allocation in between:
+> skb will be freed twice. Likely you need to clear fep->rx_skbuff[i]
+> here.
+
+I don't know what I shall say now.... really...=20
+
+>=20
+> Side note: this patch is way too big for a proper review: you need to
+> break it in multiple smaller ones, introducing the basic features
+> separately.
+>=20
+
+This code is a basic version of the driver as discussed on March with
+the community (Andrew).
+
+It provides the basic functionality - like separate ports support and
+then, if required, configures the IP block to perform L2 switching in
+HW.=20
+
+> Cheers,
+>=20
+> Paolo
+>=20
+
+
+
+
+Best regards,
+
+Lukasz Majewski
 
 --
-Sincerely,
-Yeoreum Yun
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/jzWygP56FGIH1XjAZKtG7zv
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmgZ7MYACgkQAR8vZIA0
+zr1SGgf/X4lTSbA5wV/GRygSxbZlIT0eA/yxbGzZMIHf7CmhmX20nnuSJN6B51s2
+pqBZzQ6lcB8krbIdDTFJ1/W4xeUTeW5SZSI2UCXt6IlimlLwN5NkV3R+QBKEYOuK
+bjHWjaafO8fSZtmvX67xuiSmBTtKDjLKGY95M0dIp+vahKvru1Fm/mwZL56xHQzR
+yBrMeVkjFTttMxkIHdbxXTL4LyCefczvGGIiEHMBb/o0UTZzk2bnPeUKVW23/zd+
+gUstiifHLosnY9DB/iIhR9kNCwHQGOwpp5VYWKSzG8fdU/ttDgmECQuAqMPncx0T
+KEKJrQEQUIUNYoZ/4C1nSAM0N6Oh3w==
+=NnK5
+-----END PGP SIGNATURE-----
+
+--Sig_/jzWygP56FGIH1XjAZKtG7zv--
 
