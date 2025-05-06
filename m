@@ -4,94 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DADEC3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 09:20:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB254C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 09:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=an+GqkMwWRiWls+VnBZYO7mRYXnOHnpY++0emr944SM=; b=yjIR0kriEzpcGFlzsZ5QiGF6N/
-	5QbYEqYxnEJ8VPI1BO477YcJ9RE9CaEoSsR1Kcq0N8Nj2gk4j+IHAAK+d2kY2VPZ2LmZ876iQlkUX
-	m99UkEcEjFJgamINvFNh3QHQD6vkVMqcxryy7O1c5A0Y0HI2LR83aKQxamR/C1YEuoA6HTrHr7+Mf
-	nfwDqAhcjA79XR+ZxBoLbMIj//ol/1Nul7LRBAfhyZZsVKBv4Z0t77lIbnJIzJbZjX5XvmTQy495d
-	tMel5hSRMZhlAA3iSjCwwpQV/nnK6WIVcT8yNrbAMgcVfP7aatgyuAQU5RPTfUw7jrKH83sAduPWH
-	8t+RwgTA==;
+	bh=3hvlZVFson57t3/jkjgd7DNP9CrsDWw/JGVHUYVHQz0=; b=I1S8Nww5RYJh8DCgNV1BEyuwAd
+	JRSah7YC7EOtYvWhBo6+9CKxPyrz7PCGvohvYhvwRRfcKI0DNMi30NAKpF6UQJbsZ+PWYRG2j00OM
+	AQn3uGq2OK/7aLg9UgRaYQyxpudX4Tbl2Yte69pB89b6B2oK4LmMZqWNp/v5ROWYCmcKLLy2t04Kv
+	8XKye8VunVisJslPxC+alVetQ126rIU4BcxM6uvwAD96+tJ2ZPKsmiTR2tNfQRmUWZdkPJK8kq4SY
+	B10tCW1OnxwM9xdehXku5Ojn9jzUo+Mbdr7pU85R85M0c16PzIZxU4aKl1OUjDrRD/x9E8vexDyc2
+	x5WetSKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCET5-0000000BKvB-3O3Z;
-	Tue, 06 May 2025 09:20:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uCEV0-0000000BLXr-0c52;
+	Tue, 06 May 2025 09:22:02 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCDnF-0000000BBkd-3bF1
+	id 1uCDph-0000000BBsd-2Yyr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 08:36:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B457860EDF;
-	Tue,  6 May 2025 08:36:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65BFFC4CEE4;
-	Tue,  6 May 2025 08:36:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746520607;
-	bh=9VOMYTlC6ALS5IdAgzBAWP1xvgjsjQLiqbJ2O0ZhVHc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=G2RqhqDT+gZcdaDr4WlZdP0vofL3oNiEIDADXbadpArkaiurY9O2NUT46rZO3n8HL
-	 jheqZY23TyYhxAdGoyvOBgunYrbJggEAmbLA6prLdruFjdxUVZK+Fdj4BLg+/be53X
-	 ljTpmaR8UBdsVD0pU8pxIlLg2i+N/VYk06hW7XmwZB8a7kC58GIBqOxd90gR3K15t4
-	 mZS8hULgWZ050J/nBHpd3DhBjt2ikA0BHa1pZbWQDcIkT/0j5oRrxDepWyb2lqQWk7
-	 wpKD8UXmWU7x5bd1cFOUj72v+j9pbH3QdzheDN1EVmX9M899aGKEM9buy6Yewu3pjJ
-	 UhkhI1czrIBAw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uCDnA-00C97H-GY;
-	Tue, 06 May 2025 09:36:45 +0100
-Date: Tue, 06 May 2025 09:36:44 +0100
-Message-ID: <86h61ygmoz.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Kees Cook <kees@kernel.org>
-Cc: Mostafa Saleh <smostafa@google.com>,
-	kvmarm@lists.linux.dev,
-	kasan-dev@googlegroups.com,
-	linux-hardening@vger.kernel.org,
-	linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Tue, 06 May 2025 08:39:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=3hvlZVFson57t3/jkjgd7DNP9CrsDWw/JGVHUYVHQz0=; b=CdQNHlNCfaFJOs//OjIoPGbRLF
+	eYIaLZX2TzkNdE7txCL1rw42XUcU3h9GktlcJ+7Gm1OamfQttnzW5ZEDF+b9qfU2YWZ+NrD1/6cHp
+	PiOxzYWCmdJL33gZ+EtuTTRmZCp9AogcxglGBGV99ugdcnJYL7G7v9bZ8FQM+fxNakrTgPhTWxmfW
+	XUIogU0ixol87CShSu6Lx8OYXO9qFg5rok3Pcil2K+Y95ccpXzfB6x5K2uiWHJTw6k3seQ7hqzIzq
+	680DXTZ0fQ+doPEHILF2TvuTbeKeEgGRd6HO//pD8UqeIshSpW0yHpeGnMJO9xKGg8HV9E95I40lg
+	YPmNnSLA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35116)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uCDnS-0005UW-0D;
+	Tue, 06 May 2025 09:37:02 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uCDnN-0004e7-2Q;
+	Tue, 06 May 2025 09:36:57 +0100
+Date: Tue, 6 May 2025 09:36:57 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, bpf@vger.kernel.org,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Jon Hunter <jonathanh@nvidia.com>,
 	linux-arm-kernel@lists.infradead.org,
-	will@kernel.org,
-	oliver.upton@linux.dev,
-	broonie@kernel.org,
-	catalin.marinas@arm.com,
-	tglx@linutronix.de,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	hpa@zytor.com,
-	elver@google.com,
-	andreyknvl@gmail.com,
-	ryabinin.a.a@gmail.com,
-	akpm@linux-foundation.org,
-	yuzenghui@huawei.com,
-	suzuki.poulose@arm.com,
-	joey.gouly@arm.com,
-	masahiroy@kernel.org,
-	nathan@kernel.org,
-	nicolas.schier@linux.dev
-Subject: Re: [PATCH v2 0/4] KVM: arm64: UBSAN at EL2
-In-Reply-To: <202504301131.3C1CBCA8@keescook>
-References: <20250430162713.1997569-1-smostafa@google.com>
-	<202504301131.3C1CBCA8@keescook>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kees@kernel.org, smostafa@google.com, kvmarm@lists.linux.dev, kasan-dev@googlegroups.com, linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, will@kernel.org, oliver.upton@linux.dev, broonie@kernel.org, catalin.marinas@arm.com, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, elver@google.com, andreyknvl@gmail.com, ryabinin.a.a@gmail.com, akpm@linux-foundation.org, yuzenghui@huawei.com, suzuki.poulose@arm.com, joey.gouly@arm.com, masahiroy@kernel.org, nathan@kernel.org, nicolas.schier@linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Thierry Reding <treding@nvidia.com>
+Subject: Re: [PATCH net-next v2 2/4] net: stmmac: call phylink_carrier_*() in
+ XDP functions
+Message-ID: <aBnKKafHHjkL5iP-@shell.armlinux.org.uk>
+References: <aBTKOBKnhoz3rrlQ@shell.armlinux.org.uk>
+ <E1uAqYC-002D3p-UO@rmk-PC.armlinux.org.uk>
+ <ed54d4e5-ecc3-4327-8739-3d41ca41211e@lunn.ch>
+ <aBUG6Z_Crs31W45x@shell.armlinux.org.uk>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aBUG6Z_Crs31W45x@shell.armlinux.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250506_013921_791833_13638105 
+X-CRM114-Status: GOOD (  45.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,32 +96,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Apr 2025 19:32:23 +0100,
-Kees Cook <kees@kernel.org> wrote:
-> 
-> On Wed, Apr 30, 2025 at 04:27:07PM +0000, Mostafa Saleh wrote:
-> > Many of the sanitizers the kernel supports are disabled when running
-> > in EL2 with nvhe/hvhe/proctected modes, some of those are easier
-> > (and makes more sense) to integrate than others.
-> > Last year, kCFI support was added in [1]
+On Fri, May 02, 2025 at 06:54:49PM +0100, Russell King (Oracle) wrote:
+> On Fri, May 02, 2025 at 05:29:21PM +0200, Andrew Lunn wrote:
+> > On Fri, May 02, 2025 at 02:35:36PM +0100, Russell King (Oracle) wrote:
+> > > Phylink does not permit drivers to mess with the netif carrier, as
+> > > this will de-synchronise phylink with the MAC driver. Moreover,
+> > > setting and clearing the TE and RE bits via stmmac_mac_set() in this
+> > > path is also wrong as the link may not be up.
+> > > 
+> > > Replace the netif_carrier_on(), netif_carrier_off() and
+> > > stmmac_mac_set() calls with the appropriate phylink_carrier_block() and
+> > > phylink_carrier_unblock() calls, thereby allowing phylink to manage the
+> > > netif carrier and TE/RE bits through the .mac_link_up() and
+> > > .mac_link_down() methods.
+> > > 
+> > > This change will have the side effect of printing link messages to
+> > > the kernel log, even though the physical link hasn't changed state.
+> > > This matches the carrier state that userspace sees, which has always
+> > > "bounced".
+> > > 
+> > > Note that RE should only be set after the DMA is ready to avoid the
+> > > receive FIFO between the MAC and DMA blocks overflowing, so
+> > > phylink_start() needs to be placed after DMA has been started.
+> > > 
+> > > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > > ---
+> > >  .../net/ethernet/stmicro/stmmac/stmmac_main.c | 20 +++++++++++--------
+> > >  1 file changed, 12 insertions(+), 8 deletions(-)
+> > > 
+> > > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > > index f59a2363f150..ac27ea679b23 100644
+> > > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > > @@ -6922,6 +6922,11 @@ void stmmac_xdp_release(struct net_device *dev)
+> > >  	/* Ensure tx function is not running */
+> > >  	netif_tx_disable(dev);
+> > >  
+> > > +	/* Take down the software link. stmmac_xdp_open() must be called after
+> > > +	 * this function to release this block.
+> > > +	 */
+> > > +	phylink_carrier_block(priv->phylink);
+> > > +
+> > >  	/* Disable NAPI process */
+> > >  	stmmac_disable_all_queues(priv);
+> > >  
+> > > @@ -6937,14 +6942,10 @@ void stmmac_xdp_release(struct net_device *dev)
+> > >  	/* Release and free the Rx/Tx resources */
+> > >  	free_dma_desc_resources(priv, &priv->dma_conf);
+> > >  
+> > > -	/* Disable the MAC Rx/Tx */
+> > > -	stmmac_mac_set(priv, priv->ioaddr, false);
+> > > -
+> > >  	/* set trans_start so we don't get spurious
+> > >  	 * watchdogs during reset
+> > >  	 */
+> > >  	netif_trans_update(dev);
+> > > -	netif_carrier_off(dev);
+> > >  }
+> > >  
 > > 
-> > This patchset adds support for UBSAN in EL2.
+> > >  int stmmac_xdp_open(struct net_device *dev)
+> > > @@ -7026,25 +7027,28 @@ int stmmac_xdp_open(struct net_device *dev)
+> > >  		hrtimer_setup(&tx_q->txtimer, stmmac_tx_timer, CLOCK_MONOTONIC, HRTIMER_MODE_REL);
+> > >  	}
+> > >  
+> > > -	/* Enable the MAC Rx/Tx */
+> > > -	stmmac_mac_set(priv, priv->ioaddr, true);
+> > > -
+> > >  	/* Start Rx & Tx DMA Channels */
+> > >  	stmmac_start_all_dma(priv);
+> > >  
+> > > +	/* Allow phylink to bring the software link back up.
+> > > +	 * stmmac_xdp_release() must have been called prior to this.
+> > > +	 */
+> > 
+> > This is counter intuitive. Why is release called before open?
 > 
-> This touches both UBSAN and arm64 -- I'm happy to land this via the
-> hardening tree, but I expect the arm64 folks would rather take it via
-> their tree. What would people like to have happen?
+> Indeed - and that should've been caught in the review where XDP was
+> being added.
+> 
+> > Looking into stmmac_xdp_set_prog() i think i get it. Even if there is
+> > not a running XDP prog, stmmac_xdp_release() is called, and then
+> > stmmac_xdp_open().
+> 
+> If there is a change of "do we have an XDP prog" state, then
+> stmmac_xdp_release() is called to free all the current contexts to
+> do with queue/descriptor management, and then stmmac_xdp_open() is
+> called thereafter. These are doing a subset of .ndo_open/.ndo_release
+> and I think that's where they're getting their naming from.
+> 
+> The only possible sequence is:
+> 
+> 	stmmac_open()
+> then, on each XDP prog addition or removal, but not replacement:
+> 		stmmac_xdp_release()
+> 		stmmac_xdp_open()
+> finally,
+> 	stmmac_release()
+> 
+> > Maybe these two functions need better names? prepare and commit?
+> 
+> Yes, it's all counter intuitive, and there are various things about the
+> XDP code that make it hard to follow.
+> 
+> For example, stmmac_xdp_set_prog() leads you to think, because of the
+> way the need_update variable is set, that looking for references to
+> xdp_prog would show one where all the dependents are, but no, there's
+> stmmac_xdp_is_enabled(), which is nice and readable, but could've
+> been used in stmmac_xdp_set_prog() to make it more obvious what to
+> grep for.
+> 
+> Incidentally, if stmmac_xdp_open() fails to re-grab the interrupts,
+> then it calls phylink_stop(), stmmac_hw_teardown(), and
+> free_dma_desc_resources().
+> 
+> If one then set the interface administratively down, stmmac_release()
+> gets called, which again calls phylink_stop(), free_dma_desc_resources()
+> and stmmac_release_ptp().
+> 
+> stmmac_release_ptp() disables/unprepares clk_ptp_ref, and unregisters
+> the PTP stuff. stmmac_hw_teardown() also disables/unprepares
+> clk_ptp_ref, so we probably unbalance the clk API in this case...
+> and probably much other stuff.
+> 
+> Calling free_dma_desc_resources() twice calls functios such as 
+> free_dma_tx_desc_resources() twice, and it looks like that's not going
+> to be healthy, calling dma_free_coherent() with the same arguments,
+> double-releasing memory. Same for kfree(). Probably same for the RX
+> stuff.
+> 
+> Basically, if one messes with XDP in this driver, expect things to go
+> bang and kill the kernel if something goes wrong with the whole
+> xdp_release+xdp_open dance.
+> 
+> Honestly, this needs a rewrite, but I currently know nowt about XDP.
+> 
+> So, I'd suggest that the names of these functions is the least of the
+> problems here.
 
-I don't mind either way, but in any case I'd like a stable branch with
-that code so that I can merge it if any conflict occurs in -next.
-
-Alternatively, I can take it via the kvmarm tree, and publish a stable
-branch for anyone to pick and resolve conflicts ahead of the merge
-window.
-
-Thanks,
-
-	M.
+Well, this series has been discarded from patchwork. Shrug. I won't be
+posting another version, stmmac can remain broken. I don't have a
+suggestion on better names for these functions.
 
 -- 
-Without deviation from the norm, progress is not possible.
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
