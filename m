@@ -4,213 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51AD6C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 18:38:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFD59C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 18:40:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BLq4IE3/QqJPSQhpASBqZIJS3GRdZfxuNxk5IFNbE58=; b=X4uGQFi3iwp0jFxU6QwsWLx+Ax
-	MJKdSmtt+umENQ0+hbLYZz4jCl4fpA6ZyZg2YK+7c5Q7YqIr0eCkDtpyXJ9kD+pCKyQ6t+BUoh+Xe
-	4XDAzXiMlTugGECZ9uuRrbFfuNj5HM4TMT1mPWUUxQgyTv95RPRpaSofvDKKJqWXCldVLhv6TkYe7
-	VKC9JJuceYYaX2G24d+oNetF8TWNT7oh7CaOJLwfXwihIfKQCwcej/C4Xp416n+B1/Qmtn2xfR7BI
-	KtyYUTCOruoN8vj924rJ0xWYuDqyaRFXgB3uDEsV6xG/Jsvaii7931IGqPWBL+obmx/u+TGPjFuN3
-	Zgz++jGQ==;
+	bh=aau7YqWsEeb911OjZYniYaHSJbV5fCN7mLCTSFNG6T4=; b=kLPp4dnkmUjeRuSdgPBhjfeV7O
+	Orwlce1A12FJMPasNx2X7Mq6yQ2+qqxtfMTmWb5DUqHGpzGOZG1MYWVhJQS5aXry+dHsHRG8LsdZ6
+	2TCtM8E91PDe7TBhBmVNZRczCYbTZMkzBvAM/xsTpfa/FBJTI4A1sjryAk31aesQD39ssX+WB2s3o
+	IzUQFJqdKDq5X4HWrotgoH4mGUoqaDYK5TrxnQmhN3w65OKNOowtsy3aBTm4pKud7rJlCcb7Q+gPa
+	p+cNBIgxvhKJOavjQZAOpcdo/SJRBw/wnCH8JiHAFk7+J9I8MDPGuv4c5Ki7puxGg78Ow8aPvvaq4
+	muuIBI3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCNAu-0000000D7t3-0NwD;
-	Tue, 06 May 2025 18:37:52 +0000
-Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1uCNCr-0000000D8R4-03lU;
+	Tue, 06 May 2025 18:39:53 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCJNP-0000000CL35-0O7e
+	id 1uCJZj-0000000CNVz-1kGi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 14:34:33 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=JWLZkGTB12cET9Kli2HgPQ5EeeIjEzD6QPekChdtMUFyQwx9Z8e5dWONKHviwNhM59qZSJNgWn614dgfWvS8KJL2slWAh5+r0bln0FPGdPpIUniT29aenkLUlGOSIvkMMf/vWRw4OBFsjzwAapR673kQ+3yBy+QCjsRgokmalh7fBEeuVWxppWWZF+2GjCxzML4zRov8SERSHb9HGPHE9u+RZj97BUUv/oeI7uxkF45QcWKJvLZ4wxTlJRuuwSLjU7WS1AO7XJyuB+JMURkFHFx42lTPuTJU8GsMq2ZjNSmD3SFdEgpznql98mKt1h1bpBU0cZxAiCb0N3j0Atnb9A==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BLq4IE3/QqJPSQhpASBqZIJS3GRdZfxuNxk5IFNbE58=;
- b=rKgYK0WePq1mhqJYHNUc9XR/WcVo56sIthKLmB0AQTgwE96/76iOSF0XiQkt2K7uvKczkjo4uuRqSkQLeBAmmA1PQ4/n6vxWsRcvKAEUc3DeXySwcsBfBh10LCjLlcwYK0ZKEJD1PViuc15oz5+NH+4wB6IU8XlQ3l4bSorckJAqKk4KhNRD6sjsR81FbKqwqfR6geipSQJKhn5HQxnq75bthz6viCuNItqHgLHbior6FZkt7CFuGKUWqgBcFRlLPiZwM1sdpr13L/iyZQMkkcnMsDNYZYMIe34hB8SWtIUozwQQjHtiVm5silS65yltpHeeB805zKVqsmjVutuO+g==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=google.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BLq4IE3/QqJPSQhpASBqZIJS3GRdZfxuNxk5IFNbE58=;
- b=DFu6G8denruH6T33OEsBOzvZdSjIg5IauDkeOX3TI7cCRTUVpnqAdWFKmIN4PWGoXC/GTWGXv9QgX+7DqfH0CQn+/YHa9nb/TxlRZw5Dvm5anGfP13dZeOHVQ9dsaO0/ABjwXLN0fyrFmEYEc6P59KqLWY2XHbKBJgu0iU7UFlU=
-Received: from DB9PR02CA0028.eurprd02.prod.outlook.com (2603:10a6:10:1d9::33)
- by PAWPR08MB9495.eurprd08.prod.outlook.com (2603:10a6:102:2eb::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Tue, 6 May
- 2025 14:34:25 +0000
-Received: from DB1PEPF000509E2.eurprd03.prod.outlook.com
- (2603:10a6:10:1d9:cafe::14) by DB9PR02CA0028.outlook.office365.com
- (2603:10a6:10:1d9::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8699.29 via Frontend Transport; Tue,
- 6 May 2025 14:34:25 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB1PEPF000509E2.mail.protection.outlook.com (10.167.242.52) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.18
- via Frontend Transport; Tue, 6 May 2025 14:34:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sGWFGRSy/mSIIrbvsx+RJ0pkKqlenzieOj3mjgWqhQwYTXdZYl/J97agaanSpSZvEPSbf2usYLzrKm2uZueESGwdsuhzB1UcHb/rMNw9oNyFgwcik/e6pxI9K+Pu+EHg3kMCoYKEAY7nOi1tNm68edM5LCDrdxL99gRTnTyaMxXWsr/xanw4doh6TXcsm0i+8Sh3Gln7dKt9E1zQVcBo4r52fLXOwvsybhFt4v9GTxbQ86XECm+SeT4NwG4sp2FjiCBF4iLTNRmJ2qtN6yjZrzaLC5Ci/6Se6DZ0FOf8LDMyPAjyYtVJhyxdPkUxdvWROe/CsHhfNmI473/yEPa2pA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BLq4IE3/QqJPSQhpASBqZIJS3GRdZfxuNxk5IFNbE58=;
- b=PkJIGkJZhUX2uoFP52UOy5Ty9hwF/gmJzm+gwunxO8QUPKjliOi+X01CrHrXaFdYY3UCOjYh6Uckrjq7Ybvb8K5mhqnBDZWPh9ILOyCPS8GBkpg9vF0KSVH3iZUogiuzjALNT17u1uQgqHi7lpUkyPgL55AfPOkRkPeWiBb9hbUGTtDgW7tPM73FtB8OviVAnKphQ8CveIT5xCOHy06sHaUTp6SEM3u8Hs9i607exZ012UuOEMXitKMQx/ImMEMLTZYC9ocpjv0ftEbNiGMkWxfYtUnmo9y5czz72K3jbTffPsQ9TMbd2YZpiKxa2ZshHic5lQNakzV5b9iWovnV6g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BLq4IE3/QqJPSQhpASBqZIJS3GRdZfxuNxk5IFNbE58=;
- b=DFu6G8denruH6T33OEsBOzvZdSjIg5IauDkeOX3TI7cCRTUVpnqAdWFKmIN4PWGoXC/GTWGXv9QgX+7DqfH0CQn+/YHa9nb/TxlRZw5Dvm5anGfP13dZeOHVQ9dsaO0/ABjwXLN0fyrFmEYEc6P59KqLWY2XHbKBJgu0iU7UFlU=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by DB9PR08MB9682.eurprd08.prod.outlook.com
- (2603:10a6:10:462::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.20; Tue, 6 May
- 2025 14:33:52 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%4]) with mapi id 15.20.8699.024; Tue, 6 May 2025
- 14:33:52 +0000
-Date: Tue, 6 May 2025 15:33:48 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Peter Collingbourne <pcc@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, will@kernel.org,
-	broonie@kernel.org, anshuman.khandual@arm.com, joey.gouly@arm.com,
-	yury.khrustalev@arm.com, maz@kernel.org, oliver.upton@linux.dev,
-	frederic@kernel.org, shmeerali.kolothum.thodi@huawei.com,
-	james.morse@arm.com, mark.rutland@arm.com, huangxiaojia2@huawei.com,
-	akpm@linux-foundation.org, surenb@google.com, robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, nd@arm.com
-Subject: Re: [PATCH v3 2/3] arm64/mm/fault: use original FAR_EL1 value when
- ARM64_MTE_FAR is supported
-Message-ID: <aBodzNRLzLK8shA+@e129823.arm.com>
-References: <20250410074721.947380-1-yeoreum.yun@arm.com>
- <20250410074721.947380-3-yeoreum.yun@arm.com>
- <aBT8BWqoljvcAU_w@arm.com>
- <CAMn1gO4Ft2R+_CN+XdTsO0YpUQZN7zShMSg-XT90U698Rnifjw@mail.gmail.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMn1gO4Ft2R+_CN+XdTsO0YpUQZN7zShMSg-XT90U698Rnifjw@mail.gmail.com>
-X-ClientProxiedBy: LNXP265CA0030.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:5c::18) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Tue, 06 May 2025 14:47:17 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZsLnp0cdTz6K5kv;
+	Tue,  6 May 2025 22:46:54 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 0994E14011D;
+	Tue,  6 May 2025 22:47:05 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 6 May
+ 2025 16:47:04 +0200
+Date: Tue, 6 May 2025 15:47:02 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, Joey
+ Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>, James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>, Leo Yan <leo.yan@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<kvmarm@lists.linux.dev>, Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v21 0/4] arm64/perf: Enable branch stack sampling
+Message-ID: <20250506154702.00002b57@huawei.com>
+In-Reply-To: <20250407-arm-brbe-v19-v21-0-ff187ff6c928@kernel.org>
+References: <20250407-arm-brbe-v19-v21-0-ff187ff6c928@kernel.org>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DB9PR08MB9682:EE_|DB1PEPF000509E2:EE_|PAWPR08MB9495:EE_
-X-MS-Office365-Filtering-Correlation-Id: 894db330-e52b-46ea-c211-08dd8cab19a5
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?YkpoL2pCM2RhMS8vNk0yYkZzbkRkMWQ3aVFLdHFrRk5iMjdmbjdFWGRqRWtr?=
- =?utf-8?B?NjB3WU9QRktxTjBjTGhObGkvRGFXOXNkVCtkUVUwaTNlZEsxbS8rQTY4eDdh?=
- =?utf-8?B?WVVsS1F6NGo4WWRBV0NnYzc1T1NIRUFsdXZZQzVIRkxJNldrc09HUkJCZkpZ?=
- =?utf-8?B?MmZUbGx1T2NaMXRINXNQcmVGVmdPcWFPU2dBVzZEcjN3a2VSdk9XaW5iTlJ4?=
- =?utf-8?B?LytQd0ZJSHc1L2syYmF3TjRvZVU1WHV6cGI2Wi9hdkpGbnZhVkN1d1Vna3Fx?=
- =?utf-8?B?SzJKQ1VTK3JNcngrdXVOT3BaU2pRSERLRnh4cnIxNVVsc1hNeHJiZk9wMnd6?=
- =?utf-8?B?NWFLUnJaYnpNYVMwY1NGR1NDelAwcHZzaGhHa2lCSWRsWjRacjBabEJIUVI5?=
- =?utf-8?B?TkErWFJkcUpNeDJYb1RheDMyQkM2c0pwUmhvaDZLNm02RncrdGdRL3FoNEN4?=
- =?utf-8?B?WnIwRlVRRG13SERwVmllakRzSG4zUjhxTW1tdTFwT2RITlNucmNON3RyK2JU?=
- =?utf-8?B?Z1NPRDliZTlZWkNxVkUyNFM0RTQ3K3FjWEVKVy94WXhCdERmdzdnaWtzQm5F?=
- =?utf-8?B?MW5IcVpkS09Va01ndFdIc2xtbnRQT0RXa2lXS1EzM2xjVVJaeUZ3TVJvd2V6?=
- =?utf-8?B?Q1N5MVNRRGZubnlXa2hmNW9RUkpQUXRZWWROVHVtVGQycXFjeCtTNDNsZDlD?=
- =?utf-8?B?dVFYRUJhVkxyWmtZdEpadHV2ZzhZMU1ZcTdaM1dIWVY1THFSejZwTEFibVdB?=
- =?utf-8?B?QmV6VktER0xvN05lRnFmclBvcXRweDdIL2EyMElIYWhtcGZRVndSWFZGMW9s?=
- =?utf-8?B?MktvMnRwZjB0Y0VodC9VVlh6MkM3Vzc4b0I4ZTVuVGZubFdjTVdiZDdWc3Vq?=
- =?utf-8?B?M0pNc3VyUEJwQnZHeDhLMmJnN25PSXg2Q1kxeHhZMkQ0MUptbjNsZVh4SXVx?=
- =?utf-8?B?dDJWSDlkc09MMnlXbGxlNWM0dlBYeGJMLy9tWGhzYXJ3VnUzd2NrMnhHYjBI?=
- =?utf-8?B?T1gvekVrOGpSRUpFT09QNFBSa0gwVkRYT3h1ekdqNVlyZzZEbDVOOEM1VFNT?=
- =?utf-8?B?Q1Z2UTdYVE92dm45Y2d6dG1RRjVxRjU0d1NxU0t6a2RhYWcxVWFNTkhhb0Jx?=
- =?utf-8?B?V2QxN2FYeW4xaml3RmF4TFBpQUd5U0hkU2VMc0JxSFNnWXdhSDVqMTNRM1M5?=
- =?utf-8?B?MnJIeFY0ZmExWFNmYWlRUVQ4cUZPMHNucEFPZmpLQWVZNVU3L05JRmxYeGdE?=
- =?utf-8?B?WmM1Q2VFNm82NFJWdUFsRndnTjlTU2x6bkVlblZUcTNnOEphZXhLVHdkeng0?=
- =?utf-8?B?ZS9RSmJWM2ZHaEkzZnZjR0puaE9RUXZGbDA0UkUySTM1dmJybFRUMmdHVmNJ?=
- =?utf-8?B?K2RUZk1Bb3RTN0l6cUVtRVlUeUNNWFhzcmV2NnZ1RUo1WVVpUWFiUzlaQU0w?=
- =?utf-8?B?UGh2REZvZjVmeGdhTFpnclhCRFFZY1hpMjBoVUxKUTNwR0Z6REFRdGd5UjJ3?=
- =?utf-8?B?N25IeFN1R0Y5dkVWcVZ1N2xGOUE1MjRaY043KzFJdHVPS2ZmYWhHQVhhVnEw?=
- =?utf-8?B?UWNOTWlwQ0Jkb25oZVFNbG05Z2tnMXhyelhPZ2VNT0o5aFo4S2oza2ZKd0dn?=
- =?utf-8?B?OXZYcG9JTlBlV3BVaElMTG9VNy85UVlRNkVpMkl5NXhoUVIxUmNoT3NTNVF2?=
- =?utf-8?B?ZHVjWmMxeWpMKzVsZ05VQThOUlNEa3RWeUhpR241WXBKVjFEdnhVdi8zOU81?=
- =?utf-8?B?S1kzMkMyQUlqc2J0YTYyZC9qODUxTmhCenBJd2JpUkxocUhxMjVSUktWdkMw?=
- =?utf-8?B?enl2UW5nRzExZ1UvZWozWG9HdHpxdm90SE1iT2lIY3ZhMG9qcXBqRXllV0lw?=
- =?utf-8?B?RnhybUZMV3lmZTNMK0F2bEl2aGYwNng1d3ZLYWNpQ3JRK2kyTm5GQ2FMcmF6?=
- =?utf-8?Q?/YHb1ZKBg8M=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB9682
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509E2.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 7823e60e-7290-4578-6d93-08dd8cab0596
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|7416014|14060799003|1800799024|35042699022|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?OXBoODJ0cnRocENtaHRLYk5LRVE2S2NxcjJEbk53RjUrVldkanRaYlpJSFZT?=
- =?utf-8?B?V1ZiU0p6OUwzU3d2a0hDeTlYNW5md1RCUjBJTkJkN01udWRDNVpxMElHeXE4?=
- =?utf-8?B?YkJZTGUwOHFHdWFmb2NESnhwTisvV281Zk4yVkorUHo3REU3YmZ2Q1VGTHAy?=
- =?utf-8?B?ZkV4Nm0zaUV2ZzJtbnI4eDJFNDVIeDhPSS9KaC91dWI3YjVETGRyLzhxYmVY?=
- =?utf-8?B?bHVjZm9Fa25rOU1sOUpSUUdPT1ZscGsyK3VFWWl1dWVxcjVUOVpSeVpQZXho?=
- =?utf-8?B?SU9xelV5eUdmQngwcHdldW5WSmJsUUdDN0thUzlVaTE2cmx0QVplT2hBRDBx?=
- =?utf-8?B?MGlMSzNMR2wvQjVEUHhxS3l3RlkzaFdKUHVGam9zUDBwWTZ1WnZRVnoxUHNL?=
- =?utf-8?B?UDNYRVROVDNKaGh6emJRM2hhS2ZET3h1anVtM1I3eUlrQStYems2bzBxak9P?=
- =?utf-8?B?TjU1VHg1NlR0UE16WE10dG5xc0dLVnBCODNwTi9YL3JCK3F3YjNlUkpidS96?=
- =?utf-8?B?T1lpbFpzY0lZUkx2YnI2N2lBWjZYNEpSRXhybTdodmxwcmxKRnFFZVdRTjVY?=
- =?utf-8?B?QnljZVBaWjVGM0g5UUU4N2FkU01GdUJGK3JLakY1U0l1ZllFMWpjQ2VCMVFk?=
- =?utf-8?B?N0hkSStnSS94ejZ3elpUVCs5blJRTVVJZmZMb2F3STUwZ1FtVVd1Z3VSVVpv?=
- =?utf-8?B?V1JrNVRPbU5UZGoyNktkNGpIcEQwNFQ5NHo4aTlkN3hTajZpSGxNTy9aT2ZJ?=
- =?utf-8?B?YmFQbVNaSUExNEdhYlpVMndwdnQyMjZZK2kwTGVnTk1qSHVtU3dUWmNNZ0ZH?=
- =?utf-8?B?ejluanZaY1F1YWZVU08vMkdXK2w5NXRjalloZW9VN29pYS95T3FXOVY5MjRx?=
- =?utf-8?B?Z3k3elhmVVdOSkd5d0xEWEY3RGlHU2FZeDVVblVwTVFxZnAyOHkvQXdMZGtl?=
- =?utf-8?B?TVVJMlZwdTJGMkUwdEFIQ1B6Q3JEYURwbVIwSjVub0Fxcjdvdk1YcmZITkhE?=
- =?utf-8?B?MHV2eVVSOXBEYnMwdzV5MHMrWjFMVHUrYUx4ajdaakkzK25OU2ZTQ0cwL0tZ?=
- =?utf-8?B?aEcvNGVNeVpTMVY2SzkwWnpBSVdRbHNpTHB0d2ZRZ3dNZXlsaWd3TytIT29K?=
- =?utf-8?B?VjJoY1BpZGExaWNSem9DWFNDeFQyNjQzbXoyWWM4aUNBZEJVK05wVXlZcXhs?=
- =?utf-8?B?bU81K2tLM0s0YWhOYjFNUXh4Y3dPekRWb05oYU1hRjYyTHRQZ1Rrd1BRNjBq?=
- =?utf-8?B?cmphNlJPbjJ3WlQyTjBxandMUUlHTGJ5SkhGQUc4V2xaeFdDbmRQbVpWdVY3?=
- =?utf-8?B?U2s1T0JWdi8xMThlQ0NHR3N6T3E4bmhuTUFrMkFZeWF2SS95L1U5bFJyREJr?=
- =?utf-8?B?V01uY21ZMzV5WHJCMms4Y01Ja2FVVFF3dVJGMThEbGtnWEtUQm9uMTlqbldX?=
- =?utf-8?B?MlZqOWN3TzFXMms4QXgzVHhPS3VUd0RkK3ZkTTJlRm84cklMdk5BR1ljSDJ3?=
- =?utf-8?B?RnZqWHNKOVU5ZDhmeS8vZ1Z2VGgvbnBMQUVXT2dzSWZPR3R0Qk94bTVwU1Jo?=
- =?utf-8?B?UDNJbDhINGo2TnIyTDRSVU1tOWlhOElsRFhMWERGMCtmcEo1cGFQdmMxYjIz?=
- =?utf-8?B?cVgxOGViWmprSlcyTWN3LzUxeXkzMDFjL3ZyZEVlRU1jSno2OXJMazc3eCtq?=
- =?utf-8?B?eVZjQ1RIdEFwUzhmbVJQUnZmZ05TbDRkcFM1UmVPUVMreGJ5a1dvUStDQVZm?=
- =?utf-8?B?OVZOanpDM2RpQU5qRkhtU1VyT1R2c01xeVA3NkJNeHNmRFF5WjUwSzdOTjBs?=
- =?utf-8?B?KzRMZFFxeUlTYmpVdzNTZU5hL2d0UmpBNG5OVVlLaUJkeDVJZWJKNjE3NnpH?=
- =?utf-8?B?dy9rRi80QlhiSVU5Qk9GOVR2dFlpa2ZIWmsxWkpXZ1I2Yk9RdDUwaGYyZzFS?=
- =?utf-8?B?L2xjZUJjZFUvS21Bbm5rbnRuYUdacXVVenBrN0paNysrbFNmNmFTcDR5bklv?=
- =?utf-8?B?UzJQODVXY2tDTG45MHdIY0ZJWVlxUi9zUnFkZENrekpiNm5zTndjVnBOL20w?=
- =?utf-8?Q?yJkA9R?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(7416014)(14060799003)(1800799024)(35042699022)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 14:34:25.3081
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 894db330-e52b-46ea-c211-08dd8cab19a5
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509E2.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB9495
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_073431_765343_106FB2FA 
-X-CRM114-Status: GOOD (  24.64  )
+X-CRM114-CacheID: sfid-20250506_074715_727564_2182D566 
+X-CRM114-Status: GOOD (  25.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -225,44 +77,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peter,
+On Mon, 07 Apr 2025 12:41:29 -0500
+"Rob Herring (Arm)" <robh@kernel.org> wrote:
 
-> On Fri, May 2, 2025 at 10:08 AM Catalin Marinas <catalin.marinas@arm.com> wrote:
-> >
-> > + Peter Collingbourne as he added the SA_EXPOSE_TAGBITS flag.
-> >
-> > On Thu, Apr 10, 2025 at 08:47:20AM +0100, Yeoreum Yun wrote:
-> > > Use the original FAR_EL1 value when an MTE tag check fault occurs,
-> > > if ARM64_MTE_FAR is supported.
-> > > This allows reports to include not only the logical tag (memory tag)
-> > > but also the address tag information.
-> > >
-> > > Applications that require this information should install a signal handler with
-> > > the SA_EXPOSE_TAGBITS flag.
-> > > While this introduces a minor ABI change,
-> > > most applications do not set this flag and therefore will not be affected.
-> >
-> > It is indeed a minor ABI in that a tag check fault resulting in a
-> > signal will report the bits 63:60 as well, not just 59:56 of the address
-> > (if the signal handler was registered with SA_EXPOSE_TAGBITS).
-> >
-> > I don't think user-space would notice but asking Peter.
->
-> On Android we don't set bits 63:60 on heap addresses when MTE is
-> enabled (and userspace programs aren't allowed to modify them in
-> addresses they get back from the heap allocator either) so the fault
-> handler should continue to see them as 0. Of course, a userspace
-> program could be breaking the rules and setting those bits anyway, but
-> in that case it looks like the only consequence would be that the
-> error reports from the heap allocator would sometimes be missing some
-> information (and this could already happen if the access results in a
-> non-MTE fault) which I think is acceptable.
->
-> Peter
+> This series enables perf branch stack sampling support on arm64 via a 
+> v9.2 arch feature called Branch Record Buffer Extension (BRBE). Details 
+> on BRBE can be found in the Arm ARM[1] chapter D18.
+> 
+> I've picked up this series from Anshuman. v19 and v20 versions have been 
+> reworked quite a bit by Mark and myself. The bulk of those changes are 
+> in patch 4.
+> 
+> A git branch is here[2].
+> 
+> [1] https://developer.arm.com/documentation/ddi0487/latest/
+> [2] git://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git arm/brbe-v21
 
-Thanks for your confirmation :)
+Hi Rob,
 
---
-Sincerely,
-Yeoreum Yun
+Expecting any changes on this?  Anything specific we can do to help then shout.
+
+We need to pull in the reworked version into openeuler that is carrying older
+code and would rather not do it more than once. 
+
+Jonathan
+
+> 
+> v21:
+> - Drop clean-up patches 1-7 already applied
+> - Rebase on v6.15-rc1
+> 
+> v20:
+>  - https://lore.kernel.org/r/20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org
+>  - Added back some of the arm64 specific exception types. The x86 IRQ 
+>    branches also include other exceptions like page faults. On arm64, we 
+>    can distinguish the exception types, so we do. Also, to better 
+>    align with x86, we convert 'call' branches which are user to kernel 
+>    to 'syscall'.
+>  - Only enable exceptions and exception returns if recording kernel
+>    branches (matching x86)
+>  - Drop requiring event and branch privileges to match
+>  - Add "branches" caps sysfs attribute like x86
+>  - Reword comment about FZP and MDCR_EL2.HPMN interaction
+>  - Rework BRBE invalidation to avoid invalidating in interrupt handler
+>    when no handled events capture the branch stack (i.e. when there are 
+>    multiple users).
+>  - Also clear BRBCR_ELx bits in brbe_disable(). This is for KVM nVHE 
+>    checks if BRBE is enabled.
+>  - Document that MDCR_EL3.SBRBE can be 0b01 also
+> 
+> v19:
+>  - https://lore.kernel.org/all/20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org/
+>  - Drop saving of branch records when task scheduled out (Mark). Make 
+>    sched_task() callback actually get called. Enabling requires a call 
+>    to perf_sched_cb_inc(). So the saving of branch records never 
+>    happened.
+>  - Got rid of added armpmu ops. All BRBE support is contained within 
+>    pmuv3 code.
+>  - Fix freeze on overflow for VHE
+>  - The cycle counter doesn't freeze BRBE on overflow, so avoid assigning
+>    it when BRBE is enabled.
+>  - Drop all the Arm specific exception branches. Not a clear need for
+>    them.
+>  - Fix handling of branch 'cycles' reading. CC field is
+>    mantissa/exponent, not an integer.
+>  - Rework s/w filtering to better match h/w filtering
+>  - Reject events with disjoint event filter and branch filter or with 
+>    exclude_host set
+>  - Dropped perf test patch which has been applied for 6.14
+>  - Dropped patch "KVM: arm64: Explicitly handle BRBE traps as UNDEFINED"
+>    which has been applied for 6.14
+> 
+> v18:
+>  - https://lore.kernel.org/all/20240613061731.3109448-1-anshuman.khandual@arm.com/
+> 
+> For v1-v17, see the above link. Not going to duplicate it all here...
+> 
+> Signed-off-by: "Rob Herring (Arm)" <robh@kernel.org>
+> ---
+> Anshuman Khandual (4):
+>       arm64/sysreg: Add BRBE registers and fields
+>       arm64: Handle BRBE booting requirements
+>       KVM: arm64: nvhe: Disable branch generation in nVHE guests
+>       perf: arm_pmuv3: Add support for the Branch Record Buffer Extension (BRBE)
+> 
+>  Documentation/arch/arm64/booting.rst |  21 +
+>  arch/arm64/include/asm/el2_setup.h   |  86 +++-
+>  arch/arm64/include/asm/kvm_host.h    |   2 +
+>  arch/arm64/include/asm/sysreg.h      |  17 +-
+>  arch/arm64/kvm/debug.c               |   4 +
+>  arch/arm64/kvm/hyp/nvhe/debug-sr.c   |  32 ++
+>  arch/arm64/kvm/hyp/nvhe/switch.c     |   2 +-
+>  arch/arm64/tools/sysreg              | 132 ++++++
+>  drivers/perf/Kconfig                 |  11 +
+>  drivers/perf/Makefile                |   1 +
+>  drivers/perf/arm_brbe.c              | 802 +++++++++++++++++++++++++++++++++++
+>  drivers/perf/arm_brbe.h              |  47 ++
+>  drivers/perf/arm_pmu.c               |  15 +-
+>  drivers/perf/arm_pmuv3.c             | 129 +++++-
+>  include/linux/perf/arm_pmu.h         |   8 +
+>  15 files changed, 1287 insertions(+), 22 deletions(-)
+> ---
+> base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+> change-id: 20250129-arm-brbe-v19-24d5d9e5e623
+> 
+> Best regards,
+
 
