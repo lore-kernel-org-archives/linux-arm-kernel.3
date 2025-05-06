@@ -4,87 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC648C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 16:07:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 132FAC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 16:09:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5KktmeAFh0iInvvBLcrYESanNohFTS/OHe3yXdSHV54=; b=QrmYHGm1Mdurw34XYjpTBh9CkO
-	17Mxw6e/pMNuviC4nV0vr+NO8ZZ0otuTU37CFUj5b8r4H4+YLhoWDbiLscu9hv68Gm6ARGWYdN46b
-	CUkzRAAF7JbO0ViWkp9nX0W3hfHhpPnNrc0BdcrIx42ELsQ4hQEWjjZeQuSGvBhhu3fiDUjqZzEnn
-	dHbh3cHQaqJUCaJTqahv/mJJguy9R96eVh/S9R7Anf8E0Ic6y8WuQzArjQkf56Nn8ZSkODSv17zJC
-	CuEAMrmQpTMslm5+K42qx1l1akPLCVy74tMSTLCV2xcku/dm52Q2bGwtaBi4g9ZqyR480qtemuUm/
-	hv8bfLgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=i7yG9YQOdfvwmvsNm0/fYdECrCTyZGn7Chc0k6oLu8A=; b=iox2pARtzy8rng
+	8uPoI2u6M5ATO6FYemu/ltDZih9PIw51ZUI0QpsE0u322EEdshHRm67WZZmsdxv3JFfE4ko+fVRCD
+	Kjq4vd64rw0ju7q8NszrAM+K46U4ZmZX1I94qTCEjGuuMQGoCsF9y19mONCIf37/cwmnKozEBdGvu
+	XHROAS5FiQSFZSJJD0zzFTMf0sC7n/4GyRTKIbrplS1TxjvCZEQMjjj6tBzhKCQ1X174aEf/qsM3G
+	ZCyQoQmmpX44WW9KfS5jh8aVfBuLISppCax5wwz0PC0hG97q6kBwmR5kCOlE02Mg+3oP+CAU/2NBf
+	K17KhTCvvtp9kus1mTCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCKp9-0000000CcT4-0lOO;
-	Tue, 06 May 2025 16:07:15 +0000
-Received: from mail-vk1-f177.google.com ([209.85.221.177])
+	id 1uCKr3-0000000CctA-3k5H;
+	Tue, 06 May 2025 16:09:13 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCHcu-0000000BxBG-0Re5
+	id 1uCHgu-0000000Bxef-1Zvs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 12:42:25 +0000
-Received: by mail-vk1-f177.google.com with SMTP id 71dfb90a1353d-5290be1aedcso4616110e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 05:42:23 -0700 (PDT)
+	Tue, 06 May 2025 12:46:33 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-7399838db7fso5780299b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 05:46:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746535591; x=1747140391; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=i7yG9YQOdfvwmvsNm0/fYdECrCTyZGn7Chc0k6oLu8A=;
+        b=PGqwrlziuXZWKQluNsKc7LesWKRfwD57Lj75yWdrb1XDwQyr2Y/OQW2nZ9twKJNdVg
+         Fs9iDRV1M1IV3pG0L18n4PCcoLq+v59EkagFRplNYWeZizqtV04NLRgeLQJGvDOjAvPB
+         sXGC9VsC+vLbbl+rczXdWn1xELoTbeFm3+NTscN4o5dh8VmnBT1aoWCS/bvIQWtFC1EG
+         lcIiyP6oWhuT3Jp6NbOHuQfPBugmfDpaeXjsTUb8tOwnOpYqGtWwHW0vxzwmqKvjLqUl
+         Aklkq9FlZX10XZV2L54tFKElFXMK7NpH4FiaJQ2zoTCLVHoCt8mwvM6vk69wpnfRRA3r
+         XzCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746535342; x=1747140142;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1746535591; x=1747140391;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=5KktmeAFh0iInvvBLcrYESanNohFTS/OHe3yXdSHV54=;
-        b=JynleIhCwO/UDC4wH2bTMutzDqUiWF8LwaNU03czZpLfIb4Jr41Pj34W/08/dw1MRG
-         5gFFy03uSsu9G0smYk5y4dILoskmwGr4/BNvAcEPR2Uc8IMc5E7hR6gT13CuXFJD84fO
-         qxgbhaelGdsEM7mU2vBjJDtKqEl+tMeG3UjlAkM2hh9Vs0B5Qdj5otfPWF4g7VK6yY+M
-         mxl1dGgGu46tbj3oyjCyRosUnpctcNOk4eICzYXvuIvKxbVevSt6Y+lGENcTsgnBSVYu
-         62MtAqF5IKJ8SdQ9xcCMTKmgPubZHkuvUpYaW+Rntd4MnC2ySMsuONZi+l+iSAn7Z0WF
-         LrIA==
-X-Forwarded-Encrypted: i=1; AJvYcCW0OIPRUlZ7g+ttbcEG5/jcPSckcetW3MpQce1jSKY9aMzNDs2KDeYfhZKmQ+5VjcnmqWm12b9ksOb70OQin3zu@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsYQkI7EHhAYqmi6/+kHdJKt2FfEs0YFKLM8cXEiDAHvDj4KD3
-	sXYKdBWr3h5n97L1qC6+8u/7ME4+wyhP2xzS6I3J8VqMM1p49Q+UKNIrVrW2
-X-Gm-Gg: ASbGncucDkQg4AyI5RKNhfGoJOnwQiJRJSF1bJKp0PrVxgccmNoyFiHvoRM62T1S5Ay
-	fqbfeLnLzt7k1veG4Rpiw/xacvoLKHSq7SOhe46RuBt1W0uUae/x7ejOowa/05Zbbn3U3+t3JqE
-	pCPEV8NoTHCRVpNxtdXGyB5Z8qNEvZGcUR4aIzNJW+1FK5ZTIHLYKx2imQ9rvRoPzwrM6u/UlRB
-	zw7x5RYEzsqnOdRGuoBAAInC3bPOnQ86eyccMhZ0Ngapbc1sdHWCVEOWXlNXgZ2eTN0B9PgaFN2
-	qBDRY2AZUsURf60/WJSMHdgJLEQYjqXE4xJ12SGXyi+eWTGuVnWnn4zuOVw9ywCWV1DkKBbrfvy
-	WFyGUNS8=
-X-Google-Smtp-Source: AGHT+IFkx6aC76OvwS+dQ8A6ij79HZHYFnUG/Bwdpmsj79byWSRFdwPxrnb3k8Ppw0fVZj1x5YWJXQ==
-X-Received: by 2002:a05:6122:44b:b0:523:eb47:2884 with SMTP id 71dfb90a1353d-52b2649a914mr1704676e0c.6.1746535342136;
-        Tue, 06 May 2025 05:42:22 -0700 (PDT)
-Received: from mail-vk1-f170.google.com (mail-vk1-f170.google.com. [209.85.221.170])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-52ae401e0a4sm1904185e0c.11.2025.05.06.05.42.21
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 May 2025 05:42:21 -0700 (PDT)
-Received: by mail-vk1-f170.google.com with SMTP id 71dfb90a1353d-5290be1aedcso4616095e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 05:42:21 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXr0zGk5NwFjEYpdoj/48l4k4G9SrB+rlL9YseL8JFWVxHApFNPO5nUmxbJeKRdL+qiJMEbaosqFUoHlJYzCS05@lists.infradead.org
-X-Received: by 2002:a05:6122:3663:b0:521:b3ee:4970 with SMTP id
- 71dfb90a1353d-52b2637e2edmr1645488e0c.2.1746535340941; Tue, 06 May 2025
- 05:42:20 -0700 (PDT)
+        bh=i7yG9YQOdfvwmvsNm0/fYdECrCTyZGn7Chc0k6oLu8A=;
+        b=UgJy8ECcg0rJFu+UgqgCmTilDhmISAprNT9pPs/bTFpRkL3PHdr85bWjzSswzoJorY
+         Q159FDcOIyQNIblyN0WZTNtumhYJ7/Kp6xMSf+ucS+gdaVyvbcCesmS4lrkt7heXNhJU
+         HWrfk+mn/eer3O1lVygaImd+/Fw8fP/8yuA2+/eSB27N0zC0bJA51Xu26AGadHQXhjmz
+         GVOEd7WvHIK83Auti00Xm2gmvOI43xz294dBJ4bsgx18ko3AQpzvxXh86mY43phEtZIm
+         VGW8dO2uuEQVsCxuln7fFGmvpVY318prfcWZw28kjDZkbUzaez9t7MuCyocanGMixHCJ
+         9zew==
+X-Forwarded-Encrypted: i=1; AJvYcCWewVH5gM97L7HCnIBN2RBdKW7LYBPbjdOcRYxRvdnmJVMnV83wfhsKmsCdpLiKCXZyy0S311I6mBAWd4gzwd/j@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw47hoaBud3YnCdGtvcmv935HMWlJjBDasx69HO3G8hJSpZ5ddm
+	FiUvGmwS3XQQpLD6JCH026H92VYxbJ6CCG6l12zGSeL+3YH9bqBM
+X-Gm-Gg: ASbGncs6MqtnQF+DypDxfO2EdIm+1OhZnep3MXCtfpKhroNUFoupv8frauT6eQ6h9EC
+	d0Yh4G7HCA1KzRSx7jXQBr0h9zwGrNRDZIa37SDO8enBNy4YwNiydyGXzOqhALnqxn4B+4gkw67
+	tYWvo8tSA0mIxNOKC6eShqZHAA5LYrRnBMnDdGJN6mUreItWmoZSOk+AoVC6F9MpDeTgMwE913P
+	DN3/iqcN/MpO+M6F275qR3voi3VJVMRv4ltjs+1muhK9VE2jr81UOAalVhEsPL8iUSB3RElD9n7
+	hi0EtRLb6t4pUCx/KUAG/QHqDreeiiO2hF9TsUs3T/ykQV8EsE4v
+X-Google-Smtp-Source: AGHT+IFCzOhbTau8gJyBHWzmXlS4OTxwPR5Z8ozr6pZ0CIZ/2xU6CL95Bj1nxXD6RsleXXRUFaLGDQ==
+X-Received: by 2002:a05:6a00:3908:b0:732:706c:c4ff with SMTP id d2e1a72fcca58-74090f149f9mr4498414b3a.7.1746535591468;
+        Tue, 06 May 2025 05:46:31 -0700 (PDT)
+Received: from NB-GIGA003.letovo.school ([5.194.95.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7405909cd89sm8756817b3a.169.2025.05.06.05.46.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 May 2025 05:46:31 -0700 (PDT)
+From: Alexey Charkov <alchark@gmail.com>
+Subject: [PATCH v2 0/5] irqchip/irq-vt8500: Cleanups and fixes for the
+ irq-vt8500 driver
+Date: Tue, 06 May 2025 16:46:13 +0400
+Message-Id: <20250506-vt8500-intc-updates-v2-0-a3a0606cf92d@gmail.com>
 MIME-Version: 1.0
-References: <20250506104731.111876-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <3a11ba8a-a9f4-4829-8bcd-56f1702bee8f@linaro.org>
-In-Reply-To: <3a11ba8a-a9f4-4829-8bcd-56f1702bee8f@linaro.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 6 May 2025 14:42:08 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWmvHZPwppQR5OxB7QB9NOWxRWoVkiMFS-6ScdYw=ywTg@mail.gmail.com>
-X-Gm-Features: ATxdqUHw7Q2NW_6-Xmvb7jxJeESiwPHSgjGO1YW2JZ65Esp2QlMbSSehpB67yV4
-Message-ID: <CAMuHMdWmvHZPwppQR5OxB7QB9NOWxRWoVkiMFS-6ScdYw=ywTg@mail.gmail.com>
-Subject: Re: [PATCH] arm64: defconfig: Build STMMAC Ethernet driver into the
- kernel for NFS boot
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Prabhakar <prabhakar.csengg@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Arnd Bergmann <arnd@arndb.de>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJUEGmgC/32NSw6CMBRFt0Le2Gf6BXHkPgyDUiq8RD5pa6Mh3
+ buVBTg8J7nn7hCcJxfgWu3gXaJA61JAnCqwk1lGhzQUBsGEZkooTPGiGUNaosXXNpjoAlpZKyO
+ 5kbVpoSw37x70Pqr3rvBEIa7+c5wk/rP/e4kjQ2X6RrYN17qXt3E29DzbdYYu5/wFZ3yUabYAA
+ AA=
+X-Change-ID: 20250424-vt8500-intc-updates-c364a31a36a9
+To: Thomas Gleixner <tglx@linutronix.de>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Alexey Charkov <alchark@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1746535586; l=1359;
+ i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
+ bh=2s8t2ILCxu6QR2p5gIlDfq3bNM/NU7vZWxbvOLL2qcs=;
+ b=4MF6eXKej1vozD6Il7vf6VcJVs3Tti9FnagQ4gl/exBCU53jyRCftgDVM7Pl3drK3apBlQ7bW
+ LclidR8TPqZD+3WM206rbiyIa7TbY7GgW/dJj+W/zfAvQUW+kXMDtp0
+X-Developer-Key: i=alchark@gmail.com; a=ed25519;
+ pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_054224_150281_068579BF 
-X-CRM114-Status: GOOD (  31.12  )
+X-CRM114-CacheID: sfid-20250506_054632_419854_F3CB5CD0 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,61 +109,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Fix the logic of ack/mask functions to actually do what their semantics
+implies instead of lumping both actions into one. Also rework the chained
+interrupts handling using common kernel infrastructure, while getting rid
+of a boot-time WARN_ON due to a misplaced call to enable_irq.
 
-CC arnd
+Apparently neither edge-triggered interrupts nor chained interrupts had
+any users, so nobody complained in 15 years.
 
-On Tue, 6 May 2025 at 12:52, Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
-> On 06/05/2025 12:47, Prabhakar wrote:
-> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> >
-> > Enable `CONFIG_STMMAC_ETH` as built-in (`y`) instead of a module (`m`) to
-> > ensure the Ethernet driver is available early in the boot process. This
-> > is necessary for platforms mounting the root filesystem via NFS, as the
-> > driver must be available before the root filesystem is accessed.
-> >
-> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
->
-> Same comments as for previous patches like this (even the same?): you
-> are supposed to use initramfs for your arm74 boards. Even armv7 boards
-> use initramfs, so network driver does not have to be built in.
+Signed-off-by: Alexey Charkov <alchark@gmail.com>
+---
+Changes in v2:
+- Fixed subject prefixes to follow the standard rule for the -tip tree
+  (thanks Thomas)
+- Link to v1: https://lore.kernel.org/r/20250424-vt8500-intc-updates-v1-0-4ab7397155b3@gmail.com
 
-Are we? When has that policy changed? Why are lots of network drivers
-still built-in?  Making network drivers built-in for systems where
-development is done using nfsroot has always been acceptable for the
-arm64 defconfig before.  For things not critical for booting, modular
-is indeed the preferred way.
+---
+Alexey Charkov (5):
+      irqchip/irq-vt8500: Split up ack/mask functions
+      irqchip/irq-vt8500: Drop redundant copy of the device node pointer
+      irqchip/irq-vt8500: Don't require 8 interrupts from a chained controller
+      irqchip/irq-vt8500: Use a dedicated chained handler function
+      irqchip/irq-vt8500: Use fewer global variables and add error handling
 
-arm64/defconfig is for development and testing, not for production
-(which famous kernel developer said that before?)
+ drivers/irqchip/irq-vt8500.c | 149 +++++++++++++++++++++++--------------------
+ 1 file changed, 80 insertions(+), 69 deletions(-)
+---
+base-commit: 0a00723f4c2d0b273edd0737f236f103164a08eb
+change-id: 20250424-vt8500-intc-updates-c364a31a36a9
 
-> For example all of our setups use it thus we do not have to populate all
-> other vendors with our own drivers.
->
-> Sorry, but I am strongly against such change. Kernel is already way too
-
-The kernel will grow without this (it will just take a few more weeks ;-),
-so that is IMHO not a good argument.
-
-> big and with KASAN it does not fit to boot partitions in some of the
-> devices (and I cannot change the boot partition size, at least not
-> without big effort).
-
-arm64/defconfig does not have KASAN enabled?
-
-> Nacked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-Doh...
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
+Best regards,
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Alexey Charkov <alchark@gmail.com>
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
