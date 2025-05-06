@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C213C3ABC8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BE27C3ABBC
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 22:23:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qBzyNJRLOgP4hR15I02fnH+uZY4pNyNJYDpTNskBu8U=; b=SQ1Misbm72Azs6nYMUecfymxRL
-	7JMxY52FsjY73PXDFa743tnoHf4xspKiub7FO1wuHpNzEXSwW7eaCX4c1GgRDFspX/ywOhSGoR9Ou
-	gpgGFtEpbRJtm8ErYVRD0JFaaUDHu1d+V8T3qNqCqDE7OUsWGMNKq493cv4LB47LgTGVv27l0lNqB
-	CA8NoqRTyk3W9wmQM0IHAsr0CBv+Svw8zz8VW+2+L48HlLuIYkIEk9g+wK5FHa8xeiLT5mQugwVs+
-	Mg6YxbbMO46xekjog+BO191Y4l3j6/1R5m7QIeE99/VflNNpwyfrWwWoTtcz/x+mMxy0MpDS4QLyL
-	urRW89NA==;
+	bh=kGrWmC6A9Nhih8ZTJSzTmy0J1ibD+sCtemBTxAnvdUg=; b=mfnAF0RQQ3oJWOAYTeHVMIjnZU
+	Yc48cyonR3NRSiqdt+0+Wyh9fhks/BahbX1GQ99KSplOo1JTb1qOlY/Uq5UMpT0Ql9TZxdvxcm1xZ
+	4yDMXDNxnDFDExsOjfqApbr5RG7IFoouLcfjck9SJn4ABLXV5O4x6afXRNS4CVoc4HoIJzSNDsjrT
+	WQ0Qr9V7bV7JuJJPoT2Ft0j6YaqZkpnfazAGmpW+p5KF/fvOxaG8yDJTYiclnutc7drGenMDGnvdn
+	V5Nbjl5DHAbyijSwtoXUM1fU+2pJ7nFjJFYmjeLNg3mksgYsSNyjHmFeDF217fGWXf7W+PVLiZVrf
+	h6r7wu/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCQgk-0000000DWRp-2KPg;
-	Tue, 06 May 2025 22:22:58 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uCQgo-0000000DWVg-3ZUK;
+	Tue, 06 May 2025 22:23:02 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCLOt-0000000CiJo-3TIS
+	id 1uCLOu-0000000CiLP-2lO5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 16:44:13 +0000
+	Tue, 06 May 2025 16:44:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 259B9A4D6CE;
+	by dfw.source.kernel.org (Postfix) with ESMTP id D4E355C58D6;
+	Tue,  6 May 2025 16:41:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA381C4CEEF;
 	Tue,  6 May 2025 16:44:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6D53C4CEEB;
-	Tue,  6 May 2025 16:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746549850;
-	bh=HVyrhbh/HpF5+b2+bq8685zj0KTE22LyzGPDs5kkaFs=;
+	s=k20201202; t=1746549851;
+	bh=ohsYi+kvjMSI4poweV2cgJnJXOURgOMhmV8B0dFFsc8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BWBFfsrtiFjzMuNRXaKDLdIjgg96U6RKSeD2h0BQfyQWt9Okv/N7EcqpIKt3eVAiU
-	 ppYrQ6AsVBurYzSfHYiix0L+iDyq3RoyvJ4QAIOjoz7YuDuhNSTaNNmgScGgNsSDD1
-	 8W/TZlRpR0EcK6xx5mDyeaj75OukEJM7QCZlzoUTIgm8Nq0sI8lT0msAkQ3g8/0ozO
-	 YV96cQBt2aEh/HH6hMgyAgHYiJ4Y1M3w0CYL5caZgij1haYelwy0hMKAt7sbTmb37i
-	 RyLPiakfGcQtfcFD6F6tn43qqHVnMninkADuJkUADDCeRg3KlOodUl9Nz04XgNZRmK
-	 C8aWsLuuslHYA==
+	b=KmBhs+jk5Y0q+IOP18jdtP5RJBFdB3624m9uJ49JlQC+pOdwoI6yevWQMThteMh7a
+	 yUeb1bL5gzKlTlQIMo6gvRZoxlp+cZ19HWm4W+6MJyKemIAsGPcZIcXIh5dlnTQQGs
+	 QJ9nGbCQnTQf8Y2xk1AiDdx+9Gjc++uJqiA35hgoIIcURzXEzxuXnEFJHlPK+SWMYf
+	 ohMwQ6sHOb1AasjhWa5Yp/hWYHpiq8Ruvv2IgZHNoae9bYyu2EhK57XqKsQFGiD4Cl
+	 CsywOXVimua93inebs8S220cFZ8lHn1wsWnOcLuUCDEsSOC4lxIBCM8pB8JSHerwf9
+	 H+BDeoYz6Ir/Q==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uCLOr-00CJkN-74;
-	Tue, 06 May 2025 17:44:09 +0100
+	id 1uCLOs-00CJkN-5B;
+	Tue, 06 May 2025 17:44:10 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -61,9 +61,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Ben Horgan <ben.horgan@arm.com>
-Subject: [PATCH v4 14/43] arm64: Add syndrome information for trapped LD64B/ST64B{,V,V0}
-Date: Tue,  6 May 2025 17:43:19 +0100
-Message-Id: <20250506164348.346001-15-maz@kernel.org>
+Subject: [PATCH v4 18/43] KVM: arm64: Handle trapping of FEAT_LS64* instructions
+Date: Tue,  6 May 2025 17:43:23 +0100
+Message-Id: <20250506164348.346001-19-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250506164348.346001-1-maz@kernel.org>
 References: <20250506164348.346001-1-maz@kernel.org>
@@ -74,8 +74,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_094411_943422_12AF1034 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20250506_094412_824972_6BD07905 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,41 +90,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Provide the architected EC and ISS values for all the FEAT_LS64*
-instructions.
+We generally don't expect FEAT_LS64* instructions to trap, unless
+they are trapped by a guest hypervisor.
+
+Otherwise, this is just the guest playing tricks on us by using
+an instruction that isn't advertised, which we handle with a well
+deserved UNDEF.
 
 Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/esr.h | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/handle_exit.c | 56 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 56 insertions(+)
 
-diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-index e4f77757937e6..a0ae66dd65da9 100644
---- a/arch/arm64/include/asm/esr.h
-+++ b/arch/arm64/include/asm/esr.h
-@@ -20,7 +20,8 @@
- #define ESR_ELx_EC_FP_ASIMD	UL(0x07)
- #define ESR_ELx_EC_CP10_ID	UL(0x08)	/* EL2 only */
- #define ESR_ELx_EC_PAC		UL(0x09)	/* EL2 and above */
--/* Unallocated EC: 0x0A - 0x0B */
-+#define ESR_ELx_EC_OTHER	UL(0x0A)
-+/* Unallocated EC: 0x0B */
- #define ESR_ELx_EC_CP14_64	UL(0x0C)
- #define ESR_ELx_EC_BTI		UL(0x0D)
- #define ESR_ELx_EC_ILL		UL(0x0E)
-@@ -181,6 +182,11 @@
- #define ESR_ELx_WFx_ISS_WFE	(UL(1) << 0)
- #define ESR_ELx_xVC_IMM_MASK	((UL(1) << 16) - 1)
+diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+index b73dc26bc44b4..ff75695fb8c96 100644
+--- a/arch/arm64/kvm/handle_exit.c
++++ b/arch/arm64/kvm/handle_exit.c
+@@ -298,6 +298,61 @@ static int handle_svc(struct kvm_vcpu *vcpu)
+ 	return 1;
+ }
  
-+/* ISS definitions for LD64B/ST64B instructions */
-+#define ESR_ELx_ISS_OTHER_ST64BV	(0)
-+#define ESR_ELx_ISS_OTHER_ST64BV0	(1)
-+#define ESR_ELx_ISS_OTHER_LDST64B	(2)
++static int handle_other(struct kvm_vcpu *vcpu)
++{
++	bool is_l2 = vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu);
++	u64 hcrx = __vcpu_sys_reg(vcpu, HCRX_EL2);
++	u64 esr = kvm_vcpu_get_esr(vcpu);
++	u64 iss = ESR_ELx_ISS(esr);
++	struct kvm *kvm = vcpu->kvm;
++	bool allowed, fwd = false;
 +
- #define DISR_EL1_IDS		(UL(1) << 24)
- /*
-  * DISR_EL1 and ESR_ELx share the bottom 13 bits, but the RES0 bits may mean
++	/*
++	 * We only trap for two reasons:
++	 *
++	 * - the feature is disabled, and the only outcome is to
++	 *   generate an UNDEF.
++	 *
++	 * - the feature is enabled, but a NV guest wants to trap the
++	 *   feature used by its L2 guest. We forward the exception in
++	 *   this case.
++	 *
++	 * What we don't expect is to end-up here if the guest is
++	 * expected be be able to directly use the feature, hence the
++	 * WARN_ON below.
++	 */
++	switch (iss) {
++	case ESR_ELx_ISS_OTHER_ST64BV:
++		allowed = kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_V);
++		if (is_l2)
++			fwd = !(hcrx & HCRX_EL2_EnASR);
++		break;
++	case ESR_ELx_ISS_OTHER_ST64BV0:
++		allowed = kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_ACCDATA);
++		if (is_l2)
++			fwd = !(hcrx & HCRX_EL2_EnAS0);
++		break;
++	case ESR_ELx_ISS_OTHER_LDST64B:
++		allowed = kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64);
++		if (is_l2)
++			fwd = !(hcrx & HCRX_EL2_EnALS);
++		break;
++	default:
++		/* Clearly, we're missing something. */
++		WARN_ON_ONCE(1);
++		allowed = false;
++	}
++
++	WARN_ON_ONCE(allowed && !fwd);
++
++	if (allowed && fwd)
++		kvm_inject_nested_sync(vcpu, esr);
++	else
++		kvm_inject_undefined(vcpu);
++
++	return 1;
++}
++
+ static exit_handle_fn arm_exit_handlers[] = {
+ 	[0 ... ESR_ELx_EC_MAX]	= kvm_handle_unknown_ec,
+ 	[ESR_ELx_EC_WFx]	= kvm_handle_wfx,
+@@ -307,6 +362,7 @@ static exit_handle_fn arm_exit_handlers[] = {
+ 	[ESR_ELx_EC_CP14_LS]	= kvm_handle_cp14_load_store,
+ 	[ESR_ELx_EC_CP10_ID]	= kvm_handle_cp10_id,
+ 	[ESR_ELx_EC_CP14_64]	= kvm_handle_cp14_64,
++	[ESR_ELx_EC_OTHER]	= handle_other,
+ 	[ESR_ELx_EC_HVC32]	= handle_hvc,
+ 	[ESR_ELx_EC_SMC32]	= handle_smc,
+ 	[ESR_ELx_EC_HVC64]	= handle_hvc,
 -- 
 2.39.2
 
