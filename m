@@ -4,200 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 008D4C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 12:58:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 947B9C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 13:00:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dj8barQOkmtT7oxhVXfl0hY9FUv3c7KH+ExPdixDlmU=; b=pB2/tbeb9+DfDvbr4Pm3D7QEIE
-	50nt1kaiMyb91AjrHsk33qy/teILBFGH4UV/E+/29NmbP5oIHc9ZtvTNGOeIYrS02yr83rNYTxhrN
-	WkdgngcY8Xr78efSsisNQ9/89LwW/burm4Q/9dh43n8zaXE8lTJJVtWiKWwyJv4wre7f56atnlvuJ
-	+aKJqKajNDBTwwv2p0oBE3cx8hDV8c3O74SrJ0w1seUvfu6HCzePCrBWIj5wJ1mS1ljN8d+Tl1uRL
-	9hgUaBCtONmOUmMWRHQOrs2g825O0khTftTGY744QimwsD9az7vEnmqLYrODZtkDwlo4EFxHNvsSb
-	XaJhy1vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1l6FHgsDuMiEUcIfSXG1IsXCgZa1bTdz/QloPt8obhI=; b=fPkvoqvYbKEOa0
+	dZ8qqJGuDlGhWIH9mxLj/v1PCXJhG3MBUCKwCbKtxFSdZXtVRmLd+tRMoAInA7kVFq62MBS+XcYs6
+	amwl7SE8JZQxgnsqBSjjoiVVTdVN3i3lkzie4hZOnbvOG1S8UVGtjTa+UQlP+nJ3oVSIBT0jgAT2i
+	tiD6DeehxplQLZ2ZK4n2AutfkkiJqHRZlJBC9m3OPgCiNIUw+mCyW+Co0iVdzdElTIIiocsoMTaWv
+	bD5Xei1TGiXa40ke5ZGlsJlXmUyc+4JBhDTAmpy7WYJuYZ2+xn0dgV1RE0WQFrqa+yGJYxNPl/HJZ
+	0BQcLS6667EOgg9o22Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCHs3-0000000Bzeb-12MF;
-	Tue, 06 May 2025 12:58:03 +0000
-Received: from mail-db8eur05on20605.outbound.protection.outlook.com ([2a01:111:f403:2614::605] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1uCHty-0000000C07Z-06uG;
+	Tue, 06 May 2025 13:00:02 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCFhS-0000000Bazu-1Oz2
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 10:38:59 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=CeGnKnC61AS7uO4hGwJUAOFmP5vTushzBExvuyn/6hyu4/Q+tjX91Mru8+dwNKI91KJ5v3YbHcZZAlABIjIcXJd02dT84QQEJm4dHpkC7ecKW3Rli61QXYCEaCvnoPbun/WbR24CU2QnBy0vkLAsGMAZXM6BB4JgPLTOoFedeI6oeNlrg6z5i7MK0BfWMeakiCRmSms9sENngu6rAz2ziz+Oayob1vDG9F5KgGuyfTruHGK1oqJ/US9YSzFZFJp/4+k5BH5by2jX2oZAEVNOSJX3UG//rpao6XOePtce/4C22CSbaG8nP9VL+wjREVdMCCydCr7n+NZDm7xBSiK3nQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Dj8barQOkmtT7oxhVXfl0hY9FUv3c7KH+ExPdixDlmU=;
- b=l/ddMEKkl4O1NNEAO9Z7KbnMOIO+1BW/DgKNHCPHOL/0M+2U+Kz/gKSS9DR9cUQxT6m6v0tf8RIDqYPCYyzFMtQT2lqLfqQI0eP0ZJWRibW90dcEIkRCaTsKFxs/6QOtG2ySJLQRPZ/EKz2gL0Kx4AQfcALWcr3QIl4loHRjY0r8TlgmBxtsH7E+/kI6NaxCC00tPzje570qaigzdiqIUjYx4jR+ET7UUY5A+N5VTzA4cpPvO7Xy8ifh0nl1ZQ/Gt8Q/NJpzSsCgAFb5sfbCgf7JgayR1qa+xRT252Yf6FszSRrj0vsOQlel3D2B/r8XQFnPoDAF7eJUXN+MNEq+gw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Dj8barQOkmtT7oxhVXfl0hY9FUv3c7KH+ExPdixDlmU=;
- b=iY+OOzg58WiMZ8dRn71LbkvLY8R9vropru0MFEGuX/wu27CoveBa6sUBm+ZN8R4Vdw4NxXXXiedQY2ckVQll80eAA3ui+mO4XX69Uo9zFOhzTdEPv/Gi+5irATcN/2QYLOqsrsDybOd7GtrBBSA9U47KIs7SRjdO8MPwmWsAAek=
-Received: from DB3PR06CA0019.eurprd06.prod.outlook.com (2603:10a6:8:1::32) by
- GV2PR08MB8271.eurprd08.prod.outlook.com (2603:10a6:150:b8::21) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8699.23; Tue, 6 May 2025 10:38:52 +0000
-Received: from DB1PEPF0003922F.eurprd03.prod.outlook.com
- (2603:10a6:8:1:cafe::8d) by DB3PR06CA0019.outlook.office365.com
- (2603:10a6:8:1::32) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.20 via Frontend Transport; Tue,
- 6 May 2025 10:38:52 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB1PEPF0003922F.mail.protection.outlook.com (10.167.8.102) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.18
- via Frontend Transport; Tue, 6 May 2025 10:38:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rCo28KLeh87HKk9mUmgbv1dquzMdVTr2Sg5UmGJET+bt3Qb4kUx00l4KDvRCpzdJ733bqX7A3GNWP33/jNmrNv23WgfC2Q9ky20oAHCybYObIjrKjbw2aMDgAqj8v45zsLYCvBnRyyG3rC+RG+7dYQFiORtifazw0Vpn5IDwbSU6V/JxsBV2FilBnpI4viBDU9C5s2cccvLGTqtkMdt1K8Iz4pM6vMWWelujE6v3mVLTRnucSlvBFfbQRP3Q578aVtmeHhTN8LUhcJkGrMV/tXa5cWQhj3pbaW2t/Ia/Q0Sm+JvS4MSw2oK/zEW8LXPtvM9yHsu58Ogi/vhf5mUicg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Dj8barQOkmtT7oxhVXfl0hY9FUv3c7KH+ExPdixDlmU=;
- b=B+o6lP19YfUHv9Bm0Or7jBgHBjA/Lrsxj6xDY/M91v8aaYK4cT0HOPf7kXy7D061ny+3/yEDxtgBFV8+HXYg+3ibTy54HSFbWK/M0vV1BgICGjREIQhcyL+afAu3ZAhBh9b8oZ57X1gMCQDt/WEcL/sW6DAtG5+G/K89/12JldOmLW4YIkIBvplRkjnrXCIqKLgrVjGwZvdt8qNFrucPN6zD9JeG1TQtpU/VHgpmzc0s9E1E8/PkbiSTGYyvjtldjmHhG6gP2MLnGlKA3gtV+shN4sUTuofkTyGId1HBeWNOADXfD5lqf5hxSiFooRWBxL7XiFLlFPF2OZpl9FhlcQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Dj8barQOkmtT7oxhVXfl0hY9FUv3c7KH+ExPdixDlmU=;
- b=iY+OOzg58WiMZ8dRn71LbkvLY8R9vropru0MFEGuX/wu27CoveBa6sUBm+ZN8R4Vdw4NxXXXiedQY2ckVQll80eAA3ui+mO4XX69Uo9zFOhzTdEPv/Gi+5irATcN/2QYLOqsrsDybOd7GtrBBSA9U47KIs7SRjdO8MPwmWsAAek=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by AS2PR08MB10252.eurprd08.prod.outlook.com
- (2603:10a6:20b:648::16) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Tue, 6 May
- 2025 10:38:18 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%4]) with mapi id 15.20.8699.024; Tue, 6 May 2025
- 10:38:18 +0000
-Date: Tue, 6 May 2025 11:38:15 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org, nathan@kernel.org,
-	nick.desaulniers+lkml@gmail.com, morbo@google.com,
-	justinstitt@google.com, broonie@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com,
-	shameerali.kolothum.thodi@huawei.com, james.morse@arm.com,
-	hardevsinh.palaniya@siliconsignals.io, ardb@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, stable@vger.kernel.org
-Subject: Re: [PATCH v2] arm64/cpufeature: annotate arm64_use_ng_mappings with
- ro_after_init to prevent wrong idmap generation
-Message-ID: <aBnml0luNiNZYf1s@e129823.arm.com>
-References: <20250502180412.3774883-1-yeoreum.yun@arm.com>
- <174626735218.2189871.10298017577558632540.b4-ty@arm.com>
- <aBYkGJmfWDZHBEzp@arm.com>
- <aBZ7P3/dUfSjB0oV@e129823.arm.com>
- <aBkL-zUpbg7_gCEp@arm.com>
- <aBnDqvY5c6a3qQ4H@e129823.arm.com>
- <fbfded61-cfe2-4416-9098-ef39ef3e2b62@arm.com>
- <aBnOJS6TZxlZiYQ/@e129823.arm.com>
- <aBngorZeIASsJEvY@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aBngorZeIASsJEvY@arm.com>
-X-ClientProxiedBy: LO2P123CA0067.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:1::31) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	id 1uCFlY-0000000BbeX-23yn;
+	Tue, 06 May 2025 10:43:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1746528180; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=EUt0IX7bUxgf0bzqQLU1D+ki/6BXD4YEaW0gX0tX/TiG7VCy+6Ii5R08/FwnpnQW4ggbrf3sjBqoSxUD7ZpBZPuXpx5M3frJb60LzWZonnT42Jp99LpbyhQlJCkITaNV8MptnHKx0gKpZ/D4nhxahsRn1S8HAd8vQm1ToYt2Lvs=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1746528180; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=1l6FHgsDuMiEUcIfSXG1IsXCgZa1bTdz/QloPt8obhI=; 
+	b=PoGoDyRwQGT5nYf4d9SMTM5afqSBIHaqXUte205nOYYXIScE7gcW93ktbe2YtdgaavosXoJvjmQXREd7nM5vQn1KzEyjBuYr/k/0iqK+gPIsyONBCOYK9h3aTZ1D7uwvURIfOlx0n4TKxsEFxopmy/FYDaZGIFD3Q9ju+DVDxt4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1746528180;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=1l6FHgsDuMiEUcIfSXG1IsXCgZa1bTdz/QloPt8obhI=;
+	b=eBdhkGpsGLbPl2SpzGU7sSWWhDSB5HtK+EGRXMj+96K2uVZLWv8zOjuSr/ySY1AJ
+	CI0I/eHR2FQYYi8hlmC71YDO1NT4uLFa/yTkMCV09TiFEhiaHPWIVZ/XNsdqv6NyKXl
+	4Q8jKPVGt2wdIdIRn2faZ0RvqXtbgnSy/0vOdH6Y=
+Received: by mx.zohomail.com with SMTPS id 1746528179569823.6445212545938;
+	Tue, 6 May 2025 03:42:59 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: [PATCH v4 0/5] Add RK3576 SAI Audio Controller Support
+Date: Tue, 06 May 2025 12:42:39 +0200
+Message-Id: <20250506-rk3576-sai-v4-0-a8b5f5733ceb@collabora.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|AS2PR08MB10252:EE_|DB1PEPF0003922F:EE_|GV2PR08MB8271:EE_
-X-MS-Office365-Filtering-Correlation-Id: 961f7955-5db1-437d-38c8-08dd8c8a30d7
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?ml2+FBSQWUinJwnS4capE7U1BTvRIbUPrQlj3tbi8jnodSzc3r55VtXvQnjX?=
- =?us-ascii?Q?p/zGZCNAwZnx5nP3p3EFDOFh8C/Ezwjc8KLUEdhaAZMbkAop64z1NuKVVoKw?=
- =?us-ascii?Q?qOqAd3Xd8un2X8zXukiBsoL1Lt8YJOxrGi9QoBaRGmJLKWlKrBIeJv84AEFD?=
- =?us-ascii?Q?n6d19hEH1d7YoLlgLCe+BT7IMV8ZC2A2BORLWjTNvapPiGxPlzL6IPbYV2Kg?=
- =?us-ascii?Q?cC7Oq5QaRG/2sL5GMLLIFu+ovzWj+JS2WTPhKJ15Asgbp3CWmqyK5jSx6V7x?=
- =?us-ascii?Q?qmwNqCEICrptSUvTZ5/Wy1Jtpt7cY0Y7GU+jUcbRfG1YGk86bS2zlM6BfqId?=
- =?us-ascii?Q?xEyVyKRjLV/i82QYWp49wIqxlMyY6JK3fodXbSAz9qrJ1zMjQ/IocTfemuYA?=
- =?us-ascii?Q?SBV230MMt9YQ9PhwWao+GxV6GCQPS1faP2UpqvXAEECVyCcbxt7Yj3iLHVmX?=
- =?us-ascii?Q?0xqTkGB+Eru4DelMfo3QvlLes+zzUxBQO1D/4r7vQhiucb7i4jBW7kL5QO9V?=
- =?us-ascii?Q?KIpALfpOQUzZ4mQKsjgXOqSS+DXDZmiNR/slOnzvJdXYWkvQlaqB8tXCvReh?=
- =?us-ascii?Q?wYiMAssWFxuuvmaKdpvMNmTCa7r8QT5mq9ohce6a3aQJVN0hsO6qI973QCd5?=
- =?us-ascii?Q?RUw6sRxZyRtasHogKZUCsQ0gkmS69sCtkLHJqEob5+oJUHvk8qKGVxD2UvPo?=
- =?us-ascii?Q?k9h3HZfoXOOsjRIn3u/5NivS1A7jMxLan+3ZZ6oA+YfgqdKj4rHLQnnkwaU+?=
- =?us-ascii?Q?IqP/QiRW/RBDw7tXeiFpGr8SHE7o/0OmGkV/N1lEPomlHSU8ZQR0uzZiCcVs?=
- =?us-ascii?Q?fO7H1PQjp3ccGo6y7VhEuljNltkAWM5ARLL62+D+E9x8rd1zruq61g/kVTJS?=
- =?us-ascii?Q?Yy+M1Pen3/b2ev/fMVtWu2asYaWXeKaxphIpaGQCydHYst0IFCSnRHFysokL?=
- =?us-ascii?Q?MNZbJvlo3zTwSZRqeFt13e03hZPTTiw850X2QlkIc9jD4lxmUCBzCZM3je1F?=
- =?us-ascii?Q?ka2ka1jT7hvzuMiwyTAzNd34129TCy8Ks7g4lfGmHYkNdOTEy+291ISPhHjC?=
- =?us-ascii?Q?ow38u/Lxaj5tkjeVGCiP1o14efCmS6KIIob79jpi6vMkTFvoPBfPJT62rp9p?=
- =?us-ascii?Q?8qxfk4yhPBEWD+Wui4Jj3DwCWXmC9MwkIVNcMaSZWz2OJSO1lE6um/ZpYHwL?=
- =?us-ascii?Q?LZArJy/HIMB4HDK0wKmy3BsKTYa5H9EzDrdvnkO4lymf9oh6xQx0vC8Y3r5y?=
- =?us-ascii?Q?ORgxHNa9foaIQpFXGneyH8Od5LeYrgi6prIQjh49QIogbIHvWp8OKhwdDTvF?=
- =?us-ascii?Q?/l4aU21OsbpbsG3HTGm/jAymklA5LzYLYaJCp22alDZFJjwv2fwiKlEPYbsy?=
- =?us-ascii?Q?N7W9cYrSA6+uQ99WDBJV+lLtMDc3ckUyltIoL2nxVtnBeRcXJ8XIFpUik58R?=
- =?us-ascii?Q?ZtRehUAgwoI=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB10252
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF0003922F.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 0c728b02-1d8a-400e-0ffc-08dd8c8a1d71
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|36860700013|14060799003|376014|82310400026|1800799024|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gmLOobHfmB7BjXeWTNPqAUSfc8D69L8naWok7rF6ka7K5DLxfOkM0S/B1gee?=
- =?us-ascii?Q?DgXrxcr5LuezUice0A9JglgD90O3GVMIImZT//zMfY6KgAjrbw0d6PQQ9R0V?=
- =?us-ascii?Q?tCP184ztu//Rk04WNVnt4nfkVguN8pEKUU86IOnl3vC6/INgILYSoKEpJOj+?=
- =?us-ascii?Q?vgzmBwsBCbZCG2vowMg7zl6Az61wOBR6ewGKO5mntCqEaE3o3MziepEeTscD?=
- =?us-ascii?Q?nKJm2HAvgptod/aPFpDmUhfKLwUUuD8XEJyiUljy4LWeW+tWnlXz6VXdPp9m?=
- =?us-ascii?Q?0VyK/BIb26nP7i5XIYL2Oh72pw1ahBHgQypUqiUkakbX7kVxcbNG53OkjgLd?=
- =?us-ascii?Q?IeyM6S4IpI/vohgJGfzwlNWpYxqPxtOoe0bI/b2eCIX8+c4hkzDXzNG/rxcN?=
- =?us-ascii?Q?SaijxS5XZRZDth8XBoAkQj6xpgpoX3dv3+lT0iu42aM6zrBlDnzO6SkNfO9n?=
- =?us-ascii?Q?NJCq58TbNioT+6detysaDshOiVCenyfSCDuewHfRE71DsG/83gCQLEn6cR2G?=
- =?us-ascii?Q?IAISwT9+K2wytbM6fmjITqxzTZxddEp/TNvf82juijZUkQJy8F+yOuFlVXJE?=
- =?us-ascii?Q?Eq+0qxI+qr9flr+jBtCSxRxz/sTOAwYOiNxDTcnmLNv4L2dEbTZpBkkKL7Lh?=
- =?us-ascii?Q?PUnQCXHLaX8onhTWrX6iBTLE7Ow8iX/pMjKvXDU2nFuezEfLwNb9owbP0IQB?=
- =?us-ascii?Q?1bk0OIyICWw2vkdDLUd+YFJCaxmvnWoyH3YL8gQutbpzD4sGOCNFu7OWmClQ?=
- =?us-ascii?Q?BXtoOJ7GhyuKrjY07FlKv1IRN7Sbpl81SFjtpV0HxxYWdUD7gIm+1fGfsHCD?=
- =?us-ascii?Q?xwoNc7N2BjvCi6gS9DqjhY9xYb8hI9bVHD8F6VnuHnrHuSFsxahVjLbWGXb0?=
- =?us-ascii?Q?lubTFIudgd60LIu33XvDfYz9z/GRXQN8eY6/lGWGnlDlCLqnBG/wBDs/5uGS?=
- =?us-ascii?Q?qzHbXypS95/AAjSHMvI0QZiP8C+6OuHj8C056gH61506TvkA9qr8do8Cpl8M?=
- =?us-ascii?Q?Z+udCwtiG3z3GbXj3iAaSx3e7s5Cuy8ybokiNwPa0Do2BKYbqfGS5ZyJqMo3?=
- =?us-ascii?Q?v4kxpqjgyuEIKoun7Ce2r9OvthZp+XlLzq1yLB1cND9yKj7a8Kho+K08vf3d?=
- =?us-ascii?Q?eSTKRRDq87faqExL/Nd9rengGMQ5GDEpPNjBqNfqw9So06/CWI9bmlqsdDlj?=
- =?us-ascii?Q?C9R40+KcREAnOeEeh2Lr1SJMuL7o3FHJxYRzOUAY5qtg+YkhZBZ+jAr0oFb1?=
- =?us-ascii?Q?t3Vhv3UE3btsXOVm9GzT+aN5NWRhKBEV5KnOhdRaLYBTnhrFzVAbWKbCWtvO?=
- =?us-ascii?Q?/okGQc8ZJ9kn9D4KtL6onRPvZsbnPGlYQjG9PVJOPK9hQ00kmXGdNlhBvKqE?=
- =?us-ascii?Q?eG3nC0FgnUk/f6O3xQqS3+OYCbxYIXKntpMgcYAWencMJwP0gKzA/TAmtAK5?=
- =?us-ascii?Q?N2edT+FCiMGeDkmFU7a8WEo1LsCR1pln6XPZPeNOqQI0bxN11TRVOLdWMIzG?=
- =?us-ascii?Q?cfLDDYlD3H3SnPrh50LOXBAvJoygU7V8hFGgsUme9NWhf60vs7/MqLu2og?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(36860700013)(14060799003)(376014)(82310400026)(1800799024)(7416014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2025 10:38:50.8197
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 961f7955-5db1-437d-38c8-08dd8c8a30d7
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF0003922F.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB8271
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJ/nGWgC/23OQW7DIBCF4atYrEs1ZmCMs+o9qiwwHjeoiWnBs
+ VJFvnspWUSpsnxI3z9cReYUOItdcxWJ15BDnMvQL43wBzd/sAxj2UKBMoBgZPpE05HMLkjfWQa
+ NYHvLooCvxFO41Nj7/rYTf59Lc7k9isFllj6eTmHZNTNfFlm7Bkj8gUPIS0w/9TNrW8Wzu2srQ
+ ZJm8pMl5N69+Xg8uiEm91riNbWqO9ctPHBVuCdNYFHTwPiM450bUA8cC8eOPE9tP46d/8+3bfs
+ F4owIW1cBAAA=
+X-Change-ID: 20250305-rk3576-sai-c78e0430898e
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Sugar Zhang <sugar.zhang@rock-chips.com>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, kernel@collabora.com, 
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_033858_536467_19FF22C0 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20250506_034312_584869_54ADD221 
+X-CRM114-Status: GOOD (  28.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -212,58 +92,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 11:12:50AM +0100, Catalin Marinas wrote:
-> On Tue, May 06, 2025 at 09:53:57AM +0100, Yeoreum Yun wrote:
-> > > >>>> On Sat, May 03, 2025 at 11:16:12AM +0100, Catalin Marinas wrote:
-> > > >>>>> On Fri, 02 May 2025 19:04:12 +0100, Yeoreum Yun wrote:
-> > > >>>>>> create_init_idmap() could be called before .bss section initialization
-> > > >>>>>> which is done in early_map_kernel().
-> > > >>>>>> Therefore, data/test_prot could be set incorrectly by PTE_MAYBE_NG macro.
-> > > >>>>>>
-> > > >>>>>> PTE_MAYBE_NG macro set NG bit according to value of "arm64_use_ng_mappings".
-> > > >>>>>> and this variable places in .bss section.
-> > > >>>>>>
-> > > >>>>>> [...]
-> > > >>>>>
-> > > >>>>> Applied to arm64 (for-next/fixes), with some slight tweaking of the
-> > > >>>>> comment, thanks!
-> > > >>>>>
-> > > >>>>> [1/1] arm64/cpufeature: annotate arm64_use_ng_mappings with ro_after_init to prevent wrong idmap generation
-> > > >>>>>       https://git.kernel.org/arm64/c/12657bcd1835
-> > > >>>>
-> > > >>>> I'm going to drop this for now. The kernel compiled with a clang 19.1.5
-> > > >>>> version I have around (Debian sid) fails to boot, gets stuck early on:
-> [...]
-> > Personally, I don't believe this because the create_init_idmap()
-> > maps the the .rodata section with PAGE_KERNEL pgprot
-> > from __initdata_begin to _end.
-> >
-> > and at the mark_readonly() the pgprot is changed to PAGE_KERNEL_RO
-> > But, arm64_use_ng_mappings is accessed with write before mark_readonly()
-> > only via smp_cpus_done().
-> >
-> > JFYI here is map information:
-> >
-> > // mark_readlonly() changes to ro perm below ranges:
-> > ffff800081b30000 g       .rodata	0000000000000000 __start_rodata
-> > ffff800082560000 g       .rodata.text	0000000000000000 __init_begin
-> >
-> > // create_init_idmap() maps below range with PAGE_KERNEL.
-> > ffff8000826d0000 g       .altinstructions	0000000000000000 __initdata_begin
-> > ffff800082eb0000 g       .bss	0000000000000000 _end
-> >
-> > ffff8000824596d0 g     O .rodata	0000000000000001 arm64_use_ng_mappings
->
-> So arm64_use_ng_mappings is mapped as read-only since .rodata is before
-> __initdata_begin.
+This series adds support for Rockchip's Serial Audio Interface (SAI)
+controller, found on SoCs such as the RK3576. The SAI is a flexible
+controller IP that allows both transmitting and receiving digital audio
+in the I2S, TDM and PCM formats. Instances of this controller are used
+both for externally exposed audio interfaces, as well as for audio on
+video interfaces such as HDMI.
 
-Right. I've misread teh address at first time.
-Sorry to make noise.
+Patch 1 and 2 are boring devicetree changes to add the nodes, including
+an hdmi_sound node in the SoC tree which can be enabled by individual
+boards that enable HDMI.
 
-> --
-> Catalin
+Patch 3 and 4 enable analog audio and HDMI audio respectively on the
+ArmSoM Sige5 board. Patch 3 goes into some schematic-derived knowledge
+about where the audio signal can actually be tapped into in order to
+test analog audio.
 
---
-Sincerely,
-Yeoreum Yun
+Patch 5 enables the driver in the arm64 defconfig for both the SAI audio
+driver and the ES8328 driver used by the Sige5, as the RK3576 and Sige5
+are supported in mainline, so its drivers should be enabled in the
+defconfig.
+
+To test analog audio on the Sige5, I both soldered to the output 2
+testpads, as well as fashioned a cable to plug into the headphone
+header. I do have the necessary materials to to make more such cables,
+so if you have a Sige5 and want to test this but don't happen to sit on
+a pile of 03SUR-32S cables, then you may contact me off-list to request
+I send you such a cable from Switzerland, and I'll see what I can do.
+
+HDMI audio is now enabled in this series.
+
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+Changes in v4:
+- drop the clock patches Heiko already applied, rebase onto
+  next-20250506.
+- Squash the defconfig patches into one patch
+- Link to v3: https://lore.kernel.org/r/20250502-rk3576-sai-v3-0-376cef19dd7c@collabora.com
+
+Changes in v3:
+- Fix auxiliary GRF patch on RK3388 and RV1126, which were
+  unintentionally broken previously because I didn't build 32-bit ARM
+  platforms. Thanks to Heiko for noticing!
+- Drop "ASoC: dt-bindings: add schema for rockchip SAI controllers" as
+  it was applied already
+- Drop "ASoC: rockchip: add Serial Audio Interface (SAI) driver" as it
+  was applied already
+- Add codec driver defconfig patch
+- Link to v2: https://lore.kernel.org/r/20250410-rk3576-sai-v2-0-c64608346be3@collabora.com
+
+Changes in v2:
+- split rockchip clk changes into 3 separate patches, all of which
+  build on their own
+- driver: expand Kconfig symbol help text to make checkpatch shut up
+- driver: remove runtime PM debug messages, as they were redundant
+- driver: move of_defice_id table and MODULE_DEVICE_TABLE to be above
+  the platform_driver struct and below the probe function, as is done in
+  many other drivers
+- driver: drop of_match_ptr
+- driver: drop MODULE_ALIAS
+- driver: remove the confusing hclk disable comment in the probe
+  function
+- driver: remove quirks handling, which only existed for
+  rockchip,always-on purposes. Downstream does not appear to need this
+  quirk for any sai implementations. It can always be added back later
+  when the problem, if there is any, is better understood.
+- driver: fix hw_params when the number of requested channels is lower
+  than twice the number of lanes in non-TDM mode. Without this, playing
+  back stereo audio on an 8-channel SAI would fail to set the hw_params
+- driver: when in I2S TDM mode, set the XFER delay to 1 aka half a cycle
+  This makes the output waveform line up with both what RK3568 I2S-TDM
+  and the TI TAS6424 codec describe as correct TDM'd I2S in their
+  datasheets, namely that on the first rising SCLK pulse after LRCK is
+  high, there's audio data ready.
+- driver: treat set_tdm_slot with 0 slots as disabling TDM. This lines
+  up with what the function documentation for ASoC core's
+  snd_soc_dai_set_tdm_slot says it'll do if it's called with 0 slots,
+  but in practice that function seems broken because it'll just pass
+  the signed number of slots to the unsigned parameter of the mask
+  generation function, which treats 0 slots as an error, making the
+  caller snd_soc_dai_set_tdm_slot function bail out before ever
+  giving any driver set_tdm_slot callback the 0 slot number. If that
+  ever gets fixed (I hacked around it to test it), then our driver will
+  be able to turn off TDM mode at runtime.
+- ASoC bindings: rename bindings file from rockchip,sai.yaml to
+  rockchip,rk3576-sai.yaml
+- ASoC bindings: remove extraneous blank line
+- ASoC bindings: change resets property to use an items listing
+- ASoC bindings: fix rockchip,sai-(t|r)x-route property constraints
+- ASoC bindings: remove rockchip,always-on
+- RK3576 dts: add tx/rx-route to all internal SAI nodes. This is needed
+  because they all can do either 8CH TX, 8CH TXRX or 8CH RX, and an
+  absent route property is understood to be just 2CH if the direction is
+  present.
+- RK3576 dts: add hdmi_sound node
+- Sige5 dts: enable hdmi_sound
+- Now based on v6.15-rc1
+- Link to v1: https://lore.kernel.org/r/20250305-rk3576-sai-v1-0-64e6cf863e9a@collabora.com
+
+---
+Nicolas Frattaroli (5):
+      arm64: dts: rockchip: Add RK3576 SAI nodes
+      arm64: dts: rockchip: Add RK3576 HDMI audio
+      arm64: dts: rockchip: Add analog audio on RK3576 Sige5
+      arm64: dts: rockchip: Enable HDMI audio on Sige5
+      arm64: defconfig: Enable Rockchip SAI and ES8328
+
+ .../boot/dts/rockchip/rk3576-armsom-sige5.dts      |  64 ++++++
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi           | 217 +++++++++++++++++++++
+ arch/arm64/configs/defconfig                       |   3 +
+ 3 files changed, 284 insertions(+)
+---
+base-commit: 580d4593971087787eb1edddeddf1f33e7d590a8
+change-id: 20250305-rk3576-sai-c78e0430898e
+
+Best regards,
+-- 
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+
 
