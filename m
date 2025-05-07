@@ -4,66 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4419C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 14:53:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B081C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 14:55:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XaJGN9kJmEj0dAdiwhDy0guF5rBV8eaZ54VRSuCQHHo=; b=GlYlquo1KljXQs3v2MZGPmmA1C
-	WTQr/0yG2k2N8kt/nWnIIO+FjGZExeniQOAWaKB6cYcZ4mo2+lUZQvYIS94htzmuwEFbbj7jDwnOo
-	DgdX5XIwvY5xmRGonRy20cf3jQ5HFlwqEq4Wlvjo/byVktateUAP5lghRYwwo7GMKTqggjBd3xzTF
-	dPtfGHtiErXUDGi0x8L8gS2cWqCGHelSL46FfDtst4MaXbnaJB9OI+THLzQNO6nJHG4ILwUNwQn9i
-	5mBX68s+uFvMMRzdPCLj+w78kjMzcee6YJ9hCYEM4MJzVa6eOBGF6tlLGBCdFGTGufi115qhO5ZnY
-	9D882OZw==;
+	bh=itiAKH/qyzk2G1rxsfsMZTesmMe+S0RmGndga1TUm2g=; b=B/tMCn62npyXbNG6H3gUvReDeR
+	w/qwQ3lnpr4Yji/m9nYJJtYCSfpRIQqWDVANyXTvGokt2bf7Vthj6KVBE8tL2Fi5971jvwbu7nv6+
+	ga6q0F9DxyVKaV8Hf2UyFg/tLC3CTJu58KGdBtBN785FjRvuRaDFpW+XeZoJkFvzNJr2M+FiCowHD
+	MUIA6s6JJRBQYmE1XohTZl7xE1TFW5OQJyvNXznFC+xvvRK8EW8kfsU4BX9/DI6Wj5Ap1/o3Iakz2
+	mplWtMGaBISox4u+lvPGXcCfJnhAJbLmGoTIv0DOfPIQh851tYPBvcbmn0QKmjPnKAUxCgrucyPUL
+	22r143qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCg8z-0000000FrQn-0MSD;
-	Wed, 07 May 2025 14:53:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCfas-0000000FjfL-11lO
+	id 1uCgAu-0000000Frij-21qT;
+	Wed, 07 May 2025 14:55:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCfej-0000000FkXF-36tG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 14:17:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 95836629D4;
-	Wed,  7 May 2025 14:17:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 084DCC4CEE2;
-	Wed,  7 May 2025 14:17:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746627473;
-	bh=XCPO4OwtHdklV75ZQexHUDw+NLtN7k5eDz9cWsLCD7s=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Qs2bW5MzeuhyoRfLeHZNePhETq1cuep9TM1AX0aZzNMUr9PnjrD+ikLE7R6NI5/kC
-	 sT8P5/a7l15vu7DkzFtpOqPt9jV0uleb9TQDr4MFRa4vZOSIjdQZVfFuLEd1YMgwVg
-	 Y7r3hvxC/mFmYpPVity5Vk356zOtJCIiaM2KgLg70cssO++MRkuF6rQH8CBusTBpHC
-	 I3/s2GNEJzkOAQwdg93eoOB333RctMzWrBgOJPEsy4wkhgydykSIVK+bk9kSzveOEY
-	 LBX2wjMtEUO1cBDwbR0lmtWkc7pHOISw//59HVydxnYJPpA/EM+y93uoCgr7+l5vuo
-	 o9cjCGU9eSMlw==
-Date: Wed, 07 May 2025 09:17:51 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Wed, 07 May 2025 14:21:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC76816F2;
+	Wed,  7 May 2025 07:21:41 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 25A383F5A1;
+	Wed,  7 May 2025 07:21:48 -0700 (PDT)
+Date: Wed, 7 May 2025 15:21:46 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
+	catalin.marinas@arm.com, daniel.kiss@arm.com,
+	david.spickett@arm.com, luis.machado@arm.com, maz@kernel.org,
+	richard.sandiford@arm.com, sander.desmalen@arm.com,
+	tabba@google.com, tamas.petz@arm.com, tkjos@google.com,
+	yury.khrustalev@arm.com
+Subject: Re: [PATCH 04/20] arm64/fpsimd: signal: Mandate SVE payload for
+ streaming-mode state
+Message-ID: <aBtsesMtp299EWaR@J2N7QTR9R3>
+References: <20250506152523.1107431-1-mark.rutland@arm.com>
+ <20250506152523.1107431-5-mark.rutland@arm.com>
+ <20250507125915.GB2227@willie-the-truck>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Benjamin Hahn <b.hahn@phytec.de>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Yashwanth Varakala <y.varakala@phytec.de>, 
- Teresa Remmet <t.remmet@phytec.de>, devicetree@vger.kernel.org, 
- Conor Dooley <conor+dt@kernel.org>, upstream@lists.phytec.de, 
- linux-kernel@vger.kernel.org, Fabio Estevam <festevam@gmail.com>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- linux-arm-kernel@lists.infradead.org, Jan Remmet <j.remmet@phytec.de>, 
- Shawn Guo <shawnguo@kernel.org>, imx@lists.linux.dev, 
- Catalin Marinas <catalin.marinas@arm.com>
-To: Yannic Moog <y.moog@phytec.de>
-In-Reply-To: <20250507-wip-y-moog-phytec-de-imx95-libra-v1-1-4b73843ad4cd@phytec.de>
-References: <20250507-wip-y-moog-phytec-de-imx95-libra-v1-0-4b73843ad4cd@phytec.de>
- <20250507-wip-y-moog-phytec-de-imx95-libra-v1-1-4b73843ad4cd@phytec.de>
-Message-Id: <174662747122.1094223.1125259086632722690.robh@kernel.org>
-Subject: Re: [PATCH 1/2] dt-bindings: add imx95-libra-rdk-fpsc
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250507125915.GB2227@willie-the-truck>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250507_072153_902472_33D80877 
+X-CRM114-Status: GOOD (  20.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,39 +69,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 07 May 2025 15:13:12 +0200, Yannic Moog wrote:
-> imx95-libra-rdk-fpsc is a development board based on the phyCORE-i.MX 95
-> Plus FPSC SoM. Add its description and binding.
+On Wed, May 07, 2025 at 01:59:16PM +0100, Will Deacon wrote:
+> On Tue, May 06, 2025 at 04:25:07PM +0100, Mark Rutland wrote:
+> > @@ -416,7 +418,16 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
+> >  	if (user_vl != vl)
+> >  		return -EINVAL;
+> >  
+> > -	if (user->sve_size == sizeof(*user->sve)) {
+> > +	/*
+> > +	 * Non-streaming SVE state may be preserved without an SVE payload, in
+> > +	 * which case the SVE context only has a header with VL==0, and all
+> > +	 * state can be restored from the FPSIMD context.
+> > +	 *
+> > +	 * Streaming SVE state is always preserved with an SVE payload. For
+> > +	 * consistency and robustness, reject restoring streaming SVE state
+> > +	 * without an SVE payload.
+> > +	 */
+> > +	if (!sm && user->sve_size == sizeof(*user->sve)) {
+> >  		clear_thread_flag(TIF_SVE);
+> >  		current->thread.svcr &= ~SVCR_SM_MASK;
+> >  		current->thread.fp_type = FP_STATE_FPSIMD;
 > 
-> Signed-off-by: Yannic Moog <y.moog@phytec.de>
-> ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
+> This (along with the 'fpsimd_only:' block) is now practically identical
+> to restore_fpsimd_context(). I think that's a sign that we're doing the
+> right thing, but can we move that into a shared helper function?
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Largely yes, but there's a subtlety.
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/arm/fsl.yaml:1372:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
+We can call restore_fpsimd_context() directly for the block above, since
+that's equivalent as of the prior patch.
 
-dtschema/dtc warnings/errors:
+The "fpsimd_only" label is misleading, and is used in two distinct
+cases:
 
-doc reference errors (make refcheckdocs):
+(1) When the SVE context has no register state, that's used to resrtore
+    an FPSIMD-only context, and is (now) equivalent to
+    restore_fpsimd_context().
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250507-wip-y-moog-phytec-de-imx95-libra-v1-1-4b73843ad4cd@phytec.de
+(2) When the SVE context has register state, we restore the SVE state,
+    then fall through to the "fpsimd_only" block to merge the the FPSIMD
+    registers into the SVE registers, preserving the upper bits.
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+    The merging is hidden opaquely in fpsimd_update_current_state().
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+So we can call restore_fpsimd_context() directly for the !SVE case, and
+we can factor out reading the user_fpsimd_state, but for case 2 we MUST
+NOT mess with TIF_SVE, SVCR, or fp_type, and MUST merge the register
+contents.
 
-pip3 install dtschema --upgrade
+If we do that, I'd want to have restore_fpsimd_context() directly assign
+to current->thread.uw.fpsimd_state, and replace
+restore_sve_fpsimd_context() with a new fpsimd_merge_into_sve() helper
+or similar.
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+If that makes sense, I can go prep tha as a follow-up?
 
+Mark.
 
