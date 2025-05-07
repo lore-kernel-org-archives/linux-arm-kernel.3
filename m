@@ -4,160 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C0A8C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 20:33:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA1AC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 20:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n6sSAmtzTagat7rHHCWh/1I7DnYwJFbhua2ya+A8oK8=; b=AMw8nvPZ13XX6MuQgRh7Lo3/uy
-	t0F7Uooi59Fm75ZHSpxs+687jj981FxtsCVXf7QakmIuezo3G8EBN41HgdJ5DQhI+beAcScQVs8iR
-	E8QRPU+3puufci4/WSnVvFTsdEMkT4o75WYEhDnutU6+EiSDCorHmoHG33adib9w6OjxhjiR1pa+u
-	BiAPkiEBrqZtqG4YWZybfc4LD1Xk9ceQjjlYUGhwMLrpaK5UjkQq8M1rHlULHm8EBHlptylevbGq+
-	FePjsDOz642OuHwn/xrvzvETgw3u/AQnMnswsj3P8j82P8WAD1ZnwVxabNF6/ls4N/YNuIxJt44Xs
-	PgCJ6ugA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nsDoH9wedifhugPM5JBN/pxKp+uLG0gE7R6WQkp6CbY=; b=0xRfw3qoWzuHINWfyReStbyvHa
+	ZwNlBgntS6hsU7MKmD95elgizOXh5ULmcVbe/FuByD1XGCFyTP32Sd/eaB9pzmbXPgepFo9YbPuTJ
+	/3K4LfROzUgaAMYhS/q7SenJytOrINzvMWExOSBk1HKKJheOgx/5DpP42DcBPLSc8nz8FC61GnmEj
+	ukcuTi92zASZbUAJi/z8SxKxPTF+qGe7wY37KmWIYhFejCqZERPaQqLdzpMihYlKwpvwmoB+pfZB6
+	RqfidxNiz85QxdwuKaYsisX8UvUss1IGdrUkn74yt97gWkRu0wy7eaYePlqj8zYxp36p7KKLRp5f4
+	fSQp63BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uClSM-0000000Gh8L-18lT;
-	Wed, 07 May 2025 20:33:30 +0000
-Received: from mail-mw2nam10on20616.outbound.protection.outlook.com ([2a01:111:f403:2412::616] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1uCleD-0000000GiLp-2WDC;
+	Wed, 07 May 2025 20:45:45 +0000
+Received: from mail-oa1-x2d.google.com ([2001:4860:4864:20::2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uClQO-0000000Ggwi-3jhk
+	id 1uClcF-0000000Ghz6-1JXn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 20:31:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IrkMgPCYyt2gLQenQ3FpS8FzIzKmqTA7eMHju4rG7gr+i4gPAYpjvvB/a8PeHJkC7Hc/KEYkKbApV6pJr5et72DmnMwLIQq4S0WyglofN3KeDHkuGqvDjOzUMWVdUVAp7lXxf+uu5lrK7Orv/aqm2kmHQBW7sacHc3Wvboy77X7yDmp1edf2YoHEasMS19aosN4+los6yenvbfcD9TsHdjE1v+q3mYgm+L9cK/SgukNigDSY0ZJsLUpUNyCj1UTsDqp5ON7bSSao+p2elroNomw/KkVL8ouq+b+kOI7A9Nyb7doKrRfL9Vt/3NoSoUEebu1jQkEd0aPUiy4mCZh3iw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=n6sSAmtzTagat7rHHCWh/1I7DnYwJFbhua2ya+A8oK8=;
- b=JsTLHsux21e9WIO1FylMcQc5d3mc8nqDNqpdQ7Cbx+ZQDNJ3Ajmv5y56QVOIslAVKH7aeEdD8/kgIbQ7bleCFyLvEB2aIqz3owCjK5XXmLcrJ27KJEMaTzlNmLc1N+cRDys7U4TmsRnu7GeDST5f4XuL8bMQVfzKHxRNY35yrsXsPqI6ia5R/UtMEp9Txar/dBtS+SHWKSN3jMnlv71liiKceNKzxAwbJpIh2Hxo56dvVfI9g0k6+aeMh0WTM1fjCwKbAc/NxMGHiOaUc0qTScZM5CAckV+eha9Lr5T5cMql8gJsZeY2yjkbESjJ0vhWuRFMCJApm3UGy86X3WAYbA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=n6sSAmtzTagat7rHHCWh/1I7DnYwJFbhua2ya+A8oK8=;
- b=GH3tU6cC5O633fR50XNuiCN7gBHNg0iV9FqdVLnms7E8wKYYwho509wWs5TkovlIUToqxWRGYZKHPhuDEim4ZW6UgKfyxD3a4HVco5++LYOBfJgFuSAN+boZ3pRjfomMtmEhqCO4Yr7bBrsmaeFYYSy9HIbVMiOGN/ew763gfks=
-Received: from BL3PR12MB6571.namprd12.prod.outlook.com (2603:10b6:208:38e::18)
- by PH8PR12MB6987.namprd12.prod.outlook.com (2603:10b6:510:1be::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.20; Wed, 7 May
- 2025 20:31:17 +0000
-Received: from BL3PR12MB6571.namprd12.prod.outlook.com
- ([fe80::4cf2:5ba9:4228:82a6]) by BL3PR12MB6571.namprd12.prod.outlook.com
- ([fe80::4cf2:5ba9:4228:82a6%4]) with mapi id 15.20.8678.028; Wed, 7 May 2025
- 20:31:17 +0000
-From: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
-To: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>,
-	"dmaengine@vger.kernel.org" <dmaengine@vger.kernel.org>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Vinod Koul
-	<vkoul@kernel.org>, "Simek, Michal" <michal.simek@amd.com>, Manivannan
- Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	=?iso-8859-1?Q?Uwe_Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>, "Pandey,
- Radhey Shyam" <radhey.shyam.pandey@amd.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>, Marek Vasut <marex@denx.de>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "Katakam, Harini"
-	<harini.katakam@amd.com>
-Subject: RE: [PATCH v2] dmaengine: xilinx_dma: Set dma_device directions
-Thread-Topic: [PATCH v2] dmaengine: xilinx_dma: Set dma_device directions
-Thread-Index: AQHbv3zfM4FyfWDN2UicmQCtxvGIrLPHno/A
-Date: Wed, 7 May 2025 20:31:16 +0000
-Message-ID: <BL3PR12MB6571C982D9D8DC190414F21FC988A@BL3PR12MB6571.namprd12.prod.outlook.com>
-References: <20250507182101.909010-1-thomas.gessler@brueckmann-gmbh.de>
-In-Reply-To: <20250507182101.909010-1-thomas.gessler@brueckmann-gmbh.de>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ActionId=a04196d6-f1f2-44b4-9968-a4b12ee52b8f;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=0;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=true;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
- Internal Distribution
- Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2025-05-07T20:29:44Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Tag=10,
- 3, 0, 1;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BL3PR12MB6571:EE_|PH8PR12MB6987:EE_
-x-ms-office365-filtering-correlation-id: c6d0f9c3-8540-4a80-6a8b-08dd8da61e66
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|38070700018;
-x-microsoft-antispam-message-info: =?iso-8859-1?Q?we9GZVxeszqpRIgzHINq02IT45dJdzAOZoyAl4qnuh/uIYHuyRRAfutabG?=
- =?iso-8859-1?Q?USBOzBpZW7BY9sXTtQTpfRBgfj9jueKEYLuPDwKQHhZBXLw9zUkqTBBdMD?=
- =?iso-8859-1?Q?9/Z72Too5h20VWga+6Z4KNfGlrttx861V3Lt4kVRKSOBUQAu5fdFMjWlMU?=
- =?iso-8859-1?Q?L2pfQ4woU2hdRDmRifkpTzOQhs6V9FcV7IPYdBKTQciWescn1SkCyVpqN5?=
- =?iso-8859-1?Q?Drmn51DEclQxRBjQ90hcZmFepcKAo21G2l5wc4bViFZODbtVWZOZPav8ox?=
- =?iso-8859-1?Q?OB669u5Ag5A2HgA8oWt8APBdNXgFNOIE71pzGEvxT2ljXrVE19TOI0EC04?=
- =?iso-8859-1?Q?GDYwk/TxYPC09qByobbicV5N4btMMVBEsr6clUBpK2xCTZmh5OqKV81KYb?=
- =?iso-8859-1?Q?kcSh03uKABYH8JRzxZ6yIE5nZ9D9hTfRL2c/3UoGOE71doyYnAH0aFziiH?=
- =?iso-8859-1?Q?7kGInz+6SRSP5Bj8BmJSGwktf28kg8HS5DIspaNzbFtr2lCUfQIi+r3xd0?=
- =?iso-8859-1?Q?CcufaO4p9vY99ugcEh2EybJOWZtXpjfEoLrIO7EYTVxJh/JBhGcxdH0b04?=
- =?iso-8859-1?Q?xiUUmaFMq6t/bBNLbh13C/uVY8fv/sCkJUx+XbGP5cfW74I1Mg0VJx/pfU?=
- =?iso-8859-1?Q?6BUF7Ct8V91aVYGjxnTrIrIDdzKq4eXk9B/autkvhfsXGz4jof/wOogE2Z?=
- =?iso-8859-1?Q?R+M3kAGHhHqYqSa9dmmAaUTFYORUIVHydMuZKd/F+N2+oum7STEt1PfxFa?=
- =?iso-8859-1?Q?KgBbsMuBn+a+2xIE2suJUdikbcehC5JtP7GKDEI1cqldkXjgiG5t0GB5z0?=
- =?iso-8859-1?Q?K2MHsuKByf1bcYD0K+UqmUmbBH033Z/R1TWA/SUlOx+0TV/IPY9g1ugPRJ?=
- =?iso-8859-1?Q?4+YI9YlNQVdQXCKNh8JMHRn+1AvIYr38T9vyBzYndWvg9cSkatzUZ7RGQY?=
- =?iso-8859-1?Q?0zz2rlcVpu4WO5pxlJAsD+EFHA9NcUdGjG1T8aAj9cwV0hxtg0NxKh+6HO?=
- =?iso-8859-1?Q?wRTlGWHX9njigxRQ+k9+zXjyrqYrwmkvNzuT4Ym45cBGtMEl/SKVnvewFR?=
- =?iso-8859-1?Q?6Y2kqVC+5FSXZt6XJJQqUJHTyhDVwDBqV25gZ8bBBV917TsMxgyTMc9i6z?=
- =?iso-8859-1?Q?q2rYznnRKEYbAb5W/3gyFdQWllyWi5xF6WQ7YebiRkSF8jpz2qu8Xhc6sS?=
- =?iso-8859-1?Q?oWfpSnHFZVmI4QZRN6zJX8s8RbtaOdZmS4jrjaicsjScBhuOcDAdnhBRcs?=
- =?iso-8859-1?Q?k85hjQFNR0mDfcBlNEgrCs+kzJ5c69hcrKvlZaKvKUfsNylPEqUXwjP+Cv?=
- =?iso-8859-1?Q?96uTk9j88cUrSkjaxuDvKT0v8N69rdqBwywn5nSDkPVDwzs45njWsbVyX7?=
- =?iso-8859-1?Q?Lje5Ziii7sL/XrR7B0lMkcd4r8umE9VtUEsIsCU6PA9hSiJzYG7ZQTLs0S?=
- =?iso-8859-1?Q?tGirGl+zsyh60mRSmTXLE6RZdBrSEIplYm9D7sG1d91k0bV67ZR0mgukgo?=
- =?iso-8859-1?Q?FAV4CFzs11WcewOFHuMMg6KjXlnxdjeSYv/T6cUQPwtQ=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL3PR12MB6571.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?7oqUxofcfF8knBJYjZqbOxNSd9LBQHA6w2EIVZr/sk1fUo5I9kjHMv1zVQ?=
- =?iso-8859-1?Q?UvHMfS6MYAfNYL5QZQmwcb7Urbij+UrfAE6HuUJRWyd8PMLXcxDMUOMUf/?=
- =?iso-8859-1?Q?bfWOa+lETP8q4vu34Erug6a0Msw31xBh1/7CQxsjM4LqqYBTxMfVykj9x+?=
- =?iso-8859-1?Q?b0mo9oCTETg67xTzcqxCX4gDaldQlCCMyIIx9Kj5o3HTM6jjDb0UzH5a5c?=
- =?iso-8859-1?Q?vV/NLNMwT+SKImVMbIka/WOtVd6gvpRC3Is2sW/Bcrx1E5mWe62OiuBw/I?=
- =?iso-8859-1?Q?keBcyi6ItvKBpzKeJxr07AMhgU5S1xTS3ueFzR90DAXz65aEv9agpYmspU?=
- =?iso-8859-1?Q?jHezd1TnwUkzi4WuFv523eTQFkNGNIPKfsshkO48DOZUM49YpF1MxoiRus?=
- =?iso-8859-1?Q?EOMs2LDiwYC6E9m7v8/lxmmsuyyPj+2PR5WYsuSkEEWLlu4JQR1Zo0KqSB?=
- =?iso-8859-1?Q?NeKCWHxokrI+uwwBvgbO3PgFCC2nr1tbHvCpcKizHf78wjJjmetVe78IPf?=
- =?iso-8859-1?Q?hf2rWvQhyaCP1wMiqGDa/6lSi6h6dOpICSMWQ3cbg6tVyF/gn5GWlXzHDa?=
- =?iso-8859-1?Q?7+rLkcL+Ut4/PJSjk0v+VPP/whoC+Vc/ZHHTe8Aiq1s/iYNH1BztxMHEpI?=
- =?iso-8859-1?Q?jc1gjIHibbKK2d+/nk4yclJvIqhsIoL2paiVCSr9WRRXB5b9kr6CICbC1P?=
- =?iso-8859-1?Q?AdWJCcY3aDciOolDJnFRJyZku0c6pmHhH3PJeAnsZzR1mBx0nCf3hUkyxP?=
- =?iso-8859-1?Q?eq5NQxalYLmrdy0VjtPWE/pj+PYhsJWQ8JXkujTs00RaODNtT4le4hwTB7?=
- =?iso-8859-1?Q?Y/GiELtwSkdi5gzSUKg42DnO4InUfMMXJ6hRrxQ5bp91mKs7/4lJxOt35l?=
- =?iso-8859-1?Q?kc0GgKF3e1PglucauB3WDjIbExqnjST2Wx1uKz2Ac0svE72nxY24abu7pQ?=
- =?iso-8859-1?Q?SJzojw/q7g9NR3/01LokaXNx/sJQghSWVi4bVNmJZ9QjIN9OmBqpbZkCoE?=
- =?iso-8859-1?Q?SlrfXi5S1pTVg9uqaEn5kchYf2phORLd5x+W5W65+xbwCpya+7d6wiI6XU?=
- =?iso-8859-1?Q?9EQdGsRcuYWbWvUe8NDrr1w8SXhikeRfFiiEy3hyS/YX37b54al/1EFCK6?=
- =?iso-8859-1?Q?PCLSVyjBvgOBGqSBY/NIMdkNpnYDkYWLYaGw1kA5C4pBCVUGkpYJJhabtV?=
- =?iso-8859-1?Q?+mofJYkckOCVf7EsbU9rgLufKd9f+3iCiBlilYOZgHRM7KWrU5AjOtWv8I?=
- =?iso-8859-1?Q?oUfBWGt8M5vsyzblgeOlxP2kUrDbq4Vy0ABM+n8ty89DdESbruO6MJ0sZ/?=
- =?iso-8859-1?Q?MxnIYuWUuEQ11PLgBMkGQgwbeyzbmbphXH4C7TclWm4opMVzS+8n4XcxV6?=
- =?iso-8859-1?Q?n7Y9mqWL+qPKubv2em5WQSk1+86H8N1ItUwpXLoUeZy9yn2Gx03aIyJRip?=
- =?iso-8859-1?Q?xpsxXVx3D9wvh+mNdn5E1VOeyRFZydlByvZHYNNd5cqYtGx2fGKF8YlPhJ?=
- =?iso-8859-1?Q?cIuCuZ+UGZMa0qhValTDQLgHEWLe5p0h6wxHHF6M4Da1SZANNRNEDzrNAq?=
- =?iso-8859-1?Q?huMG2gBscc0lWDfBUdkNGuosATZDcXsSoBGHUzP7E5BHOvofnSHm63pCEy?=
- =?iso-8859-1?Q?HfpCnWeSGECFM=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 07 May 2025 20:43:45 +0000
+Received: by mail-oa1-x2d.google.com with SMTP id 586e51a60fabf-2d54b936ad9so169482fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 May 2025 13:43:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1746650622; x=1747255422; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nsDoH9wedifhugPM5JBN/pxKp+uLG0gE7R6WQkp6CbY=;
+        b=kz55gTokwmY+tD22wprPz7+eV7z5AKYTGWHs+xBYPoQAvMCqnUizmMQ1Zlik32XjjJ
+         fxR5gihyWyhkgzOigi5OIOYMZ6MyLhHAf6dwjR0MtsBVVGGP2+0e1PltyZMzy99SWVef
+         TegurUefiW177y1nBGFRwDCsSGdO4y24NqAe7Q4vc/mNYwDNbgWM5Hcc+fgSgYvdE2qy
+         hKQ75Z+wzeXqdeTVwZYrulCGRQiOjyjIpudHd8dQiIEE4ItkwgrrpenkeOw8Ep3Cqn+x
+         iHhO8iTEKAZcg/QkBuiGeY9zis7pqb/AUCtxXjpJ+ScBp2mKcMq6H/0zPGNrQx4mhyvd
+         kgUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746650622; x=1747255422;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nsDoH9wedifhugPM5JBN/pxKp+uLG0gE7R6WQkp6CbY=;
+        b=tON3XPfFb3q/EDvlcz1vD8Nb1CfF3Pj7zTCmmjktUoRdGaBZxzd1uMbQvPg18qvXDq
+         SPlY2uJipo47S9YffZcRCPTDTIAaH38qsTJ8DctcMF9AkvDj18hRLeRUnnHSfRm5ZjJO
+         rV5RyS8ARcIuIGHW74cNRwmtnLITnYIm4YQsc7v9I7xHTWbUh0vxhVuF3NNpGEEdhffG
+         EVJj2BrSORx2iSWr0he5ZGz9pTAMhUy7Maq6yLDxc+4JKgrEmlQZFUoztk9tV3JmxZnV
+         lH7201xF5883DHXnTOjzCIEYYz9DfebxiT+Jumuf8fJUKW49AGTZf78nEfg3E7JElTKL
+         rAlA==
+X-Forwarded-Encrypted: i=1; AJvYcCWNHMqLMWUBAOypgnvwzQqcgtzalI69VBZfL+rlmKp8mYG27lNKJJHO7lbwm13Y5PGrG+hDlsI9Gm2iyrlYpXbV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzxx9750D6SSJhp9TsE7GC5B3BQLJ9ORTqFElttjN8S3rEYXtUD
+	agQk/hzERR4oOWn55IqFQ+ibdSX6YrM5T5k5iNGP41MJJ1SmeRoQGwk2T5TfgPs=
+X-Gm-Gg: ASbGncsxVg3piyF+U75/GNzcs47I4ONDI+tfY+vq5dzSJbZi5TbwWRpVULjzaAcIkSq
+	curHBRrY2BU3RBg+omNxzrkNPXGWC5DFBHIdI0HS6xlYz9yBzVm1+F8dfuunPf4m5k3ZCnoO9uZ
+	4MC/5r2wCJjNjgtOfrHRCraZ/OXfDLBMIYeOWL9KmxkjzaS6/BbrTfIdSimCWwgFYXTteMROgh4
+	qAIPzJlVRka22EsDYJfL3IwdqlZp1rMVM362IYeVyYXwY7aTRAUf8BNmdCyBtvl0SgsNnzR2nU8
+	PYL5JweF++mVgrYTVZzRCFuBTrqRIJn+Imqc3iSaUSplPQ==
+X-Google-Smtp-Source: AGHT+IGuMbSopsw0kPB3BOKdZwGLMyA4fTqZkg1sp+VqbZBKSh74y17YUdx5+VNzA+Dlkjgu5EqA2g==
+X-Received: by 2002:a05:6871:692:b0:2d5:d5c:a851 with SMTP id 586e51a60fabf-2db5bd81d15mr3352825fac.6.1746650621211;
+        Wed, 07 May 2025 13:43:41 -0700 (PDT)
+Received: from [127.0.1.1] ([2600:8803:e7e4:1d00:3356:f6f6:bf76:a32])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2db5cd716d3sm898642fac.21.2025.05.07.13.43.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 May 2025 13:43:39 -0700 (PDT)
+From: David Lechner <dlechner@baylibre.com>
+Date: Wed, 07 May 2025 15:42:40 -0500
+Subject: [PATCH v6 1/7] iio: make IIO_DMA_MINALIGN minimum of 8 bytes
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL3PR12MB6571.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c6d0f9c3-8540-4a80-6a8b-08dd8da61e66
-X-MS-Exchange-CrossTenant-originalarrivaltime: 07 May 2025 20:31:17.0190
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: r5pbvCLrbP1ij1kMawc8Ry/5y2uOSvFcVaUfG7cuZ+qlYmK0DaDoAAAe0QJDyuUn3i0pHGiD5sCmBiN4P2Wh+w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6987
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250507-iio-introduce-iio_declare_buffer_with_ts-v6-1-4aee1b9f1b89@baylibre.com>
+References: <20250507-iio-introduce-iio_declare_buffer_with_ts-v6-0-4aee1b9f1b89@baylibre.com>
+In-Reply-To: <20250507-iio-introduce-iio_declare_buffer_with_ts-v6-0-4aee1b9f1b89@baylibre.com>
+To: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
+ Michael Hennerich <Michael.Hennerich@analog.com>, 
+ Eugen Hristev <eugen.hristev@linaro.org>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2051; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=KXhEzNu9vMA0LlJD+DPGW7NGscBEnrm7VeMGbRK9U/g=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoG8XMenAMAnq7gPRRFS22x5xeEEEtJEsUd6xym
+ y6ke1GkKsKJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaBvFzAAKCRDCzCAB/wGP
+ wLngCACRoGSeRFy1n5EjP/iotCrHZcEvDzkEXMr6F/ZItm2ApnS+GHg2GEuOB5DOqzcUTIIXHCL
+ 9KQ+3veOSVxITb+z1+PHlVLj6hf79gLTAyV7h9dW3x8s3rY3fCT58TNwyK7/Se70eOlNThdaIu2
+ pkXyZHdfmNZPSjbfvTMxxLG4PsvkaX1byJZXk40WocOq0pqQXFzD/5+jvGeNRfsUHhrhPN0HCJL
+ Eg2YmfnUHvbYbWafrR8i25s9cd+kPm+MKU9xU3mEjale2EtU96Ej0fX4fvekuvWL8X0rClfwM3S
+ cdjsFjvGtSkBlUpbBSnj3SZSLZBce9MRNi27B3UPREc1YOcX
+X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
+ fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_133128_931478_34921666 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20250507_134343_508567_1729E65F 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,58 +117,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[AMD Official Use Only - AMD Internal Distribution Only]
+Add a condition to ensure that IIO_DMA_MINALIGN is at least 8 bytes.
+On some 32-bit architectures, IIO_DMA_MINALIGN is 4. In many cases,
+drivers are using this alignment for buffers that include a 64-bit
+timestamp that is used with iio_push_to_buffers_with_ts(), which expects
+the timestamp to be aligned to 8 bytes. To handle this, we can just make
+IIO_DMA_MINALIGN at least 8 bytes.
 
-> -----Original Message-----
-> From: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>
-> Sent: Wednesday, May 7, 2025 11:51 PM
-> To: dmaengine@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org; Vinod Koul <vkoul@kernel.org>; Simek, M=
-ichal
-> <michal.simek@amd.com>; Manivannan Sadhasivam
-> <manivannan.sadhasivam@linaro.org>; Uwe Kleine-K=F6nig <u.kleine-
-> koenig@baylibre.com>; Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>;
-> Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>; Krzysztof Kozlowski
-> <krzysztof.kozlowski@linaro.org>; Marek Vasut <marex@denx.de>; linux-arm-
-> kernel@lists.infradead.org; Gupta, Suraj <Suraj.Gupta2@amd.com>; Katakam,
-> Harini <harini.katakam@amd.com>
-> Subject: [PATCH v2] dmaengine: xilinx_dma: Set dma_device directions
->
-> Caution: This message originated from an External Source. Use proper caut=
-ion
-> when opening attachments, clicking links, or responding.
->
->
-> Coalesce the direction bits from the enabled TX and/or RX channels into t=
-he
-> directions bit mask of dma_device. Without this mask set,
-> dma_get_slave_caps() in the DMAEngine fails, which prevents the driver fr=
-om being
-> used with an IIO DMAEngine buffer.
->
-> Signed-off-by: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>
+Reviewed-by: Nuno Sá <nuno.sa@analog.com>
+Signed-off-by: David Lechner <dlechner@baylibre.com>
+---
 
-Reviewed-by: Suraj Gupta <suraj.gupta2@amd.com>
-> ---
-> Changes in v2:
->   - Change to Suraj's simpler version as per Radhey's request
->
->  drivers/dma/xilinx/xilinx_dma.c | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_=
-dma.c index
-> 3ad44afd0e74..8f26b6eff3f3 100644
-> --- a/drivers/dma/xilinx/xilinx_dma.c
-> +++ b/drivers/dma/xilinx/xilinx_dma.c
-> @@ -2909,6 +2909,8 @@ static int xilinx_dma_chan_probe(struct
-> xilinx_dma_device *xdev,
->                 return -EINVAL;
->         }
->
-> +       xdev->common.directions |=3D chan->direction;
-> +
->         /* Request the interrupt */
->         chan->irq =3D of_irq_get(node, chan->tdest);
->         if (chan->irq < 0)
+v6 changes:
+- Removed the #if and use MAX instead since apparently clang raises an
+  error that __alignof__ isn't defined when used in a #if condition.
+---
+ include/linux/iio/iio.h | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/include/linux/iio/iio.h b/include/linux/iio/iio.h
+index 638cf2420fbd85cf2924d09d061df601d1d4bb2a..a574f22398e45cad1ea741d20d302f88756a1b13 100644
+--- a/include/linux/iio/iio.h
++++ b/include/linux/iio/iio.h
+@@ -10,6 +10,7 @@
+ #include <linux/device.h>
+ #include <linux/cdev.h>
+ #include <linux/compiler_types.h>
++#include <linux/minmax.h>
+ #include <linux/slab.h>
+ #include <linux/iio/types.h>
+ /* IIO TODO LIST */
+@@ -775,8 +776,14 @@ static inline void *iio_device_get_drvdata(const struct iio_dev *indio_dev)
+  * to in turn include IIO_DMA_MINALIGN'd elements such as buffers which
+  * must not share  cachelines with the rest of the structure, thus making
+  * them safe for use with non-coherent DMA.
++ *
++ * A number of drivers also use this on buffers that include a 64-bit timestamp
++ * that is used with iio_push_to_buffer_with_ts(). Therefore, in the case where
++ * DMA alignment is not sufficient for proper timestamp alignment, we align to
++ * 8 bytes instead.
+  */
+-#define IIO_DMA_MINALIGN ARCH_DMA_MINALIGN
++#define IIO_DMA_MINALIGN MAX(ARCH_DMA_MINALIGN, sizeof(s64))
++
+ struct iio_dev *iio_device_alloc(struct device *parent, int sizeof_priv);
+ 
+ /* The information at the returned address is guaranteed to be cacheline aligned */
+
+-- 
+2.43.0
+
 
