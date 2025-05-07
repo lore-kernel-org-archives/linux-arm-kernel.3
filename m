@@ -4,85 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8211C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 05:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D83B4C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 05:54:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7JdJMsLzfDGeRvx+Emk46r8xhmMRITfWllQfaK4Duwk=; b=LqkuiPF7MF3ZtJ0wakTu5fv0ED
-	xz6xw+kICuT9k0SkF1qJ4Yg/zuXpcecBiREYGqKxVqaaxTqukSHtcgo4ZupgFF9UZom9LIFoikq+p
-	aBTal5lqzZFBBGcW7z4TZs983viw6tv/12nFK/lH4PMDb4p89XXfxx8u2j+R1/34Y09N228I01dVN
-	47hc8yG2KsycxjsJ/UDEGS2OaCzUn7hC7bSDmM9SAfuT8b+PB677E3Dejxfjd6Xjbc2zj9wrZ5at5
-	TpeaAr9aTNBsa+83Lm0T75HlaXArmrtESbDhZkEGcbcZ3Bl4LO+nfUTa50KAaSOdoI+9uIqkk1hnA
-	UHYvYcXQ==;
+	bh=SewgzpKFishJzRCxirTQSaQ+FXU2EZJ0r1ydXvgKur0=; b=fQkJw0Fn7Ld2vqAFj/1uuhCgYV
+	d7QuNWUo5sXgJMEh/AIEmDu617b+qOTxXysY6qc5a7we/2vxm3Jm/UrVA9/zBk4qW5RZ9AIfp9HCy
+	X/66rhR+o5e6iFnNN7f7OOZszVkVPVDJ8ZHELm1/8A9zqswcAXjNveEe0OUjLDrK6DwN8pJi3fw8U
+	VH2FwUwLeVF2U8bpCzpEmDu3RupH0kVZtjamL+q6W7zYP9PvbA/dr/DQx5u4z5BAmOBHQR6jVcpxa
+	scLlVLWEn4qtz9IU5qCEmOjCM3c7TSLE8r1xD6VtJHtnvuiZ6D/L0+RaKzJJZJtOwQsAR7S/Te2W5
+	2a2zOMFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCXgS-0000000EIxN-0sUi;
-	Wed, 07 May 2025 05:51:08 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCXeR-0000000EIiY-3rX4
+	id 1uCXjG-0000000EJE0-0ELn;
+	Wed, 07 May 2025 05:54:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCXhI-0000000EJ2e-3PDL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 05:49:08 +0000
-Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-4769aef457bso88173831cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 22:49:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746596942; x=1747201742; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7JdJMsLzfDGeRvx+Emk46r8xhmMRITfWllQfaK4Duwk=;
-        b=Jfe4F/taGXUMJW3R5Pnvgb0mhmYbBHRk5o6UWWCqNB2UcHKD1+Ccd4CUMw+crWtNIg
-         AH3v0EuRkRBRDWh0tb3Nhl+BTASdjvJD3BxXivEaTsXNrKuVPJZ0KSYMiQJbyJHwv7d8
-         MKoEU5ZR9WCK6FYYMdoTJafW6ZkBiPmkuKX539rQGcwPW74nTNWSr4DCDGcVWI62OjFm
-         IFP/E+LNQ+ATM8No6MYvs9jZvzxIDZrY3fxZdu0Aqm+g5MtUCkDzr4CzM8jrEg0GH4oT
-         LPn2S1l7JctQOaEDPlaBWRb0nF3Pd1hzDjvJoQ3AqLjjEaNIfaF9J1uz2vQSCfTUl51z
-         jAEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746596942; x=1747201742;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7JdJMsLzfDGeRvx+Emk46r8xhmMRITfWllQfaK4Duwk=;
-        b=RrmgYn7JyrKGMn6JVcZoRs+WV9mfkfOxv6UeMakdbAPc9fhR137ec4aFq3H3uYkuJp
-         JPZk6R6fu1PwR6dA97LIL/SF/S8rxzDxPfYzObwx/iy7t6mF9jDKVlyKsmXBPZJjOfNq
-         t1Mwwl1ugL4KQ+BRR2BfIrtqsSX6K/1sXnugEoR0A3H7Pi9eex5fGDlSvtdqr4tmutz9
-         uCbt1iZYh8flgcx2Y/5TGJQQtOpQ3JnK+VxY82Pg1TzitWnrjR9oSp2hzUew5PV1tzpy
-         2CHRkBMxN+NfJ8sEvZ02Y+l7/ICaagW4XbsgIgU4ElEvx03xJ+1OdMDl+ZOoMMuRRIL4
-         7tqg==
-X-Forwarded-Encrypted: i=1; AJvYcCU1jugQQAKCWsWVpRfDaASk28jVmRedhhYj+nhZvZdIRic7G0iMOwdxxIkuodd3x4lx7icm7AkNejE25efcmtMx@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrdT0mJX+zv/wz1+7EBiLXe84KDYEcVeJPvVZQyelIVpkxDVAW
-	f3/0EnigrqAYEB//flMt28X8lb5OifihIb0Ouw0RIPtOjL7I7syvVz6t8zUHN32ivR6lZlHrFzx
-	Uu2lPEc6ytjvS5lUY71+pyZmT3Xc=
-X-Gm-Gg: ASbGncuirkIu5EsJ3hbnl3xd3Zh75iL3RBBIz9WrdPMyNlMEVqWwhaMIjCvHs4WN7QC
-	pmOAMgRFk8xjbtBd+kkTgYwSDmzzIY8e1niUG83Rn10UeRSBSFt/RayxqmNLdjCkSOc2lqfTNjv
-	KGvu20hqzJFGnzwlqpIw3Q64iVsIFKuNY=
-X-Google-Smtp-Source: AGHT+IF7vvrjUXrQ8Ma7pGYyWlbfTrxCvT38VXq6TtbN5SNAo7OxWdmxVFlZHyYkepkkFVBGOS2HmDQU3+iLDdcpFsM=
-X-Received: by 2002:a05:622a:5588:b0:477:41c3:3c59 with SMTP id
- d75a77b69052e-492278663f1mr28654201cf.40.1746596942669; Tue, 06 May 2025
- 22:49:02 -0700 (PDT)
+	Wed, 07 May 2025 05:52:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8C5C92F;
+	Tue,  6 May 2025 22:51:42 -0700 (PDT)
+Received: from [192.168.0.12] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 910583F5A1;
+	Tue,  6 May 2025 22:51:48 -0700 (PDT)
+Message-ID: <b93cb084-de85-47ff-856d-c18556ec00fa@arm.com>
+Date: Wed, 7 May 2025 11:21:45 +0530
 MIME-Version: 1.0
-References: <20250507-vt8500-timer-updates-v1-0-6b76f7f340a6@gmail.com>
- <20250507-vt8500-timer-updates-v1-3-6b76f7f340a6@gmail.com> <8d3c2ab5-dfc0-4a65-94c8-48a94c850aba@kernel.org>
-In-Reply-To: <8d3c2ab5-dfc0-4a65-94c8-48a94c850aba@kernel.org>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Wed, 7 May 2025 09:48:51 +0400
-X-Gm-Features: ATxdqUFKht2xkkVskEfWLYN789ACQMJmDtBSHahlN1jQVzEb-f__uuxu03cTVZ8
-Message-ID: <CABjd4YxjC13H9G+ZpQO7EcmA4quu-9OMYjc5z6W5z+f=pwkTbw@mail.gmail.com>
-Subject: Re: [PATCH 3/3] ARM: dts: vt8500: list all four timer interrupts
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 7/9] coresight: Consolidate clock enabling
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20250423151726.372561-1-leo.yan@arm.com>
+ <20250423151726.372561-8-leo.yan@arm.com>
+ <08690315-ce0e-4b2e-b85e-d8b9a82f4b11@arm.com>
+ <20250506105352.GE177796@e132581.arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250506105352.GE177796@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_224903_955685_E503AE79 
-X-CRM114-Status: GOOD (  19.49  )
+X-CRM114-CacheID: sfid-20250506_225200_946940_C7B76254 
+X-CRM114-Status: GOOD (  24.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,51 +73,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 7, 2025 at 8:32=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.org=
-> wrote:
->
-> On 06/05/2025 22:06, Alexey Charkov wrote:
-> > VIA/WonderMedia SoC timer can generate up to four interrupts correspond=
-ing
-> > to four timer match registers (firing when the 32-bit freerunning clock
-> > source counter matches either of the match registers, respectively).
-> >
-> > List all four interrupts in device trees.
-> >
-> > This also enables the system event timer to use a match register other
-> > than 0, which can then in turn be used as a system watchdog (watchdog
-> > function is not available on other channels)
-> >
-> > Signed-off-by: Alexey Charkov <alchark@gmail.com>
-> > ---
-> >  arch/arm/boot/dts/vt8500/vt8500.dtsi | 2 +-
-> >  arch/arm/boot/dts/vt8500/wm8505.dtsi | 2 +-
-> >  arch/arm/boot/dts/vt8500/wm8650.dtsi | 2 +-
-> >  arch/arm/boot/dts/vt8500/wm8750.dtsi | 2 +-
-> >  arch/arm/boot/dts/vt8500/wm8850.dtsi | 2 +-
-> >  5 files changed, 5 insertions(+), 5 deletions(-)
-> >
-> > diff --git a/arch/arm/boot/dts/vt8500/vt8500.dtsi b/arch/arm/boot/dts/v=
-t8500/vt8500.dtsi
-> > index 2ba021585d4889f29777a12473964c29f999f3a0..d1dd37220d41becece5d24f=
-bb19aa71b01723e35 100644
-> > --- a/arch/arm/boot/dts/vt8500/vt8500.dtsi
-> > +++ b/arch/arm/boot/dts/vt8500/vt8500.dtsi
-> > @@ -111,7 +111,7 @@ clkuart3: uart3 {
-> >               timer@d8130100 {
-> >                       compatible =3D "via,vt8500-timer";
-> >                       reg =3D <0xd8130100 0x28>;
-> > -                     interrupts =3D <36>;
-> > +                     interrupts =3D <36>, <37>, <38>, <39>;
->
-> You need to update the binding, preferably first convert it to DT schema.
 
-The binding change [1] has been reviewed by Rob and is pending merge.
-Shall I fold it into this series when I send v2?
 
-[1] https://lore.kernel.org/all/20250506-via_vt8500_timer_binding-v3-1-8845=
-0907503f@gmail.com/
+On 5/6/25 16:23, Leo Yan wrote:
+> On Mon, May 05, 2025 at 12:58:06PM +0530, Anshuman Khandual wrote:
+> 
+> [...]
+> 
+>>> --- a/drivers/hwtracing/coresight/coresight-core.c
+>>> +++ b/drivers/hwtracing/coresight/coresight-core.c
+>>> @@ -1645,6 +1645,51 @@ int coresight_etm_get_trace_id(struct coresight_device *csdev, enum cs_mode mode
+>>>  }
+>>>  EXPORT_SYMBOL_GPL(coresight_etm_get_trace_id);
+>>>  
+>>> +/*
+>>> + * Attempt to find and enable programming clock (pclk) and trace clock (atclk)
+>>> + * for the given device.
+>>> + *
+>>> + * The AMBA bus driver will cover the pclk, to avoid duplicate operations,
+>>> + * skip to get and enable the pclk for an AMBA device.
+>>> + *
+>>> + * atclk is an optional clock, it will be only enabled when it is existed.
+>>> + * Otherwise, a NULL pointer will be returned to caller.
+>>> + *
+>>> + * Returns: '0' on Success; Error code otherwise.
+>>> + */
+>>> +int coresight_get_enable_clocks(struct device *dev, struct clk **pclk,
+>>> +				struct clk **atclk)
+>>
+>> These arguments probably could be arranged better as pclk and atclk are
+>> always contained inside 'xxx_drvdata' structure, which could be derived
+>> from the 'dev' structure itself, if [dev|platform]_set_drvdata() always
+>> ensured to be called earlier.
+> 
+> Seems to me, the conclusion "pclk and atclk ... could be derived from
+> the 'dev' structure itself" is not true.
+> 
+> The reason is the coresight_get_enable_clocks() function is located in
+> the CoreSight core layer, it has no knowledge for driver data
+> definitions (see etmv4_drvdata, funnel_drvdata, etc).  as a result, it
+> cannot directly access the fields "drvdata->pclk" and "drvdata->atclk".
 
-Best regards,
-Alexey
+That's correct because all device's drvdata structure definitions are
+local to their drivers and not really available in the core coresight
+layer. Trying to make them available might create more code churn and
+also break the abstraction.
+
+I guess then a struct device and two clock double pointers are needed
+for these optional clocks to be assigned and enabled as proposed here.
+
+> 
+>> Currently there are only two instances where a NULL is being passed to
+>> indicate that 'atclk' clock is not to be probed or enabled. Could not
+>> individual clock requirements be passed in a flag argument instead ?
+>>
+>> #define CORESIGHT_ENABLE_PCLK	0x1
+>> #define CORESIGHT_ENABLE_ATCLK	0x2
+>>
+>> coresight_get_enable_clocks(struct device *dev, unsigned long flags)
+>>
+>> - atclk/pclk derived from drdvata which in turn from dev
+>> - flags can be checked for pclk/atclk requirements
+>>
+>> Even better - as atlck is the only optional clock here, it could just
+>> have a boolean flag argument to indicate for atclk clock.
+>>
+>>> +{
+>>> +	WARN_ON(!pclk);
+>>> +
+>>> +	if (!dev_is_amba(dev)) {
+>>> +		/*
+>>> +		 * "apb_pclk" is the default clock name for an Arm Primecell
+>>> +		 * peripheral, while "apb" is used only by the CTCU driver.
+>>> +		 *
+>>> +		 * For easier maintenance, CoreSight drivers should use
+>>> +		 * "apb_pclk" as the programming clock name.
+>>> +		 */
+>>> +		*pclk = devm_clk_get_enabled(dev, "apb_pclk");
+>>> +		if (IS_ERR(*pclk))
+>>> +			*pclk = devm_clk_get_enabled(dev, "apb");
+>>> +		if (IS_ERR(*pclk))
+>>> +			return PTR_ERR(*pclk);
+>>> +	} else {
+>>> +		/* Don't enable pclk for an AMBA device */
+>>> +		*pclk = NULL;
+>>> +	}
+>>
+>> Might be better to invert this conditional check as if (dev_is_amba(dev))
+>> for better readability.
+> 
+> Will refine code for this.
+
+Sure
 
