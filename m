@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EBD2C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 14:09:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF5E4C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 14:13:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Arb648MVPd2t9OYqj4ElyaOmykvNNsgCgLCd5KUQAQ0=; b=MCEivXcbZk/e21mnrjosPmEFBo
-	5MYxB5QHwl50xQruquMWkiZQzxIHqKG7buMta80W1sevBL5ux/SPkLIYg7F1y65y/ZPWEan8a7Nb9
-	BjLLQlFa2TOa7iwCiYViBFNsclwzR5ZuIqiAv0m5H01iq3I2iklMBWCpx63vfeypPVxRi27a8dv3x
-	T7yylU6ZzFjM8DzwhYrjOxq0YkN1akfSK8pM76NDC8vyQrmzj46+hjFdgw/glhkzWXW/HCT0v/L12
-	cxVXAhEDM73kuQADRiqznFBlRjrJPDHsPs9JZaOjXh7gE5vE0/gOU6x8jnfrDhG3eojo29t/zp7fK
-	3vT5cCKQ==;
+	bh=u8gtIHzPbiNzUqeVLb3f4EK2VjKBqelEK4wxn9hCfz8=; b=hJBk1oghUMQx1auTR/KrdOUiDM
+	5EkFdGn1PM3fsCdC2LE3fZmtMP4RrYE0S5a/Sljmboh6mpK3VItDkkJAuRVelisJcgIWV2N2rB7K8
+	AjQWS4jryfY77Xwj20xbCvHYZMn8SKAVbvXjnzjxxE23FpMGU+Co0uBbC2YtJOz/W3wfbbS3ZgK+k
+	C35CsUvtQt1Lgd/fGC5VL9J68e8qAKI68QoUBU5iLrUYpijTLq9mxuBzkHTUXvw4n+sBJqwzPQ5MM
+	53nUEy5f3xtOvYWWJrZhBvoXBogZG3wrv6szbDgKfgzYHoHqhZR7vLPFZhGDHWQ4yOUteVe7OvjW8
+	1Uh3iO7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCfSX-0000000Fhqm-2CpI;
-	Wed, 07 May 2025 14:09:17 +0000
+	id 1uCfWO-0000000FiYC-2NkJ;
+	Wed, 07 May 2025 14:13:16 +0000
 Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCfDa-0000000FeBh-19Nj
+	id 1uCfDc-0000000Fe9b-2vjX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 13:53:51 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id B46AE43B6D;
-	Wed,  7 May 2025 13:53:45 +0000 (UTC)
+	Wed, 07 May 2025 13:53:54 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 9715E43B65;
+	Wed,  7 May 2025 13:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1746626028;
+	t=1746626022;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Arb648MVPd2t9OYqj4ElyaOmykvNNsgCgLCd5KUQAQ0=;
-	b=T9y72GYzGw6wqnn8hfQbNst884Tr+xW0ozKlxJew7YZdyOR1NUAke9daE6eIeKASFYdoRt
-	jtuUCk+Nj2pOCi6hCJtEHbjqJMADibqlus4dqjj0LQn/AlIxN9lXS1kQJJVRM/+F2CFeNN
-	v6Ye2aTLND2bNVQKKLjFtKHN+KvNHbWM1nKUAc1FBIwLqlp5UmFJ8t6SMZ/QSX9gFQCOFR
-	vh0d/BgBTmXMq9s7zFxdfpLBOUdaHw3tZvha7LJDuHxjgCIdF1KQDGU+ebLUeCYtz2gy9q
-	EOJKhwI4plAFyAaO143uGSGKmsCa3U1td7l7BXhRDcILM5cfzHfQIcQGABsdhA==
+	bh=u8gtIHzPbiNzUqeVLb3f4EK2VjKBqelEK4wxn9hCfz8=;
+	b=aQ0hLmqh/YOPYW05bpAc/agiqUj3iYhQdpGLjInHbbndGlVSKGTAwoDEpkOFwedPm1m7nT
+	3VwNQK5NYd7w4U/wSr++uiTxO4cXzRjCxqgHprXuwNPqixm+VT8CY7JUaL2u3incOTt/cm
+	0EAg/apNWgwBiFgHKo5b4P3bczkhNu3gCq63QsVtrsvxv8fYcJrt386lJzbpO7xwORi/sS
+	pgcmpepklTNaJaip8xHgepRiuATDuLGH/1/D/CCpc2hK1jTwoVl5KD+9lyjcUiS5DgsLde
+	xhAb1YdLmT7e7I6G82mF1TtMgGkf+WjCUhxFx1b666qndBs+l7vsLYXyiKwFYA==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -73,9 +73,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Romain Gantois <romain.gantois@bootlin.com>,
 	Daniel Golle <daniel@makrotopia.org>,
 	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: [PATCH net-next v6 03/14] net: phy: Introduce PHY ports representation
-Date: Wed,  7 May 2025 15:53:19 +0200
-Message-ID: <20250507135331.76021-4-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v6 01/14] dt-bindings: net: Introduce the ethernet-connector description
+Date: Wed,  7 May 2025 15:53:17 +0200
+Message-ID: <20250507135331.76021-2-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250507135331.76021-1-maxime.chevallier@bootlin.com>
 References: <20250507135331.76021-1-maxime.chevallier@bootlin.com>
@@ -83,12 +83,12 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvkeejtdefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveegtdffleffleevueellefgjeefvedvjefhheegfefgffdvfeetgeevudetffdtnecukfhppedvrgdtvdemkeeggedtmehfhedtsgemfedvheemrgeigeefmedufheiugemfhgvrgegmeegsgduieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemkeeggedtmehfhedtsgemfedvheemrgeigeefmedufheiugemfhgvrgegmeegsgduiedphhgvlhhopedvrgdtvddqkeeggedtqdhfhedtsgdqtdefvdehqdgrieegfedqudhfieguqdhfvggrgedqgegsudeirdhrvghvrdhsfhhrrdhnvghtpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedupdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrgigihhmvgdrtghhvghvr
- ghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvkeejtdefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepueelgfdvtdfhkeekudegieekuedukefhkefghefgleekkeekkefhjeekgfevhfeinecuffhomhgrihhnpeguvghvihgtvghtrhgvvgdrohhrghenucfkphepvdgrtddvmeekgeegtdemfhehtdgsmeefvdehmegrieegfeemudhfiegumehfvggrgeemgegsudeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeekgeegtdemfhehtdgsmeefvdehmegrieegfeemudhfiegumehfvggrgeemgegsudeipdhhvghlohepvdgrtddvqdekgeegtddqfhehtdgsqddtfedvhedqrgeigeefqddufheiugdqfhgvrgegqdegsgduiedrrhgvvhdrshhfrhdrnhgvthdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefuddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtr
+ dhnvghtpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_065350_606988_9CF3DF2B 
-X-CRM114-Status: GOOD (  32.30  )
+X-CRM114-CacheID: sfid-20250507_065352_884067_E7511E8A 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,678 +103,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ethernet provides a wide variety of layer 1 protocols and standards for
-data transmission. The front-facing ports of an interface have their own
-complexity and configurability.
+The ability to describe the physical ports of Ethernet devices is useful
+to describe multi-port devices, as well as to remove any ambiguity with
+regard to the nature of the port.
 
-Introduce a representation of these front-facing ports. The current code
-is minimalistic and only support ports controlled by PHY devices, but
-the plan is to extend that to SFP as well as raw Ethernet MACs that
-don't use PHY devices.
+Moreover, describing ports allows for a better description of features
+that are tied to connectors, such as PoE through the PSE-PD devices.
 
-This minimal port representation allows describing the media and number
-of lanes of a port. From that information, we can derive the linkmodes
-usable on the port, which can be used to limit the capabilities of an
-interface.
+Introduce a binding to allow describing the ports, for now with 2
+attributes :
 
-For now, the port lanes and medium is derived from devicetree, defined
-by the PHY driver, or populated with default values (as we assume that
-all PHYs expose at least one port).
+ - The number of lanes, which is a quite generic property that allows
+   differentating between multiple similar technologies such as BaseT1
+   and "regular" BaseT (which usually means BaseT4).
 
-The typical example is 100M ethernet. 100BaseT can work using only 2
-lanes on a Cat 5 cables. However, in the situation where a 10/100/1000
-capable PHY is wired to its RJ45 port through 2 lanes only, we have no
-way of detecting that. The "max-speed" DT property can be used, but a
-more accurate representation can be used :
+ - The media that can be used on that port, such as BaseT for Twisted
+   Copper, BaseC for coax copper, BaseS/L for Fiber, BaseK for backplane
+   ethernet, etc. This allows defining the nature of the port, and
+   therefore avoids the need for vendor-specific properties such as
+   "micrel,fiber-mode" or "ti,fiber-mode".
 
-mdi {
-	connector-0 {
-		media = "BaseT";
-		lanes = <2>;
-	};
-};
-
-From that information, we can derive the max speed reachable on the
-port.
-
-Another benefit of having that is to avoid vendor-specific DT properties
-(micrel,fiber-mode or ti,fiber-mode).
-
-This basic representation is meant to be expanded, by the introduction
-of port ops, userspace listing of ports, and support for multi-port
-devices.
+The port description lives in its own file, as it is intended in the
+future to allow describing the ports for phy-less devices.
 
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- MAINTAINERS                  |   1 +
- drivers/net/phy/Makefile     |   3 +-
- drivers/net/phy/phy_device.c | 168 ++++++++++++++++++++++++++++++++++
- drivers/net/phy/phy_port.c   | 171 +++++++++++++++++++++++++++++++++++
- include/linux/ethtool.h      |  15 +++
- include/linux/phy.h          |  30 ++++++
- include/linux/phy_port.h     |  93 +++++++++++++++++++
- 7 files changed, 480 insertions(+), 1 deletion(-)
- create mode 100644 drivers/net/phy/phy_port.c
- create mode 100644 include/linux/phy_port.h
+ .../bindings/net/ethernet-connector.yaml      | 47 +++++++++++++++++++
+ .../devicetree/bindings/net/ethernet-phy.yaml | 18 +++++++
+ MAINTAINERS                                   |  1 +
+ 3 files changed, 66 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/ethernet-connector.yaml
 
+diff --git a/Documentation/devicetree/bindings/net/ethernet-connector.yaml b/Documentation/devicetree/bindings/net/ethernet-connector.yaml
+new file mode 100644
+index 000000000000..2aa28e6c1523
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/ethernet-connector.yaml
+@@ -0,0 +1,47 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/ethernet-connector.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Generic Ethernet Connector
++
++maintainers:
++  - Maxime Chevallier <maxime.chevallier@bootlin.com>
++
++description:
++  An Ethernet Connectr represents the output of a network component such as
++  a PHY, an Ethernet controller with no PHY, or an SFP module.
++
++properties:
++
++  lanes:
++    description:
++      Defines the number of lanes on the port, that is the number of physical
++      channels used to convey the data with the link partner.
++    $ref: /schemas/types.yaml#/definitions/uint32
++
++  media:
++    description:
++      The mediums, as defined in 802.3, that can be used on the port.
++    items:
++      enum:
++        - BaseT
++        - BaseK
++        - BaseS
++        - BaseC
++        - BaseL
++        - BaseD
++        - BaseE
++        - BaseF
++        - BaseV
++        - BaseMLD
++        - BaseX
++
++required:
++  - lanes
++  - media
++
++additionalProperties: true
++
++...
+diff --git a/Documentation/devicetree/bindings/net/ethernet-phy.yaml b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
+index 71e2cd32580f..6bf670beb66f 100644
+--- a/Documentation/devicetree/bindings/net/ethernet-phy.yaml
++++ b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
+@@ -277,6 +277,17 @@ properties:
+ 
+     additionalProperties: false
+ 
++  mdi:
++    type: object
++
++    patternProperties:
++      '^connector-[a-f0-9]+$':
++        $ref: /schemas/net/ethernet-connector.yaml#
++
++        unevaluatedProperties: false
++
++    additionalProperties: false
++
+ required:
+   - reg
+ 
+@@ -313,5 +324,12 @@ examples:
+                     default-state = "keep";
+                 };
+             };
++
++            mdi {
++              connector-0 {
++                lanes = <2>;
++                media = "BaseT";
++              };
++            };
+         };
+     };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index b59a9209fcb1..b155eec69552 100644
+index 5c31814c9687..b59a9209fcb1 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -8797,6 +8797,7 @@ F:	include/linux/of_net.h
- F:	include/linux/phy.h
- F:	include/linux/phy_fixed.h
- F:	include/linux/phy_link_topology.h
-+F:	include/linux/phy_port.h
- F:	include/linux/phylib_stubs.h
- F:	include/linux/platform_data/mdio-bcm-unimac.h
- F:	include/linux/platform_data/mdio-gpio.h
-diff --git a/drivers/net/phy/Makefile b/drivers/net/phy/Makefile
-index 631859d44451..c0c3575753d7 100644
---- a/drivers/net/phy/Makefile
-+++ b/drivers/net/phy/Makefile
-@@ -3,7 +3,8 @@
- 
- libphy-y			:= phy.o phy-c45.o phy-core.o phy_device.o \
- 				   linkmode.o phy_link_topology.o \
--				   phy_package.o phy_caps.o mdio_bus_provider.o
-+				   phy_package.o phy_caps.o mdio_bus_provider.o \
-+				   phy_port.o
- mdio-bus-y			+= mdio_bus.o mdio_device.o
- 
- ifdef CONFIG_MDIO_DEVICE
-diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-index 2eb735e68dd8..9e0cc6a54497 100644
---- a/drivers/net/phy/phy_device.c
-+++ b/drivers/net/phy/phy_device.c
-@@ -30,6 +30,7 @@
- #include <linux/phylib_stubs.h>
- #include <linux/phy_led_triggers.h>
- #include <linux/phy_link_topology.h>
-+#include <linux/phy_port.h>
- #include <linux/pse-pd/pse.h>
- #include <linux/property.h>
- #include <linux/ptp_clock_kernel.h>
-@@ -699,6 +700,13 @@ struct phy_device *phy_device_create(struct mii_bus *bus, int addr, u32 phy_id,
- 
- 	dev->state = PHY_DOWN;
- 	INIT_LIST_HEAD(&dev->leds);
-+	INIT_LIST_HEAD(&dev->ports);
-+
-+	/* The driver's probe function must change that to the real number
-+	 * of ports possible on the PHY. We assume by default we are dealing
-+	 * with a single-port PHY
-+	 */
-+	dev->max_n_ports = 1;
- 
- 	mutex_init(&dev->lock);
- 	INIT_DELAYED_WORK(&dev->state_queue, phy_state_machine);
-@@ -1442,6 +1450,46 @@ void phy_sfp_detach(void *upstream, struct sfp_bus *bus)
- }
- EXPORT_SYMBOL(phy_sfp_detach);
- 
-+static int phy_add_port(struct phy_device *phydev, struct phy_port *port)
-+{
-+	int ret = 0;
-+
-+	if (phydev->n_ports == phydev->max_n_ports)
-+		return -EBUSY;
-+
-+	/* We set all ports as active by default, PHY drivers may deactivate
-+	 * them (when unused)
-+	 */
-+	port->active = true;
-+
-+	if (phydev->drv && phydev->drv->attach_port)
-+		ret = phydev->drv->attach_port(phydev, port);
-+
-+	if (ret)
-+		return ret;
-+
-+	/* The PHY driver might have added, removed or set medium/lanes info,
-+	 * so update the port supported accordingly.
-+	 */
-+	phy_port_update_supported(port);
-+
-+	list_add(&port->head, &phydev->ports);
-+
-+	phydev->n_ports++;
-+
-+	return 0;
-+}
-+
-+static void phy_del_port(struct phy_device *phydev, struct phy_port *port)
-+{
-+	if (!phydev->n_ports)
-+		return;
-+
-+	list_del(&port->head);
-+
-+	phydev->n_ports--;
-+}
-+
- /**
-  * phy_sfp_probe - probe for a SFP cage attached to this PHY device
-  * @phydev: Pointer to phy_device
-@@ -3202,6 +3250,119 @@ static int of_phy_leds(struct phy_device *phydev)
- 	return 0;
- }
- 
-+static void phy_cleanup_ports(struct phy_device *phydev)
-+{
-+	struct phy_port *tmp, *port;
-+
-+	list_for_each_entry_safe(port, tmp, &phydev->ports, head) {
-+		phy_del_port(phydev, port);
-+		phy_port_destroy(port);
-+	}
-+}
-+
-+static int phy_default_setup_single_port(struct phy_device *phydev)
-+{
-+	struct phy_port *port = phy_port_alloc();
-+
-+	if (!port)
-+		return -ENOMEM;
-+
-+	port->parent_type = PHY_PORT_PHY;
-+	port->phy = phydev;
-+	linkmode_copy(port->supported, phydev->supported);
-+
-+	phy_add_port(phydev, port);
-+
-+	/* default medium is copper */
-+	if (!port->mediums)
-+		port->mediums |= BIT(ETHTOOL_LINK_MEDIUM_BASET);
-+
-+	return 0;
-+}
-+
-+static int of_phy_ports(struct phy_device *phydev)
-+{
-+	struct device_node *node = phydev->mdio.dev.of_node;
-+	struct device_node *mdi;
-+	struct phy_port *port;
-+	int err;
-+
-+	if (!IS_ENABLED(CONFIG_OF_MDIO))
-+		return 0;
-+
-+	if (!node)
-+		return 0;
-+
-+	mdi = of_get_child_by_name(node, "mdi");
-+	if (!mdi)
-+		return 0;
-+
-+	for_each_available_child_of_node_scoped(mdi, port_node) {
-+		port = phy_of_parse_port(port_node);
-+		if (IS_ERR(port)) {
-+			err = PTR_ERR(port);
-+			goto out_err;
-+		}
-+
-+		port->parent_type = PHY_PORT_PHY;
-+		port->phy = phydev;
-+		err = phy_add_port(phydev, port);
-+		if (err)
-+			goto out_err;
-+	}
-+	of_node_put(mdi);
-+
-+	return 0;
-+
-+out_err:
-+	phy_cleanup_ports(phydev);
-+	of_node_put(mdi);
-+	return err;
-+}
-+
-+static int phy_setup_ports(struct phy_device *phydev)
-+{
-+	__ETHTOOL_DECLARE_LINK_MODE_MASK(ports_supported);
-+	struct phy_port *port;
-+	int ret;
-+
-+	ret = of_phy_ports(phydev);
-+	if (ret)
-+		return ret;
-+
-+	if (phydev->n_ports < phydev->max_n_ports) {
-+		ret = phy_default_setup_single_port(phydev);
-+		if (ret)
-+			goto out;
-+	}
-+
-+	linkmode_zero(ports_supported);
-+
-+	/* Aggregate the supported modes, which are made-up of :
-+	 *  - What the PHY itself supports
-+	 *  - What the sum of all ports support
-+	 */
-+	list_for_each_entry(port, &phydev->ports, head)
-+		if (port->active)
-+			linkmode_or(ports_supported, ports_supported,
-+				    port->supported);
-+
-+	if (!linkmode_empty(ports_supported))
-+		linkmode_and(phydev->supported, phydev->supported,
-+			     ports_supported);
-+
-+	/* For now, the phy->port field is set as the first active port's type */
-+	list_for_each_entry(port, &phydev->ports, head)
-+		if (port->active)
-+			phydev->port = phy_port_get_type(port);
-+
-+	return 0;
-+
-+out:
-+	phy_cleanup_ports(phydev);
-+	return ret;
-+}
-+
- /**
-  * fwnode_mdio_find_device - Given a fwnode, find the mdio_device
-  * @fwnode: pointer to the mdio_device's fwnode
-@@ -3339,6 +3500,11 @@ static int phy_probe(struct device *dev)
- 		phydev->is_gigabit_capable = 1;
- 
- 	of_set_phy_supported(phydev);
-+
-+	err = phy_setup_ports(phydev);
-+	if (err)
-+		goto out;
-+
- 	phy_advertise_supported(phydev);
- 
- 	/* Get PHY default EEE advertising modes and handle them as potentially
-@@ -3414,6 +3580,8 @@ static int phy_remove(struct device *dev)
- 
- 	phydev->state = PHY_DOWN;
- 
-+	phy_cleanup_ports(phydev);
-+
- 	sfp_bus_del_upstream(phydev->sfp_bus);
- 	phydev->sfp_bus = NULL;
- 
-diff --git a/drivers/net/phy/phy_port.c b/drivers/net/phy/phy_port.c
-new file mode 100644
-index 000000000000..c69ba0d9afba
---- /dev/null
-+++ b/drivers/net/phy/phy_port.c
-@@ -0,0 +1,171 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/* Framework to drive Ethernet ports
-+ *
-+ * Copyright (c) 2024 Maxime Chevallier <maxime.chevallier@bootlin.com>
-+ */
-+
-+#include <linux/linkmode.h>
-+#include <linux/of.h>
-+#include <linux/phy_port.h>
-+
-+/**
-+ * phy_port_alloc() - Allocate a new phy_port
-+ *
-+ * Returns: a newly allocated struct phy_port, or NULL.
-+ */
-+struct phy_port *phy_port_alloc(void)
-+{
-+	struct phy_port *port;
-+
-+	port = kzalloc(sizeof(*port), GFP_KERNEL);
-+	if (!port)
-+		return NULL;
-+
-+	linkmode_zero(port->supported);
-+	INIT_LIST_HEAD(&port->head);
-+
-+	return port;
-+}
-+EXPORT_SYMBOL_GPL(phy_port_alloc);
-+
-+/**
-+ * phy_port_destroy() - Free a struct phy_port
-+ * @port: The port to destroy
-+ */
-+void phy_port_destroy(struct phy_port *port)
-+{
-+	kfree(port);
-+}
-+EXPORT_SYMBOL_GPL(phy_port_destroy);
-+
-+static void ethtool_medium_get_supported(unsigned long *supported,
-+					 enum ethtool_link_medium medium,
-+					 int lanes)
-+{
-+	int i;
-+
-+	for (i = 0; i < __ETHTOOL_LINK_MODE_MASK_NBITS; i++) {
-+		/* Special bits such as Autoneg, Pause, Asym_pause, etc. are
-+		 * set and will be masked away by the port parent.
-+		 */
-+		if (link_mode_params[i].mediums == BIT(ETHTOOL_LINK_MEDIUM_NONE)) {
-+			linkmode_set_bit(i, supported);
-+			continue;
-+		}
-+
-+		/* For most cases, min_lanes == lanes, except for 10/100BaseT that work
-+		 * on 2 lanes but are compatible with 4 lanes mediums
-+		 */
-+		if (link_mode_params[i].mediums & BIT(medium) &&
-+		    link_mode_params[i].lanes >= lanes &&
-+		    link_mode_params[i].min_lanes <= lanes) {
-+			linkmode_set_bit(i, supported);
-+		}
-+	}
-+}
-+
-+static enum ethtool_link_medium ethtool_str_to_medium(const char *str)
-+{
-+	int i;
-+
-+	for (i = 0; i < __ETHTOOL_LINK_MEDIUM_LAST; i++)
-+		if (!strcmp(phy_mediums(i), str))
-+			return i;
-+
-+	return ETHTOOL_LINK_MEDIUM_NONE;
-+}
-+
-+/**
-+ * phy_of_parse_port() - Create a phy_port from a firmware representation
-+ * @dn: device_node representation of the port, following the
-+ *	ethernet-connector.yaml binding
-+ *
-+ * Returns: a newly allocated and initialized phy_port pointer, or an ERR_PTR.
-+ */
-+struct phy_port *phy_of_parse_port(struct device_node *dn)
-+{
-+	struct fwnode_handle *fwnode = of_fwnode_handle(dn);
-+	enum ethtool_link_medium medium;
-+	struct phy_port *port;
-+	struct property *prop;
-+	const char *med_str;
-+	u32 lanes, mediums = 0;
-+	int ret;
-+
-+	ret = fwnode_property_read_u32(fwnode, "lanes", &lanes);
-+	if (ret)
-+		lanes = 0;
-+
-+	ret = fwnode_property_read_string(fwnode, "media", &med_str);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	of_property_for_each_string(to_of_node(fwnode), "media", prop, med_str) {
-+		medium = ethtool_str_to_medium(med_str);
-+		if (medium == ETHTOOL_LINK_MEDIUM_NONE)
-+			return ERR_PTR(-EINVAL);
-+
-+		mediums |= BIT(medium);
-+	}
-+
-+	if (!mediums)
-+		return ERR_PTR(-EINVAL);
-+
-+	port = phy_port_alloc();
-+	if (!port)
-+		return ERR_PTR(-ENOMEM);
-+
-+	port->lanes = lanes;
-+	port->mediums = mediums;
-+
-+	return port;
-+}
-+EXPORT_SYMBOL_GPL(phy_of_parse_port);
-+
-+/**
-+ * phy_port_update_supported() - Setup the port->supported field
-+ * @port: the port to update
-+ *
-+ * Once the port's medium list and number of lanes has been configured based
-+ * on firmware, straps and vendor-specific properties, this function may be
-+ * called to update the port's supported linkmodes list.
-+ *
-+ * Any mode that was manually set in the port's supported list remains set.
-+ */
-+void phy_port_update_supported(struct phy_port *port)
-+{
-+	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported);
-+	int i, lanes = 1;
-+
-+	/* If there's no lanes specified, we grab the default number of
-+	 * lanes as the max of the default lanes for each medium
-+	 */
-+	if (!port->lanes)
-+		for_each_set_bit(i, &port->mediums, __ETHTOOL_LINK_MEDIUM_LAST)
-+			lanes = max_t(int, lanes, phy_medium_default_lanes(i));
-+
-+	for_each_set_bit(i, &port->mediums, __ETHTOOL_LINK_MEDIUM_LAST) {
-+		linkmode_zero(supported);
-+		ethtool_medium_get_supported(supported, i, port->lanes);
-+		linkmode_or(port->supported, port->supported, supported);
-+	}
-+}
-+EXPORT_SYMBOL_GPL(phy_port_update_supported);
-+
-+/**
-+ * phy_port_get_type() - get the PORT_* attribut for that port.
-+ * @port: The port we want the information from
-+ *
-+ * Returns: A PORT_XXX value.
-+ */
-+int phy_port_get_type(struct phy_port *port)
-+{
-+	if (port->mediums & ETHTOOL_LINK_MEDIUM_BASET)
-+		return PORT_TP;
-+
-+	if (phy_port_is_fiber(port))
-+		return PORT_FIBRE;
-+
-+	return PORT_OTHER;
-+}
-+EXPORT_SYMBOL_GPL(phy_port_get_type);
-diff --git a/include/linux/ethtool.h b/include/linux/ethtool.h
-index c1d805d3e02f..0d3063af5905 100644
---- a/include/linux/ethtool.h
-+++ b/include/linux/ethtool.h
-@@ -226,6 +226,10 @@ extern const struct link_mode_info link_mode_params[];
- 
- extern const char ethtool_link_medium_names[][ETH_GSTRING_LEN];
- 
-+#define ETHTOOL_MEDIUM_FIBER_BITS (BIT(ETHTOOL_LINK_MEDIUM_BASES) | \
-+				   BIT(ETHTOOL_LINK_MEDIUM_BASEL) | \
-+				   BIT(ETHTOOL_LINK_MEDIUM_BASEF))
-+
- static inline const char *phy_mediums(enum ethtool_link_medium medium)
- {
- 	if (medium >= __ETHTOOL_LINK_MEDIUM_LAST)
-@@ -234,6 +238,17 @@ static inline const char *phy_mediums(enum ethtool_link_medium medium)
- 	return ethtool_link_medium_names[medium];
- }
- 
-+static inline int phy_medium_default_lanes(enum ethtool_link_medium medium)
-+{
-+	/* Let's consider that the default BaseT ethernet is BaseT4, i.e.
-+	 * Gigabit Ethernet.
-+	 */
-+	if (medium == ETHTOOL_LINK_MEDIUM_BASET)
-+		return 4;
-+
-+	return 1;
-+}
-+
- /* declare a link mode bitmap */
- #define __ETHTOOL_DECLARE_LINK_MODE_MASK(name)		\
- 	DECLARE_BITMAP(name, __ETHTOOL_LINK_MODE_MASK_NBITS)
-diff --git a/include/linux/phy.h b/include/linux/phy.h
-index d62d292024bc..0180f4d4fd7d 100644
---- a/include/linux/phy.h
-+++ b/include/linux/phy.h
-@@ -299,6 +299,7 @@ static inline long rgmii_clock(int speed)
- struct device;
- struct kernel_hwtstamp_config;
- struct phylink;
-+struct phy_port;
- struct sfp_bus;
- struct sfp_upstream_ops;
- struct sk_buff;
-@@ -590,6 +591,9 @@ struct macsec_ops;
-  * @master_slave_state: Current master/slave configuration
-  * @mii_ts: Pointer to time stamper callbacks
-  * @psec: Pointer to Power Sourcing Equipment control struct
-+ * @ports: List of PHY ports structures
-+ * @n_ports: Number of ports currently attached to the PHY
-+ * @max_n_ports: Max number of ports this PHY can expose
-  * @lock:  Mutex for serialization access to PHY
-  * @state_queue: Work queue for state machine
-  * @link_down_events: Number of times link was lost
-@@ -724,6 +728,10 @@ struct phy_device {
- 	struct mii_timestamper *mii_ts;
- 	struct pse_control *psec;
- 
-+	struct list_head ports;
-+	int n_ports;
-+	int max_n_ports;
-+
- 	u8 mdix;
- 	u8 mdix_ctrl;
- 
-@@ -1242,6 +1250,27 @@ struct phy_driver {
- 	 * Returns the time in jiffies until the next update event.
- 	 */
- 	unsigned int (*get_next_update_time)(struct phy_device *dev);
-+
-+	/**
-+	 * @attach_port: Indicates to the PHY driver that a port is detected
-+	 * @dev: PHY device to notify
-+	 * @port: The port being added
-+	 *
-+	 * Called when a port that needs to be driven by the PHY is found. The
-+	 * number of time this will be called depends on phydev->max_n_ports,
-+	 * which the driver can change in .probe().
-+	 *
-+	 * The port that is being passed may or may not be initialized. If it is
-+	 * already initialized, it is by the generic port representation from
-+	 * devicetree, which superseeds any strapping or vendor-specific
-+	 * properties.
-+	 *
-+	 * If the port isn't initialized, the port->mediums and port->lanes
-+	 * fields must be set, possibly according to stapping information.
-+	 *
-+	 * Returns 0, or an error code.
-+	 */
-+	int (*attach_port)(struct phy_device *dev, struct phy_port *port);
- };
- #define to_phy_driver(d) container_of_const(to_mdio_common_driver(d),		\
- 				      struct phy_driver, mdiodrv)
-@@ -1968,6 +1997,7 @@ void phy_trigger_machine(struct phy_device *phydev);
- void phy_mac_interrupt(struct phy_device *phydev);
- void phy_start_machine(struct phy_device *phydev);
- void phy_stop_machine(struct phy_device *phydev);
-+
- void phy_ethtool_ksettings_get(struct phy_device *phydev,
- 			       struct ethtool_link_ksettings *cmd);
- int phy_ethtool_ksettings_set(struct phy_device *phydev,
-diff --git a/include/linux/phy_port.h b/include/linux/phy_port.h
-new file mode 100644
-index 000000000000..70aa75f93096
---- /dev/null
-+++ b/include/linux/phy_port.h
-@@ -0,0 +1,93 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+
-+#ifndef __PHY_PORT_H
-+#define __PHY_PORT_H
-+
-+#include <linux/ethtool.h>
-+#include <linux/types.h>
-+#include <linux/phy.h>
-+
-+struct phy_port;
-+
-+/**
-+ * enum phy_port_parent - The device this port is attached to
-+ *
-+ * @PHY_PORT_PHY: Indicates that the port is driven by a PHY device
-+ */
-+enum phy_port_parent {
-+	PHY_PORT_PHY,
-+};
-+
-+struct phy_port_ops {
-+	/* Sometimes, the link state can be retrieved from physical,
-+	 * out-of-band channels such as the LOS signal on SFP. These
-+	 * callbacks allows notifying the port about state changes
-+	 */
-+	void (*link_up)(struct phy_port *port);
-+	void (*link_down)(struct phy_port *port);
-+
-+	/* If the port acts as a Media Independent Interface (Serdes port),
-+	 * configures the port with the relevant state and mode. When enable is
-+	 * not set, interface should be ignored
-+	 */
-+	int (*configure_mii)(struct phy_port *port, bool enable, phy_interface_t interface);
-+};
-+
-+/**
-+ * struct phy_port - A representation of a network device physical interface
-+ *
-+ * @head: Used by the port's parent to list ports
-+ * @parent_type: The type of device this port is directly connected to
-+ * @phy: If the parent is PHY_PORT_PHYDEV, the PHY controlling that port
-+ * @ops: Callback ops implemented by the port controller
-+ * @lanes: The number of lanes (diff pairs) this port has, 0 if not applicable
-+ * @mediums: Bitmask of the physical mediums this port provides access to
-+ * @supported: The link modes this port can expose, if this port is MDI (not MII)
-+ * @interfaces: The MII interfaces this port supports, if this port is MII
-+ * @active: Indicates if the port is currently part of the active link.
-+ * @is_serdes: Indicates if this port is Serialised MII (Media Independent
-+ *	       Interface), or an MDI (Media Dependent Interface).
-+ */
-+struct phy_port {
-+	struct list_head head;
-+	enum phy_port_parent parent_type;
-+	union {
-+		struct phy_device *phy;
-+	};
-+
-+	const struct phy_port_ops *ops;
-+
-+	int lanes;
-+	unsigned long mediums;
-+	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported);
-+	DECLARE_PHY_INTERFACE_MASK(interfaces);
-+
-+	unsigned int active:1;
-+	unsigned int is_serdes:1;
-+};
-+
-+struct phy_port *phy_port_alloc(void);
-+void phy_port_destroy(struct phy_port *port);
-+
-+static inline struct phy_device *port_phydev(struct phy_port *port)
-+{
-+	return port->phy;
-+}
-+
-+struct phy_port *phy_of_parse_port(struct device_node *dn);
-+
-+static inline bool phy_port_is_copper(struct phy_port *port)
-+{
-+	return port->mediums == BIT(ETHTOOL_LINK_MEDIUM_BASET);
-+}
-+
-+static inline bool phy_port_is_fiber(struct phy_port *port)
-+{
-+	return !!(port->mediums & ETHTOOL_MEDIUM_FIBER_BITS);
-+}
-+
-+void phy_port_update_supported(struct phy_port *port);
-+
-+int phy_port_get_type(struct phy_port *port);
-+
-+#endif
+@@ -8777,6 +8777,7 @@ R:	Russell King <linux@armlinux.org.uk>
+ L:	netdev@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/ABI/testing/sysfs-class-net-phydev
++F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
+ F:	Documentation/devicetree/bindings/net/ethernet-phy.yaml
+ F:	Documentation/devicetree/bindings/net/mdio*
+ F:	Documentation/devicetree/bindings/net/qca,ar803x.yaml
 -- 
 2.49.0
 
