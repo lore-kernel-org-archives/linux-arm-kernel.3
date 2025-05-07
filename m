@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10964C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 18:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EEFFC3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 19:25:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=38gbht3KpWlsXPdZ8hJN+JDl7TnuSRKBtPBm0jl8/d4=; b=GOU/52GTxK3DUni5VYleluwqFT
-	1qIohVckOH7n4rNd+UTeQH4wEsvSs09WJlqyVAm5qLYJcSQ5hTNrebGMzZiUTb4RSso9ydH14/QBi
-	LhyYn6uV5hglo7i1AGsraI+WhaV0WY8wobCIt9CapbMTywKFxbGFIjQ+AzEPJ1HKD+mZNLmeQlwMi
-	p/VP8bXv6S+vq9+g9ITwXJxonzrpYTM3YDZULIwtLUlgntUkxXuY5WP2/HQaDMny4s5mokO6vLPB/
-	Dq1y4+QP4xjSXniMSyBCs2T7FxzoKfyIzFielEmEDD8p4FPK6411T93ceDovM9vh5dFhwszWCvr2G
-	90mTI0Vw==;
+	bh=HQzvqfpgigCAffHosNyCJ8Um6TLPFt1XrXbkr0y6z2A=; b=lnmFYFO0cB+BigWIHDC+06LOSe
+	ebNr4vgEvjYFtMkT/oRZt2pxSaEj2tDAIqO8a5sfCmj9YlXpo1W11PRJ9hhHfenLJ6R38L01gNzso
+	uRpKaDbQ6yct/4dR2BP3D6DpGgK7DgfEA0mBPmG9yBJ4Q5CxsKCSrWNXGTQBIN4uRevgseIEdcnhc
+	KTJB4x4PacXLGKLu+NjyLBew+i6Sa2TpZ9X6k24y+5YyP7mVxW2oLQthXz237J+MV9xuSy4gXHiGk
+	jXlytXtBcD4yZL4JdT+hzL6QeCIwbUWkWItJWTlXfGYMQyBDPf7dNWMdZQCPZ7BU9QzirIwHKuNAq
+	w8PaHN6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCjnh-0000000GWMf-0Uej;
-	Wed, 07 May 2025 18:47:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uCkNw-0000000GZL6-15R1;
+	Wed, 07 May 2025 19:24:52 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCjll-0000000GWCl-0yZA;
-	Wed, 07 May 2025 18:45:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A6406629E5;
-	Wed,  7 May 2025 18:45:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43067C4CEE9;
-	Wed,  7 May 2025 18:45:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746643524;
-	bh=b0Z2CtCQbrS6Cm6Atyr106vvviX+heraGGwK75dEIUM=;
+	id 1uCkLy-0000000GZCb-3dW3;
+	Wed, 07 May 2025 19:22:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1746645767;
+	bh=GHSW4wUcpOnEic7k+DsKOTurTrfizcPlOAPqQKlmSxU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ex6DbSwQi9n8oIBLyX47q8kuQwKQbQ0Wjt1QL7/sSP/5oCsmMIfNneg/7H3Id1bj3
-	 vidrjBlo4LT6qTNjkmtOikzCkhVz4lUpuJ78RGUVGcoGUVVZ7p+4/Nt5ZLaKnmsSWv
-	 hjwEQwfjKvHsOz+Hz9LUKfJeViO4JflKm2JGHJBzXU+uIlwbaXKY83Ftu00T48m2kv
-	 Q9nbjHbKCkZTw3jZk0y+3VmNqyO5hYcLVGvQ+0fSyn7xPXQlzSZf0jfPu2NPQGSVKZ
-	 ztGxmYuYjI87tVS60h+jrkYyEEv9MdbA4nB2SInPGC2i0ga2/j5ZIiGid1h9z3yDWn
-	 XbfNs0/Ux3oXg==
-Date: Wed, 7 May 2025 20:45:15 +0200
-From: Ingo Molnar <mingo@kernel.org>
-To: Kees Cook <kees@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, x86@kernel.org,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-efi@vger.kernel.org,
-	linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, Christoph Hellwig <hch@lst.de>,
-	Marco Elver <elver@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nicolas.schier@linux.dev>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com, sparclinux@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH 3/8] stackleak: Rename CONFIG_GCC_PLUGIN_STACKLEAK to
- CONFIG_STACKLEAK
-Message-ID: <aBuqO9BVlIV3oA2M@gmail.com>
-References: <20250507180852.work.231-kees@kernel.org>
- <20250507181615.1947159-3-kees@kernel.org>
+	b=DJum2erF0U6Oe3JU03iuTHFSIhY6ng6wCMy0Mr9OR02DXfh6sR7teIeAzjz8skiz7
+	 Hx8XeaOeFZGUBreY6dHMUMT23eP4TuamLtCc7Oi44RjECYYEKqYHNx9mI4TVmjEHhZ
+	 m340VuRQezMVuaH/dQA652+UkGp5NwAyjQIOoqkWvG6qGY0NT23B9aupLILsYjfaD7
+	 w4r81iugdj7GRaSF8pB0zCImSDP1lA4n/YNgF81y4BrnZua72f1R9Ad6CBhVHpCifo
+	 zPSQri20rT87KaRg8vwC2aKb531baL1ShC4h4i0Jh/xIRaZiP0Zjk5SLbZ874xfnoK
+	 8GGgMU/pLCsyA==
+Received: from notapiano (unknown [70.107.117.78])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C48CA17E0147;
+	Wed,  7 May 2025 21:22:42 +0200 (CEST)
+Date: Wed, 7 May 2025 15:22:40 -0400
+From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
+To: Julien Massot <julien.massot@collabora.com>
+Cc: kernel@collabora.com, Sen Chu <sen.chu@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Hui Liu <hui.liu@mediatek.com>, Yong Wu <yong.wu@mediatek.com>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Tinghan Shen <tinghan.shen@mediatek.com>, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, iommu@lists.linux.dev
+Subject: Re: [PATCH 1/4] dt-bindings: mfd: mediatek: mt6397: Add
+ #sound-dai-cells property
+Message-ID: <34399fb1-f876-4c7e-b164-4331defd4426@notapiano>
+References: <20250505-mt8395-dtb-errors-v1-0-9c4714dcdcdb@collabora.com>
+ <20250505-mt8395-dtb-errors-v1-1-9c4714dcdcdb@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20250507181615.1947159-3-kees@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250505-mt8395-dtb-errors-v1-1-9c4714dcdcdb@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250507_122251_062146_12D1E4D5 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,20 +89,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, May 05, 2025 at 03:23:37PM +0200, Julien Massot wrote:
+> The 'mt6359.dtsi' file already uses the '#sound-dai-cells' property.
+> Add the corresponding property to the binding to fix the following
+> dtb-check error:
+> 
+> mediatek/mt8395-radxa-nio-12l.dtb: pmic: '#sound-dai-cells', 'mt6359rtc' do not match any of the regexes: 'pinctrl-[0-9]+'
+> from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+> 
+> Fixes: 9bc8353be720 ("arm64: dts: mt6359: Add #sound-dai-cells property")
+> Signed-off-by: Julien Massot <julien.massot@collabora.com>
 
-* Kees Cook <kees@kernel.org> wrote:
-
-> -	  The STACKLEAK gcc plugin instruments the kernel code for tracking
-> +	  The STACKLEAK options instruments the kernel code for tracking
-
-speling.
-
-Also, any chance to fix this terrible name? Should be something like 
-KSTACKZERO or KSTACKCLEAR, to tell people that it doesn't leak the 
-stack but prevents leaks on the stack by clearing it, and that it's 
-about the kernel stack, not any other stack.
+Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
 Thanks,
-
-	Ingo
+Nícolas
 
