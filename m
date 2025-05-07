@@ -4,88 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 373DAC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 15:09:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A1E2C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 15:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y9NQ5htm6TjGvw5gpgQ2pW82RG+dj+JM6DZdm8OVPgY=; b=bApfp5g+/fx2A2y/Ys9xYD1x2V
-	7TJAYF0adWe/HSfgP5o8376WeFi7rtfRQuk62+PDEo6UM83AhZy+PD+CG3bC3+DILLdVGJIXbNbZg
-	Qg7Ns44/D5di3F9M5YIgpDPfQReULbkujl2aJuhTHoIur9AN974oadjYnj8R4HRSoIUjRCqSY+kzY
-	T/FFaBLdLVwod9WOp2WIdxP9sdIqgdJIw9OaKQj30sNjJyhm46/dJMvqdB5YcUaHAkXr6EBa6YxuU
-	o6BMbJjBBEhqSjD5z7pvxoozOVJ474/6TfkTk7daNibx5rllp+epQsIxLr74FZrwzxgIk6AEaYkIv
-	tpVo2whQ==;
+	bh=0gzfb6HckY9UdtJPRmS+pKyEgA39e1sxVd+XOM9U62U=; b=aAgym8w26HV+ly4o4Q3X25FJpY
+	UZ+V2FyoLW6p6q8feZzaY0TUIgq/Bsou+7u4/v9OIGT6XFNkh4u8NTGvPps+vqrGD+kpu3ByCSdkD
+	U1Savg1x8awBYDk166YVnMJkGFScfKYoE7bM6hw/GaVn4Ej3e8dzfBNw9tL/OsJZ0npBggTOUUj9N
+	j9Hg6C0VhH5OH2RFzxy3lfM0FqNXTZoIhS09m9sA5wm3LDzQI5mz/NhJVDJ85Bo/tlpUCXdaLQ58s
+	8I8xDa9yEOb/tYEFv8vn1u6I2+V8i6t3f0LOS6O9u4s/m+8fvsqGDqwSsADautcRBcCHHhpAZhOQo
+	yDZoC7lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCgON-0000000Fu3H-2q7a;
-	Wed, 07 May 2025 15:09:03 +0000
+	id 1uCgQI-0000000FuK4-1WSZ;
+	Wed, 07 May 2025 15:11:02 +0000
 Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCfuU-0000000Fogv-1OIr
+	id 1uCfuV-0000000Fohb-3jmD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 14:38:11 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-39c0dfba946so5873103f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 May 2025 07:38:09 -0700 (PDT)
+	Wed, 07 May 2025 14:38:12 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-39ee5ac4321so8423335f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 May 2025 07:38:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746628688; x=1747233488; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1746628690; x=1747233490; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Y9NQ5htm6TjGvw5gpgQ2pW82RG+dj+JM6DZdm8OVPgY=;
-        b=f29okIycqRKra4Y03RdrT+vGksX9vSewwuti78hS8Qb/5vshfGbrgHCEY0o6GC9Ge+
-         V1g6h5A7fHUZjmPYqxJSFpjDilAeaP+8gWhXuJpiJ4jssO0f3Yv0nUPWK/ae+T4BqhMy
-         +o4t5tZdeULBB0gQ2g01gxxh39LhDisz+eGFWRgpV6Z8tG9lOOfpYZ1ABXB9eHDlcGfV
-         jM80dyxuW9UpRYUK3+rbZ6UDjn817J7bk03PvMhdEFgx6KsoBG5xMTjpAaX9BPjzum9p
-         HkkKs3aaLNSypR1Lh3y9Jf1hQfMtoHEG4L1yC9zE7CGEE9k0ziVykBSBgt1IlRe8ouen
-         IGnw==
+        bh=0gzfb6HckY9UdtJPRmS+pKyEgA39e1sxVd+XOM9U62U=;
+        b=EWdPgepsOiVYGrkruxA3MztiGRomv2RcVfjCltJRJz+YVaveN/VC+QMBdKz71e/y2x
+         x6SXs6mBpYeNGWl4jez83h2VDyob2O3M9jwUnuOxQJUIJ1PpaS11RBAV1tKi25oZ8FlD
+         X0mfOg2XNikgIGS8AVfrD96h5T+IP5Hv4oomO7D6x9YxMNM8OxAgZBwt9YST91eOkk+0
+         56x4LBXnjXIFHvcT6t2RosjBp2cbsK6RTS6irYq2lmaXcDhYRGwOtXoHkwFHBketRXLs
+         0IrLpsLwv1pdxqnomoyyI0tTNN/mhSHgu5Limsn3zbEDbtzMmoXCdKOHAJ11cpY3Lev7
+         jCKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746628688; x=1747233488;
+        d=1e100.net; s=20230601; t=1746628690; x=1747233490;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Y9NQ5htm6TjGvw5gpgQ2pW82RG+dj+JM6DZdm8OVPgY=;
-        b=t/4r9Y9tpgteiUpzn0sn53y+Ess5cTbhrkz4pj20wNSdTXhiSzeWzOS7jwDgJ2rfJP
-         OGxusPXRgsfgv9Kq5Q8l4T9HcKRk/7S7UYLOO8Gq/umG4oS8HfOtshdIHA3jkWfQY6ww
-         PAfAp1VF7dZPsHvzhAMcbf90hcmuMH21FD4jYZYnXfJ0jk6yWcIjvdHMHh/wrVUVqRyn
-         T1KTu9gmqlHgVNCzF//8fYr/CnVGwhblOp0V1yt+DelNdlEz85BqQZ41m6aUC/6SCZk8
-         QUSLvFJsj5iU2uu03oZ/u5pP021wgHNyl4FqYAmQpjV8QMfTZQZGkOCtpt7XED5FD0Mt
-         JjZw==
-X-Forwarded-Encrypted: i=1; AJvYcCVehdrRHDqr+W9UGsKD79Z0rAMuNuFikO5UTEyVO+Nw8tlkJbulB3YBhTozFZcO77q1cvN2DG491I7RFzy4+Np9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0OEt/dFXj+yAyxahU5A7XxGl9bmc+VXqMSjYLAS2kxxJ7WToK
-	Rcr53M5FNU0M/E7Gp0a9wEsTNZMCz6FyhsiOs7CI1T67otSVTaBV
-X-Gm-Gg: ASbGncuZ4LjY7jC0g1PWH7c4QEb8eGyewWga5y/ekP1JM6xG1TCtdP+oQB1V1Js9bv0
-	YEgnvN14GrkbTevuqtbQOslN9kpy8z53h6tPE2eF0dCZbJ7Y8Kk0AMji4Q1WBb5cmnLdqc5xaUd
-	uNjHvsMvyCTu7SK8YE3lUbRsdFnNXDW1QN3zBKg4rK3+2OZ1JLI51TyY9E/cZ+jhbJRQr2x/M5L
-	/tM0JIMkxHll07Wy5mKkkoR6+z2JNcEoCneRaPcp2zIBkIu49UbV/SD5IEwmaQBRk5zgKPrSTb4
-	1h6AORlAeb9qmQWe+uayonkTUBOZqygRtoWeLwDn+tR3bxBsrIGhv5X+hjG3LSHRq4QBV4vmEYb
-	/DiCeu0EjFBbMV0kkQ6kM1gAqD2aAqqJV
-X-Google-Smtp-Source: AGHT+IGEPioJ9LKl2XwGoKUoShBQOdIJsWwwGwPpqoWfZEMwSOLznYljMTyla4CsgxGuyB4sn9Pz0g==
-X-Received: by 2002:a05:6000:2911:b0:3a0:7a7c:2648 with SMTP id ffacd0b85a97d-3a0b4a18a7fmr3305755f8f.27.1746628688558;
-        Wed, 07 May 2025 07:38:08 -0700 (PDT)
+        bh=0gzfb6HckY9UdtJPRmS+pKyEgA39e1sxVd+XOM9U62U=;
+        b=n1gbhjQEdYgsY8IKttO183bzYhSqCPL/sAMCjMDZSk/ICy4K51IGnMKMtYxj3hGM5u
+         JellsLakaIF+hTDPlWrFR4d61jB/W7Qjjc9i8cknyx3t2/MRyrPm98sHP7F55RPc+QgT
+         KU8ZX6gYImWUgTNG8aIeEafK6nSDZ+Ujd4iWAYU/b7o4yld+jyjDnTe4PUoauJyLa839
+         a0QzS+2vZ7dpS+c5S8UrkDHmbRYRGujt5s629oqF9bKvQRkGvd9EoUfr+VbBHv03aaMK
+         Wab+Wt/rstjp0vN8G1OudXsgMbhMCHxtupgNkOfXdyPUl+mHlel05Ldxpw5J4Zjvj1g7
+         hVhg==
+X-Forwarded-Encrypted: i=1; AJvYcCUpxxKmBmslp+bdejcna45kKi687qz2tQpHZiirpFmuVyziPIB/31rxP2XmKT/QcYLtbAS2Kg3pKCIa7Grma9cD@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyvexen3XEEWjLMN9RZSKa69b0taJUvULDvZV8HMzAe+8cHECa4
+	URdbtZozCM+MD3J95fS8Hd211H1lMT0JZoUjJmeYlAXLhofQw12YbP6sLA==
+X-Gm-Gg: ASbGnctUqhqnhzM6q4rE5Li9ng8ArHjc40AWgLUgVXCtQxcYFrBgUC0c3928HPUW6fU
+	0qzygA/y29z770pDkPZa5qL6U9z5AQrhJhoC4il5Okl4z4xNJ4fbnVSSTy1cXiNwy5gcVV9ICAD
+	+kveyCsRU4wdIeAyoL8CXGJdFNV9rcrFcoC8XnCpyC3aZvqab3dzscJltCUvRvD5IuFFl21yTqx
+	H0SxG4upErj+pu+mR4UCoLSCdMPiPkwjs6z4I4CdwrevcSjF8tTXTM6/jICTw+e/u63uIKiecx/
+	Js0cfSk5AKerl4Avr8jrjPm7o0NgdsUs02YKl/gTGfZj2F6K+sfiOpTACqBWc2iEV9haw5EjBG/
+	yBWyupRzyLbJqZG5xROMhDSD8Ft35KX3g
+X-Google-Smtp-Source: AGHT+IHGIVl6XYUEA7AWDEFbYtJkO5/zuXOHWGsE7GNB3B414dUBW633ES48dG8Ps6rJLbFr3W+SEA==
+X-Received: by 2002:a5d:5988:0:b0:39c:13f5:dba0 with SMTP id ffacd0b85a97d-3a0b49a7f45mr2923886f8f.13.1746628690510;
+        Wed, 07 May 2025 07:38:10 -0700 (PDT)
 Received: from localhost (p200300e41f281b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f28:1b00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-442cd3aeb79sm2915195e9.27.2025.05.07.07.38.07
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3a0b840737bsm431253f8f.67.2025.05.07.07.38.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 May 2025 07:38:07 -0700 (PDT)
+        Wed, 07 May 2025 07:38:09 -0700 (PDT)
 From: Thierry Reding <thierry.reding@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>
 Cc: Jon Hunter <jonathanh@nvidia.com>,
 	linux-tegra@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 2/8] dt-bindings: rtc: tegra: Document Tegra264 RTC
-Date: Wed,  7 May 2025 16:37:56 +0200
-Message-ID: <20250507143802.1230919-3-thierry.reding@gmail.com>
+Subject: [PATCH 3/8] dt-bindings: tegra: Document P3971-0089+P3834-0008 Platform
+Date: Wed,  7 May 2025 16:37:57 +0200
+Message-ID: <20250507143802.1230919-4-thierry.reding@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250507143802.1230919-1-thierry.reding@gmail.com>
 References: <20250507143802.1230919-1-thierry.reding@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_073810_368394_37C9DF64 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20250507_073811_926103_1966EE05 
+X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,25 +103,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Thierry Reding <treding@nvidia.com>
 
-Add the compatible string for the RTC block found on the Tegra264 SoC.
+This is an engineering reference platform for the Tegra264 SoC.
 
 Signed-off-by: Thierry Reding <treding@nvidia.com>
 ---
- Documentation/devicetree/bindings/rtc/nvidia,tegra20-rtc.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/arm/tegra.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/rtc/nvidia,tegra20-rtc.yaml b/Documentation/devicetree/bindings/rtc/nvidia,tegra20-rtc.yaml
-index 17d6280e5515..a86e926ae3d1 100644
---- a/Documentation/devicetree/bindings/rtc/nvidia,tegra20-rtc.yaml
-+++ b/Documentation/devicetree/bindings/rtc/nvidia,tegra20-rtc.yaml
-@@ -28,6 +28,7 @@ properties:
-               - nvidia,tegra186-rtc
-               - nvidia,tegra194-rtc
-               - nvidia,tegra234-rtc
-+              - nvidia,tegra264-rtc
-           - const: nvidia,tegra20-rtc
+diff --git a/Documentation/devicetree/bindings/arm/tegra.yaml b/Documentation/devicetree/bindings/arm/tegra.yaml
+index 65e0ff1fdf1e..cdf5a730d8a9 100644
+--- a/Documentation/devicetree/bindings/arm/tegra.yaml
++++ b/Documentation/devicetree/bindings/arm/tegra.yaml
+@@ -245,5 +245,10 @@ properties:
+           - const: nvidia,p3768-0000+p3767-0005
+           - const: nvidia,p3767-0005
+           - const: nvidia,tegra234
++      - description: NVIDIA P3971-0089+P3834-0008 Engineering Reference Platform
++        items:
++          - const: nvidia,p3971-0089+p3834-0008
++          - const: nvidia,p3834-0008
++          - const: nvidia,tegra264
  
-   reg:
+ additionalProperties: true
 -- 
 2.49.0
 
