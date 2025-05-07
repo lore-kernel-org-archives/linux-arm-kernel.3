@@ -4,65 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A584AC3ABBF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 227DDC3ABC0
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 17:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=amdZx3Q3THIgfcBAeURQnJEOQi11WsDFMfoJyNX5VmA=; b=S0aHD711g65yxbtD31XwQ8z8rw
-	BAnhTmWKRWpqkiqduXnolaKT3pI/if22xoElIfX5mjy2Hh3VqgI7iFG8skXoxoGi24XRQgAnPoaRD
-	asNiBuJ6A5pJhneKZJDlWpoaSP1+hr77JKeHTIlcCTe2OUaK4MgX6cGv4/9y3ErQwumjlOhOqpZUc
-	bx7Th+Es5TT9CEq1kgrT9SnKNBF4YyTfWFGxAXMsA3d2lbtAG5TupMgbcoQ49oB18bfySRoR5QkuL
-	Y+wBEUJrNcpdpCOLmbUnBSyfS3RpHqdYtqqitSOwSvqbyKSpE7CZV6+vCckzTavv3N2gRJTLV7ito
-	ktHuHvjw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SSFT2CagdTbOCNmrE/L+U/pFpwTXEJQQJoVw9VRYHa0=; b=oKjYXqjQQm8CvOf90Ry/cA+RfF
+	28/uCyIKi10svsNNJhaRxu9VjWgIuC59d9iizg9tQwypKq1SM3pxkiUyKLaFYtuZXBDmszr72j9Cz
+	7EzSnAsvz6hUhnFjNrKejkxZxClYhA1ScadptFfzylx6wlpbXA/b46ObEvYtdd3zKvJwqBSPC6r3n
+	O2G72NXhxUNmG8JUB/rLsS6KbP9j5rkytHHdz2Tvs/nTKvAADdDiisOPto98c9srvX9S5RpNBhDRQ
+	skT0ZHWN+a8h1qgRUBlO4aRF5fvHZSvJ29BqtBsvMG6PXvH+6zIIDZVUx7Cvyk6CXE0dMlh8oIfvs
+	7kYb2sZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCiWl-0000000GIAz-0Bwg;
-	Wed, 07 May 2025 17:25:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCh1Z-0000000G2ab-1plo
+	id 1uCiWi-0000000GI7H-3aZx;
+	Wed, 07 May 2025 17:25:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCgzY-0000000G1yL-0Wga
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 15:49:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 028F7436AE;
-	Wed,  7 May 2025 15:49:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0111C4CEE2;
-	Wed,  7 May 2025 15:49:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746632972;
-	bh=Tp8NdrkzlSlV2qbKcvvrIUR3zgxxR1AAJTORcyzUazM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=iJMFQ5xXd5/NPJU1rTDYfFCPEXo9wEQPkrPTbD76lclEZlppbkn8LW+J2UZLwGtRB
-	 HnRFjosuyiQoZH2YPjDxE/eazD5CMNqOyUc3aX/CNVggCIpWduzs6qcqGsFGqn6OQb
-	 Rz7iwLo0rDqh5jW5FTWCtwmlIGrz0rThaYDr0IrpcQj7v58J8mBQB+r53XQiHn+vht
-	 FZm6SNDwh/nSFAGFPUySzVTFPX2ZPb8M/1Z+nLfa+//QIkw0+c6KJDhi5SZ1Ey4o4p
-	 jTd+aPeLd/M1Z/vy1SDvJVTgFzo5E3qYYlsh0JCCcv7UNG7/tQX9a8bCt8pXXXl0O6
-	 9SkASNlXi02Bg==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Taichi Sugaya <sugaya.taichi@socionext.com>,
-	Takao Orito <orito.takao@socionext.com>
-Cc: Thierry Reding <treding@nvidia.com>,
+	Wed, 07 May 2025 15:47:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A723F339;
+	Wed,  7 May 2025 08:47:17 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 297773F58B;
+	Wed,  7 May 2025 08:47:24 -0700 (PDT)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: catalin.marinas@arm.com,
+	pcc@google.com,
+	will@kernel.org,
+	broonie@kernel.org,
+	anshuman.khandual@arm.com,
+	joey.gouly@arm.com,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	frederic@kernel.org,
+	james.morse@arm.com,
+	hardevsinh.palaniya@siliconsignals.io,
+	huangxiaojia2@huawei.com,
+	mark.rutland@arm.com,
+	samuel.holland@sifive.com,
+	palmer@rivosinc.com,
+	charlie@rivosinc.com,
+	thiago.bauermann@linaro.org,
+	bgray@linux.ibm.com,
+	tglx@linutronix.de,
+	puranjay@kernel.org,
+	david@redhat.com,
+	yang@os.amperecomputing.com,
+	mbenes@suse.cz,
+	joel.granados@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2] dt-bindings: serial: Convert socionext,milbeaut-usio-uart to DT schema
-Date: Wed,  7 May 2025 10:49:22 -0500
-Message-ID: <20250507154924.1602842-1-robh@kernel.org>
-X-Mailer: git-send-email 2.47.2
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v4 7/7] kselftest/arm64/mte: add MTE_STORE_ONLY testcases
+Date: Wed,  7 May 2025 16:46:54 +0100
+Message-Id: <20250507154654.1937588-8-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250507154654.1937588-1-yeoreum.yun@arm.com>
+References: <20250507154654.1937588-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_084933_516040_F16DA0BD 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20250507_084728_252246_E66ABB04 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,111 +86,330 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Socionext Milbeaut UART binding to DT schema. It is a
-straight-forward conversion.
+Since ARMv8.9, FEAT_MTE_STORE_ONLY can be used to restrict raise of tag
+check fault on store operation only.
 
-Reviewed-by: Thierry Reding <treding@nvidia.com>
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
-v2:
- - Fix $id path
----
- .../bindings/serial/milbeaut-uart.txt         | 21 -------
- .../serial/socionext,milbeaut-usio-uart.yaml  | 56 +++++++++++++++++++
- 2 files changed, 56 insertions(+), 21 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/serial/milbeaut-uart.txt
- create mode 100644 Documentation/devicetree/bindings/serial/socionext,milbeaut-usio-uart.yaml
+Adds new test cases using MTE_STORE_ONLY feature.
 
-diff --git a/Documentation/devicetree/bindings/serial/milbeaut-uart.txt b/Documentation/devicetree/bindings/serial/milbeaut-uart.txt
-deleted file mode 100644
-index 3d2fb1a7ba94..000000000000
---- a/Documentation/devicetree/bindings/serial/milbeaut-uart.txt
-+++ /dev/null
-@@ -1,21 +0,0 @@
--Socionext Milbeaut UART controller
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+---
+ .../selftests/arm64/mte/check_mmap_options.c  | 114 ++++++++++++------
+ .../testing/selftests/arm64/mte/check_prctl.c |  25 ++--
+ 2 files changed, 95 insertions(+), 44 deletions(-)
+
+diff --git a/tools/testing/selftests/arm64/mte/check_mmap_options.c b/tools/testing/selftests/arm64/mte/check_mmap_options.c
+index d4193377b406..b9db3e05565e 100644
+--- a/tools/testing/selftests/arm64/mte/check_mmap_options.c
++++ b/tools/testing/selftests/arm64/mte/check_mmap_options.c
+@@ -34,15 +34,19 @@
+ #define ATAG_TEST_ON		1
+ #define ATAG_TEST_OFF		0
+ 
++#define TAG_OP_ALL		0
++#define TAG_OP_STONLY		1
++
+ static size_t page_size;
+ static int sizes[] = {
+ 	1, 537, 989, 1269, MT_GRANULE_SIZE - 1, MT_GRANULE_SIZE,
+ 	/* page size - 1*/ 0, /* page_size */ 0, /* page size + 1 */ 0
+ };
+ 
+-static int check_mte_memory(char *ptr, int size, int mode, int tag_check, int atag_test)
++static int check_mte_memory(char *ptr, int size, int mode,
++		int tag_check,int atag_test, int tag_op)
+ {
+-	int err;
++	char buf[MT_GRANULE_SIZE];
+ 
+ 	if (!mtefar_support && atag_test == ATAG_TEST_ON)
+ 		return KSFT_SKIP;
+@@ -72,16 +76,34 @@ static int check_mte_memory(char *ptr, int size, int mode, int tag_check, int at
+ 	if (cur_mte_cxt.fault_valid == true && tag_check == TAG_CHECK_OFF)
+ 		return KSFT_FAIL;
+ 
++	if (tag_op == TAG_OP_STONLY) {
++		mte_initialize_current_context(mode, (uintptr_t)ptr, -UNDERFLOW);
++		memcpy(buf, ptr - UNDERFLOW, MT_GRANULE_SIZE);
++		mte_wait_after_trig();
++		if (cur_mte_cxt.fault_valid == true)
++			return KSFT_FAIL;
++
++		mte_initialize_current_context(mode, (uintptr_t)ptr, size + OVERFLOW);
++		memcpy(buf, ptr + size, MT_GRANULE_SIZE);
++		mte_wait_after_trig();
++		if (cur_mte_cxt.fault_valid == true)
++			return KSFT_FAIL;
++	}
++
+ 	return KSFT_PASS;
+ }
+ 
+-static int check_anonymous_memory_mapping(int mem_type, int mode, int mapping, int tag_check, int atag_test)
++static int check_anonymous_memory_mapping(int mem_type, int mode, int mapping,
++		int tag_check, int atag_test, int tag_op)
+ {
+ 	char *ptr, *map_ptr;
+ 	int run, result, map_size;
+ 	int item = ARRAY_SIZE(sizes);
+ 
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
++	if (tag_op == TAG_OP_STONLY && !mtestonly_support)
++		return KSFT_SKIP;
++
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, tag_op);
+ 	for (run = 0; run < item; run++) {
+ 		map_size = sizes[run] + OVERFLOW + UNDERFLOW;
+ 		map_ptr = (char *)mte_allocate_memory(map_size, mem_type, mapping, false);
+@@ -97,7 +119,7 @@ static int check_anonymous_memory_mapping(int mem_type, int mode, int mapping, i
+ 			munmap((void *)map_ptr, map_size);
+ 			return KSFT_FAIL;
+ 		}
+-		result = check_mte_memory(ptr, sizes[run], mode, tag_check, atag_test);
++		result = check_mte_memory(ptr, sizes[run], mode, tag_check, atag_test, tag_op);
+ 		mte_clear_tags((void *)ptr, sizes[run]);
+ 		mte_free_memory((void *)map_ptr, map_size, mem_type, false);
+ 		if (result != KSFT_SKIP)
+@@ -106,14 +128,18 @@ static int check_anonymous_memory_mapping(int mem_type, int mode, int mapping, i
+ 	return KSFT_PASS;
+ }
+ 
+-static int check_file_memory_mapping(int mem_type, int mode, int mapping, int tag_check, int atag_test)
++static int check_file_memory_mapping(int mem_type, int mode, int mapping,
++		int tag_check, int atag_test, int tag_op)
+ {
+ 	char *ptr, *map_ptr;
+ 	int run, fd, map_size;
+ 	int total = ARRAY_SIZE(sizes);
+ 	int result = KSFT_PASS;
+ 
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
++	if (tag_op == TAG_OP_STONLY && !mtestonly_support)
++		return KSFT_SKIP;
++
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, tag_op);
+ 	for (run = 0; run < total; run++) {
+ 		fd = create_temp_file();
+ 		if (fd == -1)
+@@ -135,7 +161,7 @@ static int check_file_memory_mapping(int mem_type, int mode, int mapping, int ta
+ 			close(fd);
+ 			return KSFT_FAIL;
+ 		}
+-		result = check_mte_memory(ptr, sizes[run], mode, tag_check, atag_test);
++		result = check_mte_memory(ptr, sizes[run], mode, tag_check, atag_test, tag_op);
+ 		mte_clear_tags((void *)ptr, sizes[run]);
+ 		munmap((void *)map_ptr, map_size);
+ 		close(fd);
+@@ -168,7 +194,7 @@ static int check_clear_prot_mte_flag(int mem_type, int mode, int mapping, int at
+ 			ksft_print_msg("FAIL: mprotect not ignoring clear PROT_MTE property\n");
+ 			return KSFT_FAIL;
+ 		}
+-		result = check_mte_memory(ptr, sizes[run], mode, TAG_CHECK_ON, atag_test);
++		result = check_mte_memory(ptr, sizes[run], mode, TAG_CHECK_ON, atag_test, TAG_OP_ALL);
+ 		mte_free_memory_tag_range((void *)ptr, sizes[run], mem_type, UNDERFLOW, OVERFLOW);
+ 		if (result != KSFT_PASS)
+ 			return result;
+@@ -192,7 +218,7 @@ static int check_clear_prot_mte_flag(int mem_type, int mode, int mapping, int at
+ 			close(fd);
+ 			return KSFT_FAIL;
+ 		}
+-		result = check_mte_memory(ptr, sizes[run], mode, TAG_CHECK_ON, atag_test);
++		result = check_mte_memory(ptr, sizes[run], mode, TAG_CHECK_ON, atag_test, TAG_OP_ALL);
+ 		mte_free_memory_tag_range((void *)ptr, sizes[run], mem_type, UNDERFLOW, OVERFLOW);
+ 		close(fd);
+ 		if (result != KSFT_PASS)
+@@ -202,7 +228,7 @@ static int check_clear_prot_mte_flag(int mem_type, int mode, int mapping, int at
+ }
+ 
+ const char *format_test_name(int check_type, int mem_type, int sync,
+-		       int mapping, int tag_check, int atag_test)
++		       int mapping, int tag_check, int atag_test, int tag_op)
+ {
+ 	static char test_name[TEST_NAME_MAX];
+ 	const char* check_type_str;
+@@ -211,6 +237,7 @@ const char *format_test_name(int check_type, int mem_type, int sync,
+ 	const char* mapping_str;
+ 	const char* tag_check_str;
+ 	const char *atag_test_str;
++	const char *tag_op_str;
+ 
+ 	switch (check_type) {
+ 	case CHECK_ANON_MEM:
+@@ -290,10 +317,22 @@ const char *format_test_name(int check_type, int mem_type, int sync,
+ 		break;
+ 	}
+ 
++	switch (tag_op) {
++	case TAG_OP_ALL:
++		tag_op_str = "";
++		break;
++	case TAG_OP_STONLY:
++		tag_op_str = " / store-only";
++		break;
++	default:
++		assert(0);
++		break;
++	}
++
+ 	snprintf(test_name, TEST_NAME_MAX,
+-	         "Check %s with %s mapping, %s mode, %s memory and %s (%s)\n",
++	         "Check %s with %s mapping, %s mode, %s memory and %s (%s%s)\n",
+ 	         check_type_str, mapping_str, sync_str, mem_type_str,
+-	         tag_check_str, atag_test_str);
++	         tag_check_str, atag_test_str, tag_op_str);
+ 
+ 	return test_name;
+ }
+@@ -307,7 +346,8 @@ int main(int argc, char *argv[])
+ 	int mte_sync[] = { MTE_SYNC_ERR, MTE_ASYNC_ERR };
+ 	int mapping[] = { MAP_PRIVATE, MAP_SHARED };
+ 	int atag_test[] = { ATAG_TEST_OFF, ATAG_TEST_ON };
+-	int c, mt, s, m, a;
++	int tag_ops[] = { TAG_OP_ALL, TAG_OP_STONLY };
++	int c, mt, s, m, a, o;
+ 
+ 	err = mte_default_setup();
+ 	if (err)
+@@ -322,7 +362,7 @@ int main(int argc, char *argv[])
+ 	sizes[item - 1] = page_size + 1;
+ 
+ 	/* Set test plan */
+-	ksft_set_plan(44);
++	ksft_set_plan(76);
+ 
+ 	for (a = 0; a < ARRAY_SIZE(atag_test); a++) {
+ 		/* Register signal handlers */
+@@ -331,38 +371,40 @@ int main(int argc, char *argv[])
+ 
+ 		mte_enable_pstate_tco();
+ 
+-		evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a]),
+-			      format_test_name(CHECK_ANON_MEM, USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a]));
++		evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a], TAG_OP_ALL),
++			      format_test_name(CHECK_ANON_MEM, USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a], TAG_OP_ALL));
+ 
+-		evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a]),
+-			      format_test_name(CHECK_FILE_MEM, USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a]));
++		evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a], TAG_OP_ALL),
++			      format_test_name(CHECK_FILE_MEM, USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a], TAG_OP_ALL));
+ 
+ 		mte_disable_pstate_tco();
+ 
+-		evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a]),
+-			      format_test_name(CHECK_ANON_MEM, USE_MMAP, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a]));
+-		evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a]),
+-			      format_test_name(CHECK_FILE_MEM, USE_MPROTECT, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a]));
 -
--Required properties:
--- compatible: should be "socionext,milbeaut-usio-uart".
--- reg: offset and length of the register set for the device.
--- interrupts: two interrupts specifier.
--- interrupt-names: should be "rx", "tx".
--- clocks: phandle to the input clock.
--
--Optional properties:
--- auto-flow-control: flow control enable.
--
--Example:
--	usio1: usio_uart@1e700010 {
--		compatible = "socionext,milbeaut-usio-uart";
--		reg = <0x1e700010 0x10>;
--		interrupts = <0 141 0x4>, <0 149 0x4>;
--		interrupt-names = "rx", "tx";
--		clocks = <&clk 2>;
--		auto-flow-control;
--	};
-diff --git a/Documentation/devicetree/bindings/serial/socionext,milbeaut-usio-uart.yaml b/Documentation/devicetree/bindings/serial/socionext,milbeaut-usio-uart.yaml
-new file mode 100644
-index 000000000000..34a997ca2e11
---- /dev/null
-+++ b/Documentation/devicetree/bindings/serial/socionext,milbeaut-usio-uart.yaml
-@@ -0,0 +1,56 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/serial/socionext,milbeaut-usio-uart.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+-		for (c = 0 ; c < ARRAY_SIZE(check_type); c++) {
+-			for (s = 0; s < ARRAY_SIZE(mte_sync); s++) {
+-				for (m = 0; m < ARRAY_SIZE(mapping); m++) {
+-					for (mt = 0; mt < ARRAY_SIZE(mem_type); mt++) {
+-						if (check_type[c] == CHECK_ANON_MEM)
+-							evaluate_test(check_anonymous_memory_mapping(mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON, atag_test[a]),
+-								format_test_name(CHECK_ANON_MEM, mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON, atag_test[a]));
+-						else
+-							evaluate_test(check_file_memory_mapping(mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON, atag_test[a]),
+-								format_test_name(CHECK_FILE_MEM, mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON, atag_test[a]));
++		evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a], TAG_OP_ALL),
++			      format_test_name(CHECK_ANON_MEM, USE_MMAP, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a], TAG_OP_ALL));
++		evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a], TAG_OP_ALL),
++			      format_test_name(CHECK_FILE_MEM, USE_MPROTECT, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a], TAG_OP_ALL));
 +
-+title: Socionext Milbeaut UART controller
++		for (o = 0; o < ARRAY_SIZE(tag_ops); o++) {
++			for (c = 0 ; c < ARRAY_SIZE(check_type); c++) {
++				for (s = 0; s < ARRAY_SIZE(mte_sync); s++) {
++					for (m = 0; m < ARRAY_SIZE(mapping); m++) {
++						for (mt = 0; mt < ARRAY_SIZE(mem_type); mt++) {
++							if (check_type[c] == CHECK_ANON_MEM)
++								evaluate_test(check_anonymous_memory_mapping(mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON, atag_test[a], tag_ops[o]),
++									format_test_name(CHECK_ANON_MEM, mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON, atag_test[a], tag_ops[o]));
++							else
++								evaluate_test(check_file_memory_mapping(mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON, atag_test[a], tag_ops[o]),
++									format_test_name(CHECK_FILE_MEM, mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON, atag_test[a], tag_ops[o]));
++						}
+ 					}
+ 				}
+ 			}
+ 		}
+ 
+ 		evaluate_test(check_clear_prot_mte_flag(USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, atag_test[a]),
+-			      format_test_name(CHECK_CLEAR_PROT_MTE, USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON, atag_test[a]));
++			      format_test_name(CHECK_CLEAR_PROT_MTE, USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON, atag_test[a], TAG_OP_ALL));
+ 		evaluate_test(check_clear_prot_mte_flag(USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, atag_test[a]),
+-			      format_test_name(CHECK_CLEAR_PROT_MTE, USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON, atag_test[a]));
++			      format_test_name(CHECK_CLEAR_PROT_MTE, USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON, atag_test[a], TAG_OP_ALL));
+ 	}
+ 
+ 	mte_restore_setup();
+diff --git a/tools/testing/selftests/arm64/mte/check_prctl.c b/tools/testing/selftests/arm64/mte/check_prctl.c
+index 4c89e9538ca0..83fa20cc6072 100644
+--- a/tools/testing/selftests/arm64/mte/check_prctl.c
++++ b/tools/testing/selftests/arm64/mte/check_prctl.c
+@@ -60,7 +60,7 @@ void check_basic_read(void)
+ /*
+  * Attempt to set a specified combination of modes.
+  */
+-void set_mode_test(const char *name, int hwcap2, int mask)
++void set_mode_test(const char *name, int hwcap2, int hwcap3, int mask)
+ {
+ 	int ret;
+ 
+@@ -69,6 +69,11 @@ void set_mode_test(const char *name, int hwcap2, int mask)
+ 		return;
+ 	}
+ 
++	if ((getauxval(AT_HWCAP3) & hwcap3) != hwcap3) {
++		ksft_test_result_skip("%s\n", name);
++		return;
++	}
 +
-+maintainers:
-+  - Sugaya Taichi <sugaya.taichi@socionext.com>
-+
-+allOf:
-+  - $ref: /schemas/serial/serial.yaml#
-+
-+properties:
-+  compatible:
-+    const: socionext,milbeaut-usio-uart
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    items:
-+      - description: RX interrupt specifier
-+      - description: TX interrupt specifier
-+
-+  interrupt-names:
-+    items:
-+      - const: rx
-+      - const: tx
-+
-+  clocks:
-+    maxItems: 1
-+
-+  auto-flow-control:
-+    description: Enable automatic flow control.
-+    type: boolean
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - interrupt-names
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    serial@1e700010 {
-+        compatible = "socionext,milbeaut-usio-uart";
-+        reg = <0x1e700010 0x10>;
-+        interrupts = <0 141 0x4>, <0 149 0x4>;
-+        interrupt-names = "rx", "tx";
-+        clocks = <&clk 2>;
-+        auto-flow-control;
-+    };
+ 	ret = set_tagged_addr_ctrl(mask);
+ 	if (ret < 0) {
+ 		ksft_test_result_fail("%s\n", name);
+@@ -81,7 +86,7 @@ void set_mode_test(const char *name, int hwcap2, int mask)
+ 		return;
+ 	}
+ 
+-	if ((ret & PR_MTE_TCF_MASK) == mask) {
++	if ((ret & (PR_MTE_TCF_MASK | PR_MTE_STORE_ONLY)) == mask) {
+ 		ksft_test_result_pass("%s\n", name);
+ 	} else {
+ 		ksft_print_msg("Got %x, expected %x\n",
+@@ -93,12 +98,16 @@ void set_mode_test(const char *name, int hwcap2, int mask)
+ struct mte_mode {
+ 	int mask;
+ 	int hwcap2;
++	int hwcap3;
+ 	const char *name;
+ } mte_modes[] = {
+-	{ PR_MTE_TCF_NONE,  0,          "NONE"  },
+-	{ PR_MTE_TCF_SYNC,  HWCAP2_MTE, "SYNC"  },
+-	{ PR_MTE_TCF_ASYNC, HWCAP2_MTE, "ASYNC" },
+-	{ PR_MTE_TCF_SYNC | PR_MTE_TCF_ASYNC,  HWCAP2_MTE, "SYNC+ASYNC"  },
++	{ PR_MTE_TCF_NONE,                                        0,          0,                     "NONE"  },
++	{ PR_MTE_TCF_SYNC,                                        HWCAP2_MTE, 0,                     "SYNC"  },
++	{ PR_MTE_TCF_ASYNC,                                       HWCAP2_MTE, 0,                     "ASYNC" },
++	{ PR_MTE_TCF_SYNC | PR_MTE_TCF_ASYNC,                     HWCAP2_MTE, 0,                     "SYNC+ASYNC"  },
++	{ PR_MTE_TCF_SYNC | PR_MTE_STORE_ONLY,                    HWCAP2_MTE, HWCAP3_MTE_STORE_ONLY, "SYNC+STONLY" },
++	{ PR_MTE_TCF_ASYNC | PR_MTE_STORE_ONLY,                   HWCAP2_MTE, HWCAP3_MTE_STORE_ONLY, "ASYNC+STONLY" },
++	{ PR_MTE_TCF_SYNC | PR_MTE_TCF_ASYNC | PR_MTE_STORE_ONLY, HWCAP2_MTE, HWCAP3_MTE_STORE_ONLY, "SYNC+ASYNC+STONLY" },
+ };
+ 
+ int main(void)
+@@ -106,11 +115,11 @@ int main(void)
+ 	int i;
+ 
+ 	ksft_print_header();
+-	ksft_set_plan(5);
++	ksft_set_plan(8);
+ 
+ 	check_basic_read();
+ 	for (i = 0; i < ARRAY_SIZE(mte_modes); i++)
+-		set_mode_test(mte_modes[i].name, mte_modes[i].hwcap2,
++		set_mode_test(mte_modes[i].name, mte_modes[i].hwcap2, mte_modes[i].hwcap3,
+ 			      mte_modes[i].mask);
+ 
+ 	ksft_print_cnts();
 -- 
-2.47.2
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
