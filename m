@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8D70C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 17:26:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA7A9C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 17:26:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y05XFpD9jkV2IVvA4ki2HAlfx62YFmpKxQbnv9Iw8N0=; b=fODpBz0U5eTB7tmptVaKP31vZE
-	vfG3/9eDe1FR5opEJOp1VB3DkD+m3C4bwCSQs2ChAjBmkpn3KcqKq/fRyjUYhGt8S1XC++o28k7pg
-	KbuVrD+MKZ5QoWbhxf8wJZZC5yzFmrBX29jL6cO02mJRXHjgGKLJOVCO+g270lxXqHRi1JbCmOw2s
-	h2AWGaShUE9j/Wu0htuqGkrrfiHct/IyOuTrcdMHn7XuIWr0G8vqmi2/zoXh+TMd6TmZ+dLtmWQgN
-	XsgepLlRybQ9BEqZNsxBQUQ700apwS2fhBvs2+xB5I3V8+fQP7fk/jqgGDJiK7DVtEjQJZQVexzZh
-	cOGdPMuQ==;
+	bh=eoTdOE6Y83kPr+c6SXhSvGb+cg/4NCXlFWGNkt8Pb9k=; b=lhM6BDEGsUrpZ8vAJ+XwsslEbJ
+	bXv/0QA+E35M6thbt+wKTQgQedHtPAA/fIwuJjLbLtOGNzjyBl9IBeNRc6DDEUPEIyDUvx8IZciNQ
+	MK1/vlZNfqdOwduVPkW8hV2ZxVk0fQ/d60VGv4/rk2pWUSX593jVuUYfxLlJ1O2SkpqDLnLeQrDJu
+	GFF7N6q+y9TnoDryrrMTjmbI7d7LI10y5LVZd4wLak/aOETGUcdr9OaDPOVxNHt+gDWJFymmvJFOs
+	W4sySsltbX5522UZjUEumlhSTRUt3500BsQzzoap1/mhR0BZqAEbJExj/seeweBIke6PXDL91mPKQ
+	k4zixH0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCiXE-0000000GJ5G-0Tdj;
-	Wed, 07 May 2025 17:26:20 +0000
+	id 1uCiXG-0000000GJAs-02yY;
+	Wed, 07 May 2025 17:26:22 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uChOA-0000000G7HA-34YV
+	id 1uChQ8-0000000G7cB-12Jj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 16:12:56 +0000
+	Wed, 07 May 2025 16:14:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A47B7A4DB2E;
-	Wed,  7 May 2025 16:12:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2F5FC4CEE2;
-	Wed,  7 May 2025 16:12:50 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 77D67A4DB48;
+	Wed,  7 May 2025 16:14:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A959FC4CEEB;
+	Wed,  7 May 2025 16:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746634373;
-	bh=0RLqrwMsAhl2xqXyWYnpo3EgpwbWRgNXpPwCXKSnqxk=;
+	s=k20201202; t=1746634495;
+	bh=/VcoQnSnLjiwWZ0bYe5FmYR+ob26DBvPPRNvFAaqiHg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V4VntZFM1KJCWu2fesTk7x4UR7hFUwMEUgzoMCzqwqZt7URM7Jn8fVOpVQwkcnRJb
-	 vyzJf+J5iKgudCkjCUia9WSaMg3gxltPUmTg7ohe4z1sHZrH0qbLqc8F+snJEqgk1D
-	 3T7T+TfMjRQSDv/BrSd1LD3/wkq1cNLlV+uS+Q2bIVo4R5tnxcsSlQ9efYa1gn/vbG
-	 fNPajg3Oumq/5RANmGzETOzLotarwr/R43BVRjiUfUQgKafSK5CDnOEHrPq37eReNV
-	 ISLG8omjKpSOKQ40YalMQqFr2T548J0fTu8xlRACNzAOsDH2BBsRce5kHCvJXPg5hz
-	 4AXtPr40uidNQ==
-Date: Wed, 7 May 2025 17:12:47 +0100
+	b=SE9po98Z8SJ2Xx6KtQsvjaBvpYqTgOrO/VnuSJdMVSlfRB0ZiWXC90ZjwLERYCD/6
+	 yuO/lTAoYmjIajelr7pe/WzL4/2wsJar9NTD5Ms6GE+iSCaSF8r0nI6/GzAyxUjZTM
+	 9xoQ6J24Z44uOF/vYCkZ1zc3FOFnnqkEhVYS+ETRzYkaWz8RBkmTT+GLIls5GmwqIO
+	 t6MaRZcJv0Yqly989ARNBtSmBoYw7kYIVZqohF5RlU7gFtBIgsLmG7KyEK2lBzp8mg
+	 im/lj3yyzsz6oCbhIIo97MlbNqtZlWYy39dYFTT3N3kGd3vNPX7PVFJFBkvVuMaDzb
+	 Gugycdv9hHOFw==
+Date: Wed, 7 May 2025 17:14:49 +0100
 From: Will Deacon <will@kernel.org>
 To: Mark Rutland <mark.rutland@arm.com>
 Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
@@ -51,19 +51,23 @@ Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
 	richard.sandiford@arm.com, sander.desmalen@arm.com,
 	tabba@google.com, tamas.petz@arm.com, tkjos@google.com,
 	yury.khrustalev@arm.com
-Subject: Re: [PATCH 15/20] arm64/fpsimd: ptrace/prctl: Ensure VL changes
- leave task in a valid state
-Message-ID: <20250507161246.GB2580@willie-the-truck>
+Subject: Re: [PATCH 04/20] arm64/fpsimd: signal: Mandate SVE payload for
+ streaming-mode state
+Message-ID: <20250507161448.GC2580@willie-the-truck>
 References: <20250506152523.1107431-1-mark.rutland@arm.com>
- <20250506152523.1107431-16-mark.rutland@arm.com>
+ <20250506152523.1107431-5-mark.rutland@arm.com>
+ <20250507125915.GB2227@willie-the-truck>
+ <aBtsesMtp299EWaR@J2N7QTR9R3>
+ <20250507142937.GA2475@willie-the-truck>
+ <aBt2EJA42RegStj9@J2N7QTR9R3>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250506152523.1107431-16-mark.rutland@arm.com>
+In-Reply-To: <aBt2EJA42RegStj9@J2N7QTR9R3>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_091254_910391_AB760E91 
-X-CRM114-Status: GOOD (  37.98  )
+X-CRM114-CacheID: sfid-20250507_091456_423314_C19991D9 
+X-CRM114-Status: GOOD (  29.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,150 +82,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 04:25:18PM +0100, Mark Rutland wrote:
-> Currently, vec_set_vector_length() can manipulate a task into an invalid
-> state as a result of a prctl/ptrace syscall which changes the SVE/SME
-> vector length, resulting in several problems:
+On Wed, May 07, 2025 at 04:02:40PM +0100, Mark Rutland wrote:
+> On Wed, May 07, 2025 at 03:29:39PM +0100, Will Deacon wrote:
+> > On Wed, May 07, 2025 at 03:21:46PM +0100, Mark Rutland wrote:
+> > > On Wed, May 07, 2025 at 01:59:16PM +0100, Will Deacon wrote:
+> > > > On Tue, May 06, 2025 at 04:25:07PM +0100, Mark Rutland wrote:
+> > > > > @@ -416,7 +418,16 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
+> > > > >  	if (user_vl != vl)
+> > > > >  		return -EINVAL;
+> > > > >  
+> > > > > -	if (user->sve_size == sizeof(*user->sve)) {
+> > > > > +	/*
+> > > > > +	 * Non-streaming SVE state may be preserved without an SVE payload, in
+> > > > > +	 * which case the SVE context only has a header with VL==0, and all
+> > > > > +	 * state can be restored from the FPSIMD context.
+> > > > > +	 *
+> > > > > +	 * Streaming SVE state is always preserved with an SVE payload. For
+> > > > > +	 * consistency and robustness, reject restoring streaming SVE state
+> > > > > +	 * without an SVE payload.
+> > > > > +	 */
+> > > > > +	if (!sm && user->sve_size == sizeof(*user->sve)) {
+> > > > >  		clear_thread_flag(TIF_SVE);
+> > > > >  		current->thread.svcr &= ~SVCR_SM_MASK;
+> > > > >  		current->thread.fp_type = FP_STATE_FPSIMD;
+> > > > 
+> > > > This (along with the 'fpsimd_only:' block) is now practically identical
+> > > > to restore_fpsimd_context(). I think that's a sign that we're doing the
+> > > > right thing, but can we move that into a shared helper function?
+> > > 
+> > > Largely yes, but there's a subtlety.
+> > > 
+> > > We can call restore_fpsimd_context() directly for the block above, since
+> > > that's equivalent as of the prior patch.
+> > > 
+> > > The "fpsimd_only" label is misleading, and is used in two distinct
+> > > cases:
+> > > 
+> > > (1) When the SVE context has no register state, that's used to resrtore
+> > >     an FPSIMD-only context, and is (now) equivalent to
+> > >     restore_fpsimd_context().
+> > > 
+> > > (2) When the SVE context has register state, we restore the SVE state,
+> > >     then fall through to the "fpsimd_only" block to merge the the FPSIMD
+> > >     registers into the SVE registers, preserving the upper bits.
+> > > 
+> > >     The merging is hidden opaquely in fpsimd_update_current_state().
+> > > 
+> > > So we can call restore_fpsimd_context() directly for the !SVE case, and
+> > > we can factor out reading the user_fpsimd_state, but for case 2 we MUST
+> > > NOT mess with TIF_SVE, SVCR, or fp_type, and MUST merge the register
+> > > contents.
+> > 
+> > Right, all I'm suggesting here is to remove the 'fpsimd_only:' label and
+> > call into a restore_fpsimd_context()-like helper function in the
+> > FPSIMD-only case. We can leave the SVE case as-is (and potentially
+> > de-duplicate the copying later on if we want to).
 > 
-> (1) When changing the SVE vector length, if the task initially has
->     PSTATE.ZA==1, and sve_alloc() fails to allocate memory, the task
->     will be left with PSTATE.ZA==1 and sve_state==NULL. This is not a
->     legitimate state, and could result in a subsequent null pointer
->     dereference.
+> Yep, that makes sense to me.
 > 
-> (2) When changing the SVE vector length, if the task initially has
->     PSTATE.SM==1, the task will be left with PSTATE.SM==1 and
->     fp_type==FP_STATE_FPSIMD. Streaming mode state always needs to be
->     saved in SVE format, so this is not a legitimate state.
+> I reckon that either makes sense to fold that into the prior patch
+> rather than this one, or to do that as a separate patch.
 > 
->     Attempting to restore this state may cause a task to erroneously
->     inherit stale streaming mode predicate registers and FFR contents,
->     behaving non-deterministically and potentially leaving information
->     from another task.
-> 
->     While in this state, reads of the NT_ARM_SSVE regset will indicate
->     that the registers are not stored in SVE format. For the NT_ARM_SSVE
->     regset specifically, debuggers interpret this as meaning that
->     PSTATE.SM==0.
-> 
-> (3) When changing the SME vector length, if the task initially has
->     PSTATE.SM==1, the lower 128 bits of task's streaming mode vector
->     state will be migrated to non-streaming mode, rather than these bits
->     being zeroed as is usually the case for changes to PSTATE.SM.
-> 
-> To fix the first issue, we can eagerly allocate the new sve_state and
-> sme_state before modifying the task. This makes it possible to handle
-> memory allocation failure without modifying the task state at all, and
-> removes the need to clear TIF_SVE and TIF_SME.
-> 
-> To fix the second issue, we either need to clear PSTATE.SM or not change
-> the saved fp_type. Given we're going to eagerly allocate sve_state and
-> sme_state, the simplest option is to preserve PSTATE.SM and the saves
-> fp_type, and consistently truncate the SVE state. This ensures that the
-> task always stays in a valid state.
-> 
-> I believe these changes should not be problematic for realistic usage:
-> 
-> * When the SVE/SME vector length is changed via prctl(), syscall entry
->   will have cleared PSTATE.SM. Unless the task's state has been
->   manipulated via ptrace after entry, the task will have PSTATE.SM==0.
-> 
-> * When the SVE/SME vector length is changed via a write to the
->   NT_ARM_SVE or NT_ARM_SSVE regsets, PSTATE.SM will be forced
->   immediately after the length change, and new vector state will be
->   copied from userspace.
-> 
-> * When the SME vector length is changed via a write to the NT_ARM_ZA
->   regset, the (S)SVE state is clobbered today, so anyone who cares about
->   the specific state would need to install this after writing to the
->   NT_ARM_ZA regset.
-> 
-> The fp-ptrace test checks for this last behaviour, so I've updated it to
-> match the change to the kernel.
-> 
-> As we need to free the old SVE state while TIF_SVE may still be set, we
-> cannot use sve_free(), and using kfree() directly makes it clear that
-> the free pairs with the subsequent assignment. As this leaves sve_free()
-> unused, I've removed the existing sve_free() and renamed __sve_free() to
-> mirror sme_free().
-> 
-> Fixes: 8bd7f91c03d8 ("arm64/sme: Implement traps and syscall handling for SME")
-> Fixes: baa8515281b3 ("arm64/fpsimd: Track the saved FPSIMD state type separately to TIF_SVE")
-> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: David Spickett <david.spickett@arm.com>
-> Cc: Luis Machado <luis.machado@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Mark Brown <broonie@kernel.org>
-> Cc: Will Deacon <will@kernel.org>
-> ---
->  Documentation/arch/arm64/sme.rst             |   2 +-
->  arch/arm64/kernel/fpsimd.c                   | 137 ++++++++++---------
->  tools/testing/selftests/arm64/fp/fp-ptrace.c |  18 +--
->  3 files changed, 76 insertions(+), 81 deletions(-)
+> Any preference?
 
-[...]
-
-> +static int change_live_vector_length(struct task_struct *task,
-> +				     enum vec_type type,
-> +				     unsigned long vl)
-> +{
-> +	unsigned int sve_vl = task_get_sve_vl(task);
-> +	unsigned int sme_vl = task_get_sme_vl(task);
-> +	void *sve_state = NULL, *sme_state = NULL;
-> +
-> +	if (type == ARM64_VEC_SME)
-> +		sme_vl = vl;
-> +	else
-> +		sve_vl = vl;
-> +
-> +	/*
-> +	 * Allocate the new sve_state and sme_state before freeing the old
-> +	 * copies so that allocation failure can be handled without needing to
-> +	 * mutate the task's state in any way.
-> +	 *
-> +	 * Changes to the SVE vector length must not discard live ZA state or
-> +	 * clear PSTATE.ZA, as userspace code which is unaware of the AAPCS64
-> +	 * ZA lazy saving scheme may attempt to change the SVE vector length
-> +	 * while unsaved/dormant ZA state exists.
-> +	 */
-> +	sve_state = kzalloc(__sve_state_size(sve_vl, sme_vl), GFP_KERNEL);
-> +	if (!sve_state)
-> +		goto out_mem;
-> +
-> +	if (type == ARM64_VEC_SME) {
-> +		sme_state = kzalloc(__sme_state_size(sme_vl), GFP_KERNEL);
-> +		if (!sve_state)
-
-This should be '!sme_state'.
-
-> +			goto out_mem;
-> +	}
-> +
-> +	if (task == current)
-> +		fpsimd_save_and_flush_current_state();
-> +	else
-> +		fpsimd_flush_task_state(task);
-> +
-> +	/*
-> +	 * Always preserve PSTATE.SM and the effective FPSIMD state, zeroing
-> +	 * other SVE state.
-> +	 */
-> +	fpsimd_sync_from_effective_state(task);
-> +	task_set_vl(task, type, vl);
-> +	kfree(task->thread.sve_state);
-> +	task->thread.sve_state = sve_state;
-> +	fpsimd_sync_to_effective_state_zeropad(task);
-> +
-> +	if (type == ARM64_VEC_SME) {
-> +		task->thread.svcr &= ~SVCR_ZA_MASK;
-> +		kfree(task->thread.sme_state);
-> +		task->thread.sme_state = sme_state;
-> +	}
-
-I'm probably just missing something here, but how does this address
-problem three from the commit message where exiting streaming mode
-should zero the bottom bits of the vector registers?
+Totally up to you.
 
 Will
 
