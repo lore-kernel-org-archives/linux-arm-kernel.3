@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 883DCC3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 17:58:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51172C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 17:59:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6+w2rOhMLzWL69p+AYFDRxip1uCkuGuYudeGTRnVE1U=; b=EZLNikqj9GfN4KuPB+XOuLfTZ6
-	ZwXiWXbz5M8CekBYHJIlpvprtOeQiZoELsADS2waZJzSxPkUOkmp4QC+snbI4Dg+pIv4nEGI2TLni
-	g0HiJFRxmDZfAFHhf76Hnzrkf1rU46umYt5MszZXBLzIFCYdgfSyrt6KUslmkckzx8d8KxmBJkgxI
-	SiqQ8rzLYxKZlbkEltM+yldOZbq0BmZmavI35RGpLZylQ5Om823ujnjT2ek/x8jTAYxs/fs9j2QsO
-	+Se9PUYXDdUSsilOZ4IlVDqsLBFEsnxnAh0GqsBZ6CPH2zKz8Pn+Htw2Oxo6OnSsfY8QWnwOz/kk3
-	hjVyLLsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Tp2Nhwg0YUadjd14cdUo5k3/FrR3T5bmhH/RJB54VBo=; b=h3FTjBCRLEfspk
+	+hWmkCzV8UDGVpHbS/UmPlNTGyfqX8siz4vvXlrqBiOFa3YMOaVkOIWHflqHunA+DpFhIUA+FyV2c
+	hSVsdrwJXCBJybvdAXFZ1muM0cCaPWrRiNC4egQ4ZRY0WO+7hxZ3uVpIIpHU2fLmAqYwx62+4lVzf
+	WVbXdoppAJusVRdHGIpzX8l+FfFygLBUuw7w6XOjgPEC1HjPABitsoVZzNYpHgh55kl8cZwBUTbG9
+	BpWFU+GxOA1UoLNu+Qy7oprw3FLY9J/xOCmbDfIbnEXelIBNxMyycVBFzANP5K8Sp5VL24chH6EtK
+	dh2SrGYjlQ8UEKDOFvSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCj1d-0000000GPeD-3lL0;
-	Wed, 07 May 2025 17:57:45 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uCj3Y-0000000GPrW-2zjw;
+	Wed, 07 May 2025 17:59:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCibN-0000000GLbk-0eu0
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 17:30:38 +0000
+	id 1uCitI-0000000GOTq-3ytR;
+	Wed, 07 May 2025 17:49:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5411FA4D9ED;
-	Wed,  7 May 2025 17:30:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97E21C4CEE2;
-	Wed,  7 May 2025 17:30:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1B9BC629DA;
+	Wed,  7 May 2025 17:49:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36D88C4CEE2;
+	Wed,  7 May 2025 17:49:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746639036;
-	bh=BsKdkYXPBa3oS++DBUhi7lIss+ZRPE2J56PmaYOO5JA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ffCjBDfdf9z5FtMr+Hyge+HWy3FqkoaAxcBn4IRLNzZkyrkqVJTZarduzFYwBqn0p
-	 h66sDt16gNL+Ov6FVkJuOTTU2Bk26+RKE2AWNHPdqXg04lx7X3pn0NEp2Ljtp2jRaA
-	 hIGuwyvW/FBXt56ZiPbTj5v3Ee3pun8qwOKg9aAQFncsBtAWf88OUT9iXzj93gMN+l
-	 mSx+4S7Oh8rA+kd/wA1bjWLGf67n1CdScOpC67LulLtvhP0rWhiK+evnm8cHLldCXj
-	 0sxvpndQLYkDl1ZgCaOS4PRzWJzEVvo+xR2z/tCETklVyKVkf6Wxb5zqheEBOYONXn
-	 iBFAoRTUz2kOg==
-Date: Wed, 7 May 2025 10:30:31 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Naresh Kamboju <naresh.kamboju@linaro.org>
-Cc: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	linux-kernel@vger.kernel.or, lkft-triage@lists.linaro.org,
-	Linux Regressions <regressions@lists.linux.dev>,
-	"David S. Miller" <davem@davemloft.net>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: next-20250507: arm64 local label `"3" (instance number 1 of a fb
- label)' is not defined
-Message-ID: <20250507173031.GC181648@sol>
-References: <CA+G9fYvcXTuxC0ncXBQYh8FZE2BxGSuTi6dvN_sWxBRcOAN8tQ@mail.gmail.com>
+	s=k20201202; t=1746640144;
+	bh=e8m12oB+PAXHw9PasXT8ldfd3ooHEH1qA/KyTNGeaYo=;
+	h=From:Subject:Date:To:Cc:From;
+	b=ea9sJqjBQWfoh//KVPojoXUqTxI1pc+dRs0r45XMVo07QYuXKL/wd8KupbatWPnGU
+	 mV2k45f1QoHZmhEf+9XK7OQJRpzO0KGD8zGYxP7ibBihwzncOMZHWvYe4msCoKoWqP
+	 +fmfd2Dku8m2bp5nb7UJfQvntVzGZb1/3B+puppBVhJ6z8hVciTXuJ4eprk/ni1EtK
+	 ZMbt5gdhxGeq/geqaYAWokdBCRnPlOYtFCrLhENWFqij5a/Ez3Lo7B7hfoT/yDAbl1
+	 wEm6dY1fJZmkQR7nQS1k6HGv4lmXJogOs6ErvHdOygaDgnra1C8cHLKBuRAx5gssNJ
+	 iLbPZfTXPZE6g==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH net-next 0/2] Add the capability to allocate hw buffers in
+ SRAM for EN7581 SoC
+Date: Wed, 07 May 2025 19:48:44 +0200
+Message-Id: <20250507-airopha-desc-sram-v1-0-d42037431bfa@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+G9fYvcXTuxC0ncXBQYh8FZE2BxGSuTi6dvN_sWxBRcOAN8tQ@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_103037_261726_74D03581 
-X-CRM114-Status: UNSURE (   9.32  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPycG2gC/x3MPQqAMAxA4atIZgNVqYJXEYe0RpvBHxIQoXh3i
+ +M3vJfBWIUNxiqD8i0m51HQ1BXERMfGKEsxtK71zrsBSfS8EuHCFtGUdlyJQ8fUxxA9lO5SXuX
+ 5n9P8vh/6t3GrYwAAAA==
+X-Change-ID: 20250507-airopha-desc-sram-faeb3ea6cbc5
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ devicetree@vger.kernel.org, Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,25 +76,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 07, 2025 at 10:58:18PM +0530, Naresh Kamboju wrote:
-> Regressions on arm64 lkftconfig failed with gcc-12 on the Linux next-20250507.
-> 
-> First seen on the next-20250507
->  Good: next-20250506
->  Bad:  next-20250507
-> 
-> Regressions found on arm64:
->   - build/gcc-12-lkftconfig-graviton4
-> 
-> Regression Analysis:
->  - New regression? Yes
->  - Reproducibility? Yes
-> 
-> Build regression: arm64 local label `"3" (instance number 1 of a fb
-> label)' is not defined
+In order to improve packet processing and packet forwarding
+performances, EN7581 SoC supports allocating buffers for hw forwarding
+queues in SRAM instead of DRAM if available on the system.
+Rely on SRAM for buffers allocation if available on the system and use
+DRAM as fallback.
 
-Fix was already sent:
-https://lore.kernel.org/linux-crypto/20250507170901.151548-1-ebiggers@kernel.org
+---
+Lorenzo Bianconi (2):
+      dt-bindings: net: airoha: Add EN7581 memory-region property
+      net: airoha: Add the capability to allocate hw buffers in SRAM
 
-- Eric
+ .../devicetree/bindings/net/airoha,en7581-eth.yaml | 13 ++++++
+ drivers/net/ethernet/airoha/airoha_eth.c           | 48 ++++++++++++++++++----
+ 2 files changed, 52 insertions(+), 9 deletions(-)
+---
+base-commit: 9daaf197860055aa26c06d273d317c18c6e3621a
+change-id: 20250507-airopha-desc-sram-faeb3ea6cbc5
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
