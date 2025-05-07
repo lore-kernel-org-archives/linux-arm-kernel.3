@@ -4,56 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65E3FC3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 12:03:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D75C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 12:05:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Uq7vsVFAAZcTKSE6xkXUTxW/fPy/nmrkG0GVVYcJWE=; b=0kZeA6hHYK8qLzvO7xGjkFgzqi
-	lQ/ZYaPbcvGc9tlhdc+J713nAQnvuGRgpYq4yVW/TpyHxJ+y9+VCUTy5CqrO2cFAz/URcbT8oma3G
-	iRR1D6NBhaXaBGusN0xKPgiL+SJv8LZoy0uatOEiN82KNy8BtWTRkiZASZZ57Sx7Qf9igX6xDLT4+
-	QqW1jy2oQ1IdIp2KWjBwHuWbSRzHaBWcSZG7a0UyWbUGY4otStL69knGnrDrGV7o/s+tT6mwwMOsH
-	yyrz4iIiUVRDppZ7KAwVUZvYETo2V05qignBw6RxOy0JFcFr7piCWvgWd3doyNmw1+6DLwD++4fyy
-	hOavCigQ==;
+	bh=c6C4oOxGjBlu5W/aodx9doW+zfgNMm+PVJPx4R0Gj5A=; b=oS6E3grBHaP4OpIKlP0k7/+dQ7
+	b0gb0P3kX2va7BpzFn9A8722ntBzCtagiMWWN90JUKtltzzEHZrzLZXO7mg6BFovo2D1In/jcKyhv
+	dm/BQ46gbV5KmDZ/Wx6wwUJvO2/fpHzNy0i+du24h2H0J2hYKf+HzATkWPqZj8xOVBlgN12NMMV2t
+	f9K8x8IQEVhziI2zJA54A+KV+e+9yZgoaEk1KzyCfhlli3vsunUhv5K27HpnB8MODIIVs1nDPz0SK
+	/zld062GP8YEs3kypa9+re8TosNtbaumLt6o4v4ocpPYIOyvEJfkg496btKZAZvfAbvSREh7QVmAZ
+	0wIh4tvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCdUy-0000000FIqH-32RH;
-	Wed, 07 May 2025 12:03:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCdRP-0000000FI9f-1fXD
+	id 1uCdWu-0000000FJGx-1lbS;
+	Wed, 07 May 2025 12:05:40 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCdSd-0000000FIOP-2vUt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 12:00:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B3C6339;
-	Wed,  7 May 2025 04:59:46 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 476B23F5A1;
-	Wed,  7 May 2025 04:59:54 -0700 (PDT)
-Date: Wed, 7 May 2025 12:59:45 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Mike Tipton <quic_mdtipton@quicinc.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@oss.nxp.com>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v3] cpufreq: scmi: Skip SCMI devices that aren't used by
- the CPUs
-Message-ID: <aBtLMYqcnwacGJuy@pluto>
-References: <20250428144728.871404-1-quic_mdtipton@quicinc.com>
+	Wed, 07 May 2025 12:01:17 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 547C15V21501229
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 7 May 2025 07:01:05 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746619265;
+	bh=c6C4oOxGjBlu5W/aodx9doW+zfgNMm+PVJPx4R0Gj5A=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=rOdT6gPRt6s2LZ3uBjsGQtHGW/+rIRkOLRFHmFGnUqj8n6M9c2y/C3h8bdP/Q3tH9
+	 9CzO/9lNJCCWhpC86JrEOAmYr4VG3vnGLO2X1cRKiK/wtq1ziiJQmmpwaCRnlcsylJ
+	 61/1UtpX7mGlg/ICWUVzU6RLbkkAfu4adHlxL1aI=
+Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 547C14me064429
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 7 May 2025 07:01:05 -0500
+Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 7
+ May 2025 07:01:04 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 7 May 2025 07:01:04 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 547C14Vm019074;
+	Wed, 7 May 2025 07:01:04 -0500
+Date: Wed, 7 May 2025 07:01:04 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] arm64: dts: ti: k3-am625-sk: Add power/temperature
+ sensors
+Message-ID: <20250507120104.4mhuaabe5auukarn@banter>
+References: <20250505-am625-sk-sensors-v1-1-688fb928b390@pengutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20250428144728.871404-1-quic_mdtipton@quicinc.com>
+In-Reply-To: <20250505-am625-sk-sensors-v1-1-688fb928b390@pengutronix.de>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_045959_592941_30511FD5 
-X-CRM114-Status: GOOD (  25.66  )
+X-CRM114-CacheID: sfid-20250507_050115_905873_6B3655F7 
+X-CRM114-Status: GOOD (  25.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,104 +88,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 28, 2025 at 07:47:28AM -0700, Mike Tipton wrote:
-> Currently, all SCMI devices with performance domains attempt to register
-> a cpufreq driver, even if their performance domains aren't used to
-> control the CPUs. The cpufreq framework only supports registering a
-> single driver, so only the first device will succeed. And if that device
-> isn't used for the CPUs, then cpufreq will scale the wrong domains.
+On 15:24-20250505, Sascha Hauer wrote:
+> The AM625-SK has six power sensors and two temperature sensors connected
+> to I2C. Add them to the device tree.
 > 
-
-Hi,
-
-bit of lagging behind, my bad.
-
-
-> To avoid this, return early from scmi_cpufreq_probe() if the probing
-> SCMI device isn't referenced by the CPU device phandles.
-> 
-> This keeps the existing assumption that all CPUs are controlled by a
-> single SCMI device.
-> 
-> Signed-off-by: Mike Tipton <quic_mdtipton@quicinc.com>
-> Reviewed-by: Peng Fan <peng.fan@nxp.com>
+> Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 > ---
-> Changes in v3:
-> - Use dev_of_node(dev) instead of dev->of_node.
-> - Sanity check scmi_np.
-> - Pick up Reviewed-by from Peng.
-> - Link to v2: https://lore.kernel.org/all/20250421195206.3736128-1-quic_mdtipton@quicinc.com/
+> The AM625-SK has six power sensors and two temperature sensors connected
+> to I2C. Add them to the device tree.
+
+Sascha,
+
+I suggest making this as overlay. The reason is as follows: AM625-SK
+among other TI evms do have automated power measurement capability from
+XDS110 (accessible via USB port for jtag - appears as a rudimentary
+menu option). The way this works is that it uses TM4C1294NCPDT to use
+I2C commands to control the INA226/231 depending on the evm.
+
+This firmware should be flashed by default on production boards (if
+not, starting up CCS[1], autodetects older firmware and updates - at
+least to my understanding) - by the way, this firmware also does test
+automation, such as boot mode switch control, reset control etc.
+
+This is the primary framework meant to be used by test automation and
+indeed it is the default inside TI.
+
+Challenge here is this: if we make this default in Linux, the test
+automation system configures the INA226/231 in a different sampling
+mode depending on usecase etc Vs what Linux does (even though the
+shunt and the bus voltage for a given INA is the same). And just like
+Linux, the firmware power measurement logic has changed over the
+years.
+
+Anyways, while I know that the SoC and TM4C can both handle
+multi-master, the challenge is the same INA controlled and
+mix-configured by two masters (and there is no synchronization between
+the two).
+
+To avoid this entire conflict and headache, I suggest adding it as
+overlay that can be applied depending on the preference of measurement
+desired.
+
+[1] https://www.ti.com/tool/CCSTUDIO
+
+> ---
+>  arch/arm64/boot/dts/ti/k3-am625-sk.dts | 68 ++++++++++++++++++++++++++++++++++
+>  1 file changed, 68 insertions(+)
 > 
-> Changes in v2:
-> - Return -ENODEV instead of 0 for irrelevant devices.
-> - Link to v1: https://lore.kernel.org/all/20250411212941.1275572-1-quic_mdtipton@quicinc.com/
-> 
->  drivers/cpufreq/scmi-cpufreq.c | 31 ++++++++++++++++++++++++++++++-
->  1 file changed, 30 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
-> index 944e899eb1be..b63992de9fc7 100644
-> --- a/drivers/cpufreq/scmi-cpufreq.c
-> +++ b/drivers/cpufreq/scmi-cpufreq.c
-> @@ -393,6 +393,35 @@ static struct cpufreq_driver scmi_cpufreq_driver = {
->  	.set_boost	= cpufreq_boost_set_sw,
+> diff --git a/arch/arm64/boot/dts/ti/k3-am625-sk.dts b/arch/arm64/boot/dts/ti/k3-am625-sk.dts
+> index 2fbfa371934575efc4e9118a705f062bdea55f4f..e900d3134c72dc2616e3820b273d84b0db64bed5 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am625-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am625-sk.dts
+> @@ -193,6 +193,74 @@ exp1: gpio@22 {
+>  		pinctrl-names = "default";
+>  		pinctrl-0 = <&main_gpio1_ioexp_intr_pins_default>;
+>  	};
+> +
+> +	power-sensor@40 {
+> +		compatible = "ti,ina231";
+> +		reg = <0x40>;
+> +		#io-channel-cells = <1>;
+> +		label = "vdd_core";
+> +		shunt-resistor = <10000>;
+> +		vs-supply = <&vcc_3v3_sys>;
+> +	};
+> +
+> +	power-sensor@41 {
+> +		compatible = "ti,ina231";
+> +		reg = <0x41>;
+> +		#io-channel-cells = <1>;
+> +		label = "vddr_core";
+> +		shunt-resistor = <10000>;
+> +		vs-supply = <&vcc_3v3_sys>;
+> +	};
+> +
+> +	power-sensor@45 {
+> +		compatible = "ti,ina231";
+> +		reg = <0x45>;
+> +		#io-channel-cells = <1>;
+> +		label = "dvdd_1v8";
+> +		shunt-resistor = <10000>;
+> +		vs-supply = <&vcc_3v3_sys>;
+> +	};
+> +
+> +	power-sensor@47 {
+> +		compatible = "ti,ina231";
+> +		reg = <0x47>;
+> +		#io-channel-cells = <1>;
+> +		label = "vdd_ddr";
+> +		shunt-resistor = <10000>;
+> +		vs-supply = <&vcc_3v3_sys>;
+> +	};
+> +
+> +	temperature-sensor@48 {
+> +		compatible = "ti,tmp100";
+> +		reg = <0x48>;
+> +		label = "soc";
+> +		vs-supply = <&vcc_3v3_sys>;
+> +	};
+> +
+> +	temperature-sensor@49 {
+> +		compatible = "ti,tmp100";
+> +		reg = <0x49>;
+> +		label = "ddr";
+> +		vs-supply = <&vcc_3v3_sys>;
+> +	};
+> +
+> +	power-sensor@4c {
+> +		compatible = "ti,ina231";
+> +		reg = <0x4c>;
+> +		#io-channel-cells = <1>;
+> +		label = "dvdd_3v3";
+> +		shunt-resistor = <10000>;
+> +		vs-supply = <&vcc_3v3_sys>;
+> +	};
+> +
+> +	power-sensor@4d {
+> +		compatible = "ti,ina231";
+> +		reg = <0x4d>;
+> +		#io-channel-cells = <1>;
+> +		label = "vdda_1v8";
+> +		shunt-resistor = <10000>;
+> +		vs-supply = <&vcc_3v3_sys>;
+> +	};
 >  };
 >  
-> +static bool scmi_dev_used_by_cpus(struct device *scmi_dev)
-> +{
-> +	struct device_node *scmi_np = dev_of_node(scmi_dev);
-> +	struct device_node *np;
-> +	struct device *cpu_dev;
-> +	int cpu, idx;
-> +
-> +	if (!scmi_np)
-> +		return false;
-> +
-> +	for_each_possible_cpu(cpu) {
-> +		cpu_dev = get_cpu_device(cpu);
-> +		if (!cpu_dev)
-> +			continue;
-> +
-> +		np = dev_of_node(cpu_dev);
-> +
-> +		if (of_parse_phandle(np, "clocks", 0) == scmi_np)
+>  &sdhci1 {
+> 
+> ---
+> base-commit: 92a09c47464d040866cf2b4cd052bc60555185fb
+> change-id: 20250505-am625-sk-sensors-bb255e2baa47
+> 
+> Best regards,
+> -- 
+> Sascha Hauer <s.hauer@pengutronix.de>
+> 
 
-Shouldn't this, on Success, be released by an of_node_put() (or, BETTER,
-by some OF-related cleanup.h magic...)
-
-> +			return true;
-> +
-> +		idx = of_property_match_string(np, "power-domain-names", "perf");
-> +
-> +		if (of_parse_phandle(np, "power-domains", idx) == scmi_np)
-
-Same.
-
-> +			return true;
-> +	}
-> +
-> +	return false;
-> +}
-> +
->  static int scmi_cpufreq_probe(struct scmi_device *sdev)
->  {
->  	int ret;
-> @@ -401,7 +430,7 @@ static int scmi_cpufreq_probe(struct scmi_device *sdev)
->  
->  	handle = sdev->handle;
->  
-> -	if (!handle)
-> +	if (!handle || !scmi_dev_used_by_cpus(dev))
->  		return -ENODEV;
->  
->  	scmi_cpufreq_driver.driver_data = sdev;
-
-Other than the above glitches, LGTM.
-(I gave it a go on JUNO and some emulated setup..)
-
-Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-Tested-by: Cristian Marussi <cristian.marussi@arm.com>
-
-Thanks,
-Cristian
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
