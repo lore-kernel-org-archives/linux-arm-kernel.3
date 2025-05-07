@@ -4,61 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6DF5C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 12:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B085C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 12:36:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mOGA1zyk42isz35KVIbuLEEchVSWzozYbCYqWY1QrEw=; b=fvLt65z5sMypxHCRsqups3HmbT
-	DGxRFSiZsIupTo1UBIvWFiLXahqXk8OEcY2g+S3yLlBCHArBvuCMKGDbAsGFoTYmvAqAcHmnW3B2M
-	jfwmXmlqu8aQtemAdmSXh0p0TsidVJqOAjgsUzO4cJO/1twnOJDU8ZnuGr8HchIB182pvovNtz4Su
-	P9TxjrJ2YQn/GzVc9i08QTSyePn6hGbgTghHS3Gx1xvwb7lVWF1tWGdvt+0pxqBvYa9zOJp7Zz/n5
-	pRgMeQmJ38+8odCBVkGaHWxoSbMLAJgNfTVntFJ87syo2dsxXzxyr1CZVpii9A6Ybhrj5RcGv7S0a
-	BM+yH3+g==;
+	bh=VvLwgThZ5JLGPIZLxeeY8bRB9DW5YkDq8CFE425nngY=; b=JGtOdblfVw0nudqQOh+bbFvw9n
+	PU7a5VaexmlX2fqIRsq1rbnpXIO7VESlHgUjCHw45U943Kl1iHBGD/Df6ebTurVDG1KO8gnYYz27i
+	8yWmA7IlO0Rq16EZfU+HDzV5JqoSaVRZjzmByrgrdq6iSmgVjeeunqP9Bin0GsGa0oLRZTYZxc5U7
+	zxZvl6nF3+x2DUpnbtNcEy+wLPYVTyuZdrhM66ijXf9REGiM04InaV0QTfaJcldj2kvz3vYMYCyPr
+	UOgMVKKxb8kqi96Mg2bwr9PKw7Wh98jEtihoPHD5HjtDvg8GRPqw/MaYaTw3lVM22s7B3o4+xt5mz
+	RAemKRyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCdyW-0000000FQQo-1J7X;
-	Wed, 07 May 2025 12:34:12 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1uCe0R-0000000FQjH-1TPj;
+	Wed, 07 May 2025 12:36:11 +0000
+Received: from mail-mw2nam10on20610.outbound.protection.outlook.com ([2a01:111:f403:2412::610] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCdtB-0000000FPOW-1SdW
+	id 1uCdvi-0000000FPzy-0RSE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 12:28:42 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4Zsvft4B8cz2TSC5;
-	Wed,  7 May 2025 20:27:50 +0800 (CST)
-Received: from kwepemg200012.china.huawei.com (unknown [7.202.181.63])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2CEC51A0175;
-	Wed,  7 May 2025 20:28:25 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.108.232) by
- kwepemg200012.china.huawei.com (7.202.181.63) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 7 May 2025 20:28:24 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <linux@armlinux.org.uk>, <rmk+kernel@armlinux.org.uk>, <kees@kernel.org>,
-	<yangyj.ee@gmail.com>, <ardb@kernel.org>, <tony@atomide.com>,
-	<xieyuanbin1@huawei.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<will@kernel.org>, <nixiaoming@huawei.com>, <liaohua4@huawei.com>,
-	<wangbing6@huawei.com>, <lincheng8@huawei.com>, <wangfangpeng1@huawei.com>
-Subject: [RFC PATCH] ARM: spectre-v2: fix the spectre operation that may be bypassed
-Date: Wed, 7 May 2025 20:28:20 +0800
-Message-ID: <20250507122820.41356-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250424100437.27477-1-xieyuanbin1@huawei.com>
-References: <20250424100437.27477-1-xieyuanbin1@huawei.com>
+	Wed, 07 May 2025 12:31:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=zHbeyuIND07I+1w9I9J9iI/QkumTDATlcoGVbUx0I30tqABjH4n+74aI/m2FgLxHsTpT6zQvjXno6gkKLV8lGHOLR0nb2ygZLcEO6mWrt3ch8hSoq8crtfLkHsJXI0ky/chGbjfB2L+DJfGRIn7Paqd+wKxzGLH7oNr9EvieCqBT11rnPnHh315gWpN8YsQoQHjDtrzUJp5TDCYhrDBp7EDGUABS7AmPxfi7fzDIQEPvmwMciYbRq4modNp4Irp+skG0zbBhhzQt09G8kEJjzeq/gZ/Mpe6veaSS7okezYVU623LDVBz/9J9QIwqEQqwFwLBqpsYxstKNCzfAqmk7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VvLwgThZ5JLGPIZLxeeY8bRB9DW5YkDq8CFE425nngY=;
+ b=Di0HxZUDpk03hQdi+k44aGLce1dtZ4Hwd0U/bxreOMudIc3i1jSVdGpdsxc6GR6l0OSAwivEI04cvacapaWDbaXHJ4G3nhpbejTuR518V4leic/NmB9taSFl8kz19n32imwrw7//XUCBxsOTdcL8xkQXsgcZegt2775zAl+GfxkGFNIBWQ7Z+Ttimnw/veuXlTNXbZJ6HSV2UX5ZHdcZYy/rtX5z/eBe3Kqut/V64MqF5vohfEE4ijonHDSTFT4wwQ3aJ6Xg02zfMVx5mk9a3UCPPi6f1noIpaPtMrSKLNnaERdhKx+xKHYLyl3vkRejqKKjB8KrrSHT4ThWP5rTRw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VvLwgThZ5JLGPIZLxeeY8bRB9DW5YkDq8CFE425nngY=;
+ b=dPiuqllg/3gUPOGQbwL8MsRTqFxKI9uWALSxuukzEUqYbbeTNUYpHeMPmc0gTQw0JEOW7kXeTai6RjZbqDMB95O6bY9ZlzmoShBSIg097NX0fuY9Oco0+LE5G2YyzEESlJQstRsl7KUpAyPerGYVHskq8D/CpARr99hBNDXS0dgYRPDEeM04HzKokNcdjyhhJFBFCwT04Uub/IKhvBPUfSnuyXjkNZ8Az+oarUUPYMIPULWE8EPGjgCgDGQF3Xn9T0UQSsyY+GOdyICjoMXno63+RQuO1NlZUIuGarzLeBqsI9Ov2462enXBk62jGlYi9UzYX3lh6vqFxJCvoHfpGQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by PH7PR12MB6539.namprd12.prod.outlook.com (2603:10b6:510:1f0::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.25; Wed, 7 May
+ 2025 12:31:04 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8699.026; Wed, 7 May 2025
+ 12:31:04 +0000
+Date: Wed, 7 May 2025 09:31:03 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Vasant Hegde <vasant.hegde@amd.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, kevin.tian@intel.com,
+	corbet@lwn.net, will@kernel.org, bagasdotme@gmail.com,
+	robin.murphy@arm.com, joro@8bytes.org, thierry.reding@gmail.com,
+	vdumpa@nvidia.com, jonathanh@nvidia.com, shuah@kernel.org,
+	jsnitsel@redhat.com, nathan@kernel.org, peterz@infradead.org,
+	yi.l.liu@intel.com, mshavit@google.com, praan@google.com,
+	zhangzekun11@huawei.com, iommu@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+	mochs@nvidia.com, alok.a.tiwari@oracle.com,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>
+Subject: Re: [PATCH v3 11/23] iommufd/viommu: Add IOMMUFD_CMD_VQUEUE_ALLOC
+ ioctl
+Message-ID: <20250507123103.GC90261@nvidia.com>
+References: <cover.1746139811.git.nicolinc@nvidia.com>
+ <1ef2e242ee1d844f823581a5365823d78c67ec6a.1746139811.git.nicolinc@nvidia.com>
+ <6ffe5249-b429-435e-a780-ee90aeb3f0da@amd.com>
+ <20250506120114.GV2260709@nvidia.com>
+ <eb0d3629-8663-45e9-b929-0c6edff31291@amd.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <eb0d3629-8663-45e9-b929-0c6edff31291@amd.com>
+X-ClientProxiedBy: MN2PR16CA0024.namprd16.prod.outlook.com
+ (2603:10b6:208:134::37) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.108.232]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemg200012.china.huawei.com (7.202.181.63)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|PH7PR12MB6539:EE_
+X-MS-Office365-Filtering-Correlation-Id: 48d7389f-8e24-4bc2-ed26-08dd8d6308d8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?43iCf+hcindcRwOctu5BkAPvHQiZCydB4m2BmmRLBwVr2asw8NWHQb+sL2CX?=
+ =?us-ascii?Q?i3huG/CFT1MwknN17T0PPxivRr0rX77ZDO2bt6onh8wWXu6w4CVRO2MqikFi?=
+ =?us-ascii?Q?WZqMejjQ2OVPgnBwNtPf6FNPrn1WxcMz0orxdew+JA9hwRVpKhPSKocuwfzP?=
+ =?us-ascii?Q?0/4c+TAwiaYfsgA0URAHt0ZKXBCGpK99s7tmGM1eu/DC0JCQCnI1ShtIPRcF?=
+ =?us-ascii?Q?kZ+wX4SNTgmDf4+qqWZi0zdHexlVRTIeEvC9ox2ytcgC1HzJFkcqGwBIojAk?=
+ =?us-ascii?Q?9yVp03ILMJTEgE1Q+hPQ1WU/DKYF3xddnzfIIR2zqkWj1r/rbPlxcItqBFVW?=
+ =?us-ascii?Q?6h0d/a/GFPOXbFNB4nb96o6LKGn7e8OoT5MKQdjz8EyITFgZpcyFAeCCgbGb?=
+ =?us-ascii?Q?RPz6H9yE5sqq//3LRz6WpyAsJRo+xiH4GFpP8NtblZ5MjAWCL06EFbM3uEBb?=
+ =?us-ascii?Q?cWxgHHiRYIwYwipJ86foIsk/+Na/2iChXdmp933II8svEvrxKASsHZhEEdc5?=
+ =?us-ascii?Q?/rnMPmgi92LFl/5W8WXUQotPt0vweW9wxFfnuMPS1tfFdNNDEx7x+PwqK2b7?=
+ =?us-ascii?Q?tq4rZ6Po/5Ykp5o0b0ZMIBoH8iiUDBeAfUm4lh1FY0ZBX9KlQ9WTMGDLmuGP?=
+ =?us-ascii?Q?tB+nKDZlDVK9df5qU7QeXT8+m4O5YCMyzEBAEYJdzlTVWGJuEHW4bueNajPw?=
+ =?us-ascii?Q?pgVkuZjkQcjwVN2fnuYmLPsPYStCwG3k5KYJ79MIdPCwBUkHBI/JurgINXVP?=
+ =?us-ascii?Q?KrAvXoWxLUpVl7LFb+dlj41vX7e+SC7KrXRBgkZR9zjDBhJr3GxIYxYFBzj5?=
+ =?us-ascii?Q?m0uecYXeOtOM4LOxf2JA7NuNafWqMA2J1/7Qr6WM17eUHqxi9mfKvMYdOY/r?=
+ =?us-ascii?Q?UfYzh3lJJVmtn6FotGTsiXAmBNa3wxWntSRdYVE6RXoMSHfcKi3Waa5QMKlZ?=
+ =?us-ascii?Q?iIfo/RxjXa+UIuuEpkHNsyGzZFVbYGUbTqphqx74KV8ml9btDwNiqhHlTW9l?=
+ =?us-ascii?Q?1u0v39aLyK+Sqk0cwF43/4aDzE2jGCXoOb2RokT3fiBtiC35JeoXA1q4cDSp?=
+ =?us-ascii?Q?5IiL6SUDi/VGIvblspNNGyTDZMNiXif0lukKWZInCuYxGpjNGf2woNn9oL/M?=
+ =?us-ascii?Q?Q+naowu5tVpaBt6m983w+t71YdXA4msCOK836qYTpsaHZ6u1DAoO1ZGMlvOF?=
+ =?us-ascii?Q?/hSZq5KlZ8bfoK5uNQKtbhahX/r2QHwTp/FEgPnFlQc/h4cg22bFFtWuq7vu?=
+ =?us-ascii?Q?crUq4bMCvWA68OngyoBOVILN8JgWTyke84xprw2VA5eX+Uj6d8yzaIVX4lZm?=
+ =?us-ascii?Q?ho/3ZtKwyeBVMO2wl4Z5jFuZaOiDc1HyjwSU0Rur71nr2/lMkihqo2f31UOl?=
+ =?us-ascii?Q?3j9H/L6j+sS+pL32tX2ugyBYw67s9zn9a6pkvLtQ+Wa3fbDGnAME2NZLxzgx?=
+ =?us-ascii?Q?sYm5esKK844=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mDUVqCs/tWhNaWfE6SRQINah1CJ/nBzUgyoQJ5v0fozuhZn3FGzcX7+241aK?=
+ =?us-ascii?Q?lwK7UDOl43Ii46bAlRyA5EqQRzrWpHUop/+cKUhRPNd2VDD7FCfb0ALxembv?=
+ =?us-ascii?Q?5Mzkw6hX+XTWq4syUa3cVXIpMaGmrwmvQ8bsAgB//2f2+yIntLsYQJeCJk6X?=
+ =?us-ascii?Q?anZVvszmGDsZ/cZmI8g1s3bU6djDCM1Y/cpXuv1HDA1TFO292ARZbyOZO6C9?=
+ =?us-ascii?Q?EOvybv+lez1jDBokn0XYkmQzarQ6zcCCSQYk8spLLrHjuYL0mur7R9VCogOQ?=
+ =?us-ascii?Q?Yw3xI45NQyOqiLBbgR7F/S3FctFjxsC9cKT/EnGzI1JCWleHvj5IR2lk3cbG?=
+ =?us-ascii?Q?kbTKBxd+nR2UF/gahDsOSNBEcJf7FHPXxiFlX3NXzco4eXprb1PLIUL84/Fl?=
+ =?us-ascii?Q?YpAGDnYrRJIhXchD01usy9aQxmkvjwyz4SXOeZBFX9ke/uxLNPTP8NwxdS/j?=
+ =?us-ascii?Q?lFW4OrxLLPwntzlqdNCT1hmO5noxxvFGSl10jhbuNYeM9dy/bSj7b8FeqzsQ?=
+ =?us-ascii?Q?78+aklLAaN4qMMoiN9UlE8cdRuimOzADkHMOTJkWRfBSx9O/va7O6b/iYREc?=
+ =?us-ascii?Q?oWsIQS2HqkAghfty5v8u98lcrXex+X7TKrkQLBXv6kTgVZo7/2RYCt62gWKQ?=
+ =?us-ascii?Q?A9DM8L9QckO/3JvnLLLvEViq3rfzPbfacVE6cH6So2ZwCa1WDvtj28gZRzra?=
+ =?us-ascii?Q?RdUjKeRReATiDe7dVV+xTeVnop854EnSqViKuW9xVJBz0d8FEfpGORQCe2O7?=
+ =?us-ascii?Q?3oCso+Rmg/g0LEdZQV9oeWsCjMykcAikaul3IEHN2g/CtsNs+fE+6dkyp/XQ?=
+ =?us-ascii?Q?yZauR/wIb4uTPdR6/J8Wrg4uT9jKFC/JH+Ye9FYlRtCrt0O310oDOyVXPDDQ?=
+ =?us-ascii?Q?1+j4vTIzeGz5YP3U97lC4TYN5WVwvRD/D69LPJsLcTn0y07bTSwJWqXyUCp8?=
+ =?us-ascii?Q?I/2r/tLSUQFWw92wnR2cYqVwerAta8od0psI9UHvRmIL7yc+LRw/bPXZ38CN?=
+ =?us-ascii?Q?/vB3D2ex6DTYhSIEadAWOcLtSuqKWqIhB9BRyFGyW1bUJVNohyuyfhBoN3fp?=
+ =?us-ascii?Q?QhHUGLOdrIj77JHX6WbgymmNunMGNPo7/RIDcm9k4XGct0r0SGsbDIbDN9Ss?=
+ =?us-ascii?Q?4QYisk87Awr8j8tUb2kW95U3i3Zfv1WiS6DgYjdBNPPZFzRp4KuTBv6spr7B?=
+ =?us-ascii?Q?xavfD0MKh/vGDtrNKPsGAsejH7pzhzzIq9xm9NBY+FiyLiJhnK3qQt8EqRBG?=
+ =?us-ascii?Q?N1Jn1/s1yryW2I+4lkxgzxnOrFKakIqaou5qXgcKaEmB3ckyzINPsy+SfdQm?=
+ =?us-ascii?Q?Zs+oJfz+v4Mz7vq4h5NMZeZcT5yYUfG3zK7FBu0sO+PABVk7rlaE3RyWTCIa?=
+ =?us-ascii?Q?bng5z5CZSb8GzbMedVBDsL7vkvPrgjyxf1OcPjm/uQEyEz7lQfgCEM9A45q/?=
+ =?us-ascii?Q?dVzUxc9AWXhn2+ggwNo/k6bvy7Pw8M+T8e3124ZiSzcMhxuU3BRA33HlZuZY?=
+ =?us-ascii?Q?bOHk4ksvS4tK6UJ/u1Fa86LqDDsNlVIyv03lDelIV0L0h+fadCmAyF+ltlrg?=
+ =?us-ascii?Q?myoynI6h8FqI7YqGZhW2zEUy27+1s75R9uCCc690?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 48d7389f-8e24-4bc2-ed26-08dd8d6308d8
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2025 12:31:04.7960
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9cm8VKPWt9bGRH5drs8H4L89XLTyWNftmRjz/BYFTe71j3RVM4chzT5mOjIf8gvE
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6539
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_052841_536599_C5F80457 
-X-CRM114-Status: GOOD (  18.17  )
+X-CRM114-CacheID: sfid-20250507_053118_144088_32D31DCF 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,78 +171,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As discussed before, to completely fix this problem, we must do
-the spectre operation after the user mode is trapped in the kernel
-and before the interrupt is enabled.
+On Wed, May 07, 2025 at 01:11:43PM +0530, Vasant Hegde wrote:
+>   -  MMIO Offset 0018h IOMMU Control Register
+>      EventLogEn: Event log enable
+>        * When guest sets this bit, qemu will trap and will send queue_alloc
+>        * When guest disables this bit, qemu will trap and send vqueue_destroy
+> 
+>      This part is fine.
 
-I have tried to add a hook function and it in fsr_info to avoid
-performance deterioration (The preceding example will trigger
-"level 2 permission fault", which is cold code in normal cases).
-However, this does not work. I find that the user program can
-also trigger "translation fault" or "access flag fault"
-when accessing a kernel address.
+Ok
 
-Therefore, extra performance overhead is inevitable.
-(An if branch needs to be added before the interrupt is enabled.)
+>      EventIntEn: Event log interrupt enable
+>        * When guest sets this bit, qemu will trap
+>        * this needs to be communicated to Host so that we can program VF Control
+> BAR and enable the interrupt
 
-I have tried to reduce the impact on performance.
-If the page fault comes from the user mode,
-the interrupt must be enabled. In this case,
-a judgment can be reduced.
+This sounds like modifying the vqueue? Or maybe on the viommu?
 
-Fixes: f5fe12b1eaee ("ARM: spectre-v2: harden user aborts in kernel space")
+>   - There is other bit "Completion wait interrupt enable"
+>     This doesn't related to any buffer. Instead if we configure this for
+> completion wait command it will generate interrupt.
 
-Signed-off-by: Xie Yuanbin <xieyuanbin1@huawei.com>
----
- arch/arm/mm/fault.c | 20 +++++++++++++++-----
- 1 file changed, 15 insertions(+), 5 deletions(-)
+This sounds like a modify on the VIOMMU object?
 
-diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-index ab01b51de559..3425a12a8f52 100644
---- a/arch/arm/mm/fault.c
-+++ b/arch/arm/mm/fault.c
-@@ -272,25 +272,35 @@ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
- 
- 	if (kprobe_page_fault(regs, fsr))
- 		return 0;
- 
- 
- 	/* Enable interrupts if they were enabled in the parent context. */
--	if (interrupts_enabled(regs))
--		local_irq_enable();
-+	if (likely(user_mode(regs))) {
-+		if (IS_ENABLED(CONFIG_PREEMPT) &&
-+		    IS_ENABLED(CONFIG_HARDEN_BRANCH_PREDICTOR) &&
-+		    unlikely(addr >= TASK_SIZE)) {
-+
-+			__do_user_fault(addr, fsr, SIGSEGV, SEGV_MAPERR, regs);
-+			return 0;
-+		}
-+
-+		flags |= FAULT_FLAG_USER;
-+	} else if (!interrupts_enabled(regs))
-+		goto irq_disabled;
-+
-+	local_irq_enable();
-+irq_disabled:
- 
- 	/*
- 	 * If we're in an interrupt or have no user
- 	 * context, we must not take the fault..
- 	 */
- 	if (faulthandler_disabled() || !mm)
- 		goto no_context;
- 
--	if (user_mode(regs))
--		flags |= FAULT_FLAG_USER;
--
- 	if (is_write_fault(fsr)) {
- 		flags |= FAULT_FLAG_WRITE;
- 		vm_flags = VM_WRITE;
- 	}
- 
- 	if (fsr & FSR_LNX_PF) {
--- 
-2.48.1
-
+Jason
 
