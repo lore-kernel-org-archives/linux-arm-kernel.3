@@ -4,94 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F847C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 10:00:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 612E3C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 10:02:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SsMa39hOSR7BVVNPX8WISfqJOyg0i9Y558xWbDK1MN4=; b=3Fk4e4/E5QDF0nMicdqacrJ+9V
-	QT2l7AFwEZoxTM9Vn1uNUx7gVNBdTdzpA7Ksp5DQIDUseQQT8aPG7A+RPmBD0VXdrXlEf5UTi+nln
-	VPqnpOgr+uoiMdPob2uLsYiYHwuzUm53gbxtdVY2O8xIEy59PaUxM1tZSSNHjWrrLcIfIq77nvV3s
-	dKuccTgzJrQAXYOEQxRUJ4T3wooOf6VZhuVEdwKYr4xy2PYNWFsUciELYI9kS5hzG5ka+RLdxHR+9
-	FW48t+thqgKB2gSvjLxzR32Suy26mR226gpIWYa1+r+Zm5P3b+ymEUmLxwFeEWdBk2HR+rLTIgJ4u
-	ZpynQcHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F/i9Jm7x0sU9sxHf9FawPOb71EGh2v9Y58NkBsYaux4=; b=umRI/XNt6FdDCPOQC+4Re10DUN
+	enx/r0/CAh7zJW2ksZJo1ZzJEKhSSNPrYK9yXQmKEzQlZcrjmc+MnNqpSSyo5aGyqNSVPvTS7wDzd
+	ImPPmO7Pyf7TT+Ttzrb5eYLEwag2TSPDJI0n0lMx0DsidTAIZ7LwWlX1q/KH9KCjqVS4x/rkJgddf
+	Q0ThHrTaWwhdgtlUA64dJHwAcRPK82LQk51oImbdOHn6/gkjheaN4AxU2M/7WeOyNG3TWLnZdVR+z
+	tyBXNKaymxxtX6M7fe4515+/BMcwqJmKSrYxXhfI2HTqVJAvRiWv8AzxfzEbeYjp80FBnF89mq3Wz
+	ffiY7M5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCba0-0000000F39R-2Wqn;
-	Wed, 07 May 2025 10:00:44 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1uCbbw-0000000F3ao-0eXs;
+	Wed, 07 May 2025 10:02:44 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCbGr-0000000Ezqe-39J8
+	id 1uCbRD-0000000F1LY-1DiS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 09:40:59 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-44069f5f3aaso7999855e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 May 2025 02:40:57 -0700 (PDT)
+	Wed, 07 May 2025 09:51:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746610856; x=1747215656; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SsMa39hOSR7BVVNPX8WISfqJOyg0i9Y558xWbDK1MN4=;
-        b=i6zlf57HwD+1bvh76CdhtmEx6Z6dlotQxA7cfTv71wTPk25wJBo0lHL3jyyCu6EdSs
-         bWR1IdbZ8T34FmTbsEt3oglNQ2/ZcnMFHhowphEQzNVHwBgJw6fU6JgPyEbk+XnQDPfy
-         uNb24PFFV7jP5X+iLrDIhd3pXYKm23waCnRv62pycLJgkwdBxjCHXHSWuXNKK4j+iyV2
-         F/SFpmVYplpNlRHFB8BtZhwpUcHSMO5rLInKpzx4nvJzXIctj7SaDis8BLdDHT4zZ0uK
-         bbVdUOLLtEtVTG/QF0zKiDVzaMvxhX7bvVixqBb4Wiei6Bk1ha5AmoihFqJNzikAzZCI
-         TGsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746610856; x=1747215656;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SsMa39hOSR7BVVNPX8WISfqJOyg0i9Y558xWbDK1MN4=;
-        b=LAKCFc4MbhQ8mNV+i2x1EHTZAxie+uulFT2hEw4vHO/BS3hXmwZkyxfRpOAKGECr2M
-         990Kylfxi2c53i2uD2yP0pbvLYJxDZq9rTF+uCdRlN9MNNcHE6OiZi586WQcWPgo/fOO
-         SwLwuA1W9/rR61JnJzzyoHrWNg34WXYKeIjluNlCXmNjFJNaR1We6EfIdUV7hI6Sik0H
-         ECWy1NEJL+ZDk7tyrfQ5XU4eKXsYfrddjpxAdkCFYyGQvlnyMI90763kBMlygl8qX8hW
-         OKUzAvUTE+z0R0cE1a0Xj2tKLej3uOoMyiJ13fZCxaNloXJ7iejzv8V0Y6GvuBKeqG53
-         Yvhw==
-X-Forwarded-Encrypted: i=1; AJvYcCXEXvqO4M98DAmksU4m7QYlfyjXtXg2TZLLgXJTeap7+DB/WOi0rsN+FNs260QTC6vnG3LpbjlosLgf7KyAPUv0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLgaifizLHt+qYuSltHfVZE84xYePPqx5GRxCFXnaBZnF2IeXW
-	k1zurVGvpROs6+1Yg3Epf+sj6X/iWV7g1NypLH9HMjSgoOpHoplWFPMrb4eYRq4=
-X-Gm-Gg: ASbGncsqu5I9NW04gInYhO2ptXTOEchS6UWE5hkIuzjbEQzNWnXBcDajiT3jsHYc8NU
-	4EBVTkX6uazhf1R0Lnty9Lu/2Olh+OYxQkxUrTcObSsXFlDPWpsFcIZBOBZcioY2B2eo9FH06so
-	07UdElvT4/W1qLcnXrx/7HorFRt20z81jC7M5kmHrbhf/wqn23GXhytjzIIpvmbZgMiqU59Cqgt
-	r39DRE11Mbd6sOzz7T+HlVPJ9w+vbj5yGuNzM9aa8iBSK9V9bj1Iqe17hkPaKK68pUqYfRCd2zF
-	YJxOvIasc720cSA0T9E1qNyF+Rp8lWxGmA5j+pH/lWrinpuJ3F+qXaYNMqk=
-X-Google-Smtp-Source: AGHT+IHHRs9t+0O91vMmvLRz0jrF3T3wosfwokty0h5PfPEgbCXS3pXL2K3J+ylcQS0xgqc/9SJF9w==
-X-Received: by 2002:a05:600c:a36d:b0:43b:c844:a4ba with SMTP id 5b1f17b1804b1-441d44c28edmr7459275e9.3.1746610856002;
-        Wed, 07 May 2025 02:40:56 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.207.88])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441d438e7f0sm25374535e9.29.2025.05.07.02.40.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 May 2025 02:40:55 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Patrice Chotard <patrice.chotard@foss.st.com>
-Cc: christophe.kerello@foss.st.com, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20250428-upstream_ospi_v6-v11-0-1548736fd9d2@foss.st.com>
-References: <20250428-upstream_ospi_v6-v11-0-1548736fd9d2@foss.st.com>
-Subject: Re: [PATCH v11 0/3] Add STM32MP25 SPI NOR support
-Message-Id: <174661085466.105567.8801540643758026671.b4-ty@linaro.org>
-Date: Wed, 07 May 2025 11:40:54 +0200
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1746611499; x=1778147499;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=F/i9Jm7x0sU9sxHf9FawPOb71EGh2v9Y58NkBsYaux4=;
+  b=byrTMmjqhGmhma5cs7iqeHPgRH/lbB6wJicVkPeZfZOFaF9enUB8mNQi
+   GQRKsF/XmaBWg+ChFN5hcaXtBqbUiSIMJ8qSdNRYcXMlxcbUNrRG1pfe5
+   uncR5d7xtlK1AoHb9q3Ed9nl/lgQzeln68W4+ARWq4F6jRU2Kvj6ODVyJ
+   xcl8ndoEZWNxVuB9coO2+zgWGOON6okuWvV8g92VX3lijmW69hfaexF+b
+   8K9RmGwGZlbgEfxqLdErT3ylceUnKlU9ZMabGwtCBu0iuLR00RC80APlW
+   iMG6I1nc+/PaDjox9yEG47EWXVwH7mCtSkNgElQKrQ9YfeLbMTsyz1dmF
+   g==;
+X-CSE-ConnectionGUID: xQanc9akTUOCfAyriMNxVA==
+X-CSE-MsgGUID: qB0IcNYRTKigede2IsGhTQ==
+X-IronPort-AV: E=Sophos;i="6.15,269,1739833200"; 
+   d="scan'208";a="43931540"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 07 May 2025 11:51:34 +0200
+X-CheckPoint: {681B2D26-1B-45F3AE15-E90F7DFA}
+X-MAIL-CPID: 2C825C19DDFDF09B778A43311167F0AF_5
+X-Control-Analysis: str=0001.0A006396.681B2D27.00A1,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 36290161474;
+	Wed,  7 May 2025 11:51:26 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1746611490;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=F/i9Jm7x0sU9sxHf9FawPOb71EGh2v9Y58NkBsYaux4=;
+	b=hrgzO0Cz+7eH2reXwH2XD31ZpLjhmSq/x9ISo7PGeW52JetAaTh9qN7ZM1+YF/TqCxD87z
+	QqwZegexR1DOExJowI7nqxEKLyR7ji9lI1AGa24Y+I54oYplOyrJroxr3b5/s+pKiWPt+c
+	h4ZShjpGZYBY3KKmRJeluziCP+T6CkBDFMFNeXJsAmxY74iihCd1xidC18hFX02On9amw7
+	FDd1vpvLpX5pB1ZA17G/2h/fUKxepZLUl26ZFsHryzqyAkinRovOqBxZgj/GdQn1lSW55E
+	X+SHnmoQW7CilT7u+//OOu+/42Q6ugouqbaLD4U2sr/MmTl3XZVFEfJd+TGLfA==
+Message-ID: <6e4d3127af2e2ace3fcec73eb8903c12ebcdda38.camel@ew.tq-group.com>
+Subject: Re: [PATCH net-next 2/4] dt-bindings: net: ti: k3-am654-cpsw-nuss:
+ update phy-mode in example
+From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+To: Roger Quadros <rogerq@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>,  Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andy Whitcroft <apw@canonical.com>, "mike .."
+ <wingman205@gmx.com>, Dwaipayan Ray <dwaipayanray1@gmail.com>, Lukas
+ Bulwahn <lukas.bulwahn@gmail.com>, Joe Perches <joe@perches.com>, Jonathan
+ Corbet <corbet@lwn.net>, Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
+ <vigneshr@ti.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, Tero Kristo
+ <kristo@kernel.org>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org,  netdev@vger.kernel.org,
+ devicetree@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+ linux@ew.tq-group.com
+Date: Wed, 07 May 2025 11:51:25 +0200
+In-Reply-To: <06268dcb-4a49-468e-8ebd-d9366a2cf0c2@kernel.org>
+References: <cover.1744710099.git.matthias.schiffer@ew.tq-group.com>
+	 <4216050f7b33ce4e5ce54f32023ec6ce093bd83c.1744710099.git.matthias.schiffer@ew.tq-group.com>
+	 <06268dcb-4a49-468e-8ebd-d9366a2cf0c2@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_024057_791724_597EB427 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20250507_025139_814769_1100817C 
+X-CRM114-Status: GOOD (  20.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,32 +108,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 2025-04-30 at 17:22 +0300, Roger Quadros wrote:
+>=20
+> Hi Matthias,
+>=20
+> On 15/04/2025 13:18, Matthias Schiffer wrote:
+> > k3-am65-cpsw-nuss controllers have a fixed internal TX delay, so RXID
+> > mode is not actually possible and will result in a warning from the
+> > driver going forward.
+> >=20
+> > Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+> > ---
+> >  .../devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml          | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nus=
+s.yaml b/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
+> > index b11894fbaec47..c8128b8ca74fb 100644
+> > --- a/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
+> > +++ b/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
+> > @@ -282,7 +282,7 @@ examples:
+> >                      ti,syscon-efuse =3D <&mcu_conf 0x200>;
+> >                      phys =3D <&phy_gmii_sel 1>;
+> > =20
+> > -                    phy-mode =3D "rgmii-rxid";
+> > +                    phy-mode =3D "rgmii-id";
+> >                      phy-handle =3D <&phy0>;
+> >                  };
+> >              };
+>=20
+> FYI the following TI boards using this driver are using "rgmii-rxid".
+> Will you be sending fixes to the device trees files?
 
-On Mon, 28 Apr 2025 10:58:29 +0200, Patrice Chotard wrote:
-> This series adds SPI NOR support for STM32MP25 SoCs from STMicroelectronics.
-> 
-> On STM32MP25 SoCs family, an Octo Memory Manager block manages the muxing,
-> the memory area split, the chip select override and the time constraint
-> between its 2 Octo SPI children.
-> 
-> Due to these depedencies, this series adds support for:
->   - Octo Memory Manager driver.
->   - Octo SPI driver.
->   - yaml schema for Octo Memory Manager and Octo SPI drivers.
-> 
-> [...]
 
-Applied, thanks!
+Hi Roger,
 
-[1/3] dt-bindings: memory-controllers: Add STM32 Octo Memory Manager controller
-      https://git.kernel.org/krzk/linux-mem-ctrl/c/4a98ec836a201d34ac27636960c2c81d9b3b7e19
-[2/3] memory: Add STM32 Octo Memory Manager driver
-      https://git.kernel.org/krzk/linux-mem-ctrl/c/8181d061dcff140fd5a40e568d8adb81f1403a28
-[3/3] MAINTAINERS: add entry for STM32 OCTO MEMORY MANAGER driver
-      https://git.kernel.org/krzk/linux-mem-ctrl/c/02eaee70babd860d76dc23f9165f4496d0ffe77f
+as written in the cover letter, I haven't fixed any DTS for now, so project=
+s
+consuming Linux's Device Tree sources (like U-Boot) have some time to updat=
+e
+their driver first (as fixing the Device Trees without updating the driver =
+would
+break Ethernet).
 
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Once a fix has been accepted in U-Boot (and preferably after we've come to =
+an
+agreement on the open questions...) I can also send a patch to update these
+files.
 
+Best,
+Matthias
+
+
+
+>=20
+> arch/arm64/boot/dts/ti
+> k3-am625-beagleplay.dts:	phy-mode =3D "rgmii-rxid";
+> k3-am625-sk.dts:	phy-mode =3D "rgmii-rxid";
+> k3-am625-sk.dts.orig:	phy-mode =3D "rgmii-rxid";
+> k3-am62a7-sk.dts:	phy-mode =3D "rgmii-rxid";
+> k3-am62a-phycore-som.dtsi:	phy-mode =3D "rgmii-rxid";
+> k3-am62p5-sk.dts:	phy-mode =3D "rgmii-rxid";
+> k3-am62p5-sk.dts:	phy-mode =3D "rgmii-rxid";
+> k3-am62-phycore-som.dtsi:	phy-mode =3D "rgmii-rxid";
+> k3-am62-verdin-dev.dtsi:	phy-mode =3D "rgmii-rxid";
+> k3-am62-verdin.dtsi:	phy-mode =3D "rgmii-rxid";
+> k3-am62-verdin-ivy.dtsi:	phy-mode =3D "rgmii-rxid";
+> k3-am62x-phyboard-lyra.dtsi:	phy-mode =3D "rgmii-rxid";
+> k3-am62x-sk-common.dtsi:	phy-mode =3D "rgmii-rxid";
+> k3-am642-evm.dts:	phy-mode =3D "rgmii-rxid";
+> k3-am642-evm.dts:	phy-mode =3D "rgmii-rxid";
+> k3-am642-sk.dts:	phy-mode =3D "rgmii-rxid";
+> k3-am642-sk.dts:	phy-mode =3D "rgmii-rxid";
+> k3-am642-tqma64xxl-mbax4xxl.dts:	phy-mode =3D "rgmii-rxid";
+> k3-am642-tqma64xxl-mbax4xxl.dts:	/* phy-mode is fixed up to rgmii-rxid by=
+ prueth driver to account for
+> k3-am64-phycore-som.dtsi:	phy-mode =3D "rgmii-rxid";
+> k3-am654-base-board.dts:	phy-mode =3D "rgmii-rxid";
+> k3-am67a-beagley-ai.dts:	phy-mode =3D "rgmii-rxid";
+> k3-am68-sk-base-board.dts:	phy-mode =3D "rgmii-rxid";
+> k3-am69-sk.dts:	phy-mode =3D "rgmii-rxid";
+> k3-j7200-common-proc-board.dts:	phy-mode =3D "rgmii-rxid";
+> k3-j721e-beagleboneai64.dts:	phy-mode =3D "rgmii-rxid";
+> k3-j721e-common-proc-board.dts:	phy-mode =3D "rgmii-rxid";
+> k3-j721e-evm-gesi-exp-board.dtso:	phy-mode =3D "rgmii-rxid";
+> k3-j721e-evm-gesi-exp-board.dtso:	phy-mode =3D "rgmii-rxid";
+> k3-j721e-evm-gesi-exp-board.dtso:	phy-mode =3D "rgmii-rxid";
+> k3-j721e-evm-gesi-exp-board.dtso:	phy-mode =3D "rgmii-rxid";
+> k3-j721e-sk.dts:	phy-mode =3D "rgmii-rxid";
+> k3-j721s2-common-proc-board.dts:	phy-mode =3D "rgmii-rxid";
+> k3-j721s2-evm-gesi-exp-board.dtso:	phy-mode =3D "rgmii-rxid";
+> k3-j722s-evm.dts:	phy-mode =3D "rgmii-rxid";
+> k3-j784s4-j742s2-evm-common.dtsi:	phy-mode =3D "rgmii-rxid";
+> k3-j784s4-j742s2-evm-common.dtsi:	phy-mode =3D "rgmii-rxid";
+>=20
+
+--=20
+TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
+any
+Amtsgericht M=C3=BCnchen, HRB 105018
+Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
+neider
+https://www.tq-group.com/
 
