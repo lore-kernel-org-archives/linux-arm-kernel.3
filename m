@@ -4,162 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55026C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 12:44:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92737C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 12:46:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m1w/03/MqEGTmAhsZdvxeEx1lozw60PpUMk5bVJo64M=; b=YBqsQld/TKNuKaPYQob/hdpERP
-	yfZonDHJmzp4gS67tduSYWgZh4MyrNEFiQ9akayiP7s36tVrK2zngqJ4xBGOEZQqJePImPB0/haTk
-	ULBulpzqLhdm8A7dnveGykVUQc4JNGW5rFCtCKRma0CfvpvczYUOJY3z/8u7KZXhaLvPI+b+2W4r+
-	jdsdcE20jTb+Ludf2EwcSTizB0I8N9ThAPKuK2A+99Q13s5iAZ5anMjK/p+MTzb8B3U4U3VKDWL5J
-	9G5HYQpEV5FVloUh7r9AXDrWuZoCId+OUpdvvXHpH/Ar5uo5453DWccAQeo51wAKzsKY3y7FyWL+A
-	0y/zKrwg==;
+	bh=HyCvV99066xU9hq/GX2hCbRzLn/EHsHd2VqAcjEZc6c=; b=pCbHsL8CO1jch6JfdsV5EFT8Dk
+	ixztS2LcYz4n4YeP3SvFR+oy/gYvGK+N+b0/aWau1R7YxMjgtUfkbztZyLXgcQrNBdiTu6lv+fFmM
+	b4l/eYXo15GkkzWdi8BniytYbc/eRsKwY2gLoTeTarsCgP/7L3sQr0v9vodIbSDsJI2OztNxWE6UZ
+	Njj5hlx79PR/WOg90eP1f/rgNCn0XUXx+RDljN9/0EbNr6Vhxnz5g6vSaCN83XxwM9ZjknN8EZtkS
+	6I3wBhr5+Jsm1fRR4dueWNKYbpKqJvaAbYExyq5UnqTtnhAqeaT9ve3Ehi9ARrPmrzJ4T0Xqp5lf9
+	8kfq43ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCe86-0000000FRo2-3as7;
-	Wed, 07 May 2025 12:44:06 +0000
-Received: from mail-mw2nam10on2060a.outbound.protection.outlook.com ([2a01:111:f403:2412::60a] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1uCeA2-0000000FSJ0-2dBN;
+	Wed, 07 May 2025 12:46:06 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCe3O-0000000FRD6-0QrZ
+	id 1uCe6n-0000000FRe6-2hH9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 12:39:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FNp0sy4W8kBy8cVxmwASiDfiWW9L4KJa3YRPqAZjwcGNRqos/rLCgg4NpSYN+wZ0wl7BoI/NtaRM85exdDJ4EXkYQ73FYmCB97oERCNpQKJt6wLuJR0ALaMIbfb2Kizv1rnCpnhcXLKzu1SmtH2j0B4jhUJYjmys5auNjj6BCucaeIK4c32kHJx8kiIu1+eNN2qGm6Ek6TlQ7HWwqFd6r42ZC0/9PDtBg/0QtHrTGZWyv5TliHvCnK/JlcNmJJqeGlqbwKc2IRQkuxCGpzT+qD1fyI7vpj9D4jiHFmzHI6P4KmWckP/DBJM0covv9Qcte5KHpsW8PmSoV6VM3qs/RA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=m1w/03/MqEGTmAhsZdvxeEx1lozw60PpUMk5bVJo64M=;
- b=Ne67bjFt694jNL05zOzJUSljQVqx04rffgxNRYZAe9b3lweSORlt7O4sM9oTittwMJytyBe2bcOdVyV9QQQcufKoYSXwPRZbmQYmRNR5+gV6TCB4NzMqOY/gDUzNC9OOQC6jvqQ3FMjSIj0hcNQ5dFO6Os5ccSiYz+jNGBZ/2wTNJsMi5ei25WMxrh7UWFHGRh1fTv+0KLKdm55/gnV8uw/iBThHkejm+U4wyUsvFvcoU0ohEPoQiXPYYcvS8FdNLZkiqWHzmcfQzC9lXgwZt0NTFhVnFbj+4aMTHx57qNxk9rArqPGRmhFFKBhCXDxS5WJwupTK5Eu9o59TBn8OsA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=m1w/03/MqEGTmAhsZdvxeEx1lozw60PpUMk5bVJo64M=;
- b=BEsEF7x7Tbk/C9P4+YNbk/DV8WJPuCZW9lRY1+EQE4+niQvH4KojJk+3ZdRtZLKkP2AbJtvQp5P0CRIt6TAxNxf0/tiz+2EYc6nrVo+MIy4nJbD6FXJdLkEHLmzq828BYIqz8FNM3UkylD8SLEqrAPORyJHSzVsiz4/Vzij5SqOgdqIpxyS/xuPqtkVRvEWr9f/RrdjeOR0p6TlcYgqf/oYC33y0gtVjH/af9etQfLvHZ/QPB+aANCDS50bXbox1mQEOrrw2yCHN44Sgr8zMLIaQRWu2PRw8ljQZ5izJBoeZ1FU99yCD5XALxrnDpw9qky+40dQPqJcSEKAm+trPPw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by MN0PR12MB5883.namprd12.prod.outlook.com (2603:10b6:208:37b::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.19; Wed, 7 May
- 2025 12:39:03 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8699.026; Wed, 7 May 2025
- 12:39:03 +0000
-Date: Wed, 7 May 2025 09:39:01 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Pranjal Shrivastava <praan@google.com>, kevin.tian@intel.com,
-	corbet@lwn.net, will@kernel.org, bagasdotme@gmail.com,
-	robin.murphy@arm.com, joro@8bytes.org, thierry.reding@gmail.com,
-	vdumpa@nvidia.com, jonathanh@nvidia.com, shuah@kernel.org,
-	jsnitsel@redhat.com, nathan@kernel.org, peterz@infradead.org,
-	yi.l.liu@intel.com, mshavit@google.com, zhangzekun11@huawei.com,
-	iommu@lists.linux.dev, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-tegra@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	patches@lists.linux.dev, mochs@nvidia.com, alok.a.tiwari@oracle.com,
-	vasant.hegde@amd.com
-Subject: Re: [PATCH v2 13/22] iommufd: Add mmap interface
-Message-ID: <20250507123901.GF90261@nvidia.com>
-References: <aBE800DsAOOZ4ybv@google.com>
- <aBE/CD4Ilbydnmud@Asurada-Nvidia>
- <aBFGCxcTh54pecsk@google.com>
- <aBFIsYg+ITU8RvTT@Asurada-Nvidia>
- <20250505165552.GN2260709@nvidia.com>
- <aBj1Av6Xaj8flMN+@nvidia.com>
- <20250505173101.GT2260709@nvidia.com>
- <aBkWoH23VysYake3@nvidia.com>
- <20250506125222.GW2260709@nvidia.com>
- <aBpjbtRgR1nK/LIm@nvidia.com>
+	Wed, 07 May 2025 12:42:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4FB405C5D57;
+	Wed,  7 May 2025 12:40:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58656C4CEE7;
+	Wed,  7 May 2025 12:42:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746621764;
+	bh=WnpOHBfs7/ms6DqKv6a9XD+3m75qibQlgsCelH1H//A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mFviFwVfdhIIwiPFDmFAqv78zohwv0NsZPc0mNUG6w3zVkxBpfgZ6aqq5YMG7RMr+
+	 JKUrd7qMlBZQxrMqgM08LuwWZLVXLSnzuCIk7PUTsqZR9ghjO+5cgrliLUC9aDBu/u
+	 SuRqv2mYkVZ7rWOo8oet/OPMaKoT9+IyUW+W7i5K4+x22XjQIJ/8OBPR9OgfDqII8O
+	 rlOLYKOyUVK2tY1tUL7jI1P8IzLWOQ2nTCR5fDpW6Yu8iIioczT/bLBnQy2QWehW4U
+	 G/8wJwpakoaChOCJgbhnWjikwZHFaA2QipUVCw0qac+Qq24S+l6g+EFHdYfETIAbgR
+	 uVU56plvXRLyg==
+Date: Wed, 7 May 2025 18:12:34 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Jens Wiklander <jens.wiklander@linaro.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
+	op-tee@lists.trustedfirmware.org,
+	linux-arm-kernel@lists.infradead.org,
+	Olivier Masse <olivier.masse@nxp.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T . J . Mercier" <tjmercier@google.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
+	Daniel Stone <daniel@fooishbar.org>,
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>
+Subject: Re: [PATCH v8 03/14] optee: account for direction while converting
+ parameters
+Message-ID: <aBtVOtWEbZeMxIbz@sumit-X1>
+References: <20250502100049.1746335-1-jens.wiklander@linaro.org>
+ <20250502100049.1746335-4-jens.wiklander@linaro.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aBpjbtRgR1nK/LIm@nvidia.com>
-X-ClientProxiedBy: MN2PR06CA0013.namprd06.prod.outlook.com
- (2603:10b6:208:23d::18) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|MN0PR12MB5883:EE_
-X-MS-Office365-Filtering-Correlation-Id: 59767179-c3e0-42d9-0a27-08dd8d642619
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KMhzIoMl9Pl/CIY21TXXHBB5wrLhzFyByZRh0oJDaqXi04+DcevdFihqnaRj?=
- =?us-ascii?Q?9NSfbUB2zkFFSF4JbVA6bYB/wz1KNELQiARg+ksoQTR9h/j3CpPzckAuNAsT?=
- =?us-ascii?Q?NGkY+e2QSbicg73BjygsA5ewSkuCHirVIFPCcle5Xoa1QlxddWZMSPvhymve?=
- =?us-ascii?Q?Ol6WT1PwgG4iMgtaDP0+ukS5j96x0tpbBET9JveZZIXW7oBuaasdvqxcXeEg?=
- =?us-ascii?Q?fztpFLh+mFCcmCPuFPgLJuDETJQ8T7O1PLid8c6VRFM19RtITxFXkMQhrkEs?=
- =?us-ascii?Q?jkHqVcZRADUDp472lOZ5SFZnzlrZjlX7OLh8Vw4K9MnI1XDD7ogZOjhFX+hG?=
- =?us-ascii?Q?HYZVkgfsiARZS9c1rloi1+QCOKqEgqfK+6H4LyYVVNZIAomuH1j+yTqRDE3X?=
- =?us-ascii?Q?2rIDhNFGFfQwJEwp7OFmzrHg/9elT2VQ2+c8tb3FjveAE9OunPLxxN5Ow5es?=
- =?us-ascii?Q?MbwxanWSQQIIxINXtLLBawSc0d72pdj8jfr5SRuDCUo6+nadjEMljOK5K3Ee?=
- =?us-ascii?Q?Vkg0LMRbcNeZNuYNWh7NEzUiy6tJN7XqI4+RrE6V98jCN9rzFTTATcNKmHNu?=
- =?us-ascii?Q?Cbk9UCj3zmVeLbDp08uVhVvvAV0J2DkWbc3GAyk2MQGgqtMwytO6ZyxGfZ2e?=
- =?us-ascii?Q?pV1KvUtmGuWaRmSwC/9MLirvZ9KJZWwbONTACcc0g8XPLJv1VCAv9WC9Gbr9?=
- =?us-ascii?Q?risQKZecdxe/ey1sLcYFbHrgwVBwmkDsJWnEfS6j5knB5flaaeC/6zeqNPY3?=
- =?us-ascii?Q?QmyfAEN0Psao5P1ed1P+LsjiUZoId2pUfc0IVZ9pCcwHai3oMcJ8mCAkgCVH?=
- =?us-ascii?Q?bsGv6bbIw2Vmpxgm5tGxOahmG8gjpuvLYxsydur8zwR7iIiV2dWTsZcl6e1Y?=
- =?us-ascii?Q?sq4wahDkFpxVtpKjezaN1yyzRaoXc2t8A5oFVD0Wy9o/pEFinoEPZLFxdX1R?=
- =?us-ascii?Q?zzGiq/7VWlyqNok/HXFpHXjA+tQFlUejlqpjl1bmEv72SZk+lAAIvh3/eo44?=
- =?us-ascii?Q?ZVNB4vcMUs21SX1+/rOiR3TIyCcTYsM+8uzV5COhcUdvlbCuCQXkJvO4Pggu?=
- =?us-ascii?Q?sP+6S/1d1uKVbRP9HJBDZb08eXs/PXvNNOwPjqYC7lE56QNYFa/xMFM/5A9N?=
- =?us-ascii?Q?N24PGExko0Fq80H736regZ6Cx9RxP6LoYPbpti2bWolPpMFi0A87MfjU1x6C?=
- =?us-ascii?Q?I+D6wUHGElk8oZ+g2s8qB731RU2/trnWZeuopctCKAoaww6HD0kmZdYLYvnf?=
- =?us-ascii?Q?WO89WCNrGJ0cjITwGHZPWEANnaJSR+7hf51G+y+zzCuvvbJrdkvO7usmn8wD?=
- =?us-ascii?Q?gqSlX6CpLg76ez8xAh/K79RAWpIosBk8v5nstiQEm5AD/ANYIUi9OcrPbUIX?=
- =?us-ascii?Q?KvqznBSrY8iFOGb2PP0Pbaw0/3LNpvIGRPcEjxOkrvtTarua6+Um1+2TnC+W?=
- =?us-ascii?Q?2U2I7HNu7o0=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gRBBfJSCf9zBrsUHInml9I/5EiSPapAqQcfgP46MCWi7b+cvSknYEoEZWcz5?=
- =?us-ascii?Q?QmVa6aPm1HJjSN15bghhuBgZ9pyHoIeFxKs78+1r+CghbbMoVqm3HnJSjjB5?=
- =?us-ascii?Q?eX79MWNV8gkRGUGMWrkzZJpXeoCH3qNUhK/tPozZu4j0JN7+58JPjgllCXRa?=
- =?us-ascii?Q?Fg0xx6EDVHhXdrRPi4B4Ej3Tmrsif/DjqDYHtjANQ704dh7/Ld99tH2fDEiM?=
- =?us-ascii?Q?l0T13/qW4+M4dGFl8O8LS65pmGHqJFK3KDdGPeJRcfy72mncLNU9hDo+jjCr?=
- =?us-ascii?Q?RgqeLlI41XF10FbRXo70bcRoqRDn4eDYPN9TsyBIMSq2ObMqU1OyjZ4izqdi?=
- =?us-ascii?Q?E+UcmiPOClkdelMq6oRpU+m80OOubjrkCjQ2LxxkQqeMg4gn3Q5WBW6Kwzhu?=
- =?us-ascii?Q?BJ3ZhTSqovnEP2RB0hZxhIJ0xOfAdMyYp6d0Oo/P5+q8PApA89Y/O+Y+6FnT?=
- =?us-ascii?Q?CXrUCWNe2OAhweifDoINgTkQz9fHbefiNAD6iSPFtQ9TD03Aa8fbo2mFUfv2?=
- =?us-ascii?Q?wHNfQ9tTjwist+CXPu7wShPibG+FAAbW2fZe9TnySX7PKnvnO5uw5a79kOoU?=
- =?us-ascii?Q?T0WqjIOh2PEn3OybtMwnBH5frJqnDL/NtR4XBFSer+e/wl675bra+zpf58Ye?=
- =?us-ascii?Q?P+vQm4Hjj25/FETxv/BVkyJjJFOSRv3ijL+TKq3HBdMHankAIO5FjERgi4ic?=
- =?us-ascii?Q?IBEdjJ0qzp21nP0S88FoxNUfE8W2JHCFRFGtPx8b68nZSHGUvLwtGnYsun0j?=
- =?us-ascii?Q?CFhBv9YeFBxUfxKk48HDqpkl1fTtf51XOhnMSYTJ+Pj9lY7alvk+SgXMdlu3?=
- =?us-ascii?Q?X6OIsMgoXnrtiegRXjdIltRAORgYXh+e9PXhCnAisb5L83ytq+2zXsUw/Sdm?=
- =?us-ascii?Q?EUrCLyc4RlrRjzr3tua90Qlp/a7c5b3xhik8bx/8n0OUAgP75eyxqcqZhw2e?=
- =?us-ascii?Q?QXxbcUZ+QjQ0hnagCzE6/fZ7Sx+UW5/CV/WelzxKOoqnmgTYOTQPnUVrAJpS?=
- =?us-ascii?Q?tqqOZHGpTx5icqrCT1melChJSSf+D8AaAsME9uInA+gFUnIBdb5MGNbweP6r?=
- =?us-ascii?Q?8rzo2y+24FrVrOvk2FD4398+IW3iZhdydm+bETsA5V/gJB7MEIMsLHjXPmnX?=
- =?us-ascii?Q?p3swb6bk9DaxmXi/+he44Bsc08WT65cTyPWfJCirHLHGzQf0MB/wwqb7r15s?=
- =?us-ascii?Q?WQaV67kT1nJ64KRC5gxwOHLioRuuARX+mhz/TRGSuBz9MrpqR9wyI+75xpyA?=
- =?us-ascii?Q?lkaF8qSwAabeeJmZ0geiv5KziXI8P5yj8xl/a3AaxU8bGpHl+fDYN1HbrXJB?=
- =?us-ascii?Q?fo+gzhvnleP+nB8ripaHaGrKRfp4eLklgEMtFC/hXrVuZlTWhKCkiPrA+dnX?=
- =?us-ascii?Q?zHo1yQZPvVcvHINTmUs7YScIJFjCz/kT0UKyjpBDMjRvmH/rOPyvMXSb4U77?=
- =?us-ascii?Q?lZ2ZXTX8VEWy7Jp0+9I4ES5/3GEeEC22oYgyuRrAXV4x4qrZARMBtuppqUTs?=
- =?us-ascii?Q?ntraEZblMYdvKcBKcFnPt/6jEZF4aMNKTjMTLWhK2fxzqrE48CuKWuthS/Aq?=
- =?us-ascii?Q?6nEZotfdSQwX0VhT7PIPEvBHcUJ75K1ca0leltYC?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 59767179-c3e0-42d9-0a27-08dd8d642619
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2025 12:39:03.4846
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QVQjfGo2PVdD6yhOHEXtE0NL1UDA7Wk08zCY4Nx52qqqxl1qs45WZtDuW8USp/LC
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5883
+In-Reply-To: <20250502100049.1746335-4-jens.wiklander@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_053914_139751_328729DA 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20250507_054245_781530_16EEF8A0 
+X-CRM114-Status: GOOD (  38.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,23 +89,628 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 12:30:54PM -0700, Nicolin Chen wrote:
+Hi Jens,
 
-> So, if I understand it correctly, what we want to achieve is to
-> have maple tree to manage all PFN ranges. And each range holds
-> the same entry, a structure that we can use to verify the sanity
-> of an mmap? Let's say for PFNs A->B, the tree should store the
-> structure between index A and index B (inclusive)?
+On Fri, May 02, 2025 at 11:59:17AM +0200, Jens Wiklander wrote:
+> The OP-TEE backend driver has two internal function pointers to convert
+> between the subsystem type struct tee_param and the OP-TEE type struct
+> optee_msg_param.
+> 
+> The conversion is done from one of the types to the other, which is then
+> involved in some operation and finally converted back to the original
+> type. When converting to prepare the parameters for the operation, all
+> fields must be taken into account, but then converting back, it's enough
+> to update only out-values and out-sizes. So, an update_out parameter is
+> added to the conversion functions to tell if all or only some fields
+> must be copied.
+> 
+> This is needed in a later patch where it might get confusing when
+> converting back in from_msg_param() callback since an allocated
+> restricted SHM can be using the sec_world_id of the used restricted
+> memory pool and that doesn't translate back well.
+> 
+> Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> ---
+>  drivers/tee/optee/call.c          | 10 ++--
+>  drivers/tee/optee/ffa_abi.c       | 43 +++++++++++++----
+>  drivers/tee/optee/optee_private.h | 42 +++++++++++------
+>  drivers/tee/optee/rpc.c           | 31 +++++++++----
+>  drivers/tee/optee/smc_abi.c       | 76 +++++++++++++++++++++++--------
+>  5 files changed, 144 insertions(+), 58 deletions(-)
+>
 
-And tell you what has been mmap'd.
+Thinking about it a bit more, as you mentioned in v6 that this patch
+isn't strictly required for this series, can we drop this from this
+series and rather followup with a separate patch? If you agree then I
+can give a try on simplifying this patch?
 
-> If this is correct, mtree_alloc_range() that is given a range of
-> [0, ULONG_MAX] would allocate the PFN range from the lowest index
-> (i.e. 0) instead of PFN A?
+-Sumit
 
-mtree_alloc_range() returns a new range of PFNs that does not overlap
-with any existing range. It should always be called on O->U32_MAX (for
-32bit uapi compat) and it should always pick the range to use.
-
-Jason
+> diff --git a/drivers/tee/optee/call.c b/drivers/tee/optee/call.c
+> index 16eb953e14bb..f1533b894726 100644
+> --- a/drivers/tee/optee/call.c
+> +++ b/drivers/tee/optee/call.c
+> @@ -400,7 +400,8 @@ int optee_open_session(struct tee_context *ctx,
+>  	export_uuid(msg_arg->params[1].u.octets, &client_uuid);
+>  
+>  	rc = optee->ops->to_msg_param(optee, msg_arg->params + 2,
+> -				      arg->num_params, param);
+> +				      arg->num_params, param,
+> +				      false /*!update_out*/);
+>  	if (rc)
+>  		goto out;
+>  
+> @@ -427,7 +428,8 @@ int optee_open_session(struct tee_context *ctx,
+>  	}
+>  
+>  	if (optee->ops->from_msg_param(optee, param, arg->num_params,
+> -				       msg_arg->params + 2)) {
+> +				       msg_arg->params + 2,
+> +				       true /*update_out*/)) {
+>  		arg->ret = TEEC_ERROR_COMMUNICATION;
+>  		arg->ret_origin = TEEC_ORIGIN_COMMS;
+>  		/* Close session again to avoid leakage */
+> @@ -541,7 +543,7 @@ int optee_invoke_func(struct tee_context *ctx, struct tee_ioctl_invoke_arg *arg,
+>  	msg_arg->cancel_id = arg->cancel_id;
+>  
+>  	rc = optee->ops->to_msg_param(optee, msg_arg->params, arg->num_params,
+> -				      param);
+> +				      param, false /*!update_out*/);
+>  	if (rc)
+>  		goto out;
+>  
+> @@ -551,7 +553,7 @@ int optee_invoke_func(struct tee_context *ctx, struct tee_ioctl_invoke_arg *arg,
+>  	}
+>  
+>  	if (optee->ops->from_msg_param(optee, param, arg->num_params,
+> -				       msg_arg->params)) {
+> +				       msg_arg->params, true /*update_out*/)) {
+>  		msg_arg->ret = TEEC_ERROR_COMMUNICATION;
+>  		msg_arg->ret_origin = TEEC_ORIGIN_COMMS;
+>  	}
+> diff --git a/drivers/tee/optee/ffa_abi.c b/drivers/tee/optee/ffa_abi.c
+> index 4ca1d5161b82..e4b08cd195f3 100644
+> --- a/drivers/tee/optee/ffa_abi.c
+> +++ b/drivers/tee/optee/ffa_abi.c
+> @@ -122,15 +122,21 @@ static int optee_shm_rem_ffa_handle(struct optee *optee, u64 global_id)
+>   */
+>  
+>  static void from_msg_param_ffa_mem(struct optee *optee, struct tee_param *p,
+> -				   u32 attr, const struct optee_msg_param *mp)
+> +				   u32 attr, const struct optee_msg_param *mp,
+> +				   bool update_out)
+>  {
+>  	struct tee_shm *shm = NULL;
+>  	u64 offs_high = 0;
+>  	u64 offs_low = 0;
+>  
+> +	if (update_out) {
+> +		if (attr == OPTEE_MSG_ATTR_TYPE_FMEM_INPUT)
+> +			return;
+> +		goto out;
+> +	}
+> +
+>  	p->attr = TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT +
+>  		  attr - OPTEE_MSG_ATTR_TYPE_FMEM_INPUT;
+> -	p->u.memref.size = mp->u.fmem.size;
+>  
+>  	if (mp->u.fmem.global_id != OPTEE_MSG_FMEM_INVALID_GLOBAL_ID)
+>  		shm = optee_shm_from_ffa_handle(optee, mp->u.fmem.global_id);
+> @@ -141,6 +147,8 @@ static void from_msg_param_ffa_mem(struct optee *optee, struct tee_param *p,
+>  		offs_high = mp->u.fmem.offs_high;
+>  	}
+>  	p->u.memref.shm_offs = offs_low | offs_high << 32;
+> +out:
+> +	p->u.memref.size = mp->u.fmem.size;
+>  }
+>  
+>  /**
+> @@ -150,12 +158,14 @@ static void from_msg_param_ffa_mem(struct optee *optee, struct tee_param *p,
+>   * @params:	subsystem internal parameter representation
+>   * @num_params:	number of elements in the parameter arrays
+>   * @msg_params:	OPTEE_MSG parameters
+> + * @update_out: update parameter for output only
+>   *
+>   * Returns 0 on success or <0 on failure
+>   */
+>  static int optee_ffa_from_msg_param(struct optee *optee,
+>  				    struct tee_param *params, size_t num_params,
+> -				    const struct optee_msg_param *msg_params)
+> +				    const struct optee_msg_param *msg_params,
+> +				    bool update_out)
+>  {
+>  	size_t n;
+>  
+> @@ -166,18 +176,20 @@ static int optee_ffa_from_msg_param(struct optee *optee,
+>  
+>  		switch (attr) {
+>  		case OPTEE_MSG_ATTR_TYPE_NONE:
+> +			if (update_out)
+> +				break;
+>  			p->attr = TEE_IOCTL_PARAM_ATTR_TYPE_NONE;
+>  			memset(&p->u, 0, sizeof(p->u));
+>  			break;
+>  		case OPTEE_MSG_ATTR_TYPE_VALUE_INPUT:
+>  		case OPTEE_MSG_ATTR_TYPE_VALUE_OUTPUT:
+>  		case OPTEE_MSG_ATTR_TYPE_VALUE_INOUT:
+> -			optee_from_msg_param_value(p, attr, mp);
+> +			optee_from_msg_param_value(p, attr, mp, update_out);
+>  			break;
+>  		case OPTEE_MSG_ATTR_TYPE_FMEM_INPUT:
+>  		case OPTEE_MSG_ATTR_TYPE_FMEM_OUTPUT:
+>  		case OPTEE_MSG_ATTR_TYPE_FMEM_INOUT:
+> -			from_msg_param_ffa_mem(optee, p, attr, mp);
+> +			from_msg_param_ffa_mem(optee, p, attr, mp, update_out);
+>  			break;
+>  		default:
+>  			return -EINVAL;
+> @@ -188,10 +200,16 @@ static int optee_ffa_from_msg_param(struct optee *optee,
+>  }
+>  
+>  static int to_msg_param_ffa_mem(struct optee_msg_param *mp,
+> -				const struct tee_param *p)
+> +				const struct tee_param *p, bool update_out)
+>  {
+>  	struct tee_shm *shm = p->u.memref.shm;
+>  
+> +	if (update_out) {
+> +		if (p->attr == TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT)
+> +			return 0;
+> +		goto out;
+> +	}
+> +
+>  	mp->attr = OPTEE_MSG_ATTR_TYPE_FMEM_INPUT + p->attr -
+>  		   TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT;
+>  
+> @@ -211,6 +229,7 @@ static int to_msg_param_ffa_mem(struct optee_msg_param *mp,
+>  		memset(&mp->u, 0, sizeof(mp->u));
+>  		mp->u.fmem.global_id = OPTEE_MSG_FMEM_INVALID_GLOBAL_ID;
+>  	}
+> +out:
+>  	mp->u.fmem.size = p->u.memref.size;
+>  
+>  	return 0;
+> @@ -222,13 +241,15 @@ static int to_msg_param_ffa_mem(struct optee_msg_param *mp,
+>   * @optee:	main service struct
+>   * @msg_params:	OPTEE_MSG parameters
+>   * @num_params:	number of elements in the parameter arrays
+> - * @params:	subsystem itnernal parameter representation
+> + * @params:	subsystem internal parameter representation
+> + * @update_out: update parameter for output only
+>   * Returns 0 on success or <0 on failure
+>   */
+>  static int optee_ffa_to_msg_param(struct optee *optee,
+>  				  struct optee_msg_param *msg_params,
+>  				  size_t num_params,
+> -				  const struct tee_param *params)
+> +				  const struct tee_param *params,
+> +				  bool update_out)
+>  {
+>  	size_t n;
+>  
+> @@ -238,18 +259,20 @@ static int optee_ffa_to_msg_param(struct optee *optee,
+>  
+>  		switch (p->attr) {
+>  		case TEE_IOCTL_PARAM_ATTR_TYPE_NONE:
+> +			if (update_out)
+> +				break;
+>  			mp->attr = TEE_IOCTL_PARAM_ATTR_TYPE_NONE;
+>  			memset(&mp->u, 0, sizeof(mp->u));
+>  			break;
+>  		case TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INPUT:
+>  		case TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_OUTPUT:
+>  		case TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INOUT:
+> -			optee_to_msg_param_value(mp, p);
+> +			optee_to_msg_param_value(mp, p, update_out);
+>  			break;
+>  		case TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT:
+>  		case TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_OUTPUT:
+>  		case TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INOUT:
+> -			if (to_msg_param_ffa_mem(mp, p))
+> +			if (to_msg_param_ffa_mem(mp, p, update_out))
+>  				return -EINVAL;
+>  			break;
+>  		default:
+> diff --git a/drivers/tee/optee/optee_private.h b/drivers/tee/optee/optee_private.h
+> index dc0f355ef72a..20eda508dbac 100644
+> --- a/drivers/tee/optee/optee_private.h
+> +++ b/drivers/tee/optee/optee_private.h
+> @@ -185,10 +185,12 @@ struct optee_ops {
+>  				bool system_thread);
+>  	int (*to_msg_param)(struct optee *optee,
+>  			    struct optee_msg_param *msg_params,
+> -			    size_t num_params, const struct tee_param *params);
+> +			    size_t num_params, const struct tee_param *params,
+> +			    bool update_out);
+>  	int (*from_msg_param)(struct optee *optee, struct tee_param *params,
+>  			      size_t num_params,
+> -			      const struct optee_msg_param *msg_params);
+> +			      const struct optee_msg_param *msg_params,
+> +			      bool update_out);
+>  };
+>  
+>  /**
+> @@ -316,23 +318,35 @@ void optee_release(struct tee_context *ctx);
+>  void optee_release_supp(struct tee_context *ctx);
+>  
+>  static inline void optee_from_msg_param_value(struct tee_param *p, u32 attr,
+> -					      const struct optee_msg_param *mp)
+> +					      const struct optee_msg_param *mp,
+> +					      bool update_out)
+>  {
+> -	p->attr = TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INPUT +
+> -		  attr - OPTEE_MSG_ATTR_TYPE_VALUE_INPUT;
+> -	p->u.value.a = mp->u.value.a;
+> -	p->u.value.b = mp->u.value.b;
+> -	p->u.value.c = mp->u.value.c;
+> +	if (!update_out)
+> +		p->attr = TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INPUT +
+> +			  attr - OPTEE_MSG_ATTR_TYPE_VALUE_INPUT;
+> +
+> +	if (attr == OPTEE_MSG_ATTR_TYPE_VALUE_OUTPUT ||
+> +	    attr == OPTEE_MSG_ATTR_TYPE_VALUE_INOUT || !update_out) {
+> +		p->u.value.a = mp->u.value.a;
+> +		p->u.value.b = mp->u.value.b;
+> +		p->u.value.c = mp->u.value.c;
+> +	}
+>  }
+>  
+>  static inline void optee_to_msg_param_value(struct optee_msg_param *mp,
+> -					    const struct tee_param *p)
+> +					    const struct tee_param *p,
+> +					    bool update_out)
+>  {
+> -	mp->attr = OPTEE_MSG_ATTR_TYPE_VALUE_INPUT + p->attr -
+> -		   TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INPUT;
+> -	mp->u.value.a = p->u.value.a;
+> -	mp->u.value.b = p->u.value.b;
+> -	mp->u.value.c = p->u.value.c;
+> +	if (!update_out)
+> +		mp->attr = OPTEE_MSG_ATTR_TYPE_VALUE_INPUT + p->attr -
+> +			   TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INPUT;
+> +
+> +	if (p->attr == TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_OUTPUT ||
+> +	    p->attr == TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INOUT || !update_out) {
+> +		mp->u.value.a = p->u.value.a;
+> +		mp->u.value.b = p->u.value.b;
+> +		mp->u.value.c = p->u.value.c;
+> +	}
+>  }
+>  
+>  void optee_cq_init(struct optee_call_queue *cq, int thread_count);
+> diff --git a/drivers/tee/optee/rpc.c b/drivers/tee/optee/rpc.c
+> index ebbbd42b0e3e..580e6b9b0606 100644
+> --- a/drivers/tee/optee/rpc.c
+> +++ b/drivers/tee/optee/rpc.c
+> @@ -63,7 +63,7 @@ static void handle_rpc_func_cmd_i2c_transfer(struct tee_context *ctx,
+>  	}
+>  
+>  	if (optee->ops->from_msg_param(optee, params, arg->num_params,
+> -				       arg->params))
+> +				       arg->params, false /*!update_out*/))
+>  		goto bad;
+>  
+>  	for (i = 0; i < arg->num_params; i++) {
+> @@ -107,7 +107,8 @@ static void handle_rpc_func_cmd_i2c_transfer(struct tee_context *ctx,
+>  	} else {
+>  		params[3].u.value.a = msg.len;
+>  		if (optee->ops->to_msg_param(optee, arg->params,
+> -					     arg->num_params, params))
+> +					     arg->num_params, params,
+> +					     true /*update_out*/))
+>  			arg->ret = TEEC_ERROR_BAD_PARAMETERS;
+>  		else
+>  			arg->ret = TEEC_SUCCESS;
+> @@ -188,6 +189,7 @@ static void handle_rpc_func_cmd_wait(struct optee_msg_arg *arg)
+>  static void handle_rpc_supp_cmd(struct tee_context *ctx, struct optee *optee,
+>  				struct optee_msg_arg *arg)
+>  {
+> +	bool update_out = false;
+>  	struct tee_param *params;
+>  
+>  	arg->ret_origin = TEEC_ORIGIN_COMMS;
+> @@ -200,15 +202,21 @@ static void handle_rpc_supp_cmd(struct tee_context *ctx, struct optee *optee,
+>  	}
+>  
+>  	if (optee->ops->from_msg_param(optee, params, arg->num_params,
+> -				       arg->params)) {
+> +				       arg->params, update_out)) {
+>  		arg->ret = TEEC_ERROR_BAD_PARAMETERS;
+>  		goto out;
+>  	}
+>  
+>  	arg->ret = optee_supp_thrd_req(ctx, arg->cmd, arg->num_params, params);
+>  
+> +	/*
+> +	 * Special treatment for OPTEE_RPC_CMD_SHM_ALLOC since input is a
+> +	 * value type, but the output is a memref type.
+> +	 */
+> +	if (arg->cmd != OPTEE_RPC_CMD_SHM_ALLOC)
+> +		update_out = true;
+>  	if (optee->ops->to_msg_param(optee, arg->params, arg->num_params,
+> -				     params))
+> +				     params, update_out))
+>  		arg->ret = TEEC_ERROR_BAD_PARAMETERS;
+>  out:
+>  	kfree(params);
+> @@ -270,7 +278,7 @@ static void handle_rpc_func_rpmb_probe_reset(struct tee_context *ctx,
+>  
+>  	if (arg->num_params != ARRAY_SIZE(params) ||
+>  	    optee->ops->from_msg_param(optee, params, arg->num_params,
+> -				       arg->params) ||
+> +				       arg->params, false /*!update_out*/) ||
+>  	    params[0].attr != TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_OUTPUT) {
+>  		arg->ret = TEEC_ERROR_BAD_PARAMETERS;
+>  		return;
+> @@ -280,7 +288,8 @@ static void handle_rpc_func_rpmb_probe_reset(struct tee_context *ctx,
+>  	params[0].u.value.b = 0;
+>  	params[0].u.value.c = 0;
+>  	if (optee->ops->to_msg_param(optee, arg->params,
+> -				     arg->num_params, params)) {
+> +				     arg->num_params, params,
+> +				     true /*update_out*/)) {
+>  		arg->ret = TEEC_ERROR_BAD_PARAMETERS;
+>  		return;
+>  	}
+> @@ -324,7 +333,7 @@ static void handle_rpc_func_rpmb_probe_next(struct tee_context *ctx,
+>  
+>  	if (arg->num_params != ARRAY_SIZE(params) ||
+>  	    optee->ops->from_msg_param(optee, params, arg->num_params,
+> -				       arg->params) ||
+> +				       arg->params, false /*!update_out*/) ||
+>  	    params[0].attr != TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_OUTPUT ||
+>  	    params[1].attr != TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_OUTPUT) {
+>  		arg->ret = TEEC_ERROR_BAD_PARAMETERS;
+> @@ -358,7 +367,8 @@ static void handle_rpc_func_rpmb_probe_next(struct tee_context *ctx,
+>  	params[0].u.value.b = rdev->descr.capacity;
+>  	params[0].u.value.c = rdev->descr.reliable_wr_count;
+>  	if (optee->ops->to_msg_param(optee, arg->params,
+> -				     arg->num_params, params)) {
+> +				     arg->num_params, params,
+> +				     true /*update_out*/)) {
+>  		arg->ret = TEEC_ERROR_BAD_PARAMETERS;
+>  		return;
+>  	}
+> @@ -384,7 +394,7 @@ static void handle_rpc_func_rpmb_frames(struct tee_context *ctx,
+>  
+>  	if (arg->num_params != ARRAY_SIZE(params) ||
+>  	    optee->ops->from_msg_param(optee, params, arg->num_params,
+> -				       arg->params) ||
+> +				       arg->params, false /*!update_out*/) ||
+>  	    params[0].attr != TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT ||
+>  	    params[1].attr != TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_OUTPUT) {
+>  		arg->ret = TEEC_ERROR_BAD_PARAMETERS;
+> @@ -401,7 +411,8 @@ static void handle_rpc_func_rpmb_frames(struct tee_context *ctx,
+>  		goto out;
+>  	}
+>  	if (optee->ops->to_msg_param(optee, arg->params,
+> -				     arg->num_params, params)) {
+> +				     arg->num_params, params,
+> +				     true /*update_out*/)) {
+>  		arg->ret = TEEC_ERROR_BAD_PARAMETERS;
+>  		goto out;
+>  	}
+> diff --git a/drivers/tee/optee/smc_abi.c b/drivers/tee/optee/smc_abi.c
+> index 165fadd9abc9..cfdae266548b 100644
+> --- a/drivers/tee/optee/smc_abi.c
+> +++ b/drivers/tee/optee/smc_abi.c
+> @@ -81,20 +81,26 @@ static int optee_cpuhp_disable_pcpu_irq(unsigned int cpu)
+>   */
+>  
+>  static int from_msg_param_tmp_mem(struct tee_param *p, u32 attr,
+> -				  const struct optee_msg_param *mp)
+> +				  const struct optee_msg_param *mp,
+> +				  bool update_out)
+>  {
+>  	struct tee_shm *shm;
+>  	phys_addr_t pa;
+>  	int rc;
+>  
+> +	if (update_out) {
+> +		if (attr == OPTEE_MSG_ATTR_TYPE_TMEM_INPUT)
+> +			return 0;
+> +		goto out;
+> +	}
+> +
+>  	p->attr = TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT +
+>  		  attr - OPTEE_MSG_ATTR_TYPE_TMEM_INPUT;
+> -	p->u.memref.size = mp->u.tmem.size;
+>  	shm = (struct tee_shm *)(unsigned long)mp->u.tmem.shm_ref;
+>  	if (!shm) {
+>  		p->u.memref.shm_offs = 0;
+>  		p->u.memref.shm = NULL;
+> -		return 0;
+> +		goto out;
+>  	}
+>  
+>  	rc = tee_shm_get_pa(shm, 0, &pa);
+> @@ -103,18 +109,25 @@ static int from_msg_param_tmp_mem(struct tee_param *p, u32 attr,
+>  
+>  	p->u.memref.shm_offs = mp->u.tmem.buf_ptr - pa;
+>  	p->u.memref.shm = shm;
+> -
+> +out:
+> +	p->u.memref.size = mp->u.tmem.size;
+>  	return 0;
+>  }
+>  
+>  static void from_msg_param_reg_mem(struct tee_param *p, u32 attr,
+> -				   const struct optee_msg_param *mp)
+> +				   const struct optee_msg_param *mp,
+> +				   bool update_out)
+>  {
+>  	struct tee_shm *shm;
+>  
+> +	if (update_out) {
+> +		if (attr == OPTEE_MSG_ATTR_TYPE_RMEM_INPUT)
+> +			return;
+> +		goto out;
+> +	}
+> +
+>  	p->attr = TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT +
+>  		  attr - OPTEE_MSG_ATTR_TYPE_RMEM_INPUT;
+> -	p->u.memref.size = mp->u.rmem.size;
+>  	shm = (struct tee_shm *)(unsigned long)mp->u.rmem.shm_ref;
+>  
+>  	if (shm) {
+> @@ -124,6 +137,8 @@ static void from_msg_param_reg_mem(struct tee_param *p, u32 attr,
+>  		p->u.memref.shm_offs = 0;
+>  		p->u.memref.shm = NULL;
+>  	}
+> +out:
+> +	p->u.memref.size = mp->u.rmem.size;
+>  }
+>  
+>  /**
+> @@ -133,11 +148,13 @@ static void from_msg_param_reg_mem(struct tee_param *p, u32 attr,
+>   * @params:	subsystem internal parameter representation
+>   * @num_params:	number of elements in the parameter arrays
+>   * @msg_params:	OPTEE_MSG parameters
+> + * @update_out:	update parameter for output only
+>   * Returns 0 on success or <0 on failure
+>   */
+>  static int optee_from_msg_param(struct optee *optee, struct tee_param *params,
+>  				size_t num_params,
+> -				const struct optee_msg_param *msg_params)
+> +				const struct optee_msg_param *msg_params,
+> +				bool update_out)
+>  {
+>  	int rc;
+>  	size_t n;
+> @@ -149,25 +166,27 @@ static int optee_from_msg_param(struct optee *optee, struct tee_param *params,
+>  
+>  		switch (attr) {
+>  		case OPTEE_MSG_ATTR_TYPE_NONE:
+> +			if (update_out)
+> +				break;
+>  			p->attr = TEE_IOCTL_PARAM_ATTR_TYPE_NONE;
+>  			memset(&p->u, 0, sizeof(p->u));
+>  			break;
+>  		case OPTEE_MSG_ATTR_TYPE_VALUE_INPUT:
+>  		case OPTEE_MSG_ATTR_TYPE_VALUE_OUTPUT:
+>  		case OPTEE_MSG_ATTR_TYPE_VALUE_INOUT:
+> -			optee_from_msg_param_value(p, attr, mp);
+> +			optee_from_msg_param_value(p, attr, mp, update_out);
+>  			break;
+>  		case OPTEE_MSG_ATTR_TYPE_TMEM_INPUT:
+>  		case OPTEE_MSG_ATTR_TYPE_TMEM_OUTPUT:
+>  		case OPTEE_MSG_ATTR_TYPE_TMEM_INOUT:
+> -			rc = from_msg_param_tmp_mem(p, attr, mp);
+> +			rc = from_msg_param_tmp_mem(p, attr, mp, update_out);
+>  			if (rc)
+>  				return rc;
+>  			break;
+>  		case OPTEE_MSG_ATTR_TYPE_RMEM_INPUT:
+>  		case OPTEE_MSG_ATTR_TYPE_RMEM_OUTPUT:
+>  		case OPTEE_MSG_ATTR_TYPE_RMEM_INOUT:
+> -			from_msg_param_reg_mem(p, attr, mp);
+> +			from_msg_param_reg_mem(p, attr, mp, update_out);
+>  			break;
+>  
+>  		default:
+> @@ -178,20 +197,25 @@ static int optee_from_msg_param(struct optee *optee, struct tee_param *params,
+>  }
+>  
+>  static int to_msg_param_tmp_mem(struct optee_msg_param *mp,
+> -				const struct tee_param *p)
+> +				const struct tee_param *p, bool update_out)
+>  {
+>  	int rc;
+>  	phys_addr_t pa;
+>  
+> +	if (update_out) {
+> +		if (p->attr == TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT)
+> +			return 0;
+> +		goto out;
+> +	}
+> +
+>  	mp->attr = OPTEE_MSG_ATTR_TYPE_TMEM_INPUT + p->attr -
+>  		   TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT;
+>  
+>  	mp->u.tmem.shm_ref = (unsigned long)p->u.memref.shm;
+> -	mp->u.tmem.size = p->u.memref.size;
+>  
+>  	if (!p->u.memref.shm) {
+>  		mp->u.tmem.buf_ptr = 0;
+> -		return 0;
+> +		goto out;
+>  	}
+>  
+>  	rc = tee_shm_get_pa(p->u.memref.shm, p->u.memref.shm_offs, &pa);
+> @@ -201,19 +225,27 @@ static int to_msg_param_tmp_mem(struct optee_msg_param *mp,
+>  	mp->u.tmem.buf_ptr = pa;
+>  	mp->attr |= OPTEE_MSG_ATTR_CACHE_PREDEFINED <<
+>  		    OPTEE_MSG_ATTR_CACHE_SHIFT;
+> -
+> +out:
+> +	mp->u.tmem.size = p->u.memref.size;
+>  	return 0;
+>  }
+>  
+>  static int to_msg_param_reg_mem(struct optee_msg_param *mp,
+> -				const struct tee_param *p)
+> +				const struct tee_param *p, bool update_out)
+>  {
+> +	if (update_out) {
+> +		if (p->attr == TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT)
+> +			return 0;
+> +		goto out;
+> +	}
+> +
+>  	mp->attr = OPTEE_MSG_ATTR_TYPE_RMEM_INPUT + p->attr -
+>  		   TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT;
+>  
+>  	mp->u.rmem.shm_ref = (unsigned long)p->u.memref.shm;
+> -	mp->u.rmem.size = p->u.memref.size;
+>  	mp->u.rmem.offs = p->u.memref.shm_offs;
+> +out:
+> +	mp->u.rmem.size = p->u.memref.size;
+>  	return 0;
+>  }
+>  
+> @@ -223,11 +255,13 @@ static int to_msg_param_reg_mem(struct optee_msg_param *mp,
+>   * @msg_params:	OPTEE_MSG parameters
+>   * @num_params:	number of elements in the parameter arrays
+>   * @params:	subsystem itnernal parameter representation
+> + * @update_out:	update parameter for output only
+>   * Returns 0 on success or <0 on failure
+>   */
+>  static int optee_to_msg_param(struct optee *optee,
+>  			      struct optee_msg_param *msg_params,
+> -			      size_t num_params, const struct tee_param *params)
+> +			      size_t num_params, const struct tee_param *params,
+> +			      bool update_out)
+>  {
+>  	int rc;
+>  	size_t n;
+> @@ -238,21 +272,23 @@ static int optee_to_msg_param(struct optee *optee,
+>  
+>  		switch (p->attr) {
+>  		case TEE_IOCTL_PARAM_ATTR_TYPE_NONE:
+> +			if (update_out)
+> +				break;
+>  			mp->attr = TEE_IOCTL_PARAM_ATTR_TYPE_NONE;
+>  			memset(&mp->u, 0, sizeof(mp->u));
+>  			break;
+>  		case TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INPUT:
+>  		case TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_OUTPUT:
+>  		case TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INOUT:
+> -			optee_to_msg_param_value(mp, p);
+> +			optee_to_msg_param_value(mp, p, update_out);
+>  			break;
+>  		case TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT:
+>  		case TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_OUTPUT:
+>  		case TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INOUT:
+>  			if (tee_shm_is_dynamic(p->u.memref.shm))
+> -				rc = to_msg_param_reg_mem(mp, p);
+> +				rc = to_msg_param_reg_mem(mp, p, update_out);
+>  			else
+> -				rc = to_msg_param_tmp_mem(mp, p);
+> +				rc = to_msg_param_tmp_mem(mp, p, update_out);
+>  			if (rc)
+>  				return rc;
+>  			break;
+> -- 
+> 2.43.0
+> 
 
