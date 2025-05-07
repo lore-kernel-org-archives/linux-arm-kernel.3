@@ -4,68 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC713C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 19:57:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10B19C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 20:03:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rPyZzqsMRMqtnqdmdnjavXkrIbpF8/qLDdeqsOJ9Ios=; b=q3oN0G/YYF2CxuV80B0izGdApt
-	Or8K/YxNBXfwztG1cwrQf0OINqHCvVyYcQ60NXwdEG7TKNxsCfcpp6h/F5nzE2NgSVJogV3XdaZIH
-	XXhQl82d9rtqcCLLRRdI7GCSwAazgLWmV3iivNJ9+6vgpnq+1ZpHYOuq94RFcpZ3x0e4wIi60/xvo
-	EqNKTyyXBkBEveZwm9bEsZ472bO+8ASZMatx8mipWRhbHF8ImJrRsJk7J6yRDlL3DLYiQbexNjox4
-	iOYgoh9uZ5ywo6OzE1oJgAancRsgHjzJYxPNixVM2AGg0c0ACtvw20Nk1koxwAZtj6E7kURdDzY1W
-	5tvI9kxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:From:Subject:
+	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XmO4hmaJtrcyg4jXIRxdKffsA16GZGyCvvqFPgBHzHQ=; b=S+5zKAuLW3FC7V6atjqGxQsZJH
+	Iv4hx1U9C6LisuL1RRzr0eNikm6hOdAqDwmXBAtKvicc81OyAwPuu/+7sCJCNXRVc6WpcA50rb0vX
+	tH99oxqyy6iR9cSL6joLX2dO/0bNvP7f/tCS/fa2sZ/OqtW9zEuPBCsI0FQgFcal1ECBYjhYdDgfU
+	8SS4Zdnq+fjIRSurc124qPkD/ZGykKhRjZ7Tsj3+B71NIYklaaeVC3XQj5zAp20pRimq6vjfhc6Uq
+	ykHpnhJuVVcZef7eez0/h9jNkRbdnKKXnP4BW0dDPOhMnX3ki7Bm6YTp8yT6pqVXY07YDWtXCIf/H
+	S1pBkDvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCktB-0000000Gcka-1LHY;
-	Wed, 07 May 2025 19:57:09 +0000
+	id 1uCkzJ-0000000Gdz4-0kop;
+	Wed, 07 May 2025 20:03:29 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCkrC-0000000GcHS-3w8d
+	id 1uCkxL-0000000GdkJ-2QLU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 19:55:08 +0000
+	Wed, 07 May 2025 20:01:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A12AFA41BBA;
-	Wed,  7 May 2025 19:55:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C45D0C4CEE2;
-	Wed,  7 May 2025 19:54:59 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B17DDA4DA7A;
+	Wed,  7 May 2025 20:01:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39D76C4CEE2;
+	Wed,  7 May 2025 20:01:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746647705;
-	bh=rPyZzqsMRMqtnqdmdnjavXkrIbpF8/qLDdeqsOJ9Ios=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=tldOHEhthjMki3eUjuhheaxEcBuzlj5cDaf9AK4eVn2lFYyiSMZEzt9CSx6VxqWUW
-	 +zwyNEUGEyawvkXVqh3rRK7PDfn9prDKTfGS5UcoWk425i0gTuGlnRIBlylI74S3k8
-	 uh98tdssW9lpqNZZ50oiLbh3UzXb/lLYxklSMxF80KdufATy2oytA3HrrKTgOBsn7D
-	 ztjVlTv5/bDRaOV8F4Ni36RkKXJ8FxBhNWxW1akNTK8YatcXJcHB/OKmB/v5WaPtQy
-	 176O2ZTvlsbr4HFRj6e3BvQVt6sdeJzMIPowkLI9pKtfz6RBC72mNHjqhEIBMw1WCM
-	 9oEUleD95ckaA==
-Date: Wed, 7 May 2025 20:54:54 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Nuno =?UTF-8?B?U8Oh?= <noname.nuno@gmail.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Lars-Peter Clausen
- <lars@metafoo.de>, Michael Hennerich <Michael.Hennerich@analog.com>, Eugen
- Hristev <eugen.hristev@linaro.org>, Nicolas Ferre
- <nicolas.ferre@microchip.com>, Alexandre Belloni
- <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Trevor Gamblin
- <tgamblin@baylibre.com>
-Subject: Re: [PATCH v5 0/7] iio: introduce IIO_DECLARE_BUFFER_WITH_TS
-Message-ID: <20250507205454.56cbf6e2@jic23-huawei>
-In-Reply-To: <ec7c00c640b0b359bfd98d460d067aee64ca069f.camel@gmail.com>
-References: <20250505-iio-introduce-iio_declare_buffer_with_ts-v5-0-814b72b1cae3@baylibre.com>
-	<ec7c00c640b0b359bfd98d460d067aee64ca069f.camel@gmail.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+	s=k20201202; t=1746648086;
+	bh=Ff/FoBwD94frMQpQAKcW8OUQEHCvCrShjHu7nQ/zEUU=;
+	h=In-Reply-To:References:Subject:From:To:Date:From;
+	b=k6mwlKtEnhp9oBjormtnSuzXWBIqfDBZB6Sbg+9jQypLYFK/VDsrwU3RplkAhg9/A
+	 Kju9Mxs/flthTRfsSlpVmIqdFsTJPyTTIAJmUJKBJcCwHnTUpeX4nsps0ptgOHuK8c
+	 jpBKxDqlVhETqg5jKoMSClJQOsl0ZucniFjeypUJQPopBxeFU+Fr8SA0/nWWU1v6kc
+	 2KeroGsDeGys6pcQRST70STBFh5Vf9llr6D0qSSZ1/N/qy8pOt1PhIcTqiU5ymJmmg
+	 qyMIV9EM3Znstrf8r8N+p9tZAGJitFXZSR5V7Jlt+n635heXgug+1CSvAzYKxaVs7U
+	 2CvqH/gFoCHnw==
+Message-ID: <a61159b7b34c29323cdc428bb34acfa1@kernel.org>
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <e8a9c2cd6b4b2af8038048cda179ebbf70891ba7.1745347417.git.andrea.porta@suse.com>
+References: <cover.1745347417.git.andrea.porta@suse.com> <e8a9c2cd6b4b2af8038048cda179ebbf70891ba7.1745347417.git.andrea.porta@suse.com>
+Subject: Re: [PATCH v9 -next 04/12] clk: rp1: Add support for clocks provided by RP1
+From: Stephen Boyd <sboyd@kernel.org>
+To: Andrea della Porta <andrea.porta@suse.com>, Andrew Lunn <andrew@lunn.ch>, Arnd Bergmann <arnd@arndb.de>, Bartosz Golaszewski <brgl@bgdev.pl>, Bjorn Helgaas <bhelgaas@google.com>, Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley <conor+dt@kernel.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>, Florian Fainelli <florian.fainelli@broadcom.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Herve Codina <herve.codina@bootlin.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Krzysztof Wilczynski <kw@linux.com>, Linus Walleij <linus.walleij@linaro.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Luca Ceresoli <luca.ceresoli@bootlin.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Masahiro Yamada <masahiroy@kernel.org>, Matthias Brugger <mbrugger@suse.com>, Michael Turquette <mturquette@baylibre.com>, Phi
+ l Elwell <phil@raspberrypi.com>, Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, Stefan Wahren <wahrenst@gmx.net>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Will Deacon <will@kernel.org>, devicetree@vger.kernel.org, kernel-list@raspberrypi.com, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org
+Date: Wed, 07 May 2025 13:01:24 -0700
+User-Agent: alot/0.12.dev8+g17a99a841c4b
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_125507_112048_BDA283D0 
-X-CRM114-Status: GOOD (  37.26  )
+X-CRM114-CacheID: sfid-20250507_130127_752900_6933A2CD 
+X-CRM114-Status: GOOD (  31.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,123 +71,487 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 07 May 2025 07:39:07 +0100
-Nuno S=C3=A1 <noname.nuno@gmail.com> wrote:
+Quoting Andrea della Porta (2025-04-22 11:53:13)
+> diff --git a/drivers/clk/clk-rp1.c b/drivers/clk/clk-rp1.c
+> new file mode 100644
+> index 000000000000..6b0b76fc6977
+> --- /dev/null
+> +++ b/drivers/clk/clk-rp1.c
+> @@ -0,0 +1,1510 @@
+[...]
+> +static u8 rp1_clock_get_parent(struct clk_hw *hw)
+> +{
+> +       struct rp1_clk_desc *clock =3D container_of(hw, struct rp1_clk_de=
+sc, hw);
+> +       struct rp1_clockman *clockman =3D clock->clockman;
+> +       const struct rp1_clock_data *data =3D clock->data;
+> +       u32 sel, ctrl;
+> +       u8 parent;
+> +
+> +       /* Sel is one-hot, so find the first bit set */
+> +       sel =3D clockman_read(clockman, data->sel_reg);
+> +       parent =3D ffs(sel) - 1;
+> +
+> +       /* sel =3D=3D 0 implies the parent clock is not enabled yet. */
+> +       if (!sel) {
+> +               /* Read the clock src from the CTRL register instead */
+> +               ctrl =3D clockman_read(clockman, data->ctrl_reg);
+> +               parent =3D (ctrl & data->clk_src_mask) >> CLK_CTRL_SRC_SH=
+IFT;
+> +       }
+> +
+> +       if (parent >=3D data->num_std_parents)
+> +               parent =3D AUX_SEL;
+> +
+> +       if (parent =3D=3D AUX_SEL) {
+> +               /*
+> +                * Clock parent is an auxiliary source, so get the parent=
+ from
+> +                * the AUXSRC register field.
+> +                */
+> +               ctrl =3D clockman_read(clockman, data->ctrl_reg);
+> +               parent =3D FIELD_GET(CLK_CTRL_AUXSRC_MASK, ctrl);
+> +               parent +=3D data->num_std_parents;
+> +       }
+> +
+> +       return parent;
+> +}
+> +
+> +static int rp1_clock_set_parent(struct clk_hw *hw, u8 index)
+> +{
+> +       struct rp1_clk_desc *clock =3D container_of(hw, struct rp1_clk_de=
+sc, hw);
+> +       struct rp1_clockman *clockman =3D clock->clockman;
+> +       const struct rp1_clock_data *data =3D clock->data;
+> +       u32 ctrl, sel;
+> +
+> +       spin_lock(&clockman->regs_lock);
+> +       ctrl =3D clockman_read(clockman, data->ctrl_reg);
+> +
+> +       if (index >=3D data->num_std_parents) {
+> +               /* This is an aux source request */
+> +               if (index >=3D data->num_std_parents + data->num_aux_pare=
+nts) {
+> +                       spin_unlock(&clockman->regs_lock);
+> +                       return -EINVAL;
+> +               }
+> +
+> +               /* Select parent from aux list */
+> +               ctrl &=3D ~CLK_CTRL_AUXSRC_MASK;
+> +               ctrl |=3D FIELD_PREP(CLK_CTRL_AUXSRC_MASK, index - data->=
+num_std_parents);
+> +               /* Set src to aux list */
+> +               ctrl &=3D ~data->clk_src_mask;
+> +               ctrl |=3D (AUX_SEL << CLK_CTRL_SRC_SHIFT) & data->clk_src=
+_mask;
+> +       } else {
+> +               ctrl &=3D ~data->clk_src_mask;
+> +               ctrl |=3D (index << CLK_CTRL_SRC_SHIFT) & data->clk_src_m=
+ask;
+> +       }
+> +
+> +       clockman_write(clockman, data->ctrl_reg, ctrl);
+> +       spin_unlock(&clockman->regs_lock);
+> +
+> +       sel =3D rp1_clock_get_parent(hw);
+> +       WARN_ONCE(sel !=3D index, "(%s): Parent index req %u returned bac=
+k %u\n",
+> +                 clk_hw_get_name(hw), index, sel);
 
-> On Mon, 2025-05-05 at 11:31 -0500, David Lechner wrote:
-> > Creating a buffer of the proper size and correct alignment for use with
-> > iio_push_to_buffers_with_ts() is commonly used and not easy to get
-> > right (as seen by a number of recent fixes on the mailing list).
-> >=20
-> > In general, we prefer to use this pattern for creating such buffers:
-> >=20
-> > struct {
-> > =C2=A0=C2=A0=C2=A0 u16 data[2];
-> > =C2=A0=C2=A0=C2=A0 aligned_s64 timestamp;
-> > } buffer;
-> >=20
-> > However, there are many cases where a driver may have a large number of
-> > channels that can be optionally enabled or disabled in a scan or the
-> > driver might support a range of chips that have different numbers of
-> > channels or different storage sizes for the data. In these cases, the
-> > timestamp may not always be at the same place relative to the data. To
-> > handle these, we allocate a buffer large enough for the largest possible
-> > case and don't care exactly where the timestamp ends up in the buffer.
-> >=20
-> > For these cases, we propose to introduce new macros to make it easier
-> > it easier for both the authors to get it right and for readers of the
-> > code to not have to do all of the math to verify that it is correct.
-> >=20
-> > I have just included a few examples of drivers that can make use of this
-> > new macro, but there are dozens more.
-> >=20
-> > --- =20
->=20
-> LGTM
->=20
-> Reviewed-by: Nuno S=C3=A1 <nuno.sa@analog.com>
+Is this debug code? Why do we need to read back the parent here?
 
-Thanks,
+> +
+> +       return 0;
+> +}
+> +
+> +static int rp1_clock_set_rate_and_parent(struct clk_hw *hw,
+> +                                        unsigned long rate,
+> +                                        unsigned long parent_rate,
+> +                                        u8 parent)
+> +{
+> +       struct rp1_clk_desc *clock =3D container_of(hw, struct rp1_clk_de=
+sc, hw);
+> +       struct rp1_clockman *clockman =3D clock->clockman;
+> +       const struct rp1_clock_data *data =3D clock->data;
+> +       u32 div =3D rp1_clock_choose_div(rate, parent_rate, data);
+> +
+> +       WARN_ONCE(rate > data->max_freq,
+> +                 "(%s): Requested rate (%lu) > max rate (%lu)\n",
+> +                 clk_hw_get_name(hw), rate, data->max_freq);
 
-Still time for additional comments, but given where we are in the
-cycle I'm keen to get this at least undergoing build tests.
+If the determine_rate function is implemented properly this is
+impossible because we round the rate before calling this clk_op.
 
-Applied to the togreg branch of iio.git and pushed out as testing for
-those build tests.
+> +
+> +       if (WARN_ONCE(!div,
+> +                     "clk divider calculated as 0! (%s, rate %lu, parent=
+ rate %lu)\n",
+> +                     clk_hw_get_name(hw), rate, parent_rate))
+> +               div =3D 1 << CLK_DIV_FRAC_BITS;
 
-Thanks,
+This one also looks weird, does it assume round_rate didn't constrain
+the incoming rate?
 
-Jonathan
+> +
+> +       spin_lock(&clockman->regs_lock);
+> +
+> +       clockman_write(clockman, data->div_int_reg, div >> CLK_DIV_FRAC_B=
+ITS);
+> +       if (data->div_frac_reg)
+> +               clockman_write(clockman, data->div_frac_reg, div << (32 -=
+ CLK_DIV_FRAC_BITS));
+> +
+> +       spin_unlock(&clockman->regs_lock);
+> +
+> +       if (parent !=3D 0xff)
+> +               rp1_clock_set_parent(hw, parent);
+> +
+> +       return 0;
+> +}
+> +
+> +static int rp1_clock_set_rate(struct clk_hw *hw, unsigned long rate,
+> +                             unsigned long parent_rate)
+> +{
+> +       return rp1_clock_set_rate_and_parent(hw, rate, parent_rate, 0xff);
+> +}
+> +
+> +static void rp1_clock_choose_div_and_prate(struct clk_hw *hw,
+> +                                          int parent_idx,
+> +                                          unsigned long rate,
+> +                                          unsigned long *prate,
+> +                                          unsigned long *calc_rate)
+> +{
+> +       struct rp1_clk_desc *clock =3D container_of(hw, struct rp1_clk_de=
+sc, hw);
+> +       const struct rp1_clock_data *data =3D clock->data;
+> +       struct clk_hw *parent;
+> +       u32 div;
+> +       u64 tmp;
+> +
+> +       parent =3D clk_hw_get_parent_by_index(hw, parent_idx);
+> +
+> +       *prate =3D clk_hw_get_rate(parent);
+> +       div =3D rp1_clock_choose_div(rate, *prate, data);
+> +
+> +       if (!div) {
+> +               *calc_rate =3D 0;
+> +               return;
+> +       }
+> +
+> +       /* Recalculate to account for rounding errors */
+> +       tmp =3D (u64)*prate << CLK_DIV_FRAC_BITS;
+> +       tmp =3D div_u64(tmp, div);
+> +
+> +       /*
+> +        * Prevent overclocks - if all parent choices result in
+> +        * a downstream clock in excess of the maximum, then the
+> +        * call to set the clock will fail.
+> +        */
+> +       if (tmp > data->max_freq)
+> +               *calc_rate =3D 0;
+> +       else
+> +               *calc_rate =3D tmp;
+> +}
+> +
+> +static int rp1_clock_determine_rate(struct clk_hw *hw,
+> +                                   struct clk_rate_request *req)
+> +{
+> +       struct clk_hw *parent, *best_parent =3D NULL;
+> +       unsigned long best_rate =3D 0;
+> +       unsigned long best_prate =3D 0;
+> +       unsigned long best_rate_diff =3D ULONG_MAX;
+> +       unsigned long prate, calc_rate;
+> +       size_t i;
+> +
+> +       /*
+> +        * If the NO_REPARENT flag is set, try to use existing parent.
+> +        */
+> +       if ((clk_hw_get_flags(hw) & CLK_SET_RATE_NO_REPARENT)) {
+> +               i =3D rp1_clock_get_parent(hw);
+> +               parent =3D clk_hw_get_parent_by_index(hw, i);
+> +               if (parent) {
+> +                       rp1_clock_choose_div_and_prate(hw, i, req->rate, =
+&prate,
+> +                                                      &calc_rate);
+> +                       if (calc_rate > 0) {
+> +                               req->best_parent_hw =3D parent;
+> +                               req->best_parent_rate =3D prate;
+> +                               req->rate =3D calc_rate;
+> +                               return 0;
+> +                       }
+> +               }
+> +       }
+> +
+> +       /*
+> +        * Select parent clock that results in the closest rate (lower or
+> +        * higher)
+> +        */
+> +       for (i =3D 0; i < clk_hw_get_num_parents(hw); i++) {
+> +               parent =3D clk_hw_get_parent_by_index(hw, i);
+> +               if (!parent)
+> +                       continue;
+> +
+> +               rp1_clock_choose_div_and_prate(hw, i, req->rate, &prate,
+> +                                              &calc_rate);
+> +
+> +               if (abs_diff(calc_rate, req->rate) < best_rate_diff) {
+> +                       best_parent =3D parent;
+> +                       best_prate =3D prate;
+> +                       best_rate =3D calc_rate;
+> +                       best_rate_diff =3D abs_diff(calc_rate, req->rate);
+> +
+> +                       if (best_rate_diff =3D=3D 0)
+> +                               break;
+> +               }
+> +       }
+> +
+> +       if (best_rate =3D=3D 0)
+> +               return -EINVAL;
+> +
+> +       req->best_parent_hw =3D best_parent;
+> +       req->best_parent_rate =3D best_prate;
+> +       req->rate =3D best_rate;
+> +
+> +       return 0;
+> +}
+> +
+> +static const struct clk_ops rp1_pll_core_ops =3D {
+> +       .is_prepared =3D rp1_pll_core_is_on,
+> +       .prepare =3D rp1_pll_core_on,
+> +       .unprepare =3D rp1_pll_core_off,
+> +       .set_rate =3D rp1_pll_core_set_rate,
+> +       .recalc_rate =3D rp1_pll_core_recalc_rate,
+> +       .round_rate =3D rp1_pll_core_round_rate,
+> +};
+> +
+> +static const struct clk_ops rp1_pll_ops =3D {
+> +       .set_rate =3D rp1_pll_set_rate,
+> +       .recalc_rate =3D rp1_pll_recalc_rate,
+> +       .round_rate =3D rp1_pll_round_rate,
+> +};
+> +
+> +static const struct clk_ops rp1_pll_ph_ops =3D {
+> +       .is_prepared =3D rp1_pll_ph_is_on,
+> +       .prepare =3D rp1_pll_ph_on,
+> +       .unprepare =3D rp1_pll_ph_off,
+> +       .recalc_rate =3D rp1_pll_ph_recalc_rate,
+> +       .round_rate =3D rp1_pll_ph_round_rate,
+> +};
+> +
+> +static const struct clk_ops rp1_pll_divider_ops =3D {
+> +       .is_prepared =3D rp1_pll_divider_is_on,
+> +       .prepare =3D rp1_pll_divider_on,
+> +       .unprepare =3D rp1_pll_divider_off,
+> +       .set_rate =3D rp1_pll_divider_set_rate,
+> +       .recalc_rate =3D rp1_pll_divider_recalc_rate,
+> +       .round_rate =3D rp1_pll_divider_round_rate,
+> +};
+> +
+> +static const struct clk_ops rp1_clk_ops =3D {
+> +       .is_prepared =3D rp1_clock_is_on,
+> +       .prepare =3D rp1_clock_on,
+> +       .unprepare =3D rp1_clock_off,
+> +       .recalc_rate =3D rp1_clock_recalc_rate,
+> +       .get_parent =3D rp1_clock_get_parent,
+> +       .set_parent =3D rp1_clock_set_parent,
+> +       .set_rate_and_parent =3D rp1_clock_set_rate_and_parent,
+> +       .set_rate =3D rp1_clock_set_rate,
+> +       .determine_rate =3D rp1_clock_determine_rate,
+> +};
+> +
+> +static struct clk_hw *rp1_register_pll(struct rp1_clockman *clockman,
+> +                                      struct rp1_clk_desc *desc)
+> +{
+> +       int ret;
+> +
+> +       desc->clockman =3D clockman;
+> +
+> +       ret =3D devm_clk_hw_register(clockman->dev, &desc->hw);
+> +
 
->=20
-> > Changes in v5:
-> > - Add new patch to set minimum alignment to 8 for IIO_DMA_MINALIGN.
-> > - Adjust IIO_DECLARE_DMA_BUFFER_WITH_TS() macro for above change.
-> > - Drop one ad4695 patch that was already applied.
-> > - Link to v4:
-> > https://lore.kernel.org/r/20250428-iio-introduce-iio_declare_buffer_wit=
-h_ts-v4-0-6f7f6126f1cb@baylibre.com
-> >=20
-> > Changes in v4:
-> > - Dropped static_assert()s from the first patch.
-> > - Handle case when IIO_DMA_MINALIGN < sizeof(timestamp).
-> > - Added one more patch for ad4695 to rename a confusing macro.
-> > - Link to v3:
-> > https://lore.kernel.org/r/20250425-iio-introduce-iio_declare_buffer_wit=
-h_ts-v3-0-f12df1bff248@baylibre.com
-> >=20
-> > Changes in v3:
-> > - Fixed a few mistakes, style issues and incorporate other feedback (see
-> > =C2=A0 individual commit message changelogs for details).
-> > - Link to v2:
-> > https://lore.kernel.org/r/20250422-iio-introduce-iio_declare_buffer_wit=
-h_ts-v2-0-3fd36475c706@baylibre.com
-> >=20
-> > Changes in v2:
-> > - Add 2nd macro for case where we need DMA alignment.
-> > - Add new patch for ad4695 to convert buffer from u8 to u16 before
-> > =C2=A0 making use of the new macro.
-> > - Drop the bmp280 patch since it was determined to have a better
-> > =C2=A0 alternative not using these macros.
-> > - Add a few more examples to show the non-DMA case, both in a struct and
-> > =C2=A0 stack allocated.
-> > - Link to v1:
-> > https://lore.kernel.org/r/20250418-iio-introduce-iio_declare_buffer_wit=
-h_ts-v1-0-ee0c62a33a0f@baylibre.com
-> >=20
-> > ---
-> > David Lechner (7):
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: make IIO_DMA_MINALIGN minimum of 8 =
-bytes
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: introduce IIO_DECLARE_BUFFER_WITH_T=
-S macros
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: adc: ad4695: use IIO_DECLARE_DMA_BU=
-FFER_WITH_TS
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: adc: ad4695: rename AD4695_MAX_VIN_=
-CHANNELS
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: adc: ad7380: use IIO_DECLARE_DMA_BU=
-FFER_WITH_TS
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: accel: sca3300: use IIO_DECLARE_BUF=
-FER_WITH_TS
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: adc: at91-sama5d2: use IIO_DECLARE_=
-BUFFER_WITH_TS
-> >=20
-> > =C2=A0drivers/iio/accel/sca3300.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 | 18 ++--------------
-> > =C2=A0drivers/iio/adc/ad4695.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 | 11 +++++-----
-> > =C2=A0drivers/iio/adc/ad7380.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 3 +--
-> > =C2=A0drivers/iio/adc/at91-sama5d2_adc.c | 13 ++----------
-> > =C2=A0include/linux/iio/iio.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 | 42 ++++++++++++++++++++++++++++++++++++++
-> > =C2=A05 files changed, 52 insertions(+), 35 deletions(-)
-> > ---
-> > base-commit: 7e9a82ab5b861d3c33c99a22c1245a5b262ee502
-> > change-id: 20250418-iio-introduce-iio_declare_buffer_with_ts-2f8773f7da=
-d6
-> >=20
-> > Best regards, =20
->=20
+Please drop this newline.
 
+> +       if (ret)
+> +               return ERR_PTR(ret);
+> +
+> +       return &desc->hw;
+> +}
+> +
+> +static struct clk_hw *rp1_register_pll_divider(struct rp1_clockman *cloc=
+kman,
+> +                                              struct rp1_clk_desc *desc)
+> +{
+> +       const struct rp1_pll_data *divider_data =3D desc->data;
+> +       int ret;
+> +
+> +       desc->div.reg =3D clockman->regs + divider_data->ctrl_reg;
+> +       desc->div.shift =3D __ffs(PLL_SEC_DIV_MASK);
+> +       desc->div.width =3D __ffs(~(PLL_SEC_DIV_MASK >> desc->div.shift));
+> +       desc->div.flags =3D CLK_DIVIDER_ROUND_CLOSEST;
+> +       desc->div.lock =3D &clockman->regs_lock;
+> +       desc->div.hw.init =3D desc->hw.init;
+> +       desc->div.table =3D pll_sec_div_table;
+> +
+> +       desc->clockman =3D clockman;
+> +
+> +       ret =3D devm_clk_hw_register(clockman->dev, &desc->div.hw);
+> +
+
+Please drop this newline.
+
+> +       if (ret)
+> +               return ERR_PTR(ret);
+> +
+> +       return &desc->div.hw;
+> +}
+> +
+> +static struct clk_hw *rp1_register_clock(struct rp1_clockman *clockman,
+> +                                        struct rp1_clk_desc *desc)
+> +{
+> +       const struct rp1_clock_data *clock_data =3D desc->data;
+> +       int ret;
+> +
+> +       if (WARN_ON_ONCE(MAX_CLK_PARENTS <
+> +              clock_data->num_std_parents + clock_data->num_aux_parents))
+> +               return NULL;
+
+Return an error pointer?
+
+> +
+> +       /* There must be a gap for the AUX selector */
+> +       if (WARN_ON_ONCE(clock_data->num_std_parents > AUX_SEL &&
+> +                        desc->hw.init->parent_data[AUX_SEL].index !=3D -=
+1))
+
+Why is there a gap? Can't the parents that the clk framework sees be
+
+	[0, num_std_parents) + [num_std_parents, num_aux_parents + num_std_parents)
+
+without an empty parent in the middle?
+
+> +               return NULL;
+
+Return an error pointer?
+
+> +
+> +       desc->clockman =3D clockman;
+> +
+> +       ret =3D devm_clk_hw_register(clockman->dev, &desc->hw);
+> +
+
+Drop this newline please.
+
+> +       if (ret)
+> +               return ERR_PTR(ret);
+> +
+> +       return &desc->hw;
+> +}
+[...]
+> +
+> +static const struct clk_parent_data clk_eth_parents[] =3D {
+> +       { .hw =3D &pll_sys_sec_desc.div.hw },
+> +       { .hw =3D &pll_sys_desc.hw },
+> +};
+> +
+> +static struct rp1_clk_desc clk_eth_desc =3D REGISTER_CLK(
+> +       .hw.init =3D CLK_HW_INIT_PARENTS_DATA(
+> +               "clk_eth",
+> +               clk_eth_parents,
+> +               &rp1_clk_ops,
+> +               0
+> +       ),
+> +       CLK_DATA(rp1_clock_data,
+> +                .num_std_parents =3D 0,
+> +                .num_aux_parents =3D 2,
+> +                .ctrl_reg =3D CLK_ETH_CTRL,
+> +                .div_int_reg =3D CLK_ETH_DIV_INT,
+> +                .sel_reg =3D CLK_ETH_SEL,
+> +                .div_int_max =3D DIV_INT_8BIT_MAX,
+> +                .max_freq =3D 125 * HZ_PER_MHZ,
+> +                .fc0_src =3D FC_NUM(4, 6),
+> +       )
+> +);
+> +
+> +static const struct clk_parent_data clk_sys_parents[] =3D {
+> +       { .index =3D 0 },
+> +       { .index =3D -1 },
+
+Why is there a gap here?
+
+> +       { .hw =3D &pll_sys_desc.hw },
+> +};
+> +
+[...]
+> +
+> +static const struct regmap_config rp1_clk_regmap_cfg =3D {
+> +       .reg_bits =3D 32,
+> +       .val_bits =3D 32,
+> +       .reg_stride =3D 4,
+> +       .max_register =3D PLL_VIDEO_SEC,
+> +       .name =3D "rp1-clk",
+> +       .rd_table =3D &rp1_reg_table,
+
+Do you want to set the 'disable_locking' field because you're
+explicitly locking in this driver?
+
+> +};
+> +
+> +static int rp1_clk_probe(struct platform_device *pdev)
+> +{
+> +       const size_t asize =3D ARRAY_SIZE(clk_desc_array);
+> +       struct rp1_clk_desc *desc;
+> +       struct device *dev =3D &pdev->dev;
+> +       struct rp1_clockman *clockman;
+> +       struct clk_hw **hws;
+> +       unsigned int i;
+> +
+> +       clockman =3D devm_kzalloc(dev, struct_size(clockman, onecell.hws,=
+ asize),
+> +                               GFP_KERNEL);
+> +       if (!clockman)
+> +               return -ENOMEM;
+> +
+> +       spin_lock_init(&clockman->regs_lock);
+> +       clockman->dev =3D dev;
+> +
+> +       clockman->regs =3D devm_platform_ioremap_resource(pdev, 0);
+> +       if (IS_ERR(clockman->regs))
+> +               return PTR_ERR(clockman->regs);
+> +
+> +       clockman->regmap =3D devm_regmap_init_mmio(dev, clockman->regs,
+> +                                                &rp1_clk_regmap_cfg);
+> +       if (IS_ERR(clockman->regmap)) {
+> +               dev_err_probe(dev, PTR_ERR(clockman->regmap),
+> +                             "could not init clock regmap\n");
+> +               return PTR_ERR(clockman->regmap);
+> +       }
+> +
+> +       clockman->onecell.num =3D asize;
+> +       hws =3D clockman->onecell.hws;
+> +
+> +       for (i =3D 0; i < asize; i++) {
+> +               desc =3D clk_desc_array[i];
+> +               if (desc && desc->clk_register && desc->data) {
+> +                       hws[i] =3D desc->clk_register(clockman, desc);
+> +                       if (IS_ERR_OR_NULL(hws[i]))
+
+Why is NULL a possible return value?
+
+> +                               dev_err_probe(dev, PTR_ERR(hws[i]),
+> +                                             "Unable to register clock: =
+%s\n",
+> +                                             clk_hw_get_name(hws[i]));
+
+We pushed this into the core now so you can drop this. See commit
+12a0fd23e870 ("clk: Print an error when clk registration fails").
+
+> +               }
+> +       }
+> +
+> +       platform_set_drvdata(pdev, clockman);
+> +
+> +       return devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get,
+> +                                          &clockman->onecell);
+> +}
+> +
 
