@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2BF0C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 13:35:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B31C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 13:37:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:Cc:To:From:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cX1OfDtIXLtuDVp/SPdSy2fMX25aYejIexNtxmaQdYw=; b=ag23tc1Hn+7KWD/ZKvUuMMfqVZ
-	kGa0U/mmgmFRJJD1Es4lNor84lt4JyWu3/F5yYZZDCeS00oIznyMSpoZSvFtW9YqUqKXz4pnHVTjk
-	g1GkJrrEBRLt6RWS7t78vUFbxAldamq8jb7vKKCue/nQjH1L50VoqQPgzw0HmKHzmXj/xNPNRm4PO
-	sdYgcsLxRL4Afp5VsLuASplDJTbm6NoxqxufhuCXpzs/tyx5ejia+389NLG86laHuPdEBcfV0qaQa
-	1bS7ff81S83xhznEDlaFW5KL+7a3/JIiHmb0XL5Ed42/b4gLHIxgVjx5k5IA393zecaIW6fHdz+dd
-	tOi5evsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+zxk5AAieBrq1hEmNM/LcPDvSBVW+xmIZOfcz9deyjg=; b=EE6s6v3m53ejZUAO0itmjRZmJJ
+	4+olGwBQwXw3UZ55ZqVIAoRVqzxShuXejRpjMKY5lTbk02rVCrcoigEkzp2v2O540imIb66W7cgXE
+	IbDO7BelnMCKE/NLYjZf+5gUWr9t7dxmmpaC61mrV76QSlnHvj7a0e1D/nShvi9n59PoN3t0lb+n8
+	Jn5C62criRSC/lIm3hSKHI6vuh+dZmElRI5gO9HS5ZvWW4EJCRflXWyJ5Ht/gYgktQC0e58NVUriQ
+	F8oK7HZe2Q0t81GlRgrEt6RM+YOVv/0oDLQCkt2jf4our8x2IxvtdOI2WBVHLFSNRG54L/a56t1Ke
+	rBpKF05Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCevn-0000000FabP-3yDy;
-	Wed, 07 May 2025 13:35:27 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCeZB-0000000FWjF-1v8w
+	id 1uCexi-0000000FamL-2lq1;
+	Wed, 07 May 2025 13:37:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCeZo-0000000FWry-0tdm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 13:12:06 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1uCeZ5-0007je-Jh; Wed, 07 May 2025 15:11:59 +0200
-Message-ID: <1d00c056-3d61-4c22-bedd-3bae0bf1ddc4@pengutronix.de>
-Date: Wed, 7 May 2025 15:11:58 +0200
+	Wed, 07 May 2025 13:12:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 41AE5339;
+	Wed,  7 May 2025 06:12:31 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 96DFB3F58B;
+	Wed,  7 May 2025 06:12:39 -0700 (PDT)
+Date: Wed, 7 May 2025 14:12:36 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Cristian Marussi <cristian.marussi@arm.com>,
+	Mike Tipton <quic_mdtipton@quicinc.com>
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>, <arm-scmi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Peng Fan <peng.fan@oss.nxp.com>,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v3] cpufreq: scmi: Skip SCMI devices that aren't used by
+ the CPUs
+Message-ID: <20250507-analytic-practical-carp-5cddaf@sudeepholla>
+References: <20250428144728.871404-1-quic_mdtipton@quicinc.com>
+ <aBtLMYqcnwacGJuy@pluto>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Content-Language: en-US, de-DE, de-BE
-To: linux-gpio@vger.kernel.org, Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Ludovic Desroches <ludovic.desroches@microchip.com>
-Cc: "kernel@pengutronix.de" <kernel@pengutronix.de>,
- linux-arm-kernel@lists.infradead.org
-Subject: AT91 GPIO driver reading back struct gpio_chip::base
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aBtLMYqcnwacGJuy@pluto>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_061205_500141_E8F5C9B6 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20250507_061244_291401_D0E1112B 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,41 +68,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, May 07, 2025 at 12:59:45PM +0100, Cristian Marussi wrote:
+> On Mon, Apr 28, 2025 at 07:47:28AM -0700, Mike Tipton wrote:
+> > +static bool scmi_dev_used_by_cpus(struct device *scmi_dev)
+> > +{
+> > +	struct device_node *scmi_np = dev_of_node(scmi_dev);
+> > +	struct device_node *np;
+> > +	struct device *cpu_dev;
+> > +	int cpu, idx;
+> > +
+> > +	if (!scmi_np)
+> > +		return false;
+> > +
+> > +	for_each_possible_cpu(cpu) {
+> > +		cpu_dev = get_cpu_device(cpu);
+> > +		if (!cpu_dev)
+> > +			continue;
+> > +
+> > +		np = dev_of_node(cpu_dev);
+> > +
+> > +		if (of_parse_phandle(np, "clocks", 0) == scmi_np)
+> 
+> Shouldn't this, on Success, be released by an of_node_put() (or, BETTER,
+> by some OF-related cleanup.h magic...)
+> 
 
-just stumbled upon this comment in drivers/gpio/gpiolib.c:
+Good catch, I missed this.
 
-  /*
-   * TODO: it should not be necessary to reflect the
-   * assigned base outside of the GPIO subsystem. Go over
-   * drivers and see if anyone makes use of this, else
-   * drop this and assign a poison instead.
-   */
-  gc->base = base;
+With the above issue fixed, you can add and post new version:
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
 
-and thought to mention that there are drivers that indeed rely on the
-base, e.g. drivers/pinctrl/pinctrl-at91.c uses struct gpio_chip::base
-to find out which bit to set in a register:
-
-  dev_dbg(npct->dev, "enable pin %u as GPIO\n", offset);
-
-  mask = 1 << (offset - chip->base);
-
-This needs to be fixed of course, but I don't have time for that right
-now. Thus settling instead for writing this heads up. Maybe someone is
-motivated to fix this and then do the equivalent of
-
-https://lore.kernel.org/all/20250507-b4-imx-gpio-base-warning-v2-1-d43d09e2c6bf@pengutronix.de/
-
-for AT91 as well, given that the driver is DT-only. :-)
-
-Cheers,
-Ahmad
+I will drop this patch now that you need to fix and repost. Also Viresh
+may be away, so better to route via his tree when he is back as I can't
+take it without his ack. I was holding off my PR for this, but I will
+send SCMI PR without this now.
 
 -- 
-Pengutronix e.K.                  |                             |
-Steuerwalder Str. 21              | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
-
+Regards,
+Sudeep
 
