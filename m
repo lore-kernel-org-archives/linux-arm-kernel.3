@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 157BEC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 07:42:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BCFEC3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 07:44:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zl7IRojDFL02AYR+whGLbNK3iD+K8S61W7A7mx9hQWI=; b=kYSW8Oql4al5wIMHp2UrmfycZE
-	mh3t2koONnkFsyUjUjlvlngpwnQl19pLe/wHO5er/6KPiMjfssiNMnGvxYeDhzmYTDkX6VFW/tkOp
-	NhDQl/nCo4hHLwnShPnMSEfLqlJTqIbWV+/44smrF89sPCKJ1PNTPkZkn4gHW3hiZzBjRLMOQBtK1
-	S56qsaf+PhLJG7nYNqVF2jutsAJv2i42ZwwCh1MoIlmmNHeTI5EtX7ggmRFt0RxOfhgXUDaiSDr40
-	vTET1Mkn4DuXklLdLOL9vzIyovs094y89bP+r2IwfpPJX7fSp01ZOLWlVTpj2Bve+LW6ML2aNhoU8
-	BSjC65Kw==;
+	bh=JSXin/NaoD/7kR4B/eM46Fkk5Jb9G5HFuZaX55s0xqg=; b=lBTIMfUTOYKQCb8wghGoslLqat
+	eQxW1fZjFM9k7xzC7TzAsuJOi9gtSezyB1iI809NJFB4cy5TCZUyEujRcbZsCzPu4m9uDczBpXtYC
+	dy4uYajG2pdNVi1id360W33268O2/EDaYuJF1mWdYp5yCAOOlhRJOloebW+FCOpR8i+EddhgreGRo
+	df/YyZAIhMCyVXZr28fSdpb31mcZYdvAA4iZaA7gQ0vXQqfNNzQtdj/7Hud6gn1Cmpz7JoHYGeDwo
+	mppP7CCFKKjEDpsGfIZthzrp1VNwmrZfqu39b4UYWweNNMtiQYAuMbdOdeL61BxRaNLFIQ4DUDqBX
+	BMAJrqAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCZQA-0000000EZsR-3cMl;
-	Wed, 07 May 2025 07:42:26 +0000
+	id 1uCZS5-0000000EaFK-2W2o;
+	Wed, 07 May 2025 07:44:25 +0000
 Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCYyR-0000000ETWF-0SxQ
+	id 1uCYyT-0000000ETWu-0CTw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 07:13:48 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPA id 9C13543B5B;
-	Wed,  7 May 2025 07:13:43 +0000 (UTC)
+	Wed, 07 May 2025 07:13:50 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPA id B435E43B64;
+	Wed,  7 May 2025 07:13:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1746602025;
+	t=1746602027;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Zl7IRojDFL02AYR+whGLbNK3iD+K8S61W7A7mx9hQWI=;
-	b=BpIQ3vdSRV6qpMMlH5Tuuqtkgifo5/1QK36qeLL8HEewg4xQNU77rzJDX9kia02/MZQRsj
-	L6ywwDAB19jISaq+4SgJ2XZauGuL7PWZYrojh0b1XXNNn1e9MGb5IIx8fYOLkR25M0pmt7
-	82oA+ebhJsFXbPYnLqLoV8CJUv7KYMb1zm6FhI2O0Tc549ZFXy7paiXFaUO9zQ+bW/quPT
-	hpPcvcbGk/UYXp0DZOX1qGeIVCf1PXmPWPJaMlUw6Y/KxjTlTf44moo7JM8VxxjN4uPHfK
-	TaCRtbPT42+gy5dTkYJesaxBabgU2A9/NQyhHz35s88HXDkewAje26zYOilRIA==
+	bh=JSXin/NaoD/7kR4B/eM46Fkk5Jb9G5HFuZaX55s0xqg=;
+	b=UE0EKiMRtr1j0+U+O8gsPM9W4we0gUc7lwzhIMO5qTAjcQW2eB++xjYRS2dF/shIym0iNg
+	It/Oeg5BwPawcntk1MLQ5/8uu1dJuFFGdq+7J3XFk6dZaDOy5w96RR3GH02U6ZSA4syItl
+	NQmWytnjbDr4vdT+qRGu/WrnjYP610bD1I/2y0n54kygGxrq9CZPL2dLke5cztzZdcWaGS
+	EVs+ItWRtROtGvcA8lDY+CzNxBCdJ86Lomr1hp0p23NwD+lcDh5suHpktvaijAl7Qa0vt4
+	t7NLtAoMMIENsGDKpZCqPxHxmLNf0HuMfdB/KRLqEtk8lbL/+RoCJ/dCTBbMCw==
 From: Herve Codina <herve.codina@bootlin.com>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -84,9 +84,9 @@ Cc: Wolfram Sang <wsa@kernel.org>,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: [PATCH v2 10/26] cxl/test: Use fw_devlink_set_device()
-Date: Wed,  7 May 2025 09:12:52 +0200
-Message-ID: <20250507071315.394857-11-herve.codina@bootlin.com>
+Subject: [PATCH v2 11/26] PCI: of: Use fw_devlink_set_device()
+Date: Wed,  7 May 2025 09:12:53 +0200
+Message-ID: <20250507071315.394857-12-herve.codina@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250507071315.394857-1-herve.codina@bootlin.com>
 References: <20250507071315.394857-1-herve.codina@bootlin.com>
@@ -98,8 +98,8 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvkeeivdefucetufdoteggode
  hgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomh
 X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_001347_289093_7F171CFD 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20250507_001349_231855_245146A0 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,22 +121,22 @@ operation.
 
 Signed-off-by: Herve Codina <herve.codina@bootlin.com>
 ---
- tools/testing/cxl/test/cxl.c | 2 +-
+ drivers/pci/of.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/tools/testing/cxl/test/cxl.c b/tools/testing/cxl/test/cxl.c
-index 80b950b084a6..30938da736ec 100644
---- a/tools/testing/cxl/test/cxl.c
-+++ b/tools/testing/cxl/test/cxl.c
-@@ -1047,7 +1047,7 @@ static void mock_companion(struct acpi_device *adev, struct device *dev)
- 	device_initialize(&adev->dev);
- 	fwnode_init(&adev->fwnode, NULL);
- 	device_set_node(dev, &adev->fwnode);
--	adev->fwnode.dev = dev;
-+	fw_devlink_set_device(&adev->fwnode, dev);
- }
+diff --git a/drivers/pci/of.c b/drivers/pci/of.c
+index ab7a8252bf41..2435200fdd58 100644
+--- a/drivers/pci/of.c
++++ b/drivers/pci/of.c
+@@ -803,7 +803,7 @@ void of_pci_make_host_bridge_node(struct pci_host_bridge *bridge)
+ 	 * bus. Avoid any new device creation.
+ 	 */
+ 	of_node_set_flag(np, OF_POPULATED);
+-	np->fwnode.dev = &bridge->dev;
++	fw_devlink_set_device(&np->fwnode, &bridge->dev);
+ 	fwnode_dev_initialized(&np->fwnode, true);
  
- #ifndef SZ_64G
+ 	ret = of_changeset_apply(cset);
 -- 
 2.49.0
 
