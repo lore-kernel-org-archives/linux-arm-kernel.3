@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53ABFC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 10:16:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33D32C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 10:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xymQuJkXyvQ7GBrxNdmYeOavulBm9Ct0V954yHm1mEQ=; b=47aEGBPLez4pMqinLXQrkA+EMo
-	cLNnSU+CtaAt4B+1gOg3cs3tKQFct5svRHAzgJM8cUJrmZ+ZSVb70PnSj4CAHYjPizOJAhAqn0EZ4
-	6rC+02lyTUh9ftGWZ+JY7tMFi3cW8rNjjE1TDVS97ZeY2zLOCyGSakI/t69bALK8fcoz9zoukMjyt
-	S5GwdMAcrL5+QX2rYaAlFWdJJATHzY1OFZ0NgVs3hW8vVzO5RyxZtJjB9RmDq0G7BJAP7Irpkslbl
-	o6vS7kHWgJ2XhwEqwTeKxtQjoPzFW/2+s5J6nmKLTvmqKBA3TQ9NKy/tDTLfLlgDRRJQZmfq8P7nJ
-	F6FGGDkQ==;
+	bh=ACpklOIhutrH3XOj7HVzFbaKTzjvEvM6uhkPX9pYjZc=; b=ZJ7W5SDP+V2Wy0I+F87WxUbxMj
+	WOzGoOFl2HXx/LX+RxcrJIiQYng76IhAkPJ1XDaIoEDHSTvt24QBuTduYLMypxTg6mvsthSPy2Wyx
+	PJiJ6Dhu79ZuMlUT0Xpcm8nx9n44CuTsNTLZ877Vd1M5+XbkC0U5bAAe9mJtnPpyQsECNUTGt/0Jw
+	aJio9KlGujOKM73Un1+fC4XkUmuMHNivyTNoahLSVj/NJwpvAA5WH1E5X63WIKLVYLd/l9hHF2eEI
+	XbOrOHz6erR0OiU/+UfJurLEDXZEfYTpOTnYushv0aj9AP532tq9IjrsOUmOs/MvbUFndrCWRIFNe
+	M8pJh4lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCbpM-0000000F5Vw-2Z8r;
-	Wed, 07 May 2025 10:16:36 +0000
+	id 1uCbrH-0000000F5io-1Vfs;
+	Wed, 07 May 2025 10:18:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCbXi-0000000F2Re-0mXN
+	id 1uCbXl-0000000F2SQ-2Mxz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 09:58:23 +0000
+	Wed, 07 May 2025 09:58:26 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CA7D9339;
-	Wed,  7 May 2025 02:58:11 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 19D2C1FC4;
+	Wed,  7 May 2025 02:58:15 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E9EC83F5A1;
-	Wed,  7 May 2025 02:58:18 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 286F33F5A1;
+	Wed,  7 May 2025 02:58:22 -0700 (PDT)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: catalin.marinas@arm.com,
 	pcc@google.com,
@@ -55,17 +55,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-doc@vger.kernel.org,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v4 5/6] kselftest/arm64/mte: refactor check_mmap_option test
-Date: Wed,  7 May 2025 10:57:56 +0100
-Message-Id: <20250507095757.1663684-6-yeoreum.yun@arm.com>
+Subject: [PATCH v4 6/6] kselftest/arm64/mte: add mtefar test on check_mmap_option
+Date: Wed,  7 May 2025 10:57:57 +0100
+Message-Id: <20250507095757.1663684-7-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250507095757.1663684-1-yeoreum.yun@arm.com>
 References: <20250507095757.1663684-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_025822_313951_0585066B 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20250507_025825_692753_712B22C1 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,213 +80,256 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Before add mtefar testcase on check_mmap_option.c,
-refactor check_mmap_option.
+If FEAT_MTE_TAGGED_FAR (Armv8.9) is supported, bits 63:60 of the fault address
+are preserved in response to synchronous tag check faults (SEGV_MTESERR).
+
+This patch adds new test cases using address tags (bits 63:60),
+corresponding to each existing test in check_mmap_option.
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- .../selftests/arm64/mte/check_mmap_options.c  | 158 +++++++++++++-----
- 1 file changed, 118 insertions(+), 40 deletions(-)
+ .../selftests/arm64/mte/check_mmap_options.c  | 132 +++++++++++-------
+ 1 file changed, 80 insertions(+), 52 deletions(-)
 
 diff --git a/tools/testing/selftests/arm64/mte/check_mmap_options.c b/tools/testing/selftests/arm64/mte/check_mmap_options.c
-index b37bf481c9f9..a784b3a31d4f 100644
+index a784b3a31d4f..4f26617c8e69 100644
 --- a/tools/testing/selftests/arm64/mte/check_mmap_options.c
 +++ b/tools/testing/selftests/arm64/mte/check_mmap_options.c
-@@ -3,6 +3,7 @@
+@@ -31,14 +31,25 @@
+ #define CHECK_FILE_MEM		1
+ #define CHECK_CLEAR_PROT_MTE	2
  
- #define _GNU_SOURCE
- 
-+#include <assert.h>
- #include <errno.h>
- #include <fcntl.h>
- #include <signal.h>
-@@ -24,6 +25,12 @@
- #define TAG_CHECK_ON		0
- #define TAG_CHECK_OFF		1
- 
-+#define TEST_NAME_MAX		256
-+
-+#define CHECK_ANON_MEM		0
-+#define CHECK_FILE_MEM		1
-+#define CHECK_CLEAR_PROT_MTE	2
++#define ATAG_TEST_ON		1
++#define ATAG_TEST_OFF		0
 +
  static size_t page_size;
  static int sizes[] = {
  	1, 537, 989, 1269, MT_GRANULE_SIZE - 1, MT_GRANULE_SIZE,
-@@ -183,10 +190,98 @@ static int check_clear_prot_mte_flag(int mem_type, int mode, int mapping)
+ 	/* page size - 1*/ 0, /* page_size */ 0, /* page size + 1 */ 0
+ };
+ 
+-static int check_mte_memory(char *ptr, int size, int mode, int tag_check)
++static int check_mte_memory(char *ptr, int size, int mode, int tag_check, int atag_test)
+ {
++	int err;
++
++	if (!mtefar_support && atag_test == ATAG_TEST_ON)
++		return KSFT_SKIP;
++
++	if (atag_test == ATAG_TEST_ON)
++		ptr = mte_insert_atag(ptr);
++
+ 	mte_initialize_current_context(mode, (uintptr_t)ptr, size);
+ 	memset(ptr, '1', size);
+ 	mte_wait_after_trig();
+@@ -64,7 +75,7 @@ static int check_mte_memory(char *ptr, int size, int mode, int tag_check)
  	return KSFT_PASS;
  }
  
-+const char *format_test_name(int check_type, int mem_type, int sync,
-+		       int mapping, int tag_check)
-+{
-+	static char test_name[TEST_NAME_MAX];
-+	const char* check_type_str;
-+	const char* mem_type_str;
-+	const char* sync_str;
-+	const char* mapping_str;
-+	const char* tag_check_str;
-+
-+	switch (check_type) {
-+	case CHECK_ANON_MEM:
-+		check_type_str = "anonymous memory";
-+		break;
-+	case CHECK_FILE_MEM:
-+		check_type_str = "file memory";
-+		break;
-+	case CHECK_CLEAR_PROT_MTE:
-+		check_type_str = "clear PROT_MTE flags";
-+		break;
-+	default:
-+		assert(0);
-+		break;
-+	}
-+
-+	switch (mem_type) {
-+	case USE_MMAP:
-+		mem_type_str = "mmap";
-+		break;
-+	case USE_MPROTECT:
-+		mem_type_str = "mmap/mprotect";
-+		break;
-+	default:
-+		assert(0);
-+		break;
-+	}
-+
-+	switch (sync) {
-+	case MTE_NONE_ERR:
-+		sync_str = "no error";
-+		break;
-+	case MTE_SYNC_ERR:
-+		sync_str = "sync error";
-+		break;
-+	case MTE_ASYNC_ERR:
-+		sync_str = "async error";
-+		break;
-+	default:
-+		assert(0);
-+		break;
-+	}
-+
-+	switch (mapping) {
-+	case MAP_SHARED:
-+		mapping_str = "shared";
-+		break;
-+	case MAP_PRIVATE:
-+		mapping_str = "private";
-+		break;
-+	default:
-+		assert(0);
-+		break;
-+	}
-+
-+	switch (tag_check) {
-+	case TAG_CHECK_ON:
-+		tag_check_str = "tag check on";
-+		break;
-+	case TAG_CHECK_OFF:
-+		tag_check_str = "tag check off";
-+		break;
-+	default:
-+		assert(0);
-+		break;
-+	}
-+
-+	snprintf(test_name, TEST_NAME_MAX,
-+	         "Check %s with %s mapping, %s mode, %s memory and %s\n",
-+	         check_type_str, mapping_str, sync_str, mem_type_str, tag_check_str);
-+
-+	return test_name;
-+}
-+
- int main(int argc, char *argv[])
+-static int check_anonymous_memory_mapping(int mem_type, int mode, int mapping, int tag_check)
++static int check_anonymous_memory_mapping(int mem_type, int mode, int mapping, int tag_check, int atag_test)
  {
- 	int err;
- 	int item = ARRAY_SIZE(sizes);
-+	int check_type[] = { CHECK_ANON_MEM, CHECK_FILE_MEM };
-+	int mem_type[] = { USE_MMAP, USE_MPROTECT };
-+	int mte_sync[] = { MTE_SYNC_ERR, MTE_ASYNC_ERR };
-+	int mapping[] = { MAP_PRIVATE, MAP_SHARED };
-+	int c, mt, s, m;
+ 	char *ptr, *map_ptr;
+ 	int run, result, map_size;
+@@ -86,16 +97,16 @@ static int check_anonymous_memory_mapping(int mem_type, int mode, int mapping, i
+ 			munmap((void *)map_ptr, map_size);
+ 			return KSFT_FAIL;
+ 		}
+-		result = check_mte_memory(ptr, sizes[run], mode, tag_check);
++		result = check_mte_memory(ptr, sizes[run], mode, tag_check, atag_test);
+ 		mte_clear_tags((void *)ptr, sizes[run]);
+ 		mte_free_memory((void *)map_ptr, map_size, mem_type, false);
+-		if (result == KSFT_FAIL)
+-			return KSFT_FAIL;
++		if (result != KSFT_SKIP)
++			return result;
+ 	}
+ 	return KSFT_PASS;
+ }
+ 
+-static int check_file_memory_mapping(int mem_type, int mode, int mapping, int tag_check)
++static int check_file_memory_mapping(int mem_type, int mode, int mapping, int tag_check, int atag_test)
+ {
+ 	char *ptr, *map_ptr;
+ 	int run, fd, map_size;
+@@ -124,7 +135,7 @@ static int check_file_memory_mapping(int mem_type, int mode, int mapping, int ta
+ 			close(fd);
+ 			return KSFT_FAIL;
+ 		}
+-		result = check_mte_memory(ptr, sizes[run], mode, tag_check);
++		result = check_mte_memory(ptr, sizes[run], mode, tag_check, atag_test);
+ 		mte_clear_tags((void *)ptr, sizes[run]);
+ 		munmap((void *)map_ptr, map_size);
+ 		close(fd);
+@@ -134,7 +145,7 @@ static int check_file_memory_mapping(int mem_type, int mode, int mapping, int ta
+ 	return result;
+ }
+ 
+-static int check_clear_prot_mte_flag(int mem_type, int mode, int mapping)
++static int check_clear_prot_mte_flag(int mem_type, int mode, int mapping, int atag_test)
+ {
+ 	char *ptr, *map_ptr;
+ 	int run, prot_flag, result, fd, map_size;
+@@ -157,10 +168,10 @@ static int check_clear_prot_mte_flag(int mem_type, int mode, int mapping)
+ 			ksft_print_msg("FAIL: mprotect not ignoring clear PROT_MTE property\n");
+ 			return KSFT_FAIL;
+ 		}
+-		result = check_mte_memory(ptr, sizes[run], mode, TAG_CHECK_ON);
++		result = check_mte_memory(ptr, sizes[run], mode, TAG_CHECK_ON, atag_test);
+ 		mte_free_memory_tag_range((void *)ptr, sizes[run], mem_type, UNDERFLOW, OVERFLOW);
+ 		if (result != KSFT_PASS)
+-			return KSFT_FAIL;
++			return result;
+ 
+ 		fd = create_temp_file();
+ 		if (fd == -1)
+@@ -181,17 +192,17 @@ static int check_clear_prot_mte_flag(int mem_type, int mode, int mapping)
+ 			close(fd);
+ 			return KSFT_FAIL;
+ 		}
+-		result = check_mte_memory(ptr, sizes[run], mode, TAG_CHECK_ON);
++		result = check_mte_memory(ptr, sizes[run], mode, TAG_CHECK_ON, atag_test);
+ 		mte_free_memory_tag_range((void *)ptr, sizes[run], mem_type, UNDERFLOW, OVERFLOW);
+ 		close(fd);
+ 		if (result != KSFT_PASS)
+-			return KSFT_FAIL;
++			return result;
+ 	}
+ 	return KSFT_PASS;
+ }
+ 
+ const char *format_test_name(int check_type, int mem_type, int sync,
+-		       int mapping, int tag_check)
++		       int mapping, int tag_check, int atag_test)
+ {
+ 	static char test_name[TEST_NAME_MAX];
+ 	const char* check_type_str;
+@@ -199,6 +210,7 @@ const char *format_test_name(int check_type, int mem_type, int sync,
+ 	const char* sync_str;
+ 	const char* mapping_str;
+ 	const char* tag_check_str;
++	const char *atag_test_str;
+ 
+ 	switch (check_type) {
+ 	case CHECK_ANON_MEM:
+@@ -266,9 +278,22 @@ const char *format_test_name(int check_type, int mem_type, int sync,
+ 		break;
+ 	}
+ 
++	switch (atag_test) {
++	case ATAG_TEST_ON:
++		atag_test_str = "with address tag [63:60]";
++		break;
++	case ATAG_TEST_OFF:
++		atag_test_str = "without address tag [63:60]";
++		break;
++	default:
++		assert(0);
++		break;
++	}
++
+ 	snprintf(test_name, TEST_NAME_MAX,
+-	         "Check %s with %s mapping, %s mode, %s memory and %s\n",
+-	         check_type_str, mapping_str, sync_str, mem_type_str, tag_check_str);
++	         "Check %s with %s mapping, %s mode, %s memory and %s (%s)\n",
++	         check_type_str, mapping_str, sync_str, mem_type_str,
++	         tag_check_str, atag_test_str);
+ 
+ 	return test_name;
+ }
+@@ -281,7 +306,8 @@ int main(int argc, char *argv[])
+ 	int mem_type[] = { USE_MMAP, USE_MPROTECT };
+ 	int mte_sync[] = { MTE_SYNC_ERR, MTE_ASYNC_ERR };
+ 	int mapping[] = { MAP_PRIVATE, MAP_SHARED };
+-	int c, mt, s, m;
++	int atag_test[] = { ATAG_TEST_OFF, ATAG_TEST_ON };
++	int c, mt, s, m, a;
  
  	err = mte_default_setup();
  	if (err)
-@@ -210,54 +305,37 @@ int main(int argc, char *argv[])
- 	mte_enable_pstate_tco();
+@@ -295,47 +321,49 @@ int main(int argc, char *argv[])
+ 	sizes[item - 2] = page_size;
+ 	sizes[item - 1] = page_size + 1;
  
- 	evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF),
--	"Check anonymous memory with private mapping, sync error mode, mmap memory and tag check off\n");
-+		      format_test_name(CHECK_ANON_MEM, USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF));
+-	/* Register signal handlers */
+-	mte_register_signal(SIGBUS, mte_default_handler, false);
+-	mte_register_signal(SIGSEGV, mte_default_handler, false);
+-
+ 	/* Set test plan */
+-	ksft_set_plan(22);
+-
+-	mte_enable_pstate_tco();
+-
+-	evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF),
+-		      format_test_name(CHECK_ANON_MEM, USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF));
+-
+-	evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF),
+-		      format_test_name(CHECK_FILE_MEM, USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF));
+-
+-	mte_disable_pstate_tco();
+-
+-	evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF),
+-		      format_test_name(CHECK_ANON_MEM, USE_MMAP, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF));
+-	evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF),
+-		      format_test_name(CHECK_FILE_MEM, USE_MPROTECT, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF));
+-
+-	for (c = 0 ; c < ARRAY_SIZE(check_type); c++) {
+-		for (s = 0; s < ARRAY_SIZE(mte_sync); s++) {
+-			for (m = 0; m < ARRAY_SIZE(mapping); m++) {
+-				for (mt = 0; mt < ARRAY_SIZE(mem_type); mt++) {
+-					if (check_type[c] == CHECK_ANON_MEM)
+-						evaluate_test(check_anonymous_memory_mapping(mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON),
+-							format_test_name(CHECK_ANON_MEM, mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON));
+-					else
+-						evaluate_test(check_file_memory_mapping(mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON),
+-							format_test_name(CHECK_FILE_MEM, mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON));
++	ksft_set_plan(44);
 +
- 	evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF),
--	"Check file memory with private mapping, sync error mode, mmap/mprotect memory and tag check off\n");
-+		      format_test_name(CHECK_FILE_MEM, USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF));
++	for (a = 0; a < ARRAY_SIZE(atag_test); a++) {
++		/* Register signal handlers */
++		mte_register_signal(SIGBUS, mte_default_handler, atag_test[a]);
++		mte_register_signal(SIGSEGV, mte_default_handler, atag_test[a]);
++
++		mte_enable_pstate_tco();
++
++		evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a]),
++			      format_test_name(CHECK_ANON_MEM, USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a]));
++
++		evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a]),
++			      format_test_name(CHECK_FILE_MEM, USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a]));
++
++		mte_disable_pstate_tco();
++
++		evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a]),
++			      format_test_name(CHECK_ANON_MEM, USE_MMAP, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a]));
++		evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a]),
++			      format_test_name(CHECK_FILE_MEM, USE_MPROTECT, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF, atag_test[a]));
++
++		for (c = 0 ; c < ARRAY_SIZE(check_type); c++) {
++			for (s = 0; s < ARRAY_SIZE(mte_sync); s++) {
++				for (m = 0; m < ARRAY_SIZE(mapping); m++) {
++					for (mt = 0; mt < ARRAY_SIZE(mem_type); mt++) {
++						if (check_type[c] == CHECK_ANON_MEM)
++							evaluate_test(check_anonymous_memory_mapping(mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON, atag_test[a]),
++								format_test_name(CHECK_ANON_MEM, mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON, atag_test[a]));
++						else
++							evaluate_test(check_file_memory_mapping(mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON, atag_test[a]),
++								format_test_name(CHECK_FILE_MEM, mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON, atag_test[a]));
++					}
+ 				}
+ 			}
+ 		}
+-	}
  
- 	mte_disable_pstate_tco();
-+
- 	evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF),
--	"Check anonymous memory with private mapping, no error mode, mmap memory and tag check off\n");
-+		      format_test_name(CHECK_ANON_MEM, USE_MMAP, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF));
- 	evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF),
--	"Check file memory with private mapping, no error mode, mmap/mprotect memory and tag check off\n");
--
--	evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON),
--	"Check anonymous memory with private mapping, sync error mode, mmap memory and tag check on\n");
--	evaluate_test(check_anonymous_memory_mapping(USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON),
--	"Check anonymous memory with private mapping, sync error mode, mmap/mprotect memory and tag check on\n");
--	evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_SYNC_ERR, MAP_SHARED, TAG_CHECK_ON),
--	"Check anonymous memory with shared mapping, sync error mode, mmap memory and tag check on\n");
--	evaluate_test(check_anonymous_memory_mapping(USE_MPROTECT, MTE_SYNC_ERR, MAP_SHARED, TAG_CHECK_ON),
--	"Check anonymous memory with shared mapping, sync error mode, mmap/mprotect memory and tag check on\n");
--	evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_ASYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON),
--	"Check anonymous memory with private mapping, async error mode, mmap memory and tag check on\n");
--	evaluate_test(check_anonymous_memory_mapping(USE_MPROTECT, MTE_ASYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON),
--	"Check anonymous memory with private mapping, async error mode, mmap/mprotect memory and tag check on\n");
--	evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_ASYNC_ERR, MAP_SHARED, TAG_CHECK_ON),
--	"Check anonymous memory with shared mapping, async error mode, mmap memory and tag check on\n");
--	evaluate_test(check_anonymous_memory_mapping(USE_MPROTECT, MTE_ASYNC_ERR, MAP_SHARED, TAG_CHECK_ON),
--	"Check anonymous memory with shared mapping, async error mode, mmap/mprotect memory and tag check on\n");
--
--	evaluate_test(check_file_memory_mapping(USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON),
--	"Check file memory with private mapping, sync error mode, mmap memory and tag check on\n");
--	evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON),
--	"Check file memory with private mapping, sync error mode, mmap/mprotect memory and tag check on\n");
--	evaluate_test(check_file_memory_mapping(USE_MMAP, MTE_SYNC_ERR, MAP_SHARED, TAG_CHECK_ON),
--	"Check file memory with shared mapping, sync error mode, mmap memory and tag check on\n");
--	evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_SYNC_ERR, MAP_SHARED, TAG_CHECK_ON),
--	"Check file memory with shared mapping, sync error mode, mmap/mprotect memory and tag check on\n");
--	evaluate_test(check_file_memory_mapping(USE_MMAP, MTE_ASYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON),
--	"Check file memory with private mapping, async error mode, mmap memory and tag check on\n");
--	evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_ASYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON),
--	"Check file memory with private mapping, async error mode, mmap/mprotect memory and tag check on\n");
--	evaluate_test(check_file_memory_mapping(USE_MMAP, MTE_ASYNC_ERR, MAP_SHARED, TAG_CHECK_ON),
--	"Check file memory with shared mapping, async error mode, mmap memory and tag check on\n");
--	evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_ASYNC_ERR, MAP_SHARED, TAG_CHECK_ON),
--	"Check file memory with shared mapping, async error mode, mmap/mprotect memory and tag check on\n");
-+		      format_test_name(CHECK_FILE_MEM, USE_MPROTECT, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF));
-+
-+	for (c = 0 ; c < ARRAY_SIZE(check_type); c++) {
-+		for (s = 0; s < ARRAY_SIZE(mte_sync); s++) {
-+			for (m = 0; m < ARRAY_SIZE(mapping); m++) {
-+				for (mt = 0; mt < ARRAY_SIZE(mem_type); mt++) {
-+					if (check_type[c] == CHECK_ANON_MEM)
-+						evaluate_test(check_anonymous_memory_mapping(mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON),
-+							format_test_name(CHECK_ANON_MEM, mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON));
-+					else
-+						evaluate_test(check_file_memory_mapping(mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON),
-+							format_test_name(CHECK_FILE_MEM, mem_type[mt], mte_sync[s], mapping[m], TAG_CHECK_ON));
-+				}
-+			}
-+		}
+-	evaluate_test(check_clear_prot_mte_flag(USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE),
+-		      format_test_name(CHECK_CLEAR_PROT_MTE, USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON));
+-	evaluate_test(check_clear_prot_mte_flag(USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE),
+-		      format_test_name(CHECK_CLEAR_PROT_MTE, USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON));
++		evaluate_test(check_clear_prot_mte_flag(USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, atag_test[a]),
++			      format_test_name(CHECK_CLEAR_PROT_MTE, USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON, atag_test[a]));
++		evaluate_test(check_clear_prot_mte_flag(USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, atag_test[a]),
++			      format_test_name(CHECK_CLEAR_PROT_MTE, USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON, atag_test[a]));
 +	}
- 
- 	evaluate_test(check_clear_prot_mte_flag(USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE),
--	"Check clear PROT_MTE flags with private mapping, sync error mode and mmap memory\n");
-+		      format_test_name(CHECK_CLEAR_PROT_MTE, USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON));
- 	evaluate_test(check_clear_prot_mte_flag(USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE),
--	"Check clear PROT_MTE flags with private mapping and sync error mode and mmap/mprotect memory\n");
-+		      format_test_name(CHECK_CLEAR_PROT_MTE, USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON));
  
  	mte_restore_setup();
  	ksft_print_cnts();
