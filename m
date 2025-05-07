@@ -4,100 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E3BEC3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 18:34:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC73FC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 18:36:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1v51SgqjEQ/y9ZirW/mBBCxmauRp+qyQkkMTYv5JC64=; b=HuWt7oBBxzsxdbdR+aoco4LHCc
-	XqHEloeNV7guJZWZt25ftSXLG9Pkj0QOzswn8VAxP4idZ4gYpwQsHuKKJSxaRSWFdE3dr0AtfcXPm
-	7SgOJiuy0XfcD4IeYfdV7CVL2qVV6yAu/d0ueBPo+CRbDLvu5rSjfHQjjMgA8ZigfS2OtE/8jzW9+
-	+KhkryJYAolaU1LbW9jb4UvEB1eQPq4Er84jgHZ8kPNQhy4nzKOAc44fTppF9ypPeekL5QkLJ1cW5
-	yuFLYtql/vUUC6oISf4D/DrmPN3wYgHUil9Q3dSzJmwgdEUOPBJoBwJaq9a6N9s4Gglfd5CjiAgBK
-	5VAL9w3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aeRCGfuCcMOkPK+Z73zPArBARVdjs149XSsfgGnEbOA=; b=GvybBvsIv6umbJp3HeLALICmtE
+	nn2etM1SUMRp1SZo19vgDSUtTpDNaZDp2IKO2L/fZ66cPzd4STgyScEJvACXHH5ZYr8x13uBJKyNp
+	bdHVg2tvAjZ38+d4PD5mhcNYIwNvbZituCJ+gI19geXPAMODn/EOMJ+t7rJCJ52eHQj8F/28kI2nA
+	fbFslb5/EvOgaZZJNtc7MrEM5uZ86OEb3R/bDm01vSISVdAE8W/8yZjtFdEVOgNWrjvdMJgIUk5w0
+	fn/IcYgKVHoLQubjgs0qoJwbpIPB9MhfbEBKeU8J8ztN5A/57+Zme9yEiaGJGJDfrfQ3fSrmncsst
+	5BlayJ+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCjay-0000000GV6d-0z1e;
-	Wed, 07 May 2025 18:34:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uCjct-0000000GVMw-2yfN;
+	Wed, 07 May 2025 18:36:16 +0000
+Received: from mo4-p01-ob.smtp.rzone.de ([81.169.146.167])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCjJq-0000000GRxG-1kje;
-	Wed, 07 May 2025 18:16:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=1v51SgqjEQ/y9ZirW/mBBCxmauRp+qyQkkMTYv5JC64=; b=cRN4TUN0kSuHKE7z/0o2sMcv2b
-	B4LjXh7YpYrcmgIiRVGDRW2+fn6T9CX0l9GmuJmOrZ4ILUfeI4CDXTrRy+SAMZuuZk5RqiXCpf6dJ
-	zm0rpDs+jb8noLY0Tq42Vrkg4jmUaCRvVim3TAZqfV3/yPqzNUaKLjjjf2uM3mTwju+cxO7r+Htm+
-	Zh7xMWIOu/2nRoIi0lbxDyFpMDV8cr2DdjfBHjuinagsUpLo7k2D+WIRemMAsQIkIbTjR1AvYJ1aa
-	ZqFhym6YRv+AqcsfwrZWPsAbJ/mjUYtk+XCIPFR8kmBCZK8Xfhosp2om1i2i5E+mw3TQV4WZLBePU
-	DpscPmcA==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uCjJn-0000000FtD3-0nsJ;
-	Wed, 07 May 2025 18:16:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 80066A4DC2C;
-	Wed,  7 May 2025 18:16:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3ED36C4CEE9;
-	Wed,  7 May 2025 18:16:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746641781;
-	bh=xnX44A875J5pRQUvuRYdVrdaj7yDpDUw7/gsLr5gEV0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=A4eqnIX0WcGjfLO8f+lyrjegUMgvsmMLqhO4ll1KzzZYKRzMmi7+eEVKV/+8tvPM5
-	 hxrrNbPRWhrJ775N6k+nhWQOPm5h+LlXbfIPGrVGAiii2JAzRq8418udB3prr5lZw+
-	 ULHj5lOFTNukYXAeeYvCpd7m1SM7sVvSpEiC6WN4Es69BLf3kK6rKwIBo5UzyB6KjW
-	 JpTUcvbeIfzLJ9MFn8nT7ECpHic6sTc3gfp7uCN1GHgA9GsqMPYbft9nTB5BfoxUuz
-	 kdFfHxHXiVN6l1iNoodNM/mXFbf6UXVMzigHyw8dFzw3664h/c9kcLohtjOZet7ZQ1
-	 L3KyWZ1trbCGg==
-From: Kees Cook <kees@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Kees Cook <kees@kernel.org>,
-	x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	sparclinux@vger.kernel.org,
-	linux-kbuild@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Christoph Hellwig <hch@lst.de>,
-	Marco Elver <elver@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nicolas.schier@linux.dev>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-efi@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: [PATCH 5/8] stackleak: Split STACKLEAK_CFLAGS from GCC_PLUGINS_CFLAGS
-Date: Wed,  7 May 2025 11:16:11 -0700
-Message-Id: <20250507181615.1947159-5-kees@kernel.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250507180852.work.231-kees@kernel.org>
-References: <20250507180852.work.231-kees@kernel.org>
+	id 1uCjNZ-0000000GSvv-43Gs
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 May 2025 18:20:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1746642008; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=ggge+QZGr5xlTVA7vxZ/DhCinzk/tfLC0jY9/0C12uHsm0elGXp7J2DtmfR5JkXSZu
+    jVDRgFLUtJNo08tXBGmOB65mwOp2UggVv4H033dx5y2HaFb/8RquCRGu5SAcfDLtvIhO
+    6STnMtKFQgCxFEhfkApD8YDsysd3q5MMgX+/zxNu2bpL/ijkN2gHj5g3PZ0dv+BpV2+e
+    cFY6sBTRXa+1NzMcEJNVoAr1L4LIwZnPr+Y4mRU+d0s0AinEJnkep3GV9OG3OkGru50d
+    Ux3rYV+y81dxzBCIbHN9Tse26DbYp+uaN8FJOM5NU5Z0smGPilJEhqih7QmZBvgphg52
+    0KfQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1746642008;
+    s=strato-dkim-0002; d=strato.com;
+    h=Message-Id:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
+    bh=aeRCGfuCcMOkPK+Z73zPArBARVdjs149XSsfgGnEbOA=;
+    b=AaBAN5F+3xCC1nBDYRrN1DwzYcukxl0dwY5lL4M7/eypM0RwjNRruuRutLr+gev7Of
+    OdpGi9m95ojwPJhwG1zd46zqY9RrvFMsdj0Vf2mnoZJsEYofkwxSfInRHHYNnvCbEEBf
+    U3c1xl0M3FKqab3YLvI3rirUaW2ux3uuPraOFHosVDcQeKo67rLQdpQzAKLRqu75L4Ru
+    cITv9CL4M3hjTt0Mmi0yYdkczbajYVYhBl/FpbUNXgC/Su+nvZv7DIL1+5YdvM4QO2kg
+    1XfAJRuOMM4hEkgfqhlfxbGCCN7SxAcs/SDDxU/J8xHJI/LL+5vAAyq7ka3y+plEuvXw
+    GGMg==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo01
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1746642008;
+    s=strato-dkim-0002; d=fossekall.de;
+    h=Message-Id:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
+    bh=aeRCGfuCcMOkPK+Z73zPArBARVdjs149XSsfgGnEbOA=;
+    b=D7uPwl8mRfI57QaefQKOtQp9FCFjdKWBPLmCzJTfm/4snA0mo8iOYFbobl8yorExkw
+    uCnhwU9lwMLxd6uHQnxTuF8MNoVQi5VYNssKMhCW9vCZpLWZNbBp0bIdY+h+VItWow3d
+    W+gjclUHfpRS0i0T/tm7TV+xX20A9o+4n9+pfdXY0u4a7vnmJgA2DcCzsF+0qudlR+Iq
+    qlZYza/u1wZPNSDJs8mBcEp8UhouCAia0nIBkqFhfB7GQlHQExzM0qxNR2dv8dTO3I2c
+    CM0KqTq1nG4DAnpYhbtwe/MVA2OVXDkAQTED0nrPSgInOL4byOsvluoMJyw8ZXDoclwt
+    29uQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1746642008;
+    s=strato-dkim-0003; d=fossekall.de;
+    h=Message-Id:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
+    bh=aeRCGfuCcMOkPK+Z73zPArBARVdjs149XSsfgGnEbOA=;
+    b=MPK+TQ1b+m+0OUuuVFOGwh69lVpWFh+Ddse2Lzgn7lMhnitJJQLWBdH68HbZ2/Vbm9
+    1R/ge4ax/EiJpDTl5XDQ==
+X-RZG-AUTH: ":O2kGeEG7b/pS1EzgE2y7nF0STYsSLflpbjNKxx7cGrBdao6FTL4AJcMdm+lap4JEHkzok9eyEg=="
+Received: from aerfugl
+    by smtp.strato.de (RZmta 51.3.0 AUTH)
+    with ESMTPSA id f28b35147IK8GMU
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
+	(Client did not present a certificate);
+    Wed, 7 May 2025 20:20:08 +0200 (CEST)
+Received: from koltrast.home ([192.168.1.27] helo=a98shuttle.de)
+	by aerfugl with smtp (Exim 4.96)
+	(envelope-from <michael@a98shuttle.de>)
+	id 1uCjNH-0002s1-0Z;
+	Wed, 07 May 2025 20:20:07 +0200
+Received: (nullmailer pid 8685 invoked by uid 502);
+	Wed, 07 May 2025 18:20:07 -0000
+From: Michael Klein <michael@fossekall.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
+Cc: Michael Klein <michael@fossekall.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: [PATCH v2] ARM: dts: bananapi: add support for PHY LEDs
+Date: Wed,  7 May 2025 20:20:04 +0200
+Message-Id: <20250507182005.8660-1-michael@fossekall.de>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8800; i=kees@kernel.org; h=from:subject; bh=xnX44A875J5pRQUvuRYdVrdaj7yDpDUw7/gsLr5gEV0=; b=owGbwMvMwCVmps19z/KJym7G02pJDBnSi3P6lfhV/RXS7W7EXssK1NBnXdB5Ysnr/mVB/17fl nyiPW9uRykLgxgXg6yYIkuQnXuci8fb9nD3uYowc1iZQIYwcHEKwEQyLjMydM67eeZ867qfzziX yUjOl4pne5p24PVarrW6CwO/xaRWMDIyvKpsa9K/d9l+e0Fs3d97Xkl7JGyWBRS8mL1yzr8DbL3 FfAA=
-X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_191631_488699_EC60C244 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20250507_112026_305421_CACBEBFB 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,196 +106,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for Clang stack depth tracking for stackleak, split the
-stackleak-specific cflags out of GCC_PLUGINS_CFLAGS into
-STACKLEAK_CFLAGS.
+The RTL8211E ethernet PHY driver has recently gained support for
+controlling PHY LEDs via /sys/class/leds. The Bananapi M1 has three
+LEDs connected to the RTL8211E PHY. Add the corresponding nodes to
+the device tree.
 
-Signed-off-by: Kees Cook <kees@kernel.org>
----
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: <x86@kernel.org>
-Cc: <linux-arm-kernel@lists.infradead.org>
-Cc: <sparclinux@vger.kernel.org>
-Cc: <linux-kbuild@vger.kernel.org>
-Cc: <linux-hardening@vger.kernel.org>
----
- Makefile                        |  1 +
- arch/arm/vdso/Makefile          |  2 +-
- arch/arm64/kernel/vdso/Makefile |  3 ++-
- arch/sparc/vdso/Makefile        |  3 ++-
- arch/x86/entry/vdso/Makefile    |  3 ++-
- scripts/Makefile.gcc-plugins    | 16 ++--------------
- scripts/Makefile.stackleak      | 15 +++++++++++++++
- MAINTAINERS                     |  6 ++++--
- 8 files changed, 29 insertions(+), 20 deletions(-)
- create mode 100644 scripts/Makefile.stackleak
+v2: Refine commit message
 
-diff --git a/Makefile b/Makefile
-index 5aa9ee52a765..1af8dfbcf0af 100644
---- a/Makefile
-+++ b/Makefile
-@@ -1089,6 +1089,7 @@ include-$(CONFIG_KMSAN)		+= scripts/Makefile.kmsan
- include-$(CONFIG_UBSAN)		+= scripts/Makefile.ubsan
- include-$(CONFIG_KCOV)		+= scripts/Makefile.kcov
- include-$(CONFIG_RANDSTRUCT)	+= scripts/Makefile.randstruct
-+include-$(CONFIG_STACKLEAK)	+= scripts/Makefile.stackleak
- include-$(CONFIG_AUTOFDO_CLANG)	+= scripts/Makefile.autofdo
- include-$(CONFIG_PROPELLER_CLANG)	+= scripts/Makefile.propeller
- include-$(CONFIG_GCC_PLUGINS)	+= scripts/Makefile.gcc-plugins
-diff --git a/arch/arm/vdso/Makefile b/arch/arm/vdso/Makefile
-index cb044bfd145d..f05a27909a76 100644
---- a/arch/arm/vdso/Makefile
-+++ b/arch/arm/vdso/Makefile
-@@ -26,7 +26,7 @@ CPPFLAGS_vdso.lds += -P -C -U$(ARCH)
- CFLAGS_REMOVE_vdso.o = -pg
+Signed-off-by: Michael Klein <michael@fossekall.de>
+---
+ .../boot/dts/allwinner/sun7i-a20-bananapi.dts | 27 +++++++++++++++++++
+ 1 file changed, 27 insertions(+)
+
+diff --git a/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts b/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts
+index 46ecf9db2324..d8b362c9661a 100644
+--- a/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts
++++ b/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts
+@@ -48,6 +48,7 @@
  
- # Force -O2 to avoid libgcc dependencies
--CFLAGS_REMOVE_vgettimeofday.o = -pg -Os $(RANDSTRUCT_CFLAGS) $(GCC_PLUGINS_CFLAGS)
-+CFLAGS_REMOVE_vgettimeofday.o = -pg -Os $(RANDSTRUCT_CFLAGS) $(STACKLEAK_CFLAGS) $(GCC_PLUGINS_CFLAGS)
- ifeq ($(c-gettimeofday-y),)
- CFLAGS_vgettimeofday.o = -O2
- else
-diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
-index 5e27e46aa496..d4f60027f910 100644
---- a/arch/arm64/kernel/vdso/Makefile
-+++ b/arch/arm64/kernel/vdso/Makefile
-@@ -36,7 +36,8 @@ ccflags-y += -DDISABLE_BRANCH_PROFILING -DBUILD_VDSO
- # -Wmissing-prototypes and -Wmissing-declarations are removed from
- # the CFLAGS to make possible to build the kernel with CONFIG_WERROR enabled.
- CC_FLAGS_REMOVE_VDSO := $(CC_FLAGS_FTRACE) -Os $(CC_FLAGS_SCS) \
--			$(RANDSTRUCT_CFLAGS) $(GCC_PLUGINS_CFLAGS) \
-+			$(RANDSTRUCT_CFLAGS) $(STACKLEAK_CFLAGS) \
-+			$(GCC_PLUGINS_CFLAGS) \
- 			$(CC_FLAGS_LTO) $(CC_FLAGS_CFI) \
- 			-Wmissing-prototypes -Wmissing-declarations
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/leds/common.h>
  
-diff --git a/arch/sparc/vdso/Makefile b/arch/sparc/vdso/Makefile
-index fdc4a8f5a49c..d0cfaa2f508a 100644
---- a/arch/sparc/vdso/Makefile
-+++ b/arch/sparc/vdso/Makefile
-@@ -48,7 +48,7 @@ CFL := $(PROFILING) -mcmodel=medlow -fPIC -O2 -fasynchronous-unwind-tables -m64
- 
- SPARC_REG_CFLAGS = -ffixed-g4 -ffixed-g5 $(call cc-option,-fcall-used-g5) $(call cc-option,-fcall-used-g7)
- 
--$(vobjs): KBUILD_CFLAGS := $(filter-out $(RANDSTRUCT_CFLAGS) $(GCC_PLUGINS_CFLAGS) $(SPARC_REG_CFLAGS),$(KBUILD_CFLAGS)) $(CFL)
-+$(vobjs): KBUILD_CFLAGS := $(filter-out $(RANDSTRUCT_CFLAGS) $(STACKLEAK_CFLAGS) $(GCC_PLUGINS_CFLAGS) $(SPARC_REG_CFLAGS),$(KBUILD_CFLAGS)) $(CFL)
- 
- #
- # vDSO code runs in userspace and -pg doesn't help with profiling anyway.
-@@ -79,6 +79,7 @@ KBUILD_CFLAGS_32 := $(filter-out -m64,$(KBUILD_CFLAGS))
- KBUILD_CFLAGS_32 := $(filter-out -mcmodel=medlow,$(KBUILD_CFLAGS_32))
- KBUILD_CFLAGS_32 := $(filter-out -fno-pic,$(KBUILD_CFLAGS_32))
- KBUILD_CFLAGS_32 := $(filter-out $(RANDSTRUCT_CFLAGS),$(KBUILD_CFLAGS_32))
-+KBUILD_CFLAGS_32 := $(filter-out $(STACKLEAK_CFLAGS),$(KBUILD_CFLAGS_32))
- KBUILD_CFLAGS_32 := $(filter-out $(GCC_PLUGINS_CFLAGS),$(KBUILD_CFLAGS_32))
- KBUILD_CFLAGS_32 := $(filter-out $(SPARC_REG_CFLAGS),$(KBUILD_CFLAGS_32))
- KBUILD_CFLAGS_32 += -m32 -msoft-float -fpic
-diff --git a/arch/x86/entry/vdso/Makefile b/arch/x86/entry/vdso/Makefile
-index 54d3e9774d62..9e912b6a889c 100644
---- a/arch/x86/entry/vdso/Makefile
-+++ b/arch/x86/entry/vdso/Makefile
-@@ -62,7 +62,7 @@ ifneq ($(RETPOLINE_VDSO_CFLAGS),)
- endif
- endif
- 
--$(vobjs): KBUILD_CFLAGS := $(filter-out $(PADDING_CFLAGS) $(CC_FLAGS_LTO) $(CC_FLAGS_CFI) $(RANDSTRUCT_CFLAGS) $(GCC_PLUGINS_CFLAGS) $(RETPOLINE_CFLAGS),$(KBUILD_CFLAGS)) $(CFL)
-+$(vobjs): KBUILD_CFLAGS := $(filter-out $(PADDING_CFLAGS) $(CC_FLAGS_LTO) $(CC_FLAGS_CFI) $(RANDSTRUCT_CFLAGS) $(STACKLEAK_CFLAGS) $(GCC_PLUGINS_CFLAGS) $(RETPOLINE_CFLAGS),$(KBUILD_CFLAGS)) $(CFL)
- $(vobjs): KBUILD_AFLAGS += -DBUILD_VDSO
- 
- #
-@@ -123,6 +123,7 @@ KBUILD_CFLAGS_32 := $(filter-out -mcmodel=kernel,$(KBUILD_CFLAGS_32))
- KBUILD_CFLAGS_32 := $(filter-out -fno-pic,$(KBUILD_CFLAGS_32))
- KBUILD_CFLAGS_32 := $(filter-out -mfentry,$(KBUILD_CFLAGS_32))
- KBUILD_CFLAGS_32 := $(filter-out $(RANDSTRUCT_CFLAGS),$(KBUILD_CFLAGS_32))
-+KBUILD_CFLAGS_32 := $(filter-out $(STACKLEAK_CFLAGS),$(KBUILD_CFLAGS_32))
- KBUILD_CFLAGS_32 := $(filter-out $(GCC_PLUGINS_CFLAGS),$(KBUILD_CFLAGS_32))
- KBUILD_CFLAGS_32 := $(filter-out $(RETPOLINE_CFLAGS),$(KBUILD_CFLAGS_32))
- KBUILD_CFLAGS_32 := $(filter-out $(CC_FLAGS_LTO),$(KBUILD_CFLAGS_32))
-diff --git a/scripts/Makefile.gcc-plugins b/scripts/Makefile.gcc-plugins
-index 33ddf5bfda34..e27ffe8e7c75 100644
---- a/scripts/Makefile.gcc-plugins
-+++ b/scripts/Makefile.gcc-plugins
-@@ -22,20 +22,6 @@ export DISABLE_STRUCTLEAK_PLUGIN
- gcc-plugin-cflags-$(CONFIG_GCC_PLUGIN_STRUCTLEAK)		\
- 		+= -DSTRUCTLEAK_PLUGIN
- 
--gcc-plugin-$(CONFIG_GCC_PLUGIN_STACKLEAK)	+= stackleak_plugin.so
--gcc-plugin-cflags-$(CONFIG_GCC_PLUGIN_STACKLEAK)		\
--		+= -DSTACKLEAK_PLUGIN
--gcc-plugin-cflags-$(CONFIG_GCC_PLUGIN_STACKLEAK)		\
--		+= -fplugin-arg-stackleak_plugin-track-min-size=$(CONFIG_STACKLEAK_TRACK_MIN_SIZE)
--gcc-plugin-cflags-$(CONFIG_GCC_PLUGIN_STACKLEAK)		\
--		+= -fplugin-arg-stackleak_plugin-arch=$(SRCARCH)
--gcc-plugin-cflags-$(CONFIG_GCC_PLUGIN_STACKLEAK_VERBOSE)	\
--		+= -fplugin-arg-stackleak_plugin-verbose
--ifdef CONFIG_GCC_PLUGIN_STACKLEAK
--    DISABLE_STACKLEAK += -fplugin-arg-stackleak_plugin-disable
--endif
--export DISABLE_STACKLEAK
--
- # All the plugin CFLAGS are collected here in case a build target needs to
- # filter them out of the KBUILD_CFLAGS.
- GCC_PLUGINS_CFLAGS := $(strip $(addprefix -fplugin=$(objtree)/scripts/gcc-plugins/, $(gcc-plugin-y)) $(gcc-plugin-cflags-y)) -DGCC_PLUGINS
-@@ -50,6 +36,8 @@ gcc-plugin-external-$(CONFIG_GCC_PLUGIN_SANCOV)			\
- 	+= sancov_plugin.so
- gcc-plugin-external-$(CONFIG_GCC_PLUGIN_RANDSTRUCT)		\
- 	+= randomize_layout_plugin.so
-+gcc-plugin-external-$(CONFIG_GCC_PLUGIN_STACKLEAK)		\
-+	+= stackleak_plugin.so
- 
- # All enabled GCC plugins are collected here for building in
- # scripts/gcc-scripts/Makefile.
-diff --git a/scripts/Makefile.stackleak b/scripts/Makefile.stackleak
-new file mode 100644
-index 000000000000..1db0835b29d4
---- /dev/null
-+++ b/scripts/Makefile.stackleak
-@@ -0,0 +1,15 @@
-+# SPDX-License-Identifier: GPL-2.0
+ / {
+ 	model = "LeMaker Banana Pi";
+@@ -169,6 +170,32 @@ &ir0 {
+ &gmac_mdio {
+ 	phy1: ethernet-phy@1 {
+ 		reg = <1>;
 +
-+ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+stackleak-cflags-y += -fplugin=$(objtree)/scripts/gcc-plugins/stackleak_plugin.so
-+stackleak-cflags-y += -fplugin-arg-stackleak_plugin-track-min-size=$(CONFIG_STACKLEAK_TRACK_MIN_SIZE)
-+stackleak-cflags-y += -fplugin-arg-stackleak_plugin-arch=$(SRCARCH)
-+stackleak-cflags-$(CONFIG_GCC_PLUGIN_STACKLEAK_VERBOSE) += -fplugin-arg-stackleak_plugin-verbose
-+DISABLE_STACKLEAK  := -fplugin-arg-stackleak_plugin-disable
-+endif
++		leds {
++			#address-cells = <1>;
++			#size-cells = <0>;
 +
-+STACKLEAK_CFLAGS   := $(stackleak-cflags-y)
++			led@0 {
++				reg = <0>;
++				color = <LED_COLOR_ID_GREEN>;
++				function = LED_FUNCTION_LAN;
++				linux,default-trigger = "netdev";
++			};
 +
-+export STACKLEAK_CFLAGS DISABLE_STACKLEAK
++			led@1 {
++				reg = <1>;
++				color = <LED_COLOR_ID_AMBER>;
++				function = LED_FUNCTION_LAN;
++				linux,default-trigger = "netdev";
++			};
 +
-+KBUILD_CFLAGS += $(STACKLEAK_CFLAGS)
-diff --git a/MAINTAINERS b/MAINTAINERS
-index dc535c67a745..9a2be2dd96c9 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -9827,8 +9827,6 @@ L:	linux-hardening@vger.kernel.org
- S:	Maintained
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/kees/linux.git for-next/hardening
- F:	Documentation/kbuild/gcc-plugins.rst
--F:	include/linux/stackleak.h
--F:	kernel/stackleak.c
- F:	scripts/Makefile.gcc-plugins
- F:	scripts/gcc-plugins/
++			led@2 {
++				reg = <2>;
++				color = <LED_COLOR_ID_BLUE>;
++				function = LED_FUNCTION_LAN;
++				linux,default-trigger = "netdev";
++			};
++		};
+ 	};
+ };
  
-@@ -12890,11 +12888,15 @@ F:	Documentation/ABI/testing/sysfs-kernel-warn_count
- F:	arch/*/configs/hardening.config
- F:	include/linux/overflow.h
- F:	include/linux/randomize_kstack.h
-+F:	include/linux/stackleak.h
- F:	include/linux/ucopysize.h
- F:	kernel/configs/hardening.config
-+F:	kernel/stackleak.c
- F:	lib/tests/randstruct_kunit.c
- F:	lib/tests/usercopy_kunit.c
- F:	mm/usercopy.c
-+F:	scripts/Makefile.randstruct
-+F:	scripts/Makefile.stackleak
- F:	security/Kconfig.hardening
- K:	\b(add|choose)_random_kstack_offset\b
- K:	\b__check_(object_size|heap_object)\b
 -- 
-2.34.1
+2.39.5
 
 
