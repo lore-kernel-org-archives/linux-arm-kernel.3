@@ -4,90 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDBAEC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 03:10:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4877C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 03:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Nv9JoAvWs6gTM10vR8jVFYgQgKlyEZzVUAlrgzpixKg=; b=4VZouU19XdWk+FUkZDqTDEgRXr
-	xB0UInNBswfu685yljyM3d5elCNvR9UatJEnsRjXYWPutuVgbT7VJezbUskIa4YEmyF9ySPCdzxon
-	9zf7DestSsfLaivmret+hZxSNKCIvKDyfhQAKdI94mN1jI73yJ76ZNSminaY/jey+t26iyn96EH3Y
-	LW8/xwr8xd1gVxCvkIWtVokcdSTWM0kQW7AnaEZO4WsYXo5SNpAv6QD+H7KhiI5HlRdcQ5k8s7SOh
-	zKMi0YubxpUFeHcTSD77cYrsdYsp1CIbz9fOdVEpms3pQccGwf/3QqDuYc9z+O0bZ8xYVE5sAQXy3
-	mfiHeU4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WxnIZWGjyW8z4p9AhSnJJsn8ZjAdBNM5VL2W6LDw1c0=; b=UZ1K3+8FUiApspNle45iZupAGg
+	YL6wH2NsohU1Qb7XFQ06zrgiPmLuIcahpI5xWwIZSOJbHAus1yygVPQfHf/aWDRlOJCCTFU3ZBZqz
+	aGNmFgJK+/iDKpF1+Rj5GSUmlrXRNZ23queNQBYh1Lcq04kOk/S2W2rLyQVn2jaYVpmtnwjEHZm4Z
+	8rE0jPT9c4Hdfin4eLAl69Nc+4mK6gFPGuSu+BWcdUO0WJC6/qRik3Mv9twkywSrVrnPOnxKO9007
+	UuzA7+MQAIkdNpTTvVY0rb+5miN4Ok1vLAZlEaRZQ36Qin4Km/IEEZ7kKnBlbwPM24LQNoWdTXCTb
+	Zp/KdS0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCVAx-0000000E2ha-1BMv;
-	Wed, 07 May 2025 03:10:27 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1uCVOW-0000000E4Hj-1toG;
+	Wed, 07 May 2025 03:24:28 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCV8y-0000000E2bR-2cyV
+	id 1uCVMT-0000000E46B-2pnE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 03:08:25 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-22e331215dbso4006175ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 20:08:23 -0700 (PDT)
+	Wed, 07 May 2025 03:22:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746587303; x=1747192103; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Nv9JoAvWs6gTM10vR8jVFYgQgKlyEZzVUAlrgzpixKg=;
-        b=jmMZv4hXFhtr6h5LgAZQD/IgbBWuYYmGj9PaRVMQ6cL/CkHCBfYypV//tOhKZ1t3yO
-         YpK/4MKz2rcnOUaTKOff3ieRYF6KBSfkm+8xhiqqu3ZzreSOxbsY1ynyQkNSrcCHMU0t
-         Sw8cMhkSAK5E1ZceDh45dkzy1LB4MUQV9mrmxUoy0lbpPrIiENV96eHVrEGUuuSHlJ8r
-         4EqciAXxBTEkKvTj+WJweQcnsoi3VhpDY6zuS1xGSoCLvQipqURENo2/FSWgDsa6JkC6
-         FZDpZkAxYKHhcpoZ++8DmcQ74qLzA8ECosLEcOlVJfvgAVrOdMUTU77zAgs+TkY4aRB9
-         3u/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746587303; x=1747192103;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Nv9JoAvWs6gTM10vR8jVFYgQgKlyEZzVUAlrgzpixKg=;
-        b=E/TNdKlkc53LLJ2WnpulF/edV6UFzGueZyGz50wQdjDFYHh3w8NM2WfFgHu7KVyK5j
-         KvWqPOhFM2jA0agdelIAXLXjYpA5sKLnl788eAltLhyITeNItAx5YrwAWYIp0uDujJCZ
-         PVTH+5OEtGLTmza3PvahwHRrC6Vct787uhfc94cAjg+5vUh9GKdC+zzi1lvVVZiSZvs8
-         JsEjNdcxtCjKIqfXB+fhbM67S9btVLOfIwL9hhFJPeiBiX0If4MovtPRt6db/PYwTY/h
-         /+5ibojFG5PuFEMEDG1JJ6XhV0SrmnfcOJbGLCxlLAa89bKoxQCT5rEu3BvGryE25rSO
-         aJWw==
-X-Gm-Message-State: AOJu0Yy/dmD2DEa/BNwRgh1AvK8tTr+WbQpK52x4KiQXDxL6yb3XgCyy
-	GTT7AHFsuNKkUQoJ8ljrRLmtMi7BUd4OECuYoCXMIZ0nXaXm/ZLj
-X-Gm-Gg: ASbGncsHx6SQ1zZKiX+vfot68C3IHzGJBkxyDNV4MLdjrO/PVMNwnj/8JRZsM0xz16G
-	qR5s28F7c69J0CuOHVsx22Lx7gnBek0bwq/KVwFyJZjcLKPNhAEAFaRiFKk57ZQgIBQemqNPJzO
-	U2n/Aa+eWiq1D6o8QTapN9eaZ2nVbBHz5fgNhjWbxOEqY8Pkxgc0Ul16osKwEjHLM+sKlo2Nckc
-	WGCGYXzVriMoT6W58SQE60Mx+0eFAZMUSKcIriHLnm3JMNhHfvGPNho2TrZm/fG5EkEUghFMcM6
-	9AEnaXfTCaGoLERNXvSAd0oxzh2iFLBTBrHebuwohes0rvN+PXi6CztM6zGgQ1m5oswMgs3UxFn
-	y4x5DilBbQde8
-X-Google-Smtp-Source: AGHT+IFwYs6I2Pfw7TuHODJ37F+9pTjMgxsBR4zPK+jGG6IHXPad4Qe4x81SoqSnB1SFpNl14YmD9Q==
-X-Received: by 2002:a17:903:1ab0:b0:215:58be:334e with SMTP id d9443c01a7336-22e61695c71mr22640025ad.10.1746587303170;
-        Tue, 06 May 2025 20:08:23 -0700 (PDT)
-Received: from KERNELXING-MB0.tencent.com ([43.132.141.24])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22e15231fefsm82496035ad.210.2025.05.06.20.08.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 May 2025 20:08:22 -0700 (PDT)
-From: Jason Xing <kerneljasonxing@gmail.com>
-To: davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	sgoutham@marvell.com,
-	andrew+netdev@lunn.ch,
-	willemb@google.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	Jason Xing <kernelxing@tencent.com>
-Subject: [PATCH net-next] net: thunder: make tx software timestamp independent
-Date: Wed,  7 May 2025 11:08:04 +0800
-Message-Id: <20250507030804.70273-1-kerneljasonxing@gmail.com>
-X-Mailer: git-send-email 2.33.0
+	d=codeconstruct.com.au; s=2022a; t=1746588132;
+	bh=WxnIZWGjyW8z4p9AhSnJJsn8ZjAdBNM5VL2W6LDw1c0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=bCR+8fc3LtDcSawxO4X6KapprEaFUHlDopKZmFaplYY0hg9qY2ZHxxAV725dw6TZI
+	 vMDQ4I5qCYW6aZB4ClA6mBPGWTAzsDb1q1Thuz7JM2NEN/d3IuDPcTQLqgOX/JwN49
+	 KHoX9w693tqIC2Wx8pBJhr+8PskzFyOU7AHb//tDxrGce2vfyWslb8hUjjTgbuA7VR
+	 Q5OEngX/ctCaryV+qVyYxXLfGBO3HzAYro10sfoquGFdPUUuZPvdQI5ai05jbgyxJM
+	 fT8bxI8lm3R4gU+9Se9xj6dc4oLjeMt/vfVhuQ2ToHwniIaYo/sUJ108EIsmeyRJEA
+	 xje1L/94ngvGg==
+Received: from [192.168.68.112] (unknown [180.150.112.225])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 324D864473;
+	Wed,  7 May 2025 11:22:10 +0800 (AWST)
+Message-ID: <5acf9c0afc764931f3e9e70c4085beeb95b9652d.camel@codeconstruct.com.au>
+Subject: Re: [PATCH] dt-bindings: interrupt-controller: Convert
+ aspeed,ast2400-i2c-ic to DT schema
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: "Rob Herring (Arm)" <robh@kernel.org>, Thomas Gleixner
+ <tglx@linutronix.de>,  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Ryan Chen
+ <ryan_chen@aspeedtech.com>, Benjamin Herrenschmidt
+ <benh@kernel.crashing.org>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org
+Date: Wed, 07 May 2025 12:52:09 +0930
+In-Reply-To: <20250505144605.1287121-1-robh@kernel.org>
+References: <20250505144605.1287121-1-robh@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_200824_665902_01180D63 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20250506_202221_915918_B60AA67F 
+X-CRM114-Status: UNSURE (   5.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,39 +77,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jason Xing <kernelxing@tencent.com>
+On Mon, 2025-05-05 at 09:46 -0500, Rob Herring (Arm) wrote:
+> Convert the Aspeed I2C interrupt controller binding to schema format.
+>=20
+> Drop the "#address-cells" and "#size-cells" as they are unused and
+> incorrect anyways.
+>=20
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
-skb_tx_timestamp() is used for tx software timestamp enabled by
-SOF_TIMESTAMPING_TX_SOFTWARE while SKBTX_HW_TSTAMP is controlled by
-SOF_TIMESTAMPING_TX_HARDWARE. As it clearly shows they are different
-timestamps in two dimensions, this patch makes the software one
-standalone.
-
-Signed-off-by: Jason Xing <kernelxing@tencent.com>
----
- drivers/net/ethernet/cavium/thunder/nicvf_queues.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/net/ethernet/cavium/thunder/nicvf_queues.c b/drivers/net/ethernet/cavium/thunder/nicvf_queues.c
-index 06397cc8bb36..d368f381b6de 100644
---- a/drivers/net/ethernet/cavium/thunder/nicvf_queues.c
-+++ b/drivers/net/ethernet/cavium/thunder/nicvf_queues.c
-@@ -1389,11 +1389,11 @@ nicvf_sq_add_hdr_subdesc(struct nicvf *nic, struct snd_queue *sq, int qentry,
- 		this_cpu_inc(nic->pnicvf->drv_stats->tx_tso);
- 	}
- 
-+	skb_tx_timestamp(skb);
-+
- 	/* Check if timestamp is requested */
--	if (!(skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP)) {
--		skb_tx_timestamp(skb);
-+	if (!(skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP))
- 		return;
--	}
- 
- 	/* Tx timestamping not supported along with TSO, so ignore request */
- 	if (skb_shinfo(skb)->gso_size)
--- 
-2.43.5
-
+Reviewed-by: Andrew Jeffery <andrew@codeconstruct.com.au>
 
