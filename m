@@ -4,92 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B010EC3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 15:01:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01DD3C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 15:03:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/xS6ETeJO5OOeAvcPqqiLsohwdJ2YixHGZA6tkjlU0Q=; b=D6+vZZO3hcALkL9mbq8LeL4sO/
-	gkbdcKIFNoAS979z68g+AVUrYHYY7aYmGWV2Pc2M7hKY/RKCju3x/tfcduVdEbpslb7AzM1MBWlhY
-	HIxrVuvIsiWbLuqHXu75hUHpOxKSMYjV5qmOtNOj1mPBq2vmG8dMgEh/dbMvh39xtW2mTrbNh5wJ6
-	k85bPQiR3iwfkCdkmHIt7G+QxFlUL8UfSv1YFzeKZPAzgM1TJBh7b6SLhkSxJYgIpjFClj/DsiION
-	1rvFMDwurx3tt3KJbfIjeozKWBm9TLhz0EgBSXvhhUyi7x8+fDq8FHzgXtsaj55AQR/4vUy8nEFVB
-	rG784j9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4cK2GR+MTIxCdrAVL3u30qal7MJPY3+v+RkxSo+dm/A=; b=vQVM2wNgr3QUGMzqK85Kyjgbk7
+	yOGJfHMqTFT0EJfr0Q+YpSd443kJhygz8C+u3R0sr0DMUNlP/5oekBmOpnN1rAhaOTd7Pgac+AcWh
+	tpzUE7inVms7mJb52S4bwK4dNXZom7MmFWoXILSpIOgqLwLqvpSb2snhpOtvGzV0zS6NRsWBiG0kb
+	kNfT3AsCyXQLsAw2SAvwenXndwGzdRF549dC9z5UgCC13qw/HzhtoPDGymB2RyMxJlH12N2hQjKTT
+	zsV3b6kqjBhD9cLTilAkXTJhA/k6Usa2cgF+hibF/IZL4cpiFzrvdV+mWie5uohXmZNbaeX4/8cG9
+	yR19twxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCgH1-0000000Fsjc-1dfs;
-	Wed, 07 May 2025 15:01:27 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1uCgIb-0000000FsxK-2bbu;
+	Wed, 07 May 2025 15:03:05 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCep4-0000000FZiJ-0jmy
+	id 1uCfpI-0000000Fmsa-0nxq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 13:28:31 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43edecbfb94so59196405e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 May 2025 06:28:29 -0700 (PDT)
+	Wed, 07 May 2025 14:32:49 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-441d1ed82dbso16227515e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 May 2025 07:32:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1746624508; x=1747229308; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=/xS6ETeJO5OOeAvcPqqiLsohwdJ2YixHGZA6tkjlU0Q=;
-        b=ZO/sU7LQs7ezBfgFSmjS4JBBSjYEy/zroILTb9Xlz3dFVqfUCDJKhP2JBUVcH9dEQr
-         6BBvTyAY3yiPu4XozAscP41CzeVMLp1UhVmotUVSTCOn/4ssiLq+8BDQlLS4ZBB5KBN6
-         5O7cQeRk9p65p2J9YmsD4f0nrArrTRzyWB++aZItH58xO+mpjsAMcA/9ln6qW6w0B3CO
-         XciJ8WRGN3eZhfDL5JB5nR9mIXghwWgbohLYFhe4hAP6lRpAa+wcG12/khMruDEcUkrk
-         Fa9kSMAAZ+GG8d+RLodDUj7mskJL7vuLX5nzD6x+zkQiWKNsXBjh0abFxaLorKwN6/jq
-         y9cw==
+        d=gmail.com; s=20230601; t=1746628367; x=1747233167; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=4cK2GR+MTIxCdrAVL3u30qal7MJPY3+v+RkxSo+dm/A=;
+        b=HYSX4Yq5+tjQXIsYcSKaNKcmCHBgdN91zAyKxawut0T0PT8XVW77lwKb4RgwKETv1C
+         TXPD2D1tuL6ArW5DZNydWyL8mufM4WIQViY5+SlsPFy7fkhIz7Y5bBRtPqZvDdp7az6y
+         IXqofOidhAyLFBlKVoAcOz+s91kgAlUJqfRBwUTJeEnyD0R7YLfmQYiApV72JDT8uhnl
+         3ts/Y5zRhe5/4fve0n6OyCWZg4oUJygsl+MBJHAbUkGdubT+8Beuwtqw6lDaGU3JS8w8
+         +eXeLOgveU9IXqWDAtWzsi8P5hs6aDRrs+0w6+6BHcek+SDPduF99ei0fT3VsNLrQBaC
+         uh8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746624508; x=1747229308;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/xS6ETeJO5OOeAvcPqqiLsohwdJ2YixHGZA6tkjlU0Q=;
-        b=QX/zDH+9AmksNWajR8toi3ozaHDkkH505+xLWWwxtGb6sgcaZ3GSOErcwFcHoHg5tD
-         G433YmhvD8Z/zE556nONKWyOsQe4OPQEMIAi5iZ4Q8plzITeQJTGwLlqvWgL9+Ui1RD7
-         Ggeu6qSVHBvTLi1PRLA4wK8YMdRLUdXhh0mprxjAXAGBBUdZyQOYuLAlH3zF3zc+LifG
-         gFz20XPCnOfXY+o+/fjvc++A5Gnw97fI1CENEKUnhXZgH+RE3aPDq7zY8apDnzSNb7KI
-         F/pcKI3IK9RyKT+0FHrymYbQSKdn+JYnPHENydlKs/3bAp+oFs+MPUi4kUtw00/zIs3R
-         ZyVw==
-X-Forwarded-Encrypted: i=1; AJvYcCXm2e5i+/OIGJvGv9nxDVlNELuaGAsUhS/AYhl4/4zPJIqFTbKTKd3PPA32VOP5Y2/q4PLWK2FRr95QyDwmvjiQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzyxnh2h/zIfadnFnlbqrBqIjzaXlou52uKrHUJmMCyfx/BVAYt
-	5zMtLbpmK/vgLPZDAtiyYevGQCH2EBvwXIKpnSXVhuo6G4UrEgMIlOATCWdPEOQ=
-X-Gm-Gg: ASbGncuBFOuwVyOX9Wqzp7Xi/JmKD3P/qmRTkkwiHGYeUAUwhTDdSqL2Dg8kUw5KiqI
-	llVu+Bfjp+w3JMOT4ZE/bKqxMSZvlPvtAVhBsiIHobdm0BjcUgC50cnUEzCuvyInV6ChXm+f8W0
-	pK/nwCY1E0OVRACTynXkugU/JPpBKxIiK5YV1giRmQ+LLQJ210wIdl0UqD7fjjPKjQ0zDHCWi7l
-	pQF3mFlaKgLN156W1vXU36z2716qTDQocP9SIYc8t9PNehU+mjNTNHDmSscrGbshDZp+0IJ2AjO
-	5Lx3lFt/1uFDzqShBJzZAtGasYNKT54nCy4lmCi+B70h+5jPlIAkr9tGzsuhyf30miHVcQwbGb2
-	T67DtZidZyYxo0k8JghK526s=
-X-Google-Smtp-Source: AGHT+IF9bN7HF5C+wDfG9X0dS/E0vyZNUnflXtn/dJ+qoLVi6CW6CxKO2dfUEyTuyw8A+h4DJSAqyA==
-X-Received: by 2002:a05:600c:1ca3:b0:43d:2230:300f with SMTP id 5b1f17b1804b1-441d44734e6mr28815835e9.0.1746624507957;
-        Wed, 07 May 2025 06:28:27 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:e50:3860:705c:8900:5dbf:b4ab? ([2a01:e0a:e50:3860:705c:8900:5dbf:b4ab])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442cd33103dsm1051115e9.10.2025.05.07.06.28.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 07 May 2025 06:28:27 -0700 (PDT)
-Message-ID: <b1949ec7-a0b3-4c4c-a439-93afced7bb0c@baylibre.com>
-Date: Wed, 7 May 2025 15:28:26 +0200
+        d=1e100.net; s=20230601; t=1746628367; x=1747233167;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4cK2GR+MTIxCdrAVL3u30qal7MJPY3+v+RkxSo+dm/A=;
+        b=gFpFFj8tnLSyExSeBueUFVBMC9sg1rt0/1kvAyYnSDjeSAehXlbYyM8I2CLsPRtw6r
+         cZM48+O4sqjkEYfPa+CzUKQvPqMLDIupwkc01mPgkysXcg5yvsBGMPIJwpiCbU4qlci+
+         2ZTbXo5ZsQh8SGAwLMsE8IrIx0s/1tOmuGUp6B+t4pEUim9wXYpTNw1WS21DOrnS5BPm
+         2MSGtHe3IJlR21O3cgIYu2Ag17kMM0FKH+eKyW5xjo2WYQHqnDmNXeu0+llfLp4RW6ke
+         nE2bsAgY2ysvSGPdy8qA/OOsDGnG8/Yh4aZf8y9D1Km5uIZrZuXVsHx0RfIqf6028OsP
+         EFrg==
+X-Forwarded-Encrypted: i=1; AJvYcCWtYAw/P2ZAwB9Vb7wOf5bKaXhYs3/mbYlkLMUQKCYwxNn/2eFO20kSnE6hGCx69nupnicSIb7kDMrAE8EpvJ3M@lists.infradead.org
+X-Gm-Message-State: AOJu0YzU4v6k5DS0x2hSkgWQpBtH9qmtWWAPP3HGeQd9qc9Rb5p43PeX
+	hfstcI+6xetUqkaxQguzAfRrH6KXQRMAa3SnxZRc4AVB2PwxMC7q
+X-Gm-Gg: ASbGncv1Kn1TCwE+CQ1PhdJnT8n9q05MtBxmksMayCE0MB4s6xNEm8fkzbfIm8VO19D
+	U/VdIA64GjIEEllKmZqaFCfUqVlmnFwdXjrEV26OhxiJXExOlVRo82ygwid+Y0D9ubo+WUAk7nf
+	SXzSmyWYrwZAshTLzIJ6TDj17fU4/wRO3IfiCVARUue7IH8yphE5t5CrpuTtet/+CpxlcheFil9
+	63EuK08P5imM9M1Chn+FRpoSBxvItThg5um4JGnrAWGA+0am3i6btPYk2JhMFVHRamsLjTmYbMC
+	lXb32HAPlIK7HhkcE7nb6GtBDv6c7qp58LlERLN33ZhyY5Y5p6eQNCbUInN5PObX6BelX+ShSwn
+	XHV0quC5j76KiUhVNlJTMFPujVmw=
+X-Google-Smtp-Source: AGHT+IEd1QJ3UGhkjXTiuM6IWrT+bURzxPWFWLEi/P7RC8gos+sLg4dyG+3f7M+cmEZydt7eQ6bD3A==
+X-Received: by 2002:a05:600c:528c:b0:43d:300f:fa1d with SMTP id 5b1f17b1804b1-441d44e32cfmr34862855e9.31.1746628366474;
+        Wed, 07 May 2025 07:32:46 -0700 (PDT)
+Received: from orome (p200300e41f281b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f28:1b00:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442cd3af15bsm2800915e9.30.2025.05.07.07.32.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 May 2025 07:32:45 -0700 (PDT)
+Date: Wed, 7 May 2025 16:32:43 +0200
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Jon Hunter <jonathanh@nvidia.com>
+Cc: linux-tegra@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 07/11] soc/tegra: pmc: Add Tegra264 support
+Message-ID: <fknux7o27tbcykml6ze4rcuwkkfxuiv7uvbdkejf5ikermr6h7@57jse3b45wsz>
+References: <20250506133118.1011777-1-thierry.reding@gmail.com>
+ <20250506133118.1011777-8-thierry.reding@gmail.com>
+ <964d8b07-aeb1-437b-ac8e-c129c49b2a78@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Guillaume La Roque <glaroque@baylibre.com>
-Subject: Re: [PATCH] arm64: Kconfig.platforms: remove useless select for
- ARCH_K3
-To: Nishanth Menon <nm@ti.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Davis <afd@ti.com>, vishalm@ti.com, linux-omap@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250504-kconfig-v1-1-ab0216f4fa98@baylibre.com>
- <20250505123615.yqzdv7dlel7kyojf@degrease>
- <fa33b7d6-8e28-40bc-9219-41dab643e88f@baylibre.com>
-Content-Language: en-US, fr
-In-Reply-To: <fa33b7d6-8e28-40bc-9219-41dab643e88f@baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="wmguxf7cc2ndw7cd"
+Content-Disposition: inline
+In-Reply-To: <964d8b07-aeb1-437b-ac8e-c129c49b2a78@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_062830_212676_EEA1D34E 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20250507_073248_228846_4563EF01 
+X-CRM114-Status: GOOD (  27.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,55 +100,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nishanth,
 
-if i remove MAILBOX it's  enabled by some  non TI drivers and/or 
-ARCH_XXX which have it in deps so all TI drivers are still enabled 
-properly but not sure it's safe.
-and PM_GENERIC_DOMAINS look OK to remove it.
+--wmguxf7cc2ndw7cd
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 07/11] soc/tegra: pmc: Add Tegra264 support
+MIME-Version: 1.0
 
-if i try a defconfig based on android defconfig (more simple than 
-default defconfig) with only ARCH_K3 enabled i need to set 
-CONFIG_MAILBOX flag to still have same TI drivers enabled.
-let me know what you want to do.
+On Wed, May 07, 2025 at 12:03:39PM +0100, Jon Hunter wrote:
+>=20
+> On 06/05/2025 14:31, Thierry Reding wrote:
+> > From: Thierry Reding <treding@nvidia.com>
+> >=20
+> > The PMC block on Tegra264 has undergone a few small changes since it's
+> > Tegra234 predecessor. Match on the new compatible string to select the
+> > updated SoC-specific data.
+> >=20
+> > Signed-off-by: Thierry Reding <treding@nvidia.com>
+> > ---
+> >   drivers/soc/tegra/pmc.c | 132 +++++++++++++++++++++++++++++++++++++++-
+> >   1 file changed, 129 insertions(+), 3 deletions(-)
+> >=20
+> > diff --git a/drivers/soc/tegra/pmc.c b/drivers/soc/tegra/pmc.c
+> > index 51b9d852bb6a..6f1ea5b6b9db 100644
+> > --- a/drivers/soc/tegra/pmc.c
+> > +++ b/drivers/soc/tegra/pmc.c
+> > @@ -2892,9 +2892,14 @@ static int tegra_pmc_probe(struct platform_devic=
+e *pdev)
+> >   		if (IS_ERR(pmc->wake))
+> >   			return PTR_ERR(pmc->wake);
+> > -		pmc->aotag =3D devm_platform_ioremap_resource_byname(pdev, "aotag");
+> > -		if (IS_ERR(pmc->aotag))
+> > -			return PTR_ERR(pmc->aotag);
+> > +		res =3D platform_get_resource_byname(pdev, IORESOURCE_MEM, "aotag");
+> > +		if (res) {
+> > +			pmc->aotag =3D devm_ioremap_resource(&pdev->dev, res);
+> > +			if (IS_ERR(pmc->aotag))
+> > +				return PTR_ERR(pmc->aotag);
+> > +		} else {
+> > +			pmc->aotag =3D NULL;
+> > +		}
+>=20
+> This part make aotag optional, if I understand this correctly. This is not
+> mentioned above and probably should be. Also, I believe that currently
+> dt-binding has this as required and so we should update the dt-binding doc
+> to make this optional too.
 
-Guillaume
-Le 05/05/2025 à 15:15, Guillaume La Roque a écrit :
-> Hi,
->
-> Le 05/05/2025 à 14:36, Nishanth Menon a écrit :
->> On 13:24-20250504, Guillaume La Roque wrote:
->>> After patch done on TI_MESSAGE_MANAGER[1] and TI_SCI_PROTOCOL[2] driver
->>> select on ARCH_K3 are not needed anymore.
->>>
->>> Remove it and give possibility to enable this driver in modules.
->>>
->>> [1] https://lore.kernel.org/all/20180828005311.8529-1-nm@ti.com/
->>> [2] 
->>> https://lore.kernel.org/all/20250220-ti-firmware-v2-1-ff26883c6ce9@baylibre.com/
->>>
->>> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
->>> ---
->>>   arch/arm64/Kconfig.platforms | 2 --
->>>   1 file changed, 2 deletions(-)
->>>
->>> diff --git a/arch/arm64/Kconfig.platforms 
->>> b/arch/arm64/Kconfig.platforms
->>> index 8b76821f190f..5b63a42c4dff 100644
->>> --- a/arch/arm64/Kconfig.platforms
->>> +++ b/arch/arm64/Kconfig.platforms
->>> @@ -138,8 +138,6 @@ config ARCH_K3
->>>       select PM_GENERIC_DOMAINS if PM
->>>       select MAILBOX
->>>       select SOC_TI
->>> -    select TI_MESSAGE_MANAGER
->>> -    select TI_SCI_PROTOCOL
->>>       select TI_K3_SOCINFO
->>>       help
->>>         This enables support for Texas Instruments' K3 multicore SoC
->>>
->> While at this, is it possible to remove MAILBOX and PM_GENERIC_DOMAINS
->> from select and make them as modules?
->>
-> good point i will confirm  and come back to you.
+Good catch. I actually noticed earlier, as I was going over the next set
+of patches once more, that there's actually an AOTAG region in the PMC's
+address space, so I'm leaning towards dropping the above hunk and leave
+the DT bindings as they are.
+
+When it comes to these AOTAG registers, it's a bit difficult to tell
+because we don't ever use them after mapping them, even on older Tegra
+generations. Keeping it for now should be fine, and we can subsequently
+drop them (and the driver could always just continue ignoring them) if
+there's a good reason.
+
+Thierry
+
+--wmguxf7cc2ndw7cd
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmgbbwsACgkQ3SOs138+
+s6GdBQ/+PXZtw/PwLe1C1WBwkC4dYdLtKOFbwk1qXEFlf+QhwRhwz1DHrNmutqFS
+Hc11IeCLgNnUdawS7IvX8PJWvw4voRcT6YHKgjyV1hHcGitARgYnVGEJ4nLyXjj0
+ThGzWWDpMhgoivYAuQxyfbAkTCYv8ef96LhdigB7v6xsvTYsWCago/S4miXVxQGd
+8FR6GXgckq1WLGoOh+scMF0TOoXDF3XRtX/A+okCt2+9MDwhhg6dKwaQXOn6fH0P
+eDOdholwnsNdji0oXviRybo8Beiku5YLX4/NBU51l+OZqWBhkb4GQIdEQBTzzTsz
+qLkbr/nsOvyALrS4gtGQQeatGx7Q9709OO2huURY8bk5EyNNfjFvH1YTDjSqdVJQ
+6jkipWcafg2JwlmtmMduR/c1mGVLyypK/9Vb6cFCOGyXHAi8YPtCrygT3jCpD+H+
++WGoBAENxSeqk4BhlEcTwlgqAqMgNJCzEx/3UZMjA9YO7wBxFjymtRwwpmQ7mYKO
+gMamMUL34Geyt08WEzZHuEIME1v4IL7W7t42D4/eBXp29ugxoUKXMJ7uKmzNCdRl
+ZDLc0BmTVujtP40ywIbN1EMwsWwbJXggovmxcEoYJyqBm9zUb9QP35yZba7+AbIj
+Ctno5Cfm3923b7Xsr7x9UwHD1rZy5EV3ksPO9bZrxSuUQDJBxdQ=
+=r/81
+-----END PGP SIGNATURE-----
+
+--wmguxf7cc2ndw7cd--
 
