@@ -4,97 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D92AC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 07:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B3EFC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 07:10:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nwqaFQ8ta774Od/giScBMq+pGLs67O+6YYSzVsHWz8U=; b=o+8wFLQiMTqESPfdI7bTdcjr4P
-	bbljedB/v74+C7+TGSUFLW0RYrBGaY4s6LrtYW+lOn/ZBNp6qRzQnPlRbJDcnQSGMNrIWCPynCHFT
-	aN/S9c4rloMpESzMxQDqehetdeZR6kHhc+YqEr/zfxEsUQ6eqEtFcrknIA6PjXrl9pvme6SN7lZRU
-	tzVifv/+vAcXaCtFgEM/GITlm834W2W57H/0UTmJ603ac4+SCvE/UJi95DJ2tRREb2Tm/jwVar2Fp
-	jOAdbyJHZMqVjWYRwTWzUq9/vPzyJe29dCCmu3a6tQRJUNTggH33vYgD/6ZBAbyjnnEHEwXUVbdyp
-	gvde/Ycw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=68X3+FCi2J+6OEaeRdEK7CsW2FRCz5EFHm+EU2wmFls=; b=fSOS2Q5TD8dvBkgAfbSKHlmnn3
+	a/Lx+OwWhJjPbIcag5HcKfF6Rj3IVYiZMcQ0pjqOfB89D2E1ttlXkoDAOPZWcgsjHQkqGhM435Lvx
+	Qu2g4aWDagJ7TkWE6+et7UBRPjQjtGM9kDX5vvTfG4M0sB0eniM67svOzVcTRLM2SfISDfCwUDLMg
+	dzE5bpd2Cias6hcb2j2Agm023YCM4EpPe5xdTrwsiU9eNN3eHQH6BlKP0Ao11KNUF1HTAfmXaTZ9h
+	GbgWKLxPvMz+yA8OvmT4287V4Q6MPPN776NWH4cNW/GaiIL96YkV0isLGwNHKRRDUHQhuyYJsVGbr
+	UIBjH5Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCYrb-0000000ESig-1B1Q;
-	Wed, 07 May 2025 07:06:43 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1uCYvP-0000000ET80-1HLf;
+	Wed, 07 May 2025 07:10:39 +0000
+Received: from mail-am0eur02on20725.outbound.protection.outlook.com ([2a01:111:f403:2606::725] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCYk7-0000000ERYu-0Dfz
+	id 1uCYli-0000000ERqt-0VGg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 06:59:00 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-30a99e2bdd4so1208465a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 23:58:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746601138; x=1747205938; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=nwqaFQ8ta774Od/giScBMq+pGLs67O+6YYSzVsHWz8U=;
-        b=YnUWgPhyFl/8GVnVmcotpFDhgzzrq4+XUtnqmR4eemtzlDjo8Yk9bx60cyLmV6eeff
-         hcN6YAuZ+4HapCXWdqv1UD+IoucPBqmw/fEJpiJI6RoZ/NZRHuff2utF94HJ8JfikfRm
-         hth7vd1k2ylpj1aJFpsHeSvIz9BLQruhV2FvkmH+GnO/IQn47CmV9D4bYknvEwCBrrCR
-         CwXcSBaesYVXIn5NijCbuHx5P1iOzb1x3JtIcvfXioF4FrAPc1nXf2mbtH/J4kFbJlGr
-         iycwMU9ht9EKsreXaN44RrhjEA4uMCA/G1b7eQicEF9zBg7luxqMko9wFKYcZgosHUvd
-         Bv9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746601138; x=1747205938;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nwqaFQ8ta774Od/giScBMq+pGLs67O+6YYSzVsHWz8U=;
-        b=RQ1LMP+J3lQceeDOP8JibP0zWO9lJkrtssOzXsEU5zWVCER8aaDQ1xNtwojGWdJmHQ
-         B6KhjH6o4o5J7RZAGGw/zdN2IPgyw3Heywy9yRAenMMva+IHHKZy9b81ToQ7xz4kAF6e
-         K5b6DmTTLXv1LaEEoQU+dvkILXLk72k5ym5sWJJyVrP6B7KcsZUMGJqXYiV34NH7bEmQ
-         Tp0PeaTsXzmfmgsq35+UNY4Dgw5SFKvMxk0cU76uwAeL1JJ5Ip925XzAJ7ecPJoFFze2
-         ofsJXSZFciwUa3mUWbeClcB2C/Fb+VRYz2J5OdCESCfhhWnkc6eikqcNAwPlUAVF0kvP
-         6NXw==
-X-Gm-Message-State: AOJu0YwDb0mSehEHzhCVbVnKS/INmxpFrIN9cqkS+raT/e988Oa152m4
-	JMscywp75VJ7amYfSA9FJSB48A3HUNjRCxt1IuuG7paHvcc5GD6Y
-X-Gm-Gg: ASbGncv3TxE7Z2KVD6ldHTAtTBQQ7CBI+pAlyfEejYOYC7oPN0NLulsbqcQyexqcsRZ
-	+fwWMpwm9M/66QEbonZcWdnjF/w1ZeQ7jZnDIjkjsVxZEtbYwClbMvBq1AVJta1/ADnka5vwjSc
-	ZSManSVKTwxE8fn9gJJN0svPKtmoV5glTBJY2ejgT5VNdVLmKx1+1k2blZdsCitbHg24C8PoLnX
-	Fs7vMY+Wvo9KkEfFOozIHQ0iBbCUSe+C8phKl3ekmr3ud8sGft46uVclUYqG+8AW0h093K5He7+
-	QKyUMnwQzPlioZWziakBXY/ye1v0Tv8N9IQEcUfP1x+QzOpst7Rp
-X-Google-Smtp-Source: AGHT+IGaP59zSzmHsRzTedrW0PoLslMePgrQ205Ilt53DZ9ptJ+jiAmMSHZMCXtZEn5exXudS80wEg==
-X-Received: by 2002:a17:90b:4a82:b0:2ef:19d0:2261 with SMTP id 98e67ed59e1d1-30aac1b3322mr3482753a91.16.1746601138036;
-        Tue, 06 May 2025 23:58:58 -0700 (PDT)
-Received: from NB-GIGA003.letovo.school ([5.194.95.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-30aae525db4sm1315529a91.22.2025.05.06.23.58.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 May 2025 23:58:57 -0700 (PDT)
-From: Alexey Charkov <alchark@gmail.com>
-Date: Wed, 07 May 2025 10:58:32 +0400
-Subject: [PATCH v2 3/4] clocksource/drivers/timer-vt8500: Add watchdog
- functionality
+	Wed, 07 May 2025 07:00:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fsAF1stljUMXV+SVuoLNT1NKMNByi4SIb7t0E0Bjy8AKUq3UGColW283Klq6SMVEi0U7VeRib7aq21MOGmpACqVPIu5pNsLZ/GxEjMa/jqZqXUF+BSvHUtAGG5zC65YWtrgDWf7lwcfk8qdXsDrVW0xkmPndn+tEKLqsngIioMYiu6uGejj7tzkqb6rV1uU4y/UbsGQEzAobqvp2vBe/EbmALTwf6GlQjhD0lpQLsMyL+eGmtojzJ2GHNpViK8FWMjinKcPcc7tkeIiN7/w/sBe8yGFbrLkyQJKjH7N4Yf23XWubfKtha9knOFAafLxw+uLo5hd2VaJ+KbnjX8QMOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=68X3+FCi2J+6OEaeRdEK7CsW2FRCz5EFHm+EU2wmFls=;
+ b=eLx/to4VAIRx91jVWQ85rGgkbp2QVEfSeXn/AuLTQbU76SkYLYBWWAkHitAn6OE2P1tXjZDD4V1wVHe7K/ay1wYg54POZ+azG8k4+v/h2lRy/yFEd8KehvxD6X0bez327LEiCo9W5bwv/+k9BfeADvAY8CiMvvVH+WqmS2lYps0W4SMen+yBmb0RAF399pASsOvj9N/78UD/dCaK2WAvCIulNBbl/mbhwGzoehnCqu5fZ/rHV7LcPzjNKEIT6hRhd1jx+rihDwvQnkBCchV41cmoY+p4xV1vmEZMj7fjTs/b5IpYXtp17bIGXKq6CH/tzn86jSOpcttcTVdB/3AiaQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.de; dmarc=fail
+ (p=quarantine sp=quarantine pct=100) action=quarantine header.from=phytec.de;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=68X3+FCi2J+6OEaeRdEK7CsW2FRCz5EFHm+EU2wmFls=;
+ b=u3J7uLllbl5QaL4sulZzNHscyqYVkjD2oGvDFG6CrVkOVoiBfZDpSADr7BdjiYJiR0rX6E2j/w2kMJwLwJ+Mz/wPGKU4xhH2+siYkxov7gx0TqNYU3I/sTP6eo+pj0uzfi05B2KdmMa2gsGADTzR6pvM4mzAglOlblAPuTbhhVDJNq+3K7qk9ebH8ahDxdaQHy+Jukp0Q7aPeOI1kwBGhxKPwRD3yKkG4+rWpzbU8RbQep5m6g8nkG4vFEN//1rmcIQz5QV3dvNzXkQ+tgXyZ5NmxRXRGTGGG518yxFKdYUtCNhSL7A56zpBOCzuHXsKdheDjuL576mQs3dmfEBB3w==
+Received: from DU6P191CA0064.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:53e::24)
+ by AS2P195MB2171.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:5e7::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Wed, 7 May
+ 2025 07:00:27 +0000
+Received: from DB1PEPF000509FE.eurprd03.prod.outlook.com
+ (2603:10a6:10:53e:cafe::a9) by DU6P191CA0064.outlook.office365.com
+ (2603:10a6:10:53e::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.21 via Frontend Transport; Wed,
+ 7 May 2025 07:00:27 +0000
+X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
+ smtp.mailfrom=phytec.de; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ phytec.de discourages use of 91.26.50.189 as permitted sender)
+Received: from Diagnostix.phytec.de (91.26.50.189) by
+ DB1PEPF000509FE.mail.protection.outlook.com (10.167.242.40) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8722.18 via Frontend Transport; Wed, 7 May 2025 07:00:27 +0000
+Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
+ (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Wed, 7 May
+ 2025 09:00:26 +0200
+Received: from ls-radium.phytec (172.25.39.17) by Florix.phytec.de
+ (172.25.0.13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Wed, 7 May
+ 2025 09:00:23 +0200
+From: Daniel Schultz <d.schultz@phytec.de>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+CC: <upstream@lists.phytec.de>, <w.egorov@phytec.de>, Daniel Schultz
+	<d.schultz@phytec.de>, Andrew Davis <afd@ti.com>, Judith Mendez <jm@ti.com>
+Subject: [PATCH v3 1/4] arm64: dts: ti: k3-am62-phycore-som: Enable Co-processors
+Date: Wed, 7 May 2025 00:00:05 -0700
+Message-ID: <20250507070008.1231611-2-d.schultz@phytec.de>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250507070008.1231611-1-d.schultz@phytec.de>
+References: <20250507070008.1231611-1-d.schultz@phytec.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250507-vt8500-timer-updates-v2-3-65e5d1b0855e@gmail.com>
-References: <20250507-vt8500-timer-updates-v2-0-65e5d1b0855e@gmail.com>
-In-Reply-To: <20250507-vt8500-timer-updates-v2-0-65e5d1b0855e@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, Alexey Charkov <alchark@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1746601114; l=5490;
- i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
- bh=M8A28/FCgOo+Deh18WtLaw69mM3yhAAB9vBej8CvPmM=;
- b=DTwPvujc+dzWl1IVbzguAeSoM1aBFWO/ppre0b9GS9cnvyG6K+kcbZYTdwUB/upwnCr7nKc0/
- oFc/Z7V/5n6DkVxk9TTqEF8yGx30u2xWnIfr5K4U5/7iwkB1NgkRYiQ
-X-Developer-Key: i=alchark@gmail.com; a=ed25519;
- pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [172.25.39.17]
+X-ClientProxiedBy: Diagnostix.phytec.de (172.25.0.14) To Florix.phytec.de
+ (172.25.0.13)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB1PEPF000509FE:EE_|AS2P195MB2171:EE_
+X-MS-Office365-Filtering-Correlation-Id: d944031f-b46c-4151-e52a-08dd8d34d8d1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nv8lmvlFVnJmNlrLRuLMqz6b4VOl0mPh8oYjRZpbXKoL+GVdPYAYG/FmbWYk?=
+ =?us-ascii?Q?sCCUWEDUg9PlV23IQZbwJBqKO8yGRHbhchnfQRBJJNbFrv7hl17Xat6W5wSf?=
+ =?us-ascii?Q?CNmSkjOGH1waU/hMYuNio4VlbLQ75BbplQFeqg928i/LbxNwrVrWld/7iAgG?=
+ =?us-ascii?Q?sJsGU05lu4X+W17rK83TFZzIrP2403jiIGKYaqZL71+ZeKloYUDikZkCMs//?=
+ =?us-ascii?Q?sirZoorwcrktCAly9iEOJxh43E6zOBujINewuTMV5PUEsbfYz0ZMHBb55frW?=
+ =?us-ascii?Q?/VINchZNPbpzjSc+5WzOwolVJKsn3+BY6DSOHojI+YQ2c/bR4+A/aUVgnO60?=
+ =?us-ascii?Q?P+BriiypkO7aWcx5Qf5mxGYpBqEfP8Yx6dRrkowPQmHRqoWedRu2XoCrRH+2?=
+ =?us-ascii?Q?IefUyRFnqSwYVoV27M60ZQ+rQyapnkG3AOvkLJav1zEUIF/KtPgsqg4lcwFW?=
+ =?us-ascii?Q?V377K6zJo3jh3Uk6xiNu63N/9fucmKjbAPabg9vceVm+vWYT4X1+HSnQzkOV?=
+ =?us-ascii?Q?qTMf/+nwk7SUWBDIJMF+Oe60+hKd37JaDtcEIBO7UnYDXh+y8up2SCd/R5GW?=
+ =?us-ascii?Q?cY1OYeW5xt7sMzQcbtTq3WHn6+zDgPGwejcIwCFnM6yppxqwiPQAfCstOHfH?=
+ =?us-ascii?Q?XSkCluo2oVm9SF6PXUDV/wmu94LPeSBj7d2fJR8i+pYSsYbEuxFI48Qvr661?=
+ =?us-ascii?Q?zspp42Gu782oukMepRULldOGJIzwu8Huyx1NCurJBF1j/zBC6uEZRkj35EEB?=
+ =?us-ascii?Q?jQXDJG3HLtG4jVGl3RsyfbW5BRt9lQI1ZQrOG6svbombUelWjTPLqd9JSUzJ?=
+ =?us-ascii?Q?K5jbdryFNtwmBH31e6RCa8K+N61ml3C8FqqyMdNh0GoHsHe4S/7D4Ym36o1x?=
+ =?us-ascii?Q?P2bfCIWd5lKToSyA9CiNBrFjRU7lnk+toIDhhjfxwvNXfOSOe16/V/q56LF+?=
+ =?us-ascii?Q?RS0Sp3vCvB+AIycORTd3x4dkz3Bg3xlFBK56rVCKPsvA9hZPFv9L+1XOfJlS?=
+ =?us-ascii?Q?rQSHo6qcDpcjDAUDOrEAvsJfr9a9bgv72zLbZnbLaB4vX9NExGCTDaUKfsVk?=
+ =?us-ascii?Q?fvxS1/0C6tIC7TvyjXUz2Sse84CsMpuegaBdS1LthHZME5asywoweohliEHI?=
+ =?us-ascii?Q?KpZR+363qYVWAdyOt0jLv1kr4MWLsFqxzuq4pY9iEHQoEZRKHaRslYaZvtN4?=
+ =?us-ascii?Q?RH6QpYUMPxJWwTDG62KKgw+ebkjjshlbhsgG+OrP5QZ3awp02Ssc1FpfaRyX?=
+ =?us-ascii?Q?AZ1lSc954VPZMK4gLRQs7eMD6Ypmozv0wFIdiIvLsIroI8LURfz7abPDDIaN?=
+ =?us-ascii?Q?wiKJapHz7eJA4c9t0OIwo4k73eUkm33NqLq782tSUpG08hVxtxNmm12FZP+i?=
+ =?us-ascii?Q?NkOZDBo3z5GIu+ZxtvxXIcWYh3f1LHu9OfZtdB1dz8qcXmZj/DKtDfJzFkmW?=
+ =?us-ascii?Q?PF7fl5p7kzn3Z0Q/l4ye1AuoEvCi8mzmnGZPVCxHhNoQOr2Ho0q+/CpawLWr?=
+ =?us-ascii?Q?0RYJ4RzlqgKT99w1tTjv5Y8dklpn59/Ve4Ty?=
+X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(36860700013)(1800799024);DIR:OUT;SFP:1102;
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2025 07:00:27.1200
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d944031f-b46c-4151-e52a-08dd8d34d8d1
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509FE.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2P195MB2171
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_235859_097486_FEF0D4D8 
-X-CRM114-Status: GOOD (  23.31  )
+X-CRM114-CacheID: sfid-20250507_000038_158580_352B48F6 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,165 +150,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VIA/WonderMedia system timer IP can generate a watchdog reset when its
-clocksource counter matches the value in the match register 0 and
-watchdog function is enabled. For this to work, obvously the clock event
-device must use a different match register (1~3) and respective interrupt.
+For every remote processor, set up dedicated memory regions and
+associate the required mailbox channels. Allocate two memory areas
+per remote core: one 1MB region for vring shared buffers, and
+another for external memory used by the remote processor for its
+resource table and trace buffer.
 
-Check if at least two interrupts are provided by the device tree, then use
-match register 1 for system clock events and match register 0 for watchdog
-respectively.
-
-Signed-off-by: Alexey Charkov <alchark@gmail.com>
+Signed-off-by: Daniel Schultz <d.schultz@phytec.de>
+Reviewed-by: Wadim Egorov <w.egorov@phytec.de>
+Reviewed-by: Andrew Davis <afd@ti.com>
+Reviewed-by: Judith Mendez <jm@ti.com>
 ---
- drivers/clocksource/Kconfig        | 11 +++++++
- drivers/clocksource/timer-vt8500.c | 61 ++++++++++++++++++++++++++++++++++----
- 2 files changed, 67 insertions(+), 5 deletions(-)
+ .../boot/dts/ti/k3-am62-phycore-som.dtsi      | 35 +++++++++++++++----
+ 1 file changed, 29 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-index 487c8525996724fbf9c6e9726dabb478d86513b9..8f5e41ff23386d9ecb46b38603dae485db71cfc7 100644
---- a/drivers/clocksource/Kconfig
-+++ b/drivers/clocksource/Kconfig
-@@ -181,6 +181,17 @@ config VT8500_TIMER
- 	help
- 	  Enables support for the VT8500 driver.
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
+index 55ed418c023b..3075979935d5 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
+@@ -64,6 +64,18 @@ mcu_m4fss_memory_region: m4f-memory@9cc00000 {
+ 			no-map;
+ 		};
  
-+config VT8500_TIMER_WATCHDOG
-+	bool "Enable VT8500 watchdog functionality"
-+	depends on VT8500_TIMER
-+	depends on WATCHDOG && WATCHDOG_CORE=y
-+	help
-+	  VIA/WonderMedia SoCs can use their system timer as a hardware
-+	  watchdog, as long as the first timer channel is free from other
-+	  uses and respective function is enabled in its registers. To
-+	  make use of it, say Y here and ensure that the device tree
-+	  lists at least two interrupts for the VT8500 timer device
++		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9da00000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9da00000 0x00 0x100000>;
++			no-map;
++		};
 +
- config NPCM7XX_TIMER
- 	bool "NPCM7xx timer driver" if COMPILE_TEST
- 	depends on HAS_IOMEM
-diff --git a/drivers/clocksource/timer-vt8500.c b/drivers/clocksource/timer-vt8500.c
-index 9f28f30dcaf83ab4e9c89952175b0d4c75bd6b40..4128c4f19adc2e02b6df2d0aa2dca4659f62fba7 100644
---- a/drivers/clocksource/timer-vt8500.c
-+++ b/drivers/clocksource/timer-vt8500.c
-@@ -22,6 +22,8 @@
- #include <linux/of_address.h>
- #include <linux/of_irq.h>
- 
-+#include <linux/watchdog.h>
++		wkup_r5fss0_core0_memory_region: r5f-memory@9db00000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9db00000 0x00 0xc00000>;
++			no-map;
++		};
 +
- #define VT8500_TIMER_OFFSET	0x0100
- #define VT8500_TIMER_HZ		3000000
+ 		secure_tfa_ddr: tfa@9e780000 {
+ 			reg = <0x00 0x9e780000 0x00 0x80000>;
+ 			alignment = <0x1000>;
+@@ -75,12 +87,6 @@ secure_ddr: optee@9e800000 {
+ 			alignment = <0x1000>;
+ 			no-map;
+ 		};
+-
+-		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9db00000 {
+-			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9db00000 0x00 0x00c00000>;
+-			no-map;
+-		};
+ 	};
  
-@@ -55,6 +57,9 @@
- #define MIN_OSCR_DELTA		16
+ 	vcc_5v0_som: regulator-vcc-5v0-som {
+@@ -240,10 +246,17 @@ cpsw3g_phy1: ethernet-phy@1 {
+ };
  
- static void __iomem *regbase;
-+static unsigned int sys_timer_ch;	 /* which match register to use
-+					  * for the system timer
-+					  */
- 
- static u64 vt8500_timer_read(struct clocksource *cs)
- {
-@@ -81,15 +86,15 @@ static int vt8500_timer_set_next_event(unsigned long cycles,
- 	int loops = msecs_to_loops(10);
- 	u64 alarm = clocksource.read(&clocksource) + cycles;
- 
--	while (readl(regbase + TIMER_ACC_STS_REG) & TIMER_ACC_WR_MATCH(0)
-+	while (readl(regbase + TIMER_ACC_STS_REG) & TIMER_ACC_WR_MATCH(sys_timer_ch)
- 	       && --loops)
- 		cpu_relax();
--	writel((unsigned long)alarm, regbase + TIMER_MATCH_REG(0));
-+	writel((unsigned long)alarm, regbase + TIMER_MATCH_REG(sys_timer_ch));
- 
- 	if ((signed)(alarm - clocksource.read(&clocksource)) <= MIN_OSCR_DELTA)
- 		return -ETIME;
- 
--	writel(TIMER_INT_EN_MATCH(0), regbase + TIMER_INT_EN_REG);
-+	writel(TIMER_INT_EN_MATCH(sys_timer_ch), regbase + TIMER_INT_EN_REG);
- 
- 	return 0;
- }
-@@ -120,6 +125,40 @@ static irqreturn_t vt8500_timer_interrupt(int irq, void *dev_id)
- 	return IRQ_HANDLED;
- }
- 
-+static int vt8500_watchdog_start(struct watchdog_device *wdd)
-+{
-+	u64 cycles = wdd->timeout * VT8500_TIMER_HZ;
-+	u64 deadline = clocksource.read(&clocksource) + cycles;
+ &mailbox0_cluster0 {
++	status = "okay";
 +
-+	writel((u32)deadline, regbase + TIMER_MATCH_REG(0));
-+	writel(TIMER_WD_EN, regbase + TIMER_WATCHDOG_EN_REG);
-+	return 0;
-+}
+ 	mbox_m4_0: mbox-m4-0 {
+ 		ti,mbox-rx = <0 0 0>;
+ 		ti,mbox-tx = <1 0 0>;
+ 	};
 +
-+static int vt8500_watchdog_stop(struct watchdog_device *wdd)
-+{
-+	writel(0, regbase + TIMER_WATCHDOG_EN_REG);
-+	return 0;
-+}
++	mbox_r5_0: mbox-r5-0 {
++		ti,mbox-rx = <2 0 0>;
++		ti,mbox-tx = <3 0 0>;
++	};
+ };
+ 
+ &main_pktdma {
+@@ -386,3 +399,13 @@ &sdhci0 {
+ 	bootph-all;
+ 	status = "okay";
+ };
 +
-+static const struct watchdog_ops vt8500_watchdog_ops = {
-+	.start			= vt8500_watchdog_start,
-+	.stop			= vt8500_watchdog_stop,
++&wkup_r5fss0 {
++	status = "okay";
 +};
 +
-+static const struct watchdog_info vt8500_watchdog_info = {
-+	.identity		= "VIA VT8500 watchdog",
-+	.options		= WDIOF_MAGICCLOSE |
-+				  WDIOF_KEEPALIVEPING |
-+				  WDIOF_SETTIMEOUT,
++&wkup_r5fss0_core0 {
++	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
++	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
++			<&wkup_r5fss0_core0_memory_region>;
 +};
-+
-+static struct watchdog_device vt8500_watchdog_device = {
-+	.ops			= &vt8500_watchdog_ops,
-+	.info			= &vt8500_watchdog_info,
-+	.max_hw_heartbeat_ms	= -1UL / (VT8500_TIMER_HZ / 1000),
-+};
-+
- static int __init vt8500_timer_init(struct device_node *np)
- {
- 	int timer_irq, ret;
-@@ -131,7 +170,9 @@ static int __init vt8500_timer_init(struct device_node *np)
- 		return -ENXIO;
- 	}
- 
--	timer_irq = irq_of_parse_and_map(np, 0);
-+	sys_timer_ch = of_irq_count(np) > 1 ? 1 : 0;
-+
-+	timer_irq = irq_of_parse_and_map(np, sys_timer_ch);
- 	if (!timer_irq) {
- 		pr_err("%s: Missing irq description in Device Tree\n",
- 								__func__);
-@@ -140,7 +181,7 @@ static int __init vt8500_timer_init(struct device_node *np)
- 
- 	writel(TIMER_CTRL_ENABLE, regbase + TIMER_CTRL_REG);
- 	writel(TIMER_STATUS_CLEARALL, regbase + TIMER_STATUS_REG);
--	writel(~0, regbase + TIMER_MATCH_REG(0));
-+	writel(~0, regbase + TIMER_MATCH_REG(sys_timer_ch));
- 
- 	ret = clocksource_register_hz(&clocksource, VT8500_TIMER_HZ);
- 	if (ret) {
-@@ -163,6 +204,16 @@ static int __init vt8500_timer_init(struct device_node *np)
- 	clockevents_config_and_register(&clockevent, VT8500_TIMER_HZ,
- 					MIN_OSCR_DELTA * 2, 0xf0000000);
- 
-+	if (!IS_ENABLED(CONFIG_VT8500_TIMER_WATCHDOG))
-+		return 0;
-+
-+	if (!sys_timer_ch) {
-+		pr_info("%s: Not enabling watchdog: only one irq was given\n",
-+			__func__);
-+	} else {
-+		watchdog_register_device(&vt8500_watchdog_device);
-+	}
-+
- 	return 0;
- }
- 
-
 -- 
-2.49.0
+2.25.1
 
 
