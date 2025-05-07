@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 058D7C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 03:28:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D69E1C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 03:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y5vJizc5brmYQWZglKQyfCEypI/+K7GGslyxSRM5v9w=; b=FYLSvmYh7A+GxXqIFK8wvuVpnz
-	ImFGBnxWa5M1c1yohPqfqW2o+L5y77Ta144j4VzzXRGIhzLOGKc24Ckc2YKtsXhs/rKQ7iPZR59cw
-	LcUZfyUkdHFXkX+xa/tM647dcIqHopFbT5+AD6np1TqY3fRJ0Msq/r/dT9CYC3NlEEj+Qgw2xMpZm
-	tResJ6XxEA84mgDH77miqHZQ0Wp7gnlPEWVYsTUIofOpksImWk+Y4zkZLznU6xWtmfM5St1Xbew9m
-	XVU3aEEHE7eyEsjSkOR/a4VhoToSNKNAqfFmiZF03jEgaAT2VIetbH4ils7Q0QQKeFMN+lriH2tHa
-	kuJ3hR5Q==;
+	bh=ERe9+7kvf0o1lJlXoIfr5udw1hG1nDgtxYWN2WeyNxA=; b=iw4AO6xtTChG7YXYVGzDqATVQd
+	1z6qFnwB9FNOuY+uoRoBOJIuRvTttbCyLNKhWe8yRR9ox8bo7qL14MJwN7alq2O/hpnd3ESabL9ra
+	q4O5a6KloY0rFeQAZYNK3ki9JwUEe3iYPNsMpw9oZU3XLT3aqhkZCTePuzXxXB4hyOpZzDh4Gi16O
+	pHzTxASjib+7p9UZRzbIAmUHwmeylucCtr9CQHuAZ3nuyaq479hHXahklPMedGuk6FFyeyRbCycWU
+	MCfdI0Nkby4CKeH1AJ4KS1UuYBnXSqnua4qILD4kpdLAUpOMfESKP6qL0ZWGBd41yoovjzGo+gq34
+	Pdz+S2Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCVSK-0000000E4Zk-1EeJ;
-	Wed, 07 May 2025 03:28:24 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1uCVj7-0000000E6hR-2pWC;
+	Wed, 07 May 2025 03:45:45 +0000
+Received: from golan.tkos.co.il ([84.110.109.230] helo=mail.tkos.co.il)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCVQH-0000000E4Ra-1YCW
+	id 1uCVh7-0000000E5yl-1Co9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 03:26:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1746588375;
-	bh=Y5vJizc5brmYQWZglKQyfCEypI/+K7GGslyxSRM5v9w=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=S0WQfe7apXJG8hwyq3uESs+ijRgSJZYkei7bb1ps7R4osyWkuQdCzmr8t5D3WtmrT
-	 VAdu1RiHr0RnoztCCC8hd75R9bWqzol3Ecy35lG4sgdcDKsTVdDEjvtes/Y8RCSKJS
-	 0/8aIBAG0HpSvDe16wPBAoiba1+DxtEM5T4S1Qq1NvCnbxMySlW69zW7fWRi5k8eeF
-	 kHqo7V9SJwXxCBBa76OpGfJ4OOg/8UW25Oi/AbxL1yFATohbX35A0K2mOvIuKrY7Y5
-	 ZZBy8VrB24c+mI0DGa0IMDxOIDiw4ujugExef8LWo9jXzSQ0mYWVE2clnhyvX/jw80
-	 6RpI8ESTMLo4Q==
-Received: from [192.168.68.112] (unknown [180.150.112.225])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 9952764473;
-	Wed,  7 May 2025 11:26:14 +0800 (AWST)
-Message-ID: <34dcdbd4fb15a988f15e812faa566b32506a2f2f.camel@codeconstruct.com.au>
-Subject: Re: [PATCH] dt-bindings: interrupt-controller: Convert
- aspeed,ast2xxx-scu-ic to DT schema
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: "Rob Herring (Arm)" <robh@kernel.org>, Eddie James
- <eajames@linux.ibm.com>,  Thomas Gleixner <tglx@linutronix.de>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,  Joel
- Stanley <joel@jms.id.au>, Lee Jones <lee@kernel.org>
-Cc: Andrew Jeffery <andrew@aj.id.au>, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Date: Wed, 07 May 2025 12:56:14 +0930
-In-Reply-To: <20250505144613.1287360-1-robh@kernel.org>
-References: <20250505144613.1287360-1-robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
-User-Agent: Evolution 3.46.4-2 
+	Wed, 07 May 2025 03:43:43 +0000
+Received: from localhost (unknown [10.0.8.2])
+	by mail.tkos.co.il (Postfix) with ESMTP id 0599A440758;
+	Wed,  7 May 2025 06:43:23 +0300 (IDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tkos.co.il;
+	s=default; t=1746589403;
+	bh=Aed/X3ndFGxW3Cv/Mmx0GvVxagOhwtAd9qDxrnSW1W4=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=JA9vqH9dNiRJAb04g3xMN2FZ5MlRAPpYW6VFuRa1wUgBJsIkmEXj0eLdnPxVBKmOD
+	 rVHf0doxKFbF5OWm6tEOkwE8/ey9MbR0WSTG2+OGwG+CrImazH4hP04lIl/qqJcDaR
+	 DiU3EhDlo/7ffReeP8FQ+8Uq1jds6Pidv3tBZcQr5RkqinKG67BZC8Wn/zjNpmHN1U
+	 OiqPtp4Os8IB1GYbDnsciGtCfv8tvKzoGV1OWr216MDbExxKfi5qesQrUnZ/cZyJ98
+	 4L8d+ikEwi3aWxGmA20iJBPKVRddYoJ7XYHeIRri9Iz2mfKbnR/Jn5vGYNKw5q+Ewe
+	 8vcHZUlVfoy4Q==
+From: Baruch Siach <baruch@tkos.co.il>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Jiri Slaby
+ <jirislaby@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor
+ Dooley <conor+dt@kernel.org>,  linux-kernel@vger.kernel.org,
+  linux-serial@vger.kernel.org,  devicetree@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] dt-bindings: serial: Convert cnxt,cx92755-usart to DT
+ schema
+In-Reply-To: <20250506220025.2545995-1-robh@kernel.org> (Rob Herring's message
+	of "Tue, 6 May 2025 17:00:24 -0500")
+References: <20250506220025.2545995-1-robh@kernel.org>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Wed, 07 May 2025 06:43:30 +0300
+Message-ID: <878qn9ytjx.fsf@tarshish>
 MIME-Version: 1.0
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_202617_627620_3F92D7F5 
-X-CRM114-Status: GOOD (  18.98  )
+X-CRM114-CacheID: sfid-20250506_204342_033774_D28AF61C 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,92 +74,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgUm9iLAoKVGhhbmtzIGZvciB0aGUgY29udmVyc2lvbi4gT25lIGNvbW1lbnQgYmVsb3c6CgpP
-biBNb24sIDIwMjUtMDUtMDUgYXQgMDk6NDYgLTA1MDAsIFJvYiBIZXJyaW5nIChBcm0pIHdyb3Rl
-Ogo+IENvbnZlcnQgdGhlIEFzcGVlZCBTQ1UgaW50ZXJydXB0IGNvbnRyb2xsZXIgYmluZGluZyB0
-byBzY2hlbWEgZm9ybWF0Lgo+IEl0J3MgYSBzdHJhaWdodC1mb3J3YXJkIGNvbnZlcnNpb24gb2Yg
-dGhlIHR5cGljYWwgaW50ZXJydXB0Cj4gY29udHJvbGxlci4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBS
-b2IgSGVycmluZyAoQXJtKSA8cm9iaEBrZXJuZWwub3JnPgo+IC0tLQo+IMKgLi4uL2FzcGVlZCxh
-c3QyNTAwLXNjdS1pYy55YW1swqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwgNDgKPiAr
-KysrKysrKysrKysrKysrKysrCj4gwqAuLi4vYXNwZWVkLGFzdDJ4eHgtc2N1LWljLnR4dMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwgMjMgLS0tLS0tLS0tCj4gwqAuLi4vYmluZGlu
-Z3MvbWZkL2FzcGVlZCxhc3QyeDAwLXNjdS55YW1swqDCoMKgwqDCoCB8wqAgOSArKystCj4gwqBN
-QUlOVEFJTkVSU8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoCAyICstCj4gwqA0IGZpbGVzIGNoYW5nZWQsIDU3IGlu
-c2VydGlvbnMoKyksIDI1IGRlbGV0aW9ucygtKQo+IMKgY3JlYXRlIG1vZGUgMTAwNjQ0IERvY3Vt
-ZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9pbnRlcnJ1cHQtCj4gY29udHJvbGxlci9hc3Bl
-ZWQsYXN0MjUwMC1zY3UtaWMueWFtbAo+IMKgZGVsZXRlIG1vZGUgMTAwNjQ0IERvY3VtZW50YXRp
-b24vZGV2aWNldHJlZS9iaW5kaW5ncy9pbnRlcnJ1cHQtCj4gY29udHJvbGxlci9hc3BlZWQsYXN0
-Mnh4eC1zY3UtaWMudHh0Cj4gCj4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJl
-ZS9iaW5kaW5ncy9pbnRlcnJ1cHQtCj4gY29udHJvbGxlci9hc3BlZWQsYXN0MjUwMC1zY3UtaWMu
-eWFtbAo+IGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2ludGVycnVwdC0KPiBj
-b250cm9sbGVyL2FzcGVlZCxhc3QyNTAwLXNjdS1pYy55YW1sCj4gbmV3IGZpbGUgbW9kZSAxMDA2
-NDQKPiBpbmRleCAwMDAwMDAwMDAwMDAuLmQ1Mjg3YTJiZjg2Ngo+IC0tLSAvZGV2L251bGwKPiAr
-KysgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvaW50ZXJydXB0LQo+IGNvbnRy
-b2xsZXIvYXNwZWVkLGFzdDI1MDAtc2N1LWljLnlhbWwKPiBAQCAtMCwwICsxLDQ4IEBACj4gKyMg
-U1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IChHUEwtMi4wLW9ubHkgT1IgQlNELTItQ2xhdXNlKQo+
-ICsjIENvcHlyaWdodCAyMDI1IEVkZGllIEphbWVzCj4gKyVZQU1MIDEuMgo+ICstLS0KPiArJGlk
-Ogo+IGh0dHA6Ly9kZXZpY2V0cmVlLm9yZy9zY2hlbWFzL2ludGVycnVwdC1jb250cm9sbGVyL2Fz
-cGVlZCxhc3QyNTAwLXNjdS1pYy55YW1sIwo+ICskc2NoZW1hOiBodHRwOi8vZGV2aWNldHJlZS5v
-cmcvbWV0YS1zY2hlbWFzL2NvcmUueWFtbCMKPiArCj4gK3RpdGxlOiBBc3BlZWQgQVNUMjVYWCBh
-bmQgQVNUMjZYWCBTQ1UgSW50ZXJydXB0IENvbnRyb2xsZXIKPiArCj4gK21haW50YWluZXJzOgo+
-ICvCoCAtIEVkZGllIEphbWVzIDxlYWphbWVzQGxpbnV4LmlibS5jb20+Cj4gKwo+ICtwcm9wZXJ0
-aWVzOgo+ICvCoCBjb21wYXRpYmxlOgo+ICvCoMKgwqAgZW51bToKPiArwqDCoMKgwqDCoCAtIGFz
-cGVlZCxhc3QyNTAwLXNjdS1pYwo+ICvCoMKgwqDCoMKgIC0gYXNwZWVkLGFzdDI2MDAtc2N1LWlj
-MAo+ICvCoMKgwqDCoMKgIC0gYXNwZWVkLGFzdDI2MDAtc2N1LWljMQo+ICsKPiArwqAgcmVnOgo+
-ICvCoMKgwqAgbWF4SXRlbXM6IDEKPiArCj4gK8KgICcjaW50ZXJydXB0LWNlbGxzJzoKPiArwqDC
-oMKgIGNvbnN0OiAxCj4gKwo+ICvCoCBpbnRlcnJ1cHRzOgo+ICvCoMKgwqAgbWF4SXRlbXM6IDEK
-PiArCj4gK8KgIGludGVycnVwdC1jb250cm9sbGVyOiB0cnVlCj4gKwo+ICtyZXF1aXJlZDoKPiAr
-wqAgLSBjb21wYXRpYmxlCj4gK8KgIC0gcmVnCj4gK8KgIC0gJyNpbnRlcnJ1cHQtY2VsbHMnCj4g
-K8KgIC0gaW50ZXJydXB0cwo+ICvCoCAtIGludGVycnVwdC1jb250cm9sbGVyCj4gKwo+ICthZGRp
-dGlvbmFsUHJvcGVydGllczogZmFsc2UKPiArCj4gK2V4YW1wbGVzOgo+ICvCoCAtIHwKPiArwqDC
-oMKgIGludGVycnVwdC1jb250cm9sbGVyQDE4IHsKPiArwqDCoMKgwqDCoMKgwqAgY29tcGF0aWJs
-ZSA9ICJhc3BlZWQsYXN0MjUwMC1zY3UtaWMiOwo+ICvCoMKgwqDCoMKgwqDCoCByZWcgPSA8MHgx
-OCAweDQ+Owo+ICvCoMKgwqDCoMKgwqDCoCAjaW50ZXJydXB0LWNlbGxzID0gPDE+Owo+ICvCoMKg
-wqDCoMKgwqDCoCBpbnRlcnJ1cHRzID0gPDIxPjsKPiArwqDCoMKgwqDCoMKgwqAgaW50ZXJydXB0
-LWNvbnRyb2xsZXI7Cj4gK8KgwqDCoCB9Owo+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL2Rl
-dmljZXRyZWUvYmluZGluZ3MvaW50ZXJydXB0LQo+IGNvbnRyb2xsZXIvYXNwZWVkLGFzdDJ4eHgt
-c2N1LWljLnR4dAo+IGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2ludGVycnVw
-dC0KPiBjb250cm9sbGVyL2FzcGVlZCxhc3QyeHh4LXNjdS1pYy50eHQKPiBkZWxldGVkIGZpbGUg
-bW9kZSAxMDA2NDQKPiBpbmRleCAyNTFlZDQ0MTcxZGIuLjAwMDAwMDAwMDAwMAo+IC0tLSBhL0Rv
-Y3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9pbnRlcnJ1cHQtCj4gY29udHJvbGxlci9h
-c3BlZWQsYXN0Mnh4eC1zY3UtaWMudHh0Cj4gKysrIC9kZXYvbnVsbAo+IEBAIC0xLDIzICswLDAg
-QEAKPiAtQXNwZWVkIEFTVDI1WFggYW5kIEFTVDI2WFggU0NVIEludGVycnVwdCBDb250cm9sbGVy
-Cj4gLQo+IC1SZXF1aXJlZCBQcm9wZXJ0aWVzOgo+IC0gLSAjaW50ZXJydXB0LWNlbGxzwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgOiBtdXN0IGJlIDEKPiAtIC0gY29tcGF0aWJsZcKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoDogbXVzdCBiZSAiYXNwZWVkLGFzdDI1MDAtc2N1LWlj
-IiwKPiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoCAiYXNwZWVkLGFzdDI2MDAtc2N1LWljMCIgb3IKPiAtwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAiYXNw
-ZWVkLGFzdDI2MDAtc2N1LWljMSIKPiAtIC0gaW50ZXJydXB0c8KgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoDogaW50ZXJydXB0IGZyb20gdGhlIHBhcmVudAo+IGNvbnRyb2xsZXIK
-PiAtIC0gaW50ZXJydXB0LWNvbnRyb2xsZXLCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oDogaW5kaWNhdGVzIHRoYXQgdGhlCj4gY29udHJvbGxlciByZWNlaXZlcyBhbmQKPiAtwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oCBmaXJlcyBuZXcgaW50ZXJydXB0cyBmb3IgY2hpbGQKPiBidXNzZXMKPiAtCj4gLUV4YW1wbGU6
-Cj4gLQo+IC3CoMKgwqAgc3lzY29uQDFlNmUyMDAwIHsKPiAtwqDCoMKgwqDCoMKgwqAgcmFuZ2Vz
-ID0gPDAgMHgxZTZlMjAwMCAweDFhOD47Cj4gLQo+IC3CoMKgwqDCoMKgwqDCoCBzY3VfaWM6IGlu
-dGVycnVwdC1jb250cm9sbGVyQDE4IHsKPiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAjaW50ZXJy
-dXB0LWNlbGxzID0gPDE+Owo+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGNvbXBhdGlibGUgPSAi
-YXNwZWVkLGFzdDI1MDAtc2N1LWljIjsKPiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBpbnRlcnJ1
-cHRzID0gPDIxPjsKPiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBpbnRlcnJ1cHQtY29udHJvbGxl
-cjsKPiAtwqDCoMKgwqDCoMKgwqAgfTsKPiAtwqDCoMKgIH07Cj4gZGlmZiAtLWdpdCBhL0RvY3Vt
-ZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9tZmQvYXNwZWVkLGFzdDJ4MDAtCj4gc2N1Lnlh
-bWwgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvbWZkL2FzcGVlZCxhc3QyeDAw
-LQo+IHNjdS55YW1sCj4gaW5kZXggYzgwMGQ1ZTUzYjY1Li4xMjk4NmViZTdlYzcgMTAwNjQ0Cj4g
-LS0tIGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL21mZC9hc3BlZWQsYXN0Mngw
-MC1zY3UueWFtbAo+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9tZmQv
-YXNwZWVkLGFzdDJ4MDAtc2N1LnlhbWwKPiBAQCAtNDgsOCArNDgsMTUgQEAgcHJvcGVydGllczoK
-PiDCoAo+IMKgcGF0dGVyblByb3BlcnRpZXM6Cj4gwqDCoCAnXnAyYS1jb250cm9sQFswLTlhLWZd
-KyQnOgo+IC3CoMKgwqAgZGVzY3JpcHRpb246IFNlZSBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUv
-YmluZGluZ3MvbWlzYy9hc3BlZWQtCj4gcDJhLWN0cmwudHh0Cj4gwqDCoMKgwqAgdHlwZTogb2Jq
-ZWN0Cj4gK8KgwqDCoCBhZGRpdGlvbmFsUHJvcGVydGllczogdHJ1ZQo+ICvCoMKgwqAgcHJvcGVy
-dGllczoKPiArwqDCoMKgwqDCoCBjb21wYXRpYmxlOgo+ICvCoMKgwqDCoMKgwqDCoCBjb250YWlu
-czoKPiArwqDCoMKgwqDCoMKgwqDCoMKgIGVudW06Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
-LSBhc3BlZWQsYXN0MjUwMC1zY3UtaWMKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIGFzcGVl
-ZCxhc3QyNjAwLXNjdS1pYzAKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIGFzcGVlZCxhc3Qy
-NjAwLXNjdS1pYzEKClRoaXMgY2hhbmdlIHNob3VsZCBiZSBkb25lIG9uIHRoZSBpbnRlcnJ1cHQt
-Y29udHJvbGxlciBwYXR0ZXJuIHByb3BlcnR5Cm5vZGUgcmF0aGVyIHRoYW4gdGhlIHAyYS1jb250
-cm9sbGVyIG5vZGUuCgpBbmRyZXcK
+Hi Rob,
 
+On Tue, May 06 2025, Rob Herring (Arm) wrote:
+
+> Convert the Conexant Digicolor USART binding to DT schema. It is a
+> straight-forward conversion.
+>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+
+Acked-by: Baruch Siach <baruch@tkos.co.il>
+
+Thanks,
+baruch
+
+> ---
+>  .../bindings/serial/cnxt,cx92755-usart.yaml   | 48 +++++++++++++++++++
+>  .../bindings/serial/digicolor-usart.txt       | 27 -----------
+>  2 files changed, 48 insertions(+), 27 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/serial/cnxt,cx92755-usart.yaml
+>  delete mode 100644 Documentation/devicetree/bindings/serial/digicolor-usart.txt
+>
+> diff --git a/Documentation/devicetree/bindings/serial/cnxt,cx92755-usart.yaml
+> b/Documentation/devicetree/bindings/serial/cnxt,cx92755-usart.yaml
+> new file mode 100644
+> index 000000000000..720229455330
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/serial/cnxt,cx92755-usart.yaml
+> @@ -0,0 +1,48 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/serial/cnxt,cx92755-usart.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Conexant Digicolor USART
+> +
+> +maintainers:
+> +  - Baruch Siach <baruch@tkos.co.il>
+> +
+> +description: >
+> +  Note: this binding is only applicable for using the USART peripheral as UART.
+> +  USART also support synchronous serial protocols like SPI and I2S.
+> +  Use the binding that matches the wiring of your system.
+> +
+> +allOf:
+> +  - $ref: /schemas/serial/serial.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: cnxt,cx92755-usart
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - interrupts
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    serial@f0000740 {
+> +        compatible = "cnxt,cx92755-usart";
+> +        reg = <0xf0000740 0x20>;
+> +        clocks = <&main_clk>;
+> +        interrupts = <44>;
+> +    };
+> diff --git a/Documentation/devicetree/bindings/serial/digicolor-usart.txt
+> b/Documentation/devicetree/bindings/serial/digicolor-usart.txt
+> deleted file mode 100644
+> index 2d3ede66889d..000000000000
+> --- a/Documentation/devicetree/bindings/serial/digicolor-usart.txt
+> +++ /dev/null
+> @@ -1,27 +0,0 @@
+> -Binding for Conexant Digicolor USART
+> -
+> -Note: this binding is only applicable for using the USART peripheral as
+> -UART. USART also support synchronous serial protocols like SPI and I2S. Use
+> -the binding that matches the wiring of your system.
+> -
+> -Required properties:
+> -- compatible : should be "cnxt,cx92755-usart".
+> -- reg: Should contain USART controller registers location and length.
+> -- interrupts: Should contain a single USART controller interrupt.
+> -- clocks: Must contain phandles to the USART clock
+> -  See ../clocks/clock-bindings.txt for details.
+> -
+> -Note: Each UART port should have an alias correctly numbered
+> -in "aliases" node.
+> -
+> -Example:
+> -	aliases {
+> -		serial0 = &uart0;
+> -	};
+> -
+> -	uart0: uart@f0000740 {
+> -		compatible = "cnxt,cx92755-usart";
+> -		reg = <0xf0000740 0x20>;
+> -		clocks = <&main_clk>;
+> -		interrupts = <44>;
+> -	};
+
+-- 
+                                                     ~. .~   Tk Open Systems
+=}------------------------------------------------ooO--U--Ooo------------{=
+   - baruch@tkos.co.il - tel: +972.52.368.4656, http://www.tkos.co.il -
 
