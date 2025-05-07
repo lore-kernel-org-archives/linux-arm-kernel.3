@@ -4,55 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 104F0C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 17:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90EEBC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 17:49:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cPv92qeDl4pk0EvtRAZ++xM5PSWUiHohLMDTH/RlBDs=; b=UEAHpgCAoUtY+oC0cpoaG4XyXQ
-	ROr0uFMKBtJnT6hudurwHkhQ399csnCs5smVELXVyNaih2q8jwTaXz3Jo36NTNsj8i/nBluC6v7/C
-	tldQkBxEvqTlGstY2oGywh2RUJ5sT/bEDJNsRlVRhCHEJGtWmuM6HHpDJXOfBLBEI+XgIF2EP3jgO
-	Cg40ofR9PR5SV9XMHigX2V4S0Si4jXiaAnyJ7wKHL1EFTVKmuG5jxHITwTzxZXf2vIKetyWyP1Jz/
-	9jsGy/B1J5qOvokqFSFSYlHO7NBnQ9RAbQCyBlRoLfl+rL8F5urrr8TOku3Ut89S9cY61zotG9XKh
-	jwLoKltw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MLb9zDlg/d9s4myJ0Qsd41nhgKKz3nxmkZB9+vRO0RY=; b=GT3whJxxVUfwSJ
+	OcOZcOh3wOksSThdYddlCrGuzEzDNkkrp/Eyt1bmQ1AjtllsG+9/hyVq2YAbiJp/iJbuTrmfKreor
+	Amcxc+5j0qh48hVGW0Q8sg5tIYeIFCSPQv7eg5vjrWUJH9jlGHkGYnXOg97q52L0nYozIzWAGH84T
+	9yG8SB/CeK6s8lWTTUuROv3cKgl3WzN7QAsIBrjakEMln1Tt1/M2VpkPLo4luQOYgTYgiqvQeVeGk
+	X8AoxQAp4S3SEebchAXumbMBJxB7DpmX14VmKKHVdxN45YniYJ3+E8M2FwwxDQ8FO9yiMR1lNT8Ai
+	S4jP9/7Q9aOAw1k4PRGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCis2-0000000GOF3-2h9S;
-	Wed, 07 May 2025 17:47:50 +0000
+	id 1uCity-0000000GOa6-1nfX;
+	Wed, 07 May 2025 17:49:50 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCiZ6-0000000GLCa-430s
+	id 1uCiZ6-0000000GLCU-44ki
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 07 May 2025 17:28:18 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1uCiYz-0001Ez-DN; Wed, 07 May 2025 19:28:09 +0200
+	id 1uCiYz-0001Ex-DO; Wed, 07 May 2025 19:28:09 +0200
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1uCiYy-001axU-1y;
+	id 1uCiYy-001axS-1u;
 	Wed, 07 May 2025 19:28:08 +0200
 Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
 	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1uCiYz-000ING-01;
+	id 1uCiYy-000ING-3D;
 	Wed, 07 May 2025 19:28:08 +0200
 From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Wed, 07 May 2025 19:28:02 +0200
-Subject: [PATCH 2/2] pinctrl: at91: add FIXME about read back of struct
+Subject: [PATCH 0/2] gpio: TODO: add item about GPIO drivers reading struct
  gpio_chip::base
+Date: Wed, 07 May 2025 19:28:00 +0200
+Message-Id: <20250507-gpio-chip-base-readback-v1-0-ade56e38480b@pengutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250507-gpio-chip-base-readback-v1-2-ade56e38480b@pengutronix.de>
-References: <20250507-gpio-chip-base-readback-v1-0-ade56e38480b@pengutronix.de>
-In-Reply-To: <20250507-gpio-chip-base-readback-v1-0-ade56e38480b@pengutronix.de>
+X-B4-Tracking: v=1; b=H4sIACCYG2gC/x3MQQqAIBBA0avErBuwIrKuEi10nHIIVBQiiO6et
+ HyL/x8onIULLM0DmS8pEkNF1zZA3oSDUVw19Kof1agmPJJEJC8JrSmMmY2zhk6kyWm22g7kZqh
+ 1yrzL/Z/X7X0/GKFvzmkAAAA=
+X-Change-ID: 20250507-gpio-chip-base-readback-c7d8eb8b3cd9
 To: Linus Walleij <linus.walleij@linaro.org>, 
  Bartosz Golaszewski <brgl@bgdev.pl>
 Cc: Nicolas Ferre <nicolas.ferre@microchip.com>, 
@@ -61,6 +63,7 @@ Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
  Ludovic Desroches <ludovic.desroches@microchip.com>, 
  linux-gpio@vger.kernel.org, kernel@pengutronix.de, 
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
  Ahmad Fatoum <a.fatoum@pengutronix.de>
 X-Mailer: b4 0.14.2
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
@@ -68,8 +71,9 @@ X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_102817_017203_73E4B21F 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20250507_102817_021494_7389EDF5 
+X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,44 +88,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-drivers/gpio/gpiolib.c has this:
+Bartosz requested that I add this to the TODO, so here goes.
+While at it, I also added a FIXME into the driver.
 
-  /*
-   * TODO: it should not be necessary to reflect the
-   * assigned base outside of the GPIO subsystem. Go over
-   * drivers and see if anyone makes use of this, else
-   * drop this and assign a poison instead.
-   */
-  gc->base = base;
+I'll be away most of the month, so feel free to squash changes as
+appropriate.
 
-This would break the driver, because it assumes gpio_chip::base to be
-the same static base that was written into it.
-
-Point that out in a comment, until it's fixed.
-
-Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 ---
+Ahmad Fatoum (2):
+      gpio: TODO: add item about GPIO drivers reading struct gpio_chip::base
+      pinctrl: at91: add FIXME about read back of struct gpio_chip::base
+
+ drivers/gpio/TODO              | 7 +++++++
  drivers/pinctrl/pinctrl-at91.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ 2 files changed, 12 insertions(+)
+---
+base-commit: 92a09c47464d040866cf2b4cd052bc60555185fb
+change-id: 20250507-gpio-chip-base-readback-c7d8eb8b3cd9
 
-diff --git a/drivers/pinctrl/pinctrl-at91.c b/drivers/pinctrl/pinctrl-at91.c
-index 93ab277d9943cff3a0b771f3e997594cb144826c..b0e00f3793312de2288aa1b900793d9e2b6125d6 100644
---- a/drivers/pinctrl/pinctrl-at91.c
-+++ b/drivers/pinctrl/pinctrl-at91.c
-@@ -949,6 +949,11 @@ static int at91_gpio_request_enable(struct pinctrl_dev *pctldev,
- 
- 	dev_dbg(npct->dev, "enable pin %u as GPIO\n", offset);
- 
-+	/*
-+	 * The GPIO chip base is an internal detail that will
-+	 * eventually go away alongside sysfs and the global numberspace.
-+	 * FIXME: stop reading it back here
-+	 */
- 	mask = 1 << (offset - chip->base);
- 
- 	dev_dbg(npct->dev, "enable pin %u as PIO%c%d 0x%x\n",
-
+Best regards,
 -- 
-2.39.5
+Ahmad Fatoum <a.fatoum@pengutronix.de>
 
 
