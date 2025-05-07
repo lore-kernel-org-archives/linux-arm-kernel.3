@@ -4,52 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7637EC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 21:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6809EC3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 22:01:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Zz32pLphoICTAifU2IjJX+E5D978EftjHmPnlHqJxQ=; b=2Atw2nCDc02zRgQzZewQfJcIHB
-	IJ87UrGjbiq20kIO94S44ptMlkTtb6QBYkbXdmaRY6DlVTK0ZwewTkFKjTZj/CDKwx9Yz24MuQ7SM
-	94dXpiBVwV10pkSsSul9+F1bFENm0/MBrUyd7lee3BkUQtIyaa/29X8lBzTxMeTsHER3m7BRmPGZk
-	TFT4rHuYc4vj9nN6yCNdQXfvCRJJ9hheI6/JdhkflX33lLO/EANgGzNY4EoKZF57g7NVkzDwQDuJv
-	2MIoSLLk/cqqn6TgKjdEvE59NdjKgVLdlGQ0HkwjQtusGgmQ5b+owIJdoCBELyir+NLMmnxtA9v4C
-	5TVpoNDw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=q/yKUykqMXCZwQzi+gFRB5wtVJeuGF5yZJuP2Mj4Bzs=; b=y2LHRY/O4cPxpLyITU3F2BBcyh
+	eEVIgEltVLBDyepeHvhqEMMrUW4LriltEfOQk1Srq5VkoY47P/dO/fMjEvKgPnTIhZLSrpxIfPJ97
+	R4I2DSJT4BHXIgpyHOpk49+umzk5MK8Jz8jbMcBXjk3Jzl9bvGUd+ZFxkMkQai4FwLRDtq6ruYPc8
+	ouCbxKy/+jHA9BkzgNGHfwBer8WkTIyUiXNvq2NOuVK+Y2oBJQmDqVso9QJ26UVyCAMH1xrQQDDMs
+	9/4JNr5sbYhNrT+hhBY/jhATrhwHm5GoIN9dPGJLWfCHbjrflq7ZxEPpLXe9dlCkz3Dyi7srjF0DW
+	sus2yQ/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCmGf-0000000GnI3-3Fax;
-	Wed, 07 May 2025 21:25:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uCmpD-0000000GqJq-1Zrb;
+	Wed, 07 May 2025 22:01:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCmEh-0000000Gn1A-2IRh
+	id 1uCmnG-0000000Gq0Q-3m0P
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 21:23:28 +0000
+	Wed, 07 May 2025 21:59:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2AEDA44146;
-	Wed,  7 May 2025 21:23:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21C9EC4CEE2;
-	Wed,  7 May 2025 21:23:26 +0000 (UTC)
-Date: Wed, 7 May 2025 17:23:36 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Nam Cao <namcao@linutronix.de>, Gabriele Monaco <gmonaco@redhat.com>,
- linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
- john.ogness@linutronix.de, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 17/22] arm64: mm: Add page fault trace points
-Message-ID: <20250507172336.081a41eb@gandalf.local.home>
-In-Reply-To: <554038c996662282df8a9d0482ef06f8d44fccc5.1745999587.git.namcao@linutronix.de>
-References: <cover.1745999587.git.namcao@linutronix.de>
-	<554038c996662282df8a9d0482ef06f8d44fccc5.1745999587.git.namcao@linutronix.de>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	by tor.source.kernel.org (Postfix) with ESMTP id EE63D629E5;
+	Wed,  7 May 2025 21:59:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63634C4CEE2;
+	Wed,  7 May 2025 21:59:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746655149;
+	bh=9858hxWVasl9qYR0rBtvA66gC6j5dx4PpfDs0u1OvTo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ReoGpdNaV5J7M/aCOifp9gSt3dnm3MrMaoL4K91pjhOLRSU/MSTjKzXEJEOZPUrMB
+	 bEO7tYLv6aGRy1OLdB4B8dNIpZ3uizXyjpt/73Tk18bZZqH6WnWlRKdsKI38H477uL
+	 Xx3ufl0khAamWDDgwChmGJRugic2nWxDh3F8Wkmm9FqPufQN3cRAlenH+pW+KU1Ni8
+	 8MSyuqbtgLY3wp8u9SFXFfQsdljbkJz7oh1DjJZGNn4TiimV8Qc1Ta9UxKJfQYsfL7
+	 2vEb9nE4rNOUWQ9t1MBp8GklCqynV4pp0p5rtXaOSgEYF0+5twoNP/dgHTgJKDpUTg
+	 OjPdicqxlYkvw==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dt-bindings: soc: fsl,ls1028a-reset: Drop extra "/" in $id
+Date: Wed,  7 May 2025 16:59:02 -0500
+Message-ID: <20250507215903.2748698-1-robh@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_142327_608721_2D7A653B 
-X-CRM114-Status: GOOD (  18.32  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,54 +70,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The $id value has a double "//". Drop it.
 
-Can I get an Acked-by from the ARM64 maintainers?
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../devicetree/bindings/soc/fsl/fsl,ls1028a-reset.yaml          | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Thanks,
-
--- Steve
-
-
-On Wed, 30 Apr 2025 13:02:32 +0200
-Nam Cao <namcao@linutronix.de> wrote:
-
-> Add page fault trace points, which are useful to implement RV monitor which
-> watches page faults.
-> 
-> Signed-off-by: Nam Cao <namcao@linutronix.de>
-> ---
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
->  arch/arm64/mm/fault.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index ef63651099a9..e3f096b0dffd 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -44,6 +44,9 @@
->  #include <asm/tlbflush.h>
->  #include <asm/traps.h>
->  
-> +#define CREATE_TRACE_POINTS
-> +#include <trace/events/exceptions.h>
-> +
->  struct fault_info {
->  	int	(*fn)(unsigned long far, unsigned long esr,
->  		      struct pt_regs *regs);
-> @@ -559,6 +562,11 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
->  	if (kprobe_page_fault(regs, esr))
->  		return 0;
->  
-> +	if (user_mode(regs))
-> +		trace_page_fault_user(addr, regs, esr);
-> +	else
-> +		trace_page_fault_kernel(addr, regs, esr);
-> +
->  	/*
->  	 * If we're in an interrupt or have no user context, we must not take
->  	 * the fault.
+diff --git a/Documentation/devicetree/bindings/soc/fsl/fsl,ls1028a-reset.yaml b/Documentation/devicetree/bindings/soc/fsl/fsl,ls1028a-reset.yaml
+index 31295be91013..558a8c7aab9c 100644
+--- a/Documentation/devicetree/bindings/soc/fsl/fsl,ls1028a-reset.yaml
++++ b/Documentation/devicetree/bindings/soc/fsl/fsl,ls1028a-reset.yaml
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+ %YAML 1.2
+ ---
+-$id: http://devicetree.org/schemas//soc/fsl/fsl,ls1028a-reset.yaml#
++$id: http://devicetree.org/schemas/soc/fsl/fsl,ls1028a-reset.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+ title: Freescale Layerscape Reset Registers Module
+-- 
+2.47.2
 
 
