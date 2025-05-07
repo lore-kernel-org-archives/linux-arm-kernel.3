@@ -4,154 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D096C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 15:59:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D5AC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 16:01:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5leiuQ7nPztm9kMB7i8cdVJZtzyS4rGHkIMKSb+qdJ8=; b=Z200NCxIW9jwGMOyJUHPFpVBWR
-	2bLphl3CP+TviCB/BIaUiPD8Jyv1wgw1mr/MyL0+kECB5sj+gDiQRyebedLiaCccyr0VtLPJtd75M
-	rqoC8wKxFShQNCy9qGr5a5LzDx7C+vxDkSOrxP7CNZsH40kDBU0YEEbqMUpXMuUXx6PO29epTw4ht
-	3h6DdP8QNq9mIbcPRwbuJDzCML5ghq9eCJvqf6wjh4CH7t7+Yq9PoDYQJa7+XLfVp7Rv2uTZpzRxH
-	tNZpIeuIIy/L/DaEB6t0viPMwEjl+xsbMmeLh05jSnoISgDolcOQJhF+8YYXs54kAFwqJRO4xAVtH
-	hqELGRbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6P88DLJwjZTV6+YJp5PA5/tnjoUbLaNgJShCD98PEJw=; b=4ZwxND0f5IH7mMGjGLYyFOfi7g
+	l3pICAPRv9TjZRK6+lZ/JPzhnCnFy4w+jJvC6aTah/YZF0DpILL4+RW+DLJMpDObSKaeY/+ZlQsaU
+	A6wgZxyR28v80pHr0EZoHx3Iax4N6VTqRzyfTV4U0zJq9+Fn2yg8WDeqM/fSOHK5Cd+q0ZwgQ7TBP
+	ChfixGUs+sAiyhAt7V1vGtKoNBh8zn5d6LrvxxLcEb2ActcNnfzKVDnoZdpvIYuUUZZfafk6OU/m2
+	ylqxAA60qeNGdo7tzrTAstEo1KYcf0UVt+jQhW0mTkOEMNvo1Bgk0ZfHgyQvhc6BzsnaoVNk/00tD
+	XGXPEieg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uChAl-0000000G4Fl-0AyQ;
-	Wed, 07 May 2025 15:59:03 +0000
-Received: from mail-vi1eur05on2061c.outbound.protection.outlook.com ([2a01:111:f403:2613::61c] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1uChCg-0000000G4gh-1mw1;
+	Wed, 07 May 2025 16:01:02 +0000
+Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCgqm-0000000G03h-3RTH
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 15:38:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tUj74QXMUTBxtq/8aWT4Jtb15G4oQKuYq+wfvZz3bHvFqreTtUSbth2unPVvsgR+AV0+FfE07dJgGEgxCYe2SIfN2CsWWp2kBCaGEJNz4ggk0EQSkYS++IbtLQZBG9MJqtgT2U8SZdUpyAszwSngGoase7+/AmJR1RzIemVFVuUm6Hq2v4Lz3zFHTdOMhzLWsW+BJPcK1+1Pzy2+3EdePgvd+Kro4xBKoTIkhFpBU+c8kAo3OkMOsgRAurJwuUlKE9ds0GmYOkGrhdIQZ6a90fsHqYiRDjKaVkiLZ4rimWak7n9XgaGR2tUjNv3iGzCnQrgTQagibbacixBdiNxfVw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5leiuQ7nPztm9kMB7i8cdVJZtzyS4rGHkIMKSb+qdJ8=;
- b=r753jsZSHqPckXpvWt+FxG0IXt/2rDWKRZk278F51mX1eDbdyDOldMUybSkcZLEMjzQI/vazz2CC0PKeFM1fCu1WWTZrz6rk41TyZOY9xkEZfhc1OSrxCL0uTeAq7jBB4BQ16+B+DE/ERgT3bFgIbMOxQh9v7rNPUQdzMBGUj+MurO0Te4BsuTYwoa1e5XwPu4QVHuQCwubw57SdoWZtQF7ivSFR+i9IhxhvkmXGevvtiDbUzFVai7Ua6BzPz6U1TaUWVYDNSBAQXdJM97eZn9qQ/f1b0VeNWmevJPI2hNoMQ5nd1o3r24BYABW26sxCa5rcLhg/37RH7HKw5RuwhA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5leiuQ7nPztm9kMB7i8cdVJZtzyS4rGHkIMKSb+qdJ8=;
- b=b5FvwBrWj+d1l3T5TsMGIqa/8c87cwTAiTgNefnIkVLNWE6NRFGijf8ZGsCtuLoseRFlaZtZoFWyGcc0sauLNC8cvhqQSXiUbfxptEKY9Gz/z3XreWjZyuiSm2X5HBApygfWPKUPwMWCj9AhEnuN/U1EcZJZ9FQNpUP9p+7WfgvvtiBULG+Lbs5tQVCxasPw8QFgd3Xxnw3GEK3cXNCVMubFyuMRNTHGAiyCnAyhbMV0OiffVQXgIOrbZS4nE306TfyGp46h41ZzwlBXYpHvY79SQpj0icRhGdYtvxdLr48GcyRuriJhgPheKnYVnyaYcbQTYIkS5H+B09oIbJ5WNw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB7790.eurprd04.prod.outlook.com (2603:10a6:102:cc::8)
- by AS8PR04MB8419.eurprd04.prod.outlook.com (2603:10a6:20b:3fc::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Wed, 7 May
- 2025 15:38:14 +0000
-Received: from PA4PR04MB7790.eurprd04.prod.outlook.com
- ([fe80::6861:40f7:98b3:c2bc]) by PA4PR04MB7790.eurprd04.prod.outlook.com
- ([fe80::6861:40f7:98b3:c2bc%4]) with mapi id 15.20.8699.026; Wed, 7 May 2025
- 15:38:14 +0000
-Date: Wed, 7 May 2025 18:38:11 +0300
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Ioana Ciornei <ioana.ciornei@nxp.com>, Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 5/6] arm64: dts: ls1028a-qds: make the QIXIS CPLD use the
- simple-mfd-i2c.c driver
-Message-ID: <20250507153811.ukkficut2f3jm2hg@skbuf>
-References: <20250430153634.2971736-1-ioana.ciornei@nxp.com>
- <20250430153634.2971736-6-ioana.ciornei@nxp.com>
- <20250502-savvy-eccentric-hog-b4fed5@kuoka>
- <smfuskvhdhrfrgbpjflgymoadms6vfiwgjmipsmkrxldtor6we@tyvafv626bwr>
- <8ec115f7-1a35-4506-a20a-b4de27f10960@kernel.org>
- <z7knkmi7kjhwlqwokikozos7whwaj5vmseh7kjrdl2la3kmj5e@wwzlsxpq573v>
- <7d6b529e-ab26-4efe-8b91-1facbd041ba3@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7d6b529e-ab26-4efe-8b91-1facbd041ba3@kernel.org>
-X-ClientProxiedBy: VI1PR0502CA0035.eurprd05.prod.outlook.com
- (2603:10a6:803:1::48) To PA4PR04MB7790.eurprd04.prod.outlook.com
- (2603:10a6:102:cc::8)
+	id 1uCgGp-0000000Fsfs-0uIQ;
+	Wed, 07 May 2025 15:01:17 +0000
+Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-6f0ad744811so66456d6.1;
+        Wed, 07 May 2025 08:01:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746630071; x=1747234871; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6P88DLJwjZTV6+YJp5PA5/tnjoUbLaNgJShCD98PEJw=;
+        b=NxqHzvQjJTPR5eNXJexUiIYdctVGQPK4YUWKjBwxLg+O6aGyPIxEobA+8OxKWXHNdH
+         TtYM41sNdTcKFbWqndXQRw668nRFOhZjoLuhvgi/JTsgsYAITh0MmTDW9EemGkZi4x9J
+         qC6J9z+SaaiGCZVtBzJUr7AJjSPPhsGn2tRlm3Tanx1cV+DTn8N7HjmCl/oPfEHA7BFU
+         JRpIqtsAANT7yyZsYV6qcg99Ficrk8aFV6ezBqf9Dn9SiChYrUf0eZZycn9dwTPvBIR6
+         YMuVS2ANZtqv9hPJpk6VXaxmFUOS7rYgJ09+tKjRf1xr/SDJwXj65AjVTPwMhhwG2ExP
+         SVtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746630071; x=1747234871;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6P88DLJwjZTV6+YJp5PA5/tnjoUbLaNgJShCD98PEJw=;
+        b=vWp5XJ5MLtFzJORqNljhQsBxEbPkWs0XRR3kgeJsPPztjf2fh5Cxx7evPda20fK3b2
+         BE8oYbUOMj+Nq5fXXEU2uCe/6RaU/uaDUGnhRSP0mUC9h4/D2GGAQwI1VLrEFMKuaZRN
+         OgU3sJcmoM4ozMU77qes+kiuzPIlMuOozV+xJ6G3K9IPoYfGvVYJp35BmVNnCMT+ibQ1
+         XCh9RMBzgW6Y+3MCQl05MaU8oYwlbzzTOjEvJuF2eWU2Q1LIDiJD0zCfY+aUOWnfLtog
+         q7CjuKT6yQ/6RqJMKjjl2blEAbp//d+NBWZccQAhFoKbt01hFeqNb/d6652ny42r8cAT
+         EYYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVZM4II7Vzn4wzU+xGhgN5otla6VncFVAfJ4kvtnt+m1R9p9eYhAoYUeCCuOR8v2SpaGvSs8wEZ2G2uRKKnj08=@lists.infradead.org, AJvYcCWwrhxP0ouF1UusxIH+1uZjLNU+d2Ps+lcs3DtsDNUI532P3ajpK60PChNOT8rCJZBo0ej7xmbcn0PunSdLgn7H@lists.infradead.org
+X-Gm-Message-State: AOJu0YxeRBkCQ8d7bGO2JCimqPnm9DChX/vy9dJN2pANdaVhSCjPL2XJ
+	cdfSIN2qVpwjIujxBQcwPhw00THUPHcuX959P94+r0bP0lGWbZEXlrSIc2a4VQIWmq3/NCuPtd0
+	qiYVQou7lBpT7ybttE3JY/bRPbxw=
+X-Gm-Gg: ASbGncuM7ksITH7YQLOkrKkTwXa6lrG2BQOB3Gls/XydZKVlFF0BPdAO41M3f/LS2bu
+	33FlVu1MVuWSeBMLWVr4929ISWPYsjmA8RLvVQ0TLg1zTbwbvHh1Xu7I038SFun6EKIptQ8u1Yr
+	bfdnXaV//DYzqTE28vYygkEQ0=
+X-Google-Smtp-Source: AGHT+IFFpBEl3tD+vAAO3AKleiaarL+ScnybGt92nCTf5nORPfhlz+Z0Rwo3ogxYQXshqUgF+V+GBVifm7gBsWgoZoE=
+X-Received: by 2002:a05:6214:cc4:b0:6e8:9a55:824f with SMTP id
+ 6a1803df08f44-6f5429b354emr52557756d6.6.1746630070743; Wed, 07 May 2025
+ 08:01:10 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB7790:EE_|AS8PR04MB8419:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3f0df9c0-659e-436d-9a92-08dd8d7d2ded
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?SAvSyvmUgnZ86FcgLGtDLfvp9EOerG3fSvcUorBtVsEG9habmaUWOTmiLqBN?=
- =?us-ascii?Q?V4wHDgamWPyPIA/14mtAFPZXemnpQVIsiz2CFH7ihQmQVpp2IzKCSbyzgPwO?=
- =?us-ascii?Q?1IHg9Fc0uPCKfbVcrTXKE+Q5iNrTRDRE61asXYb8uQEfq6/3rvpQJHNCD9y8?=
- =?us-ascii?Q?8fjumIZq4/T7edihh23FY2MgBvOSz7WVng4vVqyhq1gS5L2CvOoYPwB89n/u?=
- =?us-ascii?Q?oPhyRNORq37a81bFsTk0R1LXXSMY8iDlkcBq8TAAMiaI4k9ixUiDnBASedte?=
- =?us-ascii?Q?URoBjk5xrPXWCpdYIwVctWGW+ZFMpm3rUJYpi7v+K7eYjg8nbrG1bEtZABBT?=
- =?us-ascii?Q?6Pk8Fx0Lv3yPYSeFh3GrS5tEpQXsVuztZWR2NgHAplFMnuCTMtkA+U28FLug?=
- =?us-ascii?Q?VFsJTTN4FKMDQfi4/oQJ+vAcOimczWvo+UBLybHv74w23CNGhvgCH6Cice+k?=
- =?us-ascii?Q?aXij4cutUzH67uByETJf0LuPbUZevyWgHVMBE2nlGszvFayxTmmO2maGbUtl?=
- =?us-ascii?Q?DKaooK9KMhOt5/ZWv9CCLiBigDz0sWxusRcJ0kJDNrG4Q+nUup38kesSQsGH?=
- =?us-ascii?Q?TUC1iGL29rWJeybu0imoZkP8TEqulOZw5FFuiMtR7qSvdZ1b63QphmA9A7jB?=
- =?us-ascii?Q?G1d5fCqdWNkSC/3B+jHIEV2SPwSNNUQeoHR+n8gfI0Y7tz8VqNOiBFwpNOBk?=
- =?us-ascii?Q?SFzH+F3Qo5ILUfNBx+LIGh1IB1XizrHBYyxIBjoPJE5lokDsj6/Gw9UZSArL?=
- =?us-ascii?Q?4rgM9wU+7g8pzYwCj8EssLNIZ260c3GNZnYiGT4DoCc0pwtdN6VivWKMq19A?=
- =?us-ascii?Q?E3c0ShcyqnSprMnlnR7EljxM6vc1+hHUaT7LTtG1RndX45zI/LEWzJaofpxj?=
- =?us-ascii?Q?gLkqcL5peQOxyzjguzOfZ2Or+7JlECYpd8gy4yV6lHC4J/lqEqEcCkK7E3CV?=
- =?us-ascii?Q?GNM9jqe+9+2/9f2m6kXMb2J4veRbmH43ebBIr+FgyMErmXl3Xpi4r6plzuTo?=
- =?us-ascii?Q?yb+RCfiklhvopItAJtJcXRaqKzfn2+c2ih1Qix19HVO2rcOEog841EIdAC3I?=
- =?us-ascii?Q?1eTwcQ70+ag8TEhypShqcn/lFoO1b5MYPnpjGR+wmjrTTuUu7NGn/yGHEwre?=
- =?us-ascii?Q?y13P842R9UvyZDIhZcpj8W/QKvh374+GrRqNfqr0Rp7IBjDzL0Mn10DWBXb1?=
- =?us-ascii?Q?jHrSdmHeQR5qj3zJnLXRV2DZON7FhCSCRb87bGqCzs/3MfcWSvqARODHvkcp?=
- =?us-ascii?Q?XWKDfq1WVgyeiNoxA6T3avQdpwx++oAVUHzC6VMoj90YRPBd+0uwjPTbenj4?=
- =?us-ascii?Q?M35wWGNRP5iZPGmLTRBEmjOb/Fwkj/852XzArQffETe7yP2ZLHJ6KrGvo4Cp?=
- =?us-ascii?Q?hTGISlctJTdJqBvVapJnFKNe+UF8?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB7790.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dZFzTfw+85Kev7p3+5oWdzmWSaDqWpuDI8bxV6mXN7MZ5LXKmjNP8ESAozuQ?=
- =?us-ascii?Q?lkFNKQ47nrCPCbAlChjqWI6WA/4WaRU1QsrePkabfkdAe21Q1uN2TDyjzQIq?=
- =?us-ascii?Q?h8n45v2zZr3FI8XfmVpQnD+VrjU2ijzOUz/dFwJoxMScrXCqMwHPbSbHeLl2?=
- =?us-ascii?Q?oWpOIif8WD3ouE1+KNlcqm6P1XDRUxppBgCAEfvgchVgTxit2vdYFSpK6HYK?=
- =?us-ascii?Q?KA1rDahF9TLTGBgM4xGvUz24hHkU43f8U41mAVMxAgGGQVzgSin+5i3i9L/L?=
- =?us-ascii?Q?dQpKrP4/GvTDXVPv+SXxyXG1vDfmO1yx2b8A1gKG6bYEWMXfFcU5J/pmC6Xd?=
- =?us-ascii?Q?8h9VTKR3tCUnEDRTttKT5CxnqFtuOzFRpTqTef+S1J7m3MIAt9p0pI4ETnKy?=
- =?us-ascii?Q?9WtFO+Gq645eN6uXR1IzeNMmaOv6M6GooNy+zwpAjeBm4NHin6LiEfQHFr9w?=
- =?us-ascii?Q?uXESD+0EZGAdV81Gz7WbfTWkSTP6YfRqf6TvpGYvZYyS161VDoQwFInqhQXv?=
- =?us-ascii?Q?rDU+3sU+svPYeIpDiDphyMnFRgveN/C12TQvPlCflj+nq19ifwnoRiQbkFnA?=
- =?us-ascii?Q?o7to8sPA1Z0Weq61feQhSI75jxbKtEA5LVO5+yyFJj/6VGN0gyrrIVFmYwNW?=
- =?us-ascii?Q?MEvQhRnMkU3BCZs6HOBnHxvt/46ScyvQ9lwP3ztObGVnzyWnqBtKcbhG7aPM?=
- =?us-ascii?Q?YTG2v+z8nyDRDSd1wiMknS7m52wnRRaBIdnb2jjksnTHS4Z8gH7dgaWlYHM4?=
- =?us-ascii?Q?j6LJnBXgFDKfF32PK86EmY9GNUA9MiNRlXjUfLxRik8GFwKQgOl9jb19DwsN?=
- =?us-ascii?Q?nZb6wq35YDrJ8hPnFXMZbhppPlBdUm9SDrCRJQ367CGPg7uQt81z6C6IUKls?=
- =?us-ascii?Q?zABzWXEFeQuq65mbuEl1blCCW4FKnUixo/0APeyGteg0KPSfr3wtn/14iMwu?=
- =?us-ascii?Q?WEJkHtm37/9NXrqjACNnrCjVUg1jJoWvOWrwCvre3Hlx3FdXHw1OL90by95z?=
- =?us-ascii?Q?F201Eu96aZog0j+hP88D2Tk02eU5VreYbn/DqIzyhYh41XOeAunO5F/gJ+2O?=
- =?us-ascii?Q?9qlZuZl9ZwBPZlmcpcVByDJF7cGEZw2v+8KV0TxJ+APXCCmdW/9F+cQunmcE?=
- =?us-ascii?Q?rP5BdezcEWWt1uHy7dbpcsV0kkJlTvRdt0BpvWErpm81dcFX8Hqu/I0VIs2u?=
- =?us-ascii?Q?ttbp8qkSlzEeGNFvXDn8epTUVSBUWL3SOxqPmU8CiEmObe1r3r2EXvUN+k+G?=
- =?us-ascii?Q?enfHYsV3NK4nT0XN7sMY7vwXyypvhGjeCMGQvqLL0AB41NUM614w7B31Rft0?=
- =?us-ascii?Q?M2a+ZB8Dk+Z7MKUv/LIhQJaEEthVvW5eCw+c19LkiH0dZMAoyMT01pBBu8M3?=
- =?us-ascii?Q?1SiEtAcz4SZvyb4ngpZMYHBHFPTI9xohy9NrdR/cHDt86lCGtaI2gNUvUknt?=
- =?us-ascii?Q?xKknB53sTUUx49cLYKFaKxrZUrOVVBfnzurmlPkM7smk+HS3nfbSsvY6xGjP?=
- =?us-ascii?Q?ccgdA9BSmNCOmIYSJQxDyhhsLQmdpjReVjgkLpnZq0/yemTdnYjelDlM1HE+?=
- =?us-ascii?Q?38WRnt53Jfy86gkGjUlrpH6CxaBuiMOYB6TNcjDIahUoqc50vtGslAIBmK6R?=
- =?us-ascii?Q?9A=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3f0df9c0-659e-436d-9a92-08dd8d7d2ded
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB7790.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2025 15:38:13.9676
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IuQcZOGGdGKZJRx2T6Wy6Ogk97OeByqwtT4+Vku1SpL1yM3AgcWcfhmfSCiqj1YxX58531hALCRJNUjbgkqjtA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8419
+References: <20250430082651.3152444-1-qun-wei.lin@mediatek.com>
+ <aBqzcIteOzC9mRjY@harry> <A3307E1B-B741-4C23-8053-72A1CA04D923@nvidia.com> <CAGsJ_4yBn7j3WpCttPB0PVuRCYTYBcDbW2221AaPNLOHSmKADA@mail.gmail.com>
+In-Reply-To: <CAGsJ_4yBn7j3WpCttPB0PVuRCYTYBcDbW2221AaPNLOHSmKADA@mail.gmail.com>
+From: Nhat Pham <nphamcs@gmail.com>
+Date: Wed, 7 May 2025 08:00:59 -0700
+X-Gm-Features: ATxdqUEizMgKIBqWKtTySGenm7msLmuvbZBCtMD6RABSUsHW1bY0saY3YhYcLjM
+Message-ID: <CAKEwX=NyZnNmiERFzwMUGQ8CJ7Pqm_XqHWMQoPjJKnBQefZkiw@mail.gmail.com>
+Subject: Re: [PATCH] mm: Add Kcompressd for accelerated memory compression
+To: Barry Song <21cnbao@gmail.com>
+Cc: Zi Yan <ziy@nvidia.com>, Harry Yoo <harry.yoo@oracle.com>, 
+	Qun-Wei Lin <qun-wei.lin@mediatek.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Mike Rapoport <rppt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Sergey Senozhatsky <senozhatsky@chromium.org>, Minchan Kim <minchan@kernel.org>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, Casper Li <casper.li@mediatek.com>, 
+	Chinwen Chang <chinwen.chang@mediatek.com>, Andrew Yang <andrew.yang@mediatek.com>, 
+	James Hsu <james.hsu@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_083825_057686_169C86BE 
-X-CRM114-Status: GOOD (  55.47  )
+X-CRM114-CacheID: sfid-20250507_080115_254340_34D6F145 
+X-CRM114-Status: GOOD (  29.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,136 +101,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Tue, May 6, 2025 at 7:04=E2=80=AFPM Barry Song <21cnbao@gmail.com> wrote=
+:
+>
+> On Wed, May 7, 2025 at 1:50=E2=80=AFPM Zi Yan <ziy@nvidia.com> wrote:
+> >
+> > On 6 May 2025, at 21:12, Harry Yoo wrote:
+> >
+> > > On Wed, Apr 30, 2025 at 04:26:41PM +0800, Qun-Wei Lin wrote:
+> > >> This patch series introduces a new mechanism called kcompressd to
+> > >> improve the efficiency of memory reclaiming in the operating system.
+> > >>
+> > >> Problem:
+> > >>   In the current system, the kswapd thread is responsible for both s=
+canning
+> > >>   the LRU pages and handling memory compression tasks (such as those
+> > >>   involving ZSWAP/ZRAM, if enabled). This combined responsibility ca=
+n lead
+> > >>   to significant performance bottlenecks, especially under high memo=
+ry
+> > >>   pressure. The kswapd thread becomes a single point of contention, =
+causing
+> > >>   delays in memory reclaiming and overall system performance degrada=
+tion.
+> > >>
+> > >> Solution:
+> > >>   Introduced kcompressd to handle asynchronous compression during me=
+mory
+> > >>   reclaim, improving efficiency by offloading compression tasks from
+> > >>   kswapd. This allows kswapd to focus on its primary task of page re=
+claim
+> > >>   without being burdened by the additional overhead of compression.
+> > >>
+> > >> In our handheld devices, we found that applying this mechanism under=
+ high
+> > >> memory pressure scenarios can increase the rate of pgsteal_anon per =
+second
+> > >> by over 260% compared to the situation with only kswapd. Additionall=
+y, we
+> > >> observed a reduction of over 50% in page allocation stall occurrence=
+s,
+> > >> further demonstrating the effectiveness of kcompressd in alleviating=
+ memory
+> > >> pressure and improving system responsiveness.
+> > >>
+> > >> Co-developed-by: Barry Song <21cnbao@gmail.com>
+> > >> Signed-off-by: Barry Song <21cnbao@gmail.com>
+> > >> Signed-off-by: Qun-Wei Lin <qun-wei.lin@mediatek.com>
+> > >> Reference: Re: [PATCH 0/2] Improve Zram by separating compression co=
+ntext from kswapd - Barry Song
+> > >>           https://lore.kernel.org/lkml/20250313093005.13998-1-21cnba=
+o@gmail.com/
+> > >> ---
+> > >
+> > > +Cc Zi Yan, who might be interested in writing a framework (or improv=
+ing
+> > > the existing one, padata) for parallelizing jobs (e.g. migration/comp=
+ression)
+> >
+> > Thanks.
+> >
+> > I am currently looking into padata [1] to perform multithreaded page mi=
+gration
 
-On Wed, May 07, 2025 at 03:56:20PM +0200, Krzysztof Kozlowski wrote:
-> On 07/05/2025 14:28, Ioana Ciornei wrote:
-> > On Wed, May 07, 2025 at 06:54:38AM +0200, Krzysztof Kozlowski wrote:
-> >> On 06/05/2025 16:21, Ioana Ciornei wrote:
-> >>> On Fri, May 02, 2025 at 09:04:03AM +0200, Krzysztof Kozlowski wrote:
-> >>>> On Wed, Apr 30, 2025 at 06:36:33PM GMT, Ioana Ciornei wrote:
-> >>>>> From: Vladimir Oltean <vladimir.oltean@nxp.com>
-> >>>>>
-> >>>>> The MDIO mux on the LS1028A-QDS never worked in mainline. The device
-> >>>>> tree was submitted as-is, and there is a downstream driver for the QIXIS
-> >>>>> FPGA:
-> >>>>>
-> >>>>> https://github.com/nxp-qoriq/linux/blob/lf-6.12.y/drivers/soc/fsl/qixis_ctrl.c
-> >>>>>
-> >>>>> That driver is very similar to the already existing drivers/mfd/simple-mfd-i2c.c,
-> >>>>> and the hardware works with the simple-mfd-i2c driver, so there isn't
-> >>>>> any reason to upstream the other one.
-> >>>>>
-> >>>>> Adapt the compatible string and child node format of the FPGA node, so
-> >>>>> that the simple-mfd-i2c driver accepts it.
-> >>>>
-> >>>> Why do you break the users based on some driver differences? Fix the
-> >>>> drivers, not the DTS.
-> >>>>
-> >>>>>
-> >>>>> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> >>>>> Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
-> >>>>> ---
-> >>>>>  arch/arm64/boot/dts/freescale/fsl-ls1028a-qds.dts | 9 +++++----
-> >>>>>  1 file changed, 5 insertions(+), 4 deletions(-)
-> >>>>>
-> >>>>> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a-qds.dts b/arch/arm64/boot/dts/freescale/fsl-ls1028a-qds.dts
-> >>>>> index 0bb2f28a0441..58b54d521d75 100644
-> >>>>> --- a/arch/arm64/boot/dts/freescale/fsl-ls1028a-qds.dts
-> >>>>> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a-qds.dts
-> >>>>> @@ -338,17 +338,18 @@ sgtl5000: audio-codec@a {
-> >>>>>  	};
-> >>>>>  
-> >>>>>  	fpga@66 {
-> >>>>> -		compatible = "fsl,ls1028aqds-fpga", "fsl,fpga-qixis-i2c",
-> >>>>> -			     "simple-mfd";
-> >>>>> +		compatible = "fsl,ls1028a-qds-qixis-i2c";
-> >>>>
-> >>>> This breaks all the existing users. NAK.
-> >>>
-> >>> Using a mainline kernel, this DT node was never used or probed by a
-> >>> driver since that driver was never submitted. I am not breaking any user
-> >>> of the mainline kernel.
-> >> 1. Users of DTS is plural, so what about all other projects and out of
-> >> tree users?
-> 
-> You still can have users in all possible projects. Dropping simple-mfd,
-> even though it is Linux thingy, is affecting users, potentially breaking
-> them. Exactly what we talked on last plumbers - don't do such changes.
-> 
-> I recall even warning from Rob for people adding simple-mfd: be careful
-> adding it, because dropping it creates compatibility issue.
-> 
-> This is not a fresh platform, where you do not care about users. It is
-> published to all users since ~2019.
-> 
-> 
-> >> 2. Did you remove simple-mfd from kernel or what? How can you claim
-> >> there is no driver for simple-mfd?
-> > 
-> > No, I did not remove simple-mfd from the kernel.
-> > 
-> 
-> 
-> ...
-> 
-> > If, as you say, this works just by having the simple-mfd, I should have
-> > been able to see the enetc_port1 functional and the RGMII PHY be
-> > accesible on the MDIO bus which is behind the reg-mux. But this is not
-> > happening.
-> > 
-> > Instead, I get this:
-> > 
-> > 	[   17.635216] platform mdio-mux: deferred probe pending: mdio-mux-multiplexer: Failed to get mux
-> > 
-> > 	root@localhost:~# ip link set dev eno1 up
-> > 	[ 1155.190391] net eno1: could not attach to PHY
-> > 	root@localhost:~# uname -a
-> > 	Linux localhost 6.15.0-rc5-next-20250507 #112 SMP PREEMPT Wed May  7 15:21:14 EEST 2025 aarch64 aarch64 aarch64 GNU/Linux
-> > 
-> > From what I understand, even though the fpga@66 has the simple-mfd
-> > compatible, no entity initializes an I2C regmap (since this is an I2C
-> > device) for it so that it can be used by any child device.
-> > 
-> This sounds reasonable, thanks for providing context. Most of this (so a
-> summary) should be in the commit msg as the rationale for changing the
-> ABI, so please grow a bit the commit msg part:
-> "The MDIO mux on the LS1028A-QDS never worked in mainline because ...".
-> 
-> With all this I still do not get why do you need to affect the
-> compatibles. What is wrong with the actual compatibles?
-> 
-> Best regards,
-> Krzysztof
+TIL about padata :)
 
-I really care about not breaking compatibility with device trees too,
-and that's why I occasionally report issues such as
-https://lore.kernel.org/all/20250412001703.qbbfhtb6koofvner@skbuf/,
-but in this case the compatibility breakage is not something to worry
-about.
+> > copy job. But based on this patch, it seems that kcompressed is just an=
+ additional
+> > kernel thread of executing zswap_store(). Is there any need for perform=
+ing
+> > compression with multiple threads?
+>
+> The current focus is on enabling kswapd to perform asynchronous compressi=
+on,
+> which can significantly reduce direct reclaim and allocstall events.
+> Therefore, the work begins with supporting a single thread. Supporting
+> multiple threads might be possible in the future, but it could be difficu=
+lt
+> to control=E2=80=94especially on busy phones=E2=80=94since it consumes mo=
+re power and may
+> interfere with other threads impacting user experience.
 
-The QDS (QorIQ Development System) boards are not made to deploy any
-production software on them, they are more fully-featured variants of
-our RDB (Reference Design Boards) which sit in labs and are used
-exclusively by engineers to test/prototype SoC features in order to
-develop for other (production) platforms. Most if not all engineers use
-TFTP to load the kernel and device tree at the same time. I think it's
-going to be a case of a tree falling in a forest with no one to hear it.
+Right, yeah.
 
-In terms of other projects using the Linux device tree bindings - in
-this case that would be U-Boot, which unfortunately has yet another
-schema for the QIXIS CPLD:
-https://github.com/u-boot/u-boot/blob/master/arch/arm/dts/fsl-ls1028a-qds.dtsi#L134
-So not really a concern right now, but we will take it as an action item
-to resync U-Boot with the upstream device trees for the LS1028A-QDS too,
-like was done for the LS1028A-RDB.
+>
+> >
+> > BTW, I also notice that zswap IAA compress batching patchset[2] is usin=
+g
+> > hardware accelerator (Intel Analytics Accelerator) to speed up zswap.
+> > I wonder if the handheld devices have similar hardware to get a similar=
+ benefit.
+>
+> Usually, the answer is no. We use zRAM and CPU, but this patch aims to pr=
+ovide
+> a common capability that can be shared by both zRAM and zswap.
+>
 
-In this case, why would changing the compatible string be preferable to
-using the node as is? It would be nice for the QIXIS CPLD to have child
-nodes with "reg". The current format lacks that, so we thought it would
-be a cleaner break if we just introduced a new compatible string, to
-make it easier to distinguish:
-- "fsl,ls1028aqds-fpga", "fsl,fpga-qixis-i2c", "simple-mfd" doesn't
-  expect children with "reg"
-- "fsl,ls1028a-qds-qixis-i2c" does.
+Also, not everyone and every setup has access to hardware compression
+accelerators :) This provides benefits for all users.
 
