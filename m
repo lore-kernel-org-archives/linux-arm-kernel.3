@@ -4,85 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A72C6C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 09:56:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A31DC3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 09:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UVmiCxdLxof6rR0pPlGnitzzGOICxyfJaM5FQQQz/ck=; b=tUCMYjouqoQbe5MjyWEy6zCKF1
-	XLb9dGaGlsUBsrsilNLb/BotMvuopR4nKnyIrO2TTFDt6sp1WiTMYqA69c5OLJvY/VBN2lVcSiYbi
-	SU2HcLd4EaMNQK1/FBUx2XHC0mBGX2oRS91wg1z/xOG6f8B86wlJDCJtyBURLpNtrGnO4u9soKB1d
-	I2s/mObIPykdhW0FY9pdoPejL0f3oSRAnxNCnusG6fCwqcbNuJ3jPcPqC0poA4v36UGNrgIlSW/FU
-	dWzSwKMVnmt36sC/mo1UQz8cdAz/ucY6sSPyGWw9COYC4iF/Qtl9j7mKdpaGRkKthAV5Rf9b5o/LX
-	dDk2CIlw==;
+	bh=JjJVOzsV/sS1KqYgiKb6WpgqfUC9eIpjHHMhaITJ/3o=; b=sK/layTZ/+fG/iLl2OKd+j2sKQ
+	4C+i4zsSK09RwEjfUCfeEvppaErdi9cnuHR9YWHsr3bqsFNbPpfUbSYIs0CVysFKQVWTPAk0Fgdnq
+	5fK43ATE+r1T/M0fnNfIPhy4BbXLSBKf29TNtKEPP3RJ460ObmVc2dmdzBh9OWEpt6rtRbOnx2IhB
+	uYcBXwsDcRH7SU/sJiigokMuoeU13ww+Al79vVTR3LJO+dQXTQNGUhxUeM/7a1prr4JI079jtkHrL
+	022x48TqaLc/QkTDmgzexgC9//Fvv4D3keDEPlPdTkRFfqRnJCwtErSYPetF2Vw1SjE9zUYkNtt+i
+	yMmymcug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCbWA-0000000F296-0ce7;
-	Wed, 07 May 2025 09:56:46 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uCbY5-0000000F2YF-2Mi9;
+	Wed, 07 May 2025 09:58:45 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCbFY-0000000EzgJ-2Jnc
+	id 1uCbGq-0000000Ezq2-0wOD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 09:39:38 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5476w1Mb023422;
-	Wed, 7 May 2025 11:39:31 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	UVmiCxdLxof6rR0pPlGnitzzGOICxyfJaM5FQQQz/ck=; b=2Ak/leVE5YIjnBvU
-	g0TwjknBZS9E5swk9XOrwhfbnoaYHeRRhvroUbRkpMaSexAxds5NMzcC4tSts/Oc
-	STfLli3xWmfxbZANGFMY7G8d4phpM1w/Ofac+kpqyETPt9fpEtKAaWabfGkdpEUo
-	VBrcYTQaatocRdzFs+0+F07kzMyc3LSh/vbknC2pJ/2ME1GUVK02PJVBMhx0ugvK
-	OGB43Bv1ODr01wNFXiNIE1+6IRvaRQ1cUdW0QBnY+CxgTSeh/i8l5tMZqgj7ijQZ
-	6y4Xn0OtWrA5UGWDuxFUGFObjyn9M/e0lu/c5oV8Cav4e1WXdddhS6odFpzJ0AHP
-	nhvirw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46dbkqfvs9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 07 May 2025 11:39:31 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 0D15E4004B;
-	Wed,  7 May 2025 11:38:26 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id DF38CA69980;
-	Wed,  7 May 2025 11:37:59 +0200 (CEST)
-Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 7 May
- 2025 11:37:59 +0200
-Message-ID: <1139e046-b66a-445d-9e04-a0c4d059c438@foss.st.com>
-Date: Wed, 7 May 2025 11:37:58 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] bus: firewall: Fix missing static inline annotations for
- stubs
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Gatien Chevallier <gatien.chevallier@foss.st.com>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: <stable@vger.kernel.org>
-References: <20250507092121.95121-2-krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+	Wed, 07 May 2025 09:40:57 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43ceeb85ab2so6202355e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 May 2025 02:40:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1746610854; x=1747215654; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JjJVOzsV/sS1KqYgiKb6WpgqfUC9eIpjHHMhaITJ/3o=;
+        b=x2V29l9UK46tD2mE3XXQ/6P+dtJ+vttzE53GJEDy7x8AcJliYt4e2LhwwDeqCQJgET
+         5lwV8qHMQMMW1tiq6CIFCS/1l6aamENKKZSyM/k0x95mMOueIU62uOORHbVcRQPEUEj9
+         OkubkF9pYTu/bpDyMmh0TaUYFLMWFXyc3lnqQgBhj17sSMA6Zw2YZ3HCaIS6b1nzoKSb
+         xpaI/kN3CuAVMAe3YEh0ZyUNEDqy2Zk9i+SjK0p53jggmfABcAq0yta8pl72QUe9KKbC
+         Z2Nm5VYwvbEYGXj+yord3B7FOf5RcZSfHT2b9PrODbVLiIV9C/cMiBHoHV2nDmfeUI3v
+         pNFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746610854; x=1747215654;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JjJVOzsV/sS1KqYgiKb6WpgqfUC9eIpjHHMhaITJ/3o=;
+        b=tl3PSiMTPRbxhFVS3pBvtlovZtl+dZE2e/p47f4sU2kl2jSprPOAmEd77s4uZV7qL6
+         UWTgNP5roNtV0YpH3JAOWuFwmEvrZpUN7kM/NE8ue8MoQR5K2DDSFXQ+1Y7wvbz/M4+e
+         rA4rukVyHmL/cfqpqrCyi7WGsH4ineTNv7uaaPFrcAXE9wJcx6ME5HpFJcbhY+zx5UID
+         3Z/LSFw88Mz/07skCk8+8cbeH9u5uEQ2Ix3k7gjvNqgT7aJe2uRzO5fgmwbYZIHcXz+I
+         wJ2gU5TfXbeJCWBnlxGEUY6tO8HxSoJ+cSDlUA9Nl6afHYema98cL9RE7+e9MVwFY1WB
+         aPTg==
+X-Forwarded-Encrypted: i=1; AJvYcCWXumcOdw9ZHirrYDNpvQt1MuZ6woti9hDtnCoHeE7ciON+iDLFGpH+90VABShZlPptuYnkLQysWzZ/iEVg36TT@lists.infradead.org
+X-Gm-Message-State: AOJu0YyudYf9NRni8fzHhlBKOVFZmb+HXX4PhgkUV/KPltbeoWTRk4Cb
+	K4NWormBX28Evz0cmwTGNI/TL0DwkeQ0rtfYwPIrnCDW7UmY8yMR1Xb0/mAd3Zk=
+X-Gm-Gg: ASbGncvmRwKdSJaIUwQXfLRnLwNu7IQrtSsJF+Qy8C4xYg7fo6VmZY3fPD6iMk8LhJf
+	05Lu1/oSeOAJF7f1NRKlodfCs0D8TKByz09rCvNs7g8jA7yXXXOm58gutWdw2COA9AwV1s9SA82
+	h2MrqYDr4kVm+LDncUYvfikgi5KgwTdg+TYu1B4eHvCipu0PP/TgungqPodz/0Ov1TLdk4gLF2/
+	x8ovr1AYOmpDaEnIeUsYi63BPgveNGorw78zyL+LF6xZ3q3hPgpFMZ03mTyULeZ3DYGLxxE9vtM
+	VCQRiEEHcJqbYW48R9G82PiAGUl0AMI7mbJyalw5sHA6dY+S25fuIJ3uffA=
+X-Google-Smtp-Source: AGHT+IGTYzGThTxOdxwaI5G+9aUb3aVHRykaAtXbsesYBP9DWb7wZzv8RquKPzZDNQ1IOuOLVdxb7w==
+X-Received: by 2002:a05:600c:1c8c:b0:441:b397:e324 with SMTP id 5b1f17b1804b1-441d44ed543mr6268495e9.9.1746610854412;
+        Wed, 07 May 2025 02:40:54 -0700 (PDT)
+Received: from [192.168.1.29] ([178.197.207.88])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441d438e7f0sm25374535e9.29.2025.05.07.02.40.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 May 2025 02:40:53 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Gatien Chevallier <gatien.chevallier@foss.st.com>, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Patrice Chotard <patrice.chotard@foss.st.com>, stable@vger.kernel.org
 In-Reply-To: <20250507092121.95121-2-krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+References: <20250507092121.95121-2-krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH] bus: firewall: Fix missing static inline annotations
+ for stubs
+Message-Id: <174661085321.105567.10502174461599708056.b4-ty@linaro.org>
+Date: Wed, 07 May 2025 11:40:53 +0200
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-07_03,2025-05-06_01,2025-02-21_01
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_023937_111258_79B81275 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20250507_024056_276167_549EC3F2 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,63 +105,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On 5/7/25 11:21, Krzysztof Kozlowski wrote:
+On Wed, 07 May 2025 11:21:22 +0200, Krzysztof Kozlowski wrote:
 > Stubs in the header file for !CONFIG_STM32_FIREWALL case should be both
 > static and inline, because they do not come with earlier declaration and
 > should be inlined in every unit including the header.
 > 
-> Cc: Patrice Chotard <patrice.chotard@foss.st.com>
-> Cc: <stable@vger.kernel.org>
-> Fixes: 5c9668cfc6d7 ("firewall: introduce stm32_firewall framework")
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->  include/linux/bus/stm32_firewall_device.h | 15 +++++++++------
->  1 file changed, 9 insertions(+), 6 deletions(-)
 > 
-> diff --git a/include/linux/bus/stm32_firewall_device.h b/include/linux/bus/stm32_firewall_device.h
-> index 5178b72bc920..eaa7a3f54450 100644
-> --- a/include/linux/bus/stm32_firewall_device.h
-> +++ b/include/linux/bus/stm32_firewall_device.h
-> @@ -114,27 +114,30 @@ void stm32_firewall_release_access_by_id(struct stm32_firewall *firewall, u32 su
->  
->  #else /* CONFIG_STM32_FIREWALL */
->  
-> -int stm32_firewall_get_firewall(struct device_node *np, struct stm32_firewall *firewall,
-> -				unsigned int nb_firewall)
-> +static inline int stm32_firewall_get_firewall(struct device_node *np,
-> +					      struct stm32_firewall *firewall,
-> +					      unsigned int nb_firewall)
->  {
->  	return -ENODEV;
->  }
->  
-> -int stm32_firewall_grant_access(struct stm32_firewall *firewall)
-> +static inline int stm32_firewall_grant_access(struct stm32_firewall *firewall)
->  {
->  	return -ENODEV;
->  }
->  
-> -void stm32_firewall_release_access(struct stm32_firewall *firewall)
-> +static inline void stm32_firewall_release_access(struct stm32_firewall *firewall)
->  {
->  }
->  
-> -int stm32_firewall_grant_access_by_id(struct stm32_firewall *firewall, u32 subsystem_id)
-> +static inline int stm32_firewall_grant_access_by_id(struct stm32_firewall *firewall,
-> +						    u32 subsystem_id)
->  {
->  	return -ENODEV;
->  }
->  
-> -void stm32_firewall_release_access_by_id(struct stm32_firewall *firewall, u32 subsystem_id)
-> +static inline void stm32_firewall_release_access_by_id(struct stm32_firewall *firewall,
-> +						       u32 subsystem_id)
->  {
->  }
->  
-Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
 
-Thanks
-Patrice
+Applied, thanks!
+
+[1/1] bus: firewall: Fix missing static inline annotations for stubs
+      https://git.kernel.org/krzk/linux-mem-ctrl/c/66db876162155c1cec87359cd78c62aaafde9257
+
+Best regards,
+-- 
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
 
