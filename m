@@ -4,196 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E0A6C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 11:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC97BC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 12:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8KJ0X5aV2bJQ6ELMC1hXM69FM7okKEGDAmPL2VgeofU=; b=xaFq6HxtjVuCHhjvxbsftXwTO6
-	OxEq20wA/hotliA92qMcwgf6TEkTZO6IkzciYKUQX8d6IpA1wRu17SABuQD3TIGwwMDu77lN1ag7N
-	neu6X9td5E70rx1F1LYzAjh8wnvOX74nyg7IeJ12H2D0Z4n3sdJd7E8SGjy/FK14AZAdvlh+tAHOj
-	XhY/sHfVNESjlOqjAy5+R7qt9p76c89H6qdA9rJnMOwMv9hErljV9esCdMmzKgo64RUrEyUMtZfUm
-	sZSUf4B9Bc+23lpNBJzcNJgt1y7o3xQn/UTJFlHIkxF3aYgc3NV2gHCT+g9oH2qmYbzbqegPOW+5w
-	4COScBKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=alDmuCmBxYZ1lxHY6g66wwQTxUPUs9limzDrJVm3pHk=; b=OGPuekFwA2QnGFI/+F0BUqceXI
+	DXSfNucCDwwHl0gR4HwbeBqkBknWz4kz3GKDHHHAOZc5iWsIrCAEIdRZI4uwMAwT8hUkutDRC2dh3
+	tU3p6JXhn+SBdQSt403S9eQBAjqyUWwKQS1ZDMJbh+wlxfH/tB4TOJiY5PHKa2nhyRGr62JfBx2YH
+	44UPL6Z6EF+8/Liz4rFwZZKV0azpPEz3YydhLifqGABqmiU4K4rD/n1cx4A1XeNtNioeccFRqxGcT
+	Hol6vF0I9a36ZTfauGw+l4soq4yjl5K0YlEFB19ghKqNdbnPhEqSNTtomtwGsOvHKNVFitAdX/ybJ
+	b/+lkaDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCdBc-0000000FGJ6-3JPn;
-	Wed, 07 May 2025 11:43:40 +0000
-Received: from mail-polandcentralazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c211::1] helo=WA1P291CU004.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCd9g-0000000FG20-1rbB
+	id 1uCdT3-0000000FIRK-0F6L;
+	Wed, 07 May 2025 12:01:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCdR5-0000000FI4o-2rIA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 11:41:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GoVIkhjNuQjMYm/trQa5nQtm1Au0XlkvrWlXhs5DCM91ZqQg6X5HBnTsmyr0lSCTLZyrUPPa4tl4n2m+pxrfxS+i3GOiKLdvKNizHfitMO5nD0cYUXvO81nq3uqMCA6+4NHn5VnMDbH4T4CNGJSKSq3ILZCrZekzteSUpxX1C1nIdEhb+AIJTK/GQEA0YgRdSsIbgKVY+aVAxWYBit0I7lzwUlvctdv6+/7qjlzea+rPm/mNTykdlc+CJuG93nakkek1EOg1c3jNKZaKaExdXtegRksKjVWIjjvd/aZFWeFcJZ/DrPoMKOcX9dKmLSUzucHT8rkMybXRGaeZhZyKWw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8KJ0X5aV2bJQ6ELMC1hXM69FM7okKEGDAmPL2VgeofU=;
- b=Lr5KwvSy2ucfL3RkVP+Xj9jzjwG+WI5PzX4KYZVs2LLljk0eslV3i3S74bttvv2NjfXX7YnsIXiK8L2dcAezIGkFrPJYdczePGmk/FH756hc/cn4TjMZoy9TDEmP8+W4cLBVZ7719sAeBemjiolm75k7VsVYBDT3uIkwrzR3NWCYASzMr116k71Th/5fo3IjiYp+Yvjj0SzMhPpwCmK6H/48YjQXrQQnDsKb+MuBAUpqvC4ANarnKQTlNWx38MlCoBxqVvoRk/Fhtl01G5VYE3NgLISp3PIjvhP3t3aUFv5yQzns/uziJNqwvQnBEpRMwm/Jh79Wqtp/dvYMIukdsA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=videtronic.com; dmarc=pass action=none
- header.from=videtronic.com; dkim=pass header.d=videtronic.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=videtronic.com;
-Received: from WA2P291MB0309.POLP291.PROD.OUTLOOK.COM (2603:10a6:1d0:24::14)
- by WA1P291MB0203.POLP291.PROD.OUTLOOK.COM (2603:10a6:1d0:10::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.22; Wed, 7 May
- 2025 11:41:29 +0000
-Received: from WA2P291MB0309.POLP291.PROD.OUTLOOK.COM
- ([fe80::5b7e:db51:5934:a36f]) by WA2P291MB0309.POLP291.PROD.OUTLOOK.COM
- ([fe80::5b7e:db51:5934:a36f%3]) with mapi id 15.20.8678.028; Wed, 7 May 2025
- 11:41:28 +0000
-Message-ID: <36e09fa4-928f-4388-ac91-d51a8ca199ae@videtronic.com>
-Date: Wed, 7 May 2025 13:41:27 +0200
+	Wed, 07 May 2025 11:59:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AC905339;
+	Wed,  7 May 2025 04:59:26 -0700 (PDT)
+Received: from [10.1.30.69] (Suzukis-MBP.cambridge.arm.com [10.1.30.69])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BC54B3F5A1;
+	Wed,  7 May 2025 04:59:34 -0700 (PDT)
+Message-ID: <f4db016a-0c57-4213-8eca-75a090d7aabb@arm.com>
+Date: Wed, 7 May 2025 12:59:33 +0100
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 12/16] media: i2c: add Maxim GMSL2/3 serializer and
- deserializer drivers
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: Cosmin Tanislav <demonsingur@gmail.com>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Cosmin Tanislav <cosmin.tanislav@analog.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, =?UTF-8?Q?Niklas_S=C3=B6derlund?=
- <niklas.soderlund@ragnatech.se>, Julien Massot
- <julien.massot@collabora.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
- <brgl@bgdev.pl>, Bjorn Andersson <quic_bjorande@quicinc.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Arnd Bergmann
- <arnd@arndb.de>, Taniya Das <quic_tdas@quicinc.com>,
- Biju Das <biju.das.jz@bp.renesas.com>,
- =?UTF-8?Q?N=C3=ADcolas_F_=2E_R_=2E_A_=2E_Prado?= <nfraprado@collabora.com>,
- Eric Biggers <ebiggers@google.com>,
- Javier Carrasco <javier.carrasco@wolfvision.net>,
- Ross Burton <ross.burton@arm.com>, Hans Verkuil <hverkuil@xs4all.nl>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Zhi Mao <zhi.mao@mediatek.com>,
- Kieran Bingham <kieran.bingham@ideasonboard.com>,
- Dongcheng Yan <dongcheng.yan@intel.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
- Tommaso Merciai <tomm.merciai@gmail.com>,
- Dan Carpenter <dan.carpenter@linaro.org>,
- Ihor Matushchak <ihor.matushchak@foobox.net>,
- Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
- linux-gpio@vger.kernel.org
-References: <20250309084814.3114794-1-demonsingur@gmail.com>
- <20250309084814.3114794-13-demonsingur@gmail.com>
- <b214bf8d-33d0-4da8-bf16-cc62bd1fbd55@videtronic.com>
- <CAPY8ntCtycm+fha9yuJyr2_9obq8cq6xjYJT7acnFPgh_sCi8Q@mail.gmail.com>
-Content-Language: en-US
-From: Jakub Kostiw <jakub.kostiw@videtronic.com>
-In-Reply-To: <CAPY8ntCtycm+fha9yuJyr2_9obq8cq6xjYJT7acnFPgh_sCi8Q@mail.gmail.com>
+Subject: Re: [PATCH v3 2/2] coresight: add coresight Trace Network On Chip
+ driver
+Content-Language: en-GB
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: kernel@oss.qualcomm.com, linux-arm-msm@vger.kernel.org,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250411-trace-noc-v3-0-1f19ddf7699b@quicinc.com>
+ <20250411-trace-noc-v3-2-1f19ddf7699b@quicinc.com>
+ <23d02991-3bc6-41e2-bb8b-a38786071c43@arm.com>
+ <257fb0a5-7bf7-4a04-9f8d-d8759351584c@quicinc.com>
+ <9b75b9d1-a9ed-46c9-9dba-8e3eb261dcc0@arm.com>
+ <4a6a8bad-e5d9-4613-a839-5a21491ef7c4@quicinc.com>
+ <069e920c-7023-4a6d-b1c6-dc87ac9d2360@arm.com>
+In-Reply-To: <069e920c-7023-4a6d-b1c6-dc87ac9d2360@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: WA0P291CA0022.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d0:1::22) To WA2P291MB0309.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d0:24::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: WA2P291MB0309:EE_|WA1P291MB0203:EE_
-X-MS-Office365-Filtering-Correlation-Id: 03d4a3cb-93fd-4125-16cb-08dd8d5c1afe
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?OU9xdnZoSkZJcW52MXBiZlhsMW11MFBGUGhVUGpwWDI2SDhyYmIzalFMc2x1?=
- =?utf-8?B?TDZ6dnU5UHhXdUo0L0VmVVNmcVNFbnRES2pwS2JUVXJTWGs2OWFJcjNrWGR0?=
- =?utf-8?B?Vjk2eW1zMlpXVjRTSDJzNnZTSGUvRXA0VTQwRHcrSzZvMW1Xd0Y4N21zcFVm?=
- =?utf-8?B?UlNwVUovcVBxZmNhUUNwTTNVRDhQbmVHaXJ1QmQ3eWVHWFZjNnR3b3g3ZUln?=
- =?utf-8?B?ckJWMTlHWExRZThQZTVPMytQdXE2MExGRUd0VDhWOUErWmVqN0dIQVdjc0ph?=
- =?utf-8?B?WTBzSlJieFIrMFI3ZXE5Y2FvU3EzbW9NUkc2YTdMSVhvcXFCZ21iTmtDSHJp?=
- =?utf-8?B?YU1aUkVmUTN5QXN2SXJEMkZ4SzN0bkwrY0l3eHg3RmJDNXNybEFhSGNwN1hp?=
- =?utf-8?B?ekxtdHhTSnZpSGtvQnU4Tk9kWHpIeGxrTUdDcEtlRzFDbU1FSTI5K1dONksr?=
- =?utf-8?B?WUV3YkRFRjF4ZEtXRFpudU9hR0lpb3Y5NXRmVnhxZVBOelhnVyttOExXTDBr?=
- =?utf-8?B?aXJLd3U2VzRHNEhTdlVkdmxjcjVHcjNVWnBlMDZLTVpXZEJrZHlBallKN2Z2?=
- =?utf-8?B?TGI1N1RnQXZaUXh6anJRdDdQNEUxdUg4SmZiUTlVek9rRGY5YXoyb0VBRTN1?=
- =?utf-8?B?TWN0Nk1kSUpRdy9WUm5wMUlxMER1dXdRWXlpWWZmdEVmYWh1MUhIVHRybWVm?=
- =?utf-8?B?Sk95L0hmTEJoUFdIN2x4Mi9sQWwxa01EMGRPK04yQ2dpclpjRm4wejE2Y1Uv?=
- =?utf-8?B?UHNEa0JZSDFIUk9JUGJVUzMxZEF2OGNTTUJLMlNjYkFMVlZrTGNaemdCd2V1?=
- =?utf-8?B?Rjlhd1RYOW5sa3hEU1krejBkQmYwa0ZQYVdUSW4yczFYWFBrRDVHVU92RVV0?=
- =?utf-8?B?a3ZCRmkwdHRta2lRbnFQZ00vdlZ6b1VzS0Nyd2IvcHVqVkhORjVSbkl2N3RV?=
- =?utf-8?B?UFlraXVoYVlwcHRMZEJ2OTIvcGh0S2VuWlJ3dFM1UU5YOFpveWo3NGlra1Ru?=
- =?utf-8?B?Y1BOWmdqRFhYbHZlT0FFMHBZRHZUZU44VFBFdjlHeU9JaVMyOFhqc0xFRVRa?=
- =?utf-8?B?Qi85SUZxVGhuRUIyU3RoczV3NmJyZFo3aDI2eWJON3c5Y25VZnRWeWJuRGlv?=
- =?utf-8?B?V1NDU0VJRk51ZFdlRnprYzBFVVZnV1lCK2s4YVl0RVRoWHVDeDBFakVqNjFk?=
- =?utf-8?B?R2xMYUlpQlU2NlByVGdxbWJNWDVORG42MHVHNHllZ2FUTmIzSEVNYmtmL3Qr?=
- =?utf-8?B?TXFhMjNmUHNrWHZrZWJlR1Z4ZEJ6WnJLWWlOR3JIVER0NXd4Q2VmV2FUQkEr?=
- =?utf-8?B?bFE5dnN5LzgyQ3JIQWtiV2RSeUJKNlRhOUZvQ2g2eHF1NFNOUFc4UDFoY0tM?=
- =?utf-8?B?R09lZjM5VVBscHJUdnhEU2QrRFpVWWkzbzY2djZ3bzBYdkRUSm9PdXhLeERu?=
- =?utf-8?B?ckQ2SVZwUENKQUxRcXNWbDZRS0tDMS9ybHhINEV2WXpzMld6VUdPYmpmMkgr?=
- =?utf-8?B?aE15Z3pYUHZsT1F5TEhLZlRpd0JKTjZOUVM5b2h1MGFTRisxUzJKanFlaW41?=
- =?utf-8?B?NHNEWFp6cVd1dU80Rkd6TG5OYWppTTdzU240T1cra1JzUnpVbUkweTE3ejhO?=
- =?utf-8?B?NGd0Z1dBNHFicHFycjlJMlJscndpNjlZWFhSenpFOW90MHdsS1ZrUFJuM2VR?=
- =?utf-8?B?UWprbUFmNjFIZ3dGaStkcXRNOHduTUErZ21xUWdoNDdvNWQ4ZVcyTjFpOGtH?=
- =?utf-8?B?bnVKNWtZZ29SUDFBYm5POHBZTldtc21HU3UwelN5bDI2NFlCT3hacVdQMjll?=
- =?utf-8?B?SFI1d1RvTDJGRXpsZnp4aVVvZDgxNXVQMDZCNVdJTFNaN1dzS25PU00ydFhQ?=
- =?utf-8?B?UE8rZ1VudEhDeUNEUzF1Lzg0OGJxVStwZGhWdStFdHlqYjg1V2hnSVpid1NI?=
- =?utf-8?Q?iDK/fDgCxDA=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:WA2P291MB0309.POLP291.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bzBaVGdvUGlWMVpybW1vQko3SngrOUxTTENDdzNJL2UyREJPVmdLTWdLZFFL?=
- =?utf-8?B?UWZFWFkxWjNQSzlwK0t3cStUVmQxZGRtY1BKa1pwbEhJUVpiZ0ZpOVNNcGRh?=
- =?utf-8?B?VlZNNDR2akZMUEFlY2dYUzVoVDh3bFlLQnBNWkZpOENPbG5aZ2p0cFVGUE1S?=
- =?utf-8?B?anhOWWN2TGFlOHEvTDI2M2s0WlZ3eEdZY1NPb1NXKy9jc0RwLzkxbVJkTWky?=
- =?utf-8?B?Z2o5VEhXd29SemVEQXlSQjBuczlsS0VsR0hnY0FrQW56ajdlZGJNMFV4UjZu?=
- =?utf-8?B?K1Y3VVdNUWlWT1dEV3Flc21IeURIUWU5T0lsR3ZzL3p3Smp1M0E2ZDVLYm9k?=
- =?utf-8?B?a0lYS1gvTlQ2UFhSSEo2c1lLVjliZXBiYkRkb292djR4YndEeGtmTU5yU205?=
- =?utf-8?B?T2VoeSt0RzBWQUNUZnBFQjNqcHNqdWJ1a25kYlJkZ3htVHJ6cEtyaDdid3E4?=
- =?utf-8?B?aHZsa1o0dmJTMjVVMTB6aWhvSEM0OC9Gc0hzeHRlZVoxK1RrY2FpRXdTMExU?=
- =?utf-8?B?a0cxanRTT09aS21jNXc2RHExdFZoUEVublRNOTZQS0tubCt4ME02L0hyS3Jt?=
- =?utf-8?B?OU1PUVJWM01LK2t5dWw1ZmIyUUhuNDJpY0xIV3lyOUY5cFZQSlhnNDVLQi9T?=
- =?utf-8?B?TmF1WWFURGc5Y1JoM2t2ZzVidUZsQ0xvNEdsa2x4TmtuOEJxdzVsKytMVUpE?=
- =?utf-8?B?aG8yNnF4dU11QXljMlMvUUNMTFpQVXVHNFJweGtDZ0YvanFlaHc5T1FBQ1BY?=
- =?utf-8?B?QkIrQ21kWlBIYWNPTGRVRjJ5OUo0V1pLYWMrbnlBVWw0SEgyL3NMdlhRQWhy?=
- =?utf-8?B?b1pjcHMwU0h6MEJZSUJsaGNyL2puRGlKOVRXVmtPSjBoMTY0M1FtbVJ2bkVy?=
- =?utf-8?B?WmdCYlZZcEtPK0lDb2F4eFJhRHRZMEUweVRHWDBwdGd6K0lCWEdGZkQrYUln?=
- =?utf-8?B?bjJEZmRzRVdON1ZDVWdKVHFreER3U25id2ZpQUtEQVduRlBjN2RwVDZ2WjAz?=
- =?utf-8?B?dG8vdmwycDhsMVU4bUxTcDYyWlFwSGlIRndRRjQ4VnFubS9pbHpoeWk5MGlm?=
- =?utf-8?B?VUU5QzFFNDY3eWV5K04yb2U2SERvczRDL2J3WElzUlV4Tld5a2xJTWFvS2Jq?=
- =?utf-8?B?aDZISDA5RjlVK0h2VEdEK2hNRC91OCs0SFVSRWlQVE1RVkJKc2Jtb1Fid2gr?=
- =?utf-8?B?YUh5OXdCZHpCK2d5N3hBbCtha1U5ZWRoSlNvY004UU5jckZOTzZKelNmeDBl?=
- =?utf-8?B?OXdDL0cvUkFrRXJ5blg2M201R05kcXc3NjFrWDJ1ZlhXUDkwY3ljMjlxdWND?=
- =?utf-8?B?Vy83UW9Ib1MzSkI3REZDODVSaG5YVXNGQVJ2MjVEd3BoYnI3b1ZiMjVKN3lm?=
- =?utf-8?B?QUF5K2pTMDBpT25vTEVXaFVPZC83RmVCV01xRHpGRE1sN2REV2w1K0JxNlpx?=
- =?utf-8?B?M2c4SE1KMEpzSytmNGRtYURhaWFjMmFSNndYOE9DNW1mUGxheitnZVFiT0Va?=
- =?utf-8?B?Vlp2TTNpVXdtRDR6N2x2ZDVvcHFFMWdKOTRybEx5OUJuVkN2NWxEM3djU3kv?=
- =?utf-8?B?VnVSemdEcElHdzBScFVLc3N6K05qaHB4K0FtNXh0QjRqa2F3T3B1MzFRK0Y3?=
- =?utf-8?B?V2FPNVhObzZGdGx6S0JlZUY2STRDZ0NrZ0IyRldzK1NxUHpmMDZVWXVSRVdR?=
- =?utf-8?B?cGoxUlg2VGRWNFZwUUZBNUh5dFhaSC9iNFY4UzFZcEVUamV2anJZYTJBWGRk?=
- =?utf-8?B?ejlaaE56OWRlR1BWRFJHdXQ0SzNYblpYakltQWJYd0tVSFhzU0NEM1hZOTdF?=
- =?utf-8?B?Ykl4TzN2YzhSMkNNZzZTZ21ZSG9LdHlRRHVJcW1jc0VYSy9DQlJDTDRHd2Yx?=
- =?utf-8?B?VkdnT3g0OXlLM25QNm54YlhYTVhNaUZHTHlmTWk1dHZOQXBERVpacENScVU4?=
- =?utf-8?B?WFZxMWFPNmswdFl5SVAzUUxwYTZ6R1I2WnpBWmxBcWFkZlErZ3JLZFQvclN0?=
- =?utf-8?B?b0RhS2g4bHprR0VaNTUyOTB3MWhFS2k3RzNWaDg1NHIvTDNaTDBOVjhieHNB?=
- =?utf-8?B?aHlCVjBGd1JWcUZkQ0c2V1FpcnZ6U29HY1RzMGdFbThkb3VKcnM5dHYyR0F0?=
- =?utf-8?B?clJsckxzUzY5MlRjcGdSa1VBRGtFOEFWSS92TnA0L2MvOEx4NWh2cENvSzF0?=
- =?utf-8?B?MFE9PQ==?=
-X-OriginatorOrg: videtronic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 03d4a3cb-93fd-4125-16cb-08dd8d5c1afe
-X-MS-Exchange-CrossTenant-AuthSource: WA2P291MB0309.POLP291.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2025 11:41:28.6850
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 42908bfd-23a4-4a6c-951d-1ef4d8e0c612
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: G3GfZObXJ/TdqCV3B9Ll6oH06r6ef8ChLZUTc8GrPd61q1Th+O9JFxwQUyPWUE6LCd40MbZv7M26M8z08dCrIzZbd8sevg8ito7bPSnicP0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: WA1P291MB0203
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_044140_476166_4A436528 
-X-CRM114-Status: GOOD (  20.57  )
+X-CRM114-CacheID: sfid-20250507_045939_866669_9AB743A8 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -208,34 +76,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Feel free to shout if you want help on the Pi side.
->
-> Pi5 should be able to extract multiple virtual channels to support
-> several sensors simultaneously (up to 4 VC/DT combinations). It does
-> need a rework so the CFE runs from memory rather than being fed data
-> directly from the CSI-2 receiver, but I believe that is pencilled in
-> as future work with libcamera already.
->
-> Unless things have regressed, libcamera should report all connected
-> sensors to SerDes setups, and set up Media Controller appropriately to
-> use them one at a time. I know I've had that working with simple CSI-2
-> multiplexers and thought I'd had it working with TI FPD-Link III
-> SerDes (Arducam's IMX219 V3Link kit, modded to remove their MCU). I
-> don't have any GMSL hardware to test with.
->
-> We're also fairly open to merging drivers and overlays for 3rd party
-> hardware into the downstream Pi kernel. If they've been reviewed and
-> merged upstream then that is the ideal, but if you're prepared to
-> support them, then it saves the user the headache of having to build
-> out-of-tree modules.
-Hi Dave
+On 07/05/2025 09:52, Suzuki K Poulose wrote:
+> On 07/05/2025 05:26, Yuanfang Zhang wrote:
+>>
+>>
+>> On 5/6/2025 7:20 PM, Suzuki K Poulose wrote:
+>>> On 14/04/2025 10:16, Yuanfang Zhang wrote:
+>>>>
+>>>>
+>>>> On 4/11/2025 5:59 PM, Suzuki K Poulose wrote:
+>>>>> On 11/04/2025 09:57, Yuanfang Zhang wrote:
+>>>>>> Add a driver to support Coresight device Trace Network On Chip 
+>>>>>> (TNOC),
+>>>>>> which is an integration hierarchy integrating functionalities of TPDA
+>>>>>> and funnels. It aggregates the trace and transports to coresight 
+>>>>>> trace
+>>>>>> bus.
+>>>>>>
+>>>>>> Compared to current configuration, it has the following advantages:
+>>>>>> 1. Reduce wires between subsystems.
+>>>>>> 2. Continue cleaning the infrastructure.
+>>>>>> 3. Reduce Data overhead by transporting raw data from source to 
+>>>>>> target.
+>>>>>>
+>>>>>>      +------------------------+                
+>>>>>> +-------------------------+
+>>>>>>      | Video Subsystem        |                |Video 
+>>>>>> Subsystem          |
+>>>>>>      |       +-------------+  |                |       
+>>>>>> +------------+    |
+>>>>>>      |       | Video TPDM  |  |                |       | Video 
+>>>>>> TPDM |    |
+>>>>>>      |       +-------------+  |                |       
+>>>>>> +------------+    |
+>>>>>>      |            |           |                |              | 
+>>>>>>           |
+>>>>>>      |            v           |                |              
+>>>>>> v          |
+>>>>>>      |   +---------------+    |                |        
+>>>>>> +-----------+    |
+>>>>>>      |   | Video funnel  |    |                |        |Video 
+>>>>>> TNOC |    |
+>>>>>>      |   +---------------+    |                |        
+>>>>>> +-----------+    |
+>>>>>>      +------------|-----------+                
+>>>>>> +------------|------------+
+>>>>>>                   |                                         |
+>>>>>>                   v-----+                                   |
+>>>>>> +--------------------|---------+                         |
+>>>>>> |  Multimedia        v         |                         |
+>>>>>> |  Subsystem   +--------+      |                         |
+>>>>>> |              |  TPDA  |      |                         v
+>>>>>> |              +----|---+      |              +---------------------+
+>>>>>> |                   |          |              |    Aggregator TNOC  |
+>>>>>> |                   |          |              +----------|----------+
+>>>>>> |                   +--        |                         |
+>>>>>> |                     |        |                         |
+>>>>>> |                     |        |                         |
+>>>>>> |              +------v-----+  |                         |
+>>>>>> |              |  Funnel    |  |                         |
+>>>>>> |              +------------+  |                         |
+>>>>>> +----------------|-------------+                         |
+>>>>>>                     |                                       |
+>>>>>>                     v                                       v
+>>>>>>          +--------------------+                    
+>>>>>> +------------------+
+>>>>>>          |   Coresight Sink   |                    |  Coresight 
+>>>>>> Sink  |
+>>>>>>          +--------------------+                    
+>>>>>> +------------------+
+>>>>>
+>>>>> If each NOC has TraceID, how do you reliably decode the trace ?
+>>>>> Is there a single NOC/TPDA in the path from Source to sink ?
+>>>>
+>>>> Not each TNOC has TraceID, there is only one TNOC has TraceID for 
+>>>> one path
+>>>> from Source to sink. In the example, only the aggregator TNOC has 
+>>>> traceID.
+>>>> Decode trace relying on TraceID + Inport number.
+>>>> It can has mutiple TNOC/TPDA in one path.
+>>>
+>>> So do we only describe the TNOCs that need traceId in the DT ? (e.g., 
+>>> Aggregator TNOC above ?) How about Video TNOC ? Don't we allocate a
+>>> trace id for it by default, when it is described ?
+>>>
+>>> Suzuki
+>>>
+>> yes, now only describe the TNOCs which need traceID, Video TNOC is 
+>> another type, it is interconnect TNOC which collects trace from 
+>> subsystems
+>> and transfers Aggr TNOC, it doesn't have ATID. Its driver is different 
+>> from this patch, I want to describe it when upstream its driver.
 
-Great to hear. Our initial test were made on a hardware that was 
-designed for other platform (Toradex) so our test options are limited. 
-However, after evaluating Cosmins drivers we designed a proper hardware 
-for Raspberry Pi platform. We are now in a process of review and will 
-soon manufacture it.  We should have them in our offices in upcoming weeks.
+So, if both are TNOC and there different types of them, how do you plan
+to identify, which is what ?
 
-It would be great to work with you to setup everything properly. We can 
-send samples to you if you wish.
+And we also have a dt-bindings which simply says "coresight-tnoc". Isn't 
+too generic if it is meant to be "aggregator" ?
+
+Suzuki
+
+
+
+> 
+> Thanks! Please could you make sure to describe all of this when sending
+> out a patch in the cover letter ?
+> 
+> Cheers
+> Suzuki
+> 
+> 
+>>
+>> Yuanfang
+>>
+>>
+>>
+>>
+>>
+>>
+> 
+
 
