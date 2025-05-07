@@ -4,70 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B65EC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 20:16:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C0A8C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 20:33:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+X8jHZ+UCc+Ohu0KXssevYJirrp4bJDPnKlrWI5bAVg=; b=Ks+B5HaRLZxDIHoHZBw7FmECpj
-	kOl5cP/RIQYBcZvqj52iVASiqpOfEnefrqTNLqjPA4uPFfzv969mytJFWRA5yDEIcHDa4Aw5SUko9
-	4GOHFEBBX2mhQnME0VG78XX5B/eZe+md8nlrDvdYXpEvIdjMXcNFFF7kpAr1Yepqx2KlaVOEKvxiM
-	PHZ88eI0yUD9azS4CYusCOo1I1UVpi8ggaaN+T9G3uydnkik4TM/gs6zAqYUybSPcv3i7HZc8iRey
-	ct9mGMId4gd+dvzXIWLnKDC2KbyDxNxv+vD8WAFEbQxA8mFMj1+EJv3nt+NNfstz/517GfTYvMXwX
-	vO6CITnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n6sSAmtzTagat7rHHCWh/1I7DnYwJFbhua2ya+A8oK8=; b=AMw8nvPZ13XX6MuQgRh7Lo3/uy
+	t0F7Uooi59Fm75ZHSpxs+687jj981FxtsCVXf7QakmIuezo3G8EBN41HgdJ5DQhI+beAcScQVs8iR
+	E8QRPU+3puufci4/WSnVvFTsdEMkT4o75WYEhDnutU6+EiSDCorHmoHG33adib9w6OjxhjiR1pa+u
+	BiAPkiEBrqZtqG4YWZybfc4LD1Xk9ceQjjlYUGhwMLrpaK5UjkQq8M1rHlULHm8EBHlptylevbGq+
+	FePjsDOz642OuHwn/xrvzvETgw3u/AQnMnswsj3P8j82P8WAD1ZnwVxabNF6/ls4N/YNuIxJt44Xs
+	PgCJ6ugA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uClC3-0000000GfDX-17Qn;
-	Wed, 07 May 2025 20:16:39 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uClSM-0000000Gh8L-18lT;
+	Wed, 07 May 2025 20:33:30 +0000
+Received: from mail-mw2nam10on20616.outbound.protection.outlook.com ([2a01:111:f403:2412::616] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uClA5-0000000GeuL-2xxw;
-	Wed, 07 May 2025 20:14:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1746648874;
-	bh=1wYB6g3HZmLcMhDaWBOpHrS4E4d1M7S0hY8EqdNaB7Y=;
-	h=From:Date:Subject:To:Cc:From;
-	b=JEH0XLuos0G9N9R/Vnss9oT0gjwD78a9Zvy7mAlh49Se033+o/gsmgiu1sPhxpemC
-	 uw5xzDT4GBOS6u+JyKdAivFSP++gi0f7VTtBSzlXXQKfsOBy2Y+RAaV2C4/N4sY6Tf
-	 mB/hPIwR7bf2wN+LZjkpA+8sz1Tmxd8bmtiDJMFMEmX77sL801A4/a2rAn0gLN5WT3
-	 7Xy/3ZvWz6r/qAzkpd5cBMN06NzXB/3hfPYh6csVKN/IJSUXVGwLNT56LByTVgPWoE
-	 z0OInyp/DFrYK6q35hbjVD7i4hnBI8TJ1UmKm0S2stwd29wdSIa8H0M+SS61Sv7bdY
-	 xhcn9e/JIUdfA==
-Received: from [192.168.1.63] (unknown [70.107.117.78])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 37A0717E0707;
-	Wed,  7 May 2025 22:14:32 +0200 (CEST)
-From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Wed, 07 May 2025 16:14:14 -0400
-Subject: [PATCH] ASoC: mediatek: mt8188-mt6359: Depend on MT6359_ACCDET set
- or disabled
+	id 1uClQO-0000000Ggwi-3jhk
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 May 2025 20:31:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IrkMgPCYyt2gLQenQ3FpS8FzIzKmqTA7eMHju4rG7gr+i4gPAYpjvvB/a8PeHJkC7Hc/KEYkKbApV6pJr5et72DmnMwLIQq4S0WyglofN3KeDHkuGqvDjOzUMWVdUVAp7lXxf+uu5lrK7Orv/aqm2kmHQBW7sacHc3Wvboy77X7yDmp1edf2YoHEasMS19aosN4+los6yenvbfcD9TsHdjE1v+q3mYgm+L9cK/SgukNigDSY0ZJsLUpUNyCj1UTsDqp5ON7bSSao+p2elroNomw/KkVL8ouq+b+kOI7A9Nyb7doKrRfL9Vt/3NoSoUEebu1jQkEd0aPUiy4mCZh3iw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=n6sSAmtzTagat7rHHCWh/1I7DnYwJFbhua2ya+A8oK8=;
+ b=JsTLHsux21e9WIO1FylMcQc5d3mc8nqDNqpdQ7Cbx+ZQDNJ3Ajmv5y56QVOIslAVKH7aeEdD8/kgIbQ7bleCFyLvEB2aIqz3owCjK5XXmLcrJ27KJEMaTzlNmLc1N+cRDys7U4TmsRnu7GeDST5f4XuL8bMQVfzKHxRNY35yrsXsPqI6ia5R/UtMEp9Txar/dBtS+SHWKSN3jMnlv71liiKceNKzxAwbJpIh2Hxo56dvVfI9g0k6+aeMh0WTM1fjCwKbAc/NxMGHiOaUc0qTScZM5CAckV+eha9Lr5T5cMql8gJsZeY2yjkbESjJ0vhWuRFMCJApm3UGy86X3WAYbA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=n6sSAmtzTagat7rHHCWh/1I7DnYwJFbhua2ya+A8oK8=;
+ b=GH3tU6cC5O633fR50XNuiCN7gBHNg0iV9FqdVLnms7E8wKYYwho509wWs5TkovlIUToqxWRGYZKHPhuDEim4ZW6UgKfyxD3a4HVco5++LYOBfJgFuSAN+boZ3pRjfomMtmEhqCO4Yr7bBrsmaeFYYSy9HIbVMiOGN/ew763gfks=
+Received: from BL3PR12MB6571.namprd12.prod.outlook.com (2603:10b6:208:38e::18)
+ by PH8PR12MB6987.namprd12.prod.outlook.com (2603:10b6:510:1be::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.20; Wed, 7 May
+ 2025 20:31:17 +0000
+Received: from BL3PR12MB6571.namprd12.prod.outlook.com
+ ([fe80::4cf2:5ba9:4228:82a6]) by BL3PR12MB6571.namprd12.prod.outlook.com
+ ([fe80::4cf2:5ba9:4228:82a6%4]) with mapi id 15.20.8678.028; Wed, 7 May 2025
+ 20:31:17 +0000
+From: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
+To: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>,
+	"dmaengine@vger.kernel.org" <dmaengine@vger.kernel.org>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Vinod Koul
+	<vkoul@kernel.org>, "Simek, Michal" <michal.simek@amd.com>, Manivannan
+ Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	=?iso-8859-1?Q?Uwe_Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>, "Pandey,
+ Radhey Shyam" <radhey.shyam.pandey@amd.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>, Marek Vasut <marex@denx.de>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "Katakam, Harini"
+	<harini.katakam@amd.com>
+Subject: RE: [PATCH v2] dmaengine: xilinx_dma: Set dma_device directions
+Thread-Topic: [PATCH v2] dmaengine: xilinx_dma: Set dma_device directions
+Thread-Index: AQHbv3zfM4FyfWDN2UicmQCtxvGIrLPHno/A
+Date: Wed, 7 May 2025 20:31:16 +0000
+Message-ID: <BL3PR12MB6571C982D9D8DC190414F21FC988A@BL3PR12MB6571.namprd12.prod.outlook.com>
+References: <20250507182101.909010-1-thomas.gessler@brueckmann-gmbh.de>
+In-Reply-To: <20250507182101.909010-1-thomas.gessler@brueckmann-gmbh.de>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ActionId=a04196d6-f1f2-44b4-9968-a4b12ee52b8f;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=0;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=true;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
+ Internal Distribution
+ Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2025-05-07T20:29:44Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Tag=10,
+ 3, 0, 1;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BL3PR12MB6571:EE_|PH8PR12MB6987:EE_
+x-ms-office365-filtering-correlation-id: c6d0f9c3-8540-4a80-6a8b-08dd8da61e66
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?we9GZVxeszqpRIgzHINq02IT45dJdzAOZoyAl4qnuh/uIYHuyRRAfutabG?=
+ =?iso-8859-1?Q?USBOzBpZW7BY9sXTtQTpfRBgfj9jueKEYLuPDwKQHhZBXLw9zUkqTBBdMD?=
+ =?iso-8859-1?Q?9/Z72Too5h20VWga+6Z4KNfGlrttx861V3Lt4kVRKSOBUQAu5fdFMjWlMU?=
+ =?iso-8859-1?Q?L2pfQ4woU2hdRDmRifkpTzOQhs6V9FcV7IPYdBKTQciWescn1SkCyVpqN5?=
+ =?iso-8859-1?Q?Drmn51DEclQxRBjQ90hcZmFepcKAo21G2l5wc4bViFZODbtVWZOZPav8ox?=
+ =?iso-8859-1?Q?OB669u5Ag5A2HgA8oWt8APBdNXgFNOIE71pzGEvxT2ljXrVE19TOI0EC04?=
+ =?iso-8859-1?Q?GDYwk/TxYPC09qByobbicV5N4btMMVBEsr6clUBpK2xCTZmh5OqKV81KYb?=
+ =?iso-8859-1?Q?kcSh03uKABYH8JRzxZ6yIE5nZ9D9hTfRL2c/3UoGOE71doyYnAH0aFziiH?=
+ =?iso-8859-1?Q?7kGInz+6SRSP5Bj8BmJSGwktf28kg8HS5DIspaNzbFtr2lCUfQIi+r3xd0?=
+ =?iso-8859-1?Q?CcufaO4p9vY99ugcEh2EybJOWZtXpjfEoLrIO7EYTVxJh/JBhGcxdH0b04?=
+ =?iso-8859-1?Q?xiUUmaFMq6t/bBNLbh13C/uVY8fv/sCkJUx+XbGP5cfW74I1Mg0VJx/pfU?=
+ =?iso-8859-1?Q?6BUF7Ct8V91aVYGjxnTrIrIDdzKq4eXk9B/autkvhfsXGz4jof/wOogE2Z?=
+ =?iso-8859-1?Q?R+M3kAGHhHqYqSa9dmmAaUTFYORUIVHydMuZKd/F+N2+oum7STEt1PfxFa?=
+ =?iso-8859-1?Q?KgBbsMuBn+a+2xIE2suJUdikbcehC5JtP7GKDEI1cqldkXjgiG5t0GB5z0?=
+ =?iso-8859-1?Q?K2MHsuKByf1bcYD0K+UqmUmbBH033Z/R1TWA/SUlOx+0TV/IPY9g1ugPRJ?=
+ =?iso-8859-1?Q?4+YI9YlNQVdQXCKNh8JMHRn+1AvIYr38T9vyBzYndWvg9cSkatzUZ7RGQY?=
+ =?iso-8859-1?Q?0zz2rlcVpu4WO5pxlJAsD+EFHA9NcUdGjG1T8aAj9cwV0hxtg0NxKh+6HO?=
+ =?iso-8859-1?Q?wRTlGWHX9njigxRQ+k9+zXjyrqYrwmkvNzuT4Ym45cBGtMEl/SKVnvewFR?=
+ =?iso-8859-1?Q?6Y2kqVC+5FSXZt6XJJQqUJHTyhDVwDBqV25gZ8bBBV917TsMxgyTMc9i6z?=
+ =?iso-8859-1?Q?q2rYznnRKEYbAb5W/3gyFdQWllyWi5xF6WQ7YebiRkSF8jpz2qu8Xhc6sS?=
+ =?iso-8859-1?Q?oWfpSnHFZVmI4QZRN6zJX8s8RbtaOdZmS4jrjaicsjScBhuOcDAdnhBRcs?=
+ =?iso-8859-1?Q?k85hjQFNR0mDfcBlNEgrCs+kzJ5c69hcrKvlZaKvKUfsNylPEqUXwjP+Cv?=
+ =?iso-8859-1?Q?96uTk9j88cUrSkjaxuDvKT0v8N69rdqBwywn5nSDkPVDwzs45njWsbVyX7?=
+ =?iso-8859-1?Q?Lje5Ziii7sL/XrR7B0lMkcd4r8umE9VtUEsIsCU6PA9hSiJzYG7ZQTLs0S?=
+ =?iso-8859-1?Q?tGirGl+zsyh60mRSmTXLE6RZdBrSEIplYm9D7sG1d91k0bV67ZR0mgukgo?=
+ =?iso-8859-1?Q?FAV4CFzs11WcewOFHuMMg6KjXlnxdjeSYv/T6cUQPwtQ=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL3PR12MB6571.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?7oqUxofcfF8knBJYjZqbOxNSd9LBQHA6w2EIVZr/sk1fUo5I9kjHMv1zVQ?=
+ =?iso-8859-1?Q?UvHMfS6MYAfNYL5QZQmwcb7Urbij+UrfAE6HuUJRWyd8PMLXcxDMUOMUf/?=
+ =?iso-8859-1?Q?bfWOa+lETP8q4vu34Erug6a0Msw31xBh1/7CQxsjM4LqqYBTxMfVykj9x+?=
+ =?iso-8859-1?Q?b0mo9oCTETg67xTzcqxCX4gDaldQlCCMyIIx9Kj5o3HTM6jjDb0UzH5a5c?=
+ =?iso-8859-1?Q?vV/NLNMwT+SKImVMbIka/WOtVd6gvpRC3Is2sW/Bcrx1E5mWe62OiuBw/I?=
+ =?iso-8859-1?Q?keBcyi6ItvKBpzKeJxr07AMhgU5S1xTS3ueFzR90DAXz65aEv9agpYmspU?=
+ =?iso-8859-1?Q?jHezd1TnwUkzi4WuFv523eTQFkNGNIPKfsshkO48DOZUM49YpF1MxoiRus?=
+ =?iso-8859-1?Q?EOMs2LDiwYC6E9m7v8/lxmmsuyyPj+2PR5WYsuSkEEWLlu4JQR1Zo0KqSB?=
+ =?iso-8859-1?Q?NeKCWHxokrI+uwwBvgbO3PgFCC2nr1tbHvCpcKizHf78wjJjmetVe78IPf?=
+ =?iso-8859-1?Q?hf2rWvQhyaCP1wMiqGDa/6lSi6h6dOpICSMWQ3cbg6tVyF/gn5GWlXzHDa?=
+ =?iso-8859-1?Q?7+rLkcL+Ut4/PJSjk0v+VPP/whoC+Vc/ZHHTe8Aiq1s/iYNH1BztxMHEpI?=
+ =?iso-8859-1?Q?jc1gjIHibbKK2d+/nk4yclJvIqhsIoL2paiVCSr9WRRXB5b9kr6CICbC1P?=
+ =?iso-8859-1?Q?AdWJCcY3aDciOolDJnFRJyZku0c6pmHhH3PJeAnsZzR1mBx0nCf3hUkyxP?=
+ =?iso-8859-1?Q?eq5NQxalYLmrdy0VjtPWE/pj+PYhsJWQ8JXkujTs00RaODNtT4le4hwTB7?=
+ =?iso-8859-1?Q?Y/GiELtwSkdi5gzSUKg42DnO4InUfMMXJ6hRrxQ5bp91mKs7/4lJxOt35l?=
+ =?iso-8859-1?Q?kc0GgKF3e1PglucauB3WDjIbExqnjST2Wx1uKz2Ac0svE72nxY24abu7pQ?=
+ =?iso-8859-1?Q?SJzojw/q7g9NR3/01LokaXNx/sJQghSWVi4bVNmJZ9QjIN9OmBqpbZkCoE?=
+ =?iso-8859-1?Q?SlrfXi5S1pTVg9uqaEn5kchYf2phORLd5x+W5W65+xbwCpya+7d6wiI6XU?=
+ =?iso-8859-1?Q?9EQdGsRcuYWbWvUe8NDrr1w8SXhikeRfFiiEy3hyS/YX37b54al/1EFCK6?=
+ =?iso-8859-1?Q?PCLSVyjBvgOBGqSBY/NIMdkNpnYDkYWLYaGw1kA5C4pBCVUGkpYJJhabtV?=
+ =?iso-8859-1?Q?+mofJYkckOCVf7EsbU9rgLufKd9f+3iCiBlilYOZgHRM7KWrU5AjOtWv8I?=
+ =?iso-8859-1?Q?oUfBWGt8M5vsyzblgeOlxP2kUrDbq4Vy0ABM+n8ty89DdESbruO6MJ0sZ/?=
+ =?iso-8859-1?Q?MxnIYuWUuEQ11PLgBMkGQgwbeyzbmbphXH4C7TclWm4opMVzS+8n4XcxV6?=
+ =?iso-8859-1?Q?n7Y9mqWL+qPKubv2em5WQSk1+86H8N1ItUwpXLoUeZy9yn2Gx03aIyJRip?=
+ =?iso-8859-1?Q?xpsxXVx3D9wvh+mNdn5E1VOeyRFZydlByvZHYNNd5cqYtGx2fGKF8YlPhJ?=
+ =?iso-8859-1?Q?cIuCuZ+UGZMa0qhValTDQLgHEWLe5p0h6wxHHF6M4Da1SZANNRNEDzrNAq?=
+ =?iso-8859-1?Q?huMG2gBscc0lWDfBUdkNGuosATZDcXsSoBGHUzP7E5BHOvofnSHm63pCEy?=
+ =?iso-8859-1?Q?HfpCnWeSGECFM=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250507-mt8188-mt6359-accdet-depend-v1-1-aad70ce62964@collabora.com>
-X-B4-Tracking: v=1; b=H4sIABW/G2gC/x3MQQqDMBBG4avIrB2I0WjqVYqLNPPbzsJUEikF8
- e4NXT2+zTupICsKzc1JGR8t+k4VXdtQfIX0BKtUkzXWGWcm3g7feV8z9u7GIUbBwYIdSXgI0di
- HwyAIVA97xqrf//2+XNcPhNQ/VG0AAAA=
-X-Change-ID: 20250507-mt8188-mt6359-accdet-depend-4ac02b5e4dea
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Zoran Zhan <zoran.zhan@mediatek.com>, Arnd Bergmann <arnd@arndb.de>
-Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Arnd Bergmann <arnd@kernel.org>, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-X-Mailer: b4 0.14.2
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BL3PR12MB6571.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c6d0f9c3-8540-4a80-6a8b-08dd8da61e66
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 May 2025 20:31:17.0190
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: r5pbvCLrbP1ij1kMawc8Ry/5y2uOSvFcVaUfG7cuZ+qlYmK0DaDoAAAe0QJDyuUn3i0pHGiD5sCmBiN4P2Wh+w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6987
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_131437_892127_27BF0029 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20250507_133128_931478_34921666 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,52 +172,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 0116a7d84b32 ("ASoC: mediatek: mt6359: Add stub for
-mt6359_accdet_enable_jack_detect") added a stub for
-mt6359_accdet_enable_jack_detect() in order to allow the mt8188-mt6359
-driver to be enabled without requiring the mt6359-accdet to also be
-enabled, since it is not always needed.
+[AMD Official Use Only - AMD Internal Distribution Only]
 
-However, in the case that CONFIG_SND_SOC_MT8188_MT6359=y and
-CONFIG_SND_SOC_MT6359_ACCDET=m, a link error will happen, which commit
-b19fa45715ce ("ASoC: mediatek: mt8188-mt6359: select
-CONFIG_SND_SOC_MT6359_ACCDET") solved by selecting
-CONFIG_SND_SOC_MT6359_ACCDET.
+> -----Original Message-----
+> From: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>
+> Sent: Wednesday, May 7, 2025 11:51 PM
+> To: dmaengine@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org; Vinod Koul <vkoul@kernel.org>; Simek, M=
+ichal
+> <michal.simek@amd.com>; Manivannan Sadhasivam
+> <manivannan.sadhasivam@linaro.org>; Uwe Kleine-K=F6nig <u.kleine-
+> koenig@baylibre.com>; Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>;
+> Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>; Krzysztof Kozlowski
+> <krzysztof.kozlowski@linaro.org>; Marek Vasut <marex@denx.de>; linux-arm-
+> kernel@lists.infradead.org; Gupta, Suraj <Suraj.Gupta2@amd.com>; Katakam,
+> Harini <harini.katakam@amd.com>
+> Subject: [PATCH v2] dmaengine: xilinx_dma: Set dma_device directions
+>
+> Caution: This message originated from an External Source. Use proper caut=
+ion
+> when opening attachments, clicking links, or responding.
+>
+>
+> Coalesce the direction bits from the enabled TX and/or RX channels into t=
+he
+> directions bit mask of dma_device. Without this mask set,
+> dma_get_slave_caps() in the DMAEngine fails, which prevents the driver fr=
+om being
+> used with an IIO DMAEngine buffer.
+>
+> Signed-off-by: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>
 
-In order to not require CONFIG_SND_SOC_MT6359_ACCDET as originally
-intended, but also prevent the link error, depend on ACCDET being
-enabled or disabled (which will force MT8188_MT6359=m if
-MT6359_ACCDET=m).
-
-Fixes: f35d834d67ad ("ASoC: mediatek: mt8188-mt6359: Add accdet headset jack detect support")
-Fixes: b19fa45715ce ("ASoC: mediatek: mt8188-mt6359: select CONFIG_SND_SOC_MT6359_ACCDET")
-Suggested-by: Arnd Bergmann <arnd@kernel.org>
-Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
----
- sound/soc/mediatek/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/sound/soc/mediatek/Kconfig b/sound/soc/mediatek/Kconfig
-index e148d4d9416011252ddbc37111c3e7b9d59082f9..90e367586493d7a413efade6a8586c4770c459ab 100644
---- a/sound/soc/mediatek/Kconfig
-+++ b/sound/soc/mediatek/Kconfig
-@@ -228,8 +228,8 @@ config SND_SOC_MT8188
- config SND_SOC_MT8188_MT6359
- 	tristate "ASoC Audio driver for MT8188 with MT6359 and I2S codecs"
- 	depends on SND_SOC_MT8188 && MTK_PMIC_WRAP
-+	depends on SND_SOC_MT6359_ACCDET || !SND_SOC_MT6359_ACCDET
- 	depends on I2C
--	select SND_SOC_MT6359_ACCDET
- 	select SND_SOC_MT6359
- 	select SND_SOC_HDMI_CODEC
- 	select SND_SOC_DMIC
-
----
-base-commit: b19fa45715ce9cfcc597ed140df31115e969b39d
-change-id: 20250507-mt8188-mt6359-accdet-depend-4ac02b5e4dea
-
-Best regards,
--- 
-Nícolas F. R. A. Prado <nfraprado@collabora.com>
-
+Reviewed-by: Suraj Gupta <suraj.gupta2@amd.com>
+> ---
+> Changes in v2:
+>   - Change to Suraj's simpler version as per Radhey's request
+>
+>  drivers/dma/xilinx/xilinx_dma.c | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_=
+dma.c index
+> 3ad44afd0e74..8f26b6eff3f3 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -2909,6 +2909,8 @@ static int xilinx_dma_chan_probe(struct
+> xilinx_dma_device *xdev,
+>                 return -EINVAL;
+>         }
+>
+> +       xdev->common.directions |=3D chan->direction;
+> +
+>         /* Request the interrupt */
+>         chan->irq =3D of_irq_get(node, chan->tdest);
+>         if (chan->irq < 0)
 
