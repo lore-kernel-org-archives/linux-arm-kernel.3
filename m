@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BCFEC3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 07:44:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C88A9C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 07:46:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JSXin/NaoD/7kR4B/eM46Fkk5Jb9G5HFuZaX55s0xqg=; b=lBTIMfUTOYKQCb8wghGoslLqat
-	eQxW1fZjFM9k7xzC7TzAsuJOi9gtSezyB1iI809NJFB4cy5TCZUyEujRcbZsCzPu4m9uDczBpXtYC
-	dy4uYajG2pdNVi1id360W33268O2/EDaYuJF1mWdYp5yCAOOlhRJOloebW+FCOpR8i+EddhgreGRo
-	df/YyZAIhMCyVXZr28fSdpb31mcZYdvAA4iZaA7gQ0vXQqfNNzQtdj/7Hud6gn1Cmpz7JoHYGeDwo
-	mppP7CCFKKjEDpsGfIZthzrp1VNwmrZfqu39b4UYWweNNMtiQYAuMbdOdeL61BxRaNLFIQ4DUDqBX
-	BMAJrqAA==;
+	bh=t6GjtvK5QcizAAMwwtkZqX6Sa7F/dtXsO8N6H16bqMg=; b=LG1iIt9ZCpSr+QDZmn1MhkBecv
+	s6BumAfeDE4ySZx9PYYBwFEIxZe48KwGP8FYmcTqO1txjzKEDA5tkxthXqhqvlLu4zmYBS8UEKCin
+	BBj2wr7ES+BYJTmYrrDXfIojrtrz131kMs+6+/SviPGPHXTV3XL6J4WO9fEa6WqVsKG9eGizmhKs4
+	QPlGoVEin+yjG8A/XgjRu46uNi85Y5ZmF0CIYXIJqhGbMmcql77m8q3fkfqKQyRaI3cSkTrJy2fvd
+	z0FfF6lR85waYcK8iYjGpErPRfQiF0ZL50YPXRQLJ+Qii6TDqEvpf0WXzTR80vb/kmGtK3MBJ8Gcy
+	3zRrjCXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCZS5-0000000EaFK-2W2o;
-	Wed, 07 May 2025 07:44:25 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1uCZU1-0000000Eaf7-27Z4;
+	Wed, 07 May 2025 07:46:25 +0000
+Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCYyT-0000000ETWu-0CTw
+	id 1uCYyU-0000000ETXY-3cYp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 07:13:50 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPA id B435E43B64;
-	Wed,  7 May 2025 07:13:45 +0000 (UTC)
+	Wed, 07 May 2025 07:13:52 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPA id 9E39D43B4B;
+	Wed,  7 May 2025 07:13:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1746602027;
+	t=1746602029;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=JSXin/NaoD/7kR4B/eM46Fkk5Jb9G5HFuZaX55s0xqg=;
-	b=UE0EKiMRtr1j0+U+O8gsPM9W4we0gUc7lwzhIMO5qTAjcQW2eB++xjYRS2dF/shIym0iNg
-	It/Oeg5BwPawcntk1MLQ5/8uu1dJuFFGdq+7J3XFk6dZaDOy5w96RR3GH02U6ZSA4syItl
-	NQmWytnjbDr4vdT+qRGu/WrnjYP610bD1I/2y0n54kygGxrq9CZPL2dLke5cztzZdcWaGS
-	EVs+ItWRtROtGvcA8lDY+CzNxBCdJ86Lomr1hp0p23NwD+lcDh5suHpktvaijAl7Qa0vt4
-	t7NLtAoMMIENsGDKpZCqPxHxmLNf0HuMfdB/KRLqEtk8lbL/+RoCJ/dCTBbMCw==
+	bh=t6GjtvK5QcizAAMwwtkZqX6Sa7F/dtXsO8N6H16bqMg=;
+	b=LPE5LH+cYoOr7cXHSX4BPj27RJ3VIVtufli/fceDSpd4Mc/Rkht9iLgDN10rouR5aIhr36
+	2sdK1hpoqWyyA9z3Z2H+xWw43AXZpEKdQE3R8Rnbf8H4irp8li9jXXUpU+d7G7x0wsJAQh
+	Qw38D/RkzM2cLFh2W7O2U3oB3ROHVjVJhmTdYx/QLJuDEAKGB2dn3X13XRwAw6psAdPl7n
+	o+4jVrjnn8hxzS4EBC+LDDNK7SUy0GGblBb9hpwMDmgbNxXGYb4/DLi4pJu/9rlEdbFXmn
+	+gLFiA4IzTylS0xHvI+h4q22c+k6yNRcTgmLUKh/YL3nhkOgGSDfPFEVROlu8Q==
 From: Herve Codina <herve.codina@bootlin.com>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -84,9 +84,9 @@ Cc: Wolfram Sang <wsa@kernel.org>,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: [PATCH v2 11/26] PCI: of: Use fw_devlink_set_device()
-Date: Wed,  7 May 2025 09:12:53 +0200
-Message-ID: <20250507071315.394857-12-herve.codina@bootlin.com>
+Subject: [PATCH v2 12/26] PCI: of: Set fwnode device of newly created PCI device nodes
+Date: Wed,  7 May 2025 09:12:54 +0200
+Message-ID: <20250507071315.394857-13-herve.codina@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250507071315.394857-1-herve.codina@bootlin.com>
 References: <20250507071315.394857-1-herve.codina@bootlin.com>
@@ -98,8 +98,8 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvkeeivdefucetufdoteggode
  hgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomh
 X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_001349_231855_245146A0 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20250507_001351_029882_6107A9D1 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,29 +114,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The code set directly fwnode.dev field.
+Device-tree node can be created when CONFIG_PCI_DYNAMIC_OF_NODES. Those
+node are created and filled based on PCI core information but the
+fwnode device field is not set.
 
-Use the dedicated fw_devlink_set_device() helper to perform this
-operation.
+When later an overlay is applied, this consuses fw_devlink. Indeed,
+without any device attached to the node, fw_devlink considers that this
+node will never become a device. When this node is pointed as a
+supplier, devlink looks at its ancestors in order to find a node with a
+device that could be used as the supplier.
+
+In the PCI use case, this leads to links that wrongly use the PCI root
+bridge device as the supplier instead of the expected PCI device.
+
+Setting the fwnode device to the device of the PCI device allows devlink
+to use this device as a supplier and so, correct links are created.
 
 Signed-off-by: Herve Codina <herve.codina@bootlin.com>
 ---
- drivers/pci/of.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/pci/of.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
 diff --git a/drivers/pci/of.c b/drivers/pci/of.c
-index ab7a8252bf41..2435200fdd58 100644
+index 2435200fdd58..ab19bfaaeab2 100644
 --- a/drivers/pci/of.c
 +++ b/drivers/pci/of.c
-@@ -803,7 +803,7 @@ void of_pci_make_host_bridge_node(struct pci_host_bridge *bridge)
- 	 * bus. Avoid any new device creation.
- 	 */
- 	of_node_set_flag(np, OF_POPULATED);
--	np->fwnode.dev = &bridge->dev;
-+	fw_devlink_set_device(&np->fwnode, &bridge->dev);
- 	fwnode_dev_initialized(&np->fwnode, true);
+@@ -709,6 +709,13 @@ void of_pci_make_dev_node(struct pci_dev *pdev)
+ 	if (ret)
+ 		goto out_free_node;
  
++	/*
++	 * Set the fwnode device in order to have fw_devlink creating links
++	 * pointing to this PCI device instead of walking up to the PCI host
++	 * bridge.
++	 */
++	fw_devlink_set_device(&np->fwnode, &pdev->dev);
++
  	ret = of_changeset_apply(cset);
+ 	if (ret)
+ 		goto out_free_node;
 -- 
 2.49.0
 
