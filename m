@@ -4,68 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF4A3C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 15:23:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D1F9C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 15:25:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gEZOZLPcRJxRfh24T0EJSIruoikP/SExaWOW/Kexfns=; b=A7gyuFk2cDw88j8v8DlHKdTu8f
-	p3N1koUlq67elpHo4F15c6PFeIwqB+LGNq4hDtD3aVF3hMYL80UKAI1iwbHykFMAHo3/4jXocA7gH
-	GHZxFay1TCKhnk2NUNx4qsEIp6urs/qzHLjkh0JywruHI4XqoGxkUavwumVrczdE2/HjFnuKqi0xr
-	9VB0t4GgKuU2QmX+f+uwB05uDGCBvyKB/aBKHoxk8ZGm4fxoT2cgt8K4kYdUmQJMeOnr7Tlg5Gm41
-	MdQE/cVPyx36Gn2GiRKFoxyIPEVwW+4ThpVAJvcfFwKPt9hvVq1ED+8f4CUmTrCcLBQ0IRvx9UHhS
-	c+hk7UKw==;
+	bh=hE5pqIIiTRP3xPbQUA3RBdQkSkJonXNdeQ/5U/JPsWw=; b=mdLsFqZEeMGoim6dFbNLR+Il9f
+	j0ymEhsV3pjLHNLMU+jbJGhNfIQnydg69rV8NIBbAhOkjiFMw7IyiHBAX3jKWVwkrOd1PJfDkH672
+	TrciecpuVfPzlronROw3Z0rT51ORTZ/hK05xR3V62lNeFTfqfm9sD6qkTKi0I5/e5WxtCX3E7gA/J
+	rjTdLkY2L0+2XV0yZVoVHRQIDgtDpHYu4fEXhzxxlhfD7tNG75m7I65DmrbE+6LFgcUKJ5y713ms7
+	deWE4gMU6NcDV7ismi5pK5e7WC2O5qYMoVF47C9N1M5BeD5SoDx4MYsFgLMqna6+TRSNi5lrQfY/5
+	mD9aUe0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCgbr-0000000Fx98-3TBt;
-	Wed, 07 May 2025 15:22:59 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uCgdn-0000000FxY4-2N4T;
+	Wed, 07 May 2025 15:24:59 +0000
+Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCfvQ-0000000Fow4-0xQv
+	id 1uCfwv-0000000FpN8-2v0M
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 14:39:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5CD4E5C5E0C;
-	Wed,  7 May 2025 14:36:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFE9CC4CEE2;
-	Wed,  7 May 2025 14:39:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746628747;
-	bh=M5CcSPuLYGfbJAZJVHYzupINnvinn+df+jpAgdSoM/Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HO3jUvrfNNHpzFsaORsIObjB2euzGzEaqvlGLlNgZ8BcE3cwqSOf3xBj05jEyTKjL
-	 1iRjHA1UKxPBVGtD+TtsLm3cny4Iq0U8SHu4m+DFV5EliODnN//7B0X7AO1kgn2j9o
-	 mFkY0U4VD0rJUmyrziSn+FQraocfEruySNRZdyXoKsaQLpL6zP2S8pRhJC7jYIGAuW
-	 1TjiYEH2FurJBI77g0/TQp/JtDNws0GkIykjnVVIOoDDeF+Ofq5I2y7eIQ/Krgbplc
-	 wO34+j7xUnJyi2yeG8Ffl/IpaIGfsmxYNj2d7g/7GEYPbs9tKcDw1MPzfj3uGuMsPB
-	 FxRNXLTykEVwA==
-Date: Wed, 7 May 2025 15:39:01 +0100
-From: Will Deacon <will@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
-	catalin.marinas@arm.com, daniel.kiss@arm.com,
-	david.spickett@arm.com, luis.machado@arm.com, maz@kernel.org,
-	richard.sandiford@arm.com, sander.desmalen@arm.com,
-	tabba@google.com, tamas.petz@arm.com, tkjos@google.com,
-	yury.khrustalev@arm.com
-Subject: Re: [PATCH 03/20] arm64/fpsimd: signal: Clear PSTATE.SM when
- restoring FPSIMD frame only
-Message-ID: <20250507143900.GB2475@willie-the-truck>
-References: <20250506152523.1107431-1-mark.rutland@arm.com>
- <20250506152523.1107431-4-mark.rutland@arm.com>
- <20250507124644.GA2227@willie-the-truck>
- <aBtnzhmqfdbs7hhT@J2N7QTR9R3>
+	Wed, 07 May 2025 14:40:43 +0000
+Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-7c54f67db99so113386985a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 May 2025 07:40:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1746628840; x=1747233640; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=hE5pqIIiTRP3xPbQUA3RBdQkSkJonXNdeQ/5U/JPsWw=;
+        b=a3kfOsH5jpfbvWGop3rFnVnXRKmjlLGl6Qe1jnbNbs1jKOQJynIF6mDRWMWsSTDhb1
+         1TBTc/SPP6E3u6eEv/2Z3MgsoR2gXY41mt0qbXJmIiGb/IhRYrUSx0/8dwiav5iUCnh9
+         69sFIV4V1GBlZFsDjpWopYu140uhlbm3yhmGEXeUdQjwvk5SmLhUg6MmRL3HK2RYZtCo
+         2Q4iFb5EvNcsDtaETnx8Kn6e+E/BV1KeTvEwWJqYx3qPwJ9eTx3bbcFjdsFvX4UI+8Se
+         JDJNPPLGvYNCM9285g43tN1Hb4hbskgIOIrWI77BOL3jODR4at9ez+ha2eCamypKXBSx
+         J2oA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746628840; x=1747233640;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hE5pqIIiTRP3xPbQUA3RBdQkSkJonXNdeQ/5U/JPsWw=;
+        b=DKYsFzKbRc27Tj2ejRdJIS8GIyDQnNYNccNP0/ML/zzi8w6PhXjpNWT39tFtORORR7
+         KwSstsY8tnVjr3Ui8pyMau43MEs+/2S4Ht+BhvRd5E9fhA8GPG6XFFxLcIvpTqU9QKwM
+         ckck9b/knodMxWp+Xi/k4bJdwRj6vG9Oahwr6i+TezdCJx1zsbhnEX5AX2of9wySb2AF
+         fYBjskV84K/XUOQF/+4HriJzwmR/wncJ20ZRoQXP5QgLnbW23eDA4lR2lV7Ictq54abU
+         PCKStvjTCQXwfBhg1xRTvKxl8O1gR316IGtt+4Zu+G796VCdgGUJd3XvGlxGLY+ISqFW
+         FNxA==
+X-Forwarded-Encrypted: i=1; AJvYcCVblz2ZjPpjXJ/MZaFoRfIAtDLgDW/fwdAzVVx8eWxATfHOxIadOj6aJMyhJbYhrJm5GAAuDeYboVDgPB6rO0xe@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVPciZIwWpeWaFsdkPL6dQKPPu3lgBpEsT0/CyOgbyBfWsGNdt
+	HDvtTnDuDzFADnl2CtqZxFscwEs00JteG5Yh9MSTV+nHRfaBNpi2zGP9kL7SjeI=
+X-Gm-Gg: ASbGncveV8C88jrJbNI4BkPpJ5PaV1M+Y8EG6KXPRMXZNCloE46qpiPAYefOHrfz4rD
+	XBVV2Z5JQxiPn/siRdw2pLGs5k3pHYNywHHgXDdLvFF6TDFUjIlY3tYPuGP1GctikiBRvtEJnFI
+	w1H7O9xOnK40cvQpq8IoOqweJo6wiB6C6NEnVBBNRVKKgslAVLihilnc/opbg0dqphQYpcQJoIv
+	zl1wnprhl/wOSp44Uspj28UUKCjfNmV4zLCWHJZDJXjf3rH60siytKcXfCOX0fTTlbXbFqm5XGI
+	7CO0K/4BqyXwiVNPVoV98d3JXiWpiNC2LKy83MZwQxv3wLhvdoGvzy+P+a3x8OgwBlzIirOyk0N
+	mBaoqq0s18V1NTEt3jS6SgJq8GRsXYw==
+X-Google-Smtp-Source: AGHT+IFBJ2lDgmMwPn9NZnZ8/xbfRhIS1u/h+c1wZoIdheyW8lXaMbj8dqq9Df2szLQOMYCQifNTEg==
+X-Received: by 2002:a05:620a:370d:b0:7c7:c1f8:34eb with SMTP id af79cd13be357-7caf6d53f0cmr559703785a.23.1746628839912;
+        Wed, 07 May 2025 07:40:39 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-142-167-219-86.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.219.86])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7caf752a60fsm159257985a.42.2025.05.07.07.40.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 May 2025 07:40:39 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1uCfws-000000011tV-36y7;
+	Wed, 07 May 2025 11:40:38 -0300
+Date: Wed, 7 May 2025 11:40:38 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Rob Clark <robdclark@gmail.com>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+	freedreno@lists.freedesktop.org, Rob Clark <robdclark@chromium.org>,
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Joao Martins <joao.m.martins@oracle.com>,
+	"moderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] iommu/io-pgtable-arm: Add quirk to quiet WARN_ON()
+Message-ID: <20250507144038.GC33739@ziepe.ca>
+References: <20250507142953.269300-1-robdclark@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aBtnzhmqfdbs7hhT@J2N7QTR9R3>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20250507142953.269300-1-robdclark@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_073908_352315_31377A78 
-X-CRM114-Status: GOOD (  22.16  )
+X-CRM114-CacheID: sfid-20250507_074041_890041_771DC10A 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,59 +107,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 07, 2025 at 03:01:50PM +0100, Mark Rutland wrote:
-> On Wed, May 07, 2025 at 01:46:45PM +0100, Will Deacon wrote:
-> > On Tue, May 06, 2025 at 04:25:06PM +0100, Mark Rutland wrote:
-> > > diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
-> > > index 48d3c0129dade..fdce1b856f498 100644
-> > > --- a/arch/arm64/kernel/signal.c
-> > > +++ b/arch/arm64/kernel/signal.c
-> > > @@ -280,6 +280,7 @@ static int restore_fpsimd_context(struct user_ctxs *user)
-> > >  	__get_user_error(fpsimd.fpcr, &(user->fpsimd->fpcr), err);
-> > >  
-> > >  	clear_thread_flag(TIF_SVE);
-> > > +	current->thread.svcr &= ~SVCR_SM_MASK;
-> > >  	current->thread.fp_type = FP_STATE_FPSIMD;
-> > 
-> > Hmm, I think we're preemptible here so do we need some compiler barriers
-> > to make sure that the context-switching code doesn't see these fields in
-> > an inconsistent state?
+On Wed, May 07, 2025 at 07:29:51AM -0700, Rob Clark wrote:
+> From: Rob Clark <robdclark@chromium.org>
 > 
-> We avoid that problem by ensuring that the task's FPSIMD/SVE/SME state isn't
-> live on any CPU for the duration of the signal code, such that it is safe to
-> manipulate the saved state in preemptible context. Details below.
+> In situations where mapping/unmapping sequence can be controlled by
+> userspace, attempting to map over a region that has not yet been
+> unmapped is an error.  But not something that should spam dmesg.
 > 
-> That was handled in one of the earlier patches in the arm64 for-next/sme-fixes
-> branch, queded as commit:
+> Now that there is a quirk, we can also drop the selftest_running
+> flag, and use the quirk instead for selftests.
 > 
->   929fa99b1215966f ("arm64/fpsimd: signal: Always save+flush state early")
-> 
-> As of that commit, in setup_rt_frame() we call
-> fpsimd_save_and_flush_current_state(), which does:
-> 
->   get_cpu_fpsimd_context();
->   fpsimd_save_user_state();
->   fpsimd_flush_task_state(current);
->   put_cpu_fpsimd_context();
-> 
-> That ensures (in a premption-safe way) that the tasks state has been saved
-> to memory, TIF_FOREIGN_FPSTATE is set, and that
-> task->thread.fpsimd_cpu==NR_CPUS. Thus on context switch:
-> 
-> * When switching away from this task, fpsimd_thread_switch() sees
->   TIF_FOREIGN_FPSTATE is set, and doesn't manipulate the task's saved state.
-> 
-> * When switching to this task, fpsimd_thread_switch() doesn't find any existing
->   state bound on the CPU, and sets TIF_FOREIGN_FPSTATE, without manipulating
->   the task's saved state.
-> 
-> The task's state will only be relaoded onto the CPU when returning to
-> userspace, via fpsimd_restore_current_state().
-> 
-> Note that we changed fpsimd_update_current_state() to modify the saved state
-> without reloading it onto the CPU.
+> Signed-off-by: Rob Clark <robdclark@chromium.org>
+> ---
+> Sending v2 stand-alone, since I'm not quite ready to send a new
+> iteration of the full VM_BIND series.  And with selftest_running
+> removed, I think this patch stands on it's own.  (And maybe there
+> is still time to sneak this in for v6.16, removing an iommu dep
+> for the VM_BIND series in v6.17?)
 
-Thanks, that makes sense!
+You should just remove the warn on completely, no other driver does this.
 
-Will
+Jason
 
