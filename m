@@ -4,138 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 128FBC3ABC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 08:16:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A159C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 08:16:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uuy1RaR/h/EnJWDBV6OsC2yipo82HmoyoeIS+G77NX4=; b=4dCQPtvmlpfb4lbolybvb6QxRB
-	LlDLgOs+HYVjdJu61CoR7blbIbQJGmXJz9nAVyocch2OpMjC87Ztffn2nm9UK56/3HTX5bkFA64Ek
-	3jVc7i+xx6DCsejxxZ5GxPAvrysXq4wCQkGwfNjb7qeQFLnZVwwx+TdGl5cHBkQ4tX+P7ojnEF+Gk
-	PdXG9GXYi4KyuD8bB8SLV14tCzXcTOg01zq1vr/UkrjYbnD9IdzQyM3I5yl+WcrCdIScSVw+haiqW
-	/eDPhwFx8S3iAS999MSqY5HyUlSIXAwQWlGYUnV5vdsnEeiF0cQ+UWuBERl0T/z43qUmohltPl28U
-	5ZgpsjGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4ZxCy7mrct22eBjkvKCaCp8i27n4yjdKKChzB9Nlcrw=; b=bn169Fmk/sbiOK/J4iS+fK5qYN
+	nZ5bTypRreIdUDQw7LvtnClzG0Oh/ojP8JooSR+wO3jhr+g2KnXWNlOsFDx3x0aH03uSQ48CRia6k
+	4EaCQa6XfU123iOEfbIvj9ioofQsr8CJcqIXflJObQ0WEDWIz/DpmYSDVyhYoE3p3+yAcDU8RyfKM
+	yLoJHO84/FPLL8hDfW5HZbsy5TZ991WB8Hy7Bbf4CnNeI6yFVRRhovMnPFgEmIEeSvh6Y7BpsCbPq
+	HuodRgXdFJiTm8RIfqfdIygcXdh/ltZIkI8nIqfshM56rwHsJfxt930s+wVUbgqwnEDJcHS7bVQyA
+	SmWBBXoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCZwt-0000000EgpO-1GLn;
-	Wed, 07 May 2025 08:16:15 +0000
-Received: from mail-dbaeur03on2070f.outbound.protection.outlook.com ([2a01:111:f403:260d::70f] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	id 1uCZx3-0000000Eguy-2yGz;
+	Wed, 07 May 2025 08:16:25 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCZ0G-0000000ETxw-0LDL
+	id 1uCYkC-0000000ERZw-28DI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 07:15:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QX7FH0TOLl2vIapAa9LNOgRvNTUMdrScbWSvVcWXO/75axytaSPVd8lnRCULUbAPjVQsE95jW2o1oZzfL2tyLcXZchtUsCJLA3Wp/XCEYiqX1i98SAwh2XzR/jIxCjkI/vh4uVtiZt2pstCIi2D580MAtmPTmKfZvgFQEIaqk4r1g1pb/p1ShEXnzYxFWDqO6hpEREddubYaicOjesCmVe/p47fdVdW1cOhIN2ZKm8054o6h+NvBYcaT1g8FP0LatPuiDF2hPs4w2HP6bqy5N1Y0/vKV55naampzoBD+S0ARnzpH1pIcSB6C1gLBggLPfmhaaDX/Ni9cYFKqUW/Jvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Uuy1RaR/h/EnJWDBV6OsC2yipo82HmoyoeIS+G77NX4=;
- b=v3gSqefuudn08JkCRFEjViNN1rK9t7bE4MlJl6FAwJBkfuOFwG572Jyxm4Ye0gEzj06ngBDV2R6v3GmrSwuJ3iAxDcT+zxiBnXjv3L2E78t9zhtPVCyd2oG8liFx9ynxFzb1tKt8Q/x8hr4VGkoZeetTujsX767h9gFFeZR9nQT8t3VfSDUk3Hm6mlR517UdyO3IO+etE++5r1bNCiwdx7PKEfcteI5QzywMnUV6Wy87IRUIuNA9O6xxpzq8T3TH0CXHGQgW7+C3w8YuJz9Yi3QF1+6o/ezUn8s6uqklQIOu3Y9in6XamfXOc5RNpsqltpxrFIaSN5whY+7VPYNkhA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.de; dmarc=fail
- (p=quarantine sp=quarantine pct=100) action=quarantine header.from=phytec.de;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Uuy1RaR/h/EnJWDBV6OsC2yipo82HmoyoeIS+G77NX4=;
- b=L6KhXEHY1cgzIL6p0Bwsb0G75YohS08lQeoHjd6kqQ35zD06W7FiUogGyRx8I3kgvEvo5dptklb7ZGbzBIrpi78+PK7bgbeYd9dkpP4AxiRPd3GyFEC2jectgMy+LgCkYLt8TvjGXm51MgK58EoNlSElnfJZcGmn5U/HIi6qhOvS8m9OVzUal4Bp9VjfFuVlequyknPwRfCVS8bAkhg8E8QHaF3NIrYeq5OR69kid8e5S0G2RrVkaKulhMj3QTsjTjdynBwPfhePnLsWCsxec+9qmghk3qptQ4t1FVo6xYiCenz46851RZHDB3lhE62E0QiZreMR4pO9LWoGqk6IOw==
-Received: from PR0P264CA0172.FRAP264.PROD.OUTLOOK.COM (2603:10a6:100:1c::16)
- by AM9P195MB0934.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:1f1::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.21; Wed, 7 May
- 2025 07:15:34 +0000
-Received: from AMS1EPF00000044.eurprd04.prod.outlook.com
- (2603:10a6:100:1c:cafe::a8) by PR0P264CA0172.outlook.office365.com
- (2603:10a6:100:1c::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.21 via Frontend Transport; Wed,
- 7 May 2025 07:15:34 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.de discourages use of 91.26.50.189 as permitted sender)
-Received: from Diagnostix.phytec.de (91.26.50.189) by
- AMS1EPF00000044.mail.protection.outlook.com (10.167.16.41) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8722.18 via Frontend Transport; Wed, 7 May 2025 07:15:34 +0000
-Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
- (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Wed, 7 May
- 2025 09:00:29 +0200
-Received: from ls-radium.phytec (172.25.39.17) by Florix.phytec.de
- (172.25.0.13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Wed, 7 May
- 2025 09:00:26 +0200
-From: Daniel Schultz <d.schultz@phytec.de>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <upstream@lists.phytec.de>, <w.egorov@phytec.de>, Daniel Schultz
-	<d.schultz@phytec.de>, Andrew Davis <afd@ti.com>, Judith Mendez <jm@ti.com>
-Subject: [PATCH v3 2/4] arm64: dts: ti: k3-am62a-phycore-som: Enable Co-processors
-Date: Wed, 7 May 2025 00:00:06 -0700
-Message-ID: <20250507070008.1231611-3-d.schultz@phytec.de>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250507070008.1231611-1-d.schultz@phytec.de>
-References: <20250507070008.1231611-1-d.schultz@phytec.de>
+	Wed, 07 May 2025 06:59:05 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-30572effb26so6292930a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 23:59:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746601144; x=1747205944; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4ZxCy7mrct22eBjkvKCaCp8i27n4yjdKKChzB9Nlcrw=;
+        b=ZwT748Z9RjQuqJAwrcp42ra0POEXqlJcCyQIxQ0bTER5Z+YVE7lqebI/P8c+nEC2ZZ
+         nXePLv55AzLZWRZ7mkFSMh/wSZW1F2wBusGCSVRMNBNVIeyb29DL1TiQ+9NxSvHdng0G
+         VHKx48tt7zpf18oYASLWCq+GqPClyZmlYfqryY8Sj1GyVRqbLuTw3kJfV3gSrPQus5Se
+         IcmNWsNBW0pgV+qsV3s1r/CTKHoGnJw+9k0yL1zzo0sdDJDpapIIvCYVYeNiupWLTA5z
+         zY+pafcpWPHR2w9DA9juYTgna6uH2RD3cQgxl+rB5CsHatOnj9sBfo3xF2SNmCAGRVYA
+         sC4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746601144; x=1747205944;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4ZxCy7mrct22eBjkvKCaCp8i27n4yjdKKChzB9Nlcrw=;
+        b=WX++v4Q9cNxi7mbFAXYWtePXgRe4OpaZK7EnYpd4NVm2qXdXgMIyLLHKzU4MEDUmeU
+         JYP9HenY2X1O1U3F15knxNDu4l/znPIpyh2UMzBeeWPxjRh4USPHmNSot/gRgEo+VW9E
+         cvFKR341t5jdpYMM0rjooGASzgVl8ITFHKq+YCe4GkS+jUwHDGUhPJ8ZXWxdMXNY3YDk
+         YK8BBlP0suY1yAP2Nytute+WbFqKHBBRnt9EmaAQNx1ulsTWfqhjghOqf6WReAmSMIkM
+         yYimfpGj3cukLhkCTYg0nXhPz2HXEuOfGNUOCctqjI+HEr86RteIPOZB9N0mFfjQFA7L
+         HFBg==
+X-Gm-Message-State: AOJu0YyoOpiht4rbJ4PO1tvS3m/XhHJxn8H3ya3l5qz4p7xMKL0c9Rpx
+	OdGzcSB5avC589N2RZ//WsvZDAk4F5WVla4r73vq9jgkbTgIAp8e
+X-Gm-Gg: ASbGncsGxQSNFB8H4wSwKEih3WMSHD04OugfVmH7k6MDiorF3UDG5O6fi+NrCs8ZHDO
+	JXyXJlUkrdlawJWpR/A33yQGzITbpwu6Xo8abwVQYsPcYysL8SxzA5QD7BUgU1Bp3PpKHeOzYdh
+	52PvK4G566kwl7Kyf9TIP2bzk4a1eZkZBOJb6ZTFJFe7zAG2VeRbZ7cAamZM/vW733YVeQkZAge
+	BQZd+GouL0wLJY/nDqrtwDKMroORE935TQFEY40puAmjD/v5qeB+aa8Pkv2iYUaMPRi6fOhkLr/
+	2JRZU8u+cJIU+SxebvlECbazpSeVF7YJtlHcdZnWfay/jC5V8yOMkIMba99Y0Mk=
+X-Google-Smtp-Source: AGHT+IGgS0h9enKlNVOXLCfCrbumo8HB67DCYKoAL9Eq5wVn3b4dSk1Ow5ZwYG7Bteh8MSXTpAgMzA==
+X-Received: by 2002:a17:90b:4acd:b0:308:5273:4df8 with SMTP id 98e67ed59e1d1-30aac183be0mr3784024a91.10.1746601143894;
+        Tue, 06 May 2025 23:59:03 -0700 (PDT)
+Received: from NB-GIGA003.letovo.school ([5.194.95.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-30aae525db4sm1315529a91.22.2025.05.06.23.58.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 May 2025 23:59:03 -0700 (PDT)
+From: Alexey Charkov <alchark@gmail.com>
+Date: Wed, 07 May 2025 10:58:33 +0400
+Subject: [PATCH v2 4/4] ARM: dts: vt8500: list all four timer interrupts
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.25.39.17]
-X-ClientProxiedBy: Diagnostix.phytec.de (172.25.0.14) To Florix.phytec.de
- (172.25.0.13)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS1EPF00000044:EE_|AM9P195MB0934:EE_
-X-MS-Office365-Filtering-Correlation-Id: 430abf76-6b40-4386-d184-08dd8d36f59d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Rz0WjjiCG9ApZoAR6ccop4o4ECKVFi5/YGY+1AUJcgiCuokl7e6UDXYoHhPK?=
- =?us-ascii?Q?zXNjPXyw9N4t36k7Kj2t9aolPzComSnO04Hh5ael3snV2b438pZw04YRKJTO?=
- =?us-ascii?Q?e8CtPF7gS/oFE7Xpsq4BMcPJPMlmJOxxzr0K/Cqi4ecwPf6uk0vnq2DDLdEv?=
- =?us-ascii?Q?x5uHWR+u+9LejGy7zV2Sa9A4yu0UhYrtkxMmk3UpaBjRaeT4fW7Fkb1alU36?=
- =?us-ascii?Q?mfzAvaHxmulHSz1tVGsdZDT0xmYwW1/n6fHcxGZHPqf8tBKxr13t35QVEtp0?=
- =?us-ascii?Q?y83fL96C+pQF9iayUeZNshOYzbIcKlUiKWZKae0JsbVt8mJNyXdusYXhF9Ox?=
- =?us-ascii?Q?a4JPw7Uee0b2wEbdQ/+lzBFAZbxhNrj0Sqx2ahNW6PzpzdoOC2eptQZHZiUC?=
- =?us-ascii?Q?off3QVFDjhmy1qTmR+wKv/HKMm1OO5Ya7SaMJCSgTZGoORUzfj83veo/aQHj?=
- =?us-ascii?Q?4/gUAkrBQouPOSN/YrLqtcNzG2ROxS20/W0plZ06Vy6U7bLY5eQL0c1irwwN?=
- =?us-ascii?Q?htBnOpqOwpPVlbVGkJU3liJGC/JwKwXSAXlK2Xp6mtgGCxsZzVFUln456dZK?=
- =?us-ascii?Q?RJG+RxBVd5El5eq8oLOdnun7PLh1QC0I+DJbcvJQKsUAKUDen+wPAAHBaCL6?=
- =?us-ascii?Q?jXwcic+4R8jylZ2rWAuTLHUepzNGsnOD3b09x9jJs2g+++nfYXMV74ceqXwN?=
- =?us-ascii?Q?vyWC2UIqjYVLC2QQ/po4OcJCPT/NJv2HqkCF4qgMC/pME7cwl5+rUrPra52P?=
- =?us-ascii?Q?ubnI362mHL4lWNUPFIl1DqjchcHAdwUoYYC7ElD/zqU1gRgCUE8eiKK7cXIj?=
- =?us-ascii?Q?kUYv/+mUGKzCgcTnQ9T6fpnwQ50Bt1KKv0z05iZi+GD9iyDQc8vEoKEEOJNn?=
- =?us-ascii?Q?lMd+n3VuXCrMYgZBIXb0vYLGnSrwGvrroqIuZg0aiVcL5Ey4Ph/Y0AfpNudk?=
- =?us-ascii?Q?YLXT9OCApYPPcCMKA6qn9Wx0jjgeZbQ4GlcK9po0gpKhEdINbhJI5rhvWU0e?=
- =?us-ascii?Q?pLUKztRMzJj7FjClR8ecX7CtNWDob9RLksh885v8879alRUHA+e1R8br6z8V?=
- =?us-ascii?Q?2+G4xDXSWUYhwsbpfLaBRwB68BntGJpfq+VSm+CJfTIBGjmLtYWK73paQpIa?=
- =?us-ascii?Q?KQmTputawBZOwFyYzut2odzLK6c99nTCVUjV3KhHteq86XmSCR6b2BY3Texs?=
- =?us-ascii?Q?uxiC32nW1Wzr24DgNXfPpchGZS/7+N9u6L19GJgc9yuarO4qDaBOc/07p4y4?=
- =?us-ascii?Q?Ag7Hq0LRi7bmUeAt/RoRg0GaI6rfZ+zK+dZRBRvLet681/O5qE4dVCAJYQYO?=
- =?us-ascii?Q?dnN5OFTMFN83WzQn9U4nkKwdbPHmaU/pLIuhh8ar6DSyHRk1HcTZl9Yk5G3X?=
- =?us-ascii?Q?2ZXgx1q+33F48ajU4coSv34ZCPQMloBTu9yeNabTBpLJF4MRVKocTGrTAMqJ?=
- =?us-ascii?Q?KUMCxzEPz8i1qJ4WP+Um9C3C2O04BAo/o7w2kSDdNGYYUT1DdMyEZeDaVs1y?=
- =?us-ascii?Q?W+9u6M8p5BjSI1yqg575FIl3JcSdJLeyQk/h?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(1800799024)(36860700013);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2025 07:15:34.4570
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 430abf76-6b40-4386-d184-08dd8d36f59d
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000044.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9P195MB0934
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250507-vt8500-timer-updates-v2-4-65e5d1b0855e@gmail.com>
+References: <20250507-vt8500-timer-updates-v2-0-65e5d1b0855e@gmail.com>
+In-Reply-To: <20250507-vt8500-timer-updates-v2-0-65e5d1b0855e@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, Alexey Charkov <alchark@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1746601114; l=3301;
+ i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
+ bh=np1yhCpp/qpjWGPuT2g9hwqJ7HuHqaWY+xGRBXC7yJw=;
+ b=FFRTMlEYxUjfk04F5tcy6Fu8t48a/oBMv1JKyKZORF6YvISOkxhzZ46nWOvKjhQlm3S+G5IK4
+ 3dTVT2mgNcyDZhB9T7QOJuQOdzVCuj62wFbHfp0HeZC4noLZjEbkFui
+X-Developer-Key: i=alchark@gmail.com; a=ed25519;
+ pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_001540_123195_DC63DEFC 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20250506_235904_539059_61F8AD2F 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,162 +108,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For every remote processor, set up dedicated memory regions and
-associate the required mailbox channels. Allocate two memory areas
-per remote core: one 1MB region for vring shared buffers, and
-another for external memory used by the remote processor for its
-resource table and trace buffer.
+VIA/WonderMedia SoC timer can generate up to four interrupts corresponding
+to four timer match registers (firing when the 32-bit freerunning clock
+source counter matches either of the match registers, respectively).
 
-Signed-off-by: Daniel Schultz <d.schultz@phytec.de>
-Reviewed-by: Andrew Davis <afd@ti.com>
-Reviewed-by: Judith Mendez <jm@ti.com>
+List all four interrupts in device trees.
+
+This also enables the system event timer to use a match register other
+than 0, which can then in turn be used as a system watchdog (watchdog
+function is not available on other channels)
+
+Signed-off-by: Alexey Charkov <alchark@gmail.com>
 ---
-Changes in v3:
-  * Merged mboxes items for c7x and wkup+mcu rf5 nodes.
+ arch/arm/boot/dts/vt8500/vt8500.dtsi | 2 +-
+ arch/arm/boot/dts/vt8500/wm8505.dtsi | 2 +-
+ arch/arm/boot/dts/vt8500/wm8650.dtsi | 2 +-
+ arch/arm/boot/dts/vt8500/wm8750.dtsi | 2 +-
+ arch/arm/boot/dts/vt8500/wm8850.dtsi | 2 +-
+ 5 files changed, 5 insertions(+), 5 deletions(-)
 
- .../boot/dts/ti/k3-am62a-phycore-som.dtsi     | 96 +++++++++++++++++--
- 1 file changed, 90 insertions(+), 6 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-index 147d56b87984..0aa8d9bc5df9 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-@@ -59,6 +59,42 @@ linux,cma {
- 			linux,cma-default;
+diff --git a/arch/arm/boot/dts/vt8500/vt8500.dtsi b/arch/arm/boot/dts/vt8500/vt8500.dtsi
+index 2ba021585d4889f29777a12473964c29f999f3a0..d1dd37220d41becece5d24fbb19aa71b01723e35 100644
+--- a/arch/arm/boot/dts/vt8500/vt8500.dtsi
++++ b/arch/arm/boot/dts/vt8500/vt8500.dtsi
+@@ -111,7 +111,7 @@ clkuart3: uart3 {
+ 		timer@d8130100 {
+ 			compatible = "via,vt8500-timer";
+ 			reg = <0xd8130100 0x28>;
+-			interrupts = <36>;
++			interrupts = <36>, <37>, <38>, <39>;
  		};
  
-+		c7x_0_dma_memory_region: c7x-dma-memory@99800000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x99800000 0x00 0x100000>;
-+			no-map;
-+		};
-+
-+		c7x_0_memory_region: c7x-memory@99900000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x99900000 0x00 0xf00000>;
-+			no-map;
-+		};
-+
-+		mcu_r5fss0_core0_dma_memory_region: r5f-dma-memory@9b800000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9b800000 0x00 0x100000>;
-+			no-map;
-+		};
-+
-+		mcu_r5fss0_core0_memory_region: r5f-dma-memory@9b900000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9b900000 0x00 0xf00000>;
-+			no-map;
-+		};
-+
-+		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9c800000 0x00 0x100000>;
-+			no-map;
-+		};
-+
-+		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9c900000 0x00 0xf00000>;
-+			no-map;
-+		};
-+
- 		secure_tfa_ddr: tfa@9e780000 {
- 			reg = <0x00 0x9e780000 0x00 0x80000>;
- 			alignment = <0x1000>;
-@@ -70,12 +106,6 @@ secure_ddr: optee@9e800000 {
- 			alignment = <0x1000>;
- 			no-map;
+ 		usb@d8007900 {
+diff --git a/arch/arm/boot/dts/vt8500/wm8505.dtsi b/arch/arm/boot/dts/vt8500/wm8505.dtsi
+index 99c064c916b2279797f71261ca9306e9dcd4bbd8..2b1819f0c5412648a83cd3eeb495f68d2e4100ef 100644
+--- a/arch/arm/boot/dts/vt8500/wm8505.dtsi
++++ b/arch/arm/boot/dts/vt8500/wm8505.dtsi
+@@ -209,7 +209,7 @@ clksdhc: sdhc {
+ 		timer@d8130100 {
+ 			compatible = "via,vt8500-timer";
+ 			reg = <0xd8130100 0x28>;
+-			interrupts = <36>;
++			interrupts = <36>, <37>, <38>, <39>;
  		};
--
--		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0x9c900000 0x00 0x01e00000>;
--			no-map;
--		};
- 	};
  
- 	vcc_5v0_som: regulator-vcc-5v0-som {
-@@ -170,6 +200,13 @@ AM62AX_IOPAD(0x1f4, PIN_INPUT, 0) /* (D16) EXTINTn */
- 	};
- };
+ 		usb@d8007100 {
+diff --git a/arch/arm/boot/dts/vt8500/wm8650.dtsi b/arch/arm/boot/dts/vt8500/wm8650.dtsi
+index 0d6c7bd87f7dcce0eef056d04c38ab1de5d52639..042eec78c085d19fc97d7f0f9721399c0716ff74 100644
+--- a/arch/arm/boot/dts/vt8500/wm8650.dtsi
++++ b/arch/arm/boot/dts/vt8500/wm8650.dtsi
+@@ -181,7 +181,7 @@ clksdhc: sdhc {
+ 		timer@d8130100 {
+ 			compatible = "via,vt8500-timer";
+ 			reg = <0xd8130100 0x28>;
+-			interrupts = <36>;
++			interrupts = <36>, <37>, <38>, <39>;
+ 		};
  
-+&c7x_0 {
-+	mboxes = <&mailbox0_cluster1 &mbox_c7x_0>;
-+	memory-region = <&c7x_0_dma_memory_region>,
-+			<&c7x_0_memory_region>;
-+	status = "okay";
-+};
-+
- &cpsw3g {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_rgmii1_pins_default>;
-@@ -200,6 +237,33 @@ &fss {
- 	status = "okay";
- };
+ 		usb@d8007900 {
+diff --git a/arch/arm/boot/dts/vt8500/wm8750.dtsi b/arch/arm/boot/dts/vt8500/wm8750.dtsi
+index 0158c0ba5dd110957eac38775d3bf3ebd2ab4154..56342aa1d993a43e7ee766f93151c6d456496262 100644
+--- a/arch/arm/boot/dts/vt8500/wm8750.dtsi
++++ b/arch/arm/boot/dts/vt8500/wm8750.dtsi
+@@ -253,7 +253,7 @@ pwm: pwm@d8220000 {
+ 		timer@d8130100 {
+ 			compatible = "via,vt8500-timer";
+ 			reg = <0xd8130100 0x28>;
+-			interrupts = <36>;
++			interrupts = <36>, <37>, <38>, <39>;
+ 		};
  
-+&mailbox0_cluster0 {
-+	status = "okay";
-+
-+	mbox_r5_0: mbox-r5-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+};
-+
-+&mailbox0_cluster1 {
-+	status = "okay";
-+
-+	mbox_c7x_0: mbox-c7x-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+};
-+
-+&mailbox0_cluster2 {
-+	status = "okay";
-+
-+	mbox_mcu_r5_0: mbox-mcu-r5-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+};
-+
- &main_i2c0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_i2c0_pins_default>;
-@@ -315,6 +379,16 @@ &main_pktdma {
- 	bootph-all;
- };
+ 		usb@d8007900 {
+diff --git a/arch/arm/boot/dts/vt8500/wm8850.dtsi b/arch/arm/boot/dts/vt8500/wm8850.dtsi
+index c4bfb4d30aad0358b39cbf30edf0c63e32167bbd..03e72f28d31b1cfdcfa71ede93b8943971bae4e3 100644
+--- a/arch/arm/boot/dts/vt8500/wm8850.dtsi
++++ b/arch/arm/boot/dts/vt8500/wm8850.dtsi
+@@ -240,7 +240,7 @@ pwm: pwm@d8220000 {
+ 		timer@d8130100 {
+ 			compatible = "via,vt8500-timer";
+ 			reg = <0xd8130100 0x28>;
+-			interrupts = <36>;
++			interrupts = <36>, <37>, <38>, <39>;
+ 		};
  
-+&mcu_r5fss0 {
-+	status = "okay";
-+};
-+
-+&mcu_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster2 &mbox_mcu_r5_0>;
-+	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
-+			<&mcu_r5fss0_core0_memory_region>;
-+};
-+
- &ospi0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&ospi0_pins_default>;
-@@ -343,3 +417,13 @@ &sdhci0 {
- 	bootph-all;
- 	status = "okay";
- };
-+
-+&wkup_r5fss0 {
-+	status = "okay";
-+};
-+
-+&wkup_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster0  &mbox_r5_0>;
-+	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-+			<&wkup_r5fss0_core0_memory_region>;
-+};
+ 		usb@d8007900 {
+
 -- 
-2.25.1
+2.49.0
 
 
