@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FC5DC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 15:13:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA4AAC3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 15:15:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WJYtvNI5TADH4DUmOi/xVOl8RYUqMkSISLm7I0EHSEA=; b=HC2+W9z1SP2isIqgxRRoJMvKza
-	pjxrJ7wxWB1GoMJ6L9C4+x9lZA+AYsRmT4dff/2tAnmwXHqgrJuxuyZ2cadVlgNOjsO0qtxH9dPf9
-	Xg9XRxcH0IGkoxWU0ce1yaKzb/iVzgroDNds0Ruj4MGPGWIGS+auoYZOUtw0JAmoxXsXiET70Ukn1
-	dhmm1bRT2UeRPSDd9L79qPStI4aTpREP/B4zQiFW5l12fB38kLSj6s27PPbIkMMXnkJzywxV+M+tf
-	yfr5UvPW8Lq2VkG7mGOJEHDQqeUTWlPdjmgbj/p+SrGJLk4l0PqFX3hPqty2gRMdiZvQmHUTZ1VFa
-	Wp0HAl1w==;
+	bh=WnALzRPg1oF+peGB+YZ+rJ4L979AUZFvnhwyo+/bFxE=; b=oaiXOJVk4tRFxeWGGTKEge42sH
+	uRKWufEGJGCijZAGucaQ2S5wgsold7geaWNW+k0SWaNS5hOpetXJoYCzI2BOQ7Ioj9nKTox7nJryu
+	AZAxCktinVDEohFUtjYrIUAskljGmzAIuJITZVg4A0QD3A/BKWQTYMmon8M0R2beXwcRi7CNRQ9P+
+	kyyUEHsvd+kfyWu4ftbu0uGW6ACg5ZqE5m5AZ7WIC24z3LNiRg7eUmgs0RcqT1VSPJlOi6JC0NkN+
+	jCXvmOl0UZYwNGNGUaKfmB0ryLPa7GiDShL0c6fZWQRoQbBosldexEp0DvUkbL8FCix8eLu90jAy0
+	2vh6yULQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCgSE-0000000FulP-0W4O;
-	Wed, 07 May 2025 15:13:02 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1uCgU9-0000000FvSA-3clK;
+	Wed, 07 May 2025 15:15:01 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCfuY-0000000FoiA-0ZpF
+	id 1uCfua-0000000Foiv-0Znd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 14:38:15 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-39ee5a5bb66so4664742f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 May 2025 07:38:13 -0700 (PDT)
+	Wed, 07 May 2025 14:38:17 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3a0b308856fso992089f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 May 2025 07:38:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746628692; x=1747233492; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1746628694; x=1747233494; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=WJYtvNI5TADH4DUmOi/xVOl8RYUqMkSISLm7I0EHSEA=;
-        b=kzUM0G3FBufS6iQpcNgDfxGAY9aN3uXXPJ1uVo9E43fHcOWXzkNYtsvDf9lkeMouZp
-         QBMnaWJJnESCQzjZMO3i/OMfqYl30frqSlhwkO6so0KNVJDjZRUR6VsTRXyJekwAE9m7
-         Vipn7dIN2COH0ESCDc1UuZEQzF62GaDhUXJziFOo6AWNRY9EyV2q62VGSiMR/tkkbtRx
-         Mm0z/xB1U1EDM3szNXLqxX97h/MmEbk0bLvIKVOzNTM0CVansxqwS4ziFpk8pm8/q8rz
-         VtdBz/u/gQMWpy1jX2fN06JSGWUdhuwJ1ZRQpDfsA/5TJXKEP/fv6C8XmK2CxCnArQcp
-         VygQ==
+        bh=WnALzRPg1oF+peGB+YZ+rJ4L979AUZFvnhwyo+/bFxE=;
+        b=gMsI3YJMnN2mRgliqbLP9eCsIu3Z1P60YN12RfaCTbQlEZLinoi9AbcZotNlLNrQcr
+         jJGwZtpxgc3PbGw5B6IIcDinMVqj43Hd6joX01ra+HPWjqZcNTblHbPXaH88gec2IoGf
+         Vagi4F41G1rEeNBuhByAZ2cUjOSN+oN9lZ0JJH1UJ9zBt3/cdFGHq/P0pA7KMq30iUsJ
+         PapqNzYrUbSB7j1jmj89bvACWLvtMvWo9mIkn0ImbMNViFrkn6wIMkJN223a4PkjqYKw
+         a3ty4BT2Ojl81qEg+di31Qb50OM75JB3id5bJC/M/73l//rDir6SpvP4vwYbdb2pbcp0
+         sw5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746628692; x=1747233492;
+        d=1e100.net; s=20230601; t=1746628694; x=1747233494;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=WJYtvNI5TADH4DUmOi/xVOl8RYUqMkSISLm7I0EHSEA=;
-        b=WVOKsKKAxHjCeZZreDTgjSzDgJwCYIkUJadj2n4EGFfhOKhhkpjTzjJZcPVAR4EzzH
-         ywG3FD4pkBhw2i+8KA2d65xAvdbinB5+0B2d1AL2dIk035ZWdKFDMk/2uI4/VKmj0xeE
-         emNRcZjF4KIZkJEosRzTb5i76QP39tktEfYy0303n28iqKgdCxxnZBP3RR1xqYBeGB1+
-         XFFl/jg168eRtTj3fz81KdTVK/NZNx2J8fXfYc5BVcIFzGGfRFDoIlbCW8zqkz1TcOlP
-         RUFYUNyv9OXY/my5yvwvjpTQIPgcbSRGPB+IVnuEpS2qWKgozpgylYhsWiAkEqoMzgoY
-         AodQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUbqpKLFsevUGXidmOLmU01MYRBVtsjG0ll7sXi4SwaCaqO35+mxqtupegNQyogHCPyl9mJDIisP3z9GupsSzHW@lists.infradead.org
-X-Gm-Message-State: AOJu0YylBJPJepexw0cquYJQkTzJHW+5/V0ATEh/jNeZZZFyE/pRbSWV
-	mmxLshYfEC+kQ3pc7ARBhvT6m1rmKhrJKqlb4B+r+u71FBX5c8u/JAR5KQ==
-X-Gm-Gg: ASbGncuId1UHUjvsevffuvZ7Ag/iw0rfbWLNALhA6qi0N1Z3lweQLJqQrnt6kXFD++q
-	Av+HUPawGRnILi57JxoCjSQ1hGd7+S7idwdz0Sz4onAFJZqfq2tV3IJHiLDy+PSFf6cHyAcWs6M
-	niioXHaLOpnnmxoTP3GYPUFgIK3pMAzZ4T9USHTGk+qMqiYmlo0ca+wBoWUxsfYtm31DVhh3qPF
-	Nd1nZwwMZD7eB1CBuve0tzRDPODy3hx73zCx06aXUTv0d/Hur4WDkj6mjVf9tWu2alyikyETj24
-	tayVfCLjMgXapIFdmN3nf49xMJGHukKOY+SwkU9Tpy6rd6y/YY2qTosix7i9sdi6zzobEsyt/vI
-	rqztXMMqMzHKwScoJp2GGPgmV466EUK2o
-X-Google-Smtp-Source: AGHT+IE3GRrUbcJRXUZ8oVHxZExN19EWb4LrUwbbUrQuKMAiFcmec3rh3MmqG0kDCruukT1p3JiACg==
-X-Received: by 2002:a5d:5f82:0:b0:3a0:a8b1:cf17 with SMTP id ffacd0b85a97d-3a0b49abab4mr3377148f8f.15.1746628692446;
-        Wed, 07 May 2025 07:38:12 -0700 (PDT)
+        bh=WnALzRPg1oF+peGB+YZ+rJ4L979AUZFvnhwyo+/bFxE=;
+        b=GTH5b8aHm6usCyBw4fIdk+ygO0njMvrTsdbaB/5B7eDEv3fAf8KxNZUiwoZesuxA6+
+         2E2qCvk6C0G3Y7lEeZa7ZVcU47k5gRFKQPQFsr4LYa35yo6cbLpy9GyDiaP/prYUbCYv
+         /5WkZRAYSjHNA3it/dHd7cRNMcLt2H4S/R3So9hdsCw5uR165F4GWcYGeSf6QpF16NFy
+         iBqsLED9F8GRPftW+3/UGp1VUOc0l3Yg1Gju4KuLZnbkoxT3dLx93fz7Nasa9BC9fpAi
+         ldyghnsJvdrZLYmvJMBvSoOFEUpqbyphNgsDT11ZAZTboSUP8B55sqJRgJl5ln6oGuF1
+         sZDw==
+X-Forwarded-Encrypted: i=1; AJvYcCWOqrarrDVv2ulXJLR685QMG4Nx5u1UZodO29qGvOCgxiknNgM2RH+9glNc30yh5aL4zlId8Ws1HbT6FNVHGt9k@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNnNK3NnkJzz4lAGh76TqtDKS7pBbeQitUMIymNKtvQhoB/qBW
+	BnKW2j3iKyvWtkvENJhDnn0BNsSEHJkP/Z9MCsetQBKyn/s4UDK6
+X-Gm-Gg: ASbGncu4XZXO4OmV76NWkeUK/T7wjze/aUhxkrllDoScmbU6Webjbx+TNclEbdiZPd6
+	fC4LoNqJSmsRfJW9dlaMSHZxhyGqIuNtpqf+uJWuLyozs63841QROCsSsVoGo9vXPEvnLVN5L9a
+	zte16cFu/kDtCGbiEJseHkj8MQ7BxAYX8WgmlzijwIIQD+SMvcVfjVm+E/yZ5CmzM7tDtVYSQUw
+	TwHuQWGMKVkfaIzraIstAvOdotoStHneGZsgf0xlQsSMtQODpEa4DL2RUQinMWLzKMNr3YU8kaN
+	evucUZuPYxu+AvbHPlh7F/yE09sRz+VrorA8+Mk8wr/FssgQ5sCvPexwCZK3k/fu0a6Qz/M7sv8
+	7FtaN8bNnSwcn3ofUMJU+G4GR2p9DnVu6
+X-Google-Smtp-Source: AGHT+IH5IeFx0/m3RABkAiATe+yCuv6gUvShra1iSISAVHww4IwhhJHQk8Zyb+TcfiCKhKpeW0ZkpQ==
+X-Received: by 2002:a05:6000:2c8:b0:39c:cd5:4bc0 with SMTP id ffacd0b85a97d-3a0b4a16a0fmr2600408f8f.52.1746628694320;
+        Wed, 07 May 2025 07:38:14 -0700 (PDT)
 Received: from localhost (p200300e41f281b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f28:1b00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-442cd351315sm3083825e9.19.2025.05.07.07.38.11
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3a099b0ffb1sm17050498f8f.73.2025.05.07.07.38.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 May 2025 07:38:11 -0700 (PDT)
+        Wed, 07 May 2025 07:38:13 -0700 (PDT)
 From: Thierry Reding <thierry.reding@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>
 Cc: Jon Hunter <jonathanh@nvidia.com>,
 	linux-tegra@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 4/8] dt-bindings: Add Tegra264 clock and reset definitions
-Date: Wed,  7 May 2025 16:37:58 +0200
-Message-ID: <20250507143802.1230919-5-thierry.reding@gmail.com>
+Subject: [PATCH 5/8] dt-bindings: memory: Add Tegra264 definitions
+Date: Wed,  7 May 2025 16:37:59 +0200
+Message-ID: <20250507143802.1230919-6-thierry.reding@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250507143802.1230919-1-thierry.reding@gmail.com>
 References: <20250507143802.1230919-1-thierry.reding@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_073814_177006_6CBE74F7 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20250507_073816_174995_7373E98C 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,42 +102,34 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Thierry Reding <treding@nvidia.com>
 
+This doesn't currently contain any stream ID or memory client ID
+definitions, but they will be added in subsquent patches.
+
 Signed-off-by: Thierry Reding <treding@nvidia.com>
 ---
- include/dt-bindings/clock/tegra264-clock.h | 9 +++++++++
- include/dt-bindings/reset/tegra264-reset.h | 7 +++++++
- 2 files changed, 16 insertions(+)
- create mode 100644 include/dt-bindings/clock/tegra264-clock.h
- create mode 100644 include/dt-bindings/reset/tegra264-reset.h
+ include/dt-bindings/memory/tegra264-mc.h | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+ create mode 100644 include/dt-bindings/memory/tegra264-mc.h
 
-diff --git a/include/dt-bindings/clock/tegra264-clock.h b/include/dt-bindings/clock/tegra264-clock.h
+diff --git a/include/dt-bindings/memory/tegra264-mc.h b/include/dt-bindings/memory/tegra264-mc.h
 new file mode 100644
-index 000000000000..7af85b401dd0
+index 000000000000..128073d05895
 --- /dev/null
-+++ b/include/dt-bindings/clock/tegra264-clock.h
-@@ -0,0 +1,9 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/* Copyright (c) 2022-2023, NVIDIA CORPORATION. All rights reserved. */
++++ b/include/dt-bindings/memory/tegra264-mc.h
+@@ -0,0 +1,13 @@
++/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
++/* Copyright (c) 2024, NVIDIA CORPORATION. All rights reserved. */
 +
-+#ifndef DT_BINDINGS_CLOCK_TEGRA264_CLOCK_H
-+#define DT_BINDINGS_CLOCK_TEGRA264_CLOCK_H
++#ifndef DT_BINDINGS_MEMORY_TEGRA264_MC_H
++#define DT_BINDINGS_MEMORY_TEGRA264_MC_H
 +
-+#define TEGRA264_CLK_CLK_S			2U
++#define TEGRA264_SID(x) ((x) << 8)
 +
-+#endif /* DT_BINDINGS_CLOCK_TEGRA264_CLOCK_H */
-diff --git a/include/dt-bindings/reset/tegra264-reset.h b/include/dt-bindings/reset/tegra264-reset.h
-new file mode 100644
-index 000000000000..31d89dcf62fa
---- /dev/null
-+++ b/include/dt-bindings/reset/tegra264-reset.h
-@@ -0,0 +1,7 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/* Copyright (c) 2022-2023, NVIDIA CORPORATION. All rights reserved. */
++/*
++ * memory client IDs
++ */
 +
-+#ifndef DT_BINDINGS_RESET_TEGRA264_RESET_H
-+#define DT_BINDINGS_RESET_TEGRA264_RESET_H
-+
-+#endif /* DT_BINDINGS_RESET_TEGRA264_RESET_H */
++#endif
 -- 
 2.49.0
 
