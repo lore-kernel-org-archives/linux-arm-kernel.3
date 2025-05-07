@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41C8CC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:35:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BB92C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 02:35:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iGR21MUMyA/Iej7QErtZc8eyio+Dks1zWhBSbKI/rik=; b=lpEI6fTCypSjMVULMVNLHShGhN
-	JTY3IsC2WcAyWajgbMzCKR+n0VRupe+jwSQ3dy4JS1EuAuYISSyGqqFl6nlSoi4wgvuIJffqBJiL0
-	zHXV2OPOQdVH/zwTZGgCho7T0w02la20vDi5E8BNDYF5DjYREInlSfL3YQQwNYCNlqdgpD83BO38W
-	GXPWUOwv4g5DGZHhO8Ob8fuh/ljZ+gkgqZiVwNV5TgTLwD5t9mXRsPk8ej69yiMRv6ps8IMYFe16r
-	xSnoVJuljy82wOfse0Qy7TOARAveMalrwJ8iMm+ygxnNor4zzoJdGp8f+vNHItw6bSvmynroVLarv
-	VDF2O3Sg==;
+	bh=IkMMN7aoLjrVziOe6MXRXG9fOk8E9BWhlOpYp2kNdvc=; b=3aI6AynDt4JY4GOysPah315NgU
+	w27YVSvpV0eUKTqcsc4385IOphrcCPhOeRWU4ikGX3MbE/o2tXat/mwBFPQBHEG5b2LvSWKj90Ige
+	w+I4uT5VeEpTdkGvCHU1puq188nkWChYhJ278/wm6+QiHgqm7XsZA7ZtnT2CexNFs//pcmLJS20Ob
+	l8TXNlSL3Y0+jESqg0PTFLSZdr/UIhcK7U+mGMywMDiEg7N8GfNg/zRSbHgTsqZ8wx6bLb+DFSHbq
+	Vfkbl62jGNssx45xRVQ49yBo9YsEY1Uvnpahw7XOBQeCKKrBhcVo5jLGeKC46boxPgccKaONjPLGx
+	oLxXOj7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCUcw-0000000DyhB-3GNv;
-	Wed, 07 May 2025 02:35:18 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1uCUd1-0000000Dyoy-3LkS;
+	Wed, 07 May 2025 02:35:23 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCS15-0000000Djdc-1nde
+	id 1uCSES-0000000Dkuz-12I2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 23:48:04 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ff798e8c3bso5495004a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 16:48:02 -0700 (PDT)
+	Wed, 07 May 2025 00:01:53 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-3086107d023so5594578a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 17:01:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746575282; x=1747180082; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1746576111; x=1747180911; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=iGR21MUMyA/Iej7QErtZc8eyio+Dks1zWhBSbKI/rik=;
-        b=YLMCqDcpYYopu/E6FwHCx9aDnxLkS8Rnm0gaP1brbNZdXXAPvMkL5J1kfCqa95e9dP
-         1kx6bn7FelW0LOSozTPosxgItO+XLK1j53f0lEAeOkodeT/QeFCKxW7nSdi59yHiGNJo
-         lTi1ymOSQQMj9ndu0ECmli00OSPtaXJDUekBCIJRfsAFT5CHaZXkkOA5oAV91jxd0qXI
-         P1mU5Q0qTWoYI4dhEswA3R9RtRrueGil0Pt7bgaOgbGTJ8M6Oozto+OYDWb9D6Z4nXOF
-         UgDFrORYOsmvp3J33G54Ox9hzp5I4w9VXE9tk0GCI2+ni8ZljAubSqijmQZZiutl+NTj
-         jGGw==
+        bh=IkMMN7aoLjrVziOe6MXRXG9fOk8E9BWhlOpYp2kNdvc=;
+        b=KCpRI4g7gvyrr7XGoAScW1N4/4oQexFQ60IIsE71OnbEiQdwq6nG4C/ws7PgI8TROQ
+         Fia48qCxIVU47eouVJ/1lQxPZJyBQnJ3hn6/l7YG6JRxJVIrS2gadHzdi0rQoo+jOR0a
+         Lq3dyFE9+OZMNJIwj4iOc/t4e3qgybYl4aONB5tcqmW8BrbTBcaMo83z15pQ1Bn7lGAh
+         dtu64qXW179ddZDTDhEO0PGScqEmSuqH5mJmVKHqAlSNz2OfEKs43E8iVUqdL+H+mVBo
+         mcnLOIVT8yPh4/9fXGA7HGcMSJ5iQW25ME2MXSsqCktqToiGqe/6N2TtdTSKEhK4sNQv
+         ESow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746575282; x=1747180082;
+        d=1e100.net; s=20230601; t=1746576111; x=1747180911;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iGR21MUMyA/Iej7QErtZc8eyio+Dks1zWhBSbKI/rik=;
-        b=Wtq//2eNxtnamNhPs2WGnQKTvBMjvYx/YQbrtm9yjtgFYmvpHG2EmwsVCxPDfqv2Ni
-         m0ci/pw24JcJvNDWBabggrlP3Vqp+Dq7Zo/ilqOGuuXmV4CYfP0Kd4X7Z3g62lN2L8Bw
-         7FYaThM/jZ60SKpKH01zdY7sXO3pI+1H4yfz0Q8+7qOLxuwKYLuBvQFd8imr89Ekc6LZ
-         IQl4djCZumNHO7rutAzQFPVmbowH3I0HV1XHN7A+2g+gJR2GCgaSuTONNah8LN/DxLKi
-         lc6dmMYmKb6TOBYiuB5wJMMqbAwiKiB+HxtbrJP/+6fo8YLwUNG1MTAEgzf8B8BlFCzs
-         5O0g==
-X-Forwarded-Encrypted: i=1; AJvYcCUnw6TfTCFbu1k4emkdVGn/34RP0BJkyg5lTpoFXfFGU645v4NuTYU3o9HuSfxHBFbCqqgEJl7+7foMWSy5A/kk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8PqIADzfGmNY4WLVSf1Y7wBZgjTfHpzvM32jaiI9cF21p8ly0
-	/J+pEU8pKYPFWi8XU8BLaZ+ssEY5FaVg8bckQYJy9y21lS4ZszUBeI9+ANNDyrZwP5gmhuRr7Xb
-	0BA==
-X-Google-Smtp-Source: AGHT+IEI4VPbZHYscktwEOVP6g5TZOKepWU/P1YF6Ndm56diDY5BXYXdB3X0UtnsxrDOZgtWBFkyQyHQxS4=
-X-Received: from pjbsr12.prod.google.com ([2002:a17:90b:4e8c:b0:30a:2095:204b])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3e84:b0:2ff:5357:1c7f
- with SMTP id 98e67ed59e1d1-30aac28b3bcmr1863522a91.30.1746575282052; Tue, 06
- May 2025 16:48:02 -0700 (PDT)
-Date: Tue, 6 May 2025 16:48:00 -0700
-In-Reply-To: <20250109204929.1106563-1-jthoughton@google.com>
+        bh=IkMMN7aoLjrVziOe6MXRXG9fOk8E9BWhlOpYp2kNdvc=;
+        b=q7FYqHnUyx4bVwTD9ay/Jkzxf47fVeLj68WI+7LDHk1RZ1ShE8cw5l2gzigtXWmmjs
+         ckfV32/ICx0jXF+BCCRJiSHkqItL2bHI+g5gsSyn+mlX8SjcGzoQmnV3/cIJtsEJ+G53
+         JElFYevzSjr644z8cs41P9t80UDmc/x1TOfPO4FZA9tTMySg5XR7SwUYw1eOzejVCCmZ
+         SIdP93kE7yAuJRWGxNHIgSF5kRKEIIl9zt6XJFu/WaN4xM6bFMM3oDM1Po0iXeYd8j7e
+         NaPvRBAiwxrl+WaG0cWTG36GoAhEoQK1RjpdqJnqUsy1WWLyWhM0+soWLoe1o8wdGC45
+         nWMA==
+X-Forwarded-Encrypted: i=1; AJvYcCVqVZFhiaOI7yF1Ek5NLHNhu8lkiBKS5sQ4DWnlcd3eucrJKT+sGYY9RkB1xVQN+ZivSRQ8XC1Ed8eqDIEMc4yQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZ5OOVAZceg1SUbRvF0NdJi8tTRySXoD9CkUg1NCNQB0dlyL6T
+	D+ViIBwVz19EJx+dFnxR8+nsvKCCfbsara2/ISEs+8FrXIulieXwitqDd8NVXrQMAmjgGkBwHmC
+	t7Q==
+X-Google-Smtp-Source: AGHT+IG6EiJshM8I+/QNoyITpB25GV3XJSeVoH1WhXumO4+pfjjtK3RlA2H+mctfIUZWla7V1VRApNhLAsY=
+X-Received: from pjbsi7.prod.google.com ([2002:a17:90b:5287:b0:2fb:fa85:1678])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:38c6:b0:2ff:5a9d:937f
+ with SMTP id 98e67ed59e1d1-30aac21f2f2mr2069431a91.24.1746576110794; Tue, 06
+ May 2025 17:01:50 -0700 (PDT)
+Date: Tue, 6 May 2025 17:01:49 -0700
+In-Reply-To: <20250109204929.1106563-2-jthoughton@google.com>
 Mime-Version: 1.0
-References: <20250109204929.1106563-1-jthoughton@google.com>
-Message-ID: <aBqfsGtUjBUJudFB@google.com>
-Subject: Re: [PATCH v2 00/13] KVM: Introduce KVM Userfault
+References: <20250109204929.1106563-1-jthoughton@google.com> <20250109204929.1106563-2-jthoughton@google.com>
+Message-ID: <aBqi7fDtnvxzxV1V@google.com>
+Subject: Re: [PATCH v2 01/13] KVM: Add KVM_MEM_USERFAULT memslot flag and bitmap
 From: Sean Christopherson <seanjc@google.com>
 To: James Houghton <jthoughton@google.com>
 Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
@@ -77,8 +77,8 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, Marc 
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
 Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_164803_470817_F6D68C1A 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20250506_170152_288028_C10E5506 
+X-CRM114-Status: GOOD (  33.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,46 +94,139 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Thu, Jan 09, 2025, James Houghton wrote:
-> James Houghton (13):
->   KVM: Add KVM_MEM_USERFAULT memslot flag and bitmap
->   KVM: Add KVM_MEMORY_EXIT_FLAG_USERFAULT
->   KVM: Allow late setting of KVM_MEM_USERFAULT on guest_memfd memslot
->   KVM: Advertise KVM_CAP_USERFAULT in KVM_CHECK_EXTENSION
+> Use one of the 14 reserved u64s in struct kvm_userspace_memory_region2
+> for the user to provide `userfault_bitmap`.
+> 
+> The memslot flag indicates if KVM should be reading from the
+> `userfault_bitmap` field from the memslot. The user is permitted to
+> provide a bogus pointer. If the pointer cannot be read from, we will
+> return -EFAULT (with no other information) back to the user.
 
-Starting with some series-wide feedback, the granularity of these first few
-patches is too fine.  I normally like to split things up, but honestly, this is
-such a small feature that I don't see much point in separating the uAPI from the
-infrastructure.
+For the uAPI+infrastructure changelog, please elaborate on the design goals and
+choices.  The "what" is pretty obvious from the patch; describe why this is being
+added.
 
-To avoid cyclical dependencies between common KVM and arch code, we can do all
-the prep, but not fully enable+advertise support on any architecture until all
-targeted architectures are fully ready.
+> Signed-off-by: James Houghton <jthoughton@google.com>
+> ---
+>  include/linux/kvm_host.h | 14 ++++++++++++++
+>  include/uapi/linux/kvm.h |  4 +++-
+>  virt/kvm/Kconfig         |  3 +++
+>  virt/kvm/kvm_main.c      | 35 +++++++++++++++++++++++++++++++++++
+>  4 files changed, 55 insertions(+), 1 deletion(-)
+> 
+> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> index 401439bb21e3..f7a3dfd5e224 100644
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -590,6 +590,7 @@ struct kvm_memory_slot {
+>  	unsigned long *dirty_bitmap;
+>  	struct kvm_arch_memory_slot arch;
+>  	unsigned long userspace_addr;
+> +	unsigned long __user *userfault_bitmap;
+>  	u32 flags;
+>  	short id;
+>  	u16 as_id;
+> @@ -724,6 +725,11 @@ static inline bool kvm_arch_has_readonly_mem(struct kvm *kvm)
+>  }
+>  #endif
+>  
+> +static inline bool kvm_has_userfault(struct kvm *kvm)
+> +{
+> +	return IS_ENABLED(CONFIG_HAVE_KVM_USERFAULT);
+> +}
 
-In other words, I think we should squish these into one patch, minus this bit at
-the very end of the series (spoiler alert):
+Eh, don't think we need this wrapper.  Just check the CONFIG_xxx manually in the
+one or two places where code isn't guarded by an #ifdef.
 
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index ce7bf5de6d72..0106d6d461a3 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -1545,6 +1545,9 @@ static int check_memory_region_flags(struct kvm *kvm,
-            !(mem->flags & KVM_MEM_GUEST_MEMFD))
-                valid_flags |= KVM_MEM_READONLY;
- 
-+       if (IS_ENABLED(CONFIG_KVM_GENERIC_PAGE_FAULT))
-+               valid_flags |= KVM_MEM_USERFAULT;
-+
-        if (mem->flags & ~valid_flags)
-                return -EINVAL;
- 
-@@ -4824,6 +4827,9 @@ static int kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
-        case KVM_CAP_CHECK_EXTENSION_VM:
-        case KVM_CAP_ENABLE_CAP_VM:
-        case KVM_CAP_HALT_POLL:
-+#ifdef CONFIG_KVM_GENERIC_PAGE_FAULT
-+       case KVM_CAP_USERFAULT:
-+#endif
-                return 1;
- #ifdef CONFIG_KVM_MMIO
-        case KVM_CAP_COALESCED_MMIO:
+>  struct kvm_memslots {
+>  	u64 generation;
+>  	atomic_long_t last_used_slot;
+> @@ -2553,4 +2559,12 @@ long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
+>  				    struct kvm_pre_fault_memory *range);
+>  #endif
+>  
+> +int kvm_gfn_userfault(struct kvm *kvm, struct kvm_memory_slot *memslot,
+> +		      gfn_t gfn);
+> +
+> +static inline bool kvm_memslot_userfault(struct kvm_memory_slot *memslot)
+
+I strongly prefer kvm_is_userfault_memslot().  KVM's weird kvm_memslot_<flag>()
+nomenclature comes from ancient code, i.e. isn't something I would follow.
+
+> +{
+> +	return memslot->flags & KVM_MEM_USERFAULT;
+
+I think it's worth checking for a non-NULL memslot, even if all current callers
+pre-check for a slot.
+
+> @@ -2042,6 +2051,9 @@ int __kvm_set_memory_region(struct kvm *kvm,
+>  		if (r)
+>  			goto out;
+>  	}
+> +	if (mem->flags & KVM_MEM_USERFAULT)
+> +		new->userfault_bitmap =
+> +		  (unsigned long __user *)(unsigned long)mem->userfault_bitmap;
+
+	if (mem->flags & KVM_MEM_USERFAULT)
+		new->userfault_bitmap = u64_to_user_ptr(mem->userfault_bitmap);
+
+>  	r = kvm_set_memslot(kvm, old, new, change);
+>  	if (r)
+> @@ -6426,3 +6438,26 @@ void kvm_exit(void)
+>  	kvm_irqfd_exit();
+>  }
+>  EXPORT_SYMBOL_GPL(kvm_exit);
+> +
+> +int kvm_gfn_userfault(struct kvm *kvm, struct kvm_memory_slot *memslot,
+> +		       gfn_t gfn)
+
+I think this series is the perfect opportunity (read: victim) to introduce a
+common "struct kvm_page_fault".  With a common structure to provide the gfn, slot,
+write, exec, and is_private fields, this helper can handle the checks and the call
+to kvm_prepare_memory_fault_exit().
+
+And with that in place, I would vote to name this something like kvm_do_userfault(),
+return a boolean, and let the caller return -EFAULT.
+
+For making "struct kvm_page_fault" common, one thought would be to have arch code
+define the entire struct, and simply assert on the few fields that common KVM needs
+being defined by arch code.  And wrap all references in CONFIG_KVM_GENERIC_PAGE_FAULT.
+
+I don't expect there will be a huge number of fields that common KVM needs, i.e. I
+don't think the maintenance burden of punting to arch code will be high.  And letting
+arch code own the entire struct means we don't need to have e.g. fault->arch.present
+vs. fault->write in KVM x86, which to me is a big net negative for readability.
+
+I'll respond to the cover letter with an attachment of seven patches to sketch out
+the idea.
+
+> +{
+> +	unsigned long bitmap_chunk = 0;
+> +	off_t offset;
+> +
+> +	if (!kvm_memslot_userfault(memslot))
+> +		return 0;
+> +
+> +	if (WARN_ON_ONCE(!memslot->userfault_bitmap))
+> +		return 0;
+
+'0' is technically a valid userspace address.  I'd just drop this.  If we have a
+KVM bug that results in failure to generate usefaults, we'll notice quite quickly.
+
+> +
+> +	offset = gfn - memslot->base_gfn;
+> +
+> +	if (copy_from_user(&bitmap_chunk,
+> +			   memslot->userfault_bitmap + offset / BITS_PER_LONG,
+> +			   sizeof(bitmap_chunk)))
+
+Since the address is checked during memslot creation, I'm pretty sure this can
+use __get_user().  At the very least, it should be get_user().
+
+> +		return -EFAULT;
+> +
+> +	/* Set in the bitmap means that the gfn is userfault */
+> +	return !!(bitmap_chunk & (1ul << (offset % BITS_PER_LONG)));
+
+test_bit()?
 
