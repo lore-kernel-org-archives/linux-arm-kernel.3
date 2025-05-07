@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 002B4C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 18:38:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A509C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 18:40:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lQgX3jtIsteXgtrKbDViEW3hMOI9mCbY4kQqm1h/U4o=; b=ofttEvrwpDDJsDW+7BqGJPCPU7
-	uE3gS0Imj0ayyCS9nRsO3eNx6RctQUkKBAHTtKOngLSeMbkD8QIjBq1TygRvam9dZHIeRLCmBaclB
-	INHdJ/Z+nXXXzlZyMIXieoHjjzaDD9m84DsGwZveP3wMQYu5iu2YqsSocj8TLUJhuUrUd2wJ2tAD0
-	uJFBDUWdoZKL7YiikdjgV1G5/BrHFwfUxDNXAfTlyrXF3iZDvdn/E1J4B+ghdTjuELCMK3ISUlkgH
-	tIoafCJaclnwtmbUYzIXguUbGw8BRYxpigBkiVsmQpVOOx9sXYopcenddZ33EbkUHx9hE5+Q9Z4l/
-	xCHo8olA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YMcr7kQ9TGaTP6WhqfZiDNaymUksVxM7RBsyZue/exk=; b=PEqU3EilvCbGVAq/yCheYgPPTG
+	nTTy7ZYOBPDKZKMf5NQf58bZzNZXbYzjfBkPXtj1/4cvPWhA3lSEpL70cuU4PH5CBzFMG0EAHphPC
+	hSExw+SDFsBjtBrBzgkCdOcVamt1tXcXKHR+jTYIYLohZha1AbjqFE2DYGIvUDf3xqKSgQCIPSFGK
+	mPwdGXJcJg6D/UN5zIljumBuzfOFJgAu+vlJLLO/fv/i+MaBT1vw5KEmSrCnGgJMfcwD852stL9Dx
+	NDwZzbv6EjjXHNnkpIuTanB9EDl/G88gxWYZrg2Udp2FnZLwasmO0uN9+vLnan2P5cxYxfLDxSuOV
+	vv1zF8JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCjeo-0000000GVVH-2wda;
-	Wed, 07 May 2025 18:38:14 +0000
-Received: from mxout37.expurgate.net ([194.37.255.37])
+	id 1uCjgj-0000000GVh2-1uns;
+	Wed, 07 May 2025 18:40:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCjOm-0000000GTAh-1uPc
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 18:21:42 +0000
-Received: from [194.37.255.9] (helo=mxout.expurgate.net)
-	by relay.expurgate.net with smtp (Exim 4.92)
-	(envelope-from <thomas.gessler@brueckmann-gmbh.de>)
-	id 1uCjOc-002WP0-AF; Wed, 07 May 2025 20:21:30 +0200
-Received: from [217.239.223.202] (helo=zimbra.brueckmann-gmbh.de)
-	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <thomas.gessler@brueckmann-gmbh.de>)
-	id 1uCjOb-002Q3U-8p; Wed, 07 May 2025 20:21:29 +0200
-Received: from zimbra.brueckmann-gmbh.de (localhost [127.0.0.1])
-	by zimbra.brueckmann-gmbh.de (Postfix) with ESMTPS id F1027CA0310;
-	Wed,  7 May 2025 20:21:27 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.brueckmann-gmbh.de (Postfix) with ESMTP id E0C2ECA04D8;
-	Wed,  7 May 2025 20:21:27 +0200 (CEST)
-Received: from zimbra.brueckmann-gmbh.de ([127.0.0.1])
- by localhost (zimbra.brueckmann-gmbh.de [127.0.0.1]) (amavis, port 10026)
- with ESMTP id wCZj7PF64PHc; Wed,  7 May 2025 20:21:27 +0200 (CEST)
-Received: from ew-linux.ew (unknown [10.0.11.14])
-	by zimbra.brueckmann-gmbh.de (Postfix) with ESMTPSA id C1437CA0310;
-	Wed,  7 May 2025 20:21:27 +0200 (CEST)
-From: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>
-To: dmaengine@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Vinod Koul <vkoul@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Marek Vasut <marex@denx.de>,
-	linux-arm-kernel@lists.infradead.org,
-	Suraj Gupta <Suraj.Gupta2@amd.com>,
-	Harini Katakam <harini.katakam@amd.com>
-Subject: [PATCH v2] dmaengine: xilinx_dma: Set dma_device directions
-Date: Wed,  7 May 2025 20:21:01 +0200
-Message-ID: <20250507182101.909010-1-thomas.gessler@brueckmann-gmbh.de>
-X-Mailer: git-send-email 2.43.0
+	id 1uCjPY-0000000GTEy-22u8;
+	Wed, 07 May 2025 18:22:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 865D6629DA;
+	Wed,  7 May 2025 18:22:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BDE8C4CEE2;
+	Wed,  7 May 2025 18:22:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746642147;
+	bh=YMcr7kQ9TGaTP6WhqfZiDNaymUksVxM7RBsyZue/exk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kArIe70suXHlXZo0TV+JN/3u2UOxD+7Wnj5//RanirT8XGGST48Cq2TG35hw0Z7Fr
+	 UWNR5TDLpwEXsfC33lcbuzTDQ5f+O8bD4Gn6w3Jr7YaUIwSJbQOnJtxUocmVtFxNVE
+	 aGFiRZTyZMpNd4jGQ8kI7pxc7mQl2pXAnSMeBC1cuqrgDCb4JAP1cdDy3JpM43jACf
+	 BKpvKrUq9hDaiqZVf5uNcwhpLrXdarNIGqD7pouUa9gW0iKYyxFgeHW5Tf8aNXVgZF
+	 1gAz0R8tZedOmkHmd2KIOUhjmzVIorHzuYLnK5oe7p42v2BpEpmlsIQCM356k+k3RT
+	 /Hti7w7Bm9udg==
+Date: Wed, 7 May 2025 12:22:22 -0600
+From: Keith Busch <kbusch@kernel.org>
+To: Kees Cook <kees@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, kernel test robot <lkp@intel.com>,
+	Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
+	Sagi Grimberg <sagi@grimberg.me>, linux-nvme@lists.infradead.org,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Marco Elver <elver@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nicolas.schier@linux.dev>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
+	x86@kernel.org, kasan-dev@googlegroups.com,
+	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, sparclinux@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH 1/8] nvme-pci: Make nvme_pci_npages_prp() __always_inline
+Message-ID: <aBuk3nBDOv_6wFCT@kbusch-mbp.dhcp.thefacebook.com>
+References: <20250507180852.work.231-kees@kernel.org>
+ <20250507181615.1947159-1-kees@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-purgate-ID: 151534::1746642090-96E4C21F-1C64AD5C/0/0
-X-purgate: clean
-X-purgate-type: clean
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_112140_631081_C60E26B8 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250507181615.1947159-1-kees@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,32 +88,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Coalesce the direction bits from the enabled TX and/or RX channels into
-the directions bit mask of dma_device. Without this mask set,
-dma_get_slave_caps() in the DMAEngine fails, which prevents the driver
-from being used with an IIO DMAEngine buffer.
+On Wed, May 07, 2025 at 11:16:07AM -0700, Kees Cook wrote:
+> Force it to be __always_inline to make sure it is always available for
+> use with BUILD_BUG_ON().
 
-Signed-off-by: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>
----
-Changes in v2:
-  - Change to Suraj's simpler version as per Radhey's request
-
- drivers/dma/xilinx/xilinx_dma.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_=
-dma.c
-index 3ad44afd0e74..8f26b6eff3f3 100644
---- a/drivers/dma/xilinx/xilinx_dma.c
-+++ b/drivers/dma/xilinx/xilinx_dma.c
-@@ -2909,6 +2909,8 @@ static int xilinx_dma_chan_probe(struct xilinx_dma_=
-device *xdev,
- 		return -EINVAL;
- 	}
-=20
-+	xdev->common.directions |=3D chan->direction;
-+
- 	/* Request the interrupt */
- 	chan->irq =3D of_irq_get(node, chan->tdest);
- 	if (chan->irq < 0)
+Reviewed-by: Keith Busch <kbusch@kernel.org>
 
