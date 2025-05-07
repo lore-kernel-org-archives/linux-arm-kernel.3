@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6718C3ABCA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 17:25:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89EF5C3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 17:25:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AOij2/XTC7kB3VquFibNsAkgh/IQw8V931tfmGAWasI=; b=jzYWXuebWZ4VrUBwrcz9D/R2ha
-	4G87654Ro/SA5WaU5/db54Vpab8d2v5rBDW+G7p8o8lgpl7Trd/Jf8sfGCuoT18cW8jgK+8zBSvp8
-	sM0zP1yiC8oAj3fV44x9ALQBHHy1cZbFL6EeIENjnHsh51QjwLcEWhRGzW8ChTvEd5qXb1/684iy/
-	LfWG67LbLCGgHf9BAgeHuZkP54pJo+pP8fBGlVFRT2RXqQoPDjXj5dGXiOP7/xY6cexoeYc8hUVOj
-	RGgwwuBD40jbPiyWv357XjWVMrdOMT8hpCEscJOwsr3jP40ADhn5+0CjbYQURCnJB/pTHrBz3d9Zj
-	pF84gTfw==;
+	bh=cnXYEL+Iwd+FkZKU2Svs3nKV68LblPhpKmHXDrM/87E=; b=SHIU6V3C3K0T13Rh5JL0BgR4rt
+	gXWabHF0k9Nb4EArAfqvsSAg6pclisd60r71Nbx4SBoDccgLTtJkdfrUGj3TfJlbZsvchsTJ/t966
+	i7WWJ3chifX1iB+bym8kZo2mUWu7ppLvdfX0q1iN7q0gk4DVkPNGsn9DN0ql0WsyoQHVRMFyv6ZmX
+	U1nd2wunxiYsnF5fsK5U2IaDLehIYC8LYV9bnLRP0eqc0nqr9DHyLZMDHdToOdkKRovzNFw728Csx
+	eOXVtYQde6EGQwIHTErsWxF9Ox8RRw7EHsyqxwljeMUTb7Q657jD3HVzZcH+R3ORbc9KtPfdO3VoO
+	AtPsYruw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCiWf-0000000GI2E-3ZlY;
+	id 1uCiWf-0000000GI12-0j8d;
 	Wed, 07 May 2025 17:25:45 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCgzI-0000000G1t2-2bto
+	id 1uCgzE-0000000G1rq-1WXR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 15:47:13 +0000
+	Wed, 07 May 2025 15:47:09 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D3BC5339;
-	Wed,  7 May 2025 08:47:01 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E24DB202C;
+	Wed,  7 May 2025 08:46:57 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 56E1B3F58B;
-	Wed,  7 May 2025 08:47:08 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5C9653F58B;
+	Wed,  7 May 2025 08:47:04 -0700 (PDT)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: catalin.marinas@arm.com,
 	pcc@google.com,
@@ -61,17 +61,18 @@ To: catalin.marinas@arm.com,
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v4 3/7] arm64/kernel: support store-only mte tag check
-Date: Wed,  7 May 2025 16:46:50 +0100
-Message-Id: <20250507154654.1937588-4-yeoreum.yun@arm.com>
+Subject: [PATCH v4 2/7] prtcl: introduce PR_MTE_STORE_ONLY
+Date: Wed,  7 May 2025 16:46:49 +0100
+Message-Id: <20250507154654.1937588-3-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250507154654.1937588-1-yeoreum.yun@arm.com>
 References: <20250507154654.1937588-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_084712_745649_9A9E44E3 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20250507_084708_442538_0C39AC8B 
+X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,93 +87,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce new flag -- MTE_CTRL_STORE_ONLY used to set store-only tag check.
-This flag isn't overridden by prefered tcf flag setting but set together
-with prefered setting of way to report tag check fault.
+PR_MTE_STORE_ONLY is used to restrict the MTE tag check for store
+opeartion only.
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- arch/arm64/include/asm/processor.h |  2 ++
- arch/arm64/kernel/mte.c            | 11 ++++++++++-
- arch/arm64/kernel/process.c        |  6 +++++-
- 3 files changed, 17 insertions(+), 2 deletions(-)
+ include/uapi/linux/prctl.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
-index 1bf1a3b16e88..61d62bfd5a7b 100644
---- a/arch/arm64/include/asm/processor.h
-+++ b/arch/arm64/include/asm/processor.h
-@@ -23,6 +23,8 @@
- #define MTE_CTRL_TCF_ASYNC		(1UL << 17)
- #define MTE_CTRL_TCF_ASYMM		(1UL << 18)
- 
-+#define MTE_CTRL_STORE_ONLY		(1UL << 19)
-+
- #ifndef __ASSEMBLY__
- 
- #include <linux/build_bug.h>
-diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
-index 2fbfd27ff5f2..e5e773844889 100644
---- a/arch/arm64/kernel/mte.c
-+++ b/arch/arm64/kernel/mte.c
-@@ -200,7 +200,7 @@ static void mte_update_sctlr_user(struct task_struct *task)
- 	 * program requested values go with what was requested.
- 	 */
- 	resolved_mte_tcf = (mte_ctrl & pref) ? pref : mte_ctrl;
--	sctlr &= ~SCTLR_EL1_TCF0_MASK;
-+	sctlr &= ~(SCTLR_EL1_TCF0_MASK | SCTLR_EL1_TCSO0_MASK);
- 	/*
- 	 * Pick an actual setting. The order in which we check for
- 	 * set bits and map into register values determines our
-@@ -212,6 +212,10 @@ static void mte_update_sctlr_user(struct task_struct *task)
- 		sctlr |= SYS_FIELD_PREP_ENUM(SCTLR_EL1, TCF0, ASYNC);
- 	else if (resolved_mte_tcf & MTE_CTRL_TCF_SYNC)
- 		sctlr |= SYS_FIELD_PREP_ENUM(SCTLR_EL1, TCF0, SYNC);
-+
-+	if (mte_ctrl & MTE_CTRL_STORE_ONLY)
-+		sctlr |= SYS_FIELD_PREP(SCTLR_EL1, TCSO0, 1);
-+
- 	task->thread.sctlr_user = sctlr;
- }
- 
-@@ -371,6 +375,9 @@ long set_mte_ctrl(struct task_struct *task, unsigned long arg)
- 	    (arg & PR_MTE_TCF_SYNC))
- 		mte_ctrl |= MTE_CTRL_TCF_ASYMM;
- 
-+	if (arg & PR_MTE_STORE_ONLY)
-+		mte_ctrl |= MTE_CTRL_STORE_ONLY;
-+
- 	task->thread.mte_ctrl = mte_ctrl;
- 	if (task == current) {
- 		preempt_disable();
-@@ -398,6 +405,8 @@ long get_mte_ctrl(struct task_struct *task)
- 		ret |= PR_MTE_TCF_ASYNC;
- 	if (mte_ctrl & MTE_CTRL_TCF_SYNC)
- 		ret |= PR_MTE_TCF_SYNC;
-+	if (mte_ctrl & MTE_CTRL_STORE_ONLY)
-+		ret |= PR_MTE_STORE_ONLY;
- 
- 	return ret;
- }
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 42faebb7b712..cea4a23a15de 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -815,10 +815,14 @@ long set_tagged_addr_ctrl(struct task_struct *task, unsigned long arg)
- 	if (is_compat_thread(ti))
- 		return -EINVAL;
- 
--	if (system_supports_mte())
-+	if (system_supports_mte()) {
- 		valid_mask |= PR_MTE_TCF_SYNC | PR_MTE_TCF_ASYNC \
- 			| PR_MTE_TAG_MASK;
- 
-+		if (cpus_have_cap(ARM64_MTE_STORE_ONLY))
-+			valid_mask |= PR_MTE_STORE_ONLY;
-+	}
-+
- 	if (arg & ~valid_mask)
- 		return -EINVAL;
- 
+diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
+index 15c18ef4eb11..83ac566251d8 100644
+--- a/include/uapi/linux/prctl.h
++++ b/include/uapi/linux/prctl.h
+@@ -244,6 +244,8 @@ struct prctl_mm_map {
+ # define PR_MTE_TAG_MASK		(0xffffUL << PR_MTE_TAG_SHIFT)
+ /* Unused; kept only for source compatibility */
+ # define PR_MTE_TCF_SHIFT		1
++/* MTE tag check store only */
++# define PR_MTE_STORE_ONLY		(1UL << 19)
+ /* RISC-V pointer masking tag length */
+ # define PR_PMLEN_SHIFT			24
+ # define PR_PMLEN_MASK			(0x7fUL << PR_PMLEN_SHIFT)
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
