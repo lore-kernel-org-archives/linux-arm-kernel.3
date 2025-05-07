@@ -4,70 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32C37C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 15:39:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 701CBC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 15:43:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pQ4rrrkQyrsJSu1Oydj2YpRuvmf+BczNVPtiyO2iXYo=; b=LHuXuBJjYNC14Jnd7M4cuN4E1S
-	Irtn25NoKH7iL9sfUqrZ0M4r1TCVGctrqwdG620w7R6fKeI5MvgtShSZZBH92mxoZavqWDXvrLwVl
-	1U8L2Ws/AEcbn6LqqzcSzrwxmd+AQLZ1aRiPrOAI8jvXWxGOJeP/OT5XTvwgyzrIwzST1kUB1L8yz
-	lxkGLyi+JeJDOAgPVl7MYN30umbw0JFjPqVrahkF+KbehrM5ZHLEnDm9QSC3QeFLigliqsgjbCf0s
-	qdPPTha6piVxgSc7fR0r2CVQOceLF8RBXd9ZGS0VRdNfI8DTyPbuzL9/Z3ohZ7nIx/Zj/7ZB0KU59
-	0191aA6g==;
+	bh=u8buZYuRgZW0mWtx9kUXzQVxAfN762DykqA5DEZn2y0=; b=rVgm7RxyWymJFy0M7L2hQkmRuR
+	etTXGx6d4J4HqS+2BHipHKVk7ZNH8dvf23sbtEv3sokGJXPmBV3iqo7R3l8nN2gHZqetdcxKTQjOG
+	ckGRJr/W8QtqJeGD/yO/bvRQfGIp8Pfl99XWEvdTIKntHLRcep2qHjfaMifkuzOOO1imllKnanatz
+	+SAWDVkrpVKKWW6EB/5H3xGRNnugCNovlCwhv6YbEdK0/tr3GZ8l4TSYJtn6lXDKbkHE+M2NMv86b
+	iPUDVNlPWi0oBSpRW3lQnEbUa02KjhI8Fm4kAK+lpLL4o3JrfdtD9bkHsdPD/UOrFFfckxBF5p/Fl
+	OhEemj/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCgrI-0000000G08p-1SzZ;
-	Wed, 07 May 2025 15:38:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCgEs-0000000FsMM-1kGn
+	id 1uCgv7-0000000G16D-2XuS;
+	Wed, 07 May 2025 15:42:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCgPF-0000000FuAi-3Whu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 14:59:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CC125629FA
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 May 2025 14:59:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87109C4CEF8
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 May 2025 14:59:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746629953;
-	bh=pQ4rrrkQyrsJSu1Oydj2YpRuvmf+BczNVPtiyO2iXYo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=srkAq+G/plKXRbPA7r1NVl/rDfBXptP5g0zOJ6Iob9WADODh2Cujg1vDrWruUhHhq
-	 BN4FI1t51ZqMMX9v6aEQUvQ+1HhtmktmsmoJctLoI2rszqQaHOnWNQ7TJOhwL/xw8F
-	 0GbWU1zxeVqH7pwVHoOs4ns1L886GVneLZZbSrxphuOQfqdZxgC5Qj5+HhK/aYwYr1
-	 WdWtgbZYmA0yARdJcUcngxazCTaxO38T+Gsm//LdOCsTn0MF6xw/QukNcM0tThkJp7
-	 SCInTNnsuaEeeaPrSFQW/7AX8pGTR72c0Fd9D6gH/ZtTYAFuN/5IQH9h3Z+MJK+IKk
-	 9ZDcKPT0CmicQ==
-Received: by mail-oi1-f181.google.com with SMTP id 5614622812f47-3f6a92f234dso5029847b6e.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 May 2025 07:59:13 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWVgOYVnUHQmaV2C/mwgC2UCpBuWwftuQB+/9PWs7SN+X7xXnNfs5svqu9DxrIvBwqXEib6JVZohZ+TI/ePbKsr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxR3cVnH9zfoFWp5dDPSRkd9kSu19TnvRJjmUfATzJ0euVUolMR
-	354SFrzFz0iOZvdiSU4MnwWCZIoqK+G5FgLOUCU9vJtIarRQCX9O+uPNhvyg4iWziouuwbQDHeL
-	d4hoa+C8I9IU4zAXZIL3cH/HGFQo=
-X-Google-Smtp-Source: AGHT+IG2jGg4Gw+mtrHimLnBHtTZnvgaDxMj6vzJiI/LGSl3ouIsD5werw44EnBCTNLYLshLXj8g6uQd4mXH4v505pU=
-X-Received: by 2002:a05:6871:29a:b0:2d4:ce45:6985 with SMTP id
- 586e51a60fabf-2db5be28b4dmr2084181fac.11.1746629940117; Wed, 07 May 2025
- 07:59:00 -0700 (PDT)
+	Wed, 07 May 2025 15:09:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 47416339;
+	Wed,  7 May 2025 08:09:45 -0700 (PDT)
+Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8EAD23F778;
+	Wed,  7 May 2025 08:09:48 -0700 (PDT)
+Message-ID: <8965ec0a-97d4-423b-97b9-7848454045d0@arm.com>
+Date: Wed, 7 May 2025 16:09:47 +0100
 MIME-Version: 1.0
-References: <20250502140119.2578909-1-sudeep.holla@arm.com> <20250507-crouching-lovely-wrasse-f85e90@sudeepholla>
-In-Reply-To: <20250507-crouching-lovely-wrasse-f85e90@sudeepholla>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Wed, 7 May 2025 16:58:48 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0jhQwbQqbDOz2ADeZWvBzA71XdLxhRJzCYL28fMM2DBiA@mail.gmail.com>
-X-Gm-Features: ATxdqUGCI4AILRNC-HP-Tp3AOF4fDO-fl4F8YA3AQMgVbwTj7A5RwxA6JJAusF4
-Message-ID: <CAJZ5v0jhQwbQqbDOz2ADeZWvBzA71XdLxhRJzCYL28fMM2DBiA@mail.gmail.com>
-Subject: Re: [PATCH] cpuidle: psci: Avoid initializing faux device if no DT
- idle states are present
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Jon Hunter <jonathanh@nvidia.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] iommu/io-pgtable-arm: Add quirk to quiet WARN_ON()
+To: Jason Gunthorpe <jgg@ziepe.ca>, Rob Clark <robdclark@gmail.com>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+ freedreno@lists.freedesktop.org, Rob Clark <robdclark@chromium.org>,
+ Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
+ Kevin Tian <kevin.tian@intel.com>, Nicolin Chen <nicolinc@nvidia.com>,
+ Joao Martins <joao.m.martins@oracle.com>,
+ "moderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20250507142953.269300-1-robdclark@gmail.com>
+ <20250507144038.GC33739@ziepe.ca>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250507144038.GC33739@ziepe.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250507_080957_936182_F6D834AC 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,42 +70,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
+On 07/05/2025 3:40 pm, Jason Gunthorpe wrote:
+> On Wed, May 07, 2025 at 07:29:51AM -0700, Rob Clark wrote:
+>> From: Rob Clark <robdclark@chromium.org>
+>>
+>> In situations where mapping/unmapping sequence can be controlled by
+>> userspace, attempting to map over a region that has not yet been
+>> unmapped is an error.  But not something that should spam dmesg.
+>>
+>> Now that there is a quirk, we can also drop the selftest_running
+>> flag, and use the quirk instead for selftests.
+>>
+>> Signed-off-by: Rob Clark <robdclark@chromium.org>
+>> ---
+>> Sending v2 stand-alone, since I'm not quite ready to send a new
+>> iteration of the full VM_BIND series.  And with selftest_running
+>> removed, I think this patch stands on it's own.  (And maybe there
+>> is still time to sneak this in for v6.16, removing an iommu dep
+>> for the VM_BIND series in v6.17?)
+> 
+> You should just remove the warn on completely, no other driver does this.
 
-On Wed, May 7, 2025 at 3:56=E2=80=AFPM Sudeep Holla <sudeep.holla@arm.com> =
-wrote:
->
-> Hi Rafael,
->
-> On Fri, May 02, 2025 at 03:01:19PM +0100, Sudeep Holla wrote:
-> > Commit af5376a77e87 ("cpuidle: psci: Transition to the faux device inte=
-rface")
-> > transitioned the PSCI cpuidle driver from using a platform device to th=
-e
-> > faux device framework. However, unlike platform devices, the faux devic=
-e
-> > infrastructure logs an error when the probe function fails, even if the
-> > failure is intentional or expected.
-> >
-> > To prevent unnecessary error logs, we can skip creating the faux device
-> > entirely if there are no PSCI idle states defined in the device tree.
-> > Introduce a check for DT idle states during initialization and avoid
-> > setting up the device if none are found.
-> >
-> > This ensures cleaner logs and avoids misleading probe failure messages
-> > when PSCI idle support is intentionally not described in DT.
-> >
->
-> As you pointed out in another similar fix that exist only in the linux-ne=
-xt,
-> I have also missed to point out that fact here. This is only present in
-> the next. Let me know if you want me to drop the commit hash reference
-> and repost it with -next prefix which I generally do and somehow clearly
-> missed here. Sorry for that.
+What do you mean "no other driver"?
 
-No worries.
+ From a quick look, these IOMMU drivers have some sort of visible 
+warning related to the state of an existing PTE during map/unmap:
 
-The cpuidle branch hasn't changed, so this is applicable with no changes.
+apple-dart
+arm-smmu
+arm-smmu-v3
+arm-smmu-qcom
+exynos-iommu
+ipmmu_vmsa
+msm_iommu
+mtk_iommu
+rockchip-iommu
+s390-iommu
+sun50i-iommu
+qcom_iommu
 
-Applied now, thanks!
+while these IOMMU drivers do not:
+
+amd
+intel
+mtk_iommu_v1
+omap-iommu
+riscv
+sprd-iommu
+tegra-smmu
+virtio-iommu
+
+By driver count, warning is literally the majority behaviour :/
+
+Thanks,
+Robin.
 
