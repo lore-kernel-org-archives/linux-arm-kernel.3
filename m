@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F3BC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 08:12:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 033B0C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 08:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E+1aqAxLbgbnjVNg9/XseYnsFvwJaCJrLx5Hk31Zdi0=; b=aDtB5yD5v4dljixF3bHEVf1agk
-	Jx0j91sLPkUHUZnnUHaZbaJQtSHlnyYUSXTdY3jdqWG2dzIh48Ldyqapc7qQqBktzieaYBQbH66dP
-	aZmplB6RlYM3j+EpdL8QelJfCsijT3TJ5A21Cg8jEy1tXMvcVHd9pfw2QljZeeJkybc1c0b6EeDwG
-	0u+7gskwLRNvVYudbXMgMAqxvPMmLnTQ9rnYrwdfComAKdC21sjCYa+7g2p2yC3uwAjyeMNFP5z/T
-	00GnlCxgaZSF9h1CUjf+MnldWePzFu65jq/yJ1HrvxRIR7Kh5lYF+SXfzCuEe6xcNUlS9MhkgLrf0
-	JurXxHmA==;
+	bh=rUuEp6/RXwwfhHO1bxz8fNlN6MHr1GgMNOFNkceKlJg=; b=KqQ9rvAnd880nKt1NVFlNOZGhF
+	kJS7yZUOmLBqh6KzOqA6TBDbhInZeNgg7slxwTK8btJoDIUWZ6YC36ifviLA/XIHdzmjV0UQifVHI
+	LThBsvkBj2ZAMEPY+j64o5ogyes9TNHkKWfpTbyzsTLeXz4CeMHMIIcsx2Fm4oKz4fR/KU8mZVYWb
+	Q8hQWZj8Etjb6iBlvCbjk+MJ5rYTBgYtxOZWdk/z7YRQOB0ug+zuudjotMW0coEGu1POMPup/4tnd
+	i4ddQoG+qoSlZre+XQsGoqUgQj0tegbw70ljtJU2RML9soVuSaIZqSSbSaX4uDWwheKFfFywzWtfB
+	EoZtAn4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCZt3-0000000EgE1-1Iuk;
-	Wed, 07 May 2025 08:12:17 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1uCZuy-0000000EgTM-0DG5;
+	Wed, 07 May 2025 08:14:16 +0000
+Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCYyx-0000000EThT-0eJT
+	id 1uCYyz-0000000ETiV-2Or7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 07:14:20 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPA id 9286C43B5B;
-	Wed,  7 May 2025 07:14:15 +0000 (UTC)
+	Wed, 07 May 2025 07:14:22 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPA id AC31B43B5C;
+	Wed,  7 May 2025 07:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1746602057;
+	t=1746602060;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=E+1aqAxLbgbnjVNg9/XseYnsFvwJaCJrLx5Hk31Zdi0=;
-	b=LOimcVYn0kOo1b/3vErZdzidOHNjG4Dl05jEXr+wQ1ZiAvOxr5viR5sDQv4g0IwWrIRn7+
-	xEdLsQEhW3v/UATxX8XdzR5m3WsxjsnyMMgTA6bSj3zasYakndAMgf44bxQJxpCuTPF6ef
-	QV7ITlW2J5q8cGBxk+vfDJJbSGN0FEhVRcImiaI5ojKHHNdfTDI+u0x3ivM40O+Splehzi
-	4llIjTlWgM4oNaP+aW0YqCP5FPdjVhXNVGuthI+Tc4CTet701ul+DAiwlxPk5CBWP6rcv/
-	+D4uNxPsKFT54XvMq9Wpv4s8PjIWIpjxBGZbMHmko+wRNmFdqcwzLrMN26UsGg==
+	bh=rUuEp6/RXwwfhHO1bxz8fNlN6MHr1GgMNOFNkceKlJg=;
+	b=AgBqcVK4n2af9AD6jUKIkuhdfDbPlWNhVDwp+Ify0ney9hSd62OKBbKajq9Zymbr2m7Qog
+	eVfi0klq+of6fc9G1QQ6PVt6cdmdlIM165NOD8EyUpo3wVg/XV18S564KA2wMTHgy2EH3J
+	JhiCtANS8kc9oUm979A3Vp8VwhonNDnCqXEIcgVHAtb9y09Hq0V/6GsOHXsFPqT3W/U6Aw
+	qGI0PL3B+ejaOUlo1G3CVZ2fjGO8eHLBV9rVV0iYH56FfuOzRQMvHj8nofgUbFjJx+FD2L
+	Se/6hrje/GIZpj+g7UUUrmHpCUshS4pAjYoldLSDWsSQ+OsogW+ucb+GcbuDQA==
 From: Herve Codina <herve.codina@bootlin.com>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -84,9 +84,9 @@ Cc: Wolfram Sang <wsa@kernel.org>,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: [PATCH v2 25/26] misc: lan966x_pci: Sort the drivers list in Kconfig help
-Date: Wed,  7 May 2025 09:13:07 +0200
-Message-ID: <20250507071315.394857-26-herve.codina@bootlin.com>
+Subject: [PATCH v2 26/26] misc: lan966x_pci: Add drivers needed to support SFPs in Kconfig help
+Date: Wed,  7 May 2025 09:13:08 +0200
+Message-ID: <20250507071315.394857-27-herve.codina@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250507071315.394857-1-herve.codina@bootlin.com>
 References: <20250507071315.394857-1-herve.codina@bootlin.com>
@@ -98,8 +98,8 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvkeeivdefucetufdoteggode
  dhhrghuvghrsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepfhgvshhtvghvrghmsehgmhgrihhlrdgtohhm
 X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_001419_343855_A446B3C6 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20250507_001421_739064_4DED896E 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,34 +114,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The LAN966X Kconfig help section mentions drivers related to
-devices.
+Recently, new device-tree nodes were added in the overlay to add support
+for SFPs on LAN966x PCI device.
 
-Sort this list alphabetically.
+The LAN966X Kconfig help section mentions drivers related to devices
+added based on the overlay description.
+
+Add drivers related to devices described by those new nodes in the
+already existing driver list.
 
 Signed-off-by: Herve Codina <herve.codina@bootlin.com>
 ---
- drivers/misc/Kconfig | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/misc/Kconfig | 5 +++++
+ 1 file changed, 5 insertions(+)
 
 diff --git a/drivers/misc/Kconfig b/drivers/misc/Kconfig
-index 6b37d61150ee..469044b2256b 100644
+index 469044b2256b..93f7b2e92e60 100644
 --- a/drivers/misc/Kconfig
 +++ b/drivers/misc/Kconfig
-@@ -624,13 +624,13 @@ config MCHP_LAN966X_PCI
+@@ -624,13 +624,18 @@ config MCHP_LAN966X_PCI
  	  Even if this driver does not depend on those other drivers, in order
  	  to have a fully functional board, the following drivers are needed:
  	    - fixed-clock (COMMON_CLK)
--	    - lan966x-oic (LAN966X_OIC)
++	    - i2c-mux-pinctrl (I2C_MUX_PINCTRL)
  	    - lan966x-cpu-syscon (MFD_SYSCON)
--	    - lan966x-switch-reset (RESET_MCHP_SPARX5)
-+	    - lan966x-miim (MDIO_MSCC_MIIM)
-+	    - lan966x-oic (LAN966X_OIC)
++	    - lan966x-gck (COMMON_CLK_LAN966X)
+ 	    - lan966x-miim (MDIO_MSCC_MIIM)
+ 	    - lan966x-oic (LAN966X_OIC)
  	    - lan966x-pinctrl (PINCTRL_OCELOT)
  	    - lan966x-serdes (PHY_LAN966X_SERDES)
--	    - lan966x-miim (MDIO_MSCC_MIIM)
  	    - lan966x-switch (LAN966X_SWITCH)
-+	    - lan966x-switch-reset (RESET_MCHP_SPARX5)
+ 	    - lan966x-switch-reset (RESET_MCHP_SPARX5)
++	    - sam9x60-i2c (I2C_AT91)
++	    - sama5d2-flexcom (MFD_ATMEL_FLEXCOM)
++	    - sfp (SFP)
  
  source "drivers/misc/c2port/Kconfig"
  source "drivers/misc/eeprom/Kconfig"
