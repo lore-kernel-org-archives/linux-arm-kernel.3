@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DD55C369DC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC688C3ABB6
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 05:46:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vggJOyKIAHn4RAPHVnIb2QIednpCEmaB0nsyUKuhz/I=; b=O0et940iocQDaQMxRO1GxzB9ZM
-	F7yteTeKfAr3YGjtGCQmI6q8QZcT8N0lhjiR4wWqP3CUqfvYXxvzdJt3vGlRBxMQ6ex/OSbjneQD0
-	P3GqrTB92P3AtzOpVKNdcAP+jiMn/IBq77Pss4FKLGAwVrbnVZx7JBeyQM0dXOESbkDm6BB4KCh1m
-	k+45I1CsVM/RWuZpR2piXj53YPVfcXSaAi1EBwNV0/5EZVquhQ137HJhqewByijtx488NevUSaNhm
-	8GFHUC0wUt6czVPn/Mlxj6epdF8D2I5U6hG1pMw1SHrquc6pmEl68Nzetbl7ohSfsz06NXsvl/ePz
-	FcRmbfIQ==;
+	bh=/P21Yi8AN248Gpe7TbE6puKIsPYpvjiTdttVYLzR+H4=; b=HNO5Jd3ActEkOIF9mid8QvmptY
+	lOsWr1wh2WYKTwA+kUKpKUaBKNG2n6VjQcOk+yKd/rXpsdEp1i0UodxhgpWx0m5rE/6AxUizotdIu
+	b9TkXTFzS/MFUY6URCuldX7QyJb//J9y2D+4bxQxWAobttdlfhzGIiasoNA7EmRktmkjQqCDLq9Fw
+	bIQnCexgg8e3Wi4MkOQMgJpW5Uytvf6QkZIMPrj+H8YsHi4+NGG6tUaYjJAjwop9TYQwWKwXpiwM7
+	+Jox1AL08/8jJOTKiconzteZxYJGTRjLvzln8G6TfLpiI1YpCbG2RXLzHPu+2bAx5C9O2g6Hha3LP
+	EroDkQnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCXbs-0000000EIPK-3KM7;
+	id 1uCXbs-0000000EIP4-1DL6;
 	Wed, 07 May 2025 05:46:24 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCWTE-0000000EBcD-438R
+	id 1uCWSN-0000000EBYr-3Mw7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 04:33:25 +0000
+	Wed, 07 May 2025 04:32:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 482EB6116E;
-	Wed,  7 May 2025 04:33:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF449C4CEE7;
-	Wed,  7 May 2025 04:33:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D4CF061165;
+	Wed,  7 May 2025 04:32:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67E25C4CEE7;
+	Wed,  7 May 2025 04:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746592403;
-	bh=UfPnWqBya3kFZ9NZiwbbuUngo0dnzOI306GmpSV8f4U=;
+	s=k20201202; t=1746592350;
+	bh=RxAxuqjkNuyb7pK7DVY+a4e48aW8eHXlzxHyDnyovqo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KurKwqZV87OBpQqz04T4z9YR/nUdqQ/k5V8BgAS0DsESMGroRolOcPkWxwp3Phoqi
-	 TDC1k36AvbFXS3PEKtO9DUzrONpgM1TS+CGV80xloHh8JPDSY0ypJYuz5qSBXURfJi
-	 cSaJehlKb/vmI4ASTF693K0gvSjU1cB9XtHGWiZSvWjGFqEXRQuT5ID/WLNUycjLmW
-	 9DULG7hz+PBPqxBeFDK+zTzGe0h6YUu/9wNGiUPNbp/o1IGYW9dIKRCMEvlhwQqYJ3
-	 DgGLuG6P6x6XFISHEuvfdgTDPIE04TunSlsT7PwxiqR5pVcRhiBz1F8spBeUDrUAyX
-	 O7vy/XoAzYl9g==
-Message-ID: <e05151a1-2112-497b-affa-d0e95c71b627@kernel.org>
-Date: Wed, 7 May 2025 06:33:20 +0200
+	b=dDoqXGCCcWN9VAN+1x5gsQGjJvxJJaR5DHMiNST3AfrgUfXqpfM6tDf86Fze85BTb
+	 oy5KT91aRnqeLvyAxCKyzwoPyvv1zqJ4qFTyuaexDzFgGRSJ37RveCEQh74ci30WwB
+	 xfqu6BqVgLHHWjKtq2i0ilatLBUA8ptwYK5pUJJFKTvN8vlncFcLBkZtxcUoIBKxed
+	 /R8wMUgrKpt3tGV5Of741oLiYfBA5sogRhCwUHXAoDTyKK9rZja1NQeHM9S/B+nsJj
+	 KxBx3r8SsKimp0K/ohtGrtXejfMzFpYi7MBm7gsaUCStT/5wxsqt8voADFAcNQnMqF
+	 JkFDJl1PPnvKQ==
+Message-ID: <8d3c2ab5-dfc0-4a65-94c8-48a94c850aba@kernel.org>
+Date: Wed, 7 May 2025 06:32:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] clocksource/drivers/timer-vt8500: Add watchdog
- functionality
+Subject: Re: [PATCH 3/3] ARM: dts: vt8500: list all four timer interrupts
 To: Alexey Charkov <alchark@gmail.com>,
  Daniel Lezcano <daniel.lezcano@linaro.org>,
  Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
@@ -55,7 +54,7 @@ To: Alexey Charkov <alchark@gmail.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org
 References: <20250507-vt8500-timer-updates-v1-0-6b76f7f340a6@gmail.com>
- <20250507-vt8500-timer-updates-v1-2-6b76f7f340a6@gmail.com>
+ <20250507-vt8500-timer-updates-v1-3-6b76f7f340a6@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,7 +100,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250507-vt8500-timer-updates-v1-2-6b76f7f340a6@gmail.com>
+In-Reply-To: <20250507-vt8500-timer-updates-v1-3-6b76f7f340a6@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -119,37 +118,39 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 06/05/2025 22:06, Alexey Charkov wrote:
-> VIA/WonderMedia system timer IP can generate a watchdog reset when its
-> clocksource counter matches the value in the match register 0 and
-> watchdog function is enabled. For this to work, obvously the clock event
-> device must use a different match register (1~3) and respective interrupt.
+> VIA/WonderMedia SoC timer can generate up to four interrupts corresponding
+> to four timer match registers (firing when the 32-bit freerunning clock
+> source counter matches either of the match registers, respectively).
 > 
-> Check if at least two interrupts are provided by the device tree, then use
-> match register 1 for system clock events and match register 0 for watchdog
-> respectively.
+> List all four interrupts in device trees.
+> 
+> This also enables the system event timer to use a match register other
+> than 0, which can then in turn be used as a system watchdog (watchdog
+> function is not available on other channels)
 > 
 > Signed-off-by: Alexey Charkov <alchark@gmail.com>
 > ---
->  drivers/clocksource/Kconfig        |  6 +++-
->  drivers/clocksource/timer-vt8500.c | 58 ++++++++++++++++++++++++++++++++++----
->  2 files changed, 58 insertions(+), 6 deletions(-)
+>  arch/arm/boot/dts/vt8500/vt8500.dtsi | 2 +-
+>  arch/arm/boot/dts/vt8500/wm8505.dtsi | 2 +-
+>  arch/arm/boot/dts/vt8500/wm8650.dtsi | 2 +-
+>  arch/arm/boot/dts/vt8500/wm8750.dtsi | 2 +-
+>  arch/arm/boot/dts/vt8500/wm8850.dtsi | 2 +-
+>  5 files changed, 5 insertions(+), 5 deletions(-)
 > 
-> diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-> index 487c8525996724fbf9c6e9726dabb478d86513b9..e4f9aade058af1adc279274c6c711658f9f4cd0a 100644
-> --- a/drivers/clocksource/Kconfig
-> +++ b/drivers/clocksource/Kconfig
-> @@ -177,9 +177,13 @@ config TEGRA186_TIMER
->  
->  config VT8500_TIMER
->  	bool "VT8500 timer driver" if COMPILE_TEST
-> +	depends on ARCH_VT8500 || COMPILE_TEST
+> diff --git a/arch/arm/boot/dts/vt8500/vt8500.dtsi b/arch/arm/boot/dts/vt8500/vt8500.dtsi
+> index 2ba021585d4889f29777a12473964c29f999f3a0..d1dd37220d41becece5d24fbb19aa71b01723e35 100644
+> --- a/arch/arm/boot/dts/vt8500/vt8500.dtsi
+> +++ b/arch/arm/boot/dts/vt8500/vt8500.dtsi
+> @@ -111,7 +111,7 @@ clkuart3: uart3 {
+>  		timer@d8130100 {
+>  			compatible = "via,vt8500-timer";
+>  			reg = <0xd8130100 0x28>;
+> -			interrupts = <36>;
+> +			interrupts = <36>, <37>, <38>, <39>;
 
-Does not look related to this patch.
+You need to update the binding, preferably first convert it to DT schema.
 
->  	depends on HAS_IOMEM
-> +	select WATCHDOG
 
-Drivers are not supposed to select user-visible symbols.
 
 Best regards,
 Krzysztof
