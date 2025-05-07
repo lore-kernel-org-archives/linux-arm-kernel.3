@@ -4,56 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F3BEC3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 13:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A489CC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 13:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XkS+3pXWi5JEgwodRJRkpVVc76nXLyYSns3gjwx9z0E=; b=awgQyLmwSZ1BrbmyAwvnzgHytj
-	D9X0vESf8HV3ku0DU/oFm586QGFqMcfEeXkCMu7GnVYuhNYcNY+0lguVequCBkzsBZrBUCXbu/pwa
-	qgt2KEQbr+/AgGxyefq/dqECVQg841rPGAbhuKcJgWQOLZmTMeWWTCxmtUue6fPNuzFCe25vNaf8X
-	xo049EYMyehroWWiSiX3sDDH8eJizckJivEQhN3lhMzpvi5NCPGW0QIxaAPbuxhavAiq09B6CaGQp
-	3FCN1gbe24rBxgBab4sBfbK1gSDJ4Rk2na39d3b1GoOHEvWf+RTxrXkbqIC8GrnRsLyCcee6ae6W/
-	ItFEO0WA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+78+2+2l+vz4thd4fzsZIiDpYheZnEoUC6X/M8JFQ+I=; b=1mocFQRZ8C0yMUOe/2T4Mknn0i
+	OEB9KILsnrV8OZ6I5kAzf37oX0MWckVfyWhIauSS0u/y/dITyQh69J6W9D5fDCXOlDg8d3KE7qxPP
+	JM3ZV5YfKgAAk1cstMr+SpLcDk4mrMnlVU7t6kB3hTshpSgzmGl+kzyVjiZAkX0obG8n+jqoKb66T
+	vh8Wwi1sbEO0QY7SR2eYIH1xFIPqQdAvkyZ694+v535VR8kTv3cKNPP54apaXInNF/zk0zb1GfCMG
+	xUz/0v1se6VmKf6GkgHG8OIRCR+rPwVUAAIbacJYKAH6bpbi/PEjzsc8yXENKzx1Bo8X1Oop3nkgj
+	DkV8Rjtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCfD8-0000000Fdx8-0DUh;
-	Wed, 07 May 2025 13:53:22 +0000
-Received: from baptiste.telenet-ops.be ([2a02:1800:120:4::f00:13])
+	id 1uCfF4-0000000Fekh-1TM6;
+	Wed, 07 May 2025 13:55:22 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCesW-0000000FaAp-42rc
+	id 1uCf2s-0000000FbIJ-0DDr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 13:32:07 +0000
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:41d7:97f1:5857:a075])
-	by baptiste.telenet-ops.be with cmsmtp
-	id mDXw2E00L4ooFen01DXwUq; Wed, 07 May 2025 15:31:57 +0200
-Received: from rox.of.borg ([192.168.97.57])
-	by ramsan.of.borg with esmtp (Exim 4.97)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1uCesI-00000000uvc-2sbn;
-	Wed, 07 May 2025 15:31:56 +0200
-Received: from geert by rox.of.borg with local (Exim 4.97)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1uCesO-00000001vi3-2sm3;
-	Wed, 07 May 2025 15:31:56 +0200
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Magnus Damm <magnus.damm@gmail.com>,
-	=?UTF-8?q?Niklas=20S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
-Cc: linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH] arm64: dts: renesas: white-hawk-single: Improve Ethernet TSN description
-Date: Wed,  7 May 2025 15:31:55 +0200
-Message-ID: <367f10a18aa196ff1c96734dd9bd5634b312c421.1746624368.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
+	Wed, 07 May 2025 13:42:47 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1746625362;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+78+2+2l+vz4thd4fzsZIiDpYheZnEoUC6X/M8JFQ+I=;
+	b=shOSxWFZela5XBLLbauvJz9BG7m+vqSD0Gy+bN4oCEnkdqUNvURj+ZqKa26k7Yhx050RTI
+	y0evKBTwX+2HhVBFGikRYaSMpFzbdf3qCBFhZ1aVeYmp1HL+Rlqj0fwMh+IoUxTiZejTt0
+	V7HSXvo9DwC8S7pe0MzLSkm4/IJZFFe4UEOT58nZIam9xY6vye2DF0uvNTN4uRiZ0h8CSi
+	jwN6IqfZ+a1Ebi5yyxkwOsY2lE9ZI3J1lKOTngOD0rDvtVTg7ylZPDQhznHloukop+QMK+
+	XqDCXf1o9eFcrQA7mNGJOMqVjHA6v1ycMdgcbWUdmxfrLlgm0j64iwqgWzw2wQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1746625362;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+78+2+2l+vz4thd4fzsZIiDpYheZnEoUC6X/M8JFQ+I=;
+	b=NXcqGGelg10I9lqrw8our10jEDm1FPuD5NTxtrDwGvSU2XzWT6j6WMq8MIDa9K547nbkqR
+	SlQVWlkvvexVEABw==
+To: Marc Zyngier <maz@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Sascha Bischoff
+ <sascha.bischoff@arm.com>, Timothy Hayes <timothy.hayes@arm.com>, "Liam R.
+ Howlett" <Liam.Howlett@oracle.com>, Mark Rutland <mark.rutland@arm.com>,
+ Jiri Slaby <jirislaby@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 20/25] irqchip/gic-v5: Add GICv5 PPI support
+In-Reply-To: <86a57ohjey.wl-maz@kernel.org>
+References: <20250506-gicv5-host-v3-0-6edd5a92fd09@kernel.org>
+ <20250506-gicv5-host-v3-20-6edd5a92fd09@kernel.org> <87zffpn5rk.ffs@tglx>
+ <86a57ohjey.wl-maz@kernel.org>
+Date: Wed, 07 May 2025 15:42:42 +0200
+Message-ID: <87ecx0mt9p.ffs@tglx>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_063205_138882_7A41C37F 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20250507_064246_227312_66C1813C 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,55 +83,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-  - Add the missing "ethernet3" alias for the Ethernet TSN port, so
-    U-Boot will fill its local-mac-address property based on the
-    "eth3addr" environment variable (if set), avoiding a random MAC
-    address being assigned by the OS,
-  - Rename the numerical Ethernet PHY label to "tsn0_phy", to avoid
-    future conflicts, and for consistency with the "avbN_phy" labels.
+On Wed, May 07 2025 at 10:14, Marc Zyngier wrote:
+> On Tue, 06 May 2025 16:00:31 +0100,
+> Thomas Gleixner <tglx@linutronix.de> wrote:
+>> 
+>> How does this test distinguish between LEVEL_LOW and LEVEL_HIGH? It only
+>> tests for level, no? So the test is interesting at best ...
+>
+> There is no distinction between HIGH and LOW, RISING and FALLING, in
+> any revision of the GIC architecture.
 
-Fixes: 3d8e475bd7a724a9 ("arm64: dts: renesas: white-hawk-single: Wire-up Ethernet TSN")
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
-To be queued in renesas-devel for v-6.16.
-
- arch/arm64/boot/dts/renesas/white-hawk-single.dtsi | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/renesas/white-hawk-single.dtsi b/arch/arm64/boot/dts/renesas/white-hawk-single.dtsi
-index 8b4d313ad173cd3b..4ddb70e525c0532e 100644
---- a/arch/arm64/boot/dts/renesas/white-hawk-single.dtsi
-+++ b/arch/arm64/boot/dts/renesas/white-hawk-single.dtsi
-@@ -11,6 +11,10 @@
- / {
- 	model = "Renesas White Hawk Single board";
- 	compatible = "renesas,white-hawk-single";
-+
-+	aliases {
-+		ethernet3 = &tsn0;
-+	};
- };
- 
- &hscif0 {
-@@ -53,7 +57,7 @@ &tsn0 {
- 	pinctrl-0 = <&tsn0_pins>;
- 	pinctrl-names = "default";
- 	phy-mode = "rgmii";
--	phy-handle = <&phy3>;
-+	phy-handle = <&tsn0_phy>;
- 	status = "okay";
- 
- 	mdio {
-@@ -63,7 +67,7 @@ mdio {
- 		reset-gpios = <&gpio1 23 GPIO_ACTIVE_LOW>;
- 		reset-post-delay-us = <4000>;
- 
--		phy3: ethernet-phy@0 {
-+		tsn0_phy: ethernet-phy@0 {
- 			compatible = "ethernet-phy-id002b.0980",
- 				     "ethernet-phy-ieee802.3-c22";
- 			reg = <0>;
--- 
-2.43.0
-
+Then pretending that there is a set_type() functionality is pretty daft
 
