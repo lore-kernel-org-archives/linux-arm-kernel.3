@@ -4,67 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FD79C3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 06:34:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41DBEC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 06:39:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=chmXwA64MAAzTh+Y3uuSjRyk0/eZPBPU5XbIWQeCSMw=; b=QsRVqrtMs0zb9fxeqVP6yx17LK
-	sML3tNLBx7Ud/rYIus4Zmc1n5vVmxUh20Rt2G9d0JBT3/9SWNvfvZqUEuJcV6suloZ3bxtsJrbaYO
-	fdodkYhv3IupTyavQJXc/F/Ts9YHNwyCN5P1sdGQAAWFywXIf2dqFuvr/ovcf1pSfL364Q1uhME1B
-	3+dWysJ7K47y0atJ9TxKgWztQnrbrXf53WpIJSfoMPSiS6+zjrsHvZPHgAsvekoJQiaOFLaN2gY1+
-	MmcVbpLji267gVRE2XRo6+4cYWQGhztxXoTFVdY6Up3pAHBL8pRugY0u5O4BzBGTvpPyRqgAtStM5
-	mEfnW54g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8s6zgpzMhqDnLBMGCbmZv3IRmVux3wLiekXXgV1bFKM=; b=3NlNL+ek9pIbPxn8vRJAVfO+qv
+	PBqqiWyLZHVfxwSK5lDi/YhGX6k1QRqd2pkSVpfKY6PWbadx0s9Git2JYklLFFixBn9JY/EY1LqgW
+	RCSJ9aRGfALfZ9rNwFUA0p3r0ddzTBBAxkbHtwOmGnwPDFtFKmdzh6sdrpd0mkfmQnO74QXd4hRC7
+	KaNQKb0BHjfE9pLMcA9Bh/u9LfQQyuytryy8UyMkzYjxZDoIc17iYF3xXl5U0td1GMVRU2SoGztGV
+	6RT7+IksvblawmYEw1xvoUjBJZipa3b9LWFaeAqsY/c+e9WakeUb+jYtRQlSRYNUiZWil5bf9R0yN
+	c7uYUshQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCYMM-0000000ENpk-1AhZ;
-	Wed, 07 May 2025 06:34:26 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uCYRY-0000000EOaG-0he0;
+	Wed, 07 May 2025 06:39:48 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCYKO-0000000ENWW-1dBt;
-	Wed, 07 May 2025 06:32:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=chmXwA64MAAzTh+Y3uuSjRyk0/eZPBPU5XbIWQeCSMw=; b=V6f3LQ9R9uxfhZ2w/mBMAE8m/w
-	FlCr6+I3xzE6kTeN6IG2RmPb1Ibcc/7n0puf7RYyWeO1xQVuaaEtNu4mqWNG8S/pBRNs6KKMLvkjj
-	3ZtbnI3nXhmxGCnAl2mu0baSDoz96hEPd3VGg64O0Q5slKYdYeiG9v9/cEsc5c8k43fwrx8g4rM0B
-	MNaWkk4CYgxVxUfU3tDU5BkzYr1wZk3xoqelQvF4cCzZvcE1sO7pB+m3Dtqjzm2vgH33lMT0zkSpT
-	yrouMwx6oJC0s7sbGYUawdbcf+5E4828BFVQZbpo3nfMBrrnic0D+I68a/Thb8MHiuIrQzVChP0xq
-	tRramUNg==;
-Received: from i53875a1d.versanet.de ([83.135.90.29] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uCYKB-0008As-Bd; Wed, 07 May 2025 08:32:11 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Peter Robinson <pbrobinson@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [PATCH] arm64: dts: rockchip: Add vcc-supply to SPI flash on rk3566-rock3c
-Date: Wed,  7 May 2025 08:32:01 +0200
-Message-ID: <174659951055.1528016.5792676162591810152.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250506195702.593044-1-pbrobinson@gmail.com>
-References: <20250506195702.593044-1-pbrobinson@gmail.com>
+	id 1uCYPZ-0000000EOEu-3gnk
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 May 2025 06:37:47 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5471Gm5R020191;
+	Wed, 7 May 2025 06:37:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=8s6zgpzMhqDnLBMGCbmZv3
+	IRmVux3wLiekXXgV1bFKM=; b=je1iH+ArY6sJiJgcb9Hn93xIzNjmCxhYDjYm7b
+	bp47KNd5uttodcddrcci9c4Nxi4w/yaszfg9zhvjbYE4p/ORPDiLCkMh2Qn/EUfi
+	4uyjT5zBparnaUF+2E4LV3H9Q3Nft/r3BFRyeEB5a7U1s3sVAR/l86V3/Yomvu5f
+	kPBjCh3y+QyQFFKgX/+CEZKHKKwI8kksn+s58XlWykIpKnCsIUTQTB1tbu5mj2qk
+	wetY31IGVnQS6anrc8vpPFtXDsp5jdxJv27q2fA6LKMtts7u0HCMYoflbt8KL2fs
+	w/rT7y7U56K1qTKH04sPDLzd1STK+6bxy2p7WwpceUT7alJA==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46d9epa5ja-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 07 May 2025 06:37:29 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5476bSAa005099
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 7 May 2025 06:37:28 GMT
+Received: from hu-jinlmao-lv.qualcomm.com (10.49.16.6) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Tue, 6 May 2025 23:37:28 -0700
+From: Mao Jinlong <quic_jinlmao@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>,
+        Yabin Cui <yabinc@google.com>
+CC: Mao Jinlong <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>,
+        Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Subject: [PATCH v2] coresight: tmc: fix failure to disable/enable ETF after reading
+Date: Tue, 6 May 2025 23:37:16 -0700
+Message-ID: <20250507063716.1945213-1-quic_jinlmao@quicinc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.49.16.6]
+X-ClientProxiedBy: nalasex01a.na.qualcomm.com (10.47.209.196) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=EOUG00ZC c=1 sm=1 tr=0 ts=681affa9 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=3H110R4YSZwA:10 a=dt9VzEwgFbYA:10 a=COk6AnOGAAAA:8 a=oqbhczGDPXGwOEN-XdEA:9
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: X2iSuHKEDtop_EhCju52Q-1Khqya7BNA
+X-Proofpoint-GUID: X2iSuHKEDtop_EhCju52Q-1Khqya7BNA
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTA3MDA1OSBTYWx0ZWRfXx7qWBQxuYO3X
+ 4Xk8E+kEoQRdDwHTFaD8sW+rI9XZUiAgCM+EfdSds/02GBuW1guREOeGIxNnBb+a8ZGODFV+qJX
+ OG5f2gk57djmSSXlhD6LkKgXh31qP05uce952dZbH8VhDq2XxBNA6s9wBEwH9ZgqVEf1ycmhLvC
+ ir46h1hR0NEo/Rf7yZ22u6svvRZm0fNk9YpbvQ530kE4nJuoWPNsKjzMu3lnVZKCZDPVctmj6WB
+ ivYFuoXQYBLtXHWQWMT8w6+TGf/w/+evV8mmHh/MYEbb1vuCJmjeNW2pxORaYkkdsZFgnb760qI
+ I7x7+rmNYchWTvdRz48OoCFyhGS9BaZTVA75rOYAPLKIkxYtrXvE927lyydauwlK3FhuTb7D9uu
+ MluBh/bVDr9puB31jPoWakrODdEuMSHIc4W4cPsxBpY8HWOkHzx5+c7EVbJS+7TgZV6WLByp
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-07_02,2025-05-06_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 clxscore=1011 impostorscore=0 spamscore=0 lowpriorityscore=0
+ bulkscore=0 phishscore=0 suspectscore=0 mlxlogscore=534 mlxscore=0
+ priorityscore=1501 malwarescore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2504070000 definitions=main-2505070059
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_233224_445388_09AE5245 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20250506_233746_037712_37FC541E 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,24 +114,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+ETF may fail to re-enable after reading, and driver->reading will
+not be set to false, this will cause failure to enable/disable to ETF.
+This change set driver->reading to false even if re-enabling fail.
 
-On Tue, 06 May 2025 20:56:55 +0100, Peter Robinson wrote:
-> As described in the radxa_rock_3c_v1400_schematic.pdf, the SPI Flash's
-> VCC connector is connected to VCCIO_FLASH and according to the
-> that same schematic, that belongs to the VCC_1V8 power source.
-> 
-> This fixes the following warning:
-> 
->   spi-nor spi4.0: supply vcc not found, using dummy regulator
-> 
-> [...]
+Fixes: 669c4614236a ("coresight: tmc: Don't enable TMC when it's not ready.")
+Co-developed-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
+---
+ drivers/hwtracing/coresight/coresight-tmc-etf.c | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
 
-Applied, thanks!
-
-[1/1] arm64: dts: rockchip: Add vcc-supply to SPI flash on rk3566-rock3c
-      commit: a706a593cb19796f31d3a888423ef1a71885ae72
-
-Best regards,
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
+index d858740001c2..c9e2d95ae295 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
+@@ -747,7 +747,6 @@ int tmc_read_unprepare_etb(struct tmc_drvdata *drvdata)
+ 	char *buf = NULL;
+ 	enum tmc_mode mode;
+ 	unsigned long flags;
+-	int rc = 0;
+ 
+ 	/* config types are set a boot time and never change */
+ 	if (WARN_ON_ONCE(drvdata->config_type != TMC_CONFIG_TYPE_ETB &&
+@@ -773,11 +772,7 @@ int tmc_read_unprepare_etb(struct tmc_drvdata *drvdata)
+ 		 * can't be NULL.
+ 		 */
+ 		memset(drvdata->buf, 0, drvdata->size);
+-		rc = __tmc_etb_enable_hw(drvdata);
+-		if (rc) {
+-			raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+-			return rc;
+-		}
++		__tmc_etb_enable_hw(drvdata);
+ 	} else {
+ 		/*
+ 		 * The ETB/ETF is not tracing and the buffer was just read.
 -- 
-Heiko Stuebner <heiko@sntech.de>
+2.25.1
+
 
