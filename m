@@ -4,93 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD5AC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 08:39:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0771BC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 08:41:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LUbeHMzIFsOzUSMB2htO29hpRr03KwAvpfp2sAuDens=; b=VLDy+OkDHdWdY314O4YFWwemfb
-	zH9QE23VkTx+6b3+sSCfmR/o6QTMzGHwH/vtspLshufSsyjaoInBFOAxM5hB2FPowxvQcSBrjx+7v
-	fVTflNYcs03gOvR0ucpfd6eP2F2kul3nwoeUNAf1NqUDa6Fude2GowclXvWBVo8lYqq6MOpQWksca
-	ZSEbJinzmHLHT0Wwx+K4xoDq1WvWlSUghM4floKJYXpIXmlm917j+b+G4rjy+5XCkqsspeOKam1Vl
-	e10Jdl4XWByFeR46aB9PlKMVz2xOZ+bNNh3nFxiGnTofdwOuaXeg0rrRbtjfmr2nE9A/2oB886bEX
-	QtgE+pEA==;
+	bh=SFmAdaqUJDVR9Ju5NFWxBHBuqOnnWh8nZe4rQupz6Zs=; b=EtwdSB1XMGAyshFZAuRoJYOpvD
+	KaCJXq8nZjSrQTZRYn4107QDkseR1XGj5mJsBRNKL/c/OTKJSNyO2jhseAQZbnUORrVuq0Y6t4zv1
+	wwDZCl/6z7sJuhyEkFPS6a1ecRzgKilnWuRvqZqnz3MFr1VOIGWirK0xbn3bimkBt7FgLpEyWKmZR
+	O84dVbV9MKq76+8lKEGT0w90QOLwJpFU/w3HMULq5ScPuURjxtYKvjMCmbG/lKboZXzwx510+JK7y
+	bVT0TMpa0BL9sUFX34Z7GnzuK3kpkw8M75B3VtDEhcjyuRXgHH+2Ay5JNu6anrsHibLO6NVKNHjIC
+	E0wriOIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCaJ3-0000000EmiS-1y6K;
-	Wed, 07 May 2025 08:39:09 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1uCaKy-0000000EnA0-2qlu;
+	Wed, 07 May 2025 08:41:08 +0000
+Received: from mail-bn8nam12on2061c.outbound.protection.outlook.com ([2a01:111:f403:2418::61c] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCZMb-0000000EZ4m-2Brx
+	id 1uCZPw-0000000EZpF-3UPb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 07:38:46 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3a0b291093fso365499f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 May 2025 00:38:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746603524; x=1747208324; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=LUbeHMzIFsOzUSMB2htO29hpRr03KwAvpfp2sAuDens=;
-        b=d1dnJHBkw38dD5Wf4k+kSdxFWvOck5fSo2IdUfCnNFwmp8bLZ/sQD8YS3NRavCfPSe
-         odAcF50AhzCvZAOGC3fl8FouhCFc0QgIX64ptZRlqnTqaTFbiHPtrkDmzsE4ZLbKYqMs
-         0OtcsrszvdDOgZpusn82GFthzGBZQlTprzhoUWUiTxfCb4eM0GwkA8eRe/0Lf3y9SDRW
-         WgQiHTKZSDC2C8DBpwewSl4UyaNqJEtkdeb2FieFxlx/jPh9KyD2+A+qYpuBY9CPf5P+
-         E1MyoQXcuymn+dxuzcsxswGJI55DBFiROuQKQegepA4yNCC0NEuNK4LCG77T4BZn79FE
-         7Qlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746603524; x=1747208324;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=LUbeHMzIFsOzUSMB2htO29hpRr03KwAvpfp2sAuDens=;
-        b=WEkrIf2FfHrAnLHZMteLuilCY5EEJKWXms1hzgHQBJNRZAoKA3EmxLu8rOiAkN4zlp
-         Voip6/3pcaRZ8ozGUO0W5jijx3rYvA6BeO2SQD2JehpInr4H/Nm41REdgL1YvccCaCGv
-         NbcDjjc42/JIU8RfDBQ1+8gdL/swGySWIDnh/0pi0hgGMnFISyQb6qLOerI4DNdKYDdv
-         pe2Y5hBmyncNc31e93yV02zIoLdDcvWwiQ/IelfVOktJfIZ8EeZctY30ageNvp5go48l
-         MPPBxqKRP6OJzzG7mDGs3JwwKOAVsjJRTXEtKjlt2fJp9lui+M6TGRfRiw8ZVVxh1L1n
-         VkqA==
-X-Forwarded-Encrypted: i=1; AJvYcCX9IaiS1Khm9GLT1yZBeQPQw1WDzQKj4sXLR19AkJ81NZmAjAnUVUm1iS3QUErkojPS28SO9jy5wK1p9cyyc6Vb@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXFzeqE8CrM7F4knEZn6dZMmnLFCU7DYikLf2mP9byvIrLA9re
-	SCfxvuVRxjNus18B4Tkni9R8oJhYA7tC68DBZ6FNEDVah0AcHQ8l
-X-Gm-Gg: ASbGncuZkB4avm45bYgfs5FLLeFui69RUFahfjim1pMQDzHSjOr9wcYFUujmaVASrTR
-	vNZ8W1bDgW7AEzzTcw+92GxxOVTGT68T1DOm8osc9SVudVkBCzu7DR11pzkEQje5j/HilTqCNB9
-	6QNO20+MqBz39oWjhKQaBWokdKwOu/RS0xGl2cwFTmgYvdFBJlTbRMsfbSriKR2zK2wKfkWlZEb
-	1MARzxRo2MoDYiN3h9ZkACFmOc5+YPS+TFxrL2aNZxtCa2V+YnF7DYAmHOJI52MsKMgALd3xvoV
-	ZGoqqf2Lc7ufcGdB71p6BvHhfwfwRlKUR/PlxxRLa3Tp5dj7qJ+MrfQ1JpjoycVd1zOC2C50TI5
-	zXt0PMF1tuIDo36k=
-X-Google-Smtp-Source: AGHT+IFcrfJVgjIHTQQ2WPmB67RGJPQ8xi7u9h/v5miFvmeP2RpN+ZcyLqGtFi9WsQS7CkgsL5VSLw==
-X-Received: by 2002:a5d:64ad:0:b0:39e:cbca:74cf with SMTP id ffacd0b85a97d-3a0b53a06bfmr1636435f8f.6.1746603523625;
-        Wed, 07 May 2025 00:38:43 -0700 (PDT)
-Received: from ?IPv6:2001:818:ea56:d000:56e0:ceba:7da4:6673? ([2001:818:ea56:d000:56e0:ceba:7da4:6673])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a099b17748sm15851404f8f.100.2025.05.07.00.38.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 May 2025 00:38:43 -0700 (PDT)
-Message-ID: <ec7c00c640b0b359bfd98d460d067aee64ca069f.camel@gmail.com>
-Subject: Re: [PATCH v5 0/7] iio: introduce IIO_DECLARE_BUFFER_WITH_TS
-From: Nuno =?ISO-8859-1?Q?S=E1?= <noname.nuno@gmail.com>
-To: David Lechner <dlechner@baylibre.com>, Jonathan Cameron
- <jic23@kernel.org>,  Nuno =?ISO-8859-1?Q?S=E1?= <nuno.sa@analog.com>, Andy
- Shevchenko <andy@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Michael
- Hennerich <Michael.Hennerich@analog.com>, Eugen Hristev
- <eugen.hristev@linaro.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
- <claudiu.beznea@tuxon.dev>
-Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Trevor Gamblin <tgamblin@baylibre.com>
-Date: Wed, 07 May 2025 07:39:07 +0100
-In-Reply-To: <20250505-iio-introduce-iio_declare_buffer_with_ts-v5-0-814b72b1cae3@baylibre.com>
-References: <20250505-iio-introduce-iio_declare_buffer_with_ts-v5-0-814b72b1cae3@baylibre.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
+	Wed, 07 May 2025 07:42:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mycv2iQnS0HIoPzFQozYvtAVKXgY8xyNXZuh61qmFbT6shYFljuzdlrFEMNa5Ugn2ur2JFDgZSc5ztzO3B7kcFQzwLnk1QwKstozS36kTBkmORuRZMmrvcc3UP3UWJIqOWkO1zYAqtbfLReJJSqE49SrKvNyvzsF7wWeZa9NxAb7qMcBRkIA9HlG969JSdmE8HKDpKCiz2KTPovmp7CCzV3yoZ4JX/nfMUTlAdmDAzs7D0OjJNOHBvpZFepsswSrxYH17xouayvIpDRJeVHi/DiMXfsW8gAY2zKB4zao08KC2557hMSUbOK5k9tBrGDIFEKGyHAeC6/xNJUGMwdQrg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SFmAdaqUJDVR9Ju5NFWxBHBuqOnnWh8nZe4rQupz6Zs=;
+ b=YaLTKKC7ZqkRhQqA+a+gaOeI5k2Qew/h41vSrrRZnRZsOmYQft1IaL9MW14ClDkHcw/+Npvam4K1EVYasZCaAjWGuqOKJSNhSecrdvb6MsAxGf1nRfRWvs9ZFhHHJ1TJ7/h17hqgT8bYnmy/2ZtJoC8QacBxSZWWsQ5ExtkyNp4x5E8GVwwnP2uiGI7Oqaxew2aj8BhxZzfCD12OH5VhYAXJR0RKUCrdEfldGuWBV3jn3/ezKukwxDxR9+cARLSIlkda2LUq1t5JzSOFU2jNyAEARugYYQJ7uODqUAJtKBONveNfe2GqfSlvTVZtlxjGn97YYW3msrw69eYobz9XbQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SFmAdaqUJDVR9Ju5NFWxBHBuqOnnWh8nZe4rQupz6Zs=;
+ b=Nl4DgQbwoSGafJjy1knjXi+c4/frssBJ/tF4eMekSQf2M9jEQtCCuQBLxVq5QcAeaPRAovDTOUNSQSjXixID9H2r+T4sZA7HqcGY23L6KgLCS6+JLk9iBq1au7+uTBMvBUgZ8lmD52TRij0frlbxlvix6uwPK5026M8rZTas2H0=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from DS7PR12MB6048.namprd12.prod.outlook.com (2603:10b6:8:9f::5) by
+ DM4PR12MB6469.namprd12.prod.outlook.com (2603:10b6:8:b6::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8699.23; Wed, 7 May 2025 07:41:59 +0000
+Received: from DS7PR12MB6048.namprd12.prod.outlook.com
+ ([fe80::6318:26e5:357a:74a5]) by DS7PR12MB6048.namprd12.prod.outlook.com
+ ([fe80::6318:26e5:357a:74a5%5]) with mapi id 15.20.8699.019; Wed, 7 May 2025
+ 07:41:59 +0000
+Message-ID: <eb0d3629-8663-45e9-b929-0c6edff31291@amd.com>
+Date: Wed, 7 May 2025 13:11:43 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 11/23] iommufd/viommu: Add IOMMUFD_CMD_VQUEUE_ALLOC
+ ioctl
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, kevin.tian@intel.com, corbet@lwn.net,
+ will@kernel.org, bagasdotme@gmail.com, robin.murphy@arm.com,
+ joro@8bytes.org, thierry.reding@gmail.com, vdumpa@nvidia.com,
+ jonathanh@nvidia.com, shuah@kernel.org, jsnitsel@redhat.com,
+ nathan@kernel.org, peterz@infradead.org, yi.l.liu@intel.com,
+ mshavit@google.com, praan@google.com, zhangzekun11@huawei.com,
+ iommu@lists.linux.dev, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-tegra@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ patches@lists.linux.dev, mochs@nvidia.com, alok.a.tiwari@oracle.com,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>
+References: <cover.1746139811.git.nicolinc@nvidia.com>
+ <1ef2e242ee1d844f823581a5365823d78c67ec6a.1746139811.git.nicolinc@nvidia.com>
+ <6ffe5249-b429-435e-a780-ee90aeb3f0da@amd.com>
+ <20250506120114.GV2260709@nvidia.com>
+Content-Language: en-US
+From: Vasant Hegde <vasant.hegde@amd.com>
+In-Reply-To: <20250506120114.GV2260709@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PN4PR01CA0095.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:2af::10) To DS7PR12MB6048.namprd12.prod.outlook.com
+ (2603:10b6:8:9f::5)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR12MB6048:EE_|DM4PR12MB6469:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4ae513f0-67b3-4fc2-026b-08dd8d3aa5cc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Z3RBYkVhM2MxVHRrYWh5dndTVWZIZ2tpbkhXNVNDc3FUUE5iZ0pYOVZSUkUr?=
+ =?utf-8?B?WFJmTE9KcHBjNXMvQWVVY21STkcrQXhFbTNqWHFaU0I4ZzF5OFJsb2xrS2Rm?=
+ =?utf-8?B?eEt0Sm1SRXNDck8zWlNFL1hBMHpSZDF0bnZEMXV1LzVzaTRVVzlrMTBiNmF5?=
+ =?utf-8?B?SVFSQ3hrU05tbHh3V1d1TXNJYjZUS1FqNDJGNzZldlNiZTJYQjZyQWp2R0Vq?=
+ =?utf-8?B?NHM3cDFzc3c4YXp0UUtqRy9BNFZoMGtVRVEvWWFoZHlKU1A1VzVDTit1c08y?=
+ =?utf-8?B?MWVZWlJZK0ROU2NpcFU0RzFyRmw5Z2doSDE2a1E1TVl4YkNhU0dZeTdJS1JC?=
+ =?utf-8?B?TEhDbG83bGx1Uk03UG9ITmMvRHorYkpIbUZwaU9BazA1NFlPWWN0OTNBRW5p?=
+ =?utf-8?B?aU1qTWF5L0lRc2YvVEppK1VaTkxMaWxIOE01MlJOTVhOdVVRVlJHam1RbW43?=
+ =?utf-8?B?TTg1ZGRUb1M3MjI5RFVGQVBIWTB1NFRmNHYwckNDR1NjWmpSdzBKR1dtU25U?=
+ =?utf-8?B?TnN6Ylk1TlZHTWJkenRiTHRzV3MxNlpvSnF5UWV3c0lMTEc1WnF6a0d5N0hs?=
+ =?utf-8?B?TjJnWXJwVnNUZUlLMVRRaDBFeEpJa2ZsdncwOWVkNEw4cDZpS25yaDdXaVFM?=
+ =?utf-8?B?emJaU0lGbUJFbnQ0cXVYNWR4Y0RRSi83V1EwbzlYMHQ3S0VRTUxYOHd2N1BE?=
+ =?utf-8?B?WW5hdjkzSGNoNGM5aVkzYjlpV20wVFg5UDJXTm9YRG5IVzV0OUJJb3QzemtD?=
+ =?utf-8?B?VGJHaHlmcEUwNENDYnBRZTVPdzhYNmhrNHpLcXliYkNpL29DL0ZUU3dWNkJS?=
+ =?utf-8?B?VDNDN1dJQUJQRlNVUGdMbFVRLzMvRUpoWHV6N1FmN3p3UlZqc2xldjk3WTk4?=
+ =?utf-8?B?N2VteW9YODhWam94UnROZlVaYkJEUVUwcmVlN2JDRjlMMUlVNXZUL1BHMkx1?=
+ =?utf-8?B?WWlrNnpPQmFmT05WdGJTQ05FT3gvN3dFaXdqTnRVa2lEajhzcVZPQWxBenda?=
+ =?utf-8?B?eWZobmF1NGhzQjFiNzFHY0FHdEZ2Yjh4MldFNTQwN1NIQ0RjQW1hZDRTZUh1?=
+ =?utf-8?B?RVd3dlhCaUwvN0F0NG4rN3MvelN4QXlFTVk0b2NEb1Q5TXJxK1pmSmtVeElJ?=
+ =?utf-8?B?Ykw1akQwVlZKREpQZTZFd0t3dlpkV0VmczJzOEk4RFEwWm1JMVZtcTFlcGlC?=
+ =?utf-8?B?cm9rbTZzbThJVFBzcUFWRmk0U2tTcVdpZDBXVjRYOWRzR1dtRVRMZy9WZGRU?=
+ =?utf-8?B?L3g3dlJQbEt0TnMwS2J0aVZRWkdGNEc5aGZUYitHMFM1L21CU3dXMXRzNzMz?=
+ =?utf-8?B?NVdJcy9RUy9HVGtFcXdvd3pFcHVTZjZXaFVpUnJYT3RVTklJdmlOSVZ4NHVH?=
+ =?utf-8?B?NGRrc1hYTjB0YnhYRDN4U0VQcE9VYXUraEp6OVRQTjRJV1Y3WkVaN1NXbVc5?=
+ =?utf-8?B?aGZ2QVRUOXZiMHZxWSthUFc0Mzg4aXlxYUFDd3Mza1N1cWZNUG5HVkl1UTIw?=
+ =?utf-8?B?SGRTUnZZbXYwQjRsbW1ia2FEaUNEcEdWdUlNcTN0RHZHS0RaOUVMZWJ1Q0RU?=
+ =?utf-8?B?WGtXK0FTVGRwWEVqSUFFTUV3Vk8yQ0lwMm85eWxGZUJJbkpIVllxRy9VN0VE?=
+ =?utf-8?B?NmEwaWt0QVZ4VTlielhWK3k5b1ExYTEvN2NsSHlhdGcyOHord1NIQk9DN0FI?=
+ =?utf-8?B?L1R4RTJyanRMUzA3STlMSFJ3ZFl2bnVBdWJtVENHbE1CSlRHN3N1TzB2ZjZ1?=
+ =?utf-8?B?b2UyUTlWQXZZWUxJa2RKejE5YzJWRUVMUURuR2xWbGRTWi90YWJ2b0o0Skdt?=
+ =?utf-8?B?Qi9FbWU0U2M4Y2xxY2krSkNtZFJrK3BJbjFHaUlWNVZiZ0hsSndrNFRDdlVG?=
+ =?utf-8?B?cXQyV3QzZ0FyTWErUW5lRUxiTnQ0MDFadnFVekY4b0xpSUNBV2xBYS9BaDA3?=
+ =?utf-8?Q?9HV+wPhXXr4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB6048.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NjZaT0ZlSys0ZzlYYmRVMXlVdmpMcW1lWm90Y24wWnZpS0h1YUdLb0IxYjRj?=
+ =?utf-8?B?NUIrTDV5aDhCZlFFdUFrR0djRzNYWTFVNjhEM0dUOGM0M1FMeHlibGtBOTA0?=
+ =?utf-8?B?VTB6dHRGblZidlJDQnBTTzRTdDNwdWlzV0U3dm1FNnlvYmZBK0UwRXhLMjVs?=
+ =?utf-8?B?MGE3Nm5NbEYvcERUR2h1bmVnRnprWmhrT2hQeDB3eHlPN0FmQW1vQWpsN1JJ?=
+ =?utf-8?B?SEg3dTkxdTA2dUE3YnlqdWFGOG15bWpNWHNwdnppaURGdlAraFBjMWhJdzNG?=
+ =?utf-8?B?V1Iwb2E3Y3oyck5mT21WMDN4di92L3duYjNIMTVQTWU1U3Y5RVMrMThGOEpw?=
+ =?utf-8?B?M1FudWY3QnRickpaRE1yR0hBT1c0U0ZwUjdIU2hkMHpKZXdCTVNyWHRJUVBt?=
+ =?utf-8?B?a0V0SW53NW04dWVsSlpCb3Jwcm1JNm8xSDBDQmh1RlNqU2Z1eE5EUVF0VlVN?=
+ =?utf-8?B?Y1F4K1ZOZUxOTjM0ZGpOL2RaZEw2UW8zeTdRNjQxVGtlQ1h3elVyZFdOSWZ1?=
+ =?utf-8?B?U2p4ZTB4aXgyVnBUb3RBMmNVSnF3MkMyRzc1SHZ4M2dxSTY5ZXZtNndTeFRO?=
+ =?utf-8?B?bWtNbklEc2NETmduaS9EdEJ0ZG56QTN3Um1NV0lKK2phbGJNbzVZczZnYjVW?=
+ =?utf-8?B?dmJKNlBwR3hRaXlaVGFBcmphVmRIMFJKNllYclM4dGk2NVVvVzhiMG9lUXlu?=
+ =?utf-8?B?cEk3UGVPTnBKSVZGcmlUempMY0V1SzZYZ3pxKzNCbjYwdnNSSzdjSFd6Q3JJ?=
+ =?utf-8?B?ZGp5ZzNMTmpuQXFCUlBWYUNYUkNYaS9HRXAzMmU5MlJQeGlBZFNEd2tsdTVp?=
+ =?utf-8?B?KzBKSlMzQnBrTUZHYmt5WDBGYjBWS0lRcTJiRGFQUzU3ck9rbkJRNnFDNE5T?=
+ =?utf-8?B?ZS9tRmVFTzYrRFUyTlc4MmZCaFN0VGo3OHpDWldYSFlaRWZFZFRQYlhyNUwx?=
+ =?utf-8?B?ZTBMb1BaWUhBSHBCMDhFV1FnWTR1NDFTaGR6cW54eTRhZnpFVjFvZm1wTjFN?=
+ =?utf-8?B?NjJabUhob0RtQmVyeDlMcU5reUtVeUJ2RFBhYUpHcWVtaUYwdkpmbytJdjVj?=
+ =?utf-8?B?bk9sWlJ6d3hSK0pFUVRxVCtDRUF5bGhndDgxdmthQkpFRmJ5YkJCUGVjUFdB?=
+ =?utf-8?B?SEN6Z3BiREVZcFV2SDc4V2FGR2RMK1hucWRoTGplM2ZDTThMNXhMQnQrVUFa?=
+ =?utf-8?B?U1pqYVoxUzl0OGxDa1NhTjl3aEdxMUxMTUtNYXJqRzd4cnhuMjFYbHlEOEl5?=
+ =?utf-8?B?V2s4TmVWTmJTT1d0bzJwNEZVNVh5dDM3UE9acGE3NXBZTk1MWVdpNTdiUC8w?=
+ =?utf-8?B?Qm04WjZ6SXJVNEtUdnpQSTA1elkvb2loODh1akQwcjNxYjVEcFp0QW1CWkQ1?=
+ =?utf-8?B?YVpUeHhnNE5KTVR6ZWRsK1NHeVVYN3hGWHdTV1o5SkZuK3hFOCtFKzZuUmVE?=
+ =?utf-8?B?cmRxVVpieVJlTFprUWdHL0wwUncxM21KZE5JZzJSMEprNEtWZlRBMXllNWpF?=
+ =?utf-8?B?eGNJbExLK3RMZjVKMmZrejBXbDR5VktReldlVURjYmxCbEplOE1OWUJkS2o0?=
+ =?utf-8?B?TGl3SjMwejlYMEI3eEFIclpjS09IejFyK0UvQTVJWnluVE55TzNrVDhhcERn?=
+ =?utf-8?B?ZzNqajYrUkNtR1RqUGV6YURaMUNqd3lwUDl4b1FnTUhsUWdLSjdZQXFWVlIr?=
+ =?utf-8?B?elVtMHprb0hqWjBwR1NDbkUvc2VMUHpidGhLN3dwWFdOdE1Senk0OGNqamQx?=
+ =?utf-8?B?R1N0alAvTVdSd0xVSHpHbkFYQmtNdlhIOFFtYlBIVzNRTW9HM0M4RzJLV1dC?=
+ =?utf-8?B?OVVDblFxWnV4dndWOVpqaDd1MWNjR3pBTk4rNUhlUkMxQU9BN0Q1QXBqdVFh?=
+ =?utf-8?B?RUNWVXh6TjFwREdnYkVBdENWa211ZUkzYktDMmlTL2hYa05FMUo2endzSU1j?=
+ =?utf-8?B?alRzSmppYURUS0t2dXFWVEZtemdzWkpEMlI3Y3Evb0h3NGZSMkJkL3UvNzFy?=
+ =?utf-8?B?b1ZlSWhBQUVnMFNqUlUwZjRhRHN4YjJkNGVxUDJrQ2lLQ0F2ekhpeTJwdWVp?=
+ =?utf-8?B?TTI5TFFuYUlzS0JXYWRXdExtcnprNmMzTlNVQ2FGK1lSNXEza1JLSEsxNVNI?=
+ =?utf-8?Q?19x3pQ+FmJGxqmQRgCotQ0Bdb?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4ae513f0-67b3-4fc2-026b-08dd8d3aa5cc
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB6048.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2025 07:41:58.9777
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Z5brLI0CWAgwTSlhr/t09SzcSmXNftQ4lIXrdFyO0guoRzT4fXAOHsMZmbY/sinZrVLUrJ4Z7xGrnyCPqylhBg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6469
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_003845_559022_3F78FF06 
-X-CRM114-Status: GOOD (  30.32  )
+X-CRM114-CacheID: sfid-20250507_004212_891139_E1ED3898 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,105 +186,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2025-05-05 at 11:31 -0500, David Lechner wrote:
-> Creating a buffer of the proper size and correct alignment for use with
-> iio_push_to_buffers_with_ts() is commonly used and not easy to get
-> right (as seen by a number of recent fixes on the mailing list).
->=20
-> In general, we prefer to use this pattern for creating such buffers:
->=20
-> struct {
-> =C2=A0=C2=A0=C2=A0 u16 data[2];
-> =C2=A0=C2=A0=C2=A0 aligned_s64 timestamp;
-> } buffer;
->=20
-> However, there are many cases where a driver may have a large number of
-> channels that can be optionally enabled or disabled in a scan or the
-> driver might support a range of chips that have different numbers of
-> channels or different storage sizes for the data. In these cases, the
-> timestamp may not always be at the same place relative to the data. To
-> handle these, we allocate a buffer large enough for the largest possible
-> case and don't care exactly where the timestamp ends up in the buffer.
->=20
-> For these cases, we propose to introduce new macros to make it easier
-> it easier for both the authors to get it right and for readers of the
-> code to not have to do all of the math to verify that it is correct.
->=20
-> I have just included a few examples of drivers that can make use of this
-> new macro, but there are dozens more.
->=20
-> ---
+Hi Jason,
 
-LGTM
 
-Reviewed-by: Nuno S=C3=A1 <nuno.sa@analog.com>
+On 5/6/2025 5:31 PM, Jason Gunthorpe wrote:
+> On Tue, May 06, 2025 at 02:45:00PM +0530, Vasant Hegde wrote:
+>>> +/**
+>>> + * struct iommu_vqueue_alloc - ioctl(IOMMU_VQUEUE_ALLOC)
+>>> + * @size: sizeof(struct iommu_vqueue_alloc)
+>>> + * @flags: Must be 0
+>>> + * @viommu_id: Virtual IOMMU ID to associate the virtual queue with
+>>> + * @type: One of enum iommu_vqueue_type
+>>> + * @index: The logical index to the virtual queue per virtual IOMMU, for a multi
+>>> + *         queue model
+>>> + * @out_vqueue_id: The ID of the new virtual queue
+>>> + * @addr: Base address of the queue memory in the guest physical address space
+>>> + * @length: Length of the queue memory in the guest physical address space
+>>> + *
+>>> + * Allocate a virtual queue object for a vIOMMU-specific HW-acceleration feature
+>>> + * that allows HW to access a guest queue memory described by @addr and @length.
+>>> + * It's suggested for VMM to back the queue memory using a single huge page with
+>>> + * a proper alignment for its contiguity in the host physical address space. The
+>>> + * call will fail, if the queue memory is not contiguous in the physical address
+>>> + * space. Upon success, its underlying physical pages will be pinned to prevent
+>>> + * VMM from unmapping them in the IOAS, until the virtual queue gets destroyed.
+>>> + *
+>>> + * A vIOMMU can allocate multiple queues, but it must use a different @index to
+>>> + * separate each allocation, e.g. VCMDQ0, VCMDQ1, ...
+>>
+>> This will handle multiple queues. But AMD vIOMMU needs to comunicate certain
+>> control bit setting which is not related to buffers like "Completion wait
+>> interrupt".
+>>
+>> How do we handle that? extend iommu_queue_alloc() or have different interface?
+> 
+> Do you need a modify queue operation?
 
-> Changes in v5:
-> - Add new patch to set minimum alignment to 8 for IIO_DMA_MINALIGN.
-> - Adjust IIO_DECLARE_DMA_BUFFER_WITH_TS() macro for above change.
-> - Drop one ad4695 patch that was already applied.
-> - Link to v4:
-> https://lore.kernel.org/r/20250428-iio-introduce-iio_declare_buffer_with_=
-ts-v4-0-6f7f6126f1cb@baylibre.com
->=20
-> Changes in v4:
-> - Dropped static_assert()s from the first patch.
-> - Handle case when IIO_DMA_MINALIGN < sizeof(timestamp).
-> - Added one more patch for ad4695 to rename a confusing macro.
-> - Link to v3:
-> https://lore.kernel.org/r/20250425-iio-introduce-iio_declare_buffer_with_=
-ts-v3-0-f12df1bff248@baylibre.com
->=20
-> Changes in v3:
-> - Fixed a few mistakes, style issues and incorporate other feedback (see
-> =C2=A0 individual commit message changelogs for details).
-> - Link to v2:
-> https://lore.kernel.org/r/20250422-iio-introduce-iio_declare_buffer_with_=
-ts-v2-0-3fd36475c706@baylibre.com
->=20
-> Changes in v2:
-> - Add 2nd macro for case where we need DMA alignment.
-> - Add new patch for ad4695 to convert buffer from u8 to u16 before
-> =C2=A0 making use of the new macro.
-> - Drop the bmp280 patch since it was determined to have a better
-> =C2=A0 alternative not using these macros.
-> - Add a few more examples to show the non-DMA case, both in a struct and
-> =C2=A0 stack allocated.
-> - Link to v1:
-> https://lore.kernel.org/r/20250418-iio-introduce-iio_declare_buffer_with_=
-ts-v1-0-ee0c62a33a0f@baylibre.com
->=20
-> ---
-> David Lechner (7):
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: make IIO_DMA_MINALIGN minimum of 8 by=
-tes
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: introduce IIO_DECLARE_BUFFER_WITH_TS =
-macros
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: adc: ad4695: use IIO_DECLARE_DMA_BUFF=
-ER_WITH_TS
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: adc: ad4695: rename AD4695_MAX_VIN_CH=
-ANNELS
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: adc: ad7380: use IIO_DECLARE_DMA_BUFF=
-ER_WITH_TS
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: accel: sca3300: use IIO_DECLARE_BUFFE=
-R_WITH_TS
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: adc: at91-sama5d2: use IIO_DECLARE_BU=
-FFER_WITH_TS
->=20
-> =C2=A0drivers/iio/accel/sca3300.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 | 18 ++--------------
-> =C2=A0drivers/iio/adc/ad4695.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 | 11 +++++-----
-> =C2=A0drivers/iio/adc/ad7380.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0 3 +--
-> =C2=A0drivers/iio/adc/at91-sama5d2_adc.c | 13 ++----------
-> =C2=A0include/linux/iio/iio.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 | 42 ++++++++++++++++++++++++++++++++++++++
-> =C2=A05 files changed, 52 insertions(+), 35 deletions(-)
-> ---
-> base-commit: 7e9a82ab5b861d3c33c99a22c1245a5b262ee502
-> change-id: 20250418-iio-introduce-iio_declare_buffer_with_ts-2f8773f7dad6
->=20
-> Best regards,
+We have two types of operations. One that impacts the queue, other set of bits
+which doesn't operate on qeueue.
+
+ex: Event log buffer
+  - We configure "MMIO Offset 0010h Event Log Base Address Register" with Base
+address and size
+
+  -  MMIO Offset 0018h IOMMU Control Register
+     EventLogEn: Event log enable
+       * When guest sets this bit, qemu will trap and will send queue_alloc
+       * When guest disables this bit, qemu will trap and send vqueue_destroy
+
+     This part is fine.
+
+     EventIntEn: Event log interrupt enable
+       * When guest sets this bit, qemu will trap
+       * this needs to be communicated to Host so that we can program VF Control
+BAR and enable the interrupt
+
+  - There is other bit "Completion wait interrupt enable"
+    This doesn't related to any buffer. Instead if we configure this for
+completion wait command it will generate interrupt.
+
+I am asking how do we handle above two steps? Should it be part of queue IOCTL
+or may be some other IOCTL which just passes these info to HW driver?
+
+-Vasant
 
 
