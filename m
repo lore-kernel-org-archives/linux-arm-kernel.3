@@ -4,66 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89663C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 11:29:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B417CC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 11:31:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1fHXwD8OvU9cV/MDshPrR2qNKLFhCGJ3BcCfTPyE5/c=; b=b0Gkrv36JSrDphk5lUFTQfSZxO
-	ItDihg5P8YG5by8WN1dWBCP8a2m4naNwIeeAScqUy6TWOzg4ZtF6/Lu4cfsbfi4S0Zgh4qox+tF00
-	6GgHL00b4cv2kdxBSRQWEItTVXYzpObMZO3v8tMr1mzIqCHW3f5X0nrgOnwdz58xbfl2yRuXzW1RT
-	MgySmPLJRqoN9sC3gczpN+DInCLJlkP2faHOYGDb5dInnud5AsJw9BWVc5A4kkxfIGvzkjoUWhcXE
-	7iMWxlPcFs/ffCYLTZ7CSneq3BQlkWQyhQBBW1v74nmAFXZt8MirFwHAwhx0cMsJ3BSUegnRx+uq9
-	bi8N4Gmw==;
+	bh=+myiwgE5IaBaXJzmpEL8CqSZA8uzkotePvS5m/azOWI=; b=gdisRGW/Rr9ed5wDubrOzeZlwY
+	7spPyayO0DFcni5W5hb8qQt0+ZLKOEwBPrp0/dpDl8vbRxwAqHgbJBBgbmC1BGGdrcEn3tWba36kU
+	AjEeraA7FVNjvEmDjkTFTNmVs1KjnDehrXg3i0SYo/CZIE3487MFTsPRkq7ArpNpiKQAxOqVSpEev
+	Jlz3DyJ0vbbGrkC2ye5xN+F25kR1aS+T9WJhNeg6Vs/ueJgMfOhx1Vay0cyayXKjruEHCsrly8Gna
+	+O3d5eCT2ts0yzD/McGSXKBIuNukJXn8B1uw0bJfivPg9a2PzcuIiazHvB3sIxarc2KRv9JluLdAU
+	O72zVCaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCcy2-0000000FEVV-0ngM;
-	Wed, 07 May 2025 11:29:38 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uCczx-0000000FEls-3yA8;
+	Wed, 07 May 2025 11:31:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCcv4-0000000FDsv-00Sz
+	id 1uCcwZ-0000000FE8H-27oa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 11:26:35 +0000
+	Wed, 07 May 2025 11:28:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 40C19A4D830;
-	Wed,  7 May 2025 11:26:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98F92C4CEE7;
-	Wed,  7 May 2025 11:26:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D8155629D4;
+	Wed,  7 May 2025 11:28:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16050C4CEE7;
+	Wed,  7 May 2025 11:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746617192;
-	bh=S1L7sH9tYMVEFiiOMdXeISnetXLHKztjNnRoxxPOYsQ=;
+	s=k20201202; t=1746617286;
+	bh=+myiwgE5IaBaXJzmpEL8CqSZA8uzkotePvS5m/azOWI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SseTs20xYh0gfvLKGoaEOfu+8HsCRGQ2H/2K1hhe+LR3LqgTb6zHCHAm8X2+Aw3C4
-	 NH0jXzNUKniMogbcx2bm5Jgql4YQm/fIigLDg4DtC32ljr2sdU57Vgq9O1iDD4iJy0
-	 aRGS3wE0Av0sUh1Y7Mc47ynR4kOQHoBm6pFJQvRBYB8Ep0q0Z44m7pzuoQARNG7Nw1
-	 2P5ZLAzu0kJ0E3lCrv91dYtaU/c3PXrzwDSD2rq8jR4XDh2PqgorJxzGhz4l6Ws3Ih
-	 xBpfU4gdqlA0PC4l50tI9cBtfZ/EWxbJayFrhlmJnkB0F03UuGSTolgFejRfSe9zDV
-	 CnETt3yUKXDJA==
-Date: Wed, 7 May 2025 20:26:30 +0900
+	b=H9g7Uo3KF3gdhcH2ZEMV9V3wNqXA8tWVr4h+XSChpAk8ADpc3AiALZ4luZs+qiP11
+	 Z/MMgQA+W8firplqY6wsfvaRlyKDnu2GwFBPbbSs260wPnfiIZNYS/X+7RgVASh77m
+	 RpC/hLSnA/nsP75LVgIyB2iQqMj3uUQrguNMZM870ct6AHpi0KrvjkwwfISkMW7V3a
+	 YOPAoo049AzlkO+K5zbADyxXnj6XpUO50IDuoOngkJTqfSy9VuxxdFuvsHaky5egwP
+	 KzvfbiAMDQAUjIzdffkOIksa2UyWdR9eJyQ0Y56Uy3z2fvqMFG3OeJNxR8UwUZLFBh
+	 Co6k62Ve2SILg==
+Date: Wed, 7 May 2025 20:28:03 +0900
 From: Mark Brown <broonie@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
-	daniel.kiss@arm.com, david.spickett@arm.com, luis.machado@arm.com,
-	maz@kernel.org, richard.sandiford@arm.com, sander.desmalen@arm.com,
-	tabba@google.com, tamas.petz@arm.com, tkjos@google.com,
-	will@kernel.org, yury.khrustalev@arm.com
-Subject: Re: [PATCH 00/20] arm64: FPSIMD/SVE/SME fixes + re-eanble SME
-Message-ID: <aBtDZlAJO8UfoLKH@finisterre.sirena.org.uk>
-References: <20250506152523.1107431-1-mark.rutland@arm.com>
- <aBq7-_VhS8DXFgYL@finisterre.sirena.org.uk>
- <aBstn-9GClsAmlXC@J2N7QTR9R3>
+To: Herve Codina <herve.codina@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Peter Rosin <peda@axentia.se>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>, Len Brown <lenb@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Wolfram Sang <wsa@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	Allan Nielsen <allan.nielsen@microchip.com>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Steen Hegelund <steen.hegelund@microchip.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH v2 01/26] Revert "treewide: Fix probing of devices in DT
+ overlays"
+Message-ID: <aBtDw-qXUCH9U-7l@finisterre.sirena.org.uk>
+References: <20250507071315.394857-1-herve.codina@bootlin.com>
+ <20250507071315.394857-2-herve.codina@bootlin.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="hrKbvo1MwThWmI8W"
+	protocol="application/pgp-signature"; boundary="oe+RepqPNVL4+bmX"
 Content-Disposition: inline
-In-Reply-To: <aBstn-9GClsAmlXC@J2N7QTR9R3>
+In-Reply-To: <20250507071315.394857-2-herve.codina@bootlin.com>
 X-Cookie: Well begun is half done.
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_042634_163926_BC4B7740 
-X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,57 +103,43 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---hrKbvo1MwThWmI8W
+--oe+RepqPNVL4+bmX
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, May 07, 2025 at 10:56:54AM +0100, Mark Rutland wrote:
+On Wed, May 07, 2025 at 09:12:43AM +0200, Herve Codina wrote:
+> From: Saravana Kannan <saravanak@google.com>
+>=20
+> This reverts commit 1a50d9403fb90cbe4dea0ec9fd0351d2ecbd8924.
 
-> If you have a specific objection, I can consider massaging the wording,
-> but as it stands I don't see any problem with the commit message on
-> patch 17. There clearly was an incorrect assumption during development,
-> as indicated by the code, the comments, and the documentation. Providing
-> that context makes review *much* easier.
+> While the commit fixed fw_devlink overlay handling for one case, it
+> broke it for another case. So revert it and redo the fix in a separate
+> patch.
 
-I don't have a specific wording in the style you like right now, and
-like I say I'm not sure it's too important since the actual chagne looks
-good.  The main thing is just that the original thought was that we'd
-not supply any register data unless in streaming mode which does due to
-the use of one bit boil down to setting the FPSIMD value for the flag,
-but the intent was more that the data format flag was rendered
-irrelevant by the lack of data.  I was definitely aware that the two
-flags were just a single bit - I distinctly remember seeing that and
-thinking how unhelpful it was. =20
+Acked-by: Mark Brown <broonie@kernel.org>
 
-Life would be a lot simpler and we probably wouldn't loose much if we
-didn't support the FPSIMD format in the SVE regset but that ship is far
-over the horizon.
+Please include human readable descriptions of things like commits and
+issues being discussed in e-mail in your mails, this makes them much
+easier for humans to read especially when they have no internet access.
+I do frequently catch up on my mail on flights or while otherwise
+travelling so this is even more pressing for me than just being about
+making things a bit easier to read.
 
-> > I'm on holiday for a week and a bit more so probably
-> > won't have time to review properly, other than a couple of the smaller
-> > patches.
-
-> No problem. If it's possible to throw any automated testing at this,
-> that'd be much appreciated.
-
-Yeah, might take a little bit since some other stuff blew up and my CI's
-a bit miserable right now.
-
---hrKbvo1MwThWmI8W
+--oe+RepqPNVL4+bmX
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmgbQ2MACgkQJNaLcl1U
-h9B+WQf+NVpn1KGSBLdjtgiLDC9ipmYcop7EB5j9gkGEMcT5YD4HhBC/KahMsINP
-mDc0r/F53X+BcOCkJJWNKgebfayuZPqkckZBD5p9/V7GHTjZ+jVY1FkaKj8KBNU/
-jgI+/MiEDxnOGnerzPk1HcCkX8DXL9kzEqXPGs+hhH4Pap+/Qssc3yjhWNj7CeK0
-B4E3R9tmGY8bKTn45oZFpQC4iiIEcBuYDdlnLwWWEf5UN5VT+rX0FGFGKkF0fQxv
-uNx2dcM7uB4+HO+RiUo43pFJjaQi9V7z7oCjK5y0li8XmET2PJbTEt1LwK3mBF6u
-R/bED2hHGNHK1R5KViFXqU1Vb6BKpg==
-=kikk
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmgbQ8MACgkQJNaLcl1U
+h9A3/wf8D6c+36MLT2mhvh2zxesAYWfdL1e5vpcKQk0H/bkk+8KQLEBRl9w9syn2
+MFtk87xXOIdfli0pvEnP2cUrCHKDrD2ehLcNFcur8Vq6IOjjX2Gs3Iboe5CfqnoS
+tPRSxFS31DY3g7DhUGmQ7fUUlPYGwpYIK1QgXrfiR+uhEbooIq6yN1/hcKL2rFS4
+Y21v0te/hUxHTpeTMlcOkXqqu/1UExRszOly4m0YB9mZoswASG024vcrx4paZFjF
+sJ6hXYEyI/PDpMSVthVLe0jK7jyBsiVGSSVDRcimNQj6nAokmye1VeKejWhV3Flv
+7epg7YG5YuZjEXoQ3CaQaDdESm7PnA==
+=5SSZ
 -----END PGP SIGNATURE-----
 
---hrKbvo1MwThWmI8W--
+--oe+RepqPNVL4+bmX--
 
