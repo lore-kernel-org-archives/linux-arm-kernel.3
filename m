@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BD5DC3ABB6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD074C3ABC5
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 05:01:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pEKpOrRhsQ2YP9LuE5uuusGSBbmELZW6cBfrFElICDQ=; b=N0p6QIH6rjzXsMT1r8Fd43S71k
-	ZdAFy49FfAZmUr7mgYN6fNnv8g2FUbF0nADAni0UDMwEBdZMysfIrhbFnBnORPGS/O46fLD2hU+35
-	RUoEAIWDhfUNml+auj9KDtASY3FGBOwXr4fELSwa4h6NLW8RvFVVVKbumYZ2Rtn55UuC3hu/U2EIC
-	0Xtb8mu3kvpuvxcNkrnTV1bwP6Ro9jbdnaXTITYAiOKY56nT+f7/uWM5bF/chVCjJZEcb++m7sqyT
-	Lu98DT/xGkVGIW03R/P6vS3EVcZ7I+dMm3mI0C/cgXChB2nERM6NMQqi4RrJrGZ9ja6b/qHbNHvZo
-	A9VcWHsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EGW9n25NRi9hTGB2Cn9hyUz1mWoq3WjLtvjVPwyFdoQ=; b=DIT99hUx4YiT0SDAKG+DCe+tXR
+	15FZMPi+qZaXorTacyxHb/Sl/YACtiFqk3bnFhkna9Z6I1N0+kd9jh5K6PlQvulJX+p+20bgag2Ln
+	erXJocwQu4MwrlkAVScbCx0k0p/qVPprqu2EuGUTaYUQKjIOE2i58EdybUV7ZzZRkdUr89wsFrDa/
+	1iKn1FgFV6vOwwhuKuAgXLmMyamCh7bsdm2OnSwAi0oXga98x9zzfgP7O2Sa73+r9C1oH/w2At29a
+	MPh4bnKyStrWpvPlSPB1/e4qs634ICBOwGTqZ8QZkOV291xUC5cWga6drL7bMWLt5QqgpAQOlgWta
+	YHlhtQDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCWuJ-0000000EDSK-3jVK;
-	Wed, 07 May 2025 05:01:23 +0000
+	id 1uCWuK-0000000EDT4-4BkL;
+	Wed, 07 May 2025 05:01:25 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCSyA-0000000DoOd-2N2u;
-	Wed, 07 May 2025 00:49:07 +0000
+	id 1uCT8V-0000000Dp0G-3fCu
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 May 2025 00:59:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9F0905C5970;
-	Wed,  7 May 2025 00:46:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E439C4CEF0;
-	Wed,  7 May 2025 00:49:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E774D5C20FE;
+	Wed,  7 May 2025 00:57:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AA59C4CEE4;
+	Wed,  7 May 2025 00:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746578945;
-	bh=XKxvYVU7eC+gRceCUM5Tn+8dTbfgkloh/AOA7YMVN04=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=WrAPPnz5GmzzxWrq8VEPQRa53RMjWDr/dBXmY3t4fMgXrtQgO2DLuj+9SCz8CP6hC
-	 l4D/dS9nNjsMj/m68X0XtAndk+s5o2VZsYVVHiRo84neojMHTTJi8GjKx61Q4usiLG
-	 pnLp4C2SCm+nxc3siFi6T2TJGoUGc7wByCAgVWUmtg8nBKqGvHe+XJ23NCdrQPv1NG
-	 +Mk984BhGV4djm6hT2x1zffZ4fI/k5oj051xtvswa8mi/oal9FRcq/uSFBwbhWbI8D
-	 OSp74FVZkPS+zMnvbaxtLRnA1cfeu/V49Yq74muI4BQw1jOwxjqHY0LJojQJShR4A5
-	 EB4QzsZFnUPyw==
+	s=k20201202; t=1746579586;
+	bh=EGW9n25NRi9hTGB2Cn9hyUz1mWoq3WjLtvjVPwyFdoQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ob2KlHM8YF0FfrZEdaT/OOBmyWHABRUoGqywLXLekJCLRGV0p/lYauRP9iwTOoKDd
+	 UR5BBgCnkIvdD0OUpM5duC4AG2d+FimYRNWtslknvMzSjcOQzL+x6KjVwwvLD6gEFC
+	 uufnySUwNkswRKGBXpiTNomcWvAy472K62BcXO2Bu4PVS/10RyVq49FCM3TuYKatPJ
+	 GQvcXw5Sf253zQrS87+XzvRI3qTwBE1ZFHcUKb9lFAAV/6/X8/nIzDaYMwREaJiN4Y
+	 1mKLZSKPrf/ef5l+C2BJtyISb9PwwfzoTVu+dVFZ+3Ayhf1juDo4WzDFJKYsXve41G
+	 nGulHVELrMCPg==
+Date: Wed, 7 May 2025 09:59:43 +0900
 From: Mark Brown <broonie@kernel.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Liam Girdwood <lgirdwood@gmail.com>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Alexandre Mergnat <amergnat@baylibre.com>, 
- Zoran Zhan <zoran.zhan@mediatek.com>, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
- linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-In-Reply-To: <20250505052106.1811802-1-arnd@kernel.org>
-References: <20250505052106.1811802-1-arnd@kernel.org>
-Subject: Re: [PATCH] ASoC: mediatek: mt8188-mt6359: select
- CONFIG_SND_SOC_MT6359_ACCDET
-Message-Id: <174657894243.4155013.16755704226665079789.b4-ty@kernel.org>
-Date: Wed, 07 May 2025 09:49:02 +0900
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+	daniel.kiss@arm.com, david.spickett@arm.com, luis.machado@arm.com,
+	maz@kernel.org, richard.sandiford@arm.com, sander.desmalen@arm.com,
+	tabba@google.com, tamas.petz@arm.com, tkjos@google.com,
+	will@kernel.org, yury.khrustalev@arm.com
+Subject: Re: [PATCH 04/20] arm64/fpsimd: signal: Mandate SVE payload for
+ streaming-mode state
+Message-ID: <aBqwf6PlByicvv87@finisterre.sirena.org.uk>
+References: <20250506152523.1107431-1-mark.rutland@arm.com>
+ <20250506152523.1107431-5-mark.rutland@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-c25d1
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ed3vGN0CxxGjNtsa"
+Content-Disposition: inline
+In-Reply-To: <20250506152523.1107431-5-mark.rutland@arm.com>
+X-Cookie: Well begun is half done.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_174906_670599_398D2B38 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20250506_175947_970457_77A3CC56 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,42 +78,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 05 May 2025 07:20:52 +0200, Arnd Bergmann wrote:
-> The driver support was added without selecting the codec, which leads to
-> a link failure:
-> 
-> aarch64-linux-ld: sound/soc/mediatek/mt8188/mt8188-mt6359.o: in function `mt8188_mt6359_init':
-> mt8188-mt6359.c:(.text+0x19f0): undefined reference to `mt6359_accdet_enable_jack_detect'
-> 
-> 
-> [...]
 
-Applied to
+--ed3vGN0CxxGjNtsa
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+On Tue, May 06, 2025 at 04:25:07PM +0100, Mark Rutland wrote:
+> Non-streaming SVE state may be preserved without an SVE payload, in
+> which case the SVE context only has a header with VL==0, and all state
+> can be restored from the FPSIMD context. Streaming SVE state is always
+> preserved with an SVE payload, where the SVE context header has VL!=0,
+> and the SVE_SIG_FLAG_SM flag is set.
 
-Thanks!
+Reviewed-by: Mark Brown <broonie@kernel.org>
 
-[1/1] ASoC: mediatek: mt8188-mt6359: select CONFIG_SND_SOC_MT6359_ACCDET
-      commit: b19fa45715ce9cfcc597ed140df31115e969b39d
+--ed3vGN0CxxGjNtsa
+Content-Type: application/pgp-signature; name="signature.asc"
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+-----BEGIN PGP SIGNATURE-----
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmgasH8ACgkQJNaLcl1U
+h9CNfwf/cgL4sUOb1FLJb1oDT+hUEPQNxpEekt+GUHSvtuBAVwWiPZE1FLV3LyoD
+mVxIfKy6V/oCKF0ukfA5OBVz0v1kY+X+8G2ssncTY7kdyGxIZzYxdANu8Dbp1xs8
+CWiWK5qsPZxwlavjThbt8kAHeJ2ZdyILpAZkQrP7O4qdffyOyMdhTLCzDA9Y87lr
+RLJaiJJoB7VflpaUXklfDctEELcMe54eEnFjBEzDu0P2Mx45nzisaPxqAzXF2Jhx
+9BpBrX085zfkbRiCfyFB3YgtW2zpBqH0ORDn6Eqy4IqqkD1GGfIXVtxLNN3n5eDT
+Xt4yR2UAcWp2vWHfKxnhJnycViXavg==
+=gM3v
+-----END PGP SIGNATURE-----
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+--ed3vGN0CxxGjNtsa--
 
