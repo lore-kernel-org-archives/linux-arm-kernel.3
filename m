@@ -4,59 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7DE4C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 17:46:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 104F0C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 17:47:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dtHXWPAh0KRA8SczolZ0xgY7fE+m4PGqg79MZ/iZMe4=; b=ELbwuZdlqAUDdm2Va/ACPgQnAf
-	6ETPUqDSqoQlMJFrF812SSbr1kyJkUML/Ejmr2PyVr7MYsRlq5M8tn7WF9EOw3IlAiKmFEyXuY2Vm
-	XFIMXv/5PwstiSF0ctYYjwWK7n7ZWnDtI8fs8MAo3gz5uF8S9WmR0igK9BfnmbYs2ClwriDg5gx68
-	H10LNiP7Gt2vFkyIyqVoPMDKDe8NePGut2/BCQOwqQ6jcauF/keGhj6gj3hr3aeej9r0bMntAAWrk
-	GqqfFMN0s7uYWtTcvUSx0/COiNFoTKI7f6jkEUWbxl/M17vPaoLk+HNGskefOz3X1tRmob2/k+jJ6
-	De9DkwXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cPv92qeDl4pk0EvtRAZ++xM5PSWUiHohLMDTH/RlBDs=; b=UEAHpgCAoUtY+oC0cpoaG4XyXQ
+	ROr0uFMKBtJnT6hudurwHkhQ399csnCs5smVELXVyNaih2q8jwTaXz3Jo36NTNsj8i/nBluC6v7/C
+	tldQkBxEvqTlGstY2oGywh2RUJ5sT/bEDJNsRlVRhCHEJGtWmuM6HHpDJXOfBLBEI+XgIF2EP3jgO
+	Cg40ofR9PR5SV9XMHigX2V4S0Si4jXiaAnyJ7wKHL1EFTVKmuG5jxHITwTzxZXf2vIKetyWyP1Jz/
+	9jsGy/B1J5qOvokqFSFSYlHO7NBnQ9RAbQCyBlRoLfl+rL8F5urrr8TOku3Ut89S9cY61zotG9XKh
+	jwLoKltw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCiq5-0000000GNsx-0QmD;
-	Wed, 07 May 2025 17:45:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCiSR-0000000GHG5-0kiD
+	id 1uCis2-0000000GOF3-2h9S;
+	Wed, 07 May 2025 17:47:50 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCiZ6-0000000GLCa-430s
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 17:21:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E5B2C16F2;
-	Wed,  7 May 2025 10:21:11 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 489483F5A1;
-	Wed,  7 May 2025 10:21:20 -0700 (PDT)
-Date: Wed, 7 May 2025 18:21:18 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
-	catalin.marinas@arm.com, daniel.kiss@arm.com,
-	david.spickett@arm.com, luis.machado@arm.com, maz@kernel.org,
-	richard.sandiford@arm.com, sander.desmalen@arm.com,
-	tabba@google.com, tamas.petz@arm.com, tkjos@google.com,
-	yury.khrustalev@arm.com
-Subject: Re: [PATCH 13/20] arm64/fpsimd: Make clone() compatible with ZA lazy
- saving
-Message-ID: <aBuWjj3warvfRf4b@J2N7QTR9R3>
-References: <20250506152523.1107431-1-mark.rutland@arm.com>
- <20250506152523.1107431-14-mark.rutland@arm.com>
- <20250507145800.GC2475@willie-the-truck>
- <aBt6nvRmk1O_easH@J2N7QTR9R3>
- <20250507161137.GA2580@willie-the-truck>
+	Wed, 07 May 2025 17:28:18 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1uCiYz-0001Ez-DN; Wed, 07 May 2025 19:28:09 +0200
+Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1uCiYy-001axU-1y;
+	Wed, 07 May 2025 19:28:08 +0200
+Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
+	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1uCiYz-000ING-01;
+	Wed, 07 May 2025 19:28:08 +0200
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Date: Wed, 07 May 2025 19:28:02 +0200
+Subject: [PATCH 2/2] pinctrl: at91: add FIXME about read back of struct
+ gpio_chip::base
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250507161137.GA2580@willie-the-truck>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250507-gpio-chip-base-readback-v1-2-ade56e38480b@pengutronix.de>
+References: <20250507-gpio-chip-base-readback-v1-0-ade56e38480b@pengutronix.de>
+In-Reply-To: <20250507-gpio-chip-base-readback-v1-0-ade56e38480b@pengutronix.de>
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Ludovic Desroches <ludovic.desroches@microchip.com>, 
+ linux-gpio@vger.kernel.org, kernel@pengutronix.de, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Ahmad Fatoum <a.fatoum@pengutronix.de>
+X-Mailer: b4 0.14.2
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_102123_369361_387DC151 
-X-CRM114-Status: GOOD (  26.95  )
+X-CRM114-CacheID: sfid-20250507_102817_017203_73E4B21F 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,83 +84,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 07, 2025 at 05:11:38PM +0100, Will Deacon wrote:
-> On Wed, May 07, 2025 at 04:22:06PM +0100, Mark Rutland wrote:
-> > On Wed, May 07, 2025 at 03:58:01PM +0100, Will Deacon wrote:
-> > > On Tue, May 06, 2025 at 04:25:16PM +0100, Mark Rutland wrote:
-> > > > @@ -441,14 +449,39 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
-> > > >  				childregs->sp = stack_start;
-> > > >  		}
-> > > >  
-> > > > +		/*
-> > > > +		 * Due to the AAPCS64 "ZA lazy saving scheme", PSTATE.ZA and
-> > > > +		 * TPIDR2 need to be manipulated as a pair, and either both
-> > > > +		 * need to be inherited or both need to be reset.
-> > > > +		 *
-> > > > +		 * Within a process, child threads must not inherit their
-> > > > +		 * parent's TPIDR2 value or they may clobber their parent's
-> > > > +		 * stack at some later point.
-> > > > +		 *
-> > > > +		 * When a process is fork()'d, the child must inherit ZA and
-> > > > +		 * TPIDR2 from its parent in case there was dormant ZA state.
-> > > > +		 *
-> > > > +		 * Use CLONE_VM to determine when the child will share the
-> > > > +		 * address space with the parent, and cannot safely inherit the
-> > > > +		 * state.
-> > > > +		 */
-> > > > +		if (system_supports_sme()) {
-> > > > +			if (!(clone_flags & CLONE_VM)) {
-> > > > +				p->thread.tpidr2_el0 = read_sysreg_s(SYS_TPIDR2_EL0);
-> > > 
-> > > Why do we need to re-read this register given that we did this just a few
-> > > lines earlier?
-> > 
-> > Sorry -- I had meant to delete the earlier read. My intent was to centralise
-> > manipulation of TPIDR2 (and ZA) in this block so that it was clear that they
-> > were manipulated as a pair.
-> > 
-> > I will delete the earlier read, and make this:
-> > 
-> > | if (system_supports_sme()) {
-> > | 	if (!(clone_flags & CLONE_VM)) {
-> > | 		p->thread.tpidr2_el0 = read_sysreg_s(SYS_TPIDR2_EL0);
-> > | 		ret = copy_thread_za(p, current);
-> > | 		if (ret)
-> > | 			return ret;
-> > | 	} else {
-> > | 		p->thread.tpidr2_el0 = 0;
-> 
-> If we context-switch here, can we end up reading the register value
-> back into the thread structure?
+drivers/gpio/gpiolib.c has this:
 
-No; this is running in the context of the parent, and writing to the
-child's task_struct, before the child is runnable. Nothing else is
-concurrently reading or writing p->thread.tpidr2_el0.
+  /*
+   * TODO: it should not be necessary to reflect the
+   * assigned base outside of the GPIO subsystem. Go over
+   * drivers and see if anyone makes use of this, else
+   * drop this and assign a poison instead.
+   */
+  gc->base = base;
 
-In the case where we read the parent's TPIDR2 value, we ready the live
-CPU register since that's switched eagerly in __switch_to() ->
-tls_thread_switch(), and will not change under our feet.
+This would break the driver, because it assumes gpio_chip::base to be
+the same static base that was written into it.
 
-> 
-> > | 		WARN_ON_ONCE(p->thread.svcr & SVCR_ZA_MASK);
-> > | 	}
-> > | }
-> > 
-> > ... or I can clear TPIDR2 in arch_dup_task_struct() along with ZA, delete the
-> > earlier read here, and make this:
-> > 
-> > | if (system_supports_sme() && !(clone_flags & CLONE_VM)) {
-> > | 	p->thread.tpidr2_el0 = read_sysreg_s(SYS_TPIDR2_EL0);
-> > | 	ret = copy_thread_za(p, current);
-> > | 	if (ret)
-> > | 		return ret;
-> > | }
-> > 
-> > Any preference?
-> 
-> I don't mind, assuming they both work :)
+Point that out in a comment, until it's fixed.
 
-Cool; I'll go with the first option for now.
+Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+---
+ drivers/pinctrl/pinctrl-at91.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Mark.
+diff --git a/drivers/pinctrl/pinctrl-at91.c b/drivers/pinctrl/pinctrl-at91.c
+index 93ab277d9943cff3a0b771f3e997594cb144826c..b0e00f3793312de2288aa1b900793d9e2b6125d6 100644
+--- a/drivers/pinctrl/pinctrl-at91.c
++++ b/drivers/pinctrl/pinctrl-at91.c
+@@ -949,6 +949,11 @@ static int at91_gpio_request_enable(struct pinctrl_dev *pctldev,
+ 
+ 	dev_dbg(npct->dev, "enable pin %u as GPIO\n", offset);
+ 
++	/*
++	 * The GPIO chip base is an internal detail that will
++	 * eventually go away alongside sysfs and the global numberspace.
++	 * FIXME: stop reading it back here
++	 */
+ 	mask = 1 << (offset - chip->base);
+ 
+ 	dev_dbg(npct->dev, "enable pin %u as PIO%c%d 0x%x\n",
+
+-- 
+2.39.5
+
 
