@@ -4,63 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06FA6C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 17:44:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7DE4C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 17:46:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EFGVvjzqgWfv4TbBYnu02tYnwDXx14ya+T3QjIsDNn0=; b=XgJf+VB5VSBEhWAEq1ABgwaDTw
-	vUGe4FAbM9t6PotYt70letF3S79OTL7dOhApsfeg+0IbzZh4b14trW2MJqsA/mq5/BfSbQccelrTQ
-	EGcXtNwJeukJskiEE0NOGvtXC7/srVuYaYq9mBACReGJCuRxGe219Qpu28kyYTSpm39LYcp4dJv2s
-	J+nmumlLhX7vo+23ddjgWoMLUef1pEd3APgnLS9g/bsW5zzowKlQPfIuVM7Q7c/s0mCtacBqb783V
-	yFSzuoUIt0gPAEkVvZddmTOiZOZlOtbsiaw6yObdK149U4qrrG/9PWEJbesphoGtYwC3EbDeHQtr/
-	251SgQTw==;
+	bh=dtHXWPAh0KRA8SczolZ0xgY7fE+m4PGqg79MZ/iZMe4=; b=ELbwuZdlqAUDdm2Va/ACPgQnAf
+	6ETPUqDSqoQlMJFrF812SSbr1kyJkUML/Ejmr2PyVr7MYsRlq5M8tn7WF9EOw3IlAiKmFEyXuY2Vm
+	XFIMXv/5PwstiSF0ctYYjwWK7n7ZWnDtI8fs8MAo3gz5uF8S9WmR0igK9BfnmbYs2ClwriDg5gx68
+	H10LNiP7Gt2vFkyIyqVoPMDKDe8NePGut2/BCQOwqQ6jcauF/keGhj6gj3hr3aeej9r0bMntAAWrk
+	GqqfFMN0s7uYWtTcvUSx0/COiNFoTKI7f6jkEUWbxl/M17vPaoLk+HNGskefOz3X1tRmob2/k+jJ6
+	De9DkwXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCioA-0000000GNex-1PxK;
-	Wed, 07 May 2025 17:43:50 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCi2d-0000000GDGL-0Zht
+	id 1uCiq5-0000000GNsx-0QmD;
+	Wed, 07 May 2025 17:45:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCiSR-0000000GHG5-0kiD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 16:54:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 48C015C55AC;
-	Wed,  7 May 2025 16:52:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E2EFC4CEE2;
-	Wed,  7 May 2025 16:54:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746636882;
-	bh=axzbwV1fcdENoStQr7bqdWjWYmfudr/cPU89nWCc8pw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pWJ4ibP+GFeQEQqqTTSKCuJRP5o9pGxOHvklQGsGBzxtrMrxonQjFpvNxSElrhLUE
-	 NazsXZb9G6usBNi5eIXzagDH+V0YHp0h2bvYsLRu00UIVyrkRVDjPN/TO55mSVxBTi
-	 Nw0F48wHNSzgMKzkbvtx93NQDTUb7nWDX6cs7CoIXb6NSPkwfzrqU0l9PgthELOfKX
-	 6ZpElWKV31UkBK/Q1RyYWNogeXtIR2ObHKWVJrlNDGEtJckvfkofq0yBNZ+FjvtKLd
-	 yhSxqfKXLINiWx1Jx0GR3E/fsPQOpVFz25VLTu9Mxw4lVo31ycWuVWZrx83+IxQAR6
-	 6l/KSn8BSOy3A==
-Date: Wed, 7 May 2025 09:54:39 -0700
-From: Bjorn Andersson <andersson@kernel.org>
-To: Eugen Hristev <eugen.hristev@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, corbet@lwn.net, tglx@linutronix.de, mingo@redhat.com, 
-	rostedt@goodmis.org, john.ogness@linutronix.de, senozhatsky@chromium.org, 
-	pmladek@suse.com, peterz@infradead.org, mojha@qti.qualcomm.com, 
-	linux-arm-kernel@lists.infradead.org, vincent.guittot@linaro.org, konradybcio@kernel.org, 
-	dietmar.eggemann@arm.com, juri.lelli@redhat.com
-Subject: Re: [RFC][PATCH 00/14] introduce kmemdump
-Message-ID: <mtetvagzj2xltczutahqj7ijgpr3fy7ppbp5w6rmn2w2zmukux@tawhrkyoqjli>
-References: <20250422113156.575971-1-eugen.hristev@linaro.org>
+	Wed, 07 May 2025 17:21:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E5B2C16F2;
+	Wed,  7 May 2025 10:21:11 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 489483F5A1;
+	Wed,  7 May 2025 10:21:20 -0700 (PDT)
+Date: Wed, 7 May 2025 18:21:18 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
+	catalin.marinas@arm.com, daniel.kiss@arm.com,
+	david.spickett@arm.com, luis.machado@arm.com, maz@kernel.org,
+	richard.sandiford@arm.com, sander.desmalen@arm.com,
+	tabba@google.com, tamas.petz@arm.com, tkjos@google.com,
+	yury.khrustalev@arm.com
+Subject: Re: [PATCH 13/20] arm64/fpsimd: Make clone() compatible with ZA lazy
+ saving
+Message-ID: <aBuWjj3warvfRf4b@J2N7QTR9R3>
+References: <20250506152523.1107431-1-mark.rutland@arm.com>
+ <20250506152523.1107431-14-mark.rutland@arm.com>
+ <20250507145800.GC2475@willie-the-truck>
+ <aBt6nvRmk1O_easH@J2N7QTR9R3>
+ <20250507161137.GA2580@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250422113156.575971-1-eugen.hristev@linaro.org>
+In-Reply-To: <20250507161137.GA2580@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_095443_265361_503C8A56 
-X-CRM114-Status: GOOD (  29.15  )
+X-CRM114-CacheID: sfid-20250507_102123_369361_387DC151 
+X-CRM114-Status: GOOD (  26.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,119 +71,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 22, 2025 at 02:31:42PM +0300, Eugen Hristev wrote:
-> kmemdump is a mechanism which allows the kernel to mark specific memory
-> areas for dumping or specific backend usage.
-> Once regions are marked, kmemdump keeps an internal list with the regions
-> and registers them in the backend.
-> Further, depending on the backend driver, these regions can be dumped using
-> firmware or different hardware block.
-> Regions being marked beforehand, when the system is up and running, there
-> is no need nor dependency on a panic handler, or a working kernel that can
-> dump the debug information.
-> The kmemdump approach works when pstore, kdump, or another mechanism do not.
-> Pstore relies on persistent storage, a dedicated RAM area or flash, which
-> has the disadvantage of having the memory reserved all the time, or another
-> specific non volatile memory. Some devices cannot keep the RAM contents on
-> reboot so ramoops does not work. Some devices do not allow kexec to run
-> another kernel to debug the crashed one.
-> For such devices, that have another mechanism to help debugging, like
-> firmware, kmemdump is a viable solution.
+On Wed, May 07, 2025 at 05:11:38PM +0100, Will Deacon wrote:
+> On Wed, May 07, 2025 at 04:22:06PM +0100, Mark Rutland wrote:
+> > On Wed, May 07, 2025 at 03:58:01PM +0100, Will Deacon wrote:
+> > > On Tue, May 06, 2025 at 04:25:16PM +0100, Mark Rutland wrote:
+> > > > @@ -441,14 +449,39 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+> > > >  				childregs->sp = stack_start;
+> > > >  		}
+> > > >  
+> > > > +		/*
+> > > > +		 * Due to the AAPCS64 "ZA lazy saving scheme", PSTATE.ZA and
+> > > > +		 * TPIDR2 need to be manipulated as a pair, and either both
+> > > > +		 * need to be inherited or both need to be reset.
+> > > > +		 *
+> > > > +		 * Within a process, child threads must not inherit their
+> > > > +		 * parent's TPIDR2 value or they may clobber their parent's
+> > > > +		 * stack at some later point.
+> > > > +		 *
+> > > > +		 * When a process is fork()'d, the child must inherit ZA and
+> > > > +		 * TPIDR2 from its parent in case there was dormant ZA state.
+> > > > +		 *
+> > > > +		 * Use CLONE_VM to determine when the child will share the
+> > > > +		 * address space with the parent, and cannot safely inherit the
+> > > > +		 * state.
+> > > > +		 */
+> > > > +		if (system_supports_sme()) {
+> > > > +			if (!(clone_flags & CLONE_VM)) {
+> > > > +				p->thread.tpidr2_el0 = read_sysreg_s(SYS_TPIDR2_EL0);
+> > > 
+> > > Why do we need to re-read this register given that we did this just a few
+> > > lines earlier?
+> > 
+> > Sorry -- I had meant to delete the earlier read. My intent was to centralise
+> > manipulation of TPIDR2 (and ZA) in this block so that it was clear that they
+> > were manipulated as a pair.
+> > 
+> > I will delete the earlier read, and make this:
+> > 
+> > | if (system_supports_sme()) {
+> > | 	if (!(clone_flags & CLONE_VM)) {
+> > | 		p->thread.tpidr2_el0 = read_sysreg_s(SYS_TPIDR2_EL0);
+> > | 		ret = copy_thread_za(p, current);
+> > | 		if (ret)
+> > | 			return ret;
+> > | 	} else {
+> > | 		p->thread.tpidr2_el0 = 0;
 > 
-> kmemdump can create a core image, similar with /proc/vmcore, with only
-> the registered regions included. This can be loaded into crash tool/gdb and
-> analyzed.
-> To have this working, specific information from the kernel is registered,
-> and this is done at kmemdump init time, no need for the kmemdump user to
-> do anything.
-> 
-> The implementation is based on the initial Pstore/directly mapped zones
-> published as an RFC here:
-> https://lore.kernel.org/all/20250217101706.2104498-1-eugen.hristev@linaro.org/
-> 
-> The back-end implementation for qcom_smem is based on the minidump
-> patch series and driver written by Mukesh Ojha, thanks:
-> https://lore.kernel.org/lkml/20240131110837.14218-1-quic_mojha@quicinc.com/
-> 
-> I appreciate the feedback on this series, I know it is a longshot, and there
-> is a lot to improve, but I hope I am on the right track.
-> 
-> Thanks,
-> Eugen
-> 
-> PS. Here is how crash tool reports the dump:
-> 
->      KERNEL: /home/eugen/linux-minidump/vmlinux  [TAINTED]
->     DUMPFILE: /home/eugen/eee
+> If we context-switch here, can we end up reading the register value
+> back into the thread structure?
 
-Can you please describe the steps taken to get acquire/generate this
-file and how to invoke crash?
+No; this is running in the context of the parent, and writing to the
+child's task_struct, before the child is runnable. Nothing else is
+concurrently reading or writing p->thread.tpidr2_el0.
 
-Regards,
-Bjorn
+In the case where we read the parent's TPIDR2 value, we ready the live
+CPU register since that's switched eagerly in __switch_to() ->
+tls_thread_switch(), and will not change under our feet.
 
->         CPUS: 8 [OFFLINE: 7]
->         DATE: Thu Jan  1 02:00:00 EET 1970
->       UPTIME: 00:00:28
->     NODENAME: qemuarm64
->      RELEASE: 6.14.0-rc5-next-20250303-00014-g011eb2aaf7b6-dirty
->      VERSION: #169 SMP PREEMPT Thu Apr 17 14:12:21 EEST 2025
->      MACHINE: aarch64  (unknown Mhz)
->       MEMORY: 0
->        PANIC: ""
 > 
-> crash> log
-> [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd4b2]
-> [    0.000000] Linux version 6.14.0-rc5-next-20250303-00014-g011eb2aaf7b6-dirty (eugen@eugen-station) (aarch64-none-linux-gnu-gcc (Arm GNU Toolchain 13.3.Rel1 (Build arm-13.24)) 13.3.1 20240614, GNU ld (Arm GNU Toolchain 13.3.Rel1 (Build arm-13.24)) 2.42.0.20240614) #169 SMP PREEMPT Thu Apr 17 14:12:21 EEST 2025
-> [    0.000000] KASLR enabled
-> [...]
+> > | 		WARN_ON_ONCE(p->thread.svcr & SVCR_ZA_MASK);
+> > | 	}
+> > | }
+> > 
+> > ... or I can clear TPIDR2 in arch_dup_task_struct() along with ZA, delete the
+> > earlier read here, and make this:
+> > 
+> > | if (system_supports_sme() && !(clone_flags & CLONE_VM)) {
+> > | 	p->thread.tpidr2_el0 = read_sysreg_s(SYS_TPIDR2_EL0);
+> > | 	ret = copy_thread_za(p, current);
+> > | 	if (ret)
+> > | 		return ret;
+> > | }
+> > 
+> > Any preference?
 > 
-> Eugen Hristev (14):
->   Documentation: add kmemdump
->   kmemdump: introduce kmemdump
->   kmemdump: introduce qcom-md backend driver
->   soc: qcom: smem: add minidump device
->   Documentation: kmemdump: add section for coreimage ELF
->   kmemdump: add coreimage ELF layer
->   printk: add kmsg_kmemdump_register
->   kmemdump: coreimage: add kmsg registration
->   genirq: add irq_kmemdump_register
->   kmemdump: coreimage: add irq registration
->   panic: add panic_kmemdump_register
->   kmemdump: coreimage: add panic registration
->   sched: add sched_kmemdump_register
->   kmemdump: coreimage: add sched registration
-> 
->  Documentation/debug/index.rst      |  17 ++
->  Documentation/debug/kmemdump.rst   |  83 +++++
->  drivers/Kconfig                    |   2 +
->  drivers/Makefile                   |   2 +
->  drivers/debug/Kconfig              |  39 +++
->  drivers/debug/Makefile             |   5 +
->  drivers/debug/kmemdump.c           | 197 ++++++++++++
->  drivers/debug/kmemdump_coreimage.c | 293 ++++++++++++++++++
->  drivers/debug/qcom_md.c            | 467 +++++++++++++++++++++++++++++
->  drivers/soc/qcom/smem.c            |  10 +
->  include/linux/irqnr.h              |   1 +
->  include/linux/kmemdump.h           |  77 +++++
->  include/linux/kmsg_dump.h          |   6 +
->  include/linux/panic.h              |   1 +
->  include/linux/sched.h              |   1 +
->  kernel/irq/irqdesc.c               |   7 +
->  kernel/panic.c                     |   8 +
->  kernel/printk/printk.c             |  13 +
->  kernel/sched/core.c                |   7 +
->  19 files changed, 1236 insertions(+)
->  create mode 100644 Documentation/debug/index.rst
->  create mode 100644 Documentation/debug/kmemdump.rst
->  create mode 100644 drivers/debug/Kconfig
->  create mode 100644 drivers/debug/Makefile
->  create mode 100644 drivers/debug/kmemdump.c
->  create mode 100644 drivers/debug/kmemdump_coreimage.c
->  create mode 100644 drivers/debug/qcom_md.c
->  create mode 100644 include/linux/kmemdump.h
-> 
-> -- 
-> 2.43.0
-> 
+> I don't mind, assuming they both work :)
+
+Cool; I'll go with the first option for now.
+
+Mark.
 
