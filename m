@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E814C3ABC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 08:00:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9781DC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 08:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8oQBv0PsMUDUre1Bu82m7dpdvbVeSSW511rM1FJ7IjE=; b=Xowvgv2oKqCjoAzS9aKGaRzBT2
-	HZiEKEUFuv2lzzncF8Uhnx/YPQ9UB8LhbVL8rPlq75H3My7aRcORLlSPM0jlPFiuuvGUVnXorEnS7
-	k+2dEP3/JQCKnAt2EMpTu+jHD9bk3HS2NEwIba4j4FBOXvGDaNYYiGXw67Pxh89TaSy57c+8o7qZv
-	BQpQJwbLJmZ95szfZJ9aMxRg4EnQxdxAevt2QDaOBUXyLGRTlObaO8cYvruJQCNountusExMt9NzP
-	m6XZQiYh14w8lMbUDxusm31oyLyNjxlpF9vQCRCdCrtE80N1Uwg4JDnVVnozvapB1+7kLTOI6mqZL
-	5Ff6oY2A==;
+	bh=X4EvTY3RHaR0mXhyFDB+UEmoJh+AoaMeOu/lqI19NLc=; b=u871zKrt6xCey6oEEccTOLIK6s
+	0HJjyRY/fLUUDHZYBPV4Zv/MfqBBxYD1Wx2JTRtkXbGTwaW6qYsUimYSlnN8Rzs0ImzAEi3kV2Mpo
+	4h1/kGEMX2ER0xSCO/DQBrc0sp56U34do9Xl64U6ZD3TRw12xizGD+UD9rPgsR1vrJJisCzZaaGA3
+	rn7HLHSKKTZ6lKZzsSkGDivBjIV5ql54bgkZ9mv8jiZhqQD/TnvyK6zvJh2j0CIbaKhmJFQ6vsrPG
+	D5Nb+/J3KjU0ePfm1vOcTh2G30vCSvEDr/QC+ZexWteVspk7ph/EHG8OSFTLGobae55M1/6qofdN7
+	cemn2G+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCZhV-0000000Edkj-05r8;
-	Wed, 07 May 2025 08:00:21 +0000
+	id 1uCZjP-0000000EeCN-32n5;
+	Wed, 07 May 2025 08:02:19 +0000
 Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCYyj-0000000ETdV-41Zx
+	id 1uCYym-0000000ETeA-1ZKf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 07:14:07 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPA id 6C1A643B5E;
-	Wed,  7 May 2025 07:14:02 +0000 (UTC)
+	Wed, 07 May 2025 07:14:09 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPA id 8C1E643B4B;
+	Wed,  7 May 2025 07:14:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1746602044;
+	t=1746602046;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8oQBv0PsMUDUre1Bu82m7dpdvbVeSSW511rM1FJ7IjE=;
-	b=QVQq5UlUc3SukDk2VaKC/sDZQP8OPzj4IMbyXO7hZwxd3c93oSPTjtMHgUPuAXQ8nP8nJI
-	Ve8mfkbRlRaqWwONQ4UsvSZnsFmpAAgt/7qpTFpL4XG3Q4QyOeRUtdNV6i7wTayQZ9ROcA
-	yJa69Pjo6hAubsEcaQ3V8h5XS5AhVx1CzmST6E0whbzW7dJ+z1H8xuV5OHBWDfAP3v5Ifc
-	ItqQaQ0kri26AdLYOR21NGkO3FFxKUbXDlN9N9zRO8vaBqncSh6RnnQzZ/T3vj5VVYiaAP
-	CTiM3RC//Y9CQofsOEc78wFSPlyn028yBjvyAYl2au6ta/xOKHBbRw11W4+fqA==
+	bh=X4EvTY3RHaR0mXhyFDB+UEmoJh+AoaMeOu/lqI19NLc=;
+	b=hoaWgwFAIdsKu/rlO3zAXaR+7A2/pLRMpBnum73bBWQOBIFKTUZ9Zfiwz/FLx9l/uRJmBk
+	hWurZwEwUNFeMoS/jV6BtTL1lm+Kp4dKWWRWfh+rrPM5OzgA6rq30qzJrEYw0m/AXcUqPr
+	G/nC5T0Ojv8XbG/PWNoXIntHRBD+l06rk41siMXqtAyAtpL1nRcllv6YpjpLu67XfU6ycf
+	D8HBgiGouWjJkP2XjXH3aIDYy6lVVdJrpIJPFZ6GwLrwiQrt7PdCfR3cWFm4GOdJHHm9TA
+	/qCn9TUsgfXdh85axwyLjadsUwCg9H0mK3O/a7fICbwZOL9JKndv4sWIzG427g==
 From: Herve Codina <herve.codina@bootlin.com>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -84,9 +84,9 @@ Cc: Wolfram Sang <wsa@kernel.org>,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: [PATCH v2 19/26] i2c: busses: at91: Add MCHP_LAN966X_PCI dependency
-Date: Wed,  7 May 2025 09:13:01 +0200
-Message-ID: <20250507071315.394857-20-herve.codina@bootlin.com>
+Subject: [PATCH v2 20/26] misc: lan966x_pci: Fix dtso nodes ordering
+Date: Wed,  7 May 2025 09:13:02 +0200
+Message-ID: <20250507071315.394857-21-herve.codina@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250507071315.394857-1-herve.codina@bootlin.com>
 References: <20250507071315.394857-1-herve.codina@bootlin.com>
@@ -98,8 +98,8 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvkeeivdefucetufdoteggode
  dhhrghuvghrsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepfhgvshhtvghvrghmsehgmhgrihhlrdgtohhm
 X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_001406_143921_AE2D6178 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20250507_001408_559117_42A7E5FD 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,29 +114,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AT91 I2C driver depends on ARCH_AT91.
+Nodes available in the dtso are not ordered by their unit address.
 
-This I2C controller can be used by the LAN966x PCI device and so
-it needs to be available when the LAN966x PCI device is enabled.
+Fix that re-ordering them according to their unit address.
 
 Signed-off-by: Herve Codina <herve.codina@bootlin.com>
 ---
- drivers/i2c/busses/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/misc/lan966x_pci.dtso | 99 +++++++++++++++++------------------
+ 1 file changed, 49 insertions(+), 50 deletions(-)
 
-diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
-index 83c88c79afe2..148f9f66d5f3 100644
---- a/drivers/i2c/busses/Kconfig
-+++ b/drivers/i2c/busses/Kconfig
-@@ -414,7 +414,7 @@ config I2C_ASPEED
+diff --git a/drivers/misc/lan966x_pci.dtso b/drivers/misc/lan966x_pci.dtso
+index 7b196b0a0eb6..94a967b384f3 100644
+--- a/drivers/misc/lan966x_pci.dtso
++++ b/drivers/misc/lan966x_pci.dtso
+@@ -59,6 +59,50 @@ pci-ep-bus@0 {
+ 				ranges = <0xe2000000 0x00 0x00 0x00 0x2000000
+ 				          0xe0000000 0x01 0x00 0x00 0x1000000>;
  
- config I2C_AT91
- 	tristate "Atmel AT91 I2C Two-Wire interface (TWI)"
--	depends on ARCH_AT91 || COMPILE_TEST
-+	depends on ARCH_AT91 || MCHP_LAN966X_PCI || COMPILE_TEST
- 	help
- 	  This supports the use of the I2C interface on Atmel AT91
- 	  processors.
++				switch: switch@e0000000 {
++					compatible = "microchip,lan966x-switch";
++					reg = <0xe0000000 0x0100000>,
++					      <0xe2000000 0x0800000>;
++					reg-names = "cpu", "gcb";
++
++					interrupt-parent = <&oic>;
++					interrupts = <12 IRQ_TYPE_LEVEL_HIGH>,
++						     <9 IRQ_TYPE_LEVEL_HIGH>;
++					interrupt-names = "xtr", "ana";
++
++					resets = <&reset 0>;
++					reset-names = "switch";
++
++					pinctrl-names = "default";
++					pinctrl-0 = <&tod_pins>;
++
++					ethernet-ports {
++						#address-cells = <1>;
++						#size-cells = <0>;
++
++						port0: port@0 {
++							phy-handle = <&lan966x_phy0>;
++
++							reg = <0>;
++							phy-mode = "gmii";
++							phys = <&serdes 0 CU(0)>;
++						};
++
++						port1: port@1 {
++							phy-handle = <&lan966x_phy1>;
++
++							reg = <1>;
++							phy-mode = "gmii";
++							phys = <&serdes 1 CU(1)>;
++						};
++					};
++				};
++
++				cpu_ctrl: syscon@e00c0000 {
++					compatible = "microchip,lan966x-cpu-syscon", "syscon";
++					reg = <0xe00c0000 0xa8>;
++				};
++
+ 				oic: oic@e00c0120 {
+ 					compatible = "microchip,lan966x-oic";
+ 					#interrupt-cells = <2>;
+@@ -67,11 +111,6 @@ oic: oic@e00c0120 {
+ 					reg = <0xe00c0120 0x190>;
+ 				};
+ 
+-				cpu_ctrl: syscon@e00c0000 {
+-					compatible = "microchip,lan966x-cpu-syscon", "syscon";
+-					reg = <0xe00c0000 0xa8>;
+-				};
+-
+ 				reset: reset@e200400c {
+ 					compatible = "microchip,lan966x-switch-reset";
+ 					reg = <0xe200400c 0x4>, <0xe00c0000 0xa8>;
+@@ -104,14 +143,6 @@ fc0_a_pins: fcb4-i2c-pins {
+ 						pins = "GPIO_9", "GPIO_10";
+ 						function = "fc0_a";
+ 					};
+-
+-				};
+-
+-				serdes: serdes@e202c000 {
+-					compatible = "microchip,lan966x-serdes";
+-					reg = <0xe202c000 0x9c>,
+-					      <0xe2004010 0x4>;
+-					#phy-cells = <2>;
+ 				};
+ 
+ 				mdio1: mdio@e200413c {
+@@ -133,43 +164,11 @@ lan966x_phy1: ethernet-lan966x_phy@2 {
+ 					};
+ 				};
+ 
+-				switch: switch@e0000000 {
+-					compatible = "microchip,lan966x-switch";
+-					reg = <0xe0000000 0x0100000>,
+-					      <0xe2000000 0x0800000>;
+-					reg-names = "cpu", "gcb";
+-
+-					interrupt-parent = <&oic>;
+-					interrupts = <12 IRQ_TYPE_LEVEL_HIGH>,
+-						     <9 IRQ_TYPE_LEVEL_HIGH>;
+-					interrupt-names = "xtr", "ana";
+-
+-					resets = <&reset 0>;
+-					reset-names = "switch";
+-
+-					pinctrl-names = "default";
+-					pinctrl-0 = <&tod_pins>;
+-
+-					ethernet-ports {
+-						#address-cells = <1>;
+-						#size-cells = <0>;
+-
+-						port0: port@0 {
+-							phy-handle = <&lan966x_phy0>;
+-
+-							reg = <0>;
+-							phy-mode = "gmii";
+-							phys = <&serdes 0 CU(0)>;
+-						};
+-
+-						port1: port@1 {
+-							phy-handle = <&lan966x_phy1>;
+-
+-							reg = <1>;
+-							phy-mode = "gmii";
+-							phys = <&serdes 1 CU(1)>;
+-						};
+-					};
++				serdes: serdes@e202c000 {
++					compatible = "microchip,lan966x-serdes";
++					reg = <0xe202c000 0x9c>,
++					      <0xe2004010 0x4>;
++					#phy-cells = <2>;
+ 				};
+ 			};
+ 		};
 -- 
 2.49.0
 
