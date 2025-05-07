@@ -4,104 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D95C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 18:13:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE318C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 18:16:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gZoi91yF78+gC6gLDup+tsCPW9jBL45JepbeQZDf8AA=; b=bKkTG9Wf/8NaW4wRovFBL1qV47
-	V7Yu447hzSEIusWUSkubu2dgBLVMGXpW5iH7ttUU9nzuAQ70+lLXlPVhovf8tmo2kJ0VL8WYO3SmM
-	usRdU/U6/6swk1Q8ey6ikuHiXFnYNOwmwmmbY47tdNQMBNCyaYX/7/DE0lWvQCWPVHJNjFt+c5Dvx
-	7lNPuAeiKEiYBFkyg7F8phPOvdGe05fHHSQEiKyvHtN2dMoJFB/xrv/XIB/IiyPXJMv3Q8s43zSG8
-	iA28jogVDisLcSkRNGuQkuoT5k4x4wz2ACHReV0ed/oNWYfVG+PFOEo2QhnT0gaHfX76X6v4+zq37
-	7bbEUCxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ab0z/F9w7QZP+evG5akeK0TKh6nX5z62iRNswb/WdEg=; b=DO/6LMBaYMFdCRMEpbmws+55IL
+	BSobO59oQrdnwCtW7tqr312h5DmQpa9I0u3uyPE7tKnBsvxAURC0QT7HErOWYq7Xt43As1UKDJT7g
+	ECigETIxRPvca3m8/+25V1H2njE+LrBgtztNLKct1C3EWfn0Tqik6BH3KBtZRo7xRjDX9ZVVs6rrg
+	mGG3Zjn1IjGcAF103iTuo0tzSxxIDIsZzJC3Z032Z2Ia93/9Pcw83S2rhrKTvulu49CuyzyAzp7Xw
+	crC4X0Q8svRVf6yVG72ecBY+ieJe6pcpOkSTQHNgUb54gZOIDHWib0QpRdFcYbBd7y0NRbqYY87TQ
+	pU0jTnmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCjGp-0000000GRaN-3xYO;
-	Wed, 07 May 2025 18:13:27 +0000
-Received: from mo4-p01-ob.smtp.rzone.de ([85.215.255.50])
+	id 1uCjJ9-0000000GRlP-2tTT;
+	Wed, 07 May 2025 18:15:51 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCjEs-0000000GRUQ-40S2
+	id 1uCjHC-0000000GRct-2fio
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 18:11:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1746641458; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=jA3kpDt+x4BQhR3Yyf+rpaPdOF0IrjuD0tuTACzzdzBWdhq+4YZ86qSBQtOCpMxoWv
-    KSMK8mN4VPzFpk1RZ6hd/Ho2COOMdV/VFg44d8XoBfQ6XM6scGBuwCJoeLjkOpUVrnka
-    bTXRmnuUJ0C2C1IUdmao6NRmEfl33qh1Ubz/4k80i4Igib+XV9U2Orkv7Ti9mR19v8GD
-    fhmg/8Yti/WJvyzBVgY6l8lCtj8lo1fp1NKkD0b/moyWzIJ2FGvEUX4ViLIBosu8psiS
-    yXloWo1TAYpAJLmKVyGm/bjKMNJzry3H4kdJeJ2dI8tNByIYNewyv6vx3+DnWMgi7359
-    VRsg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1746641458;
-    s=strato-dkim-0002; d=strato.com;
-    h=In-Reply-To:References:Message-ID:Subject:Cc:To:From:Date:Cc:Date:
-    From:Subject:Sender;
-    bh=gZoi91yF78+gC6gLDup+tsCPW9jBL45JepbeQZDf8AA=;
-    b=TcsCk1zjVh2ABRNf11gWSjK08dYZaiS3vlkoAqEtmuoHtAMARAHI3jVTTs9ld0THo4
-    olUELGHgfCxF6Gjecm1equZKi+Zy4DZu3OVTul9lEvvVG4JQZvl35kLsFk8SKSViXINm
-    jjKCJGx6RSzAyWDu2sUzxu6r+ZaWXfiNIu7LdcBh2r5HNE7i6Oen52xeI02/Lr9k1DL1
-    hpaRos1GVrdvu2kR4d8RH3fSsqxk0zVIsALTXZyUjO+25KLz5iNhwb3q3xIESYloLtz+
-    Uu+kFCim/jodA/kyO1dVXtC3UD0LK19ZGEQvsQQ5mhHg/3v8lL9pcT85KAHFJfp6YGcw
-    p5FA==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo01
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1746641458;
-    s=strato-dkim-0002; d=fossekall.de;
-    h=In-Reply-To:References:Message-ID:Subject:Cc:To:From:Date:Cc:Date:
-    From:Subject:Sender;
-    bh=gZoi91yF78+gC6gLDup+tsCPW9jBL45JepbeQZDf8AA=;
-    b=ojboSf2Y4LpnoYzXKlc2k+J2ePJmo5G0YEXX5gw0zA/Q44g6/h761lLOgwX1/HqBpy
-    v+wxlKvodOArV8Yr/XINlpIMrhlqt+RgF5SNmjaAJ1FTGYSWLhQxb2EPhvlFFz7ELzt8
-    l3VMntcizaety1Ikx56i82+04QG9c2IEcaGNGF8c35FzmBMqsdX00R/f/JLY62x4JDBE
-    1/cTEO/P5b4yE06BSxs7iVUuWfILhw99Dxw0aUWrfTdqFd+G78sY1AWX3Bf50GjFgDku
-    Pt465M2Z8g+4TeigAeaBBNAYv1law5g2JzZ+Yi07+xg2hskcJr2SiW946JFJv6kv0N46
-    KEUw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1746641458;
-    s=strato-dkim-0003; d=fossekall.de;
-    h=In-Reply-To:References:Message-ID:Subject:Cc:To:From:Date:Cc:Date:
-    From:Subject:Sender;
-    bh=gZoi91yF78+gC6gLDup+tsCPW9jBL45JepbeQZDf8AA=;
-    b=pFk43Txh55pzhUfBPaC55GVze7SLFg87CRvyt6yTKddUqM6PRkTog05dovucUFzjjj
-    AvaHFaUP2mfNWLP6bAAA==
-X-RZG-AUTH: ":O2kGeEG7b/pS1EzgE2y7nF0STYsSLflpbjNKxx7cGrBdao6FTL4AJcMdm+lap4JEHkzok9eyEg=="
-Received: from aerfugl
-    by smtp.strato.de (RZmta 51.3.0 AUTH)
-    with ESMTPSA id f28b35147IAuGKx
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Wed, 7 May 2025 20:10:56 +0200 (CEST)
-Received: from koltrast.home ([192.168.1.27] helo=a98shuttle.de)
-	by aerfugl with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <michael@fossekall.de>)
-	id 1uCjEO-0002f6-0e;
-	Wed, 07 May 2025 20:10:56 +0200
-Date: Wed, 7 May 2025 20:10:54 +0200
-From: Michael Klein <michael@fossekall.de>
-To: Chen-Yu Tsai <wens@csie.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: dts: bananapi: add support for PHY LEDs
-Message-ID: <aBuiLpqURnxQ1t07@a98shuttle.de>
-References: <20250506195524.601268-1-michael@fossekall.de>
- <CAGb2v671wD7y6n6n20BrhH-pcTGD8RzPp25gCWUtnFmRhh=naw@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGb2v671wD7y6n6n20BrhH-pcTGD8RzPp25gCWUtnFmRhh=naw@mail.gmail.com>
+	Wed, 07 May 2025 18:13:51 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-30ab450d918so209319a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 May 2025 11:13:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1746641629; x=1747246429; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ab0z/F9w7QZP+evG5akeK0TKh6nX5z62iRNswb/WdEg=;
+        b=2ZZiLA+XG2BPcPY+pRNF3Jrs9qMVNFMovh/ddcYxIzMJb5muuqfvMIDvOZgV3Ni2na
+         Tnegx5/ETRhPqis11EhX3qRRJIoBgnqkp79clAdS44IuwaXLlgGm3XyY7UHxbrAFzR9D
+         Ndf4LVUKRX22cI2JyPvw2EQf2K0ySFlZTFxQdmlxkScuiM5/aC3SvCdaVc5YwEST6VVs
+         nne/XOATiAw/NnYMFLRV9YoJxPvi2tp/JeFtU9MdSeQN3o4NJr3bP2bD59dTe/D2WRja
+         A3xDxUkBFQmvv7VjdhIManPai+vyqGboIqVhhjUsgDtTt8u7UxZv2sq/+7iMpGlCcTJk
+         Jgbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746641629; x=1747246429;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ab0z/F9w7QZP+evG5akeK0TKh6nX5z62iRNswb/WdEg=;
+        b=twDphUHe1CI+p7UV8Yq0Ks8jMSwqzOv5pWkNgKMZ9wAPb3L22E+ndhlVlE0JkqvgzO
+         4lXMl55twZwFIxkdo/oaCqfZc4XhZJsVJV8qXxaTTWziobFgrChXDHg3ebtvyFyLttSi
+         FlUcciEAGmJ1A+UwfLMFxHQrLhkArP+rc9lgk0QvlasnK4zlB5UV8C0fvcRrLKTl9HLm
+         G+nfq/Jtx6tq2L1o5oIB4cfMMl9EJisH2WtfSAbxxb5kbYbDX9Hl8YmfHZLZ+CPFR1uA
+         RXreiREeVWaWkrOpvy6vHlTgIcuDz6l9ueRSOAGCwBiyu1GBZbtPmHegm4Uk2PmTseBr
+         PIMw==
+X-Forwarded-Encrypted: i=1; AJvYcCVMuEI6IyX0d65oykVOM81R1w/vb8vC43eECxR8QnXt94xtrzUKqOq9W+tFF0BWwD9fUSE4AeDX1cL/4SAfWSd1@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHvXaaY0z1hEZ6bsHlsLGHEFUsEPSP/gP28vLn7Cm76GKqFgt/
+	WAONVxMoGltXUmXxNzWwEEu++XqHDdPoQEoblThYMVNnCj4FLWydP9LBjhRI7OJh6ZiYwU+Iuat
+	n
+X-Google-Smtp-Source: AGHT+IGpLtQq0H5iCUdoOPsdCAt5VRS4YQpvIHWiOc6SQmamTL+NGw8aOW9RqwiZ2NDkrnrpMD7IjSLJbok=
+X-Received: from pjbpv17.prod.google.com ([2002:a17:90b:3c91:b0:301:2679:9aa])
+ (user=yabinc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:e7c8:b0:2f4:432d:250d
+ with SMTP id 98e67ed59e1d1-30b3a6715b7mr207404a91.21.1746641629056; Wed, 07
+ May 2025 11:13:49 -0700 (PDT)
+Date: Wed,  7 May 2025 11:13:46 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.49.0.1045.g170613ef41-goog
+Message-ID: <20250507181346.1892103-1-yabinc@google.com>
+Subject: [PATCH v4] perf: Allocate non-contiguous AUX pages by default
+From: Yabin Cui <yabinc@google.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, 
+	James Clark <james.clark@linaro.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Liang Kan <kan.liang@linux.intel.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+	Yabin Cui <yabinc@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_111127_142019_8FB62DA8 
-X-CRM114-Status: GOOD (  19.41  )
+X-CRM114-CacheID: sfid-20250507_111350_680622_034B32F8 
+X-CRM114-Status: GOOD (  22.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,80 +96,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 08, 2025 at 12:45:28AM +0900, Chen-Yu Tsai wrote:
->On Wed, May 7, 2025 at 4:56 AM Michael Klein <michael@fossekall.de> wrote:
->>
->> The Bananapi M1 has three LEDs connected to the RTL8211E ethernet PHY.
->> Add the corresponding nodes to the device tree.
->
->I see from old emails that this was supposed to be updated? And if you
->didn't, then his patch should be marked as a "RESEND", so tooling doesn't
->get confused and ignore it.
+perf always allocates contiguous AUX pages based on aux_watermark.
+However, this contiguous allocation doesn't benefit all PMUs. For
+instance, ARM SPE and TRBE operate with virtual pages, and Coresight
+ETR allocates a separate buffer. For these PMUs, allocating contiguous
+AUX pages unnecessarily exacerbates memory fragmentation. This
+fragmentation can prevent their use on long-running devices.
 
-Thank you for the reminder. Yes, the commit message was supposed to be 
-updated. I'll follow up.
+This patch modifies the perf driver to be memory-friendly by default,
+by allocating non-contiguous AUX pages. For PMUs requiring contiguous
+pages (Intel BTS and some Intel PT), the existing
+PERF_PMU_CAP_AUX_NO_SG capability can be used. For PMUs that don't
+require but can benefit from contiguous pages (some Intel PT), a new
+capability, PERF_PMU_CAP_AUX_PREFER_LARGE, is added to maintain their
+existing behavior.
 
-Michael
+Signed-off-by: Yabin Cui <yabinc@google.com>
+---
+Changes since v3:
+Add comments and a local variable to explain max_order value
+changes in rb_alloc_aux().
 
->I'll wait a couple days in case anyone else wants to take a look.
->
->ChenYu
->
->> Signed-off-by: Michael Klein <michael@fossekall.de>
->> ---
->>  .../boot/dts/allwinner/sun7i-a20-bananapi.dts | 27 +++++++++++++++++++
->>  1 file changed, 27 insertions(+)
->>
->> diff --git a/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts b/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts
->> index 46ecf9db2324..d8b362c9661a 100644
->> --- a/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts
->> +++ b/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts
->> @@ -48,6 +48,7 @@
->>
->>  #include <dt-bindings/gpio/gpio.h>
->>  #include <dt-bindings/interrupt-controller/irq.h>
->> +#include <dt-bindings/leds/common.h>
->>
->>  / {
->>         model = "LeMaker Banana Pi";
->> @@ -169,6 +170,32 @@ &ir0 {
->>  &gmac_mdio {
->>         phy1: ethernet-phy@1 {
->>                 reg = <1>;
->> +
->> +               leds {
->> +                       #address-cells = <1>;
->> +                       #size-cells = <0>;
->> +
->> +                       led@0 {
->> +                               reg = <0>;
->> +                               color = <LED_COLOR_ID_GREEN>;
->> +                               function = LED_FUNCTION_LAN;
->> +                               linux,default-trigger = "netdev";
->> +                       };
->> +
->> +                       led@1 {
->> +                               reg = <1>;
->> +                               color = <LED_COLOR_ID_AMBER>;
->> +                               function = LED_FUNCTION_LAN;
->> +                               linux,default-trigger = "netdev";
->> +                       };
->> +
->> +                       led@2 {
->> +                               reg = <2>;
->> +                               color = <LED_COLOR_ID_BLUE>;
->> +                               function = LED_FUNCTION_LAN;
->> +                               linux,default-trigger = "netdev";
->> +                       };
->> +               };
->>         };
->>  };
->>
->> --
->> 2.39.5
->>
->>
->
+Changes since v2:
+Let NO_SG imply PREFER_LARGE. So PMUs don't need to set both flags.
+Then the only place needing PREFER_LARGE is intel/pt.c.
 
+Changes since v1:
+In v1, default is preferring contiguous pages, and add a flag to
+allocate non-contiguous pages. In v2, default is allocating
+non-contiguous pages, and add a flag to prefer contiguous pages.
+
+v1 patchset:
+perf,coresight: Reduce fragmentation with non-contiguous AUX pages for
+cs_etm
+
+ arch/x86/events/intel/pt.c  |  2 ++
+ include/linux/perf_event.h  |  1 +
+ kernel/events/ring_buffer.c | 33 ++++++++++++++++++++++++---------
+ 3 files changed, 27 insertions(+), 9 deletions(-)
+
+diff --git a/arch/x86/events/intel/pt.c b/arch/x86/events/intel/pt.c
+index fa37565f6418..25ead919fc48 100644
+--- a/arch/x86/events/intel/pt.c
++++ b/arch/x86/events/intel/pt.c
+@@ -1863,6 +1863,8 @@ static __init int pt_init(void)
+ 
+ 	if (!intel_pt_validate_hw_cap(PT_CAP_topa_multiple_entries))
+ 		pt_pmu.pmu.capabilities = PERF_PMU_CAP_AUX_NO_SG;
++	else
++		pt_pmu.pmu.capabilities = PERF_PMU_CAP_AUX_PREFER_LARGE;
+ 
+ 	pt_pmu.pmu.capabilities		|= PERF_PMU_CAP_EXCLUSIVE |
+ 					   PERF_PMU_CAP_ITRACE |
+diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+index 0069ba6866a4..56d77348c511 100644
+--- a/include/linux/perf_event.h
++++ b/include/linux/perf_event.h
+@@ -301,6 +301,7 @@ struct perf_event_pmu_context;
+ #define PERF_PMU_CAP_AUX_OUTPUT			0x0080
+ #define PERF_PMU_CAP_EXTENDED_HW_TYPE		0x0100
+ #define PERF_PMU_CAP_AUX_PAUSE			0x0200
++#define PERF_PMU_CAP_AUX_PREFER_LARGE		0x0400
+ 
+ /**
+  * pmu::scope
+diff --git a/kernel/events/ring_buffer.c b/kernel/events/ring_buffer.c
+index 5130b119d0ae..69c90ea1b79a 100644
+--- a/kernel/events/ring_buffer.c
++++ b/kernel/events/ring_buffer.c
+@@ -679,7 +679,19 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
+ {
+ 	bool overwrite = !(flags & RING_BUFFER_WRITABLE);
+ 	int node = (event->cpu == -1) ? -1 : cpu_to_node(event->cpu);
+-	int ret = -ENOMEM, max_order;
++	/*
++	 * True if the PMU needs a contiguous AUX buffer (CAP_AUX_NO_SG) or
++	 * prefers large contiguous pages (CAP_AUX_PREFER_LARGE).
++	 */
++	bool use_contiguous_pages = event->pmu->capabilities & (
++		PERF_PMU_CAP_AUX_NO_SG | PERF_PMU_CAP_AUX_PREFER_LARGE);
++	/*
++	 * Initialize max_order to 0 for page allocation. This allocates single
++	 * pages to minimize memory fragmentation. This is overriden if
++	 * use_contiguous_pages is true.
++	 */
++	int max_order = 0;
++	int ret = -ENOMEM;
+ 
+ 	if (!has_aux(event))
+ 		return -EOPNOTSUPP;
+@@ -689,8 +701,8 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
+ 
+ 	if (!overwrite) {
+ 		/*
+-		 * Watermark defaults to half the buffer, and so does the
+-		 * max_order, to aid PMU drivers in double buffering.
++		 * Watermark defaults to half the buffer, to aid PMU drivers
++		 * in double buffering.
+ 		 */
+ 		if (!watermark)
+ 			watermark = min_t(unsigned long,
+@@ -698,16 +710,19 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
+ 					  (unsigned long)nr_pages << (PAGE_SHIFT - 1));
+ 
+ 		/*
+-		 * Use aux_watermark as the basis for chunking to
+-		 * help PMU drivers honor the watermark.
++		 * If using contiguous pages, use aux_watermark as the basis
++		 * for chunking to help PMU drivers honor the watermark.
+ 		 */
+-		max_order = get_order(watermark);
++		if (use_contiguous_pages)
++			max_order = get_order(watermark);
+ 	} else {
+ 		/*
+-		 * We need to start with the max_order that fits in nr_pages,
+-		 * not the other way around, hence ilog2() and not get_order.
++		 * If using contiguous pages, we need to start with the
++		 * max_order that fits in nr_pages, not the other way around,
++		 * hence ilog2() and not get_order.
+ 		 */
+-		max_order = ilog2(nr_pages);
++		if (use_contiguous_pages)
++			max_order = ilog2(nr_pages);
+ 		watermark = 0;
+ 	}
+ 
 -- 
+2.49.0.1045.g170613ef41-goog
+
 
