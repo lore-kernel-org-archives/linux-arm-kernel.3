@@ -4,83 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F3F9C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 09:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C702C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 09:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5yjlpoRY+0BmH45xvKAtJY6DJ5e/4geRYyQwLKX/qfU=; b=TytliSIZ7R4KNIwmWAO8uhQsDY
-	iwiu5ayYhRfx1M2wh/RIkc+1jIfgmVbMjsAKw+PsY5zwRHPfkHivBojxKSxo0AWf/4XyQKXc2uZNZ
-	B+dLnJX8a+Z5fuDHLn46aiMz6M5r0DYmXelfNj5iDbkCfhtH5lgVHAsqzu0ffZKJZDaCiOgog4k9h
-	PP5HiWB3+pAxWfBztsFAeSmKVsMN/Q3kOMhsaPDUeqrDL/6/VYnJvMKdvbXxXJdaRNfEgR+Wlunyu
-	ZCHEp8Z/9lvjbFPoDTDolLmL+bmn6UiHzVFqb5tmzhMQ2qi5Q6BrEDk8NUF3R7X7ILZJ+LZNAHREe
-	oESJqfpg==;
+	bh=lWDOTgkmNegMcf+NzSoFuj4lkw0AnWVSfjbm/3sNt+Y=; b=CSMjAj+HmMDW1BhRgMq74FEp+6
+	6EOdnafxbO0sh+LUK/E0+khHiQAz5c8xkqiruaRPLOSr0e2XRWc7QsRRfL3zviJVoqaJBn7lx8I5P
+	EHq9b5fJG9Tsv+467yC57qpDLVaIx6zMSf2+NVVVoDOYxwO6salGV7vwFceCXaCwu0daVHx6alBiC
+	T5xE+IIm/hIQ0aChMaRSRnhuX0ebytb1hQlcH7AEJ5FrzvkWkZOYhIjNKguJqhfhAQZLhzh78Uhc3
+	TQeiUY7zeyFO3ixZzMQW6r5Yp0EynfAvsVY1Tif36nPwNHhePw4JGxiieokty1bYKDDKW9tJTvAcg
+	eJbYdx3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCbMU-0000000F0c4-3g4U;
-	Wed, 07 May 2025 09:46:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uCbOP-0000000F0lM-2UbC;
+	Wed, 07 May 2025 09:48:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCami-0000000ErxQ-0KL2
+	id 1uCarK-0000000Et5x-0QVF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 09:09:48 +0000
+	Wed, 07 May 2025 09:14:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8305B629CF;
-	Wed,  7 May 2025 09:09:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25017C4CEE7;
-	Wed,  7 May 2025 09:09:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 461745C54DB;
+	Wed,  7 May 2025 09:12:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C150C4CEE7;
+	Wed,  7 May 2025 09:14:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746608987;
-	bh=NLp8JFDJsOzfYtXeJkQaN/hv+HwjkOYPnkWmlYWTRYw=;
+	s=k20201202; t=1746609273;
+	bh=bMRotR6sHrHiFqd8cq3cCqa6cfuObmO7cwP+0halJek=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=DymS85hPUzNiC/r88JR99TxNB6pkG4E+GO492ckDnEoz2gJ2WURqRCglDqtrQiFI9
-	 7DW2vdJkItnjQeJJ2WUePiED3oO5qJr4l3hADJQ8QyaydobKd4rEjttCwXaGeZ85U1
-	 5WbYsAwR9pLQyT1jbswC/YYk+c+uD3/3Ipzlj8W9yRsHjHAglRZgNf1OEFpalyvIh9
-	 y9SDv2sgehE5n2rZL2hd28EpxzhT5afNJ04BpLREhr69O+O2BWAE/QYTzv7xu9W+Qv
-	 IKkbu7Ai68twjAUDpH7Zbqg8V4X5rBU2uuvi1UVNXniDGRg49p33Skmby+vyFEg2jc
-	 p9bYRKHqv/H6A==
+	b=WjzGV6yCVCGZZCdYD4aRpjcWB/HhiFulV1TmDLmdZL+ZT2BeGwlIERfi9kHcmfUSy
+	 AfEUmYKO3x8q5rkUL3rNuR2keeslMT7PXyIWgwptyamIA4GK93lljdluNf1+8fdx0P
+	 hv++GqOsMtg4TVQV/UwM+dxd+CjU3rAvJHgtI5+N1iDgmyaPkK3F8RSLK6DxHhmFTs
+	 rBf/6R2h0wL8+e2h1Yq/yfvHHMYH1NNHCwklwkptBRu7sbrYvszX3UCfzAPgbi4n1o
+	 pwCzJImD56wpoxOBEN6JNNBX9vWJKzwMACaVIVDJeu1oeLl/ovm3KWaGTbVsS3TWOS
+	 F4HG7vMTomWnA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uCame-00CY8v-Ra;
-	Wed, 07 May 2025 10:09:44 +0100
-Date: Wed, 07 May 2025 10:09:44 +0100
-Message-ID: <86bjs4hjmv.wl-maz@kernel.org>
+	id 1uCarH-00CYHp-2W;
+	Wed, 07 May 2025 10:14:31 +0100
+Date: Wed, 07 May 2025 10:14:29 +0100
+Message-ID: <86a57ohjey.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
+	Catalin Marinas
+ <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Sascha Bischoff
+ <sascha.bischoff@arm.com>,
 	Timothy Hayes <timothy.hayes@arm.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	"Liam R.\
+ Howlett" <Liam.Howlett@oracle.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Jiri Slaby <jirislaby@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 00/25] Arm GICv5: Host driver implementation
-In-Reply-To: <aBsRvOzse7z39dkh@lpieralisi>
+Subject: Re: [PATCH v3 20/25] irqchip/gic-v5: Add GICv5 PPI support
+In-Reply-To: <87zffpn5rk.ffs@tglx>
 References: <20250506-gicv5-host-v3-0-6edd5a92fd09@kernel.org>
-	<86frhhhm18.wl-maz@kernel.org>
-	<aBsRvOzse7z39dkh@lpieralisi>
+	<20250506-gicv5-host-v3-20-6edd5a92fd09@kernel.org>
+	<87zffpn5rk.ffs@tglx>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, sascha.bischoff@arm.com, timothy.hayes@arm.com, Liam.Howlett@oracle.com, mark.rutland@arm.com, jirislaby@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+X-SA-Exim-Rcpt-To: tglx@linutronix.de, lpieralisi@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, sascha.bischoff@arm.com, timothy.hayes@arm.com, Liam.Howlett@oracle.com, mark.rutland@arm.com, jirislaby@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250507_021434_193130_0C8B6C01 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,93 +102,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 07 May 2025 08:54:36 +0100,
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+On Tue, 06 May 2025 16:00:31 +0100,
+Thomas Gleixner <tglx@linutronix.de> wrote:
 > 
-> On Tue, May 06, 2025 at 03:05:39PM +0100, Marc Zyngier wrote:
-> > On Tue, 06 May 2025 13:23:29 +0100,
-> > Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> > > 
-> > > =============
-> > > 2.5 GICv5 IWB
-> > > =============
-> > > 
-> > > The IWB driver has been dropped owing to issues encountered with
-> > > core code DOMAIN_BUS_WIRED_TO_MSI bus token handling:
-> > > 
-> > > https://lore.kernel.org/lkml/87tt6310hu.wl-maz@kernel.org/
-> > 
-> > This problem does not have much to do with DOMAIN_BUS_WIRED_TO_MSI.
-> > 
-> > The issues are that:
-> > 
-> > - the core code calls into the .prepare domain on a per-interrupt
-> >   basis instead of on a per *device* basis. This is a complete
-> >   violation of the MSI API, because .prepare is when you are supposed
-> >   to perform resource reservation (in the GICv3 parlance, that's ITT
-> >   allocation + MAPD command).
-> > 
-> > - the same function calls .prepare for a *single* interrupt,
-> >   effectively telling the irqchip "my device has only one interrupt".
-> >   Because I'm super generous (and don't like wasting precious bytes),
-> >   I allocate 32 LPIs at the minimum. Only snag is that I could do with
-> >   300+ interrupts, and calling repeatedly doesn't help at all, since
-> >   we cannot *grow* an ITT.
-> 
-> On the IWB driver code that I could not post I noticed that it is
-> true that the .prepare callback is called on a per-interrupt basis
-> but the vector size is the domain size (ie number of wires) which
-> is correct AFAICS, so the ITT size should be fine I don't get why
-> it would need to grow.
+> How does this test distinguish between LEVEL_LOW and LEVEL_HIGH? It only
+> tests for level, no? So the test is interesting at best ...
 
-Look again. The only reason you are getting something that *looks*
-correct is that its_pmsi_prepare() has this nugget:
-
-	/* Allocate at least 32 MSIs, and always as a power of 2 */
-	nvec = max_t(int, 32, roundup_pow_of_two(nvec));
-
-and that the IWB is, conveniently, in sets of 32. However, the caller
-of this function (__msi_domain_alloc_irqs()) passes a  nvec value that
-is always exactly *1* when allocating an interrupt.
-
-So you're just lucky that I picked a minimum ITT size that matches the
-IWB on your model. Configure your IWB to be, let's say, 256 interrupts
-and use the last one, and you'll have a very different behaviour.
-
-> The difference with this series is that on v3 LPIs are allocated
-> on .prepare(), we allocate them on .alloc().
-
-Absolutely not. Even on v3, we never allocate LPIs in .prepare(). We
-allocate the ITT, perform the MAPD, and that's it. That's why it's
-called *prepare*.
-
-> So yes, calling .prepare on a per-interrupt basis looks like a bug
-> but if we allow reusing a deviceID (ie the "shared" thingy) it could
-> be harmless.
-
-Harmless? No. It is really *bad*. It means you lose any sort of sane
-tracking of what owns the ITT and how you can free things. Seeing a
-devid twice is the admission that we have no idea of what is going on.
-
-GICv3 is already in that sorry state, but I am hopeful that GICv5 can
-be a bit less crap.
-
-> > So this code needs to be taken to the backyard and beaten into shape
-> > before we can make use of it. My D05 (with its collection of MBIGENs)
-> > only works by accident at the moment, as I found out yesterday, and
-> > GICv5 IWB is in the same boat, since it reuses the msi-parent thing,
-> > and therefore the same heuristic.
-> > 
-> > I guess not having the IWB immediately isn't too big a deal, but I
-> > really didn't expect to find this...
-> 
-> To be honest, it was expected. We found these snags while designing
-> the code (that explains how IWB was structured in v1 - by the way)
-> but we didn't know if the behaviour above was by construction, we
-> always thought "we must be making a mistake".
-
-Then why didn't you report it? We could have caught this very early
-on, before the fscked-up code was in a stable release...
+There is no distinction between HIGH and LOW, RISING and FALLING, in
+any revision of the GIC architecture.
 
 	M.
 
