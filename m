@@ -4,109 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69E70C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 04:58:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB4CC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 05:01:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dA3+qKTRUEu5/4yeTc3a9a8EHax1eGi/fCguPSTlip0=; b=xUeidpMG9H0N73lReF0uw9zThT
-	eii6jjQmU0PP7kQt5jzSXN3RFCSYN0TirLx9MV7STQcaX/tQ7pnlNp+SPtxZbdzQu3d136ueBZr7Z
-	GcrXUI1nWEr4DjN0zXwEFxcWtZ1icq4EtWypG7q7HoDkBMVEBfbm9sw8P+Ou+P7J6oAS5pcEQ2XpX
-	mBrBf60+F+KpGYHGD9BbXvMSfZ12vrEyOU+GJP77LyhXS8QChzAQgWkEc2RIX9d0nMAnxl+Zh0UV3
-	l2R/9BP6sBmptHeXfL1QsNBRi3HTTtqm2++LLgqT79Yn2QXa89mz9PdWQr3IiRIlE10I5YOfq3Twx
-	JVOZemqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2Om2K7NlYvLRzOhsIO8jYO3DWzMyXxpUINZ4XmAMLyc=; b=v1pNBB1GM4h2cVutaovB0/9g2Z
+	v+oVO2+QHNUVlzXu5i8blQZBumJcOGUqnq3FWqLm9SVHbntntwIDD20htalpdrhe8e4JbJXEvBo/1
+	Ec6GKArgFeP7/iN0ysbHcFfWY34bdZm1ziE41Q1L14zpOsZa2QzPjBVhjQCI9mjPwV6Ultd7gFzP+
+	cqkD3meCbmaUUWfFSyWXTF8eYX0zvq4pgQleAGTVIMUXSutiSHN2ot0D7k1vGn5csO4e6dKWAevWg
+	Bp7X0XJiKu+NHa/h+tWaL8kzCkIl8XSy3SX/yTlvAQ86ZlFBAb7AEyH8ToF0lsZzoIM1kLwU2tUkB
+	fHaJniSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCWrl-0000000ED8B-2eAK;
-	Wed, 07 May 2025 04:58:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uCWu3-0000000EDPP-1WAl;
+	Wed, 07 May 2025 05:01:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCWpD-0000000ECtz-2pUg
+	id 1uCWs5-0000000EDCn-3Ztu
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 07 May 2025 04:59:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=2Om2K7NlYvLRzOhsIO8jYO3DWzMyXxpUINZ4XmAMLyc=; b=W+QI2pJ1sniphv7CvbFsm2iB1i
+	56xmqTmyNCcDWumrqw8TuMRmSSfS306RlhyQj3S33WRs+MUszpVpP4yZxnNIjWgvkEjo++3VTzAq+
+	SrNNkGdkgyVUKWOlRHxArBJZyL06OrcCJZwg+y8ww7d7QvuCf+BMm0pawAf3pke4wz/OG9W/iDF47
+	baxaWY0llkBdi1mePySSebVVUw1zT05itKUkQ4GItnONE6A8jpiRGYx2YuTzULyripwQ28nkqL95L
+	3Phs70pJ9zAzGe7dBsB9bM6Qo0fJW4UFFvUng5Lapme3b2QZcBHEVHBpOA8Ef/LF/7p44H2fCNdjq
+	owfj0r8w==;
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uCWrw-0000000Fm2v-2Clz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 04:56:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AF8116116E;
-	Wed,  7 May 2025 04:56:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D9E8C4CEE7;
-	Wed,  7 May 2025 04:56:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746593766;
-	bh=QCuW5NH1T2M/o6Jr1yHAeqbYOFeEHiPe4yZYKvfSHGo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WCJxrTDPUnAJFhAuHRhHtcLnLUT+xJ3eomn5H/uqToMWGhKchJzKROEVT+zjcHBFI
-	 B8yOEYaRDvlInEiUibdo9Ax6X5/WBHVa+QDj/i23rDX6IiS4oZTVHALkRAylJm5PdR
-	 Ho39ZHI+xQ5v/mpJ5l+8x27rz3gAh5ZFPDNksxRjbZoN7UcdWI3syxNT/qiTTQVFsH
-	 Y380oBubxEkJ1GLOGAGzgF1CbMayWy8k/NtdyG2XSrhBHYat56syjg1dcixz621IDs
-	 cAeSF9sei2jM9slPn6jOrTSchaXSjhRAFRznq0QlOKhGk/0t3FuTpPl/aytWBtTvJw
-	 +Ggo+Ahk/4Q7g==
-Message-ID: <128b0ef7-cf0f-41d6-855a-cb3ea70eca18@kernel.org>
-Date: Wed, 7 May 2025 06:56:02 +0200
+	Wed, 07 May 2025 04:59:03 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5471H92D018448;
+	Wed, 7 May 2025 04:58:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=2Om2K7NlYvLRzOhsIO8jYO
+	3DWzMyXxpUINZ4XmAMLyc=; b=kvO7oVJ3njDlZ1TxIs0M2Z5Wyxou6ZXBhhpzgo
+	U/7aUVWZrjx51MP+f95H6ZrFOkfJQ2aZonLfFnfwfDBHVkAdF0XeIS04h3u1f0qx
+	FG/daGRFFGUVr1uldnoclsOzRv7z9nD4wcY7rXn4wl1oEUcZQBo96bXCsOfZOV0P
+	U18v2EYnWvClmDLNF3e3pOTcPb2+sQLMc7MUv+mkDOPhT6a9pqwQikJ0dRDoe3QM
+	aQDZ/ADfCwWxWbYIflzedDNANh89j8gOFUpYfs4tgalXnJQdW/lPUrYAwxu2ySmg
+	t71uKEJNgKtOicEmnQtuRp/60Ha0rO3IeO2nGYHIjn0fvIxQ==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46f5tbcem0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 07 May 2025 04:58:27 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5474wQcL024060
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 7 May 2025 04:58:26 GMT
+Received: from hyiwei-gv.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Tue, 6 May 2025 21:58:18 -0700
+From: Huang Yiwei <quic_hyiwei@quicinc.com>
+To: <will@kernel.org>, <rafael@kernel.org>, <lenb@kernel.org>,
+        <james.morse@arm.com>, <tony.luck@intel.com>, <bp@alien8.de>
+CC: Huang Yiwei <quic_hyiwei@quicinc.com>, <xueshuai@linux.alibaba.com>,
+        <quic_aiquny@quicinc.com>, <quic_satyap@quicinc.com>,
+        <linux-acpi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <kernel@quicinc.com>,
+        <kernel@oss.qualcomm.com>
+Subject: [PATCH v2] firmware: SDEI: Allow sdei initialization without ACPI_APEI_GHES
+Date: Wed, 7 May 2025 12:57:57 +0800
+Message-ID: <20250507045757.2658795-1-quic_hyiwei@quicinc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/6] dt-bindings: mfd: add bindings for QIXIS CPLD
-To: Ioana Ciornei <ioana.ciornei@nxp.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250430153634.2971736-1-ioana.ciornei@nxp.com>
- <20250430153634.2971736-2-ioana.ciornei@nxp.com>
- <20250502-meticulous-bulky-wildebeest-c1a8b6@kuoka>
- <wna3loahthqbn5hnw2pbt3yznmzzv3zppi7f2nblvq3t22jdc2@7cse4r4p6q5z>
- <959b56f0-ff63-485b-86eb-96ae32bdeb88@kernel.org>
- <miuxxgv73fmsl5plcoso73dk6bnuwgmlydzupnb7fcz6ub72ra@dro4cqbn67jt>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <miuxxgv73fmsl5plcoso73dk6bnuwgmlydzupnb7fcz6ub72ra@dro4cqbn67jt>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: GLsHI0RIUWKu5gdmYMBz8SANGRwsj428
+X-Proofpoint-GUID: GLsHI0RIUWKu5gdmYMBz8SANGRwsj428
+X-Authority-Analysis: v=2.4 cv=doXbC0g4 c=1 sm=1 tr=0 ts=681ae873 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=dt9VzEwgFbYA:10 a=SRrdq9N9AAAA:8 a=COk6AnOGAAAA:8
+ a=fApEDmPMNfUvMO555Z0A:9 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTA3MDA0NCBTYWx0ZWRfX6Rn8YeXmmXlh
+ 8GpKTqm0o0g3oJnIqsBw6tDxkPEc5S/AhFbfATzlTfFODfY9J+SOQsbHwKp2wcPhVwM1Ef/76mw
+ sJ3IWTHtCxzADK8ZOvz3XOpZQc64M4AAkEmSvcSf3DR0rCIA4pwAP9A5A7un16hIiKhqSrCK7zN
+ vJ+sk43RiOfAfB6MzfMNYBy+IC5fGgfqzky50CUkkzQ5YBRkGyF+tZUrerFnAKYgEyBROwYefmM
+ EzzWBwmEEvhdKKsi/igvIw7suB+WNh0Hops4sbqEBLKvnD/Dp4cTF6Pk/2VEWgaQfcpGwvuiGWx
+ fbCKcXAFgH+82iA/xnLqa8xa+Skr87yIAReETKbeJRN4xoR88ctHp/yLEa8XG9MvlqEp4dJMjzB
+ WyrihCYGNNEL8MdyZ+JYsEvU89n0HJADbBH1Yk9JREVL2h1CpnASDc6qGBHvweO9W+PPn+pD
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-07_01,2025-05-06_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 bulkscore=0 adultscore=0 malwarescore=0 phishscore=0
+ mlxlogscore=540 impostorscore=0 clxscore=1015 mlxscore=0 priorityscore=1501
+ spamscore=0 lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2505070044
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250507_055901_992777_0A9A78EB 
+X-CRM114-Status: GOOD (  20.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,79 +125,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/05/2025 16:16, Ioana Ciornei wrote:
-> On Tue, May 06, 2025 at 04:05:46PM +0200, Krzysztof Kozlowski wrote:
->> On 06/05/2025 15:57, Ioana Ciornei wrote:
->>> On Fri, May 02, 2025 at 09:01:59AM +0200, Krzysztof Kozlowski wrote:
->>>> On Wed, Apr 30, 2025 at 06:36:29PM GMT, Ioana Ciornei wrote:
->>>>> This adds device tree bindings for the board management controller -
->>>>> QIXIS CPLD - found on some Layerscape based boards such as LX2160A-RDB,
->>>>> LX2160AQDS, LS1028AQDS etc.
->>>>>
->>>>> Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
->>>>> ---
->>>>>  .../bindings/mfd/fsl,qixis-i2c.yaml           | 65 +++++++++++++++++++
->>>>>  1 file changed, 65 insertions(+)
->>>>>  create mode 100644 Documentation/devicetree/bindings/mfd/fsl,qixis-i2c.yaml
->>>>>
->>>>> diff --git a/Documentation/devicetree/bindings/mfd/fsl,qixis-i2c.yaml b/Documentation/devicetree/bindings/mfd/fsl,qixis-i2c.yaml
->>>>> new file mode 100644
->>>>> index 000000000000..562878050916
->>>>> --- /dev/null
->>>>> +++ b/Documentation/devicetree/bindings/mfd/fsl,qixis-i2c.yaml
->>>>
->>>> Filename matching compatible.
->>>
->>> How to choose one if there are multiple compatible strings?
->>
->> The fallback or the oldest or the lowest number or whichever you prefer
->> as a base.
->>
->>>
->>>>
->>>>> @@ -0,0 +1,65 @@
->>>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>>>> +%YAML 1.2
->>>>> +---
->>>>> +$id: http://devicetree.org/schemas/mfd/fsl,qixis-i2c.yaml
->>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml
->>>>> +
->>>>> +title: NXP's QIXIS CPLD board management controller
->>>>> +
->>>>> +maintainers:
->>>>> +  - Ioana Ciornei <ioana.ciornei@nxp.com>
->>>>> +
->>>>> +description: |
->>>>> +  The board management controller found on some Layerscape boards contains
->>>>> +  different IP blocks like GPIO controllers, interrupt controllers, reg-muxes
->>>>> +  etc.
->>>>> +
->>>>> +properties:
->>>>> +  compatible:
->>>>> +    enum:
->>>>> +      - fsl,lx2160a-qds-qixis-i2c
->>>>> +      - fsl,lx2162a-qds-qixis-i2c
->>>>> +      - fsl,ls1028a-qds-qixis-i2c
->>>>
->>>> Keep alphabetical order.
->>>>
->>>> What is actual device name? I2C? Is this an I2C controller or device?
->>
->> I assume you will then drop the redundant part.
-> 
-> Ok, I will drop the i2c part. Are you ok with the below compatible
-> strings?
-> 
-> 	- fsl,lx2160a-qds-qixis-cpld
-> 	- fsl,lx2162a-qds-qixis-cpld
-> 	- fsl,ls1028a-qds-qixis-cpld
+SDEI usually initialize with the ACPI table, but on platforms where
+ACPI is not used, the SDEI feature can still be used to handle
+specific firmware calls or other customized purposes. Therefore, it
+is not necessary for ARM_SDE_INTERFACE to depend on ACPI_APEI_GHES.
 
+In commit dc4e8c07e9e2 ("ACPI: APEI: explicit init of HEST and GHES
+in acpi_init()"), to make APEI ready earlier, sdei_init was moved
+into acpi_ghes_init instead of being a standalone initcall, adding
+ACPI_APEI_GHES dependency to ARM_SDE_INTERFACE. This restricts the
+flexibility and usability of SDEI.
 
-Not really, because you keep ignoring comments. What is the device name?
-Can qixis be anything else than i2c or cpld? Use that name for the
-compatible.
+This patch corrects the dependency in Kconfig and splits sdei_init()
+into two separate functions: sdei_init() and acpi_sdei_init().
+sdei_init() will be called by arch_initcall and will only initialize
+the platform driver, while acpi_sdei_init() will initialize the
+device from acpi_ghes_init() when ACPI is ready. This allows the
+initialization of SDEI without ACPI_APEI_GHES enabled.
 
+Fixes: dc4e8c07e9e2 ("ACPI: APEI: explicit init of HEST and GHES in apci_init()")
+Cc: Shuai Xue <xueshuai@linux.alibaba.com>
+Signed-off-by: Huang Yiwei <quic_hyiwei@quicinc.com>
+---
+ drivers/acpi/apei/Kconfig   |  1 +
+ drivers/acpi/apei/ghes.c    |  2 +-
+ drivers/firmware/Kconfig    |  1 -
+ drivers/firmware/arm_sdei.c | 11 ++++++++---
+ include/linux/arm_sdei.h    |  4 ++--
+ 5 files changed, 12 insertions(+), 7 deletions(-)
 
-Best regards,
-Krzysztof
+diff --git a/drivers/acpi/apei/Kconfig b/drivers/acpi/apei/Kconfig
+index 3cfe7e7475f2..070c07d68dfb 100644
+--- a/drivers/acpi/apei/Kconfig
++++ b/drivers/acpi/apei/Kconfig
+@@ -23,6 +23,7 @@ config ACPI_APEI_GHES
+ 	select ACPI_HED
+ 	select IRQ_WORK
+ 	select GENERIC_ALLOCATOR
++	select ARM_SDE_INTERFACE if ARM64
+ 	help
+ 	  Generic Hardware Error Source provides a way to report
+ 	  platform hardware errors (such as that from chipset). It
+diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
+index 289e365f84b2..0f3c663c1b0a 100644
+--- a/drivers/acpi/apei/ghes.c
++++ b/drivers/acpi/apei/ghes.c
+@@ -1715,7 +1715,7 @@ void __init acpi_ghes_init(void)
+ {
+ 	int rc;
+ 
+-	sdei_init();
++	acpi_sdei_init();
+ 
+ 	if (acpi_disabled)
+ 		return;
+diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
+index aadc395ee168..7df19d82aa68 100644
+--- a/drivers/firmware/Kconfig
++++ b/drivers/firmware/Kconfig
+@@ -31,7 +31,6 @@ config ARM_SCPI_PROTOCOL
+ config ARM_SDE_INTERFACE
+ 	bool "ARM Software Delegated Exception Interface (SDEI)"
+ 	depends on ARM64
+-	depends on ACPI_APEI_GHES
+ 	help
+ 	  The Software Delegated Exception Interface (SDEI) is an ARM
+ 	  standard for registering callbacks from the platform firmware
+diff --git a/drivers/firmware/arm_sdei.c b/drivers/firmware/arm_sdei.c
+index 3e8051fe8296..71e2a9a89f6a 100644
+--- a/drivers/firmware/arm_sdei.c
++++ b/drivers/firmware/arm_sdei.c
+@@ -1062,13 +1062,12 @@ static bool __init sdei_present_acpi(void)
+ 	return true;
+ }
+ 
+-void __init sdei_init(void)
++void __init acpi_sdei_init(void)
+ {
+ 	struct platform_device *pdev;
+ 	int ret;
+ 
+-	ret = platform_driver_register(&sdei_driver);
+-	if (ret || !sdei_present_acpi())
++	if (!sdei_present_acpi())
+ 		return;
+ 
+ 	pdev = platform_device_register_simple(sdei_driver.driver.name,
+@@ -1081,6 +1080,12 @@ void __init sdei_init(void)
+ 	}
+ }
+ 
++static int __init sdei_init(void)
++{
++	return platform_driver_register(&sdei_driver);
++}
++arch_initcall(sdei_init);
++
+ int sdei_event_handler(struct pt_regs *regs,
+ 		       struct sdei_registered_event *arg)
+ {
+diff --git a/include/linux/arm_sdei.h b/include/linux/arm_sdei.h
+index 255701e1251b..f652a5028b59 100644
+--- a/include/linux/arm_sdei.h
++++ b/include/linux/arm_sdei.h
+@@ -46,12 +46,12 @@ int sdei_unregister_ghes(struct ghes *ghes);
+ /* For use by arch code when CPU hotplug notifiers are not appropriate. */
+ int sdei_mask_local_cpu(void);
+ int sdei_unmask_local_cpu(void);
+-void __init sdei_init(void);
++void __init acpi_sdei_init(void);
+ void sdei_handler_abort(void);
+ #else
+ static inline int sdei_mask_local_cpu(void) { return 0; }
+ static inline int sdei_unmask_local_cpu(void) { return 0; }
+-static inline void sdei_init(void) { }
++static inline void acpi_sdei_init(void) { }
+ static inline void sdei_handler_abort(void) { }
+ #endif /* CONFIG_ARM_SDE_INTERFACE */
+ 
+-- 
+2.25.1
+
 
