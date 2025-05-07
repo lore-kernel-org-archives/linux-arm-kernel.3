@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C88A9C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 07:46:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1243C3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 07:48:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t6GjtvK5QcizAAMwwtkZqX6Sa7F/dtXsO8N6H16bqMg=; b=LG1iIt9ZCpSr+QDZmn1MhkBecv
-	s6BumAfeDE4ySZx9PYYBwFEIxZe48KwGP8FYmcTqO1txjzKEDA5tkxthXqhqvlLu4zmYBS8UEKCin
-	BBj2wr7ES+BYJTmYrrDXfIojrtrz131kMs+6+/SviPGPHXTV3XL6J4WO9fEa6WqVsKG9eGizmhKs4
-	QPlGoVEin+yjG8A/XgjRu46uNi85Y5ZmF0CIYXIJqhGbMmcql77m8q3fkfqKQyRaI3cSkTrJy2fvd
-	z0FfF6lR85waYcK8iYjGpErPRfQiF0ZL50YPXRQLJ+Qii6TDqEvpf0WXzTR80vb/kmGtK3MBJ8Gcy
-	3zRrjCXw==;
+	bh=7kCyedwKlclPXWFakTIMdbfTCP/xp1VL2PMtgtkts9U=; b=TksVBKvm1KFZpOhRLvhh5/oMpt
+	FdNpCfgYcLpOA8zCAG3BVdVXgQqpA7LLK50eV4pa/rPlhNgPpdcw66IdrfcHGZQUsktKFIKaPSXRe
+	KHnM4rhlcIcgjbfWu45FDcF5WaZMl4vHBGfy4N5g/gwLDpSDiCaDkxmnadlXec+8Htzq891swDbv8
+	erG3SB5sZS0QPjYJBvadEpjOwM4TvlmVS6xNZ0GOWQz5a7b8S9WQgpllhhC0r1pYpMI8fUO+2ebYZ
+	M9Iq/x8+hBx6kvmRfbF22J1jjbEhY4jzjpZSghOnJMY0viaotUTS94opsMysZg+SeK7eKl5p7UIFh
+	LeQhbFew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCZU1-0000000Eaf7-27Z4;
-	Wed, 07 May 2025 07:46:25 +0000
+	id 1uCZVw-0000000Eb1u-11io;
+	Wed, 07 May 2025 07:48:24 +0000
 Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCYyU-0000000ETXY-3cYp
+	id 1uCYyX-0000000ETYp-1IJR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 07:13:52 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPA id 9E39D43B4B;
-	Wed,  7 May 2025 07:13:47 +0000 (UTC)
+	Wed, 07 May 2025 07:13:54 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPA id 8E07343B5E;
+	Wed,  7 May 2025 07:13:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1746602029;
+	t=1746602031;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=t6GjtvK5QcizAAMwwtkZqX6Sa7F/dtXsO8N6H16bqMg=;
-	b=LPE5LH+cYoOr7cXHSX4BPj27RJ3VIVtufli/fceDSpd4Mc/Rkht9iLgDN10rouR5aIhr36
-	2sdK1hpoqWyyA9z3Z2H+xWw43AXZpEKdQE3R8Rnbf8H4irp8li9jXXUpU+d7G7x0wsJAQh
-	Qw38D/RkzM2cLFh2W7O2U3oB3ROHVjVJhmTdYx/QLJuDEAKGB2dn3X13XRwAw6psAdPl7n
-	o+4jVrjnn8hxzS4EBC+LDDNK7SUy0GGblBb9hpwMDmgbNxXGYb4/DLi4pJu/9rlEdbFXmn
-	+gLFiA4IzTylS0xHvI+h4q22c+k6yNRcTgmLUKh/YL3nhkOgGSDfPFEVROlu8Q==
+	bh=7kCyedwKlclPXWFakTIMdbfTCP/xp1VL2PMtgtkts9U=;
+	b=LPbgTH1Y2HVN9S4wvdRtYOBK9w+2G3ia4wYPJU8oBkSMWsurfeynjdg9yPXIDpCk8nf9Se
+	8b6Lt/R5/he9zv22lPeE8ZA89vvk73Ns7CzuKR2SXIQKPk3DXmJ1NzsZVBonXdz9k2SQfb
+	CllxBA0Dpw38So/lvJpIY19ShX8LCHCjPDfCH4S+ceB4zLQUcWl6pSWwWqmwa//E8uIbY3
+	9YkjOon6iwXM70R7IQr+F1yOMuzwfptVmzfiyQ96NHYmT44o1JnjOHzdn+jfJRivzOWUKQ
+	QhfC/Jed6JSquw+XtOhqnlXt3n8Z9imQEQXMnrbZp3sFFlucWUmuEQKsBpHXqg==
 From: Herve Codina <herve.codina@bootlin.com>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -84,9 +84,9 @@ Cc: Wolfram Sang <wsa@kernel.org>,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: [PATCH v2 12/26] PCI: of: Set fwnode device of newly created PCI device nodes
-Date: Wed,  7 May 2025 09:12:54 +0200
-Message-ID: <20250507071315.394857-13-herve.codina@bootlin.com>
+Subject: [PATCH v2 13/26] PCI: of: Remove fwnode_dev_initialized() call for a PCI root bridge node
+Date: Wed,  7 May 2025 09:12:55 +0200
+Message-ID: <20250507071315.394857-14-herve.codina@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250507071315.394857-1-herve.codina@bootlin.com>
 References: <20250507071315.394857-1-herve.codina@bootlin.com>
@@ -94,12 +94,12 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvkeeivdefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepheffiefgjeeuleeuueffleeufefglefhjefhheeigedukeetieeltddthfffkeffnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgepieenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehlohgtrghlhhhoshhtrdhlohgtrghlughomhgrihhnpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeegvddprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrkhhrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrh
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvkeeivdefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepheffiefgjeeuleeuueffleeufefglefhjefhheeigedukeetieeltddthfffkeffnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgepleenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehlohgtrghlhhhoshhtrdhlohgtrghlughomhgrihhnpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeegvddprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrkhhrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrh
  hgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomh
 X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_001351_029882_6107A9D1 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20250507_001353_475785_FB5D354D 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,45 +114,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Device-tree node can be created when CONFIG_PCI_DYNAMIC_OF_NODES. Those
-node are created and filled based on PCI core information but the
-fwnode device field is not set.
+During the instantiation of devices described by a device-tree overlay
+applied on a PCI device, devlink displays the following kind of debug
+messages instead of creating the expected links:
+   'Not linking xxxx - might never become dev'
 
-When later an overlay is applied, this consuses fw_devlink. Indeed,
-without any device attached to the node, fw_devlink considers that this
-node will never become a device. When this node is pointed as a
-supplier, devlink looks at its ancestors in order to find a node with a
-device that could be used as the supplier.
+Without those expected links, the device removal order cannot be
+correct.
 
-In the PCI use case, this leads to links that wrongly use the PCI root
-bridge device as the supplier instead of the expected PCI device.
+Those debug traces are printed by fw_devlink_create_devlink(). In our
+use case, they are all printed because the supplier of the link has at
+least one of its ancestor with its fwnode flag FWNODE_FLAG_INITIALIZED
+set.
 
-Setting the fwnode device to the device of the PCI device allows devlink
-to use this device as a supplier and so, correct links are created.
+The culprit ancestor is the PCI root bridge.
+
+The fwnode related to the PCI root bridge is created dynamically by the
+of_pci_make_host_bridge_node() function. During this creation
+fwnode_dev_initialized() is called which set the FWNODE_FLAG_INITIALIZED
+flag.
+
+Calling fwnode_dev_initialized() tells devlink that the device related
+to this node is handled out of the driver core. This is not correct in
+our case. Indeed the device related to this firmware node is handled
+using driver core mechanisms and is fully compliant devlink
+expectations.
+
+Simply remove the fwnode_dev_initialized() call. With that done, the
+devlink debug messages are no more displayed and links that were missing
+are correctly created.
 
 Signed-off-by: Herve Codina <herve.codina@bootlin.com>
 ---
- drivers/pci/of.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/pci/of.c | 1 -
+ 1 file changed, 1 deletion(-)
 
 diff --git a/drivers/pci/of.c b/drivers/pci/of.c
-index 2435200fdd58..ab19bfaaeab2 100644
+index ab19bfaaeab2..06670bcf7067 100644
 --- a/drivers/pci/of.c
 +++ b/drivers/pci/of.c
-@@ -709,6 +709,13 @@ void of_pci_make_dev_node(struct pci_dev *pdev)
- 	if (ret)
- 		goto out_free_node;
+@@ -811,7 +811,6 @@ void of_pci_make_host_bridge_node(struct pci_host_bridge *bridge)
+ 	 */
+ 	of_node_set_flag(np, OF_POPULATED);
+ 	fw_devlink_set_device(&np->fwnode, &bridge->dev);
+-	fwnode_dev_initialized(&np->fwnode, true);
  
-+	/*
-+	 * Set the fwnode device in order to have fw_devlink creating links
-+	 * pointing to this PCI device instead of walking up to the PCI host
-+	 * bridge.
-+	 */
-+	fw_devlink_set_device(&np->fwnode, &pdev->dev);
-+
  	ret = of_changeset_apply(cset);
  	if (ret)
- 		goto out_free_node;
 -- 
 2.49.0
 
