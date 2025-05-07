@@ -4,60 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69054C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 19:47:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC713C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 19:57:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
-	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gQ/A6Z/tfJAyyuEuq3GPaZ2RlFk7bKMtA3pFQ9fdJF8=; b=U/7K5iSmRp/VIczwqx21e+UiEp
-	4hvdx6FlyA35hiaNXeXsLmITYo7I5wpE6SWRlzqsATytrKx2Et27jlKnrG9WIQBBKHO5QAFFK3Iii
-	A7ZxbA/JPkNXcGoZwJ5Zi7BPBrIeLOHE5CZ8aoAIfQ8BVGeUqIKtTON7zpup5j08Kaq8uajulMOdW
-	+sWWhZe76iGGmB2brij7GyFnZNsiAC94pbNTFxK02ez+XszwU/EPYzPJFlPqLIDPfA/NbU2iptD0a
-	TdgQifXcKGIKz25dtKCKOw3t0TE99O+JmqirNeIKjmIz3UAJR/o0/I/KyLBOvdpw9O8pCcUFcbyDd
-	+WFkjNgA==;
+	bh=rPyZzqsMRMqtnqdmdnjavXkrIbpF8/qLDdeqsOJ9Ios=; b=q3oN0G/YYF2CxuV80B0izGdApt
+	Or8K/YxNBXfwztG1cwrQf0OINqHCvVyYcQ60NXwdEG7TKNxsCfcpp6h/F5nzE2NgSVJogV3XdaZIH
+	XXhQl82d9rtqcCLLRRdI7GCSwAazgLWmV3iivNJ9+6vgpnq+1ZpHYOuq94RFcpZ3x0e4wIi60/xvo
+	EqNKTyyXBkBEveZwm9bEsZ472bO+8ASZMatx8mipWRhbHF8ImJrRsJk7J6yRDlL3DLYiQbexNjox4
+	iOYgoh9uZ5ywo6OzE1oJgAancRsgHjzJYxPNixVM2AGg0c0ACtvw20Nk1koxwAZtj6E7kURdDzY1W
+	5tvI9kxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCkjG-0000000GbT1-2QK6;
-	Wed, 07 May 2025 19:46:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uCktB-0000000Gcka-1LHY;
+	Wed, 07 May 2025 19:57:09 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCkhJ-0000000GbKO-2Pc2
+	id 1uCkrC-0000000GcHS-3w8d
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 19:44:54 +0000
+	Wed, 07 May 2025 19:55:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AA1C443B2E;
-	Wed,  7 May 2025 19:44:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B39BC4CEE2;
-	Wed,  7 May 2025 19:44:52 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A12AFA41BBA;
+	Wed,  7 May 2025 19:55:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C45D0C4CEE2;
+	Wed,  7 May 2025 19:54:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746647092;
-	bh=q4hIvtoNu1oOGcAKyK/6LoLwv0LjCdfMt4xNiihRoZs=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=qPlzZc0VbmcBh/IBRlviaOz38xt5NO496/SGC3ggUSWMOx+oBrVl2jObCeavNvfQ+
-	 R2Yi7Nlm9rfbJgoaXwyCKj2+ORCv6v0HaZJ0vqGuwN7Es/6uNpXxzd6A98Oqag6/4Q
-	 KLKfNStxTE+v7NgktYd/xEvLRGaIYYxg8sv8f65ld+ldjyPrDGSxRLJDlxz/jXV73e
-	 fgZWLjaXcVfUI2r95d5TaZJEvSNNaR5PzP6cwA0c9orH+RhqEOdelSyuxSVp3PCvp2
-	 O4B+hWoqwNALx3co7BWGW3jVCf/SnTxgH2PwTHEn19aVaECO8D2/8vMdJ6+gFGt4gf
-	 D5t4O/WiNTw+g==
-Message-ID: <8513c30f597f757a199e4f9a565b0bf5@kernel.org>
-Content-Type: text/plain; charset="utf-8"
+	s=k20201202; t=1746647705;
+	bh=rPyZzqsMRMqtnqdmdnjavXkrIbpF8/qLDdeqsOJ9Ios=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=tldOHEhthjMki3eUjuhheaxEcBuzlj5cDaf9AK4eVn2lFYyiSMZEzt9CSx6VxqWUW
+	 +zwyNEUGEyawvkXVqh3rRK7PDfn9prDKTfGS5UcoWk425i0gTuGlnRIBlylI74S3k8
+	 uh98tdssW9lpqNZZ50oiLbh3UzXb/lLYxklSMxF80KdufATy2oytA3HrrKTgOBsn7D
+	 ztjVlTv5/bDRaOV8F4Ni36RkKXJ8FxBhNWxW1akNTK8YatcXJcHB/OKmB/v5WaPtQy
+	 176O2ZTvlsbr4HFRj6e3BvQVt6sdeJzMIPowkLI9pKtfz6RBC72mNHjqhEIBMw1WCM
+	 9oEUleD95ckaA==
+Date: Wed, 7 May 2025 20:54:54 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Nuno =?UTF-8?B?U8Oh?= <noname.nuno@gmail.com>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Lars-Peter Clausen
+ <lars@metafoo.de>, Michael Hennerich <Michael.Hennerich@analog.com>, Eugen
+ Hristev <eugen.hristev@linaro.org>, Nicolas Ferre
+ <nicolas.ferre@microchip.com>, Alexandre Belloni
+ <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Trevor Gamblin
+ <tgamblin@baylibre.com>
+Subject: Re: [PATCH v5 0/7] iio: introduce IIO_DECLARE_BUFFER_WITH_TS
+Message-ID: <20250507205454.56cbf6e2@jic23-huawei>
+In-Reply-To: <ec7c00c640b0b359bfd98d460d067aee64ca069f.camel@gmail.com>
+References: <20250505-iio-introduce-iio_declare_buffer_with_ts-v5-0-814b72b1cae3@baylibre.com>
+	<ec7c00c640b0b359bfd98d460d067aee64ca069f.camel@gmail.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <aBprHfQ7Afx1cxPe@apocalypse>
-References: <cover.1745347417.git.andrea.porta@suse.com> <e8a9c2cd6b4b2af8038048cda179ebbf70891ba7.1745347417.git.andrea.porta@suse.com> <aBprHfQ7Afx1cxPe@apocalypse>
-Subject: Re: [PATCH v9 -next 04/12] clk: rp1: Add support for clocks provided by RP1
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof Wilczynski <kw@linux.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>, Linus Walleij <linus.walleij@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org, Masahiro
-  Yamada <masahiroy@kernel.org>, Stefan Wahren <wahrenst@gmx.net>, Herve Codina <herve.codina@bootlin.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Andrew Lunn <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, kernel-list@raspberrypi.com, Matthias Brugger <mbrugger@suse.com>
-To: Andrea della Porta <andrea.porta@suse.com>
-Date: Wed, 07 May 2025 12:44:50 -0700
-User-Agent: alot/0.12.dev8+g17a99a841c4b
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_124453_637416_97200423 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20250507_125507_112048_BDA283D0 
+X-CRM114-Status: GOOD (  37.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,29 +80,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Andrea della Porta (2025-05-06 13:03:41)
-> Hi Stephen,
+On Wed, 07 May 2025 07:39:07 +0100
+Nuno S=C3=A1 <noname.nuno@gmail.com> wrote:
+
+> On Mon, 2025-05-05 at 11:31 -0500, David Lechner wrote:
+> > Creating a buffer of the proper size and correct alignment for use with
+> > iio_push_to_buffers_with_ts() is commonly used and not easy to get
+> > right (as seen by a number of recent fixes on the mailing list).
+> >=20
+> > In general, we prefer to use this pattern for creating such buffers:
+> >=20
+> > struct {
+> > =C2=A0=C2=A0=C2=A0 u16 data[2];
+> > =C2=A0=C2=A0=C2=A0 aligned_s64 timestamp;
+> > } buffer;
+> >=20
+> > However, there are many cases where a driver may have a large number of
+> > channels that can be optionally enabled or disabled in a scan or the
+> > driver might support a range of chips that have different numbers of
+> > channels or different storage sizes for the data. In these cases, the
+> > timestamp may not always be at the same place relative to the data. To
+> > handle these, we allocate a buffer large enough for the largest possible
+> > case and don't care exactly where the timestamp ends up in the buffer.
+> >=20
+> > For these cases, we propose to introduce new macros to make it easier
+> > it easier for both the authors to get it right and for readers of the
+> > code to not have to do all of the math to verify that it is correct.
+> >=20
+> > I have just included a few examples of drivers that can make use of this
+> > new macro, but there are dozens more.
+> >=20
+> > --- =20
 >=20
-> On 20:53 Tue 22 Apr     , Andrea della Porta wrote:
-> > RaspberryPi RP1 is an MFD providing, among other peripherals, several
-> > clock generators and PLLs that drives the sub-peripherals.
-> > Add the driver to support the clock providers.
+> LGTM
 >=20
-> Since subsequent patches in the set depends on this one and as the next
-> merge window is approaching, assuming there are no blockers can I kindly =
-ask
-> if you can merge it on your tree for the upcoming pull request?
+> Reviewed-by: Nuno S=C3=A1 <nuno.sa@analog.com>
+
+Thanks,
+
+Still time for additional comments, but given where we are in the
+cycle I'm keen to get this at least undergoing build tests.
+
+Applied to the togreg branch of iio.git and pushed out as testing for
+those build tests.
+
+Thanks,
+
+Jonathan
+
 >=20
-> This patch should apply cleanly to your clk-next branch except for some f=
-uzz
-> lines on MAINTAINERS. Please let me know if you want me to adjust it.
+> > Changes in v5:
+> > - Add new patch to set minimum alignment to 8 for IIO_DMA_MINALIGN.
+> > - Adjust IIO_DECLARE_DMA_BUFFER_WITH_TS() macro for above change.
+> > - Drop one ad4695 patch that was already applied.
+> > - Link to v4:
+> > https://lore.kernel.org/r/20250428-iio-introduce-iio_declare_buffer_wit=
+h_ts-v4-0-6f7f6126f1cb@baylibre.com
+> >=20
+> > Changes in v4:
+> > - Dropped static_assert()s from the first patch.
+> > - Handle case when IIO_DMA_MINALIGN < sizeof(timestamp).
+> > - Added one more patch for ad4695 to rename a confusing macro.
+> > - Link to v3:
+> > https://lore.kernel.org/r/20250425-iio-introduce-iio_declare_buffer_wit=
+h_ts-v3-0-f12df1bff248@baylibre.com
+> >=20
+> > Changes in v3:
+> > - Fixed a few mistakes, style issues and incorporate other feedback (see
+> > =C2=A0 individual commit message changelogs for details).
+> > - Link to v2:
+> > https://lore.kernel.org/r/20250422-iio-introduce-iio_declare_buffer_wit=
+h_ts-v2-0-3fd36475c706@baylibre.com
+> >=20
+> > Changes in v2:
+> > - Add 2nd macro for case where we need DMA alignment.
+> > - Add new patch for ad4695 to convert buffer from u8 to u16 before
+> > =C2=A0 making use of the new macro.
+> > - Drop the bmp280 patch since it was determined to have a better
+> > =C2=A0 alternative not using these macros.
+> > - Add a few more examples to show the non-DMA case, both in a struct and
+> > =C2=A0 stack allocated.
+> > - Link to v1:
+> > https://lore.kernel.org/r/20250418-iio-introduce-iio_declare_buffer_wit=
+h_ts-v1-0-ee0c62a33a0f@baylibre.com
+> >=20
+> > ---
+> > David Lechner (7):
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: make IIO_DMA_MINALIGN minimum of 8 =
+bytes
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: introduce IIO_DECLARE_BUFFER_WITH_T=
+S macros
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: adc: ad4695: use IIO_DECLARE_DMA_BU=
+FFER_WITH_TS
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: adc: ad4695: rename AD4695_MAX_VIN_=
+CHANNELS
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: adc: ad7380: use IIO_DECLARE_DMA_BU=
+FFER_WITH_TS
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: accel: sca3300: use IIO_DECLARE_BUF=
+FER_WITH_TS
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 iio: adc: at91-sama5d2: use IIO_DECLARE_=
+BUFFER_WITH_TS
+> >=20
+> > =C2=A0drivers/iio/accel/sca3300.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 | 18 ++--------------
+> > =C2=A0drivers/iio/adc/ad4695.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0 | 11 +++++-----
+> > =C2=A0drivers/iio/adc/ad7380.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 3 +--
+> > =C2=A0drivers/iio/adc/at91-sama5d2_adc.c | 13 ++----------
+> > =C2=A0include/linux/iio/iio.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0 | 42 ++++++++++++++++++++++++++++++++++++++
+> > =C2=A05 files changed, 52 insertions(+), 35 deletions(-)
+> > ---
+> > base-commit: 7e9a82ab5b861d3c33c99a22c1245a5b262ee502
+> > change-id: 20250418-iio-introduce-iio_declare_buffer_with_ts-2f8773f7da=
+d6
+> >=20
+> > Best regards, =20
 >=20
 
-I need to take the dt-binding header as well so it compiles. What's the
-plan there? Do you want me to provide a branch with the clk driver and
-binding header? Or do you want to send a PR to clk tree with the clk
-driver and the binding header and then base your DTS patches on the
-binding header and send that to the soc maintainers? I'm also happy to
-give a Reviewed-by tag if that works for you and then you can just take
-it through the soc tree.
 
