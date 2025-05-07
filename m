@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5139C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 13:11:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C88CC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 13:13:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/U+rK2T4ViQLnQ9q3EO/RZ0a7/6qjipXjmsvRLUSarA=; b=Q8KXOAAQC4TylUdvePQDnVG5M9
-	5MOND+NH/VsWdYRVWovNpzqDxKKL/MM38Ke3EGDWt0MmYZBGCRndbemMYY5+MUrNqQc9DnRbT/31C
-	R9aKXAtjzViHTZluNT2IRshSR2IUln4kIg7annTHSf5FL7d2ywLDXgpzFLXuJlEWcVro4/Yjjzxsu
-	K5ysB1mihYHHkfqPlAhOrEVE8/gmShTpkcjWy40DeT9jQ1ea8ZSuSKwnzYUNd0r8P/c5F4C6v27Xx
-	R1HBGofCiqlkxmZHeXd81DzJXBkVosIJpHduip/S8OOkiVPaZX3ORVGEFhfJB6uyjggZ1eO73NGZY
-	qMbRs93g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ois1Fd82wI7ofzgzDY4Ae0abXH2Pnyq9b6BQ8TCglMI=; b=BmCK04yFbOLRIR
+	WQ8v1DRVtNf643d11peOa4f8Fk7jw3zlQOioAt5RBpEc16A/qCBWCuTMPpw8ig16xnRW07uuIc3jk
+	YNOPBT1BMIlJQjq2p6azy3jOU6bU644vBGbJvA/qR+lEdXY98XFqQUq23ZB+MLF8x9Hfbw0616lHP
+	Dvu+HQSBmbClY+l5Wrr9E4K4jS3eraJlEi4f8hq356mLtCBUOclhBaP0FnIooKtOT4hsY6dGzsUx4
+	EyMJw4YDikLoKKEy3a34hu4j5wEKSwT209MZC5wPzArBZY1fV1bsEeHtYRCTo8Sxheoa1Ev3HgYu9
+	Rkpsb0KVa+4h6a72zlZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCeYf-0000000FWZZ-3ZoT;
-	Wed, 07 May 2025 13:11:33 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uCeab-0000000FX0n-1jQ2;
+	Wed, 07 May 2025 13:13:33 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCeV0-0000000FViO-3yuZ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 13:07:48 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1uCeUy-0006P4-8e; Wed, 07 May 2025 15:07:44 +0200
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1uCeUw-001ZIn-2o;
-	Wed, 07 May 2025 15:07:42 +0200
-Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
-	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1uCeUx-00EJKB-0s;
-	Wed, 07 May 2025 15:07:42 +0200
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Wed, 07 May 2025 15:07:25 +0200
-Subject: [PATCH v2] gpio: mxc: configure dynamic GPIO base for
- CONFIG_GPIO_SYSFS=n
+	id 1uCeV2-0000000FVj8-27JT;
+	Wed, 07 May 2025 13:07:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1746623256; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=IwY3ykgOwrUBvSTJwZdmILe5IqO4URVw9dkB2xU4v+4rhcPRqmT84NtSPjrmXEtztJHAJHIK46UGPui1ogE/3kuN0MnU7aBL7UoDqsmA3h+FLSw+ayFbGJ8H+K6A0FIGr8rxGs/XRe21JrhIOL+vhoC2RfGxdCZJfHo6ugPyFds=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1746623256; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Ois1Fd82wI7ofzgzDY4Ae0abXH2Pnyq9b6BQ8TCglMI=; 
+	b=KrstOi4qwmaZZ+K5Te0WYXuHPNWUQGLl4/C+7ss3YK1RC2eCBQ95SZOMy/uTSRenZIF2q+MuxExNhPsqjrwsTsFYyfLss0Gd+A5TnKZr2XPtxwbt/nDCYhT7dCXQwnEttPK6Hc5FRel4YOZLrXRa9uLrBNXtefLh61hy1cCxW5o=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1746623256;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=Ois1Fd82wI7ofzgzDY4Ae0abXH2Pnyq9b6BQ8TCglMI=;
+	b=VdbAlsUqLQqJPN55PYHT1PEtZLlOQHPl8IsmrUTn1mfbqfqtMTpX2pkD807EPQDn
+	gLawO6JVWXjV9Bxo+BaWuKAFhDh7sb2rwIU+3LsnqswpkcyPIpIwCB2UNhTfMANZAgy
+	4peyfXdApkdX7wpO4UVHKQGqQH3VtuO+DRQljd0Y=
+Received: by mx.zohomail.com with SMTPS id 1746623254340277.28883250107697;
+	Wed, 7 May 2025 06:07:34 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: [PATCH v3 0/4] RK3576 USB Enablement
+Date: Wed, 07 May 2025 15:07:20 +0200
+Message-Id: <20250507-rk3576-sige5-usb-v3-0-89bf5a614ccf@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250507-b4-imx-gpio-base-warning-v2-1-d43d09e2c6bf@pengutronix.de>
-X-B4-Tracking: v=1; b=H4sIAA1bG2gC/42NQQ6CMBBFr0Jm7Zi2gBRW3sOwKDCUWdiSFhFDu
- LuVE7h8L/nv7xApMEVosh0CrRzZuwTqkkE/GWcJeUgMSqhSSJljVyA/N7Qze+xMJHyb4NhZLMb
- akK61rgYBaT4HGnk704828cRx8eFzPq3yZ/+IrhIFCqN0lUtT9uPtPpOzryV4x9t1IGiP4/gCg
- LUfEcUAAAA=
-X-Change-ID: 20250113-b4-imx-gpio-base-warning-4f9ae89887d0
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-gpio@vger.kernel.org, 
- Dario Binacchi <dario.binacchi@amarulasolutions.com>, 
- Haibo Chen <haibo.chen@nxp.com>, 
- Catalin Popescu <catalin.popescu@leica-geosystems.com>, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Ahmad Fatoum <a.fatoum@pengutronix.de>
+X-B4-Tracking: v=1; b=H4sIAAhbG2gC/23OQQ6CMBAF0KuQrh1TWgrElfcwLtoyQCNQbYFgC
+ He3loWJmln9Nv/NrMSjM+jJKVmJw9l4Y4cQ+CEhupVDg2CqkAmjTFDOSnA3LoocvGlQwOQVME5
+ TyiSi1JKE2t1hbZZIXq57dviYgjzuj0RJj6Bt35vxlAy4jBD1MORdaI0frXvGk+Y0NuJ/Rovf7
+ XMKFPICUad5XpesPmvbdVJZJ49hRQRn9kHC/EFYQCqhZMapqLnCb2TbtheP66iFKgEAAA==
+X-Change-ID: 20250328-rk3576-sige5-usb-230102aeeaca
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Frank Wang <frank.wang@rock-chips.com>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ kernel@collabora.com, linux-phy@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_060746_991232_0E8CED51 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20250507_060748_587942_4AAB6183 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,68 +87,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-i.MX GPIO numbering has been deterministic since commit 7e6086d9e54a
-("gpio/mxc: specify gpio base for device tree probe"), a year after
-device tree support was first added back in 2011.
+This series is the result of what I thought would be a quick 10 minute
+job, but turned out to be more like 3 days of pain, suffering, and
+confusion. This should be expected with USB Type C though.
 
-Reverting to dynamically allocated GPIO base now would break most
-systems making use of the sysfs API. These systems will be eventually
-broken by the removal of the sysfs API, but that would result in GPIO
-scripts not working instead of essentially toggling at random according
-to probe order, which would happen if we unconditionally set base to -1.
+The first patch in the series extends the inno usb2 PHY driver to fiddle
+with some GRF flags in that driver when the PHY is connected to a USB
+Type C port. Without this change, devices on USB-C simply don't
+enumerate at all, as the state machine gets stuck waiting for vbus to go
+low or something along those lines.
 
-Yet, the warning is annoying and has resulted in many rejected attempts
-to remove it over the years[1][2][3].
+An alternate way to implement this would've been a vendor property in
+the PHY binding which is then checked for in the driver and needs to be
+present in all rockchip inno u2phy instances that happen to be connected
+to a USB Type C connector. This is what downstream does, for example.
 
-As the i.MX GPIO driver is device tree only, GPIO_SYSFS is the only
-consumer of the deterministic GPIO numbering. Let's therefore restrict the
-static base and the warning that comes with it to configurations
-with CONFIG_GPIO_SYSFS enabled.
+Patch 2 and 3 allow Super Speed in reverse orientation on USB Type-C
+connectors to work, but I am not entirely confident in the solution I
+arrived at.
 
-[1]: https://lore.kernel.org/all/20230226205319.1013332-1-dario.binacchi@amarulasolutions.com/
-[2]: https://lore.kernel.org/all/20230506085928.933737-2-haibo.chen@nxp.com/
-[3]: https://lore.kernel.org/all/20241121145515.3087855-1-catalin.popescu@leica-geosystems.com/
+Patch 4 adds the USB related nodes, including associated regulators and
+Type C controllers, to the Sige5 tree.
 
-Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
-This was one result of the discussion with Bartosz at FOSDEM 2025.
----
+Changes in v3:
+- Drop the utmi clock patch. This was always a speculative fix for a
+  problem I could no longer reproduce, and it doesn't conform to the
+  binding, as Robo-rob correctly caught.
+- Link to v2: https://lore.kernel.org/r/20250505-rk3576-sige5-usb-v2-0-d5ba4305f3be@collabora.com
+
 Changes in v2:
-- drop warning opt-out flag
-- set a dynamic base only if sysfs support is disabled.
-- drop unrelated driver cleanup separately picked by Bartosz
-- Link to v1: https://lore.kernel.org/r/20250113-b4-imx-gpio-base-warning-v1-0-0a28731a5cf6@pengutronix.de
----
- drivers/gpio/gpio-mxc.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/gpio/gpio-mxc.c b/drivers/gpio/gpio-mxc.c
-index 619b6fb9d833a4bb94a93b4209f01b49ad1cbdb0..38504c9486b05802a792367111c9d71dc08bdd16 100644
---- a/drivers/gpio/gpio-mxc.c
-+++ b/drivers/gpio/gpio-mxc.c
-@@ -490,7 +490,14 @@ static int mxc_gpio_probe(struct platform_device *pdev)
- 	port->gc.request = mxc_gpio_request;
- 	port->gc.free = mxc_gpio_free;
- 	port->gc.to_irq = mxc_gpio_to_irq;
--	port->gc.base = of_alias_get_id(np, "gpio") * 32;
-+	/*
-+	 * Driver is DT-only, so a fixed base needs only be maintained for legacy
-+	 * userspace with sysfs interface.
-+	 */
-+	if (IS_ENABLED(CONFIG_GPIO_SYSFS))
-+		port->gc.base = of_alias_get_id(np, "gpio") * 32;
-+	else /* silence boot time warning */
-+		port->gc.base = -1;
- 
- 	err = devm_gpiochip_add_data(&pdev->dev, &port->gc, port);
- 	if (err)
+- Rebased onto next-20250505
+- Drop the u2susphy quirk, as I can no longer reproduce the original
+  problem with various amounts of ripping up the DT and changing the
+  config. Yeah I'm not super hyped about this now being a heisenbug
+  either.
+- Drop the bindings patch, as Rob showed me there's a way to do this
+  without extending the bindings
+- Rewrite the usb 2 phy driver patch to no longer walk an OF graph from
+  PHY to connector, but instead first find the USB controller that uses
+  this PHY, and then use the USB controller's existing graph connection
+  to the usb connector.
+- Adjust the Sige5 DTS patch to now have two port connections from the
+  USB connector to the drd0 USB controller, one for high-speed aka
+  USB2, one for super-speed aka USB3, ordered as per its binding.
+- Add a patch for rk3576.dtsi to reference u2phy1 as a clock in the drd1
+  controller.
+- Add two patches to fix USB Type-C super speed in reverse orientation.
+- Link to v1: https://lore.kernel.org/r/20250407-rk3576-sige5-usb-v1-0-67eec166f82f@collabora.com
 
 ---
-base-commit: 92a09c47464d040866cf2b4cd052bc60555185fb
-change-id: 20250113-b4-imx-gpio-base-warning-4f9ae89887d0
+Nicolas Frattaroli (4):
+      phy: rockchip: inno-usb2: add soft vbusvalid control
+      phy: rockchip: usbdp: move orientation handling further down
+      phy: rockchip: usbdp: reset USB3 and reinit on orientation switch
+      arm64: dts: rockchip: enable USB on Sige5
+
+ .../boot/dts/rockchip/rk3576-armsom-sige5.dts      | 160 +++++++++++++++++++++
+ drivers/phy/rockchip/phy-rockchip-inno-usb2.c      | 113 ++++++++++++++-
+ drivers/phy/rockchip/phy-rockchip-usbdp.c          | 154 +++++++++++++-------
+ 3 files changed, 373 insertions(+), 54 deletions(-)
+---
+base-commit: 214464d4c3491d4eb2c0e9d1310d7f60c408b94b
+change-id: 20250328-rk3576-sige5-usb-230102aeeaca
 
 Best regards,
 -- 
-Ahmad Fatoum <a.fatoum@pengutronix.de>
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
 
