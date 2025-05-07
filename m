@@ -4,76 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05C7FC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 06:02:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C357C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 06:19:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VWBt9fZvpMcFSkWUdSIztus0wxKX7qIhFzmK1qouEDE=; b=q9Nmj4vA2MMmSOj8enUFynJdNY
-	Pr/dC5OXidFv4Q7hOAdLdotHn7HimrXgzmRqxKtVJU7g9iD9NDhzUh07SN0JJf1xHQTqvF3yFfZF1
-	Evql9NhlvoHtySPSH0IkhrCLhCUfqL+OKVAxgNOaSrIaXrzABpgMkn0T0/tE6oV5ETCUQzArx5Ijp
-	8aNiwmgMzWi0M7lcEg3OJov2V95pUwp/j8EYw+bWzyMyXHezmfw5oKWSptlf7vw03tYrb7z7OQy6v
-	ZP8zyk8OvubphBnh9f2gqeMbKEfx4EaAZNYGCA//Ov0jNIzmrKQaLC12MblpFSYoxbjaw6RJCtvFr
-	hdZbQZVw==;
+	bh=0bMEqoVOsJr7MfvJQhzu+XLSD8SzCSYsJRMGf5xDRNo=; b=jeOZ/ZghxKba2S9LWPGROEZRvE
+	3l9glI8JW912P1to84B6/XUCT/cwi5zziKu2F8MOT5V9aioVMzoR5h/wt74TSYZYsbJ8RwqUqSAny
+	SFNhoXzKNXvBWdUMixgl6uXcd4tjVpms/QLTlgUmZGnImjKxjjqYKkxU6Ij6W2VtSJaB88kCtPo+c
+	ydDT835zGvVinNWj+x4gAZOuXjf8ftrHyDkAw200IofvOHOULMNLK6bUX0NTq99IrUdcKLZn0YrTg
+	X2TYXWjHAqyFsvX5OMPrjrLczh0JvwDmKX34k8fDaQKPE/IRuSwvhMdYRxYTf2FJ1Xq2MNu4Ek+2F
+	XW8i2KRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCXqu-0000000EK7w-37uw;
-	Wed, 07 May 2025 06:01:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uCY7m-0000000ELpp-0OF3;
+	Wed, 07 May 2025 06:19:22 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCXor-0000000EJsv-3cft
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 07 May 2025 05:59:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=VWBt9fZvpMcFSkWUdSIztus0wxKX7qIhFzmK1qouEDE=; b=HYKkLwI1Dgzr3xujD9W8czvRxS
-	f8F+m3UY/b5YQ27yTtepZ+XSKOodzz8ZOBjHld+PtXLBzquascBaxCzp/f6ISa2vKRR6+DtPund6A
-	6kWeXl4uwSXwiZRY9QkztLC1s5MlD0rqOHdq0TzVUt79iZb2EXmAnN/G8O+9btuflBgaeGakx47pN
-	znfZohCGm35g5GxVV/iIVWlJVF+oMBgSuKJ8AyrCOAQVQNGvuSfLmkohL1OhAMWirHr6jHo9DFehj
-	V+x7+t34JKSh93iP6LSA1xvStyujduamlRSeZP7kIymAfB/4MLPQcVqBisXbk3bYqvqWlvHFOasxq
-	qCN5qhGQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uCXoo-0000000Fmkx-0G5z
+	id 1uCY5o-0000000ELft-1drj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 May 2025 05:59:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E7D32F;
-	Tue,  6 May 2025 22:59:33 -0700 (PDT)
-Received: from [192.168.0.12] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1F6C93F5A1;
-	Tue,  6 May 2025 22:59:38 -0700 (PDT)
-Message-ID: <5db14757-fd7b-441e-99b3-786f11df372b@arm.com>
-Date: Wed, 7 May 2025 11:29:36 +0530
+	Wed, 07 May 2025 06:17:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=0bMEqoVOsJr7MfvJQhzu+XLSD8SzCSYsJRMGf5xDRNo=; b=mvZTWjDo2RgXLgOQ5CFc26+qwK
+	mfqVkQk/4nw6UTLssKNjXNy1L3bb1TU9xmZyLpWXoJBLRRZtfHltA/oMIcM3Bvoi+EUkzpbpxT3px
+	0lbNPD8cr+fNwKL+4+NS/1WAsc+fVnbi0iRIybla7HYGCTIrrzk3xo1XMR4AQFI/HotKeGNndns9z
+	5j4+fpKbRNv2ZyQWJsMR2ybD9Swrqipb9iwyCW+hjTnMV1JTndvjnHcRJC+EAYd2o2qcwc7Lx5AHx
+	05dShjQN2U7DHo109hDfSnhc5lkVVJh6B662Cnxj+B1V5h3PaRcF5VTRvTIwcFifJrRwarYFMSPVR
+	a7Leiv0g==;
+Received: from [89.212.21.243] (port=59440 helo=[192.168.69.116])
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1uCY5j-001nkt-2Z;
+	Wed, 07 May 2025 08:17:15 +0200
+Message-ID: <4b8d4232-0e7f-4dc6-a76e-705bdc952db7@norik.com>
+Date: Wed, 7 May 2025 08:17:12 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/9] coresight: Disable programming clock properly
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20250423151726.372561-1-leo.yan@arm.com>
- <20250423151726.372561-5-leo.yan@arm.com>
- <f56a73a4-ae63-4a46-a493-322c4806b3a2@arm.com>
- <20250506095428.GB177796@e132581.arm.com>
+Subject: Re: [Upstream] [PATCH 4/4] arm64: dts: ti: k3-am62a7-*: Specify
+ Temperature Grade
+To: Daniel Schultz <d.schultz@phytec.de>, nm@ti.com, vigneshr@ti.com,
+ kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, robertcnelson@gmail.com,
+ francesco.dolcini@toradex.com
+Cc: upstream@lists.phytec.de
+References: <20250507050847.912756-1-d.schultz@phytec.de>
+ <20250507050847.912756-4-d.schultz@phytec.de>
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250506095428.GB177796@e132581.arm.com>
+From: Primoz Fiser <primoz.fiser@norik.com>
+Autocrypt: addr=primoz.fiser@norik.com; keydata=
+ xjMEZrROOxYJKwYBBAHaRw8BAQdAADVOb5tiLVTUAC9nu/FUl4gj/+4fDLqbc3mk0Vz8riTN
+ JVByaW1veiBGaXNlciA8cHJpbW96LmZpc2VyQG5vcmlrLmNvbT7CiQQTFggAMRYhBK2YFSAH
+ ExsBZLCwJGoLbQEHbnBPBQJmtE47AhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQagttAQducE+T
+ gAD+K4fKlIuvH75fAFwGYG/HT3F9mN64majvqJqvp3gTB9YBAL12gu+cm11m9JMyOyN0l6Os
+ jStsQFghPkzBSDWSDN0NzjgEZrROPBIKKwYBBAGXVQEFAQEHQP2xtEOhbgA+rfzvvcFkV1zK
+ 6ym3/c/OUQObCp50BocdAwEIB8J4BBgWCAAgFiEErZgVIAcTGwFksLAkagttAQducE8FAma0
+ TjwCGwwACgkQagttAQducE8ucAD9F1sXtQD4iA7Qu+SwNUAp/9x7Cqr37CSb2p6hbRmPJP8B
+ AMYR91JYlFmOJ+ScPhQ8/MgFO+V6pa7K2ebk5xYqsCgA
+Organization: Norik systems d.o.o.
+In-Reply-To: <20250507050847.912756-4-d.schultz@phytec.de>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_065946_577592_1E1B0DE1 
-X-CRM114-Status: GOOD (  19.97  )
+X-CRM114-CacheID: sfid-20250506_231720_900833_4715E233 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,82 +102,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Daniel,
 
+On 7. 05. 25 07:08, Daniel Schultz wrote:
+> Specify the temperature grade in the base device tree to ensure
+> correct trip points are applied for each board.
+> 
+> Signed-off-by: Daniel Schultz <d.schultz@phytec.de>
+> ---
+>  arch/arm64/boot/dts/ti/k3-am62a7-phyboard-lyra-rdk.dts | 1 +
+>  arch/arm64/boot/dts/ti/k3-am62a7-sk.dts                | 1 +
+>  2 files changed, 2 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-phyboard-lyra-rdk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-phyboard-lyra-rdk.dts
+> index 77e5fef618ba..7d2e4694ed8e 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62a7-phyboard-lyra-rdk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-phyboard-lyra-rdk.dts
+> @@ -10,6 +10,7 @@
+>  #include "k3-am62a7.dtsi"
+>  #include "k3-am62a-phycore-som.dtsi"
+>  #include "k3-am62x-phyboard-lyra.dtsi"
+> +#include "k3-am62a-thermal-industrial.dtsi"
+>  
+>  / {
+>  	compatible = "phytec,am62a7-phyboard-lyra-rdk",
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> index 1c9d95696c83..125e812fbb86 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> @@ -11,6 +11,7 @@
+>  #include <dt-bindings/gpio/gpio.h>
+>  #include <dt-bindings/net/ti-dp83867.h>
+>  #include "k3-am62a7.dtsi"
+> +#include "k3-am62a-thermal-automative.dtsi"
 
-On 5/6/25 15:24, Leo Yan wrote:
-> On Fri, May 02, 2025 at 11:40:31AM +0530, Anshuman Khandual wrote:
->> Even though this might seem to be being bike shedding, the subject
->> line above could be re-organized something like the following for
->> better clarity.
->>
->>  coresight: Properly/Appropriately disable programming clocks
-> 
-> Sure.  I will change the subject to this.
-> 
-> [...]
-> 
->>> @@ -725,8 +723,6 @@ static void debug_platform_remove(struct platform_device *pdev)
->>>  
->>>  	__debug_remove(&pdev->dev);
->>>  	pm_runtime_disable(&pdev->dev);
->>> -	if (!IS_ERR_OR_NULL(drvdata->pclk))
->>> -		clk_put(drvdata->pclk);
->>>  }
->> Should not these IS_ERR_OR_NULL() here be changed to IS_ERR() ?
-> 
-> For the case above, after changed to devm_clk_get_enabled() for the
-> enabling programming clocks, we don't need any special handling and
-> leave the clock disabling and releasing to the device model layer.
+You have a typo here... should be *automotive*.
 
-So it can be left unchanged for now and cleaned up later ?
+BR,
+Primoz
 
-> 
->> Because now there could not be a NULL return value.
->>
->> drvdata->pclk = coresight_get_enable_apb_pclk(&pdev->dev)
->>
->> #ifdef CONFIG_PM
->> static int debug_runtime_suspend(struct device *dev)
->> {
->>         struct debug_drvdata *drvdata = dev_get_drvdata(dev);
->>
->>         if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
->>                 clk_disable_unprepare(drvdata->pclk);
->>         return 0;
->> }
->>
->> static int debug_runtime_resume(struct device *dev)
->> {
->>         struct debug_drvdata *drvdata = dev_get_drvdata(dev);
->>
->>         if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
->>                 clk_prepare_enable(drvdata->pclk);
->>         return 0;
->> }
->> #endif
-> 
->> There might more instances like these as well.
->> 	
->> git grep IS_ERR_OR_NULL drivers/hwtracing/coresight/ | grep "drvdata->pclk"
->> drivers/hwtracing/coresight/coresight-cpu-debug.c:      if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
->> drivers/hwtracing/coresight/coresight-cpu-debug.c:      if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
->> drivers/hwtracing/coresight/coresight-funnel.c: if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
->> drivers/hwtracing/coresight/coresight-funnel.c: if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
->> drivers/hwtracing/coresight/coresight-replicator.c:     if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
->> drivers/hwtracing/coresight/coresight-replicator.c:     if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
->> drivers/hwtracing/coresight/coresight-stm.c:    if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
->> drivers/hwtracing/coresight/coresight-stm.c:    if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
->> drivers/hwtracing/coresight/coresight-tpiu.c:   if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
->> drivers/hwtracing/coresight/coresight-tpiu.c:   if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
-> 
-> I would like the current patch to focus on the issue of disabling /
-> releasing the programming clocks.
-> 
-> Though the IS_ERR_OR_NULL() check is redundant, it does not cause
-> issue or regression.  The refactoring is left in patch 09 for removing
-> IS_ERR_OR_NULL() checks.
-> 
-> Does this make sense?
+>  
+>  / {
+>  	compatible = "ti,am62a7-sk", "ti,am62a7";
 
-Yes, it does now.
+-- 
+Primoz Fiser
+phone: +386-41-390-545
+email: primoz.fiser@norik.com
+--
+Norik systems d.o.o.
+Your embedded software partner
+Slovenia, EU
+phone: +386-41-540-545
+email: info@norik.com
 
