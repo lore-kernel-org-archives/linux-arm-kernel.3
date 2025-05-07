@@ -4,168 +4,205 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5348C3ABC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 08:18:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50F6DC3ABC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 08:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gCVO6AAj65a6sdwjJh75X/buxXimkj7zOwSvxcpxA28=; b=wbImzfU/pFFaUgvHYbgd0GDkPM
-	aQUTlKGCfv3GaSHZhfDs6Jqly+EImUo0TfACzRUJSSz3wIAMCk3umwUzJid5oL7Im26F6vIB5oANf
-	ABFKu7V/0TOcxCHgW0p+7CibDre3rmv63L0RG2SwDXhBEuhdycqPwMAXaIxFbhDyBKHSt8K7oXu+i
-	Bceq0e696MwxSagsKu40ig3nVfnGpZt4XKkZPMpwlvPEQF+kdYLO+5Z+O+BiinTW2YxqstXxw4Vd/
-	827j6RE8sR56ZDn4+iqrr8d876c0S+xw5XQbBfqqm6y0MZDJwzfmozVaaeWfGxJnTPJxRmpBxX2g9
-	0dX2xawA==;
+	bh=sF1lJ1byN93tp3hKMFDHg21PGyiNC7+66fdOdqZWiNE=; b=Czqxxff/KWYokTqahCWFjdo5Rf
+	I7qg1Tmt9awgAfxYAwDRsxrZ0Yn0zpdA3MpwC5fzL/HIcDKjm2dOfX2R9gLhAdBQ7XpLucMCyXb6I
+	MTAMyHRJQxPHn1L6Fd+8hzMcYwKx9ZWWh/Lz6Nkc4Jgn7/vs+UKgArmmrZEj2qutvNoK+5OyQepTw
+	DYOQ73mhSOlP5Ru6/Zc44Rx2to8t432QmDxrJWn69nz1csRXR/UnxMecSIfD6nDLXV04vZAEK2lLo
+	79QGJjO0U0wXq43hTwH1e+/W8SNr7UoKdR7MxQcZ8rTxitea57KyHgAx5UPnFTYRcnPfbPlXp8gNi
+	J69vgKNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCZyo-0000000EhXZ-3USd;
-	Wed, 07 May 2025 08:18:14 +0000
-Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1uCa0k-0000000Ei7c-3oQe;
+	Wed, 07 May 2025 08:20:14 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCZ33-0000000EUVM-3v7O;
-	Wed, 07 May 2025 07:18:35 +0000
+	id 1uCZ7p-0000000EVm7-3Xi6
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 May 2025 07:23:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1746602610; x=1778138610;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=sF1lJ1byN93tp3hKMFDHg21PGyiNC7+66fdOdqZWiNE=;
+  b=IfI/MJTHnqv0bHxW4d4lRMx2IHfFBspFK79UZ8qa+E8GRkD4IakOwbIq
+   ZkLT96MMEk9SWTyYdCSk3pqE15rdTqAAps1nJ4RDW7efpbMD1lw1mIL3Q
+   0VtMJk6F4LEgIJ48Uu4QC95zuqhlHdNL/FbxXqHr8+uQjYrRNMmMNXVFz
+   FN60Qqr2iRpqoiBOzBupDhNNoLyLEhZTpkWHAt4AB4lO7aQ8xTYOOPrK2
+   CmXT/1lwKT9PdnrVJjy3lsL3b8JuE+h1rEAtAAH7s+26L8H67sSMciWBC
+   fHB+o4WbAloXOHS6UbTG2M6wNtmYWLlomW6WJQk8NI82EhOuCZtCrWvZG
+   g==;
+X-CSE-ConnectionGUID: QKRXxUyzRHSg9sa9hFnODg==
+X-CSE-MsgGUID: FtTjXrzIR8eIKIVcK3dZCA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11425"; a="58510801"
+X-IronPort-AV: E=Sophos;i="6.15,268,1739865600"; 
+   d="scan'208";a="58510801"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 May 2025 00:23:26 -0700
+X-CSE-ConnectionGUID: DIdZOVCLRiq8+I9r7FbupA==
+X-CSE-MsgGUID: 7d9GkLTvRwWge0ZmJPzvug==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,268,1739865600"; 
+   d="scan'208";a="140603510"
+Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
+  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 May 2025 00:23:25 -0700
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Wed, 7 May 2025 00:23:24 -0700
+Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14 via Frontend Transport; Wed, 7 May 2025 00:23:24 -0700
+Received: from NAM11-DM6-obe.outbound.protection.outlook.com (104.47.57.173)
+ by edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Wed, 7 May 2025 00:22:31 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oV1itgU0u8z+wP7tacYM7NaAIq4Xy6+49xbomeF9+aSMo0ILkB6ml9bYD5A8cvGvRXvNYgTAbRBe6gk0UREgDDZJaflwqKDt9/IQiyWB/9yFckVxXglpJgaMUJc6R4hd5qqRTtUYIV0XSRk9+6d7Uywon8NmmhLWwpjHIJm1QyTWt6/xpI8DCakOGghQQtxbijkPW+P5lCrCe9pXaqw4Fe67KzbpnTxCjQUj5oNRPC3pM5eiEY7LxVG/WJTVaDB0vbNzq/F7M5MSbqzVFOSXcbhgPuLdMRMhOAVSJfUkPJ8Veb3KxRerOb46FHVVx38C+ZZI5dOTOFinolJ+El3wCg==
+ b=dqiI+n4PD4/+8qrQ+rumQeLBk/Pbw1uTAAjji1Cykakqz2l7uTF5FDjfjDOVJ6AbGREzuPfOwajm41+tgqCC08kgh3CQ3dr6D3CKHEqJ1hkLazqR3oMqPZo2sp2x05XGz1turO8sXiiBgwZq8FSwGhpP0LmtjkanpXITjAa4W7NL3t8uwoqa1IWYVYuGAAzUEjA/hQE5v4gHNmZafu50M3bqDE3yevIHwpCa+5MG4eyPEukS8oVvHRa6oya3vistM4jC6zLe/e4KwnOFd/3p5oRydN2IRDR+7WvaMlW2BCDG3o81BDWJ8QYQeubMxjt/s6jgOh42zyfOkFn8x7eDxg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gCVO6AAj65a6sdwjJh75X/buxXimkj7zOwSvxcpxA28=;
- b=v8odstdublsMJKzMDBLGHh+SI5ncdAMyj/lyL6ZuHn6GwW8bAfwixcY/nqEV1nElAq41+oNeUXjNhl/EfQjwI5BRsRszTQf3f+3dUApxB2D5n4uU0w93Rjy8vhDkmdaoUyiZRSpnHl8q+v11rOxf59Rxw+yFev1hGrZqSYira2wjVHFMkHWNGK8F+YmxDWdjv8c6U8CbbcxR4jXfiEDlqYDHCRC3FXICAFzqapP/7p+qB1JdyqyR1pVQGEh+VgnmXFRtSid2oDegTbF68+ppaM/aatoCtPTAoe4PilWCe0Qp++GGE0Whu51R3YgGrapwttTpangFkv9yTI/tBYECkw==
+ bh=sF1lJ1byN93tp3hKMFDHg21PGyiNC7+66fdOdqZWiNE=;
+ b=w/wF5OU2BMQLxk8NsaAIDq+0kew/BisvgaU2T13jFsSqBpzrSBr2OAl9l4dSDkTnKgD1mW6qpZ+w7bPR08q1Iqj4cuGJt9hJBKvB5+GP3XlefHxuRbE1mOjLDmbSPAF6TF4BZKPAhs0TTJt775pKuuAH6dtJpGJDPHC531tjNo7oxnqCaDtKJ9tx+s4oqmaI7iXiEU0eGcyFoeSATzOx42c0YC64gN3KRv21qz+Th0NOHW+I7iIimcEGdsyHhWpRpN8I3YO+3RYZhW5fLCr/9MYyUSFISa24ydMhgINsZEkMBtX/n+AZarglvytwU/mKQm5ky7PZaR4VRDZlxeUH8Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gCVO6AAj65a6sdwjJh75X/buxXimkj7zOwSvxcpxA28=;
- b=ZCRQgrbTLhvPfBUPb37bgAvlCl/obnZ/G6VhS/I25vsiUTvkZDTseuQLozmGweWu47KIyTgmD7gJhclLwNRIJ3Y5qR3VJRYvm342ejzhG9udWA1k9c7qBy0RSVCRzPC+X2OC4i3JaWOEdFDkExnhzXJRFymtbqTUCfLwjnYdpYSMhdBrr3VboVr9lSO0g7Ncj5ZqHYoleT/kyxAcyfR0PezD+4NMAUBJs8GnLoSb7FRmyJDrTfIlId8l3g+8Z+2UmPHQmrOBE1cGDQwQXwJmO7kymWww7BJbv/kVoN/ZsZRq0lciiKIeP3JqYu3sN9NQElVwdXwJK2nkipkqH8xYuA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by PA4PR04MB9439.eurprd04.prod.outlook.com (2603:10a6:102:2ab::17) with
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by CO1PR11MB5044.namprd11.prod.outlook.com (2603:10b6:303:92::5) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.21; Wed, 7 May
- 2025 07:18:24 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%4]) with mapi id 15.20.8699.026; Wed, 7 May 2025
- 07:18:24 +0000
-Message-ID: <9253e2cb-8e39-4b3b-adb2-48a9693a6e5f@nxp.com>
-Date: Wed, 7 May 2025 15:19:51 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 00/19] Add Freescale i.MX8qxp Display Controller
- support
-From: Liu Ying <victor.liu@nxp.com>
-To: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
-Cc: p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, tglx@linutronix.de, vkoul@kernel.org, kishon@kernel.org,
- Frank.Li@nxp.com, lumag@kernel.org, aisheng.dong@nxp.com, agx@sigxcpu.org,
- u.kleine-koenig@baylibre.com, francesco@dolcini.it,
- dmitry.baryshkov@linaro.org
-References: <20250414035028.1561475-1-victor.liu@nxp.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Wed, 7 May
+ 2025 07:22:24 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1%5]) with mapi id 15.20.8699.026; Wed, 7 May 2025
+ 07:22:24 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+CC: "jgg@nvidia.com" <jgg@nvidia.com>, "corbet@lwn.net" <corbet@lwn.net>,
+	"will@kernel.org" <will@kernel.org>, "bagasdotme@gmail.com"
+	<bagasdotme@gmail.com>, "robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"joro@8bytes.org" <joro@8bytes.org>, "thierry.reding@gmail.com"
+	<thierry.reding@gmail.com>, "vdumpa@nvidia.com" <vdumpa@nvidia.com>,
+	"jonathanh@nvidia.com" <jonathanh@nvidia.com>, "shuah@kernel.org"
+	<shuah@kernel.org>, "jsnitsel@redhat.com" <jsnitsel@redhat.com>,
+	"nathan@kernel.org" <nathan@kernel.org>, "peterz@infradead.org"
+	<peterz@infradead.org>, "Liu, Yi L" <yi.l.liu@intel.com>,
+	"mshavit@google.com" <mshavit@google.com>, "praan@google.com"
+	<praan@google.com>, "zhangzekun11@huawei.com" <zhangzekun11@huawei.com>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "patches@lists.linux.dev"
+	<patches@lists.linux.dev>, "mochs@nvidia.com" <mochs@nvidia.com>,
+	"alok.a.tiwari@oracle.com" <alok.a.tiwari@oracle.com>, "vasant.hegde@amd.com"
+	<vasant.hegde@amd.com>
+Subject: RE: [PATCH v2 08/22] iommufd: Abstract iopt_pin_pages and
+ iopt_unpin_pages helpers
+Thread-Topic: [PATCH v2 08/22] iommufd: Abstract iopt_pin_pages and
+ iopt_unpin_pages helpers
+Thread-Index: AQHbtnBgpkGgdbEd20qNTy9huUtOtLPFZrYQgACjfwCAAMZl4A==
+Date: Wed, 7 May 2025 07:22:24 +0000
+Message-ID: <BN9PR11MB5276090879BB4C76CB27909E8C88A@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1745646960.git.nicolinc@nvidia.com>
+ <d44272c153e7596c3cef716044de3dc6c2a8254a.1745646960.git.nicolinc@nvidia.com>
+ <BN9PR11MB52762F5A464ACC68D78465578C892@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <aBpgWNitAgNenOPY@nvidia.com>
+In-Reply-To: <aBpgWNitAgNenOPY@nvidia.com>
+Accept-Language: en-US
 Content-Language: en-US
-In-Reply-To: <20250414035028.1561475-1-victor.liu@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI2PR02CA0031.apcprd02.prod.outlook.com
- (2603:1096:4:195::16) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|CO1PR11MB5044:EE_
+x-ms-office365-filtering-correlation-id: 51e670c0-2bca-45bd-3bef-08dd8d37ea28
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?Sfty5B4pnazAGHx3kcIYY8PckPfe5rmWzoFctT/gen6/4wzOpH0R7lNoQk2o?=
+ =?us-ascii?Q?uuw4VwsGwoX0SsnR90RYK3zm0+ndexC3GzYJAzddhpZ0R2trR8Lh8PVW5DM+?=
+ =?us-ascii?Q?j9GgzOcOTqyBZa6e9LhIrb2QAQgtGLJzn1VTEILqOl7MyMQhOW8vglwkNvdE?=
+ =?us-ascii?Q?OqX15acD/bOvpRauWJL7LHHpXudCPGACV8zUc6TJSGCn1qGvJNgDO1akBJMl?=
+ =?us-ascii?Q?s115Gk7/QI8xkF0xgtS/OFrpL5al6QlpKzCXYTIRJp7fqaihavrI5VDZUIZU?=
+ =?us-ascii?Q?OOKWN36KlS6bKnKTsip4ekWpAlGZq8NGWXFTJT6u2Do3Vgxme5u91f9mhqLj?=
+ =?us-ascii?Q?Oc6Nl8WZSGqML6bdAxMpEu/28CSLWxuVaVkbn9JdlIIEmpMetbbusZay8F2m?=
+ =?us-ascii?Q?2M0t/Jh58OOkVVFbQbu+0D8a5ROF7eZJ4JktdWDmr6XOe5zO73Jl9e/UE7LT?=
+ =?us-ascii?Q?Got4LYmjq3HbY+i6/S8SqRG6LeEYVtU3+wkUmZr8HjMBwAOaJCIfJCK5uI68?=
+ =?us-ascii?Q?J+yEvZ8p5/KgKV9+EFIlhUB6n+YGrhvrA/jNHODnYdpdHzW/v3QhLdZsJtS4?=
+ =?us-ascii?Q?MvmHdsXGmRVDPUdHlkpRnO2oEqcTyPlksu19cNFwhcz+RCCxP1nSWVSh4/Or?=
+ =?us-ascii?Q?BhM9r0N6v1Qr3mShx6VfTbI+3dzx2qFPe3J35PFk8Jo2ABJ9q4S1msLAP22a?=
+ =?us-ascii?Q?SXk3iX0VwtcARbZs7AdnR/y8dX0BEjfdCgoCvD0nIPlF6F8p/O/RPGVNPPwY?=
+ =?us-ascii?Q?KrWyaK6VNjQapTZd3PKDlpZY6tDGKwTcVD8/pnmdUSdZYKGh6442ZguFaMjm?=
+ =?us-ascii?Q?XhZIKA/G1g9KgVn5CFa6kHzMJqapAA63wyVLLFERb0yXBKT2UhtRxrD9OLxl?=
+ =?us-ascii?Q?+YOAJW/jFqDNSuVHDp9mqa4EOBqjaSF6MsH6p9ahmif1YqntSj/aDzKbpqk6?=
+ =?us-ascii?Q?5FRYRAnedO2vPQZNYVEPGqP+sf77zy1hY8JZ+4d/Spi4ySuYfCllhiEDy1Rq?=
+ =?us-ascii?Q?PNLKqF9W0vbs14HYNPqPiiNkOLYTL2Mf8eFynOS/FjJQdr8W3lZKnJfHzp74?=
+ =?us-ascii?Q?M5Yltf8gy9u0at8PO9xMwOZWYyz+SCA3p/zxRrYP8yZKRL4krVwBUK3vFaeq?=
+ =?us-ascii?Q?rTVxy74M+vKquXZHl53R0iMUtRFme2P52Dzug6i3yX7IBuri3P1IS8Dt+1A4?=
+ =?us-ascii?Q?oP252waqi+aZz2RTaKDoONSPL2+MpY45IrUZz1IL83EaGRYcpUN33MKYlJd1?=
+ =?us-ascii?Q?DzRmHwO++MG1dMseZwj513nZy0Bzj4PIAFWOE+ReDr/wFkCgTLuRBmNRnLYK?=
+ =?us-ascii?Q?yEdc3jGzL7FXms2fHgspOYHLY7x2TVNSIQxkftOrY+p7a3R3w9pjW1dY+/pr?=
+ =?us-ascii?Q?Tqkw2Kqc42CbJiT1/aEIpMH2JdpSFYTxZjjq+vL1IRm82953aVxxBVyk55yY?=
+ =?us-ascii?Q?Ex6WpAggXCJUMTcxocEpxBd3mkyoah/KswvqdVXk+eusibDLSqoAo3I0eiLP?=
+ =?us-ascii?Q?dJUFTygXRLCbLC0=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Kx0+PG2guxajgqYsYynnXOZK6LdYH3FtRvuEKJSIwIR67QpjmwDs9ZK27KPZ?=
+ =?us-ascii?Q?MEqrn6oYulcaHfpPEYKJbjz4/fmxFXd+MdEq7V7XdjzD+NO8hzU6AooJRvrk?=
+ =?us-ascii?Q?9H4gHFQ+xPg7KNM2M+D3wU/IXtI1L3BNO6gMf1lTL7WQknx/+pmJ/8nEksI1?=
+ =?us-ascii?Q?nvgI//1LhRZz0vfpr78LZXasVhkmkjvxhpQB1QsKlzpFmhklI4H6CIPVthxk?=
+ =?us-ascii?Q?yCr1kdhRiwZSFCTYqFR2wJwq7ZpgjUnJ6EIxynUIkv37t4wh8Vj2iILOKNLm?=
+ =?us-ascii?Q?GkdG4Gr1zBEzb/RbfwF+QTsoEZdvC89i0HYtAKQaRAsOYg+FNpBcdqNMnarG?=
+ =?us-ascii?Q?j9ldUo5imn4/GcnQU4JYhPLK8o1wbMqoguv3X2ehl+I71M0TDirUIKtGdkZV?=
+ =?us-ascii?Q?M39iW0OJPQzl4HyR0OE3a9bm2SqXK/7S20aUfZDo5lZm6qUHm4rk0JzSCiOx?=
+ =?us-ascii?Q?Qvwyp47iWBs5Azmm2jP+XEEj3IsxQJ8ckaLIQ5XpKQcJNd8RCjgmJ3nWTxRr?=
+ =?us-ascii?Q?mtvvVFk4UaqmfyspUKbt5PQImQVyfv0OzpPNEJljoDr3gvmzl/xTV1gmK1jO?=
+ =?us-ascii?Q?uD9LMJd/Bz9MlAVd7aVTz0dEj6X3b0QO0thSwklZZJF8MVHeJ6zEket1UNvE?=
+ =?us-ascii?Q?gX3Uj6+jYmVGdwH//kKk4KsF2qZIMAbd9rDcFnPrfjUsc2opE3gHcKxwVq5f?=
+ =?us-ascii?Q?ScJbpwy0dJe3hv64Eq4uR5LIfUkVhlwkmdKrGcPf6FZ8bpVyPm0dlJB+Nq+3?=
+ =?us-ascii?Q?e7Kc5b2/s9AbC538e/4urGtSmAPW8bLuwT9VkO84gSM/HLo36JMtLUodTYZ9?=
+ =?us-ascii?Q?REwQd+LNtynVN7Bu/6vqazeE9wUj4YfcF9OaUUwyOrev8C2PYU43Dd64RYxV?=
+ =?us-ascii?Q?Uqg2IvBk5kSRJdUI3GhtpMd32uUiNBgiBwBo1ZaRtXnaCojSIFcLX3onOyb4?=
+ =?us-ascii?Q?XhaUuaRzJHUFW9Nw+aUttDPozwxuN7ykxHL6zQ3+OA0zbvV/4vGQpI+vIFv0?=
+ =?us-ascii?Q?obZmcwkLQmBQcRq+W13VwhacSwmSNqe/vz2AOmumVTbmh7wy5Zb4mwxGecQV?=
+ =?us-ascii?Q?45zy2QfLf1Aw1n2T/STmSwnkfhpz6y835IsWqhdP6KhHJxvA1okOcxrox7Z9?=
+ =?us-ascii?Q?2CGfhRYY0iZ0nY6n71qVSgOn5oOjF39+8yet8/QDoQ/bHURMRlDs0xnmwVX+?=
+ =?us-ascii?Q?Nllk9RaqCZXBvrCCYhvziqQkW6IHByT9Tlu+sKmfaCG/IF0MnWWhojzmE0rp?=
+ =?us-ascii?Q?BOPrQzvRnh3xgUC7vYj6VWMtO4kf1Kc4Ov3J34Wutg8xPZe8igb2lQnFRAi9?=
+ =?us-ascii?Q?BV0W/DX69Fs7aHq0844/gnGCP+loANrXhCP1283TjQhmvCC4vRIW+yneQ+hq?=
+ =?us-ascii?Q?ECva5ILnVPWvikuy2/D18hBfV+As/Go3nUfDvzgBaOzVybpm/eBuiOmPsj8C?=
+ =?us-ascii?Q?v5D1cgcO4D3jSaCNnMoOgNm5ANCz5Lv5W9XOx2mE7Of0QJ9+Aa2aTe9Zr2ii?=
+ =?us-ascii?Q?NRwhcwJ4Jwv5VgqQsX/o+W03Ux0udLP/9iV1pHmmKuEg76XUaLWS9KvukAJS?=
+ =?us-ascii?Q?9357374OoED63lbFlZ2+QZ+XpbL3GCY6cymKHLlI?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|PA4PR04MB9439:EE_
-X-MS-Office365-Filtering-Correlation-Id: ed29efe0-05e8-4be0-6bd5-08dd8d375a7e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UWs5SjFNUitZT1J5N2dLbmQrTjVDU2tnVVQ1QmhiWHhDRUlhajljdndPSGlz?=
- =?utf-8?B?RkdLVTk3bEVnQzhhVVhBd0Fhb3c0SlZqTllzMDQzY1V4eWZkeUNkK1Y3d3ZI?=
- =?utf-8?B?RjF5eUdCWEFwN25zM1ZzY0RPb2JtRzJ5TzV5emE0UHpMektBM0JRWC94Vjln?=
- =?utf-8?B?c3gyakpUVUgwYzZHVFdMWmwxS0hndXcxNyt6R0JmbFFUWDB4WkdKajF4cnhT?=
- =?utf-8?B?N0htdm5lQ0xvanhaWGtpaWNySytUSkhaa2xpTnptUVkwWmNPbUFPMHRLN2sz?=
- =?utf-8?B?Qlg0cnIvY2dnaW1BRDZUZHJNeUNnc1BFaTV5ajN6TlpTWGdmUnlPVnFEZDgy?=
- =?utf-8?B?M2NOMDVNeWRrck05aFVPaGJyNDErMUFEdEs1VFg4bnlXYlZ6anRyTnoxNjZU?=
- =?utf-8?B?bFJXeXhyK2J3N25vNnlLK3pQTjlHTTVqYi94WWhuUUpUS054dHlINnAzc1BS?=
- =?utf-8?B?aFVNc1B4NU00dW12MFV0eUZDdDh5OEd4bFRmZCsvL2hWUUplR2crSmNaUDQz?=
- =?utf-8?B?MGFUcXBFd3d6NkhVM3JGVFkzWERaODdaVFZ3dnE5WmlBWjQ2eEtodmN0dWdT?=
- =?utf-8?B?aHU1cC9qNTB0bGhhZEJXZDBLRVhvTHk3YmpKQ25ZeW5HaEZCOFJQODdZMkJX?=
- =?utf-8?B?Zlk2M3lNZFBPbFE5R2NQQUJOVFlYOTUvNmFET3F2R0VsbjE2NTE2L3RTWXZn?=
- =?utf-8?B?bk5iWHdFMksrWHR3dnJiMTh3azAzZTNMYmRSUDJud3pQYzFLZEpKRHZzNktF?=
- =?utf-8?B?TWdnTHpiZVcwYVlMdGYxb245NUVwbld0SXNGdzdjR3JHak9UWUNjMHJlRWZX?=
- =?utf-8?B?TVpnRTlRZUZxYzRITUlHZFp6WXNKeFJ3QXM1dit5MU1xbk1mNWU0ZG9rZ2xj?=
- =?utf-8?B?SUxDNXE1MUVaWFl3MmphdlJLYXNPQUttbXQxeCtLcjhBZzV1eXlwN3hKcnNX?=
- =?utf-8?B?S2g5aHg0STFwMTM0dHVPR2VMNzhRS2hYa3dVMFBtejNTaWFsdlY4STVvdkRI?=
- =?utf-8?B?cWcrUFR6WHJ3bmdRblA5WitrNnZacFpxMFpSa1pDWGgyeGptRk5JaitWSHlE?=
- =?utf-8?B?ZEJwZ1pWL3BXU0dnVTV4RWdLK3NTUVlUUDBtMHFYVDJra0VFa0dhSTVpeXVN?=
- =?utf-8?B?a045dW9nZndGWks2TjdqNE1Nem1yaCtNaTZEcDQzdy9SMEJuYmE2WUpoaUhN?=
- =?utf-8?B?TXZTZVBFbmVUU3NOSUZHODBjcUplL2tySS9DTHlKLzdVc2FtRi9lMjhwbWl5?=
- =?utf-8?B?a2dKaC9SWkFKOVJSdzZ6TXVGaW1TTlFXS0hjQ0tFRStMQmE3bTFnSUdpSkFE?=
- =?utf-8?B?VFJqUHRMZkRCMUwxYlpHRW1odis4TjU3cDl6dEFPclZla0RkUm5RQVN6WEJB?=
- =?utf-8?B?K29QSVVLNmZCRWZxNW9ua0E3Sm1kdEJpdHRGZU9qL2gzbnd5NjlkejFjdnNY?=
- =?utf-8?B?dlBJTGRJVldEcENBNTJQYVFyNHEzVG9KOU1sbDlxa0lqV0YySm1iWnpsK0E4?=
- =?utf-8?B?RHhrY1JaNk1kZ0dra0c2QnBaYjMySkpFclFCZ1pCVEg4WUtFdmQ3dUY3S1FD?=
- =?utf-8?B?V2FKSUpqaGRNVkdVeTFPTk9WbDV1UEdaN0d0VVk3QTBXbHAwbXZRRXMxMXN0?=
- =?utf-8?B?aVN6ZmpvYUxZWGtWblVjZFZpeGhqalduUnZDeU5KZU1kWGhGWW10ZEltV3dG?=
- =?utf-8?B?UXZpdFlMQldlUU43bCtEWE1YYmlUazcrdDJwakZoNnJJUFdxbWJ6bEVGTG5P?=
- =?utf-8?B?MDhXY2FiZmZyNjNmc21JQ0dTaFl5ZHhhdXBQc2o0eXlxRUx1UlYzbE9LMEg3?=
- =?utf-8?Q?8aVw1q/1T7WOjegdvyCVG6JcDbz+SKewPvhIE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q05ud013RzhSR3hDZzVZOEFaOVdoTms5cmZ1OGFkbjhONHY4UE5LSUpPL0I4?=
- =?utf-8?B?QUxBbFhxSnlKdTYyM011ZjA0R3IzalpnK2pPV0MvL25BbVhOUWxPNDFiSXRo?=
- =?utf-8?B?aFRsTjFqY1VCTzdjQ0xDQjgwV2JvcDcrWGt2MHhSeFNtZTcwMzV4cWxaUkd5?=
- =?utf-8?B?bHk3eTlHSy91RjJkbElhcSt5c1o3Y2ttdHM0TVR3YW9VUEJYeXU1VmJqUFZm?=
- =?utf-8?B?SU1TZ0dLWmZURFQyVlJLQTlrWkMvZ3o4QWpyK2dwbWhlTEkvM0dnWGtEVW5C?=
- =?utf-8?B?Q08ydG1PbkxRd3BSZytaL1lCdkpobnExeGhrckdYSGsvczBSNjJTU2ppQVhs?=
- =?utf-8?B?WUxkVTRhbVZkazBZTytiYnlkbVdqbGY3ZXRPdXExV2ptdWtTWS80dStXM29U?=
- =?utf-8?B?U0FldDhJSjhmODVWcGFIOVRTQWhXRjFGTnZOK2hNUEp1UWtwZTNHRGptNUt4?=
- =?utf-8?B?Q0FVeVptd2pEbFFiTlc3bm93RGp4UTRHdmR1aytiWk5GM1hTblZWWnNib0pu?=
- =?utf-8?B?cDdldEZINVp5MHlqM3paVmhQVCtTYnJwdDRSbG9wVTZ3YU5QdnBDMnBQejND?=
- =?utf-8?B?M2J3UC9YSmRvOUpteGppOUc0THliSW40ekNleU5EYzFhQklVY3ZvQmhrekth?=
- =?utf-8?B?bzA3TlBDTGM5YisxRGF1SzBZQnVTMlh1UklnR0VaUTZWaTR1U2lvNnVzS1BV?=
- =?utf-8?B?aTFRb2I0NXFQbU1OUnAwYU41bnMzeXhEdXZIREtTdVZ1Y3BIaHBpSUw4ekZB?=
- =?utf-8?B?aVlXWkRnTEc3cWZLZXZiYWtRaFVCVXk3ejFiNFE5eEEvM0lEZzNLQ2d1NkFU?=
- =?utf-8?B?S0FxTzgzTHhyZ2UrQ3FwYXF3eHo5Z1RyU0J5ZVkzSWp4SnhKZFp3NDFoYUFZ?=
- =?utf-8?B?VEswVE54dC84OXZvbW0zaVdxYUJYRlVqcUN0UmhvZWIyNWpmRUhVMmlYZlZN?=
- =?utf-8?B?NHpxVlo2a3JGNFk1T0tmd01QYUhnTWtPWElDYmszL0FDMTBaMjU5c2dPS1Ns?=
- =?utf-8?B?eEQ3cGtORVFmNHNCdGlMWHUySHpzc0l6eE9WUUo3QldmeW00aXhiOU9Cck1U?=
- =?utf-8?B?RkEyOTlzTU81U01wQXBHLzFGQUJHWUh5VlczM2hpU0V0RVJkNTA5VC9nQzND?=
- =?utf-8?B?WTFUKzZVR1creXpOUFRtam9SbXZIVkhnSXJwd2IzK0xsSnliaEFpdGhmWVd3?=
- =?utf-8?B?MDRUbXZ3SjNTZ3cvNEJEUU5KYkdJSFdWRXRYY2dncEp3WWIwU2hPdElVY0Mw?=
- =?utf-8?B?S0l0NXl2RXNhNHhKVFlwWDI4NU5CYS9iUUgybWwxTFV2c3Nzay9zMlQwcTJS?=
- =?utf-8?B?bFU3d0g0T2dDbkNQSDI2N1hCMWFocWlrRjdaTHNnZm5lZ2pRZFo5eWJKYnRU?=
- =?utf-8?B?YzQwR28wUjdpOG5Qc1hLbFhlMGVhQUU0TitBWGxmbjl1czRMNE42SFBRMVZi?=
- =?utf-8?B?dkdPSXhvRThwSFloZVBqOCtvY3NBaUVGUExqSENoT1REeUp3NVRSbEtwbjJ5?=
- =?utf-8?B?NGdwYVhPVTBrOWM1bmZLSlJBb1N6dHcvb3lHcTRKaHVvWXQ5UkRtbW05TGo3?=
- =?utf-8?B?OG04cW52LzBvZmgvZTVBRTFWNnlRekJ4RkxVMy9rKzcrWW8vRnMzWEFPaURy?=
- =?utf-8?B?NlEzYU5CNVNXT1Y2VnE1MCs0TWdHcjZ6MVNydVZaMXZmaFNBYU9zV1o3VFJr?=
- =?utf-8?B?ajZRM1pWdDlIWVRMNUo3MnUzZkVpNmNacVhnOW9WaG4zRkFvMzZmSEVZRUZS?=
- =?utf-8?B?NVZRR2puMldSVG1IOW5lNWkxT1dES2hyb0dqUVQzbXVBemwzT3JwbmZ0RU1n?=
- =?utf-8?B?WFQ0OGRUL0swSjVxL1hNdmpLdXhNUmdEeHY0SXFJSEJRL1gxZy9ad2ZGQXUr?=
- =?utf-8?B?a0x5WFg5Z2J5b3BHeEJaZVllVlViZThCUmFjdWNtQW1sanZLcTBob3VMQzRM?=
- =?utf-8?B?TEV1ZnYyK281RnZCWjdvUGpqOGltZG9hR0I5WlZIOGJZUnMwUUtWMFNLNys5?=
- =?utf-8?B?amRzQXVvcGE1aXhtMkdDL01XTjNoOFhobjJ6ZlhqWWQ0azgrbXdqcmM1ZlRz?=
- =?utf-8?B?M2RwSkVXMG4wUkZHM3ovRUpiTDViaXFXVnZiaFlNOVRBYlVKcGdrWnJwVjd5?=
- =?utf-8?Q?DT18Legx7IWJZBGI7vSv1eTzI?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ed29efe0-05e8-4be0-6bd5-08dd8d375a7e
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2025 07:18:23.9359
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 51e670c0-2bca-45bd-3bef-08dd8d37ea28
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 May 2025 07:22:24.7362
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qekOQT4km29m4Xhmw7tDMDHB+Y+eH9NluHcp/HS9iYH19sUQRwHA1J20z4ds1NZZh0NkCbVNfaDT1B3Bm9ZC7w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9439
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: YBeUItMQpKhcMigN/gkOqLj5sei1jmY9Y1aoyMd0A0nR54s7pQ5cMYU3TKmU1U099bF1OEeea5OHcjo0rfUCJw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR11MB5044
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_001834_150902_16E0CB6A 
-X-CRM114-Status: GOOD (  29.76  )
+X-CRM114-CacheID: sfid-20250507_002330_148003_D058DB62 
+X-CRM114-Status: GOOD (  29.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,321 +217,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime, drm/misc maintainers,
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Wednesday, May 7, 2025 3:18 AM
+>=20
+> On Tue, May 06, 2025 at 09:36:38AM +0000, Tian, Kevin wrote:
+> > > From: Nicolin Chen <nicolinc@nvidia.com>
+> > > Sent: Saturday, April 26, 2025 1:58 PM
+> > >
+> > > The new vCMDQ object will be added for HW to access the guest memory
+> for
+> > > a
+> > > HW-accelerated virtualization feature. It needs to ensure the guest
+> memory
+> > > pages are pinned when HW accesses them and they are contiguous in
+> > > physical
+> > > address space.
+> > >
+> > > This is very like the existing iommufd_access_pin_pages() that output=
+s
+> the
+> > > pinned page list for the caller to test its contiguity.
+> > >
+> > > Move those code from iommufd_access_pin/unpin_pages() and related
+> > > function
+> > > for a pair of iopt helpers that can be shared with the vCMDQ allocato=
+r. As
+> > > the vCMDQ allocator will be a user-space triggered ioctl function,
+> WARN_ON
+> > > would not be a good fit in the new iopt_unpin_pages(), thus change th=
+em
+> to
+> > > use WARN_ON_ONCE instead.
+> > >
+> > > Rename check_area_prot() to align with the existing iopt_area helpers=
+,
+> and
+> > > inline it to the header since iommufd_access_rw() still uses it.
+> > >
+> > > Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> >
+> > any reason why this cannot be done by the core? all types of vcmd
+> > queues need to pin the guest buffer pages, no matter the IOMMU
+> > accesses GPA or HPA.
+> >
+> > Jason made a similar comment earlier [1].
+> >
+> > check of continuity is still done by the driver, if HPA is being access=
+ed.
+> >
+> > [1] https://lore.kernel.org/all/20250424134049.GP1648741@nvidia.com/
+>=20
+> But I am doing in the core. I have iopt_pin_pages() called in the
+> core ioctl handler iommufd_vqueue_alloc_ioctl():
+>=20
+> https://lore.kernel.org/linux-
+> iommu/1ef2e242ee1d844f823581a5365823d78c67ec6a.1746139811.git.nicoli
+> nc@nvidia.com/
+>=20
 
-On 04/14/2025, Liu Ying wrote:
-> Hi,
-> 
-> This patch series aims to add Freescale i.MX8qxp Display Controller support.
-> 
-> The controller is comprised of three main components that include a blit
-> engine for 2D graphics accelerations, display controller for display output
-> processing, as well as a command sequencer.
-> 
-> Previous patch series attempts to do that can be found at:
-> https://patchwork.freedesktop.org/series/84524/
-> 
-> This series addresses Maxime's comments on the previous one:
-> a. Split the display controller into multiple internal devices.
->    1) List display engine, pixel engine, interrupt controller and more as the
->       controller's child devices.
->    2) List display engine and pixel engine's processing units as their child
->       devices.
-> 
-> b. Add minimal feature support.
->    Only support two display pipelines with primary planes with XR24 fb,
->    backed by two fetchunits.  No fetchunit dynamic allocation logic(to be done
->    when necessary).
-> 
-> c. Use drm_dev_{enter, exit}().
-> 
-> Since this series changes a lot comparing to the previous one, I choose to
-> send it with a new patch series, not a new version.
-> 
-> To follow up i.MX8qxp TRM, I changed the controller name to "Display Controller"
-> instead of the previous "DPU".  "DPU" is only mentioned in the SoC block
-> diagram and represents the whole display subsystem which includes the display
-> controller and prefech engines, etc.
-> 
-> With an additional patch[1] for simple-pm-bus.c, this series facilitates
-> testing a LVDS panel on i.MX8qxp MEK.
-> 
-> Please do NOT merge patch 14-19.  They are only used to facilitate testing
-> the LVDS panel.
-> 
-> Maxime, patch 1-13 have already been reviewed by maintainers, can you please
-> consider to land patch 1-13?
+IMHO we just want to keep the pin logic in the core while leaving
+the check of PFN continuity to the driver (or have a way for the=20
+driver to communicate such need to the core).=20
 
-Gentle ping. Do you think it's ok to land patch 1-13?
-I may try to push them to drm/misc if needed.
-
-> 
-> [1] https://lkml.org/lkml/2023/1/25/120
-> 
-> v9:
-> * Rebase on v6.15-rc1.
-> * Collect Rob's R-b tag on patch 6.
-> * Collect Dmitry's R-b tags on patch 9&10.
-> * Collect Maxime's R-b tag on patch 13.
-> 
-> v8:
-> * Drop instance numbers from display controller internal devices' compatible
->   strings. This means switching back to patches for DT bindings in v4. So, add
->   Rob's previous R-b tags back on patches for DT bindings. (Dmitry)
-> * Get display controller internal device instance numbers through register
->   start addresses of the devices in patch 9&10, instead of compatible strings.
->   (Dmitry)
-> * s/shdld/shdload/ for IRQs in patch 9/10/12. (Dmitry)
-> * Drop dc_plane_check_no_off_screen() from patch 12. (Dmitry)
-> * Drop id member from struct dc_de from patch 9. (Dmitry)
-> * Add dc_{de,pe}_post_bind() to patch 9&10, to avoid dependency on the
->   component helper's way of implementing component binding order. (Dmitry)
-> * Add dev_warn() to dc_lb_pec_dynamic_{prim,sec}_sel() in patch 10. (Dmitry)
-> * Drop lb_links[] and dc_fetchunit_all_fracs[] arrays from patch 10. (Dmitry)
-> * Collect Dmitry's R-b tags on patch 11&12.
-> 
-> v7:
-> * Drop using DT aliases for display controller internal devices and add
->   instance numbers to display controller internal devices' compatible
->   strings. Drop Rob's R-b tags on some DT bindings patches. (Rob)
-> * Drop using typeof in macros and explicitly define variable types in patch 12.
->   (Dmitry)
-> * Add a comment for disable_irq_nosync() to explain why _nosync in patch 12.
->   (Dmitry)
-> * Inline dc_crtc_check_clock() in patch 12. (Dmitry)
-> * Use global drm_dc->pe in patch 12. (Dmitry)
-> * Drop dc_crtc_disable_at_unbind() from KMS driver in patch 12. (Dmitry)
-> * Add kernel doc for struct dc_{crtc,drm_device,plane} in patch 9/10/12.
->   (Dmitry)
-> * Define common IRQ handlers separately for each IRQs in patch 12. (Dmitry)
-> * Rebase this series upon next-20241220, so drop date entry from drm_driver
->   and correctly include drm/clients/drm_client_setup.h.
-> * Fix regmap_config definitions for display controller internal device drivers
->   in patch 9/10/11 by correcting name field, correcting read ranges and setting
->   max_register field.
-> * Get instance numbers from device data(compatible strings) instead of OF
->   aliases in display controller internal device drivers in patch 9/10/11.
-> * Collect Maxime's R-b tags on interrupt controller driver and display drivers.
-> * Trivial tweaks.
-> 
-> v6:
-> * Fix build warning by expanding sizeof(fu->name) from 13 to 21 in patch 10.
->   (kernel test robot)
-> 
-> v5:
-> * Document display controller device's and some display controller internal
->   devices' aliases in DT bindings. Hence, drop collected R-b tags from some
->   patches for DT bindings. (Maxime)
-> * Replace .remove_new with .remove in all drivers. (Uwe)
-> * Select REGMAP and REGMAP_MMIO options in patch 9.
-> * Fix patch 9 & 10's commit message to state that display engine driver and
->   pixel engine driver are component drivers instead of master/aggregate drivers.
-> 
-> v4:
-> * Collect Rob's R-b tags on DT binding patches(patch 1-5).
-> * Replace "fsl,iram" property with standard "sram" property in
->   fsl,imx8qxp-dc-command-sequencer.yaml in patch 6. (Rob)
-> * Use regmap to define register map for all registers. (Dmitry)
-> * Use regmap APIs to access registers. (Dmitry)
-> * Inline some small functions. (Dmitry)
-> * Move dc_fg_displaymode(), dc_fg_panic_displaymode() and dc_lb_blendcontrol()
->   function calls from KMS routine to initialization stage. (Dmitry)
-> * Drop dc-crtc.h and dc-plane.h header files and move relevant defines to
->   appropriate .h header files or .c source files. (Dmitry)
-> * Drop futile "else" clause from dc_crtc_common_irq_handler(). (Dmitry)
-> * Drop dc_drm->pe_rpm_count. (Dmitry)
-> * Drop DC_{CRTCS,ENCODERS,PRIMARYS} macros and only use DC_DISPLAYS. (Dmitry)
-> * Drop drmm_kcalloc() function call to allocate an array for storing IRQs.
->   Instead, put it in struct dc_crtc.  (Dmitry)
-> * Call devm_request_irq() to request IRQs, instead of using drmm action.
->   (Dmitry)
-> * Call devm_drm_of_get_bridge() to find the next bridge. (Dmitry)
-> * Select DRM_CLIENT_SELECTION due to rebase.
-> * Select the missing DRM_DISPLAY_HELPER and DRM_BRIDGE_CONNECTOR.
-> * Use devm_kzalloc() to drmm_kzalloc() to allocate dc_* data strutures.
-> * Drop unnecessary private struct dc_*_priv from DC internal device drivers.
-> * Set suppress_bind_attrs driver flag to true in DC internal device drivers
->   to avoid unnecessary sys interfaces to bind/unbind the drivers.
-> * Make some fetch unit operations be aware of fractional fetch unit index(0-7).
-> * Take DC interrupt controller driver as a standalone driver instead of a
->   component driver.
-> * Replace drmm_kcalloc() with devm_kcalloc() to allocate an array for
->   struct dc_ic_entry.
-> * Call platform_get_irq() from DC interrupt controller driver to make sure
->   parent interrupt controller driver is probed first.
-> * Use DRM_FBDEV_DMA_DRIVER_OPS due to rebase.
-> * Replace drm_fbdev_dma_setup() with drm_client_setup_with_fourcc() due to
->   rebase.
-> * Replace drmm_add_action_or_reset() with devm_add_action_or_reset() to
->   register dc_drm_component_unbind_all() action.
-> * Request interrupts in dc_crtc_post_init() after encoder initialization to
->   make sure next bridge is found first.
-> * Trivial tweaks.
-> 
-> v3:
-> * Collect Rob's R-b tag on the patch for adding fsl,imx8qxp-dc-intc.yaml.
-> * Combine fsl,imx8qxp-dc-fetchunit-common.yaml,
->   fsl,imx8qxp-dc-fetchlayer.yaml and fsl,imx8qxp-dc-fetchwarp.yaml
->   into 1 schema doc fsl,imx8qxp-dc-fetchunit.yaml. (Rob)
-> * Document all processing units, command sequencer, axi performance counter
->   and blit engine. (Rob)
-> 
-> v2:
-> * Drop fsl,dc-*-id DT properties from fsl,imx8qxp-dc*.yaml. (Krzysztof)
-> * Move port property from fsl,imx8qxp-dc-display-engine.yaml to
->   fsl,imx8qxp-dc-tcon.yaml. (Krzysztof)
-> * Drop unneeded "|" from fsl,imx8qxp-dc-intc.yaml. (Krzysztof)
-> * Use generic pmu pattern property in fsl,imx8qxp-dc.yaml. (Krzysztof)
-> * Fix register range size in fsl,imx8qxp-dc*.yaml.
-> * Use OF alias id to get instance id from display driver.
-> * Find next bridge from TCon's port from display driver.
-> * Drop drm/drm_module.h include from dc-drv.c.
-> * Improve file list in MAINTAINERS. (Frank)
-> * Add entire i.MX8qxp display controller device tree for review. (Krzysztof)
-> * Add MIPI/LVDS subsystems device tree and a DT overlay for imx8qxp
->   MEK to test a LVDS panel as an example. (Francesco)
-> 
-> Liu Ying (19):
->   dt-bindings: display: imx: Add i.MX8qxp Display Controller processing
->     units
->   dt-bindings: display: imx: Add i.MX8qxp Display Controller blit engine
->   dt-bindings: display: imx: Add i.MX8qxp Display Controller display
->     engine
->   dt-bindings: display: imx: Add i.MX8qxp Display Controller pixel
->     engine
->   dt-bindings: display: imx: Add i.MX8qxp Display Controller AXI
->     performance counter
->   dt-bindings: display: imx: Add i.MX8qxp Display Controller command
->     sequencer
->   dt-bindings: interrupt-controller: Add i.MX8qxp Display Controller
->     interrupt controller
->   dt-bindings: display: imx: Add i.MX8qxp Display Controller
->   drm/imx: Add i.MX8qxp Display Controller display engine
->   drm/imx: Add i.MX8qxp Display Controller pixel engine
->   drm/imx: Add i.MX8qxp Display Controller interrupt controller
->   drm/imx: Add i.MX8qxp Display Controller KMS
->   MAINTAINERS: Add maintainer for i.MX8qxp Display Controller
->   dt-bindings: phy: mixel, mipi-dsi-phy: Allow assigned-clock*
->     properties
->   dt-bindings: firmware: imx: Add SCU controlled display pixel link
->     nodes
->   arm64: dts: imx8qxp: Add display controller subsystem
->   arm64: dts: imx8qxp: Add MIPI-LVDS combo subsystems
->   arm64: dts: imx8qxp-mek: Enable display controller
->   arm64: dts: imx8qxp-mek: Add MX8-DLVDS-LCD1 display module support
-> 
->  ...sl,imx8qxp-dc-axi-performance-counter.yaml |  57 ++
->  .../imx/fsl,imx8qxp-dc-blit-engine.yaml       | 204 +++++++
->  .../display/imx/fsl,imx8qxp-dc-blitblend.yaml |  41 ++
->  .../display/imx/fsl,imx8qxp-dc-clut.yaml      |  44 ++
->  .../imx/fsl,imx8qxp-dc-command-sequencer.yaml |  67 +++
->  .../imx/fsl,imx8qxp-dc-constframe.yaml        |  44 ++
->  .../imx/fsl,imx8qxp-dc-display-engine.yaml    | 152 +++++
->  .../display/imx/fsl,imx8qxp-dc-dither.yaml    |  45 ++
->  .../display/imx/fsl,imx8qxp-dc-extdst.yaml    |  72 +++
->  .../display/imx/fsl,imx8qxp-dc-fetchunit.yaml | 141 +++++
->  .../display/imx/fsl,imx8qxp-dc-filter.yaml    |  43 ++
->  .../display/imx/fsl,imx8qxp-dc-framegen.yaml  |  64 ++
->  .../display/imx/fsl,imx8qxp-dc-gammacor.yaml  |  32 +
->  .../imx/fsl,imx8qxp-dc-layerblend.yaml        |  39 ++
->  .../display/imx/fsl,imx8qxp-dc-matrix.yaml    |  44 ++
->  .../imx/fsl,imx8qxp-dc-pixel-engine.yaml      | 250 ++++++++
->  .../display/imx/fsl,imx8qxp-dc-rop.yaml       |  43 ++
->  .../display/imx/fsl,imx8qxp-dc-safety.yaml    |  34 ++
->  .../imx/fsl,imx8qxp-dc-scaling-engine.yaml    |  83 +++
->  .../display/imx/fsl,imx8qxp-dc-signature.yaml |  53 ++
->  .../display/imx/fsl,imx8qxp-dc-store.yaml     |  96 +++
->  .../display/imx/fsl,imx8qxp-dc-tcon.yaml      |  45 ++
->  .../bindings/display/imx/fsl,imx8qxp-dc.yaml  | 236 ++++++++
->  .../devicetree/bindings/firmware/fsl,scu.yaml |  20 +
->  .../fsl,imx8qxp-dc-intc.yaml                  | 318 ++++++++++
->  .../bindings/phy/mixel,mipi-dsi-phy.yaml      |   5 -
->  MAINTAINERS                                   |   8 +
->  arch/arm64/boot/dts/freescale/Makefile        |   2 +
->  .../arm64/boot/dts/freescale/imx8-ss-dc0.dtsi | 408 +++++++++++++
->  .../imx8qxp-mek-mx8-dlvds-lcd1-lvds0-odd.dtso | 183 ++++++
->  arch/arm64/boot/dts/freescale/imx8qxp-mek.dts |  34 ++
->  .../boot/dts/freescale/imx8qxp-ss-dc.dtsi     | 240 ++++++++
->  .../dts/freescale/imx8qxp-ss-mipi-lvds.dtsi   | 437 ++++++++++++++
->  arch/arm64/boot/dts/freescale/imx8qxp.dtsi    |   7 +-
->  drivers/gpu/drm/imx/Kconfig                   |   1 +
->  drivers/gpu/drm/imx/Makefile                  |   1 +
->  drivers/gpu/drm/imx/dc/Kconfig                |  13 +
->  drivers/gpu/drm/imx/dc/Makefile               |   7 +
->  drivers/gpu/drm/imx/dc/dc-cf.c                | 172 ++++++
->  drivers/gpu/drm/imx/dc/dc-crtc.c              | 555 ++++++++++++++++++
->  drivers/gpu/drm/imx/dc/dc-de.c                | 177 ++++++
->  drivers/gpu/drm/imx/dc/dc-de.h                |  59 ++
->  drivers/gpu/drm/imx/dc/dc-drv.c               | 293 +++++++++
->  drivers/gpu/drm/imx/dc/dc-drv.h               | 102 ++++
->  drivers/gpu/drm/imx/dc/dc-ed.c                | 288 +++++++++
->  drivers/gpu/drm/imx/dc/dc-fg.c                | 376 ++++++++++++
->  drivers/gpu/drm/imx/dc/dc-fl.c                | 185 ++++++
->  drivers/gpu/drm/imx/dc/dc-fu.c                | 258 ++++++++
->  drivers/gpu/drm/imx/dc/dc-fu.h                | 129 ++++
->  drivers/gpu/drm/imx/dc/dc-fw.c                | 222 +++++++
->  drivers/gpu/drm/imx/dc/dc-ic.c                | 282 +++++++++
->  drivers/gpu/drm/imx/dc/dc-kms.c               | 143 +++++
->  drivers/gpu/drm/imx/dc/dc-kms.h               | 131 +++++
->  drivers/gpu/drm/imx/dc/dc-lb.c                | 325 ++++++++++
->  drivers/gpu/drm/imx/dc/dc-pe.c                | 158 +++++
->  drivers/gpu/drm/imx/dc/dc-pe.h                | 101 ++++
->  drivers/gpu/drm/imx/dc/dc-plane.c             | 224 +++++++
->  drivers/gpu/drm/imx/dc/dc-tc.c                | 141 +++++
->  58 files changed, 7928 insertions(+), 6 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-axi-performance-counter.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-blit-engine.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-blitblend.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-clut.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-command-sequencer.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-constframe.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-display-engine.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-dither.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-extdst.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-fetchunit.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-filter.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-framegen.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-gammacor.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-layerblend.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-matrix.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-pixel-engine.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-rop.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-safety.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-scaling-engine.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-signature.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-store.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-tcon.yaml
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc.yaml
->  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/fsl,imx8qxp-dc-intc.yaml
->  create mode 100644 arch/arm64/boot/dts/freescale/imx8-ss-dc0.dtsi
->  create mode 100644 arch/arm64/boot/dts/freescale/imx8qxp-mek-mx8-dlvds-lcd1-lvds0-odd.dtso
->  create mode 100644 arch/arm64/boot/dts/freescale/imx8qxp-ss-dc.dtsi
->  create mode 100644 arch/arm64/boot/dts/freescale/imx8qxp-ss-mipi-lvds.dtsi
->  create mode 100644 drivers/gpu/drm/imx/dc/Kconfig
->  create mode 100644 drivers/gpu/drm/imx/dc/Makefile
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-cf.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-crtc.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-de.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-de.h
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-drv.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-drv.h
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-ed.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-fg.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-fl.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-fu.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-fu.h
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-fw.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-ic.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-kms.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-kms.h
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-lb.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-pe.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-pe.h
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-plane.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-tc.c
-> 
-
--- 
-Regards,
-Liu Ying
+It's possible for have an implementation with IOMMU accessing=20
+GPA of the queue which further goes through the stage-2=20
+translation. In such case it's fine to have disjointed PFNs.
 
