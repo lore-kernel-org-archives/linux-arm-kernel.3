@@ -4,79 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B0BC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 12:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B80E2C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 12:25:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=15aok1oCi+ow5KG3/DT3pU2ISBdSkGTBhBS/f9pFazw=; b=tKHxYrNKpcJazRO72xrBz5aHDB
-	6aAKfsTt+bV6yulAdR+k6zuTBiYj1pEwrRhKt6nAuhuxtIn+VxdchziJMhClBfykBveMGL/bnKmJH
-	pQ/weRjwmOsaQZlwDtsW92dKZ0L9T2pfAFWUaCbs6XrccCALLcjLAseiiS5Oz0qQnFXvsuKRJcC+f
-	1/W+/P9InW9iioDl3hoi7q6Q6rb1noU0jsrjsG7PIksZpiA4VxGgWc4ryq1X2GU5avDLAXxqQxC18
-	mAdrZqOBK/irO5VElkVSbrEPAiQsJF1sA4x/JH5S07YgE+Xy48Sd/gobqiq0nNPs1YW3ZwHWXjr13
-	d5KT4j2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YHzGR2TH3f5PkiaDuIeNupqLtaLoSxh32TBcttsiE58=; b=tyR60/7+wEI23C2H97dMZ4x+DF
+	367T3eXvD2B+Dy08fN5lJ9SUAwFHqHFK0R8+gAFx4hXnLrPkxylPQZoIQS1KHfkc9EebtE8WntZVG
+	GSXuJ1Il+OmrtEVXM2OrTHggq6FsV++ydm/zehZVLI+vsATzyC10QMxO2eOGqjOOSpDi8G3n2u9tZ
+	ofSJoF69WBU7oq6Apc0b5Ka8MufvwKSYqKFzu02m/W1B+0XIuKUbaZh+G0FnYVIROsGx1JgU51CIo
+	k0kRkhSxPzpl7Ge6yNcgZ7WAYm/L7uFvK8wJYt1w3YrpCaRGbFriWL+0sZ3EYzf88gQJAI3xHZ8vJ
+	LXE/z2Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0Ef-00000000aOA-0zgG;
-	Thu, 08 May 2025 12:20:21 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uD0Jb-00000000bDM-2dZ3;
+	Thu, 08 May 2025 12:25:27 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0At-00000000Zhk-3Dig
+	id 1uD0Hd-00000000arM-1NVl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 12:16:29 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 548CGENn1091456
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 8 May 2025 07:16:14 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746706574;
-	bh=15aok1oCi+ow5KG3/DT3pU2ISBdSkGTBhBS/f9pFazw=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=uT2VNFOtKoniv3xYTs8+bgmIt7UaDyl1H9flqDZSGyO2Ms0lVwp4VmNCFdwuwKDFW
-	 2jTD3OIU/npASKwQmi/e0rswcm31BzqByY0UJTdHnc799fstLlakBfmSZ9yuVZ4Nq2
-	 sM1IZlGoaPtQQCD5+oVWfzmHjUItGVTHB3vTSM2I=
-Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 548CGDsv024274
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 8 May 2025 07:16:14 -0500
-Received: from DFLE110.ent.ti.com (10.64.6.31) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 8
- May 2025 07:16:11 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 8 May 2025 07:16:11 -0500
-Received: from [172.24.227.115] (abhilash-hp.dhcp.ti.com [172.24.227.115])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 548CG7qW009348;
-	Thu, 8 May 2025 07:16:07 -0500
-Message-ID: <9cb4f94e-00e8-43d5-be7a-85dc1188e856@ti.com>
-Date: Thu, 8 May 2025 17:46:06 +0530
+	Thu, 08 May 2025 12:23:26 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-22e09f57ed4so21938955ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 05:23:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1746707004; x=1747311804; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=YHzGR2TH3f5PkiaDuIeNupqLtaLoSxh32TBcttsiE58=;
+        b=2fCOLE85ilhH5V+GxfhNANcfknxzNiDDhxhjKDttT7V/6yAMm635OKOE0deamNK6PM
+         7pBUInbrCPB/NF2/+e7ebbtecwXn1Y90U+fz59vCOnLMbzmTm7t9tXd1jPCx/ElBhhfb
+         CjwM5/6meWO6h3u27S1bVPP2jIU/ADOb+ij1UIQce3qpIljK7Sdmvu2CGYj2pbipkhpC
+         sP8n8hcIGV3WO7E3KhzNVXuW7LIICmhu1D/b2AGaI97bm7YdcvivLvgNvXHnkDL990j3
+         uqBD3X/+YDPqppCu3AASO0A/WOl25q2YPYmTlUYWng7YdRWeAZmlspG6X1FLTXfhvs1s
+         hmxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746707004; x=1747311804;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YHzGR2TH3f5PkiaDuIeNupqLtaLoSxh32TBcttsiE58=;
+        b=DIARYuYgRPCaeXVvXNsWrIq8PKNTIEwqRGrCEWOhjWfqDzowSSHLxLYf1JfeADX60s
+         97ztiJ6qBQZXH6xI6F1/AGOUz1KMkrdthvUSU184osuo/MSCS0B2XRWJXZQIy4TSJ1Mf
+         rHdu9P4Mo7h81Hq9E/wvKWtYQCg/mb4HAy3Xr+Re+OGXTTxFuBeBkNBYbiKhz0kV/meO
+         NpJCS3dI1mlSBUSMwGEGr1RAGi1d9Xz7SdKuv6gHMpNtPjWwwUkgnGw45cTTjrlXOO32
+         oe1YQyHQbeUTUeX4CIwjfq3HSveNRreUzDssNzQHClJi6gys1DJ45yuUH36UqE7L4mdM
+         XjfA==
+X-Forwarded-Encrypted: i=1; AJvYcCX9cRqY1EKlGkAYd/IphoV4RVtLNfXY28MrWlwc8IFSIG+eanzBBKE41pcTONDuXNxRQab3OYf4K2W5uP+PbFae@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOZq0zhQahXlmchAAPVU0Qz0PdhW6LOBZwd38HVHenjJHr9emn
+	t3H5CGb1qEZ8jnD7CokLGuyG5y/gAAFgFGzy0K6s+2YykjWx030bR7CbhuCkjJyrdCTI34CpPk3
+	CsN8hQ1o/bfY70xl9/YVLWDdUKOK0uJdoauju
+X-Gm-Gg: ASbGncvuaHlMdhUt0o0ejttIbcGgZeciI/BNdteWm55Brbquf9ar4Hs0ZZ7296COQ7o
+	0vJRFR/An2UrKaxIG9QMlw5y9v11dy5s8RJ5pBBodRX5GnfbSb7Lnfl+i61f1YLamNftn6FpIYH
+	vge1MqwmNceEGzPizykT92ifiI7Ogwp6KSjPgTXCf6BR9r50cd78/IeqAVrVJpbi8=
+X-Google-Smtp-Source: AGHT+IGuazhS9joimxHTMGiamVK9GxUm2CRwvQi3+Gq6fqxsbfAnr7up4McbBtUROkgn62zEFRcy/K/C2EzHqfHG+xw=
+X-Received: by 2002:a17:90b:4b8c:b0:2fa:1d9f:c80 with SMTP id
+ 98e67ed59e1d1-30adbf6d05amr4939913a91.17.1746707003520; Thu, 08 May 2025
+ 05:23:23 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: ti: k3-j722s-evm: Add overlay for TEVI
- OV5640
-To: "Kumar, Udit" <u-kumar1@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>
-CC: <vaishnav.a@ti.com>, <r-donadkar@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <jai.luthra@linux.dev>,
-        <linux-kernel@vger.kernel.org>
-References: <20250505115700.500979-1-y-abhilashchandra@ti.com>
- <20250505115700.500979-3-y-abhilashchandra@ti.com>
- <a6329e9d-409e-4f62-b26d-c4d0e49d772c@ti.com>
-Content-Language: en-US
-From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
-In-Reply-To: <a6329e9d-409e-4f62-b26d-c4d0e49d772c@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20250507180852.work.231-kees@kernel.org> <20250507181615.1947159-2-kees@kernel.org>
+In-Reply-To: <20250507181615.1947159-2-kees@kernel.org>
+From: Marco Elver <elver@google.com>
+Date: Thu, 8 May 2025 14:22:47 +0200
+X-Gm-Features: ATxdqUHttH2gHvJKzLvMz7fkEuSC2xFFktBrniyRJYj71k93n_Rm8LTTobDJ7fU
+Message-ID: <CANpmjNPcYPvnQzMT3p+Vc2=EiEbR1WnykUEjuYc0bH2HOFi6HQ@mail.gmail.com>
+Subject: Re: [PATCH 2/8] init.h: Disable sanitizer coverage for __init and __head
+To: Kees Cook <kees@kernel.org>, Dmitry Vyukov <dvyukov@google.com>, 
+	Alexander Potapenko <glider@google.com>, Aleksandr Nogikh <nogikh@google.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Andrey Konovalov <andreyknvl@gmail.com>, 
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, Hou Wenlong <houwenlong.hwl@antgroup.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Masahiro Yamada <masahiroy@kernel.org>, 
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Sami Tolvanen <samitolvanen@google.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	kasan-dev@googlegroups.com, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+	Christoph Hellwig <hch@lst.de>, Nathan Chancellor <nathan@kernel.org>, 
+	Nicolas Schier <nicolas.schier@linux.dev>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-efi@vger.kernel.org, 
+	linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	sparclinux@vger.kernel.org, llvm@lists.linux.dev, 
+	syzkaller <syzkaller@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_051627_903672_FF50D9A0 
-X-CRM114-Status: GOOD (  28.69  )
+X-CRM114-CacheID: sfid-20250508_052325_365181_1DAD0CD7 
+X-CRM114-Status: GOOD (  22.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,263 +112,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Udit,
-Thanks for the review.
++Cc KCOV maintainers
 
-On 07/05/25 13:50, Kumar, Udit wrote:
-> Hello Vaishnav/Abhilash
-> 
-> Thanks for patch
-> 
-> On 5/5/2025 5:27 PM, Yemike Abhilash Chandra wrote:
->> From: Vaishnav Achath <vaishnav.a@ti.com>
->>
->> TechNexion TEVI OV5640 camera is a 5MP camera that can be used with
->> J722S EVM through the 22-pin CSI-RX connector. Add a reference overlay
->> for quad TEVI OV5640 modules on J722S EVM.
->>
->> Signed-off-by: Vaishnav Achath <vaishnav.a@ti.com>
->> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
->> ---
->>   arch/arm64/boot/dts/ti/Makefile               |   4 +
->>   .../k3-j722s-evm-csi2-quad-tevi-ov5640.dtso   | 358 ++++++++++++++++++
->>   2 files changed, 362 insertions(+)
->>   create mode 100644 
->> arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
->>
->> diff --git a/arch/arm64/boot/dts/ti/Makefile 
->> b/arch/arm64/boot/dts/ti/Makefile
->> index 829a3b028466..76b750e4b8a8 100644
->> --- a/arch/arm64/boot/dts/ti/Makefile
->> +++ b/arch/arm64/boot/dts/ti/Makefile
->> @@ -123,6 +123,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-pcie1-ep.dtbo
->>   dtb-$(CONFIG_ARCH_K3) += k3-am67a-beagley-ai.dtb
->>   dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm.dtb
->>   dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
->> [..]
->> diff --git 
->> a/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso 
->> b/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
->> new file mode 100644
->> index 000000000000..537224ea60e3
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
->> @@ -0,0 +1,358 @@
->> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
->> +/*
->> + * 4 x TEVI OV5640 MIPI Camera module on RPI camera connector.
->> + *
->> + * Copyright (C) 2024 Texas Instruments Incorporated - 
->> https://www.ti.com/
->> + */
->> +
->> +/dts-v1/;
->> +/plugin/;
->> +
->> +#include <dt-bindings/gpio/gpio.h>
->> +#include "k3-pinctrl.h"
->> +
->> +&{/} {
->> +    clk_ov5640_fixed: clock-24000000 {
->> +        compatible = "fixed-clock";
->> +        #clock-cells = <0>;
->> +        clock-frequency = <24000000>;
->> +    };
->> +
-> 
-> Please check once , this is clock is 25M or 24M .
-> 
-> As I see CDC6CE025000ADLXT/U28 is marked as 25M OSC
-> 
+On Wed, 7 May 2025 at 20:16, Kees Cook <kees@kernel.org> wrote:
+>
+> While __noinstr already contained __no_sanitize_coverage, it needs to
+> be added to __init and __head section markings to support the Clang
+> implementation of CONFIG_STACKLEAK. This is to make sure the stack depth
+> tracking callback is not executed in unsupported contexts.
+>
+> The other sanitizer coverage options (trace-pc and trace-cmp) aren't
+> needed in __head nor __init either ("We are interested in code coverage
+> as a function of a syscall inputs"[1]), so this appears safe to disable
+> for them as well.
 
-This is the crystal clock with in the sensor.
+@ Dmitry, Aleksandr - Will this produce some unwanted side-effects for
+syzbot? I also think it's safe, but just double checking.
 
->> +    reg_2p8v: regulator-2p8v {
->> +        compatible = "regulator-fixed";
->> +        regulator-name = "2P8V";
->> +        regulator-min-microvolt = <2800000>;
->> +        regulator-max-microvolt = <2800000>;
->> +        vin-supply = <&vdd_sd_dv>;
->> +        regulator-always-on;
->> +    };
->> +
->> +    reg_1p8v: regulator-1p8v {
->> +        compatible = "regulator-fixed";
->> +        regulator-name = "1P8V";
->> +        regulator-min-microvolt = <1800000>;
->> +        regulator-max-microvolt = <1800000>;
->> +        vin-supply = <&vdd_sd_dv>;
->> +        regulator-always-on;
->> +    };
->> +
->> +    reg_3p3v: regulator-3p3v {
->> +        compatible = "regulator-fixed";
->> +        regulator-name = "3P3V";
->> +        regulator-min-microvolt = <3300000>;
->> +        regulator-max-microvolt = <3300000>;
->> +        vin-supply = <&vdd_sd_dv>;
->> +        regulator-always-on;
->> +    };
-> 
-> Sorry but on connector QSH-020-01-L-D-DP-A-K/J27, I see only 3v3 available.
-> 
-> May be I am missing something here but how you are getting 1v8 and 2v8 
-> supply
-> 
+> Link: https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/kernel/kcov.c?h=v6.14#n179 [1]
+> Signed-off-by: Kees Cook <kees@kernel.org>
 
-Yes, 3.3V is provided as the main input supply to the sensor.
-However, required 1.8V and 2.8V rails from the 3.3V input.
-Please refer to [1] for detailed information.
+Acked-by: Marco Elver <elver@google.com>
 
-> 
->> +};
->> +
->> +
->> +&main_pmx0 {
->> +    cam0_reset_pins_default: cam0-default-reset-pins {
->> +        pinctrl-single,pins = <
->> +            J722S_IOPAD(0x03c, PIN_OUTPUT, 7)
->> +        >;
->> +    };
->> +
-> 
-> Please mark GPIO you are using for this in comment
-> 
-> example
-> 
-> J722S_IOPAD(0x1dc, PIN_INPUT, 0) /* (C22) MCAN0_RX */
-> 
-
-Sure. Will do that.
-
-> 
->> +    cam1_reset_pins_default: cam1-default-reset-pins {
->> +        pinctrl-single,pins = <
->> +            J722S_IOPAD(0x044, PIN_OUTPUT, 7)
->> +        >;
->> +    };
->> +
->> +    cam2_reset_pins_default: cam2-default-reset-pins {
->> +        pinctrl-single,pins = <
->> +            J722S_IOPAD(0x04c, PIN_OUTPUT, 7)
->> +        >;
->> +    };
->> +
->> +    cam3_reset_pins_default: cam3-default-reset-pins {
->> +        pinctrl-single,pins = <
->> +            J722S_IOPAD(0x054, PIN_OUTPUT, 7)
->> +        >;
->> +    };
->> +};
->> +
->> +&exp1 {
->> +    p06-hog{
->> +        /* P06 - CSI01_MUX_SEL_2 */
->> +        gpio-hog;
->> +        gpios = <6 GPIO_ACTIVE_HIGH>;
->> +        output-high;
->> +        line-name = "CSI01_MUX_SEL_2";
-> 
-> As per table on page 29
-> 
-> CSI01_MUX_SEL_2 as low means, INPUT<-- A Port [CSI2 Connector]
-> 
-> Please check, if you want to drive this line high or low
-
-These are RPI connectors, It should be high.
-
-> 
->> +    };
->> +
->> +    p07-hog{
->> +        /* P01 - CSI23_MUX_SEL_2 */
->> +        gpio-hog;
->> +        gpios = <7 GPIO_ACTIVE_HIGH>;
->> +        output-high;
->> +        line-name = "CSI23_MUX_SEL_2";
->> +    };
-> 
-> Same as for CSI01_MUX_SEL_2, table on page-30
-> 
-> 
->> +};
->> +
->> +&main_gpio0 {
->> +    p15-hog {
->> +        /* P15 - CSI2_CAMERA_GPIO1 */
->> +        gpio-hog;
->> +        gpios = <15 GPIO_ACTIVE_HIGH>;
->> +        output-high;
->> +        line-name = "CSI2_CAMERA_GPIO1";
->> +    };
->> +
->> +    p17-hog {
->> +        /* P17 - CSI2_CAMERA_GPIO2 */
->> +        gpio-hog;
->> +        gpios = <17 GPIO_ACTIVE_HIGH>;
->> +        output-high;
->> +        line-name = "CSI2_CAMERA_GPIO2";
->> +    };
->> +
->> +    p19-hog {
->> +        /* P19 - CSI2_CAMERA_GPIO3 */
->> +        gpio-hog;
->> +        gpios = <19 GPIO_ACTIVE_HIGH>;
->> +        output-high;
->> +        line-name = "CSI2_CAMERA_GPIO3";
->> +    };
->> +
->> +    p21-hog {
->> +        /* P21 - CSI2_CAMERA_GPIO4 */
->> +        gpio-hog;
->> +        gpios = <21 GPIO_ACTIVE_HIGH>;
->> +        output-high;
->> +        line-name = "CSI2_CAMERA_GPIO4";
->> +    };
-> 
-> Please check once if P21 and rest above are pin number of SOC ?
-> 
-
-Yes
-
-> 
->> +};
->> +
->> +&pca9543_0 {
->> +    #address-cells = <1>;
->> +    #size-cells = <0>;
->> +
->> +    i2c@0 {
->> +        #address-cells = <1>;
->> +        #size-cells = <0>;
->> +        reg = <0>;
->> +
->> +        ov5640_0: camera@3c {
->> +            compatible = "ovti,ov5640";
->> +            reg = <0x3c>;
->> +            clocks = <&clk_ov5640_fixed>;
->> +            clock-names = "xclk";
->> +
->> +            AVDD-supply = <&reg_2p8v>;
->> +            DOVDD-supply = <&reg_1p8v>;
->> +            DVDD-supply = <&reg_3p3v>;
->> +
->> +            pinctrl-names = "default";
->> +            pinctrl-0 = <&cam0_reset_pins_default>;
-> 
-> do you think, you should have reset-gpios as property for this ov5640 
-> and other nodes too ?
-> 
-
-Thanks for pointing this out. I will add that in the next revision.
-
-Thanks and Regards
-Yemike Abhilash Chandra
-
-
-[1]:https://www.technexion.com/wp-content/uploads/2023/09/product-brief_tevi-ov5640.pdf
-
-> 
->> +
->> [..]
+> ---
+> Cc: Marco Elver <elver@google.com>
+> Cc: Andrey Konovalov <andreyknvl@gmail.com>
+> Cc: Andrey Ryabinin <ryabinin.a.a@gmail.com>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Borislav Petkov <bp@alien8.de>
+> Cc: Dave Hansen <dave.hansen@linux.intel.com>
+> Cc: <x86@kernel.org>
+> Cc: "H. Peter Anvin" <hpa@zytor.com>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+> Cc: Hou Wenlong <houwenlong.hwl@antgroup.com>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Masahiro Yamada <masahiroy@kernel.org>
+> Cc: "Peter Zijlstra (Intel)" <peterz@infradead.org>
+> Cc: Luis Chamberlain <mcgrof@kernel.org>
+> Cc: Sami Tolvanen <samitolvanen@google.com>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+> Cc: <kasan-dev@googlegroups.com>
+> ---
+>  arch/x86/include/asm/init.h | 2 +-
+>  include/linux/init.h        | 4 +++-
+>  2 files changed, 4 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/x86/include/asm/init.h b/arch/x86/include/asm/init.h
+> index 8b1b1abcef15..6bfdaeddbae8 100644
+> --- a/arch/x86/include/asm/init.h
+> +++ b/arch/x86/include/asm/init.h
+> @@ -5,7 +5,7 @@
+>  #if defined(CONFIG_CC_IS_CLANG) && CONFIG_CLANG_VERSION < 170000
+>  #define __head __section(".head.text") __no_sanitize_undefined __no_stack_protector
+>  #else
+> -#define __head __section(".head.text") __no_sanitize_undefined
+> +#define __head __section(".head.text") __no_sanitize_undefined __no_sanitize_coverage
+>  #endif
+>
+>  struct x86_mapping_info {
+> diff --git a/include/linux/init.h b/include/linux/init.h
+> index ee1309473bc6..c65a050d52a7 100644
+> --- a/include/linux/init.h
+> +++ b/include/linux/init.h
+> @@ -49,7 +49,9 @@
+>
+>  /* These are for everybody (although not all archs will actually
+>     discard it in modules) */
+> -#define __init         __section(".init.text") __cold  __latent_entropy __noinitretpoline
+> +#define __init         __section(".init.text") __cold __latent_entropy \
+> +                                               __noinitretpoline       \
+> +                                               __no_sanitize_coverage
+>  #define __initdata     __section(".init.data")
+>  #define __initconst    __section(".init.rodata")
+>  #define __exitdata     __section(".exit.data")
+> --
+> 2.34.1
+>
 
