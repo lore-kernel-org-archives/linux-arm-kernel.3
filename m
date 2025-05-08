@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CAABC3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 15:36:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA971C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 15:38:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VqDEeskjv204T3o+wE2sZQ84XlTbJJpueq61qTFHyrU=; b=feVguLzjOBs/+ppDqVBJGsACmn
-	3Vkl/Y4cJljh/PMsCqUDK1M/UqwOCrHrjHNDgtDfDCqxmkBHrg3S8Uwy/NHla1zF+qoMyl6hsAtef
-	8jJk/Zz+p5SYW6g/+oLSDXG3sXA8bl2zOYasY8I21jP//ewBshYz4nQbC+RKbqFOraaESNcF2W0iS
-	DShN/051d8LcgY/O05v1JSHRt8zCFQFUsdWqcKjPqJ8uiiK1Us18JJPW7KZOyn+LoayVQsJIFAGLs
-	E3U59WVhNeD8M7R775R6990ML7XX2BJmR1BHrY8lVdKjmk4JcIKqMG6xb+EWQn2kYqWQajuErSMWo
-	tcBhWYhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1vsxm1JyRB+bAQ3tEUlSlA5M/qBA4ktV3wqCb8KbCyU=; b=ysmj0/YR+oiV0Xg7fgOXMSIfkS
+	ec9WFw3Umt5AFFhu6vAVJ7EXtx1o9QxnAXKORTeHwGZvRw9TblUHH018kY8HxP/iWukkphUglGJyD
+	bwusHGpZ46bcr5aVEw4BW3pf52GpWPU/gPRvl3rla6rhaIflS0xROe1G+PnZlRqHWKZ4cu/UiAGfz
+	hbUsoIAxYBMdsSVVY1qph28voZ///T9UcNogvlBRJfO524VINpepdAdjl5tJLICXjCOczWkIWzvAx
+	btxtE7LTznmxM1XMY8RPO6VH8nXUErJS/xwKJKiOn2EB4WgtxIdAwXCvE9sgWIo19mz//RPwpx/dg
+	tTTuUq0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD3IP-000000019kj-16iy;
-	Thu, 08 May 2025 15:36:25 +0000
-Received: from smtp-75.smtpout.orange.fr ([80.12.242.75] helo=smtp.smtpout.orange.fr)
+	id 1uD3KK-00000001A2Z-3zuJ;
+	Thu, 08 May 2025 15:38:24 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD2cl-000000010Fx-2xYY;
-	Thu, 08 May 2025 14:53:25 +0000
-Received: from localhost.localdomain ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id D2cYuomdl816KD2cluwCrp; Thu, 08 May 2025 16:53:23 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1746716003;
-	bh=VqDEeskjv204T3o+wE2sZQ84XlTbJJpueq61qTFHyrU=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=kmer2oUbkAgOhVfov1utjfGjKAfmb/BJ5QcB46zCIaqQYavwLTUu29+A1ZPz5aOSf
-	 T7jQk01ZTHqW0tyOSQ4SDXlSFipu9KTipIfiaP5GKh6YNCkwh2SlIYGFmbMgO1ulMK
-	 41XW59fx5HzeD98srEdzP6BbYD5qAEE1nlPkUsUzAjE3ZZ872L2R6ZvJdSGJWCeKFs
-	 EF7/WzzWvzASRcdldvOC5ee8c//yRhxNxNMklIJIO3Irl0zV1KwSwfdp5En7DwPSZy
-	 tVSeKQPJ17oWKXq1CAsm/mmpXrIw+euQ33DAgvUL+deIzoVMYP6T7dOYMDyplHq924
-	 yiBRZo34NVqKQ==
-X-ME-Helo: localhost.localdomain
-X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
-X-ME-Date: Thu, 08 May 2025 16:53:23 +0200
-X-ME-IP: 90.11.132.44
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-To: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org
-Subject: [PATCH v2 4/4] net: airoha: Use dev_err_probe()
-Date: Thu,  8 May 2025 16:52:28 +0200
-Message-ID: <1b67aa9ea0245325c3779d32dde46cdf5c232db9.1746715755.git.christophe.jaillet@wanadoo.fr>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <5c94b9b3850f7f29ed653e2205325620df28c3ff.1746715755.git.christophe.jaillet@wanadoo.fr>
-References: <5c94b9b3850f7f29ed653e2205325620df28c3ff.1746715755.git.christophe.jaillet@wanadoo.fr>
+	id 1uD2gC-000000010wn-0obt
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 May 2025 14:56:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 62A92A4DEE2;
+	Thu,  8 May 2025 14:56:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43A12C4CEE7;
+	Thu,  8 May 2025 14:56:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746716215;
+	bh=1vsxm1JyRB+bAQ3tEUlSlA5M/qBA4ktV3wqCb8KbCyU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=j07kvywVUKN4l2qE9kTZVbyyzXQMh5gn/i7jJIOvsFTdJI2DaCj5f01to0kD1yOPn
+	 oNbYZLuUXb7btBzUHSGlUSgbyvpV6IIzNF+u6JaXMywUKN4Aqo/f5y5dNUqz9QE0rc
+	 SWNCQrPJR1fYLKQBHOiTHr8BGoquAUD5XeSXdJ+TzZfHnNutQIGmVyl7+DemlVlAEl
+	 G4nnXIofN1dyRp9t6V/P3Ln2ISaAGcY5E/Q1l7fgG7zDHyDUSgdRpgjw1erVujp5H0
+	 lm+ZwIDFz37odHj3WzqDxaeOvI1G0t3DXcSAG00r8EIq2f061mFYe5s01Fb0ZFoxVP
+	 XY55/TPE8R2Sw==
+Date: Thu, 8 May 2025 15:56:51 +0100
+From: Conor Dooley <conor@kernel.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: soc: fsl,qman-fqd: Fix reserved-memory.yaml
+ reference
+Message-ID: <20250508-tumbling-suffocate-a0f41c8e67b4@spud>
+References: <20250507154231.1590634-1-robh@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="oD3B2Ah4KH8Tz7Mp"
+Content-Disposition: inline
+In-Reply-To: <20250507154231.1590634-1-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_075323_879438_5BBBDE7D 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20250508_075656_299460_AE56886B 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,67 +77,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use dev_err_probe() to slightly simplify the code.
-It is less verbose, more informational and makes error logging more
-consistent in the probe.
 
-Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
----
-Changes in v2:
-  - New patch
+--oD3B2Ah4KH8Tz7Mp
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Compile tested only.
----
- drivers/net/ethernet/airoha/airoha_eth.c | 21 +++++++++------------
- 1 file changed, 9 insertions(+), 12 deletions(-)
+On Wed, May 07, 2025 at 10:42:31AM -0500, Rob Herring (Arm) wrote:
+> The reserved-memory.yaml reference needs the full path. No warnings were
+> generated because the example has the wrong compatible string, so fix
+> that too.
+>=20
+> Fixes: 304a90c4f75d ("dt-bindings: soc: fsl: Convert q(b)man-* to yaml fo=
+rmat")
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 2335aa59b06f..7404ee894467 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2896,10 +2896,9 @@ static int airoha_probe(struct platform_device *pdev)
- 	eth->dev = &pdev->dev;
- 
- 	err = dma_set_mask_and_coherent(eth->dev, DMA_BIT_MASK(32));
--	if (err) {
--		dev_err(eth->dev, "failed configuring DMA mask\n");
--		return err;
--	}
-+	if (err)
-+		return dev_err_probe(eth->dev, err,
-+				     "failed configuring DMA mask\n");
- 
- 	eth->fe_regs = devm_platform_ioremap_resource_byname(pdev, "fe");
- 	if (IS_ERR(eth->fe_regs))
-@@ -2912,10 +2911,9 @@ static int airoha_probe(struct platform_device *pdev)
- 	err = devm_reset_control_bulk_get_exclusive(eth->dev,
- 						    ARRAY_SIZE(eth->rsts),
- 						    eth->rsts);
--	if (err) {
--		dev_err(eth->dev, "failed to get bulk reset lines\n");
--		return err;
--	}
-+	if (err)
-+		return dev_err_probe(eth->dev, err,
-+				     "failed to get bulk reset lines\n");
- 
- 	eth->xsi_rsts[0].id = "xsi-mac";
- 	eth->xsi_rsts[1].id = "hsi0-mac";
-@@ -2925,10 +2923,9 @@ static int airoha_probe(struct platform_device *pdev)
- 	err = devm_reset_control_bulk_get_exclusive(eth->dev,
- 						    ARRAY_SIZE(eth->xsi_rsts),
- 						    eth->xsi_rsts);
--	if (err) {
--		dev_err(eth->dev, "failed to get bulk xsi reset lines\n");
--		return err;
--	}
-+	if (err)
-+		return dev_err_probe(eth->dev, err,
-+				     "failed to get bulk xsi reset lines\n");
- 
- 	eth->napi_dev = alloc_netdev_dummy(0);
- 	if (!eth->napi_dev)
--- 
-2.49.0
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
+--oD3B2Ah4KH8Tz7Mp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaBzGMwAKCRB4tDGHoIJi
+0jQLAQDjo0zImdxubhL2UWRrPkobD019kaPhau2jHa4h21N5xQD+M40JHVkb1q4E
+VNgqwP6qcDhA0fIZ7YW9nJZYAS+vjQ0=
+=kREc
+-----END PGP SIGNATURE-----
+
+--oD3B2Ah4KH8Tz7Mp--
 
