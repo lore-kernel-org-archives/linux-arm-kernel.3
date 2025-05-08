@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D60BCC3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 17:21:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48F99C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 17:21:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ho6IdOLwOR5xdPY3ZhwEid3LOp7+TrBqvcaLDkvYkrE=; b=THdUe2d525o3E9y/avEd68ytPJ
-	Z9s23RljtUWb0OzqHDbQYlD4K8dq1o+GxZvg4piaJpEogQSd6xnPhPpD+DFdspLWeLRp4Eujdu4jR
-	Jd/+jAq2ayy8Ty4Tc5Uja6ODRD1sT5V4LzYZTQU12fGW6SYFSNemFbPGsbuib/TVL7UUTCRYDA8ps
-	grQ4/ifd481+mr6aES0XRaB8cNvClhvEnrDZXtm1TZ839DPRVlQ7abkIrGDsUiQLrhgLVThrdHorS
-	VFnz+u++pD3iIXF/jb3qmIowjoNVTu7/A/P5T6nthQBciTCvuMMNgUbIznT8p5FzdPFrmjtzX6QA6
-	YcUHwPmg==;
+	bh=gIUK77fu4LWb3V1OlOt8m4B54tPdlBom1F3uSrUSpms=; b=mztORyi/cRfG/Z+74avWUgFP/8
+	tCWL0i1ZeLVmSwWUWGaSmICA0yr9uTjzQjH6l4cvusUHAon6IP1JbfvtD07r47zgGE/LX4sAGWnFT
+	DvmxSCl2VgNrmb9Vbnnl8TpcRDRVxHDL47PP9bzeZXs8zHwqIWi7J2zYqknkhvf6Lm0I8NTzCIOq4
+	Fvg7ouVzeVXb4Gm3Tw7DV/F38MgT2EzxGze3EZel1K/h9FFFmN/SYEZboi0K0/59nJCqyZ/Emr99C
+	3LWwZj5zfQTwoaeIBIuCECxUaF8fp9onRcOcAuiX1Yxyqmi6roFQu15pOPOA4K7MFHGWLVX8whtlo
+	AFer4MKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD4vj-00000001MyQ-4B9u;
-	Thu, 08 May 2025 17:21:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uD4vp-00000001N8r-1PP7;
+	Thu, 08 May 2025 17:21:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD3vZ-00000001G07-1aQH
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 16:16:54 +0000
+	id 1uD45d-00000001Hln-3tbi;
+	Thu, 08 May 2025 16:27:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D401444D6F
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 May 2025 16:16:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1D4BC4CEEB
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 May 2025 16:16:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DA93560008;
+	Thu,  8 May 2025 16:27:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E909C4CEE7;
+	Thu,  8 May 2025 16:27:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746721012;
-	bh=35IHPZXcocv+INe2DtbwMIQJtEhAwB7A8dA0hXmP7ZU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=c1Yypr+SXFpXjPCoL+lIj05HB3FKq1nH4hrD90x3zoujZlSRsureyk3YUY5UUkbsS
-	 e9sf0PlV77Ki1TrdpnHITuNQ4fePPVIbNAOfHpYo3I3gsx/Wxeee2lt/O43V5Z2Ang
-	 jIMUQUa+H+jq0cFtftkb/ApwoAXraai0zLggeKekP3Oz8fudiASyZkwtB59IJkHesW
-	 T1lo/WQXnQGsOwco4QThqKaYuk/NJAE4BjVcyzlGAX1OksK6SpSBT5nbJXLJnVJxy8
-	 NZ88u92xCye20Wp6GaIhbBvQNF+H3pnT3imRdRNs+P2WBO8cqYwRszn0SQa5MmRwxU
-	 ti+IHLqXHqqIg==
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-54e98f73850so1288773e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 09:16:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUUJ69iCWIXsiGo1C+a/LRxBU4eIDj1h8dTuRFytGXw5tN9vTHUyIqYhuRyilQYKn4pfE7cXzesIxX1mbfk0Ybi@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJv5cAJ7ZtQexupL5u9R2YfrakQUvQ7uGuAkb86SKh1aoEX/1d
-	eWid9Iwxzdv2ZUeVmANJu5G8MpJi0WebMQ70Q9w9ANvMXcnsDmFqxuZNyghCFBSB7Dln0eGOYw4
-	JhX/ixscGqzOMySvG65Eu2QRdXJw=
-X-Google-Smtp-Source: AGHT+IFKz/ckT5Zb25NskasD9LKoDkkk10cz44ASE2I4Z+LtrM0t4fPT/Y/KGywhIG6AQHLqxj9ENJIrEaHfPC+fO6A=
-X-Received: by 2002:ac2:4c4c:0:b0:54d:65cb:6c28 with SMTP id
- 2adb3069b0e04-54fbfc0c942mr1515401e87.9.1746721011096; Thu, 08 May 2025
- 09:16:51 -0700 (PDT)
+	s=k20201202; t=1746721636;
+	bh=akmsc7Idl/CS0YX85M/o15zpf4CB1w+47LOq+bjRS/Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=X5/5xfBRDFswxUWUryDcM0QjyXtAEY8zLiRXY4VPEOEM/xStV26trqrotb89c9/Do
+	 VME/iaDiEdNFxRk0GE19jJIdjvnB1KDSXwjBRzAdP491FP5N3gae5Jz/KbxMb1K+lN
+	 fXDy4W/oBRhkXNCaekaWj31auEzVIvf47OoTbcuJqgWJVVj1oehXZfJCzHtuqs28Al
+	 U5qE4ureMfEPxPc4O6hCo+ULcn6MOCT1MMszpouHZurWM/0aLG7Nh5GAe6SUasPWYN
+	 gbs2yXjMZ+fNDTSR3GjS65d5b7VP9tgstySbba0OWO0PmDkULBO1su5ts+TZLK/0pJ
+	 f1UQMp17UvSWA==
+Received: by pali.im (Postfix)
+	id 4CD036FE; Thu,  8 May 2025 18:27:13 +0200 (CEST)
+Date: Thu, 8 May 2025 18:27:13 +0200
+From: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: Niklas Cassel <cassel@kernel.org>, lpieralisi@kernel.org, kw@linux.com,
+	bhelgaas@google.com, heiko@sntech.de,
+	manivannan.sadhasivam@linaro.org, yue.wang@amlogic.com,
+	neil.armstrong@linaro.org, robh@kernel.org, jingoohan1@gmail.com,
+	khilman@baylibre.com, jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v3 3/3] PCI: aardvark: Remove redundant MPS configuration
+Message-ID: <20250508162713.tbdeggybijz36dia@pali>
+References: <20250506173439.292460-1-18255117159@163.com>
+ <20250506173439.292460-4-18255117159@163.com>
+ <20250506174110.63ayeqc4scmwjj6e@pali>
+ <8a6adc24-5f40-4f22-9842-b211e1ef5008@163.com>
+ <ff6abbf6-e464-4929-96e6-16e43c62db06@163.com>
+ <20250507163620.53v5djmhj3ywrge2@pali>
+ <b364eed2-047d-4c74-9f30-45291305bc4b@163.com>
+ <aBybUYYhrmlOeLAj@ryzen>
+ <25c89e3c-9625-49ac-b816-945ab9145f87@163.com>
 MIME-Version: 1.0
-References: <20250507170901.151548-1-ebiggers@kernel.org> <CAMj1kXEPvPKg3i9NkaYN+m4pGfw6P05g-H6_Dmb3AsQyRmU7MA@mail.gmail.com>
- <20250508160523.GA1218@sol>
-In-Reply-To: <20250508160523.GA1218@sol>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 8 May 2025 18:16:40 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXGH8mGbw8HtP_zW+JPHrV8vyk8N0hoaLTKChmsxz1qRvQ@mail.gmail.com>
-X-Gm-Features: ATxdqUHiore7uw6Nb04dKvam7g-4ZOS_P4_x-pgXSnplyh0XT1bktUC_VERVSgQ
-Message-ID: <CAMj1kXGH8mGbw8HtP_zW+JPHrV8vyk8N0hoaLTKChmsxz1qRvQ@mail.gmail.com>
-Subject: Re: [PATCH] crypto: arm64/sha256 - fix build when CONFIG_PREEMPT_VOLUNTARY=y
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Thorsten Leemhuis <linux@leemhuis.info>, kernel test robot <lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_091653_454914_D15D60B4 
-X-CRM114-Status: GOOD (  27.76  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <25c89e3c-9625-49ac-b816-945ab9145f87@163.com>
+User-Agent: NeoMutt/20180716
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,57 +86,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 8 May 2025 at 18:05, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> On Thu, May 08, 2025 at 01:12:28PM +0200, Ard Biesheuvel wrote:
-> > On Wed, 7 May 2025 at 19:09, Eric Biggers <ebiggers@kernel.org> wrote:
-> > >
-> > > From: Eric Biggers <ebiggers@google.com>
-> > >
-> > > Fix the build of sha256-ce.S when CONFIG_PREEMPT_VOLUNTARY=y by passing
-> > > the correct label to the cond_yield macro.  Also adjust the code to
-> > > execute only one branch instruction when CONFIG_PREEMPT_VOLUNTARY=n.
-> > >
-> > > Fixes: 6e36be511d28 ("crypto: arm64/sha256 - implement library instead of shash")
-> > > Reported-by: kernel test robot <lkp@intel.com>
-> > > Closes: https://lore.kernel.org/oe-kbuild-all/202505071811.yYpLUbav-lkp@intel.com/
-> > > Signed-off-by: Eric Biggers <ebiggers@google.com>
-> > > ---
-> > >  arch/arm64/lib/crypto/sha256-ce.S | 7 ++++---
-> > >  1 file changed, 4 insertions(+), 3 deletions(-)
-> > >
-> > > diff --git a/arch/arm64/lib/crypto/sha256-ce.S b/arch/arm64/lib/crypto/sha256-ce.S
-> > > index a8461d6dad634..f3e21c6d87d2e 100644
-> > > --- a/arch/arm64/lib/crypto/sha256-ce.S
-> > > +++ b/arch/arm64/lib/crypto/sha256-ce.S
-> > > @@ -121,14 +121,15 @@ CPU_LE(   rev32           v19.16b, v19.16b        )
-> > >
-> > >         /* update state */
-> > >         add             dgav.4s, dgav.4s, dg0v.4s
-> > >         add             dgbv.4s, dgbv.4s, dg1v.4s
-> > >
-> > > +       /* return early if voluntary preemption is needed */
-> > > +       cond_yield      1f, x5, x6
-> > > +
-> >
-> > This will yield needlessly when the condition hits during the final iteration.
-> >
-> > >         /* handled all input blocks? */
-> > > -       cbz             x2, 1f
-> > > -       cond_yield      3f, x5, x6
-> > > -       b               0b
-> > > +       cbnz            x2, 0b
->
-> cond_yield doesn't actually yield, though.  It just checks whether yielding is
-> needed.  So the behavior is the same: on the last iteration this function
-> returns 0 (i.e. 0 blocks remaining), regardless of whether it gets to the end by
-> jumping there due to TSK_TI_PREEMPT being set or by falling through after seeing
-> nblocks==0.  We could keep the nblocks==0 check first, but the cond_yield check
-> is lightweight and it's probably better to avoid the extra branch instruction on
-> every other iteration.
->
+On Friday 09 May 2025 00:12:24 Hans Zhang wrote:
+> On 2025/5/8 19:53, Niklas Cassel wrote:
+> > Hello Hans,
+> > 
+> > On Thu, May 08, 2025 at 12:47:12AM +0800, Hans Zhang wrote:
+> > > On 2025/5/8 00:36, Pali Rohár wrote:
+> > > > 
+> > > > Sorry, but I stopped doing any testing of the aardvark driver with the
+> > > > mainline kernel after PCI maintainers stopped taking fixes for the
+> > > > driver and stopped responding.
+> > > > 
+> > > > I'm not going to debug same issues again, which I have analyzed,
+> > > > prepared fixes, sent patches and see no progress there.
+> > > > 
+> > > > Seems that there is a status quo, and I'm not going to change it.
+> > > 
+> > > Dear Niklas,
+> > > 
+> > > Do you have any opinion on Pali's reply? Should patch 3/3 be discarded?
+> > 
+> > While I do have an opinion, I'm not going to share it on a public mailing
+> > list :)
+> > 
+> > With regards to your patch 3/3, I think that your patch looks fine, but if
+> > the driver maintainer does not want the cleanup for >reasons*, that is totally
+> > fine with me. However, I'm not a PCI maintainer, so my opinion does not really
+> > matter. It's the PCI maintainers that decide.
+> > 
+> 
+> Dear Niklas,
+> 
+> Thank you very much for your reply. Let's wait for the decision of the PCI
+> maintainer on this series of patches.
+> 
+> Best regards,
+> Hans
+> 
 
-Ah yes, you're right.
-
-Hopefully we'll soon be able to get rid of it entirely.
+I do not see any cleanup in 3/3. There is just a removal of the step
+needed for configuring the controller.
 
