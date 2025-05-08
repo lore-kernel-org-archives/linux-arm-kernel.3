@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 748F7C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 10:33:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1AE5C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 10:35:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jSvSLrCAEssZ/uT7sdMRZjShs4Zahuwya6ZebO2Ag2s=; b=kq/DdFnggQ7rKCAAMecBbr1TX7
-	YVqtvRqKYAdRfiVoesoDtHp3B8BURFkr4EBgNH/mrEC3ZlqwO2K/NiULx3SjaC3N0wtBEGSiKWYJU
-	73CQ1QRBVJ/v6yiMWKVz8CLB9+tPHpP5l5pmQBUy05/YxvP24hCif23wDS/HezQOjsso4p9XbjA3n
-	B8R0cNR/2rUTuji1apwjlIunVCB7QnQRTBEjPkR49DLx/p/XkwL2Bz1G8uVcXn0JR+Av4LJo1v1PN
-	CBox0CSZhmf8I+FBgfaP3t8fgG/r0/wKNf8bMmuGGxknbBisi4Ps5QYxWL1BCF0khMimaxlmmDp+c
-	7RVsd0iw==;
+	bh=tMnLZYVSEfAWvNGaodVtEGxYuS01waY3GXX/DrGW29o=; b=eUNp4chOvrmvA+zbZSCGsibvA2
+	YIhLm3e7gYnQy0Mb/L+s7PBfsjMwG+BL9dkPThKxACkJHdemED4R9AVQCryMeXJBFVAhuNqRKUtYu
+	2EdRhkpmYPNeMjWhlNvihD90WqyaDuf1o2NKChHxn9pAH1wxqWl1fbHAVpw7lMvOGZwMzFS06a5SU
+	ilti/4XEfg/mTd4FFpg41FmVGTU6xefr9II5oy0j/wQk7+3gkhBD11tkUlQd7bVL4V/sjgJ49HhZ4
+	mhPJj3i90Xw4/iieIHPI/g8BK777FMcBP/YRlgLZ1dlUfAs4O7ID2qc3BqyG5DMdDph4J9COhgWo4
+	WN04X0cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCyZQ-00000000OAx-0NwM;
-	Thu, 08 May 2025 10:33:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uCybM-00000000Old-3OTo;
+	Thu, 08 May 2025 10:35:40 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCyXS-00000000Nx9-46rg
+	id 1uCyXs-00000000NyA-48X0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 10:31:39 +0000
+	Thu, 08 May 2025 10:32:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 15504629EA;
-	Thu,  8 May 2025 10:31:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E54DC4CEE7;
-	Thu,  8 May 2025 10:31:35 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 95E4EA48622;
+	Thu,  8 May 2025 10:32:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3B65C4CEE9;
+	Thu,  8 May 2025 10:32:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746700297;
-	bh=TOs0+EfuIbUb4A/7gCHeLPblZVir21KABVeEtpvmoGY=;
+	s=k20201202; t=1746700323;
+	bh=CHelBqBpP/88IAjY7tksAEa5489dB+ryt+w4mhY/WiE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=n7CMJ7Q9s0rWvTCTM+a0VjX8k6OAZjVa70NJZA11e+BKtk0iYXtIMkCS601RWXOWM
-	 uUHVje/3pATPwDD7Bp35/IdT3rWSI3DHBz+3D9qYxAQljEQrkBs2oXjHh/h2ckaWhM
-	 C/tv0pD8QAcHQcqmnAg9V9H0ClQED35KHxERHG4tQ8BUjRX/xCj005mA0JLxhvKRsK
-	 kRUAybSQ6FZZyTOIdysBgJ+Ej8+oNR6BNG65W8zDUg83W/Io3LigFJBPWbwQ0yu8Lg
-	 zMPYRKmJ/s36N/+1PewNms29BN+cs4A4hXpxXIcVxpWux46+b476nU9C0qiYSOo8De
-	 3iiQGbnZ45vHA==
-Date: Thu, 8 May 2025 11:31:32 +0100
-From: Will Deacon <will@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
-	catalin.marinas@arm.com, daniel.kiss@arm.com,
-	david.spickett@arm.com, luis.machado@arm.com, maz@kernel.org,
-	richard.sandiford@arm.com, sander.desmalen@arm.com,
-	tabba@google.com, tamas.petz@arm.com, tkjos@google.com,
-	yury.khrustalev@arm.com
-Subject: Re: [PATCH 15/20] arm64/fpsimd: ptrace/prctl: Ensure VL changes
- leave task in a valid state
-Message-ID: <20250508103131.GA3353@willie-the-truck>
-References: <20250506152523.1107431-1-mark.rutland@arm.com>
- <20250506152523.1107431-16-mark.rutland@arm.com>
- <20250507161246.GB2580@willie-the-truck>
- <aBuT7yS1CYsqOJNM@J2N7QTR9R3>
+	b=PBHuHaai3znTAjUB8enkfdSVPxffzb2rq/068BxCgs5w0kz0FnCgRsw8kyOjOYFUf
+	 QANdtmA0BDXy6UX3nLKl6xwbG0klrVWIkiHC4K51Pz4Rqeh+dMCH/bgpi2elHrNZ0r
+	 qw6LRXZCkBSnchvRyPJ0nn4IxZwZYsQhBxCtvaPrnSfa+c21oxK++u7xj5SY6XaLPk
+	 t8k+mQ3wMotkod79fWhxHH5dO0WbKZ/unNdmKUpN7NIlPBUSXa/PxSJKJwzfUJANb4
+	 etGqsAELXDKm5RGDTkBQ73greqCGXhFbvd4PFgUxqiJyPD7pnRmVc7EVQlhbJd8kWA
+	 KqTiumGMiE7sA==
+Date: Thu, 8 May 2025 12:31:59 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v3] dt-bindings: i2c: i2c-wmt: Convert to YAML
+Message-ID: <wt7du4fu44sxut5i4ymhmb4akhm46btm7yszz6xbya2sxq7gdp@al24jhhqdz5c>
+References: <20250506-vt8500-i2c-binding-v3-1-401c3e090a88@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aBuT7yS1CYsqOJNM@J2N7QTR9R3>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20250506-vt8500-i2c-binding-v3-1-401c3e090a88@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250508_033205_091258_C29833B4 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,74 +73,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 07, 2025 at 06:10:07PM +0100, Mark Rutland wrote:
-> On Wed, May 07, 2025 at 05:12:47PM +0100, Will Deacon wrote:
-> > On Tue, May 06, 2025 at 04:25:18PM +0100, Mark Rutland wrote:
-> > > +	/*
-> > > +	 * Always preserve PSTATE.SM and the effective FPSIMD state, zeroing
-> > > +	 * other SVE state.
-> > > +	 */
-> > > +	fpsimd_sync_from_effective_state(task);
-> > > +	task_set_vl(task, type, vl);
-> > > +	kfree(task->thread.sve_state);
-> > > +	task->thread.sve_state = sve_state;
-> > > +	fpsimd_sync_to_effective_state_zeropad(task);
-> > > +
-> > > +	if (type == ARM64_VEC_SME) {
-> > > +		task->thread.svcr &= ~SVCR_ZA_MASK;
-> > > +		kfree(task->thread.sme_state);
-> > > +		task->thread.sme_state = sme_state;
-> > > +	}
-> > 
-> > I'm probably just missing something here, but how does this address
-> > problem three from the commit message where exiting streaming mode
-> > should zero the bottom bits of the vector registers?
-> 
-> The idea is that we no longer exit streaming mode, so we don't need to zero the
-> bottom bits.
+Hi Alexey,
 
-Argh, I mis-read the svcr manipulation above as clearing SM rather than
-ZA. Now that makes a lot more sense, thanks!
+> index 16037aaa770fc35efb45fc26555afaa5102e2640..4d18afdaf12bf6a5956793814f8db39b34074a12 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -3464,7 +3464,7 @@ M:	Krzysztof Kozlowski <krzk@kernel.org>
+>  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>  S:	Odd Fixes
+>  F:	Documentation/devicetree/bindings/hwinfo/via,vt8500-scc-id.yaml
+> -F:	Documentation/devicetree/bindings/i2c/i2c-wmt.txt
+> +F:	Documentation/devicetree/bindings/i2c/wm,wm8505-i2c.yaml
 
-> Instead, when either the SVE or SME vector length changes, we
-> consitently truncate the (streaming or non-streaming) SVE registers to
-> 128-bits, but preserve the existing value of PSTATE.SM and the saved
-> fp_type.
-> 
-> That all happens in:
-> 
-> 	fpsimd_sync_from_effective_state(task);
-> 	task_set_vl(task, type, vl);
-> 	kfree(task->thread.sve_state);
-> 	task->thread.sve_state = sve_state;
-> 	fpsimd_sync_to_effective_state_zeropad(task);
-> 
-> ... where:
-> 
-> * If the task's state was initially stored in FPSIMD format, the
->   fpsimd_sync_from_effective_state() and
->   fpsimd_sync_to_effective_state_zeropad() functions do not touch the
->   saved FPSIMD state, leaving the low 128 bits intact.
-> 
-> * If the task's state was initially stored in SVE format, whether
->   streaming or non-streaming, the fpsimd_sync_from_effective_state() and
->   fpsimd_sync_to_effective_state_zeropad() functions copy the low 128
->   bits into the FPSIMD storage, then copy that back into the new zeroed
->   SVE storage.
-> 
-> That's what I was trying to describe in the commit message where I said:
-> 
-> | To fix the second issue, we either need to clear PSTATE.SM or not change
-> | the saved fp_type. Given we're going to eagerly allocate sve_state and
-> | sme_state, the simplest option is to preserve PSTATE.SM and the saves
-> | fp_type, and consistently truncate the SVE state. This ensures that the
-> | task always stays in a valid state.
-> 
-> ... but I appreciate that mentioned the second issue and not the third.
-> 
-> I can add a note there, if it'd help?
+this has caused some conflict. You are based on -next but i2c
+hasn't received some of these changes, yet.
 
-Nah, I just need to learn to read properly.
+Anyway, I fixed the conflict and merged to i2c/i2c-host. Let's
+see how it goes, but I believe we will receive some complaints in
+the next days.
 
-Will
+Andi
 
