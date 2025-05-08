@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D58C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 18:09:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AE1EC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 18:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jxTFmNOX3bSQwoSwj3xy6KKdXMm3LG/6UFBryfdpRHs=; b=3PO76jKu0GcOwod7wTkamp5vDX
-	VHm2fel17xdZmwO8KIAcGZArLusGML6wWm3vdZVmdZ9zwxHyjpWLBXe1uVGh6HTV70pCll7sC+e0R
-	UWrtpsIAbaY/np5JEYHRB1Mo0ZSKAT5ippXtG8xQw+WcJaYtNG8J6/NJhqwKJv3aQn29u/5HC5i+E
-	Os6WC61oON13rtvWv6xaH4LWX0PX5SKr6U4UrN1UIQTY0Sk03V5RvIEtcttswIgO8p2ZjPn7ZIaBJ
-	yTiwpSQMTz3RyldobWZhX2/YDodo3qVSITJ8iysJ5+PQFLh3hZ0KpWJuV/mPuSlhu1qovlKTbGHx3
-	E1wDzCZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9URX2g2bLrhkgpjZmXJowFGtvU2zsLAihvZ4yWH4FH0=; b=rN5VFA5zB8lwhsrprl8sPVTkHD
+	YRvkvrwTCrJ4BHOYYk1YCzzqW8FfTiwWR6fmHn3VTzOsiVy22wYXwPUTOj+jhrLJadOZEwCXfvgoQ
+	UMnVFNlN2ec8CQ28wTAsAxafQKcVQANlNQM3KAgNpZCfKgu5LNrl+BFBmeNp2BqD6QHIybPokkrrx
+	rEH09RpExqbU/ryq75dqmeJuu8ukM7mpH2INLDjUj6vw3++A/LZdFeGCLySMFNEfXZmcKtdQ7B+4p
+	cbMdb6Am4V349UhwjwwnXPBzNMnQeKk6fxBBNL4qPu6ZXij38OE5l0L7gG6fAuzvod1cKT3A04sPv
+	iLShaAiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD5fz-00000001VVG-05nO;
-	Thu, 08 May 2025 18:08:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uD60c-00000001Xsx-25MT;
+	Thu, 08 May 2025 18:30:14 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD5e1-00000001VLu-1rYB;
-	Thu, 08 May 2025 18:06:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0432C4A1DF;
-	Thu,  8 May 2025 18:06:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4981EC4CEE7;
-	Thu,  8 May 2025 18:06:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746727611;
-	bh=T3fd8i3e9m2qTXLSzLMLI6WreQFWFZts5ieUhzAtv50=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z6qe3XtzC0dgxeaQP4aahmUFX24uY2iZ3t2sb6neITe69z8y/KsV14e0Un9m1jGK2
-	 /tEnt3sdoHSmcStSrNJVclL2CaRyAjciHa73CCjMdKHpFD9blJNdWaOeeI77jtdubT
-	 DjtKSPu29fda7idtTVch/6nzYVK1BqOW14ORfPccTGLKQkDdqmisXANhvptuC0tB9O
-	 TerEWeAPM8x2xKoI4x/n0y4Zk27bbk+n6O4fipuNoakdGt6dvd4xUAiMHt3nza9IMh
-	 HApWd5IFoifI1COGvPPwFJuVoSUh2d1oXeBxiuf/SD+xDmuqoXrGs3cG3w0fU5dfXY
-	 FVGqTmzoMkKbQ==
-Date: Thu, 8 May 2025 18:06:49 +0000
-From: Eric Biggers <ebiggers@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
-	linux-s390@vger.kernel.org, x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>, Jason@zx2c4.com,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [PATCH v4 07/13] crypto: riscv/sha256 - implement library
- instead of shash
-Message-ID: <20250508180649.GA570496@google.com>
-References: <20250428170040.423825-8-ebiggers@kernel.org>
- <mhng-0b1a0c43-eff8-4ea0-9aaa-46727504555c@palmer-ri-x1c9a>
+	id 1uD5ye-00000001Xfn-29IB;
+	Thu, 08 May 2025 18:28:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=9URX2g2bLrhkgpjZmXJowFGtvU2zsLAihvZ4yWH4FH0=; b=QpcOgrgtM1z4rr7pYPCegX05KV
+	hrm8GBC1By1IIeARcq4yyi8+2teu4lr6v6pk09sunHGnvqRZl+Rjk5E3x2Wp8MUEpmEGt2ocuRxdx
+	v18q47cMkFhnwwtCKu52PTsVtvPQ4HhvvFIKVLDF6YcZ9KEYWKQNyuB9bNaHBF90+zg12gU6nlpUq
+	zFwQObMmdPPJgc/Ah9grzicDMKr15RxX+erpvjUPEDe+HrzZQV6MGjtu5W8xNzzNJSiEoV7Xr7Yhp
+	lf5BN5RjeS+uGMIsiHxqR8bTdgWreVdrptxrjQI1xhx4JcdTQUb8EvMnn4IFxbr3vgw5ezPWtIcNF
+	TC3Y65Cw==;
+Received: from [61.8.144.177] (helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uD5yb-0000tP-PT; Thu, 08 May 2025 20:28:09 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: mturquette@baylibre.com,
+	sboyd@kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	nicolas.frattaroli@collabora.com
+Subject: [PATCH 2/2] clk: rockchip: rename gate-grf clk file
+Date: Thu,  8 May 2025 20:27:52 +0200
+Message-ID: <20250508182752.1925313-3-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250508182752.1925313-1-heiko@sntech.de>
+References: <20250508182752.1925313-1-heiko@sntech.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <mhng-0b1a0c43-eff8-4ea0-9aaa-46727504555c@palmer-ri-x1c9a>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_110653_501076_59EFE5F5 
-X-CRM114-Status: UNSURE (   7.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250508_112812_569236_ECD5EDA2 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,15 +76,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 08, 2025 at 10:45:39AM -0700, Palmer Dabbelt wrote:
-> 
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> 
-> I assume you want to keep these all together somewhere, so I'm going to 
-> drop it from the RISC-V patchwork.
+All Rockchip clock types live in files starting with clk-foo, so rename
+the newly added gate-grf-clock to follow that scheme.
 
-Thanks!  Yes, this series was already applied to "cryptodev"
-(https://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git/log/).
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ drivers/clk/rockchip/Makefile                       | 2 +-
+ drivers/clk/rockchip/{gate-grf.c => clk-gate-grf.c} | 0
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ rename drivers/clk/rockchip/{gate-grf.c => clk-gate-grf.c} (100%)
 
-- Eric
+diff --git a/drivers/clk/rockchip/Makefile b/drivers/clk/rockchip/Makefile
+index f0e0b2c6e876..c281a9738d9f 100644
+--- a/drivers/clk/rockchip/Makefile
++++ b/drivers/clk/rockchip/Makefile
+@@ -8,13 +8,13 @@ obj-$(CONFIG_COMMON_CLK_ROCKCHIP) += clk-rockchip.o
+ clk-rockchip-y += clk.o
+ clk-rockchip-y += clk-pll.o
+ clk-rockchip-y += clk-cpu.o
++clk-rockchip-y += clk-gate-grf.o
+ clk-rockchip-y += clk-half-divider.o
+ clk-rockchip-y += clk-inverter.o
+ clk-rockchip-y += clk-mmc-phase.o
+ clk-rockchip-y += clk-muxgrf.o
+ clk-rockchip-y += clk-ddr.o
+ clk-rockchip-y += gate-link.o
+-clk-rockchip-y += gate-grf.o
+ clk-rockchip-$(CONFIG_RESET_CONTROLLER) += softrst.o
+ 
+ obj-$(CONFIG_CLK_PX30)          += clk-px30.o
+diff --git a/drivers/clk/rockchip/gate-grf.c b/drivers/clk/rockchip/clk-gate-grf.c
+similarity index 100%
+rename from drivers/clk/rockchip/gate-grf.c
+rename to drivers/clk/rockchip/clk-gate-grf.c
+-- 
+2.47.2
+
 
