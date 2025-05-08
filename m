@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58125C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 16:31:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CC08C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 16:32:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5hILdl8L1h7fbQfFAcsemN9qNReigLA5ggy0TA2w6Dg=; b=BHOUzCEkuIc1bHMgxJD1o2ywSK
-	EzPLC8he4BChU4KiVXdzBMukF8AEpFuN8T+OnZDYzzQtOtJpE0WQhvlJg4gJX/WZydF97d4krDMp2
-	HktynbUxX+QRmCjb+WHsy88FwfWm7L0NDX6uRt5m221KMm8P0bKU7qgAaWLUeLtbe3X+WSNJxxXPR
-	kH+ZrW5XKg/uN7k2SmslAVhDsMAkGnm4mIWR+56NY5px2ueh0zVE8TJmq1mTKVcUxeQId0dNHG5jn
-	cQ9iq2zzTIk8s2AzJa5JEJd3r/tBVi/p2svLYj7Pwa5/hvR5KFCuNS8kFytVBZKp7u/CyTHlaBu22
-	UzVMvOpQ==;
+	bh=C1jFAOZWqnPvqQrpLbtRPIq2QakslIbnHdyUCiEUmu4=; b=ne217zUCnAxENXvzISCP3D6wJy
+	xDUD0AWxMIi9rxcvprWkCPFq/QRgp/9pDY1z0tjJoIoSpXLAyIOp1taxOtq6fwbAZygUyRGlg1lxz
+	hHEyVqsBs/nWjjuzSWVLRTS64SzNwcGD1yMIO6Gcua21EOoD71E35uFqC9gLWBIAECzokTIS1ySVf
+	K++oSXADI8tcdxreLGfrsN8VhAyejdX2sn+H3pM2/Q2trHslNfPsgbYdzA1/uHfgCm0pEOidOkaVo
+	YlrjV60nP6XlI4tF2DwADFrAR6l+CbLi0WprqOBdHED8fBeZv6+vuTT7iKXtss8gv0NC9nmQI1XNY
+	GHuR5FAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD497-00000001IET-3Qvu;
-	Thu, 08 May 2025 16:30:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uD4B3-00000001IVR-1cK5;
+	Thu, 08 May 2025 16:32:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD3E7-0000000191G-1eSB;
-	Thu, 08 May 2025 15:32:00 +0000
+	id 1uD3Pg-00000001Ai1-2928;
+	Thu, 08 May 2025 15:43:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9A10249B84;
-	Thu,  8 May 2025 15:31:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE990C4CEE7;
-	Thu,  8 May 2025 15:31:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E613A629DC;
+	Thu,  8 May 2025 15:43:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B382C4CEE7;
+	Thu,  8 May 2025 15:43:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746718318;
-	bh=DF5Q0mSLcNjmiVluZaVYRFv1Km7OOZoaMMTU97Cg0Bk=;
+	s=k20201202; t=1746719035;
+	bh=T6p70PtHkjOvSfKheTE9RIe/1B7E/b+kxUGvqGGghc4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ePVkyDPWnT4m8p1cRtcnkq3pqnotnwGRDABeR8nZG/nr53S6NWjGwyn6f5hRrDDW/
-	 mvBMdpzELu47Lq87GPFYfr7hInAEWsprDveImhfhELeogTp6ONjX3iyIJgmnlV+UGY
-	 YH3xdg/q8ykieiA7gC90FCCg4zKudHiQUt1c0zKOkctX3PFUHS6G/fA+16XRG8S0f5
-	 Ec+kilcRE7nijEwy0TXDHUbRtp2adghQZkDeMrtpyglic9etIRQFR1cCoUJU04MZRq
-	 bgXro+FSlRNyL0SeJeGps8QVaAPecqGSFvlIbLjuBRwQYrhTWvLlv1EIIRZ+qiDvwQ
-	 94njGQrvM/sWQ==
-Date: Thu, 8 May 2025 17:31:54 +0200
+	b=ebQTAwBCFZt7fGX2PkSuWO3qgF32hEtffzoI4TppSq3DEI8Minyy7ijI/389xE1E3
+	 95j8+WBZ6awF0Md43Vfk/2gNY7LG/uCiueeLWmv5CC0jJDnM/NgHGSfz31D/W18UCq
+	 pnwHxx29Gppo/eEutif8PGanh7fmJteJFplJd8tAKshf/L6pWK5SlV++TMdIAC1SXe
+	 /YLakK8aREkwqjzmzAK2ACSB61xID0PTyFXBBw4C1K8jFeBqNm/WJTzHkcOYWrwbtA
+	 oROnW51xBB/gKvv1GtqwhMSEZ4jYyeiqxR8bRsJvJJOhOgB8d0tNU+vyeKTem60MVs
+	 0dsXxwOXAl1TQ==
+Date: Thu, 8 May 2025 17:43:53 +0200
 From: Lorenzo Bianconi <lorenzo@kernel.org>
 To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -51,18 +51,15 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] net: airoha: Fix an error handling path in
- airoha_alloc_gdm_port()
-Message-ID: <aBzOaiU6Ac3ZTU-4@lore-desk>
+Subject: Re: [PATCH v2 4/4] net: airoha: Use dev_err_probe()
+Message-ID: <aBzROQyQ_5oHmYr3@lore-desk>
 References: <5c94b9b3850f7f29ed653e2205325620df28c3ff.1746715755.git.christophe.jaillet@wanadoo.fr>
+ <1b67aa9ea0245325c3779d32dde46cdf5c232db9.1746715755.git.christophe.jaillet@wanadoo.fr>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="52bjE/uxYDiQLQGk"
+	protocol="application/pgp-signature"; boundary="cyhlDYaZG9bgrtv1"
 Content-Disposition: inline
-In-Reply-To: <5c94b9b3850f7f29ed653e2205325620df28c3ff.1746715755.git.christophe.jaillet@wanadoo.fr>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_083159_470562_A2554C71 
-X-CRM114-Status: GOOD (  23.38  )
+In-Reply-To: <1b67aa9ea0245325c3779d32dde46cdf5c232db9.1746715755.git.christophe.jaillet@wanadoo.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,19 +75,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---52bjE/uxYDiQLQGk
+--cyhlDYaZG9bgrtv1
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-> If register_netdev() fails, the error handling path of the probe will not
-> free the memory allocated by the previous airoha_metadata_dst_alloc() call
-> because port->dev->reg_state will not be NETREG_REGISTERED.
+On May 08, Christophe JAILLET wrote:
+> Use dev_err_probe() to slightly simplify the code.
+> It is less verbose, more informational and makes error logging more
+> consistent in the probe.
 >=20
-> So, an explicit airoha_metadata_dst_free() call is needed in this case to
-> avoid a memory leak.
->=20
-> Fixes: af3cf757d5c9 ("net: airoha: Move DSA tag in DMA descriptor")
 > Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
 > ---
 > Changes in v2:
@@ -98,74 +92,80 @@ Content-Transfer-Encoding: quoted-printable
 >=20
 > Compile tested only.
 > ---
->  drivers/net/ethernet/airoha/airoha_eth.c | 10 +++++++++-
->  1 file changed, 9 insertions(+), 1 deletion(-)
+>  drivers/net/ethernet/airoha/airoha_eth.c | 21 +++++++++------------
+>  1 file changed, 9 insertions(+), 12 deletions(-)
 >=20
 > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
 net/airoha/airoha_eth.c
-> index 16c7896f931f..af8c4015938c 100644
+> index 2335aa59b06f..7404ee894467 100644
 > --- a/drivers/net/ethernet/airoha/airoha_eth.c
 > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -2873,7 +2873,15 @@ static int airoha_alloc_gdm_port(struct airoha_eth=
- *eth,
->  	if (err)
->  		return err;
+> @@ -2896,10 +2896,9 @@ static int airoha_probe(struct platform_device *pd=
+ev)
+>  	eth->dev =3D &pdev->dev;
 > =20
-> -	return register_netdev(dev);
-> +	err =3D register_netdev(dev);
+>  	err =3D dma_set_mask_and_coherent(eth->dev, DMA_BIT_MASK(32));
+> -	if (err) {
+> -		dev_err(eth->dev, "failed configuring DMA mask\n");
+> -		return err;
+> -	}
 > +	if (err)
-> +		goto free_metadata_dst;
-> +
-> +	return 0;
-> +
-> +free_metadata_dst:
-> +	airoha_metadata_dst_free(port);
-> +	return err;
->  }
-> =20
->  static int airoha_probe(struct platform_device *pdev)
-> --=20
-> 2.49.0
->=20
+> +		return dev_err_probe(eth->dev, err,
+> +				     "failed configuring DMA mask\n");
 
-I have not tested it but I think the right fix here would be something like:
-
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/etherne=
-t/airoha/airoha_eth.c
-index b1ca8322d4eb..33f8926bba25 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2996,10 +2996,12 @@ static int airoha_probe(struct platform_device *pde=
-v)
- 	for (i =3D 0; i < ARRAY_SIZE(eth->ports); i++) {
- 		struct airoha_gdm_port *port =3D eth->ports[i];
-=20
--		if (port && port->dev->reg_state =3D=3D NETREG_REGISTERED) {
-+		if (!port)
-+			continue;
-+
-+		if (port->dev->reg_state =3D=3D NETREG_REGISTERED)
- 			unregister_netdev(port->dev);
--			airoha_metadata_dst_free(port);
--		}
-+		airoha_metadata_dst_free(port);
- 	}
- 	free_netdev(eth->napi_dev);
- 	platform_set_drvdata(pdev, NULL);
+Can dma_set_mask_and_coherent() return -EPROBE_DEFER? The other parts are f=
+ine.
 
 Regards,
 Lorenzo
 
---52bjE/uxYDiQLQGk
+> =20
+>  	eth->fe_regs =3D devm_platform_ioremap_resource_byname(pdev, "fe");
+>  	if (IS_ERR(eth->fe_regs))
+> @@ -2912,10 +2911,9 @@ static int airoha_probe(struct platform_device *pd=
+ev)
+>  	err =3D devm_reset_control_bulk_get_exclusive(eth->dev,
+>  						    ARRAY_SIZE(eth->rsts),
+>  						    eth->rsts);
+> -	if (err) {
+> -		dev_err(eth->dev, "failed to get bulk reset lines\n");
+> -		return err;
+> -	}
+> +	if (err)
+> +		return dev_err_probe(eth->dev, err,
+> +				     "failed to get bulk reset lines\n");
+> =20
+>  	eth->xsi_rsts[0].id =3D "xsi-mac";
+>  	eth->xsi_rsts[1].id =3D "hsi0-mac";
+> @@ -2925,10 +2923,9 @@ static int airoha_probe(struct platform_device *pd=
+ev)
+>  	err =3D devm_reset_control_bulk_get_exclusive(eth->dev,
+>  						    ARRAY_SIZE(eth->xsi_rsts),
+>  						    eth->xsi_rsts);
+> -	if (err) {
+> -		dev_err(eth->dev, "failed to get bulk xsi reset lines\n");
+> -		return err;
+> -	}
+> +	if (err)
+> +		return dev_err_probe(eth->dev, err,
+> +				     "failed to get bulk xsi reset lines\n");
+> =20
+>  	eth->napi_dev =3D alloc_netdev_dummy(0);
+>  	if (!eth->napi_dev)
+> --=20
+> 2.49.0
+>=20
+
+--cyhlDYaZG9bgrtv1
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaBzOagAKCRA6cBh0uS2t
-rPOJAQDJTb2xYCguiX/ivGfyWWdwij5dvd2KUapFuFCvVhjp2QD7BoT0xs5jz29J
-d+A0RUW9SL63iUnc7PZVOIK/It8iRAg=
-=OODZ
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaBzROAAKCRA6cBh0uS2t
+rFUMAQDpd0Xn+koxS18cJkCYXHZdZTj2Iyhx4nRlRK9NFE7f9QD/W6UmXacIPR+Y
+bxz9OGSYFknzz3Tw588fLCsHr2Ur7QU=
+=7evt
 -----END PGP SIGNATURE-----
 
---52bjE/uxYDiQLQGk--
+--cyhlDYaZG9bgrtv1--
 
