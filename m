@@ -4,76 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8766C3ABC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 08:50:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE5BAC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 08:51:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I/6u434npu/OIMFCdOe8U+YX27jiuYdnGSjpPzb6uqs=; b=zxnrYGZJdWHjQiUEb7kiUtzFbh
-	EWFjnZmiT2KiPSZt4bV8mNgeHmgyWkU93XgW1w44vSu18o2ooWHjnEkqp/f0Hpx/PNimrozBUUg9X
-	yYCLVpG+lUvPV+npJ2Aw3o0rmt39MBNYBNQhn9jsWryzHIg/fRbIPFJPCqhgxKzdRDUx1QLdA7aNz
-	oGHhXYFMM/eEAgQgZYzKX2o/lojdhxbttAIzFDbEecbjQzisYOvjVPZMVpU1YoSvMJHGuGKBrnfnY
-	yKG7BPImdTl92GtE+JzNIV/0GCOvHycKW0MhAsxuh6k4xDyp9dTBJZF+rs9P3btNyoZ4/rk9tVthr
-	Jtz5fgww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TN5BLghxBo/9cI/M/eSHpoxUXcqkl+83toZkzInNZmw=; b=b98rnJOKFmBE4r/BLzz+6lYLT1
+	9Cpqjn5v7f6wvj+/rYX1IKGb9BPsRBrpLH+Nt11rLJ+FPUtm/wuNi6tGM1kqZ5fZcxTrd9fi62Z01
+	gfM3In6Iqsq/2UOqrS0SZyfh/LaTbCZnixldgUNlZAT2pEzmwX5Fsp8qsV6h+zzfPVwvn3aFnPXPz
+	PVqCZOHGmUGpNK+Bokahpn/rqd9za2+hgMFZXaU6kHQVt+IVgjSgBBmkVcPbhgx3NSuVf7PxoZRhN
+	1sDFwKO0SKXYn95u3BgN0C+xs7bkGtnpIqp3EEmvmhbe7kFaaj8nZ3e5oN4FuGIeU+Vf6Ftnd2fH6
+	colZqe9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCwwv-00000000ATW-2wuG;
-	Thu, 08 May 2025 08:49:49 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uCwyq-00000000Aex-43i8;
+	Thu, 08 May 2025 08:51:48 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCwiP-000000008BG-1E9R;
-	Thu, 08 May 2025 08:34:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1746693287;
-	bh=/yn0vOBSqs1gT1qgFskCzgf8UxOw44a5QvWI6DwYPmM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lvHX6Jfr7OJ3b9RU2pr9vKKmVzcczO72O3biC5VnlBbkLBYBi4j80YJi2EahlHN1c
-	 6I9FwWK2rI9vTlfgY0vX59fGYaiqUGpGcxReA8po/KwPkXIJBEPYgbVoK27U8P4nkQ
-	 X4QD/QaGCH6DAVicsxmX8fpMRCdFt6D/fag3nmUd43PN/6uB7xi1I6h2Cgt/WTqLpq
-	 SZEaWRHihGqfwPDfI/lIhJzyu9FoTR2A8LrpgfmZCRkdBpb7sSHMCQ9F4OpeDxNYKz
-	 VId7swgQvxQGPbEbgdeQEvtYfy088uRJpCZWNsQMmZX2KRcEXgt4abxmz6xz2/sV+O
-	 wA2RMcDIF2HaA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 62D3417E02BE;
-	Thu,  8 May 2025 10:34:46 +0200 (CEST)
-Message-ID: <ff8da58b-9e87-46d9-b4d2-4059ef05780d@collabora.com>
-Date: Thu, 8 May 2025 10:34:45 +0200
+	id 1uCwlg-000000008gI-1Lha
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 May 2025 08:38:13 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-acec5b99052so122893466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 01:38:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1746693490; x=1747298290; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=TN5BLghxBo/9cI/M/eSHpoxUXcqkl+83toZkzInNZmw=;
+        b=Vw5TFzmd4S8pQODFtaY91s23nWgoO6GQMN1MYpQR25pQwS4a75OqY/h4BCQdOEPaAe
+         37zQ97hdWt6zh49hPQJhLEg0dqhlMNTTkReNbiT8W24+JWqWZm02Zodb5wisGkqpVzjh
+         mfarUGkLXVwo1yOAZsYL13KS7eG3cIf6HDNK+z6evu/VUW5ID46yRqZnu8TTu6ORRXnz
+         nQ0gJBXYwHyTL4Yy5LC4q0JyVHhn5Ipyvl5HhfQtGJdZ75U6PNdCJ6xskEvEDR/Z447a
+         sAtbJpXOW5ukeo/89cEK4gDQzD6/Bu0ZXQWazS+nzwvtUcVLzYTwjXp8T/xFfB9q3KjQ
+         pqMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746693490; x=1747298290;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TN5BLghxBo/9cI/M/eSHpoxUXcqkl+83toZkzInNZmw=;
+        b=WD2U6l3ABxq8mMZt8PTOMw+eUGM4+w1T8BBTZHkDyRmAlByjIBv7FquUplyGiwXzCp
+         q75evMQhHdF5VsHIY3K4oo0Kc0DkPsBR+k+90tDUgBItj0fktPVGXYoLLW3xC6xm5Qs+
+         tzs/0jhJPLggQbULItT5OIjiQNWL6mYovAuQO8jh6m63iTuDB5qwxKavPyskfNbgZelk
+         MQtz3BcEAbpMem57MF3cxEhG2SxxPlp3GlBq659puXDa3zwIb17AjqZDFK+g6OL7HK2Z
+         Nz64wQhL7zWRRN+6PKRpzg3JAR0onSR8p83NoathJKN6zU9fTcfZnwWvFBi4pA7aDL5N
+         5lXA==
+X-Forwarded-Encrypted: i=1; AJvYcCXOPqhZwvaVXHQnypJiZzz2tvSah/HpT0XJsSs7RTw2KXGCVYbA8PBUrTjSDznrojd0EHThnoR3MisNgAu1II5M@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyht0Fvi4332stX00Is5wdjY5oTKLhVfgxuf07eb5ESWeAidDlk
+	hez5GhJMk+cIFkSMNdWnzKITGUwk1ZujYPVcShSjmavvhXoVUSos/AwD7VL20mk=
+X-Gm-Gg: ASbGncuN1mbI2bvAg4UJsD7QCqztATu+Fi9aZDtuHiXM8JdVMd2LlA2Ph57diqmiIIR
+	L86/W1HvgKAI2UNinO2Xk5bG4UVtFfhg1dtoxQZ0bx9p4P81LnKqFR7Joxx/JFxfN90QLiQDGDp
+	bnJTmZ0hqLK0iDKjOwgH5XHegI+KJqJJkd28LElm3APxccF4jBzDxqlGbwADZ+TgA6Oz+0dAd60
+	5OtLYXsZ2mZ2wyEGKYs+GNV1ZGoyfDseMNCJpYECozvPUNzaMbxOme0iGPs/JnZ7rZxBARWpyhu
+	TCt/HoeQd6eUewNr1+0LD5B4s1iR6cWjG4uKfPd7S0XJLTcZZDAqyxH9HyRbdP5JS20sWcjKnZ8
+	+xj59Qw==
+X-Google-Smtp-Source: AGHT+IFAz0hpCdqZar4HwvS30xYrKUVB/5CH1AYDISg2ZQz4Cx3c/u+PhQRq6xHbtI2Pon4FDK1RKg==
+X-Received: by 2002:a17:907:d7cb:b0:ac3:48e4:f8bb with SMTP id a640c23a62f3a-ad1fe947a69mr204692566b.41.1746693489868;
+        Thu, 08 May 2025 01:38:09 -0700 (PDT)
+Received: from localhost (93-44-188-26.ip98.fastwebnet.it. [93.44.188.26])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad1891a3f0fsm1059881366b.58.2025.05.08.01.38.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 May 2025 01:38:09 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Thu, 8 May 2025 10:39:38 +0200
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	kernel-list@raspberrypi.com, Matthias Brugger <mbrugger@suse.com>
+Subject: Re: [PATCH v9 -next 04/12] clk: rp1: Add support for clocks provided
+ by RP1
+Message-ID: <aBxtyvI3LUaM3P00@apocalypse>
+References: <cover.1745347417.git.andrea.porta@suse.com>
+ <e8a9c2cd6b4b2af8038048cda179ebbf70891ba7.1745347417.git.andrea.porta@suse.com>
+ <aBprHfQ7Afx1cxPe@apocalypse>
+ <8513c30f597f757a199e4f9a565b0bf5@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] dt-bindings: iommu: mediatek: mt8195 Accept up to 5
- interrupts
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Julien Massot <julien.massot@collabora.com>, kernel@collabora.com,
- Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
- Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?=
- <nfraprado@collabora.com>, Hui Liu <hui.liu@mediatek.com>,
- Yong Wu <yong.wu@mediatek.com>, Joerg Roedel <joro@8bytes.org>,
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Tinghan Shen <tinghan.shen@mediatek.com>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, iommu@lists.linux.dev
-References: <20250505-mt8395-dtb-errors-v1-0-9c4714dcdcdb@collabora.com>
- <20250505-mt8395-dtb-errors-v1-2-9c4714dcdcdb@collabora.com>
- <baeae909-4d12-4cbd-a063-7ad165304b96@kernel.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <baeae909-4d12-4cbd-a063-7ad165304b96@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8513c30f597f757a199e4f9a565b0bf5@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_013449_481393_21DFA73B 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20250508_013812_380435_270D2398 
+X-CRM114-Status: GOOD (  27.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,39 +129,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 08/05/25 08:03, Krzysztof Kozlowski ha scritto:
-> On 05/05/2025 15:23, Julien Massot wrote:
->>
->> Fixes: 3b5838d1d82e3 ("arm64: dts: mt8195: Add iommu and smi nodes")
->> Signed-off-by: Julien Massot <julien.massot@collabora.com>
->> ---
->>   Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml | 3 ++-
->>   1 file changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml b/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
->> index 75750c64157c868725c087500ac81be4e282c829..035941c2db32170e9a69a5363d8c05ef767bb251 100644
->> --- a/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
->> +++ b/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
->> @@ -97,7 +97,8 @@ properties:
->>       maxItems: 1
->>   
->>     interrupts:
->> -    maxItems: 1
->> +    minItems: 1
->> +    maxItems: 5
->>   
-> Every iommu or just some (as described in commit msg) can have 5
-> interrupts? Looks you miss here proper constraints per variant.
+Hi Stephen,
+
+On 12:44 Wed 07 May     , Stephen Boyd wrote:
+> Quoting Andrea della Porta (2025-05-06 13:03:41)
+> > Hi Stephen,
+> > 
+> > On 20:53 Tue 22 Apr     , Andrea della Porta wrote:
+> > > RaspberryPi RP1 is an MFD providing, among other peripherals, several
+> > > clock generators and PLLs that drives the sub-peripherals.
+> > > Add the driver to support the clock providers.
+> > 
+> > Since subsequent patches in the set depends on this one and as the next
+> > merge window is approaching, assuming there are no blockers can I kindly ask
+> > if you can merge it on your tree for the upcoming pull request?
+> > 
+> > This patch should apply cleanly to your clk-next branch except for some fuzz
+> > lines on MAINTAINERS. Please let me know if you want me to adjust it.
+> > 
 > 
-Technically, all of the IOMMUs can have more than one interrupt - but it's not
-clear which one and why, as documentation is lacking.
+> I need to take the dt-binding header as well so it compiles. What's the
+> plan there? Do you want me to provide a branch with the clk driver and
+> binding header? Or do you want to send a PR to clk tree with the clk
+> driver and the binding header and then base your DTS patches on the
+> binding header and send that to the soc maintainers? I'm also happy to
+> give a Reviewed-by tag if that works for you and then you can just take
+> it through the soc tree.
 
-Let's restrict this discussion to MT8195 anyway, as it's the only one declaring
-those 5 interrupts...
-...all of the IOMMUs declare just one, and mediatek,mt8195-iommu-infra declares 5.
+Any of those would work for me, but I agree with you, we need a plan
+because this patchset is crossing the border of several subsystems, and
+as such there's also other dependencies between patches that will inevitably
+led to conflicts.
+The only decoupled pacthes are the pinctrl driver and its bindings, which 
+I guess could be taken by Linus Walleij, but all others have dependencies
+on either the bindings (clk driver) or dts (misc driver which embeds the
+dt overlay, and should be taken by Greg).
 
-P.S.: Nice catch!
+So if Florian is willing to take the bindings and since it's already 
+taking many of the patches, it could be reasonable if he takes the
+entire patchset.
 
-Cheers,
-Angelo
+I guess the final decision is up to Florian. Whatever you choose, I'll
+adjust the patches accordingly but be warned that there will be some
+(minor) conflicts down the merge path: one being the fact that linux-next
+bcm2712-rpi-5-b.dts has pcie nodes while Florian's devicetree/next has not.
+I'll do my best to help fixing those.
+
+Many thanks,
+Andrea
+
+- 
 
