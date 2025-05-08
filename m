@@ -4,102 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF7E2C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:35:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A99A0C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:39:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YCDiRMnhh5NRGE6kDeKql7Kl5Sr5vQvd1G2z+pchMa0=; b=3xycyAdJllrufXDerrwba2VzDr
-	vgjU/NLZpMEQbRHFCFznhWYazx3b33b3lIY1kCSthIEL4fmBtvvAgBSQRlNR3LCVxl2idkplps+Rp
-	rTCzoNWiA3l1VEKTlIj5f8f57/9aP7Uo7zxUut6y9JscU7bIMyEYDZq9Wp37hJmXUUB0u2+Ieb5nu
-	GQVns/vmMd6YjHaZAjg5f/Yd3ceLkzPG4aVIgzKuZqvJSIHISHPIJ1m94I7pW8AiIn6JFiHXC5CHG
-	MZrkQimO3M+/MVFgZUJV/zs3z9dtmir45pNv1LdBfB1zlQvgy8bxCBIIo598zwzf5kJ2PjsyAEo0y
-	JKUERxsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9fwr70jRROQnhTfVJ4M+ZZqp2+Z1EXWKMCwGS7IUNFQ=; b=feodZnHBBDYH7BRzqvjNGX4UTI
+	41wSEXi+48StiinDZ3e+LWSJtfasP2kDGYzvVp40GVEYPStSeBmnBzs33mgcl1PV4AtPgSBfpvu2h
+	I5OPPDiL6RV5ozlJl85WWBOSlUjtCD0O4GXVDLhNglZ7RAP//Mh1SxreWrTI27yEud5eKPftBKv4W
+	fBGaMDR6GUYc+x/GqYOw8Wbk7I27lwJydnvS3GIklnVbFKJhBS9pDFwZ4jMeTpbKBbGo+TiNehH7G
+	ZlXAfv47qGx+2Z6Rpv8ekVg8oeK+4Q2LDDhk9iQNCiOfk+deqa+tCblmk3UsHAtD4T2vGpRBXdiO1
+	fQD7S3Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvmN-000000000nR-1iod;
-	Thu, 08 May 2025 07:34:51 +0000
-Received: from mail-qk1-f175.google.com ([209.85.222.175])
+	id 1uCvqe-000000001O6-1yHT;
+	Thu, 08 May 2025 07:39:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvXC-0000000HZZb-1MaK
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 07:19:11 +0000
-Received: by mail-qk1-f175.google.com with SMTP id af79cd13be357-7c59e7039eeso99317685a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 00:19:09 -0700 (PDT)
+	id 1uCvoi-0000000017w-1SNo;
+	Thu, 08 May 2025 07:37:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=9fwr70jRROQnhTfVJ4M+ZZqp2+Z1EXWKMCwGS7IUNFQ=; b=QoFXLihGNhv4Pre4Gx7gd9fdph
+	0x6QLuSL1b2XMiOwlywQOuvXbjATUv7aMnEal/5m4FHnvmNABTqsIZXLjwCu9Cok9O6FMgDpm0UAF
+	zpBhPglKlqwQTNTGXGAKrWZGc180avLQ3TMkzFCqI8csylzc+FEEwaZNowPmp+DVxz/fgK+YBMV/K
+	vKj+EMYoahObvMT396unCiP5mUMxHoQm8J2cawrLbc1wlTPCppZgw5qruuFeuKz8uZgmSnoH3v76Y
+	/uzvxym2H60lZyN5eRQoicaY9fJPVl+ksxFAqxVpFfAlTDO4KvKe+ofW49W60dqm4xIQtu57GKwcg
+	rk8cESqw==;
+Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uCvoP-0000000FzC7-2NQJ;
+	Thu, 08 May 2025 07:37:05 +0000
+Received: by mail-pf1-x443.google.com with SMTP id d2e1a72fcca58-736aa9d0f2aso923816b3a.0;
+        Thu, 08 May 2025 00:36:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746689812; x=1747294612; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9fwr70jRROQnhTfVJ4M+ZZqp2+Z1EXWKMCwGS7IUNFQ=;
+        b=iISenGn+6YBsi1xV72dlQn5ghXCsvhbMV9qMcXtmvWqcbR10AeMTlKyfvSflv2HZLD
+         h589X5n1EeE5q7iP2ZbPSoe6SOH+LhWyEPzBsOBc9hfrHP36zJhSsv6E/FNzwiHP7Ap8
+         wdy1H3KrJHHVxsbXbcAygr5ld1kBoYOWG4fbtecGA4Al9Y4DtXIkvQJ4J++74wzSQi5w
+         yf4m+rEMK5G2y7nWL3hlgQmitMyqDnT3qqQmi+guPUz/XuiKvOXb5Nn611zTNM6sak6t
+         CiAPAMaM/FbmBCuutMPDapsWeOQZ/8NhfsLD3IEEzK7LYXhZGP4fnfUzqs6ZZIzk03iR
+         stAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746688748; x=1747293548;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1746689812; x=1747294612;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=YCDiRMnhh5NRGE6kDeKql7Kl5Sr5vQvd1G2z+pchMa0=;
-        b=GsPAeFrDPuCoFcR9lyuep+qusOcRL62Iqh7s5EJTB/KVmu9zzxf7beR3+AT80dNONX
-         LDKrWLQIvU6RKX3YfBBSV60b0C9rZ3J+DLgoXSjEZ7awNH/gwk5rlgxrg9FKkzWpitP7
-         Svw/zlM5GsQel9sB7slO/C+oucmtNqSCYF0oxm+G4m3Jqqu2Z5Ycx6qqY8xKR4LodA+d
-         s/oqMfPgV6i/IOn130iKqo9YYE7/c7QC1SAlPVkX8OKaObS+EAo3dY3kbs3O9rMz7S8W
-         zkPXUZWuTpBA7t+SwMoqTo5JlnBOm0H+aCXeVBIefewrDZA9pFrY8CAz/shoHHfhLEMd
-         gPMA==
-X-Forwarded-Encrypted: i=1; AJvYcCUwalzdY3m2NX9wk5JC6rMNURkyjYAuBcJ4FtPeTd0JM5unbSpN91CucOnRrQLEIlXz8qTUINCqPzFuIOE2G6ls@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5lTB1WvzN5mzr+3dTpY580nDoKe71Bz+KOOdaSi+6zT8uSufn
-	Y4X8hohDIoBfCK1zg62WvCUK5xQDUtvMlSYGWOAjvbqOvyj3v/GXxLdv0Q97
-X-Gm-Gg: ASbGncsZ6hoO1crB2CV3yy8Ai9ijqJ7epdlu6F2OsVwDpzLpppzh4i5kf5o+ZVcl7CJ
-	WhdpYpuBtLYRwG6wGdH0wyMtEuUJPGQI3/sQspveV3vVzhcQs3eYZGRyILrLxswFUQHa/Ryny4W
-	vzMEfUBEQIznn6IBYBmNOYVmGAWQmS0HEihQbYz6G3IHY90mJjoTbS2yx9H5AuXis2GCjwHe96R
-	kD7DTjSEdlsznCx0oaYb4tHd5zMT/YIjWL/vK0N07Ce7bm6maKmu3QucbLIrYj+lBEbkeZ9OCQP
-	VaW2MPwWBVHCEgf1s4hM4fSUZp9QhccsjySXWXLsmhVgYmMjPXJaEGIUlbJYlqU7+ZtEw6l8nKQ
-	5/NY=
-X-Google-Smtp-Source: AGHT+IE9kqG3wKu9nKh1EJvxo1TMe9H7FUN2VkQKhrTnVRU22IMbPsJRfj8ElRHcqJkG8FkxFocgKQ==
-X-Received: by 2002:a05:6214:c46:b0:6ea:d033:2855 with SMTP id 6a1803df08f44-6f542a8107fmr84339576d6.26.1746688737849;
-        Thu, 08 May 2025 00:18:57 -0700 (PDT)
-Received: from mail-qv1-f52.google.com (mail-qv1-f52.google.com. [209.85.219.52])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7caf75377a1sm321235085a.63.2025.05.08.00.18.57
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 08 May 2025 00:18:57 -0700 (PDT)
-Received: by mail-qv1-f52.google.com with SMTP id 6a1803df08f44-6ecfbf8fa76so9350076d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 00:18:57 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUtGtl9N4JuzULE1FbglxU+ZW/Q/UKsMo4PraKut9nbrWjnK0fQJq5l5EAdurDm0wqO3dGzYF+IhQEsTF6K+WC6@lists.infradead.org
-X-Received: by 2002:a05:6102:2c87:b0:4c1:c10d:cf65 with SMTP id
- ada2fe7eead31-4dc738bc3famr5378135137.25.1746688425863; Thu, 08 May 2025
- 00:13:45 -0700 (PDT)
+        bh=9fwr70jRROQnhTfVJ4M+ZZqp2+Z1EXWKMCwGS7IUNFQ=;
+        b=Rj9FUesI/lc9bIakO99YrUYvKKXn1lxE10HU+GuEeL42dXj/ZXx266mLlXJaC0cJdj
+         /5JaQqR8ENPFEZ2iR2yzEequ65EKiUGWVdgUPHPfWySapo9boREqTESgMvU26gx5LbLL
+         zz7tOtyr3qttq97a6VK2uFMt+zyymPwrCN5CmOjmNeeMlCojCJVD1FeMEBhm9UUluHeG
+         d/E2gfK1+1rnY8VA1L85IS7ZI6yW18Anw/ucI6TJ6246m18RMvdoKbyQqqwifM7gywiy
+         CCphHpmmLAY89DtcyiPK/VlIG9eUqNQO52fu1ZXrLFlxMRgXp5SsoZgGsM9iS/jNUnrk
+         7T/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUARLVSrpbMooi6ylcFklmSBcroUV5TnDTO4xn7ADrAYQMnvNJHTyzMF/NsF5EewsCg0g8nwbZoPEP+MefKWDnP@lists.infradead.org, AJvYcCUEX8/6wG8qtHcAiMtA2ad0pCLun9FlLauhYrBiCK8CvvHg2cGyFtRtaCRYXD4o1kaBvy4euuh8C7hECTWb6q4=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxD1A+JCpglg3p+wmYKO3Sl7n7J80rG1IGxhvB8Mn8hQeTBD3CA
+	M4AkXknLAC/OXhJVy8MFBgGxxLOGZE48uCs/gfCSeoS9DqJMWge/
+X-Gm-Gg: ASbGnct0QRazPnLfN9op7//7N/eYSUkQpJt7gceDJ/jzBxdc43ZWX8+9Wit/Mg8eplO
+	y2VZWNNyeVguiYoXNGbUpBaHfmNz49ddrviTINOHheWMjjw6/o7fBVe8YQcKKCpz7ggz7vZ2GGW
+	AxCRo4CowRwkMmhYH4BEqGppad0bhap7vacfFLkRZJvEa2tYEJu9NI1lQmmzp/XQbpTFPKiZBer
+	NMrMUxln5dRNs365OPnGFsXLy7BFIk5j4VsaX92GHLWPW+kypPDSYvDU1SxD6JIbHE6CRr+nHjb
+	9mHoli9Hl5LNTtkF+Yt4RrZe347V+ouYdoCD0vESucpxxsBH/A3yoP5s5Q6+6xGlWJ4viQ==
+X-Google-Smtp-Source: AGHT+IHPnNoxLhV7GIw/VlymXwTFp+WFlPFIfHMoS/t+AGVcolUKDOh9qji1dI06No4oykb/YQlDeA==
+X-Received: by 2002:a05:6a20:2d2b:b0:1f5:59e5:8ada with SMTP id adf61e73a8af0-2148b81f041mr10087427637.4.1746689812362;
+        Thu, 08 May 2025 00:36:52 -0700 (PDT)
+Received: from tom-QiTianM540-A739.. ([124.127.236.130])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7405905d16asm12570475b3a.127.2025.05.08.00.36.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 May 2025 00:36:51 -0700 (PDT)
+From: Qiu-ji Chen <chenqiuji666@gmail.com>
+To: sean.wang@mediatek.com,
+	vkoul@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com
+Cc: dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	baijiaju1990@gmail.com,
+	Qiu-ji Chen <chenqiuji666@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] dmaengine: mediatek: Fix a possible deadlock error in mtk_cqdma_tx_status()
+Date: Thu,  8 May 2025 15:36:33 +0800
+Message-Id: <20250508073634.3719-1-chenqiuji666@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20250507071315.394857-1-herve.codina@bootlin.com>
- <20250507071315.394857-24-herve.codina@bootlin.com> <8b97e095-dbed-438c-9c6d-d3c2c5929fc0@lunn.ch>
-In-Reply-To: <8b97e095-dbed-438c-9c6d-d3c2c5929fc0@lunn.ch>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 8 May 2025 09:13:33 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUVvOMavxSAKaSMOwj_zXR=5h8KrrqNg4RS2Yaw3WXpKg@mail.gmail.com>
-X-Gm-Features: ATxdqUHmcSjbjZfHI-fr6cqBy9DRd_HkLObPFwa-nuGiyXHv4iNIliDKKGB_NdU
-Message-ID: <CAMuHMdUVvOMavxSAKaSMOwj_zXR=5h8KrrqNg4RS2Yaw3WXpKg@mail.gmail.com>
-Subject: Re: [PATCH v2 23/26] misc: lan966x_pci: Introduce board specific data
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Herve Codina <herve.codina@bootlin.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, Peter Rosin <peda@axentia.se>, 
-	Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Wolfram Sang <wsa@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, Allan Nielsen <allan.nielsen@microchip.com>, 
-	Horatiu Vultur <horatiu.vultur@microchip.com>, 
-	Steen Hegelund <steen.hegelund@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_001910_364694_C66CBD67 
-X-CRM114-Status: GOOD (  29.94  )
+X-CRM114-CacheID: sfid-20250508_083700_308732_B4C27BE7 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,45 +116,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 8 May 2025 at 00:24, Andrew Lunn <andrew@lunn.ch> wrote:
-> On Wed, May 07, 2025 at 09:13:05AM +0200, Herve Codina wrote:
-> > Only one device-tree overlay (lan966x_evb_lan9662_nic.dtbo) is handled
-> > and this overlay is directly referenced in lan966x_pci_load_overlay().
-> >
-> > This avoid to use the code for an other board.
-> >
-> > In order to be more generic and to allow support for other boards (PCI
-> > Vendor/Device IDs), introduce the lan966x_pci_info structure and attach
-> > it to PCI Vendor/Device IDs handled by the driver.
-> >
-> > This structure contains information related to the PCI board such as
-> > information related to the dtbo describing the board we have to load.
-> >
-> > Signed-off-by: Herve Codina <herve.codina@bootlin.com>
->
-> How big is the dtbo ?
->
-> This is going in the right direction. I'm just wondering if each dtbo
-> should be wrapped in its own very slim PCI driver, which simply
-> registers its lan966x_pci_info structure to a core driver. Only the
-> needed dtbo will then be loaded into memory as a module, not them all.
+Fix a potential deadlock bug. Observe that in the mtk-cqdma.c
+file, functions like mtk_cqdma_issue_pending() and
+mtk_cqdma_free_active_desc() properly acquire the pc lock before the vc
+lock when handling pc and vc fields. However, mtk_cqdma_tx_status()
+violates this order by first acquiring the vc lock before invoking
+mtk_cqdma_find_active_desc(), which subsequently takes the pc lock. This
+reversed locking sequence (vc → pc) contradicts the established
+pc → vc order and creates deadlock risks.
 
-Alternatively, the dtbo could be loaded through request_firmware().
-That could lead to a generic support option in the PCI core, which would
-fallback to loading pci-<vid>-<pid>.dtbo when no driver is available.
+Fix the issue by moving the vc lock acquisition code from
+mtk_cqdma_find_active_desc() to mtk_cqdma_tx_status(). Ensure the pc lock
+is acquired before the vc lock in the calling function to maintain correct
+locking hierarchy. Note that since mtk_cqdma_find_active_desc() is a
+static function with only one caller (mtk_cqdma_tx_status()), this
+modification safely eliminates the deadlock possibility without affecting
+other components.
 
-> Pretty much all the pieces are here, so it can be done later.
+This possible bug is found by an experimental static analysis tool
+developed by our team. This tool analyzes the locking APIs to extract
+function pairs that can be concurrently executed, and then analyzes the
+instructions in the paired functions to identify possible concurrency bugs
+including deadlocks, data races and atomicity violations.
 
-Exactly.
+Fixes: b1f01e48df5a ("dmaengine: mediatek: Add MediaTek Command-Queue DMA controller for MT6765 SoC")
+Cc: stable@vger.kernel.org
+Signed-off-by: Qiu-ji Chen <chenqiuji666@gmail.com>
+---
+V2:
+Revised the fix approach and updated the description to address the
+reduced protection scope of the vc lock in the V1 solution.
+---
+ drivers/dma/mediatek/mtk-cqdma.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
+diff --git a/drivers/dma/mediatek/mtk-cqdma.c b/drivers/dma/mediatek/mtk-cqdma.c
+index d5ddb4e30e71..e35271ac1eed 100644
+--- a/drivers/dma/mediatek/mtk-cqdma.c
++++ b/drivers/dma/mediatek/mtk-cqdma.c
+@@ -422,13 +422,10 @@ static struct virt_dma_desc *mtk_cqdma_find_active_desc(struct dma_chan *c,
+ 	struct virt_dma_desc *vd;
+ 	unsigned long flags;
+ 
+-	spin_lock_irqsave(&cvc->pc->lock, flags);
+ 	list_for_each_entry(vd, &cvc->pc->queue, node)
+ 		if (vd->tx.cookie == cookie) {
+-			spin_unlock_irqrestore(&cvc->pc->lock, flags);
+ 			return vd;
+ 		}
+-	spin_unlock_irqrestore(&cvc->pc->lock, flags);
+ 
+ 	list_for_each_entry(vd, &cvc->vc.desc_issued, node)
+ 		if (vd->tx.cookie == cookie)
+@@ -452,9 +449,11 @@ static enum dma_status mtk_cqdma_tx_status(struct dma_chan *c,
+ 	if (ret == DMA_COMPLETE || !txstate)
+ 		return ret;
+ 
++	spin_lock_irqsave(&cvc->pc->lock, flags);
+ 	spin_lock_irqsave(&cvc->vc.lock, flags);
+ 	vd = mtk_cqdma_find_active_desc(c, cookie);
+ 	spin_unlock_irqrestore(&cvc->vc.lock, flags);
++	spin_unlock_irqrestore(&cvc->pc->lock, flags);
+ 
+ 	if (vd) {
+ 		cvd = to_cqdma_vdesc(vd);
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.34.1
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
