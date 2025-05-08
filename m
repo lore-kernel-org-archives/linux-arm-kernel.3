@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64A90C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 15:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63191C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 15:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vArwvLV+DEZKEL8y1k44EnYo/gsnysUUsECWxXjPHCQ=; b=5FLqQlom+Fm8cu7pfQeClB1lwV
-	vd+oi5MwHgRfN1wnADlEixp6+DcVHQAitu8jdKBdyMie6a86Jj1ffUCTNREgN0Wjsr9OqGjjWPZFk
-	crQLxrC6tAZhTJFHkFjFJ1VOu/FWIArpIilKyh+vAtn8yDbjbIAi6autaWOx5o4P3WV2XmidiXwBe
-	YWFg8vBlye6lsM8waxv7RuG39x0gETHpFadwhd9H0zm1k6ilkiG91nswoYrN9nZc6l+pO2yzjOQC5
-	/LY6R5Bq5HYdcxhjisZt+xupw4MtcAJxLvkk+quf6hDBpYG+qkN01WaEeQqDVj37yYt4Oe2Cel37d
-	0O4FEYfQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wv0gFF8cjp95WfH6O3Ya/mrYzGv/I0yS3WPyMfk6Brg=; b=txWRkssnn8hRYnUygJAed0RP6L
+	kbmI1T8xR+UN9JepXmfO/eOv6KKosrBobE07sv8UcmfphDysM/qbQj5g5QewZHYohJzum5UtDSs2p
+	UaRPWZWlrRDWVnwedsnhR0U0xCBuyQ1oWKDeRwyVWPFejnW9CBNDc2okI9WcFvJP+ENFNYXxhDjg6
+	nTMOjmEkiHqhjOMCzCHQrWYy5E+tnDwl43uayvvyb2QAQdpW5ztwwfY9raf3AI/wj76EornTSDeuQ
+	MY63H8SaM3ARp4y5WNj0uyDTBjPSZ8YR9dZglSbsHkgHqHoqVJtpgZe3oEU3lLBPFdL3mxryGmov6
+	VcD/rR2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD3CZ-000000018mV-3qTs;
-	Thu, 08 May 2025 15:30:24 +0000
+	id 1uD3EW-00000001968-0gNV;
+	Thu, 08 May 2025 15:32:24 +0000
 Received: from smtp-75.smtpout.orange.fr ([80.12.242.75] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD2cd-000000010Fx-41Ms;
-	Thu, 08 May 2025 14:53:17 +0000
+	id 1uD2ch-000000010Fx-3RnT;
+	Thu, 08 May 2025 14:53:20 +0000
 Received: from localhost.localdomain ([90.11.132.44])
 	by smtp.orange.fr with ESMTPA
-	id D2cYuomdl816KD2cYuwCQe; Thu, 08 May 2025 16:53:12 +0200
+	id D2cYuomdl816KD2chuwCl7; Thu, 08 May 2025 16:53:19 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1746715992;
-	bh=vArwvLV+DEZKEL8y1k44EnYo/gsnysUUsECWxXjPHCQ=;
+	s=t20230301; t=1746715999;
+	bh=wv0gFF8cjp95WfH6O3Ya/mrYzGv/I0yS3WPyMfk6Brg=;
 	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=K5JwIVyrFl6zcwMB6BQ36dIsDj2X5gjjP4iZB+SlpYmP2JtaxFRgYzcbuoxDx1kMf
-	 QLsUE9nuRN4/kfeaOUkxWp9QjFslP7RYi0QCKfkVL8uaHvkszJcd8FH3S+B56O17L0
-	 KzhGx6eyeL9rpqlvzvfh8mkXyQ7CYuMdw5sk6J2DiaQ+8XvshmxNa+0MsWQ4p+yfGF
-	 2ECs5s8RVo4S1Qq5oMu9neMacarqYYtV7I+HJ1nFMw4TSOh9IeeOD537YlRCJwMFIq
-	 GL1qcyEJUg1GFSwHDD5PzXriZSLsDQ2DTF9pGQ1CVtlbNEMv96yhLfyf67tWowAdXX
-	 bMubNTgI5UJ3Q==
+	b=pu5pjZTDSnmp0qso0Hk3SEed2asw3XttZ7HJHAHaP6vC+ctFHmgBFaNJiHioxbe8M
+	 P+5LSgtiH68FxbU0PmdZJ9Sm4eJlLbqi0SHUtHmEOsfGXtGVc74s+ApyMPGlLxwu9i
+	 t+xt59oHMhRO8lvnh6HvNrx30QP/ym0t+gjt5j/EkHkB9X8+Mnf4C6f+u+bDHN8bCZ
+	 nLyG/SWrTVW+LT2lLzq/feEMwt9dJRCgriFHY7mZJ2pt3nYQok0gWHQ734V/XKp43w
+	 NPABeWQ0CyqEICvykLofJZt4NJbI05H58kjeuuyeUI1YjQaGILFw9VhfQ3fjlPgNLw
+	 7DRBVV8A+4jeQ==
 X-ME-Helo: localhost.localdomain
 X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
-X-ME-Date: Thu, 08 May 2025 16:53:12 +0200
+X-ME-Date: Thu, 08 May 2025 16:53:19 +0200
 X-ME-IP: 90.11.132.44
 From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
 To: Lorenzo Bianconi <lorenzo@kernel.org>,
@@ -56,15 +56,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	netdev@vger.kernel.org
-Subject: [PATCH v2 1/4] net: airoha: Fix an error handling path in airoha_alloc_gdm_port()
-Date: Thu,  8 May 2025 16:52:25 +0200
-Message-ID: <5c94b9b3850f7f29ed653e2205325620df28c3ff.1746715755.git.christophe.jaillet@wanadoo.fr>
+Subject: [PATCH v2 2/4] net: airoha: Fix an error handling path in airoha_probe()
+Date: Thu,  8 May 2025 16:52:26 +0200
+Message-ID: <3791c95da3fa3c3bd2a942210e821d9301362128.1746715755.git.christophe.jaillet@wanadoo.fr>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <5c94b9b3850f7f29ed653e2205325620df28c3ff.1746715755.git.christophe.jaillet@wanadoo.fr>
+References: <5c94b9b3850f7f29ed653e2205325620df28c3ff.1746715755.git.christophe.jaillet@wanadoo.fr>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_075316_131206_0D282D3E 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20250508_075319_997208_B000D06E 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,45 +81,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If register_netdev() fails, the error handling path of the probe will not
-free the memory allocated by the previous airoha_metadata_dst_alloc() call
-because port->dev->reg_state will not be NETREG_REGISTERED.
+If an error occurs after a successful airoha_hw_init() call,
+airoha_ppe_deinit() needs to be called as already done in the remove
+function.
 
-So, an explicit airoha_metadata_dst_free() call is needed in this case to
-avoid a memory leak.
-
-Fixes: af3cf757d5c9 ("net: airoha: Move DSA tag in DMA descriptor")
+Fixes: 00a7678310fe ("net: airoha: Introduce flowtable offload support")
 Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
 ---
 Changes in v2:
-  - New patch
+  - Call airoha_ppe_init() at the right place in the error handling path
+    of the probe   [Lorenzo Bianconi]
 
 Compile tested only.
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+ drivers/net/ethernet/airoha/airoha_eth.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 16c7896f931f..af8c4015938c 100644
+index af8c4015938c..d435179875df 100644
 --- a/drivers/net/ethernet/airoha/airoha_eth.c
 +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2873,7 +2873,15 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 	if (err)
- 		return err;
- 
--	return register_netdev(dev);
-+	err = register_netdev(dev);
-+	if (err)
-+		goto free_metadata_dst;
-+
-+	return 0;
-+
-+free_metadata_dst:
-+	airoha_metadata_dst_free(port);
-+	return err;
- }
- 
- static int airoha_probe(struct platform_device *pdev)
+@@ -2967,6 +2967,7 @@ static int airoha_probe(struct platform_device *pdev)
+ error_napi_stop:
+ 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
+ 		airoha_qdma_stop_napi(&eth->qdma[i]);
++	airoha_ppe_init(eth);
+ error_hw_cleanup:
+ 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
+ 		airoha_hw_cleanup(&eth->qdma[i]);
 -- 
 2.49.0
 
