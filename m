@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1238BC3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 13:47:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0ED4C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 13:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J4wWJbRLuvvGn/FqOVYUmog5DVHLYO2FI+qV2G/lSJ0=; b=NtkdBdjek0OL/s8aiuqY6KgrUX
-	QynRxjsUMoJkjmg2hN2cnv8yiPTnwSOz+a/gY9tW1ir5AdGkzz/YePPYrXgGQcIkqPWh+t6qPSr/P
-	mLLWYo2HLx00ahkQnBEjVpf/hJtSQUmncXwwGE9JIngPFAHgxFJiAgo4o37rJz7YHB0dg6nk6tvFZ
-	pDXZd18JBsWqK8juTXBBbdsoNqCxY96/7aULJZcvxQ/ufi0IX2wd6hXMtb9LiQLc4Qa3ev6c2jJif
-	0yNsH09PbWDZ6CPlQF6tCPTFREqIMVINxiCgIju5mDDw+8V42ODBEbxNTuqqCmm0wSd5r+Is7IuUC
-	RNQMH2+w==;
+	bh=qa5KphsoygewJSmkYI/LNyFy2FrxGkMJEtWoK57gW+8=; b=2XKNBOGJ5RV90Touc666i8EfFj
+	uIX84Tf3WpmPg3q/A7dnAL5LFSU4vv9oH5jNKbU4kBBtI9EiOOvK13ffWd6K3ugu9H7AF4V0a9zwa
+	JlViIgCJZQ97jdQXphqn25rvHzHwlhBfgPt2jC1xupboh2Hj0PqQsdmAnmru9S7JUIKG1bA91Rt+q
+	sfoWwLEZa8L2DxsGse3Y5OVjCH20m5w+ZuQVbLJMxMzWCkUq01vr8O5wAuF9zFxnqA8Nr5BVBHORu
+	vuKTrIQaz/HZh2YUbxUodqnfdWOd8SCXLSk2vV6A1XK14PRoqeX/ji12MZOSf1l+nJiduTqmAVI26
+	HK9mXPaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD1av-00000000oSN-2vbJ;
-	Thu, 08 May 2025 13:47:25 +0000
+	id 1uD1cq-00000000ohK-1guA;
+	Thu, 08 May 2025 13:49:24 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD1Hl-00000000kRL-1Lfi
+	id 1uD1Ho-00000000kRx-0GtX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 13:27:38 +0000
+	Thu, 08 May 2025 13:27:41 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 80E2C106F;
-	Thu,  8 May 2025 06:27:26 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 50C47106F;
+	Thu,  8 May 2025 06:27:29 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 802E23F58B;
-	Thu,  8 May 2025 06:27:34 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4FC973F58B;
+	Thu,  8 May 2025 06:27:37 -0700 (PDT)
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: broonie@kernel.org,
@@ -49,17 +49,17 @@ Cc: broonie@kernel.org,
 	tkjos@google.com,
 	will@kernel.org,
 	yury.khrustalev@arm.com
-Subject: [PATCH v2 08/24] arm64/fpsimd: Add task_smstop_sm()
-Date: Thu,  8 May 2025 14:26:28 +0100
-Message-Id: <20250508132644.1395904-9-mark.rutland@arm.com>
+Subject: [PATCH v2 09/24] arm64/fpsimd: signal: Use SMSTOP behaviour in setup_return()
+Date: Thu,  8 May 2025 14:26:29 +0100
+Message-Id: <20250508132644.1395904-10-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20250508132644.1395904-1-mark.rutland@arm.com>
 References: <20250508132644.1395904-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_062737_485540_D6FE52B2 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20250508_062740_148443_3F58DD12 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,95 +74,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In a few places we want to transition a task from streaming mode to
-non-streaming mode, e.g. signal delivery where we historically tried to
-use an SMSTOP SM instruction.
+Historically the behaviour of setup_return() was nondeterministic,
+depending on whether the task's FSIMD/SVE/SME state happened to be live.
+We fixed most of that in commit:
 
-Add a new helper to manipulate a task's state in the same way as an
-SMSTOP SM instruction. I have not added a corresponding helper to
-simulate the effects of SMSTART SM. Only ptrace transitions a task into
-streaming mode, and ptrace has distinct semantics for such transitions.
+  929fa99b1215 ("arm64/fpsimd: signal: Always save+flush state early")
 
-Per ARM DDI 0487 L.a, section B1.4.6:
+... but we didn't decide on how clearing PSTATE.SM should behave, and left a
+TODO comment to that effect.
 
-| RRSWFQ
-| When the Effective value of PSTATE.SM is changed by any method from 0
-| to 1, an entry to Streaming SVE mode is performed, and all implemented
-| bits of Streaming SVE register state are set to zero.
+Use the new task_smstop_sm() helper to make this behave as if an SMSTOP
+instruction was used to exit streaming mode. This would have been the
+most common behaviour prior to the commit above.
 
-| RKFRQZ
-| When the Effective value of PSTATE.SM is changed by any method from 1
-| to 0, an exit from Streaming SVE mode is performed, and in the
-| newly-entered mode, all implemented bits of the SVE scalable vector
-| registers, SVE predicate registers, and FFR, are set to zero.
-
-Per ARM DDI 0487 L.a, section C5.2.9:
-
-| On entry to or exit from Streaming SVE mode, FPMR is set to 0
-
-Per ARM DDI 0487 L.a, section C5.2.10:
-
-| On entry to or exit from Streaming SVE mode, FPSR.{IOC, DZC, OFC, UFC,
-| IXC, IDC, QC} are set to 1 and the remaining bits are set to 0.
-
-This means bits 0, 1, 2, 3, 4, 7, and 27 respectively, i.e. 0x0800009f
-
+Fixes: 40a8e87bb328 ("arm64/sme: Disable ZA and streaming mode when handling signals")
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Marc Zyngier <maz@kernel.org>
 Cc: Mark Brown <broonie@kernel.org>
 Cc: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/fpsimd.h |  2 ++
- arch/arm64/kernel/fpsimd.c      | 22 ++++++++++++++++++++++
- 2 files changed, 24 insertions(+)
+ arch/arm64/kernel/signal.c | 18 ++----------------
+ 1 file changed, 2 insertions(+), 16 deletions(-)
 
-diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-index b751064bbaaa1..b8cf0ea43cc05 100644
---- a/arch/arm64/include/asm/fpsimd.h
-+++ b/arch/arm64/include/asm/fpsimd.h
-@@ -111,6 +111,8 @@ static inline bool thread_za_enabled(struct thread_struct *thread)
- 	return system_supports_sme() && (thread->svcr & SVCR_ZA_MASK);
- }
+diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
+index e9272878dd7df..3c271ab401980 100644
+--- a/arch/arm64/kernel/signal.c
++++ b/arch/arm64/kernel/signal.c
+@@ -1476,22 +1476,8 @@ static int setup_return(struct pt_regs *regs, struct ksignal *ksig,
  
-+extern void task_smstop_sm(struct task_struct *task);
-+
- /* Maximum VL that SVE/SME VL-agnostic software can transparently support */
- #define VL_ARCH_MAX 0x100
- 
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index c2603fe8dd243..fe96e018e18c0 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -695,6 +695,28 @@ static inline void sve_to_fpsimd(struct task_struct *task)
+ 	/* Signal handlers are invoked with ZA and streaming mode disabled */
+ 	if (system_supports_sme()) {
+-		/*
+-		 * If we were in streaming mode the saved register
+-		 * state was SVE but we will exit SM and use the
+-		 * FPSIMD register state.
+-		 *
+-		 * TODO: decide if this should behave as SMSTOP (e.g. reset
+-		 * FPSR + FPMR), or whether this should only clear the scalable
+-		 * registers + ZA state.
+-		 */
+-		if (current->thread.svcr & SVCR_SM_MASK) {
+-			memset(&current->thread.uw.fpsimd_state, 0,
+-			       sizeof(current->thread.uw.fpsimd_state));
+-			current->thread.fp_type = FP_STATE_FPSIMD;
+-		}
+-
+-		current->thread.svcr &= ~(SVCR_ZA_MASK | SVCR_SM_MASK);
++		task_smstop_sm(current);
++		current->thread.svcr &= ~SVCR_ZA_MASK;
+ 		write_sysreg_s(0, SYS_TPIDR2_EL0);
  	}
- }
  
-+static inline void __fpsimd_zero_vregs(struct user_fpsimd_state *fpsimd)
-+{
-+	memset(&fpsimd->vregs, 0, sizeof(fpsimd->vregs));
-+}
-+
-+/*
-+ * Simulate the effects of an SMSTOP SM instruction.
-+ */
-+void task_smstop_sm(struct task_struct *task)
-+{
-+	if (!thread_sm_enabled(&task->thread))
-+		return;
-+
-+	__fpsimd_zero_vregs(&task->thread.uw.fpsimd_state);
-+	task->thread.uw.fpsimd_state.fpsr = 0x0800009f;
-+	if (system_supports_fpmr())
-+		task->thread.uw.fpmr = 0;
-+
-+	task->thread.svcr &= ~SVCR_SM_MASK;
-+	task->thread.fp_type = FP_STATE_FPSIMD;
-+}
-+
- void cpu_enable_fpmr(const struct arm64_cpu_capabilities *__always_unused p)
- {
- 	write_sysreg_s(read_sysreg_s(SYS_SCTLR_EL1) | SCTLR_EL1_EnFPM_MASK,
 -- 
 2.30.2
 
