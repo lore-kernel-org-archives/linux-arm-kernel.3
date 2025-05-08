@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98C74C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 09:02:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D321BC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 09:03:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ziVWDmOuEopN9Me9FomOzdCKG0Ks8hgntzScXyKgeLk=; b=E2byqS3+Du9a4/PryxsO8I8lhE
-	DmVCV+krQO6BeiRjmyATXqGGdnINoEbqlver85wK9oJSLJfpdN6FXlGE+PQoeeQdSFbP8RwFMnL7f
-	kadHSCCpwwSrGafy/z7xGvuWRZNY/RtNecm3oTlQ7hw6+R0gG8sT2h3r5HMv/QaeX+HS0G0SrqvKR
-	72QJfEsL1ukbR0KIgOq0AxJ/MHjNcSyusVkIvw33yTYLob+s+xtFCypTeqBFENf/+hu4uG0s4whOi
-	JZ+77lj43QHAseHTF+z8q56tRy9wqicbNLFIUFZW+582TfoCHPtEeyUS3GNdHTTI9rf6SgRsAO7Mb
-	ZwD38t7w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mc4P2PQoZ4mkmF3mqFcZLQ7EV/br9cJW+wFoP0+ZcZM=; b=OVA3virTbJvYADh0iqJ1KGnFR9
+	6ZaKMwkREEiEJG+ty8wf7A8vxOxHgtHkmPiKzsM+o4eK7cdzulvtbrRjY1V+XDz5dbJmKoRKLR/AY
+	UlLoOiyNpB/xdyNw1DEAa8VPh8iy5pYHp/oZzhmCwYEUR40edvcvsSTq60ZDp7Y9fcmlS0ZOiZLLs
+	cwZ6PIz8NLMwysgcgQelb7SaVfRj5jmFPEOApI9g9QCjVWCOt98DcyGB3bzCiRp31zOZ9MZZEofz6
+	Nw1qfEMwKOV0XKwA/Oz5UooejW7eLjHaIQzx715B+AuCJqKpnkviWb590Mpw65O2tvNUqF57nMr5L
+	FTe7fB5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCx8W-00000000CBr-1Scj;
-	Thu, 08 May 2025 09:01:48 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uCxAS-00000000CYS-0Smw;
+	Thu, 08 May 2025 09:03:48 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCwmz-0000000093R-2OIH
+	id 1uCwn6-0000000095R-3awD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 08:39:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 53A79A4DAA7;
-	Thu,  8 May 2025 08:39:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id EDA60C4CEEF;
-	Thu,  8 May 2025 08:39:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746693572;
-	bh=yuBweLnXJr+UlHoAeP0Vp5rW+zBWTBXlDB/S+fvgixg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=RCaXU2yy1eGr0Ao8jVrCf4FS/Gj9dHBIGZOoYtF7QleJaVWX6f56MtZ37Pm4IYJI6
-	 f97zAssJjYoRHFLmeIoqktFp7zrtbtgBHa1b5ADak76G58xUiK7w/Tm/6TSWHAABPe
-	 w5C5NkJYTrPOFsj/gbcEYSFh94VuY8xK+PvpNNL8PyyjvyYwrzxEhgABkatyxIidBs
-	 +08EvAJpyQi+JSdZJxT7uUoZKnO/+WXsqYDkjAAEPSTzEMfJTJkmJM6fwZ8prS35e1
-	 3HLmpyS4PQVUT6OWHRYqsJReDWM+iue4WFnQyDevQpW2FtAmDD+ypVG5O/ySMWUkk/
-	 56L+6dgyFQEfw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DA856C3ABC5;
-	Thu,  8 May 2025 08:39:31 +0000 (UTC)
-From: Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org>
-Date: Thu, 08 May 2025 08:38:52 +0000
-Subject: [PATCH v2 1/3] KVM: arm64: Restrict FF-A host version
- renegotiation
+	Thu, 08 May 2025 08:39:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1746693581; x=1778229581;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=J1quForL1AyV+mxiU/+Tx5j7sIP7VxLUjzVH0JaG5GA=;
+  b=QSrrnWQSGrInAW3NtGyF6D76MKdc0eXAq4tOuM58MXVCvbwoCkpfnJ0a
+   5kfdA8KquZc3JaNNFI9R++53yTniJcyDq/ZqwZ7U64GvKZwuGUsT6NBJd
+   7hB7iHRnVvcVexRpp0Qcf80eYww/IHQ5Br+fAwqQyFL6uMNigH9OYqTKT
+   yjpHWJvUER6ULDPYGOnuM9wYTFrzfSjJmteEls8zVcoSgh7sURquB/rJQ
+   eI3jS+ULYRKC6M5tpYPwwqnWst1rAr0jekBA7ZLhfAU+Y7uwDnhuZXdTX
+   8zmHo4lconP/2+SrLI1ojztv0do8+Ldjkgr4Cp8jmqjTZQ0uEAIq73IKL
+   w==;
+X-CSE-ConnectionGUID: IOSAXr0OSYyW8EPwPdzyUQ==
+X-CSE-MsgGUID: dUXIT3F5Sx68r5bPTZ2EwQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11426"; a="52273881"
+X-IronPort-AV: E=Sophos;i="6.15,271,1739865600"; 
+   d="scan'208";a="52273881"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 May 2025 01:39:40 -0700
+X-CSE-ConnectionGUID: oQrkPq5kQgifWHGyg4j/xQ==
+X-CSE-MsgGUID: Pw0GmgEXRM65MOnUpmGxqg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,271,1739865600"; 
+   d="scan'208";a="135925309"
+Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 08 May 2025 01:39:36 -0700
+Received: from kbuild by 1992f890471c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uCwn0-000AnH-04;
+	Thu, 08 May 2025 08:39:34 +0000
+Date: Thu, 8 May 2025 16:39:26 +0800
+From: kernel test robot <lkp@intel.com>
+To: Daniel Schultz <d.schultz@phytec.de>, nm@ti.com, vigneshr@ti.com,
+	kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	robertcnelson@gmail.com, francesco.dolcini@toradex.com
+Cc: oe-kbuild-all@lists.linux.dev, upstream@lists.phytec.de,
+	w.egorov@phytec.de, Daniel Schultz <d.schultz@phytec.de>
+Subject: Re: [PATCH 4/4] arm64: dts: ti: k3-am62a7-*: Specify Temperature
+ Grade
+Message-ID: <202505081648.oRdmP2QV-lkp@intel.com>
+References: <20250507050847.912756-4-d.schultz@phytec.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250508-virtio-msg-ffa-v2-1-ed84f8053965@google.com>
-References: <20250508-virtio-msg-ffa-v2-0-ed84f8053965@google.com>
-In-Reply-To: <20250508-virtio-msg-ffa-v2-0-ed84f8053965@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kernel@vger.kernel.org, arve@android.com, lpieralisi@kernel.org, 
- qwandor@google.com, jean-philippe@linaro.org, james.morse@arm.com, 
- perl@immunant.com, tabba@google.com, kernel-team@android.com, 
- armellel@google.com, qperret@google.com, sebastianene@google.com, 
- ahomescu@google.com, Per Larsen <perlarsen@google.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1746693571; l=1162;
- i=perlarsen@google.com; s=20250508; h=from:subject:message-id;
- bh=J3MWSM5x2/SDttpy5fJekCrept6pUn9foVmr8XHfbVs=;
- b=Tg7dgit3kVDTUX65R4PhEXNXxB3lmCZRYexlRi3hD5jNmaUMG4KAbKfgshhUz94xxl0AsCRLm
- EkblOHMrR3rCekrYx3uolLaOoJxg+OaWEnz+RuGNqykxMOnI9X5gOAm
-X-Developer-Key: i=perlarsen@google.com; a=ed25519;
- pk=jjc/Ta4VmrLRmMoahP6d1mBcKzvWU+nsmdtYe2oS2kQ=
-X-Endpoint-Received: by B4 Relay for perlarsen@google.com/20250508 with
- auth_id=402
-X-Original-From: Per Larsen <perlarsen@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250507050847.912756-4-d.schultz@phytec.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_013933_743351_833C06AB 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20250508_013940_937615_80609455 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,43 +89,51 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: perlarsen@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Per Larsen <perlarsen@google.com>
+Hi Daniel,
 
-Prevent the host from re-negotiating a lesser minor version with the
-hypervisor. Once the hypervisor negotiates a version, that should
-remain locked in. Fix the current behaviour by returning NOT_SUPPORTED
-to avoid the FF-A interoperability rules with lesser minor versions that
-allow the host version to downgrade.
+kernel test robot noticed the following build errors:
 
-Signed-off-by: Per Larsen <perlarsen@google.com>
-Signed-off-by: Per Larsen <perl@immunant.com>
----
- arch/arm64/kvm/hyp/nvhe/ffa.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+[auto build test ERROR on robh/for-next]
+[also build test ERROR on linus/master v6.15-rc5 next-20250507]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 3369dd0c4009f84ad3cf9481c747bdc57a162370..2c199d40811efb5bfae199c4a67d8ae3d9307357 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -712,7 +712,10 @@ static void do_ffa_version(struct arm_smccc_res *res,
- 
- 	hyp_spin_lock(&version_lock);
- 	if (has_version_negotiated) {
--		res->a0 = hyp_ffa_version;
-+		if (FFA_MINOR_VERSION(ffa_req_version) < FFA_MINOR_VERSION(hyp_ffa_version))
-+			res->a0 = FFA_RET_NOT_SUPPORTED;
-+		else
-+			res->a0 = hyp_ffa_version;
- 		goto unlock;
- 	}
- 
+url:    https://github.com/intel-lab-lkp/linux/commits/Daniel-Schultz/arm64-dts-ti-k3-am625-Specify-Temperature-Grade/20250507-131122
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20250507050847.912756-4-d.schultz%40phytec.de
+patch subject: [PATCH 4/4] arm64: dts: ti: k3-am62a7-*: Specify Temperature Grade
+config: arm64-defconfig (https://download.01.org/0day-ci/archive/20250508/202505081648.oRdmP2QV-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250508/202505081648.oRdmP2QV-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202505081648.oRdmP2QV-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> arch/arm64/boot/dts/ti/k3-am62a7-sk.dts:14:10: fatal error: k3-am62a-thermal-automative.dtsi: No such file or directory
+      14 | #include "k3-am62a-thermal-automative.dtsi"
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   compilation terminated.
+
+
+vim +14 arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+
+     9	
+    10	#include <dt-bindings/leds/common.h>
+    11	#include <dt-bindings/gpio/gpio.h>
+    12	#include <dt-bindings/net/ti-dp83867.h>
+    13	#include "k3-am62a7.dtsi"
+  > 14	#include "k3-am62a-thermal-automative.dtsi"
+    15	
 
 -- 
-2.49.0.987.g0cc8ee98dc-goog
-
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
