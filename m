@@ -4,162 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C701C3ABC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 12:18:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B0BC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 12:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wbwyhSA/nJT1iX36ofW3stNjrcSxIpRPmcfN63y1dcY=; b=bQCZ+Rtm6F/TFwXuB22q33KRBb
-	rCLAVMKrgOGJ2GOxViZVhdJSDkgSNOJf2djibTnMxgRvmiBLSbyTGpcANWl1CWsGbgVmegj03geDm
-	PfBjCXf4GWxiJya+nW7WSX8eZdmMwKVXGKzKRHvyhiCeIP0tc0KqziyCcp5SFR11pgArjZTZNksf2
-	SxO+ayjmGbCRgYW/fklDNsOufGsukJ/e8dqtGmupWfdz3qHmqHefrTU7We61l6VSJmXKqjOtf9/tf
-	9vXM1NvhnYAmJTMwe9T0nj7Zb6RJ+YkB1faah12LEPRp8jcYag1qu6a5XhAeMOFhyu3VJqR+cVIrM
-	t2lkgzBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=15aok1oCi+ow5KG3/DT3pU2ISBdSkGTBhBS/f9pFazw=; b=tKHxYrNKpcJazRO72xrBz5aHDB
+	6aAKfsTt+bV6yulAdR+k6zuTBiYj1pEwrRhKt6nAuhuxtIn+VxdchziJMhClBfykBveMGL/bnKmJH
+	pQ/weRjwmOsaQZlwDtsW92dKZ0L9T2pfAFWUaCbs6XrccCALLcjLAseiiS5Oz0qQnFXvsuKRJcC+f
+	1/W+/P9InW9iioDl3hoi7q6Q6rb1noU0jsrjsG7PIksZpiA4VxGgWc4ryq1X2GU5avDLAXxqQxC18
+	mAdrZqOBK/irO5VElkVSbrEPAiQsJF1sA4x/JH5S07YgE+Xy48Sd/gobqiq0nNPs1YW3ZwHWXjr13
+	d5KT4j2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0Ci-00000000a65-3v72;
-	Thu, 08 May 2025 12:18:20 +0000
-Received: from mail-bn8nam12on2062d.outbound.protection.outlook.com ([2a01:111:f403:2418::62d] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1uD0Ef-00000000aOA-0zgG;
+	Thu, 08 May 2025 12:20:21 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD09Y-00000000ZVj-40Zs
+	id 1uD0At-00000000Zhk-3Dig
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 12:15:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oBkXLtIcB0dmdIup5lWJjLx+doNg3bTMluSLGoap9tAN/h/UK0PufL/aM6fiQ7qytXbELsuEEcVZos+/xYUOB55OHwZeatl8cYcQsPvT5D0rJ0sgh+ob2lpxJ6CdoGszVdP6B9vHOCQKeap+CmGrCaNe1N3d3NRE80O1mABtixLOYeGl0HwEwlD1zsumxY/br+xAB8wzGNZEdG8YjXXn+ZTjLQlDivYekKFyb93FsV6t5O+wizQ5XgplwzjOYYsdDfGvVc36Gnf6wJHZlTqc/Pi71wwUbB3XQbbLMEtE+ZB+dSdu/s66iMO7aWy85AzA2NBypOVx4nlTgiFk6XkpWw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wbwyhSA/nJT1iX36ofW3stNjrcSxIpRPmcfN63y1dcY=;
- b=El0yg2+RrK4CECa8RDrTqVOodn1LxPklIkm5aJ2Qd2cu13YsUNW7930NFgqL6KCTC7HUhKNhGyPaJGmuznMX5Ikv5E5+KQT6Fzrij/nXUiVVX/M8A65plQls4jq6RRVuX2VO276MPH19irhSGJoK+Cjzo/h0vVGm+eOVLKDBkTI/z2BA2uhBiNL5N275V0oIm+MV85d80xyJT2qpynDrQUx2/M2uPAn6J5ivIHtTr4YM/VQfRR4AUVSrSIkNGsFFy76ZT0eLBHAC1mH2C1dwcIZMXuNFesB04q4CQllAjJKRnKOOtBHQkxbKC0VX/iQCxcmz1V5hY4sXKUPQ9Xr0BA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wbwyhSA/nJT1iX36ofW3stNjrcSxIpRPmcfN63y1dcY=;
- b=HOzGvXrpWw/Lpls4LGVGcLR2X4ZeJHOd4YcGOR78ruBvEEer7nbhzh0x4FBhSu8Bcqzr2B5elYHoh4UD2fgvZbSzDDxbMGZJ6t9g1cgshTegLsGyLKqwTQuX0w9udz/Hb7sdk06HqfrJWn7DCk36H3kishO19EOVhr7rTrZ2zAvSmXztQoKT/ua19mqf9OElWk3q3KGajYVv8cSLD3V9h3v7ak/geqGSNJZRntyjUM1HLwT6EACFWt78RXAt8bCLvE+7ro+jeIP44nEynu1IJ8OHjdqPqHoY7DqOUZ6MwSzQO1D/PTAM86UB4QvqOh3tJn3XKrxh8PNx6A8ksG9ycw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by IA0PPF4D923B935.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bcd) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.33; Thu, 8 May
- 2025 12:14:57 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8722.021; Thu, 8 May 2025
- 12:14:57 +0000
-Date: Thu, 8 May 2025 09:14:56 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Vasant Hegde <vasant.hegde@amd.com>, kevin.tian@intel.com,
-	corbet@lwn.net, will@kernel.org, bagasdotme@gmail.com,
-	robin.murphy@arm.com, joro@8bytes.org, thierry.reding@gmail.com,
-	vdumpa@nvidia.com, jonathanh@nvidia.com, shuah@kernel.org,
-	jsnitsel@redhat.com, nathan@kernel.org, peterz@infradead.org,
-	yi.l.liu@intel.com, mshavit@google.com, praan@google.com,
-	zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>
-Subject: Re: [PATCH v3 11/23] iommufd/viommu: Add IOMMUFD_CMD_VQUEUE_ALLOC
- ioctl
-Message-ID: <20250508121456.GB5657@nvidia.com>
-References: <cover.1746139811.git.nicolinc@nvidia.com>
- <1ef2e242ee1d844f823581a5365823d78c67ec6a.1746139811.git.nicolinc@nvidia.com>
- <6ffe5249-b429-435e-a780-ee90aeb3f0da@amd.com>
- <20250506120114.GV2260709@nvidia.com>
- <eb0d3629-8663-45e9-b929-0c6edff31291@amd.com>
- <20250507123103.GC90261@nvidia.com>
- <2356ff85-6651-47d9-90c7-f8cbf43b053b@amd.com>
- <aBxHgf4llBd7vA5w@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aBxHgf4llBd7vA5w@nvidia.com>
-X-ClientProxiedBy: MN2PR12CA0012.namprd12.prod.outlook.com
- (2603:10b6:208:a8::25) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Thu, 08 May 2025 12:16:29 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 548CGENn1091456
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 8 May 2025 07:16:14 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746706574;
+	bh=15aok1oCi+ow5KG3/DT3pU2ISBdSkGTBhBS/f9pFazw=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=uT2VNFOtKoniv3xYTs8+bgmIt7UaDyl1H9flqDZSGyO2Ms0lVwp4VmNCFdwuwKDFW
+	 2jTD3OIU/npASKwQmi/e0rswcm31BzqByY0UJTdHnc799fstLlakBfmSZ9yuVZ4Nq2
+	 sM1IZlGoaPtQQCD5+oVWfzmHjUItGVTHB3vTSM2I=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 548CGDsv024274
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 8 May 2025 07:16:14 -0500
+Received: from DFLE110.ent.ti.com (10.64.6.31) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 8
+ May 2025 07:16:11 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 8 May 2025 07:16:11 -0500
+Received: from [172.24.227.115] (abhilash-hp.dhcp.ti.com [172.24.227.115])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 548CG7qW009348;
+	Thu, 8 May 2025 07:16:07 -0500
+Message-ID: <9cb4f94e-00e8-43d5-be7a-85dc1188e856@ti.com>
+Date: Thu, 8 May 2025 17:46:06 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|IA0PPF4D923B935:EE_
-X-MS-Office365-Filtering-Correlation-Id: 14c4acf1-d7c1-4b2e-f4a4-08dd8e29f2b7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?fWM3qprLz5Z6XxXwdnFpCCaz1SPcYd90ytL6dkAMay8dgTQPrLKrK141wAyx?=
- =?us-ascii?Q?4waAnQeyQ2zSE+p5u4wepHIONncq9Zw+JUYX7tdeuVSUya1DBt6Psj7+GLay?=
- =?us-ascii?Q?/llBbzBr5taelDkgZ5iVBgsSLTo0cFZY2kGIx5Mfr1zpGzOygwOUM3QhN8Np?=
- =?us-ascii?Q?pmde0YYtcDJrFgiYd3SZRSA6JbqHAXRgNoUxGmC1s7sikmlm64ihf69dxYBg?=
- =?us-ascii?Q?2qvveGNXjzrrKCnex2MvH2yIjO7ugpwGJx/QgjsNh43dZHMCYbBh2Y8GbwkX?=
- =?us-ascii?Q?qAAfx39USLQFJw89OTeDm9zeSfey89oXnKfzOHzZJIHT5yoDBZkZObHzjUyM?=
- =?us-ascii?Q?oVMCOCkmO1w7/QSxrGNeVZttC2St2ldvOwTpukJfeJiUQYh4PB7o6/5Ejr+S?=
- =?us-ascii?Q?jVsADOk8xObVEhY2eIXxf4vXdTrsVElHt1Vk8C1LF8mf1jxWCNz/Ut6fGSjW?=
- =?us-ascii?Q?9AtgTbfnX+FqqtatK4C1CGME0F22dD6TASbcRe0P+PFupE638mTNpf67WlFs?=
- =?us-ascii?Q?p2I7GChe767h+z7Ec+XQVWAL1kKRU76OoP0lHFCUBgWs4P34lDQkFdjz4szx?=
- =?us-ascii?Q?x9abtzJgWNk3bn9kClKWG636uSd2ApkicD32WKsx97rTJo5Ave83Svady04G?=
- =?us-ascii?Q?SMRXsJUkJPvhTTHKJz/z3C3c7sd7xzKuzzMq8Gys4eG0LUR1v7u4GUr7guaS?=
- =?us-ascii?Q?sA4NKEYIYzQbWKULG/sxl0ogq0ZQLwhBsEHvzkS9I+G/Mvt4Hh50s69MpNWe?=
- =?us-ascii?Q?lA7l4JnKmG7Nf5w8g/Hr0S21kRRgqTAwgIaz2tDOq6P14gZVVJCLZlPpw7MZ?=
- =?us-ascii?Q?pDkagkSG2+A6439uT2WrA/rsywZjGgX+yvHlbU4KNW9uoUVjzJ94sw/6tHn9?=
- =?us-ascii?Q?4bX5gHtndUnoK+oUwSRHmrcFwkkywdrdEZYT4MFthA8n1UGlnFB0pdSSjFOg?=
- =?us-ascii?Q?ayQaC+U0iaIiad/ioQUq+CmXNDLXrDUxlGzw91gcP7k28XmdTcDBRwe3Vav7?=
- =?us-ascii?Q?JxY1vdLyztP66oPM3EUSYJEJU3pS9qHZBff6TBJkNpG2jFHvhqPOsBjzqbxy?=
- =?us-ascii?Q?qDjrMjo6JjoXsrPRi20mpVyeiqFfhSdDNF4Xs639DUb62xDZ+Nl3d7EHRNJi?=
- =?us-ascii?Q?xB3X/FnHmTO9G9AvvhZLZVBz3JrJaKBbdA7VM8ZH0P/neDE5KHOMyLEomH99?=
- =?us-ascii?Q?syDAjemnhBBEot7motBV6pmQNHI212JP6mdYXh5nnCrSsoO6DnClZMESIa5W?=
- =?us-ascii?Q?mxO+Bd8jEqXmzp7FU42X3GNhNNDdb5vLePpDnMh0G7XcJJcqk2RvVvckj1S/?=
- =?us-ascii?Q?HIdHgSjce7gE4v1/3zVGSBBrf2hfk25VzWOwXSkvUdEbbzCHo8IrvnwkP5Xy?=
- =?us-ascii?Q?8z++JEJEvVoTvCeFFzkHIqvsGULyTUsAZBmq30W7tu07CHdnsG0x+dPHSBtL?=
- =?us-ascii?Q?9mvemSAj51U=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fLGv+zuR2ju5xFYYMrQTYalvHQvBK8oOHm1umQvmkfm82jx9bUglXQ2+M4Ao?=
- =?us-ascii?Q?Kn7w+6vwmvaF5r4HDladtMEjGPehGe01ozfrl7bACAgC/w9vE+PZ4Y4srbeU?=
- =?us-ascii?Q?S81/nOxnCJsAnRPjX4uKaZibK5zLT0V2sw6wKxcV8xjlxbCsh5VsYtIu2+G/?=
- =?us-ascii?Q?t9Ewv8x7b15HB4oMaAHb/chc+ZrUgpkee/ATDUxcJ3iv+3zAHm7aNnP95wVD?=
- =?us-ascii?Q?ReootAGWHsQ20ONTB+NtiwgDVxg2Cf9e5S2amkBInLqMH+2AblY10G3GXm2S?=
- =?us-ascii?Q?YxdNMkQeDUMCU/YNdZMtcYGuhniBq2Syd2MAfI2FwqwzuEB+c6dlrEA20Xa5?=
- =?us-ascii?Q?NgTxKHQV0nNcfEuXHq2WJvk8v/zQWEqqZb4JqFJ6uLzZ+fMRX0+fXuSpom4k?=
- =?us-ascii?Q?5j9aePo+HgCuI5n7/k7s1qV+5bqhHUQrju2lqdnRPXcFi0Hqx9grRnSTkH7J?=
- =?us-ascii?Q?AhpzrKAsDZhtrFwQOmp4gOQiUfhW3Me8ibT0uz2S0DQ4nSCEnH45VYvuGFJW?=
- =?us-ascii?Q?+FsIob1dS+Btw/yxuDlusmRsQuGXGPBS1vSn/i1WnVkeayc8Uv9xoGPhSkAn?=
- =?us-ascii?Q?y9yZ/HVuH5cvnDnCa1sEDHOrO/bbKT2lASL4ZxbLHfZYb6TMnhQImSswgCco?=
- =?us-ascii?Q?oP084Qt7wLe9ckWozMDUFFIqED08ZDHm2v2ITylG/oLHhd+73fBp2tBjf76d?=
- =?us-ascii?Q?OqIDddNUWFfbTl9KyYAOvFGvoeae9TsHzYvhvRDq6NWQFKQmweqX9pASH1M2?=
- =?us-ascii?Q?rJc8oi2fiKkfdZ/BTQAmjX/gFxb4QYISSjIsVTzx1L/9+F20v7FpyC7yu6rL?=
- =?us-ascii?Q?f3aiQ0qVdAL/HpDkMil6KeX3oGW98il10j6OBee4hFBe6zRlNZl8lP0ZTC7j?=
- =?us-ascii?Q?xv6/qfzu6+zZazvOauzBgEvRnDZY8FLKBlr46+Ebnowk3CNsr/ubd/bVtEQy?=
- =?us-ascii?Q?jrMb1opO7qoeUfexE48ooNrVcYragXBhift8xccKrRhWV4T+/pWy1SkSJA5+?=
- =?us-ascii?Q?zaUsxVed++/qKUUrFx10uEsdh+bYBXA5/j7+97iS59QkoT4mG7BislJwlxCx?=
- =?us-ascii?Q?6IPRk6oTTlJi2fTxEOjMFvLT/IIBxTiUr3/jGnRGf3hxUGa3EcGI1Gf8rkHN?=
- =?us-ascii?Q?kPlnvkzD0Xd+lxldrsE7Y32uxpEcfOPBB6KWaiNeNrREKnnr+pxxC13SRq9X?=
- =?us-ascii?Q?xqIOXmNiZhKuI0q+T0dIZTvp8ZQTIMq0iZenvAIIJHu7w49UA4yeSXJEg5gd?=
- =?us-ascii?Q?fDyxb55AJ3b4vUHgfh1eZ/S0T2K2NqFhRbDq2uqMdo6eEvrU4js/m8nXpXzf?=
- =?us-ascii?Q?D3OascJuRFEX2IEnwDHvw9Hme7oIb377L0Et2j8N3QPocm5IrBP68sZv63/N?=
- =?us-ascii?Q?rXZU4OgmC8J83mmWLijFCDAVeu5THpKOBd4fBQ5DpPGcm0d+rjzY3K/Lf0xI?=
- =?us-ascii?Q?2Jj1LoFgeoctE2nBbS5GSZf4gTXSzHRbljz3wMp8WZa3Yh3cXk9zDsDcUBsD?=
- =?us-ascii?Q?dYZE5JZXc+2glL2dtQpOQD6qe1EFtkGQzHWAbP3QOGgJpNHUTjimy8Qtt6Pj?=
- =?us-ascii?Q?s1uiZQ5iIiuzRbp47ONl+Zf2GZaZLxUj8k/iLYFx?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 14c4acf1-d7c1-4b2e-f4a4-08dd8e29f2b7
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2025 12:14:57.5062
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bbbzH8ogfr+vQq6sJiVxuuSCXXIhWu4ZCUemyZWD65EI0Nh87Mx0AOyRCKURz+cH
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPF4D923B935
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64: dts: ti: k3-j722s-evm: Add overlay for TEVI
+ OV5640
+To: "Kumar, Udit" <u-kumar1@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>
+CC: <vaishnav.a@ti.com>, <r-donadkar@ti.com>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <jai.luthra@linux.dev>,
+        <linux-kernel@vger.kernel.org>
+References: <20250505115700.500979-1-y-abhilashchandra@ti.com>
+ <20250505115700.500979-3-y-abhilashchandra@ti.com>
+ <a6329e9d-409e-4f62-b26d-c4d0e49d772c@ti.com>
+Content-Language: en-US
+From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+In-Reply-To: <a6329e9d-409e-4f62-b26d-c4d0e49d772c@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_051504_998848_A2B73EB3 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20250508_051627_903672_FF50D9A0 
+X-CRM114-Status: GOOD (  28.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,27 +91,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 07, 2025 at 10:56:17PM -0700, Nicolin Chen wrote:
+Hi Udit,
+Thanks for the review.
 
-> What I am not sure is if the HW allows setting the ComWaitIntEn bit
-> after CmdBufEn=1, which seems to be unlikely but the spec does not
-> highlight. If so, this would be an modification to the HW QUEUE, in
-> which case we could either do an relocation of the HW QUEUE (where
-> we can set the flag in the 2nd allocation) or add an new option via
-> IOMMUFD_CMD_OPTION (as Kevin suggested), and I think it should be
-> a per-HW_QUEUE option since it doesn't affect other type of queues
-> like Event/PRR Log Buffers.
+On 07/05/25 13:50, Kumar, Udit wrote:
+> Hello Vaishnav/Abhilash
+> 
+> Thanks for patch
+> 
+> On 5/5/2025 5:27 PM, Yemike Abhilash Chandra wrote:
+>> From: Vaishnav Achath <vaishnav.a@ti.com>
+>>
+>> TechNexion TEVI OV5640 camera is a 5MP camera that can be used with
+>> J722S EVM through the 22-pin CSI-RX connector. Add a reference overlay
+>> for quad TEVI OV5640 modules on J722S EVM.
+>>
+>> Signed-off-by: Vaishnav Achath <vaishnav.a@ti.com>
+>> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+>> ---
+>>   arch/arm64/boot/dts/ti/Makefile               |   4 +
+>>   .../k3-j722s-evm-csi2-quad-tevi-ov5640.dtso   | 358 ++++++++++++++++++
+>>   2 files changed, 362 insertions(+)
+>>   create mode 100644 
+>> arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/Makefile 
+>> b/arch/arm64/boot/dts/ti/Makefile
+>> index 829a3b028466..76b750e4b8a8 100644
+>> --- a/arch/arm64/boot/dts/ti/Makefile
+>> +++ b/arch/arm64/boot/dts/ti/Makefile
+>> @@ -123,6 +123,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-pcie1-ep.dtbo
+>>   dtb-$(CONFIG_ARCH_K3) += k3-am67a-beagley-ai.dtb
+>>   dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm.dtb
+>>   dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
+>> [..]
+>> diff --git 
+>> a/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso 
+>> b/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
+>> new file mode 100644
+>> index 000000000000..537224ea60e3
+>> --- /dev/null
+>> +++ b/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
+>> @@ -0,0 +1,358 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+>> +/*
+>> + * 4 x TEVI OV5640 MIPI Camera module on RPI camera connector.
+>> + *
+>> + * Copyright (C) 2024 Texas Instruments Incorporated - 
+>> https://www.ti.com/
+>> + */
+>> +
+>> +/dts-v1/;
+>> +/plugin/;
+>> +
+>> +#include <dt-bindings/gpio/gpio.h>
+>> +#include "k3-pinctrl.h"
+>> +
+>> +&{/} {
+>> +    clk_ov5640_fixed: clock-24000000 {
+>> +        compatible = "fixed-clock";
+>> +        #clock-cells = <0>;
+>> +        clock-frequency = <24000000>;
+>> +    };
+>> +
+> 
+> Please check once , this is clock is 25M or 24M .
+> 
+> As I see CDC6CE025000ADLXT/U28 is marked as 25M OSC
+> 
 
-The main question is if the control is global to the entire VIOMMU and
-all its HW QUEUE's or local to a single HW QUEUE.
+This is the crystal clock with in the sensor.
 
-If it is global then some "modify viommu" operation should be used to
-change it.
+>> +    reg_2p8v: regulator-2p8v {
+>> +        compatible = "regulator-fixed";
+>> +        regulator-name = "2P8V";
+>> +        regulator-min-microvolt = <2800000>;
+>> +        regulator-max-microvolt = <2800000>;
+>> +        vin-supply = <&vdd_sd_dv>;
+>> +        regulator-always-on;
+>> +    };
+>> +
+>> +    reg_1p8v: regulator-1p8v {
+>> +        compatible = "regulator-fixed";
+>> +        regulator-name = "1P8V";
+>> +        regulator-min-microvolt = <1800000>;
+>> +        regulator-max-microvolt = <1800000>;
+>> +        vin-supply = <&vdd_sd_dv>;
+>> +        regulator-always-on;
+>> +    };
+>> +
+>> +    reg_3p3v: regulator-3p3v {
+>> +        compatible = "regulator-fixed";
+>> +        regulator-name = "3P3V";
+>> +        regulator-min-microvolt = <3300000>;
+>> +        regulator-max-microvolt = <3300000>;
+>> +        vin-supply = <&vdd_sd_dv>;
+>> +        regulator-always-on;
+>> +    };
+> 
+> Sorry but on connector QSH-020-01-L-D-DP-A-K/J27, I see only 3v3 available.
+> 
+> May be I am missing something here but how you are getting 1v8 and 2v8 
+> supply
+> 
 
-If it is local then some "modify hw queu" operation.
+Yes, 3.3V is provided as the main input supply to the sensor.
+However, required 1.8V and 2.8V rails from the 3.3V input.
+Please refer to [1] for detailed information.
 
-IOMMUFD_CMD_OPTION could be used with an object_id == VIOMMU as a kind
-of modify..
+> 
+>> +};
+>> +
+>> +
+>> +&main_pmx0 {
+>> +    cam0_reset_pins_default: cam0-default-reset-pins {
+>> +        pinctrl-single,pins = <
+>> +            J722S_IOPAD(0x03c, PIN_OUTPUT, 7)
+>> +        >;
+>> +    };
+>> +
+> 
+> Please mark GPIO you are using for this in comment
+> 
+> example
+> 
+> J722S_IOPAD(0x1dc, PIN_INPUT, 0) /* (C22) MCAN0_RX */
+> 
 
-Jason
+Sure. Will do that.
+
+> 
+>> +    cam1_reset_pins_default: cam1-default-reset-pins {
+>> +        pinctrl-single,pins = <
+>> +            J722S_IOPAD(0x044, PIN_OUTPUT, 7)
+>> +        >;
+>> +    };
+>> +
+>> +    cam2_reset_pins_default: cam2-default-reset-pins {
+>> +        pinctrl-single,pins = <
+>> +            J722S_IOPAD(0x04c, PIN_OUTPUT, 7)
+>> +        >;
+>> +    };
+>> +
+>> +    cam3_reset_pins_default: cam3-default-reset-pins {
+>> +        pinctrl-single,pins = <
+>> +            J722S_IOPAD(0x054, PIN_OUTPUT, 7)
+>> +        >;
+>> +    };
+>> +};
+>> +
+>> +&exp1 {
+>> +    p06-hog{
+>> +        /* P06 - CSI01_MUX_SEL_2 */
+>> +        gpio-hog;
+>> +        gpios = <6 GPIO_ACTIVE_HIGH>;
+>> +        output-high;
+>> +        line-name = "CSI01_MUX_SEL_2";
+> 
+> As per table on page 29
+> 
+> CSI01_MUX_SEL_2 as low means, INPUT<-- A Port [CSI2 Connector]
+> 
+> Please check, if you want to drive this line high or low
+
+These are RPI connectors, It should be high.
+
+> 
+>> +    };
+>> +
+>> +    p07-hog{
+>> +        /* P01 - CSI23_MUX_SEL_2 */
+>> +        gpio-hog;
+>> +        gpios = <7 GPIO_ACTIVE_HIGH>;
+>> +        output-high;
+>> +        line-name = "CSI23_MUX_SEL_2";
+>> +    };
+> 
+> Same as for CSI01_MUX_SEL_2, table on page-30
+> 
+> 
+>> +};
+>> +
+>> +&main_gpio0 {
+>> +    p15-hog {
+>> +        /* P15 - CSI2_CAMERA_GPIO1 */
+>> +        gpio-hog;
+>> +        gpios = <15 GPIO_ACTIVE_HIGH>;
+>> +        output-high;
+>> +        line-name = "CSI2_CAMERA_GPIO1";
+>> +    };
+>> +
+>> +    p17-hog {
+>> +        /* P17 - CSI2_CAMERA_GPIO2 */
+>> +        gpio-hog;
+>> +        gpios = <17 GPIO_ACTIVE_HIGH>;
+>> +        output-high;
+>> +        line-name = "CSI2_CAMERA_GPIO2";
+>> +    };
+>> +
+>> +    p19-hog {
+>> +        /* P19 - CSI2_CAMERA_GPIO3 */
+>> +        gpio-hog;
+>> +        gpios = <19 GPIO_ACTIVE_HIGH>;
+>> +        output-high;
+>> +        line-name = "CSI2_CAMERA_GPIO3";
+>> +    };
+>> +
+>> +    p21-hog {
+>> +        /* P21 - CSI2_CAMERA_GPIO4 */
+>> +        gpio-hog;
+>> +        gpios = <21 GPIO_ACTIVE_HIGH>;
+>> +        output-high;
+>> +        line-name = "CSI2_CAMERA_GPIO4";
+>> +    };
+> 
+> Please check once if P21 and rest above are pin number of SOC ?
+> 
+
+Yes
+
+> 
+>> +};
+>> +
+>> +&pca9543_0 {
+>> +    #address-cells = <1>;
+>> +    #size-cells = <0>;
+>> +
+>> +    i2c@0 {
+>> +        #address-cells = <1>;
+>> +        #size-cells = <0>;
+>> +        reg = <0>;
+>> +
+>> +        ov5640_0: camera@3c {
+>> +            compatible = "ovti,ov5640";
+>> +            reg = <0x3c>;
+>> +            clocks = <&clk_ov5640_fixed>;
+>> +            clock-names = "xclk";
+>> +
+>> +            AVDD-supply = <&reg_2p8v>;
+>> +            DOVDD-supply = <&reg_1p8v>;
+>> +            DVDD-supply = <&reg_3p3v>;
+>> +
+>> +            pinctrl-names = "default";
+>> +            pinctrl-0 = <&cam0_reset_pins_default>;
+> 
+> do you think, you should have reset-gpios as property for this ov5640 
+> and other nodes too ?
+> 
+
+Thanks for pointing this out. I will add that in the next revision.
+
+Thanks and Regards
+Yemike Abhilash Chandra
+
+
+[1]:https://www.technexion.com/wp-content/uploads/2023/09/product-brief_tevi-ov5640.pdf
+
+> 
+>> +
+>> [..]
 
