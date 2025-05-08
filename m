@@ -4,74 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CA95C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:31:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE9FC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:33:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q1j4CdOQSMAZG/JE09mATkCWC/+UCfMM4ry4j1wAOeo=; b=j56l454B0SItlQP9yZSy/i6F4l
-	mPSZyRSkXWmnlKMXObpwQPQ5mF2t8ofZb6z2RyI5CrF49iTxil0J4qJ0kenKOHlj8mXKGE+fGifnf
-	24nYV8Pmt+4eNK+xCQO/9kTnNeCksAm3j9IoLdKXBNIqkRyI4cQvo/8ydXhYeu8fZye8C3IUIPiTw
-	o6AnlUZ+cpGZZ/3HwIpIfUSHT3uTxHf/vNrHzRGvXhcQ5yAPu5dy2Ojg+tX1S2yyn+qD8mzFwdhOy
-	Y1fEs2ivCegX4WR9kzF0ZW7oIZSLLz/2IMFRzQEQX8gvFidYAxIZp8+Z8YazZqW1nt7fhyp6hsp+N
-	wULz7bPQ==;
+	bh=It1IWmu3kE6FdW0y8MSn+EEjxqqZPUzixq/wXQRoCuE=; b=GkxwwFCSJnuMZhT8JVS48ie7op
+	i3utZCKf7zG1fOFNZkqCmIvngif3qTEom+COu6WhcUnouvpKKb7igKpi1XlHaAoaDzu8lCaTaNVES
+	YvNatk4deL2KvXnEfPF7QbcdggAiQl4gCXMOAOLfu5IksbLgMuHkm+12uji6WrqB4YyDQSK4aIw9r
+	tJhgzMxlX+LdcHxhL7ZTvoEM+bbmCO9LtiFsHtrWKtA5jsjEXGisVw3IR0KsvLzi1v/rVEs2K4OmP
+	mRvxrNWMZjnzNW2koCtHzLD1Y8t4OxxTd8/mSMY87OiAwEWYl9kDRjZZDueuchhI3H1GmE9zPWiHP
+	38LyU76w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCviV-000000000FU-2Dbs;
-	Thu, 08 May 2025 07:30:51 +0000
-Received: from mail-m1973196.qiye.163.com ([220.197.31.96])
+	id 1uCvkS-000000000XY-0QvI;
+	Thu, 08 May 2025 07:32:52 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvRY-0000000HYsq-43bH;
-	Thu, 08 May 2025 07:13:22 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 145a410e0;
-	Thu, 8 May 2025 15:13:01 +0800 (GMT+08:00)
-Message-ID: <c4296af2-e7f1-4f5c-9f33-a6b5b2ddb244@rock-chips.com>
-Date: Thu, 8 May 2025 15:13:01 +0800
+	id 1uCvUf-0000000HZEZ-0zBO;
+	Thu, 08 May 2025 07:16:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6D793A4D9F5;
+	Thu,  8 May 2025 07:16:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2EF9C4CEEB;
+	Thu,  8 May 2025 07:16:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746688592;
+	bh=qetcnJ/bVlm8Wp3j6cJtVSuUtHSiJ8n35hJdXby+9Cw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=C2iKUczBk55G28etcgq9KHU9b7FV5UUeEnM1OUAwpbZSaB6fxjGx25S0imvc69ugs
+	 P/j+/1zMpDKkoiuGDwm1x25T7QwP/T2almaEsRxsGkbwHJz8gGkk61eNjjEyCl7+qw
+	 AiZw0qAKOMV2Gf8u4atylY/STShTt8X3oyUNR62Z/DW9ylA8LJXnvqLC+FLTukiHoH
+	 cGh91qDKTtwgxiuuhDHTKM4w26TUsjWdyL4pz+rxlLgjB7MS2RRvNr+9EtXGXE7BaB
+	 I3of5s8rTOnR0v6WeBGegV+72JmQyuRtnWt9eZ1Cl71I1/DMCco6fvKkx8MDdNtv8T
+	 rH78ZYfXE0Esw==
+Message-ID: <a3ef7af4-3c6a-4bc6-912b-5819393dcd6a@kernel.org>
+Date: Thu, 8 May 2025 09:16:25 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/7] soc: rockchip: add mfpwm driver
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
- <ukleinek@kernel.org>, William Breathitt Gray <wbg@kernel.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Kever Yang <kever.yang@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
- linux-iio@vger.kernel.org, kernel@collabora.com,
- Jonas Karlman <jonas@kwiboo.se>,
- Detlev Casanova <detlev.casanova@collabora.com>
-References: <20250408-rk3576-pwm-v1-0-a49286c2ca8e@collabora.com>
- <20250408-rk3576-pwm-v1-4-a49286c2ca8e@collabora.com>
- <5559308.Sb9uPGUboI@diego> <3362145.mvXUDI8C0e@workhorse>
+Subject: Re: [PATCH 2/2] dt-bindings: display: rockchip: Convert
+ cdn-dp-rockchip.txt to yaml
+To: Chaoyi Chen <kernel@airkyi.com>, Sandy Huang <hjc@rock-chips.com>,
+ Heiko Stuebner <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+ Dragan Simic <dsimic@manjaro.org>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250508064304.670-1-kernel@airkyi.com>
+ <20250508064304.670-3-kernel@airkyi.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <3362145.mvXUDI8C0e@workhorse>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGhlJQ1ZDGkgZT0tMS0hDHxpWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a96aebd927d03a3kunm145a410e0
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MSo6Ljo5CDJDSg8*N0kzTSk9
-	OFEwCxRVSlVKTE9NTUNDSENISENJVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFKSEhDTzcG
-DKIM-Signature: a=rsa-sha256;
-	b=YMzoFk1Qp1pR1/JUCHh5psK6u8ofTJw+CyC3fAnpP1pldZKl7dePcu9En22Oddc2WFqgguFF3qHj9O32KbNKBUP6apGGDMECgBy1ZYSuhtwDhfAZ8FhY+EYfVU9jKdm5r0cvYe82BjbqHXFdn/4y4WzXzJVTTXzIPvQ4dhX0X58=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=q1j4CdOQSMAZG/JE09mATkCWC/+UCfMM4ry4j1wAOeo=;
-	h=date:mime-version:subject:message-id:from;
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250508064304.670-3-kernel@airkyi.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_001321_533574_04923E52 
-X-CRM114-Status: GOOD (  55.85  )
+X-CRM114-CacheID: sfid-20250508_001633_423478_362B2DEB 
+X-CRM114-Status: GOOD (  19.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,333 +125,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas:
+On 08/05/2025 08:43, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> 
+> Convert cdn-dp-rockchip.txt to yaml.
+> 
+> Tested with:
+> 
+> 1. make ARCH=arm64 dt_binding_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml
+> 
+> 2. make ARCH=arm64 dtbs_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml
 
-On 2025/4/9 21:01, Nicolas Frattaroli wrote:
-> On Tuesday, 8 April 2025 22:03:01 Central European Summer Time Heiko Stübner wrote:
->> Hi,
->>
->> not a full review, just me making a first pass.
->>
->>> +unsigned long mfpwm_clk_get_rate(struct rockchip_mfpwm *mfpwm)
->>> +{
->>> +	if (!mfpwm || !mfpwm->chosen_clk)
->>> +		return 0;
->>> +
->>> +	return clk_get_rate(mfpwm->chosen_clk);
->>> +}
->>> +EXPORT_SYMBOL_NS_GPL(mfpwm_clk_get_rate, "ROCKCHIP_MFPWM");
->>
->> aren't you just re-implemeting a clk-mux with the whole chosen-clk
->> mechanism? See drivers/clk/clk-mux.c, so in theory you should be
->> able to just do a clk_register_mux(...) similar to for example
->> sound/soc/samsung/i2s.c .
-> 
-> Probably yes. I didn't know clk-mux was a thing. If I do decide to keep the
-> clock switching at all (more on that below), then I'll rewrite it around
-> clk-mux.
-> 
->>> +
->>> +__attribute__((nonnull))
->>> +static int mfpwm_do_acquire(struct rockchip_mfpwm_func *pwmf)
->>> +{
->>> +	struct rockchip_mfpwm *mfpwm = pwmf->parent;
->>> +	unsigned int cnt;
->>> +
->>> +	if (mfpwm->active_func && pwmf->id != mfpwm->active_func->id)
->>> +		return -EBUSY;
->>> +
->>> +	if (!mfpwm->active_func)
->>> +		mfpwm->active_func = pwmf;
->>> +
->>> +	if (!check_add_overflow(mfpwm->acquire_cnt, 1, &cnt)) {
->>> +		mfpwm->acquire_cnt = cnt;
->>> +	} else {
->>> +		WARN(1, "prevented acquire counter overflow in %s\n", __func__);
->>
->> dev_warn, as you have the mfpwm pointing to a pdev?
-> 
-> Will do.
-> 
->>> +		return -EOVERFLOW;
->>> +	}
->>> +
->>> +	dev_dbg(&mfpwm->pdev->dev, "%d acquired mfpwm, acquires now at %u\n",
->>> +		pwmf->id, mfpwm->acquire_cnt);
->>> +
->>> +	return clk_enable(mfpwm->pclk);
->>> +}
->>
->>> +/**
->>> + * mfpwm_get_clk_src - read the currently selected clock source
->>> + * @mfpwm: pointer to the driver's private &struct rockchip_mfpwm instance
->>> + *
->>> + * Read the device register to extract the currently selected clock source,
->>> + * and return it.
->>> + *
->>> + * Returns:
->>> + * * the numeric clock source ID on success, 0 <= id <= 2
->>> + * * negative errno on error
->>> + */
->>> +static int mfpwm_get_clk_src(struct rockchip_mfpwm *mfpwm)
->>> +{
->>> +	u32 val;
->>> +
->>> +	clk_enable(mfpwm->pclk);
->>> +	val = mfpwm_reg_read(mfpwm->base, PWMV4_REG_CLK_CTRL);
->>> +	clk_disable(mfpwm->pclk);
->>> +
->>> +	return (val & PWMV4_CLK_SRC_MASK) >> PWMV4_CLK_SRC_SHIFT;
->>> +}
->>> +
->>> +static int mfpwm_choose_clk(struct rockchip_mfpwm *mfpwm)
->>> +{
->>> +	int ret;
->>> +
->>> +	ret = mfpwm_get_clk_src(mfpwm);
->>> +	if (ret < 0) {
->>> +		dev_err(&mfpwm->pdev->dev, "couldn't get current clock source: %pe\n",
->>> +			ERR_PTR(ret));
->>> +		return ret;
->>> +	}
->>> +	if (ret == PWMV4_CLK_SRC_CRYSTAL) {
->>> +		if (mfpwm->osc_clk) {
->>> +			mfpwm->chosen_clk = mfpwm->osc_clk;
->>> +		} else {
->>> +			dev_warn(&mfpwm->pdev->dev, "initial state wanted 'osc' as clock source, but it's unavailable. Defaulting to 'pwm'.\n");
->>> +			mfpwm->chosen_clk = mfpwm->pwm_clk;
->>> +		}
->>> +	} else {
->>> +		mfpwm->chosen_clk = mfpwm->pwm_clk;
->>> +	}
->>> +
->>> +	return clk_rate_exclusive_get(mfpwm->chosen_clk);
->>> +}
->>>
->>> +/**
->>> + * mfpwm_switch_clk_src - switch between PWM clock sources
->>> + * @mfpwm: pointer to &struct rockchip_mfpwm driver data
->>> + * @clk_src: one of either %PWMV4_CLK_SRC_CRYSTAL or %PWMV4_CLK_SRC_PLL
->>> + *
->>> + * Switch between clock sources, ``_exclusive_put``ing the old rate,
->>> + * ``clk_rate_exclusive_get``ing the new one, writing the registers and
->>> + * swapping out the &struct_rockchip_mfpwm->chosen_clk.
->>> + *
->>> + * Returns:
->>> + * * %0        - Success
->>> + * * %-EINVAL  - A wrong @clk_src was given or it is unavailable
->>> + * * %-EBUSY   - Device is currently in use, try again later
->>> + */
->>> +__attribute__((nonnull))
->>> +static int mfpwm_switch_clk_src(struct rockchip_mfpwm *mfpwm,
->>> +					  unsigned int clk_src)
->>> +{
->>> +	struct clk *prev;
->>> +	int ret = 0;
->>> +
->>> +	scoped_cond_guard(spinlock_try, return -EBUSY, &mfpwm->state_lock) {
->>> +		/* Don't fiddle with any of this stuff if the PWM is on */
->>> +		if (mfpwm->active_func)
->>> +			return -EBUSY;
->>> +
->>> +		prev = mfpwm->chosen_clk;
->>> +		ret = mfpwm_get_clk_src(mfpwm);
->>> +		if (ret < 0)
->>> +			return ret;
->>> +		if (ret == clk_src)
->>> +			return 0;
->>> +
->>> +		switch (clk_src) {
->>> +		case PWMV4_CLK_SRC_PLL:
->>> +			mfpwm->chosen_clk = mfpwm->pwm_clk;
->>> +			break;
->>> +		case PWMV4_CLK_SRC_CRYSTAL:
->>> +			if (!mfpwm->osc_clk)
->>> +				return -EINVAL;
->>> +			mfpwm->chosen_clk = mfpwm->osc_clk;
->>> +			break;
->>> +		default:
->>> +			return -EINVAL;
->>> +		}
->>> +
->>> +		clk_enable(mfpwm->pclk);
->>> +
->>> +		mfpwm_reg_write(mfpwm->base, PWMV4_REG_CLK_CTRL,
->>> +				PWMV4_CLK_SRC(clk_src));
->>> +		clk_rate_exclusive_get(mfpwm->chosen_clk);
->>> +		if (prev)
->>> +			clk_rate_exclusive_put(prev);
->>> +
->>> +		clk_disable(mfpwm->pclk);
->>> +	}
->>> +
->>> +	return ret;
->>> +}
->>
+Drop. You do not have to embed in commit msg standard makefile targets.
+We all know how to use it. You do not do it for C files, do you?
 
-First of all, I'm truly delighted to see your nice PWM v4 driver codes. 
-I was once intensely struggling with porting the v4 PWM implementation 
-into the Linux 6.1 ​​PWM framework. ;-)
+> 
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> ---
 
->> ok, the relevant part might be the
->> 	/* Don't fiddle with any of this stuff if the PWM is on */
->> thing, which will require special set_rate operation, but in general I
->> think, if it ticks like a clock, it probably should be a real clock ;-) .
-> 
-> I agree; we can guarantee it doesn't get changed after all by just marking it
-> as exclusive instead of marking either pwm_clk or osc_clk as exclusive.
-> 
->>> +static ssize_t chosen_clock_show(struct device *dev,
->>> +				 struct device_attribute *attr, char *buf)
->>> +{
->>> +	struct rockchip_mfpwm *mfpwm = dev_get_drvdata(dev);
->>> +	unsigned long clk_src = 0;
->>> +
->>> +	/*
->>> +	 * Why the weird indirection here? I have the suspicion that if we
->>> +	 * emitted to sysfs with the lock still held, then a nefarious program
->>> +	 * could hog the lock by somehow forcing a full buffer condition and
->>> +	 * then refusing to read from it. Don't know whether that's feasible
->>> +	 * to achieve in reality, but I don't want to find out the hard way
->>> +	 * either.
->>> +	 */
->>> +	scoped_guard(spinlock, &mfpwm->state_lock) {
->>> +		if (mfpwm->chosen_clk == mfpwm->pwm_clk)
->>> +			clk_src = PWMV4_CLK_SRC_PLL;
->>> +		else if (mfpwm->osc_clk && mfpwm->chosen_clk == mfpwm->osc_clk)
->>> +			clk_src = PWMV4_CLK_SRC_CRYSTAL;
->>> +		else
->>> +			return -ENODEV;
->>> +	}
->>> +
->>> +	if (clk_src == PWMV4_CLK_SRC_PLL)
->>> +		return sysfs_emit(buf, "pll\n");
->>> +	else if (clk_src == PWMV4_CLK_SRC_CRYSTAL)
->>> +		return sysfs_emit(buf, "crystal\n");
->>> +
->>> +	return -ENODEV;
->>> +}
->>
->> which brings me to my main point of contention. Why does userspace
->> need to select a clock source for the driver via sysfs.
-> 
-> It doesn't need to. Basically, this is a weird hardware feature. Downstream did
-> not bother implementing it at all, and I found out through the TRM's register
-> listing and thought "that's weird, I wonder if it even works", and lo and behold
-> it does. At that point, like two rewrites ago, I was committed to ensuring that
-> the driver can handle this edge case of the PWM clock being changed. As I lacked
-> the imagination as to why someone would change it and the knowledge as to which
-> kernel interfaces exist to change it, sysfs offered itself as a natural dumping
-> ground for switches that probably shouldn't exist.
-> 
->> Neither the commit message nor the code does seem to explain that,
->> or I'm just blind - which is also a real possibility.
->>
->> In general I really think, userspace should not need to care about if
->> a PLL or directly the oscillator is used a clock input.
->> I assume which is needed results from some runtime factor, so the
->> driver should be able to select the correct one?
->>
->> A mux-clock could ust use clk_mux_determine_rate_flags() to select
->> the best parent depending on a requested rate instead.
-> 
-> Yeah, the only use-case I can come up with is that we really want to use an
-> either 100 MHz or 50 MHz clock on one chip, but have a channel hit a precise
-> timing with the 24 MHz clock on the same chip. If the fixed crystal oscillator
-> were 25 MHz instead of 24 MHz, this would be entirely pointless, as they're all
-> multiples of it.
-> 
+...
 
-The 24MHz OSC clock source is mainly for the use of the IR input, which 
-is also called the power key capture mode. When the system enters 
-suspend state, it relies on the OSC to ensure the PWM remains 
-operational and can serve as a system wake-up source.
+> -	};
+> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml
+> new file mode 100644
+> index 000000000000..ed68b48a6743
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml
 
-In addition, the PWM v4 also supports the 400KHz RC clock source for the 
-wave generator mode, and it can be used for the deeper sleep state.
+Filename matching compatible.
 
-> Thanks for the hint about clk_mux_determine_rate_flags, it doesn't appear to be
-> documented (classic) but it looks to do at least half of what a proper solution
-> would need to do. The other half is figuring out what ideal target rate we
-> actually want to optimise for for a given e.g. waveform consisting of period
-> and duty cycle in nanoseconds. There's some logic to think about regarding where
-> rounding errors are acceptable, e.g. a long period with a low duty cycle is
-> probably better off using the 100-50-24 mux with 100 MHz as the rate. I'm not
-> sure if 50 MHz is ever a sensible option since it is a dividend of 100 MHz, and
-> I'm not about to reason about imagined power draw of the PWM hardware without
-> laboratory grade test equipment.
-> 
-> For what it's worth, this is a niche enough hardware feature that if it causes
-> too much friction getting it supported in a driver, I'll just drop it entirely
-> instead. I tried to preemptively combat technical debt by supporting this in
-> some way, but instead managed to introduce scope creep.
-> 
-> One option is to always just choose the PLL muxed clock and then always set it
-> to 100 MHz, because it's probably the best option unless there are specific
-> PWM-based applications that make heavy use of 24-derived timings (maybe the IR
-> stuff?)
-> 
->>
->>> +static ssize_t chosen_clock_store(struct device *dev,
->>> +				  struct device_attribute *attr,
->>> +				  const char *buf, size_t count)
->>> +{
->>> +	struct rockchip_mfpwm *mfpwm = dev_get_drvdata(dev);
->>> +	int ret;
->>> +
->>> +	if (sysfs_streq(buf, "pll")) {
->>> +		ret = mfpwm_switch_clk_src(mfpwm, PWMV4_CLK_SRC_PLL);
->>> +		if (ret)
->>> +			return ret;
->>> +		return count;
->>> +	} else if (sysfs_streq(buf, "crystal")) {
->>> +		ret = mfpwm_switch_clk_src(mfpwm, PWMV4_CLK_SRC_CRYSTAL);
->>> +		if (ret)
->>> +			return ret;
->>> +		return count;
->>> +	} else {
->>> +		return -EINVAL;
->>> +	}
->>> +}
->>> +
->>> +static DEVICE_ATTR_RW(chosen_clock);
->>> +
->>> +static ssize_t available_clocks_show(struct device *dev,
->>> +				     struct device_attribute *attr, char *buf)
->>> +{
->>> +	struct rockchip_mfpwm *mfpwm = dev_get_drvdata(dev);
->>> +	ssize_t size = 0;
->>> +
->>> +	size += sysfs_emit_at(buf, size, "pll\n");
->>> +	if (mfpwm->osc_clk)
->>> +		size += sysfs_emit_at(buf, size, "crystal\n");
->>> +
->>> +	return size;
->>> +}
->>> +
->>> +static DEVICE_ATTR_RO(available_clocks);
->>> +
->>> +static struct attribute *mfpwm_attrs[] = {
->>> +	&dev_attr_available_clocks.attr,
->>> +	&dev_attr_chosen_clock.attr,
->>> +	NULL,
->>> +};
->>
->> Not understanding the need for the sysfs stuff was my main point this
->> evening :-)
->>
->> Heiko
->>
-> 
-> Thank you for your quick preliminary review! This already gives me some good
-> points to look into for a v2.
-> 
+> @@ -0,0 +1,148 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/rockchip/rockchip,cdn-dp.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Rockchip RK3399 specific extensions to the CDN Display Port
+> +
+> +maintainers:
+> +  - Andy Yan <andy.yan@rock-chip.com>
+> +  - Heiko Stuebner <heiko@sntech.de>
+> +  - Sandy Huang <hjc@rock-chips.com>
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: rockchip,rk3399-cdn-dp
+> +
+> +  reg:
+> +    description:
+> +      CDN DP core register
 
-I'm eagerly looking forward to your v2 patch submission, and I will 
-thoroughly validate the proper functioning of the PWM 
-backlight/regulator based on your code changes.
+Missing constraints. Drop description.
+
+Just look at other bindings.
+
+> +
+> +  assigned-clock-rates: true
+> +  assigned-clocks: true
+
+Drop these two
+
+> +
+> +  clocks:
+> +    minItems: 4
+
+No, look at other bindings.
+
+> +
+> +  clock-names:
+> +    items:
+> +      - const: core-clk
+> +      - const: pclk
+> +      - const: spdif
+> +      - const: grf
+> +
+> +  extcon:
+> +    description:
+> +      Phandle to the extcon device providing the cable state for the DP phy.
+
+Missing type, unless you could not add a type because of conflicts? This
+should be really fixed...
+
+
+> +
+> +  interrupts:
+> +    maxItems: 1
+
+and here is maxItems. Why in other places you put minItems?
+
+> +
+> +  phys:
+> +    minItems: 1
+> +    maxItems: 2
+
+Why is this flexible? It wasn't in original binding and you must
+document all the changes done to the binding in commit msg.
+
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: Input of the CDN DP
+> +        properties:
+> +          endpoint@0:
+> +            description: Connection to the VOPB
+> +          endpoint@1:
+> +            description: Connection to the VOPL
+> +      port@1:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: Output of the CDN DP
+> +
+> +    required:
+> +      - port@0
+> +      - port@1
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  resets:
+> +    minItems: 4
+
+No, look at other bindings.
+
+> +
+> +  reset-names:
+> +    items:
+> +      - const: spdif
+> +      - const: dptx
+> +      - const: apb
+> +      - const: core
+> +
+> +  rockchip,grf:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      This SoC makes use of GRF regs.
+
+For what? You did not say anything useful above, so instead explain the
+purpose.
+
+> +
+> +  "#sound-dai-cells":
+> +    const: 1
+
+Missing dai-common ref, unless this is not a DAI?
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - interrupts
+> +  - phys
+> +  - ports
+> +  - resets
+> +  - reset-names
+> +  - rockchip,grf
+> +
+> +unevaluatedProperties: false
+
+Where is any $ref? additionalProperties instead or add proper ref
+
+
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/rk3399-cru.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/power/rk3399-power.h>
+> +    cdn_dp: dp@fec00000 {
+
+Drop unused label
+
+> +        compatible = "rockchip,rk3399-cdn-dp";
+> +        reg = <0x0 0xfec00000 0x0 0x100000>;
+> +        assigned-clocks = <&cru SCLK_DP_CORE>;
+> +        assigned-clock-rates = <100000000>;
+> +        interrupts = <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>;
+> +        clocks = <&cru SCLK_DP_CORE>, <&cru PCLK_DP_CTRL>, <&cru SCLK_SPDIF_REC_DPTX>,
+> +                <&cru PCLK_VIO_GRF>;
+
 
 Best regards,
-Damon
-
+Krzysztof
 
