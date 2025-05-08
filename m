@@ -4,64 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B65E9C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 16:25:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C1DDC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 16:27:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EhxkiRkA/dJEtSpxpXcb2z+sFr0qOmbcUC4g8N7f23M=; b=q5sj2TpY+q1Ig1rNQ22e1GqzEO
-	aM9DzcjhzoTZvX88tWC9DNrjiAUciuhyd+hR9Zx90S8I+QTttk9voSBkpOaRLmBrPYdS+RhT7iOrV
-	86vvzR2USxil08lIlWRkVciZ3tbvUbynC7VNd36PqP8K44rOUaDQcnMnDB7mX7fwaPrJxf5XgGyll
-	JZp6x5yIJ+DajsWzXE/19u2KZkxMr7O2gdhfU+MUJ8zoK7lODILFj4DHrNtzVex/dBekeohCI7gCf
-	qbdOeF4kL3Jhmjr6ee/QNtLvCx4GGxeonhIUjeJQ6sXQg3sRgF95uQDndd1Z0Y5FOYmDEtjcjYL35
-	Ks6D0wHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vEr+jFKCPqsAUYTsbfeRvOrjj81BLXKTZ4z4dAtur5g=; b=BL2KUCqImUefTeAypSRBbJxbqC
+	cDEIF3HJ4GnOnZOuKtjJ13K7L/gd8shVNLXg28pXTaxgPUskMXYXgY/AaZ2pBoAUXjMJ2xhhabSAx
+	tCzjVAvyqHYnJXMC5h9R14zA/A6By9rgTEP/rD0spqN8waXiPpDtGjVO4kPUCPhl9oHkXXRzXgDRp
+	NzklcCyjeOoVQ7vxBLZOenqG9hrb+cdAu3jtRBTAvbxi3lO200cjuLHGWNJ5o5brEiYI6JU6QCKJl
+	hm39Wxj3Eogg4D+o7TZaV3txjigcjxaFWlQrvBRskrnBc9BdwYFw2fx4sieMxBqSeDNDNgL/GNRUk
+	fz6He2qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD43K-00000001HHZ-1xMM;
-	Thu, 08 May 2025 16:24:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD2w0-000000015Rq-2ToR;
-	Thu, 08 May 2025 15:13:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CE2675C6386;
-	Thu,  8 May 2025 15:10:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC6C9C4CEE7;
-	Thu,  8 May 2025 15:13:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746717195;
-	bh=EhxkiRkA/dJEtSpxpXcb2z+sFr0qOmbcUC4g8N7f23M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PPnTA1WzHdkvw3r7TKb8RZmnQHLPevPj98fSJybVESgphcCs5vdEdMYDvV0n2wsMu
-	 cp3Vj2s+yh9/nYGbgXg2Ah4JcqFdzuyz4j/mok+vr99SZBgPzBF6r5y3M7vDr8ZR/d
-	 PIm4ISusC3AMaDZV2mU8IKyBPEK1bb93hQCaiFbwsSA5VtkJNSz3r1dboWivlpI+Mb
-	 Fj8Z/7CcBpM9HCtOAuZWRjPexsrNlTowNm6LGRY8NFGQkrkVRTIjMnX9SWsojlvD1a
-	 S9oqaLdT/oRaanQKDfYdq7kWOyE8Uo0Esx5kEgVF4RW2qxjTFGzvP1+VexU94yvABx
-	 3NTKfGBSdfzgA==
-Date: Thu, 8 May 2025 16:13:11 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: quentin.schulz@cherry.de, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, devicetree@vger.kernel.org,
+	id 1uD45H-00000001Hgl-0CMi;
+	Thu, 08 May 2025 16:26:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uD2zT-000000016Fr-1VYP
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 May 2025 15:16:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B8B871E2F;
+	Thu,  8 May 2025 08:16:37 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5CDFA3F58B;
+	Thu,  8 May 2025 08:16:47 -0700 (PDT)
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org
+Cc: mark.rutland@arm.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH 5/6] dt-bindings: arm: rockchip: add PX30-PP1516 boards
- from Theobroma Systems
-Message-ID: <20250508-wrongness-alone-0fa99ee91b2c@spud>
-References: <20250508150955.1897702-1-heiko@sntech.de>
- <20250508150955.1897702-6-heiko@sntech.de>
+	linux-perf-users@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] perf/arm-cmn: Fix REQ2/SNP2 mixup
+Date: Thu,  8 May 2025 16:16:40 +0100
+Message-Id: <087023e9737ac93d7ec7a841da904758c254cb01.1746717400.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="RygXSkiMF273WoCd"
-Content-Disposition: inline
-In-Reply-To: <20250508150955.1897702-6-heiko@sntech.de>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_081316_668474_5DB535F9 
-X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-CacheID: sfid-20250508_081651_437401_9A47E1F3 
+X-CRM114-Status: UNSURE (   8.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,35 +63,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Somehow the encodings for REQ2/SNP2 channels in XP events
+got mixed up... Unmix them.
 
---RygXSkiMF273WoCd
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+CC: stable@vger.kernel.org
+Fixes: 23760a014417 ("perf/arm-cmn: Add CMN-700 support")
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+ drivers/perf/arm-cmn.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-On Thu, May 08, 2025 at 05:09:54PM +0200, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@cherry.de>
->=20
-> PP1516 are Touchscreen devices built around the PX30 SoC and companion
-> devices to PX30-Cobra, again with multiple display options.
->=20
-> The devices feature an EMMC, OTG port and a 720x1280 display with a
-> touchscreen and camera
->=20
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+index d4fe30ff225b..aa2908313558 100644
+--- a/drivers/perf/arm-cmn.c
++++ b/drivers/perf/arm-cmn.c
+@@ -727,8 +727,8 @@ static umode_t arm_cmn_event_attr_is_visible(struct kobject *kobj,
+ 
+ 		if ((chan == 5 && cmn->rsp_vc_num < 2) ||
+ 		    (chan == 6 && cmn->dat_vc_num < 2) ||
+-		    (chan == 7 && cmn->snp_vc_num < 2) ||
+-		    (chan == 8 && cmn->req_vc_num < 2))
++		    (chan == 7 && cmn->req_vc_num < 2) ||
++		    (chan == 8 && cmn->snp_vc_num < 2))
+ 			return 0;
+ 	}
+ 
+@@ -882,8 +882,8 @@ static umode_t arm_cmn_event_attr_is_visible(struct kobject *kobj,
+ 	_CMN_EVENT_XP(pub_##_name, (_event) | (4 << 5)),	\
+ 	_CMN_EVENT_XP(rsp2_##_name, (_event) | (5 << 5)),	\
+ 	_CMN_EVENT_XP(dat2_##_name, (_event) | (6 << 5)),	\
+-	_CMN_EVENT_XP(snp2_##_name, (_event) | (7 << 5)),	\
+-	_CMN_EVENT_XP(req2_##_name, (_event) | (8 << 5))
++	_CMN_EVENT_XP(req2_##_name, (_event) | (7 << 5)),	\
++	_CMN_EVENT_XP(snp2_##_name, (_event) | (8 << 5))
+ 
+ #define CMN_EVENT_XP_DAT(_name, _event)				\
+ 	_CMN_EVENT_XP_PORT(dat_##_name, (_event) | (3 << 5)),	\
+-- 
+2.39.2.101.g768bb238c484.dirty
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
---RygXSkiMF273WoCd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaBzKBwAKCRB4tDGHoIJi
-0kVgAP9H0qZrqI/23SFHXMeBsME2dzsQGKGhc8nyBgN4GIPRzQD/SvRuXoEC0+lH
-tnSDJUIDm/BnABVZNw7/2NFcdCInfgY=
-=pPjZ
------END PGP SIGNATURE-----
-
---RygXSkiMF273WoCd--
 
