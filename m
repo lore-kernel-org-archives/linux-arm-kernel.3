@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 008EAC3ABC6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 19:21:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CBB1C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 19:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Vtnxfs7PybtSiFKl44ojspsGbhhh2+o3E2kVCLOhq0=; b=EjOap+cEnNC8AVvtSSP2OA4t1u
-	QXPz8r5JK54UCnqWi2aKVbI7uQK8X9U8My3/OypME1TrM+l4uoRZm1kh0oOWXBZgvCOrvy47tuxWH
-	9YyfSwkbubZyHB+ozgNNHBG0znKrNjEfdoHBCCZydzLGH/OSEolCI5YdVPQBGFx1MlY6tSfPrP4wK
-	JJrgugSFPVZJ8t6JmXKeO04eGmPk1S2olqMHKyHhS/kEOFNv+WqeDgNYVmcqtaLOaWUK0rjPZqaEq
-	zq2+iyVbe6Mxpc8LRCDwCtlfYFLycTJQWZdVAu10xHlTT9qoS2ZXKOsSqaogwVM8yjYPGj3RNMzwf
-	YuWu2GMQ==;
+	bh=HlYEfLCvaW+klDExc5A0sYVrMAc4nFxQDGOcqzZj8aI=; b=WzlThkpq+GqOCqm0i2GkdcN/bu
+	Mg+wnYtuem8J7hwl06MbSPJeV84wGGPF1nK99rEN0jP2d6HpPsuzoRMLfv8W4JkhociATdyV6IKWu
+	R1IzC51a2VN0ad9QFbMX12KJf7kyJq7onFBEWLSaG5tl2bfJJIIu5QiAvNgnogHcmgppDcXxhAT//
+	auBVh9Xedj/yeAUOFoSqRRNM8Gan3qqjB54122ugYBbrAj2tdyzd8qw2OvQOZypOha7qiYkDIn9jM
+	agQQhimh41z187HUW0lDXfrbTuAWB2gAFEucdy3gMUhxKzhFu02DpVw/XhKP9fTVi31ynsf79arQp
+	iOg1SOQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD6oS-00000001dnT-3eOX;
-	Thu, 08 May 2025 19:21:44 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1uD6qb-00000001e7h-0YN6;
+	Thu, 08 May 2025 19:23:57 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD6mU-00000001dfY-42W9
+	id 1uD6oc-00000001dpW-3qOg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 19:19:44 +0000
+	Thu, 08 May 2025 19:21:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1746731983; x=1778267983;
+  t=1746732115; x=1778268115;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=18gsJArBrnS1jxWxOipw7F0QCTdS4jhedd/7kH0ZuwA=;
-  b=fD95saWfCs6rh4J3fJiImClHf2kkL5fSsc+D5qj2u5d+2QESRC11q1HP
-   Wzo21oUSA/OAGIT2Y4H1INJNzpYbsovGAMQAuiKzR6Jet6D5uGha6McUf
-   tmFydK/PiNjHFafuAccLbudkze6xhZ6QoEqpOojsi8mJzT0JCGXh2Fys/
-   CLlEws78euu0YKXpCYp+52FGcR42cHYLo65AFgczS4wEtw907QHA7CVfc
-   5ECdtiz6g99YLnIv+7WfBHyRZvPVMn03xloc1BfrtwMc2HzXozHC38e2i
-   PJ+It5cMww6VeEEv1mssc5/RxBcHBMsHVpcOG1JGwjoxs3UzS3VMUGo+C
+  bh=gNfji5PFl+h0m2cHgjtJ540HGm+2fhAcZWawBcQGVj4=;
+  b=jfigPfvj3nB7HmeTMkEmuswCCvb+leEUCgean4zCenBFYrokFYF6XVsU
+   O2IW5Bxy7A0c8g73eBgyTqJdvNwUX4WeA4L/PStfbgwh0bzpyztAMUnL8
+   qV/mnxx2DUyF5aMRZJ6THQgqjwPv0N2v5/ZIyMmmmlLvJyGkfHQs/F4/t
+   7OpkSNRYcbasrvfcI/GLOEXXbQg7NbnhcY9RkcGQaEI4Hb5NYBKnDJJqn
+   XDrSKReP/Q5aR4zvCulh44JlCEuJP2wHhOui6oGb+Z8qqzGsUprhMWl29
+   eFltvbZPL9owysow6MHw3denhzFkt+O5e+6bUPExChxv38rHQKYstzHl3
    w==;
-X-CSE-ConnectionGUID: qMP0U3CUR9irD0NpGRF1Ug==
-X-CSE-MsgGUID: A/OFnf7gS7mqNekGoIjhSA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11427"; a="59880453"
+X-CSE-ConnectionGUID: BUGs0zUSRdelwx3HbvFmhg==
+X-CSE-MsgGUID: 4wxXOLC6Q8iHyPOEu6yA8A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11427"; a="73916366"
 X-IronPort-AV: E=Sophos;i="6.15,273,1739865600"; 
-   d="scan'208";a="59880453"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 May 2025 12:19:42 -0700
-X-CSE-ConnectionGUID: imppGwgiTLmLc9lZi5sElQ==
-X-CSE-MsgGUID: BD9SBI9fRmiZJWTT4Muhvw==
+   d="scan'208";a="73916366"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 May 2025 12:21:54 -0700
+X-CSE-ConnectionGUID: 6K8qyxJ8Sp2SFtC4BMHSMA==
+X-CSE-MsgGUID: LP/93AoySMKUKm+Bf0N0HA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.15,273,1739865600"; 
-   d="scan'208";a="136102471"
+   d="scan'208";a="141348693"
 Received: from smile.fi.intel.com ([10.237.72.55])
-  by orviesa009.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 May 2025 12:19:34 -0700
+  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 May 2025 12:21:46 -0700
 Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
 	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1uD6mH-00000004D79-1VPH;
-	Thu, 08 May 2025 22:19:29 +0300
-Date: Thu, 8 May 2025 22:19:29 +0300
+	id 1uD6oP-00000004D8c-2ujt;
+	Thu, 08 May 2025 22:21:41 +0300
+Date: Thu, 8 May 2025 22:21:41 +0300
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Herve Codina <herve.codina@bootlin.com>
 Cc: Andrew Lunn <andrew@lunn.ch>,
@@ -93,19 +93,18 @@ Cc: Andrew Lunn <andrew@lunn.ch>,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH v2 17/26] of: property: Allow fw_devlink device-tree on
- x86 when PCI device-tree node creation is enabled
-Message-ID: <aB0Dwdr8IJF4F9gR@smile.fi.intel.com>
+Subject: Re: [PATCH v2 23/26] misc: lan966x_pci: Introduce board specific data
+Message-ID: <aB0ERYKdRreDe7Wt@smile.fi.intel.com>
 References: <20250507071315.394857-1-herve.codina@bootlin.com>
- <20250507071315.394857-18-herve.codina@bootlin.com>
+ <20250507071315.394857-24-herve.codina@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250507071315.394857-18-herve.codina@bootlin.com>
+In-Reply-To: <20250507071315.394857-24-herve.codina@bootlin.com>
 Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_121943_015043_2CD559C1 
-X-CRM114-Status: GOOD (  27.28  )
+X-CRM114-CacheID: sfid-20250508_122154_970523_08313F0A 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,65 +119,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 07, 2025 at 09:12:59AM +0200, Herve Codina wrote:
-> PCI drivers can use a device-tree overlay to describe the hardware
-> available on the PCI board. This is the case, for instance, of the
-> LAN966x PCI device driver.
+On Wed, May 07, 2025 at 09:13:05AM +0200, Herve Codina wrote:
+> Only one device-tree overlay (lan966x_evb_lan9662_nic.dtbo) is handled
+> and this overlay is directly referenced in lan966x_pci_load_overlay().
 > 
-> Adding some more nodes in the device-tree overlay adds some more
-> consumer/supplier relationship between devices instantiated from this
-> overlay.
+> This avoid to use the code for an other board.
 > 
-> Those fw_node consumer/supplier relationships are handled by fw_devlink
-> and are created based on the device-tree parsing done by the
-> of_fwnode_add_links() function.
+> In order to be more generic and to allow support for other boards (PCI
+> Vendor/Device IDs), introduce the lan966x_pci_info structure and attach
+> it to PCI Vendor/Device IDs handled by the driver.
 > 
-> Those consumer/supplier links are needed in order to ensure a correct PM
-> runtime management and a correct removal order between devices.
-> 
-> For instance, without those links a supplier can be removed before its
-> consumers is removed leading to all kind of issue if this consumer still
+> This structure contains information related to the PCI board such as
+> information related to the dtbo describing the board we have to load.
 
-are removed
+...
 
-OR
+>  static struct pci_device_id lan966x_pci_ids[] = {
+> -	{ PCI_DEVICE(PCI_VENDOR_ID_EFAR, 0x9660) },
+> +	{ PCI_VDEVICE(EFAR, 0x9660), (kernel_ulong_t)&evb_lan9662_nic_info },
 
-consumer
+PCI_DEVICE_DATA() ?
 
-> want the use the already removed supplier.
-> 
-> The support for the usage of an overlay from a PCI driver has been added
-> on x86 systems in commit 1f340724419ed ("PCI: of: Create device tree PCI
-> host bridge node").
-> 
-> In the past, support for fw_devlink on x86 had been tried but this
-> support has been removed in commit 4a48b66b3f52 ("of: property: Disable
-> fw_devlink DT support for X86"). Indeed, this support was breaking some
-> x86 systems such as OLPC system and the regression was reported in [0].
-> 
-> Instead of disabling this support for all x86 system, a first approach
-> would be to use a finer grain and disable this support only for the
-> possible problematic subset of x86 systems (at least OLPC and CE4100).
-> 
-> This first approach could still leads to issues. Indeed, the list of
-> possible problematic system and the way to identify them using Kconfig
-> symbols is not well defined and so some system can be missed leading to
-> kernel regressions on those missing systems.
-> 
-> Use an other way and enable the support on x86 system only when this
-> support is needed by some specific feature. The usage of a device-tree
-> overlay by a PCI driver and thus the creation of PCI device-tree nodes
-> is a feature that needs it.
-> 
-> Signed-off-by: Herve Codina <herve.codina@bootlin.com>
-> link: https://lore.kernel.org/lkml/3c1f2473-92ad-bfc4-258e-a5a08ad73dd0@web.de/ [0]
-
-Link:
-
-(mind capitalisation)
-
-Otherwise LGTM, FWIW,
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+>  	{ }
+>  };
 
 -- 
 With Best Regards,
