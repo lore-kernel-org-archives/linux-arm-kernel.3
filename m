@@ -4,59 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E76F8C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 17:21:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81C2C3ABCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 17:21:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5kpaww9cJK64aNI1PeG0NP4aJVk6UQn9JQAAAdMhX0o=; b=4NJ38p3sdZumsD5vveLv7SkCeQ
-	aZ++rCQ6o8Qcxb9rWEGM4sQzIb9PIjkF/ofE83YPRqG5fHlHi9qTEvdYbfHkAEfYTZU8TwW3wYFyH
-	vQ/KEdTy1VtrGVog3U2f/epZyU5PB/MflIGp+nJLD8WKWmw4s5a8N1tVq3BNoyn5AuioDRG2O8FSC
-	GBmYFYWOFPOwRJbNunQry3mT6x481TSs+yF7RTrGMQDJLr51fmXxZIFhwJTiX6fUt4uylH8cn5fOf
-	kU5ihX73w2t4CYpDafLkQUxBsQd4gK787Afwur/oofsiauJ8xhRquhspeVC+HvIUhvX5NSW/qG7Ww
-	avXrX+qw==;
+	bh=X+N5DvPuQMU/7dBpX0ejA1VZYd0oXGoPVLUrhqi6CG8=; b=mhDpkEyIHTwqGVKUpSG9whd6yl
+	oRmpU4T9x4pugh3LKtL3YsbHCp//OYTKhsOl0y4m3zOMKK4xgYWtO0P0CrrbwtsdtLizHsPI8oq3W
+	zs5zV5AMPwyWTKmoS0l0BO2NbCfbeuo1M1T0xVjoPWZDmAN7KpRZGLEVlk41oVKUyNFQ6zgosvOLO
+	RQ1Bm4B4uRHIcNqjCwRd+fHZ/mDLSE48MNTD74IR8oFGekJmnTw0SSRxE6fdfP/zOY2iGhSDnuxr6
+	G2n5V45u6tna0eJRyifY1IQiVafkIN7M9aKJZSwTP85ZvXbLvM6roj077mzKrHsajAHWPMyh4AVJp
+	Pf9w+FvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD4vc-00000001Mo5-1YNz;
-	Thu, 08 May 2025 17:21:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD3kX-00000001EXw-37kl
+	id 1uD4vf-00000001MsG-2R6u;
+	Thu, 08 May 2025 17:21:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uD3oN-00000001F97-22wt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 16:05:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C9EE1629DC;
-	Thu,  8 May 2025 16:05:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5404BC4CEE7;
-	Thu,  8 May 2025 16:05:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746720328;
-	bh=J0X9z5gm3wvXLSCUikMhZwi6A4FiSBZCE2jsWgwUZ6g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=p4BRA9kjBZ2Yr8JFJ2Zxt9LQJ/16p0h//TN9xBYFBkFBzKBlU72GmrBqo7PMncvQO
-	 dfqJhQ99KMH86ehTzXEwQl3XP3qaXtied0RcBCOblyGuoRidodB6+JzE9fZZaZXnb4
-	 AuxBUeEicUnB53y/3d9RYoeD2ZcFs/zrN2YCOWg+41bd7KT88JwNrMDryiQizP0Lvv
-	 hA1w30YJA1/8IUkLE3Ei3pMUQOe1HfuePHQIVQyG0he0Z2mtqs59Lo4lNdB1oR2Z/D
-	 86wiNCY6l09iRnln6z4IBVDv+Wne+7HO7vCih0o71kzqLeDrmoXm1+7+g9P1KC2ULj
-	 iFVYxozQLoiHQ==
-Date: Thu, 8 May 2025 09:05:23 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Thorsten Leemhuis <linux@leemhuis.info>,
-	kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] crypto: arm64/sha256 - fix build when
- CONFIG_PREEMPT_VOLUNTARY=y
-Message-ID: <20250508160523.GA1218@sol>
-References: <20250507170901.151548-1-ebiggers@kernel.org>
- <CAMj1kXEPvPKg3i9NkaYN+m4pGfw6P05g-H6_Dmb3AsQyRmU7MA@mail.gmail.com>
+	Thu, 08 May 2025 16:09:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CCC3D1E2F;
+	Thu,  8 May 2025 09:09:14 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E5A973F5A1;
+	Thu,  8 May 2025 09:09:24 -0700 (PDT)
+Date: Thu, 8 May 2025 17:09:20 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>
+Subject: Re: [PATCH 1/3] arm64: dts: fvp: Add CPU idle states for Rev C model
+Message-ID: <20250508160920.GF177796@e132581.arm.com>
+References: <20250508103225.354925-1-sudeep.holla@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAMj1kXEPvPKg3i9NkaYN+m4pGfw6P05g-H6_Dmb3AsQyRmU7MA@mail.gmail.com>
+In-Reply-To: <20250508103225.354925-1-sudeep.holla@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250508_090927_565499_C2423761 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,52 +63,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 08, 2025 at 01:12:28PM +0200, Ard Biesheuvel wrote:
-> On Wed, 7 May 2025 at 19:09, Eric Biggers <ebiggers@kernel.org> wrote:
-> >
-> > From: Eric Biggers <ebiggers@google.com>
-> >
-> > Fix the build of sha256-ce.S when CONFIG_PREEMPT_VOLUNTARY=y by passing
-> > the correct label to the cond_yield macro.  Also adjust the code to
-> > execute only one branch instruction when CONFIG_PREEMPT_VOLUNTARY=n.
-> >
-> > Fixes: 6e36be511d28 ("crypto: arm64/sha256 - implement library instead of shash")
-> > Reported-by: kernel test robot <lkp@intel.com>
-> > Closes: https://lore.kernel.org/oe-kbuild-all/202505071811.yYpLUbav-lkp@intel.com/
-> > Signed-off-by: Eric Biggers <ebiggers@google.com>
-> > ---
-> >  arch/arm64/lib/crypto/sha256-ce.S | 7 ++++---
-> >  1 file changed, 4 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/arch/arm64/lib/crypto/sha256-ce.S b/arch/arm64/lib/crypto/sha256-ce.S
-> > index a8461d6dad634..f3e21c6d87d2e 100644
-> > --- a/arch/arm64/lib/crypto/sha256-ce.S
-> > +++ b/arch/arm64/lib/crypto/sha256-ce.S
-> > @@ -121,14 +121,15 @@ CPU_LE(   rev32           v19.16b, v19.16b        )
-> >
-> >         /* update state */
-> >         add             dgav.4s, dgav.4s, dg0v.4s
-> >         add             dgbv.4s, dgbv.4s, dg1v.4s
-> >
-> > +       /* return early if voluntary preemption is needed */
-> > +       cond_yield      1f, x5, x6
-> > +
-> 
-> This will yield needlessly when the condition hits during the final iteration.
-> 
-> >         /* handled all input blocks? */
-> > -       cbz             x2, 1f
-> > -       cond_yield      3f, x5, x6
-> > -       b               0b
-> > +       cbnz            x2, 0b
+Hi Sudeep,
 
-cond_yield doesn't actually yield, though.  It just checks whether yielding is
-needed.  So the behavior is the same: on the last iteration this function
-returns 0 (i.e. 0 blocks remaining), regardless of whether it gets to the end by
-jumping there due to TSK_TI_PREEMPT being set or by falling through after seeing
-nblocks==0.  We could keep the nblocks==0 check first, but the cond_yield check
-is lightweight and it's probably better to avoid the extra branch instruction on
-every other iteration.
+On Thu, May 08, 2025 at 11:32:23AM +0100, Sudeep Holla wrote:
+> Add CPU idle state definitions to the FVP Rev C device tree to enable
+> support for CPU lower power modes. This allows the system to properly
+> enter low power states during idle. It is disabled by default as it is
+> know to impact performance on the models.
+> 
+> Note that the power_state parameter(arm,psci-suspend-param) doesn't use
+> the Extended StateID format for compatibility reasons on FVP.
+> 
+> Tested on the FVP Rev C model with PSCI support enabled firmware.
 
-- Eric
+I verified this series and confirmed the CPUIdle states work well (I
+manually removed the status = "disabled" in idle state nodes).
+
+Tested-by: Leo Yan <leo.yan@arm.com>
+
+Just a nitpick, we should firstly add the timer node and then add the
+idle state nodes, as CPUIdle is dependent on broadcast timer.
+
+As the idle states are disabled by default, current patch ordering
+would be fine as well.
+
+Thanks,
+Leo
 
