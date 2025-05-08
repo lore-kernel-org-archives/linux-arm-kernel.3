@@ -4,85 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25673C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 13:14:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77048C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 13:18:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mAddO9XD18HNr+EJVhV4ZhI1UqzDS7MDou3XJj7yQ5A=; b=DDGqeAvpVNG9UoNmYbdU8c4D3v
-	jIUwDnt7SvVVzxIaNU1A08zaU4+y7/9bdragxS/a8DY0ZrYJj6NGBpYSDA9uQw/H1gfBAfHm7SMqZ
-	Vx/vbj5ixGhRX66Dn6WjBXUP9/Oa/QKrcxD6Rav63mpY/PF+aNU1SClW3avIWYPdwfwiShEfKsqmY
-	ORD5MqpZa0BqjQrK81ykXiR4g4/KFQiw8jTTKiP6PIN0ccuahAWVQVU32fsXvx4SJcvVQpU8kshig
-	JxfIjEPq6ASuDZMDJhZIuBDuL2jyN6lks3qrSdiZLZ9nvPlDVMyVWvugO0S6fnswGyoSnHdI5M7v2
-	fb+mTqEA==;
+	bh=3r7ePGaJL6m3bPjH+zRgwXHBgtp/XvvGiT+rsycxqik=; b=sP1uykiWjZTGy+V+GTwsIF1c3B
+	2YyeyYN5Zw3hoIQLSksDi2DFGYCXQoOnMpEalD7Pcg6ofBpCk9furs3jV3NimTP36UD+611h86hFW
+	PtyW3DTcwN35tSgnSA6qsSqXELhJb0xU8t+VWlVpGpqPdecw9af6uMyCZ3Z/fwRilVMByFNfdD+hY
+	uWM9WB2+ozr1djVriTRqyYhDQbhrUsrPmmiLzyheCyJBjkgf+q3YGPl5NKyOz5lenmqcWWmDnbbdk
+	0B1bCUwCNr9l5fKrLo/zszSmPneeBRWaZJ+L1C4EAcLpFsAfCTaeJ4YrD/wUwrK9mta1WjWJC7xxq
+	jgCum+xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD156-00000000j3d-18XP;
-	Thu, 08 May 2025 13:14:32 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uD18x-00000000jQ5-0x5H;
+	Thu, 08 May 2025 13:18:31 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD138-00000000ine-3VWt
+	id 1uD15W-00000000j8p-48lS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 13:12:32 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 548DCQ2N1092122
+	Thu, 08 May 2025 13:15:00 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 548DEsGO1869654
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 8 May 2025 08:12:26 -0500
+	Thu, 8 May 2025 08:14:55 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746709946;
-	bh=mAddO9XD18HNr+EJVhV4ZhI1UqzDS7MDou3XJj7yQ5A=;
+	s=ti-com-17Q1; t=1746710095;
+	bh=3r7ePGaJL6m3bPjH+zRgwXHBgtp/XvvGiT+rsycxqik=;
 	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=YE4k+Arrg9CJe3iHRwAVCsct6lXZ5zYVV7YAM/JEfGSQ45FgKo85LjbziCQR/DnQ3
-	 OH6dL0OWi7uzaDCAceO+FiYHVAat0ASCZMqoS4A2K3K2oakmnBoGRRCS4ABfASDrpL
-	 N7GmMKM4slwdDhEn+oK2vfA+9O/ARzPbiYKk6qYk=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 548DCQmi064520
+	b=J+n2yeVBacSVKBiN2jJ5qhJxdmECwPKlctLR8CYgDJ4zkTsBnhuUWON5k7Kx3MbNY
+	 XXZFc0fT73EFIHROthgsa0nL7/7gRHJcY9k85hA6GnPEbo2WNJ0q5IQfrLzd6Z243y
+	 NOFZyZHA9/u84oXcJFkXQA2927jcM2NcLWwnHn9g=
+Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 548DEsB5121853
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 8 May 2025 08:12:26 -0500
-Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+	Thu, 8 May 2025 08:14:54 -0500
+Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 8
- May 2025 08:12:25 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ May 2025 08:14:54 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 8 May 2025 08:12:25 -0500
+ Frontend Transport; Thu, 8 May 2025 08:14:54 -0500
 Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 548DCPtB075372;
-	Thu, 8 May 2025 08:12:25 -0500
-Date: Thu, 8 May 2025 08:12:25 -0500
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 548DEsI9077292;
+	Thu, 8 May 2025 08:14:54 -0500
+Date: Thu, 8 May 2025 08:14:54 -0500
 From: Bryan Brattlof <bb@ti.com>
-To: Nishanth Menon <nm@ti.com>
-CC: Krzysztof Kozlowski <krzk@kernel.org>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 2/3] arm64: dts: ti: k3-am62l: add initial
- infrastructure
-Message-ID: <20250508131225.xsc5exb6skkvmlpy@bryanbrattlof.com>
+Subject: Re: [PATCH v5 1/3] dt-bindings: arm: ti: Add binding for AM62L SoCs
+Message-ID: <20250508131454.z7ihjlcxdlglypew@bryanbrattlof.com>
 X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
 References: <20250507-am62lx-v5-0-4b57ea878e62@ti.com>
- <20250507-am62lx-v5-2-4b57ea878e62@ti.com>
- <20250508-illegal-caracara-from-hyperborea-b77eda@kuoka>
- <bd33bfa6-9d31-457d-a1bf-66151e92900b@kernel.org>
- <20250508123359.k72q4u45wzms7uaw@handpick>
+ <20250507-am62lx-v5-1-4b57ea878e62@ti.com>
+ <20250508-splendid-rapid-sawfish-f1ee18@kuoka>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Disposition: inline
-In-Reply-To: <20250508123359.k72q4u45wzms7uaw@handpick>
+In-Reply-To: <20250508-splendid-rapid-sawfish-f1ee18@kuoka>
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_061230_966018_AA430D4E 
-X-CRM114-Status: GOOD (  21.57  )
+X-CRM114-CacheID: sfid-20250508_061459_120460_7A6812BC 
+X-CRM114-Status: GOOD (  21.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,58 +92,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On May  8, 2025 thus sayeth Nishanth Menon:
-> On 08:56-20250508, Krzysztof Kozlowski wrote:
-> > On 08/05/2025 08:52, Krzysztof Kozlowski wrote:
-> > > On Wed, May 07, 2025 at 10:09:20PM GMT, Bryan Brattlof wrote:
-> > >> +
-> > >> +	uart6: serial@2860000 {
-> > >> +		compatible = "ti,am64-uart", "ti,am654-uart";
-> > >> +		reg = <0x00 0x02860000 0x00 0x100>;
-> > >> +		interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>;
-> > >> +		power-domains = <&scmi_pds 82>;
-> > >> +		clocks = <&scmi_clk 322>;
-> > >> +		clock-names = "fclk";
-> > >> +		status = "disabled";
-> > >> +	};
-> > >> +
-> > >> +	conf: syscon@9000000 {
-> > >> +		compatible = "syscon", "simple-mfd";
-> > > 
-> > > Not much improved here. You cannot have such compatibles alone and the
-> > > bindings test this.
-> > > 
-> > > Are you sure you tested this?
-> > I now tested it and I am 100% sure you did not.
+On May  8, 2025 thus sayeth Krzysztof Kozlowski:
+> On Wed, May 07, 2025 at 10:09:19PM GMT, Bryan Brattlof wrote:
+> > Add the binding for TI's AM62L family of devices.
 > > 
-> > Use tools and computers instead of humans for finding trivial issues.
-> > This is not really acceptable.
+> > Signed-off-by: Bryan Brattlof <bb@ti.com>
+> > ---
+> > Changes in v1:
+> >  - separated out devicetree bindings
+> > ---
 > 
-> Agree.
+> <form letter>
+> This is a friendly reminder during the review process.
 > 
-> Bryan,
-> In addition to bisect fails in this series, I see the following
-> dtbs_check errors:
+> It looks like you received a tag and forgot to add it.
 > 
-> arch/arm64/boot/dts/ti/k3-am62l3-evm.dtb: serial@0: clock-names:0: 'fclk' was expected
-> arch/arm64/boot/dts/ti/k3-am62l3-evm.dtb: spi@fc40000: '#address-cells' is a dependency of '#size-cells'
-> arch/arm64/boot/dts/ti/k3-am62l3-evm.dtb: syscon@43000000: compatible: ['syscon', 'simple-mfd'] is too short
-> arch/arm64/boot/dts/ti/k3-am62l3-evm.dtb: syscon@9000000: 'reg' is a required property
+> If you do not know the process, here is a short explanation:
+> Please add Acked-by/Reviewed-by/Tested-by tags when posting new
+> versions of patchset, under or above your Signed-off-by tag, unless
+> patch changed significantly (e.g. new properties added to the DT
+> bindings). Tag is "received", when provided in a message replied to you
+> on the mailing list. Tools like b4 can help here. However, there's no
+> need to repost patches *only* to add the tags. The upstream maintainer
+> will do that for tags received on the version they apply.
 > 
-> I suggest doing a revisit of this for the next window.
+> Please read:
+> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
 > 
-> PS: https://github.com/nmenon/kernel_patch_verify is a tool I use and
-> maintain which might help alleviate some of the easy checklist items -
-> but this is probably not an authoritative tool and making sure, but if
-> it helps you, please do use it - it is containerized for easy env setup
-> (you could run kpv -V -C -L -3 for example on this series and get this:
-> https://gist.github.com/nmenon/83f7e6924539d1c7e2eb6c5a4ee82706 )
+> If a tag was not added on purpose, please state why and what changed.
+> </form letter>
 
-Yeah I apologize everyone. I was working at little late and didn't 
-notice my tooling to catch this stuff failed on me :/
+My apologies the last version I assumed the Un-Acked[0] comment was a 
+request to remove any trailers I picked up from you. I can add them back 
+to this patch if you wish
 
-I'll try again for the next window
-
-Thanks for the reviews
 ~Bryan
+
+[0] https://lore.kernel.org/all/f189ec8e-88fc-491f-8552-e1e5d0b7cde7@kernel.org/
 
