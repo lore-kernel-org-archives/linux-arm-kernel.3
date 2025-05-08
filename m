@@ -4,77 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A569C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 09:17:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B80BC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 09:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XjnlXfHduLY+rrmKH9+0EuauvU+FcYu+CLRTJgWmNn0=; b=ZjxQlW83zEPJJKti+35IF3ExA6
-	Uu1Wuub5YyrHT//49U4PytRCHyIHUTSgii3ycl+CSEjh1b4ZEhOfSs7lPbiQeZQZRHPaA5AWDkCh0
-	vYKBqTdZshF0kgIiR0yHATsbUB7iw1bz1n4HtSa0sjWTEUkxAE3tfJiiTjSPf8vrbMSBipP01V7l3
-	kQ4mKyIuOEFJ7I4j+Uf2w6quOUDMuwKTDgm6g9kwAqPsJgljxLY7sLStyhOS8SdQZ/sNdM5s2Pc4K
-	mXqBN8q8OwqVtwD8b7eL065/oIuzoN8qWkEJQk9ul4FR1gINV+xqvbhzshC778NgK7aiNOGF5przw
-	iL2KcThw==;
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qOQcTqANU1leNfWALhEgYRCRqcO0Qjjft1AKNAg4mjA=; b=C7r67+620vZhJtZX4fC7UOywy5
+	GzCoSRB7mzWl+ExRDCQkFzjNNmfuXMoaa/I7glplzgtN345U9AJYFienTcSwBbU49tEiMm9CusbVm
+	2KQbr2cQk5oU72MhvWywFaC8oa0maVR6YRB01aXTUzELyUsFL8egflNMlsMRrZEIAmYZ8iUZS3p85
+	t03dqEk1vjOgq/XnZN7PtEkqi8URnUvrrqQvGzfbpXcPQjn09VGNc5nEaKifF2ghQm12TME4qRax+
+	qjbPuAojShZ5F4DFQUMybrecgYnC59rQ8SX5UNn/n9vPZbgBN6H0CsmZfvWcsEjYbva+gTaPesgzu
+	C74GFJQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCxNx-00000000Ea4-2tJZ;
-	Thu, 08 May 2025 09:17:45 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uCxQW-00000000Eux-2QII;
+	Thu, 08 May 2025 09:20:24 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCx0D-00000000AvY-1hiy
+	id 1uCx6p-00000000Bw9-1qDF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 08:53:14 +0000
+	Thu, 08 May 2025 09:00:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746694391;
+	s=mimecast20190719; t=1746694802;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=XjnlXfHduLY+rrmKH9+0EuauvU+FcYu+CLRTJgWmNn0=;
-	b=IZNjBkw3wXPpFEZzxgs8BBwvdFgY60RtJ/GkjJBDFmDu03vinj2z/HlVow70nUT0BeM8Ff
-	9qHeJV1PQFyjuItbcV7hlesRweAu8B9zTyJqPu+eqfLWvySJOzircoAiuzzYPIYMKMbLOB
-	qlRLUuqTzbcyze+dzuiFqzEDgbnb74g=
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-494-kdACPehFNBSx2-OB9Bo3hQ-1; Thu,
- 08 May 2025 04:53:08 -0400
-X-MC-Unique: kdACPehFNBSx2-OB9Bo3hQ-1
-X-Mimecast-MFC-AGG-ID: kdACPehFNBSx2-OB9Bo3hQ_1746694386
-Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3168C1956086;
-	Thu,  8 May 2025 08:53:06 +0000 (UTC)
-Received: from gshan-thinkpadx1nanogen2.rmtau.csb (unknown [10.64.136.14])
-	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 8C5DC19560B4;
-	Thu,  8 May 2025 08:52:59 +0000 (UTC)
-From: Gavin Shan <gshan@redhat.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	anshuman.khandual@arm.com,
-	ryan.roberts@arm.com,
-	dev.jain@arm.com,
-	gshan@redhat.com,
-	peterx@redhat.com,
-	joey.gouly@arm.com,
-	yangyicong@hisilicon.com,
-	shan.gavin@gmail.com
-Subject: [PATCH v2] arm64: mm: Drop redundant check in pmd_trans_huge()
-Date: Thu,  8 May 2025 18:52:51 +1000
-Message-ID: <20250508085251.204282-1-gshan@redhat.com>
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=qOQcTqANU1leNfWALhEgYRCRqcO0Qjjft1AKNAg4mjA=;
+	b=Yt/bcI1VbLeu3+FKfyOH2Cb10H700MHayy09Dy2C0VysZyBb9yZBE1f1ZAebFoi8cfqduh
+	/h7d8xnY5k1GXGMLZsut2BSjaczXhziMAyOVDBaQaUwyzFRJcywsB3j1c3xD4HWvPum/sM
+	oUihqgtRVERVQP3M5LnLZ65rzxAqSaM=
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com
+ [209.85.215.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-527-vu3TlYDnOcqHugRFwQR9VQ-1; Thu, 08 May 2025 04:59:59 -0400
+X-MC-Unique: vu3TlYDnOcqHugRFwQR9VQ-1
+X-Mimecast-MFC-AGG-ID: vu3TlYDnOcqHugRFwQR9VQ_1746694798
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-b1fa2cad5c9so482726a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 01:59:58 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746694798; x=1747299598;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=qOQcTqANU1leNfWALhEgYRCRqcO0Qjjft1AKNAg4mjA=;
+        b=r2rHxaq4CagE3TGDuvCV3Bqp7wCBCwWXsw0f8YByUGH6dJOv3bGap0YTWVfaey3iDz
+         v3IH8OhB2p3tD979UPFf5DACRWi+9BACfgJVMHWwwk4OninJcVTLVBPCFdk6VEppvar0
+         JM7FNmgAGqqVKaUw+KHcS0/1MtnfBFACnDArcO3Ylsjz+0vj8NjyOnX94LarHtamXgEA
+         2s1r69t7acSeoFWCYQjzLJWrUbWlgsv5kfWjHvQrZH3n7V0mqN12aufrhyYSxs4Ng3G1
+         bH8ZYaNLw+SIulfcQrA2cahsccG2giFATrEkqfq2OfjXQRA7wyv0Cu8hQfklaRNCsz4i
+         OLJA==
+X-Gm-Message-State: AOJu0Yynt8R6ueLS/rXLxgqj9HAW9NHNBDe95PDtUQGKm1zIAzcIbGgn
+	NkuwttNhKHRdDbmnnVAMxSUPPiAZj6FcP9U/q/no72SOaBH2i2u5qneCV/LoP2mQdC4Aq3QoTAf
+	3f5RsML7ctShxuoRkqhfBL8FGPYBIaALVfECkb150Krl4Icm7Thl2TjiCv5s949yq2S7STfgY
+X-Gm-Gg: ASbGncvzWAHNxXDHCJjiMq/V7snFml2zqwnFs/sx3TVokceA0RE4GbLBS5C6DcibwG3
+	ZD/7wz2BLGp1+XcMpLW0X8GHkK8TBfEuekP+nvK65RM+aVj/WtfMvg4RqxiVZPcKWFQ/hp5ESZv
+	vvK3JBujhIdl7RJVDMMm7AQ5/XVUWmMaMs8hFR4D6ynAj1zRh2vzr6+poDL3Ua5PhSbqqYUi5be
+	lNwxcIsoB2QU40G5CfEGO12UtrwKJbC13HM9srnZpeII+TM0hWqmAWCnxtQzRixl8UC1MQs9m7f
+	ZnebLdPTZwbh
+X-Received: by 2002:a05:6a21:3a83:b0:1f5:8d3b:e294 with SMTP id adf61e73a8af0-2148b526dd7mr10023540637.16.1746694798024;
+        Thu, 08 May 2025 01:59:58 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF1EwAUJsR9DPVq6ks/wjHy3vUPtJEluOMLF3EubNvy3Xr+lYJJSx5JADt/lM5REM16u/RwNw==
+X-Received: by 2002:a05:6a21:3a83:b0:1f5:8d3b:e294 with SMTP id adf61e73a8af0-2148b526dd7mr10023516637.16.1746694797754;
+        Thu, 08 May 2025 01:59:57 -0700 (PDT)
+Received: from [192.168.68.51] ([180.233.125.65])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7405906372fsm13173105b3a.148.2025.05.08.01.59.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 08 May 2025 01:59:57 -0700 (PDT)
+Message-ID: <8a05e7da-3640-4e79-b215-c705b879472f@redhat.com>
+Date: Thu, 8 May 2025 18:59:50 +1000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: Drop sort_memblock_regions()
+From: Gavin Shan <gshan@redhat.com>
+To: kvmarm@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ qperret@google.com, maz@kernel.org, oliver.upton@linux.dev,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ catalin.marinas@arm.com, will@kernel.org, shan.gavin@gmail.com
+References: <20250311043718.91004-1-gshan@redhat.com>
+In-Reply-To: <20250311043718.91004-1-gshan@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 7iCbjgGXR-UdAu-5l7FXJea_JhIP1ruR3D3OBG-mPUU_1746694798
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_015313_510014_167A0104 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20250508_020003_558632_BF6B1D88 
+X-CRM114-Status: GOOD (  18.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,48 +110,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pmd_val(pmd) is redundant because a positive pmd_present(pmd) ensures
-a positive pmd_val(pmd) according to their definitions like below.
+Hi Marc/Oliver,
 
-  #define pmd_val(x)       ((x).pmd)
-  #define pmd_present(pmd) pte_present(pmd_pte(pmd))
-  #define pte_present(pte) (pte_valid(pte) || pte_present_invalid(pte))
-  #define pte_valid(pte)   (!!(pte_val(pte) & PTE_VALID))
-  #define pte_present_invalid(pte) \
-          ((pte_val(pte) & (PTE_VALID | PTE_PRESENT_INVALID)) == PTE_PRESENT_INVALID)
+On 3/11/25 2:37 PM, Gavin Shan wrote:
+> Drop sort_memblock_regions() and avoid sorting the copied memory
+> regions to be ascending order on their base addresses, because the
+> source memory regions should have been sorted correctly when they
+> are added by memblock_add() or its variants.
+> 
+> This is generally reverting commit a14307f5310c ("KVM: arm64: Sort
+> the hypervisor memblocks"). No functional changes intended.
+> 
+> Signed-off-by: Gavin Shan <gshan@redhat.com>
+> ---
+>   arch/arm64/kvm/pkvm.c | 19 -------------------
+>   1 file changed, 19 deletions(-)
+> 
 
-pte_present() can't be positive unless either of the flag PTE_VALID or
-PTE_PRESENT_INVALID is set. In this case, pmd_val(pmd) should be positive
-either.
+Please let me know if I need to resend after a rebase, or anything I need to
+do so that it can be merged? :-)
 
-So lets drop the redundant check pmd_val(pmd) and no functional changes
-intended.
+Thanks,
+Gavin
 
-Signed-off-by: Gavin Shan <gshan@redhat.com>
-Reviewed-by: Dev Jain <dev.jain@arm.com>
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
-v1: https://lore.kernel.org/linux-arm-kernel/4e5941f8-7e61-4a63-a669-bee1601093a6@arm.com/T/#u
-v2: Improved commit log per Anshuman
----
- arch/arm64/include/asm/pgtable.h | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
-
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index d3b538be1500..2599b9b8666f 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -739,8 +739,7 @@ static inline int pmd_trans_huge(pmd_t pmd)
- 	 * If pmd is present-invalid, pmd_table() won't detect it
- 	 * as a table, so force the valid bit for the comparison.
- 	 */
--	return pmd_val(pmd) && pmd_present(pmd) &&
--	       !pmd_table(__pmd(pmd_val(pmd) | PTE_VALID));
-+	return pmd_present(pmd) && !pmd_table(__pmd(pmd_val(pmd) | PTE_VALID));
- }
- #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
- 
--- 
-2.49.0
+> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> index 930b677eb9b0..d9c9174f89a1 100644
+> --- a/arch/arm64/kvm/pkvm.c
+> +++ b/arch/arm64/kvm/pkvm.c
+> @@ -10,7 +10,6 @@
+>   #include <asm/kvm_mmu.h>
+>   #include <linux/memblock.h>
+>   #include <linux/mutex.h>
+> -#include <linux/sort.h>
+>   
+>   #include <asm/kvm_pkvm.h>
+>   
+> @@ -24,23 +23,6 @@ static unsigned int *hyp_memblock_nr_ptr = &kvm_nvhe_sym(hyp_memblock_nr);
+>   phys_addr_t hyp_mem_base;
+>   phys_addr_t hyp_mem_size;
+>   
+> -static int cmp_hyp_memblock(const void *p1, const void *p2)
+> -{
+> -	const struct memblock_region *r1 = p1;
+> -	const struct memblock_region *r2 = p2;
+> -
+> -	return r1->base < r2->base ? -1 : (r1->base > r2->base);
+> -}
+> -
+> -static void __init sort_memblock_regions(void)
+> -{
+> -	sort(hyp_memory,
+> -	     *hyp_memblock_nr_ptr,
+> -	     sizeof(struct memblock_region),
+> -	     cmp_hyp_memblock,
+> -	     NULL);
+> -}
+> -
+>   static int __init register_memblock_regions(void)
+>   {
+>   	struct memblock_region *reg;
+> @@ -52,7 +34,6 @@ static int __init register_memblock_regions(void)
+>   		hyp_memory[*hyp_memblock_nr_ptr] = *reg;
+>   		(*hyp_memblock_nr_ptr)++;
+>   	}
+> -	sort_memblock_regions();
+>   
+>   	return 0;
+>   }
 
 
