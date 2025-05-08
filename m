@@ -4,92 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B25D8C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 09:30:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96484C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 09:32:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:Message-ID:Date:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l6UyUXCpgr0WUFmw2sPhx8dNtCUTskL7HDMmKzVGhcM=; b=NVMFHMz//dIQvVOkO5yQ37mZsV
-	fHXZ/riTfCz2mIS8v/1P4QbbjV1I6S0PKymdxowGqBtNm+KAD05OT2YPjuBdVuNNXTEy5ZVrXlaq6
-	z5vZt7GCXZHB5GdqH622sjZwRg26uT2hYlc14FJD5Okn8iIhjyGCiWX3cVPy/JksR5Y0v33PwoChW
-	fcxQy/d+QJEah6tVFZOnPA1PAnxSX+7MHqWHIhUxSekIn4uFALnsLx4zpsR1lpyE1xuz8jjeLI/J+
-	F3Nwc7Ljuxdqd+IQnmbKMeiqY6SN2HDlbP5aNgoUEg5BfDQogGGlg+atbJS639Gtn5dfV+4+RSBEA
-	MCHpbVWw==;
+	bh=W6kl3HtQJeEUM1tcBExwIbaHkyuZepPMFWQHMJDxL7Y=; b=vwMI1CobMmO3hkdIV9x8jxzp7a
+	AUw08zyshSFr49Ln3GKsKw8vv1it88d4mHwgCBroOibPPaEUBrC/wN0SvflsrIjwpkmLOnukNYGxM
+	y2AAZBLlaIEDgltSJI9F0obQ8F+gAsd2kgCGL7s8aSu046DfetEEmyMJ1iig28cUoZrAXR9YKtHsO
+	R/5vRO6fNbGw+lUo8oFq7yp2gd+ECZEbF3rfbT0BzNVH8unvJCeHULKpyc2rZp/PrAZgSdrzxYxxC
+	NL3HkmoKcAZSCleSJNqtyzTVo9aBBiplaxMV+Bw8r/C2Cutj88N1JEGng5P1XiLZbPHUULAqyUgoM
+	DpLNHo1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCxaC-00000000GSr-2rTg;
-	Thu, 08 May 2025 09:30:24 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1uCxc7-00000000GfP-1gP4;
+	Thu, 08 May 2025 09:32:23 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCxHC-00000000DNz-3FKK
+	id 1uCx25-00000000BGG-3lHV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 09:10:47 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43edecbfb94so8271455e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 02:10:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746695444; x=1747300244; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=l6UyUXCpgr0WUFmw2sPhx8dNtCUTskL7HDMmKzVGhcM=;
-        b=Q6RBDhCaasjB5zM8UJmxK9qcilmZsrju8TwcqXyFDJFs2LacXWAs9dLG0Tg0lLuAId
-         sdyNUC3473ck8jvR5+lfd364JBgJqKjllN7cu6b8erMPbNr5L4dnU/Uy6QgAOlC1jqR+
-         nskJGgRh9QWBwwpMOKQCKAvX5qdiJfQr/OPzr+IRd0/OUx0WEQr/EWhR+B7BrnDxymeE
-         qeTXjP8gnzwEG6QfzYWFhQ4ZOR2DDnDfWuIbd3ANp2j4dYLCjnrqafDJk+OujAV+C3an
-         2vkF4Vi2ra7yO/Gfj3P69VjyY2WN/4nTJYHXGL6mKDYYnOd018c8zuX0GJxnrTv8uJDS
-         mXJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746695444; x=1747300244;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=l6UyUXCpgr0WUFmw2sPhx8dNtCUTskL7HDMmKzVGhcM=;
-        b=qj0uf2qt0FPYz1UZg2hrfhmLgmZAHsVbBgpAwwe3eabscr0T7PvDvUqKhdANsLOow+
-         i0UP4cC24z81lR1VozGHeI/FTIqEjIpIkmXGXKskze/Mka6CX63kdo5CIZYrci0ZTLpw
-         9rh3Uvvw38Bjr/5DXww4Eqps2P7YSonE7w8gTh9jAOLZrZVYHp1TqrbGnV+Dk6rBoksB
-         diMHpcprm/FQ0eZQ26sP1RStrxNMIdWjlI4/NKWbBZ3vD0KOD2mwAeItW1HhcmE2OIvY
-         cU/BJvKL9uR45kgaHXaiQi0AAkKoSWFM8e1sbxNDNmAY0UL1GFoXBrbliuWABt6P+R2C
-         uyLg==
-X-Forwarded-Encrypted: i=1; AJvYcCXid/LKWsEt+EAIBX3lJTJnAHINq4rGP+CIkmVPdAZnXAL5JQBAjAEZssQ+1VSkJ7fBdNQtJAgNi0AyIQ5wKMLg@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcIY2Lt8hcR3xQj1eTw2i0Ryd+mV+Ht2+p8r8qPUhmJrNNuOvB
-	VgYxP2BS367rboSf8311l9b+h9h0PDXRoEGynLhu6L7BBmS/O2tBAE/ohzWGqw==
-X-Gm-Gg: ASbGnct1SjKKUK6Qvf3x2b43yij7gtmH9uf45KmiXj4wQIXZ5Q40fjaNbWbdtIrmI/O
-	VT+Q7C9sXDJJrqD5dv/37omLuXbfXmUlBNR4CisIRZocMH1RaRyLuNhbVgQPpE+VK3N6t6/zeeF
-	9B/mSb0Cb20y4kcbPiseJJMcLb6ShQBl698snPv2qEyRVyF1FRlg0g1HrUc4fZs8FlxtUuE2aus
-	TMshtS8oxLsvtMfEqvcBDJP3swm5kdkuqbEuyELs7tqBiu1p+uBb4VwiBu7A32XN45wVKt0VX/N
-	Vhft5lldzeFZ5s4CjnvG20HiI9zZdghqNode0kuCJiVzvzhlvFZwiu8MuMLULU9FINtBArJbHEA
-	MPHIm+yRbuNcxr1jA
-X-Google-Smtp-Source: AGHT+IFE0UJOTPADB0ayGWYTFGEaXRl7J0a4Js+PxgbBt0NVKKxXiHCD9XRls03Gxp9z/i+BfiucLQ==
-X-Received: by 2002:a05:600c:cca:b0:43c:f5fe:5c26 with SMTP id 5b1f17b1804b1-442d02e284emr25519055e9.4.1746695444305;
-        Thu, 08 May 2025 02:10:44 -0700 (PDT)
-Received: from google.com (24.204.140.34.bc.googleusercontent.com. [34.140.204.24])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442cd3af15bsm30152975e9.30.2025.05.08.02.10.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 May 2025 02:10:43 -0700 (PDT)
-Date: Thu, 8 May 2025 10:10:40 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
-	linux-trace-kernel@vger.kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, jstultz@google.com,
-	qperret@google.com, will@kernel.org, kernel-team@android.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 01/24] ring-buffer: Introduce ring-buffer remotes
-Message-ID: <aBx1EBa6QFH7dmqs@google.com>
-References: <20250506164820.515876-1-vdonnefort@google.com>
- <20250506164820.515876-2-vdonnefort@google.com>
- <20250507194722.263a8d1e@gandalf.local.home>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250507194722.263a8d1e@gandalf.local.home>
+	Thu, 08 May 2025 08:55:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A56F9A4AFCE;
+	Thu,  8 May 2025 08:55:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D6ADC4CEE7;
+	Thu,  8 May 2025 08:55:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746694508;
+	bh=UFEexb2wQ4VfbaBPjbBUtzh7EapVioSw3lWphbIeH08=;
+	h=From:Date:To:Cc:Subject:In-Reply-To:References:From;
+	b=n6R8bauIp46ZLLCPVuJlQfBGsEY5sBWEdFp8l3zG4jt0xPxD7q7pPOFvzRGvDXrZs
+	 seVOiPtrklHsvTgKnlyBs1Bk/ZQJQoVa+1FS6huyxtjVTIaq3sJ0828NRyOhpHRtok
+	 4pTGj10m2fbJrYwoQw0xnMQyLIIaqeCtII8dvsqctOZtAg5BXWFkmj/hRyoosnGRKI
+	 ANDs8fsOUMhQbO2yC7fp49EkKJFn2uiEhJS1NTuqxewrwRv2qKNO+oA6jcr2Zc1ezn
+	 E2N8II9Tgi+ZPyndvtLFUnqzRX37K4cW8gDR3HdggM+jatxaDQ40iJzerTSs5xINgp
+	 GytsSqOJeRTeg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uCx21-00CwQo-UV;
+	Thu, 08 May 2025 09:55:06 +0100
+From: Marc Zyngier <maz@kernel.org>
+Date: Thu, 08 May 2025 09:55:05 +0100
+Message-ID: <8634dfh47q.wl-maz@kernel.org>
+>From: Marc Zyngier <maz@kernel.org>
+To: Per Larsen <perl@immunant.com>
+Cc: armellel@google.com,
+	arve@android.com,
+	catalin.marinas@arm.com,
+	kernel-team@android.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	qperret@google.com,
+	sebastianene@google.com,
+	sudeep.holla@arm.com,
+	will@kernel.org,
+	yuzenghui@huawei.com,
+	Per Larsen <perlarsen@google.com>
+Subject: Re: [PATCH 1/3] KVM: arm64: Restrict FF-A host version renegotiation
+In-Reply-To: <aBnNXyJn818ZEKOS@google.com>
+References: <CA+AY4XcaJa1_U3qXQUBj4wZJYc9hKmRX8FTNeDvV2auEnC_WrA@mail.gmail.com>
+	<86r017h00e.wl-maz@kernel.org>
+	<aBnNXyJn818ZEKOS@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: perl@immunant.com, armellel@google.com, arve@android.com, catalin.marinas@arm.com, kernel-team@android.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, qperret@google.com, sebastianene@google.com, sudeep.holla@arm.com, will@kernel.org, yuzenghui@huawei.com, perlarsen@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_021046_813137_E889A2B1 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20250508_015510_067501_ED285358 
+X-CRM114-Status: GOOD (  46.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,32 +97,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 07, 2025 at 07:47:22PM -0400, Steven Rostedt wrote:
-> On Tue,  6 May 2025 17:47:57 +0100
-> Vincent Donnefort <vdonnefort@google.com> wrote:
+On Tue, 06 May 2025 10:29:41 +0100,
+Per Larsen <perl@immunant.com> wrote:
 > 
+> From: Per Larsen <perlarsen@google.com>
 > 
-> > diff --git a/include/linux/ring_buffer.h b/include/linux/ring_buffer.h
-> > index 56e27263acf8..c0c7f8a0dcb3 100644
-> > --- a/include/linux/ring_buffer.h
-> > +++ b/include/linux/ring_buffer.h
-> > @@ -248,4 +248,67 @@ int ring_buffer_map(struct trace_buffer *buffer, int cpu,
-> >  		    struct vm_area_struct *vma);
-> >  int ring_buffer_unmap(struct trace_buffer *buffer, int cpu);
-> >  int ring_buffer_map_get_reader(struct trace_buffer *buffer, int cpu);
-> > +
-> > +#define meta_pages_lost(__meta) \
-> > +	((__meta)->Reserved1)
-> > +#define meta_pages_touched(__meta) \
-> > +	((__meta)->Reserved2)
+> On Fri, May 02, 2025 at 09:47:45AM +0100, Marc Zyngier wrote:
+> > On Fri, 02 May 2025 04:52:39 +0100,
+> > Per Larsen <perl@immunant.com> wrote:
+> > > 
+> > > FF-A implementations with the same major version must interoperate with
+> > > earlier minor versions per DEN0077A 1.2 REL0 13.2.1 but FF-A version 1.1
+> > > broke the ABI on several structures and 1.2 relies on SMCCC 1.2 is not
+> > > backwards compatible with SMCCC 1.2 (see DEN0028 1.6 G BET0 Appendix F).
+> > > 
+> > > If we return the negotiated hypervisor version when the host requests a
+> > > lesser minor version, the host will rely on the FF-A interoperability
+> > > rules. Since the hypervisor does not currently have the necessary
+> > > compatibility paths (e.g. to handle breaking changes to the SMC calling
+> > > convention), return NOT_SUPPORTED.
+> > > 
+> > > Signed-off-by: Per Larsen <perlarsen@google.com>
+> > > Signed-off-by: Per Larsen <perl@immunant.com>
+> > > ---
+> > >  arch/arm64/kvm/hyp/nvhe/ffa.c | 19 ++++++++++++++++++-
+> > >  1 file changed, 18 insertions(+), 1 deletion(-)
+> > > 
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > > index 3369dd0c4009..10e88207b78e 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > > @@ -712,7 +712,24 @@ static void do_ffa_version(struct arm_smccc_res *res,
+> > > 
+> > >   hyp_spin_lock(&version_lock);
+> > >   if (has_version_negotiated) {
+> > > - res->a0 = hyp_ffa_version;
+> > > + /*
+> > > + * FF-A implementations with the same major version must
+> > > + * interoperate with earlier minor versions per DEN0077A 1.2
+> > > + * REL0 13.2.1 but FF-A version 1.1 broke the ABI on several
+> > > + * structures and 1.2 relies on SMCCC 1.2 is not backwards
+> > > + * compatible with SMCCC 1.2 (see DEN0028 1.6 G BET0 Appendix F).
+> > 
+> > I can't parse this sentence. Missing words?
+> > 
 > 
-> Hmm, I wonder if this would be worth adding to the user interface?
+> Yes, I will fix this in v2.
+> 
+> > > + *
+> > > + * If we return the negotiated hypervisor version when the host
+> > > + * requests a lesser minor version, the host will rely on the
+> > > + * aforementioned FF-A interoperability rules. Since the
+> > > + * hypervisor does not currently have the necessary compatibility
+> > > + * paths (e.g. to paper over the above-mentioned calling
+> > > + * convention changes), return NOT_SUPPORTED.
+> > > + */
+> > > + if (FFA_MINOR_VERSION(ffa_req_version) < FFA_MINOR_VERSION(hyp_ffa_version))
+> > > + res->a0 = FFA_RET_NOT_SUPPORTED;
+> > > + else
+> > > + res->a0 = hyp_ffa_version;
+> > >   goto unlock;
+> > >   }
+> > > 
+> > 
+> > Something has gone seriously wrong with your email, and the patches
+> > are badly mangled and unusable. They are also sent as individual
+> > patches and not as a thread, which is a sign that you didn't send them
+> > using git. Please fix this for your next posting.
+> > 
+> 
+> Yes, my apologies. I will use git send-email to post v2.
+> 
+> > More to the meat of the patches: why should the hypervisor paper over
+> > anything if the spec is broken? Why can't the host just as well decide
+> > for itself what to do?
+> > 
+> 
+> Asssuming we drop this patch from the series and apply the rest, the
+> hypervisor and host can negotiate FF-A 1.2. If the host then calls
+> FFA_VERSION a second time to request FF-A 1.1, the hypervisor would
+> return version 1.2 (without this patch).
 
-Would trace-cmd have any use for those fields? That said, even if it does not at
-the moment, it would mean the meta-page has a single version between
-kern/user-space and hyp/kern which is probably better?
+Why would it do that? Once a particular version has been negotiated, I
+expect to be immutable.
 
-I can add an additional patch in this series to extend the meta-page.
+> Per the spec, that means the
+> host is can use the compatibility rules (DEN0077A Sec 13.2.1) to go
+> ahead and use FF-A 1.1 (every function in 1.A must work in a compatible
+> way in 1.B if B>A).
 
-[...]
+I don't interpret this as "you can switch between versions" after the
+initial negotiation.
+
+> However, the hypervisor negotiated version stays at 1.2 so it will use
+> SMCCC 1.2 for 64-bit interfaces. The host has no way of knowing this and
+> might as well assume that the hypervisor was implemented to fall back to
+> SMCCC 1.1 in this particular case. 
+> 
+> I don't even know that the host will ever try to renegotiate as it is
+> explicitly not allowed by the FF-A spec. There is no way for the
+> hypervisor to say, "stay at the negotiated version" so we must return
+> NOT_SUPPORTED. 
+
+If it is not allowed, why should we do *anything*? And if the host is
+broken, let's fix the host rather than adding pointless validation
+code to EL2.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
