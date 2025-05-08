@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23FEDC3ABC6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 19:18:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 008EAC3ABC6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 19:21:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JVRXhmY/kAfo2cZtUh2KQb4tsUUbM6FKG1N6mgoSGJw=; b=YlKx8/+MRdRwrfKwdt2Uqg/NeS
-	ukEfaAqO8IkYZOE+tvqXjW9dk7E2MduYuOO+lRpvlmjOhpX8BIXPhn/CbW7S8xAX6l3FOmPUCHf8u
-	ci8VE0t6oA2LWhfWe4lrqRKrP0FrSVncqodnR+7IKiF1uDqaY2raVyxweboTBVlshe/2yb97zb65b
-	oFYxcFlFDG0TSzVaCG3BTH82DdiSODCP6NxMYMopZ/q3iw08WbtK4i3/s6eL/nLaF0+AHOQbg8HYY
-	JK7yNd2GAqrZe44sDc2oz9dZmBYB/lU4fTu3aUsOfhQHDFSmHG2Bl+q9X3hmC78x8aCPz3IRSarxh
-	C/iyVUmw==;
+	bh=2Vtnxfs7PybtSiFKl44ojspsGbhhh2+o3E2kVCLOhq0=; b=EjOap+cEnNC8AVvtSSP2OA4t1u
+	QXPz8r5JK54UCnqWi2aKVbI7uQK8X9U8My3/OypME1TrM+l4uoRZm1kh0oOWXBZgvCOrvy47tuxWH
+	9YyfSwkbubZyHB+ozgNNHBG0znKrNjEfdoHBCCZydzLGH/OSEolCI5YdVPQBGFx1MlY6tSfPrP4wK
+	JJrgugSFPVZJ8t6JmXKeO04eGmPk1S2olqMHKyHhS/kEOFNv+WqeDgNYVmcqtaLOaWUK0rjPZqaEq
+	zq2+iyVbe6Mxpc8LRCDwCtlfYFLycTJQWZdVAu10xHlTT9qoS2ZXKOsSqaogwVM8yjYPGj3RNMzwf
+	YuWu2GMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD6kj-00000001dZG-45VP;
-	Thu, 08 May 2025 19:17:53 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1uD6oS-00000001dnT-3eOX;
+	Thu, 08 May 2025 19:21:44 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD6ih-00000001dKA-3HJA
+	id 1uD6mU-00000001dfY-42W9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 19:15:48 +0000
+	Thu, 08 May 2025 19:19:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1746731747; x=1778267747;
+  t=1746731983; x=1778267983;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=kc2apVHoDu/c5UkKVj1TkV8BatDP+BUXsduJk1vXdY4=;
-  b=IJPEKDc8Gbyd+Dmhm87CuwHG8oa/mNnzQ29djDr6GHa5pxY5oe2/a5+M
-   TgDNdLq6MjlK6oIH2Tdh8WembFTyTcxRSPbzOMgOmpVQjLyLJcyxh3d9p
-   uN0ovB8nSx2AbQZD6S73o3md0UBBllItj/MfPlUZ78AwATkwG0nQv9Nek
-   7W0rsrOV3rpYPBVKpPbyWgMRpEmra4XVtYP2qCnVCB02cjdxQBGRR5mLp
-   ddLcEnXhF4xekYHFUXk7brOc7bl33Tl5PQZt5uM9YkAtLUKQWZJW/AzEH
-   qwU2XHkZzKsrX33m3meqq0m9Wy3zHyjRXC9Y857vwkutk9XXmGTazcvT6
-   g==;
-X-CSE-ConnectionGUID: xRnysBKJRiWTXex5wOA2qw==
-X-CSE-MsgGUID: QR92OGc4SRuM0li0/bYxmA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11427"; a="51198439"
+  bh=18gsJArBrnS1jxWxOipw7F0QCTdS4jhedd/7kH0ZuwA=;
+  b=fD95saWfCs6rh4J3fJiImClHf2kkL5fSsc+D5qj2u5d+2QESRC11q1HP
+   Wzo21oUSA/OAGIT2Y4H1INJNzpYbsovGAMQAuiKzR6Jet6D5uGha6McUf
+   tmFydK/PiNjHFafuAccLbudkze6xhZ6QoEqpOojsi8mJzT0JCGXh2Fys/
+   CLlEws78euu0YKXpCYp+52FGcR42cHYLo65AFgczS4wEtw907QHA7CVfc
+   5ECdtiz6g99YLnIv+7WfBHyRZvPVMn03xloc1BfrtwMc2HzXozHC38e2i
+   PJ+It5cMww6VeEEv1mssc5/RxBcHBMsHVpcOG1JGwjoxs3UzS3VMUGo+C
+   w==;
+X-CSE-ConnectionGUID: qMP0U3CUR9irD0NpGRF1Ug==
+X-CSE-MsgGUID: A/OFnf7gS7mqNekGoIjhSA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11427"; a="59880453"
 X-IronPort-AV: E=Sophos;i="6.15,273,1739865600"; 
-   d="scan'208";a="51198439"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 May 2025 12:15:44 -0700
-X-CSE-ConnectionGUID: bMEPplM9TIuxI2f+ID6KOw==
-X-CSE-MsgGUID: tTrlCkqcRDSjExAAr9K+qQ==
+   d="scan'208";a="59880453"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 May 2025 12:19:42 -0700
+X-CSE-ConnectionGUID: imppGwgiTLmLc9lZi5sElQ==
+X-CSE-MsgGUID: BD9SBI9fRmiZJWTT4Muhvw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.15,273,1739865600"; 
-   d="scan'208";a="137383198"
+   d="scan'208";a="136102471"
 Received: from smile.fi.intel.com ([10.237.72.55])
-  by fmviesa009.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 May 2025 12:15:36 -0700
+  by orviesa009.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 May 2025 12:19:34 -0700
 Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
 	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1uD6iR-00000004D4L-4Bgk;
-	Thu, 08 May 2025 22:15:32 +0300
-Date: Thu, 8 May 2025 22:15:31 +0300
+	id 1uD6mH-00000004D79-1VPH;
+	Thu, 08 May 2025 22:19:29 +0300
+Date: Thu, 8 May 2025 22:19:29 +0300
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Herve Codina <herve.codina@bootlin.com>
 Cc: Andrew Lunn <andrew@lunn.ch>,
@@ -93,19 +93,19 @@ Cc: Andrew Lunn <andrew@lunn.ch>,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH v2 16/26] i2c: mux: Create missing devlink between mux
- and adapter physical device
-Message-ID: <aB0C05WnKkgslAuT@smile.fi.intel.com>
+Subject: Re: [PATCH v2 17/26] of: property: Allow fw_devlink device-tree on
+ x86 when PCI device-tree node creation is enabled
+Message-ID: <aB0Dwdr8IJF4F9gR@smile.fi.intel.com>
 References: <20250507071315.394857-1-herve.codina@bootlin.com>
- <20250507071315.394857-17-herve.codina@bootlin.com>
+ <20250507071315.394857-18-herve.codina@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250507071315.394857-17-herve.codina@bootlin.com>
+In-Reply-To: <20250507071315.394857-18-herve.codina@bootlin.com>
 Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_121547_832493_C491AA5E 
-X-CRM114-Status: GOOD (  23.80  )
+X-CRM114-CacheID: sfid-20250508_121943_015043_2CD559C1 
+X-CRM114-Status: GOOD (  27.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,77 +120,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 07, 2025 at 09:12:58AM +0200, Herve Codina wrote:
-> When removing an i2c controller device handling an i2c bus where an i2c
-> mux is connected to, the removal process hangs and is stuck in the
-> wait_completion() call done in i2c_del_adapter().
+On Wed, May 07, 2025 at 09:12:59AM +0200, Herve Codina wrote:
+> PCI drivers can use a device-tree overlay to describe the hardware
+> available on the PCI board. This is the case, for instance, of the
+> LAN966x PCI device driver.
 > 
-> The i2c_del_adapter() tries to removed the i2c adapter related to the
-> i2c controller device and the wait_completion() is waiting for the i2c
-> adapter device release. This release is performed when the device is no
-> more used (i.e. refcount reaches zero).
+> Adding some more nodes in the device-tree overlay adds some more
+> consumer/supplier relationship between devices instantiated from this
+> overlay.
 > 
-> When an i2c mux is involved in an i2c path, the struct dev topology is
-> the following:
->     +----------------+                +-------------------+
->     | i2c controller |                |      i2c mux      |
->     |     device     |                |      device       |
->     |       ^        |                |                   |
->     |       |        |                |                   |
->     |  dev's parent  |                |                   |
->     |       |        |                |                   |
->     |   i2c adapter  |                | i2c adapter chanX |
->     |     device  <---- dev's parent ------  device       |
->     |   (no driver)  |                |    (no driver)    |
->     +----------------+                +-------------------+
+> Those fw_node consumer/supplier relationships are handled by fw_devlink
+> and are created based on the device-tree parsing done by the
+> of_fwnode_add_links() function.
 > 
-> When an i2c mux device creates an i2c adapter for its downstream
-> channel, a reference is taken to its adapter dev's parent. This parent
-> is the i2c mux upstream adapter device.
+> Those consumer/supplier links are needed in order to ensure a correct PM
+> runtime management and a correct removal order between devices.
 > 
-> No relationship exists between the i2c mux device itself and the i2c
-> controller device (physical device) in order to have the i2c mux device
-> calling i2c_del_adapter() to remove its downtream adapters and so,
-> release references taken to the upstream adapter.
-> 
-> This consumer/supplier relationship is typically a devlink relationship.
-> 
-> Also, i2c muxes can be chained and so, the upstream adapter can be
-> supplied by either an i2c controller device or an other i2c mux device.
-> 
-> In order to get the physical device of the adapter a mux is connected
-> to, rely on the newly introduced i2c_adapter_get_physdev() and create
-> the missing devlink between the i2c mux device and the physical
-> device of the adapter the mux is connected to.
-> 
-> With that done, the i2c mux device is removed before the device
-> handling the upstream i2c adapter (i2c controller device or i2c mux
-> device). All references are released and the i2c_del_adapter() call
-> performed by driver handling the upstream adapter device is not blocking
-> anymore.
+> For instance, without those links a supplier can be removed before its
+> consumers is removed leading to all kind of issue if this consumer still
 
-...
+are removed
 
-> +	/*
-> +	 * There is no relationship set between the mux device and the physical
-> +	 * device handling the parent adapter. Create this missing relationship
-> +	 * in order to remove the i2c mux device (consumer) and so the dowstream
-> +	 * channel adapters before removing the physical device (supplier) which
-> +	 * handles the i2c mux upstream adapter.
-> +	 */
-> +	parent_physdev = i2c_get_adapter_physdev(parent);
-> +	dl = device_link_add(muxc->dev, parent_physdev, DL_FLAG_AUTOREMOVE_CONSUMER);
-> +	if (!dl) {
-> +		dev_err(muxc->dev, "failed to create device link to %s\n",
-> +			dev_name(parent_physdev));
-> +		put_device(parent_physdev);
-> +		ret = -EINVAL;
-> +		goto err_free_priv;
-> +	}
-> +	put_device(parent_physdev);
+OR
 
-Since you are not checking parent_physdev for NULL, the dev_name() can print a
-"(null)" string. Is this by design?
+consumer
+
+> want the use the already removed supplier.
+> 
+> The support for the usage of an overlay from a PCI driver has been added
+> on x86 systems in commit 1f340724419ed ("PCI: of: Create device tree PCI
+> host bridge node").
+> 
+> In the past, support for fw_devlink on x86 had been tried but this
+> support has been removed in commit 4a48b66b3f52 ("of: property: Disable
+> fw_devlink DT support for X86"). Indeed, this support was breaking some
+> x86 systems such as OLPC system and the regression was reported in [0].
+> 
+> Instead of disabling this support for all x86 system, a first approach
+> would be to use a finer grain and disable this support only for the
+> possible problematic subset of x86 systems (at least OLPC and CE4100).
+> 
+> This first approach could still leads to issues. Indeed, the list of
+> possible problematic system and the way to identify them using Kconfig
+> symbols is not well defined and so some system can be missed leading to
+> kernel regressions on those missing systems.
+> 
+> Use an other way and enable the support on x86 system only when this
+> support is needed by some specific feature. The usage of a device-tree
+> overlay by a PCI driver and thus the creation of PCI device-tree nodes
+> is a feature that needs it.
+> 
+> Signed-off-by: Herve Codina <herve.codina@bootlin.com>
+> link: https://lore.kernel.org/lkml/3c1f2473-92ad-bfc4-258e-a5a08ad73dd0@web.de/ [0]
+
+Link:
+
+(mind capitalisation)
+
+Otherwise LGTM, FWIW,
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
 -- 
 With Best Regards,
