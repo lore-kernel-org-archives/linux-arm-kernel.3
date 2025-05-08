@@ -4,74 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B8E3C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 09:58:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 610CCC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 10:01:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yukb6eB/bNng4SAAFttQCTssqyKmGEQDmYHj5WOFoWA=; b=UzdBleXOx96k5Qq5AwfdJOrFUZ
-	yNWPOli0xqnVqcu9xjN+Wo353anwnPpiUUHK5kjapF5lYI1cxlznPVNh0bDeqZdlxcKsihKTT80Ne
-	SF/zzSlYa5+HREZ+vdAUrw0jGph2lHGx8C9zArRwq+AnrlLC+lBQaRIiZhXcQu3ChlOaVb5c3xBCY
-	obcCZPopd0XZAqs6jhptd3a4Hl/xq18EOluUVbPw/wkUWfzy3TqXEj7Ew2Y97KiQlldc3kPh/Escw
-	7LdRUNXQW2KbqdLZxf0XtamGOBiYQn0KYMajGfw5OzYpOJcU9CUrqiyv+Tm0luvOAZxkJH5gKGDN+
-	i1g26Xpg==;
+	bh=aEjJzYsdHCDfg7DEYH2Vg3tOhB12CqNu2FmVJukJ7SE=; b=DC4eIe+HYrXcbkIr4KHP0SIfuU
+	d9xI9+XOigIUIEo1GsFGDhNqNpyFVDIiTFDu+aDsOX2bmKEWPEgSVteKMPXPAJj3o2NKxO2SSiHdz
+	pRfRs8GzYXhyR3L00UTJO9TyeCSzpFvC4jm1bkHRbJEi84w1IHYB9d+pKtE9BgBM5xo2lIGC1KMKR
+	uwmNqk4HSk893BFCvQjGT+tzZ/24PbF0avtMN7VjWFA2c1P18LhBQPORZHG1z+eu/UQyIz4366QV3
+	xGJ06qs1VyqnGDvDUUPDa9wo07v57EHSg4navmTPjJL3V8mbi5K14M8oIca6BiyhCFdLN7EjgiGrw
+	NF2bC5Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCy1C-00000000K29-14EU;
-	Thu, 08 May 2025 09:58:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uCy4M-00000000KJn-2L9H;
+	Thu, 08 May 2025 10:01:34 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCxod-00000000I9G-2UGH;
-	Thu, 08 May 2025 09:45:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 04AF94AC3A;
-	Thu,  8 May 2025 09:45:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0453C4CEE7;
-	Thu,  8 May 2025 09:45:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746697518;
-	bh=Cc1Skj2gto0ryJBoXR8ewyIYTGM/x6xJbXVwlCnskmU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LSX8cTI8/vBABDZQ+rSYj4l9l4Wc8jSRifZt9YcFuePwFbmbajYbhXgA4oE3NGKhe
-	 uWi/ifztGcQTxDHqk0qc/NJsZXS2VYyMEf+uX3YwRJmSGjP6UEMti1pKk1FYVMQ6Xs
-	 bWeL65kOJcfpxSz0R7fnOhA8bOwr5aWMT6D99QL4RlAkW1QQKu0fx/LegWUsgHtdNL
-	 wgVYKKA3ziMeBm+wuNGFc14nlVJuKlEojt89fj9iJDt/tiVzNy5hnNYBNmWTDs5Zsg
-	 zai35rtmGOx0mZBACU/TO/IBhN3qMMUYSK1A7mchf7A0YsKb/juvK7s0/6cB6UmpmH
-	 rAjeMbbwH0+JQ==
-Received: from johan by xi.lan with local (Exim 4.97.1)
-	(envelope-from <johan@kernel.org>)
-	id 1uCxoa-000000000zp-0t46;
-	Thu, 08 May 2025 11:45:16 +0200
-Date: Thu, 8 May 2025 11:45:16 +0200
-From: Johan Hovold <johan@kernel.org>
-To: Qiang Yu <quic_qianyu@quicinc.com>
-Cc: Wenbin Yao <quic_wenbyao@quicinc.com>, catalin.marinas@arm.com,
-	will@kernel.org, linux-arm-kernel@lists.infradead.org,
-	andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org,
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, vkoul@kernel.org, kishon@kernel.org,
-	sfr@canb.auug.org.au, linux-phy@lists.infradead.org,
-	krishna.chundru@oss.qualcomm.com, quic_vbadigan@quicinc.com,
-	quic_mrana@quicinc.com, quic_cang@quicinc.com,
-	Johan Hovold <johan+linaro@kernel.org>,
-	Abel Vesa <abel.vesa@linaro.org>
-Subject: Re: [PATCH v3 5/5] phy: qcom: qmp-pcie: add x1e80100 qref supplies
-Message-ID: <aBx9LB_qQIvA0bj8@hovoldconsulting.com>
-References: <20250508081514.3227956-1-quic_wenbyao@quicinc.com>
- <20250508081514.3227956-6-quic_wenbyao@quicinc.com>
- <aBxpMuFGKgWrw1TV@hovoldconsulting.com>
- <5fd4abe7-3621-4119-9482-de823b247b0d@quicinc.com>
+	id 1uCvjW-000000000Pw-1omx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 May 2025 07:31:55 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3a0b6aa08e5so959167f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 00:31:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746689513; x=1747294313; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=aEjJzYsdHCDfg7DEYH2Vg3tOhB12CqNu2FmVJukJ7SE=;
+        b=G4fm2T6iHLzUb1rqQfZg4B6/NeajtuOO3zOo4m0jULcLa1qoPVolcU4Lp33JB78Cg9
+         msyGN7022/GD1VSAE3wYf0INO5VMK8aS330JmLu0vnKqKIVmqmGSySFfBvOGlkoWpNTF
+         Qkxfq/DgRBd+CNE4ymfXJtehTX6ttAuwBJIGs03xGUctTkHFO7B00hOsbtRFEDddEzxj
+         XclYRrMjOvf5hP+w8GoimylPcAg0FYtDvNjxhJrGHvPbm1eOWEkrpaj6Uzm/jOvErNhy
+         tlaNBCY6R1SNlIY8fbVsgm5sSriU0HZAAT9ClzPhW621z+q6F1+3PRm/UCVtPb30/v4R
+         pRcA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746689513; x=1747294313;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aEjJzYsdHCDfg7DEYH2Vg3tOhB12CqNu2FmVJukJ7SE=;
+        b=ByDl9Ruayhu9gVApdWTFeQayXlQoS5UAx6YiH+sEgFsarwyIdebE58W0073yvtDai8
+         D51QFVrsDM3KC06R5Ir20iZxGd4ApPzBHE6IwGgx/7WCXSfKmwsYweJJ7z9Lol8oqHvv
+         Tt5KS0/hK3JH06nkPpb8CiS0tjyYboKyxC3lkyst3dPgSa/XSa5PdQcFROvNNcJO1NT1
+         whdZEeeQhGiIO9f6hkdKHQuPHVdzysPOgsvQzJx3Lh0KBnAj1+U/CUV8WquoXRp+jILF
+         ErjzZCqQz4kKERmxZUittiV+vEX+kqFjfoUP1v2Nkr6h8RI4MVS+8T3aU74aBZZh7769
+         bSWA==
+X-Forwarded-Encrypted: i=1; AJvYcCV10tPdmg8DAnVikUm2nferqXUiEtT9Jb+mUEkiHR9dw+sKrPDqg3rTMkajSQ2zMrRrdchql6u1X3RrFs9LFPaZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/9VX16REmF9YU7pnu5pwBrcG49gKZgwoeM0YZkqePuMAKDw4r
+	Mmn9DlzBgv18QYgv6cuD10CrAIb29gGc+y4ijgKzJVYb8oOUpn66
+X-Gm-Gg: ASbGncueGIlwc/Re6wXcDJFpQYNrrUdIbgBC3aoEKZCvuYFMe72jpj3dgkcBzdsKgA/
+	souZFYUJamUgZCY1nG8X2GvCAQ0EBMzMY+dsTPM05ID2Go8V96M/mzOrTjP8BkvTVuA6paD7bH3
+	qvwlHkesvr0aIua1zd2xU7MEbfa9poBk8EA5/GnFh2EsIqe78cZGj4IDNCV5zZUOIZcALUTYVwv
+	VScXFbx9VMfkZLzRuw9gLm3WGYAHTSZJCMGiH7hrFIwLRig4sEZ875H4RFmV6lOkUGGZTpbUosA
+	BxXe8hOl4etd/hIup9i/SWV4UhkfL7Ae/bmymBkSjqlBozkmRHU3YDMDUo5E8r+gyIPdJYJ7KcV
+	Z2xOw0jAaNrLM8MTGtRUoGFt8+N8=
+X-Google-Smtp-Source: AGHT+IG1yR4rGhWUtkmkWIDRYUZ1wU83cR5nh3D7k/LMR2j9TYQMYoaizk99YqloQtl2YMEFecyY4g==
+X-Received: by 2002:a5d:59a6:0:b0:3a0:b84d:816f with SMTP id ffacd0b85a97d-3a0b991fa38mr1910968f8f.14.1746689512640;
+        Thu, 08 May 2025 00:31:52 -0700 (PDT)
+Received: from orome (p200300e41f281b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f28:1b00:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a099ae3441sm18991273f8f.26.2025.05.08.00.31.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 May 2025 00:31:51 -0700 (PDT)
+Date: Thu, 8 May 2025 09:31:50 +0200
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 5/8] dt-bindings: memory: Add Tegra264 definitions
+Message-ID: <apxlsl54wyigk7yovtrb2tadhhsad5ti7hdvueisjcdjzfk443@4q3fv6pjaac5>
+References: <20250507143802.1230919-1-thierry.reding@gmail.com>
+ <20250507143802.1230919-6-thierry.reding@gmail.com>
+ <b6d4f40d-9ad2-48c7-a5a1-55b2ebc4e21d@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="e3xoqdmdt4ognzxn"
 Content-Disposition: inline
-In-Reply-To: <5fd4abe7-3621-4119-9482-de823b247b0d@quicinc.com>
+In-Reply-To: <b6d4f40d-9ad2-48c7-a5a1-55b2ebc4e21d@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_024519_648502_F72AC3F5 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20250508_003154_475895_ACEF190D 
+X-CRM114-Status: GOOD (  22.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,55 +100,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 08, 2025 at 04:50:30PM +0800, Qiang Yu wrote:
-> 
-> On 5/8/2025 4:20 PM, Johan Hovold wrote:
-> > On Thu, May 08, 2025 at 04:15:14PM +0800, Wenbin Yao wrote:
-> >> From: Qiang Yu <quic_qianyu@quicinc.com>
-> >>
-> >> All PCIe PHYs on the X1E80100 SOC require the vdda-qref, which feeds QREF
-> >> clocks provided by the TCSR device.
-> > This still looks wrong and you never replied to why these supplies
-> > shouldn't be handled by the tcsr clock driver that supplies these
-> > clocks:
-> >
-> > 	https://lore.kernel.org/lkml/aBHUmXx6N72_sCH9@hovoldconsulting.com/
 
-> Sorry, I thought Konrad had convinced you.
+--e3xoqdmdt4ognzxn
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 5/8] dt-bindings: memory: Add Tegra264 definitions
+MIME-Version: 1.0
 
-IIRC, he just said you guys were told to add the QREF supply to the PHY.
-That's not an argument.
+On Thu, May 08, 2025 at 07:48:22AM +0200, Krzysztof Kozlowski wrote:
+> On 07/05/2025 16:37, Thierry Reding wrote:
+> > From: Thierry Reding <treding@nvidia.com>
+> >=20
+> > This doesn't currently contain any stream ID or memory client ID
+> > definitions, but they will be added in subsquent patches.
+> >=20
+> > Signed-off-by: Thierry Reding <treding@nvidia.com>
+>=20
+> <form letter>
+> Please use scripts/get_maintainers.pl to get a list of necessary people
+> and lists to CC (and consider --no-git-fallback argument, so you will
+> not CC people just because they made one commit years ago). It might
+> happen, that command when run on an older kernel, gives you outdated
+> entries. Therefore please be sure you base your patches on recent Linux
+> kernel.
+>=20
+> Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+> people, so fix your workflow. Tools might also fail if you work on some
+> ancient tree (don't, instead use mainline) or work on fork of kernel
+> (don't, instead use mainline). Just use b4 and everything should be
+> fine, although remember about `b4 prep --auto-to-cc` if you added new
+> patches to the patchset.
+> </form letter>
 
-> If the TCSR driver manages these supplies, would it be possible for tscr
-> driver to recognize when it needs to turn vdda-qref on or off for a
-> specific PCIe port?
+get_maintainers.pl lists 13 people and 7 lists. That's *way* too many
+recipients for something as trivial as this series, in my opinion, so I
+tend to curate the list of recipients manually. I guess I went a bit
+overboard and should've at least listed all DT maintainers explicitly.
 
-Sure, just add a lookup table to the driver and enable the required
-supplies when a ref clock is enabled.
+> > ---
+> >  include/dt-bindings/memory/tegra264-mc.h | 13 +++++++++++++
+>=20
+> Filename based on compatible.
 
-As I mentioned in the other thread, the T14s has the following QREF
-supplies:
+The compatible string for this is nvidia,tegra264-mc, so I don't know
+how much more you'd like me to make it based on that. Do you expect me
+to add the nvidia, prefix? In that case it would be inconsistent with
+all of the 8 other Tegra MC includes that we have in that directory.
 
-	
-	VDD_A_QREFS_1P2_A
-	VDD_A_QREFS_1P2_B
+Thierry
 
-	VDD_A_QREFS_0P875_A
-	VDD_A_QREFS_0P875_B
-	VDD_A_QREFS_0P875_0
-	VDD_A_QREFS_0P875_2
-	VDD_A_QREFS_0P875_3
+--e3xoqdmdt4ognzxn
+Content-Type: application/pgp-signature; name="signature.asc"
 
-and it's not clear how these maps to the various consumer ref clocks,
-including the PCIe ones:
+-----BEGIN PGP SIGNATURE-----
 
-	#define TCSR_PCIE_2L_4_CLKREF_EN
-	#define TCSR_PCIE_2L_5_CLKREF_EN
-	#define TCSR_PCIE_8L_CLKREF_EN
-	#define TCSR_PCIE_4L_CLKREF_EN
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmgcXeYACgkQ3SOs138+
+s6FnRhAAku1QkoTdXibdp5EpZgLKfuxNx35sXUWwmNNtesCln01v1iYHZOaLyb+K
+iwKOk7FgCfezvEJme9J9h3EV/8vIC+yb6mloPJoxTdAhlg3cdNZsoEP6S4DMSsrW
+075z/nHmiDElbmm/SvdI/rKzgLZpIR7AyLSdDPWCPJl37V4C1tjLsBbYvwh1D2Xg
+z4uwCrJxXHgXiK+AS4BD2sHFxJBkbiCjBHAPj1l6aVAs+sEbhryPYHihLaZeDcMr
++5IcuQ5Uh7X+0U83bAPUoi+q0SwELcZA5ZMqnVSEAE/sCjc3Go5umZxXLXD3AevS
+oRRy3bks+flYkWoXNB6+V+Ii2hnUml7OunJglKk0o9aGiUjhabyylYWUv5BnrO+v
+/rLl9m7JdeTU5nywOP+du5ajzss+0LuQokF6ZJ4DcFob+vRrOYIsCUCzvpXvuwiN
+NCf7iDwl1fqG3yHZOI4l1KuwZjsdYQwKaek2U7SxcxuRoerdHPggNJ0i40hBNy6L
+oD8LRRTeblZ1XiIqkLEs4fiMNsANUHtTip11osb8OihjqhF/vHp7xi60vCwLjF2L
+YjQP/NTFeJP+vo8y4R2shkRC34en9Bw6kzQMdHjWRsFHpwJafVVU9Afti16r98eo
+5GnykrXF8WzThPYOT8e+VcJ7OXPwCHNbewJ2x1W3N3opQHbnUJc=
+=FUct
+-----END PGP SIGNATURE-----
 
-That mapping can be done by the TCSR clock driver (which would also take
-care of the 1.2 V supplies).
-
-Johan
+--e3xoqdmdt4ognzxn--
 
