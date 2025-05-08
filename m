@@ -4,63 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 536FCC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 06:58:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C082AC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bs9PflGi/Ubz7dmV9v89iDcbyzTmgAVgqYdP1EZ4A1U=; b=jXDEiao5a5OOYmrdmr1mPu01WB
-	hu6xHNUDzWj5UbsVLes7Mgx3DCocd2Z+hxkVSZrK2FalgDcxlpyoqdXYnkQ0kDpbM8utBNkv89FxP
-	s2xVtUUYScQQHYK+nbu//wPFsdTEdfeuC3+pV9e9zToXeGRzBEuo8kf/pY4PvKc6EnfEVQgjlyugC
-	topA3oo5ZqN+qb+OmpKMxLftumQrmojP9QQhm3eao0OrSub+A+i1Mr+Pnh4jDCH8SKRzu6iL2lmXU
-	vVnukaNgmoiQcQ+iZ7oYuBm+4DTCClRlZUHApftP4WvnjoJh7BsrvbPS1JwLnpNdcU0APbMTuBWoz
-	OAxV3E0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wJTUNLy0okddjqo9hg1QoowbzorUg7cThSVXwp4zARQ=; b=Vz/a+WKyK077h7s94/xASgk9eO
+	BffRKReC3it1Dv5WUhWdC5SDxduh0axC1vRhENBAn6b0XPE464HXEZeJ4VoGuoBVtRixcxzhh735H
+	kRaIZfT9P8uPiwPEsu/exEOGIPvroW+YkfVlgRU9OYxBqaB+UDLEVxCjnvMfs6mUK2bK1FRllB/KT
+	B6Qd065tE3aceT6fASDqK0OTjiiD0vZmR8kAfishOM0pKoInO4vlq4fjf3StkHLEwudHt67or4rop
+	wZxXP8ADMmX3p5Wp2DSm7BEKHlaRDopHC/bc6i2iZroeCpdc91legfo9Eksr29tHKxDUAKwuHM+eR
+	HgS1aVvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvDH-0000000HWjm-3Urk;
-	Thu, 08 May 2025 06:58:35 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uCvFD-0000000HWu1-39lB;
+	Thu, 08 May 2025 07:00:35 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCv7K-0000000HW49-1NaN
+	id 1uCvBn-0000000HWYi-3xzL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 06:52:27 +0000
+	Thu, 08 May 2025 06:57:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 86CEBA4D9E4;
-	Thu,  8 May 2025 06:52:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CBE6C4CEEB;
-	Thu,  8 May 2025 06:52:24 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2A3FDA4D9F3;
+	Thu,  8 May 2025 06:57:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DC12C4CEEB;
+	Thu,  8 May 2025 06:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746687145;
-	bh=tecbk3ac3kzS2flvcrppX2MqqPsn+j7M/ac16YLakR0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BTV1rZSuPPwkbhR8m+X3vtJqwr+OJ2p8ManFhj0/2KhA9YwFLEyv6kqG60V75Sptm
-	 WbcUr0Cv7XZvDOQqHl0O7vh8/Vx4uFqjWDfMZQszNF4w6MIY9pBOydIbKz6M38lH+I
-	 uUYeKba8PCDkW+wmSfgqQxVq/YG5EBHPaZPnJ1++m1mjdzxvKFRcnRAc4a6d5w6rEH
-	 K8Gw2XR+rw169Wqvj3xXNhZgS867Ayom+YElg7bskbT7nmiVfvD7m1A5psQ081xL9R
-	 eHZQjba1O8+7zNpvBfc2putL22EbnKmx6y2oBCo/bhcP/YpC5SPvHodNVGI/xTjxLT
-	 kTz58a4DeVyOg==
-Date: Thu, 8 May 2025 08:52:22 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Bryan Brattlof <bb@ti.com>
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+	s=k20201202; t=1746687422;
+	bh=XB4/b73Zb1WJ9uRN4cXIwLjPTxb343IRITb034Y1ZDw=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=gcBVAZS3zXHPpHX0OWEr4fEPElXsfOQ0i54Poc/ubqqs0mVqiLIOlYYNNWdBKs0SL
+	 Nay3cB0q1C/rCgXOgqF/yIX5TsUUR1DcsEl9eqxxhYa64KYExG+Serc1+5szF3yEIw
+	 ugDgAxLFYigL2vLHrdVqM17tlOeCrUBzWki5cbk7ffNLi/ISIw9LQa8KHp/BoLLv2P
+	 7EcneJ9yuFzjGvUUSkC1H+PmRJmXjw30Ue3jT8cd9xkY7GdcXA1NPaB7ABHWlXKnXA
+	 SIOZT6wnzCavYnf5ugtCmvL7ijGvIT64PtfoTsyXUnlc26Rj3aFkLZ36qRRXOHRaHw
+	 bboaoc2hU0vFw==
+Message-ID: <bd33bfa6-9d31-457d-a1bf-66151e92900b@kernel.org>
+Date: Thu, 8 May 2025 08:56:58 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v5 2/3] arm64: dts: ti: k3-am62l: add initial
  infrastructure
-Message-ID: <20250508-illegal-caracara-from-hyperborea-b77eda@kuoka>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Bryan Brattlof <bb@ti.com>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 References: <20250507-am62lx-v5-0-4b57ea878e62@ti.com>
  <20250507-am62lx-v5-2-4b57ea878e62@ti.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250507-am62lx-v5-2-4b57ea878e62@ti.com>
+ <20250508-illegal-caracara-from-hyperborea-b77eda@kuoka>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250508-illegal-caracara-from-hyperborea-b77eda@kuoka>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_235226_432700_4AA9BDD1 
-X-CRM114-Status: UNSURE (   7.45  )
+X-CRM114-CacheID: sfid-20250507_235704_120759_13B1A79D 
+X-CRM114-Status: UNSURE (   9.18  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,27 +123,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 07, 2025 at 10:09:20PM GMT, Bryan Brattlof wrote:
-> +
-> +	uart6: serial@2860000 {
-> +		compatible = "ti,am64-uart", "ti,am654-uart";
-> +		reg = <0x00 0x02860000 0x00 0x100>;
-> +		interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>;
-> +		power-domains = <&scmi_pds 82>;
-> +		clocks = <&scmi_clk 322>;
-> +		clock-names = "fclk";
-> +		status = "disabled";
-> +	};
-> +
-> +	conf: syscon@9000000 {
-> +		compatible = "syscon", "simple-mfd";
+On 08/05/2025 08:52, Krzysztof Kozlowski wrote:
+> On Wed, May 07, 2025 at 10:09:20PM GMT, Bryan Brattlof wrote:
+>> +
+>> +	uart6: serial@2860000 {
+>> +		compatible = "ti,am64-uart", "ti,am654-uart";
+>> +		reg = <0x00 0x02860000 0x00 0x100>;
+>> +		interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>;
+>> +		power-domains = <&scmi_pds 82>;
+>> +		clocks = <&scmi_clk 322>;
+>> +		clock-names = "fclk";
+>> +		status = "disabled";
+>> +	};
+>> +
+>> +	conf: syscon@9000000 {
+>> +		compatible = "syscon", "simple-mfd";
+> 
+> Not much improved here. You cannot have such compatibles alone and the
+> bindings test this.
+> 
+> Are you sure you tested this?
+I now tested it and I am 100% sure you did not.
 
-Not much improved here. You cannot have such compatibles alone and the
-bindings test this.
-
-Are you sure you tested this?
+Use tools and computers instead of humans for finding trivial issues.
+This is not really acceptable.
 
 Best regards,
 Krzysztof
-
 
