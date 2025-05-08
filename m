@@ -4,96 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54D89C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 12:36:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4202C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 12:40:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F6fnSSy58jOAFukWndBiel7ol37QH7BTey2iymzdWF8=; b=B6+4+qmwkBv4+nJNlg3oW9Jxwm
-	WREYyEvR1/H6nMIcpIzEKFiCz1STfm35xbf04Uoy4UJ7kwXd1tdjopqVXfdR4yRTqPX+zzJIfhfH2
-	6h5Wu4Bik3Xf80zHCnOti2UqtWb1zgrb2Mo3XY7ec+W2Y6O+vkngIdKMOtYVrcw6tLIq7TtZx49vU
-	C83fp+WPzFEN5ZnMRINvIY607PjCtv/xT9EQz7DyTkCY/zyPKpnYipn1INC9mSRFO2YfdLFpTt1EV
-	GkFuL9wR70UNqXWjXemMars1yt32w2+UOwm6WemhtE3skOwNU8UVQQrxN34lkf2lGmVxUKwa0ADPZ
-	V8e/tcHQ==;
+	bh=OFL6LCOiCuB4AhqO2WO2qSyMds3tZvVGSAG8TlD6fm8=; b=3I4Iihcit3TR4CsWSfppd/8syn
+	zzKjoNSK5inOdvNx5Hb3oIzZbNWdZ/TbZBNUbtB14vFwAFAe9MqeMdm+Imeq846xV4P1vI0g+MFLy
+	k/kh49wgL7tGdwQisnqtewL0I/vf+WhNmCljFwoHheEc/nL+PZYoZyvra5YHnj+S1Hl7h8i5uooc2
+	x2JuqRtsodvxMrxEfYa0p3cMIZpgGOklOWtEOuk+bcIr6M8COgYuax8aLrU6nnA3Hsbn2y6aM9Tzs
+	hkM7dY+HBXv1bZ58Vz2e1fkiObhe5yUDXotSswivg7SiOvoYJOjLnnSDv7FrhW9E1RGmCtkloKcNr
+	SU6L9UzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0U9-00000000d7R-1SzX;
-	Thu, 08 May 2025 12:36:21 +0000
+	id 1uD0Y0-00000000de4-1HIo;
+	Thu, 08 May 2025 12:40:20 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0SC-00000000cvU-1u7T
+	id 1uD0Tt-00000000d3k-1LGm
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 08 May 2025 12:34:20 +0000
+	Thu, 08 May 2025 12:36:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=F6fnSSy58jOAFukWndBiel7ol37QH7BTey2iymzdWF8=; b=kf13EbWY6nH4CTEek+1j5W9LPU
-	Ii1asVxCwHGQqQ6tnUmLzPxmhOh6b5yvgiY/u5L5dDBB5zvF/1Bs0+Rls4tfUpmO4uXfjQjpfup9n
-	Gz0nwYNg75iicrSK1tEhosqnimOiDivw6M5n6NOTotHrQU959Dwfvdg18UCz1SF0LxvMDU4oVopX4
-	3mOJAcY605tC9kW1oXugSTH9hMEI7dRI6V6murdEau0C+iCuxRQaud6fw5YMiXPBPCHbNtXFodXuA
-	wSRrT/p7iJPAKbdpJ2zEqZSa5LBnERRRkqfCxJbLKHLeb5HrBsXrZRzjRo4ykWEaGEwxaYJsn8DOT
-	GLyJS6KQ==;
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	bh=OFL6LCOiCuB4AhqO2WO2qSyMds3tZvVGSAG8TlD6fm8=; b=QC6L597cFlols2r+npdUtzPAs/
+	7lxtW/c4v+OMtAz5LfpJkNzo1w4Mj6A4pxW/OhcFBLOk/KX1C9n5F6ew6ECBQU2/7ARegmICPmuKT
+	0uy/uOKBntwA2Ou2M0MvV3sXA98F0TeZ7g6qCynmfM+6V4jMjTKeMP5P/swNeIon3tiOnFcMNMInt
+	iSwoQiZvAl6JPBRQoWHUBFpAsbMh24mzhJF2pURtjgbfmao71tLzxF3V+aQmXvHfQ6VqrZyjWNUqo
+	Bkxv4ddLmd1v9HdsybpmZesNmTnI0w2cdf729IhUK2Z1j7fTbfS13GYJdgzYdRiz4kFSV1b+7LgRS
+	352egh6w==;
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uD0S8-0000000G2Pt-3UrG
+	id 1uCzfF-0000000G1mf-2tNH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 12:34:19 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 548CXx4r1861770
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 8 May 2025 07:33:59 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746707639;
-	bh=F6fnSSy58jOAFukWndBiel7ol37QH7BTey2iymzdWF8=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=aTp1UTED+pWJfvS+7BSiGkIivvMcMQWkiuK0Kl5Jp9gYgzAZPNjmnqYX1qHFxQQqi
-	 qq7F2x12jl4TZCIbxL5oJnAj4IGVvhlB0teEt41gBXTLQX8TF20X+piNubcEfDm421
-	 XGi1G04H4cNdWx2KHbAW+ind4Fb3NapywNq9A3LM=
-Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 548CXxuG034750
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 8 May 2025 07:33:59 -0500
-Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 8
- May 2025 07:33:59 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 8 May 2025 07:33:59 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 548CXx0T075359;
-	Thu, 8 May 2025 07:33:59 -0500
-Date: Thu, 8 May 2025 07:33:59 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Bryan Brattlof <bb@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 2/3] arm64: dts: ti: k3-am62l: add initial
- infrastructure
-Message-ID: <20250508123359.k72q4u45wzms7uaw@handpick>
-References: <20250507-am62lx-v5-0-4b57ea878e62@ti.com>
- <20250507-am62lx-v5-2-4b57ea878e62@ti.com>
- <20250508-illegal-caracara-from-hyperborea-b77eda@kuoka>
- <bd33bfa6-9d31-457d-a1bf-66151e92900b@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <bd33bfa6-9d31-457d-a1bf-66151e92900b@kernel.org>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+	Thu, 08 May 2025 11:43:47 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-442cdf07ad9so3801845e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 04:43:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1746704623; x=1747309423; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=OFL6LCOiCuB4AhqO2WO2qSyMds3tZvVGSAG8TlD6fm8=;
+        b=nwf8AoPkkCktauf9ofroKCHLGtlufrjRtKLX9Ly9R5vYTPqZ8gWulM1nZgxte1dAa+
+         RheHtX5kfoQkQZHWak8iQGbehb52/e9vidvv/LPR/gNAEViz8Pi93um3IkNm6f+Z0qZm
+         oiLI9ytfGT1W416PQrYe00T/KxKcKRqgf+ZqnsIG3eMS0ihIWdaIz9dfVn2C5CzNs5nr
+         g2Ya0ytwC0gh/bXFRSCoVUfAHpy9l1fg/bTPCE/xDudheWfwBN94Os/XMFTVPC7xo3h2
+         US6kGetOq2WbaGZafDsY0NY2zf+vDloKMpsRIuyt+qJb40McQy7+NAVepgsxZaZ3m1EC
+         uAwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746704623; x=1747309423;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OFL6LCOiCuB4AhqO2WO2qSyMds3tZvVGSAG8TlD6fm8=;
+        b=k2TlG5W8WJsGr5CNa4N8QiI8VpUFDoazBMSaxaQPSY5xXnwYmQufpQWEAZnuJ2WNS8
+         XO3ydPdmc1ty3XbxwNWPAxZcHK/RgJ2nBD9DXaPW6+Rz62u8S8lZl6d0Jtxix++aOC9r
+         srklHB+0fNYapuiudkXlez7EQgZRkIPdARnqpnwNmP+cNojqlXU1gQ08BvoQnD+sEvT1
+         fWC3j3uMA0my6XGgMWQJYSmFwQg1kZVinyhtBVCFPQzLXC8uvBkmZ666f9Rv9oBeb/tD
+         R6TcO7gv4pmDSsOEAzEaN6YNtaNsHxI/K1cGRNSzBoFuSBTlJyp/x2vmpvmtH/6eMPtY
+         cbAQ==
+X-Gm-Message-State: AOJu0YzgXXs65PFiTxaXz/Axop1Ner4bjhyw3LLjogNvCNE9bbYW4G5C
+	qI2Htn2hmgDad6bMU095KfY0x5+FFNNcWtbGDaS/JElZNXgZdYzaLu0gbjWWHS597hBq5qaiBtV
+	BQsuiiCpQVIDILkFSW+//+j+wbyeJIyD7IDm9jjZS/OY+slvm/xZP1eiZzbtECz9HCHU2C7B7Fv
+	3e6oTfzv6k6jLJjnSQHj6AU4oL2SQ+aNIQxEpiAxJK
+X-Google-Smtp-Source: AGHT+IHhgjjPcSzSlIvKKbGxCHF4/xh5ayQlKt49bS4/7hxPqwU88888d3Bex6M06x7UUFIZSSVblKdy
+X-Received: from wmbem23.prod.google.com ([2002:a05:600c:8217:b0:441:b661:2d94])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:3d13:b0:43c:f3e4:d6f6
+ with SMTP id 5b1f17b1804b1-441d44e3660mr72820155e9.31.1746704623167; Thu, 08
+ May 2025 04:43:43 -0700 (PDT)
+Date: Thu,  8 May 2025 13:43:32 +0200
+In-Reply-To: <20250508114328.2460610-5-ardb+git@google.com>
+Mime-Version: 1.0
+References: <20250508114328.2460610-5-ardb+git@google.com>
+X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4218; i=ardb@kernel.org;
+ h=from:subject; bh=j8k/j5lLwOtOO5g2RunsS1a0UPrHZPgoaoPHRVCj0HU=;
+ b=owGbwMvMwCFmkMcZplerG8N4Wi2JIUNmxtNDLXyH4vbP5Hn2N3xteLLlH9mFD+alrm7kKly3W
+ eLd4e+rO0pZGMQ4GGTFFFkEZv99t/P0RKla51myMHNYmUCGMHBxCsBEbi9lZGh+6vuo8tplgY66
+ 2R3/RSr/Fy7eV5byx/cO7yFOxgb98iWMDHdPm57KuGFZE86venruP3lRDoPFOk/SGjfantBpO/x /FxcA
+X-Mailer: git-send-email 2.49.0.987.g0cc8ee98dc-goog
+Message-ID: <20250508114328.2460610-8-ardb+git@google.com>
+Subject: [PATCH v2 3/3] arm64/boot: Disallow BSS exports to startup code
+From: Ard Biesheuvel <ardb+git@google.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com, 
+	mark.rutland@arm.com, Ard Biesheuvel <ardb@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_133417_319249_6B36BEE3 
-X-CRM114-Status: GOOD (  16.79  )
+X-CRM114-CacheID: sfid-20250508_124345_936990_67B6E656 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,54 +110,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08:56-20250508, Krzysztof Kozlowski wrote:
-> On 08/05/2025 08:52, Krzysztof Kozlowski wrote:
-> > On Wed, May 07, 2025 at 10:09:20PM GMT, Bryan Brattlof wrote:
-> >> +
-> >> +	uart6: serial@2860000 {
-> >> +		compatible = "ti,am64-uart", "ti,am654-uart";
-> >> +		reg = <0x00 0x02860000 0x00 0x100>;
-> >> +		interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>;
-> >> +		power-domains = <&scmi_pds 82>;
-> >> +		clocks = <&scmi_clk 322>;
-> >> +		clock-names = "fclk";
-> >> +		status = "disabled";
-> >> +	};
-> >> +
-> >> +	conf: syscon@9000000 {
-> >> +		compatible = "syscon", "simple-mfd";
-> > 
-> > Not much improved here. You cannot have such compatibles alone and the
-> > bindings test this.
-> > 
-> > Are you sure you tested this?
-> I now tested it and I am 100% sure you did not.
-> 
-> Use tools and computers instead of humans for finding trivial issues.
-> This is not really acceptable.
+From: Ard Biesheuvel <ardb@kernel.org>
 
-Agree.
+BSS might be uninitialized when entering the startup code, so forbid the
+use by the startup code of any variables that live after __bss_start in
+the linker map.
 
-Bryan,
-In addition to bisect fails in this series, I see the following
-dtbs_check errors:
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+---
+ arch/arm64/kernel/image-vars.h  | 62 +++++++++++---------
+ arch/arm64/kernel/vmlinux.lds.S |  2 +
+ 2 files changed, 35 insertions(+), 29 deletions(-)
 
-arch/arm64/boot/dts/ti/k3-am62l3-evm.dtb: serial@0: clock-names:0: 'fclk' was expected
-arch/arm64/boot/dts/ti/k3-am62l3-evm.dtb: spi@fc40000: '#address-cells' is a dependency of '#size-cells'
-arch/arm64/boot/dts/ti/k3-am62l3-evm.dtb: syscon@43000000: compatible: ['syscon', 'simple-mfd'] is too short
-arch/arm64/boot/dts/ti/k3-am62l3-evm.dtb: syscon@9000000: 'reg' is a required property
-
-I suggest doing a revisit of this for the next window.
-
-PS: https://github.com/nmenon/kernel_patch_verify is a tool I use and
-maintain which might help alleviate some of the easy checklist items -
-but this is probably not an authoritative tool and making sure, but if
-it helps you, please do use it - it is containerized for easy env setup
-(you could run kpv -V -C -L -3 for example on this series and get this:
-https://gist.github.com/nmenon/83f7e6924539d1c7e2eb6c5a4ee82706 )
-
+diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
+index c3b4c0479d5c..a928e0c0b45a 100644
+--- a/arch/arm64/kernel/image-vars.h
++++ b/arch/arm64/kernel/image-vars.h
+@@ -10,6 +10,12 @@
+ #error This file should only be included in vmlinux.lds.S
+ #endif
+ 
++#define PI_EXPORT_SYM(sym)		\
++	__PI_EXPORT_SYM(sym, __pi_ ## sym, Cannot export BSS symbol sym to startup code)
++#define __PI_EXPORT_SYM(sym, pisym, msg)\
++	PROVIDE(pisym = sym);		\
++	ASSERT((sym - KIMAGE_VADDR) < (__bss_start - KIMAGE_VADDR), #msg)
++
+ PROVIDE(__efistub_primary_entry		= primary_entry);
+ 
+ /*
+@@ -36,37 +42,35 @@ PROVIDE(__pi___memcpy			= __pi_memcpy);
+ PROVIDE(__pi___memmove			= __pi_memmove);
+ PROVIDE(__pi___memset			= __pi_memset);
+ 
+-PROVIDE(__pi_id_aa64isar1_override	= id_aa64isar1_override);
+-PROVIDE(__pi_id_aa64isar2_override	= id_aa64isar2_override);
+-PROVIDE(__pi_id_aa64mmfr0_override	= id_aa64mmfr0_override);
+-PROVIDE(__pi_id_aa64mmfr1_override	= id_aa64mmfr1_override);
+-PROVIDE(__pi_id_aa64mmfr2_override	= id_aa64mmfr2_override);
+-PROVIDE(__pi_id_aa64pfr0_override	= id_aa64pfr0_override);
+-PROVIDE(__pi_id_aa64pfr1_override	= id_aa64pfr1_override);
+-PROVIDE(__pi_id_aa64smfr0_override	= id_aa64smfr0_override);
+-PROVIDE(__pi_id_aa64zfr0_override	= id_aa64zfr0_override);
+-PROVIDE(__pi_arm64_sw_feature_override	= arm64_sw_feature_override);
+-PROVIDE(__pi_arm64_use_ng_mappings	= arm64_use_ng_mappings);
++PI_EXPORT_SYM(id_aa64isar1_override);
++PI_EXPORT_SYM(id_aa64isar2_override);
++PI_EXPORT_SYM(id_aa64mmfr0_override);
++PI_EXPORT_SYM(id_aa64mmfr1_override);
++PI_EXPORT_SYM(id_aa64mmfr2_override);
++PI_EXPORT_SYM(id_aa64pfr0_override);
++PI_EXPORT_SYM(id_aa64pfr1_override);
++PI_EXPORT_SYM(id_aa64smfr0_override);
++PI_EXPORT_SYM(id_aa64zfr0_override);
++PI_EXPORT_SYM(arm64_sw_feature_override);
++PI_EXPORT_SYM(arm64_use_ng_mappings);
+ #ifdef CONFIG_CAVIUM_ERRATUM_27456
+-PROVIDE(__pi_cavium_erratum_27456_cpus	= cavium_erratum_27456_cpus);
+-PROVIDE(__pi_is_midr_in_range_list	= is_midr_in_range_list);
++PI_EXPORT_SYM(cavium_erratum_27456_cpus);
++PI_EXPORT_SYM(is_midr_in_range_list);
+ #endif
+-PROVIDE(__pi__ctype			= _ctype);
+-PROVIDE(__pi_memstart_offset_seed	= memstart_offset_seed);
+-
+-PROVIDE(__pi_swapper_pg_dir		= swapper_pg_dir);
+-
+-PROVIDE(__pi__text			= _text);
+-PROVIDE(__pi__stext               	= _stext);
+-PROVIDE(__pi__etext               	= _etext);
+-PROVIDE(__pi___start_rodata       	= __start_rodata);
+-PROVIDE(__pi___inittext_begin     	= __inittext_begin);
+-PROVIDE(__pi___inittext_end       	= __inittext_end);
+-PROVIDE(__pi___initdata_begin     	= __initdata_begin);
+-PROVIDE(__pi___initdata_end       	= __initdata_end);
+-PROVIDE(__pi__data                	= _data);
+-PROVIDE(__pi___bss_start		= __bss_start);
+-PROVIDE(__pi__end			= _end);
++PI_EXPORT_SYM(_ctype);
++PI_EXPORT_SYM(memstart_offset_seed);
++
++PI_EXPORT_SYM(swapper_pg_dir);
++
++PI_EXPORT_SYM(_text);
++PI_EXPORT_SYM(_stext);
++PI_EXPORT_SYM(_etext);
++PI_EXPORT_SYM(__start_rodata);
++PI_EXPORT_SYM(__inittext_begin);
++PI_EXPORT_SYM(__inittext_end);
++PI_EXPORT_SYM(__initdata_begin);
++PI_EXPORT_SYM(__initdata_end);
++PI_EXPORT_SYM(_data);
+ 
+ #ifdef CONFIG_KVM
+ 
+diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
+index 466544c47dca..e4a525a865c1 100644
+--- a/arch/arm64/kernel/vmlinux.lds.S
++++ b/arch/arm64/kernel/vmlinux.lds.S
+@@ -319,6 +319,7 @@ SECTIONS
+ 
+ 	/* start of zero-init region */
+ 	BSS_SECTION(SBSS_ALIGN, 0, 0)
++	__pi___bss_start = __bss_start;
+ 
+ 	. = ALIGN(PAGE_SIZE);
+ 	__pi_init_pg_dir = .;
+@@ -332,6 +333,7 @@ SECTIONS
+ 	. = ALIGN(SEGMENT_ALIGN);
+ 	__pecoff_data_size = ABSOLUTE(. - __initdata_begin);
+ 	_end = .;
++	__pi__end = .;
+ 
+ 	STABS_DEBUG
+ 	DWARF_DEBUG
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+2.49.0.987.g0cc8ee98dc-goog
+
 
