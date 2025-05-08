@@ -4,161 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DBFBC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 12:46:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 054AAC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 12:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NtMcWXJCK0e/ka1KtPUIm70zDz5/jtIthhjM36SQHvg=; b=4X/yfE6J+k9JAKifgj6l53AJSi
-	TuJKzk+7Y/QAlEoGUxfuwUNUxDmq2cz4I72ZTfiNsNHMeiJlJD8DFSuSXq8K5hLi2ATo3dkaIfCpH
-	VA7RwTjHSiG8YEnfZAfK09bh/u+D5Na12LYIpAASlOl7yA5VxQxd/bkKYGoLR8qSNpbSKvlkmtQCU
-	KUFXdhDTLkgNI0vdonagNGNsM2bnlogsnL5Qa8/a6Af04iJ0cPWZEKYSkSLm2kllJcZZ16ZtUGnq4
-	C/v9U5NZdsfMcZgJt2rc6eRLYSr6srSSp7xkqW2iGovnkpKqSIQuCXLOCUYvultroGcn+sZ4nbXuT
-	Im3Ueekg==;
+	bh=FfaMOjFCxtcOF8MhEpb1KgHLIQZnLvXhrX8KE+Reg/I=; b=p3WGw8yCVy8kMie2rPMs99yT6e
+	ZaoERaWdN+SNE4TjCyOdgixoWn6SwstChWvCjVzJnW6YSc04YQ2/vT8hPmFMVau+ghkd5E/tOvE/G
+	ooFoiAwOZeJHhizKAGQACnQi5sf8Qhew3iSPzrytQIB0Y/+e9UHEQ7WueQfLuReHGG8uoOffUMOLA
+	Q6SHGQSCvJTYW+Hw9NLS2EYyZ6HySSbEnYA8YIBnPW3MgeSYaXqe62JYHcuvcLAzZFayLhIvstWr9
+	1Qh/Xl16wj+P05S1a2oUmuuabEXhTDDI4yrp2/oCFRQSugcG3ipXMACbQpJsLc3k0jYZhlW+OK4Iw
+	dBUSmdGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0dn-00000000efQ-1vRn;
-	Thu, 08 May 2025 12:46:19 +0000
-Received: from mail-westeuropeazon11010064.outbound.protection.outlook.com ([52.101.69.64] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1uD0fi-00000000ezj-2qt8;
+	Thu, 08 May 2025 12:48:18 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0Ty-00000000d4P-3vLZ
+	id 1uD0YX-00000000diu-40Rh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 12:36:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FOf1fs03f259u4VoDcHs7kPMr5NwlZ6E4bxwSyDwk1XzimJEiBUSqq8pla68yKWqRSZwdPSm6eKj0AGDXAvAXrbzVMrBcdLTOXm38t/A5IlOmOVl5yImBz0GXw5GjkXEGvo05efboA8K1KR/TEOGPaVgDyIeIFzAhm4Ctn+oWmCEq/fFomr85EX+wpPKpSDGt7V9qmIHZkf7PRxTG+r5gXQwwFRtkDFZd9zXE3GjhT0YBjNlTeSVjKvqV6l0mlmro975gT1P1tVAdPmxorVZv+acajTQGvFiT0lEgmx98p2BBYMMC0utgSGSB/wN7FBXQa0WWFXXVhnfSmcNOILRQg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NtMcWXJCK0e/ka1KtPUIm70zDz5/jtIthhjM36SQHvg=;
- b=whD2xuJzmUmFPR+cIKq8KTddWyygWjHYHwbEkk0ypDBg95i72Sr62gGqKpGbWqgH5kgYEL6JFh2ABBtlsQoOz09Tl94S08pYDYu5xdzy8mnwEQjG8oaXWE0BYPKRfIgpBIZ7nU2CnSDiLlRS2jgdJb96R+VLZmQUH8Y3V0e+J/+xywv9zm+fib9akpoyFdyJbIBVz+giVcOstSl9Jp9/TpVZcdpIien7NyZVce91uS7EdSxEgmyIRaudVPqMM1cDvqtUAIrQoMJJfCivqzT0+YMLq5MowlXQL7UCMeoXL0Gm5SDVyIaGCtD6K1RQQZUXl6dYWQPyRXc6xa2+zlOoeQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NtMcWXJCK0e/ka1KtPUIm70zDz5/jtIthhjM36SQHvg=;
- b=nv3uG+NRUvGlMJdn8o3LU3NIy8c0fMYwbEC1KBFFhCS1byruA/9BdIhU24nz+9OqmNE8HBGI8d2asYVipvvlGuWneSoCnWIz4Q3gqmQSIkVUyZ1jus9V5esy48aIGennGI1YxEt8Ej38NV4wo6hIhkp+jcGf4kUqim+j+ATw21ijZ4TAELsEFfH/SWm1gNfGXJ+s1zz8Z+PYISW2BWlcayuMAjxu+efD5IyMJqI++36ITXjnltmaR8WMSpDGI8j+diIJARLurwqjzpg/+khKZkRcA4SA4Spf2qFRDLJ9IMP4i2LtJjB3s5LE1jkV9DD7reeWUl5UI4LgIc4LjMUc7Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DU4PR04MB10839.eurprd04.prod.outlook.com (2603:10a6:10:592::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.29; Thu, 8 May
- 2025 12:36:05 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8699.033; Thu, 8 May 2025
- 12:36:05 +0000
-Date: Thu, 8 May 2025 08:35:53 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Robert Chiras <robert.chiras@nxp.com>,
-	"Guoniu.zhou" <guoniu.zhou@nxp.com>
-Subject: Re: [PATCH v4 04/13] media: nxp: imx8-isi: Use
- devm_clk_bulk_get_all() to fetch clocks
-Message-ID: <aBylKcZyFInlKQAR@lizhi-Precision-Tower-5810>
-References: <20250408-8qxp_camera-v4-0-ef695f1b47c4@nxp.com>
- <20250408-8qxp_camera-v4-4-ef695f1b47c4@nxp.com>
- <20250421211438.GN17813@pendragon.ideasonboard.com>
- <aBQZjFsExJh2uRfK@lizhi-Precision-Tower-5810>
- <20250502155747.GB20093@pendragon.ideasonboard.com>
+	Thu, 08 May 2025 12:40:55 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5fc003315dcso150539a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 05:40:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746708052; x=1747312852; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=FfaMOjFCxtcOF8MhEpb1KgHLIQZnLvXhrX8KE+Reg/I=;
+        b=Ax1LqiRwuaCPX2MTiHwW/SsYknjRWUub1aG0bxdxi/VOhYG29vKaUgX2dL2VwLk2Nw
+         OWuGVBy4RE+f5/l+pUrKreG4Fasb+i7M2XZv5nehOiDFIIR0j244zzBgGR+gJmm0LoM9
+         EBIw3C8JM3aVVXfCPCYCugdkyj4KU82umP4TEWMeRgWmnUg8rqM6F0XYXg8zbK2MxC4+
+         VmGqpHkvL6ClhaT/0XFR9mYcbg7ZXkpVWub1XUyblECp+uRY/+RKRu9fCLzUCmowkVHE
+         UopKDGIKxZwUYrbCsMxWIBWEBONSCqBAZIl0fZdVbqlWcN+LR8s927emMHuIFhlqIdx/
+         u/Qw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746708052; x=1747312852;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FfaMOjFCxtcOF8MhEpb1KgHLIQZnLvXhrX8KE+Reg/I=;
+        b=OCZXI+4hgunDEKEb2YGQlLGAYrCWryIKFP4zVOWHkooyAtLt0JCHZG+T/5uO1Kk6dx
+         Sb4xPHc9bhDhTYnW3pTXnNlev7pXviBxAUKm1lQgaT0C3YPz6+5H87juiCgqQ8hi53Et
+         Qy4I2dhS9N6V3ticnRaWcBjnAKd/q5RrTbphRS8mIgH2FalHGM7xww143RpZ7VKJADoH
+         hpVoBaGV4sdzj3rZ3bUJpoB1AM1FncH4F4W4TWKwANHGpsDyDfD/+KdSwIlFBsrGEnoz
+         M/uSjyiPWZ+EfdIjmiLBsHFetzLaCJdu0DUkKxUXFFjeIB9t3xsogK+3J0wvCTfUkUkP
+         mjbQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV0KibUYVvnqqT4yYLVWUeCWDMzZvJL2d4JFN3ca8whmvWSOyU3g727rv5CZYUrAqiN+P4M/TuEfIZB5Jbj3HCp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxna2e37vR/nAqIwlgym9alSeO86esBweBXXqHGII71M/mwHCQR
+	phbvFuZHsjVpizSwvyA+0pkQhWPhUgQW630nTJhLAEObEji2ZcS+
+X-Gm-Gg: ASbGncszUwOUP8Cx3RAVWirqLaD5oVHZ2XgIjrKmaX+lmv2u63vW6xgO85C5Idj4Pbb
+	qKaARBRdfchyhHfummV2v8cClFkifIe0INSX55nFQCZgZD8RFGaBBkebH3RvZt/Ia5rO3GjUvVU
+	YdtAjO7Y7cwPslZEaaj7cdSB/vwhWwsNNPVy2zyeazt7ehCv30c21A02CAeLl+WaEd8e7QYie7w
+	+QN9t6J6rTSIcu9iWI222ejlooesOMUsX8Z1c4G/BA7JFe9XhxWNHCyKR4dnNKDpPMH5m7fLEL6
+	Tyb6ikF+VRvIwCiCUrgBfbokOtC9
+X-Google-Smtp-Source: AGHT+IFmPs/2aiiB0+rhM6F30MuvsarGsibw9G89lQ2xc3LVHmTRux9M5oIqfkwsO5WMCG0k9AZPCw==
+X-Received: by 2002:a05:6402:278d:b0:5f9:2a29:543b with SMTP id 4fb4d7f45d1cf-5fbe9e329e6mr2233823a12.5.1746708051532;
+        Thu, 08 May 2025 05:40:51 -0700 (PDT)
+Received: from skbuf ([188.25.50.178])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5fa777c8b70sm11517512a12.29.2025.05.08.05.40.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 May 2025 05:40:50 -0700 (PDT)
+Date: Thu, 8 May 2025 15:40:47 +0300
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Jason Xing <kerneljasonxing@gmail.com>
+Cc: Horatiu Vultur <horatiu.vultur@microchip.com>, irusskikh@marvell.com,
+	andrew+netdev@lunn.ch, bharat@chelsio.com, ayush.sawal@chelsio.com,
+	UNGLinuxDriver@microchip.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	horms@kernel.org, sgoutham@marvell.com, willemb@google.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	Jason Xing <kernelxing@tencent.com>
+Subject: Re: [PATCH net-next v1 4/4] net: lan966x: generate software
+ timestamp just before the doorbell
+Message-ID: <20250508124047.xyhrabkxsbhceujv@skbuf>
+References: <20250508033328.12507-1-kerneljasonxing@gmail.com>
+ <20250508033328.12507-5-kerneljasonxing@gmail.com>
+ <20250508070700.m3bufh2q4v4llbfx@DEN-DL-M31836.microchip.com>
+ <CAL+tcoCuvxfQUbzjSfk+7vPWLEqQgVK8muqkOQe+N6jQQwXfUw@mail.gmail.com>
+ <20250508094156.kbegdd5vianotsrr@DEN-DL-M31836.microchip.com>
+ <CAL+tcoBrB05QSTQjcCS7=W3GRTC5MeGoKv=inxtQHPvmYcmVyA@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250502155747.GB20093@pendragon.ideasonboard.com>
-X-ClientProxiedBy: SJ0PR13CA0114.namprd13.prod.outlook.com
- (2603:10b6:a03:2c5::29) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU4PR04MB10839:EE_
-X-MS-Office365-Filtering-Correlation-Id: 787abecc-8afa-47f9-ee05-08dd8e2ce63e
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?SCV3jPqLGzpmsdGxoPTjdg99Hm/hN1Uv+qq7fcu7PPdVvSaCZRgKdz4JTJU2?=
- =?us-ascii?Q?P/vmHlrUZku+GKgAmxZ8+KjlLWktzjv61jvBwINqbRCpUbHpStUdRkTq/dBk?=
- =?us-ascii?Q?+rYAPLZe/n0ltu9f9Dsl9Lv1BkmrSo2hCIlxCP+Ia/d6qV0nUgwd5M64UqPl?=
- =?us-ascii?Q?Dbcn2P2QA4P8QeND7NPkLOgqtDmjCTceNjDk0tsAbXMlFppfomk4GYWAz0ZW?=
- =?us-ascii?Q?Tmilp+mtBMYJqjEN72Q6NHANYQjozIaV1GXyyXmIBRORq6zYCDRLdH17kINu?=
- =?us-ascii?Q?CV7oOlZY4XYXkOoYiEPC6C+OU2//455sdEkDItUSlAMU90d7FLyfOH4gvSFd?=
- =?us-ascii?Q?UDNma50HDGQ1UMQbbH4MQc3TeeRPsU3AmuCi5ItDBuH/T6ULHQfJ14dAGptO?=
- =?us-ascii?Q?YHul0BgPLykZN/b7BDBS5H6InWmp+2apX/ogk5RKCg3Ig8Ujie+yba8h22fR?=
- =?us-ascii?Q?iEMJHtFKmGWKr8vIQ4tIEiLhthfptjs4LOtSs8U8zHQOSIw7Q3rPfTkx+qFT?=
- =?us-ascii?Q?thePQeo2cCc0RDaQe0JaO+7XkDaA71YscgLnldiGAoCeHUHPzXJYvpzWcT09?=
- =?us-ascii?Q?eop4FdjZ2+aVT295hvw82vR2XMWYSym8ImHl1ytNf3AUVTo7tzfl9aLIbDr9?=
- =?us-ascii?Q?4usbZJQPdGUsGTmyMFhaVO0kef8nTjPXjn2wtVJqTtyx6k0s4HM2QCT36Iyt?=
- =?us-ascii?Q?hxUiqIG5hBuFn/dht2UF6ubIrUMWRiJpD0w49S6eUs19rlaDT3lE3ScuqoOa?=
- =?us-ascii?Q?nYrKk8y7kODKneTvSOdgVzyAeNU9KwY8fJmx3pXCnv0PrhK6LcQC4yjuG135?=
- =?us-ascii?Q?bPEzD/iw0UMHNc3urbzgpTR1BgU7n7U7IxUx99qlR5rtEAonkKbmduqDw1ma?=
- =?us-ascii?Q?5K16Izb+d1Talj8UGarRKAAiQlpMt7VHZszE8mHC5jxOb0plHYr1phVcuioh?=
- =?us-ascii?Q?dFKFxRTEupuB9WwusbQiJlPa3fipedaWYfQBVwcHZzga32qei0z/I3nbci8D?=
- =?us-ascii?Q?U2GN8GFM7sCizkXm5F9mXuWOuaQkmZBqR9Yvj8dzBhXtvseRWvVifpETMAnr?=
- =?us-ascii?Q?ulDbcFnehu27I7hwA6nV/55p9j7EvVOZBxkuUxF5STn4y0gJ7InoqOTH4WiK?=
- =?us-ascii?Q?3lhifWNZjoqvzlw4hEC/h8JwLShmJmfg55Jb5FVz11ZUFjeSPSkR55N0vLfc?=
- =?us-ascii?Q?mm0bEHBWqfjGtunNP30XY28MlrlCHaoWymic4YtfsjG8VZqpTKTHolV4nf0q?=
- =?us-ascii?Q?N+FBCt5+w+g4Kk7GxOKCG0NVVsFTJv9scRxGOqG3dfjFjI/9IboqgR9Jse+z?=
- =?us-ascii?Q?+qyK98k0vF1mZOWiBuf7wgvbKxi4m8HD79olKbvMBb39Ih24qT/yWYZVsN23?=
- =?us-ascii?Q?nRK9pXLGBqy3TKapaOedCzUyHeKYCM0FzicCLEocWquN3agO1nI/vXNsql4W?=
- =?us-ascii?Q?KOq0SX6kZlkwXh53E47XYkDKWg33Rc8nEfh68Y/NxHK7rwF5Uu5ohg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XP6fHi37fozQfd+/jYCcQBuZmqBiOIkXaiJTRgL/tHJNMCpeyTk0zCtuoGR9?=
- =?us-ascii?Q?h8eHJxlmXqYF5j3Fzx0ndfnEc6oiXTMynzOwSo6VSyVmOoO5K8bJHR9IXAyA?=
- =?us-ascii?Q?Dj+/UcJtsZ6aDo3bgsfgYrMLvPtorwKe1NJNh4gdOAOT1LXUcHPAKgVqbLPe?=
- =?us-ascii?Q?43c+MW6S43dHxTIDfLMTrquN9XB1+lEnPecsfJD1TB7y49VZk8IYg3oa3A9N?=
- =?us-ascii?Q?bRF3BphCNYir0Pdzj6FvOyXeduD2CIbTlMAZFS+liP0JxxBX4QUz5DtRuQmb?=
- =?us-ascii?Q?viiK3SLToM7z9xDYerN386QeHFbKuOkztnwEebH/Lh3VFQLAS+02qn+NNgPR?=
- =?us-ascii?Q?eLYt1j4454qZptH4reotFNbFBl/57OGrsmOUz57v7sbMdUnnA/tcz2M1x5Ws?=
- =?us-ascii?Q?DV7ccTF0ZMcTK+SYJJrrZ/phPtSqO2yAw66NcsT7FqLJW3He+cRUBO5yVJUV?=
- =?us-ascii?Q?Rklhm0/Hphk8i7ryAMwtewvdEuSe3mbQmLOyQ0BgpzxKbF0YYAxd8JdiAal3?=
- =?us-ascii?Q?LuOgqYLPzUUtSkfMm+JA2IWY7LvoW1DFI3k6ST7haail7hmW74GdsMrzv6bP?=
- =?us-ascii?Q?mdWIfDNr9oSdanNsshXf0/T+Wk2n0im+AdJeMybIMGgTkddoXA0XAgNaMgPD?=
- =?us-ascii?Q?xYyqPo52PnEdan1BR9Yshy726bRtZZEMRbcme1+OOQpqd6+sK74oo/iSxL5D?=
- =?us-ascii?Q?YHdLpbxkkJTMjYoHtuClgX8JDDkrZdTZ6CLud1oCec4sEeiwTLYZrPX602eV?=
- =?us-ascii?Q?j2PEoeL0BOOeoOsonbY0s/5FGl5C4NaOH1yNlYjIgmlVSa5PhydfuxV4kzjJ?=
- =?us-ascii?Q?kcs/9b9JERtOIn9WpRA6uVyo7fFKG4HuATj40aAbB3aUSqHxML/D5JXR00o5?=
- =?us-ascii?Q?jkW3LCj4gtPuKYySOUNNFaExztToFg4rexXxo1SLkGEDumofqqpEz5v3TRJ1?=
- =?us-ascii?Q?oQxqUWCU+SXM8utvRhGyAuCYleRW9e3LMPjUPuyyX9fi354R6s8OKFdDYoqh?=
- =?us-ascii?Q?taZeeIEs/i+BdHkBwqOOeGaia/VngfWEYwpj4IOVLokBJw56PaL9bJcGK/6v?=
- =?us-ascii?Q?7y2qSxWjmu5JeVJU+0fRdv7203ESFOmFx6tI7ZZN3wCqx8m13VQXce7skPY6?=
- =?us-ascii?Q?3Xnlvwbfcafs/1L64CaMLUPydPslVxlH6h+qBDr8/7ImpRzj2iIYYxAay4dJ?=
- =?us-ascii?Q?VT62g3a4RDjDVOqpJXJU7yJkIB6PFZm1miMXscvSUcU4SbLcdlSUROtAzMu9?=
- =?us-ascii?Q?gk76hjQMYTDtHOqrcLGqeAKnIg3fl8U5vjJlF9/xBE5gRaQw/dSKOoCWXU9D?=
- =?us-ascii?Q?IRagdLFdawnqGnHX0Azkyv36OQ5Sjy7qzUCJ5PObe4IOjH+Vm4063Ze1LsCF?=
- =?us-ascii?Q?rRHhTSIzvadic74EA6eCUh3kgCFBb1NEMOZqN+qeBZ76M9SM/Shyy0Y2F4u1?=
- =?us-ascii?Q?108Lhf9g8/ZF5oKoo07VIsjNIlB5LGsD2geULlYMO8z4zudxhPqJ8pv61cZ3?=
- =?us-ascii?Q?nwza+eAt/R7ecp+z9BlDjkekOTkp5p46tkUN33NzuNL7ttqHQEIE/xBt1ueg?=
- =?us-ascii?Q?XANvJ742cVJOavqWrrRYGze7JFi9esTUcZ1wdiYU?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 787abecc-8afa-47f9-ee05-08dd8e2ce63e
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2025 12:36:05.1372
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 54LyuhKAYqouH9JqrVzW5kfDHDzapMKL5wBBEGQGjpEWHaPTB/n9lsUkYY6vNW/IGybmPayMiEeiI8BHrcN9Ig==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10839
+In-Reply-To: <CAL+tcoBrB05QSTQjcCS7=W3GRTC5MeGoKv=inxtQHPvmYcmVyA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_053611_123831_8F6E856B 
-X-CRM114-Status: GOOD (  34.68  )
+X-CRM114-CacheID: sfid-20250508_054053_992387_69250CF9 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,185 +109,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 02, 2025 at 06:57:47PM +0300, Laurent Pinchart wrote:
-> Hi Frank,
->
-> On Thu, May 01, 2025 at 09:02:04PM -0400, Frank Li wrote:
-> > On Tue, Apr 22, 2025 at 12:14:38AM +0300, Laurent Pinchart wrote:
-> > > On Tue, Apr 08, 2025 at 05:53:02PM -0400, Frank Li wrote:
-> > > > Use devm_clk_bulk_get_all() helper to simplify clock handle code.
-> > > >
-> > > > No functional changes intended.
-> > > >
-> > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > > ---
-> > > >  .../media/platform/nxp/imx8-isi/imx8-isi-core.c    | 46 +++-------------------
-> > > >  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  3 +-
-> > > >  2 files changed, 6 insertions(+), 43 deletions(-)
-> > > >
-> > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> > > > index ecfc95882f903..015350c6f2784 100644
-> > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> > > > @@ -275,11 +275,6 @@ static const struct mxc_isi_set_thd mxc_imx8_isi_thd_v1 = {
-> > > >  	.panic_set_thd_v = { .mask = 0xf0000, .offset = 16, .threshold = 0x7 },
-> > > >  };
-> > > >
-> > > > -static const struct clk_bulk_data mxc_imx8mn_clks[] = {
-> > > > -	{ .id = "axi" },
-> > > > -	{ .id = "apb" },
-> > > > -};
-> > > > -
-> > > >  static const struct mxc_isi_plat_data mxc_imx8mn_data = {
-> > > >  	.model			= MXC_ISI_IMX8MN,
-> > > >  	.num_ports		= 1,
-> > > > @@ -287,8 +282,6 @@ static const struct mxc_isi_plat_data mxc_imx8mn_data = {
-> > > >  	.reg_offset		= 0,
-> > > >  	.ier_reg		= &mxc_imx8_isi_ier_v1,
-> > > >  	.set_thd		= &mxc_imx8_isi_thd_v1,
-> > > > -	.clks			= mxc_imx8mn_clks,
-> > > > -	.num_clks		= ARRAY_SIZE(mxc_imx8mn_clks),
-> > > >  	.buf_active_reverse	= false,
-> > > >  	.gasket_ops		= &mxc_imx8_gasket_ops,
-> > > >  	.has_36bit_dma		= false,
-> > > > @@ -301,8 +294,6 @@ static const struct mxc_isi_plat_data mxc_imx8mp_data = {
-> > > >  	.reg_offset		= 0x2000,
-> > > >  	.ier_reg		= &mxc_imx8_isi_ier_v2,
-> > > >  	.set_thd		= &mxc_imx8_isi_thd_v1,
-> > > > -	.clks			= mxc_imx8mn_clks,
-> > > > -	.num_clks		= ARRAY_SIZE(mxc_imx8mn_clks),
-> > > >  	.buf_active_reverse	= true,
-> > > >  	.gasket_ops		= &mxc_imx8_gasket_ops,
-> > > >  	.has_36bit_dma		= true,
-> > > > @@ -315,8 +306,6 @@ static const struct mxc_isi_plat_data mxc_imx8ulp_data = {
-> > > >  	.reg_offset		= 0x0,
-> > > >  	.ier_reg		= &mxc_imx8_isi_ier_v2,
-> > > >  	.set_thd		= &mxc_imx8_isi_thd_v1,
-> > > > -	.clks			= mxc_imx8mn_clks,
-> > > > -	.num_clks		= ARRAY_SIZE(mxc_imx8mn_clks),
-> > > >  	.buf_active_reverse	= true,
-> > > >  	.has_36bit_dma		= false,
-> > > >  };
-> > > > @@ -328,8 +317,6 @@ static const struct mxc_isi_plat_data mxc_imx93_data = {
-> > > >  	.reg_offset		= 0,
-> > > >  	.ier_reg		= &mxc_imx8_isi_ier_v2,
-> > > >  	.set_thd		= &mxc_imx8_isi_thd_v1,
-> > > > -	.clks			= mxc_imx8mn_clks,
-> > > > -	.num_clks		= ARRAY_SIZE(mxc_imx8mn_clks),
-> > > >  	.buf_active_reverse	= true,
-> > > >  	.gasket_ops		= &mxc_imx93_gasket_ops,
-> > > >  	.has_36bit_dma		= false,
-> > > > @@ -386,7 +373,7 @@ static int mxc_isi_runtime_suspend(struct device *dev)
-> > > >  {
-> > > >  	struct mxc_isi_dev *isi = dev_get_drvdata(dev);
-> > > >
-> > > > -	clk_bulk_disable_unprepare(isi->pdata->num_clks, isi->clks);
-> > > > +	clk_bulk_disable_unprepare(isi->num_clks, isi->clks);
-> > > >
-> > > >  	return 0;
-> > > >  }
-> > > > @@ -396,7 +383,7 @@ static int mxc_isi_runtime_resume(struct device *dev)
-> > > >  	struct mxc_isi_dev *isi = dev_get_drvdata(dev);
-> > > >  	int ret;
-> > > >
-> > > > -	ret = clk_bulk_prepare_enable(isi->pdata->num_clks, isi->clks);
-> > > > +	ret = clk_bulk_prepare_enable(isi->num_clks, isi->clks);
-> > > >  	if (ret) {
-> > > >  		dev_err(dev, "Failed to enable clocks (%d)\n", ret);
-> > > >  		return ret;
-> > > > @@ -414,27 +401,6 @@ static const struct dev_pm_ops mxc_isi_pm_ops = {
-> > > >   * Probe, remove & driver
-> > > >   */
-> > > >
-> > > > -static int mxc_isi_clk_get(struct mxc_isi_dev *isi)
-> > > > -{
-> > > > -	unsigned int size = isi->pdata->num_clks
-> > > > -			  * sizeof(*isi->clks);
-> > > > -	int ret;
-> > > > -
-> > > > -	isi->clks = devm_kmemdup(isi->dev, isi->pdata->clks, size, GFP_KERNEL);
-> > > > -	if (!isi->clks)
-> > > > -		return -ENOMEM;
-> > > > -
-> > > > -	ret = devm_clk_bulk_get(isi->dev, isi->pdata->num_clks,
-> > > > -				isi->clks);
-> > > > -	if (ret < 0) {
-> > > > -		dev_err(isi->dev, "Failed to acquire clocks: %d\n",
-> > > > -			ret);
-> > > > -		return ret;
-> > > > -	}
-> > > > -
-> > > > -	return 0;
-> > > > -}
-> > > > -
-> > > >  static int mxc_isi_probe(struct platform_device *pdev)
-> > > >  {
-> > > >  	struct device *dev = &pdev->dev;
-> > > > @@ -457,11 +423,9 @@ static int mxc_isi_probe(struct platform_device *pdev)
-> > > >  	if (!isi->pipes)
-> > > >  		return -ENOMEM;
-> > > >
-> > > > -	ret = mxc_isi_clk_get(isi);
-> > > > -	if (ret < 0) {
-> > > > -		dev_err(dev, "Failed to get clocks\n");
-> > > > -		return ret;
-> > > > -	}
-> > > > +	isi->num_clks = devm_clk_bulk_get_all(dev, &isi->clks);
-> > >
-> > > This prevents validating that the DT contains the expected clocks, which
-> > > could cause hard to debug issues. Isn't it a problem ?
-> >
-> > It is checked by dt-binding. Now no warning by DTB_CHECK under arm64 freecale.
-> > CHECK_DTB should be enough to find expected clocks.
->
-> Yes, the DTB check will catch issues at build time, but the driver will
-> not enforce that. I'm not sure if there's a clear policy here, and if
-> ensuring at runtime in drivers that the expected clocks are present is
-> considered as a good practice by the DT maintainers. Rob, Krzysztof,
-> Conor, do you have an opinion ?
+On Thu, May 08, 2025 at 08:22:39PM +0800, Jason Xing wrote:
+> Thanks for the kind reply.
+> 
+> It looks like how to detect depends on how the bpf prog is written?
+> Mostly depends on how the writer handles this data part. Even though
+> we don't guarantee on how to ask users/admins to write/adjust their
+> bpf codes, it's not that convenient for them if this patch is applied,
+> to be frank. I'm not pushing you to accept this patch, just curious on
+> "how and why". Now I can guess why you're opposed to it....
 
-Rob:
-	can you comment this?
+The BPF program is not user-generated, it is run in the context of the
+function you're moving.
 
-Laurent:
-	Many driver already switch to devm_clk_bulk_get_all() such as qcom/imx6
-pci drivers recently.
-
-
-Frank
-
-
->
-> > > > +	if (isi->num_clks < 0)
-> > > > +		return dev_err_probe(dev, isi->num_clks, "Failed to get clocks\n");
-> > > >
-> > > >  	isi->regs = devm_platform_ioremap_resource(pdev, 0);
-> > > >  	if (IS_ERR(isi->regs)) {
-> > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> > > > index e7534a80af7b4..bd3cfe5fbe063 100644
-> > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> > > > @@ -169,8 +169,6 @@ struct mxc_isi_plat_data {
-> > > >  	const struct mxc_isi_ier_reg  *ier_reg;
-> > > >  	const struct mxc_isi_set_thd *set_thd;
-> > > >  	const struct mxc_gasket_ops *gasket_ops;
-> > > > -	const struct clk_bulk_data *clks;
-> > > > -	unsigned int num_clks;
-> > > >  	bool buf_active_reverse;
-> > > >  	bool has_36bit_dma;
-> > > >  };
-> > > > @@ -282,6 +280,7 @@ struct mxc_isi_dev {
-> > > >
-> > > >  	void __iomem			*regs;
-> > > >  	struct clk_bulk_data		*clks;
-> > > > +	int				num_clks;
-> > > >  	struct regmap			*gasket;
-> > > >
-> > > >  	struct mxc_isi_crossbar		crossbar;
->
-> --
-> Regards,
->
-
-> Laurent Pinchart
+skb_tx_timestamp()
+-> skb_clone_tx_timestamp()
+   -> classify()
+      -> ptp_classify_raw()
+         -> bpf_prog_run(ptp_insns, skb)
 
