@@ -4,87 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 789A8C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 16:35:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A47C3ABCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 17:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NM4QjkPCoOZz7ahD1Rov7Pc15g+3o4zNeRGOhW1N2W4=; b=SspzAmkd68ckosKGei1Gc6dnYg
-	ZIILLdgS4Vp3PbJkjLSTQoU6Dm/4ZOSW1diBwEvLxgeeB/r0VMFiekpNaMcSCzhbtkNe0GoERC1OW
-	igWDpIDkJsZYpPz3qs1UOfQVdV3WHcwJdCi9F/EAkcMK4rzj4YDXQG8V/jIP5D8Woe8E/Lv3M/3rs
-	tnIzUsGNBisNwC8c9NqxPlwIoOEa7QDilxmu/7bdZWkJBk8sCghTRzwVkHFaCeJ6hwquUd1Nxqclj
-	vhBUGh4NtY4q2Zh6qaq5wLuvsYkZc95kdrZjhd/HE1vhUYEo0g6a3cSjz3wjtJrJGXADFtD5OYw/E
-	zSjT0UzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zkRgnerI36b6HY4HkOyt64j/523Zu+/FuRNnOX/SiVU=; b=XHWFh+L4llO62j506/vPMCQ0eO
+	VRY6ixGYtVCQlkpuFHMEmQ7rppOgUiwro+4QzSc06v8vd+zZz6b60RVZGDP56X40wwlUOAiuNPyH5
+	fpaeh3nfEdepJ+0ko/4gmI7auRndf+bWaF7NygUOM7Q/CIq0EMaIKqaTkIJdG6SCprYjbumKJt80m
+	qtfHPFPPtX8W3pMGuzD8EG+wJgrktUBN3hwsuzPak7Ny0AsXhFBnaKKpr4xZsaWRtyd5LbwMt4eM6
+	Sly2oiG2XSgrKuYzCQ9ikgCYHPWtl3n2E9D8XfJDSJNt+qnzZHVxXzgmSRIEd8VKH62Q5I7BVbdCd
+	fnKxVC2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD4Cy-00000001IkT-2RpC;
-	Thu, 08 May 2025 16:34:52 +0000
-Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
+	id 1uD4vW-00000001Mji-46HU;
+	Thu, 08 May 2025 17:20:55 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD3Qz-00000001B5J-0xNN
+	id 1uD3Xu-00000001CFH-39XD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 15:45:18 +0000
-Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-6f5365bdbaeso10780496d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 08:45:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=android.com; s=20230601; t=1746719115; x=1747323915; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NM4QjkPCoOZz7ahD1Rov7Pc15g+3o4zNeRGOhW1N2W4=;
-        b=1kQjPvN7sgyfr54KwKg2CAkWP33xgLXgvQ6/yq4JiU+FTuP0WOcAlZMQ1z2dKukNlW
-         1Y7ERdXnz/0Cm4uTOM/IOCMkIgQrFSO/hdUA/hLqu0RK3fusUqvRPYWMIQFQRDEW8UlZ
-         Kp6BrhnsTuuh5kANZGhPu5H4PwrP6IwOWj2WMt0ARpnnj9iI22zPIcn52jHCUgLHvZ8Z
-         R60zVVHSCeyJYRjXVu8I3D2uR/XVxolQIPagqs0ArgqGRJd46AOPsRusl2Io63SRCEM6
-         B4BOWO5RKRkwlZUw0iNfWZqhcnz/ZqV+5vy4JDOgyNOSap6odWh0ARoo/Fgw0FzUlBar
-         /NUw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746719115; x=1747323915;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NM4QjkPCoOZz7ahD1Rov7Pc15g+3o4zNeRGOhW1N2W4=;
-        b=cGcH+dcDI/Y5UozO61SRAWCuelEgB+vkIAccT0F61lftw3ginbAdwGl4JhvJ73cvmD
-         nzVIHjlsq5OgrfhyU1HEJBkmnjKX4/NlSnysWgcKQuXS0iSfLbrD9MXn5zziWTIxSamd
-         OpK8kt6uNEN8t2oYWCeEChYfwLkBov4inPGCPnBmtzUPMUAPXSQbqkVhHL7K3wdCti2h
-         FNd94BBGxjMhgrOwdJsDwO7CWFi5mL3CmA0iJpRWHE0JWVTffhPyEEN313L3ddMAUSBc
-         hfvt+cTYyALatBbpxHtmFyBsn7gGNdW96FrUvSHM3FEXQhFQh/HMrnXVuEc61AXu41SH
-         qvKw==
-X-Forwarded-Encrypted: i=1; AJvYcCW6d8ngGrq53heqtXEitLwY+AfI2ZhTtRilYmVq6IMfTs9+zrsKjYPA84j0RhDWKFI2KcukleNwPaYyiBlJevgM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8EYFE7Xz4GyFBPnmHptDg9ziShJggAyB3Phapj/dOMslEPrcG
-	3jkb3Nru7kb8ZcKrvWnRqGKGVsOCcPh04JNZPcnXuMgNEO7wVuL3D5DvL50aMmlhGJj3ZD0wich
-	RqOHdnk3u3ZYofIlhr+hOZ8E38Gh2rNekmLL0
-X-Gm-Gg: ASbGncuo18YTncUcOkTh7PpnTFIsLx0huvHFl4ooSwwOh+PCjcirl8p0pytpPvUgMIK
-	5FJJ2VRz2CF2SsSkllIlWf53OjJTD3RJEz/emXtw/HZILY07kc4pleeBFl0XqNQCDR0CW/1/W6q
-	+uuDboz6bqJhC2mkTk2k1Ob3xAxzydhELh0mCC5anKd3DLzMfqX1MHxpc=
-X-Google-Smtp-Source: AGHT+IHc5QpsocWh4+JhJxyePGK+eK7xc3hc4CKN9/ujajSYCJIlTH83nwZ4fer3bYFp280RvLfeG7NtLclp+yhwbtI=
-X-Received: by 2002:a05:6214:20ef:b0:6f5:374d:3cec with SMTP id
- 6a1803df08f44-6f542adfef8mr152122036d6.38.1746719112652; Thu, 08 May 2025
- 08:45:12 -0700 (PDT)
+	Thu, 08 May 2025 15:52:28 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 548FqDse1703887
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 8 May 2025 10:52:13 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746719533;
+	bh=zkRgnerI36b6HY4HkOyt64j/523Zu+/FuRNnOX/SiVU=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=YHwFXXnr4fOELaKYHk/U08lGuFNTXHVKouN4qlQWfFLD3HTEGnQA+SxmgR4YArG0a
+	 NkgYTuc+qxstuKAAN+Xhu1PCKmvgu9z2Kd8LFwZtrdPlBYa/aQFmGi2RGkt02lqJMG
+	 kInUO9MijHRiyPJq6fnPAZLl6qnGFMei5Zgwa6Jc=
+Received: from DLEE104.ent.ti.com (dlee104.ent.ti.com [157.170.170.34])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 548FqD6x027835
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 8 May 2025 10:52:13 -0500
+Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 8
+ May 2025 10:52:12 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 8 May 2025 10:52:12 -0500
+Received: from abhilash-HP.dhcp.ti.com (abhilash-hp.dhcp.ti.com [172.24.227.115])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 548Fq2oL050794;
+	Thu, 8 May 2025 10:52:09 -0500
+From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <vaishnav.a@ti.com>, <u-kumar1@ti.com>, <r-donadkar@ti.com>,
+        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <jai.luthra@linux.dev>, <linux-kernel@vger.kernel.org>,
+        <y-abhilashchandra@ti.com>
+Subject: [PATCH v2 1/4] arm64: dts: ti: j722s-evm: Add DT nodes for power regulators
+Date: Thu, 8 May 2025 21:21:31 +0530
+Message-ID: <20250508155134.2026300-2-y-abhilashchandra@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250508155134.2026300-1-y-abhilashchandra@ti.com>
+References: <20250508155134.2026300-1-y-abhilashchandra@ti.com>
 MIME-Version: 1.0
-References: <CA+AY4XcaJa1_U3qXQUBj4wZJYc9hKmRX8FTNeDvV2auEnC_WrA@mail.gmail.com>
- <86r017h00e.wl-maz@kernel.org> <aBnNXyJn818ZEKOS@google.com>
- <8634dfh47q.wl-maz@kernel.org> <20250508-spectral-sage-whippet-4f7ac2@sudeepholla>
-In-Reply-To: <20250508-spectral-sage-whippet-4f7ac2@sudeepholla>
-From: =?UTF-8?B?QXJ2ZSBIasO4bm5ldsOlZw==?= <arve@android.com>
-Date: Thu, 8 May 2025 08:45:01 -0700
-X-Gm-Features: ATxdqUHLxJTSxwoqFpk9lA8TVBYoTMM9oR5V-VvKoxrBxJB4bep25PWQBicEw1s
-Message-ID: <CAMP5XgcCg+kB7tPwSYUcjfZqR_734cGEs_KX4st9SQOVLBV-Yw@mail.gmail.com>
-Subject: Re: [PATCH 1/3] KVM: arm64: Restrict FF-A host version renegotiation
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Per Larsen <perl@immunant.com>, armellel@google.com, 
-	catalin.marinas@arm.com, kernel-team@android.com, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	qperret@google.com, sebastianene@google.com, will@kernel.org, 
-	yuzenghui@huawei.com, Per Larsen <perlarsen@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_084517_297768_10B98D8B 
-X-CRM114-Status: GOOD (  26.31  )
+X-CRM114-CacheID: sfid-20250508_085226_880285_7153CCB1 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,58 +87,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 8, 2025 at 2:27=E2=80=AFAM Sudeep Holla <sudeep.holla@arm.com> =
-wrote:
->
-> (just adding some additional info not particularly impacting the $subject
->  change implementation)
->
-> On Thu, May 08, 2025 at 09:55:05AM +0100, Marc Zyngier wrote:
-> > On Tue, 06 May 2025 10:29:41 +0100,
-> > Per Larsen <perl@immunant.com> wrote:
-> > >
->
-> [...]
->
-> > > Asssuming we drop this patch from the series and apply the rest, the
-> > > hypervisor and host can negotiate FF-A 1.2. If the host then calls
-> > > FFA_VERSION a second time to request FF-A 1.1, the hypervisor would
-> > > return version 1.2 (without this patch).
-> >
-> > Why would it do that? Once a particular version has been negotiated, I
-> > expect to be immutable.
-> >
->
-> Not suggesting that we need to support this, but it is technically possib=
-le
-> today by loading FF-A as a module=E2=80=94first inserting and removing a =
-module with
-> v1.2 support, then loading one with v1.1 support. It can ever throw error
-> as not supported to keep it simple.
->
+Add device tree nodes for two regulators on the J722S-EVM. VSYS_3V3 is the
+output of LM5141-Q1, and it serves as an input to TPS22990 which produces
+VSYS_3V3_EXP [1]. VSYS_3V3_EXP serves as vin-supply to CSI RPI Connectors.
 
-I'm not sure how what you are suggesting here is different from what
-this patch does. This patch does not alter what versions the host can
-negotiate. The hypervisor already disallows negotiating a different
-version once has_version_negotiated is set, the return code just
-doesn't always reflect this. If you try to load the 1.0 driver in the
-host after unloading the 1.1 driver similar to what you describe
-above, then this CL will let the 1.0 driver know that the hypervisor
-does not support 1.0 (I use 1.1 to 1.0 as the example here since this
-is an issue even without the next CL in this patch series that bumps
-the hypervisor supported version to 1.2). Without this CL, the 1.0
-driver will now proceed making other ffa calls using 1.0 data
-structures that the hypervisor will incorrectly interpret as 1.1 data
-structures.
+Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
 
-With this CL, loading a 1.2 driver after the initial 1.1 driver will
-work as it did before by returning version 1.1 to the 1.2 driver to
-let it know that _it_ needs to downgrade to 1.1. if it wants to
-proceed. Loading the 1.0 driver after 1.1 will now fail at the version
-negotiation stage however. This will be clearer, and more correct,
-than getting FFA_RET_INVALID_PARAMETERS return codes from other ffa
-calls when passing valid 1.0 parameters to those calls.
+[1]: https://www.ti.com/lit/zip/sprr495
+---
+ arch/arm64/boot/dts/ti/k3-j722s-evm.dts | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
---
-Arve Hj=C3=B8nnev=C3=A5g
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+index 34b9d190800e..0f18fe710929 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+@@ -141,6 +141,17 @@ vsys_5v0: regulator-vsys5v0 {
+ 		regulator-boot-on;
+ 	};
+ 
++	vsys_3v3: regulator-vsys3v3 {
++		/* output of LM5141-Q1 */
++		compatible = "regulator-fixed";
++		regulator-name = "vsys_3v3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vmain_pd>;
++		regulator-always-on;
++		regulator-boot-on;
++	};
++
+ 	vdd_mmc1: regulator-mmc1 {
+ 		/* TPS22918DBVR */
+ 		compatible = "regulator-fixed";
+@@ -153,6 +164,17 @@ vdd_mmc1: regulator-mmc1 {
+ 		bootph-all;
+ 	};
+ 
++	vcc_3v3_exp: regulator-TPS22990 {
++		/* output of TPS22990 */
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_3v3_exp";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vsys_3v3>;
++		regulator-always-on;
++		regulator-boot-on;
++	};
++
+ 	vdd_sd_dv: regulator-TLV71033 {
+ 		compatible = "regulator-gpio";
+ 		regulator-name = "tlv71033";
+-- 
+2.34.1
+
 
