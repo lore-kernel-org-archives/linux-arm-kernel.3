@@ -4,100 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B80E2C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 12:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8FE5C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 12:27:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YHzGR2TH3f5PkiaDuIeNupqLtaLoSxh32TBcttsiE58=; b=tyR60/7+wEI23C2H97dMZ4x+DF
-	367T3eXvD2B+Dy08fN5lJ9SUAwFHqHFK0R8+gAFx4hXnLrPkxylPQZoIQS1KHfkc9EebtE8WntZVG
-	GSXuJ1Il+OmrtEVXM2OrTHggq6FsV++ydm/zehZVLI+vsATzyC10QMxO2eOGqjOOSpDi8G3n2u9tZ
-	ofSJoF69WBU7oq6Apc0b5Ka8MufvwKSYqKFzu02m/W1B+0XIuKUbaZh+G0FnYVIROsGx1JgU51CIo
-	k0kRkhSxPzpl7Ge6yNcgZ7WAYm/L7uFvK8wJYt1w3YrpCaRGbFriWL+0sZ3EYzf88gQJAI3xHZ8vJ
-	LXE/z2Yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jYX8qqDD4JOYlfuvNPe4ZEMyg6c1lBo9WKWQB/eyoT0=; b=Eqw/1YzhTyH1e8HVkfKkzIInko
+	FS0D5ifAJ+Z1N2oE0hGXmnpOV9UgfY85SvD4q7XYBp3X3wdLBtcmHMN3p9mjDAaySBYpGpO7OWQTO
+	3/2+dWzgr5u3KVzQiVVuDfEcxxdBOsuz7C1fI5b2LT8FPMnRWIjwEmtKce3JQKKd8p8J8ZPSzlb6W
+	bZI7sDfxTtldEfG3BY+4nCgAzGQvTVaTM21nVI6QV9qhuDuRIz1Tewyxl9GX28csO8GbpSMlW6wU/
+	tieJYpOpL3p3lS8zlC/lVnF/kPINF/cIiNJJMevsuYVTSHbT4rdkqt1884dzE0YIYA7qcf6R2g9gK
+	hgQ9PZdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0Jb-00000000bDM-2dZ3;
-	Thu, 08 May 2025 12:25:27 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1uD0LW-00000000ben-3ra2;
+	Thu, 08 May 2025 12:27:26 +0000
+Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0Hd-00000000arM-1NVl
+	id 1uD0Hf-00000000atH-30mo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 12:23:26 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-22e09f57ed4so21938955ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 05:23:24 -0700 (PDT)
+	Thu, 08 May 2025 12:23:28 +0000
+Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-476b89782c3so9996781cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 05:23:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746707004; x=1747311804; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=YHzGR2TH3f5PkiaDuIeNupqLtaLoSxh32TBcttsiE58=;
-        b=2fCOLE85ilhH5V+GxfhNANcfknxzNiDDhxhjKDttT7V/6yAMm635OKOE0deamNK6PM
-         7pBUInbrCPB/NF2/+e7ebbtecwXn1Y90U+fz59vCOnLMbzmTm7t9tXd1jPCx/ElBhhfb
-         CjwM5/6meWO6h3u27S1bVPP2jIU/ADOb+ij1UIQce3qpIljK7Sdmvu2CGYj2pbipkhpC
-         sP8n8hcIGV3WO7E3KhzNVXuW7LIICmhu1D/b2AGaI97bm7YdcvivLvgNvXHnkDL990j3
-         uqBD3X/+YDPqppCu3AASO0A/WOl25q2YPYmTlUYWng7YdRWeAZmlspG6X1FLTXfhvs1s
-         hmxg==
+        d=gmail.com; s=20230601; t=1746707006; x=1747311806; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jYX8qqDD4JOYlfuvNPe4ZEMyg6c1lBo9WKWQB/eyoT0=;
+        b=EOKECUrpQp/57D/stBG/ux5BJJKrZFNM+YWYZdKI/xn98gLaCZzLaahc4Ue8czvn+7
+         VJ2f3u0SXPMjD1R+V+hgvlCjZOd2LcRwj6LHx3Cfuao59qRc7opwWTAG1BWoS3qdXrLa
+         faec4yL+djE7SwWNhCo5GVA0LPq8k2eNoh9X05rqfH7aBCxbOFKrEIXg/ePD1bcgb1E8
+         CcQ3i40V067IGCgJefdcJkGg/vc2NvATy+hZal/0SIfA67G9J+EBLbWOE0Me5B0aEKHS
+         NLJRRhmhR8lTnH4NzlQ2euHYHdgrMBLgapwkPTXUpdDmWKvBhRc3qpPYJilti75uwyTR
+         V34w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746707004; x=1747311804;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YHzGR2TH3f5PkiaDuIeNupqLtaLoSxh32TBcttsiE58=;
-        b=DIARYuYgRPCaeXVvXNsWrIq8PKNTIEwqRGrCEWOhjWfqDzowSSHLxLYf1JfeADX60s
-         97ztiJ6qBQZXH6xI6F1/AGOUz1KMkrdthvUSU184osuo/MSCS0B2XRWJXZQIy4TSJ1Mf
-         rHdu9P4Mo7h81Hq9E/wvKWtYQCg/mb4HAy3Xr+Re+OGXTTxFuBeBkNBYbiKhz0kV/meO
-         NpJCS3dI1mlSBUSMwGEGr1RAGi1d9Xz7SdKuv6gHMpNtPjWwwUkgnGw45cTTjrlXOO32
-         oe1YQyHQbeUTUeX4CIwjfq3HSveNRreUzDssNzQHClJi6gys1DJ45yuUH36UqE7L4mdM
-         XjfA==
-X-Forwarded-Encrypted: i=1; AJvYcCX9cRqY1EKlGkAYd/IphoV4RVtLNfXY28MrWlwc8IFSIG+eanzBBKE41pcTONDuXNxRQab3OYf4K2W5uP+PbFae@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOZq0zhQahXlmchAAPVU0Qz0PdhW6LOBZwd38HVHenjJHr9emn
-	t3H5CGb1qEZ8jnD7CokLGuyG5y/gAAFgFGzy0K6s+2YykjWx030bR7CbhuCkjJyrdCTI34CpPk3
-	CsN8hQ1o/bfY70xl9/YVLWDdUKOK0uJdoauju
-X-Gm-Gg: ASbGncvuaHlMdhUt0o0ejttIbcGgZeciI/BNdteWm55Brbquf9ar4Hs0ZZ7296COQ7o
-	0vJRFR/An2UrKaxIG9QMlw5y9v11dy5s8RJ5pBBodRX5GnfbSb7Lnfl+i61f1YLamNftn6FpIYH
-	vge1MqwmNceEGzPizykT92ifiI7Ogwp6KSjPgTXCf6BR9r50cd78/IeqAVrVJpbi8=
-X-Google-Smtp-Source: AGHT+IGuazhS9joimxHTMGiamVK9GxUm2CRwvQi3+Gq6fqxsbfAnr7up4McbBtUROkgn62zEFRcy/K/C2EzHqfHG+xw=
-X-Received: by 2002:a17:90b:4b8c:b0:2fa:1d9f:c80 with SMTP id
- 98e67ed59e1d1-30adbf6d05amr4939913a91.17.1746707003520; Thu, 08 May 2025
- 05:23:23 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1746707006; x=1747311806;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jYX8qqDD4JOYlfuvNPe4ZEMyg6c1lBo9WKWQB/eyoT0=;
+        b=EgVLaebdOEjbK4PXirvoHz6wJgicY9Kxveour8fFMoqjrd+9N5CQ7uZGAxED0v8TwM
+         lgRI8hvmw/kbzNmPy2/RcQtHA1GKEiDBpj83Eiee4pE5CkCf6p08hKK7YCGqbicZ42BD
+         R+saRVdPB+WjSqjMWC1fqVbtrptw2hj6je9KNkMakNxOy8vEA2pZMfbDKEjTwcb9vxHB
+         ArbqPNOqCzAm88+3OgyiGn5YTgMFNGyPpa5e98vZfRMHVLSO85mITebWfC/IsXnE+0HD
+         MtJTA1+41JYX7FiQxcdZqr9jZllKR1+CqSw9AS4o8lXMsIv60xjW3+I/frrDMRv7phIo
+         u08g==
+X-Forwarded-Encrypted: i=1; AJvYcCUmtpVtnwS+Txn7skVHwscE6JC8v2YnlIFrI5u9/EM7fBqDSbB7/TxQa5MODV60arbX6ctKJUD4B9blEfNsIUSH@lists.infradead.org
+X-Gm-Message-State: AOJu0YznWH9Ve14C/RmMWsNnqsmSFtgHsdqpvjQcTZ741f9BmqO+1IVI
+	aj93VP8He9qaMZdTixN4gNVZ6HkME+FefvlF4Vzd36xL+es21fKlAAXFFlnYlla/vsMXxCIbh1S
+	9uXkMu9wjcv90+fbwLKiXV+ZgeOsV7h+QmBQ=
+X-Gm-Gg: ASbGncsaBL3OAFLv+87IiRXmY4Ia87chPRe8MjicAScbl6VYOWzb2jP/S9ptW95gZuA
+	NKz0pPJhQkfvEHeI089WfPhw9xFbVWPKrkuNXeE0u9yEP0rbWFufsQj7CpBLbx37Y/ABVs+d1Ph
+	fVjjJqfeLl5Xolx77OQQV88kNtTG/wcq54
+X-Google-Smtp-Source: AGHT+IE+uL01gV6BnaJuogyasEEOBXMdeInFnUaS5xfQn4hQfGn/seeOu61dluwOGAXIkgHX/HPbWChIzJK/4OO/xCI=
+X-Received: by 2002:a05:6e02:12ef:b0:3d9:6cb5:3be4 with SMTP id
+ e9e14a558f8ab-3da7392c8d3mr79276605ab.15.1746706996046; Thu, 08 May 2025
+ 05:23:16 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250507180852.work.231-kees@kernel.org> <20250507181615.1947159-2-kees@kernel.org>
-In-Reply-To: <20250507181615.1947159-2-kees@kernel.org>
-From: Marco Elver <elver@google.com>
-Date: Thu, 8 May 2025 14:22:47 +0200
-X-Gm-Features: ATxdqUHttH2gHvJKzLvMz7fkEuSC2xFFktBrniyRJYj71k93n_Rm8LTTobDJ7fU
-Message-ID: <CANpmjNPcYPvnQzMT3p+Vc2=EiEbR1WnykUEjuYc0bH2HOFi6HQ@mail.gmail.com>
-Subject: Re: [PATCH 2/8] init.h: Disable sanitizer coverage for __init and __head
-To: Kees Cook <kees@kernel.org>, Dmitry Vyukov <dvyukov@google.com>, 
-	Alexander Potapenko <glider@google.com>, Aleksandr Nogikh <nogikh@google.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Andrey Konovalov <andreyknvl@gmail.com>, 
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, Hou Wenlong <houwenlong.hwl@antgroup.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Masahiro Yamada <masahiroy@kernel.org>, 
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>, Luis Chamberlain <mcgrof@kernel.org>, 
-	Sami Tolvanen <samitolvanen@google.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	kasan-dev@googlegroups.com, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
-	Christoph Hellwig <hch@lst.de>, Nathan Chancellor <nathan@kernel.org>, 
-	Nicolas Schier <nicolas.schier@linux.dev>, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-efi@vger.kernel.org, 
-	linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org, 
-	linux-security-module@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	sparclinux@vger.kernel.org, llvm@lists.linux.dev, 
-	syzkaller <syzkaller@googlegroups.com>
+References: <20250508033328.12507-1-kerneljasonxing@gmail.com>
+ <20250508033328.12507-5-kerneljasonxing@gmail.com> <20250508070700.m3bufh2q4v4llbfx@DEN-DL-M31836.microchip.com>
+ <CAL+tcoCuvxfQUbzjSfk+7vPWLEqQgVK8muqkOQe+N6jQQwXfUw@mail.gmail.com> <20250508094156.kbegdd5vianotsrr@DEN-DL-M31836.microchip.com>
+In-Reply-To: <20250508094156.kbegdd5vianotsrr@DEN-DL-M31836.microchip.com>
+From: Jason Xing <kerneljasonxing@gmail.com>
+Date: Thu, 8 May 2025 20:22:39 +0800
+X-Gm-Features: ATxdqUF7fr2w19MfngP-Su9tvfrXMs7O2uRtM2xM9K46rrKLvtXS-sBBlIBE5e0
+Message-ID: <CAL+tcoBrB05QSTQjcCS7=W3GRTC5MeGoKv=inxtQHPvmYcmVyA@mail.gmail.com>
+Subject: Re: [PATCH net-next v1 4/4] net: lan966x: generate software timestamp
+ just before the doorbell
+To: Horatiu Vultur <horatiu.vultur@microchip.com>
+Cc: irusskikh@marvell.com, andrew+netdev@lunn.ch, bharat@chelsio.com, 
+	ayush.sawal@chelsio.com, UNGLinuxDriver@microchip.com, 
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, davem@davemloft.net, 
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
+	sgoutham@marvell.com, willemb@google.com, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
+	Jason Xing <kernelxing@tencent.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_052325_365181_1DAD0CD7 
-X-CRM114-Status: GOOD (  22.44  )
+X-CRM114-CacheID: sfid-20250508_052327_754286_7DD91645 
+X-CRM114-Status: GOOD (  36.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,83 +103,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+Cc KCOV maintainers
-
-On Wed, 7 May 2025 at 20:16, Kees Cook <kees@kernel.org> wrote:
+On Thu, May 8, 2025 at 5:44=E2=80=AFPM Horatiu Vultur
+<horatiu.vultur@microchip.com> wrote:
 >
-> While __noinstr already contained __no_sanitize_coverage, it needs to
-> be added to __init and __head section markings to support the Clang
-> implementation of CONFIG_STACKLEAK. This is to make sure the stack depth
-> tracking callback is not executed in unsupported contexts.
+> The 05/08/2025 16:40, Jason Xing wrote:
+> > Hi Horatiu,
 >
-> The other sanitizer coverage options (trace-pc and trace-cmp) aren't
-> needed in __head nor __init either ("We are interested in code coverage
-> as a function of a syscall inputs"[1]), so this appears safe to disable
-> for them as well.
-
-@ Dmitry, Aleksandr - Will this produce some unwanted side-effects for
-syzbot? I also think it's safe, but just double checking.
-
-> Link: https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/kernel/kcov.c?h=v6.14#n179 [1]
-> Signed-off-by: Kees Cook <kees@kernel.org>
-
-Acked-by: Marco Elver <elver@google.com>
-
-> ---
-> Cc: Marco Elver <elver@google.com>
-> Cc: Andrey Konovalov <andreyknvl@gmail.com>
-> Cc: Andrey Ryabinin <ryabinin.a.a@gmail.com>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Ingo Molnar <mingo@redhat.com>
-> Cc: Borislav Petkov <bp@alien8.de>
-> Cc: Dave Hansen <dave.hansen@linux.intel.com>
-> Cc: <x86@kernel.org>
-> Cc: "H. Peter Anvin" <hpa@zytor.com>
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-> Cc: Hou Wenlong <houwenlong.hwl@antgroup.com>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Masahiro Yamada <masahiroy@kernel.org>
-> Cc: "Peter Zijlstra (Intel)" <peterz@infradead.org>
-> Cc: Luis Chamberlain <mcgrof@kernel.org>
-> Cc: Sami Tolvanen <samitolvanen@google.com>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
-> Cc: <kasan-dev@googlegroups.com>
-> ---
->  arch/x86/include/asm/init.h | 2 +-
->  include/linux/init.h        | 4 +++-
->  2 files changed, 4 insertions(+), 2 deletions(-)
+> Hi Jason,
 >
-> diff --git a/arch/x86/include/asm/init.h b/arch/x86/include/asm/init.h
-> index 8b1b1abcef15..6bfdaeddbae8 100644
-> --- a/arch/x86/include/asm/init.h
-> +++ b/arch/x86/include/asm/init.h
-> @@ -5,7 +5,7 @@
->  #if defined(CONFIG_CC_IS_CLANG) && CONFIG_CLANG_VERSION < 170000
->  #define __head __section(".head.text") __no_sanitize_undefined __no_stack_protector
->  #else
-> -#define __head __section(".head.text") __no_sanitize_undefined
-> +#define __head __section(".head.text") __no_sanitize_undefined __no_sanitize_coverage
->  #endif
+> >
+> > On Thu, May 8, 2025 at 3:08=E2=80=AFPM Horatiu Vultur
+> > <horatiu.vultur@microchip.com> wrote:
+> > >
+> > > The 05/08/2025 11:33, Jason Xing wrote:
+> > > >
+> > > > From: Jason Xing <kernelxing@tencent.com>
+> > > >
+> > > > Make sure the call of skb_tx_timestamp as close to the doorbell.
+> > > >
+> > > > Signed-off-by: Jason Xing <kernelxing@tencent.com>
+> > > > ---
+> > > >  drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c | 2 +-
+> > > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > > >
+> > > > diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c =
+b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c
+> > > > index 502670718104..e030f23e5145 100644
+> > > > --- a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c
+> > > > +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c
+> > > > @@ -730,7 +730,6 @@ int lan966x_fdma_xmit(struct sk_buff *skb, __be=
+32 *ifh, struct net_device *dev)
+> > > >                 }
+> > > >         }
+> > > >
+> > > > -       skb_tx_timestamp(skb);
+> > >
+> > > Changing this will break the PHY timestamping because the frame gets
+> > > modified in the next line, meaning that the classify function will
+> > > always return PTP_CLASS_NONE.
+> >
+> > Sorry that I'm not that familiar with the details. I will remove it
+> > from this series, but still trying to figure out what cases could be.
+> >
+> > Do you mean it can break when bpf prog is loaded because
+> > 'skb_push(skb, IFH_LEN_BYTES);' expands the skb->data area?
 >
->  struct x86_mapping_info {
-> diff --git a/include/linux/init.h b/include/linux/init.h
-> index ee1309473bc6..c65a050d52a7 100644
-> --- a/include/linux/init.h
-> +++ b/include/linux/init.h
-> @@ -49,7 +49,9 @@
+> Well, the bpf program will check if it is a PTP frame that needs to be
+> timestamp when it runs ptp_classify_raw, and as we push some data in
+> front of the frame, the bpf will run from that point meaning that it
+> would failed to detect the PTP frames.
+
+Thanks for the kind reply.
+
+It looks like how to detect depends on how the bpf prog is written?
+Mostly depends on how the writer handles this data part. Even though
+we don't guarantee on how to ask users/admins to write/adjust their
+bpf codes, it's not that convenient for them if this patch is applied,
+to be frank. I'm not pushing you to accept this patch, just curious on
+"how and why". Now I can guess why you're opposed to it....
+
+Thanks,
+Jason
+
 >
->  /* These are for everybody (although not all archs will actually
->     discard it in modules) */
-> -#define __init         __section(".init.text") __cold  __latent_entropy __noinitretpoline
-> +#define __init         __section(".init.text") __cold __latent_entropy \
-> +                                               __noinitretpoline       \
-> +                                               __no_sanitize_coverage
->  #define __initdata     __section(".init.data")
->  #define __initconst    __section(".init.rodata")
->  #define __exitdata     __section(".exit.data")
+> > May I ask
+> > how the modified data of skb breaks the PHY timestamping feature?
+>
+> If it fails to detect that it is a PTP frame, then the frame will not be
+> passed to the PHY using the callback txtstamp. So the PHY will timestamp =
+the
+> frame but it doesn't have the frame to attach the timestamp.
+>
+> >
+> > Thanks,
+> > Jason
+> >
+> > >
+> > > Nacked-by: Horatiu Vultur <horatiu.vultur@microchip.com>
+> > >
+> > > >         skb_push(skb, IFH_LEN_BYTES);
+> > > >         memcpy(skb->data, ifh, IFH_LEN_BYTES);
+> > > >         skb_put(skb, 4);
+> > > > @@ -768,6 +767,7 @@ int lan966x_fdma_xmit(struct sk_buff *skb, __be=
+32 *ifh, struct net_device *dev)
+> > > >                 next_dcb_buf->ptp =3D true;
+> > > >
+> > > >         /* Start the transmission */
+> > > > +       skb_tx_timestamp(skb);
+> > > >         lan966x_fdma_tx_start(tx);
+> > > >
+> > > >         return NETDEV_TX_OK;
+> > > > --
+> > > > 2.43.5
+> > > >
+> > >
+> > > --
+> > > /Horatiu
+>
 > --
-> 2.34.1
->
+> /Horatiu
 
