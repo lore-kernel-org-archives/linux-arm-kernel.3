@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A47C3ABCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 17:21:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA427C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 17:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zkRgnerI36b6HY4HkOyt64j/523Zu+/FuRNnOX/SiVU=; b=XHWFh+L4llO62j506/vPMCQ0eO
-	VRY6ixGYtVCQlkpuFHMEmQ7rppOgUiwro+4QzSc06v8vd+zZz6b60RVZGDP56X40wwlUOAiuNPyH5
-	fpaeh3nfEdepJ+0ko/4gmI7auRndf+bWaF7NygUOM7Q/CIq0EMaIKqaTkIJdG6SCprYjbumKJt80m
-	qtfHPFPPtX8W3pMGuzD8EG+wJgrktUBN3hwsuzPak7Ny0AsXhFBnaKKpr4xZsaWRtyd5LbwMt4eM6
-	Sly2oiG2XSgrKuYzCQ9ikgCYHPWtl3n2E9D8XfJDSJNt+qnzZHVxXzgmSRIEd8VKH62Q5I7BVbdCd
-	fnKxVC2Q==;
+	bh=+fa0rbAPkxM+3rgikO9chYrJm2BqUTBPYcxaMPdZBIw=; b=dBjT+RjOyU8anEa8dvGxFRCGRC
+	vrlQW0Rwol0uXV8LSkBNOk0TO7ItKozUSV7QzaHpdQHb9yt+XGhya/onaWhnp6lf65VQF/II4v6xp
+	pCzsAVWxEFmRlhF5QeKudLitzc51jbDwUkyl12ut6xBExgIC7vrXvgpqKkFZXD8vlWpMhyhUAdDR0
+	GP/i4tnWa6R6QsqxVcF3XWUoBGjgAyDpIfcN86kzprFPmb2gEshqFykAtFPEkFaAvq8baSuzDU3sQ
+	LQKz4cLH9G8K30d47ur4ZxlF1SZSb/F3C/Eyv2x5bbIexbTkt9Z0TCoiFTSNlfIMNPD37i7oEfeRu
+	fCnQxrFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD4vW-00000001Mji-46HU;
-	Thu, 08 May 2025 17:20:55 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uD4vY-00000001MlD-3MgZ;
+	Thu, 08 May 2025 17:20:56 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD3Xu-00000001CFH-39XD
+	id 1uD3YU-00000001CL4-2HrL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 15:52:28 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 548FqDse1703887
+	Thu, 08 May 2025 15:53:03 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 548FqhVb1135258
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 8 May 2025 10:52:13 -0500
+	Thu, 8 May 2025 10:52:43 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746719533;
-	bh=zkRgnerI36b6HY4HkOyt64j/523Zu+/FuRNnOX/SiVU=;
+	s=ti-com-17Q1; t=1746719563;
+	bh=+fa0rbAPkxM+3rgikO9chYrJm2BqUTBPYcxaMPdZBIw=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=YHwFXXnr4fOELaKYHk/U08lGuFNTXHVKouN4qlQWfFLD3HTEGnQA+SxmgR4YArG0a
-	 NkgYTuc+qxstuKAAN+Xhu1PCKmvgu9z2Kd8LFwZtrdPlBYa/aQFmGi2RGkt02lqJMG
-	 kInUO9MijHRiyPJq6fnPAZLl6qnGFMei5Zgwa6Jc=
-Received: from DLEE104.ent.ti.com (dlee104.ent.ti.com [157.170.170.34])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 548FqD6x027835
+	b=Jk/1x/YIg+KSypoZa1GDhASf5ZffI0LjuOOVx9xBF1uV+3NpZxe7kJgVKKy20COA+
+	 66tXHU8LnwvTpb0J0HwxSF8ziFYce236jMHQ6wbhgPmJ3grGUzuXdiCv1C9+c7UYAi
+	 UokoF1b6oWmr7+VmGCVSibOCnv3c6WIgOQjHCNFo=
+Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 548Fqhsg019875
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 8 May 2025 10:52:13 -0500
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+	Thu, 8 May 2025 10:52:43 -0500
+Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 8
- May 2025 10:52:12 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ May 2025 10:52:43 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 8 May 2025 10:52:12 -0500
+ Frontend Transport; Thu, 8 May 2025 10:52:43 -0500
 Received: from abhilash-HP.dhcp.ti.com (abhilash-hp.dhcp.ti.com [172.24.227.115])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 548Fq2oL050794;
-	Thu, 8 May 2025 10:52:09 -0500
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 548Fq2oM050794;
+	Thu, 8 May 2025 10:52:39 -0500
 From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>
@@ -60,9 +60,9 @@ CC: <vaishnav.a@ti.com>, <u-kumar1@ti.com>, <r-donadkar@ti.com>,
         <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <jai.luthra@linux.dev>, <linux-kernel@vger.kernel.org>,
         <y-abhilashchandra@ti.com>
-Subject: [PATCH v2 1/4] arm64: dts: ti: j722s-evm: Add DT nodes for power regulators
-Date: Thu, 8 May 2025 21:21:31 +0530
-Message-ID: <20250508155134.2026300-2-y-abhilashchandra@ti.com>
+Subject: [PATCH v2 2/4] arm64: dts: ti: j722s-evm: Add MUX to control CSI2RX
+Date: Thu, 8 May 2025 21:21:32 +0530
+Message-ID: <20250508155134.2026300-3-y-abhilashchandra@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250508155134.2026300-1-y-abhilashchandra@ti.com>
 References: <20250508155134.2026300-1-y-abhilashchandra@ti.com>
@@ -71,8 +71,9 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_085226_880285_7153CCB1 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20250508_085302_625798_C39D922B 
+X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,57 +88,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree nodes for two regulators on the J722S-EVM. VSYS_3V3 is the
-output of LM5141-Q1, and it serves as an input to TPS22990 which produces
-VSYS_3V3_EXP [1]. VSYS_3V3_EXP serves as vin-supply to CSI RPI Connectors.
+J722S EVM has the CSI2RX routed to a MIPI CSI connector and to 22-pin RPi
+camera connector through an analog mux with GPIO control, model that so
+that an overlay can control the mux state according to connected cameras.
 
 Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
-
-[1]: https://www.ti.com/lit/zip/sprr495
 ---
- arch/arm64/boot/dts/ti/k3-j722s-evm.dts | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+ arch/arm64/boot/dts/ti/k3-j722s-evm.dts | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-index 34b9d190800e..0f18fe710929 100644
+index 0f18fe710929..43256c71a19c 100644
 --- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
 +++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-@@ -141,6 +141,17 @@ vsys_5v0: regulator-vsys5v0 {
- 		regulator-boot-on;
+@@ -266,6 +266,20 @@ transceiver2: can-phy2 {
+ 		max-bitrate = <5000000>;
+ 		standby-gpios = <&exp1 17 GPIO_ACTIVE_HIGH>;
  	};
- 
-+	vsys_3v3: regulator-vsys3v3 {
-+		/* output of LM5141-Q1 */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vsys_3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vmain_pd>;
-+		regulator-always-on;
-+		regulator-boot-on;
++
++	csi01_mux: mux-controller-0 {
++		compatible = "gpio-mux";
++		#mux-state-cells = <1>;
++		mux-gpios = <&exp1 6 GPIO_ACTIVE_HIGH>;
++		idle-state = <0>;
 +	};
 +
- 	vdd_mmc1: regulator-mmc1 {
- 		/* TPS22918DBVR */
- 		compatible = "regulator-fixed";
-@@ -153,6 +164,17 @@ vdd_mmc1: regulator-mmc1 {
- 		bootph-all;
- 	};
- 
-+	vcc_3v3_exp: regulator-TPS22990 {
-+		/* output of TPS22990 */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_3v3_exp";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vsys_3v3>;
-+		regulator-always-on;
-+		regulator-boot-on;
++	csi23_mux: mux-controller-1 {
++		compatible = "gpio-mux";
++		#mux-state-cells = <1>;
++		mux-gpios = <&exp1 7 GPIO_ACTIVE_HIGH>;
++		idle-state = <0>;
 +	};
-+
- 	vdd_sd_dv: regulator-TLV71033 {
- 		compatible = "regulator-gpio";
- 		regulator-name = "tlv71033";
+ };
+ 
+ &main_pmx0 {
 -- 
 2.34.1
 
