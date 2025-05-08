@@ -4,157 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 621F6C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 02:06:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34408C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 03:11:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xk7tWWO9PLdWtOJGAEqLVSyPWxLEndUSpmavfp/Aiaw=; b=G4yXZSOTBSFAgdEdhTSgJ7dU/i
-	CcjeqHzTPfzLVoHcSvf8ukIFTm9lkwyZedZEkU9ykRzFkX6EYhVGFNPoWu7ynDlG5Sv6MxMvNb28Y
-	rrYKaa4ip7a105amtCBeUi5wozy4l4/HOq/FZ8N19RmPGjLfTGd5EfS37ZwTsna2wR1fujinIWKJe
-	TOw0R2GgeHmGx1M57duB0kWWvdXxysPNeHpuRv5G+n1cV7jkBpI2zvnNYnAN78j13n7UXtFHXZ+Cs
-	5i4F8qisD07tyxjweXvfdM694JR5HM5ucc7HfecrzYEOFa49HnOHHLTg6iIGSgXpJA8UZUGfnuilO
-	LRpFA0Vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i8RU0fbhH6U3yXyRxm0j+S6qxPOhhNP5iZUZq5SHWkU=; b=eMMb+dvmt3tpSBZlTOWu7ccxjs
+	P77PVbOFcC2S0CFSuhSNt2YArKYV3mQc6kj3pUK4d9HC7Skixc5YiZsfD310zFKaUxPSpXT5GhTBA
+	6WjihljqHlHCRkFQ4t69kVjd2LVjwIyxbCeAe50exrfkoluQHyuMwkwdkp53+kTGd98G8ihI57ev+
+	m/sGuEfLGkkz7Q26q81ONI7n7KejrLoegzqGz+/b7P2oBykakHMpGYHAM/bNtd3/nb25OQcypkcGq
+	SgttLm/L5hvK8Y3A1SetmKSkoGj4BkDV1tr2m0dJXqOkLpfR7LL4lUfs1MfoPtOZgXcyCqBrlLBgk
+	MAeyRYfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCqdr-0000000H86v-1dXj;
-	Thu, 08 May 2025 02:05:43 +0000
-Received: from mail-am7eur03on20607.outbound.protection.outlook.com ([2a01:111:f403:260e::607] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
+	id 1uCrfX-0000000HBqa-03Jf;
+	Thu, 08 May 2025 03:11:31 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCqbp-0000000H815-3It2
+	id 1uCrdX-0000000HBac-2GJe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 02:03:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BeBiSv32Mh+GtLLU9tp88lLUa6kumBfi2jPKiXouibzMJB4wnNism67ad6zOU0eNyM7wUAZLCygvy5QrSzxleb8Y7ymID/fKb4KtAk1t8ODDJYVY7q6okm4zO0i+0qS23zb0pBOf2BzcAOQsEXILLqSvvMn3HvAdMBl2jKodhJPAKClh5ZgL1KRZDsuuyvvsL2cEerlUbUHZvicLVeLPbL6YdYtQfgQqkaDC0Z3G5yLiNsHphzM5EVVKthrqcWSx7SsxZbAHEKNQFWsEoKimgPUwhE+y46jB4+8dSDwTslC0iZaXlAbeLNg+2TiW3ATGjbs+dOg3YxjaOaCTGM/E1Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Xk7tWWO9PLdWtOJGAEqLVSyPWxLEndUSpmavfp/Aiaw=;
- b=hWyEes6F2q1CQWKYtagmKfzV5YFw1y7gNmQxOPn7xq7FRi6lODSHpM5r0FzITDCHm2LAA+H5ehZKqWq0/Lc68ByLrk2bN110oP3EqLq8tAkNaWWx3K79jIKeRcS1nadEynDdm3WRIBkqnPFlo/6NdWAXIlaMOiZovJycqE34YDIg3a+UFS5aTTSZm10ouTuCm3jFpm7ZBTfbVuxGM2EbB589UJbgk5CO04IPwyzgXQPzGRuYGk66F8mTl7bO7ou5yo5nN4lyNtSglnGl9vbC54JCB78W4cdORJw2THN49+rEnHnXPzwcYfxyepXc0W7dV+3DPLHQTVeX31bdoQdW4w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Xk7tWWO9PLdWtOJGAEqLVSyPWxLEndUSpmavfp/Aiaw=;
- b=M80MIXHKebr0nWUIg88xYGhb3YfQR67gIiBIXJl5QCf5j6/x1GuTbjWkrl1+scbxshNvXYbb1XB2mW799NO06kgNpp3wVIdhmA5Ji5wawYVjr7kskVwjvK13bpz0aZMTx6eCvBG/JjeP6e4C5DjHBEzsvGlBFEh2wBAaWQJKZv23LckNibQ5Ioc7E3fdJERlLsJtWxeUZeDf00UVQqRlC1bk6tHBYQuOJPZeFlihDt8mfYeCuNVPqWcDpeCpuj2nwFwqPCOylaZdw42GBiod34E5s1iBs6nE9aUZ0gWPpUrS5TDBWlwrjg8c1/6IHoBs3eWYP4OMN/n33mOhHPs2TA==
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14) by GVXPR04MB10405.eurprd04.prod.outlook.com
- (2603:10a6:150:1d8::16) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.23; Thu, 8 May
- 2025 02:03:21 +0000
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687%5]) with mapi id 15.20.8699.035; Thu, 8 May 2025
- 02:03:21 +0000
-From: Carlos Song <carlos.song@nxp.com>
-To: Andi Shyti <andi.shyti@kernel.org>, Francesco Dolcini
-	<francesco@dolcini.it>
-CC: Aisheng Dong <aisheng.dong@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Emanuele Ghidoli
-	<emanuele.ghidoli@toradex.com>, "linux-i2c@vger.kernel.org"
-	<linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Francesco Dolcini
-	<francesco.dolcini@toradex.com>
-Subject: Re: [PATCH v1] i2c: lpi2c: implement master_xfer_atomic callback
-Thread-Topic: [PATCH v1] i2c: lpi2c: implement master_xfer_atomic callback
-Thread-Index: AQHbv71fHIQWjH0UhUO1fvwg8UTdCw==
-Date: Thu, 8 May 2025 02:03:21 +0000
-Message-ID: <VI2PR04MB111474DEDC6FDC84DCFB11A06E88BA@VI2PR04MB11147.eurprd04.prod.outlook.com>
-References: <20250319145114.50771-1-francesco@dolcini.it>
- <aotznndpptgl5qtmkavmeuqydzpkefncnovddzyqqst6ozsm5p@fewoclduusfz>
-In-Reply-To: <aotznndpptgl5qtmkavmeuqydzpkefncnovddzyqqst6ozsm5p@fewoclduusfz>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: VI2PR04MB11147:EE_|GVXPR04MB10405:EE_
-x-ms-office365-filtering-correlation-id: 76362fe7-d537-4736-5534-08dd8dd48212
-x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?jkbRSMYHePpShBKFWDyT/M5u3GwYA58+pGGbIOC83bZr+P0R/LcCcJ8hVTqj?=
- =?us-ascii?Q?2gBxWlHStRZzlTvHkCMs4EFyogE/pZWilu4KsuCWURvkUETdSuKst8pPCohK?=
- =?us-ascii?Q?EvwlsqiFAH3fpU+QnnnuJY7CM55+/+LM6C41gnh9wMMvDqamXVtetHRqKWoD?=
- =?us-ascii?Q?xT2mgeBS8TtD3wtUDuonSoYd4dShVS4y3eD/vuhdDY/FsHJ0RxaROkHJMQ7v?=
- =?us-ascii?Q?8xUsuiI8e0OJ5tYmrM8YwyyriEXlj42DQZ7Gw0XevwJ/tnDyphbeGsxD9b6E?=
- =?us-ascii?Q?guVUjHVPoy8UX/KLZ2J+TC5Q6q05i+BsIKJvOQWO8pJK1K/MbvLwDTjQdRS/?=
- =?us-ascii?Q?+regACdwUd9BwLy2d4K8DkqdI4fTi4G3fhTLi5GH9RZvOTPb91T29cS1BgQ9?=
- =?us-ascii?Q?ifZmfW2xxOlwOHZUI6jrctK5F2ZRSbfcXwPrCMtXHWYaIM08Y13F2M2MoG7Q?=
- =?us-ascii?Q?BEhvDzyz9QogHmF/3n6Ppgk5dh4+hPRuXu99Om5AWPEzSEz23eRANj+iTscy?=
- =?us-ascii?Q?Lrhsu6IDEaj1L4dVaarJGb1wBRPNqfaDK0Keu5DJhk8sFRVDont/IT46uXQO?=
- =?us-ascii?Q?9rshbNNXrQr7P6xkEu34kRJQnQZkvBkPfMie1Qu3l3OtpvgiMoIwTIFwHUqM?=
- =?us-ascii?Q?qrXFqTVuJBwm5ywwHkq4LudEhkCNHqNeJPfLJGOjbDOIodTzMZNVdHu7LELm?=
- =?us-ascii?Q?ntUmkZIumC7RI/2B8dTJcJLpNV8zswG/wPjRmjIenOMwLBKvNpijZepa9C3F?=
- =?us-ascii?Q?84sxJXQ/Rm+04I1mqGIQ3LET4JDgTqvAKEfzt8F1jiAuUPHyWyu/xtRAD/VY?=
- =?us-ascii?Q?wLCBsqwjtyGMGrV2nzvcs3p7WqAfWIoeeu+IPfXPumn0Zs1OXFs9mXIC3Oij?=
- =?us-ascii?Q?SiFvylMtZDH9BkK5HEn2PxppuiU+4GoVx6b6fZlMQh2VyLU3s+tPnQMUaOz6?=
- =?us-ascii?Q?xuByuYOZpsTrUTkHcMObNAdBx/K/j0zRECpmk87QrqlDbnkwXKLr/078hhET?=
- =?us-ascii?Q?HVcRorKAdGD7ymp4dh+yEnj59fVDFC7lQ2B8IfZJm9zB+dU5bzanSZ0wKfOB?=
- =?us-ascii?Q?k6guzaMvwMubeFZoPfFTOFRE5B0eg7VJ+2/MB2B1+e3TLSC0tc3cQ1zritpv?=
- =?us-ascii?Q?sfLSKvdMsh7yUblN5UxiehOS3nRzF23L8zEAJ82Mq/qMiUkoSrRAaJly4y+k?=
- =?us-ascii?Q?rGWZ46WeGjGBsUUov+VF33L9i57cgs48RMuZjmaL2s2s65xJEOh0pZEjBHsq?=
- =?us-ascii?Q?r7EZkKssLY2x/6NzDsk3VfPUMmI8H+Q42/+8SczPAdERCpRBySm6l1dtZKAX?=
- =?us-ascii?Q?L+0X8l5H5iGxy9TGSiT3SBg5UDcgChqWmpPSYYFBYzuzZ3jaRbImSrAiuQLf?=
- =?us-ascii?Q?cMfLx/Dhjjx+E7qCUMecDd3H+VageZ1TkhPd1/J/82+ZqCcdjJzRFYvSQxs0?=
- =?us-ascii?Q?Me+85wyN6Ol99FRmny26BG8LioNA7sb8wfBrCos11WHGQYSGLel5rAXHv1Is?=
- =?us-ascii?Q?+fJ3PukVWsjdLaM=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?+w4DwnmXnbOv3Un5CVOIrFIVGboiMkyIEJFaYhDZF726Dg4I9p5jy6TZtXHP?=
- =?us-ascii?Q?t2T1nHuc13iI68U7FruNrgqL+qspOt1aUtJwwKJaXUsusxW4xV01OWtXo2k9?=
- =?us-ascii?Q?yg0T8tnu/RZlyUMVMKQ6u6bTXZtyyfOhk+ImHGQIpeP1tCcHCsu4MeFWqT1Q?=
- =?us-ascii?Q?KSZvETPiwK0fjWPsGoiPfXPmtyCNbNhgLe0lMfoI1Yi4pqFXTtcqmJhHrpfq?=
- =?us-ascii?Q?NxIeu2vDNSSpYWh1YokbZDTTUnBlSAODE/rwgIuBQIGRnN8ivm5YXybhMoyu?=
- =?us-ascii?Q?c8pz+HcnXgZFDaAOsg3QQ9/gL3L7/bKOUARssEq4mxKx64HiSFl1gN7fOEcx?=
- =?us-ascii?Q?ONlBwXhLcM7m3aijUEPqSBsRRbTaJbVvtZcBSihRIFyx5F06fy1hFf2adAMn?=
- =?us-ascii?Q?YhQ1p0AIGsI9unWycNzK86VWCWn2s43XMz4Lqsx0u0yNMmOV08ZnaeHDSvyC?=
- =?us-ascii?Q?LZgO6oGvyYjbDUZKPX0uD8MwhNadvrl6lI6+dStWifw3RxR8dAPNOCQb1etr?=
- =?us-ascii?Q?hOxdd+BoqgY3HL4gYQvUsFc96n0j14qqoEj95pPbmuM3ONX5aunAEK4jKcfW?=
- =?us-ascii?Q?3gfAdH2JpqAnJg2ueCYvSMn1Svbxfi/omb6bp1Y/Ux3MPSDp5ae6KXnuCU1+?=
- =?us-ascii?Q?83rdewXd2c4ZEIiJ4fNhGPKFNT6mk2LFZW/O/cxH/86olH3JyrTRGJqheM2m?=
- =?us-ascii?Q?t1/qpetBuPNL+z/ViOfWaO5MS2ox4JrlZtlM4p1J2ByufC0XhmlPGlcchjHo?=
- =?us-ascii?Q?56vfR2ocPjxbsMBlIYntUo7UTMSM4KgMaIaPN9jjWvMu9tPWdpYHTAgUFnP6?=
- =?us-ascii?Q?0YqYn/JO/6KhMGMYC8wcXGaPKosBZ+ac6008jKFy/vEkOxT9FZTQQCBOXlyt?=
- =?us-ascii?Q?AqibNfBIAmkvBlsnK8PG+jHIMnmFPZUg0Npbw1WIcOCGiKTTJ8Ug52pAQoPu?=
- =?us-ascii?Q?yHaK7KjuaAX0AnDWQmdlpVMzCiLjjZDKFNW+9GXrRRLWvdpllgkEZQFdQR+5?=
- =?us-ascii?Q?3Ch0ewEyiM4Abhf8OgwSO5IGF7pk0s5YlRFaTfF4KgvFETv0Y4EqVPAjjk58?=
- =?us-ascii?Q?doeCQng6S5avJoic4L2xNegJ9n7DmUHeLzlFVNdUgxtKzujzg5EUaapU2/qp?=
- =?us-ascii?Q?SJUP/vyz4QtpYnc7bJTkEBExwldPilF2gNU3GaB9mTYYsI3X9bAGbfqQpVQq?=
- =?us-ascii?Q?j9NvcoQ17zTOKnP+tz5U19Cn4OuBpD7w8EfaQOEBvRIUEzr58d9jNT0yWZhH?=
- =?us-ascii?Q?qA9JmTuF1UpEs2PghdmNJeMiDysF3SFMmGNnEI5frKHujakBocHvdMzBUkIq?=
- =?us-ascii?Q?VODMEHEZoggAoosYRU3KV6/EP9S1tRiWC4+gYEypNaYt8nGw0u7yrHoYaUSv?=
- =?us-ascii?Q?3QtnIlBNEDG43ljWwdzLbDis4sStrJI/takpnM26y8ueRga44MdWzqHMs4m5?=
- =?us-ascii?Q?tCt4VC1WoS3FZgc+P9Nw5GJWXM9pIQxS1clIX+Sx4ZqmUraEkiLRCFAG/WPv?=
- =?us-ascii?Q?NYnGKZzzpV7CQhOaMoAxKN+0UT1QRyCbsoKZwrmr0WeiWBeVAOLzPAqZ6yQq?=
- =?us-ascii?Q?Mm/frw2CwJJ5cjL+gYI=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 08 May 2025 03:09:28 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 54839KTa982443
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 7 May 2025 22:09:20 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746673760;
+	bh=i8RU0fbhH6U3yXyRxm0j+S6qxPOhhNP5iZUZq5SHWkU=;
+	h=From:Date:Subject:References:In-Reply-To:To:CC;
+	b=EFd6c7Kw8CRgFAsa70xcFmpdhdP7ddY9ZNBmSSVTKdb/U395KNpqvgG+QUY3aCYd+
+	 EMKgzYazfEv4Zq/u6a8jR5fc0qBLN2MkXFCGVgD1nicNv9dJwsPi2kBUABF07Qb9/q
+	 ms1xj4hwzWEV9JODyrYinI0pnRogL3TxYd1e/ivg=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 54839K8I008939
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 7 May 2025 22:09:20 -0500
+Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 7
+ May 2025 22:09:19 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 7 May 2025 22:09:19 -0500
+Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 54839JRi020147;
+	Wed, 7 May 2025 22:09:19 -0500
+From: Bryan Brattlof <bb@ti.com>
+Date: Wed, 7 May 2025 22:09:19 -0500
+Subject: [PATCH v5 1/3] dt-bindings: arm: ti: Add binding for AM62L SoCs
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 76362fe7-d537-4736-5534-08dd8dd48212
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 May 2025 02:03:21.0958
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: f/FGco3HG8kj+uJSnkh7ck+HoyXYNFTjSy54qv9se47pKlCx9aiYEK9ZRXNCO1vqECJJ6ECeQiD3aHCP0zEvaw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10405
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250507-am62lx-v5-1-4b57ea878e62@ti.com>
+References: <20250507-am62lx-v5-0-4b57ea878e62@ti.com>
+In-Reply-To: <20250507-am62lx-v5-0-4b57ea878e62@ti.com>
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Bryan Brattlof <bb@ti.com>
+X-Mailer: b4 0.13.0
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_190337_861749_641116F2 
-X-CRM114-Status: GOOD (  28.62  )
+X-CRM114-CacheID: sfid-20250507_200927_734307_8D2D6DEE 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,94 +90,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add the binding for TI's AM62L family of devices.
 
+Signed-off-by: Bryan Brattlof <bb@ti.com>
+---
+Changes in v1:
+ - separated out devicetree bindings
+---
+ Documentation/devicetree/bindings/arm/ti/k3.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-> -----Original Message-----
-> From: Andi Shyti <andi.shyti@kernel.org>
-> Sent: Tuesday, May 6, 2025 7:02 AM
-> To: Francesco Dolcini <francesco@dolcini.it>
-> Cc: Aisheng Dong <aisheng.dong@nxp.com>; Shawn Guo
-> <shawnguo@kernel.org>; Sascha Hauer <s.hauer@pengutronix.de>;
-> Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
-> <festevam@gmail.com>; Emanuele Ghidoli <emanuele.ghidoli@toradex.com>;
-> linux-i2c@vger.kernel.org; imx@lists.linux.dev;
-> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Franc=
-esco
-> Dolcini <francesco.dolcini@toradex.com>
-> Subject: [EXT] Re: [PATCH v1] i2c: lpi2c: implement master_xfer_atomic ca=
-llback
->=20
-> Caution: This is an external email. Please take care when clicking links =
-or
-> opening attachments. When in doubt, report the message using the 'Report =
-this
-> email' button
->=20
->=20
-> Hi Francesco,
->=20
-> I'm sorry for the late reply on this.
->=20
-> Can someone from NXP help with the review? Carlos? Dong?
->=20
+diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+index bf6003d8fb764..6f448433d3b2e 100644
+--- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
++++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+@@ -31,6 +31,12 @@ properties:
+           - const: phytec,am62a-phycore-som
+           - const: ti,am62a7
+ 
++      - description: K3 AM62L3 SoC and Boards
++        items:
++          - enum:
++              - ti,am62l3-evm
++          - const: ti,am62l3
++
+       - description: K3 AM62P5 SoC and Boards
+         items:
+           - enum:
 
-Hi,=20
-
-Yes. I reviewed this. It is ok for me! Thank you.=20
-Reviewed-by: Carlos Song <carlos.song@nxp.com>
-
-> On Wed, Mar 19, 2025 at 03:51:14PM +0100, Francesco Dolcini wrote:
-> > From: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
-> >
-> > Rework the read and write code paths in the driver to support
-> > operation in atomic contexts. To achieve this, the driver must not
-> > rely on IRQs or perform any scheduling, e.g., via a sleep or schedule
-> > routine. Even jiffies do not advance in atomic contexts, so timeouts
-> > based on them are substituted with delays.
-> >
-> > Implement atomic, sleep-free, and IRQ-less operation. This increases
-> > complexity but is necessary for atomic I2C transfers required by some
-> > hardware configurations, e.g., to trigger reboots on an external PMIC c=
-hip.
-> >
-> > Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
-> > Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-> > ---
-> >  drivers/i2c/busses/i2c-imx-lpi2c.c | 258
-> > +++++++++++++++++++----------
-> >  1 file changed, 173 insertions(+), 85 deletions(-)
-> >
-> > diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c
-> > b/drivers/i2c/busses/i2c-imx-lpi2c.c
-> > index 0d4b3935e687..f34b6f07e9a4 100644
-> > --- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-> > +++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-> > @@ -16,6 +16,7 @@
-> >  #include <linux/init.h>
-> >  #include <linux/interrupt.h>
-> >  #include <linux/io.h>
-> > +#include <linux/iopoll.h>
-> >  #include <linux/kernel.h>
-> >  #include <linux/module.h>
-> >  #include <linux/of.h>
-> > @@ -187,36 +188,35 @@ struct lpi2c_imx_struct {
-> >       struct i2c_client       *target;
-> >  };
-> >
-> > +#define READL_POLL_TIMEOUT(atomic, addr, val, cond, delay_us,
-> > +timeout_us) \
->=20
-> READ_POLL_TIMEOUT is not really a name that belongs to this driver. Could=
- we
-> name it something like lpi2c_imx_read_poll_timeout()? I'd prefer lowercas=
-e, but
-> I won't object to capital letters.
->=20
-> Additionally, the timeout_us value is always 500000, could we just drop i=
-t from
-> the parameter list? Same goes for LPI2C_MSR.
->=20
-> Thanks,
-> Andi
+-- 
+2.49.0
 
 
