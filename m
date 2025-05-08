@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84390C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:14:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10C5FC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:17:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1DbR88mMe7lh9mbFQex/gaxf8EjJ7wEyl4UEqQjuDD0=; b=DVV4k9wlg75lxTiY7gC9nW2cJa
-	x/UnVHmPdx/esug1jraxzUufgI+lT0AgzcfAtN2LI0ZhixEa6L8PyDENkTj9NlktXFSNZUWWKWP3P
-	yayVNIa5kUe2w1tgf0B7RvCM8GjAh5uXx7pq6nUU5dAZmcg3dFfIf06ZdxeDg7D0yTq2sMV8JwByi
-	vrKp4m+1Kl1w+rxA9ecBCd7H0LXJtCPrnP2yPMLtyWR6gnCsfmRIGF749GWkTQQKYTRm14UgstBla
-	9f25UR+WjQW4fQq4ev3SA9P6d0rN69vbuAA9ntGFjjjJzD2i1w/u5zxyVdUuspoM13l9lhnYn7Ie2
-	72fD76IA==;
+	bh=muIi7nAlPQdfZ/AzeEKIfzmxK7zukWNt/WIqpjGQaJ4=; b=HDIs2/W2BHgVW8ghO20dKdXdcq
+	UpEUD9v5WRfWAoT2be1yD6idXeE5TcqTEhy/0ErschhdPTyrTU8DpLu1kzTDFfSHlqkX5hG5R4cf/
+	W0c/9bnNP8DitXYUiwy1JQLD0p+c6bfK+r9/NeDIWq9r6REWzefGccKTk6Y+2M6GHdXln5RKY0cba
+	DVzytWW2nuJDpNeQ2GPdoZkCjK2UtqzZRiovD2gDxh8ZM/GmHEBHgW1A9zM20aiU1fEwU2Blt5ulN
+	WKAHdWVql1+d1YoTXNW/yHIDpifwKHxR/E3dszMvuET2Ze2/0qbFLzZt75MEWe4ldLsR7LBL5r6oQ
+	5cab2bgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvT0-0000000HZ4f-1aei;
-	Thu, 08 May 2025 07:14:50 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uCvUz-0000000HZHL-1XZ7;
+	Thu, 08 May 2025 07:16:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvOJ-0000000HY5O-3rJV;
+	id 1uCvOL-0000000HY6G-3m2g;
 	Thu, 08 May 2025 07:10:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 212C8A4D485;
-	Thu,  8 May 2025 07:09:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D888C4CEEB;
-	Thu,  8 May 2025 07:09:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 05ED362A01;
+	Thu,  8 May 2025 07:10:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 962B0C4CEED;
+	Thu,  8 May 2025 07:10:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746688198;
-	bh=RrwRtaujjlqJpIgcXtqqvO+THEkQ26LzURxmJEZVRD8=;
+	s=k20201202; t=1746688200;
+	bh=SPCMfBae4c32mBCIvKXGGN6phuuMewMdj5VLCcFNbi4=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=PHUON7AE9iEwY4EReMGouzh8o4Xx3NEVh1B3niBALfu93L0I1ZeEBBxRkmVQCo71P
-	 yYHulapgtsDqfZAEoi6oXb3FV35XThgJhiI4G4xEt37OPJYaoUB1PexJZr/5LwScE9
-	 XJseyi7K7OLnNmO+GoGG2onANkWJCoDjkp5ZBq5hWrm9yjaAmcHPtmpi5XsZrjNjOh
-	 w0nbRR+nv/EZq9AdfrsAR47j51d5g6dGLnqr5vVIdfmXZ9cEGPcdy7NfErMeilz2of
-	 T+KcaV2SPlNGcoQ1z3JK3W7Pg572JpINQ9JrtRc3M1rgKE7ZafmuyCBlVpVkJuIgOX
-	 d9DTGaPjoGgng==
-Date: Thu, 08 May 2025 02:09:57 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	b=QRKbXzjb991/iETG77YEP2lCudXojwnfdPEM9H3CydmQrg0SKEwzNOYWErlKNbNbs
+	 UP/KeHE+DpSJjASyg6Aj/q+bpOMWQczFM/QxeOp5rUMW8t2xou/VoSQfEUW9Cxn8Km
+	 FeAFbMH4CKCfukpBD4RxTzu+v+NvAJgosv0poH0k192XYNbPbcOY560JYpSVrl9Bv7
+	 H2YpQOsjuwwUwBXslhdSCHUNHwzEHDjOKfk2HkLCs4VTAg9wOo2PgKoFd/KoR4GGZw
+	 eD8UCuU4GR0FTW/YuFL6LuuZhTnFHCZYQtr1PSVcBSw3Axo8RCb8Za9UQ278YSMf37
+	 44hCQRV8In2oQ==
+Date: Thu, 08 May 2025 02:09:59 -0500
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, Sean Wang <sean.wang@mediatek.com>, 
- Jiri Slaby <jirislaby@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- Conor Dooley <conor+dt@kernel.org>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- linux-serial@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- xavier.chang@mediatek.com, wenst@chromium.org, linux-kernel@vger.kernel.org
-To: Sirius Wang <sirius.wang@mediatek.com>
-In-Reply-To: <20250508063546.289115-3-sirius.wang@mediatek.com>
-References: <20250508063546.289115-1-sirius.wang@mediatek.com>
- <20250508063546.289115-3-sirius.wang@mediatek.com>
-Message-Id: <174668818993.3553950.2026638570584322328.robh@kernel.org>
-Subject: Re: [PATCH v2 2/3] dt-bindings: serial: mediatek,uart: Add
- compatible for MT8189
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_001000_031706_441B15E1 
-X-CRM114-Status: GOOD (  10.12  )
+Cc: dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org, 
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>, Sandy Huang <hjc@rock-chips.com>, 
+ Dragan Simic <dsimic@manjaro.org>, Andy Yan <andy.yan@rock-chips.com>, 
+ Maxime Ripard <mripard@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Thomas Zimmermann <tzimmermann@suse.de>, 
+ devicetree@vger.kernel.org, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Heiko Stuebner <heiko@sntech.de>, David Airlie <airlied@gmail.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Chaoyi Chen <kernel@airkyi.com>
+In-Reply-To: <20250508064304.670-3-kernel@airkyi.com>
+References: <20250508064304.670-1-kernel@airkyi.com>
+ <20250508064304.670-3-kernel@airkyi.com>
+Message-Id: <174668819101.3553983.10022669758074843982.robh@kernel.org>
+Subject: Re: [PATCH 2/2] dt-bindings: display: rockchip: Convert
+ cdn-dp-rockchip.txt to yaml
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,13 +78,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 08 May 2025 14:35:41 +0800, Sirius Wang wrote:
-> Add compatible string for serial on MT8189 SoC.
+On Thu, 08 May 2025 14:43:04 +0800, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 > 
-> Signed-off-by: Sirius Wang <sirius.wang@mediatek.com>
+> Convert cdn-dp-rockchip.txt to yaml.
+> 
+> Tested with:
+> 
+> 1. make ARCH=arm64 dt_binding_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml
+> 
+> 2. make ARCH=arm64 dtbs_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml
+> 
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 > ---
->  Documentation/devicetree/bindings/serial/mediatek,uart.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  .../display/rockchip/cdn-dp-rockchip.txt      |  74 ---------
+>  .../display/rockchip/rockchip,cdn-dp.yaml     | 148 ++++++++++++++++++
+>  2 files changed, 148 insertions(+), 74 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/display/rockchip/cdn-dp-rockchip.txt
+>  create mode 100644 Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml
 > 
 
 My bot found errors running 'make dt_binding_check' on your patch:
@@ -98,7 +107,7 @@ dtschema/dtc warnings/errors:
 
 doc reference errors (make refcheckdocs):
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250508063546.289115-3-sirius.wang@mediatek.com
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250508064304.670-3-kernel@airkyi.com
 
 The base for the series is generally the latest rc1. A different dependency
 should be noted in *this* patch.
