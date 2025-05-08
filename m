@@ -4,56 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DC5DC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:41:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D62C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yk0nbWsz6jHSauZ7p+yqTzFQGOPzaxOT3VftWjJj2mM=; b=hy34PmApygv+8N/1GeiL+J1FFe
-	C6YHwGTDdEJBBfJf3AqNpw1Mmc6Syyw387dv8zUY+iUDb+WpGsPhFjm6X68vUjHdSBD6Pu/TBELGv
-	5r5Nb3hmy3F9SwXk3bsxcWCsmq6kIwVHVpB6ow05LYoCFHOWV+Rl85dwFqi9J/xj4D7l0oTWpFeXd
-	ATYf7hpw4NHT4RgzqHkwvin8FFqYmxNxqnkg0YAvKFiFP2FMTpRoGzADQ3EyHQ6cslullgZcDYm0u
-	we5DSphglKw/K1UiQspckw8MXjm9143x1ORGPCRvP2f17ZPt59pVmsCD/c4KS02XYrznbwI2HgDX4
-	X71fx7lQ==;
+	bh=+i8JXGtKcay/hN9nmbwJHsddHZek3Wb23Gp3MH9TCUw=; b=EnKRJMjQmEYk/pIz86y0tBiUXb
+	X6Oau+uld5SsCGnmFaWOJQBe3gy9MmGILKvHTLu6fGL5Gt4sVNRg2jyPK9XzXbXPVpdWEBxDwaLr8
+	6LUzAU4LJZkuERrojoMMRzG2fM37bznVJhuEywUqzX8xyIVoLNU8XYBXeNlqQzO5LOTpbCG/qNfQU
+	yOZG72FtmeLR50YoqvPm7bMRFkIPCXUijYOdl3pguPEYX3TsvgSCD2nqhmCYEbkXGj5D3yeq5kwYs
+	gAAUkJIyEGLh5LkmiT/MI2iup+FyLpKEghUQsW8+AZp8HtX9Kq2ef4CvLrwgptVhiwlPNCTOz049q
+	KEK4TFdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvsa-000000001cc-1r6K;
-	Thu, 08 May 2025 07:41:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uCvuV-000000001ul-37zz;
+	Thu, 08 May 2025 07:43:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvoz-000000001AB-0FX2
+	id 1uCvqZ-000000001NH-09nm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 07:37:33 +0000
+	Thu, 08 May 2025 07:39:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0D808629E3;
-	Thu,  8 May 2025 07:37:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 570D4C4CEEB;
-	Thu,  8 May 2025 07:37:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 23416629E3;
+	Thu,  8 May 2025 07:39:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64B75C4CEEB;
+	Thu,  8 May 2025 07:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746689850;
-	bh=2K8uNXQXxO0Gc5a70Je+EdtIou/J82MA7oGGP6kUuDw=;
+	s=k20201202; t=1746689949;
+	bh=aoPmvlpUVTJBZ80tWq1+Sss5jsve9UvcYpZ4ZQTThio=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=a5BYQSUwmSe2AIAlk4ED5lhtXyxFsamGRscOe4QLDx9CrHVQ3TavnWpggox44HLAT
-	 gkk/L/iG+9ot6GD18JqL/D866EGLF+LblH4Bgc9/CpY25QO9YEGeE0SZ0Dx7/S2+l3
-	 jhConMyP61i7Z2Xy9QzXePdid4qdxwQt8cTRZ1gqTQe2isMYm/86vS+iNBxFsoYxLz
-	 e3dBjOeHlcjnbbT6YJ/Ius1Td90uNyORh3iJxhVimxptsdf3M3nFoLGK49Zw2A7Bxx
-	 Rj+TDElIolOkKhFFV5RCADh+ijvZvl6TtOcmKMyS06o3gLTHmlIF2AGWQ2hlSc5EMd
-	 uOabcwplsWa0Q==
-Message-ID: <f346c140-52f6-4209-b62e-53dfa2c8c7c4@kernel.org>
-Date: Thu, 8 May 2025 09:37:27 +0200
+	b=P/lgARPncMDWxTgNawjxRdtqA5vHwfp/N0Q3j/6pvLjzugxV7xj3D9Rq8fXKLaqE7
+	 c3NeW2JSvmX+EPIXt6moMqToNMik22Vl0VIJ+XY1RvOWvEEe7tH4sRUX5QSftG3zMZ
+	 YBDsZ2P98CQr/fqx8Nj9iYIRPXG4M0/Haygv4fSnW0/xbH49wQKFqEKKyaAtw8zqMd
+	 Qg5/Ijze8hqCfwPjNfBy26GKDTmCKDTh87EERqUNiUlptUu2oSx3goJ4NbsVoWKkKP
+	 Rg9MI3CEEPw3h0wRIm/fe6CWBNqihC1DvDkFHpU709nQ7CXy48wiDP9v6y2dluNMFl
+	 MwdsHS6DWytjg==
+Message-ID: <8a26a37a-26ce-41ef-96e4-10ee09ebe704@kernel.org>
+Date: Thu, 8 May 2025 09:39:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/8] dt-bindings: memory: Add Tegra264 definitions
+Subject: Re: [PATCH 4/8] dt-bindings: Add Tegra264 clock and reset definitions
 To: Thierry Reding <thierry.reding@gmail.com>
 Cc: Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 References: <20250507143802.1230919-1-thierry.reding@gmail.com>
- <20250507143802.1230919-6-thierry.reding@gmail.com>
- <b6d4f40d-9ad2-48c7-a5a1-55b2ebc4e21d@kernel.org>
- <apxlsl54wyigk7yovtrb2tadhhsad5ti7hdvueisjcdjzfk443@4q3fv6pjaac5>
+ <20250507143802.1230919-5-thierry.reding@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,7 +97,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <apxlsl54wyigk7yovtrb2tadhhsad5ti7hdvueisjcdjzfk443@4q3fv6pjaac5>
+In-Reply-To: <20250507143802.1230919-5-thierry.reding@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -116,61 +114,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/05/2025 09:31, Thierry Reding wrote:
-> On Thu, May 08, 2025 at 07:48:22AM +0200, Krzysztof Kozlowski wrote:
->> On 07/05/2025 16:37, Thierry Reding wrote:
->>> From: Thierry Reding <treding@nvidia.com>
->>>
->>> This doesn't currently contain any stream ID or memory client ID
->>> definitions, but they will be added in subsquent patches.
->>>
->>> Signed-off-by: Thierry Reding <treding@nvidia.com>
->>
->> <form letter>
->> Please use scripts/get_maintainers.pl to get a list of necessary people
->> and lists to CC (and consider --no-git-fallback argument, so you will
->> not CC people just because they made one commit years ago). It might
->> happen, that command when run on an older kernel, gives you outdated
->> entries. Therefore please be sure you base your patches on recent Linux
->> kernel.
->>
->> Tools like b4 or scripts/get_maintainer.pl provide you proper list of
->> people, so fix your workflow. Tools might also fail if you work on some
->> ancient tree (don't, instead use mainline) or work on fork of kernel
->> (don't, instead use mainline). Just use b4 and everything should be
->> fine, although remember about `b4 prep --auto-to-cc` if you added new
->> patches to the patchset.
->> </form letter>
+On 07/05/2025 16:37, Thierry Reding wrote:
+> From: Thierry Reding <treding@nvidia.com>
 > 
-> get_maintainers.pl lists 13 people and 7 lists. That's *way* too many
-> recipients for something as trivial as this series, in my opinion, so I
-> tend to curate the list of recipients manually. I guess I went a bit
-> overboard and should've at least listed all DT maintainers explicitly.
+> Signed-off-by: Thierry Reding <treding@nvidia.com>
+
+Missing commit msg
+
+> ---
+>  include/dt-bindings/clock/tegra264-clock.h | 9 +++++++++
+>  include/dt-bindings/reset/tegra264-reset.h | 7 +++++++
+>  2 files changed, 16 insertions(+)
+>  create mode 100644 include/dt-bindings/clock/tegra264-clock.h
+>  create mode 100644 include/dt-bindings/reset/tegra264-reset.h
 
 
-Usually that's a sign you combine too many subsystems into one patchset,
-so the solution is to split, not remove maintainers/lists from CC.
-
-> 
->>> ---
->>>  include/dt-bindings/memory/tegra264-mc.h | 13 +++++++++++++
->>
->> Filename based on compatible.
-> 
-> The compatible string for this is nvidia,tegra264-mc, so I don't know
-
-
-so nvidia,tegra264-mc.h
-
-
-> how much more you'd like me to make it based on that. Do you expect me
-> to add the nvidia, prefix? In that case it would be inconsistent with
-> all of the 8 other Tegra MC includes that we have in that directory.
-
-
-Same story as for every other case, why this would be different? All of
-them - amlogic, mediatek, samsung, qcom, every soc - move to new style
-since some years, why this one should be different?
+Filename equal to the compatible. That's the standard convention for all
+the headers since some years.
 
 Best regards,
 Krzysztof
