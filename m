@@ -4,148 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4073DC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 08:43:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70815C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 08:46:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S3YJj1plrTRSl+mrN0Cfy53gKkAtD6eDXaFNCZ9ZGYo=; b=klECcBmtgP7CaGdsO0JaP4Lao1
-	eFAY+nbsZgwwXDa8wvANKriHshbOQoqFroXmNwz+Kxot2hFm4L90MfhB9W8LSfLiIXORVsStH3M9l
-	kT9KUm7SmRZ78M2VSiMebTNGOnFzf9Gitc8F5AuDN6NUnYE3DkRLkPHhnm7X4vA9pnyxoc3JVhACi
-	+NmPvDx52AJBlvTmUWDmd6ZV2lajH7ullgDlMKy+Jk+71svSo7ICd4aapq88DeMCfa+haW0ZO1a+R
-	f+vgekg1hk7FqvQZvUGYGr5SRSbv9/cU7QxqL4x4EoB8xoAP9BVE0U4/tzlrRjdCxUwREHiZlIFRL
-	CfecOCnQ==;
+	bh=quaZx11+VGNrggf88njtg5xLklc9eFfI7c4+X9LIJ5o=; b=EMFcWgqr0XR2/2M1UWFlvnC6Re
+	u+QAwEqZy8bgsMlZ35QeqUDAH6rTfL9fExw9lq5N+xY79dOIfbnsT7odU1QsbYNuJXLYSsOcyekza
+	Fuc6jhc32MJIaa6TviV8AytjbyF39GP48TN1dRuj2yFtVh6I81sQQyD1XGIab76gm3FloSmq8v36V
+	Q54zBBd/Y5ps78m1NqEOF/isem1D51vh1YyGqN1Z/DoRfR8zM9sVZToi6Q73EiA15g4is8CGhpMuY
+	iiI+ONc3zCh+qs5poGNPa0CwTs9hyqk7BqZoXEDQkOEw+ro80ZCe7vVZ4Z7C5isiD6qe2Ikt1y6cO
+	2poCXgyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCwr8-000000009iA-0StE;
-	Thu, 08 May 2025 08:43:50 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uCwt4-000000009u0-3iBT;
+	Thu, 08 May 2025 08:45:50 +0000
+Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCwe4-000000007Qp-1OPV
+	id 1uCwg2-000000007sM-1qB4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 08:30:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746693019;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=S3YJj1plrTRSl+mrN0Cfy53gKkAtD6eDXaFNCZ9ZGYo=;
-	b=d0KjAlMMAfxdIFaoxW6NuzLcGF5U5ZtJgosUjPmiFaDKA7LCCWZXUS+sdTyCUdM6WaEmsV
-	iC1MY1++WFJsmfnm73bHj95CRXn8OTIe5W6htbcP3quJwNOMFfEopPkyX91xplDQKopAAL
-	zE/DhG5WAfJDf8IrOH2McaCWceQ3ySI=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-245-alAlcAZ4NGuwOlD1eANmyg-1; Thu, 08 May 2025 04:30:18 -0400
-X-MC-Unique: alAlcAZ4NGuwOlD1eANmyg-1
-X-Mimecast-MFC-AGG-ID: alAlcAZ4NGuwOlD1eANmyg_1746693017
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3a0b9bbfb0fso365957f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 01:30:17 -0700 (PDT)
+	Thu, 08 May 2025 08:32:23 +0000
+Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-70a23f4fe8bso6827727b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 01:32:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1746693141; x=1747297941; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=quaZx11+VGNrggf88njtg5xLklc9eFfI7c4+X9LIJ5o=;
+        b=EUWi/3LyAChUvKnOZYlMcmLBTbH7cAgdwLgokaZKkAUybBcBnJkcl62SyLLmAeHN1e
+         Lk03vNX9EUQ7gzTdRibSbzBTrQlv1tKAbrsPdq+ydzcfFhA+xGVsE106NkovHHXQvud/
+         jscvPhZ1xPj5xGkYfZTo3CJ6Sj6Nakbe0m36Y=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746693017; x=1747297817;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=S3YJj1plrTRSl+mrN0Cfy53gKkAtD6eDXaFNCZ9ZGYo=;
-        b=HfZM4zuUi10Ueg2n7LRjJDEdo57ZeQutpO+sSALVFTk3NdvUMyltBJ0kvk/gZuH/lw
-         2/eFALAb+Xjx/lK1z570Nep98+SPg+FG0qLyRecLal5LzR5cO+RB7vrBbZEv99B3d9fz
-         vkSp07ZrsnA8w9L9JqxO/VdiHIyw22zPcNnj7ISR5OFsM/lSgQkm/kjwL5NpRmTxbSqj
-         9Cu49vJr7d1L9/TUjH3//CiEVM4pGfD4GBK2L5sVl5Jtvpv90bFw3PO6Z4HgwVp4HrSW
-         0QUBag37D/G5nnN3G8LmTZyRbQ/YJiGhdvv/r4aB6g90hhb+srzfeqSqllq8Ck49o7sD
-         9jUw==
-X-Forwarded-Encrypted: i=1; AJvYcCWXj346S4onQVc7rbHIm6mxIdo0TVW/gREVQ1AR5gg0JCodO6Z+4tCXaNtjevEk3s4TkRs6bJESkYuaR7YGUSmX@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZEOujCLg88oLpogbOws/urKVCYqj5CHFZtB2EyeWYZKQcQAm2
-	UD1DPUJWr10xDINALHOq4nVywgd6k/lICxkaz7fBzQX+RFVjrrv0qna/pQKgRPFtMQyumNNH4IX
-	jDO2vKkxkWMPNoh/oHH0l0E4uBBmqja2szMvd7wCy+P7sQcyRo35K0JzPqkKg0zsNRAKfzOTJ
-X-Gm-Gg: ASbGncsDyO8peZ+5TCErA1jL+Fh/bkRpeYLlyUY30WO5t+th3Yis+t/TyGIVKe2J0/s
-	VqGph9PGP7ohoL7ip1mVTbmpiRhCelWH6Jz65ug5tg0ES4LOGDfJwKNfSWkVuRVuiWGh2sjY67Q
-	3DbYKSNsvDCGiN8LZFFDVPxRIdXDPZNIc5itLt4zJCX3kpdpacVj63Ah+WPKG6p5zSyzaVDBnEW
-	oQnkjAuf46RRVsHF8z5RRFiu59fNWxbvcV8KckS+dzC4yDXiWJGhFATjKBEVatYaQa/7FqLnGcV
-	8Y66wqmulT0kbVBKlHZhescLqFRWMrr0lGcsnLCfa8FRv2yZyKhWpgo5ShW7OGZbVVtDcF55t/r
-	PvBb6uP9DLhlxw272bA/hfsdITKWXeFqwWdQhmC0=
-X-Received: by 2002:a5d:588a:0:b0:39a:ca05:54a9 with SMTP id ffacd0b85a97d-3a0ba0b5d2amr1612266f8f.29.1746693016881;
-        Thu, 08 May 2025 01:30:16 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGPEfSGLX3TwEoxNfZJbO9Ox4TNvEJL0HvMxUzohlgBpzLEJFqOj02p/IWIhsaaDiRsZfMIbQ==
-X-Received: by 2002:a5d:588a:0:b0:39a:ca05:54a9 with SMTP id ffacd0b85a97d-3a0ba0b5d2amr1612241f8f.29.1746693016527;
-        Thu, 08 May 2025 01:30:16 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f3e:5900:27aa:5f4a:b65c:3d3c? (p200300d82f3e590027aa5f4ab65c3d3c.dip0.t-ipconnect.de. [2003:d8:2f3e:5900:27aa:5f4a:b65c:3d3c])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a0b3331cb0sm6212182f8f.65.2025.05.08.01.30.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 08 May 2025 01:30:16 -0700 (PDT)
-Message-ID: <9ada79ec-f2b4-42bc-84f9-3f7b461ad829@redhat.com>
-Date: Thu, 8 May 2025 10:30:14 +0200
+        d=1e100.net; s=20230601; t=1746693141; x=1747297941;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=quaZx11+VGNrggf88njtg5xLklc9eFfI7c4+X9LIJ5o=;
+        b=B6eCAV1b6QoQrsbiYeP7nPetHVsYk2H/zN89IXXQ+v3rXZH0NToFPYuFyHHHBkaqqE
+         Mcvx51gUpHrZq2rjfOsE5B9zbPgLNhF5i/BcLz06n0Zv39owQlgQDTzitJtywWzUHaxz
+         6hUtgq35zcO4vLt+eoANz3iZkYRQ+jPj8zNmsk0NRdFQLGyFz47x8wq79IF7Nd1RUYaD
+         XtRUuoLBkXFuprFInyDoCbZa890Zt68lTUnZECTPXI6/SijSkTftISe8DgkP+Dbs3H4N
+         fq//1TW0OynRf+J9waS9OQOGQQBVo6JIwClXre3b5FhZzBhlAr23CEqJWlTft4s5bVRK
+         +bSA==
+X-Forwarded-Encrypted: i=1; AJvYcCWvI09vmaK+ZrDFZlwZSB5mhPXZdikojGOl3+FD0VX00ZOoUDXq4dA82mIfoTIPdkzDdMGcvH+B56NfLBfdOi/x@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtI4BH/qzNDNqLPbc1Acy8DemYb7WKIEj1zaTSPVSOP509OCcT
+	aNirC6mbSoihEWHqJbF5sC2X5IeFwOWMxtnSVzjZiJwj0BWX4RkIwfjxRcz6qdgu8bQ03f5j1v2
+	jzYVJyTEiI8QHFN9WyHud9cQCSMBBWX/SjCc6lA==
+X-Gm-Gg: ASbGnctafQJn53lfIhPcvOC+XqoglIO/E9PMhAl2qots13a5Cjsa5ej9XVitESRi3Xj
+	VTfHaFmHFtxUdB4sJUo9+RCCF9Bna6b80mj05kI6PRvnFZc9HGKzIDSzn0GK2ZVMBHrSfvATuZG
+	PPIB8Pc8qgDEcBhWkDMKi7
+X-Google-Smtp-Source: AGHT+IE4CmJhrdoXRe32HoBH4jbtzbQ2hoNMjPwxRG6sk3WrTeunXaOWumwPqctZu6MIIYqzIKZAUd1PKmmcUuwqfyo=
+X-Received: by 2002:a05:690c:6085:b0:703:d7a6:6266 with SMTP id
+ 00721157ae682-70a1d9f9304mr89735297b3.10.1746693141277; Thu, 08 May 2025
+ 01:32:21 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] arm64/mm: Optimize loop to reduce redundant operations
- of contpte_ptep_get
-To: Xavier Xia <xavier_qy@163.com>, 21cnbao@gmail.com, ryan.roberts@arm.com,
- dev.jain@arm.com, ioworker0@gmail.com
-Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, gshan@redhat.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- will@kernel.org, willy@infradead.org, ziy@nvidia.com
-References: <CAGsJ_4xVFDioe4G9wtjfRCKZMLBu94GaFG1z5j0YrHs3j1PkAw@mail.gmail.com>
- <20250508070353.2370826-1-xavier_qy@163.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
- dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
- QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
- XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
- Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
- PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
- WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
- UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
- jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
- B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzSREYXZpZCBIaWxk
- ZW5icmFuZCA8ZGF2aWRAcmVkaGF0LmNvbT7CwZgEEwEIAEICGwMGCwkIBwMCBhUIAgkKCwQW
- AgMBAh4BAheAAhkBFiEEG9nKrXNcTDpGDfzKTd4Q9wD/g1oFAl8Ox4kFCRKpKXgACgkQTd4Q
- 9wD/g1oHcA//a6Tj7SBNjFNM1iNhWUo1lxAja0lpSodSnB2g4FCZ4R61SBR4l/psBL73xktp
- rDHrx4aSpwkRP6Epu6mLvhlfjmkRG4OynJ5HG1gfv7RJJfnUdUM1z5kdS8JBrOhMJS2c/gPf
- wv1TGRq2XdMPnfY2o0CxRqpcLkx4vBODvJGl2mQyJF/gPepdDfcT8/PY9BJ7FL6Hrq1gnAo4
- 3Iv9qV0JiT2wmZciNyYQhmA1V6dyTRiQ4YAc31zOo2IM+xisPzeSHgw3ONY/XhYvfZ9r7W1l
- pNQdc2G+o4Di9NPFHQQhDw3YTRR1opJaTlRDzxYxzU6ZnUUBghxt9cwUWTpfCktkMZiPSDGd
- KgQBjnweV2jw9UOTxjb4LXqDjmSNkjDdQUOU69jGMUXgihvo4zhYcMX8F5gWdRtMR7DzW/YE
- BgVcyxNkMIXoY1aYj6npHYiNQesQlqjU6azjbH70/SXKM5tNRplgW8TNprMDuntdvV9wNkFs
- 9TyM02V5aWxFfI42+aivc4KEw69SE9KXwC7FSf5wXzuTot97N9Phj/Z3+jx443jo2NR34XgF
- 89cct7wJMjOF7bBefo0fPPZQuIma0Zym71cP61OP/i11ahNye6HGKfxGCOcs5wW9kRQEk8P9
- M/k2wt3mt/fCQnuP/mWutNPt95w9wSsUyATLmtNrwccz63XOwU0EVcufkQEQAOfX3n0g0fZz
- Bgm/S2zF/kxQKCEKP8ID+Vz8sy2GpDvveBq4H2Y34XWsT1zLJdvqPI4af4ZSMxuerWjXbVWb
- T6d4odQIG0fKx4F8NccDqbgHeZRNajXeeJ3R7gAzvWvQNLz4piHrO/B4tf8svmRBL0ZB5P5A
- 2uhdwLU3NZuK22zpNn4is87BPWF8HhY0L5fafgDMOqnf4guJVJPYNPhUFzXUbPqOKOkL8ojk
- CXxkOFHAbjstSK5Ca3fKquY3rdX3DNo+EL7FvAiw1mUtS+5GeYE+RMnDCsVFm/C7kY8c2d0G
- NWkB9pJM5+mnIoFNxy7YBcldYATVeOHoY4LyaUWNnAvFYWp08dHWfZo9WCiJMuTfgtH9tc75
- 7QanMVdPt6fDK8UUXIBLQ2TWr/sQKE9xtFuEmoQGlE1l6bGaDnnMLcYu+Asp3kDT0w4zYGsx
- 5r6XQVRH4+5N6eHZiaeYtFOujp5n+pjBaQK7wUUjDilPQ5QMzIuCL4YjVoylWiBNknvQWBXS
- lQCWmavOT9sttGQXdPCC5ynI+1ymZC1ORZKANLnRAb0NH/UCzcsstw2TAkFnMEbo9Zu9w7Kv
- AxBQXWeXhJI9XQssfrf4Gusdqx8nPEpfOqCtbbwJMATbHyqLt7/oz/5deGuwxgb65pWIzufa
- N7eop7uh+6bezi+rugUI+w6DABEBAAHCwXwEGAEIACYCGwwWIQQb2cqtc1xMOkYN/MpN3hD3
- AP+DWgUCXw7HsgUJEqkpoQAKCRBN3hD3AP+DWrrpD/4qS3dyVRxDcDHIlmguXjC1Q5tZTwNB
- boaBTPHSy/Nksu0eY7x6HfQJ3xajVH32Ms6t1trDQmPx2iP5+7iDsb7OKAb5eOS8h+BEBDeq
- 3ecsQDv0fFJOA9ag5O3LLNk+3x3q7e0uo06XMaY7UHS341ozXUUI7wC7iKfoUTv03iO9El5f
- XpNMx/YrIMduZ2+nd9Di7o5+KIwlb2mAB9sTNHdMrXesX8eBL6T9b+MZJk+mZuPxKNVfEQMQ
- a5SxUEADIPQTPNvBewdeI80yeOCrN+Zzwy/Mrx9EPeu59Y5vSJOx/z6OUImD/GhX7Xvkt3kq
- Er5KTrJz3++B6SH9pum9PuoE/k+nntJkNMmQpR4MCBaV/J9gIOPGodDKnjdng+mXliF3Ptu6
- 3oxc2RCyGzTlxyMwuc2U5Q7KtUNTdDe8T0uE+9b8BLMVQDDfJjqY0VVqSUwImzTDLX9S4g/8
- kC4HRcclk8hpyhY2jKGluZO0awwTIMgVEzmTyBphDg/Gx7dZU1Xf8HFuE+UZ5UDHDTnwgv7E
- th6RC9+WrhDNspZ9fJjKWRbveQgUFCpe1sa77LAw+XFrKmBHXp9ZVIe90RMe2tRL06BGiRZr
- jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <20250508070353.2370826-1-xavier_qy@163.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: amsQ4Ko6-MrsbVM7shxNSvl7j-fgGUfzCbI6shBjQ9w_1746693017
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250424062154.2999219-1-dario.binacchi@amarulasolutions.com> <174643143452.2950397.16722215892279685541.b4-ty@linaro.org>
+In-Reply-To: <174643143452.2950397.16722215892279685541.b4-ty@linaro.org>
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Date: Thu, 8 May 2025 10:32:10 +0200
+X-Gm-Features: ATxdqUGGoyMhD-TPgWfLjSDF0XqnBspVuNvo1SR1O8IpFOj15QasDBjp5hm1sY0
+Message-ID: <CABGWkvrkVLRocFsZs9JLni4KDZCDyYDZxMzwA9AzAwipmUyTzQ@mail.gmail.com>
+Subject: Re: (subset) [PATCH v12 00/19] Support spread spectrum clocking for
+ i.MX8M PLLs
+To: Shawn Guo <shawnguo@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>, 
+	Stephen Boyd <sboyd@kernel.org>, linux-amarula@amarulasolutions.com, 
+	Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+	Abel Vesa <abel.vesa@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_013020_450564_62EF9E48 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20250508_013222_482133_3D303125 
+X-CRM114-Status: GOOD (  18.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,23 +98,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08.05.25 09:03, Xavier Xia wrote:
-> This commit optimizes the contpte_ptep_get and contpte_ptep_get_lockless
-> function by adding early termination logic. It checks if the dirty and
-> young bits of orig_pte are already set and skips redundant bit-setting
-> operations during the loop. This reduces unnecessary iterations and
-> improves performance.
-> 
-> In order to verify the optimization performance, a test function has been
-> designed. The function's execution time and instruction statistics have
-> been traced using perf, and the following are the operation results on a
-> certain Qualcomm mobile phone chip:
+Hello Shawn,
 
-For the future, please don't post vN+1 as reply to vN.
+On Mon, May 5, 2025 at 9:52=E2=80=AFAM Abel Vesa <abel.vesa@linaro.org> wro=
+te:
+>
+>
+> On Thu, 24 Apr 2025 08:21:30 +0200, Dario Binacchi wrote:
+> > This version keeps the version v9 patches that can be merged and
+> > removes the patches that will need to be modified in case Peng's
+> > PR https://github.com/devicetree-org/dt-schema/pull/154 is accepted.
+> > The idea is to speed up the merging of the patches in the series
+> > that have already been reviewed and are not dependent on the
+> > introduction of the assigned-clocks-sscs property, and postpone
+> > the patches for spread spectrum to a future series once it becomes
+> > clear what needs to be done.
+> >
+> > [...]
+>
+> Applied, thanks!
+>
+> [01/19] dt-bindings: clock: imx8mm: add VIDEO_PLL clocks
+>         commit: 20e5d201b5d8f830e702d7d183f6b1b246b78d8a
+> [02/19] clk: imx8mm: rename video_pll1 to video_pll
+>         commit: 26a33196b5b68cf199b6c4283a254aa92d2aaf4b
+> [03/19] dt-bindings: clock: imx8mp: add VIDEO_PLL clocks
+>         commit: 2d50415e2457c6f6621c2faa3b01b11150fb9c67
+> [04/19] clk: imx8mp: rename video_pll1 to video_pll
+>         commit: 21bb969f608cefd8d847cf6eb50a193d9f1fbb87
+> [05/19] dt-bindings: clock: imx8m-anatop: add oscillators and PLLs
+>         commit: 2ba124053687c933031a6dc5b2e16ceaca250934
+> [10/19] clk: imx: add hw API imx_anatop_get_clk_hw
+>         commit: 17e3c1a272d97e49b4f3fbfe1f1b889e120d2be8
+> [11/19] clk: imx: add support for i.MX8MM anatop clock driver
+>         commit: 3cbc38cf42ca42d2dc9a93c949e0381ff919df71
+> [12/19] clk: imx: add support for i.MX8MN anatop clock driver
+>         commit: 80badb1d7264e83b512475898e7459f464a009c9
+> [13/19] clk: imx: add support for i.MX8MP anatop clock driver
+>         commit: 4c82bbe8b5437c7f16b2891ce33210c0f1410597
+> [14/19] clk: imx8mp: rename ccm_base to base
+>         commit: 1a77907dbbecfbe5e6a1aec28afd49a1dc184b7a
+> [16/19] dt-bindings: clock: imx8m-clock: add PLLs
+>         commit: 6a55647af3334f1d935ece67de4a838a864b53fc
+>
 
--- 
-Cheers,
+Please check the remaining patches, as they are required for correctly
+building the
+ones merged by Abel. The kernel test robot has already reported build error=
+s.
 
-David / dhildenb
+Thanks and regards,
+Dario
 
+> Best regards,
+> --
+> Abel Vesa <abel.vesa@linaro.org>
+
+
+
+--=20
+
+Dario Binacchi
+
+Senior Embedded Linux Developer
+
+dario.binacchi@amarulasolutions.com
+
+__________________________________
+
+
+Amarula Solutions SRL
+
+Via Le Canevare 30, 31100 Treviso, Veneto, IT
+
+T. +39 042 243 5310
+info@amarulasolutions.com
+
+www.amarulasolutions.com
 
