@@ -4,63 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8856CC3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 15:12:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE16C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 15:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R1wmYSav2qZSDgQyX4eumip0E6l48i1TqxULdFIMR+w=; b=IYkz5ITJyAOpMOybrKE6zLIAsK
-	nih5LmRGTmUL5fKiiTNQFV8gtGHNIAQhX5Wu8xUTjc7sTmXd4myD1yPoM5a647YGNAmv/YrXBl/dX
-	PoLON67LNkC4czDAJfn0GYmjPrcdIdckqVKHRmCN/ht5ge0X+tw7TvqLjihaoKkU37KWbaXzEMe+Y
-	3Dv4IdSPXL1XxtaTYNszQZRr37kcKaBhDR2+xB/8CPgbwTwHcDXSfFy6t8as2m9Z6hAbFO+LpA89F
-	V29/dV2l1QicFEWL2nHtWqh2bLKenhHbFqiohWRYTG8yBr2i1TXX5/tVtaICCKmC7qOqfyX8CUqbQ
-	Xyv9JsJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zS8GP7tAyFx96vdZ9/xCHSVkyyfdDbFaiSakmVPCWYQ=; b=L6RMV7xqzGz/AujNFqgtLAQMbD
+	hmGfug+Ch9JPKCVtwbn9gXt1Lhe9r117YCfWzTBUrzlgsGoczlRjcJTc1uLRUSWXW6hUnTEpM7YmY
+	gPRSy7jRZIvxKEULtjAc918zijhdAuIoyZwggO6B8fKl33coqlvYhxfvV9Hpf5CCk8nl3MD8/rOtD
+	Cdl/Pz91rp90E/CTCrZFHbngXcQ3xibb1O+G6NCdUxq7o45CvT8ZEO2C1AzWiX4KW4bpQ7Wk790w7
+	nsnJNImvWeTq8VRr9t9IcGIx/rPrnmP46JPyOB0dPslrvEzbfFxUj5LB7XJfv+tRk5nfOtR2spPX7
+	A1ArSOSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD2vA-000000015Bd-0mDq;
-	Thu, 08 May 2025 15:12:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uD2x5-000000015gA-0kxk;
+	Thu, 08 May 2025 15:14:23 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD2KT-00000000wfx-4BTV
+	id 1uD2OK-00000000xGI-2V0i
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 14:34:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6EFE3629DC;
-	Thu,  8 May 2025 14:34:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB0C4C4CEE7;
-	Thu,  8 May 2025 14:34:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746714869;
-	bh=4f4Ke7iTNV69FxQ9ETQePo+JdHzLJJDI+2CXrm9j0sk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DXWkr0+ACJYT4u8HdGgqH4JrUEDzs0wtxbT6FYfC7NG07J5vrtrh344MrEFJ2/hUt
-	 ZaTPhkKZijKZhcyNo+boBkd4Mp9vZ2dUXg7KXvaxrcRN5oIPBaGHV7CYn0iruplEDs
-	 aU5/60aTQ4Dk6w/DjPYM9AWOYcfWt/Hu5CIibJNK63VKSU/FFp3ChH1uEuoTu+V0ZI
-	 SSqThaN05HNsxaiSb2NCYx/wPr5XzGsqeJsYYRDc8EAgMXSpprrvKgqjFMD0dFIR5v
-	 Ayn4U+6btmIgtqBOEstP5DGorjNTZ1aKfgcSY6D0v6iGons1IWwbWIqbisFEw4QmkL
-	 69QB7cUHZr+Pg==
-Date: Thu, 8 May 2025 15:34:23 +0100
-From: Will Deacon <will@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
-	catalin.marinas@arm.com, daniel.kiss@arm.com,
-	david.spickett@arm.com, luis.machado@arm.com, maz@kernel.org,
-	richard.sandiford@arm.com, sander.desmalen@arm.com,
-	tabba@google.com, tamas.petz@arm.com, tkjos@google.com,
-	yury.khrustalev@arm.com
-Subject: Re: [PATCH v2 04/24] arm64/fpsimd: signal: Consistently read FPSIMD
- context
-Message-ID: <20250508143422.GA4189@willie-the-truck>
-References: <20250508132644.1395904-1-mark.rutland@arm.com>
- <20250508132644.1395904-5-mark.rutland@arm.com>
+	Thu, 08 May 2025 14:38:29 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5f6222c6c4cso1656526a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 07:38:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746715107; x=1747319907; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zS8GP7tAyFx96vdZ9/xCHSVkyyfdDbFaiSakmVPCWYQ=;
+        b=kmJs4zEn1f54W+e5iq6SHdLh0RWGbeIkIgGPoLRGVdl+k0ZGtLCweXlaRJlxXzGomB
+         Q46DmPwkqtD8/pZkb0iLCp8WBwyDgaRAbdYIMJQAcv+cwGkh0xqZkRrTTSIuEfjNO5ac
+         nFaNRLAQlUH8McbMfY5096lcmX9Y0k42IziORJD7iQ3k9E0XNlWviBhR15DnmzKX57CW
+         2Zq+sZ5Hr8weptnUJi1sWXu7FXHZvBwRO4fCV4k/6DOIjZ8EW9f8LKI9vqBHSnwlh0US
+         j2KcRMDbuZf0Zwfm3CLZKFy7wYDlyZ5ydwv9b8r/MWPNLPTNhviGHLgCNXqP4yucbZDG
+         Pp8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746715107; x=1747319907;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zS8GP7tAyFx96vdZ9/xCHSVkyyfdDbFaiSakmVPCWYQ=;
+        b=gUS3agVJwJPJ6BJJtqpZzvwLu9z5zbWZNUbbmuzpJBhtzSYe9u7Rni4/TAjtf7N6Zu
+         Pj+tq9N0DSDT0zyVJlK4wTcVh6i9E/o3ZGyllQYH20q2NgFwh1WxnxhhdEjGgA3nSc4u
+         DPRg9BsW7l+PtfC5pK8DaYm8u8o8ecrhvLCTgZHsnGHprrBs8RYavedm7ffh50f7Oi4r
+         ISSgXoCihWOAgSQ2jJQDcSl4eP8wHDGKIE/Qh+PJxfTCR914XVo9eZKyC+XI5f19lmOv
+         xQsvVn8GJy+isR3fx+yeMmL2NNc6LR5sCnyu8SFwwufsyXgNDaPhrczuowi4Ulv4pqWg
+         oekA==
+X-Forwarded-Encrypted: i=1; AJvYcCUu2q+KcrsEwnCqhYOBdJU0VH00ozhbvMp2wp3AhwghCgdt2IGaMp8FkvhidaJjYZsfbCu2FsN6IxAVT3h9SEyg@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqH6G8dazjvToib6eXVAYRwjP+5W0UmQd0kAw3d8T/2W4JLz4Q
+	zSta953t7nsT1TLpMROI3J739cymu/9EWfITaOOLZByXWdCK07/4
+X-Gm-Gg: ASbGncvblbB4Rehe2KxSzK5JQTst5PdLhfgzNOPTnZwtnhCy9NyMPHbocT9Tk/nxJLA
+	SDWqtbG+ZuJK8Q3kIbdHa26bJLxt7VKN0ujMR2XKilLoe2qHljh+4RBBK+pb1EymyAHAhJ8bOq/
+	a1pTfiUfryFoRhRX1qU5W+gHR5KEZ8oK+/1xSju0ocB8BwSKHb0zdDBn7M4brRyWA9Ev8+fGuh0
+	m+h1a/x2LJiuiW7dqgDgOwmHrQkNGvPL49DxOADKTt8GfvaKwYlC9pYkYKaWC4AxDmrXW88A8Gm
+	pDsiKi3cWk2m8atDhM32wZmlIBlZEqhI5cBFklg8aLEa
+X-Google-Smtp-Source: AGHT+IEl8W7Z48QojZSSlNyKzo/MwD2zC8/Fy87SvOdLzrwX/FLitnj/UnwE/86blYtfAsljSHA5MA==
+X-Received: by 2002:a17:907:3e8d:b0:ac7:322c:fd0c with SMTP id a640c23a62f3a-ad1fe946c93mr353166166b.40.1746715106657;
+        Thu, 08 May 2025 07:38:26 -0700 (PDT)
+Received: from wslxew242.. ([188.193.103.108])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad1ed2f588csm334443166b.42.2025.05.08.07.38.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 May 2025 07:38:26 -0700 (PDT)
+From: =?UTF-8?q?Goran=20Ra=C4=91enovi=C4=87?= <goran.radni@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: =?UTF-8?q?Goran=20Ra=C4=91enovi=C4=87?= <goran.radni@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v6 2/4] dt-bindings: arm: stm32: Document Ultratronik's Fly board DT binding
+Date: Thu,  8 May 2025 16:38:14 +0200
+Message-ID: <20250508143818.2574558-3-goran.radni@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250508143818.2574558-1-goran.radni@gmail.com>
+References: <20250508143818.2574558-1-goran.radni@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250508132644.1395904-5-mark.rutland@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250508_073828_631935_F6998C2D 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,79 +106,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 08, 2025 at 02:26:24PM +0100, Mark Rutland wrote:
-> For historical reasons, restore_sve_fpsimd_context() has an open-coded
-> copy of the logic from read_fpsimd_context(), which is used to either
-> restore an FPSIMD-only context, or to merge FPSIMD state into an
-> SVE state when restoring an SVE+FPSIMD context. The logic is *almost*
-> identical.
-> 
-> Refactor the logic to avoid duplication and make this clearer.
-> 
-> This comes with two functional changes that I do not believe will be
-> problematic in practice:
-> 
-> * The user_fpsimd_state::size field will be checked in all restore paths
->   that consume it user_fpsimd_state. The kernel always populates this
->   field when delivering a signal, and so this should contain the
->   expected value unless it has been corrupted.
-> 
-> * If a read of user_fpsimd_state fails, we will return early without
->   modifying TIF_SVE, the saved SVCR, or the save fp_type. This will
->   leave the task in a consistent state, without potentially resurrecting
->   stale FPSIMD state. A read of user_fpsimd_state should never fail
->   unless the structure has been corrupted or the stack has been
->   unmapped.
-> 
-> Suggested-by: Will Deacon <will@kernel.org>
-> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Mark Brown <broonie@kernel.org>
-> Cc: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/kernel/signal.c | 57 +++++++++++++++++++-------------------
->  1 file changed, 29 insertions(+), 28 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
-> index e898948a31b65..87890d7be8de3 100644
-> --- a/arch/arm64/kernel/signal.c
-> +++ b/arch/arm64/kernel/signal.c
-> @@ -264,30 +264,40 @@ static int preserve_fpsimd_context(struct fpsimd_context __user *ctx)
->  	return err ? -EFAULT : 0;
->  }
->  
-> -static int restore_fpsimd_context(struct user_ctxs *user)
-> +static int read_fpsimd_context(struct user_fpsimd_state *fpsimd,
-> +			       struct user_ctxs *user)
->  {
-> -	struct user_fpsimd_state fpsimd;
-> -	int err = 0;
-> +	int err;
->  
->  	/* check the size information */
->  	if (user->fpsimd_size != sizeof(struct fpsimd_context))
->  		return -EINVAL;
->  
->  	/* copy the FP and status/control registers */
-> -	err = __copy_from_user(fpsimd.vregs, &(user->fpsimd->vregs),
-> -			       sizeof(fpsimd.vregs));
-> -	__get_user_error(fpsimd.fpsr, &(user->fpsimd->fpsr), err);
-> -	__get_user_error(fpsimd.fpcr, &(user->fpsimd->fpcr), err);
-> +	err = __copy_from_user(fpsimd->vregs, &(user->fpsimd->vregs),
-> +			       sizeof(fpsimd->vregs));
-> +	__get_user_error(fpsimd->fpsr, &(user->fpsimd->fpsr), err);
-> +	__get_user_error(fpsimd->fpcr, &(user->fpsimd->fpcr), err);
-> +
-> +	return err;
+This commit documents ultra-fly-sbc devicetree binding based on
+STM32MP157 SoC.
 
-I think this should return -EFAULT if 'err' is non-zero, otherwise we
-can probably propagate the number of bytes not copied from
-__copy_from_user().
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Goran Rađenović <goran.radni@gmail.com>
+---
+ Documentation/devicetree/bindings/arm/stm32/stm32.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-I'll fix that up when applying.
+diff --git a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
+index 5fee2f38ff25..65c4dcdbdf1d 100644
+--- a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
++++ b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
+@@ -184,6 +184,11 @@ properties:
+           - const: phytec,phycore-stm32mp157c-som
+           - const: st,stm32mp157
+ 
++      - description: Ultratronik STM32MP1 SBC based Boards
++        items:
++          - const: ultratronik,stm32mp157c-ultra-fly-sbc
++          - const: st,stm32mp157
++
+       - description: ST STM32MP257 based Boards
+         items:
+           - enum:
+-- 
+2.43.0
 
-Cheers,
-
-Will
 
