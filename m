@@ -4,117 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77067C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 06:29:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ADB8C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 06:38:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HAD52C3MShXcBwJuua26BbDIcL31YWmlRzrdqnS5ex8=; b=HB2qm5AKz6AuhdZ5pyNnqJFY31
-	+HVaSqCXWGxKAjVWE2gReCfaE39EOsX2EX9WxKXZ4CFto8IFNNRf3j0nm0x4VwUjBIuG6TFj9A5mF
-	2wOriNB772+u007guW3uA4UcTpr9Vok5oTMAkN/Izn6qYa6TQ/rVxzLKlHfuQVKwKU2AkvvNnTT1b
-	jN+qukSN4iacAdrxiu+pc6GCIcJKVB4P+hLDKvySMQ53YdXYH/d6FkHkVJVCJvXdZq6SEXJOpghsf
-	nJpsZFmiBGewUJ3y8CZTCK4ZJaeUZThdpQRqu5J+qEu9Lxxz9fmZ2LhRfivsdlG3Dx7+h7cATJVcp
-	RLGs1fzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J+k3hUUer1eheTQ5q4p0oNapEKv+llZFBmeNNNPE+z8=; b=A/hdGbrrO9SglApi3q+7Z0YBaR
+	Jddcm6ZeOofEhTdM85bWI671DISKRfL18M00amOM845lBR5LCFDOyGLh3a31/7FOfsO2fsW3KViwg
+	YM7Oks+VfkyANePuMcUi8blQSCoB1o9pgJOSPDnl+zMG0iOzmnxfsTgpxzjqVzXbWJSEFMYkzKe2u
+	NyRh+5QAzSPZAdy1C2m/rC8W7qb+aDiBynvdAFPlaHSVEt1hpse9bq1sRDqgGuHiU2f5ePBfFZQ93
+	arflWklcrj6n7XiboLFvsJwEGKh2hhRrQ+PSpkhnZ1EK+noV/1zTpVGZd6qH+c3TZDzjt+Q+PkuEU
+	9kxgPcRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCukf-0000000HTCU-3Qsm;
-	Thu, 08 May 2025 06:29:01 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uCutL-0000000HU0M-2dDb;
+	Thu, 08 May 2025 06:37:59 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCuij-0000000HSyT-14pw
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 06:27:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 69691A4D6CC;
-	Thu,  8 May 2025 06:27:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 721D7C4CEEB;
-	Thu,  8 May 2025 06:26:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746685620;
-	bh=9j6WtAQ6uxKBDo5BIDuWyFtPZ0W6bM3nXpFKnwGq2uA=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=N2N6cyUB3A6IkBJQplK8Yy7FLMIeqtCTEZbyapl7uw2mztA9Qa8i0/JmFg/n31/Yx
-	 SsPZX5c4Aw9h6gQaCJCPF0w9JypeD28R21/R3yiBOgELgXw6K4vEKDADeEEHzcYNUD
-	 PwrETqzbwOTsJx/u6ThoLOhLrNlQ2HEF6huY8f06OEjbFjt0jn0M3DQXgS8T6BiAR6
-	 vPTAAtk8kEryQ6IntMaIhzDiAduMEyAQnBwA0Jb491sCSexD1llIEr/HnU3AIyxapN
-	 Rh0qNPvKAJOk0zYTmzHiY1LYp1OtX6OniFn2QELNtNn92l6xXsiL50uRhUH07eI3SR
-	 gEq6TFQSUfqDg==
-Message-ID: <97cfb30a-daa5-44de-ab29-f20b35d49d72@kernel.org>
-Date: Thu, 8 May 2025 08:26:54 +0200
+	id 1uCurN-0000000HTo0-3QtB;
+	Thu, 08 May 2025 06:35:58 +0000
+X-UUID: b0ac7c642bd611f08d385d50fb11b32d-20250507
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=J+k3hUUer1eheTQ5q4p0oNapEKv+llZFBmeNNNPE+z8=;
+	b=QUSjx8QjXcBcFbUTnvERCNfWsHaaNBXDTfH9tym/UjrcKYbdyAT2x5jM24bnAZaM5TtMJzjstypTPEq+3yRTZCarzsnqNL/Kq2mnVDYT39HiR1e1aFg3npD2QmJyK9DJqwNTvg20jfioLHJDrD9W7P6JRETyVwthCp0/9SnzHhY=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:7eb2d89d-478b-4ea3-9b5f-ccfa8f934aaa,IP:0,UR
+	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:-5
+X-CID-META: VersionHash:0ef645f,CLOUDID:79734b51-76c0-4e62-bb75-246dfb0889c6,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: b0ac7c642bd611f08d385d50fb11b32d-20250507
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
+	(envelope-from <sirius.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2082001451; Wed, 07 May 2025 23:35:53 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Thu, 8 May 2025 14:35:50 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Thu, 8 May 2025 14:35:50 +0800
+From: Sirius Wang <sirius.wang@mediatek.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@mediatek.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-serial@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <wenst@chromium.org>,
+	<xavier.chang@mediatek.com>, Sirius Wang <sirius.wang@mediatek.com>
+Subject: [PATCH v2 1/3] dt-bindings: arm: Add compatible for MediaTek MT8189
+Date: Thu, 8 May 2025 14:35:40 +0800
+Message-ID: <20250508063546.289115-2-sirius.wang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250508063546.289115-1-sirius.wang@mediatek.com>
+References: <20250508063546.289115-1-sirius.wang@mediatek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/4] Exynos Thermal code improvement
-To: Anand Moon <linux.amoon@gmail.com>,
- Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- "open list:SAMSUNG THERMAL DRIVER" <linux-pm@vger.kernel.org>,
- "open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>,
- "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>,
- "open list:CLANG/LLVM BUILD SUPPORT:Keyword:b(?i:clang|llvm)b"
- <llvm@lists.linux.dev>
-References: <20250430123306.15072-1-linux.amoon@gmail.com>
- <CANAwSgSXNuNFQ6RiqiLEBY3eCmxz2hQYfWTFij=Vi8S7rS-_TA@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <CANAwSgSXNuNFQ6RiqiLEBY3eCmxz2hQYfWTFij=Vi8S7rS-_TA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_232701_426209_C31B4D77 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20250507_233557_865569_A83ACECB 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,41 +89,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/05/2025 08:14, Anand Moon wrote:
-> Hi All,
-> 
-> On Wed, 30 Apr 2025 at 18:03, Anand Moon <linux.amoon@gmail.com> wrote:
->>
->> Hi All,
->>
->> This patch series is a rework of my previous patch series [1],
->> where the code changes were not adequately justified.
->>
->> In this new series, I have improved the commit subject
->> and commit message to better explain the changes.
->>
->> v6: Add new patch to use devm_clk_get_enabled
->>     and Fix few typo in subject as suggested by Daniel.
->> v5: Drop the guard mutex patch
->> v4: Tried to address Lukasz review comments.
->>
->> Tested on Odroid U3 amd XU4 SoC boards.
->> Build with clang with W=1 enable.
->>
-> 
-> Genital Ping!!!
+This commit adds dt-binding documentation for the MediaTek MT8189
+reference board.
 
+Signed-off-by: Sirius Wang <sirius.wang@mediatek.com>
+---
+ Documentation/devicetree/bindings/arm/mediatek.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Huhu, nice. :)
-I make typos as well, but some typos are better to avoid. :)
+diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Documentation/devicetree/bindings/arm/mediatek.yaml
+index fa1646bc0bac..05e827076a7f 100644
+--- a/Documentation/devicetree/bindings/arm/mediatek.yaml
++++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
+@@ -372,6 +372,10 @@ properties:
+           - enum:
+               - mediatek,mt8188-evb
+           - const: mediatek,mt8188
++      - items:
++          - enum:
++              - mediatek,mt8189-evb
++          - const: mediatek,mt8189
+       - description: Google Hayato
+         items:
+           - const: google,hayato-rev1
+-- 
+2.45.2
 
-Anyway, !!! are exclamation marks and I think it is very difficult to
-scream at someone gently. I think this is contradictory to itself, so it
-does not feel gently at all.
-
-Plus you sent it 7 days ago and you are known to send poor quality,
-untested code, so just relax and wait.
-
-Best regards,
-Krzysztof
 
