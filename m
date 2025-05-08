@@ -4,107 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CBB1C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 19:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B295DC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 20:03:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HlYEfLCvaW+klDExc5A0sYVrMAc4nFxQDGOcqzZj8aI=; b=WzlThkpq+GqOCqm0i2GkdcN/bu
-	Mg+wnYtuem8J7hwl06MbSPJeV84wGGPF1nK99rEN0jP2d6HpPsuzoRMLfv8W4JkhociATdyV6IKWu
-	R1IzC51a2VN0ad9QFbMX12KJf7kyJq7onFBEWLSaG5tl2bfJJIIu5QiAvNgnogHcmgppDcXxhAT//
-	auBVh9Xedj/yeAUOFoSqRRNM8Gan3qqjB54122ugYBbrAj2tdyzd8qw2OvQOZypOha7qiYkDIn9jM
-	agQQhimh41z187HUW0lDXfrbTuAWB2gAFEucdy3gMUhxKzhFu02DpVw/XhKP9fTVi31ynsf79arQp
-	iOg1SOQg==;
+	bh=WcTOiqY3Q13roGwqiggNCr+ilIh5tTP+DT9I/IZ7qsE=; b=WC4TnfrzoQxV90dFu5kzbFIYDQ
+	Mvb1DgCp9O9Rf3klpfMx7oj0rbAcdXTUr3M3H+5a5a8RRcgei37N35lq44MYgsUabwalASMzOhTR5
+	/Q5Av0X0gH7NzyNJsJGWmZrMYDEDY1s4JxzRLJqbcnJkkAYSO+2tQjIp9wdvGR9Ss4LVMrS4yrGjK
+	oxTSC9hvYofP0uRISJtAmCT5UOs7NwSR6iWravW/nw8CNs3EFd9xQDJ2xcXEpEeb73jZgv5dkNowc
+	63STDV/iUNsWQf8xgIdq0e5CBYKB52vwJR6qTmJixNJbt1dscn12d/dOdCSWiIJ7QT8BJb46Ft4p0
+	ogDupkCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD6qb-00000001e7h-0YN6;
-	Thu, 08 May 2025 19:23:57 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1uD7SL-00000001izs-1hS9;
+	Thu, 08 May 2025 20:02:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD6oc-00000001dpW-3qOg
+	id 1uD7QN-00000001ihE-29um
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 19:21:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1746732115; x=1778268115;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=gNfji5PFl+h0m2cHgjtJ540HGm+2fhAcZWawBcQGVj4=;
-  b=jfigPfvj3nB7HmeTMkEmuswCCvb+leEUCgean4zCenBFYrokFYF6XVsU
-   O2IW5Bxy7A0c8g73eBgyTqJdvNwUX4WeA4L/PStfbgwh0bzpyztAMUnL8
-   qV/mnxx2DUyF5aMRZJ6THQgqjwPv0N2v5/ZIyMmmmlLvJyGkfHQs/F4/t
-   7OpkSNRYcbasrvfcI/GLOEXXbQg7NbnhcY9RkcGQaEI4Hb5NYBKnDJJqn
-   XDrSKReP/Q5aR4zvCulh44JlCEuJP2wHhOui6oGb+Z8qqzGsUprhMWl29
-   eFltvbZPL9owysow6MHw3denhzFkt+O5e+6bUPExChxv38rHQKYstzHl3
-   w==;
-X-CSE-ConnectionGUID: BUGs0zUSRdelwx3HbvFmhg==
-X-CSE-MsgGUID: 4wxXOLC6Q8iHyPOEu6yA8A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11427"; a="73916366"
-X-IronPort-AV: E=Sophos;i="6.15,273,1739865600"; 
-   d="scan'208";a="73916366"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 May 2025 12:21:54 -0700
-X-CSE-ConnectionGUID: 6K8qyxJ8Sp2SFtC4BMHSMA==
-X-CSE-MsgGUID: LP/93AoySMKUKm+Bf0N0HA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,273,1739865600"; 
-   d="scan'208";a="141348693"
-Received: from smile.fi.intel.com ([10.237.72.55])
-  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 May 2025 12:21:46 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1uD6oP-00000004D8c-2ujt;
-	Thu, 08 May 2025 22:21:41 +0300
-Date: Thu, 8 May 2025 22:21:41 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Herve Codina <herve.codina@bootlin.com>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Peter Rosin <peda@axentia.se>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Wolfram Sang <wsa@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	Allan Nielsen <allan.nielsen@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH v2 23/26] misc: lan966x_pci: Introduce board specific data
-Message-ID: <aB0ERYKdRreDe7Wt@smile.fi.intel.com>
-References: <20250507071315.394857-1-herve.codina@bootlin.com>
- <20250507071315.394857-24-herve.codina@bootlin.com>
+	Thu, 08 May 2025 20:00:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AE5E344ED2;
+	Thu,  8 May 2025 20:00:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D93FDC4CEE7;
+	Thu,  8 May 2025 20:00:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746734454;
+	bh=RkjjpKYG+r35+gc9d0tTnqu/pElbyqXWwGFn4pZKP4I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=l5aKvbvoZXXzxoR08YFj5FH5BYBKSoSB5/P6wBMQaV75fDXFA7Zlnr2BGbwqroxU4
+	 se3IIq+1q6ZCT6StAGKBgYyklxpO9vZqxh+7+j96coWFcBuJiRpQ9TzxENPmgeY1zi
+	 L9dEOl/IE3bWTKodiCXQa1hmweDbecZLdE24AOlPAUmynQ+YnJzDM5bAvErNcQyElo
+	 T0SYuZRCPAbKY1HY+B5LZmStBmb78AFhB5pGDL9NFTzQ3IJFJLK50MAhTJLyh8NVEs
+	 1GbawfQ4AVJazKSphVFxJEhd4yNWLMmnDj44J7nR+KePu3+Ku/P+2NsX1MRg1YwLy9
+	 MQMYF0SOMcLEQ==
+Date: Thu, 8 May 2025 23:00:49 +0300
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Stefano Garzarella <sgarzare@redhat.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Peter Huewe <peterhuewe@gmx.de>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Naveen N Rao <naveen@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>, linuxppc-dev@lists.ozlabs.org,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	James Bottomley <James.Bottomley@hansenpartnership.com>,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Sumit Garg <sumit.garg@kernel.org>, linux-kernel@vger.kernel.org,
+	Jason Gunthorpe <jgg@ziepe.ca>
+Subject: Re: [PATCH v3 1/4] tpm: add buf_size parameter in the .send callback
+Message-ID: <aB0NcS-LPZ8q-h5B@kernel.org>
+References: <20250414145653.239081-1-sgarzare@redhat.com>
+ <20250414145653.239081-2-sgarzare@redhat.com>
+ <aBJETstuSlBUMwj1@kernel.org>
+ <o72kb2x2jjxyzgyixeva42sk3lr2wwphnyhkcdbxxgfevoqp3n@ir6rwldztmt7>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250507071315.394857-24-herve.codina@bootlin.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+In-Reply-To: <o72kb2x2jjxyzgyixeva42sk3lr2wwphnyhkcdbxxgfevoqp3n@ir6rwldztmt7>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_122154_970523_08313F0A 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20250508_130055_574511_5CED2FA6 
+X-CRM114-Status: GOOD (  21.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,33 +87,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 07, 2025 at 09:13:05AM +0200, Herve Codina wrote:
-> Only one device-tree overlay (lan966x_evb_lan9662_nic.dtbo) is handled
-> and this overlay is directly referenced in lan966x_pci_load_overlay().
+On Tue, May 06, 2025 at 02:56:54PM +0200, Stefano Garzarella wrote:
+> On Wed, Apr 30, 2025 at 06:39:58PM +0300, Jarkko Sakkinen wrote:
+> > On Mon, Apr 14, 2025 at 04:56:50PM +0200, Stefano Garzarella wrote:
+> > > From: Stefano Garzarella <sgarzare@redhat.com>
+> > > 
+> > > In preparation for the next commit, add a new `buf_size` parameter to
+> > > the `.send` callback in `tpm_class_ops` which contains the entire buffer
+> > > size. In this patch it is pretty much ignored by all drivers, but it will
+> > > be used in the next patch.
+> > 
+> > So instead "in preparation for the next commit" just plain say why it
+> > will be needed. "next commit" is a fuzzy reference :-)
+> > 
+> > Same goes for "next patch". Neither can be used to query any possible
+> > information. That sort of makes the whole paragraph useless, once it
+> > is in the commit log.
 > 
-> This avoid to use the code for an other board.
+> Got it! What about somethig like this:
 > 
-> In order to be more generic and to allow support for other boards (PCI
-> Vendor/Device IDs), introduce the lan966x_pci_info structure and attach
-> it to PCI Vendor/Device IDs handled by the driver.
+>    Add a new `buf_size` parameter to the `.send` callback in
+>    `tpm_class_ops`. This parameter will allow drivers to differentiate
+>    between the actual command length to send and the total buffer
+>    size. Currently `buf_now` is not used, but it will be used to
+>    support devices with synchronous `.send` callback to send the
+>    command and receive the response on the same buffer.
+
+definitely to right direction
+
 > 
-> This structure contains information related to the PCI board such as
-> information related to the dtbo describing the board we have to load.
+> Thanks,
+> Stefano
 
-...
-
->  static struct pci_device_id lan966x_pci_ids[] = {
-> -	{ PCI_DEVICE(PCI_VENDOR_ID_EFAR, 0x9660) },
-> +	{ PCI_VDEVICE(EFAR, 0x9660), (kernel_ulong_t)&evb_lan9662_nic_info },
-
-PCI_DEVICE_DATA() ?
-
->  	{ }
->  };
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+BR, Jarkko
 
