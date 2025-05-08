@@ -4,70 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C23C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 12:33:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54D89C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 12:36:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f12dV12I+MMps004lAe5FKDU+d0MmRTfY8S6E4Wcg94=; b=Oi2WedyjFJb0o0iFXDaPZWMRb0
-	WgxoFzf6lsoqJXGw8kU8+3UkDWot7audNVbYdAHYNb6wr9WnXwreuh5LTw12jVxX0+mlTakbX62/P
-	zGmP/BQgij0Nb91/rSvMJwmBIMtnZL87V/9/i0h3gynH/NXOLbt9jI+0xeKgSEjLDOR96UAgZAJuL
-	CWxpTldgTZEDkFJb3Q16rJ8ChmP4KVk+Ulfr2qPFmAKYuRump9juPtNUxgdr1Xi/xLoqc9q+C8QdI
-	MKaZ5Mpv/E3789Len3kF4RtcceJZFayrOxSk/vF0pmVLWP/uTGzvN3/xnsMFKG+GNBUxRxLyxcuz7
-	CI076duA==;
+	bh=F6fnSSy58jOAFukWndBiel7ol37QH7BTey2iymzdWF8=; b=B6+4+qmwkBv4+nJNlg3oW9Jxwm
+	WREYyEvR1/H6nMIcpIzEKFiCz1STfm35xbf04Uoy4UJ7kwXd1tdjopqVXfdR4yRTqPX+zzJIfhfH2
+	6h5Wu4Bik3Xf80zHCnOti2UqtWb1zgrb2Mo3XY7ec+W2Y6O+vkngIdKMOtYVrcw6tLIq7TtZx49vU
+	C83fp+WPzFEN5ZnMRINvIY607PjCtv/xT9EQz7DyTkCY/zyPKpnYipn1INC9mSRFO2YfdLFpTt1EV
+	GkFuL9wR70UNqXWjXemMars1yt32w2+UOwm6WemhtE3skOwNU8UVQQrxN34lkf2lGmVxUKwa0ADPZ
+	V8e/tcHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0RJ-00000000clQ-3tzV;
-	Thu, 08 May 2025 12:33:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uD0U9-00000000d7R-1SzX;
+	Thu, 08 May 2025 12:36:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0Or-00000000cSy-1JIz;
-	Thu, 08 May 2025 12:30:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 008C24442B;
-	Thu,  8 May 2025 12:30:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 993C4C4CEE7;
-	Thu,  8 May 2025 12:30:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746707452;
-	bh=JJPW3pg6cZkOHMvhRauntwsoTRRsn+zJqEIoKIpwLkA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Rd6u/bQWZ8gH7/YC5SBwtNOV0WXVhjwJPQcJXV4yEaBgZGUr/9yakFCWFIrid5i3B
-	 2cd6AKn9b1tHMbXMjCap5Aalj6FU/kxG7T9sHDnYt62R0t3OKjw6PgJkhTM0mPFe6C
-	 GNgG4SpCW7VMMw/iOkkg+9hz0osB11J1AK2yMuPM9Shh9VnU3a6HvhrRuK6LTJIgFH
-	 15G59Gnv4i6F4W+ozSABchoqW55c/xDsYEwfYn1HwokfWMcjYGQVYjSPSbCtsfhl4A
-	 MyIP16eXwmNt7J8w7vqPawTLf+oxHIeDInhMFzIvxTA450HKB2/Z8iiwgJmPC5NndM
-	 jZ4aiuiEcvCNw==
-Date: Thu, 8 May 2025 13:30:47 +0100
-From: Will Deacon <will@kernel.org>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Matthew Wilcox <willy@infradead.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-mm@kvack.org
-Subject: Re: [PATCH v5 0/9] Merge arm64/riscv hugetlbfs contpte support
-Message-ID: <20250508123046.GA3706@willie-the-truck>
-References: <20250321130635.227011-1-alexghiti@rivosinc.com>
- <4dd5d187-f977-4f27-9937-8608991797b5@ghiti.fr>
- <64409a13-1c07-42cd-b1ec-572042738f1b@arm.com>
- <84cb893a-46e3-408a-ba0e-2eff0b44d2a1@ghiti.fr>
+	id 1uD0SC-00000000cvU-1u7T
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 08 May 2025 12:34:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=F6fnSSy58jOAFukWndBiel7ol37QH7BTey2iymzdWF8=; b=kf13EbWY6nH4CTEek+1j5W9LPU
+	Ii1asVxCwHGQqQ6tnUmLzPxmhOh6b5yvgiY/u5L5dDBB5zvF/1Bs0+Rls4tfUpmO4uXfjQjpfup9n
+	Gz0nwYNg75iicrSK1tEhosqnimOiDivw6M5n6NOTotHrQU959Dwfvdg18UCz1SF0LxvMDU4oVopX4
+	3mOJAcY605tC9kW1oXugSTH9hMEI7dRI6V6murdEau0C+iCuxRQaud6fw5YMiXPBPCHbNtXFodXuA
+	wSRrT/p7iJPAKbdpJ2zEqZSa5LBnERRRkqfCxJbLKHLeb5HrBsXrZRzjRo4ykWEaGEwxaYJsn8DOT
+	GLyJS6KQ==;
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uD0S8-0000000G2Pt-3UrG
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 May 2025 12:34:19 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 548CXx4r1861770
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 8 May 2025 07:33:59 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746707639;
+	bh=F6fnSSy58jOAFukWndBiel7ol37QH7BTey2iymzdWF8=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=aTp1UTED+pWJfvS+7BSiGkIivvMcMQWkiuK0Kl5Jp9gYgzAZPNjmnqYX1qHFxQQqi
+	 qq7F2x12jl4TZCIbxL5oJnAj4IGVvhlB0teEt41gBXTLQX8TF20X+piNubcEfDm421
+	 XGi1G04H4cNdWx2KHbAW+ind4Fb3NapywNq9A3LM=
+Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 548CXxuG034750
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 8 May 2025 07:33:59 -0500
+Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 8
+ May 2025 07:33:59 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 8 May 2025 07:33:59 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 548CXx0T075359;
+	Thu, 8 May 2025 07:33:59 -0500
+Date: Thu, 8 May 2025 07:33:59 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Bryan Brattlof <bb@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 2/3] arm64: dts: ti: k3-am62l: add initial
+ infrastructure
+Message-ID: <20250508123359.k72q4u45wzms7uaw@handpick>
+References: <20250507-am62lx-v5-0-4b57ea878e62@ti.com>
+ <20250507-am62lx-v5-2-4b57ea878e62@ti.com>
+ <20250508-illegal-caracara-from-hyperborea-b77eda@kuoka>
+ <bd33bfa6-9d31-457d-a1bf-66151e92900b@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <84cb893a-46e3-408a-ba0e-2eff0b44d2a1@ghiti.fr>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <bd33bfa6-9d31-457d-a1bf-66151e92900b@kernel.org>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_053053_387947_9C7857D4 
-X-CRM114-Status: GOOD (  29.64  )
+X-CRM114-CacheID: sfid-20250508_133417_319249_6B36BEE3 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,56 +108,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
-
-On Mon, May 05, 2025 at 06:08:50PM +0200, Alexandre Ghiti wrote:
-> On 29/04/2025 16:09, Ryan Roberts wrote:
-> > On 07/04/2025 13:04, Alexandre Ghiti wrote:
-> > > Can someone from arm64 review this? I think it's preferable to share the same
-> > > implementation between riscv and arm64.
-> > I've been thinking about this for a while and had some conversations internally.
-> > This patchset has both pros and cons.
+On 08:56-20250508, Krzysztof Kozlowski wrote:
+> On 08/05/2025 08:52, Krzysztof Kozlowski wrote:
+> > On Wed, May 07, 2025 at 10:09:20PM GMT, Bryan Brattlof wrote:
+> >> +
+> >> +	uart6: serial@2860000 {
+> >> +		compatible = "ti,am64-uart", "ti,am654-uart";
+> >> +		reg = <0x00 0x02860000 0x00 0x100>;
+> >> +		interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>;
+> >> +		power-domains = <&scmi_pds 82>;
+> >> +		clocks = <&scmi_clk 322>;
+> >> +		clock-names = "fclk";
+> >> +		status = "disabled";
+> >> +	};
+> >> +
+> >> +	conf: syscon@9000000 {
+> >> +		compatible = "syscon", "simple-mfd";
 > > 
-> > In the pros column, it increases code reuse in an area that has had quite of few
-> > bugs popping up lately; so this would bring more eyes and hopefully higher
-> > quality in the long run.
+> > Not much improved here. You cannot have such compatibles alone and the
+> > bindings test this.
 > > 
-> > But in the cons column, we have seen HW errata in similar areas in the past and
-> > I'm nervous that by hoisting this code to mm, we make it harder to workaround
-> > any future errata. Additionally I can imagine that this change could make it
-> > harder to support future Arm architecture enhancements.
-> > 
-> > I appreciate the cons are not strong *technical* arguments but nevertheless they
-> > are winning out in this case; My opinion is that we should keep the arm64
-> > implementations of huge_pte_ (and contpte_ too - I know you have a separate
-> > series for this) private to arm64.
-> > 
-> > Sorry about that.
-> > 
-> > > The end goal is the support of mTHP using svnapot on riscv, which we want soon,
-> > > so if that patchset does not gain any traction, I'll just copy/paste the arm64
-> > > implementation into riscv.
-> > This copy/paste approach would be my preference.
+> > Are you sure you tested this?
+> I now tested it and I am 100% sure you did not.
 > 
-> 
-> I have to admit that I disagree with this approach, the riscv and arm64
-> implementations are *exactly* the same so it sounds weird to duplicate code,
-> the pros you mention outweigh the cons.
-> 
-> Unless I'm missing something about the erratas? To me, that's easily fixed
-> by providing arch specific overrides no? Can you describe what sort of
-> erratas would not fit then?
+> Use tools and computers instead of humans for finding trivial issues.
+> This is not really acceptable.
 
-If we start with the common implementation you have here, nothing
-prevents us from forking the code in future if the architectures diverge
-so I'd be inclined to merge this series and see how we get on. However,
-one thing I *do* think we need to ensure is that the relevant folks from
-both arm64 (i.e. Ryan) and riscv (i.e. Alexandre) are cc'd on changes to
-the common code. Otherwise, it's going to be a step backwards in terms
-of maintainability.
+Agree.
 
-Could we add something to MAINTAINERS so that the new file picks you both
-up as reviewers?
+Bryan,
+In addition to bisect fails in this series, I see the following
+dtbs_check errors:
 
-Will
+arch/arm64/boot/dts/ti/k3-am62l3-evm.dtb: serial@0: clock-names:0: 'fclk' was expected
+arch/arm64/boot/dts/ti/k3-am62l3-evm.dtb: spi@fc40000: '#address-cells' is a dependency of '#size-cells'
+arch/arm64/boot/dts/ti/k3-am62l3-evm.dtb: syscon@43000000: compatible: ['syscon', 'simple-mfd'] is too short
+arch/arm64/boot/dts/ti/k3-am62l3-evm.dtb: syscon@9000000: 'reg' is a required property
+
+I suggest doing a revisit of this for the next window.
+
+PS: https://github.com/nmenon/kernel_patch_verify is a tool I use and
+maintain which might help alleviate some of the easy checklist items -
+but this is probably not an authoritative tool and making sure, but if
+it helps you, please do use it - it is containerized for easy env setup
+(you could run kpv -V -C -L -3 for example on this series and get this:
+https://gist.github.com/nmenon/83f7e6924539d1c7e2eb6c5a4ee82706 )
+
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
