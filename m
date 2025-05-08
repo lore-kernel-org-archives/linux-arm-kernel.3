@@ -4,105 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 414ECC3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 09:05:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E17CAC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 09:07:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=06V0SS4xl9NrencCcbDKamANFiU6WEUFYCHR8UmLwS0=; b=JMRYmSm9l/5VhrcqX8Des8HAci
-	gNSgZrich6WkhVEJlNptqM75AxdoMOiWW0qFncdF6D0uPC4S3R0zwT4teFg+MKsLmMDHxBlJHSLvw
-	t+8dOI719u6joT6zmwulTAP3NDf7Iij0nH//o2lSunphAW8+DPNp/VMiVNflN9rgA/cClSu8FMCk7
-	n7GeOP05GKuqUecsW1fg+B4rAypZEZJQlqdy8btYcmvGH3Ba86CiBqJ5iGCiJUnoPHcfCpSuUFD0S
-	NN0TAYHUNfJGKU2lVBTx/+eFiIgrQIgeM057i6U5LGHFpcU53tabMcSomF7OY6JvC1yoHRrpGuXcN
-	nVcynq4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7/brbBDPKBpRFwbDp0MyIxVnvDmb+ZnjfkIUdDqahME=; b=dTCB0Ywi8r8rEjbC6rmddt0/o7
+	ciQ0V6MgqIsPdKiF1bokXkJ7MEXqPEz9eDz4cAoE5ShYrKRxKa5svMY8lQ3OrBVqHEwhhf3s8bLiM
+	+7GDYfiioLZUfCwuHhQMKyYP3TLtlAV0s0QWIO1m6os/6yd5pvj4AkzKJ5a63s5wKNJHwd3ojyJqX
+	xBiMbOzkuvTCh0YZZtWLsnm3tROBLmNXhbdoni/GViTepw3AToArJbsxOR9hh4s6+dMot3rHd8gm9
+	A9kNDvDISj/uCJtnYUpys6CNEERvxPoAEPBWHMbZ9dJPV3XpsLvhAre0vP22eheAbWU1CNq3IcjXe
+	rfZZO6dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCxCM-00000000Cms-3Mck;
-	Thu, 08 May 2025 09:05:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uCxEI-00000000CvD-1vXQ;
+	Thu, 08 May 2025 09:07:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCwor-000000009UN-3hKu
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 08 May 2025 08:41:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=06V0SS4xl9NrencCcbDKamANFiU6WEUFYCHR8UmLwS0=; b=Oyvv5+59KsXdY/jP+dJ6hkM031
-	u2MElQHmr3tRytSRv5HAMvQylre2b3YbhvlHHGfZ7+1LaDrhzJcpoAOpipn+5QS0rLU53MoonyW6g
-	8bUwRVgmrwzn2A6z2KSJIgdwmeQXRkcfiIS/G46dGVWgciC2ALm3CJtKCL30ZT+7cRjknpoNT3qei
-	/fPZWZW9+oNHQdAyn17S1tnacoFDaoUuJ3sgjUP0j1YC+pNNdhuu0X5aksMVu7B8Jk7llP/zpKGyN
-	biLW46qol2YQpUXseF75EpXINl0pNfwO4gU7aPUcLh+GF04+bW/Va4VX0QVTvvvccOfDKnRydLCOB
-	RMXHSuEg==;
-Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uCwon-0000000Fzxx-48DL
+	id 1uCwpq-000000009c5-2gUP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 08:41:27 +0000
-Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-3d9189e9a06so2920275ab.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 01:41:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746693682; x=1747298482; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=06V0SS4xl9NrencCcbDKamANFiU6WEUFYCHR8UmLwS0=;
-        b=Glg1178uHCNsY0F830WR9CGi/HKsC5iZQ0P8/DMmEx8otiQQkAiqOE8riJQrBY8cdS
-         UbGzqMD2+ux6UlIHn5i5ycxzhlamEectWu1NnVsRlRvKabW29Z5OBFq8pWRwXWP5g0Bl
-         2wgRYmI6x1DX1u4nuRQrHL6BcewHRVPXk8t/u7FQzziUGwx/Ccin2udM0nJpqRaFkfzs
-         C5Vb1fnAe+lIxWAr/OcuDdh/NxHdG2H1XFzdjSc8SdziWRejnzF10YTunjgeyDx24ElN
-         FkqrblEOooEwGWtR/JIoMTTByUO9Sf28SccCeuAEBre+W/4KRXBHKGO2wHEcKUrSIZh4
-         WUfg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746693682; x=1747298482;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=06V0SS4xl9NrencCcbDKamANFiU6WEUFYCHR8UmLwS0=;
-        b=TF0Bs6gPsEGfiPL+GAERbxPjJ7nj1xlqJx5QoprNC3unsLR0F4JngfoT9oN/P/a13R
-         pT0WIPFV60ZoBwlxikNAUDl6KAlwv32oJE4qcn0nUudG2ph+mKojPaNkr916ikv4bhWc
-         9PBzyKKQll8nMURbuqRI0hYIR9joo8PdCak4JLjV4jCBgzFuQXRSk1HkBxC850YTa+ec
-         3sFYjXK3Y/Xh21NWt8x1kUj4BgQXwF1SdeQFRFn6k5eJzNJI7ff8scnMhnXU92VLchb2
-         HPbQKWOgeYKBLlDCjH2B/SZQMIK1cykVF5xFXyiae0uSGcrI/CFurDmImUNOv/QK99Gz
-         5XdA==
-X-Forwarded-Encrypted: i=1; AJvYcCWcY51QVFl/5isik+Qa/lCG6gdudgLrvNaBcFunvtbMsVRtTth3MY5cBvX5l4BuFZeR0cuPD2ws8A7dTZV+ZtuC@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJm/slwnWNNn81OM2Hh8jyWiljcXOxYKxtonUty0m/eobU302v
-	4KNi1flmVrPpCK7+2h24rPIw7ovzQyG2IieW2tfkDYgD9q64YrrwPTzCpFe/k2YbPgDgSlWjhOf
-	33XUOmBrf+6AgRpJGIADGoWE17Qg=
-X-Gm-Gg: ASbGncu2r5yjtwrLNVZhDJatn2Z9KChHO8my4ZAgtYE7zHC2Gt7eCUdbfE84rEG8iYB
-	VtcehjS2EEQDCB/rTLp/K/vnBLUnIRwWYB4kSeucyq/BPP01MJaY7pptM7vnxXXkWLX+o6HojvB
-	vR4KMn+F3UsZjO9Cok/ya54w==
-X-Google-Smtp-Source: AGHT+IEmLMp/D0QNJevDYMLRMp0mBTWELujqPt8xXnR9sEVc1PByWElS1L80M8Da1ScWVQSTQUb1nxbOD2vClVz1m7w=
-X-Received: by 2002:a92:cdaf:0:b0:3d8:975:b825 with SMTP id
- e9e14a558f8ab-3da738d5b28mr76314015ab.5.1746693682592; Thu, 08 May 2025
- 01:41:22 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250508033328.12507-1-kerneljasonxing@gmail.com>
- <20250508033328.12507-5-kerneljasonxing@gmail.com> <20250508070700.m3bufh2q4v4llbfx@DEN-DL-M31836.microchip.com>
-In-Reply-To: <20250508070700.m3bufh2q4v4llbfx@DEN-DL-M31836.microchip.com>
-From: Jason Xing <kerneljasonxing@gmail.com>
-Date: Thu, 8 May 2025 16:40:45 +0800
-X-Gm-Features: ATxdqUEcxKj-NjeNAJFeUmwL48LxaGkk92YGikxUXT0m3HVba_HcMEWlVXVCuUY
-Message-ID: <CAL+tcoCuvxfQUbzjSfk+7vPWLEqQgVK8muqkOQe+N6jQQwXfUw@mail.gmail.com>
-Subject: Re: [PATCH net-next v1 4/4] net: lan966x: generate software timestamp
- just before the doorbell
-To: Horatiu Vultur <horatiu.vultur@microchip.com>
-Cc: irusskikh@marvell.com, andrew+netdev@lunn.ch, bharat@chelsio.com, 
-	ayush.sawal@chelsio.com, UNGLinuxDriver@microchip.com, 
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, davem@davemloft.net, 
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
-	sgoutham@marvell.com, willemb@google.com, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
-	Jason Xing <kernelxing@tencent.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_094126_296551_28B9D172 
-X-CRM114-Status: GOOD (  21.09  )
+	Thu, 08 May 2025 08:42:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 01A6A629E3;
+	Thu,  8 May 2025 08:42:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D702C4CEE7;
+	Thu,  8 May 2025 08:42:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746693749;
+	bh=r4rhd827Fnak6aKEMgLnJgrNTLGWxl8VcUCjQ0+pR6c=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=o1ExFhJtUJGWLWfvwRKP+t5Nhas05Da6Xm1+IvL1UlXP/NqPHx1hDNUGWOZ1cG9Hg
+	 ZvAsxplF2LvV2IIDPZIlv2kmxjTpqKhxrml8Ty3viPQ2sB2MhbKb6EqYp/i4cuqxLE
+	 0yu0HdiirY6VYYLM6kBMxtkSLAhIPr3fjGvnumfN3oLjtSxvIwufoxvsV0MAUz+qtA
+	 Wwqt7FIYgfQWsR8v3ETkEIGYI1UrgEP9fIu2GpCa0Tkv9cpo0pxhXGsW0Uv3RqWgrx
+	 LF3E4chMDfjTE0ojemPPZtvjx/nxsTowQmypdUkTmjmPRUjCfMHIPTH80ixvtWE7/x
+	 xF/R63bxc/bAg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uCwpn-00CwFr-F3;
+	Thu, 08 May 2025 09:42:27 +0100
+Date: Thu, 08 May 2025 09:42:27 +0100
+Message-ID: <864ixvh4ss.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 20/25] irqchip/gic-v5: Add GICv5 PPI support
+In-Reply-To: <aBxgceQBRA6vBK7o@lpieralisi>
+References: <20250506-gicv5-host-v3-0-6edd5a92fd09@kernel.org>
+	<20250506-gicv5-host-v3-20-6edd5a92fd09@kernel.org>
+	<87zffpn5rk.ffs@tglx>
+	<86a57ohjey.wl-maz@kernel.org>
+	<87ecx0mt9p.ffs@tglx>
+	<867c2sh6jx.wl-maz@kernel.org>
+	<874ixwmpto.ffs@tglx>
+	<aBxgceQBRA6vBK7o@lpieralisi>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, sascha.bischoff@arm.com, timothy.hayes@arm.com, Liam.Howlett@oracle.com, mark.rutland@arm.com, jirislaby@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,67 +100,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Horatiu,
+On Thu, 08 May 2025 08:42:41 +0100,
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> 
+> On Wed, May 07, 2025 at 04:57:07PM +0200, Thomas Gleixner wrote:
+> > On Wed, May 07 2025 at 14:52, Marc Zyngier wrote:
+> > > On Wed, 07 May 2025 14:42:42 +0100,
+> > > Thomas Gleixner <tglx@linutronix.de> wrote:
+> > >> 
+> > >> On Wed, May 07 2025 at 10:14, Marc Zyngier wrote:
+> > >> > On Tue, 06 May 2025 16:00:31 +0100,
+> > >> > Thomas Gleixner <tglx@linutronix.de> wrote:
+> > >> >> 
+> > >> >> How does this test distinguish between LEVEL_LOW and LEVEL_HIGH? It only
+> > >> >> tests for level, no? So the test is interesting at best ...
+> > >> >
+> > >> > There is no distinction between HIGH and LOW, RISING and FALLING, in
+> > >> > any revision of the GIC architecture.
+> > >> 
+> > >> Then pretending that there is a set_type() functionality is pretty daft
+> > >
+> > > You still need to distinguish between level and edge when this is
+> > > programmable (which is the case for a subset of the PPIs).
+> > 
+> > Fair enough, but can we please add a comment to this function which
+> > explains this oddity.
+> 
+> Getting back to this, I would need your/Marc's input on this.
+> 
+> I think it is fair to remove the irq_set_type() irqchip callback for
+> GICv5 PPIs because there is nothing to set, as I said handling mode
+> for these IRQs is fixed. I don't think this can cause any trouble
+> (IIUC a value within the IRQF_TRIGGER_MASK should be set on requesting
+> an IRQ to "force" the trigger to be programmed and even then core code
+> would not fail if the irq_set_type() irqchip callback is not
+> implemented).
+> 
+> I am thinking about *existing* drivers that request GICv3 PPIs with
+> values in IRQF_TRIGGER_MASK set (are there any ? Don't think so but you
+> know better than I do), when we switch over to GICv5 we would have no
+> irq_set_type() callback for PPIs but I think we are still fine, not
+> implementing irqchip.irq_set_type() is correct IMO.
 
-On Thu, May 8, 2025 at 3:08=E2=80=AFPM Horatiu Vultur
-<horatiu.vultur@microchip.com> wrote:
->
-> The 05/08/2025 11:33, Jason Xing wrote:
-> >
-> > From: Jason Xing <kernelxing@tencent.com>
-> >
-> > Make sure the call of skb_tx_timestamp as close to the doorbell.
-> >
-> > Signed-off-by: Jason Xing <kernelxing@tencent.com>
-> > ---
-> >  drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c b/dr=
-ivers/net/ethernet/microchip/lan966x/lan966x_fdma.c
-> > index 502670718104..e030f23e5145 100644
-> > --- a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c
-> > +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c
-> > @@ -730,7 +730,6 @@ int lan966x_fdma_xmit(struct sk_buff *skb, __be32 *=
-ifh, struct net_device *dev)
-> >                 }
-> >         }
-> >
-> > -       skb_tx_timestamp(skb);
->
-> Changing this will break the PHY timestamping because the frame gets
-> modified in the next line, meaning that the classify function will
-> always return PTP_CLASS_NONE.
+Nobody seems to use a hardcoded trigger (well, there is one exception,
+but that's to paper over a firmware bug).
 
-Sorry that I'm not that familiar with the details. I will remove it
-from this series, but still trying to figure out what cases could be.
+> On the other hand, given that on GICv5 PPI handling mode is fixed,
+> do you think that in the ppi_irq_domain_ops.translate() callback,
+> I should check the type the firmware provided and fail the translation
+> if it does not match the HW hardcoded value ?
 
-Do you mean it can break when bpf prog is loaded because
-'skb_push(skb, IFH_LEN_BYTES);' expands the skb->data area?  May I ask
-how the modified data of skb breaks the PHY timestamping feature?
+Why? The fact that the firmware is wrong doesn't change the hardware
+integration. It just indicates that whoever wrote the firmware didn't
+read the documentation.
+
+Even more, I wonder what the benefit of having that information in the
+firmware tables if the only thing that matters in the immutable HW
+view. Yes, having it in the DT/ACPI simplifies the job of the kernel
+(only one format to parse). But it is overall useless information.
+
+> Obviously if firmware exposes the wrong type that's a firmware bug
+> but I was wondering whether it is better to fail the firmware-to-Linux
+> IRQ translation if the firmware provided type is wrong rather than carry
+> on pretending that the type is correct (I was abusing the irq_set_type()
+> callback to do just that - namely, check that the type provided by
+> firmware matches HW but I think that's the wrong place to put it).
+
+I don't think there is anything to do. Worse case, you spit a
+pr_warn_once() and carry on.
 
 Thanks,
-Jason
 
->
-> Nacked-by: Horatiu Vultur <horatiu.vultur@microchip.com>
->
-> >         skb_push(skb, IFH_LEN_BYTES);
-> >         memcpy(skb->data, ifh, IFH_LEN_BYTES);
-> >         skb_put(skb, 4);
-> > @@ -768,6 +767,7 @@ int lan966x_fdma_xmit(struct sk_buff *skb, __be32 *=
-ifh, struct net_device *dev)
-> >                 next_dcb_buf->ptp =3D true;
-> >
-> >         /* Start the transmission */
-> > +       skb_tx_timestamp(skb);
-> >         lan966x_fdma_tx_start(tx);
-> >
-> >         return NETDEV_TX_OK;
-> > --
-> > 2.43.5
-> >
->
-> --
-> /Horatiu
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
