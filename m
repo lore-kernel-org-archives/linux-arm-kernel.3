@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E46B3C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 13:41:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ED17C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 13:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dQeX9/v0ybI3+WthWo6rGRYYp3D76tMJ4Vp6Weerezs=; b=3qqcSHi7msGP8XxMTSFrlaCng+
-	HX4ywKhjmar4pgncWYO3zmBKGFfH/riyXGmIXa1U0Ec4sY/sZi8qI0aoXFE6JP+IAWBcM13erFyNX
-	YY7a196jrNtGsZfp3NG0cn1WMLYLqAx3kHDc+S2ASO5IGpf0n8w9FxcCYzuE1N7WzWibI4cCa5HzZ
-	R/s89Iq9Sa6WwyBkUOL+m/n5FLXrF989s1ZD4fj0c2kXdWjKm0jZZUq5c67NGSehIAg4PD9PqAIL2
-	Id8sP199EKyp1vEyLojy9WmxU4c15T6XS2Wmx8gJdc00l0MUc1pl9py8hdexutXLHhWPF2IA3Z1uk
-	vee3h8Ng==;
+	bh=Mw4g6lZ5gmagJirsmwUxXsO+NktQBVEMChD7XJJOkAc=; b=xJbcvP2kThTv9BrtjbW7v3FPa3
+	ltSLZ+3TAY95iO0GUvz8zro8G6IqndkjiaaPGRfWjJpnXf6K8/yBZRDSgN5Rl30au2BJB+f5QCmet
+	KzWJY7t+WAHdg5OA7335VM6VDeoLrvz5e98naS+gj6OB8VW3vq1J6+s4YVFP+Uz1zJCxITFr1L/YM
+	TY6mSCcHRWdaaz03UwY8/WlVyVL6gLJHC0uXKkJDFbATzBR0Ux410Zpll4i4D3HnTTwkTMjbxMUde
+	K+T4JZD4jlWy9AUaUG/gKeZNo5fRREgZMaeG62N2zJRBg3bJ8AQXt8uKbURJsIaTuvbWy2j8fN623
+	wPvl4WJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD1V6-00000000mcl-3CfY;
-	Thu, 08 May 2025 13:41:24 +0000
+	id 1uD1X3-00000000n7K-1xDn;
+	Thu, 08 May 2025 13:43:25 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD1Hc-00000000kO2-3lDn
+	id 1uD1Hf-00000000kP7-2lI7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 13:27:30 +0000
+	Thu, 08 May 2025 13:27:32 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1ED6B106F;
-	Thu,  8 May 2025 06:27:18 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E24BE106F;
+	Thu,  8 May 2025 06:27:20 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1DEDB3F58B;
-	Thu,  8 May 2025 06:27:25 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E1BD33F58B;
+	Thu,  8 May 2025 06:27:28 -0700 (PDT)
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: broonie@kernel.org,
@@ -49,17 +49,17 @@ Cc: broonie@kernel.org,
 	tkjos@google.com,
 	will@kernel.org,
 	yury.khrustalev@arm.com
-Subject: [PATCH v2 05/24] arm64/fpsimd: ptrace: Consistently handle partial writes to NT_ARM_(S)SVE
-Date: Thu,  8 May 2025 14:26:25 +0100
-Message-Id: <20250508132644.1395904-6-mark.rutland@arm.com>
+Subject: [PATCH v2 06/24] arm64/fpsimd: Clarify sve_sync_*() functions
+Date: Thu,  8 May 2025 14:26:26 +0100
+Message-Id: <20250508132644.1395904-7-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20250508132644.1395904-1-mark.rutland@arm.com>
 References: <20250508132644.1395904-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_062729_029320_08C11BB6 
-X-CRM114-Status: GOOD (  24.47  )
+X-CRM114-CacheID: sfid-20250508_062731_780223_D8573297 
+X-CRM114-Status: GOOD (  22.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,198 +74,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Partial writes to the NT_ARM_SVE and NT_ARM_SSVE regsets using an
-payload are handled inconsistently and non-deterministically. A comment
-within sve_set_common() indicates that we intended that a partial write
-would preserve any effective FPSIMD/SVE state which was not overwritten,
-but this has never worked consistently, and during syscalls the FPSIMD
-vector state may be non-deterministically preserved and may be
-erroneously migrated between streaming and non-streaming SVE modes.
+The sve_sync_{to,from}_fpsimd*() functions are intended to
+extract/insert the currently effective FPSIMD state of a task regardless
+of whether the task's state is saved in FPSIMD format or SVE format.
+Historically they were only used by ptrace, but sve_sync_to_fpsimd() is
+now used more widely, and sve_sync_from_fpsimd_zeropad() may be used
+more widely in future.
 
-The simplest fix is to handle a partial write by consistently zeroing
-the remaining state. As detailed below I do not believe this will
-adversely affect any real usage.
-
-Neither GDB nor LLDB attempt partial writes to these regsets, and the
-documentation (in Documentation/arch/arm64/sve.rst) has always indicated
-that state preservation was not guaranteed, as is says:
-
-| The effect of writing a partial, incomplete payload is unspecified.
-
-When the logic was originally introduced in commit:
-
-  43d4da2c45b2 ("arm64/sve: ptrace and ELF coredump support")
-
-... there were two potential behaviours, depending on TIF_SVE:
-
-* When TIF_SVE was clear, all SVE state would be zeroed, excluding the
-  low 128 bits of vectors shared with FPSIMD, FPSR, and FPCR.
-
-* When TIF_SVE was set, all SVE state would be zeroed, including the
-  low 128 bits of vectors shared with FPSIMD, but excluding FPSR and
-  FPCR.
-
-Note that as writing to NT_ARM_SVE would set TIF_SVE, partial writes to
-NT_ARM_SVE would not be idempotent, and if a first write preserved the
-low 128 bits, a subsequent (potentially identical) partial write would
-discard the low 128 bits.
-
-When support for the NT_ARM_SSVE regset was added in commit:
-
-  e12310a0d30f ("arm64/sme: Implement ptrace support for streaming mode SVE registers")
-
-... the above behaviour was retained for writes to the NT_ARM_SVE
-regset, though writes to the NT_ARM_SSVE would always zero the SVE
-registers and would not inherit FPSIMD register state. This happened as
-fpsimd_sync_to_sve() only copied the FPSIMD regs when TIF_SVE was clear
-and PSTATE.SM==0.
-
-Subsequently, when FPSIMD/SVE state tracking was changed across commits:
+When FPSIMD/SVE state tracking was changed across commits:
 
   baa8515281b3 ("arm64/fpsimd: Track the saved FPSIMD state type separately to TIF_SVE")
   a0136be443d5 (arm64/fpsimd: Load FP state based on recorded data type")
   bbc6172eefdb ("arm64/fpsimd: SME no longer requires SVE register state")
   8c845e273104 ("arm64/sve: Leave SVE enabled on syscall if we don't context switch")
 
-... there was no corresponding update to the ptrace code, nor to
-fpsimd_sync_to_sve(), which stil considers TIF_SVE and PSTATE.SM rather
-than the saved fp_type. The saved state can be in the FPSIMD format
-regardless of whether TIF_SVE is set or clear, and the saved type can
-change non-deterministically during syscalls. Consequently a subsequent
-partial write to the NT_ARM_SVE or NT_ARM_SSVE regsets may
-non-deterministically preserve the FPSIMD state, and may migrate this
-state between streaming and non-streaming modes.
+... sve_sync_to_fpsimd() was updated to consider task->thread.fp_type
+rather than the task's TIF_SVE and PSTATE.SM, but (apparently due to an
+oversight) sve_sync_from_fpsimd_zeropad() was left as-is, leaving the
+two inconsistent.
 
-Clean this up by never attempting to preserve ANY state when writing an
-SVE payload to the NT_ARM_SVE/NT_ARM_SSVE regsets, zeroing all relevant
-state including FPSR and FPCR. This simplifies the code, makes the
-behaviour deterministic, and avoids migrating state between streaming
-and non-streaming modes. As above, I do not believe this should
-adversely affect existing userspace applications.
+Due to this, sve_sync_from_fpsimd_zeropad() may copy state from
+task->thread.uw.fpsimd_state into task->thread.sve_state when
+task->thread.fp_type == FP_STATE_FPSIMD. This is redundant (but benign)
+as task->thread.uw.fpsimd_state is the effective state that will be
+restored, and task->thread.sve_state will not be consumed. For
+consistency, and to avoid the redundant work, it better for
+sve_sync_from_fpsimd_zeropad() to consider task->thread.fp_type alone,
+matching sve_sync_to_fpsimd().
 
-At the same time, remove fpsimd_sync_to_sve(). It is no longer used,
-doesn't do what its documentation implies, and gets in the way of other
-cleanups and fixes.
+The naming of both functions is somehat unfortunate, as it is unclear
+when and why they copy state. It would be better to describe them in
+terms of the effective state.
 
-Fixes: 43d4da2c45b2 ("arm64/sve: ptrace and ELF coredump support")
+Considering all of the above, clean this up:
+
+* Adjust sve_sync_from_fpsimd_zeropad() to consider
+  task->thread.fp_type.
+
+* Update comments to clarify the intended semantics/usage. I've removed
+  the description that task->thread.sve_state must have been allocated,
+  as this is only necessary when task->thread.fp_type == FP_STATE_SVE,
+  which itself implies that task->thread.sve_state must have been
+  allocated.
+
+* Rename the functions to more clearly indicate when/why they copy
+  state:
+
+  - sve_sync_to_fpsimd() => fpsimd_sync_from_effective_state()
+
+  - sve_sync_from_fpsimd_zeropad => fpsimd_sync_to_effective_state_zeropad()
+
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: David Spickett <david.spickett@arm.com>
-Cc: Luis Machado <luis.machado@arm.com>
 Cc: Marc Zyngier <maz@kernel.org>
 Cc: Mark Brown <broonie@kernel.org>
 Cc: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/fpsimd.h |  1 -
- arch/arm64/kernel/fpsimd.c      | 15 ---------------
- arch/arm64/kernel/ptrace.c      | 26 +++++++++-----------------
- 3 files changed, 9 insertions(+), 33 deletions(-)
+ arch/arm64/include/asm/fpsimd.h |  8 ++++----
+ arch/arm64/kernel/fpsimd.c      | 30 ++++++++++++------------------
+ arch/arm64/kernel/ptrace.c      |  6 +++---
+ arch/arm64/kernel/signal.c      |  2 +-
+ 4 files changed, 20 insertions(+), 26 deletions(-)
 
 diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-index 11b9c6a5e0377..da1bd5b9a7e70 100644
+index da1bd5b9a7e70..c9e17d093fe23 100644
 --- a/arch/arm64/include/asm/fpsimd.h
 +++ b/arch/arm64/include/asm/fpsimd.h
-@@ -198,7 +198,6 @@ struct vl_info {
+@@ -198,8 +198,8 @@ struct vl_info {
  
  extern void sve_alloc(struct task_struct *task, bool flush);
  extern void fpsimd_release_task(struct task_struct *task);
--extern void fpsimd_sync_to_sve(struct task_struct *task);
- extern void sve_sync_to_fpsimd(struct task_struct *task);
- extern void sve_sync_from_fpsimd_zeropad(struct task_struct *task);
+-extern void sve_sync_to_fpsimd(struct task_struct *task);
+-extern void sve_sync_from_fpsimd_zeropad(struct task_struct *task);
++extern void fpsimd_sync_from_effective_state(struct task_struct *task);
++extern void fpsimd_sync_to_effective_state_zeropad(struct task_struct *task);
  
+ extern int vec_set_vector_length(struct task_struct *task, enum vec_type type,
+ 				 unsigned long vl, unsigned long flags);
+@@ -299,8 +299,8 @@ size_t sve_state_size(struct task_struct const *task);
+ 
+ static inline void sve_alloc(struct task_struct *task, bool flush) { }
+ static inline void fpsimd_release_task(struct task_struct *task) { }
+-static inline void sve_sync_to_fpsimd(struct task_struct *task) { }
+-static inline void sve_sync_from_fpsimd_zeropad(struct task_struct *task) { }
++static inline void fpsimd_sync_from_effective_state(struct task_struct *task) { }
++static inline void fpsimd_sync_to_effective_state_zeropad(struct task_struct *task) { }
+ 
+ static inline int sve_max_virtualisable_vl(void)
+ {
 diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index 9f1890d692dfc..e06e4d8eda49e 100644
+index e06e4d8eda49e..dd6480087683c 100644
 --- a/arch/arm64/kernel/fpsimd.c
 +++ b/arch/arm64/kernel/fpsimd.c
-@@ -759,21 +759,6 @@ void sve_alloc(struct task_struct *task, bool flush)
- 		kzalloc(sve_state_size(task), GFP_KERNEL);
+@@ -760,39 +760,33 @@ void sve_alloc(struct task_struct *task, bool flush)
  }
  
--/*
-- * Ensure that task->thread.sve_state is up to date with respect to
-- * the user task, irrespective of when SVE is in use or not.
-- *
+ /*
+- * Ensure that task->thread.uw.fpsimd_state is up to date with respect to
+- * the user task, irrespective of whether SVE is in use or not.
++ * Ensure that task->thread.uw.fpsimd_state is up to date with respect to the
++ * task's currently effective FPSIMD/SVE state.
+  *
 - * This should only be called by ptrace.  task must be non-runnable.
 - * task->thread.sve_state must point to at least sve_state_size(task)
 - * bytes of allocated kernel memory.
-- */
--void fpsimd_sync_to_sve(struct task_struct *task)
--{
++ * The task's FPSIMD/SVE/SME state must not be subject to concurrent
++ * manipulation.
+  */
+-void sve_sync_to_fpsimd(struct task_struct *task)
++void fpsimd_sync_from_effective_state(struct task_struct *task)
+ {
+ 	if (task->thread.fp_type == FP_STATE_SVE)
+ 		sve_to_fpsimd(task);
+ }
+ 
+ /*
+- * Ensure that task->thread.sve_state is up to date with respect to
+- * the task->thread.uw.fpsimd_state.
++ * Ensure that the task's currently effective FPSIMD/SVE state is up to date
++ * with respect to task->thread.uw.fpsimd_state, zeroing any effective
++ * non-FPSIMD (S)SVE state.
+  *
+- * This should only be called by ptrace to merge new FPSIMD register
+- * values into a task for which SVE is currently active.
+- * task must be non-runnable.
+- * task->thread.sve_state must point to at least sve_state_size(task)
+- * bytes of allocated kernel memory.
+- * task->thread.uw.fpsimd_state must already have been initialised with
+- * the new FPSIMD register values to be merged in.
++ * The task's FPSIMD/SVE/SME state must not be subject to concurrent
++ * manipulation.
+  */
+-void sve_sync_from_fpsimd_zeropad(struct task_struct *task)
++void fpsimd_sync_to_effective_state_zeropad(struct task_struct *task)
+ {
+ 	unsigned int vq;
+ 	void *sst = task->thread.sve_state;
+ 	struct user_fpsimd_state const *fst = &task->thread.uw.fpsimd_state;
+ 
 -	if (!test_tsk_thread_flag(task, TIF_SVE) &&
 -	    !thread_sm_enabled(&task->thread))
--		fpsimd_to_sve(task);
--}
--
- /*
-  * Ensure that task->thread.uw.fpsimd_state is up to date with respect to
-  * the user task, irrespective of whether SVE is in use or not.
++	if (task->thread.fp_type != FP_STATE_SVE)
+ 		return;
+ 
+ 	vq = sve_vq_from_vl(thread_get_cur_vl(&task->thread));
 diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-index f79b0d5f71ac9..259d90f70e025 100644
+index 259d90f70e025..bdba106a4cf29 100644
 --- a/arch/arm64/kernel/ptrace.c
 +++ b/arch/arm64/kernel/ptrace.c
-@@ -910,8 +910,6 @@ static int sve_set_common(struct task_struct *target,
+@@ -594,7 +594,7 @@ static int __fpr_get(struct task_struct *target,
+ {
+ 	struct user_fpsimd_state *uregs;
  
- 	/* Enter/exit streaming mode */
- 	if (system_supports_sme()) {
--		u64 old_svcr = target->thread.svcr;
--
- 		switch (type) {
- 		case ARM64_VEC_SVE:
- 			target->thread.svcr &= ~SVCR_SM_MASK;
-@@ -931,23 +929,20 @@ static int sve_set_common(struct task_struct *target,
- 			ret = -EINVAL;
- 			goto out;
- 		}
--
--		/*
--		 * If we switched then invalidate any existing SVE
--		 * state and ensure there's storage.
--		 */
--		if (target->thread.svcr != old_svcr)
--			sve_alloc(target, true);
- 	}
+-	sve_sync_to_fpsimd(target);
++	fpsimd_sync_from_effective_state(target);
  
-+	/* Always zero V regs, FPSR, and FPCR */
-+	memset(&current->thread.uw.fpsimd_state, 0,
-+	       sizeof(current->thread.uw.fpsimd_state));
-+
- 	/* Registers: FPSIMD-only case */
+ 	uregs = &target->thread.uw.fpsimd_state;
  
- 	BUILD_BUG_ON(SVE_PT_FPSIMD_OFFSET != sizeof(header));
- 	if ((header.flags & SVE_PT_REGS_MASK) == SVE_PT_REGS_FPSIMD) {
--		ret = __fpr_set(target, regset, pos, count, kbuf, ubuf,
--				SVE_PT_FPSIMD_OFFSET);
- 		clear_tsk_thread_flag(target, TIF_SVE);
- 		target->thread.fp_type = FP_STATE_FPSIMD;
-+		ret = __fpr_set(target, regset, pos, count, kbuf, ubuf,
-+				SVE_PT_FPSIMD_OFFSET);
- 		goto out;
- 	}
- 
-@@ -966,6 +961,7 @@ static int sve_set_common(struct task_struct *target,
- 		goto out;
- 	}
- 
-+	/* Always zero SVE state */
- 	sve_alloc(target, true);
- 	if (!target->thread.sve_state) {
- 		ret = -ENOMEM;
-@@ -975,13 +971,9 @@ static int sve_set_common(struct task_struct *target,
- 	}
- 
- 	/*
--	 * Ensure target->thread.sve_state is up to date with target's
--	 * FPSIMD regs, so that a short copyin leaves trailing
--	 * registers unmodified.  Only enable SVE if we are
--	 * configuring normal SVE, a system with streaming SVE may not
--	 * have normal SVE.
-+	 * Only enable SVE if we are configuring normal SVE, a system with
-+	 * streaming SVE may not have normal SVE.
+@@ -626,7 +626,7 @@ static int __fpr_set(struct task_struct *target,
+ 	 * Ensure target->thread.uw.fpsimd_state is up to date, so that a
+ 	 * short copyin can't resurrect stale data.
  	 */
--	fpsimd_sync_to_sve(target);
- 	if (type == ARM64_VEC_SVE)
- 		set_tsk_thread_flag(target, TIF_SVE);
- 	target->thread.fp_type = FP_STATE_SVE;
+-	sve_sync_to_fpsimd(target);
++	fpsimd_sync_from_effective_state(target);
+ 
+ 	newstate = target->thread.uw.fpsimd_state;
+ 
+@@ -653,7 +653,7 @@ static int fpr_set(struct task_struct *target, const struct user_regset *regset,
+ 	if (ret)
+ 		return ret;
+ 
+-	sve_sync_from_fpsimd_zeropad(target);
++	fpsimd_sync_to_effective_state_zeropad(target);
+ 	fpsimd_flush_task_state(target);
+ 
+ 	return ret;
+diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
+index 87890d7be8de3..e9272878dd7df 100644
+--- a/arch/arm64/kernel/signal.c
++++ b/arch/arm64/kernel/signal.c
+@@ -250,7 +250,7 @@ static int preserve_fpsimd_context(struct fpsimd_context __user *ctx)
+ 		&current->thread.uw.fpsimd_state;
+ 	int err;
+ 
+-	sve_sync_to_fpsimd(current);
++	fpsimd_sync_from_effective_state(current);
+ 
+ 	/* copy the FP and status/control registers */
+ 	err = __copy_to_user(ctx->vregs, fpsimd->vregs, sizeof(fpsimd->vregs));
 -- 
 2.30.2
 
