@@ -4,84 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60833C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 08:10:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0958C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 08:17:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VvJyVgfwE/tf2nM/arkeHG8DCYPZCnFmpe2XLdCrC7A=; b=f1LGqJgU1PT07rtMlkQS6V1XWU
-	gv5GSY0bQGH0g1yaEq29rnfRSzjP2zb7Xm60yhgr5ukKUj4A7IXD+sShSwGQsjbNw8csJ1coZKAqI
-	ndCl9mbqdiXlySSrUNbzVQiDHqlqVLC0Q8b4sx+J5zfMc4+G7tulL/jGC+SvU26kQUhe08Jv4neue
-	aZV+mkFnMK00jtH0j2l6USlzREyKY6ACJ4pqAOHlrKojYuLd1pVSctoD/WVBV9VwoEBorw7l8KdhD
-	n1WX3yBI7o6WSMLSEKChIzROYdFBr315IIAqGwfybs00HtM8jtS6AizZgVSRjfJjECqDAQgzAsLsy
-	cfIt4FLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ek8ryArvLht1H0s+GkPPkPDbrTb+X9AKGebgU1XLmxo=; b=JS+MChy+m4VMUWAxyJ5aEwUjF3
+	plf139t3jLMJhxYpajTd37esYHuhB7MBe2ml7C+70AbEElo5UkshHLbblwPSOWraMEtMk2WbcapUE
+	gnHUhxrpLFib0c+gSiBkcrRkQ5abuVh9GZu13PVJo6Z+gdalv5UJtecuK1/PCW5/FJ6Ikozy3oyrB
+	kxecGy48I++5fBQ1+WK8rSdwdkAptwmYcvlNNSsaIj648fTh0wivaknveJmHEJjO3cM04txjQeOL2
+	DXacqvdkUDEBCSCTwN1Zc7390D9luXKoejUP5UztSBIzE4RrA6w6dzU/Ydb4AVOOgCvaWzXO7CjsF
+	8XtLL5Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCwKg-000000004T4-2oqb;
-	Thu, 08 May 2025 08:10:18 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1uCwRr-0000000058s-1R7u;
+	Thu, 08 May 2025 08:17:43 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCwI7-0000000048p-3Uff
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 08:07:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1746691659; x=1778227659;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=VvJyVgfwE/tf2nM/arkeHG8DCYPZCnFmpe2XLdCrC7A=;
-  b=X/5OGuesdvlfatalJP8VqGYK7bbJ8RrtXmp4K73eXOT15DyracV1lwXk
-   6wPE943+O2PFH7Gg6cccpaehk/iMCKKrdjhJrYiKr/JZS0KGHafanX3eD
-   CWceU+IzOp5PbYtrHln8SjNh1D9jbbbb/C6379+WhwwzGdTcePdtdbqj7
-   EGgcBzahsT77o0gIX3w8HNArvD8evdr91NfQohWjQTGDJ8dJzomJLn0AC
-   44t+cJsm9Bm5uWulMn0bSjqhRD1llO1vprY7Rs1HKWAGjKhespWsVVytN
-   2s9F3W1Dit5v//SJkJiYAB3zjkByvgeFFWgOIA0yYwKBr3Oz+VBQ2njX5
-   A==;
-X-CSE-ConnectionGUID: /Ws5gQ/3TvilkfRlpMhvfg==
-X-CSE-MsgGUID: wmq3LZIoTQyzYU0idt8Iag==
-X-IronPort-AV: E=Sophos;i="6.15,271,1739833200"; 
-   d="scan'208";a="43954413"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 08 May 2025 10:07:37 +0200
-X-CheckPoint: {681C6649-29-45F3AE15-E90F7DFA}
-X-MAIL-CPID: D73B9C706E3199116FADD3609FEEBAFF_5
-X-Control-Analysis: str=0001.0A006397.681C664B.007D,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 57469163F01;
-	Thu,  8 May 2025 10:07:28 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1746691653;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VvJyVgfwE/tf2nM/arkeHG8DCYPZCnFmpe2XLdCrC7A=;
-	b=YIElGG9tOSf2sQm9x2MY4rRj808ZLuGpYNcjuuWV87kPfDdkUN9n+YPiQMilp5DVMngDeT
-	Im7/Xkc2J0QUZ4Y7+st8iGeyNLN0AOwblOxZ1nyXuN8ZYYsQvTUJp0vKEIolnkyr5aPlsS
-	7mcBiNut12c8Uus8N7ZctNdlPb3p3pSlL5kgzBS/DMpAPwWD/++KIPduBhongFKEO1m767
-	KVIo0UJP/uSMICrpV5PYxosl5Lc5+vMnC1iwYnVjZeHGpECzEtXSHOB8hesipWinbPa2/L
-	IrSgMeKDRhfvkZ+RTszSxJKJKZwolwH7dH9mEWOyti0m3hAGIk62gp8PJnvpvA==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Esben Haabendal <esben@geanix.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Stefan Wahren <wahrenst@gmx.net>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>
-Subject: Re: [PATCH 1/1] arm64: Kconfig: Enable PINCTRL on i.MX platforms
-Date: Thu, 08 May 2025 10:07:27 +0200
-Message-ID: <7023673.LvFx2qVVIh@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <87ikmby52x.fsf@geanix.com>
-References: <20250507124414.3088510-1-alexander.stein@ew.tq-group.com>
- <8259306.DvuYhMxLoT@steina-w> <87ikmby52x.fsf@geanix.com>
+	id 1uCwPs-000000004pM-0yhz;
+	Thu, 08 May 2025 08:15:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1746692138;
+	bh=lidTZ6yjuirDe4XS/TIVOyFXAWFcpUtoazDqf8uMVKU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OAM0Dqog6E3cB9oB1/2eFKJkqWDJCs2Vhv5NTciopLc5Obf6y1oaVnp4Wx8IpRfYu
+	 nymrwM37KVZnLNNu6ytXViKnRlvpbAp5GpsuGlR9azu5+b9AwLfWDyB/oNC0FpjanF
+	 P4T+dnHQV8aLra6Q2Rti7sQqXF4z/RQYMIHrxal6VLJ/pU2Jnh1JFMyRafz+xgHBNZ
+	 /oRH0f60y6QsmcxLmxt/PrqREJOjv3Pe7WMYg/4SVd5M65uEsUOoikgs3KN+S2mPEU
+	 At2mJqucAk77LrIohY4BrNuaqs4vqbQBf5+ospreTpgjpXc9nPc/m0Z/q9lzeg31j8
+	 j0yaFtYL8qcJA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6D82417E0E8E;
+	Thu,  8 May 2025 10:15:37 +0200 (CEST)
+Message-ID: <7abf1685-0dee-4ef4-8e8c-bc01509ed3e3@collabora.com>
+Date: Thu, 8 May 2025 10:15:36 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] arm64: dts: mt8189: Add mt8189 dts evaluation
+ board and Mafefile
+To: Sirius Wang <sirius.wang@mediatek.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Sean Wang <sean.wang@mediatek.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, wenst@chromium.org,
+ xavier.chang@mediatek.com
+References: <20250508063546.289115-1-sirius.wang@mediatek.com>
+ <20250508063546.289115-4-sirius.wang@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250508063546.289115-4-sirius.wang@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_010740_353073_4783316A 
-X-CRM114-Status: GOOD (  20.42  )
+X-CRM114-CacheID: sfid-20250508_011540_631230_073E2614 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,60 +82,513 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Esben,
+Il 08/05/25 08:35, Sirius Wang ha scritto:
+> Add mt8189 dts evaluation board and Mafefile
+> 
+> Signed-off-by: Sirius Wang <sirius.wang@mediatek.com>
+> ---
+>   arch/arm64/boot/dts/mediatek/Makefile       |   1 +
+>   arch/arm64/boot/dts/mediatek/mt8189-evb.dts |  20 +
+>   arch/arm64/boot/dts/mediatek/mt8189.dtsi    | 430 ++++++++++++++++++++
+>   3 files changed, 451 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/mediatek/mt8189-evb.dts
+>   create mode 100644 arch/arm64/boot/dts/mediatek/mt8189.dtsi
+> 
+> diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
+> index 3aa06476c6c0..ad2ac9e1bb79 100644
+> --- a/arch/arm64/boot/dts/mediatek/Makefile
+> +++ b/arch/arm64/boot/dts/mediatek/Makefile
+> @@ -87,6 +87,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-geralt-ciri-sku4.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-geralt-ciri-sku5.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-geralt-ciri-sku6.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-geralt-ciri-sku7.dtb
+> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt8189-evb.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8192-asurada-hayato-r1.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8192-asurada-spherion-r0.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8192-evb.dtb
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8189-evb.dts b/arch/arm64/boot/dts/mediatek/mt8189-evb.dts
+> new file mode 100644
+> index 000000000000..e5d9ce1b8e61
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/mediatek/mt8189-evb.dts
+> @@ -0,0 +1,20 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2025 MediaTek Inc.
+> + * Author: Sirius Wang <sirius.wang@mediatek.com>
+> + */
+> +/dts-v1/;
+> +#include "mt8189.dtsi"
+> +
+> +/ {
+> +	model = "MediaTek MT8189 evaluation board";
+> +	compatible = "mediatek,mt8189-evb", "mediatek,mt8189";
+> +
+> +	chosen: chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +};
+> +
+> +&uart0 {
+> +	status = "okay";
+> +};
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8189.dtsi b/arch/arm64/boot/dts/mediatek/mt8189.dtsi
+> new file mode 100644
+> index 000000000000..50c7a3811e0f
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/mediatek/mt8189.dtsi
+> @@ -0,0 +1,430 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (c) 2025 MediaTek Inc.
+> + */
+> +
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +/ {
+> +	compatible = "mediatek,mt8189";
+> +	interrupt-parent = <&gic>;
+> +	#address-cells = <2>;
+> +	#size-cells = <2>;
+> +
+> +	aliases {
+> +		serial0 = &uart0;
+> +	};
+> +
+> +	clk32k: oscillator-clk32k {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <32000>;
+> +		clock-output-names = "clk32k";
+> +	};
+> +
+> +	clk13m: oscillator-clk13m {
+> +		compatible = "fixed-factor-clock";
+> +		#clock-cells = <0>;
+> +		clocks = <&clk26m>;
+> +		clock-mult = <1>;
+> +		clock-div = <2>;
+> +		clock-output-names = "clk13m";
+> +	};
+> +
+> +	clk26m: oscillator-clk26m {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <26000000>;
+> +		clock-output-names = "clk26m";
+> +	};
+> +
+> +	clk104m: oscillator-clk104m {
+> +		compatible = "fixed-factor-clock";
+> +		#clock-cells = <0>;
+> +		clocks = <&clk26m>;
+> +		clock-mult = <4>;
+> +		clock-div = <1>;
+> +		clock-output-names = "clk104m";
+> +	};
 
-Am Donnerstag, 8. Mai 2025, 08:44:22 CEST schrieb Esben Haabendal:
-> "Alexander Stein" <alexander.stein@ew.tq-group.com> writes:
->=20
-> > Hi Stefan,
-> >
-> > Am Mittwoch, 7. Mai 2025, 16:30:33 CEST schrieb Stefan Wahren:
-> >> Hi Alexander,
-> >>
-> >> [add Shawn and Esben]
-> >>
-> >> Am 07.05.25 um 14:44 schrieb Alexander Stein:
-> >> > Select PINCTRL for NXP i.MX SoCs.
-> >> could you please explain the motivation behind your change?
-> >>
-> >> Is it related to this commit 17d21001891402 ("ARM: imx: Allow user to
-> >> disable pinctrl")?
-> >
-> > Ah, thanks for the pointer. It might be the case.
->=20
-> The goal of the patch mentioned above was to be able to build a kernel
-> for LS1021A without pinctrl framework enabled, as LS1021A does not have
-> a pinctrl driver.
->=20
-> With your patch, that would not be possible anymore.
+ulposc and ulposc3 go here.
 
-Why? LS1021A is arm, not arm64 which this patch is touching only.
+> +
+> +	cpus {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		cpu0: cpu@0 {
+> +			device_type = "cpu";
+> +			compatible = "arm,cortex-a55";
+> +			reg = <0x000>;
+> +			enable-method = "psci";
+> +			clock-frequency = <2000000000>;
+> +			capacity-dmips-mhz = <742>;
+> +			cpu-idle-states = <&cpu_off_l>, <&cpu_cluster_off_l>, <&cpu_mcusys_off_l>,
+> +					  <&cpu_system_vcore>, <&cpu_s2idle>;
+> +			i-cache-size = <32768>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-sets = <128>;
+> +			d-cache-size = <32768>;
+> +			d-cache-line-size = <64>;
+> +			d-cache-sets = <128>;
+> +			next-level-cache = <&l2_0>;
+> +			performance-domains = <&performance 0>;
+> +			#cooling-cells = <2>;
+> +		};
+> +
+> +		cpu1: cpu@100 {
+> +			device_type = "cpu";
+> +			compatible = "arm,cortex-a55";
+> +			reg = <0x100>;
+> +			enable-method = "psci";
+> +			clock-frequency = <2000000000>;
+> +			capacity-dmips-mhz = <742>;
+> +			cpu-idle-states = <&cpu_off_l>, <&cpu_cluster_off_l>, <&cpu_mcusys_off_l>,
+> +					  <&cpu_system_vcore>, <&cpu_s2idle>;
+> +			i-cache-size = <32768>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-sets = <128>;
+> +			d-cache-size = <32768>;
+> +			d-cache-line-size = <64>;
+> +			d-cache-sets = <128>;
+> +			next-level-cache = <&l2_0>;
+> +			performance-domains = <&performance 0>;
+> +			#cooling-cells = <2>;
+> +		};
+> +
+> +		cpu2: cpu@200 {
+> +			device_type = "cpu";
+> +			compatible = "arm,cortex-a55";
+> +			reg = <0x200>;
+> +			enable-method = "psci";
+> +			clock-frequency = <2000000000>;
+> +			capacity-dmips-mhz = <742>;
+> +			cpu-idle-states = <&cpu_off_l>, <&cpu_cluster_off_l>, <&cpu_mcusys_off_l>,
+> +					  <&cpu_system_vcore>, <&cpu_s2idle>;
+> +			i-cache-size = <32768>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-sets = <128>;
+> +			d-cache-size = <32768>;
+> +			d-cache-line-size = <64>;
+> +			d-cache-sets = <128>;
+> +			next-level-cache = <&l2_0>;
+> +			performance-domains = <&performance 0>;
+> +			#cooling-cells = <2>;
+> +		};
+> +
+> +		cpu3: cpu@300 {
+> +			device_type = "cpu";
+> +			compatible = "arm,cortex-a55";
+> +			reg = <0x300>;
+> +			enable-method = "psci";
+> +			clock-frequency = <2000000000>;
+> +			capacity-dmips-mhz = <742>;
+> +			cpu-idle-states = <&cpu_off_l>, <&cpu_cluster_off_l>, <&cpu_mcusys_off_l>,
+> +					  <&cpu_system_vcore>, <&cpu_s2idle>;
+> +			i-cache-size = <32768>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-sets = <128>;
+> +			d-cache-size = <32768>;
+> +			d-cache-line-size = <64>;
+> +			d-cache-sets = <128>;
+> +			next-level-cache = <&l2_0>;
+> +			performance-domains = <&performance 0>;
+> +			#cooling-cells = <2>;
+> +		};
+> +
+> +		cpu4: cpu@400 {
+> +			device_type = "cpu";
+> +			compatible = "arm,cortex-a55";
+> +			reg = <0x400>;
+> +			enable-method = "psci";
+> +			clock-frequency = <2000000000>;
+> +			capacity-dmips-mhz = <742>;
+> +			cpu-idle-states = <&cpu_off_l>, <&cpu_cluster_off_l>, <&cpu_mcusys_off_l>,
+> +					  <&cpu_system_vcore>, <&cpu_s2idle>;
+> +			i-cache-size = <32768>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-sets = <128>;
+> +			d-cache-size = <32768>;
+> +			d-cache-line-size = <64>;
+> +			d-cache-sets = <128>;
+> +			next-level-cache = <&l2_0>;
+> +			performance-domains = <&performance 0>;
+> +			#cooling-cells = <2>;
+> +		};
+> +
+> +		cpu5: cpu@500 {
+> +			device_type = "cpu";
+> +			compatible = "arm,cortex-a55";
+> +			reg = <0x500>;
+> +			enable-method = "psci";
+> +			clock-frequency = <2000000000>;
+> +			capacity-dmips-mhz = <742>;
+> +			cpu-idle-states = <&cpu_off_l>, <&cpu_cluster_off_l>, <&cpu_mcusys_off_l>,
+> +					  <&cpu_system_vcore>, <&cpu_s2idle>;
+> +			i-cache-size = <32768>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-sets = <128>;
+> +			d-cache-size = <32768>;
+> +			d-cache-line-size = <64>;
+> +			d-cache-sets = <128>;
+> +			next-level-cache = <&l2_0>;
+> +			performance-domains = <&performance 0>;
+> +			#cooling-cells = <2>;
+> +		};
+> +
+> +		cpu6: cpu@600 {
+> +			device_type = "cpu";
+> +			compatible = "arm,cortex-a78";
+> +			reg = <0x600>;
+> +			enable-method = "psci";
+> +			clock-frequency = <3000000000>;
+> +			capacity-dmips-mhz = <958>;
+> +			cpu-idle-states = <&cpu_off_m>, <&cpu_cluster_off_m>, <&cpu_mcusys_off_m>,
+> +					  <&cpu_system_vcore>, <&cpu_s2idle>;
+> +			i-cache-size = <65536>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-sets = <256>;
+> +			d-cache-size = <65536>;
+> +			d-cache-line-size = <64>;
+> +			d-cache-sets = <256>;
+> +			next-level-cache = <&l2_1>;
+> +			performance-domains = <&performance 1>;
+> +			#cooling-cells = <2>;
+> +		};
+> +
+> +		cpu7: cpu@700 {
+> +			device_type = "cpu";
+> +			compatible = "arm,cortex-a78";
+> +			reg = <0x700>;
+> +			enable-method = "psci";
+> +			clock-frequency = <3000000000>;
+> +			capacity-dmips-mhz = <958>;
+> +			cpu-idle-states = <&cpu_off_m>, <&cpu_cluster_off_m>, <&cpu_mcusys_off_m>,
+> +					  <&cpu_system_vcore>, <&cpu_s2idle>;
+> +			i-cache-size = <65536>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-sets = <256>;
+> +			d-cache-size = <65536>;
+> +			d-cache-line-size = <64>;
+> +			d-cache-sets = <256>;
+> +			next-level-cache = <&l2_1>;
+> +			performance-domains = <&performance 1>;
+> +			#cooling-cells = <2>;
+> +		};
+> +
+> +		cpu-map {
+> +			cluster0 {
+> +				core0 {
+> +					cpu = <&cpu0>;
+> +				};
+> +				core1 {
+> +					cpu = <&cpu1>;
+> +				};
+> +				core2 {
+> +					cpu = <&cpu2>;
+> +				};
+> +				core3 {
+> +					cpu = <&cpu3>;
+> +				};
+> +				core4 {
+> +					cpu = <&cpu4>;
+> +				};
+> +				core5 {
+> +					cpu = <&cpu5>;
+> +				};
+> +			};
+> +
+> +			cluster1 {
 
-BTW: Commit b77bd3ba762f3 ("ARM: imx: Re-introduce the PINCTRL selection")
-is actually doing the same for arm as there is some fallout from
-17d21001891402.
+Is this really an old-style dual cluster SoC, or is this ARM DynamIQ?
 
-> > I noticed that, when using arch/arm64/defconfig and disabling all
-> > platforms despite ARCH_MXC before running make olddefconfig,
-> > CONFIG_PINCTRL gets disabled as well. No platform is enabling it. I
-> > noticed this when building in yocto and non-IMX platforms are disabled
-> > for build time reasons.
->=20
-> But is that something that needs to be fixed?
->=20
-> It sounds like quite a special use-case, and why not simply enable
-> CONFIG_PINCTRL in that case then?
+If this is the latter (and I believe it is), this SoC features a "single, fully
+integrated cluster".
 
-PINCTRL is crucial for any SoC to even boot, so this is an option which has
-to be set if that platform is enabled.
 
-Best regards
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+> +				core0 {
+> +					cpu = <&cpu6>;
+> +				};
+> +				core1 {
+> +					cpu = <&cpu7>;
+> +				};
+> +			};
+> +		};
+> +
+> +		idle-states {
+> +			entry-method = "psci";
+> +
+> +			cpu_off_l: cpu-off-l {
+> +				compatible = "arm,idle-state";
+> +				arm,psci-suspend-param = <0x00010000>;
+> +				local-timer-stop;
+> +				entry-latency-us = <97>;
+> +				exit-latency-us = <252>;
+> +				min-residency-us = <6710>;
+> +			};
+> +
+> +			cpu_off_m: cpu-off-m {
+
+what does "m" stand for?
+
+should this be cpu-off-b (where b==big and l==little) instead?
+
+> +				compatible = "arm,idle-state";
+> +				arm,psci-suspend-param = <0x00010000>;
+> +				local-timer-stop;
+> +				entry-latency-us = <53>;
+> +				exit-latency-us = <143>;
+> +				min-residency-us = <2120>;
+> +			};
+> +
+> +			cpu_cluster_off_l: cpu-cluster-off-l {
+> +				compatible = "arm,idle-state";
+> +				arm,psci-suspend-param = <0x01010001>;
+> +				local-timer-stop;
+> +				entry-latency-us = <109>;
+> +				exit-latency-us = <325>;
+> +				min-residency-us = <6710>;
+> +			};
+> +
+> +			cpu_cluster_off_m: cpu-cluster-off-m {
+> +				compatible = "arm,idle-state";
+> +				arm,psci-suspend-param = <0x01010001>;
+> +				local-timer-stop;
+> +				entry-latency-us = <59>;
+> +				exit-latency-us = <188>;
+> +				min-residency-us = <2120>;
+> +			};
+> +
+> +			cpu_mcusys_off_l: cpu-mcusys-off-l {
+> +				compatible = "arm,idle-state";
+> +				arm,psci-suspend-param = <0x02010007>;
+> +				local-timer-stop;
+> +				entry-latency-us = <1357>;
+> +				exit-latency-us = <835>;
+> +				min-residency-us = <6710>;
+> +			};
+> +
+> +			cpu_mcusys_off_m: cpu-mcusys-off-m {
+> +				compatible = "arm,idle-state";
+> +				arm,psci-suspend-param = <0x02010007>;
+> +				local-timer-stop;
+> +				entry-latency-us = <1202>;
+> +				exit-latency-us = <679>;
+> +				min-residency-us = <2120>;
+> +			};
+> +
+> +			cpu_system_vcore: cpu-system-vcore {
+> +				compatible = "arm,idle-state";
+> +				arm,psci-suspend-param = <0x020100ff>;
+> +				local-timer-stop;
+> +				entry-latency-us = <940>;
+> +				exit-latency-us = <3500>;
+> +				min-residency-us = <35200>;
+> +			};
+> +
+> +			cpu_s2idle: cpu-s2idle {
+> +				compatible = "arm,idle-state";
+> +				arm,psci-suspend-param = <0x020180ff>;
+> +				local-timer-stop;
+> +				entry-latency-us = <10000>;
+> +				exit-latency-us = <10000>;
+> +				min-residency-us = <4294967295>;
+> +			};
+> +		};
+> +
+> +		l2_0: l2-cache0 {
+> +			compatible = "cache";
+> +			cache-level = <2>;
+> +			cache-size = <131072>;
+> +			cache-line-size = <64>;
+> +			cache-sets = <512>;
+> +			next-level-cache = <&l3_0>;
+> +			cache-unified;
+> +		};
+> +
+> +		l2_1: l2-cache1 {
+> +			compatible = "cache";
+> +			cache-level = <2>;
+> +			cache-size = <262144>;
+> +			cache-line-size = <64>;
+> +			cache-sets = <512>;
+> +			next-level-cache = <&l3_0>;
+> +			cache-unified;
+> +		};
+> +
+> +		l3_0: l3-cache {
+> +			compatible = "cache";
+> +			cache-level = <3>;
+> +			cache-size = <1048576>;
+> +			cache-line-size = <64>;
+> +			cache-sets = <2048>;
+> +			cache-unified;
+> +		};
+> +	};
+> +
+> +	psci {
+> +		compatible = "arm,psci-1.0";
+> +		method = "smc";
+> +	};
+> +
+> +	memory: memory@40000000 {
+> +		device_type = "memory";
+> +		reg = <0 0x40000000 0 0xC0000000>;
+> +	};
+> +
+
+psci goes here
+
+Regards,
+Angelo
+
+> +	timer: timer {
+> +		compatible = "arm,armv8-timer";
+> +		interrupt-parent = <&gic>;
+> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH 0>,
+> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH 0>,
+> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH 0>,
+> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>;
+> +	};
+> +
+> +	soc {
+> +		compatible = "simple-bus";
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		ranges;
+> +		dma-ranges = <0x0 0x0 0x0 0x0 0x10 0x0>;
+> +
+> +		performance: performance-controller@11bc10 {
+> +			compatible = "mediatek,cpufreq-hw";
+> +			reg = <0 0x0011bc10 0 0x120>, <0 0x0011bd30 0 0x120>;
+> +			#performance-domain-cells = <1>;
+> +		};
+> +
+> +		gic: interrupt-controller@c000000 {
+> +			compatible = "arm,gic-v3";
+> +			#interrupt-cells = <4>;
+> +			#address-cells = <2>;
+> +			#size-cells = <2>;
+> +			interrupt-parent = <&gic>;
+> +			interrupt-controller;
+> +			reg = <0 0xc000000 0 0x40000>, /* distributor */
+> +			      <0 0xc040000 0 0x200000>; /* redistributor */
+> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH 0>;
+> +
+> +			ppi-partitions {
+> +				ppi_cluster0: interrupt-partition-0 {
+> +					affinity = <&cpu0 &cpu1 &cpu2 &cpu3 &cpu4 &cpu5>;
+> +				};
+> +
+> +				ppi_cluster1: interrupt-partition-1 {
+> +					affinity = <&cpu6 &cpu7>;
+> +				};
+> +			};
+> +		};
+> +
+> +		uart0: serial@11001000 {
+> +			compatible = "mediatek,mt8189-uart", "mediatek,mt6577-uart";
+> +			reg = <0 0x11001000 0 0x1000>;
+> +			interrupts = <GIC_SPI 397 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks = <&clk26m>, <&clk26m>;
+> +			clock-names = "baud", "bus";
+> +			status = "disabled";
+> +		};
+> +	};
+> +
+> +	ulposc: oscillator-ulposc {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <520000000>;
+> +		clock-output-names = "ulposc";
+> +	};
+> +
+> +	ulposc3: oscillator-ulposc3 {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <26000000>;
+> +		clock-output-names = "ulposc3";
+> +	};
+> +};
 
 
 
