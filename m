@@ -4,71 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7107AC3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 09:09:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E497DC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 09:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eQRn1/GHWVZUMKZLOHyyGc+VkBL3Ggrs7tyasy/5vBk=; b=B3OzPMRbfZ5ApcR0/OoQgzBfqu
-	dwZoYguIL9l6ScJkHjQYzS5tEquu3gtqsb8rI+thqNNRcLdinl/jvBk3Ml3lrLLiqko03DZyp9zTX
-	jCMO5sJn861Srd0eyEjfBHcW7e6p50cHlgrR0FINQEzvKdlGj6koCOyOX+BqSBnNDGNhqZlkZMypF
-	TlWEVB0YZTxoDWQUhiKnDkT5vstMvTYYe1NuDK+waebkbPjWcLHsUEfJmAQN5CZK+2pKkPPXV22wK
-	B4FmwamUlAF+NbDBTk0R7XFoPG84Dns1cWTyBCdcMG3t/vJBFoNc40oo/Y1q69AlOTrFgHfOZyGsI
-	ac2sCxZw==;
+	bh=Ta0AVCsLB5l32d+mr9yMsfr7VsD+hEtTA/BOUsfiO20=; b=PyCVpTecrF8EFZJSulF9EctTbY
+	tmfhWbnEcmUH/0fTbwlwaqKgE0pBzR1JSnPemeEYutXYcjplOaXCmt1uQIx0G7fxm5zyiq9h8okJL
+	+sU/+P+LYhotb3+wrVCI6lxtQjXPaSY/RtoM9eSt8/k9xQB0q5yNDHrusFbzWoEOCSRaWkStFHeq5
+	W2wMctvYBovbaIDt9sgjquT/JA36a5I3REZaT6Vi58Zj+qfq6Rq8E3vnn7gahaiQNgHQiWOW7zWjq
+	r45vN0vrHzw6rDf0NHVWqt1cp3tnxBz/VEbfMiwpPNuezeLaYmQlZBpvr8pzqxyaTlhpojPuz6DEL
+	r/fnPgew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCxGE-00000000DGr-0sBv;
-	Thu, 08 May 2025 09:09:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uCxI9-00000000DUY-3p7Q;
+	Thu, 08 May 2025 09:11:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCwq6-000000009ew-49J2
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 08 May 2025 08:42:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=eQRn1/GHWVZUMKZLOHyyGc+VkBL3Ggrs7tyasy/5vBk=; b=aO0tWsEVvJgj4tKLsi2yf9cTI8
-	QPdnTQ43cu0MfBQTLlBud5J9NBCZnHfrGs3DmPURC+8mijYdy2kfw6vzhLi3JMLeSHKcym2vSe/1V
-	s3rdZLYatvtu+Z/Awd5Lm64tQ9NMBULMoc1+oXc0ys/avd0K4fblel6xaO3OLct8c2CT9nJvbwqK/
-	kY/JNf8pTwK3d4C2mjrhh/jts1MpYBd4HUVbYiWAIJ2WgaWxP0TGvdb4/ruTiFvfEuXS18P0J6Nty
-	eY1lpRLsWmhEbsE+EolE6QVnuRQFf6atlLog+5tQqCl7JbIVvYNM96amn12xHWANIst8I+aaPwkFG
-	5LisRq3g==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uCwq0-0000000G002-3ZPI
+	id 1uCwso-000000009s0-0Txb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 08:42:45 +0000
+	Thu, 08 May 2025 08:45:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E66C1A4DAA8;
-	Thu,  8 May 2025 08:42:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34804C4CEE7;
-	Thu,  8 May 2025 08:42:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 17CE2629E3;
+	Thu,  8 May 2025 08:45:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 660D5C4CEE7;
+	Thu,  8 May 2025 08:45:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746693756;
-	bh=P+E3NNjEk7mDbGoMuwRiIBIXW3l8dZzpasnSJi954yg=;
+	s=k20201202; t=1746693932;
+	bh=Ado7WZeLhq6Q8N02+TcjwfZkeenn08Arn6dALFDBv6Y=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kuHeH5Sh0nD/r5HLG1hp0CiM+1Lkc8z/qqMF7RHFI1PvGn7dqtl02dWR5TrLzp0Hd
-	 0FAylV8OyW3MUkwcHoh9GwHW1O8McNcCPcvFH05f92I2Z9raYujhNamPWQJd65bzOH
-	 jjVrrrmfvdlY7zd/vo3YGBUdwuAbuTXkOPl2ALa1FmVtiNv98s1Jyhs81zXSF9uXpv
-	 K/Me1kgLQkHTKE9plJUffAXkMn3rZT35mvJ8YZm66e6WRIzlAhiPNBcuoKvpoLk6l8
-	 rHzK68KceHudJBa9sbajJRAlVewddYawfKbX/6+Dm7/cJRpAXagCK5ytjwgOB0v1zj
-	 4+L0XevzkRXmg==
-Message-ID: <b20ad0cf-f49b-4c78-ab67-adf3a4c55cf0@kernel.org>
-Date: Thu, 8 May 2025 10:42:33 +0200
+	b=YV78va/TBhgRkmE5G/ZF9+XwPAyYt3MrlwAOk5TYsziWROZrz6RCbSzppJuxofNIR
+	 PyzmPOirkpeaOGT0zcluYy4XXfy2mxCBCsihStrYrhwyAzHaSglSnxodzgIZQEI9gG
+	 dLHwxLlH6LG6gbkJHQA/jWwOhh7eNBEGmLU0rC/oH2bJBT7rc5qoiitgzbcHol3CWe
+	 OcLDuscr1acrhlPe58g7AZsYL/qglygPbjqMOfni879YJ1ZrX0fjSd4Yi4pjhLMGN6
+	 fPLgW/EbUIw+LIlXWPF4Zr+IfQKUZfvmkTgr7iHayh2bROEeIdfQ1l+DkqLcjHM6H3
+	 x4MUuo6/5Bjyg==
+Message-ID: <ca0680d6-f846-49af-8470-3fe10d4f8610@kernel.org>
+Date: Thu, 8 May 2025 10:45:29 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/8] dt-bindings: Add Tegra264 clock and reset definitions
+Subject: Re: [PATCH 5/8] dt-bindings: memory: Add Tegra264 definitions
 To: Thierry Reding <thierry.reding@gmail.com>
 Cc: Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 References: <20250507143802.1230919-1-thierry.reding@gmail.com>
- <20250507143802.1230919-5-thierry.reding@gmail.com>
- <1ec7ed24-a4fe-450b-8f99-34aae6ed2c4d@kernel.org>
- <3gpirue4rr5hpgynzzadzlr6i2fvdhaugcutyqyfoeix2zf3fu@xpbdadb5nynu>
+ <20250507143802.1230919-6-thierry.reding@gmail.com>
+ <b6d4f40d-9ad2-48c7-a5a1-55b2ebc4e21d@kernel.org>
+ <apxlsl54wyigk7yovtrb2tadhhsad5ti7hdvueisjcdjzfk443@4q3fv6pjaac5>
+ <f346c140-52f6-4209-b62e-53dfa2c8c7c4@kernel.org>
+ <hitexxuelppvbdd3hyxf3qoncdizj6mvhiuhp63s7qpgkgqd6f@63xybk6n6dfn>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -114,12 +101,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <3gpirue4rr5hpgynzzadzlr6i2fvdhaugcutyqyfoeix2zf3fu@xpbdadb5nynu>
+In-Reply-To: <hitexxuelppvbdd3hyxf3qoncdizj6mvhiuhp63s7qpgkgqd6f@63xybk6n6dfn>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_094241_351838_BD3E916F 
-X-CRM114-Status: GOOD (  19.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,63 +118,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/05/2025 09:53, Thierry Reding wrote:
-> On Thu, May 08, 2025 at 09:40:02AM +0200, Krzysztof Kozlowski wrote:
->> On 07/05/2025 16:37, Thierry Reding wrote:
->>> @@ -0,0 +1,9 @@
->>> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
->>> +/* Copyright (c) 2022-2023, NVIDIA CORPORATION. All rights reserved. */
->>> +
->>> +#ifndef DT_BINDINGS_CLOCK_TEGRA264_CLOCK_H
->>> +#define DT_BINDINGS_CLOCK_TEGRA264_CLOCK_H
->>> +
->>> +#define TEGRA264_CLK_CLK_S			2U
+On 08/05/2025 10:02, Thierry Reding wrote:
 >>
->> Abstract IDs start from 0 or 1, not 2. Also drop "U".
+>>
+>>> how much more you'd like me to make it based on that. Do you expect me
+>>> to add the nvidia, prefix? In that case it would be inconsistent with
+>>> all of the 8 other Tegra MC includes that we have in that directory.
+>>
+>>
+>> Same story as for every other case, why this would be different? All of
+>> them - amlogic, mediatek, samsung, qcom, every soc - move to new style
+>> since some years, why this one should be different?
 > 
-> These are not abstract IDs, they are defined by the BPMP ABI. We cannot
-> change them, otherwise it'll completely break.
+> Because we've used exactly this naming convention for more than a
+> decade. I get that it's nice to have consistency, but do you really want
+> me to go and churn all of these files just so we can add a vendor-prefix
+> and drop a redundant suffix?
+No, I want new files. Look:
+1. Some time ago tegra-1.h was added.
+2. Someone spotted that there was tegra-1.h, so added now tegra-2.h.
+3. Now this is a pattern so of course next person, even if asked to use
+vendor prefix, will not, right? Because it would break the pattern. So
+we have tegra-3.h
+4. tegra.4 - no vendor prefix, because you have already three cases.
+5. You see where I am going?
 
+All of above - amlogic, mediatek, samsung, qcom - had decade of such
+convention. I asked to changed, they used the same argument as you
+("decade") and then changed.
 
-You mean from the firmware? Sure. You have entire commit msg to explain
-all unusual things here...
+Why this is different case than decade in amlogic, mediatek, samsung and
+qcom?
 
-> 
-> For similar reasons I'd like to keep the "U". These definitions are for
-> the most part directly imported from the BPMP ABI headers, though we do
-> try to be selective about what we add, to avoid adding hundreds of new
-> lines in one go, and several safety-checking tools run on these headers
-> that happen to require the "U" suffix to make sure these have a defined
-> type.
-> 
->>> +
->>> +#endif /* DT_BINDINGS_CLOCK_TEGRA264_CLOCK_H */
->>> diff --git a/include/dt-bindings/reset/tegra264-reset.h b/include/dt-bindings/reset/tegra264-reset.h
->>> new file mode 100644
->>> index 000000000000..31d89dcf62fa
->>> --- /dev/null
->>> +++ b/include/dt-bindings/reset/tegra264-reset.h
->>> @@ -0,0 +1,7 @@
->>> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
->>> +/* Copyright (c) 2022-2023, NVIDIA CORPORATION. All rights reserved. */
->>> +
->>> +#ifndef DT_BINDINGS_RESET_TEGRA264_RESET_H
->>> +#define DT_BINDINGS_RESET_TEGRA264_RESET_H
->>> +
->> This is empty, drop.
-> 
-> We have three people currently working on additional drivers for this
-> SoC and they all need to add to these two files. Adding the empty file
-> here makes it a bit easier to coordinate things, making the resulting
-> conflicts trivial to resolve.
-
-
-Bindings are supposed to be complete (see writing bindings doc), this
-means also bindings headers. If the constants come from firmware, they
-are defined so I really do not understands why they cannot be published now.
-
-Unless you mean that this is a new SoC and the firmware is not yet
-fixed/finished, but all this must be explained in the commit msg.
 
 Best regards,
 Krzysztof
