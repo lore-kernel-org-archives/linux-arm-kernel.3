@@ -4,133 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32E7AC3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 05:58:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3B1AC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 06:00:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=E9pT+X53FMlPm/ampBllVyPBsPRYDRC0bt9PWv7nsFw=; b=UEm4oarz6K+2ZsNjlAufNloqbG
-	snnXSgyaVuStD1hOJHPdYyBQLunylF9hchP29H6m2nt0pvVbj7CycyueSJkVkh5qywk1cylg97XSI
-	3wBtevoJoDMbNR7v3Vsoiocxw3UkEDG3/ueFucEPEGzUFeBc14331mab0ws2Pbl07CRINHcFhbaO3
-	Kpz4y4/5nahfbiNXOf3qlYTcb/XDwXFW+/6vHMWwhftc85tf6YSAaF7NPiDe3LWBaRqlig9VqyxFJ
-	2CqmQ4nGuAmnECiPUVRajBZFV41nFCf1V7ABmm1YDRLAESJZwQhfsiU0VNqsm/Nrub6kFUTSvLOvI
-	JeWWm9Kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YmvjnBE2oEwhye8goQClYmTzurS1AJd7We1OWo6cDbk=; b=zv316Tkp8PEnegtrerNmgsnK29
+	kR4EUX0UEz5ACfn6v9JbevzxqebgYWL3qTKE4lNOPA03A49zSdJxLq3xPAHRMenP5+EIGChRl67fy
+	jOi9/fXddaDgHNAAE6+gsRxT7x/ss7Ct9s7/GY3Mwv1+65WKYDzdCrPq8KoYv8BlXgUyYt7MXSw8j
+	mMoPG+u0hZRoZ9qi+bMhZJpVc7Sy7cZPNo0sxPhSpe2XhV/TVYYW/VaZbslGTnXStKwA/Lmbfz2RB
+	PeGtZ4NTLVzin3XbGo8zWI8/2KvMirsz/ft/dvjn3DTl4EmqfPavVVFZJacvKTjxUmp12sGM8+Mj2
+	lsxRy7ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCuH7-0000000HPjT-2Dkq;
-	Thu, 08 May 2025 05:58:29 +0000
-Received: from mail-eastasiaazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c400::3] helo=HK3PR03CU002.outbound.protection.outlook.com)
+	id 1uCuJ4-0000000HPvd-17Xe;
+	Thu, 08 May 2025 06:00:30 +0000
+Received: from mail-bn8nam11on20601.outbound.protection.outlook.com ([2a01:111:f403:2414::601] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCuFA-0000000HPWo-2pm1
+	id 1uCuFa-0000000HPb4-0mtg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 05:56:29 +0000
+	Thu, 08 May 2025 05:56:55 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H4BgVT+aT3bUwlcP4yHMroVDHwJ7iLZ83uhTtXONQjctterRUEQZsfwwr3QxqvBoogs8UuLKph+AYxh6HeF4ehSJqt3p58U/74pdlAD6JEGeW29/4TaWHNTDm8qorjQRHlGd99/M3Rvp3HlyL6yLscrXMptx1UdUI22uCRgmZPMkWXmcRxxNNiyv34Jr7q1YrKqBjcSpAT8EeRr5e8sF2nuqvF9p1V4qq9NHYv5J73nB0uzwwRG0WqwWCB6gJRD4Pq060q3yM7bIMK1Eup+HxrxGFuMQRk4zXfgLbDHt7+2RTKoRdqYS+Hbd6xdXdz0fyAGubcB7pPy1QpBYV3FE2w==
+ b=DUqOeEu9itrJsv4JgBx4WvWSqm1xC0VYDjyYxL0TGj7pSi22Y3f6waUPEUTe1eZOarbCbmtN4wYsddMbZhbdDqQl82dgLMRZZ9VDu+yIE/8KaZofDk2d2YH+xGq/L3ic4FD0PG3PpYFImBU7r6YH6ILp0wqDu/lD6265dEcuBK0GG+D1XsYuH3SX0vu+pyxGMpCGzWOpsOk4e0iksJYUDcq6RNQXcHlujLxObI/cQ62bkQQzi2lTZ+nHYzZnQirZTmTatPadZzT5GAp1mZf/HBQzYvWycNUETyJmdNeJlbu0e7zoCl0mpHoM3H6vOtEyidwnYCYydwhl3XGOJY+Z1A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=E9pT+X53FMlPm/ampBllVyPBsPRYDRC0bt9PWv7nsFw=;
- b=G/9JbC04zOwikdKflY9WxxWYcaf7ZAtT/+pYQksAn/7Wv0GsjVO8GFXYCrc3nCqgRgUbucB2rqaDumt5gZob03vbxBjDY7nuALp3IoIagVAlGlu8s2ILjiKZlwVBTv+F/zeJaig4kMV4MXu9m/5ZXel9ckBoNeGNx0xzr0axrnUEsJ5JFrDN5nL0XnP+nYW5JRmz3LZj2gU26hR7eYy5TAIgKNe/IvIU2WpVStYQx5XNSJNGZFQZYq+fK+U4PXUOo1eud5c+KtT99ge9pQ9WZHeWjbt5ZQtjH83PwvlmvkRzGG6HgHDS9FRaC92Hu648ygq44h1WOjDMZ/YyppkGIg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 211.20.1.79) smtp.rcpttodomain=stwcx.xyz smtp.mailfrom=wiwynn.com; dmarc=fail
- (p=quarantine sp=quarantine pct=100) action=quarantine
- header.from=wiwynn.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wiwynn.com;
+ bh=YmvjnBE2oEwhye8goQClYmTzurS1AJd7We1OWo6cDbk=;
+ b=bGUyQsVWzRDt8IERBGQnoOMebVvbsvNpZV+ErrhdAdW9TVe8m+cRPFAQncPHYVvMsbNJralsJzUyl2tJyWVkid0bTkqpFmyf17FdHeNZjugMuqym3nYtuAI0IsZfKLVdlz5DDlBskxXAljzsuUq3fzV04Md43qdSCvTaTOoBjSDZ3wIPOfhLSnDuQxx1e0jttseBDoBK121LIawoz2ocY71tpTzkyn+S9EAsHvuiglwkkvj0m4hqX0oUuS9cRhSsac0MWlm3HjB4NGmXymeiavS2sVxN6Ak17mdmk0tKu6HlB55NH6bnkTKwUzVD/5RRDTUXW70XRCkZVUhpQYVuFw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=E9pT+X53FMlPm/ampBllVyPBsPRYDRC0bt9PWv7nsFw=;
- b=P2VzNdd5h9VRAPUdwB1rnsygktm8UghSP03P1ZO+V0dk4GiSiUCD0ctnjSlFQYqaT+TLoXkq/T0l84by3v2dg86pcsSzzqfleMAecV6AYNLcXley5TsiVXxgLZR2KZcGJZf/220ac9tychkQPAQP0PG94m5moez11QAbOr09q5k1/STR0pV/9IgSdAYw+bo/S+cjBdHCBW0JkuKWqoQQhOgoBu1fpgdIlGqt5j8IDb0JxGEKOL8pY3mbJ5AM/TQZAxsZBi5CxySamIwFgKuVDrjBz6p4CgJwPoTCNzY11oyu3lBtovQezw1nARoaoEuZWcDxZ6ZYZ3DnF4cHMGq8+g==
-Received: from SG2PR04CA0214.apcprd04.prod.outlook.com (2603:1096:4:187::17)
- by TY0PR04MB6254.apcprd04.prod.outlook.com (2603:1096:400:329::11) with
+ bh=YmvjnBE2oEwhye8goQClYmTzurS1AJd7We1OWo6cDbk=;
+ b=sy+2y/lLR4RvRJW9dzsY1WN200JFY9OFS8DROMuw4W6ujSIQtIYznkF63dC2fKcXdRypF3mcXR+Pu3ZSUKltatij6gH9LgbUYvKm8I6l1C9XHjKkigbZCJFv+U7fUEpSkg05zDW4z2ZhMo6Qmly4W2QFPgcisKESFwq49/I3JQpUjSYQK8e/ypFypoaPgLbKmj6CX278IUEU4rwJV09TKFj4ma2nQ7giTJTzPzwI8xnvzcHTYVk/FAYRHyCeAM7zTIsX9MQ5PTdw/SY/T7ZbyiRM69w7lQVMX+XEdR5Fx9aQRd/ZxDgbZkKO1m+NrGW14uCbv30xqVR21OczfyGUgQ==
+Received: from MW4PR04CA0138.namprd04.prod.outlook.com (2603:10b6:303:84::23)
+ by PH7PR12MB7116.namprd12.prod.outlook.com (2603:10b6:510:1ef::12) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.21; Thu, 8 May
- 2025 05:56:18 +0000
-Received: from SG1PEPF000082E8.apcprd02.prod.outlook.com
- (2603:1096:4:187:cafe::3) by SG2PR04CA0214.outlook.office365.com
- (2603:1096:4:187::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.23 via Frontend Transport; Thu,
- 8 May 2025 05:56:17 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 211.20.1.79)
- smtp.mailfrom=wiwynn.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=wiwynn.com;
-Received-SPF: Fail (protection.outlook.com: domain of wiwynn.com does not
- designate 211.20.1.79 as permitted sender) receiver=protection.outlook.com;
- client-ip=211.20.1.79; helo=localhost.localdomain;
-Received: from localhost.localdomain (211.20.1.79) by
- SG1PEPF000082E8.mail.protection.outlook.com (10.167.240.11) with Microsoft
- SMTP Server id 15.20.8722.18 via Frontend Transport; Thu, 8 May 2025 05:56:16
- +0000
-From: Delphine CC Chiu <delphine_cc_chiu@wiwynn.com>
-To: patrick@stwcx.xyz,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Marshall Zhan <marshall.zhan.wiwynn@gmail.com>,
-	Delphine CC Chiu <delphine_cc_chiu@wiwynn.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] arm: dts: aspeed: yosemite4: add gpio name for uart mux sel
-Date: Thu,  8 May 2025 13:56:11 +0800
-Message-Id: <20250508055612.2613605-1-delphine_cc_chiu@wiwynn.com>
-X-Mailer: git-send-email 2.25.1
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Thu, 8 May
+ 2025 05:56:42 +0000
+Received: from BY1PEPF0001AE1A.namprd04.prod.outlook.com
+ (2603:10b6:303:84:cafe::f6) by MW4PR04CA0138.outlook.office365.com
+ (2603:10b6:303:84::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8699.30 via Frontend Transport; Thu,
+ 8 May 2025 05:56:41 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BY1PEPF0001AE1A.mail.protection.outlook.com (10.167.242.102) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8722.18 via Frontend Transport; Thu, 8 May 2025 05:56:41 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 7 May 2025
+ 22:56:26 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Wed, 7 May
+ 2025 22:56:25 -0700
+Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.129.68.8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Wed, 7 May 2025 22:56:20 -0700
+Date: Wed, 7 May 2025 22:56:17 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Vasant Hegde <vasant.hegde@amd.com>
+CC: Jason Gunthorpe <jgg@nvidia.com>, <kevin.tian@intel.com>,
+	<corbet@lwn.net>, <will@kernel.org>, <bagasdotme@gmail.com>,
+	<robin.murphy@arm.com>, <joro@8bytes.org>, <thierry.reding@gmail.com>,
+	<vdumpa@nvidia.com>, <jonathanh@nvidia.com>, <shuah@kernel.org>,
+	<jsnitsel@redhat.com>, <nathan@kernel.org>, <peterz@infradead.org>,
+	<yi.l.liu@intel.com>, <mshavit@google.com>, <praan@google.com>,
+	<zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
+	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, Suravee Suthikulpanit
+	<suravee.suthikulpanit@amd.com>
+Subject: Re: [PATCH v3 11/23] iommufd/viommu: Add IOMMUFD_CMD_VQUEUE_ALLOC
+ ioctl
+Message-ID: <aBxHgf4llBd7vA5w@nvidia.com>
+References: <cover.1746139811.git.nicolinc@nvidia.com>
+ <1ef2e242ee1d844f823581a5365823d78c67ec6a.1746139811.git.nicolinc@nvidia.com>
+ <6ffe5249-b429-435e-a780-ee90aeb3f0da@amd.com>
+ <20250506120114.GV2260709@nvidia.com>
+ <eb0d3629-8663-45e9-b929-0c6edff31291@amd.com>
+ <20250507123103.GC90261@nvidia.com>
+ <2356ff85-6651-47d9-90c7-f8cbf43b053b@amd.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <2356ff85-6651-47d9-90c7-f8cbf43b053b@amd.com>
+X-NV-OnPremToCloud: AnonymousSubmission
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG1PEPF000082E8:EE_|TY0PR04MB6254:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: b9c1fcb2-18d2-4df1-23fe-08dd8df50c75
+X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE1A:EE_|PH7PR12MB7116:EE_
+X-MS-Office365-Filtering-Correlation-Id: da343667-7c14-4fd7-4eb0-08dd8df51b31
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8HzAaJutdJo4Ni+2QkyO5Z+JJWBPSkGbglCqxPZBjiDQb/792qbDaVRXgcVk?=
- =?us-ascii?Q?Sn0UWEoPVzukVp7gx0WS0Cj8umFePYug0sDEIZP38rWfGBmDBuPLq9C//4dv?=
- =?us-ascii?Q?cmEPtBHyaPsedg2q2SuwE3gL25jk/jyYHWjFDwDOaYxIlsr1KXoJ4S1tTJdo?=
- =?us-ascii?Q?N8FTwRq3cfhCMVHphPyt7rFIRaVYL4PHI4FDPeFZT2uBU9Qx5mq6PTzfhZi9?=
- =?us-ascii?Q?4MR4ko39ksUeibTkj5A5boefIxP0fbji+BcUqnhGkrO9mDa4/R3f1KFZC7YM?=
- =?us-ascii?Q?jg/A6eOU6qu63gs0zvTC3EojroWAgqPrDP0j+6rNnJxee6hYLCuFWy+vJLjV?=
- =?us-ascii?Q?vuOpE72cm9WAP8RkEN+cCgx+/Van1JVhfnUUwdXygnd+6hp5Ksm+LoL33BgL?=
- =?us-ascii?Q?VQE65mEPTztMewlziW5uEWRDmrE25/Zc3uDkEGSCojT8XxqP7xf3Z1b3+m+R?=
- =?us-ascii?Q?6iWMY2CihmvLX433uMYK9faxrGSOnAoMYUNS/g7fICBLGxMgLZHb6so2FJ0k?=
- =?us-ascii?Q?tMUmf3VEi6N1dCTgGb1/2VkDYCgiGuarkIIvToHvKlNAvNe6TmVG1KosNbpC?=
- =?us-ascii?Q?y+0fFrsKchE08FxaOKkm03PcAI4oa9dVz0IE6eHGx8xCY1r7V+cC6O1a+ZHt?=
- =?us-ascii?Q?xcX3cNhKpM33EbUgSmnptHMFmYLC1dwe4nyUqmo0rHN0g1sFoWrisHIynIBH?=
- =?us-ascii?Q?FVpxaR9ksExwVsBcqNCzVMnnIOvT2ILJE9BDXc+dIuA/TyEN1fDI6ilnVIPy?=
- =?us-ascii?Q?5LoFxJb7eMn91ksMyQPIo8DoAHBAV/k4uIzwsCZkGFJxa/bVW/yQTFj15tJW?=
- =?us-ascii?Q?fV+a7Xqide5KOYyTV722Ikp+7/+r/O1cPpKffE5UwIpiS5HedGwD+AB4aXdp?=
- =?us-ascii?Q?PlvCo1PXPUcb7b6pvkdIzFcWiA0cQ9usdfMqlx2TXc2Rw5fL1vJ+erWXd8Xq?=
- =?us-ascii?Q?pydpGkwAFrqfPEmdoFbxoytDG4pPx7DKbfyU3G8h9sP7pO1HPox4kcKl93UQ?=
- =?us-ascii?Q?ZTN2gyZrnmqVEYvYzz6yfe0Pc0GN8u25R1qIvOWThG05LkTMcw4K4NUzsO5G?=
- =?us-ascii?Q?cYuqj2BiqwWN67M7nzJrP/DMF2Dpn1phD69Yiq+oMXJKXZ4fidf/cHdwAGo3?=
- =?us-ascii?Q?GVmqoNLKit5jm7NVYNIdZcbdeREt2KpqKKIucQoR6OEHrJQjD+GgNFVyjvz2?=
- =?us-ascii?Q?is+i9mabSfMIVK730wL6oMy0lx0wAPiJBvgQ2G11ORf+Ku6gQywpacFu+Lzn?=
- =?us-ascii?Q?fTMwToQIbVLP8lEpEpHkVj/KHxEklRMqvBbE1m436JcIbO1J1BOeuT2VXhhY?=
- =?us-ascii?Q?koc3VnrnvMECPUnaiRxqo1aPQuXyVNbFUQT8srKizYTyDYbuykxo9wy+Ab3j?=
- =?us-ascii?Q?KnjRUaE742pp829IGoF8obzeHgjZKoyFCje2F9vhE0r2+K70+Cw4ANs6ZFm7?=
- =?us-ascii?Q?/Mn0CpjUowt6qYhFkYxzrRH4jGYaleEBsXfGGLejrj6hJL2FtgFl1irXlGCI?=
- =?us-ascii?Q?N+gUym2CHsqqdfL4w0DzfKAy4gdTP2rbDyeI?=
-X-Forefront-Antispam-Report: CIP:211.20.1.79;CTRY:TW;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:localhost.localdomain;PTR:211-20-1-79.hinet-ip.hinet.net;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: wiwynn.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2025 05:56:16.4775
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|36860700013|82310400026|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bUdKTVIzRDd4QlYwUURacWZJOGlpUWpVS1RLWDUyYnNFeUVRTTVTN1d3Q0dr?=
+ =?utf-8?B?c0hPRm1ITks0NEwvRVYyWlY0VXpkQVNvYWhvd2ZqNmJzZFMzeGt2dFBPZnRY?=
+ =?utf-8?B?cnNZY2RYay9uL0tBSyt1dHJLcXR2aUFudTVHaEFSdnJsWWxjWGNmSmkrUXV0?=
+ =?utf-8?B?Tmt5d0RDZVB1V2J0ZWRIbWNndm9qWlp5aFhFdENJZk9VVjMyaTR2UE9JdFYx?=
+ =?utf-8?B?cGU4TUxWTFhnYU5iTGlJdjJNelMweHhCL2JzUVJUYUJoTTFDWkR5UUlaRmxl?=
+ =?utf-8?B?NkN2YzIyRWRRR3hjR3BOd2swUjlRMTVMRTk3aml6TXJKcjNKNHhwWFhyb1ZH?=
+ =?utf-8?B?ZjQyQktMRnV3RG90TURvd083UkMrT0hsZTJmOFFJNU44aHJJRVppd3h5elpa?=
+ =?utf-8?B?YkhJWWZwVkVEcHFrMDM3RkhHQmVBaXdqelNiNXZ5QXBWNlFQRUNFdVBIRk9Z?=
+ =?utf-8?B?TVJ4aHFGNmRrSlduVE50dmJOb29tL1ZkZ3V2ekVwVG9OQ1dFbldrL2k0NlNP?=
+ =?utf-8?B?K3ovUHJjZ00yTWpZUDYzSlgyUXRaUTkwQkhIdVBobHpEUzdXQXlyeko3Wkhy?=
+ =?utf-8?B?VEkrc040SFpvSTZOSnl6bTdHaWZDOWp3NndEcGJmYzhsTGJJanhSSUlvNFcw?=
+ =?utf-8?B?TmFUMWMvbGhlMkNtYWI5NzByVUhaWDhHcHZEQmZCQTJqSHNYWTI5bnNtaGFh?=
+ =?utf-8?B?c21rY0FubHJxWS9MSEFKRHQ1bnBPdStkVGhhaURxYmlSOWtnenFLdGVMaUYv?=
+ =?utf-8?B?ZHBmK2tFWlk1bFhVSStuSHpMMXk2dkJLaC94dGo0TWdiL3VnVm85ZjRsd1Ju?=
+ =?utf-8?B?aHZqbTBkSDVuRXZWRldnOFl2RnBmQlNGOE1XMkZ0bDY4ZHpUY3lkdGVKVnlB?=
+ =?utf-8?B?YnhCQzBYMnJtdkpmalBJSUkzM2hLU1JNZUNVZ1Y0UUs4dVhVVWk1bldzS1dD?=
+ =?utf-8?B?THlDQlpEYklCQVk5MkRPR0YyQjUya0g4L0pXSjZtUmJjaVRxb0wzU09kUEJC?=
+ =?utf-8?B?VitWVmNtdHg4aFp5eEVlcnBMUjl1ZGxaNlVmZ2FRdnY0eHg4L2hFZHIweFZQ?=
+ =?utf-8?B?Wk9xU3YyL0JBSklwcTZKSWNXc2hMMzBqQUZFakJ0U0xrVURIRUFpOTk3MFVU?=
+ =?utf-8?B?S1ZLYmY2Yjljb0tqRk5MekdJa2xiZVhaZDM4Y3oyUlJUR1Y0ekpwWk1zRThE?=
+ =?utf-8?B?NlF4UHdWVTh1S1I5VXBXbEIyVTZieEVjdmwxNU13aGhEVkd1bnoxa1oyVTY1?=
+ =?utf-8?B?czVLZGtpcE1CL3lFa3lIVnJkeUNlMWFQSXFFZVBJeFlLMkFMK1ljK2dtbVNT?=
+ =?utf-8?B?VEFzZFBOWFBnUmZmeDlZZ2thTEJQS1NnWVVqNHlMak0xdk8vK3NFQVZiazFz?=
+ =?utf-8?B?TENYNTViVlBiNktjOUQvdnFjNnl3NnQxT3JKcWpleGpyZ1pIRC90N1BkenV1?=
+ =?utf-8?B?RkZjc1BLeWNDeDl6SVVnQzlFNHo5YTFmRmtHUTgvSHFlMlRTV1V5RjNmNDNZ?=
+ =?utf-8?B?MVM2Z1N0cC9sS0FsTDBBQm5WeFJ4V3YyeHlNMmc2WTFtZFQxUUNKZFNKVmdY?=
+ =?utf-8?B?RVo2WWFLb2lDdjlFRi9TUW1jNzdqcSs2Q3QwSFBFZGxoVXZNZWRPWmhxdnEw?=
+ =?utf-8?B?SFZGZ0pLb3ZMcXJrbXJ0bjVFV0hqYkZYVk5YUjhoK3pCZ1VFaDUvUlgrTnNq?=
+ =?utf-8?B?QXQrVUt3NVBlZWE3RTNPL3ZHUkRQSi9MKy8wN1piU0UrWEVKMUdQdU12cXZi?=
+ =?utf-8?B?L3ozeWttVkJKYlU4ZUtxditZT1I0TzVPVDBwZ09UL1JvbEFSTkoxc1hKVVBv?=
+ =?utf-8?B?a01CVTU0NjVIUkZSSi80dHZrOFFPbGJTWnAyQVF3Ym90YXFYQllHUS8rTWd6?=
+ =?utf-8?B?UEpVc210T1pmanVVaXRsTTNHb2hETlNuclRTWk5pWUlnM2U2TTh0THYzYUM3?=
+ =?utf-8?B?TWxWYnNxTTVUTUM5RkthcW8rSEdYWkNmVzhZTXhtZHE3WWRtcXF3REtCZmhK?=
+ =?utf-8?B?a2VKS0lIRHF1U1VQQ0MvTU12WCtlaGRMWWI0RFpxNmQwdlJ3UnBYZkF0Z0Zh?=
+ =?utf-8?B?V05iaUdwR0lQSmFNTWpFdjZ1ZS9UOTlKWmRVdz09?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(36860700013)(82310400026)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2025 05:56:41.8828
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b9c1fcb2-18d2-4df1-23fe-08dd8df50c75
-X-MS-Exchange-CrossTenant-Id: da6e0628-fc83-4caf-9dd2-73061cbab167
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=da6e0628-fc83-4caf-9dd2-73061cbab167;Ip=[211.20.1.79];Helo=[localhost.localdomain]
-X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E8.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: da343667-7c14-4fd7-4eb0-08dd8df51b31
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE1A.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR04MB6254
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7116
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_225628_733014_7645CCB0 
-X-CRM114-Status: UNSURE (   7.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250507_225654_227269_9CF738E4 
+X-CRM114-Status: GOOD (  21.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,118 +176,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Marshall Zhan <marshall.zhan.wiwynn@gmail.com>
+On Thu, May 08, 2025 at 10:16:51AM +0530, Vasant Hegde wrote:
+> >>   - There is other bit "Completion wait interrupt enable"
+> >>     This doesn't related to any buffer. Instead if we configure this for
+> >> completion wait command it will generate interrupt.
+> > 
+> > This sounds like a modify on the VIOMMU object?
+> 
+> Again in my view its VIOMMU object as it tells HW what to do when it finishes
+> completion wait command.
 
-Add gpio line name to support multiplexed console
+According to the spec:
+https://www.amd.com/content/dam/amd/en/documents/processor-tech-docs/specifications/48882_IOMMU.pdf
 
-Signed-off-by: Marshall Zhan <marshall.zhan.wiwynn@gmail.com>
-Signed-off-by: Delphine CC Chiu <delphine_cc_chiu@wiwynn.com>
----
- .../aspeed/aspeed-bmc-facebook-yosemite4.dts  | 41 +++++++++++++++++++
- 1 file changed, 41 insertions(+)
+This is for an interrupt from a COMPLETION_WAIT command:
+"The COMPLETION_WAIT command allows software to serialize itself
+ with IOMMU command processing. The COMPLETION_WAIT command does
+ not finish until all older commands issued since a prior
+ COMPLETION_WAIT have completely executed."
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-index 29f224bccd63..ac0678aef7d2 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-@@ -189,6 +189,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT1_UART_SEL0","SLOT1_UART_SEL1",
-+                                  "SLOT1_UART_SEL2","","","","","",
-+                                  "","","","","","","","",
-+                                  "","","","","","","","",
-+                                  "","","","","","","","";
- 	};
- 
- 	gpio@23 {
-@@ -235,6 +240,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT2_UART_SEL0","SLOT2_UART_SEL1",
-+                                  "SLOT2_UART_SEL2","","","","","",
-+                                  "","","","","","","","",
-+                                  "","","","","","","","",
-+                                  "","","","","","","","";
- 	};
- 
- 	gpio@23 {
-@@ -281,6 +291,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT3_UART_SEL0","SLOT3_UART_SEL1",
-+                                  "SLOT3_UART_SEL2","","","","","",
-+                                  "","","","","","","","",
-+                                  "","","","","","","","",
-+                                  "","","","","","","","";
- 	};
- 
- 	gpio@23 {
-@@ -327,6 +342,12 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT4_UART_SEL0","SLOT4_UART_SEL1",
-+                                  "SLOT4_UART_SEL2","","","","","",
-+                                  "","","","","","","","",
-+                                  "","","","","","","","",
-+                                  "","","","","","","","";
-+
- 	};
- 
- 	gpio@23 {
-@@ -373,6 +394,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT5_UART_SEL0","SLOT5_UART_SEL1",
-+				  "SLOT5_UART_SEL2","","","","","",
-+				  "","","","","","","","",
-+				  "","","","","","","","",
-+				  "","","","","","","","";
- 	};
- 
- 	gpio@23 {
-@@ -419,6 +445,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT6_UART_SEL0","SLOT6_UART_SEL1",
-+                                  "SLOT6_UART_SEL2","","","","","",
-+                                  "","","","","","","","",
-+                                  "","","","","","","","",
-+                                  "","","","","","","","";
- 	};
- 
- 	gpio@23 {
-@@ -465,6 +496,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT7_UART_SEL0","SLOT7_UART_SEL1",
-+                                  "SLOT7_UART_SEL2","","","","","",
-+                                  "","","","","","","","",
-+                                  "","","","","","","","",
-+                                  "","","","","","","","";
- 	};
- 
- 	gpio@23 {
-@@ -511,6 +547,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT8_UART_SEL0","SLOT8_UART_SEL1",
-+                                  "SLOT8_UART_SEL2","","","","","",
-+                                  "","","","","","","","",
-+                                  "","","","","","","","",
-+                                  "","","","","","","","";
- 	};
- 
- 	gpio@23 {
--- 
-2.25.1
+So, basically it's like the IRQ for CMD_SYNC on ARM. IMHO, this is
+very specific to Command Buffer (i.e. a vQUEUE object, and now HW
+QUEUE object), though the bit is located in a global IOMMU control
+register.
 
+Looking at this paragraph:
+"
+To restart the IOMMU command processing after the IOMMU halts it,
+use the following procedure.
+• Wait until CmdBufRun=0b in the IOMMU Status Register
+   [MMIO Offset 2020h] so that all commands complete processing as
+   the circumstances allow. CmdBufRun must be 0b to modify the
+   command buffer registers properly.
+• Set CmdBufEn=0b in the IOMMU Control Register [MMIO Offset 0018h].
+• As necessary, change the following registers (e.g., to relocate
+   the command buffer):
+   • the Command Buffer Base Address Register [MMIO Offset 0008h],
+   • the Command Buffer Head Pointer Register [MMIO Offset 2000h],
+   • the Command Buffer Tail Pointer Register [MMIO Offset 2008h].
+• Any or all command buffer entries may be copied from the old
+   command buffer to the new and software must set the head and tail
+   pointers appropriately.
+• Write the IOMMU Control Register [MMIO Offset 0018h] with
+   CmdBufEn=1b and ComWaitIntEn as desired
+",
+the ComWaitIntEn bit is suggested to be set along with the CmdBufEn
+bit, i.e. it can be a part of the IOMMU_HW_QUEUE_ALLOC ioctl.
+
+What I am not sure is if the HW allows setting the ComWaitIntEn bit
+after CmdBufEn=1, which seems to be unlikely but the spec does not
+highlight. If so, this would be an modification to the HW QUEUE, in
+which case we could either do an relocation of the HW QUEUE (where
+we can set the flag in the 2nd allocation) or add an new option via
+IOMMUFD_CMD_OPTION (as Kevin suggested), and I think it should be
+a per-HW_QUEUE option since it doesn't affect other type of queues
+like Event/PRR Log Buffers.
+
+Similarly, an Event Log Buffer can have an EventIntEn flag; and a
+PPR Log Buffer can have an PprIntEn flag too, right?
+
+Thanks
+Nicolin
 
