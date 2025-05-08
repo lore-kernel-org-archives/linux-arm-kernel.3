@@ -4,75 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56915C3ABC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 14:33:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B2DC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 14:35:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f92rFxatVNc1f6BPYc3O+bQqBojb/k/2Qdve9uiYalo=; b=LQLEEQIDNpIcK2VVHLDlclPa6k
-	yqtp26qTH1XeOhkCCH3rPBhm6lPbRo5af41AiwB6rGBtly0CeapXct9BVHFx9v6ftdPWkV1EuAwBV
-	zMsRrnrUPFAsX/JIw+Gsa67R3Y8GHdPPJTG6f+7cRwE1/LRGwmbW69SihTN5KVctXakT+27OihAXW
-	ciWIhv2vYspFnyHM2POv+upLitwWv/Yl1GwETF4NL8CaTZMRCrHjGp1oZm4mue47N29U9rc6l+GAr
-	4HSXkn75K+apUX32QrX2PR2QgKjNvccJq9RuhtM/0iTS2841Qaxy5361VbxCc4R0gTdLUW70pyr3r
-	O91jCyeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DQvMNdGghRdhkwCN/d8x54O0AAqTlClpAvSzYAbL8MQ=; b=Mn4UahTkvJ/AHEY/1PN9Uuculs
+	KA3rc6qyy8uq2dsT8dLfMrOGy77k8snc/5HgkyHFjEhXSTVS6hEk9J2AwAo8Wh7TokYT/ieFsUI32
+	w6gvoQj9efz7lte4AhfwCp22UyIOH8HG106Mdr72hYA190U13G4lunaOWBLRNI4vkF7MsZzZSUQXd
+	E40HuQg00gBb7MbqR0Q/P7HB4GZO4lIgSgssLghYjWlnkzt1f4o05El5QLbxvEorYCJH1fLtHKJ0K
+	/ZI7vWa/GA/D2OQ83fkqSpwofZHHNymLhViVo0Otjlyn/1cQ4u16V95pjALpPlmv6ybBYRj+gFC4S
+	UMT8Gdlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD2JJ-00000000wK9-1lCL;
-	Thu, 08 May 2025 14:33:17 +0000
-Received: from layka.disroot.org ([178.21.23.139])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD1Y2-00000000nR6-2wIS;
-	Thu, 08 May 2025 13:44:27 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 906A525C52;
-	Thu,  8 May 2025 15:44:23 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id lMjFUx90zjFi; Thu,  8 May 2025 15:44:23 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1746711853; bh=vbK2zlww38wck9vMVg+gzO7EFS+YMqh3QyFokhlVYPk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=XEDdEjmv+TFPMoZbsGPFMLUFPr3hv5wGVOsjsjMQTUgGxk5FaNTe2Fu7My9Rh88k+
-	 RUOVKcWm+67PqrZHn76PVs0tzCwx9modPkz7qznkABZI2UjyoTkLYv8+qNnlThjjRE
-	 TM9D6UHOlJWvMNqWKZcEuRSF+zDxe4QQBnex7qBLr1DAnXVIvgHnNZx8V8MnpDKQof
-	 pfh9oBipnyxIogtXdyz7n0zFBmvGx2fosjVZYIx2SZCLnuFh4fgduyk0XePlz8zzBD
-	 1Kd2jgxBeK6pvJDaLiGlJsv/9YFOApuTDUddmPC+McZFaGAANgnlz6G17CmGhL//51
-	 lHIcDT+Qrieyg==
-From: Yao Zi <ziyao@disroot.org>
-To: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Yao Zi <ziyao@disroot.org>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Shresth Prasad <shresthprasad7@gmail.com>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Jonas Karlman <jonas@kwiboo.se>
-Cc: linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
+	id 1uD2LE-00000000wqL-35t1;
+	Thu, 08 May 2025 14:35:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uD1dO-00000000omk-3iXH
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 May 2025 13:50:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC540106F;
+	Thu,  8 May 2025 06:49:45 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4038E3F58B;
+	Thu,  8 May 2025 06:49:54 -0700 (PDT)
+Date: Thu, 8 May 2025 14:49:48 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/5] dt-bindings: phy: rockchip: naneng-combphy: Add RK3528 variant
-Date: Thu,  8 May 2025 13:43:30 +0000
-Message-ID: <20250508134332.14668-4-ziyao@disroot.org>
-In-Reply-To: <20250508134332.14668-2-ziyao@disroot.org>
-References: <20250508134332.14668-2-ziyao@disroot.org>
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <tabba@google.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>
+Subject: Re: [PATCH v4 27/43] KVM: arm64: Use computed FGT masks to setup FGT
+ registers
+Message-ID: <20250508134948.GA3256485@e124191.cambridge.arm.com>
+References: <20250506164348.346001-1-maz@kernel.org>
+ <20250506164348.346001-28-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250506164348.346001-28-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_064426_867701_D34A972F 
-X-CRM114-Status: UNSURE (   7.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250508_064959_010163_0C4D108A 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,38 +71,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rockchip RK3528 ships one naneng-combphy which operates in either PCIe
-or USB 3 mode. Document its compatible string.
+On Tue, May 06, 2025 at 05:43:32PM +0100, Marc Zyngier wrote:
+> Flip the hyervisor FGT configuration over to the computed FGT
+> masks.
 
-Signed-off-by: Yao Zi <ziyao@disroot.org>
----
- .../devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 
-diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-index 888e6b2aac5a..bd064754e537 100644
---- a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-+++ b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-@@ -12,6 +12,7 @@ maintainers:
- properties:
-   compatible:
-     enum:
-+      - rockchip,rk3528-naneng-combphy
-       - rockchip,rk3562-naneng-combphy
-       - rockchip,rk3568-naneng-combphy
-       - rockchip,rk3576-naneng-combphy
-@@ -102,7 +103,9 @@ allOf:
-       properties:
-         compatible:
-           contains:
--            const: rockchip,rk3588-naneng-combphy
-+            enum:
-+             - rockchip,rk3528-naneng-combphy
-+             - rockchip,rk3588-naneng-combphy
-     then:
-       properties:
-         resets:
--- 
-2.49.0
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/hyp/include/hyp/switch.h | 45 +++++++++++++++++++++----
+>  1 file changed, 38 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> index 925a3288bd5be..e8645375499df 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> @@ -65,12 +65,41 @@ static inline void __activate_traps_fpsimd32(struct kvm_vcpu *vcpu)
+>  	}
+>  }
+>  
+> +#define reg_to_fgt_masks(reg)						\
+> +	({								\
+> +		struct fgt_masks *m;					\
+> +		switch(reg) {						\
+> +		case HFGRTR_EL2:					\
+> +			m = &hfgrtr_masks;				\
+> +			break;						\
+> +		case HFGWTR_EL2:					\
+> +			m = &hfgwtr_masks;				\
+> +			break;						\
+> +		case HFGITR_EL2:					\
+> +			m = &hfgitr_masks;				\
+> +			break;						\
+> +		case HDFGRTR_EL2:					\
+> +			m = &hdfgrtr_masks;				\
+> +			break;						\
+> +		case HDFGWTR_EL2:					\
+> +			m = &hdfgwtr_masks;				\
+> +			break;						\
+> +		case HAFGRTR_EL2:					\
+> +			m = &hafgrtr_masks;				\
+> +			break;						\
+> +		default:						\
+> +			BUILD_BUG_ON(1);				\
+> +		}							\
+> +									\
+> +		m;							\
+> +	})
+> +
+>  #define compute_clr_set(vcpu, reg, clr, set)				\
+>  	do {								\
+> -		u64 hfg;						\
+> -		hfg = __vcpu_sys_reg(vcpu, reg) & ~__ ## reg ## _RES0;	\
 
+__vcpu_sys_reg() has done the ~RES0 part since 888f0880702 ("KVM: arm64: nv: Add sanitising to VNCR-backed sysregs"),
+in case anyone else wondered where that part went!
+
+> -		set |= hfg & __ ## reg ## _MASK; 			\
+> -		clr |= ~hfg & __ ## reg ## _nMASK; 			\
+> +		u64 hfg = __vcpu_sys_reg(vcpu, reg);			\
+> +		struct fgt_masks *m = reg_to_fgt_masks(reg);		\
+> +		set |= hfg & m->mask;					\
+> +		clr |= ~hfg & m->nmask;					\
+>  	} while(0)
+>  
+>  #define reg_to_fgt_group_id(reg)					\
+> @@ -101,12 +130,14 @@ static inline void __activate_traps_fpsimd32(struct kvm_vcpu *vcpu)
+>  #define compute_undef_clr_set(vcpu, kvm, reg, clr, set)			\
+>  	do {								\
+>  		u64 hfg = kvm->arch.fgu[reg_to_fgt_group_id(reg)];	\
+> -		set |= hfg & __ ## reg ## _MASK;			\
+> -		clr |= hfg & __ ## reg ## _nMASK; 			\
+> +		struct fgt_masks *m = reg_to_fgt_masks(reg);		\
+> +		set |= hfg & m->mask;					\
+> +		clr |= hfg & m->nmask;					\
+>  	} while(0)
+>  
+>  #define update_fgt_traps_cs(hctxt, vcpu, kvm, reg, clr, set)		\
+>  	do {								\
+> +		struct fgt_masks *m = reg_to_fgt_masks(reg);		\
+>  		u64 c = clr, s = set;					\
+>  		u64 val;						\
+>  									\
+> @@ -116,7 +147,7 @@ static inline void __activate_traps_fpsimd32(struct kvm_vcpu *vcpu)
+>  									\
+>  		compute_undef_clr_set(vcpu, kvm, reg, c, s);		\
+>  									\
+> -		val = __ ## reg ## _nMASK;				\
+> +		val = m->nmask;						\
+>  		val |= s;						\
+>  		val &= ~c;						\
+>  		write_sysreg_s(val, SYS_ ## reg);			\
 
