@@ -4,113 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE9FC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:33:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF7E2C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:35:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=It1IWmu3kE6FdW0y8MSn+EEjxqqZPUzixq/wXQRoCuE=; b=GkxwwFCSJnuMZhT8JVS48ie7op
-	i3utZCKf7zG1fOFNZkqCmIvngif3qTEom+COu6WhcUnouvpKKb7igKpi1XlHaAoaDzu8lCaTaNVES
-	YvNatk4deL2KvXnEfPF7QbcdggAiQl4gCXMOAOLfu5IksbLgMuHkm+12uji6WrqB4YyDQSK4aIw9r
-	tJhgzMxlX+LdcHxhL7ZTvoEM+bbmCO9LtiFsHtrWKtA5jsjEXGisVw3IR0KsvLzi1v/rVEs2K4OmP
-	mRvxrNWMZjnzNW2koCtHzLD1Y8t4OxxTd8/mSMY87OiAwEWYl9kDRjZZDueuchhI3H1GmE9zPWiHP
-	38LyU76w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YCDiRMnhh5NRGE6kDeKql7Kl5Sr5vQvd1G2z+pchMa0=; b=3xycyAdJllrufXDerrwba2VzDr
+	vgjU/NLZpMEQbRHFCFznhWYazx3b33b3lIY1kCSthIEL4fmBtvvAgBSQRlNR3LCVxl2idkplps+Rp
+	rTCzoNWiA3l1VEKTlIj5f8f57/9aP7Uo7zxUut6y9JscU7bIMyEYDZq9Wp37hJmXUUB0u2+Ieb5nu
+	GQVns/vmMd6YjHaZAjg5f/Yd3ceLkzPG4aVIgzKuZqvJSIHISHPIJ1m94I7pW8AiIn6JFiHXC5CHG
+	MZrkQimO3M+/MVFgZUJV/zs3z9dtmir45pNv1LdBfB1zlQvgy8bxCBIIo598zwzf5kJ2PjsyAEo0y
+	JKUERxsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvkS-000000000XY-0QvI;
-	Thu, 08 May 2025 07:32:52 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uCvmN-000000000nR-1iod;
+	Thu, 08 May 2025 07:34:51 +0000
+Received: from mail-qk1-f175.google.com ([209.85.222.175])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvUf-0000000HZEZ-0zBO;
-	Thu, 08 May 2025 07:16:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6D793A4D9F5;
-	Thu,  8 May 2025 07:16:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2EF9C4CEEB;
-	Thu,  8 May 2025 07:16:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746688592;
-	bh=qetcnJ/bVlm8Wp3j6cJtVSuUtHSiJ8n35hJdXby+9Cw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=C2iKUczBk55G28etcgq9KHU9b7FV5UUeEnM1OUAwpbZSaB6fxjGx25S0imvc69ugs
-	 P/j+/1zMpDKkoiuGDwm1x25T7QwP/T2almaEsRxsGkbwHJz8gGkk61eNjjEyCl7+qw
-	 AiZw0qAKOMV2Gf8u4atylY/STShTt8X3oyUNR62Z/DW9ylA8LJXnvqLC+FLTukiHoH
-	 cGh91qDKTtwgxiuuhDHTKM4w26TUsjWdyL4pz+rxlLgjB7MS2RRvNr+9EtXGXE7BaB
-	 I3of5s8rTOnR0v6WeBGegV+72JmQyuRtnWt9eZ1Cl71I1/DMCco6fvKkx8MDdNtv8T
-	 rH78ZYfXE0Esw==
-Message-ID: <a3ef7af4-3c6a-4bc6-912b-5819393dcd6a@kernel.org>
-Date: Thu, 8 May 2025 09:16:25 +0200
+	id 1uCvXC-0000000HZZb-1MaK
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 May 2025 07:19:11 +0000
+Received: by mail-qk1-f175.google.com with SMTP id af79cd13be357-7c59e7039eeso99317685a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 00:19:09 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746688748; x=1747293548;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YCDiRMnhh5NRGE6kDeKql7Kl5Sr5vQvd1G2z+pchMa0=;
+        b=GsPAeFrDPuCoFcR9lyuep+qusOcRL62Iqh7s5EJTB/KVmu9zzxf7beR3+AT80dNONX
+         LDKrWLQIvU6RKX3YfBBSV60b0C9rZ3J+DLgoXSjEZ7awNH/gwk5rlgxrg9FKkzWpitP7
+         Svw/zlM5GsQel9sB7slO/C+oucmtNqSCYF0oxm+G4m3Jqqu2Z5Ycx6qqY8xKR4LodA+d
+         s/oqMfPgV6i/IOn130iKqo9YYE7/c7QC1SAlPVkX8OKaObS+EAo3dY3kbs3O9rMz7S8W
+         zkPXUZWuTpBA7t+SwMoqTo5JlnBOm0H+aCXeVBIefewrDZA9pFrY8CAz/shoHHfhLEMd
+         gPMA==
+X-Forwarded-Encrypted: i=1; AJvYcCUwalzdY3m2NX9wk5JC6rMNURkyjYAuBcJ4FtPeTd0JM5unbSpN91CucOnRrQLEIlXz8qTUINCqPzFuIOE2G6ls@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5lTB1WvzN5mzr+3dTpY580nDoKe71Bz+KOOdaSi+6zT8uSufn
+	Y4X8hohDIoBfCK1zg62WvCUK5xQDUtvMlSYGWOAjvbqOvyj3v/GXxLdv0Q97
+X-Gm-Gg: ASbGncsZ6hoO1crB2CV3yy8Ai9ijqJ7epdlu6F2OsVwDpzLpppzh4i5kf5o+ZVcl7CJ
+	WhdpYpuBtLYRwG6wGdH0wyMtEuUJPGQI3/sQspveV3vVzhcQs3eYZGRyILrLxswFUQHa/Ryny4W
+	vzMEfUBEQIznn6IBYBmNOYVmGAWQmS0HEihQbYz6G3IHY90mJjoTbS2yx9H5AuXis2GCjwHe96R
+	kD7DTjSEdlsznCx0oaYb4tHd5zMT/YIjWL/vK0N07Ce7bm6maKmu3QucbLIrYj+lBEbkeZ9OCQP
+	VaW2MPwWBVHCEgf1s4hM4fSUZp9QhccsjySXWXLsmhVgYmMjPXJaEGIUlbJYlqU7+ZtEw6l8nKQ
+	5/NY=
+X-Google-Smtp-Source: AGHT+IE9kqG3wKu9nKh1EJvxo1TMe9H7FUN2VkQKhrTnVRU22IMbPsJRfj8ElRHcqJkG8FkxFocgKQ==
+X-Received: by 2002:a05:6214:c46:b0:6ea:d033:2855 with SMTP id 6a1803df08f44-6f542a8107fmr84339576d6.26.1746688737849;
+        Thu, 08 May 2025 00:18:57 -0700 (PDT)
+Received: from mail-qv1-f52.google.com (mail-qv1-f52.google.com. [209.85.219.52])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7caf75377a1sm321235085a.63.2025.05.08.00.18.57
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 08 May 2025 00:18:57 -0700 (PDT)
+Received: by mail-qv1-f52.google.com with SMTP id 6a1803df08f44-6ecfbf8fa76so9350076d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 00:18:57 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUtGtl9N4JuzULE1FbglxU+ZW/Q/UKsMo4PraKut9nbrWjnK0fQJq5l5EAdurDm0wqO3dGzYF+IhQEsTF6K+WC6@lists.infradead.org
+X-Received: by 2002:a05:6102:2c87:b0:4c1:c10d:cf65 with SMTP id
+ ada2fe7eead31-4dc738bc3famr5378135137.25.1746688425863; Thu, 08 May 2025
+ 00:13:45 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] dt-bindings: display: rockchip: Convert
- cdn-dp-rockchip.txt to yaml
-To: Chaoyi Chen <kernel@airkyi.com>, Sandy Huang <hjc@rock-chips.com>,
- Heiko Stuebner <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
- Dragan Simic <dsimic@manjaro.org>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250508064304.670-1-kernel@airkyi.com>
- <20250508064304.670-3-kernel@airkyi.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250508064304.670-3-kernel@airkyi.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250507071315.394857-1-herve.codina@bootlin.com>
+ <20250507071315.394857-24-herve.codina@bootlin.com> <8b97e095-dbed-438c-9c6d-d3c2c5929fc0@lunn.ch>
+In-Reply-To: <8b97e095-dbed-438c-9c6d-d3c2c5929fc0@lunn.ch>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 8 May 2025 09:13:33 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUVvOMavxSAKaSMOwj_zXR=5h8KrrqNg4RS2Yaw3WXpKg@mail.gmail.com>
+X-Gm-Features: ATxdqUHmcSjbjZfHI-fr6cqBy9DRd_HkLObPFwa-nuGiyXHv4iNIliDKKGB_NdU
+Message-ID: <CAMuHMdUVvOMavxSAKaSMOwj_zXR=5h8KrrqNg4RS2Yaw3WXpKg@mail.gmail.com>
+Subject: Re: [PATCH v2 23/26] misc: lan966x_pci: Introduce board specific data
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Herve Codina <herve.codina@bootlin.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, Peter Rosin <peda@axentia.se>, 
+	Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Wolfram Sang <wsa@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, Allan Nielsen <allan.nielsen@microchip.com>, 
+	Horatiu Vultur <horatiu.vultur@microchip.com>, 
+	Steen Hegelund <steen.hegelund@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_001633_423478_362B2DEB 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20250508_001910_364694_C66CBD67 
+X-CRM114-Status: GOOD (  29.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,192 +114,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/05/2025 08:43, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> 
-> Convert cdn-dp-rockchip.txt to yaml.
-> 
-> Tested with:
-> 
-> 1. make ARCH=arm64 dt_binding_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml
-> 
-> 2. make ARCH=arm64 dtbs_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml
+On Thu, 8 May 2025 at 00:24, Andrew Lunn <andrew@lunn.ch> wrote:
+> On Wed, May 07, 2025 at 09:13:05AM +0200, Herve Codina wrote:
+> > Only one device-tree overlay (lan966x_evb_lan9662_nic.dtbo) is handled
+> > and this overlay is directly referenced in lan966x_pci_load_overlay().
+> >
+> > This avoid to use the code for an other board.
+> >
+> > In order to be more generic and to allow support for other boards (PCI
+> > Vendor/Device IDs), introduce the lan966x_pci_info structure and attach
+> > it to PCI Vendor/Device IDs handled by the driver.
+> >
+> > This structure contains information related to the PCI board such as
+> > information related to the dtbo describing the board we have to load.
+> >
+> > Signed-off-by: Herve Codina <herve.codina@bootlin.com>
+>
+> How big is the dtbo ?
+>
+> This is going in the right direction. I'm just wondering if each dtbo
+> should be wrapped in its own very slim PCI driver, which simply
+> registers its lan966x_pci_info structure to a core driver. Only the
+> needed dtbo will then be loaded into memory as a module, not them all.
 
-Drop. You do not have to embed in commit msg standard makefile targets.
-We all know how to use it. You do not do it for C files, do you?
+Alternatively, the dtbo could be loaded through request_firmware().
+That could lead to a generic support option in the PCI core, which would
+fallback to loading pci-<vid>-<pid>.dtbo when no driver is available.
 
-> 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
+> Pretty much all the pieces are here, so it can be done later.
 
-...
+Exactly.
 
-> -	};
-> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml
-> new file mode 100644
-> index 000000000000..ed68b48a6743
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml
+Gr{oetje,eeting}s,
 
-Filename matching compatible.
+                        Geert
 
-> @@ -0,0 +1,148 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/rockchip/rockchip,cdn-dp.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Rockchip RK3399 specific extensions to the CDN Display Port
-> +
-> +maintainers:
-> +  - Andy Yan <andy.yan@rock-chip.com>
-> +  - Heiko Stuebner <heiko@sntech.de>
-> +  - Sandy Huang <hjc@rock-chips.com>
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: rockchip,rk3399-cdn-dp
-> +
-> +  reg:
-> +    description:
-> +      CDN DP core register
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-Missing constraints. Drop description.
-
-Just look at other bindings.
-
-> +
-> +  assigned-clock-rates: true
-> +  assigned-clocks: true
-
-Drop these two
-
-> +
-> +  clocks:
-> +    minItems: 4
-
-No, look at other bindings.
-
-> +
-> +  clock-names:
-> +    items:
-> +      - const: core-clk
-> +      - const: pclk
-> +      - const: spdif
-> +      - const: grf
-> +
-> +  extcon:
-> +    description:
-> +      Phandle to the extcon device providing the cable state for the DP phy.
-
-Missing type, unless you could not add a type because of conflicts? This
-should be really fixed...
-
-
-> +
-> +  interrupts:
-> +    maxItems: 1
-
-and here is maxItems. Why in other places you put minItems?
-
-> +
-> +  phys:
-> +    minItems: 1
-> +    maxItems: 2
-
-Why is this flexible? It wasn't in original binding and you must
-document all the changes done to the binding in commit msg.
-
-> +
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +    properties:
-> +      port@0:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: Input of the CDN DP
-> +        properties:
-> +          endpoint@0:
-> +            description: Connection to the VOPB
-> +          endpoint@1:
-> +            description: Connection to the VOPL
-> +      port@1:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: Output of the CDN DP
-> +
-> +    required:
-> +      - port@0
-> +      - port@1
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  resets:
-> +    minItems: 4
-
-No, look at other bindings.
-
-> +
-> +  reset-names:
-> +    items:
-> +      - const: spdif
-> +      - const: dptx
-> +      - const: apb
-> +      - const: core
-> +
-> +  rockchip,grf:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      This SoC makes use of GRF regs.
-
-For what? You did not say anything useful above, so instead explain the
-purpose.
-
-> +
-> +  "#sound-dai-cells":
-> +    const: 1
-
-Missing dai-common ref, unless this is not a DAI?
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - interrupts
-> +  - phys
-> +  - ports
-> +  - resets
-> +  - reset-names
-> +  - rockchip,grf
-> +
-> +unevaluatedProperties: false
-
-Where is any $ref? additionalProperties instead or add proper ref
-
-
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/rk3399-cru.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/power/rk3399-power.h>
-> +    cdn_dp: dp@fec00000 {
-
-Drop unused label
-
-> +        compatible = "rockchip,rk3399-cdn-dp";
-> +        reg = <0x0 0xfec00000 0x0 0x100000>;
-> +        assigned-clocks = <&cru SCLK_DP_CORE>;
-> +        assigned-clock-rates = <100000000>;
-> +        interrupts = <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>;
-> +        clocks = <&cru SCLK_DP_CORE>, <&cru PCLK_DP_CTRL>, <&cru SCLK_SPDIF_REC_DPTX>,
-> +                <&cru PCLK_VIO_GRF>;
-
-
-Best regards,
-Krzysztof
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
