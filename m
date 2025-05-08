@@ -4,63 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 479F3C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 19:15:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23FEDC3ABC6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 19:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SxbU+97HuF9nHurWM9LQhWd4/w6NmzwDV6LumpmTfdE=; b=Z+cEjsfQGq2fmCCGklANFFtG4f
-	KcX0NE2kuFDKqN7zNG70a1EHWD/bUuIR9pLw044NMyM2yc9RAc4VTfQvGwRrtyods56LWPc7qy4JQ
-	IW7C5/vEiP1SInMxEqSXU+OHY8m3E0CO3N9U2XjABvLgt0g4w1EY9Z6Je3wQtQNb97M7QwAbdTTPO
-	RvHbu3mD4QoNZGVwAQNFMR+ub+JS2C+LBtSi0qC97lwxbH08jQ6EUYoSq2Y1iiFerk/HqJG7fMNWV
-	HIGNY0nzPitTyuW8vr9G/PyM819Kf/BxwHz1/l+GlOBKzI9y1+lM21Jl5WcIzvuGjfg4ldEtc3xhw
-	8TNOv+eQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JVRXhmY/kAfo2cZtUh2KQb4tsUUbM6FKG1N6mgoSGJw=; b=YlKx8/+MRdRwrfKwdt2Uqg/NeS
+	ukEfaAqO8IkYZOE+tvqXjW9dk7E2MduYuOO+lRpvlmjOhpX8BIXPhn/CbW7S8xAX6l3FOmPUCHf8u
+	ci8VE0t6oA2LWhfWe4lrqRKrP0FrSVncqodnR+7IKiF1uDqaY2raVyxweboTBVlshe/2yb97zb65b
+	oFYxcFlFDG0TSzVaCG3BTH82DdiSODCP6NxMYMopZ/q3iw08WbtK4i3/s6eL/nLaF0+AHOQbg8HYY
+	JK7yNd2GAqrZe44sDc2oz9dZmBYB/lU4fTu3aUsOfhQHDFSmHG2Bl+q9X3hmC78x8aCPz3IRSarxh
+	C/iyVUmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD6ih-00000001dK9-1Gno;
-	Thu, 08 May 2025 19:15:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uD6kj-00000001dZG-45VP;
+	Thu, 08 May 2025 19:17:53 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD6cq-00000001ceI-1wHQ
+	id 1uD6ih-00000001dKA-3HJA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 19:09:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9F3D3614BA;
-	Thu,  8 May 2025 19:09:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9E1CC4CEE7;
-	Thu,  8 May 2025 19:09:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746731383;
-	bh=me6txw57vhs5SsbfAubqX6TYDea8ZDjc37uBING6fJo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=C06H33rLlOoM4MMRXNqpurLteNidCyO7g2KSbZZv8gpUv3gbWQPJphmVV2h7BgZtA
-	 zEkS9VT7o+j9TB+1TjLY8aBBBbb3LVb9+3TUK0+1ffBG7yHpfCwU83CN6ww9e9cjBm
-	 D397oyRg0Fbq3KvaAN2quAE9XFnu/fCshZxhSy1YmTKyu5tNMSfUlf+JikWYRwyPsb
-	 CCgR8NwaDhL2n1YfCXmieINf3UWvpJckLFKLxjtgxCPSznwL/QZb+mwevK92ssMRWT
-	 zuoWho2URHV/VI7B8JHGSykTxSxCgo5W14NWdYmUin7KOtVDcKAy7jm7Pk/05j674d
-	 9WXy5rHAVrIKg==
-Date: Thu, 8 May 2025 20:09:33 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: David Lechner <dlechner@baylibre.com>
-Cc: Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko
- <andy@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Michael Hennerich
- <Michael.Hennerich@analog.com>, Eugen Hristev <eugen.hristev@linaro.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni
- <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Trevor Gamblin
- <tgamblin@baylibre.com>
-Subject: Re: [PATCH v6 0/7] iio: introduce IIO_DECLARE_BUFFER_WITH_TS
-Message-ID: <20250508200933.5b1ad6af@jic23-huawei>
-In-Reply-To: <20250507-iio-introduce-iio_declare_buffer_with_ts-v6-0-4aee1b9f1b89@baylibre.com>
-References: <20250507-iio-introduce-iio_declare_buffer_with_ts-v6-0-4aee1b9f1b89@baylibre.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+	Thu, 08 May 2025 19:15:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1746731747; x=1778267747;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=kc2apVHoDu/c5UkKVj1TkV8BatDP+BUXsduJk1vXdY4=;
+  b=IJPEKDc8Gbyd+Dmhm87CuwHG8oa/mNnzQ29djDr6GHa5pxY5oe2/a5+M
+   TgDNdLq6MjlK6oIH2Tdh8WembFTyTcxRSPbzOMgOmpVQjLyLJcyxh3d9p
+   uN0ovB8nSx2AbQZD6S73o3md0UBBllItj/MfPlUZ78AwATkwG0nQv9Nek
+   7W0rsrOV3rpYPBVKpPbyWgMRpEmra4XVtYP2qCnVCB02cjdxQBGRR5mLp
+   ddLcEnXhF4xekYHFUXk7brOc7bl33Tl5PQZt5uM9YkAtLUKQWZJW/AzEH
+   qwU2XHkZzKsrX33m3meqq0m9Wy3zHyjRXC9Y857vwkutk9XXmGTazcvT6
+   g==;
+X-CSE-ConnectionGUID: xRnysBKJRiWTXex5wOA2qw==
+X-CSE-MsgGUID: QR92OGc4SRuM0li0/bYxmA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11427"; a="51198439"
+X-IronPort-AV: E=Sophos;i="6.15,273,1739865600"; 
+   d="scan'208";a="51198439"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 May 2025 12:15:44 -0700
+X-CSE-ConnectionGUID: bMEPplM9TIuxI2f+ID6KOw==
+X-CSE-MsgGUID: tTrlCkqcRDSjExAAr9K+qQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,273,1739865600"; 
+   d="scan'208";a="137383198"
+Received: from smile.fi.intel.com ([10.237.72.55])
+  by fmviesa009.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 May 2025 12:15:36 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1uD6iR-00000004D4L-4Bgk;
+	Thu, 08 May 2025 22:15:32 +0300
+Date: Thu, 8 May 2025 22:15:31 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Herve Codina <herve.codina@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Peter Rosin <peda@axentia.se>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Wolfram Sang <wsa@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	Allan Nielsen <allan.nielsen@microchip.com>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Steen Hegelund <steen.hegelund@microchip.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH v2 16/26] i2c: mux: Create missing devlink between mux
+ and adapter physical device
+Message-ID: <aB0C05WnKkgslAuT@smile.fi.intel.com>
+References: <20250507071315.394857-1-herve.codina@bootlin.com>
+ <20250507071315.394857-17-herve.codina@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250507071315.394857-17-herve.codina@bootlin.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250508_121547_832493_C491AA5E 
+X-CRM114-Status: GOOD (  23.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,91 +120,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 07 May 2025 15:42:39 -0500
-David Lechner <dlechner@baylibre.com> wrote:
+On Wed, May 07, 2025 at 09:12:58AM +0200, Herve Codina wrote:
+> When removing an i2c controller device handling an i2c bus where an i2c
+> mux is connected to, the removal process hangs and is stuck in the
+> wait_completion() call done in i2c_del_adapter().
+> 
+> The i2c_del_adapter() tries to removed the i2c adapter related to the
+> i2c controller device and the wait_completion() is waiting for the i2c
+> adapter device release. This release is performed when the device is no
+> more used (i.e. refcount reaches zero).
+> 
+> When an i2c mux is involved in an i2c path, the struct dev topology is
+> the following:
+>     +----------------+                +-------------------+
+>     | i2c controller |                |      i2c mux      |
+>     |     device     |                |      device       |
+>     |       ^        |                |                   |
+>     |       |        |                |                   |
+>     |  dev's parent  |                |                   |
+>     |       |        |                |                   |
+>     |   i2c adapter  |                | i2c adapter chanX |
+>     |     device  <---- dev's parent ------  device       |
+>     |   (no driver)  |                |    (no driver)    |
+>     +----------------+                +-------------------+
+> 
+> When an i2c mux device creates an i2c adapter for its downstream
+> channel, a reference is taken to its adapter dev's parent. This parent
+> is the i2c mux upstream adapter device.
+> 
+> No relationship exists between the i2c mux device itself and the i2c
+> controller device (physical device) in order to have the i2c mux device
+> calling i2c_del_adapter() to remove its downtream adapters and so,
+> release references taken to the upstream adapter.
+> 
+> This consumer/supplier relationship is typically a devlink relationship.
+> 
+> Also, i2c muxes can be chained and so, the upstream adapter can be
+> supplied by either an i2c controller device or an other i2c mux device.
+> 
+> In order to get the physical device of the adapter a mux is connected
+> to, rely on the newly introduced i2c_adapter_get_physdev() and create
+> the missing devlink between the i2c mux device and the physical
+> device of the adapter the mux is connected to.
+> 
+> With that done, the i2c mux device is removed before the device
+> handling the upstream i2c adapter (i2c controller device or i2c mux
+> device). All references are released and the i2c_del_adapter() call
+> performed by driver handling the upstream adapter device is not blocking
+> anymore.
 
-> Creating a buffer of the proper size and correct alignment for use with
-> iio_push_to_buffers_with_ts() is commonly used and not easy to get
-> right (as seen by a number of recent fixes on the mailing list).
-> 
-> In general, we prefer to use this pattern for creating such buffers:
-> 
-> struct {
->     u16 data[2];
->     aligned_s64 timestamp;
-> } buffer;
-> 
-> However, there are many cases where a driver may have a large number of
-> channels that can be optionally enabled or disabled in a scan or the
-> driver might support a range of chips that have different numbers of
-> channels or different storage sizes for the data. In these cases, the
-> timestamp may not always be at the same place relative to the data. To
-> handle these, we allocate a buffer large enough for the largest possible
-> case and don't care exactly where the timestamp ends up in the buffer.
-> 
-> For these cases, we propose to introduce new macros to make it easier
-> it easier for both the authors to get it right and for readers of the
-> code to not have to do all of the math to verify that it is correct.
-> 
-> I have just included a few examples of drivers that can make use of this
-> new macro, but there are dozens more.
-> 
-Seems better.  Applied and pushed out as testing to see if any other
-compiler versions don't like it!
+...
 
-J
-> ---
-> Changes in v6:
-> - Rework IIO_DMA_MINALIGN to work around clang compiler issue.
-> - Link to v5: https://lore.kernel.org/r/20250505-iio-introduce-iio_declare_buffer_with_ts-v5-0-814b72b1cae3@baylibre.com
-> 
-> Changes in v5:
-> - Add new patch to set minimum alignment to 8 for IIO_DMA_MINALIGN.
-> - Adjust IIO_DECLARE_DMA_BUFFER_WITH_TS() macro for above change.
-> - Drop one ad4695 patch that was already applied.
-> - Link to v4: https://lore.kernel.org/r/20250428-iio-introduce-iio_declare_buffer_with_ts-v4-0-6f7f6126f1cb@baylibre.com
-> 
-> Changes in v4:
-> - Dropped static_assert()s from the first patch.
-> - Handle case when IIO_DMA_MINALIGN < sizeof(timestamp).
-> - Added one more patch for ad4695 to rename a confusing macro.
-> - Link to v3: https://lore.kernel.org/r/20250425-iio-introduce-iio_declare_buffer_with_ts-v3-0-f12df1bff248@baylibre.com
-> 
-> Changes in v3:
-> - Fixed a few mistakes, style issues and incorporate other feedback (see
->   individual commit message changelogs for details).
-> - Link to v2: https://lore.kernel.org/r/20250422-iio-introduce-iio_declare_buffer_with_ts-v2-0-3fd36475c706@baylibre.com
-> 
-> Changes in v2:
-> - Add 2nd macro for case where we need DMA alignment.
-> - Add new patch for ad4695 to convert buffer from u8 to u16 before
->   making use of the new macro.
-> - Drop the bmp280 patch since it was determined to have a better
->   alternative not using these macros.
-> - Add a few more examples to show the non-DMA case, both in a struct and
->   stack allocated.
-> - Link to v1: https://lore.kernel.org/r/20250418-iio-introduce-iio_declare_buffer_with_ts-v1-0-ee0c62a33a0f@baylibre.com
-> 
-> ---
-> David Lechner (7):
->       iio: make IIO_DMA_MINALIGN minimum of 8 bytes
->       iio: introduce IIO_DECLARE_BUFFER_WITH_TS macros
->       iio: adc: ad4695: use IIO_DECLARE_DMA_BUFFER_WITH_TS
->       iio: adc: ad4695: rename AD4695_MAX_VIN_CHANNELS
->       iio: adc: ad7380: use IIO_DECLARE_DMA_BUFFER_WITH_TS
->       iio: accel: sca3300: use IIO_DECLARE_BUFFER_WITH_TS
->       iio: adc: at91-sama5d2: use IIO_DECLARE_BUFFER_WITH_TS
-> 
->  drivers/iio/accel/sca3300.c        | 18 ++---------------
->  drivers/iio/adc/ad4695.c           | 11 +++++-----
->  drivers/iio/adc/ad7380.c           |  3 +--
->  drivers/iio/adc/at91-sama5d2_adc.c | 13 ++----------
->  include/linux/iio/iio.h            | 41 +++++++++++++++++++++++++++++++++++++-
->  5 files changed, 50 insertions(+), 36 deletions(-)
-> ---
-> base-commit: 7e9a82ab5b861d3c33c99a22c1245a5b262ee502
-> change-id: 20250418-iio-introduce-iio_declare_buffer_with_ts-2f8773f7dad6
-> 
-> Best regards,
+> +	/*
+> +	 * There is no relationship set between the mux device and the physical
+> +	 * device handling the parent adapter. Create this missing relationship
+> +	 * in order to remove the i2c mux device (consumer) and so the dowstream
+> +	 * channel adapters before removing the physical device (supplier) which
+> +	 * handles the i2c mux upstream adapter.
+> +	 */
+> +	parent_physdev = i2c_get_adapter_physdev(parent);
+> +	dl = device_link_add(muxc->dev, parent_physdev, DL_FLAG_AUTOREMOVE_CONSUMER);
+> +	if (!dl) {
+> +		dev_err(muxc->dev, "failed to create device link to %s\n",
+> +			dev_name(parent_physdev));
+> +		put_device(parent_physdev);
+> +		ret = -EINVAL;
+> +		goto err_free_priv;
+> +	}
+> +	put_device(parent_physdev);
+
+Since you are not checking parent_physdev for NULL, the dev_name() can print a
+"(null)" string. Is this by design?
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 
