@@ -4,87 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F62C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 06:17:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77067C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 06:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hkZltZOQqnYsCEsxFuK/qAjYLT5r6t+NrYMqhOg1WBw=; b=Hj02+kSMiNP2JaVhvWr81LHpeI
-	SMUGpWFUlMdwjHK+t9QhpaovSuC5QyIr7wRnO1+5TP7/LBYRMcSKts9Eb5zYgahD09BFbbnrGb8CC
-	K4R0n3/mm51rmZLsiMZ1TJzKB5xkv7+EJJwzknqNI+3PwuFYbgsnNXjjkY6Le43GzIjoklBeP0LFq
-	ZXPPVcV/CnSu9H/3gQlvzOetwqUYLWC8Hdomd5V/uNfoM2Yk4Wj6kgjBcSzo8Rz5QbPa58F9ccA2l
-	kjA4hnp3xm0qwMkgQ7Tuhz3rlGhZKa60rxJPtEWcV5xCDS1vzleDovauFG6Uausd2oY4dLURMf56J
-	Dz4jSvZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HAD52C3MShXcBwJuua26BbDIcL31YWmlRzrdqnS5ex8=; b=HB2qm5AKz6AuhdZ5pyNnqJFY31
+	+HVaSqCXWGxKAjVWE2gReCfaE39EOsX2EX9WxKXZ4CFto8IFNNRf3j0nm0x4VwUjBIuG6TFj9A5mF
+	2wOriNB772+u007guW3uA4UcTpr9Vok5oTMAkN/Izn6qYa6TQ/rVxzLKlHfuQVKwKU2AkvvNnTT1b
+	jN+qukSN4iacAdrxiu+pc6GCIcJKVB4P+hLDKvySMQ53YdXYH/d6FkHkVJVCJvXdZq6SEXJOpghsf
+	nJpsZFmiBGewUJ3y8CZTCK4ZJaeUZThdpQRqu5J+qEu9Lxxz9fmZ2LhRfivsdlG3Dx7+h7cATJVcp
+	RLGs1fzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCuYy-0000000HRur-2Nec;
-	Thu, 08 May 2025 06:16:56 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1uCukf-0000000HTCU-3Qsm;
+	Thu, 08 May 2025 06:29:01 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCuX1-0000000HRlJ-1fVz
+	id 1uCuij-0000000HSyT-14pw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 06:14:56 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ac28e66c0e1so73114766b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 May 2025 23:14:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746684894; x=1747289694; darn=lists.infradead.org;
-        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=hkZltZOQqnYsCEsxFuK/qAjYLT5r6t+NrYMqhOg1WBw=;
-        b=OBmOK0pEIZfld6Jc/fWWGpGD9wGLJ9ensgOexH7LMgoULrhcBQWM6NBvlhgU4vCKbr
-         9Y13Zd9d5wGCT9nzS5kqWv6/i+/iZbpAfLp67COo+YB2Wli7mxDvPX9rttvExF27JmVA
-         A45bkKP3GdS5tmGcIjMmg9V8bxg2obFbiTtXY6RBAhBRh8WywO3ivSRkXy/6/LVgXqMK
-         MWJXolOwjw3QOifZ3Yc8WdPAnNYZPawTzYeGwNu+yM8Ixo7mLWMfM5YpYQw2hjswk/jX
-         u4vWSmPPTk6O4xNofYRbEpz3HESEepsy2vsMYb9KwCc9bsJuck4eUWEX5mhjhHcpbPDk
-         Ev0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746684894; x=1747289694;
-        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hkZltZOQqnYsCEsxFuK/qAjYLT5r6t+NrYMqhOg1WBw=;
-        b=sJXZSuypO7lEb9MD1cFWuuW/cR2xoK198KbFg6Tf66jSltzhi2fnMj4V+8Ff4E8QFg
-         8saIrogYPq2YZ1Ss5+Olv4hSoGaDeGGCj8XbpZAF2BtxIiklYSp3DrI8mTXkhb6NtuHx
-         f3O9hMHx9myPJjbnVI9M6xIvpdLmr2gc5QGm+ZoV3gsjU31qD8cTlBAaxMMVCsCeQ9Ms
-         6d0iba966MXbOiZWgC8lH8P7RYB2EHU5LQcytLF6p0pbiZgtGhnwESy36GxQiGFjnV16
-         4ypMEX07P9sEhr3Ba8OWmxk1DV0jsOCsohn8SMz2MZC+QWf67eLNY2dpGrGXs4Odr0kv
-         O8uw==
-X-Forwarded-Encrypted: i=1; AJvYcCVnCFGSwpBCMwdI0M2xcHwvph7l202OnQqyKJ6JJpaLkjLAF+ijK2EvI1dU8h+WYKaLOj8AwGi/fEDvw9cUCj5Q@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzg2nVU8+cPXkGF/FF0+Ole8rED15NIl7KwCaymCQTMOOcM9DCe
-	9+QiV6wdliT8MshTA++TSUytZZpf6NS9Kprh19vc5NGYIibQgR2cFvqyhnCXXYJeql84T3QTQK1
-	SFOlgYTx/1Jnl7W9YPl5+2cDI3bk=
-X-Gm-Gg: ASbGncvJ1I+54Xs+DHGMCPANk9N8jsWO5bFEOxGhNku+uRU5Vm7YyPZeEOlWu02XRiR
-	RhHbMfL/OfNTvko0qucXO1em00OUwoasYiVpnVg29DvcW1BLE7nan10RINyKpYXnv5YAedaxtb5
-	YtJA7YkgaA/3Xby4rLGxSx
-X-Google-Smtp-Source: AGHT+IHwxIKpfiu4tWWg3RXYDruBytSXJ3/SIIjPMara76cnzmnUoPQULY0baE/CdfVeC/fMbdZDia8dnddDyX35xNY=
-X-Received: by 2002:a17:907:803:b0:ac7:e815:6e12 with SMTP id
- a640c23a62f3a-ad1fe83286cmr181604566b.33.1746684893426; Wed, 07 May 2025
- 23:14:53 -0700 (PDT)
+	Thu, 08 May 2025 06:27:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 69691A4D6CC;
+	Thu,  8 May 2025 06:27:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 721D7C4CEEB;
+	Thu,  8 May 2025 06:26:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746685620;
+	bh=9j6WtAQ6uxKBDo5BIDuWyFtPZ0W6bM3nXpFKnwGq2uA=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=N2N6cyUB3A6IkBJQplK8Yy7FLMIeqtCTEZbyapl7uw2mztA9Qa8i0/JmFg/n31/Yx
+	 SsPZX5c4Aw9h6gQaCJCPF0w9JypeD28R21/R3yiBOgELgXw6K4vEKDADeEEHzcYNUD
+	 PwrETqzbwOTsJx/u6ThoLOhLrNlQ2HEF6huY8f06OEjbFjt0jn0M3DQXgS8T6BiAR6
+	 vPTAAtk8kEryQ6IntMaIhzDiAduMEyAQnBwA0Jb491sCSexD1llIEr/HnU3AIyxapN
+	 Rh0qNPvKAJOk0zYTmzHiY1LYp1OtX6OniFn2QELNtNn92l6xXsiL50uRhUH07eI3SR
+	 gEq6TFQSUfqDg==
+Message-ID: <97cfb30a-daa5-44de-ab29-f20b35d49d72@kernel.org>
+Date: Thu, 8 May 2025 08:26:54 +0200
 MIME-Version: 1.0
-References: <20250430123306.15072-1-linux.amoon@gmail.com>
-In-Reply-To: <20250430123306.15072-1-linux.amoon@gmail.com>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Thu, 8 May 2025 11:44:35 +0530
-X-Gm-Features: ATxdqUFnCUlYgpyjo3kkzKj_fP_Vo0jZohWv6em6rAowUWUDTJ21AX7A3N5yL0k
-Message-ID: <CANAwSgSXNuNFQ6RiqiLEBY3eCmxz2hQYfWTFij=Vi8S7rS-_TA@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v6 0/4] Exynos Thermal code improvement
-To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, 
-	"open list:SAMSUNG THERMAL DRIVER" <linux-pm@vger.kernel.org>, 
-	"open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>, 
-	"moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>, 
-	"open list:CLANG/LLVM BUILD SUPPORT:Keyword:b(?i:clang|llvm)b" <llvm@lists.linux.dev>
-Content-Type: text/plain; charset="UTF-8"
+To: Anand Moon <linux.amoon@gmail.com>,
+ Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ "open list:SAMSUNG THERMAL DRIVER" <linux-pm@vger.kernel.org>,
+ "open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>,
+ "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>,
+ "open list:CLANG/LLVM BUILD SUPPORT:Keyword:b(?i:clang|llvm)b"
+ <llvm@lists.linux.dev>
+References: <20250430123306.15072-1-linux.amoon@gmail.com>
+ <CANAwSgSXNuNFQ6RiqiLEBY3eCmxz2hQYfWTFij=Vi8S7rS-_TA@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <CANAwSgSXNuNFQ6RiqiLEBY3eCmxz2hQYfWTFij=Vi8S7rS-_TA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_231455_435234_D2EDC63F 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20250507_232701_426209_C31B4D77 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,29 +129,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
-
-On Wed, 30 Apr 2025 at 18:03, Anand Moon <linux.amoon@gmail.com> wrote:
->
+On 08/05/2025 08:14, Anand Moon wrote:
 > Hi All,
->
-> This patch series is a rework of my previous patch series [1],
-> where the code changes were not adequately justified.
->
-> In this new series, I have improved the commit subject
-> and commit message to better explain the changes.
->
-> v6: Add new patch to use devm_clk_get_enabled
->     and Fix few typo in subject as suggested by Daniel.
-> v5: Drop the guard mutex patch
-> v4: Tried to address Lukasz review comments.
->
-> Tested on Odroid U3 amd XU4 SoC boards.
-> Build with clang with W=1 enable.
->
+> 
+> On Wed, 30 Apr 2025 at 18:03, Anand Moon <linux.amoon@gmail.com> wrote:
+>>
+>> Hi All,
+>>
+>> This patch series is a rework of my previous patch series [1],
+>> where the code changes were not adequately justified.
+>>
+>> In this new series, I have improved the commit subject
+>> and commit message to better explain the changes.
+>>
+>> v6: Add new patch to use devm_clk_get_enabled
+>>     and Fix few typo in subject as suggested by Daniel.
+>> v5: Drop the guard mutex patch
+>> v4: Tried to address Lukasz review comments.
+>>
+>> Tested on Odroid U3 amd XU4 SoC boards.
+>> Build with clang with W=1 enable.
+>>
+> 
+> Genital Ping!!!
 
-Genital Ping!!!
 
-Thanks
--Anand
+Huhu, nice. :)
+I make typos as well, but some typos are better to avoid. :)
+
+Anyway, !!! are exclamation marks and I think it is very difficult to
+scream at someone gently. I think this is contradictory to itself, so it
+does not feel gently at all.
+
+Plus you sent it 7 days ago and you are known to send poor quality,
+untested code, so just relax and wait.
+
+Best regards,
+Krzysztof
 
