@@ -4,102 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4548C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 05:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29C83C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 05:55:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q3lXVIsf1MM7v1y75HOM8eZhXg0tS0/q8ab6Y572avk=; b=w9AzuMI7QsJnoUbOzrO+bfqIIa
-	mRhRk2r6Q1BnX4+LzZYBoJi9ZIQsY/QDVcR2VgMqpPRnpSbqAIaRpwoCBa5PBHIkARE9KSX+IbPnK
-	+1FX0L7BTUwqzhtl4wIois2Zqtgq0UDzekyVMIJReHQbfiz8zW1uJn7hWbba/zBmq/8gBhNe85r4v
-	/0neCvneosS1gQXfnB1mUfZfQbqmM8Y8Gn/zSAAU0rhJ4KEgiyx3kZuvOiMye18qS2yzYf1ub9jW+
-	OuFnWlZI/FN7XDWFpry/UE4XqW20PFOz/6DrCOwnFX0hBURxHSkA8ad1qw3JdMVd62KhzQ5Rfxn7z
-	+dBSeoZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+EhF6K8iP9mfpQBTanjU88sfd+KY8wpvCiD31HubBpA=; b=ryoRBTf45+i06+hWDz2GYjCzUR
+	MwByhw8oIub3xeVS2b/yMbsEfdJlzu18wy2vPNVvvH0wIcKAZX9oolPLxXoGBqP7Z1LYlQ0WOlXS0
+	DSwMniZMNqyZT1O28A8UAulRSBCUIN8m7NV+bKUGc2psxe3pm4Is+nVZDeR41+4P3r8495bDbVlT6
+	koLaQKwlHxlnFohGh7aQHcXy61W6VF3cvZkKem+0Sax6UT3kzc1QceiclsvUCcE5e7HMOCVY/zV/9
+	0Z1s2XajnWcLtiwpnMFV9YpDdaNrVqJQRc3XUUvtqLWldvgHgeqJG9teLbczrYwbQv+1kB6rbcWFu
+	WfWVlU5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCu9M-0000000HOwo-2Jki;
-	Thu, 08 May 2025 05:50:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uCuDv-0000000HPN2-0W3T;
+	Thu, 08 May 2025 05:55:11 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCu7O-0000000HOkE-3Dcq
+	id 1uCuBw-0000000HPEg-0tZq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 05:48:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D7BDB629EA;
-	Thu,  8 May 2025 05:48:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DCB8C4CEE8;
-	Thu,  8 May 2025 05:48:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746683305;
-	bh=dLOiYmelxs13NadrfpwZROceqDvqlMGEVBob/u9ur6o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LhjH5BJNgswxjYkfejWnnQes8FlcHCvB0L/DmkaLF0zgPAcUUgmvSkP7cf0jZ/mxH
-	 xY7DYIgaYAnbx6ibejiXqiiPbXqPU7385Wkhnw6ZtTRkcTgj4pvdMfQF7ZicylVjvz
-	 B6Ai1ot62+B6IYL93jYtFlAXLGbkNCDQhfqkAfa1btuqsQwtpujiJZyyaNkz0Iarxy
-	 D5+dUHDx85SVRvUnQsNqbhiOiD3ang5sNqhaZ823qaOykMlWmJFsBq87z6W3YLgMt8
-	 eIbSyCIT89Fle85b6VisUfPa86VIk3HlDWGaAoFonUCLEFKEqolK6XsoTekXAflaji
-	 QZ9v1cOJc3A2Q==
-Message-ID: <b6d4f40d-9ad2-48c7-a5a1-55b2ebc4e21d@kernel.org>
-Date: Thu, 8 May 2025 07:48:22 +0200
+	Thu, 08 May 2025 05:53:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1746683588; x=1778219588;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=+EhF6K8iP9mfpQBTanjU88sfd+KY8wpvCiD31HubBpA=;
+  b=HJ/eOVSrmzsoAFEuxP2geSR0taIy6w9sRSSdNBrd5vNXpiSbJWPd5GNh
+   Im1SdIx4uGb5DIieauXEj424+0OI36LcOQylvwymPxtHVZuORd3WNH9tP
+   aWp+Q/D3sqeAWTVRaUEd/Vl91KBXz6eFpxtbQn2OMcZnC0hk2bKVArl4Q
+   A6TYVjM0jMMsSelbDV3vfDEaOfqjkpRZgiGXU4oU2nD74T1CJoPjHEJwk
+   Aosve9zzMNSHcN06YbMs32UTG9wxs5pqNuLMWh8jTPwdFdZanOkDVgzyh
+   yYBWm+T0WHxNJd51CoLrdCHhwJKH9/yVEbyitSWTcFW2Q8SEVSqGDm4iw
+   w==;
+X-CSE-ConnectionGUID: xbpkzIP9R/qC6etNh8IRJA==
+X-CSE-MsgGUID: xnb0ZSFgTwGbn6c0RXGptw==
+X-IronPort-AV: E=Sophos;i="6.15,271,1739833200"; 
+   d="scan'208";a="43949933"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 08 May 2025 07:53:04 +0200
+X-CheckPoint: {681C46BF-47-C7E25413-F4312D34}
+X-MAIL-CPID: 66C688438851F16310F03349BE687D8C_4
+X-Control-Analysis: str=0001.0A006376.681C46D2.0053,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D59C3160024;
+	Thu,  8 May 2025 07:52:58 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1746683579;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+EhF6K8iP9mfpQBTanjU88sfd+KY8wpvCiD31HubBpA=;
+	b=Sd5BdEikxwjpfFOj5IDvtC61NMJMYM5wDSpY2TWONg2qb7ny0tda0jQ0U/BEhlxRGGE+7P
+	XW/dv833vlG0UHzsmvAcUnjVXkRfzUhoVaEkfVn/k1K4pxnYrajjYvE4BfbLXIolmes41a
+	EaK2z8Y2c+lh0Xce+PTj7Uv/U3zROYrdbqviMh+I5QvCkaK0W+6HunIBhdj7N9l/pPNHOm
+	EKQ5Vd8mojrABJIElm/eMihNfWj+gWIJzSrXIISS0qU7vUA2NN2sYjhW/dlStAPG+190dY
+	s9XMiITFk/nPaD9XI097goS2FMZ0E+i2eYFn+yHMmdeWVWqO9QTObi+GbsIpxA==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Stefan Wahren <wahrenst@gmx.net>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Shawn Guo <shawnguo@kernel.org>, Esben Haabendal <esben@geanix.com>
+Subject: Re: [PATCH 1/1] arm64: Kconfig: Enable PINCTRL on i.MX platforms
+Date: Thu, 08 May 2025 07:52:58 +0200
+Message-ID: <8259306.DvuYhMxLoT@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <5af33290-e7d8-437c-a22f-5b873596d67a@gmx.net>
+References: <20250507124414.3088510-1-alexander.stein@ew.tq-group.com>
+ <5af33290-e7d8-437c-a22f-5b873596d67a@gmx.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/8] dt-bindings: memory: Add Tegra264 definitions
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250507143802.1230919-1-thierry.reding@gmail.com>
- <20250507143802.1230919-6-thierry.reding@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250507143802.1230919-6-thierry.reding@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250507_225308_729256_BE6422DC 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,35 +96,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/05/2025 16:37, Thierry Reding wrote:
-> From: Thierry Reding <treding@nvidia.com>
-> 
-> This doesn't currently contain any stream ID or memory client ID
-> definitions, but they will be added in subsquent patches.
-> 
-> Signed-off-by: Thierry Reding <treding@nvidia.com>
+Hi Stefan,
 
-<form letter>
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC (and consider --no-git-fallback argument, so you will
-not CC people just because they made one commit years ago). It might
-happen, that command when run on an older kernel, gives you outdated
-entries. Therefore please be sure you base your patches on recent Linux
-kernel.
+Am Mittwoch, 7. Mai 2025, 16:30:33 CEST schrieb Stefan Wahren:
+> Hi Alexander,
+>=20
+> [add Shawn and Esben]
+>=20
+> Am 07.05.25 um 14:44 schrieb Alexander Stein:
+> > Select PINCTRL for NXP i.MX SoCs.
+> could you please explain the motivation behind your change?
+>=20
+> Is it related to this commit 17d21001891402 ("ARM: imx: Allow user to=20
+> disable pinctrl")?
 
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline) or work on fork of kernel
-(don't, instead use mainline). Just use b4 and everything should be
-fine, although remember about `b4 prep --auto-to-cc` if you added new
-patches to the patchset.
-</form letter>
-
-> ---
->  include/dt-bindings/memory/tegra264-mc.h | 13 +++++++++++++
-
-Filename based on compatible.
+Ah, thanks for the pointer. It might be the case. I noticed that, when
+using arch/arm64/defconfig and disabling all platforms despite ARCH_MXC
+before running make olddefconfig, CONFIG_PINCTRL gets disabled as well.
+No platform is enabling it. I noticed this when building in yocto and
+non-IMX platforms are disabled for build time reasons.
 
 Best regards,
-Krzysztof
+Alexader
+
+> >
+> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> > ---
+> >   arch/arm64/Kconfig.platforms | 1 +
+> >   1 file changed, 1 insertion(+)
+> >
+> > diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+> > index a541bb029aa4e..49c3bc25e5f68 100644
+> > --- a/arch/arm64/Kconfig.platforms
+> > +++ b/arch/arm64/Kconfig.platforms
+> > @@ -219,6 +219,7 @@ config ARCH_MXC
+> >   	select ARM64_ERRATUM_845719 if COMPAT
+> >   	select IMX_GPCV2
+> >   	select IMX_GPCV2_PM_DOMAINS
+> > +	select PINCTRL
+> >   	select PM
+> >   	select PM_GENERIC_DOMAINS
+> >   	select SOC_BUS
+>=20
+>=20
+
+
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
+
 
