@@ -4,82 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 081FFC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 17:30:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A694C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 17:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hTbyL4rDqJd0LCAW+KvoiiMK8wPz1NsF8UcJJ8cPhiw=; b=TjUy2tZFbJE2QejnXFQsl/keyw
-	wvI1pDeydu3tbPpt37hnYQACnUcgyiX/QGraOTpsloJq05ben82Tn6XuGLaafFjLIFCNwbDzHEXrS
-	3uz5lhzkJL6oHJMsFEtz+VeS+Q7u39lEDZwLo2z+nV7SzTjJsBEZ8wJcoZq9R5wnhJ1emn8zafmkV
-	yQbHLRmmAxk2bu1r7qpNMvKzWiYOarFnTIUzO4JjYqyL7Kq31qRV/f7hJjjSmI7FJB6fBllCjrq7M
-	431ZpFAxOL8b6saO6AxDTfNeA95CdCGOk3Cfd9Y8xx6h67MhwKWhq8ZN++FWPsAAtlnaffDC2JVaD
-	WDnhe3Iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6EUN3uH+cBsC/FYES8tXDJVOJ0qqEl8LtFAqKxXbW7w=; b=AshUr9LCRC/tK7/pyO/PPTAOae
+	iDmleBrmhNc9ClMf9aaRZAHFt/bH5T07ivTCcfBW6G222v1qwrDYYKOdYltckOCmwtRk8JMbNAf/v
+	mTXQglLXcrKgmoK830R7NEbeX5f+1YRf6CDgF+b/Nz8T0U1JjCJRVtD80IoYpQom10Nh09WxoiS7Z
+	HNZm1Gk4hziKEWx4VGdybqhQCWip32ySSKa661RxGsc9R/gBc+pShfiyou8LAO6sCbTMYxAmnqTVP
+	+C2ezIsQKtT3Epb3qmtAxsLb8S39thidvja+wYtCL2GDkvzKWMtbCYrLiVrnMZRWM0+hcoJkh/KD9
+	iivoy+QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD54j-00000001QZn-0k2j;
-	Thu, 08 May 2025 17:30:25 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uD5DZ-00000001RLO-4Bde;
+	Thu, 08 May 2025 17:39:34 +0000
+Received: from mo4-p01-ob.smtp.rzone.de ([85.215.255.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD513-00000001Pwz-3RJZ
+	id 1uD5Bc-00000001RAD-22en
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 17:26:39 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1746725192;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hTbyL4rDqJd0LCAW+KvoiiMK8wPz1NsF8UcJJ8cPhiw=;
-	b=IsQL30ONrI4jH8NVOxem46kLDCMzP/Nm59W11WHMUP8KJlzwrFVIEHrxLI3VEWTLPUeH8Y
-	7XOJpnHiBRo/pb4bhe2U4Mpp+M+mJODfTGP9oz9U0HzUgvvphMZt3MK0I33CvXIDScyri/
-	ElClzkI1fJpAvrE3LiRiB/hmMDZM2pdMTfhEOmcNJRV3MKiEu06cyWI8dUvMiUVdnePZra
-	BRfX9LIVEdizlZoEkFEIb0JIz2bbCy/2UAB1ibYG8keWY3Dp5dIjuVv0w6Jm3T0SF3PJ+M
-	lo/W7BklVcGLQjCFreaswevbzJgusPpmB2aTsBXhKZd2kGQNc9dkLdEiN7/0Nw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1746725192;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hTbyL4rDqJd0LCAW+KvoiiMK8wPz1NsF8UcJJ8cPhiw=;
-	b=H9CLw99fBJ7LF0HxwGGI1SpmPdzd7KGDyNshq8EBwNjUWLVEH9JYnBjbnl2w0aefJsI9yq
-	Of9gn2t7UEx8NSCA==
-To: Frank Li <Frank.Li@nxp.com>, Kishon Vijay Abraham I <kishon@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Anup Patel
- <apatel@ventanamicro.com>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Danilo Krummrich <dakr@kernel.org>, Manivannan Sadhasivam
- <manivannan.sadhasivam@linaro.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?=
- <kw@linux.com>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Bjorn Helgaas
- <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>, Shuah Khan
- <shuah@kernel.org>, Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach
- <l.stach@pengutronix.de>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob
- Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org, jdmason@kudzu.us,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-pci@vger.kernel.org, linux-kselftest@vger.kernel.org,
- imx@lists.linux.dev, devicetree@vger.kernel.org, Frank Li
- <Frank.Li@nxp.com>
-Subject: Re: [PATCH v18 00/15] PCI: EP: Add RC-to-EP doorbell with platform
- MSI controller
-In-Reply-To: <20250414-ep-msi-v18-0-f69b49917464@nxp.com>
-References: <20250414-ep-msi-v18-0-f69b49917464@nxp.com>
-Date: Thu, 08 May 2025 19:26:31 +0200
-Message-ID: <87y0v7ko8o.ffs@tglx>
+	Thu, 08 May 2025 17:37:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1746725831; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=E/hu1PaHoB4ZtYo7xbH8KOeUnfSUrqpnCYMfSSUbAop2QsDmf1BV7UbxD+zXSQRAVl
+    vYsFookEPeSjaQth2lgeCP1bZa9kc6BvFOFZEHKf7wTX2kOYFuG5PPhLDuDfj6E8wd7n
+    EV+qgxyO1R/vhLQPoJVFmL0tHBNJPOIC6BUNdullnZUeMXqFXGIy0nZShulYFDzm645c
+    rS085v08u8XAiw7GBKR6sNZQDR7BHFPU9ASQY88B3GCzGEETAVQqCCscXr79zFFBqgWa
+    EC9D5YsrAqw8ffe5HSGCJicicmDJ97rNDoymj04tl7mg/A6YMJNTH1d8lb3fApf1LItp
+    jR0g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1746725831;
+    s=strato-dkim-0002; d=strato.com;
+    h=Message-Id:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
+    bh=6EUN3uH+cBsC/FYES8tXDJVOJ0qqEl8LtFAqKxXbW7w=;
+    b=YdoZCzkrPzOWFHEOng6OrmkO5BxHIsFRQuquLSiMbe/5lp1nNEJf061tcueoavvzQc
+    gmnVzvY08u52HrIBTDIKRjJQqzuml0Ian8LrBQ8TgPBX1bZLpiGslP0/Ij9/qmMs2NNF
+    7Epc0rVQA9qNqTyw1CD3KuccSMxhfioO94T/v80Bu/ORtGiThn7qkdgbc68aXVGzjk5p
+    a7Qs4GyTImU3Y6AKezxWj4KD9rGQuh/ixEl6DTiayFvVewFxtIaWM15O+freWOTL8yLo
+    Of44MROQiH8z/bgsf4k+s675pBA8E1eZE4zXFX6J+Vo9DXrNlHLyS7dnpgjJsBeB8MfQ
+    gXwQ==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo01
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1746725831;
+    s=strato-dkim-0002; d=fossekall.de;
+    h=Message-Id:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
+    bh=6EUN3uH+cBsC/FYES8tXDJVOJ0qqEl8LtFAqKxXbW7w=;
+    b=ZVvyJCRKpmBeBE/RO8xHt/Oq8MuvgFFnkbDfFfF0sff1gZ65r3C1zL+X4c58WTwXNr
+    Y6/RAyUtEaJ6Zu6Yz1QV8e8XpTDAFEAOA+ldPreO1jCEjsEo9lz01W/+iTL6qEUWZGqm
+    I0XQqg3RRvfOfVnuc42lhlCPBfsD8dm6B1O6iJzhG1WdeCrO8GlPT6vfORldxe3cXLUu
+    RzzDRvBIdAXHiOzsCZgaMjhXRVCd8oxf/AGfXC72Qu3l+b48KPJtmNzM/na8NJ4ZAPmz
+    jNpOuUwi42M1kAf9knCJ1l0c29WEeh9noXsXfosnz/RihcLn1lKyaM5JRbrZ3fLu+KcT
+    G9Gg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1746725831;
+    s=strato-dkim-0003; d=fossekall.de;
+    h=Message-Id:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
+    bh=6EUN3uH+cBsC/FYES8tXDJVOJ0qqEl8LtFAqKxXbW7w=;
+    b=AyNZaAhzM3eRbO/LdasN+IUEhKYe/C47l6PUCtor5g33FLlsfIgzuzxmpjJAUCx9g5
+    THDWVrLM0wtlyjmCyyAA==
+X-RZG-AUTH: ":O2kGeEG7b/pS1EzgE2y7nF0STYsSLflpbjNKxx7cGrBdao6FTL4AJcMdm+lap4JEHkzok9eyEg=="
+Received: from aerfugl
+    by smtp.strato.de (RZmta 51.3.0 AUTH)
+    with ESMTPSA id f28b35148HbBLQC
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
+	(Client did not present a certificate);
+    Thu, 8 May 2025 19:37:11 +0200 (CEST)
+Received: from koltrast.home ([192.168.1.27] helo=a98shuttle.de)
+	by aerfugl with smtp (Exim 4.96)
+	(envelope-from <michael@a98shuttle.de>)
+	id 1uD5BG-0007JD-0K;
+	Thu, 08 May 2025 19:37:10 +0200
+Received: (nullmailer pid 8724 invoked by uid 502);
+	Thu, 08 May 2025 17:37:10 -0000
+From: Michael Klein <michael@fossekall.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
+Cc: Michael Klein <michael@fossekall.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: [PATCH v3] ARM: dts: bananapi: add support for PHY LEDs
+Date: Thu,  8 May 2025 19:36:56 +0200
+Message-Id: <20250508173657.8695-1-michael@fossekall.de>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_102637_996623_E56DD45E 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250508_103732_826560_28256967 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,22 +106,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14 2025 at 14:30, Frank Li wrote:
-> This patches add new API to pci-epf-core, so any EP driver can use it.
->       platform-msi: Add msi_remove_device_irq_domain() in platform_device_msi_free_irqs_all()
->       irqdomain: Add IRQ_DOMAIN_FLAG_MSI_IMMUTABLE and irq_domain_is_msi_immutable()
->       irqchip/gic-v3-its: Set IRQ_DOMAIN_FLAG_MSI_IMMUTABLE for ITS
->       dt-bindings: PCI: pci-ep: Add support for iommu-map and msi-map
->       irqchip/gic-v3-its: Add support for device tree msi-map and msi-mask
+The RTL8211E ethernet PHY driver has recently gained support for
+controlling PHY LEDs via /sys/class/leds. The Bananapi M1 has three
+LEDs connected to the RTL8211E PHY. Add the corresponding nodes to
+the device tree.
 
-I applied the interrupt related changes in the tip tree. They are on a
-seperate rc1 based branch and contain no other changes so that they can
-be pulled into the PCI tree as prerequisite for the actual endpoint
-changes. This can be pulled from the following tag:
+Signed-off-by: Michael Klein <michael@fossekall.de>
+---
 
-   git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git irq-platform-msi-05-08-25
+v2: Refine commit message
+v3: Move patch changelog below commit message separator
 
-Thanks,
+ .../boot/dts/allwinner/sun7i-a20-bananapi.dts | 27 +++++++++++++++++++
+ 1 file changed, 27 insertions(+)
 
-        tglx
+diff --git a/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts b/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts
+index 46ecf9db2324..d8b362c9661a 100644
+--- a/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts
++++ b/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts
+@@ -48,6 +48,7 @@
+ 
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/leds/common.h>
+ 
+ / {
+ 	model = "LeMaker Banana Pi";
+@@ -169,6 +170,32 @@ &ir0 {
+ &gmac_mdio {
+ 	phy1: ethernet-phy@1 {
+ 		reg = <1>;
++
++		leds {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			led@0 {
++				reg = <0>;
++				color = <LED_COLOR_ID_GREEN>;
++				function = LED_FUNCTION_LAN;
++				linux,default-trigger = "netdev";
++			};
++
++			led@1 {
++				reg = <1>;
++				color = <LED_COLOR_ID_AMBER>;
++				function = LED_FUNCTION_LAN;
++				linux,default-trigger = "netdev";
++			};
++
++			led@2 {
++				reg = <2>;
++				color = <LED_COLOR_ID_BLUE>;
++				function = LED_FUNCTION_LAN;
++				linux,default-trigger = "netdev";
++			};
++		};
+ 	};
+ };
+ 
+-- 
+2.39.5
+
 
