@@ -4,62 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9300C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 06:46:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4E78C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 06:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PA0DZjgWtTMK+N921iS75B6LpBzP1P2gEVRwQX5rucY=; b=TyRi+0uL1CAcioZ6YFBNEH96ZQ
-	r1niNSezVfz9ErEiItDj7Z6ARIhg0nqvTEKmYDJflMjOae760KkWIzs+QktqV7lmWqNdbQIrMl4Cz
-	r/W/BlS8xzNV4CVU2gkTUFHdkj7Crbzxz5VaSzQ8fdf2JZIDCtqJQ6vmLkHZnuRFZ1yxebI0XV5Pt
-	XE4qAQ7zYtMpO446mIGpGDdu4KYmJU+W2AHVXyVxrdW1Qw8iWjq0yAEsX/116oXpYuO26RhRYMtsE
-	5sjay2Ii5SJw6NV8jB2wkLaX/UtSpYB739RJPeZfQEPEqmgqrTCwd6GZ27qURZ41W2ggBCI+cfNpg
-	o1moxo8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0pI2iREWW5cC2LwJLtCoMOYZhwY83h/z7B9+8q2WvaM=; b=1BKc+XoqvcsgtHiXwr+Ga4pozy
+	ANnbCJv2E/e/vs718JnCAAdh8+J7WVfF80lVN15gyNBZqKMo3zGupIB/xbxak1cQKx/dxurWsbEIE
+	oj7UaoZzefXkWHXWt2Xegp2VMLv2Bnu8LsOGljzf8p093Fir9HIkhOZ98vPtdLfOEPrnYBbSuuqcs
+	jUh+gWCAuxIFYxWvU3lgoeSJNh0xx3sEr2lIrRIk2xyr3iBriuUcxx/idgBXatQHSfQ9PykA+kMlZ
+	B5zHyl37jSsATgjFUrqMkMnKItZMpimxm/QhOKcO0lyJhW4DrIklhGQcHCD6/e5VSNCujWjfHbHku
+	EWQ3/sjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCv1i-0000000HVRS-2m48;
-	Thu, 08 May 2025 06:46:38 +0000
-Received: from mail-244106.protonmail.ch ([109.224.244.106])
+	id 1uCv3e-0000000HVZN-1YfS;
+	Thu, 08 May 2025 06:48:38 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCuzi-0000000HV2r-2ahH
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 06:44:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=geanix.com;
-	s=protonmail; t=1746686664; x=1746945864;
-	bh=PA0DZjgWtTMK+N921iS75B6LpBzP1P2gEVRwQX5rucY=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:Message-ID:From:To:
-	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector:
-	 List-Unsubscribe:List-Unsubscribe-Post;
-	b=JG/Of3h2F8CvXIqft9IesNqX/4lGuDOODZvye6cTGBQ1DJkQ9bKXxGcH9Xz9M+s6E
-	 2PBYjFlVWtClSHAyJbDttvI2EErBnL8jqtT8AFc8FnI3utE1VvjKSJ96g+nH7F0O+A
-	 0namVmqKMw02mIGCHRKJEQh5YJtbW2lafKRJ8qRxpovf0ECOuQSikPUzmZ+FQkczkO
-	 Wnv7Xelg0S3ZDAWdASYCRZytlJuT06cKRt1/bpHq3W8aUreea0eF1JgGrle5fTZIqH
-	 7lkIa8KanSgrZONmDGhhe6o9hSWTIcsFKIT/uSCm08wDldEQ+oxG32PmIetCWkJXwo
-	 BNU8MPqccCWDw==
-From: Esben Haabendal <esben@geanix.com>
-To: "Alexander Stein" <alexander.stein@ew.tq-group.com>
-Cc: "Catalin Marinas" <catalin.marinas@arm.com>,  "Will Deacon"
- <will@kernel.org>,  "Stefan Wahren" <wahrenst@gmx.net>,
-  <linux-arm-kernel@lists.infradead.org>,  <linux-kernel@vger.kernel.org>,
-  "Shawn Guo" <shawnguo@kernel.org>
-Subject: Re: [PATCH 1/1] arm64: Kconfig: Enable PINCTRL on i.MX platforms
-In-Reply-To: <8259306.DvuYhMxLoT@steina-w> (Alexander Stein's message of "Thu,
-	08 May 2025 07:52:58 +0200")
-References: <20250507124414.3088510-1-alexander.stein@ew.tq-group.com>
-	<5af33290-e7d8-437c-a22f-5b873596d67a@gmx.net>
-	<rp4MSsRpdVGoLk5RPFi7xIPZluJJG97RxbkgWMHmLHRCp8gVdt6GN4xz2Mh7vZ7XAQ9uT3HgrjxAf1toMvIt9w==@protonmail.internalid>
-	<8259306.DvuYhMxLoT@steina-w>
-Date: Thu, 08 May 2025 08:44:22 +0200
-Message-ID: <87ikmby52x.fsf@geanix.com>
-User-Agent: Gnus/5.13 (Gnus v5.13)
-MIME-Version: 1.0
-Content-Type: text/plain
+	id 1uCuzj-0000000HV10-2Z3k;
+	Thu, 08 May 2025 06:44:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1746686610;
+	bh=0pI2iREWW5cC2LwJLtCoMOYZhwY83h/z7B9+8q2WvaM=;
+	h=From:To:Subject:Date:Message-Id;
+	b=fxXpi/Y5mrjF84OdY3lEuMy2DsWSyvmGZ9xajslWgM+oAfiuAtOb9/FaVyPRZXU3i
+	 B4awaS/VoRGgwCWFohqwr8Ez6DmG6Ctjml33QCmeoLknRvaPJPl4DUQD5NhWLR2y9G
+	 y0LNDZr3mT0bxpl1gmh6gXHYCIBwXOPz/Ij0Jh3k=
+X-QQ-mid: esmtpsz18t1746686608t123d24cd
+X-QQ-Originating-IP: Lb7KIkQyY8JilwbOns5Cl43BA/5Z8/J56hf/m1H92DY=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 08 May 2025 14:43:26 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 4859509138922957751
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Sandy Huang <hjc@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] Convert Rockchip CDN DP binding to yaml
+Date: Thu,  8 May 2025 14:43:02 +0800
+Message-Id: <20250508064304.670-1-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
+X-QQ-XMAILINFO: N3IC8um5pMyYiUTB++F8KmGWAz7BbvjjiJvjkp/Emlsn4bb47X4/ZJQi
+	3s93gkfxyyqyBFPaHO95ETcR+vn67It2LfIX0jXKOXkXWHipQnUY61PNk7v42XfLt2bUInW
+	b1CJIGt+gHy+SoabkJiwrra6tQkkj42SpsbbS03vIQR40QiBW1GVfYGJAosQekfFzr+CwRg
+	YwMqWTEMVM4z3suCQIV+m4DDk3oSPaviOUbZJ1dFHZFydMyGXoh3+7d5aTHitLvAonE8QgF
+	jeIEGebHMXzzEwvZ2qy3xzcsPYmyCbRBaWUDR/wovsrryAiK1OwxaGgyEjmpSNJL9dxQPQA
+	XIulur70ImXupPMIfD4g/cvF6SxuWkZPkIQkIn9rynumJIkXcJc6mHYGoz/qOuQHDdQ7SbN
+	F+CPCIanHXerXlwJOJhajxzhhBnPhbKASftNDzq9ZD4JfIfYape0q0ezZ8Ar9nrYrucZ/4a
+	3FwGKtAOVO01z2DpkBTgYShC8gJm4yzBkVDzRRnIlqQwpjht0zILw6So2G0RqS8mSz7aYIK
+	0ZXduco+VDbsd63wAHnLfiO659D6971lm00O1i7vpHIvVZ0rFXSEA76N/gJCjGUBk66yU16
+	h0hKvIeFpl7ilnJ24FNO8J7buPsBUNIPooKHKJmAWWLOAxB/iUPGGVcchiLR0YPtt1a2tG6
+	bUMR4pcsQhe+Pw4KCVpde0oz4eccAOhnEQg2MDPF6m4Q7lW0mcXPAJSpr/gfICE0bHHRA7R
+	BnaKLEyJ+IWakDzca2dX0+tz15yetBk95GlTAx58Emd25MrQ9rda/6yHJQrE3wS22Sy6+ZI
+	SRWByavJ1v1Z/xKQNObNDN5Oht3I7KmAwqiz0IhA9mpdPExOZZ4rzZe1BAYvukfHNXUxz7F
+	e2tfrMTeBn6x31JRJjWXREaL5MK6BBQqdCtwtXoCzkeA7QsaqWvgFrbT/Vh4XCcYyRgX8cW
+	VoHl3OzAjNz5v0Q==
+X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_234435_687071_D01FF9F8 
-X-CRM114-Status: GOOD (  17.91  )
+X-CRM114-CacheID: sfid-20250507_234436_153964_1379A00F 
+X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,58 +101,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"Alexander Stein" <alexander.stein@ew.tq-group.com> writes:
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-> Hi Stefan,
->
-> Am Mittwoch, 7. Mai 2025, 16:30:33 CEST schrieb Stefan Wahren:
->> Hi Alexander,
->>
->> [add Shawn and Esben]
->>
->> Am 07.05.25 um 14:44 schrieb Alexander Stein:
->> > Select PINCTRL for NXP i.MX SoCs.
->> could you please explain the motivation behind your change?
->>
->> Is it related to this commit 17d21001891402 ("ARM: imx: Allow user to
->> disable pinctrl")?
->
-> Ah, thanks for the pointer. It might be the case.
+This series convert cdn-dp-rockchip.txt to yaml.
 
-The goal of the patch mentioned above was to be able to build a kernel
-for LS1021A without pinctrl framework enabled, as LS1021A does not have
-a pinctrl driver.
+PATCH 1 try to improve coding style on the existing rk3399 cdn-dp
+node.
+PATCH 2 try to convert cdn-dp-rockchip.txt to yaml.
 
-With your patch, that would not be possible anymore.
+Tested with:
 
-> I noticed that, when using arch/arm64/defconfig and disabling all
-> platforms despite ARCH_MXC before running make olddefconfig,
-> CONFIG_PINCTRL gets disabled as well. No platform is enabling it. I
-> noticed this when building in yocto and non-IMX platforms are disabled
-> for build time reasons.
+1. make ARCH=arm64 dt_binding_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml
 
-But is that something that needs to be fixed?
+2. make ARCH=arm64 dtbs_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml
 
-It sounds like quite a special use-case, and why not simply enable
-CONFIG_PINCTRL in that case then?
 
-/Esben
+Chaoyi Chen (2):
+  arm64: dts: rockchip: Improve coding style for rk3399 cdn_dp
+  dt-bindings: display: rockchip: Convert cdn-dp-rockchip.txt to yaml
 
->> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
->> > ---
->> >   arch/arm64/Kconfig.platforms | 1 +
->> >   1 file changed, 1 insertion(+)
->> >
->> > diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
->> > index a541bb029aa4e..49c3bc25e5f68 100644
->> > --- a/arch/arm64/Kconfig.platforms
->> > +++ b/arch/arm64/Kconfig.platforms
->> > @@ -219,6 +219,7 @@ config ARCH_MXC
->> >   	select ARM64_ERRATUM_845719 if COMPAT
->> >   	select IMX_GPCV2
->> >   	select IMX_GPCV2_PM_DOMAINS
->> > +	select PINCTRL
->> >   	select PM
->> >   	select PM_GENERIC_DOMAINS
->> >   	select SOC_BUS
+ .../display/rockchip/cdn-dp-rockchip.txt      |  74 ---------
+ .../display/rockchip/rockchip,cdn-dp.yaml     | 148 ++++++++++++++++++
+ arch/arm64/boot/dts/rockchip/rk3399-base.dtsi |  10 +-
+ 3 files changed, 157 insertions(+), 75 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/display/rockchip/cdn-dp-rockchip.txt
+ create mode 100644 Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml
+
+--
+2.49.0
+
 
