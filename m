@@ -4,79 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0061EC3ABC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 12:54:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A0ADC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 12:58:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sTJliYfCtt4bgttWS5Hp986Wh6Lp9pytD8qb3eAhJ7U=; b=mH5dUSLMYvSsY80MBmxMGXBk0/
-	tx9XX9SANFgAtgHxDz+3Ldc3esopXtVjUVu+OhMUaKoh57JdETz4FlgL0if0gMmjGzQ4g6hFYwvW5
-	spmyD9UCq2vmLZcR1ddDRFE0oFHD8jF4I8hnX89zTl08XF9LJ9AeZ0fiiziQS/TmBfVvg4qk1V9uu
-	6sjfuarHZ2qGvPxtsoAQnJpYB4KTKLvDh8x+0N19wCEP4BcEksUMkN/IbLH7Sbh6KpCEI50+pPjpY
-	d85Mvf9hijbGr3jvWOmKSN1skSwSCCFcZDGjBH4HyXU2buackrYCBy0CCrU/xxZsfBSHlRazpu6+f
-	QvGblLww==;
+	bh=c1U4rZGx6XERUK703NiiO7qOrMXmSyQcFqlgMieceks=; b=ZXld8m6xv8NeExcMe3DXfvx//V
+	CSROgc2RkGG3fdkP9E0PIUB9tYmvOsA9SdaaGwaD4BgdX84npRRh1cipJ1EMtpunGyxrjU1tsUk+Z
+	jSrF+Y2+KmX+T4Vsi7ibeyNur5cFjZAop6+fGkYv9g+9xgTrPYSQgvAxhOeUUf32XvgEZb6lOaX+x
+	cWJT9GRB0vRQ3qn18/2/41eewHhWTqYN60CPWRofzqqwsPjz8ZhOh2/0afGu0HVUIlolzbrz9pHRn
+	dd6yeqg6IB8RlhVFou9gCnt6S6VI37+EgbSsBCztFGVoJnWPGmLdbUB7hYzsVXXnW6dS1uQQSU9Wq
+	O+3NftbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0lV-00000000gGD-42MQ;
-	Thu, 08 May 2025 12:54:17 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uD0p4-00000000hHR-0vIS;
+	Thu, 08 May 2025 12:57:58 +0000
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0c1-00000000eKG-0rl6
+	id 1uD0n6-00000000h1A-23fV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 12:44:30 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 548Ci7w31100803
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 8 May 2025 07:44:07 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746708247;
-	bh=sTJliYfCtt4bgttWS5Hp986Wh6Lp9pytD8qb3eAhJ7U=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=cIjO0GS8qFsJ4lzYHSfhrXw7Xlg90ruLfJUbYB6a3PJYp9YxR4dlX8ZRRtPiVpIZC
-	 Gw9S+f3Z1W6kcV8xz+PXBufLihBYmPDVKiuok3Bm324ZnAn+oOE5hRhmk/ss7WVNeq
-	 91PJNeWirnnb9RrpwEZ1qt0tqb+POjtv98j2+0SI=
-Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 548Ci7i5040304
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 8 May 2025 07:44:07 -0500
-Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 8
- May 2025 07:44:06 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 8 May 2025 07:44:06 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 548Ci6lI040835;
-	Thu, 8 May 2025 07:44:06 -0500
-Date: Thu, 8 May 2025 07:44:06 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
-CC: "Kumar, Udit" <u-kumar1@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <vaishnav.a@ti.com>, <r-donadkar@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <jai.luthra@linux.dev>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/2] arm64: dts: ti: k3-j722s-evm: Add overlay for TEVI
- OV5640
-Message-ID: <20250508124406.tb34bqhv66gqcb7j@swizzle>
-References: <20250505115700.500979-1-y-abhilashchandra@ti.com>
- <20250505115700.500979-3-y-abhilashchandra@ti.com>
- <a6329e9d-409e-4f62-b26d-c4d0e49d772c@ti.com>
- <9cb4f94e-00e8-43d5-be7a-85dc1188e856@ti.com>
+	Thu, 08 May 2025 12:55:57 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4ZtXDl0rVQz9tH2;
+	Thu,  8 May 2025 14:55:51 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pankajraghav.com;
+	s=MBO0001; t=1746708951;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=c1U4rZGx6XERUK703NiiO7qOrMXmSyQcFqlgMieceks=;
+	b=bjRVISLBtHX5DfYSngZXkcLernXd84uYnUhhfzmlqWxXU9ogXS+VA1nVBWV9C1OFAPhqrl
+	DQwRHux+nTpoGHBRb/gwfeWNh70+kMhrQWYrv79phGNmIEqQXGFC49a2bgJPAHmLhdkwxt
+	ZFp+s7KYFMcqqnWUY3eI9hBea5SP0YjYFVmEo5lpFa4k3vI9fvdUMGMfwOoBrm+8Sqls4s
+	Qcc8j5qQPJHtt1XCPgM7RJ3+7TRvmqeAX2koZA923N0GkgcrDXU5tBajcjK6B2FKUpknB2
+	fqW9+yH4BbWCpv7P1pegCvQqVTLRoXqbMzB7aHwj2DPWWBsYwRCLPJGemPmoVw==
+Date: Thu, 8 May 2025 14:55:43 +0200
+From: "Pankaj Raghav (Samsung)" <kernel@pankajraghav.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, David Hildenbrand <david@redhat.com>, 
+	Dave Chinner <david@fromorbit.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-mm@kvack.org
+Subject: Re: [RFC PATCH v4 1/5] mm/readahead: Honour new_order in
+ page_cache_ra_order()
+Message-ID: <nepi5e74wtghvr6a6n26rdgqaa7tzitylyoamfnzoqu6s5gq4h@zqtve2irigd6>
+References: <20250430145920.3748738-1-ryan.roberts@arm.com>
+ <20250430145920.3748738-2-ryan.roberts@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <9cb4f94e-00e8-43d5-be7a-85dc1188e856@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20250430145920.3748738-2-ryan.roberts@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_054429_407501_A403CA9D 
-X-CRM114-Status: GOOD (  24.14  )
+X-CRM114-CacheID: sfid-20250508_055556_681024_5E343466 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,84 +80,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17:46-20250508, Yemike Abhilash Chandra wrote:
-> Hi Udit,
-> Thanks for the review.
+Hey Ryan,
+
+On Wed, Apr 30, 2025 at 03:59:14PM +0100, Ryan Roberts wrote:
+> FOLIO  0x0001a000  0x0001b000       4096       26       27      1      0
+> FOLIO  0x0001b000  0x0001c000       4096       27       28      1      0
+> FOLIO  0x0001c000  0x0001d000       4096       28       29      1      0
+> FOLIO  0x0001d000  0x0001e000       4096       29       30      1      0
+> FOLIO  0x0001e000  0x0001f000       4096       30       31      1      0
+> FOLIO  0x0001f000  0x00020000       4096       31       32      1      0
+> FOLIO  0x00020000  0x00024000      16384       32       36      4      2
+> FOLIO  0x00024000  0x00028000      16384       36       40      4      2
+> FOLIO  0x00028000  0x0002c000      16384       40       44      4      2
+> FOLIO  0x0002c000  0x00030000      16384       44       48      4      2
+> ...
 > 
-> On 07/05/25 13:50, Kumar, Udit wrote:
-> > Hello Vaishnav/Abhilash
-> > 
-> > Thanks for patch
-> > 
-> > On 5/5/2025 5:27 PM, Yemike Abhilash Chandra wrote:
-> > > From: Vaishnav Achath <vaishnav.a@ti.com>
-> > > 
-> > > TechNexion TEVI OV5640 camera is a 5MP camera that can be used with
-> > > J722S EVM through the 22-pin CSI-RX connector. Add a reference overlay
-> > > for quad TEVI OV5640 modules on J722S EVM.
-> > > 
-> > > Signed-off-by: Vaishnav Achath <vaishnav.a@ti.com>
-> > > Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
-> > > ---
-> > >   arch/arm64/boot/dts/ti/Makefile               |   4 +
-> > >   .../k3-j722s-evm-csi2-quad-tevi-ov5640.dtso   | 358 ++++++++++++++++++
-> > >   2 files changed, 362 insertions(+)
-> > >   create mode 100644
-> > > arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
-> > > 
-> > > diff --git a/arch/arm64/boot/dts/ti/Makefile
-> > > b/arch/arm64/boot/dts/ti/Makefile
-> > > index 829a3b028466..76b750e4b8a8 100644
-> > > --- a/arch/arm64/boot/dts/ti/Makefile
-> > > +++ b/arch/arm64/boot/dts/ti/Makefile
-> > > @@ -123,6 +123,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-pcie1-ep.dtbo
-> > >   dtb-$(CONFIG_ARCH_K3) += k3-am67a-beagley-ai.dtb
-> > >   dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm.dtb
-> > >   dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
-> > > [..]
-> > > diff --git
-> > > a/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
-> > > b/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
-> > > new file mode 100644
-> > > index 000000000000..537224ea60e3
-> > > --- /dev/null
-> > > +++ b/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
-> > > @@ -0,0 +1,358 @@
-> > > +// SPDX-License-Identifier: GPL-2.0-only OR MIT
-> > > +/*
-> > > + * 4 x TEVI OV5640 MIPI Camera module on RPI camera connector.
-> > > + *
-> > > + * Copyright (C) 2024 Texas Instruments Incorporated -
-> > > https://www.ti.com/
-> > > + */
-> > > +
-> > > +/dts-v1/;
-> > > +/plugin/;
-> > > +
-> > > +#include <dt-bindings/gpio/gpio.h>
-> > > +#include "k3-pinctrl.h"
-> > > +
-> > > +&{/} {
-> > > +    clk_ov5640_fixed: clock-24000000 {
-> > > +        compatible = "fixed-clock";
-> > > +        #clock-cells = <0>;
-> > > +        clock-frequency = <24000000>;
-> > > +    };
-> > > +
-> > 
-> > Please check once , this is clock is 25M or 24M .
-> > 
-> > As I see CDC6CE025000ADLXT/U28 is marked as 25M OSC
-> > 
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> ---
+>  mm/readahead.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
 > 
-> This is the crystal clock with in the sensor.
+> diff --git a/mm/readahead.c b/mm/readahead.c
+> index 6a4e96b69702..8bb316f5a842 100644
+> --- a/mm/readahead.c
+> +++ b/mm/readahead.c
+> @@ -479,9 +479,6 @@ void page_cache_ra_order(struct readahead_control *ractl,
+>  
 
-Please cross check this - the camera *module* has a BAW crystal which is the
-source of clock to the sensor.
+So we always had a fallback to do_page_cache_ra() if the size of the
+readahead is less than 4 pages (16k). I think this was there because we
+were adding `2` to the new_order:
 
+unsigned int min_ra_size = max(4, mapping_min_folio_nrpages(mapping));
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+/*
+ * Fallback when size < min_nrpages as each folio should be
+ * at least min_nrpages anyway.
+ */
+if (!mapping_large_folio_support(mapping) || ra->size < min_ra_size)
+	goto fallback;
+
+>  	limit = min(limit, index + ra->size - 1);
+>  
+> -	if (new_order < mapping_max_folio_order(mapping))
+> -		new_order += 2;
+
+Now that you have moved this, we could make the lhs of the max to be 2
+(8k) instead of 4(16k).
+
+- unsigned int min_ra_size = max(4, mapping_min_folio_nrpages(mapping));
++ unsigned int min_ra_size = max(2, mapping_min_folio_nrpages(mapping));
+
+I think if we do that, we might ramp up to 8k sooner rather than jumping
+from 4k to 16k directly?
+
+> -
+>  	new_order = min(mapping_max_folio_order(mapping), new_order);
+>  	new_order = min_t(unsigned int, new_order, ilog2(ra->size));
+>  	new_order = max(new_order, min_order);
+> @@ -683,6 +680,7 @@ void page_cache_async_ra(struct readahead_control *ractl,
+>  	ra->size = get_next_ra_size(ra, max_pages);
+>  	ra->async_size = ra->size;
+>  readit:
+> +	order += 2;
+>  	ractl->_index = ra->start;
+>  	page_cache_ra_order(ractl, ra, order);
+>  }
+> -- 
+> 2.43.0
+> 
+
+--
+Pankaj
 
