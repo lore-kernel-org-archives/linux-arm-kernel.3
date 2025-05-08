@@ -4,79 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F8FBC3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 00:28:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAF67C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 01:14:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9HgcA+GEZvObAcEh2COOJwVolQxRQjimAkm+36NZ3tU=; b=Moxdyp6gYlvPDdj5cVueP5bAHl
-	AD1dFvmfh5BjjFLvlGg/eKJItEx2DT/qeCC1XZUKY01O5Xbsx+4BQ4LSREygaamyhtDgi5kl7oQ3K
-	rTERiCXI/n1XLADRjFNV7LTSygyySbuyMjLQXCm5It4/i/1q+tHBjkHkB0XQCc9rqeQuMYvR1+0tk
-	LDSNSoUZArmLcg+iB8+l6TwUoVFEnSld0YNfs4q/W9fnImIau3D7e6baDH1B7BJX6DiPqAjBhY5hX
-	FvtRfpL+9Fgj0pjNyndmwkZjjeqCqmywyaEsicaQeNRztAkqnAfQSOdR68UXd3SgyhWsN5SesiTY5
-	vWOPw0bA==;
+	bh=tW62iOPUC5gBFt1aqH+RWrFlUGzaF/8Z02g9y3LTJjQ=; b=F9eo3P7P8lbavzRgl7WB8iECYP
+	L58FNbVuSzehlMzkphY73SK/fqzv1eSKKI5t7nW2+LntAaGo/WeRmoYZZsJenzxPtWnFVPqwhzJs8
+	LR4pBdCAfMTTyosqWMbRnX2ZH7xYaIsJjXsMsHkcb8pZ13fN8pQckzo+K74wsBxQKrcZNDTNzihHy
+	HgvWscW3BLnomBOAM6eP6UF0JqmLPGUkdiszBTFr+u1BbPwGBdhSuzBUQ1woLCuF4TFavUJFpXur9
+	+g8rUxl5NJsqDfvK8kvQO1IA0XFUo6ZkAH6HTvsMXEJ73Q2nDO4JO7pK+t2TV3W/EUCNdyRn9eLNQ
+	ybcjnnww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCp7t-0000000H27h-2eZ7;
-	Thu, 08 May 2025 00:28:37 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uCppg-0000000H5GU-1a8d;
+	Thu, 08 May 2025 01:13:52 +0000
+Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCp4K-0000000H1hR-0xG2
+	id 1uCpnh-0000000H5C3-1Ul8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 00:24:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746663893;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9HgcA+GEZvObAcEh2COOJwVolQxRQjimAkm+36NZ3tU=;
-	b=dxcTpko4InSG7VWKO1Me1A8+Yv+OhaQhhZUtkpR2YasEGEEbN5pHFFGoDatkgCKkIvJJoO
-	HwX6cuk3KpSbk4iXTcZACnn5e1azcCBgzfFf5xfKYwRB1bwEcR5Fu0Udz04LJNRamiOlwk
-	xqHWoHHmEtD2iqN9XSxuL50rT6vRDJ0=
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com
- [209.85.215.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-668-KjwoIPoSNqCxy3P7uHsvRg-1; Wed, 07 May 2025 20:24:50 -0400
-X-MC-Unique: KjwoIPoSNqCxy3P7uHsvRg-1
-X-Mimecast-MFC-AGG-ID: KjwoIPoSNqCxy3P7uHsvRg_1746663890
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-b090c7c2c6aso220128a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 May 2025 17:24:50 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746663890; x=1747268690;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9HgcA+GEZvObAcEh2COOJwVolQxRQjimAkm+36NZ3tU=;
-        b=oNGqDuhCoaZ9nA9r5h3tp9Yutpeodmf7fdNdYzFsFgeQ2niSPYLr5iDesAX5kMU/FH
-         2qWkED76HiBhvdv58zn0MRPghGmlsxdsYRYw70NVDXmI06mEy4iCv6lW7CBy5YliUFDE
-         8NIiOqFZjEbmwEtjfI1urMTcNw1jgm3rmZ3qZtte3TIOwRUTaquiIahrFJslpDcJDrdi
-         QireGdM+BhwKilL6C9UzNMTgADHgBsa4DSigddgtVk9kSUWGagOWhdT6BHgjK2yUe1Hi
-         XA0XbC1RNvxK4HSIWhEUL4j2/zwcZ1QVSz6prZOH7e3I5m3juj2UnW7vNQaLZxZxUXVA
-         ojvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWWIwxfdpAK1WEabYW5OuIhWlbzqpKHtj1bkW5xoGat8aDo/Ni45buPMDHdmEr3iGtA3G7KiQ6ncvdpwbRgc/2U@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVCtLrz7JE75NvJovhQc+1rEkQa9fR2na9m83qOKdIlqiv8Z95
-	kGUvKG6Fp7PX3fh8pIqLeRBNvkqmk587jTzXl38TV6WAflt1SzvzryEn9wc1nJNFTelkxspMWPy
-	mFQHM51bRZZlicYgQna9FzwKp78xcu6wporiQ68r2JZwtohUcIVlq9qfLOG/LA2cDXwiVFEcX
-X-Gm-Gg: ASbGnct7IlLMWpzl3NQMnxG/5DnMRen0ek4IMRsT15YDui71B7JqYWbZhpmvcsV/dFy
-	867y7M8t0CJDU2mxtslxWi90++XqpL1obCjv4JWc0FuHg5WA7fv2FuvppQZkDLKinMmHU5Ko2zN
-	lzB5J8TIV3ain8JJdMkEl6W/lz765tz1vxYgOzQCNq6s8WgZG4GCnGrsF01FY/qwMitIKJWm4ni
-	Hz2W+J6n4YCyB+MmiwzdQArnginXUt+yn3vwVO8IAJenls3lJEa0Zu3QpYLPEN7sIRTzEdiBMHr
-	NB8r4wuMC4P4
-X-Received: by 2002:a05:6a20:ce47:b0:1f5:8153:93fb with SMTP id adf61e73a8af0-2148bc11565mr7275556637.10.1746663889870;
-        Wed, 07 May 2025 17:24:49 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHkSEc0BIT0XhNYV17IYbaP5fkwntd9qeYQtp9PZH0RGNmeuFUv+jl9d36QtCKWb7HSgaLewg==
-X-Received: by 2002:a05:6a20:ce47:b0:1f5:8153:93fb with SMTP id adf61e73a8af0-2148bc11565mr7275523637.10.1746663889500;
-        Wed, 07 May 2025 17:24:49 -0700 (PDT)
-Received: from [192.168.68.51] ([180.233.125.65])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b1fb3c697a6sm10158269a12.63.2025.05.07.17.24.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 07 May 2025 17:24:48 -0700 (PDT)
-Message-ID: <5b8ea515-788e-44b8-b7d3-a85329b584dc@redhat.com>
-Date: Thu, 8 May 2025 10:24:42 +1000
+	Thu, 08 May 2025 01:11:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1746666705; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=tW62iOPUC5gBFt1aqH+RWrFlUGzaF/8Z02g9y3LTJjQ=;
+	b=uXesBr/+2lSdZgMSShWRDNNkUmwvQT0zir/6DsCDFwjKVviUIFbc70SUIxP1nrh7IepBfS4V3UQ+XzvntiMAURkkxWlY4cieG7KZlzoZcbDxbuLjPU9QIxJ5urAVA2eNL0zBhjvby9hs6DmLLMtZIhsX2Thc3G33ameWnu8LYa8=
+Received: from 30.246.160.110(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WZy-uMo_1746666700 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 08 May 2025 09:11:41 +0800
+Message-ID: <750e66eb-f5c8-4127-8c02-14b8928f7a28@linux.alibaba.com>
+Date: Thu, 8 May 2025 09:11:39 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2] firmware: SDEI: Allow sdei initialization without
@@ -84,22 +44,18 @@ Subject: Re: [PATCH v2] firmware: SDEI: Allow sdei initialization without
 To: Huang Yiwei <quic_hyiwei@quicinc.com>, will@kernel.org,
  rafael@kernel.org, lenb@kernel.org, james.morse@arm.com,
  tony.luck@intel.com, bp@alien8.de
-Cc: xueshuai@linux.alibaba.com, quic_aiquny@quicinc.com,
- quic_satyap@quicinc.com, linux-acpi@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kernel@quicinc.com, kernel@oss.qualcomm.com
+Cc: quic_aiquny@quicinc.com, quic_satyap@quicinc.com,
+ linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kernel@quicinc.com,
+ kernel@oss.qualcomm.com
 References: <20250507045757.2658795-1-quic_hyiwei@quicinc.com>
-From: Gavin Shan <gshan@redhat.com>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
 In-Reply-To: <20250507045757.2658795-1-quic_hyiwei@quicinc.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: fBo2UpH9yu2U3O_VyDDW9HlgF-4tBCcpbflbqKGCs7E_1746663890
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_172456_343101_3637E303 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20250507_181149_871658_3FF32E73 
+X-CRM114-Status: GOOD (  26.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,7 +70,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/7/25 2:57 PM, Huang Yiwei wrote:
+
+
+在 2025/5/7 12:57, Huang Yiwei 写道:
 > SDEI usually initialize with the ACPI table, but on platforms where
 > ACPI is not used, the SDEI feature can still be used to handle
 > specific firmware calls or other customized purposes. Therefore, it
@@ -144,7 +102,100 @@ On 5/7/25 2:57 PM, Huang Yiwei wrote:
 >   include/linux/arm_sdei.h    |  4 ++--
 >   5 files changed, 12 insertions(+), 7 deletions(-)
 > 
+> diff --git a/drivers/acpi/apei/Kconfig b/drivers/acpi/apei/Kconfig
+> index 3cfe7e7475f2..070c07d68dfb 100644
+> --- a/drivers/acpi/apei/Kconfig
+> +++ b/drivers/acpi/apei/Kconfig
+> @@ -23,6 +23,7 @@ config ACPI_APEI_GHES
+>   	select ACPI_HED
+>   	select IRQ_WORK
+>   	select GENERIC_ALLOCATOR
+> +	select ARM_SDE_INTERFACE if ARM64
+>   	help
+>   	  Generic Hardware Error Source provides a way to report
+>   	  platform hardware errors (such as that from chipset). It
+> diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
+> index 289e365f84b2..0f3c663c1b0a 100644
+> --- a/drivers/acpi/apei/ghes.c
+> +++ b/drivers/acpi/apei/ghes.c
+> @@ -1715,7 +1715,7 @@ void __init acpi_ghes_init(void)
+>   {
+>   	int rc;
+>   
+> -	sdei_init();
+> +	acpi_sdei_init();
+>   
+>   	if (acpi_disabled)
+>   		return;
+> diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
+> index aadc395ee168..7df19d82aa68 100644
+> --- a/drivers/firmware/Kconfig
+> +++ b/drivers/firmware/Kconfig
+> @@ -31,7 +31,6 @@ config ARM_SCPI_PROTOCOL
+>   config ARM_SDE_INTERFACE
+>   	bool "ARM Software Delegated Exception Interface (SDEI)"
+>   	depends on ARM64
+> -	depends on ACPI_APEI_GHES
+>   	help
+>   	  The Software Delegated Exception Interface (SDEI) is an ARM
+>   	  standard for registering callbacks from the platform firmware
+> diff --git a/drivers/firmware/arm_sdei.c b/drivers/firmware/arm_sdei.c
+> index 3e8051fe8296..71e2a9a89f6a 100644
+> --- a/drivers/firmware/arm_sdei.c
+> +++ b/drivers/firmware/arm_sdei.c
+> @@ -1062,13 +1062,12 @@ static bool __init sdei_present_acpi(void)
+>   	return true;
+>   }
+>   
+> -void __init sdei_init(void)
+> +void __init acpi_sdei_init(void)
+>   {
+>   	struct platform_device *pdev;
+>   	int ret;
+>   
+> -	ret = platform_driver_register(&sdei_driver);
+> -	if (ret || !sdei_present_acpi())
+> +	if (!sdei_present_acpi())
+>   		return;
+>   
+>   	pdev = platform_device_register_simple(sdei_driver.driver.name,
+> @@ -1081,6 +1080,12 @@ void __init sdei_init(void)
+>   	}
+>   }
+>   
+> +static int __init sdei_init(void)
+> +{
+> +	return platform_driver_register(&sdei_driver);
+> +}
+> +arch_initcall(sdei_init);
+> +
+>   int sdei_event_handler(struct pt_regs *regs,
+>   		       struct sdei_registered_event *arg)
+>   {
+> diff --git a/include/linux/arm_sdei.h b/include/linux/arm_sdei.h
+> index 255701e1251b..f652a5028b59 100644
+> --- a/include/linux/arm_sdei.h
+> +++ b/include/linux/arm_sdei.h
+> @@ -46,12 +46,12 @@ int sdei_unregister_ghes(struct ghes *ghes);
+>   /* For use by arch code when CPU hotplug notifiers are not appropriate. */
+>   int sdei_mask_local_cpu(void);
+>   int sdei_unmask_local_cpu(void);
+> -void __init sdei_init(void);
+> +void __init acpi_sdei_init(void);
+>   void sdei_handler_abort(void);
+>   #else
+>   static inline int sdei_mask_local_cpu(void) { return 0; }
+>   static inline int sdei_unmask_local_cpu(void) { return 0; }
+> -static inline void sdei_init(void) { }
+> +static inline void acpi_sdei_init(void) { }
+>   static inline void sdei_handler_abort(void) { }
+>   #endif /* CONFIG_ARM_SDE_INTERFACE */
+>   
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+LGTM. Thanks.
+
+Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
+
+Shuai
 
 
