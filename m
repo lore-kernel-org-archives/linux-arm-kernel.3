@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CBEDC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 17:21:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD88FC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 17:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mrMh/2wiSkYQT91ZxSHOrsixg9buFnJV0y6uLi5jFyk=; b=K3ps5AJ2qUkbrNhR/kaYBCn0cS
-	cZmJgFHbLYzhxUNNdE6bKSunSTw7yxioWzOKD8NlT0aQqLQLnhDVTI0m/w0W6uxzJiMAs1amQObDW
-	dSMtieb/clJQplDoAQc7G6HJq+wHrVI4SE2QBUxKguPnxDzBVKD/Nt80sMeo7BKE3qEB2eV74cwOh
-	1K4o9PmuUAmSK2DRZOlVOyjnG6AZAACbrs/61pNBXds7XTIFf40cjdU6V9eP2cF/WfKQl42wStUKy
-	ZECqwUW/8huZjnR/PrHFQsmd959nqiHVBniRvOa0eATZDnPUiou4q2SHqUHHLK9cgJ3dSq+3dTMYN
-	omGSq2Zw==;
+	bh=e/fd/QdmYac4W+wfV9CB8/vjp3FgLg+QnA/XaSaZSTs=; b=WQc4jpW+P35YmHw9bIkkzNZCA2
+	QJhN3dgkat5x0US7BvnYeJ+x+rZ8lkmHjcM+Bo3uWpwh7Xv1pi8u52IO4SLRcNVHkb+w+3RMQwm84
+	edD6ncLo40s85NcjOjCGU2D36W1clZV5CJdt5Me3KXshMkDgdMI1477wCvvO2AwD7APrqOwMUo3vg
+	qRm6+wcBF/M9IC+vu+HRh3zTR4fDI73Dr6gALTbgEqbGGzbrLe874s1M0oA9xoF2bb9A3jtXe+7h0
+	Nx/R8TqXPOGtymJYhN49jNdU4uUvt+osZUcI528mY6kI/CJTa8v9chT5wK1RwOcqzopuHU1gueYU3
+	PEYvr6Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD4vt-00000001NH5-3VJE;
-	Thu, 08 May 2025 17:21:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uD4w6-00000001NgM-3KnU;
+	Thu, 08 May 2025 17:21:30 +0000
+Received: from mail-106112.protonmail.ch ([79.135.106.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD48B-00000001I3N-2BEd
+	id 1uD4l3-00000001LkI-1ajI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 16:29:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AFDD8629DF;
-	Thu,  8 May 2025 16:29:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 575D7C4CEEB;
-	Thu,  8 May 2025 16:29:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746721793;
-	bh=td0/W1n9aOEtk0epnkPwUaZiByTowJBXnpm1ysKQLbM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=H8yVftdYn0Keq8UVjV3B31mLlJzlC/VdjbYSrnPZgX9bB5sLHwM3uJAM+wusIR2R7
-	 N8FHP7zm0LXVWL2BTs+spGkZRHcuAi9E9me72T90cxkcvlD/6UhrvwivbYiVVNEnj6
-	 cbaJRk89RE+6FBBXvhlMNQxep0axJwkaa3vowHzGLQBe7wiYIf5D3/ABf8MC2CGeqK
-	 FTOR3/Ij3Kb13VxjqNs/0sWcy8zacL5fyfcUkmGMs1Z071OpPUTv7kblhdnLmW+/k4
-	 KumLLr3FRRu8uIiXlxGzhgCjt1vw2dmSeccMukJ3XRp1pNQjBP/wM5Mvfz02oaaWCP
-	 1WAXwqdFmj5hQ==
-Date: Thu, 8 May 2025 09:29:50 -0700
-From: Kees Cook <kees@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Mostafa Saleh <smostafa@google.com>, kvmarm@lists.linux.dev,
-	kasan-dev@googlegroups.com, linux-hardening@vger.kernel.org,
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, will@kernel.org,
-	oliver.upton@linux.dev, broonie@kernel.org, catalin.marinas@arm.com,
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	elver@google.com, andreyknvl@gmail.com, ryabinin.a.a@gmail.com,
-	akpm@linux-foundation.org, yuzenghui@huawei.com,
-	suzuki.poulose@arm.com, joey.gouly@arm.com, masahiroy@kernel.org,
-	nathan@kernel.org, nicolas.schier@linux.dev
-Subject: Re: [PATCH v2 0/4] KVM: arm64: UBSAN at EL2
-Message-ID: <202505080929.95B2310@keescook>
-References: <20250430162713.1997569-1-smostafa@google.com>
- <202504301131.3C1CBCA8@keescook>
- <868qn8hfnp.wl-maz@kernel.org>
+	Thu, 08 May 2025 17:10:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=geanix.com;
+	s=protonmail; t=1746724200; x=1746983400;
+	bh=e/fd/QdmYac4W+wfV9CB8/vjp3FgLg+QnA/XaSaZSTs=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:Message-ID:From:To:
+	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector:
+	 List-Unsubscribe:List-Unsubscribe-Post;
+	b=AYvzsXxL6h1+eijXThsjW3ckLwn4A18iekWbFFgaqh6krd2I6ID1Ju4H7kyYVRMZQ
+	 hwaQjesXHvcrTRMhqsKnNE3sgNjKC5QPcrFG1a0NVX4K1ReHOW6WizWmiPR5qkUT+p
+	 tD9T6Mc4fXqiXA6TAByTNtz+TXubJlU4/d5uQ2BPzYGSRb7azDPfjRYrheonqnL6xz
+	 H2dfgCqck8YfRJmSwPZGGkiFtVeHaNUHxDlflu8eyEpeQPxSmsfi7iFRKHoTcA55/k
+	 vw70qKYyjkeNwvS3fRriaLekuXKuUJ3/zeipVekgm3aIPxGboKFshOm+4InXXsNR+m
+	 6y+aM7lG61l8g==
+X-Pm-Submission-Id: 4Ztdsy4mVWz4wx9Y
+From: Esben Haabendal <esben@geanix.com>
+To: "Alexander Stein" <alexander.stein@ew.tq-group.com>
+Cc: "Catalin Marinas" <catalin.marinas@arm.com>,  "Will Deacon"
+ <will@kernel.org>,  "Stefan Wahren" <wahrenst@gmx.net>,
+  <linux-arm-kernel@lists.infradead.org>,  <linux-kernel@vger.kernel.org>,
+  "Shawn Guo" <shawnguo@kernel.org>
+Subject: Re: [PATCH 1/1] arm64: Kconfig: Enable PINCTRL on i.MX platforms
+In-Reply-To: <6002097.iIbC2pHGDl@steina-w> (Alexander Stein's message of "Thu,
+	08 May 2025 15:18:04 +0200")
+References: <20250507124414.3088510-1-alexander.stein@ew.tq-group.com>
+	<5724399.aeNJFYEL58@steina-w> <87a57nxogy.fsf@geanix.com>
+	<kUQplj_lxisPWthzRoWcVoRtp5bycldVvw8f7SsR3PVfpzcnS9VNTPmEfDeC7gIRGK6_FR2EFXSAAuoYGH6D_A==@protonmail.internalid>
+	<6002097.iIbC2pHGDl@steina-w>
+Date: Thu, 08 May 2025 19:09:57 +0200
+Message-ID: <87ikmbav16.fsf@geanix.com>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <868qn8hfnp.wl-maz@kernel.org>
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250508_101006_490072_EE449D15 
+X-CRM114-Status: GOOD (  22.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,28 +75,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 07, 2025 at 11:35:38AM +0100, Marc Zyngier wrote:
-> On Wed, 30 Apr 2025 19:32:23 +0100,
-> Kees Cook <kees@kernel.org> wrote:
-> > 
-> > On Wed, Apr 30, 2025 at 04:27:07PM +0000, Mostafa Saleh wrote:
-> > > Many of the sanitizers the kernel supports are disabled when running
-> > > in EL2 with nvhe/hvhe/proctected modes, some of those are easier
-> > > (and makes more sense) to integrate than others.
-> > > Last year, kCFI support was added in [1]
-> > > 
-> > > This patchset adds support for UBSAN in EL2.
-> > 
-> > This touches both UBSAN and arm64 -- I'm happy to land this via the
-> > hardening tree, but I expect the arm64 folks would rather take it via
-> > their tree. What would people like to have happen?
-> 
-> FWIW, I have now taken this in kvmarm/next. A stable branch is
-> available at [1] for anyone to pull and resolve potential conflicts.
+"Alexander Stein" <alexander.stein@ew.tq-group.com> writes:
 
-Thanks!
+> Am Donnerstag, 8. Mai 2025, 14:43:09 CEST schrieb Esben Haabendal:
+>> "Alexander Stein" <alexander.stein@ew.tq-group.com> writes:
+>> > Am Donnerstag, 8. Mai 2025, 10:18:35 CEST schrieb Esben Haabendal:
+>> >> "Alexander Stein" <alexander.stein@ew.tq-group.com> writes:
+>> >> > Am Donnerstag, 8. Mai 2025, 08:44:22 CEST schrieb Esben Haabendal:
+>> >> >> "Alexander Stein" <alexander.stein@ew.tq-group.com> writes:
+>> >> >> > Am Mittwoch, 7. Mai 2025, 16:30:33 CEST schrieb Stefan Wahren:
+>> >> >> >> Am 07.05.25 um 14:44 schrieb Alexander Stein:
+>> >> >> > I noticed that, when using arch/arm64/defconfig and disabling all
+>> >> >> > platforms despite ARCH_MXC before running make olddefconfig,
+>> >> >> > CONFIG_PINCTRL gets disabled as well. No platform is enabling it. I
+>> >> >> > noticed this when building in yocto and non-IMX platforms are disabled
+>> >> >> > for build time reasons.
+>> >> >>
+>> >> >> But is that something that needs to be fixed?
+>> >> >>
+>> >> >> It sounds like quite a special use-case, and why not simply enable
+>> >> >> CONFIG_PINCTRL in that case then?
+>> >> >
+>> >> > PINCTRL is crucial for any SoC to even boot, so this is an option which has
+>> >> > to be set if that platform is enabled.
+>> >>
+>> >> Yes, but PINCTRL (framework) does not by itself do anything meaningful.
+>> >> You need the correct pinctrl driver.
+>> >>
+>> >> Making the various SOC's select the corresponding pinctrl drivers makes
+>> >> sense if it is required for booting under all circumstances. And this
+>> >> should then indirectly enable/select PINCTRL and anything else needed
+>> >> for that driver.
+>> >
+>> > If you prefer I don't mind enabling PINCTRL and the SoC-specific driver
+>> > (e.g. PINCTRL_IMX8MP) depending on each SoC-support, e.g. SOC_IMX35 or
+>> > SOC_IMX8M.
+>>
+>> For SOC_IMX35, it should be selected by default.
+>>
+>>     config PINCTRL_IMX35
+>>             bool "IMX35 pinctrl driver"
+>>             depends on OF
+>>             depends on SOC_IMX35 || COMPILE_TEST
+>>             default SOC_IMX35
+>>
+>> For the IMX8M* SoC's, that is not done, as there is only a common
+>> SOC_IMX8M config entry, which corresponds to multiple pinctrl drivers,
+>> which we probably don't want to select all of by default.
+>
+> Well, is the SoC support is enabled, it makes totally sense to enable a
+> crucial driver like pinctrl by default. It's still deselectable after
+> all.
 
+Yes. But now I think I figured out what I was missing here.
 
--- 
-Kees Cook
+In order for the patch to achieve something meaningful, it is not enough
+to select PINCTRL from ARCH_MXC. You should add default statements to
+the various related SoC specific pinctrl drivers. For example
+
+    config PINCTRL_IMX8MP
+            tristate "IMX8MP pinctrl driver"
+            depends on OF
+            depends on SOC_IMX8M || COMPILE_TEST
+            default SOC_IMX8M
+            select PINCTRL_IMX
+            help
+              Say Y here to enable the imx8mp pinctrl driver
+
+This aligns with the way it is done for the arch/arm pinctrl drivers,
+and will automatically enable the relevant SoC pinctrl drivers, and
+still allow completely disabling pinctrl if/when that is needed.
+
+For SOC_IMX8M, 4 pinctrl drivers will be selected.
+
+/Esben
 
