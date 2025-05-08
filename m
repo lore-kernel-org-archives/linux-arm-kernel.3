@@ -4,62 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9BF1C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 14:19:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B47BC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 14:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qQKUO+22Xzo3iLf1oEW6nw2u1m/URJrg1iiZftZLET8=; b=FVXXFfPbOuaxIHzQj13+1g3Iv+
-	ujrgek+kVhavqagBa2sZfZA7uFwe9r1Bkd1eBdTDtCVrgFuM4fXwg9cNoFTtWM+OfNkqbsyGC104k
-	ztAzy0iToI4z5WTD2fXUYlKm8PHkTCGJjPTBNoNg0Z7z1b4qvdTrdrGb1IcMa6ZsC9SMNX0q2pG9/
-	f1zHblq72wp26POQV9UGByX4+1cYxSjDLrHMI0p1btuT2HeSVyE2Y1kxQ4aMW8kPnsO9VatlD0sQ3
-	1vWE8iOf5aLh0EizXc9p4hNJQtHxFzWhXdvr6L4dWU2L1KjAVVAwdSuzg0NBkkZHoweOJ9tVgH6W5
-	Z5j1UPRg==;
+	bh=EDiiux93GqjAGQbymI9cNN6MYxHkj0O5ZyrN8IApz7Q=; b=YWvjz0lgymPC+tceRVNeMA7keK
+	BSMwoqeBta9mmW3S6KxBcJIdiLIRs/V++AIqnPVCtjxSi1KyZJaEs52SmMkfoSr75tSzb70lH2lgy
+	sVTSjYVN1bXTitZ4dx5qQQclbCT/tp5IrqSDoTYh+MFwmsQfgW/xDcwIkLrE9r1wyb7qr6ADymRAM
+	RqoyFl3mRZeXS8N33lQ/VvACm3UGDlxrnR+k5fi9U2PA4J9sMM/GHKJ414XLvpMiY5idjLaEeH7Kv
+	F09Q0iZzDOUoobRkK2oNXi4U4tnCZcGcxKUEoyvg8Qw6ib0JTInjDusjER8TW5UDJVTts//xdwdRl
+	5x4Gicpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD25l-00000000tPO-2f7T;
-	Thu, 08 May 2025 14:19:17 +0000
+	id 1uD27h-00000000tm7-2HJx;
+	Thu, 08 May 2025 14:21:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD1IU-00000000kax-0i4T
+	id 1uD1MQ-00000000l8l-3gD8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 13:28:23 +0000
+	Thu, 08 May 2025 13:32:28 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 64BBC106F;
-	Thu,  8 May 2025 06:28:11 -0700 (PDT)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 63C863F58B;
-	Thu,  8 May 2025 06:28:19 -0700 (PDT)
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: broonie@kernel.org,
-	catalin.marinas@arm.com,
-	daniel.kiss@arm.com,
-	david.spickett@arm.com,
-	luis.machado@arm.com,
-	mark.rutland@arm.com,
-	maz@kernel.org,
-	richard.sandiford@arm.com,
-	sander.desmalen@arm.com,
-	tabba@google.com,
-	tamas.petz@arm.com,
-	tkjos@google.com,
-	will@kernel.org,
-	yury.khrustalev@arm.com
-Subject: [PATCH v2 24/24] kselftest/arm64: fp-ptrace: Adjust to new inactive mode behaviour
-Date: Thu,  8 May 2025 14:26:44 +0100
-Message-Id: <20250508132644.1395904-25-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20250508132644.1395904-1-mark.rutland@arm.com>
-References: <20250508132644.1395904-1-mark.rutland@arm.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 29B321E2F;
+	Thu,  8 May 2025 06:32:14 -0700 (PDT)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 86CA53F58B;
+	Thu,  8 May 2025 06:32:23 -0700 (PDT)
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Subject: Re: [PATCH v1 1/1] coresight: cti: Replace inclusion by struct fwnode_handle forward declaration
+Date: Thu,  8 May 2025 14:32:10 +0100
+Message-ID: <174671111334.402161.8417024228915220581.b4-ty@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250331071453.3987013-1-andriy.shevchenko@linux.intel.com>
+References: <20250331071453.3987013-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_062822_245813_2EEA5FE7 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20250508_063226_953267_CC4D9346 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,72 +68,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to fix an ABI problem, we recently changed the way that reads
-of the NT_ARM_SVE and NT_ARM_SSVE regsets behave when their
-corresponding vector state is inactive.
 
-Update the fp-ptrace test for the new behaviour.
+On Mon, 31 Mar 2025 10:14:53 +0300, Andy Shevchenko wrote:
+> The fwnode.h is not supposed to be used by the drivers as it
+> has the definitions for the core parts for different device
+> property provider implementations. Drop it.
+> 
+> Since the code wants to use the pointer to the struct fwnode_handle
+> the forward declaration is provided.
+> 
+> [...]
 
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: David Spickett <david.spickett@arm.com>
-Cc: Luis Machado <luis.machado@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>
-Cc: Will Deacon <will@kernel.org>
----
- tools/testing/selftests/arm64/fp/fp-ptrace.c | 30 ++++++++++++++------
- 1 file changed, 22 insertions(+), 8 deletions(-)
+Applied, thanks!
 
-diff --git a/tools/testing/selftests/arm64/fp/fp-ptrace.c b/tools/testing/selftests/arm64/fp/fp-ptrace.c
-index c2882a5a5cc0a..191c47ca0ed80 100644
---- a/tools/testing/selftests/arm64/fp/fp-ptrace.c
-+++ b/tools/testing/selftests/arm64/fp/fp-ptrace.c
-@@ -439,10 +439,17 @@ static bool check_ptrace_values_sve(pid_t child, struct test_config *config)
- 		pass = false;
- 	}
- 
--	if (sve->size != SVE_PT_SIZE(vq, sve->flags)) {
--		ksft_print_msg("Mismatch in SVE header size: %d != %lu\n",
--			       sve->size, SVE_PT_SIZE(vq, sve->flags));
--		pass = false;
-+	if (svcr_in & SVCR_SM) {
-+		if (sve->size != sizeof(sve)) {
-+			ksft_print_msg("NT_ARM_SVE reports data with PSTATE.SM\n");
-+			pass = false;
-+		}
-+	} else {
-+		if (sve->size != SVE_PT_SIZE(vq, sve->flags)) {
-+			ksft_print_msg("Mismatch in SVE header size: %d != %lu\n",
-+				       sve->size, SVE_PT_SIZE(vq, sve->flags));
-+			pass = false;
-+		}
- 	}
- 
- 	/* The registers might be in completely different formats! */
-@@ -515,10 +522,17 @@ static bool check_ptrace_values_ssve(pid_t child, struct test_config *config)
- 		pass = false;
- 	}
- 
--	if (sve->size != SVE_PT_SIZE(vq, sve->flags)) {
--		ksft_print_msg("Mismatch in SSVE header size: %d != %lu\n",
--			       sve->size, SVE_PT_SIZE(vq, sve->flags));
--		pass = false;
-+	if (!(svcr_in & SVCR_SM)) {
-+		if (sve->size != sizeof(sve)) {
-+			ksft_print_msg("NT_ARM_SSVE reports data without PSTATE.SM\n");
-+			pass = false;
-+		}
-+	} else {
-+		if (sve->size != SVE_PT_SIZE(vq, sve->flags)) {
-+			ksft_print_msg("Mismatch in SSVE header size: %d != %lu\n",
-+				       sve->size, SVE_PT_SIZE(vq, sve->flags));
-+			pass = false;
-+		}
- 	}
- 
- 	/* The registers might be in completely different formats! */
+[1/1] coresight: cti: Replace inclusion by struct fwnode_handle forward declaration
+      https://git.kernel.org/coresight/c/aad548a9
+
+Best regards,
 -- 
-2.30.2
-
+Suzuki K Poulose <suzuki.poulose@arm.com>
 
