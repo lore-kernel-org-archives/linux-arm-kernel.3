@@ -4,84 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E358C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 13:31:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71BDCC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 13:33:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iazNB0ru7xiYzMbvmWPsjBe7wXldlYA4oQHJzMndgtk=; b=pSpWInZkndl+rB2Y1hBejO8vDr
-	EaoSZAfWnaWBMGRugVCV82oEHjEHrGvrLcvTEof781r7j5fcv7B0pqQWvDhHhe8vgY100JtDEN0Uh
-	YTB2fa7Oyb/n3SOc4+aATWZTAC1dpmriSaivcDB9XQtdgmg/PSqmvOzCmUimzDdnjesqvd3AByDOb
-	NU4ktmexemZNmRsep7njm9gcJOyCKVp1ma5Q9ApIlxtYgHO/kMcrfKxRTzASfjxpvYODsdxAnlIzI
-	2FMzKy+QnFVTp+6kKmAF91zCWzDe3EmzI23VTwDNErUyXfKYVn5V3Jj2GvbnR6L5LpGX974MzaRGA
-	ZiInUygA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n4Fteqf8IGU49p/vORkr18hdtHlKHkgiOA3lSsH05Cs=; b=dIkTBn3G74xsimtSLeuNwaE13c
+	4iomuS1bEmJQo1bzuLhBNLS77k2HaFf33FjDd/Gs8zKypk13e9CBPKGvxJO6vUwF4zYhIX8bDBQDA
+	ulnagKWBlJc1MNPeHJT7JTv8xzShBjtJXZOYQYGIrd2GpyvIMcOim+uAQ/Zp92H9GiJ/52RN854A3
+	morHF6piEQ32IhFtyIX21LYqk46XmUzs/33vIlLdnrPZYqFEJ9xfcEIjo2XIOs/czDsrEvAArPz0E
+	SfGIgJCT4KyRNsHKvHiLXBbWyLgknu4tu8+VDbaEnv+U9xT/uB9i2ELH1u6vb4dsPLM/zLU1ofY94
+	1mIJ/+nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD1Lb-00000000kwf-0vvF;
-	Thu, 08 May 2025 13:31:35 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0K0-00000000bNd-3hlB
+	id 1uD1NO-00000000lR5-41Z0;
+	Thu, 08 May 2025 13:33:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uD1HP-00000000kJs-15B3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 12:25:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1746707152; x=1778243152;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=iazNB0ru7xiYzMbvmWPsjBe7wXldlYA4oQHJzMndgtk=;
-  b=h0JbMCMx5zqaz1ZJVyzy39PhM+EkA0i3BZ1qsnMulXHxkFhneA8DkH65
-   nIa5MA5FOPatGUIFzpeBoLf3BXPEzaOCiAL3hf2m89hTuPpcCuQcrF/sE
-   Z5/c6L7mBhyxjPryA1oWK1P2ozH2O7ttNMuih58YXL8jcgq0jBh9lgEoK
-   fwKWLvvfLv/zRvKJgaxhwQgfCks5DF0k7o4ybPV2uzcM2Khj9cg9URvMB
-   aE+nHmmIu+Shf/kEgvnD3wiVUGegcMHkA94oCq5Fc7bww61cgsK5B38nn
-   BdHAF2ZM3iCwH5B6kQKn0DMHYLadGo1O62q3x6K4n5pMda5IxkUXG8aDP
-   w==;
-X-CSE-ConnectionGUID: Hs9Xg0CLRzKT52w3yTw6mw==
-X-CSE-MsgGUID: 7jHM8xN9Q229D6e6YN8zPA==
-X-IronPort-AV: E=Sophos;i="6.15,272,1739833200"; 
-   d="scan'208";a="43961769"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 08 May 2025 14:25:50 +0200
-X-CheckPoint: {681CA2CE-A-BF62DDF1-CB8BF55F}
-X-MAIL-CPID: 0F9D536A0AAB13CF6862A92CB39405EA_1
-X-Control-Analysis: str=0001.0A00639F.681CA2D1.007A,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 687A2161554;
-	Thu,  8 May 2025 14:25:45 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1746707145;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=iazNB0ru7xiYzMbvmWPsjBe7wXldlYA4oQHJzMndgtk=;
-	b=Az+GZTnJmysGwF3eHtTA+X6IURuBK/lQ4cB6+o89SVM/HDGejsNwSHjWl2zryRtgu4KMyz
-	q6OWQzz37I3s0ADm5CP+q/moDBg2ZtDFPq++cDel5CB62/qvCgy3t18kIjJNu1Nom9LV+e
-	KtUDHGyMexklde//R3LeGhWdHlz448V0lQ9434Hu8mSY7NEOBCe4VkhNWyjTj70Z+mDC7i
-	UScO8QlIS/gNpEGG07Z5gXEdLJYZCutZUqQMCK8huz5Zg2EHlSvo1YNBMq0aboICG97cwl
-	vS3R2LJUy2ieZ/9yobaRitbrqC5Eyiey8lbwIRfXLkl1ZCNlbdF1X+/cKZVQDA==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Esben Haabendal <esben@geanix.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Stefan Wahren <wahrenst@gmx.net>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>
-Subject: Re: [PATCH 1/1] arm64: Kconfig: Enable PINCTRL on i.MX platforms
-Date: Thu, 08 May 2025 14:25:44 +0200
-Message-ID: <5724399.aeNJFYEL58@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <87ecwzy0pw.fsf@geanix.com>
-References: <20250507124414.3088510-1-alexander.stein@ew.tq-group.com>
- <7023673.LvFx2qVVIh@steina-w> <87ecwzy0pw.fsf@geanix.com>
+	Thu, 08 May 2025 13:27:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7F645106F;
+	Thu,  8 May 2025 06:27:04 -0700 (PDT)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7E71A3F58B;
+	Thu,  8 May 2025 06:27:12 -0700 (PDT)
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: broonie@kernel.org,
+	catalin.marinas@arm.com,
+	daniel.kiss@arm.com,
+	david.spickett@arm.com,
+	luis.machado@arm.com,
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	richard.sandiford@arm.com,
+	sander.desmalen@arm.com,
+	tabba@google.com,
+	tamas.petz@arm.com,
+	tkjos@google.com,
+	will@kernel.org,
+	yury.khrustalev@arm.com
+Subject: [PATCH v2 01/24] arm64/fpsimd: Do not discard modified SVE state
+Date: Thu,  8 May 2025 14:26:21 +0100
+Message-Id: <20250508132644.1395904-2-mark.rutland@arm.com>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20250508132644.1395904-1-mark.rutland@arm.com>
+References: <20250508132644.1395904-1-mark.rutland@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_052553_406886_3962C643 
-X-CRM114-Status: GOOD (  29.85  )
+X-CRM114-CacheID: sfid-20250508_062715_392601_642BD8DE 
+X-CRM114-Status: GOOD (  34.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,93 +74,278 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Esben,
+Historically SVE state was discarded deterministically early in the
+syscall entry path, before ptrace is notified of syscall entry. This
+permitted ptrace to modify SVE state before and after the "real" syscall
+logic was executed, with the modified state being retained.
 
-Am Donnerstag, 8. Mai 2025, 10:18:35 CEST schrieb Esben Haabendal:
-> "Alexander Stein" <alexander.stein@ew.tq-group.com> writes:
->=20
-> > Hi Esben,
-> >
-> > Am Donnerstag, 8. Mai 2025, 08:44:22 CEST schrieb Esben Haabendal:
-> >> "Alexander Stein" <alexander.stein@ew.tq-group.com> writes:
-> >>
-> >> > Hi Stefan,
-> >> >
-> >> > Am Mittwoch, 7. Mai 2025, 16:30:33 CEST schrieb Stefan Wahren:
-> >> >> Hi Alexander,
-> >> >>
-> >> >> [add Shawn and Esben]
-> >> >>
-> >> >> Am 07.05.25 um 14:44 schrieb Alexander Stein:
-> >> >> > Select PINCTRL for NXP i.MX SoCs.
-> >> >> could you please explain the motivation behind your change?
-> >> >>
-> >> >> Is it related to this commit 17d21001891402 ("ARM: imx: Allow user =
-to
-> >> >> disable pinctrl")?
-> >> >
-> >> > Ah, thanks for the pointer. It might be the case.
-> >>
-> >> The goal of the patch mentioned above was to be able to build a kernel
-> >> for LS1021A without pinctrl framework enabled, as LS1021A does not have
-> >> a pinctrl driver.
-> >>
-> >> With your patch, that would not be possible anymore.
-> >
-> > Why? LS1021A is arm, not arm64 which this patch is touching only.
->=20
-> Good point :)  Sorry about that.
->=20
-> > BTW: Commit b77bd3ba762f3 ("ARM: imx: Re-introduce the PINCTRL selectio=
-n")
-> > is actually doing the same for arm as there is some fallout from
-> > 17d21001891402.
-> >
-> >> > I noticed that, when using arch/arm64/defconfig and disabling all
-> >> > platforms despite ARCH_MXC before running make olddefconfig,
-> >> > CONFIG_PINCTRL gets disabled as well. No platform is enabling it. I
-> >> > noticed this when building in yocto and non-IMX platforms are disabl=
-ed
-> >> > for build time reasons.
-> >>
-> >> But is that something that needs to be fixed?
-> >>
-> >> It sounds like quite a special use-case, and why not simply enable
-> >> CONFIG_PINCTRL in that case then?
-> >
-> > PINCTRL is crucial for any SoC to even boot, so this is an option which=
- has
-> > to be set if that platform is enabled.
->=20
-> Yes, but PINCTRL (framework) does not by itself do anything meaningful.
-> You need the correct pinctrl driver.
->=20
-> Making the various SOC's select the corresponding pinctrl drivers makes
-> sense if it is required for booting under all circumstances. And this
-> should then indirectly enable/select PINCTRL and anything else needed
-> for that driver.
+This behaviour was changed by commit:
 
-If you prefer I don't mind enabling PINCTRL and the SoC-specific driver
-(e.g. PINCTRL_IMX8MP) depending on each SoC-support, e.g. SOC_IMX35 or
-SOC_IMX8M.
+  8c845e2731041f0f ("arm64/sve: Leave SVE enabled on syscall if we don't context switch")
 
-> Having ARCH_MXC select PINCTRL as such is mostly pointless IMHO.
-> Enabling a driver framework without enabling any drivers for it, when
-> building a kernel where no SOC's requiring any pinctrl drivers is kind
-> of weird. If you want to do that, why not simply enable both ARCH_MXC
-> and PINCTRL in your yocto recipe?
+That commit was intended to speed up workloads that used SVE by
+opportunistically leaving SVE enabled when returning from a syscall.
+The syscall entry logic was modified to truncate the SVE state without
+disabling userspace access to SVE, and fpsimd_save_user_state() was
+modified to discard userspace SVE state whenever
+in_syscall(current_pt_regs()) is true, i.e. when
+current_pt_regs()->syscallno != NO_SYSCALL.
 
-PINCTRL is currently only enabled because other SoCs happen to enable it,
-just this feels just plain wrong. If these platforms are disabled or
-removed for whatever reason, the other platforms should still work.
+Leaving SVE enabled opportunistically resulted in a couple of changes to
+userspace visible behaviour which weren't described at the time, but are
+logical consequences of opportunistically leaving SVE enabled:
 
-Best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+* Signal handlers can observe the type of saved state in the signal's
+  sve_context record. When the kernel only tracks FPSIMD state, the 'vq'
+  field is 0 and there is no space allocated for register contents. When
+  the kernel tracks SVE state, the 'vq' field is non-zero and the
+  register contents are saved into the record.
 
+  As a result of the above commit, 'vq' (and the presence of SVE
+  register state) is non-deterministically zero or non-zero for a period
+  of time after a syscall. The effective register state is still
+  deterministic.
+
+  Hopefully no-one relies on this being deterministic. In general,
+  handlers for asynchronous events cannot expect a deterministic state.
+
+* Similarly to signal handlers, ptrace requests can observe the type of
+  saved state in the NT_ARM_SVE and NT_ARM_SSVE regsets, as this is
+  exposed in the header flags. As a result of the above commit, this is
+  now in a non-deterministic state after a syscall. The effective
+  register state is still deterministic.
+
+  Hopefully no-one relies on this being deterministic. In general,
+  debuggers would have to handle this changing at arbitrary points
+  during program flow.
+
+Discarding the SVE state within fpsimd_save_user_state() resulted in
+other changes to userspace visible behaviour which are not desirable:
+
+* A ptrace tracer can modify (or create) a tracee's SVE state at syscall
+  entry or syscall exit. As a result of the above commit, the tracee's
+  SVE state can be discarded non-deterministically after modification,
+  rather than being retained as it previously was.
+
+  Note that for co-operative tracer/tracee pairs, the tracer may
+  (re)initialise the tracee's state arbitrarily after the tracee sends
+  itself an initial SIGSTOP via a syscall, so this affects realistic
+  design patterns.
+
+* The current_pt_regs()->syscallno field can be modified via ptrace, and
+  can be altered even when the tracee is not really in a syscall,
+  causing non-deterministic discarding to occur in situations where this
+  was not previously possible.
+
+Further, using current_pt_regs()->syscallno in this way is unsound:
+
+* There are data races between readers and writers of the
+  current_pt_regs()->syscallno field.
+
+  The current_pt_regs()->syscallno field is written in interruptible
+  task context using plain C accesses, and is read in irq/softirq
+  context using plain C accesses. These accesses are subject to data
+  races, with the usual concerns with tearing, etc.
+
+* Writes to current_pt_regs()->syscallno are subject to compiler
+  reordering.
+
+  As current_pt_regs()->syscallno is written with plain C accesses,
+  the compiler is free to move those writes arbitrarily relative to
+  anything which doesn't access the same memory location.
+
+  In theory this could break signal return, where prior to restoring the
+  SVE state, restore_sigframe() calls forget_syscall(). If the write
+  were hoisted after restore of some SVE state, that state could be
+  discarded unexpectedly.
+
+  In practice that reordering cannot happen in the absence of LTO (as
+  cross compilation-unit function calls happen prevent this reordering),
+  and that reordering appears to be unlikely in the presence of LTO.
+
+Additionally, since commit:
+
+  f130ac0ae4412dbe ("arm64: syscall: unmask DAIF earlier for SVCs")
+
+... DAIF is unmasked before el0_svc_common() sets regs->syscallno to the
+real syscall number. Consequently state may be saved in SVE format prior
+to this point.
+
+Considering all of the above, current_pt_regs()->syscallno should not be
+used to infer whether the SVE state can be discarded. Luckily we can
+instead use cpu_fp_state::to_save to track when it is safe to discard
+the SVE state:
+
+* At syscall entry, after the live SVE register state is truncated, set
+  cpu_fp_state::to_save to FP_STATE_FPSIMD to indicate that only the
+  FPSIMD portion is live and needs to be saved.
+
+* At syscall exit, once the task's state is guaranteed to be live, set
+  cpu_fp_state::to_save to FP_STATE_CURRENT to indicate that TIF_SVE
+  must be considered to determine which state needs to be saved.
+
+* Whenever state is modified, it must be saved+flushed prior to
+  manipulation. The state will be truncated if necessary when it is
+  saved, and reloading the state will set fp_state::to_save to
+  FP_STATE_CURRENT, preventing subsequent discarding.
+
+This permits SVE state to be discarded *only* when it is known to have
+been truncated (and the non-FPSIMD portions must be zero), and ensures
+that SVE state is retained after it is explicitly modified.
+
+For backporting, note that this fix depends on the following commits:
+
+* b2482807fbd4 ("arm64/sme: Optimise SME exit on syscall entry")
+* f130ac0ae441 ("arm64: syscall: unmask DAIF earlier for SVCs")
+* 929fa99b1215 ("arm64/fpsimd: signal: Always save+flush state early")
+
+Fixes: 8c845e273104 ("arm64/sve: Leave SVE enabled on syscall if we don't context switch")
+Fixes: f130ac0ae441 ("arm64: syscall: unmask DAIF earlier for SVCs")
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+---
+ arch/arm64/include/asm/fpsimd.h  |  3 +++
+ arch/arm64/kernel/entry-common.c | 46 ++++++++++++++++++++++++--------
+ arch/arm64/kernel/fpsimd.c       | 15 ++++++-----
+ 3 files changed, 47 insertions(+), 17 deletions(-)
+
+diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
+index b7adb2c72204b..11b9c6a5e0377 100644
+--- a/arch/arm64/include/asm/fpsimd.h
++++ b/arch/arm64/include/asm/fpsimd.h
+@@ -6,6 +6,7 @@
+ #define __ASM_FP_H
+ 
+ #include <asm/errno.h>
++#include <asm/percpu.h>
+ #include <asm/ptrace.h>
+ #include <asm/processor.h>
+ #include <asm/sigcontext.h>
+@@ -92,6 +93,8 @@ struct cpu_fp_state {
+ 	enum fp_type to_save;
+ };
+ 
++DECLARE_PER_CPU(struct cpu_fp_state, fpsimd_last_state);
++
+ extern void fpsimd_bind_state_to_cpu(struct cpu_fp_state *fp_state);
+ 
+ extern void fpsimd_flush_task_state(struct task_struct *target);
+diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+index b260ddc4d3e9a..fa8a090339e2b 100644
+--- a/arch/arm64/kernel/entry-common.c
++++ b/arch/arm64/kernel/entry-common.c
+@@ -393,20 +393,16 @@ static bool cortex_a76_erratum_1463225_debug_handler(struct pt_regs *regs)
+  * As per the ABI exit SME streaming mode and clear the SVE state not
+  * shared with FPSIMD on syscall entry.
+  */
+-static inline void fp_user_discard(void)
++static inline void fpsimd_syscall_enter(void)
+ {
+-	/*
+-	 * If SME is active then exit streaming mode.  If ZA is active
+-	 * then flush the SVE registers but leave userspace access to
+-	 * both SVE and SME enabled, otherwise disable SME for the
+-	 * task and fall through to disabling SVE too.  This means
+-	 * that after a syscall we never have any streaming mode
+-	 * register state to track, if this changes the KVM code will
+-	 * need updating.
+-	 */
++	/* Ensure PSTATE.SM is clear, but leave PSTATE.ZA as-is. */
+ 	if (system_supports_sme())
+ 		sme_smstop_sm();
+ 
++	/*
++	 * The CPU is not in streaming mode. If non-streaming SVE is not
++	 * supported, there is no SVE state that needs to be discarded.
++	 */
+ 	if (!system_supports_sve())
+ 		return;
+ 
+@@ -416,6 +412,33 @@ static inline void fp_user_discard(void)
+ 		sve_vq_minus_one = sve_vq_from_vl(task_get_sve_vl(current)) - 1;
+ 		sve_flush_live(true, sve_vq_minus_one);
+ 	}
++
++	/*
++	 * Any live non-FPSIMD SVE state has been zeroed. Allow
++	 * fpsimd_save_user_state() to lazily discard SVE state until either
++	 * the live state is unbound or fpsimd_syscall_exit() is called.
++	 */
++	__this_cpu_write(fpsimd_last_state.to_save, FP_STATE_FPSIMD);
++}
++
++static __always_inline void fpsimd_syscall_exit(void)
++{
++	if (!system_supports_sve())
++		return;
++
++	/*
++	 * The current task's user FPSIMD/SVE/SME state is now bound to this
++	 * CPU. The fpsimd_last_state.to_save value is either:
++	 *
++	 * - FP_STATE_FPSIMD, if the state has not been reloaded on this CPU
++	 *   since fpsimd_syscall_enter().
++	 *
++	 * - FP_STATE_CURRENT, if the state has been reloaded on this CPU at
++	 *   any point.
++	 *
++	 * Reset this to FP_STATE_CURRENT to stop lazy discarding.
++	 */
++	__this_cpu_write(fpsimd_last_state.to_save, FP_STATE_CURRENT);
+ }
+ 
+ UNHANDLED(el1t, 64, sync)
+@@ -739,10 +762,11 @@ static void noinstr el0_svc(struct pt_regs *regs)
+ {
+ 	enter_from_user_mode(regs);
+ 	cortex_a76_erratum_1463225_svc_handler();
+-	fp_user_discard();
++	fpsimd_syscall_enter();
+ 	local_daif_restore(DAIF_PROCCTX);
+ 	do_el0_svc(regs);
+ 	exit_to_user_mode(regs);
++	fpsimd_syscall_exit();
+ }
+ 
+ static void noinstr el0_fpac(struct pt_regs *regs, unsigned long esr)
+diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+index 422b9d43b1e64..9f1890d692dfc 100644
+--- a/arch/arm64/kernel/fpsimd.c
++++ b/arch/arm64/kernel/fpsimd.c
+@@ -119,7 +119,7 @@
+  *   whatever is in the FPSIMD registers is not saved to memory, but discarded.
+  */
+ 
+-static DEFINE_PER_CPU(struct cpu_fp_state, fpsimd_last_state);
++DEFINE_PER_CPU(struct cpu_fp_state, fpsimd_last_state);
+ 
+ __ro_after_init struct vl_info vl_info[ARM64_VEC_MAX] = {
+ #ifdef CONFIG_ARM64_SVE
+@@ -451,12 +451,15 @@ static void fpsimd_save_user_state(void)
+ 		*(last->fpmr) = read_sysreg_s(SYS_FPMR);
+ 
+ 	/*
+-	 * If a task is in a syscall the ABI allows us to only
+-	 * preserve the state shared with FPSIMD so don't bother
+-	 * saving the full SVE state in that case.
++	 * Save SVE state if it is live.
++	 *
++	 * The syscall ABI discards live SVE state at syscall entry. When
++	 * entering a syscall, fpsimd_syscall_enter() sets to_save to
++	 * FP_STATE_FPSIMD to allow the SVE state to be lazily discarded until
++	 * either new SVE state is loaded+bound or fpsimd_syscall_exit() is
++	 * called prior to a return to userspace.
+ 	 */
+-	if ((last->to_save == FP_STATE_CURRENT && test_thread_flag(TIF_SVE) &&
+-	     !in_syscall(current_pt_regs())) ||
++	if ((last->to_save == FP_STATE_CURRENT && test_thread_flag(TIF_SVE)) ||
+ 	    last->to_save == FP_STATE_SVE) {
+ 		save_sve_regs = true;
+ 		save_ffr = true;
+-- 
+2.30.2
 
 
