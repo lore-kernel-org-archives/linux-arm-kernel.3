@@ -4,46 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 397C0C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 04:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C01BC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 05:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=o4KqX7P+h7Z5ErpaVh8/xf4UwA6O9To0gC4tmTaqBYI=; b=MI54Qn5zGTjDm8
-	dG1eKNh7HOIeIx49/KZLBkNDGLDX81lD6wW8YqfDkgnwDCkx3hESuwAEUlLS1VX/Asw9OLF3sgWXa
-	/hNUs8zXP6fPdjljne3F87AwRjG3GfihAyvCyatl5ZvgchtzxTvYxd0O3fV0vV2LT8Ek6i6uw8teD
-	r+6plJuNcXcZykt2rNSfm4QDHMRVIT+RrVUXyMf1YcXseNE8j1Ou1IOI79wAAj+RY343SolszVV9u
-	gQ6yk03PNC5ME0pK+JqxPltdbp/BBXEuKSCrViejHexSnkici9iViY3ZFQWybBsC69FUtXPz3ki5b
-	R2442iUpPflv/l+nOPLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+objnduDEdA6XgtoHIMnhtVVZlrAlpTMhfHb5uGFsAo=; b=ktCdWaUls9X5weQE679d8QtShB
+	rkeIIWx5wzPl5u6g8vlcWysDwU84BaNy2z0528vcX6rdhYrOH7q5isoxvK5DsEwjYde4V6v0nbjR8
+	YizpgtyC24DJYzbdX8vzsqGhyGGUv833o77luAjU70iXcSs29klg8rn/O/ogei1SaQutcACW3ANp3
+	SfPPajKMu3Hf9u17a2UaQawfPtPI4uv5rD+FBj7O7nNH8chfIcST1UADsFWhNNoTEV+gbJ0gntqMA
+	t7FSH8kWX3qI2FJG8gC40/Si+kT4Cvct1724h8AdHYF6JxOQh2g+ki5ZV3+Msx1z6hY6feDJCMOWJ
+	l4vVdFqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCtER-0000000HJ1B-3b9F;
-	Thu, 08 May 2025 04:51:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCtAx-0000000HIjY-1ngJ
+	id 1uCtZo-0000000HLZV-1ggE;
+	Thu, 08 May 2025 05:13:44 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCtXp-0000000HLML-2bfm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 04:48:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6F3AC106F;
-	Wed,  7 May 2025 21:47:50 -0700 (PDT)
-Received: from a077893.arm.com (unknown [10.163.54.182])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 069383F5A1;
-	Wed,  7 May 2025 21:47:57 -0700 (PDT)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH V2] arm64/debug: Drop redundant DBG_MDSCR_* macros
-Date: Thu,  8 May 2025 10:17:52 +0530
-Message-Id: <20250508044752.234543-1-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.25.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Thu, 08 May 2025 05:11:42 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-30c1a269a12so296097a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 May 2025 22:11:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1746681100; x=1747285900; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=+objnduDEdA6XgtoHIMnhtVVZlrAlpTMhfHb5uGFsAo=;
+        b=t3/myEYZjwgLa5KVmQ5u+azSNkC250dqDz5Ebvjk9XieeVdGbOMx58LYw6Xbvx5Zmn
+         p6GsJFwSfb2bmb9/lm6Chu7q2OVnj9B31IRpxx+FlNPl5ZRugSh8VjVKCB4TckFnQvsO
+         ZLxtm3rxwfcvvMT+7mxIdytBnSXrB/09tFeqDBMY5Ntln0chYfRF1fB2Xrr3gTI0dGyX
+         jtvH0S/U8uutF61RcsmHB2YO6N65OQjjAsGMhXMaTZHWrCpq6tXHzBrDvRT6Fc5n1Vnk
+         HcUD3u/7dt3e8PRAQ57ELtlKuGCtdrDmwTHaSNUhcE724UCYcn37gcweeNLn8Q++Svgx
+         qUQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746681100; x=1747285900;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=+objnduDEdA6XgtoHIMnhtVVZlrAlpTMhfHb5uGFsAo=;
+        b=wiUEdxifpZaGAMucn7mc99VWCM5ewTemz6/9T/AFMMrOD1BYzUxOZ1kGB3WGh6cG3i
+         kwQ3IAImbB5Snb/zkRDngIvT2aCDUMUoJzxlNed17LpkLASzW/S7Et/eDYX0plAh4PKK
+         WY6wvYCy54QU/xuUbTRnDzDvJVvX5v/R+bjjl4v+fXc0uyYOinirRdHxucPoTft8PvTG
+         YJ3Wtb7lBmcMFZr8Ml4NSzCFjPgdGy/FNbH1a0JYyrjBZXAxz51S9Ix/g+JDpnCXjUdW
+         UED2Pee6vTtdWuAln2P/aJmTMLJ+HOnEQOjCkGEtdS6TnO+oXsPVACg6Y3aTJ6zq2446
+         hwrw==
+X-Forwarded-Encrypted: i=1; AJvYcCXjr5Ie+SjG2OfrbNI2kGOprVLQLQ0YkdDtdWe1lou4FJrEIkQqaUR1KGuJaEfpQg5i4e5P5V/cUd+d1tj3GNff@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRBk9hrenR1lVRXCNszW0uHTMUOZytIXY23XSD9jdrwsw3oPeU
+	NcaGjLz11+Au4nQLienlOQhzCIjKE9Z11bZ4jk9PPuBk0qRSlWzJ7oMdmJuwS8d/QzphtQmyO0C
+	qNw==
+X-Google-Smtp-Source: AGHT+IGGonQAPWDxdBzLe2Ueqgy+uFD50vWf7E5zkm1R2s+R8YnCic3HHOe1DuE+B2Hm8cJPIF79XW+rfBQ=
+X-Received: from pjj15.prod.google.com ([2002:a17:90b:554f:b0:2ef:95f4:4619])
+ (user=amitsd job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4a89:b0:309:fd87:820e
+ with SMTP id 98e67ed59e1d1-30b3a6d7b70mr2372936a91.26.1746681100133; Wed, 07
+ May 2025 22:11:40 -0700 (PDT)
+Date: Wed,  7 May 2025 22:08:50 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.49.0.987.g0cc8ee98dc-goog
+Message-ID: <20250508050856.674782-1-amitsd@google.com>
+Subject: [PATCH v1 0/2] Add graph connections between tcpc & fg for Pixel 6
+From: Amit Sunil Dhamne <amitsd@google.com>
+To: sre@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	peter.griffin@linaro.org
+Cc: andre.draszik@linaro.org, badhri@google.com, tudor.ambarus@linaro.org, 
+	alim.akhtar@samsung.com, dima.fedrau@gmail.com, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	Amit Sunil Dhamne <amitsd@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_214803_554504_5D3B007B 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20250507_221141_677829_2FE19B61 
+X-CRM114-Status: UNSURE (   7.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -55,217 +89,36 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MDSCR_EL1 has already been defined in tools sysreg format and hence can be
-used in all debug monitor related call paths. Subsequently all DBG_MDSCR_*
-macros become redundant and hence can be dropped off completely. While here
-convert all variables handling MDSCR_EL1 register as u64 which reflects its
-true width as well.
+max77759 Type-C controller supplies VBUS into & out of (depending on the
+charging mode) the battery in Pixel 6. In order to represent this
+relationship, we use graph to connect tcpc & fuel gauge.
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
-This patch applies on v6.15-rc5
+Link to USB connector binding that this patchset uses:
+ - https://lore.kernel.org/all/20250507-batt_ops-v2-1-8d06130bffe6@google.com/
 
-Changes in V2:
+This patchset depends on the following:
+ - https://lore.kernel.org/all/20250421-b4-gs101_max77759_fg-v3-0-50cd8caf9017@uclouvain.be/
 
-- Changed reg, val width to u64 in cortex_a76_erratum_1463225_svc_handler() per Ada
-- Changed mdscr register width to uint64_t in enable_monitor_debug_exceptions() and
-  install_ss() per Ada
-    
-Changes in V1:
+Amit Sunil Dhamne (2):
+  dt-bindings: power: supply: max17201: add port property
+  arm64: dts: exynos: gs101-pixel-common: add graph property to connect
+    tcpc & fg
 
-https://lore.kernel.org/all/20250417105253.3188976-1-anshuman.khandual@arm.com/
+ .../bindings/power/supply/maxim,max17201.yaml      |  5 +++++
+ .../boot/dts/exynos/google/gs101-pixel-common.dtsi | 14 ++++++++++++++
+ 2 files changed, 19 insertions(+)
 
- arch/arm64/include/asm/assembler.h            |  4 ++--
- arch/arm64/include/asm/debug-monitors.h       |  6 -----
- arch/arm64/kernel/debug-monitors.c            | 22 +++++++++----------
- arch/arm64/kernel/entry-common.c              |  4 ++--
- .../selftests/kvm/arm64/debug-exceptions.c    |  4 ++--
- 5 files changed, 17 insertions(+), 23 deletions(-)
 
-diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
-index ad63457a05c5..f229d96616e5 100644
---- a/arch/arm64/include/asm/assembler.h
-+++ b/arch/arm64/include/asm/assembler.h
-@@ -53,7 +53,7 @@
- 	.macro	disable_step_tsk, flgs, tmp
- 	tbz	\flgs, #TIF_SINGLESTEP, 9990f
- 	mrs	\tmp, mdscr_el1
--	bic	\tmp, \tmp, #DBG_MDSCR_SS
-+	bic	\tmp, \tmp, #MDSCR_EL1_SS
- 	msr	mdscr_el1, \tmp
- 	isb	// Take effect before a subsequent clear of DAIF.D
- 9990:
-@@ -63,7 +63,7 @@
- 	.macro	enable_step_tsk, flgs, tmp
- 	tbz	\flgs, #TIF_SINGLESTEP, 9990f
- 	mrs	\tmp, mdscr_el1
--	orr	\tmp, \tmp, #DBG_MDSCR_SS
-+	orr	\tmp, \tmp, #MDSCR_EL1_SS
- 	msr	mdscr_el1, \tmp
- 9990:
- 	.endm
-diff --git a/arch/arm64/include/asm/debug-monitors.h b/arch/arm64/include/asm/debug-monitors.h
-index 8f6ba31b8658..1f37dd01482b 100644
---- a/arch/arm64/include/asm/debug-monitors.h
-+++ b/arch/arm64/include/asm/debug-monitors.h
-@@ -13,14 +13,8 @@
- #include <asm/ptrace.h>
- 
- /* Low-level stepping controls. */
--#define DBG_MDSCR_SS		(1 << 0)
- #define DBG_SPSR_SS		(1 << 21)
- 
--/* MDSCR_EL1 enabling bits */
--#define DBG_MDSCR_KDE		(1 << 13)
--#define DBG_MDSCR_MDE		(1 << 15)
--#define DBG_MDSCR_MASK		~(DBG_MDSCR_KDE | DBG_MDSCR_MDE)
--
- #define	DBG_ESR_EVT(x)		(((x) >> 27) & 0x7)
- 
- /* AArch64 */
-diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-index 58f047de3e1c..08f1d02507cd 100644
---- a/arch/arm64/kernel/debug-monitors.c
-+++ b/arch/arm64/kernel/debug-monitors.c
-@@ -34,7 +34,7 @@ u8 debug_monitors_arch(void)
- /*
-  * MDSCR access routines.
-  */
--static void mdscr_write(u32 mdscr)
-+static void mdscr_write(u64 mdscr)
- {
- 	unsigned long flags;
- 	flags = local_daif_save();
-@@ -43,7 +43,7 @@ static void mdscr_write(u32 mdscr)
- }
- NOKPROBE_SYMBOL(mdscr_write);
- 
--static u32 mdscr_read(void)
-+static u64 mdscr_read(void)
- {
- 	return read_sysreg(mdscr_el1);
- }
-@@ -79,16 +79,16 @@ static DEFINE_PER_CPU(int, kde_ref_count);
- 
- void enable_debug_monitors(enum dbg_active_el el)
- {
--	u32 mdscr, enable = 0;
-+	u64 mdscr, enable = 0;
- 
- 	WARN_ON(preemptible());
- 
- 	if (this_cpu_inc_return(mde_ref_count) == 1)
--		enable = DBG_MDSCR_MDE;
-+		enable = MDSCR_EL1_MDE;
- 
- 	if (el == DBG_ACTIVE_EL1 &&
- 	    this_cpu_inc_return(kde_ref_count) == 1)
--		enable |= DBG_MDSCR_KDE;
-+		enable |= MDSCR_EL1_KDE;
- 
- 	if (enable && debug_enabled) {
- 		mdscr = mdscr_read();
-@@ -100,16 +100,16 @@ NOKPROBE_SYMBOL(enable_debug_monitors);
- 
- void disable_debug_monitors(enum dbg_active_el el)
- {
--	u32 mdscr, disable = 0;
-+	u64 mdscr, disable = 0;
- 
- 	WARN_ON(preemptible());
- 
- 	if (this_cpu_dec_return(mde_ref_count) == 0)
--		disable = ~DBG_MDSCR_MDE;
-+		disable = ~MDSCR_EL1_MDE;
- 
- 	if (el == DBG_ACTIVE_EL1 &&
- 	    this_cpu_dec_return(kde_ref_count) == 0)
--		disable &= ~DBG_MDSCR_KDE;
-+		disable &= ~MDSCR_EL1_KDE;
- 
- 	if (disable) {
- 		mdscr = mdscr_read();
-@@ -415,7 +415,7 @@ void kernel_enable_single_step(struct pt_regs *regs)
- {
- 	WARN_ON(!irqs_disabled());
- 	set_regs_spsr_ss(regs);
--	mdscr_write(mdscr_read() | DBG_MDSCR_SS);
-+	mdscr_write(mdscr_read() | MDSCR_EL1_SS);
- 	enable_debug_monitors(DBG_ACTIVE_EL1);
- }
- NOKPROBE_SYMBOL(kernel_enable_single_step);
-@@ -423,7 +423,7 @@ NOKPROBE_SYMBOL(kernel_enable_single_step);
- void kernel_disable_single_step(void)
- {
- 	WARN_ON(!irqs_disabled());
--	mdscr_write(mdscr_read() & ~DBG_MDSCR_SS);
-+	mdscr_write(mdscr_read() & ~MDSCR_EL1_SS);
- 	disable_debug_monitors(DBG_ACTIVE_EL1);
- }
- NOKPROBE_SYMBOL(kernel_disable_single_step);
-@@ -431,7 +431,7 @@ NOKPROBE_SYMBOL(kernel_disable_single_step);
- int kernel_active_single_step(void)
- {
- 	WARN_ON(!irqs_disabled());
--	return mdscr_read() & DBG_MDSCR_SS;
-+	return mdscr_read() & MDSCR_EL1_SS;
- }
- NOKPROBE_SYMBOL(kernel_active_single_step);
- 
-diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index b260ddc4d3e9..34d9205b4764 100644
---- a/arch/arm64/kernel/entry-common.c
-+++ b/arch/arm64/kernel/entry-common.c
-@@ -344,7 +344,7 @@ static DEFINE_PER_CPU(int, __in_cortex_a76_erratum_1463225_wa);
- 
- static void cortex_a76_erratum_1463225_svc_handler(void)
- {
--	u32 reg, val;
-+	u64 reg, val;
- 
- 	if (!unlikely(test_thread_flag(TIF_SINGLESTEP)))
- 		return;
-@@ -354,7 +354,7 @@ static void cortex_a76_erratum_1463225_svc_handler(void)
- 
- 	__this_cpu_write(__in_cortex_a76_erratum_1463225_wa, 1);
- 	reg = read_sysreg(mdscr_el1);
--	val = reg | DBG_MDSCR_SS | DBG_MDSCR_KDE;
-+	val = reg | MDSCR_EL1_SS | MDSCR_EL1_KDE;
- 	write_sysreg(val, mdscr_el1);
- 	asm volatile("msr daifclr, #8");
- 	isb();
-diff --git a/tools/testing/selftests/kvm/arm64/debug-exceptions.c b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
-index c7fb55c9135b..e34963956fbc 100644
---- a/tools/testing/selftests/kvm/arm64/debug-exceptions.c
-+++ b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
-@@ -140,7 +140,7 @@ static void enable_os_lock(void)
- 
- static void enable_monitor_debug_exceptions(void)
- {
--	uint32_t mdscr;
-+	uint64_t mdscr;
- 
- 	asm volatile("msr daifclr, #8");
- 
-@@ -223,7 +223,7 @@ void install_hw_bp_ctx(uint8_t addr_bp, uint8_t ctx_bp, uint64_t addr,
- 
- static void install_ss(void)
- {
--	uint32_t mdscr;
-+	uint64_t mdscr;
- 
- 	asm volatile("msr daifclr, #8");
- 
+base-commit: 92a09c47464d040866cf2b4cd052bc60555185fb
+prerequisite-patch-id: 74aa0a6fc4a5c56d870bb15375fad1fe41ffc1e9
+prerequisite-patch-id: 46f968300dcf5442e12d882ca23168494249d378
+prerequisite-patch-id: 3ad83a2782819bca215bb267d36a1ff04fe557b2
+prerequisite-patch-id: 86b5207d8f44255c36b1e600ecdf4f948c5da685
+prerequisite-patch-id: a15532888ff2572696d9fa6a14775e8ebf590391
 -- 
-2.25.1
+2.49.0.987.g0cc8ee98dc-goog
 
 
