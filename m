@@ -4,99 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA740C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 May 2025 23:56:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C20C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 00:26:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fLNwEV8SgZJkGHrUBzZ9lp1C8q+dL6Ko3cbg0++18Zo=; b=lx2TU8mLTd+W61p6AwS3mJb25P
-	ZmPWOcjUwpXdgRroF4WrmvH585tTFLwmyvY7XDyHCeGMsE8XcxnLl5OSgKeEkfCi3laArlRFcrml1
-	EIAXO0qlN0LibtNnco0cHof5ldQtmntaF+pg2TQfaCWLBiUSW/bc7DBfRT62gHzBfAiy7Mf8aD/oS
-	yQinazMJSG6yLC3WXXu3u3EnqTaTcc38Squ13b8igLZTAQXqdw6MPeD32zl8WrmEpuZZJBWifEzpQ
-	Pdq0D1VUYzRQFVxJz/6ykuNn8GICH4b5m9S4xWAgfXkiqYC3jfuVzWQVKdWTW0qxBhUIBhIIsVE7X
-	pBUEi1ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2gExe4UUIf70zdOjJu5jsWMDA9jFycb5huYLAdDG+iA=; b=oJ/Ih/y6P+95so+d7wQ+DNHLwb
+	5h13JBAUHQQEB9P/wvVFelSd9xrxG1oYbF5ERQ1Bni0IDn+eqMJvsRe9dmCy3JrvsAPsr1hF3F+S+
+	45MRsTWhInG871xdcjzDwOWfAo/gNp4z7t4GNg6CGIokWftSU7Zcc5wSUrGLeryHFUywWxv6xUxWR
+	vM/1zg4p23V38l7eWd60+OpFPhhL/2XJcmhkTLhSlzjH6dQBxey8f8P5yxZbk/QuUoagIQvFzjB0p
+	1RCaRgTfugYkF32ycd9WFKlVKxZw13BItA04udHZflo8UoytgtNqc2hGjKvqArTGpJIyJemejKZ/o
+	hkmMrjUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCocz-0000000H0B0-1Q1E;
-	Wed, 07 May 2025 23:56:41 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1uCp5y-0000000H21c-484Z;
+	Thu, 08 May 2025 00:26:38 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCoaz-0000000H00w-0noq;
-	Wed, 07 May 2025 23:54:38 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-af908bb32fdso404979a12.1;
-        Wed, 07 May 2025 16:54:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746662076; x=1747266876; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=fLNwEV8SgZJkGHrUBzZ9lp1C8q+dL6Ko3cbg0++18Zo=;
-        b=EmDx6nrg3BiG3co8U4id1WAdDAkr87SuwWPCAOnB9ZF0scg24kTiCYh7cCLqB9cbjV
-         M8dpVn0f2eMlyHm0LMqiWA/Ybl+Wr9GgA+duK1IKUhDxKjdB6lLFUSWDJzIR6DA42cFh
-         zmsdI6fipYerXv8yUVHZjYAz+hShnowpHmDUhj51ev89kJFzqw+qA9VzLClrdhINklNk
-         FkQAc71gmS7fEyR2qY55KLvCgZsAgVWScrctuvYcbR2TMbekVTk3rdKk1pAz1wXBM0aD
-         kgJMyEtphXxxNkgNbEYmV5phoKJUmIQGrMoZyepKiHUFy4z9f44XzQMtaVmOuWnbRNtI
-         Q2Hw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746662076; x=1747266876;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fLNwEV8SgZJkGHrUBzZ9lp1C8q+dL6Ko3cbg0++18Zo=;
-        b=PJ/LoME93L+6qOU0M2X3hZ4LyXbJn0zWccmCNIZPia6V35c2nS/TWzg2Q+8wliKC3W
-         mO2/6z2OBDb197r3vadfaiq05S9+EQ6xQui41dukhlgd40qQHkfpDdR/KUDoymSEI+jT
-         HjUvOx07zqmJbCkLluhckZuZJ3at5gH1iWX6OwYbfWbycIxTHotZ2bKoeBhKrC9xKb0e
-         zN+DQtC3m4rq7e/fr7frXjXz5fcm8daq0XZXq10ADL8cQue/oPDqT2vLv+zd74y7aq2w
-         fjebMiFhW5SGORViX1KTY2w3e67QmFzHGtSKDcC+/7goOqXhRdUGdAoMA5ni+IoewH2y
-         gHDQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWppHBo1vcGDk7VAhrGKoGTnpB9jggYhoQNl3rEj5HSrbElXxQm4DJvrPoV3U8zaI/Rcmqi4QgeLReYXg0leo9mXQ==@lists.infradead.org, AJvYcCWxoLmE0cAs5GtXERIcPYJoem6sydiWZcMCDgHjkZkEMxHjn3CcvtxhMC+FS/TmQ/qiiGYp2A==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7+ItU9+3iodpn85jAahy8RDRV7CT5FVctSnnhh4+Src/mNoGD
-	YLA7CauR+d5+V0Kzdu5mTlm7kQOH0pB18cHFlRIH5dQrfCmOvvam
-X-Gm-Gg: ASbGncvLqvc8SU49op0mkj0wZnT1s0bzBfkQwScnQX7RFl34gbTxgUdeePh0EPuIBPK
-	RDANhs9MQnfO8Byt0gN3tjKDw4q8NGhlGZ2nYo8PP7B3KumoyyVgK7bmJB2xD+J9E/JIjbEe/bV
-	QgXwdxFHpPtVoFGNbZNHVanUp/mC9CbDra91+0uXb3o2XyhgBlWr0XsP94cTHFFqfNa2x8RIeBP
-	I9W1hy9cuJoXntBSth+ZfNmGzAl74SBmpgb9iXnzylZIupnBLYacE6GNP7CAavJfaashz/LvNXS
-	hcBu292vrk6nrqTUBV7BwLDrIfWxK5EqPuu04Kj/
-X-Google-Smtp-Source: AGHT+IHhK4fQ0eXffxWp3og4eay8JmyRcAaEmd9mi0QFw/ybw320/zjs9kUfsYWXYw9PozpDfctKkQ==
-X-Received: by 2002:a05:6a21:32a6:b0:20a:942:47e9 with SMTP id adf61e73a8af0-21599fcc6admr2320890637.6.1746662075529;
-        Wed, 07 May 2025 16:54:35 -0700 (PDT)
-Received: from archie.me ([103.124.138.155])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74058d7a225sm11870093b3a.23.2025.05.07.16.54.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 May 2025 16:54:34 -0700 (PDT)
-Received: by archie.me (Postfix, from userid 1000)
-	id 5AB6041E8D47; Thu, 08 May 2025 06:54:32 +0700 (WIB)
-Date: Thu, 8 May 2025 06:54:32 +0700
-From: Bagas Sanjaya <bagasdotme@gmail.com>
-To: Changyuan Lyu <changyuanl@google.com>, akpm@linux-foundation.org
-Cc: anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
-	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
-	corbet@lwn.net, dave.hansen@linux.intel.com,
-	devicetree@vger.kernel.org, dwmw2@infradead.org,
-	ebiederm@xmission.com, graf@amazon.com, hpa@zytor.com,
-	jgowans@amazon.com, kexec@lists.infradead.org, krzk@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org,
-	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com,
-	pbonzini@redhat.com, peterz@infradead.org, ptyadav@amazon.de,
-	robh@kernel.org, rostedt@goodmis.org, rppt@kernel.org,
-	saravanak@google.com, skinsburskii@linux.microsoft.com,
-	tglx@linutronix.de, thomas.lendacky@amd.com, will@kernel.org,
-	x86@kernel.org
-Subject: Re: [PATCH v7 17/18] Documentation: add documentation for KHO
-Message-ID: <aBvyuKI3i4z_3xSG@archie.me>
-References: <aBl0kUIKryH5AUD5@archie.me>
- <20250507173840.2541517-1-changyuanl@google.com>
+	id 1uCp41-0000000H1fB-1JxH
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 May 2025 00:24:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B81215C5DB2;
+	Thu,  8 May 2025 00:22:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96F3CC4CEE2;
+	Thu,  8 May 2025 00:24:33 +0000 (UTC)
+Date: Wed, 7 May 2025 20:24:44 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ jstultz@google.com, qperret@google.com, will@kernel.org,
+ kernel-team@android.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 02/24] tracing: Introduce trace remotes
+Message-ID: <20250507202444.43963c84@gandalf.local.home>
+In-Reply-To: <20250506164820.515876-3-vdonnefort@google.com>
+References: <20250506164820.515876-1-vdonnefort@google.com>
+	<20250506164820.515876-3-vdonnefort@google.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="zRFld30/pgx52G1k"
-Content-Disposition: inline
-In-Reply-To: <20250507173840.2541517-1-changyuanl@google.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_165437_237679_F1C404FF 
-X-CRM114-Status: GOOD (  32.51  )
+X-CRM114-CacheID: sfid-20250507_172437_470045_4F6CB853 
+X-CRM114-Status: GOOD (  15.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,156 +67,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue,  6 May 2025 17:47:58 +0100
+Vincent Donnefort <vdonnefort@google.com> wrote:
 
---zRFld30/pgx52G1k
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> +
+> +static bool trace_remote_loaded(struct trace_remote *remote)
+> +{
+> +	return remote->trace_buffer;
+> +}
+> +
+> +static bool trace_remote_busy(struct trace_remote *remote)
 
-On Wed, May 07, 2025 at 10:38:40AM -0700, Changyuan Lyu wrote:
-> From: Changyuan Lyu <changyuanl@google.com>
-> Date: Wed, 7 May 2025 10:14:34 -0700
-> Subject: [PATCH] fixup! Documentation: add documentation for KHO
->=20
-> Signed-off-by: Changyuan Lyu <changyuanl@google.com>
-> ---
->  Documentation/admin-guide/mm/kho.rst    | 29 ++++++++++---------------
->  Documentation/core-api/kho/concepts.rst |  4 ++--
->  Documentation/core-api/kho/fdt.rst      |  2 +-
->  3 files changed, 15 insertions(+), 20 deletions(-)
->=20
-> diff --git a/Documentation/admin-guide/mm/kho.rst b/Documentation/admin-g=
-uide/mm/kho.rst
-> index c64aa7aadb300..6dc18ed4b8861 100644
-> --- a/Documentation/admin-guide/mm/kho.rst
-> +++ b/Documentation/admin-guide/mm/kho.rst
-> @@ -8,14 +8,14 @@ Kexec HandOver (KHO) is a mechanism that allows Linux t=
-o preserve memory
->  regions, which could contain serialized system states, across kexec.
->=20
->  This document expects that you are familiar with the base KHO
-> -:ref:`concepts <concepts>`. If you have not read
-> +:ref:`concepts <kho-concepts>`. If you have not read
->  them yet, please do so now.
->=20
->  Prerequisites
->  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->=20
-> -KHO is available when the ``CONFIG_KEXEC_HANDOVER`` config option is set=
- to y
-> -at compile time. Every KHO producer may have its own config option that =
-you
-> +KHO is available when the kernel is compiled with ``CONFIG_KEXEC_HANDOVE=
-R``
-> +set to y. Every KHO producer may have its own config option that you
->  need to enable if you would like to preserve their respective state acro=
-ss
->  kexec.
->=20
-> @@ -29,7 +29,7 @@ Perform a KHO kexec
->  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->=20
->  First, before you perform a KHO kexec, you need to move the system into
-> -the :ref:`KHO finalization phase <finalization_phase>` ::
-> +the :ref:`KHO finalization phase <kho-finalization-phase>` ::
->=20
->    $ echo 1 > /sys/kernel/debug/kho/out/finalize
->=20
-> @@ -43,7 +43,7 @@ use the ``-s`` parameter to use the in-kernel kexec fil=
-e loader, as user
->  space kexec tooling currently has no support for KHO with the user space
->  based file loader ::
->=20
-> -  # kexec -l Image --initrd=3Dinitrd -s
-> +  # kexec -l /path/to/Image --initrd /path/to/initrd -s
->    # kexec -e
->=20
->  The new kernel will boot up and contain some of the previous kernel's st=
-ate.
-> @@ -89,20 +89,15 @@ stabilized.
->      as input file for the KHO payload image.
->=20
->  ``/sys/kernel/debug/kho/out/scratch_len``
-> -    To support continuous KHO kexecs, we need to reserve
-> -    physically contiguous memory regions that will always stay
-> -    available for future kexec allocations. This file describes
-> -    the length of these memory regions. Kexec user space tooling
-> -    can use this to determine where it should place its payload
-> -    images.
-> +    Lengths of KHO scratch regions, which are physically contiguous
-> +    memory regions that will always stay available for future kexec
-> +    allocations. Kexec user space tools can use this file to determine
-> +    where it should place its payload images.
->=20
->  ``/sys/kernel/debug/kho/out/scratch_phys``
-> -    To support continuous KHO kexecs, we need to reserve
-> -    physically contiguous memory regions that will always stay
-> -    available for future kexec allocations. This file describes
-> -    the physical location of these memory regions. Kexec user space
-> -    tooling can use this to determine where it should place its
-> -    payload images.
-> +    Physical locations of KHO scratch regions. Kexec user space tools
-> +    can use this file in conjunction to scratch_phys to determine where
-> +    it should place its payload images.
->=20
->  ``/sys/kernel/debug/kho/out/sub_fdts/``
->      In the KHO finalization phase, KHO producers register their own
-> diff --git a/Documentation/core-api/kho/concepts.rst b/Documentation/core=
--api/kho/concepts.rst
-> index f1826ac10da75..36d5c05cfb307 100644
-> --- a/Documentation/core-api/kho/concepts.rst
-> +++ b/Documentation/core-api/kho/concepts.rst
-> @@ -1,5 +1,5 @@
->  .. SPDX-License-Identifier: GPL-2.0-or-later
-> -.. _concepts:
-> +.. _kho-concepts:
->=20
->  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->  Kexec Handover Concepts
-> @@ -56,7 +56,7 @@ for boot memory allocations and as target memory for ke=
-xec blobs, some parts
->  of that memory region may be reserved. These reservations are irrelevant=
- for
->  the next KHO, because kexec can overwrite even the original kernel.
->=20
-> -.. _finalization_phase:
-> +.. _kho-finalization-phase:
->=20
->  KHO finalization phase
->  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> diff --git a/Documentation/core-api/kho/fdt.rst b/Documentation/core-api/=
-kho/fdt.rst
-> index 4a5d53c670d4b..62505285d60d6 100644
-> --- a/Documentation/core-api/kho/fdt.rst
-> +++ b/Documentation/core-api/kho/fdt.rst
-> @@ -32,7 +32,7 @@ KHO process will be bypassed.
->  Property ``fdt``
->  ----------------
->=20
-> -Generally, A KHO user serialize its state into its own FDT and instructs
-> +Generally, a KHO user serialize its state into its own FDT and instructs
->  KHO to preserve the underlying memory, such that after kexec, the new ke=
-rnel
->  can recover its state from the preserved FDT.
->=20
+Can you add comments to what these functions are doing?
 
-Looks good.
+Doesn't need to be kerneldoc (it actually shouldn't be), but describe why
+they would return true and why they would return false.
 
-Thanks.
+> +{
+> +	return trace_remote_loaded(remote) &&
+> +		(remote->nr_readers || remote->tracing_on ||
+> +		 !ring_buffer_empty(remote->trace_buffer));
+> +}
+> +
+> +static int trace_remote_load(struct trace_remote *remote)
+> +{
+> +	struct ring_buffer_remote *rb_remote = &remote->rb_remote;
+> +
+> +	lockdep_assert_held(&remote->lock);
+> +
+> +	if (trace_remote_loaded(remote))
+> +		return 0;
+> +
+> +	remote->trace_buffer_desc = remote->cbs->load_trace_buffer(remote->trace_buffer_size,
+> +								   remote->priv);
+> +	if (!remote->trace_buffer_desc)
+> +		return -ENOMEM;
 
---=20
-An old man doll... just what I always wanted! - Clara
+The error may not be -ENOMEM, have the load_trace_buffer return an ERR_PTR
+and then you can return:
 
---zRFld30/pgx52G1k
-Content-Type: application/pgp-signature; name=signature.asc
+	if (IS_ERR(remote->trace_buffer_desc)
+		return PTR_ERR(remote->trace_buffer_desc);
 
------BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCaBvyuAAKCRD2uYlJVVFO
-o38OAP0S2nuy3loMuC8zH7tkpPoIY66aWe/gz0KYX9I9KbADyAEAiwNKd6K9jY8l
-qW+w4NnoiMRcH659o8/VFU3sEV3Tegw=
-=bbPy
------END PGP SIGNATURE-----
+> +
+> +	rb_remote->desc = remote->trace_buffer_desc;
+> +	rb_remote->swap_reader_page = remote->cbs->swap_reader_page;
+> +	rb_remote->priv = remote->priv;
+> +	remote->trace_buffer = ring_buffer_remote(rb_remote);
+> +	if (!remote->trace_buffer) {
 
---zRFld30/pgx52G1k--
+Same here.
+
+> +		remote->cbs->unload_trace_buffer(remote->trace_buffer_desc, remote->priv);
+> +		return -ENOMEM;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void trace_remote_unload(struct trace_remote *remote)
+> +{
+> +	lockdep_assert_held(&remote->lock);
+> +
+> +	if (!trace_remote_loaded(remote) || trace_remote_busy(remote))
+> +		return;
+
+Can this cause leaks? Should trace_remote_unload() return an error value to
+let the caller know it wasn't unloaded?
+
+> +
+> +	ring_buffer_free(remote->trace_buffer);
+> +	remote->trace_buffer = NULL;
+> +	remote->cbs->unload_trace_buffer(remote->trace_buffer_desc, remote->priv);
+> +}
+> +
+
+Short description of what trace_remote_start does.
+
+> +static int trace_remote_start(struct trace_remote *remote)
+> +{
+> +	int ret;
+> +
+> +	lockdep_assert_held(&remote->lock);
+> +
+> +	if (remote->tracing_on)
+> +		return 0;
+> +
+> +	ret = trace_remote_load(remote);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = remote->cbs->enable_tracing(true, remote->priv);
+> +	if (ret) {
+> +		trace_remote_unload(remote);
+> +		return ret;
+> +	}
+> +
+> +	remote->tracing_on = true;
+> +
+> +	return 0;
+> +}
+> +
+
+Same for stop.
+
+-- Steve
+
+> +static int trace_remote_stop(struct trace_remote *remote)
+> +{
+> +	int ret;
+> +
+> +	lockdep_assert_held(&remote->lock);
+> +
+> +	if (!remote->tracing_on)
+> +		return 0;
+> +
+> +	ret = remote->cbs->enable_tracing(false, remote->priv);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ring_buffer_poll_remote(remote->trace_buffer, RING_BUFFER_ALL_CPUS);
+> +	remote->tracing_on = false;
+> +	trace_remote_unload(remote);
+> +
+> +	return 0;
+> +}
 
