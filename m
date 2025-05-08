@@ -4,53 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FCC8C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 09:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F337C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 09:54:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MDkZKwvkaezuvEMVbs7f4PEnq7eRHWJSE+oBTyRgKuY=; b=U3sVH21i9HhBTHI2C8+1xO3ztI
-	P/1Za5Dglaqymgcd6sQs8OMdMNmw7IN660YJtR1abh9CnQKVUtvr63SQPoRDPv0TNdoobBAgaDdVu
-	TQ/KkE5Rj1cfbyqIq4IKwF8suQzYCI+9tdysR0gj501w6tbZ0LlrJkgW2aGne74MajPMBn/xm+NG9
-	B0H/P+aC4/YaTfi+livQmXJKqBOd0Gs8DDXhkgh/oN9GtLYGRyeFk800DerO+V8Cqoq4/tFjcF1JC
-	sJhr/DGDK1bn9KjmYSffKyMGCMIWbK/SIGopONKFbUAB4vR8F9+BNEaUvhQ8F2fDTYftefdSke4Ml
-	xv/TlHXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+HmAsO68wIoHkKrkmlfLUqA9TnoceoW6z4dm3cITFfs=; b=yJ8mI/WUv6rrGaumO3f5yBQK7d
+	Nxm39HltRYMmY0bYm/RW8IbJ5MzjoNuXik1umXizNvS5lOeruU4T/LIjQNLdF7R4vXTYmgxj6bpbx
+	0Zbc8rdrLvaCClCzbQCQcoBZ4TCVMWKvrb14eqXbd1ruI/lxuZ+r9YOUe8mky3xPP/tN7K6eG5RQF
+	1Kpbs40nE5pIRcHrpovAoFRNUi0UXRLunOjwVXNBOKib8L5RGx9Z7LmTBPTsjYKy1XJwi7uGHTD6m
+	uPoe29kD/OLk/BYdEWq/aNwa3ceprgeUzPQYOIUryl545H9Bk/kCwpjUhen3bWrCeq4YYEtr+kBiY
+	eISAY+iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCxvP-00000000JKZ-06k9;
-	Thu, 08 May 2025 09:52:19 +0000
+	id 1uCxxK-00000000JaI-3AFW;
+	Thu, 08 May 2025 09:54:18 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCxSN-00000000FAl-0f0A
+	id 1uCxWz-00000000Fqg-0fkJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 09:22:20 +0000
+	Thu, 08 May 2025 09:27:06 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 30F5E106F;
-	Thu,  8 May 2025 02:22:06 -0700 (PDT)
-Received: from [10.57.90.222] (unknown [10.57.90.222])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE0FB3F673;
-	Thu,  8 May 2025 02:22:14 -0700 (PDT)
-Message-ID: <0c6455f1-5a7b-4ae3-b7f8-7f163b6abc9a@arm.com>
-Date: Thu, 8 May 2025 10:22:13 +0100
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 506D2106F;
+	Thu,  8 May 2025 02:26:54 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3BD493F673;
+	Thu,  8 May 2025 02:27:02 -0700 (PDT)
+Date: Thu, 8 May 2025 10:26:59 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Per Larsen <perl@immunant.com>, armellel@google.com, arve@android.com,
+	Sudeep Holla <sudeep.holla@arm.com>, catalin.marinas@arm.com,
+	kernel-team@android.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	qperret@google.com, sebastianene@google.com, will@kernel.org,
+	yuzenghui@huawei.com, Per Larsen <perlarsen@google.com>
+Subject: Re: [PATCH 1/3] KVM: arm64: Restrict FF-A host version renegotiation
+Message-ID: <20250508-spectral-sage-whippet-4f7ac2@sudeepholla>
+References: <CA+AY4XcaJa1_U3qXQUBj4wZJYc9hKmRX8FTNeDvV2auEnC_WrA@mail.gmail.com>
+ <86r017h00e.wl-maz@kernel.org>
+ <aBnNXyJn818ZEKOS@google.com>
+ <8634dfh47q.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: mm: Drop redundant check in pmd_trans_huge()
-Content-Language: en-GB
-To: Gavin Shan <gshan@redhat.com>, linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
- anshuman.khandual@arm.com, dev.jain@arm.com, peterx@redhat.com,
- joey.gouly@arm.com, yangyicong@hisilicon.com, shan.gavin@gmail.com
-References: <20250508085251.204282-1-gshan@redhat.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250508085251.204282-1-gshan@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <8634dfh47q.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_022219_287408_EFB56373 
-X-CRM114-Status: GOOD (  20.75  )
+X-CRM114-CacheID: sfid-20250508_022705_247160_54147EE6 
+X-CRM114-Status: GOOD (  27.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,88 +70,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/05/2025 09:52, Gavin Shan wrote:
-> pmd_val(pmd) is redundant because a positive pmd_present(pmd) ensures
-> a positive pmd_val(pmd) according to their definitions like below.
+(just adding some additional info not particularly impacting the $subject
+ change implementation)
+
+On Thu, May 08, 2025 at 09:55:05AM +0100, Marc Zyngier wrote:
+> On Tue, 06 May 2025 10:29:41 +0100,
+> Per Larsen <perl@immunant.com> wrote:
+> > 
+
+[...]
+
+> > Asssuming we drop this patch from the series and apply the rest, the
+> > hypervisor and host can negotiate FF-A 1.2. If the host then calls
+> > FFA_VERSION a second time to request FF-A 1.1, the hypervisor would
+> > return version 1.2 (without this patch).
 > 
->   #define pmd_val(x)       ((x).pmd)
->   #define pmd_present(pmd) pte_present(pmd_pte(pmd))
->   #define pte_present(pte) (pte_valid(pte) || pte_present_invalid(pte))
->   #define pte_valid(pte)   (!!(pte_val(pte) & PTE_VALID))
->   #define pte_present_invalid(pte) \
->           ((pte_val(pte) & (PTE_VALID | PTE_PRESENT_INVALID)) == PTE_PRESENT_INVALID)
+> Why would it do that? Once a particular version has been negotiated, I
+> expect to be immutable.
 > 
-> pte_present() can't be positive unless either of the flag PTE_VALID or
-> PTE_PRESENT_INVALID is set. In this case, pmd_val(pmd) should be positive
-> either.
+
+Not suggesting that we need to support this, but it is technically possible
+today by loading FF-A as a module—first inserting and removing a module with
+v1.2 support, then loading one with v1.1 support. It can ever throw error
+as not supported to keep it simple.
+
+> > Per the spec, that means the
+> > host is can use the compatibility rules (DEN0077A Sec 13.2.1) to go
+> > ahead and use FF-A 1.1 (every function in 1.A must work in a compatible
+> > way in 1.B if B>A).
 > 
-> So lets drop the redundant check pmd_val(pmd) and no functional changes
-> intended.
+> I don't interpret this as "you can switch between versions" after the
+> initial negotiation.
 > 
-> Signed-off-by: Gavin Shan <gshan@redhat.com>
-> Reviewed-by: Dev Jain <dev.jain@arm.com>
-> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
-> v1: https://lore.kernel.org/linux-arm-kernel/4e5941f8-7e61-4a63-a669-bee1601093a6@arm.com/T/#u
-> v2: Improved commit log per Anshuman
-> ---
->  arch/arm64/include/asm/pgtable.h | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
+
+Agreed.
+
+> > However, the hypervisor negotiated version stays at 1.2 so it will use
+> > SMCCC 1.2 for 64-bit interfaces. The host has no way of knowing this and
+> > might as well assume that the hypervisor was implemented to fall back to
+> > SMCCC 1.1 in this particular case. 
+> > 
+> > I don't even know that the host will ever try to renegotiate as it is
+> > explicitly not allowed by the FF-A spec. There is no way for the
+> > hypervisor to say, "stay at the negotiated version" so we must return
+> > NOT_SUPPORTED. 
 > 
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index d3b538be1500..2599b9b8666f 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -739,8 +739,7 @@ static inline int pmd_trans_huge(pmd_t pmd)
->  	 * If pmd is present-invalid, pmd_table() won't detect it
->  	 * as a table, so force the valid bit for the comparison.
->  	 */
-> -	return pmd_val(pmd) && pmd_present(pmd) &&
-> -	       !pmd_table(__pmd(pmd_val(pmd) | PTE_VALID));
-> +	return pmd_present(pmd) && !pmd_table(__pmd(pmd_val(pmd) | PTE_VALID));
->  }
->  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
->  
+> If it is not allowed, why should we do *anything*? And if the host is
+> broken, let's fix the host rather than adding pointless validation
+> code to EL2.
+> 
 
-I agree the cleanup is useful and correct, so:
+Agreed, it is *not yet" allowed. There were some thoughts for a different
+use-case IIUC, need to check the status. IIRC, it was bootloader vs OS
+where bootloader like UEFI might negotiate one version(usually older) and
+then OS comes and request newer version. To support such a setup, we do
+need some additional support in the spec and the current latest v1.2 is not
+sufficient.
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-
-
-But personally I find it maddening that we have:
-
-#define pmd_table(pmd)		((pmd_val(pmd) & PMD_TYPE_MASK) == \
-				 PMD_TYPE_TABLE)
-#define pmd_sect(pmd)		((pmd_val(pmd) & PMD_TYPE_MASK) == \
-				 PMD_TYPE_SECT)
-#define pmd_leaf(pmd)		(pmd_present(pmd) && !pmd_table(pmd))
-
-static inline int pmd_trans_huge(pmd_t pmd)
-{
-	/*
-	 * If pmd is present-invalid, pmd_table() won't detect it
-	 * as a table, so force the valid bit for the comparison.
-	 */
-	return pmd_val(pmd) && pmd_present(pmd) &&
-	       !pmd_table(__pmd(pmd_val(pmd) | PTE_VALID));
-}
-
-Which all do basically the same thing, but with some very subtle differences.
-
-Surely we should really only need 2 basic functions; is it a table? is it a
-leaf? Then pmd_sect() and pmd_trans_huge() should just be aliases of pmd_leaf().
-
-I *think* pmd_sect() and pmd_leaf() are really just 2 different ways of
-expressing the same thing? Which is "Is this a *VALID* leaf?"
-
-And pmd_trans_huge() is asking "Is this either a *VALID* or *PRESENT_INVALID* leaf?"
-
-I'm not sure if we can relax pmd_sect()/pmd_leaf() to give the same semantics as
-pmd_trans_huge()? I would guess we can. In which case it would be nice to clean
-this all up to a single implementation and make the others wrappers. Or better
-yet, fix the callers to consistently use pmd_leaf(). And do the same for pud.
-
-Thanks,
-Ryan
-
+-- 
+Regards,
+Sudeep
 
