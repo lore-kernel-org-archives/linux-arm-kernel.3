@@ -4,60 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE71FC3ABC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 14:31:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56915C3ABC5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 14:33:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XRuTsOTHSCNgWjIxcnkKdjHYwi2LjAtFm4CM1DmCVx8=; b=b3APEmfUt98HNn5NKc8Zy2wtNE
-	YGR8nJo//765Ci+9w5t7N5y49DAaVT3WTq4ag6+sBqz/xrSjJe0pij/DAGjqFuN6sP/Re+sALdWHF
-	dNsPeXI1+hbuPdUo6/x2SzDZXqWdBtu4qL51hMJ0YYIzGyuNPz19GHsNPDmPCMVn1GMHyZhM8U6Q9
-	JMtSoeV0r6k/jo+UCpz6YlapYw+WGCGZBIEYpE9e3VGX87IvssRvMR+lbB9kohFtd4tVjaheApBN5
-	Kxrcsv1SdSxAF/Q8PKoBtFCSLdy5OX5cD9m6cX96rOBKoV03AoQZNQc80bPrSDBNlV7BwNjtu3FAs
-	dPY+uUyg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f92rFxatVNc1f6BPYc3O+bQqBojb/k/2Qdve9uiYalo=; b=LQLEEQIDNpIcK2VVHLDlclPa6k
+	yqtp26qTH1XeOhkCCH3rPBhm6lPbRo5af41AiwB6rGBtly0CeapXct9BVHFx9v6ftdPWkV1EuAwBV
+	zMsRrnrUPFAsX/JIw+Gsa67R3Y8GHdPPJTG6f+7cRwE1/LRGwmbW69SihTN5KVctXakT+27OihAXW
+	ciWIhv2vYspFnyHM2POv+upLitwWv/Yl1GwETF4NL8CaTZMRCrHjGp1oZm4mue47N29U9rc6l+GAr
+	4HSXkn75K+apUX32QrX2PR2QgKjNvccJq9RuhtM/0iTS2841Qaxy5361VbxCc4R0gTdLUW70pyr3r
+	O91jCyeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD2Hg-00000000vq3-2lBn;
-	Thu, 08 May 2025 14:31:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD1HL-00000000kIj-1KLS
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 13:27:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4ECEA106F;
-	Thu,  8 May 2025 06:27:00 -0700 (PDT)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4B9093F58B;
-	Thu,  8 May 2025 06:27:08 -0700 (PDT)
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: broonie@kernel.org,
-	catalin.marinas@arm.com,
-	daniel.kiss@arm.com,
-	david.spickett@arm.com,
-	luis.machado@arm.com,
-	mark.rutland@arm.com,
-	maz@kernel.org,
-	richard.sandiford@arm.com,
-	sander.desmalen@arm.com,
-	tabba@google.com,
-	tamas.petz@arm.com,
-	tkjos@google.com,
-	will@kernel.org,
-	yury.khrustalev@arm.com
-Subject: [PATCH v2 00/24] arm64: FPSIMD/SVE/SME fixes + re-enable SME
-Date: Thu,  8 May 2025 14:26:20 +0100
-Message-Id: <20250508132644.1395904-1-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
+	id 1uD2JJ-00000000wK9-1lCL;
+	Thu, 08 May 2025 14:33:17 +0000
+Received: from layka.disroot.org ([178.21.23.139])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uD1Y2-00000000nR6-2wIS;
+	Thu, 08 May 2025 13:44:27 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 906A525C52;
+	Thu,  8 May 2025 15:44:23 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id lMjFUx90zjFi; Thu,  8 May 2025 15:44:23 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1746711853; bh=vbK2zlww38wck9vMVg+gzO7EFS+YMqh3QyFokhlVYPk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=XEDdEjmv+TFPMoZbsGPFMLUFPr3hv5wGVOsjsjMQTUgGxk5FaNTe2Fu7My9Rh88k+
+	 RUOVKcWm+67PqrZHn76PVs0tzCwx9modPkz7qznkABZI2UjyoTkLYv8+qNnlThjjRE
+	 TM9D6UHOlJWvMNqWKZcEuRSF+zDxe4QQBnex7qBLr1DAnXVIvgHnNZx8V8MnpDKQof
+	 pfh9oBipnyxIogtXdyz7n0zFBmvGx2fosjVZYIx2SZCLnuFh4fgduyk0XePlz8zzBD
+	 1Kd2jgxBeK6pvJDaLiGlJsv/9YFOApuTDUddmPC+McZFaGAANgnlz6G17CmGhL//51
+	 lHIcDT+Qrieyg==
+From: Yao Zi <ziyao@disroot.org>
+To: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Yao Zi <ziyao@disroot.org>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Shresth Prasad <shresthprasad7@gmail.com>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	Jonas Karlman <jonas@kwiboo.se>
+Cc: linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 2/5] dt-bindings: phy: rockchip: naneng-combphy: Add RK3528 variant
+Date: Thu,  8 May 2025 13:43:30 +0000
+Message-ID: <20250508134332.14668-4-ziyao@disroot.org>
+In-Reply-To: <20250508134332.14668-2-ziyao@disroot.org>
+References: <20250508134332.14668-2-ziyao@disroot.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_062711_446541_32CE0358 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20250508_064426_867701_D34A972F 
+X-CRM114-Status: UNSURE (   7.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,79 +87,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+Rockchip RK3528 ships one naneng-combphy which operates in either PCIe
+or USB 3 mode. Document its compatible string.
 
-These patches fix a number of problems in the FPSIMD/SVE/SME code, and
-finally re-enable SME support.
+Signed-off-by: Yao Zi <ziyao@disroot.org>
+---
+ .../devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-There are a few (mostly minor) ABI changes detailed in the patches.
-Notably the clone() ABI is changed due to an incompatiblity with the
-AAPCS64 ZA lazy saving scheme and the way this has been deployed in
-userspace. The full details of that are in patch 13.
-
-The series is based on the for-next/sme-fixes branch from the arm64
-tree, and I've pushed the series to the 'arm64-fpsimd-fixes-20250508'
-tag of my kernel.org repo, which can be found at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git
-  https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/
-
-Since v1 [1]:
-* Split kselftest changes into separate patches
-* Add patch to clean up FPSIMD context restoration
-* Remove redundant read of TPIDR2 in copy_thread()
-* Fix sve/sme typo in change_live_vector_length() error handling
-* Add Acked-by and Reviewed-by tags
-* Fix a number of commit message typos
-* Clarify commit message for sve_set_common() error handling
-
-[1] https://lore.kernel.org/linux-arm-kernel/20250506152523.1107431-1-mark.rutland@arm.com/
-
-Mark.
-
-Mark Rutland (24):
-  arm64/fpsimd: Do not discard modified SVE state
-  arm64/fpsimd: signal: Clear PSTATE.SM when restoring FPSIMD frame only
-  arm64/fpsimd: signal: Mandate SVE payload for streaming-mode state
-  arm64/fpsimd: signal: Consistently read FPSIMD context
-  arm64/fpsimd: ptrace: Consistently handle partial writes to
-    NT_ARM_(S)SVE
-  arm64/fpsimd: Clarify sve_sync_*() functions
-  arm64/fpsimd: Factor out {sve,sme}_state_size() helpers
-  arm64/fpsimd: Add task_smstop_sm()
-  arm64/fpsimd: signal: Use SMSTOP behaviour in setup_return()
-  arm64/fpsimd: Remove redundant task->mm check
-  arm64/fpsimd: Consistently preserve FPSIMD state during clone()
-  arm64/fpsimd: Clear PSTATE.SM during clone()
-  arm64/fpsimd: Make clone() compatible with ZA lazy saving
-  arm64/fpsimd: ptrace/prctl: Ensure VL changes do not resurrect stale
-    data
-  arm64/fpsimd: ptrace/prctl: Ensure VL changes leave task in a valid
-    state
-  arm64/fpsimd: ptrace: Save task state before generating SVE header
-  arm64/fpsimd: ptrace: Do not present register data for inactive mode
-  arm64/fpsimd: ptrace: Mandate SVE payload for streaming-mode state
-  arm64/fpsimd: ptrace: Gracefully handle errors
-  arm64/fpsimd: Allow CONFIG_ARM64_SME to be selected
-  kselftest/arm64: fp-ptrace: Fix expected FPMR value when PSTATE.SM is
-    changed
-  kselftest/arm64: tpidr2: Adjust to new clone() behaviour
-  kselftest/arm64: fp-ptrace: Adjust to new VL change behaviour
-  kselftest/arm64: fp-ptrace: Adjust to new inactive mode behaviour
-
- Documentation/arch/arm64/sme.rst             |   6 +-
- arch/arm64/Kconfig                           |   1 -
- arch/arm64/include/asm/fpsimd.h              |  61 +++--
- arch/arm64/kernel/entry-common.c             |  46 +++-
- arch/arm64/kernel/fpsimd.c                   | 231 +++++++++----------
- arch/arm64/kernel/process.c                  | 115 +++++----
- arch/arm64/kernel/ptrace.c                   | 137 ++++++-----
- arch/arm64/kernel/signal.c                   |  91 ++++----
- tools/testing/selftests/arm64/abi/tpidr2.c   |  14 +-
- tools/testing/selftests/arm64/fp/fp-ptrace.c |  62 +++--
- 10 files changed, 421 insertions(+), 343 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
+index 888e6b2aac5a..bd064754e537 100644
+--- a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
++++ b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
+@@ -12,6 +12,7 @@ maintainers:
+ properties:
+   compatible:
+     enum:
++      - rockchip,rk3528-naneng-combphy
+       - rockchip,rk3562-naneng-combphy
+       - rockchip,rk3568-naneng-combphy
+       - rockchip,rk3576-naneng-combphy
+@@ -102,7 +103,9 @@ allOf:
+       properties:
+         compatible:
+           contains:
+-            const: rockchip,rk3588-naneng-combphy
++            enum:
++             - rockchip,rk3528-naneng-combphy
++             - rockchip,rk3588-naneng-combphy
+     then:
+       properties:
+         resets:
 -- 
-2.30.2
+2.49.0
 
 
