@@ -4,53 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7B5CC3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 17:21:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BE34C3ABCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 17:21:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HGrOC/XiAePdkHPcaVqR+iDjUYY41tL4s/VCv9UHlgI=; b=e2kLE1EI3LddN/01+IyTWX0pZ4
-	5Y4Xr+o6m8A0bu/SkdiBGPCOoodF0UFlsHgq9GvBmdByzm5bpCdgqdzw5JjrTZweHsfH7livs5+e+
-	ojQPQqqN4okA2s5iX/flq3VhjiL0YcPEbz98cPSAxq8pi+U8bKWscbvYDT6o8sAEx9RSEU/4uvehv
-	HgPpuUyogWrWOy5byY/eaiAs9n14d876OQJmwc12Y3jlD6gWFJdAobnFkMvmdgMt+m1gOlC3UKScw
-	usnEP0y0deERTMHUWiZPCAMdsb3IQoZobTPWxkVzNLtKQYEzP/llwk62wMXWmUz+CTRWclyo3WVk/
-	yqDGlILw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=81aBPS6yBfZnl27zRH7ZXiOuAu20NzRTJepaZfWeHBs=; b=ZI4TATDJo0g9DEAZqdi1OUbWBN
+	OHRowqRymkIXvmLO/8FVyhAV7Kb7wXgOV6ZzihErBuR1VhEpRZHDM29J5uKK0Q5xdGSrUjKfxFt+Q
+	ERM2oFUniUUhr43qgOoZDDcBul+vAdF4SGPmn0urA6Zaptj0+GHlfQhhxKWkkosc5PSHzZP5voQgU
+	W2D526bA6S+E+cP512LHhn08gLGapRPQlSvr8P5eHvLJROEVtWKVFglXIjbcRz3Gt+LL+NX9iHJwh
+	7YTO97uv8JOaimQy6Yv0OdkGR5cZF25uo/CrLGy7SPudzjkVmuK6YuOVXkwmw8kyrjsiDxtE6hlUK
+	eenFj2jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD4vg-00000001Mt3-1sQC;
-	Thu, 08 May 2025 17:21:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1uD4vh-00000001Mu3-0dDp;
+	Thu, 08 May 2025 17:21:05 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD3rt-00000001FX1-3UlA
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 16:13:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D65091E2F;
-	Thu,  8 May 2025 09:12:54 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 382533F5A1;
-	Thu,  8 May 2025 09:13:04 -0700 (PDT)
-Date: Thu, 8 May 2025 17:13:01 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Leo Yan <leo.yan@arm.com>
-Cc: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>
-Subject: Re: [PATCH 1/3] arm64: dts: fvp: Add CPU idle states for Rev C model
-Message-ID: <20250508-gregarious-marvellous-axolotl-b3fbe7@sudeepholla>
-References: <20250508103225.354925-1-sudeep.holla@arm.com>
- <20250508160920.GF177796@e132581.arm.com>
+	id 1uD3so-00000001Fee-28m1;
+	Thu, 08 May 2025 16:14:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=81aBPS6yBfZnl27zRH7ZXiOuAu20NzRTJepaZfWeHBs=;
+	b=nO8XRuLaqeMEuHMiGg9pJfKjkfKjM+1nBX1d2T192PZgLu6UTTHVGO6dXzLDW0
+	cf/AsM6lG5pEV67BuhdNNSy0k9bRt19USAk9majVuVTNoA4jdIixL8ThyfVnZqF0
+	HUDD0DJf8rE0C9zNyn9/2YPnlyot7ejFIaDGGmtjL04wY=
+Received: from [192.168.71.93] (unknown [])
+	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wAXJmHo1xxoaC4OAA--.307S2;
+	Fri, 09 May 2025 00:12:25 +0800 (CST)
+Message-ID: <25c89e3c-9625-49ac-b816-945ab9145f87@163.com>
+Date: Fri, 9 May 2025 00:12:24 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250508160920.GF177796@e132581.arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] PCI: aardvark: Remove redundant MPS configuration
+To: Niklas Cassel <cassel@kernel.org>
+Cc: =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, lpieralisi@kernel.org,
+ kw@linux.com, bhelgaas@google.com, heiko@sntech.de,
+ manivannan.sadhasivam@linaro.org, yue.wang@amlogic.com,
+ neil.armstrong@linaro.org, robh@kernel.org, jingoohan1@gmail.com,
+ khilman@baylibre.com, jbrunet@baylibre.com,
+ martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <20250506173439.292460-1-18255117159@163.com>
+ <20250506173439.292460-4-18255117159@163.com>
+ <20250506174110.63ayeqc4scmwjj6e@pali>
+ <8a6adc24-5f40-4f22-9842-b211e1ef5008@163.com>
+ <ff6abbf6-e464-4929-96e6-16e43c62db06@163.com>
+ <20250507163620.53v5djmhj3ywrge2@pali>
+ <b364eed2-047d-4c74-9f30-45291305bc4b@163.com> <aBybUYYhrmlOeLAj@ryzen>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <aBybUYYhrmlOeLAj@ryzen>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wAXJmHo1xxoaC4OAA--.307S2
+X-Coremail-Antispam: 1Uf129KBjvdXoW7Jr18XF48WF4Uur1kXF1xAFb_yoWkCrbE9r
+	9IkrWxC3WUGan7Crs7Krn3ArWqqayDZ345W34Fy3y3A3s8ArW5uFs0k3ZaqF1rtay3KF4q
+	kryYvF1jkrW29jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUbku45UUUUU==
+X-Originating-IP: [124.79.128.52]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbBDwpGo2gbipOKhwACsF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_091305_914609_7E6A106D 
-X-CRM114-Status: GOOD (  18.12  )
+X-CRM114-CacheID: sfid-20250508_091402_937006_CF722486 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,35 +85,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 08, 2025 at 05:09:20PM +0100, Leo Yan wrote:
-> Hi Sudeep,
-> 
-> On Thu, May 08, 2025 at 11:32:23AM +0100, Sudeep Holla wrote:
-> > Add CPU idle state definitions to the FVP Rev C device tree to enable
-> > support for CPU lower power modes. This allows the system to properly
-> > enter low power states during idle. It is disabled by default as it is
-> > know to impact performance on the models.
-> > 
-> > Note that the power_state parameter(arm,psci-suspend-param) doesn't use
-> > the Extended StateID format for compatibility reasons on FVP.
-> > 
-> > Tested on the FVP Rev C model with PSCI support enabled firmware.
-> 
-> I verified this series and confirmed the CPUIdle states work well (I
-> manually removed the status = "disabled" in idle state nodes).
-> 
-> Tested-by: Leo Yan <leo.yan@arm.com>
-> 
-> Just a nitpick, we should firstly add the timer node and then add the
-> idle state nodes, as CPUIdle is dependent on broadcast timer.
-> 
-> As the idle states are disabled by default, current patch ordering
-> would be fine as well.
->
 
-Good point, I will reverse the order when applying. Thanks for the testing.
 
--- 
-Regards,
-Sudeep
+On 2025/5/8 19:53, Niklas Cassel wrote:
+> Hello Hans,
+> 
+> On Thu, May 08, 2025 at 12:47:12AM +0800, Hans Zhang wrote:
+>> On 2025/5/8 00:36, Pali Rohár wrote:
+>>>
+>>> Sorry, but I stopped doing any testing of the aardvark driver with the
+>>> mainline kernel after PCI maintainers stopped taking fixes for the
+>>> driver and stopped responding.
+>>>
+>>> I'm not going to debug same issues again, which I have analyzed,
+>>> prepared fixes, sent patches and see no progress there.
+>>>
+>>> Seems that there is a status quo, and I'm not going to change it.
+>>
+>> Dear Niklas,
+>>
+>> Do you have any opinion on Pali's reply? Should patch 3/3 be discarded?
+> 
+> While I do have an opinion, I'm not going to share it on a public mailing
+> list :)
+> 
+> With regards to your patch 3/3, I think that your patch looks fine, but if
+> the driver maintainer does not want the cleanup for >reasons*, that is totally
+> fine with me. However, I'm not a PCI maintainer, so my opinion does not really
+> matter. It's the PCI maintainers that decide.
+> 
+
+Dear Niklas,
+
+Thank you very much for your reply. Let's wait for the decision of the 
+PCI maintainer on this series of patches.
+
+Best regards,
+Hans
+
 
