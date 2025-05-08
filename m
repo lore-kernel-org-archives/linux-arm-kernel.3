@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3563C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 08:48:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8766C3ABC5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 08:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mpt0+g9c8cV/2h8BIvqsNb1JBcnr6Rbu0rfrAIyuOb0=; b=Lh1codeY53bLi8hMnpAYWRfM5V
-	gy6uGi9802iax5TaRcUemurs4DraPWG40eG9PN5oRCMfAj+eiuUqpQS0ZpzzRZP5azMWJxgx/Esi6
-	bizPTRdMRT8mVPNJRsmKP7ErEVUWOiLFrs9LYoPKsxbByqjEfIuc7IbWGuHW/zxrDTDE6JdJdA4Dv
-	Vy3c+zfI+y8Re5zP/X5cFW8ngKq46N5IED3UYyGBQFEHahtEkHfp7z1v08kIGU82pnKwRUia6f1c4
-	QLgPJrrevF4UNuGpZP0MGtR2RbgggUVsRtk7grIebvHr52C14Vwcl25kZGEFpLQZYnh/TWxm87PuV
-	cnVNXhyg==;
+	bh=I/6u434npu/OIMFCdOe8U+YX27jiuYdnGSjpPzb6uqs=; b=zxnrYGZJdWHjQiUEb7kiUtzFbh
+	EWFjnZmiT2KiPSZt4bV8mNgeHmgyWkU93XgW1w44vSu18o2ooWHjnEkqp/f0Hpx/PNimrozBUUg9X
+	yYCLVpG+lUvPV+npJ2Aw3o0rmt39MBNYBNQhn9jsWryzHIg/fRbIPFJPCqhgxKzdRDUx1QLdA7aNz
+	oGHhXYFMM/eEAgQgZYzKX2o/lojdhxbttAIzFDbEecbjQzisYOvjVPZMVpU1YoSvMJHGuGKBrnfnY
+	yKG7BPImdTl92GtE+JzNIV/0GCOvHycKW0MhAsxuh6k4xDyp9dTBJZF+rs9P3btNyoZ4/rk9tVthr
+	Jtz5fgww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCwv0-00000000AEU-2fzY;
-	Thu, 08 May 2025 08:47:50 +0000
-Received: from mail-m19731100.qiye.163.com ([220.197.31.100])
+	id 1uCwwv-00000000ATW-2wuG;
+	Thu, 08 May 2025 08:49:49 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCwhF-0000000084N-0YJs;
-	Thu, 08 May 2025 08:33:39 +0000
-Received: from [127.0.0.1] (gy-adaptive-ssl-proxy-2-entmail-virt205.gy.ntes [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 145d7c840;
-	Thu, 8 May 2025 16:33:22 +0800 (GMT+08:00)
-Message-ID: <f040a52e-51a8-4cea-afc1-7b3de259b067@rock-chips.com>
-Date: Thu, 8 May 2025 16:33:13 +0800
+	id 1uCwiP-000000008BG-1E9R;
+	Thu, 08 May 2025 08:34:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1746693287;
+	bh=/yn0vOBSqs1gT1qgFskCzgf8UxOw44a5QvWI6DwYPmM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lvHX6Jfr7OJ3b9RU2pr9vKKmVzcczO72O3biC5VnlBbkLBYBi4j80YJi2EahlHN1c
+	 6I9FwWK2rI9vTlfgY0vX59fGYaiqUGpGcxReA8po/KwPkXIJBEPYgbVoK27U8P4nkQ
+	 X4QD/QaGCH6DAVicsxmX8fpMRCdFt6D/fag3nmUd43PN/6uB7xi1I6h2Cgt/WTqLpq
+	 SZEaWRHihGqfwPDfI/lIhJzyu9FoTR2A8LrpgfmZCRkdBpb7sSHMCQ9F4OpeDxNYKz
+	 VId7swgQvxQGPbEbgdeQEvtYfy088uRJpCZWNsQMmZX2KRcEXgt4abxmz6xz2/sV+O
+	 wA2RMcDIF2HaA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 62D3417E02BE;
+	Thu,  8 May 2025 10:34:46 +0200 (CEST)
+Message-ID: <ff8da58b-9e87-46d9-b4d2-4059ef05780d@collabora.com>
+Date: Thu, 8 May 2025 10:34:45 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] dt-bindings: display: rockchip: Convert
- cdn-dp-rockchip.txt to yaml
-To: Krzysztof Kozlowski <krzk@kernel.org>, Chaoyi Chen <kernel@airkyi.com>,
- Sandy Huang <hjc@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+Subject: Re: [PATCH 2/4] dt-bindings: iommu: mediatek: mt8195 Accept up to 5
+ interrupts
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Julien Massot <julien.massot@collabora.com>, kernel@collabora.com,
+ Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+ Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: Dragan Simic <dsimic@manjaro.org>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250508064304.670-1-kernel@airkyi.com>
- <20250508064304.670-3-kernel@airkyi.com>
- <a3ef7af4-3c6a-4bc6-912b-5819393dcd6a@kernel.org>
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <a3ef7af4-3c6a-4bc6-912b-5819393dcd6a@kernel.org>
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?=
+ <nfraprado@collabora.com>, Hui Liu <hui.liu@mediatek.com>,
+ Yong Wu <yong.wu@mediatek.com>, Joerg Roedel <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Tinghan Shen <tinghan.shen@mediatek.com>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, iommu@lists.linux.dev
+References: <20250505-mt8395-dtb-errors-v1-0-9c4714dcdcdb@collabora.com>
+ <20250505-mt8395-dtb-errors-v1-2-9c4714dcdcdb@collabora.com>
+ <baeae909-4d12-4cbd-a063-7ad165304b96@kernel.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <baeae909-4d12-4cbd-a063-7ad165304b96@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUIfSlYaQx5OTh8fSh5MHUhWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a96af0721d103abkunm145d7c840
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MEk6Mio4QjJJKw4SPwIOOQJN
-	Nk4aFANVSlVKTE9NTUJISUtCSktJVTMWGhIXVRgTGhQCElUYEx4VOwkUGBBWGBMSCwhVGBQWRVlX
-	WRILWUFZTkNVSUlVTFVKSk9ZV1kIAVlBTUlMTTcG
-DKIM-Signature: a=rsa-sha256;
-	b=d+d+GykKLO20BqAKyXobUAllLDcMm1FBKpufSoAaZTPmGMx0GkA+ZvMb4smItqg+JwLtrMyeuewWSNTfjKfuI4Xhnxf/j+yt27JadVLZBfsLhKDXvcEL9bBMicizb6paOsRCdizeMBKEmZtWX8ObSkpopPJMXNSMG99yzVMUGJE=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=Mpt0+g9c8cV/2h8BIvqsNb1JBcnr6Rbu0rfrAIyuOb0=;
-	h=date:mime-version:subject:message-id:from;
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_013337_630089_BFBACAA2 
-X-CRM114-Status: GOOD (  20.67  )
+X-CRM114-CacheID: sfid-20250508_013449_481393_21DFA73B 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,219 +88,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-
-On 2025/5/8 15:16, Krzysztof Kozlowski wrote:
-> On 08/05/2025 08:43, Chaoyi Chen wrote:
->> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Il 08/05/25 08:03, Krzysztof Kozlowski ha scritto:
+> On 05/05/2025 15:23, Julien Massot wrote:
 >>
->> Convert cdn-dp-rockchip.txt to yaml.
->>
->> Tested with:
->>
->> 1. make ARCH=arm64 dt_binding_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml
->>
->> 2. make ARCH=arm64 dtbs_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml
-> Drop. You do not have to embed in commit msg standard makefile targets.
-> We all know how to use it. You do not do it for C files, do you?
-
-Will drop it on v2.
-
-
->
->> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>> Fixes: 3b5838d1d82e3 ("arm64: dts: mt8195: Add iommu and smi nodes")
+>> Signed-off-by: Julien Massot <julien.massot@collabora.com>
 >> ---
-> ...
->
->> -	};
->> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml
->> new file mode 100644
->> index 000000000000..ed68b48a6743
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,cdn-dp.yaml
-> Filename matching compatible.
-
-Will change it in v2.
-
-
->
->> @@ -0,0 +1,148 @@
->> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/display/rockchip/rockchip,cdn-dp.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Rockchip RK3399 specific extensions to the CDN Display Port
->> +
->> +maintainers:
->> +  - Andy Yan <andy.yan@rock-chip.com>
->> +  - Heiko Stuebner <heiko@sntech.de>
->> +  - Sandy Huang <hjc@rock-chips.com>
->> +
->> +properties:
->> +  compatible:
->> +    items:
->> +      - const: rockchip,rk3399-cdn-dp
->> +
->> +  reg:
->> +    description:
->> +      CDN DP core register
-> Missing constraints. Drop description.
->
-> Just look at other bindings.
-
-Will fix in v2.
-
-
->
->> +
->> +  assigned-clock-rates: true
->> +  assigned-clocks: true
-> Drop these two
->
->> +
->> +  clocks:
->> +    minItems: 4
-> No, look at other bindings.
-
-Will fix in v2.
-
-
->
->> +
->> +  clock-names:
->> +    items:
->> +      - const: core-clk
->> +      - const: pclk
->> +      - const: spdif
->> +      - const: grf
->> +
->> +  extcon:
->> +    description:
->> +      Phandle to the extcon device providing the cable state for the DP phy.
-> Missing type, unless you could not add a type because of conflicts? This
-> should be really fixed...
-
-Will add refs in v2.
-
-
->
->
->> +
->> +  interrupts:
->> +    maxItems: 1
-> and here is maxItems. Why in other places you put minItems?
-
-Sorry for that,  I misunderstood the meaning of those filed. Will fix in v2.
-
-
->
->> +
->> +  phys:
+>>   Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml | 3 ++-
+>>   1 file changed, 2 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml b/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
+>> index 75750c64157c868725c087500ac81be4e282c829..035941c2db32170e9a69a5363d8c05ef767bb251 100644
+>> --- a/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
+>> +++ b/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
+>> @@ -97,7 +97,8 @@ properties:
+>>       maxItems: 1
+>>   
+>>     interrupts:
+>> -    maxItems: 1
 >> +    minItems: 1
->> +    maxItems: 2
-> Why is this flexible? It wasn't in original binding and you must
-> document all the changes done to the binding in commit msg.
+>> +    maxItems: 5
+>>   
+> Every iommu or just some (as described in commit msg) can have 5
+> interrupts? Looks you miss here proper constraints per variant.
+> 
+Technically, all of the IOMMUs can have more than one interrupt - but it's not
+clear which one and why, as documentation is lacking.
 
-I think the original binding had this. I will fix this in v2 and add 
-more description.
+Let's restrict this discussion to MT8195 anyway, as it's the only one declaring
+those 5 interrupts...
+...all of the IOMMUs declare just one, and mediatek,mt8195-iommu-infra declares 5.
 
+P.S.: Nice catch!
 
->
->> +
->> +  ports:
->> +    $ref: /schemas/graph.yaml#/properties/ports
->> +
->> +    properties:
->> +      port@0:
->> +        $ref: /schemas/graph.yaml#/properties/port
->> +        description: Input of the CDN DP
->> +        properties:
->> +          endpoint@0:
->> +            description: Connection to the VOPB
->> +          endpoint@1:
->> +            description: Connection to the VOPL
->> +      port@1:
->> +        $ref: /schemas/graph.yaml#/properties/port
->> +        description: Output of the CDN DP
->> +
->> +    required:
->> +      - port@0
->> +      - port@1
->> +
->> +  power-domains:
->> +    maxItems: 1
->> +
->> +  resets:
->> +    minItems: 4
-> No, look at other bindings.
-
-Will fix in v2.
-
-
->
->> +
->> +  reset-names:
->> +    items:
->> +      - const: spdif
->> +      - const: dptx
->> +      - const: apb
->> +      - const: core
->> +
->> +  rockchip,grf:
->> +    $ref: /schemas/types.yaml#/definitions/phandle
->> +    description:
->> +      This SoC makes use of GRF regs.
-> For what? You did not say anything useful above, so instead explain the
-> purpose.
-
-Will add more description in v2.
-
-
->
->> +
->> +  "#sound-dai-cells":
->> +    const: 1
-> Missing dai-common ref, unless this is not a DAI?
-
-Will add dai-common.yaml ref in v2.
-
-
->
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - clocks
->> +  - clock-names
->> +  - interrupts
->> +  - phys
->> +  - ports
->> +  - resets
->> +  - reset-names
->> +  - rockchip,grf
->> +
->> +unevaluatedProperties: false
-> Where is any $ref? additionalProperties instead or add proper ref
-
-Will fix in v2.
-
-
->
->
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/clock/rk3399-cru.h>
->> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->> +    #include <dt-bindings/power/rk3399-power.h>
->> +    cdn_dp: dp@fec00000 {
-> Drop unused label
-
-Will drop it in v2.
-
-
-Thanks for you fast reply!
-
+Cheers,
+Angelo
 
