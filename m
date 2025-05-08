@@ -4,91 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 484B0C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 08:01:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DB6FC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 08:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Db9LjxuIeRocAHB3p/zvlDGjKId3tP1sAigufhRVP8o=; b=Ku7+ycuK7wPMn8SCMo1xG1FC6Q
-	FZ1Ai8lImevgSEIzLYI0t81rLcvdmM0yQ2V61cIlsB0FAAjdnbJ9Lu7Av/fdxOyFsa4GLf5WRK4Bo
-	//2PWHIYFmY4/nyTK3ZIdYquyinDovg0N+1IjXVMiJxft5q9M1hBJVrUV8jv3tv5ywq9vVURQYY1H
-	uC6Elxv2p4CP1wuPYELQxhHoNMi3pmLGyRhQdo+UYP19Cz5sCHGkpEl6P1eIFCMdvAqE3mJt2z/8t
-	rXi+HyYsE+AYjLTVa0UwIPMDjdXNm7CdmWw97EJwtTbITIn7O+jGjV705eoHMFfbUiCDvJg1PaChK
-	6A4OPq2A==;
+	bh=w4P7GUp/MmoSYGvIOevuz861A5gtSjkC93eopwwOdts=; b=caykeIOLNQSj6cxzuq9hwcSLpA
+	xdoud4PHGha9hD1aFoce9QR2VLo4WvHiXa7KvUQTKF9Tbipz8HAn1gsu2Z7/TeYqn+B9csFaPRpUD
+	5U4k83zJRCrQrpZonWvvkzhD1ded4Cn2Hv4MLf76lPp/OxqKxtlLMmS3fHU6sLs8RYH/phcKktSsW
+	sFbWzLy1lzHCzbz939sSTqlrCZd2mgHzbrBFZFMCd533lFQuaHcR+7hoEFgH8CqB3hkhVmyeUk8HX
+	YwuFE5tlQ+viP8o6Bfua5SdvwCfphY/VgrhIIJZQIGveqlpOZjVT9jGepvp4YNe8x2liW2gompDJf
+	rYQXeP4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCwCF-000000003Vt-31Y2;
-	Thu, 08 May 2025 08:01:35 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1uCwEm-000000003ll-460A;
+	Thu, 08 May 2025 08:04:12 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCwAI-000000003Rz-0iKK
+	id 1uCwCq-000000003c4-0PW5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 07:59:35 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43cf680d351so10182145e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 00:59:33 -0700 (PDT)
+	Thu, 08 May 2025 08:02:13 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43cfecdd8b2so4972725e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 01:02:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746691173; x=1747295973; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1746691330; x=1747296130; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Db9LjxuIeRocAHB3p/zvlDGjKId3tP1sAigufhRVP8o=;
-        b=Ckdd6K3kE/RdGEQdwnjd5MkFUVThd7zCxtrDL/nMFxVYtkwYFWDxEyTBQx9GsvZ8WM
-         8JBtAt4CL4TNT5b4jZBkOOOOpsxbY9CoW9D0yxNl7WR1UiCW+G7gfixN1ToLX52NQ1Ss
-         ltZq/xl5B1G5f4iEyoqEVRFcLb6KvgYdGx/kLwZX7tbTJy1wHt19WSCQ5QKQ4nmCYRvX
-         tP5M6vM1NHqXqBbIWo9gNaiz7l8DCE/z7Sq2JHyaRmfqUrkv7JCIPtwGHIaDd+6K4ufM
-         Fh+v4cew8xRcEG/QHi25eZYEOP3oEE5XLJ0ahWI5+hbO+D9nblIDdu0iP9TOxlK9y4W9
-         rutA==
+        bh=w4P7GUp/MmoSYGvIOevuz861A5gtSjkC93eopwwOdts=;
+        b=HRrmfSbKH0tWFji2YeN4AfDsU1yfc4xF9cxRyeWnmOIR0hIm7m6vPDSD7/CrsxMitK
+         ncQKffd3khIPh8bR3pvJz0VnzI9cdMfh9g0Ifo8F25XaVQq82YW/FDgrFblYcSWp9o2T
+         oL+PV4vMrpHOkh1qfyGOKKolt3+gtdxnBrZRITgjctlB7try43yeQZCGo0Rqwg1Sb3Kz
+         B9gNN8QDdCXqcPFl3l5IsT04enFAWA8PnGpgX8ri5yB5DlDomAF1Hm8piAECXXRRfk/f
+         Ac0azmpkKXruTjN7M2360m0HkwfWhPwy8vLTyh4Sa6B1y9oobfnh3CrJoUai78j+4/Q+
+         PJZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746691173; x=1747295973;
+        d=1e100.net; s=20230601; t=1746691330; x=1747296130;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Db9LjxuIeRocAHB3p/zvlDGjKId3tP1sAigufhRVP8o=;
-        b=oqLcNMKmDR7E0kfhRmsKTiH3ubPtLqmb7KhlDTLRjKl9zLwEcgWaTClvjjnYaiUxad
-         NOazzB18z05c5G2+viOCTVEpe9G8M5D43RdDmSg2nKqjf2j/I99k5YYKh9z97h+zts09
-         BKABSv/n8wUIsza4bpsr11/MbQxlNGRvBR9BDNUOzBZbZgs746HcNwqKoU/PRJUAYCe7
-         MUH9L+eDOLGxh3cwU8xvqsuxQqSVXpCZPgep02pS6mA1fNLpJcSwERHAGybFEuSBct/z
-         IV0UeOnZSSmcuhaSrjla9EnvptiiLyD8tXK1jrN7NIBHaL4+3T31m08L4cvR8iBDSaMu
-         rT8g==
-X-Forwarded-Encrypted: i=1; AJvYcCV6HDRLh5+ng2/WTaTBgt719iwrhRlRTujoYPdMmQMSGNWqbQp6dTcWzaPVRwUJCMplfPk7K4WpTmpmDOcrnkUv@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwjYvDMea9MDs6dKYmvio65nGHKLM4gEkl6ekEB5dO8AuA2w+z
-	bSl0Z/ErTK473HXiJ84z/59Y5U9p+O2F3v+RCnGqp34ozdEXDBzeA8TlIw==
-X-Gm-Gg: ASbGncvYBUnaOkUuiseYe8O/VchfH8XJpBXuyU4cDmF9mgBM0BZvb1LY+FQVrjWxaqs
-	g9zDa0Bo1u9bJ9zZKLrlBwCtCUsdH56WH3mnZ95vyMC6HTT4brYETmGodr0+VZKaaF+2iO56stU
-	m5/Ku15d1HPklpf23tub8dWR7PWGMh6ekaB9WaJaLZdKktJvc2sBCIBJYDdPlQ1etjmj7//VVxM
-	a1DdWkh2cMF5XyLcTIW6VNRCNcTiFSNofvXLXuLbP6YTjxS3dGNfR2xPE0x+2T8JqAcrOWXmlQO
-	HsjoH5pssQA/e272ntW2NohRkQjZUhynVMkN92E8vapOIEnbLCxQ/wW4bMn7AHXpY2oUTE6odrb
-	XU2TN8WVRV26v4sbRdNpf12OCMGk=
-X-Google-Smtp-Source: AGHT+IE8XCD7/PYMkt2ylx1/nOIpd4VBRT9tXMV4j1Un5IAz2BmunL2G1GCGow/bv5ib6VsDnRBqPA==
-X-Received: by 2002:a05:600c:3150:b0:439:5f04:4f8d with SMTP id 5b1f17b1804b1-442d02ef128mr19224135e9.12.1746691172350;
-        Thu, 08 May 2025 00:59:32 -0700 (PDT)
+        bh=w4P7GUp/MmoSYGvIOevuz861A5gtSjkC93eopwwOdts=;
+        b=AAPm/r1NRNRt900UCPRGmta+P9vo1K2Qv9rkyJw4EuTdaQJcjp+mZHd5QOl5rfN05K
+         MIcMP7bxjQC6CzOiMsUu+lVLNo4QjEqbK5gWyKBixrwQuT25mdJ/QVRJCsdHiAvVPwD1
+         Uh5bGxb2/XqSqb1aFPF9tkRLrryzygbKl9R/POe6p+rTgZaRraWPnvsMhmymDhiR9PeC
+         +K+47U22eK899sKh/ibYNB5LoaWyWCLr83bvTMJiwA0fNCPj8dmLitYRGk2V0u2xq+Sw
+         JzEnqWs0kJ1twxvEAvqRUXmG86g8NitRmg/eRPsDcbfZseQSWV7w19oZnrbyG6ZxCxrC
+         HiFA==
+X-Forwarded-Encrypted: i=1; AJvYcCWSS90rnbTG6wTqqMlIRBEr4BtncS+9KzoVm8hl7tp2impqIuy1KBnry2RTdzuMbsdSLEGMLLqtjq0JfuAzhd4s@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvQ1a+Mc+pO23NMFujmkMYYlHRXR2AsR9k69oZXw+fBNo4A1OK
+	0XWqJi2ooYY6hERldbtx1WAoTtmQ/H2bUNBc10hHIR8d4LCRrLql
+X-Gm-Gg: ASbGncsykVinjtAT4i2fGJUYswg7A1cMKF0iziCdsjHolfXPP05kcUWwFXeay2v8yX0
+	ZZPHoSFXdmZYl0kfUbzKDhqE2wn3S1YbsYsxuXF7InYVXkw0wEcfuFkW4MN7Uukf2KU1fw7Gfd7
+	51SjRST7ZFXT0vsqkkT9YohOLbGdPZZoZak9yT3PftxIbb85llfzJyWM/sYjdg+GGx7QqJ73XNC
+	t99MPgOcLz8NecVOAxSxHrehS10Qu5dbZYzcRPDQzSkiZIbExWzrHN68lP0gyEkA+WQNZ/xm8Wz
+	eyaSPnZ28jQKwmdkRFiJk06r8A4i2MeVBsil+amvNQBHat5cvtuhn3ycvFKPmW9jTpC81p5Big6
+	TKkECMGKPXubryT20NvFfvAJnN/I=
+X-Google-Smtp-Source: AGHT+IFlxePKQi6HEnSGaurdqKQsN2yyAvjgz+TUgP4f9rs+wkZwgrv9s5iq6PW2s9d4n/gu1XoG2Q==
+X-Received: by 2002:a05:600c:1388:b0:43d:aed:f7d0 with SMTP id 5b1f17b1804b1-442d034b2b7mr11858745e9.28.1746691330469;
+        Thu, 08 May 2025 01:02:10 -0700 (PDT)
 Received: from orome (p200300e41f281b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f28:1b00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442cd3b7b83sm26997065e9.33.2025.05.08.00.59.30
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442cd3285c7sm28119685e9.3.2025.05.08.01.02.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 May 2025 00:59:31 -0700 (PDT)
-Date: Thu, 8 May 2025 09:59:29 +0200
+        Thu, 08 May 2025 01:02:09 -0700 (PDT)
+Date: Thu, 8 May 2025 10:02:07 +0200
 From: Thierry Reding <thierry.reding@gmail.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>
 Cc: Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 4/8] dt-bindings: Add Tegra264 clock and reset definitions
-Message-ID: <kut7odtjumfmqia7to75yda4qwtsyhwmm3xejkwtfm7yxyap5t@icfpljkitpwp>
+Subject: Re: [PATCH 5/8] dt-bindings: memory: Add Tegra264 definitions
+Message-ID: <hitexxuelppvbdd3hyxf3qoncdizj6mvhiuhp63s7qpgkgqd6f@63xybk6n6dfn>
 References: <20250507143802.1230919-1-thierry.reding@gmail.com>
- <20250507143802.1230919-5-thierry.reding@gmail.com>
- <8a26a37a-26ce-41ef-96e4-10ee09ebe704@kernel.org>
- <12d0eac8-545a-4595-a1df-1dc52728ef54@kernel.org>
- <rz64mnhdb5vu42tcerlobmulkyxvpqgeeer43t57thwzxnrcou@6xcpuiiru66b>
- <0501c0b2-df78-4c93-9ca1-7f32767b0225@kernel.org>
+ <20250507143802.1230919-6-thierry.reding@gmail.com>
+ <b6d4f40d-9ad2-48c7-a5a1-55b2ebc4e21d@kernel.org>
+ <apxlsl54wyigk7yovtrb2tadhhsad5ti7hdvueisjcdjzfk443@4q3fv6pjaac5>
+ <f346c140-52f6-4209-b62e-53dfa2c8c7c4@kernel.org>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ed4stfeyr2kqil54"
+	protocol="application/pgp-signature"; boundary="uokfqxsit7nwu6f5"
 Content-Disposition: inline
-In-Reply-To: <0501c0b2-df78-4c93-9ca1-7f32767b0225@kernel.org>
+In-Reply-To: <f346c140-52f6-4209-b62e-53dfa2c8c7c4@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_005934_214030_EFEB001F 
-X-CRM114-Status: GOOD (  24.07  )
+X-CRM114-CacheID: sfid-20250508_010212_137143_2DFE2BB9 
+X-CRM114-Status: GOOD (  31.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,94 +103,100 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---ed4stfeyr2kqil54
+--uokfqxsit7nwu6f5
 Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 4/8] dt-bindings: Add Tegra264 clock and reset definitions
+Subject: Re: [PATCH 5/8] dt-bindings: memory: Add Tegra264 definitions
 MIME-Version: 1.0
 
-On Thu, May 08, 2025 at 09:49:12AM +0200, Krzysztof Kozlowski wrote:
-> On 08/05/2025 09:46, Thierry Reding wrote:
-> > On Thu, May 08, 2025 at 09:40:38AM +0200, Krzysztof Kozlowski wrote:
-> >> On 08/05/2025 09:39, Krzysztof Kozlowski wrote:
-> >>> On 07/05/2025 16:37, Thierry Reding wrote:
-> >>>> From: Thierry Reding <treding@nvidia.com>
-> >>>>
-> >>>> Signed-off-by: Thierry Reding <treding@nvidia.com>
+On Thu, May 08, 2025 at 09:37:27AM +0200, Krzysztof Kozlowski wrote:
+> On 08/05/2025 09:31, Thierry Reding wrote:
+> > On Thu, May 08, 2025 at 07:48:22AM +0200, Krzysztof Kozlowski wrote:
+> >> On 07/05/2025 16:37, Thierry Reding wrote:
+> >>> From: Thierry Reding <treding@nvidia.com>
 > >>>
-> >>> Missing commit msg
+> >>> This doesn't currently contain any stream ID or memory client ID
+> >>> definitions, but they will be added in subsquent patches.
 > >>>
-> >>>> ---
-> >>>>  include/dt-bindings/clock/tegra264-clock.h | 9 +++++++++
-> >>>>  include/dt-bindings/reset/tegra264-reset.h | 7 +++++++
-> >>>>  2 files changed, 16 insertions(+)
-> >>>>  create mode 100644 include/dt-bindings/clock/tegra264-clock.h
-> >>>>  create mode 100644 include/dt-bindings/reset/tegra264-reset.h
-> >>>
-> >>>
-> >>> Filename equal to the compatible. That's the standard convention for =
-all
-> >>> the headers since some years.
+> >>> Signed-off-by: Thierry Reding <treding@nvidia.com>
 > >>
-> >> Huh, I cannot find the binding in this patchset. Where is the actual
-> >> binding added?
+> >> <form letter>
+> >> Please use scripts/get_maintainers.pl to get a list of necessary people
+> >> and lists to CC (and consider --no-git-fallback argument, so you will
+> >> not CC people just because they made one commit years ago). It might
+> >> happen, that command when run on an older kernel, gives you outdated
+> >> entries. Therefore please be sure you base your patches on recent Linux
+> >> kernel.
+> >>
+> >> Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+> >> people, so fix your workflow. Tools might also fail if you work on some
+> >> ancient tree (don't, instead use mainline) or work on fork of kernel
+> >> (don't, instead use mainline). Just use b4 and everything should be
+> >> fine, although remember about `b4 prep --auto-to-cc` if you added new
+> >> patches to the patchset.
+> >> </form letter>
 > >=20
-> > The bindings for this are in
+> > get_maintainers.pl lists 13 people and 7 lists. That's *way* too many
+> > recipients for something as trivial as this series, in my opinion, so I
+> > tend to curate the list of recipients manually. I guess I went a bit
+> > overboard and should've at least listed all DT maintainers explicitly.
+>=20
+>=20
+> Usually that's a sign you combine too many subsystems into one patchset,
+> so the solution is to split, not remove maintainers/lists from CC.
+
+This is literally only DT bindings, includes and DT files. These can't
+be split apart any further without causing other objections.
+
+>=20
 > >=20
-> >   Documentation/devicetree/bindings/firmware/nvidia,tegra186-bpmp.yaml
->=20
-> There is no tegra264 in that binding.
-
-That's part of an earlier series I sent out (and linked to from the
-cover letter). It's here:
-
-	https://lore.kernel.org/linux-tegra/20250506133118.1011777-1-thierry.redin=
-g@gmail.com/T/#m96bb396b352659581a9e71a4610c51e6ab4d5b6a
-
-> The header always goes with the binding and the drivers.
->=20
+> >>> ---
+> >>>  include/dt-bindings/memory/tegra264-mc.h | 13 +++++++++++++
+> >>
+> >> Filename based on compatible.
 > >=20
-> > There's no 1:1 mapping to a compatible for this because BPMP is many
-> > things. It's a clock provider, a reset provider, a power domain
+> > The compatible string for this is nvidia,tegra264-mc, so I don't know
 >=20
-> Sure, that's fine.
 >=20
-> > provider. These definitions reflect the IDs assigned by the BPMP ABI
-> > and we've used this structure ever since this was introduced back in
-> > 2016.
-> >=20
-> > I don't think changing the convention for this is a net advantage.
+> so nvidia,tegra264-mc.h
 >=20
-> Headers still should match the compatible one way or another. Can be
-> nvidia,tegra264.h
-> (because -clock is redundant and you do not want to use the actual
-> compatible)
+>=20
+> > how much more you'd like me to make it based on that. Do you expect me
+> > to add the nvidia, prefix? In that case it would be inconsistent with
+> > all of the 8 other Tegra MC includes that we have in that directory.
+>=20
+>=20
+> Same story as for every other case, why this would be different? All of
+> them - amlogic, mediatek, samsung, qcom, every soc - move to new style
+> since some years, why this one should be different?
 
-I get it. You want consistency. But what about consistency with earlier
-chip generations? Do you want me to go and rename all of these files?
+Because we've used exactly this naming convention for more than a
+decade. I get that it's nice to have consistency, but do you really want
+me to go and churn all of these files just so we can add a vendor-prefix
+and drop a redundant suffix?
 
 Thierry
 
---ed4stfeyr2kqil54
+--uokfqxsit7nwu6f5
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmgcZGEACgkQ3SOs138+
-s6EagQ//UlzVoHHEdakhc24zRCO4VnwLEyoPYprmuWP80OUlNNOghNX4chLKZZLC
-8P+djXVgZD5JeZk3SZm7DHPyzGbVtmLIrPtlCU4Wpb5p5K120/fXxyoIoHqxTyNS
-PToYjUJEcwjs4TrqLmEL0+r6E25VPphKbwHDRkDfYRyrGLNKao2BfbwuBizYoJW/
-anqIEhMFYCi91KO/tlYy0KwsKvjj9nmJDrfRixu3RdJQFygrsgV0Iv10qwPT8xs6
-cu+apOBzLWrV/dPsyI0zh9A7TAaWz8t+XEyEnw21RKNRrhrp+4ugN7S35Jgboz5V
-3p919umvhL3Eep0uuO+lKfXVG7IJ2k2IBNGIeopDnIFo1X3ZPtTmAiaSdAAdN1Zz
-BYBKbUPHEm1dO91TWiX8g6Zt6Oso+pRQUNsFxofsywPsHrGIEWMQV8e9tsek2272
-nySpApsAvwLHOVMn0G+ABe0+DlOcbS3nrF2EZURLVhRS1e0cX1tvA3N9YY5zuIut
-TCvGPV4mTcZ1JelrkvnBMT/x+PTvmBtBgTSHI/p8FAElUdQ1csSe2ohlSaA2WWIp
-5aTGr/fDPeSOM4cvu9Ynh1OQbG5VHXyhvlFsbEbZs9W7f/bGwl+ECxGAQsstmeQC
-X/3ws7XFrWWTA+ijfuiuPBHw0KEe8wk1I8T8gu+43r5mA8ged/I=
-=tIRR
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmgcZP8ACgkQ3SOs138+
+s6HmwBAAsoRxhX8O9IY2rHF8lF9Rcg3IVjljdM/eVTB10iCxx6f7rrbRkSPu3TqJ
+38j87L7XAyoyKvtj2YgHZZyl+yWQ08I6K+bOGQsDlnXwAI9JCRb8pFTd2L/bZXMu
+iGbutScoOA3oUPU6x4jxlq6MP4dRYFLjHezt7J0GLdCgKFKL3nSbDGg1H0sAdD4I
+dReJM05WczlF7dwRhLHBxU6GBLrmPMSosDwuW10E0sN5iLr3q9OkzhWW4qhW3NS9
+hxigpZ8jwDEv1kjsuSP5buKtZJqAmvaOfEldSikN8taOe2cC3g1oJ47mnp0qAV7B
+3AhEmdqDJRPzhuAFSJ5wutdjCr57iGPacYXQKzMlQa6twqpipbQEbK8UyH9MHURP
+7yAhU7bvz3WKeu9NBjHNMnmIWyE8mdAQuc4TujI86Asy2ST6M5DPsYaQbBwtV8aq
+eyKzCo0QzOlqfzE7tajKqN+HsZlCrH2imBCMXvBE76iykECTHMnYenq61ZlnsQYz
+VLrBfmMvt639YkpGIpmZndBhknYArQGr2LwcyfxOYtRIX74ft6I5yOS/guG1sX52
+f/386CC/9uIplxfRkJwli7I6vGd80g5eZHvFsF3zrUPDhpJ9gpZlIbwGxB3wYZP9
+oNyujUfSx9hKg8NpWgDM4k4lyfhsv7VprUuekRrM45Do2KXYVx4=
+=Ejv8
 -----END PGP SIGNATURE-----
 
---ed4stfeyr2kqil54--
+--uokfqxsit7nwu6f5--
 
