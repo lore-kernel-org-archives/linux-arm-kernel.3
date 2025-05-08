@@ -4,83 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39E04C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 474FCC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=w00OFq+nWohxSjTOLQvg8WLpoA5EQgRX6xuwn6BkYyQ=; b=3nwsig8yQFGliH
-	ljHr7dFQwxwVWxL+9bKUmrjgRAUYTVeUr/h+F6wCL1loYHo0jD6cTU0e8fauojDE7GAUywWeJbgNm
-	ffaFD3rs+kAN+LSerdtryA5ms9yj+1Ocmia2KjW6/SswUKtRVRIdZgvXH8xhL5OsJ7fjiasE6wdWn
-	xL+AIZ6ZXHIvkTXVQiYcKXSqajgLqrDDJPOdfELb2vTZQlrZDTRP8e/Yx0B4E3TIYmKGudBxRHZig
-	sXVGrl5stgYVQNcMc/dB78RbZZjTEqUQV7kp15KrZ3GIcSUK6N66rsmOtnkGHvna/zR0aRGJd5vpy
-	ne+Kv02KcmjVtxuASfiw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SNdUV80pt9dTQBN0xsYhQhCQV2pGwrGMIFKsn4D5UWo=; b=aGrCdC3UWZi7SUyAq/3rvzi7Ph
+	8WJmDPUrGHl64EibemUW3s/LbHdfW6MVOAtmi1DPHXMXCrWuQkhuroqAaIpJFItDt9//nf6jaIBiZ
+	8o7qFogIdALKI9GeThkYWJt6x9ym0IpxXXZ0380wBrt8uaIh3FO7qfopb/MWHjtBoQFxPALZM1B7v
+	ifzn7lJaMl9HWndXDJ+1OgrSjoQm7BiX6rBGCf6cZ/HNhxcftbc3n/SohYC7PKKqTcoxF3ySLHWzg
+	xhhOyslOgOTL61drq/MEIMgBBZY8WC96/FtGzBC0N7lFWqReVqv7X79nFeFMOV8cnELVPdNX9HQaI
+	cpl2i78g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvWv-0000000HZWf-1sAP;
-	Thu, 08 May 2025 07:18:53 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1uCvYr-0000000HZxy-0rK3;
+	Thu, 08 May 2025 07:20:53 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvOv-0000000HYDO-0vho
+	id 1uCvOv-0000000HYDU-2t7k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 07:10:38 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-441ab63a415so6540725e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 00:10:36 -0700 (PDT)
+	Thu, 08 May 2025 07:10:40 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43cf3192f3bso6815235e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 00:10:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746688235; x=1747293035; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=w00OFq+nWohxSjTOLQvg8WLpoA5EQgRX6xuwn6BkYyQ=;
-        b=cbS+cbsK1weKtvUYid4GFiBHCZX9nxVRs4ttYG3eeLpFpzOAG8OiPUEZcVml7paH8I
-         ATxyxH2BmWMF0T8Mnv+R/nZLIrfXFnmVP+xEfxYT2f35D1N4FXDmyxrEVz/nv0G9yXYv
-         XhEYKQA+zwt/mBNPn+Qo0DxbhFJL+wqlHOMqHWIYoe6Vrh8XRxqowN1FLqzS2wvNZ+sy
-         OuXCyXhB0GMM5lFD+VQHZdpfTwwPbV8RxZo+N9kotnEsT+sg3gv/0RYNg13DncYHroEz
-         RHXZCxq46hhutCm25k/92XriM3fbsc+F+Y8ljN9CLK7KvSq3FRxbUfcQ8VoL/0x+Y+yW
-         8cyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746688235; x=1747293035;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1746688236; x=1747293036; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=w00OFq+nWohxSjTOLQvg8WLpoA5EQgRX6xuwn6BkYyQ=;
-        b=HC7ZGdaYXx5QYsEzpD9MI1j+ZQ47c4FxuiDqbITQuDH6DDJjn8jUYA2yBOA+ZKRgl9
-         PKIDVVdm5cXhM14wyp/3O9GCEGYbNnsW5GNam7G19ehU8AoScgIXT82buJbOGwQ0pocP
-         oaLwaz7v+F+zBfHE47l3PdYioEWc1ARXEn6Q/rRcni9gRCm78OSkESl1DqIwso/GO+hA
-         NgciD153tUZI1r7ckTaAger3t9HXtxCpWt4fHDY9GZgn2bj6ZixaiIX8JOwEti6tmuse
-         kbbMGdZer7ggfiyI/HPfhUyVFdX3OkKyKAOxtxGAnPh7kLSRVRogc6MzF/Qv8GDgFRKB
-         dEsA==
-X-Forwarded-Encrypted: i=1; AJvYcCWvwEwrxGLcyLgAH2MF4T9zXHpR7Be2CPlfrZ+E1z/MUOskxuzDdl/nUMg6oRwbB1rjtTynT37+X4lrkUZE7nZX@lists.infradead.org
-X-Gm-Message-State: AOJu0YydX39gpejXIdH1TOawXfKFQwPPbKcfzlZZfuYd/GHZSQ64aAKs
-	VCxiqZX2RHoM96NEJgqQRO5rijHugzbXaQ/V0UNIUWC74tvhKOdqQ95Bez0p4w==
-X-Gm-Gg: ASbGncs6OEoDyJj5LLrJVCG2ah1LJz2958VTlEy/pkqrdqnIn1BOYLEpxWPkntmzCv/
-	I9KPn2rRmSfTwNCSXL7MBBnqzg3l/T6ciTsRXgX+94nI8bbnZ/PCSMfmFeyNrfSWYr5nVhEx5tQ
-	1vkK6h1QmGFRxA9a8q8GlVkGzYEqOh+qFgYBbkHd3TBilE/8AbVU6K4HRPSkr9lxNCOJx6ViWBI
-	ronZhIe40gx83J6NlzWi/gwa8WFwb/rhepd/n8aK47SZuUyiu9GailSa6ByKZGCZDa1kWf/bcln
-	mXhJKi1l985ZznUQYRCQMvhKkWwg2uErWFhPC4Gg6GYmb5bYL8qJ+wQuk9pcdUgHyZzNiJrNbji
-	nRDgQ90hQGstIeG6w3jLv6uTqUZw=
-X-Google-Smtp-Source: AGHT+IGyLqEV7FV8nWWqYY5qCj+3cSwPattjz/CT/mpsRNB9xus7yRn9kwCjspweE93CFzg64EvzTw==
-X-Received: by 2002:a05:600c:8205:b0:43c:ed61:2c26 with SMTP id 5b1f17b1804b1-441d44c7c7bmr63780445e9.17.1746688235432;
-        Thu, 08 May 2025 00:10:35 -0700 (PDT)
+        bh=SNdUV80pt9dTQBN0xsYhQhCQV2pGwrGMIFKsn4D5UWo=;
+        b=zQtJyB3r40Ca1bh5PAujc0OVS3soaUdKTOjSlRwmJ8xpLQOyv09pmhcezUg+787MXS
+         TXd2toHPVz8KTpDsJapWrzq9IdHnYLUxlpxOb/SE4skK11wdKj/NxPeFkhQNsVN04bn2
+         wS+FgL00FF4GgdN7+RVoHBtL9lNruigEgXbqTGlsITBf+0cNuZfgo5WEtABg4OqqVpE5
+         kVVc0G56ehIIschx5xasYp7BpLwafPY0eVUtTdBfvLeVpH5zKCHJUPj2H9b5YgY3jhPB
+         RNnCK7LLCSOEm1VPQT1g4urk9PTb3RvQac54JzVb+S6mJH3sJ7JapgzdGz4pU4Snl8v6
+         xkGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746688236; x=1747293036;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=SNdUV80pt9dTQBN0xsYhQhCQV2pGwrGMIFKsn4D5UWo=;
+        b=I4ghoM9UfPDVhJaXM4ZpSQLRHXucKRLi7tB4HE2fViAW3FGWg9EL2gXDs07I9KL/e2
+         Ad9Z1u86omv6q3mFBgCeOnNOEs7K6qWItUIvXkv4BMGR0Rr0yD7sCDRr5IU37YuH0z6f
+         EdZWnYn0ET5+IQ45ZbYokey5QGzkVYioMcQ+gqMxoDR4gtHxTyt2O3TNfMvcn8eRspD7
+         K2z8tzCJnc6/zXwEjD/GqSjcdxxpvv1BUmdy7SNbHmGMsFfKDAibDN9T9MElPfRtTNEA
+         kagSq5EUlvftYeGuI7nNlpAR4SEzCeD5sddfmLpEt8ZTtPvaBafpSeMmk6gXa1lvQN8s
+         eudQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVQsejo1bshFVIMlL//ui43Pul5xmrgw96c/QrNzDFboB9BK0tBmDH2Q711ThY116RMt7U0ajjpMRYaC+h4PawJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwAtvZlpjNWyOyxRjnKvmHEXfQJT1rcy9HJlGhjaqgANOGEz+x
+	7t0jkykkNV1HvGgWUaBf/uF5AWVXtHtDxz+ANXS7mpTqZ1fdgXaGYaird6/D2g==
+X-Gm-Gg: ASbGncsOSexlMrKLyQV6H+K0tZl1a/cUtSEbwf1RdW8neK4h8uWEzo89CUAHqnQmiYP
+	psyjcqBHrXAjGx5+Nh7SqmXaq7+pskU0g2rA6VEN4ChwBMmWkg1KpBhwix3J6mOi3IfcBdrW9eZ
+	nFleadskPDs7XtnRBjon3naQhUMKmbsGmekcqhiD/OppgIkUGJc0BuNSLHBVqLpM7WX7PhfdWti
+	KsMM5NY0effa+TYH0kzGCTOCLAS3Lde5TPqhX0piueb03yBr7tBtqbL+1JEPi/5kitZbMX73ild
+	mc2fLHWxCTeda/D/KkkPTJviC3SRqYqUjM4+2D9GivTeVknLpTgT2Xe1JnXChNLCu3ZyeedcYyc
+	t2DZfDrlBk/EAmmr638Cc9nCZokI=
+X-Google-Smtp-Source: AGHT+IGM/ocJYvn2QOjf3fD6bkcOlBGcdKqEyGGwPgr1OkqArjdUzcdfSklA7LLxbWYmBJNriXe76Q==
+X-Received: by 2002:a05:600c:37cd:b0:43c:f6b0:e807 with SMTP id 5b1f17b1804b1-442d034bcbamr21959325e9.31.1746688236376;
+        Thu, 08 May 2025 00:10:36 -0700 (PDT)
 Received: from [127.0.1.1] (cust-east-par-46-193-69-61.cust.wifirst.net. [46.193.69.61])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a099b178absm19500236f8f.97.2025.05.08.00.10.34
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a099b178absm19500236f8f.97.2025.05.08.00.10.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 May 2025 00:10:34 -0700 (PDT)
+        Thu, 08 May 2025 00:10:35 -0700 (PDT)
 From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Subject: [PATCH v4 0/5] PCI: Add support for resetting the slots in a
- platform specific way
-Date: Thu, 08 May 2025 12:40:29 +0530
-Message-Id: <20250508-pcie-reset-slot-v4-0-7050093e2b50@linaro.org>
+Date: Thu, 08 May 2025 12:40:30 +0530
+Subject: [PATCH v4 1/5] PCI/ERR: Remove misleading TODO regarding kernel
+ panic
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAOZYHGgC/3XNSw6DIBCA4asY1qVh8AF01Xs0XSAdlMSIAUPaG
- O9edGVjuvwnM98sJGJwGMmtWEjA5KLzY47qUhDT67FD6l65CWe8ZhWr6GQc0oARZxoHP1NRstZ
- qATpvkHw1BbTuvYuPZ+7exdmHz/4gwTb9byWgjCqpaq5Atlax++BGHfzVh45sWOIHAJozwDOAF
- kXTciENnIHyCIgzUGagVhqYBDCq4T/Auq5fm/p35DEBAAA=
-X-Change-ID: 20250404-pcie-reset-slot-730bfa71a202
+Message-Id: <20250508-pcie-reset-slot-v4-1-7050093e2b50@linaro.org>
+References: <20250508-pcie-reset-slot-v4-0-7050093e2b50@linaro.org>
+In-Reply-To: <20250508-pcie-reset-slot-v4-0-7050093e2b50@linaro.org>
 To: Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
  Oliver O'Halloran <oohall@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>, 
  Lorenzo Pieralisi <lpieralisi@kernel.org>, 
@@ -97,21 +95,21 @@ Cc: dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>,
  linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
  Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4736;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=789;
  i=manivannan.sadhasivam@linaro.org; h=from:subject:message-id;
- bh=LPKZpjoorPcJ0i3sy5Fe9gxmCowL7rHoa3+8Kx1k5I8=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBoHFjoZn2Vau5rBgSkqFonGWIjBD9vXqMQSpvxQ
- iz76V7WG0mJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCaBxY6AAKCRBVnxHm/pHO
- 9baVCACcMZ+oGHyyvjtszQkQwoCc4LQEhNyBVCLMAukrkzlHUKuJuUgMLxOaizVKaBzVqZ+ImAm
- KFJDCmiXyQNskAOrCdFyEWeHP2rLBoNzxWKTODzgJ8uppEcksqBFWh1rEl5psqx7nS58ivJfwBF
- 0IR7EBandYxRPofAprBmAyD/3pvvYcpIxlTilooBHNn2VzXduU0KYkSDDK5b4wJXryWat2+Mt8n
- BCAblJUCeBFK49eRl8FOHziOW4nIj4aSgX4clBB2igJ2YPjOa8wv2Ubvw1u6kDAMRQ1cSqP3A4B
- ktlGEOIB0nYlE+VSnH51tHJvblCq9bTJqJpTyBKZObEDWDGZ
+ bh=Aq+BoDTRwjfmiHKRLtODTEbwNFS8yDdFMEIJ4A/Pkz4=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBoHFjp3+Y0C7nYToqJfWiLXSkKAM5YKgVxrQcgv
+ dew07ahS2+JATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCaBxY6QAKCRBVnxHm/pHO
+ 9bheB/9ACtGdPZ3LmfihI48+MK1ALP0+Bx6+UetxxXKaahBYzIQ5gDCkxVfgOgnxWWQewlNuhzp
+ LkZw3nCIYvdYAZ7/RT6FkDdBk4lRXh8t4QhrVlil8KmoN8umYdxyDDZutpu8RDRf9b5H84xabGV
+ tt9QfWQz9sKtIRWtac2DBCJCM4vwuvtSDxEUlUvJkdec5PwCN8ffMmJBN3NQ+vSvJtmkY8CKX8o
+ ZT1VVrEU3tuPcd3IaetbkOs7WBG2+W8B9TJkzU8p+4MnsQUmp41iy5Y6yO6mf3fDQ643DyRvmm+
+ 9X9+lTcKXgUsmH6hLBn6yhdJdN2ABj8XC+7vLejHvCUqYl4/
 X-Developer-Key: i=manivannan.sadhasivam@linaro.org; a=openpgp;
  fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_001037_272093_63B7F205 
-X-CRM114-Status: GOOD (  21.47  )
+X-CRM114-CacheID: sfid-20250508_001037_738160_0973DC29 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,99 +124,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-Currently, in the event of AER/DPC, PCI core will try to reset the slot and its
-subordinate devices by invoking bridge control reset and FLR. But in some
-cases like AER Fatal error, it might be necessary to reset the slots using the
-PCI host bridge drivers in a platform specific way (as indicated by the TODO in
-the pcie_do_recovery() function in drivers/pci/pcie/err.c). Otherwise, the PCI
-link won't be recovered successfully.
-
-So this series adds a new callback 'pci_host_bridge::reset_slot' for the host
-bridge drivers to reset the slot when a fatal error happens.
-
-Also, this series allows the host bridge drivers to handle PCI link down event
-by resetting the slots and recovering the bus. This is accomplished by the
-help of a new API 'pci_host_handle_link_down()'. Host bridge drivers are
-expected to call this API (preferrably from a threaded IRQ handler) when a link
-down event is detected. The API will reuse the pcie_do_recovery() function to
-recover the link if AER support is enabled, otherwise it will directly call the
-reset_slot() callback of the host bridge driver (if exists).
-
-For reference, I've modified the pcie-qcom driver to call
-pci_host_handle_link_down() after receiving LINK_DOWN global_irq event and
-populated the 'pci_host_bridge::reset_slot()' callback to reset the controller
-(there by slots). Since the Qcom PCIe controllers support only a single root
-port (slot) per controller instance, reset_slot() callback is going to be
-invoked only once. For multi root port controllers, this callback is supposed to
-identify the slots using the supplied 'pci_dev' pointer and reset them.
-
-NOTE
-====
-
-This series is a reworked version of the earlier series [1] that I submitted for
-handling PCI link down event. In this series, I've made use of the AER helpers
-to recover the link as it allows notifying the device drivers and also
-allows saving/restoring the config space.
-
-Testing
-=======
-
-This series is tested on Qcom RB5 and SA8775p Ride boards by triggering the link
-down event manually by writing to LTSSM register. For the error recovery to
-succeed (if AER is enabled), all the drivers in the bridge hierarchy should have
-the 'err_handlers' populated. Otherwise, the link recovery will fail.
-
-[1] https://lore.kernel.org/linux-pci/20250221172309.120009-1-manivannan.sadhasivam@linaro.org
+A PCI device is just another peripheral in a system. So failure to
+recover it, must not result in a kernel panic. So remove the TODO which
+is quite misleading.
 
 Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 ---
-Changes in v4:
-- Handled link down first in the irq handler
-- Updated ICC & OPP bandwidth after link up in reset_slot() callback
-- Link to v3: https://lore.kernel.org/r/20250417-pcie-reset-slot-v3-0-59a10811c962@linaro.org
+ drivers/pci/pcie/err.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-Changes in v3:
-- Made the pci-host-common driver as a common library for host controller
-  drivers
-- Moved the reset slot code to pci-host-common library
-- Link to v2: https://lore.kernel.org/r/20250416-pcie-reset-slot-v2-0-efe76b278c10@linaro.org
+diff --git a/drivers/pci/pcie/err.c b/drivers/pci/pcie/err.c
+index 31090770fffcc94e15ba6e89f649c6f84bfdf0d5..de6381c690f5c21f00021cdc7bde8d93a5c7db52 100644
+--- a/drivers/pci/pcie/err.c
++++ b/drivers/pci/pcie/err.c
+@@ -271,7 +271,6 @@ pci_ers_result_t pcie_do_recovery(struct pci_dev *dev,
+ 
+ 	pci_uevent_ers(bridge, PCI_ERS_RESULT_DISCONNECT);
+ 
+-	/* TODO: Should kernel panic here? */
+ 	pci_info(bridge, "device recovery failed\n");
+ 
+ 	return status;
 
-Changes in v2:
-- Moved calling reset_slot() callback from pcie_do_recovery() to pcibios_reset_secondary_bus()
-- Link to v1: https://lore.kernel.org/r/20250404-pcie-reset-slot-v1-0-98952918bf90@linaro.org
-
----
-Manivannan Sadhasivam (5):
-      PCI/ERR: Remove misleading TODO regarding kernel panic
-      PCI/ERR: Add support for resetting the slots in a platform specific way
-      PCI: host-common: Make the driver as a common library for host controller drivers
-      PCI: host-common: Add link down handling for host bridges
-      PCI: qcom: Add support for resetting the slot due to link down event
-
- drivers/pci/controller/Kconfig                    |   8 +-
- drivers/pci/controller/dwc/Kconfig                |   1 +
- drivers/pci/controller/dwc/pcie-hisi.c            |   1 +
- drivers/pci/controller/dwc/pcie-qcom.c            | 112 ++++++++++++++++++++--
- drivers/pci/controller/pci-host-common.c          |  64 ++++++++++++-
- drivers/pci/controller/pci-host-common.h          |  17 ++++
- drivers/pci/controller/pci-host-generic.c         |   2 +
- drivers/pci/controller/pci-thunder-ecam.c         |   2 +
- drivers/pci/controller/pci-thunder-pem.c          |   1 +
- drivers/pci/controller/pcie-apple.c               |   2 +
- drivers/pci/controller/plda/pcie-microchip-host.c |   1 +
- drivers/pci/pci.c                                 |  13 +++
- drivers/pci/pcie/err.c                            |   7 +-
- include/linux/pci-ecam.h                          |   6 --
- include/linux/pci.h                               |   1 +
- 15 files changed, 212 insertions(+), 26 deletions(-)
----
-base-commit: 08733088b566b58283f0f12fb73f5db6a9a9de30
-change-id: 20250404-pcie-reset-slot-730bfa71a202
-
-Best regards,
 -- 
-Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+2.43.0
 
 
