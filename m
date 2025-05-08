@@ -4,51 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C1DDC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 16:27:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D6B1C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 16:29:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vEr+jFKCPqsAUYTsbfeRvOrjj81BLXKTZ4z4dAtur5g=; b=BL2KUCqImUefTeAypSRBbJxbqC
-	cDEIF3HJ4GnOnZOuKtjJ13K7L/gd8shVNLXg28pXTaxgPUskMXYXgY/AaZ2pBoAUXjMJ2xhhabSAx
-	tCzjVAvyqHYnJXMC5h9R14zA/A6By9rgTEP/rD0spqN8waXiPpDtGjVO4kPUCPhl9oHkXXRzXgDRp
-	NzklcCyjeOoVQ7vxBLZOenqG9hrb+cdAu3jtRBTAvbxi3lO200cjuLHGWNJ5o5brEiYI6JU6QCKJl
-	hm39Wxj3Eogg4D+o7TZaV3txjigcjxaFWlQrvBRskrnBc9BdwYFw2fx4sieMxBqSeDNDNgL/GNRUk
-	fz6He2qw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/aqOR78xCKbgwFiDVPw/MgZTZLn+uIVqWHT4kXJ4tLc=; b=IBxUwcLTii5RdfQ3X8DjOlkd3E
+	KkCy4nh0t/2k2lJ53WYjHrJRfgxMSEgltqdPTgYWU7+Z2XRJLrrLBq8M9+D2VrQn5BeF4W1AHiEiu
+	8PvT5aivOAv90aZqbpNJ+CHNFwoHgn18F5yrf/hfCdidyE7re4DVn9EEciuhHph5SmyT+ZlMWv6oH
+	EJ7TkJQ1FeuUL8jp0Gwytf4tLOxjAeAH0gIrSQXHwgr/5Xg7u/LlqfQ8KAsKwhbCWWutQFdnnrSBQ
+	17xmvHZ8yFC6wSJiZNNvQFx4rfS7Oi3VkEx2EjIGMSPVqJS5gtTfdUovTa0q6Bm+Bgqw5GThEOaR+
+	9R1cfjMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD45H-00000001Hgl-0CMi;
-	Thu, 08 May 2025 16:26:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD2zT-000000016Fr-1VYP
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 15:16:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B8B871E2F;
-	Thu,  8 May 2025 08:16:37 -0700 (PDT)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5CDFA3F58B;
-	Thu,  8 May 2025 08:16:47 -0700 (PDT)
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org
-Cc: mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH] perf/arm-cmn: Fix REQ2/SNP2 mixup
-Date: Thu,  8 May 2025 16:16:40 +0100
-Message-Id: <087023e9737ac93d7ec7a841da904758c254cb01.1746717400.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
+	id 1uD47C-00000001Hw2-0KIE;
+	Thu, 08 May 2025 16:28:54 +0000
+Received: from smtp-19.smtpout.orange.fr ([80.12.242.19] helo=smtp.smtpout.orange.fr)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uD33i-000000017EO-2jT7;
+	Thu, 08 May 2025 15:21:15 +0000
+Received: from [192.168.1.37] ([90.11.132.44])
+	by smtp.orange.fr with ESMTPA
+	id D33cuMejiCaH2D33cu8B4q; Thu, 08 May 2025 17:21:11 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1746717671;
+	bh=/aqOR78xCKbgwFiDVPw/MgZTZLn+uIVqWHT4kXJ4tLc=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=J8CnUdJwFn5FHAXlFR8ZkPazq64kfzu6rxQfO3bp4oYWlJR9yw7QZga+jkcHw8Lj3
+	 59DlKyXiWVDflM4F3pjSXbdRl8J3n4nmEYwk6cij3i9lBC2dXOv4jHAUS2x2ZLZ4At
+	 J4p289z8w3uB1RTTguqgEIONbMC3RwaVIU9BF5f6yRT56eUo4yOpO14QaYnwU4YTkX
+	 xPEanpuM6dKRpcweXAnz5a4iL6lmWQQtAowORrji8ha6QsrSzbCgwdJ3PXv+Nhbahj
+	 xG+HeZ7o5pMxM3CKoEseHRZwwSATlEKc2RmRq3qwY1HcWszZvxZkLh8zuz9rMTfdU5
+	 R0AYedfcV2qqQ==
+X-ME-Helo: [192.168.1.37]
+X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
+X-ME-Date: Thu, 08 May 2025 17:21:11 +0200
+X-ME-IP: 90.11.132.44
+Message-ID: <23517507-bf1a-47fa-9a96-b27922e1e05f@wanadoo.fr>
+Date: Thu, 8 May 2025 17:21:08 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] net: airoha: Fix an error handling path in
+ airoha_probe()
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org
+References: <5c94b9b3850f7f29ed653e2205325620df28c3ff.1746715755.git.christophe.jaillet@wanadoo.fr>
+ <3791c95da3fa3c3bd2a942210e821d9301362128.1746715755.git.christophe.jaillet@wanadoo.fr>
+ <aBzJZCIvE9u_IAM-@lore-desk>
+Content-Language: en-US, fr-FR
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+In-Reply-To: <aBzJZCIvE9u_IAM-@lore-desk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_081651_437401_9A47E1F3 
-X-CRM114-Status: UNSURE (   8.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250508_082114_826056_739C3883 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,43 +81,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Somehow the encodings for REQ2/SNP2 channels in XP events
-got mixed up... Unmix them.
 
-CC: stable@vger.kernel.org
-Fixes: 23760a014417 ("perf/arm-cmn: Add CMN-700 support")
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
----
- drivers/perf/arm-cmn.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+Le 08/05/2025 à 17:10, Lorenzo Bianconi a écrit :
+>> If an error occurs after a successful airoha_hw_init() call,
+>> airoha_ppe_deinit() needs to be called as already done in the remove
+>> function.
+>>
+>> Fixes: 00a7678310fe ("net: airoha: Introduce flowtable offload support")
+>> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+>> ---
+>> Changes in v2:
+>>    - Call airoha_ppe_init() at the right place in the error handling path
+>>      of the probe   [Lorenzo Bianconi]
+>>
+>> Compile tested only.
+>> ---
+>>   drivers/net/ethernet/airoha/airoha_eth.c | 1 +
+>>   1 file changed, 1 insertion(+)
+>>
+>> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+>> index af8c4015938c..d435179875df 100644
+>> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+>> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+>> @@ -2967,6 +2967,7 @@ static int airoha_probe(struct platform_device *pdev)
+>>   error_napi_stop:
+>>   	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
+>>   		airoha_qdma_stop_napi(&eth->qdma[i]);
+>> +	airoha_ppe_init(eth);
+> it was actually a typo in my previous email but this should be clearly
+> airoha_ppe_deinit().
 
-diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-index d4fe30ff225b..aa2908313558 100644
---- a/drivers/perf/arm-cmn.c
-+++ b/drivers/perf/arm-cmn.c
-@@ -727,8 +727,8 @@ static umode_t arm_cmn_event_attr_is_visible(struct kobject *kobj,
- 
- 		if ((chan == 5 && cmn->rsp_vc_num < 2) ||
- 		    (chan == 6 && cmn->dat_vc_num < 2) ||
--		    (chan == 7 && cmn->snp_vc_num < 2) ||
--		    (chan == 8 && cmn->req_vc_num < 2))
-+		    (chan == 7 && cmn->req_vc_num < 2) ||
-+		    (chan == 8 && cmn->snp_vc_num < 2))
- 			return 0;
- 	}
- 
-@@ -882,8 +882,8 @@ static umode_t arm_cmn_event_attr_is_visible(struct kobject *kobj,
- 	_CMN_EVENT_XP(pub_##_name, (_event) | (4 << 5)),	\
- 	_CMN_EVENT_XP(rsp2_##_name, (_event) | (5 << 5)),	\
- 	_CMN_EVENT_XP(dat2_##_name, (_event) | (6 << 5)),	\
--	_CMN_EVENT_XP(snp2_##_name, (_event) | (7 << 5)),	\
--	_CMN_EVENT_XP(req2_##_name, (_event) | (8 << 5))
-+	_CMN_EVENT_XP(req2_##_name, (_event) | (7 << 5)),	\
-+	_CMN_EVENT_XP(snp2_##_name, (_event) | (8 << 5))
- 
- #define CMN_EVENT_XP_DAT(_name, _event)				\
- 	_CMN_EVENT_XP_PORT(dat_##_name, (_event) | (3 << 5)),	\
--- 
-2.39.2.101.g768bb238c484.dirty
+My bad!
+Sorry for not spotting myself it.
 
+We can really trust no one, nowadays ! :)
+
+The good news is that my cocci script would have spotted it the next 
+time I would have run it, because it would still find a 
+airoha_ppe_deinit() in the remove function, but none in the probe.
+
+I give you some time to review the other patches, and I'll a v3 later.
+
+CJ
+
+>
+> Regards,
+> Lorenzo
+>
+>>   error_hw_cleanup:
+>>   	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
+>>   		airoha_hw_cleanup(&eth->qdma[i]);
+>> -- 
+>> 2.49.0
+>>
 
