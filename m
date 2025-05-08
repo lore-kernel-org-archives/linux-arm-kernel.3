@@ -4,188 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F35EFC3ABC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 11:17:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 014DDC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 11:21:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aFjNGGAZ0tBnqeeuEl5aKv2GDDCGeY1Qh25V9XPOUdw=; b=BzikbdkjV2An7sM6H0CNTDhMnM
-	5Q+ODm5zpZ/oN/U21rJckQMDhCWg5BBQXd1RJGlBtBI9s1cwWq/YVn0902t029ALlaQa13ZkoDsG0
-	JIqrVAvXqwAfrcUr6Eb33t23/AMG14dJlHZ4ctCdBpbJ0UxWzVQSvGLKX5wr7sgJFrHzgWdiPwTq4
-	SgjscDBs+IGrgNDaltr73xKC11+GjtIfW4LrObUbLJwQis31e5SC6POssmctrVvGwVYPx1zV/RUm8
-	KtQ2ItkHPFZkJ2bLoWev05qdqK8ywsfbcflIpL7Ugv4EJhpDaq23OvHsx7HbFiXSjezq1nudbnyXm
-	UbQz5nbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uC2wfcZ+7znS/AJhcy/t0D4M8EVdcWLk8ajPU4mVK2Q=; b=TXmzlJa+O4mWc26sLRdlCosz/T
+	apZFF/kO/m/otVsizFUUVhuO+wLo0sGYRm9orAFk2uSeyQP+c8ZqFgkAnNF2ueMfj/StFlpnmhdk+
+	W8q2bvuNgK1m+4gLqvThmVG1lZogr/Mtz/p0E8esGwTsdQjsUUfmH80J46AMKN7GkX5VCtReqt+mN
+	Cobu8ioWpMzpr/gPv0P2/KbJnlFAdrfGqjlxj/lhOsof1ciJCZ3QOXL1V1gJLyijyHitTO21SdXhw
+	Y/3/v3akg41L1A9H1QCkg+proi+Q3TGTdFe/RVyRWuZB5H/yVgkHeu2XoKPLMHGNibFVOoHP+CR6k
+	JVtnTEUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCzG1-00000000TI3-2dmR;
-	Thu, 08 May 2025 11:17:41 +0000
-Received: from mail-db5eur02on2062b.outbound.protection.outlook.com ([2a01:111:f403:2608::62b] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	id 1uCzJK-00000000Tl4-0OcR;
+	Thu, 08 May 2025 11:21:06 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCzE3-00000000Szo-28Hf
+	id 1uCzHM-00000000TWH-2VrI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 11:15:40 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=uYhZJCzIMZeGAHJcRQx5ZFwxNy2uaLHaZh4soYqARdFnxlZq6KzTUwILqnJaPMGexAmvcGMB9CxkLYwszRu9t/9/JZmNo/mR8RcD6uwFZrcgxbjDW3TgMm2cvmauQVPoSQCANtVFhtJQOzCQ6ReGxlvBw1MstFBtyNgHwc0sHhJDRDqdnjvbLJYsulk1zJZeAL/MwgMlWNxDVcWEwn4yj43YK5qoHzrqH+lvPy06K5ECKh17yoTEvyib8ZVOHGCVkgmOYr0oGwKqv0W70pcR3XGg9yxIEGJ4/BeYgYObt0cLZfiefegQ+sXho40SyBmGjPoYVxF9B/DG97vLuJb53A==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aFjNGGAZ0tBnqeeuEl5aKv2GDDCGeY1Qh25V9XPOUdw=;
- b=H6uG7tjYFLoF6awpwztvwvTI2DbLPL5R1LKE7v4lI4NhXlwTbBe/vT4XoIGa0zMb7ga1BvfIg8WjckCp+5u7GkDuJePDVGcKazxMFm4bVYz26ViMOvSn19oCEwu7lYwi8Qa51Rq3StmQRyCZfZCYEdGMeIef104qA7b1ppaE95Xghlhl4Y7xGiGFSN4/98x3fyCC4dIxEHo1qgeQOqLZMM4c1eyIbY+orXFf0o0lZvXpp8cyqGIFCdda9XvdfR9W0Agqj5ikRu1rpSHDms+i9zTGYsjBwjmAuzB3KQGNoMCsK1XyTxA8jh1fqBkMYY7FbqaePyCA0nW+z+hB+zXvEw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=google.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aFjNGGAZ0tBnqeeuEl5aKv2GDDCGeY1Qh25V9XPOUdw=;
- b=Lynq//npQBcA2LuHlUFbEx08YIAikX2khhZ1dLNcyhO7nfreMS5pgva+V1ZuOL19H0PXdf4CcSTMMf3Nj3Lpb6fvfbQnk9Jtq4WBU3Z9SUYUPXpO7nfLscq5Yz4Q40uIzf+QSoYDwzn14aYDiIXxcTWpgd0XA68NNK2BiYPPhWM=
-Received: from DUZPR01CA0287.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b7::29) by GV2PR08MB9375.eurprd08.prod.outlook.com
- (2603:10a6:150:d0::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.23; Thu, 8 May
- 2025 11:15:29 +0000
-Received: from DU2PEPF00028CFD.eurprd03.prod.outlook.com
- (2603:10a6:10:4b7:cafe::9d) by DUZPR01CA0287.outlook.office365.com
- (2603:10a6:10:4b7::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.21 via Frontend Transport; Thu,
- 8 May 2025 11:15:22 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU2PEPF00028CFD.mail.protection.outlook.com (10.167.242.181) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.18
- via Frontend Transport; Thu, 8 May 2025 11:15:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sKGnckHvryr1JLxCgPziMfymJgS5jY558jwY7rxdzYCsQ0p4a6iBmZKWdoNKdc/ifhwlzKoc5olwRYH+hH7ilAEaKRjW/WB68A6NfNEZuRQ90g1+EcWN9E0aFKFmpdv+rFbln/TCKoF82JVVze2FmJ34Q5ABDY59HopMxxeeAM+TyyskzRYuR1ZzXdPKHjaK0TJSKISrLEssZ+UBVDImL+X6pf/K4Szbroji/CwMm8vXZLteDjukjaoN02lSj+xZYu75o/Lk8Jp+pYHsXONos6+cOFwG6STPssST1JsiW8uCh6DrtvRC7QhzIDQm4kgSIaPHaKuQ4llxX3tvl6J91w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aFjNGGAZ0tBnqeeuEl5aKv2GDDCGeY1Qh25V9XPOUdw=;
- b=txGcHxK+k9PzepzABPp7hlYR6XIpNWjx7O0rG+96J8bHzhaQdudpkF7ygTIT6z3R4SBP6vDEJvdMdTZOUQgTbu03pCyAX7L6MGV3EuN6FMELq5JusA/Ht6/ocqV25iqDRjukGIuSSgNODby19obqKV+8lL4fqYYa+p8TFPMGT1gCiRv1ZJtKaj/96JF8XitWdI/x59c+dW66IWRjDz0wpQ+FtDwI+kYBLyDbXiKoQr5thbrSZbO4IkxEXPmnF+D1QT7UsOFIkhSk/j4msM8GXFsvvABEJZFS88toSEOaO8S2pPzrt4bjyg7w51TQN2Ud8EC1SM/ulbGlbl8faazpLA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aFjNGGAZ0tBnqeeuEl5aKv2GDDCGeY1Qh25V9XPOUdw=;
- b=Lynq//npQBcA2LuHlUFbEx08YIAikX2khhZ1dLNcyhO7nfreMS5pgva+V1ZuOL19H0PXdf4CcSTMMf3Nj3Lpb6fvfbQnk9Jtq4WBU3Z9SUYUPXpO7nfLscq5Yz4Q40uIzf+QSoYDwzn14aYDiIXxcTWpgd0XA68NNK2BiYPPhWM=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by DBBPR08MB10601.eurprd08.prod.outlook.com
- (2603:10a6:10:538::17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.20; Thu, 8 May
- 2025 11:14:56 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%4]) with mapi id 15.20.8699.024; Thu, 8 May 2025
- 11:14:56 +0000
-Date: Thu, 8 May 2025 12:14:53 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com,
-	Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH 0/3] arm64/boot: Forbid the use of BSS symbols in startup
- code
-Message-ID: <aBySLQ/MLhiXRqEl@e129823.arm.com>
-References: <20250503112137.1962910-5-ardb+git@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250503112137.1962910-5-ardb+git@google.com>
-X-ClientProxiedBy: LO4P123CA0434.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:1a9::7) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Thu, 08 May 2025 11:19:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1746703143;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uC2wfcZ+7znS/AJhcy/t0D4M8EVdcWLk8ajPU4mVK2Q=;
+	b=ZcobzE2/urokKnKvgcV6s/DuiiB9tB1/bLdZzVWeegNL5EAxCw9j3GwJLQ3h+ke7+XGIzG
+	yrCAuVpEigypwHBCRvmt0Mm00f0A13ij95Vpdj9/UxI/7qCu+/W+qhCQnPYCPVGtdp7ghq
+	BZWoZkCBxAOo8c2HQr5jbGyeBh/56Yw=
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com
+ [209.85.215.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-141-WV3OzkPiODGWOO-PNETdAw-1; Thu, 08 May 2025 07:19:02 -0400
+X-MC-Unique: WV3OzkPiODGWOO-PNETdAw-1
+X-Mimecast-MFC-AGG-ID: WV3OzkPiODGWOO-PNETdAw_1746703141
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b2002bcaa55so242077a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 04:19:02 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746703141; x=1747307941;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=uC2wfcZ+7znS/AJhcy/t0D4M8EVdcWLk8ajPU4mVK2Q=;
+        b=OAU2/jDypllcENQewR0oWN0vZRurjvB9/zAu2KvxKTgcuGin3hmz9jRdXPtjGha2KS
+         qsXujhqQaAOV0zk7kvNZavHN7C/lF1ztduMK+IAC92Xlbr1bIpa7+UdWzDKJzXsN/JBS
+         zKndYh8N363Cha3oqUCPl9pD6X8ksACstqHAJtM09wuLIy68BgKnK/6ErJ8oOkTOoU2o
+         KIABWQ89RSzvewxHY6hTEyY4VvUEoTyfaLEoDSdNYWifpRVS8NjYsXw7IANkSw/6I3/S
+         jMLTUbOnEK3HT+uVsjI4NPf9l/2H3hRuLcy2fW2kzjsciEn7fOX6lgZdemLSXv2e2Rvx
+         onDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVCG3RPfQWSjD+fkdqsILpOoP17oZHYshk9rcKJVGITiOscAAFt6eiVsSPqaC8g/05iP3vGiaRDDIf9HMQPzIyj@lists.infradead.org
+X-Gm-Message-State: AOJu0YyL+MPwFLmwtGNc4lPvH4FwoRBiLIk9bbInXotM5No3aTzZmK9n
+	TDNjQcLnfR9r54olIYFpOXWrF7XB/Rh5PUSoDsIBAJF1iiyPd5kIrfj1wq2q/Cc450SABEdJ2fs
+	yH/JIDSjqKVjBpf56I9IlkM6OgCZfGeXvaBTL1H1XmWmD38umsg6fbDieApyCinnYQY9v3Csd
+X-Gm-Gg: ASbGncs/vU8rMkKbWGRruNRrjKWzTcgnihfiUZyfn4m4Iu2PSIXXyuPP+1dWJ0Vb9ZV
+	aXAw8HGzpzmF9M+X/WROomVo7QnMptoWL6NFhnnWXlJw0f4ZxS1frCRdK/Xx/ccaPiofpZbSFvE
+	ZGQKOS9bJIy4ylFm1tfEW4LmAQmNCYlRmigUyJ5JLtRs7b4AVsOJSx0TkdrfcRhs2IaRdRK1VTu
+	ECUvAXE+EXrCVED1/FRugoOXdniJSg26uMCeAzA1RldcfovbKvDvfpfxd6KLCLIDuEGbX07QfVu
+	cH56SBt5FRXK
+X-Received: by 2002:a17:90b:4c8d:b0:2ff:4e90:3c55 with SMTP id 98e67ed59e1d1-30aac21f4f9mr10874129a91.27.1746703141230;
+        Thu, 08 May 2025 04:19:01 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFlcZE8WPSp+dD4cbUIoc4dB042EO4sEN2NlL/2/CjCN2EjuR89jLkJrVSshMTD8QHhwYCLTw==
+X-Received: by 2002:a17:90b:4c8d:b0:2ff:4e90:3c55 with SMTP id 98e67ed59e1d1-30aac21f4f9mr10874083a91.27.1746703140804;
+        Thu, 08 May 2025 04:19:00 -0700 (PDT)
+Received: from [192.168.68.51] ([180.233.125.65])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22e1522fb26sm109771185ad.247.2025.05.08.04.18.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 08 May 2025 04:19:00 -0700 (PDT)
+Message-ID: <8c4c158d-8cbc-479e-8561-de9ce961c9cd@redhat.com>
+Date: Thu, 8 May 2025 21:18:55 +1000
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DBBPR08MB10601:EE_|DU2PEPF00028CFD:EE_|GV2PR08MB9375:EE_
-X-MS-Office365-Filtering-Correlation-Id: dbfbe3eb-7d7d-4a44-710a-08dd8e21a3ff
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?3s+Xe0QMlnc39Ir3FWJKt0AQMybtdhfpepX/fw/KJdgX1TaS+8FBQgTDui0q?=
- =?us-ascii?Q?OgulhpUJWBjl1Lub2bTULmYUnEP7f9Ab+DZT2LpX+3SuJ7897QLAF6io11By?=
- =?us-ascii?Q?jKUyJVHZ2My8nAPOeN+cpqBnaI0AFtBNtEBqVSOtgVyAOApe49gp7JfF2WGO?=
- =?us-ascii?Q?WFGETBvxVzm33pBib+69tZytKOCnbHdcYXbInhJTQFeaiSEuMIHkmv3XAKQ4?=
- =?us-ascii?Q?aIoTdyNQXWKSGmS0bXFF83deBDU6KgL+blnu2MQmeQV8pGLvXotQ/RBz+0Iv?=
- =?us-ascii?Q?V5YRXzWAjCfgZEndB8lttDP6USZHdryIaZp/LFZd3pLCyegoScTGQB1GuRt0?=
- =?us-ascii?Q?HuvFIcs3l1BHOcWIZyG7wAdUlAKcIRDLTSigc3efHCZyEbPGbUrjY6ktTG5W?=
- =?us-ascii?Q?DSxvPVrJXLh7/cCVGdLqirlLeSH92E/xZPJq3BQpxRThxdX1vp/Xm6hg9kXt?=
- =?us-ascii?Q?npT6gEA/LImqI3jPglAnY7E6NFS53EFkl7Wot5fZe0EVwW1NA8kZk0bGSD+n?=
- =?us-ascii?Q?bIgdxhZMW6AoV6ED1xvGZ9yU2cvfc9KVG/kHApcb2SuhjlVmywdSSxkjY4Hs?=
- =?us-ascii?Q?7ILIUjZEmU77GBfeKM/990apJpaY1TNuLn85xTjyu+G9ixMzeXV0F4/dG5vp?=
- =?us-ascii?Q?d2wdw+P61aEVt/1sO4XuQ0pxkGhwqZmnYLA9qUIM9hmDH+JilsZY6xbkUTef?=
- =?us-ascii?Q?A5sjVze8NhaIiUEYfd5I/ckBhVhy8mPKb4bEGKtwkatzw+xwhtwcVE3taoO2?=
- =?us-ascii?Q?YgHKi4bsw8HJKqWP5lvSkBKlRs08SvPCrHOzUaKc4yaMlNVMbkgUNdKugNfh?=
- =?us-ascii?Q?lgpaGyYXtAc9P7iJyB03NxyRvO9T37FL7nZZbwe/VWLIM4f0q5CMl5sJIgnG?=
- =?us-ascii?Q?0MH9Q23GjLCn1jJg510COJszreVHJAav9A/9X1cd5iYx6fU5OjUtYgJNha1S?=
- =?us-ascii?Q?UKblWTvBElIzNWzG6Jlsj0MNkARcW4sQZwMpes8Wn7qSyXGbP2VB1qXW2Nd7?=
- =?us-ascii?Q?hZa3C1FuOzY2aQDH+lXKO724EIYq4f3YerCk5hnli6UExuYyjwg4Nw0eW8/d?=
- =?us-ascii?Q?eA4fVgS6Yj8y7MvBHqyd5I2m0jOoVq0fGZ6Znj5OFG5ARkrTKeZA1XkSPPtq?=
- =?us-ascii?Q?Ji68MheMSRjAwKLZzf7xZYbvZZDs5LeP7LpPA/qCHoPFRwGCx0la5Fq3YAFm?=
- =?us-ascii?Q?dopl2SN7DElu+ng/pBJSNljePhuFkpHbpnLLw/FmUvZuR79BQZypvQCxeSLA?=
- =?us-ascii?Q?GVtQ2UW846Q/tRTCTszcJ2JoTfaWrr1MvhUrDftii7/Yz9HaCPPtCWx8yXod?=
- =?us-ascii?Q?wWEwx3pBSeI0kCXtrySITWF+POkOaEwYiGAsuXIsIZorro8ke+iOLvb8k7T7?=
- =?us-ascii?Q?ciUBYQ3RPpHoHvEigzULPqKRG1Ch15JMd6KtcX1DxdImBr6jhuXknn3cAWUY?=
- =?us-ascii?Q?f8us8o7nvPc=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB10601
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028CFD.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 47866c98-c69d-4eee-49d9-08dd8e219023
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|35042699022|36860700013|14060799003|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gYy95ir9XclDRcvy4GbpWWX17dZyFVu66p/8wW7l3YzDL1M3SjSEb5hAs0/5?=
- =?us-ascii?Q?nBNBlyLlUBC5fK0oYplqQRh1vIm+fhVqvjCxPTiRL3Gk5IJf9HhPw8JDYbS/?=
- =?us-ascii?Q?vRNzw3mkxbpTNp419cbPYmBgVcfjJ4uWXkPqgR0SbpgLSbx/O62R5MkObFJN?=
- =?us-ascii?Q?/BhH77oiikY6DEGLtD4KBHFOSf6hgRtY2rwbKHqDXhL+0z7MxCyOW8vMP/SL?=
- =?us-ascii?Q?EyMAV3AGTB+pNhfviVwBnMIutlefLs28eN0cYr6mz1OM+d7Pru9WtvsEy4xN?=
- =?us-ascii?Q?tOH7GDMmpu3K9heYCkyIcAf7X0yOUWDcEae3n4AjgwTjb+uLopUsT+o7J7Xk?=
- =?us-ascii?Q?FMAoY8jx/ldkpA0c70jnkfODofsBinp5uP9K3Tky4D5GuECdt/1s3MI4XMb6?=
- =?us-ascii?Q?NoFf1w3ePk9gDvr0bMgOWqax/J8KpZ83V3/i4bECPefugWZFTnZcSYyuUeRg?=
- =?us-ascii?Q?algR+6oOAJAPvIvZlVAbf5BH+ffCDghx/h2ZAfc+XuXa9Me5a9HumA0GwQlv?=
- =?us-ascii?Q?3GO35LNib2VfppqLd0CZjWFQ9/BFVgGf5yqxsaQal8FKv5CbPG6yLurtWCs8?=
- =?us-ascii?Q?HbZ0WrLBG4PVztZBXhwTU9OcqBoTvzt2IsORO+h9cfJWStI8xl63DZLsbSzU?=
- =?us-ascii?Q?PgX6wdBxIWDr/9ASAPA7kLMvSRce5TfJGBBjOBZllbPjL5ukwOSo/6cW5izG?=
- =?us-ascii?Q?0IGlkjeojV3D/7hOga0wFKKTdrAVU1LZXb4GalJRGqYVaYADTu4SU1G/5Zw8?=
- =?us-ascii?Q?32/vMsMDxg7G1mE1bymElgC7shGn0soDqlwNmkBVOM45Up8Sd3u7SAqABghV?=
- =?us-ascii?Q?UHFIcvp/u5Z/lV3crpaKpSb1k71YVgY7EpW3tHoZB3UqTU1tOeslD+himL4t?=
- =?us-ascii?Q?a/Y2pp1dAeWrRfGQxMDZFj1b9d5XkBebuUK7tdKAgqAbCi8iU0ncgEUvZ+aS?=
- =?us-ascii?Q?yVAVCBLR8/JCAt2/SHn6coFJNjH02u7rRCcoI0vprH8R1EQ0RzBVPidvD4nQ?=
- =?us-ascii?Q?mp2mw3aTuWd56bHH9Ght8d1y90Kw9Gr8zjBAfSh052BH5to/U0pHHZK5PXzi?=
- =?us-ascii?Q?ggdkOUSZTt2dPjSByE5xjlYv80ayW1+yQo/XScIDyfAbRDMjTvP0HlV7Nn+4?=
- =?us-ascii?Q?eYUe0ih7lndyRcpAtXNEeiRn5ln+N02a8TCzeXsl8/PBWtc70YWhhaJhPHta?=
- =?us-ascii?Q?YcS7tFnamwgho1cbKQMLU0XXPsywRxYCMG/nPY8PDPYQreJtL6td8z243KUg?=
- =?us-ascii?Q?Psnar4MeHGw/rdkwaiGvkP9zplcaYm9adhnPqr0EhWJe/WrDnFGKj0f+kfjl?=
- =?us-ascii?Q?bL3PbrDILJN7JfPRGZguJ6oq30j+vats8t8fK9onVv8PZyR88AP/NuvRMW47?=
- =?us-ascii?Q?GPjRmBpwq3Z3jDtKcWgxjOl3EeJaOrAueQDzFdwlp3jTx7oDce9OKps8up5W?=
- =?us-ascii?Q?jAxU1KRkRhE1mQknII8HCxZuHck32vJ1mdUcwWBzvmtEZw0hm52vqQxbAMHG?=
- =?us-ascii?Q?x2L+Sk2BG3qO8HjdAR/KQCwMkxEa+X2ei45Y?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(35042699022)(36860700013)(14060799003)(376014)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2025 11:15:29.1912
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: dbfbe3eb-7d7d-4a44-710a-08dd8e21a3ff
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028CFD.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB9375
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: mm: Drop redundant check in pmd_trans_huge()
+To: Ryan Roberts <ryan.roberts@arm.com>, linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ anshuman.khandual@arm.com, dev.jain@arm.com, peterx@redhat.com,
+ joey.gouly@arm.com, yangyicong@hisilicon.com, shan.gavin@gmail.com
+References: <20250508085251.204282-1-gshan@redhat.com>
+ <0c6455f1-5a7b-4ae3-b7f8-7f163b6abc9a@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <0c6455f1-5a7b-4ae3-b7f8-7f163b6abc9a@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ZFnCixQ40DWp59L91OqwXLQy_x0kxFGl_JR9bmAuv3Y_1746703141
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_041539_605785_758289EE 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250508_041904_725591_3AD2E46A 
+X-CRM114-Status: GOOD (  30.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -200,24 +111,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ard,
-
-> From: Ard Biesheuvel <ardb@kernel.org>
->
-> Move any variables accessed or assigned by the startup code out of BSS,
-> and into .data, so that we can forbid the use of BSS variables
-> altogether, by ASSERT()'ing in the linker script that each symbol made
-> available to the startup code lives before __bss_start in the linker
-> map.
->
-> Cc: Yeoreum Yun <yeoreum.yun@arm.com>
-
-Thanks for ccing me and with the your fix it looks good to me.
-When you send the patch with fix, I'll test it.
+On 5/8/25 7:22 PM, Ryan Roberts wrote:
+> On 08/05/2025 09:52, Gavin Shan wrote:
+>> pmd_val(pmd) is redundant because a positive pmd_present(pmd) ensures
+>> a positive pmd_val(pmd) according to their definitions like below.
+>>
+>>    #define pmd_val(x)       ((x).pmd)
+>>    #define pmd_present(pmd) pte_present(pmd_pte(pmd))
+>>    #define pte_present(pte) (pte_valid(pte) || pte_present_invalid(pte))
+>>    #define pte_valid(pte)   (!!(pte_val(pte) & PTE_VALID))
+>>    #define pte_present_invalid(pte) \
+>>            ((pte_val(pte) & (PTE_VALID | PTE_PRESENT_INVALID)) == PTE_PRESENT_INVALID)
+>>
+>> pte_present() can't be positive unless either of the flag PTE_VALID or
+>> PTE_PRESENT_INVALID is set. In this case, pmd_val(pmd) should be positive
+>> either.
+>>
+>> So lets drop the redundant check pmd_val(pmd) and no functional changes
+>> intended.
+>>
+>> Signed-off-by: Gavin Shan <gshan@redhat.com>
+>> Reviewed-by: Dev Jain <dev.jain@arm.com>
+>> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>> v1: https://lore.kernel.org/linux-arm-kernel/4e5941f8-7e61-4a63-a669-bee1601093a6@arm.com/T/#u
+>> v2: Improved commit log per Anshuman
+>> ---
+>>   arch/arm64/include/asm/pgtable.h | 3 +--
+>>   1 file changed, 1 insertion(+), 2 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>> index d3b538be1500..2599b9b8666f 100644
+>> --- a/arch/arm64/include/asm/pgtable.h
+>> +++ b/arch/arm64/include/asm/pgtable.h
+>> @@ -739,8 +739,7 @@ static inline int pmd_trans_huge(pmd_t pmd)
+>>   	 * If pmd is present-invalid, pmd_table() won't detect it
+>>   	 * as a table, so force the valid bit for the comparison.
+>>   	 */
+>> -	return pmd_val(pmd) && pmd_present(pmd) &&
+>> -	       !pmd_table(__pmd(pmd_val(pmd) | PTE_VALID));
+>> +	return pmd_present(pmd) && !pmd_table(__pmd(pmd_val(pmd) | PTE_VALID));
+>>   }
+>>   #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+>>   
+> 
+> I agree the cleanup is useful and correct, so:
+> 
+> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+> 
 
 Thanks.
 
---
-Sincerely,
-Yeoreum Yun
+> 
+> But personally I find it maddening that we have:
+> 
+> #define pmd_table(pmd)		((pmd_val(pmd) & PMD_TYPE_MASK) == \
+> 				 PMD_TYPE_TABLE)
+> #define pmd_sect(pmd)		((pmd_val(pmd) & PMD_TYPE_MASK) == \
+> 				 PMD_TYPE_SECT)
+> #define pmd_leaf(pmd)		(pmd_present(pmd) && !pmd_table(pmd))
+> 
+> static inline int pmd_trans_huge(pmd_t pmd)
+> {
+> 	/*
+> 	 * If pmd is present-invalid, pmd_table() won't detect it
+> 	 * as a table, so force the valid bit for the comparison.
+> 	 */
+> 	return pmd_val(pmd) && pmd_present(pmd) &&
+> 	       !pmd_table(__pmd(pmd_val(pmd) | PTE_VALID));
+> }
+> 
+> Which all do basically the same thing, but with some very subtle differences.
+> 
+> Surely we should really only need 2 basic functions; is it a table? is it a
+> leaf? Then pmd_sect() and pmd_trans_huge() should just be aliases of pmd_leaf().
+> 
+> I *think* pmd_sect() and pmd_leaf() are really just 2 different ways of
+> expressing the same thing? Which is "Is this a *VALID* leaf?"
+> 
+> And pmd_trans_huge() is asking "Is this either a *VALID* or *PRESENT_INVALID* leaf?"
+> 
+> I'm not sure if we can relax pmd_sect()/pmd_leaf() to give the same semantics as
+> pmd_trans_huge()? I would guess we can. In which case it would be nice to clean
+> this all up to a single implementation and make the others wrappers. Or better
+> yet, fix the callers to consistently use pmd_leaf(). And do the same for pud.
+> 
+
+Right, pmd_trans_huge() is the superset of pmd_sect() and pmd_leaf(). The later
+two macros are equivalent in logic. I had a quick check on the sites where
+pmd_sect() and pmd_leaf() are called, there seems no PRESENT_INVALID case. So
+I think it would be safe to sync up pmd_leaf() to pmd_trans_huges(), and then
+make the later one as an alias to pmd_leaf(). Besides, pmd_sect() needs to be
+replaced by pmd_leaf() as you're suggesting.
+
+Hopefully, I don't miss anything before I'm going to prepare the patches, which
+will be stacked up on current one. I'm understanding you want something (for
+PMD) like below.
+
+----
+
+static inline int pmd_leaf(pmd_t pmd)
+{
+     /*
+      * If pmd is present-invalid, pmd_table() won't detect it
+      * as a table, so force the valid bit for the comparison.
+      */
+     return pmd_present(pmd) && !pmd_table(__pmd(pmd_val(pmd) | PTE_VALID));
+}
+
+#ifdef CONFIG_TRANSPARENT_HUGEPAGE
+#define pmd_trans_huge(pmd)	pmd_leaf(pmd)
+#endif
+
+With above changes, replace pmd_sect() with pmd_leaf() so that pmd_sect() can be
+completely dropped.
+
+Thanks,
+Gavin
+
+
 
