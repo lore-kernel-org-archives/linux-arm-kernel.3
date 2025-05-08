@@ -4,98 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48500C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 15:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DCDFC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 15:49:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L1X5Gjv7/09h4a7I6zwRasGWexPXnv1aX5JDZjLolKU=; b=qaY3cjXc2vq0w6vgMv4Q+hAyew
-	bYP2IB5Vgw/uAxwxP/Cj2lQvI78cAzeUX7j/eDb5XI5ZzqA3Mb6B1zn0JegzILU9uVylAJZeGHNM7
-	WcvB0wr6pqG/yo7BOSt9I0koidA3ZiD342hLA7+KDhhXYw10a2oBzIjfLA37p4mlzBjtrXYZnr0jn
-	RsXOlPaLZUjrBllZhCN6wWUs6nYV/TO3Tit/jIvw7W2gf1vBojzfYDMDUOMn6NHGpDgEXs0yXyaD4
-	mhR+tQTZAaOtNJrz49Abe8ru/G+ec5lnaGYVHGCcSvFlgeQso8OGfIX7T/F0sXiXqTnO4zz2iXj8F
-	Yi0N8M/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LxkIfdPAW9Q20BDq/mi3qMUCnVgKFNaHsNsRZQQxttc=; b=YNDsPMU1crtoVF9lOP325EAjia
+	TdJRiwqe82VR8jaLiKMc9al5+uyhcIPfy1q4bJHYtNZDcbbMovkwkLZZ29MmsBOox0Winj5JVp1Ef
+	PYJJbYFJy8hQTRU6D7esDJuADmWeNMMvNh19appvmU2lm1Etr8r/H8tysSBaAogYVn1EMJxJdDLBw
+	svpTaLBYUb7UCm3yjQk4Ew8+8nxrrMMA+KVPsp6rZlTmltcPEQVp8jvYsBfBlztfhqoEWcPebkjcI
+	4EjD7QxBOlkSVlonS2ZWZ8PGxpVwKL/pqcVM4QYg7Td4Lg0X013Jc4nVHlfV53oHteogAyj8UcJcS
+	v6h8zr/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD3Sg-00000001BUk-0cOP;
-	Thu, 08 May 2025 15:47:02 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1uD3Ub-00000001Bl7-40XW;
+	Thu, 08 May 2025 15:49:01 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD2DU-00000000uqi-2vxk;
-	Thu, 08 May 2025 14:27:18 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b1396171fb1so628385a12.2;
-        Thu, 08 May 2025 07:27:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746714435; x=1747319235; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=L1X5Gjv7/09h4a7I6zwRasGWexPXnv1aX5JDZjLolKU=;
-        b=SK+rPyAWxE3vkHt+oo7jUg6X45NGoYzJj+7zEyNUdPNTYehBRrCHHNe1UcSoEkvXZx
-         QBeEAzDCNaOK3ANrnlyts617p3cGcvQLvsYKHaaojmQgwFOGSlhuUnTltwN/1pnRv9b7
-         T+eHigsiwZ/xrdeTsKl1dxQo4uUEDC4LmlOoD/cBr+12WW6yuTh9KtYqDwSexOmxP/QI
-         gmmJ7jK4Emrn8gKa7Y+bIaTo4vV0kKCFlzjY34tPRe2wmWkL66EoRQBxtYO5rHLXl0pj
-         fg3UpC36OmW/36f5jTRSSJ5EVukQu+0wrq+JExi/1JOEet2flr+QBXsaWANm2Pzo5aMC
-         rL9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746714435; x=1747319235;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=L1X5Gjv7/09h4a7I6zwRasGWexPXnv1aX5JDZjLolKU=;
-        b=M+EeMjR3G0fyt7lqqQ4n+U+fkKJyxEtTezCUyGkNOyEiwwPx12Y/psWZQhf+P4igIM
-         tGvQdrO8Tnsnqe4r+WuX2u8eI+dS82gWJpXpWEVRJjZ77eyn4DtyhpSyNEr6ZeryDnJS
-         zEHzHXO2opNCg4LXS5AYTHpjW18LlMYn1ch6VShrID0TnHdlxU8jJf/lvW4xp/y/bQti
-         oblnv4EP64aXybImdqfJuRZMPsuriazRE8AAm0oPWPaIBgS197HOtb8ZAa82cGQQ4SnS
-         M20Bu73+5JHpjELkS7937k71l0FHI1x5zsY3tRSEVNCBkM+AeZJblVi9DlWRQJuDVrFG
-         0p4g==
-X-Forwarded-Encrypted: i=1; AJvYcCVxs3xVNcaOqtUWFVlq5flyy379i6uJO4626sBY68h7ovN1hLE93LMdAaP1rTrDt8k186j0alYFTvyOYeh3ivR8@lists.infradead.org, AJvYcCXWIhxZO+kPQPZ4v4P39g+V62ub8MY1wucYqrOZ9zQ9+3BhFbnTWUEnXsrwaCzLOTeZhT0HLlEhe1/YvOKwTwxuPw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCAhoDbnRKcsmivEf7xnFCZRs4xWavtBAnoAJl/y4p3ke60iPM
-	qxnc5VkNOE4By9k3BaS8ePNF/gQTfHhxWP1Azd3jrfarl4AM18Kr
-X-Gm-Gg: ASbGnctAb0aUVgSHHb8D+I18XTV6Q8+Ai0kvvwCDSTc5dJi8C4inpf4eJJ56CAUoOCT
-	oLjf+7CApUD7xcuQYKMeS8gOZdY1JBeRf6q0Xyt7eJGLXA8aai1LkErU4YPftrGhGcqZOi6fWPc
-	IiABwgVm2T1gAz727V5zOfQmiRDc1HtBfK5+rWkSTZjroGPJ4VMnKiFkN7YZxcWsrHVQK4WiYUQ
-	2Uv01dQ/U9IhxbLkJbcGNa22p/UhEy7GpCoS/8l/qWG7MO640whHa1UVxtJEzsYcLnsgvoH2rhn
-	J8kbosX0BTXvXOsbMaly071Yz6nN4p6IqWYmeAuOcUAZPv0K3DYNIA==
-X-Google-Smtp-Source: AGHT+IGX69fKV8SIz5ble6uUkvbicpRW5QmwPdXGWbWOXvCG1vLa4lPWJgZNrqXL8Q3jFUOwyoJcKw==
-X-Received: by 2002:a05:6a21:6d83:b0:1f5:86c6:5747 with SMTP id adf61e73a8af0-2159b05448fmr6089580637.32.1746714435380;
-        Thu, 08 May 2025 07:27:15 -0700 (PDT)
-Received: from localhost.localdomain ([123.16.133.44])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b1fb3b62502sm11383288a12.32.2025.05.08.07.27.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 May 2025 07:27:14 -0700 (PDT)
-From: Nam Tran <trannamatk@gmail.com>
-To: lee@kernel.org
-Cc: andy@kernel.org,
-	geert@linux-m68k.org,
-	pavel@ucw.cz,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	christophe.jaillet@wanadoo.fr,
-	corbet@lwn.net,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	florian.fainelli@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v8 0/5] auxdisplay: add support for TI LP5812 4x3 Matrix LED driver
-Date: Thu,  8 May 2025 21:26:48 +0700
-Message-Id: <20250508142648.7978-1-trannamatk@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250508132659.GL3865826@google.com>
-References: <20250508132659.GL3865826@google.com>
+	id 1uD2EK-00000000v58-2Ri0
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 May 2025 14:28:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1746714489; x=1778250489;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=IY3VG/gRbQesJTL7PGEn0YX+FszGyoQR0i1Wr/j85Qc=;
+  b=i70ls6+Tn7yvDvq2T3McTEscfVbJMnfaB0RWlVbqds+7kBwifScUPzHz
+   UAQtVCuavO6xzdDes4AEpRlvn9eXTZJt4VVUBPxgfyWvsn5oC0s5tZ/7W
+   w0uczTSgfd5FcWFu3c4izJK2klBiMBqSRDhUUoxGkTl2Jh43hvQ9Up97Y
+   Zza0OiYKtFubTEOSENoJAbJ6VpXhEmrRchZ881cz/9UtVEMmL+sSypkeH
+   zm/ud7v+ltHWoAqmxZMNLEOG+6OV80mHfq5ojciPQ0x+WI7Cfe8IGmW61
+   U/xWJQsbx+MZ7AjGgvfAi4nV/rb4z8iNRNmzsalwb1h7iGhjUACSIstAK
+   w==;
+X-CSE-ConnectionGUID: nPnZGevMRC6LbLqwzdn8ZA==
+X-CSE-MsgGUID: iz5VX6emQwSndCfclr17rg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11427"; a="59496606"
+X-IronPort-AV: E=Sophos;i="6.15,272,1739865600"; 
+   d="scan'208";a="59496606"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 May 2025 07:28:06 -0700
+X-CSE-ConnectionGUID: rdEp9pKSQSOxGK7lJDtSyw==
+X-CSE-MsgGUID: uy6WKA9hT6e5NY9UIu6Ijw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,272,1739865600"; 
+   d="scan'208";a="136320287"
+Received: from smile.fi.intel.com ([10.237.72.55])
+  by fmviesa007.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 May 2025 07:27:56 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1uD2E4-000000048Ph-1tm1;
+	Thu, 08 May 2025 17:27:52 +0300
+Date: Thu, 8 May 2025 17:27:52 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Herve Codina <herve.codina@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Peter Rosin <peda@axentia.se>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Wolfram Sang <wsa@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	Allan Nielsen <allan.nielsen@microchip.com>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Steen Hegelund <steen.hegelund@microchip.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH v2 05/26] bus: simple-pm-bus: Populate child nodes at
+ probe
+Message-ID: <aBy_aBkC7NpicXho@smile.fi.intel.com>
+References: <20250507071315.394857-1-herve.codina@bootlin.com>
+ <20250507071315.394857-6-herve.codina@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250507071315.394857-6-herve.codina@bootlin.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_072716_737889_1F11D167 
-X-CRM114-Status: GOOD (  46.21  )
+X-CRM114-CacheID: sfid-20250508_072808_694300_4323DAE4 
+X-CRM114-Status: GOOD (  22.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,106 +120,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 8 May 2025 Lee Jones wrote:
+On Wed, May 07, 2025 at 09:12:47AM +0200, Herve Codina wrote:
+> The simple-pm-bus drivers handles several simple bus. When it is used
 
-> On Thu, 08 May 2025, Andy Shevchenko wrote:
+bus --> busses ?
+
+> with busses other than a compatible "simple-pm-bus", it don't populate
+> its child devices during its probe.
 > 
-> > First of all, I just noticed that you excluded Lee from the
-> > distribution list. Don't do that as he is a stakeholder here as well
-> > since it has not been decided yet where to go with your stuff.
-> > 
-> > On Wed, May 7, 2025 at 7:42 PM Nam Tran <trannamatk@gmail.com> wrote:
-> > > On Tue, 29 Apr 2025 Andy Shevchenko wrote:
-> > > > On Tue, Apr 29, 2025 at 8:02 PM Nam Tran <trannamatk@gmail.com> wrote:
-> > > > > On Mon, 28 Apr 2025 Pavel Machek wrote:
-> > > > > > > On Mon, 28 Apr 2025 Geert Uytterhoeven wrote:
-> > > > > >
-> > > > > > > > > > > - Move driver to drivers/auxdisplay/ instead of drivers/leds/.
-> > > > > > > > > > > - Rename files from leds-lp5812.c/.h to lp5812.c/.h.
-> > > > > > > > > > > - Move ti,lp5812.yaml binding to auxdisplay/ directory,
-> > > > > > > > > > >   and update the title and $id to match new path.
-> > > > > > > > > > > - No functional changes to the binding itself (keep Reviewed-by).
-> > > > > > > > > > > - Update commit messages and patch titles to reflect the move.
-> > > > > > > > > > > - Link to v7: https://lore.kernel.org/linux-leds/20250422190121.46839-1-trannamatk@gmail.com/
-> > > > > > > > > >
-> > > > > > > > > > Out of sudden without discussing with auxdisplay maintainers/reviewers?
-> > > > > > > > > > Thanks, no.
-> > > > > > > > > > Please, put into the cover letter the meaningful summary of what's
-> > > > > > > > > > going on and why this becomes an auxdisplay issue. Brief review of the
-> > > > > > > > > > bindings sounds more likely like LEDS or PWM subsystems.
-> > > > > > > > >
-> > > > > > > > > It is 4x3 matrix. That means it is not suitable for LEDs. I don't
-> > > > > > > > > believe it is suitable for PWM, either -- yes, it is 36 PWM outputs,
-> > > > > > > > > but...
-> > > > > > > >
-> > > > > > > > Is it intended to be used as a 4x3 matrix, or is this just an internal
-> > > > > > > > wiring detail, and should it be exposed as 12 individual LEDs instead?
-> > > > > > >
-> > > > > > > The 4×3 matrix is a real and fundamental aspect of the LP5812’s operation.
-> > > > > > > It is not just an internal wiring detail.
-> > > > > > > The device adopts a Time-Cross-Multiplexing (TCM) structure, where 4 output
-> > > > > > > pins control 12 LED dots individually through scanning. Each pin includes
-> > > > > > > both high-side and low-side drive circuits, meaning matrix multiplexing is
-> > > > > > > required for proper operation — it cannot be treated as 12 completely
-> > > > > > > independent LEDs.
-> > > > > >
-> > > > > > Scanning is really a detail.
-> > > > > >
-> > > > > > If this is used as rectangular 4x3 display, then it goes to auxdisplay.
-> > > > > >
-> > > > > > If this is used as a power LED, SD activity LED, capslock and numlock
-> > > > > > ... placed randomly all around the device, then it goes LED subsystem.
-> > > > >
-> > > > > The LP5812 is used for LED status indication in devices like smart speakers,
-> > > > > wearables, and routers, not as a structured rectangular display.
-> > > > >
-> > > > > Given that, it seems to match the LED subsystem better than auxdisplay, doesn't it?
-> > > >
-> > > > I have mixed feelings about all this. As per hardware organisation it
-> > > > sounds more like a matrix (for example. keyboard), where all entities
-> > > > are accessed on a scanline, but at the same time each of the entities
-> > > > may have orthogonal functions to each other. Have you checked with DRM
-> > > > for the sake of completeness?
-> > > > Personally I lean more to the something special, which doesn't fit
-> > > > existing subsystems. Auxdisplay subsystem more or less about special
-> > > > alphanumeric displays (with the exception of some FB kinda devices,
-> > > > that were even discussed to have drivers be removed). Also maybe FB
-> > > > might have something suitable, but in any case it looks quite
-> > > > non-standard...
-> > >
-> > > I understand your mixed feelings about where the LP5812 fits within
-> > > the existing subsystems.
-> > >
-> > > While the LP5812 uses a matrix-based structure for controlling LEDs,
-> > > it is not intended for displaying structured text or graphics. Instead,
-> > > it controls up to 4 RGB LEDs for status indication, where each RGB LED
-> > > consists of 3 individual color LEDs: red, green, and blue. Based on this,
-> > 
-> > So, you probably should have started with this. As I read above that
-> > this has to reside in drivers/leds/rgb for colour ones which seems to
-> > me closest to your case. On top you might add an upper level
-> > management to prevent users from using patterns whenever the LEDs are
-> > requested individually. So, this driver should represent 4 RGB leds
-> > and, possibly, the upper layer with those fancy stuff like breathing.
-> > 
-> > At least, based on the above it's my formal NAK from an auxdisplay perspective.
+> This confuses fw_devlink and results in wrong or missing devlinks.
 > 
-> This is fine.
+> Once a driver is bound to a device and the probe() has been called,
+> device_links_driver_bound() is called.
 > 
-> Just be aware, before you submit to LEDs again, that you need to use
-> what is available in the LEDs subsystem to it's fullest, before
-> hand-rolling all of your own APIs.  The first submission didn't use a
-> single LED API.  This, as before, would be a big NACK also.
+> This function performs operation based on the following assumption:
+>     If a child firmware node of the bound device is not added as a
+>     device, it will never be added.
+> 
+> Among operations done on fw_devlinks of those "never be added" devices,
+> device_links_driver_bound() changes their supplier.
+> 
+> With devices attached to a simple-bus compatible device, this change
+> leads to wrong devlinks where supplier of devices points to the device
+> parent (i.e. simple-bus compatible device) instead of the device itself
+> (i.e. simple-bus child).
+> 
+> When the device attached to the simple-bus is removed, because devlinks
+> are not correct, its consumers are not removed first.
+> 
+> In order to have correct devlinks created, make the simple-pm-bus driver
+> compliant with the devlink assumption and create its child devices
+> during its probe.
 
-Thanks for the clarification.
+...
 
-Just to confirm — the current version of the driver is customized to allow
-user space to directly manipulate LP5812 registers and to support the
-device’s full feature set. Because of this, it doesn’t follow the standard
-LED interfaces.
+>  	if (match && match->data) {
+>  		if (of_property_match_string(np, "compatible", match->compatible) == 0)
 
-Given that, would it be acceptable to submit this driver under the misc subsystem instead?
+Side note, there is an fwnode_is_device_compatible() API for such cases. And IIRC
+there is also OF variant of it.
 
-Best regards,
-Nam Tran
+> -			return 0;
+> +			goto populate;
+>  		else
+>  			return -ENODEV;
+>  	}
+
+...
+
+> +	if (pdev->dev.of_node)
+
+Why do you need this check? AFAICS it dups the one the call has already in it.
+
+> +		of_platform_depopulate(&pdev->dev);
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
