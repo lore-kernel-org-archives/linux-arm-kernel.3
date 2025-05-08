@@ -4,84 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29C83C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 05:55:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32E7AC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 05:58:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+EhF6K8iP9mfpQBTanjU88sfd+KY8wpvCiD31HubBpA=; b=ryoRBTf45+i06+hWDz2GYjCzUR
-	MwByhw8oIub3xeVS2b/yMbsEfdJlzu18wy2vPNVvvH0wIcKAZX9oolPLxXoGBqP7Z1LYlQ0WOlXS0
-	DSwMniZMNqyZT1O28A8UAulRSBCUIN8m7NV+bKUGc2psxe3pm4Is+nVZDeR41+4P3r8495bDbVlT6
-	koLaQKwlHxlnFohGh7aQHcXy61W6VF3cvZkKem+0Sax6UT3kzc1QceiclsvUCcE5e7HMOCVY/zV/9
-	0Z1s2XajnWcLtiwpnMFV9YpDdaNrVqJQRc3XUUvtqLWldvgHgeqJG9teLbczrYwbQv+1kB6rbcWFu
-	WfWVlU5w==;
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=E9pT+X53FMlPm/ampBllVyPBsPRYDRC0bt9PWv7nsFw=; b=UEm4oarz6K+2ZsNjlAufNloqbG
+	snnXSgyaVuStD1hOJHPdYyBQLunylF9hchP29H6m2nt0pvVbj7CycyueSJkVkh5qywk1cylg97XSI
+	3wBtevoJoDMbNR7v3Vsoiocxw3UkEDG3/ueFucEPEGzUFeBc14331mab0ws2Pbl07CRINHcFhbaO3
+	Kpz4y4/5nahfbiNXOf3qlYTcb/XDwXFW+/6vHMWwhftc85tf6YSAaF7NPiDe3LWBaRqlig9VqyxFJ
+	2CqmQ4nGuAmnECiPUVRajBZFV41nFCf1V7ABmm1YDRLAESJZwQhfsiU0VNqsm/Nrub6kFUTSvLOvI
+	JeWWm9Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCuDv-0000000HPN2-0W3T;
-	Thu, 08 May 2025 05:55:11 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1uCuH7-0000000HPjT-2Dkq;
+	Thu, 08 May 2025 05:58:29 +0000
+Received: from mail-eastasiaazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c400::3] helo=HK3PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCuBw-0000000HPEg-0tZq
+	id 1uCuFA-0000000HPWo-2pm1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 05:53:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1746683588; x=1778219588;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=+EhF6K8iP9mfpQBTanjU88sfd+KY8wpvCiD31HubBpA=;
-  b=HJ/eOVSrmzsoAFEuxP2geSR0taIy6w9sRSSdNBrd5vNXpiSbJWPd5GNh
-   Im1SdIx4uGb5DIieauXEj424+0OI36LcOQylvwymPxtHVZuORd3WNH9tP
-   aWp+Q/D3sqeAWTVRaUEd/Vl91KBXz6eFpxtbQn2OMcZnC0hk2bKVArl4Q
-   A6TYVjM0jMMsSelbDV3vfDEaOfqjkpRZgiGXU4oU2nD74T1CJoPjHEJwk
-   Aosve9zzMNSHcN06YbMs32UTG9wxs5pqNuLMWh8jTPwdFdZanOkDVgzyh
-   yYBWm+T0WHxNJd51CoLrdCHhwJKH9/yVEbyitSWTcFW2Q8SEVSqGDm4iw
-   w==;
-X-CSE-ConnectionGUID: xbpkzIP9R/qC6etNh8IRJA==
-X-CSE-MsgGUID: xnb0ZSFgTwGbn6c0RXGptw==
-X-IronPort-AV: E=Sophos;i="6.15,271,1739833200"; 
-   d="scan'208";a="43949933"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 08 May 2025 07:53:04 +0200
-X-CheckPoint: {681C46BF-47-C7E25413-F4312D34}
-X-MAIL-CPID: 66C688438851F16310F03349BE687D8C_4
-X-Control-Analysis: str=0001.0A006376.681C46D2.0053,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D59C3160024;
-	Thu,  8 May 2025 07:52:58 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1746683579;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+EhF6K8iP9mfpQBTanjU88sfd+KY8wpvCiD31HubBpA=;
-	b=Sd5BdEikxwjpfFOj5IDvtC61NMJMYM5wDSpY2TWONg2qb7ny0tda0jQ0U/BEhlxRGGE+7P
-	XW/dv833vlG0UHzsmvAcUnjVXkRfzUhoVaEkfVn/k1K4pxnYrajjYvE4BfbLXIolmes41a
-	EaK2z8Y2c+lh0Xce+PTj7Uv/U3zROYrdbqviMh+I5QvCkaK0W+6HunIBhdj7N9l/pPNHOm
-	EKQ5Vd8mojrABJIElm/eMihNfWj+gWIJzSrXIISS0qU7vUA2NN2sYjhW/dlStAPG+190dY
-	s9XMiITFk/nPaD9XI097goS2FMZ0E+i2eYFn+yHMmdeWVWqO9QTObi+GbsIpxA==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Stefan Wahren <wahrenst@gmx.net>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Shawn Guo <shawnguo@kernel.org>, Esben Haabendal <esben@geanix.com>
-Subject: Re: [PATCH 1/1] arm64: Kconfig: Enable PINCTRL on i.MX platforms
-Date: Thu, 08 May 2025 07:52:58 +0200
-Message-ID: <8259306.DvuYhMxLoT@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <5af33290-e7d8-437c-a22f-5b873596d67a@gmx.net>
-References: <20250507124414.3088510-1-alexander.stein@ew.tq-group.com>
- <5af33290-e7d8-437c-a22f-5b873596d67a@gmx.net>
+	Thu, 08 May 2025 05:56:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=H4BgVT+aT3bUwlcP4yHMroVDHwJ7iLZ83uhTtXONQjctterRUEQZsfwwr3QxqvBoogs8UuLKph+AYxh6HeF4ehSJqt3p58U/74pdlAD6JEGeW29/4TaWHNTDm8qorjQRHlGd99/M3Rvp3HlyL6yLscrXMptx1UdUI22uCRgmZPMkWXmcRxxNNiyv34Jr7q1YrKqBjcSpAT8EeRr5e8sF2nuqvF9p1V4qq9NHYv5J73nB0uzwwRG0WqwWCB6gJRD4Pq060q3yM7bIMK1Eup+HxrxGFuMQRk4zXfgLbDHt7+2RTKoRdqYS+Hbd6xdXdz0fyAGubcB7pPy1QpBYV3FE2w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=E9pT+X53FMlPm/ampBllVyPBsPRYDRC0bt9PWv7nsFw=;
+ b=G/9JbC04zOwikdKflY9WxxWYcaf7ZAtT/+pYQksAn/7Wv0GsjVO8GFXYCrc3nCqgRgUbucB2rqaDumt5gZob03vbxBjDY7nuALp3IoIagVAlGlu8s2ILjiKZlwVBTv+F/zeJaig4kMV4MXu9m/5ZXel9ckBoNeGNx0xzr0axrnUEsJ5JFrDN5nL0XnP+nYW5JRmz3LZj2gU26hR7eYy5TAIgKNe/IvIU2WpVStYQx5XNSJNGZFQZYq+fK+U4PXUOo1eud5c+KtT99ge9pQ9WZHeWjbt5ZQtjH83PwvlmvkRzGG6HgHDS9FRaC92Hu648ygq44h1WOjDMZ/YyppkGIg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 211.20.1.79) smtp.rcpttodomain=stwcx.xyz smtp.mailfrom=wiwynn.com; dmarc=fail
+ (p=quarantine sp=quarantine pct=100) action=quarantine
+ header.from=wiwynn.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wiwynn.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=E9pT+X53FMlPm/ampBllVyPBsPRYDRC0bt9PWv7nsFw=;
+ b=P2VzNdd5h9VRAPUdwB1rnsygktm8UghSP03P1ZO+V0dk4GiSiUCD0ctnjSlFQYqaT+TLoXkq/T0l84by3v2dg86pcsSzzqfleMAecV6AYNLcXley5TsiVXxgLZR2KZcGJZf/220ac9tychkQPAQP0PG94m5moez11QAbOr09q5k1/STR0pV/9IgSdAYw+bo/S+cjBdHCBW0JkuKWqoQQhOgoBu1fpgdIlGqt5j8IDb0JxGEKOL8pY3mbJ5AM/TQZAxsZBi5CxySamIwFgKuVDrjBz6p4CgJwPoTCNzY11oyu3lBtovQezw1nARoaoEuZWcDxZ6ZYZ3DnF4cHMGq8+g==
+Received: from SG2PR04CA0214.apcprd04.prod.outlook.com (2603:1096:4:187::17)
+ by TY0PR04MB6254.apcprd04.prod.outlook.com (2603:1096:400:329::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.21; Thu, 8 May
+ 2025 05:56:18 +0000
+Received: from SG1PEPF000082E8.apcprd02.prod.outlook.com
+ (2603:1096:4:187:cafe::3) by SG2PR04CA0214.outlook.office365.com
+ (2603:1096:4:187::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.23 via Frontend Transport; Thu,
+ 8 May 2025 05:56:17 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 211.20.1.79)
+ smtp.mailfrom=wiwynn.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=wiwynn.com;
+Received-SPF: Fail (protection.outlook.com: domain of wiwynn.com does not
+ designate 211.20.1.79 as permitted sender) receiver=protection.outlook.com;
+ client-ip=211.20.1.79; helo=localhost.localdomain;
+Received: from localhost.localdomain (211.20.1.79) by
+ SG1PEPF000082E8.mail.protection.outlook.com (10.167.240.11) with Microsoft
+ SMTP Server id 15.20.8722.18 via Frontend Transport; Thu, 8 May 2025 05:56:16
+ +0000
+From: Delphine CC Chiu <delphine_cc_chiu@wiwynn.com>
+To: patrick@stwcx.xyz,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: Marshall Zhan <marshall.zhan.wiwynn@gmail.com>,
+	Delphine CC Chiu <delphine_cc_chiu@wiwynn.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] arm: dts: aspeed: yosemite4: add gpio name for uart mux sel
+Date: Thu,  8 May 2025 13:56:11 +0800
+Message-Id: <20250508055612.2613605-1-delphine_cc_chiu@wiwynn.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG1PEPF000082E8:EE_|TY0PR04MB6254:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: b9c1fcb2-18d2-4df1-23fe-08dd8df50c75
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8HzAaJutdJo4Ni+2QkyO5Z+JJWBPSkGbglCqxPZBjiDQb/792qbDaVRXgcVk?=
+ =?us-ascii?Q?Sn0UWEoPVzukVp7gx0WS0Cj8umFePYug0sDEIZP38rWfGBmDBuPLq9C//4dv?=
+ =?us-ascii?Q?cmEPtBHyaPsedg2q2SuwE3gL25jk/jyYHWjFDwDOaYxIlsr1KXoJ4S1tTJdo?=
+ =?us-ascii?Q?N8FTwRq3cfhCMVHphPyt7rFIRaVYL4PHI4FDPeFZT2uBU9Qx5mq6PTzfhZi9?=
+ =?us-ascii?Q?4MR4ko39ksUeibTkj5A5boefIxP0fbji+BcUqnhGkrO9mDa4/R3f1KFZC7YM?=
+ =?us-ascii?Q?jg/A6eOU6qu63gs0zvTC3EojroWAgqPrDP0j+6rNnJxee6hYLCuFWy+vJLjV?=
+ =?us-ascii?Q?vuOpE72cm9WAP8RkEN+cCgx+/Van1JVhfnUUwdXygnd+6hp5Ksm+LoL33BgL?=
+ =?us-ascii?Q?VQE65mEPTztMewlziW5uEWRDmrE25/Zc3uDkEGSCojT8XxqP7xf3Z1b3+m+R?=
+ =?us-ascii?Q?6iWMY2CihmvLX433uMYK9faxrGSOnAoMYUNS/g7fICBLGxMgLZHb6so2FJ0k?=
+ =?us-ascii?Q?tMUmf3VEi6N1dCTgGb1/2VkDYCgiGuarkIIvToHvKlNAvNe6TmVG1KosNbpC?=
+ =?us-ascii?Q?y+0fFrsKchE08FxaOKkm03PcAI4oa9dVz0IE6eHGx8xCY1r7V+cC6O1a+ZHt?=
+ =?us-ascii?Q?xcX3cNhKpM33EbUgSmnptHMFmYLC1dwe4nyUqmo0rHN0g1sFoWrisHIynIBH?=
+ =?us-ascii?Q?FVpxaR9ksExwVsBcqNCzVMnnIOvT2ILJE9BDXc+dIuA/TyEN1fDI6ilnVIPy?=
+ =?us-ascii?Q?5LoFxJb7eMn91ksMyQPIo8DoAHBAV/k4uIzwsCZkGFJxa/bVW/yQTFj15tJW?=
+ =?us-ascii?Q?fV+a7Xqide5KOYyTV722Ikp+7/+r/O1cPpKffE5UwIpiS5HedGwD+AB4aXdp?=
+ =?us-ascii?Q?PlvCo1PXPUcb7b6pvkdIzFcWiA0cQ9usdfMqlx2TXc2Rw5fL1vJ+erWXd8Xq?=
+ =?us-ascii?Q?pydpGkwAFrqfPEmdoFbxoytDG4pPx7DKbfyU3G8h9sP7pO1HPox4kcKl93UQ?=
+ =?us-ascii?Q?ZTN2gyZrnmqVEYvYzz6yfe0Pc0GN8u25R1qIvOWThG05LkTMcw4K4NUzsO5G?=
+ =?us-ascii?Q?cYuqj2BiqwWN67M7nzJrP/DMF2Dpn1phD69Yiq+oMXJKXZ4fidf/cHdwAGo3?=
+ =?us-ascii?Q?GVmqoNLKit5jm7NVYNIdZcbdeREt2KpqKKIucQoR6OEHrJQjD+GgNFVyjvz2?=
+ =?us-ascii?Q?is+i9mabSfMIVK730wL6oMy0lx0wAPiJBvgQ2G11ORf+Ku6gQywpacFu+Lzn?=
+ =?us-ascii?Q?fTMwToQIbVLP8lEpEpHkVj/KHxEklRMqvBbE1m436JcIbO1J1BOeuT2VXhhY?=
+ =?us-ascii?Q?koc3VnrnvMECPUnaiRxqo1aPQuXyVNbFUQT8srKizYTyDYbuykxo9wy+Ab3j?=
+ =?us-ascii?Q?KnjRUaE742pp829IGoF8obzeHgjZKoyFCje2F9vhE0r2+K70+Cw4ANs6ZFm7?=
+ =?us-ascii?Q?/Mn0CpjUowt6qYhFkYxzrRH4jGYaleEBsXfGGLejrj6hJL2FtgFl1irXlGCI?=
+ =?us-ascii?Q?N+gUym2CHsqqdfL4w0DzfKAy4gdTP2rbDyeI?=
+X-Forefront-Antispam-Report: CIP:211.20.1.79;CTRY:TW;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:localhost.localdomain;PTR:211-20-1-79.hinet-ip.hinet.net;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: wiwynn.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2025 05:56:16.4775
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b9c1fcb2-18d2-4df1-23fe-08dd8df50c75
+X-MS-Exchange-CrossTenant-Id: da6e0628-fc83-4caf-9dd2-73061cbab167
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=da6e0628-fc83-4caf-9dd2-73061cbab167;Ip=[211.20.1.79];Helo=[localhost.localdomain]
+X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E8.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR04MB6254
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_225308_729256_BE6422DC 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20250507_225628_733014_7645CCB0 
+X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,56 +145,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
+From: Marshall Zhan <marshall.zhan.wiwynn@gmail.com>
 
-Am Mittwoch, 7. Mai 2025, 16:30:33 CEST schrieb Stefan Wahren:
-> Hi Alexander,
->=20
-> [add Shawn and Esben]
->=20
-> Am 07.05.25 um 14:44 schrieb Alexander Stein:
-> > Select PINCTRL for NXP i.MX SoCs.
-> could you please explain the motivation behind your change?
->=20
-> Is it related to this commit 17d21001891402 ("ARM: imx: Allow user to=20
-> disable pinctrl")?
+Add gpio line name to support multiplexed console
 
-Ah, thanks for the pointer. It might be the case. I noticed that, when
-using arch/arm64/defconfig and disabling all platforms despite ARCH_MXC
-before running make olddefconfig, CONFIG_PINCTRL gets disabled as well.
-No platform is enabling it. I noticed this when building in yocto and
-non-IMX platforms are disabled for build time reasons.
+Signed-off-by: Marshall Zhan <marshall.zhan.wiwynn@gmail.com>
+Signed-off-by: Delphine CC Chiu <delphine_cc_chiu@wiwynn.com>
+---
+ .../aspeed/aspeed-bmc-facebook-yosemite4.dts  | 41 +++++++++++++++++++
+ 1 file changed, 41 insertions(+)
 
-Best regards,
-Alexader
-
-> >
-> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> > ---
-> >   arch/arm64/Kconfig.platforms | 1 +
-> >   1 file changed, 1 insertion(+)
-> >
-> > diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-> > index a541bb029aa4e..49c3bc25e5f68 100644
-> > --- a/arch/arm64/Kconfig.platforms
-> > +++ b/arch/arm64/Kconfig.platforms
-> > @@ -219,6 +219,7 @@ config ARCH_MXC
-> >   	select ARM64_ERRATUM_845719 if COMPAT
-> >   	select IMX_GPCV2
-> >   	select IMX_GPCV2_PM_DOMAINS
-> > +	select PINCTRL
-> >   	select PM
-> >   	select PM_GENERIC_DOMAINS
-> >   	select SOC_BUS
->=20
->=20
-
-
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
+index 29f224bccd63..ac0678aef7d2 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
+@@ -189,6 +189,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT1_UART_SEL0","SLOT1_UART_SEL1",
++                                  "SLOT1_UART_SEL2","","","","","",
++                                  "","","","","","","","",
++                                  "","","","","","","","",
++                                  "","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -235,6 +240,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT2_UART_SEL0","SLOT2_UART_SEL1",
++                                  "SLOT2_UART_SEL2","","","","","",
++                                  "","","","","","","","",
++                                  "","","","","","","","",
++                                  "","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -281,6 +291,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT3_UART_SEL0","SLOT3_UART_SEL1",
++                                  "SLOT3_UART_SEL2","","","","","",
++                                  "","","","","","","","",
++                                  "","","","","","","","",
++                                  "","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -327,6 +342,12 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT4_UART_SEL0","SLOT4_UART_SEL1",
++                                  "SLOT4_UART_SEL2","","","","","",
++                                  "","","","","","","","",
++                                  "","","","","","","","",
++                                  "","","","","","","","";
++
+ 	};
+ 
+ 	gpio@23 {
+@@ -373,6 +394,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT5_UART_SEL0","SLOT5_UART_SEL1",
++				  "SLOT5_UART_SEL2","","","","","",
++				  "","","","","","","","",
++				  "","","","","","","","",
++				  "","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -419,6 +445,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT6_UART_SEL0","SLOT6_UART_SEL1",
++                                  "SLOT6_UART_SEL2","","","","","",
++                                  "","","","","","","","",
++                                  "","","","","","","","",
++                                  "","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -465,6 +496,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT7_UART_SEL0","SLOT7_UART_SEL1",
++                                  "SLOT7_UART_SEL2","","","","","",
++                                  "","","","","","","","",
++                                  "","","","","","","","",
++                                  "","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -511,6 +547,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT8_UART_SEL0","SLOT8_UART_SEL1",
++                                  "SLOT8_UART_SEL2","","","","","",
++                                  "","","","","","","","",
++                                  "","","","","","","","",
++                                  "","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+-- 
+2.25.1
 
 
