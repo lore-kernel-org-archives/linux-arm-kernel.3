@@ -4,63 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAA0CC3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 10:13:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 966B4C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 10:15:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CWzDnnR2orlLjSB3IfkvxeRswgtNOsr9TD17ICvN7pY=; b=2OCX7yZ2P/eeCJx7ThoT8PYJqV
-	1bW9gTq5fXFiCckimUA0xIaEeS+3JkIFUAkQaPG93PC0mupT/aJYeM9UyROKbE3DIClqj5cs4l5b4
-	lBpkrVH01uzPbzdOdceJu4oDyC40LTa6nbB3ls7lI+Xs4pCuCEaYDUMF84AUVhYOmor4UGFqTg+B8
-	396BwD1g+0m4K0wdP/8SqSVbL2s8PxD8ijuFxv5jc8/fwLDUVUGsqg4WulNbQw8Oe6bPB3g9dfBnY
-	uF8wNONctYBoi9tUCnVsMPEktMJm1dkpJJcw22UOUD8+3gW7KncVwVDrpRIuRWpYzXiWCH5nG3LDY
-	e3bigg9A==;
+	bh=UZ5dCEOEywOXExzoNtHF395pMJNUPTYfr0213Oivri8=; b=seaRXpc0QrIHnlsK8UZwLmNGUE
+	PW/a5e9qhB/EhGjS/YjoucgOL05u/oowyNQVLMDRxS0gBM+xKc+f7iRNy1QfrVtRxYRUAC/qTCojf
+	PoPVq5NksBsEri1x0YCFANyZXwgdqtLl+fO4xdPsGrdKaW83MYMOxbaAcEJqNbmteZGzTjZhfA4+g
+	EFoUfqxjY7+dnZaXb7/rDh0WrgrD3ballqVWYmjDSNZEA94TP4wjBwEegwHe4qUQAFT8RH0AALmiX
+	h6rsmT8BOAcm5DPpoVmZOmJPma2c4KKpk9Ebz4HWSvPfTbpX3sjkMJXqcHgYvUgn12S9wmLCZJnD0
+	SzeHmCxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCyFL-00000000Lpo-0luV;
-	Thu, 08 May 2025 10:12:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uCyHG-00000000M1v-3VYJ;
+	Thu, 08 May 2025 10:14:54 +0000
+Received: from mail-oa1-x31.google.com ([2001:4860:4864:20::31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCyDO-00000000LhG-01d4
+	id 1uCyE9-00000000LlO-2F9T
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 10:10:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6F0094A957;
-	Thu,  8 May 2025 10:10:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20669C4CEE7;
-	Thu,  8 May 2025 10:10:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746699053;
-	bh=al1FqgCmXx5VBt+1ZySNsT8ko0r+Xa1DTRkUn0hBPyk=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=q1JOiXu16Id6bmC4kxGhe9ggBpPRqbPahqHkUlMfgo0p8an0i/GHnXDs4t2wiQP8b
-	 0b0uD/z8QvtzY2RjZo6GJqmq98+WEaZuBUYWq0v5FgGBHQt9B5Zg04m2qVBFZBJDOY
-	 kq4nKxezAKb4Gc7xDn9lId3CSsQ+wetxWoty2nQ3WZ0b2UU3vaEVf1ZyX1g2GhYCfa
-	 HVWLvqkvxh9XGx6VIIhmVB4fB9PN2AkxJ9Bke2iY/HeK07QmyLGYnORxiMbHIRQYgD
-	 ULAOYek3vcRgGQTU8RqQFjMvSSz4l0rotmoOUcOSaLfOXAxlvzFosiYSljeWDVQUDe
-	 U7lQekgo0HFWw==
-Date: Thu, 08 May 2025 05:10:51 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Thu, 08 May 2025 10:11:42 +0000
+Received: by mail-oa1-x31.google.com with SMTP id 586e51a60fabf-2d5e5e21b92so615966fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 03:11:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1746699100; x=1747303900; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=UZ5dCEOEywOXExzoNtHF395pMJNUPTYfr0213Oivri8=;
+        b=zT74N3LjgLE0URUZ+ovBf8BNdq3ydKABPiJDoeKl1o+hW0RvWX7pZ30cy6tBZQanB+
+         Eqa8mEJVO6SDyz3MOs2TJfnM1KLiVvhRdQHcXy6HfL+0b4+bzj1/UfZpV4ZFz8ohz9+j
+         3aQxpDaXGy/7qLgNvOfqQzWhmCgbtgD4biujHWzc0sLpLTWy29rsrlrR7RrlLKBPDwfy
+         2p3ffznUQCSSs0ppCif5TrzGn9bgTfk7ZTwj8yFAjudON7oKf+KHdim+t8ZuTfIsQOk8
+         YgDCzguZkDNO9yz/HXugLii2fdbK6Rxg04QK3X94+pbpkPh+T9eN/UKcBFtuLH2epvyy
+         m58A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746699100; x=1747303900;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UZ5dCEOEywOXExzoNtHF395pMJNUPTYfr0213Oivri8=;
+        b=qThRHKDk8IR++7A3dpXg8cct0INiCX2+RSlJk4N72Q7TGe3TFJfa2NZGRUo16FRU0u
+         CU3RXELdkeMEQVlQ8ghC42Fbp6X97Azt8iun56rayqN+VmAT7Cb9qhWLI+JfTs8coQEq
+         TmUOX5VD9nJfBOdeFALT6GI8WzIA4bv2pAptvGFhQwFwQvNJgv+QF1ZVqcOZk6EmfoF/
+         oMabK9yqlI+mM4u/kxT7IzuJSvVa5JJrUm8lADTvs+w7Pbm4D2SpzBHVN1jVhSEXGssk
+         c0t5C67/mGutXagteV7LivF4Ctd1KX6urE8DddbZxETAcFyjSofMZd5E2Clj/GS7ZmOI
+         m+qQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXbgJq6T2k/G/jRguLs7xI31tENYxQeBSaX4s4ep0g3LEZal/JBVQB5qn0+VvlDV/nhD1O5LALOSrhAtVeaIo4+@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywb3cDxCwkYVUV82ikoU1npQzf4cbYXJAzY6Kagv0ggXV6Zcszs
+	4HlVSWRSCz82gzAfRgY+wJ3Rhy1g9z1U/BSgynQmG1/y7wSSdX/DUhB3owoPGfokX2xi5jT1Cqd
+	7mWF0MnK/J9DuTB9F5ehaZBSpLwaYEvb5abeI4w==
+X-Gm-Gg: ASbGnctgW8CW6qL8hCchff70RPvgXAtxA7zeKqeipSw4ncvyiZUDCfOfLlY7TCk3ZqR
+	Bk0YyRp+l4oSIz6Akyb/UX5LpSMS7ty83HCJjnulv5eDR0dhDhI18L6tdFlxLHtNeHxKnnHx6Ae
+	n0ynZI1rj+sNs5lzFqrpjBOWQ=
+X-Google-Smtp-Source: AGHT+IHHXXnIYY/blUtMMSgG++YLeS7dxymAnQLTsOYoZnzz6dKtVl2gZBaYez1Lnzo1dTAwj6L+w9Z+nAfO1s/JwvQ=
+X-Received: by 2002:a05:6870:7007:b0:2bc:69d8:a39e with SMTP id
+ 586e51a60fabf-2db819c5ab1mr1885103fac.33.1746699100067; Thu, 08 May 2025
+ 03:11:40 -0700 (PDT)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: krzk+dt@kernel.org, afd@ti.com, devicetree@vger.kernel.org, 
- vigneshr@ti.com, v-singh1@ti.com, kristo@kernel.org, 
- linux-arm-kernel@lists.infradead.org, khasim@ti.com, nm@ti.com, 
- conor+dt@kernel.org, praneeth@ti.com, linux-kernel@vger.kernel.org
-To: Paresh Bhagat <p-bhagat@ti.com>
-In-Reply-To: <20250508091422.288876-2-p-bhagat@ti.com>
-References: <20250508091422.288876-1-p-bhagat@ti.com>
- <20250508091422.288876-2-p-bhagat@ti.com>
-Message-Id: <174669905140.3798918.8007695230469922299.robh@kernel.org>
-Subject: Re: [PATCH v3 1/3] dt-bindings: arm: ti: Add bindings for AM62D2
- SoC
+References: <20250402233407.2452429-1-willmcvicker@google.com> <20250402233407.2452429-5-willmcvicker@google.com>
+In-Reply-To: <20250402233407.2452429-5-willmcvicker@google.com>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Thu, 8 May 2025 11:11:29 +0100
+X-Gm-Features: ATxdqUH6wo2bEt1fpwg-JytKDz-8k2kgNoYHvmdBlsX3gPg4fgC2u7MgLMrGOfA
+Message-ID: <CADrjBPpDy0itLoxTif=iYYOQspStjsHFza6bn1wDTmWs7em44Q@mail.gmail.com>
+Subject: Re: [PATCH v2 4/7] arm64: dts: exynos: gs101: Add 'local-timer-stop'
+ to cpuidle nodes
+To: Will McVicker <willmcvicker@google.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Saravana Kannan <saravanak@google.com>, 
+	Donghoon Yu <hoony.yu@samsung.com>, Hosung Kim <hosung0.kim@samsung.com>, kernel-team@android.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Youngmin Nam <youngmin.nam@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	Will Deacon <willdeacon@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_031054_084775_B76A73A7 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20250508_031141_574873_A82BB695 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,82 +102,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Will,
 
-On Thu, 08 May 2025 14:44:20 +0530, Paresh Bhagat wrote:
-> The AM62D2 SoC belongs to the K3 Multicore SoC architecture with DSP core
-> targeted for applications needing high-performance Digital Signal
-> Processing. It is used in applications like automotive audio systems,
-> professional sound equipment, radar and radio for aerospace, sonar in
-> marine devices, and ultrasound in medical imaging. It also supports
-> precise signal analysis in test and measurement tools.
-> 
-> Some highlights of AM62D2 SoC are:
-> 
-> * Quad-Cortex-A53s (running up to 1.4GHz) in a single cluster. Dual/Single
->   core variants are provided in the same package to allow HW compatible
->   designs.
-> * One Device manager Cortex-R5F for system power and resource management,
->   and one Cortex-R5F for Functional Safety or general-purpose usage.
-> * DSP with Matrix Multiplication Accelerator(MMA) (up to 2 TOPS) based on
->   single core C7x.
-> * 3x Multichannel Audio Serial Ports (McASP) Up to 4/6/16 Serial Data Pins
->   which can Transmit and Receive Clocks up to 50MHz, with multi-channel I2S
->   and TDM Audio inputs and outputs.
-> * Integrated Giga-bit Ethernet switch supporting up to a total of two
->   external ports with TSN capable to enable audio networking features such
->   as, Ethernet Audio Video Bridging (eAVB) and Dante.
-> * 9xUARTs, 5xSPI, 6xI2C, 2xUSB2, 3xCAN-FD, 3x eMMC and SD, OSPI memory
->   controller, 1x CSI-RX-4L for Camera, eCAP/eQEP, ePWM, among other
->   peripherals.
-> * Dedicated Centralized Hardware Security Module with support for secure
->   boot, debug security and crypto acceleration and trusted execution
->   environment.
-> * One 32 bit DDR Subsystem that supports LPDDR4, DDR4 memory types.
-> * Low power mode support: Partial IO support for CAN/GPIO/UART wakeup.
-> 
-> This SoC is part K3 AM62x family, which includes the AM62A and AM62P
-> variants. While the AM62A and AM62D are largely similar, the AM62D is
-> specifically targeted for general-purpose DSP applications, whereas the
-> AM62A focuses on edge AI workloads. A key distinction is that the AM62D
-> does not include multimedia components such as the video encoder/decoder,
-> MJPEG encoder, Vision Processing Accelerator (VPAC) for image signal
-> processing, or the display subsystem. Additionally, the AM62D has a
-> different pin configuration compared to the AM62A, which impacts embedded
-> software development.
-> 
-> This adds dt bindings for TI's AM62D2 family of devices.
-> 
-> More details about the SoCs can be found in the Technical Reference Manual:
-> https://www.ti.com/lit/pdf/sprujd4
-> 
-> Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
+On Thu, 3 Apr 2025 at 00:34, Will McVicker <willmcvicker@google.com> wrote:
+>
+> From: Will Deacon <willdeacon@google.com>
+>
+> In preparation for switching to the architected timer as the primary
+> clockevents device, mark the cpuidle nodes with the 'local-timer-stop'
+> property to indicate that an alternative clockevents device must be
+> used for waking up from the "c2" idle state.
+>
+> Signed-off-by: Will Deacon <willdeacon@google.com>
+> [Original commit from https://android.googlesource.com/kernel/gs/+/a896fd98638047989513d05556faebd28a62b27c]
+> Signed-off-by: Will McVicker <willmcvicker@google.com>
 > ---
->  Documentation/devicetree/bindings/arm/ti/k3.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+Tested-by: Peter Griffin <peter.griffin@linaro.org>
 
-yamllint warnings/errors:
+Tested using gs101-oriole with linux-next plus this series. With these
+MCT timer changes and another series I will send shortly for
+exynos-pmu to program the correct hint to ACPM wakeup from c2 idle
+state is then functional.
 
-dtschema/dtc warnings/errors:
 
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250508091422.288876-2-p-bhagat@ti.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+>  arch/arm64/boot/dts/exynos/google/gs101.dtsi | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+> index 3de3a758f113..fd0badf24e6f 100644
+> --- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+> +++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+> @@ -155,6 +155,7 @@ ananke_cpu_sleep: cpu-ananke-sleep {
+>                                 idle-state-name = "c2";
+>                                 compatible = "arm,idle-state";
+>                                 arm,psci-suspend-param = <0x0010000>;
+> +                               local-timer-stop;
+>                                 entry-latency-us = <70>;
+>                                 exit-latency-us = <160>;
+>                                 min-residency-us = <2000>;
+> @@ -164,6 +165,7 @@ enyo_cpu_sleep: cpu-enyo-sleep {
+>                                 idle-state-name = "c2";
+>                                 compatible = "arm,idle-state";
+>                                 arm,psci-suspend-param = <0x0010000>;
+> +                               local-timer-stop;
+>                                 entry-latency-us = <150>;
+>                                 exit-latency-us = <190>;
+>                                 min-residency-us = <2500>;
+> @@ -173,6 +175,7 @@ hera_cpu_sleep: cpu-hera-sleep {
+>                                 idle-state-name = "c2";
+>                                 compatible = "arm,idle-state";
+>                                 arm,psci-suspend-param = <0x0010000>;
+> +                               local-timer-stop;
+>                                 entry-latency-us = <235>;
+>                                 exit-latency-us = <220>;
+>                                 min-residency-us = <3500>;
+> --
+> 2.49.0.472.ge94155a9ec-goog
+>
 
