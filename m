@@ -4,112 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA66FC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:29:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CA95C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:31:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gxqvv2kVznygyMpPQhBBuZdHRKOaCwcOHj02WM+6aCA=; b=mX4ZRC/mv/6cycFswjGBAgaXJ8
-	TERehsG8wTWRO7mel/FhfWFdnH/JlncxUIWf2+wQtr2YBT2SVUpJF/8sgap7823MMCxUZuJOMfUZD
-	ahSLTPp9VGQEG5zteZm+g6xP9GLR3YrC5TBKie098CblpBUl/kyeanAglMSJzkNWNykwOOhg41fSO
-	vgo5iQTwbt1tJa8hJvuPl6mr/CwKM6T8M5pjCSo6e7tmPOck/W7Jbc3XEl0RO1aHIhBC7uT+KJ2Xt
-	TtHOe+Vc8j9gvByeJccQLeZxhSIRzzTjAKyBhFmkBOHEbA73HRSwLB9S0DEWqWFkEYP9czZ9ATvnY
-	w0zXMx8Q==;
+	bh=q1j4CdOQSMAZG/JE09mATkCWC/+UCfMM4ry4j1wAOeo=; b=j56l454B0SItlQP9yZSy/i6F4l
+	mPSZyRSkXWmnlKMXObpwQPQ5mF2t8ofZb6z2RyI5CrF49iTxil0J4qJ0kenKOHlj8mXKGE+fGifnf
+	24nYV8Pmt+4eNK+xCQO/9kTnNeCksAm3j9IoLdKXBNIqkRyI4cQvo/8ydXhYeu8fZye8C3IUIPiTw
+	o6AnlUZ+cpGZZ/3HwIpIfUSHT3uTxHf/vNrHzRGvXhcQ5yAPu5dy2Ojg+tX1S2yyn+qD8mzFwdhOy
+	Y1fEs2ivCegX4WR9kzF0ZW7oIZSLLz/2IMFRzQEQX8gvFidYAxIZp8+Z8YazZqW1nt7fhyp6hsp+N
+	wULz7bPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvga-0000000HazE-1tWn;
-	Thu, 08 May 2025 07:28:52 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uCviV-000000000FU-2Dbs;
+	Thu, 08 May 2025 07:30:51 +0000
+Received: from mail-m1973196.qiye.163.com ([220.197.31.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvOz-0000000HYHS-2y6F
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 07:10:43 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43cfebc343dso4112005e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 00:10:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746688240; x=1747293040; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gxqvv2kVznygyMpPQhBBuZdHRKOaCwcOHj02WM+6aCA=;
-        b=vz8FHhJ3dqm2MRLNeEiBpxo/HnIQZRITmhAR82eM60hIfPlw7UzYtFNF72E0eLr3C1
-         gltwG/8TzLRk1fbxqvvLqyRS2EyOrWchB/ghFLJX9qJKPfEwqZCHUWote3jiW3pMzJPU
-         XkJ5FgvXoLS8k5miEVHlRoqUI85Af1b1UK7yc4XXJBFJqRw4oJuwZnIg0qI3ZOuUbZvr
-         A1+NxVgY7Y6GZXGKL0Q9ut35VaaEGln7wGWi4MFzedknUvSMl+M9fHrdAZHFsIIcUQ5t
-         vFI5wF+Q2mkVbwM8xvJgKfZ6UdYUGnLQYyDVcYM0AHSYz2hWInw/0vzsK6dpbAL1FWKu
-         PzEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746688240; x=1747293040;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gxqvv2kVznygyMpPQhBBuZdHRKOaCwcOHj02WM+6aCA=;
-        b=eY/f2aS2TYwnWMyYdGtxn7gqzahQ5YCeb/TCBSy6aFu1jL/BJWY8YkW2WAsV4siKz8
-         IX8bbt8hmRCiab4YfzBnaOFPQ0Bt6JhjBp2YuyRANQJXXZVk6G1SlCdd3O0BrxzIp4yJ
-         GFuXWCE/TfLUKcksyfNU+r5r8t/KbRW5C/oPM7kBxBqHHrOgoXdxvP/rkHyGzy449nFW
-         8uU8Jo+YQDKvunfChYLFPnHc1MDg05P9p9wRbAafO4u8pEmmY/4LLS162DwYULK82THA
-         MbQkCQgnDlaDbp7IeR8mUy2yynSpEz8Ej5kv2ShNKcrcdjrY+5JCwcfy6Fi0JqWm1Zax
-         b5ww==
-X-Forwarded-Encrypted: i=1; AJvYcCXVKHGnEcqplyISPKgVmsnMqkMUQF2KKISorJNSHZKwN2/FoHRMitVftKuUVdI3jiuyg3WxqkNWyrh2oMycHJ41@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRcyXp5Sq4JwFZtR+0vxG5vUThtUlC1Z1vOMCgWsJipophyaNQ
-	FLk+4c8fv9Kq/MLWItlgswrNA5kbfPzxf/SEb3UOa0PNSZdpGv4oFdrWbZdIQg==
-X-Gm-Gg: ASbGncsUDYX8wqdyRIYdCpeEtiQlKDUxfCpBYsrETy+wB5id9sSbcI5GG9kaiPfnj0X
-	MzNBaZ8ZF7747iom1tuJ6VvVCE1vVUCWLpl7OcgkbatCn5lsCoFTiNriJu6pD7vu+Q3v8h+Xvoe
-	IdkvkQGHPFgWyR5tKSNteCR1KgNXMyY1ZZ1WGQUzJKVBGjoqKQEGUZ63nkOJ2wiPv+w5yq99CZd
-	pg62aWCMp0I7Dnd8jU2x4KKy+G8RoMrKD09YrX1RTftvbNtFtWvxKEVATsZDdQNT/eFB0sp1Du8
-	mBudW2LLIY6QFwsI8G8Ttd0FyMicqMi4S8H3mp3ZdXELAe1zBvVevmSFX0lSnGPwTiKd2coYjZb
-	/hu2qE4f32bIG6WUjrlGVLIX52vA=
-X-Google-Smtp-Source: AGHT+IGgtnss5GpWiojDUKov4jA59LAJatPG58Yl1qISK3zZp6/FyC3f5EypTaesaAZKtavZpNaRbA==
-X-Received: by 2002:a05:600c:4454:b0:43c:ec4c:25b4 with SMTP id 5b1f17b1804b1-441d44c439dmr52550855e9.10.1746688240344;
-        Thu, 08 May 2025 00:10:40 -0700 (PDT)
-Received: from [127.0.1.1] (cust-east-par-46-193-69-61.cust.wifirst.net. [46.193.69.61])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a099b178absm19500236f8f.97.2025.05.08.00.10.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 May 2025 00:10:39 -0700 (PDT)
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Date: Thu, 08 May 2025 12:40:34 +0530
-Subject: [PATCH v4 5/5] PCI: qcom: Add support for resetting the slot due
- to link down event
+	id 1uCvRY-0000000HYsq-43bH;
+	Thu, 08 May 2025 07:13:22 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 145a410e0;
+	Thu, 8 May 2025 15:13:01 +0800 (GMT+08:00)
+Message-ID: <c4296af2-e7f1-4f5c-9f33-a6b5b2ddb244@rock-chips.com>
+Date: Thu, 8 May 2025 15:13:01 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250508-pcie-reset-slot-v4-5-7050093e2b50@linaro.org>
-References: <20250508-pcie-reset-slot-v4-0-7050093e2b50@linaro.org>
-In-Reply-To: <20250508-pcie-reset-slot-v4-0-7050093e2b50@linaro.org>
-To: Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
- Oliver O'Halloran <oohall@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>, 
- Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Marc Zyngier <maz@kernel.org>, 
- Conor Dooley <conor.dooley@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>
-Cc: dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>, 
- Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
- linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8188;
- i=manivannan.sadhasivam@linaro.org; h=from:subject:message-id;
- bh=Xhfd2aLgY7EkLO7Pad4MqFaMxVqdKEiC/l5bXSdXFT0=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBoHFjqE6NUL0GQ03l5Ef29uZNrbNS1bDnMhx8cr
- lsEHGkeSamJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCaBxY6gAKCRBVnxHm/pHO
- 9Tv1B/4koilg8iRNvCXVqQRwOxyYvaueq2dMyvXrQNYllkSrcD/o3052unTWYPESlsa5UOWEvaj
- 2y+HRo5lOulNl50qrUg8NWJ8W2yVYT0MrBR3cu1uCsyXcMibs3heRmjgGb+BIWbDAbsRg++uwYX
- Zj9pWydtNgT5VIdMeywoHG5gVG9pxDo5IKX2feIE/EYC8VvejRC1cZlGud4yf4jwwQTu6jAgbdx
- JaneNTS/ekYtNYM3H/rLGFXJa5LLrzBkFh2mIVfRJMJMUvNFBcVwaW+oEPIwOaJiXyQQCuX986o
- mJAxemkQmzkhYW2XafVUWnkimHGGHOnNpiV98tIh9c2WmK/N
-X-Developer-Key: i=manivannan.sadhasivam@linaro.org; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/7] soc: rockchip: add mfpwm driver
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+ <ukleinek@kernel.org>, William Breathitt Gray <wbg@kernel.org>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Kever Yang <kever.yang@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+ linux-iio@vger.kernel.org, kernel@collabora.com,
+ Jonas Karlman <jonas@kwiboo.se>,
+ Detlev Casanova <detlev.casanova@collabora.com>
+References: <20250408-rk3576-pwm-v1-0-a49286c2ca8e@collabora.com>
+ <20250408-rk3576-pwm-v1-4-a49286c2ca8e@collabora.com>
+ <5559308.Sb9uPGUboI@diego> <3362145.mvXUDI8C0e@workhorse>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <3362145.mvXUDI8C0e@workhorse>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGhlJQ1ZDGkgZT0tMS0hDHxpWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a96aebd927d03a3kunm145a410e0
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MSo6Ljo5CDJDSg8*N0kzTSk9
+	OFEwCxRVSlVKTE9NTUNDSENISENJVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFKSEhDTzcG
+DKIM-Signature: a=rsa-sha256;
+	b=YMzoFk1Qp1pR1/JUCHh5psK6u8ofTJw+CyC3fAnpP1pldZKl7dePcu9En22Oddc2WFqgguFF3qHj9O32KbNKBUP6apGGDMECgBy1ZYSuhtwDhfAZ8FhY+EYfVU9jKdm5r0cvYe82BjbqHXFdn/4y4WzXzJVTTXzIPvQ4dhX0X58=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=q1j4CdOQSMAZG/JE09mATkCWC/+UCfMM4ry4j1wAOeo=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_001041_895394_D551C868 
-X-CRM114-Status: GOOD (  30.36  )
+X-CRM114-CacheID: sfid-20250508_001321_533574_04923E52 
+X-CRM114-Status: GOOD (  55.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,252 +86,333 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PCIe link can go down under circumstances such as the device firmware
-crash, link instability, etc... When that happens, the PCIe slot needs to
-be reset to make it operational again. Currently, the driver is not
-handling the link down event, due to which the users have to restart the
-machine to make PCIe link operational again. So fix it by detecting the
-link down event and resetting the slot.
+Hi Nicolas:
 
-Since the Qcom PCIe controllers report the link down event through the
-'global' IRQ, enable the link down event by setting PARF_INT_ALL_LINK_DOWN
-bit in PARF_INT_ALL_MASK register.
+On 2025/4/9 21:01, Nicolas Frattaroli wrote:
+> On Tuesday, 8 April 2025 22:03:01 Central European Summer Time Heiko Stübner wrote:
+>> Hi,
+>>
+>> not a full review, just me making a first pass.
+>>
+>>> +unsigned long mfpwm_clk_get_rate(struct rockchip_mfpwm *mfpwm)
+>>> +{
+>>> +	if (!mfpwm || !mfpwm->chosen_clk)
+>>> +		return 0;
+>>> +
+>>> +	return clk_get_rate(mfpwm->chosen_clk);
+>>> +}
+>>> +EXPORT_SYMBOL_NS_GPL(mfpwm_clk_get_rate, "ROCKCHIP_MFPWM");
+>>
+>> aren't you just re-implemeting a clk-mux with the whole chosen-clk
+>> mechanism? See drivers/clk/clk-mux.c, so in theory you should be
+>> able to just do a clk_register_mux(...) similar to for example
+>> sound/soc/samsung/i2s.c .
+> 
+> Probably yes. I didn't know clk-mux was a thing. If I do decide to keep the
+> clock switching at all (more on that below), then I'll rewrite it around
+> clk-mux.
+> 
+>>> +
+>>> +__attribute__((nonnull))
+>>> +static int mfpwm_do_acquire(struct rockchip_mfpwm_func *pwmf)
+>>> +{
+>>> +	struct rockchip_mfpwm *mfpwm = pwmf->parent;
+>>> +	unsigned int cnt;
+>>> +
+>>> +	if (mfpwm->active_func && pwmf->id != mfpwm->active_func->id)
+>>> +		return -EBUSY;
+>>> +
+>>> +	if (!mfpwm->active_func)
+>>> +		mfpwm->active_func = pwmf;
+>>> +
+>>> +	if (!check_add_overflow(mfpwm->acquire_cnt, 1, &cnt)) {
+>>> +		mfpwm->acquire_cnt = cnt;
+>>> +	} else {
+>>> +		WARN(1, "prevented acquire counter overflow in %s\n", __func__);
+>>
+>> dev_warn, as you have the mfpwm pointing to a pdev?
+> 
+> Will do.
+> 
+>>> +		return -EOVERFLOW;
+>>> +	}
+>>> +
+>>> +	dev_dbg(&mfpwm->pdev->dev, "%d acquired mfpwm, acquires now at %u\n",
+>>> +		pwmf->id, mfpwm->acquire_cnt);
+>>> +
+>>> +	return clk_enable(mfpwm->pclk);
+>>> +}
+>>
+>>> +/**
+>>> + * mfpwm_get_clk_src - read the currently selected clock source
+>>> + * @mfpwm: pointer to the driver's private &struct rockchip_mfpwm instance
+>>> + *
+>>> + * Read the device register to extract the currently selected clock source,
+>>> + * and return it.
+>>> + *
+>>> + * Returns:
+>>> + * * the numeric clock source ID on success, 0 <= id <= 2
+>>> + * * negative errno on error
+>>> + */
+>>> +static int mfpwm_get_clk_src(struct rockchip_mfpwm *mfpwm)
+>>> +{
+>>> +	u32 val;
+>>> +
+>>> +	clk_enable(mfpwm->pclk);
+>>> +	val = mfpwm_reg_read(mfpwm->base, PWMV4_REG_CLK_CTRL);
+>>> +	clk_disable(mfpwm->pclk);
+>>> +
+>>> +	return (val & PWMV4_CLK_SRC_MASK) >> PWMV4_CLK_SRC_SHIFT;
+>>> +}
+>>> +
+>>> +static int mfpwm_choose_clk(struct rockchip_mfpwm *mfpwm)
+>>> +{
+>>> +	int ret;
+>>> +
+>>> +	ret = mfpwm_get_clk_src(mfpwm);
+>>> +	if (ret < 0) {
+>>> +		dev_err(&mfpwm->pdev->dev, "couldn't get current clock source: %pe\n",
+>>> +			ERR_PTR(ret));
+>>> +		return ret;
+>>> +	}
+>>> +	if (ret == PWMV4_CLK_SRC_CRYSTAL) {
+>>> +		if (mfpwm->osc_clk) {
+>>> +			mfpwm->chosen_clk = mfpwm->osc_clk;
+>>> +		} else {
+>>> +			dev_warn(&mfpwm->pdev->dev, "initial state wanted 'osc' as clock source, but it's unavailable. Defaulting to 'pwm'.\n");
+>>> +			mfpwm->chosen_clk = mfpwm->pwm_clk;
+>>> +		}
+>>> +	} else {
+>>> +		mfpwm->chosen_clk = mfpwm->pwm_clk;
+>>> +	}
+>>> +
+>>> +	return clk_rate_exclusive_get(mfpwm->chosen_clk);
+>>> +}
+>>>
+>>> +/**
+>>> + * mfpwm_switch_clk_src - switch between PWM clock sources
+>>> + * @mfpwm: pointer to &struct rockchip_mfpwm driver data
+>>> + * @clk_src: one of either %PWMV4_CLK_SRC_CRYSTAL or %PWMV4_CLK_SRC_PLL
+>>> + *
+>>> + * Switch between clock sources, ``_exclusive_put``ing the old rate,
+>>> + * ``clk_rate_exclusive_get``ing the new one, writing the registers and
+>>> + * swapping out the &struct_rockchip_mfpwm->chosen_clk.
+>>> + *
+>>> + * Returns:
+>>> + * * %0        - Success
+>>> + * * %-EINVAL  - A wrong @clk_src was given or it is unavailable
+>>> + * * %-EBUSY   - Device is currently in use, try again later
+>>> + */
+>>> +__attribute__((nonnull))
+>>> +static int mfpwm_switch_clk_src(struct rockchip_mfpwm *mfpwm,
+>>> +					  unsigned int clk_src)
+>>> +{
+>>> +	struct clk *prev;
+>>> +	int ret = 0;
+>>> +
+>>> +	scoped_cond_guard(spinlock_try, return -EBUSY, &mfpwm->state_lock) {
+>>> +		/* Don't fiddle with any of this stuff if the PWM is on */
+>>> +		if (mfpwm->active_func)
+>>> +			return -EBUSY;
+>>> +
+>>> +		prev = mfpwm->chosen_clk;
+>>> +		ret = mfpwm_get_clk_src(mfpwm);
+>>> +		if (ret < 0)
+>>> +			return ret;
+>>> +		if (ret == clk_src)
+>>> +			return 0;
+>>> +
+>>> +		switch (clk_src) {
+>>> +		case PWMV4_CLK_SRC_PLL:
+>>> +			mfpwm->chosen_clk = mfpwm->pwm_clk;
+>>> +			break;
+>>> +		case PWMV4_CLK_SRC_CRYSTAL:
+>>> +			if (!mfpwm->osc_clk)
+>>> +				return -EINVAL;
+>>> +			mfpwm->chosen_clk = mfpwm->osc_clk;
+>>> +			break;
+>>> +		default:
+>>> +			return -EINVAL;
+>>> +		}
+>>> +
+>>> +		clk_enable(mfpwm->pclk);
+>>> +
+>>> +		mfpwm_reg_write(mfpwm->base, PWMV4_REG_CLK_CTRL,
+>>> +				PWMV4_CLK_SRC(clk_src));
+>>> +		clk_rate_exclusive_get(mfpwm->chosen_clk);
+>>> +		if (prev)
+>>> +			clk_rate_exclusive_put(prev);
+>>> +
+>>> +		clk_disable(mfpwm->pclk);
+>>> +	}
+>>> +
+>>> +	return ret;
+>>> +}
+>>
 
-Then in the case of the event, call pci_host_handle_link_down() API
-in the handler to let the PCI core handle the link down condition. Note
-that both link up and link down events could be set at a time when the
-handler runs. So always handle link down first.
+First of all, I'm truly delighted to see your nice PWM v4 driver codes. 
+I was once intensely struggling with porting the v4 PWM implementation 
+into the Linux 6.1 ​​PWM framework. ;-)
 
-The API will internally call, 'pci_host_bridge::reset_slot()' callback to
-reset the slot in a platform specific way. So implement the callback to
-reset the slot by first resetting the PCIe core, followed by reinitializing
-the resources and then finally starting the link again.
+>> ok, the relevant part might be the
+>> 	/* Don't fiddle with any of this stuff if the PWM is on */
+>> thing, which will require special set_rate operation, but in general I
+>> think, if it ticks like a clock, it probably should be a real clock ;-) .
+> 
+> I agree; we can guarantee it doesn't get changed after all by just marking it
+> as exclusive instead of marking either pwm_clk or osc_clk as exclusive.
+> 
+>>> +static ssize_t chosen_clock_show(struct device *dev,
+>>> +				 struct device_attribute *attr, char *buf)
+>>> +{
+>>> +	struct rockchip_mfpwm *mfpwm = dev_get_drvdata(dev);
+>>> +	unsigned long clk_src = 0;
+>>> +
+>>> +	/*
+>>> +	 * Why the weird indirection here? I have the suspicion that if we
+>>> +	 * emitted to sysfs with the lock still held, then a nefarious program
+>>> +	 * could hog the lock by somehow forcing a full buffer condition and
+>>> +	 * then refusing to read from it. Don't know whether that's feasible
+>>> +	 * to achieve in reality, but I don't want to find out the hard way
+>>> +	 * either.
+>>> +	 */
+>>> +	scoped_guard(spinlock, &mfpwm->state_lock) {
+>>> +		if (mfpwm->chosen_clk == mfpwm->pwm_clk)
+>>> +			clk_src = PWMV4_CLK_SRC_PLL;
+>>> +		else if (mfpwm->osc_clk && mfpwm->chosen_clk == mfpwm->osc_clk)
+>>> +			clk_src = PWMV4_CLK_SRC_CRYSTAL;
+>>> +		else
+>>> +			return -ENODEV;
+>>> +	}
+>>> +
+>>> +	if (clk_src == PWMV4_CLK_SRC_PLL)
+>>> +		return sysfs_emit(buf, "pll\n");
+>>> +	else if (clk_src == PWMV4_CLK_SRC_CRYSTAL)
+>>> +		return sysfs_emit(buf, "crystal\n");
+>>> +
+>>> +	return -ENODEV;
+>>> +}
+>>
+>> which brings me to my main point of contention. Why does userspace
+>> need to select a clock source for the driver via sysfs.
+> 
+> It doesn't need to. Basically, this is a weird hardware feature. Downstream did
+> not bother implementing it at all, and I found out through the TRM's register
+> listing and thought "that's weird, I wonder if it even works", and lo and behold
+> it does. At that point, like two rewrites ago, I was committed to ensuring that
+> the driver can handle this edge case of the PWM clock being changed. As I lacked
+> the imagination as to why someone would change it and the knowledge as to which
+> kernel interfaces exist to change it, sysfs offered itself as a natural dumping
+> ground for switches that probably shouldn't exist.
+> 
+>> Neither the commit message nor the code does seem to explain that,
+>> or I'm just blind - which is also a real possibility.
+>>
+>> In general I really think, userspace should not need to care about if
+>> a PLL or directly the oscillator is used a clock input.
+>> I assume which is needed results from some runtime factor, so the
+>> driver should be able to select the correct one?
+>>
+>> A mux-clock could ust use clk_mux_determine_rate_flags() to select
+>> the best parent depending on a requested rate instead.
+> 
+> Yeah, the only use-case I can come up with is that we really want to use an
+> either 100 MHz or 50 MHz clock on one chip, but have a channel hit a precise
+> timing with the 24 MHz clock on the same chip. If the fixed crystal oscillator
+> were 25 MHz instead of 24 MHz, this would be entirely pointless, as they're all
+> multiples of it.
+> 
 
-Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
----
- drivers/pci/controller/dwc/Kconfig     |   1 +
- drivers/pci/controller/dwc/pcie-qcom.c | 112 ++++++++++++++++++++++++++++++---
- 2 files changed, 105 insertions(+), 8 deletions(-)
+The 24MHz OSC clock source is mainly for the use of the IR input, which 
+is also called the power key capture mode. When the system enters 
+suspend state, it relies on the OSC to ensure the PWM remains 
+operational and can serve as a system wake-up source.
 
-diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-index d9f0386396edf66ad0e514a0f545ed24d89fcb6c..ce04ee6fbd99cbcce5d2f3a75ebd72a17070b7b7 100644
---- a/drivers/pci/controller/dwc/Kconfig
-+++ b/drivers/pci/controller/dwc/Kconfig
-@@ -296,6 +296,7 @@ config PCIE_QCOM
- 	select PCIE_DW_HOST
- 	select CRC8
- 	select PCIE_QCOM_COMMON
-+	select PCI_HOST_COMMON
- 	help
- 	  Say Y here to enable PCIe controller support on Qualcomm SoCs. The
- 	  PCIe controller uses the DesignWare core plus Qualcomm-specific
-diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-index dc98ae63362db0422384b1879a2b9a7dc564d091..e577619d0f8ceddf0955139ae6b939842f8cb7be 100644
---- a/drivers/pci/controller/dwc/pcie-qcom.c
-+++ b/drivers/pci/controller/dwc/pcie-qcom.c
-@@ -34,6 +34,7 @@
- #include <linux/units.h>
- 
- #include "../../pci.h"
-+#include "../pci-host-common.h"
- #include "pcie-designware.h"
- #include "pcie-qcom-common.h"
- 
-@@ -55,6 +56,7 @@
- #define PARF_INT_ALL_STATUS			0x224
- #define PARF_INT_ALL_CLEAR			0x228
- #define PARF_INT_ALL_MASK			0x22c
-+#define PARF_STATUS				0x230
- #define PARF_SID_OFFSET				0x234
- #define PARF_BDF_TRANSLATE_CFG			0x24c
- #define PARF_DBI_BASE_ADDR_V2			0x350
-@@ -130,9 +132,14 @@
- 
- /* PARF_LTSSM register fields */
- #define LTSSM_EN				BIT(8)
-+#define SW_CLEAR_FLUSH_MODE			BIT(10)
-+#define FLUSH_MODE				BIT(11)
- 
- /* PARF_INT_ALL_{STATUS/CLEAR/MASK} register fields */
--#define PARF_INT_ALL_LINK_UP			BIT(13)
-+#define INT_ALL_LINK_DOWN			1
-+#define INT_ALL_LINK_UP				13
-+#define PARF_INT_ALL_LINK_DOWN			BIT(INT_ALL_LINK_DOWN)
-+#define PARF_INT_ALL_LINK_UP			BIT(INT_ALL_LINK_UP)
- #define PARF_INT_MSI_DEV_0_7			GENMASK(30, 23)
- 
- /* PARF_NO_SNOOP_OVERRIDE register fields */
-@@ -145,6 +152,9 @@
- /* PARF_BDF_TO_SID_CFG fields */
- #define BDF_TO_SID_BYPASS			BIT(0)
- 
-+/* PARF_STATUS fields */
-+#define FLUSH_COMPLETED				BIT(8)
-+
- /* ELBI_SYS_CTRL register fields */
- #define ELBI_SYS_CTRL_LT_ENABLE			BIT(0)
- 
-@@ -169,6 +179,7 @@
- 						PCIE_CAP_SLOT_POWER_LIMIT_SCALE)
- 
- #define PERST_DELAY_US				1000
-+#define FLUSH_TIMEOUT_US			100
- 
- #define QCOM_PCIE_CRC8_POLYNOMIAL		(BIT(2) | BIT(1) | BIT(0))
- 
-@@ -274,11 +285,14 @@ struct qcom_pcie {
- 	struct icc_path *icc_cpu;
- 	const struct qcom_pcie_cfg *cfg;
- 	struct dentry *debugfs;
-+	int global_irq;
- 	bool suspended;
- 	bool use_pm_opp;
- };
- 
- #define to_qcom_pcie(x)		dev_get_drvdata((x)->dev)
-+static int qcom_pcie_reset_slot(struct pci_host_bridge *bridge,
-+				  struct pci_dev *pdev);
- 
- static void qcom_ep_reset_assert(struct qcom_pcie *pcie)
- {
-@@ -1263,6 +1277,8 @@ static int qcom_pcie_host_init(struct dw_pcie_rp *pp)
- 			goto err_assert_reset;
- 	}
- 
-+	pp->bridge->reset_slot = qcom_pcie_reset_slot;
-+
- 	return 0;
- 
- err_assert_reset:
-@@ -1517,6 +1533,74 @@ static void qcom_pcie_icc_opp_update(struct qcom_pcie *pcie)
- 	}
- }
- 
-+static int qcom_pcie_reset_slot(struct pci_host_bridge *bridge,
-+				  struct pci_dev *pdev)
-+{
-+	struct pci_bus *bus = bridge->bus;
-+	struct dw_pcie_rp *pp = bus->sysdata;
-+	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-+	struct qcom_pcie *pcie = to_qcom_pcie(pci);
-+	struct device *dev = pcie->pci->dev;
-+	u32 val;
-+	int ret;
-+
-+	/* Wait for the pending transactions to be completed */
-+	ret = readl_relaxed_poll_timeout(pcie->parf + PARF_STATUS, val,
-+					 val & FLUSH_COMPLETED, 10,
-+					 FLUSH_TIMEOUT_US);
-+	if (ret) {
-+		dev_err(dev, "Flush completion failed: %d\n", ret);
-+		goto err_host_deinit;
-+	}
-+
-+	/* Clear the FLUSH_MODE to allow the core to be reset */
-+	val = readl(pcie->parf + PARF_LTSSM);
-+	val |= SW_CLEAR_FLUSH_MODE;
-+	writel(val, pcie->parf + PARF_LTSSM);
-+
-+	/* Wait for the FLUSH_MODE to clear */
-+	ret = readl_relaxed_poll_timeout(pcie->parf + PARF_LTSSM, val,
-+					 !(val & FLUSH_MODE), 10,
-+					 FLUSH_TIMEOUT_US);
-+	if (ret) {
-+		dev_err(dev, "Flush mode clear failed: %d\n", ret);
-+		goto err_host_deinit;
-+	}
-+
-+	qcom_pcie_host_deinit(pp);
-+
-+	ret = qcom_pcie_host_init(pp);
-+	if (ret) {
-+		dev_err(dev, "Host init failed\n");
-+		return ret;
-+	}
-+
-+	ret = dw_pcie_setup_rc(pp);
-+	if (ret)
-+		goto err_host_deinit;
-+
-+	/*
-+	 * Re-enable global IRQ events as the PARF_INT_ALL_MASK register is
-+	 * non-sticky.
-+	 */
-+	if (pcie->global_irq)
-+		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_ALL_LINK_DOWN |
-+			       PARF_INT_MSI_DEV_0_7, pcie->parf + PARF_INT_ALL_MASK);
-+
-+	qcom_pcie_start_link(pci);
-+	if (!dw_pcie_wait_for_link(pci))
-+		qcom_pcie_icc_opp_update(pcie);
-+
-+	dev_dbg(dev, "Slot reset completed\n");
-+
-+	return 0;
-+
-+err_host_deinit:
-+	qcom_pcie_host_deinit(pp);
-+
-+	return ret;
-+}
-+
- static int qcom_pcie_link_transition_count(struct seq_file *s, void *data)
- {
- 	struct qcom_pcie *pcie = (struct qcom_pcie *)dev_get_drvdata(s->private);
-@@ -1559,11 +1643,20 @@ static irqreturn_t qcom_pcie_global_irq_thread(int irq, void *data)
- 	struct qcom_pcie *pcie = data;
- 	struct dw_pcie_rp *pp = &pcie->pci->pp;
- 	struct device *dev = pcie->pci->dev;
--	u32 status = readl_relaxed(pcie->parf + PARF_INT_ALL_STATUS);
-+	unsigned long status = readl_relaxed(pcie->parf + PARF_INT_ALL_STATUS);
- 
- 	writel_relaxed(status, pcie->parf + PARF_INT_ALL_CLEAR);
- 
--	if (FIELD_GET(PARF_INT_ALL_LINK_UP, status)) {
-+	/*
-+	 * It is possible that both Link Up and Link Down events might have
-+	 * happended. So always handle Link Down first.
-+	 */
-+	if (test_and_clear_bit(INT_ALL_LINK_DOWN, &status)) {
-+		dev_dbg(dev, "Received Link down event\n");
-+		pci_host_handle_link_down(pp->bridge);
-+	}
-+
-+	if (test_and_clear_bit(INT_ALL_LINK_UP, &status)) {
- 		dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
- 		/* Rescan the bus to enumerate endpoint devices */
- 		pci_lock_rescan_remove();
-@@ -1571,11 +1664,12 @@ static irqreturn_t qcom_pcie_global_irq_thread(int irq, void *data)
- 		pci_unlock_rescan_remove();
- 
- 		qcom_pcie_icc_opp_update(pcie);
--	} else {
--		dev_WARN_ONCE(dev, 1, "Received unknown event. INT_STATUS: 0x%08x\n",
--			      status);
- 	}
- 
-+	if (status)
-+		dev_WARN_ONCE(dev, 1, "Received unknown event. INT_STATUS: 0x%08x\n",
-+			      (u32) status);
-+
- 	return IRQ_HANDLED;
- }
- 
-@@ -1732,8 +1826,10 @@ static int qcom_pcie_probe(struct platform_device *pdev)
- 			goto err_host_deinit;
- 		}
- 
--		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_MSI_DEV_0_7,
--			       pcie->parf + PARF_INT_ALL_MASK);
-+		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_ALL_LINK_DOWN |
-+			       PARF_INT_MSI_DEV_0_7, pcie->parf + PARF_INT_ALL_MASK);
-+
-+		pcie->global_irq = irq;
- 	}
- 
- 	qcom_pcie_icc_opp_update(pcie);
+In addition, the PWM v4 also supports the 400KHz RC clock source for the 
+wave generator mode, and it can be used for the deeper sleep state.
 
--- 
-2.43.0
+> Thanks for the hint about clk_mux_determine_rate_flags, it doesn't appear to be
+> documented (classic) but it looks to do at least half of what a proper solution
+> would need to do. The other half is figuring out what ideal target rate we
+> actually want to optimise for for a given e.g. waveform consisting of period
+> and duty cycle in nanoseconds. There's some logic to think about regarding where
+> rounding errors are acceptable, e.g. a long period with a low duty cycle is
+> probably better off using the 100-50-24 mux with 100 MHz as the rate. I'm not
+> sure if 50 MHz is ever a sensible option since it is a dividend of 100 MHz, and
+> I'm not about to reason about imagined power draw of the PWM hardware without
+> laboratory grade test equipment.
+> 
+> For what it's worth, this is a niche enough hardware feature that if it causes
+> too much friction getting it supported in a driver, I'll just drop it entirely
+> instead. I tried to preemptively combat technical debt by supporting this in
+> some way, but instead managed to introduce scope creep.
+> 
+> One option is to always just choose the PLL muxed clock and then always set it
+> to 100 MHz, because it's probably the best option unless there are specific
+> PWM-based applications that make heavy use of 24-derived timings (maybe the IR
+> stuff?)
+> 
+>>
+>>> +static ssize_t chosen_clock_store(struct device *dev,
+>>> +				  struct device_attribute *attr,
+>>> +				  const char *buf, size_t count)
+>>> +{
+>>> +	struct rockchip_mfpwm *mfpwm = dev_get_drvdata(dev);
+>>> +	int ret;
+>>> +
+>>> +	if (sysfs_streq(buf, "pll")) {
+>>> +		ret = mfpwm_switch_clk_src(mfpwm, PWMV4_CLK_SRC_PLL);
+>>> +		if (ret)
+>>> +			return ret;
+>>> +		return count;
+>>> +	} else if (sysfs_streq(buf, "crystal")) {
+>>> +		ret = mfpwm_switch_clk_src(mfpwm, PWMV4_CLK_SRC_CRYSTAL);
+>>> +		if (ret)
+>>> +			return ret;
+>>> +		return count;
+>>> +	} else {
+>>> +		return -EINVAL;
+>>> +	}
+>>> +}
+>>> +
+>>> +static DEVICE_ATTR_RW(chosen_clock);
+>>> +
+>>> +static ssize_t available_clocks_show(struct device *dev,
+>>> +				     struct device_attribute *attr, char *buf)
+>>> +{
+>>> +	struct rockchip_mfpwm *mfpwm = dev_get_drvdata(dev);
+>>> +	ssize_t size = 0;
+>>> +
+>>> +	size += sysfs_emit_at(buf, size, "pll\n");
+>>> +	if (mfpwm->osc_clk)
+>>> +		size += sysfs_emit_at(buf, size, "crystal\n");
+>>> +
+>>> +	return size;
+>>> +}
+>>> +
+>>> +static DEVICE_ATTR_RO(available_clocks);
+>>> +
+>>> +static struct attribute *mfpwm_attrs[] = {
+>>> +	&dev_attr_available_clocks.attr,
+>>> +	&dev_attr_chosen_clock.attr,
+>>> +	NULL,
+>>> +};
+>>
+>> Not understanding the need for the sysfs stuff was my main point this
+>> evening :-)
+>>
+>> Heiko
+>>
+> 
+> Thank you for your quick preliminary review! This already gives me some good
+> points to look into for a v2.
+> 
+
+I'm eagerly looking forward to your v2 patch submission, and I will 
+thoroughly validate the proper functioning of the PWM 
+backlight/regulator based on your code changes.
+
+Best regards,
+Damon
 
 
