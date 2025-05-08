@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D62C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B85C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+i8JXGtKcay/hN9nmbwJHsddHZek3Wb23Gp3MH9TCUw=; b=EnKRJMjQmEYk/pIz86y0tBiUXb
-	X6Oau+uld5SsCGnmFaWOJQBe3gy9MmGILKvHTLu6fGL5Gt4sVNRg2jyPK9XzXbXPVpdWEBxDwaLr8
-	6LUzAU4LJZkuERrojoMMRzG2fM37bznVJhuEywUqzX8xyIVoLNU8XYBXeNlqQzO5LOTpbCG/qNfQU
-	yOZG72FtmeLR50YoqvPm7bMRFkIPCXUijYOdl3pguPEYX3TsvgSCD2nqhmCYEbkXGj5D3yeq5kwYs
-	gAAUkJIyEGLh5LkmiT/MI2iup+FyLpKEghUQsW8+AZp8HtX9Kq2ef4CvLrwgptVhiwlPNCTOz049q
-	KEK4TFdA==;
+	bh=3Vrhg/JoaUU7d62umv6c6MYZnrd9OhWJLv+YdX0g33A=; b=uMhO6M0zDZJn1/b2SvdGCiNKUi
+	s+TdQknOs2edGs29ieG0dc7h5TKTBGsPGs0h2FMWUfwJJWOi3yS90ZjUohcsCgp/Aoml6C3eIM2ve
+	3khGnMO1o+sSAQG4qhVUJWH3txWF9M18KE69KeLaXu3pHneeRv0nmylC2ck57/E0RzDjfdnyu1DGE
+	XYXxzddB4HpPcq133rPL9SbFObxu/prkwGiX6UkHJDZVSGp0aXfl2fsK73SC0wiBXUBtF3Eestg4G
+	8TxWq/syoHLBX7fr4+kJF+ANK1HmK4l4h9et+ERN54L5dLHObXa0PSZXTVYwki3R0HFZhf5bxfEXV
+	sKVeLD4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvuV-000000001ul-37zz;
-	Thu, 08 May 2025 07:43:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uCvwR-000000002Cr-2CbZ;
+	Thu, 08 May 2025 07:45:15 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvqZ-000000001NH-09nm
+	id 1uCvrS-000000001Xe-2p1O
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 07:39:11 +0000
+	Thu, 08 May 2025 07:40:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 23416629E3;
-	Thu,  8 May 2025 07:39:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64B75C4CEEB;
-	Thu,  8 May 2025 07:39:08 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id CFE4C5C620B;
+	Thu,  8 May 2025 07:37:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48006C4AF09;
+	Thu,  8 May 2025 07:40:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746689949;
-	bh=aoPmvlpUVTJBZ80tWq1+Sss5jsve9UvcYpZ4ZQTThio=;
+	s=k20201202; t=1746690005;
+	bh=mImWPT01rTjHtOsUeo2zVwTd8Wqc26QlROBMKIsOyFU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=P/lgARPncMDWxTgNawjxRdtqA5vHwfp/N0Q3j/6pvLjzugxV7xj3D9Rq8fXKLaqE7
-	 c3NeW2JSvmX+EPIXt6moMqToNMik22Vl0VIJ+XY1RvOWvEEe7tH4sRUX5QSftG3zMZ
-	 YBDsZ2P98CQr/fqx8Nj9iYIRPXG4M0/Haygv4fSnW0/xbH49wQKFqEKKyaAtw8zqMd
-	 Qg5/Ijze8hqCfwPjNfBy26GKDTmCKDTh87EERqUNiUlptUu2oSx3goJ4NbsVoWKkKP
-	 Rg9MI3CEEPw3h0wRIm/fe6CWBNqihC1DvDkFHpU709nQ7CXy48wiDP9v6y2dluNMFl
-	 MwdsHS6DWytjg==
-Message-ID: <8a26a37a-26ce-41ef-96e4-10ee09ebe704@kernel.org>
-Date: Thu, 8 May 2025 09:39:06 +0200
+	b=tBB1YJ3EEozUZjYUMljSUAIGhSXur4697Sgps2nUadgeWydLT2563mvOKGv8gp+dC
+	 DtlM6+26ZfBQ2xK66VcKeWpzjb0MnJIvAwEPiIvTMat5BbmK/27N8fBW8T2PcMo6Zj
+	 GMmhXArnK26QAa3nvaYy/ug7jQbyfVyifzSb3eBrYznk65Fltcs/HKKHjR1wHyFNZH
+	 BifLS3/NZKRWXlhj7jya977W3gq0LaKS2uJx8lZxSlWwOIEv6pqICfG7lT7Z75ryke
+	 Y9EHeCbR9z6k3uUOyGZZKTGu3PtZVacIIP3/bzq5dFw/sz7LUgazhHubetlvj93GFk
+	 0lwYwNcRBqK8g==
+Message-ID: <1ec7ed24-a4fe-450b-8f99-34aae6ed2c4d@kernel.org>
+Date: Thu, 8 May 2025 09:40:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 4/8] dt-bindings: Add Tegra264 clock and reset definitions
@@ -100,6 +100,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
 In-Reply-To: <20250507143802.1230919-5-thierry.reding@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250508_004006_807274_A023E2DB 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,22 +119,32 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 07/05/2025 16:37, Thierry Reding wrote:
-> From: Thierry Reding <treding@nvidia.com>
-> 
-> Signed-off-by: Thierry Reding <treding@nvidia.com>
+> @@ -0,0 +1,9 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +/* Copyright (c) 2022-2023, NVIDIA CORPORATION. All rights reserved. */
+> +
+> +#ifndef DT_BINDINGS_CLOCK_TEGRA264_CLOCK_H
+> +#define DT_BINDINGS_CLOCK_TEGRA264_CLOCK_H
+> +
+> +#define TEGRA264_CLK_CLK_S			2U
 
-Missing commit msg
+Abstract IDs start from 0 or 1, not 2. Also drop "U".
 
-> ---
->  include/dt-bindings/clock/tegra264-clock.h | 9 +++++++++
->  include/dt-bindings/reset/tegra264-reset.h | 7 +++++++
->  2 files changed, 16 insertions(+)
->  create mode 100644 include/dt-bindings/clock/tegra264-clock.h
->  create mode 100644 include/dt-bindings/reset/tegra264-reset.h
-
-
-Filename equal to the compatible. That's the standard convention for all
-the headers since some years.
+> +
+> +#endif /* DT_BINDINGS_CLOCK_TEGRA264_CLOCK_H */
+> diff --git a/include/dt-bindings/reset/tegra264-reset.h b/include/dt-bindings/reset/tegra264-reset.h
+> new file mode 100644
+> index 000000000000..31d89dcf62fa
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/tegra264-reset.h
+> @@ -0,0 +1,7 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +/* Copyright (c) 2022-2023, NVIDIA CORPORATION. All rights reserved. */
+> +
+> +#ifndef DT_BINDINGS_RESET_TEGRA264_RESET_H
+> +#define DT_BINDINGS_RESET_TEGRA264_RESET_H
+> +
+This is empty, drop.
 
 Best regards,
 Krzysztof
