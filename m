@@ -4,68 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C1AC3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 09:50:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FCC8C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 09:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sjejw0wJrEZFF46CLZ8856k4YvBtnjatxUBLwfNoHfo=; b=HhekmdrEnKyQCtEf6QiW5swF9m
-	TcVVGS8sxUCnm0EiERnFjouealIOkniGIWMQYnovu+Ho3HLf7gk8cpZwfwr8SC0Di5WBkolqlhf2Y
-	6p8fle+paUXszL54as4Tzv51rsS8MWJPFkNMsyDoAnHgxBZCVmtFSiz5xGVzkG0Kv7wFuRKKVrItD
-	Ldh8MhqgcePFROpPW1Q2zJJCPVGiIfcxCKl8maAH/CUi6L22ChRG6y2YkayMz1tx6T+gRlz6EznFA
-	Sv39XaYBOv0xF9S7WkXU0jepYRr3qWbodeEdor4PuuritZucdwv5kCQQuiC8de8VkvPLd9JO0IECm
-	xdcSEMcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MDkZKwvkaezuvEMVbs7f4PEnq7eRHWJSE+oBTyRgKuY=; b=U3sVH21i9HhBTHI2C8+1xO3ztI
+	P/1Za5Dglaqymgcd6sQs8OMdMNmw7IN660YJtR1abh9CnQKVUtvr63SQPoRDPv0TNdoobBAgaDdVu
+	TQ/KkE5Rj1cfbyqIq4IKwF8suQzYCI+9tdysR0gj501w6tbZ0LlrJkgW2aGne74MajPMBn/xm+NG9
+	B0H/P+aC4/YaTfi+livQmXJKqBOd0Gs8DDXhkgh/oN9GtLYGRyeFk800DerO+V8Cqoq4/tFjcF1JC
+	sJhr/DGDK1bn9KjmYSffKyMGCMIWbK/SIGopONKFbUAB4vR8F9+BNEaUvhQ8F2fDTYftefdSke4Ml
+	xv/TlHXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCxtT-00000000Iv6-0iOb;
-	Thu, 08 May 2025 09:50:19 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCxMU-00000000EN5-1GTA
+	id 1uCxvP-00000000JKZ-06k9;
+	Thu, 08 May 2025 09:52:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uCxSN-00000000FAl-0f0A
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 09:16:15 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uCxMN-0002ns-0K; Thu, 08 May 2025 11:16:07 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uCxMM-001hZc-0Y;
-	Thu, 08 May 2025 11:16:06 +0200
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uCxMM-00042G-0L;
-	Thu, 08 May 2025 11:16:06 +0200
-Message-ID: <ee4e3e521434a0dadce058e7e5f3bbd77f598f90.camel@pengutronix.de>
-Subject: Re: [PATCH v3] spi: stm32-ospi: Make usage of
- reset_control_acquire/release() API
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Patrice Chotard <patrice.chotard@foss.st.com>, Mark Brown
- <broonie@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-Date: Thu, 08 May 2025 11:16:06 +0200
-In-Reply-To: <20250507-b4-upstream_ospi_reset_update-v3-1-7e46a8797572@foss.st.com>
-References: <20250507-b4-upstream_ospi_reset_update-v3-1-7e46a8797572@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Thu, 08 May 2025 09:22:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 30F5E106F;
+	Thu,  8 May 2025 02:22:06 -0700 (PDT)
+Received: from [10.57.90.222] (unknown [10.57.90.222])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE0FB3F673;
+	Thu,  8 May 2025 02:22:14 -0700 (PDT)
+Message-ID: <0c6455f1-5a7b-4ae3-b7f8-7f163b6abc9a@arm.com>
+Date: Thu, 8 May 2025 10:22:13 +0100
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: mm: Drop redundant check in pmd_trans_huge()
+Content-Language: en-GB
+To: Gavin Shan <gshan@redhat.com>, linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ anshuman.khandual@arm.com, dev.jain@arm.com, peterx@redhat.com,
+ joey.gouly@arm.com, yangyicong@hisilicon.com, shan.gavin@gmail.com
+References: <20250508085251.204282-1-gshan@redhat.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250508085251.204282-1-gshan@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_021614_337106_FA54C111 
-X-CRM114-Status: GOOD (  20.32  )
+X-CRM114-CacheID: sfid-20250508_022219_287408_EFB56373 
+X-CRM114-Status: GOOD (  20.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,91 +65,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Patrice,
-
-On Mi, 2025-05-07 at 18:04 +0200, Patrice Chotard wrote:
-> As ospi reset is consumed by both OMM and OSPI drivers, use the reset
-> acquire/release mechanism which ensure exclusive reset usage.
->=20
-> This avoid to call reset_control_get/put() in OMM driver each time
-> we need to reset OSPI children and guarantee the reset line stays
-> deasserted.
->=20
-> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+On 08/05/2025 09:52, Gavin Shan wrote:
+> pmd_val(pmd) is redundant because a positive pmd_present(pmd) ensures
+> a positive pmd_val(pmd) according to their definitions like below.
+> 
+>   #define pmd_val(x)       ((x).pmd)
+>   #define pmd_present(pmd) pte_present(pmd_pte(pmd))
+>   #define pte_present(pte) (pte_valid(pte) || pte_present_invalid(pte))
+>   #define pte_valid(pte)   (!!(pte_val(pte) & PTE_VALID))
+>   #define pte_present_invalid(pte) \
+>           ((pte_val(pte) & (PTE_VALID | PTE_PRESENT_INVALID)) == PTE_PRESENT_INVALID)
+> 
+> pte_present() can't be positive unless either of the flag PTE_VALID or
+> PTE_PRESENT_INVALID is set. In this case, pmd_val(pmd) should be positive
+> either.
+> 
+> So lets drop the redundant check pmd_val(pmd) and no functional changes
+> intended.
+> 
+> Signed-off-by: Gavin Shan <gshan@redhat.com>
+> Reviewed-by: Dev Jain <dev.jain@arm.com>
+> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 > ---
-> Changes in v3:
->   - Remove previous patch 1/2 as already merged.
->   - Keep the reset control acquired from probe() to remove().
->   - Link to v2: https://lore.kernel.org/r/20250411-b4-upstream_ospi_reset=
-_update-v2-0-4de7f5dd2a91@foss.st.com
->=20
-> Changes in v2:
->   - Rebased on spi/for-next (7a978d8fcf57).
->   - Remove useless check on reset.
->   - Add error handling on reset_control_acquire().
->   - Link to v1: https://lore.kernel.org/all/20250410-b4-upstream_ospi_res=
-et_update-v1-0-74126a8ceb9c@foss.st.com/
+> v1: https://lore.kernel.org/linux-arm-kernel/4e5941f8-7e61-4a63-a669-bee1601093a6@arm.com/T/#u
+> v2: Improved commit log per Anshuman
 > ---
->  drivers/spi/spi-stm32-ospi.c | 24 ++++++++++++++++++------
->  1 file changed, 18 insertions(+), 6 deletions(-)
->=20
-> diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
-> index 668022098b1eac3628f0677e6d786e5a267346be..b2597b52beb1133155e0d6f60=
-1b0632ad4b8e8f5 100644
-> --- a/drivers/spi/spi-stm32-ospi.c
-> +++ b/drivers/spi/spi-stm32-ospi.c
-> @@ -804,7 +804,7 @@ static int stm32_ospi_get_resources(struct platform_d=
-evice *pdev)
->  		return ret;
->  	}
-> =20
-> -	ospi->rstc =3D devm_reset_control_array_get_optional_exclusive(dev);
-> +	ospi->rstc =3D devm_reset_control_array_get_exclusive_released(dev);
->  	if (IS_ERR(ospi->rstc))
->  		return dev_err_probe(dev, PTR_ERR(ospi->rstc),
->  				     "Can't get reset\n");
-> @@ -936,11 +936,13 @@ static int stm32_ospi_probe(struct platform_device =
-*pdev)
->  	if (ret < 0)
->  		goto err_pm_enable;
-> =20
-> -	if (ospi->rstc) {
-> -		reset_control_assert(ospi->rstc);
-> -		udelay(2);
-> -		reset_control_deassert(ospi->rstc);
-> -	}
-> +	ret =3D reset_control_acquire(ospi->rstc);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Can not acquire reset %d\n", ret);
-> +
-> +	reset_control_assert(ospi->rstc);
-> +	udelay(2);
-> +	reset_control_deassert(ospi->rstc);
-> =20
->  	ret =3D spi_register_controller(ctrl);
->  	if (ret) {
-> @@ -983,6 +985,8 @@ static void stm32_ospi_remove(struct platform_device =
-*pdev)
->  	if (ospi->dma_chrx)
->  		dma_release_channel(ospi->dma_chrx);
-> =20
-> +	reset_control_release(ospi->rstc);
-> +
->  	pm_runtime_put_sync_suspend(ospi->dev);
->  	pm_runtime_force_suspend(ospi->dev);
+>  arch/arm64/include/asm/pgtable.h | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index d3b538be1500..2599b9b8666f 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -739,8 +739,7 @@ static inline int pmd_trans_huge(pmd_t pmd)
+>  	 * If pmd is present-invalid, pmd_table() won't detect it
+>  	 * as a table, so force the valid bit for the comparison.
+>  	 */
+> -	return pmd_val(pmd) && pmd_present(pmd) &&
+> -	       !pmd_table(__pmd(pmd_val(pmd) | PTE_VALID));
+> +	return pmd_present(pmd) && !pmd_table(__pmd(pmd_val(pmd) | PTE_VALID));
 >  }
-> @@ -993,6 +997,8 @@ static int __maybe_unused stm32_ospi_suspend(struct d=
-evice *dev)
-> =20
->  	pinctrl_pm_select_sleep_state(dev);
-> =20
-> +	reset_control_release(ospi->rstc);
+>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+>  
 
-It would be nice to point out in a comment that OMM will temporarily
-take over control during resume. But either way,
+I agree the cleanup is useful and correct, so:
 
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 
-regards
-Philipp
+
+But personally I find it maddening that we have:
+
+#define pmd_table(pmd)		((pmd_val(pmd) & PMD_TYPE_MASK) == \
+				 PMD_TYPE_TABLE)
+#define pmd_sect(pmd)		((pmd_val(pmd) & PMD_TYPE_MASK) == \
+				 PMD_TYPE_SECT)
+#define pmd_leaf(pmd)		(pmd_present(pmd) && !pmd_table(pmd))
+
+static inline int pmd_trans_huge(pmd_t pmd)
+{
+	/*
+	 * If pmd is present-invalid, pmd_table() won't detect it
+	 * as a table, so force the valid bit for the comparison.
+	 */
+	return pmd_val(pmd) && pmd_present(pmd) &&
+	       !pmd_table(__pmd(pmd_val(pmd) | PTE_VALID));
+}
+
+Which all do basically the same thing, but with some very subtle differences.
+
+Surely we should really only need 2 basic functions; is it a table? is it a
+leaf? Then pmd_sect() and pmd_trans_huge() should just be aliases of pmd_leaf().
+
+I *think* pmd_sect() and pmd_leaf() are really just 2 different ways of
+expressing the same thing? Which is "Is this a *VALID* leaf?"
+
+And pmd_trans_huge() is asking "Is this either a *VALID* or *PRESENT_INVALID* leaf?"
+
+I'm not sure if we can relax pmd_sect()/pmd_leaf() to give the same semantics as
+pmd_trans_huge()? I would guess we can. In which case it would be nice to clean
+this all up to a single implementation and make the others wrappers. Or better
+yet, fix the callers to consistently use pmd_leaf(). And do the same for pud.
+
+Thanks,
+Ryan
+
 
