@@ -4,74 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FF7DC3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 16:01:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E82E6C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 16:01:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pUTZOX5pL0rFm8GbdLnxeDKHtpkMSbSCmXVwtnugENA=; b=Z9ybYM293CWi26TGf9XsfruUUq
-	G3HU3Uro81cKwmFJzPfRaqAhmER+7X6ikqZHoNZOiqRmsD6sjo4IE9K+glJRVgkVNDXYAVZhcEQsp
-	v/G6tahHLopxm5sOmr2ngcu1vIzY/YY3jOUW4M0Gr6tI4vfHwwEt+/N1n2oWpAAuSWPx+SEBb5l0Z
-	2XHzwuPNNy5wXOkEXWDnhhUPaPHp0sQhlHhegbmEMclY75h8DU5Uq7LZC1bArzN5O4u4gzNICv/Wc
-	QGKexXTOOA3897TY6OEn0+N6nqfq7y+5/GDtx2dEe4LvRN1n/KhiHdrdsFlfkorhAEKoAHh7kvxq+
-	Y1jGjLug==;
+	bh=5+GT3Oj5B5+z040fSynzWhjY9snTmEVSu0OJIxU2FZ8=; b=sbur+jh+ECrK19voa9/Rei3Dp8
+	OI2eBp7QbUPijyCJ4N1AX2PSayfOJiTEIgEithq0iKzkPb7xoUrOHLKFh3s90vR2tDWXyC/K/D/I/
+	iE+mWLniUQO6bTitY4P0AcjOscz6ejdYpWKv92uMrZVVBWH+FC0giqLOUnoXZHoJR4xeUyygg9KOc
+	jyJZiNhQxXhFGr/EPw9ZdYsmXk46Q9PrjCy48/ZqJ8gXSZgtJh4iOApW6qEFBz58l/MCha74nWCaD
+	uvMR/e4hK5NjWZPx+m4HO2lP9924+q15dYt9dPF8+LQFHMbcWb9p9EVBpTElWBzZyogYKNYKyiyVV
+	MownbU6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD3gC-00000001Dmm-26m1;
-	Thu, 08 May 2025 16:01:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD2mB-000000012Bb-0snz
+	id 1uD3gn-00000001Dr8-0qCt;
+	Thu, 08 May 2025 16:01:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uD1nr-00000000qOY-11Pb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 15:03:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 75C905C6391;
-	Thu,  8 May 2025 15:00:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 956DAC4CEEF;
-	Thu,  8 May 2025 15:03:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746716586;
-	bh=i307aCl5BVWvl5MiOv33nldL0mjlqS9MMmAtQ4QuhRU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bA3DpbPun/ZrtWKIb6qp1mFKAQ1uWyHkWDIGFFI/4q59NatfCqMdLAymdSDD2yBtX
-	 NSe69IW+zJnCSp65K2iTJWGSAKCG+vzDukCNPMuJWO3d09UDKW5P1eWrVdYILhm9wg
-	 UtKSF+C4g+gclqmMk57BeJlgl6l024/mVRAtyYKCkuCi7/88rOXs/K/05w8VsFGLUc
-	 n1oTm5t8mrhlodW/waMOe1MCXkZ5JjhSw47o9+78dGLUe32fCFuZAzclG3aiG2dcYq
-	 zsgYYH7lT1175V0M0TmA4OvhUNTmhFLbSnMm3n4rBdYqXp1iS4aB6+3JYIUVcqb59Q
-	 1tEVs2p9KkkSw==
-From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	broonie@kernel.org,
-	daniel.kiss@arm.com,
-	david.spickett@arm.com,
-	luis.machado@arm.com,
-	maz@kernel.org,
-	richard.sandiford@arm.com,
-	sander.desmalen@arm.com,
-	tabba@google.com,
-	tamas.petz@arm.com,
-	tkjos@google.com,
-	yury.khrustalev@arm.com
-Subject: Re: [PATCH v2 01/24] arm64/fpsimd: Do not discard modified SVE state
-Date: Thu,  8 May 2025 16:02:57 +0100
-Message-Id: <174671422240.2281135.7072752588975728937.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250508132644.1395904-2-mark.rutland@arm.com>
-References: <20250508132644.1395904-1-mark.rutland@arm.com> <20250508132644.1395904-2-mark.rutland@arm.com>
+	Thu, 08 May 2025 14:00:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4299D106F;
+	Thu,  8 May 2025 07:00:36 -0700 (PDT)
+Received: from [10.57.90.222] (unknown [10.57.90.222])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 672033F5A1;
+	Thu,  8 May 2025 07:00:44 -0700 (PDT)
+Message-ID: <9689bab0-fe44-40e4-a24d-72b778a521e6@arm.com>
+Date: Thu, 8 May 2025 15:00:42 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 00/11] Perf improvements for hugetlb and vmalloc on
+ arm64
+Content-Language: en-GB
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ David Hildenbrand <david@redhat.com>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+References: <20250422081822.1836315-1-ryan.roberts@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250422081822.1836315-1-ryan.roberts@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_080307_326378_692553AA 
-X-CRM114-Status: UNSURE (   8.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250508_070047_374467_4D35AE24 
+X-CRM114-Status: GOOD (  33.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,64 +74,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 08 May 2025 14:26:21 +0100, Mark Rutland wrote:
-> Historically SVE state was discarded deterministically early in the
-> syscall entry path, before ptrace is notified of syscall entry. This
-> permitted ptrace to modify SVE state before and after the "real" syscall
-> logic was executed, with the modified state being retained.
+Hi Will,
+
+Just a bump on this; I believe it's had review by all the relavent folks (and
+has the R-b) tags. I was hoping to get this into v6.16, but getting nervous that
+time is running out to soak it in linux-next. Any chance you could consider pulling?
+
+Thanks,
+Ryan
+
+
+On 22/04/2025 09:18, Ryan Roberts wrote:
+> Hi All,
 > 
-> This behaviour was changed by commit:
+> This is v4 of a series to improve performance for hugetlb and vmalloc on arm64.
+> Although some of these patches are core-mm, advice from Andrew was to go via the
+> arm64 tree. All patches are now acked/reviewed by relevant maintainers so I
+> believe this should be good-to-go.
 > 
-> [...]
+> The 2 key performance improvements are 1) enabling the use of contpte-mapped
+> blocks in the vmalloc space when appropriate (which reduces TLB pressure). There
+> were already hooks for this (used by powerpc) but they required some tidying and
+> extending for arm64. And 2) batching up barriers when modifying the vmalloc
+> address space for upto 30% reduction in time taken in vmalloc().
+> 
+> vmalloc() performance was measured using the test_vmalloc.ko module. Tested on
+> Apple M2 and Ampere Altra. Each test had loop count set to 500000 and the whole
+> test was repeated 10 times.
+> 
+> legend:
+>   - p: nr_pages (pages to allocate)
+>   - h: use_huge (vmalloc() vs vmalloc_huge())
+>   - (I): statistically significant improvement (95% CI does not overlap)
+>   - (R): statistically significant regression (95% CI does not overlap)
+>   - measurements are times; smaller is better
+> 
+> +--------------------------------------------------+-------------+-------------+
+> | Benchmark                                        |             |             |
+> |   Result Class                                   |    Apple M2 | Ampere Alta |
+> +==================================================+=============+=============+
+> | micromm/vmalloc                                  |             |             |
+> |   fix_align_alloc_test: p:1, h:0 (usec)          | (I) -11.53% |      -2.57% |
+> |   fix_size_alloc_test: p:1, h:0 (usec)           |       2.14% |       1.79% |
+> |   fix_size_alloc_test: p:4, h:0 (usec)           |  (I) -9.93% |  (I) -4.80% |
+> |   fix_size_alloc_test: p:16, h:0 (usec)          | (I) -25.07% | (I) -14.24% |
+> |   fix_size_alloc_test: p:16, h:1 (usec)          | (I) -14.07% |   (R) 7.93% |
+> |   fix_size_alloc_test: p:64, h:0 (usec)          | (I) -29.43% | (I) -19.30% |
+> |   fix_size_alloc_test: p:64, h:1 (usec)          | (I) -16.39% |   (R) 6.71% |
+> |   fix_size_alloc_test: p:256, h:0 (usec)         | (I) -31.46% | (I) -20.60% |
+> |   fix_size_alloc_test: p:256, h:1 (usec)         | (I) -16.58% |   (R) 6.70% |
+> |   fix_size_alloc_test: p:512, h:0 (usec)         | (I) -31.96% | (I) -20.04% |
+> |   fix_size_alloc_test: p:512, h:1 (usec)         |       2.30% |       0.71% |
+> |   full_fit_alloc_test: p:1, h:0 (usec)           |      -2.94% |       1.77% |
+> |   kvfree_rcu_1_arg_vmalloc_test: p:1, h:0 (usec) |      -7.75% |       1.71% |
+> |   kvfree_rcu_2_arg_vmalloc_test: p:1, h:0 (usec) |      -9.07% |   (R) 2.34% |
+> |   long_busy_list_alloc_test: p:1, h:0 (usec)     | (I) -29.18% | (I) -17.91% |
+> |   pcpu_alloc_test: p:1, h:0 (usec)               |     -14.71% |      -3.14% |
+> |   random_size_align_alloc_test: p:1, h:0 (usec)  | (I) -11.08% |  (I) -4.62% |
+> |   random_size_alloc_test: p:1, h:0 (usec)        | (I) -30.25% | (I) -17.95% |
+> |   vm_map_ram_test: p:1, h:0 (usec)               |       5.06% |   (R) 6.63% |
+> +--------------------------------------------------+-------------+-------------+
+> 
+> So there are some nice improvements but also some regressions to explain:
+> 
+> fix_size_alloc_test with h:1 and p:16,64,256 regress by ~6% on Altra. The
+> regression is actually introduced by enabling contpte-mapped 64K blocks in these
+> tests, and that regression is reduced (from about 8% if memory serves) by doing
+> the barrier batching. I don't have a definite conclusion on the root cause, but
+> I've ruled out the differences in the mapping paths in vmalloc. I strongly
+> believe this is likely due to the difference in the allocation path; 64K blocks
+> are not cached per-cpu so we have to go all the way to the buddy. I'm not sure
+> why this doesn't show up on M2 though. Regardless, I'm going to assert that it's
+> better to choose 16x reduction in TLB pressure vs 6% on the vmalloc allocation
+> call duration.
+> 
+> Changes since v3 [3]
+> ====================
+> - Applied R-bs (thanks all!)
+> - Renamed set_ptes_anysz() -> __set_ptes_anysz() (Catalin)
+> - Renamed ptep_get_and_clear_anysz() -> __ptep_get_and_clear_anysz() (Catalin)
+> - Only set TIF_LAZY_MMU_PENDING if not already set to avoid atomic ops (Catalin)
+> - Fix commet typos (Anshuman)
+> - Fix build warnings when PMD is folded (buildbot)
+> - Reverse xmas tree for variables in __page_table_check_p[mu]ds_set() (Pasha)
+> 
+> Changes since v2 [2]
+> ====================
+> - Removed the new arch_update_kernel_mappings_[begin|end]() API
+> - Switches to arch_[enter|leave]_lazy_mmu_mode() instead for barrier batching
+> - Removed clean up to avoid barriers for invalid or user mappings
+> 
+> Changes since v1 [1]
+> ====================
+> - Split out the fixes into their own series
+> - Added Rbs from Anshuman - Thanks!
+> - Added patch to clean up the methods by which huge_pte size is determined
+> - Added "#ifndef __PAGETABLE_PMD_FOLDED" around PUD_SIZE in
+>   flush_hugetlb_tlb_range()
+> - Renamed ___set_ptes() -> set_ptes_anysz()
+> - Renamed ___ptep_get_and_clear() -> ptep_get_and_clear_anysz()
+> - Fixed typos in commit logs
+> - Refactored pXd_valid_not_user() for better reuse
+> - Removed TIF_KMAP_UPDATE_PENDING after concluding that single flag is sufficent
+> - Concluded the extra isb() in __switch_to() is not required
+> - Only call arch_update_kernel_mappings_[begin|end]() for kernel mappings
+> 
+> Applies on top of v6.15-rc3. All mm selftests run and no regressions observed.
+> 
+> [1] https://lore.kernel.org/all/20250205151003.88959-1-ryan.roberts@arm.com/
+> [2] https://lore.kernel.org/all/20250217140809.1702789-1-ryan.roberts@arm.com/
+> [3] https://lore.kernel.org/all/20250304150444.3788920-1-ryan.roberts@arm.com/
+> 
+> Thanks,
+> Ryan
+> 
+> Ryan Roberts (11):
+>   arm64: hugetlb: Cleanup huge_pte size discovery mechanisms
+>   arm64: hugetlb: Refine tlb maintenance scope
+>   mm/page_table_check: Batch-check pmds/puds just like ptes
+>   arm64/mm: Refactor __set_ptes() and __ptep_get_and_clear()
+>   arm64: hugetlb: Use __set_ptes_anysz() and
+>     __ptep_get_and_clear_anysz()
+>   arm64/mm: Hoist barriers out of set_ptes_anysz() loop
+>   mm/vmalloc: Warn on improper use of vunmap_range()
+>   mm/vmalloc: Gracefully unmap huge ptes
+>   arm64/mm: Support huge pte-mapped pages in vmap
+>   mm/vmalloc: Enter lazy mmu mode while manipulating vmalloc ptes
+>   arm64/mm: Batch barriers when updating kernel mappings
+> 
+>  arch/arm64/include/asm/hugetlb.h     |  29 ++--
+>  arch/arm64/include/asm/pgtable.h     | 209 +++++++++++++++++++--------
+>  arch/arm64/include/asm/thread_info.h |   2 +
+>  arch/arm64/include/asm/vmalloc.h     |  45 ++++++
+>  arch/arm64/kernel/process.c          |   9 +-
+>  arch/arm64/mm/hugetlbpage.c          |  73 ++++------
+>  include/linux/page_table_check.h     |  30 ++--
+>  include/linux/vmalloc.h              |   8 +
+>  mm/page_table_check.c                |  34 +++--
+>  mm/vmalloc.c                         |  40 ++++-
+>  10 files changed, 329 insertions(+), 150 deletions(-)
+> 
+> --
+> 2.43.0
+> 
 
-Applied kernel changes to arm64 (for-next/sme-fixes), thanks!
-
-[01/24] arm64/fpsimd: Do not discard modified SVE state
-        https://git.kernel.org/arm64/c/398edaa12f9c
-[02/24] arm64/fpsimd: signal: Clear PSTATE.SM when restoring FPSIMD frame only
-        https://git.kernel.org/arm64/c/1bf663a86a45
-[03/24] arm64/fpsimd: signal: Mandate SVE payload for streaming-mode state
-        https://git.kernel.org/arm64/c/b465ace42620
-[04/24] arm64/fpsimd: signal: Consistently read FPSIMD context
-        https://git.kernel.org/arm64/c/be625d803c3b
-[05/24] arm64/fpsimd: ptrace: Consistently handle partial writes to NT_ARM_(S)SVE
-        https://git.kernel.org/arm64/c/316283f276eb
-[06/24] arm64/fpsimd: Clarify sve_sync_*() functions
-        https://git.kernel.org/arm64/c/b255be426913
-[07/24] arm64/fpsimd: Factor out {sve,sme}_state_size() helpers
-        https://git.kernel.org/arm64/c/8738288a08b8
-[08/24] arm64/fpsimd: Add task_smstop_sm()
-        https://git.kernel.org/arm64/c/6ef1d778ce56
-[09/24] arm64/fpsimd: signal: Use SMSTOP behaviour in setup_return()
-        https://git.kernel.org/arm64/c/99560c9452bb
-[10/24] arm64/fpsimd: Remove redundant task->mm check
-        https://git.kernel.org/arm64/c/8d61eef75679
-[11/24] arm64/fpsimd: Consistently preserve FPSIMD state during clone()
-        https://git.kernel.org/arm64/c/e0cb0f26594c
-[12/24] arm64/fpsimd: Clear PSTATE.SM during clone()
-        https://git.kernel.org/arm64/c/a6d066f70574
-[13/24] arm64/fpsimd: Make clone() compatible with ZA lazy saving
-        https://git.kernel.org/arm64/c/cde5c32db557
-[14/24] arm64/fpsimd: ptrace/prctl: Ensure VL changes do not resurrect stale data
-        https://git.kernel.org/arm64/c/49ce484187f7
-[15/24] arm64/fpsimd: ptrace/prctl: Ensure VL changes leave task in a valid state
-        https://git.kernel.org/arm64/c/b87c8c4aca11
-[16/24] arm64/fpsimd: ptrace: Save task state before generating SVE header
-        https://git.kernel.org/arm64/c/054d627c5554
-[17/24] arm64/fpsimd: ptrace: Do not present register data for inactive mode
-        https://git.kernel.org/arm64/c/b93e685ecff7
-[18/24] arm64/fpsimd: ptrace: Mandate SVE payload for streaming-mode state
-        https://git.kernel.org/arm64/c/f916dd32a943
-[19/24] arm64/fpsimd: ptrace: Gracefully handle errors
-        https://git.kernel.org/arm64/c/9f8bf718f292
-[20/24] arm64/fpsimd: Allow CONFIG_ARM64_SME to be selected
-        https://git.kernel.org/arm64/c/33c4618d0ac0
-
-Cheers,
--- 
-Will
-
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
 
