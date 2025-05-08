@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E31BEC3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 11:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F474C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 12:07:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B4BHIBQDpVCDnxW3z5qFHjIyyfVS94sVV08f576JMEY=; b=ZZ6wNRnbPa1xEYLygyof418aV0
-	gmSBmFyLIO9/YhsKJd64Qu3dyktWKrJSyMU655WQh3qGPmKoHGQNAF73nu6wIjPO9i+3ZqxizD5ti
-	fSag8cRaUBaFLjvMt1w7P0Rq2fIA9lJkGCz3tGIyWBrN1PKbinksdMobxjh7yo0tfhqeuv55WoPhe
-	4KUX09+EAeMQmgo0vbiUYkh7yuNME7WsQ8SRxbAg9/7A4ua4agAFhC4rWDIeofEHZsKWf6EQAhmdJ
-	dkRWcGkbuXdmjLG9FAikjE0m4yBpZ7iHJYmTJGUTp8R4GA0D9+a0IkvO7QRC8v/D4OLGyWNZYueNK
-	TpRCer4A==;
+	bh=QlRB9Iaokfu0oipHLYE3CeIxI9maDwC7586JM6Zrrcs=; b=laQWYNDX8IiLgLcXtah6lskGVS
+	ZhgpJVuqGwt02K5NJDHDZ6N3oTUdkC9hlySx1XegW5JYMYjwGPMj69ovDnN/kzHPvshUcIWooIYRG
+	uCZUDlQpN1HsYwlDmNkD8tyE+1+HusRwcFvz7R3fK2j2kc5FVZIfPekeQENaN/4aLJRHStEuLF+g0
+	YIdZ4pk/ukmTAaiDJEYffXn2qHAcGI3JeFxXTXESjxNHhRRX6G1L+OiIr6DT9JymyZSknuw0DX1kn
+	I7vGzj5oqw5Nvy+HO6+0457jKHgydDbTres5CARGMprQswn7b2rFRnA8alPywX0LeETNyJttXpdu6
+	XLJQrcBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCzr8-00000000XPJ-2yRC;
-	Thu, 08 May 2025 11:56:02 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uD026-00000000YkK-1uO1;
+	Thu, 08 May 2025 12:07:22 +0000
+Received: from mail.thorsis.com ([217.92.40.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCzpB-00000000X9C-18jd;
-	Thu, 08 May 2025 11:54:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BDE1E5C6289;
-	Thu,  8 May 2025 11:51:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D59FAC4CEE7;
-	Thu,  8 May 2025 11:53:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746705239;
-	bh=ATEwHpgNA6jqamANm5hBaVYVO/dqwcBSYhIXw4FvfOQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=u3RM5ALrqSnfQa5HbX8moNUhsGOjpcfcy5lA4yc+FmPmsGqzLmElL/eAXgP9r3k4z
-	 Rubst2i6+x9slEhbAguGyXaZli1sn8YNW9zPw/tkLfr0VxTPxXrs0xw5aVF4MuYEU5
-	 8G+QnU8r6onc00RyOW9QjHHiFEixVWTv1v6mq7xZ5ebwt1wKaKrtGNQLCvNYAc46GM
-	 1zq5g44NCqS0dgYhh/RiFgTRvIusk2uUIu0bQQ+x+2s76kyWmK5lP8frGn1KXt+kCA
-	 MB97EmoRnKLis9eJd4gykwNx9AIuZNcMEBnm/HnLDZW+7EHGFsCIMgd1F6A2NNxKLD
-	 ZBirUqSL+XuXg==
-Date: Thu, 8 May 2025 13:53:53 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Hans Zhang <18255117159@163.com>
-Cc: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, lpieralisi@kernel.org,
-	kw@linux.com, bhelgaas@google.com, heiko@sntech.de,
-	manivannan.sadhasivam@linaro.org, yue.wang@amlogic.com,
-	neil.armstrong@linaro.org, robh@kernel.org, jingoohan1@gmail.com,
-	khilman@baylibre.com, jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v3 3/3] PCI: aardvark: Remove redundant MPS configuration
-Message-ID: <aBybUYYhrmlOeLAj@ryzen>
-References: <20250506173439.292460-1-18255117159@163.com>
- <20250506173439.292460-4-18255117159@163.com>
- <20250506174110.63ayeqc4scmwjj6e@pali>
- <8a6adc24-5f40-4f22-9842-b211e1ef5008@163.com>
- <ff6abbf6-e464-4929-96e6-16e43c62db06@163.com>
- <20250507163620.53v5djmhj3ywrge2@pali>
- <b364eed2-047d-4c74-9f30-45291305bc4b@163.com>
+	id 1uD008-00000000YaI-20DO
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 May 2025 12:05:22 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0AF7114800B7;
+	Thu,  8 May 2025 14:05:11 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
+	t=1746705914; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=QlRB9Iaokfu0oipHLYE3CeIxI9maDwC7586JM6Zrrcs=;
+	b=D009CDIO4uX44xO7JFbCItOhC77Mhdg1qz/LCj1MPQummr1uvp6uLhO14nYwCQbamhPH1m
+	J4c+BPCmtCJ3iRq65gWS0BdqEXeKQMLIaz7WGMUauKPvAJSAQu1kmDT5Wi5ufXQoB+l4NZ
+	T4HIhGpm276h0WvaRvgeSbtc3jWvYsfni4jgFzAYgDMR7Sx/L+NRkfPJMshTaHrUVlb3WW
+	7nKVWDSw1JIAPI0LBLnghBb7S0qAvYKezgfyNgl5aOQwkLwuZAo4QEL2RExD1Llu+phqjG
+	2EmE6QmVpj7oT36SECecjm+USZfsC2QtC2HVno7OpWrjA8UVpbCC2FKc7xDTrg==
+Date: Thu, 8 May 2025 14:05:07 +0200
+From: Alexander Dahl <ada@thorsis.com>
+To: Michael Klein <michael@fossekall.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] ARM: dts: bananapi: add support for PHY LEDs
+Message-ID: <20250508-strategy-simmering-20a48db6b6dd@thorsis.com>
+Mail-Followup-To: Michael Klein <michael@fossekall.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+References: <20250507182005.8660-1-michael@fossekall.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <b364eed2-047d-4c74-9f30-45291305bc4b@163.com>
+In-Reply-To: <20250507182005.8660-1-michael@fossekall.de>
+User-Agent: Mutt/2.2.12 (2023-09-09)
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_045401_361728_602F42E2 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20250508_050520_972935_3238A1F7 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,33 +80,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Hans,
+Hallo Michael,
 
-On Thu, May 08, 2025 at 12:47:12AM +0800, Hans Zhang wrote:
-> On 2025/5/8 00:36, Pali Rohár wrote:
-> > 
-> > Sorry, but I stopped doing any testing of the aardvark driver with the
-> > mainline kernel after PCI maintainers stopped taking fixes for the
-> > driver and stopped responding.
-> > 
-> > I'm not going to debug same issues again, which I have analyzed,
-> > prepared fixes, sent patches and see no progress there.
-> > 
-> > Seems that there is a status quo, and I'm not going to change it.
+Am Wed, May 07, 2025 at 08:20:04PM +0200 schrieb Michael Klein:
+> The RTL8211E ethernet PHY driver has recently gained support for
+> controlling PHY LEDs via /sys/class/leds. The Bananapi M1 has three
+> LEDs connected to the RTL8211E PHY. Add the corresponding nodes to
+> the device tree.
 > 
-> Dear Niklas,
+> v2: Refine commit message
+
+This changelog should usually go below the '---' so it won't end up in
+the commit message, but in the e-mail only.
+
+Greets
+Alex
+
 > 
-> Do you have any opinion on Pali's reply? Should patch 3/3 be discarded?
-
-While I do have an opinion, I'm not going to share it on a public mailing
-list :)
-
-With regards to your patch 3/3, I think that your patch looks fine, but if
-the driver maintainer does not want the cleanup for >reasons*, that is totally
-fine with me. However, I'm not a PCI maintainer, so my opinion does not really
-matter. It's the PCI maintainers that decide.
-
-
-Kind regards,
-Niklas
+> Signed-off-by: Michael Klein <michael@fossekall.de>
+> ---
+>  .../boot/dts/allwinner/sun7i-a20-bananapi.dts | 27 +++++++++++++++++++
+>  1 file changed, 27 insertions(+)
+> 
+> diff --git a/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts b/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts
+> index 46ecf9db2324..d8b362c9661a 100644
+> --- a/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts
+> +++ b/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts
+> @@ -48,6 +48,7 @@
+>  
+>  #include <dt-bindings/gpio/gpio.h>
+>  #include <dt-bindings/interrupt-controller/irq.h>
+> +#include <dt-bindings/leds/common.h>
+>  
+>  / {
+>  	model = "LeMaker Banana Pi";
+> @@ -169,6 +170,32 @@ &ir0 {
+>  &gmac_mdio {
+>  	phy1: ethernet-phy@1 {
+>  		reg = <1>;
+> +
+> +		leds {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +
+> +			led@0 {
+> +				reg = <0>;
+> +				color = <LED_COLOR_ID_GREEN>;
+> +				function = LED_FUNCTION_LAN;
+> +				linux,default-trigger = "netdev";
+> +			};
+> +
+> +			led@1 {
+> +				reg = <1>;
+> +				color = <LED_COLOR_ID_AMBER>;
+> +				function = LED_FUNCTION_LAN;
+> +				linux,default-trigger = "netdev";
+> +			};
+> +
+> +			led@2 {
+> +				reg = <2>;
+> +				color = <LED_COLOR_ID_BLUE>;
+> +				function = LED_FUNCTION_LAN;
+> +				linux,default-trigger = "netdev";
+> +			};
+> +		};
+>  	};
+>  };
+>  
+> -- 
+> 2.39.5
+> 
+> 
 
