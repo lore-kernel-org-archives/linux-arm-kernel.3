@@ -4,68 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 094BBC3ABCB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E76F8C3ABC0
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 17:21:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i3Zcprdv1SvQj0eiycKQXI51YCMEuANQ9KWCXytXxLs=; b=Vyw2oarx4Wd6DPCf4xuv3P249m
-	25d44lAqkrPCol/Kjg/vEO+N8ahQHIKWLrbA+41e/JycOm3c4Oc5JeSZs/uIX6TEBq2G86OHS26nv
-	T503Pl9duFTPnLxagCA1T69gAmbXdp3pzSJ8/jnv0qtYrTyPqbOWjv6Gm2kCFFPOLWhf/h0m8i8IG
-	XWBo8y0P+6lvYRiS0xjw0YJETpmi0FwOKjk1VYI9ZpOBSkmpL/Dq9X2sVgxQZVWFqua/hNrLMw8ac
-	x3jCOtqPoR1eEH6WAJGkK7vd8uOaIM2MHQX/VXwlwjpDM9+mPr26jXlNtunlw5Ll2OQl2gPYfW7Qg
-	nxY8ktEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5kpaww9cJK64aNI1PeG0NP4aJVk6UQn9JQAAAdMhX0o=; b=4NJ38p3sdZumsD5vveLv7SkCeQ
+	aZ++rCQ6o8Qcxb9rWEGM4sQzIb9PIjkF/ofE83YPRqG5fHlHi9qTEvdYbfHkAEfYTZU8TwW3wYFyH
+	vQ/KEdTy1VtrGVog3U2f/epZyU5PB/MflIGp+nJLD8WKWmw4s5a8N1tVq3BNoyn5AuioDRG2O8FSC
+	GBmYFYWOFPOwRJbNunQry3mT6x481TSs+yF7RTrGMQDJLr51fmXxZIFhwJTiX6fUt4uylH8cn5fOf
+	kU5ihX73w2t4CYpDafLkQUxBsQd4gK787Afwur/oofsiauJ8xhRquhspeVC+HvIUhvX5NSW/qG7Ww
+	avXrX+qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD4vd-00000001Mpb-1yCH;
-	Thu, 08 May 2025 17:21:01 +0000
-Received: from smtp-75.smtpout.orange.fr ([80.12.242.75] helo=smtp.smtpout.orange.fr)
+	id 1uD4vc-00000001Mo5-1YNz;
+	Thu, 08 May 2025 17:21:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD3kZ-00000001EYX-39Yc;
-	Thu, 08 May 2025 16:05:32 +0000
-Received: from [192.168.1.37] ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id D3kUuhiTn5oOhD3kUuQpGk; Thu, 08 May 2025 18:05:29 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1746720329;
-	bh=i3Zcprdv1SvQj0eiycKQXI51YCMEuANQ9KWCXytXxLs=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=ATwY6ABMjL9h2bymt7e78pl9aKcyh+EW5/LzWCMpLnKdY3A2MnCK2IfN54Cblz188
-	 frUSBSmFo3Mlo+ZWoWEk6Gk6woIflGmSyUb+BEg9JuLGXjzvWEzbQnuhtX9xd8xDN3
-	 1HcGPT8iZJNsZH964+0wBxoS09nQ7HOhHtgS4XMixHUiF8qDVtN16RE8zjFEUeMmve
-	 l9oD4xuiMRY97u+tI1uWtlIPxAgUeGkX1KFYAfUQmJNZp/7IAeCnt6EPJpwUU34YfO
-	 /xiXGagHB/5+fIGOLgaCdeSONbXd0FhUslqS+faTY2gQ/df8VyzjbAtPlQZ4qoOPXS
-	 1G/utI/oMG2Kg==
-X-ME-Helo: [192.168.1.37]
-X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
-X-ME-Date: Thu, 08 May 2025 18:05:29 +0200
-X-ME-IP: 90.11.132.44
-Message-ID: <68149c51-ba75-4f0f-a86a-bd810d47d684@wanadoo.fr>
-Date: Thu, 8 May 2025 18:05:26 +0200
+	id 1uD3kX-00000001EXw-37kl
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 May 2025 16:05:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C9EE1629DC;
+	Thu,  8 May 2025 16:05:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5404BC4CEE7;
+	Thu,  8 May 2025 16:05:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746720328;
+	bh=J0X9z5gm3wvXLSCUikMhZwi6A4FiSBZCE2jsWgwUZ6g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=p4BRA9kjBZ2Yr8JFJ2Zxt9LQJ/16p0h//TN9xBYFBkFBzKBlU72GmrBqo7PMncvQO
+	 dfqJhQ99KMH86ehTzXEwQl3XP3qaXtied0RcBCOblyGuoRidodB6+JzE9fZZaZXnb4
+	 AuxBUeEicUnB53y/3d9RYoeD2ZcFs/zrN2YCOWg+41bd7KT88JwNrMDryiQizP0Lvv
+	 hA1w30YJA1/8IUkLE3Ei3pMUQOe1HfuePHQIVQyG0he0Z2mtqs59Lo4lNdB1oR2Z/D
+	 86wiNCY6l09iRnln6z4IBVDv+Wne+7HO7vCih0o71kzqLeDrmoXm1+7+g9P1KC2ULj
+	 iFVYxozQLoiHQ==
+Date: Thu, 8 May 2025 09:05:23 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Thorsten Leemhuis <linux@leemhuis.info>,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH] crypto: arm64/sha256 - fix build when
+ CONFIG_PREEMPT_VOLUNTARY=y
+Message-ID: <20250508160523.GA1218@sol>
+References: <20250507170901.151548-1-ebiggers@kernel.org>
+ <CAMj1kXEPvPKg3i9NkaYN+m4pGfw6P05g-H6_Dmb3AsQyRmU7MA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] net: airoha: Fix an error handling path in
- airoha_alloc_gdm_port()
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org
-References: <5c94b9b3850f7f29ed653e2205325620df28c3ff.1746715755.git.christophe.jaillet@wanadoo.fr>
- <aBzOaiU6Ac3ZTU-4@lore-desk>
-Content-Language: en-US, fr-FR
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-In-Reply-To: <aBzOaiU6Ac3ZTU-4@lore-desk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_090531_925465_80298989 
-X-CRM114-Status: GOOD (  21.95  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMj1kXEPvPKg3i9NkaYN+m4pGfw6P05g-H6_Dmb3AsQyRmU7MA@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,83 +71,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 08/05/2025 à 17:31, Lorenzo Bianconi a écrit :
->> If register_netdev() fails, the error handling path of the probe will not
->> free the memory allocated by the previous airoha_metadata_dst_alloc() call
->> because port->dev->reg_state will not be NETREG_REGISTERED.
->>
->> So, an explicit airoha_metadata_dst_free() call is needed in this case to
->> avoid a memory leak.
->>
->> Fixes: af3cf757d5c9 ("net: airoha: Move DSA tag in DMA descriptor")
->> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
->> ---
->> Changes in v2:
->>    - New patch
->>
->> Compile tested only.
->> ---
->>   drivers/net/ethernet/airoha/airoha_eth.c | 10 +++++++++-
->>   1 file changed, 9 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
->> index 16c7896f931f..af8c4015938c 100644
->> --- a/drivers/net/ethernet/airoha/airoha_eth.c
->> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
->> @@ -2873,7 +2873,15 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
->>   	if (err)
->>   		return err;
->>   
->> -	return register_netdev(dev);
->> +	err = register_netdev(dev);
->> +	if (err)
->> +		goto free_metadata_dst;
->> +
->> +	return 0;
->> +
->> +free_metadata_dst:
->> +	airoha_metadata_dst_free(port);
->> +	return err;
->>   }
->>   
->>   static int airoha_probe(struct platform_device *pdev)
->> -- 
->> 2.49.0
->>
+On Thu, May 08, 2025 at 01:12:28PM +0200, Ard Biesheuvel wrote:
+> On Wed, 7 May 2025 at 19:09, Eric Biggers <ebiggers@kernel.org> wrote:
+> >
+> > From: Eric Biggers <ebiggers@google.com>
+> >
+> > Fix the build of sha256-ce.S when CONFIG_PREEMPT_VOLUNTARY=y by passing
+> > the correct label to the cond_yield macro.  Also adjust the code to
+> > execute only one branch instruction when CONFIG_PREEMPT_VOLUNTARY=n.
+> >
+> > Fixes: 6e36be511d28 ("crypto: arm64/sha256 - implement library instead of shash")
+> > Reported-by: kernel test robot <lkp@intel.com>
+> > Closes: https://lore.kernel.org/oe-kbuild-all/202505071811.yYpLUbav-lkp@intel.com/
+> > Signed-off-by: Eric Biggers <ebiggers@google.com>
+> > ---
+> >  arch/arm64/lib/crypto/sha256-ce.S | 7 ++++---
+> >  1 file changed, 4 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/arch/arm64/lib/crypto/sha256-ce.S b/arch/arm64/lib/crypto/sha256-ce.S
+> > index a8461d6dad634..f3e21c6d87d2e 100644
+> > --- a/arch/arm64/lib/crypto/sha256-ce.S
+> > +++ b/arch/arm64/lib/crypto/sha256-ce.S
+> > @@ -121,14 +121,15 @@ CPU_LE(   rev32           v19.16b, v19.16b        )
+> >
+> >         /* update state */
+> >         add             dgav.4s, dgav.4s, dg0v.4s
+> >         add             dgbv.4s, dgbv.4s, dg1v.4s
+> >
+> > +       /* return early if voluntary preemption is needed */
+> > +       cond_yield      1f, x5, x6
+> > +
 > 
-> I have not tested it but I think the right fix here would be something like:
+> This will yield needlessly when the condition hits during the final iteration.
 > 
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-> index b1ca8322d4eb..33f8926bba25 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -2996,10 +2996,12 @@ static int airoha_probe(struct platform_device *pdev)
->   	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
->   		struct airoha_gdm_port *port = eth->ports[i];
->   
-> -		if (port && port->dev->reg_state == NETREG_REGISTERED) {
-> +		if (!port)
-> +			continue;
+> >         /* handled all input blocks? */
+> > -       cbz             x2, 1f
+> > -       cond_yield      3f, x5, x6
+> > -       b               0b
+> > +       cbnz            x2, 0b
 
-I think it works.
+cond_yield doesn't actually yield, though.  It just checks whether yielding is
+needed.  So the behavior is the same: on the last iteration this function
+returns 0 (i.e. 0 blocks remaining), regardless of whether it gets to the end by
+jumping there due to TSK_TI_PREEMPT being set or by falling through after seeing
+nblocks==0.  We could keep the nblocks==0 check first, but the cond_yield check
+is lightweight and it's probably better to avoid the extra branch instruction on
+every other iteration.
 
-We can still have port non NULL and airoha_metadata_dst_alloc() which 
-fails, but airoha_metadata_dst_free() seems to handle it correctly.
-
-CJ
-
-
-> +
-> +		if (port->dev->reg_state == NETREG_REGISTERED)
->   			unregister_netdev(port->dev);
-> -			airoha_metadata_dst_free(port);
-> -		}
-> +		airoha_metadata_dst_free(port);
->   	}
->   	free_netdev(eth->napi_dev);
->   	platform_set_drvdata(pdev, NULL);
-> 
-> Regards,
-> Lorenzo
-
+- Eric
 
