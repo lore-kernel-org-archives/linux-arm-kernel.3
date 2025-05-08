@@ -4,95 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A31EC3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 20:30:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85C2CC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 21:03:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/pc5D2wBbh6n4AHAVGKAJlI6vZAzUWJsMh1/Yq1dDS0=; b=dJ7/C89G/HGqSpMFrGfPnegrEG
-	bG6C2kmrnu1XnugiY5vp/Twi7JmBm4GbKekSvp8obh8Cqa4IUpPeAqBn5KQjWQXZuLT8v6Ivuc2/I
-	rdskKyM1TULD5C+dJwTFKpT+yyzj4UopFAegXtN+OFLn4fAiEol+oifB7UVCamcfOoKK8SFBK6ys+
-	2d8fZ+hxiqjOH6+p5EOvzHkQu+jTeO94SYrDqQ6nKuTZ1HnBgnb/mpeHKC3fVVGinnca2CeaFjWyB
-	3sFPUUzi22xCDUqLjSTkd7yKg7SZuuLKFEk/P3vpuEJxsF5JeM6Yn5WY5A0tsBtolupvFtLjhy3RR
-	nhprjBYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=leEskXj5HT64qR6NlWTRZu7PgkH/7SraSecMLZSHzI4=; b=Wi/bUpqEhBfUOOQriSP1XgxjI2
+	frZZSol2Hm9gxDcUIYJOc8kp3vdGBpmfb5ZSv1o1xTHAwkwy0m+1joi30dQvzYSgpZKRsho2HoZ8F
+	ODRKtErMeOiUmuWztWKHAh7OGknsYZDbkTOzZ7MIIhVti/kQdR1A116jr1qhLRvN2yJK6nitjrzbw
+	FjdP8k1QTblmHSIt1eD3kE/EEVeLk/hhPrE6GPg9TcqxLDEW/VgEanpgsabonoLjXBZeIylWR4b6G
+	ZvZPHNYVKU2Q4t+p+v8VrqOUh+vmltLU7m+Dp0lbkMNuWvM+r3PK4/uk/evlweeowWkqObB7QqIVp
+	yM7GW28Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD7t6-00000001lPT-2bYh;
-	Thu, 08 May 2025 20:30:36 +0000
-Received: from mail-vk1-xa36.google.com ([2607:f8b0:4864:20::a36])
+	id 1uD8OL-00000001oOZ-1hKy;
+	Thu, 08 May 2025 21:02:53 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD7r9-00000001lFv-0VSH
+	id 1uD8MO-00000001oCg-0KrK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 20:28:36 +0000
-Received: by mail-vk1-xa36.google.com with SMTP id 71dfb90a1353d-5241abb9761so481006e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 13:28:34 -0700 (PDT)
+	Thu, 08 May 2025 21:00:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=E5J632pj8ZH0R2I2Hp3FB5+PBk0nduYNquQPcnPXplor1Q6Qp1p445nnrTggHJrmydURKVy7g8i9eNZX6mXz1e5dtktnBY6LQhhrr4QfgOXrwKH88dSz01fFL37/INfc6bwmlhyyme1hNTlgnKX6QoSJ08WCT7XeeOKUy/9klH209mu1KGy2yKfwL3uZzF0oq22r2VbHSGoj2mMwroWNxYKFtHeOyc+WJYmtuzE420WJmFao8A8rTQ+AcO7oVgwdl4BNF43zgp1TEJYWJL8VYR3pGuXX+6OARJgR/gLQP3G0v5plBUJxXfXQXpDKzxirSZ/6O3rSno1fEgtDvbMMBw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=leEskXj5HT64qR6NlWTRZu7PgkH/7SraSecMLZSHzI4=;
+ b=jh8h/j1/dvWv6tURxCjDlvU8LU5CgUpqVoFhubxbKGaKAF63uizENCxywHTqw30buHnhzsDPTCZYmdAs+CdZTo6vdTvZcjk2bmT/Wex+I0ucNA9qGxMLjdjOispnNo6hFtxKJD5wa4KSnof4sTzTRt3ek+GzqlhDe4njW6uPGqpyaRyXvQESI4xeTmxaM0A1Xg3TXXmNwTiwCFPV1+9wIE0IsWCdLhwYYQn6Ja61ZuU28lKiDgvQiMWrCYwCxTL7hvFAHVRCFisLpbNrSic24bUQkRmjaD1Gtz4Ss/I/tnbic5gWfOMUqWoiFO7++6lI+TNyu2ysBFdjrSZn/h97Rg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746736113; x=1747340913; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/pc5D2wBbh6n4AHAVGKAJlI6vZAzUWJsMh1/Yq1dDS0=;
-        b=Kn2NDp6FZxE8PlonCeiv0sjduQxNUnKB1PgyKxFjuH6sd+OyDYnILk2yrbhtR5BNKH
-         6ebbkf/54t/F21N7bGWE12ZbTLlLdNNzSAswBFsT0l2QFgtmuPaSeIvBUIpbBuftxb+Z
-         cw5/5Pe2cW0kvpaGGa4cm3FPtfgu7s+SA0iMDEhmW6T7tWBwsQNsioWL/tFot+dc2GQn
-         o4+UMWYlN4VYiaG1rDuG/LpTmVMbgpix8i6hFfXO/GnzBiYA0zl5EVVvo+G8ft9OBWKd
-         q9yfDJIzjvyyiW/uQRLMrM31OsCl0QHY62XptmVbRGDhpfsUFuFPACYGABxzqtAbEwac
-         JqPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746736113; x=1747340913;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/pc5D2wBbh6n4AHAVGKAJlI6vZAzUWJsMh1/Yq1dDS0=;
-        b=tdf0zb1T32YbLFuDlLDKjmAlMvkl5eg+U7z/f6Q9VNRP+oDXlDV61MP5qffM1aGaJO
-         AZNmn1VOrI7ZNVRFoK4Zrj36Po0IMVGKwT+6TyZYtAHTTsW3YVcZW1vCy4bijD6uARmg
-         C1daidg+GKqhCcPJ4R7DZ3bnNhZuxR0MnrUD77SrMNf6lT+b8zFo2znVjU4Vh1GpNGmS
-         Z3jNhuXw7a9aiX/WhlWqzJ1JDF4rZGx/bbYUU2SI/1WxxM8ocq3sxnheVGnBiEBrDUiz
-         kJCWCI6HVoODup6ynr3tJyF4leUanyVooiySyzC186sLIjXC9hUyQKTFFzD+bQO0iXkG
-         BS7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXIrtl8Ex/6gwehZd2VXDr/KhnsvyDt7tP2djAUiX3sL43WFrDeEKcgQXXoKXNCvPtLYxLPppDXZ+QNoW++6W+W@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGmIy8W4VaUEntgzin/9rRGNnPYMcG83yqEByh5Or7ZWrGPfDV
-	b+/un8/AwhGeFgD4VLZCNFfEOUOb9t43uKGeU507KnJL01vwMzvxYS4rnU81
-X-Gm-Gg: ASbGnct9EVwu6i6fW4CKar4mM5HjHlSnyvgCdu47xZAfT1OUjKpYvyzkq5S4E666P1W
-	XFPvWPG2Pa9aBM+S7dxYLZoyyXcR5uz94fvvl8FprOtRdO4XxRZXOv6aKWmFS6fngzAjwh2F5nI
-	XhmFb7t/4eBLsHLhpcfuCoPYG36kY8emDOs0xrRmxrd+iFe/CChgPck1f9LVSa5RP7smCDEwJjy
-	6vOuGNvnF12HocCT3YjI14fkLrOZXamXV/qgINEfMyM7Q75UYLNsvTaesCx0hFOCOU00y2ixoNS
-	FCsSUEVyHPui25kQ+GstAzqOfZCNn5fIk6MTSIr2
-X-Google-Smtp-Source: AGHT+IHH8Hb44S2pUrzpBoAuMzG/VFUuedek3qnL1aKjilRrz2XuP3PUIZdV2EDPHQ1l0mwZVNw7hQ==
-X-Received: by 2002:a05:6122:828d:b0:523:9ee7:7f8e with SMTP id 71dfb90a1353d-52c53c68f4amr1351138e0c.4.1746736113471;
-        Thu, 08 May 2025 13:28:33 -0700 (PDT)
-Received: from hiago-nb ([2804:1b3:a7c0:6030:ff91:5999:3ab5:5caf])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-52c5375bcdcsm217781e0c.25.2025.05.08.13.28.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 May 2025 13:28:32 -0700 (PDT)
-Date: Thu, 8 May 2025 17:28:26 -0300
-From: Hiago De Franco <hiagofranco@gmail.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>, linux-pm@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@oss.nxp.com>, daniel.baluta@nxp.com,
-	iuliana.prodan@oss.nxp.com, Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v2 3/3] remoteproc: imx_rproc: add power mode check for
- remote core attachment
-Message-ID: <20250508202826.33bke6atcvqdkfa4@hiago-nb>
-References: <20250507160056.11876-1-hiagofranco@gmail.com>
- <20250507160056.11876-4-hiagofranco@gmail.com>
- <CAPDyKFrHD1hVCfOK-JV5FJM+Cd9DoKKZGKcC94fxx6_9Bsri1g@mail.gmail.com>
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=leEskXj5HT64qR6NlWTRZu7PgkH/7SraSecMLZSHzI4=;
+ b=PACCtZQmVpHI/G8zBiKJm/xxRt4pshm8kYxEkJDSGlk8MgOptz5uIrr6v1vBeaxLt6ejxfw4/3flJ/WyhjElPS1ygEjpDhrWyZZ60zUM5RhMBsesko5A9k5vvo7tv9uOdHZ4ecOYjlhR5EGd1IJhfvLG4Y8OwFxJNLc4R3fInKY=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from LV2PR01MB7792.prod.exchangelabs.com (2603:10b6:408:14f::10) by
+ SA1PR01MB8180.prod.exchangelabs.com (2603:10b6:806:339::19) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8699.26; Thu, 8 May 2025 21:00:13 +0000
+Received: from LV2PR01MB7792.prod.exchangelabs.com
+ ([fe80::2349:ebe6:2948:adb9]) by LV2PR01MB7792.prod.exchangelabs.com
+ ([fe80::2349:ebe6:2948:adb9%5]) with mapi id 15.20.8722.018; Thu, 8 May 2025
+ 21:00:13 +0000
+From: D Scott Phillips <scott@os.amperecomputing.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	James Morse <james.morse@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	"Rob Herring  (Arm)" <robh@kernel.org>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	Shiqi Liu <shiqiliu@hust.edu.cn>,
+	Will Deacon <will@kernel.org>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3] arm64: errata: Work around AmpereOne's erratum AC04_CPU_23
+Date: Thu,  8 May 2025 14:00:09 -0700
+Message-ID: <20250508210009.428998-1-scott@os.amperecomputing.com>
+X-Mailer: git-send-email 2.48.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: CY5PR10CA0012.namprd10.prod.outlook.com
+ (2603:10b6:930:1c::12) To LV2PR01MB7792.prod.exchangelabs.com
+ (2603:10b6:408:14f::10)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAPDyKFrHD1hVCfOK-JV5FJM+Cd9DoKKZGKcC94fxx6_9Bsri1g@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV2PR01MB7792:EE_|SA1PR01MB8180:EE_
+X-MS-Office365-Filtering-Correlation-Id: 59cdbbb2-fde0-4938-223d-08dd8e735366
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|52116014|366016|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nH+qm3Ep5Y70ZXKFTKV+BmjdVtAkRMY+v/BoqEsCvGo1Rntt3Y49BjF2pybp?=
+ =?us-ascii?Q?W5eskONSf9Ze1k+WW/XH4Y/q+X8kvNviazbQ9qINiEG6rq8X3eyaZUx/JIC4?=
+ =?us-ascii?Q?RTDO0eMvL1WE0E9tZNxFO4fdzHVLr2YsgpzhCIgvJS3jjH+BOzgbNLMnv+fL?=
+ =?us-ascii?Q?rl2/wJZ7KFw6czBqt/j0YJuGxihQaKKM370SNRBfgvEYiQIUr3EkeGE1OkIZ?=
+ =?us-ascii?Q?rrCy1QT//uc5N6FFfUCpjvjgIML7SDZBBg83HAdL/Nig56EFfw6cw6KsyEa9?=
+ =?us-ascii?Q?XrfnHNry+tXLel9hllkxsODo+y3cOcj9U9w+aXZEor7lrHjqMyXkLhvKGV/d?=
+ =?us-ascii?Q?Sw0cndMkKLIQmg9npjwHRT+3B2YAHJZEg6ywM1RrrYniddrXTqJyClCxiw9A?=
+ =?us-ascii?Q?Zp+gnr/jXq24me1VIgEf25OnwrVZebFjG/yWLVD/bOeYHmEo4pAeq9lKMNum?=
+ =?us-ascii?Q?/dJWllg2gsMerrf/p7HqmwPENlxVKscARlBqt/FFhvxCimBsNuRCgvyGbTAH?=
+ =?us-ascii?Q?CT9R87tIXObPP7RNeWucAxGN/9/omyZAjdaXhCMBvbeWPU97l+0uq4PCxa5b?=
+ =?us-ascii?Q?oCvJpuUCcZRM7XTT80Y0TUA+bz70AQidb4f3AJ7lreifJsBdt08tX1Vwu1Gn?=
+ =?us-ascii?Q?M00fvUuSpApqSufMs7zuNrgf8UBxK1dLGjDnoXFifroMdpqzbjmhTkhgHm6k?=
+ =?us-ascii?Q?GJWaIazyRD4n9nOPoTW/B/oKa+bHOolwRNzMaShXKDeTkdlRtxErjgTf1MJG?=
+ =?us-ascii?Q?80tCx6870pLHizGpb5SucjCMtGYsRvMYv/YjdHaHXlyCHhVKxS0c1VXRa4Ag?=
+ =?us-ascii?Q?JhG1jOaumZSbM5YaFehi9401ANSHfUZzyNWXEwJ+yrdM64PSIUChs3/fhSxC?=
+ =?us-ascii?Q?UJ+Sr2CMSEll5d2ek1MFuq9028ATHAssvGxCR6FNdtQUZCOmkjy74eHG9+4S?=
+ =?us-ascii?Q?SyC97IZf6FWPpxNn5pchepJEkw9hDINGF3mJEg9FGYlKAQQiQZWAff+95ns4?=
+ =?us-ascii?Q?Pu1+SENCTgimxYVddkvvrnvbKVs+yrwzmFdN1mlq9Ivfx/z5VWdfs9qZyBeS?=
+ =?us-ascii?Q?WoHgCf4ZdpOa4Yh1cUx/yQuhBHNd/yQuilJpWkYg6TCZC8iOiEyeG5+HPNK/?=
+ =?us-ascii?Q?ej27E0kzk68bsMOZXCDqI5YgeyIwXyglFeFAm7Lco3qMuMcn1MclkYIumfOv?=
+ =?us-ascii?Q?5yfaiSQyadaDZvN1pg0bfpEeGqEr6520fJxZuuLGb3DfTZbq8laTa2p6/4Wf?=
+ =?us-ascii?Q?IyjBJX0dHg5xG2CoLbqw6AHVmgyqhBUQL8iEW6r+i6I4g/L6vHZ7JlxHtM7v?=
+ =?us-ascii?Q?uOXv1UqDe8vPnwTDu8TfphlfK7EN+wY30GnsTuGbTZmYjZNJzG58/jMqZo03?=
+ =?us-ascii?Q?bzQGy/spaS+V+qopBrG7hpiRbuMtmmlA3ueH9B8wpU7T4uqNMos4KEtdsrMA?=
+ =?us-ascii?Q?iInM3LkLsbFIPG2Lcmk+csEzmAtifqqqDmObGme47qyuPMXhnrAqcWzLauQA?=
+ =?us-ascii?Q?fjWo98g7bmVcnuY=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR01MB7792.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(52116014)(366016)(38350700014)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eYtgG91/98wrYA3fXJC9YvVVPoR/amzv1BBE4c58idxTeSkHzHitvYact0Pe?=
+ =?us-ascii?Q?oFWcBAsRdazjVXgAwDvxuf7s97FgxnSuotPR8ZwS0I2JdY1F5JP/GDHxjerC?=
+ =?us-ascii?Q?uIY0IVJcSIDj0k2SnxKqGmrJ0ZfvdkWYMYeM+Fn1AQIQ6UklBx+CeDgWnC90?=
+ =?us-ascii?Q?iYHjidYjvmKh7w/7snwhYKfTxE1s2ABVc2OuunUbmpdN2cCmcFDPEbf9glNk?=
+ =?us-ascii?Q?VhwnuIfIAa77M4ZBI83NWLNmfm++WL6oSMvGMhtSSX2H35IVK1NQ+4D4Cqyo?=
+ =?us-ascii?Q?wNrdo67brVBKx+hacfPBeYGHRH8WHfsYoD7kqthMi0vVsMYCK4q32rEhCG7u?=
+ =?us-ascii?Q?XCgIknjcCUkBHzoyRx0kd8ezjR0dZ+pJAF1/DjciY1xcLxD0bkxeBsxGxVqg?=
+ =?us-ascii?Q?sJgFhE3jhlMUiray5KUkTurME899S1JTGatJkiWBTWSWdiI1bF3qpm1hwZMA?=
+ =?us-ascii?Q?rWYf4ssF6FQE2MDlSIkeHq/7yEgbCoHsAXhTGtgj1iU53DtQkPlh0L57ZUk5?=
+ =?us-ascii?Q?qRqUevjEba0EmxTIkwoQvSg98mhDaobSahlxHyf86TDnLIkpszlw7wC4z/S/?=
+ =?us-ascii?Q?sGHbACoFoGq5acUfnJmqsyB/VET03JmHG0MkFeYAuCHqPte6NJ0mwfUJKmPO?=
+ =?us-ascii?Q?V18IJlLFChGyyyEuxcvx2wvQQpTF5L3bmeu4t6JFyGz7aP4O6IqcUJb2xfNr?=
+ =?us-ascii?Q?I7rjGViIAjCZB2px02wMIHufWmgDyPZKhBYD5w/z1jkPMkiMRH+0+P2pQI01?=
+ =?us-ascii?Q?6/hJfARapplqRURFPuKStJZzudeabqXx5NMtsI5njnEtvWojs2c2IClPYZHO?=
+ =?us-ascii?Q?07Em3b2p3ZIgIlUr6t3Ktd7iAEgcEGUMiVXSsgCrpRSMkoHOlKEM6FZ+Bu6P?=
+ =?us-ascii?Q?f5w88s4DC5MuK5YGlyQW21t0yM6FEZvOzwZckV/wtVff9kwJ6wI3kVjvfUvG?=
+ =?us-ascii?Q?T9x+FfnShAaDyXXoPhuKPU8VxRpblrpjfrnd0Lvky7Sn18kZ6pFrcgzggNWL?=
+ =?us-ascii?Q?T/2xRIBg7yin400tWPOl/dHkKUs0I2YshO7vs6rj7VJrnrg3L1/Te+Os3s3s?=
+ =?us-ascii?Q?aO4+yMR2MQS8NjVzgzl/F8y8c8D8pqsKyCFF3QfDJY0kWDtSfTWVxKGI35S6?=
+ =?us-ascii?Q?8QIwP7Wh7ep572yXEc+fVWZEZJ/WmeGIqtTuxJxu7L4RTxCKvUmMDwaFGA/U?=
+ =?us-ascii?Q?p7w8YunPx8B08PxIbyn3HeGWvgClnY4Wd1cne8Fd9O87atoRNw/dtZjGb2g8?=
+ =?us-ascii?Q?flIj51MIODMj30WdbcCtQfDPDU4vXZgoqiCsMJHhRv0CNwmSrLWrtfQaSNzx?=
+ =?us-ascii?Q?CEZlw1qrVAtUc0lDaJ5fRj02QovgGQYm2AJE6ejuCJrfvWXLcJ6cFCMKbmME?=
+ =?us-ascii?Q?XYea70/6fz0U/K3QnM/3Iac92XfnpaRoOfEqWlIU+qfkZMrfwQK6waCz0aVS?=
+ =?us-ascii?Q?xu/kFExZlvABXlVOSYVMYcamSRKaUC2KMZsHkHDrJdtJIHz0kjX6AGEDKpSC?=
+ =?us-ascii?Q?Qm/rETOMQpl3omJ8Njgs7itcHqvkMOHHGFHB6RnkMQXnSwOWyxP26lqou8uq?=
+ =?us-ascii?Q?4pn2LN0uufpmDbKZd3icT2kS6BWp96Lr7ENtA0FAESymzIX7y36AmOK71DGw?=
+ =?us-ascii?Q?poTbeBqxFGdAxzQRg31TUsM=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 59cdbbb2-fde0-4938-223d-08dd8e735366
+X-MS-Exchange-CrossTenant-AuthSource: LV2PR01MB7792.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2025 21:00:13.0210
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gpqT+CrqI39qJpybmPa9w5a+dDBe8bz43w7dwoL9xv6NfRAjeZ+vduIIw8nSW0E2RBBMmhVkhK+3soO9BXHiYm+xxND/JjknxuAp3iKXsnQnRQaUxqgvuRBdlzWC/BUy
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR01MB8180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_132835_162322_31B834D5 
-X-CRM114-Status: GOOD (  34.25  )
+X-CRM114-CacheID: sfid-20250508_140052_149205_E6B358A1 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,87 +171,390 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On AmpereOne AC04, updates to HCR_EL2 can rarely corrupt simultaneous
+translations for data addresses initiated by load/store instructions.
+Only instruction initiated translations are vulnerable, not translations
+from prefetches for example. A DSB before the store to HCR_EL2 is
+sufficient to prevent older instructions from hitting the window for
+corruption, and an ISB after is sufficient to prevent younger
+instructions from hitting the window for corruption.
 
-On Thu, May 08, 2025 at 12:03:33PM +0200, Ulf Hansson wrote:
-> On Wed, 7 May 2025 at 18:02, Hiago De Franco <hiagofranco@gmail.com> wrote:
-> >
-> > From: Hiago De Franco <hiago.franco@toradex.com>
-> >
-> > When the remote core is started before Linux boots (e.g., by the
-> > bootloader), the driver currently is not able to attach because it only
-> > checks for cores running in different partitions. If the core was kicked
-> > by the bootloader, it is in the same partition as Linux and it is
-> > already up and running.
-> >
-> > This adds power mode verification through the SCU interface, enabling
-> > the driver to detect when the remote core is already running and
-> > properly attach to it.
-> >
-> > Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
-> > Suggested-by: Peng Fan <peng.fan@nxp.com>
-> > ---
-> > v2: Dropped unecessary include. Removed the imx_rproc_is_on function, as
-> > suggested.
-> > ---
-> >  drivers/remoteproc/imx_rproc.c | 13 +++++++++++++
-> >  1 file changed, 13 insertions(+)
-> >
-> > diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-> > index 627e57a88db2..9b6e9e41b7fc 100644
-> > --- a/drivers/remoteproc/imx_rproc.c
-> > +++ b/drivers/remoteproc/imx_rproc.c
-> > @@ -949,6 +949,19 @@ static int imx_rproc_detect_mode(struct imx_rproc *priv)
-> >                         if (of_property_read_u32(dev->of_node, "fsl,entry-address", &priv->entry))
-> >                                 return -EINVAL;
-> >
-> > +                       /*
-> > +                        * If remote core is already running (e.g. kicked by
-> > +                        * the bootloader), attach to it.
-> > +                        */
-> > +                       ret = imx_sc_pm_get_resource_power_mode(priv->ipc_handle,
-> > +                                                               priv->rsrc_id);
-> > +                       if (ret < 0)
-> > +                               dev_err(dev, "failed to get power resource %d mode, ret %d\n",
-> > +                                       priv->rsrc_id, ret);
-> > +
-> > +                       if (ret == IMX_SC_PM_PW_MODE_ON)
-> > +                               priv->rproc->state = RPROC_DETACHED;
-> > +
-> >                         return imx_rproc_attach_pd(priv);
-> 
-> Why is it important to potentially set "priv->rproc->state =
-> RPROC_DETACHED" before calling imx_rproc_attach_pd()?
-> 
-> Would it be possible to do it the other way around? First calling
-> imx_rproc_attach_pd() then get the power-mode to know if
-> RPROC_DETACHED should be set or not?
-> 
-> The main reason why I ask, is because of how we handle the single PM
-> domain case. In that case, the PM domain has already been attached
-> (and powered-on) before we reach this point.
+Signed-off-by: D Scott Phillips <scott@os.amperecomputing.com>
+---
+v2: https://lore.kernel.org/kvmarm/20250425024741.1309893-1-scott@os.amperecomputing.com/
+Changes since v2:
+ - Apply the workaround before alternatives are applied (Marc)
+ - Also catch stores to HCR_EL2 in assembly files (Marc)
+ - Added a sysreg_clear_set_hcr() helper for the HCR_EL2 fiddling in
+   vgic-v3-sr.c that I had previously missed.
 
-I am not sure if I understood correcly, let me know if I missed
-something. From my understanding in this case it does not matter, since
-the RPROC_DETACHED will only be a flag to trigger the attach callback
-from rproc_validate(), when rproc_add() is called inside
-remoteproc_core.c.
+v1: https://lore.kernel.org/kvmarm/20250415154711.1698544-2-scott@os.amperecomputing.com/
+Changes since v1:
+ - Add a write_sysreg_hcr() helper (Oliver)
+ - Add more specific wording in the errata description (Oliver & Marc)
 
-With that we can correcly attach to the remote core running, which was
-not possible before, where the function returns at "return
-imx_rproc_attach_pd(priv);" with the RPROC_OFFLINE state to
-rproc_validate().
+ arch/arm64/Kconfig                      | 17 ++++++++++++++++
+ arch/arm64/include/asm/el2_setup.h      |  2 +-
+ arch/arm64/include/asm/hardirq.h        |  4 ++--
+ arch/arm64/include/asm/sysreg.h         | 27 +++++++++++++++++++++++++
+ arch/arm64/kernel/cpu_errata.c          | 14 +++++++++++++
+ arch/arm64/kernel/hyp-stub.S            |  2 +-
+ arch/arm64/kvm/at.c                     |  8 ++++----
+ arch/arm64/kvm/hyp/include/hyp/switch.h |  2 +-
+ arch/arm64/kvm/hyp/nvhe/host.S          |  2 +-
+ arch/arm64/kvm/hyp/nvhe/hyp-init.S      |  4 ++--
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c   |  2 +-
+ arch/arm64/kvm/hyp/nvhe/switch.c        |  2 +-
+ arch/arm64/kvm/hyp/vgic-v3-sr.c         |  4 ++--
+ arch/arm64/kvm/hyp/vhe/switch.c         |  2 +-
+ arch/arm64/kvm/hyp/vhe/tlb.c            |  4 ++--
+ arch/arm64/tools/cpucaps                |  1 +
+ 16 files changed, 78 insertions(+), 19 deletions(-)
 
-> 
-> >                 }
-> >
-> > --
-> > 2.39.5
-> >
-> 
-> Kind regards
-> Uffe
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index a182295e6f08b..3ae4e80e3002b 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -464,6 +464,23 @@ config AMPERE_ERRATUM_AC03_CPU_38
+ 
+ 	  If unsure, say Y.
+ 
++config AMPERE_ERRATUM_AC04_CPU_23
++        bool "AmpereOne: AC04_CPU_23:  Failure to synchronize writes to HCR_EL2 may corrupt address translations."
++	default y
++	help
++	  This option adds an alternative code sequence to work around Ampere
++	  errata AC04_CPU_23 on AmpereOne.
++
++	  Updates to HCR_EL2 can rarely corrupt simultaneous translations for
++	  data addresses initiated by load/store instructions. Only
++	  instruction initiated translations are vulnerable, not translations
++	  from prefetches for example. A DSB before the store to HCR_EL2 is
++	  sufficient to prevent older instructions from hitting the window
++	  for corruption, and an ISB after is sufficient to prevent younger
++	  instructions from hitting the window for corruption.
++
++	  If unsure, say Y.
++
+ config ARM64_WORKAROUND_CLEAN_CACHE
+ 	bool
+ 
+diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+index ebceaae3c749b..2500fd0a1f66a 100644
+--- a/arch/arm64/include/asm/el2_setup.h
++++ b/arch/arm64/include/asm/el2_setup.h
+@@ -38,7 +38,7 @@
+ 
+ 	orr	x0, x0, #HCR_E2H
+ .LnVHE_\@:
+-	msr	hcr_el2, x0
++	msr_hcr_el2 x0
+ 	isb
+ .endm
+ 
+diff --git a/arch/arm64/include/asm/hardirq.h b/arch/arm64/include/asm/hardirq.h
+index cbfa7b6f2e098..77d6b8c63d4e6 100644
+--- a/arch/arm64/include/asm/hardirq.h
++++ b/arch/arm64/include/asm/hardirq.h
+@@ -41,7 +41,7 @@ do {									\
+ 									\
+ 	___hcr = read_sysreg(hcr_el2);					\
+ 	if (!(___hcr & HCR_TGE)) {					\
+-		write_sysreg(___hcr | HCR_TGE, hcr_el2);		\
++		write_sysreg_hcr(___hcr | HCR_TGE);			\
+ 		isb();							\
+ 	}								\
+ 	/*								\
+@@ -82,7 +82,7 @@ do {									\
+ 	 */								\
+ 	barrier();							\
+ 	if (!___ctx->cnt && !(___hcr & HCR_TGE))			\
+-		write_sysreg(___hcr, hcr_el2);				\
++		write_sysreg_hcr(___hcr);				\
+ } while (0)
+ 
+ static inline void ack_bad_irq(unsigned int irq)
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index 2639d3633073d..7284828f0dc9e 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -1091,6 +1091,15 @@
+ 	__emit_inst(0xd5000000|(\sreg)|(.L__gpr_num_\rt))
+ 	.endm
+ 
++	.macro	msr_hcr_el2, reg
++#if IS_ENABLED(CONFIG_AMPERE_ERRATUM_AC04_CPU_23)
++	dsb	nsh
++	msr	hcr_el2, \reg
++	isb
++#else
++	msr	hcr_el2, \reg
++#endif
++	.endm
+ #else
+ 
+ #include <linux/bitfield.h>
+@@ -1178,6 +1187,13 @@
+ 		write_sysreg(__scs_new, sysreg);			\
+ } while (0)
+ 
++#define sysreg_clear_set_hcr(clear, set) do {				\
++	u64 __scs_val = read_sysreg(hcr_el2);				\
++	u64 __scs_new = (__scs_val & ~(u64)(clear)) | (set);		\
++	if (__scs_new != __scs_val)					\
++		write_sysreg_hcr(__scs_new);			\
++} while (0)
++
+ #define sysreg_clear_set_s(sysreg, clear, set) do {			\
+ 	u64 __scs_val = read_sysreg_s(sysreg);				\
+ 	u64 __scs_new = (__scs_val & ~(u64)(clear)) | (set);		\
+@@ -1185,6 +1201,17 @@
+ 		write_sysreg_s(__scs_new, sysreg);			\
+ } while (0)
+ 
++#define write_sysreg_hcr(__val) do {					\
++	if (IS_ENABLED(CONFIG_AMPERE_ERRATUM_AC04_CPU_23) &&		\
++	   (!system_capabilities_finalized() ||				\
++	    alternative_has_cap_unlikely(ARM64_WORKAROUND_AMPERE_AC04_CPU_23))) \
++		asm volatile("dsb nsh; msr hcr_el2, %x0; isb"		\
++			     : : "rZ" (__val));				\
++	else								\
++		asm volatile("msr hcr_el2, %x0"				\
++			     : : "rZ" (__val));				\
++} while (0)
++
+ #define read_sysreg_par() ({						\
+ 	u64 par;							\
+ 	asm(ALTERNATIVE("nop", "dmb sy", ARM64_WORKAROUND_1508412));	\
+diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+index 6b0ad5070d3e0..59d723c9ab8f5 100644
+--- a/arch/arm64/kernel/cpu_errata.c
++++ b/arch/arm64/kernel/cpu_errata.c
+@@ -557,6 +557,13 @@ static const struct midr_range erratum_ac03_cpu_38_list[] = {
+ };
+ #endif
+ 
++#ifdef CONFIG_AMPERE_ERRATUM_AC04_CPU_23
++static const struct midr_range erratum_ac04_cpu_23_list[] = {
++	MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
++	{},
++};
++#endif
++
+ const struct arm64_cpu_capabilities arm64_errata[] = {
+ #ifdef CONFIG_ARM64_WORKAROUND_CLEAN_CACHE
+ 	{
+@@ -875,6 +882,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+ 		.capability = ARM64_WORKAROUND_AMPERE_AC03_CPU_38,
+ 		ERRATA_MIDR_RANGE_LIST(erratum_ac03_cpu_38_list),
+ 	},
++#endif
++#ifdef CONFIG_AMPERE_ERRATUM_AC04_CPU_23
++	{
++		.desc = "AmpereOne erratum AC04_CPU_23",
++		.capability = ARM64_WORKAROUND_AMPERE_AC04_CPU_23,
++		ERRATA_MIDR_RANGE_LIST(erratum_ac04_cpu_23_list),
++	},
+ #endif
+ 	{
+ 		.desc = "Broken CNTVOFF_EL2",
+diff --git a/arch/arm64/kernel/hyp-stub.S b/arch/arm64/kernel/hyp-stub.S
+index ae990da1eae5a..36e2d26b54f5c 100644
+--- a/arch/arm64/kernel/hyp-stub.S
++++ b/arch/arm64/kernel/hyp-stub.S
+@@ -97,7 +97,7 @@ SYM_CODE_START_LOCAL(__finalise_el2)
+ 2:
+ 	// Engage the VHE magic!
+ 	mov_q	x0, HCR_HOST_VHE_FLAGS
+-	msr	hcr_el2, x0
++	msr_hcr_el2 x0
+ 	isb
+ 
+ 	// Use the EL1 allocated stack, per-cpu offset
+diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+index f74a66ce3064b..9c13e70fadf5e 100644
+--- a/arch/arm64/kvm/at.c
++++ b/arch/arm64/kvm/at.c
+@@ -516,7 +516,7 @@ static void __mmu_config_save(struct mmu_config *config)
+ 
+ static void __mmu_config_restore(struct mmu_config *config)
+ {
+-	write_sysreg(config->hcr,	hcr_el2);
++	write_sysreg_hcr(config->hcr);
+ 
+ 	/*
+ 	 * ARM errata 1165522 and 1530923 require TGE to be 1 before
+@@ -1267,7 +1267,7 @@ static u64 __kvm_at_s1e01_fast(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
+ 
+ skip_mmu_switch:
+ 	/* Clear TGE, enable S2 translation, we're rolling */
+-	write_sysreg((config.hcr & ~HCR_TGE) | HCR_VM,	hcr_el2);
++	write_sysreg_hcr((config.hcr & ~HCR_TGE) | HCR_VM);
+ 	isb();
+ 
+ 	switch (op) {
+@@ -1350,7 +1350,7 @@ void __kvm_at_s1e2(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
+ 		if (!vcpu_el2_e2h_is_set(vcpu))
+ 			val |= HCR_NV | HCR_NV1;
+ 
+-		write_sysreg(val, hcr_el2);
++		write_sysreg_hcr(val);
+ 		isb();
+ 
+ 		par = SYS_PAR_EL1_F;
+@@ -1375,7 +1375,7 @@ void __kvm_at_s1e2(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
+ 		if (!fail)
+ 			par = read_sysreg_par();
+ 
+-		write_sysreg(hcr, hcr_el2);
++		write_sysreg_hcr(hcr);
+ 		isb();
+ 	}
+ 
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+index b741ea6aefa58..06aa37dbc957d 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -301,7 +301,7 @@ static inline void ___activate_traps(struct kvm_vcpu *vcpu, u64 hcr)
+ 	if (cpus_have_final_cap(ARM64_WORKAROUND_CAVIUM_TX2_219_TVM))
+ 		hcr |= HCR_TVM;
+ 
+-	write_sysreg(hcr, hcr_el2);
++	write_sysreg_hcr(hcr);
+ 
+ 	if (cpus_have_final_cap(ARM64_HAS_RAS_EXTN) && (hcr & HCR_VSE))
+ 		write_sysreg_s(vcpu->arch.vsesr_el2, SYS_VSESR_EL2);
+diff --git a/arch/arm64/kvm/hyp/nvhe/host.S b/arch/arm64/kvm/hyp/nvhe/host.S
+index 58f0cb2298cc2..eef15b374abb0 100644
+--- a/arch/arm64/kvm/hyp/nvhe/host.S
++++ b/arch/arm64/kvm/hyp/nvhe/host.S
+@@ -124,7 +124,7 @@ SYM_FUNC_START(__hyp_do_panic)
+ 	/* Ensure host stage-2 is disabled */
+ 	mrs	x0, hcr_el2
+ 	bic	x0, x0, #HCR_VM
+-	msr	hcr_el2, x0
++	msr_hcr_el2 x0
+ 	isb
+ 	tlbi	vmalls12e1
+ 	dsb	nsh
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-init.S b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+index f8af11189572f..aada42522e7be 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-init.S
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+@@ -100,7 +100,7 @@ SYM_CODE_START_LOCAL(___kvm_hyp_init)
+ 	msr	mair_el2, x1
+ 
+ 	ldr	x1, [x0, #NVHE_INIT_HCR_EL2]
+-	msr	hcr_el2, x1
++	msr_hcr_el2 x1
+ 
+ 	mov	x2, #HCR_E2H
+ 	and	x2, x1, x2
+@@ -262,7 +262,7 @@ reset:
+ 
+ alternative_if ARM64_KVM_PROTECTED_MODE
+ 	mov_q	x5, HCR_HOST_NVHE_FLAGS
+-	msr	hcr_el2, x5
++	msr_hcr_el2 x5
+ alternative_else_nop_endif
+ 
+ 	/* Install stub vectors */
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index 31173c6946951..d1488d4e51413 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -309,7 +309,7 @@ int __pkvm_prot_finalize(void)
+ 	 */
+ 	kvm_flush_dcache_to_poc(params, sizeof(*params));
+ 
+-	write_sysreg(params->hcr_el2, hcr_el2);
++	write_sysreg_hcr(params->hcr_el2);
+ 	__load_stage2(&host_mmu.arch.mmu, &host_mmu.arch);
+ 
+ 	/*
+diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+index 7d2ba6ef02618..4024fafbe3594 100644
+--- a/arch/arm64/kvm/hyp/nvhe/switch.c
++++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+@@ -142,7 +142,7 @@ static void __deactivate_traps(struct kvm_vcpu *vcpu)
+ 
+ 	__deactivate_traps_common(vcpu);
+ 
+-	write_sysreg(this_cpu_ptr(&kvm_init_params)->hcr_el2, hcr_el2);
++	write_sysreg_hcr(this_cpu_ptr(&kvm_init_params)->hcr_el2);
+ 
+ 	__deactivate_cptr_traps(vcpu);
+ 	write_sysreg(__kvm_hyp_host_vector, vbar_el2);
+diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+index 50aa8dbcae75b..f8a91780e49a9 100644
+--- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
++++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+@@ -446,7 +446,7 @@ u64 __vgic_v3_get_gic_config(void)
+ 	if (has_vhe()) {
+ 		flags = local_daif_save();
+ 	} else {
+-		sysreg_clear_set(hcr_el2, 0, HCR_AMO | HCR_FMO | HCR_IMO);
++		sysreg_clear_set_hcr(0, HCR_AMO | HCR_FMO | HCR_IMO);
+ 		isb();
+ 	}
+ 
+@@ -461,7 +461,7 @@ u64 __vgic_v3_get_gic_config(void)
+ 	if (has_vhe()) {
+ 		local_daif_restore(flags);
+ 	} else {
+-		sysreg_clear_set(hcr_el2, HCR_AMO | HCR_FMO | HCR_IMO, 0);
++		sysreg_clear_set_hcr(HCR_AMO | HCR_FMO | HCR_IMO, 0);
+ 		isb();
+ 	}
+ 
+diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+index 731a0378ed132..faacdfb328af6 100644
+--- a/arch/arm64/kvm/hyp/vhe/switch.c
++++ b/arch/arm64/kvm/hyp/vhe/switch.c
+@@ -184,7 +184,7 @@ static void __deactivate_traps(struct kvm_vcpu *vcpu)
+ 
+ 	___deactivate_traps(vcpu);
+ 
+-	write_sysreg(HCR_HOST_VHE_FLAGS, hcr_el2);
++	write_sysreg_hcr(HCR_HOST_VHE_FLAGS);
+ 
+ 	if (has_cntpoff()) {
+ 		struct timer_map map;
+diff --git a/arch/arm64/kvm/hyp/vhe/tlb.c b/arch/arm64/kvm/hyp/vhe/tlb.c
+index 3d50a1bd2bdbc..ec25698186297 100644
+--- a/arch/arm64/kvm/hyp/vhe/tlb.c
++++ b/arch/arm64/kvm/hyp/vhe/tlb.c
+@@ -63,7 +63,7 @@ static void enter_vmid_context(struct kvm_s2_mmu *mmu,
+ 	__load_stage2(mmu, mmu->arch);
+ 	val = read_sysreg(hcr_el2);
+ 	val &= ~HCR_TGE;
+-	write_sysreg(val, hcr_el2);
++	write_sysreg_hcr(val);
+ 	isb();
+ }
+ 
+@@ -73,7 +73,7 @@ static void exit_vmid_context(struct tlb_inv_context *cxt)
+ 	 * We're done with the TLB operation, let's restore the host's
+ 	 * view of HCR_EL2.
+ 	 */
+-	write_sysreg(HCR_HOST_VHE_FLAGS, hcr_el2);
++	write_sysreg_hcr(HCR_HOST_VHE_FLAGS);
+ 	isb();
+ 
+ 	/* ... and the stage-2 MMU context that we switched away from */
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 772c1b008e437..72f10b74ce807 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -94,6 +94,7 @@ WORKAROUND_2457168
+ WORKAROUND_2645198
+ WORKAROUND_2658417
+ WORKAROUND_AMPERE_AC03_CPU_38
++WORKAROUND_AMPERE_AC04_CPU_23
+ WORKAROUND_TRBE_OVERWRITE_FILL_MODE
+ WORKAROUND_TSB_FLUSH_FAILURE
+ WORKAROUND_TRBE_WRITE_OUT_OF_RANGE
+-- 
+2.49.0
 
-Best Regards,
-Hiago.
 
