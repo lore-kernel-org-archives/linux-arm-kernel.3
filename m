@@ -4,63 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 961E3C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 08:54:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72D28C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 08:55:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ckLCaz9JTwf1JWFkvqfAI949tTAoo5JbgEelAt8RQvk=; b=vcuw3YTZVXR13br9Pit3jW+5TN
-	wS/L8EcpfDzi9gI1/1MHlu2ceJbs/kfk24aqFIhz/0LLiE9ebpBDRs9V90wQlae86k6txkW+YM51T
-	iKUArPS8qklThaXXIcreBdkiwty7vKiodk+ADIBuYA2NTdxJ6eD7zmyH5qX4zX9T/cU2A/WONCoJ2
-	AW9PO5EudnZvxThYS4xM8eF/fpSLu6GFVOjJA/hhqifmCqVyp4CTQ7XRRXUKQv6ocvbdp1pEj2muk
-	Jlab8WuI+fT7scnkjCXtt4D76YgAWa0gaHg/RLKhaM9d8Uea//Ki2WFvCyxRbKpsvbCE/EfDwrpgg
-	b9BxLdIg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VBxyqFHRFmK8TLvBDtuMNA11ITYEmJKJ3SDEMS74FUc=; b=MNl9qv8+OuVF4vSUxo/WXefkBf
+	zLcXDmPsGlAc6QzoYoDX5CQrx4+iAU998SYpQrNjl9ctufMVkT5rMFo3J3tQWop544yOpvo15s6ZL
+	wIHNXIuGDCVXiXZ3q784sauVxIqvG7FcVMLCZhuwT7+eqxST7ICF9ww+CcAUx/OEDyEI8tPQR4CgD
+	limzlP6sfwjpURxFzz6A8yIyv0P250ioTMyn7QM3UOOZT9zn0AIij+UUTqIMAoO1CiSyvVMk6VG7G
+	20/27aH0hHNZV+fHREDslguyVgpFj3Tt+oCeoDIoJv7fTUi9bSyMCMmQ8mKRTGevtR+rUzfrb/KIs
+	/xTTL2UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCx0m-00000000B2A-381R;
-	Thu, 08 May 2025 08:53:48 +0000
-Received: from jabberwock.ucw.cz ([46.255.230.98])
+	id 1uCx2j-00000000BR5-0C1k;
+	Thu, 08 May 2025 08:55:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCwm1-000000008n3-1t5A;
-	Thu, 08 May 2025 08:38:35 +0000
-Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
-	id 119011C00AB; Thu,  8 May 2025 10:38:26 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ucw.cz; s=gen1;
-	t=1746693506;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ckLCaz9JTwf1JWFkvqfAI949tTAoo5JbgEelAt8RQvk=;
-	b=PrNROnZxCeea0Jho3SCM2w2/XQ838ikowGDgqD5QtqDpcbs2e38VTtLBxxZMMMgBH106hN
-	ElEgO86ZtWA95vGDx4pxSfOv1o9I+6k7QtMEG7l7O3C1NTem1cc1t5S4b7wJXNH5bXaSdM
-	eWoeYLiJhf2uUsYUbdE6G4bbk2b6sMs=
-Date: Thu, 8 May 2025 10:38:25 +0200
-From: Pavel Machek <pavel@ucw.cz>
-To: Nam Tran <trannamatk@gmail.com>
-Cc: andy@kernel.org, geert@linux-m68k.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org,
-	christophe.jaillet@wanadoo.fr, corbet@lwn.net,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, florian.fainelli@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v8 0/5] auxdisplay: add support for TI LP5812 4x3 Matrix
- LED driver
-Message-ID: <aBxtgZw6+BM36Rru@duo.ucw.cz>
-References: <aA/ineUBAM5IU79J@duo.ucw.cz>
- <20250429170220.8145-1-trannamatk@gmail.com>
+	id 1uCwmz-0000000093T-0nD5
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 May 2025 08:39:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 987C7629E3;
+	Thu,  8 May 2025 08:39:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 113FEC4CEF0;
+	Thu,  8 May 2025 08:39:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746693572;
+	bh=MYodl63oUOljxj6damBOvFAO30dZBMEQaoMzfKiCR00=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=tR4VSj2F/AvdRgmJ+WOB/PiIRmbpHvcZa1duu7AdzqFCcXgyWNVyfiITcA767VdPn
+	 6ukP1Iw3U0N7Es5STtoRYzQ2PD0R5Zq+NeS4oRboL+dEpLDizFVAcktQUM3BV2FLHO
+	 SBFvIkonFKfNH1TdIVzkRPQsIcF7v2Z0hr2BSVd1cFyQyLfXQV9xtpgB7MfSPph9xu
+	 V3oC7VTYtOt89eAPAONJ0PpG20B4tupklKNKuE+jUt5TvuOJxVHW5bzuLgKObXZPBw
+	 M8cCcgzm46ySJKS9ZVIfAozK4m3/CXI7l4YCdg0tp36FCjfL1vZrXUk7nVJzuuPQok
+	 irIpZACjKKqjw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 02856C3ABCB;
+	Thu,  8 May 2025 08:39:32 +0000 (UTC)
+From: Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org>
+Date: Thu, 08 May 2025 08:38:54 +0000
+Subject: [PATCH v2 3/3] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ2 in
+ host handler
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha1;
-	protocol="application/pgp-signature"; boundary="DXdxuze0uvDm4WRw"
-Content-Disposition: inline
-In-Reply-To: <20250429170220.8145-1-trannamatk@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_013833_926983_CB1CA727 
-X-CRM114-Status: GOOD (  30.16  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250508-virtio-msg-ffa-v2-3-ed84f8053965@google.com>
+References: <20250508-virtio-msg-ffa-v2-0-ed84f8053965@google.com>
+In-Reply-To: <20250508-virtio-msg-ffa-v2-0-ed84f8053965@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Sudeep Holla <sudeep.holla@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, arve@android.com, lpieralisi@kernel.org, 
+ qwandor@google.com, jean-philippe@linaro.org, james.morse@arm.com, 
+ perl@immunant.com, tabba@google.com, kernel-team@android.com, 
+ armellel@google.com, qperret@google.com, sebastianene@google.com, 
+ ahomescu@google.com, Per Larsen <perlarsen@google.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1746693571; l=6782;
+ i=perlarsen@google.com; s=20250508; h=from:subject:message-id;
+ bh=IGMQIIrUrHG9Da+sVqUyprEmAlWez8rBv29B3RzV3og=;
+ b=XZvdV1OUGgx7Sv1wa4rmaJQAuCcvIoOhh+OOXn/0sOBOvenTaWZVMJsf/w/XburA6om+Rh+mO
+ qk5zng3THLGByuCONoKycEDMkV0Jre8taVX6hLE5dZpmFhruhHgsaNS
+X-Developer-Key: i=perlarsen@google.com; a=ed25519;
+ pk=jjc/Ta4VmrLRmMoahP6d1mBcKzvWU+nsmdtYe2oS2kQ=
+X-Endpoint-Received: by B4 Relay for perlarsen@google.com/20250508 with
+ auth_id=402
+X-Original-From: Per Larsen <perlarsen@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,103 +88,223 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: perlarsen@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Per Larsen <perlarsen@google.com>
 
---DXdxuze0uvDm4WRw
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+FF-A 1.2 adds the DIRECT_REQ2 messaging interface which is similar to
+the existing FFA_MSG_SEND_DIRECT_{REQ,RESP} functions except that it
+uses the SMC calling convention v1.2 which allows calls to use x4-x17 as
+argument and return registers. Add support for FFA_MSG_SEND_DIRECT_REQ2
+in the host ffa handler.
 
-Hi!
+Signed-off-by: Per Larsen <perlarsen@google.com>
+Signed-off-by: Per Larsen <perl@immunant.com>
+---
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 114 +++++++++++++++++++++++++++++++++++++++++-
+ include/linux/arm_ffa.h       |   2 +
+ 2 files changed, 114 insertions(+), 2 deletions(-)
 
-> > > Thank you, Pavel, for the confirmation.
-> > > Thank you, Geert, for the review and the question.
-> > >=20
-> > > I would like to make it clearer.
-> > >=20
-> > > On Mon, 28 Apr 2025 Geert Uytterhoeven wrote:
-> > >=20
-> >=20
-> > > > > > > - Move driver to drivers/auxdisplay/ instead of drivers/leds/.
-> > > > > > > - Rename files from leds-lp5812.c/.h to lp5812.c/.h.
-> > > > > > > - Move ti,lp5812.yaml binding to auxdisplay/ directory,
-> > > > > > >   and update the title and $id to match new path.
-> > > > > > > - No functional changes to the binding itself (keep Reviewed-=
-by).
-> > > > > > > - Update commit messages and patch titles to reflect the move.
-> > > > > > > - Link to v7: https://lore.kernel.org/linux-leds/202504221901=
-21.46839-1-trannamatk@gmail.com/
-> > > > > >
-> > > > > > Out of sudden without discussing with auxdisplay maintainers/re=
-viewers?
-> > > > > > Thanks, no.
-> > > > > > Please, put into the cover letter the meaningful summary of wha=
-t's
-> > > > > > going on and why this becomes an auxdisplay issue. Brief review=
- of the
-> > > > > > bindings sounds more likely like LEDS or PWM subsystems.
-> > > > >
-> > > > > It is 4x3 matrix. That means it is not suitable for LEDs. I don't
-> > > > > believe it is suitable for PWM, either -- yes, it is 36 PWM outpu=
-ts,
-> > > > > but...
-> > > >=20
-> > > > Is it intended to be used as a 4x3 matrix, or is this just an inter=
-nal
-> > > > wiring detail, and should it be exposed as 12 individual LEDs inste=
-ad?
-> > >=20
-> > > The 4=C3=973 matrix is a real and fundamental aspect of the LP5812=E2=
-=80=99s operation.
-> > > It is not just an internal wiring detail.
-> > > The device adopts a Time-Cross-Multiplexing (TCM) structure, where 4 =
-output
-> > > pins control 12 LED dots individually through scanning. Each pin incl=
-udes
-> > > both high-side and low-side drive circuits, meaning matrix multiplexi=
-ng is
-> > > required for proper operation =E2=80=94 it cannot be treated as 12 co=
-mpletely
-> > > independent LEDs.
-> >=20
-> > Scanning is really a detail.
-> >=20
-> > If this is used as rectangular 4x3 display, then it goes to auxdisplay.
-> >=20
-> > If this is used as a power LED, SD activity LED, capslock and numlock
-> > ... placed randomly all around the device, then it goes LED subsystem.
->=20
-> The LP5812 is used for LED status indication in devices like smart speake=
-rs,
-> wearables, and routers, not as a structured rectangular display.
+diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+index 3fa5d1ae26c40fb96ad2deb834882bb3e0af5637..5ffbc0d496fca830a5f3af5bd9edd63b8e79b028 100644
+--- a/arch/arm64/kvm/hyp/nvhe/ffa.c
++++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+@@ -79,6 +79,14 @@ static void ffa_to_smccc_error(struct arm_smccc_res *res, u64 ffa_errno)
+ 	};
+ }
+ 
++static void ffa_to_smccc_1_2_error(struct arm_smccc_1_2_regs *regs, u64 ffa_errno)
++{
++	*regs = (struct arm_smccc_1_2_regs) {
++		.a0	= FFA_ERROR,
++		.a2	= ffa_errno,
++	};
++}
++
+ static void ffa_to_smccc_res_prop(struct arm_smccc_res *res, int ret, u64 prop)
+ {
+ 	if (ret == FFA_RET_SUCCESS) {
+@@ -89,11 +97,24 @@ static void ffa_to_smccc_res_prop(struct arm_smccc_res *res, int ret, u64 prop)
+ 	}
+ }
+ 
++static void ffa_to_smccc_1_2_regs_prop(struct arm_smccc_1_2_regs *regs, int ret, u64 prop)
++{
++	if (ret == FFA_RET_SUCCESS)
++		*regs = (struct arm_smccc_1_2_regs) { .a0 = FFA_SUCCESS,
++						      .a2 = prop };
++	else
++		ffa_to_smccc_1_2_error(regs, ret);
++}
++
+ static void ffa_to_smccc_res(struct arm_smccc_res *res, int ret)
+ {
+ 	ffa_to_smccc_res_prop(res, ret, 0);
+ }
+ 
++static void ffa_to_smccc_1_2_regs(struct arm_smccc_1_2_regs *regs, int ret)
++{
++	ffa_to_smccc_1_2_regs_prop(regs, ret, 0);
++}
+ 
+ static void ffa_set_retval(struct kvm_cpu_context *ctxt,
+ 			   struct arm_smccc_res *res)
+@@ -136,6 +157,29 @@ static void ffa_set_retval(struct kvm_cpu_context *ctxt,
+ 	}
+ }
+ 
++static void ffa_set_retval_smccc_1_2(struct kvm_cpu_context *ctxt,
++			   struct arm_smccc_1_2_regs *regs)
++{
++	cpu_reg(ctxt, 0) = regs->a0;
++	cpu_reg(ctxt, 1) = regs->a1;
++	cpu_reg(ctxt, 2) = regs->a2;
++	cpu_reg(ctxt, 3) = regs->a3;
++	cpu_reg(ctxt, 4) = regs->a4;
++	cpu_reg(ctxt, 5) = regs->a5;
++	cpu_reg(ctxt, 6) = regs->a6;
++	cpu_reg(ctxt, 7) = regs->a7;
++	cpu_reg(ctxt, 8) = regs->a8;
++	cpu_reg(ctxt, 9) = regs->a9;
++	cpu_reg(ctxt, 10) = regs->a10;
++	cpu_reg(ctxt, 11) = regs->a11;
++	cpu_reg(ctxt, 12) = regs->a12;
++	cpu_reg(ctxt, 13) = regs->a13;
++	cpu_reg(ctxt, 14) = regs->a14;
++	cpu_reg(ctxt, 15) = regs->a15;
++	cpu_reg(ctxt, 16) = regs->a16;
++	cpu_reg(ctxt, 17) = regs->a17;
++}
++
+ /* Call SMC64 using SMCCC 1.2 if hyp negotiated FF-A 1.2 falling back to 1.1 */
+ static void arm_smccc_1_x_smc(u64 func_id, u64 a1, u64 a2, u64 a3,
+ 			      u64 a4, u64 a5, u64 a6, u64 a7,
+@@ -696,7 +740,6 @@ static bool ffa_call_supported(u64 func_id)
+ 	case FFA_NOTIFICATION_GET:
+ 	case FFA_NOTIFICATION_INFO_GET:
+ 	/* Unimplemented interfaces added in FF-A 1.2 */
+-	case FFA_MSG_SEND_DIRECT_REQ2:
+ 	case FFA_MSG_SEND_DIRECT_RESP2:
+ 	case FFA_CONSOLE_LOG:
+ 	case FFA_PARTITION_INFO_GET_REGS:
+@@ -707,6 +750,21 @@ static bool ffa_call_supported(u64 func_id)
+ 	return true;
+ }
+ 
++/*
++ * Must a given FFA function use the SMC calling convention v1.2?
++ */
++static bool ffa_call_needs_smccc_1_2(u64 func_id)
++{
++	switch (func_id) {
++	case FFA_MSG_SEND_DIRECT_REQ2:
++	case FFA_MSG_SEND_DIRECT_RESP2:
++	case FFA_PARTITION_INFO_GET_REGS:
++		return true;
++	}
++
++	return false;
++}
++
+ static bool do_ffa_features(struct arm_smccc_res *res,
+ 			    struct kvm_cpu_context *ctxt)
+ {
+@@ -865,9 +923,47 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
+ 	hyp_spin_unlock(&host_buffers.lock);
+ }
+ 
++static void do_ffa_direct_msg2(struct arm_smccc_1_2_regs *regs,
++			       struct kvm_cpu_context *ctxt,
++			       u64 vm_handle)
++{
++	DECLARE_REG(u32, func_id, ctxt, 0);
++	DECLARE_REG(u32, endp, ctxt, 1);
++	DECLARE_REG(u64, uuid_lo, ctxt, 2);
++	DECLARE_REG(u64, uuid_hi, ctxt, 3);
++	DECLARE_REG(u64, x4, ctxt, 4);
++	DECLARE_REG(u64, x5, ctxt, 5);
++	DECLARE_REG(u64, x6, ctxt, 6);
++	DECLARE_REG(u64, x7, ctxt, 7);
++	DECLARE_REG(u64, x8, ctxt, 8);
++	DECLARE_REG(u64, x9, ctxt, 9);
++	DECLARE_REG(u64, x10, ctxt, 10);
++	DECLARE_REG(u64, x11, ctxt, 11);
++	DECLARE_REG(u64, x12, ctxt, 12);
++	DECLARE_REG(u64, x13, ctxt, 13);
++	DECLARE_REG(u64, x14, ctxt, 14);
++	DECLARE_REG(u64, x15, ctxt, 15);
++	DECLARE_REG(u64, x16, ctxt, 16);
++	DECLARE_REG(u64, x17, ctxt, 17);
++
++	if (FIELD_GET(FFA_SRC_ENDPOINT_MASK, endp) != vm_handle) {
++		ffa_to_smccc_1_2_regs(regs, FFA_RET_INVALID_PARAMETERS);
++		return;
++	}
++
++	struct arm_smccc_1_2_regs args = {
++		func_id, endp, uuid_lo, uuid_hi,
++		 x4,  x5,  x6,  x7,  x8,  x9, x10,
++		x11, x12, x13, x14, x15, x16, x17
++	};
++
++	arm_smccc_1_2_smc(&args, regs);
++}
++
+ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+ {
+ 	struct arm_smccc_res res;
++	struct arm_smccc_1_2_regs regs;
+ 
+ 	/*
+ 	 * There's no way we can tell what a non-standard SMC call might
+@@ -923,14 +1019,28 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+ 	case FFA_PARTITION_INFO_GET:
+ 		do_ffa_part_get(&res, host_ctxt);
+ 		goto out_handled;
++	case FFA_MSG_SEND_DIRECT_REQ2:
++		hyp_spin_lock(&version_lock);
++		if (hyp_ffa_version >= FFA_VERSION_1_2) {
++			do_ffa_direct_msg2(&regs, host_ctxt, HOST_FFA_ID);
++			hyp_spin_unlock(&version_lock);
++			goto out_handled;
++		}
++
++		hyp_spin_unlock(&version_lock);
++		goto out_not_supported;
+ 	}
+ 
+ 	if (ffa_call_supported(func_id))
+ 		return false; /* Pass through */
+ 
++out_not_supported:
+ 	ffa_to_smccc_error(&res, FFA_RET_NOT_SUPPORTED);
+ out_handled:
+-	ffa_set_retval(host_ctxt, &res);
++	if (ffa_call_needs_smccc_1_2(func_id))
++		ffa_set_retval_smccc_1_2(host_ctxt, &regs);
++	else
++		ffa_set_retval(host_ctxt, &res);
+ 	return true;
+ }
+ 
+diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
+index c0dd6183d956043192114a522b7eef465e7078ac..82a35a3b22de426f7e9a8894e76fdf1e933b3d6b 100644
+--- a/include/linux/arm_ffa.h
++++ b/include/linux/arm_ffa.h
+@@ -269,6 +269,8 @@ bool ffa_partition_check_property(struct ffa_device *dev, u32 property)
+ 	(ffa_partition_check_property(dev, FFA_PARTITION_DIRECT_REQ2_RECV) && \
+ 	 !dev->mode_32bit)
+ 
++#define FFA_SRC_ENDPOINT_MASK	GENMASK(31, 16)
++
+ /* For use with FFA_MSG_SEND_DIRECT_{REQ,RESP} which pass data via registers */
+ struct ffa_send_direct_data {
+ 	unsigned long data0; /* w3/x3 */
 
-Show us one device where it is used, photo would be best. I suspect
-that the router use might indeed qualify for LED subsystem.
+-- 
+2.49.0.987.g0cc8ee98dc-goog
 
-You described is at 4x3 display, but it is really used as 4xRGB?
 
-> Given that, it seems to match the LED subsystem better than auxdisplay, d=
-oesn't it?
-
-Seems so, yes. From description, I assumed it was 4x3xRGB, not 4xRGB.
-
-Best regards,
-								Pavel
---=20
-I don't work for Nazis and criminals, and neither should you.
-Boycott Putin, Trump, and Musk!
-
---DXdxuze0uvDm4WRw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCaBxtgQAKCRAw5/Bqldv6
-8mN6AJwN7zf8tTTp+bxWAqTTF1AoTBaggQCbBSUYvVJF5PV+ahfMfUjtZcxAwkw=
-=EZPf
------END PGP SIGNATURE-----
-
---DXdxuze0uvDm4WRw--
 
