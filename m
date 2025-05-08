@@ -4,107 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C9ADC3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:47:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E23FDC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 07:49:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gStViZQthZlMVK4HpX/JKukEqoCKwrD2qkKfxWzjtDs=; b=vgK+NWGS3lEGPPZ9DMRvZFNiHB
-	usD/nVASb337V7yxNNC2D0Ermsk3xXk1yaEnoBQ5jrIBmhdyRjJgcwjpX6/A4GQJret+wuTwQOuXO
-	rgJ31PX7Y9gg00oyZDGlnz9RJ/WfPK5Y58fE/CA2ctACiq5Onnx4/oNa9a0Af/5d2HJ/1bQoJJb/C
-	hc3Lvq9G/E873t/gXz1HIlDBJPR4yhXq7+rEN2zRDpT3KXuw/1uHt1jrZSgH1o0MN5/hC7W61Yf49
-	ybQZcvjwX/uWYGGNUkbV+mZ+FMmSiICHU9WNi7QZAonN//QH87cKWP/eiZaHJgOKpAkmjfH/3FjvT
-	tygoFdyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=749LEvvvcQKWUxXjFdM+0rHrGbSEewnoyWUORHg2MJw=; b=Hi6wM5weCFGNdsgt7iUE+0ZRTw
+	EOuEnD2PLwut533/ej5/kwOtaSpB1GPpEB2WF7JAC2QYPPWNiM3p32Xwst0BPLl3WSdkiVHhQKiA3
+	e9oly3s1lOg+xAVAgxYXp3TYRZCD9zw/mh3GxAhyuGdB8v5IOrToAUNG03YTEk7oleISjSo6jHQm4
+	KrD8VHWKi7T1knV1w3B+2+sXDlxqi88gxZys7HYX516MKhlFJFCxAPgOwwwnwC51FDGWtJ5adYx0R
+	VQXqSfxPxxQmfwTRJDPx6rSOei20tJ+JHor0jbNd+cmh+UwQZRt+wm/H7n4lzb6/9CmY3MyAGMyG6
+	pbvI+kmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvyM-000000002KR-0r78;
-	Thu, 08 May 2025 07:47:14 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uCw0H-000000002To-3d6W;
+	Thu, 08 May 2025 07:49:13 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvs2-000000001bC-1JbH
+	id 1uCvu7-000000001ql-0uCs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 07:40:43 +0000
+	Thu, 08 May 2025 07:42:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 916205C03C3;
-	Thu,  8 May 2025 07:38:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26216C4CEEB;
-	Thu,  8 May 2025 07:40:39 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E83485C5BB8;
+	Thu,  8 May 2025 07:40:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 720A0C4CEEB;
+	Thu,  8 May 2025 07:42:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746690041;
-	bh=km4iw2pHgE70+o0ck8mziQA0sfa8ZS9ETgIY6W86Z+M=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=sC8FUn8T4b6Q+LUpxkaZFNBYpakOfI02pCtq8JGku5o9V5/JtB3V99VogEqODH/Kx
-	 flMdiK8qLQm8lQ/ZfF4NstFCQ4gt7R/34xNTZTNjL0oWSoXH0VTTJEAxbu5gdX22Qk
-	 wbmfpnwc9X4nnthvV2/jKCTZFDFRZ28HGncCe0009HVXNwShNQWPXoJtiXFoYlkTQd
-	 7q9zxGhuRkQ+/562lnOZS/i6eV3ELo5slwS2TRmF08f2IvxnyFpE5trBkE7KJ3KOpU
-	 hWpXmTVStirqQEIMJktV1HvUzqFgmNw7MdO25zAndN9YfxujTmO/W6OwrwBwvchp6e
-	 NL71GZh4dZSIQ==
-Message-ID: <12d0eac8-545a-4595-a1df-1dc52728ef54@kernel.org>
-Date: Thu, 8 May 2025 09:40:38 +0200
+	s=k20201202; t=1746690169;
+	bh=5JMW7/uRAihyo83RPf09AucXsTK0nvq44mkKuP7GWpg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=A8hPxqEH6ko1pwYYxlSgw8PARLL/d5vHuliC9BGD997xaeYyfSHrLXXJfwjBmXvDc
+	 ssW/+poQ0zBzDp3vRfCvzOIcTY6pg/6yEUnCg42I4WUgLvYK8KO5rf/1JtAmVV2Yoc
+	 PTdBfMpb8oK81Zetk/SScGnLu8clsvtGNxrqnWrWQgbw1VxrEOT5+KvK7I961hS/xM
+	 XluLolxDnLwEJO7LfF81kFo99a7G1pzTRqWNf7bBYhT6fqyhRnQJ0fbNGvEkin1mTp
+	 uIJd6O9Ot9GCjVwEGWSwLwbdKjhfwlAs9GNI1CeXYwX0qAyhTjHiPlNEHTczbyALJx
+	 pA7INs3gg9RbA==
+Date: Thu, 8 May 2025 09:42:41 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Marc Zyngier <maz@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 20/25] irqchip/gic-v5: Add GICv5 PPI support
+Message-ID: <aBxgceQBRA6vBK7o@lpieralisi>
+References: <20250506-gicv5-host-v3-0-6edd5a92fd09@kernel.org>
+ <20250506-gicv5-host-v3-20-6edd5a92fd09@kernel.org>
+ <87zffpn5rk.ffs@tglx>
+ <86a57ohjey.wl-maz@kernel.org>
+ <87ecx0mt9p.ffs@tglx>
+ <867c2sh6jx.wl-maz@kernel.org>
+ <874ixwmpto.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/8] dt-bindings: Add Tegra264 clock and reset definitions
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250507143802.1230919-1-thierry.reding@gmail.com>
- <20250507143802.1230919-5-thierry.reding@gmail.com>
- <8a26a37a-26ce-41ef-96e4-10ee09ebe704@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <8a26a37a-26ce-41ef-96e4-10ee09ebe704@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <874ixwmpto.ffs@tglx>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_004042_443559_C7FF5E27 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250508_004251_369714_09BF79C7 
+X-CRM114-Status: GOOD (  29.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,28 +87,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/05/2025 09:39, Krzysztof Kozlowski wrote:
-> On 07/05/2025 16:37, Thierry Reding wrote:
->> From: Thierry Reding <treding@nvidia.com>
->>
->> Signed-off-by: Thierry Reding <treding@nvidia.com>
+On Wed, May 07, 2025 at 04:57:07PM +0200, Thomas Gleixner wrote:
+> On Wed, May 07 2025 at 14:52, Marc Zyngier wrote:
+> > On Wed, 07 May 2025 14:42:42 +0100,
+> > Thomas Gleixner <tglx@linutronix.de> wrote:
+> >> 
+> >> On Wed, May 07 2025 at 10:14, Marc Zyngier wrote:
+> >> > On Tue, 06 May 2025 16:00:31 +0100,
+> >> > Thomas Gleixner <tglx@linutronix.de> wrote:
+> >> >> 
+> >> >> How does this test distinguish between LEVEL_LOW and LEVEL_HIGH? It only
+> >> >> tests for level, no? So the test is interesting at best ...
+> >> >
+> >> > There is no distinction between HIGH and LOW, RISING and FALLING, in
+> >> > any revision of the GIC architecture.
+> >> 
+> >> Then pretending that there is a set_type() functionality is pretty daft
+> >
+> > You still need to distinguish between level and edge when this is
+> > programmable (which is the case for a subset of the PPIs).
 > 
-> Missing commit msg
-> 
->> ---
->>  include/dt-bindings/clock/tegra264-clock.h | 9 +++++++++
->>  include/dt-bindings/reset/tegra264-reset.h | 7 +++++++
->>  2 files changed, 16 insertions(+)
->>  create mode 100644 include/dt-bindings/clock/tegra264-clock.h
->>  create mode 100644 include/dt-bindings/reset/tegra264-reset.h
-> 
-> 
-> Filename equal to the compatible. That's the standard convention for all
-> the headers since some years.
+> Fair enough, but can we please add a comment to this function which
+> explains this oddity.
 
-Huh, I cannot find the binding in this patchset. Where is the actual
-binding added?
+Getting back to this, I would need your/Marc's input on this.
 
-Best regards,
-Krzysztof
+I think it is fair to remove the irq_set_type() irqchip callback for
+GICv5 PPIs because there is nothing to set, as I said handling mode
+for these IRQs is fixed. I don't think this can cause any trouble
+(IIUC a value within the IRQF_TRIGGER_MASK should be set on requesting
+an IRQ to "force" the trigger to be programmed and even then core code
+would not fail if the irq_set_type() irqchip callback is not
+implemented).
+
+I am thinking about *existing* drivers that request GICv3 PPIs with
+values in IRQF_TRIGGER_MASK set (are there any ? Don't think so but you
+know better than I do), when we switch over to GICv5 we would have no
+irq_set_type() callback for PPIs but I think we are still fine, not
+implementing irqchip.irq_set_type() is correct IMO.
+
+On the other hand, given that on GICv5 PPI handling mode is fixed,
+do you think that in the ppi_irq_domain_ops.translate() callback,
+I should check the type the firmware provided and fail the translation
+if it does not match the HW hardcoded value ?
+
+Obviously if firmware exposes the wrong type that's a firmware bug
+but I was wondering whether it is better to fail the firmware-to-Linux
+IRQ translation if the firmware provided type is wrong rather than carry
+on pretending that the type is correct (I was abusing the irq_set_type()
+callback to do just that - namely, check that the type provided by
+firmware matches HW but I think that's the wrong place to put it).
+
+Thanks !
+Lorenzo
 
