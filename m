@@ -4,68 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A0ADC3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 12:58:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83007C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 13:04:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c1U4rZGx6XERUK703NiiO7qOrMXmSyQcFqlgMieceks=; b=ZXld8m6xv8NeExcMe3DXfvx//V
-	CSROgc2RkGG3fdkP9E0PIUB9tYmvOsA9SdaaGwaD4BgdX84npRRh1cipJ1EMtpunGyxrjU1tsUk+Z
-	jSrF+Y2+KmX+T4Vsi7ibeyNur5cFjZAop6+fGkYv9g+9xgTrPYSQgvAxhOeUUf32XvgEZb6lOaX+x
-	cWJT9GRB0vRQ3qn18/2/41eewHhWTqYN60CPWRofzqqwsPjz8ZhOh2/0afGu0HVUIlolzbrz9pHRn
-	dd6yeqg6IB8RlhVFou9gCnt6S6VI37+EgbSsBCztFGVoJnWPGmLdbUB7hYzsVXXnW6dS1uQQSU9Wq
-	O+3NftbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OQDoJxo8xfARLWAEzZFys5QQobOjXyAbFFgnTDtQ9S4=; b=e1jJ/+CiX8NruWN3lc2sfaJgX0
+	EqHMnadVYxQSCCx+cTRGcLzws9+NJOSKWvhYPF8gxBgM0RLzjTBTUrNu1Gqq5KSHjKqrCkP9orzlg
+	DDFd3psCC+KHjADqMcBUjQqbylzdtR87MhRso1scvmHH28cNOzAGKK4MiDGFOzajJC0oFStgFgBfg
+	/eZJaPgh5G3bevkzE3zYp9AOxOsfe/00rN7Kwi/gtifMPAQ9qGkmdydFRxu1zF4ARiD8RSz2MYTNf
+	ffdK8fhbw6p87ffmx0YtZcIKC+utYmdAliLUCyS7c7GQjiwx+5wWMosy9lkv/blWrV1x79BWSYrXJ
+	2oTByWFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0p4-00000000hHR-0vIS;
-	Thu, 08 May 2025 12:57:58 +0000
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	id 1uD0ve-00000000hlp-1GDN;
+	Thu, 08 May 2025 13:04:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0n6-00000000h1A-23fV
+	id 1uD0th-00000000hbU-2xvP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 12:55:57 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4ZtXDl0rVQz9tH2;
-	Thu,  8 May 2025 14:55:51 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pankajraghav.com;
-	s=MBO0001; t=1746708951;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=c1U4rZGx6XERUK703NiiO7qOrMXmSyQcFqlgMieceks=;
-	b=bjRVISLBtHX5DfYSngZXkcLernXd84uYnUhhfzmlqWxXU9ogXS+VA1nVBWV9C1OFAPhqrl
-	DQwRHux+nTpoGHBRb/gwfeWNh70+kMhrQWYrv79phGNmIEqQXGFC49a2bgJPAHmLhdkwxt
-	ZFp+s7KYFMcqqnWUY3eI9hBea5SP0YjYFVmEo5lpFa4k3vI9fvdUMGMfwOoBrm+8Sqls4s
-	Qcc8j5qQPJHtt1XCPgM7RJ3+7TRvmqeAX2koZA923N0GkgcrDXU5tBajcjK6B2FKUpknB2
-	fqW9+yH4BbWCpv7P1pegCvQqVTLRoXqbMzB7aHwj2DPWWBsYwRCLPJGemPmoVw==
-Date: Thu, 8 May 2025 14:55:43 +0200
-From: "Pankaj Raghav (Samsung)" <kernel@pankajraghav.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, David Hildenbrand <david@redhat.com>, 
-	Dave Chinner <david@fromorbit.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	linux-mm@kvack.org
-Subject: Re: [RFC PATCH v4 1/5] mm/readahead: Honour new_order in
- page_cache_ra_order()
-Message-ID: <nepi5e74wtghvr6a6n26rdgqaa7tzitylyoamfnzoqu6s5gq4h@zqtve2irigd6>
-References: <20250430145920.3748738-1-ryan.roberts@arm.com>
- <20250430145920.3748738-2-ryan.roberts@arm.com>
+	Thu, 08 May 2025 13:02:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BE6434A715;
+	Thu,  8 May 2025 13:02:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A62ACC4CEE7;
+	Thu,  8 May 2025 13:02:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746709363;
+	bh=3jYIMlTRS21sFwI2KZR6aQTeSVvwhaMYQmdsc+lOmvg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=fM5RJCob3QZpPVDNWRh3u4IuG2knKHM3A8fO8bPRFDTlh3az/dDQD2aI3vOGaUdia
+	 Ip+iLBgIGRCjelyn8/K26PX0UM3lj/iFzroldvYZZMWion6/MXLbGloz7jHruC55an
+	 sQTU+U370CFcNKlFw9oKn1w8LnjFUcy2ooZdS7ZLz4sBVVwYE0hHswe6GFPc80Ho4m
+	 p5+VxmvnWWkARwOd4HlLNC1Ry9mw/fWtAnzfEblnttFWkrEmTnGeRZaXApCmwVsb39
+	 W9MNxPwNkA0PYdPpeBPMuhuMvrrQaCb27z5KYsqdmMNG0ILcXgr4BX9LxGipv6HzTa
+	 nf+nIlTNomZTg==
+From: Will Deacon <will@kernel.org>
+To: rafael@kernel.org,
+	lenb@kernel.org,
+	james.morse@arm.com,
+	tony.luck@intel.com,
+	bp@alien8.de,
+	Huang Yiwei <quic_hyiwei@quicinc.com>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	xueshuai@linux.alibaba.com,
+	quic_aiquny@quicinc.com,
+	quic_satyap@quicinc.com,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@quicinc.com,
+	kernel@oss.qualcomm.com
+Subject: Re: [PATCH v2] firmware: SDEI: Allow sdei initialization without ACPI_APEI_GHES
+Date: Thu,  8 May 2025 14:02:35 +0100
+Message-Id: <174670772284.646111.7927928404698891686.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20250507045757.2658795-1-quic_hyiwei@quicinc.com>
+References: <20250507045757.2658795-1-quic_hyiwei@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250430145920.3748738-2-ryan.roberts@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_055556_681024_5E343466 
-X-CRM114-Status: GOOD (  18.53  )
+X-CRM114-CacheID: sfid-20250508_060245_769767_D82195FB 
+X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,76 +87,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Ryan,
-
-On Wed, Apr 30, 2025 at 03:59:14PM +0100, Ryan Roberts wrote:
-> FOLIO  0x0001a000  0x0001b000       4096       26       27      1      0
-> FOLIO  0x0001b000  0x0001c000       4096       27       28      1      0
-> FOLIO  0x0001c000  0x0001d000       4096       28       29      1      0
-> FOLIO  0x0001d000  0x0001e000       4096       29       30      1      0
-> FOLIO  0x0001e000  0x0001f000       4096       30       31      1      0
-> FOLIO  0x0001f000  0x00020000       4096       31       32      1      0
-> FOLIO  0x00020000  0x00024000      16384       32       36      4      2
-> FOLIO  0x00024000  0x00028000      16384       36       40      4      2
-> FOLIO  0x00028000  0x0002c000      16384       40       44      4      2
-> FOLIO  0x0002c000  0x00030000      16384       44       48      4      2
-> ...
+On Wed, 07 May 2025 12:57:57 +0800, Huang Yiwei wrote:
+> SDEI usually initialize with the ACPI table, but on platforms where
+> ACPI is not used, the SDEI feature can still be used to handle
+> specific firmware calls or other customized purposes. Therefore, it
+> is not necessary for ARM_SDE_INTERFACE to depend on ACPI_APEI_GHES.
 > 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> ---
->  mm/readahead.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
+> In commit dc4e8c07e9e2 ("ACPI: APEI: explicit init of HEST and GHES
+> in acpi_init()"), to make APEI ready earlier, sdei_init was moved
+> into acpi_ghes_init instead of being a standalone initcall, adding
+> ACPI_APEI_GHES dependency to ARM_SDE_INTERFACE. This restricts the
+> flexibility and usability of SDEI.
 > 
-> diff --git a/mm/readahead.c b/mm/readahead.c
-> index 6a4e96b69702..8bb316f5a842 100644
-> --- a/mm/readahead.c
-> +++ b/mm/readahead.c
-> @@ -479,9 +479,6 @@ void page_cache_ra_order(struct readahead_control *ractl,
->  
+> [...]
 
-So we always had a fallback to do_page_cache_ra() if the size of the
-readahead is less than 4 pages (16k). I think this was there because we
-were adding `2` to the new_order:
+Applied to arm64 (for-next/acpi), thanks!
 
-unsigned int min_ra_size = max(4, mapping_min_folio_nrpages(mapping));
+[1/1] firmware: SDEI: Allow sdei initialization without ACPI_APEI_GHES
+      https://git.kernel.org/arm64/c/59529bbe642d
 
-/*
- * Fallback when size < min_nrpages as each folio should be
- * at least min_nrpages anyway.
- */
-if (!mapping_large_folio_support(mapping) || ra->size < min_ra_size)
-	goto fallback;
+Cheers,
+-- 
+Will
 
->  	limit = min(limit, index + ra->size - 1);
->  
-> -	if (new_order < mapping_max_folio_order(mapping))
-> -		new_order += 2;
-
-Now that you have moved this, we could make the lhs of the max to be 2
-(8k) instead of 4(16k).
-
-- unsigned int min_ra_size = max(4, mapping_min_folio_nrpages(mapping));
-+ unsigned int min_ra_size = max(2, mapping_min_folio_nrpages(mapping));
-
-I think if we do that, we might ramp up to 8k sooner rather than jumping
-from 4k to 16k directly?
-
-> -
->  	new_order = min(mapping_max_folio_order(mapping), new_order);
->  	new_order = min_t(unsigned int, new_order, ilog2(ra->size));
->  	new_order = max(new_order, min_order);
-> @@ -683,6 +680,7 @@ void page_cache_async_ra(struct readahead_control *ractl,
->  	ra->size = get_next_ra_size(ra, max_pages);
->  	ra->async_size = ra->size;
->  readit:
-> +	order += 2;
->  	ractl->_index = ra->start;
->  	page_cache_ra_order(ractl, ra, order);
->  }
-> -- 
-> 2.43.0
-> 
-
---
-Pankaj
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
