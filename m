@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0C59C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 17:28:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 081FFC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 17:30:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zVpWPkQC/BSrKmTaROIAJ2ktAZPNsmJUsbJbTHTQuig=; b=h20uSU5s5i5Pc1/lztoReLSzb2
-	e8iKGtBG6gHxBGEFDdG+AHHIGdbwVLzSHwOq3Fw6eus6s4AOyGLzot3Q485O5b8fAfezpJGnyI41i
-	DC0zGOfW/qp0CjhtXPmv2C/TbYn7rhtJd8jCKJmSRf4BKcY7fxJkESdnMxIpD83C5CAxurLpLOihF
-	yFt9uZkgphD1hTPoSpk+FndYaKeYDKlBH5K+Ub1OmUoqaA6wihSNYEItZC3Pqtcuid85ABYO12n3g
-	DTLL/CAW1Gti8nMDgiJDIVDFw8S60VodB39zc3rOKULWISi87kqS6YluAO8Xglxp7R8GhWZ5V9Dln
-	77sHyxUA==;
+	bh=hTbyL4rDqJd0LCAW+KvoiiMK8wPz1NsF8UcJJ8cPhiw=; b=TjUy2tZFbJE2QejnXFQsl/keyw
+	wvI1pDeydu3tbPpt37hnYQACnUcgyiX/QGraOTpsloJq05ben82Tn6XuGLaafFjLIFCNwbDzHEXrS
+	3uz5lhzkJL6oHJMsFEtz+VeS+Q7u39lEDZwLo2z+nV7SzTjJsBEZ8wJcoZq9R5wnhJ1emn8zafmkV
+	yQbHLRmmAxk2bu1r7qpNMvKzWiYOarFnTIUzO4JjYqyL7Kq31qRV/f7hJjjSmI7FJB6fBllCjrq7M
+	431ZpFAxOL8b6saO6AxDTfNeA95CdCGOk3Cfd9Y8xx6h67MhwKWhq8ZN++FWPsAAtlnaffDC2JVaD
+	WDnhe3Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD52n-00000001QHK-0bgV;
-	Thu, 08 May 2025 17:28:25 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uD54j-00000001QZn-0k2j;
+	Thu, 08 May 2025 17:30:25 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD50p-00000001Pu0-0Vw3;
-	Thu, 08 May 2025 17:26:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=zVpWPkQC/BSrKmTaROIAJ2ktAZPNsmJUsbJbTHTQuig=; b=WVupt5vKzq+NYFhvA9EtHnjRUJ
-	LD/oMvqGztz+HzkcvcY7CfKwH15pJTHlYCxA64rFsiaKm7VsWZIOl2HuKGbtrGd3MVKsknG4iEluO
-	+WdSdlg4tfXeKr6j5zOXJ+saBgShePZHNs2fhsnCGto+3vjJI2LRdcpbw3PwEVOhlu+wvwODc9lhe
-	V+ETisC8tJWY8eCSIreGGDyAD8HPhkKl84cdB1vm0//SUKPq6zRRoMJ1VPqK4T459u7HW5DiurHsB
-	fmCP54Af1nCPFql81lIIY6XU3VdftiJKlhiQGiNJkww9kX+l/1BvkEHLaj6BIjgCFUm8GnAmDa4Qb
-	I1dDMv9g==;
-Received: from [61.8.144.177] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uD50h-00086Y-9V; Thu, 08 May 2025 19:26:15 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yao Zi <ziyao@disroot.org>,
- Frank Wang <frank.wang@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- Shresth Prasad <shresthprasad7@gmail.com>, Chukun Pan <amadeus@jmu.edu.cn>,
- Jonas Karlman <jonas@kwiboo.se>, Yao Zi <ziyao@disroot.org>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/5] phy: rockchip: naneng-combphy: Add RK3528 support
-Date: Thu, 08 May 2025 19:26:13 +0200
-Message-ID: <5349721.GXAFRqVoOG@phil>
-In-Reply-To: <20250508135307.14726-1-ziyao@disroot.org>
-References: <20250508134332.14668-2-ziyao@disroot.org>
- <20250508135307.14726-1-ziyao@disroot.org>
+	id 1uD513-00000001Pwz-3RJZ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 May 2025 17:26:39 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1746725192;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hTbyL4rDqJd0LCAW+KvoiiMK8wPz1NsF8UcJJ8cPhiw=;
+	b=IsQL30ONrI4jH8NVOxem46kLDCMzP/Nm59W11WHMUP8KJlzwrFVIEHrxLI3VEWTLPUeH8Y
+	7XOJpnHiBRo/pb4bhe2U4Mpp+M+mJODfTGP9oz9U0HzUgvvphMZt3MK0I33CvXIDScyri/
+	ElClzkI1fJpAvrE3LiRiB/hmMDZM2pdMTfhEOmcNJRV3MKiEu06cyWI8dUvMiUVdnePZra
+	BRfX9LIVEdizlZoEkFEIb0JIz2bbCy/2UAB1ibYG8keWY3Dp5dIjuVv0w6Jm3T0SF3PJ+M
+	lo/W7BklVcGLQjCFreaswevbzJgusPpmB2aTsBXhKZd2kGQNc9dkLdEiN7/0Nw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1746725192;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hTbyL4rDqJd0LCAW+KvoiiMK8wPz1NsF8UcJJ8cPhiw=;
+	b=H9CLw99fBJ7LF0HxwGGI1SpmPdzd7KGDyNshq8EBwNjUWLVEH9JYnBjbnl2w0aefJsI9yq
+	Of9gn2t7UEx8NSCA==
+To: Frank Li <Frank.Li@nxp.com>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Anup Patel
+ <apatel@ventanamicro.com>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Danilo Krummrich <dakr@kernel.org>, Manivannan Sadhasivam
+ <manivannan.sadhasivam@linaro.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?=
+ <kw@linux.com>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Bjorn Helgaas
+ <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>, Shuah Khan
+ <shuah@kernel.org>, Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach
+ <l.stach@pengutronix.de>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob
+ Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org, jdmason@kudzu.us,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-pci@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ imx@lists.linux.dev, devicetree@vger.kernel.org, Frank Li
+ <Frank.Li@nxp.com>
+Subject: Re: [PATCH v18 00/15] PCI: EP: Add RC-to-EP doorbell with platform
+ MSI controller
+In-Reply-To: <20250414-ep-msi-v18-0-f69b49917464@nxp.com>
+References: <20250414-ep-msi-v18-0-f69b49917464@nxp.com>
+Date: Thu, 08 May 2025 19:26:31 +0200
+Message-ID: <87y0v7ko8o.ffs@tglx>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_102623_158283_EB203C1D 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20250508_102637_996623_E56DD45E 
+X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,83 +94,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 8. Mai 2025, 15:53:06 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Yao Zi:
-> Rockchip RK3528 integrates one naneng-combphy that is able to operate in
-> PCIe and USB3 mode. The control logic is similar to previous variants of
-> naneng-combphy but the register layout is apperantly different from the
-> RK3568 one.
->=20
-> Signed-off-by: Yao Zi <ziyao@disroot.org>
-> ---
->  .../rockchip/phy-rockchip-naneng-combphy.c    | 180 +++++++++++++++++-
->  1 file changed, 179 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers=
-/phy/rockchip/phy-rockchip-naneng-combphy.c
-> index 1d1c7723584b..7c92f7ac3c7f 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> @@ -20,7 +20,40 @@
->  #define REF_CLOCK_25MHz			(25 * HZ_PER_MHZ)
->  #define REF_CLOCK_100MHz		(100 * HZ_PER_MHZ)
-> =20
-> -/* COMBO PHY REG */
-> +/* RK3528 COMBO PHY REG */
-> +#define RK3528_PHYREG6				0x18
-> +#define  RK3528_PHYREG6_PLL_KVCO		GENMASK(12, 10)
-> +#define   RK3528_PHYREG6_PLL_KVCO_VALUE		0x2
-> +#define  RK3528_PHYREG6_SSC_DIR			GENMASK(5, 4)
-> +#define   RK3528_PHYREG6_SSC_UPWARD		0
-> +#define   RK3528_PHYREG6_SSC_DOWNWARD		1
-> +#define RK3528_PHYREG40				0x100
-> +#define  RK3528_PHYREG40_SSC_EN			BIT(20)
-> +#define  RK3528_PHYREG40_SSC_CNT		GENMASK(10, 0)
-> +#define   RK3528_PHYREG40_SSC_CNT_VALUE		0x17d
-> +#define RK3528_PHYREG42				0x108
-> +#define  RK3528_PHYREG42_CKDRV_CLK_SEL		BIT(29)
-> +#define   RK3528_PHYREG42_CKDRV_CLK_PLL		0
-> +#define   RK3528_PHYREG42_CKDRV_CLK_CKRCV	1
-> +#define  RK3528_PHYREG42_PLL_LPF_R1_ADJ		GENMASK(10, 7)
-> +#define   RK3528_PHYREG42_PLL_LPF_R1_ADJ_VALUE	0x9
-> +#define  RK3528_PHYREG42_PLL_CHGPUMP_CUR_ADJ	GENMASK(6, 4)
-> +#define   RK3528_PHYREG42_PLL_CHGPUMP_CUR_ADJ_VALUE 0x7
-> +#define  RK3528_PHYREG42_PLL_KVCO_ADJ		GENMASK(2, 0)
-> +#define   RK3528_PHYREG42_PLL_KVCO_ADJ_VALUE	0x0
-> +#define RK3528_PHYREG80				0x200
-> +#define  RK3528_PHYREG80_CTLE_EN		BIT(17)
-> +#define RK3528_PHYREG81				0x204
-> +#define  RK3528_PHYREG81_CDR_PHASE_PATH_GAIN_2X	BIT(5)
-> +#define  RK3528_PHYREG81_SLEW_RATE_CTRL		GENMASK(2, 0)
-> +#define   RK3528_PHYREG81_SLEW_RATE_CTRL_SLOW	0x7
-> +#define RK3528_PHYREG83				0x20c
-> +#define  RK3528_PHYREG83_RX_SQUELCH		GENMASK(2, 0)
-> +#define   RK3528_PHYREG83_RX_SQUELCH_VALUE	0x6
-> +#define RK3528_PHYREG86				0x218
-> +#define  RK3528_PHYREG86_RTERM_DET_CLK_EN	BIT(14)
+On Mon, Apr 14 2025 at 14:30, Frank Li wrote:
+> This patches add new API to pci-epf-core, so any EP driver can use it.
+>       platform-msi: Add msi_remove_device_irq_domain() in platform_device_msi_free_irqs_all()
+>       irqdomain: Add IRQ_DOMAIN_FLAG_MSI_IMMUTABLE and irq_domain_is_msi_immutable()
+>       irqchip/gic-v3-its: Set IRQ_DOMAIN_FLAG_MSI_IMMUTABLE for ITS
+>       dt-bindings: PCI: pci-ep: Add support for iommu-map and msi-map
+>       irqchip/gic-v3-its: Add support for device tree msi-map and msi-mask
 
-I'd think staying with one layout would be best, so not doing this
-indentation here. Instead maybe follow the other ones like
+I applied the interrupt related changes in the tip tree. They are on a
+seperate rc1 based branch and contain no other changes so that they can
+be pulled into the PCI tree as prerequisite for the actual endpoint
+changes. This can be pulled from the following tag:
 
-#define RK3528_PHYREG6				0x18
-#define RK3528_PHYREG6_PLL_KVCO		GENMASK(12, 10)
-#define RK3528_PHYREG6_PLL_KVCO_VALUE		0x2
-#define RK3528_PHYREG6_SSC_DIR			GENMASK(5, 4)
-#define RK3528_PHYREG6_SSC_UPWARD		0
-#define RK3528_PHYREG6_SSC_DOWNWARD		1
+   git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git irq-platform-msi-05-08-25
 
-#define RK3528_PHYREG40				0x100
-#define RK3528_PHYREG40_SSC_EN			BIT(20)
-#define RK3528_PHYREG40_SSC_CNT		GENMASK(10, 0)
-#define RK3528_PHYREG40_SSC_CNT_VALUE		0x17d
+Thanks,
 
-=2E..
-
-i.e. register + bits + blank line
-
-other than that
-
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-
-
+        tglx
 
