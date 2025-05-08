@@ -4,101 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EC72C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 03:21:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EDB4C3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 03:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KCwUcTW+JCBXhA2O5sLNJvcXCcHuUpmaH1Y5CqHoX3Q=; b=r84lv7VB2HyPZui4fV764sStyS
-	saNMpEeUEWu8+faUE6MJHB2dIBx+5ao5BuZB+NlsxaZP81Gsj+LaeAhVBiuv1n3hCKo3uRAwCB3XK
-	FWn6zuxy83339EvggUz9CCCCIlj3GpEbKeY5pQiUsbCk3WIPA7rl1LrqKZrE0oAdnEjcD6kdI40of
-	ZnzPkGRCxrOtL664OC6zuew5FFzlQYAL1QjquS9983wd2hQkMqJvDKZRJ+Vq4fomrdlFgiSK+7xJx
-	/rdzF6phpzUa3qiv5fmeAo+Kt4iu241fMnSvFyZ8ONl1HPmUM/PZqvr5u88XkVnAUkUqB+SP4AcJe
-	H3voIYxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BDD4yNEsjszfNYx9lT8DUsAY8Oe7hO3jU9PQmGvxdp8=; b=ztHZVRnTqRaqQYODkWBF59BZAY
+	u41uhEfhEqH4UUtbhopbCqxMSgnmhSvWmGgcYqkEEWMPgaoDj+O3FB1lVx9t9QkObkVUYTfg7V9+Y
+	+LBpxZgft+5rd3Qi1NLhnbspWXCVUJOnUpT8iRSBUlkY6OQNMJxx6XvmJk4q6KDi6PfGMZSyZevX+
+	uqpdEQs4UFM59wj3j7H5UolQIGVglQk7x7zAA4K90m8JnnVt8RNzA19q7BKKmNCAX04LtVq7FUqOR
+	DSTN6kI9o590Qb2c0lIanSDBPW5ajTxHtpsQY8HhpTbAc0MFYRxdUgHemZUBVNYm1rwLIqzh+DJIY
+	oH51FpkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCrow-0000000HCcq-3sHF;
-	Thu, 08 May 2025 03:21:14 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uCs34-0000000HEAh-0QaV;
+	Thu, 08 May 2025 03:35:50 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCrmx-0000000HCQz-10An
+	id 1uCs11-0000000HDvi-1LI6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 03:19:12 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5481DJHo029148;
-	Thu, 8 May 2025 03:19:04 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=KCwUcTW+JCBXhA2O5sLNJv
-	cXCcHuUpmaH1Y5CqHoX3Q=; b=bY5KmB7ZnC7NQkyOAArnluwxXM214JmkyckMHv
-	83sT9yA/YTWe0S9fDoGYfVzfGy3xDhTR6MaBq04oA/4ErePHDJy5M3mGJKi3sFtH
-	KCEz9pLs5Ai4m2tuk5KJpiD8WTbbs+NQUBlZ9zNWFtA2MMZWoYcQ7BiSK3eKc9zW
-	YDyFSELQhGdtGvPazZS4zZYioPG9dTLW59NYa43+JIJh/NLp54l1pt29j4mb8nVT
-	V2YwPgnTNX6nzhtS9NPGh+VH2bJ04La0JkGvH9C8b1wRBadAEQu4Ket3VKigjqIw
-	Ryoryk9mKNKILk+5Jam8o5s2OttgbAQ5U+mXR25t7rTgiSWQ==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46f5uuyuw0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 08 May 2025 03:19:04 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5483J2DV025109
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 8 May 2025 03:19:03 GMT
-Received: from hu-jinlmao-lv.qualcomm.com (10.49.16.6) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 7 May 2025 20:19:02 -0700
-From: Mao Jinlong <quic_jinlmao@quicinc.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>
-CC: Shilpa Suresh <quic_c_sbsure@quicinc.com>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        "Mao
- Jinlong" <quic_jinlmao@quicinc.com>
-Subject: [PATCH RESEND] coresight: etr: Use noncontiguous api instead of noncoherent
-Date: Wed, 7 May 2025 20:18:51 -0700
-Message-ID: <20250508031851.2566235-1-quic_jinlmao@quicinc.com>
-X-Mailer: git-send-email 2.25.1
+	Thu, 08 May 2025 03:33:47 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-22fa414c478so1291465ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 May 2025 20:33:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746675222; x=1747280022; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=BDD4yNEsjszfNYx9lT8DUsAY8Oe7hO3jU9PQmGvxdp8=;
+        b=PxyYDIe965r1QIkG9kW/ftvd7mTr24FG8JbSgvCb4NB6qRUOJN2vfNvWGHXZ1GC0UE
+         pwNInbuJrNLOFfrRofqOoQSMLq/CqnnDZfLmFIEdCNFmUDI3670Hc/yYFXd5Fi0wOetk
+         rFg1Q6BZyPDEvmtf8lGwE1ZbZAMY/mz9cnLpnxHmFZFKIF5Nlx2QiDm82E4hsdyuE7kx
+         gnRoXIo9xCbEcrA/D86bnpe/c+qAQ3i+J2QbvPH+1UqOCDD7Ua9r/RmcC/UbMM67o6cj
+         glwLjuABrejriSYXJ86O1NQhziKtYMDqR/xoJVlWsHqLwq2fRn8COwv6CzWh6wmiEE5F
+         Dgig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746675222; x=1747280022;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BDD4yNEsjszfNYx9lT8DUsAY8Oe7hO3jU9PQmGvxdp8=;
+        b=BKK56V8yNm1fqd/9+3FzUaLhrNYI95ky7sreYF1dM5vM1R5BU3MZoro48Not7cCHCx
+         AbV11DkAmwFJsD1FUr/LA7LN28B0I+LZebstosC52jvOZYu3c32c+WtVyqHqt2FbMNwi
+         WqL54SsBILmgR9ndHLdgffVw9O7zfeWvpX9MTcRAziJVYpQsblOhm2jsh5Sit7OCzxHN
+         sroxVlo7smoBIwEfWpdMtD1oqLTovv/NG3Kf2O3U34+qD9aT0xCB8LpFZ1xoyIoo4BNV
+         nKDgBT5yXPmlDlY3zT/85oz8sVGA1ZkM/Hz3THoJOJ6ZRfAWuFV03YkliqqR5DL1pcQa
+         EL8Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVF8MzrRlLPbmu0fdtmFYA/DuWzbntFDOYoGHKmgK6oO/1ekERyGL00//CATA8u4Q3K7kd2uHhhPhmKTmOv/xjE@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZd9VpgumTZdbuTXj9cqJbidzIR5P3x0VECjAWSeA0FuvxVfjJ
+	pIUxDGe6bstbERu+qB+AGedNS+Zt5ESNYvKStPD6jZuZF3ILPxCD
+X-Gm-Gg: ASbGncvrWDcr7YdBdVIDSEcitP07So8WLg1OmcV0jiowFGCpilg+2b3zrxw8DY8ihNH
+	Ga0tZm/Lt9cs2rLXBW5d70CN5WSpoDwl9d2IatBTYS+S8o7ozgX9r0UMD1zt8F/TOoJtdv/rKVU
+	lsiYH33r9+Y75qyXOyCrP6gZnBsS4WdHqcnI/yi2eTHZDesmbp5oLuQbGGPEYIavsOc9AvniWwz
+	IHkQvhqsFKgx9WxY4wb+OqvhE5ZwGRCmTnrndj114wvrASoqyxQvNg2rPQuOxWeVmHFhGvIZYoB
+	X6oOvbasHoQhFGLW6sQYuDZpauO6sjRCQxcSSA7ehdfboczViUOWYXgAJl05GQSOiwFUED3FoAU
+	KZLSov6g+61OK
+X-Google-Smtp-Source: AGHT+IFDlLNJXygEF1m8UuwcdjVPwP+2wnjTRA4umRjmVjJvM/vrOQRs5VsFbED/owDgYFVHwooruw==
+X-Received: by 2002:a17:903:19c7:b0:220:eade:d77e with SMTP id d9443c01a7336-22e5eddc7c8mr95430005ad.40.1746675222059;
+        Wed, 07 May 2025 20:33:42 -0700 (PDT)
+Received: from KERNELXING-MB0.tencent.com ([43.132.141.24])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22e15228ffdsm101685265ad.179.2025.05.07.20.33.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 May 2025 20:33:41 -0700 (PDT)
+From: Jason Xing <kerneljasonxing@gmail.com>
+To: irusskikh@marvell.com,
+	andrew+netdev@lunn.ch,
+	bharat@chelsio.com,
+	ayush.sawal@chelsio.com,
+	horatiu.vultur@microchip.com,
+	UNGLinuxDriver@microchip.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	sgoutham@marvell.com,
+	willemb@google.com
+Cc: linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	Jason Xing <kernelxing@tencent.com>
+Subject: [PATCH net-next v1 0/4] misc drivers' sw timestamp changes
+Date: Thu,  8 May 2025 11:33:24 +0800
+Message-Id: <20250508033328.12507-1-kerneljasonxing@gmail.com>
+X-Mailer: git-send-email 2.33.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.49.16.6]
-X-ClientProxiedBy: nalasex01c.na.qualcomm.com (10.47.97.35) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=L9cdQ/T8 c=1 sm=1 tr=0 ts=681c22a8 cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=3H110R4YSZwA:10 a=dt9VzEwgFbYA:10 a=COk6AnOGAAAA:8 a=LJGOv-cUfqeUQQqDYsEA:9
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: Cs70GVF0RP2iA7c48ktTqSrR84qtVv9b
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTA4MDAyOSBTYWx0ZWRfX2GtiCQUX1nV/
- 7kDIYtnKjSvdGKjSIQX7Mf5GCr1Op1sf4eoLZFjHO2+CaVbR/Xkm79OhtFCsTlmep7IsLAB7BAk
- 7JVIi4dd6P5BIuIL6JdaWBwwGMTUMHRZw30XEgOUcKEa33HBPRb7rR5D5RT8IqW64erl2BQfJOc
- m9Jpqhdw4xwrRKysSmTijzFGxF5voHiPQsLJJC94QGRWhAmy9C9mbK5n+gYde24a00Agou04Lut
- OqFQ8vGPseul74gRUNaXqXLY69rT57oUNvsnVrB+3UlErnqtW5LxIl/QYEd4DdqZybY5BbPTj61
- DWKp02ma/82KG1dkIPzO6YB6CHNi6e8/gkot2NkAaaKYeQ1Rd2PoUHf6sE/1l2XbLs/WBIxjCsK
- nCV7JhFuHOroiNbNLctU958evUEPYCHyShetxYvdA4b1mdM08LeFuDNW0uvsALF+f4H0CZMy
-X-Proofpoint-ORIG-GUID: Cs70GVF0RP2iA7c48ktTqSrR84qtVv9b
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-08_01,2025-05-07_02,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 mlxlogscore=852 spamscore=0 suspectscore=0 impostorscore=0
- mlxscore=0 priorityscore=1501 clxscore=1015 bulkscore=0 lowpriorityscore=0
- adultscore=0 malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2505080029
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_201911_415558_D9299888 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20250507_203343_359970_07A6BF36 
+X-CRM114-Status: UNSURE (   7.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,111 +112,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shilpa Suresh <quic_c_sbsure@quicinc.com>
+From: Jason Xing <kernelxing@tencent.com>
 
-The iommu support for noncoherent is removed by commit(dma-mapping:
-remove the {alloc,free}_noncoherent methods
-81d88ce55092edf1a1f928efb373f289c6b90efd). Use alloc_noncontiguous
-function for etr flat buffer allocation.
+I filtered more than 100 drivers and only modified four outstanding
+drivers among them because the software timestamp generation is
+too early. The idea of this series is derived from the brief talk[1]
+with Willem. In conclusion, this series makes the generation of software
+timestamp near/before kicking the doorbell for drivers.
 
-Signed-off-by: Shilpa Suresh <quic_c_sbsure@quicinc.com>
-Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
----
- .../hwtracing/coresight/coresight-tmc-etr.c   | 47 ++++++++++++++-----
- 1 file changed, 34 insertions(+), 13 deletions(-)
+[1]: https://lore.kernel.org/all/681b9d2210879_1f6aad294bc@willemb.c.googlers.com.notmuch/
 
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-index 76a8cb29b68a..3b204f3bd45b 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-@@ -24,6 +24,7 @@ struct etr_flat_buf {
- 	dma_addr_t	daddr;
- 	void		*vaddr;
- 	size_t		size;
-+	struct sg_table	*sgt;
- };
- 
- struct etr_buf_hw {
-@@ -616,15 +617,24 @@ static int tmc_etr_alloc_flat_buf(struct tmc_drvdata *drvdata,
- 	if (!flat_buf)
- 		return -ENOMEM;
- 
--	flat_buf->vaddr = dma_alloc_noncoherent(real_dev, etr_buf->size,
--						&flat_buf->daddr,
--						DMA_FROM_DEVICE,
--						GFP_KERNEL | __GFP_NOWARN);
--	if (!flat_buf->vaddr) {
-+	flat_buf->sgt = dma_alloc_noncontiguous(real_dev, etr_buf->size,
-+						DMA_FROM_DEVICE, GFP_KERNEL, 0);
-+	if (!flat_buf->sgt) {
- 		kfree(flat_buf);
- 		return -ENOMEM;
- 	}
- 
-+	flat_buf->daddr = sg_dma_address(flat_buf->sgt->sgl);
-+	flat_buf->vaddr = dma_vmap_noncontiguous(real_dev, etr_buf->size,
-+						flat_buf->sgt);
-+	if (!flat_buf->vaddr) {
-+		dma_free_noncontiguous(real_dev, etr_buf->size,
-+					flat_buf->sgt,
-+					DMA_FROM_DEVICE);
-+		flat_buf->sgt = NULL;
-+		return -ENOMEM;
-+	}
-+
- 	flat_buf->size = etr_buf->size;
- 	flat_buf->dev = &drvdata->csdev->dev;
- 	etr_buf->hwaddr = flat_buf->daddr;
-@@ -640,9 +650,12 @@ static void tmc_etr_free_flat_buf(struct etr_buf *etr_buf)
- 	if (flat_buf && flat_buf->daddr) {
- 		struct device *real_dev = flat_buf->dev->parent;
- 
--		dma_free_noncoherent(real_dev, etr_buf->size,
--				     flat_buf->vaddr, flat_buf->daddr,
-+		dma_vunmap_noncontiguous(real_dev, flat_buf->vaddr);
-+		dma_free_noncontiguous(real_dev, etr_buf->size,
-+				     flat_buf->sgt,
- 				     DMA_FROM_DEVICE);
-+		flat_buf->vaddr = NULL;
-+		flat_buf->sgt = NULL;
- 	}
- 	kfree(flat_buf);
- }
-@@ -651,6 +664,9 @@ static void tmc_etr_sync_flat_buf(struct etr_buf *etr_buf, u64 rrp, u64 rwp)
- {
- 	struct etr_flat_buf *flat_buf = etr_buf->private;
- 	struct device *real_dev = flat_buf->dev->parent;
-+	s64 buf_len;
-+	int i;
-+	struct scatterlist *sg;
- 
- 	/*
- 	 * Adjust the buffer to point to the beginning of the trace data
-@@ -668,12 +684,17 @@ static void tmc_etr_sync_flat_buf(struct etr_buf *etr_buf, u64 rrp, u64 rwp)
- 	 * is full.  Sync the entire buffer in one go for this case.
- 	 */
- 	if (etr_buf->offset + etr_buf->len > etr_buf->size)
--		dma_sync_single_for_cpu(real_dev, flat_buf->daddr,
--					etr_buf->size, DMA_FROM_DEVICE);
--	else
--		dma_sync_single_for_cpu(real_dev,
--					flat_buf->daddr + etr_buf->offset,
--					etr_buf->len, DMA_FROM_DEVICE);
-+		dma_sync_sgtable_for_cpu(real_dev, flat_buf->sgt,
-+					DMA_FROM_DEVICE);
-+	else {
-+		buf_len = etr_buf->len;
-+		for_each_sg(flat_buf->sgt->sgl, sg, flat_buf->sgt->orig_nents, i) {
-+			dma_sync_sg_for_cpu(real_dev, sg, 1, DMA_FROM_DEVICE);
-+			buf_len -= sg->length;
-+			if (buf_len <= 0)
-+				break;
-+		}
-+	}
- }
- 
- static ssize_t tmc_etr_get_data_flat_buf(struct etr_buf *etr_buf,
+Jason Xing (4):
+  net: atlantic: generate software timestamp just before the doorbell
+  net: cxgb4: generate software timestamp just before the doorbell
+  net: stmmac: generate software timestamp just before the doorbell
+  net: lan966x: generate software timestamp just before the doorbell
+
+ drivers/net/ethernet/aquantia/atlantic/aq_main.c            | 1 -
+ drivers/net/ethernet/aquantia/atlantic/aq_nic.c             | 2 ++
+ drivers/net/ethernet/chelsio/cxgb4/sge.c                    | 5 ++---
+ .../net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c  | 2 +-
+ drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c       | 2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c           | 6 ++----
+ 6 files changed, 8 insertions(+), 10 deletions(-)
+
 -- 
-2.25.1
+2.43.5
 
 
