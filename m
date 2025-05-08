@@ -4,102 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C00E3C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 21:12:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB6BC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 May 2025 21:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wt3w+Gn0EgqSBVHw6lctS6c+Nq+52QzX7+ZirB7/L34=; b=DZzwzGwgSNYHaRKHOzgRh5b8YJ
-	F0j+PjI0bNQ1q2RU/8eY9mzpJ9PQIPQQ4YApXcb6eDBbWkn8R/oh+WmW09hFO0jktKrAFdiKQWwr0
-	Lhf8pSN5cPznRYSImcAwE4ytvSK8ES7q2e9zKuOiJ6VZ6oGhuFlOEOpM9DRlcgsR67+ft3pEtGvCm
-	Ok1OJW13KX7Pyq0zkQszykQi5qZgLePWXr3wdHMVyhob6yiR8+4Wq1ukJUgUE+0VVg4PkTrr9C0Qd
-	WKLD224uOJ2Qbzgq2wDvhlkjAiiR+IyUwaE2X3zbEMm20bGmOg/yyu1EWW3d/D/ojakrHWgkbbdbn
-	9eJ+TL/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bBjGmcV+MlGYesFK/GTfipvbjJvmq4ZEcuBEOEvPX4I=; b=wy0uoqasMLc7YqviNvuobuHXiU
+	mDlIzDVphLcJTFdtpdSfGBMGat2Yrm1zBuEre0H2TbCZpDsS+OCTDGuc1JrC4YOmysEA4d2lwxYVs
+	xqbLYt2+WpMbDIFH0Vm/T3p17rwyexIOpYYGwZ6JDYrz9JWN9KORdRk0HPaO+kVGZ2SLLF593CyhA
+	GIkyyVlqDF+mPhCC/bOZoMAuJcxe0joXajNcnFZTVHQBgD8Hh/PsYHWO09FtVW8T4GPfmHnPifvs4
+	dQM0ujqVKFOcoTiquWjya49LBFis+HXijTCBxG05iyFJk25VHP5KfLNLmil0+CndlgLE+3d9cwgar
+	MEXO3v0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD8X4-00000001owb-2aa7;
-	Thu, 08 May 2025 21:11:54 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1uD8ZD-00000001pBJ-1Dim;
+	Thu, 08 May 2025 21:14:07 +0000
+Received: from mail-vi1eur02on20604.outbound.protection.outlook.com ([2a01:111:f403:2607::604] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD8V4-00000001olx-0kSH
+	id 1uD8XF-00000001oxW-3SVc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 May 2025 21:09:53 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-acb615228a4so489200666b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 14:09:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1746738587; x=1747343387; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Wt3w+Gn0EgqSBVHw6lctS6c+Nq+52QzX7+ZirB7/L34=;
-        b=S1oL4zNzEXAVg78YHR+AUiSvA2qLWPRj1KuWCE+uzG9zn/xh5QqKzSTy7xiVGzhn8h
-         MBd5qxHMwcvqGzeZ1De2HwVnegC6rWS5UORbse2Hm3hvaRq+bmmKz+SYp7iPMMT1+Q9o
-         fLQywx2I6AGP23oIa3hx4JISxF7FUsq9JYv8/h3dcLq/vlVDsQ5zDXmXpKE29WyvglgS
-         FASauOQgl4yZn3xGOc5Y5lW8zCnkzsFKLkhCOjlEucin3E2fa2BmssMrOBN3foBOtQ8M
-         1sRs4EqAeoLNK/mi5pmOgM99DiJuuhrX2zkHfn173r7x+aTZiHN4EN5YNNypSY/8VGrQ
-         0TNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746738587; x=1747343387;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Wt3w+Gn0EgqSBVHw6lctS6c+Nq+52QzX7+ZirB7/L34=;
-        b=Umn11syRGHHc3v5LSDylvMEi9QEanYv89QJCUS7KeTuAaU80SSg4IsQWpux739+Cwt
-         rj/UcXFKWeoV3qgCQ/YxBp4K+boodHK9S/8gTSak6JmVzGU0tUsW4yILFbsOEfLfA93T
-         O0IvUveOcm/092J+3RGU3LcvdXWYP3h73D/XHn/YnIY9Zzl/4pzsMA4iyDorqb9rXUh4
-         40T11TRZTzp1y5JVmhPYZh7PvOFg1RBeHGlfSbNskJgULt22Rf535SZ6uxU4UBsPY1bJ
-         wMmSTra97PUQENXM7zuxSxHOkJftaYuxAuCukr3gKckYpG294E3CID78hNMqwoNX5zDu
-         2XbA==
-X-Forwarded-Encrypted: i=1; AJvYcCV1SvRR/ifmQr6nTnxEvg8k1B7YOP/Uhyr6xLDrY9uwTgqSGN9eVVovVXaQTl4xfwD9sTDtN5b8dtyi/9dQDWag@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzYn0XVb+BfJFsqn58ioCjg3h8BDg6D0UcNJ/+sllzrOm+TlF0
-	jBld9gn5CZpJBHUIWi4x4cbdDRznUPDr3h0Skc69BtngXK4NnDUiXDoWdQmAGf8=
-X-Gm-Gg: ASbGncuiXZdGbrqXK7LcYVZXVucyJbr3qSP/ZEGs56gEwbPmO2H04eG1iEQrPISSu63
-	sZdjCu6x8h4LDb9q7QChlWmXwzpC710a8BlOA+Kig+Oi3aGi9QyysOaZQ3QA9SrUKFuZTw5Hu6U
-	0tOfwMZv64igel1CQwojMfxWCOV43Fat+tKR27tbyHW9+kx0pZYSr03NP2RhEWOEKEf6sfLm8Co
-	REZZal9oh90oE4dWH+mXp6xr2ejSEfMxPAZ3PlepNin8r9GiyOAuQCVrvlHg7rinYhe+cBZoDt9
-	GBLBryxVoPFaUOmOEwNP/s85zdDkM0xgNPzNoSzCq8MXJy7JyVw0l0lDw6kUS/hvzec5eCJXouk
-	ggEaGNA==
-X-Google-Smtp-Source: AGHT+IGtTDHi/AvD/8xVF94y9tqkLvaBF9rJtu3zqfIKtlmqKgx0l8+YKQe7od5kLKnDVvo8pbUjMQ==
-X-Received: by 2002:a17:907:7f87:b0:ac7:b1eb:8283 with SMTP id a640c23a62f3a-ad1fcbdb0afmr453119666b.17.1746738586640;
-        Thu, 08 May 2025 14:09:46 -0700 (PDT)
-Received: from localhost (93-44-188-26.ip98.fastwebnet.it. [93.44.188.26])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5fc9cbe4c83sm405206a12.8.2025.05.08.14.09.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 May 2025 14:09:46 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Thu, 8 May 2025 23:11:14 +0200
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
-	kernel-list@raspberrypi.com
-Subject: Re: [PATCH v9 -next 08/12] arm64: dts: bcm2712: Add external clock
- for RP1 chipset on Rpi5
-Message-ID: <aB0d8kNVtAEoW8Ts@apocalypse>
-References: <cover.1745347417.git.andrea.porta@suse.com>
- <38514415df9c174be49e72b88410d56c8de586c5.1745347417.git.andrea.porta@suse.com>
- <aBp1wye0L7swfe1H@apocalypse>
- <96272e42-855c-4acc-ac18-1ae9c5d4617f@broadcom.com>
- <aBtqhCc-huQ8GzyK@apocalypse>
- <779ae10a-3174-4dbb-9130-008393b59745@broadcom.com>
+	Thu, 08 May 2025 21:12:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mg9pfbBdhtANJzN0vz7VdfiwqhGDESz0jyp1+RhFfaE22W8L+XTiV2bP+bzz+XppIa9uHM67kUjUdGXCPOZBK54LjrvrQ+uMqgLwcZoDXZFfdUIW1kHzL5WUXiWpFS5TPIOKsN6kFuAMFgfHcWGW43hKMYqIany9h1/hOvONL7IOwJf9EF4LjcWF3uijPA73UytpkCsEM9BDzOwYncHqBBxO5UOzPVd4UmBnDEozPd/A7as1v9fipg99MyNIr3p0oUuBSMikRlTb40j7wZHi42arpg5FI1BvONWEgmVxsZt5r1/wUFU8F9+Q2rA+Ak4ZnDxTJXopqEsLo9+A5XjQjA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bBjGmcV+MlGYesFK/GTfipvbjJvmq4ZEcuBEOEvPX4I=;
+ b=x7sVbGtnw0r0ff+LCTvpVmP9ELJ5lJIic2LqIwHsjDoWp+ZoenBovqkeFPglNZLrTLsPf1nAt/c8JsrvPZdyH5bMRej/0pTAO3ZViexHIZsWHhU0quyHhevEtg8YByeRkAlqepUueuib0onpV6/CQZF8zMSkHvbVmWIOyl51R+eXWlj3mkgsIOMkoJpx/9sD1iIEVTQavjllidDANp9zOPljlzvT6eXVfwssSTNZ9h/rnaYQSk63qBlmiiSZLYCb0jAsIrqU6GY7MILg7kQLYtrzEWEySsG29zIWpG/96n2f6gJB3hWweRgU8AfJ5Yn//8uotIVLA5X2eZHLkwHP/Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bBjGmcV+MlGYesFK/GTfipvbjJvmq4ZEcuBEOEvPX4I=;
+ b=IeIdzCu8hOf1pZPxa1jf6jQoxyvsHi9gwTwjRdLkquPG3akzB2mvuu2lnJ3Zx9MOuNPbd5ygd8cRaRBPi3UWRhqcoIHg2ygtkjdpkUPzO5cEnab2EtNKDJ6nT6dUUgRypW8pDf5QwzZSr8u7wJnkXOrMClLzvSf8CkqHiZSncqmuyCJted3S1NclEWXlb5dQOTKZKXn8XDROAT5j0sZgFowL13QZCHk/ZIoHtZI8fBkmBHhCbJ5V9hnXSbVE9PEuDe0A86iHhj4RpdIQI8+aMrDikxnicuEXvF5r/8PsnhtnlS/YX55ycsDtNHXIeV8nS30HUpiBFQoWxK0DzBn/Mg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
+ by PAXPR04MB8272.eurprd04.prod.outlook.com (2603:10a6:102:1c1::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.21; Thu, 8 May
+ 2025 21:11:56 +0000
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2%4]) with mapi id 15.20.8722.020; Thu, 8 May 2025
+ 21:11:56 +0000
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: netdev@vger.kernel.org
+Cc: =?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Imre Kaloz <kaloz@openwrt.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Andrew Lunn <andrew@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next] net: ixp4xx_eth: convert to ndo_hwtstamp_get() and ndo_hwtstamp_set()
+Date: Fri,  9 May 2025 00:10:42 +0300
+Message-ID: <20250508211043.3388702-1-vladimir.oltean@nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: VI1PR09CA0175.eurprd09.prod.outlook.com
+ (2603:10a6:800:120::29) To AM8PR04MB7779.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24b::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <779ae10a-3174-4dbb-9130-008393b59745@broadcom.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|PAXPR04MB8272:EE_
+X-MS-Office365-Filtering-Correlation-Id: 99689093-7da0-40b6-7881-08dd8e74f694
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|52116014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HlrJVE1nsyEtrk5XleCPWd5LfwV9bOk6DE+OWmLwyxoWu9DLvPpdZp+xhrwI?=
+ =?us-ascii?Q?RM/lsM/b2FR4fdp2CG3OmL26IVAxqhElq5k3eF/1uwnN+pX4IRU2LS4gv1+X?=
+ =?us-ascii?Q?nZcDtnK65hJxKrlEmEatrxd7u3CLAOhT8tUQBuI4O44niAwue0md60q/eSYK?=
+ =?us-ascii?Q?xSlX+W1WiwssgkkIk3dZibRyKTffk41B/5Hw0DUsqdjgDVm9et9o5T4CMrjn?=
+ =?us-ascii?Q?0enqob96TmUukWjgGDA7fjn5WjQ4C/B27WOdmoDfv8dwV+lkfmngEeIQPw6g?=
+ =?us-ascii?Q?ax6RD+21fjGYbG9TuzUqcc7cBtA0LN1+NSSjZeaxWkPJNjU6FSbDL6gOkpn0?=
+ =?us-ascii?Q?ar/a1cT2ldXsezH9rDB+/qNrR/deNNzAevx0zjnAb07T07pLDlumPfmghTaU?=
+ =?us-ascii?Q?AqO+wieLGey772p0wOO6LvALC22kSerioaAs9I5/iBNXzgxjPPbcH/RFbT5A?=
+ =?us-ascii?Q?+/g7s+1zkrkTT+ybUFXzpUrEx/lxmB1WWPrvG6l6GUZX2HfRhT+17VROX9M0?=
+ =?us-ascii?Q?GSb3NLZydBp4DoZ1MTlVMteomLMpVm/wLezr9sBCQkop5lPNJsZjGX0paxRU?=
+ =?us-ascii?Q?5HvL17wnD8+658/wR1G+l2PPjWP6S5zNIWyVidiy4j885uR2jH5lo/7W/4Gl?=
+ =?us-ascii?Q?3byVnR8DYUc/w2zLiU7YDLlHWQtcMH3TMkGxk+9WiIx+hZdmMLx6O/k/olWk?=
+ =?us-ascii?Q?ozdxZqviI6mWdf/6OZPJQdFJN1OsQfZJkiKHLiQ6FOgs/RPXduMqMmt8Qcjs?=
+ =?us-ascii?Q?iem16xQjzxZ0LVoY/Eneq7BwIIDDVabtOtuHe1BC6bG+p9ctTJXovQ7K3FPr?=
+ =?us-ascii?Q?K89mmwEQHPhwpVseB66QPxJKlnimliuUeqoN5ye5b8mRmZ3pmJzZRBkYatIV?=
+ =?us-ascii?Q?mIU+zGVl+rnc1Taummi6eZH44jI0268vx9qNMjPu3FYfPaVOveiENd/ebVM8?=
+ =?us-ascii?Q?60UVmUSUqlFF7n7atuJosEubWZ1kTTm6CNbedoVP5pfm/Cg/6NZPm5qOxUoY?=
+ =?us-ascii?Q?LapA19B24W7Vpn0T0ZBG/kjFb7TluLEIrqF8209cUwbPBci74n9RW6QkCPzW?=
+ =?us-ascii?Q?NQpCEDnlmNysDYLrKomxcsx91lENGztweZxd1humju50iJ9BfEtq/3doc55h?=
+ =?us-ascii?Q?5pfhjpRHkRTfJ6EiyrUYODhUdQTz/lnIPn2VMkqOOofLJqn/0MBrifn8b4q0?=
+ =?us-ascii?Q?8KuShOyOAn7Pr6s/D0aqKC12dzMnQiPqSxpybeghkWUkn++dvsUa4M6YnrFY?=
+ =?us-ascii?Q?4tzvf12bxbpf+B3ituPbpZVl5nbgGhuWe3pwDlCeuWcs6qPeRmWvG7bCtkur?=
+ =?us-ascii?Q?iOtTmyNonHPPwtCHhUmJu63+NheFuozLfGN4qd42ePEmMBEO+n1nxIiRJE7S?=
+ =?us-ascii?Q?GLxBCvUN3XQTQgYd7SyYHEXNepJxVcaWncwrv+h8PEduu+ZxiSOLNjyyq5Br?=
+ =?us-ascii?Q?KRMqO8/8YE8xVY7h+XTZT7t5Y6SgeuammVZx7o0zute1s6Lgh35v4Q=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wPu/3TLqDZ5Jd0sELUUZ5cdrC91GzQ2xeNmLLoewmt+zRCT3rQhKY3djH3cz?=
+ =?us-ascii?Q?NuV+wlpun04Z3sqptzJE9En4yvai5fJVJwxKmmt/4+RAo4dYoMQ14W8RhnFQ?=
+ =?us-ascii?Q?8wabm2Nz6TTmn0dE+E0ErzFJcK5VcIVgXQ+1j+zIwn1c8SdmEB8g+3zW5ymS?=
+ =?us-ascii?Q?1t+mS+9An9Rxd7EgZJErGHV4+3d+nbavOBZxLDBh3RC46IjMMFao2vr27Ylm?=
+ =?us-ascii?Q?SVTehuG74eDZJlCbQGh6izWh6bmNsNNIPy4zYeme2olUQJxnpgwHzoQgHb0X?=
+ =?us-ascii?Q?M1Uc+U1DQLAMAaGv9AUz8kw/5QnL42Jw7WxC062nDCiQYE6tPG04pVyLy73l?=
+ =?us-ascii?Q?Iiqps+T1U1+DglxXVtjcJPEEBlqUcEViE9/mhuSlddN/S9dVkXJR0uhzfRYP?=
+ =?us-ascii?Q?u/C6fbVdRwt7dm3M+E8wCNljOFhERU0n5GFaCgwRe0v0VGAgc4E6Ci/i/fbc?=
+ =?us-ascii?Q?euHUUWD7VWOUSkDgNOcimB2tkjcnt1KMot61MTYLkTQ5PsP39/cXy+SW4ch5?=
+ =?us-ascii?Q?L+friiiSLpFw7G+J8jW+z1BRwO8Kaf1GNl9Y5S63vcOJeePlV1GZQZKGpPeQ?=
+ =?us-ascii?Q?xW839YrXfN0qeGLsMApemHSJKzqjzHdGSGd6FhaJ87s4AtTFVxx/PGZZDL0+?=
+ =?us-ascii?Q?jNnK23Ubt7+g8LEZ3A7r3InGdHFPMVrYLKQIg2B3DplUK6I+Bg47ZMf7jaET?=
+ =?us-ascii?Q?w9h6CQgvViMFOQGE+n8gggxLodh4vtI8SxEdA0jqLoETeJuYjGh5Ws8mbN1r?=
+ =?us-ascii?Q?qgvI+PGJGc8kDYu8yydjzWI1BoyeXezAn/SC7WrwNbLv4eDrsSfPLVDOaJ1Q?=
+ =?us-ascii?Q?5zkcXaF/Ehq1Od/HwJ6OJKkXpbsot+eqvtKWn8bSVlTFwKwWDpfQ0g46gxfZ?=
+ =?us-ascii?Q?BW84Tz8ujJhfVcuou4s7haxkAMHIXLucUHAd8KlMACwLeGRLLuaMkM/1qn0u?=
+ =?us-ascii?Q?Vhx/vO170m5D8GTkMEyGExzXN+fmfGqfRfi1ohRrwLpDkCc6oQ9aXf7N0RbP?=
+ =?us-ascii?Q?vfiom/2ub/9R0D5pLy8Pu2R/3KsU1E7Rp0myCQEgaUCdeqeHNcSRreMoCDte?=
+ =?us-ascii?Q?+dDbn/h15BTtvocMtNpsM/WB3dYrd1z4A6hyVhO951X784cMV9uz3YgmkzYA?=
+ =?us-ascii?Q?//aGKgnzlRzWCZo5yQ/upjbkL0MWKbiYRsBVVOxU5GDg4qpnXpttTP2NlJFD?=
+ =?us-ascii?Q?ZmdVNBI8rwJyV+NmPuTb29zqKUfIdDgNvlnWF6pj7dQ+s5Kjff3c7safIcFX?=
+ =?us-ascii?Q?bAOkM0OaGEyQp2mzPruBNZs2gOtWVOuRSNEmQj8fRw/NmPcxhCQPd7ZeFGDy?=
+ =?us-ascii?Q?1RWPiR50p6lzY860zONekgmaxE2ftot8TjG83P4ysw9Sadje25sPm2pM/yeN?=
+ =?us-ascii?Q?jJsz4br0XMIP0DJPSjcpOpo2h4Pi8STK77lHcVFbzBSvDlUdmr7Z5ntFuvDE?=
+ =?us-ascii?Q?yd4ApX1mfpauxCr1tsz4rAHB/xlv0OKw+6haVTMC9hILiHoHtHnDQHNWgS9S?=
+ =?us-ascii?Q?qBGaMKPL21Up5LwlJt7uxh6ZdfEaru1xRZfRfcKNqU1fsKPXD+my+KXlaLRE?=
+ =?us-ascii?Q?FAddlhSAA+ypekRqy1t6gm9WP7X9su3Jcv2H8THgHGpKUkZOsSorBG/ZLSK8?=
+ =?us-ascii?Q?Pg=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 99689093-7da0-40b6-7881-08dd8e74f694
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2025 21:11:56.2028
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: NVJ4P5/8zB6CD8AAZNDOR9svl2K6AGd9LeMyz/9O3IAf2RIeBw43twxWfZk6OanVa0rLzbiipmSKEmnhqABsoA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8272
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_140950_218823_2068C40F 
-X-CRM114-Status: GOOD (  30.60  )
+X-CRM114-CacheID: sfid-20250508_141205_869109_DCD96A7E 
+X-CRM114-Status: GOOD (  19.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,77 +165,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Florian,
+New timestamping API was introduced in commit 66f7223039c0 ("net: add
+NDOs for configuring hardware timestamping") from kernel v6.6. It is
+time to convert the intel ixp4xx ethernet driver to the new API, so that
+the ndo_eth_ioctl() path can be removed completely.
 
-On 19:10 Wed 07 May     , Florian Fainelli wrote:
-> 
-> 
-> On 5/7/2025 4:13 PM, 'Andrea della Porta' via BCM-KERNEL-FEEDBACK-LIST,PDL
-> wrote:
-> > Hi Florian
-> > 
-> > On 09:32 Wed 07 May     , Florian Fainelli wrote:
-> > > 
-> > > 
-> > > On 5/6/2025 10:49 PM, Andrea della Porta wrote:
-> > > > Hi Florian,
-> > > > 
-> > > > On 20:53 Tue 22 Apr     , Andrea della Porta wrote:
-> > > > > The RP1 found on Raspberry Pi 5 board needs an external crystal at 50MHz.
-> > > > > Add clk_rp1_xosc node to provide that.
-> > > > > 
-> > > > > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> > > > > Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> > > > 
-> > > > A gentle reminder for patches 8 through 12 of this series, which I guess
-> > > > would ideally be taken by you. Since the merge window is approaching, do
-> > > > you think it's feasible to iterate a second pull request to Arnd with my
-> > > > patches too?
-> > > > 
-> > > > With respect to your devicetree/next branch, my patches have the following
-> > > > conflicts:
-> > > > 
-> > > > PATCH 9:
-> > > > - arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts: &pcie1 and &pcie2
-> > > >     reference at the end, my patch was rebased on linux-next which has them
-> > > >     while your devicetree branch has not. This is trivial to fix too.
-> > > > 
-> > > > PATCH 9 and 10:
-> > > > - arch/arm64/boot/dts/broadcom/Makefile on your branch has a line recently
-> > > >     added by Stefan's latest patch for RPi2. The fix is trivial.
-> > > > 
-> > > > PATCH 11 and 12:
-> > > > - arch/arm64/configs/defconfig: just a couple of fuzz lines.
-> > > > 
-> > > > Please let me know if I should resend those patches adjusted for your tree.
-> > > 
-> > > Yes please resend them today or tomorrow so I can send them the following
-> > > day. Thanks
-> > 
-> > Sorry, what's the best wasy to provide the updated patch 8 to 12 to you?
-> > 
-> > 1) Resend the entire patchset (V10) with relevant patches updated
-> > 2) Send only updated patches 8 through 12 (maybe as an entirely new patchset with
-> >     only those specific patches)
-> 
-> Either of those two options would work. Maybe let's do option 2) in the
-> interest of keeping the traffic low for people.
+hwtstamp_get() and hwtstamp_set() are only called if netif_running()
+when the code path is engaged through the legacy ioctl. As I don't
+want to make an unnecessary functional change which I can't test,
+preserve that restriction when going through the new operations.
 
-Could you please take a look at this:
+When cpu_is_ixp46x() is false, the execution of SIOCGHWTSTAMP and
+SIOCSHWTSTAMP falls through to phy_mii_ioctl(), which may process it in
+case of a timestamping PHY, or may return -EOPNOTSUPP. In the new API,
+the core handles timestamping PHYs directly and does not call the netdev
+driver, so just return -EOPNOTSUPP directly for equivalent logic.
 
-https://lore.kernel.org/all/aBxtyvI3LUaM3P00@apocalypse/#t
+A gratuitous change I chose to do anyway is prefixing hwtstamp_get() and
+hwtstamp_set() with the driver name, ipx4xx. This reflects modern coding
+sensibilities, and we are touching the involved lines anyway.
 
-besides patches 8 through 12, would you like to take also binding patches + clock
-driver (patches 1 to 4, if Linux Walleij is not willing to take patch 2 himself),
-and maybe also misc driver and its dts (patches 6 and 7 unless Greg has different
-ideas)? I know this is almost the entire patchset, but it's getting hard to escape
-the dependency maze.
-I'm open to any alternative solutions, more details in the link above.
+The remainder of eth_ioctl() is exactly equivalent to
+phy_do_ioctl_running(), so use that.
 
-Many thanks,
-Andrea
+Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+---
+ drivers/net/ethernet/xscale/ixp4xx_eth.c | 61 +++++++++++-------------
+ 1 file changed, 29 insertions(+), 32 deletions(-)
 
-> -- 
-> Florian
-> 
+diff --git a/drivers/net/ethernet/xscale/ixp4xx_eth.c b/drivers/net/ethernet/xscale/ixp4xx_eth.c
+index a2ab1c150822..e1e7f65553e7 100644
+--- a/drivers/net/ethernet/xscale/ixp4xx_eth.c
++++ b/drivers/net/ethernet/xscale/ixp4xx_eth.c
+@@ -394,16 +394,20 @@ static void ixp_tx_timestamp(struct port *port, struct sk_buff *skb)
+ 	__raw_writel(TX_SNAPSHOT_LOCKED, &regs->channel[ch].ch_event);
+ }
+ 
+-static int hwtstamp_set(struct net_device *netdev, struct ifreq *ifr)
++static int ixp4xx_hwtstamp_set(struct net_device *netdev,
++			       struct kernel_hwtstamp_config *cfg,
++			       struct netlink_ext_ack *extack)
+ {
+-	struct hwtstamp_config cfg;
+ 	struct ixp46x_ts_regs *regs;
+ 	struct port *port = netdev_priv(netdev);
+ 	int ret;
+ 	int ch;
+ 
+-	if (copy_from_user(&cfg, ifr->ifr_data, sizeof(cfg)))
+-		return -EFAULT;
++	if (!cpu_is_ixp46x())
++		return -EOPNOTSUPP;
++
++	if (!netif_running(netdev))
++		return -EINVAL;
+ 
+ 	ret = ixp46x_ptp_find(&port->timesync_regs, &port->phc_index);
+ 	if (ret)
+@@ -412,10 +416,10 @@ static int hwtstamp_set(struct net_device *netdev, struct ifreq *ifr)
+ 	ch = PORT2CHANNEL(port);
+ 	regs = port->timesync_regs;
+ 
+-	if (cfg.tx_type != HWTSTAMP_TX_OFF && cfg.tx_type != HWTSTAMP_TX_ON)
++	if (cfg->tx_type != HWTSTAMP_TX_OFF && cfg->tx_type != HWTSTAMP_TX_ON)
+ 		return -ERANGE;
+ 
+-	switch (cfg.rx_filter) {
++	switch (cfg->rx_filter) {
+ 	case HWTSTAMP_FILTER_NONE:
+ 		port->hwts_rx_en = 0;
+ 		break;
+@@ -431,39 +435,45 @@ static int hwtstamp_set(struct net_device *netdev, struct ifreq *ifr)
+ 		return -ERANGE;
+ 	}
+ 
+-	port->hwts_tx_en = cfg.tx_type == HWTSTAMP_TX_ON;
++	port->hwts_tx_en = cfg->tx_type == HWTSTAMP_TX_ON;
+ 
+ 	/* Clear out any old time stamps. */
+ 	__raw_writel(TX_SNAPSHOT_LOCKED | RX_SNAPSHOT_LOCKED,
+ 		     &regs->channel[ch].ch_event);
+ 
+-	return copy_to_user(ifr->ifr_data, &cfg, sizeof(cfg)) ? -EFAULT : 0;
++	return 0;
+ }
+ 
+-static int hwtstamp_get(struct net_device *netdev, struct ifreq *ifr)
++static int ixp4xx_hwtstamp_get(struct net_device *netdev,
++			       struct kernel_hwtstamp_config *cfg)
+ {
+-	struct hwtstamp_config cfg;
+ 	struct port *port = netdev_priv(netdev);
+ 
+-	cfg.flags = 0;
+-	cfg.tx_type = port->hwts_tx_en ? HWTSTAMP_TX_ON : HWTSTAMP_TX_OFF;
++	if (!cpu_is_ixp46x())
++		return -EOPNOTSUPP;
++
++	if (!netif_running(netdev))
++		return -EINVAL;
++
++	cfg->flags = 0;
++	cfg->tx_type = port->hwts_tx_en ? HWTSTAMP_TX_ON : HWTSTAMP_TX_OFF;
+ 
+ 	switch (port->hwts_rx_en) {
+ 	case 0:
+-		cfg.rx_filter = HWTSTAMP_FILTER_NONE;
++		cfg->rx_filter = HWTSTAMP_FILTER_NONE;
+ 		break;
+ 	case PTP_SLAVE_MODE:
+-		cfg.rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_SYNC;
++		cfg->rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_SYNC;
+ 		break;
+ 	case PTP_MASTER_MODE:
+-		cfg.rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_DELAY_REQ;
++		cfg->rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_DELAY_REQ;
+ 		break;
+ 	default:
+ 		WARN_ON_ONCE(1);
+ 		return -ERANGE;
+ 	}
+ 
+-	return copy_to_user(ifr->ifr_data, &cfg, sizeof(cfg)) ? -EFAULT : 0;
++	return 0;
+ }
+ 
+ static int ixp4xx_mdio_cmd(struct mii_bus *bus, int phy_id, int location,
+@@ -985,21 +995,6 @@ static void eth_set_mcast_list(struct net_device *dev)
+ }
+ 
+ 
+-static int eth_ioctl(struct net_device *dev, struct ifreq *req, int cmd)
+-{
+-	if (!netif_running(dev))
+-		return -EINVAL;
+-
+-	if (cpu_is_ixp46x()) {
+-		if (cmd == SIOCSHWTSTAMP)
+-			return hwtstamp_set(dev, req);
+-		if (cmd == SIOCGHWTSTAMP)
+-			return hwtstamp_get(dev, req);
+-	}
+-
+-	return phy_mii_ioctl(dev->phydev, req, cmd);
+-}
+-
+ /* ethtool support */
+ 
+ static void ixp4xx_get_drvinfo(struct net_device *dev,
+@@ -1433,9 +1428,11 @@ static const struct net_device_ops ixp4xx_netdev_ops = {
+ 	.ndo_change_mtu = ixp4xx_eth_change_mtu,
+ 	.ndo_start_xmit = eth_xmit,
+ 	.ndo_set_rx_mode = eth_set_mcast_list,
+-	.ndo_eth_ioctl = eth_ioctl,
++	.ndo_eth_ioctl = phy_do_ioctl_running,
+ 	.ndo_set_mac_address = eth_mac_addr,
+ 	.ndo_validate_addr = eth_validate_addr,
++	.ndo_hwtstamp_get = ixp4xx_hwtstamp_get,
++	.ndo_hwtstamp_set = ixp4xx_hwtstamp_set,
+ };
+ 
+ static struct eth_plat_info *ixp4xx_of_get_platdata(struct device *dev)
+-- 
+2.43.0
+
 
