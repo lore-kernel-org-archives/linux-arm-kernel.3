@@ -4,111 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CBC0C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 09:44:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 042D4C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 09:46:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6gkeb/9Kdfy78P2DpuPGWOQmqeRSDCl/s8JKK0Bwndg=; b=DJEC++5QyNMnrvcA3EJdlRJm60
-	LTZ9AcTfDQ+zP2eV9aSiqvkcmSui4oVyvtqE1hIY+7NdnVK/FxqKyhciDjrbnM3GqvHeYiu0azhW/
-	6L0dWflkZk+isWr9jZbchgdTZC898dq3w6kJ8100qND0YRvJlPwqmg7hF1ywok7dDboluzN1vrLIC
-	RrbEvif7X+zAomoGCTtKN3IXPFnZGiLO8WdrDKF3NIatqGjFRWHE94pddDLQ8FiTgRx5fQEMmyipW
-	CPqu1gH3/dS1JRzeKbIZRWtwKwHk5ERpQw+AZ9SAUGFvlJCJd+0pBWN2tnijP1yh1kUDyI3TCu/9/
-	yutu3I0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HRk8EDWehAyjfLYaTwfuNFdcXvNXB2VmmN05x6dRUqY=; b=ZH1ktOU5ehOZ1E7hRVtCrQE1kH
+	sBLavhzphN+09rkmQ7VfMeHaH0OUHoJdAsSN1MTTHbGSAsa1gOCzxkCykrmRQuxSTwhnf6b2wHGmy
+	rVsAS/9/ffk8VaXgeHU2KxbMEMyR49h78YeWIbKEYPSrqiHwVmNHkcAtWb6ItOmRiB9QQam5TwIAX
+	p4PCZeDAWMj2/C8oq9cZC9AD2K36f0q5UAKPNqBDawlYWzoEckbify7lNghIglcRpEL1Ql2ahFWIL
+	JgWP5XJcms1uJqMLcIINGwAqkerdg+bzIjiDutVd0uUQafqhv73kPzZk4zTwvxpFty7ushmDDfNJk
+	Az9FUGpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDKHd-00000003999-1liz;
-	Fri, 09 May 2025 09:44:45 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uDKJa-000000039eq-0PMX;
+	Fri, 09 May 2025 09:46:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDJYH-000000030e6-3MGz
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 08:57:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746781073;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6gkeb/9Kdfy78P2DpuPGWOQmqeRSDCl/s8JKK0Bwndg=;
-	b=BlxOQgP7BecC9Vo6jjtAcaUAdlG0aUR3MkjV6MrOTSrb3XLH2fsbu8SlPlZ67x73w2+7l9
-	FHHD7oh+RNUwtuo1Wo7307Nz1xpuBjEshFcSTuLYgUTdQkOpL59K3U93+W648fgnv1v3X5
-	FGJPMebTVg50TjMWqAJPEDDrVGy3gy0=
-Received: from mail-ej1-f70.google.com (mail-ej1-f70.google.com
- [209.85.218.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-362-9WrDcfCnOwO5f89LhSYmKw-1; Fri, 09 May 2025 04:57:51 -0400
-X-MC-Unique: 9WrDcfCnOwO5f89LhSYmKw-1
-X-Mimecast-MFC-AGG-ID: 9WrDcfCnOwO5f89LhSYmKw_1746781070
-Received: by mail-ej1-f70.google.com with SMTP id a640c23a62f3a-acf00f500d2so148363666b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 01:57:51 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746781070; x=1747385870;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6gkeb/9Kdfy78P2DpuPGWOQmqeRSDCl/s8JKK0Bwndg=;
-        b=qm+4diUSrG4YMN6SYcODj+DoYU4TMmy+uQryHHevkUA8BkasFvb/w7q+QNhPhp+jpm
-         1IqA9VzvAyBO1BKEWUcyhG/KzugyZx/mJDkLS/S8Hw6ufd1AtSSyd0aiYH7i+uNDhLLj
-         5pBHhRU1+qZtdlLqHSeBQelroG0ajEN6JC65WKbFsmHMsHzFqtOCZMwVpoKFW1CSmUC8
-         aCq64jPoFUGssOyxzRvmPKC1gaQl7d3POxL/rzlSDAjZyPSxlNvgFhTQySskH7/Z/Aqy
-         dlzp0MAMVpcpoMhKN5PoZGFf8923SHHHXhQjV2v2J46LqCQYWm+e20iy6+7fEA1e8HXM
-         Bohw==
-X-Gm-Message-State: AOJu0YxaKZaGikkiCvw1eloZINKtmvo5FD7C2PtyhIndshGC3gLgyt6l
-	2hVriVwU5OSz1i2J5uUld7BoIADwS8+SotxrHhA2eNwSJdF5Li1cUzrd5S68DNAwRGuXYRBP6Fb
-	JL1LIrOsPkbzQTLXxWsAO9C8ZpiXlBoZolNPYeogjRmzxddjCYXPkGoc0fy38EqKqHm/D15pS
-X-Gm-Gg: ASbGncudugYrwJFFQf90PsrB7yu13WthpjgXomjr1ecgXaZsVscdAyr3708s7tsT12P
-	QY4uraVsuOSobIXAsOWkdndOm1Z1H+CsTLCVOEJPh5XMrahROjBYu4atHIRFHsLxvSlBXwzQ0l0
-	cvU5ljIyVHIVRrO+rnLpaMvHpF39BuTgkZRRrLTM+N/YId6evfA0CZsP3m1DgGAMOcx++hbFQyX
-	QhLY49z+5eLwbGrOdOtZTpgrte7Tz5TnxtYMhUM8MG/27TPrHYnyyJ2YtSyG8T6ZI6uANGSA6oo
-	JWyiBuH2IJ1pxhrkSjNu+wqPcw==
-X-Received: by 2002:a17:906:ba90:b0:aca:cda4:9aae with SMTP id a640c23a62f3a-ad21927d0d6mr208671666b.37.1746781070374;
-        Fri, 09 May 2025 01:57:50 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFm/6oRhoG7o/lfsJVdPERf6/D/JJirfP83vdMoj15DtJopabMpuCr2u+MViV0A2cvILTEMug==
-X-Received: by 2002:a17:906:ba90:b0:aca:cda4:9aae with SMTP id a640c23a62f3a-ad21927d0d6mr208668366b.37.1746781069774;
-        Fri, 09 May 2025 01:57:49 -0700 (PDT)
-Received: from localhost.localdomain ([193.207.182.136])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad219348781sm119504566b.61.2025.05.09.01.57.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 May 2025 01:57:49 -0700 (PDT)
-From: Stefano Garzarella <sgarzare@redhat.com>
-To: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Peter Huewe <peterhuewe@gmx.de>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	James Bottomley <James.Bottomley@HansenPartnership.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Naveen N Rao <naveen@kernel.org>,
-	Jens Wiklander <jens.wiklander@linaro.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	linux-integrity@vger.kernel.org,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Sumit Garg <sumit.garg@kernel.org>,
-	Stefano Garzarella <sgarzare@redhat.com>
-Subject: [PATCH v4 4/4] tpm/tpm_svsm: support TPM_CHIP_FLAG_SYNC
-Date: Fri,  9 May 2025 10:57:13 +0200
-Message-ID: <20250509085713.76851-5-sgarzare@redhat.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250509085713.76851-1-sgarzare@redhat.com>
-References: <20250509085713.76851-1-sgarzare@redhat.com>
+	id 1uDJZB-0000000310r-1kbk;
+	Fri, 09 May 2025 08:58:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8CDDB629E2;
+	Fri,  9 May 2025 08:58:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 062BBC4CEE4;
+	Fri,  9 May 2025 08:58:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746781128;
+	bh=NUJlMgnUlRyto5/zMHlqn7mzxNUcNXMEpllPFIPNjHE=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=IwyzcisD6hzqPVhmFV/UySvLYxcE8JoriuZ19JQMlr54EzhhzyzjMaUxwqN0+gein
+	 fIGJ1WizkLOGfTorbznQEOgeGpJL4ZIatfk7pxTM1ZWxWjqDhE37FaDQcUrDT0P+gG
+	 6smT4sL2tqOkL4AOq28lI39sWILCKQjrR0WCH2gcaHAZq+IyS3fAaFqR86u6zeuZoJ
+	 7gVL0nFNp8/+sdV+vVOAmn6l7jjgNiE4gOyh6e94cAMRs9da84usTdLdPe6ZT+nYoF
+	 ieuhqHf1d7T6cdn+DLJ0wJ+kh3XDzXttrzM2dJAX5aMWEB6BtIn2KiFiFcYWfAWM2B
+	 tPRxa/hechyVg==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Zoran Zhan <zoran.zhan@mediatek.com>, Arnd Bergmann <arnd@arndb.de>, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Arnd Bergmann <arnd@kernel.org>
+In-Reply-To: <20250507-mt8188-mt6359-accdet-depend-v1-1-aad70ce62964@collabora.com>
+References: <20250507-mt8188-mt6359-accdet-depend-v1-1-aad70ce62964@collabora.com>
+Subject: Re: [PATCH] ASoC: mediatek: mt8188-mt6359: Depend on MT6359_ACCDET
+ set or disabled
+Message-Id: <174678112414.29979.2917402833370390569.b4-ty@kernel.org>
+Date: Fri, 09 May 2025 17:58:44 +0900
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 3YVkILrIZDJVnGI2-HPhal-Km1-qXsuOiHAM5Z6Jel8_1746781070
-X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_015753_912679_F4ED86C3 
-X-CRM114-Status: GOOD (  20.97  )
+X-Mailer: b4 0.15-dev-c25d1
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,89 +74,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Garzarella <sgarzare@redhat.com>
+On Wed, 07 May 2025 16:14:14 -0400, Nícolas F. R. A. Prado wrote:
+> Commit 0116a7d84b32 ("ASoC: mediatek: mt6359: Add stub for
+> mt6359_accdet_enable_jack_detect") added a stub for
+> mt6359_accdet_enable_jack_detect() in order to allow the mt8188-mt6359
+> driver to be enabled without requiring the mt6359-accdet to also be
+> enabled, since it is not always needed.
+> 
+> However, in the case that CONFIG_SND_SOC_MT8188_MT6359=y and
+> CONFIG_SND_SOC_MT6359_ACCDET=m, a link error will happen, which commit
+> b19fa45715ce ("ASoC: mediatek: mt8188-mt6359: select
+> CONFIG_SND_SOC_MT6359_ACCDET") solved by selecting
+> CONFIG_SND_SOC_MT6359_ACCDET.
+> 
+> [...]
 
-This driver does not support interrupts, and receiving the response is
-synchronous with sending the command.
+Applied to
 
-Enable synchronous send() with TPM_CHIP_FLAG_SYNC, which implies that
-->send() already fills the provided buffer with a response, and ->recv()
-is not implemented.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
-Keep using the same pre-allocated buffer to avoid having to allocate
-it for each command. We need the buffer to have the header required by
-the SVSM protocol and the command contiguous in memory.
+Thanks!
 
-Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
----
-v4:
-- reworked commit description [Jarkko]
----
- drivers/char/tpm/tpm_svsm.c | 27 +++++++++++----------------
- 1 file changed, 11 insertions(+), 16 deletions(-)
+[1/1] ASoC: mediatek: mt8188-mt6359: Depend on MT6359_ACCDET set or disabled
+      commit: b7e3ec4e17e27420ebe976c7714881b64c28d63b
 
-diff --git a/drivers/char/tpm/tpm_svsm.c b/drivers/char/tpm/tpm_svsm.c
-index d3ca5615b6f7..db1983072345 100644
---- a/drivers/char/tpm/tpm_svsm.c
-+++ b/drivers/char/tpm/tpm_svsm.c
-@@ -25,38 +25,32 @@ struct tpm_svsm_priv {
- 	void *buffer;
- };
- 
--static int tpm_svsm_send(struct tpm_chip *chip, u8 *buf, size_t len,
-+static int tpm_svsm_send(struct tpm_chip *chip, u8 *buf, size_t cmd_len,
- 			 size_t buf_size)
- {
- 	struct tpm_svsm_priv *priv = dev_get_drvdata(&chip->dev);
- 	int ret;
- 
--	ret = svsm_vtpm_cmd_request_fill(priv->buffer, 0, buf, len);
-+	ret = svsm_vtpm_cmd_request_fill(priv->buffer, 0, buf, cmd_len);
- 	if (ret)
- 		return ret;
- 
- 	/*
- 	 * The SVSM call uses the same buffer for the command and for the
--	 * response, so after this call, the buffer will contain the response
--	 * that can be used by .recv() op.
-+	 * response, so after this call, the buffer will contain the response.
-+	 *
-+	 * Note: we have to use an internal buffer because the device in SVSM
-+	 * expects the svsm_vtpm header + data to be physically contiguous.
- 	 */
--	return snp_svsm_vtpm_send_command(priv->buffer);
--}
--
--static int tpm_svsm_recv(struct tpm_chip *chip, u8 *buf, size_t len)
--{
--	struct tpm_svsm_priv *priv = dev_get_drvdata(&chip->dev);
-+	ret = snp_svsm_vtpm_send_command(priv->buffer);
-+	if (ret)
-+		return ret;
- 
--	/*
--	 * The internal buffer contains the response after we send the command
--	 * to SVSM.
--	 */
--	return svsm_vtpm_cmd_response_parse(priv->buffer, buf, len);
-+	return svsm_vtpm_cmd_response_parse(priv->buffer, buf, buf_size);
- }
- 
- static struct tpm_class_ops tpm_chip_ops = {
- 	.flags = TPM_OPS_AUTO_STARTUP,
--	.recv = tpm_svsm_recv,
- 	.send = tpm_svsm_send,
- };
- 
-@@ -85,6 +79,7 @@ static int __init tpm_svsm_probe(struct platform_device *pdev)
- 
- 	dev_set_drvdata(&chip->dev, priv);
- 
-+	chip->flags |= TPM_CHIP_FLAG_SYNC;
- 	err = tpm2_probe(chip);
- 	if (err)
- 		return err;
--- 
-2.49.0
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
