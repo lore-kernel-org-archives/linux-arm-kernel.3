@@ -4,88 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F9F0C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 13:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51E60C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 13:41:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wk+PX1t5YjNrLbu3fw7I3HTDSpUrF4EYuLzp9K2iLrw=; b=MbgV/4smW3uj5XPqeZS1eoG28P
-	esLq3JBEP3/0EtHfsiQot7PhbuaPN3y+IqzCypxMga9xHmX/Jx6yy/bDx6d+T7jsVS19xnyFgzMa0
-	x3xNIzXYqheVg5byXHyeuG//e1iTK2ykS6QWYuDdcb3/YoGcfQEYcRG2nkgV1qR9Otdj9RJrLQvnR
-	cOQUsEHbr5Vw8Cm2SFPwXnrSzh54GVoR/T0EocKs0csBcBArLZ2kPP+vCCk39zVtpU08dL/bI5RaS
-	PkzUipkpCKz0Df7CfmRmrOKpGD6hCdQRmhask52ej9Z/l2eFj16zHdFIwkPWvL1tQRaK4or0LXdlc
-	uLIb+T/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KW4KBcGtJSrAqFPHP5H5PG7TlnbU9UpApL0n436QVo4=; b=Kh7VmU5JV+PScn/HZFfiN9jTO8
+	K7CryTruA3MGCk2iGE/lkNNg6pddRbozz0GgLbD3TrJjUFjhq473uN498hmoUaNmaCPyJPDTKvqxC
+	ikVbGSqkhBB5hoAl7JhwzOQ6OV+82vxarkJ96D9U65mhwXnzx4LkyBlKky16lpJFPd2bhG6ClQ8zN
+	KACjrchM6sL3NijXe/6Yfc2wRitU7jANl+5gGB4qJki2HJbMWQXxYbd2KpvTk8egQeWInWTyn70FD
+	CaFsNmDAsja8A/TRRJuj03JuS/dAfWIpwFbDkZQt+pWmFYAe+oLM8O89NvE6nj07TXL3f9khTagaU
+	NknoqzUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDNx2-00000003ne8-0gj0;
-	Fri, 09 May 2025 13:39:44 +0000
-Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
+	id 1uDNyy-00000003npl-3XkW;
+	Fri, 09 May 2025 13:41:44 +0000
+Received: from out-186.mta0.migadu.com ([91.218.175.186])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDN4d-00000003cdi-3YGz
+	id 1uDN6E-00000003cw1-2bGv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 12:43:33 +0000
-Received: by mail-yb1-xb2a.google.com with SMTP id 3f1490d57ef6-e78e6396d36so1497193276.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 05:43:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1746794610; x=1747399410; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wk+PX1t5YjNrLbu3fw7I3HTDSpUrF4EYuLzp9K2iLrw=;
-        b=ASUhs4EpKTQWdh9Ep+GglsSwWT1pJgYZKD0zB9yLzc8vKUfJiZlERCfCCXVLHH2MUL
-         OuIIv3vIURS5bvy++q1egjp5dfTlBltbyCFMzO2ip+kMeg4XoZHL0a1icYzG7w9iXi0f
-         AQ5/u4hPGxw2opmzeW2OZqYKgi/4vJsqt6Y8M=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746794610; x=1747399410;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wk+PX1t5YjNrLbu3fw7I3HTDSpUrF4EYuLzp9K2iLrw=;
-        b=Vr4kw96fmeH1KCwYGTE1m++pkl4+QGv4R6grx7nADxyWZZrOWeU9jNGBfiQoRSZaFG
-         Lt7GV6KBpym9Ak0PvOVDj3fOSekCCai6EeFMEjuMCwTf+ZWHyhMgPss4PoxKbwohZBHj
-         w/w/ZNfetBod4khiBGr31N50+DQEdRQK0BudBaZs1A9EPjo3gQ2cjcShqKQl7AxCSfwz
-         5clFKq8YQHLMJ1HQHQdE2+QxjgC6FHFOo8mnmljm7FO60yjmIXK/9Tc21fjsZjJ1ET7P
-         Og4W9SI4CKx/nzpI24+K4fO5q7L22PYqyr/YEvY3L9Kp7uceN8Fieb2uvICojxD189Aq
-         aGsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWtYh46W1Bg5VPj6ISqAN4YXw43h1unyFiwLYwlHLt2h0KnQcnWbXW7CCIefdp+bhzDN7z3NeboT6t8Ey7llQwl@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbajQEPv9052HDW49c6SAleDO2D93rSrxrBxhkNg8VDNgSszsC
-	Qxv1MrDjWhK3HLAYDpyKkfo+4hqAeBkF4PzydYN/8Dpy//4L/bDTrXHl96dG7GwkfZ/AFfkHhUo
-	KWadrnAhTDPJB3O4p2eo+jjFagXWXjICjYZfM1g==
-X-Gm-Gg: ASbGncv8JN5qxzQriyD07SHTQCQnzKFHGh6w8UHEeEBYrXDb2CuclvjVwgRobsA6+0s
-	454xtHjKeeV6WLoLTy4hcnmvVrEHqSisc60DOWjvxxL6ud1hA5NHdSxxXbHKAse0P7tjsTujnt9
-	QwS7ZIkumU4HJAhbkmog==
-X-Google-Smtp-Source: AGHT+IFrjZ49BKORpGjnuIsEC44rpN9s+TBJde8pml0KWAikxDuw2695c1SnudEFBoIfDQFFwneLL6Ms7ZC7MJFaDXI=
-X-Received: by 2002:a05:690c:4587:b0:703:ace3:150a with SMTP id
- 00721157ae682-70a3fb605e9mr40252827b3.34.1746794610485; Fri, 09 May 2025
- 05:43:30 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250424062154.2999219-1-dario.binacchi@amarulasolutions.com>
- <174643143452.2950397.16722215892279685541.b4-ty@linaro.org>
- <CABGWkvrkVLRocFsZs9JLni4KDZCDyYDZxMzwA9AzAwipmUyTzQ@mail.gmail.com> <aB3unsCzCFUkdp9i@dragon>
-In-Reply-To: <aB3unsCzCFUkdp9i@dragon>
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Date: Fri, 9 May 2025 14:43:19 +0200
-X-Gm-Features: AX0GCFvVFue8wdjYB0ISSFwk7W4pX-EIs3Ikr6iut0B47FJnqLkddmDVofMWjCc
-Message-ID: <CABGWkvqfyH=dcuw6EDZaFVVebj8SZhJF0P944+mmzL5YK3-Pug@mail.gmail.com>
-Subject: Re: (subset) [PATCH v12 00/19] Support spread spectrum clocking for
- i.MX8M PLLs
-To: Shawn Guo <shawnguo2@yeah.net>
-Cc: Shawn Guo <shawnguo@kernel.org>, linux-kernel@vger.kernel.org, 
-	Peng Fan <peng.fan@nxp.com>, Stephen Boyd <sboyd@kernel.org>, linux-amarula@amarulasolutions.com, 
-	Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	Abel Vesa <abel.vesa@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 09 May 2025 12:45:12 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1746794706;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=KW4KBcGtJSrAqFPHP5H5PG7TlnbU9UpApL0n436QVo4=;
+	b=ImuD8IbRIqKE/CNpdy4WPO3H6jwtC1fJZQatK6NXOjntc5zPYY0Hini8qWMmbczkWJBfkA
+	ngxt4TAajwKHgWWQVXc+p0IYLaaWurIOD87JeLM1V0R/fYqCuKcGKVAEi7lw758doECP/l
+	UPVVsgeGriocqzrprVLErqTCAq65AlolVSZo77ifnvUka01goaVwjItz+4WU1pBiimJoI0
+	X5wTj02NhPFroV0UJohtv/paQRC4NbD08j7/roreBlL0GN+VlIVwAgx4q2Qq3Zw6HL1MXY
+	f9AXHD9tgg4nzE5F+EE3opvXO2Rn0ULldCSPleRIbDnmgSH8eCVqYgOLFcRyIg==
+Content-Type: multipart/signed;
+ boundary=a8e812d93356676e6d3194396309dd33e90e10afd882605b15d3904c7ce0;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Fri, 09 May 2025 14:44:57 +0200
+Message-Id: <D9RN1HZAXH1M.3H228KWQJ9CR0@cknow.org>
+Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <kernel@collabora.com>
+Subject: Re: [PATCH v2 2/5] arm64: dts: rockchip: move rock 5b to include
+ file
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Sebastian Reichel" <sebastian.reichel@collabora.com>, "Heiko Stuebner"
+ <heiko@sntech.de>
+References: <20250508-rock5bp-for-upstream-v2-0-677033cc1ac2@kernel.org>
+ <20250508-rock5bp-for-upstream-v2-2-677033cc1ac2@kernel.org>
+In-Reply-To: <20250508-rock5bp-for-upstream-v2-2-677033cc1ac2@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_054331_890309_E1653BD6 
-X-CRM114-Status: GOOD (  28.15  )
+X-CRM114-CacheID: sfid-20250509_054511_009421_91DAD7BC 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,105 +76,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 9, 2025 at 2:02=E2=80=AFPM Shawn Guo <shawnguo2@yeah.net> wrote=
-:
+--a8e812d93356676e6d3194396309dd33e90e10afd882605b15d3904c7ce0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+
+Hi,
+
+On Thu May 8, 2025 at 7:48 PM CEST, Sebastian Reichel wrote:
+> Radxa released some more boards, which are based on the original
+> Rock 5B. Move its board description into an include file to avoid
+> unnecessary duplication.
+
+Aren't you moving it *out of* an/the include file?
+If so, the patch Subject and the above line should be updated so that
+they correctly reflect what is changed in this patch.
+
+The above text is correct (and the same ...) as patch 1, but in this
+patch you move things out of the dtsi which are unique per board.
+
+> NOTE: this should be merged with the previous commit to ensure
+> bisectability. The rename happens in a separete commit during
+> development because git does not properly detect the rename when
+> the original filename is reused in the same commit. This means
 >
-> On Thu, May 08, 2025 at 10:32:10AM +0200, Dario Binacchi wrote:
-> > Hello Shawn,
-> >
-> > On Mon, May 5, 2025 at 9:52=E2=80=AFAM Abel Vesa <abel.vesa@linaro.org>=
- wrote:
-> > >
-> > >
-> > > On Thu, 24 Apr 2025 08:21:30 +0200, Dario Binacchi wrote:
-> > > > This version keeps the version v9 patches that can be merged and
-> > > > removes the patches that will need to be modified in case Peng's
-> > > > PR https://github.com/devicetree-org/dt-schema/pull/154 is accepted=
-.
-> > > > The idea is to speed up the merging of the patches in the series
-> > > > that have already been reviewed and are not dependent on the
-> > > > introduction of the assigned-clocks-sscs property, and postpone
-> > > > the patches for spread spectrum to a future series once it becomes
-> > > > clear what needs to be done.
-> > > >
-> > > > [...]
-> > >
-> > > Applied, thanks!
-> > >
-> > > [01/19] dt-bindings: clock: imx8mm: add VIDEO_PLL clocks
-> > >         commit: 20e5d201b5d8f830e702d7d183f6b1b246b78d8a
-> > > [02/19] clk: imx8mm: rename video_pll1 to video_pll
-> > >         commit: 26a33196b5b68cf199b6c4283a254aa92d2aaf4b
-> > > [03/19] dt-bindings: clock: imx8mp: add VIDEO_PLL clocks
-> > >         commit: 2d50415e2457c6f6621c2faa3b01b11150fb9c67
-> > > [04/19] clk: imx8mp: rename video_pll1 to video_pll
-> > >         commit: 21bb969f608cefd8d847cf6eb50a193d9f1fbb87
-> > > [05/19] dt-bindings: clock: imx8m-anatop: add oscillators and PLLs
-> > >         commit: 2ba124053687c933031a6dc5b2e16ceaca250934
-> > > [10/19] clk: imx: add hw API imx_anatop_get_clk_hw
-> > >         commit: 17e3c1a272d97e49b4f3fbfe1f1b889e120d2be8
-> > > [11/19] clk: imx: add support for i.MX8MM anatop clock driver
-> > >         commit: 3cbc38cf42ca42d2dc9a93c949e0381ff919df71
-> > > [12/19] clk: imx: add support for i.MX8MN anatop clock driver
-> > >         commit: 80badb1d7264e83b512475898e7459f464a009c9
-> > > [13/19] clk: imx: add support for i.MX8MP anatop clock driver
-> > >         commit: 4c82bbe8b5437c7f16b2891ce33210c0f1410597
-> > > [14/19] clk: imx8mp: rename ccm_base to base
-> > >         commit: 1a77907dbbecfbe5e6a1aec28afd49a1dc184b7a
-> > > [16/19] dt-bindings: clock: imx8m-clock: add PLLs
-> > >         commit: 6a55647af3334f1d935ece67de4a838a864b53fc
-> > >
-> >
-> > Please check the remaining patches, as they are required for correctly
-> > building the
-> > ones merged by Abel. The kernel test robot has already reported build e=
-rrors.
+> 1. it's a lot harder to review the changes
+> 2. it's a lot harder to rebase the patch series
+
+Or did I fall prey to the exact thing you described here?
+
+Cheers,
+  Diederik
+
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts  | 52 ++++++++++++++++++=
+++++++
+>  arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi | 40 ------------------
+>  2 files changed, 52 insertions(+), 40 deletions(-)
 >
-> I assume the remaining patches are DTS ones?
-Yes
-> If so, I do not see how
-> clock drivers would require DTS change to build correctly.  Do you have
-> a pointer to the reported build errors?
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64=
+/boot/dts/rockchip/rk3588-rock-5b.dts
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..9407a7c9910ada1f6c803d2e1=
+5785a9cbd9bd655
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+> @@ -0,0 +1,52 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +
+> +/dts-v1/;
+> +
+> +#include "rk3588-rock-5b.dtsi"
+> +
+> +/ {
+> +	model =3D "Radxa ROCK 5B";
+> +	compatible =3D "radxa,rock-5b", "rockchip,rk3588";
+> +};
+> +
+> +&sdio {
+> +	max-frequency =3D <200000000>;
+> +	no-sd;
+> +	no-mmc;
+> +	non-removable;
+> +	bus-width =3D <4>;
+> +	cap-sdio-irq;
+> +	disable-wp;
+> +	keep-power-in-suspend;
+> +	wakeup-source;
+> +	sd-uhs-sdr12;
+> +	sd-uhs-sdr25;
+> +	sd-uhs-sdr50;
+> +	sd-uhs-sdr104;
+> +	vmmc-supply =3D <&vcc3v3_pcie2x1l0>;
+> +	vqmmc-supply =3D <&vcc_1v8_s3>;
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&sdiom0_pins>;
+> +	status =3D "okay";
+> +};
+> +
+> +&uart6 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&uart6m1_xfer &uart6m1_ctsn &uart6m1_rtsn>;
+> +	status =3D "okay";
+> +};
+> +
+> +&pinctrl {
+> +	usb {
+> +		vcc5v0_host_en: vcc5v0-host-en {
+> +			rockchip,pins =3D <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +	};
+> +};
+> +
+> +&vcc5v0_host {
+> +	enable-active-high;
+> +	gpio =3D <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>;
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&vcc5v0_host_en>;
+> +};
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi b/arch/arm6=
+4/boot/dts/rockchip/rk3588-rock-5b.dtsi
+> index 17f4fd054cd3d1c4e23ccfe014a9c4b9d7ad1a06..6052787d2560978d2bae6cfbe=
+ea5fc1d419d583a 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi
+> @@ -8,9 +8,6 @@
+>  #include "rk3588.dtsi"
+> =20
+>  / {
+> -	model =3D "Radxa ROCK 5B";
+> -	compatible =3D "radxa,rock-5b", "rockchip,rk3588";
+> -
+>  	aliases {
+>  		mmc0 =3D &sdhci;
+>  		mmc1 =3D &sdmmc;
+> @@ -139,10 +136,6 @@ vcc5v0_host: regulator-vcc5v0-host {
+>  		regulator-always-on;
+>  		regulator-min-microvolt =3D <5000000>;
+>  		regulator-max-microvolt =3D <5000000>;
+> -		enable-active-high;
+> -		gpio =3D <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>;
+> -		pinctrl-names =3D "default";
+> -		pinctrl-0 =3D <&vcc5v0_host_en>;
+>  		vin-supply =3D <&vcc5v0_sys>;
+>  	};
+> =20
+> @@ -488,12 +481,6 @@ pcie3_vcc3v3_en: pcie3-vcc3v3-en {
+>  			rockchip,pins =3D <1 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
+>  		};
+>  	};
+> -
+> -	usb {
+> -		vcc5v0_host_en: vcc5v0-host-en {
+> -			rockchip,pins =3D <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
+> -		};
+> -	};
+>  };
+> =20
+>  &pwm1 {
+> @@ -530,27 +517,6 @@ &sdmmc {
+>  	status =3D "okay";
+>  };
+> =20
+> -&sdio {
+> -	max-frequency =3D <200000000>;
+> -	no-sd;
+> -	no-mmc;
+> -	non-removable;
+> -	bus-width =3D <4>;
+> -	cap-sdio-irq;
+> -	disable-wp;
+> -	keep-power-in-suspend;
+> -	wakeup-source;
+> -	sd-uhs-sdr12;
+> -	sd-uhs-sdr25;
+> -	sd-uhs-sdr50;
+> -	sd-uhs-sdr104;
+> -	vmmc-supply =3D <&vcc3v3_pcie2x1l0>;
+> -	vqmmc-supply =3D <&vcc_1v8_s3>;
+> -	pinctrl-names =3D "default";
+> -	pinctrl-0 =3D <&sdiom0_pins>;
+> -	status =3D "okay";
+> -};
+> -
+>  &sfc {
+>  	pinctrl-names =3D "default";
+>  	pinctrl-0 =3D <&fspim2_pins>;
+> @@ -566,12 +532,6 @@ flash@0 {
+>  	};
+>  };
+> =20
+> -&uart6 {
+> -	pinctrl-names =3D "default";
+> -	pinctrl-0 =3D <&uart6m1_xfer &uart6m1_ctsn &uart6m1_rtsn>;
+> -	status =3D "okay";
+> -};
+> -
+>  &spi2 {
+>  	status =3D "okay";
+>  	assigned-clocks =3D <&cru CLK_SPI2>;
 
-https://lore.kernel.org/oe-kbuild-all/202505090537.ss8RbFln-lkp@intel.com/
 
-DTC compilation fails. I think it's because of the patch
-[16/19] dt-bindings: clock: imx8m-clock: add PLLs
-which was merged without the corresponding DTS changes.
+--a8e812d93356676e6d3194396309dd33e90e10afd882605b15d3904c7ce0
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Thanks and regards,
-Dario
->
-> My understanding about the build dependency is the opposite, i.e. the
-> DTS changes require clock defines merged by Abel to build?  In that
-> case, I suggest Abel pick up the whole series with my ack on DTS changes.
->
-> Acked-by: Shawn Guo <shawnguo@kernel.org>
->
-> Alternatively, I can pick up the remaining patches after clock changes
-> land on mainline (the next -rc1).
->
-> Shawn
->
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaB34zAAKCRDXblvOeH7b
+bspkAQDgrjd4oJNZSgatYk5e0hVQKf7yl7XI/rQr2kM9asNPSAEAlw0l4olpMeDx
+eBT79vJHA5+VVMCa7wErGOK6rQi7+gc=
+=5PU0
+-----END PGP SIGNATURE-----
 
---=20
-
-Dario Binacchi
-
-Senior Embedded Linux Developer
-
-dario.binacchi@amarulasolutions.com
-
-__________________________________
-
-
-Amarula Solutions SRL
-
-Via Le Canevare 30, 31100 Treviso, Veneto, IT
-
-T. +39 042 243 5310
-info@amarulasolutions.com
-
-www.amarulasolutions.com
+--a8e812d93356676e6d3194396309dd33e90e10afd882605b15d3904c7ce0--
 
