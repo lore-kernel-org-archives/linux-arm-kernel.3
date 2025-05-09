@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1417EC3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 14:03:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20393C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 14:05:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FFKvoeUux8HoPiW0pGkCvuUeRg/1wy8FP9H83SjDrJc=; b=HgJTrz/eDcE00QsxAOxas3oNXL
-	dNxwsiADVtRfcWhxv7hJjVAL05oac6eRzvpN6u1Vnr+0Y8UHApPbiI7tMydfYKo0GOtTDfm6mXBlZ
-	UR89j6Qhpj8QlSwMcy8GIZHOUVcz8QcxyenTfQ1ruPxtsMjEkbweg1YI3SdTJDsciZWVeWYQa/9EG
-	dGpxqTqAtJkEhSMYw333z2Tbr5wBvcMzUTxDQ46Nv4WpbFBcYlYQdZVJXtHIO1vgNFAmKtEDLdD6N
-	RmkhAR67Dj8jg/5wyxVQmNUVGL1AFJL+kVNrlAs+bC1qwK396S8HRbY5LKh6uw01DZkSrHuUb5rTT
-	FbbWnUDQ==;
+	bh=59e1GCro0WbneHQa42anvap4yh18L8Tn1Jdf7L1xdeo=; b=KdBg9MSPYwOhTpdb244mdmJVm7
+	oNWXhHC9lBtRi19yeghTUAJC4Ndj4UQaC8b1sVqjzJB4JCb5GIrlcAjngTPRhXWVdFWnsFyxr5Xmi
+	veZzVruSxAEBwN2euR2K2Gk6uGtDiP1D6OY9oSzPxubgGU/73JJPC6a/bO/HLbK2SkZk6SHAKh1oE
+	f28U4mf60QNTFSewn/yXTX46m4SG7GRNoia50EX9wyDcfa3GZ8kpU4RWRwG3ISnWVRqiq6PMvZ2Ag
+	2p3TjFFEK6hdcLs2Ao/CsBWlhTdm0U7+Bk+iblTTDiB/kpSDO9EJ2rAR8XjG5oKvxSJDfhOZaJeOM
+	nTXOk1QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDOKN-00000003st1-0FbG;
-	Fri, 09 May 2025 14:03:51 +0000
-Received: from out-183.mta0.migadu.com ([91.218.175.183])
+	id 1uDOMJ-00000003tNP-1RrP;
+	Fri, 09 May 2025 14:05:51 +0000
+Received: from out-182.mta1.migadu.com ([2001:41d0:203:375::b6])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDNTR-00000003hhB-1TBC
+	id 1uDNUy-00000003hrn-3yj7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 13:09:10 +0000
-Date: Fri, 9 May 2025 09:09:00 -0400
+	Fri, 09 May 2025 13:10:46 +0000
+Date: Fri, 9 May 2025 09:10:35 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1746796144;
+	s=key1; t=1746796242;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=FFKvoeUux8HoPiW0pGkCvuUeRg/1wy8FP9H83SjDrJc=;
-	b=TJVNqrXprhXeKjlasx3T+nT9Z+MfWMUC6C20fIi/NWSL5hEPmm4ocdmsUVMc0GtmVr/QH0
-	eg7hZxodAb8PCG4569eZd1J+8MiNcG+XNO3Mpf4+5gD+MiFib2WD6sKQfvSKCV5tUrFRFi
-	wjxZ58ltIcdQNsoPyUTCwGqnwYbyVqDEj17wu3wjYVjJ76jZ/uY2XSqjDFxCzSRZaLt63M
-	A85GHOO6Oyd5wD3pvlxdIWQa+TPCnquoa3FH9iZatwtRImN9gFcPw/YHzH5RgqLR/p9wM9
-	CiYe5lVzxZeHT/SaCmawrPwukF8n/zpFyuHzI3t/JJSHbvQnX8Vsjmlj56b8VQ==
+	bh=59e1GCro0WbneHQa42anvap4yh18L8Tn1Jdf7L1xdeo=;
+	b=x2rBzAvElnG6TGCgmPuydA6mwOtLGxwMcukr7iwnachfNhT3vVHAJ0UOeHsHo9txStuAk6
+	9x7Tev7ubxwG4a4LQxi8lf4OYRYE4xsgu284Zgm0RyRwpNqERvC3o5N3H4GJjHFF/MeJ/G
+	gnNuCAYAz686/rzZeYj+MgzlWYuZsnTY5qD7VX2XHJ9wJPmHmzsMOCNjgbHYv3S+//ySMH
+	rbS4gVEMLpdDoZzHGanW7eBIAXnVeSs9/vrJdDx85bQIuZVlVoZEyeb7QL30LS4JfXZQ70
+	k8N6JJeqEQNDs1hyimaxjF7MmrpYYhTyQIVNoJKE4tRBz+G9hZrpMITpmVt8SA==
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 To: sven@svenpeter.dev
@@ -54,19 +54,18 @@ Cc: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
 	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH v4 4/9] mfd: Add Apple Silicon System Management
- Controller
-Message-ID: <aB3-bIOJsvlAfKRM@blossom>
+Subject: Re: [PATCH v4 5/9] gpio: Add new gpio-macsmc driver for Apple Macs
+Message-ID: <aB3-yygZvdgiE6L8@blossom>
 References: <20250503-smc-6-15-v4-0-500b9b6546fc@svenpeter.dev>
- <20250503-smc-6-15-v4-4-500b9b6546fc@svenpeter.dev>
+ <20250503-smc-6-15-v4-5-500b9b6546fc@svenpeter.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250503-smc-6-15-v4-4-500b9b6546fc@svenpeter.dev>
+In-Reply-To: <20250503-smc-6-15-v4-5-500b9b6546fc@svenpeter.dev>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_060909_525794_57E3BCF8 
-X-CRM114-Status: UNSURE (   7.19  )
+X-CRM114-CacheID: sfid-20250509_061045_125271_0DC27C58 
+X-CRM114-Status: UNSURE (   7.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,11 +81,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +struct apple_smc_key_info {
-> +	u8 size;
-> +	u32 type_code;
-> +	u8 flags;
-> +};
+> +	count = smcgp->smc->key_count;
+> +	if (count > MAX_GPIO)
+> +		count = MAX_GPIO;
 
-Dunno if it matters, but can we put type_code first to avoid extra padding?
+count = min(smcgp->smc->key_count, MAX_GPIO);
 
