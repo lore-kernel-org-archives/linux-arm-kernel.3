@@ -4,114 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8EE0C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 18:25:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 875E8C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 18:27:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OXbezUHKcYvu1Ptzr6+1Xx+ex3X8GOpunRzS3Jp2Cx0=; b=JCPgbCum9QYmwAvaxp31bzLAfo
-	5Mq/e4hV0dWvhj1uLo9WqSYHqrpct6W2BHKTij/S+CQyvpKqX6Wta6eMsrWRipV07562Nqjen7rCC
-	1RwYnBReOrlJUg9e3V5bCRUvo7AwT5NPgKiX11DhMBaqld9DyUfe2pMo9sLT70Uw9RSS3wPp4F59o
-	LZhxyPZ1rJw3bGSuWUnk/QegD7e+I/H68c1pP6MUOI/Fsbk6h52MZ8Teqg8z4dqSanBnAoP5p+xWB
-	Qz8a0n4SGJI3eQU71xXM9Mkb6Y/PVYzL2DQd0gUW6c8eBbQTK9ua4vJzDEt7FwylT2CQvyjVDmJeU
-	UmDPNtWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CEYV45etsWiKClAHB+fwribjST+y0coBC5Yfu69ThAI=; b=rapa/OnWOyyAj5TDK6tCZAVstk
+	7jkMsI/fFH1/Y+QPTJ6tvoN+q5kspal8eh3haee2C8eDNlUzu1IO2Ox4wVTYfWoSjpI8P4B58iYEl
+	93B0TgD0x6PxFUFYvPhnE6cYcTklT7802Jaa4XvdnwHkqjgYeC6MsYCSUGVGIJEM580wtfKYp3EQJ
+	RoIenDV68gkRqMWGTTmopdEdnRDDAcAPI2h+pXB7hv+MejQtHH9CtAk4ZGzyY4g2KX9d8Bzop0UUv
+	EO8e6FELBc9Y1VaXOc6KWew9r6Fo/dacvJ3ba+WXZ+5OVwu0MkuYC3xU310e8nLRiRT9FR2wJk4dq
+	3j8TwH+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDSPK-00000004ZGX-1slk;
-	Fri, 09 May 2025 18:25:14 +0000
-Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
+	id 1uDSRH-00000004ZU7-0cxr;
+	Fri, 09 May 2025 18:27:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDQMn-00000004F9h-3PKP
+	id 1uDQNZ-00000004FM6-1YDY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 16:14:31 +0000
-Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 4FC21114011B;
-	Fri,  9 May 2025 12:14:28 -0400 (EDT)
-Received: from phl-imap-12 ([10.202.2.86])
-  by phl-compute-04.internal (MEProxy); Fri, 09 May 2025 12:14:28 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
-	 t=1746807268; x=1746893668; bh=OXbezUHKcYvu1Ptzr6+1Xx+ex3X8GOpu
-	nRzS3Jp2Cx0=; b=DaE/t9uss9mpBJoxg8WG84xuq9HK3gkZs7C10WZatQSUBvcW
-	N7LQWH2kCi+VAVRsNjj3kWjcdUU6b2p4Hc0huz+0LN46xMdIpEGJYNAQ38ORqhOb
-	ExrTby5c0RLt0NIe5AZ3+kw4zwrD+nLzTYYWx/4UHz+AJ4mBd2cOk+Ach49rRA39
-	MCt2IdNJKFLWyqxJvsngKoNvtTXT0ma+SkVrv1u2liE+7Wcy3IzM6X1bwwgNj7GX
-	S2aGVQ1Ue2vPsfdxJ2U9jt1i71C1O70Rulee4QpqLnEhAfLsp1QnDZxLpj0hrfMd
-	sfIZJfJG+bdyVahYVVMiL8UMnqcDo5hP7d5FwA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1746807268; x=
-	1746893668; bh=OXbezUHKcYvu1Ptzr6+1Xx+ex3X8GOpunRzS3Jp2Cx0=; b=c
-	saqIxHMcu+VEiQmjFN4OZFefjyF47XLBIMrCPMbfHpIqkHCvwSSJGaFLiybkaV5d
-	Jz9hSQR/49ozNx020jkMYxI+81Ohvp2Ibyohj31qnq4jEKsMvoLKyf+YEmuFgRc3
-	C/7/PA5u6CPQQp4Jele7AkZCvtORwTBnDHLhL475VMUAzsn34f2DwyO9dY9+ktW5
-	DIyKbS+Thw1jg0i2siLWI+Z5BZqskjUeOKJC1G1X6Poq3eYq8D5MEgdyAwjYgMJ7
-	pNOsDCawDTd4Gn7KXwtG56/lFMPydrktp0v+PS9zN6x3iJ+Y2oN8kWNuzVowlY+M
-	8vEQl64Pa4Nsg/ZcEPWwg==
-X-ME-Sender: <xms:4ykeaCJOg2jKgtx7pKFznBIP6u7nmFfH3ZzoxhtlUVhUiLltKKog8w>
-    <xme:4ykeaKLsaENKTxDUu4N1BGOZVGZ7VtDQpIbt-15tSGdrteaRt25QLiWZNNYbA3Onl
-    xbbD9GJeARVwsGuY-I>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvleeftdejucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedfufhvvghnucfrvghtvghrfdcuoehsvhgvnhesshhvvghnphgvth
-    gvrhdruggvvheqnecuggftrfgrthhtvghrnhepleefteeugeduudeuudeuhfefheegveek
-    ueefffdvffektdffffelveffvddvueffnecuvehluhhsthgvrhfuihiivgeptdenucfrrg
-    hrrghmpehmrghilhhfrhhomhepshhvvghnsehsvhgvnhhpvghtvghrrdguvghvpdhnsggp
-    rhgtphhtthhopeduledpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprhhmkhdokh
-    gvrhhnvghlsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepsghrghhlsegs
-    ghguvghvrdhplhdprhgtphhtthhopehnvggrlhesghhomhhprgdruggvvhdprhgtphhtth
-    hopehjsehjrghnnhgruhdrnhgvthdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhn
-    vghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtg
-    hpthhtoheplhgvvgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgriieskhgvrhhn
-    vghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:4ykeaCul_pCvPXQDFfMwRyhKptftWme9TqBcC63VhwBW4LYz6JsDKQ>
-    <xmx:4ykeaHZhWFevFxHrPdMCFEF5MBsiGKQejjaTiJys0MTt1kczdZoNRw>
-    <xmx:4ykeaJZHPQEdBgNbzM7NINTFQD42j66G5LNH_BbwrLL13tFtJZWnaQ>
-    <xmx:4ykeaDDblii-Ktq1U2trbst6o-SBPUSkjI9lL_W-3cntbNWMWCU-Qw>
-    <xmx:5CkeaH7A37GhqngamR_x-oDBc0s_YAmK8Aaxd2kNXJqprE5kDLwul7qM>
-Feedback-ID: i51094778:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 7072E1C20069; Fri,  9 May 2025 12:14:27 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 09 May 2025 16:15:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A23976111F;
+	Fri,  9 May 2025 16:15:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 116E8C4CEE4;
+	Fri,  9 May 2025 16:15:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746807316;
+	bh=lnXJqnJ6L2CCxfRYIrwQ87XFrZmjVVTDVi/is6Su21A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=F9vWsaOEIRPPVVdvRwuw2KqhhHdFXcfQS9hCv8q2bIByUVDTZ8zNsPgYGB0xrdmGk
+	 Apcr9OEfyp5TOYGDGAH6quvyLtR6qiG2MyGwURgHFttiZXH1YgCxIBs4ndKdfWTyyu
+	 rrNhn8ibiMJcR96v3/Zgs0oIFH8wTzrHVoEWH0jaQ8rAlogrfYq4+qUhiWFB4J/cpy
+	 hrB0aVDir3GlzkXySdN+iyMZ7PwAxmblKxBcOF8QU5Fl3cle2Z/zw8tFAkn9rrszaz
+	 DQCq5RIFAF1yzw710UVXF+l9GsRmFkrHPGCa8paQ7/GyIOBnU5vMON8AAyHRIW7Hf2
+	 mWH2aD6BIxyqA==
+Date: Fri, 9 May 2025 17:15:08 +0100
+From: Will Deacon <will@kernel.org>
+To: Dylan Hatch <dylanbhatch@google.com>
+Cc: Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
+	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Philippe =?iso-8859-1?Q?Mathieu-Daud=E9?= <philmd@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Song Liu <song@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Roman Gushchin <roman.gushchin@linux.dev>
+Subject: Re: [PATCH v2 2/2] arm64/module: Use text-poke API for late
+ relocations.
+Message-ID: <20250509161508.GB5984@willie-the-truck>
+References: <20250412010940.1686376-1-dylanbhatch@google.com>
+ <20250412010940.1686376-3-dylanbhatch@google.com>
 MIME-Version: 1.0
-X-ThreadId: T4bf42f97a4fae5f2
-Date: Fri, 09 May 2025 18:13:09 +0200
-From: "Sven Peter" <sven@svenpeter.dev>
-To: "Alyssa Rosenzweig" <alyssa@rosenzweig.io>
-Cc: "Janne Grunau" <j@jannau.net>, "Neal Gompa" <neal@gompa.dev>,
- "Hector Martin" <marcan@marcan.st>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Bartosz Golaszewski" <brgl@bgdev.pl>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Sebastian Reichel" <sre@kernel.org>,
- "Lee Jones" <lee@kernel.org>, "Marc Zyngier" <maz@kernel.org>,
- "Russell King" <rmk+kernel@armlinux.org.uk>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org
-Message-Id: <196f84ea-6567-4fe3-9bee-743bb289223e@app.fastmail.com>
-In-Reply-To: <aB39iJm9759RYAKW@blossom>
-References: <20250503-smc-6-15-v4-0-500b9b6546fc@svenpeter.dev>
- <20250503-smc-6-15-v4-6-500b9b6546fc@svenpeter.dev>
- <aB39iJm9759RYAKW@blossom>
-Subject: Re: [PATCH v4 6/9] power: reset: macsmc-reboot: Add driver for rebooting via
- Apple SMC
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_091430_105527_DA1EFC50 
-X-CRM114-Status: GOOD (  13.42  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250412010940.1686376-3-dylanbhatch@google.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,68 +90,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-thanks for the review!
+Hi Dylan,
 
-On Fri, May 9, 2025, at 15:05, Alyssa Rosenzweig wrote:
->> +	for (i = 0; i < ARRAY_SIZE(ac_power_mode_map); i++)
->> +		if (mode == ac_power_mode_map[i])
->> +			len += scnprintf(buf+len, PAGE_SIZE-len,
->> +					 "[%s] ", ac_power_modes[i]);
->> +		else
->> +			len += scnprintf(buf+len, PAGE_SIZE-len,
->> +					 "%s ", ac_power_modes[i]);
->
-> Nit: { braces } at least on the for loop...
+On Sat, Apr 12, 2025 at 01:09:39AM +0000, Dylan Hatch wrote:
+> To enable late module patching, livepatch modules need to be able to
+> apply some of their relocations well after being loaded. In this
+> scenario, use the text-poking API to allow this, even with
+> STRICT_MODULE_RWX.
+> 
+> This patch is largely based off commit 88fc078a7a8f6 ("x86/module: Use
+> text_poke() for late relocations").
+> 
+> Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
+> ---
+>  arch/arm64/kernel/module.c | 129 ++++++++++++++++++++++++-------------
+>  1 file changed, 83 insertions(+), 46 deletions(-)
 
-Will fix that.
+On its own, this isn't gaining us an awful lot upstream as we don't have
+livepatch support (arm64 does not select HAVE_LIVEPATCH), however I'm
+not against incremental changes towards enabling that. Are you planning
+to work on follow-up changes for the rest of the support?
 
->
-> (And might be more concise as
->
->     for (i = 0; i < ARRAY_SIZE(ac_power_mode_map); i++) {
->         bool match = (mode == ac_power_mode_map[i]);
->         len += scnprintf(buf+len, PAGE_SIZE-len,
->                  match ? "[%s] " : "%s ", ac_power_modes[i]);
->     }
->
-> though IDK how people feel about it.)
+> diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
+> index 06bb680bfe975..0703502d9dc37 100644
+> --- a/arch/arm64/kernel/module.c
+> +++ b/arch/arm64/kernel/module.c
+> @@ -18,11 +18,13 @@
+>  #include <linux/moduleloader.h>
+>  #include <linux/random.h>
+>  #include <linux/scs.h>
+> +#include <linux/memory.h>
+>  
+>  #include <asm/alternative.h>
+>  #include <asm/insn.h>
+>  #include <asm/scs.h>
+>  #include <asm/sections.h>
+> +#include <asm/text-patching.h>
+>  
+>  enum aarch64_reloc_op {
+>  	RELOC_OP_NONE,
+> @@ -48,7 +50,8 @@ static u64 do_reloc(enum aarch64_reloc_op reloc_op, __le32 *place, u64 val)
+>  	return 0;
+>  }
+>  
+> -static int reloc_data(enum aarch64_reloc_op op, void *place, u64 val, int len)
+> +static int reloc_data(enum aarch64_reloc_op op, void *place, u64 val, int len,
+> +		      void *(*write)(void *dest, const void *src, size_t len))
+>  {
 
-imho it's less readable that way but I don't have a strong opinion
-either way.
+I think it's a bit grotty indirecting the write when in reality we either
+need a straight-forward assignment (like we have today) or a call to
+an instruction-patching helper.
 
->
->> +		mdelay(100);
->> +		WARN_ON(1);
->
-> ...What?
+In particular, when you get to functions such as:
 
-This is done in a few drivers in drivers/power/reboot. If we haven't
-rebooted after 100ms something's wrong with SMC. I'll add a comment.
+>  static int reloc_insn_movw(enum aarch64_reloc_op op, __le32 *place, u64 val,
+> -			   int lsb, enum aarch64_insn_movw_imm_type imm_type)
+> +			   int lsb, enum aarch64_insn_movw_imm_type imm_type,
+> +			   void *(*write)(void *dest, const void *src, size_t len))
+>  {
+>  	u64 imm;
+>  	s64 sval;
+>  	u32 insn = le32_to_cpu(*place);
+> +	__le32 le_insn;
+>  
+>  	sval = do_reloc(op, place, val);
+>  	imm = sval >> lsb;
+> @@ -145,7 +150,8 @@ static int reloc_insn_movw(enum aarch64_reloc_op op, __le32 *place, u64 val,
+>  
+>  	/* Update the instruction with the new encoding. */
+>  	insn = aarch64_insn_encode_immediate(AARCH64_INSN_IMM_16, insn, imm);
+> -	*place = cpu_to_le32(insn);
+> +	le_insn = cpu_to_le32(insn);
+> +	write(place, &le_insn, sizeof(le_insn));
 
-drivers/power/reset/tps65086-restart.c:	WARN_ON(1);
-drivers/power/reset/atc260x-poweroff.c:	WARN_ONCE(1, "Unable to power off system\n");
-drivers/power/reset/mt6323-poweroff.c:	WARN_ONCE(1, "Unable to power off system\n");
-drivers/power/reset/gpio-restart.c:	WARN_ON(1);
-drivers/power/reset/regulator-poweroff.c:	WARN_ON(1);
+we're forced into passing &le_insn because we need the same function
+prototype as memcpy().
 
-
-
->
->> +	if (ret)
->> +		return dev_err_probe(&pdev->dev, ret,
->> +				     "Failed to register power-off handler\n");
->> +
->> +
->> +	ret = devm_register_sys_off_handler(&pdev->dev, SYS_OFF_MODE_RESTART_PREPARE,
->> +					    SYS_OFF_PRIO_HIGH, macsmc_prepare_atomic, reboot);
->
-> Nit: squash double blank-line
-
-will do.
-
-
-thanks,
+Instead, how about we pass the 'struct module *mod' pointer down from
+apply_relocate_add()? That's already done for reloc_insn_adrp() and it
+would mean that the above could be written as:
 
 
-Sven
+static int reloc_insn_movw(struct module *mod, enum aarch64_reloc_op op,
+			   __le32 *place, u64 val, int lsb,
+			   enum aarch64_insn_movw_imm_type imm_type)
+{
+	...
+
+	insn = aarch64_insn_encode_immediate(AARCH64_INSN_IMM_16, insn, imm);
+	insn = cpu_to_le32(insn);
+
+	if (mod->state != MODULE_STATE_UNFORMED)
+		aarch64_insn_set(place, insn, sizeof(insn));
+	else
+		*place = insn;
+
+
+meaning we can also drop the first patch, because I don't think we need
+a text_poke() helper.
+
+> +int apply_relocate_add(Elf64_Shdr *sechdrs,
+> +		       const char *strtab,
+> +		       unsigned int symindex,
+> +		       unsigned int relsec,
+> +		       struct module *me)
+> +{
+> +	int ret;
+> +	bool early = me->state == MODULE_STATE_UNFORMED;
+> +	void *(*write)(void *, const void *, size_t) = memcpy;
+> +
+> +	if (!early) {
+> +		write = text_poke;
+> +		mutex_lock(&text_mutex);
+> +	}
+> +
+> +	ret = __apply_relocate_add(sechdrs, strtab, symindex, relsec, me,
+> +				   write);
+> +
+> +	if (!early)
+> +		mutex_unlock(&text_mutex);
+
+Why is the responsibility of the arch code to take the 'text_mutex' here?
+The core code should be able to do that when the module state is !=
+MODULE_STATE_UNFORMED.
+
+Cheers,
+
+Will
 
