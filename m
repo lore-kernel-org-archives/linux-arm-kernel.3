@@ -4,108 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83190C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 14:52:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F91AC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 14:54:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Mime-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TmF/jQbkKq4JyoxVq6p8e2ttFgpJKCBS/OCO7/VbPJQ=; b=xQI5+cnh0KjHkpbVG46dxT2pTF
-	lAXhz2sUB64BmqnMa/LTRCwQSlSK06hFVGEsAKHEyPBC5pbmHiZk9SANzbAmPx9kFTJ3x+xeMq53L
-	MuI3waRPkVGDOJnu241Zn1t/wuP4bUnv6JBA5ZLE8OUqZtumdiksYhUxNv41UnF9FlbDudkt2klWG
-	TLigzxv2gFm7AP/An980jO4N3l488t3VvKU88jFrOgsQ6mQChbscq9sqBoQqsQWA90I8lOYBQUmB4
-	DIBmSoMOd34nuP73K4AXvcM0X0cduvmsxOoK95BnFi88R1QQm0yx4pq/cxzBxRTa+etKdzvCrrbgN
-	2D+yiq5A==;
+	bh=hUZP0RFWcvqcYymU0Mxq5VI0y3pwjw/JUMrv8IOQZ5U=; b=u7Ud6oX+6qXf2CEo90nILd+Jzp
+	RiAghaKYaqd8Yo9Y60x3/V/GMPvc6wscCh1d0tzbJvUF0qtfSOIUqnp4KZEkua5Qd6gBwozrpXyPk
+	HHo7lrb8X2rNN+ZU5l8jko8cnL0r8kyzIleXVZJfxrWjH+7B1b8uUkIR2MKy2zMlsfSZRbQW1dt5z
+	pU/V1nipmd9QdPCKywPh4EYXSc92W3l9st42plumkC7DWggyuwVJaas6R6tiZ2vXbcU5YDYGmng5f
+	YbPFB5oKIunUdtOJvdKD4vUd1WW2XtZagfbswr+dvuiX4evQA6+caUrjij/U8Io11tV63Qi+gXuP5
+	tXljnmEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDP4v-00000003zmI-41RH;
-	Fri, 09 May 2025 14:51:57 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uDP6s-0000000409c-163R;
+	Fri, 09 May 2025 14:53:58 +0000
+Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDNgZ-00000003kEQ-1YZ6
+	id 1uDNgm-00000003kHU-01GU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 13:22:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B421BA4B7BD;
-	Fri,  9 May 2025 13:22:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64A88C4CEE4;
-	Fri,  9 May 2025 13:22:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746796962;
-	bh=fMwC4VkQFpw0XhF3h7LQAlc851BqN8TPwRsoDYvP9E8=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=tMBmbHYYS9D4tpxUTPEJ+Jo/pZOer0sc2Pwk1aa5Ekda5H7u3kuaed3K8m7lrVQEN
-	 05OqqmgxLfUxIghMBlu8kWWyKU47n4x9mR0Rq75c3HpfIKrwB0ZGHS0drVurVVBCQJ
-	 JGyKtXPKeqF9TWWQ9NPcDDAwvkuVZcCfbf+xYbj450zM2Gd+Y+sHFblrPpV1Wzwtnd
-	 XpNXZX0BhaOKseZ0vLxPUDygYUi8DPbao6Ay/Qghy5yWTJBLmx/Y2tz4NhOX+gky2z
-	 UfNaOJndqwLf/AWsRA2+fCA/OHIInu9eSHmr0sy2BCnGuZQCJLAYNkVlg0h34DeSNO
-	 q0VzouY4mJNfQ==
-Message-ID: <da65077f-09bc-4369-91c0-ac7178eff62c@kernel.org>
-Date: Fri, 9 May 2025 15:22:38 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: imx8mp: Add TechNexion EDM-G-IMX8M-PLUS
- SoM on WB-EDM-G carrier board
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Richard Hu <richard.hu@technexion.com>, sascha.hauer@pengutronix.de,
- Shawn Guo <shawnguo@kernel.org>
-Cc: imx@lists.linux.dev, ray.chang@technexion.com,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250509071242.12098-1-richard.hu@technexion.com>
- <8173a798-b5d7-485c-8ce3-b46f4a097d83@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <8173a798-b5d7-485c-8ce3-b46f4a097d83@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+	Fri, 09 May 2025 13:22:57 +0000
+Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-6f2c45ecaffso21591016d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 06:22:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746796974; x=1747401774; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:subject:references
+         :in-reply-to:message-id:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hUZP0RFWcvqcYymU0Mxq5VI0y3pwjw/JUMrv8IOQZ5U=;
+        b=JrooJ/72r0/QdzZa5xat3Tq1ot4cEk38cLeW/eAJhJmINqy+3IvwmQZjh09DD/4S0w
+         feL9DrYOBF+vquLfJPCht9PZ7MWbshk2gW57QNeJJLUaxlbpFBb9Hi002+LbsvxZdyVe
+         MkL3EWi1BRn1u64rcwTIGcPchZpfQ45PNe38iXEcr5+c7FL5oPXbmSKefFnhxK94K2gC
+         +ei4XAYuojRMDWUINkSHiaFJLZpF+1q2Ti2ZQcLYeLMwX2QlKbjHPmoQBry25fqG1ZsF
+         sr7LRFJWZw5aa6Ax0YDAlVb0SVoG7yE1fT6QhQDFa7K+5L5G2zzibT1RnsTng7b33ELT
+         dcSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746796974; x=1747401774;
+        h=content-transfer-encoding:mime-version:subject:references
+         :in-reply-to:message-id:cc:to:from:date:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=hUZP0RFWcvqcYymU0Mxq5VI0y3pwjw/JUMrv8IOQZ5U=;
+        b=L4z5osesGZCtoa2fOKa9zSycpQHznOMxoFicmVMKS9JgDhsz2l4vivQMWBbRKUhz/y
+         ICR29wvfbKE45/1ZlVQsoHkGVSKGyvkWzNxQDRrXkyI5QcmDQThn8KrUPtudPuK2/9P9
+         ++i8egQauEDyyJA1eW3sh3HTWHJQsLgRM6zuLkbzDKQF1SvZeuGfYpUf0PlyToG9ZIBR
+         Zyhzeh4OyZwmSkCHF1NXQNcTRjOH7gd3tZvKgcXjIbwxMj06on5gEVSJ6mA7NN/mB64p
+         WJNskQB5pvBYKD649/BKH9Kqmx0gmW5Byf3yySzoiZ1+jcBWrta/8dVpOaWzfHNhN+ni
+         opUw==
+X-Gm-Message-State: AOJu0YwwPKZWu+4Q2t84+FXyHPQ6ruZSmfoS0B/2vfr6PdcKF8eWcsEB
+	fEjzouVBweWvnmFS+9fcj0U40THY2RO1027jXP8a0Hxt+AbpQJxd
+X-Gm-Gg: ASbGncsYjE6M7S+L5Gczby85xpC+sGYg644SF3yNGunhfHlZJhMEy3vfnZga8I4Dnqo
+	4DOPXcQe5TfgTdxmFNzRYXg9jHsVoQhsy7AZ+DeLRrxy29BYoXQO1wWNkJe2beH1fJgAsBBHs9w
+	3qzAyO/4KQjj0N11xUOPF6/DBS7JG/VrtAeobcergTRiz9DGEE93UjfkRoozJvSlM1J1zZ//4SF
+	0j9BfhcAlnZxi2SdJMhblYiUGyfNRPr2Uae/XIZPQ+DaK7wWz826tYGpjAnMjTDyLKbzUwV7GfP
+	7M0KymN782JbuFfFk1WWpRD/BZxzPHlF8wggkfdFIaDt+MRkuAkXByZJgeJfKIQj2JNGfvSq30E
+	0VYkQjIwUTWJ0DLqQSoVJ
+X-Google-Smtp-Source: AGHT+IGxbWsS1epORct2c6lQrwEMJD69ZnjSa+IjNQL3Op2yrKOuY+EYtEmjR7RQ7dnowdIZK9Gieg==
+X-Received: by 2002:ad4:5aa5:0:b0:6f4:cbcf:5d46 with SMTP id 6a1803df08f44-6f6e47c345bmr51474076d6.20.1746796974323;
+        Fri, 09 May 2025 06:22:54 -0700 (PDT)
+Received: from localhost (141.139.145.34.bc.googleusercontent.com. [34.145.139.141])
+        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6f6e39f4689sm13560016d6.28.2025.05.09.06.22.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 May 2025 06:22:53 -0700 (PDT)
+Date: Fri, 09 May 2025 09:22:53 -0400
+From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
+To: Jason Xing <kerneljasonxing@gmail.com>, 
+ davem@davemloft.net, 
+ edumazet@google.com, 
+ kuba@kernel.org, 
+ pabeni@redhat.com, 
+ horms@kernel.org, 
+ sgoutham@marvell.com, 
+ andrew+netdev@lunn.ch, 
+ willemb@google.com
+Cc: linux-arm-kernel@lists.infradead.org, 
+ netdev@vger.kernel.org, 
+ Jason Xing <kernelxing@tencent.com>
+Message-ID: <681e01ad26187_2b1da22945c@willemb.c.googlers.com.notmuch>
+In-Reply-To: <20250508034433.14408-1-kerneljasonxing@gmail.com>
+References: <20250508034433.14408-1-kerneljasonxing@gmail.com>
+Subject: Re: [PATCH net-next v2] net: thunder: make tx software timestamp
+ independent
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=utf-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_062243_540228_A30F2DCE 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20250509_062256_046261_84BED6C7 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,32 +108,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/05/2025 15:21, Krzysztof Kozlowski wrote:
-> On 09/05/2025 09:12, Richard Hu wrote:
->> index b6d3fe26d621..6acd2408f936 100644
+Jason Xing wrote:
+> From: Jason Xing <kernelxing@tencent.com>
 > 
+> skb_tx_timestamp() is used for tx software timestamp enabled by
+> SOF_TIMESTAMPING_TX_SOFTWARE while SKBTX_HW_TSTAMP is used for
+> SOF_TIMESTAMPING_TX_HARDWARE. As it clearly shows they are different
+> timestamps in two dimensions, it's not appropriate to group these two
+> together in the if-statement.
 > 
-> Please use scripts/get_maintainers.pl to get a list of necessary people
-> and lists to CC (and consider --no-git-fallback argument, so you will
-> not CC people just because they made one commit years ago). It might
-> happen, that command when run on an older kernel, gives you outdated
-> entries. Therefore please be sure you base your patches on recent Linux
-> kernel.
+> This patch completes three things:
+> 1. make the software one standalone. Users are able to set both
+> timestamps together with SOF_TIMESTAMPING_OPT_TX_SWHW flag.
+> 2. make the software one generated after the hardware timestamp logic to
+> avoid generating sw and hw timestamps at one time without
+> SOF_TIMESTAMPING_OPT_TX_SWHW being set.
+> 3. move the software timestamp call as close to the door bell.
 > 
-> Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-> people, so fix your workflow. Tools might also fail if you work on some
-> ancient tree (don't, instead use mainline) or work on fork of kernel
-> (don't, instead use mainline). Just use b4 and everything should be
-> fine, although remember about `b4 prep --auto-to-cc` if you added new
-> patches to the patchset.
-> 
-> 
-> All of the addresses here are totally bogus. I am dropping them, except
-> Shawn's which I corrected.
+> Signed-off-by: Jason Xing <kernelxing@tencent.com>
 
-
-You also have broken SoB chain, read submitting patches.
-
-Best regards,
-Krzysztof
+Reviewed-by: Willem de Bruijn <willemb@google.com>
 
