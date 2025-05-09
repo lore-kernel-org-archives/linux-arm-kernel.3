@@ -4,106 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CEC4C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 07:20:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C20FC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 07:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sGMGh3kCZ7DtAL6Rxf5lFibuPBZrYKW2j8RTxCTZsgw=; b=NfR1/7MS06YoK+7qJTMaQhFNf/
-	qfz79sAZ8MGfJAjiv7anxe57+qPWbaKkuU/VpKXhugEB2VKsgPK1BG0NSP7cAGAcKC++7za+6W48s
-	ofSjC2Q3Bw/dcDUzRqnymK5/Of9s6hPMe0SLymvNXa0k6z5If7cQSlgVKZFySKdAS3CGaPWh/OPbL
-	SkiygWeEvtUe/osd4nibfFoyTP/sxo6iO1Ez6QD09ZXqOBPfVdbskF/l6EUKpNXXOm1eAPj4jydY4
-	0ybIEfGHbj9HYtXrxyIFcE7rUb7ylSa8/mULvNfJayiTvS3XD6EpD0eZpeaRZyYtbxWBnAPj0PTbC
-	yqKWuoYQ==;
+	bh=xSFpjwbQMrP+FaeVpl/qngyyHv1MywXzP3kuhNO2yxU=; b=ais7CRd0DdWqTv4uWYZKMCilDY
+	O3geOw7kTXBeL54ITxJBCjnGhVKgPVaUyREL3jLKsnJYFdrpn4mhYMa2bPn8A6jC6t9i9D30pz/vO
+	oQzs924NHVCiJxkX3XPZdyzk+P53sL6w67AsBFKi6YGI6FdguLwhLdj8X3xowM/JgMQjtqALS1RkH
+	7qhKqeuFkt1eaUMNsVhqmDc0lRJXRpWMeG66Qh5j/8rPtV64D8GWHX643izx/B7HC5RIycyU3kgl5
+	+i9970XjW04D/U52VXDTqIoUvYLnK6la1HyaENry6TiedX2VinQ3OMciTYQt/K0irQF6UEGAUizij
+	2qWBzAHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDI2C-00000002jSt-2JWP;
-	Fri, 09 May 2025 07:20:40 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uDI4C-00000002jni-0OUo;
+	Fri, 09 May 2025 07:22:44 +0000
+Received: from mail-m15586.qiye.163.com ([101.71.155.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDHzQ-00000002iuv-1L2X;
-	Fri, 09 May 2025 07:17:49 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5492TlqG008438;
-	Fri, 9 May 2025 07:17:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	sGMGh3kCZ7DtAL6Rxf5lFibuPBZrYKW2j8RTxCTZsgw=; b=DlNYwqh7oj8gvKqH
-	DDUyk0cS5CSDEXgYydnhnQFKzJQ4ZXTlfSSFyAHdnDsAy0nY6ydVbFAuRLPoHWVw
-	yS2Dsnoe1AEXModCSEajo2AoBZ21AsO8jczgqvQm+oINtb7I75iGs1Jn/8UuBiI8
-	XOq5RwedFOP+alrfeorNaeJORjpMPsRKhDPVoGcFdfcmuLuo87jzFlE2926qIpJR
-	EzbfW2FWW5KyDis3gvexmqig0f8AsyNt/7uwfRC9pRpWK3awjSt+XyratYONo3C3
-	HMdHw0/gNGUYvTXIh7btYioAG7YAVpa6g5Zk011phdgyTgN3wCGhsrWydLZz6Kn+
-	6F1hXQ==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46gnp5bra2-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 09 May 2025 07:17:32 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5497HVn8004237
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 9 May 2025 07:17:31 GMT
-Received: from [10.239.29.178] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 9 May 2025
- 00:17:27 -0700
-Message-ID: <c73881f8-cdb4-417e-885d-2c3787c05f6f@quicinc.com>
-Date: Fri, 9 May 2025 15:17:24 +0800
+	id 1uDHzd-00000002ivj-3EMC;
+	Fri, 09 May 2025 07:18:03 +0000
+Received: from localhost.localdomain (unknown [103.29.142.67])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 147bfe069;
+	Fri, 9 May 2025 15:17:49 +0800 (GMT+08:00)
+From: Kever Yang <kever.yang@rock-chips.com>
+To: heiko@sntech.de
+Cc: linux-rockchip@lists.infradead.org,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Elaine Zhang <zhangqing@rock-chips.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v6 1/5] dt-bindings: rockchip: pmu: Add rk3562 compatible
+Date: Fri,  9 May 2025 15:17:40 +0800
+Message-Id: <20250509071744.732412-2-kever.yang@rock-chips.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250509071744.732412-1-kever.yang@rock-chips.com>
+References: <20250509071744.732412-1-kever.yang@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/5] arm64: qcom: x1e80100-qcp: Add power supply and
- sideband signals for PCIe RC
-To: Wenbin Yao <quic_wenbyao@quicinc.com>, <catalin.marinas@arm.com>,
-        <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <andersson@kernel.org>, <konradybcio@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <vkoul@kernel.org>,
-        <kishon@kernel.org>, <sfr@canb.auug.org.au>,
-        <linux-phy@lists.infradead.org>
-CC: <krishna.chundru@oss.qualcomm.com>, <quic_vbadigan@quicinc.com>,
-        <quic_mrana@quicinc.com>, <quic_cang@quicinc.com>
-References: <20250508081514.3227956-1-quic_wenbyao@quicinc.com>
-Content-Language: en-US
-From: Qiang Yu <quic_qianyu@quicinc.com>
-In-Reply-To: <20250508081514.3227956-1-quic_wenbyao@quicinc.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=Lu2Symdc c=1 sm=1 tr=0 ts=681dac0c cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=VwQbUJbxAAAA:8
- a=COk6AnOGAAAA:8 a=FpayjJl1TS02Lq9UJb0A:9 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: i-i7M-MlIasT-BRoraL81VBVP0YA3GLJ
-X-Proofpoint-ORIG-GUID: i-i7M-MlIasT-BRoraL81VBVP0YA3GLJ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTA5MDA2OSBTYWx0ZWRfXz0WePNma9Pg+
- 4N9HFahuDHQyQeO3tNfawZBQhErgz5JhUBiSM+fBCyWkWcKWq8pRSkkI8PmnJOCG7jPL7hUeZy2
- IPVnNSmxfh7QZW6ka+kjX5nuVA2hJHFiszdsLZ8zgyL3M1mbGDG1zpi8Ej3qRTLQas8X1h8ud/y
- iCTh71VsXcwAeadj+8PQ3LAFSBss3dO4o6sZkAx85aJcyXvTSO8iyHvyndHKCOHbO/XmqGfYXjI
- OXbBuMgHGoFyAuSf2FUBOyfTMQAodg7aRciChku2i4U3n2+W6WWsz7q3XvrjNQruPBLoE87Vsui
- MEry5fH0SE/Lno2VIe2nzJajQtXkTYMiVsnOOawL6WtAjPEU4ttD7hEgal+ENddgXgji0xkUL55
- SXYl2fZmduHnGYwd5RVQdgj6hrQNpZbn73P1mp+IRbDUwZD8mY5+X06P+HHFwGW6sXX7FbrG
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-09_02,2025-05-08_04,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 lowpriorityscore=0 bulkscore=0 mlxlogscore=999
- priorityscore=1501 suspectscore=0 clxscore=1015 adultscore=0 malwarescore=0
- spamscore=0 impostorscore=0 mlxscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2504070000 definitions=main-2505090069
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCSEhPVkpNTh0aQhhPTx0fTVYVFAkWGhdVEwETFh
+	oSFyQUDg9ZV1kYEgtZQVlKS0hVSUJVSk9JVU1MWVdZFhoPEhUdFFlBWU9LSFVKS0lIQkhDVUpLS1
+	VKQktLWQY+
+X-HM-Tid: 0a96b3e853a803afkunm147bfe069
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NQw6KQw5SjJKTgINFy8hQzEu
+	N0swCkhVSlVKTE9NTExOS0xKSEpCVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlKS0hVSUJVSk9JVU1MWVdZCAFZQUlKS0w3Bg++
+DKIM-Signature: a=rsa-sha256;
+	b=H4mOQxuWlvm+4YFBGQbCYcfSuprHVK9vVshjNNOsXDSvMMWb3JvOC5LWabRikbphzGgoT9JmLoawufz0BHV9kuIG+GnJx/mga/oTUpfFROUWDGXvTVSPaftNQcexPneQ8cqzNk2dMiHSH0rfvzkXXYrndd3KsPMWL4ap6QV5zAA=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=xSFpjwbQMrP+FaeVpl/qngyyHv1MywXzP3kuhNO2yxU=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_001748_477033_FAACF273 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20250509_001802_354321_5918F332 
+X-CRM114-Status: UNSURE (   6.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,55 +80,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add the compatible for the pmu mfd on rk3562.
 
-On 5/8/2025 4:15 PM, Wenbin Yao wrote:
-> The first patch enables the PCI Power Control driver to control the power
-> state of PCI slots. The second patch adds the bus topology of PCIe domain 3
-> on x1e80100 platform. The third patch adds perst, wake and clkreq sideband
-> signals, and describe the regulators powering the rails of the PCI slots in
-> the devicetree for PCIe3 controller and PHY device. The fourth patch adds
-> qref supply in dts nodes of PCIe PHYs. The fifth patch requests qref supply
-> for PCIe PHYs.
->
-> The patchset has been modified based on comments and suggestions.
->
-> Changes in v3:
-> - Replace PCI_PWRCTL_SLOT with PCI_PWRCTRL_SLOT in Patch 1/5.
-> - Kepp the order of pinctrl-0 before pinctrl-names in Patch 3/5.
-> - Add Patch 5/5 to request qref supply for PCIe PHYs.
-> - Link to v2: https://lore.kernel.org/all/20250425092955.4099677-1-quic_wenbyao@quicinc.com/
->
-> Changes in v2:
-> - Select PCI_PWRCTL_SLOT by ARCH_QCOM in arch/arm64/Kconfig.platforms in
->    Patch 1/4.
-> - Add an empty line before pcie3port node in Patch 2/4.
-> - Rename regulator-pcie_12v regulator-pcie_3v3_aux and regulator-pcie_3v3
->    in Patch 3/4.
-> - Add Patch 4/4 to describe qref supply of PCIe PHYs.
-> - Link to v1: https://lore.kernel.org/all/20250320055502.274849-1-quic_wenbyao@quicinc.com/
->
-> Qiang Yu (5):
->    arm64: Kconfig: enable PCI Power Control Slot driver for QCOM
->    arm64: dts: qcom: x1e80100: add bus topology for PCIe domain 3
->    arm64: dts: qcom: x1e80100-qcp: enable pcie3 x8 slot for X1E80100-QCP
->    arm64: dts: qcom: x1e80100-qcp: Add qref supply for PCIe PHYs
->    phy: qcom: qmp-pcie: add x1e80100 qref supplies
->
->   arch/arm64/Kconfig.platforms              |   1 +
->   arch/arm64/boot/dts/qcom/x1e80100-qcp.dts | 121 ++++++++++++++++++++++
->   arch/arm64/boot/dts/qcom/x1e80100.dtsi    |  11 ++
->   drivers/phy/qualcomm/phy-qcom-qmp-pcie.c  |  37 ++++++-
->   4 files changed, 165 insertions(+), 5 deletions(-)
->
->
-> base-commit: 0a00723f4c2d0b273edd0737f236f103164a08eb
-Hi
+Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+---
 
-Can you please review patch[1/5], patch[2/5] and patch[3/5] first, QREF
-patch need more discussion, but it will not affect the PCIe function.
+Changes in v6: None
+Changes in v5: None
+Changes in v4:
+- Collect ack tag
 
+Changes in v3: None
+Changes in v2: None
+
+ Documentation/devicetree/bindings/arm/rockchip/pmu.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/rockchip/pmu.yaml b/Documentation/devicetree/bindings/arm/rockchip/pmu.yaml
+index 52016a141227..46c1af851be7 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip/pmu.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip/pmu.yaml
+@@ -25,6 +25,7 @@ select:
+           - rockchip,rk3288-pmu
+           - rockchip,rk3368-pmu
+           - rockchip,rk3399-pmu
++          - rockchip,rk3562-pmu
+           - rockchip,rk3568-pmu
+           - rockchip,rk3576-pmu
+           - rockchip,rk3588-pmu
+@@ -43,6 +44,7 @@ properties:
+           - rockchip,rk3288-pmu
+           - rockchip,rk3368-pmu
+           - rockchip,rk3399-pmu
++          - rockchip,rk3562-pmu
+           - rockchip,rk3568-pmu
+           - rockchip,rk3576-pmu
+           - rockchip,rk3588-pmu
 -- 
-With best wishes
-Qiang Yu
+2.25.1
 
 
