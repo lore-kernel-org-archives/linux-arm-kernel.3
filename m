@@ -4,91 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B26FC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 15:30:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EC44C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 15:31:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8OAt2vO9IIVZ90xYSq1hVs9pPdGQMmKkQVmvwVGbbu0=; b=kCd9d+hdaj9/P8xmuM/tG7hyDi
-	EX3sgSzNOxsnJmwxduUBhcXius6Rc17D8YgeQTbmsaZtO7MIMjSTfT8UlWmttq74b8uajKS7SQ2KI
-	zv0ZTA7J6XZ11I+dig3QZuX+1XsOwGZMuhhnpPGYgIfyRwhRd54IWMN7JwowaoUfkVfbHymIL8jWD
-	KP1fCTqGXegNwuoMgZfCt3A6/pzdrWEdKhSJjj3D5OkjKF4z8uPWHoMCZ3VbuqgRCPaiGJPEKev8R
-	f3m1l7Vn7lc1sc/shYQgGxX+PjmMHDXePm98gruWDCNRdZMq7VYFCHmMv8zlCOUaZ8A4YYmRrMlWh
-	iZ0NplrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GkV6XoLaeT2EUCE/NRO86y22RkBlw2IGYotCv1aLQSo=; b=JCpUe9IttNsEoq/KnD34yP7xA2
+	AoYNp56Awkix/4qKT1gzEt0m+V4eWTL9d1SabZmZkE1Ld8qtfwvjme3xgs+quplS8VlvZXMp9Ri91
+	/Fsy0X23TKHeePhcvqO3HFoOQfTO4gJGkIiiDhwQUqdYN0dmsLNdC4g4P9DFcjQ7CzOofdK8mXEgU
+	Ea7+AxR+O+s+kIQTGBQucmMZBTjnBtHbt4IcppdsZLa8LoDDxlnGFJNy/8CtIhDcI2QCaD5Pt4pac
+	v9qfBEZpTPql7f+wAKA0BhMZZkOk3Y4AHGiWpyOLFzA4j+emaWbOGlYmU3tIgzAXPg4PPQz73aX2a
+	W05CcdTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDPfl-000000045Hd-49dh;
-	Fri, 09 May 2025 15:30:01 +0000
-Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
+	id 1uDPhQ-000000045dI-1CbC;
+	Fri, 09 May 2025 15:31:44 +0000
+Received: from out-172.mta1.migadu.com ([2001:41d0:203:375::ac])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDODB-00000003rAt-09jE;
-	Fri, 09 May 2025 13:56:26 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 0767B43B67;
-	Fri,  9 May 2025 13:56:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1746798983;
+	id 1uDNYX-00000003iTH-0VlL
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 May 2025 13:14:26 +0000
+Date: Fri, 9 May 2025 09:14:05 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1746796462;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8OAt2vO9IIVZ90xYSq1hVs9pPdGQMmKkQVmvwVGbbu0=;
-	b=lOB9+4XhOUFg2zLxN02nnI36kVdluMS6fy7IDRi6jDK8CgPg/X/EiC2uODwEmyyrflCekl
-	V/yZclwj0LA5l7rhCiIHHrE2kcnTPHY/yYkddSCXKzEe5Jh2hSzC6y2gors6bVv7txVwXj
-	9cirC7/tbxYrytSLTGJ8p373qgreA691gUDj13Tj1gDzviAgxgQowN1+jaUp6BUGNezdcA
-	pBGEKopRfptdkMXgtGNR5wiml2JM2yAFy14WukJQENi44b1m0pGWel6x49QRO5BWIhrrZe
-	GQPdU2FD3Fy05nb3dLddiqyyMkd7yHRVyR5ob0wvQfyWj84p6SQDhXmDWe6NoQ==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Fri, 09 May 2025 15:53:29 +0200
-Subject: [PATCH v3 03/22] drm/bridge: anx7625: convert to
- devm_drm_bridge_alloc() API
+	bh=GkV6XoLaeT2EUCE/NRO86y22RkBlw2IGYotCv1aLQSo=;
+	b=KUr0/5jtENQERP52yAYyt9IK2gGgnJxdgoNRDysr1hpd6oIGJJhYkytCXszxuyRDLU9w/t
+	fAoT37A+wgjIrLevT7LK0GEoaLSfqnXpAqhsgv09PqVZDeHv62PMWj5DpP5UzawuYvSF+k
+	k3YwLakl1UFfkfRE06C178u6bNqoOqO30f0bMfjuFsMge8aMMPPRTrRXa6V2YHVmDni+9d
+	kW2h7BSKu5Q6bn2kqNMWFVeMcTOdMjJlOjcWLTMPW6tuiim8B7MaNGSdCD/YKecmfKfiIo
+	O61gWmXP7cI87kYTgSHKKB/KLPP17doJLxC90VzzWihh3dylx2QDVR4YsitG+w==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+To: sven@svenpeter.dev
+Cc: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+	Hector Martin <marcan@marcan.st>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Lee Jones <lee@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+Subject: Re: [PATCH v4 7/9] arm64: dts: apple: t8103: Add SMC node
+Message-ID: <aB3_nYoHofJ7wD8L@blossom>
+References: <20250503-smc-6-15-v4-0-500b9b6546fc@svenpeter.dev>
+ <20250503-smc-6-15-v4-7-500b9b6546fc@svenpeter.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250509-drm-bridge-convert-to-alloc-api-v3-3-b8bc1f16d7aa@bootlin.com>
-References: <20250509-drm-bridge-convert-to-alloc-api-v3-0-b8bc1f16d7aa@bootlin.com>
-In-Reply-To: <20250509-drm-bridge-convert-to-alloc-api-v3-0-b8bc1f16d7aa@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Jagan Teki <jagan@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Douglas Anderson <dianders@chromium.org>, 
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Anusha Srivatsa <asrivats@redhat.com>, 
- Paul Kocialkowski <paulk@sys-base.io>, Dmitry Baryshkov <lumag@kernel.org>, 
- Hui Pu <Hui.Pu@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, asahi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-renesas-soc@vger.kernel.org, platform-driver-x86@vger.kernel.org, 
- linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- "Rob Herring (Arm)" <robh@kernel.org>, 
- Hsin-Te Yuan <yuanhsinte@chromium.org>, Jani Nikula <jani.nikula@intel.com>, 
- Pin-yen Lin <treapking@chromium.org>, Sui Jingfeng <sui.jingfeng@linux.dev>, 
- Xin Ji <xji@analogixsemi.com>
-X-Mailer: b4 0.14.2
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvledvjeelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedunecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghloheplgduledvrdduieekrddujeekrdduudekngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeghedprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhhonhgrsheskhifihgsohhordhsvgdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhmpdhrtghpthhtohepihhmgieslhhishhts
- hdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthiiihhmmhgvrhhmrghnnhesshhushgvrdguvgdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepthhrvggrphhkihhnghestghhrhhomhhiuhhmrdhorhhg
-X-GND-Sasl: luca.ceresoli@bootlin.com
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250503-smc-6-15-v4-7-500b9b6546fc@svenpeter.dev>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_065625_224264_0EC46AB3 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20250509_061425_292688_D5157F2E 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,50 +82,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is the new API for allocating DRM bridges.
+Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-
----
-
-Cc: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Hsin-Te Yuan <yuanhsinte@chromium.org>
-Cc: Jani Nikula <jani.nikula@intel.com>
-Cc: Pin-yen Lin <treapking@chromium.org>
-Cc: Sui Jingfeng <sui.jingfeng@linux.dev>
-Cc: Xin Ji <xji@analogixsemi.com>
----
- drivers/gpu/drm/bridge/analogix/anx7625.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/analogix/anx7625.c b/drivers/gpu/drm/bridge/analogix/anx7625.c
-index 8a9079c2ed5c22565d0733ef899119e347947d21..0ac4a82c5a6e5e665d913674b664905a96c0d8e6 100644
---- a/drivers/gpu/drm/bridge/analogix/anx7625.c
-+++ b/drivers/gpu/drm/bridge/analogix/anx7625.c
-@@ -2596,7 +2596,6 @@ static int anx7625_link_bridge(struct drm_dp_aux *aux)
- 		return ret;
- 	}
- 
--	platform->bridge.funcs = &anx7625_bridge_funcs;
- 	platform->bridge.of_node = dev->of_node;
- 	if (!anx7625_of_panel_on_aux_bus(dev))
- 		platform->bridge.ops |= DRM_BRIDGE_OP_EDID;
-@@ -2630,10 +2629,10 @@ static int anx7625_i2c_probe(struct i2c_client *client)
- 		return -ENODEV;
- 	}
- 
--	platform = devm_kzalloc(dev, sizeof(*platform), GFP_KERNEL);
--	if (!platform) {
-+	platform = devm_drm_bridge_alloc(dev, struct anx7625_data, bridge, &anx7625_bridge_funcs);
-+	if (IS_ERR(platform)) {
- 		DRM_DEV_ERROR(dev, "fail to allocate driver data\n");
--		return -ENOMEM;
-+		return PTR_ERR(platform);
- 	}
- 
- 	pdata = &platform->pdata;
-
--- 
-2.49.0
-
+Le Sat , May 03, 2025 at 10:06:54AM +0000, Sven Peter via B4 Relay a écrit :
+> From: Hector Martin <marcan@marcan.st>
+> 
+> Signed-off-by: Hector Martin <marcan@marcan.st>
+> Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+> Reviewed-by: Sven Peter <sven@svenpeter.dev>
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> Signed-off-by: Sven Peter <sven@svenpeter.dev>
+> ---
+>  arch/arm64/boot/dts/apple/t8103.dtsi | 35 +++++++++++++++++++++++++++++++++++
+>  1 file changed, 35 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
+> index 20faf0c0d80927b2e18dd966a61b5507b322c72f..58270e7d79b07ee98340f140972a6f0d14c86dcb 100644
+> --- a/arch/arm64/boot/dts/apple/t8103.dtsi
+> +++ b/arch/arm64/boot/dts/apple/t8103.dtsi
+> @@ -836,6 +836,41 @@ wdt: watchdog@23d2b0000 {
+>  			interrupts = <AIC_IRQ 338 IRQ_TYPE_LEVEL_HIGH>;
+>  		};
+>  
+> +		smc: smc@23e400000 {
+> +			compatible = "apple,t8103-smc", "apple,smc";
+> +			reg = <0x2 0x3e400000 0x0 0x4000>,
+> +				<0x2 0x3fe00000 0x0 0x100000>;
+> +			reg-names = "smc", "sram";
+> +			mboxes = <&smc_mbox>;
+> +
+> +			smc_gpio: gpio {
+> +				compatible = "apple,smc-gpio";
+> +				gpio-controller;
+> +				#gpio-cells = <2>;
+> +			};
+> +
+> +			smc_reboot: reboot {
+> +				compatible = "apple,smc-reboot";
+> +				nvmem-cells = <&shutdown_flag>, <&boot_stage>,
+> +					<&boot_error_count>, <&panic_count>, <&pm_setting>;
+> +				nvmem-cell-names = "shutdown_flag", "boot_stage",
+> +					"boot_error_count", "panic_count", "pm_setting";
+> +			};
+> +		};
+> +
+> +		smc_mbox: mbox@23e408000 {
+> +			compatible = "apple,t8103-asc-mailbox", "apple,asc-mailbox-v4";
+> +			reg = <0x2 0x3e408000 0x0 0x4000>;
+> +			interrupt-parent = <&aic>;
+> +			interrupts = <AIC_IRQ 400 IRQ_TYPE_LEVEL_HIGH>,
+> +				<AIC_IRQ 401 IRQ_TYPE_LEVEL_HIGH>,
+> +				<AIC_IRQ 402 IRQ_TYPE_LEVEL_HIGH>,
+> +				<AIC_IRQ 403 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "send-empty", "send-not-empty",
+> +				"recv-empty", "recv-not-empty";
+> +			#mbox-cells = <0>;
+> +		};
+> +
+>  		pinctrl_smc: pinctrl@23e820000 {
+>  			compatible = "apple,t8103-pinctrl", "apple,pinctrl";
+>  			reg = <0x2 0x3e820000 0x0 0x4000>;
+> 
+> -- 
+> 2.34.1
+> 
+> 
 
