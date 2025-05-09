@@ -4,55 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA90CC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 18:31:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCB5C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:15:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=66KrctpaKAENddfolI2colguGv6YJMeqdaZgaNhD1U0=; b=OzqYeUdUsev5Ir69GvxFXx38iu
-	A/RIUWnMgw1PxQL51v5szy/u0rJI0Dg75sacxYJjgKH70Rhf5WyS0s7Hpt9lzPIJG8m9qGtjJ5n//
-	gD7mYq5K+6yVyeTsOvqllmdjnHR7/0JCyicZ8hJAWpavqEcIk/2qrPQH4xirwcErjB7GfPlncHB/K
-	9uCkbnqT+vy3uQbyc91Y71ck7uScXxi+109nKkvg4qdxv2LNGuy4lBvr7IqMlU2r7Xs2c8h+O1F9W
-	of/wmk7w/xTI5+2VJ+kN/teFe54s57QdyaMZH5rMKUqwAvYuCDqF4Fix1NIXFfxkc0S7oTa6jarmx
-	Yg5x/E6A==;
+	bh=YuQstWxJDXR/04PVLTbjP9qbMp3yZCsqLaieSEbXh9o=; b=XYKvgjxvk0uZG6gsUGwuNXbVBW
+	gaJ7db2Ge6k6JADGegex1uqgCLs3bQjFniyBa/uGIc62nY8ivQ4dqWkuhTZ0zIwqWg8zmHxgi6H4w
+	r+Z/Tv2x1IoiMBC2Po7H7HZrZ2XxWQ+4tkGAbGJVJuJ6tZ1hR/DpEM8teQyK0Btozsq7VpJmcgr0o
+	L+PH0iVkDK1JwplqJF1T+PB2xJEHr0+bOE75/nf7m0mxGV4IU9iRCqcmDBUKdt4xw9jn3PAkC55Wm
+	1Qts8KPvzWfGPHFtndBx2Bakfac2XsKt3IvdDfwm3hsB067eYOhpnczOX7Tg2d4jxuU5zZjngTru8
+	IbTKRquw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDSV9-00000004a7B-2s8m;
-	Fri, 09 May 2025 18:31:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uDU81-00000004jKO-0IDB;
+	Fri, 09 May 2025 20:15:29 +0000
+Received: from mail-m16.yeah.net ([1.95.21.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDQQA-00000004Fvv-2NiY
+	id 1uDP4h-00000003zl8-3Y4d
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 16:17:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 00A026111F;
-	Fri,  9 May 2025 16:17:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F54DC4CEE4;
-	Fri,  9 May 2025 16:17:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746807477;
-	bh=I3FQcqDoCcpXNgtGOu4TBQ/5BVpCPFEoDvuQhwL0NDs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=e9rRNZer0SZ+VWi+gr0xN3LRWYR2kjlWR1u9/4YK0RrX7WUQDbJhT2n/qaqIh79Ku
-	 RjihsxPY0QdwxJ2YBBuLHPG5/m+lCoVbYftUuepvtBiqwyIl/pzrneTUctRyzqRjzm
-	 WGsvKG3sqQtRJWjjOow/hmD4Ntcg2wYQ0dARt2L5SkogglhlcvP7olsJ8HmwY2w7UY
-	 wz2+35trVXZBWP+vzzt7KlcWuVlClUCSeRJK59ABcaf/MaTXKFny7VuvcCgBbRFTHe
-	 gHLgWAp9ntjyy8YCkTYsVz167rOvA5a7LNZg2yAICN0oicojc93M/w04s+IIsJ7soB
-	 RydBOJdVyfmQw==
-Date: Fri, 9 May 2025 17:17:53 +0100
-From: Will Deacon <will@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Subject: Re: [PATCH V2] arm64/debug: Drop redundant DBG_MDSCR_* macros
-Message-ID: <20250509161752.GC5984@willie-the-truck>
-References: <20250508044752.234543-1-anshuman.khandual@arm.com>
+	Fri, 09 May 2025 14:51:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=YuQstWxJDXR/04PVLTbjP9qbMp3yZCsqLaieSEbXh9o=;
+	b=ANF7p8rNE2VTcGJHz/ZlduVP9KN3auIwL60liLPmQLodnIBzBxcx4nTgpNN4Hu
+	FTMWfjc7/1lb/SH3e/Vkse2sbu3y1OdSKxb6CKXcMnXRKA6xNNx61Zl/zWfWqkLE
+	q1eCqk++4HmdwdXB7cW95QOZlmJdbTxdC0aelboymgDp8=
+Received: from dragon (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgDXTxNyFh5odDutAA--.16540S3;
+	Fri, 09 May 2025 22:51:32 +0800 (CST)
+Date: Fri, 9 May 2025 22:51:30 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Primoz Fiser <primoz.fiser@norik.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, upstream@lists.phytec.de
+Subject: Re: [PATCH v2 1/2] bindings: arm: fsl: Add PHYTEC
+ phyBOARD-Nash-i.MX93 board
+Message-ID: <aB4Wcr0WtASkP0la@dragon>
+References: <20250505075107.2579801-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250508044752.234543-1-anshuman.khandual@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20250505075107.2579801-1-primoz.fiser@norik.com>
+X-CM-TRANSID: Ms8vCgDXTxNyFh5odDutAA--.16540S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUO7KIDUUUU
+X-Originating-IP: [117.81.80.76]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNBREqWgeFnS9gAAA3k
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250509_075144_205882_9D1DCA1B 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,44 +74,19 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Catalin Marinas <catalin.marinas@arm.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 08, 2025 at 10:17:52AM +0530, Anshuman Khandual wrote:
-> MDSCR_EL1 has already been defined in tools sysreg format and hence can be
-> used in all debug monitor related call paths. Subsequently all DBG_MDSCR_*
-> macros become redundant and hence can be dropped off completely. While here
-> convert all variables handling MDSCR_EL1 register as u64 which reflects its
-> true width as well.
+On Mon, May 05, 2025 at 09:51:06AM +0200, Primoz Fiser wrote:
+> Add devicetree bindings for PHYTEC phyBOARD-Nash-i.MX93 board based on
+> the existing PHYTEC phyCORE-i.MX93 SoM (System-on-Module).
 > 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
-> This patch applies on v6.15-rc5
+> Adjust the compatibles for the existing phyBOARD-Segin-i.MX93 board, to
+> be able to add additional board based on the phyCORE-i.MX93 SoM.
 > 
-> Changes in V2:
-> 
-> - Changed reg, val width to u64 in cortex_a76_erratum_1463225_svc_handler() per Ada
-> - Changed mdscr register width to uint64_t in enable_monitor_debug_exceptions() and
->   install_ss() per Ada
->     
-> Changes in V1:
-> 
-> https://lore.kernel.org/all/20250417105253.3188976-1-anshuman.khandual@arm.com/
-> 
->  arch/arm64/include/asm/assembler.h            |  4 ++--
->  arch/arm64/include/asm/debug-monitors.h       |  6 -----
->  arch/arm64/kernel/debug-monitors.c            | 22 +++++++++----------
->  arch/arm64/kernel/entry-common.c              |  4 ++--
->  .../selftests/kvm/arm64/debug-exceptions.c    |  4 ++--
->  5 files changed, 17 insertions(+), 23 deletions(-)
+> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Can you post the selftest change as a separate patch, please?
+Applied both, thanks!
 
-Will
 
