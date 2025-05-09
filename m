@@ -4,68 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C1CEC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 21:11:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46940C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 21:28:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aewh3b7GMeLdDn5jmZVCGfzbPDgaytOAuYTwY1fjbMo=; b=IQoBY5VFFtpwE/f74IHVlBUfrQ
-	7nPpNaVMaE6JMMNm/lhhYXarH1ItNNj2IgPyK3ALToplHkdNu6UT2cQDZ1cDK2c09JfK2QMZ3bfE4
-	PctkG54nHIH3PL2U813jEfQrejbzK2kGSzX2itisbj3ZarWD3aI2ZyP50k3rcKK8t3GSQ0KbAQbRL
-	SnTca/WBdsTo4Vat49xRfwEQD0vfAjBr/rR1zUrUxvOsFtHCJPMxqUmmJS62qxV2JkWOWx7NU3a3j
-	65NxYjtNsur9qx2oSSgvCJmDeF7N1g6F1w2BvmsK1mLKXRTRbaTzlM9WJbtMrm38UvbbqS4TqtMqQ
-	EiHWb2sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bfbnN941euvj1gw4NlCDTXZp16dN883gduoTTMftANk=; b=L7zkBqH5Sr+cjt+zXXBhuAwfc3
+	qQLYPmdXJ8RD1KApgWZ//i0+TjpWDVfiNKgXVffaiBominCW1w2BQ15J712ECyew/BGT53h+RYe6S
+	xt78P6YgVjtiWcE9nJfuGbvzOST4CHiUsuAfWVYnjHVeMyIZOPrwCkeDTD8QG0k4ApDwrCUVs4GMK
+	3vZtp0vknHL9Q2w9a3Ct/Sl2VO0MmfzhfHNuKz8TPF2sHr75blGQ9qdMTGaEEJnf3H6+vQc9ahSxq
+	bFCd5kEg/ZRMZMLf0LHyvQM0T4gQu6IVpGLxhnesVCLfyy70HimG7kOPaeHAOFGBgvwXCl+9NoJm3
+	F8x/uEig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDUzi-00000004wBY-1AoX;
-	Fri, 09 May 2025 21:10:58 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uDVGW-00000004xYu-0IiX;
+	Fri, 09 May 2025 21:28:20 +0000
+Received: from mail-mw2nam10on20618.outbound.protection.outlook.com ([2a01:111:f403:2412::618] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDUwu-00000004uU4-0pfj
+	id 1uDVEU-00000004xT8-3pep
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 21:08:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 465FDA4C5F5;
-	Fri,  9 May 2025 21:08:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A72E5C4CEE4;
-	Fri,  9 May 2025 21:08:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746824882;
-	bh=CAxTMPR8YPvt69jMr9a/HnbcXSU4cctemxa+AVtAFbs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N1We5LSVZ15+LhFsS3loTqYybJgPreqHIReEJy176pHa414yKvrmoykEIuRo4INxJ
-	 9tmo0mlpg82B/zeb1OcfORrFivYHERRq75Yv6Vdp/9dgYqcoYwSuJlecEw/gLS4BAu
-	 oSCsEwzKgHF9HBs2Wy5dS2QnW5SLLZ/GJVCTDyqvKxK/F1/6FRX8KiMgHoTWG3qC6a
-	 6N4Y4bwzkA6EOkV5ULEsiXW5ej77xwcstcqJeCw4VJGmbphc8g9GFR9AnDCy0WqWdM
-	 ZJ2Pgnklq9pxgw2YzALlThXNoxta6p5G+xD9OaEgPPtXQVnhs2Q/5Due7BvPpALYOv
-	 FlUOoI4RB3oGA==
-Date: Fri, 9 May 2025 16:08:00 -0500
-From: Rob Herring <robh@kernel.org>
-To: Claudiu <claudiu.beznea@tuxon.dev>
-Cc: bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com,
-	manivannan.sadhasivam@linaro.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, geert+renesas@glider.be, magnus.damm@gmail.com,
-	mturquette@baylibre.com, sboyd@kernel.org, saravanak@google.com,
-	p.zabel@pengutronix.de, linux-pci@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: Re: [PATCH 4/8] dt-bindings: PCI: renesas,r9a08g045s33-pcie: Add
- documentation for the PCIe IP on Renesas RZ/G3S
-Message-ID: <20250509210800.GB4080349-robh@kernel.org>
-References: <20250430103236.3511989-1-claudiu.beznea.uj@bp.renesas.com>
- <20250430103236.3511989-5-claudiu.beznea.uj@bp.renesas.com>
+	Fri, 09 May 2025 21:26:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=El26nQGgxauXGkLD49aoYeanNP7TQTiMKTdLJ5bzrGvLt16Zi9DJN7Xv7LbJMcH3+IWHlJLsNzERKi7R2ZO2HnB981eQ1IzlM/v+bQqZH58L4YCxTfRMGL69EQx7iAl99fM77j0LmSEQLO5F+5G6sxh/mVUFdJCCvzECNPV7qVnYo3h+dNNnrk6BKa72fZIjLf6Q3HFG8SOtb+/2Bu5HtmVImB0YAnPqeHLvVV+sDajwUOF+IDDkZtruMyNCDu4tOB/mqvUmT5wyZ3rq1Tgr6aSOMrpmCCUmUwkFERtFBS1kw+RJ/MUaT9d2qHM+FUqIxCvUJD299/N0Fjm97e/U7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bfbnN941euvj1gw4NlCDTXZp16dN883gduoTTMftANk=;
+ b=tVOS0hlWfC90yn1dW8sM7W2XPfAka/u1EzPySb/kQzh0oXPE+VYwAIsggs8Ve9yHRo0gwMECSsBByRbuXwJm3oNwVudG31zglWOwHgK5lqxCKKcQ9oMhhx9cjkt7zPEet5ZEVPXY8HPfq95bcu3q2jGHK+WKnuvWHBXAKe3I+YDNkjfhtEXdYlIWBI5THNolc2ocY2FdCm7I6enZaxDyKZFyhylIcCbT40eT3THTSs1ueP12afXyNTrd2eQAKp86qmZJ59DqQaMT4k9hy0hSXglSpPHIajuvpQgB/GsGMBhiqs9VgSpKP/deW07etH5uNgl4aH9SvuLaf6NG+SHcNw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bfbnN941euvj1gw4NlCDTXZp16dN883gduoTTMftANk=;
+ b=Hhkm3eHH0oMgyT0d1NHTkilYFVVa32E8gbmM3JwODuVIeUlUQkFbJBe1Uvww5YbTyTipC1sm04bBfHK1A63gnfUJkX5yySjz6K21aLrkkS5W12tNB4IVqghMd/yVdSZKqiUIWv5LkTwBFjrBFH8PPa93msuZedj/ou6+BfVYLDjjSxwkzrZHlt13EQyakTB2GI8fsSlRdkzx40oGgV/3Bx1nK6SsiMzU19WdN1P8ny1RH+ljQIV0+GGnm3A6enU/q99jiRy7evqhrDyr9gLFcVEBP32Z8LBjSATFvW26fFvZnOiqsTeON7v0exLajO4lbG1pksNjLEn3ZscBGwziiA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB8317.namprd12.prod.outlook.com (2603:10b6:8:f4::10) by
+ SA0PR12MB7002.namprd12.prod.outlook.com (2603:10b6:806:2c0::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.21; Fri, 9 May
+ 2025 21:26:07 +0000
+Received: from DS0PR12MB8317.namprd12.prod.outlook.com
+ ([fe80::8ca4:5dd7:f617:f15c]) by DS0PR12MB8317.namprd12.prod.outlook.com
+ ([fe80::8ca4:5dd7:f617:f15c%4]) with mapi id 15.20.8722.018; Fri, 9 May 2025
+ 21:26:07 +0000
+From: Thierry Reding <treding@nvidia.com>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: Thierry Reding <thierry.reding@gmail.com>,
+	Jon Hunter <jonathanh@nvidia.com>,
+	linux-tegra@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL 1/3] Device tree bindings updates for v6.16-rc1
+Date: Fri,  9 May 2025 23:26:00 +0200
+Message-ID: <20250509212604.2849901-1-treding@nvidia.com>
+X-Mailer: git-send-email 2.49.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0408.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:d0::6) To DS0PR12MB8317.namprd12.prod.outlook.com
+ (2603:10b6:8:f4::10)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250430103236.3511989-5-claudiu.beznea.uj@bp.renesas.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB8317:EE_|SA0PR12MB7002:EE_
+X-MS-Office365-Filtering-Correlation-Id: f22e99b0-1fbd-43a5-8054-08dd8f401c95
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|10070799003|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ME5IeXBtNDZudFQrbUNvV1RBMHM5ZTBMOUdYRUtkTzZ1OVR3bWFCUWdrNjZR?=
+ =?utf-8?B?ZkxnVWlVbTB2ZjRQaGpLcEd3TkZzNUdFazJRb2d2YlAzRTM2b1RqNlVBdWdU?=
+ =?utf-8?B?RExUNWFJQ2s1bndlMzZYN1ZXZTNVem9FTjZDdnFtT05hUFlhcVlhalVYcXJX?=
+ =?utf-8?B?VnJDdURhdHdlMUtLcWFIdGYrUSsvaGczWS9aUVhHQU9zVG5mellUdWhqQ2cz?=
+ =?utf-8?B?Y0ZrZC80NlNiL3lsNno3ZXRFcklnejB0SFQvWEdLTy9VOEN6OTlZTlpZVW1S?=
+ =?utf-8?B?cS83UUhTdmhHTGVvM0hKWktYUktjSFdaUVI5eG92N3A0OTVJVlVrdkdMdzQ5?=
+ =?utf-8?B?MHZqWDJtWHdlKzYxV1EvUmRZcHJ0dnVpVFN2ME51bkMvbFEvN09VRmc2TG5o?=
+ =?utf-8?B?Q2tadkxYYXQ0aWxvVTBKSzdOcEVIbUxXS3lBVTZSbmo5NE0wTmpWN3RKOGVp?=
+ =?utf-8?B?VnhjcTh3ZWh0QWVQK09zYXE2QWcvc1BvY3pSenNJZ2lWZDZJa1h4cnBncTMr?=
+ =?utf-8?B?YmdFb1A5LzNwbGlEVkRxTTVBMlJ4VDVCY0JMR1JZZjB2dGNYK0Zqd0JOTlBE?=
+ =?utf-8?B?Qjl6dzNQeE55MnQ0STFKUHhxOEpvNC9UM2pXMWo1eFdBM3F6UGxHZ1IrWnFj?=
+ =?utf-8?B?UDRyd2FCWWVRYjVvaDY2Rmcxbk9HdkhqclFERDU3Z0F0aXRQMUc2cXlQTzhD?=
+ =?utf-8?B?QjB0VXNKdTB4NWdJQ28vUGszWDBiWS9iQm9ZNm1EZnhKK20wMENSRDYxdVdu?=
+ =?utf-8?B?VWt6bkN3RXhvck9EN3QzQkhobkpTa2pmbGZCTmJjcmpaVVYxemlXL3RPbzlF?=
+ =?utf-8?B?czlZVGpvbklZcVNuNmpyWnRmS05zVGx3RUl1WUJEK1ZEWm5vdnAvL0syT1NI?=
+ =?utf-8?B?aTBPMFpMSmlBbnNoWXBPSnVXWkVGMWw1YS9KWGlLUm5rNmZIK0NiUFloZGho?=
+ =?utf-8?B?Y252bEN1M2djVk5KaktZWEd6OHdiMjA3UjdsWFF2aFB5Mzd6QUF6OGlXRGtV?=
+ =?utf-8?B?WlNXV0VmVWpBWnJvVzVRTFV1TFpoQUpCcThqNTdBTXNQUVpSMUdVbzQxb3VF?=
+ =?utf-8?B?bjJoRmNjZ3piRFZPdlVQTERtZkovdTBQRklsR2J6eE5aSUlaMFJkRFRxQklZ?=
+ =?utf-8?B?U1M4SGZabnJkN0tHTjN0dmF6WWtIRkk1RXFmN3lvazVnVDh4TU16ZERqKzJ0?=
+ =?utf-8?B?TXR1b0JGMlVPdEU5MzZMQWZGUWo0UEdhUVp6d2dsQjNRTFQzV3ZLQkZNckFw?=
+ =?utf-8?B?aFpPc3hVSlZqRHQvYkdxZlNRdm9BRlJXRDdCWEswTkJKVGt4NkdCemZSc3Zh?=
+ =?utf-8?B?OS9TV2JYeGxoMnIxR2loV2FsZ01WVGw4OGg2UHVNYjZBKzBWMzBxaFRTR2ht?=
+ =?utf-8?B?YllVbDBLdkVvbXg0UWhjNnhSdGo5RlZGdFhVbE5rWHBOTGZQRktQSEFESXBX?=
+ =?utf-8?B?TmRZeHlMZEdyKzNVcTBqZTFYeDZvdXRvRzRLQ0UzcDlqTjIrZzBJZmJiM0k5?=
+ =?utf-8?B?b3pXU3ZDSkdRYThEU0twbjhPNFE5Ukt5dFFLSVdPL1I3b0EyakVpSmJIZlVW?=
+ =?utf-8?B?aU5XcGlSNUdrU01Oam1TLzBTdHFlQUhkT3crQXE4N0JPZ1NxbGRQU3RIVERB?=
+ =?utf-8?B?Tm01aGp4a1F3M2JMUjcyVVJyVHJCZ2l3eHYyZXpNYlBZcWhPNzJyNy9rNjgx?=
+ =?utf-8?B?d0w5aGNPSURUT0dvaTJXeVdyY0w0OFQvNmZ3b3RLZWlMUXUxaGhFZzlOMTNW?=
+ =?utf-8?B?M1J2ZXZFRktiZW9id0RVcEtDbXl2T2l3Vm1PVnJOcHV0ejNiUitYL0NpZ3FK?=
+ =?utf-8?B?SC80cXBJemVEK3J5ekJvTk1iS3lKV2ZnTnVGRmdtVVVCTFJlVHBDd1MwUXhX?=
+ =?utf-8?B?Rkc5NDFnWm1hUnpVMEFJd3BtTFhTY3o0V2dXT1YyS0k5NUxsQ04zY2VkNUQw?=
+ =?utf-8?Q?fBWZ9wWrqhk=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB8317.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(10070799003)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d2hBcUN4N0dtVzRFZksvY1ltT3ZyY00ycEZVT2RUR3ZuOG5vS1dSeDk2WXhs?=
+ =?utf-8?B?a1JUcjVIYmVlb1VKWG4xUkFLOEowbHZIYkRhSStibkpvS3NyMGdFRWNNYm80?=
+ =?utf-8?B?UHJvbVpnU3JhQzgvZ3puZXZ5Ym83eVR6SXlidXIrYXBySlU2dFgyUzMwQStp?=
+ =?utf-8?B?K2VWYklVcVRFbTF5YVBQNTRFZUc3T3JUaDUxYTExTE1oT3QzZXNTU3pvdXkw?=
+ =?utf-8?B?T2ZXRzVIWFc3SUltc1UrRVdWN25ldWNVaC9KM3U0YzhncTdZMHNKbHpodW9L?=
+ =?utf-8?B?UGNucGgvMVdtSUNBUkVyTmFsZ0pVTzB1K2RFYXZ4RmIybUw3YVQvRndtc0NX?=
+ =?utf-8?B?MjVNdnY1Z2FsN3F2UTE4SXErMVlheEI2blJYVkVKdjlOZWtyckw5dzZUSXQ1?=
+ =?utf-8?B?TkZIOEpSZCs4MkFUckR1UVZCZFd0RWc1NUhaVTRwR1dJVTZWb3FsYzBtMis1?=
+ =?utf-8?B?ZCtCamhVUjk5OGtnSXRhTEQrUkNSWHg2Z1Nha3FPdmhGc056YjJpNTZUcjhu?=
+ =?utf-8?B?OVJUL2ZEN3l2dEhuTlA4WXhRWTZQeENOazVySWM5Z1hQNExSUi96aVlFK1RG?=
+ =?utf-8?B?YVZ4L0V3NHZwQkNJZnV2MFVYbmtjN1B0OVRmUlQyTDk1eWdnME56R0lrcjZz?=
+ =?utf-8?B?QUhSNWp2Unh6cGxTcUtPdThYdGViZjhxaTRSSmN2Z3YwTDU4WlJiSjdLVnFD?=
+ =?utf-8?B?YUJlRGxqcW11U2hWU1ZmMXFwVUlkVEJRZXkyS1dYQlM1d1B1dE8yaFRJenBB?=
+ =?utf-8?B?OEVCWUJLT21JbndUaGU2LytHN0czT0hyZThHVzUxMEdYdjZ3dEhuWDhrcFlj?=
+ =?utf-8?B?N3o0d1JXZ0JKeTUxNzBrS3E2dHU2cFhaclJZRTI2VTlacndjU2MrcnREYUFL?=
+ =?utf-8?B?c2dxbjZSTFl2T3pmYjhxNU1aMHE1Q3B6WXV0VHRtSmRaS1NVcmJzRmhHU1hk?=
+ =?utf-8?B?UFE5RnlZc2g3YVVuZVQvcXFsZlk3YkpFTUFmUGU3bmVTdmFzSFEvRUZYMWU3?=
+ =?utf-8?B?L0VuOWV0YmhNMkI3ZWRCdUZyOEh3em1tNVQ2SWplTjlJdTRXam5UcGJaTEpZ?=
+ =?utf-8?B?TGwrak14ZitObUl6Z3ZSQnBCbmNhZTR0MWdDcjh4UHNvUUtoOW5sVHg0R2VH?=
+ =?utf-8?B?eElWMGNpbmRTWHZnemkvcFJqd2M2SmVpMlFaZU1JNGUzdis4WUV6WVN4MVY5?=
+ =?utf-8?B?K0F4TGJrVmVYY0hxMnlueUhlMDErSk5IQzA1ZTVwS3gzazU4UFdXc0hHUUg5?=
+ =?utf-8?B?U2NkN3JHTklyRFhVbitONzUwRDRrMCtuMEhOek5VTVFpUDFjdzF2RXRJaS8r?=
+ =?utf-8?B?QXZ4NTVuSzR5OTVpUCtrUzMrSGc5TWJWWGdKNWl0WjVnUFRhaTZuRHRHYzZp?=
+ =?utf-8?B?MFlnNWFrVUpCL3g5QWZiTDltQWFkdG1TRUw0K3E0ZUhJSDh4M0NYTC84S1pl?=
+ =?utf-8?B?Qm9ZOTVrN3BMMUY1bWJvdS9QQXZWTUwrM0xEV3VKTURYczkxT0lqWlFiL3lz?=
+ =?utf-8?B?bEN1RXhveUNQdHY0SzFDdXd1Ukgyc09nNWNEMTVvaHpKV2M0RlIrSFdzUGZw?=
+ =?utf-8?B?ZUd4TmhkTW9RVUF0SW5WYllleWw5MnFudnRxejNuUEhTWGdlSFF3WVQ3SS9I?=
+ =?utf-8?B?S2NZNDR6N1Vyb1dmZkd4YXRpb0JEQVM0dFdsVU9Vc0ExeVZJcGsxVGttYnJn?=
+ =?utf-8?B?TnU5TitLdUdCYjc3eEJWMVFOQWdTSHlud2pHSHY1U252T1YvN3h4Ky9CYlg2?=
+ =?utf-8?B?MXFZMEZqMjliMGM3NlV2UkU2L1FIVUJpQi9oQUE5QXpJdUJxUE9NdGIwYkJR?=
+ =?utf-8?B?MjhPVGtjVXdFQWpQTGJpOTFuR1pzV3dGRENCYU5ZSjRmTXpGZDVRaDVNVmpp?=
+ =?utf-8?B?dXpiRGhWVTJXSVNPVEdSenNmQlg5NzIvWlBnczZvVG0rWi81RFkycHRJUlRq?=
+ =?utf-8?B?ak1OeHhVZGxxSnUrU2pvVU9HVjhTZjIvZkd5ZVA2Z1pXSmhWOXVQQzFCdk1w?=
+ =?utf-8?B?WEN2ejBQSzZ4UDNVVDJCSTRndG5vb3hnY1JpNGpxanBEaVdOSTJLYUh5V0kv?=
+ =?utf-8?B?Q0N0ME12MzVyTWFjM3k0dHJFQWlMcm5vcUZqY1dMdXFRa1FDSGlERWpxM1d3?=
+ =?utf-8?B?RExvcmFZOFlkaGE5MENCdEpqYVZRVEF0SjJuNlMxQ1JUNXNpbWFNSnVBeEhR?=
+ =?utf-8?Q?cB/Etn4VVgsHWWEYlCFaeWdaTuWl/uik9/UNn/UmVeNm?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f22e99b0-1fbd-43a5-8054-08dd8f401c95
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB8317.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 May 2025 21:26:07.7860
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zvmI9CVsbNKO7yUNbOr+WXjfLVDRyB1D898S7UlRmHvQAmHP+SR2f5ibQOi380cNoqk9Dk/ytuUxrG7YCqWPTw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB7002
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_140804_387902_B27EA510 
-X-CRM114-Status: GOOD (  23.31  )
+X-CRM114-CacheID: sfid-20250509_142614_972922_A9507229 
+X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,289 +177,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 30, 2025 at 01:32:32PM +0300, Claudiu wrote:
-> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> 
-> The PCIe IP available on the Renesas RZ/G3S complies with the PCI Express
-> Base Specification 4.0. It is designed for root complex applications and
-> features a single-lane (x1) implementation. Add documentation for it.
-> The interrupts, interrupt-names, resets, reset-names, clocks, clock-names
-> description were obtained from the hardware manual.
-> 
-> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> ---
->  .../pci/renesas,r9a08g045s33-pcie.yaml        | 242 ++++++++++++++++++
->  1 file changed, 242 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/renesas,r9a08g045s33-pcie.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/renesas,r9a08g045s33-pcie.yaml b/Documentation/devicetree/bindings/pci/renesas,r9a08g045s33-pcie.yaml
-> new file mode 100644
-> index 000000000000..354f9c3be139
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pci/renesas,r9a08g045s33-pcie.yaml
-> @@ -0,0 +1,242 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pci/renesas,r9a08g045s33-pcie.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Renesas RZ/G3S PCIe host controller
-> +
-> +maintainers:
-> +  - Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> +
-> +description:
-> +  Renesas RZ/G3S PCIe host controller complies with PCIe Base Specification
-> +  4.0 and supports up to 5 GT/s (Gen2).
-> +
-> +properties:
-> +  compatible:
-> +    const: renesas,r9a08g045s33-pcie # RZ/G3S
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    items:
-> +      - description: System error interrupt
-> +      - description: System error on correctable error interrupt
-> +      - description: System error on non-fatal error interrupt
-> +      - description: System error on fatal error interrupt
-> +      - description: AXI error interrupt
-> +      - description: INTA interrupt
-> +      - description: INTB interrupt
-> +      - description: INTC interrupt
-> +      - description: INTD interrupt
-> +      - description: MSI interrupt
-> +      - description: Link bandwidth interrupt
-> +      - description: PME interrupt
-> +      - description: DMA interrupt
-> +      - description: PCIe event interrupt
-> +      - description: Message interrupt
-> +      - description: All interrupts
-> +
-> +  interrupt-names:
-> +    items:
-> +      - description: int_serr
-> +      - description: int_ser_cor
-> +      - description: int_serr_nonfatal
-> +      - description: int_serr_fatal
-> +      - description: axi_err_int
-> +      - description: inta_rc
-> +      - description: intb_rc
-> +      - description: intc_rc
-> +      - description: intd_rc
-> +      - description: intmsi_rc
+From: Thierry Reding <thierry.reding@gmail.com>
 
-Isn't every interrupt for the root complex?
+Hi ARM SoC maintainers,
 
-> +      - description: int_link_bandwidth
-> +      - description: int_pm_pme
-> +      - description: dma_int
-> +      - description: pcie_evt_int
-> +      - description: msg_int
-> +      - description: int_all
+The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
 
-'int_' or '_int' is redundant (and inconsistent). Drop.
+  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
 
-> +
-> +  clocks:
-> +    items:
-> +      - description: System clock
-> +      - description: PM control clock
-> +
-> +  clock-names:
-> +    items:
-> +      - description: aclk
-> +      - description: clkl1pm
+are available in the Git repository at:
 
-'l1pm' or 'pm'
+  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-6.16-dt-bindings
 
-> +
-> +  resets:
-> +    items:
-> +      - description: AXI2PCIe Bridge reset
-> +      - description: Data link layer/transaction layer reset
-> +      - description: Transaction layer (ACLK domain) reset
-> +      - description: Transaction layer (PCLK domain) reset
-> +      - description: Physical layer reset
-> +      - description: Configuration register reset
-> +      - description: Configuration register reset
-> +
-> +  reset-names:
-> +    items:
-> +      - description: aresetn
-> +      - description: rst_b
-> +      - description: rst_gp_b
-> +      - description: rst_ps_b
-> +      - description: rst_rsm_b
-> +      - description: rst_cfg_b
-> +      - description: rst_load_b
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  dma-ranges:
-> +    description:
-> +      A single range for the inbound memory region.
-> +    maxItems: 1
-> +
-> +  renesas,sysc:
-> +    description: System controller phandle
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +
-> +  vendor-id:
-> +    const: 0x1912
-> +
-> +  device-id:
-> +    const: 0x0033
-> +
-> +  legacy-interrupt-controller:
-> +    description: Interrupt controller node for handling legacy PCI interrupts
-> +    type: object
-> +
-> +    properties:
-> +      "#address-cells":
-> +        const: 0
-> +
-> +      "#interrupt-cells":
-> +        const: 1
-> +
-> +      interrupt-controller: true
-> +
-> +      interrupts:
-> +        items:
-> +          - description: INTA interrupt
-> +          - description: INTB interrupt
-> +          - description: INTC interrupt
-> +          - description: INTD interrupt
-> +
-> +    required:
-> +      - "#address-cells"
-> +      - "#interrupt-cells"
-> +      - interrupt-controller
-> +      - interrupts
-> +
-> +    additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - resets
-> +  - reset-names
-> +  - interrupts
-> +  - interrupt-names
-> +  - interrupt-map
-> +  - interrupt-map-mask
-> +  - power-domains
-> +  - "#address-cells"
-> +  - "#size-cells"
-> +  - "#interrupt-cells"
-> +  - renesas,sysc
-> +  - vendor-id
-> +  - device-id
-> +
-> +allOf:
-> +  - $ref: /schemas/pci/pci-host-bridge.yaml#
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/r9a08g045-cpg.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    bus {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        gic: interrupt-controller {
-> +            interrupt-controller;
-> +            #interrupt-cells = <3>;
-> +        };
+for you to fetch changes up to 0d4d6e699a4acff8d15f83185d269ab59c02107a:
 
-Drop. Don't need to show provider nodes for the example.
+  media: dt-bindings: Document Tegra186 and Tegra194 cec (2025-05-08 23:57:54 +0200)
 
-> +
-> +        pcie@11e40000 {
-> +            compatible = "renesas,r9a08g045s33-pcie";
-> +            reg = <0 0x11e40000 0 0x10000>;
-> +            ranges = <0x03000000 0 0x30000000 0 0x30000000 0 0x8000000>;
-> +            dma-ranges = <0x42000000 0 0x48000000 0 0x48000000 0 0x8000000>;
-> +            bus-range = <0x0 0xff>;
-> +            clocks = <&cpg CPG_MOD R9A08G045_PCI_ACLK>,
-> +                     <&cpg CPG_MOD R9A08G045_PCI_CLKL1PM>;
-> +            clock-names = "aclk", "clkl1pm";
-> +            resets = <&cpg R9A08G045_PCI_ARESETN>,
-> +                     <&cpg R9A08G045_PCI_RST_B>,
-> +                     <&cpg R9A08G045_PCI_RST_GP_B>,
-> +                     <&cpg R9A08G045_PCI_RST_PS_B>,
-> +                     <&cpg R9A08G045_PCI_RST_RSM_B>,
-> +                     <&cpg R9A08G045_PCI_RST_CFG_B>,
-> +                     <&cpg R9A08G045_PCI_RST_LOAD_B>;
-> +            reset-names = "aresetn", "rst_b", "rst_gp_b", "rst_ps_b",
-> +                          "rst_rsm_b", "rst_cfg_b", "rst_load_b";
-> +            interrupts = <GIC_SPI 395 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 396 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 397 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 398 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 399 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 400 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 401 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 402 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 403 IRQ_TYPE_LEVEL_HIGH>,
+Thanks,
+Thierry
 
-It is very odd that you have the INTx interrupts here and below.
+----------------------------------------------------------------
+Device tree bindings updates for v6.16-rc1
 
-As I mentioned in the driver, you don't need the legacy node any more. 
-Just add 'interrupt-controller' to this node and point interrupt-map to 
-this node.
+Convert the legacy interrupt controller (LIC) and APBDMA controller
+device tree bindings from freeform text to dt-schema.
 
-> +                         <GIC_SPI 404 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 405 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 406 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 407 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 408 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 409 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 410 IRQ_TYPE_LEVEL_HIGH>;
-> +            interrupt-names = "int_serr", "int_serr_cor", "int_serr_nonfatal",
-> +                              "int_serr_fatal", "axi_err_int", "inta_rc",
-> +                              "intb_rc", "intc_rc", "intd_rc",
-> +                              "intmsi_rc", "int_link_bandwidth", "int_pm_pme",
-> +                              "dma_int", "pcie_evt_int", "msg_int",
-> +                              "int_all";
-> +            #interrupt-cells = <1>;
-> +            interrupt-map-mask = <0 0 0 7>;
-> +            interrupt-map = <0 0 0 1 &pcie_intx 0>, /* INT A */
-> +                            <0 0 0 2 &pcie_intx 1>, /* INT B */
-> +                            <0 0 0 3 &pcie_intx 2>, /* INT C */
-> +                            <0 0 0 4 &pcie_intx 3>; /* INT D */
-> +            device_type = "pci";
-> +            num-lanes = <1>;
-> +            #address-cells = <3>;
-> +            #size-cells = <2>;
-> +            power-domains = <&cpg>;
-> +            renesas,sysc = <&sysc>;
-> +            vendor-id = <0x1912>;
-> +            device-id = <0x0033>;
-> +
-> +            pcie_intx: legacy-interrupt-controller {
-> +                interrupt-controller;
-> +                #interrupt-cells = <1>;
-> +                #address-cells = <0>;
-> +                interrupt-parent = <&gic>;
-> +                interrupts = <GIC_SPI 400 IRQ_TYPE_LEVEL_HIGH>,
-> +                             <GIC_SPI 401 IRQ_TYPE_LEVEL_HIGH>,
-> +                             <GIC_SPI 402 IRQ_TYPE_LEVEL_HIGH>,
-> +                             <GIC_SPI 403 IRQ_TYPE_LEVEL_HIGH>;
-> +            };
-> +        };
-> +    };
-> +
-> +...
-> -- 
-> 2.43.0
-> 
+Document the ASUS Transformer Pad TF300TL compatible string and add
+missing compatible strings for newer generations of the Tegra CEC.
+
+----------------------------------------------------------------
+Aaron Kling (1):
+      media: dt-bindings: Document Tegra186 and Tegra194 cec
+
+Charan Pedumuru (1):
+      dt-bindings: dma: nvidia,tegra20-apbdma: convert text based binding to json schema
+
+Rob Herring (Arm) (1):
+      dt-bindings: interrupt-controller: Convert nvidia,tegra20-ictlr to DT schema
+
+Svyatoslav Ryhel (2):
+      dt-bindings: arm: tegra: Group Tegra30 based ASUS Transformers
+      dt-bindings: arm: tegra: Add Asus Transformer Pad TF300TL
+
+ Documentation/devicetree/bindings/arm/tegra.yaml   | 19 ++---
+ .../bindings/dma/nvidia,tegra20-apbdma.txt         | 44 -----------
+ .../bindings/dma/nvidia,tegra20-apbdma.yaml        | 90 ++++++++++++++++++++++
+ .../interrupt-controller/nvidia,tegra20-ictlr.txt  | 41 ----------
+ .../interrupt-controller/nvidia,tegra20-ictlr.yaml | 82 ++++++++++++++++++++
+ .../bindings/media/cec/nvidia,tegra114-cec.yaml    | 14 +++-
+ 6 files changed, 190 insertions(+), 100 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/dma/nvidia,tegra20-apbdma.txt
+ create mode 100644 Documentation/devicetree/bindings/dma/nvidia,tegra20-apbdma.yaml
+ delete mode 100644 Documentation/devicetree/bindings/interrupt-controller/nvidia,tegra20-ictlr.txt
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/nvidia,tegra20-ictlr.yaml
 
