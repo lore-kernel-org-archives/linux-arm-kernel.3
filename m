@@ -4,70 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54767C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 15:31:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89169C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 15:32:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/fUy2yKh/RPLz65MGjD30fnH1nOIBpirqiwEvJyIpAQ=; b=NbZxurXhTvl7QKdpVyAZYZ4GSu
-	tWhf5vYI/vjRoW8idWlxObhdfkl/DUiN+caNRtfwZHZ8LqwGjOjan3N2OSdp2tT+uWSp9s2N8Vr3r
-	/TfRdCCiM/6E7R3s3ZNO+Q0tJB6JzBO2mPphnddSUispIVmJIIXNWtTN7jGUbNdsqqajs0z9nDGo2
-	HODTk+AbRt/PbAjAYwnHdukAMqFgjULmoRC4MDRikEp4s9yUiUWoSVNx8smHnjgacXBtuRh/2YpSw
-	UCpBMMG8BYNeCUVb7Pg+uq9OaIUX9S135uQHibWj63rp0+KtAW936+O7wdkFBG17nnIGt9Zc2xOvt
-	42/wLCNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NO0jEJIODika0sc4dK27jguZyI9XfEcXufTdm0R0rzA=; b=uCkyHvtO4BqjPeW4p383o7KOid
+	QMPqwpGmgeNNd+OAVQad0HLAc0sh4H/NaR0xxX0kpGUDZ6vJ+y9INAtYdXrqGh2yzQFvxpsylS1g4
+	1gWhDTWoqqJRlQOkyu/D1QtpS20PKw8ZjKylsDWPmUCktCjyem3n0vZ+tU2naFRrDd0kX7sl74jq6
+	MXK4imBUHdC+SPTg+84nTTh6n/iS7oktWHdkimJUpmdg62oOY6jJUbjdhGzFRHff64yifjQkjYVxn
+	dtFW83UbxQc40YIzRqihpY/Lgcj9TvpwTcjO/qTR0pQLjXogVe4LbVHe16p/8nenkFmJPBboqNZYx
+	MayFEQeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDPhR-000000045df-2CaR;
-	Fri, 09 May 2025 15:31:45 +0000
-Received: from out-170.mta0.migadu.com ([91.218.175.170])
+	id 1uDPhi-000000045j7-0QMB;
+	Fri, 09 May 2025 15:32:02 +0000
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDNZg-00000003icL-3FWP
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 13:15:38 +0000
-Date: Fri, 9 May 2025 09:15:29 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1746796534;
+	id 1uDODE-00000003rCQ-04wf;
+	Fri, 09 May 2025 13:56:29 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 5DAEB43B6E;
+	Fri,  9 May 2025 13:56:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1746798986;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=/fUy2yKh/RPLz65MGjD30fnH1nOIBpirqiwEvJyIpAQ=;
-	b=wPSI/vr3u7SF6YoZXAxqTcCV3vNyXtHP702KgSsJfIP001Re4QxA4KKir7k+2xF8WKhEtR
-	MxLxGF26N6mm9JyRJVvLPSHOt3usxmKhfqCNPUlYvJupgrNNo1kHOVb62VqGkQ9JL2Pl+v
-	8vhrbDHt/9MdIfWxF2vK6khuTnnV9AYsi28eYyt+i0t+Il8YbKvw6KPW5A8IgnRr4UU5QJ
-	IBvq4amg/uhS+5fEQsQ7Us10in8UzaccSCMTCAwSO4UlHozBHx3N1dfFbPSmJyWm1x3P2V
-	hey2AhkAnmGGJzT11fgVKNicTlm6tXcPwM5WXn5fAb8S3UdIb8f/ZTSTyz12CA==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-To: sven@svenpeter.dev
-Cc: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
-	Hector Martin <marcan@marcan.st>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>, Lee Jones <lee@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v4 0/9] Apple Mac System Management Controller
-Message-ID: <aB3_8QidjfNRPmOG@blossom>
-References: <20250503-smc-6-15-v4-0-500b9b6546fc@svenpeter.dev>
+	bh=NO0jEJIODika0sc4dK27jguZyI9XfEcXufTdm0R0rzA=;
+	b=OnCKYrCxsP+N13LGAPBF8CaeZdeLhjiJXOlO8Rd8bG9iQvJrZiHtyyrKlYGRBJRdtUF2Ri
+	hJPtcxK0OdE2FEb9l+TbBAQ02aavtuOwCQJuqo0UsWsuxc7x3j0tC1ZtgbtTqSz+rYXwkJ
+	iKG5liM+xHWemDXzUilG9Y47weeXg8ZBFLcu0l0cLHGraHfJ398oK6rlQ2Mq74kQ6BYF4b
+	sqJzoq5J0UqL5/M95ad70D4UAUpRyjthMYgkl6v/iIPeoDO5hwKh+ScKbpjHZXW6MA5KSp
+	s1ij0IoulKG+KhyfRtYX6pKnp49Npz2IhPPGg3WI5MQNsj/BQ6W7OOOhfpSkcw==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Date: Fri, 09 May 2025 15:53:30 +0200
+Subject: [PATCH v3 04/22] drm/bridge: cdns-dsi: convert to
+ devm_drm_bridge_alloc() API
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250503-smc-6-15-v4-0-500b9b6546fc@svenpeter.dev>
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250509-drm-bridge-convert-to-alloc-api-v3-4-b8bc1f16d7aa@bootlin.com>
+References: <20250509-drm-bridge-convert-to-alloc-api-v3-0-b8bc1f16d7aa@bootlin.com>
+In-Reply-To: <20250509-drm-bridge-convert-to-alloc-api-v3-0-b8bc1f16d7aa@bootlin.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Jagan Teki <jagan@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Douglas Anderson <dianders@chromium.org>, 
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Anusha Srivatsa <asrivats@redhat.com>, 
+ Paul Kocialkowski <paulk@sys-base.io>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Hui Pu <Hui.Pu@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, asahi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-renesas-soc@vger.kernel.org, platform-driver-x86@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Aradhya Bhatia <a-bhatia1@ti.com>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+X-Mailer: b4 0.14.2
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvledvjeelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpeefnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghloheplgduledvrdduieekrddujeekrdduudekngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeguddprhgtphhtthhopehjohhnrghssehkfihisghoohdrshgvpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomhdprhgtphhtthhopehimhigsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhug
+ idqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghsrhhivhgrthhssehrvgguhhgrthdrtghomh
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_061537_160391_CB9D581F 
-X-CRM114-Status: GOOD (  30.61  )
+X-CRM114-CacheID: sfid-20250509_065628_203393_9EE63108 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,108 +101,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sven,
+This is the new API for allocating DRM bridges.
 
-Everything here looks good to me. I left a few minor comments through
-out but overall nothing scary here to me :)
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
-Cheers,
-Alyssa
+---
 
-Le Sat, May 03, 2025 at 10:06:47AM +0000, Sven Peter via B4 Relay a écrit :
-> Hi,
-> 
-> It's been quite a while (end of 2022) since the last version of this
-> series was sent by Russel. I'd like to pick this up again and get SMC
-> upstream.
-> 
-> I've taken the last version from the ML and worked in the review
-> comments and some other changed:
-> 
->   - Added documentation for all functions and structs
->   - Fixed dt-bindings and re-ordered commits so that the mfd one comes
->     last and can include the gpio subdevice
->   - Added the reset driver and corresponding bindings
->   - Reworked the atomic mode inside SMC since the previous implementation
->     called mutex_lock from atomic context
->   - Removed the backend split for now which lead to a quite intense discussion
->     for the previous versions which hadn't been solved as far as I could tell
->     from the old threads.
->     It's also been 2+ years and I haven't heard of any backend implementation
->     for T2 or even older macs. It's also unclear to me which sub-devices
->     are actually useful there because at least GPIO and shutdown/reboot
->     from this series will not work as-is there.
->     I'd rather have this initial version which only supports M1+ macs upstream
->     and then iterate there if any other backend is developed.
->     I'll gladly help to re-introduce backend support if it's ever required.
-> 
-> Dependencies:
-> The code and dt-bindings themselves apply cleanly to 6.15-rc1 but
-> the device tree changes require the already merged SPMI controller
-> and SPMI NVMEM series which will be part of 6.16.
-> The series is also using the printf format specifiers which will
-> land in 6.16 via the drm-misc tree.
-> A tree with all dependencies for testing is available at
-> https://github.com/AsahiLinux/linux/commits/sven/smc-v4/.
-> 
-> Merging:
-> The dt-binding patches all depend on each other such that they all
-> should probably go together with the mfd device itself.
-> The following commits also depend on mfd due to the new header file and
-> will either have to go through the mfd tree as well or we'll need an
-> immutable branch there.
-> I'll take the device tree updates through our tree which also has the
-> previous device tree updates these depend on.
-> 
-> v3: https://lore.kernel.org/asahi/Y2qEpgIdpRTzTQbN@shell.armlinux.org.uk/
-> v2: https://lore.kernel.org/asahi/YxdInl2qzQWM+3bs@shell.armlinux.org.uk/
-> v1: https://lore.kernel.org/asahi/YxC5eZjGgd8xguDr@shell.armlinux.org.uk/
-> 
-> Best,
-> 
-> Sven
-> 
-> ---
-> Hector Martin (5):
->       gpio: Add new gpio-macsmc driver for Apple Macs
->       power: reset: macsmc-reboot: Add driver for rebooting via Apple SMC
->       arm64: dts: apple: t8103: Add SMC node
->       arm64: dts: apple: t8112: Add SMC node
->       arm64: dts: apple: t600x: Add SMC node
-> 
-> Russell King (Oracle) (2):
->       dt-bindings: gpio: Add Apple Mac SMC GPIO block
->       dt-bindings: mfd: Add Apple Mac System Management Controller
-> 
-> Sven Peter (2):
->       dt-bindings: power: reboot: Add Apple Mac SMC Reboot Controller
->       mfd: Add Apple Silicon System Management Controller
-> 
->  .../devicetree/bindings/gpio/apple,smc-gpio.yaml   |  37 ++
->  .../devicetree/bindings/mfd/apple,smc.yaml         |  71 +++
->  .../bindings/power/reset/apple,smc-reboot.yaml     |  52 ++
->  MAINTAINERS                                        |   7 +
->  arch/arm64/boot/dts/apple/t600x-die0.dtsi          |  35 ++
->  arch/arm64/boot/dts/apple/t8103.dtsi               |  35 ++
->  arch/arm64/boot/dts/apple/t8112.dtsi               |  35 ++
->  drivers/gpio/Kconfig                               |  10 +
->  drivers/gpio/Makefile                              |   1 +
->  drivers/gpio/gpio-macsmc.c                         | 246 ++++++++
->  drivers/mfd/Kconfig                                |  15 +
->  drivers/mfd/Makefile                               |   1 +
->  drivers/mfd/macsmc.c                               | 657 +++++++++++++++++++++
->  drivers/power/reset/Kconfig                        |  11 +
->  drivers/power/reset/Makefile                       |   1 +
->  drivers/power/reset/macsmc-reboot.c                | 362 ++++++++++++
->  include/linux/mfd/macsmc.h                         | 337 +++++++++++
->  17 files changed, 1913 insertions(+)
-> ---
-> base-commit: 8b7e6734e2231a549a23943678ee3452bd19a1fe
-> change-id: 20250304-smc-6-15-f0ed619e31d4
-> 
-> Best regards,
-> -- 
-> Sven Peter <sven@svenpeter.dev>
-> 
-> 
+Cc: Aradhya Bhatia <a-bhatia1@ti.com>
+Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+---
+ drivers/gpu/drm/bridge/cadence/cdns-dsi-core.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/gpu/drm/bridge/cadence/cdns-dsi-core.c b/drivers/gpu/drm/bridge/cadence/cdns-dsi-core.c
+index b022dd6e6b6e9e43bf11583806e1a8d1e7431ae8..7604574da66606c103cc035dd94b0e211b64ebdc 100644
+--- a/drivers/gpu/drm/bridge/cadence/cdns-dsi-core.c
++++ b/drivers/gpu/drm/bridge/cadence/cdns-dsi-core.c
+@@ -1289,9 +1289,10 @@ static int cdns_dsi_drm_probe(struct platform_device *pdev)
+ 	int ret, irq;
+ 	u32 val;
+ 
+-	dsi = devm_kzalloc(&pdev->dev, sizeof(*dsi), GFP_KERNEL);
+-	if (!dsi)
+-		return -ENOMEM;
++	dsi = devm_drm_bridge_alloc(&pdev->dev, struct cdns_dsi, input.bridge,
++				    &cdns_dsi_bridge_funcs);
++	if (IS_ERR(dsi))
++		return PTR_ERR(dsi);
+ 
+ 	platform_set_drvdata(pdev, dsi);
+ 
+@@ -1349,7 +1350,6 @@ static int cdns_dsi_drm_probe(struct platform_device *pdev)
+ 	 * CDNS_DPI_INPUT.
+ 	 */
+ 	input->id = CDNS_DPI_INPUT;
+-	input->bridge.funcs = &cdns_dsi_bridge_funcs;
+ 	input->bridge.of_node = pdev->dev.of_node;
+ 
+ 	/* Mask all interrupts before registering the IRQ handler. */
+
+-- 
+2.49.0
+
 
