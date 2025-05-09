@@ -4,87 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4B70C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:15:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48CABC3ABCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:15:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ovm6LFCEU6u/vAeHaFCp1xRU21VlYlfHIc92sjuJU6g=; b=njhjjCRA1TpzlXvpQF7VWn9n2i
-	6x7u/MZlL7P8IOpduoJovcWwDj6aKbUq1X36Nbrbpk6xl1YI1B4TXsblSP3wc4YYCr7MEJtLKZ9ZG
-	HSLx7Cp6rc6GHQ4tZ3+JKyIljXrBKyY/wz8GRnQl5FVN7Ak29+C8r0TmrGpLFTR2vxuI0+pGsXjmi
-	I9wNPC93NBA4f6kwZyy8vJsR+IAFCF2+rFnHdXQEEqknA2d8yoIO5m9z4EH5pnG6AwkzVW5vgbX8K
-	TkzHxBaEpissAV0OPu358ykHUK8lWn5ZBzVTxGO2+tnib+9rfQGg9IycCLh7x+0pJVNi5C6dccPe2
-	ARAAkdfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KTkbpvRCkCNDRgtaNpdtouZmnsaUStr5DjZh4PVUoxA=; b=k1TtMV4oTNhRRF+RlZvUPYJa6v
+	wCsXg/AJx2sz/XwHaliClRDhyXlEZcWiYfKXbQCT1NfIVHRIIpre88M3ZnqQkuBu/D+OLWbZIcFNu
+	X02yLmDd15/qzesIJS0rWjjJdkB2Q4vlcnXA5XIlJKvXM9WLisJy7JqsUiaHL01wxjr11xF/fuWua
+	ZgCin0DAQgamtPko8g8yRzsCDJTkdLoHYK8FwfsiGZ3fCdQUOkemPTaO7PeA2O5XR/oZZBLqU97Nh
+	ikMdS845xE1TRfZlxNbFrSk/FP/DIVrjy0353zbbtDI3AhAmIadQNXFqSI5POlOSe/ss+y+0B2TdC
+	U20v619w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDU7x-00000004jJe-26eM;
-	Fri, 09 May 2025 20:15:26 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1uDU85-00000004jO0-05wZ;
+	Fri, 09 May 2025 20:15:33 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDODN-00000003rGp-0j03;
-	Fri, 09 May 2025 13:56:39 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A867A43B5C;
-	Fri,  9 May 2025 13:56:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1746798995;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ovm6LFCEU6u/vAeHaFCp1xRU21VlYlfHIc92sjuJU6g=;
-	b=fLnuqHsFN9rm849PKo/bJdWsFupCwBca2Bl0fR9UuCjoqJ1JsvP294G/Vt6h3orbuVXD+E
-	52LL7lE31nkzANag8HG7nBYZoJrNlNPorIkzwlyeMLkVaxdkekl/f9ux9zfYJkBy4CHQjE
-	Vghqz0Fmpw47FtafbKZFDU2rt5UooR6ZvQxe/+8ij6pFhrDw2h/meaDnSxSCQgZm1lcoio
-	XM0/QKVI2h6fL9DIH5TpjUdzDFYahdFWtXUE53iTOdB1uHMcJQFpKQiyq9JNOMBX74bnCe
-	HmfE3V7k3UwkD+wFdKKsBSXc9cvj5Es8toA2kGkA0WzZjXGyX3j7cyhaT2iExA==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Fri, 09 May 2025 15:53:33 +0200
-Subject: [PATCH v3 07/22] drm/bridge: sii902x: convert to
- devm_drm_bridge_alloc() API
+	id 1uDPE1-0000000410y-1m8c
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 May 2025 15:01:22 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-441c0d42233so1148235e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 08:01:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1746802880; x=1747407680; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=KTkbpvRCkCNDRgtaNpdtouZmnsaUStr5DjZh4PVUoxA=;
+        b=UZSAIQ8Q97s/IjlUZbngSjI0vvi9LJnr3hgGxxAUVXvx8lsGK4hPEYhOe+BtfHjQSS
+         B3EP9j3iNGrMmfc6nRZ81SCd8PB+BHVxH84OrTbtvJf9iAzIHQMNtB+X2q6aJ0BuvxOn
+         0KOqh6a8HshZDOUYCrRGjQ307aQZRru+e/jTwbgAhgoAtLkaAimdNc31MHEGwSLCLEZQ
+         w9v6gEgaqNzLDPJWpIsSxfMqbkYyoVA4nannpPh0ICPBOe2W3sKDWzWoCQZ+t8++fQdP
+         sJjX5VLhr4ORrl3FEoNquXIgIY8+BgM53W32Jdz7O8hrX7pJA9XcOwFLGvoorT/QVit1
+         wAMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746802880; x=1747407680;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KTkbpvRCkCNDRgtaNpdtouZmnsaUStr5DjZh4PVUoxA=;
+        b=sk29EodiY8ZyCyueHmSIf2/5kb2qieZyQyh4IPQ8p22CWN/zRKN9I6906NSL1z2w6D
+         Qcgcd4xnieh3UXkH3UXrez+grxSIszwtk2+W+PnJwC1gOA9+gkueTcA/9+hfWcITv9ut
+         C6JhJV/hEitVUUlEMkitHKGaE3lMIfhuWE6gXglMP5UmoJIiAafsBSNItgp1uRcJ11xs
+         Ey+wSU0s3WXf8WH3yLPirIn5utVc99QeVXBUCzVWI/EWtkgYinMgnLY/0GPWgSMV27yQ
+         mP2pUcTY8jSK5Qp5MaxR++Y1z3OZkCDlo8Bi/g0kfA39rVuoXwTb3i/KXDngIGE5DmOG
+         SYnQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWC6xsf/AQkxI4BT1SDbUHgriBwWA/TSw2GlAipD35kypTgiic10iIpvxmDp0rRt/y1M7CKjtX07G6+Ceh5B+yq@lists.infradead.org
+X-Gm-Message-State: AOJu0YysnpLKJfOfRONpt4JIYz+yLYFfbdiSGDwk24wMeJ1m/4RdVjp6
+	BYqLQqtE5dbJ9KqjCCkFjLMyT+AGoY0YTQqRnxUUY/Jk1msGIpLOIUMQrgOMmqs=
+X-Gm-Gg: ASbGncvO2XPnxaOY/2mpeZoCG7yNu5IR3XtDo2BIsuaZe7iUtIWExxjzjNQOuPgYA8O
+	m9/y6GQ/BptjJfVhIUi3/JvzyhaHvOT3hT9VM2FEVGgc2RpV8J1xVIk3zzUisL4snFD0UpRryZ5
+	WiP/b38kp1pcsnLWbDdPblvcMVatOLi0nYahorZWXuyM+yAqB31tDwcWvUFxhhjCOciHJnjpOLk
+	82zWxmBfVYkWJn/tv/AGpLqHr97InkhYZnt+Ol6E1bJMcHkcO79hVstDBJkgOFajxq/Pwm79Gh2
+	6yRu0/aW/IhLtWGCg6sLDx3GKCPhGV6dqemEbpHR3ESsOBrERg==
+X-Google-Smtp-Source: AGHT+IHkBCNBnWPS/LtBg9S6XT9b0O28ZZRzf7nzBT0Cq35AQorOtZe7qvsosSmWPjFrnfFCw+NYnA==
+X-Received: by 2002:a05:600c:8207:b0:43b:bbb9:e25f with SMTP id 5b1f17b1804b1-442d6ddcedcmr10827805e9.6.1746802879590;
+        Fri, 09 May 2025 08:01:19 -0700 (PDT)
+Received: from kuoka.. ([178.197.207.88])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442d67e138asm32063275e9.10.2025.05.09.08.01.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 May 2025 08:01:17 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Xianwei Zhao <xianwei.zhao@amlogic.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	linux-amlogic@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] pinctrl: meson: Drop unused aml_pctl_find_group_by_name()
+Date: Fri,  9 May 2025 17:01:15 +0200
+Message-ID: <20250509150114.299962-2-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250509-drm-bridge-convert-to-alloc-api-v3-7-b8bc1f16d7aa@bootlin.com>
-References: <20250509-drm-bridge-convert-to-alloc-api-v3-0-b8bc1f16d7aa@bootlin.com>
-In-Reply-To: <20250509-drm-bridge-convert-to-alloc-api-v3-0-b8bc1f16d7aa@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Jagan Teki <jagan@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Douglas Anderson <dianders@chromium.org>, 
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Anusha Srivatsa <asrivats@redhat.com>, 
- Paul Kocialkowski <paulk@sys-base.io>, Dmitry Baryshkov <lumag@kernel.org>, 
- Hui Pu <Hui.Pu@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, asahi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-renesas-soc@vger.kernel.org, platform-driver-x86@vger.kernel.org, 
- linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-X-Mailer: b4 0.14.2
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvledvjeelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpeehnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghloheplgduledvrdduieekrddujeekrdduudekngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefledprhgtphhtthhopehjohhnrghssehkfihisghoohdrshgvpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomhdprhgtphhtthhopehimhigsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhug
- idqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghsrhhivhgrthhssehrvgguhhgrthdrtghomh
-X-GND-Sasl: luca.ceresoli@bootlin.com
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1218; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=OrJwae8l2jh9g4trffYYEvr/eZCG11Gv7r3R6UTzxSY=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoHhi6pu+duuCQJsD1u7676gujslrvVm4Iw27Cv
+ 36hI4QfwzOJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaB4YugAKCRDBN2bmhouD
+ 186yEACA393kMv+ucbdEL6lZb/ug65wE7C5fY0na+UddUEAqfbdRTMW/MQNb98gck2H4JelcSfd
+ OqvvlLQeKFMdWfdUO18CHwvvC6jx66XVCegvI4JxuvyksOrbdym5bdkndEtsvJU65+czjW31aQC
+ bHRORJ2LIBPhhHFt3ciNC419Qf2mqrIbuTdCqXzPCYIAG8lyODGPRBf0LOzsou2eHbNKoe/9Y+R
+ 23eU21dwJrXTGQTdhZ4qfRdprxXwba89LAlR8QDQCVmK16b1qGaazYtoO91pGXtUR8rzkk2i48H
+ Wq9kS0QV3rawviyRjAMKi85wG92NalX7ZfaI2Q5QuOdw7JC0O+0Q0AgxcwAxwRboQ39ip4LqGDk
+ tvjnS4C68OSHUa3PX6JTLE+UXdCZe30u4UYdsIcmTTT3FgpzrXkJbKTXqGkK6uF0+3HYoijtD9g
+ s+SAVZIrOX7WT9EelETCp43Y3cuWalfUBl6VVgIGPY1QmUU0ATKC65qnVOvh4fXdUuH16PWtHXV
+ 7Al9PQ3UL07lYL8o45wc9N4eZf11k0Jrxz/Y47WdnpUfH7JQ7PjUOs2+s+zD0+/QCmae9q45mJP
+ YO9URaV6sm2hA0MKrtqU5s740gHW4t8rdh2BT/QLHRUNFxURM2zBsHQbIpt/eXKgkE5r6+FATnw Lzhd+0AQCGwUKJg==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_065637_352192_D922500C 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20250509_080121_471089_26D534DF 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,40 +121,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is the new API for allocating DRM bridges.
+aml_pctl_find_group_by_name() is not used anywhere, as reported by W=1
+clang build:
 
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+  pinctrl-amlogic-a4.c:600:2: error: unused function 'aml_pctl_find_group_by_name' [-Werror,-Wunused-function]
+
+Fixes: 6e9be3abb78c ("pinctrl: Add driver support for Amlogic SoCs")
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/gpu/drm/bridge/sii902x.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+ drivers/pinctrl/meson/pinctrl-amlogic-a4.c | 14 --------------
+ 1 file changed, 14 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/sii902x.c b/drivers/gpu/drm/bridge/sii902x.c
-index 6de61d9fe06487856e8b3c32db3c8d8c25633fd8..882973e900628c0d972d32cd4ff3588432daa8e9 100644
---- a/drivers/gpu/drm/bridge/sii902x.c
-+++ b/drivers/gpu/drm/bridge/sii902x.c
-@@ -1135,7 +1135,6 @@ static int sii902x_init(struct sii902x *sii902x)
- 	if (ret)
- 		goto err_unreg_audio;
+diff --git a/drivers/pinctrl/meson/pinctrl-amlogic-a4.c b/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
+index a76f266b4b94..385cc619df13 100644
+--- a/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
++++ b/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
+@@ -596,20 +596,6 @@ static int aml_get_group_pins(struct pinctrl_dev *pctldev,
+ 	return 0;
+ }
  
--	sii902x->bridge.funcs = &sii902x_bridge_funcs;
- 	sii902x->bridge.of_node = dev->of_node;
- 	sii902x->bridge.timings = &default_sii902x_timings;
- 	sii902x->bridge.ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID;
-@@ -1170,9 +1169,9 @@ static int sii902x_probe(struct i2c_client *client)
- 		return -EIO;
- 	}
- 
--	sii902x = devm_kzalloc(dev, sizeof(*sii902x), GFP_KERNEL);
--	if (!sii902x)
--		return -ENOMEM;
-+	sii902x = devm_drm_bridge_alloc(dev, struct sii902x, bridge, &sii902x_bridge_funcs);
-+	if (IS_ERR(sii902x))
-+		return PTR_ERR(sii902x);
- 
- 	sii902x->i2c = client;
- 	sii902x->regmap = devm_regmap_init_i2c(client, &sii902x_regmap_config);
-
+-static inline const struct aml_pctl_group *
+-	aml_pctl_find_group_by_name(const struct aml_pinctrl *info,
+-				    const char *name)
+-{
+-	int i;
+-
+-	for (i = 0; i < info->ngroups; i++) {
+-		if (!strcmp(info->groups[i].name, name))
+-			return &info->groups[i];
+-	}
+-
+-	return NULL;
+-}
+-
+ static void aml_pin_dbg_show(struct pinctrl_dev *pcdev, struct seq_file *s,
+ 			     unsigned int offset)
+ {
 -- 
-2.49.0
+2.45.2
 
 
