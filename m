@@ -4,62 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F262BC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 15:04:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6157FC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 15:06:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kd/srjdm1xnvaZel3ttLP5jXGyV2SDPmX2hnkuWxMsU=; b=DXdcnRctVqe87x4iK4vOd7DAbZ
-	dY0I2CVJ2d8dxzOlo0eWNYBCXwXyiYcrZ0Fbpo1JRSzTQUuXO7rtYcbyzcIEVxwjfvRAiC25pke3w
-	NUngaSzgZlSnKqDTzQF0ciLIb3+xb2UTe01oKXwbyTFURDkClrPHot4wNYo+DSHtHZNYPeKLzoq1H
-	biPDOV/56sB2hbvMim3JJ4GpeTpwkTJm6bT64tRMKZG/RRAi6wEInCYtS8smFPK6Xpvh96aleyDmW
-	2Qe3b7BrTRNKzsHwR6FUgBQE0dUh9J5pj4Jk3JW4etUDty/KfKoks3SJkaiF+QzRabuU7uApl2ZAU
-	SYN1s7BA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=uJ5xv2x3X+CRQNWp7iVnE+JtSDZ7GFWFYjczehxiho4=; b=2rzGSKd5sUMl8K52N9fJdmXlZb
+	Jr4hu5NJmidJ4cprGEH3isTm5fD/qEHY1iL1eNNA75Vy/cVWvcElal+Adcr9nIiRYKQUlOhL2wAjQ
+	rg8chw4tKTaZZsV/jqervWMhqsJQWCnUrVVUI5EWP6BgD0OFySMAnd9Tup/FDhPXkdh10WkFUzdJI
+	LcbibG70cbILBBqk2G8mVPJ9E8df5CC1oRAAaFSU90LMC/c7PIWNkKG9a4Kg5EhiriwsrDlnScR+E
+	ipEHydxKDUSM/EuXWcuFl+yeOKVWAf+MvwDyQX47iyKOzH4Ba7d4ZA9EaYUxE1x5olRr38fYrxImx
+	o/wHN60Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDPGY-000000041QA-3ESb;
-	Fri, 09 May 2025 15:03:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDNo5-00000003m2n-1K2o
+	id 1uDPIU-000000041dB-29Fl;
+	Fri, 09 May 2025 15:05:58 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uDNt2-00000003n4r-2s7n
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 13:30:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C665D175D;
-	Fri,  9 May 2025 06:30:17 -0700 (PDT)
-Received: from [10.57.90.222] (unknown [10.57.90.222])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4CA773F58B;
-	Fri,  9 May 2025 06:30:26 -0700 (PDT)
-Message-ID: <22e4167a-6ed0-4bda-86b8-a11c984f0a71@arm.com>
-Date: Fri, 9 May 2025 14:30:24 +0100
+	Fri, 09 May 2025 13:35:38 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250509133532epoutp020eaf395efbe7aa1b1d255f647ccecafc~930iAdXvv2816528165epoutp02j
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 May 2025 13:35:32 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250509133532epoutp020eaf395efbe7aa1b1d255f647ccecafc~930iAdXvv2816528165epoutp02j
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1746797733;
+	bh=uJ5xv2x3X+CRQNWp7iVnE+JtSDZ7GFWFYjczehxiho4=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=i+VTSVIWQo2OHtACmCTOYnEtFEs+AsI1FbspSS0Z7T87WOgKSxC9iL6z4WI36KPoJ
+	 lMuel5I7Kp91C1DyusZYYghlGi5ImkOSAXjN99u/UUzUX90FRpdHQPHWh2vd+ExWjX
+	 YpEswFkogWCUYH+Z9GpDft4ot7QGkueW+nYLreI8=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250509133532epcas5p21941906580941e4d09b5537939fd6155~930hZsG6t1470614706epcas5p2b;
+	Fri,  9 May 2025 13:35:32 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.183]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4Zv9423nBYz6B9m5; Fri,  9 May
+	2025 13:35:30 +0000 (GMT)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250509131427epcas5p1fe29ea19cb7624dc828935d6ec47854b~93iH5KmMz0480904809epcas5p1q;
+	Fri,  9 May 2025 13:14:27 +0000 (GMT)
+Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250509131427epsmtrp11595d142fc3783a9bfbb5144812b6041~93iH4U90x3116831168epsmtrp1S;
+	Fri,  9 May 2025 13:14:27 +0000 (GMT)
+X-AuditID: b6c32a52-40bff70000004c16-87-681dffb3509c
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	E0.8D.19478.3BFFD186; Fri,  9 May 2025 22:14:27 +0900 (KST)
+Received: from bose.samsungds.net (unknown [107.108.83.9]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250509131425epsmtip1df3d977fb138a2f14c4f522f592f98f0~93iFuuKrU2903429034epsmtip1b;
+	Fri,  9 May 2025 13:14:25 +0000 (GMT)
+From: Raghav Sharma <raghav.s@samsung.com>
+To: krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com,
+	alim.akhtar@samsung.com, mturquette@baylibre.com, sboyd@kernel.org,
+	robh@kernel.org, conor+dt@kernel.org, sunyeal.hong@samsung.com,
+	shin.son@samsung.com
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Raghav Sharma <raghav.s@samsung.com>
+Subject: [PATCH v1] dt-bindings: clock: exynosautov920: add hsi2 clock
+ definitions
+Date: Fri,  9 May 2025 18:54:14 +0530
+Message-Id: <20250509132414.3752159-1-raghav.s@samsung.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v4 1/5] mm/readahead: Honour new_order in
- page_cache_ra_order()
-Content-Language: en-GB
-To: "Pankaj Raghav (Samsung)" <kernel@pankajraghav.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- David Hildenbrand <david@redhat.com>, Dave Chinner <david@fromorbit.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org
-References: <20250430145920.3748738-1-ryan.roberts@arm.com>
- <20250430145920.3748738-2-ryan.roberts@arm.com>
- <nepi5e74wtghvr6a6n26rdgqaa7tzitylyoamfnzoqu6s5gq4h@zqtve2irigd6>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <nepi5e74wtghvr6a6n26rdgqaa7tzitylyoamfnzoqu6s5gq4h@zqtve2irigd6>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrGLMWRmVeSWpSXmKPExsWy7bCSnO7m/7IZBncmmVo8mLeNzWLN3nNM
+	Fte/PGe1mH/kHKvF+fMb2C02Pb7GavGx5x6rxeVdc9gsZpzfx2Rx8ZSrxfeVdxgt/u/ZwW5x
+	+E07q8W/axtZLCYfX8tq0bRsPZODgMf7G63sHptWdbJ5bF5S79G3ZRWjx+dNcgGsUVw2Kak5
+	mWWpRfp2CVwZvW/2shb8Eam4eeQbUwPjZf4uRk4OCQETiePzfrF3MXJxCAlsZ5TYf+8vI0RC
+	QmLf/99QtrDEyn/PoYreMkr0b53OBJJgE9CSuLL9HRuILSLwjlFi0zoxkCJmgQuMEp9e/gTq
+	5uAQFgiSmD8jC6SGRUBV4v/2yywgNq+AtcSxHe0sEAvkJfYfPMsMEReUODnzCVicGSjevHU2
+	8wRGvllIUrOQpBYwMq1iFE0tKM5Nz00uMNQrTswtLs1L10vOz93ECA56raAdjMvW/9U7xMjE
+	wXiIUYKDWUmE93mnTIYQb0piZVVqUX58UWlOavEhRmkOFiVxXuWczhQhgfTEktTs1NSC1CKY
+	LBMHp1QDk+yeR6wrc6z2JWd49lw4XXc2Rnn6sR0M3CxLt1VN/eEt5PlsupX6rcfpa2wufn+6
+	/UB4qrqY5qwP5VJdp2X93XbIHPd3+8gv/iK8nUVafpuLUqOFs4OA9mvdG6dOO5207UjgMupp
+	+MDxKKpNZNns35wX7t3JX+j6M2v/v+7E9HtWu89/COwwvLBz3vMbDKvF18YdFDl4UWOmWMdu
+	7Qt13/+uc+JjWl3wvNrs3k0b5ZeVn0TtN/P+v+h04tyJ36+sVv38Z2ArGxLq3/0ro+BWzrVf
+	wR/zvuzUE1nCvHQul+0Tbaa36zOkfyxTuXg8LVa7IaEurqhiaePmmlXFu/afuT7vwwG/1SuZ
+	TzOdPD3b/7ESS3FGoqEWc1FxIgDhAktx6QIAAA==
+X-CMS-MailID: 20250509131427epcas5p1fe29ea19cb7624dc828935d6ec47854b
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-543,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250509131427epcas5p1fe29ea19cb7624dc828935d6ec47854b
+References: <CGME20250509131427epcas5p1fe29ea19cb7624dc828935d6ec47854b@epcas5p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_063029_442890_B3147096 
-X-CRM114-Status: GOOD (  24.95  )
+X-CRM114-CacheID: sfid-20250509_063537_033935_B75A9295 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,106 +116,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pankaj,
+Add device tree clock binding definitions for CMU_HSI2
 
-Thanks for the review! ...
+Signed-off-by: Raghav Sharma <raghav.s@samsung.com>
+---
+ .../clock/samsung,exynosautov920-clock.yaml   | 29 +++++++++++++++++--
+ .../clock/samsung,exynosautov920.h            |  9 ++++++
+ 2 files changed, 36 insertions(+), 2 deletions(-)
 
-
-On 08/05/2025 13:55, Pankaj Raghav (Samsung) wrote:
-> Hey Ryan,
-> 
-> On Wed, Apr 30, 2025 at 03:59:14PM +0100, Ryan Roberts wrote:
->> FOLIO  0x0001a000  0x0001b000       4096       26       27      1      0
->> FOLIO  0x0001b000  0x0001c000       4096       27       28      1      0
->> FOLIO  0x0001c000  0x0001d000       4096       28       29      1      0
->> FOLIO  0x0001d000  0x0001e000       4096       29       30      1      0
->> FOLIO  0x0001e000  0x0001f000       4096       30       31      1      0
->> FOLIO  0x0001f000  0x00020000       4096       31       32      1      0
->> FOLIO  0x00020000  0x00024000      16384       32       36      4      2
->> FOLIO  0x00024000  0x00028000      16384       36       40      4      2
->> FOLIO  0x00028000  0x0002c000      16384       40       44      4      2
->> FOLIO  0x0002c000  0x00030000      16384       44       48      4      2
->> ...
->>
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->> ---
->>  mm/readahead.c | 4 +---
->>  1 file changed, 1 insertion(+), 3 deletions(-)
->>
->> diff --git a/mm/readahead.c b/mm/readahead.c
->> index 6a4e96b69702..8bb316f5a842 100644
->> --- a/mm/readahead.c
->> +++ b/mm/readahead.c
->> @@ -479,9 +479,6 @@ void page_cache_ra_order(struct readahead_control *ractl,
->>  
-> 
-> So we always had a fallback to do_page_cache_ra() if the size of the
-> readahead is less than 4 pages (16k). I think this was there because we
-> were adding `2` to the new_order:
-
-If this is the reason for the magic number 4, then it's a bug in itself IMHO. 4
-pages is only 16K when the page size is 4K; arm64 supports other page sizes. But
-additionally, it's not just ra->size that dictates the final order of the folio;
-it also depends on alignment in the file, EOF, etc.
-
-If we remove the fallback condition completely, things will still work out. So
-unless someone can explain the reason for that condition (Matthew?), my vote
-would be to remove it entirely.
-
-> 
-> unsigned int min_ra_size = max(4, mapping_min_folio_nrpages(mapping));
-> 
-> /*
->  * Fallback when size < min_nrpages as each folio should be
->  * at least min_nrpages anyway.
->  */
-> if (!mapping_large_folio_support(mapping) || ra->size < min_ra_size)
-> 	goto fallback;
-> 
->>  	limit = min(limit, index + ra->size - 1);
->>  
->> -	if (new_order < mapping_max_folio_order(mapping))
->> -		new_order += 2;
-> 
-> Now that you have moved this, we could make the lhs of the max to be 2
-> (8k) instead of 4(16k).
-
-I don't really understand why magic number 2 would now be correct?
-
-> 
-> - unsigned int min_ra_size = max(4, mapping_min_folio_nrpages(mapping));
-> + unsigned int min_ra_size = max(2, mapping_min_folio_nrpages(mapping));
-> 
-> I think if we do that, we might ramp up to 8k sooner rather than jumping
-> from 4k to 16k directly?
-
-In practice I don't think so; This would only give us order-1 where we didn't
-have it before if new_order >= 1 and ra->size is 3 or 4 pages.
-
-But as I said, my vote would be to remove this fallback condition entirely. What
-do you think?
-
-Thanks,
-Ryan
-
-> 
->> -
->>  	new_order = min(mapping_max_folio_order(mapping), new_order);
->>  	new_order = min_t(unsigned int, new_order, ilog2(ra->size));
->>  	new_order = max(new_order, min_order);
->> @@ -683,6 +680,7 @@ void page_cache_async_ra(struct readahead_control *ractl,
->>  	ra->size = get_next_ra_size(ra, max_pages);
->>  	ra->async_size = ra->size;
->>  readit:
->> +	order += 2;
->>  	ractl->_index = ra->start;
->>  	page_cache_ra_order(ractl, ra, order);
->>  }
->> -- 
->> 2.43.0
->>
-> 
-> --
-> Pankaj
+diff --git a/Documentation/devicetree/bindings/clock/samsung,exynosautov920-clock.yaml b/Documentation/devicetree/bindings/clock/samsung,exynosautov920-clock.yaml
+index 6961a68098f4..3cbb1dc8d828 100644
+--- a/Documentation/devicetree/bindings/clock/samsung,exynosautov920-clock.yaml
++++ b/Documentation/devicetree/bindings/clock/samsung,exynosautov920-clock.yaml
+@@ -41,14 +41,15 @@ properties:
+       - samsung,exynosautov920-cmu-misc
+       - samsung,exynosautov920-cmu-hsi0
+       - samsung,exynosautov920-cmu-hsi1
++      - samsung,exynosautov920-cmu-hsi2
+ 
+   clocks:
+     minItems: 1
+-    maxItems: 4
++    maxItems: 5
+ 
+   clock-names:
+     minItems: 1
+-    maxItems: 4
++    maxItems: 5
+ 
+   "#clock-cells":
+     const: 1
+@@ -201,6 +202,30 @@ allOf:
+             - const: usbdrd
+             - const: mmc_card
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: samsung,exynosautov920-cmu-hsi2
++
++    then:
++      properties:
++        clocks:
++          items:
++            - description: External reference clock (38.4 MHz)
++            - description: CMU_HSI2 NOC clock (from CMU_TOP)
++            - description: CMU_HSI2 NOC UFS clock (from CMU_TOP)
++            - description: CMU_HSI2 UFS EMBD clock (from CMU_TOP)
++            - description: CMU_HSI2 ETHERNET clock (from CMU_TOP)
++
++        clock-names:
++          items:
++            - const: oscclk
++            - const: noc
++            - const: ufs
++            - const: embd
++            - const: ethernet
++
+ required:
+   - compatible
+   - "#clock-cells"
+diff --git a/include/dt-bindings/clock/samsung,exynosautov920.h b/include/dt-bindings/clock/samsung,exynosautov920.h
+index 5e6896e9627f..93e6233d1358 100644
+--- a/include/dt-bindings/clock/samsung,exynosautov920.h
++++ b/include/dt-bindings/clock/samsung,exynosautov920.h
+@@ -286,4 +286,13 @@
+ #define CLK_MOUT_HSI1_USBDRD_USER	3
+ #define CLK_MOUT_HSI1_USBDRD		4
+ 
++/* CMU_HSI2 */
++#define FOUT_PLL_ETH                    1
++#define CLK_MOUT_HSI2_NOC_UFS_USER      2
++#define CLK_MOUT_HSI2_UFS_EMBD_USER     3
++#define CLK_MOUT_HSI2_ETHERNET          4
++#define CLK_MOUT_HSI2_ETHERNET_USER     5
++#define CLK_DOUT_HSI2_ETHERNET          6
++#define CLK_DOUT_HSI2_ETHERNET_PTP      7
++
+ #endif /* _DT_BINDINGS_CLOCK_EXYNOSAUTOV920_H */
+-- 
+2.34.1
 
 
