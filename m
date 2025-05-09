@@ -4,89 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB30C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 11:49:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C04AC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 11:51:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q8MiJZaTLkXXn5poCl8egUQZo+oj0wsGgvhPlEKD64U=; b=gZMcMcK3PxPh0P8PpYYDVBL9b9
-	n2pWvbczLGg1sgMS4dS6b4uI13JqlkV9Qj0a5r/RUilkBewQBfMr5rUpWEaTUPHz+rnuGA5KfujZA
-	UH8TVwwdZ+xN7otYLQLnFEPZjwWWR7emYRuADrfe50WQ817+510gvjP8fymGUNCoNMxMY/uVeSJ2y
-	qN2vsU6LJwEm9jcioi4sgXf4FAKYLd4oQ6sCe65F89DeXAEXmXCy72CoGAKSK5VNxJWAalmwBwikw
-	qKUudYTyqj61233RR+2YfLYtpT15KaJkAEGeug5GOF52EUByQVZMskX6myROkF1i1+Wh0uPRLG71B
-	QTduHWGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MdQh7LT8W4RzJzp1eDyrsDrfrxqK5LM5LuKtE8YNB2c=; b=QaW9C5F1qQakkg
+	H5STwIAO1R3kynekvkLg+qdSsDVOtTem2iUZJHpUIdPYKxN+AkOuO+qekQ2Uw1ATAdSA5a8dmS3WB
+	25Oj3OMfn7znaDg3UxlPYAvkxmY1QtX8SRqbM4YAIHpqpoqaQj/fxn8cliyEMqwcu9i3chMO1NuNP
+	wwMYHfht5eRQ2C9RJ7RkFtlKP2M6QtZ9r8I16M4hQqj9Nik7YaNTrXSwyV+R2fT0SsTFVQr4ML7fW
+	guSOYwHrIDeqTZfoIcc4eUsENx75b0mfzEevfcgGzX4V0GfveMStPfQqAliF74g8usDrPFCxOV0PT
+	WFCS/Hv7kTUeOQlR2J9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDMET-00000003TwR-0FSa;
-	Fri, 09 May 2025 11:49:37 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uDMGO-00000003UGc-2zI4;
+	Fri, 09 May 2025 11:51:36 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDLX0-00000003NEX-3S4k
+	id 1uDLZA-00000003NZI-33hZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 11:04:43 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-441d437cfaaso13151995e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 04:04:42 -0700 (PDT)
+	Fri, 09 May 2025 11:06:59 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3a0b9e2d640so1726498f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 04:06:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746788681; x=1747393481; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Q8MiJZaTLkXXn5poCl8egUQZo+oj0wsGgvhPlEKD64U=;
-        b=At4363az0or15gEU2qTAzBUCeJTPdFKazHMoSixOcGIH9f+8OQ3ey6hWXHvtMXhGFe
-         yaDdL65AyuNZmXVcXJsOGQO5FTKFzYa1955qohig/WxtG1RhO/ju0+PSLxyz3c7onXoo
-         mAICErPIBbVzgU9oLzi/Mx1u6TMCs37/HzI9sVc0o73JwWB8W2FdrOk5IWfhvIrULZ5w
-         b1L7FTXAFZOFGwJB3R7kivNl7cczFOcNKlpTfYAAcfpOOVQldc3zumnlQzwlFHjtQqHk
-         3LHrcmGQB736UbkkOXgI28400gdnvyUIkVyOOnUzglIsfa5zt3SrzP5d0PqXqkyvS5Aa
-         DVaA==
+        d=linaro.org; s=google; t=1746788814; x=1747393614; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=MdQh7LT8W4RzJzp1eDyrsDrfrxqK5LM5LuKtE8YNB2c=;
+        b=WYAHmxCioAGzmB2j1KSz9AEO6ZdchOQtnZnpV74MITTXNNo+PhhKqI3Vi5QJRP6fFI
+         81+G1Sc7iu+WtWTcmRxXwNvQcwFxldXviHuAkhzvTVRcFmOiEJXj/DLq6Hrkrps50myj
+         qoAPL5X0BS7iFnY3cXmSB8ITDIgpRJssrcRlBu2OEqCvHLdrVi6nzl9NN5n8Fd0GgNje
+         iOIWelI3wFxWJP4Z8JsDbXKAIQ21Nz+jJtLJ0o/NJlvGd5svk+JqGQ9EjPYpf4OdG7ia
+         R3cc3brqw/mpnbGp8IygQ12WVsP7UERrO7lJoVv89VuaorXqpm80+q6hQ3NHOIqAmBA7
+         yA7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746788681; x=1747393481;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Q8MiJZaTLkXXn5poCl8egUQZo+oj0wsGgvhPlEKD64U=;
-        b=SvdVL//p8h2ETTipcqPAeUB8g088Xa4djRbEbasYBWAEgc4Dg8IrpzFXbBDxzZne0G
-         myN0VMCAnOhg6T4X67wnUccK9wbhAJzEovKgoyBLuEx0kAXHQ/xk+rYrCxxaWfeSZxjN
-         T89nBQ+NljSHwWvt/NFO2VOhpV/QVfhRj0HOAM4um5wCzbhteEjsErgNwerR4uF/K352
-         XtQoxmr5OzwRZh/rtLXEplh9E3JEc8ekndV2EZ9Xb4/dBDihcVHTAF2WfDvk7Nh9QFbe
-         Cej2zzSRlfG/HE3Z+6ykbN1Jvu5wgXmV95fyeN/87kydIFY1GD3HpvOtwcpqYrTiZFNE
-         28sQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUZoD/7LITPwUJHpuD5BM77up3P8ucGbx0H/EdhOKy4GxSHVbiRfsIi1hvkG87t0OCWrezJ0sUXjSU3Lq36fdjy@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmmgfiO2eMC/I4EfagYXL9B9mspucy322I5NDpOqd9wp8y09mW
-	+B4FsEb8zLgwQGGda0q6Wq7uv/J4ma4HG8sdM34X04v/KfF9JV0DzEu9gNgWvUg=
-X-Gm-Gg: ASbGnctHWaLRyR7o7gVefvsnxtyeX/kwPiao17YRB1aSylfbKeNm1IWdFdZEyglsyjB
-	ine7Y/O4pZGLt/ckbp8lrkpK/RKWyBNVldqVoae871Y6ZnLbP61I7rgIqROLQ5p3m+c3uO+96ke
-	sjgpnz2IN0jRE5/KOAuze6A10TPm3WrL1x0VQUOX1wQjj9GUaP3I5WuZy/VR1puNVQG13cOjcsH
-	kK3sosVlOCbdO1wJNMWBAbcbUpdR7Y6ByxDxLvy9xp1Bn6hhElnrvJOkPyYVUBWYIK+KM4EscVb
-	6Rt1r50HgqeW4JzMzCNbd8npEmAmeHgCvRWE4aMbKbC1kQ==
-X-Google-Smtp-Source: AGHT+IH8/NzuhQIHAiiCvtk5klNpsdsTuvJWt/oDUURnYu6Ufz/YNp+rlGVB1mscySmEvgSO0iuJ/Q==
-X-Received: by 2002:a05:600c:3ac9:b0:441:bf4e:89c8 with SMTP id 5b1f17b1804b1-442d6d18cc5mr21966385e9.3.1746788681116;
-        Fri, 09 May 2025 04:04:41 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-442d687bdcbsm26022585e9.40.2025.05.09.04.04.40
+        d=1e100.net; s=20230601; t=1746788814; x=1747393614;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MdQh7LT8W4RzJzp1eDyrsDrfrxqK5LM5LuKtE8YNB2c=;
+        b=ON6BZMx/Ec4pr82IaD/Fu3kxhKHnJOkE/XGaya0zubsThKQQQGKzv0seDBm74JIp+r
+         E4fHM/hu6VR0z3X7J/xy84iN55TqCwN3toZi7CRoXkvYrpHa31CEQ5NRkcxsEp26na8O
+         ThQFJcLDIVX2lUXjatp99Hy5rqkk6b4DXeo4rXx3g1tS8590m/PSiZS5P9hC8wTJi6s5
+         BqaTfuwQhFKbmOIpBsBl5X17zbg4ewviJUsKmCQiekn//Lhj5IUBkikOsUqfpqVfi0y0
+         7cgwc9/NL3Qqn1MdbyJ9ygyK2aSJ7shAtqPKRSQ7fnHLUDRdcWzSzoGd3F6CH0mbGDpr
+         K0Og==
+X-Forwarded-Encrypted: i=1; AJvYcCXUCqDhCgLt+J1ce45BgWmslxtUfs2RqLMCTnzuKsX6/TH1xRe2OBCDczAYkpOkOEwoQr9vrtOdzIJ06XAk+S7H@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlWyE5MhI1RrOrIi+9pJ5dyihRV9uSstl8Xs4GdgH95FeodpF9
+	TjK6vdezp4yRhHBrTEzev3vv5IFfD+KChEMRezwi2GH0BI5+m7Sl3QwrpGlhi9c=
+X-Gm-Gg: ASbGncvnwybLEV77z9QJzPtkLx32kIT8fmza85d5u5g272TBAVazNvBTzsZOdsqFSWS
+	fDtuhag7bhsg9G/8Dy2dE+5RqXYneVpeO65otM+DmGoJQmo9jaAC42hcEqotpVqvJz7p/n5Otu7
+	QHUGRHcUHlneHuhAtIFXyPORGy1FBN/KZ66GgTxv1fDnfz6VrA2ioQh1reQpbM65yAO2Tl3szLH
+	LAUSWV+F4iU/x5O//lgqzAkXqhwVKJvA6eIjnk/7B3L79F4upyM28BynTWdT1YAsg5A0gieWpSB
+	YV0Y8SO2MjzHH6rUJEG4sBf/h+I7QVv0Yrlnpyo7SLnxA/w=
+X-Google-Smtp-Source: AGHT+IF8zf0HZ+jIS52ar661eUuXC/rKe9WCfGGwcqpO6GEcFF49TaMuxQRQxMt3K3cGjEyD0Y8O6g==
+X-Received: by 2002:adf:8b1c:0:b0:3a0:8712:4f51 with SMTP id ffacd0b85a97d-3a1f64b5a97mr1959695f8f.40.1746788814469;
+        Fri, 09 May 2025 04:06:54 -0700 (PDT)
+Received: from ho-tower-lan.lan ([77.81.75.81])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f58ecadfsm2914797f8f.22.2025.05.09.04.06.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 May 2025 04:04:40 -0700 (PDT)
-Date: Fri, 9 May 2025 14:04:37 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Patrice Chotard <patrice.chotard@foss.st.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Christophe Kerello <christophe.kerello@foss.st.com>,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 2/2] memory: stm32_omm: Fix NULL vs IS_ERR() check in probe()
-Message-ID: <a1645f1eedaa9b2ae62ac07feed0552eea75bc46.1746781081.git.dan.carpenter@linaro.org>
-References: <cover.1746781081.git.dan.carpenter@linaro.org>
+        Fri, 09 May 2025 04:06:54 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Subject: [PATCH 00/14] spi: spi-fsl-dspi: DSPI support for NXP S32G
+ platforms
+Date: Fri, 09 May 2025 12:05:47 +0100
+Message-Id: <20250509-james-nxp-spi-v1-0-32bfcd2fea11@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1746781081.git.dan.carpenter@linaro.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIvhHWgC/x3MMQqAMAxA0atIZgNtxEGvIg5Fo0awlkZEkd7d6
+ viG/x9QjsIKbfFA5FNUdp9hywKGxfmZUcZsIEO1qajG1W2s6K+AGgQHN1km0zRUWchNiDzJ9f+
+ 6PnsRPfZ4f/uU0gslR/0vbgAAAA==
+To: Vladimir Oltean <olteanv@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
+ NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, larisa.grigore@nxp.com, arnd@linaro.org, 
+ andrei.stefanescu@nxp.com, dan.carpenter@linaro.org
+Cc: linux-spi@vger.kernel.org, imx@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, James Clark <james.clark@linaro.org>, 
+ Xulin Sun <xulin.sun@windriver.com>, Marius Trifu <marius.trifu@nxp.com>, 
+ Ciprian Marian Costea <ciprianmarian.costea@nxp.com>, 
+ Andra-Teodora Ilie <andra.ilie@nxp.com>, 
+ Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>, 
+ Stoica Cosmin-Stefan <cosmin.stoica@nxp.com>, Dan Nica <dan.nica@nxp.com>, 
+ Larisa Grigore <Larisa.Grigore@nxp.com>, 
+ Stefan-Gabriel Mirea <stefan-gabriel.mirea@nxp.com>, 
+ "Radu Pirea (NXP OSS)" <radu-nicolae.pirea@oss.nxp.com>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_040442_857755_0E00AB37 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20250509_040656_774661_C946D419 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,31 +117,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The platform_get_resource_byname() function returns NULL on error.  It
-doesn't return error pointers.  Update the check to match.
+DT and driver changes for DSPI on S32G platforms. First 4 commits add
+new S32G registers and device settings along with restricting userspace
+register access properly for all devices. Then some DMA mode fixes along
+with adding support for target mode, which uses DMA. Followed by some
+other minor bug fixes and then finally add the DT compatibles and
+binding docs.
 
-Fixes: 8181d061dcff ("memory: Add STM32 Octo Memory Manager driver")
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 ---
- drivers/memory/stm32_omm.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Andra-Teodora Ilie (1):
+      spi: spi-fsl-dspi: Enable modified transfer protocol
 
-diff --git a/drivers/memory/stm32_omm.c b/drivers/memory/stm32_omm.c
-index fa0f75e4a6e8..c8de785401f2 100644
---- a/drivers/memory/stm32_omm.c
-+++ b/drivers/memory/stm32_omm.c
-@@ -320,8 +320,8 @@ static int stm32_omm_probe(struct platform_device *pdev)
- 		return PTR_ERR(omm->io_base);
- 
- 	omm->mm_res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "memory_map");
--	if (IS_ERR(omm->mm_res))
--		return PTR_ERR(omm->mm_res);
-+	if (!omm->mm_res)
-+		return -ENODEV;
- 
- 	/* check child's access */
- 	for_each_child_of_node_scoped(dev->of_node, child) {
+Bogdan-Gabriel Roman (1):
+      spi: spi-fsl-dspi: Halt the module after a new message transfer
+
+Ciprian Marian Costea (2):
+      dt-bindings: spi: dspi: Add S32G support
+      spi: spi-fsl-dspi: Enable support for S32G platforms
+
+James Clark (2):
+      spi: spi-fsl-dspi: Define regmaps per device
+      spi: spi-fsl-dspi: Re-use one volatile regmap for both device types
+
+Larisa Grigore (7):
+      spi: spi-fsl-dspi: restrict register range for regmap access
+      spi: spi-fsl-dspi: Add config and regmaps for S32G platforms
+      spi: spi-fsl-dspi: Avoid setup_accel logic for DMA transfers
+      spi: spi-fsl-dspi: Reset SR flags before sending a new message
+      spi: spi-fsl-dspi: Use DMA for S32G controller in target mode
+      spi: spi-fsl-dspi: Reinitialize DSPI regs after resuming for S32G
+      arm64: dts: Add DSPI entries for S32G platforms
+
+Marius Trifu (1):
+      spi: spi-fsl-dspi: Use spi_alloc_target for target
+
+ .../devicetree/bindings/spi/fsl,dspi.yaml          |  18 ++
+ arch/arm64/boot/dts/freescale/s32g2.dtsi           |  78 +++++
+ arch/arm64/boot/dts/freescale/s32g3.dtsi           |  78 +++++
+ arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi    |  87 +++++
+ arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi    |  77 +++++
+ drivers/spi/Kconfig                                |   4 +-
+ drivers/spi/spi-fsl-dspi.c                         | 356 +++++++++++++++------
+ 7 files changed, 592 insertions(+), 106 deletions(-)
+---
+base-commit: 9c69f88849045499e8ad114e5e13dbb3c85f4443
+change-id: 20250325-james-nxp-spi-caf1e2099231
+
+Best regards,
 -- 
-2.47.2
+James Clark <james.clark@linaro.org>
 
 
