@@ -4,78 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7528AC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 08:27:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 701C1C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 08:29:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4e3+vQC7jXYNsVDluYv45Cizxg84x2l6/EsV/UN5RrA=; b=OTmQLkegGXGB3PUwlkNzPKWmsI
-	8RU/NjySZtrbi7KADyinaYq0O9Y1CpR468aeD9IOiDcJy3VRGkPGUYM+nfoKiA1frCnsnyaz6G1nt
-	W9ulcsFqrSoRxDzNVu+lK9Joh0VgfwqkDHnOB32W36mYwhPGfQUt9cPdoTJ5mE4NNVDw5pp1hpQkE
-	zCCvMnKQWMMX/jqnEgkrwJiZslKAElTx9E2VeLRJcs+Wp1ztaBNvF180CczDbU3otOBAyvRBtQmiC
-	fweoyNfXK9snofNuCgnUfHjbUEV/0zXgriesfkz9gRlpsobXYgsdewKi5qtKfMf351//fkRMc6t4y
-	qFUdGCog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=w+ibgMyQRyH11M+iZhWw35rszc+MBNo4OIqbcLr+uIQ=; b=vRW9wdWfzRjic6KgVa7IPxS+e+
+	nx9h1Ew29WppZTph5PfAbvI2vxcGCy9Jx8qTR/EyGR5tfUXRp+keCktY4osvOhK8K/mCmdL+PSoT4
+	CqYdLNyvDsc7QmnxMCx4bzlgr7qjpvBF7rdvhVKUDdYqLjsq5wuRAxP6DFfbrGhMbwwzjaU7mXtTP
+	dHz3RCNLVwj/9aT8k9gwJpslD67i5hzceItwRDgZcSyA5R7BMJLzjON5+zLg4fkn1ve+QyLav6xHG
+	0a2q5RTDpZmNuHBHYgiHZw1+axpMDVw48qap5EIMwH/7k6H5EGom0+rdXF0e3EWMETwX86zPV/YGb
+	QRcP9uww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDJ52-00000002vVo-472s;
-	Fri, 09 May 2025 08:27:40 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uDJ6z-00000002vgx-1Qc0;
+	Fri, 09 May 2025 08:29:41 +0000
+Received: from [58.32.228.46] (helo=mail-sh.amlogic.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDITH-00000002oKp-2FAZ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 07:48:41 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5497mYic1338029
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 9 May 2025 02:48:34 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746776914;
-	bh=4e3+vQC7jXYNsVDluYv45Cizxg84x2l6/EsV/UN5RrA=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=LsNxdgh3gojJqGeRhZ57VCZixcngOvhwEVRwU4kGNf66o8780ILuReluAeb4hJpvj
-	 3So/V3RiXReOHTZbWod4SReP02ZLxnrQQD7FJcD4wHegNapOQwdwgOvNrg2xEAqvR5
-	 bNvGyVou+rMVmz+aFXGt0w92DkRrKBGC/jVLwJcE=
-Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5497mYPV112184
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 9 May 2025 02:48:34 -0500
-Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE100.ent.ti.com
- (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 9
- May 2025 02:48:33 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 9 May 2025 02:48:33 -0500
-Received: from [172.24.19.187] (lt5cd2489kgj.dhcp.ti.com [172.24.19.187])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5497mTof084167;
-	Fri, 9 May 2025 02:48:30 -0500
-Message-ID: <fed0d761-2793-4204-aff5-f65ba7dbc4bd@ti.com>
-Date: Fri, 9 May 2025 13:18:29 +0530
+	id 1uDITQ-00000002oM6-1SG0;
+	Fri, 09 May 2025 07:48:50 +0000
+Received: from rd03-sz.software.amlogic (10.28.11.121) by mail-sh.amlogic.com
+ (10.18.11.5) with Microsoft SMTP Server id 15.1.2507.39; Fri, 9 May 2025
+ 15:48:41 +0800
+From: Jian Hu <jian.hu@amlogic.com>
+To: Jerome Brunet <jbrunet@baylibre.com>, Xianwei Zhao
+	<xianwei.zhao@amlogic.com>, Chuan Liu <chuan.liu@amlogic.com>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, "Stephen
+ Boyd" <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
+	"Dmitry Rokosov" <ddrokosov@sberdevices.ru>, robh+dt <robh+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>
+CC: Jian Hu <jian.hu@amlogic.com>, devicetree <devicetree@vger.kernel.org>,
+	linux-clk <linux-clk@vger.kernel.org>, linux-amlogic
+	<linux-amlogic@lists.infradead.org>, linux-kernel
+	<linux-kernel@vger.kernel.org>, linux-arm-kernel
+	<linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v3 0/6] add support for T7 family clock controller
+Date: Fri, 9 May 2025 07:48:18 +0000
+Message-ID: <20250509074825.1933254-1-jian.hu@amlogic.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] arm64: dts: ti: j722s-evm: Add MUX to control
- CSI2RX
-To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>, <nm@ti.com>,
-        <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <vaishnav.a@ti.com>, <r-donadkar@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <jai.luthra@linux.dev>,
-        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
-References: <20250508155134.2026300-1-y-abhilashchandra@ti.com>
- <20250508155134.2026300-3-y-abhilashchandra@ti.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20250508155134.2026300-3-y-abhilashchandra@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.28.11.121]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_004839_705283_FFA7C6EC 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20250509_004848_408779_FC314A7D 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,49 +67,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+It introduces three clock controllers:
+- SCMI clock controller: these clocks are managed by the SCP and handled through SCMI.
+- PLL clock controller.
+- peripheral clock controller.
 
-On 5/8/2025 9:21 PM, Yemike Abhilash Chandra wrote:
-> J722S EVM has the CSI2RX routed to a MIPI CSI connector and to 22-pin RPi
-> camera connector through an analog mux with GPIO control, model that so
-> that an overlay can control the mux state according to connected cameras.
+Changes v3 since v2 at [2]:
+- update T7 PLL YAML
+- add 't7_' prefix for t7 clock name and variable in t7-pll.c and t7-peripherals.c
+- correct v1 patch link
+- add new macro MESON_PCLK_V2
+- update the driver,header,yaml file license
 
-In case you are another version,
+Changes v2 since v1 at [1]:
+- add CLK_MESON import
+- add const for clkc_regmap_config in PLL driver
+- fix eth_rmii_sel parent
+- update T7 PLL YAML file
 
-consider to change in commit message "model that so that" to "model mux 
-so that".
+[1]: https://lore.kernel.org/all/20241231060047.2298871-1-jian.hu@amlogic.com
+[2]: https://lore.kernel.org/all/20250108094025.2664201-1-jian.hu@amlogic.com
 
-Reviewed-by: Udit Kumar <u-kumar1@ti.com>
+Jian Hu (6):
+  dt-bindings: clock: add Amlogic T7 PLL clock controller
+  dt-bindings: clock: add Amlogic T7 SCMI clock controller
+  dt-bindings: clock: add Amlogic T7 peripherals clock controller
+  clk: meson: t7: add support for the T7 SoC PLL clock
+  clk: meson: add MESON_PCLK_V2 for sys gate clock
+  clk: meson: t7: add t7 clock peripherals controller driver
 
+ .../clock/amlogic,t7-peripherals-clkc.yaml    |  112 +
+ .../bindings/clock/amlogic,t7-pll-clkc.yaml   |  114 +
+ drivers/clk/meson/Kconfig                     |   27 +
+ drivers/clk/meson/Makefile                    |    2 +
+ drivers/clk/meson/clk-regmap.h                |   24 +
+ drivers/clk/meson/t7-peripherals.c            | 2359 +++++++++++++++++
+ drivers/clk/meson/t7-pll.c                    | 1193 +++++++++
+ .../clock/amlogic,t7-peripherals-clkc.h       |  230 ++
+ .../dt-bindings/clock/amlogic,t7-pll-clkc.h   |   56 +
+ include/dt-bindings/clock/amlogic,t7-scmi.h   |   47 +
+ 10 files changed, 4164 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/amlogic,t7-peripherals-clkc.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
+ create mode 100644 drivers/clk/meson/t7-peripherals.c
+ create mode 100644 drivers/clk/meson/t7-pll.c
+ create mode 100644 include/dt-bindings/clock/amlogic,t7-peripherals-clkc.h
+ create mode 100644 include/dt-bindings/clock/amlogic,t7-pll-clkc.h
+ create mode 100644 include/dt-bindings/clock/amlogic,t7-scmi.h
 
->
-> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
-> ---
->   arch/arm64/boot/dts/ti/k3-j722s-evm.dts | 14 ++++++++++++++
->   1 file changed, 14 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-> index 0f18fe710929..43256c71a19c 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-> @@ -266,6 +266,20 @@ transceiver2: can-phy2 {
->   		max-bitrate = <5000000>;
->   		standby-gpios = <&exp1 17 GPIO_ACTIVE_HIGH>;
->   	};
-> +
-> +	csi01_mux: mux-controller-0 {
-> +		compatible = "gpio-mux";
-> +		#mux-state-cells = <1>;
-> +		mux-gpios = <&exp1 6 GPIO_ACTIVE_HIGH>;
-> +		idle-state = <0>;
-> +	};
-> +
-> +	csi23_mux: mux-controller-1 {
-> +		compatible = "gpio-mux";
-> +		#mux-state-cells = <1>;
-> +		mux-gpios = <&exp1 7 GPIO_ACTIVE_HIGH>;
-> +		idle-state = <0>;
-> +	};
->   };
->   
->   &main_pmx0 {
+-- 
+2.47.1
+
 
