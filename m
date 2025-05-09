@@ -4,94 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13A29C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 11:45:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C594C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 11:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s9T8T/ReTxgwbEq7ya1SQEkDgr2GKZ+FCDb4DaJFUwk=; b=MU9mjWncCx0Bfmw6ujgdjmrofh
-	PIq1sGOdytasoPSr4AEgvT/bG+FlBZKb2jyy2H7z4DmcBPtZJbJ8gr30chxadqhcViUYgvVO/MPo2
-	YxEM3GtfTRjPX4jhFqdojwS66snI2YBuJPyhXzj6/gvyq38GZ+Z6/yoLUz9NC3Rk4bDbg8hS6MiKz
-	id1akai6IDos34KmSrYUJXe7J9UpdXdQYBMhXjZ11vwBYMuZAINZ1EDQpJtNPJ6nAFw/+609hM6Gk
-	gcRQXXWm2TUYap64zbkB/Rnc5fTKWafBBoiD/kfg7B0umYuaOMQwYXBY73mR1EjmDJBgJAhX9g394
-	f9aUH2Og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fhwO7wLTH/K/5GSA2EVin0uPDNi3jJUhbxwZYDa0Rfk=; b=swREfKgAkXGClKM4/PkN5R55Vi
+	7iK2JNrYRC4cOrnd+g8KB6M233Ck440FbQj9DcV6PPGqwWZnwwsBjqKa+oqPq4R/s+z1V6+la5CjH
+	yl1BnutKuxHR2dSxb5i8k4Uz5O4uU09fgCk/plI9pz2usmGzTFemSC9RAGiCgv/NFyIBPmClmCJiv
+	rxxbDBALIOUq/1T07MBNKvU6eKyur2ca5E6L+wmxckj11zDDY0bSkU0z845wiPWDPscOulE8ulSbg
+	Lwgdu/wKa9CTEDqw7wrijw0w1KO/8Ga/uTpSg74TQqOMBRddciItXqaSvSOUmCS61AHhOjs02DZiH
+	PZ5g/D7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDM9s-00000003T3I-3qyU;
-	Fri, 09 May 2025 11:44:52 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1uDMBp-00000003Tak-2PvJ;
+	Fri, 09 May 2025 11:46:53 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDLGy-00000003L4F-3aMk
+	id 1uDLKW-00000003LVg-163y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 10:48:09 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3a1fb17a9beso170278f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 03:48:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746787687; x=1747392487; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=s9T8T/ReTxgwbEq7ya1SQEkDgr2GKZ+FCDb4DaJFUwk=;
-        b=Vua53vD6TeVf332kX9HHmeNeRNd9X2FdYuBLq5v12EfuufW4bvoAd0vH5i4VCmY6Qy
-         jTiowQ48GaaCnonkjKzin7myoGV0wcWt8amx1uf0zjk9AJKwsCfe4MJ1PssuuNOkTsbG
-         ugvteCxego/pM3QgXuNJ40uAO+ZuSQrTbPyvkpbtGHWy4Nd80AOLtbMy+HupKrxYmv8i
-         r9VwAukKZGnlNhHHwxw2qaksVUMsa4PRJLih+0pLC30hcLDgGE5sfXl4BdzFqoCXaRhQ
-         TSf/rQDpLU1NQq9UvGwnsBSve9E0yenZFGVlpVnHraT1yua/Nktgwm/NNN/lJdMH7jVY
-         IKLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746787687; x=1747392487;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=s9T8T/ReTxgwbEq7ya1SQEkDgr2GKZ+FCDb4DaJFUwk=;
-        b=fkaJ1GLrNRhyPvaT5EG7LXfOTPtBQBpznPQA0iCTLzzH5wCXV6lFxqGtp3OVqWzccd
-         jPRkCGkhXcZ3HowA1saD/vCfMZyFaAPQGv3JA7H4cLzqoR40yuNXexKhZe0Fz9f5Mjr1
-         Rl5WVt2Ee6t1ISydZh/Ch44V2w6gaTUaqKL8Y35GUXGBj6h1t0dxF9ECm0VnbhnlPvr6
-         PufpvRCEMssQCyMJuYLuo3BXxTrWQbmGDbNDDeYvyLHdnT8zp/w6xM2GuEEeh0KeuGMc
-         CxYaYKcvOc8CHgiBPdrr50qMEB4idi5x4nHC4iNyOLr/KM/MWWALG/4nY5kzT5MKb/+s
-         n/6A==
-X-Forwarded-Encrypted: i=1; AJvYcCXCzTVG5CM6nqO27zGYOhm37QXRBUUuwEHax2GADIi7Q+GWF1f6lJcvYCyRuvaTQAfdx6TU8fVCNDY2ApapnHpu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4qW62Tr2/HtbPD6AwugmdcyULX52HqRiuEuMfO9xxrM+aACiE
-	lT9trvvyr2p0CAAaVqAMVBiY2jPzAxHOGwYHNOheWuVQBN8pLlMY
-X-Gm-Gg: ASbGnct2zi8pI17egDP8MtalEKzDIZcBSRpjItDjs/GHzlgSgqiqUg5/gT0y/0AZEKC
-	UicPflOG6KEUeNl0aIEWzfko4+I4Haj//7SFj0e4wtWzkKclJuhsVuLo2hdiNVBdvQCtP1Ed3pG
-	V10s15x+lojoIXwSOf+tO5Yec6MaK0sUSkYaMaAw4tidcCHZieRjtkdizAMYx8ErAzO5l/cROqJ
-	6f6S7Ym0Jmv9GyKlZD2IrfUSDgtLW3CpAoHU6P5+VE0xIWCN549mK6E7Hns0eN0tp7YqUlQntkY
-	Qfh8UqYuJjAcVUnozFUDYkOSKu1Yls6FSk6BCMDJ5MvPlwyjlHxiqt/DjHAw8lyXnQ==
-X-Google-Smtp-Source: AGHT+IFtAH91VP8QSNCEvYfohxbRfIAX3co/acDz06MBIE/Bypsf/wab4pdtNVbPUS+FToPQSe8O6Q==
-X-Received: by 2002:a05:6000:250e:b0:3a0:8295:9e0f with SMTP id ffacd0b85a97d-3a1f64a42bdmr2186936f8f.54.1746787686982;
-        Fri, 09 May 2025 03:48:06 -0700 (PDT)
-Received: from localhost.localdomain ([213.74.214.99])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f57ddd5esm2843779f8f.6.2025.05.09.03.48.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 May 2025 03:48:06 -0700 (PDT)
-From: Can Ayberk Demir <ayberkdemir@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Michal Simek <michal.simek@amd.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Can Ayberk DEMIR <ayberkdemir@gmail.com>
-Subject: [PATCH net v3] net: axienet: safely drop oversized RX frames
-Date: Fri,  9 May 2025 13:47:55 +0300
-Message-Id: <20250509104755.46464-1-ayberkdemir@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20250509063727.35560-1-ayberkdemir@gmail.com>
-References: <20250509063727.35560-1-ayberkdemir@gmail.com>
+	Fri, 09 May 2025 10:51:49 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1uDLKA-0002Si-2x; Fri, 09 May 2025 12:51:26 +0200
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1uDLK8-001sIP-2c;
+	Fri, 09 May 2025 12:51:24 +0200
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1uDLK8-0006Lv-2I;
+	Fri, 09 May 2025 12:51:24 +0200
+Message-ID: <42a5119e547685f171be6f91e476a9b595599cf9.camel@pengutronix.de>
+Subject: Re: [PATCH 5/8] PCI: rzg3s-host: Add Initial PCIe Host Driver for
+ Renesas RZ/G3S SoC
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Claudiu <claudiu.beznea@tuxon.dev>, bhelgaas@google.com, 
+ lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org, 
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ geert+renesas@glider.be,  magnus.damm@gmail.com, mturquette@baylibre.com,
+ sboyd@kernel.org,  saravanak@google.com
+Cc: linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, Claudiu
+ Beznea <claudiu.beznea.uj@bp.renesas.com>
+Date: Fri, 09 May 2025 12:51:24 +0200
+In-Reply-To: <20250430103236.3511989-6-claudiu.beznea.uj@bp.renesas.com>
+References: <20250430103236.3511989-1-claudiu.beznea.uj@bp.renesas.com>
+	 <20250430103236.3511989-6-claudiu.beznea.uj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_034808_893964_18DF01D2 
-X-CRM114-Status: GOOD (  16.82  )
+X-CRM114-CacheID: sfid-20250509_035148_296383_2E23CC89 
+X-CRM114-Status: GOOD (  19.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,99 +84,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Can Ayberk DEMIR <ayberkdemir@gmail.com>
+Hi Claudiu,
 
-In AXI Ethernet (axienet) driver, receiving an Ethernet frame larger
-than the allocated skb buffer may cause memory corruption or kernel panic,
-especially when the interface MTU is small and a jumbo frame is received.
+On Mi, 2025-04-30 at 13:32 +0300, Claudiu wrote:
+> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+>=20
+> The Renesas RZ/G3S features a PCIe IP that complies with the PCI Express
+> Base Specification 4.0 and supports speeds of up to 5 GT/s. It functions
+> only as a root complex, with a single-lane (x1) configuration. The
+> controller includes Type 1 configuration registers, as well as IP
+> specific registers (called AXI registers) required for various adjustment=
+s.
+>=20
+> Other Renesas RZ SoCs (e.g., RZ/G3E, RZ/V2H) share the same AXI registers
+> but have both Root Complex and Endpoint capabilities. As a result, the PC=
+Ie
+> host driver can be reused for these variants with minimal adjustments.
+>=20
+> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> ---
+>  MAINTAINERS                              |    8 +
+>  drivers/pci/controller/Kconfig           |    7 +
+>  drivers/pci/controller/Makefile          |    1 +
+>  drivers/pci/controller/pcie-rzg3s-host.c | 1561 ++++++++++++++++++++++
+>  4 files changed, 1577 insertions(+)
+>  create mode 100644 drivers/pci/controller/pcie-rzg3s-host.c
+>=20
+[...]
+> diff --git a/drivers/pci/controller/pcie-rzg3s-host.c b/drivers/pci/contr=
+oller/pcie-rzg3s-host.c
+> new file mode 100644
+> index 000000000000..c3bce0acd57e
+> --- /dev/null
+> +++ b/drivers/pci/controller/pcie-rzg3s-host.c
+> @@ -0,0 +1,1561 @@
+[...]
+> +static int rzg3s_pcie_resets_bulk_set(int (*action)(int num, struct rese=
+t_control_bulk_data *rstcs),
+> +				      struct reset_control **resets, u8 num_resets)
+> +{
+> +	struct reset_control_bulk_data *data __free(kfree) =3D
+> +		kcalloc(num_resets, sizeof(*data), GFP_KERNEL);
+> +
+> +	if (!data)
+> +		return -ENOMEM;
+> +
+> +	for (u8 i =3D 0; i < num_resets; i++)
+> +		data[i].rstc =3D resets[i];
+> +
+> +	return action(num_resets, data);
+> +}
 
-Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ethernet driver")
+What is the purpose of this? Can't you just store struct
+reset_control_bulk_data in struct rzg3s_pcie_host and call
+reset_control_bulk_assert/deassert() directly?
 
-This bug was discovered during testing on a Kria K26 platform. When an
-oversized frame is received and `skb_put()` is called without checking
-the tailroom, the following kernel panic occurs:
+> +static int
+> +rzg3s_pcie_resets_init(struct device *dev, struct reset_control ***reset=
+s,
+> +		       struct reset_control *(*action)(struct device *dev, const char =
+*id),
+> +		       const char * const *reset_names, u8 num_resets)
+> +{
+> +	*resets =3D devm_kcalloc(dev, num_resets, sizeof(struct reset_control *=
+), GFP_KERNEL);
+> +	if (!*resets)
+> +		return -ENOMEM;
+> +
+> +	for (u8 i =3D 0; i < num_resets; i++) {
+> +		(*resets)[i] =3D action(dev, reset_names[i]);
+> +		if (IS_ERR((*resets)[i]))
+> +			return PTR_ERR((*resets)[i]);
+> +	}
+> +
+> +	return 0;
+> +}
 
-  skb_panic+0x58/0x5c
-  skb_put+0x90/0xb0
-  axienet_rx_poll+0x130/0x4ec
-  ...
-  Kernel panic - not syncing: Oops - BUG: Fatal exception in interrupt
+Why not use devm_reset_control_bulk_get_exclusive() directly?
 
-Signed-off-by: Can Ayberk DEMIR <ayberkdemir@gmail.com>
----
-Changes in v3:
-- Fixed 'ndev' undeclared error → replaced with 'lp->ndev'
-- Added rx_dropped++ for statistics
-- Added Fixes: tag
 
-Changes in v2:
-- This patch addresses style issues pointed out in v1.
----
- .../net/ethernet/xilinx/xilinx_axienet_main.c | 47 +++++++++++--------
- 1 file changed, 28 insertions(+), 19 deletions(-)
-
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 1b7a653c1f4e..7a12132e2b7c 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -1223,28 +1223,37 @@ static int axienet_rx_poll(struct napi_struct *napi, int budget)
- 			dma_unmap_single(lp->dev, phys, lp->max_frm_size,
- 					 DMA_FROM_DEVICE);
- 
--			skb_put(skb, length);
--			skb->protocol = eth_type_trans(skb, lp->ndev);
--			/*skb_checksum_none_assert(skb);*/
--			skb->ip_summed = CHECKSUM_NONE;
--
--			/* if we're doing Rx csum offload, set it up */
--			if (lp->features & XAE_FEATURE_FULL_RX_CSUM) {
--				csumstatus = (cur_p->app2 &
--					      XAE_FULL_CSUM_STATUS_MASK) >> 3;
--				if (csumstatus == XAE_IP_TCP_CSUM_VALIDATED ||
--				    csumstatus == XAE_IP_UDP_CSUM_VALIDATED) {
--					skb->ip_summed = CHECKSUM_UNNECESSARY;
-+			if (unlikely(length > skb_tailroom(skb))) {
-+				netdev_warn(lp->ndev,
-+					    "Dropping oversized RX frame (len=%u, tailroom=%u)\n",
-+					    length, skb_tailroom(skb));
-+				dev_kfree_skb(skb);
-+				lp->ndev->stats.rx_dropped++;
-+				skb = NULL;
-+			} else {
-+				skb_put(skb, length);
-+				skb->protocol = eth_type_trans(skb, lp->ndev);
-+				/*skb_checksum_none_assert(skb);*/
-+				skb->ip_summed = CHECKSUM_NONE;
-+
-+				/* if we're doing Rx csum offload, set it up */
-+				if (lp->features & XAE_FEATURE_FULL_RX_CSUM) {
-+					csumstatus = (cur_p->app2 &
-+							XAE_FULL_CSUM_STATUS_MASK) >> 3;
-+					if (csumstatus == XAE_IP_TCP_CSUM_VALIDATED ||
-+					    csumstatus == XAE_IP_UDP_CSUM_VALIDATED) {
-+						skb->ip_summed = CHECKSUM_UNNECESSARY;
-+					}
-+				} else if (lp->features & XAE_FEATURE_PARTIAL_RX_CSUM) {
-+					skb->csum = be32_to_cpu(cur_p->app3 & 0xFFFF);
-+					skb->ip_summed = CHECKSUM_COMPLETE;
- 				}
--			} else if (lp->features & XAE_FEATURE_PARTIAL_RX_CSUM) {
--				skb->csum = be32_to_cpu(cur_p->app3 & 0xFFFF);
--				skb->ip_summed = CHECKSUM_COMPLETE;
--			}
- 
--			napi_gro_receive(napi, skb);
-+				napi_gro_receive(napi, skb);
- 
--			size += length;
--			packets++;
-+				size += length;
-+				packets++;
-+			}
- 		}
- 
- 		new_skb = napi_alloc_skb(napi, lp->max_frm_size);
--- 
-2.39.5 (Apple Git-154)
-
+regards
+Philipp
 
