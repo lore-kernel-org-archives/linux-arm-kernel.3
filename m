@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9263CC3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:27:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25649C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:27:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KOJLYiG65TWuBlIxtqgWoUH11LDO0PGmxxByMRSQU9U=; b=AL72ALCTDqtoYOwwC0K437N+O/
-	8BMszjJTm6fIJopSMcEDDgu1elD5lIffY6LHZ5binBKqeWhwO9T2oPUHtw9k82t8MFMbZHuX876TB
-	cemUluvsI6VzRRcqWxv6vK23r2VzBpadP3dBjIrahv3cpZ2ROwdSlWQk9d1pNb6iD78sci/Uc/+Nz
-	lhStIObHObsYqQfdNJTEBAez5XvGTm/C16WRGXsmnyhDREIrzrrH/8egQ8h9cI6np6sddAqubzCup
-	jHyxoerDn0wPAzDNjXZVkAvEJN4zPsxaw2wGYN3BcjAgsuIiaGMeV5zlPjo9LyguQPeDuRfzGtOsK
-	OFMW8XZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BLkYt8K2g1VaB3xoefIpyeks8ye5+GK4kWwHzwMznHY=; b=1sJcDdjO1xsfRucHU4UqJ0UfnK
+	jC+b/Tgj0gHqa7fPV2udH3zrWwopsEj6Vty6vUdP77LkikVuWgnwe7x9glHSjF50T9R2tUY92Czv/
+	5JNl/q+gMdYMSKRhzwcCPYTqj2Lyi4W/SBT2+E4q/iqlWvbdpznoaTLwxAcaYptqVHkZexXyb2m2F
+	zfTy4uxtbfzcFbn1U1OqPCLf/4G9L5b+tyM93mE7e7Im2AuuUy3+wHCe8g4hcg86Q3EtklnI0l15U
+	vPuRxjn+hiZCoNcp0oz2rDufsBCpALXV61jk7YuyiWh8Wl/D1E8NNJCdUOmgN7X+CczSkK7+07H0+
+	T6GUa/pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDUJg-00000004oY7-22UX;
-	Fri, 09 May 2025 20:27:32 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uDUJi-00000004oaf-3dke;
+	Fri, 09 May 2025 20:27:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDRw2-00000004VDL-2RZG
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 17:54:59 +0000
+	id 1uDS9K-00000004WuK-2SfE;
+	Fri, 09 May 2025 18:08:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C3D97A4CC3F
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 May 2025 17:54:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6531BC4CEE4
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 May 2025 17:54:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 04E2D61120;
+	Fri,  9 May 2025 18:08:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BE1DC4CEE4;
+	Fri,  9 May 2025 18:08:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746813297;
-	bh=KOJLYiG65TWuBlIxtqgWoUH11LDO0PGmxxByMRSQU9U=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=kIeI3oew9kGkoFgw29zR9WHx9t00qjurtl2Mk5eDdv66tHBjgg9ctOKP44Ec81FZi
-	 dukEW6W56aKMfGTle89s1IoThDu6ex/UGgvmEnRPtPALYBltoOFFYEwyTc1zjiLnc/
-	 zBG7Uvq3LbzZrwzO/DXWgxVAPxxPq2AgW8JpPY6v/3SOBp62UcTvmV3404JlQoTvG+
-	 goiK96XDKF39oK4R+9acrWlAJ6619v+ZZmUYb/DHyS2ggcgtA92ndAS23ZmgyYBrVH
-	 YmUJgMlGQnJEA7Mw0ce6c1fxkuVtJdalgvO39qn/wxLhiciRG7R8fcqYcdlcDxzB23
-	 AFQRNDXGvU8xA==
-Received: by mail-oa1-f44.google.com with SMTP id 586e51a60fabf-2db0217abe4so1205572fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 10:54:57 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV+o/dDcBPC/U3YepJC+yp5H6TUV2j2ay7ZL3dypLhQsw3ZrVq5peI+8P9NruYH43b0Ce9d4RVd+LMlPk2+nwF5@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTvJZYr7UcXyIJtxpwo1ZOYpSEkvoW3MyKa75FdW/dNUxANMKq
-	bmmCeX2deL9i+tmyPztzPUhKj1G4h7Lo0PKoZ4KbZmC4FT5nJnkW3lohT+M3/8fllskAUYQZ+RV
-	hOEQwQADaD/hXpixEAEuKOAmxWE8=
-X-Google-Smtp-Source: AGHT+IH+jDF/fm0Bn7a7TtISeRixJH2NGz85rKoIe9PgVRkGUorVZ8oAkej18qlnfpmvd8IxnZLcR24rfpdzrPlIZTI=
-X-Received: by 2002:a05:6870:f206:b0:2d4:ce45:698d with SMTP id
- 586e51a60fabf-2dba4216488mr2969585fac.4.1746813296734; Fri, 09 May 2025
- 10:54:56 -0700 (PDT)
+	s=k20201202; t=1746814121;
+	bh=rXNl2rI5xNfuI6HXSc8aN98KAhrpbaveoKmawlIRVyU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ko/IlS0xVBWOVfriGT0Pql7adrijlFjG8e48sTg7SAPaRyv6XakFDDmqZEQYdBbY5
+	 45TDKKg7uh0xbO21j59MzKivdrREtpjXOpEhQ6rkqp0cJ8BA+U4nay9yv1zNe3hHet
+	 YfARupwBzvdjsDJkuSZgnGaFQ1rj4SX+XKdWs2ZP92RU/9+NVMJoYwRndpTw6bjuuT
+	 MFvFnR8xeBJZKe+rDZDspmx6qqKfMLPxm3UD/BdIx2Rs6eJ2wM1NuxcxIS9xTYN/JG
+	 Gbb8TgWjs2w1mUL5LPD9I8oQ4hRKGIbaKI5qDqi66yW3DtDcTt5A6R7mFeOyrOQY4k
+	 gMAQjB/QF9SEg==
+Date: Fri, 9 May 2025 13:08:39 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: devicetree@vger.kernel.org, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Mark Brown <broonie@kernel.org>, Jiaxin Yu <jiaxin.yu@mediatek.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Takashi Iwai <tiwai@suse.com>, Jaroslav Kysela <perex@perex.cz>,
+	Conor Dooley <conor+dt@kernel.org>, linux-sound@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>
+Subject: Re: [PATCH v2 02/13] ASoC: dt-bindings: mt8173-afe-pcm: Add power
+ domain
+Message-ID: <174681411907.3875523.1397658621992836226.robh@kernel.org>
+References: <20250424102509.1083185-1-wenst@chromium.org>
+ <20250424102509.1083185-3-wenst@chromium.org>
 MIME-Version: 1.0
-References: <20250327195928.680771-2-csokas.bence@prolan.hu>
- <20250327195928.680771-3-csokas.bence@prolan.hu> <CAJZ5v0jmuzvo-xzGBDhGVBbY7svbrqEdi-SeJrx5BG=qtN6ZiQ@mail.gmail.com>
- <b38b27d4-c3d3-450c-8634-2e07f393a76c@prolan.hu> <CAJZ5v0hRsXw45utNMEhLB=i56tsJDz8AvYfV2stPbtRHh09HUg@mail.gmail.com>
- <8dadb7ae-1a7d-48d4-8dbd-40f6d9f35a6d@prolan.hu>
-In-Reply-To: <8dadb7ae-1a7d-48d4-8dbd-40f6d9f35a6d@prolan.hu>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Fri, 9 May 2025 19:54:45 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0hmmtiKnJ9=ejZXP3YdQYJ5pojqSAU2_KP6Y372-NQ-0A@mail.gmail.com>
-X-Gm-Features: ATxdqUEiOx41ppybYx5hV00Fa-RDYzYUrpyGFFfZ9PKXJsOblhz9_YvaMeeRbSU
-Message-ID: <CAJZ5v0hmmtiKnJ9=ejZXP3YdQYJ5pojqSAU2_KP6Y372-NQ-0A@mail.gmail.com>
-Subject: Re: [PATCH v6 1/2] pm: runtime: Add new devm functions
-To: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, 
-	Varshini Rajendran <varshini.rajendran@microchip.com>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Mark Brown <broonie@kernel.org>, linux-spi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Len Brown <len.brown@intel.com>, 
-	Pavel Machek <pavel@ucw.cz>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Alexander Dahl <ada@thorsis.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Pavel Machek <pavel@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_105458_755468_1B00C42F 
-X-CRM114-Status: GOOD (  15.42  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250424102509.1083185-3-wenst@chromium.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,29 +76,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On Mon, May 5, 2025 at 9:02=E2=80=AFPM Cs=C3=B3k=C3=A1s Bence <csokas.bence=
-@prolan.hu> wrote:
->
-> Hi Rafael,
->
-> On 2025. 04. 29. 13:08, Rafael J. Wysocki wrote:
-> >> Did this end up being applied?
-> >
-> > Just applied as 6.16 material, I'll let you know when the tag to pull
-> > from is ready.
-> >
-> > Thanks!
-> >
->
-> Thank you! In the meantime, I submitted the DMA cleanup part as well,
-> for now rebased onto pm-next, but there seems to be no diff between it
-> and dma-next in the relevant files (drivers/dma/dmaengine.c and
-> drivers/spi/atmel-quadspi.c).
+On Thu, 24 Apr 2025 18:24:56 +0800, Chen-Yu Tsai wrote:
+> The audio subsystem sits under a controllable power domain.
+> 
+> Add it to the binding.
+> 
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> ---
+>  .../devicetree/bindings/sound/mediatek,mt8173-afe-pcm.yaml  | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
 
-I've just added a tag from which this change can be pulled:
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-https://lore.kernel.org/linux-pm/CAJZ5v0hNb8eB2tAig1BiUMHLQ3JRak3EXFid9qmHz=
-6iWvh5q6g@mail.gmail.com/
 
