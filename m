@@ -4,72 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C594C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 11:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB30C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 11:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fhwO7wLTH/K/5GSA2EVin0uPDNi3jJUhbxwZYDa0Rfk=; b=swREfKgAkXGClKM4/PkN5R55Vi
-	7iK2JNrYRC4cOrnd+g8KB6M233Ck440FbQj9DcV6PPGqwWZnwwsBjqKa+oqPq4R/s+z1V6+la5CjH
-	yl1BnutKuxHR2dSxb5i8k4Uz5O4uU09fgCk/plI9pz2usmGzTFemSC9RAGiCgv/NFyIBPmClmCJiv
-	rxxbDBALIOUq/1T07MBNKvU6eKyur2ca5E6L+wmxckj11zDDY0bSkU0z845wiPWDPscOulE8ulSbg
-	Lwgdu/wKa9CTEDqw7wrijw0w1KO/8Ga/uTpSg74TQqOMBRddciItXqaSvSOUmCS61AHhOjs02DZiH
-	PZ5g/D7g==;
+	bh=Q8MiJZaTLkXXn5poCl8egUQZo+oj0wsGgvhPlEKD64U=; b=gZMcMcK3PxPh0P8PpYYDVBL9b9
+	n2pWvbczLGg1sgMS4dS6b4uI13JqlkV9Qj0a5r/RUilkBewQBfMr5rUpWEaTUPHz+rnuGA5KfujZA
+	UH8TVwwdZ+xN7otYLQLnFEPZjwWWR7emYRuADrfe50WQ817+510gvjP8fymGUNCoNMxMY/uVeSJ2y
+	qN2vsU6LJwEm9jcioi4sgXf4FAKYLd4oQ6sCe65F89DeXAEXmXCy72CoGAKSK5VNxJWAalmwBwikw
+	qKUudYTyqj61233RR+2YfLYtpT15KaJkAEGeug5GOF52EUByQVZMskX6myROkF1i1+Wh0uPRLG71B
+	QTduHWGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDMBp-00000003Tak-2PvJ;
-	Fri, 09 May 2025 11:46:53 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uDMET-00000003TwR-0FSa;
+	Fri, 09 May 2025 11:49:37 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDLKW-00000003LVg-163y
+	id 1uDLX0-00000003NEX-3S4k
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 10:51:49 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uDLKA-0002Si-2x; Fri, 09 May 2025 12:51:26 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uDLK8-001sIP-2c;
-	Fri, 09 May 2025 12:51:24 +0200
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uDLK8-0006Lv-2I;
-	Fri, 09 May 2025 12:51:24 +0200
-Message-ID: <42a5119e547685f171be6f91e476a9b595599cf9.camel@pengutronix.de>
-Subject: Re: [PATCH 5/8] PCI: rzg3s-host: Add Initial PCIe Host Driver for
- Renesas RZ/G3S SoC
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Claudiu <claudiu.beznea@tuxon.dev>, bhelgaas@google.com, 
- lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org, 
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- geert+renesas@glider.be,  magnus.damm@gmail.com, mturquette@baylibre.com,
- sboyd@kernel.org,  saravanak@google.com
-Cc: linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, Claudiu
- Beznea <claudiu.beznea.uj@bp.renesas.com>
-Date: Fri, 09 May 2025 12:51:24 +0200
-In-Reply-To: <20250430103236.3511989-6-claudiu.beznea.uj@bp.renesas.com>
-References: <20250430103236.3511989-1-claudiu.beznea.uj@bp.renesas.com>
-	 <20250430103236.3511989-6-claudiu.beznea.uj@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Fri, 09 May 2025 11:04:43 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-441d437cfaaso13151995e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 04:04:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1746788681; x=1747393481; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Q8MiJZaTLkXXn5poCl8egUQZo+oj0wsGgvhPlEKD64U=;
+        b=At4363az0or15gEU2qTAzBUCeJTPdFKazHMoSixOcGIH9f+8OQ3ey6hWXHvtMXhGFe
+         yaDdL65AyuNZmXVcXJsOGQO5FTKFzYa1955qohig/WxtG1RhO/ju0+PSLxyz3c7onXoo
+         mAICErPIBbVzgU9oLzi/Mx1u6TMCs37/HzI9sVc0o73JwWB8W2FdrOk5IWfhvIrULZ5w
+         b1L7FTXAFZOFGwJB3R7kivNl7cczFOcNKlpTfYAAcfpOOVQldc3zumnlQzwlFHjtQqHk
+         3LHrcmGQB736UbkkOXgI28400gdnvyUIkVyOOnUzglIsfa5zt3SrzP5d0PqXqkyvS5Aa
+         DVaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746788681; x=1747393481;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Q8MiJZaTLkXXn5poCl8egUQZo+oj0wsGgvhPlEKD64U=;
+        b=SvdVL//p8h2ETTipcqPAeUB8g088Xa4djRbEbasYBWAEgc4Dg8IrpzFXbBDxzZne0G
+         myN0VMCAnOhg6T4X67wnUccK9wbhAJzEovKgoyBLuEx0kAXHQ/xk+rYrCxxaWfeSZxjN
+         T89nBQ+NljSHwWvt/NFO2VOhpV/QVfhRj0HOAM4um5wCzbhteEjsErgNwerR4uF/K352
+         XtQoxmr5OzwRZh/rtLXEplh9E3JEc8ekndV2EZ9Xb4/dBDihcVHTAF2WfDvk7Nh9QFbe
+         Cej2zzSRlfG/HE3Z+6ykbN1Jvu5wgXmV95fyeN/87kydIFY1GD3HpvOtwcpqYrTiZFNE
+         28sQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUZoD/7LITPwUJHpuD5BM77up3P8ucGbx0H/EdhOKy4GxSHVbiRfsIi1hvkG87t0OCWrezJ0sUXjSU3Lq36fdjy@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmmgfiO2eMC/I4EfagYXL9B9mspucy322I5NDpOqd9wp8y09mW
+	+B4FsEb8zLgwQGGda0q6Wq7uv/J4ma4HG8sdM34X04v/KfF9JV0DzEu9gNgWvUg=
+X-Gm-Gg: ASbGnctHWaLRyR7o7gVefvsnxtyeX/kwPiao17YRB1aSylfbKeNm1IWdFdZEyglsyjB
+	ine7Y/O4pZGLt/ckbp8lrkpK/RKWyBNVldqVoae871Y6ZnLbP61I7rgIqROLQ5p3m+c3uO+96ke
+	sjgpnz2IN0jRE5/KOAuze6A10TPm3WrL1x0VQUOX1wQjj9GUaP3I5WuZy/VR1puNVQG13cOjcsH
+	kK3sosVlOCbdO1wJNMWBAbcbUpdR7Y6ByxDxLvy9xp1Bn6hhElnrvJOkPyYVUBWYIK+KM4EscVb
+	6Rt1r50HgqeW4JzMzCNbd8npEmAmeHgCvRWE4aMbKbC1kQ==
+X-Google-Smtp-Source: AGHT+IH8/NzuhQIHAiiCvtk5klNpsdsTuvJWt/oDUURnYu6Ufz/YNp+rlGVB1mscySmEvgSO0iuJ/Q==
+X-Received: by 2002:a05:600c:3ac9:b0:441:bf4e:89c8 with SMTP id 5b1f17b1804b1-442d6d18cc5mr21966385e9.3.1746788681116;
+        Fri, 09 May 2025 04:04:41 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-442d687bdcbsm26022585e9.40.2025.05.09.04.04.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 May 2025 04:04:40 -0700 (PDT)
+Date: Fri, 9 May 2025 14:04:37 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Patrice Chotard <patrice.chotard@foss.st.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Christophe Kerello <christophe.kerello@foss.st.com>,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 2/2] memory: stm32_omm: Fix NULL vs IS_ERR() check in probe()
+Message-ID: <a1645f1eedaa9b2ae62ac07feed0552eea75bc46.1746781081.git.dan.carpenter@linaro.org>
+References: <cover.1746781081.git.dan.carpenter@linaro.org>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1746781081.git.dan.carpenter@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_035148_296383_2E23CC89 
-X-CRM114-Status: GOOD (  19.51  )
+X-CRM114-CacheID: sfid-20250509_040442_857755_0E00AB37 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,85 +101,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Claudiu,
+The platform_get_resource_byname() function returns NULL on error.  It
+doesn't return error pointers.  Update the check to match.
 
-On Mi, 2025-04-30 at 13:32 +0300, Claudiu wrote:
-> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
->=20
-> The Renesas RZ/G3S features a PCIe IP that complies with the PCI Express
-> Base Specification 4.0 and supports speeds of up to 5 GT/s. It functions
-> only as a root complex, with a single-lane (x1) configuration. The
-> controller includes Type 1 configuration registers, as well as IP
-> specific registers (called AXI registers) required for various adjustment=
-s.
->=20
-> Other Renesas RZ SoCs (e.g., RZ/G3E, RZ/V2H) share the same AXI registers
-> but have both Root Complex and Endpoint capabilities. As a result, the PC=
-Ie
-> host driver can be reused for these variants with minimal adjustments.
->=20
-> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> ---
->  MAINTAINERS                              |    8 +
->  drivers/pci/controller/Kconfig           |    7 +
->  drivers/pci/controller/Makefile          |    1 +
->  drivers/pci/controller/pcie-rzg3s-host.c | 1561 ++++++++++++++++++++++
->  4 files changed, 1577 insertions(+)
->  create mode 100644 drivers/pci/controller/pcie-rzg3s-host.c
->=20
-[...]
-> diff --git a/drivers/pci/controller/pcie-rzg3s-host.c b/drivers/pci/contr=
-oller/pcie-rzg3s-host.c
-> new file mode 100644
-> index 000000000000..c3bce0acd57e
-> --- /dev/null
-> +++ b/drivers/pci/controller/pcie-rzg3s-host.c
-> @@ -0,0 +1,1561 @@
-[...]
-> +static int rzg3s_pcie_resets_bulk_set(int (*action)(int num, struct rese=
-t_control_bulk_data *rstcs),
-> +				      struct reset_control **resets, u8 num_resets)
-> +{
-> +	struct reset_control_bulk_data *data __free(kfree) =3D
-> +		kcalloc(num_resets, sizeof(*data), GFP_KERNEL);
-> +
-> +	if (!data)
-> +		return -ENOMEM;
-> +
-> +	for (u8 i =3D 0; i < num_resets; i++)
-> +		data[i].rstc =3D resets[i];
-> +
-> +	return action(num_resets, data);
-> +}
+Fixes: 8181d061dcff ("memory: Add STM32 Octo Memory Manager driver")
+Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+---
+ drivers/memory/stm32_omm.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-What is the purpose of this? Can't you just store struct
-reset_control_bulk_data in struct rzg3s_pcie_host and call
-reset_control_bulk_assert/deassert() directly?
+diff --git a/drivers/memory/stm32_omm.c b/drivers/memory/stm32_omm.c
+index fa0f75e4a6e8..c8de785401f2 100644
+--- a/drivers/memory/stm32_omm.c
++++ b/drivers/memory/stm32_omm.c
+@@ -320,8 +320,8 @@ static int stm32_omm_probe(struct platform_device *pdev)
+ 		return PTR_ERR(omm->io_base);
+ 
+ 	omm->mm_res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "memory_map");
+-	if (IS_ERR(omm->mm_res))
+-		return PTR_ERR(omm->mm_res);
++	if (!omm->mm_res)
++		return -ENODEV;
+ 
+ 	/* check child's access */
+ 	for_each_child_of_node_scoped(dev->of_node, child) {
+-- 
+2.47.2
 
-> +static int
-> +rzg3s_pcie_resets_init(struct device *dev, struct reset_control ***reset=
-s,
-> +		       struct reset_control *(*action)(struct device *dev, const char =
-*id),
-> +		       const char * const *reset_names, u8 num_resets)
-> +{
-> +	*resets =3D devm_kcalloc(dev, num_resets, sizeof(struct reset_control *=
-), GFP_KERNEL);
-> +	if (!*resets)
-> +		return -ENOMEM;
-> +
-> +	for (u8 i =3D 0; i < num_resets; i++) {
-> +		(*resets)[i] =3D action(dev, reset_names[i]);
-> +		if (IS_ERR((*resets)[i]))
-> +			return PTR_ERR((*resets)[i]);
-> +	}
-> +
-> +	return 0;
-> +}
-
-Why not use devm_reset_control_bulk_get_exclusive() directly?
-
-
-regards
-Philipp
 
