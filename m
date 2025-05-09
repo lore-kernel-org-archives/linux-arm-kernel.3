@@ -4,68 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2106C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 22:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A80FC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 22:31:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z70q0FXzZtoWgRFvpJwCO1rHRDI4m+9/853qMQfksoU=; b=BrsTnQToWrcyPp4G0c9J8dA5X+
-	z2aqt7Li9WP3cnOQ+jfwhW0Rcx/Cc2xAWZrY7MgaDeZB5LJShQp5Y+peIvpBK+cFYLXEa+V+uI8bO
-	JnIYNbabVMz0h9jr7xR5wbpambF/mHLux2FrK2ppsOeIeOAW7swPvX7aVSuM9/8lHWo/EKK/jdYxx
-	rH4RmSMscKriLMA+1WXPSVwjqvJ/b/gv7+e4haqBpTpDNqiLuWBUh3ri4Xi/G8lPRCmxDNxzxE6Ph
-	4k5u4BNJ4tEgfZRT3Dv7VCOOPzZW3oGYf2th38osMRtdr2gTrPmUvlch7wPX+q0EFPLprWJvlRd/+
-	mG4cMUyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YuvwOYm4GSUNUy2wD5gyT6WoJqASKId1GoOL6RjMuAE=; b=bKgugJ/O1tM2TkduSHbiuNPbQJ
+	3oyfr71si/1wfTyjvvpGutzYVIHR2XiJ4lRNqDotzGsnslUY47KzpHdEiUtAZgEtuCky6ksURahu3
+	VAUcA601U/fiwPg8XNq8HwSQawPlG21DbBu1YhZUDHkewNfufiDYUmsPiqmxab/+5FDH8qJ2vEazV
+	qPeq6hXFnohvVrUuKkAaMuxnpb0Jt5Pztbo+WsvkCpVfE4S/7FDWjJNEKZ7ZGP6Nrb1woFoefZUvK
+	GpQi77rpoHcKGGdCt05SDwB9X9o6oKTwkkM3TZV1k+TVXg7Ya8sSbJOql2a7XLQDgrPk89k3un1Ir
+	cml8EUYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDWAD-000000053uR-2x0G;
-	Fri, 09 May 2025 22:25:53 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uDWFB-000000054Ya-1GUf;
+	Fri, 09 May 2025 22:31:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDW89-000000053pK-134R;
-	Fri, 09 May 2025 22:23:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 85443A4D4CD;
-	Fri,  9 May 2025 22:23:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8024C4CEE4;
-	Fri,  9 May 2025 22:23:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746829424;
-	bh=gkF1iBmfa995sCmBCk6c8+T9mHJSG8t8B52ptEzcenk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RfbLc/W7nKx3W2LvZGCaQB6YYlS1E4CYO26pTc4H/SxQyJMmEgAzLBVu8/uJu4Eof
-	 XjlFXdPu6LIuGrDhPTdjAVHseeYh0CTNg7/FA548wEmz6jnIelPfd2LE3GKe24OjPe
-	 iyqFxz6/kj71MouugcJn5tcXScw6ftYrYZz9lDHyZcoXrxFpZq+cY65ceXU3z6P3zV
-	 cycXS/HhbC5GditcgtcYBhy/ziiADbP6B7KlhN9YToWK68+uaiyDn/C/YWjzoXXBNK
-	 srIq2MhmR/jWed+160wyl6NwJFyG9KFh5FTG8wDe4LibRh+SMV5P+kYq1LKo2cnDZi
-	 eFshsbC8wUZCw==
-Date: Fri, 9 May 2025 17:23:42 -0500
-From: Rob Herring <robh@kernel.org>
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, kernel-list@raspberrypi.com
-Subject: Re: [PATCH] dt-bindings: interrupt-controller: Convert
- brcm,bcm2835-armctrl-ic to DT schema
-Message-ID: <20250509222342.GA85203-robh@kernel.org>
-References: <20250505144618.1287539-1-robh@kernel.org>
- <ee082ba2-d452-43a1-bb94-3c04c407ea31@gmx.net>
+	id 1uDWD8-000000054KO-1K1v
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 09 May 2025 22:28:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=YuvwOYm4GSUNUy2wD5gyT6WoJqASKId1GoOL6RjMuAE=; b=jCAbylVOXRIktiovSyTvZZZc6r
+	aLy/hXTjkCgBSDP5EweC0AltysbhZ16Zd4p97GQAWnlnvdNIlhlvze2S0VJfMUjJZdnKIleBOqhH7
+	xzDRzt1hnXqkkPGCnofcrFDH8K4WdSKeF1qpVZnVGmkWeMz9oCXMEkVpoDJvZoXOmAcVZTZHuldMz
+	IYtHIybt9olqKLjaFQFbV1b2Q/yMaonxXAxyEA2Wo9Ik6JWcM8qi8cogOh5q4nlDApO8ROb/7EabK
+	QJj9Nl6jwKgVJaPR/k2JLbwTEzC60DqAwxTKqcpYGz2cV3AKGxWUU0ID39l4UHJTxOOtWXehlvfIp
+	goVYd/6w==;
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uDWCv-0000000GN4k-3KFc
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 May 2025 22:28:51 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-22e8e4423ecso25092455ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 15:28:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1746829705; x=1747434505; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=YuvwOYm4GSUNUy2wD5gyT6WoJqASKId1GoOL6RjMuAE=;
+        b=AQNj3/fxSXEkmbfYi8At285hOgqXjO0N1VS9UmUt9FQE37fS5uCbLyiMQ6sSdv2JkM
+         BTlTgNQ/QHyPMBTvJSmpsUG7luVwRLQ5cLIOuBMxj1HASV9CH8x5U8ry6OQT6rJnLJBX
+         PACDECcf3pekvFiy8j6JW8ZXnCsNBc/XVIOXw=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746829705; x=1747434505;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YuvwOYm4GSUNUy2wD5gyT6WoJqASKId1GoOL6RjMuAE=;
+        b=rfErDWq8rEw5wPv7ulvaVc8BcUlU1h/yS6iomZft0IlxsnO6k4sbQV05KSAR6tzkmy
+         gKIm+b+yjNyUUV8VQL/qFkI0YStLlbMV8L9OCWV+HaPiroEwEESZ0NAOznlWbkiNqwbY
+         OgVj3BvOxl7Ir7ZlWWqqszPhyH0lmoBFgrwF8ZZQ0o/lWnJhHzKz4E6MVVWYpfRAORNM
+         DH9sIq/6Ut+l7VlLcYQiHlVQkRgvC+dZ3xr9lbaZpYqcMMBOY9wXcNOENwVsHkTi5gUQ
+         cdicLHJWqInIOaK7sQvexp2eH4llZYxqpvvGhQtMD+50uA0A8ErN767p9FVE5LKLscHd
+         S3Ag==
+X-Forwarded-Encrypted: i=1; AJvYcCWP8kWW5FfDNRI/VRMiNBGhtr2opkWzKbbriXTRmeuMvi+OluD7AR2XIV+1mLkDMul4tx2kSz+6cjHnAT/kLdOL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+A3TYGw7UJbebStmpgVez7Os7e9LH0ZJAe5QpL9C8gC06DnR1
+	4CYAlb+/boC/reIOuee9gwQGqvqHY4ArmnCeXARP8DSCdwme1xfACGg2lQlksw==
+X-Gm-Gg: ASbGnctEq4hXYRInluux3ivxBnfBtZh8jtbov+Z1i28UODWl004ePRKXJ4gnD3KtNyL
+	V3wS3uqE130cbTyCNxkIq8hChpckTFhYQT1YytPMzvqsqtUXoStzhE4B9rYfFqCRErMUwH64tUE
+	uX2IfNKn2dqFOjjvYVuiUq6cw11Q5OEzqp0052bhwxKlQqlUlODhUJQxX5bqty0Yf1ejo1XK+Kv
+	PbPfjoe/wNP5dXdOSvGK3oO4MGOLEU9AsZ7YphTtas0e8F7cmufPOR/0zWAHK0/Ej+iKZMnmT5t
+	MFY0vdf0LhcIo6Fc5+2GwJVdcXYxS6kt6ijFb7mShc5mmDml1EDiTgnmYijUOalAIeZRai+Nui2
+	ZOmMqM+4M7GCs/tVJJ1Pc9/KJH6hiSz0=
+X-Google-Smtp-Source: AGHT+IHnRTtiNbjExYWwvoR2t+W7MP9bwGubNxYQG/OewKoIdPhHsxX+NcKse+IqZBIXhDqj/IpvGw==
+X-Received: by 2002:a17:903:2b04:b0:223:47b4:aaf8 with SMTP id d9443c01a7336-22fc91caf3dmr64938435ad.52.1746829705327;
+        Fri, 09 May 2025 15:28:25 -0700 (PDT)
+Received: from stbsrv-and-02.and.broadcom.net ([192.19.144.250])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc7544fadsm22584465ad.24.2025.05.09.15.28.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 May 2025 15:28:24 -0700 (PDT)
+From: Jim Quinlan <james.quinlan@broadcom.com>
+To: linux-pci@vger.kernel.org,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	jim2101024@gmail.com,
+	james.quinlan@broadcom.com
+Cc: Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list),
+	linux-rpi-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE)
+Subject: [PATCH 0/2] PCI: brcmstb: Use "num-lanes" DT property if present
+Date: Fri,  9 May 2025 18:28:11 -0400
+Message-ID: <20250509222815.7082-1-james.quinlan@broadcom.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <ee082ba2-d452-43a1-bb94-3c04c407ea31@gmx.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_152345_422307_6B75E8C6 
-X-CRM114-Status: GOOD (  31.73  )
+X-CRM114-CacheID: sfid-20250509_232842_111851_07A2CEE1 
+X-CRM114-Status: UNSURE (   7.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,290 +117,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 05, 2025 at 06:03:29PM +0200, Stefan Wahren wrote:
-> Hi Rob,
-> 
-> Am 05.05.25 um 16:46 schrieb Rob Herring (Arm):
-> > Convert the Broadcom BCM2835 ARMCTRL interrupt controller binding to
-> > schema format. It's a straight-forward conversion of the typical
-> > interrupt controller.
-> i send a similiar patch on May 2nd:
-> https://lore.kernel.org/linux-devicetree/20250502105213.39864-1-wahrenst@gmx.net/
-> 
-> I would prefer your version, but ...
-> > 
-> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> > ---
-> >   .../brcm,bcm2835-armctrl-ic.txt               | 131 --------------
-> >   .../brcm,bcm2835-armctrl-ic.yaml              | 161 ++++++++++++++++++
-> >   2 files changed, 161 insertions(+), 131 deletions(-)
-> >   delete mode 100644 Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2835-armctrl-ic.txt
-> >   create mode 100644 Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2835-armctrl-ic.yaml
-> > 
-> > diff --git a/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2835-armctrl-ic.txt b/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2835-armctrl-ic.txt
-> > deleted file mode 100644
-> > index bdd173056f72..000000000000
-> > --- a/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2835-armctrl-ic.txt
-> > +++ /dev/null
-> > @@ -1,131 +0,0 @@
-> > -BCM2835 Top-Level ("ARMCTRL") Interrupt Controller
-> > -
-> > -The BCM2835 contains a custom top-level interrupt controller, which supports
-> > -72 interrupt sources using a 2-level register scheme. The interrupt
-> > -controller, or the HW block containing it, is referred to occasionally
-> > -as "armctrl" in the SoC documentation, hence naming of this binding.
-> > -
-> > -The BCM2836 contains the same interrupt controller with the same
-> > -interrupts, but the per-CPU interrupt controller is the root, and an
-> > -interrupt there indicates that the ARMCTRL has an interrupt to handle.
-> > -
-> > -Required properties:
-> > -
-> > -- compatible : should be "brcm,bcm2835-armctrl-ic" or
-> > -                 "brcm,bcm2836-armctrl-ic"
-> > -- reg : Specifies base physical address and size of the registers.
-> > -- interrupt-controller : Identifies the node as an interrupt controller
-> > -- #interrupt-cells : Specifies the number of cells needed to encode an
-> > -  interrupt source. The value shall be 2.
-> > -
-> > -  The 1st cell is the interrupt bank; 0 for interrupts in the "IRQ basic
-> > -  pending" register, or 1/2 respectively for interrupts in the "IRQ pending
-> > -  1/2" register.
-> > -
-> > -  The 2nd cell contains the interrupt number within the bank. Valid values
-> > -  are 0..7 for bank 0, and 0..31 for bank 1.
-> > -
-> > -Additional required properties for brcm,bcm2836-armctrl-ic:
-> > -- interrupts : Specifies the interrupt on the parent for this interrupt
-> > -  controller to handle.
-> > -
-> > -The interrupt sources are as follows:
-> > -
-> > -Bank 0:
-> > -0: ARM_TIMER
-> > -1: ARM_MAILBOX
-> > -2: ARM_DOORBELL_0
-> > -3: ARM_DOORBELL_1
-> > -4: VPU0_HALTED
-> > -5: VPU1_HALTED
-> > -6: ILLEGAL_TYPE0
-> > -7: ILLEGAL_TYPE1
-> > -
-> > -Bank 1:
-> > -0: TIMER0
-> > -1: TIMER1
-> > -2: TIMER2
-> > -3: TIMER3
-> > -4: CODEC0
-> > -5: CODEC1
-> > -6: CODEC2
-> > -7: VC_JPEG
-> > -8: ISP
-> > -9: VC_USB
-> > -10: VC_3D
-> > -11: TRANSPOSER
-> > -12: MULTICORESYNC0
-> > -13: MULTICORESYNC1
-> > -14: MULTICORESYNC2
-> > -15: MULTICORESYNC3
-> > -16: DMA0
-> > -17: DMA1
-> > -18: VC_DMA2
-> > -19: VC_DMA3
-> > -20: DMA4
-> > -21: DMA5
-> > -22: DMA6
-> > -23: DMA7
-> > -24: DMA8
-> > -25: DMA9
-> > -26: DMA10
-> > -27: DMA11-14 - shared interrupt for DMA 11 to 14
-> > -28: DMAALL - triggers on all dma interrupts (including channel 15)
-> > -29: AUX
-> > -30: ARM
-> > -31: VPUDMA
-> > -
-> > -Bank 2:
-> > -0: HOSTPORT
-> > -1: VIDEOSCALER
-> > -2: CCP2TX
-> > -3: SDC
-> > -4: DSI0
-> > -5: AVE
-> > -6: CAM0
-> > -7: CAM1
-> > -8: HDMI0
-> > -9: HDMI1
-> > -10: PIXELVALVE1
-> > -11: I2CSPISLV
-> > -12: DSI1
-> > -13: PWA0
-> > -14: PWA1
-> > -15: CPR
-> > -16: SMI
-> > -17: GPIO0
-> > -18: GPIO1
-> > -19: GPIO2
-> > -20: GPIO3
-> > -21: VC_I2C
-> > -22: VC_SPI
-> > -23: VC_I2SPCM
-> > -24: VC_SDIO
-> > -25: VC_UART
-> > -26: SLIMBUS
-> > -27: VEC
-> > -28: CPG
-> > -29: RNG
-> > -30: VC_ARASANSDIO
-> > -31: AVSPMON
-> > -
-> > -Example:
-> > -
-> > -/* BCM2835, first level */
-> > -intc: interrupt-controller {
-> > -	compatible = "brcm,bcm2835-armctrl-ic";
-> > -	reg = <0x7e00b200 0x200>;
-> > -	interrupt-controller;
-> > -	#interrupt-cells = <2>;
-> > -};
-> > -
-> > -/* BCM2836, second level */
-> > -intc: interrupt-controller {
-> > -	compatible = "brcm,bcm2836-armctrl-ic";
-> > -	reg = <0x7e00b200 0x200>;
-> > -	interrupt-controller;
-> > -	#interrupt-cells = <2>;
-> > -
-> > -	interrupt-parent = <&local_intc>;
-> > -	interrupts = <8>;
-> > -};
-> > diff --git a/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2835-armctrl-ic.yaml b/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2835-armctrl-ic.yaml
-> > new file mode 100644
-> > index 000000000000..4edc4c3ff6bd
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2835-armctrl-ic.yaml
-> > @@ -0,0 +1,161 @@
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/interrupt-controller/brcm,bcm2835-armctrl-ic.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: BCM2835 ARMCTRL Interrupt Controller
-> > +
-> > +maintainers:
-> > +  - Florian Fainelli <florian.fainelli@broadcom.com>
-> I would suggest to add
-> 
-> - Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+If present, grok the "num-lanes" DT property for Broadcom STB chips and
+configure accordingly.
 
-Ok, added.
+Jim Quinlan (2):
+  dt-bindings: PCI: brcm,stb-pcie: Add num-lanes property
+  PCI: brcmstb: Use "num-lanes" DT property if present
 
-> > +
-> > +description: >
-> > +  The BCM2835 contains a custom top-level interrupt controller, which supports
-> > +  72 interrupt sources using a 2-level register scheme. The interrupt
-> > +  controller, or the HW block containing it, is referred to occasionally as
-> > +  "armctrl" in the SoC documentation, hence naming of this binding.
-> > +
-> > +  The BCM2836 contains the same interrupt controller with the same interrupts,
-> > +  but the per-CPU interrupt controller is the root, and an interrupt there
-> > +  indicates that the ARMCTRL has an interrupt to handle.
-> > +
-> > +  The interrupt sources are as follows:
-> > +
-> > +  Bank 0:
-> > +    0: ARM_TIMER
-> > +    1: ARM_MAILBOX
-> > +    2: ARM_DOORBELL_0
-> > +    3: ARM_DOORBELL_1
-> > +    4: VPU0_HALTED
-> > +    5: VPU1_HALTED
-> > +    6: ILLEGAL_TYPE0
-> > +    7: ILLEGAL_TYPE1
-> > +
-> > +  Bank 1:
-> > +    0: TIMER0
-> > +    1: TIMER1
-> > +    2: TIMER2
-> > +    3: TIMER3
-> > +    4: CODEC0
-> > +    5: CODEC1
-> > +    6: CODEC2
-> > +    7: VC_JPEG
-> > +    8: ISP
-> > +    9: VC_USB
-> > +    10: VC_3D
-> > +    11: TRANSPOSER
-> > +    12: MULTICORESYNC0
-> > +    13: MULTICORESYNC1
-> > +    14: MULTICORESYNC2
-> > +    15: MULTICORESYNC3
-> > +    16: DMA0
-> > +    17: DMA1
-> > +    18: VC_DMA2
-> > +    19: VC_DMA3
-> > +    20: DMA4
-> > +    21: DMA5
-> > +    22: DMA6
-> > +    23: DMA7
-> > +    24: DMA8
-> > +    25: DMA9
-> > +    26: DMA10
-> > +    27: DMA11-14 - shared interrupt for DMA 11 to 14
-> > +    28: DMAALL - triggers on all dma interrupts (including channel 15)
-> > +    29: AUX
-> > +    30: ARM
-> > +    31: VPUDMA
-> > +
-> > +  Bank 2:
-> > +    0: HOSTPORT
-> > +    1: VIDEOSCALER
-> > +    2: CCP2TX
-> > +    3: SDC
-> > +    4: DSI0
-> > +    5: AVE
-> > +    6: CAM0
-> > +    7: CAM1
-> > +    8: HDMI0
-> > +    9: HDMI1
-> > +    10: PIXELVALVE1
-> > +    11: I2CSPISLV
-> > +    12: DSI1
-> > +    13: PWA0
-> > +    14: PWA1
-> > +    15: CPR
-> > +    16: SMI
-> > +    17: GPIO0
-> > +    18: GPIO1
-> > +    19: GPIO2
-> > +    20: GPIO3
-> > +    21: VC_I2C
-> > +    22: VC_SPI
-> > +    23: VC_I2SPCM
-> > +    24: VC_SDIO
-> > +    25: VC_UART
-> > +    26: SLIMBUS
-> > +    27: VEC
-> > +    28: CPG
-> > +    29: RNG
-> > +    30: VC_ARASANSDIO
-> > +    31: AVSPMON
-> > +
-> Don't we need something like
-> 
-> allOf:
->   - $ref: /schemas/interrupt-controller.yaml#
-> 
-> ?
+ .../bindings/pci/brcm,stb-pcie.yaml           |  2 ++
+ drivers/pci/controller/pcie-brcmstb.c         | 26 ++++++++++++++++++-
+ 2 files changed, 27 insertions(+), 1 deletion(-)
 
-No. It's not needed because you have to define the constraints here 
-anyways. Really, only schemas with child nodes or that have properties 
-without further constraints need the reference. It doesn't hurt to have 
-it either. It just gets applied twice.
 
-This could change though. Early on when there were not many device 
-schemas, it was useful to apply interrupt-controller.yaml on all nodes 
-named 'interrupt-controller', but that need has diminished.
+base-commit: 01f95500a162fca88cefab9ed64ceded5afabc12
+-- 
+2.43.0
 
-Rob
 
