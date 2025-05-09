@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E8C1C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 15:14:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7E97C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 15:16:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=svjZw6QEgqJL5UyPQQKd3Uo5Wwf7B2/55xtTy2fUqr8=; b=XaXDv7HhzyiEL/as5vABT0C737
-	9Wh+VZzF/EvgQhEcCttJ332cfnICHXldHqazHnaWWVFPzn8oHEIaRtCA2GEV0MwVi/SCibegTjQ9v
-	3YZ7hLFm/6RpGNj1BCBdUZQzk539Q5cXfVoNNt11aGb7+Xgfny2s3VDxOSuBeb2vrzw7rbKinvTc0
-	jlMrdNKDmchZ6k+siAIjJl7Y3zJTu7mJszQCw2HjdMnlYw52P0Zc8VEoW2IqZzvCfMjPSVnkZYEFA
-	e8WNi3XwyKeUDsez8jt11jTq/INsLnJUJoL2YHTdSZp/pikFNVLdbtlaj2TgVtPHLnBt+cZ2yjoCv
-	1Lgk2Lmg==;
+	bh=NWzT10CPqvVkY8Nmr6qcQWizgxqKhOpmEyQItrPpC04=; b=Eo1B5QzgpBKmvuscoGYJs/GWeC
+	uJMeEtKaKnoLiXgZDf7fDQFtEOnE0ddzsEBnaTcb/lVZLtsWR7c6nMDDpj9W1Gjn/+kgBRAVZCU4w
+	h1a7pw5Wch0+niyvpfH4FYhrYy2ldeo4HNHCSggozOC4RMseClEhcYNuyajhKJNZtAvTqJWbtnF1a
+	4Pr5NFiNeT5GiHtsDUkSIG24T2EvG8VU4vkAOZ9BnY51PrNjUpSEjxI+rjAxvRnRgTO/GaGtqp0ZZ
+	//3bN8MlEP/D5Z/v7Rrb3u2D1uxIgAgeTjm8w1X2JryYynb+H4PeEeVRqkQA8hcllnVWVwftnOMQv
+	k5QcjUhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDPQF-0000000434M-41RY;
-	Fri, 09 May 2025 15:13:59 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uDPSC-000000043KG-0qm5;
+	Fri, 09 May 2025 15:16:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDO6G-00000003pjJ-20Hw
+	id 1uDO88-00000003q5s-1E6n
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 13:49:17 +0000
+	Fri, 09 May 2025 13:51:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3A95AA4BECD;
-	Fri,  9 May 2025 13:49:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDF75C4CEE4;
-	Fri,  9 May 2025 13:49:08 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1AFF25C4816;
+	Fri,  9 May 2025 13:48:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45D08C4CEE4;
+	Fri,  9 May 2025 13:51:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746798553;
-	bh=ddxFekODOqJy1oQlp1NZDYc/Pj9lvlATNoTbz761B5o=;
+	s=k20201202; t=1746798671;
+	bh=VgPTylq0l40HvC0SmQuYOboDkxs5/RvsS4NVsAHmlbA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pQ+uoXUpmF/3twCcIi3Lai3o3xk3GzjXh4Vtzef2xl+XK5lS7fyBbQ0UFZzYOkYpV
-	 dUtfTp8YyM+m1uCBcNG1HQvDk6Nf7/h0n9vLEZ88nS1jLaw3kZC+MJWQAs8/6JfmCW
-	 GLX/BJFBUp0BoBJxFAMpMHQQxyx062Ra3vAXfp7i5GUtnfWbItEAT9nUXEUdmY+WZG
-	 QaS5XlRufjGUUzac2Gdf4KQVW4gTJmD7URMBqCpPwQgEQkWKKaXQtwRRvrcbUiQUCW
-	 JAx1/diS1biH2qZn4t9dRTFqD8Klqp6AjFPQ8OnLTIf9OgIEOCwF0ak/GgLb9J7aoh
-	 g4HQFuPfD/y3w==
-Date: Fri, 9 May 2025 14:49:05 +0100
-From: Will Deacon <will@kernel.org>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
-	suzuki.poulose@arm.com, yang@os.amperecomputing.com, corbet@lwn.net,
-	catalin.marinas@arm.com, jean-philippe@linaro.org,
-	robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org,
-	paulmck@kernel.org, mark.rutland@arm.com, joey.gouly@arm.com,
-	maz@kernel.org, james.morse@arm.com, broonie@kernel.org,
-	oliver.upton@linux.dev, baohua@kernel.org, david@redhat.com,
-	ioworker0@gmail.com, jgg@ziepe.ca, nicolinc@nvidia.com,
-	mshavit@google.com, jsnitsel@redhat.com, smostafa@google.com,
-	kevin.tian@intel.com, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev
-Subject: Re: [RESEND PATCH v6 1/3] arm64: Add BBM Level 2 cpu feature
-Message-ID: <20250509134904.GA5707@willie-the-truck>
-References: <20250428153514.55772-2-miko.lenczewski@arm.com>
- <20250428153514.55772-4-miko.lenczewski@arm.com>
- <20250506142508.GB1197@willie-the-truck>
- <78fec33d-fe66-4352-be11-900f456c9af3@arm.com>
+	b=HiuA12AisEGvDGbdihCtzq8htDNElKlMVU6uzp4EThl7i4CBLAdokKnzsNW5zE3It
+	 +8/aalc/Z95GtrZr0cvHssAx2S8H1ibaDOdTKZ3SD+bWv+F9oBqF95DpRSgluqUf/r
+	 qnnhSYeC1siLpGX2ByHIy/T8RjW780NCivwgNmjpeI2HT7fPvm7aenS3E5rZAAhlEk
+	 hFK/XCcZRJdTkGsp61brQrJJFDjMCIkmomWOVihlhYQs3RdQdmZ/E3wkjY1v9g4aGx
+	 xzm0Lr/VMlGu/oBZYvCiYupOrvAV25EWhJGqKSW1hHWOFnV6/YNQJFvdxiQ5sKbM7k
+	 HXeogIEHV/hPw==
+Date: Fri, 9 May 2025 14:51:04 +0100
+From: Lee Jones <lee@kernel.org>
+To: sven@svenpeter.dev
+Cc: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>, Hector Martin <marcan@marcan.st>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+Subject: Re: [PATCH v4 4/9] mfd: Add Apple Silicon System Management
+ Controller
+Message-ID: <20250509135104.GC2492385@google.com>
+References: <20250503-smc-6-15-v4-0-500b9b6546fc@svenpeter.dev>
+ <20250503-smc-6-15-v4-4-500b9b6546fc@svenpeter.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <78fec33d-fe66-4352-be11-900f456c9af3@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20250503-smc-6-15-v4-4-500b9b6546fc@svenpeter.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_064916_662464_98C69B53 
-X-CRM114-Status: GOOD (  53.84  )
+X-CRM114-CacheID: sfid-20250509_065112_489396_32837534 
+X-CRM114-Status: GOOD (  44.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,170 +83,1186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 03:52:59PM +0100, Ryan Roberts wrote:
-> On 06/05/2025 15:25, Will Deacon wrote:
-> > On Mon, Apr 28, 2025 at 03:35:14PM +0000, Mikołaj Lenczewski wrote:
-> >> The Break-Before-Make cpu feature supports multiple levels (levels 0-2),
-> >> and this commit adds a dedicated BBML2 cpufeature to test against
-> >> support for, as well as a kernel commandline parameter to optionally
-> >> disable BBML2 altogether.
-> >>
-> >> This is a system feature as we might have a big.LITTLE architecture
-> >> where some cores support BBML2 and some don't, but we want all cores to
-> >> be available and BBM to default to level 0 (as opposed to having cores
-> >> without BBML2 not coming online).
-> >>
-> >> To support BBML2 in as wide a range of contexts as we can, we want not
-> >> only the architectural guarantees that BBML2 makes, but additionally
-> >> want BBML2 to not create TLB conflict aborts. Not causing aborts avoids
-> >> us having to prove that no recursive faults can be induced in any path
-> >> that uses BBML2, allowing its use for arbitrary kernel mappings.
-> >> Support detection of such CPUs.
-> >>
-> >> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
-> >> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> >> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-> >> ---
-> >>  .../admin-guide/kernel-parameters.txt         |  3 +
-> >>  arch/arm64/Kconfig                            | 19 +++++
-> >>  arch/arm64/include/asm/cpucaps.h              |  2 +
-> >>  arch/arm64/include/asm/cpufeature.h           |  5 ++
-> >>  arch/arm64/kernel/cpufeature.c                | 71 +++++++++++++++++++
-> >>  arch/arm64/kernel/pi/idreg-override.c         |  2 +
-> >>  arch/arm64/tools/cpucaps                      |  1 +
-> >>  7 files changed, 103 insertions(+)
-> >>
-> >> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> >> index d9fd26b95b34..2749c67a4f07 100644
-> >> --- a/Documentation/admin-guide/kernel-parameters.txt
-> >> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> >> @@ -449,6 +449,9 @@
-> >>  	arm64.no32bit_el0 [ARM64] Unconditionally disable the execution of
-> >>  			32 bit applications.
-> >>  
-> >> +	arm64.nobbml2	[ARM64] Unconditionally disable Break-Before-Make Level
-> >> +			2 support
-> > 
-> > Hmm, I'm not sure we really want this. It opens up the door for folks to
-> > pass 'id_aa64mmfr2.bbm=2' without updating the allow-list which feels
-> > like it's going to make crashes harder to reason about.
-> > 
-> > Is there a compelling reason to add this right now?
+On Sat, 03 May 2025, Sven Peter via B4 Relay wrote:
+
+> From: Sven Peter <sven@svenpeter.dev>
 > 
-> I don't think there is a *compelling* reason. This came about from Suzuki's
-> feedback at [1]. He was keen to have a mechanism to disable BBML2 in case issues
-> were found.
+> The System Management Controller (SMC) on Apple Silicon machines is a
+> piece of hardware that exposes various functionalities such as
+> temperature sensors, voltage/power meters, shutdown/reboot handling,
+> GPIOs and more.
 > 
-> But simpler is usually better; I'd be ok with removing.
-
-We can always add it back if we really need it, but adding an allowlist
-*and* a mechanism to override the allowlist at the same time seems overly
-pessimistic to me :)
-
-> >> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> >> index 9c4d6d552b25..7a85a1bdc6e9 100644
-> >> --- a/arch/arm64/kernel/cpufeature.c
-> >> +++ b/arch/arm64/kernel/cpufeature.c
-> >> @@ -2200,6 +2200,70 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
-> >>  	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
-> >>  }
-> >>  
-> >> +static bool cpu_has_bbml2_noabort(unsigned int cpu_midr)
-> >> +{
-> >> +	/*
-> >> +	 * We want to allow usage of bbml2 in as wide a range of kernel contexts
-> >> +	 * as possible. This list is therefore an allow-list of known-good
-> >> +	 * implementations that both support bbml2 and additionally, fulfill the
-> >> +	 * extra constraint of never generating TLB conflict aborts when using
-> >> +	 * the relaxed bbml2 semantics (such aborts make use of bbml2 in certain
-> >> +	 * kernel contexts difficult to prove safe against recursive aborts).
-> >> +	 *
-> >> +	 * Note that implementations can only be considered "known-good" if their
-> >> +	 * implementors attest to the fact that the implementation never raises
-> >> +	 * TLBI conflict aborts for bbml2 mapping granularity changes.
-> >> +	 */
-> >> +	static const struct midr_range supports_bbml2_noabort_list[] = {
-> >> +		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
-> >> +		MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
-> >> +		{}
-> >> +	};
-> >> +
-> >> +	return is_midr_in_range_list(cpu_midr, supports_bbml2_noabort_list);
-> > 
-> > This doesn't compile against latest mainline as is_midr_in_range_list()
-> > no longer takes the midr.
+> Communication happens via a shared mailbox using the RTKit protocol
+> which is also used for other co-processors. The SMC protocol then allows
+> reading and writing many different keys which implement the various
+> features. The MFD core device handles this protocol and exposes it
+> to the sub-devices.
 > 
-> Will ask Miko to fix.
-
-Cheers. v6.15-rc1 is probably the right base to use as that's what I've
-based for-next/mm on.
-
-> >> +static bool has_bbml2_noabort(const struct arm64_cpu_capabilities *caps, int scope)
-> >> +{
-> >> +	if (!IS_ENABLED(CONFIG_ARM64_BBML2_NOABORT))
-> >> +		return false;
-> >> +
-> >> +	if (scope & SCOPE_SYSTEM) {
-> >> +		int cpu;
-> >> +
-> >> +		/*
-> >> +		 * We are a boot CPU, and must verify that all enumerated boot
-> >> +		 * CPUs have MIDR values within our allowlist. Otherwise, we do
-> >> +		 * not allow the BBML2 feature to avoid potential faults when
-> >> +		 * the insufficient CPUs access memory regions using BBML2
-> >> +		 * semantics.
-> >> +		 */
-> >> +		for_each_online_cpu(cpu) {
-> >> +			if (!cpu_has_bbml2_noabort(cpu_read_midr(cpu)))
-> >> +				return false;
-> >> +		}
-> > 
-> > This penalises large homogeneous systems and it feels unnecessary given
-> > that we have the ability to check this per-CPU. Can you use
-> > ARM64_CPUCAP_BOOT_CPU_FEATURE instead of ARM64_CPUCAP_SYSTEM_FEATURE
-> > to solve this?
+> Some of the sub-devices are potentially also useful on pre-M1 Apple
+> machines and support for SMCs on these machines can be added at a later
+> time.
 > 
-> We are trying to solve for the case where the boot CPU has BBML2 but a secondary
-> CPU doesn't. (e.g. hetrogeneous system where boot CPU is big and secondary is
-> little and does not advertise the feature. I can't remember if we proved there
-> are real systems with this config - I have vague recollection that we did but my
-> memory is poor...).
+> Co-developed-by: Hector Martin <marcan@marcan.st>
+> Signed-off-by: Hector Martin <marcan@marcan.st>
+> Signed-off-by: Sven Peter <sven@svenpeter.dev>
+> ---
+>  MAINTAINERS                |   2 +
+>  drivers/mfd/Kconfig        |  15 ++
+>  drivers/mfd/Makefile       |   1 +
+>  drivers/mfd/macsmc.c       | 657 +++++++++++++++++++++++++++++++++++++++++++++
+>  include/linux/mfd/macsmc.h | 337 +++++++++++++++++++++++
+>  5 files changed, 1012 insertions(+)
+
+Looks generally okay.  Much better than the previous attempts.
+
+If the exported API gets much larger, it'd be better suited to
+drivers/platform or perhaps co-located with the rtkit in drivers/soc,
+whilst leaving the resource handling and child driver registration here.
+
+Most of what I see here are stylistic issues, so bear with me.
+
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 2c16b2fc3fec76104967530f487123485af1e777..831df43892a64c95e00c24d77b8aa2a6ec87e074 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2300,6 +2300,7 @@ F:	drivers/input/touchscreen/apple_z2.c
+>  F:	drivers/iommu/apple-dart.c
+>  F:	drivers/iommu/io-pgtable-dart.c
+>  F:	drivers/irqchip/irq-apple-aic.c
+> +F:	drivers/mfd/macsmc.c
+>  F:	drivers/nvme/host/apple.c
+>  F:	drivers/nvmem/apple-efuses.c
+>  F:	drivers/nvmem/apple-spmi-nvmem.c
+> @@ -2312,6 +2313,7 @@ F:	drivers/video/backlight/apple_dwi_bl.c
+>  F:	drivers/watchdog/apple_wdt.c
+>  F:	include/dt-bindings/interrupt-controller/apple-aic.h
+>  F:	include/dt-bindings/pinctrl/apple.h
+> +F:	include/linux/mfd/macsmc.h
+>  F:	include/linux/soc/apple/*
+>  
+>  ARM/ARTPEC MACHINE SUPPORT
+> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+> index 22b93631003943c393d9fe704748bc23f1905397..da56fc4f05b7b7e0a521fcd97bee087424ec4d5b 100644
+> --- a/drivers/mfd/Kconfig
+> +++ b/drivers/mfd/Kconfig
+> @@ -285,6 +285,21 @@ config MFD_CS42L43_SDW
+>  	  Select this to support the Cirrus Logic CS42L43 PC CODEC with
+>  	  headphone and class D speaker drivers over SoundWire.
+>  
+> +config MFD_MACSMC
+> +	tristate "Apple Silicon System Management Controller (SMC)"
+> +	select MFD_CORE
+> +	help
+> +	  The System Management Controller (SMC) on Apple Silicon machines is a
+> +	  piece of hardware that exposes various functionalities such as
+> +	  temperature sensors, voltage/power meters, shutdown/reboot handling,
+> +	  GPIOs and more.
+> +
+> +	  Communication happens via a shared mailbox using the RTKit protocol
+> +	  which is also used for other co-processors. The SMC protocol then
+> +	  allows reading and writing many different keys which implement the
+> +	  various features. The MFD core device handles this protocol and
+> +	  exposes it to the sub-devices.
+
+MFD doesn't usually like this much knowledge of the communication
+mechanism.  We usually rely on; I2C, SPI, USB, etc APIs for that.
+However, given the unusualness of this device and the submission
+history, I'm willing to slacken that off a bit.
+
+>  config MFD_MADERA
+>  	tristate "Cirrus Logic Madera codecs"
+>  	select MFD_CORE
+> diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
+> index 948cbdf42a18b22a826f0b17fb8d5796a7ec8ba6..e9e2403d961a631d9d63a274e0e4f6457ae9e0f2 100644
+> --- a/drivers/mfd/Makefile
+> +++ b/drivers/mfd/Makefile
+> @@ -21,6 +21,7 @@ obj-$(CONFIG_MFD_CS42L43_SDW)	+= cs42l43-sdw.o
+>  obj-$(CONFIG_MFD_ENE_KB3930)	+= ene-kb3930.o
+>  obj-$(CONFIG_MFD_EXYNOS_LPASS)	+= exynos-lpass.o
+>  obj-$(CONFIG_MFD_GATEWORKS_GSC)	+= gateworks-gsc.o
+> +obj-$(CONFIG_MFD_MACSMC)	+= macsmc.o
+>  
+>  obj-$(CONFIG_MFD_TI_LP873X)	+= lp873x.o
+>  obj-$(CONFIG_MFD_TI_LP87565)	+= lp87565.o
+> diff --git a/drivers/mfd/macsmc.c b/drivers/mfd/macsmc.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..59c2851b70f70a221434287cc99ef870a96f3659
+> --- /dev/null
+> +++ b/drivers/mfd/macsmc.c
+> @@ -0,0 +1,657 @@
+> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+> +/*
+> + * Apple SMC (System Management Controller) MFD driver
+> + *
+> + * Copyright The Asahi Linux Contributors
+> + */
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/delay.h>
+> +#include <linux/device.h>
+> +#include <linux/io.h>
+> +#include <linux/ioport.h>
+> +#include <linux/math.h>
+> +#include <linux/mfd/core.h>
+> +#include <linux/mfd/macsmc.h>
+> +#include <linux/notifier.h>
+> +#include <linux/of.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/soc/apple/rtkit.h>
+> +#include <linux/unaligned.h>
+> +
+> +#define SMC_ENDPOINT			0x20
+> +
+> +/* We don't actually know the true size here but this seem reasonable */
+> +#define SMC_SHMEM_SIZE			0x1000
+> +#define SMC_MAX_SIZE			255
+> +
+> +#define SMC_MSG_READ_KEY		0x10
+> +#define SMC_MSG_WRITE_KEY		0x11
+> +#define SMC_MSG_GET_KEY_BY_INDEX	0x12
+> +#define SMC_MSG_GET_KEY_INFO		0x13
+> +#define SMC_MSG_INITIALIZE		0x17
+> +#define SMC_MSG_NOTIFICATION		0x18
+> +#define SMC_MSG_RW_KEY			0x20
+> +
+> +#define SMC_DATA			GENMASK_ULL(63, 32)
+> +#define SMC_WSIZE			GENMASK_ULL(31, 24)
+> +#define SMC_SIZE			GENMASK_ULL(23, 16)
+> +#define SMC_ID				GENMASK_ULL(15, 12)
+> +#define SMC_MSG				GENMASK_ULL(7, 0)
+> +#define SMC_RESULT			SMC_MSG
+> +
+> +#define SMC_RECV_TIMEOUT		500
+> +
+> +static const struct mfd_cell apple_smc_devs[] = {
+> +	MFD_CELL_OF("macsmc-gpio", NULL, NULL, 0, 0, "apple,smc-gpio"),
+> +	MFD_CELL_OF("macsmc-reboot", NULL, NULL, 0, 0, "apple,smc-reboot"),
+
+Are there more devices coming?
+
+> +};
+> +
+> +static int apple_smc_cmd_locked(struct apple_smc *smc, u64 cmd, u64 arg,
+> +				  u64 size, u64 wsize, u32 *ret_data)
+> +{
+> +	int ret;
+> +	u64 msg;
+> +	u8 result;
+> +
+> +	lockdep_assert_held(&smc->mutex);
+> +
+> +	if (!smc->alive)
+> +		return -EIO;
+> +	if (smc->atomic_mode)
+> +		return -EIO;
+> +
+> +	reinit_completion(&smc->cmd_done);
+> +
+> +	smc->msg_id = (smc->msg_id + 1) & 0xf;
+> +	msg = (FIELD_PREP(SMC_MSG, cmd) |
+> +	       FIELD_PREP(SMC_SIZE, size) |
+> +	       FIELD_PREP(SMC_WSIZE, wsize) |
+> +	       FIELD_PREP(SMC_ID, smc->msg_id) |
+> +	       FIELD_PREP(SMC_DATA, arg));
+> +
+> +	ret = apple_rtkit_send_message(smc->rtk, SMC_ENDPOINT, msg, NULL, false);
+> +	if (ret < 0) {
+> +		dev_err(smc->dev, "Failed to send command\n");
+> +		return ret;
+> +	}
+> +
+> +	do {
+> +		if (wait_for_completion_timeout(&smc->cmd_done,
+> +						msecs_to_jiffies(SMC_RECV_TIMEOUT)) == 0) {
+> +			dev_err(smc->dev, "Command timed out (%llx)", msg);
+> +			return -ETIMEDOUT;
+> +		}
+> +		if (FIELD_GET(SMC_ID, smc->cmd_ret) == smc->msg_id)
+> +			break;
+> +		dev_err(smc->dev, "Command sequence mismatch (expected %d, got %d)\n",
+> +			smc->msg_id, (unsigned int)FIELD_GET(SMC_ID, smc->cmd_ret));
+> +	} while (1);
+> +
+> +	result = FIELD_GET(SMC_RESULT, smc->cmd_ret);
+> +	if (result != 0)
+> +		return -result;
+> +
+> +	if (ret_data)
+> +		*ret_data = FIELD_GET(SMC_DATA, smc->cmd_ret);
+> +
+> +	return FIELD_GET(SMC_SIZE, smc->cmd_ret);
+> +}
+> +
+> +static int apple_smc_cmd(struct apple_smc *smc, u64 cmd, u64 arg,
+> +			 u64 size, u64 wsize, u32 *ret_data)
+> +{
+> +	guard(mutex)(&smc->mutex);
+> +
+> +	return apple_smc_cmd_locked(smc, cmd, arg, size, wsize, ret_data);
+> +}
+> +
+> +static int apple_smc_rw_locked(struct apple_smc *smc, smc_key key,
+> +				const void *wbuf, size_t wsize,
+> +				void *rbuf, size_t rsize)
+> +{
+> +	int ret;
+> +	u64 cmd;
+> +	u64 smc_size, smc_wsize;
+> +	u32 rdata;
+> +
+> +	lockdep_assert_held(&smc->mutex);
+> +
+> +	dev_dbg(smc->dev, "SMC key: %p4ch, wsize: %zu, rsize: %zu\n", &key, wsize, rsize);
+> +
+> +	if (rsize > SMC_MAX_SIZE)
+> +		return -EINVAL;
+> +	if (wsize > SMC_MAX_SIZE)
+> +		return -EINVAL;
+> +
+> +	if (rsize && wsize) {
+> +		cmd = SMC_MSG_RW_KEY;
+> +		memcpy_toio(smc->shmem.iomem, wbuf, wsize);
+> +		smc_size = rsize;
+> +		smc_wsize = wsize;
+> +	} else if (wsize && !rsize) {
+> +		cmd = SMC_MSG_WRITE_KEY;
+> +		memcpy_toio(smc->shmem.iomem, wbuf, wsize);
+> +		/*
+> +		 * Setting size to the length we want to write and wsize to 0
+> +		 * looks silly but that's how the SMC protocol works ¯\_(ツ)_/¯
+> +		 */
+> +		smc_size = wsize;
+> +		smc_wsize = 0;
+> +	} else if (!wsize && rsize) {
+> +		cmd = SMC_MSG_READ_KEY;
+> +		smc_size = rsize;
+> +		smc_wsize = 0;
+> +	} else {
+> +		return -EINVAL;
+> +	}
+> +
+> +	ret = apple_smc_cmd_locked(smc, cmd, key, smc_size, smc_wsize, &rdata);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	if (rsize) {
+> +		/*
+> +		 * Small data <= 4 bytes is returned as part of the reply
+> +		 * message which is sent over the mailbox FIFO. Everything
+> +		 * bigger has to be copied from SRAM which is mapped as
+> +		 * Device memory.
+> +		 */
+> +		if (rsize <= 4)
+> +			memcpy(rbuf, &rdata, rsize);
+> +		else
+> +			memcpy_fromio(rbuf, smc->shmem.iomem, rsize);
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +int apple_smc_read(struct apple_smc *smc, smc_key key, void *buf, size_t size)
+> +{
+> +	guard(mutex)(&smc->mutex);
+> +
+> +	return apple_smc_rw_locked(smc, key, NULL, 0, buf, size);
+> +}
+> +EXPORT_SYMBOL(apple_smc_read);
+> +
+> +int apple_smc_write(struct apple_smc *smc, smc_key key, void *buf, size_t size)
+> +{
+> +	guard(mutex)(&smc->mutex);
+> +
+> +	return apple_smc_rw_locked(smc, key, buf, size, NULL, 0);
+> +}
+> +EXPORT_SYMBOL(apple_smc_write);
+> +
+> +int apple_smc_rw(struct apple_smc *smc, smc_key key, void *wbuf, size_t wsize,
+> +	void *rbuf, size_t rsize)
+> +{
+> +	guard(mutex)(&smc->mutex);
+> +
+> +	return apple_smc_rw_locked(smc, key, wbuf, wsize, rbuf, rsize);
+> +}
+> +EXPORT_SYMBOL(apple_smc_rw);
+> +
+> +int apple_smc_get_key_by_index(struct apple_smc *smc, int index, smc_key *key)
+> +{
+> +	int ret;
+> +
+> +	ret = apple_smc_cmd(smc, SMC_MSG_GET_KEY_BY_INDEX, index, 0, 0, key);
+> +
+> +	*key = swab32(*key);
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL(apple_smc_get_key_by_index);
+> +
+> +int apple_smc_get_key_info(struct apple_smc *smc, smc_key key, struct apple_smc_key_info *info)
+> +{
+> +	u8 key_info[6];
+> +	int ret;
+> +
+> +	ret = apple_smc_cmd(smc, SMC_MSG_GET_KEY_INFO, key, 0, 0, NULL);
+> +	if (ret >= 0 && info) {
+> +		memcpy_fromio(key_info, smc->shmem.iomem, sizeof(key_info));
+> +		info->size = key_info[0];
+> +		info->type_code = get_unaligned_be32(&key_info[1]);
+> +		info->flags = key_info[5];
+> +	}
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL(apple_smc_get_key_info);
+> +
+> +int apple_smc_find_first_key_index(struct apple_smc *smc, smc_key key)
+> +{
+> +	int start, count;
+> +
+> +	/* return early if the key is out of bounds */
+
+I'll only say this once, but it applies throughout.
+
+Please start comments with an uppercase char.
+
+> +	if (key <= smc->first_key)
+> +		return 0;
+> +	if (key > smc->last_key)
+> +		return smc->key_count;
+> +
+> +	/* binary search to find index of first SMC key bigger or equal to key */
+> +	start = 0;
+> +	count = smc->key_count;
+> +	while (count > 1) {
+> +		int ret;
+> +		smc_key pkey;
+> +		int pivot = start + ((count - 1) >> 1);
+> +
+> +		ret = apple_smc_get_key_by_index(smc, pivot, &pkey);
+> +		if (ret < 0)
+> +			return ret;
+> +
+> +		if (pkey == key)
+> +			return pivot;
+> +
+> +		pivot++;
+> +
+> +		if (pkey < key) {
+> +			count -= pivot - start;
+> +			start = pivot;
+> +		} else {
+> +			count = pivot - start;
+> +		}
+> +	}
+> +
+> +	return start;
+> +}
+> +EXPORT_SYMBOL(apple_smc_find_first_key_index);
+> +
+> +int apple_smc_read_f32_scaled(struct apple_smc *smc, smc_key key, int *p, int scale)
+> +{
+> +	u32 fval;
+> +	u64 val;
+> +	int ret, exp;
+> +
+> +	/* pretend the 4 bytes returned by SMC are a 32bit unsigned integer */
+> +	ret = apple_smc_read_u32(smc, key, &fval);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	/* extract exponent and fraction from the IEEE 754 32bit float */
+
+This seems like it's to technical / generic to live in a lowly device
+driver.  Is this specific to this device?  If it's generic math stuff,
+shouldn't it live somewhere more generic in the form of helpers?
+
+> +	val = ((u64)((fval & GENMASK(22, 0)) | BIT(23)));
+> +	exp = ((fval >> 23) & 0xff) - 127 - 23;
+> +
+> +	/* move fraction to target scale */
+> +	if (scale < 0) {
+> +		val <<= 32;
+> +		exp -= 32;
+> +		val /= -scale;
+> +	} else {
+> +		val *= scale;
+> +	}
+> +
+> +	/* apply exponent if possible and fall back to 0 / U64_MAX on overflow */
+> +	if (exp > 63)
+> +		val = U64_MAX;
+> +	else if (exp < -63)
+> +		val = 0;
+> +	else if (exp < 0)
+> +		val >>= -exp;
+> +	else if (exp != 0 && (val & ~((1UL << (64 - exp)) - 1))) /* overflow */
+> +		val = U64_MAX;
+> +	else
+> +		val <<= exp;
+> +
+> +	/* handle IEEE 754 32bit float sign bit and catch possible overflows */
+> +	if (fval & BIT(31)) {
+> +		if (val > (-(s64)INT_MIN))
+> +			*p = INT_MIN;
+> +		else
+> +			*p = -val;
+> +	} else {
+> +		if (val > INT_MAX)
+> +			*p = INT_MAX;
+> +		else
+> +			*p = val;
+> +	}
+> +
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL(apple_smc_read_f32_scaled);
+> +
+> +int apple_smc_read_ioft_scaled(struct apple_smc *smc, smc_key key, u64 *p,
+> +			       int scale)
+
+Unwrap everything less than 100-chars please.
+
+> +{
+> +	u64 val;
+> +	int ret;
+> +
+> +	ret = apple_smc_read_u64(smc, key, &val);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	/*
+> +	 * The value val is represented in 48.16 fixed-point format, where
+> +	 * the upper 48 bits represent the integer part and the lower 16 bits
+> +	 * represent the fractional part. Dividing by 1 << 16 extracts the
+> +	 * integer part by discarding the fractional portion.
+> +	 * To scale the value as requested mult_frac is used to multiply val
+> +	 * by the scaling factor while dividing by 1 << 16 in a single step.
+> +	 */
+> +	*p = mult_frac(val, scale, (1<<16));
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL(apple_smc_read_ioft_scaled);
+> +
+> +int apple_smc_enter_atomic(struct apple_smc *smc)
+> +{
+> +	guard(mutex)(&smc->mutex);
+> +
+> +	/*
+> +	 * Disable notifications since this is called before shutdown and no
+> +	 * notification handler will be able to handle the notification
+> +	 * using atomic operations only. Also ignore any failure here
+> +	 * because we're about to shut down or reboot anyway.
+> +	 * We can't use apple_smc_write_flag here since that would try to lock
+> +	 * smc->mutex again.
+> +	 */
+> +	const u8 flag = 0;
+> +
+> +	apple_smc_rw_locked(smc, SMC_KEY(NTAP), &flag, sizeof(flag), NULL, 0);
+> +
+> +	smc->atomic_mode = true;
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL(apple_smc_enter_atomic);
+> +
+> +int apple_smc_write_atomic(struct apple_smc *smc, smc_key key, void *buf, size_t size)
+> +{
+> +	guard(spinlock_irqsave)(&smc->lock);
+> +	int ret;
+> +	u64 msg;
+> +	u8 result;
+> +
+> +	if (size > SMC_MAX_SIZE || size == 0)
+> +		return -EINVAL;
+> +
+> +	if (!smc->alive)
+> +		return -EIO;
+> +	if (!smc->atomic_mode)
+> +		return -EIO;
+> +
+> +	memcpy_toio(smc->shmem.iomem, buf, size);
+> +	smc->msg_id = (smc->msg_id + 1) & 0xf;
+> +	msg = (FIELD_PREP(SMC_MSG, SMC_MSG_WRITE_KEY) |
+> +	       FIELD_PREP(SMC_SIZE, size) |
+> +	       FIELD_PREP(SMC_ID, smc->msg_id) |
+> +	       FIELD_PREP(SMC_DATA, key));
+> +	smc->atomic_pending = true;
+> +
+> +	ret = apple_rtkit_send_message(smc->rtk, SMC_ENDPOINT, msg, NULL, true);
+> +	if (ret < 0) {
+> +		dev_err(smc->dev, "Failed to send command (%d)\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	while (smc->atomic_pending) {
+> +		ret = apple_rtkit_poll(smc->rtk);
+> +		if (ret < 0) {
+> +			dev_err(smc->dev, "RTKit poll failed (%llx)", msg);
+> +			return ret;
+> +		}
+> +		udelay(100);
+> +	}
+> +
+> +	if (FIELD_GET(SMC_ID, smc->cmd_ret) != smc->msg_id) {
+> +		dev_err(smc->dev, "Command sequence mismatch (expected %d, got %d)\n",
+> +			smc->msg_id, (unsigned int)FIELD_GET(SMC_ID, smc->cmd_ret));
+> +		return -EIO;
+> +	}
+> +
+> +	result = FIELD_GET(SMC_RESULT, smc->cmd_ret);
+> +	if (result != 0)
+> +		return -result;
+> +
+> +	return FIELD_GET(SMC_SIZE, smc->cmd_ret);
+> +}
+> +EXPORT_SYMBOL(apple_smc_write_atomic);
+> +
+> +static void apple_smc_rtkit_crashed(void *cookie, const void *bfr, size_t bfr_len)
+> +{
+> +	struct apple_smc *smc = cookie;
+> +
+> +	dev_err(smc->dev, "SMC crashed! Your system will reboot in a few seconds...\n");
+> +	smc->alive = false;
+> +}
+> +
+> +static int apple_smc_rtkit_shmem_setup(void *cookie, struct apple_rtkit_shmem *bfr)
+> +{
+> +	struct apple_smc *smc = cookie;
+> +	struct resource res = {
+
+I don't get this at all.  Is this left over from a previous version?
+Why do you need to store these values in a resource struct that never
+gets used?
+
+> +		.start = bfr->iova,
+> +		.end = bfr->iova + bfr->size - 1,
+> +		.name = "rtkit_map",
+> +		.flags = smc->sram->flags,
+> +	};
+> +
+> +	if (!bfr->iova) {
+> +		dev_err(smc->dev, "RTKit wants a RAM buffer\n");
+> +		return -EIO;
+> +	}
+> +
+> +	if (res.end < res.start || !resource_contains(smc->sram, &res)) {
+> +		dev_err(smc->dev,
+> +			"RTKit buffer request outside SRAM region: %pR", &res);
+> +		return -EFAULT;
+> +	}
+> +
+> +	bfr->iomem = smc->sram_base + (res.start - smc->sram->start);
+> +	bfr->is_mapped = true;
+> +
+> +	return 0;
+> +}
+> +
+> +static void apple_smc_rtkit_shmem_destroy(void *cookie, struct apple_rtkit_shmem *bfr)
+> +{
+> +	// no-op
+> +}
+
+Looks like .destroy() is checked before being called.
+
+You can remove this.
+
+> +static bool apple_smc_rtkit_recv_early(void *cookie, u8 endpoint, u64 message)
+> +{
+> +	struct apple_smc *smc = cookie;
+> +
+> +	if (endpoint != SMC_ENDPOINT) {
+> +		dev_err(smc->dev, "Received message for unknown endpoint 0x%x\n", endpoint);
+> +		return false;
+> +	}
+> +
+> +	if (!smc->initialized) {
+> +		int ret;
+> +
+> +		smc->shmem.iova = message;
+> +		smc->shmem.size = SMC_SHMEM_SIZE;
+> +		ret = apple_smc_rtkit_shmem_setup(smc, &smc->shmem);
+> +		if (ret < 0)
+> +			dev_err(smc->dev, "Failed to initialize shared memory\n");
+
+We shouldn't submit an error then carry on.
+
+If this is not catastrophic, it should be a warn().
+
+> +		else
+> +			smc->alive = true;
+> +		smc->initialized = true;
+> +		complete(&smc->init_done);
+> +	} else if (FIELD_GET(SMC_MSG, message) == SMC_MSG_NOTIFICATION) {
+> +		/* Handle these in the RTKit worker thread */
+> +		return false;
+> +	} else {
+> +		smc->cmd_ret = message;
+> +		if (smc->atomic_pending)
+> +			smc->atomic_pending = false;
+> +		else
+> +			complete(&smc->cmd_done);
+> +	}
+> +
+> +	return true;
+> +}
+> +
+> +static void apple_smc_rtkit_recv(void *cookie, u8 endpoint, u64 message)
+> +{
+> +	struct apple_smc *smc = cookie;
+> +	uint32_t event;
+> +
+> +	if (endpoint != SMC_ENDPOINT) {
+> +		dev_err(smc->dev, "Received message for unknown endpoint 0x%x\n", endpoint);
+> +		return;
+
+This error is not being propagated?
+
+If there are no repercussions, this too should be a warn(), or better
+still, pass the error back and do something about it.
+
+> +	}
+> +
+> +	if (FIELD_GET(SMC_MSG, message) != SMC_MSG_NOTIFICATION) {
+> +		dev_err(smc->dev, "Received unknown message from worker: 0x%llx\n", message);
+> +		return;
+> +	}
+> +
+> +	event = FIELD_GET(SMC_DATA, message);
+> +	dev_dbg(smc->dev, "Event: 0x%08x\n", event);
+
+How useful are these debug messages post-development?
+
+> +	blocking_notifier_call_chain(&smc->event_handlers, event, NULL);
+> +}
+> +
+> +static const struct apple_rtkit_ops apple_smc_rtkit_ops = {
+> +	.crashed = apple_smc_rtkit_crashed,
+> +	.recv_message = apple_smc_rtkit_recv,
+> +	.recv_message_early = apple_smc_rtkit_recv_early,
+> +	.shmem_setup = apple_smc_rtkit_shmem_setup,
+> +	.shmem_destroy = apple_smc_rtkit_shmem_destroy,
+> +};
+> +
+> +static int apple_smc_platform_probe(struct platform_device *pdev)
+
+Drop the platform part.
+
+> +{
+> +	int ret;
+> +	u32 count;
+> +	struct apple_smc *smc;
+> +	struct device *dev = &pdev->dev;
+
+Reverse these please.
+
+Largest / longest at the top - "reverse Christmas-tree".
+
+> +	smc = devm_kzalloc(dev, sizeof(*smc), GFP_KERNEL);
+> +	if (!smc)
+> +		return -ENOMEM;
+> +
+> +	smc->dev = &pdev->dev;
+> +	smc->sram = platform_get_resource_byname(pdev, IORESOURCE_MEM, "sram");
+> +	if (!smc->sram)
+> +		return dev_err_probe(dev, EIO,
+> +				     "No SRAM region");
+> +
+> +	smc->sram_base = devm_ioremap_resource(dev, smc->sram);
+> +	if (IS_ERR(smc->sram_base))
+> +		return dev_err_probe(dev, PTR_ERR(smc->sram_base),
+> +				     "Failed to map SRAM region");
+
+All of the above usually gets condensed into:
+
+	devm_platform_ioremap_resource_byname()
+
+> +	smc->rtk =
+> +		devm_apple_rtkit_init(dev, smc, NULL, 0, &apple_smc_rtkit_ops);
+> +	if (IS_ERR(smc->rtk))
+> +		return dev_err_probe(dev, PTR_ERR(smc->rtk),
+> +				     "Failed to initialize RTKit");
+> +
+> +	ret = apple_rtkit_wake(smc->rtk);
+> +	if (ret != 0)
+
+Just (ret) will do - throughout.
+
+> +		return dev_err_probe(dev, ret,
+> +				     "Failed to wake up SMC");
+> +
+> +	ret = apple_rtkit_start_ep(smc->rtk, SMC_ENDPOINT);
+> +	if (ret != 0) {
+> +		ret = dev_err_probe(dev, ret,
+> +				     "Failed to start SMC endpoint");
+> +		goto cleanup;
+> +	}
+> +
+> +	init_completion(&smc->init_done);
+> +	init_completion(&smc->cmd_done);
+> +
+> +	ret = apple_rtkit_send_message(smc->rtk, SMC_ENDPOINT,
+> +				       FIELD_PREP(SMC_MSG, SMC_MSG_INITIALIZE), NULL, false);
+> +	if (ret < 0) {
+> +		ret = dev_err_probe(dev, ret, "Failed to send init message");
+> +		goto cleanup;
+> +	}
+> +
+> +	if (wait_for_completion_timeout(&smc->init_done,
+> +					msecs_to_jiffies(SMC_RECV_TIMEOUT)) == 0) {
+> +		ret = -ETIMEDOUT;
+> +		dev_err(dev, "Timed out initializing SMC");
+> +		goto cleanup;
+> +	}
+> +
+> +	if (!smc->alive) {
+> +		ret = -EIO;
+> +		goto cleanup;
+> +	}
+> +
+> +	dev_set_drvdata(&pdev->dev, smc);
+> +	BLOCKING_INIT_NOTIFIER_HEAD(&smc->event_handlers);
+> +
+> +	ret = apple_smc_read_u32(smc, SMC_KEY(#KEY), &count);
+> +	if (ret) {
+> +		ret = dev_err_probe(smc->dev, ret, "Failed to get key count");
+> +		goto cleanup;
+> +	}
+> +	smc->key_count = be32_to_cpu(count);
+> +
+> +	ret = apple_smc_get_key_by_index(smc, 0, &smc->first_key);
+> +	if (ret) {
+> +		ret = dev_err_probe(smc->dev, ret, "Failed to get first key");
+> +		goto cleanup;
+> +	}
+> +
+> +	ret = apple_smc_get_key_by_index(smc, smc->key_count - 1, &smc->last_key);
+> +	if (ret) {
+> +		ret = dev_err_probe(smc->dev, ret, "Failed to get last key");
+> +		goto cleanup;
+> +	}
+> +
+> +	/* Enable notifications */
+> +	apple_smc_write_flag(smc, SMC_KEY(NTAP), true);
+> +
+> +	dev_info(smc->dev, "Initialized (%d keys %p4ch ... %p4ch)\n",
+> +		 smc->key_count, &smc->first_key, &smc->last_key);
+> +
+> +	ret = mfd_add_devices(smc->dev, -1,
+
+devm_*?
+
+PLATFORM_DEVID_NONE
+
+> +			      apple_smc_devs, ARRAY_SIZE(apple_smc_devs),
+> +			      NULL, 0, NULL);
+> +	if (ret) {
+> +		ret = dev_err_probe(smc->dev, ret, "Subdevice initialization failed");
+
+"Failed to register sub-devices"
+
+> +		goto cleanup;
+> +	}
+> +
+> +	return 0;
+> +
+> +cleanup:
+> +	/* Try to shut down RTKit, if it's not completely wedged */
+> +	if (apple_rtkit_is_running(smc->rtk))
+> +		apple_rtkit_quiesce(smc->rtk);
+> +
+> +	return ret;
+> +}
+> +
+> +static void apple_smc_platform_remove(struct platform_device *pdev)
+> +{
+> +	struct apple_smc *smc = platform_get_drvdata(pdev);
+> +
+> +	mfd_remove_devices(smc->dev);
+> +
+> +	/* Disable notifications */
+> +	apple_smc_write_flag(smc, SMC_KEY(NTAP), false);
+> +
+> +	/* Shut down SMC firmware */
+> +	if (apple_rtkit_is_running(smc->rtk))
+> +		apple_rtkit_quiesce(smc->rtk);
+> +}
+> +
+> +static const struct of_device_id apple_smc_of_match[] = {
+> +	{ .compatible = "apple,smc" },
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(of, apple_smc_of_match);
+> +
+> +static struct platform_driver apple_smc_driver = {
+> +	.driver = {
+> +		.name = "mfd-macsmc",
+> +		.owner = THIS_MODULE,
+
+This is handed by the core, you can remove it.
+
+> +		.of_match_table = apple_smc_of_match,
+> +	},
+> +	.probe = apple_smc_platform_probe,
+> +	.remove = apple_smc_platform_remove,
+> +};
+> +module_platform_driver(apple_smc_driver);
+> +
+> +MODULE_AUTHOR("Hector Martin <marcan@marcan.st>");
+> +MODULE_AUTHOR("Sven Peter <sven@svenpeter.dev>");
+> +MODULE_LICENSE("Dual MIT/GPL");
+> +MODULE_DESCRIPTION("Apple SMC driver");
+> diff --git a/include/linux/mfd/macsmc.h b/include/linux/mfd/macsmc.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..0b24b8e44dcb4564b50e6d2145f23f23321139c1
+> --- /dev/null
+> +++ b/include/linux/mfd/macsmc.h
+> @@ -0,0 +1,337 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
+> +/*
+> + * Apple SMC (System Management Controller) core definitions
+> + *
+> + * Copyright (C) The Asahi Linux Contributors
+> + */
+> +
+> +#ifndef _LINUX_MFD_MACSMC_H
+> +#define _LINUX_MFD_MACSMC_H
+> +
+> +#include <linux/soc/apple/rtkit.h>
+> +
+> +/**
+> + * typedef smc_key - Alias for u32 to be used for SMC keys
+> + *
+> + * SMC keys are 32bit integers containing packed ASCII characters in natural
+> + * integer order, i.e. 0xAABBCCDD, which represent the FourCC ABCD.
+> + * The SMC driver is designed with this assumption and ensures the right
+> + * endianness is used when these are stored to memory and sent to or received
+> + * from the actual SMC firmware (which can be done in either shared memory or
+> + * as 64bit mailbox message on Apple Silicon).
+> + * Internally, SMC stores these keys in a table sorted lexicographically and
+> + * allows resolving an index into this table to the corresponding SMC key.
+> + * Thus, storing keys as u32 is very convenient as it allows to e.g. use
+> + * normal comparison operators which directly map to the natural order used
+> + * by SMC firmware.
+> + *
+> + * This simple type alias is introduced to allow easy recognition of SMC key
+> + * variables and arguments.
+> + */
+> +typedef u32 smc_key;
+> +
+> +/**
+> + * SMC_KEY - Convert FourCC SMC keys in source code to smc_key
+> + *
+> + * This macro can be used to easily define FourCC SMC keys in source code
+> + * and convert these to u32 / smc_key, e.g. SMC_KEY(NTAP) will expand to
+> + * 0x4e544150.
+> + */
+> +#define SMC_KEY(s) (smc_key)(_SMC_KEY(#s))
+> +#define _SMC_KEY(s) (((s)[0] << 24) | ((s)[1] << 16) | ((s)[2] << 8) | (s)[3])
+> +
+> +#define APPLE_SMC_READABLE BIT(7)
+> +#define APPLE_SMC_WRITABLE BIT(6)
+> +#define APPLE_SMC_FUNCTION BIT(4)
+> +
+> +/**
+> + * struct apple_smc_key_info - information for a SMC key as returned by SMC
+> + * @size: size of the buffer associated with this key
+> + * @type_code: FourCC code indicating the type for this key.
+> + *             Known types:
+> + *              ch8*: ASCII string
+> + *              flag: boolean, 1 or 0
+> + *              flt: 32-bit single-precision IEEE 754 float
+> + *              hex: binary data
+> + *              ioft: 64bit unsigned fixed-point intger (48.16)
+> + *              si8, ui8, si16, ui16, si32, ui32, si64, ui64: signed/unsigned 8-/16-/32-/64-bit integer
+> + * @flags: bitfield encoding flags (APPLE_SMC_{READABLE,WRITABLE,FUNCTION})
+> + */
+> +struct apple_smc_key_info {
+> +	u8 size;
+> +	u32 type_code;
+> +	u8 flags;
+> +};
+> +
+> +/**
+> + * struct apple_smc
+> + * @dev: underlying device struct for the physical backend device
+> + * @key_count: number of available SMC keys
+> + * @first_key: first valid SMC key
+> + * @last_key: last valid SMC key
+> + * @event_handlers: notifier call chain for events received from SMC
+> + * @rtk: pointer to Apple RTKit instance
+> + * @init_done: completion for initialization
+> + * @initialized: flag indicating if SMC is initialized
+> + * @alive: flag indicating if SMC is alive
+> + * @sram: pointer to SRAM resource
+> + * @sram_base: SRAM base address
+> + * @shmem: RTKit shared memory structure for SRAM
+> + * @msg_id: current message id for commands, will be incremented for each command
+> + * @atomic_mode: flag set when atomic mode is entered
+> + * @atomic_pending: flag indicating pending atomic command
+> + * @cmd_done: completion for command execution in non-atomic mode
+> + * @cmd_ret: return value from SMC for last command
+> + * @mutex: mutex for non-atomic mode
+> + * @lock: spinlock for atomic mode
+> + */
+
+Make sure you enable W=1 when compiling and fix any fallout.
+
+> +struct apple_smc {
+> +	struct device *dev;
+> +
+> +	u32 key_count;
+> +	smc_key first_key;
+> +	smc_key last_key;
+> +
+> +	struct blocking_notifier_head event_handlers;
+> +
+> +	struct apple_rtkit *rtk;
+> +
+> +	struct completion init_done;
+> +	bool initialized;
+> +	bool alive;
+> +
+> +	struct resource *sram;
+> +	void __iomem *sram_base;
+> +	struct apple_rtkit_shmem shmem;
+> +
+> +	unsigned int msg_id;
+> +
+> +	bool atomic_mode;
+> +	bool atomic_pending;
+> +	struct completion cmd_done;
+> +	u64 cmd_ret;
+> +
+> +	struct mutex mutex;
+> +	spinlock_t lock;
+> +};
+> +
+> +/**
+> + * apple_smc_read - read size bytes from given SMC key into buf
+> + * @smc: pointer to apple_smc struct
+> + * @key: smc_key to be read
+> + * @buf: buffer into which size bytes of data will be read from SMC
+> + * @size: number of bytes to be read into buf
+> + *
+> + * Return: Zero on success, negative errno on error
+> + */
+> +int apple_smc_read(struct apple_smc *smc, smc_key key, void *buf, size_t size);
+> +
+> +/**
+> + * apple_smc_write - write size bytes into given SMC key from buf
+> + * @smc: pointer to apple_smc struct
+> + * @key: smc_key data will be written to
+> + * @buf: buffer from which size bytes of data will be written to SMC
+> + * @size: number of bytes to be written
+> + *
+> + * Return: Zero on success, negative errno on error
+> + */
+> +int apple_smc_write(struct apple_smc *smc, smc_key key, void *buf, size_t size);
+> +
+> +/**
+> + * apple_smc_enter_atomic - enter atomic mode to be able to use apple_smc_write_atomic
+> + * @smc: pointer to apple_smc struct
+> + *
+> + * This function switches the SMC backend to atomic mode which allows the
+> + * use of apple_smc_write_atomic while disabling *all* other functions.
+> + * This is only used for shutdown/reboot which requires writing to a SMC
+> + * key from atomic context.
+> + *
+> + * Return: Zero on success, negative errno on error
+> + */
+> +int apple_smc_enter_atomic(struct apple_smc *smc);
+> +
+> +/**
+> + * apple_smc_write_atomic - write size bytes into given SMC key from buf without sleeping
+> + * @smc: pointer to apple_smc struct
+> + * @key: smc_key data will be written to
+> + * @buf: buffer from which size bytes of data will be written to SMC
+> + * @size: number of bytes to be written
+> + *
+> + * Note that this function will fail if apple_smc_enter_atomic hasn't been
+> + * called before.
+> + *
+> + * Return: Zero on success, negative errno on error
+> + */
+> +int apple_smc_write_atomic(struct apple_smc *smc, smc_key key, void *buf, size_t size);
+> +
+> +/**
+> + * apple_smc_rw - write and then read using the given SMC key
+> + * @smc: pointer to apple_smc struct
+> + * @key: smc_key data will be written to
+> + * @wbuf: buffer from which size bytes of data will be written to SMC
+> + * @wsize: number of bytes to be written
+> + * @rbuf: buffer to which size bytes of data will be read from SMC
+> + * @rsize: number of bytes to be read
+> + *
+> + * Return: Zero on success, negative errno on error
+> + */
+> +int apple_smc_rw(struct apple_smc *smc, smc_key key, void *wbuf, size_t wsize,
+> +		 void *rbuf, size_t rsize);
+> +
+> +/**
+> + * apple_smc_get_key_by_index - given an index return the corresponding SMC key
+> + * @smc: pointer to apple_smc struct
+> + * @index: index to be resolved
+> + * @key: buffer for SMC key to be returned
+> + *
+> + * Return: Zero on success, negative errno on error
+> + */
+> +int apple_smc_get_key_by_index(struct apple_smc *smc, int index, smc_key *key);
+> +
+> +/**
+> + * apple_smc_get_key_info - get key information from SMC
+> + * @smc: pointer to apple_smc struct
+> + * @key: key to acquire information for
+> + * @info: pointer to struct apple_smc_key_info which will be filled
+> + *
+> + * Return: Zero on success, negative errno on error
+> + */
+> +int apple_smc_get_key_info(struct apple_smc *smc, smc_key key, struct apple_smc_key_info *info);
+> +
+> +/**
+> + * apple_smc_find_first_key_index - find index of first SMC key bigger or equal to key
+> + * @smc: pointer to apple_smc struct
+> + * @key: smc_key to be found
+> + *
+> + * SMC keys are represented using either FourCC (which is stored as
+> + * uint32_t / smc_key in this driver) or an index into the table of available
+> + * keys which is sorted lexicographically.
+> + * This function takes a FourCC key and uses binary search to find the
+> + * index of the first SMC key that is lexicographically equal or bigger than the
+> + * given input.
+> + * This is required for e.g. the GPIO driver: GPIO keys start with gP
+> + * and the driver has to find the first such key (by calling this function with
+> + * key = SMC_KEY(gP00)) to be able to enumerate and register all available GPIOs
+> + * at probe time.
+> + *
+> + * Return: Index of the first smc key that's bigger or equal to the given key.
+> + *
+> + * If the key is smaller than the first available key zero will be returned.
+> + * If the key is bigger than the last available key smc->key_count (i.e. an out
+> + * of bounds key) will be returned.
+> + */
+> +int apple_smc_find_first_key_index(struct apple_smc *smc, smc_key key);
+> +
+> +/**
+> + * apple_smc_key_exists - check if the given SMC key exists
+> + * @smc: pointer to apple_smc struct
+> + * @key: smc_key to be checked
+> + */
+> +static inline bool apple_smc_key_exists(struct apple_smc *smc, smc_key key)
+> +{
+> +	return apple_smc_get_key_info(smc, key, NULL) >= 0;
+> +}
+> +
+> +#define APPLE_SMC_TYPE_OPS(type) \
+> +	static inline int apple_smc_read_##type(struct apple_smc *smc, smc_key key, type *p) \
+> +	{ \
+> +		int ret = apple_smc_read(smc, key, p, sizeof(*p)); \
+> +		return (ret < 0) ? ret : ((ret != sizeof(*p)) ? -EINVAL : 0); \
+> +	} \
+> +	static inline int apple_smc_write_##type(struct apple_smc *smc, smc_key key, type p) \
+> +	{ \
+> +		return apple_smc_write(smc, key, &p, sizeof(p)); \
+> +	} \
+> +	static inline int apple_smc_write_##type##_atomic(struct apple_smc *smc, smc_key key, type p) \
+> +	{ \
+> +		return apple_smc_write_atomic(smc, key, &p, sizeof(p)); \
+> +	} \
+> +	static inline int apple_smc_rw_##type(struct apple_smc *smc, smc_key key, \
+> +					      type w, type *r) \
+> +	{ \
+> +		int ret = apple_smc_rw(smc, key, &w, sizeof(w), r, sizeof(*r)); \
+> +		return (ret < 0) ? ret : ((ret != sizeof(*r)) ? -EINVAL : 0); \
+> +	}
+> +
+> +APPLE_SMC_TYPE_OPS(u64)
+> +APPLE_SMC_TYPE_OPS(u32)
+> +APPLE_SMC_TYPE_OPS(u16)
+> +APPLE_SMC_TYPE_OPS(u8)
+> +APPLE_SMC_TYPE_OPS(s64)
+> +APPLE_SMC_TYPE_OPS(s32)
+> +APPLE_SMC_TYPE_OPS(s16)
+> +APPLE_SMC_TYPE_OPS(s8)
+> +
+> +static inline int apple_smc_read_flag(struct apple_smc *smc, smc_key key, bool *flag)
+> +{
+> +	u8 val;
+> +	int ret = apple_smc_read_u8(smc, key, &val);
+> +
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	*flag = val ? true : false;
+> +	return ret;
+> +}
+> +
+> +static inline int apple_smc_write_flag(struct apple_smc *smc, smc_key key, bool state)
+> +{
+> +	return apple_smc_write_u8(smc, key, state ? 1 : 0);
+> +}
+> +
+> +static inline int apple_smc_write_flag_atomic(struct apple_smc *smc, smc_key key, bool state)
+> +{
+> +	return apple_smc_write_u8_atomic(smc, key, state ? 1 : 0);
+> +}
+> +
+> +/**
+> + * apple_smc_read_f32_scaled - read a float value from SMC and scale to a regular integer
+> + * @smc: pointer to apple_smc struct
+> + * @key: key to be read
+> + * @p: pointer to integer that will be overwritten with the read value
+> + * @scale: target scale
+> + *
+> + * Read a float value from the given SMC key and scale it to the given order
+> + * of magnitude. If the value is smaller than the given scale zero will be
+> + * used. If the value overflows an integer at the given scale p will be set to
+> + * U64_MAX.
+> + *
+> + * This is useful for e.g. reading power consumption, which is reported by SMC
+> + * in Watt (W) as a floating point number, and scale it to uW like so:
+> + *
+> + *     apple_smc_read_f32_scaled(smc, SMC_KEY(PSTR), &power_uW, 1000000);
+> + *
+> + * At that scale, noise starts to dominate the power measurements anyway and
+> + * there's no reason to deal with floats.
+> + *
+> + * Return: Zero on success, negative errno on error
+> + */
+> +int apple_smc_read_f32_scaled(struct apple_smc *smc, smc_key key, int *p, int scale);
+> +
+> +/**
+> + * apple_smc_read_ioft_scaled - read a 48.16 fixed point from SMC and scale to a regular integer
+> + * @smc: pointer to apple_smc struct
+> + * @key: key to be read
+> + * @p: pointer to integer that will be overwritten with the read value
+> + * @scale: target scale
+> + *
+> + * Read a 48.16 fixed point value from the given SMC key and scale it to the
+> + * given order of magnitude. If the value is smaller than the given scale zero
+> + * will be used. If the value overflows an integer at the given scale p will be
+> + * set to U64_MAX.
+> + *
+> + * This is useful for e.g. reading temperature, which is reported by SMC in
+> + * degrees as a 48.16 fixed point number, and scale it to milli-degrees Celsius
+> + * like so:
+> + *
+> + *     apple_smc_read_ioft_scaled(smc, SMC_KEY(TR0Z), &temperature_mC, 1000);
+> + *
+> + * Reporting temperature with more precision runs into measurements errors and
+> + * isn't very useful such that using a simple integer instead of fixed point
+> + * numbers is reasonable.
+> + *
+> + * Return: Zero on success, negative errno on error
+> + */
+> +int apple_smc_read_ioft_scaled(struct apple_smc *smc, smc_key key, u64 *p, int scale);
+> +
+> +#endif
 > 
-> My understanding is that for ARM64_CPUCAP_BOOT_CPU_FEATURE, "If the boot CPU
-> has enabled this feature already, then every late CPU must have it". So that
-> would exclude any secondary CPUs without BBML2 from coming online?
+> -- 
+> 2.34.1
+> 
+> 
 
-Damn, yes, you're right. However, it still feels horribly hacky to iterate
-over the online CPUs in has_bbml2_noabort() -- the cpufeature framework
-has the ability to query features locally and we should be able to use
-that. We're going to want that should the architecture eventually decide
-on something like BBML3 for this.
-
-What we have with BBML2_NOABORT seems similar to an hwcap in that we only
-support the capability if all CPUs have it (rejecting late CPUs without it
-in that case) but we can live without it if not all of the early CPUs
-have it. Unlikely hwcaps, though, we shouldn't be advertising this to
-userspace and we can't derive the capability solely from the sanitised
-system registers.
-
-I wonder if we could treat it like an erratum in some way instead? That
-is, invert things so that CPUs which _don't_ have BBML2_NOABORT are
-considered to have a "BBM_CONFLICT_ABORT" erratum (which we obviously
-wouldn't shout about). Then we should be able to say:
-
-  - If any of the early CPUs don't have BBML2_NOABORT, then the erratum
-    would be enabled and we wouln't elide BBM.
-
-  - If a late CPU doesn't have BBML2_NOABORT then it can't come online
-    if the erratum isn't already enabled.
-
-Does that work? If not, then perhaps the cpufeature/cpuerrata code needs
-some surgery for this.
-
-> How do you see this working with ARM64_CPUCAP_BOOT_CPU_FEATURE? Or do you just
-> think that all systems will always be homogeneous with respect to FEAT_BBM?
-
-That's probably wishful thinking, sadly :(
-
-Will
+-- 
+Lee Jones [李琼斯]
 
