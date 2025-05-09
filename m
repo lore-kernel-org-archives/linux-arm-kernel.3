@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14EC2C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 18:06:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E7FFC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 18:08:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OKC2LPdw3n8i6eOmbAF8IdjSTk4530z62vZdkc/GbAE=; b=TmfuMD3dA2+QXPOoo1u/dx1wcy
-	GwvUEWcA2mHh02Mq9BF9Fox8EKJCvXhZLvVJtnlT7FITNiHQJVRS7pqIu08TXb9UbmknDbKI9sK4d
-	xmyC5hb96jSd+Z2HhetG3GRK42008NXbae+YwWVpjtdYsKb+cZm/8fO+d+tL7ewkNDAXb2f7NwPyx
-	2eETZODaAH6H+3m94ZJKEdQYEk1CyzLDYJnw8g6kTTWf+w7jyckdt7JKAGO8LRxTLvuWmSLoL+eWF
-	lxDLWfjtZx8xJh1K9EmUhsQFyjSXSIAgNLZ3oQ45Q4IDOH+SIIr9ju975LpSK3LSKmkMr2wRM8vmP
-	vlHV0+SA==;
+	bh=HtoycmPbpqBasA/drBUodysvfnREG7Bsxmru8dbrqNw=; b=S/g2vUT+S54L1dXypBTA9VSDqu
+	YDDPByQznpptxVZEt0yB2gFwHZiY2vWIZ/6BpwBqnKVSKZFOw3j0ZGcV24xMqEBv2k66CTsjB8ApU
+	h8EYSirEOYitA0rqZEr342GsKyc4Fj0U1g5lbpVBAGSLFwgJ/PEHmsDVqVEFYkCAFPLUwkEHkqWgX
+	lXgC/WXl9qxBL+5h/1hoscIdonMLIHQUvV99FV6GxPCcyPKeXJjGDLSjJhwbPFw7DvvVcweBOk6EN
+	Kny7LWkmNK0MZq6kM+Ttu5OZv0yqqgz++EN8960IbRrzQi2w7dnz779yDJb6UlDkQciel8Ztoocr7
+	LMiXS50w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDS6o-00000004WVr-0Ub9;
-	Fri, 09 May 2025 18:06:06 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
+	id 1uDS8k-00000004Wkj-1vi2;
+	Fri, 09 May 2025 18:08:06 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDQ4P-00000004B9q-0CVh;
-	Fri, 09 May 2025 15:55:30 +0000
+	id 1uDQ5B-00000004BIc-3Tkp;
+	Fri, 09 May 2025 15:56:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=OK
-	C2LPdw3n8i6eOmbAF8IdjSTk4530z62vZdkc/GbAE=; b=K4TmGG/Gh050AD01ci
-	CGYzNi+IKjeMx3Ur2n6Sex5JqqZ62XFfjPjUkxYn762sl2+ZPxI424t0VffM5boi
-	Blu1K+FDdxI3OcZ8Lkf0r1QUnQagracG39qcLK6fHpLn4cylGci/6DaotPrReWMV
-	j7NOGV7GlfYR/U89vvwV+MVdU=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Ht
+	oycmPbpqBasA/drBUodysvfnREG7Bsxmru8dbrqNw=; b=ER59UXA31khSY9WbeL
+	MDhFLDWNjr3qr0JvmCSTZWQ4aqQk+QFeHeEHlgP56JaN8q4p0orern3cx25Od9Qo
+	FtX+f923x9siPOlQyZzxBm5i01bl1fKzTIlI4RCnrxSc57E6D1KCc0jQzMn4ekxR
+	cmoTNvAYZ/3VcLKMr6PTR8L+g=
 Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wCH+a9CJR5oqYT+AA--.23731S3;
-	Fri, 09 May 2025 23:54:44 +0800 (CST)
+	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wCH+a9CJR5oqYT+AA--.23731S6;
+	Fri, 09 May 2025 23:54:45 +0800 (CST)
 From: Hans Zhang <18255117159@163.com>
 To: shawn.lin@rock-chips.com,
 	lpieralisi@kernel.org,
@@ -48,24 +48,25 @@ Cc: robh@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	Hans Zhang <18255117159@163.com>
-Subject: [PATCH 1/4] PCI: rockchip-host: Fix "Unexpected Completion" log message
-Date: Fri,  9 May 2025 23:53:59 +0800
-Message-Id: <20250509155402.377923-2-18255117159@163.com>
+Subject: [PATCH 4/4] PCI: rockchip-host: Remove unused header includes
+Date: Fri,  9 May 2025 23:54:02 +0800
+Message-Id: <20250509155402.377923-5-18255117159@163.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250509155402.377923-1-18255117159@163.com>
 References: <20250509155402.377923-1-18255117159@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wCH+a9CJR5oqYT+AA--.23731S3
-X-Coremail-Antispam: 1Uf129KBjvdXoW7XrWrWF4xXF4kArW3Cw1fCrg_yoWkGrcE9r
-	n8u3W7Aw45KrW3A3Wqy3yxtryrAas09a1IkayrtF1ayas2vr10q34kZ3y8JF15ur1DXF9r
-	Kw1qyr47WwnrZjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRN73v5UUUUU==
+X-CM-TRANSID: _____wCH+a9CJR5oqYT+AA--.23731S6
+X-Coremail-Antispam: 1Uf129KBjvJXoW7ZF1fWw17JryxuryDCrW5Awb_yoW8GF1UpF
+	WqkFWxJrZ5AF1UCFnruF1qkr1Yqw4DZw17J342ga47Z342yr1vq395Crnxtr1kAFW2gF15
+	Cay3trs5CrW5XrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pKiiT5UUUUU=
 X-Originating-IP: [124.79.128.52]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiWwdIo2geJBoynAABsQ
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbBDxxIo2geIgCSFQAAsr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_085529_475474_D64C6F7E 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20250509_085618_267208_BF8A7B10 
+X-CRM114-Status: UNSURE (   7.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,28 +81,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix the debug message for the PCIE_CORE_INT_UCR interrupt to clearly
-indicate "Unexpected Completion" instead of a duplicate "malformed TLP"
-message. This improves error log accuracy.
+Clean up the driver by removing unnecessary header includes
+(e.g., <linux/clk.h>, <linux/reset.h>) that are no longer referenced
+after refactoring. This improves code readability and build efficiency.
 
 Signed-off-by: Hans Zhang <18255117159@163.com>
 ---
- drivers/pci/controller/pcie-rockchip-host.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/pci/controller/pcie-rockchip-host.c | 9 ---------
+ 1 file changed, 9 deletions(-)
 
 diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
-index 6a46be17aa91..2804980bab86 100644
+index ba1f7832bda5..e2c603634bda 100644
 --- a/drivers/pci/controller/pcie-rockchip-host.c
 +++ b/drivers/pci/controller/pcie-rockchip-host.c
-@@ -439,7 +439,7 @@ static irqreturn_t rockchip_pcie_subsys_irq_handler(int irq, void *arg)
- 			dev_dbg(dev, "malformed TLP received from the link\n");
+@@ -12,26 +12,17 @@
+  */
  
- 		if (sub_reg & PCIE_CORE_INT_UCR)
--			dev_dbg(dev, "malformed TLP received from the link\n");
-+			dev_dbg(dev, "Unexpected Completion received from the link\n");
+ #include <linux/bitrev.h>
+-#include <linux/clk.h>
+-#include <linux/delay.h>
+ #include <linux/gpio/consumer.h>
+-#include <linux/init.h>
+ #include <linux/interrupt.h>
+ #include <linux/iopoll.h>
+ #include <linux/irq.h>
+ #include <linux/irqchip/chained_irq.h>
+ #include <linux/irqdomain.h>
+-#include <linux/kernel.h>
+-#include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/of_pci.h>
+-#include <linux/pci.h>
+-#include <linux/pci_ids.h>
+ #include <linux/phy/phy.h>
+ #include <linux/platform_device.h>
+-#include <linux/reset.h>
+-#include <linux/regmap.h>
  
- 		if (sub_reg & PCIE_CORE_INT_FCE)
- 			dev_dbg(dev, "an error was observed in the flow control advertisements from the other side\n");
+ #include "../pci.h"
+ #include "pcie-rockchip.h"
 -- 
 2.25.1
 
