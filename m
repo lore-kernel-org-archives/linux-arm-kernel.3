@@ -4,117 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE480C3ABCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 12:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44BC4C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 12:31:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JAW6u5B4Audkm0jG9Bi9ycrd1/b4tuSBR7G2b5czvts=; b=3I8nbas2UaiNaBssq9nbX5B/4d
-	Qzk2kD8afb6P/VHaVXmvxO5rpcoFyPvYfcGaKhjSjuqGuBa7ZGpFhRe1GYWMknCnzwnvRh5UBuSA9
-	mvGsoDew7zYc4ZUgZjXJ/BZptBR+34kmTGCutL7+waSmQygWjOwmx1sG9qd9E6gpEMZAPgdXxJeHW
-	32EOQ6TnjspOOIDYyodG0kUydJdFA4shj3kGQBowmUEE7nRO2RzlAb0noqz9JTQo+I9enoCxJC29q
-	/6aF1v0UZ6fiYkR/kNjH9lC+Xy99yT/PbXjr5J3DYeQzBjDeNM2mJS1n+yYb4JNQpij4coMAbQcdy
-	j/5AKvNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qSETgrsVMB4OUyqU4p3tpNCMc9bknN2FBok7iwVPUnA=; b=Pvdgy0q9sUL2HQQcNybPqiJU0L
+	45wM1kyDwUVB7AMze0QEVG6LFFLtk/0w8MGvVX+agJO1lW1w42dHPEar6y6rWPHFvcLevVlYqJpcr
+	cRaGePxRTYXAezijU8Y3kmV+f624/gvrBpjnru5kNLR1zmgmogV00iuGevAuNgPbgInPG2FzNM0E3
+	yq4UuGQ/F6wQvNujSwrXfaTyiW6md/m06a1SonKs5mixzYTrQkjpd6725kOWI2dz4wi5UM6OWWz6Y
+	4+x9vhF5d8kDo4dCL8J5xboDUmnqt/6fYk5FE0UH+QiNgh2I69B86jYrU1cMXuDjn++DRsRWCBLRW
+	p8rEyu7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDMr8-00000003am6-24ha;
-	Fri, 09 May 2025 12:29:34 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uDMt5-00000003bAG-16BR;
+	Fri, 09 May 2025 12:31:35 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDLs4-00000003QmE-3MpI
+	id 1uDLyC-00000003RWq-3E4g
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 11:26:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 03A3FA4AF6A;
-	Fri,  9 May 2025 11:26:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 306F8C4CEE4;
-	Fri,  9 May 2025 11:26:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746789987;
-	bh=hzLS1kXe+h9iNMiiyoZn+cOfweZp3O9xMdrElxq55yA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=X/W5IgPQzAckzO/++fEBxwjg3pQP0vPff3cu0Dxhfr33pO6EJnBpJWZIzACDdY9ZL
-	 xeVkXUlMRyb+xJnth6Ud/bnE7zO8iRsFxnSGKiGIJlsXm6R87oughaoQ9gaBTdzHyB
-	 TaQajUFSNrSQk6Dw9EQGN6MdaA2pMpWIEOLcro7zN0h4abcDHLEKvJhJ+7UKMd1z+t
-	 sYRR7bGqZ5/5EE3d35JXABRExqEiB+VVB9ezEUyTbt+7yMeYFjl2IP7/91h8Z+Xucl
-	 eTs1mDfp0hXc53vsEpSoBFHdIjVa3fCOTfGesOT+BP0wubtsQkBP2hL5+ojKgM2O3P
-	 EeOslwo0d7DXw==
-Message-ID: <3ddde799-76b5-43f9-971e-a52ec322e9b1@kernel.org>
-Date: Fri, 9 May 2025 13:26:20 +0200
+	Fri, 09 May 2025 11:32:50 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 549BWdrC1390739
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 9 May 2025 06:32:39 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746790359;
+	bh=qSETgrsVMB4OUyqU4p3tpNCMc9bknN2FBok7iwVPUnA=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=dAmm3ZkO7yJ3NvTubB4FvQ9p6cj2opGD6Sx3NgNFLXWtcwppEOFgkCHIYj/9+7Xh9
+	 jCFx5EyA2ncbPE6Eq8Wl4U1jisFrNHCpGHCZ2yKpjLnBn8X6GguFWUxS9eLQhZorQV
+	 dEIrknq+PZid+Fx2ErE6gaVBTSmgRiFbjGsuBsAw=
+Received: from DLEE104.ent.ti.com (dlee104.ent.ti.com [157.170.170.34])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 549BWdaB024266
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 9 May 2025 06:32:39 -0500
+Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 9
+ May 2025 06:32:39 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 9 May 2025 06:32:39 -0500
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.227.226])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 549BWcbG092720;
+	Fri, 9 May 2025 06:32:39 -0500
+Date: Fri, 9 May 2025 17:02:38 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+CC: Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 1/1] soc: ti: wkup_m3_ipc: Use dev_err_probe
+Message-ID: <20250509113238.sjj5lj47hh3y4hts@lcpd911>
+References: <20250509093652.1866566-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 14/14] arm64: dts: Add DSPI entries for S32G platforms
-To: James Clark <james.clark@linaro.org>, Vladimir Oltean
- <olteanv@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
- NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, larisa.grigore@nxp.com, arnd@linaro.org,
- andrei.stefanescu@nxp.com, dan.carpenter@linaro.org
-Cc: linux-spi@vger.kernel.org, imx@lists.linux.dev,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- "Radu Pirea (NXP OSS)" <radu-nicolae.pirea@oss.nxp.com>
-References: <20250509-james-nxp-spi-v1-0-32bfcd2fea11@linaro.org>
- <20250509-james-nxp-spi-v1-14-32bfcd2fea11@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250509-james-nxp-spi-v1-14-32bfcd2fea11@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250509093652.1866566-1-alexander.stein@ew.tq-group.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_042628_975508_F33B6A67 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20250509_043248_891565_2E6BA682 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,48 +83,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/05/2025 13:06, James Clark wrote:
-> +&spi1 {
-> +	pinctrl-0 = <&dspi1_pins>;
-> +	pinctrl-names = "default";
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +	status = "okay";
-> +
-> +	spidev0: spidev@0 {
+On May 09, 2025 at 11:36:52 +0200, Alexander Stein wrote:
+> During probe the mailbox channel might not yet be available. Use
+> dev_err_probe to silence this deferred probe error message:
+> wkup_m3_ipc 44e11324.wkup_m3_ipc: IPC Request for A8->M3 Channel failed! -517
+> 
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> ---
+>  drivers/soc/ti/wkup_m3_ipc.c | 8 +++-----
+>  1 file changed, 3 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/soc/ti/wkup_m3_ipc.c b/drivers/soc/ti/wkup_m3_ipc.c
+> index 79dde9a7ec639..5845fc652adcf 100644
+> --- a/drivers/soc/ti/wkup_m3_ipc.c
+> +++ b/drivers/soc/ti/wkup_m3_ipc.c
+> @@ -644,11 +644,9 @@ static int wkup_m3_ipc_probe(struct platform_device *pdev)
+>  
+>  	m3_ipc->mbox = mbox_request_channel(&m3_ipc->mbox_client, 0);
+>  
+> -	if (IS_ERR(m3_ipc->mbox)) {
+> -		dev_err(dev, "IPC Request for A8->M3 Channel failed! %ld\n",
+> -			PTR_ERR(m3_ipc->mbox));
+> -		return PTR_ERR(m3_ipc->mbox);
+> -	}
+> +	if (IS_ERR(m3_ipc->mbox))
+> +		return dev_err_probe(dev, PTR_ERR(m3_ipc->mbox),
+> +				     "IPC Request for A8->M3 Channel failed!\n");
 
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
 
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-
-
-> +		compatible = "rohm,dh2228fv";
-
-
-Nah, I really doubt. That's not the device you have there. It's
-possible, though, so can you share schematics?
-
-> +		spi-max-frequency = <4000000>;
-> +		reg = <0>;
-> +		fsl,spi-cs-sck-delay = <100>;
-> +		fsl,spi-sck-cs-delay = <100>;
-> +	};
-> +};
-> diff --git a/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi b/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
-> index ba53ec622f0b..798b58fa9536 100644
-> --- a/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
-> @@ -127,6 +127,77 @@ i2c4-gpio-grp1 {
->  			pinmux = <0x2d40>, <0x2d30>;
->  		};
->  	};
-> +
-> +	dspi1_pins: dspi1_pins {
-
-No underscores in node names. Please use upstream as basis of your
-changes, not downstream code. See also DTS coding style.
-
+-- 
 Best regards,
-Krzysztof
+Dhruva Gole
+Texas Instruments Incorporated
 
