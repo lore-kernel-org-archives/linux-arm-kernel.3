@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B37BC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 16:49:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B45EC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 16:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fCFp2lYeOoGPK6j9Vs/BGohOlR1yzjoa4BcTTKDuiC0=; b=1YG5PCA8kB4CZsF2pBd7ZX/MWS
-	ioCnFyfYdHtoh0pz0oiWw9uM9Z2/5bl1JrFTqBAgtgrLLUo2xx4PZDo9YENYFYY247gebmCz7Mn2C
-	sQA16yXVmdn53jJkfRHS8v5dQ7gb7l7uJNsqt3WIE+Wc/Qt34C+jHbu90XX41VsFNDNucuoz5YmSZ
-	kgjdBOqQk5iS+c+hgdPVPODxJY4kIWElkn7Y9g5VMR8YhuI+bduZoQJc/3hPrAkxAL4iGewNqlbxB
-	EUBmhlaLl402Dd5gHJ3qca7QnwC+7CWu/W7MIGw5fO7GFOBSX72GVoxFbgIgUnGVgFWWqzvivFSZp
-	PLVFjBIg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mkvwwQJoRkK9UkEicOFWY1loHWqTVo2MnO9FA+uEYGA=; b=c/QvZ+PRWgJiXFGoNaeKkoijAV
+	I7O2rB3uDc2F6cBeQ1h+Mad8w6vR6tmtAs4tpHVXoaAsHC5ETtJ62ozod4M+sKnKkW86bpWycz/3s
+	DEgOiU+Q8vqOX4XMlQufDpASprqEUODDuU8GUR3KWVpjUkc+F3hRfbzLmede6GtT7W+aoEIdfWAnz
+	xTG5Pp0rh+mn2BDTdOWRTQ5eYjgraRDjhpG6rruuhkteVOiy2ROBCIw3HsboL+tOnbLNUhcz4xP1M
+	p7uL4V+L4+pyfclbugWpJ9tuzNUgSUjNCIkna2IwT2D3T2fYAWMoqCey5QkgmAMm68B1XJIJc/Vjh
+	sHpu9ULQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDQu9-00000004LaK-0MP3;
-	Fri, 09 May 2025 16:48:57 +0000
-Received: from albert.telenet-ops.be ([2a02:1800:110:4::f00:1a])
+	id 1uDQw5-00000004Loj-3Dd4;
+	Fri, 09 May 2025 16:50:57 +0000
+Received: from baptiste.telenet-ops.be ([2a02:1800:120:4::f00:13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDOcn-00000003w6u-3CQv
+	id 1uDOcn-00000003w77-45Nw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 14:22:55 +0000
+	Fri, 09 May 2025 14:22:56 +0000
 Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:805c:3876:152c:485c])
-	by albert.telenet-ops.be with cmsmtp
-	id n2No2E00T3X0DE5062NoaL; Fri, 09 May 2025 16:22:48 +0200
+	by baptiste.telenet-ops.be with cmsmtp
+	id n2No2E00K3X0DE5012NoC1; Fri, 09 May 2025 16:22:50 +0200
 Received: from rox.of.borg ([192.168.97.57])
 	by ramsan.of.borg with esmtp (Exim 4.97)
 	(envelope-from <geert@linux-m68k.org>)
-	id 1uDOca-000000012Nh-3HGe;
+	id 1uDOca-000000012Nm-3RLh;
 	Fri, 09 May 2025 16:22:48 +0200
 Received: from geert by rox.of.borg with local (Exim 4.97)
 	(envelope-from <geert@linux-m68k.org>)
-	id 1uDOci-00000003ADD-1V9W;
+	id 1uDOci-00000003ADJ-1vzK;
 	Fri, 09 May 2025 16:22:48 +0200
 From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: soc@lists.linux.dev,
-	soc <soc@kernel.org>
+To: soc@lists.linux.dev
 Cc: Magnus Damm <magnus.damm@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [GIT PULL 0/3] Renesas ARM defconfig updates for v6.16 (take two)
-Date: Fri,  9 May 2025 16:22:27 +0200
-Message-ID: <cover.1746798748.git.geert+renesas@glider.be>
+Subject: [GIT PULL 2/3] Renesas driver updates for v6.16 (take two)
+Date: Fri,  9 May 2025 16:22:29 +0200
+Message-ID: <cover.1746798752.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1746798748.git.geert+renesas@glider.be>
+References: <cover.1746798748.git.geert+renesas@glider.be>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_072253_937979_7BBCC82B 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20250509_072254_146852_BC4CE477 
+X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,46 +72,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-	Hi SoC folks,
+The following changes since commit 31d358e611b7cc21349da58dd2c9118c84b0859f:
 
-This is my second pull request for the inclusion of Renesas SoC updates
-for v6.16.
+  soc: renesas: Add config option for RZ/V2N (R9A09G056) SoC (2025-04-14 10:53:12 +0200)
 
-It consists of 3 parts:
+are available in the Git repository at:
 
-  [GIT PULL 1/3] Renesas ARM defconfig updates for v6.16 (take two)
+  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-drivers-for-v6.16-tag2
 
-    - Enable modular support for the Renesas RZ/G2L GPT and MSIOF sound in
-      the ARM64 defconfig,
-    - Enable more support for RZN1D-DB/EB in shmobile_defconfig.
+for you to fetch changes up to 3903b4701bc03d7d805c3df378a7fc2ff72cbef5:
 
-  [GIT PULL 2/3] Renesas driver updates for v6.16 (take two)
+  soc: renesas: rz-sysc: Add SoC identification for RZ/V2N SoC (2025-05-05 10:54:02 +0200)
 
-    - Cover all R-Car drivers in the ARM/RISC-V/RENESAS ARCHITECTURE
-      maintainer entry,
-    - Identify the Renesas RZ/V2N (R9A09G056) SoC.
+----------------------------------------------------------------
+Renesas driver updates for v6.16 (take two)
 
-  [GIT PULL 3/3] Renesas DTS updates for v6.16 (take two)
+  - Cover all R-Car drivers in the ARM/RISC-V/RENESAS ARCHITECTURE
+    maintainer entry,
+  - Identify the Renesas RZ/V2N (R9A09G056) SoC.
 
-    - Add CANFD support for the RZ/G3E SoC and the RZ/G3E SMARC Carrier-II
-      EVK development board,
-    - Add support for Ethernet port A, 9-pin D-sub serial, and USB on the
-      RZN1D-DB and RZN1D-EB development and expansion boards,
-    - Add sound support for the Retronix Sparrow Hawk board,
-    - Add General PWM Timer (GPT) support for the RZ/G2L and RZ/V2L SoCs
-      and SMARC EVK boards,
-    - Miscellaneous fixes and improvements.
+----------------------------------------------------------------
+Lad Prabhakar (1):
+      soc: renesas: rz-sysc: Add SoC identification for RZ/V2N SoC
 
-Thanks for pulling!
+Uwe Kleine-König (1):
+      MAINTAINERS: Generalize ARM/RISC-V/RENESAS ARCHITECTURE
 
-Gr{oetje,eeting}s,
-
-						Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-							    -- Linus Torvalds
+ MAINTAINERS                         |  2 +-
+ drivers/soc/renesas/Kconfig         |  5 +++
+ drivers/soc/renesas/Makefile        |  1 +
+ drivers/soc/renesas/r9a09g056-sys.c | 75 +++++++++++++++++++++++++++++++++++++
+ drivers/soc/renesas/rz-sysc.c       |  3 ++
+ drivers/soc/renesas/rz-sysc.h       |  1 +
+ 6 files changed, 86 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/soc/renesas/r9a09g056-sys.c
 
