@@ -4,91 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E51C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:25:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F3CC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:25:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g9FGoOFxXhMGTP5ls91WbfqbKMEzNeTHiP62ZYlEVbw=; b=38Z58iaKQWa/8BCmpfDOCvVhtf
-	zd9VcreE5C07S1K2KCRDg4PJBYtfahQWFv0aQADxSSfADz61sY87AuU2czDyhEhkTwCXUE1aPpQyw
-	tt8K3NBbigYw2i4fiCcTqw9gRYuSRlmbIpzX8LV6J4qClPW4LR0DB0VxpOa4C0JwigBNkCG3UZSe4
-	4epNvCI6Dy3y2Zxzvtm8Fxqi//nADBmkvMCWYdeNG9qIXz1HLy0ve6KqUr+l7U/ukIzIPCv4V5zQx
-	k024cYmRshygr+3ZytA86RePhj8xznPwWCmVodwyPtC005fcQGVfVJ9KkJYJP0q/D3I6ahhpDFJWu
-	WI2FaS/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ckl3vux5StOjvP2+47jrXU3fLRpLeSvxiApo1TU/VDQ=; b=VrZJXp956oW+zFUtWx+OKEm6HL
+	e3XGlRVk66kKt4lkAf9vrjamv9UPEVoFlTxAdnJmU8iftyjeyKAkjHv5sqZhRjs30spqNKLZOnGF0
+	qoVmD4bgHTdETGepF7BWyfb2OEu69y7/7r9BXOXn1hyhghRDNJ603m4CcEUOtUHNR43YDDoyHjuqn
+	X+YyvULpXDsjcmtCyD8K2Vya/2uUp13H+y3M9nttfTS9sEkfNnhOrsdtmiFQ1Jq08eXiVRVWvMY3t
+	S95P55ZNwR/+UY8jgt47xe/+A3Hq4VsmRPmCu+Vos/Foz7iYptbL8mvaVjGlpNfOggsEirstvyeVw
+	7q1pMzPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDUHx-00000004msF-0tKI;
-	Fri, 09 May 2025 20:25:45 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1uDUHu-00000004mng-3qhC;
+	Fri, 09 May 2025 20:25:43 +0000
+Received: from out-178.mta1.migadu.com ([2001:41d0:203:375::b2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDR9E-00000004O3P-07pm
+	id 1uDQwy-00000004M3i-30yh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 17:04:33 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43cf58eea0fso11564005e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 10:04:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746810270; x=1747415070; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=g9FGoOFxXhMGTP5ls91WbfqbKMEzNeTHiP62ZYlEVbw=;
-        b=eiIrebUjy24L+V6KnLRy12jwSfQePu0WkVFntlpESZCxCYUsblohYZ5yrXcVmYas6H
-         9rR782BdvG5csbXKBpP4EflZ6UZH7h4Ng0WYsN19zl09PKU5xrQp88j8z0Vo0O4hoYyt
-         XU7UghKydHISNCwjhPyKdN8nV3m5Nlj5l2JgD9tvMIu46ALnK3GDFa4e+0sK0rZS1vgB
-         Js6os/5ZkFhEM59J6hAUY2Dbs/35E/oFa20HfKNE00NJ+UCq04H1kOoqeCYZ8/wKYtBp
-         qyaEelKYMz3l7uA/tgX5yEsfgzQ7aBerkKeoN7XKrvvsTYo8MjYGWyTPaZnHNEyYSdM8
-         MMEw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746810270; x=1747415070;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=g9FGoOFxXhMGTP5ls91WbfqbKMEzNeTHiP62ZYlEVbw=;
-        b=uRXAzvBgEu4YAs7AaMdUYkWTViJ+eJM+HVJmVwrTCJvDmYsH2iLRhSUh52in/S88oe
-         69jAHmbKxAF6Yr6E9y1coSJ74wlI3WQNEamhfuoVpyRtCWqEaFsjaR1DR9IDEeC3WWJn
-         7A57fkQt3lv4qPhhsgMu+tNSoWqLIf7LFSUqkAD2hyKuWhU0fI8aGsphgUi+Sw7jFqNP
-         W42RFGeIWSBxAS2Uk0/xENhCKleDDOZU0oJNuyERYsMDxRp6+AMg/UDTzHvDir9J/xcz
-         7XJhMGL+7Fl5x6pVi6UAOjYyz7/ndjqlH887aTu5UwSscsb8CyzqMV5X5hLJNxvUpWfm
-         e80g==
-X-Forwarded-Encrypted: i=1; AJvYcCXUa5rEgKrVTN0TSn5Zuyw4j+VHzNlNhr5X7BVaUxIPSlJkAc/auGyAj3Ok/xKxWj82v5jtbTf9L37+NToN8aSs@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfNPSXN6Z0UWzVAaUBBJpwtJw6OlB1MPlEy92iD2e9l+XZDDZi
-	n9V8pVOfVS+MArkmSZfEUrWZP6kEAX58vzXjmIJQ0W5hhGEEHlkNqkG5r2a0GRs2lfLAVw+JpAL
-	aj2hFmMRvSZ7OljILPTcpLg8Rw3g=
-X-Gm-Gg: ASbGncvYCXeNVumoPufoNx5Og/CJVpxfKGd5sK/1H4xiCus4za+YEuWTadIMeL95UZz
-	29JYXfFAyBJAvyGoqpQT/eCkakrx5fjPgDmQfKv0QfzKJDmuqbnvEj9cp0tsdLG31e4lBYmGG4u
-	/BoTswjDEgYKt+pFcvr9w3OQZ4tSmQHnD5ykPRFQ==
-X-Google-Smtp-Source: AGHT+IFnBYqhXbjNCF8NTXyLF6urD2/hEu6wcbrtnXUvS6VeJLvXHUVn+vYN/eT8TSsjCML7ULcEftXd3SA1OPWI14w=
-X-Received: by 2002:a05:600c:64c4:b0:43c:fe15:41e1 with SMTP id
- 5b1f17b1804b1-442d6d18bc6mr39356315e9.4.1746810269524; Fri, 09 May 2025
- 10:04:29 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250509122348.649064-1-skb99@linux.ibm.com>
-In-Reply-To: <20250509122348.649064-1-skb99@linux.ibm.com>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Fri, 9 May 2025 10:04:18 -0700
-X-Gm-Features: AX0GCFtGvd38TEcBIzgZXpP366MKGCZNb_SZxydI264Su3mUoJ1EjhzLUKYHED8
-Message-ID: <CAADnVQKBQqur68RdwbDVpRuAZE=8Y=_JaTFo-36d_4vr2DNVyw@mail.gmail.com>
-Subject: Re: [PATCH] selftests/bpf: Fix bpf selftest build error
-To: Saket Kumar Bhaskar <skb99@linux.ibm.com>
-Cc: bpf <bpf@vger.kernel.org>, 
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	Linux-Next Mailing List <linux-next@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
-	Hari Bathini <hbathini@linux.ibm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Mykola Lysenko <mykolal@fb.com>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Shuah Khan <shuah@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 09 May 2025 16:51:54 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1746809509;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ckl3vux5StOjvP2+47jrXU3fLRpLeSvxiApo1TU/VDQ=;
+	b=P/NX0RgHit5EEJXk2v6IpDcc0CmX9jjuKGJ8J8O5RFsGJ+rX/Zfmu63/p9HRzmJ0SEju20
+	pN/gP6SdukESlLnnl2aOcQMGBMKpLbRL94g/juVXzwRKDpD05cfRZQ8VUzJA29MnSUgMZo
+	ZY4jHyKEEzcKFwwvHSoce0HjegXD/XQoC3oHYQxUqnMJtD5Job1emTRTCTV1VNsFpYqyB4
+	jx8bXA/Cqycgs8BL93wm4v4emqKSe08tJV905bRCSeEdKjQlyHIPr69944V7VG5RAvu1H0
+	GyRVpehpmWhks+9m0/OocqJs2C+FWFdssWbUkQJHyPXeEUX0eMh99gpsf78PVA==
+Content-Type: multipart/signed;
+ boundary=3e23f8a3f7dd23a047277bc59f050a2e77210dee6735ec02b945a8d601bd;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Fri, 09 May 2025 18:51:21 +0200
+Message-Id: <D9RSA5K547DD.1LYPIZZM4XALS@cknow.org>
+Cc: "Conor Dooley" <conor+dt@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Dragan Simic" <dsimic@manjaro.org>, "Rob Herring"
+ <robh@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <devicetree@vger.kernel.org>
+Subject: Re: [PATCH 0/1] arm64: dts: rockchip: rk3568: Move PCIe3 MSI to use
+ GIC ITS
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Diederik de Haas" <didi.debian@cknow.org>, "Chukun Pan"
+ <amadeus@jmu.edu.cn>, "Heiko Stuebner" <heiko@sntech.de>
+References: <20250308093008.568437-1-amadeus@jmu.edu.cn>
+ <D9RQN76VZXO8.T3I0046FNVG3@cknow.org>
+In-Reply-To: <D9RQN76VZXO8.T3I0046FNVG3@cknow.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_100432_064616_449E3C36 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20250509_095153_121048_FD59CF41 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,44 +76,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 9, 2025 at 5:24=E2=80=AFAM Saket Kumar Bhaskar <skb99@linux.ibm=
-.com> wrote:
->
-> On linux-next, build for bpf selftest displays an error due to
-> mismatch in the expected function signature of bpf_testmod_test_read
-> and bpf_testmod_test_write.
->
-> Commit 97d06802d10a ("sysfs: constify bin_attribute argument of bin_attri=
-bute::read/write()")
-> changed the required type for struct bin_attribute to const struct bin_at=
-tribute.
->
-> To resolve the error, update corresponding signature for the callback.
->
-> Reported-by: Venkat Rao Bagalkote <venkat88@linux.ibm.com>
-> Closes: https://lore.kernel.org/all/e915da49-2b9a-4c4c-a34f-877f378129f6@=
-linux.ibm.com/
-> Signed-off-by: Saket Kumar Bhaskar <skb99@linux.ibm.com>
-> ---
->  tools/testing/selftests/bpf/test_kmods/bpf_testmod.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c b/tools=
-/testing/selftests/bpf/test_kmods/bpf_testmod.c
-> index 2e54b95ad898..194c442580ee 100644
-> --- a/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-> +++ b/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-> @@ -385,7 +385,7 @@ int bpf_testmod_fentry_ok;
->
->  noinline ssize_t
->  bpf_testmod_test_read(struct file *file, struct kobject *kobj,
-> -                     struct bin_attribute *bin_attr,
-> +                     const struct bin_attribute *bin_attr,
->                       char *buf, loff_t off, size_t len)
+--3e23f8a3f7dd23a047277bc59f050a2e77210dee6735ec02b945a8d601bd
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-You didn't even compile it :(
+Hi again,
 
-Instead of fixing the build, it breaks the build.
+On Fri May 9, 2025 at 5:34 PM CEST, Diederik de Haas wrote:
+> On Sat Mar 8, 2025 at 10:30 AM CET, Chukun Pan wrote:
+>> For a long time, rk3568's MSI-X had bugs and could only work on one node=
+.
+>> e.g. [    7.250882] r8125 0002:01:00.0: no MSI/MSI-X. Back to INTx.
+>>
+>> Following commit b956c9de9175 ("arm64: dts: rockchip: rk356x: Move
+>> PCIe MSI to use GIC ITS instead of MBI"), change the PCIe3 controller's
+>> MSI on rk3568 to use ITS, so that all MSI-X can work properly.
+>>
+> I tested this patch on my NanoPi R5S with a 6.15-rc3 kernel + a number
+> of [vcc|phy]-supply patches that have been accepted for 6.16 (and a
+> small WIP LED patch).
+>
+> With this patch I get the following kernel warnings:
+>
+> pci 0001:10:00.0: Primary bus is hard wired to 0
+> pci 0002:20:00.0: Primary bus is hard wired to 0
+>
+> If I 'unapply' this patch, I don't see those warnings.
 
-pw-bot: cr
+I was pretty sure I had seen those messages before, but couldn't find
+them before. But now I have: on my rk3588-rock-5b.
+
+> It's possible that this patch only brought a(nother) problem to light,
+
+So it looks indeed to be this.
+
+Cheers,
+  Diederik
+
+>> Chukun Pan (1):
+>>   arm64: dts: rockchip: rk3568: Move PCIe3 MSI to use GIC ITS
+>>
+>>  arch/arm64/boot/dts/rockchip/rk3568.dtsi | 8 ++++----
+>>  1 file changed, 4 insertions(+), 4 deletions(-)
+
+
+--3e23f8a3f7dd23a047277bc59f050a2e77210dee6735ec02b945a8d601bd
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaB4yngAKCRDXblvOeH7b
+btTxAP9xcOOm/DKb1fMqBqNcR6qUMiNnWv1MKSyU06BFXAH6LQEAocEqmFyRa4iT
+xDj91oyTLTpAr8k0/xJZDB//WWhFPgs=
+=V4q7
+-----END PGP SIGNATURE-----
+
+--3e23f8a3f7dd23a047277bc59f050a2e77210dee6735ec02b945a8d601bd--
 
