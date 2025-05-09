@@ -4,147 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D691DC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:29:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2C9CC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 21:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AE0Kz/IjOqS/PsGnt+6+i4dfJNt8icpzkbWuxm0yhTg=; b=D6Geuxz79FDdZJBSf5Ev6yMU7+
-	mkuX8zJoJIGBftjRufFM5bMMbq6P6Gtpz012DNbtYHZK42QsrqpNaobQdiaSjXoGY5srj6vi/LrXj
-	fzCezzKoXq5KUbwtOLx+SO6maawdNOtQotZCmAed0hCIeLYEsZ1+TTxMjbzr9ny3uUWLwNM66Z6TM
-	iap5O61Nn85avJy9UVwae35EOqiGkUxQuspUlGJmFRyulMj0xhFHroyEWP2cCVkU4Pt6ZzUwXKa9g
-	3iwrc97QSsMt42lxrE8CEcLfhPEL1jITR4n61YTYG8cBmfoMxj1DiF6DaepHAfWid/x9xtOWr9OQ+
-	QAEr7xHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T6PkgIJPex60C+gZATQdAd/3vCD1f8TCEvg3gYXQa0Q=; b=t++mOEHFWFR6K5PSyqwhlmdpFL
+	Y09qysExnsaD8WIkic0WeHwaS2hRtWix2fWURBj/kj3eKO0KbcnlWP7SqtCJ/CRnkzJoAyPDX3dOr
+	ME9k5tNOI3SsHtXXZ3hJ3NK5d3RA9l5krDqJomN2drRwm6EH9lZ/f/AykeIWzneYbaQJ++BQn4oWU
+	V34kgXyAEnKhw69jKUnji6CF5TNfIR9IghKhK/JGF1C2N3pIQgtdN/yVW+ODKNKo54aWQVrBuTEf8
+	m7/UcrsG2LXdumvMrbzBq6ulHPivDik9mmlHKDtTUWSUleMYG6Q29dy0d221PfTU2vPYETK64OAH6
+	OwcfR9bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDULn-00000004qse-3ZJH;
-	Fri, 09 May 2025 20:29:43 +0000
-Received: from mail-dm6nam12on2062f.outbound.protection.outlook.com ([2a01:111:f403:2417::62f] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1uDUxk-00000004udQ-1Wqp;
+	Fri, 09 May 2025 21:08:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDTQw-00000004fnu-3JYt
+	id 1uDTnE-00000004hmk-1GVL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 19:30:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=A6rANkyFaY8TS4qF6Q+vRCJRbNJPEDRv9OCgmTUs/8D9MrobPCk0iVg5wyrPXoE90ksSJpIh7D/SJj4rxnB4Cbw1W5mraeY+x40zarMp1Bp3gMxTSNpNAgebo4LljmUaUwz3MYRPk6ldgBgWgjjSdxxCNV876VYydJjMbmtMF6L1b8cNOPJFMwdt7CjfZp4oIbzsNow2T5RXJPl7JwzH5CDy5L55HA8l0qtyHRNUJ1363HwnTd4PkAABjdgXZjPR+iousfE2GEDkz6LA0lI7LuGGDGBs5DKjpSOylFhv0cgd0OaQ9oUdDtBBQWBBX3kkSEYaOWSEEh2IBfJbNmfrYg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AE0Kz/IjOqS/PsGnt+6+i4dfJNt8icpzkbWuxm0yhTg=;
- b=ioyJ3/n5eBN9LEiHY9oLyeVkeuWUWBe9ltTk3qV68cQXeZ5QXytzll0VpATLlnfL7E86/5+AubVQ//JF3jvqhqY04ffn13kQMITYxFcMkc+Nq+VwAUGmaaUWQhb1sD4bQsbixAEJxT6hSQpS6+JCha+pKOD4Rpux9/3m18eohPPaUdRk+r68W0n6T10SgsDJkw/4gOVkoedH8yFgXWWvGTFoWAd6M7F3IncGlj2MoomulU7r1M07yUqMAa1e6zJhtJDrt2s7gH4zgzY71vWpNzILqqxtY7LhzmlKxw34w6qu0VCVZip+wydV78EtU4E2z7/HaAn5ST+kbvWubG21mg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AE0Kz/IjOqS/PsGnt+6+i4dfJNt8icpzkbWuxm0yhTg=;
- b=SDdfn53FKDuBLkaqzRClaIDy5maRcJ2V/hL0B4yYSNzPjwuTQRUW7UmcPZxnvKdkMZkuyCrofnUlVoaLitG7EJCY/tGpBW05/YyRyO/vW8N6VZoKKzcq7F3GHtreGGhumVMH16cBRIaCK1ChOYKRGD9wx41InFqGDjw/uIKhq9BCh/4mPV8ZYh/4kvkKz+jxw9zTEtOMlzgIcQvsvXObX0fgK3S73Y4VFI8H8uMa7kSEKzARR3O/A/XO6k12zVZoRe7xrp7yLA0CFyKLOYdqrn3LwiAGGSk3fj0k71FhYrTdNbYFQ7RguGXWsun7CqO448FDx7HrrGCxDSLLn2L2ZQ==
-Received: from BN9PR03CA0514.namprd03.prod.outlook.com (2603:10b6:408:131::9)
- by LV3PR12MB9167.namprd12.prod.outlook.com (2603:10b6:408:196::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.19; Fri, 9 May
- 2025 19:30:45 +0000
-Received: from BN3PEPF0000B078.namprd04.prod.outlook.com
- (2603:10b6:408:131:cafe::b6) by BN9PR03CA0514.outlook.office365.com
- (2603:10b6:408:131::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8699.32 via Frontend Transport; Fri,
- 9 May 2025 19:30:45 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BN3PEPF0000B078.mail.protection.outlook.com (10.167.243.123) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8722.18 via Frontend Transport; Fri, 9 May 2025 19:30:44 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 9 May 2025
- 12:30:28 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Fri, 9 May
- 2025 12:30:27 -0700
-Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.129.68.10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Fri, 9 May 2025 12:30:22 -0700
-Date: Fri, 9 May 2025 12:30:19 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
-	<will@kernel.org>
-CC: <bagasdotme@gmail.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
-	<shuah@kernel.org>, <jsnitsel@redhat.com>, <nathan@kernel.org>,
-	<peterz@infradead.org>, <yi.l.liu@intel.com>, <mshavit@google.com>,
-	<praan@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>
-Subject: Re: [PATCH v4 14/23] iommufd: Add mmap interface
-Message-ID: <aB5Xy67VU0ZNQpXH@nvidia.com>
-References: <cover.1746757630.git.nicolinc@nvidia.com>
- <ee9ee287264fd75eb4fc64a63f20d03e9ba18161.1746757630.git.nicolinc@nvidia.com>
+	Fri, 09 May 2025 19:54:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BEC9D40C2F;
+	Fri,  9 May 2025 19:53:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4BE1C4CEE4;
+	Fri,  9 May 2025 19:53:57 +0000 (UTC)
+Date: Fri, 9 May 2025 15:54:12 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ jstultz@google.com, qperret@google.com, will@kernel.org,
+ kernel-team@android.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 08/24] ring-buffer: Expose buffer_data_page material
+Message-ID: <20250509155412.03c89196@gandalf.local.home>
+In-Reply-To: <20250506164820.515876-9-vdonnefort@google.com>
+References: <20250506164820.515876-1-vdonnefort@google.com>
+	<20250506164820.515876-9-vdonnefort@google.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <ee9ee287264fd75eb4fc64a63f20d03e9ba18161.1746757630.git.nicolinc@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B078:EE_|LV3PR12MB9167:EE_
-X-MS-Office365-Filtering-Correlation-Id: 934a96da-1996-4991-9b10-08dd8f2ffe5a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?JLhE+Bb1wrr0yXZ2nc8ke+prk5JtsebOrrWUU1jX/l+5kOl16Ks2FlaiHGlF?=
- =?us-ascii?Q?91DcgNLhYLc/Mf16eGlsGSp091CiokAtIGqXdGBSACuEwW2a+IK4lvNfnkPK?=
- =?us-ascii?Q?sTEB1RhKdsCiei9m7+f2+Au+LPZDzZts7zY5BeJcb04k1Q09PcTlg/E5WH0M?=
- =?us-ascii?Q?cGjIg+HdT3O2AF9U9eCcOqgtxMIsASGk/DolWt/Ee7tss2IHus9sYvlV2LsU?=
- =?us-ascii?Q?Drc2CDC/VluCVHohBqJgBR07xV61Yy5s+Z7ZLKo2V+V4XpKQ1V0jdG3QyO1z?=
- =?us-ascii?Q?yEhIDJp9dlT9v+J6eSFF8BPtwsEXcF0OlQSdtF2NTUdd+UugE0lGnU2N4Z0J?=
- =?us-ascii?Q?6P8FnBArOufsrq9oIM1exSkrbJB+tJnV5KahbPLGiz2BjWKkKQC1GLhBkAcA?=
- =?us-ascii?Q?yy6bJVYPCJ6vRlF9Q8szO7AKo9NR8GSg/aCn+UobdQrnk8/dF1JGc1kaMc55?=
- =?us-ascii?Q?elbDiukB0YcxguIb+gk/0YmptjfYeQAluDt3vuKtJ5YMydA3IvHxMyL0sKhJ?=
- =?us-ascii?Q?qdM5x0eRlH+m4Ec6NgjAISss6hv3t4QQt2nnUJxc54k80c8h+KG6uwZ38hxV?=
- =?us-ascii?Q?8IG2xPlqyS7Fmz19MhxyEgyJW53XWe4dQhZUNhJvKkUIfTsjpy3WxfaaBNtM?=
- =?us-ascii?Q?ybuiwpqXz0CpQ8X0/Xovx0Z9I9SJpOgQwVQoO9axBZ5G5BcwuKRfBReMWAYa?=
- =?us-ascii?Q?+7m7k7O5t7q0Ib/snYwPhcxtGy0cjKxwvSo4T6U3GGMli2zSvCzxHDcVrY1B?=
- =?us-ascii?Q?6eL+p/p7FpL5gOnIZGtXaityQ9dQt95IbziehqgPAqp9B9Z1/tGSJypqth1/?=
- =?us-ascii?Q?TAzUk+JYnUPcIy+IMGFswJ6chNA98L1RbgfzHvsfrmzNXR30F9Md8RccgbsT?=
- =?us-ascii?Q?Y8Lq1Oyjze3gaOOx4iG+y0f7NWP7YUKtq/0VQTqg72IBe5WG5MO/DHoBVl2X?=
- =?us-ascii?Q?0KKGGugrKPdvv1MndHjtoaFLRwnmqLQkK7+Ei2AEuOA7TUdn/kPILV/ns5fr?=
- =?us-ascii?Q?tuFgC/6TCu5aQ/HJCPSHBV6HZUd8V15vS1Toa3tvTqEnnKi42OFXpSPbC4lM?=
- =?us-ascii?Q?61Sr35ojUsjLVGCbIBzS5lWzqoTZOeMBRXlC6Xp6j3GQ1+PAfoqORAqj/H9c?=
- =?us-ascii?Q?ZpWFgqzMpv1APd8R0ZIGKwXwWghfsbpHvp5+0Q4xQg5doJbuvxJxJEkcciWz?=
- =?us-ascii?Q?+RweWt6U7YB4L0XeG9NlHCMhzIAEZh4AlpRxNIRDOm/WBkrZXVZC5uvVyQU8?=
- =?us-ascii?Q?dUDDU2aMOGIPPTbzRrAken5DTqP58hJGifhdWbOQx+Q91j/I9FnDb/55rPdE?=
- =?us-ascii?Q?0VgtzI6g3BIYh6N9OU6fMsaTEmvxki/rQFEmUWLzyxbh8VcG1HFXhUGId98B?=
- =?us-ascii?Q?6fwqWqRedNI6oaI6pisMJG08by7b6cKhSpp5Uxv1gQxVfhTwP9EwF4iPQl7I?=
- =?us-ascii?Q?M8mUcozO0bL+A9mpxptmFrywxiYPQY/dT2kdwmgqFz3gluK+0tra/E1/14Ge?=
- =?us-ascii?Q?lwSmZX9jNHHx0XVKSvI/tsPt4U2LNUEsuoJ3?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 May 2025 19:30:44.7922
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 934a96da-1996-4991-9b10-08dd8f2ffe5a
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B078.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9167
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_123058_821376_7E13E7C5 
-X-CRM114-Status: UNSURE (   8.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250509_125400_364339_573C6B27 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,20 +67,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 08, 2025 at 08:02:35PM -0700, Nicolin Chen wrote:
-> +int _iommufd_alloc_mmap(struct iommufd_ctx *ictx, struct iommufd_object *owner,
-> +			phys_addr_t base, size_t length, unsigned long *offset)
-> +{
-...
-> +	int num_pfns, rc;
-...
-> +	num_pfns = length >> PAGE_SHIFT;
+On Tue,  6 May 2025 17:48:04 +0100
+Vincent Donnefort <vdonnefort@google.com> wrote:
 
-I forgot to clean away this num_pfns, as "length >> PAGE_SHIFT"
-stores to immap->num_pfns already.
+> In preparation for allowing the write of ring-buffer compliant pages
+> outside of ring_buffer.c, move buffer_data_page and timestamps
+> encoding functions into the publicly available ring_buffer.h.
+> 
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-Will drop this in v5.
+Let's create a new file for this instead of adding it to ring_buffer.h.
+Although it's being used by remote buffers, I rather not make this
+something that people may think they can access anywhere.
 
-Thanks
-Nicolin
+Perhaps: ring_buffer_types.h
+
+with a comment stating that these are to be used by the remote ring buffers
+and the ring buffer internals and should not be used directly.
+
+-- Steve
+
 
