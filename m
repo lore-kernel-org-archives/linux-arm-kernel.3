@@ -4,76 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A44E6C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 07:39:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6BF7C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 07:47:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jVs8cPM5R3zbIuIup9svnibtyBfIsIM8W0uZi9cjy6I=; b=Sed9+Tdtz8w2CkRq7njNUDiAUV
-	lZwKXUu8d0sJmZ6n7OERwQfol37V2p31Ff8Xh9/cI1yIm2KNNh9bOr4hKfv0rfWmyz6VEo5g3F9QK
-	u4v8GDLBUaMNVPd3Qz6qrnvO0YuZaho56GGLhPSuik/HoWRIMJIKE1Fh/9ncRZbpzM31JntyGPhU/
-	n7zck0NkeTLq3OiityykPEpGQkPoftCaxEwN7JAPNd6lmPteaC1mrIpW1AYNdV88zDo8rXtqdjU/8
-	Bm0QcUOH/kYKuoeDRMCv7Vt8eOkloR1/BLNd7+9lGJNQLBDhLuEWLPJSBnOuh0fEAk1H0XzqADfbn
-	LWuNewrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7pJtxLJJ+miQ++NXFqYy8TUdT11UyzqqW+ZW0cRbZWw=; b=f3Sxt2aY8NcpEbqle4oAFnqnjo
+	Xkp8QWyMgxAPoFVwlG48iUClU9Pw2nQuSesrfQGWTXHaGCmvKJgJjm3JXDDFDHW3vDmNgdQPfnhUz
+	o80jMtAGG/W+QnCmIq6hxws571txGUURo++X6TE5s25c1ZfHuCpleIGqGqNgpNAoLsiI8JQzcDFNg
+	jMQA2k/rA8Ea+5K6nKIqkFHKqWcCTT6M0DNg8tgKq9h+swxSD+9KvFDoKXXXG9aKfjSdrUPoPeBb4
+	9P53iAAk7M+/8Q6R+74ks4HhQGLLBhJlv8CMl0FT2xzi+brqG8QhpDr9MTAjENqnoD4VDBMOutzLo
+	q6gWxX/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDIKi-00000002mHz-1RX5;
-	Fri, 09 May 2025 07:39:48 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uDIS8-00000002nsE-0gQO;
+	Fri, 09 May 2025 07:47:28 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDIIg-00000002lyG-0FZa;
-	Fri, 09 May 2025 07:37:43 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id ED3AB260E2;
-	Fri,  9 May 2025 09:37:37 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id NSzk7zSKnJSd; Fri,  9 May 2025 09:37:36 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1746776256; bh=vyaf3O81ftGk4hXMqvkE+LhSreJTUx7RqGyR3ijoJoY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kQOx/pRAmqD1GFKciaR0iDR/hrxI9cX+Un8/Ux+TQfOaLdCnoQ4NTugMZ8wFLAL2l
-	 ShN/qUsbnKUQvRQZXsvUHPrkIgt5dTh9rGKfGouNXoNe+CxvcJC/hy/8uzhpEkK95F
-	 BpU51SO5Umd/7H7cjJ0tt9JMJno50tG1+TPWXJOKcegcbK1RrvDJHsvgpFEYrhbVEP
-	 tMofglj2iBNwQBd+zDkZY97aBrOmue5x3DibPxd/2qJG2HSyVoRQkOp04VF28CjTOr
-	 I8bqFUpPnVjulaG++Bm/wHZPRmyLZjqawThzkZhLYRsaeaj/AzFkhZom9MKRch7pxo
-	 Wvam/vb1E8pLg==
-Date: Fri, 9 May 2025 07:37:17 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Shresth Prasad <shresthprasad7@gmail.com>,
-	Chukun Pan <amadeus@jmu.edu.cn>, Jonas Karlman <jonas@kwiboo.se>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v2 2/5] dt-bindings: phy: rockchip: naneng-combphy: Add
- RK3528 variant
-Message-ID: <aB2wjKa1D832FKBH@pie.lan>
-References: <20250509004121.36058-2-ziyao@disroot.org>
- <20250509004121.36058-4-ziyao@disroot.org>
- <20250509-secret-smart-kangaroo-fd3b58@kuoka>
+	id 1uDIQ4-00000002n0z-0GCn
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 May 2025 07:45:21 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5497j1ha1337449
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 9 May 2025 02:45:01 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746776701;
+	bh=7pJtxLJJ+miQ++NXFqYy8TUdT11UyzqqW+ZW0cRbZWw=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=xZmqCO9Bk3Mc0tdHYa9F5AFIfSVolMsBr3yLguxR+oYpB0LxvOVVBiOL2sGIBiZA8
+	 bvc4seLQazHXLpoqpNTpb4OI2fjrGX4/rj38g/FwtGTF+ym6o8dAJyw8hBBMPWeNFN
+	 mLftfT8VlhsF5TzVbVpp8kzG2yuEMhTA/M05DVU8=
+Received: from DLEE110.ent.ti.com (dlee110.ent.ti.com [157.170.170.21])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5497j1AU126579
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 9 May 2025 02:45:01 -0500
+Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE110.ent.ti.com
+ (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 9
+ May 2025 02:45:00 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 9 May 2025 02:45:00 -0500
+Received: from [172.24.19.187] (lt5cd2489kgj.dhcp.ti.com [172.24.19.187])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5497itUM115553;
+	Fri, 9 May 2025 02:44:56 -0500
+Message-ID: <e4fc72ea-ae36-457f-b1a6-0305e06022af@ti.com>
+Date: Fri, 9 May 2025 13:14:55 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250509-secret-smart-kangaroo-fd3b58@kuoka>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] arm64: dts: ti: j722s-evm: Add DT nodes for power
+ regulators
+To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>, <nm@ti.com>,
+        <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <vaishnav.a@ti.com>, <r-donadkar@ti.com>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <jai.luthra@linux.dev>,
+        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
+References: <20250508155134.2026300-1-y-abhilashchandra@ti.com>
+ <20250508155134.2026300-2-y-abhilashchandra@ti.com>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20250508155134.2026300-2-y-abhilashchandra@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_003742_519709_565A773F 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20250509_004520_197282_0A101AAF 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,52 +90,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 09, 2025 at 08:03:11AM +0200, Krzysztof Kozlowski wrote:
-> On Fri, May 09, 2025 at 12:41:19AM GMT, Yao Zi wrote:
-> > Rockchip RK3528 ships one naneng-combphy which operates in either PCIe
-> > or USB 3 mode. Document its compatible string.
-> > 
-> > Signed-off-by: Yao Zi <ziyao@disroot.org>
-> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> > Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-> > ---
-> 
-> Eh, no...
-> 
-> >  .../devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml | 5 ++++-
-> >  1 file changed, 4 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-> > index 888e6b2aac5a..bd064754e537 100644
-> > --- a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-> > +++ b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-> > @@ -12,6 +12,7 @@ maintainers:
-> >  properties:
-> >    compatible:
-> >      enum:
-> > +      - rockchip,rk3528-naneng-combphy
-> >        - rockchip,rk3562-naneng-combphy
-> >        - rockchip,rk3568-naneng-combphy
-> >        - rockchip,rk3576-naneng-combphy
-> > @@ -102,7 +103,9 @@ allOf:
-> >        properties:
-> >          compatible:
-> >            contains:
-> > -            const: rockchip,rk3588-naneng-combphy
-> > +            enum:
-> > +             - rockchip,rk3528-naneng-combphy
-> 
-> Still not tested. Neither v1 nor v2 was ever tested.
 
-Oops, somehow I missed warnings about the indentation...
+On 5/8/2025 9:21 PM, Yemike Abhilash Chandra wrote:
+> Add device tree nodes for two regulators on the J722S-EVM. VSYS_3V3 is the
+> output of LM5141-Q1, and it serves as an input to TPS22990 which produces
+> VSYS_3V3_EXP [1]. VSYS_3V3_EXP serves as vin-supply to CSI RPI Connectors.
+>
+> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+>
+> [1]: https://www.ti.com/lit/zip/sprr495
+> ---
+>   arch/arm64/boot/dts/ti/k3-j722s-evm.dts | 22 ++++++++++++++++++++++
+>   1 file changed, 22 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+> index 34b9d190800e..0f18fe710929 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+> @@ -141,6 +141,17 @@ vsys_5v0: regulator-vsys5v0 {
+>   		regulator-boot-on;
+>   	};
+>   
+> +	vsys_3v3: regulator-vsys3v3 {
+> +		/* output of LM5141-Q1 */
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vsys_3v3";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		vin-supply = <&vmain_pd>;
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +	};
+> +
+>   	vdd_mmc1: regulator-mmc1 {
+>   		/* TPS22918DBVR */
+>   		compatible = "regulator-fixed";
+> @@ -153,6 +164,17 @@ vdd_mmc1: regulator-mmc1 {
+>   		bootph-all;
+>   	};
+>   
+> +	vcc_3v3_exp: regulator-TPS22990 {
 
-Thanks for pointing out, I'll drop the tags, wait until the prerequsite
-series get merged and send v3 with this problem fixed.
+Please align this name with commit message
 
-> Best regards,
-> Krzysztof
-> 
+with change of vcc_3v3_exp to vsys_3v3_exp
 
-Thanks,
-Yao Zi
+Reviewed-by: Udit Kumar <u-kumar1@ti.com>
+
+
+> +		/* output of TPS22990 */
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc_3v3_exp";
+
+This name as well, please to vss_3v3_exp
+
+
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		vin-supply = <&vsys_3v3>;
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +	};
+> +
+>   	vdd_sd_dv: regulator-TLV71033 {
+>   		compatible = "regulator-gpio";
+>   		regulator-name = "tlv71033";
 
