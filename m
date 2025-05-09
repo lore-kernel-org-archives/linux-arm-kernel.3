@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7745C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 14:28:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3417C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 14:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IP6ztp/+QPDQJCJndD5+6IALkAYC7lh/LyjGCv4sMT4=; b=Lv+UyxRoJqW53B3bhu7dkHCm1O
-	1o1OCpik4FWDHeFqaSvXDb17SXwNlPt5CJ7F3czfpOjzG/X7UhB9t2gOUoy543kZ8VBob8ZxJFi6m
-	I3+xe0koT3pbdwztwi7OiYQIatmUkk7UHO7Qd7oMfLPgJ7i0Z0Zw/nQ3TPWz3DUH2yqfSlY8aCNAR
-	IDUAdyxfYZtW/buk4AZXIrGjbJ8IhgVxSg5+OVXLH3qfrN7rIVFHkEne77+frjpvZkaEKH35DF+r6
-	49aSmg31R9aK3IgtJx4Qt01ui4AfXTfuPvp/4Ef+4HW/wHCB3YHDCP67YtSx1LZ3+9e3STFBOg7tH
-	D6AOqzZw==;
+	bh=MuUUPGUNlLgL3YW2d98D/HjXl/LhdxFI7FznSu/zXVs=; b=XPrNzvdNop2gf/yfKlDD7I8T77
+	uu16fu4FA//j+uiGfB08ISIXgaYo1o+zgjU+FO/qpE4HLU2G2FJRRzCMGsf+Y+w+S6MBmbSD7DsWZ
+	jnX0LieorL/IGTkZ8H4Y95I3EWNee4rZOpOtQg1ON8uWAfEty84L/OFrllLsr9v86gk4oc4K3AbHF
+	pYiddRyYQCwpN5B+3TvMdhzx3/rS/VCTl/Uak2PNE/+rj6M1RFnSCRqJwg8CH/9mg3yDD3KpJVfbb
+	aU28elyCLzv9syp+X3TCQZlT7l021uKVuDL6hHwHvKLest4TjL6HlFs60bEs3alNQxBuay1JGc+Nn
+	7NGo/AdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDOhf-00000003wY8-3oVk;
-	Fri, 09 May 2025 14:27:55 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1uDOjb-00000003wsY-2Snb;
+	Fri, 09 May 2025 14:29:55 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDNbH-00000003iyl-0O8i
+	id 1uDNbJ-00000003iz6-0Wqs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 13:17:16 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43ced8c2eb7so14843435e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 06:17:14 -0700 (PDT)
+	Fri, 09 May 2025 13:17:18 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-43ce8f82e66so10037665e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 06:17:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746796633; x=1747401433; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1746796635; x=1747401435; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=IP6ztp/+QPDQJCJndD5+6IALkAYC7lh/LyjGCv4sMT4=;
-        b=mUpUl4lv5YBJNBGlAL5emdwjwEwuRFDPNPSFO83pJrNdWEtXYRizIXLwY0ZbH67Q33
-         sib0yz2yS461zhIONLh4/bpi7C9/JnXSCAkSYQgrGQSLHUGA2b47KKfT6G9J2yYUgzu4
-         xeixh3+7rOjpahrR+cZIVwZffkX6tNrIqrxZOHLanXgP1UU3uN7rWFR9N8/P4ieCFa3N
-         NQTeTksMxRtHD69xzCUgMFmEGzmuerXt+Y++6DxNxYE1L5z+6yDw9c27BoxAixk+ERZN
-         pbD9GqlzWAgm9ZEt+zGNyERMTkP5TsLHdN2QKJgVj5i/dVOVdujobgNwGyOnhQ2MExbh
-         Zmpw==
+        bh=MuUUPGUNlLgL3YW2d98D/HjXl/LhdxFI7FznSu/zXVs=;
+        b=IsgAifNuDkVAxVI4wI2IqlWkrH1k+x3TdIZ/zlHzr6fj3KY/nX0I6wJGEGf8c8SW9K
+         nejjya0jItenHqJnfi6lKu9LZSjMVqpphhOmyA6dttfdu4aBXjbf4Jr7ZlcKKmoF6o8Z
+         NbUEKH0agXbrdfqaCzK4MQkVQY/xkUrCLMZpLSTvqmcDokrEMad+wXKpnUPdwImM26OH
+         s//L3ZSCIxt1Vvq3j1Ne4Quxz6RD0H+QUjjPN3FuxjurQTphxmu3kQRmxShPntG7imI8
+         c37M7M8fbv1F9Hqx3oKdF+CtBGVAWttQUA0xDVtXyMBfbTk4KuwhXgquxNj8PNdNdZgk
+         8AAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746796633; x=1747401433;
+        d=1e100.net; s=20230601; t=1746796635; x=1747401435;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IP6ztp/+QPDQJCJndD5+6IALkAYC7lh/LyjGCv4sMT4=;
-        b=Oi56NCKidZEOGxwVSE12F+W/8BBjOGCk1XffQBEN5ZrG79RZbkpL72QXFH0bXFI4tc
-         lmOVF/ZgX/srR6c7a2TspacgGmcM3LO9jqM1pfYgiEDDYWQTtAq4sqejvU6z0WToPn3A
-         k98xYYWMp0QM1hIiYEKGkjHJWjHGsx6gJYw/uuLMUK/qCajIkgidyQgn990lNk2OcHXx
-         7Oo71qK1R4E7KweARCHVKnIeaoiDfJOG4q91kNQFQ05OvMC9AmrBeCTNCdJqyOIFKQaV
-         s8d+MRVgehRpdl97hApzaVMzGQziUcZOuf/ulhttIyox9AEImfGjA5tFOPAiBetUu5tc
-         1/QA==
-X-Forwarded-Encrypted: i=1; AJvYcCVt10MpyqwpMKprcNbGHqrUXmexy9JOCVF8iNLRF5r0FWA2vcqBMpNJWaMYyzBiSr5ndfXbESbR3dMaOSswl78y@lists.infradead.org
-X-Gm-Message-State: AOJu0YzuF7pAZmKutx+Yvp8VTF6bRD8Os09YebIDqyhjo7VmmXg/v+ew
-	Akm/ggFdCjvqgoNKJQ3N/dIx4RG4I05uOERKECSPfdT8XTEAoLIwbkrDhgQsUwSAzGpFO5CorLw
-	3Kv3/643Uqm4Ikes/aA==
-X-Google-Smtp-Source: AGHT+IHLhslOxv//qelYYDwLSjir28eVrMuxSKOMq29v/O516ODc7zyiSCdmfJB48+QjIQHo3PdA4xoToUMrdg/4
-X-Received: from wmbep11.prod.google.com ([2002:a05:600c:840b:b0:441:b3f0:c46])
+        bh=MuUUPGUNlLgL3YW2d98D/HjXl/LhdxFI7FznSu/zXVs=;
+        b=aGY3wPZTg9lYWlhRXNDodx07blbyUiE04/eYs1Kgz17558SsSBGI8ksWNjT28hrUUB
+         1YuWpM33bDbzIYgQi+yu0UGGtSDfgo2y6MWud+79vQ8zkImprR30mI8R4p5QHwzVrbqU
+         rk/gJyPsbhYVBYRw8YRZWGsxiGOb/sQ2rI/x3Erxbh+YwThEVghBLExFucmakX6aH1tH
+         aigM352UF42aAOmI0f6J+Lx81y0uwXdhO1XJaVNoB5pZGIbCrZQncXwKLOIVpu5Qk3/L
+         GXBBieYkZv+6yrNB53jGXZ51oT0e9Rbdim52Ou8OfTAICIeJ7N1YQf2B8PkMlWKcyRtR
+         NAmw==
+X-Forwarded-Encrypted: i=1; AJvYcCWzXvJgphemgmVzhC8zezrnbb+FN65x+WmUjS6JGoIBTzWFvmoQnMU7IrBMIiaApZt2d+EJTMUxDfwvk59q5A31@lists.infradead.org
+X-Gm-Message-State: AOJu0YwqO/vYFy51Jp4HNT64XZHiktFrO99ZVJqticFmz9xIX7qELW68
+	ok0MeH6ebVS710hLR3kXuG5HE0yc39TUmi244XISvUD6IYebDfmJSMJnMT3cTd/5u/gM/j3GyVy
+	Jym0kaa0RBOCkhxtZFA==
+X-Google-Smtp-Source: AGHT+IHr/LYMD6ZOv2XrHZsPTX950y7HhnTgMHB9cYGym0qmTnKEqfwNLxc6Z2FepzPjnmTq0Q2LQl1tmzVkxjk1
+X-Received: from wmbfl14.prod.google.com ([2002:a05:600c:b8e:b0:440:58dd:3795])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:1e02:b0:43c:eeee:b713 with SMTP id 5b1f17b1804b1-442d6db8d1bmr24441515e9.20.1746796633145;
- Fri, 09 May 2025 06:17:13 -0700 (PDT)
-Date: Fri,  9 May 2025 14:16:57 +0100
+ 2002:a05:600c:6488:b0:43c:fffc:786c with SMTP id 5b1f17b1804b1-442d6d6ace2mr32830755e9.19.1746796634979;
+ Fri, 09 May 2025 06:17:14 -0700 (PDT)
+Date: Fri,  9 May 2025 14:16:58 +0100
 In-Reply-To: <20250509131706.2336138-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20250509131706.2336138-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.49.0.1015.ga840276032-goog
-Message-ID: <20250509131706.2336138-2-vdonnefort@google.com>
-Subject: [PATCH v4 01/10] KVM: arm64: Handle huge mappings for np-guest CMOs
+Message-ID: <20250509131706.2336138-3-vdonnefort@google.com>
+Subject: [PATCH v4 02/10] KVM: arm64: Introduce for_each_hyp_page
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
 	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
@@ -76,9 +76,8 @@ Cc: qperret@google.com, linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_061715_128515_9F1BE035 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250509_061717_166225_65B1B4AE 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,53 +92,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-clean_dcache_guest_page() and invalidate_icache_guest_page() accept a
-size as an argument. But they also rely on fixmap, which can only map a
-single PAGE_SIZE page.
-
-With the upcoming stage-2 huge mappings for pKVM np-guests, those
-callbacks will get size > PAGE_SIZE. Loop the CMOs on a PAGE_SIZE basis
-until the whole range is done.
+Add a helper to iterate over the hypervisor vmemmap. This will be
+particularly handy with the introduction of huge mapping support
+for the np-guest stage-2.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+index eb0c2ebd1743..676a0a13c741 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+@@ -96,24 +96,24 @@ static inline struct hyp_page *hyp_phys_to_page(phys_addr_t phys)
+ #define hyp_page_to_virt(page)	__hyp_va(hyp_page_to_phys(page))
+ #define hyp_page_to_pool(page)	(((struct hyp_page *)page)->pool)
+ 
+-static inline enum pkvm_page_state get_host_state(phys_addr_t phys)
++static inline enum pkvm_page_state get_host_state(struct hyp_page *p)
+ {
+-	return (enum pkvm_page_state)hyp_phys_to_page(phys)->__host_state;
++	return (enum pkvm_page_state)p->__host_state;
+ }
+ 
+-static inline void set_host_state(phys_addr_t phys, enum pkvm_page_state state)
++static inline void set_host_state(struct hyp_page *p, enum pkvm_page_state state)
+ {
+-	hyp_phys_to_page(phys)->__host_state = state;
++	p->__host_state = state;
+ }
+ 
+-static inline enum pkvm_page_state get_hyp_state(phys_addr_t phys)
++static inline enum pkvm_page_state get_hyp_state(struct hyp_page *p)
+ {
+-	return hyp_phys_to_page(phys)->__hyp_state_comp ^ PKVM_PAGE_STATE_MASK;
++	return p->__hyp_state_comp ^ PKVM_PAGE_STATE_MASK;
+ }
+ 
+-static inline void set_hyp_state(phys_addr_t phys, enum pkvm_page_state state)
++static inline void set_hyp_state(struct hyp_page *p, enum pkvm_page_state state)
+ {
+-	hyp_phys_to_page(phys)->__hyp_state_comp = state ^ PKVM_PAGE_STATE_MASK;
++	p->__hyp_state_comp = state ^ PKVM_PAGE_STATE_MASK;
+ }
+ 
+ /*
 diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 31173c694695..23544928a637 100644
+index 23544928a637..4d269210dae0 100644
 --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
 +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -219,14 +219,28 @@ static void guest_s2_put_page(void *addr)
- 
- static void clean_dcache_guest_page(void *va, size_t size)
- {
--	__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)), size);
--	hyp_fixmap_unmap();
-+	WARN_ON(!PAGE_ALIGNED(size));
-+
-+	while (size) {
-+		__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
-+					  PAGE_SIZE);
-+		hyp_fixmap_unmap();
-+		va += PAGE_SIZE;
-+		size -= PAGE_SIZE;
-+	}
+@@ -60,6 +60,9 @@ static void hyp_unlock_component(void)
+ 	hyp_spin_unlock(&pkvm_pgd_lock);
  }
  
- static void invalidate_icache_guest_page(void *va, size_t size)
- {
--	__invalidate_icache_guest_page(hyp_fixmap_map(__hyp_pa(va)), size);
--	hyp_fixmap_unmap();
-+	WARN_ON(!PAGE_ALIGNED(size));
++#define for_each_hyp_page(start, size, page)   \
++	for (page = hyp_phys_to_page(start); page < hyp_phys_to_page((start) + (size)); page++)
 +
-+	while (size) {
-+		__invalidate_icache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
-+					       PAGE_SIZE);
-+		hyp_fixmap_unmap();
-+		va += PAGE_SIZE;
-+		size -= PAGE_SIZE;
-+	}
+ static void *host_s2_zalloc_pages_exact(size_t size)
+ {
+ 	void *addr = hyp_alloc_pages(&host_s2_pool, get_order(size));
+@@ -481,7 +484,8 @@ static int host_stage2_adjust_range(u64 addr, struct kvm_mem_range *range)
+ 		return -EAGAIN;
+ 
+ 	if (pte) {
+-		WARN_ON(addr_is_memory(addr) && get_host_state(addr) != PKVM_NOPAGE);
++		WARN_ON(addr_is_memory(addr) &&
++			get_host_state(hyp_phys_to_page(addr)) != PKVM_NOPAGE);
+ 		return -EPERM;
+ 	}
+ 
+@@ -507,10 +511,10 @@ int host_stage2_idmap_locked(phys_addr_t addr, u64 size,
+ 
+ static void __host_update_page_state(phys_addr_t addr, u64 size, enum pkvm_page_state state)
+ {
+-	phys_addr_t end = addr + size;
++	struct hyp_page *page;
+ 
+-	for (; addr < end; addr += PAGE_SIZE)
+-		set_host_state(addr, state);
++	for_each_hyp_page(addr, size, page)
++		set_host_state(page, state);
  }
  
- int kvm_guest_prepare_stage2(struct pkvm_hyp_vm *vm, void *pgd)
+ int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
+@@ -632,16 +636,17 @@ static int check_page_state_range(struct kvm_pgtable *pgt, u64 addr, u64 size,
+ static int __host_check_page_state_range(u64 addr, u64 size,
+ 					 enum pkvm_page_state state)
+ {
+-	u64 end = addr + size;
++	struct hyp_page *page;
+ 	int ret;
+ 
+-	ret = check_range_allowed_memory(addr, end);
++	ret = check_range_allowed_memory(addr, addr + size);
+ 	if (ret)
+ 		return ret;
+ 
+ 	hyp_assert_lock_held(&host_mmu.lock);
+-	for (; addr < end; addr += PAGE_SIZE) {
+-		if (get_host_state(addr) != state)
++
++	for_each_hyp_page(addr, size, page) {
++		if (get_host_state(page) != state)
+ 			return -EPERM;
+ 	}
+ 
+@@ -651,7 +656,7 @@ static int __host_check_page_state_range(u64 addr, u64 size,
+ static int __host_set_page_state_range(u64 addr, u64 size,
+ 				       enum pkvm_page_state state)
+ {
+-	if (get_host_state(addr) == PKVM_NOPAGE) {
++	if (get_host_state(hyp_phys_to_page(addr)) == PKVM_NOPAGE) {
+ 		int ret = host_stage2_idmap_locked(addr, size, PKVM_HOST_MEM_PROT);
+ 
+ 		if (ret)
+@@ -665,18 +670,18 @@ static int __host_set_page_state_range(u64 addr, u64 size,
+ 
+ static void __hyp_set_page_state_range(phys_addr_t phys, u64 size, enum pkvm_page_state state)
+ {
+-	phys_addr_t end = phys + size;
++	struct hyp_page *page;
+ 
+-	for (; phys < end; phys += PAGE_SIZE)
+-		set_hyp_state(phys, state);
++	for_each_hyp_page(phys, size, page)
++		set_hyp_state(page, state);
+ }
+ 
+ static int __hyp_check_page_state_range(phys_addr_t phys, u64 size, enum pkvm_page_state state)
+ {
+-	phys_addr_t end = phys + size;
++	struct hyp_page *page;
+ 
+-	for (; phys < end; phys += PAGE_SIZE) {
+-		if (get_hyp_state(phys) != state)
++	for_each_hyp_page(phys, size, page) {
++		if (get_hyp_state(page) != state)
+ 			return -EPERM;
+ 	}
+ 
+@@ -927,7 +932,7 @@ int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu,
+ 		goto unlock;
+ 
+ 	page = hyp_phys_to_page(phys);
+-	switch (get_host_state(phys)) {
++	switch (get_host_state(page)) {
+ 	case PKVM_PAGE_OWNED:
+ 		WARN_ON(__host_set_page_state_range(phys, PAGE_SIZE, PKVM_PAGE_SHARED_OWNED));
+ 		break;
+@@ -979,9 +984,9 @@ static int __check_host_shared_guest(struct pkvm_hyp_vm *vm, u64 *__phys, u64 ip
+ 	if (WARN_ON(ret))
+ 		return ret;
+ 
+-	if (get_host_state(phys) != PKVM_PAGE_SHARED_OWNED)
+-		return -EPERM;
+ 	page = hyp_phys_to_page(phys);
++	if (get_host_state(page) != PKVM_PAGE_SHARED_OWNED)
++		return -EPERM;
+ 	if (WARN_ON(!page->host_share_guest_count))
+ 		return -EINVAL;
+ 
+diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+index 6d513a4b3763..c19860fc8183 100644
+--- a/arch/arm64/kvm/hyp/nvhe/setup.c
++++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+@@ -190,6 +190,7 @@ static int fix_host_ownership_walker(const struct kvm_pgtable_visit_ctx *ctx,
+ 				     enum kvm_pgtable_walk_flags visit)
+ {
+ 	enum pkvm_page_state state;
++	struct hyp_page *page;
+ 	phys_addr_t phys;
+ 
+ 	if (!kvm_pte_valid(ctx->old))
+@@ -202,6 +203,8 @@ static int fix_host_ownership_walker(const struct kvm_pgtable_visit_ctx *ctx,
+ 	if (!addr_is_memory(phys))
+ 		return -EINVAL;
+ 
++	page = hyp_phys_to_page(phys);
++
+ 	/*
+ 	 * Adjust the host stage-2 mappings to match the ownership attributes
+ 	 * configured in the hypervisor stage-1, and make sure to propagate them
+@@ -210,15 +213,15 @@ static int fix_host_ownership_walker(const struct kvm_pgtable_visit_ctx *ctx,
+ 	state = pkvm_getstate(kvm_pgtable_hyp_pte_prot(ctx->old));
+ 	switch (state) {
+ 	case PKVM_PAGE_OWNED:
+-		set_hyp_state(phys, PKVM_PAGE_OWNED);
++		set_hyp_state(page, PKVM_PAGE_OWNED);
+ 		return host_stage2_set_owner_locked(phys, PAGE_SIZE, PKVM_ID_HYP);
+ 	case PKVM_PAGE_SHARED_OWNED:
+-		set_hyp_state(phys, PKVM_PAGE_SHARED_OWNED);
+-		set_host_state(phys, PKVM_PAGE_SHARED_BORROWED);
++		set_hyp_state(page, PKVM_PAGE_SHARED_OWNED);
++		set_host_state(page, PKVM_PAGE_SHARED_BORROWED);
+ 		break;
+ 	case PKVM_PAGE_SHARED_BORROWED:
+-		set_hyp_state(phys, PKVM_PAGE_SHARED_BORROWED);
+-		set_host_state(phys, PKVM_PAGE_SHARED_OWNED);
++		set_hyp_state(page, PKVM_PAGE_SHARED_BORROWED);
++		set_host_state(page, PKVM_PAGE_SHARED_OWNED);
+ 		break;
+ 	default:
+ 		return -EINVAL;
 -- 
 2.49.0.1015.ga840276032-goog
 
