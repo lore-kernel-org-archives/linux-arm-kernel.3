@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1995C3ABC5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 00:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA2B9C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 00:48:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ySaqj0MBnJWO5HBo6iOXoFoKrYf9nTkpAklg+s0aGjs=; b=IxdXToxKKIitWJJFf68vKjELS6
-	agrXd9UjdyG1sJsJ0eokXFSZu/gbzE/eWRv1MEu4PguKtw7OaM3Z/aptFrXpoSzshWuj60vp5MjBA
-	UsP7oMM4hfTh0Vij8XvdXEM3GIdk32m87enLaKA00rUlGrBH4A0mISiwgFMHDsirIpda7HNjVPQhe
-	sbbmubVmQ6dNROJ5exHG54lZlSQWppoUQeThtHQqhnpmxpdTN5SREhGm+d7TfzIfx0MgJxdS+9jw8
-	Oy2bZBOKWASQc9Ceyi4+r84qsaSo6fj5EKFU/CUkE6rE12R2hpHdX7mccKCJ+QvQU4rfG3QjWq4/N
-	tMIt/0PQ==;
+	bh=FiBmHdTMmp8YyrLARKGPWsvOYKKYUbi7nPyCcwBVbWI=; b=TiMbtM3T+RwHDYaemvs1J9pGPn
+	oqsKqEpOgkKWA1zYzUgQH8D4kK/UQoKyqm5iCXilPYXxcO3AtjybdNilf57g7kCWuJQaU6jaJFHqy
+	Wd5OSMiq4840Z82jtyqJGsGuEIEZqDCd1qdOhY2bUJ0q2qGsohHiAndvDoFI4nrOrJd9RDsiw5xUZ
+	/gWQMAQ1g1XoDJCheXyO4jA2ib5EDYn42IuFNnzpkMhhZb/WcV9ZJrKiOP7+vtFWw4H8a/TpysyAY
+	OaZ8socr9Woo7oSioEJYHfq0m+b+6LDaJG/74TU2AU4y5LQ+36b1qL1aqj1ib0MOOMAhgXUw8d7t/
+	VPjbtWZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDBsk-000000027na-2akq;
-	Fri, 09 May 2025 00:46:30 +0000
+	id 1uDBuh-0000000287z-0hAh;
+	Fri, 09 May 2025 00:48:31 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDBov-000000026kX-1NcI;
-	Fri, 09 May 2025 00:42:34 +0000
+	id 1uDBoz-000000026lV-1O0K;
+	Fri, 09 May 2025 00:42:39 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 6FA0A234ED;
-	Fri,  9 May 2025 02:42:30 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id 19AE12594D;
+	Fri,  9 May 2025 02:42:36 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id GK8D_ypDRo6u; Fri,  9 May 2025 02:42:29 +0200 (CEST)
+ id AY5mId9J0Whh; Fri,  9 May 2025 02:42:35 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1746751349; bh=R+IC1SCvxx356jqj5bqy53vEVEdZC6a8kUA28zCXPGQ=;
+	t=1746751355; bh=5F0Ebypa56dkdq3mFfmHvCOR5W4vuwc/3YFGnZ8IL5Q=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=HFn+2qo+yH+H+mZfogdOhoocRulrzyRxQw0Ut55j9oNYtGxtT5NpHjSGPwkqUytlB
-	 /fCh3x8M/nEoyxxVp5P16mSEF6fmvoEmJ/RPk5UMmWP9oLqWbQByiw8WRdseRIe8lQ
-	 mkkLZz+Gd4u+tgT/o2xuHGtVLOvv32V46JgdlkhPxUfvknEEAiMQTerZ58xqjjjG3n
-	 GvnEuiQEq05j0Vk2IhxrV7GCV1fYkKgSEbAhJVeCmHMDkcYDQ1gWTBInUl3zQTyumF
-	 PbIoMvmCPdchByM07wpl+uUq9S3LUaHVZbFPYCQJKYB0uPr+VwPE/zKVnfbBNJjc4k
-	 SNf04Oz/rcnLA==
+	b=jjyc89RXOeTWRB0jsoaTS6cfMTSfCBdbU0kicXZBpnc37RyDOGmH8CqGsYrZ1lFsp
+	 hGh2HyiPEtGt98DmRJX0DYEx6pNbICSPnYh7YTwjxQde3nlviarjCuDUuRpRfV2Z1M
+	 soWc/kKfu2pfaH3U6vc++VmNdI/QVB5OG+XRN2pQtv5itGufk8UJ0iKpHYYSfmA80g
+	 +rRYBSi4giEJsd45AEwEYz5SAz9p4PGDZCzmFnb+JdxL3h+06uF0lY17lUq3zTQfa3
+	 MC5/dPAR3fYOnRe+d3JuykNoImMK6NU7TIl848iz9w4TvOKJDxOFXP59hAnAMJTJ0N
+	 SJn2Uwlr0LyoQ==
 From: Yao Zi <ziyao@disroot.org>
 To: Vinod Koul <vkoul@kernel.org>,
 	Kishon Vijay Abraham I <kishon@kernel.org>,
@@ -63,16 +63,16 @@ Cc: linux-phy@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v2 1/5] dt-bindings: soc: rockchip: Add RK3528 pipe-phy GRF syscon
-Date: Fri,  9 May 2025 00:41:18 +0000
-Message-ID: <20250509004121.36058-3-ziyao@disroot.org>
+Subject: [PATCH v2 2/5] dt-bindings: phy: rockchip: naneng-combphy: Add RK3528 variant
+Date: Fri,  9 May 2025 00:41:19 +0000
+Message-ID: <20250509004121.36058-4-ziyao@disroot.org>
 In-Reply-To: <20250509004121.36058-2-ziyao@disroot.org>
 References: <20250509004121.36058-2-ziyao@disroot.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_174233_500019_BED12529 
-X-CRM114-Status: UNSURE (   6.83  )
+X-CRM114-CacheID: sfid-20250508_174237_497184_2C54C90B 
+X-CRM114-Status: UNSURE (   8.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,27 +88,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compatible string for pipe-phy GRF found on RK3528 SoC, which
-controls misc settings for the integrated naneng-combphy.
+Rockchip RK3528 ships one naneng-combphy which operates in either PCIe
+or USB 3 mode. Document its compatible string.
 
 Signed-off-by: Yao Zi <ziyao@disroot.org>
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 ---
- Documentation/devicetree/bindings/soc/rockchip/grf.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ .../devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-index 2f61c1b95fea..7e9321999435 100644
---- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-+++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-@@ -16,6 +16,7 @@ properties:
-           - enum:
-               - rockchip,rk3288-sgrf
-               - rockchip,rk3528-ioc-grf
-+              - rockchip,rk3528-pipe-phy-grf
-               - rockchip,rk3528-vo-grf
-               - rockchip,rk3528-vpu-grf
-               - rockchip,rk3566-pipe-grf
+diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
+index 888e6b2aac5a..bd064754e537 100644
+--- a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
++++ b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
+@@ -12,6 +12,7 @@ maintainers:
+ properties:
+   compatible:
+     enum:
++      - rockchip,rk3528-naneng-combphy
+       - rockchip,rk3562-naneng-combphy
+       - rockchip,rk3568-naneng-combphy
+       - rockchip,rk3576-naneng-combphy
+@@ -102,7 +103,9 @@ allOf:
+       properties:
+         compatible:
+           contains:
+-            const: rockchip,rk3588-naneng-combphy
++            enum:
++             - rockchip,rk3528-naneng-combphy
++             - rockchip,rk3588-naneng-combphy
+     then:
+       properties:
+         resets:
 -- 
 2.49.0
 
