@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 056FEC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 22:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24BBBC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 22:18:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XmlVNcXegoCyFJPDK9bW+2Ad15Eh11zqjCkYaIEBhD4=; b=BbbgTr9I97QeSyOM42ELkvk5Fu
-	32PH9KvAIp6EEgM3NF5tiNgMZOtB4FuxDO7OOxEr5l9bw/mvI9r7dzzTuoGUWM5857d9fAN9Eh1/b
-	Ft8besc92KbEX93u7VnEkwLcbRWizaAOdLU36+adI/YhIJYBYdaLqxjq+9NiRN4QSEXW4x5+WL1+C
-	GPULjbyMC+PtXKGm0Q22qybw6OwF3hzpyqm/w6R4dg8aCFzlwL4h68ek885OG0jKFwaVKuxqOMJHD
-	3tMYqzWpRbfMrd7Om+kK04OoEjyMtCIgzEbcXae6bxZpVuj/Dj0Jpkj6kwXRkzTU7uPjFkcK8I4CE
-	Hl66DZ5g==;
+	bh=UnckWju8lqyJaXWWBvr6+4fcyqgUDnUnHX34/f1XfVs=; b=gVlE6QNp95oinp0dvInHJ0zwgG
+	QwZYUxm2iO1ZNa/c/oI1yzPya8iLrxUR+Q3LtzmCinaMAivdglWyteUUKDYXKPJkWPPb0zu1P/e7z
+	K1HyVkkfj2xLStg9xEWGv3idkCXYiOJQkj0aBGQR4lGcYtsQCNZVYSVg5kDqmUh3ysmqriq7Eq2Lp
+	8jEyfYn2UuEPTY1fcZK0DWFOYyENR5GUNVxNbtWQ0+90FYWHU+omWDpPtqJDFhbWubrULG/pvwsAd
+	a2Am3+yj26NgXr8Efom0BWNqez1EUIue7LGiDbqDSbsuqvuLOFWPsK09o63+JD7UrDgSpki2tTy8i
+	0AhuzH/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDW14-000000053Gz-2G7d;
-	Fri, 09 May 2025 22:16:26 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1uDW34-000000053Oh-0vgo;
+	Fri, 09 May 2025 22:18:30 +0000
+Received: from mout.gmx.net ([212.227.17.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDVx1-000000052ZW-1OqU
+	id 1uDVx2-000000052Zn-1mhV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 22:12:17 +0000
+	Fri, 09 May 2025 22:12:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
 	s=s31663417; t=1746828724; x=1747433524; i=wahrenst@gmx.net;
-	bh=XmlVNcXegoCyFJPDK9bW+2Ad15Eh11zqjCkYaIEBhD4=;
+	bh=UnckWju8lqyJaXWWBvr6+4fcyqgUDnUnHX34/f1XfVs=;
 	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:In-Reply-To:
 	 References:MIME-Version:Content-Transfer-Encoding:cc:
 	 content-transfer-encoding:content-type:date:from:message-id:
 	 mime-version:reply-to:subject:to;
-	b=bCXiWujKmhabhytbqFbITloCHFLI2GupO7JP6odMLcNVWNC5anXNUKvhVFDGbqNN
-	 jgLxEH0GJaVL5QNUN0+iHgZQpus7hhj6lPPhK8JF+e/rYT5Bf0IabfS75grMq/l5e
-	 bCmL4XGpzuu9ZrykKjQaJheZSRuW73HWLAJcOZpJBimu5W5M/S5yW7UhqLTobY+Bo
-	 OsZ+A0TS87O+bXK1hwW3zPnJlvvS6jf2qZjbPyNthBnTOEd0kYZQ5AC1l4Ox7Bzx9
-	 LldD+Un8s/8G/T3SpPUvZnCc0BZq66PHzHaG0VayFUjc5qQ1x55+F4NyTRSIrvzxf
-	 c9sXWKa+wRvM28SAOg==
+	b=JMjq09XqdxU1CY5bkH5y8wVyaawiJy68fwzBav7T4CHWHIlMj8V/bPZwuv1S9sXy
+	 6tUOVfuuT9HkoEiypWo/b9hNApjz4RZ2ndVFKV94VgXcSKkrSOqqHHn+DUlv4+l1F
+	 oQfeDIh6ww2skcDM6xeakv1o5mMbAMnAB8Syj7P4tKN75xNhq0UbQt3m+H7J/uYpj
+	 LHWwbttZn53uuwMcFWPnpsP90ABig1MGSGr2+qbDIAqhZjrbT+QxZi0TIG/CQehO9
+	 V/zC8flRIx0wkIbvaK7kedpjActU+mDYMtRFYdcKttTCHi+H8kyk/KUzBVjjtA0j7
+	 Mkd7noW3NFTPqA0Ykw==
 X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
 Received: from stefanw-SCHENKER ([91.41.216.208]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MlNp7-1usZiw37i1-00ae9m; Sat, 10
- May 2025 00:12:03 +0200
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MjS9C-1usrEs0LcY-00ZooD; Sat, 10
+ May 2025 00:12:04 +0200
 From: Stefan Wahren <wahrenst@gmx.net>
 To: Florian Fainelli <florian.fainelli@broadcom.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
@@ -55,67 +55,68 @@ Cc: Phil Elwell <phil@raspberrypi.com>,
 	kernel-list@raspberrypi.com,
 	linux-staging@lists.linux.dev,
 	Stefan Wahren <wahrenst@gmx.net>
-Subject: [PATCH RFC 1/2] staging: vchiq_arm: Improve inline documentation
-Date: Sat, 10 May 2025 00:11:51 +0200
-Message-Id: <20250509221152.13564-2-wahrenst@gmx.net>
+Subject: [PATCH RFC 2/2] staging: vc04_services: Document VCHIQ character device
+Date: Sat, 10 May 2025 00:11:52 +0200
+Message-Id: <20250509221152.13564-3-wahrenst@gmx.net>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250509221152.13564-1-wahrenst@gmx.net>
 References: <20250509221152.13564-1-wahrenst@gmx.net>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:3xU0XTzTbxRJxZX7Nd931H5AvwgGk/EYUh0iZFx0SVAsx9spKNp
- bZDrPuWgzYT9TjlRn7BJoZxDsezuAvZZBSwBpqFyJXxu+KV6skXHR2fqihioPBg3CJ1/rMd
- e4PDaWdlb29GvT8cRF8wPFobXbOE9ZQCR3Rrhmnr8YylzoYqrB+sxeaE2T2jDBjJWUbf3vE
- oCPnwD3608UVWZIdVFZ4g==
-UI-OutboundReport: notjunk:1;M01:P0:VHQlkeJPC/4=;C0f78i6huBjJ8S/FlUuTffFyqzT
- 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
+X-Provags-ID: V03:K1:P1fnhqreWx9tKc758g10vhemCqoJtXEMpVVDL44RYpT2uRrNrTX
+ aFK6nx+Nx6xCUj7RFcTQNzvdWCqO6L+7xE8MHKciasSjmhU/f9A5XR7dTpvQBCiI9CWnNTf
+ wdiaOjUGgV8rwbWaXWIJfNvOVosqB5Sf4rySwLCHowHtrjv9ckLkeJ42NRUpjZ8YLToE2AH
+ b8sWDtzm5lNt3F5etNJXQ==
+UI-OutboundReport: notjunk:1;M01:P0:Fati7DfFS6Q=;4gJ9Ipqqgci+YkawL8edP6pgTVe
+ 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
+ k8/5qmIlV+tGB5Hm
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_151215_703846_EEED7D02 
-X-CRM114-Status: GOOD (  20.20  )
+X-CRM114-CacheID: sfid-20250509_151216_773522_09448C95 
+X-CRM114-Status: GOOD (  16.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,145 +133,114 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Phil Elwell <phil@raspberrypi.com>
 
-Add more comments to the VCHIQ driver, which provides some
-high-level descriptions how things work.
+Document the IOCTLs for the VCHIQ character device, which provide
+a userspace interface to access the VideoCore VPU of the
+Raspberry Pi. Several ARM side libraries make use of it like EGL,
+MMAL and OpenMAX.
 
 Link: https://github.com/raspberrypi/linux/pull/6801
 Signed-off-by: Phil Elwell <phil@raspberrypi.com>
 [wahrenst@gmx.net: Rewrite commit log]
 Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
 =2D--
- .../interface/vchiq_arm/vchiq_arm.c           |  8 ++-
- .../interface/vchiq_arm/vchiq_core.h          | 56 ++++++++++++++++++-
- 2 files changed, 60 insertions(+), 4 deletions(-)
+ .../vc04_services/Documentation/vchiq-cdev    | 87 +++++++++++++++++++
+ 1 file changed, 87 insertions(+)
+ create mode 100644 drivers/staging/vc04_services/Documentation/vchiq-cdev
 
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c=
- b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-index 5dbf8d53db09..40c540ead66b 100644
-=2D-- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-@@ -73,7 +73,13 @@ static const struct vchiq_platform_info bcm2836_info =
-=3D {
- };
-=20
- struct vchiq_arm_state {
--	/* Keepalive-related data */
-+	/*
-+	 * Keepalive-related data
-+	 *
-+	 * The keepalive mechanism was retro-fitted to VCHIQ to allow active
-+	 * services to prevent the system from suspending.
-+	 * This feature is not used on Raspberry Pi devices.
-+	 */
- 	struct task_struct *ka_thread;
- 	struct completion ka_evt;
- 	atomic_t ka_use_count;
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.=
-h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-index 3b5c0618e567..3dd95e5e6557 100644
-=2D-- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-@@ -171,6 +171,21 @@ struct vchiq_slot_info {
- 	short release_count;
- };
-=20
-+/*
-+ * VCHIQ is a reliable connection-oriented datagram protocol.
-+ *
-+ * A VCHIQ service is equivalent to a TCP connection, except:
-+ * + FOURCCs are used for the rendezvous, and port numbers are assigned a=
-t the
-+ *   time the connection is established.
-+ * + There is less of a distinction between server and client sockets, th=
-e only
-+ *   difference being which end makes the first move.
-+ * + For a multi-client server, the server creates new "listening" servic=
-es as
-+ *   the existing one becomes connected - there is no need to specify the
-+ *   maximum number of clients up front.
-+ * + Data transfer is reliable but packetized (messages have defined ends=
-).
-+ * + Messages can be either short (capable of fitting in a slot) and in-b=
-and,
-+ *   or copied between external buffers (bulk transfers).
-+ */
- struct vchiq_service {
- 	struct vchiq_service_base base;
- 	unsigned int handle;
-@@ -286,6 +301,23 @@ struct vchiq_shared_state {
- 	int debug[DEBUG_MAX];
- };
-=20
-+/*
-+ * vchiq_slot_zero describes the memory shared between the ARM host and t=
-he
-+ * VideoCore VPU. The "master" and "slave" states are owned by the respec=
-tive
-+ * sides but visible to the other; the slots are shared, and the remainin=
-g
-+ * fields are read-only.
-+ *
-+ * In the configuration used by this implementation, the memory is alloca=
-ted
-+ * by the host, the VPU is the master (the side which controls the DMA fo=
-r bulk
-+ * transfers), and the host is the slave.
-+ *
-+ * The ownership of slots changes with use:
-+ * + When empty they are owned by the sender.
-+ * + When partially filled they are shared with the receiver.
-+ * + When completely full they are owned by the receiver.
-+ * + When the receiver has finished processing the contents, they are rec=
-ycled
-+ *   back to the sender.
-+ */
- struct vchiq_slot_zero {
- 	int magic;
- 	short version;
-@@ -300,6 +332,10 @@ struct vchiq_slot_zero {
- 	struct vchiq_slot_info slots[VCHIQ_MAX_SLOTS];
- };
-=20
-+/*
-+ * This is the private runtime state used by each side. The same structur=
-e was
-+ * originally used by both sides, but implementations have since diverged=
-.
-+ */
- struct vchiq_state {
- 	struct device *dev;
- 	int id;
-@@ -321,13 +357,27 @@ struct vchiq_state {
- 	struct mutex mutex;
- 	struct vchiq_instance **instance;
-=20
--	/* Processes incoming messages */
-+	/* Processes all incoming messages which aren't synchronous */
- 	struct task_struct *slot_handler_thread;
-=20
--	/* Processes recycled slots */
-+	/*
-+	 * Slots which have been fully processed and released by the (peer)
-+	 * receiver are added to the receiver queue, which is asynchronously
-+	 * processed by the recycle thread.
-+	 */
- 	struct task_struct *recycle_thread;
-=20
--	/* Processes synchronous messages */
-+	/*
-+	 * Processes incoming synchronous messages
-+	 *
-+	 * The synchronous message channel is shared between all synchronous
-+	 * services, and provides a way for urgent messages to bypass
-+	 * potentially long queues of asynchronous messages in the normal slots.
-+	 *
-+	 * There can be only one outstanding synchronous message in
-+	 * each direction, and as a precious shared resource synchronous
-+	 * services should be used sparingly.
-+	 */
- 	struct task_struct *sync_thread;
-=20
- 	/* Local implementation of the trigger remote event */
+diff --git a/drivers/staging/vc04_services/Documentation/vchiq-cdev b/driv=
+ers/staging/vc04_services/Documentation/vchiq-cdev
+new file mode 100644
+index 000000000000..99ab2567643e
+=2D-- /dev/null
++++ b/drivers/staging/vc04_services/Documentation/vchiq-cdev
+@@ -0,0 +1,87 @@
++What:		/dev/vchiq
++Date:		October 2016
++KernelVersion:	4.9
++Contact:	kernel-list@raspberrypi.com
++Description:
++		The ioctl interface for the VCHIQ character device.
++		Following actions are supported:
++
++		* VCHIQ_IOC_CONNECT:
++		  Establish/confirm the link to the VPU peer.
++
++		* VCHIQ_IOC_SHUTDOWN:
++		  Close the link to the VPU peer, removing all services.
++
++		* VCHIQ_IOC_CREATE_SERVICE:
++		  Create a VCHIQ service with the given FOURCC, registering a
++		  callback. If is_open is true, attempt to connect to the same
++		  FOURCC on the peer. If successful, populates the handle field
++		  in the parameter structure, otherwise returns an error.
++
++		* VCHIQ_IOC_REMOVE_SERVICE:
++		  Close and remove the service indicated by the provided
++		  handle.
++
++		* VCHIQ_IOC_QUEUE_MESSAGE:
++		  Adds the given in-band message for the indicated server to
++		  the queue.
++
++		* VCHIQ_IOC_QUEUE_BULK_TRANSMIT:
++		  Adds the given out-of-band bulk message for the indicated
++		  service to the bulk queue.
++
++		* VCHIQ_IOC_QUEUE_BULK_RECEIVE:
++		  Adds the given out-of-band bulk buffer for data from the
++		  indicated service to the bulk queue.
++
++		* VCHIQ_IOC_AWAIT_COMPLETION:
++		  The in-kernel API allows direct callbacks to client code.
++		  Userspace clients rely on the equivalent of an RPC, with the
++		  parameters for each callback marshalled into structures
++		  called completions. This method blocks waiting for
++		  completions to process.
++
++		* VCHIQ_IOC_DEQUEUE_MESSAGE:
++		  Copy the next message for the indicated service, releasing
++		  the space that was occupied. Optionally blocks if no message
++		  is waiting.
++
++		* VCHIQ_IOC_GET_CLIENT_ID:
++		  Retrieve an identifier for the client. This is intended to
++		  allow instances of multiple services to be grouped. For
++		  services provided by Linux the client ID is the pid. VPU
++		  services have a client ID of 1.
++
++		* VCHIQ_IOC_GET_CONFIG:
++		  Returns various properties of the VCHIQ configuration, such
++		  as the maximum message size and version numbers.
++
++		* VCHIQ_IOC_CLOSE_SERVICE:
++		  Cause a service to disconnect from the peer, returning it to
++		  the closed/listening state, i.e. REMOVE_SERVICE but without
++		  destroying the service.
++
++		* VCHIQ_IOC_USE_SERVICE:
++		* VCHIQ_IOC_RELEASE_SERVICE:
++		  Use to mark the start and end of activity on a service. An
++		  active service is intended to prevent the system from
++		  suspending. N.B. Raspberry Pi devices that run VCHIQ do not
++		  implement suspend/resume.
++
++		* VCHIQ_IOC_SET_SERVICE_OPTION:
++		  Sets a number of per-service options: AUTOCLOSE, SLOT_QUOTA,
++		  MESSAGE_QUOTA, SYNCHRONOUS mode and TRACE.
++
++		* VCHIQ_IOC_DUMP_PHYS_MEM:
++		  No longer implemented.
++
++		* VCHIQ_IOC_LIB_VERSION:
++		  Notify the kernel of the version of the userspace VCHIQ
++		  library being used. Currently used to determine if the
++		  CLOSE_DELIVERED ioctl is used, and therefore whether to
++		  wait for the extra handshake on a close.
++
++		* VCHIQ_IOC_CLOSE_DELIVERED:
++		  Signal that the userspace code has finished processing the
++		  close. This additional handshake avoids a race on service
++		  closure.
 =2D-=20
 2.34.1
 
