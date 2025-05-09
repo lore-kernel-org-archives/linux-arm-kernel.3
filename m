@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 701C1C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 08:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFB7EC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 08:31:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=w+ibgMyQRyH11M+iZhWw35rszc+MBNo4OIqbcLr+uIQ=; b=vRW9wdWfzRjic6KgVa7IPxS+e+
-	nx9h1Ew29WppZTph5PfAbvI2vxcGCy9Jx8qTR/EyGR5tfUXRp+keCktY4osvOhK8K/mCmdL+PSoT4
-	CqYdLNyvDsc7QmnxMCx4bzlgr7qjpvBF7rdvhVKUDdYqLjsq5wuRAxP6DFfbrGhMbwwzjaU7mXtTP
-	dHz3RCNLVwj/9aT8k9gwJpslD67i5hzceItwRDgZcSyA5R7BMJLzjON5+zLg4fkn1ve+QyLav6xHG
-	0a2q5RTDpZmNuHBHYgiHZw1+axpMDVw48qap5EIMwH/7k6H5EGom0+rdXF0e3EWMETwX86zPV/YGb
-	QRcP9uww==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z0P3Xhjo1z5/h5CawYyKXnfUd/6J/Zf3SpOYknI7iSk=; b=Q880EtK997xNS3l1lsOiz/zS90
+	qNrxjwjK5VCozvOpPe0YfWerloirYx/lqA9dBPmGW+FhrAianj5GJ+d/Uk0irSrDS8mMCemddP6qI
+	lvFF8pvBEN2SzfnaTbSXW3BTlNKZnS5aGa3q1eufd6eVxCSoZirvS0DQjsHNqCKQo/A4nirT4uIpq
+	7oRxpe/W9MjNwforFNuLrcXKf8G4QY0UJmsxdyt6y4CqmDBpp9EFR9Z5Jh15RbJ/KeJODOHI14yr9
+	GPLEQjUf2XwXi4y8uSjN1nM5UHNLDtp9FMk93SM0Qn4mZARmGSfOcw46uqbKxISeoB5xrJ1tT8i63
+	BGiiJtzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDJ6z-00000002vgx-1Qc0;
-	Fri, 09 May 2025 08:29:41 +0000
+	id 1uDJ8u-00000002vpy-1Nac;
+	Fri, 09 May 2025 08:31:40 +0000
 Received: from [58.32.228.46] (helo=mail-sh.amlogic.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDITQ-00000002oM6-1SG0;
-	Fri, 09 May 2025 07:48:50 +0000
+	id 1uDITS-00000002oM6-3KHQ;
+	Fri, 09 May 2025 07:48:51 +0000
 Received: from rd03-sz.software.amlogic (10.28.11.121) by mail-sh.amlogic.com
  (10.18.11.5) with Microsoft SMTP Server id 15.1.2507.39; Fri, 9 May 2025
- 15:48:41 +0800
+ 15:48:42 +0800
 From: Jian Hu <jian.hu@amlogic.com>
 To: Jerome Brunet <jbrunet@baylibre.com>, Xianwei Zhao
 	<xianwei.zhao@amlogic.com>, Chuan Liu <chuan.liu@amlogic.com>, Neil Armstrong
@@ -41,18 +41,19 @@ CC: Jian Hu <jian.hu@amlogic.com>, devicetree <devicetree@vger.kernel.org>,
 	<linux-amlogic@lists.infradead.org>, linux-kernel
 	<linux-kernel@vger.kernel.org>, linux-arm-kernel
 	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v3 0/6] add support for T7 family clock controller
-Date: Fri, 9 May 2025 07:48:18 +0000
-Message-ID: <20250509074825.1933254-1-jian.hu@amlogic.com>
+Subject: [PATCH v3 1/6] dt-bindings: clock: add Amlogic T7 PLL clock controller
+Date: Fri, 9 May 2025 07:48:19 +0000
+Message-ID: <20250509074825.1933254-2-jian.hu@amlogic.com>
 X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20250509074825.1933254-1-jian.hu@amlogic.com>
+References: <20250509074825.1933254-1-jian.hu@amlogic.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-Originating-IP: [10.28.11.121]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_004848_408779_FC314A7D 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250509_004850_830118_B21EBAB2 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,54 +68,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It introduces three clock controllers:
-- SCMI clock controller: these clocks are managed by the SCP and handled through SCMI.
-- PLL clock controller.
-- peripheral clock controller.
+Add DT bindings for the PLL clock controller of the Amlogic T7 SoC family.
 
-Changes v3 since v2 at [2]:
-- update T7 PLL YAML
-- add 't7_' prefix for t7 clock name and variable in t7-pll.c and t7-peripherals.c
-- correct v1 patch link
-- add new macro MESON_PCLK_V2
-- update the driver,header,yaml file license
-
-Changes v2 since v1 at [1]:
-- add CLK_MESON import
-- add const for clkc_regmap_config in PLL driver
-- fix eth_rmii_sel parent
-- update T7 PLL YAML file
-
-[1]: https://lore.kernel.org/all/20241231060047.2298871-1-jian.hu@amlogic.com
-[2]: https://lore.kernel.org/all/20250108094025.2664201-1-jian.hu@amlogic.com
-
-Jian Hu (6):
-  dt-bindings: clock: add Amlogic T7 PLL clock controller
-  dt-bindings: clock: add Amlogic T7 SCMI clock controller
-  dt-bindings: clock: add Amlogic T7 peripherals clock controller
-  clk: meson: t7: add support for the T7 SoC PLL clock
-  clk: meson: add MESON_PCLK_V2 for sys gate clock
-  clk: meson: t7: add t7 clock peripherals controller driver
-
- .../clock/amlogic,t7-peripherals-clkc.yaml    |  112 +
- .../bindings/clock/amlogic,t7-pll-clkc.yaml   |  114 +
- drivers/clk/meson/Kconfig                     |   27 +
- drivers/clk/meson/Makefile                    |    2 +
- drivers/clk/meson/clk-regmap.h                |   24 +
- drivers/clk/meson/t7-peripherals.c            | 2359 +++++++++++++++++
- drivers/clk/meson/t7-pll.c                    | 1193 +++++++++
- .../clock/amlogic,t7-peripherals-clkc.h       |  230 ++
- .../dt-bindings/clock/amlogic,t7-pll-clkc.h   |   56 +
- include/dt-bindings/clock/amlogic,t7-scmi.h   |   47 +
- 10 files changed, 4164 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/amlogic,t7-peripherals-clkc.yaml
+Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+---
+ .../bindings/clock/amlogic,t7-pll-clkc.yaml   | 114 ++++++++++++++++++
+ .../dt-bindings/clock/amlogic,t7-pll-clkc.h   |  56 +++++++++
+ 2 files changed, 170 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
- create mode 100644 drivers/clk/meson/t7-peripherals.c
- create mode 100644 drivers/clk/meson/t7-pll.c
- create mode 100644 include/dt-bindings/clock/amlogic,t7-peripherals-clkc.h
  create mode 100644 include/dt-bindings/clock/amlogic,t7-pll-clkc.h
- create mode 100644 include/dt-bindings/clock/amlogic,t7-scmi.h
 
+diff --git a/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
+new file mode 100644
+index 000000000000..aea3763616a0
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
+@@ -0,0 +1,114 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++# Copyright (C) 2024 Amlogic, Inc. All rights reserved
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/amlogic,t7-pll-clkc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Amlogic T7 PLL Clock Control Controller
++
++maintainers:
++  - Neil Armstrong <neil.armstrong@linaro.org>
++  - Jerome Brunet <jbrunet@baylibre.com>
++  - Jian Hu <jian.hu@amlogic.com>
++  - Xianwei Zhao <xianwei.zhao@amlogic.com>
++
++properties:
++  compatible:
++    enum:
++      - amlogic,t7-pll-gp0
++      - amlogic,t7-pll-gp1
++      - amlogic,t7-pll-hifi
++      - amlogic,t7-pll-pcie
++      - amlogic,t7-mpll
++      - amlogic,t7-pll-hdmi
++      - amlogic,t7-pll-mclk
++
++  reg:
++    maxItems: 1
++
++  '#clock-cells':
++    const: 1
++
++  clocks:
++    items:
++      - description: mclk pll input oscillator gate
++      - description: oscillator input clock source for mclk_sel_0
++      - description: fixed input clock source for mclk_sel_0
++    minItems: 1
++
++  clock-names:
++    items:
++      - const: in0
++      - const: in1
++      - const: in2
++    minItems: 1
++
++required:
++  - compatible
++  - '#clock-cells'
++  - reg
++  - clocks
++  - clock-names
++
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: amlogic,t7-pll-mclk
++
++    then:
++      properties:
++        clocks:
++          minItems: 3
++
++        clock-names:
++          minItems: 3
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - amlogic,t7-pll-gp0
++              - amlogic,t7-pll-gp1
++              - amlogic,t7-pll-hifi
++              - amlogic,t7-pll-pcie
++              - amlogic,t7-mpll
++              - amlogic,t7-pll-hdmi
++
++    then:
++      properties:
++        clocks:
++          maxItems: 1
++
++        clock-names:
++          maxItems: 1
++
++additionalProperties: false
++
++examples:
++  - |
++    apb {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        clock-controller@8080 {
++            compatible = "amlogic,t7-pll-gp0";
++            reg = <0 0x8080 0 0x20>;
++            clocks = <&scmi_clk 2>;
++            clock-names = "in0";
++            #clock-cells = <1>;
++        };
++
++        clock-controller@8300 {
++            compatible = "amlogic,t7-pll-mclk";
++            reg = <0 0x8300 0 0x18>;
++            clocks = <&scmi_clk 2>,
++                     <&xtal>,
++                     <&scmi_clk 31>;
++            clock-names = "in0", "in1", "in2";
++            #clock-cells = <1>;
++        };
++    };
+diff --git a/include/dt-bindings/clock/amlogic,t7-pll-clkc.h b/include/dt-bindings/clock/amlogic,t7-pll-clkc.h
+new file mode 100644
+index 000000000000..b0cb5892ac34
+--- /dev/null
++++ b/include/dt-bindings/clock/amlogic,t7-pll-clkc.h
+@@ -0,0 +1,56 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
++/*
++ * Copyright (C) 2024 Amlogic, Inc. All rights reserved
++ */
++
++#ifndef __T7_PLL_CLKC_H
++#define __T7_PLL_CLKC_H
++
++/* GP0 */
++#define CLKID_GP0_PLL_DCO	0
++#define CLKID_GP0_PLL		1
++
++/* GP1 */
++#define CLKID_GP1_PLL_DCO	0
++#define CLKID_GP1_PLL		1
++
++/* HIFI */
++#define CLKID_HIFI_PLL_DCO	0
++#define CLKID_HIFI_PLL		1
++
++/* PCIE */
++#define CLKID_PCIE_PLL_DCO	0
++#define CLKID_PCIE_PLL_DCO_DIV2	1
++#define CLKID_PCIE_PLL_OD	2
++#define CLKID_PCIE_PLL		3
++
++/* MPLL */
++#define CLKID_MPLL_PREDIV	0
++#define CLKID_MPLL0_DIV		1
++#define CLKID_MPLL0		2
++#define CLKID_MPLL1_DIV		3
++#define CLKID_MPLL1		4
++#define CLKID_MPLL2_DIV		5
++#define CLKID_MPLL2		6
++#define CLKID_MPLL3_DIV		7
++#define CLKID_MPLL3		8
++
++/* HDMI */
++#define CLKID_HDMI_PLL_DCO	0
++#define CLKID_HDMI_PLL_OD	1
++#define CLKID_HDMI_PLL		2
++
++/* MCLK */
++#define CLKID_MCLK_PLL_DCO	0
++#define CLKID_MCLK_PRE		1
++#define CLKID_MCLK_PLL		2
++#define CLKID_MCLK_0_SEL	3
++#define CLKID_MCLK_0_DIV2	4
++#define CLKID_MCLK_0_PRE	5
++#define CLKID_MCLK_0		6
++#define CLKID_MCLK_1_SEL	7
++#define CLKID_MCLK_1_DIV2	8
++#define CLKID_MCLK_1_PRE	9
++#define CLKID_MCLK_1		10
++
++#endif /* __T7_PLL_CLKC_H */
 -- 
 2.47.1
 
