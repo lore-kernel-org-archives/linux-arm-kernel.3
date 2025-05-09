@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ED57C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 08:03:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 438F6C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 08:05:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GFvYLK+ZL/SoGleIeevbdmFWcNzesKKgCsD+i6+wQu0=; b=JkY8eqgTM5HPE4Cp3oSnMazH8M
-	dJxsPV2dvWGF9kmwMXCQr3hmqrNN6pybMMoiMuwiT+jgdsQ1EgxEYed0CowrxG24pwHHw+Nki14SB
-	DL6Iug6l2SRKTKxXT7JwPbGmX654sDCHp/INXxR9gwfZtZLz39P9BqtlCMFdcAE4jg8kKDjXsYjKQ
-	hRN2dw3fHcFJ01lHRyjR4u4SAV7VKpLplzHNXzszgITUiLHSiiu76zOyF92HLJ37pes1x2PXX6NwC
-	yY4GM4nxvDB1yUZ0GnCMaAOYj5U9YAcKOn6i4geY0Gjakuv4E6Vs14kP5EAAU2I8lJK2qqlqKa6Ek
-	OBG0rvJw==;
+	bh=+m4Z3dP+tM6YZb4FwYg8AZfxdm/iv45+PxfK9MWhRlE=; b=MKoLEApwBDZEa0mGIswlt/Lx51
+	N546/10zNl2I13BEoDHFA9IiePwB4yKrjt3xl7gBVWCgQwHNAMozS7wKnfleq7S3+liVa6JgbVPju
+	npgPpKBL/dau2j+mvwFFVeK7Qjys92UrIcY7EKRjhEnk5a2omj3MZBayi0Au9T/HhehUkWpO7CtS2
+	SaX/vb773XnDo2iOf8z85lXqJgxxeN/c2MOxH51ngvCBadSWmtQfk4jmI9AOOE2CH9+t4MAcBEIia
+	7DDqHA2xzdVeUdES4MwVK6yDU2FDdCxvJ+ZcSj5m50/k/cQHI4UmNCEwImVwdORFXLThEDg0Y2ipH
+	hHitVh5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDIhi-00000002r6T-48w1;
-	Fri, 09 May 2025 08:03:34 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1uDIjg-00000002rRW-0YhC;
+	Fri, 09 May 2025 08:05:36 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDIRw-00000002niT-1aMN
+	id 1uDIRy-00000002nkX-0oyh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 07:47:17 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-739525d4d7bso1718349b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 00:47:15 -0700 (PDT)
+	Fri, 09 May 2025 07:47:19 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-22e39ff4ad4so24835785ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 00:47:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746776835; x=1747381635; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1746776837; x=1747381637; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GFvYLK+ZL/SoGleIeevbdmFWcNzesKKgCsD+i6+wQu0=;
-        b=Ij0HlNhew++dazr+daBhuESdJQP8GvHUhbbdXPy2jTnBEZHycUOdiK3qJIhx5Qn3UG
-         /tXIRCAzxns0ZZpuQGOsQi3SzbsS1Kw/HaXoUv2t4DaTpAR0WrkPp3w0KXcfhtdTlkGf
-         h4t3/J9PB6Y0feDzWKFmLWBfU09k6w7j6Z7YwI0RzGTpZul57HpBoH5FJP1sokCaqlUB
-         Vzr3/GOTpZLrRbu2h6/osD9KMOeRCKKMLAVW9J3tS2L5APlJHHKlAc1RzCpCgomw8qX5
-         T+TjYjWJLjdsKxq4hU37/z3Dq1mG+34UOdInwyTfh1gbwNJBtx2g/5Psb0aHwttt+u9K
-         jcUA==
+        bh=+m4Z3dP+tM6YZb4FwYg8AZfxdm/iv45+PxfK9MWhRlE=;
+        b=r4vNWlJ5V6OwCLukPxFX3FrYRUP4YGq3W/TDXsvMYRI/DZzLdZ0kcFq7GmqXsEX+17
+         Du2S8r0RlNxFdmhCL4LMz8LwXmvkSfgzkFK8bBeh4VhZIQjeFKQyPNew9Nz7ON4oIMGB
+         LWO61qeuWCvIxG1efL28cYCR12msgzxP1qyQsrz1wdDpAGqmgi7L1MOlNXxhWnyqRbAa
+         lWjPjvl9UWv/aws+kZCACcz1WndX9vg8XxVL97Gy4GXT6hFiA/DkepvvqaWE7e5yNPCY
+         a5P0Xe2TBwUFBiUcC7ioxW7ckc33DO3Av1cSZrXh12VRBIPttCLoYuaL6XiAp+h1XdHz
+         QxXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746776835; x=1747381635;
+        d=1e100.net; s=20230601; t=1746776837; x=1747381637;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GFvYLK+ZL/SoGleIeevbdmFWcNzesKKgCsD+i6+wQu0=;
-        b=LL2i8nNxt9sXqP5D7s/+hqA+b8aBYwwtHJQ1OVXcK4sqS6n9hNLyA2H65c+L5aW5xl
-         +a/wqWLf+n5+f5fuP+vDuODvACzB/2m7zsaaKtM+U+UAYCuT1h72MkoVdm1hDMU2qKiQ
-         IA17MdPIgGlxhcYbZ0qzS+gGPrmnX9PrM1om6hOiNAWJH29vKNbW+gM4Kb/kek4ujQWM
-         ZJHF5pIbu8PZeSho78TYw8r0vwOpng4D6SOzOV+wDJpcVjXrf3KAb84iQz9gLuY+4uKr
-         H2a6pUi6f5eX6d+uGFp5yX5N9AiguKJTLY6IycTWi7fScbjp5oMeWUamDEZ7gu/OGSbN
-         GDQw==
-X-Forwarded-Encrypted: i=1; AJvYcCWBEgtuiCehlEVMjsoTQaZ8OXOsmzPnB3ZZr72P81c8HT6BXq+qfThZyHKBsKegM9s5t+PEt6eG8m12E1r1TLBu@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywgm0ASjxxQ0VXIgMf4X4+YhBlSvBBUb0VROz1R94/jiSZPgB0a
-	pLCKTuHSzOhEY8QAu9zLHQkx2DYkQRU2NbSpmH8v1gzfej3EZ3lIve2qP92k7q6siQuCHY0Vv1t
-	RF9VjEeFsmJhM7jzkMQ==
-X-Google-Smtp-Source: AGHT+IHoXD/iPEv9R0ck8JE0X2BEO15ZWlihBiuBxq/VD+tog9vvDo/xTXjQN1YF2y2CswQzZ14kMxX0B0iv6xJy
-X-Received: from pgbcs12.prod.google.com ([2002:a05:6a02:418c:b0:b14:9718:f939])
+        bh=+m4Z3dP+tM6YZb4FwYg8AZfxdm/iv45+PxfK9MWhRlE=;
+        b=CPutxZLveQQ03AYeZWGeiq6KyPiAGkIMoeRG+jDQwWUhMSc3UgijZhWCyYJM2U9plL
+         ahCRhO58uQ4Ni9JKaNBdVnOEYNQ8gs2OKe+5yXzuXle1lm1OP77mfmp1rSVKACIFK7jn
+         IsHo8V+QecZrdADT5Es/yyFQj+s8SY8evLX3+tpbk4/PDft3iALHh1mRNI7enErbBrs0
+         odA/60tfpkQxJz+eZBocH83PiVLkpwnuuYmSSjCdKge6r8INjfl4jQs14ne0xRjvnVW7
+         z+XCoCPaEL4CI1u8igqZosOE0y325Gm6NjfY6nwIoqQaGgrhtrsDIevHgXapmZ1DP1qO
+         CmiA==
+X-Forwarded-Encrypted: i=1; AJvYcCU505UTn8eHwkg9mWqNz3mTl2YUhfXpWZpT6GIHSp2xIhc5aFVs2cLVpCOJyj8EoD93tyVN+//OArc1LmL89iv7@lists.infradead.org
+X-Gm-Message-State: AOJu0YxD0LUdkUg8f787F5yQb6mrECDfR0ivuAnW8UgYMwYOP+9FjCZx
+	belq/odAZufXcZ7QHi34DxKalCgvqsmdUHBwYJR3/JSHi7AEI8C7xGBlcMLIs4D3jVsRnbC255H
+	6CiPOaK+c/26lZOXQ/g==
+X-Google-Smtp-Source: AGHT+IHfR2VcOxe89TQQkgMURCMNF7WAQ9A5nVl3ln2Y/iICrUYXCipTIhMpc5lhLO0v/RkcE3tO5H+jCjQrIWm3
+X-Received: from pljs4.prod.google.com ([2002:a17:903:3ba4:b0:21f:40e5:a651])
  (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a20:a11e:b0:1f5:5903:edd3 with SMTP id adf61e73a8af0-215abafb67fmr2914671637.11.1746776835249;
- Fri, 09 May 2025 00:47:15 -0700 (PDT)
-Date: Fri,  9 May 2025 00:46:29 -0700
+ 2002:a17:903:18c:b0:21b:b3c9:38ff with SMTP id d9443c01a7336-22fc91a05e1mr34656295ad.37.1746776837245;
+ Fri, 09 May 2025 00:47:17 -0700 (PDT)
+Date: Fri,  9 May 2025 00:46:30 -0700
 In-Reply-To: <20250509074635.3187114-1-changyuanl@google.com>
 Mime-Version: 1.0
 References: <20250509074635.3187114-1-changyuanl@google.com>
 X-Mailer: git-send-email 2.49.0.1015.ga840276032-goog
-Message-ID: <20250509074635.3187114-12-changyuanl@google.com>
-Subject: [PATCH v8 11/17] x86/kexec: add support for passing kexec handover
- (KHO) data
+Message-ID: <20250509074635.3187114-13-changyuanl@google.com>
+Subject: [PATCH v8 12/17] x86/e820: temporarily enable KHO scratch for memory
+ below 1M
 From: Changyuan Lyu <changyuanl@google.com>
 To: akpm@linux-foundation.org, linux-kernel@vger.kernel.org
 Cc: anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com, 
@@ -84,8 +84,8 @@ Cc: anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
 	Changyuan Lyu <changyuanl@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_004716_448912_B7B4C9C3 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20250509_004718_242875_A4ABF8B2 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,19 +102,15 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Alexander Graf <graf@amazon.com>
 
-kexec handover (KHO) creates a metadata that the kernels pass between each
-other during kexec. This metadata is stored in memory and kexec image
-contains a (physical) pointer to that memory.
+KHO kernels are special and use only scratch memory for memblock
+allocations, but memory below 1M is ignored by kernel after early boot
+and cannot be naturally marked as scratch.
 
-In addition, KHO keeps "scratch regions" available for kexec: physically
-contiguous memory regions that are guaranteed to not have any memory that
-KHO would preserve. The new kernel bootstraps itself using the scratch
-regions and sets all handed over memory as in use. When subsystems that
-support KHO initialize, they introspect the KHO metadata, restore preserved
-memory regions, and retrieve their state stored in the preserved memory.
+To allow allocation of the real-mode trampoline and a few (if any) other
+very early allocations from below 1M forcibly mark the memory below 1M
+as scratch.
 
-Enlighten x86 kexec-file and boot path about the KHO metadata and make sure
-it gets passed along to the next kernel.
+After real mode trampoline is allocated, clear that scratch marking.
 
 Signed-off-by: Alexander Graf <graf@amazon.com>
 Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
@@ -123,162 +119,52 @@ Co-developed-by: Changyuan Lyu <changyuanl@google.com>
 Signed-off-by: Changyuan Lyu <changyuanl@google.com>
 Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
 ---
- arch/x86/include/asm/setup.h           |  2 ++
- arch/x86/include/uapi/asm/setup_data.h | 13 ++++++++-
- arch/x86/kernel/kexec-bzimage64.c      | 37 ++++++++++++++++++++++++++
- arch/x86/kernel/setup.c                | 26 ++++++++++++++++++
- 4 files changed, 77 insertions(+), 1 deletion(-)
+ arch/x86/kernel/e820.c   | 18 ++++++++++++++++++
+ arch/x86/realmode/init.c |  2 ++
+ 2 files changed, 20 insertions(+)
 
-diff --git a/arch/x86/include/asm/setup.h b/arch/x86/include/asm/setup.h
-index ad9212df0ec0c..3b37571911f4c 100644
---- a/arch/x86/include/asm/setup.h
-+++ b/arch/x86/include/asm/setup.h
-@@ -67,6 +67,8 @@ extern void x86_ce4100_early_setup(void);
- static inline void x86_ce4100_early_setup(void) { }
- #endif
- 
-+#include <linux/kexec_handover.h>
-+
- #ifndef _SETUP
- 
- #include <asm/espfix.h>
-diff --git a/arch/x86/include/uapi/asm/setup_data.h b/arch/x86/include/uapi/asm/setup_data.h
-index 50c45ead4e7c9..2671c4e1b3a0b 100644
---- a/arch/x86/include/uapi/asm/setup_data.h
-+++ b/arch/x86/include/uapi/asm/setup_data.h
-@@ -13,7 +13,8 @@
- #define SETUP_CC_BLOB			7
- #define SETUP_IMA			8
- #define SETUP_RNG_SEED			9
--#define SETUP_ENUM_MAX			SETUP_RNG_SEED
-+#define SETUP_KEXEC_KHO			10
-+#define SETUP_ENUM_MAX			SETUP_KEXEC_KHO
- 
- #define SETUP_INDIRECT			(1<<31)
- #define SETUP_TYPE_MAX			(SETUP_ENUM_MAX | SETUP_INDIRECT)
-@@ -78,6 +79,16 @@ struct ima_setup_data {
- 	__u64 size;
- } __attribute__((packed));
- 
-+/*
-+ * Locations of kexec handover metadata
-+ */
-+struct kho_data {
-+	__u64 fdt_addr;
-+	__u64 fdt_size;
-+	__u64 scratch_addr;
-+	__u64 scratch_size;
-+} __attribute__((packed));
-+
- #endif /* __ASSEMBLER__ */
- 
- #endif /* _UAPI_ASM_X86_SETUP_DATA_H */
-diff --git a/arch/x86/kernel/kexec-bzimage64.c b/arch/x86/kernel/kexec-bzimage64.c
-index 68530fad05f74..dad174e3bed0d 100644
---- a/arch/x86/kernel/kexec-bzimage64.c
-+++ b/arch/x86/kernel/kexec-bzimage64.c
-@@ -233,6 +233,32 @@ setup_ima_state(const struct kimage *image, struct boot_params *params,
- #endif /* CONFIG_IMA_KEXEC */
- }
- 
-+static void setup_kho(const struct kimage *image, struct boot_params *params,
-+		      unsigned long params_load_addr,
-+		      unsigned int setup_data_offset)
-+{
-+	struct setup_data *sd = (void *)params + setup_data_offset;
-+	struct kho_data *kho = (void *)sd + sizeof(*sd);
-+
-+	if (!IS_ENABLED(CONFIG_KEXEC_HANDOVER))
-+		return;
-+
-+	sd->type = SETUP_KEXEC_KHO;
-+	sd->len = sizeof(struct kho_data);
-+
-+	/* Only add if we have all KHO images in place */
-+	if (!image->kho.fdt || !image->kho.scratch)
-+		return;
-+
-+	/* Add setup data */
-+	kho->fdt_addr = image->kho.fdt;
-+	kho->fdt_size = PAGE_SIZE;
-+	kho->scratch_addr = image->kho.scratch->mem;
-+	kho->scratch_size = image->kho.scratch->bufsz;
-+	sd->next = params->hdr.setup_data;
-+	params->hdr.setup_data = params_load_addr + setup_data_offset;
-+}
-+
- static int
- setup_boot_parameters(struct kimage *image, struct boot_params *params,
- 		      unsigned long params_load_addr,
-@@ -312,6 +338,13 @@ setup_boot_parameters(struct kimage *image, struct boot_params *params,
- 				     sizeof(struct ima_setup_data);
+diff --git a/arch/x86/kernel/e820.c b/arch/x86/kernel/e820.c
+index 9920122018a0b..c3acbd26408ba 100644
+--- a/arch/x86/kernel/e820.c
++++ b/arch/x86/kernel/e820.c
+@@ -1299,6 +1299,24 @@ void __init e820__memblock_setup(void)
+ 		memblock_add(entry->addr, entry->size);
  	}
  
-+	if (IS_ENABLED(CONFIG_KEXEC_HANDOVER)) {
-+		/* Setup space to store preservation metadata */
-+		setup_kho(image, params, params_load_addr, setup_data_offset);
-+		setup_data_offset += sizeof(struct setup_data) +
-+				     sizeof(struct kho_data);
-+	}
++	/*
++	 * At this point memblock is only allowed to allocate from memory
++	 * below 1M (aka ISA_END_ADDRESS) up until direct map is completely set
++	 * up in init_mem_mapping().
++	 *
++	 * KHO kernels are special and use only scratch memory for memblock
++	 * allocations, but memory below 1M is ignored by kernel after early
++	 * boot and cannot be naturally marked as scratch.
++	 *
++	 * To allow allocation of the real-mode trampoline and a few (if any)
++	 * other very early allocations from below 1M forcibly mark the memory
++	 * below 1M as scratch.
++	 *
++	 * After real mode trampoline is allocated, we clear that scratch
++	 * marking.
++	 */
++	memblock_mark_kho_scratch(0, SZ_1M);
 +
- 	/* Setup RNG seed */
- 	setup_rng_seed(params, params_load_addr, setup_data_offset);
- 
-@@ -479,6 +512,10 @@ static void *bzImage64_load(struct kimage *image, char *kernel,
- 		kbuf.bufsz += sizeof(struct setup_data) +
- 			      sizeof(struct ima_setup_data);
- 
-+	if (IS_ENABLED(CONFIG_KEXEC_HANDOVER))
-+		kbuf.bufsz += sizeof(struct setup_data) +
-+			      sizeof(struct kho_data);
+ 	/*
+ 	 * 32-bit systems are limited to 4BG of memory even with HIGHMEM and
+ 	 * to even less without it.
+diff --git a/arch/x86/realmode/init.c b/arch/x86/realmode/init.c
+index f9bc444a3064d..9b9f4534086d2 100644
+--- a/arch/x86/realmode/init.c
++++ b/arch/x86/realmode/init.c
+@@ -65,6 +65,8 @@ void __init reserve_real_mode(void)
+ 	 * setup_arch().
+ 	 */
+ 	memblock_reserve(0, SZ_1M);
 +
- 	params = kzalloc(kbuf.bufsz, GFP_KERNEL);
- 	if (!params)
- 		return ERR_PTR(-ENOMEM);
-diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
-index 766176c4f5ee8..664cd21b85329 100644
---- a/arch/x86/kernel/setup.c
-+++ b/arch/x86/kernel/setup.c
-@@ -451,6 +451,29 @@ int __init ima_get_kexec_buffer(void **addr, size_t *size)
++	memblock_clear_kho_scratch(0, SZ_1M);
  }
- #endif
  
-+static void __init add_kho(u64 phys_addr, u32 data_len)
-+{
-+	struct kho_data *kho;
-+	u64 addr = phys_addr + sizeof(struct setup_data);
-+	u64 size = data_len - sizeof(struct setup_data);
-+
-+	if (!IS_ENABLED(CONFIG_KEXEC_HANDOVER)) {
-+		pr_warn("Passed KHO data, but CONFIG_KEXEC_HANDOVER not set. Ignoring.\n");
-+		return;
-+	}
-+
-+	kho = early_memremap(addr, size);
-+	if (!kho) {
-+		pr_warn("setup: failed to memremap kho data (0x%llx, 0x%llx)\n",
-+			addr, size);
-+		return;
-+	}
-+
-+	kho_populate(kho->fdt_addr, kho->fdt_size, kho->scratch_addr, kho->scratch_size);
-+
-+	early_memunmap(kho, size);
-+}
-+
- static void __init parse_setup_data(void)
- {
- 	struct setup_data *data;
-@@ -479,6 +502,9 @@ static void __init parse_setup_data(void)
- 		case SETUP_IMA:
- 			add_early_ima_buffer(pa_data);
- 			break;
-+		case SETUP_KEXEC_KHO:
-+			add_kho(pa_data, data_len);
-+			break;
- 		case SETUP_RNG_SEED:
- 			data = early_memremap(pa_data, data_len);
- 			add_bootloader_randomness(data->data, data->len);
+ static void __init sme_sev_setup_real_mode(struct trampoline_header *th)
 -- 
 2.49.0.1015.ga840276032-goog
 
