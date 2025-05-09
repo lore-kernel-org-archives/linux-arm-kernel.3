@@ -4,73 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A503C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 06:34:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC9CDC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 06:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NpLhIi7Kz6CQZ4yMzp2mUBrSEQXZDgA4zptLKbGKRLc=; b=1uH5AV0wAGczVDTVHsMyne9Cza
-	6kdYOEgQapixPvZj9rbsS2tN7ZEeHTHUk85FMGQOnIxE5Ambrzgxev4gzuPalS2YAgxftRhiF2hOQ
-	W3bkxslUNqNsfb7iwdJGAVE5xZlo245lqtk5DrXwI+E7AOZOquAaGSeDs85AJCdgSjRYI/HmvEnH4
-	lJmf1Rz7nFS2/o/T6AIB1Vq1VvS1JQrdihG6LKFXC8Ka1UUGi7113bxjaHabWjbvgE74fij5xXF5x
-	vLq+GIpp5nMTv3N8k62F2xT98NmPPkuevEpvorOQ/qnsF5vSWNP3LfQdUGgw/37M3Fz5Upial3HuU
-	HgnsIT4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OqmG3BJjsmTUqEq8AZgWfba3ERYP+7PeG6T0Jf+wIRU=; b=OT94g36FeXwdg+QG1dHNVoRrEA
+	kiaRnzekW/BJfPrC94R2aTkdYIT87VCwhhYkPb+8HEpIOKb02j4llNrIrU2Yyy1/avxSEMtir7VWj
+	WmpaEXRouidJ38jqvSJpV4xrlnnMYIMoT+iAN0eeu8W4xjRYclywC02cvc56MlotMUh4PbcVlkR8F
+	KRh0uUhiax0HhxgTIoeSFY1y/ddOchdbChG8oDXF6N7gssxJaqxp4L7Pkb3J3KRc94MZ6g7w8D0pb
+	WOJQoHkxwZg0X4kSDnx+2RfuOKhOl//J4fnB1M9wcLmBgvy59BVzjFUTPls6ZgKwxTGRGw4i/83S9
+	wfMLeOSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDHJi-00000002cJr-1zyP;
-	Fri, 09 May 2025 06:34:42 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uDHOn-00000002cwu-25Qd;
+	Fri, 09 May 2025 06:39:57 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDHHf-00000002c2E-3aA9
+	id 1uDHMm-00000002ccC-0Dyv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 06:32:37 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <sha@pengutronix.de>)
-	id 1uDHHR-00046g-Ca; Fri, 09 May 2025 08:32:21 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <sha@pengutronix.de>)
-	id 1uDHHQ-001qPI-1J;
-	Fri, 09 May 2025 08:32:20 +0200
-Received: from sha by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <sha@pengutronix.de>)
-	id 1uDHHQ-00CHwN-0v;
-	Fri, 09 May 2025 08:32:20 +0200
-Date: Fri, 9 May 2025 08:32:20 +0200
-From: Sascha Hauer <s.hauer@pengutronix.de>
-To: Nishanth Menon <nm@ti.com>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: ti: k3-am625-sk: Add power/temperature
- sensors
-Message-ID: <aB2hdA8mfKGlk8d8@pengutronix.de>
-References: <20250505-am625-sk-sensors-v1-1-688fb928b390@pengutronix.de>
- <20250507120104.4mhuaabe5auukarn@banter>
+	Fri, 09 May 2025 06:37:53 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3a0b9303998so824317f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 23:37:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746772670; x=1747377470; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OqmG3BJjsmTUqEq8AZgWfba3ERYP+7PeG6T0Jf+wIRU=;
+        b=ZBidQSP49CC5a51otokvGTKSZ0aXuyIEgDp4ZwDQsEA2P9U+Cto0klZepF95QC4314
+         xNoXdkHQ7ydxC3xzgtk+XNn6wTSrT9jGGN7y80urKrduBnnkEF5unPwQ4lbHHX3fP5uT
+         Pn3GoESnHSfD/Y5LJLyZaS32D1VWTzw+no5FEFD/D0bAPDQ3z6pXnDMkqUPRwkH+zI84
+         flVyKuSHZ13o8TqMiip1/zWHuXmAypV3LgYWbGuw+iPA/x9YhzPPyvYxHSKFsJt4T81Q
+         briIGaQ51Zo3OiIIfq7gwIZM+3NXzLwqsFSpmqlvy3eoHO8mFaXNRCYOMwnaY2xSFmKt
+         MimA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746772670; x=1747377470;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OqmG3BJjsmTUqEq8AZgWfba3ERYP+7PeG6T0Jf+wIRU=;
+        b=LihvWggxjcMCnQ/+WTzgMx0jJqvlGR7n6uDbqfc8UXYhd6aP7rRKz5A0lY0x4f6Fjr
+         UZZhVuFU1Pdska7etawYyMuZqVlRuRR9KyOsL4L18Re/N1SO6gYSuhpMYTmokKmFhUiP
+         Y94kc7vM/bBjefy3YncQTKlFlOwRMDqU54PMhBYwhUTOBVtEqhRZDUExpQlnurtZMyly
+         1UqwueBQey9o79XEGCBSlodQDAcZtIWa5zUb3SuHvFkW2mJtQbgmvFwCmWL1CrnbQb7Z
+         ev6+sHmgtY4EM6fmMS9e1bJgiIbjbXNZp2BfGQ95MQF+fTdtLiSOZlvr2dCB2Pqxde67
+         xIqw==
+X-Forwarded-Encrypted: i=1; AJvYcCXYl+Ib9Zxae8FCjJjXxl4dNU0btG5dd7wMZFSW2LWzKIxkhsxKNIUEuwhfwCLzQNYJw3OaAJ55uNYV7ZKPIcvC@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLP4BzzAFOS4DI0W3rlTlIS45CxCS9y5IM83RgEGGMTg7OBJEj
+	XIvZN+oT7pAY82V9xW1aKOkhMB27wGvYDMnhZjFs2OLfx0OU3ppRmDg6dV2k
+X-Gm-Gg: ASbGncuNZNJsaM1GMzCoEmNZW5kDGutv4MaooyxDkgD3S57eCrsNldy8h8Xnj/anbV7
+	czpzaHLqphm60XLiXxqWoTyVU8X5adN6Ey7F36mYuxWT7OodKNInM+CUckepZyiOVjxqSMH0dEQ
+	lYJe6D/cDQapXhn7BDOvtFSdDcUvWMwTeRDA/v0hENlenqkbEJXOqX2XlS1EeY6jGP6iclrVTV0
+	RLU7qSkBlcu51wdNA9qDRtS1rR2TJ0T6fCfzOp+s38pOHyhCW1qrbJ3KmqgYBU+hwsuwB4p+W6D
+	Go83HalSURZZAouBgX3J8YQ0AHMvheQkWppVR3K020GRA8Exo4MUcwffMa+F6WxY7g==
+X-Google-Smtp-Source: AGHT+IHw06gGDN3zr31JLWJ1Q/qbSH1hi3YVW8+/TRJJ4XJQ/05RFm9FjdAFuvESuwnntbNjmEV+Mg==
+X-Received: by 2002:a05:6000:2011:b0:3a1:f653:26a with SMTP id ffacd0b85a97d-3a1f6530370mr1712267f8f.16.1746772670183;
+        Thu, 08 May 2025 23:37:50 -0700 (PDT)
+Received: from localhost.localdomain ([213.74.214.99])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442d687ae5asm18325745e9.36.2025.05.08.23.37.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 May 2025 23:37:49 -0700 (PDT)
+From: Can Ayberk Demir <ayberkdemir@gmail.com>
+To: netdev@vger.kernel.org
+Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Can Ayberk DEMIR <ayberkdemir@gmail.com>
+Subject: [PATCH v2] drivers: net: axienet: safely drop oversized RX frames
+Date: Fri,  9 May 2025 09:37:27 +0300
+Message-Id: <20250509063727.35560-1-ayberkdemir@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+In-Reply-To: <20250508150421.26059-1-ayberkdemir@gmail.com>
+References: <20250508150421.26059-1-ayberkdemir@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250507120104.4mhuaabe5auukarn@banter>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: sha@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_233235_893984_1429D7E7 
-X-CRM114-Status: GOOD (  30.45  )
+X-CRM114-CacheID: sfid-20250508_233752_092381_FFD5A226 
+X-CRM114-Status: GOOD (  14.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,57 +105,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nishanth,
+From: Can Ayberk DEMIR <ayberkdemir@gmail.com>
 
-On Wed, May 07, 2025 at 07:01:04AM -0500, Nishanth Menon wrote:
-> On 15:24-20250505, Sascha Hauer wrote:
-> > The AM625-SK has six power sensors and two temperature sensors connected
-> > to I2C. Add them to the device tree.
-> > 
-> > Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
-> > ---
-> > The AM625-SK has six power sensors and two temperature sensors connected
-> > to I2C. Add them to the device tree.
-> 
-> Sascha,
-> 
-> I suggest making this as overlay. The reason is as follows: AM625-SK
-> among other TI evms do have automated power measurement capability from
-> XDS110 (accessible via USB port for jtag - appears as a rudimentary
-> menu option). The way this works is that it uses TM4C1294NCPDT to use
-> I2C commands to control the INA226/231 depending on the evm.
-> 
-> This firmware should be flashed by default on production boards (if
-> not, starting up CCS[1], autodetects older firmware and updates - at
-> least to my understanding) - by the way, this firmware also does test
-> automation, such as boot mode switch control, reset control etc.
-> 
-> This is the primary framework meant to be used by test automation and
-> indeed it is the default inside TI.
-> 
-> Challenge here is this: if we make this default in Linux, the test
-> automation system configures the INA226/231 in a different sampling
-> mode depending on usecase etc Vs what Linux does (even though the
-> shunt and the bus voltage for a given INA is the same). And just like
-> Linux, the firmware power measurement logic has changed over the
-> years.
-> 
-> Anyways, while I know that the SoC and TM4C can both handle
-> multi-master, the challenge is the same INA controlled and
-> mix-configured by two masters (and there is no synchronization between
-> the two).
-> 
-> To avoid this entire conflict and headache, I suggest adding it as
-> overlay that can be applied depending on the preference of measurement
-> desired.
+This patch addresses style issues pointed out in v1.
 
-Thanks for this explanation. I'll go for the overlay then.
+In AXI Ethernet (axienet) driver, receiving an Ethernet frame larger
+than the allocated skb buffer may cause memory corruption or kernel panic,
+especially when the interface MTU is small and a jumbo frame is received.
 
-Sascha
+Signed-off-by: Can Ayberk DEMIR <ayberkdemir@gmail.com>
+---
+ .../net/ethernet/xilinx/xilinx_axienet_main.c | 46 +++++++++++--------
+ 1 file changed, 27 insertions(+), 19 deletions(-)
 
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 1b7a653c1f4e..2b375dd06def 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -1223,28 +1223,36 @@ static int axienet_rx_poll(struct napi_struct *napi, int budget)
+ 			dma_unmap_single(lp->dev, phys, lp->max_frm_size,
+ 					 DMA_FROM_DEVICE);
+ 
+-			skb_put(skb, length);
+-			skb->protocol = eth_type_trans(skb, lp->ndev);
+-			/*skb_checksum_none_assert(skb);*/
+-			skb->ip_summed = CHECKSUM_NONE;
+-
+-			/* if we're doing Rx csum offload, set it up */
+-			if (lp->features & XAE_FEATURE_FULL_RX_CSUM) {
+-				csumstatus = (cur_p->app2 &
+-					      XAE_FULL_CSUM_STATUS_MASK) >> 3;
+-				if (csumstatus == XAE_IP_TCP_CSUM_VALIDATED ||
+-				    csumstatus == XAE_IP_UDP_CSUM_VALIDATED) {
+-					skb->ip_summed = CHECKSUM_UNNECESSARY;
++			if (unlikely(length > skb_tailroom(skb))) {
++				netdev_warn(ndev,
++					    "Dropping oversized RX frame (len=%u, tailroom=%u)\n",
++					    length, skb_tailroom(skb));
++				dev_kfree_skb(skb);
++				skb = NULL;
++			} else {
++				skb_put(skb, length);
++				skb->protocol = eth_type_trans(skb, lp->ndev);
++				/*skb_checksum_none_assert(skb);*/
++				skb->ip_summed = CHECKSUM_NONE;
++
++				/* if we're doing Rx csum offload, set it up */
++				if (lp->features & XAE_FEATURE_FULL_RX_CSUM) {
++					csumstatus = (cur_p->app2 &
++							XAE_FULL_CSUM_STATUS_MASK) >> 3;
++					if (csumstatus == XAE_IP_TCP_CSUM_VALIDATED ||
++					    csumstatus == XAE_IP_UDP_CSUM_VALIDATED) {
++						skb->ip_summed = CHECKSUM_UNNECESSARY;
++					}
++				} else if (lp->features & XAE_FEATURE_PARTIAL_RX_CSUM) {
++					skb->csum = be32_to_cpu(cur_p->app3 & 0xFFFF);
++					skb->ip_summed = CHECKSUM_COMPLETE;
+ 				}
+-			} else if (lp->features & XAE_FEATURE_PARTIAL_RX_CSUM) {
+-				skb->csum = be32_to_cpu(cur_p->app3 & 0xFFFF);
+-				skb->ip_summed = CHECKSUM_COMPLETE;
+-			}
+ 
+-			napi_gro_receive(napi, skb);
++				napi_gro_receive(napi, skb);
+ 
+-			size += length;
+-			packets++;
++				size += length;
++				packets++;
++			}
+ 		}
+ 
+ 		new_skb = napi_alloc_skb(napi, lp->max_frm_size);
 -- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+2.39.5 (Apple Git-154)
+
 
