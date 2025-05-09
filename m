@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CCCBC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 08:01:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ED57C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 08:03:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SPB4CC6STDK5kdrBEcCYHTnvRNdt0f3J8K3gkRMCX5Y=; b=1oqr12JSqONSD4luvcuHApZV4T
-	2KVS6O2a7yDnissyE42vaRdd7PqEH9lfivZrzKE267mnKqDcjd5RifJxmIDlMpXL/3f4ZbR5K23YV
-	dj9J/rUo49iSaNakpmYiDXWE6fFVjueEOY+HasYaGCfXis2cDWPpE6vNj0XY/VOdqPMLLCMu0qjei
-	n/mpVrLkG1uulJhJxPWmvydrR3KpMAo1EkGc+DHu6CIfEd6hrkB7P9oiDLMT7l/ZuK/RN9A+hoq2U
-	Ol7MwWA+Pa1PLahZWmG4b0wql7iSBHprbrr5pT18OarT+Ip2e2lMmSX4LtQqIH/itJxJQhE81h+F5
-	ZO7nQVPA==;
+	bh=GFvYLK+ZL/SoGleIeevbdmFWcNzesKKgCsD+i6+wQu0=; b=JkY8eqgTM5HPE4Cp3oSnMazH8M
+	dJxsPV2dvWGF9kmwMXCQr3hmqrNN6pybMMoiMuwiT+jgdsQ1EgxEYed0CowrxG24pwHHw+Nki14SB
+	DL6Iug6l2SRKTKxXT7JwPbGmX654sDCHp/INXxR9gwfZtZLz39P9BqtlCMFdcAE4jg8kKDjXsYjKQ
+	hRN2dw3fHcFJ01lHRyjR4u4SAV7VKpLplzHNXzszgITUiLHSiiu76zOyF92HLJ37pes1x2PXX6NwC
+	yY4GM4nxvDB1yUZ0GnCMaAOYj5U9YAcKOn6i4geY0Gjakuv4E6Vs14kP5EAAU2I8lJK2qqlqKa6Ek
+	OBG0rvJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDIfn-00000002qvY-1OW0;
-	Fri, 09 May 2025 08:01:35 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1uDIhi-00000002r6T-48w1;
+	Fri, 09 May 2025 08:03:34 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDIRu-00000002ngq-1dz5
+	id 1uDIRw-00000002niT-1aMN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 07:47:15 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-22e6c82716dso13925935ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 00:47:13 -0700 (PDT)
+	Fri, 09 May 2025 07:47:17 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-739525d4d7bso1718349b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 00:47:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746776833; x=1747381633; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1746776835; x=1747381635; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=SPB4CC6STDK5kdrBEcCYHTnvRNdt0f3J8K3gkRMCX5Y=;
-        b=4BfUecd3V47hHzL7uJRpV2ukyU9FRA2e8hkddk5KhpUZlqAhU40YtFpUtveDhTD2Te
-         mBXRYLk9ei26gmx+BC23z6alStbov7+wR2bNIIPZd98e2Kq3j05JYEujpMh9uH/0r/Kr
-         L3UqlpONokULptSJrDO1sS9oHskZVBrJ68v6xbTCNx2JPNu3cbv8mH5SSt8KWbROKJwn
-         h9JEPquOF28l8AX4hbGrizHYpZWCQ83Sg+HkMK40RU4ETgEDt0j5AtzI9Mge9mmWsgQ3
-         Imx1hZ/y22lyCCAl8q6esuukD0/1vs1tHfdWaLYqwpZJrlCqiQ3R6DeIQBR4sLS6VuTv
-         nYwg==
+        bh=GFvYLK+ZL/SoGleIeevbdmFWcNzesKKgCsD+i6+wQu0=;
+        b=Ij0HlNhew++dazr+daBhuESdJQP8GvHUhbbdXPy2jTnBEZHycUOdiK3qJIhx5Qn3UG
+         /tXIRCAzxns0ZZpuQGOsQi3SzbsS1Kw/HaXoUv2t4DaTpAR0WrkPp3w0KXcfhtdTlkGf
+         h4t3/J9PB6Y0feDzWKFmLWBfU09k6w7j6Z7YwI0RzGTpZul57HpBoH5FJP1sokCaqlUB
+         Vzr3/GOTpZLrRbu2h6/osD9KMOeRCKKMLAVW9J3tS2L5APlJHHKlAc1RzCpCgomw8qX5
+         T+TjYjWJLjdsKxq4hU37/z3Dq1mG+34UOdInwyTfh1gbwNJBtx2g/5Psb0aHwttt+u9K
+         jcUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746776833; x=1747381633;
+        d=1e100.net; s=20230601; t=1746776835; x=1747381635;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SPB4CC6STDK5kdrBEcCYHTnvRNdt0f3J8K3gkRMCX5Y=;
-        b=VPvvulgcqu+eVg7RPcNqPMEP8plkn7j5vIQzQP/Fj0Swzh3tq5W1zOG+eZIaRg6vPg
-         c/26jAj/L3Nprxu8Oo9lOgsHq3yLthpcBy3++HOjNhFPnQireSojw6NC/78nTqxR3dvY
-         MHqn+rOMjirZ/pWz1IIqiCD0ukCkJwIUIuZGscKwefgV86lG3RB5sWzoDReoAe3y2rPw
-         fOjfpsTE24tBP+1qoQIqXDWgcs+zkTiL2dh+ZCT+qcC6FS0kWopqMIa/cSS5V1LP97jy
-         PlRvhm236c4w/rqZWcIK5XVJHQg37FWg97DEU2Nmk7vr/mtGay1y7Fz07dFWgNNfO8XM
-         tTow==
-X-Forwarded-Encrypted: i=1; AJvYcCVZbxDT+LmDx0lAII3xsYmPAsKgBFK1InCzDeYCKfCuOxmGrA8MF+6kgwHcD+/eCUnhmrtx4iZY6WCNb3x/8iQw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx83t08GF49rk9BBh9PRocjOvfWePT0+EVPj2mc8Qa1lDGtwtpc
-	Di7diborofNEUjwaO4vL47F+xCIDaPmlZTwIvxpi0cLB3xrKLrqwKby8NBCgswV0aV128YwFAf7
-	r2Spwl1lAmQLWSmx/nA==
-X-Google-Smtp-Source: AGHT+IFCD03lD8lWtCnQk0Y+4Q0M0617vfZrCF/OF6DrxVEuOIUh/cKjmOGrlsTtuIki4lqztgFf3ollX+1yRnV1
-X-Received: from plbp12.prod.google.com ([2002:a17:903:174c:b0:227:e538:4d17])
+        bh=GFvYLK+ZL/SoGleIeevbdmFWcNzesKKgCsD+i6+wQu0=;
+        b=LL2i8nNxt9sXqP5D7s/+hqA+b8aBYwwtHJQ1OVXcK4sqS6n9hNLyA2H65c+L5aW5xl
+         +a/wqWLf+n5+f5fuP+vDuODvACzB/2m7zsaaKtM+U+UAYCuT1h72MkoVdm1hDMU2qKiQ
+         IA17MdPIgGlxhcYbZ0qzS+gGPrmnX9PrM1om6hOiNAWJH29vKNbW+gM4Kb/kek4ujQWM
+         ZJHF5pIbu8PZeSho78TYw8r0vwOpng4D6SOzOV+wDJpcVjXrf3KAb84iQz9gLuY+4uKr
+         H2a6pUi6f5eX6d+uGFp5yX5N9AiguKJTLY6IycTWi7fScbjp5oMeWUamDEZ7gu/OGSbN
+         GDQw==
+X-Forwarded-Encrypted: i=1; AJvYcCWBEgtuiCehlEVMjsoTQaZ8OXOsmzPnB3ZZr72P81c8HT6BXq+qfThZyHKBsKegM9s5t+PEt6eG8m12E1r1TLBu@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywgm0ASjxxQ0VXIgMf4X4+YhBlSvBBUb0VROz1R94/jiSZPgB0a
+	pLCKTuHSzOhEY8QAu9zLHQkx2DYkQRU2NbSpmH8v1gzfej3EZ3lIve2qP92k7q6siQuCHY0Vv1t
+	RF9VjEeFsmJhM7jzkMQ==
+X-Google-Smtp-Source: AGHT+IHoXD/iPEv9R0ck8JE0X2BEO15ZWlihBiuBxq/VD+tog9vvDo/xTXjQN1YF2y2CswQzZ14kMxX0B0iv6xJy
+X-Received: from pgbcs12.prod.google.com ([2002:a05:6a02:418c:b0:b14:9718:f939])
  (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:2311:b0:21a:7e04:7021 with SMTP id d9443c01a7336-22fc93ef210mr32126535ad.24.1746776833152;
- Fri, 09 May 2025 00:47:13 -0700 (PDT)
-Date: Fri,  9 May 2025 00:46:28 -0700
+ 2002:a05:6a20:a11e:b0:1f5:5903:edd3 with SMTP id adf61e73a8af0-215abafb67fmr2914671637.11.1746776835249;
+ Fri, 09 May 2025 00:47:15 -0700 (PDT)
+Date: Fri,  9 May 2025 00:46:29 -0700
 In-Reply-To: <20250509074635.3187114-1-changyuanl@google.com>
 Mime-Version: 1.0
 References: <20250509074635.3187114-1-changyuanl@google.com>
 X-Mailer: git-send-email 2.49.0.1015.ga840276032-goog
-Message-ID: <20250509074635.3187114-11-changyuanl@google.com>
-Subject: [PATCH v8 10/17] x86/setup: use memblock_reserve_kern for memory used
- by kernel
+Message-ID: <20250509074635.3187114-12-changyuanl@google.com>
+Subject: [PATCH v8 11/17] x86/kexec: add support for passing kexec handover
+ (KHO) data
 From: Changyuan Lyu <changyuanl@google.com>
 To: akpm@linux-foundation.org, linux-kernel@vger.kernel.org
 Cc: anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com, 
@@ -84,8 +84,8 @@ Cc: anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
 	Changyuan Lyu <changyuanl@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_004714_441703_84C3D497 
-X-CRM114-Status: GOOD (  15.20  )
+X-CRM114-CacheID: sfid-20250509_004716_448912_B7B4C9C3 
+X-CRM114-Status: GOOD (  20.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,87 +100,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+From: Alexander Graf <graf@amazon.com>
 
-memblock_reserve() does not distinguish memory used by firmware from memory
-used by kernel.
+kexec handover (KHO) creates a metadata that the kernels pass between each
+other during kexec. This metadata is stored in memory and kexec image
+contains a (physical) pointer to that memory.
 
-The distinction is nice to have for accounting of early memory allocations
-and reservations, but it is essential for kexec handover (kho) to know how
-much memory kernel consumes during boot.
+In addition, KHO keeps "scratch regions" available for kexec: physically
+contiguous memory regions that are guaranteed to not have any memory that
+KHO would preserve. The new kernel bootstraps itself using the scratch
+regions and sets all handed over memory as in use. When subsystems that
+support KHO initialize, they introspect the KHO metadata, restore preserved
+memory regions, and retrieve their state stored in the preserved memory.
 
-Use memblock_reserve_kern() to reserve kernel memory, such as kernel image,
-initrd and setup data.
+Enlighten x86 kexec-file and boot path about the KHO metadata and make sure
+it gets passed along to the next kernel.
 
+Signed-off-by: Alexander Graf <graf@amazon.com>
+Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Co-developed-by: Changyuan Lyu <changyuanl@google.com>
 Signed-off-by: Changyuan Lyu <changyuanl@google.com>
 Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
 ---
- arch/x86/kernel/setup.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+ arch/x86/include/asm/setup.h           |  2 ++
+ arch/x86/include/uapi/asm/setup_data.h | 13 ++++++++-
+ arch/x86/kernel/kexec-bzimage64.c      | 37 ++++++++++++++++++++++++++
+ arch/x86/kernel/setup.c                | 26 ++++++++++++++++++
+ 4 files changed, 77 insertions(+), 1 deletion(-)
 
-diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
-index 9d2a13b37833c..766176c4f5ee8 100644
---- a/arch/x86/kernel/setup.c
-+++ b/arch/x86/kernel/setup.c
-@@ -286,8 +286,8 @@ static void __init cleanup_highmap(void)
- static void __init reserve_brk(void)
- {
- 	if (_brk_end > _brk_start)
--		memblock_reserve(__pa_symbol(_brk_start),
--				 _brk_end - _brk_start);
-+		memblock_reserve_kern(__pa_symbol(_brk_start),
-+				      _brk_end - _brk_start);
+diff --git a/arch/x86/include/asm/setup.h b/arch/x86/include/asm/setup.h
+index ad9212df0ec0c..3b37571911f4c 100644
+--- a/arch/x86/include/asm/setup.h
++++ b/arch/x86/include/asm/setup.h
+@@ -67,6 +67,8 @@ extern void x86_ce4100_early_setup(void);
+ static inline void x86_ce4100_early_setup(void) { }
+ #endif
  
- 	/* Mark brk area as locked down and no longer taking any
- 	   new allocations */
-@@ -360,7 +360,7 @@ static void __init early_reserve_initrd(void)
- 	    !ramdisk_image || !ramdisk_size)
- 		return;		/* No initrd provided by bootloader */
++#include <linux/kexec_handover.h>
++
+ #ifndef _SETUP
  
--	memblock_reserve(ramdisk_image, ramdisk_end - ramdisk_image);
-+	memblock_reserve_kern(ramdisk_image, ramdisk_end - ramdisk_image);
+ #include <asm/espfix.h>
+diff --git a/arch/x86/include/uapi/asm/setup_data.h b/arch/x86/include/uapi/asm/setup_data.h
+index 50c45ead4e7c9..2671c4e1b3a0b 100644
+--- a/arch/x86/include/uapi/asm/setup_data.h
++++ b/arch/x86/include/uapi/asm/setup_data.h
+@@ -13,7 +13,8 @@
+ #define SETUP_CC_BLOB			7
+ #define SETUP_IMA			8
+ #define SETUP_RNG_SEED			9
+-#define SETUP_ENUM_MAX			SETUP_RNG_SEED
++#define SETUP_KEXEC_KHO			10
++#define SETUP_ENUM_MAX			SETUP_KEXEC_KHO
+ 
+ #define SETUP_INDIRECT			(1<<31)
+ #define SETUP_TYPE_MAX			(SETUP_ENUM_MAX | SETUP_INDIRECT)
+@@ -78,6 +79,16 @@ struct ima_setup_data {
+ 	__u64 size;
+ } __attribute__((packed));
+ 
++/*
++ * Locations of kexec handover metadata
++ */
++struct kho_data {
++	__u64 fdt_addr;
++	__u64 fdt_size;
++	__u64 scratch_addr;
++	__u64 scratch_size;
++} __attribute__((packed));
++
+ #endif /* __ASSEMBLER__ */
+ 
+ #endif /* _UAPI_ASM_X86_SETUP_DATA_H */
+diff --git a/arch/x86/kernel/kexec-bzimage64.c b/arch/x86/kernel/kexec-bzimage64.c
+index 68530fad05f74..dad174e3bed0d 100644
+--- a/arch/x86/kernel/kexec-bzimage64.c
++++ b/arch/x86/kernel/kexec-bzimage64.c
+@@ -233,6 +233,32 @@ setup_ima_state(const struct kimage *image, struct boot_params *params,
+ #endif /* CONFIG_IMA_KEXEC */
  }
  
- static void __init reserve_initrd(void)
-@@ -413,7 +413,7 @@ static void __init add_early_ima_buffer(u64 phys_addr)
++static void setup_kho(const struct kimage *image, struct boot_params *params,
++		      unsigned long params_load_addr,
++		      unsigned int setup_data_offset)
++{
++	struct setup_data *sd = (void *)params + setup_data_offset;
++	struct kho_data *kho = (void *)sd + sizeof(*sd);
++
++	if (!IS_ENABLED(CONFIG_KEXEC_HANDOVER))
++		return;
++
++	sd->type = SETUP_KEXEC_KHO;
++	sd->len = sizeof(struct kho_data);
++
++	/* Only add if we have all KHO images in place */
++	if (!image->kho.fdt || !image->kho.scratch)
++		return;
++
++	/* Add setup data */
++	kho->fdt_addr = image->kho.fdt;
++	kho->fdt_size = PAGE_SIZE;
++	kho->scratch_addr = image->kho.scratch->mem;
++	kho->scratch_size = image->kho.scratch->bufsz;
++	sd->next = params->hdr.setup_data;
++	params->hdr.setup_data = params_load_addr + setup_data_offset;
++}
++
+ static int
+ setup_boot_parameters(struct kimage *image, struct boot_params *params,
+ 		      unsigned long params_load_addr,
+@@ -312,6 +338,13 @@ setup_boot_parameters(struct kimage *image, struct boot_params *params,
+ 				     sizeof(struct ima_setup_data);
  	}
  
- 	if (data->size) {
--		memblock_reserve(data->addr, data->size);
-+		memblock_reserve_kern(data->addr, data->size);
- 		ima_kexec_buffer_phys = data->addr;
- 		ima_kexec_buffer_size = data->size;
- 	}
-@@ -553,7 +553,7 @@ static void __init memblock_x86_reserve_range_setup_data(void)
- 		len = sizeof(*data);
- 		pa_next = data->next;
++	if (IS_ENABLED(CONFIG_KEXEC_HANDOVER)) {
++		/* Setup space to store preservation metadata */
++		setup_kho(image, params, params_load_addr, setup_data_offset);
++		setup_data_offset += sizeof(struct setup_data) +
++				     sizeof(struct kho_data);
++	}
++
+ 	/* Setup RNG seed */
+ 	setup_rng_seed(params, params_load_addr, setup_data_offset);
  
--		memblock_reserve(pa_data, sizeof(*data) + data->len);
-+		memblock_reserve_kern(pa_data, sizeof(*data) + data->len);
+@@ -479,6 +512,10 @@ static void *bzImage64_load(struct kimage *image, char *kernel,
+ 		kbuf.bufsz += sizeof(struct setup_data) +
+ 			      sizeof(struct ima_setup_data);
  
- 		if (data->type == SETUP_INDIRECT) {
- 			len += data->len;
-@@ -567,7 +567,7 @@ static void __init memblock_x86_reserve_range_setup_data(void)
- 			indirect = (struct setup_indirect *)data->data;
++	if (IS_ENABLED(CONFIG_KEXEC_HANDOVER))
++		kbuf.bufsz += sizeof(struct setup_data) +
++			      sizeof(struct kho_data);
++
+ 	params = kzalloc(kbuf.bufsz, GFP_KERNEL);
+ 	if (!params)
+ 		return ERR_PTR(-ENOMEM);
+diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
+index 766176c4f5ee8..664cd21b85329 100644
+--- a/arch/x86/kernel/setup.c
++++ b/arch/x86/kernel/setup.c
+@@ -451,6 +451,29 @@ int __init ima_get_kexec_buffer(void **addr, size_t *size)
+ }
+ #endif
  
- 			if (indirect->type != SETUP_INDIRECT)
--				memblock_reserve(indirect->addr, indirect->len);
-+				memblock_reserve_kern(indirect->addr, indirect->len);
- 		}
- 
- 		pa_data = pa_next;
-@@ -770,8 +770,8 @@ static void __init early_reserve_memory(void)
- 	 * __end_of_kernel_reserve symbol must be explicitly reserved with a
- 	 * separate memblock_reserve() or they will be discarded.
- 	 */
--	memblock_reserve(__pa_symbol(_text),
--			 (unsigned long)__end_of_kernel_reserve - (unsigned long)_text);
-+	memblock_reserve_kern(__pa_symbol(_text),
-+			      (unsigned long)__end_of_kernel_reserve - (unsigned long)_text);
- 
- 	/*
- 	 * The first 4Kb of memory is a BIOS owned area, but generally it is
++static void __init add_kho(u64 phys_addr, u32 data_len)
++{
++	struct kho_data *kho;
++	u64 addr = phys_addr + sizeof(struct setup_data);
++	u64 size = data_len - sizeof(struct setup_data);
++
++	if (!IS_ENABLED(CONFIG_KEXEC_HANDOVER)) {
++		pr_warn("Passed KHO data, but CONFIG_KEXEC_HANDOVER not set. Ignoring.\n");
++		return;
++	}
++
++	kho = early_memremap(addr, size);
++	if (!kho) {
++		pr_warn("setup: failed to memremap kho data (0x%llx, 0x%llx)\n",
++			addr, size);
++		return;
++	}
++
++	kho_populate(kho->fdt_addr, kho->fdt_size, kho->scratch_addr, kho->scratch_size);
++
++	early_memunmap(kho, size);
++}
++
+ static void __init parse_setup_data(void)
+ {
+ 	struct setup_data *data;
+@@ -479,6 +502,9 @@ static void __init parse_setup_data(void)
+ 		case SETUP_IMA:
+ 			add_early_ima_buffer(pa_data);
+ 			break;
++		case SETUP_KEXEC_KHO:
++			add_kho(pa_data, data_len);
++			break;
+ 		case SETUP_RNG_SEED:
+ 			data = early_memremap(pa_data, data_len);
+ 			add_bootloader_randomness(data->data, data->len);
 -- 
 2.49.0.1015.ga840276032-goog
 
