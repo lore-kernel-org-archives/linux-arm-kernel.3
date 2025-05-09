@@ -4,96 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BBC9C3ABCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 12:43:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABE6C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 12:45:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xqSqgdbr6mkrFUbRKHE1fLZLEEIHfO7KWsMJjVuS+q4=; b=HHquJf3Y7GPZTNgciSOXc6hEqT
-	J1r+IkeIiDYAQAMafa6IJnWvlX+5VcetGJt01bsh7kS04yz0/DVb2VydC1NOxnS+bU8klmwqjArzH
-	6jOvYbzpg2IH4r/xcFkH6Qk3yogKmkxg6c4BIGYwjZ+Bv7FwkuI0YXrJPYm6psZhyaEkex9HYTEPx
-	IAAMyyiWY6no0XucsxF7VtCuy56jQl9XeQ7CXlFk+wk6bt6ihi6rd3uqNI4eAmE+Ybtyd+g2nWWlE
-	ruAz/zvm7VbFlIexlQbLU9hkh95QRuAUV9Rga2ut2bsBvAm7oNiT2uN0/MNUIQuT5jLUDS8nl8c2G
-	x1sRc2FA==;
+	bh=6bSX9UNo+ut9uhyeztVWH22aZ+WPLHdTGC7kWwCUCXg=; b=WeACd+NhmX4+VP2OuQjB7tvxqL
+	IWsw6DYlso6xIc2Ir5VhjCK3UcYYquajfDy144KHPTjs1bQ2wKq1GRZ/Gktl6+gslLBqE9K+X/LN3
+	TW5T+advF0JFbXl9L4SVSuWk09Na5KVWmL99iVd71EASizzqdMVDcsQ1hbMA7teoBD/4HkCShx1Mj
+	8fLkK2AFZ10nlQSYDwtgPt3+xpKFowFvkcbIUJTYtA62e7+Lcb5D2hYzJ/Zc8bxTgJHwhj0baHlDj
+	E3/zxZqLeTLkGi060DuEN+o9/1cVXwasngmpYCEZVTFPQVEqbUGr4exy22Bx778fRBAmCChzZVlVH
+	2CYF9sgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDN4g-00000003ceJ-20u6;
-	Fri, 09 May 2025 12:43:34 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1uDN6c-00000003d39-2jWv;
+	Fri, 09 May 2025 12:45:34 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDM6u-00000003ScY-2phd
+	id 1uDMFM-00000003U5J-08t6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 11:41:49 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ad220f139adso101941766b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 04:41:48 -0700 (PDT)
+	Fri, 09 May 2025 11:50:33 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-326ba41006aso12592651fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 04:50:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1746790907; x=1747395707; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=xqSqgdbr6mkrFUbRKHE1fLZLEEIHfO7KWsMJjVuS+q4=;
-        b=e4pwOms5q6zHz7fw/B90MpPhoee2JXbEQrcGR8F2iPkLbkeVvPYHNQTROgmGUrbVv0
-         oNxPE0Abvpk1FsOHmAbKBpKS65SCRaPLKCks2GwhgZnwUAul3TqnaqEs1wBUZFFzjarV
-         jFz1OzLC1zgxGAzrczWjA7NWAVvGG5idts0LREBpv1AgAeSS+IS2oarCmbvfzHbDo1ut
-         c/KR/UovtTjc4UtS5cWDpkULP4qp2mZe68LYfmSKzClPikjynrslxgdmv8szMdQmwfv+
-         4K0TaSXOSJvInvQQjqPPXEN3kY0d7U+uWbZB7P6sD00F/FScjKoHr6cJAcYniGv77Swf
-         RuYQ==
+        d=linaro.org; s=google; t=1746791430; x=1747396230; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6bSX9UNo+ut9uhyeztVWH22aZ+WPLHdTGC7kWwCUCXg=;
+        b=tfVWhQOXIESiUfdpDyZCyOhpeFOi8iVRBmL49bPCOkV47Uu4g0OBOeCPHmHtcYZ0ah
+         z/us4OViIqfpZ6vZdEjOrGdL0iT6S2JScZ8STEAUq0tzfyDbfE6kSbDowm4SZ3B8jnjR
+         rXsyj7KJ1xlvjpD3Uw0VLpqTpOD+Vtj1sfIZQFyiB69UGDD7cANqnNl2zI3FSVU94SJK
+         UMZ5IKrIJ/iE7Xa+4Gz7tZ39Kf1YhA6ZDWL3B+mQzlpxeNLGx+R5U/Ep5pTK/hICnYWd
+         3JXwn/OkiORIiAXbJE+oOB8RAWnIHk1s59ERXXRilMC1tkExvv2LeZLMoiEQPgNhujnQ
+         T49A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746790907; x=1747395707;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xqSqgdbr6mkrFUbRKHE1fLZLEEIHfO7KWsMJjVuS+q4=;
-        b=oisYq4ydw65ek+tumYWEXVYIDvbS6tdquqmow1DzHiTGL55kFTIWCAzK3rTlv9593Q
-         TvfvctBCeUisn0j+Bd9XlkWIvhRpFl6By3QjrINV/9/1is9W1ZMsH6R4el6tim/NBT2C
-         0oLZX5ZahK6PG1KRd5eoLy5vdepmMD8apExUC2SfmC2Sa0umcF4aRflgXduufk70YPgk
-         VWB7+nX/uchrI+aD936PuonunKd7J7hSQWS1NwQ7NMmT5KYdVQGQm4hdWVUYp8ZFYt3z
-         3L4p4bvhoVQMPnNadNpjz9he8y7wQCBGNVzZehWJdm6T6Wlf/dN9yexlYqTNpZ5Y0aY5
-         pmfA==
-X-Forwarded-Encrypted: i=1; AJvYcCWJS+pheopH+Q2ThAdy8hFjHFlZ09TKponVf0sjBJdjP7e7+ZcqY1o6+6xhTS6Y1q8qSrTOcWtTLTDV0uW3h89X@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyd6Lwo2q2tpxomAKrbl0RenUsNqWGzhcrVvbGIWH9C6RwaPHYy
-	K5soYY2hebGO5hqlVFani0FpIs/4HoFX0fEJXPIMJ+oMsVHyM7VLJZjPxb7nw98=
-X-Gm-Gg: ASbGncvVO2HH1Pqt7Ei0V/JXWLqMdApwcHUQ/L9Kfi3zEGi6S2djxVolxW43IAOvgvn
-	9yhfoLxAz3NgUlpFtTT39DJWhBxawG/xNy89AmEegq8KTMTutabBYUVUxvlD+tyaaS78Umh1KZg
-	7lYpLySyN3HBf5luZiezhVYjzwSQsXjru8oBn9JZa6sd+QwKNCYYFICk+JWBys23BvGAUACNYuZ
-	/VpNMzNxy5RykpayCUN9M2bO+ae2GzTgmwb9ukF/BG5WJOrVoIn4dJBmGXgZRF2KOjHhT8+oS4b
-	iUh6qpHjYhqbL2PxYxJh79/5YcoJbZW3AkU8TMROeyfnPnFH
-X-Google-Smtp-Source: AGHT+IG2j0Pea0l+03cwVMYbfwrcANbL1huFvD6sD/j4JhDPCTCSj3oUMBeHqG1csVa7s5Hq/oxNxw==
-X-Received: by 2002:a17:907:1907:b0:ac2:cae8:e153 with SMTP id a640c23a62f3a-ad218ea823fmr310536466b.4.1746790907122;
-        Fri, 09 May 2025 04:41:47 -0700 (PDT)
-Received: from [192.168.50.4] ([82.78.167.50])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad2197bd2a8sm138611966b.145.2025.05.09.04.41.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 09 May 2025 04:41:46 -0700 (PDT)
-Message-ID: <b4771b63-3198-47c8-a83d-5133ba80d39b@tuxon.dev>
-Date: Fri, 9 May 2025 14:41:44 +0300
+        d=1e100.net; s=20230601; t=1746791430; x=1747396230;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6bSX9UNo+ut9uhyeztVWH22aZ+WPLHdTGC7kWwCUCXg=;
+        b=ht1TmNtBA8nd102zV76dm4qRtlnZTWd5FBZ6eUzIPzvWBqRE2VUNKO8WrTOB+FnDps
+         VO30LPjmZPZAY5Etoj6mqBAbvrDg4zNRoaCEBMru9ezOrdCNPkzfnTk2GMb+XIyUGQc2
+         F+TGikNVmHVVEHtr/U8n9v3Nxq/yqaDsFSd+VE1mtTKOa4BhELdBJBU6bAXn3PdO+eOD
+         e3mWP7KOq8jel4y1DeNQiYI8e5r+0PyC6wMg8tZR3MBEVVLywtAMS9CJeKJ8lRnUn2Vg
+         VamHm+oG+ZmNgazq+M7dVMeVhWh6kDF6HQdQJt73d72rshh1YfOWNpIjIAwCU10EJoPh
+         M+Jg==
+X-Forwarded-Encrypted: i=1; AJvYcCW+2oXhxTYuezk0iu5rtxG/j9UcFBNeX36UCCV6sHZ9o0hlT+BqX2kutGcMK+/GD/x+YP6ZlDOWXMiW6Q90N4px@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+B7R+ElJAF29rEAKsx3k9JscVQCibmBVbct8uGd24z2J2dWB4
+	4dBnf5jsiNe9p4Psl8cZ5HYZBACGm1Awiew6p/QHi2Pe/8O8OO4sBZsuaASWH2RbcIeY+0u4Btj
+	uyFkfEZ/WqVuCD4OWV0Yf3cZoyVUok7BLUOBANw==
+X-Gm-Gg: ASbGncvkrKZRaofy8nHZlum0eQoKfYo5O0mje7ztgu6HuCMITlz5gRCM3rlxsvqihkw
+	MDEHIlbuAqgB3phdj+9PgC5HvapPPZ/X4MFyq9BwcBSiiqHTQSCQ/WkbzLOcqsdWDnk0EjF/xcR
+	UsYj2JSemHrECctxjJ+ORaIQO0pzdvmm82
+X-Google-Smtp-Source: AGHT+IE9OA/TgX88UK8wnm39DMsSy6I7xruaMSROXFg88YbOwzBbcaNlmJPRpQ8Ckx3l33XEBcNwePAgT7TtPdM2+0E=
+X-Received: by 2002:a2e:a991:0:b0:300:26bc:4311 with SMTP id
+ 38308e7fff4ca-326c4575642mr10757241fa.18.1746791429976; Fri, 09 May 2025
+ 04:50:29 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/8] PCI: rzg3s-host: Add Initial PCIe Host Driver for
- Renesas RZ/G3S SoC
-To: Philipp Zabel <p.zabel@pengutronix.de>, bhelgaas@google.com,
- lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- geert+renesas@glider.be, magnus.damm@gmail.com, mturquette@baylibre.com,
- sboyd@kernel.org, saravanak@google.com
-Cc: linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-References: <20250430103236.3511989-1-claudiu.beznea.uj@bp.renesas.com>
- <20250430103236.3511989-6-claudiu.beznea.uj@bp.renesas.com>
- <42a5119e547685f171be6f91e476a9b595599cf9.camel@pengutronix.de>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <42a5119e547685f171be6f91e476a9b595599cf9.camel@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250424-01-sun55i-emac0-v2-0-833f04d23e1d@gentoo.org>
+ <20250424-01-sun55i-emac0-v2-3-833f04d23e1d@gentoo.org> <CAGb2v66a4ERAf_YhPkMWJjm26SsfjO3ze_Zp=QqkXNDLaLnBRg@mail.gmail.com>
+ <20250425104128.14f953f3@donnerap.manchester.arm.com> <CAGb2v65QUrCjgHXWAb72Sdppqg1AUxXyD_ZcXShtkRSHCQBbOg@mail.gmail.com>
+ <20250425160535.5a18adbb@donnerap.manchester.arm.com>
+In-Reply-To: <20250425160535.5a18adbb@donnerap.manchester.arm.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Fri, 9 May 2025 13:50:18 +0200
+X-Gm-Features: ATxdqUG6U2bPxTcfQiBy-oW1Lju29rGeV9-TYLkpQrHjbRn14HSqGi03f0yvO10
+Message-ID: <CACRpkdZH+NnP0-GkLe+nHK-Oi_Z=FzPaM=k1U-gZddp+P2+DTw@mail.gmail.com>
+Subject: Re: [PATCH v2 3/5] arm64: dts: allwinner: a523: Add EMAC0 ethernet MAC
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Chen-Yu Tsai <wens@csie.org>, Yixun Lan <dlan@gentoo.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Maxime Ripard <mripard@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Corentin Labbe <clabbe.montjoie@gmail.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_044148_726017_B2A60915 
-X-CRM114-Status: GOOD (  24.31  )
+X-CRM114-CacheID: sfid-20250509_045032_072619_B28D4B3C 
+X-CRM114-Status: GOOD (  21.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,109 +104,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Philipp,
+On Fri, Apr 25, 2025 at 5:05=E2=80=AFPM Andre Przywara <andre.przywara@arm.=
+com> wrote:
+> On Fri, 25 Apr 2025 22:35:59 +0800
+> Chen-Yu Tsai <wens@csie.org> wrote:
+>
+> adding LinusW for a more generic pinctrl question ...
 
-On 09.05.2025 13:51, Philipp Zabel wrote:
-> Hi Claudiu,
-> 
-> On Mi, 2025-04-30 at 13:32 +0300, Claudiu wrote:
->> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
->>
->> The Renesas RZ/G3S features a PCIe IP that complies with the PCI Express
->> Base Specification 4.0 and supports speeds of up to 5 GT/s. It functions
->> only as a root complex, with a single-lane (x1) configuration. The
->> controller includes Type 1 configuration registers, as well as IP
->> specific registers (called AXI registers) required for various adjustments.
->>
->> Other Renesas RZ SoCs (e.g., RZ/G3E, RZ/V2H) share the same AXI registers
->> but have both Root Complex and Endpoint capabilities. As a result, the PCIe
->> host driver can be reused for these variants with minimal adjustments.
->>
->> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
->> ---
->>  MAINTAINERS                              |    8 +
->>  drivers/pci/controller/Kconfig           |    7 +
->>  drivers/pci/controller/Makefile          |    1 +
->>  drivers/pci/controller/pcie-rzg3s-host.c | 1561 ++++++++++++++++++++++
->>  4 files changed, 1577 insertions(+)
->>  create mode 100644 drivers/pci/controller/pcie-rzg3s-host.c
->>
-> [...]
->> diff --git a/drivers/pci/controller/pcie-rzg3s-host.c b/drivers/pci/controller/pcie-rzg3s-host.c
->> new file mode 100644
->> index 000000000000..c3bce0acd57e
->> --- /dev/null
->> +++ b/drivers/pci/controller/pcie-rzg3s-host.c
->> @@ -0,0 +1,1561 @@
-> [...]
->> +static int rzg3s_pcie_resets_bulk_set(int (*action)(int num, struct reset_control_bulk_data *rstcs),
->> +				      struct reset_control **resets, u8 num_resets)
->> +{
->> +	struct reset_control_bulk_data *data __free(kfree) =
->> +		kcalloc(num_resets, sizeof(*data), GFP_KERNEL);
->> +
->> +	if (!data)
->> +		return -ENOMEM;
->> +
->> +	for (u8 i = 0; i < num_resets; i++)
->> +		data[i].rstc = resets[i];
->> +
->> +	return action(num_resets, data);
->> +}
-> 
-> What is the purpose of this? Can't you just store struct
-> reset_control_bulk_data in struct rzg3s_pcie_host and call
-> reset_control_bulk_assert/deassert() directly?
+OK!
 
-Yes, I can. I was trying to avoid storing also the reset_control_bulk_data
-in struct rzg3s_pcie_host since all that is needed can be retrieved from
-the already parsed in probe cfg_resets and power_resets.
+> > There isn't any assumption, as in we were fine with either the reset
+> > default or whatever the bootloader left it in. However in projects at
+> > work I learned that it's better to have explicit settings despite
+> > working defaults.
+>
+> I totally agree, but my point was that this applies basically to every
+> pinctrl user. I usually think of the bias settings as "do we need
+> pull-ups or pull-downs", and if nothing is specified, I somewhat assume
+> bias-disable.
+>
+> So I am fine with this being added here, but was wondering if we should
+> look at a more generic solution.
+>
+> Linus: is bias-disable assumed to be the default, that pinctrl drivers
+> should set in absence of explicit properties? Or is this "whatever is in
+> the registers at boot" the default we have to live with?
 
-> 
->> +static int
->> +rzg3s_pcie_resets_init(struct device *dev, struct reset_control ***resets,
->> +		       struct reset_control *(*action)(struct device *dev, const char *id),
->> +		       const char * const *reset_names, u8 num_resets)
->> +{
->> +	*resets = devm_kcalloc(dev, num_resets, sizeof(struct reset_control *), GFP_KERNEL);
->> +	if (!*resets)
->> +		return -ENOMEM;
->> +
->> +	for (u8 i = 0; i < num_resets; i++) {
->> +		(*resets)[i] = action(dev, reset_names[i]);
->> +		if (IS_ERR((*resets)[i]))
->> +			return PTR_ERR((*resets)[i]);
->> +	}
->> +
->> +	return 0;
->> +}
-> 
-> Why not use devm_reset_control_bulk_get_exclusive() directly?
+We have never hammered down the semantics of that, so it's a bit
+up to the specific driver how they implement it (yeah a grey area...)
 
-I wasn't able to find a bulk_get_exclusive_deasserted() kind of API.
+There are many drivers that are carful to not touch register boot
+values but others who set them to some default, and people
+have different opinions on that.
 
-This IP needs particular sequence for configuration. First, after power on,
-the following resets need to be de-asserted:
-
-	const char * const power_resets[] = {
-		"aresetn", "rst_cfg_b", "rst_load_b",
-	};
-
-then, after proper values are written into the configuration registers, the
-rest of the resets need to be de-asserted:
-
-	const char * const cfg_resets[] = {
-		"rst_b", "rst_ps_b", "rst_gp_b", "rst_rsm_b",
-	};
-
-So I was trying to get and de-assert the power_resets in probe and just get
-the cfg_resets in the 1st step of the initialization, and later to
-de-assert the cfg_resets as well.
-
-Now, after you pointed it out, maybe you are proposing to just
-get_exclusive everything in one shot and then to de-assert what is needed
-at proper moments with generic reset control APIs?
-
-Thank you for your review,
-Claudiu
+Yours,
+Linus Walleij
 
