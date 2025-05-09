@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4B76C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 16:22:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89EA1C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 16:24:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DM95X8ugm4aO+LWb0vSX8oZq5P0hDrFpWVs08I9Xejc=; b=QEAdgA2MlXwkqEfi/hm1HzlVQ0
-	xuxtOsNQZN2+seSMNl+PZkzX2uUI7mZYFz8TfooYc5BoXk2FEQBuRvJ4NUg9vuoqd6whNW18d+FS5
-	twlBQhV4m/JVzFPYTbNmnOPBEPVJzUyEa7roWS/vbIP/3/3b+feiRVlA95PCPb7/wrnOe+nJk0HaW
-	Qv4BOOdzFbHmgfJH3I4f0BSxKlTM7/c7fmjYl5qA7QoeJNRaztnv83GT9DO/6oD8FtPhVfvKa+nXe
-	DpFYAjSOi6kPR6B3IDZ1GJJYxvVhIurwya5d5kUvmxN2j9hPsrTZMgCLHthUNchGUdYUkkBx0f/Nr
-	uEWvfr2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CJMm6DfceF2eUzZBuyIgi41UTIevjuCmrQ2v1FeFLbI=; b=v9pjdaqtjhOApWCcarqdiqrpUf
+	eKAluybEiCrCy3J18oNNAEOyhml+ZKXR3LykpZIEOg1JUKqiwrIOObns6wS/0TVUWI2eWdtsFsQk0
+	Rlw7y5HjG7AVj8nBqJhQ2NomnFV4hOCAe4kNeYwI4ohEJZaWA5ZPl4NB17LA8HxBUR2xMe/QGWeZC
+	Q6cQj6aADdKhRFz0t67cWD0fq0tPtqNh5yQN8E96mYdJoBkPwzn87RAjblkXyjAcFzglAH8Gmjb3O
+	U4D3La2/vaQN/04rjQZQNaBjFR4Q9MWE5c5ohOKldB2WWQIXVFKB+phv29/ywdSu6aT2JQ+9tla2K
+	n3sa/5CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDQUq-00000004GoY-3WrY;
-	Fri, 09 May 2025 16:22:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDOWG-00000003uqn-0VVf
+	id 1uDQWn-00000004H4i-28vm;
+	Fri, 09 May 2025 16:24:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uDOWy-00000003v1U-1Tey
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 14:16:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63C48175D;
-	Fri,  9 May 2025 07:15:56 -0700 (PDT)
-Received: from [10.57.90.222] (unknown [10.57.90.222])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DEF983F5A1;
-	Fri,  9 May 2025 07:16:02 -0700 (PDT)
-Message-ID: <9bb94fe8-d605-49b4-91f0-0ad6d527b320@arm.com>
-Date: Fri, 9 May 2025 15:16:01 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH v6 1/3] arm64: Add BBM Level 2 cpu feature
-Content-Language: en-GB
-To: Will Deacon <will@kernel.org>
-Cc: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
- suzuki.poulose@arm.com, yang@os.amperecomputing.com, corbet@lwn.net,
- catalin.marinas@arm.com, jean-philippe@linaro.org, robin.murphy@arm.com,
- joro@8bytes.org, akpm@linux-foundation.org, paulmck@kernel.org,
- mark.rutland@arm.com, joey.gouly@arm.com, maz@kernel.org,
- james.morse@arm.com, broonie@kernel.org, oliver.upton@linux.dev,
- baohua@kernel.org, david@redhat.com, ioworker0@gmail.com, jgg@ziepe.ca,
- nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com,
- smostafa@google.com, kevin.tian@intel.com, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev
-References: <20250428153514.55772-2-miko.lenczewski@arm.com>
- <20250428153514.55772-4-miko.lenczewski@arm.com>
- <20250506142508.GB1197@willie-the-truck>
- <78fec33d-fe66-4352-be11-900f456c9af3@arm.com>
- <20250509134904.GA5707@willie-the-truck>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250509134904.GA5707@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
+	Fri, 09 May 2025 14:16:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C028A4A761;
+	Fri,  9 May 2025 14:16:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A6F4C4CEE4;
+	Fri,  9 May 2025 14:16:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746800211;
+	bh=vMVUJZu9yYRGIoVM8aKfqXn5nkHn4uhH6yrt76qg8Bo=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=ccrr7mhG0MUfhAyaZklvA7LfwZOJnA0way4Qf/VXo+XXV5znPdMuiKRnRaghQfLph
+	 fq2Vhqf0OSAMuTO1bec60sjVOHQVSeb220o4P2U1wFWLl4qofUL86KOHqLGWpdgLGx
+	 RZZKQ0LMuPtjKKQoPywZk1dUAw+hBy4SR/9uQedk3QD8g6lnBG0fqjZ4D6Akjy8FNy
+	 I/JOGXJ9bb7hE+8DOp6lkaaPGn1dNhWB/L52aTz93Gy4tnlyenMYjso8/oAA10exqk
+	 KtqBDlUcbyHoSjv91c7Efxsj4WnqvqT8YhN6q4NA+kD2LLV095FC7iMxi1cZ6E/yZm
+	 BWiMcR8pzW3hg==
+Date: Fri, 09 May 2025 09:16:49 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Tero Kristo <kristo@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Nishanth Menon <nm@ti.com>, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>
+To: Bryan Brattlof <bb@ti.com>
+In-Reply-To: <20250507-am62lx-v5-0-4b57ea878e62@ti.com>
+References: <20250507-am62lx-v5-0-4b57ea878e62@ti.com>
+Message-Id: <174679984762.3368109.6575241416894070817.robh@kernel.org>
+Subject: Re: [PATCH v5 0/3] arm64: dts: ti: introduce basic support for the
+ AM62L
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_071608_252607_0432C18A 
-X-CRM114-Status: GOOD (  51.10  )
+X-CRM114-CacheID: sfid-20250509_071652_430865_C2830530 
+X-CRM114-Status: GOOD (  27.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,221 +74,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/05/2025 14:49, Will Deacon wrote:
-> On Tue, May 06, 2025 at 03:52:59PM +0100, Ryan Roberts wrote:
->> On 06/05/2025 15:25, Will Deacon wrote:
->>> On Mon, Apr 28, 2025 at 03:35:14PM +0000, Mikołaj Lenczewski wrote:
->>>> The Break-Before-Make cpu feature supports multiple levels (levels 0-2),
->>>> and this commit adds a dedicated BBML2 cpufeature to test against
->>>> support for, as well as a kernel commandline parameter to optionally
->>>> disable BBML2 altogether.
->>>>
->>>> This is a system feature as we might have a big.LITTLE architecture
->>>> where some cores support BBML2 and some don't, but we want all cores to
->>>> be available and BBM to default to level 0 (as opposed to having cores
->>>> without BBML2 not coming online).
->>>>
->>>> To support BBML2 in as wide a range of contexts as we can, we want not
->>>> only the architectural guarantees that BBML2 makes, but additionally
->>>> want BBML2 to not create TLB conflict aborts. Not causing aborts avoids
->>>> us having to prove that no recursive faults can be induced in any path
->>>> that uses BBML2, allowing its use for arbitrary kernel mappings.
->>>> Support detection of such CPUs.
->>>>
->>>> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
->>>> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->>>> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
->>>> ---
->>>>  .../admin-guide/kernel-parameters.txt         |  3 +
->>>>  arch/arm64/Kconfig                            | 19 +++++
->>>>  arch/arm64/include/asm/cpucaps.h              |  2 +
->>>>  arch/arm64/include/asm/cpufeature.h           |  5 ++
->>>>  arch/arm64/kernel/cpufeature.c                | 71 +++++++++++++++++++
->>>>  arch/arm64/kernel/pi/idreg-override.c         |  2 +
->>>>  arch/arm64/tools/cpucaps                      |  1 +
->>>>  7 files changed, 103 insertions(+)
->>>>
->>>> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
->>>> index d9fd26b95b34..2749c67a4f07 100644
->>>> --- a/Documentation/admin-guide/kernel-parameters.txt
->>>> +++ b/Documentation/admin-guide/kernel-parameters.txt
->>>> @@ -449,6 +449,9 @@
->>>>  	arm64.no32bit_el0 [ARM64] Unconditionally disable the execution of
->>>>  			32 bit applications.
->>>>  
->>>> +	arm64.nobbml2	[ARM64] Unconditionally disable Break-Before-Make Level
->>>> +			2 support
->>>
->>> Hmm, I'm not sure we really want this. It opens up the door for folks to
->>> pass 'id_aa64mmfr2.bbm=2' without updating the allow-list which feels
->>> like it's going to make crashes harder to reason about.
->>>
->>> Is there a compelling reason to add this right now?
->>
->> I don't think there is a *compelling* reason. This came about from Suzuki's
->> feedback at [1]. He was keen to have a mechanism to disable BBML2 in case issues
->> were found.
->>
->> But simpler is usually better; I'd be ok with removing.
+
+On Wed, 07 May 2025 22:09:18 -0500, Bryan Brattlof wrote:
+> Hello Everyone,
 > 
-> We can always add it back if we really need it, but adding an allowlist
-> *and* a mechanism to override the allowlist at the same time seems overly
-> pessimistic to me :)
-
-ACK
-
+> This small series adds the initial support (currently just a UART) for
+> TI's AM62L SoC family.
 > 
->>>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->>>> index 9c4d6d552b25..7a85a1bdc6e9 100644
->>>> --- a/arch/arm64/kernel/cpufeature.c
->>>> +++ b/arch/arm64/kernel/cpufeature.c
->>>> @@ -2200,6 +2200,70 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
->>>>  	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
->>>>  }
->>>>  
->>>> +static bool cpu_has_bbml2_noabort(unsigned int cpu_midr)
->>>> +{
->>>> +	/*
->>>> +	 * We want to allow usage of bbml2 in as wide a range of kernel contexts
->>>> +	 * as possible. This list is therefore an allow-list of known-good
->>>> +	 * implementations that both support bbml2 and additionally, fulfill the
->>>> +	 * extra constraint of never generating TLB conflict aborts when using
->>>> +	 * the relaxed bbml2 semantics (such aborts make use of bbml2 in certain
->>>> +	 * kernel contexts difficult to prove safe against recursive aborts).
->>>> +	 *
->>>> +	 * Note that implementations can only be considered "known-good" if their
->>>> +	 * implementors attest to the fact that the implementation never raises
->>>> +	 * TLBI conflict aborts for bbml2 mapping granularity changes.
->>>> +	 */
->>>> +	static const struct midr_range supports_bbml2_noabort_list[] = {
->>>> +		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
->>>> +		MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
->>>> +		{}
->>>> +	};
->>>> +
->>>> +	return is_midr_in_range_list(cpu_midr, supports_bbml2_noabort_list);
->>>
->>> This doesn't compile against latest mainline as is_midr_in_range_list()
->>> no longer takes the midr.
->>
->> Will ask Miko to fix.
+> The AM62L is a lite, low power and performance optimized family of
+> application processors that are built for Linux application development.
+> AM62L is well suited for a wide range of general-purpose applications
+> with scalable ARM Cortex-A53 core performance and embedded features such
+> as: Multimedia DSI/DPI support, integrated ADC on chip, advanced lower
+> power management modes, and extensive security options for IP protection
+> with the built-in security features.
 > 
-> Cheers. v6.15-rc1 is probably the right base to use as that's what I've
-> based for-next/mm on.
-
-ACK
-
+> Additionally, the AM62Lx devices includes an extensive set of
+> peripherals that make it a well-suited for a broad range of industrial
+> applications while offering intelligent features and optimized power
+> architecture as well. In addition, the extensive set of peripherals
+> included in AM62Lx enables system-level connectivity, such as: USB,
+> MMC/SD, OSPI, CAN-FD and an ADC.
 > 
->>>> +static bool has_bbml2_noabort(const struct arm64_cpu_capabilities *caps, int scope)
->>>> +{
->>>> +	if (!IS_ENABLED(CONFIG_ARM64_BBML2_NOABORT))
->>>> +		return false;
->>>> +
->>>> +	if (scope & SCOPE_SYSTEM) {
->>>> +		int cpu;
->>>> +
->>>> +		/*
->>>> +		 * We are a boot CPU, and must verify that all enumerated boot
->>>> +		 * CPUs have MIDR values within our allowlist. Otherwise, we do
->>>> +		 * not allow the BBML2 feature to avoid potential faults when
->>>> +		 * the insufficient CPUs access memory regions using BBML2
->>>> +		 * semantics.
->>>> +		 */
->>>> +		for_each_online_cpu(cpu) {
->>>> +			if (!cpu_has_bbml2_noabort(cpu_read_midr(cpu)))
->>>> +				return false;
->>>> +		}
->>>
->>> This penalises large homogeneous systems and it feels unnecessary given
->>> that we have the ability to check this per-CPU. 
-
-In case you didn't spot it, cpu_read_midr() is not actually reading a remote
-cpu's midr. It's reading the cached midr in a per-cpu data structure. So I don't
-think this will be very expensive in reality. And it's only run once during boot...
-
-static inline unsigned int cpu_read_midr(int cpu)
-{
-	WARN_ON_ONCE(!cpu_online(cpu));
-
-	return per_cpu(cpu_data, cpu).reg_midr;
-}
-
-
-> Can you use
->>> ARM64_CPUCAP_BOOT_CPU_FEATURE instead of ARM64_CPUCAP_SYSTEM_FEATURE
->>> to solve this?
->>
->> We are trying to solve for the case where the boot CPU has BBML2 but a secondary
->> CPU doesn't. (e.g. hetrogeneous system where boot CPU is big and secondary is
->> little and does not advertise the feature. I can't remember if we proved there
->> are real systems with this config - I have vague recollection that we did but my
->> memory is poor...).
->>
->> My understanding is that for ARM64_CPUCAP_BOOT_CPU_FEATURE, "If the boot CPU
->> has enabled this feature already, then every late CPU must have it". So that
->> would exclude any secondary CPUs without BBML2 from coming online?
+> AM62L is a general purpose processor, however some of the applications
+> well suited for it include: Human Machine Interfaces (HMI), Medical
+> patient monitoring , Building automation, Smart secure gateways, Smart
+> Thermostats, EV charging stations, Smart Metering, Solar energy and
+> more.
 > 
-> Damn, yes, you're right. However, it still feels horribly hacky to iterate
-> over the online CPUs in has_bbml2_noabort() -- the cpufeature framework
-> has the ability to query features locally and we should be able to use
-> that. We're going to want that should the architecture eventually decide
-> on something like BBML3 for this.
-
-For BBML3, we're looking for a minimum value in the BBM field of the FFMR, and
-in that case the framework can handle it nicely with
-ARM64_CPUCAP_SYSTEM_FEATURE. But the framework doesn't have any support for the
-case where we need to look at all the midrs. So Suzuki came up with this method.
-
-If/when we have BBML3 I was thinking we could retrospectively treat the CPUs in
-the midr list as having an erratum that they don't advertise BBML3 when they
-should (since the semantics are basically the same I expect/hope/have been
-trying to ensure), so we can just implement workarounds to make it look like
-they do have BBML3, then the framework does it's thing. Perhaps we can live with
-this hack until we get to that point?
-
+> Some highlights of AM62L SoC are:
+>  - Single to Dual 64-bit Arm® Cortex®-A53 microprocessor subsystem up to
+>    1.25GHz Integrated Giga-bit Ethernet switch supporting up to a total
+>    of two external
+>  - 16-bit DDR Subsystem that supports LPDDR4, DDR4 memory types.
+>  - Display support: 1x display support over MIPI DSI (4 lanes DPHY) or
+>    DPI (24-bit RGB LVCMOS)
+>  - Multiple low power modes support, ex: Deep sleep and Standby
+>  - Support for secure boot, Trusted Execution Environment (TEE) &
+>    Cryptographic Acceleration
 > 
-> What we have with BBML2_NOABORT seems similar to an hwcap in that we only
-> support the capability if all CPUs have it (rejecting late CPUs without it
-> in that case) but we can live without it if not all of the early CPUs
-> have it. Unlikely hwcaps, though, we shouldn't be advertising this to
-> userspace and we can't derive the capability solely from the sanitised
-> system registers.
-
-Agreed.
-
+> For more information check out our Technical Reference Manual (TRM)
+> which is located here:
 > 
-> I wonder if we could treat it like an erratum in some way instead? That
-> is, invert things so that CPUs which _don't_ have BBML2_NOABORT are
-> considered to have a "BBM_CONFLICT_ABORT" erratum (which we obviously
-> wouldn't shout about). Then we should be able to say:
+> 	https://www.ti.com/lit/pdf/sprujb4
 > 
->   - If any of the early CPUs don't have BBML2_NOABORT, then the erratum
->     would be enabled and we wouln't elide BBM.
+> Happy Hacking
+> ~Bryan
 > 
->   - If a late CPU doesn't have BBML2_NOABORT then it can't come online
->     if the erratum isn't already enabled.
+> Changes in v1:
+>  - switched to non-direct links so TRM updates are automatic
+>  - fixed indentation issues with a few nodes
+>  - separated bindings into a different patch
+>  - removed current-speed property from main_uart0{}
+>  - removed empty reserved-memory{} node
+>  - removed serial2 from aliases{} node
+>  - corrected the main_uart0{} pinmux
+>  - Link: https://lore.kernel.org/all/20241117-am62lx-v1-0-4e71e42d781d@ti.com/
+> 
+> Changes in v2:
+> - alphabetized phandles
+> - corrected macro and node names for main_uart0 pinmux
+> - Link to v2: https://lore.kernel.org/r/20250108-am62lx-v2-0-581285a37d8f@ti.com
+> 
+> Changes in v3:
+> - added more nodes which have been validated
+> - added link to data sheet which is now public
+> - Link to v3: https://lore.kernel.org/r/20250109-am62lx-v3-0-ef171e789527@ti.com
+> 
+> Changes in v4:
+> - corrected copyright date
+> - used the ranges property for the fss{} node
+> - converted control MMR's space into a syscon{} node
+> - Link to v4: https://lore.kernel.org/r/20250407-am62lx-v4-0-ce97749b9eae@ti.com
+> 
+> Signed-off-by: Bryan Brattlof <bb@ti.com>
+> ---
+> Bryan Brattlof (1):
+>       dt-bindings: arm: ti: Add binding for AM62L SoCs
+> 
+> Vignesh Raghavendra (2):
+>       arm64: dts: ti: k3-am62l: add initial infrastructure
+>       arm64: dts: ti: k3-am62l: add initial reference board file
+> 
+>  Documentation/devicetree/bindings/arm/ti/k3.yaml |   6 +
+>  arch/arm64/boot/dts/ti/Makefile                  |   3 +
+>  arch/arm64/boot/dts/ti/k3-am62l-main.dtsi        | 673 +++++++++++++++++++++++
+>  arch/arm64/boot/dts/ti/k3-am62l-thermal.dtsi     |  25 +
+>  arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi      | 133 +++++
+>  arch/arm64/boot/dts/ti/k3-am62l.dtsi             | 121 ++++
+>  arch/arm64/boot/dts/ti/k3-am62l3-evm.dts         | 294 ++++++++++
+>  arch/arm64/boot/dts/ti/k3-am62l3.dtsi            |  67 +++
+>  arch/arm64/boot/dts/ti/k3-pinctrl.h              |   2 +
+>  9 files changed, 1324 insertions(+)
+> ---
+> base-commit: ed6f779e213070572e53e9801e4a6e510d7bc208
+> change-id: 20241220-am62lx-ca9498efd87e
+> 
+> Best regards,
+> --
+> Bryan Brattlof <bb@ti.com>
+> 
+> 
+> 
 
-That's exactly the policy that this cludge provides. But it's using the midr to
-check if the CPU has BBML2_NOABORT. I'm not sure I follow your point about a
-"BBM_CONFLICT_ABORT" erratum?
 
-I'm also at a massive disadvantage because I find the whole cpufeatures
-framework impenetrable :)
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-I'll ping Suzuki to see if he can chime in here.
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-Thanks,
-Ryan
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
-> 
-> Does that work? If not, then perhaps the cpufeature/cpuerrata code needs
-> some surgery for this.
-> 
->> How do you see this working with ARM64_CPUCAP_BOOT_CPU_FEATURE? Or do you just
->> think that all systems will always be homogeneous with respect to FEAT_BBM?
-> 
-> That's probably wishful thinking, sadly :(
-> 
-> Will
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: using specified base-commit ed6f779e213070572e53e9801e4a6e510d7bc208
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/ti/' for 20250507-am62lx-v5-0-4b57ea878e62@ti.com:
+
+arch/arm64/boot/dts/ti/k3-am62l3-evm.dtb: serial@0 (ti,am64-uart): clock-names:0: 'fclk' was expected
+	from schema $id: http://devicetree.org/schemas/serial/8250_omap.yaml#
+arch/arm64/boot/dts/ti/k3-am62l3-evm.dtb: syscon@43000000 (syscon): compatible: ['syscon', 'simple-mfd'] is too short
+	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml#
+arch/arm64/boot/dts/ti/k3-am62l3-evm.dtb: syscon@9000000 (syscon): compatible: ['syscon', 'simple-mfd'] is too short
+	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml#
+arch/arm64/boot/dts/ti/k3-am62l3-evm.dtb: syscon@9000000 (syscon): 'reg' is a required property
+	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml#
+arch/arm64/boot/dts/ti/k3-am62l3-evm.dtb: spi@fc40000 (ti,am654-ospi): '#address-cells' is a dependency of '#size-cells'
+	from schema $id: http://devicetree.org/schemas/reg.yaml#
+
+
+
+
 
 
