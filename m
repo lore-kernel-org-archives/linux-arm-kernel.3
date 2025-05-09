@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8B3CC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 13:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BD8AC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 13:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dfRGaNlUk7rWzedto7In3tShlqxpS1IILmDWsZpfKPY=; b=FFrVTUIkT/srR4PbTuub67W7UV
-	Anf4Or97c6jODNMrG7FVYhHFIYcH2ua967RJ15HZhlWoBpn/iIPsA7bNKSUt6Oui9Zp3lOXgNxaOF
-	JBvbTHHnGTlDDqv2DVCxO6ZBXApukecK1JYlr733A0OeQNexboSWsr5qXQZIVYEL1kIbeGftT1eIs
-	E2+Zw3mvUnwkOGy9Z9f05LFuGyXve/pavpamwQhyRN5yUf2l2AVFyJPmRKupqVaGQbdH1ChFOQEUu
-	wRim8ro9g+UsYnxjELsSh+K4050BEuyf9Lix8GAP4hDYD9PhMgwjb7X2KCBas4poi9UWqYJcM8wN/
-	5vDoa5qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ktkld80348pq4diiaBsonNNJGXZYtqDampHum037LXc=; b=Eb8ZO7mt+IwPSzsQ0KLznk9wRL
+	6IsruSzp+gaH1JspeTJJlEpuonTTRkcceAGGi3S97BOlsbXCgCSueALOEpEzCzkuC/SCvRrR+wR1i
+	9xtNsCPoIzqx0+sJDJJYnyZLwRbmEuQRq+lpVx+nSPVOOvkx4MqtLurgCIgqTAOSaiExZMj39/h/M
+	5lEQU9v3dcCydF+q4k0zmntaTkMCEbrOWOieccCO2yxCDMHgEr3fGr7tX2hpsREKijQNoQ4OKEiJz
+	wz5cFT7CP9Mzjv3R81O/OaO95MZAF4gtyBnr4qxe9NoYAO51kLtfAEvLXU1SRB1618emMrWhmMQDg
+	ErMm4IgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDOCb-00000003qzo-0G6l;
-	Fri, 09 May 2025 13:55:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDNLi-00000003gNg-1O1D;
-	Fri, 09 May 2025 13:01:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D13E4A678;
-	Fri,  9 May 2025 13:01:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17993C4CEF2;
-	Fri,  9 May 2025 13:01:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746795669;
-	bh=9MZHj+GCA6WVB4FMrptSj25S8jGsj6thQNlGMW0sbAc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Hc0YNYDdQxYj+hGWtJuWaFjmmumS2+YfNwPs0H+/caivA9zWJrCknFwa2UjtG+b0Z
-	 f1MsNn1WrEZwNv76YzlYSkiY27TZNTRfm0KE94QRh5UCsHADIrVawAelQYKDyUlzIq
-	 JLJYwL5jjomH09DlXd3GM+zVbaV/ZrZQwfdxKWhsrpsb+/r/8w4BSghc74FOOMbzO6
-	 L+aH2wFboVFc45Gazhp/Qdc+VAUHWZ8nWx18ZNfwHfY2jkbsUF/N6Ef6eTjvcbtp7p
-	 eCSj1fFF0MiEovmWIfm6ulfJrjwwF+6fteyY55aHjJR3oipX6ykcgxvJqdRF19EbLx
-	 V46RSjf1E4x8Q==
-Date: Fri, 9 May 2025 15:01:03 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Wilfred Mallawa <wilfred.opensource@gmail.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Alistair Francis <alistair@alistair23.me>,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>
-Subject: Re: [PATCH v3] PCI: dw-rockchip: Add support for slot reset on link
- down event
-Message-ID: <aB38j9p9nyrpL7HI@ryzen>
-References: <20250509-b4-pci_dwc_reset_support-v3-1-37e96b4692e7@wdc.com>
+	id 1uDOEY-00000003rke-0aVb;
+	Fri, 09 May 2025 13:57:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uDNMg-00000003geI-35pA;
+	Fri, 09 May 2025 13:02:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B18BA1595;
+	Fri,  9 May 2025 06:01:56 -0700 (PDT)
+Received: from [10.57.90.222] (unknown [10.57.90.222])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 87F603F58B;
+	Fri,  9 May 2025 06:02:05 -0700 (PDT)
+Message-ID: <2ad910f4-6930-4da2-aa2b-f3875f71e001@arm.com>
+Date: Fri, 9 May 2025 14:02:03 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250509-b4-pci_dwc_reset_support-v3-1-37e96b4692e7@wdc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/9] Merge arm64/riscv hugetlbfs contpte support
+Content-Language: en-GB
+To: Alexandre Ghiti <alexghiti@rivosinc.com>, Will Deacon <will@kernel.org>,
+ Lorenzo Stoakes <lstoakes@gmail.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Catalin Marinas
+ <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+ Matthew Wilcox <willy@infradead.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-mm@kvack.org
+References: <20250321130635.227011-1-alexghiti@rivosinc.com>
+ <4dd5d187-f977-4f27-9937-8608991797b5@ghiti.fr>
+ <64409a13-1c07-42cd-b1ec-572042738f1b@arm.com>
+ <84cb893a-46e3-408a-ba0e-2eff0b44d2a1@ghiti.fr>
+ <20250508123046.GA3706@willie-the-truck>
+ <CAHVXubjZB-riBLv+RGis6ErS8NvU4ijVTgvUO06fTxPhbEjXfA@mail.gmail.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <CAHVXubjZB-riBLv+RGis6ErS8NvU4ijVTgvUO06fTxPhbEjXfA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_060110_387613_F9F3E639 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20250509_060210_867203_988E6961 
+X-CRM114-Status: GOOD (  30.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,28 +74,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 09, 2025 at 12:30:12PM +1000, Wilfred Mallawa wrote:
-> From: Wilfred Mallawa <wilfred.mallawa@wdc.com>
+On 09/05/2025 12:09, Alexandre Ghiti wrote:
+> Hi Will,
 > 
-> The PCIe link may go down in cases like firmware crashes or unstable
-> connections. When this occurs, the PCIe slot must be reset to restore
-> functionality. However, the current driver lacks link down handling,
-> forcing users to reboot the system to recover.
-> 
-> This patch implements the `reset_slot` callback for link down handling
-> for DWC PCIe host controller. In which, the RC is reset, reconfigured
-> and link training initiated to recover from the link down event.
-> 
-> This patch by extension fixes issues with sysfs initiated bus resets.
-> In that, currently, when a sysfs initiated bus reset is issued, the
-> endpoint device is non-functional after (may link up with downgraded link
-> status). With this patch adding support for link down recovery, a sysfs
-> initiated bus reset works as intended. Testing conducted on a ROCK5B board
-> with an M.2 NVMe drive.
-> 
-> Signed-off-by: Wilfred Mallawa <wilfred.mallawa@wdc.com>
-> ---
+> On Thu, May 8, 2025 at 2:30 PM Will Deacon <will@kernel.org> wrote:
+>>
+>> Hi folks,
+>>
+>> On Mon, May 05, 2025 at 06:08:50PM +0200, Alexandre Ghiti wrote:
+>>> On 29/04/2025 16:09, Ryan Roberts wrote:
+>>>> On 07/04/2025 13:04, Alexandre Ghiti wrote:
+>>>>> Can someone from arm64 review this? I think it's preferable to share the same
+>>>>> implementation between riscv and arm64.
+>>>> I've been thinking about this for a while and had some conversations internally.
+>>>> This patchset has both pros and cons.
+>>>>
+>>>> In the pros column, it increases code reuse in an area that has had quite of few
+>>>> bugs popping up lately; so this would bring more eyes and hopefully higher
+>>>> quality in the long run.
+>>>>
+>>>> But in the cons column, we have seen HW errata in similar areas in the past and
+>>>> I'm nervous that by hoisting this code to mm, we make it harder to workaround
+>>>> any future errata. Additionally I can imagine that this change could make it
+>>>> harder to support future Arm architecture enhancements.
+>>>>
+>>>> I appreciate the cons are not strong *technical* arguments but nevertheless they
+>>>> are winning out in this case; My opinion is that we should keep the arm64
+>>>> implementations of huge_pte_ (and contpte_ too - I know you have a separate
+>>>> series for this) private to arm64.
+>>>>
+>>>> Sorry about that.
+>>>>
+>>>>> The end goal is the support of mTHP using svnapot on riscv, which we want soon,
+>>>>> so if that patchset does not gain any traction, I'll just copy/paste the arm64
+>>>>> implementation into riscv.
+>>>> This copy/paste approach would be my preference.
+>>>
+>>>
+>>> I have to admit that I disagree with this approach, the riscv and arm64
+>>> implementations are *exactly* the same so it sounds weird to duplicate code,
+>>> the pros you mention outweigh the cons.
+>>>
+>>> Unless I'm missing something about the erratas? To me, that's easily fixed
+>>> by providing arch specific overrides no? Can you describe what sort of
+>>> erratas would not fit then?
 
-Looks good to me:
-Reviewed-by: Niklas Cassel <cassel@kernel.org>
+One concrete feature is the use of Arm's FEAT_BBM level 2 to avoid having to do
+break-before-make and TLB maintenance when doing a fold or unfold operation.
+There is a series in flight to add this support at [1]. I can see this type of
+approach being extended to the hugetlb helpers in future.
+
+I also have another series in flight at [2] that tidies up the hugetlb
+implementation and does some optimizations. But the optimizations depend on
+arm64-specific TLB maintenance APIs.
+
+[1]
+https://lore.kernel.org/linux-arm-kernel/20250428153514.55772-2-miko.lenczewski@arm.com/
+
+[2]
+https://lore.kernel.org/linux-arm-kernel/20250422081822.1836315-1-ryan.roberts@arm.com/
+
+As for errata, that's obviously much more fuzzy; there have been a bunch
+relating to the MMU in the recent past, and I wouldn't be shocked if more turned up.
+
+For future architecture enchancements, I'm aware of one potential feature being
+discussed for which this change would likely make it harder to implement.
+
+>>
+>> If we start with the common implementation you have here, nothing
+>> prevents us from forking the code in future if the architectures diverge
+>> so I'd be inclined to merge this series and see how we get on. 
+
+OK if that's your preference, I'm ok with it. I don't have strong opinion, just
+a sense that we will end up with loads of arch-specific overrides. As you say,
+let's see.
+
+Alexandre, I guess this series is quite old now and will need to incorporate the
+hugtelb fixes I did last cycle? And ideally I'd like [2] to land then for that
+to also be incorporated into your next version. (I'm still hopeful we can get
+[2] into v6.16 and have been waiting patiently for Will to pick it up ;) ).
+
+I guess we can worry about [1] later as that is only affected by your other series.
+
+How does that sound?
+
+>> However,
+>> one thing I *do* think we need to ensure is that the relevant folks from
+>> both arm64 (i.e. Ryan) and riscv (i.e. Alexandre) are cc'd on changes to
+>> the common code. Otherwise, it's going to be a step backwards in terms
+>> of maintainability.
+>>>> Could we add something to MAINTAINERS so that the new file picks you both
+>> up as reviewers?
+
+That's fine with me. Lorenzo added me for some parts of MM this cycle anyway.
+
+Thanks,
+Ryan
+
+> 
+> I'm adding Lorenzo as he is cleaning the mm MAINTAINERS entries.
+> 
+> @Lorenzo: should we add a new section "CONTPTE" for this? FYI, hugetlb
+> is the first patchset, I have another patchset to merge THP contpte
+> support [1] as well so the "HUGETLB" section does not seem to be a
+> good fit.
+> 
+> [1] https://lore.kernel.org/linux-riscv/20240508191931.46060-1-alexghiti@rivosinc.com/
+> 
+> Thanks,
+> 
+> Alex
+> 
+>>
+>> Will
+
 
