@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FA01C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 17:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC624C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 17:15:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HiFig5XrzaKxrne/VffAS5Dccms79XHv1+bktez4Dgg=; b=1sFKgSIwxuh7O7tcZ1GQyBdQhA
-	SLVRGkX8qMfxaAlYdtnILNEjomwh6RXKjcqM4f7v6RQ6sNPjdEjQaTECP940eSER7WWExMBdlmIyz
-	YsvKfVQ31qbV9gVCFmXOZrn7emP4EH2E6jPCqUci5eye9BshbAU0R6c5mxsixDfyO+HDEpatWG7hD
-	RZAbd9L+jKrlMboDO0CKRiQfDE0putP3OhknYvfr8Es6QH0Y5RMu3T+ceTOPvYgASubT7UhRsQM/d
-	D0XDElqEyT6CFQdKWXVFNbs+URHHmyGh876g72aXe1/Y0q2aQqPqzE+LDRLcVrj3LxuPSVIYIacnT
-	VlodvKpQ==;
+	bh=6L+bu3C5bNo3IB9ZkU52/sTrMkPyP3mUjU6YriIz+Oo=; b=2aLOchbZEkdj9JWvEgAHmOnhKQ
+	zZdmJJaXqYNSMQFYHl9VYPcvVjhmXhOeAZtod7pajYE28v9FOS4EHOazJWNeyWPCITnd0JNdpAGmc
+	J7rvAYqWlwFhQGod7QehTancRl1w3AewdemnI9fWWqLvGnJBS0ep4Ta9BYNccECouU9qqF8SP68YR
+	AEXABU3VUPY/NIqCcKJ94F2eRGtqg9MwdLwgU7Vmw4JbHhveJHPrnZoLY7FXIgrIXsNfEtQd3zB/A
+	kSfPUS5poCQC8t1dI6NZS3S1g19D2OXj/Vbuvx0Rfsj+fvJk7niYzoz7Y0Nz/LB+Ui/G862oMGoXx
+	JfwGwnzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDRHT-00000004PLa-4A0b;
-	Fri, 09 May 2025 17:13:03 +0000
+	id 1uDRJQ-00000004Pcn-2l0e;
+	Fri, 09 May 2025 17:15:04 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDOn6-00000003xPT-3qfK
+	id 1uDOn7-00000003xQI-3J8Z
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 09 May 2025 14:33:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746801212;
+	s=mimecast20190719; t=1746801213;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=HiFig5XrzaKxrne/VffAS5Dccms79XHv1+bktez4Dgg=;
-	b=HP1f/IVWBMPzs87KImM5Wi/t5Hx/pcwv6cGvzradgQAzoSDHl+aEHK+KfDBy5XeBtjocx2
-	I7C0D5+G0CGjFdq6bR/lVO5R1c+gApiyMsL9KI6Q7tq7uMS5TqQnnBf+S3X/oKpYuegqhB
-	vsqWMpWByEJlWp+OGIUYOUGaQhRRV74=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=6L+bu3C5bNo3IB9ZkU52/sTrMkPyP3mUjU6YriIz+Oo=;
+	b=YwGKxxjGzhPXxXISMeFk5hcoXRij3f4tAbGAM3oAJhOYLy2moynGfCKcRonRTzQd7FWXSK
+	IwR8UZoH7XFDUzFzIerhd7bCckTssqYRlD7PiYj8tiLqzet9dJw90aJhJmca4PlLcG7Z+j
+	yU0jBLz/bAB4NnMuzqS2wML5+pu0HLY=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-668-vVNEIvi4M_--ZMW-e3SCDA-1; Fri, 09 May 2025 10:33:30 -0400
-X-MC-Unique: vVNEIvi4M_--ZMW-e3SCDA-1
-X-Mimecast-MFC-AGG-ID: vVNEIvi4M_--ZMW-e3SCDA_1746801210
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-43d4d15058dso15435105e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 07:33:30 -0700 (PDT)
+ us-mta-622-ShTrfig-PwuT_cfz9hD5hg-1; Fri, 09 May 2025 10:33:31 -0400
+X-MC-Unique: ShTrfig-PwuT_cfz9hD5hg-1
+X-Mimecast-MFC-AGG-ID: ShTrfig-PwuT_cfz9hD5hg_1746801211
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-43d00017e9dso10036555e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 07:33:31 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746801209; x=1747406009;
+        d=1e100.net; s=20230601; t=1746801210; x=1747406010;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=HiFig5XrzaKxrne/VffAS5Dccms79XHv1+bktez4Dgg=;
-        b=cguqn9HEQP7B3BhouhVXi33nAZeQmHMmWyPkFN86krkoDvK62rJH1WqxPnZ5cWFBGE
-         uy2l+0aALqpVq890qNo1jwvVgVPFgbcV5URr1N8DNAWVmTzmM+vuzkroXs/FAnZvdRIB
-         BS6C6WvBTlEk2zEXCJQaj2bk6dW3GbN37DtttDLJaBeWFo0RxQAdjfDZn1b7jWBDInvD
-         61xltUETVRluJJrMWUTYJExWQ267oiTqlYG2P76NoGUuvw71bQJKfrc3DA7BOYqi/+KQ
-         iQxWBMVeJH0grWWOJML3TtiueQWnxJV/QeSzdCMcbf1TBJBEpyFivPuX9QpqiXACIWKI
-         W1JA==
-X-Forwarded-Encrypted: i=1; AJvYcCWAEp/dsd3OmyIAVgrXmq2m9tTTuNzqcGldt8gzSpCs4ua2KN8y4zMqi68uVxxJfjioBm6hIQrS14e9x9hD1UVN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxebhSv1TkmEraoEwaqoBqDlljiqjcIXF5jfxbRNSGxhXuzfl7+
-	ozLIMHd+nvgMf220Q/XFdpIdY7IpzF9SBQxX+IhLrTa1UG39iimOF/DRQwFa7VqMyyOeyU/oKLr
-	o/YHkIrmOo+D66xDIa5DiQ/MunDyB3U35iHI5ZYf4UauoREv6Ehya/qRDgjqwcFJfXNKjhkBY
-X-Gm-Gg: ASbGncsD/scHXGNDP9Wp9J/f9gIqOqgSOrgFuGXbr5FtDTwkBnbcD9knFDlOiBbulxC
-	OOwLCrIW0jHZ9cIRBYc8a5xgr/PV6329Js2xOjcU8gIU3XNZifIoj4e77v2GSaqM250bnWZB6u1
-	gsZ4i4TeVG1QL7ZcoeB9VVOiedFSdt87F+X5jM5BA97Rba2/wCFsEXbqcdo1fpD2DF2G8JyZmVa
-	DRJAasN5IimDlAdh8QVXNmoCGKB9BUV+0RQS0akB/gqYrhkC9gZVBEmqNtFdtEjz6MSi3r4QfGZ
-	th1KI4ts5aIu+4bT/C28xlIPzskdpyBCmnid5+CDPWQCIWS6cGSun6+6+nWNeVgFQP4D49AXHDw
+        bh=6L+bu3C5bNo3IB9ZkU52/sTrMkPyP3mUjU6YriIz+Oo=;
+        b=dlv0ZkmjE6V+mJR1maGFkurXILnf6pIQAlz1Y1XyL+Ln7ZM9GrA8hilhagLqH8FDPH
+         tGnJNJosI5pogzHLQhPOqiQIT3m/+XYidfV3UP3a6IMBMS5W/5t/XripT0xW1zv+KKAN
+         btGHs1CAcKdrbGVM34Z8lLny8jrkw4TSaVCwyDHhd7Q+vkI1bFYHpeVimSt/TFYOu35j
+         D75LjyaU/bUU3lDwYmHDdAb0LE1SOixAp57FdMx2XfgIuB85OKN2u9uoWukb0M1agQRM
+         1eDDFGWgnh9vjxeLpzXYEhaQp0xHOkRiqx0EFiI2g0aaI2I6DXGN0YjeO58WmzF9SRos
+         weZA==
+X-Forwarded-Encrypted: i=1; AJvYcCUMst5YHh+GrQuMbEtcE3dCuNFUZNcvIo+0hjfNN+bMrzDPUyRAjvzr4yvXWxennk0E74FE5Kr/jKq9UfNutg8T@lists.infradead.org
+X-Gm-Message-State: AOJu0YwA9HkAlsvuBeGPYPUnZbuVn6qPqtgNO8gWHVVOVPr+lDH4ZaA0
+	dkbHHJWP3WtqBKj6qlWZn+lZmfS45GwH4n3xeqqRYJrdai54PD282TcwMypLfWvnd7mWH/xAK/W
+	mBJhwbGnrtuyum8T+TYGyHSqCB5zjt2+vzzODQnJFu3ZMcHuHbhQdZ/q1rx1RtbRIfKzloVSW
+X-Gm-Gg: ASbGncuzpFVLzhSwgz+T2gTq/T65NqeIuoa2f5f1tsykTaTucIqf7WQ6UlFcKGxOZIR
+	EjPEi3E2XapHF4+6nYqXdPmlKnbR7wxc126Ad3BX/78MzuzvJZwpzME7R6XHMlsY/oQbugUDJ7Q
+	3plLcS4SbKH9T7t1Jg+yow8J8Z2BjJFl+/aMaTDY4ey1R1DpXgb5UQjTlh2/GSaI1ehS/EIB0p0
+	8lP+2fstf4fX71mwXlgf2+SUO3BpYGjj7ZBYHEStMPqbSY8OMepmnij0v03Fvh2xi449R5AAimW
+	IQdIJgii2d2IcYxo8RXhQDw1P4y/8JeY2adEMzjQoHEeSgx0zvJCpLzLHp46L7cKDNnoe4bm/i8
 	=
-X-Received: by 2002:a05:600c:6819:b0:442:cab1:e092 with SMTP id 5b1f17b1804b1-442d6d1fadamr28833035e9.11.1746801209573;
-        Fri, 09 May 2025 07:33:29 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE4IBkLXeH3i+YVDUJRmaB8MUsHfZ+AUrzGIQQxg7u/gveAvDEEBf8Vr8fYNwiDc753UVZiWA==
-X-Received: by 2002:a05:600c:6819:b0:442:cab1:e092 with SMTP id 5b1f17b1804b1-442d6d1fadamr28832755e9.11.1746801209169;
-        Fri, 09 May 2025 07:33:29 -0700 (PDT)
+X-Received: by 2002:a05:600c:a42:b0:43d:24d:bbe2 with SMTP id 5b1f17b1804b1-442d6ddcff4mr23932725e9.28.1746801210573;
+        Fri, 09 May 2025 07:33:30 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFkHBgasEQcr/4ZVQSpWJmPLcvd6o7zSPvgSmEK9zaLE7PuQpFCA6hRhF0NO2Opfzb52f6PlA==
+X-Received: by 2002:a05:600c:a42:b0:43d:24d:bbe2 with SMTP id 5b1f17b1804b1-442d6ddcff4mr23932325e9.28.1746801210127;
+        Fri, 09 May 2025 07:33:30 -0700 (PDT)
 Received: from rh.redhat.com (p200300f6af1bce00e6fe5f11c0a7f4a1.dip0.t-ipconnect.de. [2003:f6:af1b:ce00:e6fe:5f11:c0a7:f4a1])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442d67d5c7bsm32150775e9.4.2025.05.09.07.33.27
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442d67d5c7bsm32150775e9.4.2025.05.09.07.33.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 May 2025 07:33:28 -0700 (PDT)
+        Fri, 09 May 2025 07:33:29 -0700 (PDT)
 From: Sebastian Ott <sebott@redhat.com>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oliver.upton@linux.dev>
@@ -90,21 +90,21 @@ Cc: Colton Lewis <coltonlewis@google.com>,
 	linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	Sebastian Ott <sebott@redhat.com>
-Subject: [PATCH 2/3] KVM: arm64: selftests: fix thread migration in arch_timer_edge_cases
-Date: Fri,  9 May 2025 16:33:11 +0200
-Message-ID: <20250509143312.34224-3-sebott@redhat.com>
+Subject: [PATCH 3/3] KVM: arm64: selftests: arch_timer_edge_cases - workaround for AC03_CPU_14
+Date: Fri,  9 May 2025 16:33:12 +0200
+Message-ID: <20250509143312.34224-4-sebott@redhat.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250509143312.34224-1-sebott@redhat.com>
 References: <20250509143312.34224-1-sebott@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ZUzF-qoJW8F52pm0_mCgo3NQH7EpeAsxE0lZlSHVcUU_1746801210
+X-Mimecast-MFC-PROC-ID: 49zj3h5VoYy5-8NB3MbOA5CVdpx-1Fah2eszfAWuXdA_1746801211
 X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 8bit
 content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_073333_025126_B2B5D300 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20250509_073333_894625_F91271B6 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,54 +119,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arch_timer_edge_cases tries to migrate itself across host cpus. Before
-the first test it migrates to cpu 0 by setting up an affinity mask with
-only bit 0 set. After that it looks for the next possible cpu in the
-current affinity mask which still has only bit 0 set. So there is no
-migration at all.
+arch_timer_edge_cases currently fails on ampere-one machines with
+the following assertion failure:
 
-Fix this by reading the default mask at start and use this to find
-the next cpu in each iteration.
+==== Test Assertion Failure ====
+  arm64/arch_timer_edge_cases.c:169: timer_condition == istatus
+  pid=11236 tid=11236 errno=4 - Interrupted system call
+     1  0x0000000000404ce7: test_run at arch_timer_edge_cases.c:938
+     2  0x0000000000401ebb: main at arch_timer_edge_cases.c:1053
+     3  0x0000ffff9fa8625b: ?? ??:0
+     4  0x0000ffff9fa8633b: ?? ??:0
+     5  0x0000000000401fef: _start at ??:?
+  0x1 != 0x0 (timer_condition != istatus)
 
+Meaning that the timer condition was met and an interrupt
+was presented but the timer status bit in the control register
+was not set.
+
+This happens due to AC03_CPU_14 "Timer CVAL programming of a delta
+greater than 2^63 will result in incorrect behavior."
+
+Work around this issue by reducing the value that is used to reset
+the counter and thus reduce the delta.
+
+Link: https://lore.kernel.org/kvmarm/ac1de1d2-ef2b-d439-dc48-8615e121b07b@redhat.com
+Link: https://amperecomputing.com/assets/AmpereOne_Developer_ER_v0_80_20240823_28945022f4.pdf
 Signed-off-by: Sebastian Ott <sebott@redhat.com>
 ---
- tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c b/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c
-index c4716e0c1438..a813b4c6c817 100644
+index a813b4c6c817..2f0397df0aa6 100644
 --- a/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c
 +++ b/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c
-@@ -849,17 +849,17 @@ static void guest_code(enum arch_timer timer)
- 	GUEST_DONE();
- }
+@@ -31,7 +31,7 @@ static const int32_t TVAL_MIN = INT32_MIN;
+ static const uint32_t TIMEOUT_NO_IRQ_US = 50000;
  
-+static cpu_set_t default_cpuset;
-+
- static uint32_t next_pcpu(void)
- {
- 	uint32_t max = get_nprocs();
- 	uint32_t cur = sched_getcpu();
- 	uint32_t next = cur;
--	cpu_set_t cpuset;
-+	cpu_set_t cpuset = default_cpuset;
+ /* A nice counter value to use as the starting one for most tests. */
+-static const uint64_t DEF_CNT = (CVAL_MAX / 2);
++static const uint64_t DEF_CNT = (CVAL_MAX / 4);
  
- 	TEST_ASSERT(max > 1, "Need at least two physical cpus");
- 
--	sched_getaffinity(0, sizeof(cpuset), &cpuset);
--
- 	do {
- 		next = (next + 1) % CPU_SETSIZE;
- 	} while (!CPU_ISSET(next, &cpuset));
-@@ -1046,6 +1046,8 @@ int main(int argc, char *argv[])
- 	if (!parse_args(argc, argv))
- 		exit(KSFT_SKIP);
- 
-+	sched_getaffinity(0, sizeof(default_cpuset), &default_cpuset);
-+
- 	if (test_args.test_virtual) {
- 		test_vm_create(&vm, &vcpu, VIRTUAL);
- 		test_run(vm, vcpu);
+ /* Number of runs. */
+ static const uint32_t NR_TEST_ITERS_DEF = 5;
 -- 
 2.49.0
 
