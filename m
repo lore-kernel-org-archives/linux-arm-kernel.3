@@ -4,80 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EB56C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 14:46:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B2BEC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 14:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
+	:From:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Nkys3MADPIj5Es68fiIJTGNjZ/cE1BlJNsvbA6coAk=; b=ADFELM037GJjslSs5z3JWqV9QR
-	mYKLOdBv7iMYoLOs1c8KCsL3T/kOE4q5MNie7s9LNeOaM7+InH7Rezhrbu4FVGSs84C7R5EdaN2yx
-	rSIt/EInbR2Ad3QfGBsetT55A6Kc0wNxGnBaOGG49tRholwjha2sgGoBztCyrtzRuSQ7pfrlGfIbm
-	9U6aEoAgC8ZcJRwIjuN9b2hKb+QflHBcNwsv4UX/jYGftC3MqTMybVniJUn7HbCL1QrBx1aZIyAAG
-	UUW+2hxO/mZE8Z6KLWDvmG+dRqLc5s+xM3a64RvxggSj4DEL2npc1OpUT/rxFu0kb2rWChcQoOqQd
-	BeSiDZTQ==;
+	bh=nVdoRmzHdJIDzHX5mXnwcwEn0rBmpBpiL6BVXHOZ+ps=; b=Szkagw0dXieFmpWkfduPepCf6v
+	FczabMDNdoJT+auacTMABRmYKaKm6U6wXAE/l+Z3Da3nlVmUPwAJe/ZkTCtf5BPkAVNNb828LSAtF
+	2Pt2xm8OGD8hwekxlP0oRqNwZXF3rUBpKklUDRSHm0geCmiMLpq9peqK7pgE2DMAHqdEGSI45oajf
+	Nq0N3MHnGD+NplwPjnkaMLFJzEu1H+26elkmYVISuS4ghCufVhrIjfnkfEYWT/4Bu91LKO9tWoFxW
+	bMjsw/1f3heRzly9E2wGMoo7IjEsA/h45QGJQD0fkln5VjF/yFxPRYZQBQwvMMdAYzX1LY/SKwdOR
+	Qq3j9UYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDOz7-00000003yvP-17qh;
-	Fri, 09 May 2025 14:45:57 +0000
-Received: from mail-wm1-f74.google.com ([209.85.128.74])
+	id 1uDP12-00000003zHg-3zIO;
+	Fri, 09 May 2025 14:47:57 +0000
+Received: from out-171.mta0.migadu.com ([91.218.175.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDNbY-00000003j49-0pM6
+	id 1uDNcA-00000003jG7-3Utc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 13:17:33 +0000
-Received: by mail-wm1-f74.google.com with SMTP id 5b1f17b1804b1-43d0830c3f7so14041045e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 06:17:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746796650; x=1747401450; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+Nkys3MADPIj5Es68fiIJTGNjZ/cE1BlJNsvbA6coAk=;
-        b=ZlLtIHyjvGQtebyGIqtuibntcHrwPueF+4Dy4fxFpKVKgFU2bMekdw5qtDJ8p/DMzd
-         Cj8hBJkQJCxUIc2OQIEFPn4A+wVpH+r/EE4zyJjx6vrNqE9ZEbMy3JaGkKBwfy5x8gfE
-         nlKf73xFWG3s386OzWVttoY3AMC14DnJadvHZ+U+LDENgIkGPWfoZhvyJe2bgtjBPAQc
-         8x7zQPI7dqgxn1GrMCpwY0GTSWPAyhzJHufB1RMzJgX4IAHwtB6XI2PKrYW28sGNofEU
-         bWYzNIFcqPQG/x+ScMNyuhHpcVOV11eYOnaQUmmv3A2lTpVPCUH3KuQ8qgsIt3AaTs5/
-         dX7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746796650; x=1747401450;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+Nkys3MADPIj5Es68fiIJTGNjZ/cE1BlJNsvbA6coAk=;
-        b=JtSjdOojv5yo9jC4s2iuXG6tr+7LFvzJOPvX+xYB7fvX5YxM4HKcRv6Vcl64t0oYRC
-         +fYrFAVLDJ8gZxfjN/z+5PXzM8VfIiNrduTXHSujOSUzNXWOSmVfFoSMA+VI6XY21CVg
-         Y4o/baJqKiwT0A0NIOwva3S0vj0Eb8uQMNgpETXgEl8uh3JOEJN8YJ7aJzq7N4a/qtiy
-         zIyg8eeDM73k5uTRQyphKX9M0nNAOMremQaoEwJKkF5J6gr/VVHno+Scpn/1E+mW6vOJ
-         jw837z5j0S3wEhw5dB9EKHQzOV+X+aZaOyBdrWIXXh0dQ5zZX41SWMAXQ/uV9jc/EELF
-         GYyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUrNXrI03s9+Pf0q0N8gvpD7nr+CKIMUt/2RU/GUfbobfhBtKopkLBaMLHPSJeshfYjwzcbCWUWC21zPdadhSjv@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWuO5ADpxroI6mp/4YuQ4j1gCd4zSgXmGyaK4jfVB/Gqt5dez/
-	wxWJ/pYlOR+RefiJgh7v7IA51UI8yrSytm6nFVQ3l8hMbMzCM3+ZevKaR7ZpckJTJygTjQjc2ie
-	Hz8uVFCK4YMDBXJI5Qg==
-X-Google-Smtp-Source: AGHT+IHJ6Ug2lZ+EwcnN/sajdCCAyKS2oET8piVm/uCVqDq6/j9BnOqfKPaK7OSzRMQ+TH//37e8HgXM+UiJR6KC
-X-Received: from wmbji3.prod.google.com ([2002:a05:600c:a343:b0:43c:eba5:f9b3])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3b0e:b0:43c:f6b0:e807 with SMTP id 5b1f17b1804b1-442d6ddea12mr29578065e9.31.1746796649880;
- Fri, 09 May 2025 06:17:29 -0700 (PDT)
-Date: Fri,  9 May 2025 14:17:06 +0100
-In-Reply-To: <20250509131706.2336138-1-vdonnefort@google.com>
+	Fri, 09 May 2025 13:18:12 +0000
 Mime-Version: 1.0
-References: <20250509131706.2336138-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.49.0.1015.ga840276032-goog
-Message-ID: <20250509131706.2336138-11-vdonnefort@google.com>
-Subject: [PATCH v4 10/10] KVM: arm64: np-guest CMOs with PMD_SIZE fixmap
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org
-Cc: qperret@google.com, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-team@android.com, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1746796686;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nVdoRmzHdJIDzHX5mXnwcwEn0rBmpBpiL6BVXHOZ+ps=;
+	b=Evi6SeZGpNRULGqJy6DsClZaUaVxL+vZt/e/PDbDKVn3OV5tm3qwkxMpY5ZOVL6S04fICi
+	XVauFECRsbn3Jiy1FYHzyur1/SWCc4XNgvBZAH8s5/lpGPmJmASFBZ3rcOvQ/8PgUDncfa
+	uQnV3mXFbn2XijbZmq5IXjipzQ/8ObVcBfdgwHHkGvrGjOl9BaYJBMkt0MHrtEr8aIDjqU
+	jFv3e7xsRKmPuYP55cJAsfcO7J9a+QmkfuK07n72QOuaaPy/oE1pg0X+gXGjj6Le3yjLad
+	sifi7XLlwBhfxS+cRHPHNmZU94m2xGYU6aq6uplgFiNdQYFHuf+MGIQVId081Q==
+Content-Type: multipart/signed;
+ boundary=33bca27b73304a4270d6ea8fbc04c0d790682b0e0c2dc71e4f7c11e0ec14;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Fri, 09 May 2025 15:18:04 +0200
+Message-Id: <D9RNQUO6IKFU.9BYJLSAQV9WT@cknow.org>
+Subject: Re: [PATCH v2 5/5] arm64: dts: rockchip: add USB-C support for ROCK
+ 5B+
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Sebastian Reichel" <sebastian.reichel@collabora.com>, "Heiko Stuebner"
+ <heiko@sntech.de>
+Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <kernel@collabora.com>
+References: <20250508-rock5bp-for-upstream-v2-0-677033cc1ac2@kernel.org>
+ <20250508-rock5bp-for-upstream-v2-5-677033cc1ac2@kernel.org>
+In-Reply-To: <20250508-rock5bp-for-upstream-v2-5-677033cc1ac2@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_061732_236314_8C277728 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20250509_061811_015631_C87877A7 
+X-CRM114-Status: GOOD (  23.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,313 +76,335 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the introduction of stage-2 huge mappings in the pKVM hypervisor,
-guest pages CMO is needed for PMD_SIZE size. Fixmap only supports
-PAGE_SIZE and iterating over the huge-page is time consuming (mostly due
-to TLBI on hyp_fixmap_unmap) which is a problem for EL2 latency.
+--33bca27b73304a4270d6ea8fbc04c0d790682b0e0c2dc71e4f7c11e0ec14
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Introduce a shared PMD_SIZE fixmap (hyp_fixblock_map/hyp_fixblock_unmap)
-to improve guest page CMOs when stage-2 huge mappings are installed.
+Hi,
 
-On a Pixel6, the iterative solution resulted in a latency of ~700us,
-while the PMD_SIZE fixmap reduces it to ~100us.
+On Thu May 8, 2025 at 7:48 PM CEST, Sebastian Reichel wrote:
+> Add hardware description for the USB-C port in the Radxa ROCK 5 Model B+
+> This describes the OHCI, EHCI and XHCI USB parts, but not yet the Display=
+Port
+> AltMode, since the bindings for that are not yet upstream.
+>
+> Support for the ROCK 5B is prepared, but not exposed at the moment,
+> since it results in unreliable boot behavior due to hard resets killing
+> the supply voltage. Some further investigation and fixes in the kernel's
+> Type-C Port Manager (TCPM) state machine is needed before exposing the
+> port. The ROCK 5B+ has a dedicated port for powering the board and thus
+> is not affected.
+>
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+>  .../boot/dts/rockchip/rk3588-rock-5b-plus.dts      |  16 +++
+>  arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts    |  23 ++++
+>  arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi   | 137 +++++++++++++++=
+++++++
+>  3 files changed, 176 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dts b/arch/=
+arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dts
+> index 74c7b6502e4dda4b774f43c704ebaee350703c0d..4096cd853f9a909e4233d2c61=
+a1fe5ee83904c4c 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dts
+> @@ -99,12 +99,28 @@ pcie3x2_rst: pcie3x2-rst {
+>  	};
+> =20
+>  	usb {
+> +		usbc_sbu_dc: usbc-sbu-dc {
+> +			rockchip,pins =3D <0 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>,
+> +					<0 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +
+>  		vcc5v0_host_en: vcc5v0-host-en {
+>  			rockchip,pins =3D <1 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
+>  		};
+>  	};
+>  };
+> =20
+> +&usbc0 {
+> +	status =3D "okay";
+> +};
+> +
+> +&usbdp_phy0 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&usbc_sbu_dc>;
+> +	sbu1-dc-gpios =3D <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
+> +	sbu2-dc-gpios =3D <&gpio0 RK_PC5 GPIO_ACTIVE_HIGH>;
+> +};
+> +
+>  &vcc5v0_host {
+>  	enable-active-high;
+>  	gpio =3D <&gpio1 RK_PA1 GPIO_ACTIVE_HIGH>;
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64=
+/boot/dts/rockchip/rk3588-rock-5b.dts
+> index 9407a7c9910ada1f6c803d2e15785a9cbd9bd655..ab0c572ea9234f373af4a47db=
+93fc1786f0e6fbf 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+> @@ -36,8 +36,20 @@ &uart6 {
+>  	status =3D "okay";
+>  };
+> =20
+> +&usbdp_phy0 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&usbc_sbu_dc>;
+> +	sbu1-dc-gpios =3D <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
+> +	sbu2-dc-gpios =3D <&gpio4 RK_PA7 GPIO_ACTIVE_HIGH>;
+> +};
+> +
+>  &pinctrl {
+>  	usb {
+> +		usbc_sbu_dc: usbc-sbu-dc {
+> +			rockchip,pins =3D <0 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>,
+> +					<0 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>;
 
-Because of the horrendous private range allocation that would be
-necessary, this is disabled for 64KiB pages systems.
+Shouldn't these be <4 RK_PA6 ...> and <4 RK_PA7 ...> ?
 
-Suggested-by: Quentin Perret <qperret@google.com>
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-Signed-off-by: Quentin Perret <qperret@google.com>
+In the rock5bp_v1.2 schematic they're (IIUC) GPIO0_C4 and _C5, but in
+rock_5b_v1450 schematic TYPEC0_SBU1_DC and TYPEC0_SBU2_DC are on
+GPIO4_A6 and GPIO4_A7.
 
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 1b43bcd2a679..2888b5d03757 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -59,6 +59,11 @@ typedef u64 kvm_pte_t;
- 
- #define KVM_PHYS_INVALID		(-1ULL)
- 
-+#define KVM_PTE_TYPE			BIT(1)
-+#define KVM_PTE_TYPE_BLOCK		0
-+#define KVM_PTE_TYPE_PAGE		1
-+#define KVM_PTE_TYPE_TABLE		1
-+
- #define KVM_PTE_LEAF_ATTR_LO		GENMASK(11, 2)
- 
- #define KVM_PTE_LEAF_ATTR_LO_S1_ATTRIDX	GENMASK(4, 2)
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/mm.h b/arch/arm64/kvm/hyp/include/nvhe/mm.h
-index 230e4f2527de..b0c72bc2d5ba 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/mm.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/mm.h
-@@ -13,9 +13,11 @@
- extern struct kvm_pgtable pkvm_pgtable;
- extern hyp_spinlock_t pkvm_pgd_lock;
- 
--int hyp_create_pcpu_fixmap(void);
-+int hyp_create_fixmap(void);
- void *hyp_fixmap_map(phys_addr_t phys);
- void hyp_fixmap_unmap(void);
-+void *hyp_fixblock_map(phys_addr_t phys);
-+void hyp_fixblock_unmap(void);
- 
- int hyp_create_idmap(u32 hyp_va_bits);
- int hyp_map_vectors(void);
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 97e0fea9db4e..9f3ffa4e0690 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -220,16 +220,52 @@ static void guest_s2_put_page(void *addr)
- 	hyp_put_page(&current_vm->pool, addr);
- }
- 
-+static void *__fixmap_guest_page(void *va, size_t *size)
-+{
-+	if (IS_ALIGNED(*size, PMD_SIZE)) {
-+		void *addr = hyp_fixblock_map(__hyp_pa(va));
-+
-+		if (addr)
-+			return addr;
-+
-+		*size = PAGE_SIZE;
-+	}
-+
-+	if (IS_ALIGNED(*size, PAGE_SIZE))
-+		return hyp_fixmap_map(__hyp_pa(va));
-+
-+	WARN_ON(1);
-+
-+	return NULL;
-+}
-+
-+static void __fixunmap_guest_page(size_t size)
-+{
-+	switch (size) {
-+	case PAGE_SIZE:
-+		hyp_fixmap_unmap();
-+		break;
-+	case PMD_SIZE:
-+		hyp_fixblock_unmap();
-+		break;
-+	default:
-+		WARN_ON(1);
-+	}
-+}
-+
- static void clean_dcache_guest_page(void *va, size_t size)
- {
- 	WARN_ON(!PAGE_ALIGNED(size));
- 
- 	while (size) {
--		__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
--					  PAGE_SIZE);
--		hyp_fixmap_unmap();
--		va += PAGE_SIZE;
--		size -= PAGE_SIZE;
-+		size_t fixmap_size = size == PMD_SIZE ? size : PAGE_SIZE;
-+		void *addr = __fixmap_guest_page(va, &fixmap_size);
-+
-+		__clean_dcache_guest_page(addr, fixmap_size);
-+		__fixunmap_guest_page(fixmap_size);
-+
-+		size -= fixmap_size;
-+		va += fixmap_size;
- 	}
- }
- 
-@@ -238,11 +274,14 @@ static void invalidate_icache_guest_page(void *va, size_t size)
- 	WARN_ON(!PAGE_ALIGNED(size));
- 
- 	while (size) {
--		__invalidate_icache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
--					       PAGE_SIZE);
--		hyp_fixmap_unmap();
--		va += PAGE_SIZE;
--		size -= PAGE_SIZE;
-+		size_t fixmap_size = size == PMD_SIZE ? size : PAGE_SIZE;
-+		void *addr = __fixmap_guest_page(va, &fixmap_size);
-+
-+		__invalidate_icache_guest_page(addr, fixmap_size);
-+		__fixunmap_guest_page(fixmap_size);
-+
-+		size -= fixmap_size;
-+		va += fixmap_size;
- 	}
- }
- 
-diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
-index f41c7440b34b..e3b1bece8504 100644
---- a/arch/arm64/kvm/hyp/nvhe/mm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mm.c
-@@ -229,9 +229,8 @@ int hyp_map_vectors(void)
- 	return 0;
- }
- 
--void *hyp_fixmap_map(phys_addr_t phys)
-+static void *fixmap_map_slot(struct hyp_fixmap_slot *slot, phys_addr_t phys)
- {
--	struct hyp_fixmap_slot *slot = this_cpu_ptr(&fixmap_slots);
- 	kvm_pte_t pte, *ptep = slot->ptep;
- 
- 	pte = *ptep;
-@@ -243,10 +242,21 @@ void *hyp_fixmap_map(phys_addr_t phys)
- 	return (void *)slot->addr;
- }
- 
-+void *hyp_fixmap_map(phys_addr_t phys)
-+{
-+	return fixmap_map_slot(this_cpu_ptr(&fixmap_slots), phys);
-+}
-+
- static void fixmap_clear_slot(struct hyp_fixmap_slot *slot)
- {
- 	kvm_pte_t *ptep = slot->ptep;
- 	u64 addr = slot->addr;
-+	u32 level;
-+
-+	if (FIELD_GET(KVM_PTE_TYPE, *ptep) == KVM_PTE_TYPE_PAGE)
-+		level = KVM_PGTABLE_LAST_LEVEL;
-+	else
-+		level = KVM_PGTABLE_LAST_LEVEL - 1; /* create_fixblock() guarantees PMD level */
- 
- 	WRITE_ONCE(*ptep, *ptep & ~KVM_PTE_VALID);
- 
-@@ -260,7 +270,7 @@ static void fixmap_clear_slot(struct hyp_fixmap_slot *slot)
- 	 * https://lore.kernel.org/kvm/20221017115209.2099-1-will@kernel.org/T/#mf10dfbaf1eaef9274c581b81c53758918c1d0f03
- 	 */
- 	dsb(ishst);
--	__tlbi_level(vale2is, __TLBI_VADDR(addr, 0), KVM_PGTABLE_LAST_LEVEL);
-+	__tlbi_level(vale2is, __TLBI_VADDR(addr, 0), level);
- 	dsb(ish);
- 	isb();
- }
-@@ -273,9 +283,9 @@ void hyp_fixmap_unmap(void)
- static int __create_fixmap_slot_cb(const struct kvm_pgtable_visit_ctx *ctx,
- 				   enum kvm_pgtable_walk_flags visit)
- {
--	struct hyp_fixmap_slot *slot = per_cpu_ptr(&fixmap_slots, (u64)ctx->arg);
-+	struct hyp_fixmap_slot *slot = (struct hyp_fixmap_slot *)ctx->arg;
- 
--	if (!kvm_pte_valid(ctx->old) || ctx->level != KVM_PGTABLE_LAST_LEVEL)
-+	if (!kvm_pte_valid(ctx->old) || (ctx->end - ctx->start) != kvm_granule_size(ctx->level))
- 		return -EINVAL;
- 
- 	slot->addr = ctx->addr;
-@@ -296,13 +306,73 @@ static int create_fixmap_slot(u64 addr, u64 cpu)
- 	struct kvm_pgtable_walker walker = {
- 		.cb	= __create_fixmap_slot_cb,
- 		.flags	= KVM_PGTABLE_WALK_LEAF,
--		.arg = (void *)cpu,
-+		.arg = (void *)per_cpu_ptr(&fixmap_slots, cpu),
- 	};
- 
- 	return kvm_pgtable_walk(&pkvm_pgtable, addr, PAGE_SIZE, &walker);
- }
- 
--int hyp_create_pcpu_fixmap(void)
-+#ifndef CONFIG_ARM64_64K_PAGES
-+static struct hyp_fixmap_slot hyp_fixblock_slot;
-+static DEFINE_HYP_SPINLOCK(hyp_fixblock_lock);
-+
-+void *hyp_fixblock_map(phys_addr_t phys)
-+{
-+	hyp_spin_lock(&hyp_fixblock_lock);
-+	return fixmap_map_slot(&hyp_fixblock_slot, phys);
-+}
-+
-+void hyp_fixblock_unmap(void)
-+{
-+	fixmap_clear_slot(&hyp_fixblock_slot);
-+	hyp_spin_unlock(&hyp_fixblock_lock);
-+}
-+
-+static int create_fixblock(void)
-+{
-+	struct kvm_pgtable_walker walker = {
-+		.cb	= __create_fixmap_slot_cb,
-+		.flags	= KVM_PGTABLE_WALK_LEAF,
-+		.arg = (void *)&hyp_fixblock_slot,
-+	};
-+	unsigned long addr;
-+	phys_addr_t phys;
-+	int ret, i;
-+
-+	/* Find a RAM phys address, PMD aligned */
-+	for (i = 0; i < hyp_memblock_nr; i++) {
-+		phys = ALIGN(hyp_memory[i].base, PMD_SIZE);
-+		if (phys + PMD_SIZE < (hyp_memory[i].base + hyp_memory[i].size))
-+			break;
-+	}
-+
-+	if (i >= hyp_memblock_nr)
-+		return -EINVAL;
-+
-+	hyp_spin_lock(&pkvm_pgd_lock);
-+	addr = ALIGN(__io_map_base, PMD_SIZE);
-+	ret = __pkvm_alloc_private_va_range(addr, PMD_SIZE);
-+	if (ret)
-+		goto unlock;
-+
-+	ret = kvm_pgtable_hyp_map(&pkvm_pgtable, addr, PMD_SIZE, phys, PAGE_HYP);
-+	if (ret)
-+		goto unlock;
-+
-+	ret = kvm_pgtable_walk(&pkvm_pgtable, addr, PMD_SIZE, &walker);
-+
-+unlock:
-+	hyp_spin_unlock(&pkvm_pgd_lock);
-+
-+	return ret;
-+}
-+#else
-+void hyp_fixblock_unmap(void) { WARN_ON(1); }
-+void *hyp_fixblock_map(phys_addr_t phys) { return NULL; }
-+static int create_fixblock(void) { return 0; }
-+#endif
-+
-+int hyp_create_fixmap(void)
- {
- 	unsigned long addr, i;
- 	int ret;
-@@ -322,7 +392,7 @@ int hyp_create_pcpu_fixmap(void)
- 			return ret;
- 	}
- 
--	return 0;
-+	return create_fixblock();
- }
- 
- int hyp_create_idmap(u32 hyp_va_bits)
-diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
-index c19860fc8183..a48d3f5a5afb 100644
---- a/arch/arm64/kvm/hyp/nvhe/setup.c
-+++ b/arch/arm64/kvm/hyp/nvhe/setup.c
-@@ -312,7 +312,7 @@ void __noreturn __pkvm_init_finalise(void)
- 	if (ret)
- 		goto out;
- 
--	ret = hyp_create_pcpu_fixmap();
-+	ret = hyp_create_fixmap();
- 	if (ret)
- 		goto out;
- 
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index df5cc74a7dd0..c351b4abd5db 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -11,12 +11,6 @@
- #include <asm/kvm_pgtable.h>
- #include <asm/stage2_pgtable.h>
- 
--
--#define KVM_PTE_TYPE			BIT(1)
--#define KVM_PTE_TYPE_BLOCK		0
--#define KVM_PTE_TYPE_PAGE		1
--#define KVM_PTE_TYPE_TABLE		1
--
- struct kvm_pgtable_walk_data {
- 	struct kvm_pgtable_walker	*walker;
- 
--- 
-2.49.0.1015.ga840276032-goog
+And in rock_5b_v1450 GPIO0_C4 and _C5 are connected to WIFI_REG_ON_H and
+BT_W AKE_HOST_H respectively.
 
+Cheers,
+  Diederik
+
+> +		};
+> +
+>  		vcc5v0_host_en: vcc5v0-host-en {
+>  			rockchip,pins =3D <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
+>  		};
+> @@ -50,3 +62,14 @@ &vcc5v0_host {
+>  	pinctrl-names =3D "default";
+>  	pinctrl-0 =3D <&vcc5v0_host_en>;
+>  };
+> +
+> +/*
+> + * Do not yet offer USB-C support on the Rock 5B. The current U-Boot
+> + * Linux setup is quite unstable and for many power-supplies needs multi=
+ple
+> + * hard resets to boot to userspace. Let's enable this once the issues
+> + * in the TCPM kernel code have been solved. Without this any automated
+> + * boot tests will run into problems.
+> + */
+> +/delete-node/ &usbc0;
+> +/delete-node/ &usb_host0_xhci;
+> +/delete-node/ &usbdp_phy0;
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi b/arch/arm6=
+4/boot/dts/rockchip/rk3588-rock-5b.dtsi
+> index 6052787d2560978d2bae6cfbeea5fc1d419d583a..314fdc0c1c20b25b0fdc5254f=
+3b090586c169a00 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi
+> @@ -5,6 +5,7 @@
+>  #include <dt-bindings/gpio/gpio.h>
+>  #include <dt-bindings/leds/common.h>
+>  #include <dt-bindings/soc/rockchip,vop2.h>
+> +#include <dt-bindings/usb/pd.h>
+>  #include "rk3588.dtsi"
+> =20
+>  / {
+> @@ -92,6 +93,15 @@ rfkill-bt {
+>  		shutdown-gpios =3D <&gpio3 RK_PD5 GPIO_ACTIVE_HIGH>;
+>  	};
+> =20
+> +	vcc12v_dcin: regulator-vcc12v-dcin {
+> +		compatible =3D "regulator-fixed";
+> +		regulator-name =3D "vcc12v_dcin";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt =3D <12000000>;
+> +		regulator-max-microvolt =3D <12000000>;
+> +	};
+> +
+>  	vcc3v3_pcie2x1l0: regulator-vcc3v3-pcie2x1l0 {
+>  		compatible =3D "regulator-fixed";
+>  		enable-active-high;
+> @@ -146,6 +156,19 @@ vcc5v0_sys: regulator-vcc5v0-sys {
+>  		regulator-boot-on;
+>  		regulator-min-microvolt =3D <5000000>;
+>  		regulator-max-microvolt =3D <5000000>;
+> +		vin-supply =3D <&vcc12v_dcin>;
+> +	};
+> +
+> +	vbus5v0_typec: vbus5v0-typec {
+> +		compatible =3D "regulator-fixed";
+> +		enable-active-high;
+> +		gpio =3D <&gpio2 RK_PB6 GPIO_ACTIVE_HIGH>;
+> +		pinctrl-names =3D "default";
+> +		pinctrl-0 =3D <&vbus5v0_typec_en>;
+> +		regulator-name =3D "vbus5v0_typec";
+> +		regulator-min-microvolt =3D <5000000>;
+> +		regulator-max-microvolt =3D <5000000>;
+> +		vin-supply =3D <&vcc5v0_sys>;
+>  	};
+> =20
+>  	vcc_1v1_nldo_s3: regulator-vcc-1v1-nldo-s3 {
+> @@ -309,6 +332,67 @@ regulator-state-mem {
+>  	};
+>  };
+> =20
+> +&i2c4 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&i2c4m1_xfer>;
+> +	status =3D "okay";
+> +
+> +	usbc0: usb-typec@22 {
+> +		compatible =3D "fcs,fusb302";
+> +		reg =3D <0x22>;
+> +		interrupt-parent =3D <&gpio3>;
+> +		interrupts =3D <RK_PB4 IRQ_TYPE_LEVEL_LOW>;
+> +		pinctrl-names =3D "default";
+> +		pinctrl-0 =3D <&usbc0_int>;
+> +		vbus-supply =3D <&vbus5v0_typec>;
+> +		/*
+> +		 * When the board is starting to send power-delivery messages
+> +		 * too late (5 seconds according to the specification), the
+> +		 * power-supply reacts with a hard-reset. That removes the
+> +		 * power from VBUS for some time, which resets te whole board.
+> +		 */
+> +		status =3D "fail";
+> +
+> +		usb_con: connector {
+> +			compatible =3D "usb-c-connector";
+> +			label =3D "USB-C";
+> +			data-role =3D "dual";
+> +			power-role =3D "sink";
+> +			try-power-role =3D "sink";
+> +			op-sink-microwatt =3D <1000000>;
+> +			sink-pdos =3D
+> +				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>,
+> +				<PDO_VAR(5000, 20000, 5000)>;
+> +
+> +			ports {
+> +				#address-cells =3D <1>;
+> +				#size-cells =3D <0>;
+> +
+> +				port@0 {
+> +					reg =3D <0>;
+> +					usbc0_role_sw: endpoint {
+> +						remote-endpoint =3D <&dwc3_0_role_switch>;
+> +					};
+> +				};
+> +
+> +				port@1 {
+> +					reg =3D <1>;
+> +					usbc0_orien_sw: endpoint {
+> +						remote-endpoint =3D <&usbdp_phy0_orientation_switch>;
+> +					};
+> +				};
+> +
+> +				port@2 {
+> +					reg =3D <2>;
+> +					dp_altmode_mux: endpoint {
+> +						remote-endpoint =3D <&usbdp_phy0_dp_altmode_mux>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +	};
+> +};
+> +
+>  &i2c6 {
+>  	status =3D "okay";
+> =20
+> @@ -481,6 +565,16 @@ pcie3_vcc3v3_en: pcie3-vcc3v3-en {
+>  			rockchip,pins =3D <1 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
+>  		};
+>  	};
+> +
+> +	usb {
+> +		usbc0_int: usbc0-int {
+> +			rockchip,pins =3D <3 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +
+> +		vbus5v0_typec_en: vbus5v0-typec-en {
+> +			rockchip,pins =3D <2 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +	};
+>  };
+> =20
+>  &pwm1 {
+> @@ -866,6 +960,14 @@ &uart2 {
+>  	status =3D "okay";
+>  };
+> =20
+> +&u2phy0 {
+> +	status =3D "okay";
+> +};
+> +
+> +&u2phy0_otg {
+> +	status =3D "okay";
+> +};
+> +
+>  &u2phy1 {
+>  	status =3D "okay";
+>  };
+> @@ -893,6 +995,27 @@ &u2phy3_host {
+>  	status =3D "okay";
+>  };
+> =20
+> +&usbdp_phy0 {
+> +	mode-switch;
+> +	orientation-switch;
+> +	status =3D "okay";
+> +
+> +	port {
+> +		#address-cells =3D <1>;
+> +		#size-cells =3D <0>;
+> +
+> +		usbdp_phy0_orientation_switch: endpoint@0 {
+> +			reg =3D <0>;
+> +			remote-endpoint =3D <&usbc0_orien_sw>;
+> +		};
+> +
+> +		usbdp_phy0_dp_altmode_mux: endpoint@1 {
+> +			reg =3D <1>;
+> +			remote-endpoint =3D <&dp_altmode_mux>;
+> +		};
+> +	};
+> +};
+> +
+>  &usbdp_phy1 {
+>  	status =3D "okay";
+>  };
+> @@ -905,6 +1028,20 @@ &usb_host0_ohci {
+>  	status =3D "okay";
+>  };
+> =20
+> +&usb_host0_xhci {
+> +	usb-role-switch;
+> +	status =3D "okay";
+> +
+> +	port {
+> +		#address-cells =3D <1>;
+> +		#size-cells =3D <0>;
+> +
+> +		dwc3_0_role_switch: endpoint {
+> +			remote-endpoint =3D <&usbc0_role_sw>;
+> +		};
+> +	};
+> +};
+> +
+>  &usb_host1_ehci {
+>  	status =3D "okay";
+>  };
+
+
+--33bca27b73304a4270d6ea8fbc04c0d790682b0e0c2dc71e4f7c11e0ec14
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaB4AjgAKCRDXblvOeH7b
+bt6iAP4kthtjrbYmyarcnjN/1gVMWFkZhBOQ9q75f2+QZUWYKQD/WnNV8qywAzPX
+7WOOlBtd2T/Qhse1vAlbhjcj/yu05Qo=
+=RLtz
+-----END PGP SIGNATURE-----
+
+--33bca27b73304a4270d6ea8fbc04c0d790682b0e0c2dc71e4f7c11e0ec14--
 
