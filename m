@@ -4,91 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2784C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 16:57:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B8C2C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 16:59:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MoaHVq8f5uoSyjjX75HEcA9MREgvZcIUuW4iFJxdZ4A=; b=gavNFbqostWzk4wtWulhLVv7hr
-	/pbgY1VObiZbRIuUS+fRPft3zKxNQCViVFbLprQBPIwgjdv5aBbwqKEhUk+pxC8YEmKwGaDCEK1pp
-	hz1uYdUn3AiwJx3b2H0pdYK0WiLd4uFC+ziuQzUTZQi1ola9Cn9mrq45Ot1Wp93vdnW7itDw5vCDL
-	9NFo2GMm3VOwk6nRnFtB24EekP0V2PzUCAxb7KbA7ik1WfQSJEdBI0c7CQDDvMGRKzD/AK5Lw37WV
-	PhW/0zTcYg/6LjpWJ29TzZBXMalez0kAdF9uzsKV3pG4Eunj36LDZo/03MEeXJ4asqjJgPdkQKkKQ
-	fCJZC0sg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vGJa78Wq53wOh7pi/p5kq4kFJLRExrNSMcJZ7tCQjOo=; b=eOZnAmojnw7SJ5MGzJWCdt3RtD
+	UKu2FVx1x8RC/uPa9mvPBWrKhxiptI0ucvcLueY/hqsJM/kBiY27WIM98BbFBSiObUMu5afuhs2zs
+	qOGWh2upUv2pjbuH23IfTJom9mib1mnQJlTNxVW7JSCIUjF2vLPyETNdE0gvEXuIGs7WVvDlLKwjl
+	0gUcs6epYJiBGa/xwmCYIgK0j+ljoQC7+wF65SRZSOQyAoGdFi6LwQ4Cie8sv8nG/Fw7xZ1iDOAZ2
+	8wM3Yclq5fjjn/dpa9QXD3sWEphBfROQKNAdYcIVvssC/rao7VOdxrDlNJGUYaXulvawK5Kx4y6CJ
+	h4c5VSYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDR1v-00000004N2W-3hGG;
-	Fri, 09 May 2025 16:56:59 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1uDR3s-00000004NPu-0p1W;
+	Fri, 09 May 2025 16:59:00 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDOdo-00000003wBS-2Nwj
+	id 1uDOiT-00000003whj-20hA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 14:23:57 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-54d6f933152so3001803e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 07:23:55 -0700 (PDT)
+	Fri, 09 May 2025 14:28:46 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43cfe99f2a7so2163345e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 07:28:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746800634; x=1747405434; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=MoaHVq8f5uoSyjjX75HEcA9MREgvZcIUuW4iFJxdZ4A=;
-        b=CkVBXVWQEKng24xxPUNlkzbUK6nrHpLCxDbMJRrJSofhwuWq6HnMx7MRRMjx43lkwf
-         eyWlD4UPOdnTbEEMuvYNHtS6cVVas9qd8mRGoWlq1UFlLaS5QwGFDe9nP+caIXk9yZlw
-         d9rBZ8fVMcItQiz5HTBiTskumGnF8atJy+9MNpJH2gXFL2DyjuLalqEmv9ewN41W0thw
-         wKXC14DBWzRE0iZugDly7qG+2kfsQPtuNVC77SknqAmj9XJDQx8HjWtf1l1+KMqyox5e
-         OWty4Bvtl8+cbPEZzmZPdYNe9lwNGEYipu65iWCSleRxHwD+uvWG7s1hdMNf0hu04Md4
-         JLGA==
+        d=linaro.org; s=google; t=1746800924; x=1747405724; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vGJa78Wq53wOh7pi/p5kq4kFJLRExrNSMcJZ7tCQjOo=;
+        b=GHJonGsNVKL50fv3QC5rjYpQCG71u/In6/09+2RmbChHQ+g/DyG0IhBPb+DOxLVzs0
+         pi+8VsNgI1LYqf9sHQuOiKxtdFvxB3HgZQEd2HuW01HfnKrfdjpYcfOkdTp6r0RG9pQ9
+         lYuhGdBkJLDchUnGTB7klfkaLyhfbqmrUWEzEefSLbia2X0Wc2Jk/Q8QxGJ94GtPePGc
+         085Dguek1xQGb8lUP9ub+RHFjd+9hlx3ExtneCNz+v1xDMuM8RFylUfUnWxgjEgFFWmH
+         lywbOJLSeZlj5DbqEvPQudbWFvI5QWO5b5VvEbjakJPpUQeSVYBKef7kV4ijowzxpW76
+         S8WQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746800634; x=1747405434;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MoaHVq8f5uoSyjjX75HEcA9MREgvZcIUuW4iFJxdZ4A=;
-        b=AQf09p3iu4np6TwZqdAJF5Wr5MonGr/TJIZKZp+XINlUdZHKZUBLF5u6b5IStMI0IH
-         EszCQr6V5oj4o12dDFylmY7LWdAgwOvRLAGqNAdlM7Dv6MI+eg/82fp+S5fSKEqlIwAI
-         5r63oHsXGu4A4Mb2dceIgmbieM5JSuh5FPuhf4WGRJzHS3+cD5jXPnRwsmb1O/I3KSei
-         FctparHDC3gmXT4Bll5aEy07Ra80ZEbXpIHsLiB89ggcGK1h20zOrupXCiBq/Dh1zxyx
-         oT+9vDvj6CmMyQQZZnEuZ7piCH0HYmbkLVbYGqtz3CSvxHSdeEIiijKkuJQ76HFELwiv
-         gmwg==
-X-Forwarded-Encrypted: i=1; AJvYcCUv7I/kAQJ8UDo+nsgSyjBzUcINcps62tMVBNZebHNrtSmnjk8ZNkAs9LBvNKUpqXxJoQoXMlIyx5OF2ueawHv2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzio2371n8ViiKuEF13bejiKAcS06XdEQBsg8cCIOCGeuuSl4kq
-	rnSWMDu7vZjMzrFhQdNLWMC0xXt7fGuiEODarbQKFpmA5I5zUs3w
-X-Gm-Gg: ASbGncuoo9sMoc8jInwzOArHN5WDwc4g484WWG+bVmY8jBSEf3YR0JiE1Q4i9NInC9r
-	7o3/swRrQY0xi/w1kGU3Tw30d6u3JeQ/LtbT7cjsIsul8hr1CyMvpaUzIYT8zxQVRcCDm2Cu4JV
-	MxIIz4y3OuMnOhtRLyiMWTWf3/AhfK3LnGk85oaICgrZAnPoX2ChnYA+WNF4YoGs2AA0Lc1fetc
-	CXyyL5h+B25zZW2Zkr3dhL2emb8/959ZTWGztRGLqUacv0rAG4A44Pq8RU3DjKZnElLmap90GES
-	NmA7bjfcSgn7OBaL9v6qiqbJujguB+hQNCMc/LElUXosnFwUGli3Bgi07rl/PshZlCu3KdIUHpv
-	EQ5AN0dzOjtuyJG7aG/UMhhXMIxwfBvr425UtJdBHyVTBv1DVP5rdbXbyUhGTdJ4WSwHCOATH
-X-Google-Smtp-Source: AGHT+IEiqJIsmXnH9dNxGfVEY7/IBx5BdjSAyjSugSQ904/Pvglv5wzXp+SHaqKYougS4EZvpuYKRw==
-X-Received: by 2002:a05:6512:2913:b0:54a:cc75:3d81 with SMTP id 2adb3069b0e04-54fc67b4624mr1116687e87.4.1746800633673;
-        Fri, 09 May 2025 07:23:53 -0700 (PDT)
-Received: from ?IPV6:2001:999:701:52e0:b498:b01c:c3ac:ae69? (n7kenj77twmhzm8jtyh-1.v6.elisa-mobile.fi. [2001:999:701:52e0:b498:b01c:c3ac:ae69])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54fc64b6ebesm289857e87.137.2025.05.09.07.23.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 09 May 2025 07:23:53 -0700 (PDT)
-Message-ID: <e823a43e-20a8-4142-875f-a3575cbb0d0b@gmail.com>
-Date: Fri, 9 May 2025 17:25:06 +0300
+        d=1e100.net; s=20230601; t=1746800924; x=1747405724;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vGJa78Wq53wOh7pi/p5kq4kFJLRExrNSMcJZ7tCQjOo=;
+        b=SaCr6jS/lAXiGCbsRXtvxMgePx05rlvyffpddjSyKlQNgrHLHiNtvx4GxCpTZNUjfA
+         KJYxaUUe1YazpBWDK9queNPYdDQ7Z4KC378NxzVoCqY1ypsRDoszIbPRCRu7g/sabxtw
+         TNlJ6Bw74+hgGyU+8r/KBSHNkInuf7YenMNhmOgiEcBsDXcUIp94KWlFotHazo7FOqX2
+         vx2Q8kUhzvyRl/KykAvauYaM2voU8hxUoGDvuaC+YG1JQtYy95uQwbrcwWdyLiF4TM5O
+         7Oh+tPYaYsmiaWC5OlTM9zGWLsPjQw1vRQG4WcrUqtqjOAAor7P6MxW3xzsY744lrIDk
+         31Rw==
+X-Forwarded-Encrypted: i=1; AJvYcCUmSbLoS/18HaftoMaaB5UbuVzxSFA/yPho9EoGhVHXfAhOr3/PccfJPZTz83T6nl80nEVltklturG0YnA+b+Pb@lists.infradead.org
+X-Gm-Message-State: AOJu0YyU6m9p3UfWHK3RZPtw7J5OjQPI86y8sIe/z+bkK3LrGOANnc7M
+	LCcG1aR5247P0CsgZb1R5/2Z5IYiDLwi/u0fjowWzG/ddMrBiQKC2yWh09AB9bE=
+X-Gm-Gg: ASbGncuO+6K8+E4AkDHx4L72tePtomOG07HroJlCQWefdqOMOPRu6ZUrRyW1yINQu9H
+	clB/B5ObkUqaid2fZ9CUO2ld9NJZPjiZzXvtwhopH5hoeoF+HMPpH225RSxeq7fdlvcXFPJBnl0
+	quPvTsNIBQQqUC0EqbnXFNLlCT7k0rtv6ShxIY0DGZK2rl9rAz37zRJ/kjqd39Wubf2LeMtGJnJ
+	atJN/skNx87tQjdLLR2TPf5OMv2etaDJQYgyUS0yQe/vznhAgKdT323meTzcsRuXM5tLK9wZZQI
+	38R0VkkPhStigsXE9VfH9B/lSauGe5joeJdWcjkqIYU/Fh6uvA==
+X-Google-Smtp-Source: AGHT+IEKYVR9f4KNy2kwsH3spQ+bStFwlfaO9+nceNqCzdyx5f265pzrXCR2cXu644nD++9/3pxs5A==
+X-Received: by 2002:a05:600c:1c8f:b0:439:a1c7:7b3a with SMTP id 5b1f17b1804b1-442d6d18d31mr10683505e9.1.1746800923692;
+        Fri, 09 May 2025 07:28:43 -0700 (PDT)
+Received: from kuoka.. ([178.197.207.88])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442d687ae10sm31255865e9.37.2025.05.09.07.28.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 May 2025 07:28:42 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: qiang.zhao@nxp.com,
+	leoyang.li@nxp.com,
+	nathan@kernel.org,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Tom Rix <trix@redhat.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v2] soc: fsl: qe: remove unused qe_ic_from_irq function
+Date: Fri,  9 May 2025 16:28:35 +0200
+Message-ID: <174680087395.258053.1870729490363422870.b4-ty@linaro.org>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20230320125202.1721775-1-trix@redhat.com>
+References: <20230320125202.1721775-1-trix@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/8] drivers: dma: ti: Refactor TI K3 UDMA driver
-To: Sai Sree Kartheek Adivi <s-adivi@ti.com>, vkoul@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com,
- ssantosh@kernel.org, dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- praneeth@ti.com, vigneshr@ti.com, u-kumar1@ti.com, a-chavda@ti.com
-References: <20250428072032.946008-1-s-adivi@ti.com>
- <20250428072032.946008-4-s-adivi@ti.com>
-Content-Language: en-US
-From: =?UTF-8?Q?P=C3=A9ter_Ujfalusi?= <peter.ujfalusi@gmail.com>
-In-Reply-To: <20250428072032.946008-4-s-adivi@ti.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
+X-Developer-Signature: v=1; a=openpgp-sha256; l=883; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject:message-id; bh=fiZTHDyBdOc6qfmbBDJJ1y69SYbch4R9Dh77RsKvT8o=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoHhETObKRcExebKUkbIaGQ4dCmp1cl7Z+eKzDU
+ 2FxOq4jCDyJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaB4REwAKCRDBN2bmhouD
+ 12MFD/wKZlS5qkHWc9CUedyRVM+E7ub1Lod6PaAbk/31coox5iWvBj94XuurnOuKMUXmcfwl7rF
+ +zIRQNJFPjPjkwOpJRjTwPg9vWktDjbBwQN5R64ChJnZt8N3aG2g6LGgFE/0YCOfJFzUVg8ZBFt
+ 62ZO1fWQod3iFD1Zu3PcjmwYvTaf+VjfI3VGUZvNHJaaHLA9OQjxzJ3ntJdV26Nf1yHtEYPWV7/
+ FMHZjDxKHK0YbtTSDXeNg490LGK+pTCreHLrmjbYMkw6dz+RlV69hHcqkKzY9cZm/9wZeOs2okZ
+ eG7gn/v7oAxxTESLh3rXiggeQ2P33lfAL9XVQz4dnqd+7QERPpUx64aDciyg2L42a2UQea0qA46
+ W3XbvX2k9qDz1FM2bo6UNGsIi3SO/6eVgQT/4pP3+EPQcpLXjeIXWFABGWub4gabk4sNNyhzkiX
+ XZ2hdozSp+Qf4G1PgSPe8YGgegbvavAT06TMWaZvmBCcIKj8W8u+ozmC6+8KVJAdNs2L8Hq1fOe
+ akJTeH9uzGd7Ycd0pjjUh87ndgOeTHaIuDpoVNjEa7Mv7i6pyj8SkcOMi7I8ZyzOzxhPWKh1EIg
+ qKU5+wwCNXNv2I9wmnTh6z29IndiEPrwcJQe+IGqjf917f6nKyC1AAWkPXU/nAhTXKZGgHiMUNe D03zhhwT7Or58DQ==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_072356_607139_11028849 
-X-CRM114-Status: GOOD (  19.39  )
+X-CRM114-CacheID: sfid-20250509_072845_520161_1B7B7846 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,134 +120,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On 28/04/2025 10:20, Sai Sree Kartheek Adivi wrote:
-> Refactors and split the driver into common and device
-> specific parts. There are no functional changes.
+On Mon, 20 Mar 2023 08:52:02 -0400, Tom Rix wrote:
+> clang with W=1 reports
+> drivers/soc/fsl/qe/qe_ic.c:235:29: error: unused function
+>   'qe_ic_from_irq' [-Werror,-Wunused-function]
+> static inline struct qe_ic *qe_ic_from_irq(unsigned int virq)
+>                             ^
+> The use of this function was removed with
+> commit d7c2878cfcfa ("soc: fsl: qe: remove unused qe_ic_set_* functions")
 > 
-> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-> ---
->  drivers/dma/ti/Makefile         |    2 +-
->  drivers/dma/ti/k3-udma-common.c | 2909 ++++++++++++++++++++++++
->  drivers/dma/ti/k3-udma.c        | 3751 ++-----------------------------
-
-I'm affraid you do need to break this one up a bit. It might be doing it
-correctly, but it is impossible to check with the churn, like ....
-
->  drivers/dma/ti/k3-udma.h        |  548 ++++-
->  4 files changed, 3700 insertions(+), 3510 deletions(-)
->  create mode 100644 drivers/dma/ti/k3-udma-common.c
-
-...
-
-> -static bool udma_is_chan_running(struct udma_chan *uc)
-> -{
-> -	u32 trt_ctl = 0;
-> -	u32 rrt_ctl = 0;
-> -
-> -	if (uc->tchan)
-> -		trt_ctl = udma_tchanrt_read(uc, UDMA_CHAN_RT_CTL_REG);
-> -	if (uc->rchan)
-> -		rrt_ctl = udma_rchanrt_read(uc, UDMA_CHAN_RT_CTL_REG);
-> -
-> -	if (trt_ctl & UDMA_CHAN_RT_CTL_EN || rrt_ctl & UDMA_CHAN_RT_CTL_EN)
-> -		return true;
-> -
-> -	return false;
-> -}
-> -
->  static bool udma_is_chan_paused(struct udma_chan *uc)
->  {
->  	u32 val, pause_mask;
-> @@ -643,189 +88,73 @@ static bool udma_is_chan_paused(struct udma_chan *uc)
->  	return false;
->  }
->  
-> -static inline dma_addr_t udma_get_rx_flush_hwdesc_paddr(struct udma_chan *uc)
-> +static void udma_decrement_byte_counters(struct udma_chan *uc, u32 val)
+> [...]
 
 
-These sort of diffs.
+Commit from 2021:
+https://lore.kernel.org/all/1619002613-18216-1-git-send-email-jiapeng.chong@linux.alibaba.com/
 
->  {
-> -	return uc->ud->rx_flush.hwdescs[uc->config.pkt_mode].cppi5_desc_paddr;
-> +	if (uc->desc->dir == DMA_DEV_TO_MEM) {
-> +		udma_rchanrt_write(uc, UDMA_CHAN_RT_BCNT_REG, val);
-> +		udma_rchanrt_write(uc, UDMA_CHAN_RT_SBCNT_REG, val);
-> +		if (uc->config.ep_type != PSIL_EP_NATIVE)
-> +			udma_rchanrt_write(uc, UDMA_CHAN_RT_PEER_BCNT_REG, val);
-> +	} else {
-> +		udma_tchanrt_write(uc, UDMA_CHAN_RT_BCNT_REG, val);
-> +		udma_tchanrt_write(uc, UDMA_CHAN_RT_SBCNT_REG, val);
-> +		if (!uc->bchan && uc->config.ep_type != PSIL_EP_NATIVE)
-> +			udma_tchanrt_write(uc, UDMA_CHAN_RT_PEER_BCNT_REG, val);
-> +	}
->  }
->  
-> -static int udma_push_to_ring(struct udma_chan *uc, int idx)
-> +static void udma_reset_counters(struct udma_chan *uc)
->  {
+did not apply, but this applies.
 
-...
+I am annoying hitting this warning on every W=1 build, so:
 
-> +struct udma_dev {
-> +	struct dma_device ddev;
-> +	struct device *dev;
-> +	void __iomem *mmrs[MMR_LAST];
-> +	const struct udma_match_data *match_data;
-> +	const struct udma_soc_data *soc_data;
-> +
-> +	struct udma_tpl bchan_tpl;
-> +	struct udma_tpl tchan_tpl;
-> +	struct udma_tpl rchan_tpl;
-> +
-> +	size_t desc_align; /* alignment to use for descriptors */
-> +
-> +	struct udma_tisci_rm tisci_rm;
-> +
-> +	struct k3_ringacc *ringacc;
-> +
-> +	struct work_struct purge_work;
-> +	struct list_head desc_to_purge;
-> +	spinlock_t lock;
-> +
-> +	struct udma_rx_flush rx_flush;
-> +
-> +	int bchan_cnt;
-> +	int tchan_cnt;
-> +	int echan_cnt;
-> +	int rchan_cnt;
-> +	int rflow_cnt;
-> +	int tflow_cnt;
-> +	unsigned long *bchan_map;
-> +	unsigned long *tchan_map;
-> +	unsigned long *rchan_map;
-> +	unsigned long *rflow_gp_map;
-> +	unsigned long *rflow_gp_map_allocated;
-> +	unsigned long *rflow_in_use;
-> +	unsigned long *tflow_map;
-> +
-> +	struct udma_bchan *bchans;
-> +	struct udma_tchan *tchans;
-> +	struct udma_rchan *rchans;
-> +	struct udma_rflow *rflows;
-> +
-> +	struct udma_chan *channels;
-> +	u32 psil_base;
-> +	u32 atype;
-> +	u32 asel;
-> +
-> +	int (*udma_start)(struct udma_chan *uc);
-> +	int (*udma_stop)(struct udma_chan *uc);
-> +	int (*udma_reset_chan)(struct udma_chan *uc, bool hard);
-> +	bool (*udma_is_desc_really_done)(struct udma_chan *uc, struct udma_desc *d);
-> +	void (*udma_decrement_byte_counters)(struct udma_chan *uc, u32 val);
+Applied, thanks!
 
-You can drop the udma_ prefix, it is clear that they are for udma..
+[1/1] soc: fsl: qe: remove unused qe_ic_from_irq function
+      https://git.kernel.org/krzk/linux-dt/c/d47f1233374597c348696c3da2142cc92a36fc90
 
-> +};
+Best regards,
 -- 
-Péter
-
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
