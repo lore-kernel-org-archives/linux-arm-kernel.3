@@ -4,64 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F3CC3ABBC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E392AC3ABCE
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:25:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ckl3vux5StOjvP2+47jrXU3fLRpLeSvxiApo1TU/VDQ=; b=VrZJXp956oW+zFUtWx+OKEm6HL
-	e3XGlRVk66kKt4lkAf9vrjamv9UPEVoFlTxAdnJmU8iftyjeyKAkjHv5sqZhRjs30spqNKLZOnGF0
-	qoVmD4bgHTdETGepF7BWyfb2OEu69y7/7r9BXOXn1hyhghRDNJ603m4CcEUOtUHNR43YDDoyHjuqn
-	X+YyvULpXDsjcmtCyD8K2Vya/2uUp13H+y3M9nttfTS9sEkfNnhOrsdtmiFQ1Jq08eXiVRVWvMY3t
-	S95P55ZNwR/+UY8jgt47xe/+A3Hq4VsmRPmCu+Vos/Foz7iYptbL8mvaVjGlpNfOggsEirstvyeVw
-	7q1pMzPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kygn5OfCMaFwrigU5Jfdz3S0EdTnF7yVIhmX5bew10Y=; b=jL8kF8ytu1PVEImqZzZA3D2H5X
+	Kpx/Ys6FkV3ufT60mDo/xtGn5LJzC7jWIZ+HS73XQ4U5M1fpqfx7ND/uGT/WwoarW/pupoYDQGe21
+	n+4YP37//Zhl0GJiHcuS4YeLIFqnMDL/34BkhaCjhg7l4oDuK2dc/d64IWC803LHkn7ot1jh8s8Ah
+	nV7rOqDTW6V7wY+f8kBJLulrjU1tF9NekGLCiusE89QjiYZ/P3EIUE5T2nS8dGUnFVG3BXUSb1Hmp
+	eTfPEniFuyigKk1wC7Odktvqqs2a9tJ72Pej/0mRphjbPIvQjR/UJCq7+2aV/llAksRqw4wDtjyFz
+	R/xHWJVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDUHu-00000004mng-3qhC;
-	Fri, 09 May 2025 20:25:43 +0000
-Received: from out-178.mta1.migadu.com ([2001:41d0:203:375::b2])
+	id 1uDUHy-00000004muq-2mDz;
+	Fri, 09 May 2025 20:25:46 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDQwy-00000004M3i-30yh
+	id 1uDRBF-00000004OWp-1VQ3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 16:51:54 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1746809509;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Ckl3vux5StOjvP2+47jrXU3fLRpLeSvxiApo1TU/VDQ=;
-	b=P/NX0RgHit5EEJXk2v6IpDcc0CmX9jjuKGJ8J8O5RFsGJ+rX/Zfmu63/p9HRzmJ0SEju20
-	pN/gP6SdukESlLnnl2aOcQMGBMKpLbRL94g/juVXzwRKDpD05cfRZQ8VUzJA29MnSUgMZo
-	ZY4jHyKEEzcKFwwvHSoce0HjegXD/XQoC3oHYQxUqnMJtD5Job1emTRTCTV1VNsFpYqyB4
-	jx8bXA/Cqycgs8BL93wm4v4emqKSe08tJV905bRCSeEdKjQlyHIPr69944V7VG5RAvu1H0
-	GyRVpehpmWhks+9m0/OocqJs2C+FWFdssWbUkQJHyPXeEUX0eMh99gpsf78PVA==
-Content-Type: multipart/signed;
- boundary=3e23f8a3f7dd23a047277bc59f050a2e77210dee6735ec02b945a8d601bd;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Fri, 09 May 2025 18:51:21 +0200
-Message-Id: <D9RSA5K547DD.1LYPIZZM4XALS@cknow.org>
-Cc: "Conor Dooley" <conor+dt@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Dragan Simic" <dsimic@manjaro.org>, "Rob Herring"
- <robh@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <devicetree@vger.kernel.org>
-Subject: Re: [PATCH 0/1] arm64: dts: rockchip: rk3568: Move PCIe3 MSI to use
- GIC ITS
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Diederik de Haas" <didi.debian@cknow.org>, "Chukun Pan"
- <amadeus@jmu.edu.cn>, "Heiko Stuebner" <heiko@sntech.de>
-References: <20250308093008.568437-1-amadeus@jmu.edu.cn>
- <D9RQN76VZXO8.T3I0046FNVG3@cknow.org>
-In-Reply-To: <D9RQN76VZXO8.T3I0046FNVG3@cknow.org>
-X-Migadu-Flow: FLOW_OUT
+	Fri, 09 May 2025 17:06:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 777E2A4CC01;
+	Fri,  9 May 2025 17:06:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33B5FC4CEE4;
+	Fri,  9 May 2025 17:06:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746810396;
+	bh=bLrG4AeCKcaCZecQ3OBE7o5nVNNOZXHqtgg2+3E4HV0=;
+	h=Date:From:To:Cc:Subject:From;
+	b=M4Z87hjapxMsxwQN5+tN7SFmT+BSolRWLPpHPkxTCYYqJdJj0YZ8OLr/9hah/T+/T
+	 qYmpwEiqTyuMPwXDpOSuSO20hz1aS0LD5R0KCxYvGpIN+3IWPnScjDtft3lrmsZ2+P
+	 91Ex18SojWYhgxx9r/g/7FuIngP6XcvyH/Y+48px4wQVPtKhSaoNQQiVStEs8rGelf
+	 JLfDRuXB4dExsJm7hjSv/OD3V4uPOnMOa8BaQebqxo18kS8NYLT/YWywBIwX5+kAjM
+	 GVIb8lWbl6qkl2uzqYzhSIfSdX64a16KkFNnAQbvhlgFnrBL/ilr6/SWfibVGWruZM
+	 bOk7u935yI9ZQ==
+Date: Fri, 9 May 2025 18:06:32 +0100
+From: Catalin Marinas <cmarinas@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL] arm64 fixes for 6.15-rc6
+Message-ID: <aB42GJfIypFqk9aC@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_095153_121048_FD59CF41 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20250509_100637_463725_D6802118 
+X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,60 +70,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---3e23f8a3f7dd23a047277bc59f050a2e77210dee6735ec02b945a8d601bd
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+Hi Linus,
 
-Hi again,
+Please pull the arm64 fix below. Thanks.
 
-On Fri May 9, 2025 at 5:34 PM CEST, Diederik de Haas wrote:
-> On Sat Mar 8, 2025 at 10:30 AM CET, Chukun Pan wrote:
->> For a long time, rk3568's MSI-X had bugs and could only work on one node=
-.
->> e.g. [    7.250882] r8125 0002:01:00.0: no MSI/MSI-X. Back to INTx.
->>
->> Following commit b956c9de9175 ("arm64: dts: rockchip: rk356x: Move
->> PCIe MSI to use GIC ITS instead of MBI"), change the PCIe3 controller's
->> MSI on rk3568 to use ITS, so that all MSI-X can work properly.
->>
-> I tested this patch on my NanoPi R5S with a 6.15-rc3 kernel + a number
-> of [vcc|phy]-supply patches that have been accepted for 6.16 (and a
-> small WIP LED patch).
->
-> With this patch I get the following kernel warnings:
->
-> pci 0001:10:00.0: Primary bus is hard wired to 0
-> pci 0002:20:00.0: Primary bus is hard wired to 0
->
-> If I 'unapply' this patch, I don't see those warnings.
+The following changes since commit fee4d171451c1ad9e8aaf65fc0ab7d143a33bd72:
 
-I was pretty sure I had seen those messages before, but couldn't find
-them before. But now I have: on my rk3588-rock-5b.
+  arm64: errata: Add missing sentinels to Spectre-BHB MIDR arrays (2025-05-01 17:44:18 +0100)
 
-> It's possible that this patch only brought a(nother) problem to light,
+are available in the Git repository at:
 
-So it looks indeed to be this.
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
 
-Cheers,
-  Diederik
+for you to fetch changes up to 363cd2b81cfdf706bbfc9ec78db000c9b1ecc552:
 
->> Chukun Pan (1):
->>   arm64: dts: rockchip: rk3568: Move PCIe3 MSI to use GIC ITS
->>
->>  arch/arm64/boot/dts/rockchip/rk3568.dtsi | 8 ++++----
->>  1 file changed, 4 insertions(+), 4 deletions(-)
+  arm64: cpufeature: Move arm64_use_ng_mappings to the .data section to prevent wrong idmap generation (2025-05-06 11:43:44 +0100)
 
+----------------------------------------------------------------
+Move the arm64_use_ng_mappings variable from the .bss to the .data
+section as it is accessed very early during boot with the MMU off and
+before the .bss has been initialised. This can lead to incorrect idmap
+page table.
 
---3e23f8a3f7dd23a047277bc59f050a2e77210dee6735ec02b945a8d601bd
-Content-Type: application/pgp-signature; name="signature.asc"
+----------------------------------------------------------------
+Yeoreum Yun (1):
+      arm64: cpufeature: Move arm64_use_ng_mappings to the .data section to prevent wrong idmap generation
 
------BEGIN PGP SIGNATURE-----
+ arch/arm64/kernel/cpufeature.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaB4yngAKCRDXblvOeH7b
-btTxAP9xcOOm/DKb1fMqBqNcR6qUMiNnWv1MKSyU06BFXAH6LQEAocEqmFyRa4iT
-xDj91oyTLTpAr8k0/xJZDB//WWhFPgs=
-=V4q7
------END PGP SIGNATURE-----
-
---3e23f8a3f7dd23a047277bc59f050a2e77210dee6735ec02b945a8d601bd--
+-- 
+Catalin
 
