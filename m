@@ -4,78 +4,186 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 875E8C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 18:27:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E91C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 18:29:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CEYV45etsWiKClAHB+fwribjST+y0coBC5Yfu69ThAI=; b=rapa/OnWOyyAj5TDK6tCZAVstk
-	7jkMsI/fFH1/Y+QPTJ6tvoN+q5kspal8eh3haee2C8eDNlUzu1IO2Ox4wVTYfWoSjpI8P4B58iYEl
-	93B0TgD0x6PxFUFYvPhnE6cYcTklT7802Jaa4XvdnwHkqjgYeC6MsYCSUGVGIJEM580wtfKYp3EQJ
-	RoIenDV68gkRqMWGTTmopdEdnRDDAcAPI2h+pXB7hv+MejQtHH9CtAk4ZGzyY4g2KX9d8Bzop0UUv
-	EO8e6FELBc9Y1VaXOc6KWew9r6Fo/dacvJ3ba+WXZ+5OVwu0MkuYC3xU310e8nLRiRT9FR2wJk4dq
-	3j8TwH+w==;
+	bh=J82X5I27FlqWXsCWECr+Bpu+792GyGuzgeCFimbpQbk=; b=lk8eQ9fB84hpYj5btKSgDYuKBE
+	O2bUmaSjesY3Ivfk9RrqfnonkZEZypFQJ7npHKbjtzuf3JoDOQoWqSenemMKwFt03VRyVr60UQQBb
+	I0Yb5Np7IAv7PUbvf1s7qCUY12JZhCjkjFbQQ6frzUT7j4HkFT6TDWH0ixEM3/wv+VgX6nMJIev2V
+	S5oLvVACYEQ6wsywxzUHn2s664f9qj63EVgMGGSWXFluPtLQMn+g7GYT6oZ/jMHRSQg+yEbm/pA1X
+	ThqOCTCq5ycEkSmVRFZbY71kzri4ECckmw++Ov+qJlqdRfZQlJ3FNCrSWufzVaYX/c5BSBrkcj880
+	6wJ47RUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDSRH-00000004ZU7-0cxr;
-	Fri, 09 May 2025 18:27:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uDSTC-00000004Zmo-3jDD;
+	Fri, 09 May 2025 18:29:14 +0000
+Received: from mail-am6eur05on2060d.outbound.protection.outlook.com ([2a01:111:f403:2612::60d] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDQNZ-00000004FM6-1YDY
+	id 1uDQOa-00000004FXW-2zT3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 16:15:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A23976111F;
-	Fri,  9 May 2025 16:15:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 116E8C4CEE4;
-	Fri,  9 May 2025 16:15:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746807316;
-	bh=lnXJqnJ6L2CCxfRYIrwQ87XFrZmjVVTDVi/is6Su21A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=F9vWsaOEIRPPVVdvRwuw2KqhhHdFXcfQS9hCv8q2bIByUVDTZ8zNsPgYGB0xrdmGk
-	 Apcr9OEfyp5TOYGDGAH6quvyLtR6qiG2MyGwURgHFttiZXH1YgCxIBs4ndKdfWTyyu
-	 rrNhn8ibiMJcR96v3/Zgs0oIFH8wTzrHVoEWH0jaQ8rAlogrfYq4+qUhiWFB4J/cpy
-	 hrB0aVDir3GlzkXySdN+iyMZ7PwAxmblKxBcOF8QU5Fl3cle2Z/zw8tFAkn9rrszaz
-	 DQCq5RIFAF1yzw710UVXF+l9GsRmFkrHPGCa8paQ7/GyIOBnU5vMON8AAyHRIW7Hf2
-	 mWH2aD6BIxyqA==
-Date: Fri, 9 May 2025 17:15:08 +0100
-From: Will Deacon <will@kernel.org>
-To: Dylan Hatch <dylanbhatch@google.com>
-Cc: Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Philippe =?iso-8859-1?Q?Mathieu-Daud=E9?= <philmd@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Song Liu <song@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Roman Gushchin <roman.gushchin@linux.dev>
-Subject: Re: [PATCH v2 2/2] arm64/module: Use text-poke API for late
- relocations.
-Message-ID: <20250509161508.GB5984@willie-the-truck>
-References: <20250412010940.1686376-1-dylanbhatch@google.com>
- <20250412010940.1686376-3-dylanbhatch@google.com>
+	Fri, 09 May 2025 16:16:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DbYuOukCXTep8df3FwYc06u8CqLRp0JIpA4xAIi0AQtu9pFSout1AOJSgxx19ZtH8maY8tdzPp1AKQDt9y/OqmrTgv+9zMWLLFtZcESR7JtMPT5cc0+MGUTI/4UIvqsPZtoYf9WZUIUHaHlP97mFXst2I4a8xA24l3xZddrdJcwR5ISgwz72YfEl6FkA4puSkJO9ZuR/s4Eilqwgjgt0nCRGYzqRWZPormTfVKvYIxDf7+f9mQQ8PdV7JVrXJPH8uA/PGFEJvXqHhQjChADsEJEu9lXWOG2Q/qYEgNXhkHRw0aW+PQXsNr8CKRSiQvMRXoKe6xZmSUX5BUbg6X9ABA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=J82X5I27FlqWXsCWECr+Bpu+792GyGuzgeCFimbpQbk=;
+ b=RrqfT50XvVcnciIJk+Y8YbHaf7stXcam/7ySHvfWL1fHpJeF/tzQNPnaAAXvvzRp2Wyg+fJgM/9DydmHUYcP78z7XsMptR6tkTjGZ3zo3vc9QLOhb7HTLgJGQky+SdxX+fcUrXYOvZf9wpMx290/18pEdIzOosM/X20azO6ISSNNncQr/Ul2+M/M4tI2lgcGWoh8z2OVfZF9O4LZHDfV+gjA657Wvw39a7jEXNjPbta7xxYNr0ZkCpw0WB3X9UN0c2QVLYkKEaMGD1Fl0U8wByOcWx7v9D7/FAzXb47BzgMGMwOSXsW7cIGWKqXPCNSVm1V+ZUIzIIf68txKPZYDzQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cs-soprasteria.com; dmarc=pass action=none
+ header.from=cs-soprasteria.com; dkim=pass header.d=cs-soprasteria.com;
+ arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cs-soprasteria.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=J82X5I27FlqWXsCWECr+Bpu+792GyGuzgeCFimbpQbk=;
+ b=DGKSOGkb4aIrKJ7L99SN+yA6zViLsZW5rhhNXawZwx4C35DRuPjphAqwyR28WvSgDthEjHGaZixbOmlB4rbAyWAJ95E0LxSoTTiKAYqtt3njHpNGKRIB8yOwhwP8ZEidzf5mHZxJVy0Lj4/+npexC5FqUEp0weuH9lW40EqjZBPk2slbVenP90ebRR3fhW9lV6hVeETljQVcDSkIzwBmIOZq7CyKqc2DCeV4lHQnocaJ93gjyacTTnOaPaC6IcpCz/yeh/JbfM4eajDt/DySlk8y9FrXCd4v95yH4UU/dkZpMmt/BXHPtECzdX8X9nxZUUUHEb7QTmDfYviPVzHwTg==
+Received: from AM0PR07MB6196.eurprd07.prod.outlook.com (2603:10a6:208:ed::33)
+ by PAWPR07MB9757.eurprd07.prod.outlook.com (2603:10a6:102:37e::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.23; Fri, 9 May
+ 2025 16:16:13 +0000
+Received: from AM0PR07MB6196.eurprd07.prod.outlook.com
+ ([fe80::7cb7:ff63:d358:1a]) by AM0PR07MB6196.eurprd07.prod.outlook.com
+ ([fe80::7cb7:ff63:d358:1a%4]) with mapi id 15.20.8722.021; Fri, 9 May 2025
+ 16:16:13 +0000
+From: LEROY Christophe <christophe.leroy2@cs-soprasteria.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, "qiang.zhao@nxp.com"
+	<qiang.zhao@nxp.com>, "leoyang.li@nxp.com" <leoyang.li@nxp.com>,
+	"nathan@kernel.org" <nathan@kernel.org>, Nick Desaulniers
+	<nick.desaulniers+lkml@gmail.com>, Tom Rix <trix@redhat.com>
+CC: "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "llvm@lists.linux.dev" <llvm@lists.linux.dev>
+Subject: Re: [PATCH v2] soc: fsl: qe: remove unused qe_ic_from_irq function
+Thread-Topic: [PATCH v2] soc: fsl: qe: remove unused qe_ic_from_irq function
+Thread-Index: AQHbwO6lOHu/cjJjuEiG7w06sAiN8bPKeX8A
+Date: Fri, 9 May 2025 16:16:13 +0000
+Message-ID: <f2fe43f3-fb71-4e07-a7c9-2cf151fcdbd1@cs-soprasteria.com>
+References: <20230320125202.1721775-1-trix@redhat.com>
+ <174680087395.258053.1870729490363422870.b4-ty@linaro.org>
+In-Reply-To: <174680087395.258053.1870729490363422870.b4-ty@linaro.org>
+Accept-Language: fr-FR, en-US
+Content-Language: fr-FR
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla Thunderbird
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cs-soprasteria.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM0PR07MB6196:EE_|PAWPR07MB9757:EE_
+x-ms-office365-filtering-correlation-id: 1db67d4f-884a-403b-8d35-08dd8f14d19c
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?WlM3M1VpekVWb2RlMitCWmQ3ZjlDb0MvaTBzS1l6cHkvRDNKMmVaWE4rWlE2?=
+ =?utf-8?B?L0g4NUswUHR3QWJYekg3T0hUaWhnMDE5YjVXS1p2S1c4YklJanhoc1cyU3NG?=
+ =?utf-8?B?Y2VmV0lzdVFWTTBKVTlIVUdOenVWZy9OUXlQckQ1TDFnSGZ3a1k3clg1OS9l?=
+ =?utf-8?B?eW1scmprbmh2UDZWeTErZVo1ZjJaUzdvS01aLy9PcFpUS2FtaCs5VUlVK3NP?=
+ =?utf-8?B?TVVRMjRCMGVHMjE0dTAxWGdOMXpPbGpPbTNnUDQzdURTK2l1U2NuNHFMcG9l?=
+ =?utf-8?B?cyt0ME9IREUwNnlPQk1yVmdJNGYwa3VNa3J3cDNicGZwR2R2OW9OQ1ZSY203?=
+ =?utf-8?B?SXdYa1pDNUt0dUwzcVJOV3JBU0F3UXFTWFVTazRxRWtCSWorN1hBa1lZakhZ?=
+ =?utf-8?B?Y0JJU2ZlcGlvdWtkSmJ0enBmeE1nU2pOazN4MVkvSWZQSnpIcmtkMzBJdk1V?=
+ =?utf-8?B?bkxHbDkzdEVMWUxkN29KRDNLUVV1QS9BR29zRHZiTERjTFVDZ2J6MEF5ditF?=
+ =?utf-8?B?RzJuKzBESXVrb1dJSlBvcXUrdDR5bk9SVkZzRkw5WTFEeEFGSXhFbkVmei8x?=
+ =?utf-8?B?OEhudHo1UGhKMFZFWnp0QUw0NURBak81Wk9yb1JTU0dETldEQm1oWUFqNFBS?=
+ =?utf-8?B?SStpb2loU0xHVWl3c2tKSXphVFZUakxMVFNqK25ZbzRBVWpSRTNRY0hLL2dT?=
+ =?utf-8?B?NTUyRVdkcmVTV3B6Tk9uN0lmRm9zZnQ3QS9zSnRQbHdOQ1EzS2RHODEramU0?=
+ =?utf-8?B?L3A5UjZmWnNqOC82aVFxS3RURVFRZ0lKVCtDWDNaWmdKRzU1T2kzNFBjTFZy?=
+ =?utf-8?B?ek1IdWxVS2IzNXdlZVMrcC9vSTNjWEIzcHVWT2M2bWlLNDFkQzZ6eEpUZTNv?=
+ =?utf-8?B?TWRaaklnZG1zM2FtL2JhVXZvTXF4ZURGYmZWaDB4cU91bjZzeXNaSFlybXV5?=
+ =?utf-8?B?VEVPK2YwYTlENkF1SVJWTUdCOVdPWndKcG9FU0lmUkh3NUFKYXVzYStsd04r?=
+ =?utf-8?B?SHpRNVowUlZ0NDJwd2k1TG9EUFJFRlcyY0oyb1dReFYyV2RBNFpZR1I2L2R2?=
+ =?utf-8?B?UExJTThLQzdBcXVqeDhxUzZlVXNWYktnOGJJNUFqSnV0ZC83c2dEaEZaNWlT?=
+ =?utf-8?B?T2JZQ2o2RW1TMW1mSWY4UFp2ZG1DSmJIN0U5T2UvQ0wwbGxLQ0RmVkk3MWdB?=
+ =?utf-8?B?QkUyZ0t3bUZCdkFZY1pQZmtGSVJIUFA0aW5OSklVMUQzcTdJekZCbm40VlNt?=
+ =?utf-8?B?VG8xNExtOGs1WVpBa2o4VGlibU1qSHdub1ZaQUswN3FkRmdtTnVKVFJTT29t?=
+ =?utf-8?B?Wng5WGVERXhQcHNXSGdDQkkxQmt3OHlmNGxVZllxcUFNWWhiSHRYYS93MXF4?=
+ =?utf-8?B?S2F0SE5TNlBVR05KOWx4T1BJMnZYUGc0cmNIQy9ZTldHL0pmR0Zpc203cVN5?=
+ =?utf-8?B?MCtSLy9xNHVxS1Y1RjFHUTZYUk5abDRibnlWYXA0NHpDdHBTV1RNbFVWWHc0?=
+ =?utf-8?B?RzBhdGVzWXpkK0pxY1h3blpiUTE4NjlDYU1EK1hCTkhzakh2REZJei9oZTFQ?=
+ =?utf-8?B?U1dzLzN0SW85RzZlL21CVExSSXlhWS8wLzZSNFlzMWg4NERaOHZBaEQxK1RC?=
+ =?utf-8?B?UDRkbjFCamtoMkVSSFhReVUrdUNEMVpDNUk5TkVxTlBsTTl5WnM2MzFOS0FS?=
+ =?utf-8?B?MDNxY01aT0cyUHdDT1ZQZHNYc0hLSkpJdkJpMFdZaEQ0eUpUMUZweCtvYWZX?=
+ =?utf-8?B?UVRadUtJTzVHb2NlMVNnOTR3Mm5JclJ3TGtnTWhTaDl5R3FZMmZETW81bDJC?=
+ =?utf-8?B?UlR4MkZoM0dNY0RVMktXQXdJbFMzbGFHQXFjQll6aWdoSXpjd0pCbjVaZWNP?=
+ =?utf-8?B?MlZmV1pPRy95bVJ3SHNrSyt6Zys2d205T2dJcVFNZDNYRzhPNVJLWTg2UkF6?=
+ =?utf-8?Q?csFPPe2orqw=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR07MB6196.eurprd07.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?TFZ6TUJLZ2MyVW9PVU14d1JwckpseEpmVHJxMlBZcVZpSzVjK2FuVk9wNDFa?=
+ =?utf-8?B?NXd6U0ZVWkQ3L1l0ek5ZRU1qOHg3TVpGWW85eDlzNWpFS2dCZmdXYTBlQUhl?=
+ =?utf-8?B?NzVKZTJnQ0hCenRPNk5MYnhxTWN1S25ic0srb25sMFVYZXY0aVR3eEYveEo5?=
+ =?utf-8?B?RGdrTTQySkh4OVNrREVvZGw0VnV6SFR3R2VrZmZyaDdJQUtCTFFtcTdqaXpY?=
+ =?utf-8?B?SlBZelVzWDZtbTZLR0hDZmJsTmhJdUtOQUdGY0Rvc202VExjOWNsVWVzUENh?=
+ =?utf-8?B?dlFsZnlibmhHc0JuRGtBZVpaRTRaWERYMUlKbU55YUhTc3JzaUZWYm41ZklD?=
+ =?utf-8?B?azVDMVVqYUFlZStFQkhZODNrbzQvbVRJNFZMUVU5WWlKMy95bFFhVGU0RUN6?=
+ =?utf-8?B?WTlWZUVvMENJV2lwdWZxdFgyaS9XMGZTR2xxWnptUkZCS0FrK3A5dlA2b2d3?=
+ =?utf-8?B?NDFMTFBSS3hLYzBwRnQvc2orcFlKN2FSNnAvWkhIRk13WlAza2c3N3FaRHB0?=
+ =?utf-8?B?OGtROTFBVnhQeWUrQkFVWURKV3A5OSt0L3EvalJPTmNUcXFUMUQxUUpvUWlB?=
+ =?utf-8?B?U1dMei81UGtLWk0zY0hhVExRMmdNYnlxL1YvWVZWclhiZVFnbWIwS0xJak5v?=
+ =?utf-8?B?ZU1OYWZoeFBLcTVuWjVEdmdFbDg1ZXQ1QTk2aTVyRVhxMk5jSi92dzZ6S3cv?=
+ =?utf-8?B?V2dxUGdRSDJkcXNsNHVzeVpYSi9vR0ZnYndrdE83TmZ0QlEyVFBEa2Y5SFAx?=
+ =?utf-8?B?dysxeDZtaHFpRTBSZVNFaVVtblJoSEtSeUlleDZ2NWlicUZhZmdmcDhrN3hl?=
+ =?utf-8?B?ZCszcmhZSTJnMWVYNnNrKzdjVFlVUWU4U1Z4bDdWMlBqMXMrMEl6WE9PR0xT?=
+ =?utf-8?B?WnVmam9oZTd5U2hUWm0xWEVxRDVPb3ZyT3NUbDZ3NUVnaVQ5U1BuZ2p5OERX?=
+ =?utf-8?B?aUtwSVNZQnkvWlJTcFhqZlNNbUNkdGt6bFQrcTZLVVI4WWU2STg2NkZLVGQ2?=
+ =?utf-8?B?YmpWVy9EVHJmZndUb2lZcUo4NG4yMzRNOXZPNkxvZGhuaWo2aFZjV29odHBM?=
+ =?utf-8?B?MkFteFJNbXhsWE1ZdEtON2ZXenRzUi82dUJ6VGlqbDRIMlFyLzNKNS9nMER1?=
+ =?utf-8?B?T1lKNFdvTUhnRktpTFVEb2VPcWhnTUM1dm9hY29FNjhkby9pdThBUHRiT2lm?=
+ =?utf-8?B?TmZQdUlESjRhMG1iazU2dXh5ZGFUU3doNUltWVlXYUdsT0tydmZrREdNc1lC?=
+ =?utf-8?B?YkZxVGE1MmNFb2VwZEo3M29BZDBBd3ozajM2RCswQkpsM2NNT0NqOTNTSmw5?=
+ =?utf-8?B?VEZ5Z0JtUDlHaWpUV0RycXBhMlc5ZG52bjMvblFSVUZQMVJzeTlDYlRLenBR?=
+ =?utf-8?B?ODY2ZUpoc25nanBTa05XUlBnYVRDNG5OTHdPQXVEdVg1c0ZlSE1VUWZuT215?=
+ =?utf-8?B?eGFvb21nU01OSitpdThiSDZMVWVHRnllTWN2SlpEbWVMM3N1R0lDZlNWM3c3?=
+ =?utf-8?B?TjVFbXh0NjBIeklLR1lQcm1TUFJYWXZ3bXZ1UGcyckd6UG14aTFqdkdLQi9B?=
+ =?utf-8?B?VVFqUkxxSzl2OHJHWGQyS2xXdXN4MzdKTURYeFJBQmJiRmpwckR1Q1VtL3BO?=
+ =?utf-8?B?TWUrTlVudFQ2SVNKNkxhdmhIb2RKZ0kvTS85eGVybXQ4SGpMbE9pYTZaWm5t?=
+ =?utf-8?B?Z2hHVkIxdG0wdGwwL0svM1YvL1ExOUtiVWpzcW9MTm1jMFBVbkl4TUpRYkdP?=
+ =?utf-8?B?YkJ6eVNmUnBSNGRTWU1iZUtoVyszVVNtWUE4VTlIMWVIZ0dQY1JQZVpZNDJm?=
+ =?utf-8?B?VXo0eDFlQnozQ2dtazhvVG50bFlacWhJUzdVeExDRmp2a2JyY1hYclV3U2lj?=
+ =?utf-8?B?YzlWRnA2NnhTdGZ2WEY4L3BJTGNjL09GYmRTdndNVHd5bXFGK1lYOUNoWTlL?=
+ =?utf-8?B?T1JXTnFwWlZQWGRwL1pMQ25zUXE0N0xITW83VWtWYXRmcHV1UkFlN2JxeFB0?=
+ =?utf-8?B?R0hZdzJkVS9qK1BYaytVUlpXWXZJSnUxak5id2ptK05oNFNNeTlTMStOV05G?=
+ =?utf-8?B?NERtTTAvS3BCSVlkQUlMM01nSFcwSTU2QzRvaEpLaE1xcmZhOEtnTkJ0Z2Rt?=
+ =?utf-8?B?L1RUZ1ZwMUNtMjg4bzZCNVpOR1VwaW9RU2Q3UkZCNXZnVkVZOVd3R0l0bWxX?=
+ =?utf-8?B?b1E9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <C4E6A612CA0D5C43A9596EBBDCA5E05F@eurprd07.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250412010940.1686376-3-dylanbhatch@google.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+X-OriginatorOrg: cs-soprasteria.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR07MB6196.eurprd07.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1db67d4f-884a-403b-8d35-08dd8f14d19c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 09 May 2025 16:16:13.4885
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 8b87af7d-8647-4dc7-8df4-5f69a2011bb5
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: CUR5NI8comwudil804isnwXx0V0vZwYHtj/Gp+Hh2Q2GjPNNzPuyiPwjNPkq08P92Q2v/G4O2DgrUxqfKjcNg2yFlQ1uVUTfhMsH2V8Qa1nW5QFoq3tNufFq+OWeXnoS
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR07MB9757
+X-MS-Exchange-CrossPremises-AuthAs: Internal
+X-MS-Exchange-CrossPremises-AuthMechanism: 04
+X-MS-Exchange-CrossPremises-AuthSource: AM0PR07MB6196.eurprd07.prod.outlook.com
+X-MS-Exchange-CrossPremises-TransportTrafficType: Email
+X-MS-Exchange-CrossPremises-SCL: 1
+X-MS-Exchange-CrossPremises-messagesource: StoreDriver
+X-MS-Exchange-CrossPremises-BCC: 
+X-MS-Exchange-CrossPremises-originalclientipaddress: 93.17.236.2
+X-MS-Exchange-CrossPremises-transporttraffictype: Email
+X-MS-Exchange-CrossPremises-antispam-scancontext: DIR:Originating;SFV:NSPM;SKIP:0;
+X-MS-Exchange-CrossPremises-processed-by-journaling: Journal Agent
+X-OrganizationHeadersPreserved: PAWPR07MB9757.eurprd07.prod.outlook.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250509_091620_762680_894B577D 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,132 +198,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dylan,
-
-On Sat, Apr 12, 2025 at 01:09:39AM +0000, Dylan Hatch wrote:
-> To enable late module patching, livepatch modules need to be able to
-> apply some of their relocations well after being loaded. In this
-> scenario, use the text-poking API to allow this, even with
-> STRICT_MODULE_RWX.
-> 
-> This patch is largely based off commit 88fc078a7a8f6 ("x86/module: Use
-> text_poke() for late relocations").
-> 
-> Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
-> ---
->  arch/arm64/kernel/module.c | 129 ++++++++++++++++++++++++-------------
->  1 file changed, 83 insertions(+), 46 deletions(-)
-
-On its own, this isn't gaining us an awful lot upstream as we don't have
-livepatch support (arm64 does not select HAVE_LIVEPATCH), however I'm
-not against incremental changes towards enabling that. Are you planning
-to work on follow-up changes for the rest of the support?
-
-> diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
-> index 06bb680bfe975..0703502d9dc37 100644
-> --- a/arch/arm64/kernel/module.c
-> +++ b/arch/arm64/kernel/module.c
-> @@ -18,11 +18,13 @@
->  #include <linux/moduleloader.h>
->  #include <linux/random.h>
->  #include <linux/scs.h>
-> +#include <linux/memory.h>
->  
->  #include <asm/alternative.h>
->  #include <asm/insn.h>
->  #include <asm/scs.h>
->  #include <asm/sections.h>
-> +#include <asm/text-patching.h>
->  
->  enum aarch64_reloc_op {
->  	RELOC_OP_NONE,
-> @@ -48,7 +50,8 @@ static u64 do_reloc(enum aarch64_reloc_op reloc_op, __le32 *place, u64 val)
->  	return 0;
->  }
->  
-> -static int reloc_data(enum aarch64_reloc_op op, void *place, u64 val, int len)
-> +static int reloc_data(enum aarch64_reloc_op op, void *place, u64 val, int len,
-> +		      void *(*write)(void *dest, const void *src, size_t len))
->  {
-
-I think it's a bit grotty indirecting the write when in reality we either
-need a straight-forward assignment (like we have today) or a call to
-an instruction-patching helper.
-
-In particular, when you get to functions such as:
-
->  static int reloc_insn_movw(enum aarch64_reloc_op op, __le32 *place, u64 val,
-> -			   int lsb, enum aarch64_insn_movw_imm_type imm_type)
-> +			   int lsb, enum aarch64_insn_movw_imm_type imm_type,
-> +			   void *(*write)(void *dest, const void *src, size_t len))
->  {
->  	u64 imm;
->  	s64 sval;
->  	u32 insn = le32_to_cpu(*place);
-> +	__le32 le_insn;
->  
->  	sval = do_reloc(op, place, val);
->  	imm = sval >> lsb;
-> @@ -145,7 +150,8 @@ static int reloc_insn_movw(enum aarch64_reloc_op op, __le32 *place, u64 val,
->  
->  	/* Update the instruction with the new encoding. */
->  	insn = aarch64_insn_encode_immediate(AARCH64_INSN_IMM_16, insn, imm);
-> -	*place = cpu_to_le32(insn);
-> +	le_insn = cpu_to_le32(insn);
-> +	write(place, &le_insn, sizeof(le_insn));
-
-we're forced into passing &le_insn because we need the same function
-prototype as memcpy().
-
-Instead, how about we pass the 'struct module *mod' pointer down from
-apply_relocate_add()? That's already done for reloc_insn_adrp() and it
-would mean that the above could be written as:
-
-
-static int reloc_insn_movw(struct module *mod, enum aarch64_reloc_op op,
-			   __le32 *place, u64 val, int lsb,
-			   enum aarch64_insn_movw_imm_type imm_type)
-{
-	...
-
-	insn = aarch64_insn_encode_immediate(AARCH64_INSN_IMM_16, insn, imm);
-	insn = cpu_to_le32(insn);
-
-	if (mod->state != MODULE_STATE_UNFORMED)
-		aarch64_insn_set(place, insn, sizeof(insn));
-	else
-		*place = insn;
-
-
-meaning we can also drop the first patch, because I don't think we need
-a text_poke() helper.
-
-> +int apply_relocate_add(Elf64_Shdr *sechdrs,
-> +		       const char *strtab,
-> +		       unsigned int symindex,
-> +		       unsigned int relsec,
-> +		       struct module *me)
-> +{
-> +	int ret;
-> +	bool early = me->state == MODULE_STATE_UNFORMED;
-> +	void *(*write)(void *, const void *, size_t) = memcpy;
-> +
-> +	if (!early) {
-> +		write = text_poke;
-> +		mutex_lock(&text_mutex);
-> +	}
-> +
-> +	ret = __apply_relocate_add(sechdrs, strtab, symindex, relsec, me,
-> +				   write);
-> +
-> +	if (!early)
-> +		mutex_unlock(&text_mutex);
-
-Why is the responsibility of the arch code to take the 'text_mutex' here?
-The core code should be able to do that when the module state is !=
-MODULE_STATE_UNFORMED.
-
-Cheers,
-
-Will
+DQoNCkxlIDA5LzA1LzIwMjUgw6AgMTY6MjgsIEtyenlzenRvZiBLb3psb3dza2kgYSDDqWNyaXQg
+Og0KPg0KPiBPbiBNb24sIDIwIE1hciAyMDIzIDA4OjUyOjAyIC0wNDAwLCBUb20gUml4IHdyb3Rl
+Og0KPj4gY2xhbmcgd2l0aCBXPTEgcmVwb3J0cw0KPj4gZHJpdmVycy9zb2MvZnNsL3FlL3FlX2lj
+LmM6MjM1OjI5OiBlcnJvcjogdW51c2VkIGZ1bmN0aW9uDQo+PiAgICAncWVfaWNfZnJvbV9pcnEn
+IFstV2Vycm9yLC1XdW51c2VkLWZ1bmN0aW9uXQ0KPj4gc3RhdGljIGlubGluZSBzdHJ1Y3QgcWVf
+aWMgKnFlX2ljX2Zyb21faXJxKHVuc2lnbmVkIGludCB2aXJxKQ0KPj4gICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICBeDQo+PiBUaGUgdXNlIG9mIHRoaXMgZnVuY3Rpb24gd2FzIHJlbW92ZWQg
+d2l0aA0KPj4gY29tbWl0IGQ3YzI4NzhjZmNmYSAoInNvYzogZnNsOiBxZTogcmVtb3ZlIHVudXNl
+ZCBxZV9pY19zZXRfKiBmdW5jdGlvbnMiKQ0KPj4NCj4+IFsuLi5dDQo+DQo+DQo+IENvbW1pdCBm
+cm9tIDIwMjE6DQo+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8xNjE5MDAyNjEzLTE4MjE2
+LTEtZ2l0LXNlbmQtZW1haWwtamlhcGVuZy5jaG9uZ0BsaW51eC5hbGliYWJhLmNvbS8NCj4NCj4g
+ZGlkIG5vdCBhcHBseSwgYnV0IHRoaXMgYXBwbGllcy4NCj4NCj4gSSBhbSBhbm5veWluZyBoaXR0
+aW5nIHRoaXMgd2FybmluZyBvbiBldmVyeSBXPTEgYnVpbGQsIHNvOg0KDQoNCkFja2VkLWJ5OiBD
+aHJpc3RvcGhlIExlcm95IDxjaHJpc3RvcGhlLmxlcm95QGNzZ3JvdXAuZXU+DQoNCg0KDQo+DQo+
+IEFwcGxpZWQsIHRoYW5rcyENCj4NCj4gWzEvMV0gc29jOiBmc2w6IHFlOiByZW1vdmUgdW51c2Vk
+IHFlX2ljX2Zyb21faXJxIGZ1bmN0aW9uDQo+ICAgICAgICBodHRwczovL2dpdC5rZXJuZWwub3Jn
+L2tyemsvbGludXgtZHQvYy9kNDdmMTIzMzM3NDU5N2MzNDg2OTZjM2RhMjE0MmNjOTJhMzZmYzkw
+DQo+DQo+IEJlc3QgcmVnYXJkcywNCg0K
 
