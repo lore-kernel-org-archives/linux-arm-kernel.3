@@ -4,67 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A925C3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC558C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iKzg6Tm8zaAbtvoy/XEMcd0MdCi6ul9qDrO+BvYkWhA=; b=b094c1EYrvq89Zice3PwZAXeBq
-	FLHEr5CXdAH0il8LNXYog/iWQzoYNvMExfvGWOUdISd6ecZ/+/GZozLl/ViLNZAoV4udpxGZ5glaD
-	5W54KjhM4AfI7o5WWZHWg8At+4N0ZX51aK9Ijx6aYcuE3BW7KvGv3mol4CMaTVfEvFIbSYR3SAQ5s
-	MTGsX20WaN9ZZyy1UZCXP/xrEMh5cMNXrli/8xqurtUN+GEXoOHBjhQYg3yHG8UcKKQbaodvYUw30
-	+6dwWrztWYdcgDLa1Fy3j21AkU93AO02iztW9QZyGE/QVacL9RLORyi1mRgPJHGaJix51SN4bH//n
-	DivvrCrQ==;
+	bh=DTdhhYB6FCC5ZtrJ/082OOPt7NU3J5IYSW/Bpjk2brs=; b=cmapm+0cl2FOgS8vwuNejz+JNN
+	Rno25RjKveIR0GLkXUNuSBFKvMe1ctdVts8wXRIJKPYL3+HxFgyVgyqv5lRL4ApyofxC3EZ7JUMer
+	3WprTm7I9s4j+Oci2AlEiXjvtBy8ipNpp9x8Ef8N8VeybhKrCc8HFblh6kirJEgCeWqNNE0A3GXTh
+	nScPqHBmAR/FMB5p4A0tYlJC00Zx9nCuzzxr7EoS0cdulH6WnOe2JxEfPytxA9CZPhXZlwMKsEaya
+	LRq4NYIAXfFhwALdAUwV0cNFrFggO43aPX02OddImMGUMhj6lkJ6K2z6tU/9u1wn6nKSa1ymLVo6C
+	Yq2nBYxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDU84-00000004jNH-1gF6;
-	Fri, 09 May 2025 20:15:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDPBT-000000040iz-48gn
+	id 1uDU88-00000004jQu-1rtp;
+	Fri, 09 May 2025 20:15:36 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uDPVr-000000043vC-2SOz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 14:58:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 50B921595;
-	Fri,  9 May 2025 07:58:32 -0700 (PDT)
-Received: from [10.57.90.222] (unknown [10.57.90.222])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BEE023F58B;
-	Fri,  9 May 2025 07:58:38 -0700 (PDT)
-Message-ID: <03f55e7b-9629-4c8e-9483-8c626e55fe2c@arm.com>
-Date: Fri, 9 May 2025 15:58:35 +0100
+	Fri, 09 May 2025 15:19:48 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5497U7F9021350
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 9 May 2025 15:19:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	DTdhhYB6FCC5ZtrJ/082OOPt7NU3J5IYSW/Bpjk2brs=; b=GVudo9SMBROW5p8m
+	HdJcRSKDOb8lNKAXW7PcwYnh6TA3a1JEWL/K9noFutY54pjNHHBgXFB+Dj1tNXje
+	8VXChvnEYop18fYt4XmxSHbGXBzYKQJSGV2Fm4PtvdlzJ/2j562Yuxv+M98Vcr88
+	gyc9WpZB5Ld8mSSKJxeFqIeWmFkDB3nDyGHryE13DfwEJF6Lms0rzo2uD9/NQ+ND
+	YRUWJ9E0ZW+y0kgJwy2vKLDYRlYk0muv2unr/Cr14ozmaMUXy/DKvExiTE9G/b65
+	TkXLheoaLz9xsb764K4kWi5WkhrkKyPUGGf+DonBXWsT5XPQvd8DJXwt7TP2Wdcm
+	tpSI/A==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46gsdj4hfu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 15:19:47 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7c54e7922a1so434110185a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 08:19:46 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746803985; x=1747408785;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=DTdhhYB6FCC5ZtrJ/082OOPt7NU3J5IYSW/Bpjk2brs=;
+        b=cCb/Jh22v3p3twQ8HxeB/Y9g1LTZh/DsXa94Mvp6exmYrsiEniNfmaTGsHGS/Oii+3
+         cdX7AFiF52QPudsPFNWv2FXDeZ+TRpmS0nHdVUizGXwqsUOYCNd1KYJMdnRqX8zBKSkm
+         IExLNIU6RnY5usofeR7tlVP+/kXPA0Com0ERqnuclARiZuwtVDc+OD+kGIftqPjeWKJM
+         2opxeWuQwn6jBCu/wFJJslq5LWCKmvbFcGJf/YQVzEDzvJjOXx7wDVorh/+gUC7sKcmS
+         WiEevp+e3LpZDnTdokxfqQQjyAMQ31aDyLmzteGmEXsaPkvbfO/MlqdraXjknBim5uYE
+         tYvQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWj3FxPKnD4p0oqTf3SUwr3jq0QISSV0BKcp2o0t/b4sXzay3M0uXmxj2J6gaSlk3PAWoGkEZvJlSBlx/hJrdAw@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIeh/bAtCGwD1CWdjnPVLbBWGz/LOotvS3y8kzWfIyd2TH5mmr
+	RGDMnni0iVVpBcHKa9NRGJ+KLAFZjMQaOwT7qPkj449hODkDuz3QzqTkzFctCpvo5rPn3/P0FqU
+	6FY1ebwkiNl9PyQtxjA2ngFimQdrOSbCP6WoarpFzJHOXkRanGRXVGcf0AMJuN5kilZtlt0xqtI
+	zsr0gF3w==
+X-Gm-Gg: ASbGncsf0aA6ocubCLYFrv+0Rx1TUekLZv/YXQfBXJx342TSV3mg5sYxNIUCDZkX8Qp
+	wOW5MLVsHYhnafe8jDjSmVF+IIfRZFWkv074s/diU6fg+OuGxD6kein11Hc8o05dDCrfP2tND2k
+	7LaD2m7qPgb6stPIe21hVHWZHB5r6QLB+tOwg+DaCVGi/0g3gRC4Ts66LTpIniKjR135Os0hrTe
+	zxQj9jsYHzNiCtY1HypjxXiVhbVNv7Wn5CfmE0E1nADS445XnRG+hjpyc2N2MfL2xxkw2K0m2nQ
+	9KwKOxwwex4zcKkQFBKez+Yb7IZfRPSkhuxdEVMUh4LnyoqLqf7qRfPsT2gP0rd8LPj5C6SOKLV
+	hWTYumG0fQyTuodxRP24h1whvuZ7Wq+vXsHGfIyNNdKZiC/tAJm+WWBKOwSYF5jpT
+X-Received: by 2002:a05:620a:3191:b0:7c5:46d0:a77f with SMTP id af79cd13be357-7cd011030a2mr514431785a.16.1746803980419;
+        Fri, 09 May 2025 08:19:40 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGxxH7nrk/AqG3hrr28OmJOlY7nRUo0lL9q5nufep0/yH/q/o1vYXrEJA392S7p+PHBN12kSQ==
+X-Received: by 2002:ad4:5dcf:0:b0:6f6:33aa:258b with SMTP id 6a1803df08f44-6f6e48222e6mr62260126d6.45.1746803965858;
+        Fri, 09 May 2025 08:19:25 -0700 (PDT)
+Received: from ?IPV6:2001:14bb:a6:738a:e519:cad2:e720:53eb? (2001-14bb-a6-738a-e519-cad2-e720-53eb.rev.dnainternet.fi. [2001:14bb:a6:738a:e519:cad2:e720:53eb])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54fc645d03asm306482e87.95.2025.05.09.08.19.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 09 May 2025 08:19:25 -0700 (PDT)
+Message-ID: <83ba11db-9a9e-48b7-afe0-9df7b5de3e85@oss.qualcomm.com>
+Date: Fri, 9 May 2025 18:19:23 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH v6 1/3] arm64: Add BBM Level 2 cpu feature
-Content-Language: en-GB
-To: Will Deacon <will@kernel.org>
-Cc: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
- suzuki.poulose@arm.com, yang@os.amperecomputing.com, corbet@lwn.net,
- catalin.marinas@arm.com, jean-philippe@linaro.org, robin.murphy@arm.com,
- joro@8bytes.org, akpm@linux-foundation.org, paulmck@kernel.org,
- mark.rutland@arm.com, joey.gouly@arm.com, maz@kernel.org,
- james.morse@arm.com, broonie@kernel.org, oliver.upton@linux.dev,
- baohua@kernel.org, david@redhat.com, ioworker0@gmail.com, jgg@ziepe.ca,
- nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com,
- smostafa@google.com, kevin.tian@intel.com, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev
-References: <20250428153514.55772-2-miko.lenczewski@arm.com>
- <20250428153514.55772-4-miko.lenczewski@arm.com>
- <20250506142508.GB1197@willie-the-truck>
- <78fec33d-fe66-4352-be11-900f456c9af3@arm.com>
- <20250509134904.GA5707@willie-the-truck>
- <9bb94fe8-d605-49b4-91f0-0ad6d527b320@arm.com>
- <20250509142852.GA5845@willie-the-truck>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250509142852.GA5845@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v4 0/7] Convert inno hdmi to drm bridge
+To: Andy Yan <andyshrk@163.com>
+Cc: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, conor+dt@kernel.org,
+        krzk+dt@kernel.org, robh@kernel.org, hjc@rock-chips.com,
+        mripard@kernel.org, neil.armstrong@linaro.org, knaerzche@gmail.com,
+        devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-rockchip@lists.infradead.org, Andy Yan <andy.yan@rock-chips.com>
+References: <20250422070455.432666-1-andyshrk@163.com>
+ <9503607.rMLUfLXkoz@diego>
+ <nco27hnwykffzgirhocskltrkcds32tefkix23nfknf3e5m3zd@mkrrbw6kogsi>
+ <1a07d69.1e47.196b2c3aa12.Coremail.andyshrk@163.com>
+Content-Language: en-US
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+In-Reply-To: <1a07d69.1e47.196b2c3aa12.Coremail.andyshrk@163.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=PMAP+eqC c=1 sm=1 tr=0 ts=681e1d13 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=dt9VzEwgFbYA:10 a=EUspDBNiAAAA:8 a=s8YR1HE3AAAA:8 a=U4mCzpOltDhEmR4TI6sA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=bTQJ7kPSJx9SKPbeHEYW:22
+ a=jGH_LyMDp9YhSvY-UuyI:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTA5MDE1MSBTYWx0ZWRfX0AShfEYMnYZt
+ 2OWRJENMj3xx3Q1UsTVGw/ISWYuMcJixcREmfDqJsL5yNPChZwy3Fg/E+TuOVHE3KUDxd6pVX1p
+ 6QmFlDwtPfNOvCSLmz2DyOWIe9qfR/fXCGdoQ+ByZKJNxbS6a9xSLDEYKkEbcGVTxe8AW+IlFZl
+ LOy5so3uBKad1n/I37EQUFg+o2b/DrE2T671tR60VQ4dtqUgvHoMenct1PPxEN87a3jkf7dgR3Q
+ YzmVVtf9XQFFEbC321Ryo4rCj6J8CZ5SF6AR7s22wFf7LGQvmzYonVrNXIr+l9WMQyfxvKzdxor
+ /oKaFFQqolwLrMSn4ssISwq75kL2srP9ZHUpdBeYcbIC+UYgjaPsY2O0YVCMyx1gKUHXG0vZq5Y
+ biuCfhJAW3xFNOxMATNSGKowlk/Ui15IvLjTpofzHL++JbkHtkJWX2HNybh+IiFoys9w2XuB
+X-Proofpoint-GUID: mSqZROsP6N-9wm5Pg0WtGT7wCSxgbvKD
+X-Proofpoint-ORIG-GUID: mSqZROsP6N-9wm5Pg0WtGT7wCSxgbvKD
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-09_06,2025-05-09_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 impostorscore=0 mlxscore=0 suspectscore=0 spamscore=0
+ bulkscore=0 priorityscore=1501 clxscore=1015 lowpriorityscore=0
+ mlxlogscore=999 adultscore=0 malwarescore=0 classifier=spam authscore=0
+ authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2504070000 definitions=main-2505090151
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_075844_113278_C055C45A 
-X-CRM114-Status: GOOD (  41.89  )
+X-CRM114-CacheID: sfid-20250509_081947_620853_8BEEDFCA 
+X-CRM114-Status: GOOD (  28.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,135 +139,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/05/2025 15:28, Will Deacon wrote:
-> On Fri, May 09, 2025 at 03:16:01PM +0100, Ryan Roberts wrote:
->> On 09/05/2025 14:49, Will Deacon wrote:
->>> On Tue, May 06, 2025 at 03:52:59PM +0100, Ryan Roberts wrote:
->>>> On 06/05/2025 15:25, Will Deacon wrote:
->>>>> On Mon, Apr 28, 2025 at 03:35:14PM +0000, Mikołaj Lenczewski wrote:
->>>>>> +static bool has_bbml2_noabort(const struct arm64_cpu_capabilities *caps, int scope)
->>>>>> +{
->>>>>> +	if (!IS_ENABLED(CONFIG_ARM64_BBML2_NOABORT))
->>>>>> +		return false;
->>>>>> +
->>>>>> +	if (scope & SCOPE_SYSTEM) {
->>>>>> +		int cpu;
->>>>>> +
->>>>>> +		/*
->>>>>> +		 * We are a boot CPU, and must verify that all enumerated boot
->>>>>> +		 * CPUs have MIDR values within our allowlist. Otherwise, we do
->>>>>> +		 * not allow the BBML2 feature to avoid potential faults when
->>>>>> +		 * the insufficient CPUs access memory regions using BBML2
->>>>>> +		 * semantics.
->>>>>> +		 */
->>>>>> +		for_each_online_cpu(cpu) {
->>>>>> +			if (!cpu_has_bbml2_noabort(cpu_read_midr(cpu)))
->>>>>> +				return false;
->>>>>> +		}
->>>>>
->>>>> This penalises large homogeneous systems and it feels unnecessary given
->>>>> that we have the ability to check this per-CPU. 
->>
->> In case you didn't spot it, cpu_read_midr() is not actually reading a remote
->> cpu's midr. It's reading the cached midr in a per-cpu data structure. So I don't
->> think this will be very expensive in reality. And it's only run once during boot...
->>
->> static inline unsigned int cpu_read_midr(int cpu)
->> {
->> 	WARN_ON_ONCE(!cpu_online(cpu));
->>
->> 	return per_cpu(cpu_data, cpu).reg_midr;
->> }
+On 09/05/2025 04:58, Andy Yan wrote:
 > 
-> I know it's not reading a remote MIDR, that would be crazy :)
+> Hi Dmitry,
 > 
-> But iterating over per-cpu variables sucks and we should be able to avoid
-> it because this code already knows how to detect features locally.
+>   Thanks for you review.
 > 
->>
->>> Can you use
->>>>> ARM64_CPUCAP_BOOT_CPU_FEATURE instead of ARM64_CPUCAP_SYSTEM_FEATURE
->>>>> to solve this?
+> 在 2025-05-05 00:16:35，"Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com> 写道：
+>> On Sat, May 03, 2025 at 04:42:04PM +0200, Heiko Stübner wrote:
+>>> Am Dienstag, 22. April 2025, 09:04:39 Mitteleuropäische Sommerzeit schrieb Andy Yan:
+>>>> From: Andy Yan <andy.yan@rock-chips.com>
 >>>>
->>>> We are trying to solve for the case where the boot CPU has BBML2 but a secondary
->>>> CPU doesn't. (e.g. hetrogeneous system where boot CPU is big and secondary is
->>>> little and does not advertise the feature. I can't remember if we proved there
->>>> are real systems with this config - I have vague recollection that we did but my
->>>> memory is poor...).
+>>>> When preparing to convert the current inno hdmi driver into a
+>>>> bridge driver, I found that there are several issues currently
+>>>> existing with it:
 >>>>
->>>> My understanding is that for ARM64_CPUCAP_BOOT_CPU_FEATURE, "If the boot CPU
->>>> has enabled this feature already, then every late CPU must have it". So that
->>>> would exclude any secondary CPUs without BBML2 from coming online?
+>>>> 1. When the system starts up, the first time it reads the EDID, it
+>>>>     will fail. This is because RK3036 HDMI DDC bus requires it's PHY's
+>>>>     reference clock to be enabled first before normal DDC communication
+>>>>     can be carried out.
+>>>>
+>>>> 2. The signal is unstable. When running the glmark2 test on the screen,
+>>>>     there is a small probability of seeing some screen flickering.
+>>>>     This is because The HSYNC/VSYNC polarity of rk3036 HDMI are controlled
+>>>>     by GRF. This part is missing in the current driver.
+>>>>
+>>>> PATCH 1~6 are try to Fix Document in the dt-binding, then add the
+>>>> missing part in driver and dts.
+>>>> PATCH 7 converts the curren driver to drm bridge mode.
 >>>
->>> Damn, yes, you're right. However, it still feels horribly hacky to iterate
->>> over the online CPUs in has_bbml2_noabort() -- the cpufeature framework
->>> has the ability to query features locally and we should be able to use
->>> that. We're going to want that should the architecture eventually decide
->>> on something like BBML3 for this.
+>>> After resurrecting my rk3036-kylin which hasn't sucessfully booted in a
+>>> while, I could veryify this series, so on a rk3036-kylin
+>>>
+>>> Tested-by: Heiko Stuebner <heiko@sntech.de>
+>>>
+>>>
+>>> I'll probably apply patches 1-4 to drm-misc later today, as that solely
+>>> touches the Rockchip (and only rk3036-)side and patches 5+6 to the
+>>> rockchip tree.
+>>>
+>>> Patch 7 should probably get some attention by people more familiar with
+>>> drm-bridges, so I'll let that sit for a bit longer.
 >>
->> For BBML3, we're looking for a minimum value in the BBM field of the FFMR, and
->> in that case the framework can handle it nicely with
->> ARM64_CPUCAP_SYSTEM_FEATURE. But the framework doesn't have any support for the
->> case where we need to look at all the midrs. So Suzuki came up with this method.
->>
->> If/when we have BBML3 I was thinking we could retrospectively treat the CPUs in
->> the midr list as having an erratum that they don't advertise BBML3 when they
->> should (since the semantics are basically the same I expect/hope/have been
->> trying to ensure), so we can just implement workarounds to make it look like
->> they do have BBML3, then the framework does it's thing. Perhaps we can live with
->> this hack until we get to that point?
+>> I will take a look later, but on the first glance it looks like there
+>> are too many things going on in that patch, including some unnecessary
+>> fnction movements and define movements, etc. I would kindly ask to split
 > 
-> I think if you want to go down that route, then this needs to be detected
-> locally on each CPU.
+> These registers were initially defined in a separate header file(inno_hdmi.h),
+> but they were only used by a single C file, so I think it's not necessary to put
+> them in a separate header file. I decided to simply merge them into the inno_hdmi.c file.
+> If I first create a patch and separately carry out the merging of this register definition, would that be possible?
 
-Yes that's my point; once we have BBML3 it will be detected locally for each CPU
-because the framework can handle that for MMFR fields. But until we get there,
-we are stuck with a midr list.
+Yes, just create a separate commit, folding the header into the source file.
 
 > 
->>> What we have with BBML2_NOABORT seems similar to an hwcap in that we only
->>> support the capability if all CPUs have it (rejecting late CPUs without it
->>> in that case) but we can live without it if not all of the early CPUs
->>> have it. Unlikely hwcaps, though, we shouldn't be advertising this to
->>> userspace and we can't derive the capability solely from the sanitised
->>> system registers.
->>
->> Agreed.
+> And I will try to avoid function movements in next version.
+> 
+> 
+>> the non-functional refactorings and the functional ones (splitting to a
+>> library, etc).
+> 
+> Will do in next version.
+> 
 >>
 >>>
->>> I wonder if we could treat it like an erratum in some way instead? That
->>> is, invert things so that CPUs which _don't_ have BBML2_NOABORT are
->>> considered to have a "BBM_CONFLICT_ABORT" erratum (which we obviously
->>> wouldn't shout about). Then we should be able to say:
 >>>
->>>   - If any of the early CPUs don't have BBML2_NOABORT, then the erratum
->>>     would be enabled and we wouln't elide BBM.
+>>> Thanks a lot for working on all this
+>>> Heiko
 >>>
->>>   - If a late CPU doesn't have BBML2_NOABORT then it can't come online
->>>     if the erratum isn't already enabled.
+>>>
 >>
->> That's exactly the policy that this cludge provides. But it's using the midr to
->> check if the CPU has BBML2_NOABORT. I'm not sure I follow your point about a
->> "BBM_CONFLICT_ABORT" erratum?
-> 
-> I was hoping that it would mean that each CPU can independently determine
-> whether or not they have the erratum and then enable it as soon as they
-> detect it. That way, there's no need to iterate over all the early cores.
+>> -- 
+>> With best wishes
+>> Dmitry
 
-OK, I don't understand the framework well enough to fully understand your
-suggestion; I'll talk to Suzuki and have a dig through the code.
 
-Thanks for the review!
-Ryan
-
-> 
->> I'm also at a massive disadvantage because I find the whole cpufeatures
->> framework impenetrable :)
->>
->> I'll ping Suzuki to see if he can chime in here.
-> 
-> Thanks,
-> 
-> Will
-
+-- 
+With best wishes
+Dmitry
 
