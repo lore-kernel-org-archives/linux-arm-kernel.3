@@ -4,68 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DCFEC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 10:04:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBAC6C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 10:06:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hPWgMTqoBA3G7qPvTb/wIs6TJofMudda6ovl5E3tato=; b=ZUsbLqRVgwwpHDSaWng5HIUbee
-	RFgwTxVpvsaVrG75wdf6d4UlZ9UlzLMZO5obd3JvB3sDvF2wUOQNaQsOQJHLqzIdOpOV1TtaAjHQp
-	RruOptjAmGTaIQphE85KeuZ3biGEQ5XLUEyQ4sY8yta/O87Xl7BRPI9pbEw5y3bTBY/B7/KFeDoOO
-	PzCuyWc5DeZuKZ4q6O0QDVLgTbPXEx5EaUD6jlTZoCTr9zPHgBOEYPQSdcZzh+o5wKti7a2Tnjc2R
-	0hgxz5WgsJ8doe98YyWTYR0mhhYMZfDn0MQnudwVOIsp94sy9xDXBWWVsDbZE44NjbY6rUMsZipfy
-	wmbbfdow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ep8qmI0zXfj+LtOdwloUGJBu5JebRS6+Bn3LdL4sFYM=; b=S3dHLHCj/hxAVtos7CXnx4uMo4
+	HIcm8scO9JofwwLUcZH5MowQ3xSxomPAb3eLi3yrAgncJzSW2OSlIrCrXDKxi4fWDDdVIdJ3oR8Qp
+	+qthg0kNcWgHO9abhXqZp33Q6WZI7INCpITKzj4VmdFtBwav5eYuryDiFNRqIUXp1sN+BYUsa9y5b
+	g5ILpKpumQIBz7L1mgPk4UPvtI40c4Zdp7E0w4HBxZBhMyZczXX1FQlHP8ClWW3GhH/cGlzjLaLGx
+	BKAadHtn7APvgxBVy5mKjxHTCMuiyi+MDtPxdI9FtyeCWcUpFRBQdB8SSoGOf6i1Uw1Bs4xslYYcI
+	iHD2CAwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDKb1-00000003CQC-1sJg;
-	Fri, 09 May 2025 10:04:47 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDJsD-000000034n4-2rT9
+	id 1uDKcx-00000003Ce1-0gri;
+	Fri, 09 May 2025 10:06:47 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uDJtJ-0000000350h-3Cu6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 09:18:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=YTsbKWTYCKG/IzKP6ByjaRHK5LKm1VEeQJxr8iPN39s=; b=i
-	cUEij9gVaKlyfTnRCNjYhBt0s0/fCVWeKWfDog1I4mD4NS6jA9YWk2qSUo8ubVNw
-	6d6UMJZtIPVCyeTZJWGA1EcwGjAwIUNKmVx4VPjCSGTIJ+HBM4NufYym4fWWuFxt
-	CmxBiN1lUjXppgetgs2T3JJsBmpCWTMwS2+yW78FH8=
-Received: from xavier_qy$163.com ( [103.126.24.24] ) by
- ajax-webmail-wmsvr-40-140 (Coremail) ; Fri, 9 May 2025 17:17:47 +0800 (CST)
-X-Originating-IP: [103.126.24.24]
-Date: Fri, 9 May 2025 17:17:47 +0800 (CST)
-From: Xavier  <xavier_qy@163.com>
-To: "David Hildenbrand" <david@redhat.com>
-Cc: 21cnbao@gmail.com, ryan.roberts@arm.com, dev.jain@arm.com,
-	ioworker0@gmail.com, akpm@linux-foundation.org,
-	catalin.marinas@arm.com, gshan@redhat.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	will@kernel.org, willy@infradead.org, ziy@nvidia.com
-Subject: Re:Re: [PATCH v4] arm64/mm: Optimize loop to reduce redundant
- operations of contpte_ptep_get
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <9ada79ec-f2b4-42bc-84f9-3f7b461ad829@redhat.com>
-References: <CAGsJ_4xVFDioe4G9wtjfRCKZMLBu94GaFG1z5j0YrHs3j1PkAw@mail.gmail.com>
- <20250508070353.2370826-1-xavier_qy@163.com>
- <9ada79ec-f2b4-42bc-84f9-3f7b461ad829@redhat.com>
-X-NTES-SC: AL_Qu2fBPuTvUot4SGaYOkfmkgWgus/WcW2u/Qj3IRSO5FwjB/o6ioBZXtMF2nw19+OOxmBrheYYTVKy/xaWZFUcrobURIGU0Tkr5sTVmfzWLRZjw==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=GBK
+	Fri, 09 May 2025 09:19:39 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5499JV9r1360986
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 9 May 2025 04:19:31 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746782371;
+	bh=ep8qmI0zXfj+LtOdwloUGJBu5JebRS6+Bn3LdL4sFYM=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=aIkOI6UFMxkKpGMdY/6FIN+PxT6gzaE4ds0jtey6HvL0ftMmYJPI8rS2bl6T+pQ/K
+	 SFePRq9oFAlOnhFz2x5pdGjBKHvnPTG7OOHpZkIjOcQ+x3zSqZj5qjFOgk+MjHHY/V
+	 AO/RvQyFxbl1evCDhncT6RkxzWbH1mo1apGLW7TQ=
+Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5499JVdK027928
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 9 May 2025 04:19:31 -0500
+Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 9
+ May 2025 04:19:30 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE101.ent.ti.com
+ (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 9 May 2025 04:19:30 -0500
+Received: from abhilash-HP.dhcp.ti.com (abhilash-hp.dhcp.ti.com [172.24.227.115])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5499JL7s070287;
+	Fri, 9 May 2025 04:19:27 -0500
+From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <vaishnav.a@ti.com>, <u-kumar1@ti.com>, <r-donadkar@ti.com>,
+        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <jai.luthra@linux.dev>, <linux-kernel@vger.kernel.org>,
+        <y-abhilashchandra@ti.com>
+Subject: [PATCH v3 1/4] arm64: dts: ti: j722s-evm: Add DT nodes for power regulators
+Date: Fri, 9 May 2025 14:49:08 +0530
+Message-ID: <20250509091911.2442934-2-y-abhilashchandra@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250509091911.2442934-1-y-abhilashchandra@ti.com>
+References: <20250509091911.2442934-1-y-abhilashchandra@ti.com>
 MIME-Version: 1.0
-Message-ID: <29f1ebb9.8e60.196b45626fb.Coremail.xavier_qy@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: jCgvCgDnL_88yB1o3tEAAA--.7579W
-X-CM-SenderInfo: 50dyxvpubt5qqrwthudrp/1tbiTR9IEGgdwSzvVwAAsq
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_021830_031586_4FDCC020 
-X-CRM114-Status: UNSURE (   7.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250509_021937_891750_7DB6767A 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,20 +87,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CgoKQXQgMjAyNS0wNS0wOCAxNjozMDoxNCwgIkRhdmlkIEhpbGRlbmJyYW5kIiA8ZGF2aWRAcmVk
-aGF0LmNvbT4gd3JvdGU6Cj5PbiAwOC4wNS4yNSAwOTowMywgWGF2aWVyIFhpYSB3cm90ZToKPj4g
-VGhpcyBjb21taXQgb3B0aW1pemVzIHRoZSBjb250cHRlX3B0ZXBfZ2V0IGFuZCBjb250cHRlX3B0
-ZXBfZ2V0X2xvY2tsZXNzCj4+IGZ1bmN0aW9uIGJ5IGFkZGluZyBlYXJseSB0ZXJtaW5hdGlvbiBs
-b2dpYy4gSXQgY2hlY2tzIGlmIHRoZSBkaXJ0eSBhbmQKPj4geW91bmcgYml0cyBvZiBvcmlnX3B0
-ZSBhcmUgYWxyZWFkeSBzZXQgYW5kIHNraXBzIHJlZHVuZGFudCBiaXQtc2V0dGluZwo+PiBvcGVy
-YXRpb25zIGR1cmluZyB0aGUgbG9vcC4gVGhpcyByZWR1Y2VzIHVubmVjZXNzYXJ5IGl0ZXJhdGlv
-bnMgYW5kCj4+IGltcHJvdmVzIHBlcmZvcm1hbmNlLgo+PiAKPj4gSW4gb3JkZXIgdG8gdmVyaWZ5
-IHRoZSBvcHRpbWl6YXRpb24gcGVyZm9ybWFuY2UsIGEgdGVzdCBmdW5jdGlvbiBoYXMgYmVlbgo+
-PiBkZXNpZ25lZC4gVGhlIGZ1bmN0aW9uJ3MgZXhlY3V0aW9uIHRpbWUgYW5kIGluc3RydWN0aW9u
-IHN0YXRpc3RpY3MgaGF2ZQo+PiBiZWVuIHRyYWNlZCB1c2luZyBwZXJmLCBhbmQgdGhlIGZvbGxv
-d2luZyBhcmUgdGhlIG9wZXJhdGlvbiByZXN1bHRzIG9uIGEKPj4gY2VydGFpbiBRdWFsY29tbSBt
-b2JpbGUgcGhvbmUgY2hpcDoKPgo+Rm9yIHRoZSBmdXR1cmUsIHBsZWFzZSBkb24ndCBwb3N0IHZO
-KzEgYXMgcmVwbHkgdG8gdk4uCgpJIHdpbGwgcGF5IGF0dGVudGlvbiB0byBpdCB3aGVuIEkgc3Vi
-bWl0IGl0IGxhdGVyLiBUaGFuayB5b3UgZm9yIHRoZSByZW1pbmRlci4KCj4KPi0tIAo+Q2hlZXJz
-LAo+Cj5EYXZpZCAvIGRoaWxkZW5iCgotLQpUaGFua3MsClhhdmllcgo=
+Add device tree nodes for two regulators on the J722S-EVM. VSYS_3V3 is the
+output of LM5141-Q1, and it serves as an input to TPS22990 which produces
+VSYS_3V3_EXP [1]. VSYS_3V3_EXP serves as vin-supply to CSI RPI Connectors.
+
+Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+Reviewed-by: Udit Kumar <u-kumar1@ti.com>
+
+[1]: https://www.ti.com/lit/zip/sprr495
+---
+Changelog:
+Changes in v3:
+- Change vcc_3v3_exp to vsys_3v3_exp as per schematics
+
+ arch/arm64/boot/dts/ti/k3-j722s-evm.dts | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+index 34b9d190800e..2213993acbc9 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+@@ -141,6 +141,17 @@ vsys_5v0: regulator-vsys5v0 {
+ 		regulator-boot-on;
+ 	};
+ 
++	vsys_3v3: regulator-vsys3v3 {
++		/* output of LM5141-Q1 */
++		compatible = "regulator-fixed";
++		regulator-name = "vsys_3v3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vmain_pd>;
++		regulator-always-on;
++		regulator-boot-on;
++	};
++
+ 	vdd_mmc1: regulator-mmc1 {
+ 		/* TPS22918DBVR */
+ 		compatible = "regulator-fixed";
+@@ -153,6 +164,17 @@ vdd_mmc1: regulator-mmc1 {
+ 		bootph-all;
+ 	};
+ 
++	vsys_3v3_exp: regulator-TPS22990 {
++		/* output of TPS22990 */
++		compatible = "regulator-fixed";
++		regulator-name = "vsys_3v3_exp";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vsys_3v3>;
++		regulator-always-on;
++		regulator-boot-on;
++	};
++
+ 	vdd_sd_dv: regulator-TLV71033 {
+ 		compatible = "regulator-gpio";
+ 		regulator-name = "tlv71033";
+-- 
+2.34.1
+
 
