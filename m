@@ -4,98 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAB72C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 21:31:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D93FBC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 21:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ndxIwpqni0a6tDVrjZprOorINLiqY/weaUCp02laXM=; b=bc3dY7zxAhtu2fmzyUcRzXK4t+
-	MuiPh8B2H2hzv0dkx1UP8+INsU4LiQ1qlg0IG3gwZ0wKTNV6hGpugEEx2psKuXHh+ld6rsmHuxbwx
-	VLW3HijgcF+0LDPBufcPUYPKJazuGwomo6YwQesFF+nPjrbmY27E9aZiSOPfqcWBDT2FgP8qxMVdw
-	0QRA6mTyZu6F+8Wsv23tSS+GARQcWM+DASelucRuXk7o4O0pDsNSH1oYntlv3qdJ3plmPtNOBtgRq
-	wO6/B4J3odV5dW2LH6NLfHxOf3jWJcqzcvr5PFeGQ5hNsEdv3ny6xaYdMu7CJgryZFLEKIvJtF21t
-	UpZOLZzQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4o6noN2eJkk0XdQVCPgCv7nvhvbBSL+3pUlcAtD0d+w=; b=UhYNL/ApEkqs8EMr3x/Z3SKWGq
+	dwsoVIsXqpLAWlZ67WY5k0l+AXHMt1SAE47NTx1+lg1INLHz62yHVpGdfYjsbdJFM4X7cKQ27TIC4
+	5z2/XotO6iro4hm37jGIQZzgzAh45itLSc03P5mhpPcO3VH/8yb/jsf/RfDxAAErSn6eHEaXJ7/nk
+	ZJQX8F49dDxaSKWYK679F8GxbCOpRlX2lFtZIPnErczaBPcfrKpSj3BTYZi7iSY7g4GoD8ju5EFYa
+	HjK2bMoUL2kNtHwXTp1w+ieDVzeNSkp4xyneVRQW0TMhNKjsiaChEyLZaupM3Hh6K60Tfki+KcOvP
+	+Tm9xSUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDVJr-00000004y0E-3f3n;
-	Fri, 09 May 2025 21:31:47 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1uDVJt-00000004y1o-1uYS;
+	Fri, 09 May 2025 21:31:49 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDSgj-00000004bGB-2woz
+	id 1uDSpg-00000004cSF-1MsX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 18:43:14 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-441c99459e9so16086185e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 11:43:13 -0700 (PDT)
+	Fri, 09 May 2025 18:52:29 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-441d1ed82faso16340295e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 11:52:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746816192; x=1747420992; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3ndxIwpqni0a6tDVrjZprOorINLiqY/weaUCp02laXM=;
-        b=JkFP7HOmLtWcLnzONX2R1Uo0SgVbOs9HZVg4+arUyRSRarqQXnHsZ1f6LKJAMUXrQ0
-         HV0N8Q0Tv/S1/9DcRuLga0ADo9I63S5XKtwummVNDWkai6ZZi8OGfc1SFHJdHqR49AI5
-         SovQXdJ8XASsjeseOY6C7j+YQHWJ62c+C0b8mGa4CLdSHvMmA7RfKwgDupSvysYD0MFO
-         /cMrgt4mu8qDxglopoBE5RDpkmDntDmMoysp/xiG9WuNQyfiqn6hI/iXg3RKkHKN6OEd
-         G51BVXrTFW81pqjsIJxR6TcWKBk+p9TgLrrWVN9io9jM24fwy6Eqnp5dAANfkrZC5zH4
-         N4DA==
+        d=linaro.org; s=google; t=1746816746; x=1747421546; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4o6noN2eJkk0XdQVCPgCv7nvhvbBSL+3pUlcAtD0d+w=;
+        b=xqtBRXQrXdW2YYeqRR3/5g4YcqJWbRq4Hg/crsbDK4sS9T5Mfx65jwyjL7Ela1AtLl
+         /TRv/IDfVw+D1Uj1tgdk4JTYEy7n+eGsopjeUxkUFNqDyFdfo/aRhhFaGmQujwQ1XTXY
+         sVUxNi2RipThjm0UaX/L+feLF2WNVAEzj2sEuryOjM31+f6mfCUGjhsgpepN59Tmwvyw
+         ybTc9qa3TLY6vxKMGkufW795yobmJsF0UEz/FuedYKMHhM4Djqmmca2Uek+EVgpTE5PV
+         9wXtzCBdMyc+kATqLlsy9uvoC3GiFykfS+NtgPyJI4HJhna1QsK/hgAVedq4aoV/PpNn
+         mb/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746816192; x=1747420992;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3ndxIwpqni0a6tDVrjZprOorINLiqY/weaUCp02laXM=;
-        b=NK1dH20xrAMDhy/VwzZNAGdLvQ19qbcklrGIKzIZ2GbNdy6aMoV1v88MzncHe1rbs/
-         YoRMmjKOwcGYOTFoTNhn8rIWSstEZI8lJ2yymXGEYlAjZj78oO1SQIgE6gNspbJouREo
-         4enMVnrZ7aDfdqJFzR5hAUsB1xKve35nBEhE7txKUrtA8iYmzPUIyX6dK3bBSBSFc2PZ
-         VFAYSBFHz75YXn0giHXUHaKx890ftmQdcAJw/XfmCJbDmPLE2z72sye5eaebX+j3XzBS
-         CeFSSshJTZ+8HjSsxxfCZ2wo3ETu+QlifFZMKoXdKcJFxGm2UrUWZFAYFo1wV286mqRR
-         RaFw==
-X-Forwarded-Encrypted: i=1; AJvYcCVVDDvkR8enNCuRge/SwXzPS/tB5+B4YAkpv1Tq+N8oZA/y/HJInuvKOe3zgFw8jmqVYkPIg/V/Gz0bkfM0zYA6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8fjo5/744/1sBV5FWC7hnXJEZ3i8JQt8LlN+/fQspHgSIwplD
-	HLcqPjR645lsXrXVvNcWagYXPR6yiY/gS/CEUHkmNgAVrTrJP9rb+MYFl+RTDcAlkMCLCW0ohnm
-	tLq8TgNUgaD2L9ybvvhHg4T9R1GA=
-X-Gm-Gg: ASbGncu17py1MCQWmJ+Mp6RQh5LdVmfbUlJtYq30hPnkE2rBj0I7i6szixk4sidzu6l
-	AIy4dw+5x2SAJnIAr/5i/sA0iU2LnslVPUj27LUD2XJisIGWo8Z8BqfwwZzALhyKxDF7hIPP5Q7
-	Jg/s8MF4f3eR+tmuJn9SHb9nCjm1hhpldMiyaiSSnJgDYaCVt6
-X-Google-Smtp-Source: AGHT+IFYnZD9y+hjO9CRH7JbZRqwYwFvCe82Ke5Lt/BeQLTVkbi1WQsCzGbxCZtrM0Gj1TEWNbFMvXBqV8FmzAVdtuA=
-X-Received: by 2002:a05:6000:2506:b0:391:22a9:4408 with SMTP id
- ffacd0b85a97d-3a1f64386eemr3845245f8f.16.1746816191780; Fri, 09 May 2025
- 11:43:11 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1746816746; x=1747421546;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=4o6noN2eJkk0XdQVCPgCv7nvhvbBSL+3pUlcAtD0d+w=;
+        b=jpJflp2qqhucGdpjY3W7e7+xhmmPwg39zeA8TKhAZMeDa1H47mzXBCkBuncSrZSSQy
+         1sTnIL6EfztrC9AB++k+8AZvm8E8+BxWW+klFmqttmKVWdwkiHCTYBF9qaX0h19V8+y0
+         JYJTY0BN9QYMLqbqXru/fj5DX85tg+HUFeF5DAbVY0yz5lcc/jatit4uazZZWq6XgJ0S
+         rBJMzCtR0WhR8T446JSg5PpUQfJqMlHuBx3Wh57ujxykpgezT0aru/F/42k0Nse79zfd
+         lSns/lGaMoLV78A7n39alRX7l9GKi8vZc9j7A3R8tiMx/S3hvThYj0HvPIVcMlz9rWxl
+         sHjA==
+X-Forwarded-Encrypted: i=1; AJvYcCUlO9zlW4zeVFU8HbgHmDAfNPHEs+eV1RTZBz+3ZIL0vduDC0JrfKyr8l05NZnzje5eNn4OdDP5mhUxjad8IKHo@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNy41tLDDyLNMW3fnkp8qTxifAYLtLqyqwWlgQd1PwrciHFtIL
+	KPJt2vdorgPiGCUFz8jL3ipgsEyab9DKCoO6TiFLsgzDHM+4n4J+eWa2ZKfU0GE=
+X-Gm-Gg: ASbGncteS2+rWM0rlfRnPftRN9jntX44/sTsPwVh7ZufKNp43wqWY6ilSxNxnS/5/q4
+	mkMJUNFvsIzedpwLOI8ziNCTlYlR2e9KDPkbR12tI9kMEE9qE6TQRYAoWztGXcOwMqaONfJu9wj
+	jNdoY7F3sYG2GeO4GysI2xmT/aDEH2tgKREyxuf2juvzoL44ovXqcWHkrRRVOcb1+yhNBWlLsyy
+	UGgVuGRlA5fLBM43KxY1gzSpBGE64RQGHyJEPddB8NkqQ0/PmyPKQMvbpzkrcpW+PG/UKf4UoHB
+	D41+qyih4BCYpTYlFCrUZj4mKw+26HU4NNUdIVT1skTmga02N+aJ7C0tZc+s3SXXFsYq+8WIPLa
+	vHg+NmWa0SxOnyCHCqOgowoWYwZhg
+X-Google-Smtp-Source: AGHT+IEkES7QrrP7dWUS3r90TTqs9H9HF3Qrg1w8ITbxBVl4k60rc9jJMmKmLI9AOkx38FcFHuyvrw==
+X-Received: by 2002:a05:6000:2088:b0:3a0:b448:e654 with SMTP id ffacd0b85a97d-3a1f64e7509mr3877389f8f.47.1746816746484;
+        Fri, 09 May 2025 11:52:26 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:3d9:2080:5929:59ab:840a:b8f9? ([2a01:e0a:3d9:2080:5929:59ab:840a:b8f9])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f5a2d2ffsm4085907f8f.66.2025.05.09.11.52.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 09 May 2025 11:52:26 -0700 (PDT)
+Message-ID: <8ebe2bc3-dec0-4879-a61c-630b96bc4bec@linaro.org>
+Date: Fri, 9 May 2025 20:52:25 +0200
 MIME-Version: 1.0
-References: <20250501073603.1402960-1-luis.gerhorst@fau.de> <174681603001.3715348.12288999798860158953.git-patchwork-notify@kernel.org>
-In-Reply-To: <174681603001.3715348.12288999798860158953.git-patchwork-notify@kernel.org>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Fri, 9 May 2025 11:43:00 -0700
-X-Gm-Features: AX0GCFvLVth5qvdC1z-BgTiCYbsMNaP7ne4n5tL7wLi4uocO_ruonz0SxGJeZGA
-Message-ID: <CAADnVQJ+=Tip0ocob2aWe4G0BTs4F7veMtM-DD7f-zGKncAa_g@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v3 00/11] bpf: Mitigate Spectre v1 using barriers
-To: patchwork-bot+netdevbpf@kernel.org
-Cc: Luis Gerhorst <luis.gerhorst@fau.de>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Eduard <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
-	Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Hari Bathini <hbathini@linux.ibm.com>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, "Naveen N. Rao" <naveen@kernel.org>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
-	Henriette Herzog <henriette.herzog@rub.de>, Saket Kumar Bhaskar <skb99@linux.ibm.com>, 
-	Cupertino Miranda <cupertino.miranda@oracle.com>, Jiayuan Chen <mrpre@163.com>, 
-	Matan Shachnai <m.shachnai@gmail.com>, Dimitar Kanaliev <dimitar.kanaliev@siteground.com>, 
-	Shung-Hsi Yu <shung-hsi.yu@suse.com>, Daniel Xu <dxu@dxuuu.xyz>, bpf <bpf@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>, 
-	ppc-dev <linuxppc-dev@lists.ozlabs.org>, 
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v2] drm/meson: Use 1000ULL when operating with mode->clock
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: I Hsin Cheng <richard120310@gmail.com>,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, khilman@baylibre.com,
+ jbrunet@baylibre.com, christophe.jaillet@wanadoo.fr,
+ skhan@linuxfoundation.org, dri-devel@lists.freedesktop.org,
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250505184338.678540-1-richard120310@gmail.com>
+ <6d2f35ee-1b33-40b6-b164-ab4480110e49@linaro.org>
+ <CAFBinCDmHhF7=-dutXT6RE9hVzfN3akLicGkQKw=Arm8bq2NKQ@mail.gmail.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <CAFBinCDmHhF7=-dutXT6RE9hVzfN3akLicGkQKw=Arm8bq2NKQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_114313_741256_80E86D33 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20250509_115228_382848_D68E3E91 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,40 +131,35 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 9, 2025 at 11:39=E2=80=AFAM <patchwork-bot+netdevbpf@kernel.org=
-> wrote:
->
-> Hello:
->
-> This series was applied to bpf/bpf-next.git (master)
-> by Alexei Starovoitov <ast@kernel.org>:
->
-> On Thu,  1 May 2025 09:35:51 +0200 you wrote:
-> > This improves the expressiveness of unprivileged BPF by inserting
-> > speculation barriers instead of rejecting the programs.
-> >
-> > The approach was previously presented at LPC'24 [1] and RAID'24 [2].
-> >
-> > To mitigate the Spectre v1 (PHT) vulnerability, the kernel rejects
-> > potentially-dangerous unprivileged BPF programs as of
-> > commit 9183671af6db ("bpf: Fix leakage under speculation on mispredicte=
-d
-> > branches"). In [2], we have analyzed 364 object files from open source
-> > projects (Linux Samples and Selftests, BCC, Loxilb, Cilium, libbpf
-> > Examples, Parca, and Prevail) and found that this affects 31% to 54% of
-> > programs.
-> >
-> > [...]
->
-> Here is the summary with links:
->   - [bpf-next,v3,01/11] selftests/bpf: Fix caps for __xlated/jited_unpriv
->     https://git.kernel.org/bpf/bpf-next/c/cf15cdc0f0f3
->   - [bpf-next,v3,02/11] bpf: Move insn if/else into do_check_insn()
->     (no matching commit)
+On 09/05/2025 20:27, Martin Blumenstingl wrote:
+> On Fri, May 9, 2025 at 5:35 PM <neil.armstrong@linaro.org> wrote:
+>>
+>> On 05/05/2025 20:43, I Hsin Cheng wrote:
+>>> Coverity scan reported the usage of "mode->clock * 1000" may lead to
+>>> integer overflow. Use "1000ULL" instead of "1000"
+>>> when utilizing it to avoid potential integer overflow issue.
+>>>
+>>> Link: https://scan5.scan.coverity.com/#/project-view/10074/10063?selectedIssue=1646759
+>>> Signed-off-by: I Hsin Cheng <richard120310@gmail.com>
+>>
+>> Could you add a Fixes tag ?
+> Fixes: 1017560164b6 ("drm/meson: use unsigned long long / Hz for
+> frequency types")
+> 
+> Neil, can you add this while applying or do we need a v3?
 
-Applied the first patch only.
-Waiting for respin of the rest.
+Will add while applying.
+
+Thanks,
+Neil
+
+> 
+> 
+> Best regards,
+> Martin
+
 
