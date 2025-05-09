@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FBC4C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 16:26:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4C54C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 16:28:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MazoqsTs3L+ELeHoAQPzdkbTg8W+dwUPmR9bqOktUfQ=; b=CLR7rhHWituMtKPg6AqFkO9ViR
-	sYgxst+pNc2Glt0VuD9snAE03B83eWYFlpcvVcAPHGAH9n6hEvHrKWWjiNt1qklnPg6mjoYQhLPRL
-	M4v7l8vS7IwURyMJATsXpNYvxV1HChr+eZJyx3xke8x/utuddRrkxlh/KPut+YTTpGYvNuPC88KCG
-	TQAb3mG64Dw/y1QMZNm3h/NJYPP19jp6S/Pcmzovr6xfci9pG79g5hDpjoL7QmIxIUGXR6NVlqeZA
-	Y/6xMF/eguHW93AgSVzgMZLmR7CGpgAqHjhK1I8lmBncjPSnD31QPeUyTrGzcxVdZeUD4HRoX+9y6
-	N1NU1uAQ==;
+	bh=e0tQx/NpHIPKayk3PQvGhHP9Erua5/o/RYaG8auxYrs=; b=nwAmCZ3YLH4G8izNF/GSfEO0cp
+	9uCjmrRJco6dTM9My5QOroWpZzAnRf3yxmzSr4lFLmHAcYPrn2PEAJ1tJsorUT4+ycTy0k3MRfcFr
+	HyjVWKgNDOhOpwbK3elAOtvA7sgdjfn/Iy31Yw58Mavyk9k/q2w/IGPnERv8wh36BpqcH3we9jOhk
+	jcd5Hvoswhk/CgxrUX2ezzF2OIpZWj+wuRoH90OdRV3aRMXxOKb5YlyuxIcBoxCAxZmr8DCpp/N+K
+	L2hX0+EkmeF6uFGIhmfCLU+Zzlvtb51gmajQYkyApMBwTIcTojyjJEzI5DZJdE+hRwct39A0f5STo
+	w7QynF1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDQYk-00000004HJS-0nP0;
-	Fri, 09 May 2025 16:26:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uDQah-00000004HVs-3vd4;
+	Fri, 09 May 2025 16:28:51 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDOX0-00000003v29-2ICB
+	id 1uDOX4-00000003v3D-4B4N
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 14:16:55 +0000
+	Fri, 09 May 2025 14:17:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0631C4A761;
-	Fri,  9 May 2025 14:16:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99232C4CEE4;
-	Fri,  9 May 2025 14:16:53 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2570C5C6C33;
+	Fri,  9 May 2025 14:14:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE4B0C4CEE4;
+	Fri,  9 May 2025 14:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746800213;
-	bh=uRHUJoqNa5K5mWMaXCiU/RiZB7ZiJa/lTWJxiEmFf94=;
+	s=k20201202; t=1746800218;
+	bh=U+eIzfvbDzC+peDIexb8/J/VSJleddT2WMz6l2+u9Ao=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=TXO7VzevGMh3xxBVC9HgXjoevh+cWjCoMJFLZOEl9OqNrT8y38ICVKegnJWrkYfiL
-	 GdtKF/w1ArYeG/uWIGlVFYVJkzaFMrsNyGJP48QfyAH0kMkaUjScgmwAR4k/KxNjW5
-	 jxwA2Jondq7N3GTCS3M/kUHhyg+paPcDea8a2v7AYUQgUhTpntQbBNfFC/ncIQbbeT
-	 JranlvwfoqjcAKLmoanKcN7m0mB1bBPZ7JBkvev6aadCnRTRl2pnQXu9CFBe6Zgbu6
-	 5ecSGbcO0EUeEV2z2MLfCaYpN7pk/dYtkwM/+5gBWwTk/VCd8SwkgaYQg2LHIwcocd
-	 /6fZOTP7vA5mg==
-Date: Fri, 09 May 2025 09:16:51 -0500
+	b=MZoqE8GvExAd9uHeApXsM+CZVl7myYnzo8tKwSkcsY5XpLZOA3cwU2enpOPQGvWAI
+	 +iPFvYQq4k0crGCaMMUHJ0pRY7XBBhW85dC+n920KVYiNpm34RX+t/HuqmzZtGdxhO
+	 l0U3dgopbDBm6kohHVmsYiMolHbMVZKhCLksa8B2tyCU4COaaB75EZ68fWww5Ujnzu
+	 ua6fEDAMazplVp8o0MPHZiW9mIYyHGe8F0nos9qVNAYl3LR028/nH6ruZcptriNwCV
+	 YosgCn5rY4F7B+GvFsUz+OdI+vXB0ONNgGRxkgeg6At239Vjqsh3jsSysdV2ZzvDlV
+	 n+49iyJMpNfyQ==
+Date: Fri, 09 May 2025 09:16:54 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: tudor.ambarus@linaro.org, peter.griffin@linaro.org, 
- andre.draszik@linaro.org, badhri@google.com, linux-pm@vger.kernel.org, 
- devicetree@vger.kernel.org, sre@kernel.org, conor+dt@kernel.org, 
- linux-samsung-soc@vger.kernel.org, alim.akhtar@samsung.com, 
- linux-arm-kernel@lists.infradead.org, krzk+dt@kernel.org, 
- dima.fedrau@gmail.com, linux-kernel@vger.kernel.org
-To: Amit Sunil Dhamne <amitsd@google.com>
-In-Reply-To: <20250508050856.674782-1-amitsd@google.com>
-References: <20250508050856.674782-1-amitsd@google.com>
-Message-Id: <174679984823.3368214.18196649123277436565.robh@kernel.org>
-Subject: Re: [PATCH v1 0/2] Add graph connections between tcpc & fg for
- Pixel 6
+Cc: devicetree@vger.kernel.org, Leo Yan <leo.yan@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Liviu Dudau <liviu.dudau@arm.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+In-Reply-To: <20250508103225.354925-1-sudeep.holla@arm.com>
+References: <20250508103225.354925-1-sudeep.holla@arm.com>
+Message-Id: <174679984875.3368325.1365758165371282064.robh@kernel.org>
+Subject: Re: [PATCH 1/3] arm64: dts: fvp: Add CPU idle states for Rev C
+ model
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_071654_623391_FF8F392A 
-X-CRM114-Status: GOOD (  14.78  )
+X-CRM114-CacheID: sfid-20250509_071659_088061_6E88E562 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,37 +75,21 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 07 May 2025 22:08:50 -0700, Amit Sunil Dhamne wrote:
-> max77759 Type-C controller supplies VBUS into & out of (depending on the
-> charging mode) the battery in Pixel 6. In order to represent this
-> relationship, we use graph to connect tcpc & fuel gauge.
+On Thu, 08 May 2025 11:32:23 +0100, Sudeep Holla wrote:
+> Add CPU idle state definitions to the FVP Rev C device tree to enable
+> support for CPU lower power modes. This allows the system to properly
+> enter low power states during idle. It is disabled by default as it is
+> know to impact performance on the models.
 > 
-> Link to USB connector binding that this patchset uses:
->  - https://lore.kernel.org/all/20250507-batt_ops-v2-1-8d06130bffe6@google.com/
+> Note that the power_state parameter(arm,psci-suspend-param) doesn't use
+> the Extended StateID format for compatibility reasons on FVP.
 > 
-> This patchset depends on the following:
->  - https://lore.kernel.org/all/20250421-b4-gs101_max77759_fg-v3-0-50cd8caf9017@uclouvain.be/
+> Tested on the FVP Rev C model with PSCI support enabled firmware.
 > 
-> Amit Sunil Dhamne (2):
->   dt-bindings: power: supply: max17201: add port property
->   arm64: dts: exynos: gs101-pixel-common: add graph property to connect
->     tcpc & fg
-> 
->  .../bindings/power/supply/maxim,max17201.yaml      |  5 +++++
->  .../boot/dts/exynos/google/gs101-pixel-common.dtsi | 14 ++++++++++++++
->  2 files changed, 19 insertions(+)
-> 
-> 
-> base-commit: 92a09c47464d040866cf2b4cd052bc60555185fb
-> prerequisite-patch-id: 74aa0a6fc4a5c56d870bb15375fad1fe41ffc1e9
-> prerequisite-patch-id: 46f968300dcf5442e12d882ca23168494249d378
-> prerequisite-patch-id: 3ad83a2782819bca215bb267d36a1ff04fe557b2
-> prerequisite-patch-id: 86b5207d8f44255c36b1e600ecdf4f948c5da685
-> prerequisite-patch-id: a15532888ff2572696d9fa6a14775e8ebf590391
-> --
-> 2.49.0.987.g0cc8ee98dc-goog
-> 
-> 
+> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+> ---
+>  arch/arm64/boot/dts/arm/fvp-base-revc.dts | 32 +++++++++++++++++++++++
+>  1 file changed, 32 insertions(+)
 > 
 
 
@@ -126,31 +108,18 @@ make sure dt-schema is up to date:
 
 
 This patch series was applied (using b4) to base:
- Base: using specified base-commit 92a09c47464d040866cf2b4cd052bc60555185fb
- Deps: looking for dependencies matching 5 patch-ids
- Deps: Applying prerequisite patch: [PATCH v3 1/5] power: supply: correct capacity computation
- Deps: Applying prerequisite patch: [PATCH v3 2/5] power: supply: add support for max77759 fuel gauge
- Deps: Applying prerequisite patch: [PATCH v3 3/5] dt-bindings: power: supply: add max77759-fg flavor
- Deps: Applying prerequisite patch: [PATCH v3 4/5] arm64: defconfig: enable Maxim max1720x driver
- Deps: Applying prerequisite patch: [PATCH v3 5/5] arm64: dts: exynos: gs101-oriole: enable Maxim max77759 fuel gauge
+ Base: attempting to guess base-commit...
+ Base: tags/v6.15-rc1-1-g59529bbe642d (exact match)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250508050856.674782-1-amitsd@google.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/arm/' for 20250508103225.354925-1-sudeep.holla@arm.com:
 
-arch/arm64/boot/dts/exynos/google/gs101-oriole.dtb: fuel-gauge@36 (maxim,max77759-fg): reg: [[54]] is too short
-	from schema $id: http://devicetree.org/schemas/power/supply/maxim,max17201.yaml#
-arch/arm64/boot/dts/exynos/google/gs101-oriole.dtb: fuel-gauge@36 (maxim,max77759-fg): reg-names: ['m5'] is too short
-	from schema $id: http://devicetree.org/schemas/power/supply/maxim,max17201.yaml#
-arch/arm64/boot/dts/exynos/google/gs101-oriole.dtb: fuel-gauge@36 (maxim,max77759-fg): Unevaluated properties are not allowed ('reg-names' was unexpected)
-	from schema $id: http://devicetree.org/schemas/power/supply/maxim,max17201.yaml#
-arch/arm64/boot/dts/exynos/google/gs101-raven.dtb: fuel-gauge@36 (maxim,max77759-fg): reg: [[54]] is too short
-	from schema $id: http://devicetree.org/schemas/power/supply/maxim,max17201.yaml#
-arch/arm64/boot/dts/exynos/google/gs101-raven.dtb: fuel-gauge@36 (maxim,max77759-fg): reg-names: ['m5'] is too short
-	from schema $id: http://devicetree.org/schemas/power/supply/maxim,max17201.yaml#
-arch/arm64/boot/dts/exynos/google/gs101-raven.dtb: fuel-gauge@36 (maxim,max77759-fg): Unevaluated properties are not allowed ('reg-names' was unexpected)
-	from schema $id: http://devicetree.org/schemas/power/supply/maxim,max17201.yaml#
+arch/arm64/boot/dts/arm/fvp-base-revc.dtb: idle-states: entry-method:0: 'psci' was expected
+	from schema $id: http://devicetree.org/schemas/cpu/idle-states.yaml#
+arch/arm64/boot/dts/arm/fvp-base-revc.dtb: timer@2a810000 (arm,armv7-timer-mem): #size-cells: 1 was expected
+	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer_mmio.yaml#
 
 
 
