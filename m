@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5611C3ABCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 21:09:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1658C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 21:09:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ox/S3wEHdX6LK40h/zbAQGRFc9coOf0nkAtFa2lcQHo=; b=n3DcOehCdURKEa8XLTAnUabfJG
-	sUyMWME0dLvJQu7NX9NauFduRpO7kM+3gneZ0m8jWGymisRveaHU6Q8AmQJnZOmrDQwu0nFqwqieN
-	+S51T9+5EJyYSex/wGuE7INcuACZRe/AjyquUldnfg/qDadJ+iFUZXuR+OH5tFuVSvbZQs4tPLnZZ
-	ceA+j4571W31I6MUtw45IHr29KqJofUmaRTKgo0A92DpNfO2L/LMV8cNIEFWJaXxrga8DNzA3ciga
-	OyOPgTGmtocl/r31N5kFE6XIfQE46VCUyq0uDwV/2ME9w6MIvtyVwllyhT0CmqzOo6lpMDyWpWuwQ
-	FwTTP6dA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4SdXRG7RMOcGcSkcOmgddaIl70trvrvcQZYo0G1lX58=; b=DZZ0xZmNUidwrwRrVwTpP+HoVs
+	s+D8Del+ZFsLK73hPdY4gKBkQn+1GgZK3FpWtlyYE9Rz7ZQebze2fIIlMXCpdjaLZPp8EWWl/Dn6+
+	+2iWlEPuM+GeznMi9GgS09dcqjDmKuBKpLh23vJMA+YwV7DCgbGq1v5phL/TyFYXlIUr9Lejru3t7
+	IvDsDq95M0hPOKI34h+VtXeC8eJWbc5gtVXoeL0wMXoYsty+Q1fFkuDxCKxEFE3Cdv46OBRer5fr6
+	Nzjexlz35D3kilwSkZmbZ7azm9GpPxpamTHpE7tahb5lvYIm/IsvpKfBofkACdI/1HuxJ40CpHsNL
+	MWsnSpgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDUxr-00000004umO-2jNx;
-	Fri, 09 May 2025 21:09:03 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1uDUxx-00000004uxQ-2KFn;
+	Fri, 09 May 2025 21:09:09 +0000
+Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDUGW-00000004mD9-32i3
+	id 1uDUgD-00000004tPr-0eos
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 20:24:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
- To: From; q=dns/txt; s=fe-e1b5cab7be; t=1746822253;
- bh=ox/S3wEHdX6LK40h/zbAQGRFc9coOf0nkAtFa2lcQHo=;
- b=jdEgIrP8zJXhCI5GPgU+oH3ReZGfn2B/IudytCqRxCYbE2B/Zx+7ekrj+MGnzyk4xssu6rM9g
- wLUnk4Gg1KriYU7YvyHfoOYRkZqf4r4b7bSBouX4Jj9qwvs0jI5F8gaLtbp5nf7qoL5RgHFZU/j
- +iEdHNMlWWgVp9ggdIosUKUj2xbYZuDb2BouJPcuEGjFftscIebUjSMjkghr3k6EydIT1DhDPV5
- qEDV205qUR1K2sYfsaPuelnWsgcsi9Wsn0uNM7JkugXV5fAVUy1f/Nof/WNJgySzUi4JyLYCGED
- a5wUJLIziqD2tAGNwniA+K6+9k7E+OdeV2UtkR7ib93w==
-X-Forward-Email-ID: 681e6468b323f1ffafd05d60
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.0.2
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Yao Zi <ziyao@disroot.org>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH v3 0/2] rockchip: Enable Ethernet controller on Radxa E20C
-Date: Fri,  9 May 2025 20:23:56 +0000
-Message-ID: <20250509202402.260038-1-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.49.0
+	Fri, 09 May 2025 20:50:51 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4ZvLk912xRz9spL;
+	Fri,  9 May 2025 22:50:41 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pankajraghav.com;
+	s=MBO0001; t=1746823841;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4SdXRG7RMOcGcSkcOmgddaIl70trvrvcQZYo0G1lX58=;
+	b=rG01sxaH+rCqVLlhWdLqiLaZzCT3l3yOBNy9rMw3G/0e1HhACjPeme2+mhhdloKhy+yuPn
+	CFI5bkUTjkTrzGmxXiDFAwhv/cC3o/YsBKE1J9W0EgRrldxPShQvMfl4oNZz2vf4Bk0CCL
+	4FYRofVykvh3SEKvljDUkRzmZZev29V7ravpCcR6IkdqEDBu0j7OeM+855TxVCUsoYQPCn
+	C0x1FC/xU9/ZuRkDONc6t16fVmRc8ULeFSYHoWDUTjbwMIskQLbiIOu3ZNipzqx/+d/ME+
+	iy7boEy+3xpOVC7yyYAuM94+4xBVMjHzLDXDk88D3GykyIAXUNobJT2z1NuSDw==
+Date: Fri, 9 May 2025 22:50:32 +0200
+From: "Pankaj Raghav (Samsung)" <kernel@pankajraghav.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, David Hildenbrand <david@redhat.com>, 
+	Dave Chinner <david@fromorbit.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-mm@kvack.org, p.raghav@samsung.com
+Subject: Re: [RFC PATCH v4 1/5] mm/readahead: Honour new_order in
+ page_cache_ra_order()
+Message-ID: <pskrpcu3lflo3pgeyfvnifcn7z2o6bsieaclntsbyvefs4ab3a@cyfnf36mccvi>
+References: <20250430145920.3748738-1-ryan.roberts@arm.com>
+ <20250430145920.3748738-2-ryan.roberts@arm.com>
+ <nepi5e74wtghvr6a6n26rdgqaa7tzitylyoamfnzoqu6s5gq4h@zqtve2irigd6>
+ <22e4167a-6ed0-4bda-86b8-a11c984f0a71@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <22e4167a-6ed0-4bda-86b8-a11c984f0a71@arm.com>
+X-Rspamd-Queue-Id: 4ZvLk912xRz9spL
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_132417_172466_043F3EB3 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20250509_135049_331122_2AB9CB22 
+X-CRM114-Status: GOOD (  21.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,40 +83,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Rockchip RK3528 has two Ethernet controllers, one 100/10 MAC to be
-used with the integrated PHY and a second 1000/100/10 MAC to be used
-with an external Ethernet PHY.
+> >>  
+> > 
+> > So we always had a fallback to do_page_cache_ra() if the size of the
+> > readahead is less than 4 pages (16k). I think this was there because we
+> > were adding `2` to the new_order:
+> 
+> If this is the reason for the magic number 4, then it's a bug in itself IMHO. 4
+> pages is only 16K when the page size is 4K; arm64 supports other page sizes. But
+> additionally, it's not just ra->size that dictates the final order of the folio;
+> it also depends on alignment in the file, EOF, etc.
+> 
 
-This series add device tree nodes for the Ethernet controllers found in
-RK3528 and enable the LAN interface on Radxa E20C.
+IIRC, initially we were not able to use order-1 folios[1], so we always
+did a fallback for any order < 2 using do_page_cache_ra(). I think that
+is where the magic order 2 (4 pages) is coming. Please someone can
+correct me if I am wrong.
 
-This include a gmac0 node for the 100/10 MAC and its related integrated
-PHY node that only have recived limited testing. I have no board that
-expose an Ethernet port for the gmac0 and the integrated PHY. However,
-the PHY can be identified on addr 0x2 as 0044.1400 and in vendor kernel
-this relate to the Rockchip RK630 PHY. A proper PHY driver will be
-needed to support any real use of gmac0.
+But we don't have that limitation for file-backed folios anymore, so the
+fallback for ra->size < 4 is probably not needed. So the only time we do
+a fallback is if we don't support large folios.
 
-Changes in v3:
-- Rebase on top of latest mmind/for-next
+> If we remove the fallback condition completely, things will still work out. So
+> unless someone can explain the reason for that condition (Matthew?), my vote
+> would be to remove it entirely.
 
-Changes in v2:
-- Split from the "Add GMAC support for RK3528" driver series [1]
-- Add ethernet-phy@2 for the integrated PHY
-- Rebase on top of the "Support I2C controllers in RK3528" series [2]
+I am actually fine with removing the first part of this fallback condition.
+But as I said, we still need to do a fallback if we don't support large folios.
 
-[1] https://lore.kernel.org/r/20250309232622.1498084-1-jonas@kwiboo.se
-[2] https://lore.kernel.org/r/20250309070603.35254-1-ziyao@disroot.org
+--
+Pankaj
 
-Jonas Karlman (2):
-  arm64: dts: rockchip: Add GMAC nodes for RK3528
-  arm64: dts: rockchip: Enable Ethernet controller on Radxa E20C
-
- .../boot/dts/rockchip/rk3528-radxa-e20c.dts   |  30 +++++
- arch/arm64/boot/dts/rockchip/rk3528.dtsi      | 105 ++++++++++++++++++
- 2 files changed, 135 insertions(+)
-
--- 
-2.49.0
-
+[1] https://lore.kernel.org/all/ZH0GvxAdw1RO2Shr@casper.infradead.org/
 
