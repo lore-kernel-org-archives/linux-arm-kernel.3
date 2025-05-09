@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B99DC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 15:50:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84EB8C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 15:52:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2+5+GjqrqahDjWCbB2TifM56CkY8Jd8rJ23PVGyVzuc=; b=EysfVUlliiq1KGBMN1XwX4CIoZ
-	WhaJbV2gkbOoX5a0C6QxgMyHHzO3kWtS2gcMrKNM2t98t1IXdEnbYmwffPwaFybZpybmlQFrpK6Rb
-	eDixUBRv+xowuZKhMtlZTcNs0iniKLa5/8XTP7G7kozK9OtKJtieQVMUT7J7cl96v4TUAGtfvt8GF
-	DJcIzU2D5x9clW2VseAnVagvKp5qhIoisgnoZoBHvYcTc6UA/ngdE950f7/bFgloWrz6NMUBP8BJy
-	mNv4hQ0ho0W9NuMCS3giu/s69T+rIoW5R5IeImtslw6eaNHi7LMo8xdU3k8S/IlbwNnuLCQ9tILF2
-	v7EcTuvw==;
+	bh=3+Yzp90os1B1+K7TxmcOkUZ2pL98oF+RE1fH12ahofw=; b=ecc5FODX8iv4iU++/WknNwJ5ck
+	ViT9gWrfWymfzH/7RMn1U4eUFlZ5sATzau1nnZWLoWYMqr3+952Cg97dXORvFgNUC8L8d/QAByZcu
+	aTkcxxVhOXtG07qRvewQLPS9B/0/PHsVjM9nEpbH4v7OOYthJD3DQuYd0INaOGUHFV5GKkmJdLOX/
+	TKzgTmDcSnpToum7RWbcYPzjO0kT3Za9HXXwf3is95RrUR4DmaXpipuJ9++bwop7bVt0q8lu8QQua
+	M8syc8+Um6/fgF48UfGU0j2ATMwNlLdYtdAigiHG45Ebru4IPv61JULUS7Hh+bT8P84xOcKNMcOyp
+	DOwY9xWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDPzf-00000004AB8-0sTd;
-	Fri, 09 May 2025 15:50:35 +0000
+	id 1uDQ1b-00000004AR1-2aLJ;
+	Fri, 09 May 2025 15:52:35 +0000
 Received: from relay4-d.mail.gandi.net ([217.70.183.196])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDODn-00000003rU2-0DmW;
-	Fri, 09 May 2025 13:57:04 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 3E92643B68;
-	Fri,  9 May 2025 13:56:58 +0000 (UTC)
+	id 1uDODq-00000003rVJ-0FDQ;
+	Fri, 09 May 2025 13:57:07 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 8CC9D43B5C;
+	Fri,  9 May 2025 13:57:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1746799021;
+	t=1746799024;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=2+5+GjqrqahDjWCbB2TifM56CkY8Jd8rJ23PVGyVzuc=;
-	b=XzrIj71Ku8V5lhSv/pTg7NF/w1dAGdj2vxb46xXSin4YwmN/opCv82pfKp3/7zhc9fKJqo
-	Z7wDDhzmRy+cbNQtAF01IyKPDWaGfLPJn9nMyUSzQs5loSmQVbWIaGBrILD371uS3aQFM0
-	JUiA9oviKajlVhrIpF/GIPana8VNRDXbiKaTfSqhQKY5vylCBzCob0MSe/2r9YFnEn1Dcp
-	wFuA71O6tPWnfvG0kDRYxmKE2yhYjQf/eF/AFMemQ9oyzeRahTUBNkmYqYSGskLlXeL4aU
-	xl5Rd1Tbz4iiuNHC14ZCLBllxFi4xaPXOyERo6erHccLRev50gkeF4FL2Wg4fA==
+	bh=3+Yzp90os1B1+K7TxmcOkUZ2pL98oF+RE1fH12ahofw=;
+	b=GLTkiwfPIyff8yrwQGlb1NRxSNw7C7DYt4+dVEl+10LGfIFOSW4hzkE7/gWMkTxQ954TjV
+	Zy50N1Q0HCG98t7SwoIGYqOgxr17LjkP3B4u5btGDg/d+4jzYA/nT63dZhjImayXOo1jXb
+	AXTL6wUEEgofInXQVkkOsB/VWpKD/qo+Fz6AoVU8NBY3+bHfIjvrNtnZnk+AZ76OpturfV
+	ZU92eRlnMuZvGwryaaRk7RAx51veKDbfnRaTeiLutsdVLtq1n1qhzcfAxt4T5q/o9ckVhD
+	Wc5ycGU1BCVpb07X0Ur03Vt1zmzT6mzM2XyA4GfFVRcEEAHSueZauA5I8WTxlQ==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Fri, 09 May 2025 15:53:41 +0200
-Subject: [PATCH v3 15/22] drm/bridge: stm_lvds: convert to
- devm_drm_bridge_alloc() API
+Date: Fri, 09 May 2025 15:53:42 +0200
+Subject: [PATCH v3 16/22] drm/sti: dvo: convert to devm_drm_bridge_alloc()
+ API
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250509-drm-bridge-convert-to-alloc-api-v3-15-b8bc1f16d7aa@bootlin.com>
+Message-Id: <20250509-drm-bridge-convert-to-alloc-api-v3-16-b8bc1f16d7aa@bootlin.com>
 References: <20250509-drm-bridge-convert-to-alloc-api-v3-0-b8bc1f16d7aa@bootlin.com>
 In-Reply-To: <20250509-drm-bridge-convert-to-alloc-api-v3-0-b8bc1f16d7aa@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -76,20 +76,17 @@ Cc: Anusha Srivatsa <asrivats@redhat.com>,
  linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
  freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com, 
  Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Philippe Cornu <philippe.cornu@foss.st.com>, 
- Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>, 
- Yannick Fertre <yannick.fertre@foss.st.com>
+ Alain Volmat <alain.volmat@foss.st.com>, 
+ Raphael Gallais-Pou <rgallaispou@gmail.com>
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvledvjeelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedugeenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegludelvddrudeikedrudejkedruddukegnpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgeegpdhrtghpthhtohepjhhonhgrsheskhifihgsohhordhsvgdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhmpdhrtghpthhtohepihhmgieslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnu
- higqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhgrphhhrggvlhdrghgrlhhlrghishdqphhouhesfhhoshhsrdhsthdrtghomhdprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhm
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvledvjeelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedugeenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegludelvddrudeikedrudejkedruddukegnpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgedupdhrtghpthhtohepjhhonhgrsheskhifihgsohhordhsvgdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhmpdhrtghpthhtohepihhmgieslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnu
+ higqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghlrghinhdrvhholhhmrghtsehfohhsshdrshhtrdgtohhmpdhrtghpthhtohepthiiihhmmhgvrhhmrghnnhesshhushgvrdguvgdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtoheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomh
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_065703_225574_B4970208 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20250509_065706_231704_7682F14C 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,44 +103,104 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 This is the new API for allocating DRM bridges.
 
+This driver allocates the DRM bridge separately from the main driver
+private struct, which prevents using the new devm_drm_bridge_alloc()
+API. Simplify the code by replacing the struct drm_bridge pointer with an
+embedded struct drm_bridge inside the private struct, to make use of the
+new API with the same code flow.
+
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 ---
 
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Philippe Cornu <philippe.cornu@foss.st.com>
-Cc: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-Cc: Yannick Fertre <yannick.fertre@foss.st.com>
----
- drivers/gpu/drm/stm/lvds.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+Cc: Alain Volmat <alain.volmat@foss.st.com>
+Cc: Raphael Gallais-Pou <rgallaispou@gmail.com>
 
-diff --git a/drivers/gpu/drm/stm/lvds.c b/drivers/gpu/drm/stm/lvds.c
-index a3ae9a93ce6670eb2c4dd36b3e572fcbca791a1c..07788e8d3d8302a3951e97d64736b721033998d3 100644
---- a/drivers/gpu/drm/stm/lvds.c
-+++ b/drivers/gpu/drm/stm/lvds.c
-@@ -1049,9 +1049,9 @@ static int lvds_probe(struct platform_device *pdev)
+Changed in v2:
+- fix typos in commit message
+---
+ drivers/gpu/drm/sti/sti_dvo.c | 29 +++++++++++------------------
+ 1 file changed, 11 insertions(+), 18 deletions(-)
+
+diff --git a/drivers/gpu/drm/sti/sti_dvo.c b/drivers/gpu/drm/sti/sti_dvo.c
+index 74a1eef4674eeabc445b53b380e325f785242024..7484d3c3f4ed5fac7eab408e30cbe2f6b87f27e5 100644
+--- a/drivers/gpu/drm/sti/sti_dvo.c
++++ b/drivers/gpu/drm/sti/sti_dvo.c
+@@ -97,7 +97,7 @@ struct sti_dvo {
+ 	struct dvo_config *config;
+ 	bool enabled;
+ 	struct drm_encoder *encoder;
+-	struct drm_bridge *bridge;
++	struct drm_bridge bridge;
+ };
  
- 	dev_dbg(dev, "Probing LVDS driver...\n");
+ struct sti_dvo_connector {
+@@ -439,7 +439,6 @@ static int sti_dvo_bind(struct device *dev, struct device *master, void *data)
+ 	struct drm_encoder *encoder;
+ 	struct sti_dvo_connector *connector;
+ 	struct drm_connector *drm_connector;
+-	struct drm_bridge *bridge;
+ 	int err;
  
--	lvds = devm_kzalloc(dev, sizeof(*lvds), GFP_KERNEL);
--	if (!lvds)
+ 	/* Set the drm device handle */
+@@ -455,20 +454,14 @@ static int sti_dvo_bind(struct device *dev, struct device *master, void *data)
+ 
+ 	connector->dvo = dvo;
+ 
+-	bridge = devm_kzalloc(dev, sizeof(*bridge), GFP_KERNEL);
+-	if (!bridge)
 -		return -ENOMEM;
-+	lvds = devm_drm_bridge_alloc(dev, struct stm_lvds, lvds_bridge, &lvds_bridge_funcs);
-+	if (IS_ERR(lvds))
-+		return PTR_ERR(lvds);
+-
+-	bridge->driver_private = dvo;
+-	bridge->funcs = &sti_dvo_bridge_funcs;
+-	bridge->of_node = dvo->dev.of_node;
+-	drm_bridge_add(bridge);
++	dvo->bridge.driver_private = dvo;
++	dvo->bridge.of_node = dvo->dev.of_node;
++	drm_bridge_add(&dvo->bridge);
  
- 	lvds->dev = dev;
+-	err = drm_bridge_attach(encoder, bridge, NULL, 0);
++	err = drm_bridge_attach(encoder, &dvo->bridge, NULL, 0);
+ 	if (err)
+ 		return err;
  
-@@ -1164,7 +1164,6 @@ static int lvds_probe(struct platform_device *pdev)
- 		goto err_lvds_probe;
+-	dvo->bridge = bridge;
+ 	connector->encoder = encoder;
+ 	dvo->encoder = encoder;
+ 
+@@ -490,7 +483,7 @@ static int sti_dvo_bind(struct device *dev, struct device *master, void *data)
+ 	return 0;
+ 
+ err_sysfs:
+-	drm_bridge_remove(bridge);
++	drm_bridge_remove(&dvo->bridge);
+ 	return -EINVAL;
+ }
+ 
+@@ -499,7 +492,7 @@ static void sti_dvo_unbind(struct device *dev,
+ {
+ 	struct sti_dvo *dvo = dev_get_drvdata(dev);
+ 
+-	drm_bridge_remove(dvo->bridge);
++	drm_bridge_remove(&dvo->bridge);
+ }
+ 
+ static const struct component_ops sti_dvo_ops = {
+@@ -515,10 +508,10 @@ static int sti_dvo_probe(struct platform_device *pdev)
+ 
+ 	DRM_INFO("%s\n", __func__);
+ 
+-	dvo = devm_kzalloc(dev, sizeof(*dvo), GFP_KERNEL);
+-	if (!dvo) {
+-		DRM_ERROR("Failed to allocate memory for DVO\n");
+-		return -ENOMEM;
++	dvo = devm_drm_bridge_alloc(dev, struct sti_dvo, bridge, &sti_dvo_bridge_funcs);
++	if (IS_ERR(dvo)) {
++		DRM_ERROR("Failed to allocate DVO\n");
++		return PTR_ERR(dvo);
  	}
  
--	lvds->lvds_bridge.funcs = &lvds_bridge_funcs;
- 	lvds->lvds_bridge.of_node = dev->of_node;
- 	lvds->hw_version = lvds_read(lvds, LVDS_VERR);
- 
+ 	dvo->dev = pdev->dev;
 
 -- 
 2.49.0
