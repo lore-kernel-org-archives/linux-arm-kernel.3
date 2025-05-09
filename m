@@ -4,66 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A7FC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 15:08:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ABACC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 15:10:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uWpu3LSAV6quqWtK13bHrZijgzMnk51vsRiFeYvV+2Q=; b=kL/atwZXxMWgaS8SpmbLrNGUwR
-	0ESgcf59FZ7xw7ilDIR9YjHnlAPLewY9kjHK8rgYi8bupCAqRptVV6CHRzLqEqTF48HziZnsvazQy
-	Wv1i4Sojo3SngZZzokvsVPdQ4v94waEZfJOzxw6USJc1Id3ppClj8QSwiZWrN7mQxRD3PzpSMLqgz
-	owmBsiO6a4cNXXV31o72bTMOsJ4OnGL7Av5ZBdYdUFhDIrzN5/i6HUHSRvHNBvrgisdm1s6ATJDul
-	/4VPJwSCQbxwop92fKMC+4fM+EvrSsi6fuUVGKZao7OhGcAM60Hm43H6p9Xjv2eWALbpwweS8P5NK
-	H/9SdLpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PZUF6Q4Qc9CPUkc04ir0Y5K/i90KczoIYGaKnAPCoYU=; b=0jEmTXEzw4MHc6BgJsoR6ZOBVK
+	DgZK9bfqW1UBnXkrkd2lJXGFQ9tiUiNJ+dz4wrmSGTCXB5OGQCJJ6Z5OEicLwnOl5HA8DfCHZPvH0
+	TpE+uUe66vAHbdfTk5HhfkHUdTfYxdmpRbi666ZAkbaQu4mDcAb2rVF5jFbL5m8wsa7v1Z6p0fhbo
+	4GSl8MVbUb9tgODp56XEHv/69aHK7E9LcsnSY21BlxYepW6bgXKbGmugTL6ZCrO3BlSC/Rik6I/RR
+	KtuiWeYmgCwJyfcQgkcXxP4ozvGBscSOhRiw/SyPoF9vnO3eVFF5zxE55IxxXr/Qnn+3oH2L5cQnG
+	FUumxaYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDPKQ-000000041vM-216B;
-	Fri, 09 May 2025 15:07:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uDPMN-000000042K4-0HvB;
+	Fri, 09 May 2025 15:09:59 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDO2e-00000003oZp-33De;
-	Fri, 09 May 2025 13:45:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1033B62A1F;
-	Fri,  9 May 2025 13:45:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42DC6C4CEEF;
-	Fri,  9 May 2025 13:45:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746798331;
-	bh=v5Uak0RcmfjhTO5Ysk+NhysPrBjg5pgA9cE1Hgd2gfE=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=iHMEwdP23ywmij2dIw06QIo1o6RyOrSI+/zsCUo5nDKnUyppRzFrGEvOZ5PXwhj/F
-	 HMaL5F7Jd+nsTV2PeECplWgyg998OJc2hYhu0RYzRRzdUi39Hr7hZ+dEE96nl4KanE
-	 Mf7qKeRNhFFHkUHpkgMbdpEu8el4vEHEb8cjcLbIVIQgBjPQyzPpQ+gRJkfsrexTkk
-	 TJUd/vwH+S6QEvA2mxVyMV4q4QIXAlQYHgAU8eek2BOkuGqMFdCL1Cu4Im9S4Y4Asy
-	 X5ALlmXBPwdgyXhNwqVPVZRU5vJaVnqW2yv3ewUpZm1hFQqcPjfwNokpZNt6FarIvL
-	 nAxP6/23PbmFg==
-Date: Fri, 09 May 2025 08:45:29 -0500
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+	id 1uDO3W-00000003ox3-0BLI
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 May 2025 13:46:27 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43cfdc2c8c9so11173355e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 06:46:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1746798384; x=1747403184; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=PZUF6Q4Qc9CPUkc04ir0Y5K/i90KczoIYGaKnAPCoYU=;
+        b=ZMPpSuTGzOvhEK7LzrcjlDOx0r61megaZVeSuZisrm5Xl5+gg6cV1R0yI7nCE1XUyR
+         HqalcjqG6A7vJKL8xmsp8e+ucIYSCTR7Rl6cCXk5KVBlJXKCjhhj5O7BtVBaRX2PPIYZ
+         sKMucYj8jIwoSw9EeaCwQhy1CDssC1nBk6oBMaOWHgR+pWeKwMSMy/9c5KVyAOPqh94C
+         3MBLkOxB4n1989MylsLGB0ChTsCvO7x2AwRHOkqr+2E49lk0lVznqkRqK4Fd2sp7iLbD
+         eJt2zqhZtKUZxi1WxBu0e4OfyP9xyVArdOoo44Kh5//RyBtAgJBkDKz5i9TM8Gpb/GNW
+         eprA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746798384; x=1747403184;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=PZUF6Q4Qc9CPUkc04ir0Y5K/i90KczoIYGaKnAPCoYU=;
+        b=TX7XPYymiq/kew9UYJ6QViANVRXq5tnTG3ZKkDZaVCug1OvBARwMbKHTbzIqwBrnCS
+         kOf8sEivZuYFD1GQee31tnA2AWXgeZwHxrON5eA+7Lo/byExCU04S2sJBowTeCx5IdkM
+         zHMLR2foEp8jt7C84c+/Z2ZVJD53j8nnA4hwIUqm/JkaxwYTBqOmxoFB+6FyzTvpPU46
+         YO8ugv9l5SX4d3kJadMxTY248f0pDI9CmSOCr8YUSO2vpOfIDY8ojAgClzVXOPsQIk0R
+         tEGLBY0AYIkNv7iH9o7kJ0Sdqj/ZmccMPweIOaOamUH0QE3ol4gK7vUd1PQbQBv1BtRQ
+         MkyA==
+X-Forwarded-Encrypted: i=1; AJvYcCXl+4MPVWleqrOw2pMXS3/YaMDv+a71tUeqiCSZ1L1xaKBcVCrgDNztPq5U+oYEk9dMURlmoHVGCf5VsZ9fDA5L@lists.infradead.org
+X-Gm-Message-State: AOJu0YxPjzH4ba6odqQKhdfxylgMSVHDmlomnjJhYWWImPIKGWjXnZFS
+	rFmiI+mX/u9m/U7HfPYqdodzo/k2FaDkCl4vdoPSEXlZJETiUujADwznL+Tdrcw=
+X-Gm-Gg: ASbGncv9yWRhGDvEmTEsTiFHxSjfTdgleMuChvhbBdklfkkCO+y5/K/94XbSqnRqyUD
+	qdn/dcSRpX0OP+nrTgZ5mWXEEWYo8mzww5EwyHCLBVBpGX7FlBhLxUDJwEgyIM+vLHm5ry8Rvj+
+	70ltDJ+oTNlAcvy3DPIEGitqiVLNljNsBWLb/hIgSdalbtupHmEbu93GN+C8bTUQpb9r811YOW1
+	Xg8jHlh5SLjA3HZI7G3QH+S5yx4ceqAv/+faRYxO0js7zY818+ceIPUq6r4oQTGfjS/Q1V87Qvy
+	cek/8sSxOxU0kC9Q92///EmgmuwtQfHLd8mIN2UKWC5g53xYJCdRHg==
+X-Google-Smtp-Source: AGHT+IEo0jYrQRcALBtqnax8NWcKiAGj6scBJ0uiGs5jTKoY3ij/ij8y04Oz3H5GiqMjPbUsL8YJBQ==
+X-Received: by 2002:a5d:5f95:0:b0:3a0:b84c:7c64 with SMTP id ffacd0b85a97d-3a1f6435b6fmr3000885f8f.13.1746798384562;
+        Fri, 09 May 2025 06:46:24 -0700 (PDT)
+Received: from [192.168.1.3] ([77.81.75.81])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f58ecaeasm3290573f8f.28.2025.05.09.06.46.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 09 May 2025 06:46:24 -0700 (PDT)
+Message-ID: <bc871cb9-0b50-4132-8bdb-3a764bc98180@linaro.org>
+Date: Fri, 9 May 2025 14:46:22 +0100
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: David Airlie <airlied@gmail.com>, dri-devel@lists.freedesktop.org, 
- Simona Vetter <simona@ffwll.ch>, Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Sandy Huang <hjc@rock-chips.com>, linux-arm-kernel@lists.infradead.org, 
- Heiko Stuebner <heiko@sntech.de>, Dragan Simic <dsimic@manjaro.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>
-To: Chaoyi Chen <kernel@airkyi.com>
-In-Reply-To: <20250509070247.868-3-kernel@airkyi.com>
-References: <20250509070247.868-1-kernel@airkyi.com>
- <20250509070247.868-3-kernel@airkyi.com>
-Message-Id: <174679832782.3268212.14187145716217204354.robh@kernel.org>
-Subject: Re: [PATCH v2 2/2] dt-bindings: display: rockchip: Convert
- cdn-dp-rockchip.txt to yaml
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 14/14] arm64: dts: Add DSPI entries for S32G platforms
+To: Matti Vaittinen <mazziesaccount@gmail.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-spi@vger.kernel.org, imx@lists.linux.dev,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ "Radu Pirea (NXP OSS)" <radu-nicolae.pirea@oss.nxp.com>,
+ Vladimir Oltean <olteanv@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+ NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, larisa.grigore@nxp.com, arnd@linaro.org,
+ andrei.stefanescu@nxp.com, dan.carpenter@linaro.org
+References: <20250509-james-nxp-spi-v1-0-32bfcd2fea11@linaro.org>
+ <20250509-james-nxp-spi-v1-14-32bfcd2fea11@linaro.org>
+ <3ddde799-76b5-43f9-971e-a52ec322e9b1@kernel.org>
+ <16e91572-b132-4246-9fa9-8e8bc4c24f40@gmail.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <16e91572-b132-4246-9fa9-8e8bc4c24f40@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250509_064626_094648_B6B24C38 
+X-CRM114-Status: GOOD (  16.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,51 +116,54 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 09 May 2025 15:02:47 +0800, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+
+On 09/05/2025 1:54 pm, Matti Vaittinen wrote:
+> On 09/05/2025 14:26, Krzysztof Kozlowski wrote:
+>> On 09/05/2025 13:06, James Clark wrote:
+>>> +&spi1 {
+>>> +    pinctrl-0 = <&dspi1_pins>;
+>>> +    pinctrl-names = "default";
+>>> +    #address-cells = <1>;
+>>> +    #size-cells = <0>;
+>>> +    status = "okay";
+>>> +
+>>> +    spidev0: spidev@0 {
+>>
+>>
+>> Node names should be generic. See also an explanation and list of
+>> examples (not exhaustive) in DT specification:
+>> https://devicetree-specification.readthedocs.io/en/latest/chapter2- 
+>> devicetree-basics.html#generic-names-recommendation
+>>
+>>
+>>> +        compatible = "rohm,dh2228fv";
+>>
+>>
+>> Nah, I really doubt. That's not the device you have there. It's
+>> possible, though, so can you share schematics?
 > 
-> Convert cdn-dp-rockchip.txt to yaml.
+> Actually, not even possible. There is no DH2228FV from ROHM. There is 
+> BH2228FV though:
+> https://www.rohm.com/products/data-converter/d-a-converters/8bit-d-a/ 
+> bh2228fv-product
 > 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
+> but as you know, it is unlikely this is the part populated on the board.
 > 
-> Changes in v2:
-> - Rename binding file name to match compatible
-> - Add more description about grf/phy/extcon
-> - Fix coding style
+> For the author:
+> https://lore.kernel.org/linux-rockchip/20250213-calamity- 
+> smuggler-5d606993be32@spud/T/
 > 
-> 
->  .../display/rockchip/cdn-dp-rockchip.txt      |  74 --------
->  .../rockchip/rockchip,rk3399-cdn-dp.yaml      | 158 ++++++++++++++++++
->  2 files changed, 158 insertions(+), 74 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/display/rockchip/cdn-dp-rockchip.txt
->  create mode 100644 Documentation/devicetree/bindings/display/rockchip/rockchip,rk3399-cdn-dp.yaml
-> 
+> Yours,
+>      -- Matti
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Correct, I believe these go straight to a header and aren't connected, 
+so this device is just an example placeholder for a 'generic' SPI device.
 
-yamllint warnings/errors:
+It might be more accurate to remove this, and then anyone using the 
+board for development would have to fill in themselves whatever device 
+is attached to it.
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3399-cdn-dp.yaml: $id: Cannot determine base path from $id, relative path/filename doesn't match actual path or filename
- 	 $id: http://devicetree.org/schemas/display/rockchip/rockchip,cdn-dp.yaml
- 	file: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3399-cdn-dp.yaml
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250509070247.868-3-kernel@airkyi.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+Thanks
+James
 
 
