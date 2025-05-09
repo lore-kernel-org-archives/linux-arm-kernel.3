@@ -4,74 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7661C3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 16:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CAA2C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 16:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DSW6reyOWhAZxycw9g4uswJh9hZ0Rfu3Te/QCqTrdeU=; b=wQeP/ZYTR6smIXv0WSURZ+d10q
-	I8pu0ZMt72kDHP1TolldIn3erO+LbL1G+x8Si05qubP8xyLViTAZNcP9RJj9D87ASFXMbVpAIxHuh
-	NXwDsA5YJ+DjAaWkYk755+aWoVlznlHl6kwwVM2bFXnn9SDXhGtDkEGG2y8BaUYH5lOqbAGp4DobX
-	YpKDiOU/PbItHqcLnk9iGI/jFDsl3+0GWp4240OTE2caDPSBmzVx7CxF20XQzKCIS5OdudIP8OqaD
-	ZR9kSNin4yOAyg5ISjsjXRZ2ClcLDt0bdUsK4rPu4tZZ02g3dDQ24fV+DRS0GuUfTpuhS9/hIyMtm
-	TilP2ytw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s7/UBLCBPT+cSExJFYWPyngJaCpo773rTGRRURQeZZc=; b=XR663qWasXUcJds5swOJsZ6Kew
+	pngRp1xwMlZPpi3qzUUU/o9b8k7DuCL+k6aH8KW9l4syuWvmeGfsoWz/CQBzmkp4xXwGx90010jPP
+	vLVGSqxNt6rMp2eZWr2OQgRaKwqpP/8KGJtuyrjSXoWqCC4uDCXOhSM+XiaD1prZxgwwwu+VrYRcz
+	pfpN/4HdUf/rY4dOFE1fI6AcVtLQ4yKtY6dyczTXoMEN4y2+JAMB/bJ3YonklNPndAvKMw8Gy6I4d
+	rUHvuFnDyR7LfMAFI3dj7vfQwgLPq6Mbx53D+jqh5ZAI9kF0Zf/SxVbzhTj8OvgrX2H994R9YfEyt
+	SdmlyVsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDQdT-00000004IHt-3cw5;
-	Fri, 09 May 2025 16:31:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uDQeb-00000004Ibw-3YIn;
+	Fri, 09 May 2025 16:32:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDOCJ-00000003qvj-0f4y
+	id 1uDOXA-00000003v4V-1bHQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 13:55:32 +0000
+	Fri, 09 May 2025 14:17:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 86E8044A74;
-	Fri,  9 May 2025 13:55:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E1F8C4CEE4;
-	Fri,  9 May 2025 13:55:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B45DF629E2;
+	Fri,  9 May 2025 14:17:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C02AC4CEEF;
+	Fri,  9 May 2025 14:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746798930;
-	bh=fdEgs25vEPwqIgDrnCoFiHh3llkQsPglOvG51YbtKXY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cXblmqskyFblffDqIbr+/c6MBW892Zb3wPl5bxT6As7LwCZajZNFcmDdRX6AHytbV
-	 9vSSZfFgRIncwSDa5ENlP0wUWnr6jeitGiM+cdStS8i4FeYEIkdumqDNadGj2jAvQi
-	 FiCz1fNrF8nj76CWna5vtebZntOjf9UvNF2A9XlkHiVXbYMF5Gb/cBOnGsZwnN23an
-	 ZVR8fF/T8Q3p612Q764Ux0CGVM1TeoVomSSmBboUmsRzjhlFWils6LnmXgXYEqEvId
-	 bY3sMHh6PwC5xvt00rjmMAmb5Ul1KI5TFvsLCNKWCu3tDUPP4dqEjgsb6RbsVp9VoV
-	 wepWy+8oo9MDw==
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	David Hildenbrand <david@redhat.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 00/11] Perf improvements for hugetlb and vmalloc on arm64
-Date: Fri,  9 May 2025 14:55:18 +0100
-Message-Id: <174679458910.1792901.13579160002600202326.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250422081822.1836315-1-ryan.roberts@arm.com>
-References: <20250422081822.1836315-1-ryan.roberts@arm.com>
-MIME-Version: 1.0
+	s=k20201202; t=1746800222;
+	bh=kFuKGQ5an19i2JENb5lALSPRYzO6h5w5ui0WYcZmv8A=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=iJHrbdPR8UWZAqLmiv7hRO6vG2NXFVUdvVIdB9xoZCRFaAghhDanhQlqLL5Xq9iqA
+	 aCm3My/J6HR2Si0UxIf0AhBizihOsfQg0pzwy3384v4hG5CSBu7no0SSNmYAxcjQ1c
+	 59GNK2MJXL6yXA+XLTSz9MlieK6p8QuwXJcdKQGRGwtd7ZT+O15ZBGK3C7XoEbBpsA
+	 ZBJLd9J5RYAqOJe9YvpE2Ij8vN4wxripauTm7WTQKe+a0eaAH9nVCXFbGLu+SY5jiV
+	 sPiVcU+1m3NRHIv4hZy+a8IQPN8+EogveuPGd6bv4K0rJNi1NgPPOJm2pNW/ZnWquO
+	 nqGxKACQp+h2A==
+Date: Fri, 09 May 2025 09:17:00 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_065531_237217_34997C3A 
-X-CRM114-Status: GOOD (  14.33  )
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Liviu Dudau <liviu.dudau@arm.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Sudeep Holla <sudeep.holla@arm.com>, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org
+To: Leo Yan <leo.yan@arm.com>
+In-Reply-To: <20250508161907.1152054-1-leo.yan@arm.com>
+References: <20250508161907.1152054-1-leo.yan@arm.com>
+Message-Id: <174679984987.3368571.16872352739655196662.robh@kernel.org>
+Subject: Re: [PATCH] arm64: dts: fvp: Add ETE and TRBE nodes for Rev C
+ model
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,52 +71,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 22 Apr 2025 09:18:08 +0100, Ryan Roberts wrote:
-> This is v4 of a series to improve performance for hugetlb and vmalloc on arm64.
-> Although some of these patches are core-mm, advice from Andrew was to go via the
-> arm64 tree. All patches are now acked/reviewed by relevant maintainers so I
-> believe this should be good-to-go.
+
+On Thu, 08 May 2025 17:19:07 +0100, Leo Yan wrote:
+> The FVP Rev C model includes CoreSight ETE and TRBE support.  These
+> features can be enabled by specifying parameters when launching the
+> model:
 > 
-> The 2 key performance improvements are 1) enabling the use of contpte-mapped
-> blocks in the vmalloc space when appropriate (which reduces TLB pressure). There
-> were already hooks for this (used by powerpc) but they required some tidying and
-> extending for arm64. And 2) batching up barriers when modifying the vmalloc
-> address space for upto 30% reduction in time taken in vmalloc().
+>   -C cluster0.has_ete: 1
+>   -C cluster1.has_ete: 1
+>   -C cluster0.has_trbe: 1
+>   -C cluster1.has_trbe: 1
 > 
-> [...]
+> This change adds device tree bindings for the ETE and TRBE nodes.  They
+> are disabled by default to prevent kernel warnings from failed driver
+> probes, as the model does not enable the features unless explicitly
+> specified.
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>  arch/arm64/boot/dts/arm/fvp-base-revc.dts | 62 +++++++++++++++++++++++
+>  1 file changed, 62 insertions(+)
+> 
 
-Sorry for the delay in getting to this series, it all looks good.
 
-Applied to arm64 (for-next/mm), thanks!
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-[01/11] arm64: hugetlb: Cleanup huge_pte size discovery mechanisms
-        https://git.kernel.org/arm64/c/29cb80519689
-[02/11] arm64: hugetlb: Refine tlb maintenance scope
-        https://git.kernel.org/arm64/c/5b3f8917644e
-[03/11] mm/page_table_check: Batch-check pmds/puds just like ptes
-        https://git.kernel.org/arm64/c/91e40668e70a
-[04/11] arm64/mm: Refactor __set_ptes() and __ptep_get_and_clear()
-        https://git.kernel.org/arm64/c/ef493d234362
-[05/11] arm64: hugetlb: Use __set_ptes_anysz() and __ptep_get_and_clear_anysz()
-        https://git.kernel.org/arm64/c/a899b7d0673c
-[06/11] arm64/mm: Hoist barriers out of set_ptes_anysz() loop
-        https://git.kernel.org/arm64/c/f89b399e8d6e
-[07/11] mm/vmalloc: Warn on improper use of vunmap_range()
-        https://git.kernel.org/arm64/c/61ef8ddaa35e
-[08/11] mm/vmalloc: Gracefully unmap huge ptes
-        https://git.kernel.org/arm64/c/2fba13371fe8
-[09/11] arm64/mm: Support huge pte-mapped pages in vmap
-        https://git.kernel.org/arm64/c/06fc959fcff7
-[10/11] mm/vmalloc: Enter lazy mmu mode while manipulating vmalloc ptes
-        https://git.kernel.org/arm64/c/44562c71e2cf
-[11/11] arm64/mm: Batch barriers when updating kernel mappings
-        https://git.kernel.org/arm64/c/5fdd05efa1cd
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-Cheers,
--- 
-Will
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: failed to guess base
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/arm/' for 20250508161907.1152054-1-leo.yan@arm.com:
+
+arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete0 (arm,embedded-trace-extension): 'arm,coresight-loses-context-with-cpu' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/arm/arm,embedded-trace-extension.yaml#
+arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete0 (arm,embedded-trace-extension): $nodename:0: 'ete0' does not match '^ete(-[0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/arm/arm,embedded-trace-extension.yaml#
+arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete1 (arm,embedded-trace-extension): 'arm,coresight-loses-context-with-cpu' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/arm/arm,embedded-trace-extension.yaml#
+arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete1 (arm,embedded-trace-extension): $nodename:0: 'ete1' does not match '^ete(-[0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/arm/arm,embedded-trace-extension.yaml#
+arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete2 (arm,embedded-trace-extension): 'arm,coresight-loses-context-with-cpu' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/arm/arm,embedded-trace-extension.yaml#
+arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete2 (arm,embedded-trace-extension): $nodename:0: 'ete2' does not match '^ete(-[0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/arm/arm,embedded-trace-extension.yaml#
+arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete3 (arm,embedded-trace-extension): 'arm,coresight-loses-context-with-cpu' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/arm/arm,embedded-trace-extension.yaml#
+arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete3 (arm,embedded-trace-extension): $nodename:0: 'ete3' does not match '^ete(-[0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/arm/arm,embedded-trace-extension.yaml#
+arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete4 (arm,embedded-trace-extension): 'arm,coresight-loses-context-with-cpu' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/arm/arm,embedded-trace-extension.yaml#
+arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete4 (arm,embedded-trace-extension): $nodename:0: 'ete4' does not match '^ete(-[0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/arm/arm,embedded-trace-extension.yaml#
+arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete5 (arm,embedded-trace-extension): 'arm,coresight-loses-context-with-cpu' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/arm/arm,embedded-trace-extension.yaml#
+arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete5 (arm,embedded-trace-extension): $nodename:0: 'ete5' does not match '^ete(-[0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/arm/arm,embedded-trace-extension.yaml#
+arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete6 (arm,embedded-trace-extension): 'arm,coresight-loses-context-with-cpu' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/arm/arm,embedded-trace-extension.yaml#
+arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete6 (arm,embedded-trace-extension): $nodename:0: 'ete6' does not match '^ete(-[0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/arm/arm,embedded-trace-extension.yaml#
+arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete7 (arm,embedded-trace-extension): 'arm,coresight-loses-context-with-cpu' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/arm/arm,embedded-trace-extension.yaml#
+arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete7 (arm,embedded-trace-extension): $nodename:0: 'ete7' does not match '^ete(-[0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/arm/arm,embedded-trace-extension.yaml#
+
+
+
+
+
 
