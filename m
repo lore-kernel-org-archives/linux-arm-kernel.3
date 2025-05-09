@@ -4,64 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5A28C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 10:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57571C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 10:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qJ3lvdCzXOC5qVR7Kric8rKVBD+4fl8ydpCs57AL2j4=; b=kcSUrG492hfo6YXW88FoD5qhV0
-	yD/PDg1aI8N5VaswI/GrBYvjOVtAD6eRmfTj9ozNDkZVdg0dJYa5Oz4nZdIwOdCHl53ZpZUqPr7jQ
-	qYWa4pe0d5BbiNKt50m0lwvR1ayk3p8HeAOxsNU0AAH/dffl5auhWpApPgO43yvcM/7MZsOvaSj9J
-	aGaPkb1Sc/nVGc0x/74KKUIf4RllkMuxuv+V0oCzTSJZj9GB6kE0nwWihGGP/5/PmvBqZw+RAGuuo
-	1HFRfsX2Mwo1jLLy2twkc5G3KLE9e1SylOR57UFNSNnsZG1KVdHDeWx7No2pm8guwy9/6oEyaUFg8
-	D4dkM9Zw==;
+	bh=RfGA4MT6s/ONUfjN96ptnM1cIhnwooEM3nBYEO87QoQ=; b=NUqHQNW3bdSCWSrKVumn0UcDTS
+	tDq9O02kv2vYEG+0UsjgncI3ZXYd9o3svk/nXetY+Y/tjZ6aWVDK3fJN3tc1SqfEFWe6JL0jOUatY
+	FrLSivmBrbRmq1IqjQxoDxjrOPAqxWGwOHFY8HYxJ+e0RZe6yRjCunfzeSwxtq+BkbdubKCVjueYB
+	n/14fi1VdioC/dGD6JpTy2QVPz1QYtZdocsqPICKCjBlfrGhQ2q8zw5JDLi8p3b+NS5Ll3pPBZkkm
+	Bs3H4arZxQAJgdQWBkyh8PFvIgI5MZYeYmdMEIW77SWA+66FSWhxGBb4TmB4/I4u910ROaow7UFQC
+	R5qjcvjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDKqZ-00000003Fd0-177K;
-	Fri, 09 May 2025 10:20:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uDKsV-00000003Fxd-1EGE;
+	Fri, 09 May 2025 10:22:51 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDJvH-000000035VW-050h;
-	Fri, 09 May 2025 09:21:41 +0000
+	id 1uDJxo-0000000364P-0uoz;
+	Fri, 09 May 2025 09:24:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AA426452B3;
-	Fri,  9 May 2025 09:21:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A3A1C4CEE4;
-	Fri,  9 May 2025 09:21:34 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5F59DA4AE02;
+	Fri,  9 May 2025 09:24:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79335C4CEE4;
+	Fri,  9 May 2025 09:24:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746782498;
-	bh=YAiCFXDrUR9QpZfn6PRjLwyLkYo2hhAiphrjnSdS4GU=;
+	s=k20201202; t=1746782655;
+	bh=NO8fViOIlWT6Uf6dz/qzvniQhtjlz89wsnpB5ZiCryM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tXgxC1bVlKrgf8eGnuIC+stZBZLpvZEKl18Xr3q6+owfm4xWrKvnBz1wGG2+aoySQ
-	 DYm3QfirHRPe9BS66Il5sjgFiewUl4+jPSUm83wEgtp8b2Iabo+FRRaBCOaLiredZt
-	 9boEel/8mlE9oGBu/Zq/zTZDBU2f23p90bs+wzez4mjnFgTyCP17pihMIdztxWUJC/
-	 DuHv7Jcx7h0WJ1IZ8tCjGn1zlM18niw3ryiWbybf8sRzMD59pQPXtl6PV0+86tKayE
-	 1BGWT2KFPkxIXmh+c6hh8fgjn/Ok+E3bUhRsVKNbPD6OE4vxOtZIhXMY8JsnKtrNF1
-	 GcndGsDqZuSpg==
-Message-ID: <5c0a3b62-cf4f-46ec-b0e2-7d78ac499cb5@kernel.org>
-Date: Fri, 9 May 2025 11:21:32 +0200
+	b=YcsE6bxPHtlMeGoEfUWsu3amaw+TmioeejKx71LNLw179IKHsce9U5b8pk45DCRfT
+	 WwccidsN1Im/ep9KLIjVLN+amMGhlOAygi36S/ByDfdbUUB1zGW52Af6NdBpUmkeaZ
+	 V2saQszdSuspUrTMT5tCwZXd6hT9+LTdjUUlfNiZDo855LVC4KXbxGH3AHCcK6gkB1
+	 mAqwSt5NQ82QB2aX5tEWqjy4lYpjvzjQuqT2I6+TE2Rk9gfDmxjxtbicXY2re1FbdV
+	 viP1/+fWm3UJWLbfwjZydJVHifkW+N1A1nn9RlQAloFcxXtFrRjN/XBfn4Qwg3kFiE
+	 FuFlHAKQ/x9hg==
+Message-ID: <6937a4da-303b-4c89-88d1-1b698127bfb7@kernel.org>
+Date: Fri, 9 May 2025 11:24:10 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] dt-bindings: display: rockchip: Convert
- cdn-dp-rockchip.txt to yaml
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>, Chaoyi Chen
- <kernel@airkyi.com>, Sandy Huang <hjc@rock-chips.com>,
- Heiko Stuebner <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: Dragan Simic <dsimic@manjaro.org>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250509070247.868-1-kernel@airkyi.com>
- <20250509070247.868-3-kernel@airkyi.com>
- <ccf4b15a-8399-4a7f-ae40-d01d0975921c@kernel.org>
- <5a4f6229-1450-4c96-bfac-5257f66b2ddf@rock-chips.com>
+Subject: Re: [PATCH 1/2] ARM: dts: rockchip: Sonoff-iHost: adjust SDIO for
+ stability
+To: Hao Zhang <hao.zhang@coolkit.cn>, heiko@sntech.de
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ tim@feathertop.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250509085657.309934-1-hao.zhang@coolkit.cn>
+ <20250509085657.309934-2-hao.zhang@coolkit.cn>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,12 +99,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <5a4f6229-1450-4c96-bfac-5257f66b2ddf@rock-chips.com>
+In-Reply-To: <20250509085657.309934-2-hao.zhang@coolkit.cn>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_022139_103612_653033A8 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20250509_022416_395647_2A67E283 
+X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,52 +120,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/05/2025 09:34, Chaoyi Chen wrote:
-> Hi Krzysztof,
+On 09/05/2025 10:56, Hao Zhang wrote:
+> From: "hao.zhang" <hao.zhang@coolkit.cn>
 > 
-> On 2025/5/9 15:11, Krzysztof Kozlowski wrote:
->> On 09/05/2025 09:02, Chaoyi Chen wrote:
->>> +
->>> +  clock-names:
->>> +    items:
->>> +      - const: core-clk
->>> +      - const: pclk
->>> +      - const: spdif
->>> +      - const: grf
->>> +
->>> +  extcon:
->>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
->>> +    description:
->>> +      Phandle to the extcon device providing the cable state for the DP PHY.
->>> +
->>> +  interrupts:
->>> +    maxItems: 1
->>> +
->>> +  phys:
->>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
->> Just phandle. If this is an array (but why?), you need maxItems for
->> outer and inner dimensions.
-
-Uh, sorry, that was supposed to be under extcon.
-
+> Reduce max-frequency from 50MHz to 25MHz to improve WiFi module stability
+> on some Sonoff iHost units. Remove unsupported or redundant properties,
+> and keep only minimal, validated configuration.
 > 
-> I think it could be phandle or phandle-array. Since the RK3399 DP has 
+> Signed-off-by: hao.zhang <hao.zhang@coolkit.cn>
 
-Here it is obviously not needed, that's a dtschema type.
-
-> two PHYs, if we put in two PHYs here, the driver will pick one PHY port 
-> that is already plugged into the DP for output. If we fill in only one 
-> PHY here, then output is only allowed on the corresponding PHY.
-> 
-> Will add restrictions and add more descriptions in v3.
-> 
-> 
->>
->>> +    description:
->>> +      Phandle to the PHY device for DP output.
-
-You need to list the items with description iinstead.
-
+Do not use login as name, especially that you did it right for the email
+address you sent it from.
 
 
 Best regards,
