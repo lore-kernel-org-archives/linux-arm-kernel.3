@@ -4,73 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9EB1C3ABCD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 12:55:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA4FC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 12:57:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Szx3j0XFQEI/UBZs807hBKYHQ3bAc/qN60fFOlHrtI=; b=ZCwTZRNhkG7lzxBCiVRSUs7vYR
-	h4+Lrlb73u88DHmcGDg+77YGoYbr8ZwZwW+gJZlU7MhjfC9oYSPGHIa3QmNsRaRIAfVTXmuip9/us
-	NzbmQFMcl2bxflvqhjO7QXGOfa3BHemAYPdhrn+Ggc11oh5NkJNLWyJKu7eo6Qqq0xW+8UZElrITg
-	LDl/ZO5cHPdzW2zWdQ2RUWHKoMUl2XqAPkdDTM57f3/BY1Cj3QNtnKHfVxcNAhFv4trUMBkJU823w
-	wKp2nX1TsO8HUYSj24z0xQlJggA0w0Pm1wydUW/GzPtnWayNgrkC8mA/yGaMgw+VgqGiVoBIeYY1w
-	Jk5C7yIg==;
+	bh=buoVXNhmF1jeahlagtzyHKLHczoBcDE5+4KTZwBjQ70=; b=sGih744Or39P44DiDiVUoH0/zl
+	NKSztxOHztu0aPkPtRgyqzH8YCvUdVZWrN3dXHbijizLavL8nt2z2+g9R/Xyq9KGtfOFnKyLfuqPS
+	OkvrtFW7WdyySpqqFLNEk/hXkE0/0SAg+qtLh29HdmNkdB6ohmWx1naHppfIyPZFGd8uApJcDFtDq
+	moAg+SQyBo3gyUNZ57pExYtVS4Il6uNbmcUmCMf2S+LVHilzwBtBUH0p0r+RtfUkM7AH/C27fK61Z
+	vNjRT67ec2hVzQU9yb4u3Vw1rCoSn7UXoHwGu2auF7hcJ2I72uNk8EwLs6pEINNwarY4gcL/d6n8y
+	yo/XLijA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDNGJ-00000003f5Z-3ppL;
-	Fri, 09 May 2025 12:55:35 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDMTS-00000003X1B-26OO;
-	Fri, 09 May 2025 12:05:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=9Szx3j0XFQEI/UBZs807hBKYHQ3bAc/qN60fFOlHrtI=;
-	b=WE6X6Oe68i2pgvx5xNscRvtTNl3LlOetrwoJA5hDiunh5b9eEwaidFRfleV8n5
-	v+bysff+v0rPSbJOT1Hby7e3FKVCp67ea45gyvg7e2SS/6cmVlmS44czvB2v+aia
-	fsKZBlcG59+ToQhiA3BZFRmj7Ad0b8FgffcspENpFqbac=
-Received: from [192.168.142.52] (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wD3_5EM7x1oPsfZAA--.35294S2;
-	Fri, 09 May 2025 20:03:27 +0800 (CST)
-Message-ID: <78abe899-e529-49e8-9a16-a2657db666e4@163.com>
-Date: Fri, 9 May 2025 20:03:24 +0800
+	id 1uDNIG-00000003fhm-3kGT;
+	Fri, 09 May 2025 12:57:36 +0000
+Received: from mail-db8eur05on20717.outbound.protection.outlook.com ([2a01:111:f403:2614::717] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uDMeA-00000003YLz-0wDO
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 May 2025 12:16:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=x9tYDRn3ujVLMrldK+kiCpAiK26zzAfJSGtD/jSGP76D/KDu6DZlW0KsJqgYK27gaWVm7sLQHRVjqtW1896v+xYlFFZp22FGEQUVKrm8h8g8kZ3hkHehzzwMUzrHK/4VXtZBVROqhGzfzFAiz5A+wVzATjryGUCYFMaupYmv+WMu29pGsf30SjMhwVWhzqGHcboEFojQ/84KOsqwia0yKPcnqGkB6F13V4eeLaHMRy/f4eC9eJcU+VgyBehiWYvHZKJPpF4R0exEDO113kjeXDLdQHAJPmdCITNGAYLUziziTAB6v9UQrjE3KO9Sdtq1isZZC895/PPQ7xPtvWT9QA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=buoVXNhmF1jeahlagtzyHKLHczoBcDE5+4KTZwBjQ70=;
+ b=fnOYouzizFiQpt5CpBHttHpoabzqWgyUrKPJn8dpvmcsHHB5RiaJ5JAvkbCP3DvYCGt1+YkdRWzGztaAT87V4R2aPcMsIGGtWkr7NMUmaKpzMBIEbsSHnXtJR8AtqMAq+OFL5PTd+PbcGN4fQn+vmbia3CkgTbMgAJu5cljt4GA1FfM8rcCRTGj+8r8aeaNRCGfz0+IyI7T3Enzn1FEAG/48d7ndVK+2MIR9FWrmHLSiiwPgy7lchjkFyuEOBLtv81j7etU19CpWS+k08ijRTDARe12GIAVdPhT3HU+NF8JD0kLtQl2vNejgov7gIhY0TPp7As2ahz0IlMApB+v0gA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 91.26.50.189) smtp.rcpttodomain=arm.com smtp.mailfrom=phytec.de;
+ dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
+ header.from=phytec.de; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=buoVXNhmF1jeahlagtzyHKLHczoBcDE5+4KTZwBjQ70=;
+ b=EltGWmXE5pTnJmwUM3x2MrzETHVwXjy8c3+hwwz0AjY1TSINCfVZWJmg2F63TphZYw4BTTOKeGmpKUerXGFnGMPs1a9dnaGQJpW3OwhErIblQVbwGfcnAVRR8KjA5g3srTryPU69UqYk0Qc1N3gGNMeNB4T2KL+qiU1rmlnTLki6InYgHRj2JkEfEFwDG3yVNDwEz9y6yMe4mGOCAUgyCxq4OGzD/rMhlhSaM7GT0A04KWEFccELHnbY7Wut01/88uYlz8vUFkv0Q3+KX3IvqmiYM7T3Zn0bXJCVsg2AlEIWbz3rRY/Vyspvu2bjmwU6Hqi/3uPy/g1GaJ5rq1eHgA==
+Received: from PAZP264CA0135.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:1f8::10)
+ by DB9P195MB1633.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:37d::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.23; Fri, 9 May
+ 2025 12:16:01 +0000
+Received: from AMS1EPF00000049.eurprd04.prod.outlook.com
+ (2603:10a6:102:1f8:cafe::e3) by PAZP264CA0135.outlook.office365.com
+ (2603:10a6:102:1f8::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.23 via Frontend Transport; Fri,
+ 9 May 2025 12:16:01 +0000
+X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
+ smtp.mailfrom=phytec.de; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ phytec.de discourages use of 91.26.50.189 as permitted sender)
+Received: from Diagnostix.phytec.de (91.26.50.189) by
+ AMS1EPF00000049.mail.protection.outlook.com (10.167.16.133) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8722.18 via Frontend Transport; Fri, 9 May 2025 12:16:01 +0000
+Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
+ (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Fri, 9 May
+ 2025 14:16:01 +0200
+Received: from augenblix2.phytec.de (172.25.0.51) by Florix.phytec.de
+ (172.25.0.13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Fri, 9 May
+ 2025 14:16:00 +0200
+From: Yannic Moog <y.moog@phytec.de>
+Date: Fri, 9 May 2025 14:15:50 +0200
+Subject: [PATCH v2 1/2] dt-bindings: add imx95-libra-rdk-fpsc
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] PCI: aardvark: Remove redundant MPS configuration
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>
-Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
- heiko@sntech.de, yue.wang@amlogic.com, neil.armstrong@linaro.org,
- robh@kernel.org, jingoohan1@gmail.com, khilman@baylibre.com,
- jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
- linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20250506173439.292460-1-18255117159@163.com>
- <20250506173439.292460-4-18255117159@163.com>
- <20250506174110.63ayeqc4scmwjj6e@pali>
- <8a6adc24-5f40-4f22-9842-b211e1ef5008@163.com>
- <ff6abbf6-e464-4929-96e6-16e43c62db06@163.com>
- <20250507163620.53v5djmhj3ywrge2@pali>
- <oy5wlkvp7nrg65hmbn6cwjcavkeq7emu65tsh4435gxllyb437@7ai23qsmpesy>
-Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <oy5wlkvp7nrg65hmbn6cwjcavkeq7emu65tsh4435gxllyb437@7ai23qsmpesy>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3_5EM7x1oPsfZAA--.35294S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxCrW8WFWktr1rAF45Kw13twb_yoWrWFykpF
-	y3XF1FyFs8Jr13CFnFqa1kKry3tasrKryrXrn8Gry3AF9IqryUGFy2yr4rua47Xr1xCF1j
-	yr1YqrWSvF1Yy3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07URc_hUUUUU=
-X-Originating-IP: [222.71.101.198]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiWwdIo2gd5xbcqQAAsG
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250509-wip-y-moog-phytec-de-imx95-libra-v2-1-b241a915f2be@phytec.de>
+References: <20250509-wip-y-moog-phytec-de-imx95-libra-v2-0-b241a915f2be@phytec.de>
+In-Reply-To: <20250509-wip-y-moog-phytec-de-imx95-libra-v2-0-b241a915f2be@phytec.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "Sascha
+ Hauer" <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+CC: <upstream@lists.phytec.de>, Benjamin Hahn <b.hahn@phytec.de>, "Teresa
+ Remmet" <t.remmet@phytec.de>, Yashwanth Varakala <y.varakala@phytec.de>, "Jan
+ Remmet" <j.remmet@phytec.de>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, Conor Dooley
+	<conor.dooley@microchip.com>, Yannic Moog <y.moog@phytec.de>
+X-Mailer: b4 0.14.1
+X-Originating-IP: [172.25.0.51]
+X-ClientProxiedBy: Diagnostix.phytec.de (172.25.0.14) To Florix.phytec.de
+ (172.25.0.13)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMS1EPF00000049:EE_|DB9P195MB1633:EE_
+X-MS-Office365-Filtering-Correlation-Id: bf1b921d-1fd9-41a3-b0b8-08dd8ef3438a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VC9BTUNtSEhJZWpGa1BKdVN3ZW1yelFVWDQ2Mm1JYjg0VzZQTlFZMnVyOHR1?=
+ =?utf-8?B?TWZHc3VHU2JrU2lnb3czWVRScUNzY3YvRUlpdFQ4TDU2MHNmTDVYK0gyS3My?=
+ =?utf-8?B?YU85dFVYY0t5d0h5dXNxVVNZUGp1Rkt4R2ZzWDh2endPV2d5d0hGUkJLRmVT?=
+ =?utf-8?B?ZktnaDRmVmNMakhHeHZJV1hxZUl4VnNzdFFYOHRUakpjR2ZIeFRQVlZqcHdv?=
+ =?utf-8?B?eHNBeEs4QzdZcFVKMUZRbWxPK3V4SkdWQVpxb1lLNXVGOTRJUkVQb0E2V1da?=
+ =?utf-8?B?VHh0R1NHUk5FL2VmR0J1YUE1RFBtUnhWUXhTSjc3djVYQ0FwUGVQcSt1VjNG?=
+ =?utf-8?B?a0JEY2d5eERPcTdwS1ZYVzNPV1kycy8vQ2VZUFhmVTZzTlZNMmZLOFhBU20z?=
+ =?utf-8?B?RUhPb1dtUVdtblYrL2huNEJXSGpQbHdaVUtaRG90aFNBYkd0V001b0lYSCtW?=
+ =?utf-8?B?aTBsT3VQVHFVN0FuamhkZzZYWmlDdDZWRWU1VjNNNTJUaC9xKzJ6dlRlL2hm?=
+ =?utf-8?B?OHRiOFBOQVJCcVhTeC94bjFmTnVuV2NJODNVc3VJdVVkQ2FWTUxvbDFsaTJE?=
+ =?utf-8?B?dGNVWTgxeVdWUWcxc0QvTXVDWHg4T3B4Si83VG01dkZ6TWR5anRNNldIUW5D?=
+ =?utf-8?B?Z3I3V2dpOGJvbHNDeE9EYkdqWTVhaUpDTWM3d2VrUjZUd2FuMW1NZ1VZVlRI?=
+ =?utf-8?B?c2R4MFlBQlpCRmtlZXRIcmY5OGdNeGVnYlJjYUo3ek10aVBtVENXczA0VUV1?=
+ =?utf-8?B?WmdjTkJsdzN0NFRZcVY2VDlPbEVXSlBkNFMwNUhpT012VHIxOXJJOTZRM25R?=
+ =?utf-8?B?N0IvTWNlcis2b0U1cWpld2VCK0dvTUUzVENKeVBFSVhVMW8raVNSWStVUC9N?=
+ =?utf-8?B?SWNzaWR1a0puVmdmNmU4Rmw3Zi8xUFhBVmFSZVBGd1Jsc29JT1NFeCtOTTE5?=
+ =?utf-8?B?bWpCYWg3bUZuUDJtMEJXSEVaVC8vNzFBQVZFZmdyM0hBaUw3aFovL09vUzda?=
+ =?utf-8?B?S292MHpKQW5xdnlnWVdCeGtuTzhqNjhFQkVPanFTT2xxcGMwbE1ySm5OZHpS?=
+ =?utf-8?B?S2Q5VTZ5Z3VHUnQ5M0ttd2ZMU1ZiZWdmTkpsN1NuVWlGOHZSVWpEeHFFUmg4?=
+ =?utf-8?B?YmsvRzZHSkpBeXc4YnNWYU83b1N5bzNzRTd0czczbkNKMGJJTmZaaXMwaFZM?=
+ =?utf-8?B?YU9yUGttanFldnhtTG1pZ2lVaGdWYjJLU3lYOUQ5YmV3NTYxcy9VTElJaWFF?=
+ =?utf-8?B?TVBCc3owM2o1NU5wY1JreWhkS2hKZVBRWFg0cUg4L2hyQUM4d0hKMk50T0xR?=
+ =?utf-8?B?Wi9rOEYvVGJsVzhMdkprd2l1VlNHamJjeUMwWU5YL3FyZWJ2NHNEMkxoSkJZ?=
+ =?utf-8?B?bTVGa0ZpRm5HSnc0S1MvdGt1ZVJqTzh3R3BrKzBZZEJ1WU51ZWhwQlk3a1pv?=
+ =?utf-8?B?RWhrczZLWkY5bEs5SS9CZWdWMWsxZkRMVlNSUXEySlJTeCtielBUbnRLWDFj?=
+ =?utf-8?B?UkpOOHpKVy8xa3N0b215aXUrNlZPL3ZKbnlGMi8xaDl4aTRZQjd5U2lrQXBN?=
+ =?utf-8?B?ZHBZOGQ1YmpLZTdmKzF1cGovVFQvNWFUYXhBRll1eGduOW1iR3hGQmVER0Q5?=
+ =?utf-8?B?cDhGMmZvMWIwQnJGYS9JL1k3em05ME12NXpSdzEvT2wwOGlIRWlrTE5aTUt5?=
+ =?utf-8?B?c2ZhNkNsVm5TOW11YWNZdkcxN2owQ0hjNTgrYStYemVoQ3dqQks5bVIrTXJ6?=
+ =?utf-8?B?MXM5aWlKRWdrVGd0S2RUUCtWMkM0MHErUTlWRjdwclNUUkhLeUhkY3AzWXVP?=
+ =?utf-8?B?OWE2SkgwQyswY2tMUHY5czIwRUR3bXJ4ZEgzaWtmbllUZDBGeWJ1bFlJcEhm?=
+ =?utf-8?B?K3pwYTRmVDFUVjVHSm80cFRTSmFqNHNMeVQ2WE9WVmx2ckp1WGV3Tlg0SDFL?=
+ =?utf-8?B?RWUyOHhPWnZRYk5BMFZ4SjA3TTlrTnhSVktQbkFqZ3lJRzU3ZEtkeFRRTm52?=
+ =?utf-8?B?NFZKbURsbjhJVDhSdmZya3FnZk9PejJPK0lMOXp4WFF2blQ2eklGSG01MHh5?=
+ =?utf-8?Q?AT50Nm?=
+X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1102;
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 May 2025 12:16:01.7384
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bf1b921d-1fd9-41a3-b0b8-08dd8ef3438a
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
+X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000049.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9P195MB1633
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_050506_913454_BB18AC11 
-X-CRM114-Status: GOOD (  24.02  )
+X-CRM114-CacheID: sfid-20250509_051610_570444_55272B4A 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,102 +165,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+imx95-libra-rdk-fpsc is a development board based on the phyCORE-i.MX 95
+Plus FPSC SoM. Add its description and binding.
 
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Yannic Moog <y.moog@phytec.de>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-On 2025/5/9 15:08, Manivannan Sadhasivam wrote:
-> On Wed, May 07, 2025 at 06:36:20PM +0200, Pali Rohár wrote:
->> On Wednesday 07 May 2025 23:06:51 Hans Zhang wrote:
->>> On 2025/5/7 23:03, Hans Zhang wrote:
->>>> On 2025/5/7 01:41, Pali Rohár wrote:
->>>>> On Wednesday 07 May 2025 01:34:39 Hans Zhang wrote:
->>>>>> The Aardvark PCIe controller enforces a fixed 512B payload size via
->>>>>> PCI_EXP_DEVCTL_PAYLOAD_512B, overriding hardware capabilities and PCIe
->>>>>> core negotiations.
->>>>>>
->>>>>> Remove explicit MPS overrides (PCI_EXP_DEVCTL_PAYLOAD and
->>>>>> PCI_EXP_DEVCTL_PAYLOAD_512B). MPS is now determined by the PCI core
->>>>>> during device initialization, leveraging root port configurations and
->>>>>> device-specific capabilities.
->>>>>>
->>>>>> Aligning Aardvark with the unified MPS framework ensures consistency,
->>>>>> avoids artificial constraints, and allows the hardware to operate at
->>>>>> its maximum supported payload size while adhering to PCIe
->>>>>> specifications.
->>>>>>
->>>>>> Signed-off-by: Hans Zhang <18255117159@163.com>
->>>>>> ---
->>>>>>    drivers/pci/controller/pci-aardvark.c | 2 --
->>>>>>    1 file changed, 2 deletions(-)
->>>>>>
->>>>>> diff --git a/drivers/pci/controller/pci-aardvark.c
->>>>>> b/drivers/pci/controller/pci-aardvark.c
->>>>>> index a29796cce420..d8852892994a 100644
->>>>>> --- a/drivers/pci/controller/pci-aardvark.c
->>>>>> +++ b/drivers/pci/controller/pci-aardvark.c
->>>>>> @@ -549,9 +549,7 @@ static void advk_pcie_setup_hw(struct
->>>>>> advk_pcie *pcie)
->>>>>>        reg = advk_readl(pcie, PCIE_CORE_PCIEXP_CAP + PCI_EXP_DEVCTL);
->>>>>>        reg &= ~PCI_EXP_DEVCTL_RELAX_EN;
->>>>>>        reg &= ~PCI_EXP_DEVCTL_NOSNOOP_EN;
->>>>>> -    reg &= ~PCI_EXP_DEVCTL_PAYLOAD;
->>>>>>        reg &= ~PCI_EXP_DEVCTL_READRQ;
->>>>>> -    reg |= PCI_EXP_DEVCTL_PAYLOAD_512B;
->>>>>>        reg |= PCI_EXP_DEVCTL_READRQ_512B;
->>>>>>        advk_writel(pcie, reg, PCIE_CORE_PCIEXP_CAP + PCI_EXP_DEVCTL);
->>>>>> -- 
->>>>>> 2.25.1
->>>>>>
->>>>>
->>>>> Please do not remove this code. It is required part of the
->>>>> initialization of the aardvark PCI controller at the specific phase,
->>>>> as defined in the Armada 3700 Functional Specification.
->>>>>
->>>>> There were reported more issues with those Armada PCIe controllers for
->>>>> which were already sent patches to mailing list in last 5 years. But
->>>>> unfortunately not all fixes were taken / applied yet.
->>>>
->>>> Hi Pali,
->>>>
->>>> I replied to you in version v2.
->>>>
->>>> Is the maximum MPS supported by Armada 3700 512 bytes?
->>
->> IIRC yes, 512-byte mode is supported. And I think in past I was testing
->> some PCIe endpoint card which required 512-byte long payload and did not
->> worked in 256-byte long mode (not sure if the card was not able to split
->> transaction or something other was broken, it is quite longer time).
->>
->>>> What are the default values of DevCap.MPS and DevCtl.MPS?
->>
->> Do you mean values in the PCI-to-PCI bridge device of PCIe Root Port
->> type?
->>
->> Aardvark controller does not have the real HW PCI-to-PCI bridge device.
->> There is only in-kernel emulation drivers/pci/pci-bridge-emul.c which
->> create fake kernel PCI device in the hierarchy to make kernel and
->> userspace happy. Yes, this is deviation from the PCIe standard but well,
->> buggy HW is also HW.
->>
->> And same applies for the pci-mvebu.c driver for older Marvell PCIe HW.
->>
-> 
-> Oh. Then this patch is not going to change the MPS setting of the root bus. But
-> that also means that there is a deviation in what the PCI core expects for a
-> root port and what is actually programmed in the hw.
-> 
-> Even in this MPS case, if the PCI core decides to scale down the MPS value of
-> the root port, then it won't be changed in the hw and the hw will continue to
-> work with 512B? Shouldn't the controller driver change the hw values based on
-> the values programmed by PCI core of the emul bridge?
-> 
-> But until that is fixed, this patch should be dropped.
-> 
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 447054b52ea3..5484fcaeea72 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1366,6 +1366,13 @@ properties:
+               - fsl,imx95-19x19-evk       # i.MX95 19x19 EVK Board
+           - const: fsl,imx95
+ 
++      - description: PHYTEC i.MX 95 FPSC based Boards
++        items:
++          - enum:
++              - phytec,imx95-libra-rdk-fpsc   # Libra-i.MX 95 FPSC
++          - const: phytec,imx95-phycore-fpsc  # phyCORE-i.MX 95 FPSC
++          - const: fsl,imx95
++
+       - description: i.MXRT1050 based Boards
+         items:
+           - enum:
 
-Dear Mani,
-
-I will drop this patch in the next version.
-
-Best regards,
-Hans
+-- 
+2.25.1
 
 
