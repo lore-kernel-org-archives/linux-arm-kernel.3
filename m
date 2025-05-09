@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 438F6C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 08:05:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 165F3C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 08:07:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+m4Z3dP+tM6YZb4FwYg8AZfxdm/iv45+PxfK9MWhRlE=; b=MKoLEApwBDZEa0mGIswlt/Lx51
-	N546/10zNl2I13BEoDHFA9IiePwB4yKrjt3xl7gBVWCgQwHNAMozS7wKnfleq7S3+liVa6JgbVPju
-	npgPpKBL/dau2j+mvwFFVeK7Qjys92UrIcY7EKRjhEnk5a2omj3MZBayi0Au9T/HhehUkWpO7CtS2
-	SaX/vb773XnDo2iOf8z85lXqJgxxeN/c2MOxH51ngvCBadSWmtQfk4jmI9AOOE2CH9+t4MAcBEIia
-	7DDqHA2xzdVeUdES4MwVK6yDU2FDdCxvJ+ZcSj5m50/k/cQHI4UmNCEwImVwdORFXLThEDg0Y2ipH
-	hHitVh5w==;
+	bh=BTLAwJfpzTnDn2tZfb8KpMGtzN7vq08hC8THCvjwurw=; b=trERKSMBuvroJAEyYXllwtuHuY
+	cOiw2UGGrFY7eW40/3YBo2x1EUTkO/oMqIdHf2yePgD+Kx2odt6D4vbGoPDr6u9iiho0kjtL7V3Ja
+	jM/UMzTEPDUTdznNSR4V30CrCKg2YMCi7qvQBvTPIaDtTxK+O0NAgPVxaD0Yx7XDEJu4v4QLAuMIh
+	DWsznptqnMFfRLRxvdBNSiGiro3S8KS8+6pz7Nwr30Gfk3ecbfWWERjausDaXhqRRs+a0N+S+vHLq
+	3SeX9y7kErSU1XJGITIkn9CttEqWzXRt37wjA9LeVl+28kxaZr2y4LZ37AgGgBkPqJsZR6oPO/Dz9
+	C9Svawpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDIjg-00000002rRW-0YhC;
-	Fri, 09 May 2025 08:05:36 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1uDIlc-00000002rqG-21AJ;
+	Fri, 09 May 2025 08:07:36 +0000
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDIRy-00000002nkX-0oyh
+	id 1uDIS1-00000002nnD-3AP7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 07:47:19 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-22e39ff4ad4so24835785ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 00:47:17 -0700 (PDT)
+	Fri, 09 May 2025 07:47:22 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-b20027d9ac0so812861a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 00:47:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746776837; x=1747381637; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1746776841; x=1747381641; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+m4Z3dP+tM6YZb4FwYg8AZfxdm/iv45+PxfK9MWhRlE=;
-        b=r4vNWlJ5V6OwCLukPxFX3FrYRUP4YGq3W/TDXsvMYRI/DZzLdZ0kcFq7GmqXsEX+17
-         Du2S8r0RlNxFdmhCL4LMz8LwXmvkSfgzkFK8bBeh4VhZIQjeFKQyPNew9Nz7ON4oIMGB
-         LWO61qeuWCvIxG1efL28cYCR12msgzxP1qyQsrz1wdDpAGqmgi7L1MOlNXxhWnyqRbAa
-         lWjPjvl9UWv/aws+kZCACcz1WndX9vg8XxVL97Gy4GXT6hFiA/DkepvvqaWE7e5yNPCY
-         a5P0Xe2TBwUFBiUcC7ioxW7ckc33DO3Av1cSZrXh12VRBIPttCLoYuaL6XiAp+h1XdHz
-         QxXw==
+        bh=BTLAwJfpzTnDn2tZfb8KpMGtzN7vq08hC8THCvjwurw=;
+        b=B66193OvxSdLgm6lnAbR1YkLxaZGphHgknamb9euXV1m5DkDNLcAotoYeZsa1s6lho
+         BBWgDR0c9pgWz+5zHwY4QHT8f7zz+QnjlY5+pqnGCqKNkKrXcg+RbFobNAh6jyQ4yvKK
+         WeDSexNFDRE2o2HuxHiLJS89kbz3JXMzR5H9wzFVJLYOw6aIbNScVgtl/QUf0vY1Jouh
+         gNf+VElolBEbQDX0XaZhOmdYrBB87+ush3iVJElDw56dzkx/tG19IOjNnTcrwsPW9Qbl
+         VF1jPa/+NcxLjpNqHSnu3jc9ohfKO9ranANxwtazq46XrZiCfodTDQhtxHrovHlhQQby
+         lgNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746776837; x=1747381637;
+        d=1e100.net; s=20230601; t=1746776841; x=1747381641;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+m4Z3dP+tM6YZb4FwYg8AZfxdm/iv45+PxfK9MWhRlE=;
-        b=CPutxZLveQQ03AYeZWGeiq6KyPiAGkIMoeRG+jDQwWUhMSc3UgijZhWCyYJM2U9plL
-         ahCRhO58uQ4Ni9JKaNBdVnOEYNQ8gs2OKe+5yXzuXle1lm1OP77mfmp1rSVKACIFK7jn
-         IsHo8V+QecZrdADT5Es/yyFQj+s8SY8evLX3+tpbk4/PDft3iALHh1mRNI7enErbBrs0
-         odA/60tfpkQxJz+eZBocH83PiVLkpwnuuYmSSjCdKge6r8INjfl4jQs14ne0xRjvnVW7
-         z+XCoCPaEL4CI1u8igqZosOE0y325Gm6NjfY6nwIoqQaGgrhtrsDIevHgXapmZ1DP1qO
-         CmiA==
-X-Forwarded-Encrypted: i=1; AJvYcCU505UTn8eHwkg9mWqNz3mTl2YUhfXpWZpT6GIHSp2xIhc5aFVs2cLVpCOJyj8EoD93tyVN+//OArc1LmL89iv7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxD0LUdkUg8f787F5yQb6mrECDfR0ivuAnW8UgYMwYOP+9FjCZx
-	belq/odAZufXcZ7QHi34DxKalCgvqsmdUHBwYJR3/JSHi7AEI8C7xGBlcMLIs4D3jVsRnbC255H
-	6CiPOaK+c/26lZOXQ/g==
-X-Google-Smtp-Source: AGHT+IHfR2VcOxe89TQQkgMURCMNF7WAQ9A5nVl3ln2Y/iICrUYXCipTIhMpc5lhLO0v/RkcE3tO5H+jCjQrIWm3
-X-Received: from pljs4.prod.google.com ([2002:a17:903:3ba4:b0:21f:40e5:a651])
+        bh=BTLAwJfpzTnDn2tZfb8KpMGtzN7vq08hC8THCvjwurw=;
+        b=n4HC1CLLR4fMdWf8cfUG+So9n5WYCXQNuNaAOeRTzp6o9aR1lAqTHNmSkgZhjnh5D1
+         cGxaohau4XIqT65AiCkx73o8ndoVgb9IfsMOPFaHhCuPCs6ku0ANhCGKgrc27bYew4g+
+         Ic61BtOZxbuGLyfe2d9HBRIuVpFNGXNI1DcCX8E4KDPAKcT+/5VXemN7iEXMgihzTUai
+         6kfXcF/vUgnXtVdqTRFfLOFwQvoTi1dEtUe2e4ilKO1SFjdO1838JDF1atV2RJrcCN59
+         yLQsr5av5dM2bxTEyxAlgKfbJEGbDQzJIosKY1/Na0/XIUWs1MMOquOysfkqAgCYTL5K
+         FlSA==
+X-Forwarded-Encrypted: i=1; AJvYcCXIVj4vCEAnmym23h59TLgPPM9blbHh8IjLYz1EyiY28BO5zXN/F/PbQ7yJlHAUb6qjubrUMDVcMil0TlVkvFt+@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhAfU4gIZJAjmhGBYX/08EBcLYKkGglrdDAUshT7NqBHrqE8PU
+	oLjF3nHW8mJfwsbrzE5fTq2JAAoFfP4tlH+WLu/YRJF/GmAKBsSk10ab7W1DaVq9S+qwmJ3e4i9
+	1hVMCutaWKX4MS9TUCQ==
+X-Google-Smtp-Source: AGHT+IEztQLwT7ajncZsBNt/V8Xiws9Mgn93m4FZrCV2u6FrzGGzzz/PUz6yE5EWUGsiWeksHLXg/JFNc4GUnrxd
+X-Received: from pgmw23.prod.google.com ([2002:a63:9357:0:b0:b23:6a88:a54f])
  (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:18c:b0:21b:b3c9:38ff with SMTP id d9443c01a7336-22fc91a05e1mr34656295ad.37.1746776837245;
- Fri, 09 May 2025 00:47:17 -0700 (PDT)
-Date: Fri,  9 May 2025 00:46:30 -0700
+ 2002:a05:6a21:9004:b0:1f5:55b7:1bb2 with SMTP id adf61e73a8af0-215ababa2afmr3522816637.6.1746776840848;
+ Fri, 09 May 2025 00:47:20 -0700 (PDT)
+Date: Fri,  9 May 2025 00:46:32 -0700
 In-Reply-To: <20250509074635.3187114-1-changyuanl@google.com>
 Mime-Version: 1.0
 References: <20250509074635.3187114-1-changyuanl@google.com>
 X-Mailer: git-send-email 2.49.0.1015.ga840276032-goog
-Message-ID: <20250509074635.3187114-13-changyuanl@google.com>
-Subject: [PATCH v8 12/17] x86/e820: temporarily enable KHO scratch for memory
- below 1M
+Message-ID: <20250509074635.3187114-15-changyuanl@google.com>
+Subject: [PATCH v8 14/17] x86/Kconfig: enable kexec handover for 64 bits
 From: Changyuan Lyu <changyuanl@google.com>
 To: akpm@linux-foundation.org, linux-kernel@vger.kernel.org
 Cc: anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com, 
@@ -84,8 +83,9 @@ Cc: anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
 	Changyuan Lyu <changyuanl@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_004718_242875_A4ABF8B2 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20250509_004721_808385_37A6A785 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,69 +102,32 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Alexander Graf <graf@amazon.com>
 
-KHO kernels are special and use only scratch memory for memblock
-allocations, but memory below 1M is ignored by kernel after early boot
-and cannot be naturally marked as scratch.
-
-To allow allocation of the real-mode trampoline and a few (if any) other
-very early allocations from below 1M forcibly mark the memory below 1M
-as scratch.
-
-After real mode trampoline is allocated, clear that scratch marking.
+Add ARCH_SUPPORTS_KEXEC_HANDOVER for 64 bits to allow enabling of
+KEXEC_HANDOVER configuration option.
 
 Signed-off-by: Alexander Graf <graf@amazon.com>
 Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Co-developed-by: Changyuan Lyu <changyuanl@google.com>
 Signed-off-by: Changyuan Lyu <changyuanl@google.com>
-Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
 ---
- arch/x86/kernel/e820.c   | 18 ++++++++++++++++++
- arch/x86/realmode/init.c |  2 ++
- 2 files changed, 20 insertions(+)
+ arch/x86/Kconfig | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/x86/kernel/e820.c b/arch/x86/kernel/e820.c
-index 9920122018a0b..c3acbd26408ba 100644
---- a/arch/x86/kernel/e820.c
-+++ b/arch/x86/kernel/e820.c
-@@ -1299,6 +1299,24 @@ void __init e820__memblock_setup(void)
- 		memblock_add(entry->addr, entry->size);
- 	}
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 4b9f378e05f6b..d1fb81ffdaafa 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -2029,6 +2029,9 @@ config ARCH_SUPPORTS_KEXEC_BZIMAGE_VERIFY_SIG
+ config ARCH_SUPPORTS_KEXEC_JUMP
+ 	def_bool y
  
-+	/*
-+	 * At this point memblock is only allowed to allocate from memory
-+	 * below 1M (aka ISA_END_ADDRESS) up until direct map is completely set
-+	 * up in init_mem_mapping().
-+	 *
-+	 * KHO kernels are special and use only scratch memory for memblock
-+	 * allocations, but memory below 1M is ignored by kernel after early
-+	 * boot and cannot be naturally marked as scratch.
-+	 *
-+	 * To allow allocation of the real-mode trampoline and a few (if any)
-+	 * other very early allocations from below 1M forcibly mark the memory
-+	 * below 1M as scratch.
-+	 *
-+	 * After real mode trampoline is allocated, we clear that scratch
-+	 * marking.
-+	 */
-+	memblock_mark_kho_scratch(0, SZ_1M);
++config ARCH_SUPPORTS_KEXEC_HANDOVER
++	def_bool X86_64
 +
- 	/*
- 	 * 32-bit systems are limited to 4BG of memory even with HIGHMEM and
- 	 * to even less without it.
-diff --git a/arch/x86/realmode/init.c b/arch/x86/realmode/init.c
-index f9bc444a3064d..9b9f4534086d2 100644
---- a/arch/x86/realmode/init.c
-+++ b/arch/x86/realmode/init.c
-@@ -65,6 +65,8 @@ void __init reserve_real_mode(void)
- 	 * setup_arch().
- 	 */
- 	memblock_reserve(0, SZ_1M);
-+
-+	memblock_clear_kho_scratch(0, SZ_1M);
- }
+ config ARCH_SUPPORTS_CRASH_DUMP
+ 	def_bool X86_64 || (X86_32 && HIGHMEM)
  
- static void __init sme_sev_setup_real_mode(struct trampoline_header *th)
 -- 
 2.49.0.1015.ga840276032-goog
 
