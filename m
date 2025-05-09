@@ -4,75 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6006C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 00:54:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FBCFC3ABC5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 00:56:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OEI39QlhtqXZz097DleGzo/WCuN/UCxiziw5m1hWx2s=; b=eUL+XSEe8ETXhuEsSbDVVzv2Ct
-	kHrR/UGajlltwTH+44jBPuZmQq9vL34fh8+NzHDYylKPavycdYw2jCgG88huKjmNdL8xbQCKcC58Z
-	/61DQBprZsHarlwv1/hbkBcdXQwJ+oXFKPnuBE5FmL1rbE6xFaVOukbeLupwcv8WjakiHKyAFN0N1
-	x76TRMoKjchzUbNV2CgkSAbHDelMGqLLVkuEEr4ygJ+fh5APsKM7V7P8iGieCg3SrbkaEzXFYO4Sh
-	kMHDQovu1wOfH70da2lpgLSBr2rnet4KwnL5IDfEvAD94XHNlXKvSiLJeFzr/L0NMAgjKLs8PGqp0
-	GI5JDyew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L89/IglAzebhYjNeLn1LyP6815QV69L//e8GCNfod6s=; b=DOm0CvYeEIp86dyVG7oQaUM0Jx
+	eiEC0hgdV4l66jhcTpx0mz3nk7cafxXKknnIckbjmnkhYnvYipchQrwa2g5cnME2w9FxBrpv9oOwc
+	qMQ1SSqIXgX2IG08HahhC7xswQxe6xbfj/HsXUGrCNvV5uMi7a5muK9EenEQs00ghZItHzxfajpve
+	wsvYPznziPAUi29tjf6oUJm8bZVsUjisLuHXz9c7KzSoAA3CVfYFLPrMIuTiCfv4ZhJTi5ol0TR1c
+	bOu6shJCZtvyLlmF8Dc1TQnl3yrtBBN80/D2v1ZTVZ6kDPnpXNG9ikL4BysPc5ejxrW23KXAbKklz
+	gTYDaneQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDC0U-000000028iS-2kLG;
-	Fri, 09 May 2025 00:54:30 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uDC2R-000000028vv-0OVi;
+	Fri, 09 May 2025 00:56:31 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDBps-000000026wy-3Vkt;
-	Fri, 09 May 2025 00:43:34 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 9609B261B5;
-	Fri,  9 May 2025 02:43:31 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 9ISWAi9Dedp8; Fri,  9 May 2025 02:43:31 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1746751410; bh=ZdvTKQqzNuK1cYYcOlkZ38hXG7R64U6pk2NbaOyRi1Q=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=W4gUqrBmfI0lli6DheZm/slrz2Zbd4Fsso6G4p7zP1evhN1TLPivdRowCRNW/C3bi
-	 26aES85vqUpqho/s/bTUtdgXcWLptBulyG2dGqLS3rJmMcYc4LVmM+W8Fw/irzxE+a
-	 8QN48Cv5HfdgYRFXWAWHzw5yWRdI3J1Bcx2fo2PbK045FL83RHDQ7b3MF0HfCJV1zW
-	 VvQDjXDdV40s3habn13S78I/F4ss35NaL1VWfR6E/M0yUc+oIEz8Z3fwWunQPFlB5o
-	 6lH9yec4A0xQhVMUVmBaYBVsZ8Tk9WXPMTqWQtFCrMfDCP9hom85SNjL6BJYc7zzge
-	 SsQh3u1KncYdA==
-From: Yao Zi <ziyao@disroot.org>
-To: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
+	id 1uDBuK-0000000284R-3CUX
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 May 2025 00:48:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1746751688; x=1778287688;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=9l4UtHuSQviUswa9qLhvtxA1wFY9WmoH5OETvZtJ/+o=;
+  b=Vb/MblTjRqdlZTHZchd5cE71NZOidMT7c2xCU2u78yQzjQwrZNZbmhgD
+   SLiKhDr4jluUjaSD5w94pFGwtKwxjCi0UAvNjOcGa6Xs4zftN7cO2mBFa
+   ASww8pUM117KDbHeh4uaQHyg86je/ZVDfEv/gr6cZzToqlxq99OSw4BNH
+   rPtydZ6YF4+0UarSbwbvysdxAqrSjXHfxM2GoP2StNxTuS4/kuAaL6Y85
+   rzTN/+KbMOziyTL1s1B7zSxYFKkl1JRP8v0EDf2nTfKiGTObxPZ2knzl+
+   dyIoqcos0fA7l2KuuPMEGnTMfky0y0X8H8czOxUi8EWWciHwThePrWJFH
+   A==;
+X-CSE-ConnectionGUID: oQHXGLbTT7iz1m/RCh5jmw==
+X-CSE-MsgGUID: QgQZGCxCRTCUfw5gkF6XVw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11427"; a="48471305"
+X-IronPort-AV: E=Sophos;i="6.15,273,1739865600"; 
+   d="scan'208";a="48471305"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 May 2025 17:48:08 -0700
+X-CSE-ConnectionGUID: puZOYG22Q1q76b9afePLiA==
+X-CSE-MsgGUID: 4Tb1fB3hSKWfSBG8Pmij3A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,273,1739865600"; 
+   d="scan'208";a="141372306"
+Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 08 May 2025 17:48:04 -0700
+Received: from kbuild by 1992f890471c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uDBuE-000BVr-0Y;
+	Fri, 09 May 2025 00:48:02 +0000
+Date: Fri, 9 May 2025 08:47:04 +0800
+From: kernel test robot <lkp@intel.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
 	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Yao Zi <ziyao@disroot.org>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Shresth Prasad <shresthprasad7@gmail.com>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Jonas Karlman <jonas@kwiboo.se>
-Cc: linux-phy@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 5/5] arm64: dts: rockchip: Add naneng-combphy for RK3528
-Date: Fri,  9 May 2025 00:41:22 +0000
-Message-ID: <20250509004121.36058-7-ziyao@disroot.org>
-In-Reply-To: <20250509004121.36058-2-ziyao@disroot.org>
-References: <20250509004121.36058-2-ziyao@disroot.org>
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH v3 24/25] irqchip/gic-v5: Add GICv5 ITS support
+Message-ID: <202505090857.dvSPkqHI-lkp@intel.com>
+References: <20250506-gicv5-host-v3-24-6edd5a92fd09@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250506-gicv5-host-v3-24-6edd5a92fd09@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_174333_005006_0EBA6DC1 
-X-CRM114-Status: UNSURE (   7.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250508_174808_845254_F81B6576 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,55 +100,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rockchip RK3528 ships a naneng-combphy that is shared by PCIe and USB
-3.0 controllers. Describe it and the pipe-phy grf which it depends on.
+Hi Lorenzo,
 
-Signed-off-by: Yao Zi <ziyao@disroot.org>
----
- arch/arm64/boot/dts/rockchip/rk3528.dtsi | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+kernel test robot noticed the following build warnings:
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-index 193b84b5e912..672350400774 100644
---- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-@@ -334,6 +334,11 @@ vpu_grf: syscon@ff340000 {
- 			reg = <0x0 0xff340000 0x0 0x8000>;
- 		};
- 
-+		pipe_phy_grf: syscon@ff348000 {
-+			compatible = "rockchip,rk3528-pipe-phy-grf", "syscon";
-+			reg = <0x0 0xff348000 0x0 0x8000>;
-+		};
-+
- 		vo_grf: syscon@ff360000 {
- 			compatible = "rockchip,rk3528-vo-grf", "syscon";
- 			reg = <0x0 0xff360000 0x0 0x10000>;
-@@ -778,6 +783,23 @@ dmac: dma-controller@ffd60000 {
- 			arm,pl330-periph-burst;
- 		};
- 
-+		combphy: phy@ffdc0000 {
-+			compatible = "rockchip,rk3528-naneng-combphy";
-+			reg = <0x0 0xffdc0000 0x0 0x10000>;
-+			#phy-cells = <1>;
-+			clocks = <&cru CLK_REF_PCIE_INNER_PHY>, <&cru PCLK_PCIE_PHY>,
-+				 <&cru PCLK_PIPE_GRF>;
-+			clock-names = "ref", "apb",
-+				      "pipe";
-+			assigned-clocks = <&cru CLK_REF_PCIE_INNER_PHY>;
-+			assigned-clock-rates = <100000000>;
-+			resets = <&cru SRST_PCIE_PIPE_PHY>, <&cru SRST_P_PCIE_PHY>;
-+			reset-names = "phy", "apb";
-+			rockchip,pipe-grf = <&vpu_grf>;
-+			rockchip,pipe-phy-grf = <&pipe_phy_grf>;
-+			status = "disabled";
-+		};
-+
- 		pinctrl: pinctrl {
- 			compatible = "rockchip,rk3528-pinctrl";
- 			rockchip,grf = <&ioc_grf>;
+[auto build test WARNING on 0af2f6be1b4281385b618cb86ad946eded089ac8]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Lorenzo-Pieralisi/dt-bindings-interrupt-controller-Add-Arm-GICv5/20250506-203528
+base:   0af2f6be1b4281385b618cb86ad946eded089ac8
+patch link:    https://lore.kernel.org/r/20250506-gicv5-host-v3-24-6edd5a92fd09%40kernel.org
+patch subject: [PATCH v3 24/25] irqchip/gic-v5: Add GICv5 ITS support
+compiler: clang version 20.1.2 (https://github.com/llvm/llvm-project 58df0ef89dd64126512e4ee27b4ac3fd8ddf6247)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202505090857.dvSPkqHI-lkp@intel.com/
+
+includecheck warnings: (new ones prefixed by >>)
+>> include/linux/irqchip/arm-gic-v5.h: linux/iopoll.h is included more than once.
+
+vim +8 include/linux/irqchip/arm-gic-v5.h
+
+     7	
+   > 8	#include <linux/iopoll.h>
+     9	
+    10	#include <asm/cacheflush.h>
+  > 11	#include <linux/iopoll.h>
+    12	
+
 -- 
-2.49.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
