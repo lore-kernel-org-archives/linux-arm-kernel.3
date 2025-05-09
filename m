@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6517C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D68BFC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OwTawF8PqeIj4acmbxuSOUBysWkrgXkqCM2C3zY/xaE=; b=sqFQio9j0ep+GPmE1a9T9V0K0O
-	pGxYCb9JYb44wz9p78KMrswO9Yl4GXK7WITnXv162pWHYyIK9cWhkmqDAmg6cl53AG0Nba/KSvkIa
-	91lW6lC95DaqJtwnIGRj5VlIpK+fNXs7bjeFwSOK/9j6AZzW05R37si3y58POucs0YE8d66TPbRJ6
-	qUtaIqpD2Q3feREd55+hbv58yiqo/2KEVp6KO1LpP/ZWd3Zh2rk27D/SY7jT/9TXk0l4LXE78yIUs
-	uQNbVZprerEHOY985Ue5Rkr5VEPizFrapnh18bZpMp//Ybemfn6nhnpaMTp39KM9jVBPd2YkD9IEi
-	qS3tKOjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t7YPFkKsM8XEdUC86jlkdQ4IF2PnbIQWQ0GDK0pNlj0=; b=xVzgUXO5o3ytiFc9GQc5c7mcTL
+	FVc9QiS6N9iWj9cDIjUaC6e4OQItyCZxFTx5OvV67oGc9Q97TfGUHNP6hK5Zh01geqiRcJonc5ZHv
+	kuMWL4ISp62If/xRDXDvDFv2iX0h+bgjUuOvhmoiZc2kFbtEVTfm7wU7cUXqJDYqpTPiPUFdqCxhk
+	jBeD3JbDPL6IzeMtrng03SyRBhUXM7FfeQkGRsXOLVYgUZhSb9gu7Kw7tPrwlATcEmyNZ+KpHXZTH
+	YS8soznRp/Enq9lkk/O/DREi9JW/Q/gu/pvmlyf6snofkSoQBfh36+4xJzk0QqfcrBDpGZENm4Ej6
+	sp/ga1Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDUKB-00000004pSX-2kg8;
-	Fri, 09 May 2025 20:28:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uDUKC-00000004pUK-2MHQ;
+	Fri, 09 May 2025 20:28:04 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDScg-00000004akL-0nae;
-	Fri, 09 May 2025 18:39:03 +0000
+	id 1uDSdU-00000004atb-3qTU
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 May 2025 18:39:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 77257439FB;
-	Fri,  9 May 2025 18:39:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C5AFC4CEE4;
-	Fri,  9 May 2025 18:39:01 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 011D5A4C747;
+	Fri,  9 May 2025 18:39:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91A65C4CEE4;
+	Fri,  9 May 2025 18:39:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746815941;
-	bh=CNzigu9OBmuWrlsbb6lkAHKQvEmV0rXReJcmd4lUIG0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QOR3T+Uea/m9D1NaeSWXmmevBwXXe1rwMHM9tj20bdo5M/Q1Uz6xZw+S9DICifwPw
-	 mq+MEqH0ToOrWY8bUhm2sARgZvXf4NJp+4wzxRfO0ygybgggqztpqAMvpqm7kehrlw
-	 hELbnaCIrgfTjteCssiBoQPaMu0o0oO9jSFmt17Ugt91b0YEVY0KyRByE5AWVL3Egw
-	 iMIpJ6ihhnprEpw8MmmEwfOE4nghtEPK5HSt4MtTLU8qi+T0u5ZphiQdat+TJvlTtU
-	 /H5ahjFWOcwroMtB7aNubyLP5eN/MdKW6LyuF70OlcPx1kMmYPRMavi03kh3Edwb/M
-	 OO+/gygR1OmMg==
-Date: Fri, 9 May 2025 13:38:59 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
-Cc: Benjamin Bara <benjamin.bara@skidata.com>,
-	linux-rockchip@lists.infradead.org, stable@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Klaus Goger <klaus.goger@theobroma-systems.com>,
-	Matthias Kaehlcke <mka@chromium.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/5] dt-bindings: usb: cypress,hx3: Add support for
- all variants
-Message-ID: <174681593868.3912440.12960505435883876267.robh@kernel.org>
-References: <20250425-onboard_usb_dev-v2-0-4a76a474a010@thaumatec.com>
- <20250425-onboard_usb_dev-v2-2-4a76a474a010@thaumatec.com>
+	s=k20201202; t=1746815991;
+	bh=Wz4glreSt8DlgIrM5HvJHSb+qrAyVPEKF6wXqMPedMQ=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=OubpBByXk3rxJnekSB6DqSDgiFfKLhWsBxZh0t1IZ2Pfr50qJu2Nq3RMnlOgR3obn
+	 T+tUkNTYQdvQn4il0XqegaKDa0YOAYslfjRz+fdINWnhDl/c6TP+bpquW/nIinjqvv
+	 6nvWLogb/LAzmEdxv3+rCzk3z+vqyRiQpFwK7ewGA+9TBly/HIIMouhFsYiL+QsLbU
+	 IMP8XwXoUyPisDHs1ZE67QVTv8OO3Np+b06XC1tNbqRBlqMltRKlQ6Vpgc55nf6En+
+	 AwHPBoZZlLsuLktnkZy/zaPBr67dbDqQtru0wDZ7JeA3kh/wmGZmPhg1NusYS7MqrM
+	 lnKxF1tllRmNw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 34071380DBCB;
+	Fri,  9 May 2025 18:40:31 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250425-onboard_usb_dev-v2-2-4a76a474a010@thaumatec.com>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH bpf-next v3 00/11] bpf: Mitigate Spectre v1 using barriers
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174681603001.3715348.12288999798860158953.git-patchwork-notify@kernel.org>
+Date: Fri, 09 May 2025 18:40:30 +0000
+References: <20250501073603.1402960-1-luis.gerhorst@fau.de>
+In-Reply-To: <20250501073603.1402960-1-luis.gerhorst@fau.de>
+To: Luis Gerhorst <luis.gerhorst@fau.de>
+Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
+ martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org,
+ yonghong.song@linux.dev, john.fastabend@gmail.com, kpsingh@kernel.org,
+ sdf@fomichev.me, haoluo@google.com, jolsa@kernel.org, puranjay@kernel.org,
+ xukuohai@huaweicloud.com, catalin.marinas@arm.com, will@kernel.org,
+ hbathini@linux.ibm.com, christophe.leroy@csgroup.eu, naveen@kernel.org,
+ maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, mykolal@fb.com,
+ shuah@kernel.org, henriette.herzog@rub.de, skb99@linux.ibm.com,
+ cupertino.miranda@oracle.com, mrpre@163.com, m.shachnai@gmail.com,
+ dimitar.kanaliev@siteground.com, shung-hsi.yu@suse.com, dxu@dxuuu.xyz,
+ bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-kselftest@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_113902_245479_7C0DCEEF 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20250509_113953_098854_DDAA9F32 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,24 +85,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
-On Fri, 25 Apr 2025 17:18:07 +0200, Lukasz Czechowski wrote:
-> The Cypress HX3 hubs use different default PID value depending
-> on the variant. Update compatibles list.
-> Becasuse all hub variants use the same driver data, allow the
-> dt node to have two compatibles: leftmost which matches the HW
-> exactly, and the second one as fallback.
-> 
-> Fixes: 1eca51f58a10 ("dt-bindings: usb: Add binding for Cypress HX3 USB 3.0 family")
-> Cc: stable@vger.kernel.org # 6.6
-> Cc: stable@vger.kernel.org # Backport of the patch ("dt-bindings: usb: usb-device: relax compatible pattern to a contains") from list: https://lore.kernel.org/linux-usb/20250418-dt-binding-usb-device-compatibles-v2-1-b3029f14e800@cherry.de/
-> Cc: stable@vger.kernel.org # Backport of the patch in this series fixing product ID in onboard_dev_id_table in drivers/usb/misc/onboard_usb_dev.c driver
-> Signed-off-by: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
-> ---
->  .../devicetree/bindings/usb/cypress,hx3.yaml          | 19 ++++++++++++++++---
->  1 file changed, 16 insertions(+), 3 deletions(-)
-> 
+This series was applied to bpf/bpf-next.git (master)
+by Alexei Starovoitov <ast@kernel.org>:
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+On Thu,  1 May 2025 09:35:51 +0200 you wrote:
+> This improves the expressiveness of unprivileged BPF by inserting
+> speculation barriers instead of rejecting the programs.
+> 
+> The approach was previously presented at LPC'24 [1] and RAID'24 [2].
+> 
+> To mitigate the Spectre v1 (PHT) vulnerability, the kernel rejects
+> potentially-dangerous unprivileged BPF programs as of
+> commit 9183671af6db ("bpf: Fix leakage under speculation on mispredicted
+> branches"). In [2], we have analyzed 364 object files from open source
+> projects (Linux Samples and Selftests, BCC, Loxilb, Cilium, libbpf
+> Examples, Parca, and Prevail) and found that this affects 31% to 54% of
+> programs.
+> 
+> [...]
+
+Here is the summary with links:
+  - [bpf-next,v3,01/11] selftests/bpf: Fix caps for __xlated/jited_unpriv
+    https://git.kernel.org/bpf/bpf-next/c/cf15cdc0f0f3
+  - [bpf-next,v3,02/11] bpf: Move insn if/else into do_check_insn()
+    (no matching commit)
+  - [bpf-next,v3,03/11] bpf: Return -EFAULT on misconfigurations
+    (no matching commit)
+  - [bpf-next,v3,04/11] bpf: Return -EFAULT on internal errors
+    (no matching commit)
+  - [bpf-next,v3,05/11] bpf, arm64, powerpc: Add bpf_jit_bypass_spec_v1/v4()
+    (no matching commit)
+  - [bpf-next,v3,06/11] bpf, arm64, powerpc: Change nospec to include v1 barrier
+    (no matching commit)
+  - [bpf-next,v3,07/11] bpf: Rename sanitize_stack_spill to nospec_result
+    (no matching commit)
+  - [bpf-next,v3,08/11] bpf: Fall back to nospec for Spectre v1
+    (no matching commit)
+  - [bpf-next,v3,09/11] selftests/bpf: Add test for Spectre v1 mitigation
+    (no matching commit)
+  - [bpf-next,v3,10/11] bpf: Allow nospec-protected var-offset stack access
+    (no matching commit)
+  - [bpf-next,v3,11/11] bpf: Fall back to nospec for sanitization-failures
+    (no matching commit)
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
