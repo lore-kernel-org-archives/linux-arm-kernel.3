@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41D1BC3ABCF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A925C3ABCC
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lwm9SBRK0k658OIyHzGxSSpL8ydG/vfzFLSrnn3n7Vo=; b=2SmA2VInmEKJV9jUqj/6lVF3Ve
-	yOESmrJlDi+87tteuh+hwa2+0sR0dIuRBLmIIefMfOsEv4E7mN3KzAm8D3joxWkLPQfbLhovkdczM
-	7JHqNb6OMs/yYASd/cF3lVXXZJlIacQ1eKKewd4s1s2H+TTWN+FuNBhM3loiKheDT6uiRho5l1Z0Z
-	Z3TX1AFip0sE2p+s2NeB5Gm+AqPNBJDikNr7XVD1Y47aJtlOYQpCsppQ9oMdUUo3h0MYAZGHVvPP0
-	jawLCcKENA3HUlQpqX38f2WakmB4FYx/xduyeM9E2mILfnNPi2IWDMnlXC37nfGjgn9lccZEonNd6
-	PYYRTe6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iKzg6Tm8zaAbtvoy/XEMcd0MdCi6ul9qDrO+BvYkWhA=; b=b094c1EYrvq89Zice3PwZAXeBq
+	FLHEr5CXdAH0il8LNXYog/iWQzoYNvMExfvGWOUdISd6ecZ/+/GZozLl/ViLNZAoV4udpxGZ5glaD
+	5W54KjhM4AfI7o5WWZHWg8At+4N0ZX51aK9Ijx6aYcuE3BW7KvGv3mol4CMaTVfEvFIbSYR3SAQ5s
+	MTGsX20WaN9ZZyy1UZCXP/xrEMh5cMNXrli/8xqurtUN+GEXoOHBjhQYg3yHG8UcKKQbaodvYUw30
+	+6dwWrztWYdcgDLa1Fy3j21AkU93AO02iztW9QZyGE/QVacL9RLORyi1mRgPJHGaJix51SN4bH//n
+	DivvrCrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDU85-00000004jOT-2trE;
-	Fri, 09 May 2025 20:15:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDPFH-000000041C6-2DIc
+	id 1uDU84-00000004jNH-1gF6;
+	Fri, 09 May 2025 20:15:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uDPBT-000000040iz-48gn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 15:02:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A838E5C6C87;
-	Fri,  9 May 2025 15:00:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38004C4CEE4;
-	Fri,  9 May 2025 15:02:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746802958;
-	bh=7NskiScE5gptOGADrQReISR757xZmSnWMX0UyKOeZCM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZWQzY+hvdRs9Re4KDHntxug0qY5Ca7OwjjFfM2Dn7yZOCj6QK6lIfaqvNMQ4OIo3d
-	 w87JJHVlm/5gF48Ytqb2lav051IsEnhc0mUdBnQG6VIWR/VBplOAZMLSIwVXaYDfBq
-	 J5W1U8D2EqfTJkZrlE5RnxyNH+lAWNBi5l7k4NQxZ2njHf983SifjFK6mlksmZ+RS2
-	 zTf8bJBT/+oCJt6zumU+GZxluzCGzPuCI0hcWgf/2GQjTGibVLVWYs2AckrZNWPW4r
-	 lgoCSsj8pLyGn9/krfB6WCElwvcIeO8tY8PCJUuhrRM9NsiX1TO7NmGh472rnvCfrO
-	 /JKGE0GOhqOBA==
-Date: Fri, 9 May 2025 16:02:33 +0100
-From: Will Deacon <will@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V2] arm64/mm: Implement pte_po_index() for permission
- overlay index
-Message-ID: <20250509150232.GA5984@willie-the-truck>
-References: <20250415054442.2287891-1-anshuman.khandual@arm.com>
- <20250429151134.GB26272@willie-the-truck>
- <b07c1320-3140-40d3-899b-7c2b6e0d3c18@arm.com>
- <16ffa9f2-5ebb-4839-ab87-3c193ab9683a@arm.com>
+	Fri, 09 May 2025 14:58:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 50B921595;
+	Fri,  9 May 2025 07:58:32 -0700 (PDT)
+Received: from [10.57.90.222] (unknown [10.57.90.222])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BEE023F58B;
+	Fri,  9 May 2025 07:58:38 -0700 (PDT)
+Message-ID: <03f55e7b-9629-4c8e-9483-8c626e55fe2c@arm.com>
+Date: Fri, 9 May 2025 15:58:35 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <16ffa9f2-5ebb-4839-ab87-3c193ab9683a@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH v6 1/3] arm64: Add BBM Level 2 cpu feature
+Content-Language: en-GB
+To: Will Deacon <will@kernel.org>
+Cc: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
+ suzuki.poulose@arm.com, yang@os.amperecomputing.com, corbet@lwn.net,
+ catalin.marinas@arm.com, jean-philippe@linaro.org, robin.murphy@arm.com,
+ joro@8bytes.org, akpm@linux-foundation.org, paulmck@kernel.org,
+ mark.rutland@arm.com, joey.gouly@arm.com, maz@kernel.org,
+ james.morse@arm.com, broonie@kernel.org, oliver.upton@linux.dev,
+ baohua@kernel.org, david@redhat.com, ioworker0@gmail.com, jgg@ziepe.ca,
+ nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com,
+ smostafa@google.com, kevin.tian@intel.com, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev
+References: <20250428153514.55772-2-miko.lenczewski@arm.com>
+ <20250428153514.55772-4-miko.lenczewski@arm.com>
+ <20250506142508.GB1197@willie-the-truck>
+ <78fec33d-fe66-4352-be11-900f456c9af3@arm.com>
+ <20250509134904.GA5707@willie-the-truck>
+ <9bb94fe8-d605-49b4-91f0-0ad6d527b320@arm.com>
+ <20250509142852.GA5845@willie-the-truck>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250509142852.GA5845@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_080239_614592_14E7DA4E 
-X-CRM114-Status: GOOD (  22.56  )
+X-CRM114-CacheID: sfid-20250509_075844_113278_C055C45A 
+X-CRM114-Status: GOOD (  41.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,43 +79,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 05, 2025 at 02:20:46PM +0530, Anshuman Khandual wrote:
+On 09/05/2025 15:28, Will Deacon wrote:
+> On Fri, May 09, 2025 at 03:16:01PM +0100, Ryan Roberts wrote:
+>> On 09/05/2025 14:49, Will Deacon wrote:
+>>> On Tue, May 06, 2025 at 03:52:59PM +0100, Ryan Roberts wrote:
+>>>> On 06/05/2025 15:25, Will Deacon wrote:
+>>>>> On Mon, Apr 28, 2025 at 03:35:14PM +0000, Mikołaj Lenczewski wrote:
+>>>>>> +static bool has_bbml2_noabort(const struct arm64_cpu_capabilities *caps, int scope)
+>>>>>> +{
+>>>>>> +	if (!IS_ENABLED(CONFIG_ARM64_BBML2_NOABORT))
+>>>>>> +		return false;
+>>>>>> +
+>>>>>> +	if (scope & SCOPE_SYSTEM) {
+>>>>>> +		int cpu;
+>>>>>> +
+>>>>>> +		/*
+>>>>>> +		 * We are a boot CPU, and must verify that all enumerated boot
+>>>>>> +		 * CPUs have MIDR values within our allowlist. Otherwise, we do
+>>>>>> +		 * not allow the BBML2 feature to avoid potential faults when
+>>>>>> +		 * the insufficient CPUs access memory regions using BBML2
+>>>>>> +		 * semantics.
+>>>>>> +		 */
+>>>>>> +		for_each_online_cpu(cpu) {
+>>>>>> +			if (!cpu_has_bbml2_noabort(cpu_read_midr(cpu)))
+>>>>>> +				return false;
+>>>>>> +		}
+>>>>>
+>>>>> This penalises large homogeneous systems and it feels unnecessary given
+>>>>> that we have the ability to check this per-CPU. 
+>>
+>> In case you didn't spot it, cpu_read_midr() is not actually reading a remote
+>> cpu's midr. It's reading the cached midr in a per-cpu data structure. So I don't
+>> think this will be very expensive in reality. And it's only run once during boot...
+>>
+>> static inline unsigned int cpu_read_midr(int cpu)
+>> {
+>> 	WARN_ON_ONCE(!cpu_online(cpu));
+>>
+>> 	return per_cpu(cpu_data, cpu).reg_midr;
+>> }
 > 
+> I know it's not reading a remote MIDR, that would be crazy :)
 > 
-> On 4/29/25 22:15, Ryan Roberts wrote:
-> > On 29/04/2025 16:11, Will Deacon wrote:
-> >> On Tue, Apr 15, 2025 at 11:14:42AM +0530, Anshuman Khandual wrote:
-> >>> From: Ryan Roberts <ryan.roberts@arm.com>
-> >>>
-> >>> Previously pte_access_permitted() used FIELD_GET() directly to retrieve
-> >>> the permission overlay index from the pte. However, FIELD_GET() doesn't
-> >>> work for 128 bit quanitites. Since we are about to add support for D128
-> >>> pgtables, let's create a specific helper, pte_po_index() which can do
-> >>> the required mask and shift regardless of the data type width.
-> >>
-> >> You say:
-> >>
-> >> "we are about to add support for D128 pgtables"
-> > 
-> > Providing some context: Anshuman has a private branch that adds D128 pgtable
-> > support to the kernel (it does not yet do this for KVM). I originally created
-> > this patch to fix a bug on that branch, so the "we are about to add ..." comment
-> > really only makes sense in that context.
-> > 
-> > We are not yet ready to post D128 upstream - there are still a lot of questions
-> > to answer - but Anshuman has been posting some of the reshuffling and cleanups
-> > that prepare the way for D128 where (we think) it makes sense. The aim is to
-> > reduce the diff as much as we can.
+> But iterating over per-cpu variables sucks and we should be able to avoid
+> it because this code already knows how to detect features locally.
 > 
-> Agreed. All these patches have been really harmless clean ups and re-orgs etc,
-> that do not affect existing 64 bit page table management or its functioning in
-> any manner. OTOH these changes help the kernel prepare for D128 enablement.
+>>
+>>> Can you use
+>>>>> ARM64_CPUCAP_BOOT_CPU_FEATURE instead of ARM64_CPUCAP_SYSTEM_FEATURE
+>>>>> to solve this?
+>>>>
+>>>> We are trying to solve for the case where the boot CPU has BBML2 but a secondary
+>>>> CPU doesn't. (e.g. hetrogeneous system where boot CPU is big and secondary is
+>>>> little and does not advertise the feature. I can't remember if we proved there
+>>>> are real systems with this config - I have vague recollection that we did but my
+>>>> memory is poor...).
+>>>>
+>>>> My understanding is that for ARM64_CPUCAP_BOOT_CPU_FEATURE, "If the boot CPU
+>>>> has enabled this feature already, then every late CPU must have it". So that
+>>>> would exclude any secondary CPUs without BBML2 from coming online?
+>>>
+>>> Damn, yes, you're right. However, it still feels horribly hacky to iterate
+>>> over the online CPUs in has_bbml2_noabort() -- the cpufeature framework
+>>> has the ability to query features locally and we should be able to use
+>>> that. We're going to want that should the architecture eventually decide
+>>> on something like BBML3 for this.
+>>
+>> For BBML3, we're looking for a minimum value in the BBM field of the FFMR, and
+>> in that case the framework can handle it nicely with
+>> ARM64_CPUCAP_SYSTEM_FEATURE. But the framework doesn't have any support for the
+>> case where we need to look at all the midrs. So Suzuki came up with this method.
+>>
+>> If/when we have BBML3 I was thinking we could retrospectively treat the CPUs in
+>> the midr list as having an erratum that they don't advertise BBML3 when they
+>> should (since the semantics are basically the same I expect/hope/have been
+>> trying to ensure), so we can just implement workarounds to make it look like
+>> they do have BBML3, then the framework does it's thing. Perhaps we can live with
+>> this hack until we get to that point?
+> 
+> I think if you want to go down that route, then this needs to be detected
+> locally on each CPU.
 
-In this case, I wouldn't call it harmless clean-up. You're actively
-removing the use of helper macros which is inevitably going to result in
-churn.
+Yes that's my point; once we have BBML3 it will be detected locally for each CPU
+because the framework can handle that for MMFR fields. But until we get there,
+we are stuck with a midr list.
 
-Please teach FIELD_GET() to work with 128-bit types instead.
+> 
+>>> What we have with BBML2_NOABORT seems similar to an hwcap in that we only
+>>> support the capability if all CPUs have it (rejecting late CPUs without it
+>>> in that case) but we can live without it if not all of the early CPUs
+>>> have it. Unlikely hwcaps, though, we shouldn't be advertising this to
+>>> userspace and we can't derive the capability solely from the sanitised
+>>> system registers.
+>>
+>> Agreed.
+>>
+>>>
+>>> I wonder if we could treat it like an erratum in some way instead? That
+>>> is, invert things so that CPUs which _don't_ have BBML2_NOABORT are
+>>> considered to have a "BBM_CONFLICT_ABORT" erratum (which we obviously
+>>> wouldn't shout about). Then we should be able to say:
+>>>
+>>>   - If any of the early CPUs don't have BBML2_NOABORT, then the erratum
+>>>     would be enabled and we wouln't elide BBM.
+>>>
+>>>   - If a late CPU doesn't have BBML2_NOABORT then it can't come online
+>>>     if the erratum isn't already enabled.
+>>
+>> That's exactly the policy that this cludge provides. But it's using the midr to
+>> check if the CPU has BBML2_NOABORT. I'm not sure I follow your point about a
+>> "BBM_CONFLICT_ABORT" erratum?
+> 
+> I was hoping that it would mean that each CPU can independently determine
+> whether or not they have the erratum and then enable it as soon as they
+> detect it. That way, there's no need to iterate over all the early cores.
 
-Will
+OK, I don't understand the framework well enough to fully understand your
+suggestion; I'll talk to Suzuki and have a dig through the code.
+
+Thanks for the review!
+Ryan
+
+> 
+>> I'm also at a massive disadvantage because I find the whole cpufeatures
+>> framework impenetrable :)
+>>
+>> I'll ping Suzuki to see if he can chime in here.
+> 
+> Thanks,
+> 
+> Will
+
 
