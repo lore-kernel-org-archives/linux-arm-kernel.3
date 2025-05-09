@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98D2DC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 16:35:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E5DC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 16:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Whn9LQT24v327o0TXNOFZ8wmCMdsa7By9rcthWEKKyQ=; b=DUsMHddX9LseU4ZTwoFsDD7Wm+
-	10xfPbY0Gba3UrMp3xZ3nG/Koa85GgtsDIgbedO7D42BzYyw4wnPDP07eNKRQCutnQq4bxpIgVXH1
-	hIYJWD3veOuyMBmgEIHNgSOP4IgNOZaIPyHruUgKkbnDwaOwUS7dumU+k4Y4OJ7TJw5Pi3POZ4psk
-	LD98n+9ivbatkMPyOATGrVwFQCdB3995N60q3FgxkHQpj8kBn8L3MEXpl4Lov4VhcvVK+lB7Hc7V+
-	0Q3etRHy9iQmzuUn93E8dIonsmRstQ0RnwXMyRuFupxdDiejx02n5VGvQ8miJia62qFNKq461FDaa
-	xIhOHr4w==;
+	bh=Kg1lOsicIGwMurHHg1lsBFSLBs1lOtH7DCGaQFmSoc4=; b=pBODSmQ7HLTL3LGgcRES63mfSX
+	Ve2yQEW0ZI7+EWddFYty70gxzzW6+5TRUebAA0fSk/x3CaaDxc6lMFJlb+tq3BDOI+tpTch0/NqRB
+	GpteKMIZJrs4jihUQv4v/qxBg4aJB/1hMUXYcrkEtPRRawJW15qrsrU8CMcQFtLhmcdG4eIlg9j85
+	Vps09AyglNNmsdNCrWNChid43ds3CqMlGCQ2f/DHc97k6lDi456QNjDywgN2wpWiq7rbWh5rf1uCv
+	TbCuZhfEItLuyrnaO2EpxmnbdZrF74QBXssSlE9jBXTNJio71VfKTcv2wMXLLAhzmW7LubpCb1hlo
+	VHNffcBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDQgY-00000004Iyj-2Uh6;
-	Fri, 09 May 2025 16:34:54 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uDQiV-00000004JND-2YXS;
+	Fri, 09 May 2025 16:36:55 +0000
+Received: from mail-m16.yeah.net ([1.95.21.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDOXB-00000003v4j-21Zb;
-	Fri, 09 May 2025 14:17:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C95AFA4C300;
-	Fri,  9 May 2025 14:17:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45D22C4CEE4;
-	Fri,  9 May 2025 14:17:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746800224;
-	bh=hA+Ww4vy1WmPC6ngKo3l3xg9yMIXdOIipY2osC7nGmc=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=U2q+dLGsfJg1tCC/qbSehXOGekZyB7XemA6wb6gUXoawYhZ+aDMMv1ZFbMY6HUpnk
-	 c0YdwDI3/EMUekz8/xrb6JXfyG901ARY8SI/7eHeCInnyqkMA2WUq2N90dBSfCfzj6
-	 OQg5vMMlZ3a0FA+RxzGx82RhqHFQuvVr8CVLcotvKvRO03yk1A3itW6ceiqgtL5MLe
-	 1YFpGUCZp7wIwrFgIuLpj2XX0QR7O7NXHG0UiXXBNXFjaF0deecP7Gw6O1lMJruu+x
-	 53aKcIrEBamUjrpZPCimc6wIRyWbcGG7s/uFAPGdZyF9ISyrRXsYyg0xdWAV5r5mwR
-	 ebvEuOrTGbDJw==
-Date: Fri, 09 May 2025 09:17:02 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1uDOXE-00000003v51-16Km
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 May 2025 14:17:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=Kg1lOsicIGwMurHHg1lsBFSLBs1lOtH7DCGaQFmSoc4=;
+	b=SSkA9rzGzQPYLCmZq3aIZxQoDYOHXIIkCeFrJsIqAmFW1LByq3EGP4MrFBeYD/
+	xNj44kpFFaqkqBEvtsiUciWqUrgnVuTLwb+qqUUAkNWpUY9S6/X3SbQCVdyf49eJ
+	FOXSMjluCBPH6r+Ma45DCZmyLC4QNvMX16DqwHTgH/4iU=
+Received: from dragon (unknown [])
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgCnB_pEDh5oyTOqAA--.49231S3;
+	Fri, 09 May 2025 22:16:38 +0800 (CST)
+Date: Fri, 9 May 2025 22:16:35 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Markus Niebel <Markus.Niebel@tq-group.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com, linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: arm: add TQMa8XxS boards
+Message-ID: <aB4OQ+sVXz1Qima0@dragon>
+References: <20250424075533.1266435-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Conor Dooley <conor+dt@kernel.org>, kernel@collabora.com, 
- FUKAUMI Naoki <naoki@radxa.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Heiko Stuebner <heiko@sntech.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-In-Reply-To: <20250508-rock5bp-for-upstream-v2-0-677033cc1ac2@kernel.org>
-References: <20250508-rock5bp-for-upstream-v2-0-677033cc1ac2@kernel.org>
-Message-Id: <174679985287.3369051.14227124355079340433.robh@kernel.org>
-Subject: Re: [PATCH v2 0/5] arm64: dts: rockchip: add ROCK 5B+ support
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250424075533.1266435-1-alexander.stein@ew.tq-group.com>
+X-CM-TRANSID: Mc8vCgCnB_pEDh5oyTOqAA--.49231S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUYD73DUUUU
+X-Originating-IP: [117.81.80.76]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBBFIZWgd-c1QIAAAsN
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_071705_645942_F7AAE2FF 
-X-CRM114-Status: GOOD (  21.96  )
+X-CRM114-CacheID: sfid-20250509_071708_666744_9082AECB 
+X-CRM114-Status: UNSURE (   7.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,80 +80,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 08 May 2025 19:48:49 +0200, Sebastian Reichel wrote:
-> This series adds support for the ROCK 5B+, which (as the name suggests)
-> is an improved version of the ROCK 5B. It also adds initial USB-C
-> support for both the ROCK 5B and the 5B+.
+On Thu, Apr 24, 2025 at 09:55:29AM +0200, Alexander Stein wrote:
+> From: Markus Niebel <Markus.Niebel@tq-group.com>
 > 
-> Changes in PATCHv2:
->  - Link to v1: https://lore.kernel.org/r/20250324-rock5bp-for-upstream-v1-0-6217edf15b19@kernel.org
->  - Replaced DT binding patch with the version from NAOKI
->  - Dropped unused pinctrl for vcc5v0_host_en from the shared DT
->  - Moved USB-C SBU DC pins to board specific files, since they differ
->    between Rock 5B and Rock 5B+
->  - Added pinmux for SBU DC pins
->  - Rebased to latest version of Heiko's for-next branch
->  - Disable USB-C on Rock 5B for now
+> TQMa8XxS is a SOM series featuring NXP i.MX8X SoC.
+> They are called TQMa8XQPS and TQMa8XDPS respectively.
+> MB-SMARC-2 is a carrier reference design.
 > 
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
-> FUKAUMI Naoki (1):
->       dt-bindings: arm: rockchip: Add Radxa ROCK 5B+
-> 
-> Sebastian Reichel (4):
->       arm64: dts: rockchip: move rock 5b to include file
->       arm64: dts: rockchip: move rock 5b to include file
->       arm64: dts: rockchip: add Rock 5B+
->       arm64: dts: rockchip: add USB-C support for ROCK 5B+
-> 
->  .../devicetree/bindings/arm/rockchip.yaml          |    5 +
->  arch/arm64/boot/dts/rockchip/Makefile              |    1 +
->  .../boot/dts/rockchip/rk3588-rock-5b-plus.dts      |  129 +++
->  arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts    |  970 +-----------------
->  arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi   | 1082 ++++++++++++++++++++
->  5 files changed, 1247 insertions(+), 940 deletions(-)
-> ---
-> base-commit: b7caeb9545db25649eda36ce593b70cc2aa804ab
-> change-id: 20250324-rock5bp-for-upstream-fd85b00b593b
-> 
-> Best regards,
-> --
-> Sebastian Reichel <sre@kernel.org>
-> 
-> 
-> 
+> Signed-off-by: Markus Niebel <Markus.Niebel@tq-group.com>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: base-commit b7caeb9545db25649eda36ce593b70cc2aa804ab not known, ignoring
- Base: attempting to guess base-commit...
- Base: tags/v6.15-rc1-40-g425af91c5802 (best guess, 2/3 blobs matched)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250508-rock5bp-for-upstream-v2-0-677033cc1ac2@kernel.org:
-
-arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dtb: /edp@fdec0000: failed to match any schema with compatible: ['rockchip,rk3588-edp']
-arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dtb: /edp@fded0000: failed to match any schema with compatible: ['rockchip,rk3588-edp']
-
-
-
-
+Applied both, thanks!
 
 
