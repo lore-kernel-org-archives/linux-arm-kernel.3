@@ -4,110 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FBA6C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 22:35:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55949C3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 22:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r01UKsFQHMizWN+7NERjXgKGoiCMs947wub+Eu3dEZg=; b=KCmoKqO+v5i+Yjnf6rs7kQ0NpR
-	6tf72Mb6frcEDZAX3sU+m2+4yJSrioCl9LPQ7mSCDOqYB2hBCtAKHNpHxxw1mw8DlQFpdeSBeyKU0
-	o6WMB7pR5DMiH6D4Bwu1andq3xmfzCv+5Wwl3LMS3uFkC7i1EJDbI47jKpAncA1dUPl1kxMxkUY7A
-	0nSS9shIZg1Ee7vo3z1iHWJAop1rdyYXtAWIm08h3HFs5bpz6ZUFdv+giRZA4msG6pOm0coTGhNHC
-	NdWj20k7p4PIbwP7EoDgk4lXddL1ABP7aFWOcU7bE9mFlT1g3+Etj/KzLL4ZvrsYA7SKPwSI33KTR
-	TXFKei9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PaBIncNnFNBUtuLU5b5HbwN75IvfSwyrFbGklGt9j64=; b=zDibL0ZNTav2L/+e/1Tm/v+uvJ
+	8E5EX2kYbNJ65T8InZ4U2Bh26NDtfAlM9Qy1FEAQM/xULWDVZBCSuY5+30c8Uq86M8B17xuB+UpJH
+	b2L7+J+TxylP2lhAwdGE/SOHldzvhuosSQGeLAgvyhuo3ZN5DSE0yI/lDq88zvrT+HPBfcCmmLz/j
+	Nb1gDppeliNZ4zg7k11nfY7e2zrLlaqehAiTOMkGbJvScK1RcvDR2RjElTzd0iYtD1h3ckC+USx+B
+	FXF0JkWcSf93IhYCr6WkTLv7e45nLM2dBha2c32E3vgwSAHcnh4qi5xl2E4BbCFyF4rmUt+e31PsG
+	4c1XnVKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDWJF-000000054oi-0VSJ;
-	Fri, 09 May 2025 22:35:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uDWOT-000000055Lk-0oNM;
+	Fri, 09 May 2025 22:40:37 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDWDG-000000054M9-2CKj
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 09 May 2025 22:29:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=r01UKsFQHMizWN+7NERjXgKGoiCMs947wub+Eu3dEZg=; b=VxO+/qeRzO+kPQeTwrSNIP8+EL
-	s5+j2Uc09olHisGgHCjp1BehcjpPdATr2J0sfHsIVTAh7MoZwLlIh7YQySA/nZbgRtPGwH7Ks72Ll
-	/FOQN4Ds8WZZexDQrAIu3l9b1HML/MS+LR99sqWcGG1iWsYPu/xes6Gez9Yg6Nf3nYfikkSWrdML2
-	O+atMOdMNpOLMA5LbBF9h8eHr7A/nCaoyQ3x8hzGJPW8rI4k9v4X0Bx7MCHb9q8h8CRbdv03DzMPX
-	NQ375CJOsfcHmhQMK/SwIjVu0XdWA2k2RUOl++XHDpC3VXmnlzBfNbzmRYytU//5lh8BOMNt9mufV
-	4AssBzBg==;
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uDWD2-0000000GN4z-06rF
+	id 1uDWMQ-0000000555C-0PR7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 22:28:58 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-22e45088d6eso35234505ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 15:28:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1746829712; x=1747434512; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=r01UKsFQHMizWN+7NERjXgKGoiCMs947wub+Eu3dEZg=;
-        b=Hs3Qx++NnTdlt5NiuinI1dEiPv/DKSVB2SV9QgxJ+wi7TTjJKDKPZk7/yghZXeoroC
-         70sNBY80S0P5Ge1LnP9YUjW+YCus8Fr6F4lLGmY497q3VqZaW7fUn0i+Ju1BbD0T44U2
-         q9xkWGjfF/4SXl1C0p0wImmLMODCIzqhgyAZ0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746829712; x=1747434512;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=r01UKsFQHMizWN+7NERjXgKGoiCMs947wub+Eu3dEZg=;
-        b=Ri517rjT4NbOARLLVF8e2Rx5xtwIeY/U3aSOc5p/dTatHy0f7GADkRfQQq4s/Tudfz
-         6S46VPb4dDNGQ9yLidLQmltwMy29GHEyWDwtUM7fZER65N4ipO9CZ1CPpSl/VhRNVPrq
-         NYQqcC14P7tSZKi1PPqZ/IQjy+UuPJXJWhPdQb57L51siO+2An05jqhJ4f4FOTVEhB2D
-         42zXa8Z3vnSzOS6ViigN2Kh6L3+HofF++mfj8FChs/AftmrjnrhIPQ0VVWTgNcLTxGeO
-         kNRpgMRP9BvY5taNFsa44jGMwMr62sXKk9+McCj3LAnfgBZHIDtwT2kY5LfMvb4TIxdr
-         V//w==
-X-Forwarded-Encrypted: i=1; AJvYcCURGNtuHw/nn6sizGCcrcDvjyTHvHpo8EFLnS7Bcdg7HpMMKocw7BuBdpmQ0Dd83+WjwO/nn/qjoE9O/mAHmwIB@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHqLvdcuG0VOGhy08CWRqqzyvbMbNWF+NFP482gvw0fuo/AS7i
-	2/ia0TLGoe+wm83wN9U7Ra9E7RTZYM1VpZF6O02bINSI45NxprpSkMXgY79U3w==
-X-Gm-Gg: ASbGnctqQqPZHj5SooHMsAkwm5dl9JySS/1LekVHP+AEDN6igSEimF85t5s5NTtv3uA
-	Yvmz0TI2IyRosqQZvAeqABjhPUZGHiw8el648OMtAMrY2r5hMqb0V4ry2em2yXdWlH4/sLsVjl6
-	8CIiMTAIl+paw09Avw2flMC3AbGBDeeHEfXBL32bm7seAtGQ05tHyQIJvf67o4/1MjJOoxWk8hW
-	WxHKVwIudLrBoo7Coy/jj062A2TULlNdU5pxsP5d2InS7alNuzQlnlrZUiGbgT4kWv2y77wSY63
-	kLfIsb3yT7GSw6430M98SltdYkSsgSmFR6RWw9xtIwQIagfqH3f3p7lt2Vh2QXYD9sm3B3zyXCn
-	gun1ZmReyPXX1UwfWSVVR04iVwc4oU57kk8MdYgrmHg==
-X-Google-Smtp-Source: AGHT+IFuDBZRbVYjG0G4X/dCVr4J6+/l3hVYk/ScgrrBw/Yp2Kx+9CCGefV6GRrHSuO5N3jNQSf5cA==
-X-Received: by 2002:a17:903:986:b0:220:ff3f:6cba with SMTP id d9443c01a7336-22fc8e995b4mr83439675ad.38.1746829711780;
-        Fri, 09 May 2025 15:28:31 -0700 (PDT)
-Received: from stbsrv-and-02.and.broadcom.net ([192.19.144.250])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc7544fadsm22584465ad.24.2025.05.09.15.28.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 May 2025 15:28:31 -0700 (PDT)
-From: Jim Quinlan <james.quinlan@broadcom.com>
-To: linux-pci@vger.kernel.org,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
-	bcm-kernel-feedback-list@broadcom.com,
-	jim2101024@gmail.com,
-	james.quinlan@broadcom.com
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	linux-rpi-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH 2/2] PCI: brcmstb: Use "num-lanes" DT property if present
-Date: Fri,  9 May 2025 18:28:13 -0400
-Message-ID: <20250509222815.7082-3-james.quinlan@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250509222815.7082-1-james.quinlan@broadcom.com>
-References: <20250509222815.7082-1-james.quinlan@broadcom.com>
+	Fri, 09 May 2025 22:38:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D3C095C7066;
+	Fri,  9 May 2025 22:36:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9ABBCC4CEE4;
+	Fri,  9 May 2025 22:38:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746830307;
+	bh=UFLG+qJLt7G6jEoUzpzLZXtZ0sylu//S/7ihWu5mva8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=I9HLyYt786mNoMXtqssk56VK36x5mq/M717pcugDBZFZ1b+JUk0jUuo3xx0DOTtW2
+	 TQBwky9/5D2p5nrdqVSRjvBZoedDCVLFZsJXcU9n59krYRRYv+eHVKUI+KJ+wZ0tTK
+	 HdFPw48aANr941HIw+5SPrJ4DoTzDfLhYc6+PcK8dE1Iy6rPs8e1FFO+Ss4iilCJFE
+	 3NhtmKMkCvzvm+EuLVZOFeeaR0uJCB186uQD+YLezv1wFFjI903+GOa358IkTH6o5q
+	 LBRafNN+2xEpJPw4PAOODOsMhTSXOsVxNOxVZg5vsOxQij9t/mE56u6WTuTrq8+oo8
+	 Kswje5XCCMqLQ==
+Date: Fri, 9 May 2025 15:38:24 -0700
+From: Bjorn Andersson <andersson@kernel.org>
+To: Eugen Hristev <eugen.hristev@linaro.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-doc@vger.kernel.org, corbet@lwn.net, tglx@linutronix.de, mingo@redhat.com, 
+	rostedt@goodmis.org, john.ogness@linutronix.de, senozhatsky@chromium.org, 
+	pmladek@suse.com, peterz@infradead.org, mojha@qti.qualcomm.com, 
+	linux-arm-kernel@lists.infradead.org, vincent.guittot@linaro.org, konradybcio@kernel.org, 
+	dietmar.eggemann@arm.com, juri.lelli@redhat.com
+Subject: Re: [RFC][PATCH 02/14] kmemdump: introduce kmemdump
+Message-ID: <qcpzoi6t2xvmncq4pbxnlnrdw5bj4dvedftsf5cp3zj7nbeklm@rmsrqqb5vta5>
+References: <20250422113156.575971-1-eugen.hristev@linaro.org>
+ <20250422113156.575971-3-eugen.hristev@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250422113156.575971-3-eugen.hristev@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_232848_155540_7E53CDA8 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20250509_153830_232829_E9E00971 
+X-CRM114-Status: GOOD (  41.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,75 +76,403 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-By default, we use automatic HW negotiation to ascertain the number of
-lanes of the PCIe connection.  If the "num-lanes" DT property is present,
-assume that the chip's built-in capability information is incorrect or
-undesired, and use the specified value instead.
+On Tue, Apr 22, 2025 at 02:31:44PM +0300, Eugen Hristev wrote:
+> Kmemdump mechanism allows any driver to mark a specific memory area
 
-Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
----
- drivers/pci/controller/pcie-brcmstb.c | 26 +++++++++++++++++++++++++-
- 1 file changed, 25 insertions(+), 1 deletion(-)
+I know naming is a hard problem, but "kmemdump" sounds to me like a
+mechanism where the kernel does the memory dumping - and in contrast to
+existing mechanisms, that's not what this does.
 
-diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-index e19628e13898..76fd4f515898 100644
---- a/drivers/pci/controller/pcie-brcmstb.c
-+++ b/drivers/pci/controller/pcie-brcmstb.c
-@@ -46,6 +46,7 @@
- #define  PCIE_RC_CFG_PRIV1_ID_VAL3_CLASS_CODE_MASK	0xffffff
- 
- #define PCIE_RC_CFG_PRIV1_LINK_CAPABILITY			0x04dc
-+#define  PCIE_RC_CFG_PRIV1_LINK_CAPABILITY_MAX_LINK_WIDTH_MASK	0x1f0
- #define  PCIE_RC_CFG_PRIV1_LINK_CAPABILITY_ASPM_SUPPORT_MASK	0xc00
- 
- #define PCIE_RC_CFG_PRIV1_ROOT_CAP			0x4f8
-@@ -55,6 +56,9 @@
- #define PCIE_RC_DL_MDIO_WR_DATA				0x1104
- #define PCIE_RC_DL_MDIO_RD_DATA				0x1108
- 
-+#define PCIE_RC_PL_REG_PHY_CTL_1			0x1804
-+#define  PCIE_RC_PL_REG_PHY_CTL_1_REG_P2_POWERDOWN_ENA_NOSYNC_MASK	0x8
-+
- #define PCIE_RC_PL_PHY_CTL_15				0x184c
- #define  PCIE_RC_PL_PHY_CTL_15_DIS_PLL_PD_MASK		0x400000
- #define  PCIE_RC_PL_PHY_CTL_15_PM_CLK_PERIOD_MASK	0xff
-@@ -1072,7 +1076,7 @@ static int brcm_pcie_setup(struct brcm_pcie *pcie)
- 	void __iomem *base = pcie->base;
- 	struct pci_host_bridge *bridge;
- 	struct resource_entry *entry;
--	u32 tmp, burst, aspm_support;
-+	u32 tmp, burst, aspm_support, num_lanes, num_lanes_cap;
- 	u8 num_out_wins = 0;
- 	int num_inbound_wins = 0;
- 	int memc, ret;
-@@ -1180,6 +1184,26 @@ static int brcm_pcie_setup(struct brcm_pcie *pcie)
- 		PCIE_RC_CFG_PRIV1_LINK_CAPABILITY_ASPM_SUPPORT_MASK);
- 	writel(tmp, base + PCIE_RC_CFG_PRIV1_LINK_CAPABILITY);
- 
-+	/* 'tmp' still holds the contents of PRIV1_LINK_CAPABILITY */
-+	num_lanes_cap = u32_get_bits(tmp, PCIE_RC_CFG_PRIV1_LINK_CAPABILITY_MAX_LINK_WIDTH_MASK);
-+	num_lanes = 0;
-+	/*
-+	 * Use automatic num-lanes HW negotiation by default.  If the
-+	 * "num-lanes" DT property is present, assume that the chip's
-+	 * built-in link width capability information is
-+	 * incorrect/undesired and use the specified value instead.
-+	 */
-+	if (!of_property_read_u32(pcie->np, "num-lanes", &num_lanes) &&
-+	    num_lanes && num_lanes_cap != num_lanes) {
-+		u32p_replace_bits(&tmp, num_lanes,
-+			PCIE_RC_CFG_PRIV1_LINK_CAPABILITY_MAX_LINK_WIDTH_MASK);
-+		writel(tmp, base + PCIE_RC_CFG_PRIV1_LINK_CAPABILITY);
-+		tmp = readl(base + PCIE_RC_PL_REG_PHY_CTL_1);
-+		u32p_replace_bits(&tmp, 1,
-+			PCIE_RC_PL_REG_PHY_CTL_1_REG_P2_POWERDOWN_ENA_NOSYNC_MASK);
-+		writel(tmp, base + PCIE_RC_PL_REG_PHY_CTL_1);
-+	}
-+
- 	/*
- 	 * For config space accesses on the RC, show the right class for
- 	 * a PCIe-PCIe bridge (the default setting is to be EP mode).
--- 
-2.43.0
+> for later dumping purpose, depending on the functionality
+> of the attached backend. The backend would interface any hardware
+> mechanism that will allow dumping to complete regardless of the
+> state of the kernel (running, frozen, crashed, or any particular
+> state).
+> 
+> Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
+> ---
+>  drivers/Kconfig          |   2 +
+>  drivers/Makefile         |   2 +
+>  drivers/debug/Kconfig    |  16 ++++
+>  drivers/debug/Makefile   |   3 +
+>  drivers/debug/kmemdump.c | 185 +++++++++++++++++++++++++++++++++++++++
+>  include/linux/kmemdump.h |  52 +++++++++++
+>  6 files changed, 260 insertions(+)
+>  create mode 100644 drivers/debug/Kconfig
+>  create mode 100644 drivers/debug/Makefile
+>  create mode 100644 drivers/debug/kmemdump.c
+>  create mode 100644 include/linux/kmemdump.h
+> 
+> diff --git a/drivers/Kconfig b/drivers/Kconfig
+> index 7bdad836fc62..ef56588f559e 100644
+> --- a/drivers/Kconfig
+> +++ b/drivers/Kconfig
+> @@ -245,4 +245,6 @@ source "drivers/cdx/Kconfig"
+>  
+>  source "drivers/dpll/Kconfig"
+>  
+> +source "drivers/debug/Kconfig"
+> +
+>  endmenu
+> diff --git a/drivers/Makefile b/drivers/Makefile
+> index 45d1c3e630f7..cf544a405007 100644
+> --- a/drivers/Makefile
+> +++ b/drivers/Makefile
+> @@ -195,3 +195,5 @@ obj-$(CONFIG_CDX_BUS)		+= cdx/
+>  obj-$(CONFIG_DPLL)		+= dpll/
+>  
+>  obj-$(CONFIG_S390)		+= s390/
+> +
+> +obj-y				+= debug/
+> diff --git a/drivers/debug/Kconfig b/drivers/debug/Kconfig
+> new file mode 100644
+> index 000000000000..22348608d187
+> --- /dev/null
+> +++ b/drivers/debug/Kconfig
+> @@ -0,0 +1,16 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +menu "Generic Driver Debug Options"
+> +
+> +config DRIVER_KMEMDUMP
+> +	bool "Allow drivers to register memory for dumping"
 
+You use kmemdump in non-driver code as well.
+
+> +	help
+> +	  Kmemdump mechanism allows any driver to mark a specific memory area
+
+I think it would be better to express this as "register specific memory
+areas with kmemdump for dumping" - you're not really marking any
+memory...
+
+> +	  for later dumping purpose, depending on the functionality
+> +	  of the attached backend. The backend would interface any hardware
+> +	  mechanism that will allow dumping to complete regardless of the
+> +	  state of the kernel (running, frozen, crashed, or any particular
+> +	  state).
+> +
+> +	  Note that modules using this feature must be rebuilt if option
+> +	  changes.
+
+While true, hopefully no human should be needed to act upon this fact?
+
+> +endmenu
+> diff --git a/drivers/debug/Makefile b/drivers/debug/Makefile
+> new file mode 100644
+> index 000000000000..cc14dea250e3
+> --- /dev/null
+> +++ b/drivers/debug/Makefile
+> @@ -0,0 +1,3 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +obj-$(CONFIG_DRIVER_KMEMDUMP) += kmemdump.o
+> diff --git a/drivers/debug/kmemdump.c b/drivers/debug/kmemdump.c
+> new file mode 100644
+> index 000000000000..a685c0863e25
+> --- /dev/null
+> +++ b/drivers/debug/kmemdump.c
+> @@ -0,0 +1,185 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +
+> +#include <linux/device.h>
+> +#include <linux/errno.h>
+> +#include <linux/module.h>
+> +#include <linux/kmemdump.h>
+> +#include <linux/idr.h>
+> +
+> +#define MAX_ZONES 512
+
+Why is this 512?
+
+Seems this depend on the backend, in which case 512 is unlikely to be
+the choosen limit.
+
+> +
+> +static struct kmemdump_backend *backend;
+> +static DEFINE_IDR(kmemdump_idr);
+> +static DEFINE_MUTEX(kmemdump_lock);
+> +static LIST_HEAD(kmemdump_list);
+> +
+> +/**
+> + * kmemdump_register() - Register region into kmemdump.
+> + * @handle: string of maximum 8 chars that identifies this region
+> + * @zone: pointer to the zone of memory
+> + * @size: region size
+> + *
+> + * Return: On success, it returns an allocated unique id that can be used
+> + *	at a later point to identify the region. On failure, it returns
+> + *	negative error value.
+
+You can say this more succinctly, something like:
+
+Return: "unique id for the zone, or negative errno on failure"
+
+> + */
+> +int kmemdump_register(char *handle, void *zone, size_t size)
+> +{
+> +	struct kmemdump_zone *z = kzalloc(sizeof(*z), GFP_KERNEL);
+> +	int id;
+> +
+> +	if (!z)
+> +		return -ENOMEM;
+> +
+> +	mutex_lock(&kmemdump_lock);
+> +
+> +	id = idr_alloc_cyclic(&kmemdump_idr, z, 0, MAX_ZONES, GFP_KERNEL);
+> +	if (id < 0) {
+> +		mutex_unlock(&kmemdump_lock);
+> +		return id;
+
+A goto out_unlock; seems reasonable here and below.
+
+And you're leaking 'z'
+
+> +	}
+> +
+> +	if (!backend)
+> +		pr_debug("kmemdump backend not available yet, waiting...\n");
+
+"waiting" tells me that we're waiting here, but you're "deferring".
+
+> +
+> +	z->zone = zone;
+> +	z->size = size;
+> +	z->id = id;
+> +
+> +	if (handle)
+> +		strscpy(z->handle, handle, 8);
+
+Isn't the 8 optional, given that z->handle is a statically sized array?
+
+> +
+> +	if (backend) {
+> +		int ret;
+> +
+> +		ret = backend->register_region(id, handle, zone, size);
+> +		if (ret) {
+> +			mutex_unlock(&kmemdump_lock);
+> +			return ret;
+> +		}
+> +		z->registered = true;
+> +	}
+> +
+> +	mutex_unlock(&kmemdump_lock);
+> +	return id;
+> +}
+> +EXPORT_SYMBOL_GPL(kmemdump_register);
+> +
+> +/**
+> + * kmemdump_unregister() - Unregister region from kmemdump.
+> + * @id: unique id that was returned when this region was successfully
+> + *	registered initially.
+> + *
+> + * Return: None
+> + */
+> +void kmemdump_unregister(int id)
+> +{
+> +	struct kmemdump_zone *z;
+> +
+> +	mutex_lock(&kmemdump_lock);
+> +
+> +	z = idr_find(&kmemdump_idr, id);
+> +	if (!z)
+> +		return;
+
+You forgot to unlock &kmemdump_lock.
+
+> +	if (z->registered && backend)
+> +		backend->unregister_region(z->id);
+> +
+> +	idr_remove(&kmemdump_idr, id);
+> +	kfree(z);
+> +
+> +	mutex_unlock(&kmemdump_lock);
+> +}
+> +EXPORT_SYMBOL_GPL(kmemdump_unregister);
+> +
+> +static int kmemdump_register_fn(int id, void *p, void *data)
+> +{
+> +	struct kmemdump_zone *z = p;
+> +	int ret;
+> +
+> +	if (z->registered)
+> +		return 0;
+> +
+> +	ret = backend->register_region(z->id, z->handle, z->zone, z->size);
+> +	if (ret)
+> +		return ret;
+> +	z->registered = true;
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * kmemdump_register_backend() - Register a backend into kmemdump.
+> + * Only one backend is supported at a time.
+> + * @be: Pointer to a driver allocated backend. This backend must have
+> + *	two callbacks for registering and deregistering a zone from the
+> + *	backend.
+> + *
+> + * Return: On success, it returns 0, negative error value otherwise.
+> + */
+> +int kmemdump_register_backend(struct kmemdump_backend *be)
+> +{
+> +	mutex_lock(&kmemdump_lock);
+> +
+> +	if (backend)
+> +		return -EALREADY;
+
+unlock
+
+> +
+> +	if (!be || !be->register_region || !be->unregister_region)
+> +		return -EINVAL;
+
+unlock
+
+
+Although neither one of these cases actually need to be handled under
+the lock.
+
+> +
+> +	backend = be;
+> +	pr_info("kmemdump backend %s registered successfully.\n",
+
+pr_debug() is probably enough.
+
+> +		backend->name);
+> +
+> +	/* Try to call the backend for all previously requested zones */
+> +	idr_for_each(&kmemdump_idr, kmemdump_register_fn, NULL);
+> +
+> +	mutex_unlock(&kmemdump_lock);
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(kmemdump_register_backend);
+> +
+> +static int kmemdump_unregister_fn(int id, void *p, void *data)
+> +{
+> +	int ret;
+> +	struct kmemdump_zone *z = p;
+> +
+> +	if (!z->registered)
+> +		return 0;
+> +
+> +	ret = backend->unregister_region(z->id);
+> +	if (ret)
+> +		return ret;
+> +	z->registered = false;
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * kmemdump_register_backend() - Unregister the backend from kmemdump.
+> + * Only one backend is supported at a time.
+> + * Before deregistering, this will call the backend to unregister all the
+> + * previously registered zones.
+
+These three lines seems more suitable below the argument definitions.
+
+> + * @be: Pointer to a driver allocated backend. This backend must match
+> + *	the initially registered backend.
+> + *
+> + * Return: None
+> + */
+> +void kmemdump_unregister_backend(struct kmemdump_backend *be)
+> +{
+> +	mutex_lock(&kmemdump_lock);
+> +
+> +	if (backend != be) {
+> +		mutex_unlock(&kmemdump_lock);
+> +		return;
+> +	}
+> +
+> +	/* Try to call the backend for all previously requested zones */
+> +	idr_for_each(&kmemdump_idr, kmemdump_unregister_fn, NULL);
+> +
+> +	backend = NULL;
+> +	pr_info("kmemdump backend %s removed successfully.\n", be->name);
+
+pr_debug()
+
+> +
+> +	mutex_unlock(&kmemdump_lock);
+> +}
+> +EXPORT_SYMBOL_GPL(kmemdump_unregister_backend);
+> diff --git a/include/linux/kmemdump.h b/include/linux/kmemdump.h
+> new file mode 100644
+> index 000000000000..b55b15c295ac
+> --- /dev/null
+> +++ b/include/linux/kmemdump.h
+> @@ -0,0 +1,52 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +#ifndef _KMEMDUMP_H
+> +#define _KMEMDUMP_H
+> +
+> +#define KMEMDUMP_ZONE_MAX_HANDLE 8
+> +/**
+> + * struct kmemdump_zone - region mark zone information
+> + * @id: unique id for this zone
+> + * @zone: pointer to the memory area for this zone
+> + * @size: size of the memory area of this zone
+> + * @registered: bool indicating whether this zone is registered into the
+> + *	backend or not.
+> + * @handle: a string representing this region
+> + */
+> +struct kmemdump_zone {
+
+It seems this is the internal-only representation of the zones and isn't
+part of the API (in either direction). Better move it into the
+implementation.
+
+> +	int id;
+> +	void *zone;
+> +	size_t size;
+> +	bool registered;
+> +	char handle[KMEMDUMP_ZONE_MAX_HANDLE];
+> +};
+> +
+> +#define KMEMDUMP_BACKEND_MAX_NAME 128
+> +/**
+> + * struct kmemdump_backend - region mark backend information
+> + * @name: the name of the backend
+> + * @register_region: callback to register region in the backend
+> + * @unregister_region: callback to unregister region in the backend
+> + */
+> +struct kmemdump_backend {
+> +	char name[KMEMDUMP_BACKEND_MAX_NAME];
+> +	int (*register_region)(unsigned int id, char *, void *, size_t);
+> +	int (*unregister_region)(unsigned int id);
+> +};
+> +
+> +#ifdef CONFIG_DRIVER_KMEMDUMP
+> +int kmemdump_register(char *handle, void *zone, size_t size);
+> +void kmemdump_unregister(int id);
+> +#else
+> +static inline int kmemdump_register(char *handle, void *area, size_t size)
+> +{
+> +	return 0;
+> +}
+> +
+> +static inline void kmemdump_unregister(int id)
+> +{
+> +}
+> +#endif
+> +
+> +int kmemdump_register_backend(struct kmemdump_backend *backend);
+> +void kmemdump_unregister_backend(struct kmemdump_backend *backend);
+
+These two functions are defined in kmemdump.c which is only built if
+CONFIG_DRIVER_KMEMDUMP=y, so shouldn't they be defined under the guard
+as well?
+
+Regards,
+Bjorn
+
+> +#endif
+> -- 
+> 2.43.0
+> 
 
