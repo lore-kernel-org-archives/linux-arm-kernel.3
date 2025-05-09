@@ -4,68 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DBCCC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 13:33:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16165C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 13:35:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wnIutrqgp/730meJXqnExUugfDBuXd3SUC7bTU9HmFk=; b=MOwZaME3l9bk+IQACwKv7Kzn99
-	rfgfJaRQbdXSGF2hdRAKLY62S+bJ7xn9c2SzuElRiVnrgQCi3nuqsus1dq/p0lm+MjL1XYNMNKhKA
-	p3RsQce7nqw+NTOcjvD9S47k7nGGqUHQWsB0/W0KK2pX3jLnK/REo+aZKxaJHPXLDcdcPxeJKPptb
-	I/b7sL3XfMuIfvcYC3AC98+HiXPyiFwCli7g/C0hVgd1QvZQyiBUjkXXDr0Mr7lZmbfZeoHeXrAgg
-	N5pasZx8eCgV2TmGc6uWeTdANUf4m12l/ws3lfTor3aEg8SBV6oAqzuFXx+M6F8/CFUVXH63z2NJB
-	6JKftZKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1GxsOSHaEZ3WauZ1cTkJRldsvonqkn4VH/52jeaGUm4=; b=wA1XKd63Jas0BaaBXYCptkekGE
+	Tiex6Bu0SBqgllwA9cQnvmXdyVq+RZ/aKUft9V79NVmsyrc7/W3ui5OnDQUd/Q2cvpYZjS3KM07eN
+	xGx8wSGbYrnfBRyYbyKoYcR6Izdwvp9sk7tJVZnGTF5xLt0eVfym16yBbmPJb/0/DjDkx7uV5aCJl
+	gnnARSp0DeDV55c6yaKIYoVnU7bKQxY8pT1AV7USY+iPPknAmqBtUuw77o0IKu7nOpQS8DH3NhyKV
+	hatDWHh6dp3VN+5vU7ca3IkibBBlFIxCCkoN73zYXQUjU4GpN4dxFVMovUmpzwlqSRHzMuTZjNXSm
+	jDxf2n5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDNrD-00000003mdY-3Zpa;
-	Fri, 09 May 2025 13:33:43 +0000
-Received: from sender3-pp-f112.zoho.com ([136.143.184.112])
+	id 1uDNtA-00000003n5p-0MsC;
+	Fri, 09 May 2025 13:35:44 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDMu2-00000003bM7-0ui4;
-	Fri, 09 May 2025 12:32:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1746793941; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=c7VXHe948DTKp7d2H26qPUXEhomzSFxR9cRa8Y6nx8TM6VFsXLkkU2Nu4fkrl+Km6TGHr6RlYPhQhCLjnmyau2Z/e9plPyVFWlcq7cDB7ZbafK3tQUqhJ2N/b092CGTcAK/HG1ctb6gdqVPid0mUt7ySRv+Gj9rVQeHYE77vUKM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1746793941; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=wnIutrqgp/730meJXqnExUugfDBuXd3SUC7bTU9HmFk=; 
-	b=WKu6rt4vLK9C1qfDjFYzZf8uKsVUvtxQwfLh+fm0w1JYj3IuiCcr08UyrkB2bWVd27GfJeWKXMq8fVKg/Os3vzYOaLeEa1BMwERwN7AbPAFDfc+bhlcgsL4PAhgNxdW9XsotaVgNSQNjAUb010DzyupXBr3zKjLmueUzJ0HyW5w=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1746793941;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=wnIutrqgp/730meJXqnExUugfDBuXd3SUC7bTU9HmFk=;
-	b=We3Wo5GmSp/9cX4H6r0+SHvNk3PeAtKI1Vwj2iQjSCOWi4pwZR373XpI2LRQK4Vv
-	c6ENe1EMasRh5d/A9ZzfiZY5eRxIKN2e92qNhpLrripH4D0CQcVepnquSUjYOTAq7A+
-	QXn0fsirYt58AQ9hwZp0MrQvGxz6cNt3fWgLHG3I=
-Received: by mx.zohomail.com with SMTPS id 1746793940560889.20581442018;
-	Fri, 9 May 2025 05:32:20 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 09 May 2025 14:31:43 +0200
-Subject: [PATCH 3/3] arm64: dts: rockchip: add ROCK 5T device tree
+	id 1uDN02-00000003c4Z-0rde
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 May 2025 12:38:47 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5494BvKT017144;
+	Fri, 9 May 2025 12:38:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=pp1; bh=1GxsOSHaEZ3WauZ1cTkJRldsvonqkn4VH/52jeaGU
+	m4=; b=Z7WWvaY4g6eCXiYUiUlKyClENxdQjuQkp9700lVVUOkAkssBbj096LEru
+	GjOG+tquLK40lDeyNh3vMAWmYfddtqfUhqj6yhS6rF/stF6URVRpIBeferkYor0y
+	JiYuQwAvyf3xk5tSwvxjxkP9i2BAzvfjMV7lOP3VcCPlkXHnmnl7Nl5tvtnR8SCI
+	QLzVOcLBlNtJeZu7jfyZEu4yZkWVeQGgiX+XaFyeRZEeh+qoJMQSTGuh0QxvJUMs
+	2lCUqUNr4KgMoWza0dhiUloHAqh4/zj3api+8zV31DzvNqPbpXmVGuy3LUy/Pw8X
+	NEYSnzligZH6q8pgIt/r8Nvbh6isw==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46h46kusy5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 09 May 2025 12:38:16 +0000 (GMT)
+Received: from m0353729.ppops.net (m0353729.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 549CLItO014654;
+	Fri, 9 May 2025 12:38:16 GMT
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46h46kusy3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 09 May 2025 12:38:16 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 549C6iZa004650;
+	Fri, 9 May 2025 12:38:14 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 46fjb2fy1d-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 09 May 2025 12:38:14 +0000
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 549CcAws39322032
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 9 May 2025 12:38:10 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 88F75200E6;
+	Fri,  9 May 2025 12:38:10 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 9EFA7200E4;
+	Fri,  9 May 2025 12:38:05 +0000 (GMT)
+Received: from li-621bac4c-27c7-11b2-a85c-c2bf7c4b3c07.ibm.com.com (unknown [9.43.107.211])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri,  9 May 2025 12:38:05 +0000 (GMT)
+From: Saket Kumar Bhaskar <skb99@linux.ibm.com>
+To: bpf@vger.kernel.org, linux-kselftest@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-next@vger.kernel.org
+Cc: hbathini@linux.ibm.com, maddy@linux.ibm.com, venkat88@linux.ibm.com,
+        daniel@iogearbox.net, mykolal@fb.com, yoong.siang.song@intel.com,
+        martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev,
+        john.fastabend@gmail.com, kpsingh@kernel.org, sdf@fomichev.me,
+        haoluo@google.com, jolsa@kernel.org, shuah@kernel.org
+Subject: [PATCH] selftests/bpf: Fix bpf selftest build warning
+Date: Fri,  9 May 2025 18:08:02 +0530
+Message-ID: <20250509123802.695574-1-skb99@linux.ibm.com>
+X-Mailer: git-send-email 2.43.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250509-add-rock5t-v1-3-cff1de74eced@collabora.com>
-References: <20250509-add-rock5t-v1-0-cff1de74eced@collabora.com>
-In-Reply-To: <20250509-add-rock5t-v1-0-cff1de74eced@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=LaM86ifi c=1 sm=1 tr=0 ts=681df738 cx=c_pps a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17 a=dt9VzEwgFbYA:10 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8 a=QyXUC8HyAAAA:8 a=rV7urDwo7b39epbSBP8A:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTA5MDEyMyBTYWx0ZWRfX98i5fCsNXz65 vEK61wvfV2yQXLF/PG5XhanzoMmpVJUPXj4/McsweqYJxpVwcEBk6gzFfPWdzMji1adaZ/yNs/i k9ah1V554nsBjL1dh429MK5eBC6qdvSWeN2zp6pe9JGdR4kFtkm/I13sjxjummNxKl4hzv4Hqcu
+ 9hmpNGk3wR5PZsE5K6Dp0TM8dkIxA/VTewFnzH9bdLG9qYP6JKYW6ZLbZ16BNZSWwahr4SEWP8j 71r+R6Kqm9j21WYIIKqmbV/UrP1HLhdiN/NWXb3OscsCeKEK5hYW2IQx5KOLTaICu5XvveBYRX1 XQfoFWIngz5yQD5diwQAlnBvwjcBwpRvS/4Nri9klJ+ix93TOM+cz+IJyngNyISISD6QAEiGf26
+ RjPl6+OFBjjkz2303QBaxkyTH6iM6syy8GqREPTmUnxHYcJq+dw1ncLeNlawKqJ4AypLV0/C
+X-Proofpoint-ORIG-GUID: cOPeE_N3CccJrHFznoIfflPq4YPJqSuH
+X-Proofpoint-GUID: K-YC-2hFpvEpO7YRJnr9fxDNdKaIviEO
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-09_05,2025-05-08_04,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 phishscore=0
+ clxscore=1011 bulkscore=0 priorityscore=1501 adultscore=0
+ lowpriorityscore=0 impostorscore=0 spamscore=0 suspectscore=0
+ mlxlogscore=703 mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2505090123
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_053234_305640_263D7586 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20250509_053846_253720_0998AFB0 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,144 +118,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RADXA ROCK 5T is a single board computer quite similar to the ROCK
-5B+, except it has one more PCIe-to-Ethernet controller (at the expense
-of a USB3 port) and a barrel jack for power input instead. Some pins are
-shuffled around as well.
+On linux-next, build for bpf selftest displays a warning:
 
-Add a device tree for it.
+Warning: Kernel ABI header at 'tools/include/uapi/linux/if_xdp.h'
+differs from latest version at 'include/uapi/linux/if_xdp.h'.
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Commit 8066e388be48 ("net: add UAPI to the header guard in various network headers")
+changed the header guard from _LINUX_IF_XDP_H to _UAPI_LINUX_IF_XDP_H
+in include/uapi/linux/if_xdp.h.
+
+To resolve the warning, update tools/include/uapi/linux/if_xdp.h
+to align with the changes in include/uapi/linux/if_xdp.h
+
+Reported-by: Venkat Rao Bagalkote <venkat88@linux.ibm.com>
+Closes: https://lore.kernel.org/all/c2bc466d-dff2-4d0d-a797-9af7f676c065@linux.ibm.com/
+Signed-off-by: Saket Kumar Bhaskar <skb99@linux.ibm.com>
 ---
- arch/arm64/boot/dts/rockchip/Makefile           |   1 +
- arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts | 105 ++++++++++++++++++++++++
- 2 files changed, 106 insertions(+)
+ tools/include/uapi/linux/if_xdp.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 7a05bd885d5ecb96c3decbd3f483a6c58b81e0ab..eee0b27ca9f6a330baae8b50ca6aaed5de56227f 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -166,6 +166,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-plus.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5t.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou-video-demo.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-toybrick-x0.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..258c7400301d7f77517197ab433946bbfa39cf63
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts
-@@ -0,0 +1,105 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include "rk3588-rock-5b-5bp-5t.dtsi"
-+
-+/ {
-+	model = "Radxa ROCK 5T";
-+	compatible = "radxa,rock-5t", "rockchip,rk3588";
-+
-+	analog-sound {
-+		compatible = "audio-graph-card";
-+		label = "rk3588-es8316";
-+
-+		widgets = "Microphone", "Mic Jack",
-+		"Headphone", "Headphones";
-+
-+		routing = "MIC2", "Mic Jack",
-+		"Headphones", "HPOL",
-+		"Headphones", "HPOR";
-+
-+		dais = <&i2s0_8ch_p0>;
-+		hp-det-gpios = <&gpio4 RK_PC3 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&hp_detect>;
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&led_rgb_b>;
-+
-+		led_rgb_b {
-+			function = LED_FUNCTION_STATUS;
-+			color = <LED_COLOR_ID_BLUE>;
-+			gpios = <&gpio0 RK_PA0 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+	};
-+
-+	rfkill {
-+		compatible = "rfkill-gpio";
-+		label = "rfkill-m2-wlan";
-+		radio-type = "wlan";
-+		shutdown-gpios = <&gpio1 RK_PB0 GPIO_ACTIVE_HIGH>;
-+	};
-+
-+	vcc3v3_pcie2x1l1: regulator-vcc3v3-pcie2x1l2 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc3v3_pcie2x1l1";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		startup-delay-us = <5000>;
-+		vin-supply = <&vcc_3v3_s3>;
-+	};
-+};
-+
-+&hdmi_receiver {
-+	hpd-gpios = <&gpio2 RK_PB7 GPIO_ACTIVE_LOW>;
-+	status = "okay";
-+};
-+
-+&pcie2x1l1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie2_1_rst>;
-+	reset-gpios = <&gpio4 RK_PA2 GPIO_ACTIVE_HIGH>;
-+	vpcie3v3-supply = <&vcc3v3_pcie2x1l1>;
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+	hdmirx {
-+		hdmirx_hpd: hdmirx-5v-detection {
-+			rockchip,pins = <2 RK_PB7 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	leds {
-+		led_rgb_b: led-rgb-b {
-+			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	pcie2 {
-+		pcie2_1_rst: pcie2-1-rst {
-+			rockchip,pins = <4 RK_PA2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+		pcie2_0_vcc3v3_en: pcie2-0-vcc-en {
-+			rockchip,pins = <2 RK_PC0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	sound {
-+		hp_detect: hp-detect {
-+			rockchip,pins = <4 RK_PC3 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&vcc3v3_pcie2x1l0 {
-+	gpios = <&gpio2 RK_PC0 GPIO_ACTIVE_HIGH>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie2_0_vcc3v3_en>;
-+	status = "okay";
-+};
-
+diff --git a/tools/include/uapi/linux/if_xdp.h b/tools/include/uapi/linux/if_xdp.h
+index 42869770776e..44f2bb93e7e6 100644
+--- a/tools/include/uapi/linux/if_xdp.h
++++ b/tools/include/uapi/linux/if_xdp.h
+@@ -7,8 +7,8 @@
+  *	      Magnus Karlsson <magnus.karlsson@intel.com>
+  */
+ 
+-#ifndef _LINUX_IF_XDP_H
+-#define _LINUX_IF_XDP_H
++#ifndef _UAPI_LINUX_IF_XDP_H
++#define _UAPI_LINUX_IF_XDP_H
+ 
+ #include <linux/types.h>
+ 
+@@ -180,4 +180,4 @@ struct xdp_desc {
+ /* TX packet carries valid metadata. */
+ #define XDP_TX_METADATA (1 << 1)
+ 
+-#endif /* _LINUX_IF_XDP_H */
++#endif /* _UAPI_LINUX_IF_XDP_H */
 -- 
-2.49.0
+2.43.5
 
 
