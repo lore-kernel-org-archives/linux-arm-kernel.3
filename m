@@ -4,70 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2121AC3ABD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8DE1C3ABD3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:25:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7BT6JiNU7zVUtcWGo06dyNCKR86/Yl4O7QIBKqYCIBI=; b=MPCb5ctreqP1QVi3Ot0dv0WPWS
-	oLznNHuRKSD+cwR62VOKPENdg86S1QZVVaVKSjaKbCwShszDmBY3SX48IKCJpFylAJZUv1fBLDtWz
-	SyOFVRqfopzsepc+oteDwzdeUOsftTPQGZYXcsuckJXh1HBeacGr95VH++h8Xh+XdS+fO6gWzMEhc
-	nkJ+EcEdGVBZDBfBi1qEzNQT6pm2pdcbNqz5dd+YVFMkTeFI2k0EmDoc7l4sRYmhtqd65NxQKJwKk
-	ib8eQPkpmAjvlvFdQxKY5gtgD2DUp00V+7vttarX8gi+6t/GBaVaJ17xQWRLa6BcPlIsGOYa0j34n
-	uWZqp+cg==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XNoGYCfFn1Ise+cYyN4rMghXeEvaDWlpHmEHwktQf4A=; b=4ksgwxnaD1aHZthlJMfCJg8xIu
+	KiSUVz42jMu1pi2PQLwfNFZnC/Lw+m51/4/U3q1cGfdW81p9YRB5/aBXF9eNCCA2QtcWoFBVfCmL0
+	/iCTj8oQe6fR3i79cgksvFJSx/dsHowt5oFRjyU87ieWxbwCUBiNGavQfMGL8h0LZRM2MTcu26OTM
+	q9XDw1kzN8OySm8MJY3eTpWoSAdeRZ9HlDCDMUG2PzkbFvS6l+6YHNl+o6PkmuJsfWQqF2GU83ABD
+	hMPyTeGrup/FF2EJ7yScLTXoQxtdbX4N+hXj1w5NtB6JPYey9ml4x5x+VaLk4lFBYOcSO3DxwEZSs
+	vbU44Gng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDUHu-00000004mmM-08fe;
-	Fri, 09 May 2025 20:25:42 +0000
-Received: from pegase1.c-s.fr ([93.17.236.30])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDQvk-00000004Lkp-0Aos
+	id 1uDUHr-00000004miA-1LZw;
+	Fri, 09 May 2025 20:25:39 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uDQaL-00000004HTV-3jB4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 16:50:37 +0000
-Received: from localhost (mailhub3.si.c-s.fr [192.168.12.233])
-	by localhost (Postfix) with ESMTP id 4ZvDfC6QXQz9s36;
-	Fri,  9 May 2025 18:16:51 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase1.c-s.fr ([192.168.12.234])
-	by localhost (pegase1.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id bmZ_rCyi93iu; Fri,  9 May 2025 18:16:51 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase1.c-s.fr (Postfix) with ESMTP id 4ZvDfC5bgPz9s2l;
-	Fri,  9 May 2025 18:16:51 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id B57FD8B776;
-	Fri,  9 May 2025 18:16:51 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id tsIaKHYPXzrZ; Fri,  9 May 2025 18:16:51 +0200 (CEST)
-Received: from [192.168.235.99] (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 353888B768;
-	Fri,  9 May 2025 18:16:51 +0200 (CEST)
-Message-ID: <40ccd7fb-a1c8-4fb0-8813-0575c4afe505@csgroup.eu>
-Date: Fri, 9 May 2025 18:16:50 +0200
+	Fri, 09 May 2025 16:28:31 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5499d2134e8so2928809e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 09:28:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746808108; x=1747412908; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=XNoGYCfFn1Ise+cYyN4rMghXeEvaDWlpHmEHwktQf4A=;
+        b=Tr2kIjPOFt1dDpBoaL7HfLfMb2PHeXV69Gf2c7NlxoREwPXk3za37jdkWPg3M8mUqD
+         FkcHRPRD7BdMthgLCuW9+txgtr6t0pfZdycvun8lLSfTFhyogekZsAnAlcu5j6FO1rkf
+         RCYs1CsKKTMc8r6ss228dQfFXXbZk+Y90CIk/JQSQku8c8vWNkV+js6r3fgVLdgk1bYb
+         w9H8sbFU0ch3IygmXmTdorTjFNj1YLBK1CFkfJDul2kOWdf+SNIu26yxFCC35RcNEg76
+         u4s8pVH+Q2daP9fQVka4Ij4o8qOcCkYUapV0s1x6fRchtmtQQbhe235Tgf/aWZeRojl1
+         98Ug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746808108; x=1747412908;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=XNoGYCfFn1Ise+cYyN4rMghXeEvaDWlpHmEHwktQf4A=;
+        b=DDLfg/wMJusGC/8SBDXPGAADbg3C6zXR1puFHUIFvdJFODAbqIBRL4XsT+oGrzhxI6
+         pXhTdXDBfQcB6qYE2Hh9oE2R4N+wS1kF6Jwp0x3H0NeSa50caCEXFRZK5GR23MYtgpiu
+         WZEeBECRXo/YI52A3X2yDZ/v4j2smi1JOHFzv7E+FvqfQ7RRxWs5WGcPgXJdlmGsxVcv
+         cLSMaRF8HRassORD0efSK4AxlDJdk8qb5a3MWn6jTkFtVYGE2HQmyNjoytL7AHVh3YOb
+         jI7X+jzjptofxWCDMeRihxm6GpNxKQmq6Bd/OO89/kCalCpk7BMUvw63GVXte10j0wJO
+         iHjA==
+X-Forwarded-Encrypted: i=1; AJvYcCUdJfndrju1q4MAk6kL19KYl0wDOmKiLNuBHiS2/jKdhS+o5SS1OciufznpUiL60n6QMKzvB6O7w80d/aiz5Ugw@lists.infradead.org
+X-Gm-Message-State: AOJu0YxICkr8EAtolwITvpSgoQ/RhWIZUa8/AhSxdjRG3FVFepyUQv1N
+	pAwxHbp7aGuqvSs1bu7LBaCM+EJfoL5X08BQ6Y58I4weKX6CnAWw
+X-Gm-Gg: ASbGncthrSONFTB0Xo3Z+w9ePCU/++pYgfq+B+ZCLT/qx2/0UMZSJG/he1J42vFViMS
+	rMRzTW3wOhZpyZNMAuyYv6uqH9Pm6NRCS8uji2JUrwfcrIai+w/0yEWEdp5rTuZ4KMTI3fCciVC
+	kpNLKf7HjTLJqTgRb++EPEvcZax6wC2jTI7LV2gFmXrLU5eoTvVzFKTaG00/7cbKHUFKtr6nKSl
+	PrLfdZhOdXJjEVaOn+1a7ubf2RRpsMeTmMFgPcnY/LwEEOWOuOpv+YWrItTzYlfh8y+4YyI+Zbf
+	loGnkJfi6IWWqKeA3lDQWZxIiPZTuzCjmwCPKR5hVCGWo9zGCy1JkEzpUU4+JywChUB1SrXtGp/
+	7F2UK7f4RuoVJ
+X-Google-Smtp-Source: AGHT+IH/EXb373raBKjt6WQfYf9//Y986Nd2SlGxe0WcdFkLId+97MeCHvJVp1WwYjOQkLDE9lalsA==
+X-Received: by 2002:a05:6512:6501:b0:54f:c074:869a with SMTP id 2adb3069b0e04-54fc67e28c9mr1175869e87.45.1746808107398;
+        Fri, 09 May 2025 09:28:27 -0700 (PDT)
+Received: from [10.0.0.100] (host-185-69-73-15.kaisa-laajakaista.fi. [185.69.73.15])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54fc645cdaasm325994e87.60.2025.05.09.09.28.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 09 May 2025 09:28:27 -0700 (PDT)
+Message-ID: <aa852707-9be9-4e88-a0b3-034ebd47a9ac@gmail.com>
+Date: Fri, 9 May 2025 19:29:40 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] soc: fsl: qe: remove unused qe_ic_from_irq function
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, qiang.zhao@nxp.com,
- leoyang.li@nxp.com, nathan@kernel.org,
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Tom Rix <trix@redhat.com>
-Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, llvm@lists.linux.dev
-References: <20230320125202.1721775-1-trix@redhat.com>
- <174680087395.258053.1870729490363422870.b4-ty@linaro.org>
-Content-Language: fr-FR
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-In-Reply-To: <174680087395.258053.1870729490363422870.b4-ty@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH 5/8] drivers: soc: ti: k3-ringacc: handle absence of tisci
+To: Sai Sree Kartheek Adivi <s-adivi@ti.com>, vkoul@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com,
+ ssantosh@kernel.org, dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ praneeth@ti.com, vigneshr@ti.com, u-kumar1@ti.com, a-chavda@ti.com
+References: <20250428072032.946008-1-s-adivi@ti.com>
+ <20250428072032.946008-6-s-adivi@ti.com>
+Content-Language: en-US
+From: =?UTF-8?Q?P=C3=A9ter_Ujfalusi?= <peter.ujfalusi@gmail.com>
+In-Reply-To: <20250428072032.946008-6-s-adivi@ti.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_095036_228045_563498C1 
-X-CRM114-Status: UNSURE (   7.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250509_092829_929723_505F6599 
+X-CRM114-Status: GOOD (  22.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +105,299 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-Le 09/05/2025 à 16:28, Krzysztof Kozlowski a écrit :
+On 28/04/2025 10:20, Sai Sree Kartheek Adivi wrote:
+> Handle absence of tisci with direct register writes. This will support
+> platforms that do not have tisci firmware like AM62L.
 > 
-> On Mon, 20 Mar 2023 08:52:02 -0400, Tom Rix wrote:
->> clang with W=1 reports
->> drivers/soc/fsl/qe/qe_ic.c:235:29: error: unused function
->>    'qe_ic_from_irq' [-Werror,-Wunused-function]
->> static inline struct qe_ic *qe_ic_from_irq(unsigned int virq)
->>                              ^
->> The use of this function was removed with
->> commit d7c2878cfcfa ("soc: fsl: qe: remove unused qe_ic_set_* functions")
->>
->> [...]
+> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+> ---
+>  drivers/soc/ti/k3-ringacc.c       | 162 +++++++++++++++++++++++++-----
+>  include/linux/soc/ti/k3-ringacc.h |   4 +
+>  2 files changed, 142 insertions(+), 24 deletions(-)
 > 
-> 
-> Commit from 2021:
-> https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Flore.kernel.org%2Fall%2F1619002613-18216-1-git-send-email-jiapeng.chong%40linux.alibaba.com%2F&data=05%7C02%7Cchristophe.leroy2%40cs-soprasteria.com%7Cd5ee085f1ff64e69aec608dd8f05d608%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C638823977413929827%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=kaeZGwikWMhIhz9iC6ZEVs%2Ffbd9UsZHJz7vBbODUHgg%3D&reserved=0
-> 
-> did not apply, but this applies.
-> 
-> I am annoying hitting this warning on every W=1 build, so:
+> diff --git a/drivers/soc/ti/k3-ringacc.c b/drivers/soc/ti/k3-ringacc.c
+> index 82a15cad1c6c4..49e0483676a14 100644
+> --- a/drivers/soc/ti/k3-ringacc.c
+> +++ b/drivers/soc/ti/k3-ringacc.c
+> @@ -45,6 +45,38 @@ struct k3_ring_rt_regs {
+>  	u32	hwindx;
+>  };
+>  
+> +#define K3_RINGACC_RT_CFG_REGS_OFS	0x40
+> +#define K3_DMARING_CFG_ADDR_HI_MASK	GENMASK(3, 0)
+> +#define K3_DMARING_CFG_ASEL_SHIFT	16
+> +#define K3_DMARING_CFG_SIZE_MASK	GENMASK(15, 0)
+> +
+> +/**
+> + * struct k3_ring_cfg_regs - The RA Configuration Registers region
+> + *
+> + * @ba_lo: Ring Base Address Low Register
+> + * @ba_hi: Ring Base Address High Register
+> + * @size: Ring Size Register
+> + */
+> +struct k3_ring_cfg_regs {
+> +	u32	ba_lo;
+> +	u32	ba_hi;
+> +	u32	size;
+> +};
+> +
+> +#define K3_RINGACC_RT_INT_REGS_OFS		0x140
+> +#define K3_RINGACC_RT_INT_ENABLE_SET_COMPLETE	BIT(0)
+> +#define K3_RINGACC_RT_INT_ENABLE_SET_TR			BIT(2)
+> +
+> +struct k3_ring_intr_regs {
+> +	u32	enable_set;
+> +	u32	resv_4;
+> +	u32	clr;
+> +	u32	resv_16;
+> +	u32	status_set;
+> +	u32	resv_8;
+> +	u32	status;
+> +};
+> +
+>  #define K3_RINGACC_RT_REGS_STEP			0x1000
+>  #define K3_DMARING_RT_REGS_STEP			0x2000
+>  #define K3_DMARING_RT_REGS_REVERSE_OFS		0x1000
+> @@ -157,6 +189,8 @@ struct k3_ring_state {
+>   */
+>  struct k3_ring {
+>  	struct k3_ring_rt_regs __iomem *rt;
+> +	struct k3_ring_cfg_regs __iomem *cfg;
+> +	struct k3_ring_intr_regs __iomem *intr;
+>  	struct k3_ring_fifo_regs __iomem *fifos;
+>  	struct k3_ringacc_proxy_target_regs  __iomem *proxy;
+>  	dma_addr_t	ring_mem_dma;
+> @@ -465,16 +499,30 @@ static void k3_ringacc_ring_reset_sci(struct k3_ring *ring)
+>  	struct ti_sci_msg_rm_ring_cfg ring_cfg = { 0 };
+>  	struct k3_ringacc *ringacc = ring->parent;
+>  	int ret;
+> +	u32 reg;
+>  
+> -	ring_cfg.nav_id = ringacc->tisci_dev_id;
+> -	ring_cfg.index = ring->ring_id;
+> -	ring_cfg.valid_params = TI_SCI_MSG_VALUE_RM_RING_COUNT_VALID;
+> -	ring_cfg.count = ring->size;
+> +	if (!ringacc->tisci) {
 
+these are not in hot path, right?
+The reg can be moved here and in other functions.
 
-Acked-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+> +		if (ring->cfg == NULL)
+> +			return;
+> +		reg = readl(&ring->cfg->size);
+> +		reg &= ~K3_DMARING_CFG_SIZE_MASK;
+>  
+> -	ret = ringacc->tisci_ring_ops->set_cfg(ringacc->tisci, &ring_cfg);
+> -	if (ret)
+> -		dev_err(ringacc->dev, "TISCI reset ring fail (%d) ring_idx %d\n",
+> -			ret, ring->ring_id);
+> +		writel(reg, &ring->cfg->size);
+> +		wmb();
+> +		reg |= ring->size;
+> +
+> +		writel(reg, &ring->cfg->size);
+> +	} else {
+> +		ring_cfg.nav_id = ringacc->tisci_dev_id;
+> +		ring_cfg.index = ring->ring_id;
+> +		ring_cfg.valid_params = TI_SCI_MSG_VALUE_RM_RING_COUNT_VALID;
+> +		ring_cfg.count = ring->size;
+> +
+> +		ret = ringacc->tisci_ring_ops->set_cfg(ringacc->tisci, &ring_cfg);
+> +		if (ret)
+> +			dev_err(ringacc->dev, "TISCI reset ring fail (%d) ring_idx %d\n",
+> +				ret, ring->ring_id);
+> +	}
+>  }
+>  
+>  void k3_ringacc_ring_reset(struct k3_ring *ring)
+> @@ -494,16 +542,30 @@ static void k3_ringacc_ring_reconfig_qmode_sci(struct k3_ring *ring,
+>  	struct ti_sci_msg_rm_ring_cfg ring_cfg = { 0 };
+>  	struct k3_ringacc *ringacc = ring->parent;
+>  	int ret;
+> +	u32 reg;
+>  
+>  	ring_cfg.nav_id = ringacc->tisci_dev_id;
+>  	ring_cfg.index = ring->ring_id;
+>  	ring_cfg.valid_params = TI_SCI_MSG_VALUE_RM_RING_MODE_VALID;
+>  	ring_cfg.mode = mode;
+>  
+> -	ret = ringacc->tisci_ring_ops->set_cfg(ringacc->tisci, &ring_cfg);
+> -	if (ret)
+> -		dev_err(ringacc->dev, "TISCI reconf qmode fail (%d) ring_idx %d\n",
+> -			ret, ring->ring_id);
+> +	if (!ringacc->tisci) {
+> +		writel(ring_cfg.addr_lo, &ring->cfg->ba_lo);
+> +		writel((ring_cfg.addr_hi & K3_DMARING_CFG_ADDR_HI_MASK) +
+> +				(ring_cfg.asel << K3_DMARING_CFG_ASEL_SHIFT),
+> +				&ring->cfg->ba_hi);
+> +
+> +		reg = readl(&ring->cfg->size);
+> +		reg &= ~K3_DMARING_CFG_SIZE_MASK;
+> +		reg |= ring_cfg.count & K3_DMARING_CFG_SIZE_MASK;
+> +
+> +		writel(reg, &ring->cfg->size);
+> +	} else {
+> +		ret = ringacc->tisci_ring_ops->set_cfg(ringacc->tisci, &ring_cfg);
+> +		if (ret)
+> +			dev_err(ringacc->dev, "TISCI reconf qmode fail (%d) ring_idx %d\n",
+> +					ret, ring->ring_id);
+> +	}
+>  }
+>  
+>  void k3_ringacc_ring_reset_dma(struct k3_ring *ring, u32 occ)
+> @@ -570,15 +632,29 @@ static void k3_ringacc_ring_free_sci(struct k3_ring *ring)
+>  	struct ti_sci_msg_rm_ring_cfg ring_cfg = { 0 };
+>  	struct k3_ringacc *ringacc = ring->parent;
+>  	int ret;
+> +	u32 reg;
 
+this can be added to if (!ringacc->tisci) { } scope.>
+>  	ring_cfg.nav_id = ringacc->tisci_dev_id;
+>  	ring_cfg.index = ring->ring_id;
+>  	ring_cfg.valid_params = TI_SCI_MSG_VALUE_RM_ALL_NO_ORDER;
+>  
+> -	ret = ringacc->tisci_ring_ops->set_cfg(ringacc->tisci, &ring_cfg);
+> -	if (ret)
+> -		dev_err(ringacc->dev, "TISCI ring free fail (%d) ring_idx %d\n",
+> -			ret, ring->ring_id);
+> +	if (!ringacc->tisci) {
+> +		writel(ring_cfg.addr_lo, &ring->cfg->ba_lo);
+> +		writel((ring_cfg.addr_hi & K3_DMARING_CFG_ADDR_HI_MASK) +
+> +				(ring_cfg.asel << K3_DMARING_CFG_ASEL_SHIFT),
+> +				&ring->cfg->ba_hi);
+> +
+> +		reg = readl(&ring->cfg->size);
+> +		reg &= ~K3_DMARING_CFG_SIZE_MASK;
+> +		reg |= ring_cfg.count & K3_DMARING_CFG_SIZE_MASK;
+> +
+> +		writel(reg, &ring->cfg->size);
+> +	} else {
+> +		ret = ringacc->tisci_ring_ops->set_cfg(ringacc->tisci, &ring_cfg);
+> +		if (ret)
+> +			dev_err(ringacc->dev, "TISCI ring free fail (%d) ring_idx %d\n",
+> +					ret, ring->ring_id);
+> +	}
+>  }
+>  
+>  int k3_ringacc_ring_free(struct k3_ring *ring)
+> @@ -669,15 +745,31 @@ int k3_ringacc_get_ring_irq_num(struct k3_ring *ring)
+>  }
+>  EXPORT_SYMBOL_GPL(k3_ringacc_get_ring_irq_num);
+>  
+> +u32 k3_ringacc_ring_get_irq_status(struct k3_ring *ring)
+> +{
+> +	struct k3_ringacc *ringacc = ring->parent;
+> +	struct k3_ring *ring2 = &ringacc->rings[ring->ring_id];
+> +
+> +	return readl(&ring2->intr->status);
+> +}
+> +EXPORT_SYMBOL_GPL(k3_ringacc_ring_get_irq_status);
+> +
+> +void k3_ringacc_ring_clear_irq(struct k3_ring *ring)
+> +{
+> +	struct k3_ringacc *ringacc = ring->parent;
+> +	struct k3_ring *ring2 = &ringacc->rings[ring->ring_id];
+> +
+> +	writel(0xFF, &ring2->intr->status);
+> +}
+> +EXPORT_SYMBOL_GPL(k3_ringacc_ring_clear_irq);
+> +
+>  static int k3_ringacc_ring_cfg_sci(struct k3_ring *ring)
+>  {
+>  	struct ti_sci_msg_rm_ring_cfg ring_cfg = { 0 };
+>  	struct k3_ringacc *ringacc = ring->parent;
+> +	u32 reg;
+>  	int ret;
+>  
+> -	if (!ringacc->tisci)
+> -		return -EINVAL;
+> -
+>  	ring_cfg.nav_id = ringacc->tisci_dev_id;
+>  	ring_cfg.index = ring->ring_id;
+>  	ring_cfg.valid_params = TI_SCI_MSG_VALUE_RM_ALL_NO_ORDER;
+> @@ -688,11 +780,26 @@ static int k3_ringacc_ring_cfg_sci(struct k3_ring *ring)
+>  	ring_cfg.size = ring->elm_size;
+>  	ring_cfg.asel = ring->asel;
+>  
+> +	if (!ringacc->tisci) {
+> +		writel(ring_cfg.addr_lo, &ring->cfg->ba_lo);
+> +		writel((ring_cfg.addr_hi & K3_DMARING_CFG_ADDR_HI_MASK) +
+> +				(ring_cfg.asel << K3_DMARING_CFG_ASEL_SHIFT),
+> +				&ring->cfg->ba_hi);
+> +
+> +		reg = readl(&ring->cfg->size);
+> +		reg &= ~K3_DMARING_CFG_SIZE_MASK;
+> +		reg |= ring_cfg.count & K3_DMARING_CFG_SIZE_MASK;
+> +
+> +		writel(reg, &ring->cfg->size);
+> +		writel(K3_RINGACC_RT_INT_ENABLE_SET_COMPLETE | K3_RINGACC_RT_INT_ENABLE_SET_TR,
+> +				&ring->intr->enable_set);
+> +		return 0;
+> +	}
+> +
+>  	ret = ringacc->tisci_ring_ops->set_cfg(ringacc->tisci, &ring_cfg);
+>  	if (ret)
+>  		dev_err(ringacc->dev, "TISCI config ring fail (%d) ring_idx %d\n",
+> -			ret, ring->ring_id);
+> -
+> +				ret, ring->ring_id);
 
+suprious change? The alignment was correct.
 
-> 
-> Applied, thanks!
-> 
-> [1/1] soc: fsl: qe: remove unused qe_ic_from_irq function
->        https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgit.kernel.org%2Fkrzk%2Flinux-dt%2Fc%2Fd47f1233374597c348696c3da2142cc92a36fc90&data=05%7C02%7Cchristophe.leroy2%40cs-soprasteria.com%7Cd5ee085f1ff64e69aec608dd8f05d608%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C638823977413952218%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=HzwgkKFqffwtkmoskS9Y1OhlXShSW%2B%2BZLKxc3k3fCpA%3D&reserved=0
-> 
-> Best regards,
+>  	return ret;
+>  }
+>  
+> @@ -1480,9 +1587,12 @@ struct k3_ringacc *k3_ringacc_dmarings_init(struct platform_device *pdev,
+>  
+>  	mutex_init(&ringacc->req_lock);
+>  
+> -	base_rt = devm_platform_ioremap_resource_byname(pdev, "ringrt");
+> -	if (IS_ERR(base_rt))
+> -		return ERR_CAST(base_rt);
+> +	base_rt = data->base_rt;
+> +	if (!base_rt) {
+> +		base_rt = devm_platform_ioremap_resource_byname(pdev, "ringrt");
+> +		if (IS_ERR(base_rt))
+> +			return ERR_CAST(base_rt);
+> +	}
+>  
+>  	ringacc->rings = devm_kzalloc(dev,
+>  				      sizeof(*ringacc->rings) *
+> @@ -1498,6 +1608,10 @@ struct k3_ringacc *k3_ringacc_dmarings_init(struct platform_device *pdev,
+>  		struct k3_ring *ring = &ringacc->rings[i];
+>  
+>  		ring->rt = base_rt + K3_DMARING_RT_REGS_STEP * i;
+> +		ring->cfg = base_rt + K3_RINGACC_RT_CFG_REGS_OFS +
+> +			    K3_DMARING_RT_REGS_STEP * i;
+> +		ring->intr = base_rt + K3_RINGACC_RT_INT_REGS_OFS +
+> +			     K3_DMARING_RT_REGS_STEP * i;
+>  		ring->parent = ringacc;
+>  		ring->ring_id = i;
+>  		ring->proxy_id = K3_RINGACC_PROXY_NOT_USED;
+> diff --git a/include/linux/soc/ti/k3-ringacc.h b/include/linux/soc/ti/k3-ringacc.h
+> index 39b022b925986..fcf6fbd4a8594 100644
+> --- a/include/linux/soc/ti/k3-ringacc.h
+> +++ b/include/linux/soc/ti/k3-ringacc.h
+> @@ -158,6 +158,9 @@ u32 k3_ringacc_get_ring_id(struct k3_ring *ring);
+>   */
+>  int k3_ringacc_get_ring_irq_num(struct k3_ring *ring);
+>  
+> +u32 k3_ringacc_ring_get_irq_status(struct k3_ring *ring);
+> +void k3_ringacc_ring_clear_irq(struct k3_ring *ring);
+> +
+>  /**
+>   * k3_ringacc_ring_cfg - ring configure
+>   * @ring: pointer on ring
+> @@ -262,6 +265,7 @@ struct k3_ringacc_init_data {
+>  	const struct ti_sci_handle *tisci;
+>  	u32 tisci_dev_id;
+>  	u32 num_rings;
+> +	void __iomem *base_rt;
+>  };
+>  
+>  struct k3_ringacc *k3_ringacc_dmarings_init(struct platform_device *pdev,
+
+-- 
+Péter
 
 
