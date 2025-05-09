@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44BC4C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 12:31:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3941C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 12:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qSETgrsVMB4OUyqU4p3tpNCMc9bknN2FBok7iwVPUnA=; b=Pvdgy0q9sUL2HQQcNybPqiJU0L
-	45wM1kyDwUVB7AMze0QEVG6LFFLtk/0w8MGvVX+agJO1lW1w42dHPEar6y6rWPHFvcLevVlYqJpcr
-	cRaGePxRTYXAezijU8Y3kmV+f624/gvrBpjnru5kNLR1zmgmogV00iuGevAuNgPbgInPG2FzNM0E3
-	yq4UuGQ/F6wQvNujSwrXfaTyiW6md/m06a1SonKs5mixzYTrQkjpd6725kOWI2dz4wi5UM6OWWz6Y
-	4+x9vhF5d8kDo4dCL8J5xboDUmnqt/6fYk5FE0UH+QiNgh2I69B86jYrU1cMXuDjn++DRsRWCBLRW
-	p8rEyu7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u1NbxQ3NjkbkS3b+tER0/V/TTtVdvsyE4Uw7iAKKd+c=; b=Lp01guQrLwjvNNJ627Hk3SkM20
+	ESEdSjfgBoQ2r5dpQx5QTcjKTTXMHp0Lc7oGw4pwkLGwy1j0uV/VSWd4WudjqsXveplHXRWAvxwdb
+	dQhXriy22vpIMTkDxI0/CMzC6UH/syqBEvH6voQcEBkRs1gJ72zh9ul56nJuApchPznOo4ykDMYlE
+	kkC7BKEccWGzn6fli7qopNzX6MvFMh+ZeoetiwakjE3yrcRtRqg1O5CATbg1qLDi1SmCN/hvixYWc
+	8Ar45Imf7LaC8qQVlScsa9lnOHaeDEO7dBrC0RZBi6RHz+kXxkXhYKvLkbSbH6HTk3z9OtAPUkdtf
+	NsRmONhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDMt5-00000003bAG-16BR;
-	Fri, 09 May 2025 12:31:35 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDLyC-00000003RWq-3E4g
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 11:32:50 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 549BWdrC1390739
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 9 May 2025 06:32:39 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746790359;
-	bh=qSETgrsVMB4OUyqU4p3tpNCMc9bknN2FBok7iwVPUnA=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=dAmm3ZkO7yJ3NvTubB4FvQ9p6cj2opGD6Sx3NgNFLXWtcwppEOFgkCHIYj/9+7Xh9
-	 jCFx5EyA2ncbPE6Eq8Wl4U1jisFrNHCpGHCZ2yKpjLnBn8X6GguFWUxS9eLQhZorQV
-	 dEIrknq+PZid+Fx2ErE6gaVBTSmgRiFbjGsuBsAw=
-Received: from DLEE104.ent.ti.com (dlee104.ent.ti.com [157.170.170.34])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 549BWdaB024266
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 9 May 2025 06:32:39 -0500
-Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 9
- May 2025 06:32:39 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 9 May 2025 06:32:39 -0500
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.227.226])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 549BWcbG092720;
-	Fri, 9 May 2025 06:32:39 -0500
-Date: Fri, 9 May 2025 17:02:38 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-CC: Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 1/1] soc: ti: wkup_m3_ipc: Use dev_err_probe
-Message-ID: <20250509113238.sjj5lj47hh3y4hts@lcpd911>
-References: <20250509093652.1866566-1-alexander.stein@ew.tq-group.com>
+	id 1uDMv0-00000003bXG-3ycm;
+	Fri, 09 May 2025 12:33:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uDLRk-00000003MSQ-0atY;
+	Fri, 09 May 2025 10:59:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 469351595;
+	Fri,  9 May 2025 03:59:02 -0700 (PDT)
+Received: from [10.1.35.18] (e122027.cambridge.arm.com [10.1.35.18])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DAB863F58B;
+	Fri,  9 May 2025 03:59:09 -0700 (PDT)
+Message-ID: <124b8718-1a8e-4cf2-99e2-604fe63ae132@arm.com>
+Date: Fri, 9 May 2025 11:59:07 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250509093652.1866566-1-alexander.stein@ew.tq-group.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/5] drm/panfrost: Drop duplicated Mediatek supplies
+ arrays
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250509-mt8370-enable-gpu-v6-0-2833888cb1d3@collabora.com>
+ <20250509-mt8370-enable-gpu-v6-2-2833888cb1d3@collabora.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250509-mt8370-enable-gpu-v6-2-2833888cb1d3@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_043248_891565_2E6BA682 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20250509_035916_271282_9FBA4597 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,37 +74,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On May 09, 2025 at 11:36:52 +0200, Alexander Stein wrote:
-> During probe the mailbox channel might not yet be available. Use
-> dev_err_probe to silence this deferred probe error message:
-> wkup_m3_ipc 44e11324.wkup_m3_ipc: IPC Request for A8->M3 Channel failed! -517
+On 09/05/2025 11:12, Louis-Alexis Eyraud wrote:
+> In the panfrost driver, the platform data of several Mediatek SoC
+> declares and uses custom supplies array definitions
+> (mediatek_mt8192_supplies, mediatek_mt8183_b_supplies), that are the
+> same as default_supplies (used by default platform data).
 > 
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> So drop these duplicated definitions and use default_supplies instead.
+> Also, rename mediatek_mt8183_supplies to a more generic name too
+> (legacy_supplies).
+> 
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+
+Thanks for doing this.
+
+Reviewed-by: Steven Price <steven.price@arm.com>
+
 > ---
->  drivers/soc/ti/wkup_m3_ipc.c | 8 +++-----
->  1 file changed, 3 insertions(+), 5 deletions(-)
+>  drivers/gpu/drm/panfrost/panfrost_drv.c | 24 +++++++++++-------------
+>  1 file changed, 11 insertions(+), 13 deletions(-)
 > 
-> diff --git a/drivers/soc/ti/wkup_m3_ipc.c b/drivers/soc/ti/wkup_m3_ipc.c
-> index 79dde9a7ec639..5845fc652adcf 100644
-> --- a/drivers/soc/ti/wkup_m3_ipc.c
-> +++ b/drivers/soc/ti/wkup_m3_ipc.c
-> @@ -644,11 +644,9 @@ static int wkup_m3_ipc_probe(struct platform_device *pdev)
+> diff --git a/drivers/gpu/drm/panfrost/panfrost_drv.c b/drivers/gpu/drm/panfrost/panfrost_drv.c
+> index f1ec3b02f15a0029d20c7d81046ded59854e885c..7b899a9b2120c608e61dab9ca831ab8e907e8139 100644
+> --- a/drivers/gpu/drm/panfrost/panfrost_drv.c
+> +++ b/drivers/gpu/drm/panfrost/panfrost_drv.c
+> @@ -797,19 +797,18 @@ static const struct panfrost_compatible amlogic_data = {
+>   * On new devicetrees please use the _b variant with a single and
+>   * coupled regulators instead.
+>   */
+> -static const char * const mediatek_mt8183_supplies[] = { "mali", "sram", NULL };
+> +static const char * const legacy_supplies[] = { "mali", "sram", NULL };
+>  static const char * const mediatek_mt8183_pm_domains[] = { "core0", "core1", "core2" };
+>  static const struct panfrost_compatible mediatek_mt8183_data = {
+> -	.num_supplies = ARRAY_SIZE(mediatek_mt8183_supplies) - 1,
+> -	.supply_names = mediatek_mt8183_supplies,
+> +	.num_supplies = ARRAY_SIZE(legacy_supplies) - 1,
+> +	.supply_names = legacy_supplies,
+>  	.num_pm_domains = ARRAY_SIZE(mediatek_mt8183_pm_domains),
+>  	.pm_domain_names = mediatek_mt8183_pm_domains,
+>  };
 >  
->  	m3_ipc->mbox = mbox_request_channel(&m3_ipc->mbox_client, 0);
+> -static const char * const mediatek_mt8183_b_supplies[] = { "mali", NULL };
+>  static const struct panfrost_compatible mediatek_mt8183_b_data = {
+> -	.num_supplies = ARRAY_SIZE(mediatek_mt8183_b_supplies) - 1,
+> -	.supply_names = mediatek_mt8183_b_supplies,
+> +	.num_supplies = ARRAY_SIZE(default_supplies) - 1,
+> +	.supply_names = default_supplies,
+>  	.num_pm_domains = ARRAY_SIZE(mediatek_mt8183_pm_domains),
+>  	.pm_domain_names = mediatek_mt8183_pm_domains,
+>  	.pm_features = BIT(GPU_PM_CLK_DIS) | BIT(GPU_PM_VREG_OFF),
+> @@ -817,8 +816,8 @@ static const struct panfrost_compatible mediatek_mt8183_b_data = {
 >  
-> -	if (IS_ERR(m3_ipc->mbox)) {
-> -		dev_err(dev, "IPC Request for A8->M3 Channel failed! %ld\n",
-> -			PTR_ERR(m3_ipc->mbox));
-> -		return PTR_ERR(m3_ipc->mbox);
-> -	}
-> +	if (IS_ERR(m3_ipc->mbox))
-> +		return dev_err_probe(dev, PTR_ERR(m3_ipc->mbox),
-> +				     "IPC Request for A8->M3 Channel failed!\n");
+>  static const char * const mediatek_mt8186_pm_domains[] = { "core0", "core1" };
+>  static const struct panfrost_compatible mediatek_mt8186_data = {
+> -	.num_supplies = ARRAY_SIZE(mediatek_mt8183_b_supplies) - 1,
+> -	.supply_names = mediatek_mt8183_b_supplies,
+> +	.num_supplies = ARRAY_SIZE(default_supplies) - 1,
+> +	.supply_names = default_supplies,
+>  	.num_pm_domains = ARRAY_SIZE(mediatek_mt8186_pm_domains),
+>  	.pm_domain_names = mediatek_mt8186_pm_domains,
+>  	.pm_features = BIT(GPU_PM_CLK_DIS) | BIT(GPU_PM_VREG_OFF),
+> @@ -826,20 +825,19 @@ static const struct panfrost_compatible mediatek_mt8186_data = {
+>  
+>  /* MT8188 uses the same power domains and power supplies as MT8183 */
+>  static const struct panfrost_compatible mediatek_mt8188_data = {
+> -	.num_supplies = ARRAY_SIZE(mediatek_mt8183_b_supplies) - 1,
+> -	.supply_names = mediatek_mt8183_b_supplies,
+> +	.num_supplies = ARRAY_SIZE(default_supplies) - 1,
+> +	.supply_names = default_supplies,
+>  	.num_pm_domains = ARRAY_SIZE(mediatek_mt8183_pm_domains),
+>  	.pm_domain_names = mediatek_mt8183_pm_domains,
+>  	.pm_features = BIT(GPU_PM_CLK_DIS) | BIT(GPU_PM_VREG_OFF),
+>  	.gpu_quirks = BIT(GPU_QUIRK_FORCE_AARCH64_PGTABLE),
+>  };
+>  
+> -static const char * const mediatek_mt8192_supplies[] = { "mali", NULL };
+>  static const char * const mediatek_mt8192_pm_domains[] = { "core0", "core1", "core2",
+>  							   "core3", "core4" };
+>  static const struct panfrost_compatible mediatek_mt8192_data = {
+> -	.num_supplies = ARRAY_SIZE(mediatek_mt8192_supplies) - 1,
+> -	.supply_names = mediatek_mt8192_supplies,
+> +	.num_supplies = ARRAY_SIZE(default_supplies) - 1,
+> +	.supply_names = default_supplies,
+>  	.num_pm_domains = ARRAY_SIZE(mediatek_mt8192_pm_domains),
+>  	.pm_domain_names = mediatek_mt8192_pm_domains,
+>  	.pm_features = BIT(GPU_PM_CLK_DIS) | BIT(GPU_PM_VREG_OFF),
+> 
 
-Reviewed-by: Dhruva Gole <d-gole@ti.com>
-
--- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
 
