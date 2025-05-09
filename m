@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6F0BC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 07:53:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE04C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 07:55:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1bmne2y90D8JQiy5XkADi80jEOrlEPK+1vvd1ABYARg=; b=My/bKH8+lSKEv+aWkLLo6E49er
-	qak8z15tKHCnqq1z8rGo+fGkId8eh6bn07MPibYi0XEEUZNMQrxqVvZKuX21qf030r8dxHlYJq3EY
-	rK7Sbw2/teZsuTxBR9Xr4L/59sgIiPzZQe88XeunOjgyT1FnBVDCIWx5HMBSNqXh1By2dCMoum91V
-	/VkHuKoqFxSkYHuumif17y6za3a/h4Wn+LtMJ95XBOjR9IiQKzZtEx5I5+fzdJ66g5bjSQiHrU/Kx
-	65Pp9nhOTa9IixOVJSB8B5FJboZLoNffKGMkE5OTys1uTg63gzRWOkSlMWnhtntVaJv5albhYAoZT
-	IVWZSaag==;
+	bh=NuYt1/U+29wIYU8dl8gpqq+wMgTkVUy7RaIMihLvP2I=; b=NagrT+wBNCHBlQEcnTe5sgHAtq
+	W1fqMgSXRm9vyNA29/Vp3tLuxkO8vmB1s3No0zEzbh/oaAOfLEtVrGoSEj5ttbJthcZAwwBy/FyMG
+	GCpV+GIT+GyyUKJxC4G+4ZsVmZCs8WWsldtlAlc/RODv5gdjCqizKLiYZpRqqsyWedN3onfZiio8k
+	hgg82ZOmZjQLDpZMhh0xOpS2WDtl+n0FswYyZm8NUI0l2lDUKJ0auHU20gJef/D/Bh2wv5l/gc7lR
+	/pgAW/Ti668HJLyopI+3uEk+7BHSSyzOhOnCTO8strWmRHQkSTOCrreuuzvWK4hZ6CHuIspf4JosW
+	SzWeASVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDIY0-00000002pZ2-3ExZ;
-	Fri, 09 May 2025 07:53:32 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1uDIZx-00000002pzl-1bQG;
+	Fri, 09 May 2025 07:55:33 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDIRd-00000002nQk-0ilu
+	id 1uDIRh-00000002nUn-3e4I
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 07:46:59 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b16b35ea570so1920427a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 00:46:56 -0700 (PDT)
+	Fri, 09 May 2025 07:47:04 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-22e5a558bfaso41352445ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 00:47:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746776816; x=1747381616; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1746776820; x=1747381620; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1bmne2y90D8JQiy5XkADi80jEOrlEPK+1vvd1ABYARg=;
-        b=mMBlWjbSlDHmwa7affjdTch+I3pfFkHMFWn4Kzd6HhXonOte4oMMbWCPTqWYiryWdg
-         4tPiBdKLU4scQ/oI6vZEqBqj+FFMKY7p9K2aatsdWcPFdcW55Bek2zaAahRhHC+HJYk9
-         McZiBERRmDIsZgb9E8N9efz4ue+L57SuQj5mmPq+Z7jhycJWHRSaYRe3/F8MXDB5fxBn
-         +PSASTcS6/HyrD9L5w2WNkHNKQ8f5Aw+DgxxXlUZO9eE0IjeF1ctBZzDVStBCKVbKsAI
-         n0c8dmIDxLtRQbjaCgtOXrAWDsjd745I//0TJ6f7v4KwW3VXAdM1tfCImDH5YekMY2Sb
-         JjYA==
+        bh=NuYt1/U+29wIYU8dl8gpqq+wMgTkVUy7RaIMihLvP2I=;
+        b=n9PuoiXfA0nJADV9uq5GzJ2m+gJynwippKvBSKfWFQu1zJlij9eU2ObArtnFdgL34m
+         Sg6PO2LaMtB7z3X2hsFcScGw+cm+UmwF/incuCRfbxqPRs8nDZjKZa1zMMIv3cvndy/O
+         0G3ayGxFve9jgxpE87fv6+WcoHQUR0mvBklwOG3q4Eb3A2VVAqZP8g9Gvt1vmAKTWycq
+         Q1aKcLb5ITMP14Tsu9VmwBaOdeUDnb8Tu70h5xZAcDCZr6niuqUHmPKutRIspUVMRQlE
+         CjB7mO6UT1vxZwB56Wxsx/XTE7xTH0J4e5Nvj6w/PJObDecpeOdbtMyTbkBWseG+f6AL
+         dbow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746776816; x=1747381616;
+        d=1e100.net; s=20230601; t=1746776820; x=1747381620;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1bmne2y90D8JQiy5XkADi80jEOrlEPK+1vvd1ABYARg=;
-        b=lJEnNZBJ8VziLXyVSnCw4cZmclNxXU7bANZ0sBihhkM7p2OzDIJ2VIqyFvQfzuZ3E8
-         F+NtCatt4l4SNTr/lprc6oQOFZCMVhujIRt8OazGgFomtmBc2uPjwR+X2CYOz6QO/0bO
-         RLHEEQ/388IhC2eeBm0YL540k7g5q0WHrkQyNHYmGHhbi5TFu8JGhub+DiyzpFhUN/4a
-         Tu+K772GcNSTDLtp2//x0pDg3E4XSv1ltWCNN17OiEtp6xAr676r+RgWDJhS83pg2G0c
-         cH6mmHGwuT6DA5+5LfK9xT457yJcj88FYFNedbjYYODh8UxqCT9bcQSqHvkpbxfsNpfe
-         +Bcw==
-X-Forwarded-Encrypted: i=1; AJvYcCVyKr8LrpRfwYhBz/zmb1dliVQFHrw1C6Hkh2IVHbNuGRbDUohEvRx+BQ/ZQYRzcnCk30h2tg5BI25fthLeNS68@lists.infradead.org
-X-Gm-Message-State: AOJu0YxySk5AJyySiQGLdqDdIyAgMKrrzfgEbmtZtiUvhorU/hdSBBds
-	aBDchYCP78KcYDq2qRdpIZKD54kPlSyAa5tUXfTzkjQK2Zv1BcjsLNwxPYZQetNnwUbenhBynyr
-	msitU5XU6kWE9IvauIg==
-X-Google-Smtp-Source: AGHT+IHIomAzXg5M2xD8Ke7Ch9cLJaJgpC1gqGvq2UBKZ/ILunuCV6BiFzeH+RQUHWtdNNF1Cpyd6Zk06ESRNXDD
-X-Received: from pgbdk10.prod.google.com ([2002:a05:6a02:c8a:b0:b1f:fd39:8314])
+        bh=NuYt1/U+29wIYU8dl8gpqq+wMgTkVUy7RaIMihLvP2I=;
+        b=YscsoHvVTmUzQnj8cLOdKpmHzjEfslZQnLSlnFbXSUtCH/F0A/BrsDL5D5ufPgGp/e
+         z+IlYNeKJ6qzuNdX2KKxb2cQX6OtrrNpAL5ynod2ONIiqqd5HQK0w2mefiWtooU+uo1a
+         Q4WULblsdReeNfN1maGzW7GvctJE3Y3ozSR0sisjHe1ALX8gqLQwpmko85YVDPJ1ZvEM
+         ehlau8G7qWUny5gnGTD5eSfZpypz+wTnWwc4bmeE3r0+7vnp4ShW/B7LyRVaglsidhK/
+         EZeG6PFHp4j4Z/UWMZot9j2CbkwrHamWN8cY9Rwoj7g3xntRx4CIFMm4fo41QQNOizE3
+         qxYA==
+X-Forwarded-Encrypted: i=1; AJvYcCWdU5GkRTsbleQYNu3n/bjbrDX1c/A0aSICUJFozVH8i2JVN4DphC2NTkl9uVTrgRGjO9vweHcKvqZkmBcyQfxZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwGt7fBChMtOz47mKwSvoXfm5M3a8ewiSNuTWJlgG1JQWLlTaW
+	hdqyeo+ZLLTqDlTbTrsI3YRHaclTI4gInFjzsM3v25VLfAXHHLGYHYFmMArKbrmo0JaBRg9K+F4
+	v+jeUpWwyv5eYRNUp0A==
+X-Google-Smtp-Source: AGHT+IFVklSKVi8f7zbytd77t7letnKH1a5gS0/lJ/cq4zNiXX7UK5ALJpyLpE70Xw1eMlsyneVxDJyZJNjTdKAt
+X-Received: from plkh5.prod.google.com ([2002:a17:903:19e5:b0:21f:b748:a1c8])
  (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a20:2450:b0:1f5:6c94:2cc9 with SMTP id adf61e73a8af0-215abc22f24mr3411999637.22.1746776816238;
- Fri, 09 May 2025 00:46:56 -0700 (PDT)
-Date: Fri,  9 May 2025 00:46:20 -0700
+ 2002:a17:902:dac5:b0:223:f9a4:3fb6 with SMTP id d9443c01a7336-22fc8b107abmr38991475ad.11.1746776820328;
+ Fri, 09 May 2025 00:47:00 -0700 (PDT)
+Date: Fri,  9 May 2025 00:46:22 -0700
 In-Reply-To: <20250509074635.3187114-1-changyuanl@google.com>
 Mime-Version: 1.0
 References: <20250509074635.3187114-1-changyuanl@google.com>
 X-Mailer: git-send-email 2.49.0.1015.ga840276032-goog
-Message-ID: <20250509074635.3187114-3-changyuanl@google.com>
-Subject: [PATCH v8 02/17] memblock: Add support for scratch memory
+Message-ID: <20250509074635.3187114-5-changyuanl@google.com>
+Subject: [PATCH v8 04/17] kexec: add Kexec HandOver (KHO) generation helpers
 From: Changyuan Lyu <changyuanl@google.com>
 To: akpm@linux-foundation.org, linux-kernel@vger.kernel.org
 Cc: anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com, 
@@ -83,8 +83,8 @@ Cc: anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
 	Changyuan Lyu <changyuanl@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_004657_261267_1F02D482 
-X-CRM114-Status: GOOD (  27.75  )
+X-CRM114-CacheID: sfid-20250509_004701_921076_64F71FDF 
+X-CRM114-Status: GOOD (  34.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,222 +101,725 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Alexander Graf <graf@amazon.com>
 
-With KHO (Kexec HandOver), we need a way to ensure that the new kernel
-does not allocate memory on top of any memory regions that the previous
-kernel was handing over. But to know where those are, we need to include
-them in the memblock.reserved array which may not be big enough to hold
-all ranges that need to be persisted across kexec. To resize the array,
-we need to allocate memory. That brings us into a catch 22 situation.
+Add the infrastructure to generate Kexec HandOver metadata. Kexec
+HandOver is a mechanism that allows Linux to preserve state - arbitrary
+properties as well as memory locations - across kexec.
 
-The solution to that is limit memblock allocations to the scratch regions:
-safe regions to operate in the case when there is memory that should remain
-intact across kexec.
+It does so using 2 concepts:
 
-KHO provides several "scratch regions" as part of its metadata. These
-scratch regions are contiguous memory blocks that known not to contain any
-memory that should be persisted across kexec. These regions should be large
-enough to accommodate all memblock allocations done by the kexeced kernel.
+  1) KHO FDT - Every KHO kexec carries a KHO specific flattened device tree
+     blob that describes preserved memory regions. Device drivers can
+     register to KHO to serialize and preserve their states before kexec.
 
-We introduce a new memblock_set_scratch_only() function that allows KHO to
-indicate that any memblock allocation must happen from the scratch regions.
-
-Later, we may want to perform another KHO kexec. For that, we reuse the
-same scratch regions. To ensure that no eventually handed over data gets
-allocated inside a scratch region, we flip the semantics of the scratch
-region with memblock_clear_scratch_only(): After that call, no allocations
-may happen from scratch memblock regions. We will lift that restriction
-in the next patch.
+  2) Scratch Regions - CMA regions that we allocate in the first kernel.
+     CMA gives us the guarantee that no handover pages land in those
+     regions, because handover pages must be at a static physical memory
+     location. We use these regions as the place to load future kexec
+     images so that they won't collide with any handover data.
 
 Signed-off-by: Alexander Graf <graf@amazon.com>
 Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Co-developed-by: Pratyush Yadav <ptyadav@amazon.de>
+Signed-off-by: Pratyush Yadav <ptyadav@amazon.de>
+Co-developed-by: Changyuan Lyu <changyuanl@google.com>
 Signed-off-by: Changyuan Lyu <changyuanl@google.com>
 ---
- include/linux/memblock.h | 20 +++++++++++++
- mm/Kconfig               |  4 +++
- mm/memblock.c            | 61 ++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 85 insertions(+)
+ MAINTAINERS                    |   9 +
+ include/linux/kexec_handover.h |  59 ++++
+ kernel/Makefile                |   1 +
+ kernel/kexec_handover.c        | 557 +++++++++++++++++++++++++++++++++
+ mm/mm_init.c                   |   8 +
+ 5 files changed, 634 insertions(+)
+ create mode 100644 include/linux/kexec_handover.h
+ create mode 100644 kernel/kexec_handover.c
 
-diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-index 6c00fbc085132..993937a6b9620 100644
---- a/include/linux/memblock.h
-+++ b/include/linux/memblock.h
-@@ -45,6 +45,11 @@ extern unsigned long long max_possible_pfn;
-  * @MEMBLOCK_RSRV_KERN: memory region that is reserved for kernel use,
-  * either explictitly with memblock_reserve_kern() or via memblock
-  * allocation APIs. All memblock allocations set this flag.
-+ * @MEMBLOCK_KHO_SCRATCH: memory region that kexec can pass to the next
-+ * kernel in handover mode. During early boot, we do not know about all
-+ * memory reservations yet, so we get scratch memory from the previous
-+ * kernel that we know is good to use. It is the only memory that
-+ * allocations may happen from in this phase.
-  */
- enum memblock_flags {
- 	MEMBLOCK_NONE		= 0x0,	/* No special request */
-@@ -54,6 +59,7 @@ enum memblock_flags {
- 	MEMBLOCK_DRIVER_MANAGED = 0x8,	/* always detected via a driver */
- 	MEMBLOCK_RSRV_NOINIT	= 0x10,	/* don't initialize struct pages */
- 	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
-+	MEMBLOCK_KHO_SCRATCH	= 0x40,	/* scratch memory for kexec handover */
- };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 3cbf9ac0d83f6..5e2b121263437 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -13138,6 +13138,15 @@ F:	include/linux/kexec.h
+ F:	include/uapi/linux/kexec.h
+ F:	kernel/kexec*
  
- /**
-@@ -148,6 +154,8 @@ int memblock_mark_mirror(phys_addr_t base, phys_addr_t size);
- int memblock_mark_nomap(phys_addr_t base, phys_addr_t size);
- int memblock_clear_nomap(phys_addr_t base, phys_addr_t size);
- int memblock_reserved_mark_noinit(phys_addr_t base, phys_addr_t size);
-+int memblock_mark_kho_scratch(phys_addr_t base, phys_addr_t size);
-+int memblock_clear_kho_scratch(phys_addr_t base, phys_addr_t size);
- 
- void memblock_free(void *ptr, size_t size);
- void reset_all_zones_managed_pages(void);
-@@ -291,6 +299,11 @@ static inline bool memblock_is_driver_managed(struct memblock_region *m)
- 	return m->flags & MEMBLOCK_DRIVER_MANAGED;
- }
- 
-+static inline bool memblock_is_kho_scratch(struct memblock_region *m)
-+{
-+	return m->flags & MEMBLOCK_KHO_SCRATCH;
-+}
++KEXEC HANDOVER (KHO)
++M:	Alexander Graf <graf@amazon.com>
++M:	Mike Rapoport <rppt@kernel.org>
++M:	Changyuan Lyu <changyuanl@google.com>
++L:	kexec@lists.infradead.org
++S:	Maintained
++F:	include/linux/kexec_handover.h
++F:	kernel/kexec_handover.c
 +
- int memblock_search_pfn_nid(unsigned long pfn, unsigned long *start_pfn,
- 			    unsigned long  *end_pfn);
- void __next_mem_pfn_range(int *idx, int nid, unsigned long *out_start_pfn,
-@@ -619,5 +632,12 @@ static inline void early_memtest(phys_addr_t start, phys_addr_t end) { }
- static inline void memtest_report_meminfo(struct seq_file *m) { }
- #endif
- 
-+#ifdef CONFIG_MEMBLOCK_KHO_SCRATCH
-+void memblock_set_kho_scratch_only(void);
-+void memblock_clear_kho_scratch_only(void);
+ KEYS-ENCRYPTED
+ M:	Mimi Zohar <zohar@linux.ibm.com>
+ L:	linux-integrity@vger.kernel.org
+diff --git a/include/linux/kexec_handover.h b/include/linux/kexec_handover.h
+new file mode 100644
+index 0000000000000..2e19004776f6b
+--- /dev/null
++++ b/include/linux/kexec_handover.h
+@@ -0,0 +1,59 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef LINUX_KEXEC_HANDOVER_H
++#define LINUX_KEXEC_HANDOVER_H
++
++#include <linux/types.h>
++#include <linux/errno.h>
++
++struct kho_scratch {
++	phys_addr_t addr;
++	phys_addr_t size;
++};
++
++/* KHO Notifier index */
++enum kho_event {
++	KEXEC_KHO_FINALIZE = 0,
++	KEXEC_KHO_ABORT = 1,
++};
++
++struct notifier_block;
++
++struct kho_serialization;
++
++#ifdef CONFIG_KEXEC_HANDOVER
++bool kho_is_enabled(void);
++
++int kho_add_subtree(struct kho_serialization *ser, const char *name, void *fdt);
++
++int register_kho_notifier(struct notifier_block *nb);
++int unregister_kho_notifier(struct notifier_block *nb);
++
++void kho_memory_init(void);
 +#else
-+static inline void memblock_set_kho_scratch_only(void) { }
-+static inline void memblock_clear_kho_scratch_only(void) { }
-+#endif
- 
- #endif /* _LINUX_MEMBLOCK_H */
-diff --git a/mm/Kconfig b/mm/Kconfig
-index e113f713b4938..60ea9eba48140 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -469,6 +469,10 @@ config HAVE_GUP_FAST
- 	depends on MMU
- 	bool
- 
-+# Enable memblock support for scratch memory which is needed for kexec handover
-+config MEMBLOCK_KHO_SCRATCH
-+	bool
-+
- # Don't discard allocated memory used to track "memory" and "reserved" memblocks
- # after early boot, so it can still be used to test for validity of memory.
- # Also, memblocks are updated with memory hot(un)plug.
-diff --git a/mm/memblock.c b/mm/memblock.c
-index 2dc95ecdee5ce..6eba0dfe87155 100644
---- a/mm/memblock.c
-+++ b/mm/memblock.c
-@@ -107,6 +107,13 @@ unsigned long min_low_pfn;
- unsigned long max_pfn;
- unsigned long long max_possible_pfn;
- 
-+#ifdef CONFIG_MEMBLOCK_KHO_SCRATCH
-+/* When set to true, only allocate from MEMBLOCK_KHO_SCRATCH ranges */
-+static bool kho_scratch_only;
-+#else
-+#define kho_scratch_only false
-+#endif
-+
- static struct memblock_region memblock_memory_init_regions[INIT_MEMBLOCK_MEMORY_REGIONS] __initdata_memblock;
- static struct memblock_region memblock_reserved_init_regions[INIT_MEMBLOCK_RESERVED_REGIONS] __initdata_memblock;
- #ifdef CONFIG_HAVE_MEMBLOCK_PHYS_MAP
-@@ -166,6 +173,10 @@ bool __init_memblock memblock_has_mirror(void)
- 
- static enum memblock_flags __init_memblock choose_memblock_flags(void)
- {
-+	/* skip non-scratch memory for kho early boot allocations */
-+	if (kho_scratch_only)
-+		return MEMBLOCK_KHO_SCRATCH;
-+
- 	return system_has_some_mirror ? MEMBLOCK_MIRROR : MEMBLOCK_NONE;
- }
- 
-@@ -925,6 +936,18 @@ int __init_memblock memblock_physmem_add(phys_addr_t base, phys_addr_t size)
- }
- #endif
- 
-+#ifdef CONFIG_MEMBLOCK_KHO_SCRATCH
-+__init void memblock_set_kho_scratch_only(void)
++static inline bool kho_is_enabled(void)
 +{
-+	kho_scratch_only = true;
++	return false;
 +}
 +
-+__init void memblock_clear_kho_scratch_only(void)
++static inline int kho_add_subtree(struct kho_serialization *ser,
++				  const char *name, void *fdt)
 +{
-+	kho_scratch_only = false;
++	return -EOPNOTSUPP;
 +}
-+#endif
 +
- /**
-  * memblock_setclr_flag - set or clear flag for a memory region
-  * @type: memblock type to set/clear flag for
-@@ -1050,6 +1073,36 @@ int __init_memblock memblock_reserved_mark_noinit(phys_addr_t base, phys_addr_t
- 				    MEMBLOCK_RSRV_NOINIT);
- }
- 
-+/**
-+ * memblock_mark_kho_scratch - Mark a memory region as MEMBLOCK_KHO_SCRATCH.
-+ * @base: the base phys addr of the region
-+ * @size: the size of the region
-+ *
-+ * Only memory regions marked with %MEMBLOCK_KHO_SCRATCH will be considered
-+ * for allocations during early boot with kexec handover.
-+ *
-+ * Return: 0 on success, -errno on failure.
++static inline int register_kho_notifier(struct notifier_block *nb)
++{
++	return -EOPNOTSUPP;
++}
++
++static inline int unregister_kho_notifier(struct notifier_block *nb)
++{
++	return -EOPNOTSUPP;
++}
++
++static inline void kho_memory_init(void)
++{
++}
++#endif /* CONFIG_KEXEC_HANDOVER */
++
++#endif /* LINUX_KEXEC_HANDOVER_H */
+diff --git a/kernel/Makefile b/kernel/Makefile
+index 434929de17ef2..97c09847db42f 100644
+--- a/kernel/Makefile
++++ b/kernel/Makefile
+@@ -80,6 +80,7 @@ obj-$(CONFIG_CRASH_DUMP) += crash_core.o
+ obj-$(CONFIG_KEXEC) += kexec.o
+ obj-$(CONFIG_KEXEC_FILE) += kexec_file.o
+ obj-$(CONFIG_KEXEC_ELF) += kexec_elf.o
++obj-$(CONFIG_KEXEC_HANDOVER) += kexec_handover.o
+ obj-$(CONFIG_BACKTRACE_SELF_TEST) += backtracetest.o
+ obj-$(CONFIG_COMPAT) += compat.o
+ obj-$(CONFIG_CGROUPS) += cgroup/
+diff --git a/kernel/kexec_handover.c b/kernel/kexec_handover.c
+new file mode 100644
+index 0000000000000..e541d3d5003d1
+--- /dev/null
++++ b/kernel/kexec_handover.c
+@@ -0,0 +1,557 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * kexec_handover.c - kexec handover metadata processing
++ * Copyright (C) 2023 Alexander Graf <graf@amazon.com>
++ * Copyright (C) 2025 Microsoft Corporation, Mike Rapoport <rppt@kernel.org>
++ * Copyright (C) 2025 Google LLC, Changyuan Lyu <changyuanl@google.com>
 + */
-+__init int memblock_mark_kho_scratch(phys_addr_t base, phys_addr_t size)
++
++#define pr_fmt(fmt) "KHO: " fmt
++
++#include <linux/cma.h>
++#include <linux/debugfs.h>
++#include <linux/kexec.h>
++#include <linux/kexec_handover.h>
++#include <linux/libfdt.h>
++#include <linux/list.h>
++#include <linux/memblock.h>
++#include <linux/notifier.h>
++#include <linux/page-isolation.h>
++/*
++ * KHO is tightly coupled with mm init and needs access to some of mm
++ * internal APIs.
++ */
++#include "../mm/internal.h"
++
++#define KHO_FDT_COMPATIBLE "kho-v1"
++#define PROP_PRESERVED_MEMORY_MAP "preserved-memory-map"
++#define PROP_SUB_FDT "fdt"
++
++static bool kho_enable __ro_after_init;
++
++bool kho_is_enabled(void)
 +{
-+	return memblock_setclr_flag(&memblock.memory, base, size, 1,
-+				    MEMBLOCK_KHO_SCRATCH);
++	return kho_enable;
++}
++EXPORT_SYMBOL_GPL(kho_is_enabled);
++
++static int __init kho_parse_enable(char *p)
++{
++	return kstrtobool(p, &kho_enable);
++}
++early_param("kho", kho_parse_enable);
++
++struct kho_serialization {
++	struct page *fdt;
++	struct list_head fdt_list;
++	struct dentry *sub_fdt_dir;
++};
++
++/*
++ * With KHO enabled, memory can become fragmented because KHO regions may
++ * be anywhere in physical address space. The scratch regions give us a
++ * safe zones that we will never see KHO allocations from. This is where we
++ * can later safely load our new kexec images into and then use the scratch
++ * area for early allocations that happen before page allocator is
++ * initialized.
++ */
++static struct kho_scratch *kho_scratch;
++static unsigned int kho_scratch_cnt;
++
++/*
++ * The scratch areas are scaled by default as percent of memory allocated from
++ * memblock. A user can override the scale with command line parameter:
++ *
++ * kho_scratch=N%
++ *
++ * It is also possible to explicitly define size for a lowmem, a global and
++ * per-node scratch areas:
++ *
++ * kho_scratch=l[KMG],n[KMG],m[KMG]
++ *
++ * The explicit size definition takes precedence over scale definition.
++ */
++static unsigned int scratch_scale __initdata = 200;
++static phys_addr_t scratch_size_global __initdata;
++static phys_addr_t scratch_size_pernode __initdata;
++static phys_addr_t scratch_size_lowmem __initdata;
++
++static int __init kho_parse_scratch_size(char *p)
++{
++	size_t len;
++	unsigned long sizes[3];
++	int i;
++
++	if (!p)
++		return -EINVAL;
++
++	len = strlen(p);
++	if (!len)
++		return -EINVAL;
++
++	/* parse nn% */
++	if (p[len - 1] == '%') {
++		/* unsigned int max is 4,294,967,295, 10 chars */
++		char s_scale[11] = {};
++		int ret = 0;
++
++		if (len > ARRAY_SIZE(s_scale))
++			return -EINVAL;
++
++		memcpy(s_scale, p, len - 1);
++		ret = kstrtouint(s_scale, 10, &scratch_scale);
++		if (!ret)
++			pr_notice("scratch scale is %d%%\n", scratch_scale);
++		return ret;
++	}
++
++	/* parse ll[KMG],mm[KMG],nn[KMG] */
++	for (i = 0; i < ARRAY_SIZE(sizes); i++) {
++		char *endp = p;
++
++		if (i > 0) {
++			if (*p != ',')
++				return -EINVAL;
++			p += 1;
++		}
++
++		sizes[i] = memparse(p, &endp);
++		if (!sizes[i] || endp == p)
++			return -EINVAL;
++		p = endp;
++	}
++
++	scratch_size_lowmem = sizes[0];
++	scratch_size_global = sizes[1];
++	scratch_size_pernode = sizes[2];
++	scratch_scale = 0;
++
++	pr_notice("scratch areas: lowmem: %lluMiB global: %lluMiB pernode: %lldMiB\n",
++		  (u64)(scratch_size_lowmem >> 20),
++		  (u64)(scratch_size_global >> 20),
++		  (u64)(scratch_size_pernode >> 20));
++
++	return 0;
++}
++early_param("kho_scratch", kho_parse_scratch_size);
++
++static void __init scratch_size_update(void)
++{
++	phys_addr_t size;
++
++	if (!scratch_scale)
++		return;
++
++	size = memblock_reserved_kern_size(ARCH_LOW_ADDRESS_LIMIT,
++					   NUMA_NO_NODE);
++	size = size * scratch_scale / 100;
++	scratch_size_lowmem = round_up(size, CMA_MIN_ALIGNMENT_BYTES);
++
++	size = memblock_reserved_kern_size(MEMBLOCK_ALLOC_ANYWHERE,
++					   NUMA_NO_NODE);
++	size = size * scratch_scale / 100 - scratch_size_lowmem;
++	scratch_size_global = round_up(size, CMA_MIN_ALIGNMENT_BYTES);
++}
++
++static phys_addr_t __init scratch_size_node(int nid)
++{
++	phys_addr_t size;
++
++	if (scratch_scale) {
++		size = memblock_reserved_kern_size(MEMBLOCK_ALLOC_ANYWHERE,
++						   nid);
++		size = size * scratch_scale / 100;
++	} else {
++		size = scratch_size_pernode;
++	}
++
++	return round_up(size, CMA_MIN_ALIGNMENT_BYTES);
 +}
 +
 +/**
-+ * memblock_clear_kho_scratch - Clear MEMBLOCK_KHO_SCRATCH flag for a
-+ * specified region.
-+ * @base: the base phys addr of the region
-+ * @size: the size of the region
++ * kho_reserve_scratch - Reserve a contiguous chunk of memory for kexec
 + *
-+ * Return: 0 on success, -errno on failure.
++ * With KHO we can preserve arbitrary pages in the system. To ensure we still
++ * have a large contiguous region of memory when we search the physical address
++ * space for target memory, let's make sure we always have a large CMA region
++ * active. This CMA region will only be used for movable pages which are not a
++ * problem for us during KHO because we can just move them somewhere else.
 + */
-+__init int memblock_clear_kho_scratch(phys_addr_t base, phys_addr_t size)
++static void __init kho_reserve_scratch(void)
 +{
-+	return memblock_setclr_flag(&memblock.memory, base, size, 0,
-+				    MEMBLOCK_KHO_SCRATCH);
-+}
++	phys_addr_t addr, size;
++	int nid, i = 0;
 +
- static bool should_skip_region(struct memblock_type *type,
- 			       struct memblock_region *m,
- 			       int nid, int flags)
-@@ -1081,6 +1134,13 @@ static bool should_skip_region(struct memblock_type *type,
- 	if (!(flags & MEMBLOCK_DRIVER_MANAGED) && memblock_is_driver_managed(m))
- 		return true;
- 
++	if (!kho_enable)
++		return;
++
++	scratch_size_update();
++
++	/* FIXME: deal with node hot-plug/remove */
++	kho_scratch_cnt = num_online_nodes() + 2;
++	size = kho_scratch_cnt * sizeof(*kho_scratch);
++	kho_scratch = memblock_alloc(size, PAGE_SIZE);
++	if (!kho_scratch)
++		goto err_disable_kho;
++
 +	/*
-+	 * In early alloc during kexec handover, we can only consider
-+	 * MEMBLOCK_KHO_SCRATCH regions for the allocations
++	 * reserve scratch area in low memory for lowmem allocations in the
++	 * next kernel
 +	 */
-+	if ((flags & MEMBLOCK_KHO_SCRATCH) && !memblock_is_kho_scratch(m))
-+		return true;
++	size = scratch_size_lowmem;
++	addr = memblock_phys_alloc_range(size, CMA_MIN_ALIGNMENT_BYTES, 0,
++					 ARCH_LOW_ADDRESS_LIMIT);
++	if (!addr)
++		goto err_free_scratch_desc;
 +
- 	return false;
- }
- 
-@@ -2465,6 +2525,7 @@ static const char * const flagname[] = {
- 	[ilog2(MEMBLOCK_DRIVER_MANAGED)] = "DRV_MNG",
- 	[ilog2(MEMBLOCK_RSRV_NOINIT)] = "RSV_NIT",
- 	[ilog2(MEMBLOCK_RSRV_KERN)] = "RSV_KERN",
-+	[ilog2(MEMBLOCK_KHO_SCRATCH)] = "KHO_SCRATCH",
- };
- 
- static int memblock_debug_show(struct seq_file *m, void *private)
++	kho_scratch[i].addr = addr;
++	kho_scratch[i].size = size;
++	i++;
++
++	/* reserve large contiguous area for allocations without nid */
++	size = scratch_size_global;
++	addr = memblock_phys_alloc(size, CMA_MIN_ALIGNMENT_BYTES);
++	if (!addr)
++		goto err_free_scratch_areas;
++
++	kho_scratch[i].addr = addr;
++	kho_scratch[i].size = size;
++	i++;
++
++	for_each_online_node(nid) {
++		size = scratch_size_node(nid);
++		addr = memblock_alloc_range_nid(size, CMA_MIN_ALIGNMENT_BYTES,
++						0, MEMBLOCK_ALLOC_ACCESSIBLE,
++						nid, true);
++		if (!addr)
++			goto err_free_scratch_areas;
++
++		kho_scratch[i].addr = addr;
++		kho_scratch[i].size = size;
++		i++;
++	}
++
++	return;
++
++err_free_scratch_areas:
++	for (i--; i >= 0; i--)
++		memblock_phys_free(kho_scratch[i].addr, kho_scratch[i].size);
++err_free_scratch_desc:
++	memblock_free(kho_scratch, kho_scratch_cnt * sizeof(*kho_scratch));
++err_disable_kho:
++	kho_enable = false;
++}
++
++struct fdt_debugfs {
++	struct list_head list;
++	struct debugfs_blob_wrapper wrapper;
++	struct dentry *file;
++};
++
++static int kho_debugfs_fdt_add(struct list_head *list, struct dentry *dir,
++			       const char *name, const void *fdt)
++{
++	struct fdt_debugfs *f;
++	struct dentry *file;
++
++	f = kmalloc(sizeof(*f), GFP_KERNEL);
++	if (!f)
++		return -ENOMEM;
++
++	f->wrapper.data = (void *)fdt;
++	f->wrapper.size = fdt_totalsize(fdt);
++
++	file = debugfs_create_blob(name, 0400, dir, &f->wrapper);
++	if (IS_ERR(file)) {
++		kfree(f);
++		return PTR_ERR(file);
++	}
++
++	f->file = file;
++	list_add(&f->list, list);
++
++	return 0;
++}
++
++/**
++ * kho_add_subtree - record the physical address of a sub FDT in KHO root tree.
++ * @ser: serialization control object passed by KHO notifiers.
++ * @name: name of the sub tree.
++ * @fdt: the sub tree blob.
++ *
++ * Creates a new child node named @name in KHO root FDT and records
++ * the physical address of @fdt. The pages of @fdt must also be preserved
++ * by KHO for the new kernel to retrieve it after kexec.
++ *
++ * A debugfs blob entry is also created at
++ * ``/sys/kernel/debug/kho/out/sub_fdts/@name``.
++ *
++ * Return: 0 on success, error code on failure
++ */
++int kho_add_subtree(struct kho_serialization *ser, const char *name, void *fdt)
++{
++	int err = 0;
++	u64 phys = (u64)virt_to_phys(fdt);
++	void *root = page_to_virt(ser->fdt);
++
++	err |= fdt_begin_node(root, name);
++	err |= fdt_property(root, PROP_SUB_FDT, &phys, sizeof(phys));
++	err |= fdt_end_node(root);
++
++	if (err)
++		return err;
++
++	return kho_debugfs_fdt_add(&ser->fdt_list, ser->sub_fdt_dir, name, fdt);
++}
++EXPORT_SYMBOL_GPL(kho_add_subtree);
++
++struct kho_out {
++	struct blocking_notifier_head chain_head;
++
++	struct dentry *dir;
++
++	struct mutex lock; /* protects KHO FDT finalization */
++
++	struct kho_serialization ser;
++	bool finalized;
++};
++
++static struct kho_out kho_out = {
++	.chain_head = BLOCKING_NOTIFIER_INIT(kho_out.chain_head),
++	.lock = __MUTEX_INITIALIZER(kho_out.lock),
++	.ser = {
++		.fdt_list = LIST_HEAD_INIT(kho_out.ser.fdt_list),
++	},
++	.finalized = false,
++};
++
++int register_kho_notifier(struct notifier_block *nb)
++{
++	return blocking_notifier_chain_register(&kho_out.chain_head, nb);
++}
++EXPORT_SYMBOL_GPL(register_kho_notifier);
++
++int unregister_kho_notifier(struct notifier_block *nb)
++{
++	return blocking_notifier_chain_unregister(&kho_out.chain_head, nb);
++}
++EXPORT_SYMBOL_GPL(unregister_kho_notifier);
++
++/* Handling for debug/kho/out */
++
++static struct dentry *debugfs_root;
++
++static int kho_out_update_debugfs_fdt(void)
++{
++	int err = 0;
++	struct fdt_debugfs *ff, *tmp;
++
++	if (kho_out.finalized) {
++		err = kho_debugfs_fdt_add(&kho_out.ser.fdt_list, kho_out.dir,
++					  "fdt", page_to_virt(kho_out.ser.fdt));
++	} else {
++		list_for_each_entry_safe(ff, tmp, &kho_out.ser.fdt_list, list) {
++			debugfs_remove(ff->file);
++			list_del(&ff->list);
++			kfree(ff);
++		}
++	}
++
++	return err;
++}
++
++static int kho_abort(void)
++{
++	int err;
++
++	err = blocking_notifier_call_chain(&kho_out.chain_head, KEXEC_KHO_ABORT,
++					   NULL);
++	err = notifier_to_errno(err);
++
++	if (err)
++		pr_err("Failed to abort KHO finalization: %d\n", err);
++
++	return err;
++}
++
++static int kho_finalize(void)
++{
++	int err = 0;
++	void *fdt = page_to_virt(kho_out.ser.fdt);
++
++	err |= fdt_create(fdt, PAGE_SIZE);
++	err |= fdt_finish_reservemap(fdt);
++	err |= fdt_begin_node(fdt, "");
++	err |= fdt_property_string(fdt, "compatible", KHO_FDT_COMPATIBLE);
++	if (err)
++		goto abort;
++
++	err = blocking_notifier_call_chain(&kho_out.chain_head,
++					   KEXEC_KHO_FINALIZE, &kho_out.ser);
++	err = notifier_to_errno(err);
++	if (err)
++		goto abort;
++
++	err |= fdt_end_node(fdt);
++	err |= fdt_finish(fdt);
++
++abort:
++	if (err) {
++		pr_err("Failed to convert KHO state tree: %d\n", err);
++		kho_abort();
++	}
++
++	return err;
++}
++
++static int kho_out_finalize_get(void *data, u64 *val)
++{
++	mutex_lock(&kho_out.lock);
++	*val = kho_out.finalized;
++	mutex_unlock(&kho_out.lock);
++
++	return 0;
++}
++
++static int kho_out_finalize_set(void *data, u64 _val)
++{
++	int ret = 0;
++	bool val = !!_val;
++
++	mutex_lock(&kho_out.lock);
++
++	if (val == kho_out.finalized) {
++		if (kho_out.finalized)
++			ret = -EEXIST;
++		else
++			ret = -ENOENT;
++		goto unlock;
++	}
++
++	if (val)
++		ret = kho_finalize();
++	else
++		ret = kho_abort();
++
++	if (ret)
++		goto unlock;
++
++	kho_out.finalized = val;
++	ret = kho_out_update_debugfs_fdt();
++
++unlock:
++	mutex_unlock(&kho_out.lock);
++	return ret;
++}
++
++DEFINE_DEBUGFS_ATTRIBUTE(fops_kho_out_finalize, kho_out_finalize_get,
++			 kho_out_finalize_set, "%llu\n");
++
++static int scratch_phys_show(struct seq_file *m, void *v)
++{
++	for (int i = 0; i < kho_scratch_cnt; i++)
++		seq_printf(m, "0x%llx\n", kho_scratch[i].addr);
++
++	return 0;
++}
++DEFINE_SHOW_ATTRIBUTE(scratch_phys);
++
++static int scratch_len_show(struct seq_file *m, void *v)
++{
++	for (int i = 0; i < kho_scratch_cnt; i++)
++		seq_printf(m, "0x%llx\n", kho_scratch[i].size);
++
++	return 0;
++}
++DEFINE_SHOW_ATTRIBUTE(scratch_len);
++
++static __init int kho_out_debugfs_init(void)
++{
++	struct dentry *dir, *f, *sub_fdt_dir;
++
++	dir = debugfs_create_dir("out", debugfs_root);
++	if (IS_ERR(dir))
++		return -ENOMEM;
++
++	sub_fdt_dir = debugfs_create_dir("sub_fdts", dir);
++	if (IS_ERR(sub_fdt_dir))
++		goto err_rmdir;
++
++	f = debugfs_create_file("scratch_phys", 0400, dir, NULL,
++				&scratch_phys_fops);
++	if (IS_ERR(f))
++		goto err_rmdir;
++
++	f = debugfs_create_file("scratch_len", 0400, dir, NULL,
++				&scratch_len_fops);
++	if (IS_ERR(f))
++		goto err_rmdir;
++
++	f = debugfs_create_file("finalize", 0600, dir, NULL,
++				&fops_kho_out_finalize);
++	if (IS_ERR(f))
++		goto err_rmdir;
++
++	kho_out.dir = dir;
++	kho_out.ser.sub_fdt_dir = sub_fdt_dir;
++	return 0;
++
++err_rmdir:
++	debugfs_remove_recursive(dir);
++	return -ENOENT;
++}
++
++static __init int kho_init(void)
++{
++	int err = 0;
++
++	if (!kho_enable)
++		return 0;
++
++	kho_out.ser.fdt = alloc_page(GFP_KERNEL);
++	if (!kho_out.ser.fdt) {
++		err = -ENOMEM;
++		goto err_free_scratch;
++	}
++
++	debugfs_root = debugfs_create_dir("kho", NULL);
++	if (IS_ERR(debugfs_root)) {
++		err = -ENOENT;
++		goto err_free_fdt;
++	}
++
++	err = kho_out_debugfs_init();
++	if (err)
++		goto err_free_fdt;
++
++	for (int i = 0; i < kho_scratch_cnt; i++) {
++		unsigned long base_pfn = PHYS_PFN(kho_scratch[i].addr);
++		unsigned long count = kho_scratch[i].size >> PAGE_SHIFT;
++		unsigned long pfn;
++
++		for (pfn = base_pfn; pfn < base_pfn + count;
++		     pfn += pageblock_nr_pages)
++			init_cma_reserved_pageblock(pfn_to_page(pfn));
++	}
++
++	return 0;
++
++err_free_fdt:
++	put_page(kho_out.ser.fdt);
++	kho_out.ser.fdt = NULL;
++err_free_scratch:
++	for (int i = 0; i < kho_scratch_cnt; i++) {
++		void *start = __va(kho_scratch[i].addr);
++		void *end = start + kho_scratch[i].size;
++
++		free_reserved_area(start, end, -1, "");
++	}
++	kho_enable = false;
++	return err;
++}
++late_initcall(kho_init);
++
++void __init kho_memory_init(void)
++{
++	kho_reserve_scratch();
++}
+diff --git a/mm/mm_init.c b/mm/mm_init.c
+index 128c100fdb977..4918209735b42 100644
+--- a/mm/mm_init.c
++++ b/mm/mm_init.c
+@@ -30,6 +30,7 @@
+ #include <linux/crash_dump.h>
+ #include <linux/execmem.h>
+ #include <linux/vmstat.h>
++#include <linux/kexec_handover.h>
+ #include <linux/hugetlb.h>
+ #include "internal.h"
+ #include "slab.h"
+@@ -2771,6 +2772,13 @@ void __init mm_core_init(void)
+ 	report_meminit();
+ 	kmsan_init_shadow();
+ 	stack_depot_early_init();
++
++	/*
++	 * KHO memory setup must happen while memblock is still active, but
++	 * as close as possible to buddy initialization
++	 */
++	kho_memory_init();
++
+ 	memblock_free_all();
+ 	mem_init();
+ 	kmem_cache_init();
 -- 
 2.49.0.1015.ga840276032-goog
 
