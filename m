@@ -4,69 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E7FFC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 18:08:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 001B8C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 18:10:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HtoycmPbpqBasA/drBUodysvfnREG7Bsxmru8dbrqNw=; b=S/g2vUT+S54L1dXypBTA9VSDqu
-	YDDPByQznpptxVZEt0yB2gFwHZiY2vWIZ/6BpwBqnKVSKZFOw3j0ZGcV24xMqEBv2k66CTsjB8ApU
-	h8EYSirEOYitA0rqZEr342GsKyc4Fj0U1g5lbpVBAGSLFwgJ/PEHmsDVqVEFYkCAFPLUwkEHkqWgX
-	lXgC/WXl9qxBL+5h/1hoscIdonMLIHQUvV99FV6GxPCcyPKeXJjGDLSjJhwbPFw7DvvVcweBOk6EN
-	Kny7LWkmNK0MZq6kM+Ttu5OZv0yqqgz++EN8960IbRrzQi2w7dnz779yDJb6UlDkQciel8Ztoocr7
-	LMiXS50w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LeI1hdsmthCqCaHOody11qsGHAppUyGmQKFc5SZrcl8=; b=IbfSBdqBP9qUhGQXSE90lOCCqR
+	68SplPotpkWq8n80VPqFhP2wuUUdiwlcJGF4RPwePhC61SBkCmxdHAzTSD/oROJrYIRBZNWXNPexQ
+	z5IOb+CULKJubowFf2ruQFjTZxxlTcJh80uv+V3XhYHH5x/n10ja3faige3MUo15pVNBnMk+IRYkJ
+	i3eildXOtoSAkm2VpoHiXGVnSaifviKnkxZnmd8aEGHkTCni4KerBb8jq+Di/VzKipOEUwso5uiWQ
+	suaP5OIE5bh1mU1jZReoqsJj4FY+EWIQjXWb8t3Q/0hNDvwCdDgYVskaZIXB5uVdTUN79rSm1jneg
+	Ar32cv9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDS8k-00000004Wkj-1vi2;
-	Fri, 09 May 2025 18:08:06 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDQ5B-00000004BIc-3Tkp;
-	Fri, 09 May 2025 15:56:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Ht
-	oycmPbpqBasA/drBUodysvfnREG7Bsxmru8dbrqNw=; b=ER59UXA31khSY9WbeL
-	MDhFLDWNjr3qr0JvmCSTZWQ4aqQk+QFeHeEHlgP56JaN8q4p0orern3cx25Od9Qo
-	FtX+f923x9siPOlQyZzxBm5i01bl1fKzTIlI4RCnrxSc57E6D1KCc0jQzMn4ekxR
-	cmoTNvAYZ/3VcLKMr6PTR8L+g=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wCH+a9CJR5oqYT+AA--.23731S6;
-	Fri, 09 May 2025 23:54:45 +0800 (CST)
-From: Hans Zhang <18255117159@163.com>
-To: shawn.lin@rock-chips.com,
-	lpieralisi@kernel.org,
-	kw@linux.com,
-	bhelgaas@google.com,
-	heiko@sntech.de,
-	manivannan.sadhasivam@linaro.org
-Cc: robh@kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1uDSAi-00000004XBw-0V1i;
+	Fri, 09 May 2025 18:10:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uDQ6Y-00000004Baq-3yCD
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 May 2025 15:57:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7D1F55C6D68;
+	Fri,  9 May 2025 15:55:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D090C4CEE4;
+	Fri,  9 May 2025 15:57:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746806261;
+	bh=7/MNjjNtDaTlouyx656vOEkXvTq9x85h8AYf16G6kY4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=EC63aiOYHa2FEhR7y19MISasjwZb1YmAjmQZmxYUicaFchRnypNc/tbruTUG7UidG
+	 4krwF39n5wqmD0i21wjtbxpbep789RE7R4+xlqVy1/GpmdokLBOABfuuUb20kFN26T
+	 Rbf6bqeVfQIRSYArtmm26F/Jh5wri8cWG8uX78wcaXY6cMitgz6HffHaLi6oJy5QfI
+	 DkeWdL+9cNk6gzI9pJYORE61XKpSyd9lApWAbJxA51Hg0r9TQ9YKHXJ18vUHwiaFYK
+	 ihqMqUbVU3UFqnodWPuGLw8Ua6RiH0LaS8xxz5kkdHChpQ4ARI3L2bKXR9OjSFUIYK
+	 6yf+68a9PboFQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uDQ6V-00DRuz-5i;
+	Fri, 09 May 2025 16:57:39 +0100
+Date: Fri, 09 May 2025 16:57:38 +0100
+Message-ID: <86zfflg4jx.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Hans Zhang <18255117159@163.com>
-Subject: [PATCH 4/4] PCI: rockchip-host: Remove unused header includes
-Date: Fri,  9 May 2025 23:54:02 +0800
-Message-Id: <20250509155402.377923-5-18255117159@163.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250509155402.377923-1-18255117159@163.com>
-References: <20250509155402.377923-1-18255117159@163.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wCH+a9CJR5oqYT+AA--.23731S6
-X-Coremail-Antispam: 1Uf129KBjvJXoW7ZF1fWw17JryxuryDCrW5Awb_yoW8GF1UpF
-	WqkFWxJrZ5AF1UCFnruF1qkr1Yqw4DZw17J342ga47Z342yr1vq395Crnxtr1kAFW2gF15
-	Cay3trs5CrW5XrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pKiiT5UUUUU=
-X-Originating-IP: [124.79.128.52]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbBDxxIo2geIgCSFQAAsr
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+Subject: Re: [PATCH v3 02/17] KVM: arm64: nv: Allocate VNCR page when required
+In-Reply-To: <aB3UxDxwXhz5iY9J@linux.dev>
+References: <20250423151508.2961768-1-maz@kernel.org>
+	<20250423151508.2961768-3-maz@kernel.org>
+	<aB3UxDxwXhz5iY9J@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, eric.auger@redhat.com, gankulkarni@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_085618_267208_BF8A7B10 
-X-CRM114-Status: UNSURE (   7.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250509_085743_022197_CBA21CC2 
+X-CRM114-Status: GOOD (  19.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,47 +91,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Clean up the driver by removing unnecessary header includes
-(e.g., <linux/clk.h>, <linux/reset.h>) that are no longer referenced
-after refactoring. This improves code readability and build efficiency.
+On Fri, 09 May 2025 11:11:16 +0100,
+Oliver Upton <oliver.upton@linux.dev> wrote:
+> 
+> On Wed, Apr 23, 2025 at 04:14:53PM +0100, Marc Zyngier wrote:
+> > If running a NV guest on an ARMv8.4-NV capable system, let's
+> > allocate an additional page that will be used by the hypervisor
+> > to fulfill system register accesses.
+> > 
+> > Reviewed-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/nested.c | 9 +++++++++
+> >  arch/arm64/kvm/reset.c  | 1 +
+> >  2 files changed, 10 insertions(+)
+> > 
+> > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > index 4a3fc11f7ecf3..884b3e25795c4 100644
+> > --- a/arch/arm64/kvm/nested.c
+> > +++ b/arch/arm64/kvm/nested.c
+> > @@ -55,6 +55,12 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+> >  	    !cpus_have_final_cap(ARM64_HAS_HCR_NV1))
+> >  		return -EINVAL;
+> >  
+> > +	if (!vcpu->arch.ctxt.vncr_array)
+> > +		vcpu->arch.ctxt.vncr_array = (u64 *)__get_free_page(GFP_KERNEL | __GFP_ZERO);
+> 
+> Think you want GFP_KERNEL_ACCOUNT here.
 
-Signed-off-by: Hans Zhang <18255117159@163.com>
----
- drivers/pci/controller/pcie-rockchip-host.c | 9 ---------
- 1 file changed, 9 deletions(-)
+Yup, good point. I'll fold that in.
 
-diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
-index ba1f7832bda5..e2c603634bda 100644
---- a/drivers/pci/controller/pcie-rockchip-host.c
-+++ b/drivers/pci/controller/pcie-rockchip-host.c
-@@ -12,26 +12,17 @@
-  */
- 
- #include <linux/bitrev.h>
--#include <linux/clk.h>
--#include <linux/delay.h>
- #include <linux/gpio/consumer.h>
--#include <linux/init.h>
- #include <linux/interrupt.h>
- #include <linux/iopoll.h>
- #include <linux/irq.h>
- #include <linux/irqchip/chained_irq.h>
- #include <linux/irqdomain.h>
--#include <linux/kernel.h>
--#include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_pci.h>
--#include <linux/pci.h>
--#include <linux/pci_ids.h>
- #include <linux/phy/phy.h>
- #include <linux/platform_device.h>
--#include <linux/reset.h>
--#include <linux/regmap.h>
- 
- #include "../pci.h"
- #include "pcie-rockchip.h"
+Thanks,
+
+	M.
+
 -- 
-2.25.1
-
+Without deviation from the norm, progress is not possible.
 
