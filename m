@@ -4,73 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D68BFC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3063C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t7YPFkKsM8XEdUC86jlkdQ4IF2PnbIQWQ0GDK0pNlj0=; b=xVzgUXO5o3ytiFc9GQc5c7mcTL
-	FVc9QiS6N9iWj9cDIjUaC6e4OQItyCZxFTx5OvV67oGc9Q97TfGUHNP6hK5Zh01geqiRcJonc5ZHv
-	kuMWL4ISp62If/xRDXDvDFv2iX0h+bgjUuOvhmoiZc2kFbtEVTfm7wU7cUXqJDYqpTPiPUFdqCxhk
-	jBeD3JbDPL6IzeMtrng03SyRBhUXM7FfeQkGRsXOLVYgUZhSb9gu7Kw7tPrwlATcEmyNZ+KpHXZTH
-	YS8soznRp/Enq9lkk/O/DREi9JW/Q/gu/pvmlyf6snofkSoQBfh36+4xJzk0QqfcrBDpGZENm4Ej6
-	sp/ga1Iw==;
+	bh=BbxtS5yi/0Srg9MgfDGhVG9mOHgxoToLsBc2u3rrXu4=; b=3+beegLZAB1fVZY7h2uvEmkTwz
+	nCC2OZWZQ9f7bUZAa5zkb6oJnqcbFErlSZrj+LQbHugOZtxNu6ZWTtGZ+PK6RcFwBiJn2bk/CFx0e
+	z5uylNm9t2pUTcVV/O/ELFSZAP/PfoRzB4kxnHA97/ttU3fm1+DnU+0oWiFVa1qKD38a6aWg7OEit
+	CSugT6N7pOqZ/lkZ/7LOLG9BSsTUgv6dtLprmtxk4SMCdkm4ufwodomckGnOWZoWNI3tCnCU/VeJG
+	Q14rNUoqGviKA+mxJZ4DpE6r7aVdWo2VptACKTFhAr8WLX7+DqdwU+4ChiZDMJbHzjeGFutGBmxHu
+	hzLyCFDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDUKC-00000004pUK-2MHQ;
-	Fri, 09 May 2025 20:28:04 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uDUKI-00000004pdV-14lN;
+	Fri, 09 May 2025 20:28:10 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDSdU-00000004atb-3qTU
+	id 1uDSt9-00000004ck5-1tca
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 18:39:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 011D5A4C747;
-	Fri,  9 May 2025 18:39:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91A65C4CEE4;
-	Fri,  9 May 2025 18:39:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746815991;
-	bh=Wz4glreSt8DlgIrM5HvJHSb+qrAyVPEKF6wXqMPedMQ=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=OubpBByXk3rxJnekSB6DqSDgiFfKLhWsBxZh0t1IZ2Pfr50qJu2Nq3RMnlOgR3obn
-	 T+tUkNTYQdvQn4il0XqegaKDa0YOAYslfjRz+fdINWnhDl/c6TP+bpquW/nIinjqvv
-	 6nvWLogb/LAzmEdxv3+rCzk3z+vqyRiQpFwK7ewGA+9TBly/HIIMouhFsYiL+QsLbU
-	 IMP8XwXoUyPisDHs1ZE67QVTv8OO3Np+b06XC1tNbqRBlqMltRKlQ6Vpgc55nf6En+
-	 AwHPBoZZlLsuLktnkZy/zaPBr67dbDqQtru0wDZ7JeA3kh/wmGZmPhg1NusYS7MqrM
-	 lnKxF1tllRmNw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 34071380DBCB;
-	Fri,  9 May 2025 18:40:31 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Fri, 09 May 2025 18:56:05 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43d04ea9d9aso13430635e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 11:56:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1746816962; x=1747421762; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BbxtS5yi/0Srg9MgfDGhVG9mOHgxoToLsBc2u3rrXu4=;
+        b=HznAcXjI0faantbIi6hVOxubb7/ee+/iMHurpcne9oy/JxrbyEB7CCNr2CIBQYzJ0n
+         lZGC7FkmnMBAYZ/D8U769N9PcaoBP2XAGfZQKMl9P6PTheffxo/rXKHyxBdSK2ixgcft
+         X9MFi6UTVAvmFAD+6VOI/q/SywMOAR6yPI31Bgy2SwykLtjIb4OYeKrr5yOryMPfgZzG
+         iubcRm8J7LJRG3zTZDM1sba8xKziBPe6mmEyccw8rmsjVT/Ov9z1aAAdIep314hJ+1AB
+         OudfrducIFp+YqvOyni/S4Rkk8iayOuFsEvSs7j+ggx95+zrWE8wZYpRF7tkj/hvQj5j
+         62Ww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746816962; x=1747421762;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BbxtS5yi/0Srg9MgfDGhVG9mOHgxoToLsBc2u3rrXu4=;
+        b=MRUxw+FbhzsJ2bPpNcjepufr5KIC2HLs7WbBn5Hd8pqtqECreFMBAN0BmeTVq7yfyC
+         RqP5g7RmidAdTjssXmdRefumjf/xP5W+wCxj1xnKQcPYGIwli31yQ2Nqq9o4ZDJrSZM1
+         mxF8MCIqyxv2CzH0l9B+VSXipL97hLq2LIgPKpJ0iBV9Ll7INYGosP2rzExhLPaB+zec
+         etHlnN8LZ7IVev4oBeNwgayukShuziCR5GI/5qld6R6K4tX0CWtkpgt9DVsyVNL3CiVI
+         g6Dw+U7Y3m19siAHdaqB2ou73koC/gKT2h6eg54VXv5kLh5i5HqZ2XTa9YatiwC4is4W
+         r4Hw==
+X-Forwarded-Encrypted: i=1; AJvYcCWVJvg3YDXa9pnLOtI46VOYollxaNwFsn5t6rR9uPD6KD+m/dOWXdqgv7Btz2rIR95jlpB4q//X1Tq2t4QhevBM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0zp7GRR5ev1dbgwKgBEIvub14eL42EkDcYOiEqZjd/2I90RFc
+	3eCsVu8SChy1vZcgIM2MFxzpnAxmZkc0sEM76gU/441My9mq/u7JT/FIGlHMrR0=
+X-Gm-Gg: ASbGnctjBOujeF2k3Ia7aCvNl+9/jwvp2n3YyKiEgB2YGvzSBYRghWn64TihWvSD0Hr
+	Z7Bxpi46zopplAv1x+Oe4fDLoeGN4JAjnr2tmlfwIrgQLQhMRxBVIJdI5sfB3dFWpU9YgngCkRf
+	S3yqCpm/0WQ3mwLjVD3EhMNbqd8bc17Q/ANtViTi6xC7+nr6yYI9Oib2vDYLAUEBAEHqyU/Leih
+	JUIaRTG9i72S0SGO/h7zRZAGvC4sb2kg22aiYzaQgTmFZLqCvbApXW8n+c51D7fDmyLh3PIWJRY
+	nvUdWcwHOGDAeKrp6J6nCX8rwig76Gl5DDq5AC6xR5JeqOT7n2IEKruNK+ApGqJwz+21L93Y
+X-Google-Smtp-Source: AGHT+IHYQkpkKi8CkEHzddCWOZceMUv66ifC4WqdnYwF4TBNK6QI+OtfU0ViTWxy69iYNRZgfgnN0g==
+X-Received: by 2002:a05:600c:1550:b0:43c:fabf:9146 with SMTP id 5b1f17b1804b1-442d6d6abfdmr45281565e9.17.1746816961791;
+        Fri, 09 May 2025 11:56:01 -0700 (PDT)
+Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:52eb:f6ff:feb3:451a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442d687ae10sm38009955e9.37.2025.05.09.11.56.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 May 2025 11:56:01 -0700 (PDT)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: I Hsin Cheng <richard120310@gmail.com>
+Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+ tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, 
+ khilman@baylibre.com, jbrunet@baylibre.com, 
+ martin.blumenstingl@googlemail.com, christophe.jaillet@wanadoo.fr, 
+ skhan@linuxfoundation.org, dri-devel@lists.freedesktop.org, 
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20250505184338.678540-1-richard120310@gmail.com>
+References: <20250505184338.678540-1-richard120310@gmail.com>
+Subject: Re: [PATCH v2] drm/meson: Use 1000ULL when operating with
+ mode->clock
+Message-Id: <174681696108.3272668.11983752901167871124.b4-ty@linaro.org>
+Date: Fri, 09 May 2025 20:56:01 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH bpf-next v3 00/11] bpf: Mitigate Spectre v1 using barriers
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174681603001.3715348.12288999798860158953.git-patchwork-notify@kernel.org>
-Date: Fri, 09 May 2025 18:40:30 +0000
-References: <20250501073603.1402960-1-luis.gerhorst@fau.de>
-In-Reply-To: <20250501073603.1402960-1-luis.gerhorst@fau.de>
-To: Luis Gerhorst <luis.gerhorst@fau.de>
-Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
- martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org,
- yonghong.song@linux.dev, john.fastabend@gmail.com, kpsingh@kernel.org,
- sdf@fomichev.me, haoluo@google.com, jolsa@kernel.org, puranjay@kernel.org,
- xukuohai@huaweicloud.com, catalin.marinas@arm.com, will@kernel.org,
- hbathini@linux.ibm.com, christophe.leroy@csgroup.eu, naveen@kernel.org,
- maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, mykolal@fb.com,
- shuah@kernel.org, henriette.herzog@rub.de, skb99@linux.ibm.com,
- cupertino.miranda@oracle.com, mrpre@163.com, m.shachnai@gmail.com,
- dimitar.kanaliev@siteground.com, shung-hsi.yu@suse.com, dxu@dxuuu.xyz,
- bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_113953_098854_DDAA9F32 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20250509_115603_502064_62CAF4FA 
+X-CRM114-Status: UNSURE (   6.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,55 +105,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi,
 
-This series was applied to bpf/bpf-next.git (master)
-by Alexei Starovoitov <ast@kernel.org>:
-
-On Thu,  1 May 2025 09:35:51 +0200 you wrote:
-> This improves the expressiveness of unprivileged BPF by inserting
-> speculation barriers instead of rejecting the programs.
+On Tue, 06 May 2025 02:43:38 +0800, I Hsin Cheng wrote:
+> Coverity scan reported the usage of "mode->clock * 1000" may lead to
+> integer overflow. Use "1000ULL" instead of "1000"
+> when utilizing it to avoid potential integer overflow issue.
 > 
-> The approach was previously presented at LPC'24 [1] and RAID'24 [2].
 > 
-> To mitigate the Spectre v1 (PHT) vulnerability, the kernel rejects
-> potentially-dangerous unprivileged BPF programs as of
-> commit 9183671af6db ("bpf: Fix leakage under speculation on mispredicted
-> branches"). In [2], we have analyzed 364 object files from open source
-> projects (Linux Samples and Selftests, BCC, Loxilb, Cilium, libbpf
-> Examples, Parca, and Prevail) and found that this affects 31% to 54% of
-> programs.
-> 
-> [...]
 
-Here is the summary with links:
-  - [bpf-next,v3,01/11] selftests/bpf: Fix caps for __xlated/jited_unpriv
-    https://git.kernel.org/bpf/bpf-next/c/cf15cdc0f0f3
-  - [bpf-next,v3,02/11] bpf: Move insn if/else into do_check_insn()
-    (no matching commit)
-  - [bpf-next,v3,03/11] bpf: Return -EFAULT on misconfigurations
-    (no matching commit)
-  - [bpf-next,v3,04/11] bpf: Return -EFAULT on internal errors
-    (no matching commit)
-  - [bpf-next,v3,05/11] bpf, arm64, powerpc: Add bpf_jit_bypass_spec_v1/v4()
-    (no matching commit)
-  - [bpf-next,v3,06/11] bpf, arm64, powerpc: Change nospec to include v1 barrier
-    (no matching commit)
-  - [bpf-next,v3,07/11] bpf: Rename sanitize_stack_spill to nospec_result
-    (no matching commit)
-  - [bpf-next,v3,08/11] bpf: Fall back to nospec for Spectre v1
-    (no matching commit)
-  - [bpf-next,v3,09/11] selftests/bpf: Add test for Spectre v1 mitigation
-    (no matching commit)
-  - [bpf-next,v3,10/11] bpf: Allow nospec-protected var-offset stack access
-    (no matching commit)
-  - [bpf-next,v3,11/11] bpf: Fall back to nospec for sanitization-failures
-    (no matching commit)
+Thanks, Applied to https://gitlab.freedesktop.org/drm/misc/kernel.git (drm-misc-fixes)
 
-You are awesome, thank you!
+[1/1] drm/meson: Use 1000ULL when operating with mode->clock
+      https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/eb0851e14432f3b87c77b704c835ac376deda03a
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+Neil
 
 
