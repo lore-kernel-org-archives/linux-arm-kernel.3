@@ -4,66 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24C6BC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 04:00:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41BE5C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 04:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rsjVb3bVFbqZxCpwgqOn0OzmwPrb1CwyQw6zTxUSgRk=; b=aKdK/AsHOMrsjhnKHfRKHKjf0k
-	xlkzXXvGOUqOh6lYoE8uS4fmHI8iijr0Ig7pG6Iv9+/6WQ/s9VjfZ2iT5/VUOHDBWUT2rEGysOoNY
-	/70tKAV6MgGvYzcdILF85a604chhDH3SAfkTB7mkhPDi8hGLtSwoRZP6O5/+oVKXcBxcWIDNEhIkm
-	5C4OaKgIZ93lFetJFCFJ0MrN6dno2v82RKS345UkzeSuu2XeNuw4XMjfEeUgPHeI47+Ae7UvC17Bi
-	Z7gv7WvSfe+9iQ5d/YdRcVJ6fTS3jr1UZaGBnUs/U5X5vDdnfEa1/nuiL/OmlFwLnQdJVZB/kZQeI
-	MJWJxF7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vV69HreAF+IbbtEQFyH9Gm5Lbi82FJGcSPox10U52WU=; b=tXf2mc+V+VZs8EbV3lzJ2+A10P
+	kZQQpTqWfyK8deTpvRkeQWXRZkl4ZrPVwPbaDWFW8TQpZigtDmN1fKSqQCf7b2UMtr5gInsWeFNDX
+	Ca3U3u+KvyHzYwBDnySh89jbFgrCGr8KzzmIuM18kLJTACCG7XoWy1I78j8vAfhB9Xk8F3ZCj96db
+	SFVzeydt9gaUX5vGGO7Lan94YuPu7m/HYLfpA69OiWOqp0JKuh5yzQZyA3bTlxeM5tuqn7nKkgaRu
+	hF9IQnxSVjl2Ebb8Dh5yu6nc/t8dVe01m8rMEZ1cYW5Psb1fnPtjKL2Zd5THsBhWLwtpQQK6QVeiQ
+	C9gYwhew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDEuO-00000002Pq5-2bCg;
-	Fri, 09 May 2025 04:00:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uDFfi-00000002Sq8-3E2q;
+	Fri, 09 May 2025 04:49:18 +0000
+Received: from mail-vi1eur02on20631.outbound.protection.outlook.com ([2a01:111:f403:2607::631] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDEHN-00000002LzB-0jiE
+	id 1uDFdg-00000002SHO-1JCA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 03:20:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 953CB49EC8;
-	Fri,  9 May 2025 03:20:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69C55C4CEE7;
-	Fri,  9 May 2025 03:20:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746760804;
-	bh=NY9f4q2kixUeTEknFQvFoV+AD+81IXXwblbM2CctxyA=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=lyi099k6fyh1ahKM/tIi2w1iD/oHFITWbewaXU85RAhs+2ImiRhUMBLcf1bBVf0Cg
-	 IUDKwZdC220PhgWaq7heBSTYpoTXLtChkVBQDVdT3N0UMiRsFfifWyASo5x1ET2GWH
-	 5TJUM319B4kyqdQ7xFGWDdlATCmBwMy2FnH7kZ02beNN9qepzcvadR1eI0h5jqExlj
-	 gvS8iSfn1Fo06yiztqXMR531F175M5zkI5XoaE7PyjFTJvdoElQZr4P4t6Me+0ZXQY
-	 OqVZk/Y2E8RLNk+gDJ99htcy2OYiD4iNe7FQ2Xg2fpwyiGAKmsEl6yQH/2GLY4K+Ov
-	 Z0BlxGOkIyVwg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33BFF380AA7D;
-	Fri,  9 May 2025 03:20:44 +0000 (UTC)
+	Fri, 09 May 2025 04:47:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ja3dOpeacYRcViatqax0f08rIMsickkSgFIEMGf/pmAIW9tI0+Slq3K2joW58CJEuJImQ15dfWFEradCSbYyphQeraHHNlnPxdwJgoBgRxZabCIBf/KS4JuXxlNklGoCHzBZyi8Ppim1m1BnksR1we6x0coaVkqW/NubLR4rRK8ulkh0bKg0ZuL3l2k2Rh1P/NnFCRjHC9RWivT3HnPOve4zufZDbXDFyoKNkX1eklDzpyJ3k+l+RW8BzHPCc725mJ6ZTh0NenDAQ19WuCRCJcFKxxBcadHdnRVnTIroo5YA4RzTuQGrDqb0Ftp1INbWDskb9kBmnrGEH6cwxEm2KQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vV69HreAF+IbbtEQFyH9Gm5Lbi82FJGcSPox10U52WU=;
+ b=B1MbvHuF3Yt/DK/zmxCnwCxxFoZDutM1NVQfWfCukAPvISEei7081WRXjkTgZjRLK092Oz2jVEN3qI28+3ptiBUnQ22TSrbIpfV5XqKqiSawlwFgpFh2QSlVzzDCMaWAa8I7nM0kMZUdAHHhz7bV5LbJCBD7eTPKwaBNgc5T1qjYKzyq3vrlsJtxpqMwJQNBasLXfX7AaYF3o2t8p032vLCsvJkhjGUHOyU5Ifc6QhpK/dRY6LN9oc/ncXXDB+0JMgenOisaucTo6IybCV/olFAq4Os9ZFrQOPNtx8t1H+G7TFDC9cLWjWymGJBtrWGLsVCYimJq16rnNR1xlh1NAg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vV69HreAF+IbbtEQFyH9Gm5Lbi82FJGcSPox10U52WU=;
+ b=YAfa6Q2aVFtBznHpg2Duf6tRP6c99D4E8j7oTn0FeKte1j0ygJWVe3UGx6j7YN+WRYWXu+XQA/7s5/3j9vG1KdWC45kZ19N85ZnM1J6kXZEW6MOz8iovbSlcOJSuR7VHDTXbLxObns6LONlvmgGSQqp/xwPPQKl8AS9T/F35lbgCpHlDOSPxtLD90DXxw/95mohA2/Ufgg9CLwdMQ5o6fCkJqnMWGefGGScK2diHS5x6yh/zKIhaC4TZoaNSqXqCoa7j0f7LoluHksVh25HbuEH76uwF5Vig0TQoZ+nKzlnp5UFZv7OxSJAT8s8+yxwiFyuMtLH1EJHe8fWVPvyXdw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PAXPR04MB8736.eurprd04.prod.outlook.com (2603:10a6:102:20c::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.23; Fri, 9 May
+ 2025 04:47:01 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8722.020; Fri, 9 May 2025
+ 04:47:01 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Subject: [PATCH RFC 0/9] gpio: make irq_chip immutable
+Date: Fri, 09 May 2025 12:45:31 +0800
+Message-Id: <20250509-gpio-v1-0-639377c98288@nxp.com>
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGuIHWgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDUwNL3fSCzHzdZAPLRBPLVEtzo6REJaDSgqLUtMwKsDHRSkFuzkqxtbU
+ A5MsGA1sAAAA=
+X-Change-ID: 20250509-gpio-c09a49e972ba
+To: Ray Jui <rjui@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Scott Branden <sbranden@broadcom.com>, Vladimir Zapolskiy <vz@mleia.com>, 
+ Keerthy <j-keerthy@ti.com>, Robert Jarzmik <robert.jarzmik@free.fr>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1746765944; l=2264;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=BDzsK/lCjVK3Nz6lVoD7YFhbnpbGz/3/K89WJGoa50I=;
+ b=i8rvj4HCuoCfYM18r6gsZdcurboF80HsfJcxhsTD3c4/dgjLYwvIB15L33Tl0CMLaWGGpJVXg
+ Q/ziCC1MBgwACuyaYhLorlWgSKd1ZjXJ7WJVZmhdwPWfWo0+lugsMKk
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: SI1PR02CA0011.apcprd02.prod.outlook.com
+ (2603:1096:4:1f7::19) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v7 net-next 00/14] Add more features for ENETC v4 - round 2
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174676084300.3115683.12773669022927548558.git-patchwork-notify@kernel.org>
-Date: Fri, 09 May 2025 03:20:43 +0000
-References: <20250506080735.3444381-1-wei.fang@nxp.com>
-In-Reply-To: <20250506080735.3444381-1-wei.fang@nxp.com>
-To: Wei Fang <wei.fang@nxp.com>
-Cc: claudiu.manoil@nxp.com, vladimir.oltean@nxp.com, xiaoning.wang@nxp.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, christophe.leroy@csgroup.eu,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- timur@kernel.org
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PAXPR04MB8736:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9147e4c3-687f-4378-eb29-08dd8eb4898a
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|366016|38350700014|41080700001;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZjNhd3RIOGdPZUxjU2o1cWdSUm9JNUt6WEp1TFV5VzF1S29hWmZOMlphdVdo?=
+ =?utf-8?B?Rlh2MzFyOG0xLzk4ejVZWEJuM1g4UGhySGxGQkJLR1J5dEltQWZWSXVIZ2xV?=
+ =?utf-8?B?cWVNUUFxSzBPbUg5czFoZHB3MFNIVnlJRjRjYVpHUnNFSXpFZk9WR0N4YlZT?=
+ =?utf-8?B?MkdJVmNOVk1MdjlQL1FoSS9Ccm0zdEIwdWZFOFpRM2N4N0EycytFcmg5ckdK?=
+ =?utf-8?B?M29MNGtiQ2hMczlxaTRjN1VMcCtPdWJ4SGlma1FHUGpCaTUzNlV5TlkwVmhL?=
+ =?utf-8?B?ZmMxeWdMQ2R0QkFKQ3l6cGRPWEc5VDhubERGbTd5bkQySlNrR3puMVRMNnp2?=
+ =?utf-8?B?UHNmWGs0b2xrZWF6TEtnbnJJYk9kTDN1VDh3T3MyNlp0aWc1TWYvSVY3SzRM?=
+ =?utf-8?B?aTRTelk5SCtoTXJjTUtCZkFXZ3lNWkwwenhOR2dCRGhTZjZMajdrMHB6cGkr?=
+ =?utf-8?B?RUMwVitUZ0F4R2V1UGpFZFVRTWRxOE1qUVRCMkFJZ21OMTFiKzVaZDQ1V2sz?=
+ =?utf-8?B?RytKOWE2dVExMzkyTnZZaFMyNmhzZ2tudTFGaVdvODJ0YUhQaVBKRzVuaEdZ?=
+ =?utf-8?B?b1hVSHErbXI3WHFvU0FuNFdHRnVkQmNGalFqYlhUMTNISDZaeUkvM1J4QjZS?=
+ =?utf-8?B?THNBQXAyelFwR29RV0Vta0k0NjU3MVBHOUkxZmVtQ2pzanJhUUhwd1d3ZHlJ?=
+ =?utf-8?B?UFNkNjlZeXIrMDlSWHByNURwWDRhci9zckw3OW1lYm1nMEN2cTdtOUhhWW1H?=
+ =?utf-8?B?aWVIeVFJWUUrTEF5K0tXek56dm5QSFNqRSt2ZGl3VU1uakFLZll3TkFKVzlB?=
+ =?utf-8?B?U0p1RWRKa1Jxc1g4RmJBTmJ0UjJ4Q2ErcUJZR043a09SVkRyeDFiaksybURT?=
+ =?utf-8?B?U250L0Nib2RyWVNLbzA5Q1UvMitMMGgzR0VGWEY4K1VoMnE4NzNCUk5sL0pU?=
+ =?utf-8?B?b1dlV0gyQ3c4d09CaXdNWUZwaGE4czhqRE1DNW8ySkFYTXZ4elZEMUxTSHh0?=
+ =?utf-8?B?M1oyNEp6Q2RsZkVmM3d6MUh5OVNqMVhBRnQ3a3RRQ05ITThXd3Y2bGRpVnFj?=
+ =?utf-8?B?NlA1V3pqRkNvU25oSmhpMFNNUkxXOXo3dzZITGZOOVk0elcyQTlhendkd0Jm?=
+ =?utf-8?B?NC8ybW1RWWZtRnV2eVJtRHB6dlpxSmhobGxTakxqWGEzWUtaUTRwYWs2UWhi?=
+ =?utf-8?B?RDR5NnBDSnJZSmVrSVBxUnNjdXpGbFZnMk9zV1V0SGc3NkU2Ti83ODZweXlG?=
+ =?utf-8?B?dzFkd2NWYzV0MlZDZnoySllTVVovMTgrUXROaXlGWDAwY1V1ZjJDYjVOamFm?=
+ =?utf-8?B?VGhsbm9Cb2tsT3RhajF0NHlMSkpDS2FueXFjR1hHM1dYSThEd1gzT3dLN242?=
+ =?utf-8?B?OUxBK2VZdjVDTlFSU2l6ZExlMDI2Z0gvZlhqaVI4SGFLbFdlZ1BaTmp6TGpB?=
+ =?utf-8?B?WkhXOWJWVm5aL2xmRFErQldwdGVhSDlsaDJERitwNklEWnFjMlJWUG5ER0li?=
+ =?utf-8?B?eDVuQ3Jkb2RSWUN0WDFyYzRDMmhaS3JIMjN2YWlta3ZRU21VYmlKaGlrRDVq?=
+ =?utf-8?B?bTVrUENON2xYQWh3bVhpV1lxVXYxSGVjV25hSVhpRlpsa1JSTjdYYXI4SUVz?=
+ =?utf-8?B?dGxmSmptNTZrTkdxOFdjR0tyUU85dTZpQkU0eXoyWmgxemFiMk1Udjg0Undk?=
+ =?utf-8?B?QWlFcHorbGlFc1pZbElQTUJCeVNuMmJsQWZLcHExekpSeEx1YzlrbjZyeUFs?=
+ =?utf-8?B?d0NrbFhwNjhUb3FDdDBWalBteDRGQXRPdmdkYVFLdjQ2T0d6anZGWDl4ZFB1?=
+ =?utf-8?B?aHN6TU5vdE8wMzJSNjRRN2YvbXBLS1RHZWZHbHY5SEoyNkNqMlFmUythQ25q?=
+ =?utf-8?B?M09VaVNaTWlPRTdkWFJKN0N2cVZTRTJ3UEhJcGRkU1RUM2hRQm11aHFBQldO?=
+ =?utf-8?B?WGJOMUp4VEtpZEpmckllR2oweU5QMjgwZVNSUmdXbHRldUVSSGZXZlRDeHkw?=
+ =?utf-8?B?V3JMTmd3SDNmMnMyaHB4cWZwSWpSN3BSYzVoSnpSTUJUOUNrZk1zTmxtN0lV?=
+ =?utf-8?Q?yqnvlF?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(366016)(38350700014)(41080700001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NjBZV3N1Ty9lVU9CVERtcy9mSzhQV3dpcnJKS2dyY1BrT0hmL1gwYlhwL015?=
+ =?utf-8?B?OXF2b04vOUhJVXJiYS8yN3hCdmZaSVFYNy9sRTJNU1VIMGtTay9keDRobkll?=
+ =?utf-8?B?RlA3S3pwNzRTNlg5RWpPMS9uRWVhUTBSbWlBTHFPNGlLN3gyLzZKZlJueVI1?=
+ =?utf-8?B?WGJEdXNjaThoTFE5eDE1YllYUnhJbGI2MXh2a2hOR3NURFp3U0E1THN5ZXBj?=
+ =?utf-8?B?M2Y0ZmRQdXRaYi8wTTFvWmp4ekRCTGVXQzIxZ3pNSUtnQUJYZjhsaGs5aExL?=
+ =?utf-8?B?RGtxYkZmd2lCSHhhODZYcEpEK0lkbXFjRU8wS2czdFQ5aGIyQ0Q1MTl4OGFt?=
+ =?utf-8?B?S0Q0V01qbDVQeC9hR29nY2tsTmJTNklpRVpZT0hQWU1SOXhGT1ZQenZxVmNi?=
+ =?utf-8?B?eElZZ3l5d0pHMFpxWXB4TTFFNGpPSEI4L0lWN01XbjdmV29pa3Fmck4vdzhn?=
+ =?utf-8?B?N29zb0dFTmFKYkhqSDQrenFGRm95aWpNT29yVWtmNlNta25NMnJaaWtWTEU3?=
+ =?utf-8?B?dEgrQVFKQ1QzNkU0c1NqQ2VCTTZTWHZRNEZyWTZOTUh1RWVWOUpBcVZrWVBZ?=
+ =?utf-8?B?UnVRbWI5c0w2dFg1VjRWRlBpWFVFWGI0ZExLSmhlWHJTTE02S2NlUGxmMTJj?=
+ =?utf-8?B?U2JwTWc4aWlMRDB0aWN3RTRTOEZuSWw1bUxST2hFQjVlRi9HV0g4Vzk3SGxa?=
+ =?utf-8?B?cUZlM2JvVFFVYzJCVFJCRlBiU2w1cnMrS2hidExDcHU4TDM5UHNzOUxGQUJh?=
+ =?utf-8?B?UXRSaTlGanhXK2lyNUVlbHdKdUl6cER1NHpjMlNocnpwUUY4OTZqZVJISGJI?=
+ =?utf-8?B?V2hqaGs2T21wOFArUGF3RzVRdmRLL3RaZjIwSmw2OWsralBhWVdLLzk4OEs1?=
+ =?utf-8?B?czJiNG5BR1hYdjhBODlXeU9GTkpPTmttNEV5MFRFajMrMCthTndoMExQaFky?=
+ =?utf-8?B?TmpPWi9PbzVGbXJnMkxZSjlqNHlPRitCbVpUNFJBMlB6M0QxZUhRckhibERi?=
+ =?utf-8?B?cWJCaEtTbXRVL0xKZlpDTU90NkxnZ2tXMW9IQkY0UkdoZkhQK2tMc0JRUEps?=
+ =?utf-8?B?M0RZMXd3Uk9GQW4wMGlJOGg1NFNqWXpaSTNUL25Xakg4SktNNlBlL1VnejJK?=
+ =?utf-8?B?L3pYWnlYNUxhdVVDMnQyYVY2MVdMY0FaS1NhaTF4NTVPYVp3SWFlNVE3aVhT?=
+ =?utf-8?B?cGtkQ0hnclQxTXl4djNWYnAzVjVTV0xuSkJlaFBtRmUwZDVaYVd1RlpOb2ww?=
+ =?utf-8?B?dVpYYnZ2S0ZhVjZmVjhzWmplQi93Q0s2UGMrb0c5b0FQUzZNVE90ZVozeGMw?=
+ =?utf-8?B?ZVM0aS9zY1g2aXVnTVcvd0YxMU0rdXBFQnkzcUhCSC9URHJDMmNhSmp6aUxs?=
+ =?utf-8?B?R2dGSnRNdlpGVlRsM0lwR1VnaUg5UkYyQm5ENUllR0ZNMzF3ZVNNNEFoZHhO?=
+ =?utf-8?B?V0pyYlRIOGp0MlMyUHoyOUVKQWkrRnlFZFlGVU1Nc2lmQXB0cWx6MVRBUENE?=
+ =?utf-8?B?Q1VCb25RT3M5WmRlcVBnN2JlTU4rRjFYaUdLNmxOQXhiR1E3cHIybm84OENo?=
+ =?utf-8?B?UHhObXU3aFVxUDMrSzQ0N1Evc2Z5ZmVMSFBOeWM3SyswejQwakhJY2NRa1Fn?=
+ =?utf-8?B?UVFZRDBPRUpSWXFDdzBWZUlISDBaQ1BlQnpVbXdpbU9ub1JSeVYvQ2UwdmdX?=
+ =?utf-8?B?dXJIL0NoeE1yUjNmVHFNV1NKa3VJbUgraUVqWjJvNHpxZC9aT2xZeURhVHE5?=
+ =?utf-8?B?d2lXQ0Y5eFk4UFhTSUw3Nno2NXhZTHA2cXIwc1dlUC94SDI2QVdmMllwUnRu?=
+ =?utf-8?B?a1FOb2NHOWREZG5UdHBNK0FhN3ZrZ2p5bTl2b3NIMEVyb3o4UGdhVWg2U3V1?=
+ =?utf-8?B?cGdxM2RRVTl6RzVrYWVKZWM5UTR6Yk5PNUl4aGhMdmswQ0lHYlluRFNhSjRD?=
+ =?utf-8?B?cm9mR1lxNExFT0RKa0xyUmhmMm9GUUVpL01hWVhkVXBtVjI1RE1lS1lWRWJL?=
+ =?utf-8?B?V0ViQS9sNmRibTdocW5WYzNVREd5RkF2dVZlM0hmNUU2YnZ5SGJhWVpTRVRs?=
+ =?utf-8?B?T2YyVXBjNkJ5MTFXd1drc2w3S0FORzRpS3grb0grcWdBR2I1cjZrY296c2sw?=
+ =?utf-8?Q?igJATZxpiUQXVgWwvKZ8ggYKY?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9147e4c3-687f-4378-eb29-08dd8eb4898a
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 May 2025 04:47:01.0933
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: GE4PUIABpQ9ulAtitJGwzcZBG+CtnsUZrqsneKI1eaNTGxzBVoOPNul/X6RjqdkAXlfTPA/+OvhbEmtpSPCV4A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8736
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_202005_260123_14ED4EAF 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20250508_214712_371051_A77B1BD4 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,58 +193,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+This might be a bit late to post this patchset, since it is almost rc6,
+but no rush here. Not expect this patchset be in 6.16.
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+This is an effort to make irq_chip immutable to elimnate the kernel
+warning "not an immutable chip, please consider fixing!"
 
-On Tue,  6 May 2025 16:07:21 +0800 you wrote:
-> This patch set adds the following features.
-> 1. Compared with ENETC v1, the formats of tables and command BD of ENETC
-> v4 have changed significantly, and the two are not compatible. Therefore,
-> in order to support the NETC Table Management Protocol (NTMP) v2.0, we
-> introduced the netc-lib driver and added support for MAC address filter
-> table and RSS table.
-> 2. Add MAC filter and VLAN filter support for i.MX95 ENETC PF.
-> 3. Add RSS support for i.MX95 ENETC PF.
-> 4. Add loopback support for i.MX95 ENETC PF.
-> 
-> [...]
+The major changes 
+- add "gpiochip_disable_irq(gc, hwirq)" to end of mask hook
+- add "gpiochip_enable_irq(gc, hwirq)" to start of unmask hook
+- add IMMUTABLE flag
+- add GPIOCHIP_IRQ_RESOURCE_HELPERS
 
-Here is the summary with links:
-  - [v7,net-next,01/14] net: enetc: add initial netc-lib driver to support NTMP
-    https://git.kernel.org/netdev/net-next/c/4701073c3deb
-  - [v7,net-next,02/14] net: enetc: add command BD ring support for i.MX95 ENETC
-    https://git.kernel.org/netdev/net-next/c/e3f4a0a8ddb4
-  - [v7,net-next,03/14] net: enetc: move generic MAC filtering interfaces to enetc-core
-    https://git.kernel.org/netdev/net-next/c/401dbdd1c23c
-  - [v7,net-next,04/14] net: enetc: add MAC filtering for i.MX95 ENETC PF
-    https://git.kernel.org/netdev/net-next/c/6c5bafba347b
-  - [v7,net-next,05/14] net: enetc: add debugfs interface to dump MAC filter
-    https://git.kernel.org/netdev/net-next/c/df6cb0958089
-  - [v7,net-next,06/14] net: enetc: add set/get_rss_table() hooks to enetc_si_ops
-    https://git.kernel.org/netdev/net-next/c/66b3fb001156
-  - [v7,net-next,07/14] net: enetc: make enetc_set_rss_key() reusable
-    https://git.kernel.org/netdev/net-next/c/7e1af4d6e4b4
-  - [v7,net-next,08/14] net: enetc: add RSS support for i.MX95 ENETC PF
-    https://git.kernel.org/netdev/net-next/c/2627e9873d69
-  - [v7,net-next,09/14] net: enetc: change enetc_set_rss() to void type
-    https://git.kernel.org/netdev/net-next/c/42fb12220ade
-  - [v7,net-next,10/14] net: enetc: enable RSS feature by default
-    https://git.kernel.org/netdev/net-next/c/2219281242fc
-  - [v7,net-next,11/14] net: enetc: extract enetc_refresh_vlan_ht_filter()
-    https://git.kernel.org/netdev/net-next/c/014e33e2d8e9
-  - [v7,net-next,12/14] net: enetc: move generic VLAN hash filter functions to enetc_pf_common.c
-    https://git.kernel.org/netdev/net-next/c/5d7f6f6836a1
-  - [v7,net-next,13/14] net: enetc: add VLAN filtering support for i.MX95 ENETC PF
-    https://git.kernel.org/netdev/net-next/c/f7d30ef6c1f7
-  - [v7,net-next,14/14] net: enetc: add loopback support for i.MX95 ENETC PF
-    https://git.kernel.org/netdev/net-next/c/932ce98041ff
+For davinci, two patches are made, 1st is to update irq chip data, 2nd
+make irq_chip immutable.
+For xgene-sb, two functions are added, because previous driver directly
+use irq_chip_unmask_parent and irq_chip_mask_parent.
 
-You are awesome, thank you!
+In some patches, I use irqd_to_hwirq(d) to get hwirq; in others, I
+direclty use d->hwirq to align with previous code.
+
+Some Kconfig entries do not select GPILIB_IRQCHIP, but I tried
+to build pxa_defconfig lpc18xx_defconfig and multi_v7_defconfig,
+GPIOLIB_IRQCHIP is y.
+Not sure we should select GPIOLIB_IRQCHIP for them, because if
+deselect GPIOLIB_IRQCHIP, there will be build failure.
+
+I not have platform to test the code, just best effort to do this
+patchset.
+
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+Peng Fan (9):
+      gpio: bcm-kona: make irq_chip immutable
+      gpio: grgpio: Make irq_chip immutable
+      gpio: lpc18xx: Make irq_chip immutable
+      gpio: mpc8xxx: Make irq_chip immutable
+      gpio: davinci: Update irq chip data
+      gpio: davinci: Make irq_chip immutable
+      gpio: xgene-sb: Make irq_chip immutable
+      gpio: timberdale: Make irq_chip immutable
+      gpio: pxa: Make irq_chip immutable
+
+ drivers/gpio/gpio-bcm-kona.c   |  1 +
+ drivers/gpio/gpio-davinci.c    | 29 ++++++++++++++---------------
+ drivers/gpio/gpio-grgpio.c     |  7 ++++++-
+ drivers/gpio/gpio-lpc18xx.c    | 13 +++++++++++--
+ drivers/gpio/gpio-mpc8xxx.c    |  8 ++++++++
+ drivers/gpio/gpio-pxa.c        |  8 +++++++-
+ drivers/gpio/gpio-timberdale.c | 10 +++++++++-
+ drivers/gpio/gpio-xgene-sb.c   | 26 +++++++++++++++++++++++---
+ 8 files changed, 79 insertions(+), 23 deletions(-)
+---
+base-commit: f48887a98b78880b7711aca311fbbbcaad6c4e3b
+change-id: 20250509-gpio-c09a49e972ba
+
+Best regards,
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+Peng Fan <peng.fan@nxp.com>
 
 
