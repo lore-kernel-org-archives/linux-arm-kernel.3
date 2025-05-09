@@ -4,111 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58150C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 17:52:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6ADEC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 17:54:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=AD8fo2TbioxdBHBzGiMAUFOtmTrHt8a2YC2VBdFc3ss=; b=1WMTk5gng9GjZs
-	lyzp1qAS3zgLEoLoZNXb/OhZactp/p6wo5fgiC03CJfNvM59B0VRuSX6GhAKNrsGeStNKye3OXNbb
-	xo8XAwHqazzXYgYK+4jK37zCZ3bZzwmvkbmUYjoGZQxtSkIhkmyoyOiT4cVKulxxqsmQxzPF4iYPm
-	qraKG+vxW1mq9C2pn020tAbooyuZk6tPHnCrvggas6DeMO9jLnDqYbYM8ejTwxVEM0OqPyzrp18H+
-	lQ/JQ6gOCTQ1UPwfjAshTirwnvDrHovmav47JuOcfNU0AqC5bwH8RxPMtmS4MajQKUf1dffdOTmN9
-	9DmVf2FUMQPzQdaMxxAA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lBqRq38yx/+pxy1Y9dDlCxSkwDtgl5J8R+SOrGXvcSE=; b=3YI/UHaHujosL2GyXbRSpr7Jkk
+	MwcJsnT8Kq/sZcASjPckvwnsDR0hDd1KZt13ovVglIqR/u4xjc7qhkyefOPJ7/o1wAN9w6xi2RrLF
+	pXWB5LnpUb3M/IdK4ZLV34xs4zSYaxtIL83tlZHPmrjxEwNfPrV5jm772NoP/oUZzbK13JBXXZ6iE
+	+QM9Qf5IwkK6OLtvn7CUzo9bJsA0oNngYQcY3yMNlT8nA5PdjhSAwdLL+dttvUbTkWqC+wYu8iQV9
+	54tX4QlmTLSZxMejMzhNTkxUU767BzBfaQTIA0h2kEcq4Zc+syKXRsw9y7m4Q28q2YEHSRSQlRJHT
+	lR6QaQWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDRtD-00000004UgX-0zjy;
-	Fri, 09 May 2025 17:52:03 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDPux-0000000492g-47x8
+	id 1uDRv9-00000004V8z-2Wll;
+	Fri, 09 May 2025 17:54:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uDPvw-000000049Qa-1ygy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 15:45:45 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43d0c18e84eso10594865e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 08:45:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746805542; x=1747410342; darn=lists.infradead.org;
-        h=content-transfer-encoding:organization:autocrypt:content-language
-         :cc:to:reply-to:subject:from:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=AD8fo2TbioxdBHBzGiMAUFOtmTrHt8a2YC2VBdFc3ss=;
-        b=Qy01MC0X3Mc9Jl2IQ9jsOaNPAJKSunpPXlB3Q4CifInfBGq+/qXp4C7SDXNxWy278/
-         YRC9MkyOQg/qaHlP3+BocSVvOuARvSdGkVYXwvwsuLG6HZGwIDZ4KYggl6TXwbM9QZlZ
-         4wu2ABmIy0UDAyBYouNm5cksDEQ/A6vBRBGpUZNHXVN+Wm6p1dq+WcR3s+o71TOfDM6/
-         d1r/v2b/D08bxVk4tNTwc2ehow7scLUConjpA5Ig/EHewXiwJinlvFHXK4kKkFo1c26F
-         xeAdVkdWjeNRHv8DUNPIwcuZExwCIHAg0UI0uOlG5Fk6Dg5RpnGQK14R7f5fmXFwOuuQ
-         /xMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746805542; x=1747410342;
-        h=content-transfer-encoding:organization:autocrypt:content-language
-         :cc:to:reply-to:subject:from:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=AD8fo2TbioxdBHBzGiMAUFOtmTrHt8a2YC2VBdFc3ss=;
-        b=dNz/4aBAmC7CNUzLuhTHKQhSal7BWwODfEjql/b+scQSPty4xrHhqrgRZdFWXD0/qP
-         ZkHbGLpVnXZTFmYKexyNJS0bARjPPqdy1UqcnVboAmebc+8EMTfso8k9Y+OOQZihXICj
-         aU6xHNCgFlh0BaMmtFLwceYOgP5ngxwhUHvT6sngXm6ONtAnWLnQZY6qaz4fO/2HpaKr
-         PnvOsH8zHLF1eeA/SW0vKbLuO2GtmiM3ZjT/ovEBihW1mtmsD0VBAKx4t9Fs9GZ0U94E
-         9npb5HA1CLInC87RGb60bIr6FV9Hq/Wi+6JQ0Ta0HHpqBx53HNICiMLrTkA6QTgJWxRC
-         4HVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVyY20e/4hXOckSZIK381UFhm9jCZFzRPPs6WqnJ0ht+F+XE2l8CuXjiUZuqavM5Kp71N/k0DQH1AixY5thbc25@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdkthSp5OJs7J9Qa4CDO+1bfpHfsPR2fCN3+eONztoZjGnQjRG
-	5B+gA/x8vxHXEuWRw3mrfj+3Xqo0dCtWFh0czgI735YTFn6Ci93pWS93iVKGjgLvZ0Y/ytlM6el
-	u
-X-Gm-Gg: ASbGncugfyH2d6xlDFDmLLaJyOJIz6fIcSRUHGjl50wigMMo62d/fKFEJ/Q5u7Fe6hn
-	grPRijRclT7ymxCKZn1xCgo7UNTbGNk1Dh13O6SAySVB3OerpBIe48+APV8K8IAS3y5zmruVZyk
-	xo6qTOdxz47QJiOXxSKChAx/KrK43Inq5f2MdNN2wgRcZHnjQVvFXMyztsxXLDAxMu0a6hYqq8O
-	LvucMRTf0pHlReqwbyXoG547MDmD85yaMgBGEnjxyizcA4ozmkXoA0+BA1zjDSK4tz3TKMdgG7j
-	Gk74R3NepYS0OGXr/hIDWp3dbaey7/I9KaxCdCKVA5gOUGt/nbcletEyj48h+w6hwDKRlG2s5yN
-	+VKBNIeBDNglVHxw=
-X-Google-Smtp-Source: AGHT+IEDu0RmADt0QA6PX+zldOg7l+W1rhlKf41kRBI2/GfQDlr3pxPYPPmtAWW82aWDZ8qrzQJ2fw==
-X-Received: by 2002:a05:600c:1d8c:b0:43d:683:8caa with SMTP id 5b1f17b1804b1-442d6d64644mr36882015e9.15.1746805542515;
-        Fri, 09 May 2025 08:45:42 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:3d9:2080:22d7:71a:9f62:f7e2? ([2a01:e0a:3d9:2080:22d7:71a:9f62:f7e2])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442d67df5ecsm33463335e9.9.2025.05.09.08.45.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 09 May 2025 08:45:42 -0700 (PDT)
-Message-ID: <e9c520a1-b986-49e1-b9b1-67511c187716@linaro.org>
-Date: Fri, 9 May 2025 17:45:41 +0200
+	Fri, 09 May 2025 15:46:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B7D97175D;
+	Fri,  9 May 2025 08:46:32 -0700 (PDT)
+Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8CC923F58B;
+	Fri,  9 May 2025 08:46:42 -0700 (PDT)
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Leo Yan <leo.yan@arm.com>
+Subject: [PATCH v2 1/3] arm64: dts: fvp: Add system timer for broadcast during CPU idle
+Date: Fri,  9 May 2025 16:46:38 +0100
+Message-Id: <20250509154640.836093-1-sudeep.holla@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: [GIT PULL] Amlogic fixes for v6.15
-To: soc@kernel.org, arm@kernel.org
-Cc: linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_084544_034698_F2455F58 
-X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-CacheID: sfid-20250509_084644_553139_20A3E205 
+X-CRM114-Status: UNSURE (   8.56  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,50 +61,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Introduce a system-level timer node in the FVP device tree to act as
+a broadcast timer when CPUs are in context losing idle states where
+the local timer stops on entering such low power states.
 
-Here's a set of DT fixes for the new PWM bindings migration, and missing
-audio nodes enabling for the dreambox DTs.
+This change complements recent CPU idle state additions.
 
-Thanks,
-Neil
+Tested-by: Leo Yan <leo.yan@arm.com>
+Message-Id: <20250508103225.354925-2-sudeep.holla@arm.com>
+Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+---
+ arch/arm64/boot/dts/arm/fvp-base-revc.dts | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
+v1->v2:
+	- Dropped clock-frequency property
+	- Fixed #size-cell to 1 as expected by the schema
+	- Also update the ranges property and the frame reg property
 
-   Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
+diff --git a/arch/arm64/boot/dts/arm/fvp-base-revc.dts b/arch/arm64/boot/dts/arm/fvp-base-revc.dts
+index 9e10d7a6b5a2..50b5993a2460 100644
+--- a/arch/arm64/boot/dts/arm/fvp-base-revc.dts
++++ b/arch/arm64/boot/dts/arm/fvp-base-revc.dts
+@@ -217,6 +217,19 @@ timer {
+ 			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ 
++	timer@2a810000 {
++		compatible = "arm,armv7-timer-mem";
++		reg = <0x0 0x2a810000 0x0 0x10000>;
++		ranges = <0 0x0 0x2a820000 0x20000>;
++		#address-cells = <1>;
++		#size-cells = <1>;
++		frame@2a830000 {
++			frame-number = <1>;
++			interrupts = <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>;
++			reg = <0x10000 0x10000>;
++		};
++	};
++
+ 	pmu {
+ 		compatible = "arm,armv8-pmuv3";
+ 		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
+-- 
+2.34.1
 
-are available in the Git repository at:
-
-   https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git amlogic-fixes-for-v6.15
-
-for you to fetch changes up to 0f67578587bb9e5a8eecfcdf6b8a501b5bd90526:
-
-   arm64: dts: amlogic: dreambox: fix missing clkc_audio node (2025-05-05 14:35:46 +0200)
-
-----------------------------------------------------------------
-Amlogic Fixes for v6.15:
-- fix reference to unknown/untested PWM clock on ARM/ARM64 boards
-- fix missing clkc_audio node on dreambox ARM64 DT
-
-----------------------------------------------------------------
-Christian Hewitt (1):
-       arm64: dts: amlogic: dreambox: fix missing clkc_audio node
-
-Martin Blumenstingl (4):
-       ARM: dts: amlogic: meson8: fix reference to unknown/untested PWM clock
-       ARM: dts: amlogic: meson8b: fix reference to unknown/untested PWM clock
-       arm64: dts: amlogic: gx: fix reference to unknown/untested PWM clock
-       arm64: dts: amlogic: g12: fix reference to unknown/untested PWM clock
-
-  arch/arm/boot/dts/amlogic/meson8.dtsi                | 6 +++---
-  arch/arm/boot/dts/amlogic/meson8b.dtsi               | 6 +++---
-  arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi    | 6 +++---
-  arch/arm64/boot/dts/amlogic/meson-g12b-dreambox.dtsi | 4 ++++
-  arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi          | 6 +++---
-  arch/arm64/boot/dts/amlogic/meson-gxl.dtsi           | 6 +++---
-  6 files changed, 19 insertions(+), 15 deletions(-)
 
