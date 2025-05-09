@@ -4,96 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D3F8C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 07:12:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA784C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 07:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=77qkoKjDKq6SXETuhF5rMrUj8XsUUdj7U8eiTVCOHj0=; b=NVjqNkaWpQDkU74fljjdN4Q/92
-	/nD0tl8uwdSGq6Qpc3pTj2u3Ibrrau7JTVYLTjC34w5WvAdCapDdVnxxHZK6/xXhYte/pYihFZM5n
-	30Uihtw3yvzGHBz3WUi2x0ueuqJ9pSE5vZI50VGlExy5Clpaaq1ArUeQxNB9Xk5QjNZNl1Hug4UWZ
-	643rocDprCCcOaOBqBsTK6ydrs/Dkhyo7ZIkKyVXqR4NLQZVBvuPlOdtfTuPhZCAzplhWQS3SoJ8y
-	tW1Rvfoiw5fuvGv3gI8jZB0jEc2aweDjVsyjze4tyjfTJjBUXRt0yC36nsf7fyDrIsQ5U3wkvG9KB
-	Q6RX9BOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p/pbETRIWB31Jr1sXkehW1VtexRd4TOg5yLDqjz/dAk=; b=W2T+Xlix9uMnOXwEXToHN18Qqc
+	fqPmVqEcvMGaS7uPxMNX5fpJxmbdq1XYWDxC8l+VPBtMZez9Xwb+iSWs5YaHfPShnndTYoHqq/oW9
+	PfS8fnr+/ImRBaGUyO+KDbUV33X9v/iA+BCLmuvwqc2Z5KscPYdbXNrnLAxH9+5EaYpjYUEUm0DQJ
+	sKNDQjLR9No4V9JRAZzQwO3loq2vG6W65SvZFeR6Y+k+LmqB9OjCsRuSPKavj/PyODdvX6mAW9XxS
+	YqMbrpS+wGWPKnE0SX+/wYVD9GbNSb2hJQ4KjFys7654LMOTWOlpdHdhlWYk1VTtLYW8ZPiSNt8r4
+	gHwALzhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDHuB-00000002i86-0iNM;
-	Fri, 09 May 2025 07:12:23 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1uDHwA-00000002iaq-3fCW;
+	Fri, 09 May 2025 07:14:26 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDHqm-00000002hTf-2ymE
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 07:08:53 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-43cf628cb14so20098805e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 00:08:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746774530; x=1747379330; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=77qkoKjDKq6SXETuhF5rMrUj8XsUUdj7U8eiTVCOHj0=;
-        b=O83win9nZiSXpeKSeZeFecCvVfRtVkPKh0emZ/N2x8igXlF8Wk6fugVvbEDoArAfkB
-         V5f0HLfho3ONkZanuztzjDgUcVwROlYtA4HQV/O6q1nAtPSaNCNJJExyRhhai+lekJ41
-         q3YtK4CUAgAzktGDcZSISNv8u3C0X5njfg3Npkgf3ochOQg+bzj9g5XgxEKp24JeRszm
-         orteriQddZ3ijDBfpJ01rfWjuzx75AfBgIXaJFfLPk9g/YLsiQLJJX7n6CQSImPh/1Oc
-         0i4w/Uchs/VVJWW7BaRfGaVf9JUL9WgMJEs4MoGghHr11fGLUqSzsWeQwGXdyynzoUBV
-         /m5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746774530; x=1747379330;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=77qkoKjDKq6SXETuhF5rMrUj8XsUUdj7U8eiTVCOHj0=;
-        b=TLJrjYMr0s1HkMJt4TANRbZjLbt0n9owaJWmuVf7XZdP0EwuBOCdhh9823v+7G5oqX
-         2S1/Xe76oCxfRHw7seKXLiTW8B7DxBVxlUGGhSAc7fOBPsYZNQ/8cfEUABs76k7Ht+xI
-         f2CHL5G7ZyGQZbbgDBveWR+IntIM71cJ+CzvNEE5/lBCQoO3sbLJXVmbtiU7vyfCBUiT
-         L9c/1PlTtrP8XdpdmvQTqS3WKCqQfclqnlr5Anjyhk1E+9OT5+DjtaSspQNyiq+Fluno
-         yjO984SawtR7BoPDazFh6dIstAf0wYE5Zx+1uHTHXtp6+0nhnHgt9yOohJRQc+rHLe/S
-         /50w==
-X-Forwarded-Encrypted: i=1; AJvYcCUKa7/11f9KS6DdgYRtGAgEtsL2FLL3QQQhejy/PLThJPwkXbe0E8a7Bjy5zJQzUInkVGNefwTQ51n6ccRKY9s2@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWuSCXbx1QIQaE4mqzHsttIbZe/Z9967mItDtOWWvabr3vANv0
-	TrCVSOV9JEl3KaerMIjKo2NmFOB9QatSrhxCKYb1Ju5qOJmH9crFhvy4UViyfw==
-X-Gm-Gg: ASbGncv6UNM2grbzeTwdkX2m0AcQq0oSE6wBSVKwbml3B+fuNZ4F9nowk2eKXexvbsT
-	Ejrc6R3gLmd4qSqL6mjl8SZIl/laRX63CY7p5V46oIT4aG4UcdIX+5UA1TTCodJ9hStfyGQdx+K
-	w3CDYyQwvI3m4UpojzCla/AT/bLKhKOGjHvg2/e7XArRn8iI+eRdEsGh2+EqnfOVH+3CWIwxp9x
-	A1Ji7pV9OtCdIfnlJ5WrkInK5x/LKBnj0wb8pd6LW9pLWftCDIFmI3Q94L4As4PQ64io3ycAvVe
-	nraShPOGNaSl5OYqhgYN/O0/t2hipZ49NyWUaRalMdKOVHM8VkJTn3A8ZXaimc9zYq/1yd+FLI4
-	cNmnprs4hq5D2ehHN52G+7xc=
-X-Google-Smtp-Source: AGHT+IHR5+ZqZWgRoRLa1o1Gg2Cvw+npoLGEsXcz8CnQxm7QZTBi9ul3cXloYS+TYHobQ2CzSJpuaQ==
-X-Received: by 2002:a5d:5f51:0:b0:3a1:f563:f84e with SMTP id ffacd0b85a97d-3a1f6a4370emr1630423f8f.16.1746774530584;
-        Fri, 09 May 2025 00:08:50 -0700 (PDT)
-Received: from thinkpad (cust-east-par-46-193-69-61.cust.wifirst.net. [46.193.69.61])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f57dde1asm2305688f8f.8.2025.05.09.00.08.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 May 2025 00:08:49 -0700 (PDT)
-Date: Fri, 9 May 2025 12:38:48 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
-Cc: Hans Zhang <18255117159@163.com>, lpieralisi@kernel.org, kw@linux.com, 
-	bhelgaas@google.com, heiko@sntech.de, yue.wang@amlogic.com, neil.armstrong@linaro.org, 
-	robh@kernel.org, jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com, 
-	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v3 3/3] PCI: aardvark: Remove redundant MPS configuration
-Message-ID: <oy5wlkvp7nrg65hmbn6cwjcavkeq7emu65tsh4435gxllyb437@7ai23qsmpesy>
-References: <20250506173439.292460-1-18255117159@163.com>
- <20250506173439.292460-4-18255117159@163.com>
- <20250506174110.63ayeqc4scmwjj6e@pali>
- <8a6adc24-5f40-4f22-9842-b211e1ef5008@163.com>
- <ff6abbf6-e464-4929-96e6-16e43c62db06@163.com>
- <20250507163620.53v5djmhj3ywrge2@pali>
+	id 1uDHt4-00000002hzh-20vx;
+	Fri, 09 May 2025 07:11:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 725B85C62FB;
+	Fri,  9 May 2025 07:08:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA3A6C4CEE4;
+	Fri,  9 May 2025 07:11:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746774673;
+	bh=u3ZfQBj5s6NVJZ5Nx5H/avFJ+A++2sTas5i3qAMXsII=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TEzYIo1CRo6Vo2NET14ploXJ/8rRxm0rtJ/pwTjUKlOVBtqthh0gYvjj4r1kAmjAn
+	 rQcyEJi+zcM3h7J8lnJc/TrdaBLoxerGgxP88J7AcR/PeWSri5uq2lP66uWu3sDryK
+	 wMDZb/lGAML7O3dabV21YEFpHwvTrg/Zpy/h0XjLB0+EHvTaDBTaj7ZowHTFWquosF
+	 sS1S19ampaRvT3niN74xCM2fo3WlwHIvGnYODNELDZGY/NSVXIU42XlkZVyxdYml3I
+	 SGYIt2jhM6Hpq0rw0j2ghB5BbawKaC55Q1Mg5+wEFeGFyF3pso37998IfHWYZS/z9Z
+	 yvvjw5jklOgIw==
+Message-ID: <ccf4b15a-8399-4a7f-ae40-d01d0975921c@kernel.org>
+Date: Fri, 9 May 2025 09:11:07 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250507163620.53v5djmhj3ywrge2@pali>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] dt-bindings: display: rockchip: Convert
+ cdn-dp-rockchip.txt to yaml
+To: Chaoyi Chen <kernel@airkyi.com>, Sandy Huang <hjc@rock-chips.com>,
+ Heiko Stuebner <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+ Dragan Simic <dsimic@manjaro.org>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250509070247.868-1-kernel@airkyi.com>
+ <20250509070247.868-3-kernel@airkyi.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250509070247.868-3-kernel@airkyi.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_000852_742617_8A2BAECF 
-X-CRM114-Status: GOOD (  38.30  )
+X-CRM114-CacheID: sfid-20250509_001114_606661_B85BEB0D 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,95 +125,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 07, 2025 at 06:36:20PM +0200, Pali Rohár wrote:
-> On Wednesday 07 May 2025 23:06:51 Hans Zhang wrote:
-> > On 2025/5/7 23:03, Hans Zhang wrote:
-> > > On 2025/5/7 01:41, Pali Rohár wrote:
-> > > > On Wednesday 07 May 2025 01:34:39 Hans Zhang wrote:
-> > > > > The Aardvark PCIe controller enforces a fixed 512B payload size via
-> > > > > PCI_EXP_DEVCTL_PAYLOAD_512B, overriding hardware capabilities and PCIe
-> > > > > core negotiations.
-> > > > > 
-> > > > > Remove explicit MPS overrides (PCI_EXP_DEVCTL_PAYLOAD and
-> > > > > PCI_EXP_DEVCTL_PAYLOAD_512B). MPS is now determined by the PCI core
-> > > > > during device initialization, leveraging root port configurations and
-> > > > > device-specific capabilities.
-> > > > > 
-> > > > > Aligning Aardvark with the unified MPS framework ensures consistency,
-> > > > > avoids artificial constraints, and allows the hardware to operate at
-> > > > > its maximum supported payload size while adhering to PCIe
-> > > > > specifications.
-> > > > > 
-> > > > > Signed-off-by: Hans Zhang <18255117159@163.com>
-> > > > > ---
-> > > > >   drivers/pci/controller/pci-aardvark.c | 2 --
-> > > > >   1 file changed, 2 deletions(-)
-> > > > > 
-> > > > > diff --git a/drivers/pci/controller/pci-aardvark.c
-> > > > > b/drivers/pci/controller/pci-aardvark.c
-> > > > > index a29796cce420..d8852892994a 100644
-> > > > > --- a/drivers/pci/controller/pci-aardvark.c
-> > > > > +++ b/drivers/pci/controller/pci-aardvark.c
-> > > > > @@ -549,9 +549,7 @@ static void advk_pcie_setup_hw(struct
-> > > > > advk_pcie *pcie)
-> > > > >       reg = advk_readl(pcie, PCIE_CORE_PCIEXP_CAP + PCI_EXP_DEVCTL);
-> > > > >       reg &= ~PCI_EXP_DEVCTL_RELAX_EN;
-> > > > >       reg &= ~PCI_EXP_DEVCTL_NOSNOOP_EN;
-> > > > > -    reg &= ~PCI_EXP_DEVCTL_PAYLOAD;
-> > > > >       reg &= ~PCI_EXP_DEVCTL_READRQ;
-> > > > > -    reg |= PCI_EXP_DEVCTL_PAYLOAD_512B;
-> > > > >       reg |= PCI_EXP_DEVCTL_READRQ_512B;
-> > > > >       advk_writel(pcie, reg, PCIE_CORE_PCIEXP_CAP + PCI_EXP_DEVCTL);
-> > > > > -- 
-> > > > > 2.25.1
-> > > > > 
-> > > > 
-> > > > Please do not remove this code. It is required part of the
-> > > > initialization of the aardvark PCI controller at the specific phase,
-> > > > as defined in the Armada 3700 Functional Specification.
-> > > > 
-> > > > There were reported more issues with those Armada PCIe controllers for
-> > > > which were already sent patches to mailing list in last 5 years. But
-> > > > unfortunately not all fixes were taken / applied yet.
-> > > 
-> > > Hi Pali,
-> > > 
-> > > I replied to you in version v2.
-> > > 
-> > > Is the maximum MPS supported by Armada 3700 512 bytes?
-> 
-> IIRC yes, 512-byte mode is supported. And I think in past I was testing
-> some PCIe endpoint card which required 512-byte long payload and did not
-> worked in 256-byte long mode (not sure if the card was not able to split
-> transaction or something other was broken, it is quite longer time).
-> 
-> > > What are the default values of DevCap.MPS and DevCtl.MPS?
-> 
-> Do you mean values in the PCI-to-PCI bridge device of PCIe Root Port
-> type?
-> 
-> Aardvark controller does not have the real HW PCI-to-PCI bridge device.
-> There is only in-kernel emulation drivers/pci/pci-bridge-emul.c which
-> create fake kernel PCI device in the hierarchy to make kernel and
-> userspace happy. Yes, this is deviation from the PCIe standard but well,
-> buggy HW is also HW.
-> 
-> And same applies for the pci-mvebu.c driver for older Marvell PCIe HW.
+On 09/05/2025 09:02, Chaoyi Chen wrote:
+> +
+> +  clock-names:
+> +    items:
+> +      - const: core-clk
+> +      - const: pclk
+> +      - const: spdif
+> +      - const: grf
+> +
+> +  extcon:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    description:
+> +      Phandle to the extcon device providing the cable state for the DP PHY.
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  phys:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+
+Just phandle. If this is an array (but why?), you need maxItems for
+outer and inner dimensions.
+
+> +    description:
+> +      Phandle to the PHY device for DP output.
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: Input of the CDN DP
+> +        properties:
+> +          endpoint@0:
+> +            description: Connection to the VOPB
+> +          endpoint@1:
+> +            description: Connection to the VOPL
+> +      port@1:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: Output of the CDN DP
+> +
+> +    required:
+> +      - port@0
+> +      - port@1
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  resets:
+> +    maxItems: 4
+> +
+> +  reset-names:
+> +    items:
+> +      - const: spdif
+> +      - const: dptx
+> +      - const: apb
+> +      - const: core
+> +
+> +  rockchip,grf:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      Phandle to GRF register to control HPD.
+> +
+> +  "#sound-dai-cells":
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - interrupts
+> +  - phys
+> +  - ports
+> +  - resets
+> +  - reset-names
+> +  - rockchip,grf
+> +
+> +additionalProperties: false
+
+Well, if you added dai-common $ref then this could have stayed as
+unevaluatedProperties, so you will allow names for the DAI as well.
+
 > 
 
-Oh. Then this patch is not going to change the MPS setting of the root bus. But
-that also means that there is a deviation in what the PCI core expects for a
-root port and what is actually programmed in the hw.
 
-Even in this MPS case, if the PCI core decides to scale down the MPS value of
-the root port, then it won't be changed in the hw and the hw will continue to
-work with 512B? Shouldn't the controller driver change the hw values based on
-the values programmed by PCI core of the emul bridge?
-
-But until that is fixed, this patch should be dropped.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Best regards,
+Krzysztof
 
