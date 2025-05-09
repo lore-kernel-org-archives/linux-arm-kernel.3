@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87C84C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 22:33:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FBA6C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 22:35:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6p7ER/Q3/oiPZqhTroZ/8PyX/B+RWKmVdqYgvMtMSKg=; b=xRbcJQs9dwekn7ZDaSUjjWbJRf
-	Ug0PwRk0m7A7ZKkHzUtYVcGDUW+GlEYbvjyYkMDSI06n2S1sZxWS05yoNi0gROjUTXQIhbwT3SIlc
-	j4J/b2D2Sz3QhhTCSCpmBMAi+z8djzyQMQCBIcpyYooBtxSWNgOntKGm/52smF51bFP3HVXL7Qa5D
-	kX7TavLOc3RQPOS71dByWSKXukqQxw3WfZNrgmmlIJ54t6vjveNATa9wpOE2loaiWoBKQdUzfxwaQ
-	0Mbi6dngdTSZ5JpImyQFgq9kZUqDK6fU/1CD+qfhyq3pVm8/s5BFpJmAYr+OU0y6hhQM8fkkFG23Y
-	qcJ37sXg==;
+	bh=r01UKsFQHMizWN+7NERjXgKGoiCMs947wub+Eu3dEZg=; b=KCmoKqO+v5i+Yjnf6rs7kQ0NpR
+	6tf72Mb6frcEDZAX3sU+m2+4yJSrioCl9LPQ7mSCDOqYB2hBCtAKHNpHxxw1mw8DlQFpdeSBeyKU0
+	o6WMB7pR5DMiH6D4Bwu1andq3xmfzCv+5Wwl3LMS3uFkC7i1EJDbI47jKpAncA1dUPl1kxMxkUY7A
+	0nSS9shIZg1Ee7vo3z1iHWJAop1rdyYXtAWIm08h3HFs5bpz6ZUFdv+giRZA4msG6pOm0coTGhNHC
+	NdWj20k7p4PIbwP7EoDgk4lXddL1ABP7aFWOcU7bE9mFlT1g3+Etj/KzLL4ZvrsYA7SKPwSI33KTR
+	TXFKei9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDWHF-000000054hO-1oke;
-	Fri, 09 May 2025 22:33:09 +0000
+	id 1uDWJF-000000054oi-0VSJ;
+	Fri, 09 May 2025 22:35:13 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDWDH-000000054MA-0TAp
+	id 1uDWDG-000000054M9-2CKj
 	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 09 May 2025 22:29:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=6p7ER/Q3/oiPZqhTroZ/8PyX/B+RWKmVdqYgvMtMSKg=; b=g/+3ez2b6KTcYfYd5OcUgo7Ok9
-	TytL6BnwE1vrqysiZgxc51ko3PoDNHvNus4rhAN2oWIB3x2V9usb4k9TFl0+ZiIYueC8Gq32Z8JPp
-	98lBaaXlXU43sa/hKwpOx9grQwSLiIaHqqVY27nvTj4tIXITcCfFqR67iEpctUvr5yA/vZStS6KB7
-	YrtWbNpYjuzB/lAX4JhWYmCOTB1CBJMqWKYjBeKQOELcclncM+ehPUX4tRcRvShPMX7c1I307dUR5
-	CzHHefrKRIerH72eQu6IH1cRhYXGsmxvjIypj5Ka9biF87dw3725PvW3nttiQ7PP0NJaxRL3v8k1L
-	0z2TC/yg==;
+	bh=r01UKsFQHMizWN+7NERjXgKGoiCMs947wub+Eu3dEZg=; b=VxO+/qeRzO+kPQeTwrSNIP8+EL
+	s5+j2Uc09olHisGgHCjp1BehcjpPdATr2J0sfHsIVTAh7MoZwLlIh7YQySA/nZbgRtPGwH7Ks72Ll
+	/FOQN4Ds8WZZexDQrAIu3l9b1HML/MS+LR99sqWcGG1iWsYPu/xes6Gez9Yg6Nf3nYfikkSWrdML2
+	O+atMOdMNpOLMA5LbBF9h8eHr7A/nCaoyQ3x8hzGJPW8rI4k9v4X0Bx7MCHb9q8h8CRbdv03DzMPX
+	NQ375CJOsfcHmhQMK/SwIjVu0XdWA2k2RUOl++XHDpC3VXmnlzBfNbzmRYytU//5lh8BOMNt9mufV
+	4AssBzBg==;
 Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uDWD2-0000000GN4t-06nF
+	id 1uDWD2-0000000GN4z-06rF
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 09 May 2025 22:28:58 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-22e4d235811so37565735ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 15:28:30 -0700 (PDT)
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-22e45088d6eso35234505ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 15:28:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1746829709; x=1747434509; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1746829712; x=1747434512; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=6p7ER/Q3/oiPZqhTroZ/8PyX/B+RWKmVdqYgvMtMSKg=;
-        b=UdWoavFCy66IsfhHhcyeRATt59RQ1Cj1zJQ6mZixljvPsRd6fKx/uBdEPRfPgXY9+B
-         9NJmdjLbI5ViZU3n2mZ6Kd9VwiJvz/Irnvrcp/1ycPCngu9H7UGNyrv+G84qMlV2olWo
-         Z7m3P2N5Pw5qEh77FaoEcPHK7SAeAQWGZMnjU=
+        bh=r01UKsFQHMizWN+7NERjXgKGoiCMs947wub+Eu3dEZg=;
+        b=Hs3Qx++NnTdlt5NiuinI1dEiPv/DKSVB2SV9QgxJ+wi7TTjJKDKPZk7/yghZXeoroC
+         70sNBY80S0P5Ge1LnP9YUjW+YCus8Fr6F4lLGmY497q3VqZaW7fUn0i+Ju1BbD0T44U2
+         q9xkWGjfF/4SXl1C0p0wImmLMODCIzqhgyAZ0=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746829709; x=1747434509;
+        d=1e100.net; s=20230601; t=1746829712; x=1747434512;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=6p7ER/Q3/oiPZqhTroZ/8PyX/B+RWKmVdqYgvMtMSKg=;
-        b=WaatPHtUw9FkKbzNppNpHQWI1Z25GuQTjpwywsgRHGTmKdFsNsLI+uO4rTHgJqnszp
-         APST7Gs/yJ4a9TrKj8f4noCwiMpKu0jqUueGcutCtUvd7ty8IKRi9hEpvB+fgkRloSST
-         Yi9KnOQYL9NE2bTciRDDjbEmLD/B00q7ycZdlMEAWHv3GismVqCrCNHcjXI0u6HCJ01Q
-         wXSJv0omqX+4IhIf376nIs9v6Y25IXPDwXKM4vfzfWu+vOswTAXYtu9YZ8V/9kDhaPca
-         V59AW1Y0rXke0JpWPJQ/x+XZr+eKIl2Bnx9Lq2yCRLMyiUhr80nkk89+GlYE9X7DiyqE
-         d3tg==
-X-Forwarded-Encrypted: i=1; AJvYcCVMM7kB2xF3I5b87VahMecxROPw6SOeWnfKO6UZJJy2RoKRju2/OgeEzLQcmEcKc7JXBt1uetp6XY9fcMmk+8Kx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8rW/zt7yG9NNR1yHBrj3wKFDWtdQot7bPtsuxZCFzcQNQkdiw
-	bLByIuWgvnywUsFdGrS6x8h8VP31M4h5Va2bfE8HFazBwtRPkac+PORwElYpPQ==
-X-Gm-Gg: ASbGncueKyoYVe4okaJzx1ac0UAtvISdjZ0p90KRJyeEclDAIbhJIiO6hE46KL3k5sF
-	YOnzTY8VaNI/NhmCsvOOxzraETkRx6zyWKpvcff5aBhn512ARYHC9k1cNd5iaLU1pFuCJhFxKW+
-	TWlLmdhzIvyB1udUhSUe0GTfoGby3/yYeSXWpBje+kVQ22410xDINxoMPkJOZ8TYEZiYM0IMfm8
-	HEO63kSA0qmtjeRdKoE1xXq6jX2uTEZWPixwQE1DqLusBN3B9tkHfgL1A101UOslihrrpykiNEC
-	t4Mi2m9V7BLGsxxatoi8Pcw34wXb/T6T9pRWYtObIA+TBFstHc+6tu2FLgrbCy3DZzP+WY4uo2+
-	jYG2XXcstvWFAVmUFyGNt1SI3lp5GPGo=
-X-Google-Smtp-Source: AGHT+IGfUwOQRvWOeCWpbpI7bjN2yUkoA+0vs2CH6hB56pZLb+zEdsUnC3KckTOyfdQuyia/7g01Hw==
-X-Received: by 2002:a17:902:e747:b0:224:a96:e39 with SMTP id d9443c01a7336-22fc8b3e2efmr67480325ad.9.1746829708752;
-        Fri, 09 May 2025 15:28:28 -0700 (PDT)
+        bh=r01UKsFQHMizWN+7NERjXgKGoiCMs947wub+Eu3dEZg=;
+        b=Ri517rjT4NbOARLLVF8e2Rx5xtwIeY/U3aSOc5p/dTatHy0f7GADkRfQQq4s/Tudfz
+         6S46VPb4dDNGQ9yLidLQmltwMy29GHEyWDwtUM7fZER65N4ipO9CZ1CPpSl/VhRNVPrq
+         NYQqcC14P7tSZKi1PPqZ/IQjy+UuPJXJWhPdQb57L51siO+2An05jqhJ4f4FOTVEhB2D
+         42zXa8Z3vnSzOS6ViigN2Kh6L3+HofF++mfj8FChs/AftmrjnrhIPQ0VVWTgNcLTxGeO
+         kNRpgMRP9BvY5taNFsa44jGMwMr62sXKk9+McCj3LAnfgBZHIDtwT2kY5LfMvb4TIxdr
+         V//w==
+X-Forwarded-Encrypted: i=1; AJvYcCURGNtuHw/nn6sizGCcrcDvjyTHvHpo8EFLnS7Bcdg7HpMMKocw7BuBdpmQ0Dd83+WjwO/nn/qjoE9O/mAHmwIB@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHqLvdcuG0VOGhy08CWRqqzyvbMbNWF+NFP482gvw0fuo/AS7i
+	2/ia0TLGoe+wm83wN9U7Ra9E7RTZYM1VpZF6O02bINSI45NxprpSkMXgY79U3w==
+X-Gm-Gg: ASbGnctqQqPZHj5SooHMsAkwm5dl9JySS/1LekVHP+AEDN6igSEimF85t5s5NTtv3uA
+	Yvmz0TI2IyRosqQZvAeqABjhPUZGHiw8el648OMtAMrY2r5hMqb0V4ry2em2yXdWlH4/sLsVjl6
+	8CIiMTAIl+paw09Avw2flMC3AbGBDeeHEfXBL32bm7seAtGQ05tHyQIJvf67o4/1MjJOoxWk8hW
+	WxHKVwIudLrBoo7Coy/jj062A2TULlNdU5pxsP5d2InS7alNuzQlnlrZUiGbgT4kWv2y77wSY63
+	kLfIsb3yT7GSw6430M98SltdYkSsgSmFR6RWw9xtIwQIagfqH3f3p7lt2Vh2QXYD9sm3B3zyXCn
+	gun1ZmReyPXX1UwfWSVVR04iVwc4oU57kk8MdYgrmHg==
+X-Google-Smtp-Source: AGHT+IFuDBZRbVYjG0G4X/dCVr4J6+/l3hVYk/ScgrrBw/Yp2Kx+9CCGefV6GRrHSuO5N3jNQSf5cA==
+X-Received: by 2002:a17:903:986:b0:220:ff3f:6cba with SMTP id d9443c01a7336-22fc8e995b4mr83439675ad.38.1746829711780;
+        Fri, 09 May 2025 15:28:31 -0700 (PDT)
 Received: from stbsrv-and-02.and.broadcom.net ([192.19.144.250])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc7544fadsm22584465ad.24.2025.05.09.15.28.26
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc7544fadsm22584465ad.24.2025.05.09.15.28.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 May 2025 15:28:28 -0700 (PDT)
+        Fri, 09 May 2025 15:28:31 -0700 (PDT)
 From: Jim Quinlan <james.quinlan@broadcom.com>
 To: linux-pci@vger.kernel.org,
 	Nicolas Saenz Julienne <nsaenz@kernel.org>,
@@ -94,24 +94,20 @@ Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
 	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
 	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
 	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE),
 	linux-rpi-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH 1/2] dt-bindings: PCI: brcm,stb-pcie: Add num-lanes property
-Date: Fri,  9 May 2025 18:28:12 -0400
-Message-ID: <20250509222815.7082-2-james.quinlan@broadcom.com>
+Subject: [PATCH 2/2] PCI: brcmstb: Use "num-lanes" DT property if present
+Date: Fri,  9 May 2025 18:28:13 -0400
+Message-ID: <20250509222815.7082-3-james.quinlan@broadcom.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250509222815.7082-1-james.quinlan@broadcom.com>
 References: <20250509222815.7082-1-james.quinlan@broadcom.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_232848_156282_424DBEF1 
-X-CRM114-Status: UNSURE (   9.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250509_232848_155540_7E53CDA8 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,26 +122,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add optional num-lanes property Broadcom STB PCIe host controllers.
+By default, we use automatic HW negotiation to ascertain the number of
+lanes of the PCIe connection.  If the "num-lanes" DT property is present,
+assume that the chip's built-in capability information is incorrect or
+undesired, and use the specified value instead.
 
 Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
 ---
- Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/pci/controller/pcie-brcmstb.c | 26 +++++++++++++++++++++++++-
+ 1 file changed, 25 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-index 29f0e1eb5096..f31d654ac3a0 100644
---- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-+++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-@@ -107,6 +107,8 @@ properties:
-       - const: bridge
-       - const: swinit
+diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
+index e19628e13898..76fd4f515898 100644
+--- a/drivers/pci/controller/pcie-brcmstb.c
++++ b/drivers/pci/controller/pcie-brcmstb.c
+@@ -46,6 +46,7 @@
+ #define  PCIE_RC_CFG_PRIV1_ID_VAL3_CLASS_CODE_MASK	0xffffff
  
-+  num-lanes: true
+ #define PCIE_RC_CFG_PRIV1_LINK_CAPABILITY			0x04dc
++#define  PCIE_RC_CFG_PRIV1_LINK_CAPABILITY_MAX_LINK_WIDTH_MASK	0x1f0
+ #define  PCIE_RC_CFG_PRIV1_LINK_CAPABILITY_ASPM_SUPPORT_MASK	0xc00
+ 
+ #define PCIE_RC_CFG_PRIV1_ROOT_CAP			0x4f8
+@@ -55,6 +56,9 @@
+ #define PCIE_RC_DL_MDIO_WR_DATA				0x1104
+ #define PCIE_RC_DL_MDIO_RD_DATA				0x1108
+ 
++#define PCIE_RC_PL_REG_PHY_CTL_1			0x1804
++#define  PCIE_RC_PL_REG_PHY_CTL_1_REG_P2_POWERDOWN_ENA_NOSYNC_MASK	0x8
 +
- required:
-   - compatible
-   - reg
+ #define PCIE_RC_PL_PHY_CTL_15				0x184c
+ #define  PCIE_RC_PL_PHY_CTL_15_DIS_PLL_PD_MASK		0x400000
+ #define  PCIE_RC_PL_PHY_CTL_15_PM_CLK_PERIOD_MASK	0xff
+@@ -1072,7 +1076,7 @@ static int brcm_pcie_setup(struct brcm_pcie *pcie)
+ 	void __iomem *base = pcie->base;
+ 	struct pci_host_bridge *bridge;
+ 	struct resource_entry *entry;
+-	u32 tmp, burst, aspm_support;
++	u32 tmp, burst, aspm_support, num_lanes, num_lanes_cap;
+ 	u8 num_out_wins = 0;
+ 	int num_inbound_wins = 0;
+ 	int memc, ret;
+@@ -1180,6 +1184,26 @@ static int brcm_pcie_setup(struct brcm_pcie *pcie)
+ 		PCIE_RC_CFG_PRIV1_LINK_CAPABILITY_ASPM_SUPPORT_MASK);
+ 	writel(tmp, base + PCIE_RC_CFG_PRIV1_LINK_CAPABILITY);
+ 
++	/* 'tmp' still holds the contents of PRIV1_LINK_CAPABILITY */
++	num_lanes_cap = u32_get_bits(tmp, PCIE_RC_CFG_PRIV1_LINK_CAPABILITY_MAX_LINK_WIDTH_MASK);
++	num_lanes = 0;
++	/*
++	 * Use automatic num-lanes HW negotiation by default.  If the
++	 * "num-lanes" DT property is present, assume that the chip's
++	 * built-in link width capability information is
++	 * incorrect/undesired and use the specified value instead.
++	 */
++	if (!of_property_read_u32(pcie->np, "num-lanes", &num_lanes) &&
++	    num_lanes && num_lanes_cap != num_lanes) {
++		u32p_replace_bits(&tmp, num_lanes,
++			PCIE_RC_CFG_PRIV1_LINK_CAPABILITY_MAX_LINK_WIDTH_MASK);
++		writel(tmp, base + PCIE_RC_CFG_PRIV1_LINK_CAPABILITY);
++		tmp = readl(base + PCIE_RC_PL_REG_PHY_CTL_1);
++		u32p_replace_bits(&tmp, 1,
++			PCIE_RC_PL_REG_PHY_CTL_1_REG_P2_POWERDOWN_ENA_NOSYNC_MASK);
++		writel(tmp, base + PCIE_RC_PL_REG_PHY_CTL_1);
++	}
++
+ 	/*
+ 	 * For config space accesses on the RC, show the right class for
+ 	 * a PCIe-PCIe bridge (the default setting is to be EP mode).
 -- 
 2.43.0
 
