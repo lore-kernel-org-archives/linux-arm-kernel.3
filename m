@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 326EBC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 14:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4F4EC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 14:14:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zHE+CTrnMR2Ej/pQosbeYTQFW+gx7bU1DLRuJAwU1k8=; b=hWX8Qor/ZmB0lYa+ZYXqoHaaDP
-	qWBAoJ7Fl3UCyG/lnyq9nu7ddIWiS4xVs1QkjZ9dJsA5vmUWJPRR4H/yfHVapuZL31Txpn3G7ZWox
-	YutZ6bF+CEN4WgybH+MXJnk8oBOvTAzPMnAoPOFdTHprrSTh+1g5a0i0IKtYezC3tYsTTxUn0Adr5
-	p5XmXHHAqzpAF39ga7N5jaCx3/ZsujUSTCIwNcwrRVkBLwmFo9wxw2BbPu0IPUUjhgxBLqcYuITQe
-	jNYcHuK/IBHR4y4UgnJFm60bKcIAkGxmSgOBxg2aDiAeLV3qybUpasOqGxQRZsu9R1RkYodJM+ETa
-	XGU65gQg==;
+	bh=eHz2N90cxTQPl/n3ayGPjZiGdp6MpqFE6UdMTbgIZ0k=; b=JkrQbwXX/iRWhc875eCNZXv3Lo
+	rs3GjV2hzsS3Awg+pSpH+EyhTUjASNHtiOq+CrO+FZHQlTbRtOGXvs5N8+7kvzoHt8Qixg/3dQOoo
+	zH24TwBFpyoQ5RbCDQtr1DNeQ2N+ijoxwg+0S27FKBd1SOxfRABt99+eHzN350FpZvmXaQAKwPoB4
+	XVZmWdcnqz4nxa744XBrpzb+WbKMzRWfeBDMNuMe5295JQg0t4WPnjHonnd/UgThdg9sPEIq+tohp
+	hpJKF9uzZ0TDexgEJcTsui/SYfT88bhs6RmlYW59rt0oSI02uH+tFh/pXojw0dbHoWP82ONM5zsy7
+	5tXv9KHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDOS8-00000003uBy-3Ujv;
-	Fri, 09 May 2025 14:11:52 +0000
-Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
+	id 1uDOU4-00000003uSP-285r;
+	Fri, 09 May 2025 14:13:52 +0000
+Received: from out-178.mta1.migadu.com ([95.215.58.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDNWr-00000003iC4-1jjg
+	id 1uDNXZ-00000003iHs-1ORl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 13:12:45 +0000
-Date: Fri, 9 May 2025 09:12:33 -0400
+	Fri, 09 May 2025 13:13:27 +0000
+Date: Fri, 9 May 2025 09:13:10 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1746796358;
+	s=key1; t=1746796403;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=zHE+CTrnMR2Ej/pQosbeYTQFW+gx7bU1DLRuJAwU1k8=;
-	b=NwgyCVj3WnE0BcZ1RmT3kyajgJh7ZmeJ8DszNOsVFNtgnADHiFlbusgtsdfmql0lKr7le7
-	F/U6iqHBzgcZwiLRnODBb7xpmz0PH+M54K3dqVDiZwJVniw6x9t6xCVoojHGC9hWKOUagx
-	jgY+QYOWVk3mK87d4EjlwVDzEo9eFA00rFn3cdlQAEuE8o95bLmKoqINv+MCS8ySOok9vr
-	t40+IBEs56GK+TK0iTSphbzK/Xn29pXmxGGWbTAuMncWGfQviGsRj91UpfRjwFleSw9g9e
-	r67TR9B0I/7HiwHou1MT1j4oUcWbIsM8tcONEqxv9Q0D6cS1SgcOI+d0o7vchg==
+	bh=eHz2N90cxTQPl/n3ayGPjZiGdp6MpqFE6UdMTbgIZ0k=;
+	b=fHb0Bf2Fxn4XphXkw53yBQp5fKOoN8qXoC6co+TQnzQiXmREqHmMNMdXDJhiK9feEPkzCD
+	xNWNbVEx3i8gLAOOhU7AUKiMCpTPr5Xto7wkjd/etBl7peOIMinzO1dixZ7S9VJQaQxG7a
+	Qpi/uuYD73+Y+chNpJBTUMP32ykNHh8dd/cCqe8a5iOSeZxb+zvJMpFESvDXxX8wJHiCvQ
+	ESOT/Bs/K8+OnNz+02TwSK8SeaQxJfa8B9YkLFbrs2gskzUHOWn7Qrt90SrHDOLMaSKvz3
+	7vwXPIyawxCHxf7tco0+el4wfQjHSeNB5mDYOgB09LKMMIoi2wOuvrA25zlJwQ==
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 To: sven@svenpeter.dev
@@ -54,22 +54,20 @@ Cc: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
 	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
 	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v4 3/9] dt-bindings: mfd: Add Apple Mac System Management
- Controller
-Message-ID: <aB3_QUTH5BzjzSvJ@blossom>
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+Subject: Re: [PATCH v4 8/9] arm64: dts: apple: t8112: Add SMC node
+Message-ID: <aB3_Znc0dsDuByVJ@blossom>
 References: <20250503-smc-6-15-v4-0-500b9b6546fc@svenpeter.dev>
- <20250503-smc-6-15-v4-3-500b9b6546fc@svenpeter.dev>
+ <20250503-smc-6-15-v4-8-500b9b6546fc@svenpeter.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250503-smc-6-15-v4-3-500b9b6546fc@svenpeter.dev>
+In-Reply-To: <20250503-smc-6-15-v4-8-500b9b6546fc@svenpeter.dev>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_061241_589495_6C7CC5E8 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20250509_061325_507224_A8459996 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,109 +84,61 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 
-Le Sat , May 03, 2025 at 10:06:50AM +0000, Sven Peter via B4 Relay a écrit :
-> From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Le Sat , May 03, 2025 at 10:06:55AM +0000, Sven Peter via B4 Relay a écrit :
+> From: Hector Martin <marcan@marcan.st>
 > 
-> Add a DT binding for the Apple Mac System Management Controller.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Hector Martin <marcan@marcan.st>
 > Signed-off-by: Sven Peter <sven@svenpeter.dev>
 > ---
->  .../devicetree/bindings/mfd/apple,smc.yaml         | 71 ++++++++++++++++++++++
->  MAINTAINERS                                        |  1 +
->  2 files changed, 72 insertions(+)
+>  arch/arm64/boot/dts/apple/t8112.dtsi | 35 +++++++++++++++++++++++++++++++++++
+>  1 file changed, 35 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/mfd/apple,smc.yaml b/Documentation/devicetree/bindings/mfd/apple,smc.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..9f1058c15bbf62d84f8a72fdaa354909b02e2801
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mfd/apple,smc.yaml
-> @@ -0,0 +1,71 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mfd/apple,smc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
+> index e95711d8337f6cea898e88a3d564caf2c4f94404..861cf2f684a067d73f79d8f01447bc375136793d 100644
+> --- a/arch/arm64/boot/dts/apple/t8112.dtsi
+> +++ b/arch/arm64/boot/dts/apple/t8112.dtsi
+> @@ -839,6 +839,41 @@ rtc_offset: rtc-offset@f900 {
+>  			};
+>  		};
+>  
+> +		smc: smc@23e400000 {
+> +			compatible = "apple,t8112-smc", "apple,smc";
+> +			reg = <0x2 0x3e400000 0x0 0x4000>,
+> +				<0x2 0x3fe00000 0x0 0x100000>;
+> +			reg-names = "smc", "sram";
+> +			mboxes = <&smc_mbox>;
 > +
-> +title: Apple Mac System Management Controller
+> +			smc_gpio: gpio {
+> +				compatible = "apple,smc-gpio";
+> +				gpio-controller;
+> +				#gpio-cells = <2>;
+> +			};
 > +
-> +maintainers:
-> +  - Sven Peter <sven@svenpeter.dev>
+> +			smc_reboot: reboot {
+> +				compatible = "apple,smc-reboot";
+> +				nvmem-cells = <&shutdown_flag>, <&boot_stage>,
+> +					<&boot_error_count>, <&panic_count>, <&pm_setting>;
+> +				nvmem-cell-names = "shutdown_flag", "boot_stage",
+> +					"boot_error_count", "panic_count", "pm_setting";
+> +			};
+> +		};
 > +
-> +description:
-> +  Apple Mac System Management Controller implements various functions
-> +  such as GPIO, RTC, power, reboot.
+> +		smc_mbox: mbox@23e408000 {
+> +			compatible = "apple,t8112-asc-mailbox", "apple,asc-mailbox-v4";
+> +			reg = <0x2 0x3e408000 0x0 0x4000>;
+> +			interrupt-parent = <&aic>;
+> +			interrupts = <AIC_IRQ 499 IRQ_TYPE_LEVEL_HIGH>,
+> +				<AIC_IRQ 500 IRQ_TYPE_LEVEL_HIGH>,
+> +				<AIC_IRQ 501 IRQ_TYPE_LEVEL_HIGH>,
+> +				<AIC_IRQ 502 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "send-empty", "send-not-empty",
+> +				"recv-empty", "recv-not-empty";
+> +			#mbox-cells = <0>;
+> +		};
 > +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - apple,t6000-smc
-> +          - apple,t8103-smc
-> +          - apple,t8112-smc
-> +      - const: apple,smc
-> +
-> +  reg:
-> +    items:
-> +      - description: SMC area
-> +      - description: SRAM area
-> +
-> +  reg-names:
-> +    items:
-> +      - const: smc
-> +      - const: sram
-> +
-> +  mboxes:
-> +    maxItems: 1
-> +
-> +  gpio:
-> +    $ref: /schemas/gpio/apple,smc-gpio.yaml
-> +
-> +  reboot:
-> +    $ref: /schemas/power/reset/apple,smc-reboot.yaml
-> +
-> +additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - mboxes
-> +
-> +examples:
-> +  - |
-> +    soc {
-> +      #address-cells = <2>;
-> +      #size-cells = <2>;
-> +
-> +      smc@23e400000 {
-> +        compatible = "apple,t8103-smc", "apple,smc";
-> +        reg = <0x2 0x3e400000 0x0 0x4000>,
-> +               <0x2 0x3fe00000 0x0 0x100000>;
-> +        reg-names = "smc", "sram";
-> +        mboxes = <&smc_mbox>;
-> +
-> +        smc_gpio: gpio {
-> +          compatible = "apple,smc-gpio";
-> +          gpio-controller;
-> +          #gpio-cells = <2>;
-> +        };
-> +      };
-> +    };
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index d85d9d9065db4dc5869788f8a81d9d9a425d7ce3..2c16b2fc3fec76104967530f487123485af1e777 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2275,6 +2275,7 @@ F:	Documentation/devicetree/bindings/iommu/apple,dart.yaml
->  F:	Documentation/devicetree/bindings/iommu/apple,sart.yaml
->  F:	Documentation/devicetree/bindings/leds/backlight/apple,dwi-bl.yaml
->  F:	Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml
-> +F:	Documentation/devicetree/bindings/mfd/apple,smc.yaml
->  F:	Documentation/devicetree/bindings/net/bluetooth/brcm,bcm4377-bluetooth.yaml
->  F:	Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
->  F:	Documentation/devicetree/bindings/nvmem/apple,efuses.yaml
+>  		pinctrl_smc: pinctrl@23e820000 {
+>  			compatible = "apple,t8112-pinctrl", "apple,pinctrl";
+>  			reg = <0x2 0x3e820000 0x0 0x4000>;
 > 
 > -- 
 > 2.34.1
