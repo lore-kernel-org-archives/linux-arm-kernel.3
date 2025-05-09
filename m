@@ -4,87 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42057C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:27:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6517C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:28:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AVjmITvg5xwQUhBH3cPWu+1Rci6sKZeIVD+X8Tz7B6Y=; b=yaUTCUbuCtF/UgN+l5e7ayZgN+
-	KdBnFlPkJfIQJTr/sBUUtSrBkSIQpZDYm1F+VvgUmhSR/9LSEf41ECokvs5ksGwCklnqrpUNQVjVX
-	4uftlgiQ0Oq11bToedDljGxuetKu1muQpO4kLkQfX9ej1w1jlJROghVso3G5IPi5HCEAKle0r6Xax
-	2M0uqwvYQd0g8p1lzRpeEYtd/bRA/2FKf6SxWwG4tLLQUw5dRLXCptvxvPm56leCcd1vwdRFcAB0Y
-	WgXGtBkm8T+hJgmA+qAjnSR/dtdUsl3B4PNLFmOI8ljCikpsnB3a3aF+pJm/rcCCMdX337J5d4QM/
-	S/BHK5LA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OwTawF8PqeIj4acmbxuSOUBysWkrgXkqCM2C3zY/xaE=; b=sqFQio9j0ep+GPmE1a9T9V0K0O
+	pGxYCb9JYb44wz9p78KMrswO9Yl4GXK7WITnXv162pWHYyIK9cWhkmqDAmg6cl53AG0Nba/KSvkIa
+	91lW6lC95DaqJtwnIGRj5VlIpK+fNXs7bjeFwSOK/9j6AZzW05R37si3y58POucs0YE8d66TPbRJ6
+	qUtaIqpD2Q3feREd55+hbv58yiqo/2KEVp6KO1LpP/ZWd3Zh2rk27D/SY7jT/9TXk0l4LXE78yIUs
+	uQNbVZprerEHOY985Ue5Rkr5VEPizFrapnh18bZpMp//Ybemfn6nhnpaMTp39KM9jVBPd2YkD9IEi
+	qS3tKOjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDUJy-00000004p3J-3AqH;
-	Fri, 09 May 2025 20:27:50 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1uDUKB-00000004pSX-2kg8;
+	Fri, 09 May 2025 20:28:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDSSa-00000004ZjE-20Tr;
-	Fri, 09 May 2025 18:28:37 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-22fa28c761dso18198595ad.2;
-        Fri, 09 May 2025 11:28:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1746815315; x=1747420115; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AVjmITvg5xwQUhBH3cPWu+1Rci6sKZeIVD+X8Tz7B6Y=;
-        b=bXAet2Jm4AMK+LnT1BZiwP0LUbXLHPzJwcKPx+JSooSwQshgCy/7vlDE/EcEXcHiMa
-         l2QVoFrL+V05tlHHHvsgzFvBrGLo3vDCmYRZUq33JtpQ3YoDIhGPqAKxUUw6VBvohKW0
-         DwaQo4OYjP/67Fs1llrnQ0fpsjC2pb3jr0UBbMiYzBnLL+8IibO5VPhJnElsvJ6ZUlPi
-         yaHoGnV2L6ZrtLh7kVC5El6k71G+0GpGIhav+fkFPwAcAfvVpe41A6NYm/XXfLnth2Z6
-         kmBZOZokUzcIphbwnnqI3rjTrtITqor0JVElQKjg1EOekBX9qT5/+jSi5ATOnFMbkUwF
-         JvuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746815315; x=1747420115;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AVjmITvg5xwQUhBH3cPWu+1Rci6sKZeIVD+X8Tz7B6Y=;
-        b=aVnpXIJ1pMmGOJZjsMWOsgX+mGlAyV/XRuXdArjvshaWoWtb3iiRbzh8F2em4plzQX
-         cIYkhpWXC0Hn1lacYMGbfsYi3bk2Ud909dHJkR3SyQIowBlk7kk2unWidgp5Q5568pCn
-         Clx3BPTLwebgq93sjCI+iGG5c2JyV4rqZnDwisLmOW/LcWBnrtzYqRSzpwjtd7KM7X8W
-         Qi515fcWpZK7ZPl6o6/gQvEqrOSvDjIUIjC0XDwO6FLYZA1HJLN0htY0YUM3jy0DaaNz
-         MeE2KB3ZOFzKPpf96eJbjZ6SvRiLxDumqcWhq5006AJ9oFzMBOludXzCDl8FtjWwyKjw
-         ylrQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUnerI61YqRz96dn4TsIRcYSEAUoGNGWtSdzs+o9wyJolmR3lW0tbCZNl3PuC9BRbKmOsFVP6sPQPfCEjT0@lists.infradead.org, AJvYcCUzRYFlHnbICAvECAGZNyIDJmxRXymCdoWAl7dd9g1RLigKzLp7AL/o5jmKkaLY/0WUP8L1UKCOaBByiE7rY33u0g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YymNI5RP/VpNWOf3gUzZ3MsNxAt5NrXtYStZpMRTABE4tgMj7S0
-	ZKnTz/a4zfX+pmn4/Y35TSLz59RbFNWGLXfVi2LcioiiUDydsEgH+1kTrw9chWjMqhvM9oNArdH
-	1WDI8E7SeZxJj2FuCciRWE1KKHb3c2T2O
-X-Gm-Gg: ASbGnctLLVt0JpSccEHSQ6nGoPVUq4QEBnwfyPhTpzcUWnhgikcya0InGRACYdyJci2
-	uxlsbpuDXDL/GkJZLoSPoQibfQbxJbrJ214UK0UOX5xDdrNUvCG+cRAz8gRI+bwDUF4U3TOY3G7
-	LQqZTx+WjQaF21TXdb7/sl/avIiXmUAt2yP2menKaeMNIjl7qHfxZZHDXV1m8TNr+QQw==
-X-Google-Smtp-Source: AGHT+IEwd7AiDoJxpDhyTHw6FTDd796IjH1JzgkpmVh4628MtJYKSWng6hqIPivs5wHI5s0eCiBfNcWPOBCx0dc2UHI=
-X-Received: by 2002:a17:902:f70a:b0:225:abd2:5e39 with SMTP id
- d9443c01a7336-22fc8c8eac0mr65654585ad.30.1746815315465; Fri, 09 May 2025
- 11:28:35 -0700 (PDT)
+	id 1uDScg-00000004akL-0nae;
+	Fri, 09 May 2025 18:39:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 77257439FB;
+	Fri,  9 May 2025 18:39:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C5AFC4CEE4;
+	Fri,  9 May 2025 18:39:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746815941;
+	bh=CNzigu9OBmuWrlsbb6lkAHKQvEmV0rXReJcmd4lUIG0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QOR3T+Uea/m9D1NaeSWXmmevBwXXe1rwMHM9tj20bdo5M/Q1Uz6xZw+S9DICifwPw
+	 mq+MEqH0ToOrWY8bUhm2sARgZvXf4NJp+4wzxRfO0ygybgggqztpqAMvpqm7kehrlw
+	 hELbnaCIrgfTjteCssiBoQPaMu0o0oO9jSFmt17Ugt91b0YEVY0KyRByE5AWVL3Egw
+	 iMIpJ6ihhnprEpw8MmmEwfOE4nghtEPK5HSt4MtTLU8qi+T0u5ZphiQdat+TJvlTtU
+	 /H5ahjFWOcwroMtB7aNubyLP5eN/MdKW6LyuF70OlcPx1kMmYPRMavi03kh3Edwb/M
+	 OO+/gygR1OmMg==
+Date: Fri, 9 May 2025 13:38:59 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
+Cc: Benjamin Bara <benjamin.bara@skidata.com>,
+	linux-rockchip@lists.infradead.org, stable@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Klaus Goger <klaus.goger@theobroma-systems.com>,
+	Matthias Kaehlcke <mka@chromium.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/5] dt-bindings: usb: cypress,hx3: Add support for
+ all variants
+Message-ID: <174681593868.3912440.12960505435883876267.robh@kernel.org>
+References: <20250425-onboard_usb_dev-v2-0-4a76a474a010@thaumatec.com>
+ <20250425-onboard_usb_dev-v2-2-4a76a474a010@thaumatec.com>
 MIME-Version: 1.0
-References: <20250509150114.299962-2-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250509150114.299962-2-krzysztof.kozlowski@linaro.org>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Fri, 9 May 2025 20:28:24 +0200
-X-Gm-Features: AX0GCFt7pQHVyrf4n1xvCNGZ9D5D94k38mJZKPZaIgxrW2CstAdBDU6m2wUQANg
-Message-ID: <CAFBinCDt1jDv=jhDoW3UtBUL8BuLL8PpJPKjpC1Sf5fifnw+6g@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: meson: Drop unused aml_pctl_find_group_by_name()
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Xianwei Zhao <xianwei.zhao@amlogic.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, linux-amlogic@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250425-onboard_usb_dev-v2-2-4a76a474a010@thaumatec.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_112836_513355_233A7B85 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250509_113902_245479_7C0DCEEF 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,16 +81,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 9, 2025 at 5:01=E2=80=AFPM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
->
-> aml_pctl_find_group_by_name() is not used anywhere, as reported by W=3D1
-> clang build:
->
->   pinctrl-amlogic-a4.c:600:2: error: unused function 'aml_pctl_find_group=
-_by_name' [-Werror,-Wunused-function]
->
-> Fixes: 6e9be3abb78c ("pinctrl: Add driver support for Amlogic SoCs")
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+
+On Fri, 25 Apr 2025 17:18:07 +0200, Lukasz Czechowski wrote:
+> The Cypress HX3 hubs use different default PID value depending
+> on the variant. Update compatibles list.
+> Becasuse all hub variants use the same driver data, allow the
+> dt node to have two compatibles: leftmost which matches the HW
+> exactly, and the second one as fallback.
+> 
+> Fixes: 1eca51f58a10 ("dt-bindings: usb: Add binding for Cypress HX3 USB 3.0 family")
+> Cc: stable@vger.kernel.org # 6.6
+> Cc: stable@vger.kernel.org # Backport of the patch ("dt-bindings: usb: usb-device: relax compatible pattern to a contains") from list: https://lore.kernel.org/linux-usb/20250418-dt-binding-usb-device-compatibles-v2-1-b3029f14e800@cherry.de/
+> Cc: stable@vger.kernel.org # Backport of the patch in this series fixing product ID in onboard_dev_id_table in drivers/usb/misc/onboard_usb_dev.c driver
+> Signed-off-by: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
+> ---
+>  .../devicetree/bindings/usb/cypress,hx3.yaml          | 19 ++++++++++++++++---
+>  1 file changed, 16 insertions(+), 3 deletions(-)
+> 
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
 
