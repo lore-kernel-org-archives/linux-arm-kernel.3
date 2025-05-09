@@ -4,53 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 034E1C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DA49C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e+VHUjNG6s/Obwnth5asqBJSwblkYn4SwJqZOdEtwdA=; b=tiiF1bg04uXhDqX1l7L2GX6+Iu
-	QY1iYfG2SD9O2U+C9cPC41TEH/Akfd0Ty5H+BvjVJ+j3eFAk6iqo+X0L2/m7saHMxFJS0ayMwdlqT
-	cvD1XUSJfpf6J4Cqzbqiyg2UvLK5IdMWIvXRGQIdwdmXwIEPl0D4THCarYfpe7Nod/Ir/RrVWXpZS
-	gS1wpTPUGDFRRZKSau3HYnhWlm8v3Mk46gxX145/BJrsvDKfl3yyS8+iCVU91Job/uXdFksHohK5M
-	2OaKMzOdNEmV/5DH6P6fIgaqOfAAaA/wUKWkcxP++mkemxkdzKoKuvg6/B67svqs9ZvJ0Izw6T7vQ
-	9O+ycFuA==;
+	bh=O1aSEKZ9GPjDBpZIq0+eebFymFhGTQv6JnpJUamgLSU=; b=NT6xSMd/eAScSmxi+Z+St2tfUB
+	RtA9hKY9y0Dm1HJWW0w/+BHByOQ6+j3pUVieqVgAli1o8Rvb5P3Q4MQtVm795wJaHaCAv2+vYHonR
+	RCjZMyR2eE3nhOO1CIkYsEgfgPvKchNHs1JsqGP0w7b+mxO6NLZ4Za+l3qmd3A5bBz7jy3hEnHwF6
+	+kCIwz5PZhADboGiVeA2Y2/uNCjwiGpCvaQ1POW8P4Tr4qKtbWonkA4GteVaI+uWxgN+FDzVK92CF
+	Un9zEFR6GvlIkFLClfj55Klt5uFrtQhjqEQMEcCNjwe4UQZbwUzW71qK4damZJ1XGSpZuKq6++zqw
+	N93AmjIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDUHj-00000004mYp-3RDC;
-	Fri, 09 May 2025 20:25:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDPfl-000000045HM-2BWM
+	id 1uDUHl-00000004mZw-09Mc;
+	Fri, 09 May 2025 20:25:33 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uDQG8-00000004Di9-3Ylg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 15:30:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 203531595;
-	Fri,  9 May 2025 08:29:50 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E8D253F58B;
-	Fri,  9 May 2025 08:29:59 -0700 (PDT)
-Date: Fri, 9 May 2025 16:29:57 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, Leo Yan <leo.yan@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>
-Subject: Re: [PATCH 1/3] arm64: dts: fvp: Add CPU idle states for Rev C model
-Message-ID: <20250509-lurking-hidden-shellfish-cf2bbb@sudeepholla>
-References: <20250508103225.354925-1-sudeep.holla@arm.com>
- <174679984875.3368325.1365758165371282064.robh@kernel.org>
+	Fri, 09 May 2025 16:07:37 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ad221f77bfaso14398466b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 09:07:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746806855; x=1747411655; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=O1aSEKZ9GPjDBpZIq0+eebFymFhGTQv6JnpJUamgLSU=;
+        b=m3LSkJnaR16Key6QFsW/F/qyVmMUGlgpH+fZzGPt125/bHVQF1I/WT6cvgKOPDBH6H
+         fJldQONtEWRBzJfO3fYGor6T0DMEJUmoLA+cjhujk9f3Od/w7cVfuwVfDp245twcT/ln
+         PO5qo9Qt+8ay6HttrNRRwtFjAVDPyLCScehD90AIGXvXI681z+8oLNxuv1yjxUK5EO73
+         hz+iC7IGdTIXvNVJN6JortdKZd9KOn3koVr4z1D31Nv1WcrZLN4GXTTF+bkV2AvpTQu7
+         9/ui4a8c80IDOLL4i7mh0Xi1fa+CD7BKV/i3ZEMqb5wrM9GwPp4LfWk9MtrDrDUnt2is
+         PTcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746806855; x=1747411655;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=O1aSEKZ9GPjDBpZIq0+eebFymFhGTQv6JnpJUamgLSU=;
+        b=LdOFgTmnapsmr4+O/wBS/bnJbsCduFDq6pgFmHJkG63kw9kcVmDS4CfAOpAQb5Qd7s
+         WLazJfchs3zE+NdEutgSj+yq4okciTPxH1Hiylz4g8OSiwr7pySQk8tjQ202WAXvejn6
+         ZEkn7uDOgVjk+wZJDqBPSXJMHAvqz3q/HxMom587UWClsTWQzVKbXb79hJajNdwrQaqy
+         W1Z7grYBMguloyTlEmQ6Eanq6MrAziByxolk8tufEfG/xVmy6qf4nILx+6lsDSyu4LR1
+         eVMaCNe6i3WlBAMBBn3lx1jH1SfnM0AK3FMXitSr+7w0mj2QPp8i49c4nuvZ0FlhONbb
+         rg0g==
+X-Forwarded-Encrypted: i=1; AJvYcCXMEEYgQErd3e6DZyQCSYWuatyudUAtM2OcyFDBfqohQNDGdDjBevM9htrnICG9w1edX+gLgtgsIToCtWjziu+b@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8aooPJti4ZRU/lQ3H6qzXxTsIDAeb/4c8znRStMoEdbUPIAX1
+	+44cvvy8lBXdRS62gf0TtiDxf/Puh6P4wCJurSzz/ZKvMH7OOFe2
+X-Gm-Gg: ASbGncsfzWL8Ya0jIDu0h3c2LjtENp1iZFVoKpGU6ZvAMAJ34eU2uG42rKIvSGVZwOM
+	FxHYDM5o6gxajppEj+Y6GJBXgI6fXtRz6x6Z9N/nofgx9iCyg58N+J4PUZuZ0kekJxZ07rO6C10
+	aLIrEIWuNwiydud89VliEspL/KWj+KElb71EYxOzVKBjFfxri87Rc9eOw/XKmz7uo4aiRV5o0Fc
+	CkZen8yGvN+wF4l5lH25JafzUJBl6wUtVVv6EI5dsqB7otQn1WbJ/k4gInRhcZQVdrvePUXLc7K
+	BoFMFbUIEqDmONDQtMw2g+/HhwIR
+X-Google-Smtp-Source: AGHT+IFfblZ5zyybW8Zc1JXlu3gaLC6XU1AeC2AshGGFeE3SDeA+ieQda1+l7upR9+VJ3d7Jl2trlg==
+X-Received: by 2002:a17:906:84ef:b0:ad1:e9fb:e78 with SMTP id a640c23a62f3a-ad219121b47mr132183266b.10.1746806854983;
+        Fri, 09 May 2025 09:07:34 -0700 (PDT)
+Received: from skbuf ([188.25.50.178])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad22562ed61sm84950466b.31.2025.05.09.09.07.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 May 2025 09:07:34 -0700 (PDT)
+Date: Fri, 9 May 2025 19:07:31 +0300
+From: Vladimir Oltean <olteanv@gmail.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, larisa.grigore@nxp.com,
+	arnd@linaro.org, andrei.stefanescu@nxp.com,
+	dan.carpenter@linaro.org, linux-spi@vger.kernel.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 02/14] spi: spi-fsl-dspi: Re-use one volatile regmap for
+ both device types
+Message-ID: <20250509160731.wibhaumyialjloz3@skbuf>
+References: <20250509-james-nxp-spi-v1-0-32bfcd2fea11@linaro.org>
+ <20250509-james-nxp-spi-v1-0-32bfcd2fea11@linaro.org>
+ <20250509-james-nxp-spi-v1-2-32bfcd2fea11@linaro.org>
+ <20250509-james-nxp-spi-v1-2-32bfcd2fea11@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <174679984875.3368325.1365758165371282064.robh@kernel.org>
+In-Reply-To: <20250509-james-nxp-spi-v1-2-32bfcd2fea11@linaro.org>
+ <20250509-james-nxp-spi-v1-2-32bfcd2fea11@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_083001_604034_7310BF7D 
-X-CRM114-Status: GOOD (  24.67  )
+X-CRM114-CacheID: sfid-20250509_090736_888283_C16F5E54 
+X-CRM114-Status: GOOD (  20.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,58 +113,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 09, 2025 at 09:16:54AM -0500, Rob Herring (Arm) wrote:
+On Fri, May 09, 2025 at 12:05:49PM +0100, James Clark wrote:
+> max_register overrides anything in the volatile ranges, so we can get
+> away with sharing the same one for both types. In a later commit we'll
+> add more devices and also read/write ranges which also override volatile
+> ranges so this avoids adding even more duplication.
 > 
-> On Thu, 08 May 2025 11:32:23 +0100, Sudeep Holla wrote:
-> > Add CPU idle state definitions to the FVP Rev C device tree to enable
-> > support for CPU lower power modes. This allows the system to properly
-> > enter low power states during idle. It is disabled by default as it is
-> > know to impact performance on the models.
-> > 
-> > Note that the power_state parameter(arm,psci-suspend-param) doesn't use
-> > the Extended StateID format for compatibility reasons on FVP.
-> > 
-> > Tested on the FVP Rev C model with PSCI support enabled firmware.
-> > 
-> > Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
-> > ---
-> >  arch/arm64/boot/dts/arm/fvp-base-revc.dts | 32 +++++++++++++++++++++++
-> >  1 file changed, 32 insertions(+)
-> > 
+> No functional changes.
 > 
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  drivers/spi/spi-fsl-dspi.c | 15 ++-------------
+>  1 file changed, 2 insertions(+), 13 deletions(-)
 > 
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
-> 
-> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-> are fixed by another series. Ultimately, it is up to the platform
-> maintainer whether these warnings are acceptable or not. No need to reply
-> unless the platform maintainer has comments.
-> 
-> If you already ran DT checks and didn't see these error(s), then
-> make sure dt-schema is up to date:
-> 
->   pip3 install dtschema --upgrade
-> 
-> 
-> This patch series was applied (using b4) to base:
->  Base: attempting to guess base-commit...
->  Base: tags/v6.15-rc1-1-g59529bbe642d (exact match)
-> 
-> If this is not the correct base, please add 'base-commit' tag
-> (or use b4 which does this automatically)
-> 
-> New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/arm/' for 20250508103225.354925-1-sudeep.holla@arm.com:
-> 
-> arch/arm64/boot/dts/arm/fvp-base-revc.dtb: idle-states: entry-method:0: 'psci' was expected
-> 	from schema $id: http://devicetree.org/schemas/cpu/idle-states.yaml#
-> arch/arm64/boot/dts/arm/fvp-base-revc.dtb: timer@2a810000 (arm,armv7-timer-mem): #size-cells: 1 was expected
-> 	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer_mmio.yaml#
->
+> diff --git a/drivers/spi/spi-fsl-dspi.c b/drivers/spi/spi-fsl-dspi.c
+> index 31ea8ce81e98..cb0e55a49eea 100644
+> --- a/drivers/spi/spi-fsl-dspi.c
+> +++ b/drivers/spi/spi-fsl-dspi.c
+> @@ -141,6 +141,7 @@ static const struct regmap_range dspi_volatile_ranges[] = {
+>  	regmap_reg_range(SPI_MCR, SPI_TCR),
+>  	regmap_reg_range(SPI_SR, SPI_SR),
+>  	regmap_reg_range(SPI_PUSHR, SPI_RXFR3),
+> +	regmap_reg_range(SPI_SREX, SPI_SREX)
 
-Thanks for the report. Now fixed locally.
+Same idea, don't take the review tag as a sign that I don't have any
+change request here.
 
--- 
-Regards,
-Sudeep
+>  };
+>  
+>  static const struct regmap_access_table dspi_volatile_table = {
+> @@ -148,18 +149,6 @@ static const struct regmap_access_table dspi_volatile_table = {
+>  	.n_yes_ranges	= ARRAY_SIZE(dspi_volatile_ranges),
+>  };
+>  
+> -static const struct regmap_range dspi_xspi_volatile_ranges[] = {
+> -	regmap_reg_range(SPI_MCR, SPI_TCR),
+> -	regmap_reg_range(SPI_SR, SPI_SR),
+> -	regmap_reg_range(SPI_PUSHR, SPI_RXFR3),
+> -	regmap_reg_range(SPI_SREX, SPI_SREX),
+> -};
+> -
+> -static const struct regmap_access_table dspi_xspi_volatile_table = {
+> -	.yes_ranges	= dspi_xspi_volatile_ranges,
+> -	.n_yes_ranges	= ARRAY_SIZE(dspi_xspi_volatile_ranges),
+> -};
+> -
+>  enum {
+>  	DSPI_REGMAP,
+>  	DSPI_XSPI_REGMAP,
+> @@ -179,7 +168,7 @@ static const struct regmap_config dspi_regmap_config[] = {
+>  		.val_bits	= 32,
+>  		.reg_stride	= 4,
+>  		.max_register	= 0x13c,
+> -		.volatile_table	= &dspi_xspi_volatile_table
+> +		.volatile_table	= &dspi_volatile_table
+>  	},
+>  	[DSPI_PUSHR] = {
+>  		.name		= "pushr",
+> 
+> -- 
+> 2.34.1
+> 
+
+Reviewed-by: Vladimir Oltean <olteanv@gmail.com>
 
