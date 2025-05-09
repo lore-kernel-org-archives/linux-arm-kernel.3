@@ -4,55 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2C9CC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 21:09:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C96C3ABCF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 21:09:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T6PkgIJPex60C+gZATQdAd/3vCD1f8TCEvg3gYXQa0Q=; b=t++mOEHFWFR6K5PSyqwhlmdpFL
-	Y09qysExnsaD8WIkic0WeHwaS2hRtWix2fWURBj/kj3eKO0KbcnlWP7SqtCJ/CRnkzJoAyPDX3dOr
-	ME9k5tNOI3SsHtXXZ3hJ3NK5d3RA9l5krDqJomN2drRwm6EH9lZ/f/AykeIWzneYbaQJ++BQn4oWU
-	V34kgXyAEnKhw69jKUnji6CF5TNfIR9IghKhK/JGF1C2N3pIQgtdN/yVW+ODKNKo54aWQVrBuTEf8
-	m7/UcrsG2LXdumvMrbzBq6ulHPivDik9mmlHKDtTUWSUleMYG6Q29dy0d221PfTU2vPYETK64OAH6
-	OwcfR9bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GSyySAF4j0iKqkU5qxmkvVHdf1lqlJa4ib6Tz/GhSWk=; b=OiR/UpJVHTVGXgy2bsHxs1dxIc
+	5Lo74oV0i1KVcOuFwzz/S1sx7k5/0AqfN93F/rs5tdDR7038+3Z/tBalOzdxfQTXQS5nZ5FEN0wBm
+	so7CL9vUfhnD1xmoBTXTTMNUo38hsymTqKSMpLzIp0KypybDTVUlEtw2KWgspS7frZrOKsbJuZ1ve
+	8fQdiVqy8qlf4ZhTn5yzjxNJ+q4c+ceOtd+Yobyk3nO9gGLlA1gk8Yh1RCAk0+/dqdvW+t7DZp4ta
+	/2QHdLRp+UngPT5zC84q6sqOgJqy1cccX09ZkRjRPat/vIs5itsq6BS5uhJsNJSOEkw6FfmMIBnNP
+	EX148pXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDUxk-00000004udQ-1Wqp;
-	Fri, 09 May 2025 21:08:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uDUxh-00000004uc8-2Ts5;
+	Fri, 09 May 2025 21:08:53 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDTnE-00000004hmk-1GVL
+	id 1uDTVy-00000004gAE-1fRI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 19:54:01 +0000
+	Fri, 09 May 2025 19:36:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BEC9D40C2F;
-	Fri,  9 May 2025 19:53:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4BE1C4CEE4;
-	Fri,  9 May 2025 19:53:57 +0000 (UTC)
-Date: Fri, 9 May 2025 15:54:12 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
- linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
- joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
- kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- jstultz@google.com, qperret@google.com, will@kernel.org,
- kernel-team@android.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 08/24] ring-buffer: Expose buffer_data_page material
-Message-ID: <20250509155412.03c89196@gandalf.local.home>
-In-Reply-To: <20250506164820.515876-9-vdonnefort@google.com>
-References: <20250506164820.515876-1-vdonnefort@google.com>
-	<20250506164820.515876-9-vdonnefort@google.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7A119A4D2F8;
+	Fri,  9 May 2025 19:36:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC7BBC4CEE4;
+	Fri,  9 May 2025 19:36:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746819369;
+	bh=2wr73b/j+3h7jOVG9AtnBt3hTUmdy8M2hdaX+BsWRcA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gvAKp9bv0AgWLH7iSUSO9ihmi7WU9Z1bJN6V5jo/LsF+m/Lb48pD22un9TgooryDf
+	 MLlSlljtHnodVuOkAIufYZ/oYaoLjyuLEJguvu/IDiD9wiYqhVbsqoXnPLZ3yhQ83T
+	 2rgwpN3Uqi2AqxunIakoBjHmmyUPyO3SM+YLRcuCrOCK08+qVXZifRBXD8MxDJDY5C
+	 5Jz8aJoHV4e7p3/pmObraHdkbRttQFITyotyMmg+zy82k+hvjv9Dc+Phxg6PAedi83
+	 eCiAZ55Sooc5JNUepHMlacNxJp9swkUKlFW1eVKptmvrZfEW526BZNXu4/QCEI29iD
+	 QDZxb5mKofC3A==
+Date: Fri, 9 May 2025 14:36:07 -0500
+From: Rob Herring <robh@kernel.org>
+To: Claudiu <claudiu.beznea@tuxon.dev>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com,
+	manivannan.sadhasivam@linaro.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, geert+renesas@glider.be, magnus.damm@gmail.com,
+	mturquette@baylibre.com, sboyd@kernel.org, saravanak@google.com,
+	p.zabel@pengutronix.de, linux-pci@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Subject: Re: [PATCH 3/8] of/irq: Export of_irq_count()
+Message-ID: <20250509193607.GA4076274-robh@kernel.org>
+References: <20250430103236.3511989-1-claudiu.beznea.uj@bp.renesas.com>
+ <20250430103236.3511989-4-claudiu.beznea.uj@bp.renesas.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250430103236.3511989-4-claudiu.beznea.uj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_125400_364339_573C6B27 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20250509_123610_501449_8CFDF672 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,24 +79,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue,  6 May 2025 17:48:04 +0100
-Vincent Donnefort <vdonnefort@google.com> wrote:
-
-> In preparation for allowing the write of ring-buffer compliant pages
-> outside of ring_buffer.c, move buffer_data_page and timestamps
-> encoding functions into the publicly available ring_buffer.h.
+On Wed, Apr 30, 2025 at 01:32:31PM +0300, Claudiu wrote:
+> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 > 
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> Export of_irq_count() to be able to use it in modules.
+> 
+> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> ---
+>  drivers/of/irq.c | 1 +
+>  1 file changed, 1 insertion(+)
 
-Let's create a new file for this instead of adding it to ring_buffer.h.
-Although it's being used by remote buffers, I rather not make this
-something that people may think they can access anywhere.
+Already have a similar patch pending.
 
-Perhaps: ring_buffer_types.h
+Rob
 
-with a comment stating that these are to be used by the remote ring buffers
-and the ring buffer internals and should not be used directly.
-
--- Steve
-
+[1] https://lore.kernel.org/all/20250331230034.806124-2-willmcvicker@google.com/
 
