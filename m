@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7629DC3ABC5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 00:24:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3E3BC3ABC5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 00:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KgLuOiarV7Aw/Z8jvsxdJySYwSWkOMiQwkRmin6WCk8=; b=n4Imtymf4vdNmAODLc173r01Dt
-	F0YCRzmgAVeieQdSX1EKYJsZQ3yB4asV1aWzFLuq6LefdYg8pRjh+HGMgoizlZ7Xjzpu20GKeUwxz
-	FzjyvQt4Bm0SCcA337AqoCojWWuX8OIGXbWm5fRdMvDk2hroja73IiD1q36ic6F3G5oFyYZECI7xL
-	hAX2yqikaSLQ/AtdVqhc0KOrrF2H1JYNHh+jcgwG7G3Ti4b3v7t11nFRz63siGD5Ipviv98fViZBl
-	WCMPEAvtQeCz1uXH2h9IDNbLuEcFlT4y6ScuzKPMWn+k45E7QWdRE0UtDO61/o0wblwgrJ/ZwmazE
-	r1amE4yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SIUCk03rNeFUEVtHn/6/1roa8sRN2MpcAPdRAZ2Szfo=; b=XIbeQ0ETokIA5bVQ6NWp1A5teA
+	soxJak3zsvuyuWnraWUq+7pBlwFwV4qDnG8hX+jiOyEgCnreSZdUo9p+EQxlKAInL+TRgNO1pwY06
+	k0tgjPtMszuc674GZBha3x+8fTVDELK0hE9yXMFqjjAvv06V3uY5zEdCX65LTCh+G0xP4BDzY+QSf
+	xJQxCQIOne/YbuZP0YR/FVTKKNFzb8L+4yeX5+4BFTUALpNZ7moWI5FIcu+M1+a2Uk1+E1B0LrtBk
+	PyeWRnKw2nKjadvUqCAaQX4qkHS+zAfI0TwG7glr51HDxWqKrceRKiaAkAMk3d802faHx66pTgibS
+	Hxhttyww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDBX7-000000025XA-3ysR;
-	Fri, 09 May 2025 00:24:09 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uDBqo-000000027Fl-1TLE;
+	Fri, 09 May 2025 00:44:30 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDBV9-000000025Qy-0Q4n
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 00:22:09 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5490M1R81793366
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 8 May 2025 19:22:01 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746750121;
-	bh=KgLuOiarV7Aw/Z8jvsxdJySYwSWkOMiQwkRmin6WCk8=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=ZnMgvKw9fa2F31qOl8FAARz8V0VRLoW9PgbPnwv9BLH9WdtVULXrhSsYZIWQIp8nX
-	 qrWPoqATZDq0A8h+hVTkhG8OX+ma6506eiNBSO1X/EV5HqXP9o7AmXz3CQFzJFVmxg
-	 yQ+jbg8mW3nh1JYrYlryouKkYWlW8JFGOKJNwpzQ=
-Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5490M1eA018622
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 8 May 2025 19:22:01 -0500
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 8
- May 2025 19:22:01 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 8 May 2025 19:22:01 -0500
-Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5490M1FS066139;
-	Thu, 8 May 2025 19:22:01 -0500
-Date: Thu, 8 May 2025 19:22:01 -0500
-From: Bryan Brattlof <bb@ti.com>
-To: Paresh Bhagat <p-bhagat@ti.com>
-CC: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <khasim@ti.com>, <v-singh1@ti.com>,
-        <afd@ti.com>
-Subject: Re: [PATCH v3 3/3] arm64: dts: ti: Add support for AM62D2-EVM
-Message-ID: <20250509002201.g2db6cf5w4mtow6k@bryanbrattlof.com>
-X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
-References: <20250508091422.288876-1-p-bhagat@ti.com>
- <20250508091422.288876-4-p-bhagat@ti.com>
+	id 1uDBop-000000026jU-3Jt0;
+	Fri, 09 May 2025 00:42:29 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 9F2A5260FC;
+	Fri,  9 May 2025 02:42:24 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id 7jXVltKdRkjg; Fri,  9 May 2025 02:42:23 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1746751343; bh=+rXAV48iJAiEuwfYBZeLEYqSDFPFw+FyIOe7/hH7PYM=;
+	h=From:To:Cc:Subject:Date;
+	b=GW2tYU+sFtyUp3DjWxDP/PJAZV8fhN1xL6nabCzCsJCxiMUOC7PyR3BL/jSI+jPHb
+	 9z0qz7PMmHW07Rf9dOWzwPZViFxxjIBWKsfNMCEUC56fMZFYk/SeCUNqbV9E0JkQZc
+	 RXFRf8WNGE28KUK/6I82OiwZ8JeIerH5tMUd5Tmj24RHnh07KvtEjYLbqpCn8Yyqj/
+	 HbAqs50o0ye8qAokR8DbCIIC4qjFm6CM5pZ/pzKNgOvY/27c4FAiornmyWUktBjf62
+	 eZTbIzax4TqnC14RccVDeuR5FLTq2bf2H1NXcTrCOaBh3jvQBzT4dmzcHBVemJ4LrJ
+	 z3F/uC/On+3vQ==
+From: Yao Zi <ziyao@disroot.org>
+To: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Yao Zi <ziyao@disroot.org>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Shresth Prasad <shresthprasad7@gmail.com>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	Jonas Karlman <jonas@kwiboo.se>
+Cc: linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/5] Support RK3528 variant of Rockchip naneng-combphy
+Date: Fri,  9 May 2025 00:41:17 +0000
+Message-ID: <20250509004121.36058-2-ziyao@disroot.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250508091422.288876-4-p-bhagat@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_172207_343393_30689CD6 
-X-CRM114-Status: GOOD (  38.48  )
+X-CRM114-CacheID: sfid-20250508_174228_235380_54C8EC05 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,351 +85,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On May  8, 2025 thus sayeth Paresh Bhagat:
-> AM62D-EVM evaluation module (EVM) is a low-cost expandable platform board
-> designed for TI’s AM62D2 SoC. It supports the following interfaces:
-> 
-> * 4 GB LPDDR4 RAM
-> * x2 Gigabit Ethernet expansion connectors
-> * x4 3.5mm TRS Audio Jack Line In
-> * x4 3.5mm TRS Audio Jack Line Out
-> * x2 Audio expansion connectors
-> * x1 Type-A USB 2.0, x1 Type-C dual-role device (DRD) USB 2.0
-> * x1 UHS-1 capable µSD card slot
-> * 32 GB eMMC Flash
-> * 512 Mb OSPI NOR flash
-> * x4 UARTs via USB 2.0-B
-> * XDS110 for onboard JTAG debug using USB
-> * Temperature sensors, user push buttons and LEDs
-> 
-> AM62A7 and AM62D2 SoCs share several peripherals in wakeup, mcu, thermal,
-> and portions of the main domain. To improve reuse and reduce duplication,
-> common *-wakeup.dtsi, *-mcu.dtsi, *-thermal.dtsi, and *-main.dtsi files
-> have been introduced. Each board will have a dedicated DTS file that
-> includes both the shared and SoC-specific .dtsi files.
-> 
-> Schematics Link - https://www.ti.com/lit/zip/sprcal5
-> 
-> Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
-> ---
->  arch/arm64/boot/dts/ti/Makefile               |    3 +
->  .../dts/ti/k3-am62a-am62d-common-main.dtsi    | 1013 +++++++++++++++++
->  ...cu.dtsi => k3-am62a-am62d-common-mcu.dtsi} |   26 +-
->  ...tsi => k3-am62a-am62d-common-thermal.dtsi} |    2 +-
->  ...dtsi => k3-am62a-am62d-common-wakeup.dtsi} |    2 +-
->  arch/arm64/boot/dts/ti/k3-am62a-main.dtsi     | 1005 ----------------
->  arch/arm64/boot/dts/ti/k3-am62a.dtsi          |    9 +-
->  arch/arm64/boot/dts/ti/k3-am62d.dtsi          |  123 ++
->  arch/arm64/boot/dts/ti/k3-am62d2-evm.dts      |  533 +++++++++
->  arch/arm64/boot/dts/ti/k3-am62d2.dtsi         |  155 +++
->  10 files changed, 1837 insertions(+), 1034 deletions(-)
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am62a-am62d-common-main.dtsi
->  rename arch/arm64/boot/dts/ti/{k3-am62a-mcu.dtsi => k3-am62a-am62d-common-mcu.dtsi} (86%)
->  rename arch/arm64/boot/dts/ti/{k3-am62a-thermal.dtsi => k3-am62a-am62d-common-thermal.dtsi} (94%)
->  rename arch/arm64/boot/dts/ti/{k3-am62a-wakeup.dtsi => k3-am62a-am62d-common-wakeup.dtsi} (97%)
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am62d.dtsi
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am62d2.dtsi
-> 
+Rockchip RK3528 ships a naneng-combphy that operates in either PCIe or
+USB 3.0 mode. It has a similar control logic to previous generations of
+naneng-combphy but an apparently different register layout.
 
-So this diff was kinda a slog and I'm not sure I went through everything 
-but I called out some things I saw.
+This series prepares phy-rockchip-naneng-combphy.c for variants with a
+different register layout and add RK3528 support.
 
-I'll let others chime in here with their opinions but we should probably 
-find a way to split this up a little more next time if possible.
+Testing is done on both Radxa E20C and Radxa Rock 2A with downstream
+devicetree changes, both USB 3 and PCIe modes are verified with mainline
+driver and achives a reasonable link speed.
 
-...
+The devicetree change (PATCH 5) depend on v6 of the SD/SDIO series
+("Support SD/SDIO controllers on RK3528")[1] for a clean apply. Thanks
+for your time and review.
 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-am62d-common-main.dtsi 
-> b/arch/arm64/boot/dts/ti/k3-am62a-am62d-common-main.dtsi
-> new file mode 100644
-> index 000000000000..570a6413165d
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a-am62d-common-main.dtsi
-> @@ -0,0 +1,1013 @@
-> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
-> +/*
-> + * Device Tree file for the MAIN domain peripherals shared by AM62A and AM62D
-> + *
-> + * Copyright (C) 2022-2024 Texas Instruments Incorporated - https://www.ti.com/
+[1]: https://lore.kernel.org/all/20250508234829.27111-2-ziyao@disroot.org/
 
-My thinking is this is a new file so we should probably update the 
-copyright year while we're here
+- Changed from v1
+  - Collect review tags
+  - Restyle RK3528 register definitions in the combphy driver
+  - Drop unused include of phy.h in SoC devicetree
+  - Link to v1: https://lore.kernel.org/all/20250508134332.14668-2-ziyao@disroot.org/
 
-...
+Yao Zi (5):
+  dt-bindings: soc: rockchip: Add RK3528 pipe-phy GRF syscon
+  dt-bindings: phy: rockchip: naneng-combphy: Add RK3528 variant
+  phy: rockchip: naneng-combphy: Add SoC prefix to register definitions
+  phy: rockchip: naneng-combphy: Add RK3528 support
+  arm64: dts: rockchip: Add naneng-combphy for RK3528
 
+ .../phy/phy-rockchip-naneng-combphy.yaml      |   5 +-
+ .../devicetree/bindings/soc/rockchip/grf.yaml |   1 +
+ arch/arm64/boot/dts/rockchip/rk3528.dtsi      |  22 +
+ .../rockchip/phy-rockchip-naneng-combphy.c    | 746 +++++++++++-------
+ 4 files changed, 500 insertions(+), 274 deletions(-)
 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a.dtsi b/arch/arm64/boot/dts/ti/k3-am62a.dtsi
-> index 4d79b3e9486a..e9f28343a4c1 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62a.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a.dtsi
-> @@ -118,10 +118,13 @@ cbass_wakeup: bus@b00000 {
->  		};
->  	};
->  
-> -	#include "k3-am62a-thermal.dtsi"
-> +	#include "k3-am62a-am62d-common-thermal.dtsi"
-
-I know we're trying to reduce the boilerplate for very similar chips but 
-I think a better way to split this would be to have an industrial and 
-automotive qualified thermal #include here rather than a 62D/62A
-
-I'm assuming from the marketing material this will be the same 
-automotive qualified AMB package so we could call it something along 
-those lines if we want.
-
-...
-
->  
->  /* Now include the peripherals for each bus segments */
-> +#include "k3-am62a-am62d-common-main.dtsi"
-> +#include "k3-am62a-am62d-common-mcu.dtsi"
-> +#include "k3-am62a-am62d-common-wakeup.dtsi"
-> +
-> +/* Include AM62P specific peripherals */
-
-    s/AM62P/AM62D/
-
-...
-
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62d.dtsi b/arch/arm64/boot/dts/ti/k3-am62d.dtsi
-> new file mode 100644
-> index 000000000000..606da1c1f1bc
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am62d.dtsi
-> @@ -0,0 +1,123 @@
-> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
-> +/*
-> + * Device Tree Source for AM62D SoC Family
-> + *
-> + * Copyright (C) 2022-2024 Texas Instruments Incorporated - https://www.ti.com/
-			 2025
-> + */
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/soc/ti,sci_pm_domain.h>
-> +
-> +#include "k3-pinctrl.h"
-> +
-> +/ {
-> +	model = "Texas Instruments K3 AM62D SoC";
-> +	compatible = "ti,am62d2";
-> +	interrupt-parent = <&gic500>;
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-> +
-> +	chosen { };
-
-No need for this
-
-...
-
-
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-> new file mode 100644
-> index 000000000000..0873c2523607
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-> @@ -0,0 +1,533 @@
-
-...
-
-> +
-> +	chosen {
-> +		stdout-path = "serial2:115200n8";
-> +	};
-
-Look at the 62P and how we used a &phandle for this.
-
-...
-
-> +	reserved-memory {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		/* global cma region */
-> +		linux,cma {
-> +			compatible = "shared-dma-pool";
-> +			reusable;
-> +			size = <0x00 0x2000000>;
-> +			alloc-ranges = <0x00 0xc0000000 0x00 0x2000000>;
-> +			linux,cma-default;
-> +		};
-> +
-> +		c7x_0_dma_memory_region: c7x-dma-memory@99800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x99800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		c7x_0_memory_region: c7x-memory@99900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x99900000 0x00 0xf00000>;
-> +			no-map;
-> +		};
-> +
-> +		mcu_r5fss0_core0_dma_memory_region: r5f-dma-memory@9b800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		mcu_r5fss0_core0_memory_region: r5f-dma-memory@9b900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b900000 0x00 0xf00000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c900000 0x00 0xf00000>;
-> +			no-map;
-> +		};
-> +
-> +		secure_tfa_ddr: tfa@80000000 {
-> +			reg = <0x00 0x80000000 0x00 0x80000>;
-
-Just a nit pick but while we're respinning this series could you sort 
-this? It just makes our lives easier when we inevitably changes this 
-when we want to experiment with some other firmware or try to move 
-things when someone wants to use a smaller DDR part
-
-> +			alignment = <0x1000>;
-> +			no-map;
-> +		};
-> +
-> +		secure_ddr: optee@9e800000 {
-> +			reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
-> +			alignment = <0x1000>;
-> +			no-map;
-> +		};
-> +	};
-
-...
-
-> +
-> +&mcu_pmx0 {
-> +	bootph-all;
-
-Look at how the 62P does this. Newer U-Boot versions are smart enough to 
-only prune things if none of their children have an appropriate bootph-* 
-flag. So as long as we have a bootph-all flag in this following
-&wkup_uart0_pins_default the &mcu_pmx0 will not be pruned
-
-It makes things much cleaner and avoids us having to pull in SoC.dtsi 
-stuff here to make the bootloaders happy
-
-> +
-> +	wkup_uart0_pins_default: wkup-uart0-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62DX_MCU_IOPAD(0x0024, PIN_INPUT, 0) /* (C9) WKUP_UART0_RXD */
-> +			AM62DX_MCU_IOPAD(0x0028, PIN_OUTPUT, 0) /* (E9) WKUP_UART0_TXD */
-> +			AM62DX_MCU_IOPAD(0x002c, PIN_INPUT, 0) /* (C10) WKUP_UART0_CTSn */
-> +			AM62DX_MCU_IOPAD(0x0030, PIN_OUTPUT, 0) /* (C8) WKUP_UART0_RTSn */
-> +		>;
-> +		bootph-all;
-> +	};
-> +};
-> +
-> +/* WKUP UART0 is used for DM firmware logs */
-> +&wkup_uart0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&wkup_uart0_pins_default>;
-> +	status = "reserved";
-> +	bootph-all;
-> +};
-> +
-> +&main_pmx0 {
-> +	bootph-all;
-
-same here
-
-...
-
-> +&secure_proxy_main {
-> +	bootph-all;
-> +};
-
-So this is where things get weird. The only way U-Boot's R5 SPL will 
-talk to TIFS is via the secure proxy thread. It's a requirement of any 
-board that uses both the 62A and 63D chip well all the 62* really.
-
-So rather than defining this on every board we should probably just 
-throw it in with the &secure_proxy_main node rather than calling it out 
-here.
-
-> +
-> +&dmsc {
-> +	bootph-all;
-> +};
-> +
-> +&k3_pds {
-> +	bootph-all;
-> +};
-> +
-> +&k3_clks {
-> +	bootph-all;
-> +};
-> +
-> +&k3_reset {
-> +	bootph-all;
-> +};
-> +
-> +&wkup_conf {
-> +	bootph-all;
-> +};
-> +
-> +&chipid {
-> +	bootph-all;
-> +};
-
-Same with these. The chipid, clocks, power domains will all be needed 
-for booting the SoC regardless of how someone wires the chip. These 
-should just go in their respective nodes and be done with it rather than 
-each board calling this out.
-
-...
-
-> +
-> +&k3_reset {
-> +	bootph-all;
-> +};
-> +
-> +&dmsc {
-> +	bootph-all;
-> +};
-
-I've already snipped this email quite a bit, but I know I've seen these 
-duplicates. Double check we're not defining things multiple times. 
-
-...
-
-
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62d2.dtsi b/arch/arm64/boot/dts/ti/k3-am62d2.dtsi
-> new file mode 100644
-> index 000000000000..47566fea4157
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am62d2.dtsi
-> @@ -0,0 +1,155 @@
-> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
-> +/*
-> + * Device Tree Source for AM62D2 SoC family in Quad core configuration
-> + *
-> + * TRM: https://www.ti.com/lit/zip/spruj16
-> + *
-> + * Copyright (C) 2020-2024 Texas Instruments Incorporated - https://www.ti.com/
-
-    s/2024/2025
-
-~Bryan
+-- 
+2.49.0
 
 
