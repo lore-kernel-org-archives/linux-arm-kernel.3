@@ -4,99 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77815C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 03:54:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1C1DC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 03:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4t2Ei0gDk5QvwRDY4Z4sHn1iXc6O7O7DItvDoocJa0w=; b=E0KGl9gYX1nBHxK/rfrwWm1ooI
-	WfJdBF4AoQpbHBKUzGuQYjgN4l4fHuNMJznVKUbfwZQY7dEI0Ej3BP4OmvmD3luVdbZezMPibTkh4
-	w1J1QSfsvpyWdvD74R1zPV8R+RRZB/hUOhdYVVMP8DgoJG09//Tzh9DW4s91huwG/JBBmwvi+HEk8
-	0KnJ0SRa39vMiU6cnP4eDi3xoM0gSoQ7WlNYc+dzfw4uhqvHuMjIHlXrmMRYmUPbzmHJCZ+gri0A4
-	eBMaznuRsb1vSfW/RhweUUEvOOlkvc2Zwem12sYdEwZwyT1ur9x1vO9eSpMFLYCLavocCXKRepuej
-	kngAikpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kReT668iljc+xdnx+sOA0B0XxmKP7afSe7koHAM3W0w=; b=LXQTrYiBCrhkjF91HuWyprQWUX
+	0B+f5r8tOe5nkay4CrYhSv3QyyP2vlHmowXHpG/FfODssakr/nlpu3m6Zn5+mRB2Jch3E+dg5CT5J
+	5Hyn4FvdTEIw2Rh3bovZWpSKqLvbPcvKsXeRQCsBbJRTu7CvepZva7hhmBTlXEwmTzpuLwbqLil2Y
+	tYrAkXIYQQbyv8ICX9DkYotaj8GRnmMDVkac7s7KEJZUdgmxn4EHqL7Syuo4dl/Xnso1hSTdUhjc1
+	znCv9NGQKiV4rQ7tOmqn8lILyO8yd63f3kUyhdZq4Nn0DPPwSKxQ9cMjcR5nHfCuurQQWUBIBMWLQ
+	inAIRkqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDEoU-00000002PMJ-1KeS;
-	Fri, 09 May 2025 03:54:18 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1uDEqT-00000002PYL-2cWA;
+	Fri, 09 May 2025 03:56:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDE2o-00000002JCq-0Sjf;
-	Fri, 09 May 2025 03:05:03 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-7396f13b750so1898967b3a.1;
-        Thu, 08 May 2025 20:05:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746759901; x=1747364701; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=4t2Ei0gDk5QvwRDY4Z4sHn1iXc6O7O7DItvDoocJa0w=;
-        b=VQhUPG9TQ9jnl7id/vRKq/vFgj8OJx5b616I2jOH9jIw6OQVVB+5AuALH5t+VK2WVc
-         wSs2dioTAuOT2hDMPI0rq8QzMNVZlQILvmoyj92FfKxz9o87HeypkjOK5+pzSmBMYHXm
-         RAfdlG2YV+3QeIi6TbfglM1qEF6lusMxQiDkDf21xP6bJeTfr2riA1Zk9ONI38ZcxOgb
-         pGPdEV8O4HVPWiINCZpsCMat+pBbFWsFFT0e3RIprkAofL/NGTBd2SaidmonIrum5mQP
-         dsfH7HnVBqX4GblRHQoPvDUNvebdpx5Mw/UfQ/Y1BY0l5Sa2gUoG0LXv6JrOSA4I4vxn
-         +Qxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746759901; x=1747364701;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=4t2Ei0gDk5QvwRDY4Z4sHn1iXc6O7O7DItvDoocJa0w=;
-        b=JzzzB+QLRaZz8YZFlirRgqKGQyvYgqELRcsmIG3lqw3oXU0taRPIGeIHoYmSQPLV11
-         +ee3ypAqRwroyGpprLuV3xGuEyIfawA0Q/j65W2J5yg2nkqckziz7EsMv6YrLblcboJX
-         fCIDn7LIyqeljTokoEMRDCW5IveNcmbV/aoDIZgrJQtPZkoQmjs7sWnRF+pweFWDSHjF
-         Gmyx/o1p1s9/8qu2O1/YaD8Mvli4Phdm7uuK1XKhNZk2jgDnMoJCyott8nOQJU4Hnyf7
-         bUvsEqhHNUNJt9TtgP4Cw+zfU3lleXeZnFK/e/2SEZCpOzyd96vEnyGmJVs4pv7XR5zp
-         5rcw==
-X-Forwarded-Encrypted: i=1; AJvYcCW1+Vb8cc97g+lkOszrLDQ0WE8JziK/bPy6wFIhzbpEtGItrDkOffePGqr9Wp+YTmWwz6WkdSgAA4MR6eLDEJLr@lists.infradead.org, AJvYcCX/8N6TKPE4TfdUgGU4I2PS6mHkn5ROkAGQ+xs2BVclfdLilW1WV0hQmEUHfyNJGe6b1cJFP5glX6XFbow=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLAe3vfzgbPbYE8/zqS8JbBOtXmOWSzS8WF6EhIIw7vJzcRPs1
-	gg5de1JUlzOP/1KyHsGw0cxfy7l7aF+2dUXex9cZfeNhUe4BUApXxWnXuNJd
-X-Gm-Gg: ASbGncsVL400Zn5iNQUi2MOaI/nPCfoSkJQOUJ/nxK9qTQQ8RUVBhHssl3yik2km8v+
-	h+HZ4T4n7lZ2cKQYQd0Vb5wQ6VKuTgF4fO3Qdyo2e84/UEVr2bvBJoQM7U2weScwQEi14MkA3ip
-	Nrfujzep5zCWzbDloR6PmzLTjvkU8SfnHw5JmeiS4QSoQ0/rAWv9CHLxVp9JpZYkJjj/nwBEPD6
-	qWPX1U9Y/wDHkDSzwTL5VOizksakwAtMoeWKcSEBu/6ZLaPtwbOUyTs0qTl02VJNfR8I7/kK4u5
-	hSv1XhilZVPLMZ+0QQ8BLxEfc2yJchBhIIc9NHcFS4cWwMX953qmUhA=
-X-Google-Smtp-Source: AGHT+IEwAifDsncJZmqJw68TT82q/qBue7rdP4C6uwfIpHf3Dur7C2E/ejrTbFWgc33C/qpZMOKFqQ==
-X-Received: by 2002:a05:6a21:670d:b0:1f5:889c:3cbd with SMTP id adf61e73a8af0-215abc75623mr2418406637.35.1746759901018;
-        Thu, 08 May 2025 20:05:01 -0700 (PDT)
-Received: from [192.168.0.69] ([159.196.5.243])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74237a0f141sm775938b3a.117.2025.05.08.20.04.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 May 2025 20:05:00 -0700 (PDT)
-Message-ID: <09c558f2128c5f8ca1d4e51b0ba04646170d2de1.camel@gmail.com>
-Subject: Re: [PATCH v4 1/5] PCI/ERR: Remove misleading TODO regarding kernel
- panic
-From: Wilfred Mallawa <wilfred.opensource@gmail.com>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Mahesh J
- Salgaonkar <mahesh@linux.ibm.com>, Oliver O'Halloran <oohall@gmail.com>,
- Bjorn Helgaas	 <bhelgaas@google.com>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Krzysztof =?UTF-8?Q?Wilczy=C5=84ski?=	
- <kw@linux.com>, Rob Herring <robh@kernel.org>, Zhou Wang
- <wangzhou1@hisilicon.com>,  Will Deacon <will@kernel.org>, Robert Richter
- <rric@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,  Marc Zyngier
- <maz@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, Daire McNamara
-	 <daire.mcnamara@microchip.com>
-Cc: dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>, 
- Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
- linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
-Date: Fri, 09 May 2025 13:04:50 +1000
-In-Reply-To: <20250508-pcie-reset-slot-v4-1-7050093e2b50@linaro.org>
-References: <20250508-pcie-reset-slot-v4-0-7050093e2b50@linaro.org>
-	 <20250508-pcie-reset-slot-v4-1-7050093e2b50@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
+	id 1uDEAk-00000002Knw-3fWw;
+	Fri, 09 May 2025 03:13:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3B05360008;
+	Fri,  9 May 2025 03:13:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41002C4CEE7;
+	Fri,  9 May 2025 03:13:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746760393;
+	bh=rvYoCnD/Vbn1WCJh6yA8UpoAs4j9A3g4UDDTPLYIoec=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=IwQa1MdwFZSGbFKmCmvyZ5Xcqge2+s8LP5NIf7PU2+tel+c4uXjgg63pIkBWYil3I
+	 uYx6bDmNym3bOhcxOK6Cg8lzJ8U3iiqDwfhVR67Q7e4tfD/MiPv+VySHmsqSfnI73I
+	 HgfmAhscXk3dzD4WEjLfZpv3nxzlyKrdwSuJBAh+hvF2m2JTiZ0sul95iZ1AoyctDj
+	 ZfEOGe7IeVnpHXeQhyxGCXm17d2LlgZWU96x2rca4oFRoTdZ3m8RxfCY9we2cJe0KG
+	 F/e/EwZfI9e0+Duo1VfnpGkUuRJxqH8jImmSCgXmS8MAsjWIbe6BZqGsbq44A8vwg0
+	 hHzLFoAA3Jj4g==
+Date: Thu, 8 May 2025 20:13:12 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH net-next 2/2] net: airoha: Add the capability to
+ allocate hw buffers in SRAM
+Message-ID: <20250508201312.078a0a37@kernel.org>
+In-Reply-To: <20250507-airopha-desc-sram-v1-2-d42037431bfa@kernel.org>
+References: <20250507-airopha-desc-sram-v1-0-d42037431bfa@kernel.org>
+	<20250507-airopha-desc-sram-v1-2-d42037431bfa@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_200502_147874_23D0763E 
-X-CRM114-Status: UNSURE (   6.98  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,13 +73,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2025-05-08 at 12:40 +0530, Manivannan Sadhasivam wrote:
-> A PCI device is just another peripheral in a system. So failure to
-> recover it, must not result in a kernel panic. So remove the TODO
-> which
-> is quite misleading.
->=20
-> Signed-off-by: Manivannan Sadhasivam
-> <manivannan.sadhasivam@linaro.org>
-Reviewed-by: Wilfred Mallawa <wilfred.mallawa@wdc.com>
+On Wed, 07 May 2025 19:48:46 +0200 Lorenzo Bianconi wrote:
+> In order to improve packet processing and packet forwarding
+> performances, EN7581 SoC supports allocating buffers for hw forwarding
+> queues in SRAM instead of DRAM if available on the system.
+> Rely on SRAM for buffers allocation if available on the system and use
+> DRAM as fallback.
+
+drivers/net/ethernet/airoha/airoha_eth.c:1113:30: warning: incorrect type in assignment (different address spaces)
+drivers/net/ethernet/airoha/airoha_eth.c:1113:30:    expected void *q
+drivers/net/ethernet/airoha/airoha_eth.c:1113:30:    got void [noderef] __iomem *
+-- 
+pw-bot: cr
 
