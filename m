@@ -4,64 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B2BEC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 14:48:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD95FC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 14:50:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nVdoRmzHdJIDzHX5mXnwcwEn0rBmpBpiL6BVXHOZ+ps=; b=Szkagw0dXieFmpWkfduPepCf6v
-	FczabMDNdoJT+auacTMABRmYKaKm6U6wXAE/l+Z3Da3nlVmUPwAJe/ZkTCtf5BPkAVNNb828LSAtF
-	2Pt2xm8OGD8hwekxlP0oRqNwZXF3rUBpKklUDRSHm0geCmiMLpq9peqK7pgE2DMAHqdEGSI45oajf
-	Nq0N3MHnGD+NplwPjnkaMLFJzEu1H+26elkmYVISuS4ghCufVhrIjfnkfEYWT/4Bu91LKO9tWoFxW
-	bMjsw/1f3heRzly9E2wGMoo7IjEsA/h45QGJQD0fkln5VjF/yFxPRYZQBQwvMMdAYzX1LY/SKwdOR
-	Qq3j9UYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5r59Lc7dCwwiGcwFSBhZqzdQP9HXtZxk+Ss4P2wbCXw=; b=kS8CJrZtFsR1L1UwYdmCEHSrwp
+	ITBg22FjOT/3Rrs9oqdf1Bkh/FBhvFdw21sIzQxGVoh/y9n3jZTmSfQPrjlk4MRcSRBRylCJB1fVL
+	5cCsfoYvLxuxC942wTWFeLbHKoDCZyXgUkP+J0oNwWUlEIqVjDDUo83o1koKIZMp24PJeadayKOVc
+	C9cdGkTXk4gdMyvteB8sziE0/atX3mFnDMotwEVawBKYhjSJAwHEE69wscQiCoxkssKbSrvJ7CveE
+	SVDGybhE6IYKbDGhgevO+vd2Jdn1T3fviW3/anLRE56PfleC5zHLDuw9umUCQ/Id6iduFL4EG0of9
+	NCAxqMdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDP12-00000003zHg-3zIO;
-	Fri, 09 May 2025 14:47:57 +0000
-Received: from out-171.mta0.migadu.com ([91.218.175.171])
+	id 1uDP2z-00000003zY6-0rBC;
+	Fri, 09 May 2025 14:49:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDNcA-00000003jG7-3Utc
+	id 1uDNfK-00000003juL-41nL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 13:18:12 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1746796686;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nVdoRmzHdJIDzHX5mXnwcwEn0rBmpBpiL6BVXHOZ+ps=;
-	b=Evi6SeZGpNRULGqJy6DsClZaUaVxL+vZt/e/PDbDKVn3OV5tm3qwkxMpY5ZOVL6S04fICi
-	XVauFECRsbn3Jiy1FYHzyur1/SWCc4XNgvBZAH8s5/lpGPmJmASFBZ3rcOvQ/8PgUDncfa
-	uQnV3mXFbn2XijbZmq5IXjipzQ/8ObVcBfdgwHHkGvrGjOl9BaYJBMkt0MHrtEr8aIDjqU
-	jFv3e7xsRKmPuYP55cJAsfcO7J9a+QmkfuK07n72QOuaaPy/oE1pg0X+gXGjj6Le3yjLad
-	sifi7XLlwBhfxS+cRHPHNmZU94m2xGYU6aq6uplgFiNdQYFHuf+MGIQVId081Q==
-Content-Type: multipart/signed;
- boundary=33bca27b73304a4270d6ea8fbc04c0d790682b0e0c2dc71e4f7c11e0ec14;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Fri, 09 May 2025 15:18:04 +0200
-Message-Id: <D9RNQUO6IKFU.9BYJLSAQV9WT@cknow.org>
-Subject: Re: [PATCH v2 5/5] arm64: dts: rockchip: add USB-C support for ROCK
- 5B+
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Sebastian Reichel" <sebastian.reichel@collabora.com>, "Heiko Stuebner"
- <heiko@sntech.de>
-Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <kernel@collabora.com>
-References: <20250508-rock5bp-for-upstream-v2-0-677033cc1ac2@kernel.org>
- <20250508-rock5bp-for-upstream-v2-5-677033cc1ac2@kernel.org>
-In-Reply-To: <20250508-rock5bp-for-upstream-v2-5-677033cc1ac2@kernel.org>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_061811_015631_C87877A7 
-X-CRM114-Status: GOOD (  23.49  )
+	Fri, 09 May 2025 13:21:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 64F7062A19;
+	Fri,  9 May 2025 13:21:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14E8EC4CEE4;
+	Fri,  9 May 2025 13:21:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746796886;
+	bh=kg1Jn41zsA7L48Ucu5hJhyldvXz5ovS+yrWZmSLIVxo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=o6l3CP/qeGHG2JQsSDZsZbHSTrtOnoJnfVWr/9924stZx+lpDbB5D9n64GXSODb8s
+	 N6VzO0gISFa0hGvgFMYlySKjEVBOo4gh7UXp+fQTcU6YZxwQ3ennV3xQ0gpFwJJm7R
+	 +wBKfeQTQjOaCMQWWvH9irMF/0oGnBS1VNA9om3gtDs/2ELs6jfQ3jUyCx+PCQ2c5Q
+	 r0R5P9/BWbkbpcHOc9qMJBg+H1Uh8ed6m21YZFKcnYPrY64Am0bRM7EoYy880LU2AS
+	 7v27MkLHwty4qMhPrQtMSA3Ubm9gVDdWzYb+655k4mKdmleAYiIy9tuItKc28SGfeO
+	 fNI4geGxZntKw==
+Message-ID: <8173a798-b5d7-485c-8ce3-b46f4a097d83@kernel.org>
+Date: Fri, 9 May 2025 15:21:22 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64: dts: imx8mp: Add TechNexion EDM-G-IMX8M-PLUS
+ SoM on WB-EDM-G carrier board
+To: Richard Hu <richard.hu@technexion.com>, sascha.hauer@pengutronix.de,
+ Shawn Guo <shawnguo@kernel.org>
+Cc: imx@lists.linux.dev, ray.chang@technexion.com,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250509071242.12098-1-richard.hu@technexion.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250509071242.12098-1-richard.hu@technexion.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,335 +116,234 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---33bca27b73304a4270d6ea8fbc04c0d790682b0e0c2dc71e4f7c11e0ec14
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On 09/05/2025 09:12, Richard Hu wrote:
+> index b6d3fe26d621..6acd2408f936 100644
 
-Hi,
 
-On Thu May 8, 2025 at 7:48 PM CEST, Sebastian Reichel wrote:
-> Add hardware description for the USB-C port in the Radxa ROCK 5 Model B+
-> This describes the OHCI, EHCI and XHCI USB parts, but not yet the Display=
-Port
-> AltMode, since the bindings for that are not yet upstream.
->
-> Support for the ROCK 5B is prepared, but not exposed at the moment,
-> since it results in unreliable boot behavior due to hard resets killing
-> the supply voltage. Some further investigation and fixes in the kernel's
-> Type-C Port Manager (TCPM) state machine is needed before exposing the
-> port. The ROCK 5B+ has a dedicated port for powering the board and thus
-> is not affected.
->
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
->  .../boot/dts/rockchip/rk3588-rock-5b-plus.dts      |  16 +++
->  arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts    |  23 ++++
->  arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi   | 137 +++++++++++++++=
-++++++
->  3 files changed, 176 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dts b/arch/=
-arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dts
-> index 74c7b6502e4dda4b774f43c704ebaee350703c0d..4096cd853f9a909e4233d2c61=
-a1fe5ee83904c4c 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dts
-> @@ -99,12 +99,28 @@ pcie3x2_rst: pcie3x2-rst {
->  	};
-> =20
->  	usb {
-> +		usbc_sbu_dc: usbc-sbu-dc {
-> +			rockchip,pins =3D <0 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>,
-> +					<0 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +
->  		vcc5v0_host_en: vcc5v0-host-en {
->  			rockchip,pins =3D <1 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
->  		};
->  	};
->  };
-> =20
-> +&usbc0 {
-> +	status =3D "okay";
-> +};
-> +
-> +&usbdp_phy0 {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&usbc_sbu_dc>;
-> +	sbu1-dc-gpios =3D <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
-> +	sbu2-dc-gpios =3D <&gpio0 RK_PC5 GPIO_ACTIVE_HIGH>;
-> +};
-> +
->  &vcc5v0_host {
->  	enable-active-high;
->  	gpio =3D <&gpio1 RK_PA1 GPIO_ACTIVE_HIGH>;
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64=
-/boot/dts/rockchip/rk3588-rock-5b.dts
-> index 9407a7c9910ada1f6c803d2e15785a9cbd9bd655..ab0c572ea9234f373af4a47db=
-93fc1786f0e6fbf 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-> @@ -36,8 +36,20 @@ &uart6 {
->  	status =3D "okay";
->  };
-> =20
-> +&usbdp_phy0 {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&usbc_sbu_dc>;
-> +	sbu1-dc-gpios =3D <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
-> +	sbu2-dc-gpios =3D <&gpio4 RK_PA7 GPIO_ACTIVE_HIGH>;
-> +};
-> +
->  &pinctrl {
->  	usb {
-> +		usbc_sbu_dc: usbc-sbu-dc {
-> +			rockchip,pins =3D <0 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>,
-> +					<0 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>;
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC (and consider --no-git-fallback argument, so you will
+not CC people just because they made one commit years ago). It might
+happen, that command when run on an older kernel, gives you outdated
+entries. Therefore please be sure you base your patches on recent Linux
+kernel.
 
-Shouldn't these be <4 RK_PA6 ...> and <4 RK_PA7 ...> ?
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
 
-In the rock5bp_v1.2 schematic they're (IIUC) GPIO0_C4 and _C5, but in
-rock_5b_v1450 schematic TYPEC0_SBU1_DC and TYPEC0_SBU2_DC are on
-GPIO4_A6 and GPIO4_A7.
 
-And in rock_5b_v1450 GPIO0_C4 and _C5 are connected to WIFI_REG_ON_H and
-BT_W AKE_HOST_H respectively.
+All of the addresses here are totally bogus. I am dropping them, except
+Shawn's which I corrected.
 
-Cheers,
-  Diederik
-
-> +		};
-> +
->  		vcc5v0_host_en: vcc5v0-host-en {
->  			rockchip,pins =3D <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
->  		};
-> @@ -50,3 +62,14 @@ &vcc5v0_host {
->  	pinctrl-names =3D "default";
->  	pinctrl-0 =3D <&vcc5v0_host_en>;
->  };
-> +
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -191,6 +191,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-dhcom-drc02.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-dhcom-pdk2.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-dhcom-pdk3.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-dhcom-picoitx.dtb
+> +dtb-$(CONFIG_ARCH_MXC) += imx8mp-edm-g-wb.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-icore-mx8mp-edimm2.2.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-iota2-lumpy.dtb
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts b/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts
+> new file mode 100644
+> index 000000000000..26bc836c4a19
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts
+> @@ -0,0 +1,404 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 > +/*
-> + * Do not yet offer USB-C support on the Rock 5B. The current U-Boot
-> + * Linux setup is quite unstable and for many power-supplies needs multi=
-ple
-> + * hard resets to boot to userspace. Let's enable this once the issues
-> + * in the TCPM kernel code have been solved. Without this any automated
-> + * boot tests will run into problems.
+> + * Copyright 2024 TechNexion Ltd.
+> + *
+> + * Author: Ray Chang <ray.chang@technexion.com>
 > + */
-> +/delete-node/ &usbc0;
-> +/delete-node/ &usb_host0_xhci;
-> +/delete-node/ &usbdp_phy0;
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi b/arch/arm6=
-4/boot/dts/rockchip/rk3588-rock-5b.dtsi
-> index 6052787d2560978d2bae6cfbeea5fc1d419d583a..314fdc0c1c20b25b0fdc5254f=
-3b090586c169a00 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi
-> @@ -5,6 +5,7 @@
->  #include <dt-bindings/gpio/gpio.h>
->  #include <dt-bindings/leds/common.h>
->  #include <dt-bindings/soc/rockchip,vop2.h>
-> +#include <dt-bindings/usb/pd.h>
->  #include "rk3588.dtsi"
-> =20
->  / {
-> @@ -92,6 +93,15 @@ rfkill-bt {
->  		shutdown-gpios =3D <&gpio3 RK_PD5 GPIO_ACTIVE_HIGH>;
->  	};
-> =20
-> +	vcc12v_dcin: regulator-vcc12v-dcin {
-> +		compatible =3D "regulator-fixed";
-> +		regulator-name =3D "vcc12v_dcin";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt =3D <12000000>;
-> +		regulator-max-microvolt =3D <12000000>;
+> +
+> +/dts-v1/;
+> +
+> +#include "imx8mp-edm-g.dtsi"
+> +
+> +/ {
+> +	compatible = "technexion,edm-g-imx8mp-wb", "technexion,edm-g-imx8mp", "fsl,imx8mp";
+
+Missing bindings.
+
+Please run scripts/checkpatch.pl on the patches and fix reported
+warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
+patches and (probably) fix more warnings. Some warnings can be ignored,
+especially from --strict run, but the code here looks like it needs a
+fix. Feel free to get in touch if the warning is not clear.
+
+It does not look like you tested the DTS against bindings. Please run
+`make dtbs_check W=1` (see
+Documentation/devicetree/bindings/writing-schema.rst or
+https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
+for instructions).
+Maybe you need to update your dtschema and yamllint. Don't rely on
+distro packages for dtschema and be sure you are using the latest
+released dtschema.
+
+
+> +	model = "TechNexion EDM-G-IMX8MP SOM on WB-EDM-G";
+> +
+
+
+
+
+> +};
+> +
+> +&hdmi_tx_phy {
+> +	status = "okay";
+> +};
+> +
+> +&i2c2 {
+> +	wm8960: codec@1a {
+> +		compatible = "wlf,wm8960";
+> +		reg = <0x1a>;
+> +		clocks = <&audio_blk_ctrl IMX8MP_CLK_AUDIOMIX_SAI3_MCLK1>;
+> +		clock-names = "mclk";
+> +		#sound-dai-cells = <0>;
+> +		AVDD-supply = <&reg_pwr_3v3>;
+> +		DBVDD-supply = <&reg_pwr_3v3>;
+> +		DCVDD-supply = <&reg_pwr_3v3>;
+> +		SPKVDD1-supply = <&reg_pwr_5v>;
+> +		SPKVDD2-supply = <&reg_pwr_5v>;
+> +		wlf,hp-cfg = <2 2 3>;
+> +		wlf,shared-lrclk;
 > +	};
 > +
->  	vcc3v3_pcie2x1l0: regulator-vcc3v3-pcie2x1l0 {
->  		compatible =3D "regulator-fixed";
->  		enable-active-high;
-> @@ -146,6 +156,19 @@ vcc5v0_sys: regulator-vcc5v0-sys {
->  		regulator-boot-on;
->  		regulator-min-microvolt =3D <5000000>;
->  		regulator-max-microvolt =3D <5000000>;
-> +		vin-supply =3D <&vcc12v_dcin>;
+> +	pca9555_a21: pca9555@21 {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
+
+> +		compatible = "nxp,pca9555";
+> +		reg = <0x21>;
+> +		#gpio-cells = <2>;
+> +		gpio-controller;
+> +		gpio-line-names = "EXPOSURE_TRIG_IN1", "FLASH_OUT1", "INFO_TRIG_IN1", "CAM_SHUTTER1",
+> +				  "XVS1", "PWR1_TIME0", "PWR1_TIME1", "PWR1_TIME2",
+> +				  "EXPOSURE_TRIG_IN2", "FLASH_OUT2", "INFO_TRIG_IN2", "CAM_SHUTTER2",
+> +				  "XVS2", "PWR2_TIME0", "PWR2_TIME1", "PWR2_TIME2";
 > +	};
 > +
-> +	vbus5v0_typec: vbus5v0-typec {
-> +		compatible =3D "regulator-fixed";
-> +		enable-active-high;
-> +		gpio =3D <&gpio2 RK_PB6 GPIO_ACTIVE_HIGH>;
-> +		pinctrl-names =3D "default";
-> +		pinctrl-0 =3D <&vbus5v0_typec_en>;
-> +		regulator-name =3D "vbus5v0_typec";
-> +		regulator-min-microvolt =3D <5000000>;
-> +		regulator-max-microvolt =3D <5000000>;
-> +		vin-supply =3D <&vcc5v0_sys>;
->  	};
-> =20
->  	vcc_1v1_nldo_s3: regulator-vcc-1v1-nldo-s3 {
-> @@ -309,6 +332,67 @@ regulator-state-mem {
->  	};
->  };
-> =20
-> +&i2c4 {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&i2c4m1_xfer>;
-> +	status =3D "okay";
+> +	pca9555_a23: pca9555@23 {
+> +		compatible = "nxp,pca9555";
+> +		reg = <0x23>;
+> +		#interrupt-cells = <2>;
+> +		interrupt-controller;
+> +		interrupt-parent = <&gpio4>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		#gpio-cells = <2>;
+> +		gpio-controller;
+> +		gpio-line-names = "M2_DISABLE_N", "LED_EN", "", "",
+> +				  "", "", "", "USB_OTG_OC",
+> +				  "EXT_GPIO8", "EXT_GPIO9", "", "",
+> +				  "", "CSI1_PDB", "CSI2_PDB", "PD_FAULT";
+> +		pinctrl-0 = <&pinctrl_pca9555_a23_irq>;
+> +		pinctrl-names = "default";
+> +	};
 > +
-> +	usbc0: usb-typec@22 {
-> +		compatible =3D "fcs,fusb302";
-> +		reg =3D <0x22>;
-> +		interrupt-parent =3D <&gpio3>;
-> +		interrupts =3D <RK_PB4 IRQ_TYPE_LEVEL_LOW>;
-> +		pinctrl-names =3D "default";
-> +		pinctrl-0 =3D <&usbc0_int>;
-> +		vbus-supply =3D <&vbus5v0_typec>;
-> +		/*
-> +		 * When the board is starting to send power-delivery messages
-> +		 * too late (5 seconds according to the specification), the
-> +		 * power-supply reacts with a hard-reset. That removes the
-> +		 * power from VBUS for some time, which resets te whole board.
-> +		 */
-> +		status =3D "fail";
+> +	typec_hd3ss3220: hd3ss3220@67 {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
+
+> +		compatible = "ti,hd3ss3220";
+> +		reg = <0x67>;
+> +		interrupt-parent = <&gpio4>;
+> +		interrupts = <8 IRQ_TYPE_LEVEL_LOW>;
+> +		pinctrl-0 = <&pinctrl_hd3ss3220_irq>;
+> +		pinctrl-names = "default";
 > +
-> +		usb_con: connector {
-> +			compatible =3D "usb-c-connector";
-> +			label =3D "USB-C";
-> +			data-role =3D "dual";
-> +			power-role =3D "sink";
-> +			try-power-role =3D "sink";
-> +			op-sink-microwatt =3D <1000000>;
-> +			sink-pdos =3D
-> +				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>,
-> +				<PDO_VAR(5000, 20000, 5000)>;
+> +		ports {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
 > +
-> +			ports {
-> +				#address-cells =3D <1>;
-> +				#size-cells =3D <0>;
+> +			port@0 {
+> +				reg = <0>;
 > +
-> +				port@0 {
-> +					reg =3D <0>;
-> +					usbc0_role_sw: endpoint {
-> +						remote-endpoint =3D <&dwc3_0_role_switch>;
-> +					};
-> +				};
-> +
-> +				port@1 {
-> +					reg =3D <1>;
-> +					usbc0_orien_sw: endpoint {
-> +						remote-endpoint =3D <&usbdp_phy0_orientation_switch>;
-> +					};
-> +				};
-> +
-> +				port@2 {
-> +					reg =3D <2>;
-> +					dp_altmode_mux: endpoint {
-> +						remote-endpoint =3D <&usbdp_phy0_dp_altmode_mux>;
-> +					};
+> +				hd3ss3220_in_ep: endpoint {
+> +					remote-endpoint = <&dwc3_out_ep>;
 > +				};
 > +			};
-> +		};
-> +	};
-> +};
-> +
->  &i2c6 {
->  	status =3D "okay";
-> =20
-> @@ -481,6 +565,16 @@ pcie3_vcc3v3_en: pcie3-vcc3v3-en {
->  			rockchip,pins =3D <1 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
->  		};
->  	};
-> +
-> +	usb {
-> +		usbc0_int: usbc0-int {
-> +			rockchip,pins =3D <3 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +
-> +		vbus5v0_typec_en: vbus5v0-typec-en {
-> +			rockchip,pins =3D <2 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
->  };
-> =20
->  &pwm1 {
-> @@ -866,6 +960,14 @@ &uart2 {
->  	status =3D "okay";
->  };
-> =20
-> +&u2phy0 {
-> +	status =3D "okay";
-> +};
-> +
-> +&u2phy0_otg {
-> +	status =3D "okay";
-> +};
-> +
->  &u2phy1 {
->  	status =3D "okay";
->  };
-> @@ -893,6 +995,27 @@ &u2phy3_host {
->  	status =3D "okay";
->  };
-> =20
-> +&usbdp_phy0 {
-> +	mode-switch;
-> +	orientation-switch;
-> +	status =3D "okay";
-> +
-> +	port {
-> +		#address-cells =3D <1>;
-> +		#size-cells =3D <0>;
-> +
-> +		usbdp_phy0_orientation_switch: endpoint@0 {
-> +			reg =3D <0>;
-> +			remote-endpoint =3D <&usbc0_orien_sw>;
-> +		};
-> +
-> +		usbdp_phy0_dp_altmode_mux: endpoint@1 {
-> +			reg =3D <1>;
-> +			remote-endpoint =3D <&dp_altmode_mux>;
-> +		};
-> +	};
-> +};
-> +
->  &usbdp_phy1 {
->  	status =3D "okay";
->  };
-> @@ -905,6 +1028,20 @@ &usb_host0_ohci {
->  	status =3D "okay";
->  };
-> =20
-> +&usb_host0_xhci {
-> +	usb-role-switch;
-> +	status =3D "okay";
-> +
-> +	port {
-> +		#address-cells =3D <1>;
-> +		#size-cells =3D <0>;
-> +
-> +		dwc3_0_role_switch: endpoint {
-> +			remote-endpoint =3D <&usbc0_role_sw>;
-> +		};
-> +	};
-> +};
-> +
->  &usb_host1_ehci {
->  	status =3D "okay";
->  };
 
 
---33bca27b73304a4270d6ea8fbc04c0d790682b0e0c2dc71e4f7c11e0ec14
-Content-Type: application/pgp-signature; name="signature.asc"
+...
 
------BEGIN PGP SIGNATURE-----
+> +/* SD card on baseboard */
+> +&usdhc2 {
+> +	assigned-clocks = <&clk IMX8MP_CLK_USDHC2>;
+> +	assigned-clock-rates = <400000000>;
+> +	bus-width = <4>;
+> +	cd-gpios = <&gpio2 12 GPIO_ACTIVE_LOW>;
+> +	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
+> +	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
+> +	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
+> +	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+> +	vmmc-supply = <&reg_usdhc2_vmmc>;
+> +	status = "okay";
+> +};
+> +
+> +/* eMMC on SOM */
+> +&usdhc3 {
+> +	assigned-clocks = <&clk IMX8MP_CLK_USDHC3>;
+> +	assigned-clock-rates = <400000000>;
+> +	bus-width = <8>;
+> +	non-removable;
+> +	pinctrl-0 = <&pinctrl_usdhc3>;
+> +	pinctrl-1 = <&pinctrl_usdhc3_100mhz>;
+> +	pinctrl-2 = <&pinctrl_usdhc3_200mhz>;
+> +	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+> +	status = "okay";
+> +};
+> +
+> +&A53_0 {
+> +	cpu-supply = <&buck2>;
+> +};
+> +
+> +&A53_1 {
+> +	cpu-supply = <&buck2>;
+> +};
+> +
+> +&A53_2 {
+> +	cpu-supply = <&buck2>;
+> +};
+> +
+> +&A53_3 {
+> +	cpu-supply = <&buck2>;
+> +};
+> +
+> +&ecspi1 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +	cs-gpios = <&gpio5 9 GPIO_ACTIVE_LOW>;
+> +	num-cs = <1>;
+> +	pinctrl-0 = <&pinctrl_ecspi1 &pinctrl_ecspi1_cs>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +
+> +	spidev1: spi@0 {
 
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaB4AjgAKCRDXblvOeH7b
-bt6iAP4kthtjrbYmyarcnjN/1gVMWFkZhBOQ9q75f2+QZUWYKQD/WnNV8qywAzPX
-7WOOlBtd2T/Qhse1vAlbhjcj/yu05Qo=
-=RLtz
------END PGP SIGNATURE-----
+No, that's not a spi controller.
 
---33bca27b73304a4270d6ea8fbc04c0d790682b0e0c2dc71e4f7c11e0ec14--
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
+
+> +		compatible = "rohm,dh2228fv";
+
+I doubt that. Drop the node or fix the compatible.
+
+
+
+Best regards,
+Krzysztof
 
