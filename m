@@ -4,91 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63D60C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 07:35:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFD80C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 07:37:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tNm4dzYjL0hNtY0TgZJ2Uq8YBkIqeHB8LTvt0QE8KZw=; b=hVoWtdCn+FEIAUf1/qYskkEk5N
-	x0tpCvXnmbE+hShnd+5zZg1aLd6Tkg9q0AtGXSthX57w9ThmEfAqVsC9kDN2z9vO4Co4jV6MDtVSR
-	mxsuUJUzQwA7Ot34Ltq0HIXUe+C22EjTwYjaW/r9pZSoSPM3/8DbrSKYWopwEDb/NG+6ZOHVYq7cp
-	X/wMmnValtmrTRxbefMQTB4yBqREzo2ta2O1PjFpBRDPTmSJK8tILs/F2sqEOpkVpBz5quasJDAfZ
-	FA05jvQPDepath6M8jXaoO20r8JnEGdlTVdsIYwQypIxP6OMq84M9tuh6izoe5FvhuO5bcWEIWWtG
-	vQdx8dPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BQYBVB8p8nqMgWuckxW3aKVVBX+ixBeiwRuXnWXYxag=; b=Xu/3SsZkU2Ps2T8yrztzpr4giy
+	wlLKAja4fEZe5NUQj5Ut+uKW1KhmLUOQ2NY9LPzGbKhUFeVNQ2/KEHpd14eoaN0ryuYPi99RYuBcp
+	XKLMiaCzupsmYTX2DHgFK3iloW8A7sBHfRXtSKVClYtSG5v/UD7qvrXuGr2j+03sheEhEGVv+LLlx
+	3bkDoZRp2hf1CBSE2bQw8XxseVT4roemAxP1OZksqiwJ+hzvF2LUgIp2xcz6svATj5Lo+I957gEO2
+	OpZMHLqL+bbNs6og/+kBGfHLXZyEY5sfA22H1RHrW+9ewp08GrsuSv+ilo6hSB1M5v3MfkRAC6kVh
+	X9WTbOFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDIGA-00000002lav-1bjp;
-	Fri, 09 May 2025 07:35:06 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1uDIIZ-00000002lxW-2i21;
+	Fri, 09 May 2025 07:37:35 +0000
+Received: from mail-m15591.qiye.163.com ([101.71.155.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDID3-00000002l18-1432
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 07:31:55 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-ad221e3e5a2so45774366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 00:31:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1746775911; x=1747380711; darn=lists.infradead.org;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=tNm4dzYjL0hNtY0TgZJ2Uq8YBkIqeHB8LTvt0QE8KZw=;
-        b=3UoiIjdCZ/Siyk5Co+omojDnWFDTdo2tZt9LE62MMrAj2KxI36eVKWTP55l6A6RcNw
-         Kc4MEaGyObIOLZmPpY2yO4Mf2nDTDZmVBMmiq1VjcJtwUvzhjRk3w7j8cL9XibmcwfnX
-         axMqNvVdz+UVIPomNX0kGi/lfVFnqqg0DhLUwZK55rl3VYnHx6jft461Y84aZf4B7Bno
-         avKClZO5QOed1lpnF0RlJkNh3uo3C06M9tDiHaP0ZCeR82H34+9DRvYI5oX30LiJxwx0
-         xpBq9c8bp9Ld/0JFqAUNjidANZPBwHkvk+ORdOX8L/41zpsPDzQidCv17sFdg1PoGasD
-         eFrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746775911; x=1747380711;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tNm4dzYjL0hNtY0TgZJ2Uq8YBkIqeHB8LTvt0QE8KZw=;
-        b=fmIEZ4IVwhvv4GtwrTnGr5c+dQuOhn3h27Krw0syDWEIl1LAp7ZSMUIUevLlwLHpeD
-         q1MJqV36qxPC5O10d8346LXi9sXUrut5CGOCIKFdGZsqmdsU4R7q2JoynPh5JiCbRTOt
-         6fo+BCZXJTw+o285fIF2NjnMXke5bfFZThLjIbE30X0y6Qwis+DsA3RVyXMX5/C6IX2G
-         JT/wJeaKxmVd6XTgi8hnDFt72KUn+IIkL9FC1M3+5cC1xRMH/wSrzSi9Y6PFTrKXYcxb
-         RadhJKRPXhX7JlL3fWl1Fjsc+Z1UE/26UofHF+CKeR7rGaizmUt0vLtzmu9YCZEjPqHq
-         ATxA==
-X-Gm-Message-State: AOJu0YyDqcF2u4VPVxjPBqX2tKAkZri3yDIAhDxw7zCm3p/cfFBeY95k
-	hyZOyYoubVC1LgdxJ1So+qv56q/QSPlUYnqZTMTOiMShqQIyc82zyXdqfeAg/s0=
-X-Gm-Gg: ASbGncs09wLPXpWHxODk58Xejh/ISezJjb+/G36wGtqVGJ7ehRHDO1nMd7iKh1h2ZZ9
-	mGlOPV5qIArCxDRlZvryz0KE1pRC2d4n0+XCVnyEtIbhR53ScKq9OkwBgdlN1rJe4DN/2tsSJY5
-	fLBfN63Nn7b4GhBitLxIt8Z3NesoHsNYgEXMxZovY7saKNDiikDn6B+S0lFUyFjTj13+GcLfuSj
-	CecOZUFTWA/AqhbKIyd7sqY4Krpa+SDPNhCJG86AVH6Ae3X2CHkDp+K5GfupITHTI5qDMM3FH+w
-	uZqKk+aoOM0GvYK1n9/Q9jZbFvHubadkRDBoVWqGAQwVlg==
-X-Google-Smtp-Source: AGHT+IEBRTCI9kTr2GaMmpOwf42xSL7WvOji9iBJAETgoGhwFplwSkmVArxI7pFy/yaqzpELkNP5Hg==
-X-Received: by 2002:a17:906:4796:b0:ad1:e672:271f with SMTP id a640c23a62f3a-ad218f4ca71mr253684166b.18.1746775911001;
-        Fri, 09 May 2025 00:31:51 -0700 (PDT)
-Received: from localhost ([2001:4090:a244:802a:8179:d45a:7862:147])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ad219855beasm107999666b.171.2025.05.09.00.31.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 May 2025 00:31:50 -0700 (PDT)
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=06cfbbe9f92dcc8b1f71cc9bc0c83b1518c968538f5e87fe30c24b0e071e;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Fri, 09 May 2025 09:31:39 +0200
-Message-Id: <D9RGDM0LGOTW.2X74PNAIA5N3F@baylibre.com>
-Subject: Re: [PATCH 6/7] arm64: dts: ti: k3-am62a7-sk: Set wakeup-source
- system-states
-From: "Markus Schneider-Pargmann" <msp@baylibre.com>
-To: "Kendall Willis" <k-willis@ti.com>, "Nishanth Menon" <nm@ti.com>,
- "Vignesh Raghavendra" <vigneshr@ti.com>, "Tero Kristo" <kristo@kernel.org>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>
-Cc: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, "Vishal Mahaveer" <vishalm@ti.com>, "Kevin
- Hilman" <khilman@baylibre.com>, "Dhruva Gole" <d-gole@ti.com>, "Sebin
- Francis" <sebin.francis@ti.com>, "Akashdeep Kaur" <a-kaur@ti.com>
-X-Mailer: aerc 0.20.1
-References: <20250421-topic-am62-dt-partialio-v6-15-v1-0-6ced30aafddb@baylibre.com> <20250421-topic-am62-dt-partialio-v6-15-v1-6-6ced30aafddb@baylibre.com> <d4f21cdc-bb0c-4c78-aeea-f6e5c75fa5f1@ti.com>
-In-Reply-To: <d4f21cdc-bb0c-4c78-aeea-f6e5c75fa5f1@ti.com>
+	id 1uDIGC-00000002lbE-41C5;
+	Fri, 09 May 2025 07:35:10 +0000
+Received: from [127.0.0.1] (gy-adaptive-ssl-proxy-1-entmail-virt204.gy.ntes [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 147cae3e8;
+	Fri, 9 May 2025 15:34:58 +0800 (GMT+08:00)
+Message-ID: <5a4f6229-1450-4c96-bfac-5257f66b2ddf@rock-chips.com>
+Date: Fri, 9 May 2025 15:34:47 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] dt-bindings: display: rockchip: Convert
+ cdn-dp-rockchip.txt to yaml
+To: Krzysztof Kozlowski <krzk@kernel.org>, Chaoyi Chen <kernel@airkyi.com>,
+ Sandy Huang <hjc@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Dragan Simic <dsimic@manjaro.org>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250509070247.868-1-kernel@airkyi.com>
+ <20250509070247.868-3-kernel@airkyi.com>
+ <ccf4b15a-8399-4a7f-ae40-d01d0975921c@kernel.org>
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <ccf4b15a-8399-4a7f-ae40-d01d0975921c@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUkfGVYYSUxJHhgdSBhLShpWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a96b3f8063203abkunm147cae3e8
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6M1E6Kgw*HDJWFQI4FToPDCIW
+	Fx0aCUhVSlVKTE9NTExNSktPQkhMVTMWGhIXVRgTGhQCElUYEx4VOwkUGBBWGBMSCwhVGBQWRVlX
+	WRILWUFZTkNVSUlVTFVKSk9ZV1kIAVlBSEJOTzcG
+DKIM-Signature: a=rsa-sha256;
+	b=hJ7NikvuDJyHiU7TZoYgd87OzKAxhsDgv4cKFeiFgwAnYpwpLeSMndEsG6yjBhRVE4W7w8ioYZpdvRBjJX0LT/gbPHUp9B3ZkZA+9kh6jciL3KWKe7lrhHOr8J8qyQdAE0rM7L+7JAmxljZqr+wVdMoLy7f0nS6OQxx/RUC+BZE=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=BQYBVB8p8nqMgWuckxW3aKVVBX+ixBeiwRuXnWXYxag=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_003153_557468_745AA5C7 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20250509_003509_170466_58A193A0 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,146 +83,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---06cfbbe9f92dcc8b1f71cc9bc0c83b1518c968538f5e87fe30c24b0e071e
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+Hi Krzysztof,
 
-On Wed May 7, 2025 at 6:56 PM CEST, Kendall Willis wrote:
-> On 4/21/25 03:14, Markus Schneider-Pargmann wrote:
->> The CANUART pins of mcu_mcan0, mcu_mcan1, mcu_uart0 and wkup_uart0 are
->> powered during Partial-IO and IO+DDR and are capable of waking up the
->> system in these states. Specify the states in which these units can do a
->> wakeup on this board.
->>=20
->> Note that the UARTs are not capable of wakeup in Partial-IO because of
->> of a UART mux on the board not being powered during Partial-IO.
->>=20
->> Add pincontrol definitions for mcu_mcan0 and mcu_mcan1 for wakeup from
->> Partial-IO. Add these as wakeup pinctrl entries for both devices.
->>=20
->> Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
->> ---
->>   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 76 +++++++++++++++++++++++++=
-++++++++
->>   1 file changed, 76 insertions(+)
->>=20
->> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/d=
-ts/ti/k3-am62a7-sk.dts
->> index 1c9d95696c839a51b607839abb9429a8de6fa620..724d9a6f3c575fe35496fdd9=
-e17d6d8e33869f92 100644
->> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->> @@ -741,3 +741,79 @@ dpi1_out: endpoint {
->>   		};
->>   	};
->>   };
+On 2025/5/9 15:11, Krzysztof Kozlowski wrote:
+> On 09/05/2025 09:02, Chaoyi Chen wrote:
 >> +
->> +&mcu_mcan0 {
->> +	pinctrl-names =3D "default", "wakeup";
->> +	pinctrl-0 =3D <&mcu_mcan0_tx_pins_default>, <&mcu_mcan0_rx_pins_defaul=
-t>;
->> +	pinctrl-1 =3D <&mcu_mcan0_tx_pins_default>, <&mcu_mcan0_rx_pins_wakeup=
->;
->> +	wakeup-source =3D <&system_partial_io>,
->> +			<&system_io_ddr>,
->> +			<&system_deep_sleep>,
->> +			<&system_mcu_only>,
->> +			<&system_standby>;
->> +	status =3D "okay";
->> +};
+>> +  clock-names:
+>> +    items:
+>> +      - const: core-clk
+>> +      - const: pclk
+>> +      - const: spdif
+>> +      - const: grf
 >> +
->> +&mcu_mcan1 {
->> +	pinctrl-names =3D "default", "wakeup";
->> +	pinctrl-0 =3D <&mcu_mcan1_tx_pins_default>, <&mcu_mcan1_rx_pins_defaul=
-t>;
->> +	pinctrl-1 =3D <&mcu_mcan1_tx_pins_default>, <&mcu_mcan1_rx_pins_wakeup=
->;
->> +	wakeup-source =3D <&system_partial_io>,
->> +			<&system_io_ddr>,
->> +			<&system_deep_sleep>,
->> +			<&system_mcu_only>,
->> +			<&system_standby>;
->> +	status =3D "okay";
->> +};
+>> +  extcon:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+>> +    description:
+>> +      Phandle to the extcon device providing the cable state for the DP PHY.
 >> +
->> +&mcu_uart0 {
->> +	wakeup-source =3D <&system_io_ddr>,
->> +			<&system_deep_sleep>,
->> +			<&system_mcu_only>,
->> +			<&system_standby>;
->> +};
+>> +  interrupts:
+>> +    maxItems: 1
 >> +
->> +&wkup_uart0 {
->> +	wakeup-source =3D <&system_io_ddr>,
->> +			<&system_deep_sleep>,
->> +			<&system_mcu_only>,
->> +			<&system_standby>;
->> +};
-> Hi Markus,
+>> +  phys:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> Just phandle. If this is an array (but why?), you need maxItems for
+> outer and inner dimensions.
+
+I think it could be phandle or phandle-array. Since the RK3399 DP has 
+two PHYs, if we put in two PHYs here, the driver will pick one PHY port 
+that is already plugged into the DP for output. If we fill in only one 
+PHY here, then output is only allowed on the corresponding PHY.
+
+Will add restrictions and add more descriptions in v3.
+
+
 >
-> I noticed wkup_uart0 is already referenced earlier in the dts. Could the=
-=20
-> wakeup-source property be added into the first reference?
+>> +    description:
+>> +      Phandle to the PHY device for DP output.
 >> +
->> +&mcu_pmx0 {
-> Same thing with mcu_pmx0. Is there a reason for separating it from when=
-=20
-> it was referenced originally?
->> +	mcu_mcan0_tx_pins_default: mcu-mcan0-tx-default-pins {
->> +		pinctrl-single,pins =3D <
->> +			AM62X_IOPAD(0x034, PIN_OUTPUT, 0) /* (D6) MCU_MCAN0_TX */
->> +		>;
->> +	};
+>> +  ports:
+>> +    $ref: /schemas/graph.yaml#/properties/ports
 >> +
->> +	mcu_mcan0_rx_pins_default: mcu-mcan0-rx-default-pins {
->> +		pinctrl-single,pins =3D <
->> +			AM62X_IOPAD(0x038, PIN_INPUT, 0) /* (B3) MCU_MCAN0_RX */
->> +		>;
->> +	};
+>> +    properties:
+>> +      port@0:
+>> +        $ref: /schemas/graph.yaml#/properties/port
+>> +        description: Input of the CDN DP
+>> +        properties:
+>> +          endpoint@0:
+>> +            description: Connection to the VOPB
+>> +          endpoint@1:
+>> +            description: Connection to the VOPL
+>> +      port@1:
+>> +        $ref: /schemas/graph.yaml#/properties/port
+>> +        description: Output of the CDN DP
 >> +
->> +	mcu_mcan0_rx_pins_wakeup: mcu-mcan0-rx-wakeup-pins {
->> +		pinctrl-single,pins =3D <
->> +			AM62X_IOPAD(0x038, PIN_INPUT | WKUP_EN, 0) /* (B3) MCU_MCAN0_RX */
->> +		>;
->> +	};
+>> +    required:
+>> +      - port@0
+>> +      - port@1
 >> +
->> +	mcu_mcan1_tx_pins_default: mcu-mcan1-tx-default-pins {
->> +		pinctrl-single,pins =3D <
->> +			AM62X_IOPAD(0x03c, PIN_OUTPUT, 0) /* (E5) MCU_MCAN1_TX */
->> +		>;
->> +	};
+>> +  power-domains:
+>> +    maxItems: 1
 >> +
->> +	mcu_mcan1_rx_pins_default: mcu-mcan1-rx-default-pins {
->> +		pinctrl-single,pins =3D <
->> +			AM62X_IOPAD(0x040, PIN_INPUT, 0) /* (D4) MCU_MCAN1_RX */
->> +		>;
->> +	};
+>> +  resets:
+>> +    maxItems: 4
 >> +
->> +	mcu_mcan1_rx_pins_wakeup: mcu-mcan1-rx-wakeup-pins {
->> +		pinctrl-single,pins =3D <
->> +			AM62X_IOPAD(0x040, PIN_INPUT | WKUP_EN, 0) /* (D4) MCU_MCAN1_RX */
->> +		>;
->> +	};
->> +};Additionally, this patch does not apply cleanly to linux-next and nee=
-ds=20
-> to be fixed and rebased.
+>> +  reset-names:
+>> +    items:
+>> +      - const: spdif
+>> +      - const: dptx
+>> +      - const: apb
+>> +      - const: core
+>> +
+>> +  rockchip,grf:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>> +    description:
+>> +      Phandle to GRF register to control HPD.
+>> +
+>> +  "#sound-dai-cells":
+>> +    const: 1
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - clocks
+>> +  - clock-names
+>> +  - interrupts
+>> +  - phys
+>> +  - ports
+>> +  - resets
+>> +  - reset-names
+>> +  - rockchip,grf
+>> +
+>> +additionalProperties: false
+> Well, if you added dai-common $ref then this could have stayed as
+> unevaluatedProperties, so you will allow names for the DAI as well.
 
-Thank you, I will fix your points and rebase once the dt-schema
-idle-state-name question is resolved.
+Thanks for your clarification. Will fix in v3.
 
-Best
-Markus
 
---06cfbbe9f92dcc8b1f71cc9bc0c83b1518c968538f5e87fe30c24b0e071e
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iIcEABYKAC8WIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCaB2vXREcbXNwQGJheWxp
-YnJlLmNvbQAKCRCFwVZpkBVKU+IQAP4nYmMI1mFLobgy/oXSnCX2D+tGGACd+6+h
-bR5vzYUiagD8CelMTAx7Q4zlt086hjOX+Nk+R4ub5YtvyvU/1iO8rAc=
-=Do60
------END PGP SIGNATURE-----
-
---06cfbbe9f92dcc8b1f71cc9bc0c83b1518c968538f5e87fe30c24b0e071e--
+>
+>
+> Best regards,
+> Krzysztof
+>
+>
 
