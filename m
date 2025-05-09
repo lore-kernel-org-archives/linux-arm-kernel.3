@@ -4,63 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15AE4C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 11:41:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC133C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 11:42:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ar0SPW5IYzbm+WBjNMCImL+vIzV0ecGjk9MWdGhcZtE=; b=YL6OLiIwlWHZ26xgA7OCyCtJJD
-	xOjclx0cGwdvH6hmKxu8y6e6z3QmCb0gGzMj5n47E2O5jj2ENxfOLITjYvWvjmo84Bj7KUGlsSqMY
-	Fup1HSdr6H2XD8JiD5DGa+RtcQoOFG170ZWajjuxVjtCgpsnwQBSJSupT+diP55XQpn2+VON75gVt
-	V41c9IvVuztfUdFOtEn/VmKRfSxdH3CzCpWUHAoJHfjhQZ0TJUFEbRU0gOMNgTfNPD3iFNe97KtVT
-	dlNjOM9+HFs0ZbVTHn20YCNF0I+iJiJi/+rqjygvmST0sBRbw+gjtJVpuAJhvRhZaOntcNV3m/NIs
-	p0UF6wxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CxPInF1T9LVjEkvLtOyhGto+ZvX/qrXq2sR90esUvWw=; b=C76ZJTN2A06BPcYMIOcqkPG8Iv
+	nCDLQduGJ5zCOpVTEeCrS1HkZtCiZ5sADLzX/ihBTkPBHxVpiefWv+uJYYlk7edg92I42ceAZ5T7P
+	nyeYTgsvB6TNtxcPz/UWJ9PSgurUjXO164k5c+8fEJqywc5IX/3jnxill3FEpxmuyCa2uOC0f5Ruh
+	LTBEwsAmr3Vwtclzepd7iMSYv9t1AO0hUW9aBxh5M2KDjjUZxrDVJAt9tNFV1EzSUwqI+3ctZebqh
+	UMVHfNZUxrk4ncEAHd5pZqIMN1I9+5SoNnsqjgV9jh1Oz/mhsbd8YxtceKIzt9mEvyOdgquRidqZF
+	avaj8EEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDM60-00000003SXU-3SoO;
-	Fri, 09 May 2025 11:40:52 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uDM7x-00000003SmT-2Owy;
+	Fri, 09 May 2025 11:42:53 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDL6u-00000003Ipp-1XI0
+	id 1uDLE9-00000003KLz-138N
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 10:37:45 +0000
-Received: from pendragon.ideasonboard.com (static-176-133-119-130.ftth.abo.bbox.fr [176.133.119.130])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 097798DB;
-	Fri,  9 May 2025 12:37:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1746787049;
-	bh=AfXvqVxIz0QcRni0bewoQ8SDWdd4YjFQcafte966bIs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=h7UT3Xjs/pRKhU7lxaM7WRQzVzWXhWuGkKSZOVmofA/WwZhYru/+PZSvgknKuF1io
-	 7yJl7/1OKYS1WcQS+7fOrgo6TQiFhCzwe2JfRfSElkSSS8v4VRUhaCoeF/EqXEDaSY
-	 Noa+E4+cX5kKCjN0bwC/cIqTP8Qn2TJvN+XUtzZE=
-Date: Fri, 9 May 2025 12:37:33 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Krzysztof =?utf-8?Q?Ha=C5=82asa?= <khalasa@piap.pl>
-Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Fri, 09 May 2025 10:45:14 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-ad221e3e5a2so71275466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 03:45:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746787511; x=1747392311; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=CxPInF1T9LVjEkvLtOyhGto+ZvX/qrXq2sR90esUvWw=;
+        b=fRPwNiYlfBt17X/TuVd4oixZblsQhcFKW2qBY/cBmsmzjcMUgVdJhe5EkjC9+osVNa
+         TPJmSgwgwwOnLG+c/iZaNesVYSK+Dw2L3h9U2UCsNp4zETkzM9ZLgFxrDAuBAQrL+KOD
+         47nkiz15IVDe6oB8XZAY+r9+q6jz/CCaGAAy/BPU0th3RYVKGVR8XegxHNVZGTyb9nkR
+         7XJKuba+YBSBSD7P1ckvT8nGdv10XvQKyzAtXt5FIPHbhHm59Fb+bFZIu5/hb7Sq1i+z
+         vIJR4MWSuqYCA1Nx/fqfjMvIGWoxtJaTC0DyZuAUXFNa8E4DUj+20L0jHhMTiYBa5FQv
+         dVkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746787511; x=1747392311;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CxPInF1T9LVjEkvLtOyhGto+ZvX/qrXq2sR90esUvWw=;
+        b=ISoFc0LVHhF1PEWokMQwTmfDyZoIBuGCj6SSYC7bJdGFzt8EODwTg0Ba1F5JREIcc+
+         5eBF1we+Z+lzG5lqeIgzOScLkoumUFIdnp1Ck7A/njqy3AZ0z/AB9FE7uSEYMoxySijP
+         2s1lwUt6QSKGsZiDGI/drkRnYeNifYpdULrcf5VHYyAICmbxoZZO+LLy5SrEO+Yo6Dz1
+         RqIMgc6no3qFq1i2vZDLcmnEmpH5g3MKOK7j5gjoF6N7L7kLe+uSfM6eivRM4v0fFF8d
+         uzicZ0nYIHZlKcjWxELwXWi7fgBcYianQfjqW6YppYr5N9fB9fIBk3qQtDTStgu6OurY
+         Jwhw==
+X-Forwarded-Encrypted: i=1; AJvYcCU8+4y6QhaAMGIHZ4qS0KU+MQiV7dbYc+vvj9sc/NpOAoYnIi39S9g6s5YA4YJwCrDF/MnosFv5FV2HaclKUVbN@lists.infradead.org
+X-Gm-Message-State: AOJu0YyiSmJ9kBlcGiar0M99lUrpukN5mjp1F0y2AbYYz1kC2hU5nqRz
+	B3OxHRyZPP+Mb6bFgqfVcjqStxhZty2YHcR3KijFw4Tg+oGTz+sc
+X-Gm-Gg: ASbGnctyeXUPTA6uq0OW/XV3hEUVJmijS2BgWWvJ+qGzzNeQ7/CGeWM30/wq5SsZmzg
+	y4Z3U+Qi/BB3CyrSyduaDenhJGRaef6x9IvOM7w0hYAhuq0vsg5ibbJME4GDHgimcaWlFL1puSM
+	zDHa9hOCiwixUoY5pzz+gWw2Ph4DIriXp6mcRSDKFmN28fwcVYyWWyisLnJpMb87gqRNv5c6vXQ
+	L6olQS2PtXIvy1INARTmGHHwXZ2sMtjoQzIlMqyWnmznIgGo21qnPlfnOh3/XBDgd6z5fYDNtJq
+	/Et52V+TEUcFRTr0J0vxRWA4XNL/s4WOwuijUyA=
+X-Google-Smtp-Source: AGHT+IGGLGNvENgsehRHPyd78blj4yJFAdejnjHHmOciST0qvwqR/4gxuUrwFEkkZ1cDCGVf1I/sgg==
+X-Received: by 2002:a17:906:99c2:b0:acb:34b2:851 with SMTP id a640c23a62f3a-ad219170650mr281983666b.44.1746787510903;
+        Fri, 09 May 2025 03:45:10 -0700 (PDT)
+Received: from localhost ([87.254.1.131])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ad219853421sm129131466b.165.2025.05.09.03.45.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 May 2025 03:45:10 -0700 (PDT)
+From: Colin Ian King <colin.i.king@gmail.com>
+To: Patrice Chotard <patrice.chotard@foss.st.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Cc: kernel-janitors@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] Enable MIPI filtering by DT on i.MX8M*
-Message-ID: <20250509103733.GE28896@pendragon.ideasonboard.com>
-References: <m3h61u9jy2.fsf@t19.piap.pl>
+Subject: [PATCH][next] memory: stm32: Fix spelling mistake "resset" -> "reset"
+Date: Fri,  9 May 2025 11:44:58 +0100
+Message-ID: <20250509104459.28167-1-colin.i.king@gmail.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <m3h61u9jy2.fsf@t19.piap.pl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_033744_539701_B851A6A2 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20250509_034513_291858_90B0AE92 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,45 +100,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+There is a spelling mistake in a dev_err message. Fix it.
 
-Thank you for the patch.
+Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+---
+ drivers/memory/stm32_omm.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-On Fri, May 09, 2025 at 12:07:01PM +0200, Krzysztof Hałasa wrote:
-> In addition to raw image data, certain MIPI sensors send additional
-> information like NULL packets or "embedded 8-bit non-image data".
-> Without DT (data type) filtering, these packets end up in the frame
-> buffer, corrupting it.
-> 
-> Tested on i.MX8MP with IMX290 sensor.
-> 
-> Signed-off-by: Krzysztof Hałasa <khalasa@piap.pl>
-> 
-> diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-> index 29523bb84d95..d53a4262b63d 100644
-> --- a/drivers/media/platform/nxp/imx-mipi-csis.c
-> +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-> @@ -654,8 +654,7 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
->  	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
->  	val &= ~MIPI_CSIS_CMN_CTRL_LANE_NR_MASK;
->  	val |= (lanes - 1) << MIPI_CSIS_CMN_CTRL_LANE_NR_OFFSET;
-> -	if (csis->info->version == MIPI_CSIS_V3_3)
-> -		val |= MIPI_CSIS_CMN_CTRL_INTER_MODE;
-> +	val |= MIPI_CSIS_CMN_CTRL_INTER_MODE; /* enable filtering by DT */
-
-The condition was added because the CSIS in the i.MX8MM doesn't
-implement the INTERLEAVE_MODE field. We can't remove it unconditionally.
-
-You mentioned i.MX8MP, that's a platform where I'd like to see proper
-support for *capturing* embedded data, not just dropping it. Have you
-looked at how this could be implemented ?
-
->  	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL, val);
->  
->  	__mipi_csis_set_format(csis, format, csis_fmt);
-
+diff --git a/drivers/memory/stm32_omm.c b/drivers/memory/stm32_omm.c
+index 166baed0738a..bef7cf4391d6 100644
+--- a/drivers/memory/stm32_omm.c
++++ b/drivers/memory/stm32_omm.c
+@@ -173,7 +173,7 @@ static int stm32_omm_disable_child(struct device *dev)
+ 		ret = reset_control_acquire(reset);
+ 		if (ret) {
+ 			stm32_omm_toggle_child_clock(dev, false);
+-			dev_err(dev, "Can not acquire resset %d\n", ret);
++			dev_err(dev, "Can not acquire reset %d\n", ret);
+ 			return ret;
+ 		}
+ 
 -- 
-Regards,
+2.49.0
 
-Laurent Pinchart
 
