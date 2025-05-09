@@ -4,68 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD215C3ABCC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA15BC3ABD3
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 21:09:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KL6I1YmxNyuddUkwhXXWOAEg5l5FH054h54i4n0mk9A=; b=czsd3Cf00qq5WjX0oOjNPlkAaW
-	85uum4EOJkz3wLLdfm0hGIuDG4ZxKaH0aY5TxaejKtrJuivq9usCHwNi5hHLXBGR1QpW3NN2ttZn5
-	DZKYNqIjsqIkSgqiOxT0h5c+PKBjAGqobIEa3HwaXpN7vTunR0+b7e+QcRw9ch2crCHLIb9b9Qfh+
-	5mdb/J+trfT5HpgEW9ZP7/R4psVMylA0avg3G5qQGg7IOoqTSV8Efjcg5K0iMqsAuow0Dr+vmhXnI
-	sgr7bErC9zZZjIyLKhPoIxNsdX9OGMiv0n+cf+SGaIRt3S1yrqihcacQnxTF60E5kMi8KTU64/moV
-	rPyTT4VQ==;
+	bh=FyJvYyBbIG31EkvMbQZGkETWyU0MhgDcmer+R8iU04A=; b=Kqq9ijC333DNbvr6zgcwv2Z7St
+	GRKpqT5p8YjWYQCxvs24oBePCcFU+uGxdVoc/V5ks/7SPRFjo5wXLLEHciWxV5sEuIBcAcwkEf59y
+	1l6aC9SKCaJS9IzQpv5O+SiNM0EP78BzjI+Bu82F9Jp8SZvgjAKDqXexgl+1zd147b8jETysT8Fc2
+	So13r1XDmRrzyGPpkUxPGhhGxDpbHVx6aXvs4Q6VtdVY3elv6kgEgyYPoCX9GHvKM2wMkduqD4/ON
+	ctO39KZtTpgF4c1UkMojvzgU48rZFO72RYLT03sHpQOJo3eVCuFGkAwLFZIV/UvrybQslbV1wm4O3
+	RhVPgViA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDUxm-00000004ueT-0xMm;
-	Fri, 09 May 2025 21:08:58 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uDUxj-00000004ucq-3GxZ;
+	Fri, 09 May 2025 21:08:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDTth-00000004i70-2trg;
-	Fri, 09 May 2025 20:00:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=KL6I1YmxNyuddUkwhXXWOAEg5l5FH054h54i4n0mk9A=; b=Pyv7+A++X2qXrdKmdackh5Cjmi
-	B9Nyd3jGnhX3hYmeumXkeMOGKr4FpDEPOlbbS0ytzvkCOhlhTNJ6h1ceBAYGPeIlg7X/gwSgw7XcB
-	1qIS7bVdgpYEBy3MBHIs19mt0OjsmvBNlsUJTNCCxrFYHUMr//HgecLQDDLujTqJc+kDOXmv7tqYh
-	CV0EylPgXa3UGkVeLsYIPfjRtglRPjRJmv27hrcvlYT0eOGULIt76/jy6Mbx45sivLRU8p+UWUmJB
-	22FYIhTxgK17ghYSGxoTR6NYRIHIguKAoY4PVdHFTiz93EonqnwUtBDxs9FhC2uM98XL5BfOgEVkL
-	gOo4/EGA==;
-Received: from i53875a1d.versanet.de ([83.135.90.29] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uDTtb-0004Jo-LF; Fri, 09 May 2025 22:00:35 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Yao Zi <ziyao@disroot.org>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 0/2] Support SD/SDIO controllers on RK3528
-Date: Fri,  9 May 2025 22:00:23 +0200
-Message-ID: <174682074858.2029046.4538748769888209188.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250508234829.27111-2-ziyao@disroot.org>
-References: <20250508234829.27111-2-ziyao@disroot.org>
+	id 1uDTgp-00000004hFL-1207
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 May 2025 19:47:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6913A61120;
+	Fri,  9 May 2025 19:47:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A7D8C4CEE4;
+	Fri,  9 May 2025 19:47:20 +0000 (UTC)
+Date: Fri, 9 May 2025 15:47:35 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ jstultz@google.com, qperret@google.com, will@kernel.org,
+ kernel-team@android.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 05/24] tracing: Add events to trace remotes
+Message-ID: <20250509154735.530d4a37@gandalf.local.home>
+In-Reply-To: <20250506164820.515876-6-vdonnefort@google.com>
+References: <20250506164820.515876-1-vdonnefort@google.com>
+	<20250506164820.515876-6-vdonnefort@google.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_130041_726997_A0B81A5F 
-X-CRM114-Status: GOOD (  17.74  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,68 +64,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue,  6 May 2025 17:48:01 +0100
+Vincent Donnefort <vdonnefort@google.com> wrote:
 
-On Thu, 08 May 2025 23:48:28 +0000, Yao Zi wrote:
-> RK3528 features two SDIO controllers and one SD/MMC controller. This
-> series brings the SD/MMC one up on Radxa E20C board. Both HS and SDR104
-> modes are verified.
-> 
-> - Changed from v5
->   - Drop applied clock patches
->   - Rebase on top of linux-rockchip/for-next
->   - Link to v5: https://lore.kernel.org/all/20250506092206.46143-1-ziyao@disroot.org/
-> - Changed from v4
->   - rk3528 clock driver
->     - Switch to auxiliary GRF
->     - drop rockchip_clk_register_grf_branches
->     - Rename branch_mmc_grf to branch_grf_mmc to make style consistent
->       (with branch_grf_gate)
->   - Link to v4: https://lore.kernel.org/all/20250417143647.43860-1-ziyao@disroot.org/
-> - Changed from v3
->   - Drop applied binding patch of MMC controller
->   - Rebase on top of linux-rockchip/for-next
->   - Link to v3: https://lore.kernel.org/all/20250309055348.9299-1-ziyao@disroot.org/
-> - Changed from v2
->   - Apply review tags
->   - Rebase on top of linux-rockchip/for-next and drop applied patches
->   - RK3528 devicetree
->     - Fix accidentally dropped status property of saradc node
->     - drop det and pwren pinctrls for SDIO{0,1} according to the
->       reference design
->     - Correct max-frequency for SDIO{0,1}
->   - rk3528-radxa-e20c devicetree
->     - Don't disable sdio for sdmmc as claimed in the hw design guide
->   - Link to v2: https://lore.kernel.org/all/20250305194217.47052-1-ziyao@disroot.org/
-> - Changed from v1
->   - Apply review tags
->   - Rebase on top of linux-rockchip/for-next and saradc v2 series
->   - rk3528 clock driver:
->     - explicitly include minmax.h, replace MAX() with more robust max()
->     - readability improvements
->     - fix error checks: ERR_PTR(-ENODEV), instead of ERR_PTR(ENODEV), is
->       returned when syscon_regmap_lookup_by_compatible() fails for missing
->       such syscon
->   - RK3528 devicetree
->     - Add default pinctrl
->     - Move the per-SoC property, rockchip,default-sample-phase, into the
->       SoC devicetree
->   - rk3528-radxa-e20c devicetree
->     - Assign sdcard to mmc1
->     - Add missing regulators
->     - Apply no-sdio for the sdmmc controller
->     - Sort nodes
->   - Link to v1: https://lore.kernel.org/all/20250301104250.36295-1-ziyao@disroot.org/
-> 
-> [...]
+> diff --git a/include/linux/trace_remote_event.h b/include/linux/trace_remote_event.h
+> new file mode 100644
+> index 000000000000..621c5dff0664
+> --- /dev/null
+> +++ b/include/linux/trace_remote_event.h
+> @@ -0,0 +1,23 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +
+> +#ifndef _LINUX_TRACE_REMOTE_EVENTS_H
+> +#define _LINUX_TRACE_REMOTE_EVENTS_H
+> +
+> +struct trace_remote;
+> +struct trace_event_fields;
+> +
+> +struct remote_event_hdr {
+> +	unsigned short	id;
+> +};
+> +
+> +#define REMOTE_EVENT_NAME_MAX 29
 
-Applied, thanks!
+29 is a particularly strange number. It's not even divisible by
+sizeof(short). This will leave a hole in the remote_event structure.
 
-[1/2] arm64: dts: rockchip: Add SDMMC/SDIO controllers for RK3528
-      commit: 894a2640422208b1d3e4c238f126220d406e5fb1
-[2/2] arm64: dts: rockchip: Enable SD-card interface on Radxa E20C
-      commit: a2130d9123b23d74a717f52240fa3cb92bf8113c
+Should it be "30" to plug up that one byte space between name and "id"?
 
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+-- Steve
+
+> +struct remote_event {
+> +	char				name[REMOTE_EVENT_NAME_MAX];
+> +	unsigned short			id;
+> +	bool				enabled;
+> +	struct trace_remote		*remote;
+> +	struct trace_event_fields	*fields;
+> +	char				*print_fmt;
+> +	void				(*print)(void *evt, struct trace_seq *seq);
+> +};
 
