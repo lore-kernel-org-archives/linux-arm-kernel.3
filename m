@@ -4,74 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17572C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 09:10:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A5AEC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 09:12:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HCP/12rAyQwOl5LrFAi4QTkdDpc/orvAD1e4tN/2d7M=; b=Fbw3DLJTkfqNxazAMsd55xR4mw
-	7414DT+QljxjMlRtSjgry+2QlcaH6vplWxtWQX4vUvxIaiFAC9BH0rFTYEdiIRBBGXdKlcHhRdz6z
-	7wOUqij7iN/1Tliq2vkYJkcN70VZ4JBj8dUqQh/A4MrCCajGH3nwVypZS92LlSvuNba9pRvf4aPNQ
-	Hsaso9hy2LCpE+02sJ99kCw3kMeqqbSnu6l7ETpiqCwYXpLGO/SXDUE/bTydczl4K0RsffSjiwQiE
-	BxIsk50v78GlRwDy4q7ZEjnOv09hw8+eIdW0NmrSaBGgyVStoo11hOmLro/onqBEQ67Wd27NMPVYp
-	x9jqLCKg==;
+	bh=jiF1pbiit8RXJodj15L4E9c2gnVhsdzQP7MvMTnz+gk=; b=b1T66QWH4SbVcLX0mye126kKbU
+	/uqmFn/CZoLfTqmXvS7cnWYEvcCFCXkuL1uDCqlY0pR626FegPe1KBJRdmPwAqrl4qlGIdtIA8jiI
+	PcbcaIZoMuIhzCQvs4L03/96s4MOWmskS2dWelBj/TPi5VT+ku06AahviQ8BrB8zRUMOfPQac+4NJ
+	7hcLNwcV3kE4fi9LIb0U6DT9JArQIKWgRoEaVskG5EG0HfwmZXGJ2n585lrlpV8uQbvixvJ1sqABi
+	Adu6O+0aSgOmY8HjL9oMJtkWPelRy8keTm4Yjguynqw84JFtxQQ8fPo+vf17eJDkljlwX6AtX01uk
+	8Bf0K0kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDJkd-000000033Bw-1QGO;
-	Fri, 09 May 2025 09:10:39 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uDJma-000000033c4-3P1p;
+	Fri, 09 May 2025 09:12:40 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDJ2g-00000002vE6-0NGy
+	id 1uDJ9O-00000002vwp-01ZG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 08:25:15 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5498PAbZ1345842
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 9 May 2025 03:25:10 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746779110;
-	bh=HCP/12rAyQwOl5LrFAi4QTkdDpc/orvAD1e4tN/2d7M=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=xELnqpi5bJF6eitop24E6D+ONFUP6vAFMe4viDUsGo918leyJuxKbUUP/VzPAV2qS
-	 xoV9sxH7fdjs5eTTB19jWdnUxuk4C0HVcMUIHD1x+X7l5lvEGOtH3csGwW340ZpscN
-	 sJJyR8R3NOE2W292EGMNF42N05Q62iAFN+TEgtvE=
-Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5498PAm6095237
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 9 May 2025 03:25:10 -0500
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 9
- May 2025 03:25:09 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 9 May 2025 03:25:10 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5498P9uR003472;
-	Fri, 9 May 2025 03:25:09 -0500
-Date: Fri, 9 May 2025 03:25:09 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Prasanth Babu Mantena <p-mantena@ti.com>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
-Subject: Re: [PATCH v2] arm64: dts: ti: k3-j721e-common-proc-board: Enable
- OSPI1 on J721E
-Message-ID: <20250509082509.ogfs2ulyfgk6etxc@unshaved>
-References: <20250507050701.3007209-1-p-mantena@ti.com>
+	Fri, 09 May 2025 08:32:11 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3a0be50048eso1088770f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 01:32:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1746779528; x=1747384328; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=jiF1pbiit8RXJodj15L4E9c2gnVhsdzQP7MvMTnz+gk=;
+        b=ZuBu78EPezi2QLGkZdE0XU3He/UHH51huThNBMA+vR4uAhpVN37pabtvZfDN8s0Wj7
+         9Q+nMTruWNKUW8K1rUTt2/KFhT2Hj1co1FtDxx7CHvXoyVsUwhJSVoAU/DHl5R2g2QnP
+         vbOGaCWy+LDeu5Qz5mIBBADygKrA/0u5qEftGjKq0zTTO124+Z+1CKLlR9FCfLUc8Yje
+         sBsGnTOJ6AEfUPsNve4XUg7vBgcYk480f4S6Bxp27paOxQ19SDW6qdGke/20CDXYmRg7
+         zZUVtxwfWqyadjzE6LstUxeKy3iC0ImeahDzj+doU5xDOScVzGVHKxeAnhthGl45huSm
+         M/pA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746779528; x=1747384328;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jiF1pbiit8RXJodj15L4E9c2gnVhsdzQP7MvMTnz+gk=;
+        b=oYTn5vUH8cmE6kdbaWdTW4pbPRNkYRt1BznVduhJz6nPrpm0jP+V3xLQDso0ozDmET
+         whxxnVZ468AkhxbSK4D8H++AzieLGN0DkEwxIZIrSK3ry2nP/w+MlpC/twwTRZ5jOlvE
+         V+CIcN4tw86RwYgLmYKcYiHCdqh414RkSWVmMEVEUKAX+bBqMOGdGHRG7yC/MdJDmVNR
+         IxwqDWFAb1BBDfgIYZ2khiNi8Wbym1y18bbbfSC+L0JDh2CzM32DRYXX+I2qEIzUh02s
+         uiSj4DqKu51Eh7aDtlTHVQEqhECtH8ni0lOgYdf11o9jfuvZmTMvh/UEbAD1awgZegqI
+         s2WQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVZY2apBz73qqfu0rENbMaUdwWmuNsbpcXpol9T9I2vAkoZHBgzQXN0zYawzFuWV8B8RLhydqpveW2WvJ3yjzKQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YypWNXrTVl9N45K+f4Mlg1TD9COAnnZw0jGn65o3NuRphkH/j78
+	kXGFSaeeKP33TJE509IKRTIUbS8KDr2+vG49rRVqWGg6QUJaE9Ve/shEGjRbbI8=
+X-Gm-Gg: ASbGncuyGZx4LXjB/69A6sm5VfIihARbMJrGDFYQSyhXYNFj5WTf0ZGQbpUM9QoPdJz
+	y7xTKibrXd9hnmELv2m9+CAySP7DbEqGejGO4vIx3I042MYYyw2Afed6zZNBJ4wk+KoDC8ccq4Z
+	V62bgvqZsVMYKNOUHELYPgSHgn/71JUfKfLvA9fQAv+rHUvxkA9SK1rDH4io2FiFSd5X/T3DyIV
+	JnPGmInBcK0d+AyydRMqmpvTiw0+RGx+BEfpHiO8+CaGmA1QhuBSmhb99PaLynDbC+xLzwLDt/q
+	sqMVTfG2rVyJ8Vh+R/Q2gYk45SBI3h5M50kOk/iSJSpkQY4Vm+r2d/zd
+X-Google-Smtp-Source: AGHT+IGo7ag956w5i3W9+O4Hysr5DbRbNHyxYYXKoci+clSYLagmnbvGr8QjyCHV5wNtMeLk2ElqtQ==
+X-Received: by 2002:a05:6000:2485:b0:39c:13f5:dba0 with SMTP id ffacd0b85a97d-3a1f64328bbmr2116798f8f.13.1746779527863;
+        Fri, 09 May 2025 01:32:07 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3a1f5a4bbf0sm2480709f8f.82.2025.05.09.01.32.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 May 2025 01:32:07 -0700 (PDT)
+Date: Fri, 9 May 2025 11:32:04 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Patrice Chotard <patrice.chotard@foss.st.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, christophe.kerello@foss.st.com,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v11 2/3] memory: Add STM32 Octo Memory Manager driver
+Message-ID: <aB29hOrv0nU73RCn@stanley.mountain>
+References: <20250428-upstream_ospi_v6-v11-0-1548736fd9d2@foss.st.com>
+ <20250428-upstream_ospi_v6-v11-2-1548736fd9d2@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250507050701.3007209-1-p-mantena@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20250428-upstream_ospi_v6-v11-2-1548736fd9d2@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_012514_217331_2BEFE05C 
-X-CRM114-Status: GOOD (  17.14  )
+X-CRM114-CacheID: sfid-20250509_013210_058090_B995B963 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,54 +106,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10:37-20250507, Prasanth Babu Mantena wrote:
-> J721E SoM has MT25QU512AB Serial NOR flash connected to
-> OSPI1 controller. Enable ospi1 node in device tree.
->
-> Fixes: cb27354b38f3b ("arm64: dts: ti: k3-j721e: Add DT nodes for few peripherials")
+On Mon, Apr 28, 2025 at 10:58:31AM +0200, Patrice Chotard wrote:
+> +static int stm32_omm_toggle_child_clock(struct device *dev, bool enable)
+> +{
+> +	struct stm32_omm *omm = dev_get_drvdata(dev);
+> +	int i, ret;
+> +
+> +	for (i = 0; i < omm->nb_child; i++) {
+> +		if (enable) {
+> +			ret = clk_prepare_enable(omm->clk_bulk[i + 1].clk);
+> +			if (ret) {
+> +				dev_err(dev, "Can not enable clock\n");
+> +				goto clk_error;
+> +			}
+> +		} else {
+> +			clk_disable_unprepare(omm->clk_bulk[i + 1].clk);
+> +		}
+> +	}
+> +
+> +	return 0;
+> +
+> +clk_error:
+> +	while (i--)
+> +		clk_disable_unprepare(omm->clk_bulk[i + 1].clk);
+> +
+> +	return ret;
+> +}
+> +
+> +static int stm32_omm_disable_child(struct device *dev)
+> +{
+> +	struct stm32_omm *omm = dev_get_drvdata(dev);
+> +	struct reset_control *reset;
+> +	int ret;
+> +	u8 i;
+> +
+> +	ret = stm32_omm_toggle_child_clock(dev, true);
+> +	if (!ret)
+            ^^^^
+I'm pretty sure this was intended to be if (ret) and the ! is a typo.
 
-Yes, cb27354b38f3b ("arm64: dts: ti: k3-j721e: Add DT nodes for few
-peripherials") did not enable the node, But back then, we used to
-ensure all nodes were left default (okay) and then disable unused
-nodes in board dts.
+> +		return ret;
 
-BUT, we ended up having a bunch of maintenance issues and board bring
-up problems and looking at the rest of the ARM ecosystems (you can
-check the mailing list for all the discussions on the topic), we
-flipped the order for peripherals that need board level connectivity
-for functionality to be disabled in SoC.dtsi and enabled explicitly at
-board level and when that occurred, specifically:
-73676c480b72 ("arm64: dts: ti: k3-j721e: Enable OSPI nodes at the board
-level") which enabled ospi0 at SoM level, but missed fixing this up,
-whoops!
+If it's not a typo please write this as:
 
-I will fix this up locally when I apply this patch. but FYI.
+	if (!ret)
+		return 0;
 
-> Signed-off-by: Prasanth Babu Mantena <p-mantena@ti.com>
-> ---
-> Test log : https://gist.github.com/PrasanthBabuMantena/9dda540dce88282117de7e0e945e24ca
->  arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts
-> index e3d0ef6913b2..45311438315f 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts
-> @@ -573,6 +573,7 @@ &usb1 {
->  &ospi1 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&mcu_fss0_ospi1_pins_default>;
-> +	status = "okay";
->
->  	flash@0 {
->  		compatible = "jedec,spi-nor";
-> --
-> 2.34.1
->
->
+regards,
+dan carpenter
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+> +
+> +	for (i = 0; i < omm->nb_child; i++) {
+> +		/* reset OSPI to ensure CR_EN bit is set to 0 */
+> +		reset = omm->child_reset[i];
+> +		ret = reset_control_acquire(reset);
+> +		if (ret) {
+> +			stm32_omm_toggle_child_clock(dev, false);
+> +			dev_err(dev, "Can not acquire resset %d\n", ret);
+> +			return ret;
+> +		}
+> +
+> +		reset_control_assert(reset);
+> +		udelay(2);
+> +		reset_control_deassert(reset);
+> +
+> +		reset_control_release(reset);
+> +	}
+> +
+> +	return stm32_omm_toggle_child_clock(dev, false);
+> +}
+
 
