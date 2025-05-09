@@ -4,75 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51F7CC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:25:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AB8FC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:25:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=upz+BP1PpvZRL3Gk76mNduNNnZ2k0rnk5kAxI2QKcA4=; b=jmohajPZpENpGLLXkIQdKwoaHg
-	EIJ+xrY6dYV2IuiJKq+MD8sFGr0v0D1ceSWxsiKr+4kexYSFMJepbbKSNs0pVJKWUXUZ4DnqeWi0h
-	oheTdcVrzbVbHyQw2kZjglLKTcdtqZeyM6NUU6VAqZ19T6NSd5dzv+LjPuN/6eR/2FszQYjmd9JCj
-	oj4uCrKISgYAUSOKz6DspMFlPpvU7hButxIGDZvAHXWQ40K3TP5Kyl78jki/auSy8IjsoYhlqnoaP
-	0hkeWqdDGV3O78TFIctVUYi0k58NNEJFIs+7XxU6vdYbVasHLhikOGag+106np1zvL2WMC1R6YGRD
-	r6Ju5rJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y/9Q87GfCSX07DNRn6GtHmS3mtXcQo/BjHlI0tVBM1s=; b=rCLeGntqx1DPQ3cFeHlXM2/qnC
+	r7Rco7URZaMMUZTQxiG8faYGqtnoHpzXmEYfyHmX+4NtsOYPGYk0ETY8KPVBQ/TGC1zFqbZ2gQOLT
+	1LdYyxFuV7KU78GHhWIRPwUAuk3MQJFTou8Nd76Jr1BNIhw4HPOMaHg0uEkjQjC6vIJz+WffpkKDu
+	M4d3fec11whXVT9n4kahmX0CUPtACxzVQTmK0rFoKHe2nwxoaUbb/BiFYzOTqeqr0cqEC4059Ckiz
+	53DIva7MEW+IM6tFRo846jg35JJ3X/yy4zqRxhV5zYIhOcARTaEZhrYxXud0hp2m7dSPOKfVuFtQ/
+	R2syRjBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDUHj-00000004mYQ-15Yn;
-	Fri, 09 May 2025 20:25:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDPf6-000000045Cx-2Fup
+	id 1uDUHi-00000004mYA-2u0h;
+	Fri, 09 May 2025 20:25:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uDPdu-000000044tZ-2YIi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 15:29:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1A0F545072
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 May 2025 15:29:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED7B7C4CEE4
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 May 2025 15:29:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746804560;
-	bh=u+Whabb4TQ+V1V2yliDhCWhKigIzzI/sTbPFTZHRF9E=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Iuu3n4Uyj9Btr+jAtfZQO2qjS0zZ7RvAv1/Ep7KZB1PHN+vV4+FOjUVtgkxDFd7nW
-	 PvqhnTI3zFN4yCj4jYGc05jA6TjJnhGSaN+tBmwcpN+iBnBRlYuGBJpE56EKG6KWSC
-	 oo/JzeXV/yajvU9K3qL6UaXLlhw5G0C8qF6ibeEUWzdJW0Ht1YdQy0uiJ6fCx1hpgK
-	 yzc6pWnMbtHTNEc1jEOjW32Vj3yHka+rYotvt+YUdJrp63YXFHzNKAguZdD4uAMqM4
-	 FE2jB20XFkgQaM4GpFofMJbRwfRV366gf1cy+5s6dQgjIahNBlif357qgPt94YruaW
-	 fFKee0/9OzeCA==
-Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-ac3eb3fdd2eso403064166b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 08:29:19 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUaoyRe5i58RgE4RgY+VoAcVi9oR7B2iCFM827IWBoSYSqeUjooT+BRCKW24yh6gMqnF3oEM2/qAbNdMWUwwIXC@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcLbfPTqp7+JDRdshy0zuOVrizXoLHp7mtQtfUJ9GP/MReC2j8
-	T7/ObyRF8P0XXuQDDqlhP30wxx5TVmOy/KKZupEcz8IgqhimPbyclDT0DexfrjqToeob0RKhx3y
-	plkael0rNcuR5WLn6+2ptXL0ueQ==
-X-Google-Smtp-Source: AGHT+IFpczEUqnPNYIDG6QEN4AY6S+XPrH2ZeIjVtW3vGPBCT3ZbrywOOs0Ayv9anzhiuXSkFJbKCQ8a0cunW/1ogxI=
-X-Received: by 2002:a17:906:34c1:b0:ad2:2b35:8f8b with SMTP id
- a640c23a62f3a-ad22b3592c8mr93912566b.23.1746804558571; Fri, 09 May 2025
- 08:29:18 -0700 (PDT)
+	Fri, 09 May 2025 15:28:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 676451595;
+	Fri,  9 May 2025 08:27:54 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3CC293F58B;
+	Fri,  9 May 2025 08:28:04 -0700 (PDT)
+Date: Fri, 9 May 2025 16:28:01 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Leo Yan <leo.yan@arm.com>
+Cc: "Rob Herring (Arm)" <robh@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: fvp: Add ETE and TRBE nodes for Rev C model
+Message-ID: <20250509-pastoral-mighty-zebra-a1e63d@sudeepholla>
+References: <20250508161907.1152054-1-leo.yan@arm.com>
+ <174679984987.3368571.16872352739655196662.robh@kernel.org>
 MIME-Version: 1.0
-References: <20250507154924.1602842-1-robh@kernel.org> <2025050935-suffocate-snazzy-c5f3@gregkh>
-In-Reply-To: <2025050935-suffocate-snazzy-c5f3@gregkh>
-From: Rob Herring <robh@kernel.org>
-Date: Fri, 9 May 2025 10:29:07 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqKjssqGOO6H9RCneo86fKop4bQtiKNcCq_95fOk2CP+eA@mail.gmail.com>
-X-Gm-Features: AX0GCFvTiTZ5y8MxQ5bk6A7pgLq2QXkWvtig-fgmbVa_BSqfAAnHtSv9O7h6O8E
-Message-ID: <CAL_JsqKjssqGOO6H9RCneo86fKop4bQtiKNcCq_95fOk2CP+eA@mail.gmail.com>
-Subject: Re: [PATCH v2] dt-bindings: serial: Convert socionext,milbeaut-usio-uart
- to DT schema
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Jiri Slaby <jirislaby@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Taichi Sugaya <sugaya.taichi@socionext.com>, 
-	Takao Orito <orito.takao@socionext.com>, Thierry Reding <treding@nvidia.com>, 
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <174679984987.3368571.16872352739655196662.robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_082920_596157_BE3BD523 
-X-CRM114-Status: GOOD (  15.13  )
+X-CRM114-CacheID: sfid-20250509_082806_702421_8CF0EBE6 
+X-CRM114-Status: GOOD (  26.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,32 +65,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 9, 2025 at 9:51=E2=80=AFAM Greg Kroah-Hartman
-<gregkh@linuxfoundation.org> wrote:
->
-> On Wed, May 07, 2025 at 10:49:22AM -0500, Rob Herring (Arm) wrote:
-> > Convert the Socionext Milbeaut UART binding to DT schema. It is a
-> > straight-forward conversion.
-> >
-> > Reviewed-by: Thierry Reding <treding@nvidia.com>
-> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+On Fri, May 09, 2025 at 09:17:00AM -0500, Rob Herring (Arm) wrote:
+> 
+> On Thu, 08 May 2025 17:19:07 +0100, Leo Yan wrote:
+> > The FVP Rev C model includes CoreSight ETE and TRBE support.  These
+> > features can be enabled by specifying parameters when launching the
+> > model:
+> > 
+> >   -C cluster0.has_ete: 1
+> >   -C cluster1.has_ete: 1
+> >   -C cluster0.has_trbe: 1
+> >   -C cluster1.has_trbe: 1
+> > 
+> > This change adds device tree bindings for the ETE and TRBE nodes.  They
+> > are disabled by default to prevent kernel warnings from failed driver
+> > probes, as the model does not enable the features unless explicitly
+> > specified.
+> > 
+> > Signed-off-by: Leo Yan <leo.yan@arm.com>
 > > ---
-> > v2:
-> >  - Fix $id path
-> > ---
-> >  .../bindings/serial/milbeaut-uart.txt         | 21 -------
-> >  .../serial/socionext,milbeaut-usio-uart.yaml  | 56 +++++++++++++++++++
-> >  2 files changed, 56 insertions(+), 21 deletions(-)
-> >  delete mode 100644 Documentation/devicetree/bindings/serial/milbeaut-u=
-art.txt
-> >  create mode 100644 Documentation/devicetree/bindings/serial/socionext,=
-milbeaut-usio-uart.yaml
->
-> Are you wanting all of these serial "convert to dt schema" patches to go
-> through the tty/serial tree, or will you be taking them?  Either is fine
-> with me, your choice.
+> >  arch/arm64/boot/dts/arm/fvp-base-revc.dts | 62 +++++++++++++++++++++++
+> >  1 file changed, 62 insertions(+)
+> > 
+> 
+> 
+> My bot found new DTB warnings on the .dts files added or changed in this
+> series.
+> 
+> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+> are fixed by another series. Ultimately, it is up to the platform
+> maintainer whether these warnings are acceptable or not. No need to reply
+> unless the platform maintainer has comments.
+> 
+> If you already ran DT checks and didn't see these error(s), then
+> make sure dt-schema is up to date:
+> 
+>   pip3 install dtschema --upgrade
+> 
+> 
+> This patch series was applied (using b4) to base:
+>  Base: attempting to guess base-commit...
+>  Base: failed to guess base
+> 
+> If this is not the correct base, please add 'base-commit' tag
+> (or use b4 which does this automatically)
+> 
+> New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/arm/' for 20250508161907.1152054-1-leo.yan@arm.com:
+> 
+> arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete0 (arm,embedded-trace-extension): 'arm,coresight-loses-context-with-cpu' does not match any of the regexes: '^pinctrl-[0-9]+$'
+> 	from schema $id: http://devicetree.org/schemas/arm/arm,embedded-trace-extension.yaml#
+> arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete0 (arm,embedded-trace-extension): $nodename:0: 'ete0' does not match '^ete(-[0-9]+)?$'
+> 	from schema $id: http://devicetree.org/schemas/arm/arm,embedded-trace-extension.yaml#
+> arch/arm64/boot/dts/arm/fvp-base-revc.dtb: ete1 (arm,embedded-trace-extension): 'arm,coresight-loses-context-with-cpu' does not match any of the regexes: '^pinctrl-[0-9]+$'
 
-You can take them. With all of them, we're done converting serial drivers!
+arm,coresight-loses-context-with-cpu is not defined in the
+arm,embedded-trace-extension bindings though the driver is shared with
+arm,coresight-etm. It needs to be defined in the schema to avoid this
+warnings.
 
-Rob
+-- 
+Regards,
+Sudeep
 
