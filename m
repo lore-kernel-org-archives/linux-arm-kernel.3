@@ -4,89 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AFA3C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 10:45:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C414DC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 10:46:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=etoiHHyRBq2rLgJXv5Y9hE7Q7cEfLHiNK8ewd9bv5mI=; b=x0edp5KdkHdeiHL3261cbDDY+c
-	7iPoa9d1Nz3qnn7R+VN8KZjuG7lLzG05DchmRSkx+CJ3V3zlUZ8/0bx+8Ds4gvLdUA/s3XRoataih
-	/FoTnseA0JRf50d0oYWLHmlp+MaOhLxQqTXv3Om20X8clSYHfmlrrl16Eq8Yv2pwJkoy0a7ihgP3T
-	HowLiiBi9JR+z6jz8v+th7xZMgiuqnXUwv5+MPuGWHcyP7YIP3f6hPU3AMctncMrT97mqx7sUZc0u
-	r9CzvQ/R4TiUFA9NY4QZdK488T5tnOujTv+WzrEC5q4M67XkCD0v3LZJhrjonobEGgGEOqbOe3ZDT
-	LhiNwdsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aKXgpxfD7mmRDEDKIXuu87HZmsIYrRD/fM7ub6mxn3U=; b=lyPH+fetbFWgCKTdgWYQCEUKZt
+	xOAlnfgfMz87E5Yx6cXlQX7BgZgBRpetsh2Xm0y/sgTLvvMT0kRAtBRiHemei7bxKd7gA9qvHhCHh
+	POkqEjuRELpPvKj3VPAbGYOfYcrXUkzS32fDFaMrGbALTSyvoHrIVP+M9LlsFELLdMmpoIcTrTB15
+	DCS5bweLzAFrQvZ+bAOF5HtqBrc51NZWNLuNM2QPAqxaNmO7paUN4yCi8f7Bgs7QHnStMPR+e5Wby
+	bSIKC9i81GGxwzxsUqJHqao5JjiXuOAzL79sRLM4QUM3kNhSj4biQy+NVHGqaItwOTwQVtecog10U
+	7W0uhLsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDLDp-00000003KFK-0M0e;
-	Fri, 09 May 2025 10:44:53 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1uDLFk-00000003Kof-38Ju;
+	Fri, 09 May 2025 10:46:52 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDKWY-00000003Bg4-3dsL
+	id 1uDKWu-00000003BkW-3T5H
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 10:00:11 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-740b3a18e26so1433996b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 03:00:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746784810; x=1747389610; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=etoiHHyRBq2rLgJXv5Y9hE7Q7cEfLHiNK8ewd9bv5mI=;
-        b=iF/UDoXesuhMFHWwwTjoeOg3aFmlEqCGuITSdqzcK1uCMp0iSR2DyaKmfSlTjLdKjN
-         ytf1iz6pF+Hv58znqXndkz9LSFX3tR+Q5SMhlbkZQi1JG5bzjtv0w/U9xUavMIlAZ2Y6
-         MZTGQ9+dza/jZ9KMoNHCxjEpM2HMm4vzfnF/u3CUX+vzl7PjiLr8jcbyXDIYXCCmW9FE
-         c5Bw4xZZMtJpyVdfkDMRAj3Scjrtdzjrdg+o1nnOupxbG+k24wWZX2UmqchDeYuQP6ji
-         no/RjRodzu55Hcc/HdUjFGsnrLJDJJIqDSz243mvzKpqfNbKUt5PRQu5+ecn9xQwNxjz
-         9faQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746784810; x=1747389610;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=etoiHHyRBq2rLgJXv5Y9hE7Q7cEfLHiNK8ewd9bv5mI=;
-        b=qSAdzYvDNWchyJmkKvC1O4X4O9L8boz9Nl/d//xKaNsJYWhiDMYyVN+ChH5odut/hX
-         RBZ/xYFMvLzoN/n7wNwvmNcEkrxz6KkmWg4MrKWozHcN5o+aphXYhlIZBoTFOI16ALXZ
-         /6UXgus7ttKy8lenf93KEV7sJsPD/0x+64OkG15Fp0BXxJvvLVByl55IXP6ltA87O/3d
-         MZMMqLzfN8/BJRNqO8ETGLyLsvsOwY/WEdE2AATxlt5aaVY8lcySC19YUVu50FIOaLBy
-         l5UZs/5IHqAtJXP2Ie6D9/kYlqA7EfvsBlgDkCMz8rLAAYrjQPAAWU3z5OJeHK9p/OQe
-         know==
-X-Gm-Message-State: AOJu0Yx/aBcaqk3c7lwD4B6atqX9dqEZOPp+uKD4UE+kn5bCVJfGUr0U
-	pJFZdbvZQvfMQ68GeheVnOVTRoQZFQm5zEvv2nEO2NTfmR9rN1pu
-X-Gm-Gg: ASbGncu1e2XrvhO/tWQr2KkBGIUzVb8aI4ro3FxHn9VhaOrOLnfmBAdVGLk1cqat9bW
-	pXNZEYAVG2P22WFYM7qW/I5eGAcHTBlPbsCARfJ3ina9rTN3FMg6CWgOkd+eCHBqusfTvEZrCQl
-	EnQ/IylkLHMz1uThBzVVk6gI2MaZ6AFG+x23Chu4Ut8n20vu+wOryNTKSLD88rjdkGCtN0d+G2D
-	MEP61vrQCuIo79AnxY4wP9oYm1oPARc/RO+RmLcpRqpJZ1rcufQ7OrVx9w60pA/xt/CSTZw9j6a
-	4rODWc9jbT93Q7DDl3n4rfyqx0AOqoQ7LkaDLliEcTDgm6m9XP2Q
-X-Google-Smtp-Source: AGHT+IEQRGYYdmuOQpYE6EFYgcT85Xf/QwhETlpYtJ33rrK6CmDFYaOZXAoRcYjJE621GAnYX0Yxzg==
-X-Received: by 2002:a05:6a00:9286:b0:740:a023:5d60 with SMTP id d2e1a72fcca58-7423c032792mr3999373b3a.19.1746784809483;
-        Fri, 09 May 2025 03:00:09 -0700 (PDT)
-Received: from OSC.. ([106.222.230.45])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74237704f36sm1419403b3a.36.2025.05.09.03.00.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 May 2025 03:00:08 -0700 (PDT)
-From: Pavan Bobba <opensource206@gmail.com>
-To: maz@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Pavan Bobba <opensource206@gmail.com>
-Subject: [PATCH] KVM:FIXME comment is removed since no longer required
-Date: Fri,  9 May 2025 15:29:57 +0530
-Message-ID: <20250509095957.6271-1-opensource206@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 09 May 2025 10:00:34 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4Zv4Hs2XlNz9tmm;
+	Fri,  9 May 2025 12:00:25 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pankajraghav.com;
+	s=MBO0001; t=1746784825;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=aKXgpxfD7mmRDEDKIXuu87HZmsIYrRD/fM7ub6mxn3U=;
+	b=BFOgVJ5+QR381y/dIAleHjzFrncarnnRrLIvkfIuVBJoCzdGHilzSjyWwzigpb8OHgcL1S
+	brnGWQm/AffVHiQ8fWgJSEzKrzFQOTwCa7uUcc5Sj+NyP7rCPavkdpOduPyEY6jc1fTF7k
+	Tmpjpv7hBmtj4HJNLjriLMY6BU8xkEng5hcA2/M7NgpBKfgUvmXjOTj4HbGrCR/LlwcOtE
+	6plgndT3N6J46arHCoY0b/igVj5RSLw8x63A/uUKfi97CNG4y69OOeNgxLufVsEM0oz3sJ
+	W5dJQA+jmz7kuAPNFd0mAFoIBvHMfPZdw69jnMMtuQwTY17OqpGVMjAkhgp7og==
+Date: Fri, 9 May 2025 12:00:09 +0200
+From: "Pankaj Raghav (Samsung)" <kernel@pankajraghav.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, David Hildenbrand <david@redhat.com>, 
+	Dave Chinner <david@fromorbit.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-mm@kvack.org
+Subject: Re: [RFC PATCH v4 3/5] mm/readahead: Make space in struct
+ file_ra_state
+Message-ID: <vyyxrpfhdpz6lg4frvafi2mxpgvlciianyhcfmcvli3yobguy4@zxy5n4pwgbo5>
+References: <20250430145920.3748738-1-ryan.roberts@arm.com>
+ <20250430145920.3748738-4-ryan.roberts@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250430145920.3748738-4-ryan.roberts@arm.com>
+X-Rspamd-Queue-Id: 4Zv4Hs2XlNz9tmm
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_030010_905959_2EFBA8AD 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20250509_030033_019670_58688408 
+X-CRM114-Status: GOOD (  24.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,30 +81,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FIXME comment can be removed since finalize_init_hyp_mode()
-is invoked after kvm_init()
+On Wed, Apr 30, 2025 at 03:59:16PM +0100, Ryan Roberts wrote:
+> We need to be able to store the preferred folio order associated with a
+> readahead request in the struct file_ra_state so that we can more
+> accurately increase the order across subsequent readahead requests. But
+> struct file_ra_state is per-struct file, so we don't really want to
+> increase it's size.
+> 
+> mmap_miss is currently 32 bits but it is only counted up to 10 *
+> MMAP_LOTSAMISS, which is currently defined as 1000. So 16 bits should be
+> plenty. Redefine it to unsigned short, making room for order as unsigned
+> short in follow up commit.
+> 
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 
-Signed-off-by: Pavan Bobba <opensource206@gmail.com>
----
- arch/arm64/kvm/arm.c | 4 ----
- 1 file changed, 4 deletions(-)
+Looks good.
+Reviewed-by: Pankaj Raghav <p.raghav@samsung.com>
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 19ca57def629..36a4b6277537 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -2856,10 +2856,6 @@ static __init int kvm_arm_init(void)
- 				     "h" : "n"),
- 		 cpus_have_final_cap(ARM64_HAS_NESTED_VIRT) ? "+NV2": "");
- 
--	/*
--	 * FIXME: Do something reasonable if kvm_init() fails after pKVM
--	 * hypervisor protection is finalized.
--	 */
- 	err = kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
- 	if (err)
- 		goto out_subs;
--- 
-2.43.0
-
+> ---
+>  include/linux/fs.h |  2 +-
+>  mm/filemap.c       | 11 ++++++-----
+>  2 files changed, 7 insertions(+), 6 deletions(-)
+> 
+> diff --git a/include/linux/fs.h b/include/linux/fs.h
+> index 016b0fe1536e..44362bef0010 100644
+> --- a/include/linux/fs.h
+> +++ b/include/linux/fs.h
+> @@ -1042,7 +1042,7 @@ struct file_ra_state {
+>  	unsigned int size;
+>  	unsigned int async_size;
+>  	unsigned int ra_pages;
+> -	unsigned int mmap_miss;
+> +	unsigned short mmap_miss;
+>  	loff_t prev_pos;
+>  };
+>  
+> diff --git a/mm/filemap.c b/mm/filemap.c
+> index 7b90cbeb4a1a..fa129ecfd80f 100644
+> --- a/mm/filemap.c
+> +++ b/mm/filemap.c
+> @@ -3207,7 +3207,7 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
+>  	DEFINE_READAHEAD(ractl, file, ra, mapping, vmf->pgoff);
+>  	struct file *fpin = NULL;
+>  	unsigned long vm_flags = vmf->vma->vm_flags;
+> -	unsigned int mmap_miss;
+> +	unsigned short mmap_miss;
+>  
+>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+>  	/* Use the readahead code, even if readahead is disabled */
+> @@ -3275,7 +3275,7 @@ static struct file *do_async_mmap_readahead(struct vm_fault *vmf,
+>  	struct file_ra_state *ra = &file->f_ra;
+>  	DEFINE_READAHEAD(ractl, file, ra, file->f_mapping, vmf->pgoff);
+>  	struct file *fpin = NULL;
+> -	unsigned int mmap_miss;
+> +	unsigned short mmap_miss;
+>  
+>  	/* If we don't want any read-ahead, don't bother */
+>  	if (vmf->vma->vm_flags & VM_RAND_READ || !ra->ra_pages)
+> @@ -3595,7 +3595,7 @@ static struct folio *next_uptodate_folio(struct xa_state *xas,
+>  static vm_fault_t filemap_map_folio_range(struct vm_fault *vmf,
+>  			struct folio *folio, unsigned long start,
+>  			unsigned long addr, unsigned int nr_pages,
+> -			unsigned long *rss, unsigned int *mmap_miss)
+> +			unsigned long *rss, unsigned short *mmap_miss)
+>  {
+>  	vm_fault_t ret = 0;
+>  	struct page *page = folio_page(folio, start);
+> @@ -3657,7 +3657,7 @@ static vm_fault_t filemap_map_folio_range(struct vm_fault *vmf,
+>  
+>  static vm_fault_t filemap_map_order0_folio(struct vm_fault *vmf,
+>  		struct folio *folio, unsigned long addr,
+> -		unsigned long *rss, unsigned int *mmap_miss)
+> +		unsigned long *rss, unsigned short *mmap_miss)
+>  {
+>  	vm_fault_t ret = 0;
+>  	struct page *page = &folio->page;
+> @@ -3699,7 +3699,8 @@ vm_fault_t filemap_map_pages(struct vm_fault *vmf,
+>  	struct folio *folio;
+>  	vm_fault_t ret = 0;
+>  	unsigned long rss = 0;
+> -	unsigned int nr_pages = 0, mmap_miss = 0, mmap_miss_saved, folio_type;
+> +	unsigned int nr_pages = 0, folio_type;
+> +	unsigned short mmap_miss = 0, mmap_miss_saved;
+>  
+>  	rcu_read_lock();
+>  	folio = next_uptodate_folio(&xas, mapping, end_pgoff);
+> -- 
+> 2.43.0
+> 
 
