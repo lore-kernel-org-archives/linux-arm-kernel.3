@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BA7EC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 10:08:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7998C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 10:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=W6/iRFYzPNHtnA5edzxBiliTVPFalD8x1Cxf9opghRw=; b=kRJKg1dVncCHjScKme6jB50RzQ
-	Yf7UdtAoafG4Fz8RCjkl4nqzc1saedA29b5mxzVRUHmiPWk/kdLEyN9zEleUYUH+5uKkSQ6p5a3Hx
-	ZiWr7+AW0UpJe0LMVTHiBnt24kEQ6xurIvEDJJQiDS45ixHgXIXzgIATt9hclBCuzukUj3CrIhcJ1
-	saElTt8mMMHow+wgCac9NvWjxAvJW/tzIP6seRttDSMZsNVclEeSEcmcLBRuVAhM2QHCAM0eNkjX4
-	STRzlnco/xmeiRolkZzoQpwapE3YfRbg0RrskH9xTw/IZy9lLdtQ6HG3NOD3ixl2yK3ajOIUgKACG
-	fovmSucA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uoLYLwLT+B43IHFMa2nHyDWREdBWwB5fKOnCamiqucU=; b=A6iiUzQxRB08u83FypgcptoXpQ
+	n2gCejee4MdsGGWuoYYD4GzWqjQ7Tg/iNaNTKxId81TQn8gv+fa9amUUGGmFggrnwvM3uRWMRpYXq
+	iBe9w6DsdEEsIayZSzkmaK+O1Ea+LJrExm3BWXTCe+mwmdWdfXi9pqms778I2xkf1k3VPyzdGzcDw
+	5P6M/fpf6mxfxqEj/0Y8FtooD/4hMHBaegu/QIJufpW/FsRFWlbv8gK6SpzgY6UOC7IGWezt3PRLf
+	4GbhNt2ufMRp4WpRsVYYmUo1hRg/PL08khc7FWOnTjNzNF1QF8mziOhhZWWeQb1lVwi8NmjKqVELG
+	PXCY0Mtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDKet-00000003Cww-3gnD;
-	Fri, 09 May 2025 10:08:47 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uDKgq-00000003DKe-2HuH;
+	Fri, 09 May 2025 10:10:48 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDJtK-0000000350z-43bP
+	id 1uDJtO-0000000351w-146T
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 09:19:40 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5499JQXW2126646
+	Fri, 09 May 2025 09:19:43 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5499JalR1350858
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 9 May 2025 04:19:26 -0500
+	Fri, 9 May 2025 04:19:36 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746782366;
-	bh=W6/iRFYzPNHtnA5edzxBiliTVPFalD8x1Cxf9opghRw=;
-	h=From:To:CC:Subject:Date;
-	b=isek1appXOplxDelovhP2CQ+QdYp1bFsyp9Gtw/sQciNXHYsnmVNdYjbO+XVHhm0H
-	 t8idkFQnGWf4Ibx4R645/qzqqpih2paTsdMspNIjKF27XuWdvaKevBkKuxsnA2HqdY
-	 Jib51lRN2AGXdkso4xiKvzcoNQwLugKxeYtw/zwY=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5499JQ9i029335
+	s=ti-com-17Q1; t=1746782376;
+	bh=uoLYLwLT+B43IHFMa2nHyDWREdBWwB5fKOnCamiqucU=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=aq8crRlOozvzXWdkVEMmwV5dHUC2KI6NuR0B/OilGzFFaMeu3tFrGkeE1QgzskiZ3
+	 CmROepyB2prowXN+sfNwHu07HJjnoBHjuSsHQ4C+Iu2sxCb68xNL5F4W65T6X2d7Lo
+	 4RFVIHnblLDPU5Omw6NBkRuelcsJvMxP47RgfNWE=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5499JatQ123911
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 9 May 2025 04:19:26 -0500
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 9 May 2025 04:19:36 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 9
- May 2025 04:19:25 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ May 2025 04:19:35 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 9 May 2025 04:19:25 -0500
+ Frontend Transport; Fri, 9 May 2025 04:19:35 -0500
 Received: from abhilash-HP.dhcp.ti.com (abhilash-hp.dhcp.ti.com [172.24.227.115])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5499JL7r070287;
-	Fri, 9 May 2025 04:19:21 -0500
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5499JL7t070287;
+	Fri, 9 May 2025 04:19:32 -0500
 From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>
@@ -60,17 +60,20 @@ CC: <vaishnav.a@ti.com>, <u-kumar1@ti.com>, <r-donadkar@ti.com>,
         <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <jai.luthra@linux.dev>, <linux-kernel@vger.kernel.org>,
         <y-abhilashchandra@ti.com>
-Subject: [PATCH v3 0/4] Add overlays for IMX219 and OV5640 on J722S
-Date: Fri, 9 May 2025 14:49:07 +0530
-Message-ID: <20250509091911.2442934-1-y-abhilashchandra@ti.com>
+Subject: [PATCH v3 2/4] arm64: dts: ti: j722s-evm: Add MUX to control CSI2RX
+Date: Fri, 9 May 2025 14:49:09 +0530
+Message-ID: <20250509091911.2442934-3-y-abhilashchandra@ti.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250509091911.2442934-1-y-abhilashchandra@ti.com>
+References: <20250509091911.2442934-1-y-abhilashchandra@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_021939_094360_93564C74 
-X-CRM114-Status: GOOD (  15.74  )
+X-CRM114-CacheID: sfid-20250509_021942_380703_B93C5533 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,52 +88,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds IMX219 and OV5640 overlays to enable support
-for 4 sensors on J722S. This provides a reference for a user to
-enable a different sensor on any of the ports.
+J722S EVM has the CSI2RX routed to a MIPI CSI connector and to 22-pin RPi
+camera connector through an analog mux with GPIO control, model mux so
+that an overlay can control the mux state according to connected cameras.
 
-Test logs:
-IMX219: https://gist.github.com/Yemike-Abhilash-Chandra/88d4803378d4a3e20f1cbd3b9ada91ac
-Ov5640: https://gist.github.com/Yemike-Abhilash-Chandra/738737fa5b1b635d260d9601ae2e85aa 
-
+Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+Reviewed-by: Udit Kumar <u-kumar1@ti.com>
+---
 Changelog:
 Changes in v3:
-- Add make file entries in alpha sorted order in Patch 3/4 and 4/4
-- Change vcc_3v3_exp to vsys_3v3_exp as per schematics in Patch 1/4
-- Change "model that so that" to "model mux so that" in commit message of Patch 2/4
-- Correct copyright year in tevi-OV5640 overlay in Patch 4/4
+- Change "model that so that" to "model mux so that" in commit message
 
-v2: https://lore.kernel.org/all/20250508155134.2026300-1-y-abhilashchandra@ti.com/
+ arch/arm64/boot/dts/ti/k3-j722s-evm.dts | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-Changes in v2:
-- J722S EVM has the CSI2RX routed to MIPI CSI connector and to 22-pin RPi
-  camera connector through an analog mux. Initially, the analog mux was modeled
-  in the overlay in v1, But following the convention used on other platforms,
-  the analog mux has been moved to the base device tree. So that an overlay
-  can control the mux state according to connected cameras.
-- Correct the vin-supply for RPI camera connectors. To do the same add missing
-  power regulators in the device tree.
-- Mark GPIO used in the comment
-- Add reset-gpios property for tevi-OV5640 overlay
-
-v1: https://lore.kernel.org/all/20250505115700.500979-1-y-abhilashchandra@ti.com
-
-Vaishnav Achath (2):
-  arm64: dts: ti: k3-j722s-evm: Add overlay for quad IMX219
-  arm64: dts: ti: k3-j722s-evm: Add overlay for TEVI OV5640
-
-Yemike Abhilash Chandra (2):
-  arm64: dts: ti: j722s-evm: Add DT nodes for power regulators
-  arm64: dts: ti: j722s-evm: Add MUX to control CSI2RX
-
- arch/arm64/boot/dts/ti/Makefile               |   9 +
- ...k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso | 329 ++++++++++++++++++
- .../k3-j722s-evm-csi2-quad-tevi-ov5640.dtso   | 323 +++++++++++++++++
- arch/arm64/boot/dts/ti/k3-j722s-evm.dts       |  36 ++
- 4 files changed, 697 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso
- create mode 100644 arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
-
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+index 2213993acbc9..a47852fdca70 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+@@ -266,6 +266,20 @@ transceiver2: can-phy2 {
+ 		max-bitrate = <5000000>;
+ 		standby-gpios = <&exp1 17 GPIO_ACTIVE_HIGH>;
+ 	};
++
++	csi01_mux: mux-controller-0 {
++		compatible = "gpio-mux";
++		#mux-state-cells = <1>;
++		mux-gpios = <&exp1 6 GPIO_ACTIVE_HIGH>;
++		idle-state = <0>;
++	};
++
++	csi23_mux: mux-controller-1 {
++		compatible = "gpio-mux";
++		#mux-state-cells = <1>;
++		mux-gpios = <&exp1 7 GPIO_ACTIVE_HIGH>;
++		idle-state = <0>;
++	};
+ };
+ 
+ &main_pmx0 {
 -- 
 2.34.1
 
