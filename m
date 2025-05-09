@@ -4,48 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B87C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 10:28:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A25FC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 10:30:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OdhKmSjr3fS6aIJw+ZUKRda5YAHZ7MhICfDZ21TpS30=; b=YBvmapKN3bP6lSA12t0zpq+anB
-	10KbU3LS6+viXLOlP/V07OeKJuH3ZcuiONJ20Zm1kPuGjDLi9v2TGOHBTisJ7q/4hoLdGsLUngYw9
-	BholM2dPpe7GV4sX0fnDvh+VaC9gg7vrEFXmavL1S8A3Yr4lU0EtwferYBTDH6aVwHhUeMmmCIlfp
-	mhm6JrmPpmO8iAaXmovCLMIJYMaCGMOu3svTy+YYErDu2yP5156L13Ud73IG3cIDfx/K/yjs/bYBR
-	4Pw2tvy1Lz8S+8ftuGrP+RXikkcQ5guoDiuoCoZEojXPJoysDrodr0Hqx2eFxtdKPX87IusX4UKbe
-	ZqxLdR9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fR6bV/VWNkt0/i7Ae/A56SWMRQM5Q06PfZHqyQgKWJk=; b=126d9dxtoEjV0/syrrgH4KAkD6
+	KwWe8FpK8KZCOWSkEOqE+USaIMLeCNfoi8LMp61iB2Nkp+74YkSULv8xx4ULMvlWbe3vHScimpCwd
+	KxygoalwAKP69aChDq2cqSjG4uz/sG/9rh/D035bs5sUK8djNlBdzNeHsxN+rpLxlXdKcK6TwjKnW
+	BTBFbxB5mOh4OZRr0U4vPGqrTA/aH8siF3azbaZLoZote87j2+M5os1gl1kaGQXEjKMrxO/g7HA99
+	v/WNASH21RI4ayEu/nVDEdtaUfT0WzsuOVuXXCa6rdeYyqCLV+K89SiMpjkAa3U6pELHqlFvZq0F6
+	QctEbW2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDKyJ-00000003H7F-1sZf;
-	Fri, 09 May 2025 10:28:51 +0000
-Received: from ni.piap.pl ([195.187.100.5])
+	id 1uDL0F-00000003HdP-3rbT;
+	Fri, 09 May 2025 10:30:51 +0000
+Received: from mx0a-0064b401.pphosted.com ([205.220.166.238])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDK0S-000000036if-3XRj
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 09:27:02 +0000
-Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
-	by ni.piap.pl (Postfix) with ESMTPS id C88F3C405A46;
-	Fri,  9 May 2025 11:26:55 +0200 (CEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl C88F3C405A46
-From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
-To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan
- <peng.fan@nxp.com>, linux-pm@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH] imx8m-blk-ctrl: set ISI panic write hurry level
-Date: Fri, 09 May 2025 11:26:55 +0200
-Message-ID: <m3ldr69lsw.fsf@t19.piap.pl>
+	id 1uDK1f-000000036u7-0BIe;
+	Fri, 09 May 2025 09:28:16 +0000
+Received: from pps.filterd (m0250810.ppops.net [127.0.0.1])
+	by mx0a-0064b401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5498UaT2012563;
+	Fri, 9 May 2025 02:28:09 -0700
+Received: from ala-exchng02.corp.ad.wrs.com (ala-exchng02.wrs.com [147.11.82.254])
+	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 46dee3f05g-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Fri, 09 May 2025 02:28:09 -0700 (PDT)
+Received: from ALA-EXCHNG02.corp.ad.wrs.com (147.11.82.254) by
+ ALA-EXCHNG02.corp.ad.wrs.com (147.11.82.254) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.43; Fri, 9 May 2025 02:28:09 -0700
+Received: from pek-lpg-core1.wrs.com (147.11.136.210) by
+ ALA-EXCHNG02.corp.ad.wrs.com (147.11.82.254) with Microsoft SMTP Server id
+ 15.1.2507.43 via Frontend Transport; Fri, 9 May 2025 02:28:05 -0700
+From: <jianqi.ren.cn@windriver.com>
+To: <gregkh@linuxfoundation.org>, <stable@vger.kernel.org>
+CC: <patches@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+        <jianqi.ren.cn@windriver.com>, <fullwaywang@outlook.com>,
+        <tiffany.lin@mediatek.com>, <andrew-ct.chen@mediatek.com>,
+        <mchehab@kernel.org>, <matthias.bgg@gmail.com>,
+        <linux-media@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-mediatek@lists.infradead.org>
+Subject: [PATCH 5.15.y] media: mtk-vcodec: potential null pointer deference in SCP
+Date: Fri, 9 May 2025 17:28:05 +0800
+Message-ID: <20250509092805.3242802-1-jianqi.ren.cn@windriver.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Proofpoint-ORIG-GUID: JPDXlUU78oy8GWbRgHEFoe2a2inWsnIL
+X-Authority-Analysis: v=2.4 cv=Pd3/hjhd c=1 sm=1 tr=0 ts=681dcaa9 cx=c_pps a=K4BcnWQioVPsTJd46EJO2w==:117 a=K4BcnWQioVPsTJd46EJO2w==:17 a=dt9VzEwgFbYA:10 a=VwQbUJbxAAAA:8 a=UqCG9HQmAAAA:8 a=t7CeM3EgAAAA:8 a=7f2alXSBUxmpNkzq_swA:9 a=FdTzh2GWekK77mhwV6Dw:22
+X-Proofpoint-GUID: JPDXlUU78oy8GWbRgHEFoe2a2inWsnIL
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTA5MDA5MCBTYWx0ZWRfX0AUpPuVIhF8K 1HdCfPaiGDVHFj2cglJ38I3OcM4xeqGSTn07eE5r9XdZqr6686sT7Gg1PwGY3+c6FBMyYLo3tSM lUzAWuEHXkuNnNONvOwjcC7+HKBL07n3GWpoEMw02jmt2plgGBbUmXoBUkuZO968snYCbtbXf2f
+ UhQvsrKK8Dhw6MKafkZhZ8231h6r1hkB5w0y+q9KHuGTVCVRpGvSawD0M81bKs0zLQrZKnncuxe 9YvtzfM5n8dPlMWubMACAR3Jp1Bl2JtF7kEPONa45/hjQ5uWh3YIFvSubthdqNS2idNz8hzDAgK Y+W1sjAK0uOpPe/BP8155ZLPaAoSFyEkMN1TDIbiBDLXKqsD/cc5TuXxiXOWS2CW6YOQ1P+wDSr
+ 6NFwhCsQjomRz1HIQFuthMPdWD5He75UHnOsan+RZcNj5+bHzaKi0ytoZuBQHCw53rwQjsH/
+X-Sensitive_Customer_Information: Yes
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-09_03,2025-05-08_04,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0
+ priorityscore=1501 mlxscore=0 suspectscore=0 spamscore=0 malwarescore=0
+ impostorscore=0 clxscore=1015 mlxlogscore=999 phishscore=0 bulkscore=0
+ lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.21.0-2504070000
+ definitions=main-2505090090
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_022701_041011_6F12AF3B 
-X-CRM114-Status: UNSURE (   6.73  )
+X-CRM114-CacheID: sfid-20250509_022815_076931_847B4CAD 
+X-CRM114-Status: UNSURE (   9.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -61,48 +89,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apparently, ISI needs cache settings similar to LCDIF.
-Otherwise we get artefacts in the image.
-Tested on i.MX8MP.
+From: Fullway Wang <fullwaywang@outlook.com>
 
-Signed-off-by: Krzysztof Ha=C5=82asa <khalasa@piap.pl>
+[ Upstream commit 53dbe08504442dc7ba4865c09b3bbf5fe849681b ]
 
-diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/i=
-mx8m-blk-ctrl.c
-index 912802b5215b..5c83e5599f1e 100644
---- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-+++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-@@ -665,6 +665,11 @@ static const struct imx8m_blk_ctrl_data imx8mn_disp_bl=
-k_ctl_dev_data =3D {
- #define  LCDIF_1_RD_HURRY	GENMASK(15, 13)
- #define  LCDIF_0_RD_HURRY	GENMASK(12, 10)
-=20
-+#define ISI_CACHE_CTRL		0x50
-+#define  ISI_V_WR_HURRY		GENMASK(28, 26)
-+#define  ISI_U_WR_HURRY		GENMASK(25, 23)
-+#define  ISI_Y_WR_HURRY		GENMASK(22, 20)
-+
- static int imx8mp_media_power_notifier(struct notifier_block *nb,
- 				unsigned long action, void *data)
- {
-@@ -694,6 +699,11 @@ static int imx8mp_media_power_notifier(struct notifier=
-_block *nb,
- 		regmap_set_bits(bc->regmap, LCDIF_ARCACHE_CTRL,
- 				FIELD_PREP(LCDIF_1_RD_HURRY, 7) |
- 				FIELD_PREP(LCDIF_0_RD_HURRY, 7));
-+		/* Same here for ISI */
-+		regmap_set_bits(bc->regmap, ISI_CACHE_CTRL,
-+				FIELD_PREP(ISI_V_WR_HURRY, 7) |
-+				FIELD_PREP(ISI_U_WR_HURRY, 7) |
-+				FIELD_PREP(ISI_Y_WR_HURRY, 7));
+The return value of devm_kzalloc() needs to be checked to avoid
+NULL pointer deference. This is similar to CVE-2022-3113.
+
+Link: https://lore.kernel.org/linux-media/PH7PR20MB5925094DAE3FD750C7E39E01BF712@PH7PR20MB5925.namprd20.prod.outlook.com
+Signed-off-by: Fullway Wang <fullwaywang@outlook.com>
+Signed-off-by: Mauro Carvalho Chehab <mchehab@kernel.org>
+[Minor conflict resolved due to code context change.]
+Signed-off-by: Jianqi Ren <jianqi.ren.cn@windriver.com>
+Signed-off-by: He Zhe <zhe.he@windriver.com>
+---
+Verified the build test
+---
+ drivers/media/platform/mtk-vcodec/mtk_vcodec_fw_scp.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/media/platform/mtk-vcodec/mtk_vcodec_fw_scp.c b/drivers/media/platform/mtk-vcodec/mtk_vcodec_fw_scp.c
+index d8e66b645bd8..27f08b1d34d1 100644
+--- a/drivers/media/platform/mtk-vcodec/mtk_vcodec_fw_scp.c
++++ b/drivers/media/platform/mtk-vcodec/mtk_vcodec_fw_scp.c
+@@ -65,6 +65,8 @@ struct mtk_vcodec_fw *mtk_vcodec_fw_scp_init(struct mtk_vcodec_dev *dev)
  	}
-=20
- 	return NOTIFY_OK;
+ 
+ 	fw = devm_kzalloc(&dev->plat_dev->dev, sizeof(*fw), GFP_KERNEL);
++	if (!fw)
++		return ERR_PTR(-ENOMEM);
+ 	fw->type = SCP;
+ 	fw->ops = &mtk_vcodec_rproc_msg;
+ 	fw->scp = scp;
+-- 
+2.34.1
 
---=20
-Krzysztof "Chris" Ha=C5=82asa
-
-Sie=C4=87 Badawcza =C5=81ukasiewicz
-Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-Al. Jerozolimskie 202, 02-486 Warszawa
 
