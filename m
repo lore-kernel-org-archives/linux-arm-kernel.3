@@ -4,85 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA8CC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 12:49:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 184DBC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 12:51:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ma+b8N066QaGSyWsLGBH3Lx31B3PH3+V2WWdiSdpxI=; b=ELBpTjkTfBd4L/OrtZ8bZ8WZXK
-	cgAKC8EUDx/4nKCnuVT60uduxOkLwNJRCAoTVHP2s1fjg7D3CtR7XP72klJuRN/ql3l5pOnbUNhyn
-	c+ebp9eo11utP1GZu1rj3pUOhHrJc8EUOuYppCTYmt+tGU3h5f6tPLTAyzd4yncShOdWYZUElIJsp
-	fAMxKrE4xFgifcau1ctwGiK3hXvwKiDoJAd4QSWkywwoNT4o16ZdXL9e5ZtC42szyVX/3bf2vuvYm
-	i36h1Cg3rGHc00BeXt+818pBLIbBCo7a9BkJ45f4G6z0YEW69JFVU4Mbd7uaCzRNzA9IZydSCLrH2
-	S8sKhzwg==;
+	bh=uZznWLba/NrZlGr5Qa9wgXdmAIeUPmYseOlEvibVjwc=; b=FZwAKvL23X0EbBauNSnyusLNg4
+	gF4w5p3tGx9GNwNY9po0NzNffv0fSJdHBlrBOpKbJIRilCqNgU2rW/UFJtA/bDaJiPv0Mze3thmG3
+	s6g2HnsDPRXJzIyT/dc1jsMofkZXKPbIIYbUltT+JAIpT6wu/TKFMCw7OMxLWrT8pByS02JalDydl
+	gJyxX0POdW1cNXNsf0wSnoIv1u/FubcznSyIs9he9poQHrOegh0IcuXwHyG709fenIYRPD6HPNUTT
+	Zq7YdWu7uJ89O8WIUx+REMc9y1ONfDECMVr+Enim6P+g18eC971VPyUhQHrxDIVkqapHDS7oom/Su
+	vvpdWkZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDNAT-00000003dp6-2o62;
-	Fri, 09 May 2025 12:49:33 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1uDNCQ-00000003e38-01uU;
+	Fri, 09 May 2025 12:51:34 +0000
+Received: from mail-m16.yeah.net ([220.197.32.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDMLp-00000003Ve3-2BQ1
+	id 1uDMRm-00000003Wft-0qHa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 11:57:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1746791834; x=1778327834;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=nneM42ftNf3W9eCqj0oF7myaBx5QhI8te/vlDu4AEA4=;
-  b=ncH4M4RJ2KX5bS0Jw7Mvz/0rYputq8fnqr1MMYddGee3KvNBiXct4w6y
-   lvHGUw7GjHhE5apLG/fCqoCA3mISw5p6z4SnUNQC/K8LIdOkgqDKRUEm0
-   sx4j7zUrKLYpGl/zLXhgPa0X9rYwd7Jgz93KEN4XnCCp94DEnFc7AXuJV
-   08nRcESKUBSZ+Y6MDsfA+TCnqfUVQbcQ1Wlp9BCVU3F/80W74E12YaVu+
-   tWU3k60eN0BmbcyAYFDINiliVABVurc7IcRdWBhkynOHowdGFq2mWMztn
-   pnGQ166ZUryXpEhRIv5kq+Bl+SRSeO44etnZzIWeei392vNSz3KouU4FH
-   A==;
-X-CSE-ConnectionGUID: 6WN9lT3fTvm9Gykh3w3neg==
-X-CSE-MsgGUID: Vku614evRimwXsTroQPRfA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11427"; a="48776053"
-X-IronPort-AV: E=Sophos;i="6.15,275,1739865600"; 
-   d="scan'208";a="48776053"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 May 2025 04:57:13 -0700
-X-CSE-ConnectionGUID: CvWz7RQGRRSOCk4M2XPC7g==
-X-CSE-MsgGUID: uozSwc/uRNikMEe1RoxKqw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,275,1739865600"; 
-   d="scan'208";a="140655720"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by fmviesa003.fm.intel.com with ESMTP; 09 May 2025 04:57:07 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uDMLh-000C2N-1E;
-	Fri, 09 May 2025 11:57:05 +0000
-Date: Fri, 9 May 2025 19:56:46 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jeremy Linton <jeremy.linton@arm.com>,
-	linux-trace-kernel@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, linux-perf-users@vger.kernel.org,
-	mhiramat@kernel.org, oleg@redhat.com, peterz@infradead.org,
-	acme@kernel.org, namhyung@kernel.org, mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	irogers@google.com, adrian.hunter@intel.com,
-	kan.liang@linux.intel.com, thiago.bauermann@linaro.org,
-	broonie@kernel.org, yury.khrustalev@arm.com,
-	kristina.martsenko@arm.com, liaochang1@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Jeremy Linton <jeremy.linton@arm.com>
-Subject: Re: [PATCH v3 4/7] arm64: probes: Add GCS support to bl/blr/ret
-Message-ID: <202505091926.PBPRfjKb-lkp@intel.com>
-References: <20250504233203.616587-5-jeremy.linton@arm.com>
+	Fri, 09 May 2025 12:03:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=uZznWLba/NrZlGr5Qa9wgXdmAIeUPmYseOlEvibVjwc=;
+	b=mlGh+L/e3yD5Rzxyt5H4YE5WgU95NUq48DtszJYSAK09t/qKPMO2tb5qPO1ANa
+	CO673MDq3NgqiHbSRopshU79k8zJukP3ey48IEnX4Qkfdka1wZIaOXr7jETDafFC
+	6D0y8KiZxyUvBGEnGDjZ8UUDzIl3iL/FuD1aBPN4ml7Gw=
+Received: from dragon (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgC3N_Ke7h1oXnOrAA--.65461S3;
+	Fri, 09 May 2025 20:01:36 +0800 (CST)
+Date: Fri, 9 May 2025 20:01:34 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>, Stephen Boyd <sboyd@kernel.org>,
+	linux-amarula@amarulasolutions.com,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org, Abel Vesa <abel.vesa@linaro.org>
+Subject: Re: (subset) [PATCH v12 00/19] Support spread spectrum clocking for
+ i.MX8M PLLs
+Message-ID: <aB3unsCzCFUkdp9i@dragon>
+References: <20250424062154.2999219-1-dario.binacchi@amarulasolutions.com>
+ <174643143452.2950397.16722215892279685541.b4-ty@linaro.org>
+ <CABGWkvrkVLRocFsZs9JLni4KDZCDyYDZxMzwA9AzAwipmUyTzQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250504233203.616587-5-jeremy.linton@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CABGWkvrkVLRocFsZs9JLni4KDZCDyYDZxMzwA9AzAwipmUyTzQ@mail.gmail.com>
+X-CM-TRANSID: Ms8vCgC3N_Ke7h1oXnOrAA--.65461S3
+X-Coremail-Antispam: 1Uf129KBjvJXoWxXw1kGFWrCr1furWUWr13CFg_yoW5WrWUpa
+	4SkayqyrWDJFy8GF9Fyr45ta40qw4DZay8Jw1Ygr90v34YqF15JFW7Kry5KFyUG3yfC39r
+	tay5Xw1ku3WYvFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j4c_fUUUUU=
+X-Originating-IP: [117.81.80.76]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCxNIZWgd37UzoAAAs5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_045713_611027_8329F095 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20250509_050322_558408_2743CD02 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,168 +86,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jeremy,
+On Thu, May 08, 2025 at 10:32:10AM +0200, Dario Binacchi wrote:
+> Hello Shawn,
+> 
+> On Mon, May 5, 2025 at 9:52 AM Abel Vesa <abel.vesa@linaro.org> wrote:
+> >
+> >
+> > On Thu, 24 Apr 2025 08:21:30 +0200, Dario Binacchi wrote:
+> > > This version keeps the version v9 patches that can be merged and
+> > > removes the patches that will need to be modified in case Peng's
+> > > PR https://github.com/devicetree-org/dt-schema/pull/154 is accepted.
+> > > The idea is to speed up the merging of the patches in the series
+> > > that have already been reviewed and are not dependent on the
+> > > introduction of the assigned-clocks-sscs property, and postpone
+> > > the patches for spread spectrum to a future series once it becomes
+> > > clear what needs to be done.
+> > >
+> > > [...]
+> >
+> > Applied, thanks!
+> >
+> > [01/19] dt-bindings: clock: imx8mm: add VIDEO_PLL clocks
+> >         commit: 20e5d201b5d8f830e702d7d183f6b1b246b78d8a
+> > [02/19] clk: imx8mm: rename video_pll1 to video_pll
+> >         commit: 26a33196b5b68cf199b6c4283a254aa92d2aaf4b
+> > [03/19] dt-bindings: clock: imx8mp: add VIDEO_PLL clocks
+> >         commit: 2d50415e2457c6f6621c2faa3b01b11150fb9c67
+> > [04/19] clk: imx8mp: rename video_pll1 to video_pll
+> >         commit: 21bb969f608cefd8d847cf6eb50a193d9f1fbb87
+> > [05/19] dt-bindings: clock: imx8m-anatop: add oscillators and PLLs
+> >         commit: 2ba124053687c933031a6dc5b2e16ceaca250934
+> > [10/19] clk: imx: add hw API imx_anatop_get_clk_hw
+> >         commit: 17e3c1a272d97e49b4f3fbfe1f1b889e120d2be8
+> > [11/19] clk: imx: add support for i.MX8MM anatop clock driver
+> >         commit: 3cbc38cf42ca42d2dc9a93c949e0381ff919df71
+> > [12/19] clk: imx: add support for i.MX8MN anatop clock driver
+> >         commit: 80badb1d7264e83b512475898e7459f464a009c9
+> > [13/19] clk: imx: add support for i.MX8MP anatop clock driver
+> >         commit: 4c82bbe8b5437c7f16b2891ce33210c0f1410597
+> > [14/19] clk: imx8mp: rename ccm_base to base
+> >         commit: 1a77907dbbecfbe5e6a1aec28afd49a1dc184b7a
+> > [16/19] dt-bindings: clock: imx8m-clock: add PLLs
+> >         commit: 6a55647af3334f1d935ece67de4a838a864b53fc
+> >
+> 
+> Please check the remaining patches, as they are required for correctly
+> building the
+> ones merged by Abel. The kernel test robot has already reported build errors.
 
-kernel test robot noticed the following build errors:
+I assume the remaining patches are DTS ones?  If so, I do not see how
+clock drivers would require DTS change to build correctly.  Do you have
+a pointer to the reported build errors?
 
-[auto build test ERROR on arm64/for-next/core]
-[also build test ERROR on perf-tools-next/perf-tools-next tip/perf/core perf-tools/perf-tools linus/master v6.15-rc5 next-20250508]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+My understanding about the build dependency is the opposite, i.e. the
+DTS changes require clock defines merged by Abel to build?  In that
+case, I suggest Abel pick up the whole series with my ack on DTS changes.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jeremy-Linton/arm64-gcs-task_gcs_el0_enable-should-use-passed-task/20250505-122838
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
-patch link:    https://lore.kernel.org/r/20250504233203.616587-5-jeremy.linton%40arm.com
-patch subject: [PATCH v3 4/7] arm64: probes: Add GCS support to bl/blr/ret
-config: arm64-randconfig-001-20250509 (https://download.01.org/0day-ci/archive/20250509/202505091926.PBPRfjKb-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 7.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250509/202505091926.PBPRfjKb-lkp@intel.com/reproduce)
+Acked-by: Shawn Guo <shawnguo@kernel.org>
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505091926.PBPRfjKb-lkp@intel.com/
+Alternatively, I can pick up the remaining patches after clock changes
+land on mainline (the next -rc1).
 
-All errors (new ones prefixed by >>):
+Shawn
 
-   arch/arm64/kernel/probes/simulate-insn.c: In function 'update_lr':
->> arch/arm64/kernel/probes/simulate-insn.c:58:3: error: implicit declaration of function 'push_user_gcs'; did you mean 'task_user_tls'? [-Werror=implicit-function-declaration]
-      push_user_gcs(addr + 4,  &err);
-      ^~~~~~~~~~~~~
-      task_user_tls
-   arch/arm64/kernel/probes/simulate-insn.c: In function 'simulate_ret':
->> arch/arm64/kernel/probes/simulate-insn.c:162:14: error: implicit declaration of function 'pop_user_gcs'; did you mean 'pin_user_pages'? [-Werror=implicit-function-declaration]
-      ret_addr = pop_user_gcs(&err);
-                 ^~~~~~~~~~~~
-                 pin_user_pages
-   cc1: some warnings being treated as errors
-
-
-vim +58 arch/arm64/kernel/probes/simulate-insn.c
-
-    52	
-    53	static inline void update_lr(struct pt_regs *regs, long addr)
-    54	{
-    55		int err = 0;
-    56	
-    57		if (user_mode(regs) && task_gcs_el0_enabled(current)) {
-  > 58			push_user_gcs(addr + 4,	 &err);
-    59			if (err) {
-    60				force_sig(SIGSEGV);
-    61				return;
-    62			}
-    63		}
-    64		procedure_link_pointer_set(regs, addr + 4);
-    65	}
-    66	
-    67	static bool __kprobes check_cbz(u32 opcode, struct pt_regs *regs)
-    68	{
-    69		int xn = opcode & 0x1f;
-    70	
-    71		return (opcode & (1 << 31)) ?
-    72		    (get_x_reg(regs, xn) == 0) : (get_w_reg(regs, xn) == 0);
-    73	}
-    74	
-    75	static bool __kprobes check_cbnz(u32 opcode, struct pt_regs *regs)
-    76	{
-    77		int xn = opcode & 0x1f;
-    78	
-    79		return (opcode & (1 << 31)) ?
-    80		    (get_x_reg(regs, xn) != 0) : (get_w_reg(regs, xn) != 0);
-    81	}
-    82	
-    83	static bool __kprobes check_tbz(u32 opcode, struct pt_regs *regs)
-    84	{
-    85		int xn = opcode & 0x1f;
-    86		int bit_pos = ((opcode & (1 << 31)) >> 26) | ((opcode >> 19) & 0x1f);
-    87	
-    88		return ((get_x_reg(regs, xn) >> bit_pos) & 0x1) == 0;
-    89	}
-    90	
-    91	static bool __kprobes check_tbnz(u32 opcode, struct pt_regs *regs)
-    92	{
-    93		int xn = opcode & 0x1f;
-    94		int bit_pos = ((opcode & (1 << 31)) >> 26) | ((opcode >> 19) & 0x1f);
-    95	
-    96		return ((get_x_reg(regs, xn) >> bit_pos) & 0x1) != 0;
-    97	}
-    98	
-    99	/*
-   100	 * instruction simulation functions
-   101	 */
-   102	void __kprobes
-   103	simulate_adr_adrp(u32 opcode, long addr, struct pt_regs *regs)
-   104	{
-   105		long imm, xn, val;
-   106	
-   107		xn = opcode & 0x1f;
-   108		imm = ((opcode >> 3) & 0x1ffffc) | ((opcode >> 29) & 0x3);
-   109		imm = sign_extend64(imm, 20);
-   110		if (opcode & 0x80000000)
-   111			val = (imm<<12) + (addr & 0xfffffffffffff000);
-   112		else
-   113			val = imm + addr;
-   114	
-   115		set_x_reg(regs, xn, val);
-   116	
-   117		instruction_pointer_set(regs, instruction_pointer(regs) + 4);
-   118	}
-   119	
-   120	void __kprobes
-   121	simulate_b_bl(u32 opcode, long addr, struct pt_regs *regs)
-   122	{
-   123		int disp = bbl_displacement(opcode);
-   124	
-   125		if (opcode & (1 << 31))
-   126			update_lr(regs, addr);
-   127	
-   128		instruction_pointer_set(regs, addr + disp);
-   129	}
-   130	
-   131	void __kprobes
-   132	simulate_b_cond(u32 opcode, long addr, struct pt_regs *regs)
-   133	{
-   134		int disp = 4;
-   135	
-   136		if (aarch32_opcode_cond_checks[opcode & 0xf](regs->pstate & 0xffffffff))
-   137			disp = bcond_displacement(opcode);
-   138	
-   139		instruction_pointer_set(regs, addr + disp);
-   140	}
-   141	
-   142	void __kprobes
-   143	simulate_br_blr(u32 opcode, long addr, struct pt_regs *regs)
-   144	{
-   145		int xn = (opcode >> 5) & 0x1f;
-   146	
-   147		/* update pc first in case we're doing a "blr lr" */
-   148		instruction_pointer_set(regs, get_x_reg(regs, xn));
-   149	
-   150		if (((opcode >> 21) & 0x3) == 1)
-   151			update_lr(regs, addr);
-   152	}
-   153	
-   154	void __kprobes
-   155	simulate_ret(u32 opcode, long addr, struct pt_regs *regs)
-   156	{
-   157		u64 ret_addr;
-   158		int err = 0;
-   159		unsigned long lr = procedure_link_pointer(regs);
-   160	
-   161		if (user_mode(regs) && task_gcs_el0_enabled(current)) {
- > 162			ret_addr = pop_user_gcs(&err);
-   163			if (err || ret_addr != lr) {
-   164				force_sig(SIGSEGV);
-   165				return;
-   166			}
-   167		}
-   168	
-   169		instruction_pointer_set(regs, lr);
-   170	}
-   171	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
