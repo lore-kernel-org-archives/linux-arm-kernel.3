@@ -4,63 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8197AC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 12:25:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22C77C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 12:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jycqaezhCsooEMLFOB7YGlzrs+SpJfWD5uERxhFzT9w=; b=B0zYlR13FzFX/MDN7RwLvb2++p
-	E0PUEkoLFz/u7bzdT/cPK2QsLX4rM71Lh3KK7E+AsUJHZStW3gsLIStI+dNn0H3qWkssX2bqArKPn
-	6lSF2+e514c8NtXqAjzD04NX8/ZQwbrN4L87bGgZakxYSV3xlJnKTIdbNDsPQV8YRZ29EOajE821G
-	dYQarSLrZ+9jCRmkrZ/xfS7LLEqF7I6R2oJdmdFt3pcttqhqcVRpVyP6bdQBK9aJHAcszepJ4yu/z
-	OXjRTzLB7/Q1mgBow/2jt9tkXduQNl1JmVBr83SpQvDTuixThNP7f43RkbPQEockjlULM6OHiDyYl
-	X9s/jEuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lz2WGV5DsARe2ef6xf9hB2gw824v2BlYjF+3OFaRa+Y=; b=X8/Fy/TThrjZ55rIS2hb6T7L2I
+	SVRfd7J3iCz3QOLw0ZDw4NKgT6w4/J+fuArBs17PegKSBbAiOKj4CQkIt5V1HXS8cKB4EIWl+D/7c
+	Bs7mUMr6k9EmCpQUc7JH8PqNpLbHrOssDiUfXse7cZ34zsy3cTCYnTcGITJ7oiJPBsO+HYu0hY7tU
+	cByu4YjUn6VRGI7r8RV2sOU2pz+MFlXbucdPKv4IrjV4j1ZyanQUaxZQHGRnLnbMlOzpaxwKTScSF
+	2bTrTMQbhn0plWEvrbtrqClRajxK3SsB6SqYNB8AHoIUb7XZxF2WC4sZewT2pRbs1TqIa+0HzbWqL
+	l3SjFG/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDMnG-00000003a9t-3hFC;
-	Fri, 09 May 2025 12:25:35 +0000
-Received: from out-181.mta1.migadu.com ([95.215.58.181])
+	id 1uDMpC-00000003aTa-3JAg;
+	Fri, 09 May 2025 12:27:34 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDLnW-00000003Q6P-0kvF
+	id 1uDLs0-00000003Qlp-2Kwy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 11:21:47 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1746789694;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jycqaezhCsooEMLFOB7YGlzrs+SpJfWD5uERxhFzT9w=;
-	b=IjQNX/lCGNU+MTonjMcjwKjBj2i18UbXyRd4mzgOuD/8Pqbj9xH9w3nv1Jyd3tn8PbXrNm
-	fWIVwOKQvpZL9hye+plpkgCiCxABFpmJTxA2+0d1dRqSPldbB3vfYOsOvXuh90Tv96cMh3
-	PD19WdITDHgwDKYJ+RTkRhJ6jjeefPePV/1rQ25feH+F/SutEirtNuULbUjvPoSFmzRGPE
-	ZwT4xnEWsKyBvn9XiNcxCSH1b6K+0qthvDHlraL9f4JkqDXsJ9YUmuEfGD3HyM2FxsU8qX
-	SC62p0PIMKt7DxkT0TJrUYrzdijQJKX/B3C7Morf6mUPHhDTdc25NlYasMqdIA==
-Content-Type: multipart/signed;
- boundary=76ae7b15ebcac961fb29afb3c1039cc390728cd5d52cfd66bb9894187db4;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Fri, 09 May 2025 13:21:13 +0200
-Message-Id: <D9RL9DZN7PXS.PGSNWKK9J548@cknow.org>
-Subject: Re: [PATCH 4/6] arm64: dts: rockchip: add px30-cobra base dtsi and
- board variants
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Heiko Stuebner" <heiko@sntech.de>
-Cc: <quentin.schulz@cherry.de>, <robh@kernel.org>, <krzk+dt@kernel.org>,
- <conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Heiko Stuebner" <heiko.stuebner@cherry.de>
-References: <20250508150955.1897702-1-heiko@sntech.de>
- <20250508150955.1897702-5-heiko@sntech.de>
-In-Reply-To: <20250508150955.1897702-5-heiko@sntech.de>
-X-Migadu-Flow: FLOW_OUT
+	Fri, 09 May 2025 11:26:25 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43d0c18e84eso9145835e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 04:26:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1746789983; x=1747394783; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Lz2WGV5DsARe2ef6xf9hB2gw824v2BlYjF+3OFaRa+Y=;
+        b=xpyRQu9EWG6CLR5hxCnN3z4TKw3nEsLqKuK+Y3K3QqKAXXFrMSO1veoEZkkrZx1L/7
+         FWu4/c0PRtxqXV224fJkB1Bp9ziR8k/Q6pEzRxh7bUsunZsYcn7u8P8dS5n4+dkn4KJl
+         2D0YDOvYSXWJDU5AcSIXZgucLUioWNGfO2I1lHnZtUfB01IAu7KcK3nmp9Y6qQd3rF4O
+         PGVV8rwcn0Q9IOrgkgp2IprODx2c4dOe8wRnqW+c9DYgkDy3gm0305z/0INVx+X3sYDc
+         CUvnK2VpRY2fowaRGFc+hUh0eGhN1bK8kXpDzSH3eKIDIv2zbkfzCb1jDFzlhp9xiARv
+         x61w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746789983; x=1747394783;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Lz2WGV5DsARe2ef6xf9hB2gw824v2BlYjF+3OFaRa+Y=;
+        b=GbxlLCx3C6Rw9eARih//WCGEYvN4IDG4Ul7CX8cDH0ahzrIGWshnS38dPg3VkU8q+p
+         NbAE9LjyZUwfGlUGQTcb7aPAju6SBtzT74uV3m742DeokQVLQ3uHa2ld6XsxbQa9whdB
+         aB3ucf9Rnhd6/U+tJtCp6mMW5BjO3f/pu+p/NbR90hbaTDubIAuHn1mM0/qV8HWJ0uM0
+         Dksgwk8FA/R35LF4yUBMiyMjroCumsxJ+QP1LEuTVzd3kzphLTcSj5xK9M/MGvkPeKY0
+         jLcbZNmpGYEcMBdfod/iszH52BH++ud8rJnT6qOwCRzAoQq9UYRFeB0raLg8/GpU04GE
+         R6Ow==
+X-Forwarded-Encrypted: i=1; AJvYcCXnEPbzGvXlYUdobpSeTZncwQdaTMMkqsHzAKvbGvfYbiv7JjcxQeAo255Er3k1BeGp6yiVjojwHd/A+J7oh6ds@lists.infradead.org
+X-Gm-Message-State: AOJu0YwX3Klt4dmbdKyqQnn3qdHWR7VjqXtWryyW7QaXsIAjJ67i8HM7
+	dCuUJO0xHAVWhtdbalDa6uFxhri8UDbKcBIX8nv5VlKGKcHgoKBUHVC9jibG8ao=
+X-Gm-Gg: ASbGncvePrfX9K+EsH2Ka7/HohVB0bIYbAKdNVw2bDtsDjjv4gJcnGHASK6ZM1UnQDt
+	Md7S7X5zSlXp4Nb6R3kVHUWxgxyqxaMurS8z52dwANKB/0AWrd5TIoXKSD75FkQYUyopjlY2at/
+	MBMG+wKHstaLyF9AmQfm7wqN8ndPhXQQXhdHjEilRtP/Ij9tm5g06Jcriwe79Sl6PaHK6vgjxZb
+	cOL01pnFmfMIXG5dJbGdgfwKNY++f+ei6e4b+JTMYFymRRpTlfl9W+uQAWm8JU8fYNFbTJ3WWDy
+	pXLZp6kYwDCA/t2fqH6ENXRPD7XuSoRcCOnZ8PQfWQo=
+X-Google-Smtp-Source: AGHT+IF1DqZRXwnqEDJC6RoEDZ05/IxWbN0y1MNMAHjLg08+G1rqNk/P8xMlNeorPMh/z66y3/jqUw==
+X-Received: by 2002:a5d:4fc7:0:b0:39c:1257:dbaa with SMTP id ffacd0b85a97d-3a1f64b5a66mr2078868f8f.58.1746789982795;
+        Fri, 09 May 2025 04:26:22 -0700 (PDT)
+Received: from [192.168.1.3] ([77.81.75.81])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f5a4c7a5sm2992122f8f.98.2025.05.09.04.26.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 09 May 2025 04:26:22 -0700 (PDT)
+Message-ID: <4dbe2a87-2c03-4565-a486-41d4116892ae@linaro.org>
+Date: Fri, 9 May 2025 12:26:21 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 12/14] dt-bindings: spi: dspi: Add S32G support
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-spi@vger.kernel.org, imx@lists.linux.dev,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Ciprian Marian Costea <ciprianmarian.costea@nxp.com>,
+ Vladimir Oltean <olteanv@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+ NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, larisa.grigore@nxp.com, arnd@linaro.org,
+ andrei.stefanescu@nxp.com, dan.carpenter@linaro.org
+References: <20250509-james-nxp-spi-v1-0-32bfcd2fea11@linaro.org>
+ <20250509-james-nxp-spi-v1-12-32bfcd2fea11@linaro.org>
+ <af92e978-e6f1-43db-8a84-334e7dd0d43d@kernel.org>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <af92e978-e6f1-43db-8a84-334e7dd0d43d@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_042146_354560_00E93CBB 
-X-CRM114-Status: GOOD (  19.91  )
+X-CRM114-CacheID: sfid-20250509_042624_808360_28B06DE4 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,222 +113,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---76ae7b15ebcac961fb29afb3c1039cc390728cd5d52cfd66bb9894187db4
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
 
-Hi,
 
-On Thu May 8, 2025 at 5:09 PM CEST, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@cherry.de>
->
-> Cobra are Touchscreen devices built around the PX30 SoC using
-> a variety of display options.
->
-> The devices feature an EMMC, network port, usb host + OTG ports and
-> a 720x1280 display with a touchscreen.
->
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> ---
->  arch/arm64/boot/dts/rockchip/Makefile         |   4 +
->  .../rockchip/px30-cobra-ltk050h3146w-a2.dts   |  39 ++
->  .../dts/rockchip/px30-cobra-ltk050h3146w.dts  |  39 ++
->  .../dts/rockchip/px30-cobra-ltk050h3148w.dts  |  39 ++
->  .../dts/rockchip/px30-cobra-ltk500hd1829.dts  |  58 ++
->  arch/arm64/boot/dts/rockchip/px30-cobra.dtsi  | 570 ++++++++++++++++++
->  6 files changed, 749 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/rockchip/px30-cobra-ltk050h3146w-=
-a2.dts
->  create mode 100644 arch/arm64/boot/dts/rockchip/px30-cobra-ltk050h3146w.=
-dts
->  create mode 100644 arch/arm64/boot/dts/rockchip/px30-cobra-ltk050h3148w.=
-dts
->  create mode 100644 arch/arm64/boot/dts/rockchip/px30-cobra-ltk500hd1829.=
-dts
->  create mode 100644 arch/arm64/boot/dts/rockchip/px30-cobra.dtsi
->
-> <snip>
->
-> diff --git a/arch/arm64/boot/dts/rockchip/px30-cobra.dtsi b/arch/arm64/bo=
-ot/dts/rockchip/px30-cobra.dtsi
-> new file mode 100644
-> index 000000000000..92066cbc1a70
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/rockchip/px30-cobra.dtsi
-> @@ -0,0 +1,570 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright (c) 2025 Cherry Embedded Solutions GmbH
-> + */
-> +
-> +/dts-v1/;
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/input/input.h>
-> +#include <dt-bindings/leds/common.h>
-> +#include <dt-bindings/pinctrl/rockchip.h>
-> +#include "px30.dtsi"
-> +
-> +/ {
-> +	aliases {
-> +		mmc0 =3D &emmc;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path =3D "serial5:115200n8";
-> +	};
-> +
-> +	backlight: backlight {
-> +		compatible =3D "pwm-backlight";
-> +		power-supply =3D <&vcc5v0_sys>;
-> +		pwms =3D <&pwm0 0 25000 0>;
-> +	};
-> +
-> +	beeper {
-> +		compatible =3D "pwm-beeper";
-> +		pwms =3D <&pwm1 0 1000 0>;
-> +	};
-> +
-> +	emmc_pwrseq: emmc-pwrseq {
-> +		compatible =3D "mmc-pwrseq-emmc";
-> +		pinctrl-0 =3D <&emmc_reset>;
-> +		pinctrl-names =3D "default";
-> +		reset-gpios =3D <&gpio1 RK_PB3 GPIO_ACTIVE_HIGH>;
-> +	};
-> +
-> +	gpio-leds {
-> +		compatible =3D "gpio-leds";
-> +
-> +		led-0 {
-> +			color =3D <LED_COLOR_ID_BLUE>;
-> +			gpios =3D <&gpio0 RK_PA0 GPIO_ACTIVE_HIGH>;
-> +			label =3D "heartbeat";
-> +			linux,default-trigger =3D "heartbeat";
-> +		};
-> +	};
-> +
-> +	pwm-leds {
-> +		compatible =3D "pwm-leds";
-> +
-> +		ring_red: led-0 {
-> +			color =3D <LED_COLOR_ID_RED>;
-> +			default-state =3D "off";
-> +			label =3D "ring_red";
-> +			pwms =3D <&pwm5 0 1000000 0>;
-> +			max-brightness =3D <255>;
-> +		};
-> +
-> +		ring_green: led-1 {
-> +			color =3D <LED_COLOR_ID_GREEN>;
-> +			default-state =3D "off";
-> +			label =3D "ring_green";
-> +			pwms =3D <&pwm6 0 1000000 0>;
-> +			max-brightness =3D <255>;
-> +		};
-> +
-> +		ring_blue: led-2 {
-> +			color =3D <LED_COLOR_ID_BLUE>;
-> +			default-state =3D "off";
-> +			label =3D "ring_blue";
-> +			pwms =3D <&pwm7 0 1000000 0>;
-> +			max-brightness =3D <255>;
-> +		};
-> +	};
-> +
-> +	/* also named 5V_Q7 in schematics */
-> +	vcc5v0_sys: regulator-vccsys {
-> +		compatible =3D "regulator-fixed";
-> +		regulator-name =3D "vcc5v0_sys";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt =3D <5000000>;
-> +		regulator-max-microvolt =3D <5000000>;
-> +	};
-> +};
-> +
-> +&cpu0 {
-> +	cpu-supply =3D <&vdd_arm>;
-> +};
-> +
-> +&cpu1 {
-> +	cpu-supply =3D <&vdd_arm>;
-> +};
-> +
-> +&cpu2 {
-> +	cpu-supply =3D <&vdd_arm>;
-> +};
-> +
-> +&cpu3 {
-> +	cpu-supply =3D <&vdd_arm>;
-> +};
-> +
-> +&display_subsystem {
-> +	status =3D "okay";
-> +};
-> +
-> +&dsi_dphy {
-> +	status =3D "okay";
-> +};
-> +
-> +&emmc {
-> +	bus-width =3D <8>;
-> +	cap-mmc-highspeed;
-> +	/*
-> +	 * For hs200 support, U-Boot would have to set the RK809 DCDC4
-> +	 * rail to 1.8V from the default of 3.0V. It doesn't do that on
-> +	 * devices out in the field, so disable hs200.
-> +	 * mmc-hs200-1_8v;
-> +	 */
-> +	mmc-pwrseq =3D <&emmc_pwrseq>;
-> +	non-removable;
-> +	vmmc-supply =3D <&vcc_3v3>;
-> +	vqmmc-supply =3D <&vcc_emmc>;
-> +	status =3D "okay";
-> +};
-> +
-> +&gmac {
-> +	clock_in_out =3D "output";
-> +	phy-handle =3D <&dp83825>;
-> +	phy-supply =3D <&vcc_3v3>;
-> +	status =3D "okay";
-> +};
-> +
-> +&gpu {
-> +	mali-supply =3D <&vdd_log>;
-> +	status =3D "okay";
-> +};
-> +
-> +/* I2C0 =3D PMIC, STUSB4500, RTC */
-> +&i2c0 {
-> +	status =3D "okay";
-> +
-> +	rk809: pmic@20 {
-> +		compatible =3D "rockchip,rk809";
-> +		reg =3D <0x20>;
-> +		#clock-cells =3D <0>;
-> +		clock-output-names =3D "xin32k";
-> +		interrupt-parent =3D <&gpio0>;
-> +		interrupts =3D <7 IRQ_TYPE_LEVEL_LOW>;
-> +		pinctrl-names =3D "default";
-> +		pinctrl-0 =3D <&pmic_int>;
-> +		wakeup-source;
-> +		rockchip,system-power-controller;
+On 09/05/2025 12:14 pm, Krzysztof Kozlowski wrote:
+> On 09/05/2025 13:05, James Clark wrote:
+>> From: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
+>>
+>> Document S32G compatible strings. 's32g2' and 's32g3' use the same
+>> driver so 's32g2' must follow 's32g3'.
+>>
+>> The SPI controller node in dts can define both host and target pinctrl.
+>> The selection between them will be done based on pinctrl-names. The
+>> default pinctrl will be loaded first and will be used by the host. If
+>> the controller is configured as target (spi-slave property is added in
+>> the dts node), the driver will look for the "slave" pinctrl and apply it
+>> if found.
+> 
+> 
+> I do not see any changes in the binding related to above paragraph, so I
+> do not understand why are you explaining driver?
+> 
 
-The "rockchip," prefix is not needed and deprecated, so you can drop it.
-Same issue is present in patch 6 of this series.
+Yes it's probably a bit verbose, it's just a standard SPI binding that 
+also supports target mode. I can reduce it.
 
-Cheers,
-  Diederik
+I'm also not even sure the "slave" pinctrl part is correct as I was 
+testing it in target mode without any special naming. I will double 
+check that too.
 
---76ae7b15ebcac961fb29afb3c1039cc390728cd5d52cfd66bb9894187db4
-Content-Type: application/pgp-signature; name="signature.asc"
+>>
+>> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
+>> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
+>> Signed-off-by: James Clark <james.clark@linaro.org>
+>> ---
+>>   Documentation/devicetree/bindings/spi/fsl,dspi.yaml | 18 ++++++++++++++++++
+>>   1 file changed, 18 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/spi/fsl,dspi.yaml b/Documentation/devicetree/bindings/spi/fsl,dspi.yaml
+>> index 7ca8fceda717..b5fac0bb142a 100644
+>> --- a/Documentation/devicetree/bindings/spi/fsl,dspi.yaml
+>> +++ b/Documentation/devicetree/bindings/spi/fsl,dspi.yaml
+>> @@ -23,6 +23,7 @@ properties:
+>>             - fsl,ls2080a-dspi
+>>             - fsl,ls2085a-dspi
+>>             - fsl,lx2160a-dspi
+>> +          - nxp,s32g2-dspi
+>>         - items:
+>>             - enum:
+>>                 - fsl,ls1012a-dspi
+>> @@ -37,6 +38,9 @@ properties:
+>>         - items:
+>>             - const: fsl,lx2160a-dspi
+>>             - const: fsl,ls2085a-dspi
+>> +      - items:
+>> +          - const: nxp,s32g3-dspi
+>> +          - const: nxp,s32g2-dspi
+>>   
+>>     reg:
+>>       maxItems: 1
+>> @@ -114,3 +118,17 @@ examples:
+>>                   spi-cs-hold-delay-ns = <50>;
+>>           };
+>>       };
+>> +  # S32G3 in target mode
+>> +  - |
+>> +    spi0: spi@401d4000 {
+> 
+> Drop unused label.
+> 
 
------BEGIN PGP SIGNATURE-----
+Will do.
 
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaB3lNwAKCRDXblvOeH7b
-bo/FAQC5JFHh6hf/TaSCesVRR7H5eRQlxvlw731y6nMua5aEMAEAhPjTcmcQNuWH
-SVe21rvMza2bRe8N/MCmB9XPapWzzgU=
-=Hk2D
------END PGP SIGNATURE-----
+> 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> 
+> Best regards,
+> Krzysztof
 
---76ae7b15ebcac961fb29afb3c1039cc390728cd5d52cfd66bb9894187db4--
+Thanks for the review.
+
+James
+
 
