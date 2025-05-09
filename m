@@ -4,78 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BEF5C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 11:17:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A10D2C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 11:18:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GMja8MzF4lJ9N3IYREdz00CybaZrxQQg0o3RyFEH1I4=; b=AWV0RGOWz8BRlEoQW7uhDEz1qA
-	lhpMSYwnkjG3t3oIoB+HjMlyZF0QQmbCE9Y/TgspJTUb4tmQw7YD482B+mgcbEzK3YwpYlqxiVVaz
-	LekXD9yeUNUalkQJ3p5X2tYQEBYYmhECU/Q3E4JKuvxxQRZE9+dSicENTCckMyHK2P9rOuNv/DB0x
-	WdEf9+bcZ5+AqtjPTkahN8RiFqnkjmoeI4CJEpuVls6hMHz4X54ZD6mOdhoKDS5ZYRt3lBXyv/SX1
-	iFj6OC1DzCfX8hlsJyNPeEghHZwHfsyuLaZr9nf35dOxRbzKK6mwRxnu5lXBFMgUKxd6VhULVdioZ
-	haf9PNWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RYj+iCZ04f8tZWgdmxGg5BgqxXDWD3VjEstgUEc6ZtI=; b=Rah0OLGBPE9yGma5xMOMnwmEFm
+	xELXvHSTj2eq7uBAh5DLK1rHr00beh/hJ0Uy9Q6AXb3xa/x77TZ3XO281zr5o7c+O1uHvqCADFTdA
+	Aw67r28r79yrq7RluWm18k7Q7G9lhLNLYpPHcI1CBZhn1qoe8uvyAVRB202JH0KLjIDF3+sgaXOw4
+	RipOxoV17bRgh17UP6dHS80ohxkcYNj+kwZEA94uHRC+nArR8gJb8M975fJ1wfBRLNvGILmHO/Fq1
+	0ba7H+Sv9qOUXYx3k5QRdJ1oP3W0okUGvw6gkVpsRlQ8BWccG+qlNpWWYAc4VA0zsPBlrrxcn601q
+	KMk+yFDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDLin-00000003PN5-1hL8;
-	Fri, 09 May 2025 11:16:53 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uDLkj-00000003Pam-1vUU;
+	Fri, 09 May 2025 11:18:53 +0000
+Received: from mail-m16.yeah.net ([1.95.21.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDKkW-00000003EJz-3FXN;
-	Fri, 09 May 2025 10:14:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1746785675;
-	bh=Nh/3NP0bjRTX7YboruB3JZ2xLOeP0c8eAjI6a96C+Ns=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=SWmuL2DkadT8glMPTDJkD0fHkph5ozcxmQp3otwW2hV+Urzlx+jkib0P1Y8sb3oGe
-	 uKCPCpGQ6H9FjoCKG/r2xOWmJcME7cBaeX+8diGKPRYaEWqnpwnWNvNHkIiwiDIiP7
-	 N+AdgLixstcmZuk72b6VF9t0ITdJGRrAFufuzd3GAHmQRqukFYXhYTd6xqpjw+I3Jl
-	 1/FxFzrk9J7gEyjhaMB+VHsCDb4qDiKn50nb8oGA3/AfuRUFfsdJchWHG7Zrw/ZiWa
-	 Ttl8nUMcmFvjQ8viGKfD2E741vtKllWNJlCFELdT1Bai9qGk3qI05BI1SkfZv+r0hx
-	 zupU0gzgvnZlw==
-Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3792117E05A6;
-	Fri,  9 May 2025 12:14:34 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Fri, 09 May 2025 12:12:51 +0200
-Subject: [PATCH v6 5/5] arm64: dts: mediatek: mt8370: Enable gpu support
+	id 1uDKn1-00000003F0B-1KSm
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 May 2025 10:17:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=RYj+iCZ04f8tZWgdmxGg5BgqxXDWD3VjEstgUEc6ZtI=;
+	b=iCgaZXRhN6LlN2ooal29hLGPGeP5qyMLLk5NsgH4hqsTML1ZtktRtqrAzAuUux
+	KypUfuWbDrpq2AQIdATW92Ys3snuCOGoisGWXCYhRWRJeoe8BBhMDqdFCE3g8Yva
+	s8EeVmN87w5dohA1aAt6px6lO7Ld+z8dP4V6kppcsAGNc=
+Received: from dragon (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id M88vCgDHt_EZ1h1ouMqlAA--.21330S3;
+	Fri, 09 May 2025 18:16:58 +0800 (CST)
+Date: Fri, 9 May 2025 18:16:57 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Marco Felsch <m.felsch@pengutronix.de>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v2 0/3] soc: imx8m: Dump higher 64bits UID
+Message-ID: <aB3WGZQdin9YcRUk@dragon>
+References: <20250423-uid-128-v2-0-327c30fe59a9@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250509-mt8370-enable-gpu-v6-5-2833888cb1d3@collabora.com>
-References: <20250509-mt8370-enable-gpu-v6-0-2833888cb1d3@collabora.com>
-In-Reply-To: <20250509-mt8370-enable-gpu-v6-0-2833888cb1d3@collabora.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Boris Brezillon <boris.brezillon@collabora.com>, 
- Steven Price <steven.price@arm.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1746785666; l=1948;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=Nh/3NP0bjRTX7YboruB3JZ2xLOeP0c8eAjI6a96C+Ns=;
- b=eS5XUwVylAb8iDUak8oAOPDL805+h1Snt1WhfhP5/wiMk6RaACqriIaEcPBEjxh/02dQm1DLC
- cEMADU1uaGeA0DdlZO8WNI/tOi61KEvy5ydd1mr83tlCL9GPmWF18Tg
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250423-uid-128-v2-0-327c30fe59a9@nxp.com>
+X-CM-TRANSID: M88vCgDHt_EZ1h1ouMqlAA--.21330S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUOOJ5UUUUU
+X-Originating-IP: [117.81.80.76]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNBsdgmgd1hsl2QAA30
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_031436_961493_8337C597 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20250509_031711_667693_B2714F5D 
+X-CRM114-Status: UNSURE (   5.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,58 +75,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new gpu node in mt8370.dtsi to enable support for the
-ARM Mali G57 MC2 GPU (Valhall-JM) found on the MT8370 SoC, using the
-Panfrost driver.
+On Wed, Apr 23, 2025 at 10:37:03PM +0800, Peng Fan (OSS) wrote:
+> Peng Fan (3):
+>       soc: imx8m: Cleanup with adding imx8m_soc_[un]prepare
+>       soc: imx8m: Introduce soc_uid hook
+>       soc: imx8m: Dump higher 64bits UID
 
-On a Mediatek Genio 510 EVK board, the panfrost driver probed with the
-following message:
-```
-panfrost 13000000.gpu: clock rate = 390000000
-panfrost 13000000.gpu: mali-g57 id 0x9093 major 0x0 minor 0x0 status 0x0
-panfrost 13000000.gpu: features: 00000000,000019f7, issues: 00000003,
-   80000400
-panfrost 13000000.gpu: Features: L2:0x08130206 Shader:0x00000000
-   Tiler:0x00000809 Mem:0x1 MMU:0x00002830 AS:0xff JS:0x7
-panfrost 13000000.gpu: shader_present=0x5 l2_present=0x1
-[drm] Initialized panfrost 1.3.0 for 13000000.gpu on minor 0
-```
-
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- arch/arm64/boot/dts/mediatek/mt8370.dtsi | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/mediatek/mt8370.dtsi b/arch/arm64/boot/dts/mediatek/mt8370.dtsi
-index cf1a3759451ff899ce9e63e5a00f192fb483f6e5..7ac8b8d0349455922a73f35db607b2b27cad23d7 100644
---- a/arch/arm64/boot/dts/mediatek/mt8370.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8370.dtsi
-@@ -59,6 +59,22 @@ &cpu_little3_cooling_map0 {
- 				<&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
- };
- 
-+/*
-+ * Please note that overriding compatibles is a discouraged practice and is a
-+ * clear indication of nodes not being, well, compatible!
-+ *
-+ * This is a special case, where the GPU is the same as MT8188, but with one
-+ * of the cores fused out in this lower-binned SoC.
-+ */
-+&gpu {
-+	compatible = "mediatek,mt8370-mali", "arm,mali-valhall-jm";
-+
-+	power-domains = <&spm MT8188_POWER_DOMAIN_MFG2>,
-+			<&spm MT8188_POWER_DOMAIN_MFG3>;
-+
-+	power-domain-names = "core0", "core1";
-+};
-+
- &ppi_cluster0 {
- 	affinity = <&cpu0 &cpu1 &cpu2 &cpu3>;
- };
-
--- 
-2.49.0
+Applied all, thanks!
 
 
