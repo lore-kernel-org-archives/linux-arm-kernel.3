@@ -4,167 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33A46C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 21:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0347C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 21:31:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6muSKDpbMStICdpIXRNanqO1BwLlMX4TbuhLxjT/1Xk=; b=p/giw2uXVmmOFw+ceNR5AOi9uj
-	FyohJ8vgZeUFGBsZkKNPZJYGkt1e85IpHWfUCXpUewEWGtxTA6Rw+7BmmsK2j5PGZpAl9mrWpLxTu
-	ohBkyotPPMJXXz0gVKZX3FCHUtsFvihxsXnFcSlUpgccS/Qh7ZBiJ2ccQVmhcIDcm6AZyQlMiZt/U
-	3tdPc+RMzp/6CMVq96BSzSDmISj2ow8tTeJZ8pYjuVOwGCswrpMgtrTRtnnUSkcBTzzcbEvjlaY8I
-	AldHxjiOTAdmX7Qx86jHTRr47dwkqj37SULbDzI7cPXCr6drSrxm34ZNyrn0GMZsw0xrPnkVtyeKW
-	0bWroVGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FVdGvQl7I4jzamIx+mGrMWIjkTZGB9PGkkLFZVwWjA4=; b=FM/LXMfuUSxZgjxNPKn7wbUUdA
+	xjTsXq9F/73fHX599RQITC4B0+J16/JxQRV8Qorug/6RPx3hf3S4NcPDrmzi98JmI1PTBE+OSUBWf
+	J0f/23k5tYAVk0JQ633qJCyW/H4B5+ltiNU5cKOJD81QoJv4YD6BomyGmgFQNBEg8MjnGUhE4PBG5
+	mJOhqvD5WTMBdhsl9fPBlLTx9C3Opfm179dI45mRqew1fP0EFNggSu1KDP8qe/rb1Yyeu39NvASjD
+	FGvhJWtjy2b6mQQHHLMJNX7+plbkVXKu7ezL/AG8gvSAupCoPC9+BUJPcCyxabgNw7cFtQ1UWVl4y
+	JfelwNIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDVIW-00000004xni-3AAU;
-	Fri, 09 May 2025 21:30:24 +0000
-Received: from mail-mw2nam10on20618.outbound.protection.outlook.com ([2a01:111:f403:2412::618] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1uDVJr-00000004xzy-2W3E;
+	Fri, 09 May 2025 21:31:47 +0000
+Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDVEW-00000004xT8-1Oov
+	id 1uDSMg-00000004YkD-3DwX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 21:26:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=liUUYe62OI77twINawBhbrHgrdgJuyJU6uTAdy8HyVwUr3Y/lDcZplAO/LdOIWTy+22qKhLGmgVA8jXgSfpHCT/pYcJZg86wG1cKH2X9FLsuyLaLbZhbFDw2yUSseNVMmy1aoe1WkgWhmuYu/wluTe36rRK7Bp4uS0Xqi2OtzNd0/zXmmEdYA7EpzHA+badbxFYq9hXQUI9ZoZJc6CdSP3HFuGq4HQMUnvGXOjwJnYqSazBUk2Oyhvas0vDmk799b/7qJgl1sMbByjmN+4vqF5GgzgQxpcSOyinLlgVJGPbnwo6luQOnifsDnoTJAnrVE9B+3Vxil+siJC4YERYF9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6muSKDpbMStICdpIXRNanqO1BwLlMX4TbuhLxjT/1Xk=;
- b=pQeOSCwgQA0zru29HZz/NgdXD7TDaeqPYg4nbD+U67tAYdzaZd7fhSC1reprnJMd+lFsU+VVL2vOEaKxRwzgUwOU6fPWLnhsnL1FNGHsXp0Re90CMBud/rxSUbds0B8p+qlwC7Mtg4ZGbMri+mI3rtgEZPgqIM3pYsszO3scLdqfXtBnYk9mdauQ6QGRDXvXQb3CMAVeuhNRKQlSgrImTuVzlEYsw7E1DwA4CDbtuL7ctpPOeg19fZqlbxNuq0S/+TC/Zz29/jSag2w6lB9MeCEa0gH/Vtwyw/f6s9xBQSfC/NgT9YHcimOrrEg4xqNZdwUhQRWgUGFLU4xI7eP8RA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6muSKDpbMStICdpIXRNanqO1BwLlMX4TbuhLxjT/1Xk=;
- b=TJMKs+n6nA/X4GGW2KkHv8SCGFSgMeg5FHk0SJ44zjIykjXB4VioleZmzFb/0EvqlrbzdR6P0aAHZuZczbywmijxQ9OZ7+zbqxMaXQkBchJbCtxaG7TU20BMmSD6I/ArDLcq+AlANb+AaAa4D9hStjsaS1ezT0YhQBtbbVKzkKTMiu86uykUaz3NWenMk4zbPK/ZIM9+MX9H5KI4kM7eCcaoQk2MiCuraZjqzZgSLuVgyBsHx34d6ow/VAdEiTC53VCdzpPHxLMIdpBCE/+nYWxwRU+oHp5CcN8vNq6POCHBgGPCwvVnzgDtYfGxD0Riz4UOV0LNPDfq4zANhezVzA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS0PR12MB8317.namprd12.prod.outlook.com (2603:10b6:8:f4::10) by
- SA0PR12MB7002.namprd12.prod.outlook.com (2603:10b6:806:2c0::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.21; Fri, 9 May
- 2025 21:26:11 +0000
-Received: from DS0PR12MB8317.namprd12.prod.outlook.com
- ([fe80::8ca4:5dd7:f617:f15c]) by DS0PR12MB8317.namprd12.prod.outlook.com
- ([fe80::8ca4:5dd7:f617:f15c%4]) with mapi id 15.20.8722.018; Fri, 9 May 2025
- 21:26:11 +0000
-From: Thierry Reding <treding@nvidia.com>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	linux-tegra@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL 2/3] ARM: tegra: Device tree changes for v6.16-rc1
-Date: Fri,  9 May 2025 23:26:01 +0200
-Message-ID: <20250509212604.2849901-2-treding@nvidia.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250509212604.2849901-1-treding@nvidia.com>
-References: <20250509212604.2849901-1-treding@nvidia.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0413.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:d0::14) To DS0PR12MB8317.namprd12.prod.outlook.com
- (2603:10b6:8:f4::10)
+	Fri, 09 May 2025 18:22:32 +0000
+Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-708b9b5299eso21899337b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 11:22:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1746814950; x=1747419750; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FVdGvQl7I4jzamIx+mGrMWIjkTZGB9PGkkLFZVwWjA4=;
+        b=pMnjuGfTm8YUyHlTv9elCkvRUopuBjJW9WOzldJUgctt4pUsGpggGYnMEZAgHXZG1O
+         rrumHOiVa+Ho8h7+jVkW78neYp9zBx1ICkNJYkYBS83p4ZDkBRHNIPNLCV9JL41RnbjC
+         v5WE28HzUTwiGvPt8ldXw1Bm8tyZq1KNz/thY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746814950; x=1747419750;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FVdGvQl7I4jzamIx+mGrMWIjkTZGB9PGkkLFZVwWjA4=;
+        b=ZnjgIWiON1w3+fCbQfnUA1EVANM2Y8q+3QyOcArM8tNbTj5HMElCuq6Zq2LeIz6kbI
+         /mvxKlui1b3eYce8Sle3iw+P5RIlVkmgM73h/WCps1GfaKPdu7kjDuI43hHq+s2OuGV/
+         xNeZ6dnAUddTXysTH5cXojNZplTrpgIMznvjghvWDEFmx0uyWnnCoPx/3+RPJRTKvE/4
+         264NbShUWSQxhZKv96yQaL1xYE1fsB0rUPVotNgeauP0IqFxCiJ/740EawzufXCwV1fF
+         qOv5LxhOn4BauGS1gcre1IgGefJMZdy1I+SKTI8RFSQuEimmAEKQKZ9sKXXbVoOzEGhC
+         ZlnA==
+X-Forwarded-Encrypted: i=1; AJvYcCXWfaz/NJZ5RLxEfQwNFfwNkxbBoCrRujWBpc/x7D1/M7OSLw7exj6JOAr4VMDtWpY/w28wRiCW1w793TmhW3pr@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6pN6GADwx7eTOgDYF5G7gpb0IPbO20ISXNGxdfKkm3A6Nytxc
+	MPqki1mXfUbuZFP2OIUVRRKMLTOdoyBYO5k4n/E+wyi/X2iOE9zKbB9cfVcgwgBCfdKDX7mKOwZ
+	2slgd3jZNKCrvvsOzhhMn0IZjG7+4R8WOhVj2Ow==
+X-Gm-Gg: ASbGncuHIq1uLIl+aTbjX74m5WpFE/yIDLulpw0NoKwkchP9ZiZ5aeCbDMtVqgCloy8
+	eRvcnxOw1EI8rAgQgU14bhrK01iS4o5Xt+JZQPmb5ZQB6rG22dn1+dd47aWNBwuEthujOhUh1DG
+	7SGNmZ3/SVKtOUDDY6NMWChHuaPj3q
+X-Google-Smtp-Source: AGHT+IFhuGu6cPIv6shqVcKb5yMcaEsKd2xMo/nKwn74VQkFfSO8SSLUGFFj0iY8SWc7yPYKJguYvy3CEdCdcbkRiBw=
+X-Received: by 2002:a05:690c:7007:b0:708:ab81:ec26 with SMTP id
+ 00721157ae682-70a3fb75af8mr60732477b3.33.1746814949659; Fri, 09 May 2025
+ 11:22:29 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB8317:EE_|SA0PR12MB7002:EE_
-X-MS-Office365-Filtering-Correlation-Id: a4144608-24b9-4042-08ae-08dd8f401e96
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|10070799003|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eTVhR2F1RDBNdW1HSkNKOW5Zb1A5SjJnL2ozQ0ErSjZFT1FGV2dyWU9zeklv?=
- =?utf-8?B?UGFmZXd2ZGE0UU90OENFTVJPWWVvbDZlRktReTB4STR0NGZiSTNlbjRja1M1?=
- =?utf-8?B?RDVPWjJLVSthUTB6a1M0eXQ3emRLVTZzYjl1K3NCY3BGbXBONkg5cFBOeC9D?=
- =?utf-8?B?Y3RVVlArUmxreDh0enFaRTEza0xydmNkNUVFSmhXK1J1cnAvdStJTzY5eHl2?=
- =?utf-8?B?ZjBZeTJOYWJ2RittZlVpRHRFYUdCeWNZakg3Um51VkE0ZWhSVEpZdTBVNmhE?=
- =?utf-8?B?N1lNbksrZzBKWkVhNHJSeS91WVJ6TmZnT0JtRFpMaVFnWTk2Ukh1ekZUNjVS?=
- =?utf-8?B?MkdYa1BBZ0tYaTdGRCtvWkRxdGR2elZtdDQ4dHY3T05vTUI0ek9YbGxMR2JU?=
- =?utf-8?B?ZU1ZZG9Hc1kvcS9SbUQ5OGJOWE95Wmx6dVEyNEFnUHAwSWxJNGlDM2EydFNT?=
- =?utf-8?B?RlByRkpuejdUQTBJekROVWY3dXBVYUV1R2lxZENoRkU5ekZGVXAzTXFlMU5X?=
- =?utf-8?B?bW9rS1FodmtWNEJuVXBMRTJlZ2J2RDZhc2ovYm12K0RHZzhEYURIOThMeDN3?=
- =?utf-8?B?NmJmb1ZuVmJ0SkNrSTYzVUl3Y0pTbnNhVkFidlV1QVE1K1gydWhOZ2Z4MmV1?=
- =?utf-8?B?U0RhOXpaWWk2YUJUL29rU2NlQml4eG9uNmxUT3V0Q01UTW1YTmc4akExaEE4?=
- =?utf-8?B?MGptZHAzZDgvdHlidmZUMzRuajNPbUFzb3Blenh5eVZJZmU3OEdpWEU1a3Zz?=
- =?utf-8?B?MFJLbitockxKcldLcU10UmM0a3BNbmlQMnI3WjFMWHZVeXQ3amoyeTdlMkN4?=
- =?utf-8?B?NDFWSXVmOThoMmRycUljRVgxMWdqQ3l6eHVYN3MwY1ZXZ0tPUFBFVXMvbUVr?=
- =?utf-8?B?a2xtNzlaOGVTNEJHY1IvMWwrMXloeUFpc3lSM2VoRFVTQ0JIT3ZEcEF1Zzd5?=
- =?utf-8?B?NnVGZTV3SWkxV0M5aHVZWEN1SzJVUnFRQmxrY2greXIweFF5Snp2OTNOdWNP?=
- =?utf-8?B?azhicnFoK1hyeWJGelU0dXg4MnFVZWJQT1htY21tdCtiS2MrT0R5c2ZhNkp3?=
- =?utf-8?B?dHUvaHU0V2JIZ0xRb1RTbE5tbnB2cjAxMjdSMU5RblE0bXBSdFoyT3hzNTA2?=
- =?utf-8?B?UUdVdUlWZVpGRXJNNzRlQ0E2SzRGRXgzOWJGYVBoRVNRZVdQMklUTm1nYS95?=
- =?utf-8?B?Mnp4YXlJeGJoQU0rMFRzUDY3dDdtNThGZHJ5Wmo3RW16eVIvM3dzNW1aQUZp?=
- =?utf-8?B?NEtCMWNoMGp2dURxNkxxRU9GTUZNU2xlZ2h1b3dTSm9ZaUE5TTlTZU9sYVZT?=
- =?utf-8?B?TW9XUGJTN0lyUmpWZG10WDcxUWMwTGdPcWkrU2VPUFlvZ3RGd0FTWVRGcFhF?=
- =?utf-8?B?dVBwN2xhRFNub284cmRIbnNvdHJkaW1SUHFyeS8wMExQZGxGOVZRbzRJaVB6?=
- =?utf-8?B?MS9mQjdxQjB5SmxIN2FJbXFDSFZUQmtPaHFSMDFCTjBNMUdPaWVIa1gxZzdW?=
- =?utf-8?B?dC9KdENZUU1JdzY2RDNuTjVFYjJ2T3l5K205SEc4Vi9sMEphcTk1dWQzZyto?=
- =?utf-8?B?MDd3SHFDNjJKcm96a1cralM4TmloMWhBaE0rUjF4bGt1azU0VDlkaHA2bVUv?=
- =?utf-8?B?Nk80emFib2V4aWF6bmJiRnhTRG1mNnlaZU9ucWxJQ21Db2xHVVF0MnVxdk5n?=
- =?utf-8?B?TWxCYVRxVHBhRit2SE9wWnFzWlZNTmppNlpFQS8rekU2M04vdWJIM1FvdzRo?=
- =?utf-8?B?SXI1V3ZzTm9KZzg0dkpSYjNaZGI2Y3BOeVRjNUIzRnRJS1dVbkM2L1ZndnJ3?=
- =?utf-8?B?YVY5U1RiQWRkckRnU1NFc3FOT01qaGY0eDFRZUhOVzBPZ1BMc1ByLzA1RjBi?=
- =?utf-8?B?NE92ZU1UcEdvVjc0dWtmUHcxNkJKdXE1ODVjZWNwaVVCM3N3RWJYSkZudlc5?=
- =?utf-8?Q?mkiwFLYhTpE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB8317.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(10070799003)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?akhoL0gydWZtRDFBSURtc0xrdlVMUUlPa3gyb0ZEN1RFR1JsT0s2UTRhOUhM?=
- =?utf-8?B?d2FNUWZqRlIxOVA4NzdiNEU4WExjVmNwUXN5TE9sd3lHcVNoblN5MnhMb0tO?=
- =?utf-8?B?STF2bW94QlkyMXRrZ2ZEVU5ZRzhTZHE2MHgxcVQrdEFtRUVDcG9xYWMyYWZm?=
- =?utf-8?B?cmgyR1RGVHNRNm9oaUJmT2tKd0lwNDdQL3dad0ozek1zRHd1RnBld1c4cEtJ?=
- =?utf-8?B?UXVESUxDeFVPZ0Y1SEtMV1pnNEp2Y2xKZWwxTkRyTHhhMldVemdTUHNsVTdx?=
- =?utf-8?B?TkpLM0w1ajcycXMzY2cyZDBNeGhoMitIRWZRS04rNEFUNTdRUGcreWdwUlV4?=
- =?utf-8?B?Y2dlSEdRVnd2MUxoakdaVlR4cDFzelVoN0xzdHZtQ3VrdzdFR2JPMnNMb0xN?=
- =?utf-8?B?QjMwd012K25sM2ZOV2Npb0dIR3pOby9PL2pURUNNcXVjWXZWdGMwSTJlRHIx?=
- =?utf-8?B?YkZORWRaQVRiT09nRXllcy9xUGhXdENhcExheGhldjllNExuWjNYaWRLLzda?=
- =?utf-8?B?alR4V1ZlbUJRaDRDdjJMSytCcWJNcFVtWityd3ZycGtJMGpZS0UrcnVjSnVP?=
- =?utf-8?B?Y0ZRSWJQZDlzR0NaUkgzZUl5cTc5bDJtSGVoM0dBZEpSOUJzUC96cGhEclRi?=
- =?utf-8?B?cjNBSkhFcTVVNlErU1F3QVRHTEp3bU1pa2UyVlVrS0EzaGZrKzdmOWQ2RUUw?=
- =?utf-8?B?djRxcWQ4WThIOWRWekRqMm5kQ0t0Sm1sc2ZuSC83S3F0VTI1aS94c3V2aXNW?=
- =?utf-8?B?UmNIUHNCc2xaeWUxNXJjMXlXdmJoY1V3ZnFDRWdMNGFaU0w4cFQ5RFBmT3Fa?=
- =?utf-8?B?NXpmSlFySlFpVGpvZktTOEVMMHBOOUNFUENlTjJuRHQ4Z0VIaldTRVB6RFV5?=
- =?utf-8?B?Mis0QjR5TkoxWCtGMGIwbnVuOWovNkNUTGkvbVk2c0tBaThRRlB1dk1qazZm?=
- =?utf-8?B?YWRZUlU4RXJWWlRDcjFZQkUwci9TeHlxd0lIUjVCNTZlNzgwb1RhZkcvR1hC?=
- =?utf-8?B?b3QwakVvT2lrMjhkZWUwUUduQ0dwVW1SMFBiSm1XS2h3WUlISEVTOTI1dVBJ?=
- =?utf-8?B?Vk1XelRNZklCN3k5bFdrZzBkSW85OHdFYm5uSXQvb0l2MVdTU25WWmVYVGhz?=
- =?utf-8?B?eEJkZWpEK2t0R1lta3JJNXhUR3J6cHpJUmplSVExNlc3dFBtUDU4Y0hkUWJH?=
- =?utf-8?B?cWUwaEQzZExFN0MvSmdGLzY2bkY1WWpBL1BVZEZwcENkQnJBVytOVXhncWpL?=
- =?utf-8?B?Z0lOSjlhckJ3dXlSM05KTjVMdHRlM1pOaFlHeTRIb2J4alNpa05YUUFWM3Nr?=
- =?utf-8?B?Ym1JOEQ1dHI0WUdZZUxnZTkrUVN6UCtpZjZIREFyaExHeFVNcFN0QmFuVWgw?=
- =?utf-8?B?UWY4QnR1aytmSUlvdmd6Qm13aERpeXNGSlV1SldGaHg5UUhueUxaOUQ2UVJy?=
- =?utf-8?B?OUxoWGRrV1paZkY4NGNnODdnZDRyNWp4dEpjdStoS2dNcnU1QUpkSitTZGI2?=
- =?utf-8?B?SjdWZlpFZEpWT1VGbmgxVERDdXd3c2Z2NEk5eTR0WUNkV2RlYy84OHladTdR?=
- =?utf-8?B?dFVvR0VVdzJnakZvMWJ5S0hLSjFFZ2pWM3NwbFhrNHYwSENEbWdTU0RBd1lQ?=
- =?utf-8?B?YUFCSVZXSDFvR0lzaU1KRlBGbEEreC84RUxiNU1OSVJyejllY21HWGNreDVi?=
- =?utf-8?B?dEU0RFJQQ3FWNVdzMlJSaWpxcHpseGVPTjZiVXNBZ04wdVhtWlI2Q2Z5eWxt?=
- =?utf-8?B?Mnp1V3lpSW1YeDNJajJxN1lQTFlHeTRzdXA2YWpLMzR2SVc3V0R4T2FEV21M?=
- =?utf-8?B?by80WDhZNUk4WVFpUnRwVDd5MEhPcnp3eFhkckhDS1Myc0JRa1lNVTdTUENE?=
- =?utf-8?B?SlBxL3BNQUFxL3JuN3Z3M3NBRjlhQUdCM2Q4UEk2Yjh6OXBXZ25ldTd1OWlO?=
- =?utf-8?B?NFErSFU2SGlQOWZzOWZiUDlkSDE0K3YxN3hJWWovYW9Ec2RlZXJlQUtrRlR2?=
- =?utf-8?B?NHZubEhaT1VPcWtLRll5MXV6ajFDMjRLaEFwWjVnN05oblZqR0tna01BNkNx?=
- =?utf-8?B?cHJLTDNoOUhpdC9oN0kyWTU3UElldUIvQVZHM01XaUJBa3RldTdxL0FNZm1D?=
- =?utf-8?B?eEo0N3dBdng2SkNWbWlLa1VvcnVNTlV4OTc3Y05xTFI1SktYU2dFd0F4K0xx?=
- =?utf-8?Q?G7ZfPOJyNP6knhVmaHqap6ljIHMFq8/Xb9cKzBiJej9H?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a4144608-24b9-4042-08ae-08dd8f401e96
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB8317.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 May 2025 21:26:11.1410
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TeyidXwBb23v/FeWG8+vQ9OXF8DjeEboiGvYIkCjIeAymCiBNUz80eSrCVYCg50NDabl/LQUd8AvLZKbeWGsxw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB7002
+References: <20250424062154.2999219-1-dario.binacchi@amarulasolutions.com>
+ <20250424062154.2999219-17-dario.binacchi@amarulasolutions.com> <20250509162546.GA3704130-robh@kernel.org>
+In-Reply-To: <20250509162546.GA3704130-robh@kernel.org>
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Date: Fri, 9 May 2025 20:22:18 +0200
+X-Gm-Features: AX0GCFudXK-0LsSuEXf0ommGdIrbGEzxESxhBMaUX-8mIu528WIhNrRmopexvqM
+Message-ID: <CABGWkvq4a73hvCWG-P_+arc3R-pnr5NVfcGPDTGEoW1doPt2qg@mail.gmail.com>
+Subject: Re: [PATCH v12 16/19] dt-bindings: clock: imx8m-clock: add PLLs
+To: Rob Herring <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	linux-amarula@amarulasolutions.com, Abel Vesa <abelvesa@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_142616_373581_76ECDE9D 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250509_112230_820507_7B753198 
+X-CRM114-Status: GOOD (  22.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,50 +98,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thierry Reding <thierry.reding@gmail.com>
+On Fri, May 9, 2025 at 6:25=E2=80=AFPM Rob Herring <robh@kernel.org> wrote:
+>
+> On Thu, Apr 24, 2025 at 08:21:46AM +0200, Dario Binacchi wrote:
+> > Though adding the PLLs to clocks and clock-names properties will break
+> > the ABI, it is required to accurately describe the hardware. Indeed,
+> > the Clock Control Module (CCM) receives clocks from the PLLs and
+> > oscillators and generates clocks for on-chip peripherals.
+> >
+> > Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> > Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> >
+> > ---
+> >
+> > (no changes since v11)
+> >
+> > Changes in v11:
+> > - Fix conflict while rebasing on master
+> >
+> > Changes in v7:
+> > - Add 'Reviewed-by' tag of Krzysztof Kozlowski
+> >
+> > Changes in v6:
+> > - New
+> >
+> >  .../bindings/clock/imx8m-clock.yaml           | 27 ++++++++++++++-----
+> >  1 file changed, 21 insertions(+), 6 deletions(-)
+> >
+> > diff --git a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml b=
+/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
+> > index 4fec55832702..e83f08abd44c 100644
+> > --- a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
+> > +++ b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
+> > @@ -29,12 +29,12 @@ properties:
+> >      maxItems: 2
+> >
+> >    clocks:
+> > -    minItems: 6
+> > -    maxItems: 7
+> > +    minItems: 7
+>
+> Increasing the minimum entries looks like an ABI break to me. The .dts
+> files not being in linux-next confirms that (from 0 warnings in
+> mainline):
+>
+> arch/arm64/boot/dts/freescale:859:50
+>     122  clock-controller@30380000 (fsl,imx8mm-ccm): clock-names: ['osc_3=
+2k', 'osc_24m', 'clk_ext1', 'clk_ext2', 'clk_ext3', 'clk_ext4'] is too shor=
+t
+>     120  clock-controller@30380000 (fsl,imx8mp-ccm): clock-names: ['osc_3=
+2k', 'osc_24m', 'clk_ext1', 'clk_ext2', 'clk_ext3', 'clk_ext4'] is too shor=
+t
+>      61  clock-controller@30360000 (fsl,imx8mm-anatop): 'clocks' is a req=
+uired property
+>      61  clock-controller@30360000 (fsl,imx8mm-anatop): 'clock-names' is =
+a required property
+>      60  clock-controller@30360000 (fsl,imx8mp-anatop): 'clocks' is a req=
+uired property
+>      60  clock-controller@30360000 (fsl,imx8mp-anatop): 'clock-names' is =
+a required property
+>      36  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[35], [36],=
+ [37], [38], [39], [40]] is too short
+>      36  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[24], [25],=
+ [26], [27], [28], [29]] is too short
+>      32  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[34], [35],=
+ [36], [37], [38], [39]] is too short
+>      28  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[22], [23],=
+ [24], [25], [26], [27]] is too short
+>      26  clock-controller@30380000 (fsl,imx8mn-ccm): clock-names: ['osc_3=
+2k', 'osc_24m', 'clk_ext1', 'clk_ext2', 'clk_ext3', 'clk_ext4'] is too shor=
+t
+>      17  clock-controller@30360000 (fsl,imx8mq-anatop): 'clocks' is a req=
+uired property
+>      17  clock-controller@30360000 (fsl,imx8mq-anatop): 'clock-names' is =
+a required property
+>      14  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[44], [45],=
+ [46], [47], [48], [49]] is too short
+>      14  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[23], [24],=
+ [25], [26], [27], [28]] is too short
+>      13  clock-controller@30360000 (fsl,imx8mn-anatop): 'clocks' is a req=
+uired property
+>      13  clock-controller@30360000 (fsl,imx8mn-anatop): 'clock-names' is =
+a required property
+>      12  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[26], [27],=
+ [28], [29], [30], [31]] is too short
+>      10  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[38], [39],=
+ [40], [41], [42], [43]] is too short
+>       8  clock-controller@30380000 (fsl,imx8mn-ccm): clocks: [[22], [23],=
+ [24], [25], [26], [27]] is too short
+>       8  clock-controller@30380000 (fsl,imx8mn-ccm): clocks: [[20], [21],=
+ [22], [23], [24], [25]] is too short
+>       8  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[34], [35],=
+ [36], [37], [38], [39]] is too short
+>       8  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[28], [29],=
+ [30], [31], [32], [33]] is too short
+>       8  bcrmf@1 (brcm,bcm4329-fmac): $nodename:0: 'bcrmf@1' does not mat=
+ch '^wifi(@.*)?$'
+>       6  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[41], [42],=
+ [43], [44], [45], [46]] is too short
+>       6  clock-controller@30380000 (fsl,imx8mn-ccm): clocks: [[24], [25],=
+ [26], [27], [28], [29]] is too short
+>       4  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[43], [44],=
+ [45], [46], [47], [48]] is too short
+>       4  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[40], [41],=
+ [42], [43], [44], [45]] is too short
+>       4  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[36], [37],=
+ [38], [39], [40], [41]] is too short
+>       4  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[35], [36],=
+ [37], [38], [39], [40]] is too short
+>
+> Please fix the binding or drop what's been applied so far.
 
-Hi ARM SoC maintainers,
+Abel and Shawn are already aware of the issue:
 
-The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
+https://lore.kernel.org/all/CABGWkvqfyH=3Ddcuw6EDZaFVVebj8SZhJF0P944+mmzL5Y=
+K3-Pug@mail.gmail.com/
 
-  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
+Thanks and regards,
+Dario
 
-are available in the Git repository at:
+>
+> Rob
+>
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-6.16-arm-dt
 
-for you to fetch changes up to 7cfd76f086c640119f4c5201115cf73488cabdcb:
+--=20
 
-  ARM: tegra: apalis-eval: Remove pcie-switch node (2025-05-08 23:17:39 +0200)
+Dario Binacchi
 
-Thanks,
-Thierry
+Senior Embedded Linux Developer
 
-----------------------------------------------------------------
-ARM: tegra: Device tree changes for v6.16-rc1
+dario.binacchi@amarulasolutions.com
 
-Use standard names for the APBDMA controller device tree nodes, add
-support for the ASUS Transformer Pad LTE TF300TL and clean up the Apalis
-evaluation board by removing the unused pcie-switch node.
+__________________________________
 
-----------------------------------------------------------------
-Charan Pedumuru (1):
-      ARM: tegra: Rename the apbdma nodename to match with common dma-controller binding
 
-Francesco Dolcini (1):
-      ARM: tegra: apalis-eval: Remove pcie-switch node
+Amarula Solutions SRL
 
-Svyatoslav Ryhel (1):
-      ARM: tegra: Add device-tree for ASUS Transformer Pad LTE TF300TL
+Via Le Canevare 30, 31100 Treviso, Veneto, IT
 
- arch/arm/boot/dts/nvidia/Makefile                  |   1 +
- arch/arm/boot/dts/nvidia/tegra124-apalis-eval.dts  |   5 -
- .../boot/dts/nvidia/tegra124-apalis-v1.2-eval.dts  |   5 -
- arch/arm/boot/dts/nvidia/tegra20.dtsi              |   2 +-
- arch/arm/boot/dts/nvidia/tegra30-apalis-eval.dts   |   5 -
- .../boot/dts/nvidia/tegra30-apalis-v1.1-eval.dts   |   5 -
- arch/arm/boot/dts/nvidia/tegra30-asus-tf300tl.dts  | 857 +++++++++++++++++++++
- arch/arm/boot/dts/nvidia/tegra30.dtsi              |   2 +-
- 8 files changed, 860 insertions(+), 22 deletions(-)
- create mode 100644 arch/arm/boot/dts/nvidia/tegra30-asus-tf300tl.dts
+T. +39 042 243 5310
+info@amarulasolutions.com
+
+www.amarulasolutions.com
 
