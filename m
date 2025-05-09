@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE06FC3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 18:12:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98668C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 18:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SZPFCQ0QBFbu3SURf5bSrXwDR3rjbx85dYcheWJdoUU=; b=y2C+BeehWnW9TlJVpD7A2tJ7jw
-	VT3AKwJDGnZMKzmo6fiJsIJ2VuGZJFVUYqijeBwXGRR48sQT9jQXq7prxPnDwTkCf6BEZL9coL9oS
-	d6x/UrouySqpvyGBpg+ccx/jFksviPnrp8Asbytg45zGGCWCZJoCuyyY3NGFoF9JMk08Nnmi8hnYu
-	JngNURVUQc5beNnmPwekI3b4zegRAq0UFxi3e/IIFcUUtCh4Y33c9CZVdRnMbNM6WvF6jkEh9fWQ3
-	YqTiNOzgf4cG7eFobj82ekqPHFEicQKu0gKveZ2YxbaoIEKzzqel9how42ysp/rsLitWhio3G12VB
-	5SDu4B/Q==;
+	bh=e0txsSofUSQJC/lJixYZduCc02YdiU526K73ROmEz7k=; b=OQI6UfIjOQhTDLnAd4+c8wWf/r
+	tx3FXK4Yzma07eD5vc8uyZdZjhnuyUGAvYDgL9yYLduDkglDBiefCofCFgUfCNczoZl0bOMEhHUtx
+	OVan3hxihPGOQmG6oDHlwKj3UXPeYjl9IBcEShkfetp7+AIR8quWSDYWFAv2KxU5plLzV6+Bxc99n
+	FCFc7fult6BISQRbBu0i4hTU+Ern+RbKca0at51c2FO8scHrQ5t6d/ucJ7eUZP9TyEX0vTm8Cnflh
+	QIKrR8QQWkYtg7+O1ywGRt5XC0yffzxWbmAqtJWvA599LlxhQ+F/CN57XL2EluCPQuMpoWO/5DUnV
+	HfJ8w86w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDSCe-00000004XT8-3PLl;
-	Fri, 09 May 2025 18:12:08 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uDSEa-00000004Xjb-3Nn4;
+	Fri, 09 May 2025 18:14:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDQ8E-00000004BwV-3S1n
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 15:59:27 +0000
+	id 1uDQ9G-00000004C7W-1uTE;
+	Fri, 09 May 2025 16:00:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EEA355C48FF;
-	Fri,  9 May 2025 15:57:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 211D3C4CEE4;
-	Fri,  9 May 2025 15:59:20 +0000 (UTC)
-Date: Fri, 9 May 2025 16:59:18 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	=?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
-	suzuki.poulose@arm.com, yang@os.amperecomputing.com, corbet@lwn.net,
-	jean-philippe@linaro.org, robin.murphy@arm.com, joro@8bytes.org,
-	akpm@linux-foundation.org, paulmck@kernel.org, mark.rutland@arm.com,
-	joey.gouly@arm.com, maz@kernel.org, james.morse@arm.com,
-	broonie@kernel.org, oliver.upton@linux.dev, baohua@kernel.org,
-	david@redhat.com, ioworker0@gmail.com, jgg@ziepe.ca,
-	nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com,
-	smostafa@google.com, kevin.tian@intel.com,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
-Subject: Re: [RESEND PATCH v6 1/3] arm64: Add BBM Level 2 cpu feature
-Message-ID: <aB4mVtzLaS-YCzW2@arm.com>
-References: <20250428153514.55772-2-miko.lenczewski@arm.com>
- <20250428153514.55772-4-miko.lenczewski@arm.com>
- <20250506142508.GB1197@willie-the-truck>
- <78fec33d-fe66-4352-be11-900f456c9af3@arm.com>
- <20250509134904.GA5707@willie-the-truck>
- <9bb94fe8-d605-49b4-91f0-0ad6d527b320@arm.com>
- <20250509142852.GA5845@willie-the-truck>
+	by tor.source.kernel.org (Postfix) with ESMTP id 9D0356111F;
+	Fri,  9 May 2025 16:00:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE25DC4CEED;
+	Fri,  9 May 2025 16:00:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746806429;
+	bh=KfIHN/86orJ7nKka+FJYVTfaWZnIOh2Jd1eqQpCx/P4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mCj9cQ1JPMPcXPWQy0TEfXoK1zM7XOVSEknGtzYgKFW0dihIWuG8T5GXJIeZ1Cl4X
+	 QWchwoGNG/AFG1055je1pRe/sI54BBfWbUY4JcRmde66nwE9kEICBr3X2Z3vGrdCAw
+	 zC+VQP+ks+64VrrNv/WWrQg/IiuSu6sto9LjbMrtay1G+/0f4T9n/LO9gT1MVNcOTK
+	 L8NO8ACl2M2wMi3rM2Udq4AIpLrJL9jOPWp08PAS1x5yKlXZC7f7QX5dfjgq5QOsnK
+	 XZgsDJCO/pOkv0TNabWfltJFJA8fHdvIEvvv4d5atnHQOa34mPSVMw319kRyK6A9c7
+	 I0gNNFc3DfcJw==
+Received: by pali.im (Postfix)
+	id 00CDC5BA; Fri,  9 May 2025 18:00:25 +0200 (CEST)
+Date: Fri, 9 May 2025 18:00:25 +0200
+From: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: Hans Zhang <18255117159@163.com>, lpieralisi@kernel.org, kw@linux.com,
+	bhelgaas@google.com, heiko@sntech.de, yue.wang@amlogic.com,
+	neil.armstrong@linaro.org, robh@kernel.org, jingoohan1@gmail.com,
+	khilman@baylibre.com, jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v3 3/3] PCI: aardvark: Remove redundant MPS configuration
+Message-ID: <20250509160025.s65aw5ix6s7533b5@pali>
+References: <20250506173439.292460-1-18255117159@163.com>
+ <20250506173439.292460-4-18255117159@163.com>
+ <20250506174110.63ayeqc4scmwjj6e@pali>
+ <8a6adc24-5f40-4f22-9842-b211e1ef5008@163.com>
+ <ff6abbf6-e464-4929-96e6-16e43c62db06@163.com>
+ <20250507163620.53v5djmhj3ywrge2@pali>
+ <oy5wlkvp7nrg65hmbn6cwjcavkeq7emu65tsh4435gxllyb437@7ai23qsmpesy>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250509142852.GA5845@willie-the-truck>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_085926_900748_2A5D23D1 
-X-CRM114-Status: GOOD (  26.54  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <oy5wlkvp7nrg65hmbn6cwjcavkeq7emu65tsh4435gxllyb437@7ai23qsmpesy>
+User-Agent: NeoMutt/20180716
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,50 +83,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 09, 2025 at 03:28:53PM +0100, Will Deacon wrote:
-> On Fri, May 09, 2025 at 03:16:01PM +0100, Ryan Roberts wrote:
-> > On 09/05/2025 14:49, Will Deacon wrote:
-> > > I wonder if we could treat it like an erratum in some way instead? That
-> > > is, invert things so that CPUs which _don't_ have BBML2_NOABORT are
-> > > considered to have a "BBM_CONFLICT_ABORT" erratum (which we obviously
-> > > wouldn't shout about). Then we should be able to say:
-> > > 
-> > >   - If any of the early CPUs don't have BBML2_NOABORT, then the erratum
-> > >     would be enabled and we wouln't elide BBM.
-> > > 
-> > >   - If a late CPU doesn't have BBML2_NOABORT then it can't come online
-> > >     if the erratum isn't already enabled.
+On Friday 09 May 2025 12:38:48 Manivannan Sadhasivam wrote:
+> On Wed, May 07, 2025 at 06:36:20PM +0200, Pali Rohár wrote:
+> > On Wednesday 07 May 2025 23:06:51 Hans Zhang wrote:
+> > > On 2025/5/7 23:03, Hans Zhang wrote:
+> > > > On 2025/5/7 01:41, Pali Rohár wrote:
+> > > > > On Wednesday 07 May 2025 01:34:39 Hans Zhang wrote:
+> > > > > > The Aardvark PCIe controller enforces a fixed 512B payload size via
+> > > > > > PCI_EXP_DEVCTL_PAYLOAD_512B, overriding hardware capabilities and PCIe
+> > > > > > core negotiations.
+> > > > > > 
+> > > > > > Remove explicit MPS overrides (PCI_EXP_DEVCTL_PAYLOAD and
+> > > > > > PCI_EXP_DEVCTL_PAYLOAD_512B). MPS is now determined by the PCI core
+> > > > > > during device initialization, leveraging root port configurations and
+> > > > > > device-specific capabilities.
+> > > > > > 
+> > > > > > Aligning Aardvark with the unified MPS framework ensures consistency,
+> > > > > > avoids artificial constraints, and allows the hardware to operate at
+> > > > > > its maximum supported payload size while adhering to PCIe
+> > > > > > specifications.
+> > > > > > 
+> > > > > > Signed-off-by: Hans Zhang <18255117159@163.com>
+> > > > > > ---
+> > > > > >   drivers/pci/controller/pci-aardvark.c | 2 --
+> > > > > >   1 file changed, 2 deletions(-)
+> > > > > > 
+> > > > > > diff --git a/drivers/pci/controller/pci-aardvark.c
+> > > > > > b/drivers/pci/controller/pci-aardvark.c
+> > > > > > index a29796cce420..d8852892994a 100644
+> > > > > > --- a/drivers/pci/controller/pci-aardvark.c
+> > > > > > +++ b/drivers/pci/controller/pci-aardvark.c
+> > > > > > @@ -549,9 +549,7 @@ static void advk_pcie_setup_hw(struct
+> > > > > > advk_pcie *pcie)
+> > > > > >       reg = advk_readl(pcie, PCIE_CORE_PCIEXP_CAP + PCI_EXP_DEVCTL);
+> > > > > >       reg &= ~PCI_EXP_DEVCTL_RELAX_EN;
+> > > > > >       reg &= ~PCI_EXP_DEVCTL_NOSNOOP_EN;
+> > > > > > -    reg &= ~PCI_EXP_DEVCTL_PAYLOAD;
+> > > > > >       reg &= ~PCI_EXP_DEVCTL_READRQ;
+> > > > > > -    reg |= PCI_EXP_DEVCTL_PAYLOAD_512B;
+> > > > > >       reg |= PCI_EXP_DEVCTL_READRQ_512B;
+> > > > > >       advk_writel(pcie, reg, PCIE_CORE_PCIEXP_CAP + PCI_EXP_DEVCTL);
+> > > > > > -- 
+> > > > > > 2.25.1
+> > > > > > 
+> > > > > 
+> > > > > Please do not remove this code. It is required part of the
+> > > > > initialization of the aardvark PCI controller at the specific phase,
+> > > > > as defined in the Armada 3700 Functional Specification.
+> > > > > 
+> > > > > There were reported more issues with those Armada PCIe controllers for
+> > > > > which were already sent patches to mailing list in last 5 years. But
+> > > > > unfortunately not all fixes were taken / applied yet.
+> > > > 
+> > > > Hi Pali,
+> > > > 
+> > > > I replied to you in version v2.
+> > > > 
+> > > > Is the maximum MPS supported by Armada 3700 512 bytes?
 > > 
-> > That's exactly the policy that this cludge provides. But it's using the midr to
-> > check if the CPU has BBML2_NOABORT. I'm not sure I follow your point about a
-> > "BBM_CONFLICT_ABORT" erratum?
+> > IIRC yes, 512-byte mode is supported. And I think in past I was testing
+> > some PCIe endpoint card which required 512-byte long payload and did not
+> > worked in 256-byte long mode (not sure if the card was not able to split
+> > transaction or something other was broken, it is quite longer time).
+> > 
+> > > > What are the default values of DevCap.MPS and DevCtl.MPS?
+> > 
+> > Do you mean values in the PCI-to-PCI bridge device of PCIe Root Port
+> > type?
+> > 
+> > Aardvark controller does not have the real HW PCI-to-PCI bridge device.
+> > There is only in-kernel emulation drivers/pci/pci-bridge-emul.c which
+> > create fake kernel PCI device in the hierarchy to make kernel and
+> > userspace happy. Yes, this is deviation from the PCIe standard but well,
+> > buggy HW is also HW.
+> > 
+> > And same applies for the pci-mvebu.c driver for older Marvell PCIe HW.
+> > 
 > 
-> I was hoping that it would mean that each CPU can independently determine
-> whether or not they have the erratum and then enable it as soon as they
-> detect it. That way, there's no need to iterate over all the early cores.
+> Oh. Then this patch is not going to change the MPS setting of the root bus. But
+> that also means that there is a deviation in what the PCI core expects for a
+> root port and what is actually programmed in the hw.
 
-But then we'll still have to disable the feature if one of the early
-CPUs doesn't have it. As a local CPU feature as per the errata handling,
-the feature (bug) is advertised if at least one CPU supports it. Here we
-kind of need a combination of system (available an all early CPUs) and
-local MIDR check.
+Yes, exactly this aardvark PCIe controller deviates from the PCIe spec
+in lot of things. That is why it is needed to be really careful about
+such changes.
 
-We might be able to work with two features - one SCOPE_SYSTEM for the
-sanitised ID reg and a _negative_ (deny-list) SCOPE_LOCAL_CPU for the
-MIDR. Or probably a single CPU-local feature, but negative, that checks
-both the ID reg and MIDR, let's call it ARM64_HAS_NO_BBML2_NOABORT. If a
-single CPU does not have the ID reg or is on the MIDR deny-list, this
-"feature" will be enabled. For late CPUs, if NO_BBML2_NOABORT has been
-enabled, they are allowed to miss it (OPTIONAL_FOR_LATE_CPU). However,
-if NO_BBML2_NOABORT is cleared, a late CPU is not allowed to have it.
+Same applies for pci-mvebu.c. Both are PCIe controllers on Marvell
+hardware, but it questionable from who both these IPs and hence source
+of the issues.
 
-Hmm, if I got the logic right, that's what
-ARM64_CPUCAP_LOCAL_CPU_ERRATUM means but we need to negate the feature
-to disable the optimisation if at least one CPU is on the deny-list or
-missing BBML2.
+Also these PCIe controllers have lot of HW bugs and documented and
+undocumented erratas (for things which should work, but does not).
 
-(or maybe I haven't had enough coffee today)
+So it is not just as "enable or disable this bit and it would work". It
+is needed to properly check if such functionality is provided by HW and
+whether there is not some documented/undocumented errata for this
+feature which could say "its broken, do not try to set this bit".
 
--- 
-Catalin
+> Even in this MPS case, if the PCI core decides to scale down the MPS value of
+> the root port, then it won't be changed in the hw and the hw will continue to
+> work with 512B? Shouldn't the controller driver change the hw values based on
+> the values programmed by PCI core of the emul bridge?
+
+Marvell PCIe controllers has their own ways how to configure different
+things of PCIe HW via custom platform registers. This is something which
+needs to be properly understood and implemented as 1:1 mapping to kernel
+root port emulator. Drivers should do it but it is unfinished. And as I
+already said I stopped any development in this area years ago when PCIe
+maintainers stopped taking my fixes for these drivers. As I said I'm not
+going to spend my free time to investigate again issues there, prepare
+fixes for them and just let them dropped into trash as nobody is
+interested in them. I have other more useful things to do in my free
+time.
+
+> But until that is fixed, this patch should be dropped.
 
