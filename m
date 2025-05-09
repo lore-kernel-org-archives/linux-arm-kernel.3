@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C44F6C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 06:44:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81966C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 06:46:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RGGUWsD6mE/MPYlXlrelAUBFwk7Si62HhFTya0QjVbo=; b=BwOXHmW5VVZQ1BQJxz9bnVmLEJ
-	i3YRncYO9Q9Avl2BgIkn62gMyunhEeqzSgxf6NdIxPZKwpzipFO4ivQXSCFw/+36lGyZUIzSXV/kb
-	NiijCc44+MPJA2rRgMaWoeJhrKmTinzO0llfU6q30LnD9oTOVnwR8nbTLwQYChJuyoB1fBQ6e/QHk
-	KJDBwiWbQDnF9QRrHQ7kpkGK/9MAyBJtwO8+Zkj6jmtQ8P0IQjkgq9G106r9UMyhTfy+DkZY2GqVh
-	NLELpl1C5NOCzg6MYNH56z3T+wccKAKfVOQzKVwHI2A5EMgb7Yim+keF5UaF0WkfUv8ltYGmMkUFx
-	q0c78UDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+N6qYPtB7OJ/ORYUW6jjlq+jHbMXbgtwzLUCncXdlqs=; b=qu4f2ZTK11BrOVkc6TQnKya5iI
+	b44LqVk/RgGUGr41HrxgPyzXFmyT8qYl3DoZrOY4HGny5umaaWyr7MmApLTSNk9KWBcuxa4pJaGJc
+	IqjHm/U6pbHWxLLSOC9+x3y64hzk+KquPqz+9mJfcPIOM2PRYkQ0kikBYgTYZJ0ZiaxMu5X+OJaNG
+	7Qp48DG7/+LjchVp2olqJDmg3EnnnWPTJXvGOPjmiGXyl2HWxDNyBZYbGUGz1TI4TAjyEwmriYNPL
+	73Kn0RZSeNhUee7JHGTHzGoK66dmiPtgR5FEFFpiKjJoN5OVI7CeaMXicdkrZDOVnKJSRaJMG9pyz
+	THKC36YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDHSm-00000002dZ0-3j5d;
-	Fri, 09 May 2025 06:44:04 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1uDHUn-00000002e2T-11EW;
+	Fri, 09 May 2025 06:46:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDHOA-00000002cpL-1gB4
+	id 1uDHS1-00000002dOI-0Tlz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 06:39:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1746772757;
- bh=RGGUWsD6mE/MPYlXlrelAUBFwk7Si62HhFTya0QjVbo=;
- b=HRPH0sdRWcqEoqOzbCIdHeWVcCrGprThINHV1cWThucwfABNZOhteQKZCrMMmOOr8g903NHhM
- D/pFpcfdVG69AhyRpXRcusHYuILPQTEGNUjxeAyz5XFCVCCoHB4kXrspp5gHVzhA7yBs0udeNxW
- kwPDyICSqF3nude6txsIobps5GXnY0+F4y1HtrL1Lc3vJGNSCfS//TDqrLIM83Neo0WkqC8G9fI
- iq9EnKzCRlRg/MxBTsnAKOag/5nZVHq0UTjWJZ0ibBLJTpUNi+Kyjmh2xV25gd5MtkeEiGdq0D2
- r+tD8dihqaLOPrbpHkFwBBdkPnve422PuYbQjF04weuw==
-X-Forward-Email-ID: 681da3124a62bf69f80b0c57
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.0.2
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <77c35f99-eb71-4d64-a2e1-e9cf9f6ffa4f@kwiboo.se>
-Date: Fri, 9 May 2025 08:39:10 +0200
+	Fri, 09 May 2025 06:43:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6522D442A6
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 May 2025 06:43:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42AEFC4CEED
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 May 2025 06:43:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746772996;
+	bh=ghSTPDMBmKNh6R/xiVJM8gT+jTFNIjQQaJPqghwpZjY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Eb/VyXosiYXHNnQAaqq5IlB7CzkTKtizXgAXVvm3bcJ0b/fuzwgRFfcWThnZEwNzl
+	 QJXk0Fpw+RTQyZmVnBR6JLO7DLUGBFNciUktHOf678YDHkhk3U/Yh7cxIwIIvw3jCT
+	 tOVurhBTyr7AVJgBC6bIjaR5fYWxXc5yVeCAI9G5fitxy1Tz14PUeK9mQdEZK9wt8s
+	 Mq6Ws7w3trcXdnTV0TKHHEmlF51dUyvwIXPrbGl0HF9jBGl2QPESLA4K/yLVGi7qHl
+	 smboDShLc3NgxO9/9Zj/RpoJ/n1UJBueb8G2IdoUIB4v8eKwplrjuZq2ZORl2AHhmT
+	 zKEBq4Qkr6RBQ==
+Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-326ca53a7e8so623891fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 May 2025 23:43:16 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCV6tsVIXSHAp+ZUSlISvXHuIxNYaEikfVuSuq+xCaEF0WAOQVx571MSNBPjJoIzlQS6bZp89f2xD5W6LS/aB3Ef@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1YLpUt4WrkLL0rw3w6XIf9/LXo4FzsOn9/uGobbQ42DRI4zLX
+	KqIukTngaDnZYERDKBuAsFKj1mcZAZGWXaSGDC+d4XHNO0icQN1uJxDpL9KS2pmqzxlmQVQ2Osj
+	mGBETpEl4XfK77psMQLZfFSNrkVg=
+X-Google-Smtp-Source: AGHT+IFsYIL6Kq1fR2rucdZEGan6DGCUAzRTPL9yxGMxy2vAM733bGMSlqsVKU81T1W52/p+1SZOBQJGywB2CW717ww=
+X-Received: by 2002:a2e:bc07:0:b0:30c:c7a:dcc with SMTP id 38308e7fff4ca-326c45a9416mr9145701fa.20.1746772994563;
+ Thu, 08 May 2025 23:43:14 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/2] arm64: dts: rockchip: Enable SD-card interface on
- Radxa E20C
-To: Yao Zi <ziyao@disroot.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chukun Pan <amadeus@jmu.edu.cn>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250508234829.27111-2-ziyao@disroot.org>
- <20250508234829.27111-4-ziyao@disroot.org>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250508234829.27111-4-ziyao@disroot.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250508114328.2460610-5-ardb+git@google.com> <20250508114328.2460610-8-ardb+git@google.com>
+ <aByy1CFUieJQeofl@e129823.arm.com>
+In-Reply-To: <aByy1CFUieJQeofl@e129823.arm.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 9 May 2025 08:43:03 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXE-VbdniRZ9Y+u9eaw9JM_qot+TJkQkfULX548YvKD4Ww@mail.gmail.com>
+X-Gm-Features: ATxdqUFXQ6f01M85Uaq5BhYbSHW7aM9dCR1G5FmaZ6Jsmzse2QNK1itGcCJ8okg
+Message-ID: <CAMj1kXE-VbdniRZ9Y+u9eaw9JM_qot+TJkQkfULX548YvKD4Ww@mail.gmail.com>
+Subject: Re: [PATCH v2 3/3] arm64/boot: Disallow BSS exports to startup code
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com, 
+	mark.rutland@arm.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_233918_526183_61F417E6 
-X-CRM114-Status: UNSURE (   7.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250508_234317_195113_8ABDD755 
+X-CRM114-Status: GOOD (  22.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,24 +83,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-05-09 01:48, Yao Zi wrote:
-> SD-card is available on Radxa E20C board.
-> 
-> Signed-off-by: Yao Zi <ziyao@disroot.org>
+On Thu, 8 May 2025 at 15:34, Yeoreum Yun <yeoreum.yun@arm.com> wrote:
+>
+> Hi Ard,
+>
+> > From: Ard Biesheuvel <ardb@kernel.org>
+> >
+> > BSS might be uninitialized when entering the startup code, so forbid the
+> > use by the startup code of any variables that live after __bss_start in
+> > the linker map.
+> >
+> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> > ---
+> >  arch/arm64/kernel/image-vars.h  | 62 +++++++++++---------
+> >  arch/arm64/kernel/vmlinux.lds.S |  2 +
+> >  2 files changed, 35 insertions(+), 29 deletions(-)
+> >
+> > diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
+> > index c3b4c0479d5c..a928e0c0b45a 100644
+> > --- a/arch/arm64/kernel/image-vars.h
+> > +++ b/arch/arm64/kernel/image-vars.h
+> > @@ -10,6 +10,12 @@
+> >  #error This file should only be included in vmlinux.lds.S
+> >  #endif
+> >
+> > +#define PI_EXPORT_SYM(sym)           \
+> > +     __PI_EXPORT_SYM(sym, __pi_ ## sym, Cannot export BSS symbol sym to startup code)
+> > +#define __PI_EXPORT_SYM(sym, pisym, msg)\
+> > +     PROVIDE(pisym = sym);           \
+> > +     ASSERT((sym - KIMAGE_VADDR) < (__bss_start - KIMAGE_VADDR), #msg)
+> > +
+> >  PROVIDE(__efistub_primary_entry              = primary_entry);
+> >
+> >  /*
+> > @@ -36,37 +42,35 @@ PROVIDE(__pi___memcpy                     = __pi_memcpy);
+> >  PROVIDE(__pi___memmove                       = __pi_memmove);
+> >  PROVIDE(__pi___memset                        = __pi_memset);
+> >
+> > -PROVIDE(__pi_id_aa64isar1_override   = id_aa64isar1_override);
+> > -PROVIDE(__pi_id_aa64isar2_override   = id_aa64isar2_override);
+> > -PROVIDE(__pi_id_aa64mmfr0_override   = id_aa64mmfr0_override);
+> > -PROVIDE(__pi_id_aa64mmfr1_override   = id_aa64mmfr1_override);
+> > -PROVIDE(__pi_id_aa64mmfr2_override   = id_aa64mmfr2_override);
+> > -PROVIDE(__pi_id_aa64pfr0_override    = id_aa64pfr0_override);
+> > -PROVIDE(__pi_id_aa64pfr1_override    = id_aa64pfr1_override);
+> > -PROVIDE(__pi_id_aa64smfr0_override   = id_aa64smfr0_override);
+> > -PROVIDE(__pi_id_aa64zfr0_override    = id_aa64zfr0_override);
+> > -PROVIDE(__pi_arm64_sw_feature_override       = arm64_sw_feature_override);
+> > -PROVIDE(__pi_arm64_use_ng_mappings   = arm64_use_ng_mappings);
+> > +PI_EXPORT_SYM(id_aa64isar1_override);
+> > +PI_EXPORT_SYM(id_aa64isar2_override);
+> > +PI_EXPORT_SYM(id_aa64mmfr0_override);
+> > +PI_EXPORT_SYM(id_aa64mmfr1_override);
+> > +PI_EXPORT_SYM(id_aa64mmfr2_override);
+> > +PI_EXPORT_SYM(id_aa64pfr0_override);
+> > +PI_EXPORT_SYM(id_aa64pfr1_override);
+> > +PI_EXPORT_SYM(id_aa64smfr0_override);
+> > +PI_EXPORT_SYM(id_aa64zfr0_override);
+> > +PI_EXPORT_SYM(arm64_sw_feature_override);
+> > +PI_EXPORT_SYM(arm64_use_ng_mappings);
+> >  #ifdef CONFIG_CAVIUM_ERRATUM_27456
+> > -PROVIDE(__pi_cavium_erratum_27456_cpus       = cavium_erratum_27456_cpus);
+> > -PROVIDE(__pi_is_midr_in_range_list   = is_midr_in_range_list);
+> > +PI_EXPORT_SYM(cavium_erratum_27456_cpus);
+> > +PI_EXPORT_SYM(is_midr_in_range_list);
+>
+> small nit:
+> Would you rebase this patchset after
+> commit 117c3b21d3c7 ("arm64: Rework checks for broken Cavium HW in the PI code")?
+> Otherwise, I experience boot failure because of SCS related code:
+>
+>   ffff80008009fbc0 <is_midr_in_range_list>:
+>   ffff80008009fbc0: d503245f    bti     c
+>   ffff80008009fbc4: d503201f    nop
+>   ffff80008009fbc8: d503201f    nop
+>   ffff80008009fbcc: f800865e    str     x30, [x18], #0x8 ---- (1)
+>   ffff80008009fbd0: d503233f    paciasp
+>   ...
+>
+> At pi phase, platform register initialized properly...
+> So it makes panic on (1).
+>
 
-This has not changed since v4, so this is still [1]:
+That commit is not in the arm64 tree, so it will be up to Marc and
+Catalin to resolve the conflict.
 
-Reviewed-by: Jonas Karlman <jonas@kwiboo.se>
+Your commit
 
-[1] https://lore.kernel.org/r/f19f11f7-c020-44a3-84fa-eb9ca48ed11f@kwiboo.se/
+363cd2b81cfd arm64: cpufeature: Move arm64_use_ng_mappings to the
+.data section to prevent wrong idmap generation
 
-Regards,
-Jonas
+is not in the kvmarm tree, so the build will not even complete if you
+rebase it on that.
 
-> ---
->  .../boot/dts/rockchip/rk3528-radxa-e20c.dts   | 30 +++++++++++++++++++
->  1 file changed, 30 insertions(+)
-
-[snip]
-
+For testing, please merge the kvmarm tree and resolve the conflict by hand.
 
