@@ -4,85 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC90FC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:27:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42057C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 May 2025 20:27:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sGMDR4vrCsmFK5oEVJjhbe9GdCx3AVSX7y/0PLZa9DE=; b=V+iZUTwvEq+UKQhnpUhvlHpyaH
-	TMZsz1Aoo9Ul2jNV9Vk8aLg351i00EKtlhHJzFQEzk/lx8Jjiw5H27ockomQOP28K+T7pLDC+PG8u
-	2B7K03XqkTtMayzLqezNoSReEcTEWd61z2J1K4XTsV576UNW0pf2FYONA9OoU+B0eB6761nOzUCmN
-	M8KeMbA7VL1UcYYtOL4V87mEDCtQ6WVQIgcPlwuqt0SLy3yZln0tUbjjU8O6bUqJtcBu7utJXPgbp
-	4rdMXGnTKRYOtJf7lcFIxm1tu3r2MBzudTR5w2QK4LJC3juSCLdQpHnvfMV7dWU9/rhi/BBaOqN4D
-	sVUHKQrw==;
+	bh=AVjmITvg5xwQUhBH3cPWu+1Rci6sKZeIVD+X8Tz7B6Y=; b=yaUTCUbuCtF/UgN+l5e7ayZgN+
+	KdBnFlPkJfIQJTr/sBUUtSrBkSIQpZDYm1F+VvgUmhSR/9LSEf41ECokvs5ksGwCklnqrpUNQVjVX
+	4uftlgiQ0Oq11bToedDljGxuetKu1muQpO4kLkQfX9ej1w1jlJROghVso3G5IPi5HCEAKle0r6Xax
+	2M0uqwvYQd0g8p1lzRpeEYtd/bRA/2FKf6SxWwG4tLLQUw5dRLXCptvxvPm56leCcd1vwdRFcAB0Y
+	WgXGtBkm8T+hJgmA+qAjnSR/dtdUsl3B4PNLFmOI8ljCikpsnB3a3aF+pJm/rcCCMdX337J5d4QM/
+	S/BHK5LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDUJx-00000004p0j-1aDi;
-	Fri, 09 May 2025 20:27:49 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1uDUJy-00000004p3J-3AqH;
+	Fri, 09 May 2025 20:27:50 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDSS0-00000004Zdb-3ZE8;
-	Fri, 09 May 2025 18:28:02 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-22e661313a3so23658395ad.3;
-        Fri, 09 May 2025 11:28:00 -0700 (PDT)
+	id 1uDSSa-00000004ZjE-20Tr;
+	Fri, 09 May 2025 18:28:37 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-22fa28c761dso18198595ad.2;
+        Fri, 09 May 2025 11:28:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1746815280; x=1747420080; darn=lists.infradead.org;
+        d=googlemail.com; s=20230601; t=1746815315; x=1747420115; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=sGMDR4vrCsmFK5oEVJjhbe9GdCx3AVSX7y/0PLZa9DE=;
-        b=Bzd75DUK0P1fC6uG0vDl3wkR7QPeveaNragb6D4slP/xMMkeJpB7ZSZIjLggnD7AM6
-         IrdRc+F5xvl2VTcr4gD0vjAz7QH0mZwmHCOvq7djVgSD1D+Gr8yQT+TaeFDFlpxL2KrU
-         Os2ZRdhut5LKufyGGearuvwdEHb4lAzCKgrV7l465V+3t+ybjMVMa9sdXbpJ/sI7cO1W
-         LEE17TCpX+AkXDgRBKedKHk4B8woru4ZhBGh/JNMYw1CEANBhNrxBRukMWaPYeHvBW4H
-         GUz1Fnwpz6ESVKRAoYnOjX/CYbNhHiFjoIV4w6+nC0BrC1fVWFMJCdDOVBZ1I5mJotCU
-         n27w==
+        bh=AVjmITvg5xwQUhBH3cPWu+1Rci6sKZeIVD+X8Tz7B6Y=;
+        b=bXAet2Jm4AMK+LnT1BZiwP0LUbXLHPzJwcKPx+JSooSwQshgCy/7vlDE/EcEXcHiMa
+         l2QVoFrL+V05tlHHHvsgzFvBrGLo3vDCmYRZUq33JtpQ3YoDIhGPqAKxUUw6VBvohKW0
+         DwaQo4OYjP/67Fs1llrnQ0fpsjC2pb3jr0UBbMiYzBnLL+8IibO5VPhJnElsvJ6ZUlPi
+         yaHoGnV2L6ZrtLh7kVC5El6k71G+0GpGIhav+fkFPwAcAfvVpe41A6NYm/XXfLnth2Z6
+         kmBZOZokUzcIphbwnnqI3rjTrtITqor0JVElQKjg1EOekBX9qT5/+jSi5ATOnFMbkUwF
+         JvuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746815280; x=1747420080;
+        d=1e100.net; s=20230601; t=1746815315; x=1747420115;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=sGMDR4vrCsmFK5oEVJjhbe9GdCx3AVSX7y/0PLZa9DE=;
-        b=CPvpjIR3I8NobeE8Ld7slJJJX+LjEmyRz1IGQsvwEjkgSk5DswnYjE00z9Ll4ElscW
-         ambikVkAJygGH2n8clqcv9djeY8fLIKj+Sp1WE3v8Pw5scRvi9XPDPJ3X+185OAXBHjK
-         k6Hf73vbx/dVD6Gw//wxZH92ULYYKIvT+CqZmBGro5+GlHB60ptsTfseaK8UimJ99hd6
-         Gx+wYTLlieDE0LHvm1iSxaP0a1ArbXniI6stUi8NFv9HhVt/RS7e9Dp0zuvc39640VRX
-         KZoT9h3fHYPs85XL4iOC3FCLxNO+GzUXvxg1hcH0AJ77herj3MVVi0ByIdD9psg9nbpZ
-         SpTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUbY+adHGhvOqq14teE9gDlV87kNHrSuG1KuJ7nj8n6q5unc/Cm7tg33hFWcOA++7HCB/2I5fhN7ddIQd9N7Taj3A==@lists.infradead.org, AJvYcCWB3i80oBcT/Jcs8PJ6WxWwOBi61BOs62X1c5ei+cB4q5a9UqasJTVaCYft4UsLF5dyrFtkbopjrkhEZXRJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSuYP/OT+9PhW+2i44nhsceH7Bdzysp0MtmU7NutjSW6dTT+Wj
-	NcWUcUIhzfmOwpkNNZcfafAf5JngbtdQq2oo4OAlLmuF0wH9zV4FrfptLehURPgvBLIjTVeAtr1
-	c0Ng50oEFmEVlfHkhaXR/zk7W+QA=
-X-Gm-Gg: ASbGncsz6QpnSeR0RBopaSlbxWZI5wuXvZTDOmvZmYescTHkJMYP0CKS3MQVs+b0UU3
-	8TJW/VY5MHoXgAt3GH4IB0dL7X8St15oQaXCDHirHQ6odXdmZqZnykYo1MvBs6rTKYXuy/iNanz
-	FWjjhXPFS0LwzfEJJ+p1w88OHUALeeoNAiGnPjdQGSNH9R8IMEUbINJ7ghWVxeAk/xLQ==
-X-Google-Smtp-Source: AGHT+IHXDGWP+YtZpWiwJiGwLYqFvxGO5dbb7SWr+ooxT2b9DImqaiGMOG5CHnVu37yhFV5sw1lsNGEQqFB08eoyEkU=
-X-Received: by 2002:a17:902:d48c:b0:220:d909:1734 with SMTP id
- d9443c01a7336-22fc8b32ce8mr71176355ad.14.1746815279648; Fri, 09 May 2025
- 11:27:59 -0700 (PDT)
+        bh=AVjmITvg5xwQUhBH3cPWu+1Rci6sKZeIVD+X8Tz7B6Y=;
+        b=aVnpXIJ1pMmGOJZjsMWOsgX+mGlAyV/XRuXdArjvshaWoWtb3iiRbzh8F2em4plzQX
+         cIYkhpWXC0Hn1lacYMGbfsYi3bk2Ud909dHJkR3SyQIowBlk7kk2unWidgp5Q5568pCn
+         Clx3BPTLwebgq93sjCI+iGG5c2JyV4rqZnDwisLmOW/LcWBnrtzYqRSzpwjtd7KM7X8W
+         Qi515fcWpZK7ZPl6o6/gQvEqrOSvDjIUIjC0XDwO6FLYZA1HJLN0htY0YUM3jy0DaaNz
+         MeE2KB3ZOFzKPpf96eJbjZ6SvRiLxDumqcWhq5006AJ9oFzMBOludXzCDl8FtjWwyKjw
+         ylrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUnerI61YqRz96dn4TsIRcYSEAUoGNGWtSdzs+o9wyJolmR3lW0tbCZNl3PuC9BRbKmOsFVP6sPQPfCEjT0@lists.infradead.org, AJvYcCUzRYFlHnbICAvECAGZNyIDJmxRXymCdoWAl7dd9g1RLigKzLp7AL/o5jmKkaLY/0WUP8L1UKCOaBByiE7rY33u0g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YymNI5RP/VpNWOf3gUzZ3MsNxAt5NrXtYStZpMRTABE4tgMj7S0
+	ZKnTz/a4zfX+pmn4/Y35TSLz59RbFNWGLXfVi2LcioiiUDydsEgH+1kTrw9chWjMqhvM9oNArdH
+	1WDI8E7SeZxJj2FuCciRWE1KKHb3c2T2O
+X-Gm-Gg: ASbGnctLLVt0JpSccEHSQ6nGoPVUq4QEBnwfyPhTpzcUWnhgikcya0InGRACYdyJci2
+	uxlsbpuDXDL/GkJZLoSPoQibfQbxJbrJ214UK0UOX5xDdrNUvCG+cRAz8gRI+bwDUF4U3TOY3G7
+	LQqZTx+WjQaF21TXdb7/sl/avIiXmUAt2yP2menKaeMNIjl7qHfxZZHDXV1m8TNr+QQw==
+X-Google-Smtp-Source: AGHT+IEwd7AiDoJxpDhyTHw6FTDd796IjH1JzgkpmVh4628MtJYKSWng6hqIPivs5wHI5s0eCiBfNcWPOBCx0dc2UHI=
+X-Received: by 2002:a17:902:f70a:b0:225:abd2:5e39 with SMTP id
+ d9443c01a7336-22fc8c8eac0mr65654585ad.30.1746815315465; Fri, 09 May 2025
+ 11:28:35 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250505184338.678540-1-richard120310@gmail.com> <6d2f35ee-1b33-40b6-b164-ab4480110e49@linaro.org>
-In-Reply-To: <6d2f35ee-1b33-40b6-b164-ab4480110e49@linaro.org>
+References: <20250509150114.299962-2-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250509150114.299962-2-krzysztof.kozlowski@linaro.org>
 From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Fri, 9 May 2025 20:27:47 +0200
-X-Gm-Features: AX0GCFux03CvY5ldQo8MgJxENVqxGp77YENyE8ZwpmGhXEQFNatCnqiqkcdNym4
-Message-ID: <CAFBinCDmHhF7=-dutXT6RE9hVzfN3akLicGkQKw=Arm8bq2NKQ@mail.gmail.com>
-Subject: Re: [PATCH v2] drm/meson: Use 1000ULL when operating with mode->clock
-To: Neil Armstrong <neil.armstrong@linaro.org>
-Cc: I Hsin Cheng <richard120310@gmail.com>, maarten.lankhorst@linux.intel.com, 
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, 
-	khilman@baylibre.com, jbrunet@baylibre.com, christophe.jaillet@wanadoo.fr, 
-	skhan@linuxfoundation.org, dri-devel@lists.freedesktop.org, 
-	linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+Date: Fri, 9 May 2025 20:28:24 +0200
+X-Gm-Features: AX0GCFt7pQHVyrf4n1xvCNGZ9D5D94k38mJZKPZaIgxrW2CstAdBDU6m2wUQANg
+Message-ID: <CAFBinCDt1jDv=jhDoW3UtBUL8BuLL8PpJPKjpC1Sf5fifnw+6g@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: meson: Drop unused aml_pctl_find_group_by_name()
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Xianwei Zhao <xianwei.zhao@amlogic.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, linux-amlogic@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_112800_903750_D3A3730A 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20250509_112836_513355_233A7B85 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,24 +99,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 9, 2025 at 5:35=E2=80=AFPM <neil.armstrong@linaro.org> wrote:
+On Fri, May 9, 2025 at 5:01=E2=80=AFPM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
 >
-> On 05/05/2025 20:43, I Hsin Cheng wrote:
-> > Coverity scan reported the usage of "mode->clock * 1000" may lead to
-> > integer overflow. Use "1000ULL" instead of "1000"
-> > when utilizing it to avoid potential integer overflow issue.
-> >
-> > Link: https://scan5.scan.coverity.com/#/project-view/10074/10063?select=
-edIssue=3D1646759
-> > Signed-off-by: I Hsin Cheng <richard120310@gmail.com>
+> aml_pctl_find_group_by_name() is not used anywhere, as reported by W=3D1
+> clang build:
 >
-> Could you add a Fixes tag ?
-Fixes: 1017560164b6 ("drm/meson: use unsigned long long / Hz for
-frequency types")
-
-Neil, can you add this while applying or do we need a v3?
-
-
-Best regards,
-Martin
+>   pinctrl-amlogic-a4.c:600:2: error: unused function 'aml_pctl_find_group=
+_by_name' [-Werror,-Wunused-function]
+>
+> Fixes: 6e9be3abb78c ("pinctrl: Add driver support for Amlogic SoCs")
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 
