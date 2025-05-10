@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8137C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 07:50:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 981BEC3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 07:52:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wd2eBFYXfdMSckHRd4TUhiTza7+qDuNHyJY37mYTh8g=; b=tgUSod6D3MokldFXlE8N0AiVLS
-	/+B6Il5wSa8E4bKVO6pON5xNaoye/GbdUFbaZ29qF/UxvjoW+ihMfWAzU72CnpCnxSavthuHBVuvp
-	4FIO33jtvQtX4aCxHJI00r9GptpeTbX3Blvcsb8fgd8ZCTfcZ4WgFei4fmEiTaV557/Y756mSxUqw
-	avW0ELNvMkYn+gr0EhpEoIRJPtXbMFEzSs6nWtS0lVPiM4B6Qii++gnyaslvFyxR1xtozRTMRX48q
-	LYnMRRWIA7zJI/AM1+qTM6UVIOzKRMnZ1d0pcQF7uXAIiqf1+I61UuMjj8qtfT4S5F14NCkETbrC0
-	CLK0WQPg==;
+	bh=QOi2+mQp3d944N2hzVvnKFDwZUvY8jSUF/ABKoJE7Fw=; b=AAe7P2fKCfLyrmCM7Meb4DEuV4
+	H315V7NyQMFqyx9x6OUD3s++fe+vtntNk9BBieP4UY9PUpTZj6gZ65jbxk3gnSaUKj/9Fo3U8nzL9
+	5Qq7sePjHGt6rjzngmKRwK3HFVto17/iPeTR6+kAxs/eGAlpmTI2tVIYWYIJ561d2UbBRmsNfVzfW
+	PwPSiEHY/ecGlZvqNX/9SdRYxDYZ6OjLWywf2r0tbsHgKr6LXSjgwop5PhGsA8esstytJplDM7xC0
+	YT1FwEHyx/++UAxxyK4hTxyxRdsPvYymZfGIdEJlffIgLIWkxJTcGcYFG9yWes+ZVs0YBLTInqYG5
+	gjV8JCsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDeyx-00000005a7Y-2mcw;
-	Sat, 10 May 2025 07:50:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uDf0u-00000005aHl-1hUJ;
+	Sat, 10 May 2025 07:52:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDetS-00000005ZPE-21Hs
+	id 1uDetS-00000005ZP9-21Q3
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 May 2025 07:45:11 +0000
+	Sat, 10 May 2025 07:45:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 74F884A70E;
+	by sea.source.kernel.org (Postfix) with ESMTP id 5B2234A6FD;
 	Sat, 10 May 2025 07:45:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 4FDEBC4CEEE;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 19001C4CEF1;
 	Sat, 10 May 2025 07:45:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1746863109;
-	bh=UDYWDg2Yz1nJiRbj7Z8QC9FBgMmCSf4p9oWrfm2p7xg=;
+	bh=ftCcW7WIxYGQk7HA8lp62RbBZM06Z5asH0bujmE6CcU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=UwhO4hHzvTUyEUINoVyRSWnnIgJzC5hOQVCO9nDINmlMcBN3nuVHK3PkpmD5WQx3s
-	 qPcF5oa4erEFUPF5LGF6+AEKGjbrr74VxRSx/nJiNQ5MeFrolF5Xc4B0WRaYDxXVWy
-	 4nu1eqS1UAhHhmFoZsd40s8KiZp35qpYYQVAw10EFEpQpbXBrh5uBSvHsev0kAcr31
-	 5br9k4qZW3S1FCQxtCs1bxRLAH9/MDrX6CAPKnjh6kJbhFyCisQyxFw7ONNdyyLlFr
-	 w91QEUWn8KsN/1p2Ocyeg1f32koQM5Eq5mGj64VpDbxa6SHZb5Yz0Cm47/c1irjgVT
-	 9CbefdFbMZZuQ==
+	b=sgWXpeTGyvrpyEns61D6Dw84JcJcSkdgmOleT3NYM578DuoduMD3suLSzEdrNe9xi
+	 72B7rEgoFfJz5ZfiIlCrTs+B2g3HL+/Dwv+KUuEMOOTPDh0M2DYOTEgZT0IJpo1ahs
+	 zwlNLz6rV7CGHHrownc/QC1cIsjiGDGNxZ7D/mODDxXPY+cnQXlzM/YlDzWCTeEJGa
+	 t5WkSb6wAsM/eCXOJM2/7iyx7HP8Mk9UeJSS0vE0quES/7SvReVsrutUhT2RC9vGxY
+	 LlIjq9dypB+Sd0k79sGpPhvawKL/pf+GEBma5XFUB3S2g7VOPu+v413VbQ3o7j3ce/
+	 vs5AK5uWDMT+w==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 47295C3ABCE;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0E07AC3ABCC;
 	Sat, 10 May 2025 07:45:09 +0000 (UTC)
 From: Sven Peter via B4 Relay <devnull+sven.svenpeter.dev@kernel.org>
-Date: Sat, 10 May 2025 07:44:47 +0000
-Subject: [PATCH 7/7] arm64: dts: apple: t8112: Add eFuses node
+Date: Sat, 10 May 2025 07:44:43 +0000
+Subject: [PATCH 3/7] Revert "nvmem: core: Print error on wrong bits DT
+ property"
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250510-nvmem-dt-v1-7-eccfa6e33f6a@svenpeter.dev>
+Message-Id: <20250510-nvmem-dt-v1-3-eccfa6e33f6a@svenpeter.dev>
 References: <20250510-nvmem-dt-v1-0-eccfa6e33f6a@svenpeter.dev>
 In-Reply-To: <20250510-nvmem-dt-v1-0-eccfa6e33f6a@svenpeter.dev>
 To: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, 
@@ -63,21 +64,21 @@ Cc: linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
  Sven Peter <sven@svenpeter.dev>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2946; i=sven@svenpeter.dev;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1031; i=sven@svenpeter.dev;
  h=from:subject:message-id;
- bh=j8UAIvDfj4+sxfGUjSBnpN2Tc+COrCSgMqHTgCD6qaE=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ4Y8C5Pvvb3nd1S1va7TWWZrYM+v6bqTeS8fM9ssXjbtb
- PmbkmodpSwMYhwMsmKKLNv325s+efhGcOmmS+9h5rAygQxh4OIUgImEBjH8FXX64lD5sPT+0iwf
- owVXjNfdcTAz+rX278Qvz60knwV4ODEyrGq35UgWbrn35/0rpRd8fzw/vs7JcPXXSZl47aTtUvH
- fPAA=
+ bh=hpPWBCehpQX+TRroEYSLZmoZuXPmZL8t0ylnYC5nM1Q=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ4Y883++/u3l1adVWlJs9YLZTxQcu8fofWhL8YmaEy5cU
+ +Rf17d0lLIwiHEwyIopsmzfb2/65OEbwaWbLr2HmcPKBDKEgYtTACZiUMnw3+vR7e2GDusU50ks
+ z3jCtm3S2wPbI/5ufdvw/NekJt4HDHmMDL/uGzoqHLjJfEXi5U1z2z+BCZ7ui/VnX7ox4Ye1mqx
+ FARMA
 X-Developer-Key: i=sven@svenpeter.dev; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@svenpeter.dev/default with
  auth_id=167
 X-Original-From: Sven Peter <sven@svenpeter.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250510_004510_594493_8664F3E7 
-X-CRM114-Status: UNSURE (   7.91  )
+X-CRM114-CacheID: sfid-20250510_004510_567562_ECE80C2D 
+X-CRM114-Status: UNSURE (   8.73  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,123 +97,33 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Janne Grunau <j@jannau.net>
 
-Add the eFuse controller and the nvmem cells required for both Type-C
-PHYs
+This reverts commit def3173d4f17b37cecbd74d7c269a080b0b01598.
+
+Now that the core supports accessing bits even beyond the first byte
+this additional error check is no longer required.
 
 Signed-off-by: Janne Grunau <j@jannau.net>
 Signed-off-by: Sven Peter <sven@svenpeter.dev>
 ---
- arch/arm64/boot/dts/apple/t8112.dtsi | 97 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 97 insertions(+)
+ drivers/nvmem/core.c | 5 -----
+ 1 file changed, 5 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
-index d9b966d68e4fae2dfb21d6fb7a97ebba81643ae8..4dec6415ef73e922dd574997569ad0e6acbc9658 100644
---- a/arch/arm64/boot/dts/apple/t8112.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8112.dtsi
-@@ -782,6 +782,103 @@ wdt: watchdog@23d2b0000 {
- 			interrupts = <AIC_IRQ 379 IRQ_TYPE_LEVEL_HIGH>;
- 		};
+diff --git a/drivers/nvmem/core.c b/drivers/nvmem/core.c
+index 02081c93fa467e5448bd78a4920072d437365fb9..ef1f59b34d262a533fb601d87fec123061cfff81 100644
+--- a/drivers/nvmem/core.c
++++ b/drivers/nvmem/core.c
+@@ -837,11 +837,6 @@ static int nvmem_add_cells_from_dt(struct nvmem_device *nvmem, struct device_nod
+ 		if (addr && len == (2 * sizeof(u32))) {
+ 			info.bit_offset = be32_to_cpup(addr++);
+ 			info.nbits = be32_to_cpup(addr);
+-			if (info.bit_offset >= BITS_PER_BYTE || info.nbits < 1) {
+-				dev_err(dev, "nvmem: invalid bits on %pOF\n", child);
+-				of_node_put(child);
+-				return -EINVAL;
+-			}
+ 		}
  
-+		efuse@23d2c8000 {
-+			compatible = "apple,t8112-efuses", "apple,efuses";
-+			reg = <0x2 0x3d2c8000 0x0 0x1000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			atcphy0_auspll_rodco_bias_adjust: efuse@480,20 {
-+				reg = <0x480 4>;
-+				bits = <20 3>;
-+			};
-+
-+			atcphy0_auspll_rodco_encap: efuse@480,23 {
-+				reg = <0x480 4>;
-+				bits = <23 2>;
-+			};
-+
-+			atcphy0_auspll_dtc_vreg_adjust: efuse@480,25 {
-+				reg = <0x480 4>;
-+				bits = <25 3>;
-+			};
-+
-+			atcphy0_auspll_fracn_dll_start_capcode: efuse@480,28 {
-+				reg = <0x480 4>;
-+				bits = <28 2>;
-+			};
-+
-+			atcphy0_aus_cmn_shm_vreg_trim: efuse@480,30 {
-+				reg = <0x480 8>;
-+				bits = <30 5>;
-+			};
-+
-+			atcphy0_cio3pll_dco_coarsebin0: efuse@484,3 {
-+				reg = <0x484 4>;
-+				bits = <3 6>;
-+			};
-+
-+			atcphy0_cio3pll_dco_coarsebin1: efuse@484,9 {
-+				reg = <0x484 4>;
-+				bits = <9 6>;
-+			};
-+
-+			atcphy0_cio3pll_dll_start_capcode: efuse@484,15 {
-+				reg = <0x484 4>;
-+				bits = <15 2>;
-+			};
-+
-+			atcphy0_cio3pll_dtc_vreg_adjust: efuse@484,17 {
-+				reg = <0x484 0x4>;
-+				bits = <17 3>;
-+			};
-+
-+			atcphy1_auspll_rodco_bias_adjust: efuse@484,30 {
-+				reg = <0x484 8>;
-+				bits = <30 3>;
-+			};
-+
-+			atcphy1_auspll_rodco_encap: efuse@488,1 {
-+				reg = <0x488 8>;
-+				bits = <1 2>;
-+			};
-+
-+			atcphy1_auspll_dtc_vreg_adjust: efuse@488,3 {
-+				reg = <0x488 4>;
-+				bits = <3 3>;
-+			};
-+
-+			atcphy1_auspll_fracn_dll_start_capcode: efuse@488,6 {
-+				reg = <0x488 4>;
-+				bits = <6 2>;
-+			};
-+
-+			atcphy1_aus_cmn_shm_vreg_trim: efuse@488,8 {
-+				reg = <0x488 4>;
-+				bits = <8 5>;
-+			};
-+
-+			atcphy1_cio3pll_dco_coarsebin0: efuse@488,13 {
-+				reg = <0x488 4>;
-+				bits = <13 6>;
-+			};
-+
-+			atcphy1_cio3pll_dco_coarsebin1: efuse@488,19 {
-+				reg = <0x488 4>;
-+				bits = <19 6>;
-+			};
-+
-+			atcphy1_cio3pll_dll_start_capcode: efuse@488,25 {
-+				reg = <0x488 4>;
-+				bits = <25 2>;
-+			};
-+
-+			atcphy1_cio3pll_dtc_vreg_adjust: efuse@488,27 {
-+				reg = <0x488 0x4>;
-+				bits = <27 3>;
-+			};
-+		};
-+
- 		pinctrl_smc: pinctrl@23e820000 {
- 			compatible = "apple,t8112-pinctrl", "apple,pinctrl";
- 			reg = <0x2 0x3e820000 0x0 0x4000>;
+ 		info.np = of_node_get(child);
 
 -- 
 2.34.1
