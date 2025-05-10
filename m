@@ -4,82 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E314C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 08:29:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D04BBC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 08:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oc/MTs6M57gUjwqUU06zo2HIplEskmKIPVViUh3uaEo=; b=JEn8bs42VU39xpZFfk8f0kvbkF
-	fBJhKugVh1pc+FAhim6Kxkr5wvK4awEagyKVh/QlTWPSfdEEUkU5XDikfJgyn+TTxaFrHB7X14K2Q
-	25Sn47xdpY5OLPJPIGS2BfrMvRb0L90MiY5ik+z0sxvY+2ICiFBnLtkwpbX1DugJ8vLvVj2XzBjlB
-	TbtlC23GuP4NPqSiqV78ZebOHcjdXsD0I58K+7o6XxdK3bPzQ2SySPBFzTWEphq1fYO4ziyph0qoR
-	JLyi+BQU1wuplxSMl0J8ocu8wLM7amFWoBPNGB0R2VI1TChwBsBr4eMjptZOik8HsYRtymv8ZJ5zh
-	Dd3YvIWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/uFby0lNzqHbnplT4Q8bV6dsWxUrWFLJbcAudtU0fbw=; b=peAoS2B4rqBnAHSF9Q/bGwt/pa
+	2Nnbw9c3f+U6xqRlVviZbhsFNuWmkimLXQU/YkteqKOa8aw3hI2FggjFfVK9DQCcS3oyMrUgnpa7f
+	u36wZguCirLsTJphZmuULaNsY9lWKGKm0I6NHVYgEZkDe8dk5XSVpNK4pDcPmyvW5lYQVNL3Mi1U5
+	2H1J71Ka10VpQKwbnVvuZw/3AnEnZE9OtMWqizdFAiGK9m0ZBPVcBk5aaHsvFa/uHAeQVa1hMXxPW
+	Wgj553Fjg1gXq2mqK7xrGWrr6UEkmy6sJiBKCk0l9QK1GJ6MyRsSbob1nIwXTvyPGwaorT4arJMDC
+	un37N21w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDfaD-00000005e5u-1Wow;
-	Sat, 10 May 2025 08:29:21 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uDfcA-00000005eDS-0Ie8;
+	Sat, 10 May 2025 08:31:22 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDf6P-00000005ank-3h0s;
-	Sat, 10 May 2025 07:58:34 +0000
-X-UUID: 8eaf11722d7411f0bed96b30c12bc3d6-20250510
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=oc/MTs6M57gUjwqUU06zo2HIplEskmKIPVViUh3uaEo=;
-	b=p4nJr6Fp9Txscz5r2bJjosb/Xz6/8LzyOri/vuHm7h1fE/OSgTTyttsKVYBN4DcXw/PSKxiBT21fLd5zxkyhH30Dd6eR3RRb9nZxqSX6aefofRzDoNMno5xn8GCwkcXOuVUl/C7zMMIitAXLoZfVQDlaEj2T/ccmeuPT/lQ9t6Y=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:6bd68a5c-e5c8-46ad-9225-b2fa9dc9379a,IP:0,UR
-	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:-5
-X-CID-META: VersionHash:0ef645f,CLOUDID:af0dcee0-512b-41ef-ab70-9303a9a81417,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 8eaf11722d7411f0bed96b30c12bc3d6-20250510
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
-	(envelope-from <yunfei.dong@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 964492335; Sat, 10 May 2025 00:58:28 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Sat, 10 May 2025 15:58:24 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Sat, 10 May 2025 15:58:23 +0800
-From: Yunfei Dong <yunfei.dong@mediatek.com>
-To: =?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?=
-	<nfraprado@collabora.com>, Sebastian Fricke <sebastian.fricke@collabora.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Hans Verkuil
-	<hverkuil-cisco@xs4all.nl>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Benjamin Gaignard
-	<benjamin.gaignard@collabora.com>, Nathan Hebert <nhebert@chromium.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>
-CC: Hsin-Yi Wang <hsinyi@chromium.org>, Fritz Koenig <frkoenig@chromium.org>,
-	Daniel Vetter <daniel@ffwll.ch>, Steve Cho <stevecho@chromium.org>, Yunfei
- Dong <yunfei.dong@mediatek.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH 09/14] media: mediatek: vcodec: support 36bit iova address
-Date: Sat, 10 May 2025 15:53:39 +0800
-Message-ID: <20250510075357.11761-10-yunfei.dong@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250510075357.11761-1-yunfei.dong@mediatek.com>
-References: <20250510075357.11761-1-yunfei.dong@mediatek.com>
+	id 1uDf6R-00000005ar2-2rLt
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 10 May 2025 07:58:36 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54A60Me5031215;
+	Sat, 10 May 2025 07:58:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	/uFby0lNzqHbnplT4Q8bV6dsWxUrWFLJbcAudtU0fbw=; b=m3X3XSsrRjWwjUT4
+	Dr0VY/Oq4QqSjtPmrJCfPltWPRcsBgF1HrXFSjgo9hDtPM+ujSw/aG6AMoyNpL5A
+	o/VQ2ZUMk25wH21y4NHwMVOmXFrKMraDgc18eCnT1bmDfazOsH62/93eap4pOpGj
+	8ZUIj7OMQX9A+Z0e8eLYjF5OLalcbrGn5+5TnJ7cvQ4FfO1rBvvKW5lc/vFfZI7v
+	gTfiJjkRqgX5B1VYe1756BziLwMHJwvCZ91IhBeHN/fP0AUeFGujy8/geirfhx1p
+	pbpYScbqbBWprHwIH/E38Mb0/x6CqZXP5yeL8Hf2a4uUX8xIFREQzo//plzG9Bli
+	TERIIg==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46hwt90ccv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sat, 10 May 2025 07:58:28 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 54A7wRDX027113
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sat, 10 May 2025 07:58:27 GMT
+Received: from [10.204.73.14] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sat, 10 May
+ 2025 00:58:22 -0700
+Message-ID: <fd4a66f6-1d64-4047-b6ea-cbcf6720ef70@quicinc.com>
+Date: Sat, 10 May 2025 13:28:19 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC/WIP v2 7/9] media: qcom: camss: Add support for CSID
+ for sa8775p
+To: Vikram Sharma <quic_vikramsa@quicinc.com>, <rfoss@kernel.org>,
+        <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
+        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <andersson@kernel.org>,
+        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
+        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
+        <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20250427070135.884623-1-quic_vikramsa@quicinc.com>
+ <20250427070135.884623-8-quic_vikramsa@quicinc.com>
+Content-Language: en-US
+From: Suresh Vankadara <quic_svankada@quicinc.com>
+In-Reply-To: <20250427070135.884623-8-quic_vikramsa@quicinc.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTEwMDA3OSBTYWx0ZWRfX3MereqBUYSsq
+ HtVdMe4OsifMb47syvhIUN2dlsMwS+ZAzeqrjxNo/fwN4lx0gPooJOq45Q2buL87FMg2H6qo67l
+ E3HrjhBRCNgW6549nDA4lKHy8XJZfzgbspiYrwum2dON45Vrch7kcxJBFTT1m7w6bIsKqk4/n3W
+ Rjmeya/BjDuLyoopIJ4CyRsty8vcSu1wWwcfVUL+Db4RfRj6S5XLqW7I1sUFdphAeLbABhBMjCn
+ RyIwAu9zGZXeHniOO07PqHRU87yjvEPOu3ChC/OGTFy3EDS0pjtcfoY/lt719oto9fsY6EHXXk6
+ RQs2HjvYr9k8dUe/FvhluK9XH1fCmFX06YZ6UfmN8i2golSuWaytOQ44A+xF+U1WsWKgAKlsz7K
+ parm63RNUQdC8p2s26cAZ+ovLacrGTNq7j2kdsguED6zOYas3oUiLu8zJH4cNnpRgSpJY4Ey
+X-Proofpoint-ORIG-GUID: cEbBw-yNHMCGuQk_8daleBt3w1yBXQvx
+X-Proofpoint-GUID: cEbBw-yNHMCGuQk_8daleBt3w1yBXQvx
+X-Authority-Analysis: v=2.4 cv=a58w9VSF c=1 sm=1 tr=0 ts=681f0724 cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=COk6AnOGAAAA:8
+ a=E8EaJ-78P5yFifbjexQA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-10_03,2025-05-09_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 phishscore=0 lowpriorityscore=0 mlxlogscore=999 malwarescore=0
+ clxscore=1015 impostorscore=0 mlxscore=0 spamscore=0 bulkscore=0 adultscore=0
+ priorityscore=1501 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2505100079
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250510_005833_919985_6FE475D6 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20250510_005835_835916_5B3E8343 
+X-CRM114-Status: GOOD (  18.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,33 +119,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Need to set dma mask to support 36bit iova address for decoder
-hardware can use 36bit address to decode for mt8196.
 
-Signed-off-by: Yunfei Dong <yunfei.dong@mediatek.com>
----
- .../platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c  | 7 +++++++
- 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-index 5e312f86e652..fabf969bc8a9 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-@@ -388,6 +388,13 @@ static int mtk_vcodec_probe(struct platform_device *pdev)
- 		return -ENODEV;
- 	}
- 	dma_set_max_seg_size(&pdev->dev, UINT_MAX);
-+	if (dev->chip_name == MTK_VDEC_MT8196) {
-+		ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(36));
-+		if (ret) {
-+			dev_err(&pdev->dev, "Failed to enable 36-bit DMA: %d\n", ret);
-+			return ret;
-+		}
-+	}
- 
- 	dev->fw_handler = mtk_vcodec_fw_select(dev, fw_type, DECODER);
- 	if (IS_ERR(dev->fw_handler))
--- 
-2.46.0
+On 4/27/2025 12:31 PM, Vikram Sharma wrote:
+> The CSID in sa8775p is version 690, This csid is different from
+> csid 780 w.r.t few bit-fields.
+> 
+> Co-developed-by: Suresh Vankadara <quic_svankada@quicinc.com>
+> Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
+> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+> ---
+>   .../platform/qcom/camss/camss-csid-gen3.c     |  31 +++-
+>   drivers/media/platform/qcom/camss/camss.c     | 151 ++++++++++++++++++
+>   2 files changed, 175 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/media/platform/qcom/camss/camss-csid-gen3.c b/drivers/media/platform/qcom/camss/camss-csid-gen3.c
+> index b66105f7b901..4f9471523a08 100644
+> --- a/drivers/media/platform/qcom/camss/camss-csid-gen3.c
+> +++ b/drivers/media/platform/qcom/camss/camss-csid-gen3.c
+> @@ -48,8 +48,12 @@
+>   #define CSID_CSI2_RX_IRQ_CLEAR		0xA4
+>   #define CSID_CSI2_RX_IRQ_SET		0xA8
+>   
+> +#define IS_CSID_690(csid)	(csid->camss->res->version ==\
+> +					CAMSS_8775P ? true : false)
+>   #define CSID_BUF_DONE_IRQ_STATUS	0x8C
+> -#define		BUF_DONE_IRQ_STATUS_RDI_OFFSET	(csid_is_lite(csid) ? 1 : 14)
+> +#define BUF_DONE_IRQ_STATUS_RDI_OFFSET  (csid_is_lite(csid) ?\
+> +						1 : (IS_CSID_690(csid) ?\
+> +						13 : 14))
+This becomes more complex if more number of chipsets under csid gen3 are 
+added.inline function helps for readability. It should return with 1, 13 
+or 14. This comment is applicable at all places in csid.
+
+>   
+> -#define CSID_RDI_IRQ_SUBSAMPLE_PATTERN(rdi)	(0x548 + 0x100 * (rdi))
+> -#define CSID_RDI_IRQ_SUBSAMPLE_PERIOD(rdi)	(0x54C + 0x100 * (rdi))
+> -
+> +#define CSID_RDI_IRQ_SUBSAMPLE_PATTERN(rdi)	(csid_is_lite(csid) && IS_CSID_690(csid) ?\
+> +							(0x348 + 0x100 * (rdi)) :\
+> +							(0x548 + 0x100 * (rdi)))
+> +#define CSID_RDI_IRQ_SUBSAMPLE_PERIOD(rdi)	(csid_is_lite(csid) && IS_CSID_690(csid) ?\
+> +							(0x34C + 0x100 * (rdi)) :\
+> +							(0x54C + 0x100 * (rdi)))
+Subsample pattern is not used in driver. Remove?
+
+>   #define CSI2_RX_CFG0_PHY_SEL_BASE_IDX	1
+>   
+>   static void __csid_configure_rx(struct csid_device *csid,
+> @@ -103,6 +117,9 @@ static void __csid_configure_rx(struct csid_device *csid,
+>   	val |= phy->lane_assign << CSI2_RX_CFG0_DL0_INPUT_SEL;
+>   	val |= (phy->csiphy_id + CSI2_RX_CFG0_PHY_SEL_BASE_IDX) << CSI2_RX_CFG0_PHY_NUM_SEL;
+>   
+> +	if (IS_CSID_690(csid) && (vc > 3))
+> +		val |= 1 << CSI2_RX_CFG0_VC_MODE;
+Is VC greater than 3? in which case?
+
+> +static const struct camss_subdev_resources csid_res_8775p[] = {
+> +	/* CSID0 */
+> +	{
+> +		.regulators = {},
+> +
+> +		.clock = { "csid", "csiphy_rx"},
+> +		.clock_rate = {
+> +			{ 400000000, 400000000},
+> +			{ 400000000, 400000000}
+> +		},
+> +
+> +		.reg = { "csid0", "csid_top" },
+Align name with DTS for csid_top. Comment is applicable for all 
+instances for this target.
+
+> +	/* CSID2 (lite) */
+> +	{
+> +		.regulators = {},
+> +
+> +		.clock = { "cpas_ife_lite", "vfe_lite_ahb",
+> +			   "vfe_lite_csid", "vfe_lite_cphy_rx",
+> +			   "vfe_lite"},
+Align with DTS comment in clock name. Applicable for all CSID lites for 
+this target.
+
+
+Regards,
+Suresh Vankadara.
+
 
 
