@@ -4,108 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5AD4C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 02:24:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CD05C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 02:30:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6fvB2w7pntC+re0S0bjBBtAy6pYze67QvcaIBSYlhrs=; b=HEPGOYAe7tY1PeS/KxVmjTnp5x
-	WNKWpg0KVdDlGvbkVbAbBKpy6QyXIBhSEsErC8OlWfijolcrYaxAzj8qnnmKr20bD700KXzhnqrOk
-	fKF+1yGAhpk1lfkhqGulP2OeJYNkdXUBRsMzm5C6AvgPk57EsSFLamSBe5zR8wXg78FLwAlOwLgdj
-	e0O6adsTkBwUCC9wGPYslyo1LUPZtmtTkNZlOSblocJ8FuxXsgdp07/N9tjoB+U3bilbjvbhESPuK
-	CfrCedCVTu6KCh1BSGFsJ5pBTS4uCP4vB9CwokhMPV2QmXU4Pp3aV+qNfv0tKFK5wSnqt9zJHt0Vf
-	9tf7wcCQ==;
+	bh=OMQQgRzKRMxctcYpGXbSKjA/hpXZSmYOzyU6SVM8EaM=; b=Ov3MvSBSoTaNxqGM2qwvZk4+p6
+	ihIdMh+gggexOOZ7DRfnjcX5xDmTMWXdKKGYsnCW6+0Mt5HO/HwvyNl+BqBdtATb+u+DjK8Sify+E
+	t3p32DMd91EJkmbSMdj8sixscpAoaAuNYWTNV5xOHHhSccaEQSQ5TPgdPaU9fwmmkmKA+g28tYzQL
+	RQvFKm8JNp4I2O33QoKgidOJ2zryKrK1g0Cv8td3MSojTOnAsyApDOkcCDMBaTV29YuZxIjjFJuS1
+	G0k9anJWxEP9tk692BAVNMEWaCIAX8GROG7tN/LUEGJdwaTuxkJHq3LDUKf7NXZHGDHCOlknttMms
+	L1xBX5/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDZss-00000005J8m-3Gb5;
-	Sat, 10 May 2025 02:24:14 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1uDZzD-00000005JXH-2EwO;
+	Sat, 10 May 2025 02:30:47 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDZqr-00000005J21-32Zc
+	id 1uDZxD-00000005JQ7-1cU2
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 May 2025 02:22:11 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250510022203epoutp0322251a68c9c7094d9defbe064b5afe03~_CRx1fDRc0166401664epoutp03k
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 10 May 2025 02:22:03 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250510022203epoutp0322251a68c9c7094d9defbe064b5afe03~_CRx1fDRc0166401664epoutp03k
+	Sat, 10 May 2025 02:28:45 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250510022839epoutp01c9dc27ed1b3c777b5f3e9a3cc91d4501~_CXixDZYb1710817108epoutp01o
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 10 May 2025 02:28:39 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250510022839epoutp01c9dc27ed1b3c777b5f3e9a3cc91d4501~_CXixDZYb1710817108epoutp01o
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1746843723;
-	bh=6fvB2w7pntC+re0S0bjBBtAy6pYze67QvcaIBSYlhrs=;
+	s=mail20170921; t=1746844119;
+	bh=OMQQgRzKRMxctcYpGXbSKjA/hpXZSmYOzyU6SVM8EaM=;
 	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=QR2qHFb/OOGP4sjNHL27gnNpR9YTG+35QpZNHIQ0jFzRAZK9aBYskzEtOe/srIkl/
-	 oTLwGH+0wbtHnqRhQcBoAfWpm9DD/DA4mR+Vm+aKBvr7BesFXZSJlXjVxYyeGx5Xv+
-	 fYPv0lqOMDW4y2cNIvJzVSahJ/Ln/HeG3SB9qFgQ=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20250510022202epcas5p160136d1a90dfba1044701aef0fc4c7ca~_CRxVC3Pj0493104931epcas5p1o;
-	Sat, 10 May 2025 02:22:02 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.179]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4ZvV4S4xm8z3hhT7; Sat, 10 May
-	2025 02:22:00 +0000 (GMT)
+	b=GSuAA2uo7mU0ClLAf30T+JPDNR1sX4ak6XhD4BUyH+i9WHmf5kij07QdRi1XByvR4
+	 8ymTWzEcEFD6Idz5cCYtoALme4xg//7V17MFuFOpxnU7CcXYO/r4N9cluOJmXE1RN5
+	 EQ40Z5noUeCkbJunnZnEzRag847b/zD/lVMuZ0wE=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250510022838epcas5p28e74cb800febced7f58728200ce47115~_CXhv0UP32406324063epcas5p2k;
+	Sat, 10 May 2025 02:28:38 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.179]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4ZvVD42xvxz6B9m6; Sat, 10 May
+	2025 02:28:36 +0000 (GMT)
 Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
 	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250510022159epcas5p17fc37a384a4fc1dead464127dae045cb~_CRud99EZ1388513885epcas5p1H;
-	Sat, 10 May 2025 02:21:59 +0000 (GMT)
+	20250510022835epcas5p1c9bcad7541f77b798cd1510b7b612ddf~_CXesPXs51597015970epcas5p1r;
+	Sat, 10 May 2025 02:28:35 +0000 (GMT)
 Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
 	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250510022159epsmtrp1b414b94448e409179f62883fb5230168~_CRudQHyy0294502945epsmtrp1N;
-	Sat, 10 May 2025 02:21:59 +0000 (GMT)
-X-AuditID: b6c32a52-40bff70000004c16-2e-681eb8475743
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	20250510022835epsmtrp1c274660011cbf5ec9b262358934dc063~_CXeqj9Nq0425404254epsmtrp1a;
+	Sat, 10 May 2025 02:28:35 +0000 (GMT)
+X-AuditID: b6c32a52-40bff70000004c16-22-681eb9d27cec
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
 	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	D5.60.19478.748BE186; Sat, 10 May 2025 11:21:59 +0900 (KST)
-Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip1.samsung.com
+	EE.70.19478.2D9BE186; Sat, 10 May 2025 11:28:34 +0900 (KST)
+Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip2.samsung.com
 	(KnoxPortal) with ESMTPA id
-	20250510022157epsmtip1cd776d297a219c4adce69d5d2c5d912e~_CRsXlj_u1125011250epsmtip1Q;
-	Sat, 10 May 2025 02:21:57 +0000 (GMT)
+	20250510022832epsmtip2d27f435acb90026832818feb5f8b4bba~_CXcp-X2a2690626906epsmtip2W;
+	Sat, 10 May 2025 02:28:32 +0000 (GMT)
 From: "Alim Akhtar" <alim.akhtar@samsung.com>
-To: "'Raghav Sharma'" <raghav.s@samsung.com>, <krzk@kernel.org>,
+To: "'Pritam Manohar Sutar'" <pritam.sutar@samsung.com>, <krzk@kernel.org>,
 	<s.nawrocki@samsung.com>, <cw00.choi@samsung.com>,
-	<mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
-	<conor+dt@kernel.org>, <sunyeal.hong@samsung.com>, <shin.son@samsung.com>
+	<mturquette@baylibre.com>, <sboyd@kernel.org>, <sunyeal.hong@samsung.com>
 Cc: <linux-samsung-soc@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-In-Reply-To: <20250509132414.3752159-1-raghav.s@samsung.com>
-Subject: RE: [PATCH v1] dt-bindings: clock: exynosautov920: add hsi2 clock
- definitions
-Date: Sat, 10 May 2025 07:51:56 +0530
-Message-ID: <044201dbc152$4ef5eb20$ece1c160$@samsung.com>
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
+	"'stable'" <stable@kernel.org>
+In-Reply-To: <20250506080154.3995512-1-pritam.sutar@samsung.com>
+Subject: RE: [PATCH v2] clk: samsung: correct clock summary for hsi1 block
+Date: Sat, 10 May 2025 07:58:31 +0530
+Message-ID: <045701dbc153$3aa85bc0$aff91340$@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
 X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQJ0HEPcZwZ4sk03/CHUakVJHxOvxwGAJMZdso5kxzA=
+Thread-Index: AQJXoAhNt2lxpjQmxp3wpnZOkbsiiwIMDegbssMEZrA=
 Content-Language: en-us
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrOIsWRmVeSWpSXmKPExsWy7bCSnK77DrkMg/d7FSzW7D3HZHH9y3NW
-	i/lHzrFanD+/gd1i0+NrrBYfe+6xWlzeNYfNYsb5fUwWF0+5WnxfeYfR4v+eHewWh9+0s1r8
-	u7aRxWLy8bWsFk3L1jM58Hu8v9HK7rFpVSebx+Yl9R59W1YxenzeJBfAGsVlk5Kak1mWWqRv
-	l8CVcfTyasaCZTwVfw7eZWxg3MPVxcjBISFgInHsfFgXIxeHkMB2RomZDX/Zuhg5geLSEtc3
-	TmCHsIUlVv57zg5R9JxRYvLmSYwgCTYBXYkdi9vYQBIiAhOZJFq+HQGrYhbYxChxbvdNNoiW
-	XkaJxRcbwFo4BWwk/uy+zARiCwuESazv3M8MYrMIqErMnP4HrIZXwFLizIo3rBC2oMTJmU9Y
-	QGxmAW2J3oetjDD2soWvmSHuU5D4+XQZWL2IgJXEzPtr2SFqxCVeHj3CPoFReBaSUbOQjJqF
-	ZNQsJC0LGFlWMYqmFhTnpucmFxjqFSfmFpfmpesl5+duYgTHpVbQDsZl6//qHWJk4mA8xCjB
-	wawkwvu8UyZDiDclsbIqtSg/vqg0J7X4EKM0B4uSOK9yTmeKkEB6YklqdmpqQWoRTJaJg1Oq
-	gWllodHUcy1MV+4/9JtoLLp8ntTNCOaLvtl7xHl/iRZffsRdMmGVLmNv6BvHNxf5eLg/5LBO
-	uXT3K89LEy4Bmev/Q/g94k9fcJ9+ePt8bYUU48vxyy7t3fPszlVt8Sp/KcmsraXzDB3CWWqt
-	973fvnySffGkc//87rlFvywUWMTzMWf/8inL9rP2yXipLE0oeqW2Y2k698zQ5Zu6Tq8uWlua
-	FVH/dOqlFW45vwp+zypot9zz971l+NMnM/n02iP8j8tlGl3n+LFwjkfXGiNFPZvyb68Dd/0P
-	vf7T41dapMiJC6u6lyx5KjHX07/XUaX5uJVqxYObCRWH/B8Xrvxw+NVy/ftWP/4sP+AaLtFj
-	UqKgxFKckWioxVxUnAgAPdUGQToDAAA=
-X-CMS-MailID: 20250510022159epcas5p17fc37a384a4fc1dead464127dae045cb
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrOIsWRmVeSWpSXmKPExsWy7bCSvO6lnXIZBvc2W1lc//Kc1eLejmXs
+	FtduLGS3OH9+A7vFpsfXWC0+9txjtbi8aw6bxYzz+5gsLp5ytXh2bwWbxZefD5gtDr9pZ7X4
+	d20ji8Wn8xfYLJqWrWdy4Pd4f6OV3WPTqk42j81L6j36tqxi9Pi8SS6ANYrLJiU1J7MstUjf
+	LoErY8KGWYwFb3kqnh8xbmDcxdXFyMkhIWAicXzqNcYuRi4OIYHtjBIfdv5kgUhIS1zfOIEd
+	whaWWPnvOTtE0XNGiaenDzCDJNgEdCV2LG5jA0mICFxhlJj2+ytYFbNAG5PE8v5uqJaJjBLd
+	c2+wgbRwCjhITD7xHmyusICXxIfZ75hAbBYBVYnVl1aD1fAKWErMnfWMBcIWlDg58wmYzSyg
+	LdH7sJURwpaX2P52DjPEfQoSP58uYwWxRQSsJJb0vmaGqBGXeHn0CPsERuFZSEbNQjJqFpJR
+	s5C0LGBkWcUomlpQnJuem1xgqFecmFtcmpeul5yfu4kRHJdaQTsYl63/q3eIkYmD8RCjBAez
+	kgjv806ZDCHelMTKqtSi/Pii0pzU4kOM0hwsSuK8yjmdKUIC6YklqdmpqQWpRTBZJg5OqQYm
+	DwNVvcjuzwqBrrmVageSdl81THo57+PM5+sKU+4rMy19tOP+vcdnuharlJ1JfWaXkGw16Zuu
+	0fs9O7bJdsr03nqt5hTiHOskcehUqkSv3bZ7O3v+5efXT/+9wjW52EeYcfHTuDdnUv2+bfiW
+	eOVpzF3lLSui32u7p1kaTlD7JBF/POVggnXP4hVPzwc9e3j5RPs6lckPrgoa2H3s4lzTqJUo
+	krZRdaLN5PZbjA3Nzdou91n/PxV+cu5weugX39ZKLvltN7R2f+Z5utb70kxPk9qKhYcfdqvu
+	/rZOVzr38ca900qMfQ7+WruU+V7ulWA5j50CVdfWXSjfvD+t6U7F4Z5cS3nR4guCTg4fr1zs
+	VmIpzkg01GIuKk4EAAY5zY86AwAA
+X-CMS-MailID: 20250510022835epcas5p1c9bcad7541f77b798cd1510b7b612ddf
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-542,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250509131427epcas5p1fe29ea19cb7624dc828935d6ec47854b
-References: <CGME20250509131427epcas5p1fe29ea19cb7624dc828935d6ec47854b@epcas5p1.samsung.com>
-	<20250509132414.3752159-1-raghav.s@samsung.com>
+X-CMS-RootMailID: 20250506075413epcas5p2ce0db6da9f359e9c3bb16b03c1a5eb4f
+References: <CGME20250506075413epcas5p2ce0db6da9f359e9c3bb16b03c1a5eb4f@epcas5p2.samsung.com>
+	<20250506080154.3995512-1-pritam.sutar@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_192210_373177_2D52D0EC 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20250509_192844_055885_01E3A73D 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,44 +119,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
+Hi Pritam
 
 > -----Original Message-----
-> From: Raghav Sharma <raghav.s=40samsung.com>
-> Sent: Friday, May 9, 2025 6:54 PM
-> To: krzk=40kernel.org; s.nawrocki=40samsung.com; cw00.choi=40samsung.com;
-> alim.akhtar=40samsung.com; mturquette=40baylibre.com; sboyd=40kernel.org;
-> robh=40kernel.org; conor+dt=40kernel.org; sunyeal.hong=40samsung.com;
-> shin.son=40samsung.com
-> Cc: linux-samsung-soc=40vger.kernel.org; linux-clk=40vger.kernel.org;
-> devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; lin=
-ux-
-> kernel=40vger.kernel.org; Raghav Sharma <raghav.s=40samsung.com>
-> Subject: =5BPATCH v1=5D dt-bindings: clock: exynosautov920: add hsi2 cloc=
-k
-> definitions
->=20
-> Add device tree clock binding definitions for CMU_HSI2
->=20
-> Signed-off-by: Raghav Sharma <raghav.s=40samsung.com>
+> From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+> Sent: Tuesday, May 6, 2025 1:32 PM
+> To: krzk@kernel.org; s.nawrocki@samsung.com; cw00.choi@samsung.com;
+> alim.akhtar@samsung.com; mturquette@baylibre.com; sboyd@kernel.org;
+> sunyeal.hong@samsung.com
+> Cc: linux-samsung-soc@vger.kernel.org; linux-clk@vger.kernel.org; linux-
+> arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
+> rosa.pila@samsung.com; dev.tailor@samsung.com;
+> faraz.ata@samsung.com; Pritam Manohar Sutar
+> <pritam.sutar@samsung.com>; stable <stable@kernel.org>
+> Subject: [PATCH v2] clk: samsung: correct clock summary for hsi1 block
+> 
+> clk_summary shows wrong value for "mout_hsi1_usbdrd_user".
+> It shows 400Mhz instead of 40Mhz as below.
+> 
+> dout_shared2_div4           1 1 0 400000000 0 0 50000 Y ...
+>   mout_hsi1_usbdrd_user     0 0 0 400000000 0 0 50000 Y ...
+>     dout_clkcmu_hsi1_usbdrd 0 0 0 40000000  0 0 50000 Y ...
+> 
+> Correct the clk_tree by adding correct clock parent for
+> "mout_hsi1_usbdrd_user".
+> 
+> Post this change, clk_summary shows correct value.
+> 
+> dout_shared2_div4           1 1 0 400000000 0 0 50000 Y ...
+>   mout_clkcmu_hsi1_usbdrd   0 0 0 400000000 0 0 50000 Y ...
+>     dout_clkcmu_hsi1_usbdrd 0 0 0 40000000  0 0 50000 Y ...
+>       mout_hsi1_usbdrd_user 0 0 0 40000000  0 0 50000 Y ...
+> 
+> Fixes: 485e13fe2fb6 ("clk: samsung: add top clock support for ExynosAuto
+> v920 SoC")
+> Cc: stable <stable@kernel.org>
+> Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
 > ---
->  .../clock/samsung,exynosautov920-clock.yaml   =7C 29 +++++++++++++++++--
->  .../clock/samsung,exynosautov920.h            =7C  9 ++++++
->  2 files changed, 36 insertions(+), 2 deletions(-)
->=20
-Hmm, you sent three separate patches that are interdependent but did not me=
-ntion their dependencies.
-e.g.=20
-The patch that adds the clock driver cannot be compiled without the one tha=
-t adds the header file, which is part of this binding patch
 
-Go through the below section of submitting-patches documentation
-https://www.kernel.org/doc/html/latest/process/submitting-patches.html=23se=
-parate-your-changes
-
-Make sure that each patch is individually compilable (or dependencies are m=
-entioned clearly) and bisectable
-ask someone if you are unsure of what you are submitting.
-
+Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
 
 
