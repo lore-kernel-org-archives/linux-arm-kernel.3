@@ -4,84 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DE69C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 17:59:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8475BC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 18:29:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WjgGUfr6X08qxQK3zfVrb3aTo/x2kOH4Dzdn/sVCI8Y=; b=NSrZvC0Otwh5h7IO7zrGTM5h9r
-	mX0Vpd22VYKpHBWwhL4aHDBaiYF1fTC5/HjaBavwBZ/jmkE5fV7XqqrbHmDMMT9NOaaTP3pyqbyvy
-	WLtLlRvKp8EUjb6GrMYFZlCjTVgLkvbbTJUmzKgDsSeIvc9cl8K7hWLcAv25eiHUh2GJcKYXeBh+E
-	SaH4Md1GBRG1mS/zjA3iCnYICWOEgZjIyR5jfgHhtL7mbRPIggHwPh/2XDHvlCBI3ia4IXmrx0uNu
-	q2/mfM4WA19rHLUPxpzHWcJqz/Xdi7zjjeh1Uxw5zuVCicBcWaGmxkaSUEQuJ534tIhuIWjlJkqrM
-	XGAJqnYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vp69JVh1PSMiw7t8NnWm4jkR0koTFb4QvGVLbLCNb+w=; b=rBc0f0h9Z6XzRyayvorfRih4eF
+	DIoqeLcSJSelsHU4V6FjuKPX2o1d1KG+G5Z2ZpiqbrzUnlxCqrlkUR7/T8ZgCaedgcnBvKskP3nLF
+	GRH4v2dk9qGMTn8VlG/hrP6huMdCx4AWlfS/dwhH2Oqq/iuUPpd1UVRmQf5gufyjpMl5QS/q7EcVA
+	qLhHsifzgtYTLsimkGXDmz/2hpr97bJP5o8Z9wwrb0RAGXXVaklOxt+s6ndV53cv0EkoLm0+LDUUq
+	9ZSVHbaAWjfpg1R/x4tGwp82qsCXfvtIEo9ul/7MCfM7OEaEjblx4dQj9zhbQ8bD5BUJwBjONg8bD
+	3TsE47Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDoTx-00000006Eq6-1zJY;
-	Sat, 10 May 2025 17:59:29 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1uDowm-00000006GAQ-1Tz3;
+	Sat, 10 May 2025 18:29:16 +0000
+Received: from fgw23-7.mail.saunalahti.fi ([62.142.5.84])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDoRt-00000006EeV-3LGY
+	id 1uDouh-00000006G4a-3DtW
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 May 2025 17:57:22 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-30bfe0d2b6dso28658051fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 May 2025 10:57:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746899839; x=1747504639; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WjgGUfr6X08qxQK3zfVrb3aTo/x2kOH4Dzdn/sVCI8Y=;
-        b=JGWX0mSmfe/0L0KUgEGptyUAsNcLr5Tjv40J797xBGSQYOJjFWh/7lgoFuF5NRq6ul
-         3PBpfgmO34JvU30sjZnfEOg6scHu7Ft6lZF9w/k2ehWcESUmGAM1DgErFUsXP3E/iaYR
-         2kQ0P0q8VW9IqBzBb6uMj4oQf72Izx0UbclzQXatL4LlPVBy2ckLJF46JDoVXYUl16oL
-         YNCcF+IcNW4Ds2av25+Hr+GmRPIkthMUqLS9dz1Z3AobxU/3lu9vwbMMUgpwSxgwzEWm
-         68uOxoqF17uepP1argwbGQgnMefb2Gxv8Cb2vTDubMqin4Xmmp2ygGr7O9S+RUHiBHkW
-         GUZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746899839; x=1747504639;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WjgGUfr6X08qxQK3zfVrb3aTo/x2kOH4Dzdn/sVCI8Y=;
-        b=jONUDfGCuSXZydXVy7bQakzj2IBBe+W9nHNPu5Kx2cE2gonNHCmXDI2B1bBcZ+23qG
-         tbW98fcu1qQ+69xzERAXmWoxOtluUu3HBtx1bFjRgsM385ZSkbns4wP3DVqAOq6ww3Wf
-         VkCn4czHfH8fMJwUNcvt8vzO1a8qdY2ecuIfUdtQ81wEsrYr3OCCPyYC3YeKs4K382dz
-         DimCMgE4qsDQWJLNsid2c/Fju7ycy3xYbSVfI75w7IMkHErEBuSKagEB9Pch+QX+xf1A
-         NfNIO/G8oHnM5UN3iDdniaxNIyhS+XYQhtdVPOUtyZCliXtw9tTk9oS0uRCQn2bq+AVg
-         +3EA==
-X-Forwarded-Encrypted: i=1; AJvYcCUQXcZFmS7aID5ayYoFMBPXi1LK65LmqZa53Dirn7Rt0vum51TMix0pg+EdRAKa8CPjAQdOJCptreeliuKadCEB@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywozx4Z/6mCFLZjMg2UTzj6oz3htY2zPkfxOITQT1a1zmCgBS1e
-	YQWVQuuvNmtIrkTKmyF2eBcYu+G03kU9qYPZvYRs54Or8fEsbD5sfE4jAbcxGO1+Xvesy0Uipqq
-	sKI4AvSOGjvEWCh8JveoS/A2KDR0=
-X-Gm-Gg: ASbGncsM7zE7lRtU3WxwfoypVeBkULzdUesKmN2gpNqdBpHdpBb4X8/44lfFN3b0WaL
-	dydU0LrkcbxHvlwiqA8wGwc2UDihTSjsjEQdbB3d/iiJ2ZDj0A0Cuq99IkVYktu5vOfbpDcSoif
-	G/U0dQAHMMA5lqHfYhlQf4YJQue7HLTVHDuilfdwaISwHMSTc5dcSsCy//JCpN1nHS
-X-Google-Smtp-Source: AGHT+IF3Z7tQbN2UvUVUBVdgIrJ9vuxONRjESM/OBLUWaAOZrCvSkzujqqR6dmG4HVeFUAwt4imd8+AAeDimdibevQg=
-X-Received: by 2002:a05:651c:30c6:b0:30c:7a7:e874 with SMTP id
- 38308e7fff4ca-326c4569ba6mr34455471fa.11.1746899838943; Sat, 10 May 2025
- 10:57:18 -0700 (PDT)
+	Sat, 10 May 2025 18:27:09 +0000
+Received: from localhost (88-113-26-232.elisa-laajakaista.fi [88.113.26.232])
+	by fgw21.mail.saunalahti.fi (Halon) with ESMTP
+	id 5c52b789-2dcc-11f0-96ba-005056bdd08f;
+	Sat, 10 May 2025 21:27:01 +0300 (EEST)
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Sat, 10 May 2025 21:26:58 +0300
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Ray Jui <rjui@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Vladimir Zapolskiy <vz@mleia.com>, Keerthy <j-keerthy@ti.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH RFC 8/9] gpio: timberdale: Make irq_chip immutable
+Message-ID: <aB-acnUBnidSw7r4@surfacebook.localdomain>
+References: <20250509-gpio-v1-0-639377c98288@nxp.com>
+ <20250509-gpio-v1-8-639377c98288@nxp.com>
 MIME-Version: 1.0
-References: <20250510011806.13470-1-benato.denis96@gmail.com> <20250510011806.13470-2-benato.denis96@gmail.com>
-In-Reply-To: <20250510011806.13470-2-benato.denis96@gmail.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Sat, 10 May 2025 14:57:07 -0300
-X-Gm-Features: AX0GCFu_Mc34XZBVrE6yFFGghE4cYWVtNs10oUnBiwd7enOu-iz8bicOZ1AybT8
-Message-ID: <CAOMZO5A1oRcUuNVcr_kcKz0SZqGc-AHzLR+__gRQEaV__xKbsw@mail.gmail.com>
-Subject: Re: [PATCH 1/3] ARM: imx_v4_v5_defconfig: define CONFIG_ARCH_NXP
-To: Denis Benato <benato.denis96@gmail.com>
-Cc: Russell King <linux@armlinux.org.uk>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250509-gpio-v1-8-639377c98288@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250510_105721_838143_AE810042 
-X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-CacheID: sfid-20250510_112707_969897_3C26F056 
+X-CRM114-Status: UNSURE (   9.17  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,20 +70,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 9, 2025 at 10:18=E2=80=AFPM Denis Benato <benato.denis96@gmail.=
-com> wrote:
->
-> Define CONFIG_ARCH_NXP so that CONFIG_ARCH_MXC won't be disabled
-> as it depends on CONFIG_ARCH_NXP.
+Fri, May 09, 2025 at 12:45:39PM +0800, Peng Fan (OSS) kirjoitti:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
+> Kernel warns about mutable irq_chips:
+> "not an immutable chip, please consider fixing!"
+> 
+> Constify timbgpio_irqchip, flag the irq_chip as IRQCHIP_IMMUTABLE,
+> add the new helper functions, and call the appropriate gpiolib functions.
 
-This is not correct.
+...
 
-$ make imx_v4_v5_defconfig
-#
-# configuration written to .config
-#
-$ cat .config | grep CONFIG_ARCH_MXC
-CONFIG_ARCH_MXC=3Dy
+>  	struct timbgpio *tgpio = irq_data_get_irq_chip_data(d);
+>  	int offset = d->irq - tgpio->irq_base;
+> +	irq_hw_number_t hwirq = irqd_to_hwirq(d);
+>  	unsigned long flags;
 
-CONFIG_ARCH_NXP is an arm64 option.
+While at it, replace direct accesses to IRQ data `irq` member.
+
+  	int offset = hwirq - tgpio->irq_base;
+
+...
+
+>  static void timbgpio_irq_enable(struct irq_data *d)
+>  {
+>  	struct timbgpio *tgpio = irq_data_get_irq_chip_data(d);
+>  	int offset = d->irq - tgpio->irq_base;
+> +	irq_hw_number_t hwirq = irqd_to_hwirq(d);
+>  	unsigned long flags;
+
+Ditto.
+
+> +	gpiochip_enable_irq(&tgpio->gpio, hwirq);
+> +
+>  	spin_lock_irqsave(&tgpio->lock, flags);
+>  	tgpio->last_ier |= 1UL << offset;
+>  	iowrite32(tgpio->last_ier, tgpio->membase + TGPIO_IER);
+
+>  }
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
