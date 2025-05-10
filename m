@@ -4,112 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 973F7C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 11:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21169C3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 12:25:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Date:
-	Content-Type:Subject:Cc:To:From:Message-ID:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CSbtJfYpYv6dmlPOIorqeT7hfT+eDvX+w78jdbBKPZE=; b=QDLAZRzGoskZsiPgrOzvKrkEIg
-	PtzufE9J19n+H3QX3msUZH8TnGt7kOb/6mRj6oJ+fN4WEYg11L0lvbd62c2UT+kuyxBut799+YqNP
-	1RLrnKQtYEtUMgfx0gUcOX3LZ2m/89Cbym5x3cCioGGuBQZeyUJd3jDPa4xEO08tc5r33B5KB0ppy
-	SV8Itnxc27ox3U6eQ5paj9xd6IoeecUzF3XUiIQHF347Xkx2yH5l4P05V1wSXQaqykgckCXQKPZOC
-	OuYH16O7PxNZejETYfz8K6E27n3npbj29+i3FCWM7Ug6HqYwh+aVCX54I1zHNQn5/o5rVWYjmuTsh
-	24U1Az3Q==;
+	bh=fO5msqoJQ4dT9NE+i05gRTXPlSQ4bpzzQKux+AtNwec=; b=Ocav1PPI8Z1ELLTm+DWDFi7JfZ
+	H/XSqL799o8jlsDCkhMRs6Otlc5ADsHT+AxpI9Afch3GscWjFsj+sU/O8cKKL8nEKZFrc0JiFOlCM
+	og1rtoi6hTYAdIgESgZXBLzRhXbGVuavLoERrQo54V2RErvPcUmM56CGIILDJH3YSf/gWU6G+8ipa
+	aNK2wmva7A50u18CzGpXZvury8m7Ws5a/ObZqc2a4WM7/f34zq1uiEfy72cXB9cVPkbiEtZP8wjYI
+	H1bHUKSjM6m/Mc42moBwfwtjaAllttnPF+GGP/M8hDXZFKsN4Ld46V5Y1CzfPlxKodeoevoojbV0Y
+	by2CcCIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDiX5-00000005syu-0KeD;
-	Sat, 10 May 2025 11:38:19 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1uDjGn-00000005vGX-09IK;
+	Sat, 10 May 2025 12:25:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDiUz-00000005ssf-0yXJ;
-	Sat, 10 May 2025 11:36:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1746876956; x=1747481756; i=frank-w@public-files.de;
-	bh=CSbtJfYpYv6dmlPOIorqeT7hfT+eDvX+w78jdbBKPZE=;
-	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
-	 Content-Type:Date:In-Reply-To:References:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=Pnd2hPr8NhqTEOL0Z894K9VvrtLD5MuuqAinM2SfezN7eEDHyzrMnIfWmv/kWzmG
-	 xjJRi+BAhkgP1yzT+g5veLa7RgEFSKupdLOqgRQgSPIW9+9p3z/2+8bb3SgbCQqkS
-	 Kn2G6ePJMwEgySMCXdcInTrczpW7C1kx7YmdGG6/dPH09Mt5cuIEhsHTP6wdeYsck
-	 80/AGE4RQixvrwwaMyw0FajjARgIsZe4aha5quzhc+p18t/xe55tlPiDhXWu49oPJ
-	 m0BoHvE8PRdt66o7Y36dyB48P1s4BqdIuZvU84nmwGTdQp/1vG0sTCItSIhp6AhAS
-	 m8sDppr++ybIg8nkDA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [157.180.226.129] ([157.180.226.129]) by
- trinity-msg-rest-gmx-gmx-live-74d694d854-5prkz (via HTTP); Sat, 10 May 2025
- 11:35:56 +0000
+	id 1uDjEi-00000005v9H-15tN;
+	Sat, 10 May 2025 12:23:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 263B45C487C;
+	Sat, 10 May 2025 12:21:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CB11C4CEE2;
+	Sat, 10 May 2025 12:23:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746879802;
+	bh=fJ09idw0k6VOwugZFuVgtxsdsW4+oSLBmul/hcAb+VE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ES8QMARxdqfQqUFG1Mq9ItRQEi+VSzHDUVAxDsxw/4OTQw9uYBQiJ37h80h1LIypw
+	 HeB64+zAOYYPEG7WkET0205NvJwmbw7yJT0QW3mDXGVbdhOj5fqoy2aPOxxGz3w4Zy
+	 OCaTFg3Z+OFAKiGZ/GeHwTEHyM7JgMZGzi4yEM9UkwIYD7Rdesbx1+eFH0ey4FwxtK
+	 M3jCFy5Yng895eVwpum2ep7sfdXvALcyKXo88Fd8mS5Q9IC7L/K5g/rIlXDeVAgFSJ
+	 XGhrXNQAYxRcJGxq4a/Wo4oOO0OdDsyiO/rqYuFu2ddQZSWZzHNBNb5avMljwnE+nC
+	 5mpLkBF6SkUdQ==
+Date: Sat, 10 May 2025 14:23:20 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [net-next PATCH v3 11/11] net: airoha: add phylink support for
+ GDM2/3/4
+Message-ID: <aB9FOFYEHueMe5L3@lore-desk>
+References: <20250510102348.14134-1-ansuelsmth@gmail.com>
+ <20250510102348.14134-12-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Message-ID: <trinity-02bca72f-3997-456e-8182-d5ef1358ac9f-1746876955936@trinity-msg-rest-gmx-gmx-live-74d694d854-5prkz>
-From: Frank Wunderlich <frank-w@public-files.de>
-To: linux@fw-web.de, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, lee@kernel.org, chunfeng.yun@mediatek.com,
- vkoul@kernel.org, kishon@kernel.org, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com
-Cc: rafal@milecki.pl, daniel@makrotopia.org, sean.wang@mediatek.com,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-phy@lists.infradead.org
-Subject: Aw: [PATCH v4 0/8] Add Bananapi R4 variants and add xsphy
-Content-Type: text/plain; charset=UTF-8
-Date: Sat, 10 May 2025 11:35:56 +0000
-In-Reply-To: <20250422132438.15735-1-linux@fw-web.de>
-References: <20250422132438.15735-1-linux@fw-web.de>
-X-UI-CLIENT-META-MAIL-DROP: W10=
-X-Provags-ID: V03:K1:/4ZNXZpfFmBkVPBZv3pK2+f9+sAC8ipN/KCUrOlFJ+XI0q2pfnjGjudw95LSMJy3sYr+r
- p40VQEXpm3ViXsio5PTNuBijsGczQ6tP9BAwub1Pm9SljuJoKuDJLDotP1VcRVWGHVfsMzO4cGIf
- b+ABPFKpfaoqcbvk8bW8w4jlwQra6/motLhEWqxquYLikgV+ZDP/bCxBpsEL2fXfBz7LNeE9ZdTP
- LAoZDCRCcadw+/LGXoOjUTdsgZXA0Mwo5yEo+MrPoR9uwPo9ulqAjionYURV0jM7FspBjvmZ9uev
- SnRgsU70+803FMCzjV/eHZ56Eaj6mf1Xh7mnRKTHNgHfFuKo7iEr8iSt5OhVGYHP2s=
-UI-OutboundReport: notjunk:1;M01:P0:ixHZ7+EpIYA=;iIZSgtviXbFJOi5roYS8ZQLGurG
- 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
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="8oAR6Szfu4s7qgD3"
+Content-Disposition: inline
+In-Reply-To: <20250510102348.14134-12-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250510_043609_586819_1EE8053E 
-X-CRM114-Status: UNSURE (   2.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250510_052324_395884_3D86BE1C 
+X-CRM114-Status: GOOD (  29.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,9 +85,317 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
 
-just a gentle ping. is something missing or can this series be applied?
+--8oAR6Szfu4s7qgD3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-regards Frank
+> Add phylink support for GDM2/3/4 port that require configuration of the
+> PCS to make the external PHY or attached SFP cage work.
+>=20
+> These needs to be defined in the GDM port node using the pcs-handle
+> property.
+
+Hi Christian,
+
+thx for the patch. Some comments inline.
+
+Regards,
+Lorenzo
+
+>=20
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c  | 138 ++++++++++++++++++++++
+>  drivers/net/ethernet/airoha/airoha_eth.h  |   3 +
+>  drivers/net/ethernet/airoha/airoha_regs.h |  12 ++
+>  3 files changed, 153 insertions(+)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index 16c7896f931f..17521be820b5 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -7,6 +7,7 @@
+>  #include <linux/of_net.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/tcp.h>
+> +#include <linux/pcs/pcs.h>
+>  #include <linux/u64_stats_sync.h>
+>  #include <net/dst_metadata.h>
+>  #include <net/page_pool/helpers.h>
+> @@ -79,6 +80,11 @@ static bool airhoa_is_lan_gdm_port(struct airoha_gdm_p=
+ort *port)
+>  	return port->id =3D=3D 1;
+>  }
+> =20
+> +static bool airhoa_is_phy_external(struct airoha_gdm_port *port)
+> +{
+> +	return port->id !=3D 1;
+> +}
+> +
+>  static void airoha_set_macaddr(struct airoha_gdm_port *port, const u8 *a=
+ddr)
+>  {
+>  	struct airoha_eth *eth =3D port->qdma->eth;
+> @@ -1613,6 +1619,17 @@ static int airoha_dev_open(struct net_device *dev)
+>  	struct airoha_gdm_port *port =3D netdev_priv(dev);
+>  	struct airoha_qdma *qdma =3D port->qdma;
+> =20
+> +	if (airhoa_is_phy_external(port)) {
+> +		err =3D phylink_of_phy_connect(port->phylink, dev->dev.of_node, 0);
+> +		if (err) {
+> +			netdev_err(dev, "%s: could not attach PHY: %d\n", __func__,
+> +				   err);
+> +			return err;
+> +		}
+> +
+> +		phylink_start(port->phylink);
+> +	}
+> +
+>  	netif_tx_start_all_queues(dev);
+>  	err =3D airoha_set_vip_for_gdm_port(port, true);
+>  	if (err)
+> @@ -1665,6 +1682,11 @@ static int airoha_dev_stop(struct net_device *dev)
+>  		}
+>  	}
+> =20
+> +	if (airhoa_is_phy_external(port)) {
+> +		phylink_stop(port->phylink);
+> +		phylink_disconnect_phy(port->phylink);
+> +	}
+> +
+>  	return 0;
+>  }
+> =20
+> @@ -2795,6 +2817,110 @@ bool airoha_is_valid_gdm_port(struct airoha_eth *=
+eth,
+>  	return false;
+>  }
+> =20
+> +static void airoha_mac_link_up(struct phylink_config *config, struct phy=
+_device *phy,
+> +			       unsigned int mode, phy_interface_t interface,
+> +			       int speed, int duplex, bool tx_pause, bool rx_pause)
+> +{
+> +	struct airoha_gdm_port *port =3D container_of(config, struct airoha_gdm=
+_port,
+> +						    phylink_config);
+> +	struct airoha_qdma *qdma =3D port->qdma;
+> +	struct airoha_eth *eth =3D qdma->eth;
+> +	u32 frag_size_tx, frag_size_rx;
+
+I guess we can just return here if port->id !=3D 4 and avoid setting
+frag_size_tx/frag_size_rx
+
+> +
+> +	switch (speed) {
+> +	case SPEED_10000:
+> +	case SPEED_5000:
+> +		frag_size_tx =3D 8;
+> +		frag_size_rx =3D 8;
+> +		break;
+> +	case SPEED_2500:
+> +		frag_size_tx =3D 2;
+> +		frag_size_rx =3D 1;
+> +		break;
+> +	default:
+> +		frag_size_tx =3D 1;
+> +		frag_size_rx =3D 0;
+> +	}
+> +
+> +	/* Configure TX/RX frag based on speed */
+> +	if (port->id =3D=3D 4) {
+> +		airoha_fe_rmw(eth, REG_GDMA4_TMBI_FRAG, GDMA4_SGMII0_TX_FRAG_SIZE,
+> +			      FIELD_PREP(GDMA4_SGMII0_TX_FRAG_SIZE, frag_size_tx));
+> +
+> +		airoha_fe_rmw(eth, REG_GDMA4_RMBI_FRAG, GDMA4_SGMII0_RX_FRAG_SIZE,
+> +			      FIELD_PREP(GDMA4_SGMII0_RX_FRAG_SIZE, frag_size_rx));
+> +	}
+> +}
+> +
+> +static const struct phylink_mac_ops airoha_phylink_ops =3D {
+> +	.mac_link_up =3D airoha_mac_link_up,
+> +};
+> +
+> +static int airoha_setup_phylink(struct net_device *dev)
+> +{
+> +	struct airoha_gdm_port *port =3D netdev_priv(dev);
+> +	struct device_node *np =3D dev->dev.of_node;
+> +	struct phylink_pcs **available_pcs;
+> +	phy_interface_t phy_mode;
+> +	struct phylink *phylink;
+> +	unsigned int num_pcs;
+> +	int err;
+> +
+> +	err =3D of_get_phy_mode(np, &phy_mode);
+> +	if (err) {
+> +		dev_err(&dev->dev, "incorrect phy-mode\n");
+> +		return err;
+> +	}
+> +
+> +	port->phylink_config.dev =3D &dev->dev;
+> +	port->phylink_config.type =3D PHYLINK_NETDEV;
+> +	port->phylink_config.mac_capabilities =3D MAC_ASYM_PAUSE | MAC_SYM_PAUS=
+E |
+> +						MAC_10 | MAC_100 | MAC_1000 | MAC_2500FD |
+> +						MAC_5000FD | MAC_10000FD;
+> +
+> +	err =3D fwnode_phylink_pcs_parse(dev_fwnode(&dev->dev), NULL, &num_pcs);
+> +	if (err)
+> +		return err;
+> +
+> +	available_pcs =3D kcalloc(num_pcs, sizeof(*available_pcs), GFP_KERNEL);
+> +	if (!available_pcs)
+> +		return -ENOMEM;
+
+since airoha_setup_phylink() is just run in the following path:
+
+airoha_probe() -> airoha_alloc_gdm_port()
+
+we can use devm_kcalloc() and get rid of the kfree and the end of the routi=
+ne.
+
+> +
+> +	err =3D fwnode_phylink_pcs_parse(dev_fwnode(&dev->dev), available_pcs,
+> +				       &num_pcs);
+> +	if (err)
+> +		goto out;
+> +
+> +	port->phylink_config.available_pcs =3D available_pcs;
+> +	port->phylink_config.num_available_pcs =3D num_pcs;
+> +
+> +	__set_bit(PHY_INTERFACE_MODE_SGMII,
+> +		  port->phylink_config.supported_interfaces);
+> +	__set_bit(PHY_INTERFACE_MODE_1000BASEX,
+> +		  port->phylink_config.supported_interfaces);
+> +	__set_bit(PHY_INTERFACE_MODE_2500BASEX,
+> +		  port->phylink_config.supported_interfaces);
+> +	__set_bit(PHY_INTERFACE_MODE_USXGMII,
+> +		  port->phylink_config.supported_interfaces);
+> +
+> +	phy_interface_copy(port->phylink_config.pcs_interfaces,
+> +			   port->phylink_config.supported_interfaces);
+> +
+> +	phylink =3D phylink_create(&port->phylink_config,
+> +				 of_fwnode_handle(np),
+> +				 phy_mode, &airoha_phylink_ops);
+> +	if (IS_ERR(phylink)) {
+> +		err =3D PTR_ERR(phylink);
+> +		goto out;
+> +	}
+> +
+> +	port->phylink =3D phylink;
+> +out:
+> +	kfree(available_pcs);
+> +
+> +	return err;
+> +}
+> +
+>  static int airoha_alloc_gdm_port(struct airoha_eth *eth,
+>  				 struct device_node *np, int index)
+>  {
+> @@ -2873,6 +2999,12 @@ static int airoha_alloc_gdm_port(struct airoha_eth=
+ *eth,
+>  	if (err)
+>  		return err;
+> =20
+> +	if (airhoa_is_phy_external(port)) {
+> +		err =3D airoha_setup_phylink(dev);
+> +		if (err)
+> +			return err;
+> +	}
+> +
+>  	return register_netdev(dev);
+
+we should run phylink_destroy() if register_netdev() fails. Please take a
+look to:
+
+https://lore.kernel.org/netdev/aB8MPkMYXWvoaA03@lore-desk/T/#m0a036b0759384=
+a38d2518025db46306858b5707b
+
+>  }
+> =20
+> @@ -2967,6 +3099,9 @@ static int airoha_probe(struct platform_device *pde=
+v)
+>  		struct airoha_gdm_port *port =3D eth->ports[i];
+> =20
+>  		if (port && port->dev->reg_state =3D=3D NETREG_REGISTERED) {
+> +			if (airhoa_is_phy_external(port))
+> +				phylink_destroy(port->phylink);
+> +
+>  			unregister_netdev(port->dev);
+>  			airoha_metadata_dst_free(port);
+>  		}
+> @@ -2994,6 +3129,9 @@ static void airoha_remove(struct platform_device *p=
+dev)
+>  			continue;
+> =20
+>  		airoha_dev_stop(port->dev);
+> +		if (airhoa_is_phy_external(port))
+> +			phylink_destroy(port->phylink);
+> +
+>  		unregister_netdev(port->dev);
+>  		airoha_metadata_dst_free(port);
+>  	}
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
+net/airoha/airoha_eth.h
+> index 53f39083a8b0..73a500474076 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -498,6 +498,9 @@ struct airoha_gdm_port {
+>  	struct net_device *dev;
+>  	int id;
+> =20
+> +	struct phylink *phylink;
+> +	struct phylink_config phylink_config;
+> +
+>  	struct airoha_hw_stats stats;
+> =20
+>  	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
+> diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethe=
+rnet/airoha/airoha_regs.h
+> index d931530fc96f..71c63108f0a8 100644
+> --- a/drivers/net/ethernet/airoha/airoha_regs.h
+> +++ b/drivers/net/ethernet/airoha/airoha_regs.h
+> @@ -357,6 +357,18 @@
+>  #define IP_FRAGMENT_PORT_MASK		GENMASK(8, 5)
+>  #define IP_FRAGMENT_NBQ_MASK		GENMASK(4, 0)
+> =20
+> +#define REG_GDMA4_TMBI_FRAG		0x2028
+> +#define GDMA4_SGMII1_TX_WEIGHT		GENMASK(31, 26)
+> +#define GDMA4_SGMII1_TX_FRAG_SIZE	GENMASK(25, 16)
+> +#define GDMA4_SGMII0_TX_WEIGHT		GENMASK(15, 10)
+> +#define GDMA4_SGMII0_TX_FRAG_SIZE	GENMASK(9, 0)
+
+in order to be consistent with the codebase, can you please add _MASK suffix
+here?
+
+> +
+> +#define REG_GDMA4_RMBI_FRAG		0x202c
+> +#define GDMA4_SGMII1_RX_WEIGHT		GENMASK(31, 26)
+> +#define GDMA4_SGMII1_RX_FRAG_SIZE	GENMASK(25, 16)
+> +#define GDMA4_SGMII0_RX_WEIGHT		GENMASK(15, 10)
+> +#define GDMA4_SGMII0_RX_FRAG_SIZE	GENMASK(9, 0)
+> +
+>  #define REG_MC_VLAN_EN			0x2100
+>  #define MC_VLAN_EN_MASK			BIT(0)
+> =20
+> --=20
+> 2.48.1
+>=20
+
+--8oAR6Szfu4s7qgD3
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaB9FOAAKCRA6cBh0uS2t
+rKPIAPwMEFXVq68i8yQsuu9IvUlxGoQG+53nB09xyQ9gjCAcrAD/R4CUglVPB8nT
+85veqNrpKWaemKxHYCZcXiFXq5lPbws=
+=fSdo
+-----END PGP SIGNATURE-----
+
+--8oAR6Szfu4s7qgD3--
 
