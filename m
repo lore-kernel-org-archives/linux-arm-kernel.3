@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDD88C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 00:46:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 129A9C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 00:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yclRk7ooaIvmEqMgjub1QEJG1ED/vyWOa9p4x2ARJMI=; b=vIMtkY01cY4xC60/XYNyA1PX3+
-	Wfazsm5iStxmmjVctsb9idKK5vxAKNFMOKeRPg/ZfktW55V8GBcszG6cwxYYrvxROC5zwMDk/K0+f
-	0vikoN1bN7VPFNZ1VVJ3OocL0ZOeQk3BPamzQfdUt3U2C0QgwOVXxPzttRt5GdW8iBr8JFGk5pkbt
-	1r7ehJLthmDuzk02Fb220dcWnpEwsJ5kcB7930C7H918PUlKw4EdSCVMvgiyf29tutaInAXEGdLJL
-	U2MqMy2KZBGXCuBwr/Dyfhu/W4b6OCuMrKZP9vfbzwxV+8cW+scBC+7KBUcvLL972Kd0kMFUDnec0
-	opbexuig==;
+	bh=ygNenFQSlWZKHuaoFHsCRPZl844027GugW0JBaYx3TE=; b=nWFFd6jwlLsjljtak1nnpaUrJF
+	Y8NzNiCcQUiYAC4uQgkDxu5pU7sh2H3KeWD+c9HEgrJyHAkm6Q9dsiVUtRL1Yh3O4zog/NW5k7ANM
+	O8E9q9cLaQFlaXtvJOFXGODfrq+ryKrey25/gQi9ir6yIhCfV+s+UldPA5u67GjN0Zfb2uTLiiiJQ
+	h4Rwr3FbyQeVAmW1+/qfw4A5e6IRL7Z837FrFeLZF1WXTztyFRRaTXjQ99A/zLA1AsT1x2B2AwsI2
+	bfptyYzNPYa7rtQIC3j/xfeSTlv5uGOHn2MPa5j3ciQsKEI+R5rlt08+5uaQ2JGZ7G4q3Qe6LJ3Ea
+	RUV2SaYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDYMY-00000005DjA-3yWp;
-	Sat, 10 May 2025 00:46:47 +0000
-Received: from out-182.mta1.migadu.com ([95.215.58.182])
+	id 1uDYOx-00000005Dz3-1dhh;
+	Sat, 10 May 2025 00:49:15 +0000
+Received: from mail-m16.yeah.net ([1.95.21.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDXIV-000000058mc-49Bh
+	id 1uDYMx-00000005DnF-3sIZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 May 2025 23:38:33 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1746833908;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=yclRk7ooaIvmEqMgjub1QEJG1ED/vyWOa9p4x2ARJMI=;
-	b=wWiGF1WUUoUBATWBUsBJ0I7cCKcZxaKo7zT5rbGGxGrdOqVKKzxD95We7ZPmhi3QmW4bSw
-	KqbrAw8FgXkBGLUP1O01hVk2sw27VRq+Lp1I+Y487UrA+mckVboffn68mFLN6uIgpeKawe
-	YvNj1lzJe7tAC5/oVWX0NUjMgqvY9Tc=
-From: Sean Anderson <sean.anderson@linux.dev>
-To: Catalin Marinas <catalin.marinas@arm.com>,
+	Sat, 10 May 2025 00:47:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=ygNenFQSlWZKHuaoFHsCRPZl844027GugW0JBaYx3TE=;
+	b=eWducVhsMtl+BPa+5dmA1AnRPO73y7sQ/tAANPwwIjYRIWPbm4n9YOIQyShTO1
+	FBozbGCKSyZI8c9IjmkUrDvFRufPvQnFrY0HE2pYRzO2IxW1CbSKcZr/RKXVTa0Z
+	geTuyUeUptz5M73C6j/N+N0ea/1FSJduxByuijTpQJr+c=
+Received: from dragon (unknown [])
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgD3NyX_oR5oLaCwAA--.3659S3;
+	Sat, 10 May 2025 08:46:57 +0800 (CST)
+Date: Sat, 10 May 2025 08:46:55 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: soc@kernel.org, arm@kernel.org
+Cc: Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	kernel@pengutronix.de, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Cc: Radu Rendec <rrendec@redhat.com>,
-	Will Deacon <will@kernel.org>,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	linux-kernel@vger.kernel.org,
-	Sean Anderson <sean.anderson@linux.dev>
-Subject: [PATCH] arm64: cacheinfo: Report cache sets, ways, and line size
-Date: Fri,  9 May 2025 19:37:35 -0400
-Message-Id: <20250509233735.641419-1-sean.anderson@linux.dev>
+Subject: [GIT PULL] i.MX fixes for 6.15, 2nd round
+Message-ID: <aB6h/woeyG1bSo12@dragon>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-CM-TRANSID: Mc8vCgD3NyX_oR5oLaCwAA--.3659S3
+X-Coremail-Antispam: 1Uf129KBjvJXoW7WFykCw45tFWfAF4fWw4fuFg_yoW8JFy7pF
+	4akrZrJr1DJr47AFnrXr1DKF98tw48CF1UGr47Jry0kr1YyFy8XFn8Kr95GrW7J347Xw4r
+	KF1UJryUKF15ZF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UuT5LUUUUU=
+X-Originating-IP: [117.81.80.76]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiERdJZWgeoekASQAAsd
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_163832_166403_18227C26 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20250509_174712_268434_C62F3894 
+X-CRM114-Status: UNSURE (   5.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,74 +72,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Cache geometry is exposed through the Cache Size ID register. There is
-one register for each cache, and they are selected through the Cache
-Size Selection register. If FEAT_CCIDX is implemented, the layout of
-CCSIDR changes to allow a larger number of sets and ways.
+The following changes since commit 5591ce0069ddda97cdbbea596bed53e698f399c2:
 
-Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
----
+  arm64: dts: imx8mm-verdin: Link reg_usdhc2_vqmmc to usdhc2 (2025-04-27 21:49:30 +0800)
 
- arch/arm64/include/asm/cache.h |  3 +++
- arch/arm64/kernel/cacheinfo.c  | 28 ++++++++++++++++++++++++++++
- 2 files changed, 31 insertions(+)
+are available in the Git repository at:
 
-diff --git a/arch/arm64/include/asm/cache.h b/arch/arm64/include/asm/cache.h
-index 99cd6546e72e..569330689a2f 100644
---- a/arch/arm64/include/asm/cache.h
-+++ b/arch/arm64/include/asm/cache.h
-@@ -8,6 +8,9 @@
- #define L1_CACHE_SHIFT		(6)
- #define L1_CACHE_BYTES		(1 << L1_CACHE_SHIFT)
- 
-+#define CCSIDR_CCIDX_NumSets		GENMASK_ULL(55, 32)
-+#define CCSIDR_CCIDX_Associativity	GENMASK_ULL(23, 3)
-+
- #define CLIDR_LOUU_SHIFT	27
- #define CLIDR_LOC_SHIFT		24
- #define CLIDR_LOUIS_SHIFT	21
-diff --git a/arch/arm64/kernel/cacheinfo.c b/arch/arm64/kernel/cacheinfo.c
-index 309942b06c5b..a0180d3f1631 100644
---- a/arch/arm64/kernel/cacheinfo.c
-+++ b/arch/arm64/kernel/cacheinfo.c
-@@ -34,8 +34,36 @@ static inline enum cache_type get_cache_type(int level)
- static void ci_leaf_init(struct cacheinfo *this_leaf,
- 			 enum cache_type type, unsigned int level)
- {
-+	u64 val;
-+
- 	this_leaf->level = level;
- 	this_leaf->type = type;
-+	if (type == CACHE_TYPE_NOCACHE)
-+		return;
-+
-+	val = FIELD_PREP(CSSELR_EL1_Level, level - 1);
-+	if (type == CACHE_TYPE_INST)
-+		val |= CSSELR_EL1_InD;
-+	write_sysreg(val, csselr_el1);
-+
-+	val = read_sysreg(ccsidr_el1);
-+	this_leaf->coherency_line_size =
-+		BIT(FIELD_GET(CCSIDR_EL1_LineSize, val) + 4);
-+	if (FIELD_GET(ID_MMFR4_EL1_CCIDX,
-+		      read_sanitised_ftr_reg(SYS_ID_AA64MMFR4_EL1))) {
-+		this_leaf->number_of_sets =
-+			FIELD_GET(CCSIDR_CCIDX_NumSets, val) + 1;
-+		this_leaf->ways_of_associativity =
-+			FIELD_GET(CCSIDR_CCIDX_Associativity, val) + 1;
-+	} else {
-+		this_leaf->number_of_sets =
-+			FIELD_GET(CCSIDR_EL1_NumSets, val) + 1;
-+		this_leaf->ways_of_associativity =
-+			FIELD_GET(CCSIDR_EL1_Associativity, val) + 1;
-+	}
-+	this_leaf->size = this_leaf->coherency_line_size *
-+			  this_leaf->number_of_sets *
-+			  this_leaf->ways_of_associativity;
- }
- 
- static void detect_cache_level(unsigned int *level_p, unsigned int *leaves_p)
--- 
-2.35.1.1320.gc452695387.dirty
+  git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git tags/imx-fixes-6.15-2
+
+for you to fetch changes up to c6888983134e2ccc2db8ffd2720b0d4826d952e4:
+
+  arm64: dts: imx8mp-var-som: Fix LDO5 shutdown causing SD card timeout (2025-05-09 22:48:35 +0800)
+
+----------------------------------------------------------------
+i.MX fixes for 6.15, 2nd round:
+
+- One more i.MX8MP nominal drive mode DT fix from Ahmad Fatoum to use
+  800MHz NoC OPP
+- A imx8mp-var-som DT change from Himanshu Bhavani to fix SD card
+  timeout caused by LDO5
+
+----------------------------------------------------------------
+Ahmad Fatoum (1):
+      arm64: dts: imx8mp: use 800MHz NoC OPP for nominal drive mode
+
+Himanshu Bhavani (1):
+      arm64: dts: imx8mp-var-som: Fix LDO5 shutdown causing SD card timeout
+
+ arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi |  2 ++
+ arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi | 12 +++++++++++-
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi         |  6 ++++++
+ 3 files changed, 19 insertions(+), 1 deletion(-)
 
 
