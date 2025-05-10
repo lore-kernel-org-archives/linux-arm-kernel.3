@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A404C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 09:02:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5370C3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 09:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
 	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
 	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8JUWWzdWaoT3ssUZA1A3XG42UrvR/xkF367ACDyQBL4=; b=rKl6dvnNCOZyqa0/uYZX3EW2bO
-	dY7MlRcAPkp9tvnVOK/dGcHMgSZ4cjzozz37XFU23R/u0N0IguSeYc1goyVQgmvuv/Lnd5pZ9Dh51
-	/9u2+K2kY/xFS0tixVLSv1hckltDnqCFcGt9EqO3q6a5fKZBfvpjsbOpc5jpiHepXiQDgEwSfG2ve
-	4xo3FxJYKOUkwu4jFDiWvT0Enx400JVe5b0c0+SP0alne9leUk5f4fzPvxEdmXrhxiYNhTHlwGV92
-	rgdOXRPQz0hpRlZNyhgqK8HvZKB0zmZCNikQtgBTMXNFSCOoO3ulTlOkH9IRtYZJXnjVrefII5nSC
-	AQ54gImg==;
+	bh=vvYWB5SwK5y1flfnSPXjO4/RKRc3K+qiUOstKgTTfMc=; b=3PEb584zUUKf336toUxeRdwU1c
+	PQ2zPzARw433kdEs1eGJt/Qji1UlKUeuiOboba4ByHipIflyiz2TuMGS3s087B4CDUHY1qrWXowmp
+	EEoJ4Z+vnmjkOJCOL1z8+sJvvBnrTZnIzbU7AnTl6qHQnOSSSQSbtZGapHKSWBfoE7e00GCNwgKbg
+	c6YPk/a77ldoI5+T/l4u9kfZRjS+CkQ/TBL1AcNKYEUMjJKESpyxPWdk0CPNbY7dS2c8teW5idnN/
+	zcBqq/+gHi0H3kKLOdVgcBO1wpJ2UmNpm1AUIj/VP7Jq1Qhzx8SkBcIqCdumIgU8YcOoU5ZYyUyjI
+	56XjOukA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDg6I-00000005hks-10xi;
-	Sat, 10 May 2025 09:02:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uDg8F-00000005hye-3TVt;
+	Sat, 10 May 2025 09:04:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDfyS-00000005gfa-0UWX;
-	Sat, 10 May 2025 08:54:25 +0000
+	id 1uDfyn-00000005gmV-2bYY;
+	Sat, 10 May 2025 08:54:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5FE9B44612;
-	Sat, 10 May 2025 08:54:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85FC6C4CEE2;
-	Sat, 10 May 2025 08:54:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A5A08614BA;
+	Sat, 10 May 2025 08:54:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD0D4C4CEE2;
+	Sat, 10 May 2025 08:54:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746867263;
-	bh=lIsmhYDAaOgf3OuGuhP0QGWLf36xuzWpImhTwT43KXY=;
+	s=k20201202; t=1746867283;
+	bh=vvYWB5SwK5y1flfnSPXjO4/RKRc3K+qiUOstKgTTfMc=;
 	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
-	b=nBKXOk3rO27D602FaPS1WeuDSQv0FG67XuyA1GlHSEE66tyj36TpNl8x3ixtmHLxF
-	 p/0HTgXlg8SwlM8sBX85dn+aKpNGKfBLbPKS5ilpsAZ20xny6++2F76C1NwQV8jJ9K
-	 P71k3yxLu5XMWyfrjRMVUxCPJHL3wmFkPLcY1MnTPrhDk4XnrM3R4022hZDxYxsevB
-	 D/Fbu+MdSrUfuL3o+GJoJQkfElhCm1tFdxIAetbULcck5pkUoA+XIXbUFWOPYtl5my
-	 9HtREqZjdmFG7lpiZ5Pxf/pmVJnKHMlE+SXuKMiX0hSPV3WK59Hy7io5mEA8Z8jrQ6
-	 TwAvqWQFfvjDw==
-Message-ID: <ef3b22915764e919b2750c2a7b389cbe@kernel.org>
-Date: Sat, 10 May 2025 08:54:19 +0000
+	b=BGmu8r2vmeu5qiSrnPewJ2qyvAJQO4tvODw1+/uM3lWLR4DMGu1vnHwlpNJeUXOJB
+	 yto5k+SfY9DJZkY5IBBLIByccPXyy/ZswerCMMjOR0W+1ijsrO/F1o0JPjwP7RnPwi
+	 kbl/Wopm25qydHz0TYHBot/MMl0+p0jhEATcqqNncv3ZamQtbfSrQ2icsY4hAfwynQ
+	 nquzvdf9Z2c7rRpqv9V6Y5QrE3J9qTXZpY4k05Y2dLXA0RFL1NQPigCUv0l6D/uuE1
+	 4Qx1CpK8Znl//ZOVHxR0KlAkm1n8ssYNV6wqenGpnhMlPT1ySXJABagzXCvQtE8vH3
+	 kCpwp/N9bQmVw==
+Message-ID: <d6c002809f9c851bd5e891be23c08d4f@kernel.org>
+Date: Sat, 10 May 2025 08:54:40 +0000
 From: "Maxime Ripard" <mripard@kernel.org>
 To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v3 09/22] drm/omap: dss: dsi: convert to
+Subject: Re: [PATCH v3 10/22] drm/omap: dss: hdmi4: convert to
  devm_drm_bridge_alloc() API
-In-Reply-To: <20250509-drm-bridge-convert-to-alloc-api-v3-9-b8bc1f16d7aa@bootlin.com>
-References: <20250509-drm-bridge-convert-to-alloc-api-v3-9-b8bc1f16d7aa@bootlin.com>
+In-Reply-To: <20250509-drm-bridge-convert-to-alloc-api-v3-10-b8bc1f16d7aa@bootlin.com>
+References: <20250509-drm-bridge-convert-to-alloc-api-v3-10-b8bc1f16d7aa@bootlin.com>
 Cc: asahi@lists.linux.dev, chrome-platform@lists.linux.dev, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, imx@lists.linux.dev, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, platform-driver-x86@vger.kernel.org, "Andrzej
  Hajda" <andrzej.hajda@intel.com>, "Anusha Srivatsa" <asrivats@redhat.com>, "Chun-Kuang
  Hu" <chunkuang.hu@kernel.org>, "David Airlie" <airlied@gmail.com>, "Dmitry
@@ -63,11 +63,7 @@ Cc: asahi@lists.linux.dev, chrome-platform@lists.linux.dev, dri-devel@lists.free
  Guo" <shawnguo@kernel.org>, "Simona Vetter" <simona@ffwll.ch>, "Thomas
  Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas Zimmermann" <tzimmermann@suse.de>, "Tomi
  Valkeinen" <tomi.valkeinen@ideasonboard.com>
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250510_015424_177118_59ECA5C0 
-X-CRM114-Status: UNSURE (   5.02  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,11 +78,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 9 May 2025 15:53:35 +0200, Luca Ceresoli wrote:
+On Fri, 9 May 2025 15:53:36 +0200, Luca Ceresoli wrote:
 > This is the new API for allocating DRM bridges.
-> 
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> 
+>=20
+> Switching from a non-devm to a devm allocation allows removing the kfree()
+> in the remove function and in the probe error management code, and as a
+> consequence to simplify the code flow by removing now unnecessary gotos.
+>=20
+> [ ... ]
 
 Acked-by: Maxime Ripard <mripard@kernel.org>
 
