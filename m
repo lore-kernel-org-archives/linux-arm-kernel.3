@@ -4,177 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4220FC3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 12:54:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1872C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 13:03:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SYR40e5pLexCThCphO/uZN4O2c8r5btNU/drngop+yA=; b=C3OZXSd09Q4pZhxluJnsdS1MMU
-	1oicPmzBd9xim2LiGhRxkQQJ/yv1RwrVhjMCASzK/X21xBKD2mwG0IJbK6bxy20t2Jgw6qtwjVmcY
-	rU+IIkQAURAcWEJqwk82lIb1MzuORgHYL1C5rHDDxqyTuZNv1BqPFdvG1ovo8/1P4kYhBKYbBZ6GJ
-	seaGr832umWzseJFVHdg5TRN4LhgrgEV0tjLmytHwl3YAJqhxP/J2EKwYR28/UMMC+1ZfGqBZ77+Y
-	AJ5qEZOH/ys7aTSHL16fjRtCOATWxXW9g8UtCyK/mHHkySuRJa+gPOVMvHShudRDmXWj3dKRNbGf7
-	uQfT2ZCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lNJZZDTi9Zcqf1LKtyMOdbK2CnHpCK8HnKscSpGo4Ho=; b=CDqswbWCJy7W3FWBFJ9gHQfwOO
+	St8sgNtWEE+oaoD801GwKsbXJt8lRzun6L4oIPaZy25oa6XwDxcekPiuGneL5jNzzYztB9DRf8P0H
+	ENOWoEONwTV5DDECyT5BN0j+jRI0ghIu1vm+0GknWVMf+oH1Xj+FXBbNxqJNIuWsZ6ngIRDeZW6nv
+	XAif4aoun0HxoL1f5hp5CFreqbZcuDPxPAJSrR1AEGi4gg4oSdCcZVB/Jm9Ym7L2wZdIh2yYb2o9R
+	kVTg+KoHK2LL2lpUcm38Ps9iwdBXoBbi3I/VXWuCpqufP5gglzvyGgTATQreDyNsVmDA0cLrmK7ao
+	1BzBa6xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDjiv-00000005x79-3twx;
-	Sat, 10 May 2025 12:54:37 +0000
-Received: from mail-dm3nam02on20605.outbound.protection.outlook.com ([2a01:111:f403:2405::605] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDjgs-00000005x22-04gY
+	id 1uDjrH-00000005xY2-0Zq8;
+	Sat, 10 May 2025 13:03:15 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uDjpB-00000005xOY-2l7g
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 May 2025 12:52:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OVbNmM0nAUNYdwq9jhYs1oW63BGsrfYeXZd6lhmijikgBqBmSp6cieGCGR3u0kq162wfS2FPTN6CGPaU5rd055JXP7yHgafwYKsXJ1998DEpBghYYQg0iogOggcrlLvMCn0PxjRHRbKcbVsErAzoc8vWKktUk3Z1vHDX+FDhbHQcTOSnUuXRBCqIr2OBeIEAhpIfSxEHaw7rSl2tbfCDl8vAH36cuaA0HPuonzevSCNxYACfZPz7j/W4nwILTrtysXjjDeyEQ+9wJFp4ejCoMgq62IGNPR0mcM4BVUc/pFmUpzaX30dGumFOrKGr/22PVmVGXywXsvOY5MYQZP52QQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SYR40e5pLexCThCphO/uZN4O2c8r5btNU/drngop+yA=;
- b=UWHf5C1w2BYd+Hbb+JJ6+eWk8/xfFG3Rt0nUfOUATqeaucme12RjBy5eITakOSpwCo+h8TqR1NQ4L1kJyBK+6pAAyQ3ydDXBLiWqVKTWuLaBl8fUxw6t47fzyNyUAj9ZpJl4SWas7+y4ZDIcz8gBdzWdfKRXTtBDe1bu4Bt7rls/i0ooC47pcElXnkVRNzqDq0B09pnbqU4OGs7zJexyFjH8qwQEzH+67mHZENiBjSIyN1AxPplfNKYyeLS2NU4rdXPdJ8D9DmLEmc3lcD7vmK3XIDEb2PxJcwAujGOoZ1lGswOD8DXAYcIDsJbdNdTYTQ2QyaYnzy2/49RJCtbGNQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SYR40e5pLexCThCphO/uZN4O2c8r5btNU/drngop+yA=;
- b=y45UpuRMbCe5oWPZBV5oBnoxMoz/vayGS7ICpsiC0AASrzj1wcbSvxU8In41xtXROMhtw3ClMfHzh7uvDZ1+6oraH68sn8msLLcYkFPDitkx0JFyM9AUzR0lUQZrTLNai23ThXnm//bu9w7qVsOB9mMlZ68iOEHdpHU7Add39Pk=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CH3PR12MB9194.namprd12.prod.outlook.com (2603:10b6:610:19f::7)
- by SA3PR12MB7921.namprd12.prod.outlook.com (2603:10b6:806:320::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.21; Sat, 10 May
- 2025 12:52:06 +0000
-Received: from CH3PR12MB9194.namprd12.prod.outlook.com
- ([fe80::53fb:bf76:727f:d00f]) by CH3PR12MB9194.namprd12.prod.outlook.com
- ([fe80::53fb:bf76:727f:d00f%5]) with mapi id 15.20.8722.021; Sat, 10 May 2025
- 12:52:06 +0000
-Message-ID: <e574e1d0-b003-462d-9a59-ef16e95b7766@amd.com>
-Date: Sat, 10 May 2025 22:51:58 +1000
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH v2 06/19] iommufd/viommu: Add
- IOMMU_VIOMMU_SET/UNSET_VDEV_ID ioctl
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, kevin.tian@intel.com,
- will@kernel.org, joro@8bytes.org, suravee.suthikulpanit@amd.com,
- robin.murphy@arm.com, dwmw2@infradead.org, baolu.lu@linux.intel.com,
- shuah@kernel.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org,
- eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
- mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
- smostafa@google.com, yi.l.liu@intel.com
-References: <35701c5e-030a-4f52-b6f6-ed18368fb2cd@amd.com>
- <20241004114147.GF1365916@nvidia.com>
- <95ab62fa-bb1c-4e4a-a210-b0bdba0d4ad2@amd.com>
- <aBHYN39FcH+NG5Ab@Asurada-Nvidia> <20250505170807.GP2260709@nvidia.com>
- <aBl5uLOFCntuIYYz@nvidia.com> <20250506125847.GA2260709@nvidia.com>
- <8e0182b9-7a8b-4388-9f22-c39bfbaf3df1@amd.com>
- <20250507122411.GA90261@nvidia.com>
- <76ac7908-45d7-4821-b34c-a5d2ee49c7d7@amd.com>
- <20250509220717.GE5657@nvidia.com>
-Content-Language: en-US
-From: Alexey Kardashevskiy <aik@amd.com>
-In-Reply-To: <20250509220717.GE5657@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SN7PR04CA0103.namprd04.prod.outlook.com
- (2603:10b6:806:122::18) To CH3PR12MB9194.namprd12.prod.outlook.com
- (2603:10b6:610:19f::7)
+	Sat, 10 May 2025 13:01:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=lN
+	JZZDTi9Zcqf1LKtyMOdbK2CnHpCK8HnKscSpGo4Ho=; b=ao16AYELI/suOwbTxa
+	ytAWbphuZqN+zlwaaTbn/brGW/OdQ1OJK+MxC8hf2HHTaI40SpP+jQNGjJsZ2e1E
+	/KqxGmyajelH+FagPRLVJMc5sOwG0Us+FgGvLnXjPS5/eAFZa8KIZBfB4D8XcGIO
+	1bUmZiJ2nzpXTU0Ck52vzkmr8=
+Received: from localhost (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wD3H_XGTR9o0uPHAQ--.54381S2;
+	Sat, 10 May 2025 20:59:50 +0800 (CST)
+From: Xavier Xia <xavier_qy@163.com>
+To: 21cnbao@gmail.com,
+	ryan.roberts@arm.com,
+	dev.jain@arm.com,
+	ioworker0@gmail.com
+Cc: akpm@linux-foundation.org,
+	catalin.marinas@arm.com,
+	david@redhat.com,
+	gshan@redhat.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	will@kernel.org,
+	willy@infradead.org,
+	xavier_qy@163.com,
+	ziy@nvidia.com,
+	Barry Song <baohua@kernel.org>
+Subject: [PATCH v6] arm64/mm: Optimize loop to reduce redundant operations of contpte_ptep_get
+Date: Sat, 10 May 2025 20:59:48 +0800
+Message-Id: <20250510125948.2383778-1-xavier_qy@163.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB9194:EE_|SA3PR12MB7921:EE_
-X-MS-Office365-Filtering-Correlation-Id: d84f9feb-6e6c-4d55-3720-08dd8fc177e4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NjRCdlhkTWxONXVQOVhJdlE5bENSUnljYzNSckZiMEdLRGpsbjZ1amNoNXNa?=
- =?utf-8?B?Q0tVNzBPMjJ1OGo5NnlNUVBDL0I2Q21SY1MvTHJKd3IvT1NYdVhtRVlKdG1h?=
- =?utf-8?B?UmtpZkVIYWpGamI1dEkyUWprWXhFelBFYUg3MG9uNEM4NTdyQXlJc0pIeGNs?=
- =?utf-8?B?dDV0YmVCS0ZqblhPS0lTRVo1VVBQdEE1L1k0a3VaYUJQanNQa3FvVWoyNzV4?=
- =?utf-8?B?MkhjU2k3MGhkSXloV2Z6cjh5czhEeUMreEJ5YWNrR1NEUWxZckRpWXBwSE4x?=
- =?utf-8?B?WFQyY1BNT0pseGhDWkorU1F1b2pnUWJycWJvenFMdUpRQXZnaXg0cWJQVUtJ?=
- =?utf-8?B?U2lpWG5IY0xoT09lWVNyZ3FvdVRCT1o0dUhEajFrRUVUZVN2ZGV4RElYKzdO?=
- =?utf-8?B?NTdDWjYrbllWZjFTMHdGOHdlYTdtUDZrUnJ5U2RrYXI4ZmRVdE03WE1MdHNV?=
- =?utf-8?B?RUxaUnM5N2JCZjBtTTZJaktnR3FHVERlTXB4SklveS81M1ZCek5XK0I1TkE4?=
- =?utf-8?B?Qk95cFltcWFVYW9HRUFmTFpzRFhvbzBXb0puaG5NZ0tCbVBsMytPa3Y2bGU2?=
- =?utf-8?B?anJSWUJ0TEswbC9weHNrVkR1dG5SZUY4TUpFaS9pWEwwekdKdHMyYkxJVUdY?=
- =?utf-8?B?ell4ZEtBejVkU0dqaTdoRGxUTEdiOWRHTkhCVlJRRHJuN3FUbTY1a1RjczZB?=
- =?utf-8?B?MWNoS0tFTXFTWGl2OFVGUU52UG1SSXg4di9jNTA0OVp3UkVXcXE2cFBaRmtM?=
- =?utf-8?B?Sll6UDZJanVKT0NqZGNDVUpqRVR2R1Vwcnhjc1hyOEhSVXJXcEJRQ3JhMHhF?=
- =?utf-8?B?TkwvY0ZDMVpuTEFESngwcDVDdFdVaUUxeU9Nd1FtWmMyWm54Q01DVUdPbWlU?=
- =?utf-8?B?R0dPQTc4M2ZhM0VtbHphbkpocUNLTkRRTVczZHVySjNmWkNWRy9NeTNoQnNO?=
- =?utf-8?B?SVh6WSs4cnhzcVdxdExsb08xQkdWbm9DRFJxS2dQZU50VFNmNXNMRTlqV1RX?=
- =?utf-8?B?d0xldXptRUs0NVkxVGxmV1pDS2pyVTVBSjZmaUVPNmY1QW02eHZxSzVra3lN?=
- =?utf-8?B?YjduRmFsS3NVcjVlcXk4dktqMTJYcnBpUzYzZUhhcm1nbUYxMG91Q0UyMnpm?=
- =?utf-8?B?YUNRRFNCRzJKVzM5RW1jWkhKWVU2WnJhWVJHenVhUlpjSnIvNm1CYzhnMjRn?=
- =?utf-8?B?eEJ0U1YrUTI5SUdzY3hkUkVZNGczVmRXbmc4TnJTV1FBdHhUZldiUkc1ZW01?=
- =?utf-8?B?eVdRdTVVZThWaGxjTHc0SFhESnc5VE1aSG5GeG16TDZPRThuMXlJdWRHVGtN?=
- =?utf-8?B?VFlhclg5THowY1NKUW5tUlMxQklBSEY5cHJFVXNmR2RYbXRWbmM5ekdsdlFL?=
- =?utf-8?B?UXM4ck1OcFJQSzV3YUdVQ2dETWFDY2VLdnBsaWYrbHJSQXNodjJpMk9WS2tM?=
- =?utf-8?B?UXBMczU4Y1Q4ZmdWaEJHTDgrUDF4dmNaRFN2VUtoRTdudE1hZHp4QjNCV2FC?=
- =?utf-8?B?S0J6amQrdGcvcVptNGh2aXdjSVUvTHNvM0ZPSWVrdjZNSVJhbzNrZWZtbk0y?=
- =?utf-8?B?cjZaVHpDTGlSMnAyU1V2ZW5UYzNNQ1RsanFMQXhVYXRzM3g4Q1NwZG9yZGJz?=
- =?utf-8?B?WitRMjlWajhsMWorY0d6RzhFM2hXMnp2QWM0dWdYMFQzS0h1ZmlNa1F2RFNC?=
- =?utf-8?B?K0ZLSEk2TG9qSmg3ei9BZXM1eU16a0p6bUo4Y2UxVjVOdEFwUS82NjUyYUcz?=
- =?utf-8?B?WGtzaE51MWpKVjhocEt4Uy9BbEtaM1llRUhlOEQyRGFpWHhFWFdBUm83dHRS?=
- =?utf-8?B?WUdORkFMTzdiRTB4QXdQR3VNbUhmaGx2VzhZdHdQZlNBM0F4UHYyQldYL0lE?=
- =?utf-8?B?V1NXSnJmOFRBdzlTNW9HUEx2RStEUXg4UFZVM1dYR2RwZ05aRERkeHJaR1Zk?=
- =?utf-8?Q?IDKkNQ/FXFY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB9194.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VHMrWlJweHhaWlcvRkdXMDcxcUxPTUdPYllZd3ZMeE91cVJlTHZUbzlpUlJY?=
- =?utf-8?B?SW1rMU12dE9CTVdxSWhEWEZ5TG5MblZ5MkJvL1lUak4rcEV3WG1HTjM4OFNl?=
- =?utf-8?B?VEkraFg3TjMrUU11aTNObFlCaDhBQ1VDVlpQU0FUa3d4bnByV29HeWRkZzMv?=
- =?utf-8?B?eElYRnVybEJUMG1rU1k0OEQrKzk0alBBcXl4ejdzNXR6aHVHVDRGbjFHTUZG?=
- =?utf-8?B?WisxajFyR0RCU2szUnJlYzgzdGtpMytTbXRPQmUyQUlPaThCZ2JTb2tRcC9w?=
- =?utf-8?B?V3l1T2xaU0VjOFV1WU8vZGh1TUtMY3c1Y01Ock8zMUw5SjlYUExUWEM0bTF2?=
- =?utf-8?B?c0lMN1dVQml1V2pVL2FwTVlQWkZjbkxQbkwwUVJmTE5IUnVhaHBOQ1NUQms1?=
- =?utf-8?B?VnJKNnZ4dmVwUm43UVdoUHBDa3JKNmsxME1PSUVRR3dlNC92eFBsMDBiU0VU?=
- =?utf-8?B?QUlmWCtyRm9tcndqNWdFVzdXaWtCWG1aVzZUSjM2QlFjaU9BV3AyZHZob2po?=
- =?utf-8?B?NVZwRzVCMDI5NXU3a3JGTllINGs4TjY4WkNUaE1xeEIzU3YzMXN1TUkzcjVF?=
- =?utf-8?B?WUMvc25oeWp1NEt0d3ozN25YdHV0eGdEYzlqL280MWlueXF2SVQ3QVF5QU9U?=
- =?utf-8?B?azdFbGhwUE1CWHVxL0UyYmUwc2JEVWZsc0hZREdvbWZoVmEwdERZTzllMVA1?=
- =?utf-8?B?VmFqOHQwR2JrVG9WQ0JiM0lXVElPTDJKT21iaWV6cDZxTHhJNUdwT25LU2FF?=
- =?utf-8?B?QTk4TFV1SnFKZ1NvK2s4UXVMUm1GNGh3NnduRkROSXRoN0JHNEovRWVURThC?=
- =?utf-8?B?OHdwR2Y3VmJCaFBkMW1EUDZTVm44MTFGQlRJVWRkNGdsbkNGQ2t5bk9wUmpq?=
- =?utf-8?B?OXNMSzJFY3RzTGl0ekdTQmdrMEk0aGRtUS9Vcy9KbDhwdUVHQU9PdUR6K3dU?=
- =?utf-8?B?ZUIwbGsxRnNrMFJwQVZZR25FWDZvNHhTRlo0ZkFkTEJ0bVBqTWFRclBVREgv?=
- =?utf-8?B?dzQwRHB2NE1xRWdGSEpCVzBmdVRodTVaYm91K2w4U3Z5VEFzZVhqM3BYT3NU?=
- =?utf-8?B?QlFCSisvM3hKSXpFdVhnSDF6dUo3Q2hSeWNNaC9ESzFIbkZIdVV3YTFuRFlz?=
- =?utf-8?B?blg0K2NVc1NNejJVRXFwU0NoN0NoUklvK0czK24zQmEydy9ZNnNzSkZwMEU5?=
- =?utf-8?B?ZHBsVmtGN1l4QXRUZnlXcjIvMzNyTERYZ0dzb1d3UU50TlQvWkpUV2NZNmR3?=
- =?utf-8?B?b2ZtWXdhT2JmbjFEemdBR0RoLzZndzJRM1dPWENZa0V3WldhckVDdWsxV3dT?=
- =?utf-8?B?QXZNUWYxS2ZMc0ZySGt6czd4dW9ZalB6Yy83LzdVK1VRZExoZThhWW9halMv?=
- =?utf-8?B?TEhLalhNcnkrbUMvSmRXc2c2S3laV2VFVEVmdzZMeWR4L0FVb2szWUNiT1VF?=
- =?utf-8?B?MitkNXFiU3hkSkl4OThFOVpleVFVdEQxOFpIT0FmUDhhY2N3TWhkbE1vc282?=
- =?utf-8?B?d2llVUo4K0dzVGdKODV2UE5MeEkxMlFIUjgwMmZYWjN5eUFDVHJIaXZzOGFM?=
- =?utf-8?B?cmNTUW1DMGNVVnZUajRCc2RXVTd4ZndaUktMNCtEQUk0c0RnNVdveWRXR0Q0?=
- =?utf-8?B?UW45a25qaTkrRWgvQTNIYkpoajRWbGhkSVluZGFSQko4Sm9DWW5KMnp0cUVC?=
- =?utf-8?B?TkNRUldFSUlFTEtBWmZEcG9SWjBMZFVFSTYrV1ZEdG9mb3Flek5RTThsQy9U?=
- =?utf-8?B?VFhERlU1bHR6OXVENU1CMlh6NVZZYzhHNFArTTJuM2JEbkhZcFEyZC85dmxt?=
- =?utf-8?B?MWxzK1ZIZk0yalBFT0VKanJZT1BoTXFldGhZbSthcHQrUXMwWVEwL1IzQmEw?=
- =?utf-8?B?WldISmlPaVFzUjJqSDVXSHNTT0QzbXVVb0ZGWWpxNmtWWWozM0tXZ29Jd0lZ?=
- =?utf-8?B?T1I3V29Wc3EwSER0TXpSSkFxOHppWmhhRzZoWXFCaEV6UXo1U2lPUDdFMVdv?=
- =?utf-8?B?ZmJla2FxeTZrVUVhdU9BdlN2N2dOc2JiSGNPeUM1Rk1JMEhQYzZtL291TUNF?=
- =?utf-8?B?REdJdlYzOXNKSHkyU1pHZUpHUmpFSjdDb1dQWm8waDBJNWVpdDRXT2hJWUpO?=
- =?utf-8?Q?dE+e+zr824pSQLC3MaFZMyhoC?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d84f9feb-6e6c-4d55-3720-08dd8fc177e4
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB9194.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 May 2025 12:52:06.1616
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8jn53Dhl0S/HT7OCxrj1+JpysBw7yJ0u9nQcveN7/e9E8LN9FBkV0lWYYsjUMFP4Mz8y36ZVBn3JIc7l8FwmwA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7921
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD3H_XGTR9o0uPHAQ--.54381S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3GF1UCr47Cw1fWry7tF1rCrg_yoWxtr1fpF
+	WfC3Waqr97JFn3Cr4fKw1kJr15J3s3Jay7XrnIka18Aa4DZrs5ZFW2kryFyryUGrWkX348
+	Ar1UWr4DuFyDAF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piHa0PUUUUU=
+X-Originating-IP: [101.132.132.191]
+X-CM-SenderInfo: 50dyxvpubt5qqrwthudrp/1tbiTQxIEGgd9J4DGQACse
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250510_055230_052991_8493EF58 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20250510_060106_034276_01D86B4D 
+X-CRM114-Status: GOOD (  17.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,40 +82,264 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This commit optimizes the contpte_ptep_get and contpte_ptep_get_lockless
+function by adding early termination logic. It checks if the dirty and
+young bits of orig_pte are already set and skips redundant bit-setting
+operations during the loop. This reduces unnecessary iterations and
+improves performance.
 
+In order to verify the optimization performance, a test function has been
+designed. The function's execution time and instruction statistics have
+been traced using perf, and the following are the operation results on a
+certain Qualcomm mobile phone chip:
 
-On 10/5/25 08:07, Jason Gunthorpe wrote:
-> On Fri, May 09, 2025 at 12:57:18PM +1000, Alexey Kardashevskiy wrote:
->>
->>
->> On 7/5/25 22:24, Jason Gunthorpe wrote:
->>> On Wed, May 07, 2025 at 09:18:29PM +1000, Alexey Kardashevskiy wrote:
->>>
->>>>> We should not destroy the vdevice for something like that. In a CC
->>>>> case that would unplug it from the VM which is not right.
->>>>
->>>> vdevice is not directly seen by the guest, is not it? The guest will
->>>> see, for example, an "AMD IOMMU" and assume there is device table
->>>> for all 64K devices, and so on, it is QEMU which will be
->>>> reallocating vdevice in the host's IOMMUFD. Did I miss something
->>>> here? Thanks,
->>>
->>> I imagined the vdevice would trigger the CC call to create the vPCI
->>> function in the guest attached to the secure iommu.
->>
->> What is this vPCI going to look like inside the guest? There still
->> be AMD IOMMU PCI function and passed through to-be-trusted PCI
->> function.
-> 
-> However the VMM tells it to look using the arguments to the create
-> vdevice ioctl?
-> 
-> I don't understand the question?
+Test Code:
 
-"We should not destroy the vdevice" confused me. It is not a device which a VM would see (or is it?), it is a QEMU/IOMMUFD object which we can create/destroy at any time (well, may be not, but the VM does not have a say in this). And then this vPCI thing - what is it, synonym to "vdevice" or a different thing?
+	#define PAGE_SIZE 4096
+	#define CONT_PTES 16
+	#define TEST_SIZE (4096* CONT_PTES * PAGE_SIZE)
+	#define YOUNG_BIT 8
+	void rwdata(char *buf)
+	{
+		for (size_t i = 0; i < TEST_SIZE; i += PAGE_SIZE) {
+			buf[i] = 'a';
+			volatile char c = buf[i];
+		}
+	}
+	void clear_young_dirty(char *buf)
+	{
+		if (madvise(buf, TEST_SIZE, MADV_FREE) == -1) {
+			perror("madvise free failed");
+			free(buf);
+			exit(EXIT_FAILURE);
+		}
+		if (madvise(buf, TEST_SIZE, MADV_COLD) == -1) {
+			perror("madvise free failed");
+			free(buf);
+			exit(EXIT_FAILURE);
+		}
+	}
+	void set_one_young(char *buf)
+	{
+		for (size_t i = 0; i < TEST_SIZE; i += CONT_PTES * PAGE_SIZE) {
+			volatile char c = buf[i + YOUNG_BIT * PAGE_SIZE];
+		}
+	}
 
+	void test_contpte_perf() {
+		char *buf;
+		int ret = posix_memalign((void **)&buf, CONT_PTES * PAGE_SIZE,
+				TEST_SIZE);
+		if ((ret != 0) || ((unsigned long)buf % CONT_PTES * PAGE_SIZE)) {
+			perror("posix_memalign failed");
+			exit(EXIT_FAILURE);
+		}
 
+		rwdata(buf);
+	#if TEST_CASE2 || TEST_CASE3
+		clear_young_dirty(buf);
+	#endif
+	#if TEST_CASE2
+		set_one_young(buf);
+	#endif
+
+		for (int j = 0; j < 500; j++) {
+			mlock(buf, TEST_SIZE);
+
+			munlock(buf, TEST_SIZE);
+		}
+		free(buf);
+	}
+
+	Descriptions of three test scenarios
+
+Scenario 1
+	The data of all 16 PTEs are both dirty and young.
+	#define TEST_CASE2 0
+	#define TEST_CASE3 0
+
+Scenario 2
+	Among the 16 PTEs, only the 8th one is young, and there are no dirty ones.
+	#define TEST_CASE2 1
+	#define TEST_CASE3 0
+
+Scenario 3
+	Among the 16 PTEs, there are neither young nor dirty ones.
+	#define TEST_CASE2 0
+	#define TEST_CASE3 1
+
+Test results
+
+|Scenario 1         |       Original|       Optimized|
+|-------------------|---------------|----------------|
+|instructions       |    37912436160|     18731580031|
+|test time          |         4.2797|          2.2949|
+|overhead of        |               |                |
+|contpte_ptep_get() |         21.31%|           4.80%|
+
+|Scenario 2         |       Original|       Optimized|
+|-------------------|---------------|----------------|
+|instructions       |    36701270862|     36115790086|
+|test time          |         3.2335|          3.0874|
+|Overhead of        |               |                |
+|contpte_ptep_get() |         32.26%|          33.57%|
+
+|Scenario 3         |       Original|       Optimized|
+|-------------------|---------------|----------------|
+|instructions       |    36706279735|     36750881878|
+|test time          |         3.2008|          3.1249|
+|Overhead of        |               |                |
+|contpte_ptep_get() |         31.94%|          34.59%|
+
+For Scenario 1, optimized code can achieve an instruction benefit of 50.59%
+and a time benefit of 46.38%.
+For Scenario 2, optimized code can achieve an instruction count benefit of
+1.6% and a time benefit of 4.5%.
+For Scenario 3, since all the PTEs have neither the young nor the dirty
+flag, the branches taken by optimized code should be the same as those of
+the original code. In fact, the test results of optimized code seem to be
+closer to those of the original code.
+
+It can be proven through test function that the optimization for
+contpte_ptep_get is effective. Since the logic of contpte_ptep_get_lockless
+is similar to that of contpte_ptep_get, the same optimization scheme is
+also adopted for it.
+
+Reviewed-by: Barry Song <baohua@kernel.org>
+Signed-off-by: Xavier Xia <xavier_qy@163.com>
+---
+Changes in v6:
+- Move prot = pte_pgprot(pte_mkold(pte_mkclean(pte))) into the contpte_is_consistent(),
+  as suggested by Barry.
+- Link to v5: https://lore.kernel.org/all/20250509122728.2379466-1-xavier_qy@163.com/
+
+Changes in v5:
+- Replace macro CHECK_CONTPTE_CONSISTENCY with inline function contpte_is_consistent
+  for improved readability and clarity, as suggested by Barry.
+- Link to v4: https://lore.kernel.org/all/20250508070353.2370826-1-xavier_qy@163.com/
+
+Changes in v4:
+- Convert macro CHECK_CONTPTE_FLAG to an internal loop for better readability.
+- Refactor contpte_ptep_get_lockless using the same optimization logic, as suggested by Ryan.
+- Link to v3: https://lore.kernel.org/all/3d338f91.8c71.1965cd8b1b8.Coremail.xavier_qy@163.com/
+---
+ arch/arm64/mm/contpte.c | 74 +++++++++++++++++++++++++++++++++++------
+ 1 file changed, 64 insertions(+), 10 deletions(-)
+
+diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+index bcac4f55f9c1..71efe7dff0ad 100644
+--- a/arch/arm64/mm/contpte.c
++++ b/arch/arm64/mm/contpte.c
+@@ -169,17 +169,46 @@ pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
+ 	for (i = 0; i < CONT_PTES; i++, ptep++) {
+ 		pte = __ptep_get(ptep);
+ 
+-		if (pte_dirty(pte))
++		if (pte_dirty(pte)) {
+ 			orig_pte = pte_mkdirty(orig_pte);
+-
+-		if (pte_young(pte))
++			for (; i < CONT_PTES; i++, ptep++) {
++				pte = __ptep_get(ptep);
++				if (pte_young(pte)) {
++					orig_pte = pte_mkyoung(orig_pte);
++					break;
++				}
++			}
++			break;
++		}
++
++		if (pte_young(pte)) {
+ 			orig_pte = pte_mkyoung(orig_pte);
++			i++;
++			ptep++;
++			for (; i < CONT_PTES; i++, ptep++) {
++				pte = __ptep_get(ptep);
++				if (pte_dirty(pte)) {
++					orig_pte = pte_mkdirty(orig_pte);
++					break;
++				}
++			}
++			break;
++		}
+ 	}
+ 
+ 	return orig_pte;
+ }
+ EXPORT_SYMBOL_GPL(contpte_ptep_get);
+ 
++static inline bool contpte_is_consistent(pte_t pte, unsigned long pfn,
++					pgprot_t orig_prot)
++{
++	pgprot_t prot = pte_pgprot(pte_mkold(pte_mkclean(pte)));
++
++	return pte_valid_cont(pte) && pte_pfn(pte) == pfn &&
++			pgprot_val(prot) == pgprot_val(orig_prot);
++}
++
+ pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
+ {
+ 	/*
+@@ -202,7 +231,6 @@ pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
+ 	pgprot_t orig_prot;
+ 	unsigned long pfn;
+ 	pte_t orig_pte;
+-	pgprot_t prot;
+ 	pte_t *ptep;
+ 	pte_t pte;
+ 	int i;
+@@ -219,18 +247,44 @@ pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
+ 
+ 	for (i = 0; i < CONT_PTES; i++, ptep++, pfn++) {
+ 		pte = __ptep_get(ptep);
+-		prot = pte_pgprot(pte_mkold(pte_mkclean(pte)));
+ 
+-		if (!pte_valid_cont(pte) ||
+-		   pte_pfn(pte) != pfn ||
+-		   pgprot_val(prot) != pgprot_val(orig_prot))
++		if (!contpte_is_consistent(pte, pfn, orig_prot))
+ 			goto retry;
+ 
+-		if (pte_dirty(pte))
++		if (pte_dirty(pte)) {
+ 			orig_pte = pte_mkdirty(orig_pte);
++			for (; i < CONT_PTES; i++, ptep++, pfn++) {
++				pte = __ptep_get(ptep);
++
++				if (!contpte_is_consistent(pte, pfn, orig_prot))
++					goto retry;
++
++				if (pte_young(pte)) {
++					orig_pte = pte_mkyoung(orig_pte);
++					break;
++				}
++			}
++			break;
++		}
+ 
+-		if (pte_young(pte))
++		if (pte_young(pte)) {
+ 			orig_pte = pte_mkyoung(orig_pte);
++			i++;
++			ptep++;
++			pfn++;
++			for (; i < CONT_PTES; i++, ptep++, pfn++) {
++				pte = __ptep_get(ptep);
++
++				if (!contpte_is_consistent(pte, pfn, orig_prot))
++					goto retry;
++
++				if (pte_dirty(pte)) {
++					orig_pte = pte_mkdirty(orig_pte);
++					break;
++				}
++			}
++			break;
++		}
+ 	}
+ 
+ 	return orig_pte;
 -- 
-Alexey
+2.34.1
 
 
