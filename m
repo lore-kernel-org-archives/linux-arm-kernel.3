@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50F72C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 13:52:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFB93C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 13:54:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=548WZn/S4K7x40OmmUSfPZLeG/CfUSGzx/rlh6jbEuY=; b=Y3JoCwenNIfT4wwIdU6ySFUOo5
-	OAk0TB88p4vkmvaHU2LE0S96eLoUBIJpBqcn3XEuYNemV6YgRmWNXwTAZR+qskh41yAeLAGrepnKs
-	byd63cbTUzv0RHkavbowQWyTZVJ6aWKJF05KEUyJnA2X7qF+qgRKgC5jeIjUUYQqhuM/pJDpyC6cm
-	GfCeDd2ay9heRsPQqaREK+euYtnJR7s4LLlWzcODkktOdf7z1iBNi5XJkDvhjGOZMEpfzOEMdg+1k
-	A+nyc48MNudJ9V+WeEhXF6R4qAKEFsu+ansnmjJhR9m6U991Tqw9+s2SYRDDxFm7XgNqgyX3xRcJp
-	1Y+DCXEw==;
+	bh=i2lFo4rU0Ba7jvad7tnnVpuQHRU3WRtEnqr17/6RqbY=; b=jWiAtNCWFAw6ztpZrARMdI7jH0
+	gxR/fOrsVZnB61xTZl9d43eioUjCU68Ph2VmuuEDmohzuT68vyZdiI0DCqWwmuAV8nxuYdbzRgSvl
+	HUidl6bkKEHKQdUtkdMyQl63uM1cHVx9zHz6sobZ1dUMCXiopWAFmoBco4CTebxCZk0qo7BKH7J8K
+	q9qS/Ien5S3GfUy+7E/6JY3Vx9i6+8u+8K+ju56ouOAvtanTK8HDqLDff08mDnVnVYv2nTjTvDjEL
+	gcKyMNGe2uflxqdcC6iWnoeiA+Nw8mIRBYgYyQUnNk2cbqTsKuFEOtdX9/e94+eadO8yyUVle8T10
+	8XfBiW/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDkd4-0000000607R-3ol3;
-	Sat, 10 May 2025 13:52:38 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1uDkf8-000000060My-2XhU;
+	Sat, 10 May 2025 13:54:46 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDkZ1-00000005zlH-10na
+	id 1uDkZ5-00000005zm0-3nmR
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 May 2025 13:48:28 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-73972a54919so3068182b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 May 2025 06:48:26 -0700 (PDT)
+	Sat, 10 May 2025 13:48:35 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-b268e4bfd0dso495793a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 May 2025 06:48:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746884906; x=1747489706; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1746884911; x=1747489711; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=548WZn/S4K7x40OmmUSfPZLeG/CfUSGzx/rlh6jbEuY=;
-        b=FrLtpyYlMy5wuEKdNeJartNEjwatuOia44ZUnZt1z6QC96B3eJea2UBlOLIubT+cCc
-         NjceWMAJFIT7nzA92ppzZQbh/uMfUEw7cC2DDc5f1J0EwdRCJQJAQnhhOVqvS1fMi0CU
-         p4Le8NUhae0xVwT8hz58OhlCSc8zecdGdC9rg2PThMAAKmLGr/jKJyKKjCBUPmVAeav9
-         MM68tGv2FLwcHB0veuWYZ107r2P5P65CEjcY14yDKNvqnZhh4gP01iHTuwVGUUwLmJMr
-         dubdNbNBhHDwM/JugrCJ8PdkuzA7et8FsvQSop+NGGDtknlSgZ8MpMHyacZJVvkl/bot
-         6IxA==
+        bh=i2lFo4rU0Ba7jvad7tnnVpuQHRU3WRtEnqr17/6RqbY=;
+        b=GHeBj84Q3xiEW3gy8G20qDAulFn7VrCptFsjmfdxH0ryGjq5Fb8cY+JE8LCfqmlRVT
+         q39guRMRr56uq/qkr6tctkBqWMIzGUmPTCOgurbjQ7pJCl4xtw1B1c3IX5d6qXrMqPc0
+         QbogQr+fH2QL6deoZaQggaGd3RaDAuDXf8nPaXTWW/Xc20U/aWOfbhAMG6+PN0Pru39a
+         kVHfUsbcs6h4Ul7H9Ap1f/0RHFxbdqCKOEP6j0Hj1BkWq9GMqY+HOFMtGM8CE1/N/oDl
+         xQMaTsyiFZgNy73Pz1kuoduIcWiQTUZyf3zERvI9CCdDLRzMr4t+siN3464Wo6w9Gwkn
+         G1tw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746884906; x=1747489706;
+        d=1e100.net; s=20230601; t=1746884911; x=1747489711;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=548WZn/S4K7x40OmmUSfPZLeG/CfUSGzx/rlh6jbEuY=;
-        b=e5U7+055Kim3XQ8yIxfWFcWP1s5v7TFhCMcttwqA19cvrFbs85ncgTGE4T888czM5W
-         sic8BtZP5Ww5mEs02gtixlsp20V84J7pNkVeSGA4+3z1GBTzUtFle14qz11ay150tnYe
-         sNsrOsFPxvIHsEEJNiyIUYkVzmMYZja+Q69sPSRTvRVkYiv/TkNSmxaTmBMeId7AWPzc
-         vmZZy8+ct1q/INAz02hlAQvz0bqdfC0dQYg/xinq5j2VDHqzDv8cALJW5ja1JF+dwxrV
-         NOQRArsXUwRZik9Z7u5fThRXYq/y+MUX4xXwDARaQqifM7NsDqgrLWHBCbFwjiW2O7Ov
-         bB6g==
-X-Gm-Message-State: AOJu0YyYSwbTeRAh/cztmVluvSYXYZGxW6RbeleBe1S1OmmxX9jHBOlb
-	AO79q9mqJv4UcZ1tw2DDlz5F/WuQMGuFRtJw8GxDVXZDcOpf1Q6G
-X-Gm-Gg: ASbGncs9wPhHs8MdjjQKz42kmEtzaKcYReYxuc52gxHnJDFB3DGPa1bhErhEBC5vB1R
-	GsqPy7jT79D2Z67rGimb2OZ54myT/6kkU2DfMP/FD0jHr2f8Ej4iwqSa/Db57wAqZjB9TNkP1y+
-	2zfN7eCeMeIEClNim5A2fJjdwYOxWwPSJ4Nga2Wjz3FD+Bs0UkhbHZZH9FI17Ohuz+sGz8EhbtK
-	WY+EFgypX/BktxnBe+fLkZRQAzuoKqSqky06dpQzN6BB2oSeNVPpC26JhhCHcLfV2nQMzBzSFSW
-	TFH/hWh76MYhRAHDmovc+QmRw4RXzrnGKmcqZptk6BSIcJ6V6v9kYwxOoeUDt3MoQ12jIZGG8EW
-	c6NmIPnE7SAw2o3qr7s3Sjzii
-X-Google-Smtp-Source: AGHT+IGe3B5B3RalliaBNkeqdqvGOp0m/hHLJIw4a+hcw50RwCHZe4bcxR3LB2IrWTuiOVsCyntcoQ==
-X-Received: by 2002:a05:6a00:84e:b0:740:6f69:f52a with SMTP id d2e1a72fcca58-7423b3f138dmr9527488b3a.0.1746884906308;
-        Sat, 10 May 2025 06:48:26 -0700 (PDT)
+        bh=i2lFo4rU0Ba7jvad7tnnVpuQHRU3WRtEnqr17/6RqbY=;
+        b=GJSzvlw6Z7Ccwk0TVvsE1JEKIDi+1ggD6OtgWEh4UjJnWciCM8xj0GHQz5IAV9ULkJ
+         wMQoN0Z2i0I5kyFaxXqHIHtVMwyoRY0KDaz9iV3lFgur8+VzaUbX1ESND4N0uV3ax1rd
+         JmyvFQZEiNhBQsS2cNRY2J50PGgtL49SpG/d3FAOS34O57ml04BZVd9/nGyjXW20UTV0
+         Dd3jBk9juvqNVKY9R1OuKB3MmgBiuOYXtr7nHXmW3kOSzaUssOJggUMuDHuayLMONhIm
+         OUEtJdY2k/MRb2XvTNCgFPyPDwSlQFKS2KZZV6QcwCZ8xWLg0bqemKSsIDTL8P2WZWm+
+         XckA==
+X-Gm-Message-State: AOJu0YwHWXRZOXRjR0DV9COsAjwIRddvhGRf0KKnHBM/h0LDLt2OSYrI
+	YuVAUdCFAiFnmixqEBwGeCtxk4yrA4juydSp7/Iwb7YToZVGNSoF
+X-Gm-Gg: ASbGnctRibld4qcPUt1xL3TOYuruaXMH2JYusLsJIUNJGYcgJhuXiN8iyItRSLyMpPI
+	VNuzwMG/9LbMZIaZMAJmxNG6kBTNR9xgbi1AP4e45Q9G06c2j1PV7fnnakCBzjBfYwBbU9zMibX
+	MINgYXjT4qnJZ2ZuF6SMncpecg2vPpTbVrOIq9uOfnp/pRQ0TW4DqperA+q9TjI3t4q14nYM1/t
+	HAJWdOrJ708UlvUY3UX7wDLhqyRRKAaB+sdwRaaQy4Lk+Fi+FqM6RtLX5RePGK3aRhTl2bAAsqR
+	gvfyEZVJcq7Fh23TdxPcLdF88f9Qn1WqFlWRhnPEpwtkXKChc0V3u238u9jg0YiIRrQ9TBJQ4NR
+	Rg1DnVi+1lLRvgQ==
+X-Google-Smtp-Source: AGHT+IEMbAmm46fLf2DuEv+Kvl0O13z6zOYqVX5wWUuEzOYPM3fBcXq+0jclt4XxJpuuYSO1ZkOrxQ==
+X-Received: by 2002:a05:6a21:1788:b0:1f5:8655:3287 with SMTP id adf61e73a8af0-215abd23189mr11179733637.40.1746884911027;
+        Sat, 10 May 2025 06:48:31 -0700 (PDT)
 Received: from KERNELXING-MC1.tencent.com ([114.253.36.190])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7423773939fsm3360424b3a.62.2025.05.10.06.48.21
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7423773939fsm3360424b3a.62.2025.05.10.06.48.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 10 May 2025 06:48:26 -0700 (PDT)
+        Sat, 10 May 2025 06:48:30 -0700 (PDT)
 From: Jason Xing <kerneljasonxing@gmail.com>
 To: tariqt@nvidia.com,
 	andrew+netdev@lunn.ch,
@@ -84,17 +84,17 @@ To: tariqt@nvidia.com,
 Cc: linux-arm-kernel@lists.infradead.org,
 	netdev@vger.kernel.org,
 	Jason Xing <kernelxing@tencent.com>
-Subject: [PATCH net-next v2 1/3] net: atlantic: generate software timestamp just before the doorbell
-Date: Sat, 10 May 2025 21:48:10 +0800
-Message-Id: <20250510134812.48199-2-kerneljasonxing@gmail.com>
+Subject: [PATCH net-next v2 2/3] net: cxgb4: generate software timestamp just before the doorbell
+Date: Sat, 10 May 2025 21:48:11 +0800
+Message-Id: <20250510134812.48199-3-kerneljasonxing@gmail.com>
 X-Mailer: git-send-email 2.33.0
 In-Reply-To: <20250510134812.48199-1-kerneljasonxing@gmail.com>
 References: <20250510134812.48199-1-kerneljasonxing@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250510_064827_279767_0F5E5812 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20250510_064831_945548_F329F7FB 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,35 +116,67 @@ doorbell.
 
 Signed-off-by: Jason Xing <kernelxing@tencent.com>
 ---
- drivers/net/ethernet/aquantia/atlantic/aq_main.c | 1 -
- drivers/net/ethernet/aquantia/atlantic/aq_nic.c  | 2 ++
- 2 files changed, 2 insertions(+), 1 deletion(-)
+ drivers/net/ethernet/chelsio/cxgb4/sge.c                     | 5 +++--
+ .../net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c   | 2 +-
+ 2 files changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/net/ethernet/aquantia/atlantic/aq_main.c b/drivers/net/ethernet/aquantia/atlantic/aq_main.c
-index c1d1673c5749..b565189e5913 100644
---- a/drivers/net/ethernet/aquantia/atlantic/aq_main.c
-+++ b/drivers/net/ethernet/aquantia/atlantic/aq_main.c
-@@ -123,7 +123,6 @@ static netdev_tx_t aq_ndev_start_xmit(struct sk_buff *skb, struct net_device *nd
+diff --git a/drivers/net/ethernet/chelsio/cxgb4/sge.c b/drivers/net/ethernet/chelsio/cxgb4/sge.c
+index f991a28a71c3..f2d533acb056 100644
+--- a/drivers/net/ethernet/chelsio/cxgb4/sge.c
++++ b/drivers/net/ethernet/chelsio/cxgb4/sge.c
+@@ -1533,7 +1533,6 @@ static netdev_tx_t cxgb4_eth_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	} else {
+ 		q = &adap->sge.ethtxq[qidx + pi->first_qset];
  	}
- #endif
- 
 -	skb_tx_timestamp(skb);
- 	return aq_nic_xmit(aq_nic, skb);
- }
  
-diff --git a/drivers/net/ethernet/aquantia/atlantic/aq_nic.c b/drivers/net/ethernet/aquantia/atlantic/aq_nic.c
-index bf3aa46887a1..e71cd10e4e1f 100644
---- a/drivers/net/ethernet/aquantia/atlantic/aq_nic.c
-+++ b/drivers/net/ethernet/aquantia/atlantic/aq_nic.c
-@@ -898,6 +898,8 @@ int aq_nic_xmit(struct aq_nic_s *self, struct sk_buff *skb)
- 
- 	frags = aq_nic_map_skb(self, skb, ring);
+ 	reclaim_completed_tx(adap, &q->q, -1, true);
+ 	cntrl = TXPKT_L4CSUM_DIS_F | TXPKT_IPCSUM_DIS_F;
+@@ -1706,6 +1705,8 @@ static netdev_tx_t cxgb4_eth_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	cpl->len = htons(skb->len);
+ 	cpl->ctrl1 = cpu_to_be64(cntrl);
  
 +	skb_tx_timestamp(skb);
 +
- 	if (likely(frags)) {
- 		err = self->aq_hw_ops->hw_ring_tx_xmit(self->aq_hw,
- 						       ring, frags);
+ 	if (immediate) {
+ 		cxgb4_inline_tx_skb(skb, &q->q, sgl);
+ 		dev_consume_skb_any(skb);
+@@ -2268,7 +2269,6 @@ static int ethofld_hard_xmit(struct net_device *dev,
+ 
+ 	d = &eosw_txq->desc[eosw_txq->last_pidx];
+ 	skb = d->skb;
+-	skb_tx_timestamp(skb);
+ 
+ 	wr = (struct fw_eth_tx_eo_wr *)&eohw_txq->q.desc[eohw_txq->q.pidx];
+ 	if (unlikely(eosw_txq->state != CXGB4_EO_STATE_ACTIVE &&
+@@ -2373,6 +2373,7 @@ static int ethofld_hard_xmit(struct net_device *dev,
+ 		eohw_txq->vlan_ins++;
+ 
+ 	txq_advance(&eohw_txq->q, ndesc);
++	skb_tx_timestamp(skb);
+ 	cxgb4_ring_tx_db(adap, &eohw_txq->q, ndesc);
+ 	eosw_txq_advance_index(&eosw_txq->last_pidx, 1, eosw_txq->ndesc);
+ 
+diff --git a/drivers/net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c b/drivers/net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c
+index e8e460a92e0e..4e2096e49684 100644
+--- a/drivers/net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c
++++ b/drivers/net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c
+@@ -1640,6 +1640,7 @@ static int chcr_ktls_tunnel_pkt(struct chcr_ktls_info *tx_info,
+ 	cxgb4_write_sgl(skb, &q->q, pos, end, 0, sgl_sdesc->addr);
+ 	sgl_sdesc->skb = skb;
+ 	chcr_txq_advance(&q->q, ndesc);
++	skb_tx_timestamp(skb);
+ 	cxgb4_ring_tx_db(tx_info->adap, &q->q, ndesc);
+ 	return 0;
+ }
+@@ -1903,7 +1904,6 @@ static int chcr_ktls_sw_fallback(struct sk_buff *skb,
+ 	th = tcp_hdr(nskb);
+ 	skb_offset = skb_tcp_all_headers(nskb);
+ 	data_len = nskb->len - skb_offset;
+-	skb_tx_timestamp(nskb);
+ 
+ 	if (chcr_ktls_tunnel_pkt(tx_info, nskb, q))
+ 		goto out;
 -- 
 2.43.5
 
