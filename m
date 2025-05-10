@@ -4,101 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4436FC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 19:51:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19BBAC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 20:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SRddgwOHN1Vyi2V2faPWngR/Eu23tCZlOEXW/jSpDeM=; b=IRPZhPS8vNTA50EeiaEmdGWcBx
-	wUsM8AyWRCR+HvGZhMhoVXMKW2ecZ/8EvN3xzsI3YJwTvyspeLzIkRX1fsvFUO8wqe6v1VAq3JjIg
-	PVpYVxz1KMhyOTr55AiORdkm9/g3vwqvf+5WHfh//2hy5f7l/1LKb6UUPtEHgdUWLMNGufmtbnRMK
-	mAj2k1CneM391Ux+6X/ci/HzitYJZQh9d0r9awO4501PquV4ifNf8ivmnx6m+0nDBnLXyKrqjuTOf
-	mK7g8orGPJbbVn5jUokK1aOE5Z6QWxv4/PVkQXBUsZ2iRU0cQWH2yjOY+3XW6/Dv5s/AJIHVtfJ4R
-	3L++XrIw==;
+	bh=uMTY9qFogQa0Mq320HhUniBejxmAeYawCBgAAg59X50=; b=SSffP3ExHqOA9EsI6eF+lB3EP/
+	BG/ei9LiYSFv3zCM0ISo0ImIevgAjKcpgeR8KVWxyqcER0tNJ3uoDqKguQobAWdKjOBbOG2l53D0l
+	VKXichV3L4QU8sm7hvgP5fW6q/lkGPoFdTdAYYrWTqRZhcugs53s5LJW9MEoFqdeI1V0c814oJSHv
+	IMC4d8dhM7hCnCnlbnv64LxcJizIAofkjl7UKmlqH7AdY5N2okM55sfd1EMlNS6jmeeoQzavqOpWm
+	yh1+bBuFymlJGrL3pDYma9W4o9PvOfdH2HKCqghBNLHqcbw9xTkN2q8J/3E6Qhh90wBNAshkkkqSO
+	PdSnDFiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDqEB-00000006KGr-05NI;
-	Sat, 10 May 2025 19:51:19 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1uDqhO-00000006LLk-1hXf;
+	Sat, 10 May 2025 20:21:30 +0000
+Received: from fout-b8-smtp.messagingengine.com ([202.12.124.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDq6R-00000006JGa-26z8;
-	Sat, 10 May 2025 19:43:20 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-73972a54919so3222532b3a.3;
-        Sat, 10 May 2025 12:43:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746906198; x=1747510998; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=SRddgwOHN1Vyi2V2faPWngR/Eu23tCZlOEXW/jSpDeM=;
-        b=cP1jlkXdqWWbtrtkBoE/1TH/dDuWM3b+eWmBao2bOL+WdRg//+Fbb/PPik/QwUNNk9
-         zuBaXwGU0dnItxHKrT7pW6XvAsJqVaNWl7eAOZ1JR9028TpwaQ5gdryAlvPqV1MQefBH
-         Iw1mCPv66p1ld52tgPRyvAaYJMmbcm9IAWS294nNzXjJSUdFYIQMVesWc5h/iDOWkl7d
-         Zkgg8aDvwe6C56GNCujOXLzm5p8gzoupIpIejTOEtDsq8QrqJsQTmopSc00M5ff/CnVX
-         wheqObmS/6hXKQ8/FrIFh5+U1X5ffBUmyu+41iy3QBOzHAA+aXMz7C1duYaAzvHk0p7R
-         1STA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746906198; x=1747510998;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SRddgwOHN1Vyi2V2faPWngR/Eu23tCZlOEXW/jSpDeM=;
-        b=avYCOAZOx0VUv7482kegyOCrqxa0vcnG3LzIg/QPyXP6F9xxX2b72q7RZNsRTnW0nq
-         KVejV4E8mdUBfX80q17dAfw19SAZDR6kvXT55HVUUoGw7s2bOgoAjqhBYd3IWscmE0b6
-         oZ+QOg+zDU9/mil8zQoO64mzP9gna6a2ct4+KH3oYfca3HZh8LNFYt6CANl2UNWAgbEb
-         bjGZXjw55uIXS9P2IsJ3JeVx84DSjKf0YPJsyUO9Rr9627Qhe+5rxPdHhhsMYiq82ifd
-         yMz9NA9T02oYpK7QAD1Lopa0Fgk4wVtzVMNoORwScFFI2xABb+PEhKqgJzAhXUJaC1VP
-         /Ptw==
-X-Forwarded-Encrypted: i=1; AJvYcCUFXgJNHJ7k2+vHpO9vnoLn8ErSjhDkLPldf2OBL1LzN/OakSot+id67MjWOc0EP7hR/4O+7AdgLcU4PDXfhhT3@lists.infradead.org, AJvYcCX1aemiJVZdi+c6MBC5XLjMuG1/Ey1t1nEq1RJthrznR7Ynx0mhbhtsDeWcV7c8ly99QZxo1YrqQXU/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9e9e+n5aH0n4XbKCqDqA7NLPs1CwjcI14nkGdgtmiXOwJZwsh
-	Hx5xYC96MUKLRKm83UVZHtO1hi5kqgm7UyQyRWyjF9gRXiIMFENe
-X-Gm-Gg: ASbGnctEZCFCyvt7HYmuQuTIYLwvjk1un7BXANmshpCBan2QKJa+PXwyaNfiN3kyTfu
-	AE0vDT7But6JEgAaNkSoJYcyKo7tYb8GRKEd7l8twcOxpTbDLICtLCEZCd+bOCGI4+5cOlg5GH7
-	VgS+/Y2hlrkqLXb2rrgmpTS7as3qCBgmhWmy06Xf87cQ++2Yd/tZG+geZvFzxf/azPbWL660434
-	o43t9Rd8uuOj1HhDSCQs02IKgZbpuBO8Q4Lb9BeetAE9O6+J8RUYYuOMvM/ljS//wb+/JiXI8CM
-	4T6H14qlIggLV2uHup/xeYUZusm+Sfyxhj3X4wZrbmxpbs6SmLNi0q2CDd1sUg8=
-X-Google-Smtp-Source: AGHT+IH053WbjA3cvqj9iQ8a7h5v+mWrap4AkYe2w2/EzsXrjAunLV+dXYcLOr/NytKnX5MMq0uq+Q==
-X-Received: by 2002:a05:6a20:e68d:b0:1ee:8435:6b69 with SMTP id adf61e73a8af0-215ababcab7mr11814578637.1.1746906198481;
-        Sat, 10 May 2025 12:43:18 -0700 (PDT)
-Received: from NB-GIGA003.letovo.school ([5.194.95.139])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2523e67d53sm2223670a12.19.2025.05.10.12.43.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 10 May 2025 12:43:18 -0700 (PDT)
-From: Alexey Charkov <alchark@gmail.com>
-Date: Sat, 10 May 2025 23:42:23 +0400
-Subject: [PATCH 3/3] ARM: dts: vt8500: Add serial flash controller and its
- clock
+	id 1uDqfH-00000006LH8-0fbI
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 10 May 2025 20:19:21 +0000
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfout.stl.internal (Postfix) with ESMTP id ECAAE1140080;
+	Sat, 10 May 2025 16:19:14 -0400 (EDT)
+Received: from phl-imap-12 ([10.202.2.86])
+  by phl-compute-05.internal (MEProxy); Sat, 10 May 2025 16:19:15 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1746908354;
+	 x=1746994754; bh=uMTY9qFogQa0Mq320HhUniBejxmAeYawCBgAAg59X50=; b=
+	W1roBAZHchvU7brkv5sM+bEPS6+gPBxpN9gdQRR3tsG+7vbQDJ7sw+IsjKONi9Ea
+	p2+m8URLPJxGPTz8V5ODbG65PFYHpk9OXKz6ZsKcfAGYcfEYQWN9RgqQH4hfigFN
+	+gfMQRVA85DY/vc03Vf92KVAslm+wH1qX3IWJ//Soql3A3Z2ZW581gR/cql0Umqa
+	K/yX7gYK3h5ESrbzyohgP2rC8xF8+vcxj0CTpIWOjXe6Rp5x4kHNhjOdys2cNXCP
+	IeMOz5TZBFOv1yLWC9Ud0vZI/GWHxmN4wFCZoJ8Vbi/U6ilI45uIlyc4vu0rEjZe
+	PikbmnQ1GSFSzhJ8DTx4Eg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1746908354; x=
+	1746994754; bh=uMTY9qFogQa0Mq320HhUniBejxmAeYawCBgAAg59X50=; b=K
+	SH/bjorPMgfh4SJiCT2jhxZ89WsG0wowhuT3ljJKMy4M30LEDPQaAU/W6I47T16K
+	RdA7wd88tpcVJMk3v+eOO93VNew4UtFc6mQbIb3QHXaJ/9rBZz77MHBiW63sjtWA
+	8Qa4PDpiUU/jgHYW7QnqNb1Nbwo2z6fvd1nrWrxBDq5qOyfEgIStSTmr+/3pbLww
+	e46aRDzdYq3NU1+YOg26BDADq785/fWHTEMYGKf/u+d8MsNYgpIJrzaXHh+gTyps
+	3xlYfy1KUmwjXFEWaIEHDZCxmjVQymLG4Kv59kGP18O+/lmd1l0aevRblu35taCY
+	wh4tUqYym5ncdszs1reLw==
+X-ME-Sender: <xms:wrQfaI5-GTxu5-SAYyEQ2M-xFj3rYxxFjMWdoGh90jGnI6RhXsyGpA>
+    <xme:wrQfaJ6SbJVb6Xret8fhE70NUWTQJZzvOgXnV4HtyhtXLj2ty8AGaUaCSWScuvnVu
+    0H0FRUNSpuUjSM1RiA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvleeigeegucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
+    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
+    gsrdguvgeqnecuggftrfgrthhtvghrnhepfefhheetffduvdfgieeghfejtedvkeetkeej
+    feekkeelffejteevvdeghffhiefhnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenuc
+    evlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnuges
+    rghrnhgusgdruggvpdhnsggprhgtphhtthhopeehpdhmohguvgepshhmthhpohhuthdprh
+    gtphhtthhopegrrhhmsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeguihhnghhuhigv
+    nheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhotgeskhgvrhhnvghlrdhorhhgpd
+    hrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgr
+    uggvrggurdhorhhgpdhrtghpthhtohepshhotgeslhhishhtshdrlhhinhhugidruggvvh
+X-ME-Proxy: <xmx:wrQfaHe5_E_y10KKiRmwHJuBabKD2gu8Xp85cPArkxajpCWSGiuHIg>
+    <xmx:wrQfaNJN0437e2noiJoV9lDzMFQeLmVlDCYyyKYDh5vTXXugiZn3zw>
+    <xmx:wrQfaMKSvlDq5RY9pUROEQDT7xMKeH-gAETfOufv13J9RW3-f0a4Qw>
+    <xmx:wrQfaOxkvaCKoj54Ft0LhQUvWgRezYwnCBpTmkj7gDeiESCHI12XKA>
+    <xmx:wrQfaMskA1r8DApt5puWdB5-BIdb_mfBiGK5ZdJHOFRIR2O6LWR-ycKX>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 52FD41C20067; Sat, 10 May 2025 16:19:14 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Date: Sat, 10 May 2025 22:18:54 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Dinh Nguyen" <dinguyen@kernel.org>, arm <arm@kernel.org>, soc@kernel.org
+Cc: soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Message-Id: <b8257b35-04b7-400b-bc58-948dd5fdf799@app.fastmail.com>
+In-Reply-To: <20250506004825.134929-1-dinguyen@kernel.org>
+References: <20250506004825.134929-1-dinguyen@kernel.org>
+Subject: Re: [GIT PULL] ARM: socfpga: updates for v6.16
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250510-wmt-sflash-v1-3-02a1ac6adf12@gmail.com>
-References: <20250510-wmt-sflash-v1-0-02a1ac6adf12@gmail.com>
-In-Reply-To: <20250510-wmt-sflash-v1-0-02a1ac6adf12@gmail.com>
-To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
- Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-mtd@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, Alexey Charkov <alchark@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1746906149; l=13606;
- i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
- bh=AqqaMB30uWeNBPi6eapQMsRaWN5WUqUZI3tfXltWrtU=;
- b=9HbS2d3KP67QxcLBqUs+Dm8Msny0saXPEgDQmen+dSuDYtQ20sj7w1/xe9rRlJJ9Pq67aMgon
- FcjxhBj1ydjDOsdRKTsBdSXp5hOVWTQJQ+SRtcLotX7oLt+TcTEnOcn
-X-Developer-Key: i=alchark@gmail.com; a=ed25519;
- pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250510_124319_553881_CF388546 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20250510_131920_084274_575E80DA 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,538 +109,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The serial flash controller resides at the same MMIO address in all known
-VIA/WonderMedia SoCs, and its clock uses the same enable bit and divisor
-reg on all SoCs, feeding off PLL B.
+On Tue, May 6, 2025, at 02:48, Dinh Nguyen wrote:
+> The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
+>
+>   Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
+>
+> are available in the Git repository at:
+>
+>   git://git.kernel.org/pub/scm/linux/kernel/git/dinguyen/linux.git 
+> tags/socfpga_dts_updates_for_v6.16
+>
+> for you to fetch changes up to 8dbffe5f5dd531a3c3f9d603462e499085449277:
+>
+>   dt-bindings: clock: socfpga: convert to yaml (2025-05-03 13:33:23 -0500)
+>
+> ----------------------------------------------------------------
+> SoCFPGA DTS updates for v6.16
+> - Updates to dt-bindings
+> 	- Document Agilex5 NAND daughter board
+> 	- Convert Stratix10 FPGA Manager to json-schema
+> 	- Convert Stratix10 Service Layer to json-schema
+> 	- Add document for Terasic's DE10-nano board
+> - Add support for Agilex5 NAND daughter board
+> - Add basic support for Terasic's DE10-nano board
 
-Add respective DT nodes using SoC specific compatibles for the controller
-to make it future proof in case any differences in behavior are discovered
-later on.
+Hi Dinh,
 
-All known boards boot from SPI NOR flash, so their flash chips are at CS0
-and mapped by the boot ROM at the end of their CPU address space. Add
-respective DT nodes in board-specific dts files too.
+I'm not sure exactly what happened, but I see that this is
+almost the same as the previous pull request that you had sent
+for 6.15 in late march.
 
-Signed-off-by: Alexey Charkov <alchark@gmail.com>
----
- arch/arm/boot/dts/vt8500/vt8500-bv07.dts     | 37 ++++++++++++++++++++++++++++
- arch/arm/boot/dts/vt8500/vt8500.dtsi         | 34 +++++++++++++++++++++++++
- arch/arm/boot/dts/vt8500/wm8505-ref.dts      | 37 ++++++++++++++++++++++++++++
- arch/arm/boot/dts/vt8500/wm8505.dtsi         | 21 ++++++++++++++++
- arch/arm/boot/dts/vt8500/wm8650-mid.dts      | 37 ++++++++++++++++++++++++++++
- arch/arm/boot/dts/vt8500/wm8650.dtsi         | 21 ++++++++++++++++
- arch/arm/boot/dts/vt8500/wm8750-apc8750.dts  | 37 ++++++++++++++++++++++++++++
- arch/arm/boot/dts/vt8500/wm8750.dtsi         | 21 ++++++++++++++++
- arch/arm/boot/dts/vt8500/wm8850-w70v2.dts    | 37 ++++++++++++++++++++++++++++
- arch/arm/boot/dts/vt8500/wm8850.dtsi         | 21 ++++++++++++++++
- arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts | 37 ++++++++++++++++++++++++++++
- 11 files changed, 340 insertions(+)
+I had already pulled in the previous version, and if I pull
+this one now it would result in duplicate commits. Would
+it work for you if I just cherry-pick the "dt-bindings:
+clock: socfpga: convert to yaml" patch on top, to avoid
+rebasing everything else?
 
-diff --git a/arch/arm/boot/dts/vt8500/vt8500-bv07.dts b/arch/arm/boot/dts/vt8500/vt8500-bv07.dts
-index 38a2da5e2c5d64477f04e1da9d98cb97be0d95e4..c3c5ba3ac014cc49bee8c2b9e6c7b25225d4d5fe 100644
---- a/arch/arm/boot/dts/vt8500/vt8500-bv07.dts
-+++ b/arch/arm/boot/dts/vt8500/vt8500-bv07.dts
-@@ -30,6 +30,43 @@ timing0: timing-800x480 {
- 	};
- };
- 
-+&sflash {
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			partition@0 {
-+				label = "U-boot";
-+				reg = <0 0x50000>;
-+				read-only;
-+			};
-+
-+			partition@1 {
-+				label = "U-boot environment 1";
-+				reg = <0x50000 0x10000>;
-+			};
-+
-+			partition@2 {
-+				label = "U-boot environment 2";
-+				reg = <0x60000 0x10000>;
-+			};
-+
-+			partition@3 {
-+				label = "W-load";
-+				reg = <0x70000 0x10000>;
-+				read-only;
-+			};
-+		};
-+	};
-+};
-+
- &uart0 {
- 	status = "okay";
- };
-diff --git a/arch/arm/boot/dts/vt8500/vt8500.dtsi b/arch/arm/boot/dts/vt8500/vt8500.dtsi
-index 2ba021585d4889f29777a12473964c29f999f3a0..7ea115576c69b517cb2a08206638062f22c976a0 100644
---- a/arch/arm/boot/dts/vt8500/vt8500.dtsi
-+++ b/arch/arm/boot/dts/vt8500/vt8500.dtsi
-@@ -74,6 +74,19 @@ ref24: ref24M {
- 					clock-frequency = <24000000>;
- 				};
- 
-+				ref25: clock-25000000 {
-+					#clock-cells = <0>;
-+					compatible = "fixed-clock";
-+					clock-frequency = <25000000>;
-+				};
-+
-+				pllb: clock@204 {
-+					#clock-cells = <0>;
-+					compatible = "via,vt8500-pll-clock";
-+					clocks = <&ref25>;
-+					reg = <0x204>;
-+				};
-+
- 				clkuart0: uart0 {
- 					#clock-cells = <0>;
- 					compatible = "via,vt8500-device-clock";
-@@ -105,6 +118,15 @@ clkuart3: uart3 {
- 					enable-reg = <0x250>;
- 					enable-bit = <4>;
- 				};
-+
-+				clksf: clock {
-+					#clock-cells = <0>;
-+					compatible = "via,vt8500-device-clock";
-+					clocks = <&pllb>;
-+					divisor-reg = <0x314>;
-+					enable-reg = <0x254>;
-+					enable-bit = <23>;
-+				};
- 			};
- 		};
- 
-@@ -114,6 +136,18 @@ timer@d8130100 {
- 			interrupts = <36>;
- 		};
- 
-+		sflash: spi-nor-controller@d8002000 {
-+			compatible = "via,vt8500-sflash";
-+			reg = <0xd8002000 0x400>,
-+			      <0xff800000 0x800000>,
-+			      <0xef800000 0x800000>;
-+			reg-names = "io", "chip0-mmap", "chip1-mmap";
-+			clocks = <&clksf>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		usb@d8007900 {
- 			compatible = "via,vt8500-ehci";
- 			reg = <0xd8007900 0x200>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8505-ref.dts b/arch/arm/boot/dts/vt8500/wm8505-ref.dts
-index 8ce9e2ef0a81097e7143a5392ee5b42bf8028ec1..b037f9d919fb51a527f35276e2b8601f3f3d8505 100644
---- a/arch/arm/boot/dts/vt8500/wm8505-ref.dts
-+++ b/arch/arm/boot/dts/vt8500/wm8505-ref.dts
-@@ -30,6 +30,43 @@ timing0: timing-800x480 {
- 	};
- };
- 
-+&sflash {
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			partition@0 {
-+				label = "U-boot";
-+				reg = <0 0x50000>;
-+				read-only;
-+			};
-+
-+			partition@1 {
-+				label = "U-boot environment 1";
-+				reg = <0x50000 0x10000>;
-+			};
-+
-+			partition@2 {
-+				label = "U-boot environment 2";
-+				reg = <0x60000 0x10000>;
-+			};
-+
-+			partition@3 {
-+				label = "W-load";
-+				reg = <0x70000 0x10000>;
-+				read-only;
-+			};
-+		};
-+	};
-+};
-+
- &uart0 {
- 	status = "okay";
- };
-diff --git a/arch/arm/boot/dts/vt8500/wm8505.dtsi b/arch/arm/boot/dts/vt8500/wm8505.dtsi
-index 99c064c916b2279797f71261ca9306e9dcd4bbd8..bf9ba4e99f86d1bf41c4e4bfe8b4f71ad162be4f 100644
---- a/arch/arm/boot/dts/vt8500/wm8505.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8505.dtsi
-@@ -203,6 +203,15 @@ clksdhc: sdhc {
- 					enable-reg = <0x254>;
- 					enable-bit = <18>;
- 				};
-+
-+				clksf: clock {
-+					#clock-cells = <0>;
-+					compatible = "via,vt8500-device-clock";
-+					clocks = <&pllb>;
-+					divisor-reg = <0x314>;
-+					enable-reg = <0x254>;
-+					enable-bit = <23>;
-+				};
- 			};
- 		};
- 
-@@ -212,6 +221,18 @@ timer@d8130100 {
- 			interrupts = <36>;
- 		};
- 
-+		sflash: spi-nor-controller@d8002000 {
-+			compatible = "wm,wm8505-sflash";
-+			reg = <0xd8002000 0x400>,
-+			      <0xff800000 0x800000>,
-+			      <0xef800000 0x800000>;
-+			reg-names = "io", "chip0-mmap", "chip1-mmap";
-+			clocks = <&clksf>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		usb@d8007100 {
- 			compatible = "via,vt8500-ehci";
- 			reg = <0xd8007100 0x200>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8650-mid.dts b/arch/arm/boot/dts/vt8500/wm8650-mid.dts
-index 7977b6c1e8ebf215df210dee703e470b9159d329..d3c8b7b99706603bab5aa8dad1165edb3763c2f6 100644
---- a/arch/arm/boot/dts/vt8500/wm8650-mid.dts
-+++ b/arch/arm/boot/dts/vt8500/wm8650-mid.dts
-@@ -31,6 +31,43 @@ timing0: timing-800x480 {
- 	};
- };
- 
-+&sflash {
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			partition@0 {
-+				label = "U-boot";
-+				reg = <0 0x50000>;
-+				read-only;
-+			};
-+
-+			partition@1 {
-+				label = "U-boot environment 1";
-+				reg = <0x50000 0x10000>;
-+			};
-+
-+			partition@2 {
-+				label = "U-boot environment 2";
-+				reg = <0x60000 0x10000>;
-+			};
-+
-+			partition@3 {
-+				label = "W-load";
-+				reg = <0x70000 0x10000>;
-+				read-only;
-+			};
-+		};
-+	};
-+};
-+
- &uart0 {
- 	status = "okay";
- };
-diff --git a/arch/arm/boot/dts/vt8500/wm8650.dtsi b/arch/arm/boot/dts/vt8500/wm8650.dtsi
-index 0d6c7bd87f7dcce0eef056d04c38ab1de5d52639..972b61d2437b1da9ce765b65f844872e8df4da1d 100644
---- a/arch/arm/boot/dts/vt8500/wm8650.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8650.dtsi
-@@ -175,6 +175,15 @@ clksdhc: sdhc {
- 					enable-reg = <0x254>;
- 					enable-bit = <18>;
- 				};
-+
-+				clksf: clock {
-+					#clock-cells = <0>;
-+					compatible = "via,vt8500-device-clock";
-+					clocks = <&pllb>;
-+					divisor-reg = <0x314>;
-+					enable-reg = <0x254>;
-+					enable-bit = <23>;
-+				};
- 			};
- 		};
- 
-@@ -184,6 +193,18 @@ timer@d8130100 {
- 			interrupts = <36>;
- 		};
- 
-+		sflash: spi-nor-controller@d8002000 {
-+			compatible = "wm,wm8650-sflash";
-+			reg = <0xd8002000 0x400>,
-+			      <0xff800000 0x800000>,
-+			      <0xef800000 0x800000>;
-+			reg-names = "io", "chip0-mmap", "chip1-mmap";
-+			clocks = <&clksf>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		usb@d8007900 {
- 			compatible = "via,vt8500-ehci";
- 			reg = <0xd8007900 0x200>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8750-apc8750.dts b/arch/arm/boot/dts/vt8500/wm8750-apc8750.dts
-index 136e812bc1e498d48c7fc61154bc66a48888b117..4465946cfe44e82db1cad14c1f81237e1ccc0e67 100644
---- a/arch/arm/boot/dts/vt8500/wm8750-apc8750.dts
-+++ b/arch/arm/boot/dts/vt8500/wm8750-apc8750.dts
-@@ -24,6 +24,43 @@ i2c: i2c {
- 	};
- };
- 
-+&sflash {
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			partition@0 {
-+				label = "U-boot";
-+				reg = <0 0x50000>;
-+				read-only;
-+			};
-+
-+			partition@1 {
-+				label = "U-boot environment 1";
-+				reg = <0x50000 0x10000>;
-+			};
-+
-+			partition@2 {
-+				label = "U-boot environment 2";
-+				reg = <0x60000 0x10000>;
-+			};
-+
-+			partition@3 {
-+				label = "W-load";
-+				reg = <0x70000 0x10000>;
-+				read-only;
-+			};
-+		};
-+	};
-+};
-+
- &uart0 {
- 	status = "okay";
- };
-diff --git a/arch/arm/boot/dts/vt8500/wm8750.dtsi b/arch/arm/boot/dts/vt8500/wm8750.dtsi
-index 0158c0ba5dd110957eac38775d3bf3ebd2ab4154..d6b4e4463fae1e8a0a3cf0feecce7125b4a67f5c 100644
---- a/arch/arm/boot/dts/vt8500/wm8750.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8750.dtsi
-@@ -240,6 +240,15 @@ clki2c1: i2c1clk {
- 					enable-reg = <0x250>;
- 					enable-bit = <9>;
- 				};
-+
-+				clksf: clock {
-+					#clock-cells = <0>;
-+					compatible = "via,vt8500-device-clock";
-+					clocks = <&pllb>;
-+					divisor-reg = <0x314>;
-+					enable-reg = <0x254>;
-+					enable-bit = <23>;
-+				};
- 			};
- 		};
- 
-@@ -256,6 +265,18 @@ timer@d8130100 {
- 			interrupts = <36>;
- 		};
- 
-+		sflash: spi-nor-controller@d8002000 {
-+			compatible = "wm,wm8750-sflash";
-+			reg = <0xd8002000 0x400>,
-+			      <0xff800000 0x800000>,
-+			      <0xef800000 0x800000>;
-+			reg-names = "io", "chip0-mmap", "chip1-mmap";
-+			clocks = <&clksf>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		usb@d8007900 {
- 			compatible = "via,vt8500-ehci";
- 			reg = <0xd8007900 0x200>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8850-w70v2.dts b/arch/arm/boot/dts/vt8500/wm8850-w70v2.dts
-index 5d409323b10cb94a5694722de1e31cff5be390ce..d2638a204579d3dff477bb7f458438037e08019b 100644
---- a/arch/arm/boot/dts/vt8500/wm8850-w70v2.dts
-+++ b/arch/arm/boot/dts/vt8500/wm8850-w70v2.dts
-@@ -42,6 +42,43 @@ timing0: timing-800x480 {
- 	};
- };
- 
-+&sflash {
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			partition@0 {
-+				label = "U-boot";
-+				reg = <0 0x50000>;
-+				read-only;
-+			};
-+
-+			partition@1 {
-+				label = "U-boot environment 1";
-+				reg = <0x50000 0x10000>;
-+			};
-+
-+			partition@2 {
-+				label = "U-boot environment 2";
-+				reg = <0x60000 0x10000>;
-+			};
-+
-+			partition@3 {
-+				label = "W-load";
-+				reg = <0x70000 0x10000>;
-+				read-only;
-+			};
-+		};
-+	};
-+};
-+
- &uart0 {
- 	status = "okay";
- };
-diff --git a/arch/arm/boot/dts/vt8500/wm8850.dtsi b/arch/arm/boot/dts/vt8500/wm8850.dtsi
-index c4bfb4d30aad0358b39cbf30edf0c63e32167bbd..6837198de2508536eef52537a7f451679d36c38b 100644
---- a/arch/arm/boot/dts/vt8500/wm8850.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8850.dtsi
-@@ -217,6 +217,15 @@ clksdhc: sdhc {
- 					enable-reg = <0x250>;
- 					enable-bit = <0>;
- 				};
-+
-+				clksf: clock {
-+					#clock-cells = <0>;
-+					compatible = "via,vt8500-device-clock";
-+					clocks = <&pllb>;
-+					divisor-reg = <0x314>;
-+					enable-reg = <0x254>;
-+					enable-bit = <23>;
-+				};
- 			};
- 		};
- 
-@@ -243,6 +252,18 @@ timer@d8130100 {
- 			interrupts = <36>;
- 		};
- 
-+		sflash: spi-nor-controller@d8002000 {
-+			compatible = "wm,wm8850-sflash";
-+			reg = <0xd8002000 0x400>,
-+			      <0xff800000 0x800000>,
-+			      <0xef800000 0x800000>;
-+			reg-names = "io", "chip0-mmap", "chip1-mmap";
-+			clocks = <&clksf>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		usb@d8007900 {
- 			compatible = "via,vt8500-ehci";
- 			reg = <0xd8007900 0x200>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts b/arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts
-index 58b3c8deb4f20ae072bf1381f1dfa5e5adeb414a..647fdcccdbbd680276af1fa30363e09bbeb5ad16 100644
---- a/arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts
-+++ b/arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts
-@@ -16,6 +16,43 @@ memory@0 {
- 	};
- };
- 
-+&sflash {
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			partition@0 {
-+				label = "U-boot";
-+				reg = <0 0x50000>;
-+				read-only;
-+			};
-+
-+			partition@1 {
-+				label = "U-boot environment 1";
-+				reg = <0x50000 0x10000>;
-+			};
-+
-+			partition@2 {
-+				label = "U-boot environment 2";
-+				reg = <0x60000 0x10000>;
-+			};
-+
-+			partition@3 {
-+				label = "W-load";
-+				reg = <0x70000 0x10000>;
-+				read-only;
-+			};
-+		};
-+	};
-+};
-+
- &uart0 {
- 	status = "okay";
- };
+Note: the list address has changed again, so please send
+future pull requests to soc@lists.linux.dev, cc:linux-arm-kernel.
+The arm@kernel.org and soc@kernel.org aliases still work
+for the moment, but the real address is the @lists.linux.dev
+one.
 
--- 
-2.49.0
-
+     Arnd
 
