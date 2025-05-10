@@ -4,70 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1872C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 13:03:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7AE4C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 13:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lNJZZDTi9Zcqf1LKtyMOdbK2CnHpCK8HnKscSpGo4Ho=; b=CDqswbWCJy7W3FWBFJ9gHQfwOO
-	St8sgNtWEE+oaoD801GwKsbXJt8lRzun6L4oIPaZy25oa6XwDxcekPiuGneL5jNzzYztB9DRf8P0H
-	ENOWoEONwTV5DDECyT5BN0j+jRI0ghIu1vm+0GknWVMf+oH1Xj+FXBbNxqJNIuWsZ6ngIRDeZW6nv
-	XAif4aoun0HxoL1f5hp5CFreqbZcuDPxPAJSrR1AEGi4gg4oSdCcZVB/Jm9Ym7L2wZdIh2yYb2o9R
-	kVTg+KoHK2LL2lpUcm38Ps9iwdBXoBbi3I/VXWuCpqufP5gglzvyGgTATQreDyNsVmDA0cLrmK7ao
-	1BzBa6xw==;
+	bh=XjT9QsFvecWPH6K1hTzMR7uGrHCdBy3p8DiOT7+COxQ=; b=SvVQcffAnSI6wBqOZSsm4O1x8N
+	wfL5bKAbFeq9iALp6GGUWeB8XIPBw3UpW5ymCggwyKPRAe8HjT6NYTlln6S4KCqqIARb760BsWsi5
+	CsduxQLRaSqqiN9LleYLo5hVXYwjeBtcRHkO/3HagHisG/gvfSsDL3y9x2edvAzSKubOJSxB9SqUi
+	vVImplmHm69aoCSsDdWFZDYGk9vm1dksIjdQAki9aSnAn4OxBREn6MCXfkMbuDET9zjKoS8jT4+V/
+	I71tEYvWU4g+N0S7ka7qjSea4JZAvnN6BjXxTUZd9p6m2KBPpW1/cdUkddML6SUq5b+Eh7QkLeBEe
+	r3FcBeJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDjrH-00000005xY2-0Zq8;
-	Sat, 10 May 2025 13:03:15 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDjpB-00000005xOY-2l7g
+	id 1uDkb2-0000000600D-10l2;
+	Sat, 10 May 2025 13:50:32 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uDkYw-00000005zku-3FiY
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 May 2025 13:01:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=lN
-	JZZDTi9Zcqf1LKtyMOdbK2CnHpCK8HnKscSpGo4Ho=; b=ao16AYELI/suOwbTxa
-	ytAWbphuZqN+zlwaaTbn/brGW/OdQ1OJK+MxC8hf2HHTaI40SpP+jQNGjJsZ2e1E
-	/KqxGmyajelH+FagPRLVJMc5sOwG0Us+FgGvLnXjPS5/eAFZa8KIZBfB4D8XcGIO
-	1bUmZiJ2nzpXTU0Ck52vzkmr8=
-Received: from localhost (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wD3H_XGTR9o0uPHAQ--.54381S2;
-	Sat, 10 May 2025 20:59:50 +0800 (CST)
-From: Xavier Xia <xavier_qy@163.com>
-To: 21cnbao@gmail.com,
-	ryan.roberts@arm.com,
-	dev.jain@arm.com,
-	ioworker0@gmail.com
-Cc: akpm@linux-foundation.org,
-	catalin.marinas@arm.com,
-	david@redhat.com,
-	gshan@redhat.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	will@kernel.org,
-	willy@infradead.org,
-	xavier_qy@163.com,
-	ziy@nvidia.com,
-	Barry Song <baohua@kernel.org>
-Subject: [PATCH v6] arm64/mm: Optimize loop to reduce redundant operations of contpte_ptep_get
-Date: Sat, 10 May 2025 20:59:48 +0800
-Message-Id: <20250510125948.2383778-1-xavier_qy@163.com>
-X-Mailer: git-send-email 2.34.1
+	Sat, 10 May 2025 13:48:24 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-73bf5aa95e7so3154266b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 May 2025 06:48:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746884901; x=1747489701; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XjT9QsFvecWPH6K1hTzMR7uGrHCdBy3p8DiOT7+COxQ=;
+        b=NC0Zj3KDHwJ5CgF3ZdrNGv3Tz98Mu2Iuq5w/2DVG7n5UXSwE3u/T+O/G9yEP1lydZB
+         Uf7NXsYtE8XntyaBAOJmd1ALMHLilpI+Nij98HPsFyhXBJ3qsufm0yzPXvIuGxCBFGGy
+         0GiCuWiTAdr2yUC13TIU5ULnftX+p1KNPlpLNc1AlrBjUaLX9fjrh8xbKKFsMNYZOw8c
+         xLcUiaJFGyeI9oUu/AHfrTmZG/NlA0bJbgMEk0ldjCCb+8ia8yYnEiJuXIc6PWjmcE2s
+         HG3h12Z3FprWII0EviWeNslsoNTDJahaB5FYQuXoWEsV7j0Z76zeSC5qbZjT1KW15H/7
+         9OQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746884901; x=1747489701;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XjT9QsFvecWPH6K1hTzMR7uGrHCdBy3p8DiOT7+COxQ=;
+        b=M+IL49HwOXFXK7pxZIUJLdouC6mxPDCJbvp2611/EsD2GeMENP3iIYfOzbCALc5OdI
+         KzrOMQL18bHPaSBZQRnSzrldugztN5Su/4/0OOEnZGAeRatJcdNALMEzRDtUq8qD5JPS
+         hXzaM+PW+kuV/vU1uvpBEwp1faBaDaVY2GS+7QYzN8rl0f51IxtdtjyIdfM0xpXEsRZ5
+         JFtI5Lsj8fSvryCcgPOXOFqRMvLRg7WaBn8x0EdNVgikNc9lu9HCzcoY3JwKNN0Asv5g
+         alt50LrIfjitWg9PaQnwNtzUVzaEKrsrj7g+/RC1UrMNcov4QarjchAicFXGIVwdW16S
+         ITiQ==
+X-Gm-Message-State: AOJu0Yzzaaq3atseDDY6KmNzfA8SmcNIingts2QEXTW6PFdBjfRiYxoc
+	dZYmKhFNpK8UmreHlsL9+AhfEHK1b2cTUueTo4YS0/ICtu4FuTnm
+X-Gm-Gg: ASbGnct6x4kcQXu4Ckr7vpklO/kg6BjPDGepWE4+qYmpyFiyYLmUD5/QkLBhP6TUpVw
+	BM3oJ/yrJCruYYP8brKnohr4NxvwXi//9YyxfD3DM+B+7D49A6vIDM8rg1NlRwuvMY57KUoKQVI
+	Lj/ppTyPde4qOijum9tCRw+VxWmW4r1vu4fr5fA85cjRq40/u2hY2R1Q4DHk5rXClUerpEiozO7
+	Ka3TGT9h3k6lAGdXt9aUiVB2h5/NwSI5SPSZRGGdVVf6C6VAVFAVTVI7t9xRAvxrv1wCM83A/xv
+	OthJX3/VQNPbtH1ykas3IC8HDtnTnF7hyJIu/WAi2rTM8iQFRdF8yCd6Qs5T+riHDcYv/JKmT3i
+	yXNCGQwr0OPzTfQ==
+X-Google-Smtp-Source: AGHT+IEc5T1ipEW5XJX6iIwkxNHd2PzUnYMkA+7BJtGOAqm+kaFIn6p3BLGSLH7znczlRZNQEbyR3A==
+X-Received: by 2002:a05:6a00:2d0b:b0:737:6d4b:f5f8 with SMTP id d2e1a72fcca58-7423c01f8a3mr9192135b3a.17.1746884901458;
+        Sat, 10 May 2025 06:48:21 -0700 (PDT)
+Received: from KERNELXING-MC1.tencent.com ([114.253.36.190])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7423773939fsm3360424b3a.62.2025.05.10.06.48.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 10 May 2025 06:48:21 -0700 (PDT)
+From: Jason Xing <kerneljasonxing@gmail.com>
+To: tariqt@nvidia.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	willemdebruijn.kernel@gmail.com,
+	irusskikh@marvell.com,
+	bharat@chelsio.com,
+	ayush.sawal@chelsio.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	Jason Xing <kernelxing@tencent.com>
+Subject: [PATCH net-next v2 0/3] misc drivers' sw timestamp changes
+Date: Sat, 10 May 2025 21:48:09 +0800
+Message-Id: <20250510134812.48199-1-kerneljasonxing@gmail.com>
+X-Mailer: git-send-email 2.33.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3H_XGTR9o0uPHAQ--.54381S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3GF1UCr47Cw1fWry7tF1rCrg_yoWxtr1fpF
-	WfC3Waqr97JFn3Cr4fKw1kJr15J3s3Jay7XrnIka18Aa4DZrs5ZFW2kryFyryUGrWkX348
-	Ar1UWr4DuFyDAF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piHa0PUUUUU=
-X-Originating-IP: [101.132.132.191]
-X-CM-SenderInfo: 50dyxvpubt5qqrwthudrp/1tbiTQxIEGgd9J4DGQACse
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250510_060106_034276_01D86B4D 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20250510_064822_832356_971BEA1A 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,264 +107,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This commit optimizes the contpte_ptep_get and contpte_ptep_get_lockless
-function by adding early termination logic. It checks if the dirty and
-young bits of orig_pte are already set and skips redundant bit-setting
-operations during the loop. This reduces unnecessary iterations and
-improves performance.
+From: Jason Xing <kernelxing@tencent.com>
 
-In order to verify the optimization performance, a test function has been
-designed. The function's execution time and instruction statistics have
-been traced using perf, and the following are the operation results on a
-certain Qualcomm mobile phone chip:
+This series modified three outstanding drivers among more than 100 drivers
+because the software timestamp generation is too early. The idea of this
+series is derived from the brief talk[1] with Willem. In conclusion, this
+series makes the generation of software timestamp near/before kicking the
+doorbell for drivers.
 
-Test Code:
+[1]: https://lore.kernel.org/all/681b9d2210879_1f6aad294bc@willemb.c.googlers.com.notmuch/
 
-	#define PAGE_SIZE 4096
-	#define CONT_PTES 16
-	#define TEST_SIZE (4096* CONT_PTES * PAGE_SIZE)
-	#define YOUNG_BIT 8
-	void rwdata(char *buf)
-	{
-		for (size_t i = 0; i < TEST_SIZE; i += PAGE_SIZE) {
-			buf[i] = 'a';
-			volatile char c = buf[i];
-		}
-	}
-	void clear_young_dirty(char *buf)
-	{
-		if (madvise(buf, TEST_SIZE, MADV_FREE) == -1) {
-			perror("madvise free failed");
-			free(buf);
-			exit(EXIT_FAILURE);
-		}
-		if (madvise(buf, TEST_SIZE, MADV_COLD) == -1) {
-			perror("madvise free failed");
-			free(buf);
-			exit(EXIT_FAILURE);
-		}
-	}
-	void set_one_young(char *buf)
-	{
-		for (size_t i = 0; i < TEST_SIZE; i += CONT_PTES * PAGE_SIZE) {
-			volatile char c = buf[i + YOUNG_BIT * PAGE_SIZE];
-		}
-	}
+V2
+Link: https://lore.kernel.org/all/20250508033328.12507-1-kerneljasonxing@gmail.com/
+1. remove lan966x patch since it breaks PHY timestamping.
+2. move skb_tx_timestamp() earlier than before in cxgb4_eth_xmit() to
+avoid skb being orphaned/consumed.
+3. revise the commit log.
 
-	void test_contpte_perf() {
-		char *buf;
-		int ret = posix_memalign((void **)&buf, CONT_PTES * PAGE_SIZE,
-				TEST_SIZE);
-		if ((ret != 0) || ((unsigned long)buf % CONT_PTES * PAGE_SIZE)) {
-			perror("posix_memalign failed");
-			exit(EXIT_FAILURE);
-		}
 
-		rwdata(buf);
-	#if TEST_CASE2 || TEST_CASE3
-		clear_young_dirty(buf);
-	#endif
-	#if TEST_CASE2
-		set_one_young(buf);
-	#endif
+Jason Xing (3):
+  net: atlantic: generate software timestamp just before the doorbell
+  net: cxgb4: generate software timestamp just before the doorbell
+  net: stmmac: generate software timestamp just before the doorbell
 
-		for (int j = 0; j < 500; j++) {
-			mlock(buf, TEST_SIZE);
+ drivers/net/ethernet/aquantia/atlantic/aq_main.c           | 1 -
+ drivers/net/ethernet/aquantia/atlantic/aq_nic.c            | 2 ++
+ drivers/net/ethernet/chelsio/cxgb4/sge.c                   | 5 +++--
+ .../net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c | 2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c          | 7 ++-----
+ 5 files changed, 8 insertions(+), 9 deletions(-)
 
-			munlock(buf, TEST_SIZE);
-		}
-		free(buf);
-	}
-
-	Descriptions of three test scenarios
-
-Scenario 1
-	The data of all 16 PTEs are both dirty and young.
-	#define TEST_CASE2 0
-	#define TEST_CASE3 0
-
-Scenario 2
-	Among the 16 PTEs, only the 8th one is young, and there are no dirty ones.
-	#define TEST_CASE2 1
-	#define TEST_CASE3 0
-
-Scenario 3
-	Among the 16 PTEs, there are neither young nor dirty ones.
-	#define TEST_CASE2 0
-	#define TEST_CASE3 1
-
-Test results
-
-|Scenario 1         |       Original|       Optimized|
-|-------------------|---------------|----------------|
-|instructions       |    37912436160|     18731580031|
-|test time          |         4.2797|          2.2949|
-|overhead of        |               |                |
-|contpte_ptep_get() |         21.31%|           4.80%|
-
-|Scenario 2         |       Original|       Optimized|
-|-------------------|---------------|----------------|
-|instructions       |    36701270862|     36115790086|
-|test time          |         3.2335|          3.0874|
-|Overhead of        |               |                |
-|contpte_ptep_get() |         32.26%|          33.57%|
-
-|Scenario 3         |       Original|       Optimized|
-|-------------------|---------------|----------------|
-|instructions       |    36706279735|     36750881878|
-|test time          |         3.2008|          3.1249|
-|Overhead of        |               |                |
-|contpte_ptep_get() |         31.94%|          34.59%|
-
-For Scenario 1, optimized code can achieve an instruction benefit of 50.59%
-and a time benefit of 46.38%.
-For Scenario 2, optimized code can achieve an instruction count benefit of
-1.6% and a time benefit of 4.5%.
-For Scenario 3, since all the PTEs have neither the young nor the dirty
-flag, the branches taken by optimized code should be the same as those of
-the original code. In fact, the test results of optimized code seem to be
-closer to those of the original code.
-
-It can be proven through test function that the optimization for
-contpte_ptep_get is effective. Since the logic of contpte_ptep_get_lockless
-is similar to that of contpte_ptep_get, the same optimization scheme is
-also adopted for it.
-
-Reviewed-by: Barry Song <baohua@kernel.org>
-Signed-off-by: Xavier Xia <xavier_qy@163.com>
----
-Changes in v6:
-- Move prot = pte_pgprot(pte_mkold(pte_mkclean(pte))) into the contpte_is_consistent(),
-  as suggested by Barry.
-- Link to v5: https://lore.kernel.org/all/20250509122728.2379466-1-xavier_qy@163.com/
-
-Changes in v5:
-- Replace macro CHECK_CONTPTE_CONSISTENCY with inline function contpte_is_consistent
-  for improved readability and clarity, as suggested by Barry.
-- Link to v4: https://lore.kernel.org/all/20250508070353.2370826-1-xavier_qy@163.com/
-
-Changes in v4:
-- Convert macro CHECK_CONTPTE_FLAG to an internal loop for better readability.
-- Refactor contpte_ptep_get_lockless using the same optimization logic, as suggested by Ryan.
-- Link to v3: https://lore.kernel.org/all/3d338f91.8c71.1965cd8b1b8.Coremail.xavier_qy@163.com/
----
- arch/arm64/mm/contpte.c | 74 +++++++++++++++++++++++++++++++++++------
- 1 file changed, 64 insertions(+), 10 deletions(-)
-
-diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-index bcac4f55f9c1..71efe7dff0ad 100644
---- a/arch/arm64/mm/contpte.c
-+++ b/arch/arm64/mm/contpte.c
-@@ -169,17 +169,46 @@ pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
- 	for (i = 0; i < CONT_PTES; i++, ptep++) {
- 		pte = __ptep_get(ptep);
- 
--		if (pte_dirty(pte))
-+		if (pte_dirty(pte)) {
- 			orig_pte = pte_mkdirty(orig_pte);
--
--		if (pte_young(pte))
-+			for (; i < CONT_PTES; i++, ptep++) {
-+				pte = __ptep_get(ptep);
-+				if (pte_young(pte)) {
-+					orig_pte = pte_mkyoung(orig_pte);
-+					break;
-+				}
-+			}
-+			break;
-+		}
-+
-+		if (pte_young(pte)) {
- 			orig_pte = pte_mkyoung(orig_pte);
-+			i++;
-+			ptep++;
-+			for (; i < CONT_PTES; i++, ptep++) {
-+				pte = __ptep_get(ptep);
-+				if (pte_dirty(pte)) {
-+					orig_pte = pte_mkdirty(orig_pte);
-+					break;
-+				}
-+			}
-+			break;
-+		}
- 	}
- 
- 	return orig_pte;
- }
- EXPORT_SYMBOL_GPL(contpte_ptep_get);
- 
-+static inline bool contpte_is_consistent(pte_t pte, unsigned long pfn,
-+					pgprot_t orig_prot)
-+{
-+	pgprot_t prot = pte_pgprot(pte_mkold(pte_mkclean(pte)));
-+
-+	return pte_valid_cont(pte) && pte_pfn(pte) == pfn &&
-+			pgprot_val(prot) == pgprot_val(orig_prot);
-+}
-+
- pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
- {
- 	/*
-@@ -202,7 +231,6 @@ pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
- 	pgprot_t orig_prot;
- 	unsigned long pfn;
- 	pte_t orig_pte;
--	pgprot_t prot;
- 	pte_t *ptep;
- 	pte_t pte;
- 	int i;
-@@ -219,18 +247,44 @@ pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
- 
- 	for (i = 0; i < CONT_PTES; i++, ptep++, pfn++) {
- 		pte = __ptep_get(ptep);
--		prot = pte_pgprot(pte_mkold(pte_mkclean(pte)));
- 
--		if (!pte_valid_cont(pte) ||
--		   pte_pfn(pte) != pfn ||
--		   pgprot_val(prot) != pgprot_val(orig_prot))
-+		if (!contpte_is_consistent(pte, pfn, orig_prot))
- 			goto retry;
- 
--		if (pte_dirty(pte))
-+		if (pte_dirty(pte)) {
- 			orig_pte = pte_mkdirty(orig_pte);
-+			for (; i < CONT_PTES; i++, ptep++, pfn++) {
-+				pte = __ptep_get(ptep);
-+
-+				if (!contpte_is_consistent(pte, pfn, orig_prot))
-+					goto retry;
-+
-+				if (pte_young(pte)) {
-+					orig_pte = pte_mkyoung(orig_pte);
-+					break;
-+				}
-+			}
-+			break;
-+		}
- 
--		if (pte_young(pte))
-+		if (pte_young(pte)) {
- 			orig_pte = pte_mkyoung(orig_pte);
-+			i++;
-+			ptep++;
-+			pfn++;
-+			for (; i < CONT_PTES; i++, ptep++, pfn++) {
-+				pte = __ptep_get(ptep);
-+
-+				if (!contpte_is_consistent(pte, pfn, orig_prot))
-+					goto retry;
-+
-+				if (pte_dirty(pte)) {
-+					orig_pte = pte_mkdirty(orig_pte);
-+					break;
-+				}
-+			}
-+			break;
-+		}
- 	}
- 
- 	return orig_pte;
 -- 
-2.34.1
+2.43.5
 
 
