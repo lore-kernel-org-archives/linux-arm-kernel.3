@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7AE4C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 13:50:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50F72C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 13:52:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XjT9QsFvecWPH6K1hTzMR7uGrHCdBy3p8DiOT7+COxQ=; b=SvVQcffAnSI6wBqOZSsm4O1x8N
-	wfL5bKAbFeq9iALp6GGUWeB8XIPBw3UpW5ymCggwyKPRAe8HjT6NYTlln6S4KCqqIARb760BsWsi5
-	CsduxQLRaSqqiN9LleYLo5hVXYwjeBtcRHkO/3HagHisG/gvfSsDL3y9x2edvAzSKubOJSxB9SqUi
-	vVImplmHm69aoCSsDdWFZDYGk9vm1dksIjdQAki9aSnAn4OxBREn6MCXfkMbuDET9zjKoS8jT4+V/
-	I71tEYvWU4g+N0S7ka7qjSea4JZAvnN6BjXxTUZd9p6m2KBPpW1/cdUkddML6SUq5b+Eh7QkLeBEe
-	r3FcBeJw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=548WZn/S4K7x40OmmUSfPZLeG/CfUSGzx/rlh6jbEuY=; b=Y3JoCwenNIfT4wwIdU6ySFUOo5
+	OAk0TB88p4vkmvaHU2LE0S96eLoUBIJpBqcn3XEuYNemV6YgRmWNXwTAZR+qskh41yAeLAGrepnKs
+	byd63cbTUzv0RHkavbowQWyTZVJ6aWKJF05KEUyJnA2X7qF+qgRKgC5jeIjUUYQqhuM/pJDpyC6cm
+	GfCeDd2ay9heRsPQqaREK+euYtnJR7s4LLlWzcODkktOdf7z1iBNi5XJkDvhjGOZMEpfzOEMdg+1k
+	A+nyc48MNudJ9V+WeEhXF6R4qAKEFsu+ansnmjJhR9m6U991Tqw9+s2SYRDDxFm7XgNqgyX3xRcJp
+	1Y+DCXEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDkb2-0000000600D-10l2;
-	Sat, 10 May 2025 13:50:32 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1uDkd4-0000000607R-3ol3;
+	Sat, 10 May 2025 13:52:38 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDkYw-00000005zku-3FiY
+	id 1uDkZ1-00000005zlH-10na
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 May 2025 13:48:24 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-73bf5aa95e7so3154266b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 May 2025 06:48:22 -0700 (PDT)
+	Sat, 10 May 2025 13:48:28 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-73972a54919so3068182b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 May 2025 06:48:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746884901; x=1747489701; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=XjT9QsFvecWPH6K1hTzMR7uGrHCdBy3p8DiOT7+COxQ=;
-        b=NC0Zj3KDHwJ5CgF3ZdrNGv3Tz98Mu2Iuq5w/2DVG7n5UXSwE3u/T+O/G9yEP1lydZB
-         Uf7NXsYtE8XntyaBAOJmd1ALMHLilpI+Nij98HPsFyhXBJ3qsufm0yzPXvIuGxCBFGGy
-         0GiCuWiTAdr2yUC13TIU5ULnftX+p1KNPlpLNc1AlrBjUaLX9fjrh8xbKKFsMNYZOw8c
-         xLcUiaJFGyeI9oUu/AHfrTmZG/NlA0bJbgMEk0ldjCCb+8ia8yYnEiJuXIc6PWjmcE2s
-         HG3h12Z3FprWII0EviWeNslsoNTDJahaB5FYQuXoWEsV7j0Z76zeSC5qbZjT1KW15H/7
-         9OQg==
+        d=gmail.com; s=20230601; t=1746884906; x=1747489706; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=548WZn/S4K7x40OmmUSfPZLeG/CfUSGzx/rlh6jbEuY=;
+        b=FrLtpyYlMy5wuEKdNeJartNEjwatuOia44ZUnZt1z6QC96B3eJea2UBlOLIubT+cCc
+         NjceWMAJFIT7nzA92ppzZQbh/uMfUEw7cC2DDc5f1J0EwdRCJQJAQnhhOVqvS1fMi0CU
+         p4Le8NUhae0xVwT8hz58OhlCSc8zecdGdC9rg2PThMAAKmLGr/jKJyKKjCBUPmVAeav9
+         MM68tGv2FLwcHB0veuWYZ107r2P5P65CEjcY14yDKNvqnZhh4gP01iHTuwVGUUwLmJMr
+         dubdNbNBhHDwM/JugrCJ8PdkuzA7et8FsvQSop+NGGDtknlSgZ8MpMHyacZJVvkl/bot
+         6IxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746884901; x=1747489701;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=XjT9QsFvecWPH6K1hTzMR7uGrHCdBy3p8DiOT7+COxQ=;
-        b=M+IL49HwOXFXK7pxZIUJLdouC6mxPDCJbvp2611/EsD2GeMENP3iIYfOzbCALc5OdI
-         KzrOMQL18bHPaSBZQRnSzrldugztN5Su/4/0OOEnZGAeRatJcdNALMEzRDtUq8qD5JPS
-         hXzaM+PW+kuV/vU1uvpBEwp1faBaDaVY2GS+7QYzN8rl0f51IxtdtjyIdfM0xpXEsRZ5
-         JFtI5Lsj8fSvryCcgPOXOFqRMvLRg7WaBn8x0EdNVgikNc9lu9HCzcoY3JwKNN0Asv5g
-         alt50LrIfjitWg9PaQnwNtzUVzaEKrsrj7g+/RC1UrMNcov4QarjchAicFXGIVwdW16S
-         ITiQ==
-X-Gm-Message-State: AOJu0Yzzaaq3atseDDY6KmNzfA8SmcNIingts2QEXTW6PFdBjfRiYxoc
-	dZYmKhFNpK8UmreHlsL9+AhfEHK1b2cTUueTo4YS0/ICtu4FuTnm
-X-Gm-Gg: ASbGnct6x4kcQXu4Ckr7vpklO/kg6BjPDGepWE4+qYmpyFiyYLmUD5/QkLBhP6TUpVw
-	BM3oJ/yrJCruYYP8brKnohr4NxvwXi//9YyxfD3DM+B+7D49A6vIDM8rg1NlRwuvMY57KUoKQVI
-	Lj/ppTyPde4qOijum9tCRw+VxWmW4r1vu4fr5fA85cjRq40/u2hY2R1Q4DHk5rXClUerpEiozO7
-	Ka3TGT9h3k6lAGdXt9aUiVB2h5/NwSI5SPSZRGGdVVf6C6VAVFAVTVI7t9xRAvxrv1wCM83A/xv
-	OthJX3/VQNPbtH1ykas3IC8HDtnTnF7hyJIu/WAi2rTM8iQFRdF8yCd6Qs5T+riHDcYv/JKmT3i
-	yXNCGQwr0OPzTfQ==
-X-Google-Smtp-Source: AGHT+IEc5T1ipEW5XJX6iIwkxNHd2PzUnYMkA+7BJtGOAqm+kaFIn6p3BLGSLH7znczlRZNQEbyR3A==
-X-Received: by 2002:a05:6a00:2d0b:b0:737:6d4b:f5f8 with SMTP id d2e1a72fcca58-7423c01f8a3mr9192135b3a.17.1746884901458;
-        Sat, 10 May 2025 06:48:21 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1746884906; x=1747489706;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=548WZn/S4K7x40OmmUSfPZLeG/CfUSGzx/rlh6jbEuY=;
+        b=e5U7+055Kim3XQ8yIxfWFcWP1s5v7TFhCMcttwqA19cvrFbs85ncgTGE4T888czM5W
+         sic8BtZP5Ww5mEs02gtixlsp20V84J7pNkVeSGA4+3z1GBTzUtFle14qz11ay150tnYe
+         sNsrOsFPxvIHsEEJNiyIUYkVzmMYZja+Q69sPSRTvRVkYiv/TkNSmxaTmBMeId7AWPzc
+         vmZZy8+ct1q/INAz02hlAQvz0bqdfC0dQYg/xinq5j2VDHqzDv8cALJW5ja1JF+dwxrV
+         NOQRArsXUwRZik9Z7u5fThRXYq/y+MUX4xXwDARaQqifM7NsDqgrLWHBCbFwjiW2O7Ov
+         bB6g==
+X-Gm-Message-State: AOJu0YyYSwbTeRAh/cztmVluvSYXYZGxW6RbeleBe1S1OmmxX9jHBOlb
+	AO79q9mqJv4UcZ1tw2DDlz5F/WuQMGuFRtJw8GxDVXZDcOpf1Q6G
+X-Gm-Gg: ASbGncs9wPhHs8MdjjQKz42kmEtzaKcYReYxuc52gxHnJDFB3DGPa1bhErhEBC5vB1R
+	GsqPy7jT79D2Z67rGimb2OZ54myT/6kkU2DfMP/FD0jHr2f8Ej4iwqSa/Db57wAqZjB9TNkP1y+
+	2zfN7eCeMeIEClNim5A2fJjdwYOxWwPSJ4Nga2Wjz3FD+Bs0UkhbHZZH9FI17Ohuz+sGz8EhbtK
+	WY+EFgypX/BktxnBe+fLkZRQAzuoKqSqky06dpQzN6BB2oSeNVPpC26JhhCHcLfV2nQMzBzSFSW
+	TFH/hWh76MYhRAHDmovc+QmRw4RXzrnGKmcqZptk6BSIcJ6V6v9kYwxOoeUDt3MoQ12jIZGG8EW
+	c6NmIPnE7SAw2o3qr7s3Sjzii
+X-Google-Smtp-Source: AGHT+IGe3B5B3RalliaBNkeqdqvGOp0m/hHLJIw4a+hcw50RwCHZe4bcxR3LB2IrWTuiOVsCyntcoQ==
+X-Received: by 2002:a05:6a00:84e:b0:740:6f69:f52a with SMTP id d2e1a72fcca58-7423b3f138dmr9527488b3a.0.1746884906308;
+        Sat, 10 May 2025 06:48:26 -0700 (PDT)
 Received: from KERNELXING-MC1.tencent.com ([114.253.36.190])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7423773939fsm3360424b3a.62.2025.05.10.06.48.16
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7423773939fsm3360424b3a.62.2025.05.10.06.48.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 10 May 2025 06:48:21 -0700 (PDT)
+        Sat, 10 May 2025 06:48:26 -0700 (PDT)
 From: Jason Xing <kerneljasonxing@gmail.com>
 To: tariqt@nvidia.com,
 	andrew+netdev@lunn.ch,
@@ -83,16 +84,17 @@ To: tariqt@nvidia.com,
 Cc: linux-arm-kernel@lists.infradead.org,
 	netdev@vger.kernel.org,
 	Jason Xing <kernelxing@tencent.com>
-Subject: [PATCH net-next v2 0/3] misc drivers' sw timestamp changes
-Date: Sat, 10 May 2025 21:48:09 +0800
-Message-Id: <20250510134812.48199-1-kerneljasonxing@gmail.com>
+Subject: [PATCH net-next v2 1/3] net: atlantic: generate software timestamp just before the doorbell
+Date: Sat, 10 May 2025 21:48:10 +0800
+Message-Id: <20250510134812.48199-2-kerneljasonxing@gmail.com>
 X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20250510134812.48199-1-kerneljasonxing@gmail.com>
+References: <20250510134812.48199-1-kerneljasonxing@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250510_064822_832356_971BEA1A 
-X-CRM114-Status: UNSURE (   8.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250510_064827_279767_0F5E5812 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,34 +111,40 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jason Xing <kernelxing@tencent.com>
 
-This series modified three outstanding drivers among more than 100 drivers
-because the software timestamp generation is too early. The idea of this
-series is derived from the brief talk[1] with Willem. In conclusion, this
-series makes the generation of software timestamp near/before kicking the
-doorbell for drivers.
+Make sure the call of skb_tx_timestamp is as close as possible to the
+doorbell.
 
-[1]: https://lore.kernel.org/all/681b9d2210879_1f6aad294bc@willemb.c.googlers.com.notmuch/
+Signed-off-by: Jason Xing <kernelxing@tencent.com>
+---
+ drivers/net/ethernet/aquantia/atlantic/aq_main.c | 1 -
+ drivers/net/ethernet/aquantia/atlantic/aq_nic.c  | 2 ++
+ 2 files changed, 2 insertions(+), 1 deletion(-)
 
-V2
-Link: https://lore.kernel.org/all/20250508033328.12507-1-kerneljasonxing@gmail.com/
-1. remove lan966x patch since it breaks PHY timestamping.
-2. move skb_tx_timestamp() earlier than before in cxgb4_eth_xmit() to
-avoid skb being orphaned/consumed.
-3. revise the commit log.
-
-
-Jason Xing (3):
-  net: atlantic: generate software timestamp just before the doorbell
-  net: cxgb4: generate software timestamp just before the doorbell
-  net: stmmac: generate software timestamp just before the doorbell
-
- drivers/net/ethernet/aquantia/atlantic/aq_main.c           | 1 -
- drivers/net/ethernet/aquantia/atlantic/aq_nic.c            | 2 ++
- drivers/net/ethernet/chelsio/cxgb4/sge.c                   | 5 +++--
- .../net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c | 2 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c          | 7 ++-----
- 5 files changed, 8 insertions(+), 9 deletions(-)
-
+diff --git a/drivers/net/ethernet/aquantia/atlantic/aq_main.c b/drivers/net/ethernet/aquantia/atlantic/aq_main.c
+index c1d1673c5749..b565189e5913 100644
+--- a/drivers/net/ethernet/aquantia/atlantic/aq_main.c
++++ b/drivers/net/ethernet/aquantia/atlantic/aq_main.c
+@@ -123,7 +123,6 @@ static netdev_tx_t aq_ndev_start_xmit(struct sk_buff *skb, struct net_device *nd
+ 	}
+ #endif
+ 
+-	skb_tx_timestamp(skb);
+ 	return aq_nic_xmit(aq_nic, skb);
+ }
+ 
+diff --git a/drivers/net/ethernet/aquantia/atlantic/aq_nic.c b/drivers/net/ethernet/aquantia/atlantic/aq_nic.c
+index bf3aa46887a1..e71cd10e4e1f 100644
+--- a/drivers/net/ethernet/aquantia/atlantic/aq_nic.c
++++ b/drivers/net/ethernet/aquantia/atlantic/aq_nic.c
+@@ -898,6 +898,8 @@ int aq_nic_xmit(struct aq_nic_s *self, struct sk_buff *skb)
+ 
+ 	frags = aq_nic_map_skb(self, skb, ring);
+ 
++	skb_tx_timestamp(skb);
++
+ 	if (likely(frags)) {
+ 		err = self->aq_hw_ops->hw_ring_tx_xmit(self->aq_hw,
+ 						       ring, frags);
 -- 
 2.43.5
 
