@@ -4,70 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADBC6C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 09:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9044EC3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 09:58:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mvGfz4+zhaqRCocFMaf0hgjCnm1CJTvyI1js5uNHlJs=; b=W/W23egthu3ECjxbVTy0RsxW/V
-	ELY7o/Oa0+/YxU8rnahN8VeLPH8Xw9iWVzIlfzaIIo87NToundPpslf/JLE0lZ50ruNMPc48+yJtI
-	bpu4/M7LT4Op6Zmq0bMx3LGxDO36yGXBj6oYxS1XUKqPY1CqFFU1pjK+3gn4JK9ljExTrvCTlgmAV
-	N0xWzAVgsFYm6UofLcp2QR2sxwZVFWsEnhBHI+47GbvXz4EoaFat4lkMIYWI4ctCgcd8HBsPXly0+
-	dkXZCFP55H6eHSNJkR2uG85y0UjFzGhnxitp1Dril0Px3cukpNhzzDaB1an60A+fXfMHP3gIZythU
-	qomMOs5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QwujNkdf+hDtnH911G362gWJnpEN37kvK5GG5X3qarA=; b=XISxkLsU4TwaCIbEuOgcO8GQyM
+	AET3WCBFcmPC1MyqH55GcJpLm6iuM8U/4rUCH3BXCQ69a+3Bp9ALDKQAzGn9zTP+o4anix2iW4ker
+	icx2oFf5SAOC3MJDrtxGxflS3VnHMrViGYRckR5UEAth3iEnAYYchfpjQPhJyIrIv7PeDEr0Oxkji
+	2xQCNaL2Tt8YXf1vj012K3HeZUtV2dQCsKTojmjCzbFqACld2LusBtXVAwnzubXKQVoZ/0pPmzP1T
+	Qx1PFhayeivW20hEMN9OqOFKBdsLQMRAtZdsiJ9l6SSkCU6x8Kw40rk+a0g2H8XdfYU3h61RXSbfT
+	7tts7U6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDgmq-00000005lHs-432m;
-	Sat, 10 May 2025 09:46:28 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uDgyf-00000005mFP-31SH;
+	Sat, 10 May 2025 09:58:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDgj7-00000005kpC-2BhS;
-	Sat, 10 May 2025 09:42:38 +0000
+	id 1uDgwb-00000005m8s-2sDn
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 10 May 2025 09:56:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 810C9A4D7C6;
-	Sat, 10 May 2025 09:42:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67518C4CEE2;
-	Sat, 10 May 2025 09:42:35 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 420535C24DC;
+	Sat, 10 May 2025 09:54:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD605C4CEE2;
+	Sat, 10 May 2025 09:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746870156;
-	bh=mvGfz4+zhaqRCocFMaf0hgjCnm1CJTvyI1js5uNHlJs=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
-	b=ldIPC27Bt9cUfcjCameGNcaKJEAzqc7AUG4thRUqo3qyHbBIdcMs8n0bTUIlQ5Tym
-	 TJ7a9nhwlFa6+4GEQwIXU2cFx+VvQ3OOD4XQqH+HZ6e6O5slyTKfu+IY7orStEmsf7
-	 eC0/5x1y0Vg6Xmq3EiJb6IJts6XegY1Z06KyQ77eaEbMVXv3ghE27h09P69DXIY8Gf
-	 9QftRl1mTZGBFVanZ/8Q7gRLFPXgadbF10wjnLH+hZH7YFIa/GdZ/yr013KSFD4rSd
-	 NWLTE5kwJ+ijvBSyCwBPXOzsriTpRCh+eVuiXMtGgY+rum+32WSQ8qr99iOs9aGbQ2
-	 Y6mdWOA3Vy+qw==
-Message-ID: <0bc432f67dc0cdb5fa307565df72af34@kernel.org>
-Date: Sat, 10 May 2025 09:42:32 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v3 22/22] drm/todo: add entry to remove
- devm_drm_put_bridge()
-In-Reply-To: <20250509-drm-bridge-convert-to-alloc-api-v3-22-b8bc1f16d7aa@bootlin.com>
-References: <20250509-drm-bridge-convert-to-alloc-api-v3-22-b8bc1f16d7aa@bootlin.com>
-Cc: asahi@lists.linux.dev, chrome-platform@lists.linux.dev, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, imx@lists.linux.dev, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, platform-driver-x86@vger.kernel.org, "Andrzej
- Hajda" <andrzej.hajda@intel.com>, "Anusha Srivatsa" <asrivats@redhat.com>, "Chun-Kuang
- Hu" <chunkuang.hu@kernel.org>, "David Airlie" <airlied@gmail.com>, "Dmitry
- Baryshkov" <lumag@kernel.org>, "Douglas Anderson" <dianders@chromium.org>, "Fabio
- Estevam" <festevam@gmail.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Jagan
- Teki" <jagan@amarulasolutions.com>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Jonas
- Karlman" <jonas@kwiboo.se>, "Jonathan Corbet" <corbet@lwn.net>, "Krzysztof
- Kozlowski" <krzk@kernel.org>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, "Paul Kocialkowski" <paulk@sys-base.io>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, "Robert Foss" <rfoss@kernel.org>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, "Shawn Guo" <shawnguo@kernel.org>, "Simona
- Vetter" <simona@ffwll.ch>, "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas
- Zimmermann" <tzimmermann@suse.de>
-Content-Transfer-Encoding: quoted-printable
+	s=k20201202; t=1746870991;
+	bh=OXVam+0Q2orOkHKRReKLiYIXpAXiFSA2E5n7tXsaBGA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=FkbKUX7WqHUffy9/Z6JrTDRg1Ns4T7ZOhcGcfp2Rl3Jx5c8IT93xwWPtPgnPFdtYr
+	 6jeWmb0WquwoJHppA3VKgLQwzczdhXkWp3VKPfJif0sbXLiM+woBOQpbxeO/u4UFxU
+	 ryoC+BLHynWrkb7lMixzhm9bMK6JJ4cORCyiIA4Z9dibbYbYfDLsA0qhK6nEKa25VH
+	 umdviRAkKRHLEeAAGXa5IgYpg5OJciAKg169fwFYfiqYyY8pHcJCuB2ed6XVP3WWgx
+	 KPYdbPCS6FZ3jD+XNBLMHkpD90e09mZn58e0dMsOtsTDqUq3UxZWoA6TtYOtb4oR9t
+	 k5NrgwpFElWJg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uDgwX-00DeFq-Jh;
+	Sat, 10 May 2025 10:56:29 +0100
+Date: Sat, 10 May 2025 10:56:29 +0100
+Message-ID: <87ikm86b76.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Joey Gouly <joey.gouly@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>
+Subject: Re: [PATCH v4 31/43] KVM: arm64: Switch to table-driven FGU configuration
+In-Reply-To: <20250508155828.GB3256485@e124191.cambridge.arm.com>
+References: <20250506164348.346001-1-maz@kernel.org>
+	<20250506164348.346001-32-maz@kernel.org>
+	<20250508155828.GB3256485@e124191.cambridge.arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: joey.gouly@arm.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, mark.rutland@arm.com, tabba@google.com, will@kernel.org, catalin.marinas@arm.com, ben.horgan@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250510_024237_651036_FD4D4BD9 
-X-CRM114-Status: UNSURE (   5.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250510_025633_813082_67561491 
+X-CRM114-Status: GOOD (  29.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,17 +94,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 9 May 2025 15:53:48 +0200, Luca Ceresoli wrote:
-> devm_drm_put_bridge() is a temporary workaround waiting for the panel
-> bridge lifetime rework. Add a TODO entry to not forget it must be removed
-> after such rework.
->=20
-> Suggested-by: Maxime Ripard <mripard@kernel.org>
->=20
-> [ ... ]
+On Thu, 08 May 2025 16:58:28 +0100,
+Joey Gouly <joey.gouly@arm.com> wrote:
+> 
+> On Tue, May 06, 2025 at 05:43:36PM +0100, Marc Zyngier wrote:
+> > Defining the FGU behaviour is extremely tedious. It relies on matching
+> > each set of bits from FGT registers with am architectural feature, and
+> > adding them to the FGU list if the corresponding feature isn't advertised
+> > to the guest.
+> > 
+> > It is however relatively easy to dump most of that information from
+> > the architecture JSON description, and use that to control the FGU bits.
+> > 
+> > Let's introduce a new set of tables descripbing the mapping between
+> > FGT bits and features. Most of the time, this is only a lookup in
+> > an idreg field, with a few more complex exceptions.
+> > 
+> > While this is obviously many more lines in a new file, this is
+> > mostly generated, and is pretty easy to maintain.
+> 
+> I didn't review every single value in the maps (autogenerated as you said), but
+> I did take a look at a few.
+> 
+> __compute_fixed_bits() is pretty confusing, it's doing multiple things:
+>   - It returns a mask of bits that didn't match (aka RES0)
+>   - or it returns a mask of bits that may have a fixed value and fills out a
+>     pointer with what the fixed values are.
+> 
+> It has the __ prefix, so it's an implemetation-detail kinda function, not
+> asking you to change anything, just pointing out the most confusing part of the
+> patch!
 
-Acked-by: Maxime Ripard <mripard@kernel.org>
+I know. My OCDing self couldn't deal with having two helpers differing
+only by the position of a single bit, hence the catch-all helper. But
+I'm happy to revisit this in the future to make it more palatable.
 
-Thanks!
-Maxime
+It's just that I'm getting a bit fed-up with this series... :-/
+
+> 
+> Just one small whitespace nit below.
+> 
+> Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+
+Thank you!
+
+> > +	NEEDS_FEAT(HFGRTR_EL2_ERXPFGCDN_EL1|
+> > +		   HFGRTR_EL2_ERXPFGCTL_EL1|
+> 
+> Inconsistent |.
+
+Ah, nice. Fixed.
+
+> > +	NEEDS_FEAT_FLAG(HDFGRTR_EL2_OSDLR_EL1, NEVER_FGU,
+> > +			FEAT_DoubleLock),
+> 
+> This confused me at first, but it's because OSDLR_EL1 is always accessible
+> (with FEAT_AA64EL1), but can only be trapped with FEAT_DoubleLock.
+
+Exactly. This is the conjunction of two architectural constraints
+(selective output from my script):
+
+- OSDLR_EL1: # Reg cond: IsFeatureImplemented(FEAT_AA64)
+- HDFGRTR_EL2.OSDLR_EL1: # Field cond: IsFeatureImplemented(FEAT_DoubleLock)
+
+The first implies that this can never UNDEF, while the second
+indicates that the trap bit only exists under specific conditions.
+It's one of these cases where the architecture is playing catch-up
+with itself (v8.0 vs v8.6).
+
+Thanks again,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
