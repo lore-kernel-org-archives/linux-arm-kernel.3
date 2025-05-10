@@ -4,91 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8677EC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 01:28:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41001C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 01:30:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KcbRw7WL1aA35JdPyMCk8b9GQjgHfODnY0TIqzziuqQ=; b=N7i57LbKP1p+K2sgwwRmh4/HCg
-	X86hyupazkGMFcnFoA8CuZdAmv4clU8BnBRn4kP3saPl+K34ZwxQgCrCqHSD77GpTkdJSU5dVb72t
-	JPvgzj0yadNzM7b7/0CqIpp0f6/k5acSEHeXNjns+I5w+tTYBdT4kIGz5IbTPYPVBUoVVP/3c2Tzl
-	N1R9t+/gxBQj53g320Lzo0iHA2aCP8vhPLumS4FsL06GRpQklgSYHRJPPmdxJW4JSMJYoJXPY8YaE
-	myHXx7VEXi1RuabIFcUwEr3kvSgDvSEOB14KraMvWc2m3wKub46zhuPG4cW/fWrwa/VAQF0Tz5pWa
-	OYVimnQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zg5HXGTrlhhiTOPA2jjHZNaufpDMA8T3jdH8ZIjofCM=; b=bDfX4ie6/kHHIEDIigsU8EySnj
+	Tr562a+Tp7zujz2bBm7VCjG5D6ZTlHTu55rtRpJNKZif6fQnE9rDf+klWtQgGV7obNTqf1hniuU+5
+	Fpe6zb4unISSsVjxDFX044gK3wPwc8POXz6WrTFMlrEECOR9y4sU1thJsytopEdYCVqXG/szw/gDt
+	0/IGNsRJ+Y/fxOb8S9G75y8scICS18aqNzEGqmskFgywX1q9c+5EkRq0sYQUMy22SdxrmRs37TjDB
+	4gsnlL19LMyp780GRD7uDREIyL+lK615mQDJ8St29eKN3KHpMGmwZfbXbLStCLH2sTrtRw7XAcq+y
+	ykjEP7LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDZ1E-00000005G7l-2ulf;
-	Sat, 10 May 2025 01:28:48 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1uDZ3C-00000005GFg-1YKW;
+	Sat, 10 May 2025 01:30:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDYre-00000005FGP-3bTa
+	id 1uDYsV-00000005FSL-2odJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 May 2025 01:18:58 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43d2d952eb1so19151955e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 18:18:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746839933; x=1747444733; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KcbRw7WL1aA35JdPyMCk8b9GQjgHfODnY0TIqzziuqQ=;
-        b=MmU+CWv9qnjy/j90IGdiknrrijKR0dqQwoQPziBh0piz/bC/CJeIUvs3bERzw/xY0j
-         bxLB/QaiFeSPiz9JYq6WTczFZ6spPMnntWA8PLrPclPpTQ6pWZbp6JazjHy5CGguGyAU
-         V1TDZqnz+ydZ2wi9XgNU8oloI9dmHPQmLbJnyVbhpcwvY6L9fO0fdED1iXGNbpHFJvkY
-         2exaIy9qavkR3wg2F2oaET0Wb+6nzHCF/ZVHT1nno6ZpyEul+1EZc14YnAgbAMwbcH+q
-         dASok/ifea0I2apLPCCYwrFwVwMyc3LYBUzjMZZbyj/cXIhaiYaEMo2gsTkCNWponlSs
-         DR5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746839933; x=1747444733;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KcbRw7WL1aA35JdPyMCk8b9GQjgHfODnY0TIqzziuqQ=;
-        b=xJnHLyKedHTi1N5FYOxnSggMLv80/CTmQZdD5ptWgO5bv3jo6llE8vASur48Lpzy7l
-         piaJvJLNvjziDa3mmNjX/kyPGuCV29cCwQupFHkSREpzlPCUNlUDcEdg3DryDtg/2Nsi
-         KDvPwAX4UDaf/ps5M6MEaFMtvVS8bavmvuIMMxKM/Q9MsULmKj+wDxZ1iurMdLnyT0ez
-         z4PB7WXO+Jir1XJHEE5BpU9sjNa+ihKFw2RUD0InejZ2/qnXrXyQcUy4FPp2yA0EyRKC
-         9CUAJvDSQFAkWe2UrJCbh5Mmp2Xm/EdUnXft71HDLGBJ4bkeIfYJsbjT7n7t7FdodmpS
-         OT8w==
-X-Forwarded-Encrypted: i=1; AJvYcCVfN05ClIqfxnrOyLFDkuquoZ8bQYgNJIoueZJ1BJRhX+usoZomU7MRltaD/89I0Q7HUCdopAiXTdh+eqkrTXte@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzu6sc1VoiWSH9SM2LmL2H4L8JVRZn2ltZe+wOmjlunPDo5qU7r
-	H/Hm4ddEDbrfQC5tHmc1Gip+2xXpI8dfCaDmijiHBHyeR0mX4gyU
-X-Gm-Gg: ASbGnctpH3y8lBrSu7lKpLuPFKQ0+OA3GmX7xe6ISepUWhh+A/1ig2sRo27vA1RiREV
-	PyZGBRfyG1WPHOpfkX18GuQveDudXSXXFXxWBlzxTdswMksNUr+zv+N8LJKdSTe8G1KomZLFi9v
-	+piNOzPZU5S4yee32H7OPMmz5dBdKYkDWhPQwhBv3JT6W4+SdhJlZXmzVa7mEgAiy+lPCOXDke+
-	OabQeArA0tnTjE0JwQ0YZVuQotG/ZiR/ivbTexSSkrjhqaIHuZof52sgkbxQB3l7iDtOp5DEpTG
-	zYJhFwp40To7eH3Uv9X0ar+8TLokhWcz0UDGPqf2Z0C8FSvfgDzGIbfhHKFp8NFLcQ1s2OM=
-X-Google-Smtp-Source: AGHT+IHslDelJiKBr0u5zFkfUSe0cpcfUyw7dLCX3sH7zQ7C2K0jEXgxo60/V/aqM7KalwC2bIriTg==
-X-Received: by 2002:a05:600c:8207:b0:43c:ee62:33f5 with SMTP id 5b1f17b1804b1-442d6ddcf2dmr42021515e9.27.1746839933274;
-        Fri, 09 May 2025 18:18:53 -0700 (PDT)
-Received: from localhost.localdomain ([176.206.99.211])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442cd32f0easm86967305e9.12.2025.05.09.18.18.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 May 2025 18:18:53 -0700 (PDT)
-From: Denis Benato <benato.denis96@gmail.com>
-To: Russell King <linux@armlinux.org.uk>
-Cc: Shawn Guo <shawnguo@kernel.org>,
+	Sat, 10 May 2025 01:19:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C21195C7109;
+	Sat, 10 May 2025 01:17:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 679F1C4CEE4;
+	Sat, 10 May 2025 01:19:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746839986;
+	bh=zg5HXGTrlhhiTOPA2jjHZNaufpDMA8T3jdH8ZIjofCM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NumnG3YkxGfCRVCRqFGOxTVTNokveYQU3KGb+ew7fW3U9W8knAl9YOvv9vQAQKUcE
+	 wc0l7IkUC2x5IJzv1rXo5TzKv4GA+tUyXIT2UkFBX8NZJgUSOFFdV8liH4mdDdT1iR
+	 g2nLt+KTnipcSshGEND00NS4Z/cbqznavW3ubfAL0l9csA4lYTQbrPF+okif5Sr+n8
+	 UUGHxSNwN3XM+EA26Odbm0Np9FDL6Fo6BwXtnSdhpv+tp+679oL8CYC2z1VLtC0FY4
+	 hNP1k1Ij1blLOrpyGohdWcJQlscEJ8FLHKZ1k3UYsgxpSbNNf0tOr2aBamujglQqT3
+	 B88t6ewQtaPlg==
+Date: Sat, 10 May 2025 10:19:44 +0900
+From: Mark Brown <broonie@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Vladimir Oltean <olteanv@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Denis Benato <benato.denis96@gmail.com>
-Subject: [PATCH 3/3] ARM: imxrt_defconfig: define CONFIG_ARCH_NXP
-Date: Sat, 10 May 2025 03:18:06 +0200
-Message-ID: <20250510011806.13470-4-benato.denis96@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250510011806.13470-1-benato.denis96@gmail.com>
-References: <20250510011806.13470-1-benato.denis96@gmail.com>
+	Fabio Estevam <festevam@gmail.com>, larisa.grigore@nxp.com,
+	arnd@linaro.org, andrei.stefanescu@nxp.com,
+	dan.carpenter@linaro.org, linux-spi@vger.kernel.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
+Subject: Re: [PATCH 11/14] spi: spi-fsl-dspi: Halt the module after a new
+ message transfer
+Message-ID: <aB6psNq3F-bsAA3e@finisterre.sirena.org.uk>
+References: <20250509-james-nxp-spi-v1-0-32bfcd2fea11@linaro.org>
+ <20250509-james-nxp-spi-v1-11-32bfcd2fea11@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="W8tovzokLkW8kDL3"
+Content-Disposition: inline
+In-Reply-To: <20250509-james-nxp-spi-v1-11-32bfcd2fea11@linaro.org>
+X-Cookie: Well begun is half done.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_181854_892379_068DCC3E 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20250509_181947_747896_3C4646E4 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,27 +88,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Define CONFIG_ARCH_NXP so that CONFIG_ARCH_MXC won't be disabled
-as it depends on CONFIG_ARCH_NXP.
 
-Signed-off-by: Denis Benato <benato.denis96@gmail.com>
----
- arch/arm/configs/imxrt_defconfig | 1 +
- 1 file changed, 1 insertion(+)
+--W8tovzokLkW8kDL3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/arm/configs/imxrt_defconfig b/arch/arm/configs/imxrt_defconfig
-index 52dba3762996..7cc1555c0231 100644
---- a/arch/arm/configs/imxrt_defconfig
-+++ b/arch/arm/configs/imxrt_defconfig
-@@ -2,6 +2,7 @@
- CONFIG_BPF_SYSCALL=y
- CONFIG_SCHED_AUTOGROUP=y
- # CONFIG_MMU is not set
-+CONFIG_ARCH_NXP=y
- CONFIG_ARCH_MXC=y
- CONFIG_SOC_IMXRT=y
- CONFIG_SET_MEM_PARAM=y
--- 
-2.49.0
+On Fri, May 09, 2025 at 12:05:58PM +0100, James Clark wrote:
+> From: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
+>=20
+> The XSPI mode implementation in this driver still uses the EOQ flag to
+> signal the last word in a transmission and deassert the PCS signal.
+> However, at speeds lower than ~200kHZ, the PCS signal seems to remain
+> asserted even when SR[EOQF] =3D 1 indicates the end of a transmission.
+> This is a problem for target devices which require the deassertation of
+> the PCS signal between transfers.
 
+This also looks like it might be a fix?
+
+--W8tovzokLkW8kDL3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmgeqa8ACgkQJNaLcl1U
+h9AOTQf/dvvH6zQ9y3ahPtoaRH796SUktbVlwo17kK32GIACKMksAuQXPZd+9n7b
+4FxeO+I3OfdJYftlsCGwhls/p18ok4/vHQ/wFzvMlt3zMXx0IM6e4UyB9rEqnuVy
+YqERHCwORZvPcv3bFj7vRmkmzxGRuygjl9Wo02e7LEEztSJNelk1PVruHYUiRkih
+5Tj739mOIqhPsf7zIhSnliDUDGcfEiFTJo9Hai3Jx6z3Wj6oTy4hYyq2g/G5g1pi
+g5EgAwO0st8dJKenYZf109W094rXshtEywMUZd1DkB2+Nf7JaPCqZUbm1IAsAX9L
+vLwgHrh6qCnJk1VYCOiW/qs30XD5+w==
+=zCVN
+-----END PGP SIGNATURE-----
+
+--W8tovzokLkW8kDL3--
 
