@@ -4,106 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC233C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 07:28:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E1F4C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 07:46:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WcYqoQI9erN/w1hZyVlXxbtVQPPAA2u3o/mXslFUsLA=; b=3vB0TJYQwjAuzhMey+BC+W6skU
-	mDRQ4/AntUekYm10rkYhohNKauMRlTUlpmvFfB1v25YEh26VZletmIMvtMwD11zmpMUORYH91U9la
-	Eg5PY6xRNdveedQkonXY5l434AFN5vTVc+jtY3WKjkZ0g3FEq3YcIAjII16gc+ud3z7G/eSTJUJSR
-	nBS6KxOfjqAlMBrCU6mLqFMei1l8IteDND+0k8/Ss4nN3qUT/crRxO95tf/ZpkEMyV1KdQ4wIploa
-	mQtSsTmZKw7sXhGM+S4szOYS9zUVhfHuPzkyWSq+WwOydcvz/Fj6o/6D85wX3LMf+mXgp62TdbVTa
-	GJcFhOKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=br9Y8ByGePUt8hPyQifOh5PlCzWR6zg2I9jLgLrnzj4=; b=MhO1yta6Qw1f1h4OXtiXiSByGs
+	j7IdbVI9QqkiHT0Ya1MQLaELeuxB1F+rpHybolEIPzm30VH7u7xaU4QmlnWRO8cW3tnFdReQhoi6E
+	YxnotxrO0tYbXqLGiS04s+NXLHi7idN/pw2QvsmfFjlCSM+KDHAQ7mQHAocaPK7rDdoHgsn5FlPzK
+	90kQG53jwpAm7wxs29axAEkHeNxC1J2hx1GCGjloPxyIsdTs1+VXwtZfNO2y+KsUibYE/mY4b94LX
+	nnTMM+j26c9D1VvrbW9bBzsOSRaekBL3BFE36qibRgA3aM5OgYDturGafLGb4Ag6gYjyW3vwXhKGz
+	bGmjE+XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDecq-00000005YCg-1y6w;
-	Sat, 10 May 2025 07:28:00 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uDev2-00000005Zix-1HBw;
+	Sat, 10 May 2025 07:46:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDean-00000005Y2i-0FRJ
+	id 1uDet3-00000005ZLs-0X45
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 May 2025 07:25:54 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54A7Gkxj024974;
-	Sat, 10 May 2025 07:25:36 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	WcYqoQI9erN/w1hZyVlXxbtVQPPAA2u3o/mXslFUsLA=; b=KERH6vmoe+b5nFb/
-	nPAuO3eoFuySiY6XRz55rRLHRJtGCt6mNRKXmDk/PiJs1bWTlSx0CNbWO9hnRVlr
-	d59zS0F7ekkTeDfSdCOzm5RqKlBwqmF+fMJ/fccxPk88AmSpO818M0ubywGofh8A
-	+X2SBEZN7XpWWCjpFMn4+nKR9yx0fx5X+nPuctc4tegE07pyKF8Hfx8n1tUQ0+hf
-	Txhvj5+JjPdjInKgQ4t1rF5IYNK6MV4XNxhrG2In5yvopctCSZZZ2+432EvOLZTm
-	6BmKNujM4KSQxpjE+WcAv88EO6QsiVmZvhY8woFOebd4XPoFVuUWcoObpVwmbLn0
-	YI/2fg==
-Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46j03b85m1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 10 May 2025 07:25:36 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 54A7PZxl004605
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 10 May 2025 07:25:35 GMT
-Received: from [10.204.73.14] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sat, 10 May
- 2025 00:25:30 -0700
-Message-ID: <6449b4ed-4ae6-453d-a717-8b0771ecb475@quicinc.com>
-Date: Sat, 10 May 2025 12:55:27 +0530
+	Sat, 10 May 2025 07:44:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0365F614BA;
+	Sat, 10 May 2025 07:44:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23CA1C4CEE2;
+	Sat, 10 May 2025 07:44:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746863083;
+	bh=bE/SOpoChEP71E9o00tKei1ZQQ2RQ/5dOoWOaqj9An8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZRm0JemUldpe+AgpDLQ5gUzWpGiNST07Xb7zIxeqwnu7jsSZr1yS4/lz4mfza2rln
+	 G7AyXvCic3ERDJlHJMfN3/S7aWRxrb7rmLDTtta01a79D3ACZLBzNl2+Zd4CVFHMqs
+	 quMc08ZsU6wqlDsG6c5lHSD5KEpOOdNF1h70gGSb4W8qvFDaK7kw0dKtNwzqtYeQgU
+	 zmm/Yxvof1Ps+yJAHT7+PbjkbgIV7njlN6hU0BumHXRHQ8/Aw16DO7Lf8ciKRklKi3
+	 JDoafNUlWi1+P/wswBxr6C1sL3xDClwUVa6Rsq0Wk/bcrQXS2SN5ixpLivo249eC2O
+	 Ja0cRETdRmAjw==
+Date: Sat, 10 May 2025 10:44:38 +0300
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Stefano Garzarella <sgarzare@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, Peter Huewe <peterhuewe@gmx.de>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	James Bottomley <James.Bottomley@hansenpartnership.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Naveen N Rao <naveen@kernel.org>,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	linux-integrity@vger.kernel.org,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Sumit Garg <sumit.garg@kernel.org>
+Subject: Re: [PATCH v4 1/4] tpm: add buf_size parameter in the .send callback
+Message-ID: <aB8D5syofPSqjzns@kernel.org>
+References: <20250509085713.76851-1-sgarzare@redhat.com>
+ <20250509085713.76851-2-sgarzare@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC/WIP v2 5/9] media: qcom: camss: Add sa8775p compatible
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, <rfoss@kernel.org>,
-        <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
-        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <andersson@kernel.org>,
-        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
-        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20250427070135.884623-1-quic_vikramsa@quicinc.com>
- <20250427070135.884623-6-quic_vikramsa@quicinc.com>
-Content-Language: en-US
-From: Suresh Vankadara <quic_svankada@quicinc.com>
-In-Reply-To: <20250427070135.884623-6-quic_vikramsa@quicinc.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: 55a1xE1HaKYhcbz2PAI7jSgNUoWpaMT7
-X-Authority-Analysis: v=2.4 cv=DOuP4zNb c=1 sm=1 tr=0 ts=681eff70 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=COk6AnOGAAAA:8
- a=XdGAH4ZiSAM6yD7sjqcA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: 55a1xE1HaKYhcbz2PAI7jSgNUoWpaMT7
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTEwMDA3MiBTYWx0ZWRfXzyrQ3ieUETXZ
- ze01T8G0Vw7w/6q8/RivkFy6f+J0qZauGqmUWNRiirBLxJh4+3oJZhBkyxNEo4bDuMTs9vlZ8sG
- jiYQDVy6mGdhJDBctZFONHwlSLJO9Mn5bP/hmPimIAs685PAJiQiKmONSF32E+oRqyqTyb7J9Gi
- Wmkk6s01ZMx5xDFfhC7xZAoLhTTkPJQPobRNQ5Noat0AgAcxwTRU/jpVs07Lkec0ulH7S+bn3tb
- Wc7Q8a6RcVWbsdUO0Im/Dq7nfY8TUuh3oibk53CVRWMuwENYkLJp2KjbCk8v/RJcOtSIxWOWpA0
- hyZ+CaQyEvFywuV7oNnnJMd4C4FcjvEYDj73QsRi/OwjiMUv4yAFWCCpG/ejq0UaAMuOvLDbDDB
- ApSF63xCRtYrkNmgjjK3igww1NApzeWH1Qp10sFVPhoRA1DJ0VWv+o0q8nBoY4pbOXDwvhDm
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-10_03,2025-05-09_01,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxscore=0 adultscore=0 spamscore=0 clxscore=1015 suspectscore=0
- lowpriorityscore=0 bulkscore=0 malwarescore=0 phishscore=0 impostorscore=0
- priorityscore=1501 mlxlogscore=999 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2504070000 definitions=main-2505100072
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250510_002553_098374_0724D83F 
-X-CRM114-Status: GOOD (  14.30  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250509085713.76851-2-sgarzare@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,50 +82,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/27/2025 12:31 PM, Vikram Sharma wrote:
-> Add CAMSS_8775P enum, SA8775P compatible and sa8775p camss driver
-> private data, the private data just include some basic information
-> now, later changes will enumerate with csiphy, tpg, csid and vfe
-> resources.
+On Fri, May 09, 2025 at 10:57:10AM +0200, Stefano Garzarella wrote:
+> From: Stefano Garzarella <sgarzare@redhat.com>
 > 
-> Co-developed-by: Suresh Vankadara <quic_svankada@quicinc.com>
-> Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
-> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+> Add a new `buf_size` parameter to the `.send` callback in `tpm_class_ops`.
+> This parameter will allow drivers to differentiate between the actual
+> command length to send and the total buffer size. Currently `buf_now` is
+> not used, but it will be used to implement devices with synchronous send()
+> to send the command and receive the response on the same buffer.
+> 
+> Also rename the previous parameter `len` to `cmd_len` in the declaration
+> to make it clear that it contains the length in bytes of the command
+> stored in the buffer. The semantics don't change and it can be used as
+> before by drivers. This is an optimization since the drivers could get it
+> from the header, but let's avoid duplicating code.
+> 
+> While we are here, resolve a checkpatch warning:
+>   WARNING: Unnecessary space before function pointer arguments
+>   #66: FILE: include/linux/tpm.h:90:
+>   +	int (*send) (struct tpm_chip *chip, u8 *buf, size_t cmd_len,
+> 
+> Suggested-by: Jarkko Sakkinen <jarkko@kernel.org>
+> Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
 > ---
->   drivers/media/platform/qcom/camss/camss.c | 23 +++++++++++++++++++++++
->   drivers/media/platform/qcom/camss/camss.h |  1 +
->   2 files changed, 24 insertions(+)
+> v4:
+> - rework the commit description [Jarkko]
+> ---
+>  include/linux/tpm.h                  | 3 ++-
+>  drivers/char/tpm/st33zp24/st33zp24.c | 2 +-
+>  drivers/char/tpm/tpm-interface.c     | 2 +-
+>  drivers/char/tpm/tpm_atmel.c         | 3 ++-
+>  drivers/char/tpm/tpm_crb.c           | 2 +-
+>  drivers/char/tpm/tpm_ftpm_tee.c      | 4 +++-
+>  drivers/char/tpm/tpm_i2c_atmel.c     | 3 ++-
+>  drivers/char/tpm/tpm_i2c_infineon.c  | 3 ++-
+>  drivers/char/tpm/tpm_i2c_nuvoton.c   | 3 ++-
+>  drivers/char/tpm/tpm_ibmvtpm.c       | 6 ++++--
+>  drivers/char/tpm/tpm_infineon.c      | 3 ++-
+>  drivers/char/tpm/tpm_nsc.c           | 3 ++-
+>  drivers/char/tpm/tpm_svsm.c          | 3 ++-
+>  drivers/char/tpm/tpm_tis_core.c      | 3 ++-
+>  drivers/char/tpm/tpm_tis_i2c_cr50.c  | 6 ++++--
+>  drivers/char/tpm/tpm_vtpm_proxy.c    | 4 +++-
+>  drivers/char/tpm/xen-tpmfront.c      | 3 ++-
+>  17 files changed, 37 insertions(+), 19 deletions(-)
 > 
-> diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
-> index 467f7ff4b042..9e0e1bf855bd 100644
-> --- a/drivers/media/platform/qcom/camss/camss.c
-> +++ b/drivers/media/platform/qcom/camss/camss.c
-> @@ -2483,6 +2483,19 @@ static const struct resources_icc icc_res_sm8550[] = {
->   	},
->   };
->   
-> +static const struct resources_icc icc_res_sa8775p[] = {
-> +	{
-> +		.name = "ahb",
-> +		.icc_bw_tbl.avg = 38400,
-> +		.icc_bw_tbl.peak = 76800,
-> +	},
-> +	{
-> +		.name = "hf_0",
-> +		.icc_bw_tbl.avg = 2097152,
-> +		.icc_bw_tbl.peak = 2097152,
-Recheck these values
+> diff --git a/include/linux/tpm.h b/include/linux/tpm.h
+> index 9ac9768cc8f7..7ac390ec89ce 100644
+> --- a/include/linux/tpm.h
+> +++ b/include/linux/tpm.h
+> @@ -87,7 +87,8 @@ struct tpm_class_ops {
+>  	const u8 req_complete_val;
+>  	bool (*req_canceled)(struct tpm_chip *chip, u8 status);
+>  	int (*recv) (struct tpm_chip *chip, u8 *buf, size_t len);
+> -	int (*send) (struct tpm_chip *chip, u8 *buf, size_t len);
+> +	int (*send)(struct tpm_chip *chip, u8 *buf, size_t cmd_len,
+> +		    size_t buf_size);
 
-> @@ -3865,6 +3887,7 @@ static const struct of_device_id camss_dt_match[] = {
->   	{ .compatible = "qcom,msm8916-camss", .data = &msm8916_resources },
->   	{ .compatible = "qcom,msm8953-camss", .data = &msm8953_resources },
->   	{ .compatible = "qcom,msm8996-camss", .data = &msm8996_resources },
-> +	{ .compatible = "qcom,sa8775p-camss", .data = &sa8775p_resources },
-Address compatible string based on DTS comment
+I'm sorry but now that I look at this, just for the sake of consistency:
 
-Regards,
-Suresh Vankadara.
+	int (*send)(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+		    size_t cmd_len);
 
+I.e. match the order and parameter names from tpm_try_transmit().
+
+BR, Jarkko
 
