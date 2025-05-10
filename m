@@ -4,81 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E6A9C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 09:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C7D2C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 09:22:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pKMMNWlvMVSn1VlLlcOMfkZsjAMZnbswd0uACsWJdzo=; b=f+7Us8XUkv6Yr2dOHUHTDRTnpV
-	DWb4g8zvG+r/y7+QBVofT/d558ZHVV3crpJfvz/v3dSEQpzM9Wr0Iq/UOsf3I9+GrHn31d29KCVTi
-	bb5acdPlXGlYVDUTq0xT7nxQvfKnQ7lmf6KzU9Y8hzRWbqDT15+ud9dq6Kp2UVT3Flt72LZd6b6py
-	7+lLu0O0+iDwNDO2kNSma5U70P0EFrHOh7QtHWmqQEYgyZ3yNs55IZaGBzpZKrRFizSYeCmOxjG9H
-	+BXoKM2K+r1gTAUnkU9ea0kaRk1kBn30OOaS6b7RjFVr6wy5B9Ki5z5T70f5vbA50R6SuQWfaJbMF
-	0+SA7F4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N0WvBWcRaJqlD2szj6a2rYDUoL1UN49lZxJeaXuaiUU=; b=ElT8709bFlyDIOiftUgNVdcFh6
+	BTz7dnjb4KT466F5eTyuAjpsbj8LV32s7YXi1Shi7+P2SDV8uXuobzlYzouVxYDBg1hMLh8M0NtxR
+	ofAIlrsN2V7k0xXyaOayxOnPIlN8RMC2UVFAQBw7HdNLybytPxtqK8YiRZYVlnAXGpcHd9YWUJAzY
+	7BDv3ri4GsxRJpsSniL6jfY/C+AOvzFZKgnL3GTHKVjwJPp1HvDHHrzCKDfwcK9q8y4KinzHJ2jbf
+	EGXzBBMdY8bCCPyC8JR4OhTiQZlahanZP14MC0KEYNjiGqO4Kcm3h81wBky+aWFXMPcmxOWiZE3cr
+	JZsqkJAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDgNy-00000005jQC-2TP7;
-	Sat, 10 May 2025 09:20:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uDgPx-00000005jqa-2UfE;
+	Sat, 10 May 2025 09:22:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDg72-00000005hsh-2jPC
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 May 2025 09:03:17 +0000
+	id 1uDgJQ-00000005j5R-3hY8;
+	Sat, 10 May 2025 09:16:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E82714A67B;
-	Sat, 10 May 2025 09:03:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9ABDC4CEEB;
-	Sat, 10 May 2025 09:03:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B3337614BA;
+	Sat, 10 May 2025 09:16:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD385C4CEE2;
+	Sat, 10 May 2025 09:16:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746867795;
-	bh=gKArUPq/LOsmWZFtbSjRAerxf4ZgQ0kJBSBsD9tlBuY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=m0Pj8se0Xs9Y/tCzp8Yw9GXyysM7WmBxuWI8x4y3qe+7btAl3Ym3gGxG6jigQAKcw
-	 BgYItJGvA5paKzlGMOcC3lEKctSaQUw3osChhdrrKi6+oEP3S6t8ewOFYCCfe2ScO6
-	 TB69GHyVFtvPad0hXwZwQWU8adjd+t9xtIUgKDKd1askI+PewXlOiutRQQTfmTbRC9
-	 6dxR3ffqHoYIrtkTjDzB3jqId4bDFZ2hj7FYNUjqGKbLqwmzKdo3hPN12XobiH3IiV
-	 6zfZGh76SFs+MxZPjJo90MS5RKeQo8kHFYp7urBTxO+y7INcxGzix6QN6bp+HX73sw
-	 xFQRzucMJ8B4g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uDg6z-00DdfH-Cc;
-	Sat, 10 May 2025 10:03:13 +0100
-Date: Sat, 10 May 2025 10:03:10 +0100
-Message-ID: <87jz6o6do1.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sebastian Ott <sebott@redhat.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Colton Lewis <coltonlewis@google.com>,
-	Ricardo Koller <ricarkol@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 3/3] KVM: arm64: selftests: arch_timer_edge_cases - workaround for AC03_CPU_14
-In-Reply-To: <20250509143312.34224-4-sebott@redhat.com>
-References: <20250509143312.34224-1-sebott@redhat.com>
-	<20250509143312.34224-4-sebott@redhat.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: sebott@redhat.com, oliver.upton@linux.dev, coltonlewis@google.com, ricarkol@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250510_020316_731695_5C5A8D47 
-X-CRM114-Status: GOOD (  31.16  )
+	s=k20201202; t=1746868563;
+	bh=N0WvBWcRaJqlD2szj6a2rYDUoL1UN49lZxJeaXuaiUU=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
+	b=VvYmN0+u/+1ASx2sAgrFMXwxnbL4R8LTOb4fp5TRJiniNv7KQl4+Ko4mrQqrrmSiv
+	 aIJZpmqGS6WATO9zy7I4vWEcUrjRedeUn22W/+Z64/vXNQB0K6K2DOfyap4M+hIkQM
+	 bVSL32xrhuFlldAJlKiev8inl8mb6ymCVkXdehHO+DbHWmmFEctDdkzPJjjSiND8eV
+	 c7SzIiOVfp/y0EZ2iv6Jk1GPLKIC3eudGEY+06DAuceIuoFBMJPPdMJrkf1SSOP2QY
+	 uEdNQ1ZHxAeU13oIdbeG0Zqd93huOcbCF3gB2LNDuRmTaziGz5ij6FyhXHkj9w9DZ+
+	 6XSyjUEIUexLQ==
+Message-ID: <13d5e1fbe12e289da1d1e5184eb5277c@kernel.org>
+Date: Sat, 10 May 2025 09:15:59 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v3 20/22] drm/bridge: add devm_drm_put_bridge()
+In-Reply-To: <20250509-drm-bridge-convert-to-alloc-api-v3-20-b8bc1f16d7aa@bootlin.com>
+References: <20250509-drm-bridge-convert-to-alloc-api-v3-20-b8bc1f16d7aa@bootlin.com>
+Cc: asahi@lists.linux.dev, chrome-platform@lists.linux.dev, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, imx@lists.linux.dev, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, platform-driver-x86@vger.kernel.org, "Andrzej
+ Hajda" <andrzej.hajda@intel.com>, "Anusha Srivatsa" <asrivats@redhat.com>, "Chun-Kuang
+ Hu" <chunkuang.hu@kernel.org>, "David Airlie" <airlied@gmail.com>, "Dmitry
+ Baryshkov" <lumag@kernel.org>, "Douglas Anderson" <dianders@chromium.org>, "Fabio
+ Estevam" <festevam@gmail.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Jagan
+ Teki" <jagan@amarulasolutions.com>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Jonas
+ Karlman" <jonas@kwiboo.se>, "Krzysztof Kozlowski" <krzk@kernel.org>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime
+ Ripard" <mripard@kernel.org>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Paul
+ Kocialkowski" <paulk@sys-base.io>, "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Robert
+ Foss" <rfoss@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Shawn
+ Guo" <shawnguo@kernel.org>, "Simona Vetter" <simona@ffwll.ch>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas Zimmermann" <tzimmermann@suse.de>
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,78 +76,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 09 May 2025 15:33:12 +0100,
-Sebastian Ott <sebott@redhat.com> wrote:
-> 
-> arch_timer_edge_cases currently fails on ampere-one machines with
-> the following assertion failure:
-> 
-> ==== Test Assertion Failure ====
->   arm64/arch_timer_edge_cases.c:169: timer_condition == istatus
->   pid=11236 tid=11236 errno=4 - Interrupted system call
->      1  0x0000000000404ce7: test_run at arch_timer_edge_cases.c:938
->      2  0x0000000000401ebb: main at arch_timer_edge_cases.c:1053
->      3  0x0000ffff9fa8625b: ?? ??:0
->      4  0x0000ffff9fa8633b: ?? ??:0
->      5  0x0000000000401fef: _start at ??:?
->   0x1 != 0x0 (timer_condition != istatus)
-> 
-> Meaning that the timer condition was met and an interrupt
-> was presented but the timer status bit in the control register
-> was not set.
-> 
-> This happens due to AC03_CPU_14 "Timer CVAL programming of a delta
-> greater than 2^63 will result in incorrect behavior."
-> 
-> Work around this issue by reducing the value that is used to reset
-> the counter and thus reduce the delta.
-> 
-> Link: https://lore.kernel.org/kvmarm/ac1de1d2-ef2b-d439-dc48-8615e121b07b@redhat.com
-> Link: https://amperecomputing.com/assets/AmpereOne_Developer_ER_v0_80_20240823_28945022f4.pdf
-> Signed-off-by: Sebastian Ott <sebott@redhat.com>
-> ---
->  tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c b/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c
-> index a813b4c6c817..2f0397df0aa6 100644
-> --- a/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c
-> +++ b/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c
-> @@ -31,7 +31,7 @@ static const int32_t TVAL_MIN = INT32_MIN;
->  static const uint32_t TIMEOUT_NO_IRQ_US = 50000;
->  
->  /* A nice counter value to use as the starting one for most tests. */
-> -static const uint64_t DEF_CNT = (CVAL_MAX / 2);
-> +static const uint64_t DEF_CNT = (CVAL_MAX / 4);
+On Fri, 9 May 2025 15:53:46 +0200, Luca Ceresoli wrote:
+> Bridges obtained via devm_drm_bridge_alloc(dev, ...) will be put when the
+> requesting device (@dev) is removed.
+>=20
+> However drivers which obtained them may need to put the obtained reference
+> explicitly. One such case is if they bind the devm removal action to a
+>=20
+> [ ... ]
 
-This is rather arbitrary, and only sidestep the issue: the core
-problem is that CVAL_MAX is defined as ~0, and that we have no idea
-what the *effective* counter width is.
+Acked-by: Maxime Ripard <mripard@kernel.org>
 
-So while this happen to sidestep the particular Ampere erratum (and
-avoid failures on X1E), this is only papering over the problem. Which
-is why I always had some reservations on this particular test -- it is
-remarkably broken.
-
-If anything, we should compute the expected width of the counter based
-on the frequency and the architectural guarantees ("Roll-over time of
-not less than 40 years."), just like the kernel driver does (see
-arch_counter_get_width()).
-
-I'm also not keen on hiding a HW bug by altering the test. What of
-other guests that would fall into the same issue? If we think the
-problem exposed by this test is serious enough, then we need to fully
-trap and emulate the timers, X1E style. Performance would definitely
-suffer, but that would be the correct thing to do.
-
-So my proposal is to fix the test to be compliant with the intent of
-the architecture instead of making bets and using semi-random values.
-If that's good enough to make that test pass on A1, great.
-
-Thanks,
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
+Thanks!
+Maxime
 
