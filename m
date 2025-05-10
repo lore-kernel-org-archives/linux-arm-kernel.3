@@ -4,107 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CD05C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 02:30:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 651FBC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 06:04:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OMQQgRzKRMxctcYpGXbSKjA/hpXZSmYOzyU6SVM8EaM=; b=Ov3MvSBSoTaNxqGM2qwvZk4+p6
-	ihIdMh+gggexOOZ7DRfnjcX5xDmTMWXdKKGYsnCW6+0Mt5HO/HwvyNl+BqBdtATb+u+DjK8Sify+E
-	t3p32DMd91EJkmbSMdj8sixscpAoaAuNYWTNV5xOHHhSccaEQSQ5TPgdPaU9fwmmkmKA+g28tYzQL
-	RQvFKm8JNp4I2O33QoKgidOJ2zryKrK1g0Cv8td3MSojTOnAsyApDOkcCDMBaTV29YuZxIjjFJuS1
-	G0k9anJWxEP9tk692BAVNMEWaCIAX8GROG7tN/LUEGJdwaTuxkJHq3LDUKf7NXZHGDHCOlknttMms
-	L1xBX5/g==;
+	bh=ZvSrH0m4IUpU+lJMf9GPrH6cvsJ1xHIQMLaVbqpMvdE=; b=TVR3XX+BDoySysvF3CaiuBuQO1
+	qIhYVrrT9u0Bml9uy6L31+1DkYE37W81ScUs/LeR2BFCHE7yWx6lzIZa8A1cylf5IomOYLwSS33Tj
+	MyWIZIKayhrhWMjUlVblgfFoH/x9n+vhF8l4oXw9gJCEAxi4HTN32DEY/hi78ElV+p2QGnnvcZrwb
+	0UO2ycmC0HEk937FRDeBoNs3S2QL9bGZ9Dy1BVEN6oSuK71Xzg+4V14CwKjSQ8O04ExURuXaPzFgk
+	l+e/JJ2PgSiHBRRVhXggPi/Hn5/i8aEh39jRB/3BaMX+BCjU8f4sWNmOv4RIBsLKDEGiwrIsmuRp0
+	1Hcrsy1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDZzD-00000005JXH-2EwO;
-	Sat, 10 May 2025 02:30:47 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1uDdK4-00000005UVa-4986;
+	Sat, 10 May 2025 06:04:32 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDZxD-00000005JQ7-1cU2
+	id 1uDdEW-00000005U1d-1FA3
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 May 2025 02:28:45 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250510022839epoutp01c9dc27ed1b3c777b5f3e9a3cc91d4501~_CXixDZYb1710817108epoutp01o
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 10 May 2025 02:28:39 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250510022839epoutp01c9dc27ed1b3c777b5f3e9a3cc91d4501~_CXixDZYb1710817108epoutp01o
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1746844119;
-	bh=OMQQgRzKRMxctcYpGXbSKjA/hpXZSmYOzyU6SVM8EaM=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=GSuAA2uo7mU0ClLAf30T+JPDNR1sX4ak6XhD4BUyH+i9WHmf5kij07QdRi1XByvR4
-	 8ymTWzEcEFD6Idz5cCYtoALme4xg//7V17MFuFOpxnU7CcXYO/r4N9cluOJmXE1RN5
-	 EQ40Z5noUeCkbJunnZnEzRag847b/zD/lVMuZ0wE=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250510022838epcas5p28e74cb800febced7f58728200ce47115~_CXhv0UP32406324063epcas5p2k;
-	Sat, 10 May 2025 02:28:38 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.179]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4ZvVD42xvxz6B9m6; Sat, 10 May
-	2025 02:28:36 +0000 (GMT)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250510022835epcas5p1c9bcad7541f77b798cd1510b7b612ddf~_CXesPXs51597015970epcas5p1r;
-	Sat, 10 May 2025 02:28:35 +0000 (GMT)
-Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250510022835epsmtrp1c274660011cbf5ec9b262358934dc063~_CXeqj9Nq0425404254epsmtrp1a;
-	Sat, 10 May 2025 02:28:35 +0000 (GMT)
-X-AuditID: b6c32a52-40bff70000004c16-22-681eb9d27cec
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	EE.70.19478.2D9BE186; Sat, 10 May 2025 11:28:34 +0900 (KST)
-Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250510022832epsmtip2d27f435acb90026832818feb5f8b4bba~_CXcp-X2a2690626906epsmtip2W;
-	Sat, 10 May 2025 02:28:32 +0000 (GMT)
-From: "Alim Akhtar" <alim.akhtar@samsung.com>
-To: "'Pritam Manohar Sutar'" <pritam.sutar@samsung.com>, <krzk@kernel.org>,
-	<s.nawrocki@samsung.com>, <cw00.choi@samsung.com>,
-	<mturquette@baylibre.com>, <sboyd@kernel.org>, <sunyeal.hong@samsung.com>
-Cc: <linux-samsung-soc@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
-	"'stable'" <stable@kernel.org>
-In-Reply-To: <20250506080154.3995512-1-pritam.sutar@samsung.com>
-Subject: RE: [PATCH v2] clk: samsung: correct clock summary for hsi1 block
-Date: Sat, 10 May 2025 07:58:31 +0530
-Message-ID: <045701dbc153$3aa85bc0$aff91340$@samsung.com>
+	Sat, 10 May 2025 05:58:49 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-22e8e4423ecso26402145ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 22:58:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746856727; x=1747461527; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ZvSrH0m4IUpU+lJMf9GPrH6cvsJ1xHIQMLaVbqpMvdE=;
+        b=ZuL6nmJqABQyo9OvzygLQHzYSqIeZQkquXe8TrhH2rY3FPyTMuWGScMSLBn31VGhD3
+         onqWvstEvJUsaC2k4ZiTOLJZrFpOMRFBptvbqEPcDa86sW9TOWVFFIyeQirzQHaRE6Py
+         /mhFFkvCDqyFuj2r5KYQx/C5ZoB41D2AsOotK6JvlBdj1LRf0ltJnvMuzQhoC55K9fwt
+         /GycBbaF+OB0YKGn4GXux7F6sk9NCIqqdpga4V/Dfskvp52XdwAUuFzdqimw0Py/Yopy
+         JkeMF3tMIVZFbvbtYQwXKSmw80JBtKS6WxSU5AgOJK1oS8y8o08MZDuuCucanonsgsOt
+         SoeQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746856727; x=1747461527;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZvSrH0m4IUpU+lJMf9GPrH6cvsJ1xHIQMLaVbqpMvdE=;
+        b=caWmTXJDSO10onq5zvqLm/gEfCbNlIVL5SkpJX74hkcdPWbrErlSlHizww9EsvPF1P
+         GCWMuiOiD28nVon6dN4M2saJePLLJcWFwc42XEck/yagQVJzu45c9Q+FLeOMU41u8hs5
+         mO/pMm17zna4+bCE0jakOeluSqHr0vvmd4M7nLWIm/EwDgx8iEhFOTtzK2tPtu6XxbFg
+         I4xF9nptEETxXQyIKetUzEKD2B5hdvBOX20s1gweNPEGcB+CNa/ewOOizWtWkLk3m6E0
+         PC6u0HotusA8jrnkKjZNPwtMxwfsTzepkrYXdWXm970hCWIljluh/nJy3Msb+shyU4BY
+         yX7A==
+X-Forwarded-Encrypted: i=1; AJvYcCWCMxNYF4peN1VXlXn/i4hEZe53Drp6JxuxcMOylASLorNC49tdyGHDPZxXDrADzFLecM3kc4b5v0z00Avo107D@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxF10YwHYxgoLUO7mGoI1w4c6DMMHc/43wixHpROBaS6+JTh0C
+	KaEdbX9qtP6Vhcz57NEGmx5zr39pa3ScF8Kw/zfku+D82Ta79tFbspxjxA==
+X-Gm-Gg: ASbGnct8/paB+CjMZilGlZJbjAsofTpFpypholoatm1dhNGV0NgiJmWJderK6RtrkK0
+	ypKLnRBOcGCnJdQ9yk4nzD+9hi2dUbQ4zeJKFIehhB+yQKn9Mcj310Tzs1wameviS6xkh3EQwqp
+	25KYuH/UZC5y1hB6Vpe5cKGlq2TH0eyEwgXaUlAXpKIA99gNdv1xqNqkATa2HIgE2Ufc/VfyPPP
+	d4ONepEO18lLA+seG5lp2jghG6GOnJ+NWL2MZvRsL+atBElnbR0GKIOnM6nvp+fYYzUjrJ8PVGv
+	bbqUf2U+s4SbG6fWCkN74gyAdunB/An3P0j5vS8DdGBiQbr3Zf6Xr8w7+T1N8UyvVt0xnA==
+X-Google-Smtp-Source: AGHT+IHszysuOKe+BXliXC54u04RRE82xYLl5n3Hlqtc4Nnx4bwzHJoObH1iIIdfyb0NhtdrtlIVMg==
+X-Received: by 2002:a17:902:f612:b0:223:54aa:6d15 with SMTP id d9443c01a7336-22fc8b3b39fmr105809735ad.12.1746856726879;
+        Fri, 09 May 2025 22:58:46 -0700 (PDT)
+Received: from [192.168.0.121] ([59.188.211.160])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc77413besm26910865ad.84.2025.05.09.22.58.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 09 May 2025 22:58:46 -0700 (PDT)
+Message-ID: <fa4f46ef-0f86-41f8-afc2-afc8dd2704a1@gmail.com>
+Date: Sat, 10 May 2025 13:58:41 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND v6 03/21] drivers/perf: apple_m1: Support
+ per-implementation event tables
+To: kernel test robot <lkp@intel.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Sven Peter <sven@svenpeter.dev>,
+ Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Neal Gompa <neal@gompa.dev>
+Cc: oe-kbuild-all@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ devicetree@vger.kernel.org, asahi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20250429-apple-cpmu-v6-3-ed21815f0c3f@gmail.com>
+ <202505071747.2b2WEajY-lkp@intel.com>
+Content-Language: en-MW
+From: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <202505071747.2b2WEajY-lkp@intel.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQJXoAhNt2lxpjQmxp3wpnZOkbsiiwIMDegbssMEZrA=
-Content-Language: en-us
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrOIsWRmVeSWpSXmKPExsWy7bCSvO6lnXIZBvc2W1lc//Kc1eLejmXs
-	FtduLGS3OH9+A7vFpsfXWC0+9txjtbi8aw6bxYzz+5gsLp5ytXh2bwWbxZefD5gtDr9pZ7X4
-	d20ji8Wn8xfYLJqWrWdy4Pd4f6OV3WPTqk42j81L6j36tqxi9Pi8SS6ANYrLJiU1J7MstUjf
-	LoErY8KGWYwFb3kqnh8xbmDcxdXFyMkhIWAicXzqNcYuRi4OIYHtjBIfdv5kgUhIS1zfOIEd
-	whaWWPnvOTtE0XNGiaenDzCDJNgEdCV2LG5jA0mICFxhlJj2+ytYFbNAG5PE8v5uqJaJjBLd
-	c2+wgbRwCjhITD7xHmyusICXxIfZ75hAbBYBVYnVl1aD1fAKWErMnfWMBcIWlDg58wmYzSyg
-	LdH7sJURwpaX2P52DjPEfQoSP58uYwWxRQSsJJb0vmaGqBGXeHn0CPsERuFZSEbNQjJqFpJR
-	s5C0LGBkWcUomlpQnJuem1xgqFecmFtcmpeul5yfu4kRHJdaQTsYl63/q3eIkYmD8RCjBAez
-	kgjv806ZDCHelMTKqtSi/Pii0pzU4kOM0hwsSuK8yjmdKUIC6YklqdmpqQWpRTBZJg5OqQYm
-	DwNVvcjuzwqBrrmVageSdl81THo57+PM5+sKU+4rMy19tOP+vcdnuharlJ1JfWaXkGw16Zuu
-	0fs9O7bJdsr03nqt5hTiHOskcehUqkSv3bZ7O3v+5efXT/+9wjW52EeYcfHTuDdnUv2+bfiW
-	eOVpzF3lLSui32u7p1kaTlD7JBF/POVggnXP4hVPzwc9e3j5RPs6lckPrgoa2H3s4lzTqJUo
-	krZRdaLN5PZbjA3Nzdou91n/PxV+cu5weugX39ZKLvltN7R2f+Z5utb70kxPk9qKhYcfdqvu
-	/rZOVzr38ca900qMfQ7+WruU+V7ulWA5j50CVdfWXSjfvD+t6U7F4Z5cS3nR4guCTg4fr1zs
-	VmIpzkg01GIuKk4EAAY5zY86AwAA
-X-CMS-MailID: 20250510022835epcas5p1c9bcad7541f77b798cd1510b7b612ddf
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250506075413epcas5p2ce0db6da9f359e9c3bb16b03c1a5eb4f
-References: <CGME20250506075413epcas5p2ce0db6da9f359e9c3bb16b03c1a5eb4f@epcas5p2.samsung.com>
-	<20250506080154.3995512-1-pritam.sutar@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_192844_055885_01E3A73D 
-X-CRM114-Status: GOOD (  15.51  )
+X-CRM114-CacheID: sfid-20250509_225848_360128_7EF558C6 
+X-CRM114-Status: UNSURE (   7.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,44 +109,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pritam
 
-> -----Original Message-----
-> From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
-> Sent: Tuesday, May 6, 2025 1:32 PM
-> To: krzk@kernel.org; s.nawrocki@samsung.com; cw00.choi@samsung.com;
-> alim.akhtar@samsung.com; mturquette@baylibre.com; sboyd@kernel.org;
-> sunyeal.hong@samsung.com
-> Cc: linux-samsung-soc@vger.kernel.org; linux-clk@vger.kernel.org; linux-
-> arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
-> rosa.pila@samsung.com; dev.tailor@samsung.com;
-> faraz.ata@samsung.com; Pritam Manohar Sutar
-> <pritam.sutar@samsung.com>; stable <stable@kernel.org>
-> Subject: [PATCH v2] clk: samsung: correct clock summary for hsi1 block
-> 
-> clk_summary shows wrong value for "mout_hsi1_usbdrd_user".
-> It shows 400Mhz instead of 40Mhz as below.
-> 
-> dout_shared2_div4           1 1 0 400000000 0 0 50000 Y ...
->   mout_hsi1_usbdrd_user     0 0 0 400000000 0 0 50000 Y ...
->     dout_clkcmu_hsi1_usbdrd 0 0 0 40000000  0 0 50000 Y ...
-> 
-> Correct the clk_tree by adding correct clock parent for
-> "mout_hsi1_usbdrd_user".
-> 
-> Post this change, clk_summary shows correct value.
-> 
-> dout_shared2_div4           1 1 0 400000000 0 0 50000 Y ...
->   mout_clkcmu_hsi1_usbdrd   0 0 0 400000000 0 0 50000 Y ...
->     dout_clkcmu_hsi1_usbdrd 0 0 0 40000000  0 0 50000 Y ...
->       mout_hsi1_usbdrd_user 0 0 0 40000000  0 0 50000 Y ...
-> 
-> Fixes: 485e13fe2fb6 ("clk: samsung: add top clock support for ExynosAuto
-> v920 SoC")
-> Cc: stable <stable@kernel.org>
-> Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
-> ---
+#syz test
 
-Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
+diff --git a/drivers/perf/apple_m1_cpu_pmu.c b/drivers/perf/apple_m1_cpu_pmu.c
+index 365b4ecaedb1..81443e5158b2 100644
+--- a/drivers/perf/apple_m1_cpu_pmu.c
++++ b/drivers/perf/apple_m1_cpu_pmu.c
+@@ -1082,7 +1082,7 @@ static void m1_pmu_write_counter(struct perf_event *event, u64 value)
+ 
+ static int apple_pmu_get_event_idx(struct pmu_hw_events *cpuc,
+                                struct perf_event *event,
+-                               const u16 event_affinities[M1_PMU_CFG_EVENT])
++                               const u16 event_affinities[])
+ {
+        unsigned long evtype = event->hw.config_base & M1_PMU_CFG_EVENT;
+        unsigned long affinity = event_affinities[evtype];
 
 
