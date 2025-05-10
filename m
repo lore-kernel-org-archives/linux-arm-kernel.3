@@ -4,97 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19BBAC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 20:21:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16DBAC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 22:03:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uMTY9qFogQa0Mq320HhUniBejxmAeYawCBgAAg59X50=; b=SSffP3ExHqOA9EsI6eF+lB3EP/
-	BG/ei9LiYSFv3zCM0ISo0ImIevgAjKcpgeR8KVWxyqcER0tNJ3uoDqKguQobAWdKjOBbOG2l53D0l
-	VKXichV3L4QU8sm7hvgP5fW6q/lkGPoFdTdAYYrWTqRZhcugs53s5LJW9MEoFqdeI1V0c814oJSHv
-	IMC4d8dhM7hCnCnlbnv64LxcJizIAofkjl7UKmlqH7AdY5N2okM55sfd1EMlNS6jmeeoQzavqOpWm
-	yh1+bBuFymlJGrL3pDYma9W4o9PvOfdH2HKCqghBNLHqcbw9xTkN2q8J/3E6Qhh90wBNAshkkkqSO
-	PdSnDFiA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KjN1nBhdxQaGDQyrmYVR1VzvPD+o09XYSFx1g7uAoQo=; b=I62cQB2xYylawd3+xez4r3ttEW
+	0HpUHvMAlQwPrJh3ZUdVu/JWHDc+KurMnqCOTPRCKxfUhQR6cGAZVlT6h9QghPbyzTNylHjCHH3po
+	lpoPtD0NIrCQn93wOWLyxturPY5eqMWmLG1hIQD/Z1W6hblG7oZaAc6J5IclWiPPXw1M4aaPavS8L
+	6XiAEojz8pobpmMJlawN7hJ8vmKVgOCIZdocVSPvtB/hqlVrZYUUvMOVgk6/Yl4QzWlKs2O7Wh9Zf
+	q1ZG56Lv/tXZTokKRRLwr7Tdv7WVLipp/0R5MemgqrO/ZgQPZEyqkor+ZJYkOs2jFeQnsZntcDOIq
+	n8kzZnaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDqhO-00000006LLk-1hXf;
-	Sat, 10 May 2025 20:21:30 +0000
-Received: from fout-b8-smtp.messagingengine.com ([202.12.124.151])
+	id 1uDsIB-00000006Q4w-0W3V;
+	Sat, 10 May 2025 22:03:35 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDqfH-00000006LH8-0fbI
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 May 2025 20:19:21 +0000
-Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
-	by mailfout.stl.internal (Postfix) with ESMTP id ECAAE1140080;
-	Sat, 10 May 2025 16:19:14 -0400 (EDT)
-Received: from phl-imap-12 ([10.202.2.86])
-  by phl-compute-05.internal (MEProxy); Sat, 10 May 2025 16:19:15 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1746908354;
-	 x=1746994754; bh=uMTY9qFogQa0Mq320HhUniBejxmAeYawCBgAAg59X50=; b=
-	W1roBAZHchvU7brkv5sM+bEPS6+gPBxpN9gdQRR3tsG+7vbQDJ7sw+IsjKONi9Ea
-	p2+m8URLPJxGPTz8V5ODbG65PFYHpk9OXKz6ZsKcfAGYcfEYQWN9RgqQH4hfigFN
-	+gfMQRVA85DY/vc03Vf92KVAslm+wH1qX3IWJ//Soql3A3Z2ZW581gR/cql0Umqa
-	K/yX7gYK3h5ESrbzyohgP2rC8xF8+vcxj0CTpIWOjXe6Rp5x4kHNhjOdys2cNXCP
-	IeMOz5TZBFOv1yLWC9Ud0vZI/GWHxmN4wFCZoJ8Vbi/U6ilI45uIlyc4vu0rEjZe
-	PikbmnQ1GSFSzhJ8DTx4Eg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1746908354; x=
-	1746994754; bh=uMTY9qFogQa0Mq320HhUniBejxmAeYawCBgAAg59X50=; b=K
-	SH/bjorPMgfh4SJiCT2jhxZ89WsG0wowhuT3ljJKMy4M30LEDPQaAU/W6I47T16K
-	RdA7wd88tpcVJMk3v+eOO93VNew4UtFc6mQbIb3QHXaJ/9rBZz77MHBiW63sjtWA
-	8Qa4PDpiUU/jgHYW7QnqNb1Nbwo2z6fvd1nrWrxBDq5qOyfEgIStSTmr+/3pbLww
-	e46aRDzdYq3NU1+YOg26BDADq785/fWHTEMYGKf/u+d8MsNYgpIJrzaXHh+gTyps
-	3xlYfy1KUmwjXFEWaIEHDZCxmjVQymLG4Kv59kGP18O+/lmd1l0aevRblu35taCY
-	wh4tUqYym5ncdszs1reLw==
-X-ME-Sender: <xms:wrQfaI5-GTxu5-SAYyEQ2M-xFj3rYxxFjMWdoGh90jGnI6RhXsyGpA>
-    <xme:wrQfaJ6SbJVb6Xret8fhE70NUWTQJZzvOgXnV4HtyhtXLj2ty8AGaUaCSWScuvnVu
-    0H0FRUNSpuUjSM1RiA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvleeigeegucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
-    gsrdguvgeqnecuggftrfgrthhtvghrnhepfefhheetffduvdfgieeghfejtedvkeetkeej
-    feekkeelffejteevvdeghffhiefhnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenuc
-    evlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnuges
-    rghrnhgusgdruggvpdhnsggprhgtphhtthhopeehpdhmohguvgepshhmthhpohhuthdprh
-    gtphhtthhopegrrhhmsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeguihhnghhuhigv
-    nheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhotgeskhgvrhhnvghlrdhorhhgpd
-    hrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgr
-    uggvrggurdhorhhgpdhrtghpthhtohepshhotgeslhhishhtshdrlhhinhhugidruggvvh
-X-ME-Proxy: <xmx:wrQfaHe5_E_y10KKiRmwHJuBabKD2gu8Xp85cPArkxajpCWSGiuHIg>
-    <xmx:wrQfaNJN0437e2noiJoV9lDzMFQeLmVlDCYyyKYDh5vTXXugiZn3zw>
-    <xmx:wrQfaMKSvlDq5RY9pUROEQDT7xMKeH-gAETfOufv13J9RW3-f0a4Qw>
-    <xmx:wrQfaOxkvaCKoj54Ft0LhQUvWgRezYwnCBpTmkj7gDeiESCHI12XKA>
-    <xmx:wrQfaMskA1r8DApt5puWdB5-BIdb_mfBiGK5ZdJHOFRIR2O6LWR-ycKX>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 52FD41C20067; Sat, 10 May 2025 16:19:14 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1uDsG1-00000006PwC-2kGr;
+	Sat, 10 May 2025 22:01:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=KjN1nBhdxQaGDQyrmYVR1VzvPD+o09XYSFx1g7uAoQo=; b=R83QxQIdH8NYNnrP3EEGoBvw2f
+	noLkPoo2eSYooZLrPxk4w5mKdQ0z0ZQC8DpHBpKTgMlkR9RrSjajNU6KKhP8u7fsIOffvtNyCUWJU
+	QjaZOPSetUm3vUwJJXRAvKGDuJx5A3debRjRr8ni7b9ECglvtbaJUvBnZNr/4fkVLeFsUa9hxxehR
+	1Y2VdjhnuhKQJIK6nQpwXoxdxgW1n2C/pM+k8YC0Uv9XZ8NTm3t1OySTYg3Vo+lN0u9KIB1NG0FP/
+	QhOIyBByNTnPIjL7KxkzLazejhqUXXKla+0C6OzDML3TXrn4gQ6ok83pqYHXWcvfDfpbTUthXfpw5
+	3ITXQ/hQ==;
+Received: from i53875a1d.versanet.de ([83.135.90.29] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uDsFy-0007Ay-M3; Sun, 11 May 2025 00:01:18 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>
+Subject: [PATCH] arm64: dts: rockchip: move rk3528 i2c+uart aliases to board files
+Date: Sun, 11 May 2025 00:01:06 +0200
+Message-ID: <20250510220106.2108414-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-Date: Sat, 10 May 2025 22:18:54 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Dinh Nguyen" <dinguyen@kernel.org>, arm <arm@kernel.org>, soc@kernel.org
-Cc: soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Message-Id: <b8257b35-04b7-400b-bc58-948dd5fdf799@app.fastmail.com>
-In-Reply-To: <20250506004825.134929-1-dinguyen@kernel.org>
-References: <20250506004825.134929-1-dinguyen@kernel.org>
-Subject: Re: [GIT PULL] ARM: socfpga: updates for v6.16
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250510_131920_084274_575E80DA 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20250510_150121_725100_451B5E60 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,47 +71,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 6, 2025, at 02:48, Dinh Nguyen wrote:
-> The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
->
->   Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
->
-> are available in the Git repository at:
->
->   git://git.kernel.org/pub/scm/linux/kernel/git/dinguyen/linux.git 
-> tags/socfpga_dts_updates_for_v6.16
->
-> for you to fetch changes up to 8dbffe5f5dd531a3c3f9d603462e499085449277:
->
->   dt-bindings: clock: socfpga: convert to yaml (2025-05-03 13:33:23 -0500)
->
-> ----------------------------------------------------------------
-> SoCFPGA DTS updates for v6.16
-> - Updates to dt-bindings
-> 	- Document Agilex5 NAND daughter board
-> 	- Convert Stratix10 FPGA Manager to json-schema
-> 	- Convert Stratix10 Service Layer to json-schema
-> 	- Add document for Terasic's DE10-nano board
-> - Add support for Agilex5 NAND daughter board
-> - Add basic support for Terasic's DE10-nano board
+Even though they will be the same for all boards, i2c and uart aliases
+are supposed to live in the individual board files, to not create
+aliases for disabled nodes.
 
-Hi Dinh,
+So move the newly added aliases for rk3528 over to the Radxa E20C board,
+which is the only rk3528 board right now.
 
-I'm not sure exactly what happened, but I see that this is
-almost the same as the previous pull request that you had sent
-for 6.15 in late march.
+Fixes: d3a05f490d04 ("arm64: dts: rockchip: Add I2C controllers for RK3528")
+Suggested-by: Arnd Bergmann <arnd@arndb.de>
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ .../boot/dts/rockchip/rk3528-radxa-e20c.dts      |  2 ++
+ arch/arm64/boot/dts/rockchip/rk3528.dtsi         | 16 ----------------
+ 2 files changed, 2 insertions(+), 16 deletions(-)
 
-I had already pulled in the previous version, and if I pull
-this one now it would result in duplicate commits. Would
-it work for you if I just cherry-pick the "dt-bindings:
-clock: socfpga: convert to yaml" patch on top, to avoid
-rebasing everything else?
+diff --git a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
+index 506d54337ece..9f6ccd9dd1f7 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
+@@ -18,8 +18,10 @@ / {
+ 
+ 	aliases {
+ 		ethernet0 = &gmac1;
++		i2c1 = &i2c1;
+ 		mmc0 = &sdhci;
+ 		mmc1 = &sdmmc;
++		serial0 = &uart0;
+ 	};
+ 
+ 	chosen {
+diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+index cd8ef389ccf3..b2724c969a76 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+@@ -24,22 +24,6 @@ aliases {
+ 		gpio2 = &gpio2;
+ 		gpio3 = &gpio3;
+ 		gpio4 = &gpio4;
+-		i2c0 = &i2c0;
+-		i2c1 = &i2c1;
+-		i2c2 = &i2c2;
+-		i2c3 = &i2c3;
+-		i2c4 = &i2c4;
+-		i2c5 = &i2c5;
+-		i2c6 = &i2c6;
+-		i2c7 = &i2c7;
+-		serial0 = &uart0;
+-		serial1 = &uart1;
+-		serial2 = &uart2;
+-		serial3 = &uart3;
+-		serial4 = &uart4;
+-		serial5 = &uart5;
+-		serial6 = &uart6;
+-		serial7 = &uart7;
+ 	};
+ 
+ 	cpus {
+-- 
+2.47.2
 
-Note: the list address has changed again, so please send
-future pull requests to soc@lists.linux.dev, cc:linux-arm-kernel.
-The arm@kernel.org and soc@kernel.org aliases still work
-for the moment, but the real address is the @lists.linux.dev
-one.
-
-     Arnd
 
