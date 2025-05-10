@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55252C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 08:01:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 151F6C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 08:03:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JfgoqF4fmlCMJRtRpMw4PLypxYm7hoZN/eCQsv6g8z0=; b=TgZhl7nilNz5lecN+uqlyHhvHM
-	/tc7GM0aTV1+Bn1v5SP+q16m20Oq8+khlhpppgV8sJum3z6v0xv7wJEuCa9WpXQMrxsHyhQKh6csA
-	AqB/X/igXD2CSB48pc4oj2zVGKAh42zBw8YIB2eFGc0kI8Xkn/hw/oHmwrfpO92JHpDbTR3WezYSj
-	4W0dFBnMjpH7b0qdmyL7v0d30WSHESeyUE5N2Q+CqCNX0R5g5AZgwt0xL+AK84btVudWa72kNkY0c
-	JOfCsRH7uKWub+mUBTjsmvIgB9EjGCAo5c7srsbapmIZGCmvblMwSOFohugqZF19vB/UL5aRHHVI0
-	ENEm6ErA==;
+	bh=Ziqt/MR55cxwzMgxeJchCiIr5zG0eXD2sDFx+s2lvb4=; b=aALfGdfUTslVk7WKHwgkk5QPxd
+	p4ibvL07TJEPIVqI+C0u0XAs6hheBUJLT/6PVH40sUefsB8cmpdU2Bak7VhUZXUlVv3yLXu08fs7E
+	GBkb3YN/I87JAtTH4clHm1giD/4zkCfUmqQJMTZWhpKjXXDypxFHTYD2CI1a8NgnTzqD3IKyuhvO6
+	w/hnoJcxgb1UHukUKQZXgTXtBABdg+54zhaATGmN6s60Eot7dEQ+cD0C43Y1uIyqUJa6ilREtmS02
+	wzy/9fGx5j5sqO7091wpQnWQBROSTH92mJf8bCanE/b50whxD7h14fUUpPQGNI4BBhy0s7k8jCtui
+	klU3TxBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDf8l-00000005bME-1Gsf;
-	Sat, 10 May 2025 08:00:59 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uDfAj-00000005bmv-00NU;
+	Sat, 10 May 2025 08:03:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDetS-00000005ZPC-2pbg
+	id 1uDetS-00000005ZP8-21WE
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 10 May 2025 07:45:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 53D335C3A7C;
-	Sat, 10 May 2025 07:42:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 360ECC4CEF4;
+	by sea.source.kernel.org (Postfix) with ESMTP id 36798434C2;
 	Sat, 10 May 2025 07:45:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 03391C4CEEB;
+	Sat, 10 May 2025 07:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1746863109;
-	bh=Afd3RO2nfFYN2a+qQQXWV+L5ZRayLatiKPqnV/vRG1M=;
+	bh=8+87LojQGyhr9E2+FPjQbHUWYlFaQtWgj0ictMi28nk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=AN4YOVeM6uXYZcrnv8Nex1WOsRpZQqAXdwNm7StiE99mXbKaOmgcqAfhpoxKkEHOh
-	 78NyvUtOtblAImTUM1ROaYZNCqHQXOYOwLWm1yrE9tj4M/Eacxs7W2/ZZJGm3xkRIf
-	 KbNdZjYNFuqR91ShB7jNNd3Rb+3evdxUzkjYpFEfg40Q/QZeCDkXrCLXOC+FDeLFbt
-	 s+0bszXNNp1pWkqWM3Gk9PuiPy9gYMtDkdveWtONs48vA/VZwjTGetSBVjypsiJFo/
-	 0vsJjrBpEQ3muNokPii73ms/SSo5iaTg9mvgZN/4kk7lAa5ZbzqjvmdDSLXAF3NJ3o
-	 va2CPIM2C9xaQ==
+	b=HAhp8LqbTFplQycwz1yVu0Ceeghb0EqTJs1v/5XtBYBLpZon1iElFP1oBgHHJnGHr
+	 2tfV4rHZEEHRe7g+Dw1sqxkmFaUJKAnwyFxeFCuG8twWk1eAVWxCyZmwZ3m+Cn46Js
+	 YCfWL50FWLogP/fmqI59oo9Gy4hWLRylobKvLPBLH23O5xQmmRskTXT1YmWvzSx3xq
+	 ivUapzgFt0eBQ4qeBVzPc6xM/A5qwK4GwXkdnWpJuDqIr8TA9Q2tELHVByACGkLYQc
+	 FHkNF4s5q9DXubLJLXgz3El73qtVkO8UXcszvMXpMWTy1pCeDNROlABPw6yJgxWJuV
+	 kTN28is82/ZSQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2C221C3ABCB;
-	Sat, 10 May 2025 07:45:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E5F93C3ABCB;
+	Sat, 10 May 2025 07:45:08 +0000 (UTC)
 From: Sven Peter via B4 Relay <devnull+sven.svenpeter.dev@kernel.org>
-Date: Sat, 10 May 2025 07:44:45 +0000
-Subject: [PATCH 5/7] arm64: dts: apple: t8103: Add eFuses node
+Date: Sat, 10 May 2025 07:44:41 +0000
+Subject: [PATCH 1/7] nvmem: core: allow bit offset > 8
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250510-nvmem-dt-v1-5-eccfa6e33f6a@svenpeter.dev>
+Message-Id: <20250510-nvmem-dt-v1-1-eccfa6e33f6a@svenpeter.dev>
 References: <20250510-nvmem-dt-v1-0-eccfa6e33f6a@svenpeter.dev>
 In-Reply-To: <20250510-nvmem-dt-v1-0-eccfa6e33f6a@svenpeter.dev>
 To: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, 
@@ -63,22 +63,21 @@ Cc: linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
  Sven Peter <sven@svenpeter.dev>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2966; i=sven@svenpeter.dev;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1784; i=sven@svenpeter.dev;
  h=from:subject:message-id;
- bh=hvAqTufzhOojxJ9ZjRR62jKrJGngJmyVl4diuLr5gAM=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ4Y8C6PszTcHJsasFHb3y2r5eUBXdZ3l+biMmvdXn/NGr
- A526FTuKGVhEONgkBVTZNm+3970ycM3gks3XXoPM4eVCWQIAxenAEzEz4GRYXPxw/MHpnEdzz83
- xXvuhzVvCiLf954QmCH2um/q4dmLarIY/sfzVcZsXxx79s9Pww0MTHvv3Cmp3rMgY9vq/X7bTJe
- n2zMCAA==
+ bh=Y1TJPt662hBSSQOfCJzcnzeri1OU9vTgDvhNcwok9XQ=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ4Y8898N9vGOPA/Zt0rMKM49cd4yx3GNKve5jXN8TMvmB
+ hRYX8nsKGVhEONgkBVTZNm+3970ycM3gks3XXoPM4eVCWQIAxenAEykz5eRoe33tMU7pt845v/O
+ Y+n/LL8Vu7m0ljOdm/M7Lf5KVdnmVYsYGVp3fj/uZRiudHU/96KAYwFLe5U2KuxavZ9j74HS599
+ 31bIAAA==
 X-Developer-Key: i=sven@svenpeter.dev; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@svenpeter.dev/default with
  auth_id=167
 X-Original-From: Sven Peter <sven@svenpeter.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250510_004510_815449_B7E6ECA6 
-X-CRM114-Status: UNSURE (   7.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250510_004510_605976_9773BDB1 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,127 +95,55 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Sven Peter <sven@svenpeter.dev>
 
-Add the eFuse controller and the nvmem cells required for both Type-C
-PHYs.
+Some nvmem controllers like Apple's eFuses or Nintendo's OTP have a cell
+size that's larger than one byte. Consumers may however still need
+access to a subset of bits that start after the first byte.
 
 Signed-off-by: Sven Peter <sven@svenpeter.dev>
 ---
- arch/arm64/boot/dts/apple/t8103.dtsi | 102 +++++++++++++++++++++++++++++++++++
- 1 file changed, 102 insertions(+)
+ drivers/nvmem/core.c | 15 ++++++++++++---
+ 1 file changed, 12 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
-index 97b6a067394e311ed19392a34237c74936dbb7d7..e7ca9204a9a2fedc70111fdd8ed3f7e8e4f8d266 100644
---- a/arch/arm64/boot/dts/apple/t8103.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8103.dtsi
-@@ -854,6 +854,108 @@ nvme@27bcc0000 {
- 			resets = <&ps_ans2>;
- 		};
+diff --git a/drivers/nvmem/core.c b/drivers/nvmem/core.c
+index fff85bbf0ecd0f638e21f127370105d9f79c00d2..1bd39b12c21a86b9b135be95251a52a10543c2ea 100644
+--- a/drivers/nvmem/core.c
++++ b/drivers/nvmem/core.c
+@@ -1630,15 +1630,24 @@ EXPORT_SYMBOL_GPL(nvmem_cell_put);
+ static void nvmem_shift_read_buffer_in_place(struct nvmem_cell_entry *cell, void *buf)
+ {
+ 	u8 *p, *b;
+-	int i, extra, bit_offset = cell->bit_offset;
++	int i, padding, extra, bit_offset = cell->bit_offset;
++	int bytes = cell->bytes;
  
-+		efuse@23d2bc000 {
-+			compatible = "apple,t8103-efuses", "apple,efuses";
-+			reg = <0x2 0x3d2bc000 0x0 0x1000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
+ 	p = b = buf;
+ 	if (bit_offset) {
++		/* Remove any full bytes at the beginning that contain no bits of interest */
++		padding = bit_offset / BITS_PER_BYTE;
++		if (padding) {
++			memmove(buf, buf + padding, bytes - padding);
++			bit_offset -= BITS_PER_BYTE * padding;
++			bytes -= padding;
++		}
 +
-+			atcphy0_auspll_rodco_bias_adjust: efuse@430,26 {
-+				reg = <0x430 4>;
-+				bits = <26 3>;
-+			};
-+
-+			atcphy0_auspll_rodco_encap: efuse@430,29 {
-+				reg = <0x430 4>;
-+				bits = <29 2>;
-+			};
-+
-+			atcphy0_auspll_dtc_vreg_adjust: efuse@430,31 {
-+				reg = <0x430 8>;
-+				bits = <31 3>;
-+			};
-+
-+			atcphy0_auspll_fracn_dll_start_capcode: efuse@434,2 {
-+				reg = <0x434 4>;
-+				bits = <2 2>;
-+			};
-+
-+			atcphy0_aus_cmn_shm_vreg_trim: efuse@434,4 {
-+				reg = <0x434 4>;
-+				bits = <4 5>;
-+			};
-+
-+			atcphy0_cio3pll_dco_coarsebin0: efuse@434,9 {
-+				reg = <0x434 4>;
-+				bits = <9 6>;
-+			};
-+
-+			atcphy0_cio3pll_dco_coarsebin1: efuse@434,15 {
-+				reg = <0x434 4>;
-+				bits = <15 6>;
-+			};
-+
-+			atcphy0_cio3pll_dll_start_capcode: efuse@434,21 {
-+				reg = <0x434 4>;
-+				bits = <21 2>;
-+			};
-+
-+			atcphy0_cio3pll_dtc_vreg_adjust: efuse@434,23 {
-+				reg = <0x434 0x4>;
-+				bits = <23 3>;
-+			};
-+
-+			atcphy1_auspll_rodco_bias_adjust: efuse@438,4 {
-+				reg = <0x438 4>;
-+				bits = <4 3>;
-+			};
-+
-+			atcphy1_auspll_rodco_encap: efuse@438,7 {
-+				reg = <0x438 4>;
-+				bits = <7 2>;
-+			};
-+
-+			atcphy1_auspll_dtc_vreg_adjust: efuse@438,9 {
-+				reg = <0x438 4>;
-+				bits = <9 3>;
-+			};
-+
-+			atcphy1_auspll_fracn_dll_start_capcode: efuse@438,12 {
-+				reg = <0x438 4>;
-+				bits = <12 2>;
-+			};
-+
-+			atcphy1_aus_cmn_shm_vreg_trim: efuse@438,14 {
-+				reg = <0x438 4>;
-+				bits = <14 5>;
-+			};
-+
-+			atcphy1_cio3pll_dco_coarsebin0: efuse@438,19 {
-+				reg = <0x438 4>;
-+				bits = <19 6>;
-+			};
-+
-+			atcphy1_cio3pll_dco_coarsebin1: efuse@438,25 {
-+				reg = <0x438 4>;
-+				bits = <25 6>;
-+			};
-+
-+			atcphy1_cio3pll_dll_start_capcode: efuse@438,31 {
-+				reg = <0x438 4>;
-+				bits = <31 1>;
-+			};
-+
-+			atcphy1_cio3pll_dll_start_capcode_workaround: efuse@43c,0 {
-+				reg = <0x43c 0x4>;
-+				bits = <0 1>;
-+			};
-+
-+			atcphy1_cio3pll_dtc_vreg_adjust: efuse@43c,1 {
-+				reg = <0x43c 0x4>;
-+				bits = <1 3>;
-+			};
-+		};
-+
- 		pcie0_dart_0: iommu@681008000 {
- 			compatible = "apple,t8103-dart";
- 			reg = <0x6 0x81008000 0x0 0x4000>;
+ 		/* First shift */
+ 		*b++ >>= bit_offset;
+ 
+ 		/* setup rest of the bytes if any */
+-		for (i = 1; i < cell->bytes; i++) {
++		for (i = 1; i < bytes; i++) {
+ 			/* Get bits from next byte and shift them towards msb */
+ 			*p |= *b << (BITS_PER_BYTE - bit_offset);
+ 
+@@ -1651,7 +1660,7 @@ static void nvmem_shift_read_buffer_in_place(struct nvmem_cell_entry *cell, void
+ 	}
+ 
+ 	/* result fits in less bytes */
+-	extra = cell->bytes - DIV_ROUND_UP(cell->nbits, BITS_PER_BYTE);
++	extra = bytes - DIV_ROUND_UP(cell->nbits, BITS_PER_BYTE);
+ 	while (--extra >= 0)
+ 		*p-- = 0;
+ 
 
 -- 
 2.34.1
