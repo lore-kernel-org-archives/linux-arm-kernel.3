@@ -4,97 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A555C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 13:57:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12CB5C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 15:13:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HPNtmFJxQ6qfkaV/7sUcFpQ7Up10ht/uIC/UAoosXBs=; b=EG01NPULZ7w1tfIxupxM06A67O
-	76GyvujPFSWt493Q62arYGR0GQCqe2Kd8Y8t/RdjNvE2IpdxpS+QXW7DNsB/m3Dx64pm8gv1yt/dt
-	Hrfd59tPI1dgPWhgkIUqyPErfTqWrT6ktSh+IzUTe7xI0JDUsK5wmvRNOC+GJsyzSbHp1YBto5wU4
-	gaqLTx/JXLhyw3ovF8MGhgkUrIOcKNr/qLIDu+y/GD7lMta53+L6IPV0AE13GCS1j8UEh+Bb3Z9oC
-	+mAyNMQGvFK1Gham3qHLfMbCjvAuzsHiE/LlfyJuL++L/PdfUL4rYK5P48jCyZqDaDf0khltWg3tj
-	k4C1ipZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sR6qkQWtty2THn9HV/oPVYY8q0oy4myszmIk0XskAD4=; b=wOiENVlKO8bq2Z
+	r5CYZu95D8/sU1lIZ/mHPT1nVMcUAZaGI7wehqffWk+ml2qyKwCDyosVNquv703iUjingp2NITvSu
+	HhQj9IYkjQFuW2J4K0y/PfKNBdajWA7hTq3VNA3t4lNQsGQ6hoBNHIBz9mA0U4rHqV8gAp4qhlhb9
+	/IwfUqrkwXcwNd3xuTtLvpXL3OvkJUEHzeuk0+0NtMoV/4PMZYS4TobgTCfmUt48bi8+QttdewHzm
+	VkpbKgZKfMDcGU1YTVK4cnWHG6exk6rHhVHSy9+H+eS4G+zL9914do0TVogJjpBU51QW/5f5v2e+j
+	xvq1qeKYtp4c86Iues4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDkhD-000000060WM-1bod;
-	Sat, 10 May 2025 13:56:55 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1uDltT-000000064Sr-0HsR;
+	Sat, 10 May 2025 15:13:39 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDkZA-00000005znR-34FT
+	id 1uDlrN-0000000643W-2tAV
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 May 2025 13:48:41 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-7399838db7fso3012586b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 May 2025 06:48:36 -0700 (PDT)
+	Sat, 10 May 2025 15:11:31 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-73bf1cef6ceso3058990b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 May 2025 08:11:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746884916; x=1747489716; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HPNtmFJxQ6qfkaV/7sUcFpQ7Up10ht/uIC/UAoosXBs=;
-        b=bYNxZiqgiS9Hmc80MSPt+Q++Nw9r9Z40YfvVtigEkUCiqR7uvwKNkReNLwvyqeiiLG
-         q4eu1jN4hbml6KQMcasIIHXfhUXqh+w7Bgl5ipPxIkz6FIP+QYbMN2HZhl6rXdBN5BqC
-         zRDjnhpOlbFri/6l/a21GjHbP51jDUH+kd2dog0Th8VG2K0JGLEMuqMHpOINWtvUbwGZ
-         lpjGW2DO4wcVBCrqMnvnK94bcJpdE/7jEolqNPVmmlroJ/XGNSrpajfamKQIY2k/A2b/
-         AP1uGub6giEQh1DTxENgHoaUqHFy99jPVOqvZ+GjY40BxrH9vN1iJFo7kypVPH7Kdq31
-         vg3Q==
+        d=gmail.com; s=20230601; t=1746889889; x=1747494689; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=sR6qkQWtty2THn9HV/oPVYY8q0oy4myszmIk0XskAD4=;
+        b=ecVynSijW7BEfjbciGSR3o05uS6cSI0iY7KrBVMTiPestcX3r8sJ+JqrzmDnHvZT9n
+         tjvEtOXVM98sxtDIVwqwmMefySahWP3PK/M6y1MieA6pK7gwi77qXyzGwWYGDzRSsCxf
+         UtjN+aB5emSnmwLCd0Piw0JDU8HeOWoxJiFjeD9x7ekhy8dhsf2hPdr1zybmfkSCalCB
+         88Yefv2kQiD4FOYFYQJKuBfGNi+axSG2/r78SxvpB72+qBAdomXVccudrTyWS+tOtIQ0
+         mx7jEtaz92qCt7wrfiNYBxFPiA8VgDLt7AJRMVAtcYAgGYzMi9hF5O5Jzvu8hHUcSRQA
+         awRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746884916; x=1747489716;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=HPNtmFJxQ6qfkaV/7sUcFpQ7Up10ht/uIC/UAoosXBs=;
-        b=pAL5mDRgIf4ZoSuONn9T3z9SWszYKm+5FWa5eF4MorkJWXdOjrU1h6cV/tWPaMEn/s
-         pt2dCJRu/cLgOAXnVg5KBHfJtvrZoZ4dyI+b6SpXyUYeo+6wnfu6mAZYoJp6VTYpIOYC
-         ktwHQNccRy13yzbyhu7yhA9/VRwDWWi1rH8EhXwEHkC9jNvQ6rQsFqOFtWq6wMKP37xb
-         PnqiLoF8Tfse6F06+TwyBgPOyogtA1OFg4khiz2ic0DZY/xgwrMfQdqmU03RpTk5OJlO
-         du3kRShc8000R+EFsSiy4O8GUnBY9I3EqjXKbk0qlat2apQgbr+ZEzzK1KhLtc3zd0W7
-         qhjA==
-X-Gm-Message-State: AOJu0YxKjkUV/6PFiKm+bwdICER/bgIpZFFKtoMX0ODiTFUZoP/GwcWZ
-	jCbuB6Pnwc5l6HGKE0XHM9SG+CISBA47RCFDcPSrLISrB8zfk1HG
-X-Gm-Gg: ASbGncs11b6k851RmS3qqLRBp9sh5lOzivEGBU+xhHL2bg9FbAtdA98oWmjmXLfPdD4
-	cb/iSB3UVGuhieemxVb+GqNsVo7syYOP3Pe7rDFWDDkF2BA8vgBKkf7OSmGBMIcMpw9xdE7/EWL
-	KFmSCPzRJJC2iKTMV+EUvIeugxupYXY0LahhfWvO6S74s4+Ex/HYjczc81/jAALa/NFazdWmF7W
-	f0pfppiNI0ltHwKXpHEcyKYaugA7DIMhKj1kxV181s+C4EgcARVNMyHOwUnfeZuiVPdhHNtqkLg
-	7cbSUII6HtVGzBBqQwyqnEznnXGJpmV7Fs3wCsrRkzUbBfa4mFWaOPntoJo+nkcXciUXrTsCOvE
-	Ak9TAlaOyPp1GXg==
-X-Google-Smtp-Source: AGHT+IH9EOAr3sj5GMToa8RFMVGWPuFZ626Vwp9kQBaou2wEWvAFIFPcR7SdOshO8pN0E64g87eTdg==
-X-Received: by 2002:a05:6a00:138a:b0:73c:3f2e:5df5 with SMTP id d2e1a72fcca58-7423c06f4b4mr9918280b3a.9.1746884915850;
-        Sat, 10 May 2025 06:48:35 -0700 (PDT)
-Received: from KERNELXING-MC1.tencent.com ([114.253.36.190])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7423773939fsm3360424b3a.62.2025.05.10.06.48.31
+        d=1e100.net; s=20230601; t=1746889889; x=1747494689;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sR6qkQWtty2THn9HV/oPVYY8q0oy4myszmIk0XskAD4=;
+        b=WWXhqmYhVAb3DYABdlT2T+i6RFOULrrIoJJHtwvNxbqH+1U9VMNGcmxfGltLpj1xOc
+         +yDGOTrJ/WJkfVubt2HMifuePQX/j22gbtAACKLuNZ5/S357GLCroIg0wU8ptO1zgYGC
+         yJupDR0QqCa4d69ke7MJNZy1NcWt4X+cpAZkqD/QcUqWBSIPfKl80r0UhE1PQPP16Sog
+         tQZQGNSOnGJMwHQGX+jFqj6+Y5hy9WQM0NJ60lhxEKxYGuL9UNE2ADtzRKZjIUyI9lUa
+         g5Ly958xVtkeOReT3etRZ5FbeXaIsVt53OMejT9yw+69NqmRhCj5Jy7xVH8RAka2hv7k
+         skyA==
+X-Forwarded-Encrypted: i=1; AJvYcCVJHtE9Yx0OxBhQ4yTBo3I3z9cYHM2rt7d61tO6IblR+O686jS/793B2YJD0n/YZqyZZ+gsjvlnGyKyE7ju+5XG@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAK29G9YcI7Vjt/GaXQ4sB1CW+W55EjXpaMoX8gCJ+TsLBmxM6
+	7lGw8eSQhpcxuia02v86UN8M5gt/eIl4jSN3JHF6KjnHsTpPWPObriVkZg==
+X-Gm-Gg: ASbGncvf2yBAwBUlaCiuEaCM2ZJW9U2+faVg2fCQbcHv7xIRopXrLoECUwxKkiSydkV
+	2U/OQrnIiV6SLfLyepTrv0twezu75wSeWTF8h+ki06TqWrqXdnksnJK7ih67xbV1wVk5DtQy9hz
+	uB/V+WiJRWYQhFfeVBt3qwrr7QB65HDDk8JoSR7eM3NYBD/IRI5/TWhcYUqELIJfw+hNwezp4gh
+	ofJHHIb0AmpAmhEPqEt6KmLGLn2VS7aA6RQkkdM0Yt758QaZjZS2fLWW9H0+kbHl45BcN03D85L
+	REzRna/sHMm4NpwGXwQgPH/3bPVwkI9Xm2HeuEcY8ienEwJ0bB2sEA==
+X-Google-Smtp-Source: AGHT+IFqdmSlPKPteFj6aFoaXv53VGI6hMJqHMy/+z2wasnrmqyzjdM63pzuW5ZpYok0awQTBpZ+xg==
+X-Received: by 2002:a05:6a20:c6c8:b0:1f5:7873:304f with SMTP id adf61e73a8af0-215abcb169cmr11920239637.37.1746889888698;
+        Sat, 10 May 2025 08:11:28 -0700 (PDT)
+Received: from [127.0.1.1] ([59.188.211.160])
+        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-b2350ddca3asm2990493a12.58.2025.05.10.08.11.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 10 May 2025 06:48:35 -0700 (PDT)
-From: Jason Xing <kerneljasonxing@gmail.com>
-To: tariqt@nvidia.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	willemdebruijn.kernel@gmail.com,
-	irusskikh@marvell.com,
-	bharat@chelsio.com,
-	ayush.sawal@chelsio.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	Jason Xing <kernelxing@tencent.com>
-Subject: [PATCH net-next v2 3/3] net: stmmac: generate software timestamp just before the doorbell
-Date: Sat, 10 May 2025 21:48:12 +0800
-Message-Id: <20250510134812.48199-4-kerneljasonxing@gmail.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20250510134812.48199-1-kerneljasonxing@gmail.com>
-References: <20250510134812.48199-1-kerneljasonxing@gmail.com>
+        Sat, 10 May 2025 08:11:28 -0700 (PDT)
+From: Nick Chan <towinchenmi@gmail.com>
+Subject: [PATCH v7 00/21] drivers/perf: apple_m1: Add Apple A7-A11, T2 SoC
+ support
+Date: Sat, 10 May 2025 23:10:41 +0800
+Message-Id: <20250510-apple-cpmu-v7-0-bd505cb6c520@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHFsH2gC/3XOQWrDMBCF4asErasijSRr3FXvEbqYSKNEEMfGb
+ k1K8N0rB0otQ5dv4PuZh5h4zDyJt8NDjDznKfe3MvzLQYQL3c4scyxbgAKnQGtJw3BlGYbuSzp
+ yZCKZ1qIRBQwjp3x/xo4fZV/y9NmP38/2rNfrbwa2mVlLJRMGn4CC9ta8nzvK19fQd2LNzLClp
+ qJQKPqTaXRrgBH31PxPTaEn9gkpckSd9tRuqa2oXR9OgRRbp63nPXUbClhRV2jLGmyIgBztnjZ
+ /1Cpf0aZQYgyQAFyoH16W5QdDpCuiywEAAA==
+X-Change-ID: 20250211-apple-cpmu-5a5a3da39483
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Sven Peter <sven@svenpeter.dev>, 
+ Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Neal Gompa <neal@gompa.dev>
+Cc: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org, 
+ asahi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Nick Chan <towinchenmi@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4111; i=towinchenmi@gmail.com;
+ h=from:subject:message-id; bh=IImZvUkpMAnwhvmBNPBZuUuP3+ZC7bdMT4Tj48zkB6M=;
+ b=owEBbQKS/ZANAwAKAQHKCLemxQgkAcsmYgBoH2yHw4CuFivJusE7hlGbbgqG9szRqZ0CujA+7
+ 0Cf7L4U69mJAjMEAAEKAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCaB9shwAKCRABygi3psUI
+ JPFFEACjXZ1zkTpXhVHIBbRagB67W1YYYd1s69NMFjN6J086u6h0kJPWk9bwFUXgVaemwUZMZBV
+ AEcyPcPPaSI0suoozIWe4JQb2Gg/dp/m+/T2XApZGAZRiilFi+QNnKOO0Sobgkt6iXvrRZ3KRXp
+ u9FXdsXxxoabckir6nvpH72iE9f3W0V0Z9Hn5wdmVExSPtq0eudWTMEtH3VkncU/4kD96uK2hrn
+ hAe+BpWQQZt+AOiqa6fRgtcuWWLt+sYGQgidT2zXWXFiYmZ+gPGH2SqqqEbk1vpm+QsrGXsmL/J
+ MGjgXR4ziP4qsoW5Ma3cdKfrpP21hcmqIDh1cKCCsX6ZlJtpwhjrTjKu6s/+o4FrWdRBirggO3A
+ whENu/e8sEX/EcwzwYamt0bNQuweGptXfB4nAope7nVo0O7NrtYDoVSotGgxMYnyK1dzGkUPDNc
+ N4I6veIVcn+MsiERtigpbeBLW33lmJvcEqcQ3NQXuO7j3al91tbABzQ2LC8KMYUgKoeYj+4bqiN
+ HKkOk0fQonVU5JVruGDE4BlJQNHWlfPen+44A2ioNGQPJ4B2lB5f7rK/I2iOM6PLf6Tn49CHs0E
+ g4q9XSgp5Cs4gc7Uz7+wkflr+ceIg2xQLFKZwp2Vvzy7Mc3L2gULSGdYjxRNqXV1X7iJsBtIpxO
+ Vpaaq8ZLrM/OYFA==
+X-Developer-Key: i=towinchenmi@gmail.com; a=openpgp;
+ fpr=4B5278785C97ACF79C3C688301CA08B7A6C50824
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250510_064836_769765_A6A86115 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20250510_081129_736489_DDCF1BBF 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,61 +126,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jason Xing <kernelxing@tencent.com>
+This series adds support for the CPU PMU in the older Apple A7-A11, T2
+SoCs. These PMUs may have a different event layout, less counters, or
+deliver their interrupts via IRQ instead of a FIQ. Since some of those
+older SoCs support 32-bit EL0, counting for 32-bit EL0 also need to
+be enabled by the driver where applicable.
 
-Make sure the call of skb_tx_timestamp is as close as possbile to the
-doorbell.
+Patch 1 adds the DT bindings.
+Patch 2-7 prepares the driver to allow adding support for those
+older SoCs.
+Patch 8-12 adds support for the older SoCs.
+Patch 13-21 are the DT changes.
 
-The patch also adjusts the order of setting SKBTX_IN_PROGRESS and
-generate software timestamp so that without SOF_TIMESTAMPING_OPT_TX_SWHW
-being set the software and hardware timestamps will not appear in the
-error queue of socket nearly at the same time (Please see __skb_tstamp_tx()).
-
-Signed-off-by: Jason Xing <kernelxing@tencent.com>
+Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+Changes in v7:
+- Fix a W=1 compile warning in apple_pmu_get_event_idx() as appearently using GENMASK()
+in a function prototype causes a warning in GCC.
+- Link to v6: https://lore.kernel.org/r/20250407-apple-cpmu-v6-0-ae8c2f225c1f@gmail.com
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 28b62bd73e23..4446599ba6ee 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4497,8 +4497,6 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
- 	if (priv->sarc_type)
- 		stmmac_set_desc_sarc(priv, first, priv->sarc_type);
- 
--	skb_tx_timestamp(skb);
--
- 	if (unlikely((skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP) &&
- 		     priv->hwts_tx_en)) {
- 		/* declare that device is doing timestamping */
-@@ -4531,6 +4529,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
- 	}
- 
- 	netdev_tx_sent_queue(netdev_get_tx_queue(dev, queue), skb->len);
-+	skb_tx_timestamp(skb);
- 
- 	stmmac_flush_tx_descriptors(priv, queue);
- 	stmmac_tx_timer_arm(priv, queue);
-@@ -4774,8 +4773,6 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 	if (priv->sarc_type)
- 		stmmac_set_desc_sarc(priv, first, priv->sarc_type);
- 
--	skb_tx_timestamp(skb);
--
- 	/* Ready to fill the first descriptor and set the OWN bit w/o any
- 	 * problems because all the descriptors are actually ready to be
- 	 * passed to the DMA engine.
-@@ -4822,7 +4819,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 	netdev_tx_sent_queue(netdev_get_tx_queue(dev, queue), skb->len);
- 
- 	stmmac_enable_dma_transmission(priv, priv->ioaddr, queue);
--
-+	skb_tx_timestamp(skb);
- 	stmmac_flush_tx_descriptors(priv, queue);
- 	stmmac_tx_timer_arm(priv, queue);
- 
+Changes in v6:
+- Rebased on top of v6.15-rc1 (Conflict with FEAT_PMUv3 support for KVM on Apple Hardware)
+- Add patch to skip initialization of PMUv3 remap in EL1 even though not strictly needed
+- Include DT patches
+- Link to v5: https://lore.kernel.org/r/20250228-apple-cpmu-v5-0-9e124cd28ed4@gmail.com
+
+Changes in v5:
+- Slightly change "drivers/perf: apple_m1: Add Apple A11 Support", to keep things in
+chronological order.
+- Link to v4: https://lore.kernel.org/r/20250214-apple-cpmu-v4-0-ffca0e45147e@gmail.com
+
+Changes in v4:
+- Support per-implementation event attr group
+- Fix Apple A7 event attr groups
+- Link to v3: https://lore.kernel.org/r/20250213-apple-cpmu-v3-0-be7f8aded81f@gmail.com
+
+Changes in v3:
+- Configure PMC8 and PMC9 for 32-bit EL0
+- Remove redundant _common suffix from shared functions
+- Link to v2: https://lore.kernel.org/r/20250213-apple-cpmu-v2-0-87b361932e88@gmail.com
+
+Changes in v2:
+- Remove unused flags parameter from apple_pmu_init_common()
+- Link to v1: https://lore.kernel.org/r/20250212-apple-cpmu-v1-0-f8c7f2ac1743@gmail.com
+
+---
+Nick Chan (21):
+      dt-bindings: arm: pmu: Add Apple A7-A11 SoC CPU PMU compatibles
+      drivers/perf: apple_m1: Only init PMUv3 remap when EL2 is available
+      drivers/perf: apple_m1: Support per-implementation event tables
+      drivers/perf: apple_m1: Support a per-implementation number of counters
+      drivers/perf: apple_m1: Support configuring counters for 32-bit EL0
+      drivers/perf: apple_m1: Support per-implementation PMU startup
+      drivers/perf: apple_m1: Support per-implementation event attr group
+      drivers/perf: apple_m1: Add Apple A7 support
+      drivers/perf: apple_m1: Add Apple A8/A8X support
+      drivers/perf: apple_m1: Add A9/A9X support
+      drivers/perf: apple_m1: Add Apple A10/A10X/T2 Support
+      drivers/perf: apple_m1: Add Apple A11 Support
+      arm64: dts: apple: s5l8960x: Add CPU PMU nodes
+      arm64: dts: apple: t7000: Add CPU PMU nodes
+      arm64: dts: apple: t7001: Add CPU PMU nodes
+      arm64: dts: apple: s800-0-3: Add CPU PMU nodes
+      arm64: dts: apple: s8001: Add CPU PMU nodes
+      arm64: dts: apple: t8010: Add CPU PMU nodes
+      arm64: dts: apple: t8011: Add CPU PMU nodes
+      arm64: dts: apple: t8012: Add CPU PMU nodes
+      arm64: dts: apple: t8015: Add CPU PMU nodes
+
+ Documentation/devicetree/bindings/arm/pmu.yaml |   6 +
+ arch/arm64/boot/dts/apple/s5l8960x.dtsi        |   8 +
+ arch/arm64/boot/dts/apple/s800-0-3.dtsi        |   8 +
+ arch/arm64/boot/dts/apple/s8001.dtsi           |   8 +
+ arch/arm64/boot/dts/apple/t7000.dtsi           |   8 +
+ arch/arm64/boot/dts/apple/t7001.dtsi           |   9 +
+ arch/arm64/boot/dts/apple/t8010.dtsi           |   8 +
+ arch/arm64/boot/dts/apple/t8011.dtsi           |   9 +
+ arch/arm64/boot/dts/apple/t8012.dtsi           |   8 +
+ arch/arm64/boot/dts/apple/t8015.dtsi           |  24 +
+ arch/arm64/include/asm/apple_m1_pmu.h          |   3 +
+ drivers/perf/apple_m1_cpu_pmu.c                | 807 +++++++++++++++++++++++--
+ 12 files changed, 871 insertions(+), 35 deletions(-)
+---
+base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+change-id: 20250211-apple-cpmu-5a5a3da39483
+
+Best regards,
 -- 
-2.43.5
+Nick Chan <towinchenmi@gmail.com>
 
 
