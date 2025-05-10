@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0FFBC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 01:26:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8677EC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 01:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sF2Bg8dFphUkCryZWbe4OS7qSU2jUKmCAqLckdO43HE=; b=kbJKNjZEcAl1He4u4eHhc3Wi4i
-	bznzYmlI0w7yY6zlXl7F0/NHLnTtViB0GCmLx8YBdW0ISqdQbSg1DFqdMnIgqa9LNI0y6M6XdROhc
-	RYqPTK5unqTPJePfBOlzDRz8B9bKQJqBjkjqIwm4llvm0Nmax8R7jDl9XQp2n7sN2y69VWrDTPcj2
-	vG6/BzNYg3NK3siWDDyN065DwgMAaloh1noTUwFLvwYm0YXN2YNJXSsrxuNH4DKjinJla+PqmuIiX
-	MxhbDMKOwWr8DqR93LiBC8Fx75FFOiaK4j9pkketdwuewZM/WiY7irCNszTx/v/L6jCH/MLua7E7S
-	W+35Mf3Q==;
+	bh=KcbRw7WL1aA35JdPyMCk8b9GQjgHfODnY0TIqzziuqQ=; b=N7i57LbKP1p+K2sgwwRmh4/HCg
+	X86hyupazkGMFcnFoA8CuZdAmv4clU8BnBRn4kP3saPl+K34ZwxQgCrCqHSD77GpTkdJSU5dVb72t
+	JPvgzj0yadNzM7b7/0CqIpp0f6/k5acSEHeXNjns+I5w+tTYBdT4kIGz5IbTPYPVBUoVVP/3c2Tzl
+	N1R9t+/gxBQj53g320Lzo0iHA2aCP8vhPLumS4FsL06GRpQklgSYHRJPPmdxJW4JSMJYoJXPY8YaE
+	myHXx7VEXi1RuabIFcUwEr3kvSgDvSEOB14KraMvWc2m3wKub46zhuPG4cW/fWrwa/VAQF0Tz5pWa
+	OYVimnQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDYzH-00000005Fy4-04sJ;
-	Sat, 10 May 2025 01:26:47 +0000
+	id 1uDZ1E-00000005G7l-2ulf;
+	Sat, 10 May 2025 01:28:48 +0000
 Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDYrd-00000005FFn-1rBx
+	id 1uDYre-00000005FGP-3bTa
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 10 May 2025 01:18:58 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43cfdc2c8c9so14167055e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 18:18:53 -0700 (PDT)
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43d2d952eb1so19151955e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 May 2025 18:18:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746839932; x=1747444732; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1746839933; x=1747444733; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=sF2Bg8dFphUkCryZWbe4OS7qSU2jUKmCAqLckdO43HE=;
-        b=bpcVPWzfGW/KnkHUNAm7At7nkS/SU42SDAi+p3NpqsmdyTkyJb2FGSE5yrEe0en1Km
-         U5xeEZF18VTh0GY6AylD5OZIU87SxA/Aeg/N/tzjqs6sZVxdqaIVHR0MGaVKyFlZHJ6U
-         fudJKisjyduKsVrqgSFwUaX3mWsFbCuAh31KCpMIadV3dbSNUqA2iex88o5b5VSOcosk
-         vnmMrMJrpPK8lXD2eqjZwtE3ieeF47PRzd/z+0AyiTZiXLIsFkNcaxM4gkTdBUCQ+mTs
-         XGUZXkA7rA/taKhr5t/9d6owVyYr/BYvtvzQ4vIENfkHXexO3ye9Mn3RHLMMSJrrEgMI
-         whiQ==
+        bh=KcbRw7WL1aA35JdPyMCk8b9GQjgHfODnY0TIqzziuqQ=;
+        b=MmU+CWv9qnjy/j90IGdiknrrijKR0dqQwoQPziBh0piz/bC/CJeIUvs3bERzw/xY0j
+         bxLB/QaiFeSPiz9JYq6WTczFZ6spPMnntWA8PLrPclPpTQ6pWZbp6JazjHy5CGguGyAU
+         V1TDZqnz+ydZ2wi9XgNU8oloI9dmHPQmLbJnyVbhpcwvY6L9fO0fdED1iXGNbpHFJvkY
+         2exaIy9qavkR3wg2F2oaET0Wb+6nzHCF/ZVHT1nno6ZpyEul+1EZc14YnAgbAMwbcH+q
+         dASok/ifea0I2apLPCCYwrFwVwMyc3LYBUzjMZZbyj/cXIhaiYaEMo2gsTkCNWponlSs
+         DR5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746839932; x=1747444732;
+        d=1e100.net; s=20230601; t=1746839933; x=1747444733;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=sF2Bg8dFphUkCryZWbe4OS7qSU2jUKmCAqLckdO43HE=;
-        b=leWDJCEEcG/lO2XQpBT5mP/CUmWFuVtSj8PxsiCdTAL2TUdOlGcbGZKnBC+pFlaEHP
-         GDR4k3djNBc1eDnk/OiWVGbBf/RwFyksP186vyODW/bwgxU59P9rlG/CoC+qnwi4Egop
-         gxJhwqdeR5/CEH+IoLv3+/iCYznNaPkO8fXpEPYq2G1Lk6DLoFdgEy4PuUVYO5j4YPQ1
-         I31WlMbZo3i8PRo8URwoyWAQA3UWskjoeedqBYZHQ0fmNAD12c5ONHYNS7hMqhyRhtg9
-         EYGtfJvyFJ7lIbDUQrGpVdGYEasG4EyXzicj+v3fzciAo8CzKu4o60Sy+iwx6D9Kkl3O
-         XwOA==
-X-Forwarded-Encrypted: i=1; AJvYcCX45DMHrz0v00E+8RnUxMZXb1MhN62/T4IMqo3BlsvdLBh1GNuVFQM28i5gtMapJG6+eWQmhMjHX1iwjY+WOqRh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLwfzkhtb3eW1GS7tCpRxNSomH+0jDQxIxJoNwSUS4BnCcNI9n
-	hDN269wgyYroUwH4lCkgFG3SNnw+YRC/NMpp7l5BiwEeDN5CE5Br
-X-Gm-Gg: ASbGncuLT0rm3U4yqOMkdyPcPGmt7SqNj6GbCrgBjpnYSnRzR4qzB09+gGBBIYVCrbQ
-	B9dR2nP7xpcnmTISRA53Iy8F3XihHERFwZ+p/GlpwaQJDQffPtZDMk2SG7DEIue4VIjUqQL4Ln3
-	ovUoXJ1Lmam3oyu8G5x2Dc5ao09fx+hZHzczePuOI8YsX3dJz4GC7CeYxDtIYsrMCrOVyD83azs
-	5WKSAsAqBki+EV03cwJ4VFmQ04TdK0voaZQ62ieoa7x1ywo/1BtJaUwxtS8Gx7d/9VZDTnQ+fKc
-	cliR54w+Oh/+QsTLL1uy4b771MZSqcHgSdCcvHULjeyaXsyZTBl9k8IvFJjvlRoNge/qkAI=
-X-Google-Smtp-Source: AGHT+IHYdvdXBuzhOXulslg3FcTy7/1wnjTVOQ8CVC6MbjHWdXZlynWwgpVoO+4Ylf2Y6Y2tzQn0Xg==
-X-Received: by 2002:a05:600c:1913:b0:43d:94:2d1e with SMTP id 5b1f17b1804b1-442d6d3dc11mr49327095e9.13.1746839931663;
-        Fri, 09 May 2025 18:18:51 -0700 (PDT)
+        bh=KcbRw7WL1aA35JdPyMCk8b9GQjgHfODnY0TIqzziuqQ=;
+        b=xJnHLyKedHTi1N5FYOxnSggMLv80/CTmQZdD5ptWgO5bv3jo6llE8vASur48Lpzy7l
+         piaJvJLNvjziDa3mmNjX/kyPGuCV29cCwQupFHkSREpzlPCUNlUDcEdg3DryDtg/2Nsi
+         KDvPwAX4UDaf/ps5M6MEaFMtvVS8bavmvuIMMxKM/Q9MsULmKj+wDxZ1iurMdLnyT0ez
+         z4PB7WXO+Jir1XJHEE5BpU9sjNa+ihKFw2RUD0InejZ2/qnXrXyQcUy4FPp2yA0EyRKC
+         9CUAJvDSQFAkWe2UrJCbh5Mmp2Xm/EdUnXft71HDLGBJ4bkeIfYJsbjT7n7t7FdodmpS
+         OT8w==
+X-Forwarded-Encrypted: i=1; AJvYcCVfN05ClIqfxnrOyLFDkuquoZ8bQYgNJIoueZJ1BJRhX+usoZomU7MRltaD/89I0Q7HUCdopAiXTdh+eqkrTXte@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzu6sc1VoiWSH9SM2LmL2H4L8JVRZn2ltZe+wOmjlunPDo5qU7r
+	H/Hm4ddEDbrfQC5tHmc1Gip+2xXpI8dfCaDmijiHBHyeR0mX4gyU
+X-Gm-Gg: ASbGnctpH3y8lBrSu7lKpLuPFKQ0+OA3GmX7xe6ISepUWhh+A/1ig2sRo27vA1RiREV
+	PyZGBRfyG1WPHOpfkX18GuQveDudXSXXFXxWBlzxTdswMksNUr+zv+N8LJKdSTe8G1KomZLFi9v
+	+piNOzPZU5S4yee32H7OPMmz5dBdKYkDWhPQwhBv3JT6W4+SdhJlZXmzVa7mEgAiy+lPCOXDke+
+	OabQeArA0tnTjE0JwQ0YZVuQotG/ZiR/ivbTexSSkrjhqaIHuZof52sgkbxQB3l7iDtOp5DEpTG
+	zYJhFwp40To7eH3Uv9X0ar+8TLokhWcz0UDGPqf2Z0C8FSvfgDzGIbfhHKFp8NFLcQ1s2OM=
+X-Google-Smtp-Source: AGHT+IHslDelJiKBr0u5zFkfUSe0cpcfUyw7dLCX3sH7zQ7C2K0jEXgxo60/V/aqM7KalwC2bIriTg==
+X-Received: by 2002:a05:600c:8207:b0:43c:ee62:33f5 with SMTP id 5b1f17b1804b1-442d6ddcf2dmr42021515e9.27.1746839933274;
+        Fri, 09 May 2025 18:18:53 -0700 (PDT)
 Received: from localhost.localdomain ([176.206.99.211])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442cd32f0easm86967305e9.12.2025.05.09.18.18.50
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442cd32f0easm86967305e9.12.2025.05.09.18.18.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 May 2025 18:18:51 -0700 (PDT)
+        Fri, 09 May 2025 18:18:53 -0700 (PDT)
 From: Denis Benato <benato.denis96@gmail.com>
 To: Russell King <linux@armlinux.org.uk>
 Cc: Shawn Guo <shawnguo@kernel.org>,
@@ -78,17 +78,17 @@ Cc: Shawn Guo <shawnguo@kernel.org>,
 	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Denis Benato <benato.denis96@gmail.com>
-Subject: [PATCH 1/3] ARM: imx_v4_v5_defconfig: define CONFIG_ARCH_NXP
-Date: Sat, 10 May 2025 03:18:04 +0200
-Message-ID: <20250510011806.13470-2-benato.denis96@gmail.com>
+Subject: [PATCH 3/3] ARM: imxrt_defconfig: define CONFIG_ARCH_NXP
+Date: Sat, 10 May 2025 03:18:06 +0200
+Message-ID: <20250510011806.13470-4-benato.denis96@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250510011806.13470-1-benato.denis96@gmail.com>
 References: <20250510011806.13470-1-benato.denis96@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_181853_478624_207F3FB2 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20250509_181854_892379_068DCC3E 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,21 +108,21 @@ as it depends on CONFIG_ARCH_NXP.
 
 Signed-off-by: Denis Benato <benato.denis96@gmail.com>
 ---
- arch/arm/configs/imx_v4_v5_defconfig | 1 +
+ arch/arm/configs/imxrt_defconfig | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm/configs/imx_v4_v5_defconfig b/arch/arm/configs/imx_v4_v5_defconfig
-index 875c8cdbada7..19e26b4a9fb7 100644
---- a/arch/arm/configs/imx_v4_v5_defconfig
-+++ b/arch/arm/configs/imx_v4_v5_defconfig
-@@ -11,6 +11,7 @@ CONFIG_PROFILING=y
- CONFIG_ARCH_MULTI_V4T=y
- CONFIG_ARCH_MULTI_V5=y
- # CONFIG_ARCH_MULTI_V7 is not set
+diff --git a/arch/arm/configs/imxrt_defconfig b/arch/arm/configs/imxrt_defconfig
+index 52dba3762996..7cc1555c0231 100644
+--- a/arch/arm/configs/imxrt_defconfig
++++ b/arch/arm/configs/imxrt_defconfig
+@@ -2,6 +2,7 @@
+ CONFIG_BPF_SYSCALL=y
+ CONFIG_SCHED_AUTOGROUP=y
+ # CONFIG_MMU is not set
 +CONFIG_ARCH_NXP=y
  CONFIG_ARCH_MXC=y
- CONFIG_SOC_IMX1=y
- CONFIG_SOC_IMX25=y
+ CONFIG_SOC_IMXRT=y
+ CONFIG_SET_MEM_PARAM=y
 -- 
 2.49.0
 
