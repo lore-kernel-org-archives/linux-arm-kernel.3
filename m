@@ -4,59 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65523C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 14:38:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D79D9C3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 14:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2gntzzHgR7hVfcxIHz+wXqJ/img6vkZtc4/PYkuXugA=; b=bzYjwUShRuZkB7MSDmMsAMc6hx
-	CpZ4w9ghy+GZssDuLbqwKUVxI07B6GUzek5h41VHmOIxTYhJ9TCdmJg3/umR1DRIjORTUJZyvyLrE
-	IszLaaiyHXXJP5t4MtIUrVh72e3jbAjxQwmI4kzo700X7+FrMjx5dfVwPpJokiVZymb2NObnEQJ14
-	+yxKSJJsfntRMz3rxZCsIsG7yVCA1F/k3aco4OMJTlMZ9+A4FI/UitZ8+wBeHe+XWwexypBalc7Jz
-	PcU9e3hXCCwW/OMF9pz2YOpuVsSD/ALudWIrkoU/F8zO6eTJBRLBUP+shM0n2ZGNKYJdTlEUO87D8
-	obSgt9+w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3EHXB+FxOQEuxjJuPZ3FDlU1soKtjeNeGrzIBOUM2w0=; b=dIQJYCTjYqqRaqz3+K3vTnlODj
+	9gVOIPtcwLqZi7Mz6F8+DT/TbqRaBt6TJHc7tveSOoyg6isqLnUtDikA4/0sC96Q9ZMn2ZhFPpfzt
+	gDLlHoo2kezc0ldlCb2Mlzw1vuWrO3uI1TQOUqs6kQSWRD9Wvp7VOAVih2IHQUe2vPDuXmxW8rKK5
+	oISGdddgui20eFQpKSNqFhwaOfN010gPrcERDnnR1AQwyLwUUsDajaXQ6k9RNdIIIxfdZRPTLENpD
+	InQkZ7kOhnWY8uLCGNF5FPgcTMIELlANOMq1dD4FPAf15GkFkS1ZRQFwyirIBMLjVPGAGF6O9OtUG
+	yFH4fI1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE7oz-00000007Ncn-0E81;
-	Sun, 11 May 2025 14:38:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uE7sw-00000007NxA-2sEt;
+	Sun, 11 May 2025 14:42:34 +0000
+Received: from mout.gmx.net ([212.227.15.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE7XG-00000007LYc-0rOc;
-	Sun, 11 May 2025 14:20:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=2gntzzHgR7hVfcxIHz+wXqJ/img6vkZtc4/PYkuXugA=; b=kDqIIznaiUjPAJRRNSn0FeFx1r
-	dKFLh+RvLe+qT1QJ2MjVUAg/tANzgFbygeQyAcSr3yMNdrIneAYImYpW6P34zPEsfbccegrW8vxUA
-	b70hkKySLRD/NXTdvpp0bjE1gBR8VHatSWWZ3jV7hSSnJGnXNd+0w+onBPx8dBZkO8HZa2gonPDVt
-	bZXOs8456js2r6+WD+dyYQbtoc2rWbYG+5pZdIAsCfskSPu5wgSrIQPVtydjmFIMZ+z6CVtXtJRe4
-	v82/+uH/Gh/KavNsMuLaJZcYm3I+GrIwlMcdvF4a/7tdFtBBgl/78BEJpUMwDU80jL0gKf33pjboN
-	16y4ZSsg==;
-Received: from mxout2.routing.net ([2a03:2900:1:a::b])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uE7XA-0000000Gcgt-2R1c;
-	Sun, 11 May 2025 14:20:07 +0000
-Received: from mxbox2.masterlogin.de (unknown [192.168.10.89])
-	by mxout2.routing.net (Postfix) with ESMTP id C8D515FA5F;
-	Sun, 11 May 2025 14:19:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1746973196;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2gntzzHgR7hVfcxIHz+wXqJ/img6vkZtc4/PYkuXugA=;
-	b=gYWP3sZwAhxZTSl1XMLbT0UyOQ0aJ4LcREUZ12FDO3FyR6DvzBD8ieFhxWRBJ6tLyxp9Jm
-	d1m5vhDc/xh3p1LSMvHdlqa4WlDGjydR1vrw936bbYxfrIrEV86MFlb8Wqhrf1V9LOSt1Y
-	tjlNMMM8ldXtJvgMxTEXqYvMPzEuajo=
-Received: from frank-u24.. (fttx-pool-194.15.84.99.bambit.de [194.15.84.99])
-	by mxbox2.masterlogin.de (Postfix) with ESMTPSA id 98799100500;
-	Sun, 11 May 2025 14:19:55 +0000 (UTC)
-From: Frank Wunderlich <linux@fw-web.de>
+	id 1uE7dR-00000007MFE-05sN;
+	Sun, 11 May 2025 14:26:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1746973558; x=1747578358; i=frank-w@public-files.de;
+	bh=3EHXB+FxOQEuxjJuPZ3FDlU1soKtjeNeGrzIBOUM2w0=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:
+	 MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=dRkp7uOc33hpr4LZp+COdYyo1EAkfc0KFy7sGtytb9qSiOUXIwhvuHGz3W//v5CS
+	 sZXWIbPf0AfER9lMbM6CO6Esc2+JXVOAWomDRSX2rCmPqEY1vtZ1vxC26cQCyDXgW
+	 nwjNkY44M68NHW/wnr4SQeda1qHg+1Pi1lwlR11krWmkdT5gt2UHe/4BVigjOqfdk
+	 3s/d4FygiYG6a3EkgHj+UEy2gNhhUo7RDWKpQw98tEVxMPu69Vd5kBsrWvzFMPlj6
+	 8yWnuKWCzqB89P1timTHStx9C6Wm8Kw2vEju42LTGAZQoZMGQ+FraJgEroTYiyR3H
+	 E05Nwz/DXKg2z4APMQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from frank-u24 ([194.15.84.99]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1My36T-1vDMoj1kTf-00z1uw; Sun, 11
+ May 2025 16:25:58 +0200
+From: Frank Wunderlich <frank-w@public-files.de>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Vladimir Oltean <olteanv@gmail.com>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -81,18 +68,65 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v1 04/14] arm64: dts: mediatek: mt7988: add spi controllers
-Date: Sun, 11 May 2025 16:19:20 +0200
-Message-ID: <20250511141942.10284-5-linux@fw-web.de>
+Subject: [PATCH v1 09/14] arm64: dts: mediatek: mt7988: add switch node
+Date: Sun, 11 May 2025 16:25:48 +0200
+Message-ID: <20250511142549.10881-1-frank-w@public-files.de>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250511141942.10284-1-linux@fw-web.de>
-References: <20250511141942.10284-1-linux@fw-web.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Mail-ID: 5110cbfc-28b8-49e4-b9da-560d0bd630a5
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:vKiLc5DHpHJt5lRc77jonAK1eTfjqeCfBfejoAeoivlrnei2XED
+ rU19O80TViMd9aYFM5UGn2dL5Tl6TJ0Jv9KS9B52SXD9eAsXZieK3YEv/aYCKAJ3DJ6QH+y
+ jde+tOdfuKmbvfsFOWyxGdWN/2sN1XFIqxWicedhJh0IA2M92NsSY/RrIVivVyuvMaywgix
+ V0W3cy28Z5Q7bkjXvxSdg==
+UI-OutboundReport: notjunk:1;M01:P0:GsdF6h121W4=;k/a7UcqLJK2SijwMcRc3VN0bUZM
+ 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
+ nPnqftf2SQibkH4V703lxjEMQW32icT2RTe9132HR0KtzOO6zfC4xBua61tK9NCn00+YhIX8d
+ tiN1yhr/Gh3TG8ss8y3zD+dbA8Mf9nczVb1JlfYyB/y2SP3nX0Mia07eIetn8ajrT2KviUZ1Q
+ xCDkiSe9yuf28u7lPOz7HITDHggTamXy/FxPs9GPDhQEo6w+8Ff8GtXfzh87xg4VBanvXVIRN
+ DzhXmbYtvnTVvVHEqFEjBi4uVALCKrYI2ujb/B6zSRCuxlbNQirj5hO/kfBUx+xFfkqLWLdcf
+ lboFq2fHwf1u/LYdheAa1ArXr2s4Sb0ZWO3wtQEwhcom/Od/bjhgUKoK0Pc4PAT+yQ+iY5ibE
+ m1uchC6VbdD6Bl4oAkR+E5k9MThXpoTBmA8hwwapCl5GROjjJPXnW4Zd3jUp1HSy8EsT+Szl6
+ dbAPTscq5LfaHher4sSQ6AQ2G7A5GH1WHD4m2qqYMOg5MmyM+ia2VOXRmBILqLPm5gxGXcFWG
+ VtO7MkPYrZEwHiatNmze5t2fQq5Q3L5W+lg+F0dYzkxm2MgfhvMPpgZDb/iQZiVPlWOHrCFEX
+ ww7eZCUHByPyrPwJL03iiqSjxJRYwR6kYXi3X+gMzgLINw33rw0P9P6awJGDWd4oYKbb1fKFC
+ vvMPke2aLQW3tXMyh5JgqmQUWKc38jyE7iKDrsA5RmNFmNMxXms6ndqfx2lTdZs20aRS4WJfU
+ c1O1+D981IOt4xstam6xGwBGdf1LIXV/ZTDsgS5TFDyK9WMdlbK1fmsGl5lXjHWJo6u3+D8c4
+ J+6OrQn/TmYVXxIXxMnJzTrYhpqJyj07/X6xW/bNxs/hV2pH92jVFT+yuM1PLUKekTV4mz7d0
+ TUX6Dt5MH39V2iF9ljdAbwz1l
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_152004_862027_D9CB8D65 
-X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-CacheID: sfid-20250511_072633_360551_9D7BBE5F 
+X-CRM114-Status: UNSURE (   9.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,73 +142,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Wunderlich <frank-w@public-files.de>
-
-Add SPI controllers for mt7988.
+Add mt7988 builtin mt753x switch nodes.
 
 Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
----
- arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 45 +++++++++++++++++++++++
- 1 file changed, 45 insertions(+)
+=2D--
+ arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 166 ++++++++++++++++++++++
+ 1 file changed, 166 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-index 8f6d1dfae24a..8c31935f4ab0 100644
---- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/boot/d=
+ts/mediatek/mt7988a.dtsi
+index aa0947a555aa..ab7612916a13 100644
+=2D-- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-@@ -311,6 +311,51 @@ i2c2: i2c@11005000 {
- 			status = "disabled";
+@@ -5,6 +5,7 @@
+ #include <dt-bindings/phy/phy.h>
+ #include <dt-bindings/pinctrl/mt65xx.h>
+ #include <dt-bindings/reset/mediatek,mt7988-resets.h>
++#include <dt-bindings/leds/common.h>
+=20
+ / {
+ 	compatible =3D "mediatek,mt7988a";
+@@ -742,6 +743,171 @@ ethsys: clock-controller@15000000 {
+ 			#reset-cells =3D <1>;
  		};
- 
-+		spi0: spi@11007000 {
-+			compatible = "mediatek,mt7988-spi-quad", "mediatek,spi-ipm";
-+			reg = <0 0x11007000 0 0x100>;
-+			interrupts = <GIC_SPI 140 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&topckgen CLK_TOP_MPLL_D2>,
-+				 <&topckgen CLK_TOP_SPI_SEL>,
-+				 <&infracfg CLK_INFRA_104M_SPI0>,
-+				 <&infracfg CLK_INFRA_66M_SPI0_HCK>;
-+			clock-names = "parent-clk", "sel-clk", "spi-clk",
-+				      "hclk";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
+=20
++		switch: switch@15020000 {
++			compatible =3D "mediatek,mt7988-switch";
++			reg =3D <0 0x15020000 0 0x8000>;
++			interrupt-controller;
++			#interrupt-cells =3D <1>;
++			interrupt-parent =3D <&gic>;
++			interrupts =3D <GIC_SPI 209 IRQ_TYPE_LEVEL_HIGH>;
++			resets =3D <&ethwarp MT7988_ETHWARP_RST_SWITCH>;
++
++			ports {
++				#address-cells =3D <1>;
++				#size-cells =3D <0>;
++
++				gsw_port0: port@0 {
++					reg =3D <0>;
++					label =3D "wan";
++					phy-mode =3D "internal";
++					phy-handle =3D <&gsw_phy0>;
++				};
++
++				gsw_port1: port@1 {
++					reg =3D <1>;
++					label =3D "lan1";
++					phy-mode =3D "internal";
++					phy-handle =3D <&gsw_phy1>;
++				};
++
++				gsw_port2: port@2 {
++					reg =3D <2>;
++					label =3D "lan2";
++					phy-mode =3D "internal";
++					phy-handle =3D <&gsw_phy2>;
++				};
++
++				gsw_port3: port@3 {
++					reg =3D <3>;
++					label =3D "lan3";
++					phy-mode =3D "internal";
++					phy-handle =3D <&gsw_phy3>;
++				};
++
++				port@6 {
++					reg =3D <6>;
++					ethernet =3D <&gmac0>;
++					phy-mode =3D "internal";
++
++					fixed-link {
++						speed =3D <10000>;
++						full-duplex;
++						pause;
++					};
++				};
++			};
++
++			mdio {
++				#address-cells =3D <1>;
++				#size-cells =3D <0>;
++				mediatek,pio =3D <&pio>;
++
++				gsw_phy0: ethernet-phy@0 {
++					compatible =3D "ethernet-phy-ieee802.3-c22";
++					reg =3D <0>;
++					interrupts =3D <0>;
++					phy-mode =3D "internal";
++					nvmem-cells =3D <&phy_calibration_p0>;
++					nvmem-cell-names =3D "phy-cal-data";
++
++					leds {
++						#address-cells =3D <1>;
++						#size-cells =3D <0>;
++
++						gsw_phy0_led0: led@0 {
++							reg =3D <0>;
++							function =3D LED_FUNCTION_LAN;
++							status =3D "disabled";
++						};
++
++						gsw_phy0_led1: led@1 {
++							reg =3D <1>;
++							function =3D LED_FUNCTION_LAN;
++							status =3D "disabled";
++						};
++					};
++				};
++
++				gsw_phy1: ethernet-phy@1 {
++					compatible =3D "ethernet-phy-ieee802.3-c22";
++					reg =3D <1>;
++					interrupts =3D <1>;
++					phy-mode =3D "internal";
++					nvmem-cells =3D <&phy_calibration_p1>;
++					nvmem-cell-names =3D "phy-cal-data";
++
++					leds {
++						#address-cells =3D <1>;
++						#size-cells =3D <0>;
++
++						gsw_phy1_led0: led@0 {
++							reg =3D <0>;
++							function =3D LED_FUNCTION_LAN;
++							status =3D "disabled";
++						};
++
++						gsw_phy1_led1: led@1 {
++							reg =3D <1>;
++							function =3D LED_FUNCTION_LAN;
++							status =3D "disabled";
++						};
++					};
++				};
++
++				gsw_phy2: ethernet-phy@2 {
++					compatible =3D "ethernet-phy-ieee802.3-c22";
++					reg =3D <2>;
++					interrupts =3D <2>;
++					phy-mode =3D "internal";
++					nvmem-cells =3D <&phy_calibration_p2>;
++					nvmem-cell-names =3D "phy-cal-data";
++
++					leds {
++						#address-cells =3D <1>;
++						#size-cells =3D <0>;
++
++						gsw_phy2_led0: led@0 {
++							reg =3D <0>;
++							function =3D LED_FUNCTION_LAN;
++							status =3D "disabled";
++						};
++
++						gsw_phy2_led1: led@1 {
++							reg =3D <1>;
++							function =3D LED_FUNCTION_LAN;
++							status =3D "disabled";
++						};
++					};
++				};
++
++				gsw_phy3: ethernet-phy@3 {
++					compatible =3D "ethernet-phy-ieee802.3-c22";
++					reg =3D <3>;
++					interrupts =3D <3>;
++					phy-mode =3D "internal";
++					nvmem-cells =3D <&phy_calibration_p3>;
++					nvmem-cell-names =3D "phy-cal-data";
++
++					leds {
++						#address-cells =3D <1>;
++						#size-cells =3D <0>;
++
++						gsw_phy3_led0: led@0 {
++							reg =3D <0>;
++							function =3D LED_FUNCTION_LAN;
++							status =3D "disabled";
++						};
++
++						gsw_phy3_led1: led@1 {
++							reg =3D <1>;
++							function =3D LED_FUNCTION_LAN;
++							status =3D "disabled";
++						};
++					};
++				};
++			};
 +		};
 +
-+		spi1: spi@11008000 {
-+			compatible = "mediatek,mt7988-spi-single", "mediatek,spi-ipm";
-+			reg = <0 0x11008000 0 0x100>;
-+			interrupts = <GIC_SPI 141 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&topckgen CLK_TOP_MPLL_D2>,
-+				 <&topckgen CLK_TOP_SPIM_MST_SEL>,
-+				 <&infracfg CLK_INFRA_104M_SPI1>,
-+				 <&infracfg CLK_INFRA_66M_SPI1_HCK>;
-+			clock-names = "parent-clk", "sel-clk", "spi-clk",
-+				      "hclk";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		spi2: spi@11009000 {
-+			compatible = "mediatek,mt7988-spi-quad", "mediatek,spi-ipm";
-+			reg = <0 0x11009000 0 0x100>;
-+			interrupts = <GIC_SPI 142 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&topckgen CLK_TOP_MPLL_D2>,
-+				 <&topckgen CLK_TOP_SPI_SEL>,
-+				 <&infracfg CLK_INFRA_104M_SPI2_BCK>,
-+				 <&infracfg CLK_INFRA_66M_SPI2_HCK>;
-+			clock-names = "parent-clk", "sel-clk", "spi-clk",
-+				      "hclk";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		lvts: lvts@1100a000 {
- 			compatible = "mediatek,mt7988-lvts-ap";
- 			#thermal-sensor-cells = <1>;
--- 
+ 		ethwarp: clock-controller@15031000 {
+ 			compatible =3D "mediatek,mt7988-ethwarp";
+ 			reg =3D <0 0x15031000 0 0x1000>;
+=2D-=20
 2.43.0
 
 
