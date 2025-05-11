@@ -4,43 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD624C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 14:22:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14279C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 14:24:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9zt4V23HteLxlHiTCgCG0cybfkvtPIOYBYrWS/uBlKI=; b=rJSY2hQwLciMMuchxjfTJ3KRwT
-	Hlu+g/26fiMbJME/Z2Be34F8+KX+Dfkg08hlJprDPGBSGUCW8W1kqC4uD8k29oNHbfk73BNIF96LC
-	ffKN8jAB6gW/2btRTmq/z7v5apJNCTQOTxLoFJ5qKcHMxSv9WNDxTZM4wNCnNt+2TsS3AYoeZCVm6
-	o9rWX7eNqQhZTJTR7DJDFLLCUgjFfJ3nG8cppjY+3kMQEM79QSNy4FbHjtKGEZGoCctzQhLGIoF6Y
-	xW/8PRFQbumj6zN9LUxVTQRbJv4TjKyG02RIRm5mawqQwOYs4WOfyqNU90MjwMi5/tv1XkUgcUOPV
-	DPL73B/g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qIpcylB5fzCTDBOFA4Z00OOIwBo7iCTSZMGBABeHvVU=; b=Z2+c9araT8ajbUewFZ1sDt+qds
+	B5CZCdZvQtzAgs6cn7VRXWKjTQfLd+e0xOfaxXx2RevGWTD58NKwSbiBu+jeadltVSjFYydy52oC+
+	HJKe3KypOzfE1WyatG1HT5Nukkok1EKE2TMdUNuc5WVw4dd6ot6AqML3iZXaFfZzf7xXQGcEfyUeP
+	NHbLae6UUfh+Q9wd71JUKc5WhvmUj0szkv3DOWTYtHz/iTOh0RAp63KM6hd06h/futbfZhIMlrC2O
+	H9SX80Ol4niaBwCWbHEu5QFeO2O1oPHRKV3DwB8TTSbPTzUOW2rAThqv9txEboVMWIS0iDD58jlT+
+	nNJkoxJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE7Z4-00000007Llw-3iSu;
-	Sun, 11 May 2025 14:22:02 +0000
-Received: from mxout2.routing.net ([2a03:2900:1:a::b])
+	id 1uE7b3-00000007Lyg-3yQH;
+	Sun, 11 May 2025 14:24:05 +0000
+Received: from mxout3.routing.net ([2a03:2900:1:a::8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE7X3-00000007LVq-0Kjk;
-	Sun, 11 May 2025 14:19:58 +0000
+	id 1uE7X6-00000007LWM-23zj;
+	Sun, 11 May 2025 14:20:01 +0000
 Received: from mxbox2.masterlogin.de (unknown [192.168.10.89])
-	by mxout2.routing.net (Postfix) with ESMTP id AE8D35FD70;
-	Sun, 11 May 2025 14:19:52 +0000 (UTC)
+	by mxout3.routing.net (Postfix) with ESMTP id BA9606031F;
+	Sun, 11 May 2025 14:19:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1746973192;
+	s=20200217; t=1746973198;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=9zt4V23HteLxlHiTCgCG0cybfkvtPIOYBYrWS/uBlKI=;
-	b=oFSq6J7DcXVCeeVliNJIvyi08c5w0pyMSD69hTGcfFGH1b3fvTrlpYs2tPTDgyYe4HLXWI
-	Gb7OUWdexRDWPG6JxTSP40UfQ630JGsXVUaxgbqCwIr2UOBgLF+iQpA2Sn1eLKXpeHQwYb
-	anP/Tk/o1J4eCzl73wqGOwYxGTlBmEw=
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=qIpcylB5fzCTDBOFA4Z00OOIwBo7iCTSZMGBABeHvVU=;
+	b=WRrECvsfhitZDMIF0vlite1OGd4LPms+7fBxsoz2sedS++0zkHwj00k+QmFBqi/+zCMBla
+	wNcwMCU8OOllB5kaxKQMJtwFz5SbxlA0bHiW1tgtV+1PUyxdNl0U2yHulGucbCVUlq4Ko6
+	DEMfg+r5YpQaDmnFul3pz42jtM4Z7W0=
 Received: from frank-u24.. (fttx-pool-194.15.84.99.bambit.de [194.15.84.99])
-	by mxbox2.masterlogin.de (Postfix) with ESMTPSA id 36F70100500;
-	Sun, 11 May 2025 14:19:51 +0000 (UTC)
+	by mxbox2.masterlogin.de (Postfix) with ESMTPSA id 98F64100500;
+	Sun, 11 May 2025 14:19:57 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Vladimir Oltean <olteanv@gmail.com>,
@@ -66,16 +67,18 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v1 00/14] further mt7988 devicetree work
-Date: Sun, 11 May 2025 16:19:16 +0200
-Message-ID: <20250511141942.10284-1-linux@fw-web.de>
+Subject: [PATCH v1 06/14] arm64: dts: mediatek: mt7988: add cci node
+Date: Sun, 11 May 2025 16:19:22 +0200
+Message-ID: <20250511141942.10284-7-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250511141942.10284-1-linux@fw-web.de>
+References: <20250511141942.10284-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Mail-ID: beeb2363-c36a-4a1c-b90d-c115fec7d014
+X-Mail-ID: beeb7784-23fa-410f-9e58-cc51116d869e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_071957_413514_53D2BBAF 
-X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-CacheID: sfid-20250511_072000_674056_69544814 
+X-CRM114-Status: UNSURE (   9.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,74 +96,86 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-This series continues mt7988 devicetree work
+Add cci devicetree node for cpu frequency scaling.
 
-- Add SPI with BPI-R4 nand to reach eMMC
-- Add thermal protection (fan+cooling-points)
-- Extend cpu frequency scaling with CCI
-- Basic network-support (ethernet controller + builtin switch + SFP Cages)
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+---
+ arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 33 +++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
 
-depencies (i hope this list is complete and latest patches/series linked):
-
-"Add Bananapi R4 variants and add xsphy" (reviewed, but not yet applied):
-https://patchwork.kernel.org/project/linux-mediatek/list/?series=955733
-
-"net: phy: mediatek: do not require syscon compatible for pio property":
-https://patchwork.kernel.org/project/netdevbpf/patch/20250510174933.154589-1-linux@fw-web.de/
-for phy led function (RFC not yet reviewed, resent without RFC)
-
-for 2.5g phy function (currently disabled):
-- net: ethernet: mtk_eth_soc: add support for MT7988 internal 2.5G PHY (already merged to 6.15-net-next)
-- net: phy: mediatek: add driver for built-in 2.5G ethernet PHY on MT7988
-  https://patchwork.kernel.org/project/netdevbpf/patch/20250219083910.2255981-4-SkyLake.Huang@mediatek.com/
-  requested updated patch due to comments
-
-for SFP-Function (macs currently disabled):
-
-PCS clearance which is a 1.5 year discussion currently ongoing
-
-e.g. something like this (one of):
-* https://patchwork.kernel.org/project/netdevbpf/patch/20250510102348.14134-4-ansuelsmth@gmail.com/ 
-  (changes requested, but no comment on the pcs part)
-* https://patchwork.kernel.org/project/netdevbpf/patch/20250415193323.2794214-3-sean.anderson@linux.dev/
-  (changes requested)
-* https://patchwork.kernel.org/project/netdevbpf/patch/ba4e359584a6b3bc4b3470822c42186d5b0856f9.1721910728.git.daniel@makrotopia.org/
-
-full usxgmii driver:
-https://patchwork.kernel.org/project/netdevbpf/patch/07845ec900ba41ff992875dce12c622277592c32.1702352117.git.daniel@makrotopia.org/
-
-first PCS-discussion is here:
-https://patchwork.kernel.org/project/netdevbpf/patch/8aa905080bdb6760875d62cb3b2b41258837f80e.1702352117.git.daniel@makrotopia.org/
-
-and then dts nodes for sgmiisys+usxgmii
-
-when above depencies are solved the mac1+2 can be enabled and 2.5G phy and SFP slots will work.
-
-Frank Wunderlich (14):
-  dt-bindings: net: mediatek,net: update for mt7988
-  dt-bindings: net: dsa: mediatek,mt7530: add dsa-port definition for
-    mt7988
-  dt-bindings: net: dsa: mediatek,mt7530: add internal mdio bus
-  arm64: dts: mediatek: mt7988: add spi controllers
-  arm64: dts: mediatek: mt7988: move uart0 and spi1 pins to soc dtsi
-  arm64: dts: mediatek: mt7988: add cci node
-  arm64: dts: mediatek: mt7988: add phy calibration efuse subnodes
-  arm64: dts: mediatek: mt7988: add basic ethernet-nodes
-  arm64: dts: mediatek: mt7988: add switch node
-  arm64: dts: mediatek: mt7988a-bpi-r4: Add fan and coolingmaps
-  arm64: dts: mediatek: mt7988a-bpi-r4: configure spi-nodes
-  arm64: dts: mediatek: mt7988a-bpi-r4: add proc-supply for cci
-  arm64: dts: mediatek: mt7988a-bpi-r4: add sfp cages and link to gmac
-  arm64: dts: mediatek: mt7988a-bpi-r4: configure switch phys and leds
-
- .../bindings/net/dsa/mediatek,mt7530.yaml     |  17 +-
- .../devicetree/bindings/net/mediatek,net.yaml |   9 +-
- .../mediatek/mt7988a-bananapi-bpi-r4-2g5.dts  |  11 +
- .../dts/mediatek/mt7988a-bananapi-bpi-r4.dts  |  18 +
- .../dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi | 137 +++++-
- arch/arm64/boot/dts/mediatek/mt7988a.dtsi     | 402 +++++++++++++++++-
- 6 files changed, 574 insertions(+), 20 deletions(-)
-
+diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+index ab6fc09940b8..64466acb0e71 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+@@ -12,6 +12,35 @@ / {
+ 	#address-cells = <2>;
+ 	#size-cells = <2>;
+ 
++	cci: cci {
++		compatible = "mediatek,mt8183-cci";
++		clocks = <&mcusys CLK_MCU_BUS_DIV_SEL>,
++			 <&topckgen CLK_TOP_XTAL>;
++		clock-names = "cci", "intermediate";
++		operating-points-v2 = <&cci_opp>;
++	};
++
++	cci_opp: opp-table-cci {
++		compatible = "operating-points-v2";
++		opp-shared;
++		opp-480000000 {
++			opp-hz = /bits/ 64 <480000000>;
++			opp-microvolt = <850000>;
++		};
++		opp-660000000 {
++			opp-hz = /bits/ 64 <660000000>;
++			opp-microvolt = <850000>;
++		};
++		opp-900000000 {
++			opp-hz = /bits/ 64 <900000000>;
++			opp-microvolt = <850000>;
++		};
++		opp-1080000000 {
++			opp-hz = /bits/ 64 <1080000000>;
++			opp-microvolt = <900000>;
++		};
++	};
++
+ 	cpus {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+@@ -25,6 +54,7 @@ cpu0: cpu@0 {
+ 				 <&topckgen CLK_TOP_XTAL>;
+ 			clock-names = "cpu", "intermediate";
+ 			operating-points-v2 = <&cluster0_opp>;
++			mediatek,cci = <&cci>;
+ 		};
+ 
+ 		cpu1: cpu@1 {
+@@ -36,6 +66,7 @@ cpu1: cpu@1 {
+ 				 <&topckgen CLK_TOP_XTAL>;
+ 			clock-names = "cpu", "intermediate";
+ 			operating-points-v2 = <&cluster0_opp>;
++			mediatek,cci = <&cci>;
+ 		};
+ 
+ 		cpu2: cpu@2 {
+@@ -47,6 +78,7 @@ cpu2: cpu@2 {
+ 				 <&topckgen CLK_TOP_XTAL>;
+ 			clock-names = "cpu", "intermediate";
+ 			operating-points-v2 = <&cluster0_opp>;
++			mediatek,cci = <&cci>;
+ 		};
+ 
+ 		cpu3: cpu@3 {
+@@ -58,6 +90,7 @@ cpu3: cpu@3 {
+ 				 <&topckgen CLK_TOP_XTAL>;
+ 			clock-names = "cpu", "intermediate";
+ 			operating-points-v2 = <&cluster0_opp>;
++			mediatek,cci = <&cci>;
+ 		};
+ 
+ 		cluster0_opp: opp-table-0 {
 -- 
 2.43.0
 
