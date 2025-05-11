@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D33FAC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 13:33:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0802BC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 13:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qfxwlIQ0tbuPkSHji0HK07mcJx2VL7b27pvCA+Qhuds=; b=uLeIrVGSSrCZ9U
-	wUi7FgxjflKED3W4PYMYVeZbAfDDoldSiBZvLaFyt2QfXNN9sag7R5oFB7cKYqnDPgezw46U0lXLn
-	B7YoLDNvwctBJwGE5blnXrM+h3VW1DB7RN2PgSzCacQ73lB6iIZXJK0jxHD/5H9x5GdcEdRwynPvU
-	o4xaZKemXNaIwlg68Cv6/6EgRndiws73NgQgJrgJpPYJ9vtqJwQ56S//kFpR3/Oh8G/Gq4GHILE1E
-	QYU0Bgy5eLTC33HWrFOnvbZ89FW2gVw6vDICCGDeRltxAJCt3+AeggYhBdsOx5dF4c+/YtI6zl68U
-	YGcOX2O/AiuujYPAgH9w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n9RYlne5nhTN7kCu5Yc7zW4CF0YUJUWg2clQo/viA0M=; b=LBsqIvaHPjMCwZZfbGyry56BIg
+	sEpAZY6rWjqf0DWQjODfNe8G8EZOzfHbMRA8HElCRdUR54+uQkesdQ9CuQip0FUIEkRlfRHM8HYTB
+	iWLgZE6pnElndi/4uhAmfvgQFvMbDhxrsoAqAjLY4K+sPr53QSEGO7ygY+TPHmcpyVfD+kRqjMAv3
+	wbypdxFC5lHAOvIiAdaKreajEf7HBqztprh/D1aE29TQdWILixJTAl5isgLzJyZUOEnqrefGvBQ9g
+	+zg0jQwLLnjnsCMzkjho6mjwi1Q7I3ERQVRnebKf9eslmNstr9apYy5yfz6BKzHGxBk3yC+Boyvde
+	FP62KNGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE6oD-00000007GdD-3Lu1;
-	Sun, 11 May 2025 13:33:37 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1uE6qC-00000007Glw-1vse;
+	Sun, 11 May 2025 13:35:40 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE6mD-00000007GP3-2ylo
+	id 1uE6mD-00000007GP8-397T
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 11 May 2025 13:31:34 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5fbfa0a7d2cso6083940a12.1
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-ad1f6aa2f84so764633466b.0
         for <linux-arm-kernel@lists.infradead.org>; Sun, 11 May 2025 06:31:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746970290; x=1747575090; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=qfxwlIQ0tbuPkSHji0HK07mcJx2VL7b27pvCA+Qhuds=;
-        b=g522hmy1aNk50I4/RStsYT3ZWPLRlFCst6RhVX+KS+PP3KGl7ztde5B2i+oWynCrte
-         H5g7hBABb6TnXNVCc4xNHMNpZNw11jtJzQNyWmRyLj6a4X3G5x+BZVH4HOYwFJGP0JFF
-         CIeh6x36XB5VNwpN6effydZLK/0c79gacAgKCELxGgL4CL9b3EZcYGVHWWxl2DU6DmeQ
-         /UM/nFXl+U34CH3MZvB0WX9Cfax9DL35CjrkgmifStj+LTj819CTp+CULXWGDSKAMMAx
-         njtthIFNhgmF4ky/mWuuPg2q1zhWhFs3Kg2Av1wsd1y/9SyLTmfjzxDkcQDjS9RHhjjF
-         KHxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746970290; x=1747575090;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20230601; t=1746970292; x=1747575092; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=qfxwlIQ0tbuPkSHji0HK07mcJx2VL7b27pvCA+Qhuds=;
-        b=CS+NbWz1ZJSoMXYHsqK08VEO5gMOJthgf78siZduDC+C7FY+9maeM2yL7jnLvFEvf/
-         KN19GsMvnGwpoFjbJQGw/9WDm02jgYHWeLq8CxVMjFtT+tC/rgzTdW93FMZTK3PW4i7G
-         QYQXuhYU3u1qIhfaZffY+Axn+dvA7D0mxbd5JCTDc37DaFuMTwiR8iKDVNxFD5v/JlvF
-         Ec+ardzgv41GdVtXGxSVPJIzG8nZlQvM5p/2/NO4YNqv4i0D8hKM+GOgj/kDpwREaFIc
-         CUj090F0wCjdEzD2HaF6ouiZznR6VRkC4S3wBolUyEg76jh0aJTsIre4IRx4SNCHGida
-         OsNA==
-X-Forwarded-Encrypted: i=1; AJvYcCVogMNvtGJXmwOJcJ8fnxrxgp6KhZyqVnWIbGpklhVEo/liZM2YamCKEEIMtKKZFiuK9i8seR+NzhPsEnqh9k2a@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9H53Rsm0/YQASQiiLKleTUL7rLiN9BO+DIZzThPAJ/bm3LsL/
-	3tilYpOE6hedr6dyJVHlgtWV9jcKdr23HhIhDjUqzYi+TiikIC/S
-X-Gm-Gg: ASbGncstz7AEeSpwzRuqaGzTfhT+OXrfHHVamLtBx2drTdXlptvrsfa1G+RNrYrElk6
-	AuJZQOZjB1cid5fMOfjLExX+iRG7OIPXTpKwBSrOebXrC9ddKmmuZXXrV1uVQ+3AW5KQ+A4OsHg
-	tmZ/bntmofo1pckz5bDZISKvxsRy6/9H02LZ8gmhsLxkejMzA0H+iiq+kNRXH1Eb0iIh2dAqVjX
-	04Hx0GX/j2XKKm+iPfz3gRie/wdZJHWPzq2Q7TNSpiQrtFcl1/97NS7oIC0W9JA1wY7xIp2rFiq
-	DUPgWd0y7xfmgFF8F8juRXFTAj/dON5ryz63XZyzb+B8UXB8t7/G+nf1IRk2UaKsT1s2QuKM9rp
-	6K4pV
-X-Google-Smtp-Source: AGHT+IH7yl7XmxNilX/kpFITQRuEskSKWUC3Vt7HAESuFqH2J9O8p35Yu7FQrAMijfsU9DPiUrNnMQ==
-X-Received: by 2002:a17:907:1b1c:b0:aca:d6f0:af0c with SMTP id a640c23a62f3a-ad2192d4a49mr949942566b.59.1746970290354;
-        Sun, 11 May 2025 06:31:30 -0700 (PDT)
+        bh=n9RYlne5nhTN7kCu5Yc7zW4CF0YUJUWg2clQo/viA0M=;
+        b=mK6aKMspWjttCQGv7A/DF5F1n7JFLuDEaCeCKlEp4FrClZQD6JhAlON6yEPPTc86q2
+         XnRAAh8tIk3Gu/QyNYXIsrlBeqtv5b+sxUxV+ebyFg0AaMi+tbhf8koryKoVPDMQljmm
+         i/Rv5GrycEwvnGMNsTHc+xLCwkjAy15KoLGdsfc+Uw3HrPmX+/8UFaVCmxltLgEprwVA
+         drnzRzYh3IIFjsPYJIrp75cIMMXIHwm2IqKiGuzMaDeCsB3iA/En8PHWr2trxMV7K98g
+         442ZOjY0CqX1mAIKQLXmN7X3fCbOHinxxy7HefUe2YNclBf6UHr3pT2i9UBsalEpUWUl
+         OQ7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746970292; x=1747575092;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=n9RYlne5nhTN7kCu5Yc7zW4CF0YUJUWg2clQo/viA0M=;
+        b=HSWiBJsVViBeM5B5hMn4oUOZ7JTd6/O5/rjNuDl1Q//i4aFGGSy0L11zacjYVSLegk
+         2j9UiS7yLaVSlnNJle+YrtIy/kbCayoNUrYXtU5v9MvYAHjS0WMYijekCDQ9+lDLpXwg
+         kpERQ/Tu1Fmqb+8Yv/XycWLCyTPR0XGXxVvGiAPs1KnXsuj71MK7/HXof0p3IDqS444Q
+         dBuRDx1xby4/806P/EPvdr4Xj0lVF3tkimKtaPpBdXp+kkJ8xyYlMhLHAUX16F8Xktqs
+         yuzG1OASvIocfiEiluOxqrM6727wJhtt8qiBxCiI/UBaEr5bUkIBvmvktYSVy+/N4Itf
+         +qAw==
+X-Forwarded-Encrypted: i=1; AJvYcCWF5SWWguUIUPp10Yp8M+dIc/7999B/vb7xwMluPb/Vj9FZyJ4hnhDgLC60CD9icfYXYWwLlHN06vKw5onkKXF5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7y5pv/+Mt1FmIK+MTvi1kVFAvXtKteYPDneNKNfNZuwqrLoNt
+	F6DpKLyTyp8r/NQFiROomu/JLI5qMM4JRr5VwmbDeYC0dWKD4xH1
+X-Gm-Gg: ASbGncttO+Rf69HYuAf22AOp+cMso2pjn2/z/ZJhaxvqOUUqzypHmtdf5RV1S1/NJt+
+	2U8XzEy/JHeASbx9scc+3q0mJPtPNp8qCQpF+0zPaU8cbrfcsiggtSVfMhZP6sxqoI2iJtnMdLF
+	JVZhFcynNHOqZYLBh8pWdnToMBYILJM7VhgFcJZIeDPaGbC5JDSKus+OUR31/TKl/K/+83r309I
+	dYCCeBcJgLPA+Z5pDDHhFh/tjag+5ID+tTI3hH7IrEjz0LCb3DFL0QEsrwm9yQn4xUtQ9ms+KST
+	4DF3TYm4r0/Uqf8zWSPTbC4CL69YtYYBDCt22gKAW+PPDTQ4UBcDfIwI7MxiOOT2rnjfzWNtD+1
+	6uO29
+X-Google-Smtp-Source: AGHT+IFAmDDIIuhS51ef1EGvEQpU//VoeH0fQBhRPIfrKUiYydYis8s+qNymb53gRE7q67J/kVk0HA==
+X-Received: by 2002:a17:907:94d5:b0:acb:3acd:2845 with SMTP id a640c23a62f3a-ad1fccfced9mr1181053766b.25.1746970291841;
+        Sun, 11 May 2025 06:31:31 -0700 (PDT)
 Received: from [192.168.0.253] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
-        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-ad2197bd398sm466765366b.152.2025.05.11.06.31.29
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-ad2197bd398sm466765366b.152.2025.05.11.06.31.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 May 2025 06:31:29 -0700 (PDT)
+        Sun, 11 May 2025 06:31:31 -0700 (PDT)
 From: Gabor Juhos <j4g8y7@gmail.com>
-Subject: [PATCH 0/3] i2c: pxa: fix I2C communication on Armada 3700
-Date: Sun, 11 May 2025 15:31:04 +0200
-Message-Id: <20250511-i2c-pxa-fix-i2c-communication-v1-0-e9097d09a015@gmail.com>
+Date: Sun, 11 May 2025 15:31:05 +0200
+Subject: [PATCH 1/3] i2c: add init_recovery() callback
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAJimIGgC/x2MQQqAMAwEvyI5G2gr9uBXxENJo+ZglVZFKP7d4
- G0HdqZC4SxcYGgqZL6lyJ4UbNsArSEtjBKVwRnXm94aFEd4PAFnef5N+7ZdSSicamLHPrLlLhr
- yoI0jsx7//ji97wdJTByAbwAAAA==
-X-Change-ID: 20250510-i2c-pxa-fix-i2c-communication-3e6de1e3d0c6
+Message-Id: <20250511-i2c-pxa-fix-i2c-communication-v1-1-e9097d09a015@gmail.com>
+References: <20250511-i2c-pxa-fix-i2c-communication-v1-0-e9097d09a015@gmail.com>
+In-Reply-To: <20250511-i2c-pxa-fix-i2c-communication-v1-0-e9097d09a015@gmail.com>
 To: Wolfram Sang <wsa@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
  Russell King <rmk+kernel@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>
 Cc: Robert Marko <robert.marko@sartura.hr>, 
@@ -89,9 +88,8 @@ Cc: Robert Marko <robert.marko@sartura.hr>,
  stable@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_063133_771719_84A32A7B 
-X-CRM114-Status: UNSURE (   8.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250511_063133_790603_F3EAC078 
+X-CRM114-Status: GOOD (  20.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,28 +104,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is a long standing bug which causes I2C communication not to
-work on the Armada 3700 based boards. This small series restores
-that functionality.
+Add a new init_recovery() callback to struct 'i2c_bus_recovery_info'
+and modify the i2c_init_recovery() function to call that if specified
+instead of the generic i2c_gpio_init_recovery() function.
 
+This allows controller drivers to skip calling the generic code by
+implementing a dummy callback function, or alternatively to run a
+fine tuned custom implementation.
+
+This is needed for the 'i2c-pxa' driver in order to be able to fix
+a long standing bug for which the fix will be implemented in a
+followup patch.
+
+Cc: stable@vger.kernel.org # 6.3+
 Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
 Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
 ---
-Gabor Juhos (3):
-      i2c: add init_recovery() callback
-      i2c: pxa: prevent calling of the generic recovery init code
-      i2c: pxa: handle 'Early Bus Busy' condition on Armada 3700
+ drivers/i2c/i2c-core-base.c | 8 +++++++-
+ include/linux/i2c.h         | 4 ++++
+ 2 files changed, 11 insertions(+), 1 deletion(-)
 
- drivers/i2c/busses/i2c-pxa.c | 25 +++++++++++++++++++------
- drivers/i2c/i2c-core-base.c  |  8 +++++++-
- include/linux/i2c.h          |  4 ++++
- 3 files changed, 30 insertions(+), 7 deletions(-)
----
-base-commit: 92a09c47464d040866cf2b4cd052bc60555185fb
-change-id: 20250510-i2c-pxa-fix-i2c-communication-3e6de1e3d0c6
+diff --git a/drivers/i2c/i2c-core-base.c b/drivers/i2c/i2c-core-base.c
+index 7ad1ad5c8c3f56943b627254b1fdbf8f787afdb5..6b8b961b845caf6f28ea1a9a76d623ac73f5e0dd 100644
+--- a/drivers/i2c/i2c-core-base.c
++++ b/drivers/i2c/i2c-core-base.c
+@@ -427,12 +427,18 @@ static int i2c_init_recovery(struct i2c_adapter *adap)
+ 	struct i2c_bus_recovery_info *bri = adap->bus_recovery_info;
+ 	bool is_error_level = true;
+ 	char *err_str;
++	int ret;
+ 
+ 	if (!bri)
+ 		return 0;
+ 
+-	if (i2c_gpio_init_recovery(adap) == -EPROBE_DEFER)
++	if (bri->init_recovery) {
++		ret = bri->init_recovery(adap);
++		if (ret)
++			return ret;
++	} else if (i2c_gpio_init_recovery(adap) == -EPROBE_DEFER) {
+ 		return -EPROBE_DEFER;
++	}
+ 
+ 	if (!bri->recover_bus) {
+ 		err_str = "no suitable method provided";
+diff --git a/include/linux/i2c.h b/include/linux/i2c.h
+index 2e4903b7f7bc11627f9cbc23a4d549dd48c4dcc7..1cff399822c817429e520572546a3d0b7f704723 100644
+--- a/include/linux/i2c.h
++++ b/include/linux/i2c.h
+@@ -638,6 +638,9 @@ struct i2c_timings {
+  *	for generic GPIO recovery.
+  * @get_bus_free: Returns the bus free state as seen from the IP core in case it
+  *	has a more complex internal logic than just reading SDA. Optional.
++ * @init_recovery: If specified, it will be called instead of the generic GPIO
++ *	recovery initialization code. Platform may use a dummy callback to skip
++ *	calling the generic code, or it may use a custom implementation.
+  * @prepare_recovery: This will be called before starting recovery. Platform may
+  *	configure padmux here for SDA/SCL line or something else they want.
+  * @unprepare_recovery: This will be called after completing recovery. Platform
+@@ -662,6 +665,7 @@ struct i2c_bus_recovery_info {
+ 	void (*set_sda)(struct i2c_adapter *adap, int val);
+ 	int (*get_bus_free)(struct i2c_adapter *adap);
+ 
++	int (*init_recovery)(struct i2c_adapter *adap);
+ 	void (*prepare_recovery)(struct i2c_adapter *adap);
+ 	void (*unprepare_recovery)(struct i2c_adapter *adap);
+ 
 
-Best regards,
 -- 
-Gabor Juhos <j4g8y7@gmail.com>
+2.49.0
 
 
