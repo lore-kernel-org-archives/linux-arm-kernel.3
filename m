@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0802BC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 13:35:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72E7DC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 13:37:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n9RYlne5nhTN7kCu5Yc7zW4CF0YUJUWg2clQo/viA0M=; b=LBsqIvaHPjMCwZZfbGyry56BIg
-	sEpAZY6rWjqf0DWQjODfNe8G8EZOzfHbMRA8HElCRdUR54+uQkesdQ9CuQip0FUIEkRlfRHM8HYTB
-	iWLgZE6pnElndi/4uhAmfvgQFvMbDhxrsoAqAjLY4K+sPr53QSEGO7ygY+TPHmcpyVfD+kRqjMAv3
-	wbypdxFC5lHAOvIiAdaKreajEf7HBqztprh/D1aE29TQdWILixJTAl5isgLzJyZUOEnqrefGvBQ9g
-	+zg0jQwLLnjnsCMzkjho6mjwi1Q7I3ERQVRnebKf9eslmNstr9apYy5yfz6BKzHGxBk3yC+Boyvde
-	FP62KNGQ==;
+	bh=BySnXAIGhp18eRP0sg1mjpdXdHwBsus0rtjMi26U9uM=; b=ba0yGs/0cSs2cep9T3wjo3iDxy
+	VSaQu2j7YGuiAMJt8ERY5OVL7YiPC/6+MqGcLqkrGunZq/TEjXRGX9ztKqyko6KY9fLbiH1wXYBjK
+	/9yxbEyt9bPrIw/r64uaUOdRzZMF0i2oBn53RgZJJFaD4ou1E28BMc22AuVGshj99Dlz63ncr/Lz7
+	M3/ptMOWGRp0SrImYRUdvnWj+LKyb4zqRFEYIQuq9WzyhhNuDZDaHFpdJn4go/eoS4kUvTFfixpwV
+	FevQupqdOn62R3ull5YYdI6BFQVL6dISjD34mjoNXJABSjuXmq8FRWuX/V3rPrvnVIflxOmzSrKrF
+	8rdYY/fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE6qC-00000007Glw-1vse;
-	Sun, 11 May 2025 13:35:40 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1uE6sA-00000007GuC-0j29;
+	Sun, 11 May 2025 13:37:42 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE6mD-00000007GP8-397T
+	id 1uE6mF-00000007GPb-1uOE
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 May 2025 13:31:34 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-ad1f6aa2f84so764633466b.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 May 2025 06:31:33 -0700 (PDT)
+	Sun, 11 May 2025 13:31:36 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-acae7e7587dso539429266b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 May 2025 06:31:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746970292; x=1747575092; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1746970294; x=1747575094; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=n9RYlne5nhTN7kCu5Yc7zW4CF0YUJUWg2clQo/viA0M=;
-        b=mK6aKMspWjttCQGv7A/DF5F1n7JFLuDEaCeCKlEp4FrClZQD6JhAlON6yEPPTc86q2
-         XnRAAh8tIk3Gu/QyNYXIsrlBeqtv5b+sxUxV+ebyFg0AaMi+tbhf8koryKoVPDMQljmm
-         i/Rv5GrycEwvnGMNsTHc+xLCwkjAy15KoLGdsfc+Uw3HrPmX+/8UFaVCmxltLgEprwVA
-         drnzRzYh3IIFjsPYJIrp75cIMMXIHwm2IqKiGuzMaDeCsB3iA/En8PHWr2trxMV7K98g
-         442ZOjY0CqX1mAIKQLXmN7X3fCbOHinxxy7HefUe2YNclBf6UHr3pT2i9UBsalEpUWUl
-         OQ7A==
+        bh=BySnXAIGhp18eRP0sg1mjpdXdHwBsus0rtjMi26U9uM=;
+        b=QtIYufKg61b066knR9OpyawErNmkYyoP/2lIkHhyGY7qtGXkc1jJmC0TpPyhp0WGlm
+         xWP3K/PG23VcjEuGj/880thPietuKQuTF029WPfm+yrQ3uHLMzkHqyOiMYyiBR9N0Zjw
+         NICgywX4iqVHVBnXZTiBA7sRSjQqteatDPTGbKgZxpIHpg4ZJtfXZcCE8RiKVVgZCWsq
+         JgTJuTO/4J0cq5TWVOIGLrt0XOslaMmuISPbUDdArr5yKfGZqu51i747A0o0RBdEuH9Y
+         UPI8/GExcWWa+62KCVEwB9OmCZR81ieb8To/XdZO8hIQAlExOzKa3OOPCkS0PF0M9BBa
+         d++Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746970292; x=1747575092;
+        d=1e100.net; s=20230601; t=1746970294; x=1747575094;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=n9RYlne5nhTN7kCu5Yc7zW4CF0YUJUWg2clQo/viA0M=;
-        b=HSWiBJsVViBeM5B5hMn4oUOZ7JTd6/O5/rjNuDl1Q//i4aFGGSy0L11zacjYVSLegk
-         2j9UiS7yLaVSlnNJle+YrtIy/kbCayoNUrYXtU5v9MvYAHjS0WMYijekCDQ9+lDLpXwg
-         kpERQ/Tu1Fmqb+8Yv/XycWLCyTPR0XGXxVvGiAPs1KnXsuj71MK7/HXof0p3IDqS444Q
-         dBuRDx1xby4/806P/EPvdr4Xj0lVF3tkimKtaPpBdXp+kkJ8xyYlMhLHAUX16F8Xktqs
-         yuzG1OASvIocfiEiluOxqrM6727wJhtt8qiBxCiI/UBaEr5bUkIBvmvktYSVy+/N4Itf
-         +qAw==
-X-Forwarded-Encrypted: i=1; AJvYcCWF5SWWguUIUPp10Yp8M+dIc/7999B/vb7xwMluPb/Vj9FZyJ4hnhDgLC60CD9icfYXYWwLlHN06vKw5onkKXF5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7y5pv/+Mt1FmIK+MTvi1kVFAvXtKteYPDneNKNfNZuwqrLoNt
-	F6DpKLyTyp8r/NQFiROomu/JLI5qMM4JRr5VwmbDeYC0dWKD4xH1
-X-Gm-Gg: ASbGncttO+Rf69HYuAf22AOp+cMso2pjn2/z/ZJhaxvqOUUqzypHmtdf5RV1S1/NJt+
-	2U8XzEy/JHeASbx9scc+3q0mJPtPNp8qCQpF+0zPaU8cbrfcsiggtSVfMhZP6sxqoI2iJtnMdLF
-	JVZhFcynNHOqZYLBh8pWdnToMBYILJM7VhgFcJZIeDPaGbC5JDSKus+OUR31/TKl/K/+83r309I
-	dYCCeBcJgLPA+Z5pDDHhFh/tjag+5ID+tTI3hH7IrEjz0LCb3DFL0QEsrwm9yQn4xUtQ9ms+KST
-	4DF3TYm4r0/Uqf8zWSPTbC4CL69YtYYBDCt22gKAW+PPDTQ4UBcDfIwI7MxiOOT2rnjfzWNtD+1
-	6uO29
-X-Google-Smtp-Source: AGHT+IFAmDDIIuhS51ef1EGvEQpU//VoeH0fQBhRPIfrKUiYydYis8s+qNymb53gRE7q67J/kVk0HA==
-X-Received: by 2002:a17:907:94d5:b0:acb:3acd:2845 with SMTP id a640c23a62f3a-ad1fccfced9mr1181053766b.25.1746970291841;
-        Sun, 11 May 2025 06:31:31 -0700 (PDT)
+        bh=BySnXAIGhp18eRP0sg1mjpdXdHwBsus0rtjMi26U9uM=;
+        b=A+LfIVmyzogyr2akFoGR3PIbjd8E/TVXGlur91KBF7h2W8msMTeMyv0PDVjqEBxWFI
+         cqNLira3TWf9soXrRBGaJVB111/r5woARoN4aO5otCDrh3o5U2gJ5/eZLGbcX49TqJG5
+         rbI1Eq0GGXFdidQ4T5CMLtooa6B5pg7j+o2gcyG/vQlHr6MbG4/2sIDPX0JbL08xibWC
+         5LqP933W+yopGIbnp3YZ9pybbvOUA9x4cYkUm1Of3idmkTN0xUh8kmUWz7FJCH4R/PAN
+         5CA/vn8q1myUvXisU0oAbC9y/WrlExPfvguXjru1LTx9AdPaC9+D3Qxmh2Raz9b4NrKl
+         ZlVw==
+X-Forwarded-Encrypted: i=1; AJvYcCWMm/Er5t6Xp05DMDNak7mbsqx8YZmOrqz9Y39eovLKPkbqcMhQwOzxqxCY8ZfQtETNpZ8X9NptEow+bBHo+z3t@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBTrjBcryZjqJBq66bcSYfV2AWsDAqAfMinxG8gRUJjpKq8RXn
+	kKSKTp2XvMObVTWx7cEMM5BBPWl7LfLwBkjVIusbgScQ8qW8YA9H
+X-Gm-Gg: ASbGnctKtEUhBLJdOfPb7cKwM8a1ZTe5+8zPX9TaLdomZybHHeteF9o/ZyUNbunUsSK
+	fuMy3pPFmYcC4TZtPqfZPdpagbDpOb2R/9xbSTMd1TKDDj4vFnkTIzQHA9E1ZxX44Nw6JkxA0up
+	S94PBow9mEb3tkHLN9hbNe7W8ksyf7RZ25IGC4FYj/wEGQsMy2VidJsfG4bIeImZ8zj8ufUCNby
+	7jIjmP1taNt5U8omPEWhFuRdJfiPqIXx85tIsGVFwG7VSr/JW8LwxBCJLGhWLUZhxYqV4cEfSRC
+	zYKj2qkuRfx5AxzN+JGtfcxYPijsy/rI51OnjOv2CQRPuE6rESamNJiR7pmnDgvHSRm5nps5chp
+	/HVXU
+X-Google-Smtp-Source: AGHT+IG8Y/7VNg8lhY275mIfLbq8EaG9jCRvvK1wX7rlbuoMvEUYYC3k7sZOxh3RPmKhAB94Kfvlwg==
+X-Received: by 2002:a17:907:7b04:b0:ad1:fab8:88ab with SMTP id a640c23a62f3a-ad219085c07mr897192766b.29.1746970293535;
+        Sun, 11 May 2025 06:31:33 -0700 (PDT)
 Received: from [192.168.0.253] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
-        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-ad2197bd398sm466765366b.152.2025.05.11.06.31.30
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-ad2197bd398sm466765366b.152.2025.05.11.06.31.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 May 2025 06:31:31 -0700 (PDT)
+        Sun, 11 May 2025 06:31:33 -0700 (PDT)
 From: Gabor Juhos <j4g8y7@gmail.com>
-Date: Sun, 11 May 2025 15:31:05 +0200
-Subject: [PATCH 1/3] i2c: add init_recovery() callback
+Date: Sun, 11 May 2025 15:31:06 +0200
+Subject: [PATCH 2/3] i2c: pxa: prevent calling of the generic recovery init
+ code
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250511-i2c-pxa-fix-i2c-communication-v1-1-e9097d09a015@gmail.com>
+Message-Id: <20250511-i2c-pxa-fix-i2c-communication-v1-2-e9097d09a015@gmail.com>
 References: <20250511-i2c-pxa-fix-i2c-communication-v1-0-e9097d09a015@gmail.com>
 In-Reply-To: <20250511-i2c-pxa-fix-i2c-communication-v1-0-e9097d09a015@gmail.com>
 To: Wolfram Sang <wsa@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
@@ -88,8 +89,8 @@ Cc: Robert Marko <robert.marko@sartura.hr>,
  stable@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_063133_790603_F3EAC078 
-X-CRM114-Status: GOOD (  20.27  )
+X-CRM114-CacheID: sfid-20250511_063135_499888_294068DC 
+X-CRM114-Status: GOOD (  21.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,72 +105,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new init_recovery() callback to struct 'i2c_bus_recovery_info'
-and modify the i2c_init_recovery() function to call that if specified
-instead of the generic i2c_gpio_init_recovery() function.
+The I2C communication is completely broken on the Armada 3700 platform
+since commit 0b01392c18b9 ("i2c: pxa: move to generic GPIO recovery").
 
-This allows controller drivers to skip calling the generic code by
-implementing a dummy callback function, or alternatively to run a
-fine tuned custom implementation.
+For example, on the Methode uDPU board, probing of the two onboard
+temperature sensors fails ...
 
-This is needed for the 'i2c-pxa' driver in order to be able to fix
-a long standing bug for which the fix will be implemented in a
-followup patch.
+  [    7.271713] i2c i2c-0: using pinctrl states for GPIO recovery
+  [    7.277503] i2c i2c-0:  PXA I2C adapter
+  [    7.282199] i2c i2c-1: using pinctrl states for GPIO recovery
+  [    7.288241] i2c i2c-1:  PXA I2C adapter
+  [    7.292947] sfp sfp-eth1: Host maximum power 3.0W
+  [    7.299614] sfp sfp-eth0: Host maximum power 3.0W
+  [    7.308178] lm75 1-0048: supply vs not found, using dummy regulator
+  [   32.489631] lm75 1-0048: probe with driver lm75 failed with error -121
+  [   32.496833] lm75 1-0049: supply vs not found, using dummy regulator
+  [   82.890614] lm75 1-0049: probe with driver lm75 failed with error -121
+
+... and accessing the plugged-in SFP modules also does not work:
+
+  [  511.298537] sfp sfp-eth1: please wait, module slow to respond
+  [  536.488530] sfp sfp-eth0: please wait, module slow to respond
+  ...
+  [ 1065.688536] sfp sfp-eth1: failed to read EEPROM: -EREMOTEIO
+  [ 1090.888532] sfp sfp-eth0: failed to read EEPROM: -EREMOTEIO
+
+After a discussion [1], there was an attempt to fix the problem by
+reverting the offending change by commit 7b211c767121 ("Revert "i2c:
+pxa: move to generic GPIO recovery""), but that only helped to fix
+the issue in the 6.1.y stable tree. The reason behind the partial succes
+is that there was another change in commit 20cb3fce4d60 ("i2c: Set i2c
+pinctrl recovery info from it's device pinctrl") in the 6.3-rc1 cycle
+which broke things further.
+
+The cause of the problem is the same in case of both offending commits
+mentioned above. Namely, the I2C core code changes the pinctrl state to
+GPIO while running the recovery initialization code. Although the PXA
+specific initialization also does this, but the key difference is that
+it happens before the conrtoller is getting enabled in i2c_pxa_reset(),
+whereas in the case of the generic initialization it happens after that.
+
+To resolve the problem, provide an empty init_recovery() callback
+function thus preventing the I2C core to call the generic recovery
+initialization code.
+
+As the result this change restores the original behaviour, which in
+turn makes the I2C communication to work again as it can be seen from
+the following log:
+
+  [    7.305277] i2c i2c-0:  PXA I2C adapter
+  [    7.310198] i2c i2c-1:  PXA I2C adapter
+  [    7.315012] sfp sfp-eth1: Host maximum power 3.0W
+  [    7.324061] lm75 1-0048: supply vs not found, using dummy regulator
+  [    7.331738] sfp sfp-eth0: Host maximum power 3.0W
+  [    7.337000] hwmon hwmon0: temp1_input not attached to any thermal zone
+  [    7.343593] lm75 1-0048: hwmon0: sensor 'tmp75c'
+  [    7.348526] lm75 1-0049: supply vs not found, using dummy regulator
+  [    7.356858] hwmon hwmon1: temp1_input not attached to any thermal zone
+  [    7.363463] lm75 1-0049: hwmon1: sensor 'tmp75c'
+  ...
+  [    7.730315] sfp sfp-eth1: module Mikrotik         S-RJ01           rev 1.0  sn 61B103C55C58     dc 201022
+  [    7.840318] sfp sfp-eth0: module MENTECHOPTO      POS22-LDCC-KR    rev 1.0  sn MNC208U90009     dc 200828
+  [    7.850083] mvneta d0030000.ethernet eth0: unsupported SFP module: no common interface modes
+  [    7.990335] hwmon hwmon2: temp1_input not attached to any thermal zone
+
+[1] https://lore.kernel.org/r/20230926160255.330417-1-robert.marko@sartura.hr
 
 Cc: stable@vger.kernel.org # 6.3+
+Fixes: 20cb3fce4d60 ("i2c: Set i2c pinctrl recovery info from it's device pinctrl")
 Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
 Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
 ---
- drivers/i2c/i2c-core-base.c | 8 +++++++-
- include/linux/i2c.h         | 4 ++++
- 2 files changed, 11 insertions(+), 1 deletion(-)
+ drivers/i2c/busses/i2c-pxa.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/i2c/i2c-core-base.c b/drivers/i2c/i2c-core-base.c
-index 7ad1ad5c8c3f56943b627254b1fdbf8f787afdb5..6b8b961b845caf6f28ea1a9a76d623ac73f5e0dd 100644
---- a/drivers/i2c/i2c-core-base.c
-+++ b/drivers/i2c/i2c-core-base.c
-@@ -427,12 +427,18 @@ static int i2c_init_recovery(struct i2c_adapter *adap)
- 	struct i2c_bus_recovery_info *bri = adap->bus_recovery_info;
- 	bool is_error_level = true;
- 	char *err_str;
-+	int ret;
+diff --git a/drivers/i2c/busses/i2c-pxa.c b/drivers/i2c/busses/i2c-pxa.c
+index 4415a29f749b927ce96e54cfbd229e1f48fa8623..a36fc30e6f262f0608e0bc77d02771d13d0e0921 100644
+--- a/drivers/i2c/busses/i2c-pxa.c
++++ b/drivers/i2c/busses/i2c-pxa.c
+@@ -1330,6 +1330,12 @@ static void i2c_pxa_unprepare_recovery(struct i2c_adapter *adap)
+ 	i2c_pxa_enable(i2c);
+ }
  
- 	if (!bri)
++static int i2c_pxa_init_recovery_cb(struct i2c_adapter *adap)
++{
++	/* We have initialized everything already, so nothing to do here. */
++	return 0;
++}
++
+ static int i2c_pxa_init_recovery(struct pxa_i2c *i2c)
+ {
+ 	struct i2c_bus_recovery_info *bri = &i2c->recovery;
+@@ -1398,6 +1404,7 @@ static int i2c_pxa_init_recovery(struct pxa_i2c *i2c)
  		return 0;
+ 	}
  
--	if (i2c_gpio_init_recovery(adap) == -EPROBE_DEFER)
-+	if (bri->init_recovery) {
-+		ret = bri->init_recovery(adap);
-+		if (ret)
-+			return ret;
-+	} else if (i2c_gpio_init_recovery(adap) == -EPROBE_DEFER) {
- 		return -EPROBE_DEFER;
-+	}
- 
- 	if (!bri->recover_bus) {
- 		err_str = "no suitable method provided";
-diff --git a/include/linux/i2c.h b/include/linux/i2c.h
-index 2e4903b7f7bc11627f9cbc23a4d549dd48c4dcc7..1cff399822c817429e520572546a3d0b7f704723 100644
---- a/include/linux/i2c.h
-+++ b/include/linux/i2c.h
-@@ -638,6 +638,9 @@ struct i2c_timings {
-  *	for generic GPIO recovery.
-  * @get_bus_free: Returns the bus free state as seen from the IP core in case it
-  *	has a more complex internal logic than just reading SDA. Optional.
-+ * @init_recovery: If specified, it will be called instead of the generic GPIO
-+ *	recovery initialization code. Platform may use a dummy callback to skip
-+ *	calling the generic code, or it may use a custom implementation.
-  * @prepare_recovery: This will be called before starting recovery. Platform may
-  *	configure padmux here for SDA/SCL line or something else they want.
-  * @unprepare_recovery: This will be called after completing recovery. Platform
-@@ -662,6 +665,7 @@ struct i2c_bus_recovery_info {
- 	void (*set_sda)(struct i2c_adapter *adap, int val);
- 	int (*get_bus_free)(struct i2c_adapter *adap);
- 
-+	int (*init_recovery)(struct i2c_adapter *adap);
- 	void (*prepare_recovery)(struct i2c_adapter *adap);
- 	void (*unprepare_recovery)(struct i2c_adapter *adap);
- 
++	bri->init_recovery = i2c_pxa_init_recovery_cb;
+ 	bri->prepare_recovery = i2c_pxa_prepare_recovery;
+ 	bri->unprepare_recovery = i2c_pxa_unprepare_recovery;
+ 	bri->recover_bus = i2c_generic_scl_recovery;
 
 -- 
 2.49.0
