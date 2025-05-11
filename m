@@ -4,106 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 057DAC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 20:36:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 178B5C3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 20:51:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E1ldMZzRY48MPhvy74auPiCjGXjOiQBSOuH+++XP3qw=; b=OQqN71vyLpj6PY5pLjQli57s3v
-	tUYsdXsX0z7PPprJc2gAy7kkaqgaxFd+gh+/kRlafcsdEN7ugi2+Hz/4W8VcTlYsyhzGDAc4WbrF4
-	mA1PvZYbb7++pbSxgjcBYuREeH0xjPddyWI3uYWCJiDffsuLy6i5kX8rxEX9xMFtheU0GLhDW6DwX
-	RLx3XE01aptqDLz6qXj1SwIvATOthi0H1tgwCpl90H0A83R0Li4/kckaKh3fjcCW8+RXC+Nxnqdr4
-	eykM7isenPG7udH4d2ZKe+7B9J/lTD31Yy1LInG0r8Qt6iHul6bfH1Ztd727cZdlINeCN9EhfzKMr
-	Kaf8C3zw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c6reXJuS8U/BxfTDU8mO24SUF8p0vXceAnGb2e4fJB0=; b=Wg0XGsD11pJmKrMDyxZFACd0nW
+	hxhu5Q5liIaAJWRPgkeKxh9MIhcBJQC66w+wCGkBkpCJIfuo1pvdvokLii9wnfzuM/lEetKVnXTPk
+	Iti2HLN+GK6iicDtfIChHbOyYGsUGrXL3MVrqC0HBYt9BFkX0z45r+uNbwiZGtEVRuZoPRwFnTAAz
+	31k630YFOzCs1W5s3/Ac82mZQpea398LDDVAns+bZ3F6NJBURwXpmSeTmMvkOrtrAjsz0pYsvkAyl
+	6dG5ADLFbppjpSYw8xrm/xv8jctCM0gbj+m7ZUpCVR5AY1A/6JnAzzUkGKHFF8KOCN9Nrnl5XbbR8
+	r1BkF+nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEDP0-00000007oz1-3nDe;
-	Sun, 11 May 2025 20:36:02 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uEDeB-00000007qX6-2xwt;
+	Sun, 11 May 2025 20:51:43 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uED3M-00000007mst-26Tw;
-	Sun, 11 May 2025 20:13:41 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43cfecdd8b2so27873675e9.2;
-        Sun, 11 May 2025 13:13:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746994419; x=1747599219; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=E1ldMZzRY48MPhvy74auPiCjGXjOiQBSOuH+++XP3qw=;
-        b=hmwLWpZYmZhDLBPVwsIncJwhheww1FNoDY2mE+FBAtFqkJJJh4PHobSRrmGwaCf6qt
-         B+Ti9tTL0y2iUB+ptbuszlYIRP6dRAJEGDnHWgb/eQCENAOKDp8vqBn+FyuwAKm03gEo
-         WTpG+h7qKgeFWBEVhxDhzXyVFw+GouFMJh7omkgeSgxJppXc3iETls9aH4l5hLOVeI7q
-         trtu/+uUNakDiefYycdUuacpFEj3rpBCimtTO+ioTg/fGKo+zGyyr12MqAx8orN4uZvP
-         piCUEn+u2ywEivZU8+D/qwBp3AB6alBbzaT/iNfp+LNeBFsHHnldf1pq5TGpfeK47BM2
-         nZ+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746994419; x=1747599219;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=E1ldMZzRY48MPhvy74auPiCjGXjOiQBSOuH+++XP3qw=;
-        b=YI4MHDlJyEClUPukoy07ywbOQqL2FVK/yt4bUh7x6m5bYB2pj6n8ye43L2idLo6aTx
-         tPVWnLmt5IJt+lHlIjCP8bh/Qakr+jYMtUaMYEh+VIwpxIjrvUpFOZDQINm9Ri+xlkuY
-         OP4TNXksvIlOJp2AUU19JLg1E2+tOaXVzMSLopqFucb6n1sKtHh58GGS6Qg6BnG9Ofuv
-         vvRdRmRmHqYFvjQYjxIP6xCeDw+mqTTHKyxjYsJKlG6mSZUoLtPKx1yxeP2hcOhiFMMt
-         n+iImEr0K2kHM03X8N2iOv8cd9M0fWZYzU4HwcQUbCsx6bBlH19S73gRtdK0UWKtZ+xR
-         tqiA==
-X-Forwarded-Encrypted: i=1; AJvYcCVNMbKjqNCVeUK9Gn/8+tQr5miD7enADbKv0QBjvFHr/f9ETpDjPvGN2prKRJypgfprImT4OdsI5/3pco/3hL2g@lists.infradead.org, AJvYcCXvcSP9gfVVDv6rJOUoKAlRkBBAlTWqoM9sO6IqUrIAGerEReYNJW4RvONsZ90XhogRGyAhhg7DU0GX3OTz8nU=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWSink3zsJfc7LcXgcWCzorskeLytQRw4pDCs9/FaVy5v5fuIc
-	HLfq3nphatLk1Dv+ndwZGo7l8ZEc2bJmf3MvV5zTqOA7bBlR0FhY
-X-Gm-Gg: ASbGncuYtZB3XT9er5vG1094rCKf8fWD7lXpThIYzq+udPTbt1Lbc5VY5XLEIcuII0P
-	MUBOGbLhCu9zr8fRXZHb18JPsaKIaaHNDgJUi9j6KT0lmR4jpIC9SmfC6UI6x/ED8zrc+B1XAGm
-	N8dLVTcxnS62OVQB7DxWhyl1WdOjKfrRCubCza8G98PQVTfncgqlMiP8Lf4u2AqrVRiQXKsT+z6
-	hB1m6GwA1kmRO9HJtme2Yf90cV7Yq7im6Ql1Hug4f80UaJxyTN3Vxm7gn0nD+XF4AVUR8t4YxJ4
-	6IjJ2A+X0MIOA4zT/DVn1mKTp0mIqMvDl7JnJLNQenCZOC+YGuujAj0rTvS8XxBOq//b+wqS4pw
-	8M33mi5zoItTE0VRbOPUS
-X-Google-Smtp-Source: AGHT+IHNcYZefBBPiSyJBDsYxacaSeQ7MB6Qh8KUtGFVA2lBNgxp/pOIFsfBehA+M1uENnSRnn+R9A==
-X-Received: by 2002:a05:600c:3587:b0:43c:fdbe:43be with SMTP id 5b1f17b1804b1-442d6dd216fmr83241275e9.27.1746994418629;
-        Sun, 11 May 2025 13:13:38 -0700 (PDT)
-Received: from localhost.localdomain (93-34-88-225.ip49.fastwebnet.it. [93.34.88.225])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-442d67ee275sm100615165e9.19.2025.05.11.13.13.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 May 2025 13:13:37 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
+	id 1uEDcA-00000007qQh-0zc3
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 11 May 2025 20:49:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1746996578; x=1778532578;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Jlc3B+l5Yt6p8CoOnhTbpcj6/gZVVfwsLD81ls3OOQA=;
+  b=c0i7q1YJCRfOvXe7NIZJY5yWbKoMkyDxps63943FM82I0hSB3Wk6YJKM
+   xpZIWi5/We32Qm3D1qoW4zucwYYQOXR0hBXZd3juaxSMhs1agIZdFqqL9
+   L0dtTv5H+e92+dcVT5EmITap+dj60DTsLs135XGspHHEVKyQCw6DFKsA1
+   RC0M+S9g6aNhkzerktTaIJw8llT6Z3M2xKF4QyS1LvDMNlHqPfIaoX7YZ
+   p/9ctfybAetYtOhdcFg7CfjA/kMgWZn+SOGFjVazM6v1D1GhOfjiRyfPO
+   Hmm9Fu95YWgGgm7v/yfUNBErnAhhvwWl7zrQaPtrd/cxfikdRq5I8yTCT
+   w==;
+X-CSE-ConnectionGUID: YAEm+3sjRJiEhWoWoaKkng==
+X-CSE-MsgGUID: VKSu/nu0RuylSxDjzVTg0w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11430"; a="48937116"
+X-IronPort-AV: E=Sophos;i="6.15,281,1739865600"; 
+   d="scan'208";a="48937116"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 May 2025 13:49:32 -0700
+X-CSE-ConnectionGUID: EueI3m8xQEmI3wCr5mnsmg==
+X-CSE-MsgGUID: r5BLOc+NSM+v8omMYQgT2A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,281,1739865600"; 
+   d="scan'208";a="142154255"
+Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 11 May 2025 13:49:26 -0700
+Received: from kbuild by 1992f890471c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uEDbu-000Dz1-2J;
+	Sun, 11 May 2025 20:49:22 +0000
+Date: Mon, 12 May 2025 04:49:15 +0800
+From: kernel test robot <lkp@intel.com>
+To: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>,
+	Michael Tretter <m.tretter@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	llvm@lists.linux.dev
-Subject: [net-next PATCH v4 11/11] net: airoha: add phylink support for GDM2/3/4
-Date: Sun, 11 May 2025 22:12:37 +0200
-Message-ID: <20250511201250.3789083-12-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250511201250.3789083-1-ansuelsmth@gmail.com>
-References: <20250511201250.3789083-1-ansuelsmth@gmail.com>
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Michal Simek <monstr@monstr.eu>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Heiko Stuebner <heiko@sntech.de>, Junhao Xie <bigfoot@classfun.cn>,
+	Aradhya Bhatia <a-bhatia1@ti.com>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
+	Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>,
+	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Wolfram Sang <wsa-dev@sang-engineering.com>,
+	Gaosheng Cui <cuigaosheng1@huawei.com>,
+	Ricardo Ribalda <ribalda@chromium.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org
+Subject: Re: [PATCH 2/3] media: allegro-dvt: Add Gen 3 IP stateful decoder
+ driver
+Message-ID: <202505120421.Mdk0nEDm-lkp@intel.com>
+References: <20250511144752.504162-3-yassine.ouaissa@allegrodvt.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250511144752.504162-3-yassine.ouaissa@allegrodvt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_131340_540241_2A3B0ACC 
-X-CRM114-Status: GOOD (  22.90  )
+X-CRM114-CacheID: sfid-20250511_134938_331471_0AA08093 
+X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,272 +108,366 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add phylink support for GDM2/3/4 port that require configuration of the
-PCS to make the external PHY or attached SFP cage work.
+Hi Yassine,
 
-These needs to be defined in the GDM port node using the pcs-handle
-property.
+kernel test robot noticed the following build warnings:
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
----
- drivers/net/ethernet/airoha/airoha_eth.c  | 155 +++++++++++++++++++++-
- drivers/net/ethernet/airoha/airoha_eth.h  |   3 +
- drivers/net/ethernet/airoha/airoha_regs.h |  12 ++
- 3 files changed, 169 insertions(+), 1 deletion(-)
+[auto build test WARNING on robh/for-next]
+[also build test WARNING on linus/master v6.15-rc5 next-20250509]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 16c7896f931f..3be1ae077a76 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -7,6 +7,7 @@
- #include <linux/of_net.h>
- #include <linux/platform_device.h>
- #include <linux/tcp.h>
-+#include <linux/pcs/pcs.h>
- #include <linux/u64_stats_sync.h>
- #include <net/dst_metadata.h>
- #include <net/page_pool/helpers.h>
-@@ -79,6 +80,11 @@ static bool airhoa_is_lan_gdm_port(struct airoha_gdm_port *port)
- 	return port->id == 1;
- }
- 
-+static bool airhoa_is_phy_external(struct airoha_gdm_port *port)
-+{
-+	return port->id != 1;
-+}
-+
- static void airoha_set_macaddr(struct airoha_gdm_port *port, const u8 *addr)
- {
- 	struct airoha_eth *eth = port->qdma->eth;
-@@ -1613,6 +1619,17 @@ static int airoha_dev_open(struct net_device *dev)
- 	struct airoha_gdm_port *port = netdev_priv(dev);
- 	struct airoha_qdma *qdma = port->qdma;
- 
-+	if (airhoa_is_phy_external(port)) {
-+		err = phylink_of_phy_connect(port->phylink, dev->dev.of_node, 0);
-+		if (err) {
-+			netdev_err(dev, "%s: could not attach PHY: %d\n", __func__,
-+				   err);
-+			return err;
-+		}
-+
-+		phylink_start(port->phylink);
-+	}
-+
- 	netif_tx_start_all_queues(dev);
- 	err = airoha_set_vip_for_gdm_port(port, true);
- 	if (err)
-@@ -1665,6 +1682,11 @@ static int airoha_dev_stop(struct net_device *dev)
- 		}
- 	}
- 
-+	if (airhoa_is_phy_external(port)) {
-+		phylink_stop(port->phylink);
-+		phylink_disconnect_phy(port->phylink);
-+	}
-+
- 	return 0;
- }
- 
-@@ -2795,6 +2817,115 @@ bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
- 	return false;
- }
- 
-+static void airoha_mac_link_up(struct phylink_config *config, struct phy_device *phy,
-+			       unsigned int mode, phy_interface_t interface,
-+			       int speed, int duplex, bool tx_pause, bool rx_pause)
-+{
-+	struct airoha_gdm_port *port = container_of(config, struct airoha_gdm_port,
-+						    phylink_config);
-+	struct airoha_qdma *qdma = port->qdma;
-+	struct airoha_eth *eth = qdma->eth;
-+	u32 frag_size_tx, frag_size_rx;
-+
-+	if (port->id != 4)
-+		return;
-+
-+	switch (speed) {
-+	case SPEED_10000:
-+	case SPEED_5000:
-+		frag_size_tx = 8;
-+		frag_size_rx = 8;
-+		break;
-+	case SPEED_2500:
-+		frag_size_tx = 2;
-+		frag_size_rx = 1;
-+		break;
-+	default:
-+		frag_size_tx = 1;
-+		frag_size_rx = 0;
-+	}
-+
-+	/* Configure TX/RX frag based on speed */
-+	airoha_fe_rmw(eth, REG_GDMA4_TMBI_FRAG,
-+		      GDMA4_SGMII0_TX_FRAG_SIZE_MASK,
-+		      FIELD_PREP(GDMA4_SGMII0_TX_FRAG_SIZE_MASK,
-+				 frag_size_tx));
-+
-+	airoha_fe_rmw(eth, REG_GDMA4_RMBI_FRAG,
-+		      GDMA4_SGMII0_RX_FRAG_SIZE_MASK,
-+		      FIELD_PREP(GDMA4_SGMII0_RX_FRAG_SIZE_MASK,
-+				 frag_size_rx));
-+}
-+
-+static const struct phylink_mac_ops airoha_phylink_ops = {
-+	.mac_link_up = airoha_mac_link_up,
-+};
-+
-+static int airoha_setup_phylink(struct net_device *dev)
-+{
-+	struct airoha_gdm_port *port = netdev_priv(dev);
-+	struct device_node *np = dev->dev.of_node;
-+	struct phylink_pcs **available_pcs;
-+	phy_interface_t phy_mode;
-+	struct phylink *phylink;
-+	unsigned int num_pcs;
-+	int err;
-+
-+	err = of_get_phy_mode(np, &phy_mode);
-+	if (err) {
-+		dev_err(&dev->dev, "incorrect phy-mode\n");
-+		return err;
-+	}
-+
-+	port->phylink_config.dev = &dev->dev;
-+	port->phylink_config.type = PHYLINK_NETDEV;
-+	port->phylink_config.mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
-+						MAC_10 | MAC_100 | MAC_1000 | MAC_2500FD |
-+						MAC_5000FD | MAC_10000FD;
-+
-+	err = fwnode_phylink_pcs_parse(dev_fwnode(&dev->dev), NULL, &num_pcs);
-+	if (err)
-+		return err;
-+
-+	available_pcs = kcalloc(num_pcs, sizeof(*available_pcs), GFP_KERNEL);
-+	if (!available_pcs)
-+		return -ENOMEM;
-+
-+	err = fwnode_phylink_pcs_parse(dev_fwnode(&dev->dev), available_pcs,
-+				       &num_pcs);
-+	if (err)
-+		goto out;
-+
-+	port->phylink_config.available_pcs = available_pcs;
-+	port->phylink_config.num_available_pcs = num_pcs;
-+
-+	__set_bit(PHY_INTERFACE_MODE_SGMII,
-+		  port->phylink_config.supported_interfaces);
-+	__set_bit(PHY_INTERFACE_MODE_1000BASEX,
-+		  port->phylink_config.supported_interfaces);
-+	__set_bit(PHY_INTERFACE_MODE_2500BASEX,
-+		  port->phylink_config.supported_interfaces);
-+	__set_bit(PHY_INTERFACE_MODE_USXGMII,
-+		  port->phylink_config.supported_interfaces);
-+
-+	phy_interface_copy(port->phylink_config.pcs_interfaces,
-+			   port->phylink_config.supported_interfaces);
-+
-+	phylink = phylink_create(&port->phylink_config,
-+				 of_fwnode_handle(np),
-+				 phy_mode, &airoha_phylink_ops);
-+	if (IS_ERR(phylink)) {
-+		err = PTR_ERR(phylink);
-+		goto out;
-+	}
-+
-+	port->phylink = phylink;
-+out:
-+	kfree(available_pcs);
-+
-+	return err;
-+}
-+
- static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 				 struct device_node *np, int index)
- {
-@@ -2873,7 +3004,23 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 	if (err)
- 		return err;
- 
--	return register_netdev(dev);
-+	if (airhoa_is_phy_external(port)) {
-+		err = airoha_setup_phylink(dev);
-+		if (err)
-+			return err;
-+	}
-+
-+	err = register_netdev(dev);
-+	if (err)
-+		goto free_phylink;
-+
-+	return 0;
-+
-+free_phylink:
-+	if (airhoa_is_phy_external(port))
-+		phylink_destroy(port->phylink);
-+
-+	return err;
- }
- 
- static int airoha_probe(struct platform_device *pdev)
-@@ -2967,6 +3114,9 @@ static int airoha_probe(struct platform_device *pdev)
- 		struct airoha_gdm_port *port = eth->ports[i];
- 
- 		if (port && port->dev->reg_state == NETREG_REGISTERED) {
-+			if (airhoa_is_phy_external(port))
-+				phylink_destroy(port->phylink);
-+
- 			unregister_netdev(port->dev);
- 			airoha_metadata_dst_free(port);
- 		}
-@@ -2994,6 +3144,9 @@ static void airoha_remove(struct platform_device *pdev)
- 			continue;
- 
- 		airoha_dev_stop(port->dev);
-+		if (airhoa_is_phy_external(port))
-+			phylink_destroy(port->phylink);
-+
- 		unregister_netdev(port->dev);
- 		airoha_metadata_dst_free(port);
- 	}
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 53f39083a8b0..73a500474076 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -498,6 +498,9 @@ struct airoha_gdm_port {
- 	struct net_device *dev;
- 	int id;
- 
-+	struct phylink *phylink;
-+	struct phylink_config phylink_config;
-+
- 	struct airoha_hw_stats stats;
- 
- 	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
-diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
-index d931530fc96f..54f7079b28b0 100644
---- a/drivers/net/ethernet/airoha/airoha_regs.h
-+++ b/drivers/net/ethernet/airoha/airoha_regs.h
-@@ -357,6 +357,18 @@
- #define IP_FRAGMENT_PORT_MASK		GENMASK(8, 5)
- #define IP_FRAGMENT_NBQ_MASK		GENMASK(4, 0)
- 
-+#define REG_GDMA4_TMBI_FRAG		0x2028
-+#define GDMA4_SGMII1_TX_WEIGHT_MASK	GENMASK(31, 26)
-+#define GDMA4_SGMII1_TX_FRAG_SIZE_MASK	GENMASK(25, 16)
-+#define GDMA4_SGMII0_TX_WEIGHT_MASK	GENMASK(15, 10)
-+#define GDMA4_SGMII0_TX_FRAG_SIZE_MASK	GENMASK(9, 0)
-+
-+#define REG_GDMA4_RMBI_FRAG		0x202c
-+#define GDMA4_SGMII1_RX_WEIGHT_MASK	GENMASK(31, 26)
-+#define GDMA4_SGMII1_RX_FRAG_SIZE_MASK	GENMASK(25, 16)
-+#define GDMA4_SGMII0_RX_WEIGHT_MASK	GENMASK(15, 10)
-+#define GDMA4_SGMII0_RX_FRAG_SIZE_MASK	GENMASK(9, 0)
-+
- #define REG_MC_VLAN_EN			0x2100
- #define MC_VLAN_EN_MASK			BIT(0)
- 
+url:    https://github.com/intel-lab-lkp/linux/commits/Yassine-Ouaissa/media-allegro-dvt-Move-the-current-driver-to-a-subdirectory/20250511-225629
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20250511144752.504162-3-yassine.ouaissa%40allegrodvt.com
+patch subject: [PATCH 2/3] media: allegro-dvt: Add Gen 3 IP stateful decoder driver
+config: sparc-allmodconfig (https://download.01.org/0day-ci/archive/20250512/202505120421.Mdk0nEDm-lkp@intel.com/config)
+compiler: sparc64-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250512/202505120421.Mdk0nEDm-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202505120421.Mdk0nEDm-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   In file included from include/uapi/linux/errno.h:1,
+                    from include/linux/errno.h:5,
+                    from drivers/media/platform/allegro-dvt/al300/al_codec_util.c:11:
+>> arch/sparc/include/uapi/asm/errno.h:10:9: warning: "EINPROGRESS" redefined
+      10 | #define EINPROGRESS     36      /* Operation now in progress */
+         |         ^~~~~~~~~~~
+   In file included from drivers/media/platform/allegro-dvt/al300/al_codec_util.c:10:
+   include/uapi/asm-generic/errno.h:98:9: note: this is the location of the previous definition
+      98 | #define EINPROGRESS     115     /* Operation now in progress */
+         |         ^~~~~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:11:9: warning: "EALREADY" redefined
+      11 | #define EALREADY        37      /* Operation already in progress */
+         |         ^~~~~~~~
+   include/uapi/asm-generic/errno.h:97:9: note: this is the location of the previous definition
+      97 | #define EALREADY        114     /* Operation already in progress */
+         |         ^~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:12:9: warning: "ENOTSOCK" redefined
+      12 | #define ENOTSOCK        38      /* Socket operation on non-socket */
+         |         ^~~~~~~~
+   include/uapi/asm-generic/errno.h:71:9: note: this is the location of the previous definition
+      71 | #define ENOTSOCK        88      /* Socket operation on non-socket */
+         |         ^~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:13:9: warning: "EDESTADDRREQ" redefined
+      13 | #define EDESTADDRREQ    39      /* Destination address required */
+         |         ^~~~~~~~~~~~
+   include/uapi/asm-generic/errno.h:72:9: note: this is the location of the previous definition
+      72 | #define EDESTADDRREQ    89      /* Destination address required */
+         |         ^~~~~~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:14:9: warning: "EMSGSIZE" redefined
+      14 | #define EMSGSIZE        40      /* Message too long */
+         |         ^~~~~~~~
+   include/uapi/asm-generic/errno.h:73:9: note: this is the location of the previous definition
+      73 | #define EMSGSIZE        90      /* Message too long */
+         |         ^~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:15:9: warning: "EPROTOTYPE" redefined
+      15 | #define EPROTOTYPE      41      /* Protocol wrong type for socket */
+         |         ^~~~~~~~~~
+   include/uapi/asm-generic/errno.h:74:9: note: this is the location of the previous definition
+      74 | #define EPROTOTYPE      91      /* Protocol wrong type for socket */
+         |         ^~~~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:16:9: warning: "ENOPROTOOPT" redefined
+      16 | #define ENOPROTOOPT     42      /* Protocol not available */
+         |         ^~~~~~~~~~~
+   include/uapi/asm-generic/errno.h:75:9: note: this is the location of the previous definition
+      75 | #define ENOPROTOOPT     92      /* Protocol not available */
+         |         ^~~~~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:17:9: warning: "EPROTONOSUPPORT" redefined
+      17 | #define EPROTONOSUPPORT 43      /* Protocol not supported */
+         |         ^~~~~~~~~~~~~~~
+   include/uapi/asm-generic/errno.h:76:9: note: this is the location of the previous definition
+      76 | #define EPROTONOSUPPORT 93      /* Protocol not supported */
+         |         ^~~~~~~~~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:18:9: warning: "ESOCKTNOSUPPORT" redefined
+      18 | #define ESOCKTNOSUPPORT 44      /* Socket type not supported */
+         |         ^~~~~~~~~~~~~~~
+   include/uapi/asm-generic/errno.h:77:9: note: this is the location of the previous definition
+      77 | #define ESOCKTNOSUPPORT 94      /* Socket type not supported */
+         |         ^~~~~~~~~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:19:9: warning: "EOPNOTSUPP" redefined
+      19 | #define EOPNOTSUPP      45      /* Op not supported on transport endpoint */
+         |         ^~~~~~~~~~
+   include/uapi/asm-generic/errno.h:78:9: note: this is the location of the previous definition
+      78 | #define EOPNOTSUPP      95      /* Operation not supported on transport endpoint */
+         |         ^~~~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:20:9: warning: "EPFNOSUPPORT" redefined
+      20 | #define EPFNOSUPPORT    46      /* Protocol family not supported */
+         |         ^~~~~~~~~~~~
+   include/uapi/asm-generic/errno.h:79:9: note: this is the location of the previous definition
+      79 | #define EPFNOSUPPORT    96      /* Protocol family not supported */
+         |         ^~~~~~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:21:9: warning: "EAFNOSUPPORT" redefined
+      21 | #define EAFNOSUPPORT    47      /* Address family not supported by protocol */
+         |         ^~~~~~~~~~~~
+   include/uapi/asm-generic/errno.h:80:9: note: this is the location of the previous definition
+      80 | #define EAFNOSUPPORT    97      /* Address family not supported by protocol */
+         |         ^~~~~~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:22:9: warning: "EADDRINUSE" redefined
+      22 | #define EADDRINUSE      48      /* Address already in use */
+         |         ^~~~~~~~~~
+   include/uapi/asm-generic/errno.h:81:9: note: this is the location of the previous definition
+      81 | #define EADDRINUSE      98      /* Address already in use */
+         |         ^~~~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:23:9: warning: "EADDRNOTAVAIL" redefined
+      23 | #define EADDRNOTAVAIL   49      /* Cannot assign requested address */
+         |         ^~~~~~~~~~~~~
+   include/uapi/asm-generic/errno.h:82:9: note: this is the location of the previous definition
+      82 | #define EADDRNOTAVAIL   99      /* Cannot assign requested address */
+         |         ^~~~~~~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:24:9: warning: "ENETDOWN" redefined
+      24 | #define ENETDOWN        50      /* Network is down */
+         |         ^~~~~~~~
+   include/uapi/asm-generic/errno.h:83:9: note: this is the location of the previous definition
+      83 | #define ENETDOWN        100     /* Network is down */
+         |         ^~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:25:9: warning: "ENETUNREACH" redefined
+      25 | #define ENETUNREACH     51      /* Network is unreachable */
+         |         ^~~~~~~~~~~
+   include/uapi/asm-generic/errno.h:84:9: note: this is the location of the previous definition
+      84 | #define ENETUNREACH     101     /* Network is unreachable */
+         |         ^~~~~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:26:9: warning: "ENETRESET" redefined
+      26 | #define ENETRESET       52      /* Net dropped connection because of reset */
+         |         ^~~~~~~~~
+   include/uapi/asm-generic/errno.h:85:9: note: this is the location of the previous definition
+      85 | #define ENETRESET       102     /* Network dropped connection because of reset */
+         |         ^~~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:27:9: warning: "ECONNABORTED" redefined
+      27 | #define ECONNABORTED    53      /* Software caused connection abort */
+         |         ^~~~~~~~~~~~
+   include/uapi/asm-generic/errno.h:86:9: note: this is the location of the previous definition
+      86 | #define ECONNABORTED    103     /* Software caused connection abort */
+         |         ^~~~~~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:28:9: warning: "ECONNRESET" redefined
+      28 | #define ECONNRESET      54      /* Connection reset by peer */
+         |         ^~~~~~~~~~
+   include/uapi/asm-generic/errno.h:87:9: note: this is the location of the previous definition
+      87 | #define ECONNRESET      104     /* Connection reset by peer */
+         |         ^~~~~~~~~~
+>> arch/sparc/include/uapi/asm/errno.h:29:9: warning: "ENOBUFS" redefined
+      29 | #define ENOBUFS         55      /* No buffer space available */
+         |         ^~~~~~~
+   include/uapi/asm-generic/errno.h:88:9: note: this is the location of the previous definition
+      88 | #define ENOBUFS         105     /* No buffer space available */
+         |         ^~~~~~~
+   arch/sparc/include/uapi/asm/errno.h:30:9: warning: "EISCONN" redefined
+      30 | #define EISCONN         56      /* Transport endpoint is already connected */
+         |         ^~~~~~~
+   include/uapi/asm-generic/errno.h:89:9: note: this is the location of the previous definition
+      89 | #define EISCONN         106     /* Transport endpoint is already connected */
+         |         ^~~~~~~
+   arch/sparc/include/uapi/asm/errno.h:31:9: warning: "ENOTCONN" redefined
+      31 | #define ENOTCONN        57      /* Transport endpoint is not connected */
+         |         ^~~~~~~~
+   include/uapi/asm-generic/errno.h:90:9: note: this is the location of the previous definition
+      90 | #define ENOTCONN        107     /* Transport endpoint is not connected */
+         |         ^~~~~~~~
+   arch/sparc/include/uapi/asm/errno.h:32:9: warning: "ESHUTDOWN" redefined
+      32 | #define ESHUTDOWN       58      /* No send after transport endpoint shutdown */
+         |         ^~~~~~~~~
+   include/uapi/asm-generic/errno.h:91:9: note: this is the location of the previous definition
+      91 | #define ESHUTDOWN       108     /* Cannot send after transport endpoint shutdown */
+         |         ^~~~~~~~~
+   arch/sparc/include/uapi/asm/errno.h:33:9: warning: "ETOOMANYREFS" redefined
+      33 | #define ETOOMANYREFS    59      /* Too many references: cannot splice */
+         |         ^~~~~~~~~~~~
+   include/uapi/asm-generic/errno.h:92:9: note: this is the location of the previous definition
+      92 | #define ETOOMANYREFS    109     /* Too many references: cannot splice */
+         |         ^~~~~~~~~~~~
+   arch/sparc/include/uapi/asm/errno.h:34:9: warning: "ETIMEDOUT" redefined
+      34 | #define ETIMEDOUT       60      /* Connection timed out */
+         |         ^~~~~~~~~
+   include/uapi/asm-generic/errno.h:93:9: note: this is the location of the previous definition
+      93 | #define ETIMEDOUT       110     /* Connection timed out */
+         |         ^~~~~~~~~
+   arch/sparc/include/uapi/asm/errno.h:35:9: warning: "ECONNREFUSED" redefined
+      35 | #define ECONNREFUSED    61      /* Connection refused */
+         |         ^~~~~~~~~~~~
+   include/uapi/asm-generic/errno.h:94:9: note: this is the location of the previous definition
+      94 | #define ECONNREFUSED    111     /* Connection refused */
+         |         ^~~~~~~~~~~~
+   arch/sparc/include/uapi/asm/errno.h:36:9: warning: "ELOOP" redefined
+      36 | #define ELOOP           62      /* Too many symbolic links encountered */
+         |         ^~~~~
+   include/uapi/asm-generic/errno.h:21:9: note: this is the location of the previous definition
+      21 | #define ELOOP           40      /* Too many symbolic links encountered */
+         |         ^~~~~
+   arch/sparc/include/uapi/asm/errno.h:37:9: warning: "ENAMETOOLONG" redefined
+      37 | #define ENAMETOOLONG    63      /* File name too long */
+         |         ^~~~~~~~~~~~
+   include/uapi/asm-generic/errno.h:8:9: note: this is the location of the previous definition
+       8 | #define ENAMETOOLONG    36      /* File name too long */
+         |         ^~~~~~~~~~~~
+   arch/sparc/include/uapi/asm/errno.h:38:9: warning: "EHOSTDOWN" redefined
+      38 | #define EHOSTDOWN       64      /* Host is down */
+         |         ^~~~~~~~~
+   include/uapi/asm-generic/errno.h:95:9: note: this is the location of the previous definition
+      95 | #define EHOSTDOWN       112     /* Host is down */
+         |         ^~~~~~~~~
+   arch/sparc/include/uapi/asm/errno.h:39:9: warning: "EHOSTUNREACH" redefined
+      39 | #define EHOSTUNREACH    65      /* No route to host */
+         |         ^~~~~~~~~~~~
+   include/uapi/asm-generic/errno.h:96:9: note: this is the location of the previous definition
+      96 | #define EHOSTUNREACH    113     /* No route to host */
+         |         ^~~~~~~~~~~~
+   arch/sparc/include/uapi/asm/errno.h:40:9: warning: "ENOTEMPTY" redefined
+      40 | #define ENOTEMPTY       66      /* Directory not empty */
+         |         ^~~~~~~~~
+   include/uapi/asm-generic/errno.h:20:9: note: this is the location of the previous definition
+      20 | #define ENOTEMPTY       39      /* Directory not empty */
+         |         ^~~~~~~~~
+   arch/sparc/include/uapi/asm/errno.h:42:9: warning: "EUSERS" redefined
+      42 | #define EUSERS          68      /* Too many users */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:70:9: note: this is the location of the previous definition
+      70 | #define EUSERS          87      /* Too many users */
+         |         ^~~~~~
+   arch/sparc/include/uapi/asm/errno.h:43:9: warning: "EDQUOT" redefined
+      43 | #define EDQUOT          69      /* Quota exceeded */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:105:9: note: this is the location of the previous definition
+     105 | #define EDQUOT          122     /* Quota exceeded */
+         |         ^~~~~~
+   arch/sparc/include/uapi/asm/errno.h:44:9: warning: "ESTALE" redefined
+      44 | #define ESTALE          70      /* Stale file handle */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:99:9: note: this is the location of the previous definition
+      99 | #define ESTALE          116     /* Stale file handle */
+         |         ^~~~~~
+   arch/sparc/include/uapi/asm/errno.h:45:9: warning: "EREMOTE" redefined
+      45 | #define EREMOTE         71      /* Object is remote */
+         |         ^~~~~~~
+   include/uapi/asm-generic/errno.h:49:9: note: this is the location of the previous definition
+      49 | #define EREMOTE         66      /* Object is remote */
+         |         ^~~~~~~
+   arch/sparc/include/uapi/asm/errno.h:46:9: warning: "ENOSTR" redefined
+      46 | #define ENOSTR          72      /* Device not a stream */
+         |         ^~~~~~
+   include/uapi/asm-generic/errno.h:43:9: note: this is the location of the previous definition
+      43 | #define ENOSTR          60      /* Device not a stream */
+
+
+vim +/EINPROGRESS +10 arch/sparc/include/uapi/asm/errno.h
+
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16    8  
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16    9  #define	EWOULDBLOCK	EAGAIN	/* Operation would block */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @10  #define	EINPROGRESS	36	/* Operation now in progress */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @11  #define	EALREADY	37	/* Operation already in progress */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @12  #define	ENOTSOCK	38	/* Socket operation on non-socket */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @13  #define	EDESTADDRREQ	39	/* Destination address required */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @14  #define	EMSGSIZE	40	/* Message too long */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @15  #define	EPROTOTYPE	41	/* Protocol wrong type for socket */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @16  #define	ENOPROTOOPT	42	/* Protocol not available */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @17  #define	EPROTONOSUPPORT	43	/* Protocol not supported */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @18  #define	ESOCKTNOSUPPORT	44	/* Socket type not supported */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @19  #define	EOPNOTSUPP	45	/* Op not supported on transport endpoint */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @20  #define	EPFNOSUPPORT	46	/* Protocol family not supported */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @21  #define	EAFNOSUPPORT	47	/* Address family not supported by protocol */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @22  #define	EADDRINUSE	48	/* Address already in use */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @23  #define	EADDRNOTAVAIL	49	/* Cannot assign requested address */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @24  #define	ENETDOWN	50	/* Network is down */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @25  #define	ENETUNREACH	51	/* Network is unreachable */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @26  #define	ENETRESET	52	/* Net dropped connection because of reset */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @27  #define	ECONNABORTED	53	/* Software caused connection abort */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @28  #define	ECONNRESET	54	/* Connection reset by peer */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @29  #define	ENOBUFS		55	/* No buffer space available */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @30  #define	EISCONN		56	/* Transport endpoint is already connected */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @31  #define	ENOTCONN	57	/* Transport endpoint is not connected */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @32  #define	ESHUTDOWN	58	/* No send after transport endpoint shutdown */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @33  #define	ETOOMANYREFS	59	/* Too many references: cannot splice */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @34  #define	ETIMEDOUT	60	/* Connection timed out */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @35  #define	ECONNREFUSED	61	/* Connection refused */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @36  #define	ELOOP		62	/* Too many symbolic links encountered */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @37  #define	ENAMETOOLONG	63	/* File name too long */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @38  #define	EHOSTDOWN	64	/* Host is down */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @39  #define	EHOSTUNREACH	65	/* No route to host */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @40  #define	ENOTEMPTY	66	/* Directory not empty */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16   41  #define EPROCLIM        67      /* SUNOS: Too many processes */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @42  #define	EUSERS		68	/* Too many users */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @43  #define	EDQUOT		69	/* Quota exceeded */
+0ca43435188b9f arch/sparc/include/uapi/asm/errno.h Eric Sandeen        2013-11-12  @44  #define	ESTALE		70	/* Stale file handle */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @45  #define	EREMOTE		71	/* Object is remote */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @46  #define	ENOSTR		72	/* Device not a stream */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @47  #define	ETIME		73	/* Timer expired */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @48  #define	ENOSR		74	/* Out of streams resources */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @49  #define	ENOMSG		75	/* No message of desired type */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @50  #define	EBADMSG		76	/* Not a data message */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @51  #define	EIDRM		77	/* Identifier removed */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @52  #define	EDEADLK		78	/* Resource deadlock would occur */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @53  #define	ENOLCK		79	/* No record locks available */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @54  #define	ENONET		80	/* Machine is not on the network */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16   55  #define ERREMOTE        81      /* SunOS: Too many lvls of remote in path */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @56  #define	ENOLINK		82	/* Link has been severed */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @57  #define	EADV		83	/* Advertise error */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @58  #define	ESRMNT		84	/* Srmount error */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @59  #define	ECOMM		85      /* Communication error on send */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @60  #define	EPROTO		86	/* Protocol error */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @61  #define	EMULTIHOP	87	/* Multihop attempted */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @62  #define	EDOTDOT		88	/* RFS specific error */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @63  #define	EREMCHG		89	/* Remote address changed */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @64  #define	ENOSYS		90	/* Function not implemented */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16   65  
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16   66  /* The rest have no SunOS equivalent. */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @67  #define	ESTRPIPE	91	/* Streams pipe error */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @68  #define	EOVERFLOW	92	/* Value too large for defined data type */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @69  #define	EBADFD		93	/* File descriptor in bad state */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @70  #define	ECHRNG		94	/* Channel number out of range */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @71  #define	EL2NSYNC	95	/* Level 2 not synchronized */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @72  #define	EL3HLT		96	/* Level 3 halted */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @73  #define	EL3RST		97	/* Level 3 reset */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @74  #define	ELNRNG		98	/* Link number out of range */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @75  #define	EUNATCH		99	/* Protocol driver not attached */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @76  #define	ENOCSI		100	/* No CSI structure available */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @77  #define	EL2HLT		101	/* Level 2 halted */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @78  #define	EBADE		102	/* Invalid exchange */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @79  #define	EBADR		103	/* Invalid request descriptor */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @80  #define	EXFULL		104	/* Exchange full */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @81  #define	ENOANO		105	/* No anode */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @82  #define	EBADRQC		106	/* Invalid request code */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @83  #define	EBADSLT		107	/* Invalid slot */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @84  #define	EDEADLOCK	108	/* File locking deadlock error */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @85  #define	EBFONT		109	/* Bad font file format */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @86  #define	ELIBEXEC	110	/* Cannot exec a shared library directly */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @87  #define	ENODATA		111	/* No data available */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @88  #define	ELIBBAD		112	/* Accessing a corrupted shared library */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @89  #define	ENOPKG		113	/* Package not installed */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @90  #define	ELIBACC		114	/* Can not access a needed shared library */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @91  #define	ENOTUNIQ	115	/* Name not unique on network */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @92  #define	ERESTART	116	/* Interrupted syscall should be restarted */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16   93  #define	EUCLEAN		117	/* Structure needs cleaning */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16   94  #define	ENOTNAM		118	/* Not a XENIX named type file */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16   95  #define	ENAVAIL		119	/* No XENIX semaphores available */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16   96  #define	EISNAM		120	/* Is a named type file */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16   97  #define	EREMOTEIO	121	/* Remote I/O error */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @98  #define	EILSEQ		122	/* Illegal byte sequence */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  @99  #define	ELIBMAX		123	/* Atmpt to link in too many shared libs */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16 @100  #define	ELIBSCN		124	/* .lib section in a.out corrupted */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  101  
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16 @102  #define	ENOMEDIUM	125	/* No medium found */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16 @103  #define	EMEDIUMTYPE	126	/* Wrong medium type */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16 @104  #define	ECANCELED	127	/* Operation Cancelled */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16 @105  #define	ENOKEY		128	/* Required key not available */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16 @106  #define	EKEYEXPIRED	129	/* Key has expired */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16 @107  #define	EKEYREVOKED	130	/* Key has been revoked */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16 @108  #define	EKEYREJECTED	131	/* Key was rejected by service */
+^1da177e4c3f41 include/asm-sparc/errno.h           Linus Torvalds      2005-04-16  109  
+4750e2c0c59e0c include/asm-sparc/errno.h           Joe Korty           2005-05-01  110  /* for robust mutexes */
+4750e2c0c59e0c include/asm-sparc/errno.h           Joe Korty           2005-05-01 @111  #define	EOWNERDEAD	132	/* Owner died */
+4750e2c0c59e0c include/asm-sparc/errno.h           Joe Korty           2005-05-01 @112  #define	ENOTRECOVERABLE	133	/* State not recoverable */
+4750e2c0c59e0c include/asm-sparc/errno.h           Joe Korty           2005-05-01  113  
+7d217d7ffc3433 arch/sparc/include/asm/errno.h      Alexander Beregalov 2009-06-07 @114  #define	ERFKILL		134	/* Operation not possible due to RF-kill */
+7d217d7ffc3433 arch/sparc/include/asm/errno.h      Alexander Beregalov 2009-06-07  115  
+69ebb83e13e514 arch/sparc/include/asm/errno.h      Ying Huang          2011-01-30 @116  #define EHWPOISON	135	/* Memory page has hardware error */
+69ebb83e13e514 arch/sparc/include/asm/errno.h      Ying Huang          2011-01-30  117  
+
 -- 
-2.48.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
