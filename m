@@ -4,65 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5026EC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 11:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A08C3ABC5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 11:15:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ek6GBAYJeDRPIZjH28p/Q9SJdCsotpdSU7d2WoGn9tU=; b=KWN7k2siVdDc5NSMgYBrv6h4u9
-	4x6ZFwP0MfaJ+5iqVF7w/5LMa7Knlv5mADcwFoZRaqyib4H8y3wEB+SyYlwK3WFMvCbq8qS25/CUl
-	CJul7quWcQ9taveqY5wprhGDLntlKJhenewsruHGT97gmLTQ81ppHWbiOmGp4aVnLNHYDwqVLRTjo
-	7wNgRRpnEaNs6eJxkucyL8p8psOTgQvA/vL2TrIQfQuDh4iezj79nrs03W4gETTIbQnyLBpg4Lv8Z
-	Y9jHHEOH77SGNY/OLYmR2BipMwyLmRdHOXtvBxb7JEVuieKWmvGN1xRNVyYLU5hnddWugLZlukedW
-	jHWuK8vA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q57QHVGTggInw4SYx+QGXU9upTn8tSrysyFGREwQ++E=; b=zJYHFE3XTMAIyNU6+KW3OmsBpM
+	/AHrMSJ7z2Q3Zax5bd6G8nZ7cRid02jEfO+VjG2XocRLl8mIPWMgdRiPZIVJxO6JS6k9GPgcGYdjk
+	0Q7SCTA1D4LiHrtoJV6rpYnRQo0ECHKOLTo4R/b+Fp0NYZm9ZW0kKkik1plP49nim1DHjdyAmfrfB
+	roq6X7PjK/3NnjczCoc2MM2ms+ldHzsCRqmR48UZlxEsIfBrwPVHqX4rdVLWjLLBe5HCd6MzykTjw
+	mFPSoMsx1kwMztfViCuNV5z+7gS8WzncqAutweWgw9H5JpupKx1Qrj716zWHP4h4eLK173F/SyxvS
+	yAHPMmvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE4ZI-000000078Ur-0QqL;
-	Sun, 11 May 2025 11:10:04 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1uE4ek-0000000790g-2nLD;
+	Sun, 11 May 2025 11:15:42 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE4Uj-000000078Ai-1eaJ
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 May 2025 11:05:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1746961519;
- bh=ek6GBAYJeDRPIZjH28p/Q9SJdCsotpdSU7d2WoGn9tU=;
- b=hDF9ZEAWDKtbe/TIvELNrfnS21K5PvjhMOwWzX7OERfrW7oz15751QMxS0gQ/CuzU7vHZRBhm
- fcyW/sArKiYOXgVLxpOU3W4jd2M+BSRLGX+pe53XwYI9au//AbaP4Wds4dTPDyceSUH3V02D5zu
- 6ChCNJH9aTv/xvtzFEhEUYFjWBKOtXkaIKvOfpjoa/MP8r93wPrpE5shIUXJracTUyK7OQAUkes
- kVCEzXcDWDDYR8FAyf2bAMy/70IrsSswDf1pr0mDCOtGcM6uQ04P5Q1SYEv1lynS4bSmbxHJ3E2
- 9TOtDkz30kyxXklUaZ5ETc71UZ1O6IZ2vNXNQgJ3wx9A==
-X-Forward-Email-ID: 682084688a98caeef2469b46
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 1.0.2
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <4a4c0295-d8f1-4d8a-92e4-34a69b42c728@kwiboo.se>
-Date: Sun, 11 May 2025 13:05:08 +0200
+	id 1uE4cj-000000078kq-1ECJ;
+	Sun, 11 May 2025 11:13:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1746962017; x=1778498017;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=1rAsgwZYIQE6e6R96BL5uR52KMCv8+3yF9wTwCO3IdI=;
+  b=UhjUUKWP/iwtAZ4qKI3Gi+3TflP3EjeJ1gKhvrL+IreFhg7hqbqint2m
+   hyNSHcc0s9TBs/Cd+vr1vNDJPnHX+jtmQqdCje7D2q0rI78CsmfM9shS3
+   axkd/HoAB9cEPgdcS+811+l4VUuaeVYm5vPd+gD7/DHtnOdwnnzrwS1w8
+   /A/pmD4F+ptZ7pE0K8lvPYZaIFj8D+2JQGl64lx05q7encGEz0xQ7xnK1
+   B7cfjFR1D7rK6O7E17JEgSmB2soWG5xoejtkivCHwzrc+EVdziyg5snfx
+   ESJSX9z8zZSBWmiCq+Faeqx0e30aimhTTMd45/zXEzE6Log2DyD1WYm36
+   g==;
+X-CSE-ConnectionGUID: XK5ecwsyRYOxXMccgBjdKQ==
+X-CSE-MsgGUID: x/uX8+RwQfahqyOCu5VkCg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11429"; a="47873556"
+X-IronPort-AV: E=Sophos;i="6.15,280,1739865600"; 
+   d="scan'208";a="47873556"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 May 2025 04:13:37 -0700
+X-CSE-ConnectionGUID: kXTEaESAQbGa6BLvEcG9BA==
+X-CSE-MsgGUID: cG3jbXnLQ2qq1JMScR/teQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,280,1739865600"; 
+   d="scan'208";a="137603556"
+Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 11 May 2025 04:13:34 -0700
+Received: from kbuild by 1992f890471c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uE4cc-000Djb-1r;
+	Sun, 11 May 2025 11:13:30 +0000
+Date: Sun, 11 May 2025 19:13:00 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alexey Charkov <alchark@gmail.com>, Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Michael Walle <mwalle@kernel.org>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	Alexey Charkov <alchark@gmail.com>
+Subject: Re: [PATCH 2/3] mtd: spi-nor: Add a driver for the VIA/WonderMedia
+ serial flash controller
+Message-ID: <202505111905.tlinDurh-lkp@intel.com>
+References: <20250510-wmt-sflash-v1-2-02a1ac6adf12@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: rockchip: move rk3528 i2c+uart aliases to
- board files
-To: Heiko Stuebner <heiko@sntech.de>, Arnd Bergmann <arnd@arndb.de>
-Cc: linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250510220106.2108414-1-heiko@sntech.de>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250510220106.2108414-1-heiko@sntech.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250510-wmt-sflash-v1-2-02a1ac6adf12@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_040521_785392_E3A23765 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20250511_041337_345494_85517380 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,83 +98,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+Hi Alexey,
 
-On 2025-05-11 00:01, Heiko Stuebner wrote:
-> Even though they will be the same for all boards, i2c and uart aliases
-> are supposed to live in the individual board files, to not create
-> aliases for disabled nodes.
+kernel test robot noticed the following build errors:
 
-This sounds like something tooling should be able to handle, e.g. U-Boot
-use fdtgrep to filter out nodes (and aliases) for the FDT used by early
-boot phases.
+[auto build test ERROR on ed61cb3d78d585209ec775933078e268544fe9a4]
 
-Maybe DTC just need a feature to remove aliases to disabled nodes?
+url:    https://github.com/intel-lab-lkp/linux/commits/Alexey-Charkov/dt-bindings-spi-Add-VIA-WonderMedia-serial-flash-controller/20250511-034459
+base:   ed61cb3d78d585209ec775933078e268544fe9a4
+patch link:    https://lore.kernel.org/r/20250510-wmt-sflash-v1-2-02a1ac6adf12%40gmail.com
+patch subject: [PATCH 2/3] mtd: spi-nor: Add a driver for the VIA/WonderMedia serial flash controller
+config: sh-allmodconfig (https://download.01.org/0day-ci/archive/20250511/202505111905.tlinDurh-lkp@intel.com/config)
+compiler: sh4-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250511/202505111905.tlinDurh-lkp@intel.com/reproduce)
 
-Also how should overlays handle aliases? Are all overlays suppose to add
-aliases for the add-on devices they may enable?
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202505111905.tlinDurh-lkp@intel.com/
 
-And how should we handle boards with e.g. a 40-pin header where pins
-could be muxed to multiple functions. Is it the overlays responsibility
-to remove and replace aliases? E.g. if pins can mux between i2c1 and
-uart3, and i2c1 was enabled by default.
+All errors (new ones prefixed by >>):
 
-Regards,
-Jonas
+   drivers/mtd/spi-nor/controllers/wmt-sflash.c: In function 'wmt_sflash_pcmd_mode':
+>> drivers/mtd/spi-nor/controllers/wmt-sflash.c:132:16: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
+     132 |         reg |= FIELD_PREP(SF_PROG_CMD_MOD, enable);
+         |                ^~~~~~~~~~
 
-> 
-> So move the newly added aliases for rk3528 over to the Radxa E20C board,
-> which is the only rk3528 board right now.
-> 
-> Fixes: d3a05f490d04 ("arm64: dts: rockchip: Add I2C controllers for RK3528")
-> Suggested-by: Arnd Bergmann <arnd@arndb.de>
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> ---
->  .../boot/dts/rockchip/rk3528-radxa-e20c.dts      |  2 ++
->  arch/arm64/boot/dts/rockchip/rk3528.dtsi         | 16 ----------------
->  2 files changed, 2 insertions(+), 16 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-> index 506d54337ece..9f6ccd9dd1f7 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-> @@ -18,8 +18,10 @@ / {
->  
->  	aliases {
->  		ethernet0 = &gmac1;
-> +		i2c1 = &i2c1;
->  		mmc0 = &sdhci;
->  		mmc1 = &sdmmc;
-> +		serial0 = &uart0;
->  	};
->  
->  	chosen {
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> index cd8ef389ccf3..b2724c969a76 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> @@ -24,22 +24,6 @@ aliases {
->  		gpio2 = &gpio2;
->  		gpio3 = &gpio3;
->  		gpio4 = &gpio4;
-> -		i2c0 = &i2c0;
-> -		i2c1 = &i2c1;
-> -		i2c2 = &i2c2;
-> -		i2c3 = &i2c3;
-> -		i2c4 = &i2c4;
-> -		i2c5 = &i2c5;
-> -		i2c6 = &i2c6;
-> -		i2c7 = &i2c7;
-> -		serial0 = &uart0;
-> -		serial1 = &uart1;
-> -		serial2 = &uart2;
-> -		serial3 = &uart3;
-> -		serial4 = &uart4;
-> -		serial5 = &uart5;
-> -		serial6 = &uart6;
-> -		serial7 = &uart7;
->  	};
->  
->  	cpus {
 
+vim +/FIELD_PREP +132 drivers/mtd/spi-nor/controllers/wmt-sflash.c
+
+   126	
+   127	static void wmt_sflash_pcmd_mode(struct wmt_sflash_host *host, bool enable)
+   128	{
+   129		u32 reg = readl(host->regbase + SF_SPI_INTF_CFG);
+   130	
+   131		reg &= ~SF_PROG_CMD_MOD;
+ > 132		reg |= FIELD_PREP(SF_PROG_CMD_MOD, enable);
+   133		writel(reg, host->regbase + SF_SPI_INTF_CFG);
+   134	}
+   135	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
