@@ -4,119 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE378C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 17:32:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 968BDC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 17:40:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	References:In-Reply-To:Date:Content-Type:Subject:Cc:To:From:Message-ID:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XOICA0kRmRSeeiiMWejN54dns8o6sstPqVt44YaHJeY=; b=g/UXJCnZDXuI+nxXkWEObwosEK
-	ke+btylYJt9kl4s/ceQJxX2UUUq3XEC6lUcx4zg+DsSkAlx4DRdzVdx4drm5ockP8O+YocXxRSwa3
-	4w7FyOlN2ZCqij+GBqphU3t3yrg6OQxdHDYU/x1ATrph/k/R62gcUbrNj8Zxhjg/mjBSlI0QksahD
-	J4HVGOHyRTCmTCyC40zXoaqjRkLoHrrK2QDmbyEkZD4jkgVX/g4yEFlqruPbvGXal2GI0NsYhFbUQ
-	hLDO/0wk1cd3R32vyTcvmDBObNyGsCuSY/sI+QTkrSD0yVW0AEWx1ppGYbr3VP2GYDMUfvt0faXKg
-	g1aGKeVQ==;
+	bh=htpdGgGE0WJqHpqKCEDMnW5Vc8YelVzDOmwa66AXTRc=; b=Ph8hEfLbRkHHBXzfGfnFIzFMqh
+	b471Y/8ccCyGEY4ccqUdCYC796SPg+XPd9oqfY4Z71ZgB4ki6qtopG9mCAJAlvB33GOEO1Rfu/Xg6
+	cxHAIHGz3b4EgJhiyw1jic9T5zQDEij41ean49gb3mdsIBNOIPlR/45eBJDgeKFu1K7p70Bmpm/5d
+	kPr4YYdS5RbdJgqEh5Mg6RgpxeFJEgVRoul94K0PeCPzdFM44G4oDbp6l4q/kZw/BiyFYdJxyXTJz
+	8rFEMtbwcdRWJZTeO29b9i+EWZbbV+YHO29NQ+KJFaVF2/1MEd8PSYI+vsv8z9nDb8O7HKmeYy93r
+	sfIDg83w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEAXI-00000007bnF-2GzQ;
-	Sun, 11 May 2025 17:32:24 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1uEAfL-00000007cag-0H1s;
+	Sun, 11 May 2025 17:40:43 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEAVE-00000007bKu-2645;
-	Sun, 11 May 2025 17:30:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1746984592; x=1747589392; i=frank-w@public-files.de;
-	bh=XOICA0kRmRSeeiiMWejN54dns8o6sstPqVt44YaHJeY=;
-	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
-	 Content-Type:Date:In-Reply-To:References:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=Utga2vAWbEwZB5tCvJ//8evLCeQJdAGBT0/WdCddSpCWykGzGt+DrgHFW9jrInFv
-	 X4VA71H+HzPNJGG09lnhAVSouYFG+kBvttju6vKZUF/ZYc1Rd2ZJFgbp0ffWZm+uB
-	 fB8ECScB6T5cRofW9rnFVCJxfdVS/ZgbhK0O+vCp7yAmgv4mpk22fh2Y+vOjwSXr/
-	 FoYMeNFMuZ6rjwm+ziJDNZItPRwZl08RK9jzz31a3Rz1kd2lnGudj+ZLGIcNn6vQc
-	 P9y7Y9sLcbYM1F4iv9FBaIVYjtXxdR9tSUq/LVzDKNlZg/uPetRVwu8cEkEiSzfNw
-	 W9ZhInXV8e+THxdZLw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [194.15.84.99] ([194.15.84.99]) by
- trinity-msg-rest-gmx-gmx-live-74d694d854-ls6fz (via HTTP); Sun, 11 May 2025
- 17:29:52 +0000
+	id 1uEAdG-00000007cKi-36hY
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 11 May 2025 17:38:36 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-b20d46fcc86so3409204a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 May 2025 10:38:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=lessconfused.com; s=lessconfused; t=1746985113; x=1747589913; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=htpdGgGE0WJqHpqKCEDMnW5Vc8YelVzDOmwa66AXTRc=;
+        b=ZcLZlmk0MyTcoE3r++J9d1myPyhqyjOPSYMNw0Hl22QubXgXbihK5imena2saI25os
+         oButsZIU6hy8lZ3a+RZj82RyWG/Kq0cCQSc0dYYhxtBCw5zpPdwlYdNn/jDpsnEU7umQ
+         MiVVxqiiFaqFmpcssyiGDGJd12wnVrlc7HhuI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746985113; x=1747589913;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=htpdGgGE0WJqHpqKCEDMnW5Vc8YelVzDOmwa66AXTRc=;
+        b=Zhq4Yh739qso3kEH+xIXZPGR+sjJ8ZTS8JnJh5MQJptdzSyBewRLwdd2GKuV+/ht6w
+         PzCQBVbfeyrXwca3XsXWZ1gNJtKXX2IjJxm3pBSlZQ25g31TolWjrJOPOcjMfpWZ4XtB
+         53lGDqaCBPhPjAIZiQUqX88obfDPagSjcmwtfC/uzBjUeT+Y+Pz8cjPt5bCqhtYuuezl
+         h6bwwiPXzmkJcXU9yl5uCtIIBG+nXPomRxtCLWfEgfh3DGH0M3GLe3TV6m3Trsjm5KgQ
+         tE6b1fcBUO36Y4BXaozyw5GK+EsKwQ2N+6QDfnQmwHJab25GwnANwzzZSQrWsaKKp8J2
+         1qZw==
+X-Forwarded-Encrypted: i=1; AJvYcCXBqeoXrd+A/yuV+uMMSGvk34jK1znPl367yg3QA3xXeYJnXzKpdLyoO28YrHLkfW2Aexr8iytYDO5RaFIB+U6m@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/MXFKkow97h+lqPMUzvaWs5XXeyI04jLDBZekEywCJN8zwhvt
+	mw3+J1KWpR3z9Yns3XRXKHi7kvMc429NmhoEI+0dBBES8/72N6tN2F52QigqsSiFJuvvpZDN38C
+	vj0X92w/qYGTP1yxYkxCIW90Dh9ExWwTeWkP8hg==
+X-Gm-Gg: ASbGncsOuzcmj41MiRnI6+HYihaBJ2oI+HjN0iOOiQEiDDN5xaDarqpyIqcxDDGepsF
+	q8bxCaZzG9t/5vydD9jPUDh9U1W75xGmh50BJxFz3MZ0ckCLIiOT8N2JgXEG1SqtQoQ5kP7bPKz
+	30VxCFoGM3V2Vque/cUnxwaiYDG0G7NT+2vNPiovCwqupiQ6eaq4Kih73v96TD9ZtAxOapPNAFI
+	SV5
+X-Google-Smtp-Source: AGHT+IGlWFjDOSR6LptznPfsrBGcmLqTeFU1+S1/2WDCbsxyxoLwah/czQtlkvxYzoeR/HfJw2W1NJ3/is38sxpCk0Y=
+X-Received: by 2002:a17:902:e94d:b0:224:24d5:f20a with SMTP id
+ d9443c01a7336-22fc91c2cdcmr176733505ad.48.1746985113315; Sun, 11 May 2025
+ 10:38:33 -0700 (PDT)
 MIME-Version: 1.0
-Message-ID: <trinity-0edcdb4e-bcc9-47bb-b958-a018f5980128-1746984591926@trinity-msg-rest-gmx-gmx-live-74d694d854-ls6fz>
-From: Frank Wunderlich <frank-w@public-files.de>
-To: andrew@lunn.ch, linux@fw-web.de
-Cc: olteanv@gmail.com, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, arinc.unal@arinc9.com,
- Landen.Chao@mediatek.com, dqfext@gmail.com, sean.wang@mediatek.com,
- daniel@makrotopia.org, lorenzo@kernel.org, nbd@nbd.name,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: Aw: Re: [PATCH v1 09/14] arm64: dts: mediatek: mt7988: add switch
- node
-Content-Type: text/plain; charset=UTF-8
-Date: Sun, 11 May 2025 17:29:52 +0000
-In-Reply-To: <bfa0c158-4205-4070-9b72-f6bde9cd9997@lunn.ch>
-References: <20250511141942.10284-1-linux@fw-web.de>
- <20250511141942.10284-10-linux@fw-web.de>
- <bfa0c158-4205-4070-9b72-f6bde9cd9997@lunn.ch>
-X-UI-CLIENT-META-MAIL-DROP: W10=
-X-Provags-ID: V03:K1:xDJuZkbJ3YvLYfk69h+JQf9MgwT1/EB0aqp6/XrIY4Sl5VLzsRm0mP3iqdn4GInbSCyS8
- tbaA51t47s9kxyUzSOGKhyYaAY+/yjZIZsrpvJUv3sn4MwT5FILgyd1wlpqhd2ayW7tuohHhou8A
- SL6Ocrg+LoqF2kuHTrSz6Te1PnZ0iVt3kwOO4VdYXlO0emZp8BLExcZubgiKIakqNVFvs6Mt8p+d
- T0kQhMmsCT1/h6y6QiEB0IloHZs/vFlbgknGKBjC/oO67tB4OfIsaPsDC8W9GNvoPTa1asj6NFK0
- YHSu/+v8fOSugdnyNUsPpq2qzqpdxw2YdhH/5NxkDJQNusNXRPumeoEtQGH8uSmKWc=
-UI-OutboundReport: notjunk:1;M01:P0:TyDEBoQdtoY=;ff6mg+UXFWYPsI/gmV2+q/fTvcr
- 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
- xvLe4IEUiBz7UrUXGpg==
+References: <20250511172732.1467671-1-da@libre.computer>
+In-Reply-To: <20250511172732.1467671-1-da@libre.computer>
+From: Da Xue <da@lessconfused.com>
+Date: Sun, 11 May 2025 13:38:22 -0400
+X-Gm-Features: AX0GCFtg3EgdoWRuH-CkzemoXtkQsOI76TednUqqH8u_ZIuzhBzf52QSqYFsAO0
+Message-ID: <CACdvmAiqQj4NjazMvdwQtB5zX+SQs7bwXEchT5thNM83=bQBhA@mail.gmail.com>
+Subject: Re: [PATCH] clk: meson-g12a: fix missing spicc clks to clk_sel
+To: Da Xue <da@libre.computer>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Kevin Hilman <khilman@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, stable@vger.kernel.org, 
+	linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_103016_836193_0CACE7AB 
-X-CRM114-Status: GOOD (  15.37  )
+X-CRM114-CacheID: sfid-20250511_103834_858031_B54992C7 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,63 +96,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Sorry, this is an older version of the patch without Fixes tag from a
+mv error. I'm sending a v2, ignore this one.
 
-> Gesendet: Sonntag, 11. Mai 2025 um 18:42
-> Von: "Andrew Lunn" <andrew@lunn.ch>
-> Betreff: Re: [PATCH v1 09/14] arm64: dts: mediatek: mt7988: add switch n=
-ode
+On Sun, May 11, 2025 at 1:28=E2=80=AFPM Da Xue <da@libre.computer> wrote:
 >
-> On Sun, May 11, 2025 at 04:19:25PM +0200, Frank Wunderlich wrote:
-> > From: Frank Wunderlich <frank-w@public-files.de>
-> >=20
-> > Add mt7988 builtin mt753x switch nodes.
-> >=20
-> > Signed-off-by: Daniel Golle <daniel@makrotopia.org>
-> > Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> > ---
-> >  arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 166 +++++++++++++++++++++=
-+
-> >  1 file changed, 166 insertions(+)
-> >=20
-> > diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/bo=
-ot/dts/mediatek/mt7988a.dtsi
-> > index aa0947a555aa..ab7612916a13 100644
-> > --- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-> > +++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-> > @@ -5,6 +5,7 @@
-> >  #include <dt-bindings/phy/phy.h>
-> >  #include <dt-bindings/pinctrl/mt65xx.h>
-> >  #include <dt-bindings/reset/mediatek,mt7988-resets.h>
-> > +#include <dt-bindings/leds/common.h>
-> > =20
-> >  / {
-> >  	compatible =3D "mediatek,mt7988a";
-> > @@ -742,6 +743,171 @@ ethsys: clock-controller@15000000 {
-> >  			#reset-cells =3D <1>;
-> >  		};
-> > =20
-> > +		switch: switch@15020000 {
-> > +			compatible =3D "mediatek,mt7988-switch";
-> > +			reg =3D <0 0x15020000 0 0x8000>;
-> > +			interrupt-controller;
-> > +			#interrupt-cells =3D <1>;
-> > +			interrupt-parent =3D <&gic>;
-> > +			interrupts =3D <GIC_SPI 209 IRQ_TYPE_LEVEL_HIGH>;
-> > +			resets =3D <&ethwarp MT7988_ETHWARP_RST_SWITCH>;
-> > +
-> > +			ports {
-> > +				#address-cells =3D <1>;
-> > +				#size-cells =3D <0>;
-> > +
-> > +				gsw_port0: port@0 {
-> > +					reg =3D <0>;
-> > +					label =3D "wan";
->=20
-> I would expect the label to be in the board .dts file, since it is a
-> board property, not a SoC property.
-
-i will move that into the board dtsi file in v2 because "normal" bpi-r4 an=
-d 2g5 variant are same here.
-
-regards Frank
+> HHI_SPICC_CLK_CNTL bits 25:23 controls spicc clk_sel.
+>
+> It is missing fclk_div 2 and gp0_pll which causes the spicc module to
+> output the incorrect clocks for spicc sclk at 2.5x the expected rate.
+>
+> Add the missing clocks resolves this.
+>
+> Cc: <stable@vger.kernel.org> # 6.1.x: a18c8e0: clk: meson: g12a: add
+> Signed-off-by: Da Xue <da@libre.computer>
+> ---
+>  drivers/clk/meson/g12a.c | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/drivers/clk/meson/g12a.c b/drivers/clk/meson/g12a.c
+> index 4f92b83965d5a..892862bf39996 100644
+> --- a/drivers/clk/meson/g12a.c
+> +++ b/drivers/clk/meson/g12a.c
+> @@ -4099,8 +4099,10 @@ static const struct clk_parent_data spicc_sclk_par=
+ent_data[] =3D {
+>         { .hw =3D &g12a_clk81.hw },
+>         { .hw =3D &g12a_fclk_div4.hw },
+>         { .hw =3D &g12a_fclk_div3.hw },
+> +       { .hw =3D &g12a_fclk_div2.hw },
+>         { .hw =3D &g12a_fclk_div5.hw },
+>         { .hw =3D &g12a_fclk_div7.hw },
+> +       { .hw =3D &g12a_gp0_pll.hw, },
+>  };
+>
+>  static struct clk_regmap g12a_spicc0_sclk_sel =3D {
+> --
+> 2.39.5
+>
+>
+> _______________________________________________
+> linux-amlogic mailing list
+> linux-amlogic@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-amlogic
 
