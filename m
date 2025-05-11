@@ -4,96 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69314C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 10:02:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2BF9C3ABC5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 10:04:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=svOIBgOqEfJz5rl1KUebw1DSPQLmx16oiBp9+Pj6aYI=; b=YxNlBfpXLV3I/jRU4TnwxRqw5H
-	1VEqcuGnO5IdFsLTx2biSPXy3C+ZrFCcLuD9OAPEFOyjYtuMfh7RRRGYftbmSYUkHmuaHHvAXrtuq
-	60Y87ZbJ1iHrd3pyN/pDUZ0rlR5Nl6XH9sAHgZobUUWkQO3n837Mp/lqOd7p+ZYIMLiQnDikmeG5B
-	p+kit2LSomYS8blSnnGaVadIUgszDveT16cxjxHYAeJyShLLFtQS4yyWUhq/+rp9SZx7PlSRo2giW
-	U/XGNumvVB9aPutNFkl9h+2KlNmAt8UZW+hQ4NYtCOhPSYQQo9Rj+a7HrQ2zeWUjGbZLuhNHBiVHV
-	33KU2APA==;
+	bh=R9vjX0NpeXboEs6UC4bGi/50cueuXRIEpPRh5+1mL/c=; b=nzCVLY4RcCHlxMxQadbyZEwpgg
+	DJ7DvAnHgqnZacmzCXRI9PnsmAQZgsiaSTFYA3uEvHhG+a7Imab1gAZYT06cnVmY7LphxPtI1wPuh
+	8SJ54Y/FJ3hbzU9EI9nuKBbyiMgAbhNamNDXZ+7gNdI+S0Sbafe0yjGfNJXjTtjAQ1yDZeh3JPmp/
+	RNQXscHAu4pOi6ZrNZNluS9BaQV8oKTqvEW52MsIs18ZaflhN0aB1n0i2Yml7d0oiax9O5uhshCkF
+	cUf8czGIJ7oYciHs1See38UpKbWCCKOAFFJBHO72r8ZEaFPAtWCd6lGhsb3DhoYsonI0hCvvhBky5
+	5tsRuGRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE3W1-000000073jT-49Nn;
-	Sun, 11 May 2025 10:02:38 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1uE3Y0-000000073xG-2Utg;
+	Sun, 11 May 2025 10:04:40 +0000
+Received: from mail-m83149.xmail.ntesmail.com ([156.224.83.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE3NU-000000072oU-07zA
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 May 2025 09:53:49 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-441d1ed82faso23879275e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 May 2025 02:53:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746957226; x=1747562026; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=svOIBgOqEfJz5rl1KUebw1DSPQLmx16oiBp9+Pj6aYI=;
-        b=tbX96BH07GjCOg6Qnm9g72rXOwuq8Qo8TXpHkB47ztvfSgrtO0jcOSwVPr5sWthwt8
-         GoipDxUDMdNIrtd8ARowGxDGtB/y9JMqZr3MamFrd+gW27wCPHGm9es/Dq06gjzEFn6o
-         sPJCx1dTZ+KW9njC44qIFu+arZNPQNRyBIZYrKqQwR/wLWxpaiP2KKtZKXDW8Qtu/oVv
-         dHUn8+bN7SlomBnSz3pjVm7+1KeDh4oLZNfGOwyGRSEEPMNzwWds+eyxKAv9kgShBABe
-         NTIeLrh5H3ip++h2Iqtpu2yT4SSH277aSOtl7OEML83Qx/3dGetLE7KWYLjdhPQi1SV1
-         yrAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746957226; x=1747562026;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=svOIBgOqEfJz5rl1KUebw1DSPQLmx16oiBp9+Pj6aYI=;
-        b=N5qKIhJlruBtgMjQVMdMOHm05hdpISni4ye2RdlOauum9nDELIe5g/9D60XHEebzMa
-         N+FTiRZy62uMoAa5W9SfcTbtuPIaQCWRh+nSIplI0xaWJCMvX0AnQMFdALmkSZlQ0GUy
-         i70U+ZOYmc7HHA3dmMp887KkWP1LfnpWXjW3lyIE0K43WpeVgQ5voqfFVzh+FpIAZoUC
-         kLA63cHSrEd9fFHgzHb4wJNxNtX0nrjUetmPynlLjjTKxoUZUVoGcoAz8jiYEUv1KB65
-         JvRoYNQc2rYfsdfBuWSqykFtlNe9yaxOKWMgQPBWaAOeRkNY5TvlJqulFgv7ZrG/SAWD
-         KvzQ==
-X-Gm-Message-State: AOJu0Yymfai0+HZ5HpWTB19zvt0hdF0tErT1/0XJeqwpdyQPSVybiXz7
-	c6GYNOmZdo8a63ryrnph0rWXNI38ao6pMfKPQO3Jr0TOXl9vT/y6Ek6dDtDe/vM=
-X-Gm-Gg: ASbGncsPaBmby22zVgei7eCI3vpmYHb2X1HKXCEocIgYBWcSUCzWj+h9LMDjUrJAnWb
-	H+3jSj+5/+CdEQIzKFvGXgzmRArta9l6s+RvdcilG2ElLx3egZ09jB+b2kqjH8ZlFQcaMb3/Q3X
-	fOTA1yhssgHOu+rIib081Nrnt5mMPClEv+MIPE5krO7mjQbxO/RaMcp9oFf3sZXAQqkxqxxrj0C
-	GAQneSs9JNGg1wO0JoCMrCEP+0WVEAfGoZMH1GWZZbCUx4NC21G/+k1Gc5g9YwPNRvnxt2iDxdE
-	FNofYN70+qcPZhS9eKUhX/4naQkH9MzW/93XXgjAl0JrNS0Bef7Duww4QkMXSf4bDy/GfV8xTPd
-	qnh+ZAVH3AViKjfGW
-X-Google-Smtp-Source: AGHT+IEaXwLtr3ulVMHDoKRGiNLV/K4UKtErrKqyimNqORo5mIpZHz11BKqYDHNoxO5NUXC77uulTA==
-X-Received: by 2002:a05:600c:4e45:b0:43d:46de:b0eb with SMTP id 5b1f17b1804b1-442d6d44814mr82270705e9.12.1746957225872;
-        Sun, 11 May 2025 02:53:45 -0700 (PDT)
-Received: from [192.168.0.34] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442d687ae10sm87083295e9.37.2025.05.11.02.53.43
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 11 May 2025 02:53:44 -0700 (PDT)
-Message-ID: <cfe66826-fe23-47c6-8292-74066f021330@linaro.org>
-Date: Sun, 11 May 2025 10:53:43 +0100
+	id 1uE3UA-000000073b0-3kUT;
+	Sun, 11 May 2025 10:00:45 +0000
+Received: from localhost.localdomain (unknown [119.122.215.106])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 14a0dc43a;
+	Sun, 11 May 2025 18:00:27 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: ziyao@disroot.org
+Cc: andyshrk@163.com,
+	conor+dt@kernel.org,
+	damon.ding@rock-chips.com,
+	devicetree@vger.kernel.org,
+	didi.debian@cknow.org,
+	dsimic@manjaro.org,
+	heiko@sntech.de,
+	jbx6244@gmail.com,
+	jing@jing.rocks,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	sebastian.reichel@collabora.com,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Subject: Re: [PATCH v7 4/5] arm64: dts: rockchip: add core dtsi for RK3562 SoC
+Date: Sun, 11 May 2025 18:00:22 +0800
+Message-Id: <20250511100022.31465-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250310140916.14384-2-ziyao@disroot.org>
+References: <20250310140916.14384-2-ziyao@disroot.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC/WIP v2 4/9] arm64: dts: qcom: sa8775p: Add support for
- camss
-To: Suresh Vankadara <quic_svankada@quicinc.com>,
- Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
- todor.too@gmail.com, mchehab@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, andersson@kernel.org,
- konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
- cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250427070135.884623-1-quic_vikramsa@quicinc.com>
- <20250427070135.884623-5-quic_vikramsa@quicinc.com>
- <cfc85bc0-1808-42ac-b0b0-41e4935ec74d@quicinc.com>
-Content-Language: en-US
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-In-Reply-To: <cfc85bc0-1808-42ac-b0b0-41e4935ec74d@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDSBhDVklDGU5PH0xMSUweSFYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKTlVKS01ZV1kWGg8SFR0UWUFZT0tIVUpLSUJNS0pVSktLVU
+	tZBg++
+X-HM-Tid: 0a96bec9f05303a2kunm14a0dc43a
+X-HM-MType: 10
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PjI6UQw*DjJON0oCUTUxEzJN
+	FE0aFApVSlVKTE9NQk5MTUlDTUtDVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUpK
+	QlVKSUlVSUpOVUpLTVlXWQgBWUFPT0hMNwY+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_025348_079186_0DD47F88 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20250511_030043_213691_23C77226 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,139 +81,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/05/2025 08:14, Suresh Vankadara wrote:
-> 
-> 
-> On 4/27/2025 12:31 PM, Vikram Sharma wrote:
->> Add changes to support the camera subsystem on the SA8775P.
->>
->> Co-developed-by: Suresh Vankadara <quic_svankada@quicinc.com>
->> Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
->> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
->> ---
->>   arch/arm64/boot/dts/qcom/sa8775p.dtsi | 187 ++++++++++++++++++++++++++
->>   1 file changed, 187 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/qcom/sa8775p.dtsi b/arch/arm64/boot/ 
->> dts/qcom/sa8775p.dtsi
->> index 5bd0c03476b1..81eadb2bb663 100644
->> --- a/arch/arm64/boot/dts/qcom/sa8775p.dtsi
->> +++ b/arch/arm64/boot/dts/qcom/sa8775p.dtsi
->> @@ -7,6 +7,7 @@
->>   #include <dt-bindings/interconnect/qcom,icc.h>
->>   #include <dt-bindings/interrupt-controller/arm-gic.h>
->>   #include <dt-bindings/clock/qcom,rpmh.h>
->> +#include <dt-bindings/clock/qcom,sa8775p-camcc.h>
->>   #include <dt-bindings/clock/qcom,sa8775p-dispcc.h>
->>   #include <dt-bindings/clock/qcom,sa8775p-gcc.h>
->>   #include <dt-bindings/clock/qcom,sa8775p-gpucc.h>
->> @@ -3940,6 +3941,192 @@ videocc: clock-controller@abf0000 {
->>               #power-domain-cells = <1>;
->>           };
->> +        camss: isp@ac7a000 {
->> +            compatible = "qcom,sa8775p-camss";
-> If more number of nodes are added for CAMSS, adding isp in compatible 
-> string helps to differentiate.
+Hi,
 
-We need to keep a consistent upstream schema.
+> <snip>
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/rockchip/rk3562.dtsi
+> @@ -0,0 +1,1187 @@
+> <snip>
+> +#include <dt-bindings/phy/phy.h>
+> +#include <dt-bindings/power/rockchip,rk3562-power.h>
+> +#include <dt-bindings/pinctrl/rockchip.h>
 
-If we were adding other hardware blocks - say the BPS it would just be 
-appended to the end here, declared as another v4l2 device and then 
-wired-together from user-space via likely a qcom specific libcamera 
-pipeline.
+Does this need to be sorted alphabetically?
 
-> 
->> +            reg-names = "csid0",
->> +                    "csid1",
->> +                    "csid_lite0",
->> +                    "csid_lite1",
->> +                    "csid_lite2",
->> +                    "csid_lite3",
->> +                    "csid_lite4",
->> +                    "csid_wrapper",
-> csid wrapper is top register set, which is applicable for both csid 0 
-> and csid 1. It is logical to keep along with csid0 and csid1, instead of 
-> alpha numerical order.
+> <snip>
+> +		idle-states {
+> +			entry-method = "psci";
 
-We've had it feels like an eternity of debates about this and 
-compromised on alphanum sort of of node-names as the most consistent 
-with prior art.
+It would be better to leave a blank line here.
 
-> 
->> +
->> +            clocks = <&camcc CAM_CC_CAMNOC_AXI_CLK>,
->> +                 <&camcc CAM_CC_CORE_AHB_CLK>,
->> +                 <&camcc CAM_CC_CPAS_AHB_CLK>,
->> +                 <&camcc CAM_CC_CPAS_FAST_AHB_CLK>,
->> +                 <&camcc CAM_CC_CPAS_IFE_LITE_CLK>,
->> +                 <&camcc CAM_CC_CPAS_IFE_0_CLK>,
->> +                 <&camcc CAM_CC_CPAS_IFE_1_CLK>,
->> +                 <&camcc CAM_CC_CSID_CLK>,
->> +                 <&camcc CAM_CC_CSIPHY0_CLK>,
->> +                 <&camcc CAM_CC_CSI0PHYTIMER_CLK>,
->> +                 <&camcc CAM_CC_CSIPHY1_CLK>,
->> +                 <&camcc CAM_CC_CSI1PHYTIMER_CLK>,
->> +                 <&camcc CAM_CC_CSIPHY2_CLK>,
->> +                 <&camcc CAM_CC_CSI2PHYTIMER_CLK>,
->> +                 <&camcc CAM_CC_CSIPHY3_CLK>,
->> +                 <&camcc CAM_CC_CSI3PHYTIMER_CLK>,
->> +                 <&camcc CAM_CC_CSID_CSIPHY_RX_CLK>,
->> +                 <&gcc GCC_CAMERA_HF_AXI_CLK>,
->> +                 <&gcc GCC_CAMERA_SF_AXI_CLK>,
->> +                 <&camcc CAM_CC_ICP_AHB_CLK>,
->> +                 <&camcc CAM_CC_IFE_0_CLK>,
->> +                 <&camcc CAM_CC_IFE_0_FAST_AHB_CLK>,
->> +                 <&camcc CAM_CC_IFE_1_CLK>,
->> +                 <&camcc CAM_CC_IFE_1_FAST_AHB_CLK>,
->> +                 <&camcc CAM_CC_IFE_LITE_CLK>,
->> +                 <&camcc CAM_CC_IFE_LITE_AHB_CLK>,
->> +                 <&camcc CAM_CC_IFE_LITE_CPHY_RX_CLK>,
->> +                 <&camcc CAM_CC_IFE_LITE_CSID_CLK>;
->> +            clock-names = "camnoc_axi",
->> +                      "core_ahb",
->> +                      "cpas_ahb",
->> +                      "cpas_fast_ahb_clk",
->> +                      "cpas_ife_lite",
->> +                      "cpas_vfe0",
->> +                      "cpas_vfe1",
-> Maintain consistency on vfe/ife in complete camss node. In reg section, 
-> vfe is used for full and lite version. in clock-names section ife lite 
-> and vfe are used. As clock IDs upstream and ife is used for full and 
-> lite, this convention will be followed in camss node as well.
-> 
->> +                      "csid",
->> +                      "csiphy0",
->> +                      "csiphy0_timer",
->> +                      "csiphy1",
->> +                      "csiphy1_timer",
->> +                      "csiphy2",
->> +                      "csiphy2_timer",
->> +                      "csiphy3",
->> +                      "csiphy3_timer",
->> +                      "csiphy_rx",
->> +                      "gcc_axi_hf",
->> +                      "gcc_axi_sf",
->> +                      "icp_ahb",
-> sf and icp_ahb clocks needed?
-> 
->> +
->> +            interconnects = <&gem_noc MASTER_APPSS_PROC 
->> QCOM_ICC_TAG_ACTIVE_ONLY
->> +                     &config_noc SLAVE_CAMERA_CFG 
->> QCOM_ICC_TAG_ACTIVE_ONLY>,
->> +                    <&mmss_noc MASTER_CAMNOC_HF QCOM_ICC_TAG_ALWAYS
->> +                     &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
->> +                    <&mmss_noc MASTER_CAMNOC_SF QCOM_ICC_TAG_ACTIVE_ONLY
->> +                     &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>;
->> +            interconnect-names = "ahb",
->> +                         "hf_0",
->> +                         "sf_0";
-> sf_0 needed?
-> 
->> +
->> +            iommus = <&apps_smmu 0x3400 0x20>;
-> 
-> 
-> Regards,
-> Suresh Vankadara.
+> +			CPU_SLEEP: cpu-sleep {
+
+> <snip>
+> +		pwm0: pwm@ff230000 {
+> +			compatible = "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xff230000 0x0 0x10>;
+> +			#pwm-cells = <3>;
+> +			pinctrl-names = "active";
+
+It should be `pinctrl-names = "default";` for pwm, see also [1]
+
+> +			pinctrl-0 = <&pwm0m0_pins>;
+> +			clocks = <&cru CLK_PMU1_PWM0>, <&cru PCLK_PMU1_PWM0>;
+> +			clock-names = "pwm", "pclk";
+> +			status = "disabled";
+> +		};
+
+The pinctrl should be placed below the clock.
+
+> <snip>
+> +			power: power-controller {
+> +				compatible = "rockchip,rk3562-power-controller";
+> +				#power-domain-cells = <1>;
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				status = "okay";
+> +
+
+`status = "okay"` is not needed here.
+Also remove extra blank lines.
+
+> +
+> +				power-domain@RK3562_PD_GPU {
+> <snip>
+> +				power-domain@RK3562_PD_VI {
+> +					reg = <RK3562_PD_VI>;
+> +					#power-domain-cells = <1>;
+> +					#address-cells = <1>;
+> +					#size-cells = <0>;
+> +					pm_qos = <&qos_isp>,
+> +						 <&qos_vicap>;
+> +
+> +					power-domain@RK3562_PD_VEPU {
+> +						reg = <RK3562_PD_VEPU>;
+> +						pm_qos = <&qos_vepu>;
+> +					#power-domain-cells = <0>;
+
+This line is missing a tab, resulting in an indentation error.
+
+> +					};
+> +				};
+> <snip>
+
+> +		pcie2x1: pcie@ff500000 {
+> +			compatible = "rockchip,rk3562-pcie", "rockchip,rk3568-pcie";
+> +			#address-cells = <3>;
+> +			#size-cells = <2>;
+
+#address-cells/#size-cells should be placed above `status = "disabled";`
+I think other nodes also need to change this. (Some for #pwm-cells)
+
+> +			interrupt-names = "sys", "pmc", "msg", "legacy", "err", "msi";
+
+I noticed that the bsp 5.10 kernel said that pcie only has 8 MSI vectors,
+[2][3] but in the bsp 6.1 kernel it changed to 32 MSI vectors [4].
+
+The rockchip documentation also says there are only 8 MSI vectors:
+
+[5] Page37 8.8 "RK3528/RK3562/RK3576可分配的MSI或者MSI-X总数是8个"
+Translate into English: "The total number of MSI or MSI-X that
+can be allocated by RK3528/RK3562/RK3576 is 8"
+
+We noticed this when supporting rk3528, so which one is correct?
+
+> +			phys = <&combphy_pu PHY_TYPE_PCIE>;
+
+s/combphy_pu/combphy
+
+> <snip>
++		combphy_pu: phy@ff750000 {
+
+Please change it to `combphy` like rk3568.
+
+Heiko I know you just merged this, it's a bit offensive but I think
+it would be better to drop these patches and fix them further.
+Or kever would you like to send a fix patch? Although most of
+them are typo issues, it will take a few patches to fix it.
+
+[1] https://lore.kernel.org/lkml/20250310140916.14384-2-ziyao@disroot.org/
+[2] https://github.com/rockchip-linux/kernel/commit/4f0c9ccc79c373aa97084b3b1ab0651ca4248227
+[3] https://github.com/rockchip-linux/kernel/commit/afb85c759cfadc4051c42a9703860071a9877f2e
+[4] https://github.com/coolpi-george/coolpi-kernel/commit/522b94122ec797760dcd466851250cbdfafff50f
+[5] https://github.com/ArmSoM/rk3506-rkr4.2-sdk/blob/main/docs/cn/Common/PCIe/Rockchip_Developer_Guide_PCIe_CN.pdf
+
+Thanks,
+Chukun
+
+--
+2.25.1
+
 
