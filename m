@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64F79C3ABC5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 11:08:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5026EC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 11:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mI3oqd1uLK6FJTsqZxfDsDVQBJ2PW31v6frSXO8iLv8=; b=LoXRUjQ+pwYuUQ64qXRLyRFBEB
-	lu/MxfpCyLzTfZE6NcWbfpiuUpLYYr+XaWrrXyuJ6anPMrqgEcIj1y3IsyKLojRB5xlAY5IQ4YFie
-	vcLvVZn1+M30SBjcJsD1R5anpfBT9/51ambCN0QnzhSoBgVNAemL7ZuWQFWIEQqPuFqLFSvVlLylC
-	fZhagMsKOyjcASQ+Is7ryRtJ2HgLvRzMFOtlqEW57FJs9RUqluV9HEAWaoESTA4nGr77hpFxp19Ln
-	brfJNfksAklkFlimSmdeCMXNBBFFdV8u8sAhPZNBrpXbRdPAUA73f4H+kX7uJjbWKlgqF/RQ7mulW
-	rgvWVorA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ek6GBAYJeDRPIZjH28p/Q9SJdCsotpdSU7d2WoGn9tU=; b=KWN7k2siVdDc5NSMgYBrv6h4u9
+	4x6ZFwP0MfaJ+5iqVF7w/5LMa7Knlv5mADcwFoZRaqyib4H8y3wEB+SyYlwK3WFMvCbq8qS25/CUl
+	CJul7quWcQ9taveqY5wprhGDLntlKJhenewsruHGT97gmLTQ81ppHWbiOmGp4aVnLNHYDwqVLRTjo
+	7wNgRRpnEaNs6eJxkucyL8p8psOTgQvA/vL2TrIQfQuDh4iezj79nrs03W4gETTIbQnyLBpg4Lv8Z
+	Y9jHHEOH77SGNY/OLYmR2BipMwyLmRdHOXtvBxb7JEVuieKWmvGN1xRNVyYLU5hnddWugLZlukedW
+	jHWuK8vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE4XJ-000000078Mj-1ESR;
-	Sun, 11 May 2025 11:08:01 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1uE4ZI-000000078Ur-0QqL;
+	Sun, 11 May 2025 11:10:04 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE4Ab-000000076SP-2yfy
+	id 1uE4Uj-000000078Ai-1eaJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 May 2025 10:44:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1746960274; x=1778496274;
-  h=date:from:to:cc:subject:message-id;
-  bh=fCtKFa5WMXbt5/ki0RBykNn3Z3WsQ6YbdHPQY6Y4hd4=;
-  b=XoMfKVvuAk511c7J4Y0WSQDsoRYwaSxyDgeD4FzslcgU6x25QgX/19+v
-   luT1VDCWhT2J6Kzxcxlk3jo4CZDD8S7n1/a17tQfDG7hPLyY//HBEnY9q
-   jhhA9qRzdPjv8QcBo2PC75AKGCRTWbXR/U+xxLpbm9xu3VfBY/1t2i3U1
-   eutc03aEsdo5RAbEDzhblYdUrTdnQT7PX0jvKSLjvYlcLniDZuBg6bH5l
-   98R1mAM0BV3ZQKGLEV48KvlHuVqgt2DgGD/h3m+r7V1l3QAZFw11IYD0d
-   Yo5Uii4XjxFni6H2pEqB6JzVC85LDN/lJ8bdica7K1BWuuzSv8SxorfE5
-   A==;
-X-CSE-ConnectionGUID: 22elZdiRRPir4wXjuPUjEw==
-X-CSE-MsgGUID: FcQAlEp4SMeo9Tlg6HT9Ag==
-X-IronPort-AV: E=McAfee;i="6700,10204,11429"; a="47872092"
-X-IronPort-AV: E=Sophos;i="6.15,280,1739865600"; 
-   d="scan'208";a="47872092"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 May 2025 03:44:32 -0700
-X-CSE-ConnectionGUID: MXXrMx0HQbK6GQacNqcfzw==
-X-CSE-MsgGUID: WuvavnZdSUCKYPfNjTfwNA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,280,1739865600"; 
-   d="scan'208";a="137600103"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by orviesa007.jf.intel.com with ESMTP; 11 May 2025 03:44:31 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uE4AW-000Dj5-1l;
-	Sun, 11 May 2025 10:44:28 +0000
-Date: Sun, 11 May 2025 18:44:27 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:for-next] BUILD SUCCESS
- c0553d3f346dfc21a394dcb4dd440ecf0070fcb5
-Message-ID: <202505111820.6unaXOPH-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Sun, 11 May 2025 11:05:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1746961519;
+ bh=ek6GBAYJeDRPIZjH28p/Q9SJdCsotpdSU7d2WoGn9tU=;
+ b=hDF9ZEAWDKtbe/TIvELNrfnS21K5PvjhMOwWzX7OERfrW7oz15751QMxS0gQ/CuzU7vHZRBhm
+ fcyW/sArKiYOXgVLxpOU3W4jd2M+BSRLGX+pe53XwYI9au//AbaP4Wds4dTPDyceSUH3V02D5zu
+ 6ChCNJH9aTv/xvtzFEhEUYFjWBKOtXkaIKvOfpjoa/MP8r93wPrpE5shIUXJracTUyK7OQAUkes
+ kVCEzXcDWDDYR8FAyf2bAMy/70IrsSswDf1pr0mDCOtGcM6uQ04P5Q1SYEv1lynS4bSmbxHJ3E2
+ 9TOtDkz30kyxXklUaZ5ETc71UZ1O6IZ2vNXNQgJ3wx9A==
+X-Forward-Email-ID: 682084688a98caeef2469b46
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 1.0.2
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <4a4c0295-d8f1-4d8a-92e4-34a69b42c728@kwiboo.se>
+Date: Sun, 11 May 2025 13:05:08 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: rockchip: move rk3528 i2c+uart aliases to
+ board files
+To: Heiko Stuebner <heiko@sntech.de>, Arnd Bergmann <arnd@arndb.de>
+Cc: linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250510220106.2108414-1-heiko@sntech.de>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20250510220106.2108414-1-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_034433_790968_BBB7BE67 
-X-CRM114-Status: UNSURE (   5.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250511_040521_785392_E3A23765 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,148 +77,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-branch HEAD: c0553d3f346dfc21a394dcb4dd440ecf0070fcb5  Merge branch 'soc/defconfig' into for-next
+Hi Heiko,
 
-elapsed time: 1445m
+On 2025-05-11 00:01, Heiko Stuebner wrote:
+> Even though they will be the same for all boards, i2c and uart aliases
+> are supposed to live in the individual board files, to not create
+> aliases for disabled nodes.
 
-configs tested: 128
-configs skipped: 5
+This sounds like something tooling should be able to handle, e.g. U-Boot
+use fdtgrep to filter out nodes (and aliases) for the FDT used by early
+boot phases.
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+Maybe DTC just need a feature to remove aliases to disabled nodes?
 
-tested configs:
-alpha                             allnoconfig    gcc-14.2.0
-alpha                            allyesconfig    gcc-14.2.0
-arc                              allmodconfig    gcc-14.2.0
-arc                               allnoconfig    gcc-14.2.0
-arc                              allyesconfig    gcc-14.2.0
-arc                   randconfig-001-20250510    gcc-14.2.0
-arc                   randconfig-002-20250510    gcc-13.3.0
-arc                        vdk_hs38_defconfig    gcc-14.2.0
-arm                              allmodconfig    gcc-14.2.0
-arm                               allnoconfig    clang-21
-arm                              allyesconfig    gcc-14.2.0
-arm                        multi_v5_defconfig    gcc-14.2.0
-arm                   randconfig-001-20250510    gcc-10.5.0
-arm                   randconfig-002-20250510    clang-21
-arm                   randconfig-003-20250510    gcc-10.5.0
-arm                   randconfig-004-20250510    gcc-7.5.0
-arm                         s3c6400_defconfig    gcc-14.2.0
-arm64                             allnoconfig    gcc-14.2.0
-arm64                 randconfig-001-20250510    gcc-7.5.0
-arm64                 randconfig-002-20250510    gcc-5.5.0
-arm64                 randconfig-003-20250510    clang-21
-arm64                 randconfig-004-20250510    gcc-7.5.0
-csky                              allnoconfig    gcc-14.2.0
-csky                  randconfig-001-20250510    gcc-14.2.0
-csky                  randconfig-002-20250510    gcc-13.3.0
-hexagon                          alldefconfig    clang-21
-hexagon                          allmodconfig    clang-17
-hexagon                           allnoconfig    clang-21
-hexagon                          allyesconfig    clang-21
-hexagon               randconfig-001-20250510    clang-21
-hexagon               randconfig-002-20250510    clang-21
-i386                             allmodconfig    gcc-12
-i386                              allnoconfig    gcc-12
-i386                             allyesconfig    gcc-12
-i386        buildonly-randconfig-001-20250510    gcc-12
-i386        buildonly-randconfig-002-20250510    gcc-12
-i386        buildonly-randconfig-003-20250510    gcc-12
-i386        buildonly-randconfig-004-20250510    gcc-12
-i386        buildonly-randconfig-005-20250510    gcc-12
-i386        buildonly-randconfig-006-20250510    gcc-12
-i386                                defconfig    clang-20
-loongarch                        allmodconfig    gcc-14.2.0
-loongarch                         allnoconfig    gcc-14.2.0
-loongarch             randconfig-001-20250510    gcc-13.3.0
-loongarch             randconfig-002-20250510    gcc-14.2.0
-m68k                             allmodconfig    gcc-14.2.0
-m68k                              allnoconfig    gcc-14.2.0
-m68k                             allyesconfig    gcc-14.2.0
-microblaze                       allmodconfig    gcc-14.2.0
-microblaze                        allnoconfig    gcc-14.2.0
-microblaze                       allyesconfig    gcc-14.2.0
-mips                              allnoconfig    gcc-14.2.0
-mips                          rb532_defconfig    clang-18
-nios2                         3c120_defconfig    gcc-14.2.0
-nios2                             allnoconfig    gcc-14.2.0
-nios2                 randconfig-001-20250510    gcc-11.5.0
-nios2                 randconfig-002-20250510    gcc-7.5.0
-openrisc                          allnoconfig    gcc-14.2.0
-openrisc                         allyesconfig    gcc-14.2.0
-openrisc                            defconfig    gcc-14.2.0
-parisc                           allmodconfig    gcc-14.2.0
-parisc                            allnoconfig    gcc-14.2.0
-parisc                           allyesconfig    gcc-14.2.0
-parisc                              defconfig    gcc-14.2.0
-parisc                randconfig-001-20250510    gcc-6.5.0
-parisc                randconfig-002-20250510    gcc-12.4.0
-powerpc                          allmodconfig    gcc-14.2.0
-powerpc                           allnoconfig    gcc-14.2.0
-powerpc                          allyesconfig    clang-21
-powerpc                      cm5200_defconfig    clang-21
-powerpc                          g5_defconfig    gcc-14.2.0
-powerpc                   lite5200b_defconfig    clang-21
-powerpc                 mpc837x_rdb_defconfig    gcc-14.2.0
-powerpc                    mvme5100_defconfig    gcc-14.2.0
-powerpc               randconfig-001-20250510    gcc-7.5.0
-powerpc               randconfig-002-20250510    clang-17
-powerpc               randconfig-003-20250510    clang-21
-powerpc64             randconfig-001-20250510    clang-18
-powerpc64             randconfig-002-20250510    gcc-10.5.0
-powerpc64             randconfig-003-20250510    clang-21
-riscv                            allmodconfig    clang-21
-riscv                             allnoconfig    gcc-14.2.0
-riscv                            allyesconfig    clang-16
-riscv                               defconfig    clang-21
-riscv                 randconfig-001-20250510    gcc-14.2.0
-riscv                 randconfig-002-20250510    gcc-7.5.0
-s390                             allmodconfig    clang-18
-s390                              allnoconfig    clang-21
-s390                             allyesconfig    gcc-14.2.0
-s390                                defconfig    clang-21
-s390                  randconfig-001-20250510    gcc-7.5.0
-s390                  randconfig-002-20250510    clang-21
-sh                               allmodconfig    gcc-14.2.0
-sh                                allnoconfig    gcc-14.2.0
-sh                               allyesconfig    gcc-14.2.0
-sh                                  defconfig    gcc-14.2.0
-sh                    randconfig-001-20250510    gcc-9.3.0
-sh                    randconfig-002-20250510    gcc-11.5.0
-sh                              ul2_defconfig    gcc-14.2.0
-sparc                            allmodconfig    gcc-14.2.0
-sparc                             allnoconfig    gcc-14.2.0
-sparc                 randconfig-001-20250510    gcc-12.4.0
-sparc                 randconfig-002-20250510    gcc-14.2.0
-sparc64                          alldefconfig    gcc-14.2.0
-sparc64                             defconfig    gcc-14.2.0
-sparc64               randconfig-001-20250510    gcc-10.5.0
-sparc64               randconfig-002-20250510    gcc-14.2.0
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-21
-um                               allyesconfig    gcc-12
-um                                  defconfig    clang-21
-um                             i386_defconfig    gcc-12
-um                    randconfig-001-20250510    gcc-12
-um                    randconfig-002-20250510    gcc-12
-um                           x86_64_defconfig    clang-21
-x86_64                            allnoconfig    clang-20
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20250510    clang-20
-x86_64      buildonly-randconfig-002-20250510    clang-20
-x86_64      buildonly-randconfig-003-20250510    gcc-12
-x86_64      buildonly-randconfig-004-20250510    gcc-11
-x86_64      buildonly-randconfig-005-20250510    gcc-12
-x86_64      buildonly-randconfig-006-20250510    clang-20
-x86_64                              defconfig    gcc-11
-x86_64                          rhel-9.4-rust    clang-18
-xtensa                            allnoconfig    gcc-14.2.0
-xtensa                randconfig-001-20250510    gcc-8.5.0
-xtensa                randconfig-002-20250510    gcc-14.2.0
+Also how should overlays handle aliases? Are all overlays suppose to add
+aliases for the add-on devices they may enable?
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+And how should we handle boards with e.g. a 40-pin header where pins
+could be muxed to multiple functions. Is it the overlays responsibility
+to remove and replace aliases? E.g. if pins can mux between i2c1 and
+uart3, and i2c1 was enabled by default.
+
+Regards,
+Jonas
+
+> 
+> So move the newly added aliases for rk3528 over to the Radxa E20C board,
+> which is the only rk3528 board right now.
+> 
+> Fixes: d3a05f490d04 ("arm64: dts: rockchip: Add I2C controllers for RK3528")
+> Suggested-by: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> ---
+>  .../boot/dts/rockchip/rk3528-radxa-e20c.dts      |  2 ++
+>  arch/arm64/boot/dts/rockchip/rk3528.dtsi         | 16 ----------------
+>  2 files changed, 2 insertions(+), 16 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
+> index 506d54337ece..9f6ccd9dd1f7 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
+> @@ -18,8 +18,10 @@ / {
+>  
+>  	aliases {
+>  		ethernet0 = &gmac1;
+> +		i2c1 = &i2c1;
+>  		mmc0 = &sdhci;
+>  		mmc1 = &sdmmc;
+> +		serial0 = &uart0;
+>  	};
+>  
+>  	chosen {
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> index cd8ef389ccf3..b2724c969a76 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> @@ -24,22 +24,6 @@ aliases {
+>  		gpio2 = &gpio2;
+>  		gpio3 = &gpio3;
+>  		gpio4 = &gpio4;
+> -		i2c0 = &i2c0;
+> -		i2c1 = &i2c1;
+> -		i2c2 = &i2c2;
+> -		i2c3 = &i2c3;
+> -		i2c4 = &i2c4;
+> -		i2c5 = &i2c5;
+> -		i2c6 = &i2c6;
+> -		i2c7 = &i2c7;
+> -		serial0 = &uart0;
+> -		serial1 = &uart1;
+> -		serial2 = &uart2;
+> -		serial3 = &uart3;
+> -		serial4 = &uart4;
+> -		serial5 = &uart5;
+> -		serial6 = &uart6;
+> -		serial7 = &uart7;
+>  	};
+>  
+>  	cpus {
+
 
