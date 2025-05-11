@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67682C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 16:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2681C3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 16:51:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ozKqR8KiFMnJ8RNfvHlmDOW/X82IjMy0+nGHj+kzslY=; b=42Ad2/CGsgHupeqangdqFqPon+
-	Qh7WD0zxNyOC/YjKUdQvCgzgxE3T7Z3YrI8XcfmwgBIIl7V6wWZU3dZh1ryC1XXaxBRFgy3EJgEnt
-	KjlC6wH+0y0fJXssaG3Bipsssrnl05scyOJWDH+vqgvI+DFNWz2ozluMDVVlxIZKJMaZrlejyF0/e
-	LxFkSGtz1Ya/GE71KOb+0agCGtcYzkApXhBRS7ojYjF85Iyv0no8jSVWqh9ibEwp0b36viTz2igRo
-	IYfK5RV6+cFWlgukAh42gbD2tIGdCudAGqDDZPUtkQl1UTuGJBQyLS6hzvh/acHnE7/hjWaA8ZTqC
-	KqVTyJAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4yt7x/5rejb3XYnanbj6Fu7QWWQuxwcHQvNiFH3/VAA=; b=zr8h0yK88tugW9PoXWs+K1rx3B
+	VtAjMWTAiUpKGXfPWS1ZH1oM31g0Rv8jRBmocL/R+H0Sfg0kUgiJiFiEe1fHno5D38dCMBStNCP7i
+	4e0vZVjh4Wg/84wfBEtdeJVzqOlKQVGyIcJMSzNQ+2R9t1dp9AKCLVQdb+7CZTd1CYke2sSu00Xs8
+	o73hZtXfNnAfw5tk7UvY5xWRAXKm4+VTctuEjb1p3spGb9lkhqFvteg+t2ipB9f/FMBKNoprlFBuq
+	SEukm0SQDx/jZiUxqv/GVCUHgL1B2HTt+e2nUWX6fqKjoEcVD7BlzQUauvWfJi5k5O3PqEzxwN5pu
+	VmbHMgbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE9rX-00000007YIs-1641;
-	Sun, 11 May 2025 16:49:15 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1uE9tW-00000007YRW-41gL;
+	Sun, 11 May 2025 16:51:18 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE9fw-00000007WcL-1nWm
+	id 1uE9h1-00000007Whl-3Hv9
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 May 2025 16:37:18 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-22e09f57ed4so49180555ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 May 2025 09:37:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1746981435; x=1747586235; darn=lists.infradead.org;
-        h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=ozKqR8KiFMnJ8RNfvHlmDOW/X82IjMy0+nGHj+kzslY=;
-        b=LKtwjXmFQaN/JrT4kJdKRuV7syst+AHFYTgx5pQMIwke+W0bjZKDbn4UyZQZBn6oe9
-         ohwsS7dZWGHWmzlI8N/hYC/PcpmECNGv1+mmK511LMV/JsvCIZqXyntSYhZMYmetI8Qa
-         Av8gojweSQxuKwLF531r4eLn9GN0AwMXnav34VCoD5whJOuxjBau+jkiMOsEXyzwlVeJ
-         dF+qsNiI90lGAJ0nnoptIEj2Gj2I3pkM/Z73KjwcaAqWp0/MIfNOSYeANljg6e5IgyuK
-         iDiB+NUSLfvBFusT/0RYvfBRCv5zNnP5iPCPFKastJ0Mv7FUtLpxPADyxtlfGpLoYBYa
-         UEsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746981435; x=1747586235;
-        h=mime-version:message-id:date:subject:cc:to:from:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ozKqR8KiFMnJ8RNfvHlmDOW/X82IjMy0+nGHj+kzslY=;
-        b=fqVoUtCQQTEwvwKNPRmWm8PdUOYSX5NI/XziInGrAtDMG6CGcfFo/0zz/ii1fI0l8Y
-         WMRczvruQQ/K+eW80fDScA37VNHRYe0CSDhN5t0B0RGUChSsr1Vjq7vxzt7b+T6qXaI6
-         s4GD+T+O4lkb2LkwKaYEvrnJdOfmUZ0i5EVXcRvHbHSgAWxZad6esTOhSq/4Z6EcnP0e
-         oaY2YlPyo/FaE2kaBja+QuKBShLPm+vJjUG7/OuIjj0Zy5g5wBkyfhQp8/G6/h5hHdJ/
-         gV63WhykpXZCD8KTdf71DHmxEyr/AX7RtQpRxfFiLOr+3BW3XKFF03U5h8oCytEqR56H
-         GaEA==
-X-Forwarded-Encrypted: i=1; AJvYcCWRwtWZuaxKv3Q08VNa59M2Hl8qYjk4u1v0w6rUglWsW57Bb3SUHqWuuag/R08xPocMfucSKg+2v/fxjwheqDot@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwSKUo70Q0eJTcQ9jpyDltuybW2UjPW0nPjA61dJt89tAhWPDt
-	bOsPhtGiK0vwFYdvSeVwMuw3775muosN9FTKWKRjTgxaMqul3wGzZnqsfBgvUrFgDVigIlx2u8P
-	hq7Pluua3
-X-Gm-Gg: ASbGnctv+tJ+mz4/eWqWc2iOwfTugWYtsptzso4qwZDuxUN7yEvJCDICZDOsgCwd8rl
-	oaF4FGWwB5dJaQOIxJm16TBiVDEi33SCfm1n68AHzg5DBpYck44Tv/R/Nzr5/POIeIK2W6ncPYc
-	YSwYghZNdfyWe6Yup2savg5qKh5haGgSm2uI8bb+X2NutIN69ZtRRn8/ABLeO/gT61nR6ioLm1X
-	XhXW4z9a7izxag+z72Df9e4OQF8I8ApgA9wSWXnFy+CoPvYGG2wQtisU486QlaawFTuQwtwI3Me
-	VEE4+b1xJ4mHoRtb/8x5lmPSffXS6dvTSsQqeYdRk8l+YGY/kQ==
-X-Google-Smtp-Source: AGHT+IFPEY8g82RGp5yhOqpGmRIP7cEY2ruWZiZR0/cuOw+7hTLUKHCqDioAZJqYRH9/2X6lupqZlg==
-X-Received: by 2002:a17:903:3d06:b0:216:4676:dfb5 with SMTP id d9443c01a7336-22fc93dc352mr153833875ad.21.1746981435274;
-        Sun, 11 May 2025 09:37:15 -0700 (PDT)
-Received: from localhost ([97.126.182.119])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc7544d86sm48146985ad.47.2025.05.11.09.37.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 May 2025 09:37:13 -0700 (PDT)
-From: Kevin Hilman <khilman@baylibre.com>
-To: soc@lists.linux.dev
-Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] ARM: dts: omap updates for v6.16
-Date: Sun, 11 May 2025 09:37:10 -0700
-Message-ID: <7hecwvrtmx.fsf@baylibre.com>
+	Sun, 11 May 2025 16:38:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9BC31A4BE61;
+	Sun, 11 May 2025 16:38:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 171BFC4CEE4;
+	Sun, 11 May 2025 16:38:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746981502;
+	bh=hs5vd8LRGfzxohCkfiT0NgBKcp5M5vzIsAKBSBoXpLQ=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=iKj+Z7QHlhKB3tC5Zy0pppDZKsomMglPO8eSOMhdfZmNdk1ifDb4+svINF/4J2UC0
+	 gwPfIOcRd65sFHTnRfoz6rvfmXlzfeaTe9tdeSV5Hbpb9uuilbn5u53QOzSba5Vv6r
+	 kNzZy+KJm861N8LvwR4O4SI2CCopHm1FLlCjzlrXL/fkXriW7FKBlqMCWjkEXgbjDY
+	 SJ6YWKvEHLOW3oVj2UnXZ06MKymeQ+Sv0zMtOMaa1BuwUqqB02FSKCykpJjXfUU5yd
+	 YIf+Xx0A6X92HPqBVnQADUH0ddUl9wobZ6wysQ2+TvI6Wz4nlyWIYOVsr1kSnUM/6U
+	 xKRbtaYcBAalw==
+Date: Sun, 11 May 2025 11:38:20 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-media@vger.kernel.org, 
+ devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ Hans Verkuil <hverkuil@xs4all.nl>, 
+ Christophe JAILLET <christophe.jaillet@wanadoo.fr>, 
+ Junhao Xie <bigfoot@classfun.cn>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
+ Heiko Stuebner <heiko@sntech.de>, Aradhya Bhatia <a-bhatia1@ti.com>, 
+ linux-kernel@vger.kernel.org, Michael Tretter <m.tretter@pengutronix.de>, 
+ Gaosheng Cui <cuigaosheng1@huawei.com>, 
+ Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Ricardo Ribalda <ribalda@chromium.org>, 
+ Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ Kever Yang <kever.yang@rock-chips.com>, Michal Simek <michal.simek@amd.com>
+To: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
+In-Reply-To: <20250511144752.504162-4-yassine.ouaissa@allegrodvt.com>
+References: <20250511144752.504162-1-yassine.ouaissa@allegrodvt.com>
+ <20250511144752.504162-4-yassine.ouaissa@allegrodvt.com>
+Message-Id: <174698150049.490551.15288138396615870362.robh@kernel.org>
+Subject: Re: [PATCH 3/3] media: allegro-dvt: Add DT-bindings for the Gen 3
+ IP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_093716_468897_2E295297 
-X-CRM114-Status: UNSURE (   7.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250511_093823_957629_34D5437A 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,35 +91,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
 
-  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
+On Sun, 11 May 2025 16:47:34 +0200, Yassine Ouaissa wrote:
+> Add the device-tree bindings for the allegro-dvt Gen 3 IP decoders, and
+> update the MAINTAINERS file.
+> 
+> Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
+> ---
+>  .../bindings/media/allegrodvt,al300-vdec.yaml | 86 +++++++++++++++++++
+>  MAINTAINERS                                   |  1 +
+>  2 files changed, 87 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.yaml
+> 
 
-are available in the Git repository at:
+My bot found errors running 'make dt_binding_check' on your patch:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap.git tags/omap-for-v6.16/dt-signed
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.yaml:52:3: [error] syntax error: could not find expected ':' (syntax)
 
-for you to fetch changes up to 550e5608c25e0a886da1182386a6477f49caf2b7:
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.yaml: ignoring, error parsing file
+./Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.yaml:52:3: could not find expected ':'
+make[2]: *** Deleting file 'Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.example.dts'
+Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.yaml:52:3: could not find expected ':'
+make[2]: *** [Documentation/devicetree/bindings/Makefile:26: Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.example.dts] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1527: dt_binding_check] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
 
-  ARM: dts: am335x: Set wakeup-source for UART0 (2025-05-08 06:15:58 -0700)
+doc reference errors (make refcheckdocs):
 
-----------------------------------------------------------------
-ARM: dts: omap updates for v6.16
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250511144752.504162-4-yassine.ouaissa@allegrodvt.com
 
-----------------------------------------------------------------
-Andreas Kemnade (2):
-      ARM: dts: omap4: panda: fix resources needed for Wifi
-      ARM: dts: omap4: panda: cleanup bluetooth
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-David Heidelberg (1):
-      ARM: dts: nokia n900: remove useless io-channel-cells property
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-Sukrut Bellary (1):
-      ARM: dts: am335x: Set wakeup-source for UART0
+pip3 install dtschema --upgrade
 
- arch/arm/boot/dts/ti/omap/am335x-evm.dts          |  2 +-
- arch/arm/boot/dts/ti/omap/omap3-n900.dts          |  2 --
- arch/arm/boot/dts/ti/omap/omap4-panda-common.dtsi | 39 ++++++++++++++++++++++++++++++++++++---
- arch/arm/boot/dts/ti/omap/omap4-panda-es.dts      | 32 --------------------------------
- 4 files changed, 37 insertions(+), 38 deletions(-)
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
