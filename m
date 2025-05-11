@@ -4,72 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8710CC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 16:47:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67682C3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 16:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MssYpTe8R8Ut99cHK67xsJh5ncS6thCQGmejDgy87nw=; b=kd5iLOR92raBq1yCO4tj4YpnTk
-	4TyObOMJRCdEZNZg7SRC4q1k+q9G3lELcm49dh1jO1INfklhbaopYSpUmR0UQxzYUl6z0mJg/2vKE
-	MSOv3kKI8Xy/bOKUh93Tm4rCekRWkYSpuAzBelTGbINmzMhLqJD/g0y69CM77EI2moJo0MsPx+tt7
-	JiwvxyyueQxi9zB6e2AoRCgST/dL9NZpIsPewxkPXKYJzCMiunGRUV+elNQM1/4e8KSGBKu8hYnxi
-	A0NZa2RWa/d2RvN+aBMtWIEu3L28pZnYB9Vi1ya1Yras0uFEbPL/oZUL7GDPFc5zKEKCAs/I7BZCC
-	cWejI6tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ozKqR8KiFMnJ8RNfvHlmDOW/X82IjMy0+nGHj+kzslY=; b=42Ad2/CGsgHupeqangdqFqPon+
+	Qh7WD0zxNyOC/YjKUdQvCgzgxE3T7Z3YrI8XcfmwgBIIl7V6wWZU3dZh1ryC1XXaxBRFgy3EJgEnt
+	KjlC6wH+0y0fJXssaG3Bipsssrnl05scyOJWDH+vqgvI+DFNWz2ozluMDVVlxIZKJMaZrlejyF0/e
+	LxFkSGtz1Ya/GE71KOb+0agCGtcYzkApXhBRS7ojYjF85Iyv0no8jSVWqh9ibEwp0b36viTz2igRo
+	IYfK5RV6+cFWlgukAh42gbD2tIGdCudAGqDDZPUtkQl1UTuGJBQyLS6hzvh/acHnE7/hjWaA8ZTqC
+	KqVTyJAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE9pY-00000007Y9c-23iK;
-	Sun, 11 May 2025 16:47:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uE9rX-00000007YIs-1641;
+	Sun, 11 May 2025 16:49:15 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE9eD-00000007WHw-12s5
+	id 1uE9fw-00000007WcL-1nWm
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 May 2025 16:35:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6847949D80;
-	Sun, 11 May 2025 16:35:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 473BCC4CEF2;
-	Sun, 11 May 2025 16:35:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746981327;
-	bh=yXnSYyP1mrYQ+gK1si8iEF8hympcNOwuZnqV8CQOOhY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jK4tUp/NSPxJvfCScx7PH5tKDO238/6DSRZQRi8XZu9ooqolUp9JcE8LJHSxtjwE+
-	 cH1wzPQhXz0Ri6NTnlZ4s/XgE38wdrYbW6PYjfDcN9urOIdLKMQcMLx74eJw/D/Dla
-	 wbFvvec2kmuu6qOcnJLTRkMDmm+SKg2LawB3W9p9wZ4ufRIBye+shDoMA9czT7wuSt
-	 lHKjSsC8ek3ORgoy9pcfVqoM4DSgtG+OFFviSRWLXJZD8nkL04raTRU87ARMhzQoCw
-	 h5ZOPITzuUt1wmw9FLCeGEG0tv1m1aEb/Ad91FZWfsHjtqNgJt6sDGXkUtcydsLIbK
-	 UOa/92k7HHVqg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uE9e9-00Dt22-AG;
-	Sun, 11 May 2025 17:35:25 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>
-Subject: [PATCH 4/4] irqchip/gic-v3-its: Use allocation size from the prepare call
-Date: Sun, 11 May 2025 17:35:20 +0100
-Message-Id: <20250511163520.1307654-5-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250511163520.1307654-1-maz@kernel.org>
-References: <20250511163520.1307654-1-maz@kernel.org>
+	Sun, 11 May 2025 16:37:18 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-22e09f57ed4so49180555ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 May 2025 09:37:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1746981435; x=1747586235; darn=lists.infradead.org;
+        h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ozKqR8KiFMnJ8RNfvHlmDOW/X82IjMy0+nGHj+kzslY=;
+        b=LKtwjXmFQaN/JrT4kJdKRuV7syst+AHFYTgx5pQMIwke+W0bjZKDbn4UyZQZBn6oe9
+         ohwsS7dZWGHWmzlI8N/hYC/PcpmECNGv1+mmK511LMV/JsvCIZqXyntSYhZMYmetI8Qa
+         Av8gojweSQxuKwLF531r4eLn9GN0AwMXnav34VCoD5whJOuxjBau+jkiMOsEXyzwlVeJ
+         dF+qsNiI90lGAJ0nnoptIEj2Gj2I3pkM/Z73KjwcaAqWp0/MIfNOSYeANljg6e5IgyuK
+         iDiB+NUSLfvBFusT/0RYvfBRCv5zNnP5iPCPFKastJ0Mv7FUtLpxPADyxtlfGpLoYBYa
+         UEsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746981435; x=1747586235;
+        h=mime-version:message-id:date:subject:cc:to:from:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ozKqR8KiFMnJ8RNfvHlmDOW/X82IjMy0+nGHj+kzslY=;
+        b=fqVoUtCQQTEwvwKNPRmWm8PdUOYSX5NI/XziInGrAtDMG6CGcfFo/0zz/ii1fI0l8Y
+         WMRczvruQQ/K+eW80fDScA37VNHRYe0CSDhN5t0B0RGUChSsr1Vjq7vxzt7b+T6qXaI6
+         s4GD+T+O4lkb2LkwKaYEvrnJdOfmUZ0i5EVXcRvHbHSgAWxZad6esTOhSq/4Z6EcnP0e
+         oaY2YlPyo/FaE2kaBja+QuKBShLPm+vJjUG7/OuIjj0Zy5g5wBkyfhQp8/G6/h5hHdJ/
+         gV63WhykpXZCD8KTdf71DHmxEyr/AX7RtQpRxfFiLOr+3BW3XKFF03U5h8oCytEqR56H
+         GaEA==
+X-Forwarded-Encrypted: i=1; AJvYcCWRwtWZuaxKv3Q08VNa59M2Hl8qYjk4u1v0w6rUglWsW57Bb3SUHqWuuag/R08xPocMfucSKg+2v/fxjwheqDot@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwSKUo70Q0eJTcQ9jpyDltuybW2UjPW0nPjA61dJt89tAhWPDt
+	bOsPhtGiK0vwFYdvSeVwMuw3775muosN9FTKWKRjTgxaMqul3wGzZnqsfBgvUrFgDVigIlx2u8P
+	hq7Pluua3
+X-Gm-Gg: ASbGnctv+tJ+mz4/eWqWc2iOwfTugWYtsptzso4qwZDuxUN7yEvJCDICZDOsgCwd8rl
+	oaF4FGWwB5dJaQOIxJm16TBiVDEi33SCfm1n68AHzg5DBpYck44Tv/R/Nzr5/POIeIK2W6ncPYc
+	YSwYghZNdfyWe6Yup2savg5qKh5haGgSm2uI8bb+X2NutIN69ZtRRn8/ABLeO/gT61nR6ioLm1X
+	XhXW4z9a7izxag+z72Df9e4OQF8I8ApgA9wSWXnFy+CoPvYGG2wQtisU486QlaawFTuQwtwI3Me
+	VEE4+b1xJ4mHoRtb/8x5lmPSffXS6dvTSsQqeYdRk8l+YGY/kQ==
+X-Google-Smtp-Source: AGHT+IFPEY8g82RGp5yhOqpGmRIP7cEY2ruWZiZR0/cuOw+7hTLUKHCqDioAZJqYRH9/2X6lupqZlg==
+X-Received: by 2002:a17:903:3d06:b0:216:4676:dfb5 with SMTP id d9443c01a7336-22fc93dc352mr153833875ad.21.1746981435274;
+        Sun, 11 May 2025 09:37:15 -0700 (PDT)
+Received: from localhost ([97.126.182.119])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc7544d86sm48146985ad.47.2025.05.11.09.37.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 11 May 2025 09:37:13 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: soc@lists.linux.dev
+Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] ARM: dts: omap updates for v6.16
+Date: Sun, 11 May 2025 09:37:10 -0700
+Message-ID: <7hecwvrtmx.fsf@baylibre.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, tglx@linutronix.de, lpieralisi@kernel.org, sascha.bischoff@arm.com, timothy.hayes@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_093529_331319_A1FC73E4 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20250511_093716_468897_2E295297 
+X-CRM114-Status: UNSURE (   7.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +93,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that .msi_prepare() gets called at the right time and not
-with semi-random parameters, remove the ugly hack that tried
-to fix up the number of allocated vectors.
+The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
 
-It is now correct by construction.
+  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- drivers/irqchip/irq-gic-v3-its-msi-parent.c | 19 -------------------
- 1 file changed, 19 deletions(-)
+are available in the Git repository at:
 
-diff --git a/drivers/irqchip/irq-gic-v3-its-msi-parent.c b/drivers/irqchip/irq-gic-v3-its-msi-parent.c
-index 76b94f55b00e2..2df75a758c104 100644
---- a/drivers/irqchip/irq-gic-v3-its-msi-parent.c
-+++ b/drivers/irqchip/irq-gic-v3-its-msi-parent.c
-@@ -67,17 +67,6 @@ static int its_pci_msi_prepare(struct irq_domain *domain, struct device *dev,
- 	/* ITS specific DeviceID, as the core ITS ignores dev. */
- 	info->scratchpad[0].ul = pci_msi_domain_get_msi_rid(domain->parent, pdev);
- 
--	/*
--	 * @domain->msi_domain_info->hwsize contains the size of the
--	 * MSI[-X] domain, but vector allocation happens one by one. This
--	 * needs some thought when MSI comes into play as the size of MSI
--	 * might be unknown at domain creation time and therefore set to
--	 * MSI_MAX_INDEX.
--	 */
--	msi_info = msi_get_domain_info(domain);
--	if (msi_info->hwsize > nvec)
--		nvec = msi_info->hwsize;
--
- 	/*
- 	 * Always allocate a power of 2, and special case device 0 for
- 	 * broken systems where the DevID is not wired (and all devices
-@@ -143,14 +132,6 @@ static int its_pmsi_prepare(struct irq_domain *domain, struct device *dev,
- 	/* ITS specific DeviceID, as the core ITS ignores dev. */
- 	info->scratchpad[0].ul = dev_id;
- 
--	/*
--	 * @domain->msi_domain_info->hwsize contains the size of the device
--	 * domain, but vector allocation happens one by one.
--	 */
--	msi_info = msi_get_domain_info(domain);
--	if (msi_info->hwsize > nvec)
--		nvec = msi_info->hwsize;
--
- 	/* Allocate at least 32 MSIs, and always as a power of 2 */
- 	nvec = max_t(int, 32, roundup_pow_of_two(nvec));
- 
--- 
-2.39.2
+  git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap.git tags/omap-for-v6.16/dt-signed
 
+for you to fetch changes up to 550e5608c25e0a886da1182386a6477f49caf2b7:
+
+  ARM: dts: am335x: Set wakeup-source for UART0 (2025-05-08 06:15:58 -0700)
+
+----------------------------------------------------------------
+ARM: dts: omap updates for v6.16
+
+----------------------------------------------------------------
+Andreas Kemnade (2):
+      ARM: dts: omap4: panda: fix resources needed for Wifi
+      ARM: dts: omap4: panda: cleanup bluetooth
+
+David Heidelberg (1):
+      ARM: dts: nokia n900: remove useless io-channel-cells property
+
+Sukrut Bellary (1):
+      ARM: dts: am335x: Set wakeup-source for UART0
+
+ arch/arm/boot/dts/ti/omap/am335x-evm.dts          |  2 +-
+ arch/arm/boot/dts/ti/omap/omap3-n900.dts          |  2 --
+ arch/arm/boot/dts/ti/omap/omap4-panda-common.dtsi | 39 ++++++++++++++++++++++++++++++++++++---
+ arch/arm/boot/dts/ti/omap/omap4-panda-es.dts      | 32 --------------------------------
+ 4 files changed, 37 insertions(+), 38 deletions(-)
 
