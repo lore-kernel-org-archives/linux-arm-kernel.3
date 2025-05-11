@@ -4,93 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1323C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 13:39:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34040C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 13:51:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jCnitIQrLGML0v/ZGaz7m1EqKZaS5okX2gqREoZgqFA=; b=gjUPiYgZ9tzalLC8hdQSBahsEr
-	yHwsfVsfhm/onN8EySOnZ9iefbvCDb/y94s1ll7+f7UeDZ3epWr0Kl1WPgPVKwCa7AIYumKWi/l4S
-	rNqCfOmyVGO0CspTKlxvV/ZHk+jAJqKqHmd/QtVxJkMi4a9d1J8BMHWdltfYPvpkJkaKxx9WINZ5v
-	BftwJv2+35b3ZWGRWYXmCBFUXaV/w6I0+dE51I25k4NZcTMRbR1sGYEXTm5Eu2KBtJ/UbhiKKCk0b
-	+BTg/BJ/O7lSKl/W3DHnImYv6s65FMGxgHCaKZlN/IWCWLanqi2hg3hmGlDqyZUvezUrcuYEed2et
-	w6FrGCGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=55b2MXHN1ae6ZgEcDHzWaK1s3f7kfPOhMW8piFdTCOg=; b=nvMVnIAiwJ15tOx/oKO50ZqRH5
+	kKZZpsKK7uzSBOkxoy8cORwHcB01ANDhs3j+pgLUVxqZLDg27uAMuE892m61LWqaccPimgEjlL9SN
+	M9Emb1iNKiuHY5mD0XXvF09YgL5A+yYMNku7fA35TSlwe0swdS9BXVog8TbVgm9Kf55xW6R5T9KEg
+	+fu1FI+VQsJahqY/fDWAl2I/jc8aDzxZAydtbeWmY8wrtTs3ecGmFyWIb0kFddl9LEE2RBLdLQjen
+	a3XfSJQh091t8Gf6t9ezmSA6NhcaHj/eOf/NtxO08se+f5E/wXf94L2VvZsvt8JD0ilXC7jgoAG+j
+	TjOYekIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE6u7-00000007H4F-41sI;
-	Sun, 11 May 2025 13:39:43 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1uE75G-00000007KAe-0oUb;
+	Sun, 11 May 2025 13:51:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE6mG-00000007GQ2-3M7w
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 May 2025 13:31:37 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-ad1a87d93f7so576360566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 May 2025 06:31:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746970295; x=1747575095; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jCnitIQrLGML0v/ZGaz7m1EqKZaS5okX2gqREoZgqFA=;
-        b=dFmhAe55mI0ZYgTbA9z06jAcGpibU1yIvZWl8vsEWd0Cow+yYkQlcsnlJcoq22vUt+
-         An87/vI28iqdwgYZpu+vabyC6ytUUqI5IuqTOlv/QtLak3Oi6cbHjoebb9cVfGhTpO16
-         gN8BLLH5Lf9shCAy3lLQahAf3jiE41hB3YKxIusuBnm+DIMYVGMJID5Pt72YgU322uXW
-         hnMLbX75rnBu5DTGM12UT9+nOkBYjITOdnfEA+o3IVlzUEQRr/G7s9RNKTKnsjJDwaZb
-         91UdhJBE/yz2fiFrtN6PGr1B90kJd+GAxRjrbQ8UunMu6C4ggE6aRazKcsQEZIWLa6tR
-         n/Vg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746970295; x=1747575095;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jCnitIQrLGML0v/ZGaz7m1EqKZaS5okX2gqREoZgqFA=;
-        b=tlFtjTi8qCbMBXjF1lESzpnVH51JUuhJV5lirRh7dyHdWcVtBgKdnrbGpR+ZDHFvvV
-         1FJUR377ZyrZPwleAZ8bfUcjMx1NSDhxGsHI+05Mpt7LzRZCCUE/nuTHROytYhalDR35
-         yh8YprIJwMhZ9zFNNXrZ/GQCPbRMA0fkOJYWCfMRPsf+VGHsDniGzF9Dbsy3aq0hG+mw
-         5r85WCALVE55cSW22kla9QPeOxpX6nheglHKz2svFKgo+nI9xXgcR2F9vsSah5DBTxkQ
-         WK1fEkdtF+6If4W/u3cZ1kQTbkrifLbpV8i+z6VqFq+iRZuf9eZjyyuMXP53A7PQGpW3
-         BKKA==
-X-Forwarded-Encrypted: i=1; AJvYcCWtVH3IlKfQOiuwxLM94ic5Bi0XTfGdTLWK5BWhh9b026VHto4M4zjf8wBmIUmekjUFrgWvBcW3eJkv9VuD0NNu@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUrhwcNLQkyGCiTZ3Ci5GaLENJhrPiMNwOQ2HqRWQ5fFYTksDJ
-	6eb+myA0GGrJOmcEortiBND+ipH4vXcxwtKOVyNjgBBJMq27NJBTQ16Asw==
-X-Gm-Gg: ASbGncu1guGFlZm8KpI1qJ3LeFM8WO7ZvfanWSzK7lzUZES0sLxvvjBNy8SgeycdGUF
-	QifE6Z+xBPK9i0m0CRfzWuNm9a/dr/W14EAzBiSWq5pOW0fbH1rGo/FFbaUZ8T7OroQ0wipdZ9J
-	tIZJz+dbSRk4kRsYhhm4cJZh4GfKL8me6+8NM/db/a0oKAE0VMhHLmqDw0BFjgpwdWO4YnaUBLt
-	MU5Pu+S3TKwVV7SHRma2c7662QZ2pxXIngJdGW2qnrr1TejUMaK39IRBPm7sgzBCntS8fd9uVdb
-	35NbstsZrboDcHBnDhFroXwe5QWwncAo1aJm/DVM39fE5OCOqNDp7iz6XZbPE/fzVdEDg00L9fR
-	x8yAy
-X-Google-Smtp-Source: AGHT+IFtWSfALiUVVnpFFz7ImelE+nmATZJYkY40gYG/szbhM9XPyGAl4heVD8RQkSCE7sXqGFzn6Q==
-X-Received: by 2002:a17:907:d30e:b0:ad2:4cad:9824 with SMTP id a640c23a62f3a-ad24cad9bd2mr198358366b.28.1746970294838;
-        Sun, 11 May 2025 06:31:34 -0700 (PDT)
-Received: from [192.168.0.253] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
-        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-ad2197bd398sm466765366b.152.2025.05.11.06.31.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 May 2025 06:31:34 -0700 (PDT)
-From: Gabor Juhos <j4g8y7@gmail.com>
-Date: Sun, 11 May 2025 15:31:07 +0200
-Subject: [PATCH 3/3] i2c: pxa: handle 'Early Bus Busy' condition on Armada
- 3700
+	id 1uE73G-00000007K2l-2WtB;
+	Sun, 11 May 2025 13:49:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=55b2MXHN1ae6ZgEcDHzWaK1s3f7kfPOhMW8piFdTCOg=; b=nMFf7eH0gPU3ic2dclNS6ebPgT
+	c/KZegaChJKyc0wNIT/rTd5U2v9678Lk7YKQLeMTII8UEtQ41cs950jqd+Y9K1I8XmsaIJsikkM2k
+	Xl/JeBhlDRT/TN1g0X+TXVv+MwSlDGh9cjK5HJmjGoHf+z9ihN4GA42snq3SEc49cTZA9LkYKZGE3
+	2NAVcNWLH6FVAsLXJgOl/qa+87tlsSj9zdpBjfEBwlnwoh9WpyWRB/KXThA8YBxWBWO19RtEMByV+
+	wSK628/bDBydPp8iRVvOhQElLXiif0usvl6ialV1PlIXempeT6gSnhWak7jVa+rzuNvrfy0xFJFxT
+	Zzo/2tmA==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uE73A-0000000GcKy-1wWi;
+	Sun, 11 May 2025 13:49:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=55b2MXHN1ae6ZgEcDHzWaK1s3f7kfPOhMW8piFdTCOg=; b=tMYYoGuqY+aLskzruhSEzrfhYm
+	3updh2wCSjrXhRH9dN+KBGTlti7qmJnNuWpzgDA730IaYf3gPQHCRbDaDHqY1qdG1sIgusibybcWC
+	gkZDZC1T3MlB1L/6awN2g5mVWY96XAH4LPZ2UuIXear5YZPwpRwL0rOkvLRSMPAYUpXL3aVrxzRhw
+	wYK1SwbwyWmnAYirxa32HA9ROzvYhGtoVBF/MlQC6mKUwdXqX0BL8X5fzZvAKod9YKe3IX1FrQOWy
+	Un7Zz5plT/hyr5IMxk5kVq5KZ7ybIm6dzFn/ug48j/cFhCxTQ+3zW5t/6TOZhKiH3mZqnDZDXE6LS
+	OyLjqY3A==;
+Received: from i53875a1d.versanet.de ([83.135.90.29] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uE72j-0006vF-1j; Sun, 11 May 2025 15:48:37 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: amadeus@jmu.edu.cn, andyshrk@163.com, conor+dt@kernel.org,
+ damon.ding@rock-chips.com, devicetree@vger.kernel.org, didi.debian@cknow.org,
+ dsimic@manjaro.org, jbx6244@gmail.com, jing@jing.rocks, krzk+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, sebastian.reichel@collabora.com,
+ ziyao@disroot.org
+Subject: Re: [PATCH v7 4/5] arm64: dts: rockchip: add core dtsi for RK3562 SoC
+Date: Sun, 11 May 2025 15:48:35 +0200
+Message-ID: <3317829.AJdgDx1Vlc@diego>
+In-Reply-To: <20250511120009.37031-1-amadeus@jmu.edu.cn>
+References: <13758471.dW097sEU6C@diego> <20250511120009.37031-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250511-i2c-pxa-fix-i2c-communication-v1-3-e9097d09a015@gmail.com>
-References: <20250511-i2c-pxa-fix-i2c-communication-v1-0-e9097d09a015@gmail.com>
-In-Reply-To: <20250511-i2c-pxa-fix-i2c-communication-v1-0-e9097d09a015@gmail.com>
-To: Wolfram Sang <wsa@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
- Russell King <rmk+kernel@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>
-Cc: Robert Marko <robert.marko@sartura.hr>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Russell King <rmk+kernel@armlinux.org.uk>, linux-i2c@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Gabor Juhos <j4g8y7@gmail.com>, Imre Kaloz <kaloz@openwrt.org>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_063136_845554_2BF89522 
-X-CRM114-Status: GOOD (  32.59  )
+X-CRM114-CacheID: sfid-20250511_144905_390169_A07B8900 
+X-CRM114-Status: GOOD (  17.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,192 +89,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Under some circumstances I2C recovery fails on Armada 3700. At least
-on the Methode uDPU board, removing and replugging an SFP module fails
-often, like this:
+Am Sonntag, 11. Mai 2025, 14:00:09 Mitteleurop=C3=A4ische Sommerzeit schrie=
+b Chukun Pan:
+> > First of all, thanks for noticing all the bits and pieces to improve.
+> > I di think I have now fixed up all the "regular" pieces you mentioned
+> > and amended the commit accordingly:
+> >
+> > https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.gi=
+t/commit/?id=3D1d2f65fa98ddcafdfd1ebcdb87105141861b584a
+>=20
+> Thanks a lot for the quick fix! It seems there is still a little problem:
+>=20
+> > <snip>
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/rockchip/rk3562.dtsi
+> > <snip>
+> +	gpu_opp_table: opp-table-gpu {
+> +		compatible =3D "operating-points-v2";
+> +
+> +		opp-300000000 {
+> +			opp-hz =3D /bits/ 64 <300000000>;
+> +			opp-microvolt =3D <825000 825000 1000000>;
+> +		};
+> +		opp-400000000 {
+> +		opp-hz =3D /bits/ 64 <400000000>;
+>=20
+> This line is missing a tab.
 
-  [   36.953127] sfp sfp-eth1: module removed
-  [   38.468549] i2c i2c-1: i2c_pxa: timeout waiting for bus free
-  [   38.486960] sfp sfp-eth1: module MENTECHOPTO      POS22-LDCC-KR    rev 1.0  sn MNC208U90009     dc 200828
-  [   38.496867] mvneta d0040000.ethernet eth1: unsupported SFP module: no common interface modes
-  [   38.521448] hwmon hwmon2: temp1_input not attached to any thermal zone
-  [   39.249196] sfp sfp-eth1: module removed
-  ...
-  [  292.568799] sfp sfp-eth1: please wait, module slow to respond
-  ...
-  [  625.208814] sfp sfp-eth1: failed to read EEPROM: -EREMOTEIO
+fixed :-) .
 
-Note that the 'unsupported SFP module' messages are not relevant. The
-module is used only for testing the I2C recovery funcionality, because
-the error can be triggered easily with this specific one.
+> +			opp-microvolt =3D <825000 825000 1000000>;
+> +		};
+> > <snip>
+> +		spi0: spi@ff220000 {
+> +			compatible =3D "rockchip,rk3562-spi", "rockchip,rk3066-spi";
+> +			reg =3D <0x0 0xff220000 0x0 0x1000>;
+> +			interrupts =3D <GIC_SPI 52 IRQ_TYPE_LEVEL_HIGH>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+>=20
+> Also needed here.
 
-Enabling debug in the i2c-pxa driver reveals the following:
+I might be blind, but I don't see a tab missing here? #adress-cells and
+#size-cells are in the same level of indentation as the other properties
+of spi0? I did move the -cells down though now.
 
-  [   82.034678] sfp sfp-eth1: module removed
-  [   90.008654] i2c i2c-1: slave_0x50 error: timeout with active message
-  [   90.015112] i2c i2c-1: msg_num: 2 msg_idx: 0 msg_ptr: 0
-  [   90.020464] i2c i2c-1: IBMR: 00000003 IDBR: 000000a0 ICR: 000007e0 ISR: 00000802
-  [   90.027906] i2c i2c-1: log:
-  [   90.030787]
 
-This continues until the retries are exhausted ...
+> > <snip>
+> > +		pwm3: pwm@ff230030 {
+> > +			compatible =3D "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xff230030 0x0 0x10>;
+> > +			#pwm-cells =3D <3>;
+>=20
+> Missed here.
 
-  [  110.192489] i2c i2c-1: slave_0x50 error: exhausted retries
-  [  110.198012] i2c i2c-1: msg_num: 2 msg_idx: 0 msg_ptr: 0
-  [  110.203323] i2c i2c-1: IBMR: 00000003 IDBR: 000000a0 ICR: 000007e0 ISR: 00000802
-  [  110.210810] i2c i2c-1: log:
-  [  110.213633]
+adapted like the other pwm-nodes
 
-... then the whole sequence starts again ...
+> > <snip>
+> > +				power-domain@12 {
+> > +					reg =3D <12>;
+> > +					#power-domain-cells =3D <1>;
+> > +					#address-cells =3D <1>;
+> > +					#size-cells =3D <0>;
+> > ...
+> > +				power-domain@13 {
+> > +					reg =3D <13>;
+> > +					#power-domain-cells =3D <1>;
+>=20
+> Does #power/#address/#size need to be put under pm_qos?
 
-  [  115.368641] i2c i2c-1: slave_0x50 error: timeout with active message
+moved
 
-... while finally the SFP core gives up:
+> > <snip>
+> > +		spi1: spi@ff640000 {
+> > +			compatible =3D "rockchip,rk3066-spi";
+> > +			reg =3D <0x0 0xff640000 0x0 0x1000>;
+> > +			interrupts =3D <GIC_SPI 53 IRQ_TYPE_LEVEL_HIGH>;
+> > +			#address-cells =3D <1>;
+> > +			#size-cells =3D <0>;
+> > ...
+> > +		spi2: spi@ff650000 {
+> > +			compatible =3D "rockchip,rk3066-spi";
+> > +			reg =3D <0x0 0xff650000 0x0 0x1000>;
+> > +			interrupts =3D <GIC_SPI 54 IRQ_TYPE_LEVEL_HIGH>;
+> > +			#address-cells =3D <1>;
+> > +			#size-cells =3D <0>;
+>=20
+> Same here.
 
-  [  671.975258] sfp sfp-eth1: failed to read EEPROM: -EREMOTEIO
+moved
 
-When we analyze the log, it can be seen that bit 1 and 11 is set in the
-ISR (Interface Status Register). Bit 1 indicates the ACK/NACK status, but
-the purpose of bit 11 is not documented in the driver code unfortunately.
+>=20
+> > <snip>
+> > +		pwm4: pwm@ff700000 {
+> > +			compatible =3D "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xff700000 0x0 0x10>;
+> > +			#pwm-cells =3D <3>;
+> > +			pinctrl-names =3D "active";
+> > ...
+> > +		pwm5: pwm@ff700010 {
+> > +			compatible =3D "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xff700010 0x0 0x10>;
+> > +			#pwm-cells =3D <3>;
+> > +			pinctrl-names =3D "active";
+> > ...
+> > +		pwm6: pwm@ff700020 {
+> > +			compatible =3D "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xff700020 0x0 0x10>;
+> > +			#pwm-cells =3D <3>;
+> > +			pinctrl-names =3D "active";
+> > ...
+> > +		pwm7: pwm@ff700030 {
+> > +			compatible =3D "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xff700030 0x0 0x10>;
+> > +			#pwm-cells =3D <3>;
+> > +			pinctrl-names =3D "active";
+> > ...
+> > +		pwm8: pwm@ff710000 {
+> > +			compatible =3D "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xff710000 0x0 0x10>;
+> > +			#pwm-cells =3D <3>;
+> > +			pinctrl-names =3D "active";
+> > ...
+> > +		pwm9: pwm@ff710010 {
+> > +			compatible =3D "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xff710010 0x0 0x10>;
+> > +			#pwm-cells =3D <3>;
+> > +			pinctrl-names =3D "active";
+> > ...
+> > +		pwm10: pwm@ff710020 {
+> > +			compatible =3D "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xff710020 0x0 0x10>;
+> > +			#pwm-cells =3D <3>;
+> > +			pinctrl-names =3D "active";
+> > ...
+> > +		pwm11: pwm@ff710030 {
+> > +			compatible =3D "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xff710030 0x0 0x10>;
+> > +			#pwm-cells =3D <3>;
+> > +			pinctrl-names =3D "active";
+> > ...
+> > +		pwm12: pwm@ff720000 {
+> > +			compatible =3D "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xff720000 0x0 0x10>;
+> > +			#pwm-cells =3D <3>;
+> > +			pinctrl-names =3D "active";
+> > ...
+> > +		pwm13: pwm@ff720010 {
+> > +			compatible =3D "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xff720010 0x0 0x10>;
+> > +			#pwm-cells =3D <3>;
+> > +			pinctrl-names =3D "active";
+> > ...
+> > +		pwm14: pwm@ff720020 {
+> > +			compatible =3D "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xff720020 0x0 0x10>;
+> > +			#pwm-cells =3D <3>;
+> > +			pinctrl-names =3D "active";
+> > ...
+> > +		pwm15: pwm@ff720030 {
+> > +			compatible =3D "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> > +			reg =3D <0x0 0xff720030 0x0 0x10>;
+> > +			#pwm-cells =3D <3>;
+> > +			pinctrl-names =3D "active";
+>=20
+> pinctrl and #pwm-cells forgot to change.
 
-The 'Functional Specification' document of the Armada 3700 SoCs family
-however says that this bit indicates an 'Early Bus Busy' condition. The
-document also notes that whenever this bit is set, it is not possible to
-initiate a transaction on the I2C bus. The observed behaviour corresponds
-to this statement.
+hopefully caught all pwms now
 
-Unfortunately, I2C recovery does not help as it never runs in this
-special case. Although the driver checks the busyness of the bus at
-several places, but since it does not consider the A3700 specific bit
-in these checks it can't determine the actual status of the bus correctly
-which results in the errors above.
 
-In order to fix the problem, add a new member to struct 'i2c_pxa' to
-store a controller specific bitmask containing the bits indicating the
-busy status, and use that in the code while checking the actual status
-of the bus. This ensures that the correct status can be determined on
-the Armada 3700 based devices without causing functional changes on
-devices based on other SoCs.
+> > <snip>
+> > +		sdmmc0: mmc@ff880000 {
+> > +			compatible =3D "rockchip,rk3562-dw-mshc",
+> > +				     "rockchip,rk3288-dw-mshc";
+> > +			reg =3D <0x0 0xff880000 0x0 0x10000>;
+> > +			interrupts =3D <GIC_SPI 56 IRQ_TYPE_LEVEL_HIGH>;
+> > +			max-frequency =3D <200000000>;
+> > ...
+> > +		sdmmc1: mmc@ff890000 {
+> > +			compatible =3D "rockchip,rk3562-dw-mshc",
+> > +				     "rockchip,rk3288-dw-mshc";
+> > +			reg =3D <0x0 0xff890000 0x0 0x10000>;
+> > +			interrupts =3D <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
+> > +			max-frequency =3D <200000000>;
+>=20
+> max-frequency should be placed below clock
 
-With the change applied, the driver detects the busy condition, and runs
-the recovery process:
+moved and also moved fifo-depth upwards between clock-names
+and max-frequency
 
-  [  742.617312] i2c i2c-1: state:i2c_pxa_wait_bus_not_busy:449: ISR=00000802, ICR=000007e0, IBMR=03
-  [  742.626099] i2c i2c-1: i2c_pxa: timeout waiting for bus free
-  [  742.631933] i2c i2c-1: recovery: resetting controller, ISR=0x00000802
-  [  742.638421] i2c i2c-1: recovery: IBMR 0x00000003 ISR 0x00000000
 
-This clears the EBB bit in the ISR register, so it makes it possible to
-initiate transactions on the I2C bus again.
+> > <snip>
+> > +		saradc0: adc@ff730000 {
+> > +			compatible =3D "rockchip,rk3562-saradc";
+> > +			reg =3D <0x0 0xff730000 0x0 0x100>;
+> > +			interrupts =3D <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
+> > +			#io-channel-cells =3D <1>;
+> > ...
+> > +		saradc1: adc@ffaa0000 {
+> > +			compatible =3D "rockchip,rk3562-saradc";
+> > +			reg =3D <0x0 0xffaa0000 0x0 0x100>;
+> > +			interrupts =3D <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>;
+> > +			#io-channel-cells =3D <1>;
+>=20
+> `#io-channel-cells` should be put above `status =3D "disabled";`
 
-After this patch, the SFP module used for testing can be removed and
-replugged numerous times without causing the error described at the
-beginning. Previously, the error happened after a few such attempts.
+moved now :-)
 
-The patch has been tested also with the following kernel versions:
-5.10.237, 5.15.182, 6.1.138, 6.6.90, 6.12.28, 6.14.6. It improves
-recoverabilty on all of them.
+Hopefully this now caught all the smallish issues.
 
-Cc: stable@vger.kernel.org # 5.8+
-Fixes: 7c9ec2c52518 ("i2c: pxa: implement generic i2c bus recovery")
-Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
-Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
----
-Note: the patch is included in this series for completeness however
-it can be applied independently from the preceding patches. On kernels
-6.3+, it restores I2C functionality even in itself because it recovers
-the controller from the bad state described in the previous patch.
----
- drivers/i2c/busses/i2c-pxa.c | 18 ++++++++++++------
- 1 file changed, 12 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/i2c/busses/i2c-pxa.c b/drivers/i2c/busses/i2c-pxa.c
-index a36fc30e6f262f0608e0bc77d02771d13d0e0921..5196389428b21b7d15569e7469380bf190f46d67 100644
---- a/drivers/i2c/busses/i2c-pxa.c
-+++ b/drivers/i2c/busses/i2c-pxa.c
-@@ -71,6 +71,7 @@
- #define ISR_GCAD	(1 << 8)	   /* general call address detected */
- #define ISR_SAD		(1 << 9)	   /* slave address detected */
- #define ISR_BED		(1 << 10)	   /* bus error no ACK/NAK */
-+#define ISR_A3700_EBB	(1 << 11)	   /* early bus busy for armada 3700 */
- 
- #define ILCR_SLV_SHIFT		0
- #define ILCR_SLV_MASK		(0x1FF << ILCR_SLV_SHIFT)
-@@ -263,6 +264,7 @@ struct pxa_i2c {
- 	bool			highmode_enter;
- 	u32			fm_mask;
- 	u32			hs_mask;
-+	u32			busy_mask;
- 
- 	struct i2c_bus_recovery_info recovery;
- 	struct pinctrl		*pinctrl;
-@@ -429,7 +431,7 @@ static int i2c_pxa_wait_bus_not_busy(struct pxa_i2c *i2c)
- 
- 	while (1) {
- 		isr = readl(_ISR(i2c));
--		if (!(isr & (ISR_IBB | ISR_UB)))
-+		if (!(isr & i2c->busy_mask))
- 			return 0;
- 
- 		if (isr & ISR_SAD)
-@@ -466,7 +468,7 @@ static int i2c_pxa_wait_master(struct pxa_i2c *i2c)
- 		 * quick check of the i2c lines themselves to ensure they've
- 		 * gone high...
- 		 */
--		if ((readl(_ISR(i2c)) & (ISR_UB | ISR_IBB)) == 0 &&
-+		if ((readl(_ISR(i2c)) & i2c->busy_mask) == 0 &&
- 		    readl(_IBMR(i2c)) == (IBMR_SCLS | IBMR_SDAS)) {
- 			if (i2c_debug > 0)
- 				dev_dbg(&i2c->adap.dev, "%s: done\n", __func__);
-@@ -487,7 +489,7 @@ static int i2c_pxa_set_master(struct pxa_i2c *i2c)
- 	if (i2c_debug)
- 		dev_dbg(&i2c->adap.dev, "setting to bus master\n");
- 
--	if ((readl(_ISR(i2c)) & (ISR_UB | ISR_IBB)) != 0) {
-+	if ((readl(_ISR(i2c)) & i2c->busy_mask) != 0) {
- 		dev_dbg(&i2c->adap.dev, "%s: unit is busy\n", __func__);
- 		if (!i2c_pxa_wait_master(i2c)) {
- 			dev_dbg(&i2c->adap.dev, "%s: error: unit busy\n", __func__);
-@@ -513,7 +515,7 @@ static int i2c_pxa_wait_slave(struct pxa_i2c *i2c)
- 			dev_dbg(&i2c->adap.dev, "%s: %ld: ISR=%08x, ICR=%08x, IBMR=%02x\n",
- 				__func__, (long)jiffies, readl(_ISR(i2c)), readl(_ICR(i2c)), readl(_IBMR(i2c)));
- 
--		if ((readl(_ISR(i2c)) & (ISR_UB|ISR_IBB)) == 0 ||
-+		if ((readl(_ISR(i2c)) & i2c->busy_mask) == 0 ||
- 		    (readl(_ISR(i2c)) & ISR_SAD) != 0 ||
- 		    (readl(_ICR(i2c)) & ICR_SCLE) == 0) {
- 			if (i2c_debug > 1)
-@@ -1171,7 +1173,7 @@ static int i2c_pxa_pio_set_master(struct pxa_i2c *i2c)
- 	/*
- 	 * Wait for the bus to become free.
- 	 */
--	while (timeout-- && readl(_ISR(i2c)) & (ISR_IBB | ISR_UB))
-+	while (timeout-- && readl(_ISR(i2c)) & i2c->busy_mask)
- 		udelay(1000);
- 
- 	if (timeout < 0) {
-@@ -1316,7 +1318,7 @@ static void i2c_pxa_unprepare_recovery(struct i2c_adapter *adap)
- 	 * handing control of the bus back to avoid the bus changing state.
- 	 */
- 	isr = readl(_ISR(i2c));
--	if (isr & (ISR_UB | ISR_IBB)) {
-+	if (isr & i2c->busy_mask) {
- 		dev_dbg(&i2c->adap.dev,
- 			"recovery: resetting controller, ISR=0x%08x\n", isr);
- 		i2c_pxa_do_reset(i2c);
-@@ -1480,6 +1482,10 @@ static int i2c_pxa_probe(struct platform_device *dev)
- 	i2c->fm_mask = pxa_reg_layout[i2c_type].fm;
- 	i2c->hs_mask = pxa_reg_layout[i2c_type].hs;
- 
-+	i2c->busy_mask = ISR_UB | ISR_IBB;
-+	if (i2c_type == REGS_A3700)
-+		i2c->busy_mask |= ISR_A3700_EBB;
-+
- 	if (i2c_type != REGS_CE4100)
- 		i2c->reg_isar = i2c->reg_base + pxa_reg_layout[i2c_type].isar;
- 
+Thanks a lot
+Heiko
 
--- 
-2.49.0
 
 
