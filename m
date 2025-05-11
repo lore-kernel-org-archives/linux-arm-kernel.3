@@ -4,69 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2BF9C3ABC5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 10:04:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9B2DC3ABC5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 10:10:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R9vjX0NpeXboEs6UC4bGi/50cueuXRIEpPRh5+1mL/c=; b=nzCVLY4RcCHlxMxQadbyZEwpgg
-	DJ7DvAnHgqnZacmzCXRI9PnsmAQZgsiaSTFYA3uEvHhG+a7Imab1gAZYT06cnVmY7LphxPtI1wPuh
-	8SJ54Y/FJ3hbzU9EI9nuKBbyiMgAbhNamNDXZ+7gNdI+S0Sbafe0yjGfNJXjTtjAQ1yDZeh3JPmp/
-	RNQXscHAu4pOi6ZrNZNluS9BaQV8oKTqvEW52MsIs18ZaflhN0aB1n0i2Yml7d0oiax9O5uhshCkF
-	cUf8czGIJ7oYciHs1See38UpKbWCCKOAFFJBHO72r8ZEaFPAtWCd6lGhsb3DhoYsonI0hCvvhBky5
-	5tsRuGRg==;
+	bh=CN0O5V+IZ0q5N1/S2ZaMh6s5R0LVHxEQYL797WECSaA=; b=RPnx1NzyZZiLtHyA2NGESW0/TW
+	MWterX6hdbkCNEt+s1WWt7Fb9OkzkqQugCPngOj5FSvChe6PnhQXgaIADeBRGK93T10qoq1UeX/lQ
+	wEt2ch7ZUalvVYY7bu9dwjENStac8VyBAoBiN+Nl4kJUO9jNJfUr8oADmMdZMN3HwjujnzahMee3z
+	VrtYaGt37YCONp7ICiQ56kh9EJJrNlSJ4252c732DV4gK6rUrwpBH53AG88bvwfZMMm/Mat0DRJFP
+	U+9VY6D/pzBKxokwTkkoHCNfKvrDPhKi1qMjkPCTLFLpQsjmCceQyDzhOLX4GsMzYqFc+c9Xnakl7
+	HjEVHOBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE3Y0-000000073xG-2Utg;
-	Sun, 11 May 2025 10:04:40 +0000
-Received: from mail-m83149.xmail.ntesmail.com ([156.224.83.149])
+	id 1uE3dP-000000074Jt-2UI9;
+	Sun, 11 May 2025 10:10:15 +0000
+Received: from mout.gmx.net ([212.227.15.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE3UA-000000073b0-3kUT;
-	Sun, 11 May 2025 10:00:45 +0000
-Received: from localhost.localdomain (unknown [119.122.215.106])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 14a0dc43a;
-	Sun, 11 May 2025 18:00:27 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: ziyao@disroot.org
-Cc: andyshrk@163.com,
-	conor+dt@kernel.org,
-	damon.ding@rock-chips.com,
-	devicetree@vger.kernel.org,
-	didi.debian@cknow.org,
-	dsimic@manjaro.org,
-	heiko@sntech.de,
-	jbx6244@gmail.com,
-	jing@jing.rocks,
-	krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	sebastian.reichel@collabora.com,
-	Chukun Pan <amadeus@jmu.edu.cn>
-Subject: Re: [PATCH v7 4/5] arm64: dts: rockchip: add core dtsi for RK3562 SoC
-Date: Sun, 11 May 2025 18:00:22 +0800
-Message-Id: <20250511100022.31465-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250310140916.14384-2-ziyao@disroot.org>
-References: <20250310140916.14384-2-ziyao@disroot.org>
+	id 1uE3bO-000000074Et-0oJX
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 11 May 2025 10:08:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1746958049; x=1747562849; i=wahrenst@gmx.net;
+	bh=CN0O5V+IZ0q5N1/S2ZaMh6s5R0LVHxEQYL797WECSaA=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=WF48+tIE5DgO07f0Pf3a2wrnwmRkzKaMUwdUN2XUFFfMMQNQojCgdhtweo+6r49N
+	 QDQ2OpuJ2NUZZkcmejqZoRiYOazrG/33dpF1Ube7m7yP+CqEHH9vn2spOdyRheW3e
+	 8zHqcwErqUvsXoHwwsg3Wh5F39/le9ob/XzdieeEpA8mgd5qcWuBDL2iMpjx4TNwj
+	 yTm/vo4pLj86FB1E67wqJIbewr/D1rM8hItw2BrcNXuo2VnIypjT66GM6K3eB8wFK
+	 GnQwDRrWOBunzLMewcwvzq1Vy+XXtD1LIBpeRbh7y49fvmKgIMIaM9AY51NTk0/cn
+	 FDbdxiiFaSmNy7H7aA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.104] ([91.41.216.208]) by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MplXz-1umWKa1gPF-00o6TN; Sun, 11
+ May 2025 12:07:29 +0200
+Message-ID: <678528db-67bc-4bb7-a866-7b8aeb4f4510@gmx.net>
+Date: Sun, 11 May 2025 12:07:27 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDSBhDVklDGU5PH0xMSUweSFYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKTlVKS01ZV1kWGg8SFR0UWUFZT0tIVUpLSUJNS0pVSktLVU
-	tZBg++
-X-HM-Tid: 0a96bec9f05303a2kunm14a0dc43a
-X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PjI6UQw*DjJON0oCUTUxEzJN
-	FE0aFApVSlVKTE9NQk5MTUlDTUtDVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUpK
-	QlVKSUlVSUpOVUpLTVlXWQgBWUFPT0hMNwY+
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 07/10] power: reset: macsmc-reboot: Add driver for
+ rebooting via Apple SMC
+To: sven@svenpeter.dev, Janne Grunau <j@jannau.net>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>,
+ Hector Martin <marcan@marcan.st>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Sebastian Reichel <sre@kernel.org>,
+ Lee Jones <lee@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+References: <20250511-smc-6-15-v5-0-f5980bdb18bd@svenpeter.dev>
+ <20250511-smc-6-15-v5-7-f5980bdb18bd@svenpeter.dev>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20250511-smc-6-15-v5-7-f5980bdb18bd@svenpeter.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:Z8FPqSBn0iAN+Jp67wKOEpFqtfhamLrhOFm81Yp8T3if6bMooSD
+ DZ5TtUwyguT5Eu1lxG/b+xzBZYSQPJhEdqZA3DdQKgzS+xOcY/2aPl3BVkiNqOjWUvGvPTr
+ GJI1YIyUr6PXi6Bavv+oh+f1SGQa4bU8rzDHL5BH2O2bw3n/BCGBbaqUKjnWEucPhsVxRI1
+ WjDuFZ7u5fgnm1aVwNAkQ==
+UI-OutboundReport: notjunk:1;M01:P0:eUVeXrlNwho=;qLOTI09OeU4/WUdYhgQd5zVTy3u
+ dss8m0Zo7Tul4s8IhuUMPZb2C3hGO1be3dHFUJ/tdICFstjfurVkLkqi19F6ZCsZGYI5rd75k
+ zrg81CqQ3sPIwP+H2mdlObo5kzVyhOeeK2Y9yPzs9tNIlRpCBNbxSqqSTVDOtb9cj7hWd4NlE
+ DfdE3CfbOJGcdj37rfhVvjEdHO0NNaZCpRiAEpWEaYRLB7EMkInBD6ug1B465ElIAs1EBoFhp
+ k6b/QuBiWPXiWYAROFtDJ+dJd3kPzHqSIhEVIOAIDHF+tWvg4bfXTdqm+5BtvrX+Q/ppqC4lW
+ XeTEElTflIHxwMpjLVJM1H3ZE8GpuV1z1FsOQ1zUNNJVfB348XOHVJkuDGaOPFgM2lIZbMUYT
+ Q6Nnnnq0wK5oScT7CiO+RnB2gl1c71WX2jFMlcxk761RJXjQvgWiUmsaibPYaaNRKmQVLdOEn
+ 8IwRKD4joQfD3TbXtTkIbj5E78uHNG5zYIpxUcE2SacO0+mfzK9RtkZcHHQzGJ9PsVuQZTI5I
+ R0l1pPi2GnKSz1JYbPmirtkv3k0pE9auzJWkzlqbhFLLsaHL1ahvSwUlDRyU3N/VoBYGFuPkx
+ GMtcY+nLAbb2BLwLwRW0aPa5kZWCmWPRy7JStGm1fo25Aa9ItQOFxplZSmQ7fWafe9O0dYYnL
+ M3q4aiUWzQtEeKcVWuSSP+gjyIkSi0iT/zmZXsoY3YxLy/EwehJdvBQW3E1Ih1UYnpJknoMem
+ X5NiCAOYMDubb2mvQTuCn1TELRb5f6bXRbuMuGGh07bcMGiFV3JUMOZKiFgGN/JCcEB+zW+Th
+ c6Xyz5LXKYYDfrRddsF4WEwWFrEFPDNn/SRYXakLg9kEMWSxZ1+/HCYddjMd0mGnOmgkifU8g
+ sndz3aju7JBa3Wc986gCd3F808Y8jU4eRJEHj+SlOPpUWKfN7iHORovFNGgltqaLj7fXHUl1N
+ 9jTmGD9KKjdPwir4SgdE9hJz4B5MGeMVNLqa69TACxIl2b+g5EwrRbtDhAoDISeTsTZL1uyXN
+ UDreCcbfipPUZj2/2Y7KVjdNNHhn828Pa4fNLdUmbhl2Jl7lJIdkEyzwt49JonYDwkfvku20K
+ QsulnNlpvKRotbXx1lwqafvSgwAfJz0gymK9MbrTNgkVfUQzUeqHHbtl/IO1hhWb+vNVylhT9
+ ppUEyBUGC1cn1tBCoDd8u4ghPLoaQ3SfX7Ej4aUfh/8qUVICVmP8+IXxVQxdRSZRK1ihk/F+h
+ sL7/KMali3A8k/d3y8PB+b4PYSmHDhrS0zYbtB5BTIRiy0KAJNFcR5Vu9RPuMYEYoPnDwpGxf
+ rVvzc/Hs/9EPYJ8N2L9x5FDUKTyHjIpLBh0bprxo2X5pkTqdFBb0UStcqVoUQOdL9psotc9XA
+ NFpqoEgCYUiJfXUmeAIle0JzslhV5nk2CbWgX/HA4u61HXZ5m1kjQTZsInvuwoKoXCi+TggbF
+ zDq427fF77OiOUN+tPRYbP7xdvJ5WzptNqWzOmfVKCvW5Y+EQvULq26qJiCFr5AawRiZSgd5o
+ Oorv8E8NZ7dYNRj3YnHDKdO32ksoP34qA+V4bqn76+67deofW3FvCQRMJO6tZZJacf5phFoao
+ u6aUhicJouObHQyI25t40sVLZ+OxwFECSk79Uu9UuLrBhkDSFTlI8ll+3tbsSxGy5t1qWI0Zi
+ pTr7u7pL4dH02ycZoCO6W4MVf1pXiOdz0cH0T1bRMIW1pqpd+O8RxbNw3qxiwTEBVq7wKATr4
+ 7XjyRYz7i3rF10Fe5tsCoGyWaiNmKTtT/L6qAY4lUTnS/vewefYk9zeHwL8ZuTDn37gVushRF
+ Sdjm/UkHwi2gmpiYbKeAEwXSgro8Kd5bqMHJ9H3ikstZxFR+mxMQroXiVRa98ORGDRhe0aVtR
+ Apn6pTr+M9zTDdKjn5Q5DpXN31xYoWYWEreAgE6C6AsB17J/UFUTbil/3ivUCiaz8Rs+mIdtU
+ yU234f22X2fJfBr4ooYZH0mm1c29wuq+VeyfYika2i/lVRRCG1m3AlhTd74E1f2mhJQmfuJGd
+ F9U3MTz5+9AhRssXS/IvVyX4XJp15liKOVf+S9u0zk6mD9/D19NW1DJm2j3c+dv2y4mv1nne9
+ v1FEFaL9MduWs0rVnENqg4ZkmgC8xGoL3OVqupD/UZZ8XpAvAfgicXR/NkLXxczK5AjQAuYLP
+ 6oQ4DOKxjqVZoxAeto4HbaX+hTSTwVyIwAtauKOqJnm1yPkCQ5c/Z4OTNtyE5RWNvQuGK5tJd
+ fKEXuSfc3/zrAgBZ+K1cgSeazTlkcpkSZhjsjh17hrA133VZ4OTsnHhUl8LsgSObhNdTZw5l3
+ pRzqHoswEllw3fsDTfV700Fxg+KUGKZ02b5qCbkpBnNhHf4NKpztBFvU/9R+sKcm3fDqqpHBj
+ oHfVgGxNcjJ8gU8ftKz8acubrtzLAT5gLAgG0Zh3KnsAqzHKKD6C6WQpG2/3fmlYWuHR/2shR
+ 3YVfN/QVOkyTNETuvg5BwS/juiwr/HTvxk2jufJ7sYVr+KOD6Mp9sR0Jv2bxujZqJwDqytcjG
+ +us5Ed/+b3FcFx5jel2A68Tba66krRlDrPCKsjl3sA6tnZk3OSNuYiEmB4/YRL2rkE/7x+8i8
+ BQsAZetEyd40AufQBfhN6qc+1mNvO4Ehkl3FUOgFNn3emzrIDXShYSiO3EmmbeeGoDoxN/2Bq
+ 6jAIAr9aZMTTUilH5mrRfzOqBC2a0WGn1SiYv7oAcUt8gBM9+U3PfihVE3KzvBJvc5/Wz6feq
+ TeHY1fqaf95R5KIb86tbfr62vxjN03bEngSUdOtH08IXy183WSI9fyrVQiYgpM/KbTdyNG9K0
+ /0me7ehMHWX2eq2n1/HaInGf/7NIPwR/kUdThnrL1GiAsEaIAoPry0J4AAaXvqX1hwEt5pVos
+ 2JJbVRvwKs3Hx4vmhlBLfgBCmPw0CPThBKlOY0MkNS4PPWThaUYvK8UnEz02gFJLDHaoVnS+a
+ 4XyB2b1epQdH/YZyGLJn/8lHLOtl35VAKnqXHEC+r5M3aBh6msxhd5LYmTK4QXt7DOvMWNdp1
+ Bn9m3+ZYD+XUpd1Q1px6dyloMIt/zjm8cCbZwGpwn77wyx8zw3zI9sSat/uf4EAUds/snu8lm
+ 5VJ2JtxrXcz2tDlPkb8lhvYlwakjG6COH+6mc9P1X/9Dz3303cCNoYm9H5x2U/AgtFBoxfrnZ
+ KaEZOTH7qGEl/5+LWKMJJ/pB4a7baI3uSOHYFKiWrOK7G4UAdVsZUL8TJlkOQbfJ976M=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_030043_213691_23C77226 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20250511_030810_524867_B642086E 
+X-CRM114-Status: GOOD (  19.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,123 +145,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Sven,
 
-> <snip>
+Am 11.05.25 um 10:18 schrieb Sven Peter via B4 Relay:
+> From: Hector Martin <marcan@marcan.st>
+>
+> This driver implements the reboot/shutdown support exposed by the SMC
+> on Apple Silicon machines, such as Apple M1 Macs.
+>
+> Signed-off-by: Hector Martin <marcan@marcan.st>
+> Signed-off-by: Sven Peter <sven@svenpeter.dev>
+> ---
+>   MAINTAINERS                         |   1 +
+>   drivers/power/reset/Kconfig         |  11 ++
+>   drivers/power/reset/Makefile        |   1 +
+>   drivers/power/reset/macsmc-reboot.c | 363 ++++++++++++++++++++++++++++=
+++++++++
+>   4 files changed, 376 insertions(+)
+>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index fa3a5f9ee40446bcc725c9eac2a36651e6bc7553..84f7a730eb2260b7c1e0487d=
+18c8eb3de82f5206 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2303,6 +2303,7 @@ F:	drivers/mfd/macsmc.c
+>   F:	drivers/nvme/host/apple.c
+>   F:	drivers/nvmem/apple-efuses.c
+>   F:	drivers/pinctrl/pinctrl-apple-gpio.c
+> +F:	drivers/power/reset/macsmc-reboot.c
+>   F:	drivers/pwm/pwm-apple.c
+>   F:	drivers/soc/apple/*
+>   F:	drivers/spi/spi-apple.c
+> diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
+> index 60bf0ca64cf395cd18238fc626611c74d29844ee..6e8dfff64fdc001d09b6c006=
+30cd8b7e2fafdd8e 100644
+> --- a/drivers/power/reset/Kconfig
+> +++ b/drivers/power/reset/Kconfig
+> @@ -128,6 +128,17 @@ config POWER_RESET_LINKSTATION
+>  =20
+>   	  Say Y here if you have a Buffalo LinkStation LS421D/E.
+>  =20
+> +config POWER_RESET_MACSMC
+> +	tristate "Apple SMC reset/power-off driver"
+> +	depends on ARCH_APPLE || COMPILE_TEST
+> +	depends on MFD_MACSMC
+> +	depends on OF
+> +	help
+> +	  This driver supports reset and power-off on Apple Mac machines
+> +	  that implement this functionality via the SMC.
+> +
+> +	  Say Y here if you have an Apple Silicon Mac.
+> +
+>   config POWER_RESET_MSM
+>   	bool "Qualcomm MSM power-off driver"
+>   	depends on ARCH_QCOM
+> diff --git a/drivers/power/reset/Makefile b/drivers/power/reset/Makefile
+> index 10782d32e1da39f4b8b4566e8a885f2e13f65130..887dd9e49b7293b69b9429dd=
+c0c1571194a153cf 100644
+> --- a/drivers/power/reset/Makefile
+> +++ b/drivers/power/reset/Makefile
+> @@ -13,6 +13,7 @@ obj-$(CONFIG_POWER_RESET_GPIO) +=3D gpio-poweroff.o
+>   obj-$(CONFIG_POWER_RESET_GPIO_RESTART) +=3D gpio-restart.o
+>   obj-$(CONFIG_POWER_RESET_HISI) +=3D hisi-reboot.o
+>   obj-$(CONFIG_POWER_RESET_LINKSTATION) +=3D linkstation-poweroff.o
+> +obj-$(CONFIG_POWER_RESET_MACSMC) +=3D macsmc-reboot.o
+>   obj-$(CONFIG_POWER_RESET_MSM) +=3D msm-poweroff.o
+>   obj-$(CONFIG_POWER_RESET_MT6323) +=3D mt6323-poweroff.o
+>   obj-$(CONFIG_POWER_RESET_QCOM_PON) +=3D qcom-pon.o
+> diff --git a/drivers/power/reset/macsmc-reboot.c b/drivers/power/reset/m=
+acsmc-reboot.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..d82339e427886667be4ad2de=
+0d1d5c04d2383059
 > --- /dev/null
-> +++ b/arch/arm64/boot/dts/rockchip/rk3562.dtsi
-> @@ -0,0 +1,1187 @@
-> <snip>
-> +#include <dt-bindings/phy/phy.h>
-> +#include <dt-bindings/power/rockchip,rk3562-power.h>
-> +#include <dt-bindings/pinctrl/rockchip.h>
-
-Does this need to be sorted alphabetically?
-
-> <snip>
-> +		idle-states {
-> +			entry-method = "psci";
-
-It would be better to leave a blank line here.
-
-> +			CPU_SLEEP: cpu-sleep {
-
-> <snip>
-> +		pwm0: pwm@ff230000 {
-> +			compatible = "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
-> +			reg = <0x0 0xff230000 0x0 0x10>;
-> +			#pwm-cells = <3>;
-> +			pinctrl-names = "active";
-
-It should be `pinctrl-names = "default";` for pwm, see also [1]
-
-> +			pinctrl-0 = <&pwm0m0_pins>;
-> +			clocks = <&cru CLK_PMU1_PWM0>, <&cru PCLK_PMU1_PWM0>;
-> +			clock-names = "pwm", "pclk";
-> +			status = "disabled";
-> +		};
-
-The pinctrl should be placed below the clock.
-
-> <snip>
-> +			power: power-controller {
-> +				compatible = "rockchip,rk3562-power-controller";
-> +				#power-domain-cells = <1>;
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +				status = "okay";
+> +++ b/drivers/power/reset/macsmc-reboot.c
+> @@ -0,0 +1,363 @@
+> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+> +/*
+> + * Apple SMC Reboot/Poweroff Handler
+> + * Copyright The Asahi Linux Contributors
+> + */
 > +
-
-`status = "okay"` is not needed here.
-Also remove extra blank lines.
-
+> +#include <linux/delay.h>
+> +#include <linux/mfd/core.h>
+> +#include <linux/mfd/macsmc.h>
+> +#include <linux/module.h>
+> +#include <linux/nvmem-consumer.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/reboot.h>
+> +#include <linux/slab.h>
 > +
-> +				power-domain@RK3562_PD_GPU {
-> <snip>
-> +				power-domain@RK3562_PD_VI {
-> +					reg = <RK3562_PD_VI>;
-> +					#power-domain-cells = <1>;
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +					pm_qos = <&qos_isp>,
-> +						 <&qos_vicap>;
+> +struct macsmc_reboot_nvmem {
+> +	struct nvmem_cell *shutdown_flag;
+> +	struct nvmem_cell *pm_setting;
+> +	struct nvmem_cell *boot_stage;
+> +	struct nvmem_cell *boot_error_count;
+> +	struct nvmem_cell *panic_count;
+> +};
 > +
-> +					power-domain@RK3562_PD_VEPU {
-> +						reg = <RK3562_PD_VEPU>;
-> +						pm_qos = <&qos_vepu>;
-> +					#power-domain-cells = <0>;
+> +static const char * const nvmem_names[] =3D {
+> +	"shutdown_flag",
+> +	"pm_setting",
+> +	"boot_stage",
+> +	"boot_error_count",
+> +	"panic_count",
+> +};
+> +
+> +enum boot_stage {
+> +	BOOT_STAGE_SHUTDOWN		=3D 0x00, /* Clean shutdown */
+> +	BOOT_STAGE_IBOOT_DONE		=3D 0x2f, /* Last stage of bootloader */
+> +	BOOT_STAGE_KERNEL_STARTED	=3D 0x30, /* Normal OS booting */
+> +};
+> +
+> +enum pm_setting {
+> +	PM_SETTING_AC_POWER_RESTORE	=3D 0x02,
+> +	PM_SETTING_AC_POWER_OFF		=3D 0x03,
+> +};
+> +
+> +static const char * const ac_power_modes[] =3D { "off", "restore" };
+> +
+> +static int ac_power_mode_map[] =3D {
+> +	PM_SETTING_AC_POWER_OFF,
+> +	PM_SETTING_AC_POWER_RESTORE,
+> +};
+> +
+> +struct macsmc_reboot {
+> +	struct device *dev;
+> +	struct apple_smc *smc;
+> +	struct notifier_block reboot_notify;
+> +
+> +	union {
+> +		struct macsmc_reboot_nvmem nvm;
+> +		struct nvmem_cell *nvm_cells[ARRAY_SIZE(nvmem_names)];
+> +	};
+> +};
+> +
+> +/* Helpers to read/write a u8 given a struct nvmem_cell */
+> +static int nvmem_cell_get_u8(struct nvmem_cell *cell)
+> +{
+> +	size_t len;
+> +	u8 val;
+> +	void *ret =3D nvmem_cell_read(cell, &len);
+in case this series needs a respin, please rename the pointer (e.g.=20
+buf). This is very unusual, because ret is usually of type int.
 
-This line is missing a tab, resulting in an indentation error.
-
-> +					};
-> +				};
-> <snip>
-
-> +		pcie2x1: pcie@ff500000 {
-> +			compatible = "rockchip,rk3562-pcie", "rockchip,rk3568-pcie";
-> +			#address-cells = <3>;
-> +			#size-cells = <2>;
-
-#address-cells/#size-cells should be placed above `status = "disabled";`
-I think other nodes also need to change this. (Some for #pwm-cells)
-
-> +			interrupt-names = "sys", "pmc", "msg", "legacy", "err", "msi";
-
-I noticed that the bsp 5.10 kernel said that pcie only has 8 MSI vectors,
-[2][3] but in the bsp 6.1 kernel it changed to 32 MSI vectors [4].
-
-The rockchip documentation also says there are only 8 MSI vectors:
-
-[5] Page37 8.8 "RK3528/RK3562/RK3576可分配的MSI或者MSI-X总数是8个"
-Translate into English: "The total number of MSI or MSI-X that
-can be allocated by RK3528/RK3562/RK3576 is 8"
-
-We noticed this when supporting rk3528, so which one is correct?
-
-> +			phys = <&combphy_pu PHY_TYPE_PCIE>;
-
-s/combphy_pu/combphy
-
-> <snip>
-+		combphy_pu: phy@ff750000 {
-
-Please change it to `combphy` like rk3568.
-
-Heiko I know you just merged this, it's a bit offensive but I think
-it would be better to drop these patches and fix them further.
-Or kever would you like to send a fix patch? Although most of
-them are typo issues, it will take a few patches to fix it.
-
-[1] https://lore.kernel.org/lkml/20250310140916.14384-2-ziyao@disroot.org/
-[2] https://github.com/rockchip-linux/kernel/commit/4f0c9ccc79c373aa97084b3b1ab0651ca4248227
-[3] https://github.com/rockchip-linux/kernel/commit/afb85c759cfadc4051c42a9703860071a9877f2e
-[4] https://github.com/coolpi-george/coolpi-kernel/commit/522b94122ec797760dcd466851250cbdfafff50f
-[5] https://github.com/ArmSoM/rk3506-rkr4.2-sdk/blob/main/docs/cn/Common/PCIe/Rockchip_Developer_Guide_PCIe_CN.pdf
-
-Thanks,
-Chukun
-
---
-2.25.1
-
+Regards
 
