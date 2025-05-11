@@ -4,123 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A58D8C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 20:06:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB1BC3ABC5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 20:15:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=11PwqzfmIklmhEcZYHYPYDXif3neIAqn5cm6hlaLl8k=; b=19cNHHoOtVgiHmaOMxWNSvz1kR
-	RwsviiKgbygH6Y1NBZuoUb6l1DARD+ciy9yTKFuBXY03E2tszXVoFWkZiN3wtXIe1ZjO4BBJVKQXf
-	4uzOaNO1FMhCSjKe7oETgw7YvMGoXY9B+EDIyLXicLL0ROAgav0hldW4o2MTYpmY3Hd8wqTHVrQio
-	Lofyym1ltkWSi0NXr15P5sWZ2DUpSXJ9tz31gU/N/HFVjn3bXHTxYhCpkj0aHUBn2atER8ByDEeA9
-	K+1b15Jc/Twj5V4ACNh384sxguyeo6BiINphszGv1AyN2xJVbp5+4/wbG0mMt3bri/T6gfz+FPufE
-	8slPV9EA==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vRQTyAD6/LtJP1mViFxGTV7MWeC7Erzm+rbDZD3bI7g=; b=GDqiNtqIe1rPFKj7MI2kIj5gGo
+	29uU2CO1dcTxvfTtieesGh41MPDp1XuR8x3QEXxSkJzKZckA/Th5a2n+yNSaQvVocFBZ+s6eoTICD
+	otvmLBCjWK2BO/DaBHl/3teCXuLhLvWab271+oApXkAKGYwFX/6+j1fLlXnRJ38MrMrMpdK2pxHnb
+	ij9V7A00BSBkcv65HmgMYQYOprZQzxvbs4tAkwu2IqsLox2iiO6TR+gkjdxKHSeRAcFPvC8JUw1r5
+	RIEMbNZ5zh01Ajcru5N/LLYwM66WT0Va8VjczUNcVSxikjugFEjn64kT6a+AsABhfpaeeL1fKyGVW
+	MBQ29KIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uECvm-00000007mJa-1rMM;
-	Sun, 11 May 2025 20:05:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uED56-00000007nFy-4Bk6;
+	Sun, 11 May 2025 20:15:29 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uECti-00000007m83-1hIm
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 May 2025 20:03:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CE85749D21;
-	Sun, 11 May 2025 20:03:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71EF6C4CEE4;
-	Sun, 11 May 2025 20:03:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746993818;
-	bh=zWxkPb7GPUMz8xpMK0hqm+8jwUqUNLAwd3cO5x1lygM=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=m9D+vHWD8RBGHgAY31il4t9dVxEwy43J66ypcsTo5cnEjczS55psACq6lJ2saxM9I
-	 aJcjQHUSPvicVAtglraqv9lUHwFZdxf92Ec20npE2RfMDHCy0rPA6l7BYBwQgG1l+U
-	 LZpFKFDWQlU0xJ/I7XeHTQeFoO5G8ZSqUGC6ulW/9YFA5q0qFW5hyICfVMiQGihB2K
-	 hlNCJHr7WEkrYNCOP/m/FYE0jJSLcEhhCPBu31KD3LBWriM/Lu3xqSJGiFDg/C+PhR
-	 1lBNJsdLMSLQ2us93OUbmFX8VSlv4vBv/PRJVpZn+Ozeu3V2dIo5PwDGL+TcgCLQ9G
-	 vsN/XDIGHDGXA==
-Message-ID: <595adbaa-15b4-4917-b3ad-9bac3e2333e2@kernel.org>
-Date: Sun, 11 May 2025 22:03:30 +0200
+	id 1uED34-00000007mmZ-0lRb;
+	Sun, 11 May 2025 20:13:23 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43cf628cb14so32569795e9.1;
+        Sun, 11 May 2025 13:13:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746994400; x=1747599200; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vRQTyAD6/LtJP1mViFxGTV7MWeC7Erzm+rbDZD3bI7g=;
+        b=YuM9gwPzG1Cj/Ubp8ClfiHdNUlJMoeb5QuNzM7/F4hVMBv0S4OZI0/c+Z2UMm/apJe
+         SUCQgkq9JzRCNkEZOoUaj0C/AO6fHcK1Vd0wVYqVpPJHOlO22GxbNugVYyYiTfEdfXFN
+         AGnFpC3aaXJ/5sLcd+DfUVwySc6iet7D6QUsvqXcam+jMINSCrYD87cXdojBgl8LU7yi
+         oGk3KDAf0mz9xSc35zwU/Io/yKNmgnl8hJRYBgUK0dR2+/GfxhqRdNhkL8v8CB+hLd1j
+         vlCVVD7jsVQ58FBCFxlkGrJsVR+yC92Z/tfwR66rSj353oWL8ncIuHeJYlCATrM8yF64
+         CsoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746994400; x=1747599200;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=vRQTyAD6/LtJP1mViFxGTV7MWeC7Erzm+rbDZD3bI7g=;
+        b=i57vfvxqqd7MUGRNyZigfPf9fhqbnDrJQqmYrqQq73dqZaf6yp3ZZJCpifEbnw9BSk
+         JrQzn/zZwxnv8KVW1Cmq/3p3pSIfK7l9APSXDm2JlfpSufIsAmSfNkPm2XSgtVroWyBR
+         YgmhZM/+N5QlkmbH1VA696gIi6fKuDGfiTrt17aw7GjWJVAMiAeaI4jjTrz3dlrAtxHS
+         2e8bCT6ZVg5111Ew93Z21dMGuwWAdfqEQMhrVNV4+HgtJRTZmpQSf7115oLP75TpmiQ9
+         TrtKsgAs0RgpWJXQWDzeos6mpcPNkGrsVF/n7gr6Mwuvw5t9mXjo52vD1mQZYLP4/8CJ
+         eN7A==
+X-Forwarded-Encrypted: i=1; AJvYcCVoMJskFJQdFG9pOZtryPe+/DLQYCgnu4OZwlqVuj/hcfwPsgA8RzQDK58xQ060Tz09bF8d5bwwEaw1pWcrNTA=@lists.infradead.org, AJvYcCWUJh0CZX5ofTIioZmSX/HYu1ZnWFpXohZ5Te9CvV2EJhMAhzUpeFOuG8bkGiJKxJZYxtrVvRzjJJtfhV80YWtP@lists.infradead.org
+X-Gm-Message-State: AOJu0YwgRFq8NUekvtDHPX3Olhd4uujTYgZE0pK2z4jd05y7ZOIHXK0B
+	UovJ8V6L19423qie+YCrEu+EKT9Yz07x1hM/cymm0ijLoH+Rlm8AxzQzNA==
+X-Gm-Gg: ASbGncuI0gSMLL6xn9fj096OLJ+ehlGi81cSHGfcKWIbP2uDgMh43BVcwL38Y2EcB7M
+	PWkSY2R7fjO9gAefLsIp8HwK9Ws6I28K0klBd5e6cJCjF1TfX8Gs2+DIFe7Q9DoZ7+3pGJ67BLM
+	xFOuOcacRqhzmFRDlw+a1VrHia3VfJz1Qm0ShG/PV187EHPuj+V1PabiX5F1/+t0xjheB6Ug/LG
+	6gJJvEI/dfRkBFl3yBsLG9u183HYHpoLlZ4Bc2uCF1m0Z4avnr8p8ekfMpgX+z1Wnbw4vJNTlUt
+	7uL71PehzI96n/rTSirbVfp9PHylvXUSL99hDeGLa1A2Z6EA2ZrvfCucGJBGMNSR12bE6723VI5
+	XvObwZRFWPekVEVkFHHz1g0kl2rakNpQ=
+X-Google-Smtp-Source: AGHT+IGefwAiFZcWgg17TvQ1kAB3qdQoikkJRf7xlh5CqFYtfFSxmQQSC9lri+IHaKSlJy1iOEhTeQ==
+X-Received: by 2002:a05:600c:1c9e:b0:441:bbe5:f562 with SMTP id 5b1f17b1804b1-442d032fc29mr118863085e9.16.1746994399418;
+        Sun, 11 May 2025 13:13:19 -0700 (PDT)
+Received: from localhost.localdomain (93-34-88-225.ip49.fastwebnet.it. [93.34.88.225])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-442d67ee275sm100615165e9.19.2025.05.11.13.13.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 11 May 2025 13:13:18 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	llvm@lists.linux.dev
+Subject: [net-next PATCH v4 00/11] net: pcs: Introduce support for fwnode PCS
+Date: Sun, 11 May 2025 22:12:26 +0200
+Message-ID: <20250511201250.3789083-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] media: allegro-dvt: Add DT-bindings for the Gen 3 IP
-To: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>,
- Michael Tretter <m.tretter@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner
- <heiko@sntech.de>, Aradhya Bhatia <a-bhatia1@ti.com>,
- =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
- Junhao Xie <bigfoot@classfun.cn>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Kever Yang <kever.yang@rock-chips.com>, Hans Verkuil <hverkuil@xs4all.nl>,
- Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
- Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>,
- Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
- Gaosheng Cui <cuigaosheng1@huawei.com>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Ricardo Ribalda <ribalda@chromium.org>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250511144752.504162-1-yassine.ouaissa@allegrodvt.com>
- <20250511144752.504162-4-yassine.ouaissa@allegrodvt.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250511144752.504162-4-yassine.ouaissa@allegrodvt.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_130342_495821_B1F60CF4 
-X-CRM114-Status: GOOD (  20.10  )
+X-CRM114-CacheID: sfid-20250511_131322_225584_DE81084B 
+X-CRM114-Status: GOOD (  27.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,153 +114,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/05/2025 16:47, Yassine Ouaissa wrote:
-> Add the device-tree bindings for the allegro-dvt Gen 3 IP decoders, and
-> update the MAINTAINERS file.
-> 
-> Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
-> ---
->  .../bindings/media/allegrodvt,al300-vdec.yaml | 86 +++++++++++++++++++
+This series introduce a most awaited feature that is correctly
+provide PCS with fwnode without having to use specific export symbol
+and additional handling of PCS in phylink.
 
-Looks untested so limited review follows.
+There is currently an equivalent series for this feature where
+a wrapper implementation is proposed. I honestly don't really like
+introducing layer of layer of wrapping to workaround stuff, so
+this is my attempt at giving a more direct approach to this.
 
-A nit, subject: drop second/last, redundant "DT bindings". The
-"dt-bindings" prefix is already stating that these are DT bindings.
-See also:
-https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
+---
+First the PCS fwnode:
 
->  MAINTAINERS                                   |  1 +
->  2 files changed, 87 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.yaml
-> 
+The concept is to implement a producer-consumer API similar to other
+subsystem like clock or PHY.
 
-Please organize the patch documenting compatible (DT bindings) before
-their user.
-See also:
-https://elixir.bootlin.com/linux/v6.14-rc6/source/Documentation/devicetree/bindings/submitting-patches.rst#L46
+That seems to be the best solution to the problem as PCS driver needs
+to be detached from phylink and implement a simple way to provide a
+PCS while maintaining support for probe defer or driver removal.
 
-> diff --git a/Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.yaml b/Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.yaml
-> new file mode 100644
-> index 000000000000..ea4a55de570c
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.yaml
-> @@ -0,0 +1,86 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/allegrodvt,al300-vdec.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Allegro DVT Video IP Decoder Gen 3
-> +
-> +maintainers:
-> +  - Yassine OUAISSA <yassine.ouaissa@allegrodvt.com>
-> +
-> +description: |-
-> +  The al300-vdec represents the latest generation of Allegro DVT IP decoding technology, offering
+To keep the implementation simple, the PCS driver devs needs some
+collaboration to correctly implement this. This is O.K. as helper
+to correctly implement this are provided hence it's really a matter
+of following a pattern to correct follow removal of a PCS driver.
 
-Wrap at 80, see Linux coding style.
+A PCS provider have to implement and call fwnode_pcs_add_provider() in
+probe function and define an xlate function to define how the PCS
+should be provided based on the requested interface and phandle spec
+defined in fwnode (based on the #pcs-cells)
 
-> +  significant advancements over its predecessors. This new decoder features
-> +  enhanced processing capabilities with improved throughput and reduced latency.
-> +
-> +  Communication between the host driver software and the MCU is implemented through
-> +  a specialized mailbox interface mechanism. This mailbox system provides a
-> +  structured channel for exchanging commands, parameters, and status information
-> +  between the host CPU and the MCU controlling the codec engines.
-> +
-> +properties:
-> +  compatible:
-> +    const: allegrodvt,al300-vdec
+fwnode_pcs_get() is provided to provide a specific PCS declared in
+fwnode at index.
 
-Undocumented prefix.
+A simple xlate function is provided for simple single PCS
+implementation, fwnode_pcs_simple_get.
 
-What is the actual device name? al300? Can you have al300-adec? or
-al300-dec?
+A PCS provider on driver removal should first call
+fwnode_pcs_del_provider() to delete itself as a provider and then
+release the PCS from phylink with phylink_release_pcs() under rtnl
+lock.
 
+---
+Second PCS handling in phylink:
 
-> +
-> +  reg:
-> +    items:
-> +      - description: The registers
-> +      - description: the MCU APB register
-> +
-> +  reg-names:
-> +    items:
-> +      - const: regs
-> +      - const: apb
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: MCU clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: mcu_clk
+We have the PCS problem for the only reason that in initial
+implementation, we permitted way too much flexibility to MAC driver
+and things started to deviate. At times we couldn't think SoC
+would start to put PCS outside the MAC hence it was OK to assume
+they would live in the same driver. With the introduction of
+10g in more consumer devices, we are observing a rapid growth
+of this pattern with multiple PCS external to MAC.
 
-Drop clock-names, pretty obvious
+To put a stop on this, the only solution is to give back to phylink
+control on PCS handling and enforce more robust supported interface
+definition from both MAC and PCS side.
 
-> +
-> +  memory-region:
-> +    items:
-> +      - description: Used to allocate memory for the MCU firmware,
-> +      and is also used for various operational buffers required by the MCU during codec operations.
-> +
-> +  firmware-name:
-> +    $ref: /schemas/types.yaml#/definitions/string
+It's suggested to read patch 0003 of this series for more info, here
+a brief explaination of the idea:
 
-Drop, type is already fixed.
+This series introduce handling of PCS in phylink and try to deprecate
+.mac_select_pcs.
 
-missing maxItems: 1
+Phylink now might contain a linked list of available PCS and
+those will be used for PCS selection on phylink_major_config.
 
-> +    description:
-> +      If present, name of the file within the firmware search path containing
-> +      the MCU firmware.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - interrupts
-> +  - clocks
-> +  - clock-names
-> +
-> +additionalProperties: False
-> +
-> +examples:
-> +  - |
-> +    axi {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        ald300: ald300@a0120000 {
+MAC driver needs to define pcs_interfaces mask in phylink_config
+for every interface that needs a dedicated PCS.
 
-Drop unused label.
+These PCS needs to be provided to phylink at phylink_create time
+by setting the available_pcs and num_available_pcs in phylink_config.
+A helper to parse PCS from fwnode is provided
+fwnode_phylink_pcs_parse() that will fill a preallocated array of
+PCS. (the same function can be used to get the number of PCS
+defined in DT, more info in patch 0005)
 
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+phylink_create() will fill the internal PCS list with the passed
+array of PCS. phylink_major_config and other user of .mac_select_pcs
+are adapted to make use of this new PCS list.
 
+The supported interface value is also moved internally to phylink
+struct. This is to handle late removal and addition of PCS.
+(the bonus effect to this is giving phylink a clear idea of what
+is actually supported by the MAC and his constraint with PCS)
 
-> +            compatible = "allegrodvt,al300-vdec";
-> +            reg = <0 0xa0120000 0 0x80000>,
+The supported interface mask in phylink is done by OR the
+supported_interfaces in phylink_config with every PCS in PCS list.
 
-Here 0 is not hex
+PCS removal is supported by forcing a mac_config, refresh the
+supported interfaces and run a phy_resolve().
 
-> +            <0x01 0x8000000 0x00 0x8000000>;
+PCS late addition is supported by introducing a global notifier
+for PCS provider. If a phylink have the pcs_interfaces mask not
+zero, it's registered to this notifier.
 
-but here is hex?
+PCS provider will emit a global PCS add event to signal any
+interface that a new PCS might be avialable.
 
-Also misaligned.
+The function will then check if the PCS is related to the MAC
+fwnode and add it accordingly.
 
-Also: very odd large address space.
+A user for this new implementation is provided as an Airoha PCS
+driver. This was also tested downstream with the IPQ95xx QCOM SoC
+and with the help of Daniel also on the various Mediatek MT7988
+SoC with both SFP cage implementation and DSA attached.
 
->  
+Lots of tests were done with driver unbind/bind and with interface
+up/down also by adding print to make sure major_config_fail gets
+correctly triggered and reset once the PCS comes back.
 
+The dedicated commits have longer description on the implementation
+so it's suggested to also check there for additional info.
 
-Best regards,
-Krzysztof
+---
+
+Changes v4:
+- Move patch 0002 phy_interface_copy to 0002 (fix bisectability
+  problem)
+- Address review from Lorenzo for Airoha ethernet driver
+- Fix kdoc error with missing Return (actually missing : before Return)
+- Fix UNMET dependency reported error for CONFIG_FWNODE_PCS
+- Revert to pcs.c instead of core.c (due to name conflict with other kmod)
+- Fix clang compilation error for Airoha PCS driver
+- Add missing inline function to pcs.h function
+Changes v3:
+- Out of RFC
+- Fix various spelling mistake
+- Drop circular dependency patch
+- Complete Airoha Ethernet phylink integration
+- Introduce .pcs_link_down PCS OP
+Changes v2:
+- Switch to fwnode
+- Implement PCS provider notifier
+- Better split changes
+- Move supported_interfaces to phylink
+- Add circular dependency patch
+- Rework handling with indirect addition/removal and
+  trigger of phylink_resolve()
+
+Christian Marangi (11):
+  net: phy: introduce phy_interface_copy helper
+  net: phylink: keep and use MAC supported_interfaces in phylink struct
+  net: phylink: introduce internal phylink PCS handling
+  net: phylink: add phylink_release_pcs() to externally release a PCS
+  net: pcs: implement Firmware node support for PCS driver
+  net: phylink: support late PCS provider attach
+  dt-bindings: net: ethernet-controller: permit to define multiple PCS
+  net: phylink: add .pcs_link_down PCS OP
+  dt-bindings: net: pcs: Document support for Airoha Ethernet PCS
+  net: pcs: airoha: add PCS driver for Airoha SoC
+  net: airoha: add phylink support for GDM2/3/4
+
+ .../bindings/net/ethernet-controller.yaml     |    2 -
+ .../bindings/net/pcs/airoha,pcs.yaml          |  112 +
+ drivers/net/ethernet/airoha/airoha_eth.c      |  155 +-
+ drivers/net/ethernet/airoha/airoha_eth.h      |    3 +
+ drivers/net/ethernet/airoha/airoha_regs.h     |   12 +
+ drivers/net/pcs/Kconfig                       |   13 +
+ drivers/net/pcs/Makefile                      |    2 +
+ drivers/net/pcs/pcs-airoha.c                  | 2921 +++++++++++++++++
+ drivers/net/pcs/pcs.c                         |  241 ++
+ drivers/net/phy/phylink.c                     |  287 +-
+ include/linux/pcs/pcs-provider.h              |   41 +
+ include/linux/pcs/pcs.h                       |  104 +
+ include/linux/phy.h                           |    5 +
+ include/linux/phylink.h                       |   14 +
+ 14 files changed, 3883 insertions(+), 29 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
+ create mode 100644 drivers/net/pcs/pcs-airoha.c
+ create mode 100644 drivers/net/pcs/pcs.c
+ create mode 100644 include/linux/pcs/pcs-provider.h
+ create mode 100644 include/linux/pcs/pcs.h
+
+-- 
+2.48.1
+
 
