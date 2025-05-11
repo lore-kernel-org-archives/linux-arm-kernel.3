@@ -4,86 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A08C3ABC5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 11:15:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A818C3ABC5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 12:02:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q57QHVGTggInw4SYx+QGXU9upTn8tSrysyFGREwQ++E=; b=zJYHFE3XTMAIyNU6+KW3OmsBpM
-	/AHrMSJ7z2Q3Zax5bd6G8nZ7cRid02jEfO+VjG2XocRLl8mIPWMgdRiPZIVJxO6JS6k9GPgcGYdjk
-	0Q7SCTA1D4LiHrtoJV6rpYnRQo0ECHKOLTo4R/b+Fp0NYZm9ZW0kKkik1plP49nim1DHjdyAmfrfB
-	roq6X7PjK/3NnjczCoc2MM2ms+ldHzsCRqmR48UZlxEsIfBrwPVHqX4rdVLWjLLBe5HCd6MzykTjw
-	mFPSoMsx1kwMztfViCuNV5z+7gS8WzncqAutweWgw9H5JpupKx1Qrj716zWHP4h4eLK173F/SyxvS
-	yAHPMmvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=57/W8rpytXIXtlyC+rj4s2Td3jNxabJVm9LQMdAnlpA=; b=kF4D5QDNL1aBfjjFXTtbrgWKJZ
+	3fQ1iTiMi1K/GqXX06zmnisOP8VqcfqqVcw1WnGOXc9p5w9piRpe+WJWQ2FTYrZ1b9E+6Ha3V5Vxr
+	iz9oFhj9L4fQQ6y6bVJm9VC1VuDlcem1syBUaPFe9Nm81Jc2ARUozDCYod9dhqlmdRZZsa92k3e2v
+	ncF1ACEEOXjzxBdQwD0qijG5HkMMwnNpreLhkg/mcQFn1mu5ZZtIHcmBS2pcsnbhu7hdbAJeX2Xpu
+	3vKOVDu+C5Xj9X5Evc7cka4S41lFhBeyCS5lYLJAQZrYi/++XOTzR6Mu6oY/kRkMtmzoXkc7FQYc9
+	itNp0ISA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE4ek-0000000790g-2nLD;
-	Sun, 11 May 2025 11:15:42 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1uE5Nz-00000007BfW-3Ce2;
+	Sun, 11 May 2025 12:02:27 +0000
+Received: from mail-m83153.xmail.ntesmail.com ([156.224.83.153])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE4cj-000000078kq-1ECJ;
-	Sun, 11 May 2025 11:13:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1746962017; x=1778498017;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=1rAsgwZYIQE6e6R96BL5uR52KMCv8+3yF9wTwCO3IdI=;
-  b=UhjUUKWP/iwtAZ4qKI3Gi+3TflP3EjeJ1gKhvrL+IreFhg7hqbqint2m
-   hyNSHcc0s9TBs/Cd+vr1vNDJPnHX+jtmQqdCje7D2q0rI78CsmfM9shS3
-   axkd/HoAB9cEPgdcS+811+l4VUuaeVYm5vPd+gD7/DHtnOdwnnzrwS1w8
-   /A/pmD4F+ptZ7pE0K8lvPYZaIFj8D+2JQGl64lx05q7encGEz0xQ7xnK1
-   B7cfjFR1D7rK6O7E17JEgSmB2soWG5xoejtkivCHwzrc+EVdziyg5snfx
-   ESJSX9z8zZSBWmiCq+Faeqx0e30aimhTTMd45/zXEzE6Log2DyD1WYm36
-   g==;
-X-CSE-ConnectionGUID: XK5ecwsyRYOxXMccgBjdKQ==
-X-CSE-MsgGUID: x/uX8+RwQfahqyOCu5VkCg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11429"; a="47873556"
-X-IronPort-AV: E=Sophos;i="6.15,280,1739865600"; 
-   d="scan'208";a="47873556"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 May 2025 04:13:37 -0700
-X-CSE-ConnectionGUID: kXTEaESAQbGa6BLvEcG9BA==
-X-CSE-MsgGUID: cG3jbXnLQ2qq1JMScR/teQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,280,1739865600"; 
-   d="scan'208";a="137603556"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by orviesa007.jf.intel.com with ESMTP; 11 May 2025 04:13:34 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uE4cc-000Djb-1r;
-	Sun, 11 May 2025 11:13:30 +0000
-Date: Sun, 11 May 2025 19:13:00 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alexey Charkov <alchark@gmail.com>, Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Michael Walle <mwalle@kernel.org>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	Alexey Charkov <alchark@gmail.com>
-Subject: Re: [PATCH 2/3] mtd: spi-nor: Add a driver for the VIA/WonderMedia
- serial flash controller
-Message-ID: <202505111905.tlinDurh-lkp@intel.com>
-References: <20250510-wmt-sflash-v1-2-02a1ac6adf12@gmail.com>
+	id 1uE5Lx-00000007BXM-3R1a;
+	Sun, 11 May 2025 12:00:24 +0000
+Received: from localhost.localdomain (unknown [119.122.215.106])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 14a1b6e3c;
+	Sun, 11 May 2025 20:00:13 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: heiko@sntech.de
+Cc: amadeus@jmu.edu.cn,
+	andyshrk@163.com,
+	conor+dt@kernel.org,
+	damon.ding@rock-chips.com,
+	devicetree@vger.kernel.org,
+	didi.debian@cknow.org,
+	dsimic@manjaro.org,
+	jbx6244@gmail.com,
+	jing@jing.rocks,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	sebastian.reichel@collabora.com,
+	ziyao@disroot.org
+Subject: Re: [PATCH v7 4/5] arm64: dts: rockchip: add core dtsi for RK3562 SoC
+Date: Sun, 11 May 2025 20:00:09 +0800
+Message-Id: <20250511120009.37031-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <13758471.dW097sEU6C@diego>
+References: <13758471.dW097sEU6C@diego>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250510-wmt-sflash-v1-2-02a1ac6adf12@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZH0hKVkweGh4eQx5PHx0ZGVYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKTlVKS01ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSEJVSktLVU
+	pCS0tZBg++
+X-HM-Tid: 0a96bf3797cf03a2kunm14a1b6e3c
+X-HM-MType: 10
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6ODo6TDo4AzJDI0pCLDIwOUwO
+	KAlPCU1VSlVKTE9NQk1PQ0pPQ0tDVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUpK
+	QlVKSUlVSUpOVUpLTVlXWQgBWUFNT09PNwY+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_041337_345494_85517380 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20250511_050022_141595_0E8056B3 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,47 +80,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexey,
+Hi,
 
-kernel test robot noticed the following build errors:
+Sorry I just posted to the wrong thread.
 
-[auto build test ERROR on ed61cb3d78d585209ec775933078e268544fe9a4]
+> First of all, thanks for noticing all the bits and pieces to improve.
+> I di think I have now fixed up all the "regular" pieces you mentioned
+> and amended the commit accordingly:
+>
+> https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git/commit/?id=1d2f65fa98ddcafdfd1ebcdb87105141861b584a
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Alexey-Charkov/dt-bindings-spi-Add-VIA-WonderMedia-serial-flash-controller/20250511-034459
-base:   ed61cb3d78d585209ec775933078e268544fe9a4
-patch link:    https://lore.kernel.org/r/20250510-wmt-sflash-v1-2-02a1ac6adf12%40gmail.com
-patch subject: [PATCH 2/3] mtd: spi-nor: Add a driver for the VIA/WonderMedia serial flash controller
-config: sh-allmodconfig (https://download.01.org/0day-ci/archive/20250511/202505111905.tlinDurh-lkp@intel.com/config)
-compiler: sh4-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250511/202505111905.tlinDurh-lkp@intel.com/reproduce)
+Thanks a lot for the quick fix! It seems there is still a little problem:
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505111905.tlinDurh-lkp@intel.com/
+> <snip>
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/rockchip/rk3562.dtsi
+> <snip>
++	gpu_opp_table: opp-table-gpu {
++		compatible = "operating-points-v2";
++
++		opp-300000000 {
++			opp-hz = /bits/ 64 <300000000>;
++			opp-microvolt = <825000 825000 1000000>;
++		};
++		opp-400000000 {
++		opp-hz = /bits/ 64 <400000000>;
 
-All errors (new ones prefixed by >>):
+This line is missing a tab.
 
-   drivers/mtd/spi-nor/controllers/wmt-sflash.c: In function 'wmt_sflash_pcmd_mode':
->> drivers/mtd/spi-nor/controllers/wmt-sflash.c:132:16: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
-     132 |         reg |= FIELD_PREP(SF_PROG_CMD_MOD, enable);
-         |                ^~~~~~~~~~
++			opp-microvolt = <825000 825000 1000000>;
++		};
+> <snip>
++		spi0: spi@ff220000 {
++			compatible = "rockchip,rk3562-spi", "rockchip,rk3066-spi";
++			reg = <0x0 0xff220000 0x0 0x1000>;
++			interrupts = <GIC_SPI 52 IRQ_TYPE_LEVEL_HIGH>;
++			#address-cells = <1>;
++			#size-cells = <0>;
 
+Also needed here.
 
-vim +/FIELD_PREP +132 drivers/mtd/spi-nor/controllers/wmt-sflash.c
+> <snip>
+> +		pwm3: pwm@ff230030 {
+> +			compatible = "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xff230030 0x0 0x10>;
+> +			#pwm-cells = <3>;
 
-   126	
-   127	static void wmt_sflash_pcmd_mode(struct wmt_sflash_host *host, bool enable)
-   128	{
-   129		u32 reg = readl(host->regbase + SF_SPI_INTF_CFG);
-   130	
-   131		reg &= ~SF_PROG_CMD_MOD;
- > 132		reg |= FIELD_PREP(SF_PROG_CMD_MOD, enable);
-   133		writel(reg, host->regbase + SF_SPI_INTF_CFG);
-   134	}
-   135	
+Missed here.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> <snip>
+> +				power-domain@12 {
+> +					reg = <12>;
+> +					#power-domain-cells = <1>;
+> +					#address-cells = <1>;
+> +					#size-cells = <0>;
+> ...
+> +				power-domain@13 {
+> +					reg = <13>;
+> +					#power-domain-cells = <1>;
+
+Does #power/#address/#size need to be put under pm_qos?
+
+> <snip>
+> +		spi1: spi@ff640000 {
+> +			compatible = "rockchip,rk3066-spi";
+> +			reg = <0x0 0xff640000 0x0 0x1000>;
+> +			interrupts = <GIC_SPI 53 IRQ_TYPE_LEVEL_HIGH>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> ...
+> +		spi2: spi@ff650000 {
+> +			compatible = "rockchip,rk3066-spi";
+> +			reg = <0x0 0xff650000 0x0 0x1000>;
+> +			interrupts = <GIC_SPI 54 IRQ_TYPE_LEVEL_HIGH>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+
+Same here.
+
+> <snip>
+> +		pwm4: pwm@ff700000 {
+> +			compatible = "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xff700000 0x0 0x10>;
+> +			#pwm-cells = <3>;
+> +			pinctrl-names = "active";
+> ...
+> +		pwm5: pwm@ff700010 {
+> +			compatible = "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xff700010 0x0 0x10>;
+> +			#pwm-cells = <3>;
+> +			pinctrl-names = "active";
+> ...
+> +		pwm6: pwm@ff700020 {
+> +			compatible = "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xff700020 0x0 0x10>;
+> +			#pwm-cells = <3>;
+> +			pinctrl-names = "active";
+> ...
+> +		pwm7: pwm@ff700030 {
+> +			compatible = "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xff700030 0x0 0x10>;
+> +			#pwm-cells = <3>;
+> +			pinctrl-names = "active";
+> ...
+> +		pwm8: pwm@ff710000 {
+> +			compatible = "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xff710000 0x0 0x10>;
+> +			#pwm-cells = <3>;
+> +			pinctrl-names = "active";
+> ...
+> +		pwm9: pwm@ff710010 {
+> +			compatible = "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xff710010 0x0 0x10>;
+> +			#pwm-cells = <3>;
+> +			pinctrl-names = "active";
+> ...
+> +		pwm10: pwm@ff710020 {
+> +			compatible = "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xff710020 0x0 0x10>;
+> +			#pwm-cells = <3>;
+> +			pinctrl-names = "active";
+> ...
+> +		pwm11: pwm@ff710030 {
+> +			compatible = "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xff710030 0x0 0x10>;
+> +			#pwm-cells = <3>;
+> +			pinctrl-names = "active";
+> ...
+> +		pwm12: pwm@ff720000 {
+> +			compatible = "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xff720000 0x0 0x10>;
+> +			#pwm-cells = <3>;
+> +			pinctrl-names = "active";
+> ...
+> +		pwm13: pwm@ff720010 {
+> +			compatible = "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xff720010 0x0 0x10>;
+> +			#pwm-cells = <3>;
+> +			pinctrl-names = "active";
+> ...
+> +		pwm14: pwm@ff720020 {
+> +			compatible = "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xff720020 0x0 0x10>;
+> +			#pwm-cells = <3>;
+> +			pinctrl-names = "active";
+> ...
+> +		pwm15: pwm@ff720030 {
+> +			compatible = "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xff720030 0x0 0x10>;
+> +			#pwm-cells = <3>;
+> +			pinctrl-names = "active";
+
+pinctrl and #pwm-cells forgot to change.
+
+> <snip>
+> +		sdmmc0: mmc@ff880000 {
+> +			compatible = "rockchip,rk3562-dw-mshc",
+> +				     "rockchip,rk3288-dw-mshc";
+> +			reg = <0x0 0xff880000 0x0 0x10000>;
+> +			interrupts = <GIC_SPI 56 IRQ_TYPE_LEVEL_HIGH>;
+> +			max-frequency = <200000000>;
+> ...
+> +		sdmmc1: mmc@ff890000 {
+> +			compatible = "rockchip,rk3562-dw-mshc",
+> +				     "rockchip,rk3288-dw-mshc";
+> +			reg = <0x0 0xff890000 0x0 0x10000>;
+> +			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
+> +			max-frequency = <200000000>;
+
+max-frequency should be placed below clock
+
+> <snip>
+> +		saradc0: adc@ff730000 {
+> +			compatible = "rockchip,rk3562-saradc";
+> +			reg = <0x0 0xff730000 0x0 0x100>;
+> +			interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
+> +			#io-channel-cells = <1>;
+> ...
+> +		saradc1: adc@ffaa0000 {
+> +			compatible = "rockchip,rk3562-saradc";
+> +			reg = <0x0 0xffaa0000 0x0 0x100>;
+> +			interrupts = <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>;
+> +			#io-channel-cells = <1>;
+
+`#io-channel-cells` should be put above `status = "disabled";`
+
+Thanks,
+Chukun
+
+--
+2.25.1
+
 
