@@ -4,73 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C07C0C3ABC5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 12:41:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D33FAC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 13:33:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CD6BYkiyI3CzqTv6aejiZ3DH06MKIs5DWSHTwZQG9e4=; b=sfOGwcaGg/cXDGtVoEHVo9CHrk
-	Cz8B8G1fh9/puJYs8KKabjjJ/LfM38zXij1gQeGWQFZ8fwm2lIHGVE+6WPhtvRkGW6I8ZIjedVdyI
-	cJAtDLBGh4QSu0OuuLq7W8OnUkuYW/BFHLsFwbndMdWSrejjnxVoDCSgegaYam92BhYCRtIRJOzSG
-	jUA+NkCMLnT1Xks8rAGY+RzoJFKdz1HB1n4toLoEeuQa4i9pOmF9aV9uLL0G3rOwYhG8W323A3yZs
-	nG7LNPeeu5eoIMEKQuLk71pBURIABwiA/vqgLTaG/nlNSIfmG1c+8BRSaPc9anT7z1o7rnLVy2J75
-	dymMCEVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qfxwlIQ0tbuPkSHji0HK07mcJx2VL7b27pvCA+Qhuds=; b=uLeIrVGSSrCZ9U
+	wUi7FgxjflKED3W4PYMYVeZbAfDDoldSiBZvLaFyt2QfXNN9sag7R5oFB7cKYqnDPgezw46U0lXLn
+	B7YoLDNvwctBJwGE5blnXrM+h3VW1DB7RN2PgSzCacQ73lB6iIZXJK0jxHD/5H9x5GdcEdRwynPvU
+	o4xaZKemXNaIwlg68Cv6/6EgRndiws73NgQgJrgJpPYJ9vtqJwQ56S//kFpR3/Oh8G/Gq4GHILE1E
+	QYU0Bgy5eLTC33HWrFOnvbZ89FW2gVw6vDICCGDeRltxAJCt3+AeggYhBdsOx5dF4c+/YtI6zl68U
+	YGcOX2O/AiuujYPAgH9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE5zd-00000007DcM-170x;
-	Sun, 11 May 2025 12:41:21 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uE6oD-00000007GdD-3Lu1;
+	Sun, 11 May 2025 13:33:37 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE5xc-00000007DWx-47Gn
+	id 1uE6mD-00000007GP3-2ylo
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 May 2025 12:39:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 28004A40681
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 11 May 2025 12:39:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A8E5C4CEE9
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 11 May 2025 12:39:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746967154;
-	bh=jhQ5SAEJJF3qUfy6D5IHr1j1BdMfMHXPzSP1qRil+xg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=HVdMeWgSodlOQnOyxyn/G6NScVBNK/Y1Wmovg68lrItlJZEt+ZD59ixdXwNYivUPT
-	 pI091Rmly570u4l5qTu5g8xKK23ttB2HJWyXZdemlZ8PQ3xLbAjsqKVv6Ql73MoGpq
-	 Et/z8yHbPMnuC9L0EXtP8PYt8tGVKt8+J7tgC8epvbKtsGqTtDwpa8+OI4ScYKnnlw
-	 vP7+Owk8Ywfm/Tgh9zsBzGsZwjWJZ0nQFVXInDh+pV1T7vP1lhK8FU1gGQVy6njI31
-	 57fi3/yLUAFcueDt40I5TuMwUsz9NcaPBvL0DBPCy9/54KK2UmwxoKKWjaDBbCJfXS
-	 jTtWMqAL6/qcw==
-Received: by mail-oi1-f169.google.com with SMTP id 5614622812f47-4033c89f2aaso2276170b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 May 2025 05:39:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCX66cBHc3IF5+5dhjZ4VS4g9PdxyEYAPnk0vzE7KovVOZo6Sm+qszGDJTtOpajntECZtNPWZMtdlCJ/YxKUtmuy@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCsJmHzTReGyHjeKOUdVNCvNGjXhWP9lO6ccIO+aeuCCT+udXz
-	1CyOjvbtRz6bRQnwLrnDNNNyLu1gQ1E34gyqbRxkBqxET9rphzvqbF1qAiGm8QCh5Cb0wl1XYDb
-	x8iDOiYcjloeipaowUviLEtuLjkc=
-X-Google-Smtp-Source: AGHT+IF7frhH9fByp3nqkp8f/ToldoQoeo1EQiod3AeYHymrByNbZlMh+WjPHSM8WDiv77VlPQFYxVdDFh6afTzXars=
-X-Received: by 2002:a05:6808:80c7:b0:401:e6c0:3112 with SMTP id
- 5614622812f47-4037fe3b729mr6449007b6e.15.1746967153770; Sun, 11 May 2025
- 05:39:13 -0700 (PDT)
+	Sun, 11 May 2025 13:31:34 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5fbfa0a7d2cso6083940a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 May 2025 06:31:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746970290; x=1747575090; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qfxwlIQ0tbuPkSHji0HK07mcJx2VL7b27pvCA+Qhuds=;
+        b=g522hmy1aNk50I4/RStsYT3ZWPLRlFCst6RhVX+KS+PP3KGl7ztde5B2i+oWynCrte
+         H5g7hBABb6TnXNVCc4xNHMNpZNw11jtJzQNyWmRyLj6a4X3G5x+BZVH4HOYwFJGP0JFF
+         CIeh6x36XB5VNwpN6effydZLK/0c79gacAgKCELxGgL4CL9b3EZcYGVHWWxl2DU6DmeQ
+         /UM/nFXl+U34CH3MZvB0WX9Cfax9DL35CjrkgmifStj+LTj819CTp+CULXWGDSKAMMAx
+         njtthIFNhgmF4ky/mWuuPg2q1zhWhFs3Kg2Av1wsd1y/9SyLTmfjzxDkcQDjS9RHhjjF
+         KHxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746970290; x=1747575090;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qfxwlIQ0tbuPkSHji0HK07mcJx2VL7b27pvCA+Qhuds=;
+        b=CS+NbWz1ZJSoMXYHsqK08VEO5gMOJthgf78siZduDC+C7FY+9maeM2yL7jnLvFEvf/
+         KN19GsMvnGwpoFjbJQGw/9WDm02jgYHWeLq8CxVMjFtT+tC/rgzTdW93FMZTK3PW4i7G
+         QYQXuhYU3u1qIhfaZffY+Axn+dvA7D0mxbd5JCTDc37DaFuMTwiR8iKDVNxFD5v/JlvF
+         Ec+ardzgv41GdVtXGxSVPJIzG8nZlQvM5p/2/NO4YNqv4i0D8hKM+GOgj/kDpwREaFIc
+         CUj090F0wCjdEzD2HaF6ouiZznR6VRkC4S3wBolUyEg76jh0aJTsIre4IRx4SNCHGida
+         OsNA==
+X-Forwarded-Encrypted: i=1; AJvYcCVogMNvtGJXmwOJcJ8fnxrxgp6KhZyqVnWIbGpklhVEo/liZM2YamCKEEIMtKKZFiuK9i8seR+NzhPsEnqh9k2a@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9H53Rsm0/YQASQiiLKleTUL7rLiN9BO+DIZzThPAJ/bm3LsL/
+	3tilYpOE6hedr6dyJVHlgtWV9jcKdr23HhIhDjUqzYi+TiikIC/S
+X-Gm-Gg: ASbGncstz7AEeSpwzRuqaGzTfhT+OXrfHHVamLtBx2drTdXlptvrsfa1G+RNrYrElk6
+	AuJZQOZjB1cid5fMOfjLExX+iRG7OIPXTpKwBSrOebXrC9ddKmmuZXXrV1uVQ+3AW5KQ+A4OsHg
+	tmZ/bntmofo1pckz5bDZISKvxsRy6/9H02LZ8gmhsLxkejMzA0H+iiq+kNRXH1Eb0iIh2dAqVjX
+	04Hx0GX/j2XKKm+iPfz3gRie/wdZJHWPzq2Q7TNSpiQrtFcl1/97NS7oIC0W9JA1wY7xIp2rFiq
+	DUPgWd0y7xfmgFF8F8juRXFTAj/dON5ryz63XZyzb+B8UXB8t7/G+nf1IRk2UaKsT1s2QuKM9rp
+	6K4pV
+X-Google-Smtp-Source: AGHT+IH7yl7XmxNilX/kpFITQRuEskSKWUC3Vt7HAESuFqH2J9O8p35Yu7FQrAMijfsU9DPiUrNnMQ==
+X-Received: by 2002:a17:907:1b1c:b0:aca:d6f0:af0c with SMTP id a640c23a62f3a-ad2192d4a49mr949942566b.59.1746970290354;
+        Sun, 11 May 2025 06:31:30 -0700 (PDT)
+Received: from [192.168.0.253] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-ad2197bd398sm466765366b.152.2025.05.11.06.31.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 11 May 2025 06:31:29 -0700 (PDT)
+From: Gabor Juhos <j4g8y7@gmail.com>
+Subject: [PATCH 0/3] i2c: pxa: fix I2C communication on Armada 3700
+Date: Sun, 11 May 2025 15:31:04 +0200
+Message-Id: <20250511-i2c-pxa-fix-i2c-communication-v1-0-e9097d09a015@gmail.com>
 MIME-Version: 1.0
-References: <20241111112237.336310-2-u.kleine-koenig@baylibre.com>
-In-Reply-To: <20241111112237.336310-2-u.kleine-koenig@baylibre.com>
-From: Chanwoo Choi <chanwoo@kernel.org>
-Date: Sun, 11 May 2025 21:38:36 +0900
-X-Gmail-Original-Message-ID: <CAGTfZH1qMMO3ou4cxwaUoah7jS18nu7Y9kgYyraZ9e7jfjrp_A@mail.gmail.com>
-X-Gm-Features: AX0GCFubjq5u_HzT96chHqqtsl5Hck05kSg1tAuxI0qgXnWh6f_KB3_n-4XXW9o
-Message-ID: <CAGTfZH1qMMO3ou4cxwaUoah7jS18nu7Y9kgYyraZ9e7jfjrp_A@mail.gmail.com>
-Subject: Re: [PATCH] PM / devfreq: sun8i-a33-mbus: Simplify by using more devm functions
-To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: MyungJoo Ham <myungjoo.ham@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
-	Chanwoo Choi <cw00.choi@samsung.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, linux-pm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJimIGgC/x2MQQqAMAwEvyI5G2gr9uBXxENJo+ZglVZFKP7d4
+ G0HdqZC4SxcYGgqZL6lyJ4UbNsArSEtjBKVwRnXm94aFEd4PAFnef5N+7ZdSSicamLHPrLlLhr
+ yoI0jsx7//ji97wdJTByAbwAAAA==
+X-Change-ID: 20250510-i2c-pxa-fix-i2c-communication-3e6de1e3d0c6
+To: Wolfram Sang <wsa@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+ Russell King <rmk+kernel@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>
+Cc: Robert Marko <robert.marko@sartura.hr>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Russell King <rmk+kernel@armlinux.org.uk>, linux-i2c@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Gabor Juhos <j4g8y7@gmail.com>, Imre Kaloz <kaloz@openwrt.org>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_053917_161666_644B6F88 
-X-CRM114-Status: GOOD (  20.74  )
+X-CRM114-CacheID: sfid-20250511_063133_771719_84A32A7B 
+X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,124 +106,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+There is a long standing bug which causes I2C communication not to
+work on the Armada 3700 based boards. This small series restores
+that functionality.
 
-Applied it. I'm sorry for late reply
+Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
+---
+Gabor Juhos (3):
+      i2c: add init_recovery() callback
+      i2c: pxa: prevent calling of the generic recovery init code
+      i2c: pxa: handle 'Early Bus Busy' condition on Armada 3700
 
-Thanks.
+ drivers/i2c/busses/i2c-pxa.c | 25 +++++++++++++++++++------
+ drivers/i2c/i2c-core-base.c  |  8 +++++++-
+ include/linux/i2c.h          |  4 ++++
+ 3 files changed, 30 insertions(+), 7 deletions(-)
+---
+base-commit: 92a09c47464d040866cf2b4cd052bc60555185fb
+change-id: 20250510-i2c-pxa-fix-i2c-communication-3e6de1e3d0c6
 
-On Mon, Nov 11, 2024 at 8:25=E2=80=AFPM Uwe Kleine-K=C3=B6nig
-<u.kleine-koenig@baylibre.com> wrote:
->
-> Use devm allocators for enabling the bus clock and
-> clk_rate_exclusive_get(). This simplifies error handling and the remove
-> callback.
->
-> Signed-off-by: Uwe Kleine-K=C3=B6nig <u.kleine-koenig@baylibre.com>
-> ---
->  drivers/devfreq/sun8i-a33-mbus.c | 38 ++++++++------------------------
->  1 file changed, 9 insertions(+), 29 deletions(-)
->
-> diff --git a/drivers/devfreq/sun8i-a33-mbus.c b/drivers/devfreq/sun8i-a33=
--mbus.c
-> index bcf654f4ff96..5b630c6e602e 100644
-> --- a/drivers/devfreq/sun8i-a33-mbus.c
-> +++ b/drivers/devfreq/sun8i-a33-mbus.c
-> @@ -360,7 +360,7 @@ static int sun8i_a33_mbus_probe(struct platform_devic=
-e *pdev)
->         if (IS_ERR(priv->reg_mbus))
->                 return PTR_ERR(priv->reg_mbus);
->
-> -       priv->clk_bus =3D devm_clk_get(dev, "bus");
-> +       priv->clk_bus =3D devm_clk_get_enabled(dev, "bus");
->         if (IS_ERR(priv->clk_bus))
->                 return dev_err_probe(dev, PTR_ERR(priv->clk_bus),
->                                      "failed to get bus clock\n");
-> @@ -375,24 +375,15 @@ static int sun8i_a33_mbus_probe(struct platform_dev=
-ice *pdev)
->                 return dev_err_probe(dev, PTR_ERR(priv->clk_mbus),
->                                      "failed to get mbus clock\n");
->
-> -       ret =3D clk_prepare_enable(priv->clk_bus);
-> -       if (ret)
-> -               return dev_err_probe(dev, ret,
-> -                                    "failed to enable bus clock\n");
-> -
->         /* Lock the DRAM clock rate to keep priv->nominal_bw in sync. */
-> -       ret =3D clk_rate_exclusive_get(priv->clk_dram);
-> -       if (ret) {
-> -               err =3D "failed to lock dram clock rate\n";
-> -               goto err_disable_bus;
-> -       }
-> +       ret =3D devm_clk_rate_exclusive_get(dev, priv->clk_dram);
-> +       if (ret)
-> +               return dev_err_probe(dev, ret, "failed to lock dram clock=
- rate\n");
->
->         /* Lock the MBUS clock rate to keep MBUS_TMR_PERIOD in sync. */
-> -       ret =3D clk_rate_exclusive_get(priv->clk_mbus);
-> -       if (ret) {
-> -               err =3D "failed to lock mbus clock rate\n";
-> -               goto err_unlock_dram;
-> -       }
-> +       ret =3D devm_clk_rate_exclusive_get(priv->clk_mbus);
-> +       if (ret)
-> +               return dev_err_probe(dev, ret, "failed to lock mbus clock=
- rate\n");
->
->         priv->gov_data.upthreshold      =3D 10;
->         priv->gov_data.downdifferential =3D  5;
-> @@ -405,10 +396,8 @@ static int sun8i_a33_mbus_probe(struct platform_devi=
-ce *pdev)
->         priv->profile.max_state         =3D max_state;
->
->         ret =3D devm_pm_opp_set_clkname(dev, "dram");
-> -       if (ret) {
-> -               err =3D "failed to add OPP table\n";
-> -               goto err_unlock_mbus;
-> -       }
-> +       if (ret)
-> +               return dev_err_probe(dev, ret, "failed to add OPP table\n=
-");
->
->         base_freq =3D clk_get_rate(clk_get_parent(priv->clk_dram));
->         for (i =3D 0; i < max_state; ++i) {
-> @@ -448,12 +437,6 @@ static int sun8i_a33_mbus_probe(struct platform_devi=
-ce *pdev)
->
->  err_remove_opps:
->         dev_pm_opp_remove_all_dynamic(dev);
-> -err_unlock_mbus:
-> -       clk_rate_exclusive_put(priv->clk_mbus);
-> -err_unlock_dram:
-> -       clk_rate_exclusive_put(priv->clk_dram);
-> -err_disable_bus:
-> -       clk_disable_unprepare(priv->clk_bus);
->
->         return dev_err_probe(dev, ret, err);
->  }
-> @@ -472,9 +455,6 @@ static void sun8i_a33_mbus_remove(struct platform_dev=
-ice *pdev)
->                 dev_warn(dev, "failed to restore DRAM frequency: %d\n", r=
-et);
->
->         dev_pm_opp_remove_all_dynamic(dev);
-> -       clk_rate_exclusive_put(priv->clk_mbus);
-> -       clk_rate_exclusive_put(priv->clk_dram);
-> -       clk_disable_unprepare(priv->clk_bus);
->  }
->
->  static const struct sun8i_a33_mbus_variant sun50i_a64_mbus =3D {
->
-> base-commit: 6d59cab07b8d74d0f0422b750038123334f6ecc2
-> --
-> 2.45.2
->
->
+Best regards,
+-- 
+Gabor Juhos <j4g8y7@gmail.com>
 
-
---=20
-Best Regards,
-Chanwoo Choi
-Samsung Electronics
 
