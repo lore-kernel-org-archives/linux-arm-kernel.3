@@ -4,70 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1664DC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 May 2025 23:37:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 018D6C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 00:56:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eVWLOfjR9Qr8p8a9DlJ6yvG3cR1nI3sbSaaK2eS4+pE=; b=uJo5zGPIart5SGWGpJOkHDrvOD
-	/ZCgDclMVc1WsIP1DkLmCUXBXNZlq+eroB9LprbG+ouCZVBFIBVkEkpP2f7Iy4tgnOBeyl+ucEiCY
-	M5tQYJonkgZpknLZriS/+cziVG3AlR5ZhrGHxdkU/R+N3RXSC6ChzYwQR4Ld55SUomjm005YdoNxC
-	NRWcX0rwZsIoxyzLK5qqCxbXwjOJdOr9HaTWlj2f5IowkIlEhZn1UO96C3+qgjWHO9aDmYEwdsFOJ
-	L+ycQL6WQxnylXGieFAijq/ipYU8EePC1ENZcTerctueL3KgCFarn0OzIXvSD7gk4HR/23LAd0iHc
-	AVKzO4xA==;
+	bh=Pa7DMuZzl2EIMYYyYKxq35O7uGK+xt8eCno9bPDFjZs=; b=PejArMLu3ErmLhs/r2AWYIQpXf
+	YaZHT2pdTn3rhWSeAjKXHpWhDxYpKW2rr2k913a7aZj33IculuzyUvnDCPfUg7X8u/7l7xrH8DW2D
+	sKqL1HKzltiJm0pC4vTiuOg7l2cHsTPMvpxHGcRjnkjkbCC2sKmHYdOxGE7JhSDCfcyRI5wTf0BoO
+	57Agv3J9KpXQTmpXB8yETlbqKvSGx1jQySy10BpTCpCLPLC5hDUDwypyz8q6fDvRXxwFySgGRe0Ps
+	mxe2864LECn4aKCnOaTTgayhkugvqWrtkikiniVH2p1VHPT0mJ8QhrrNeXRn59wdMI5fHAEiPJTyX
+	6lQ0fOPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDtkT-00000006Una-3XSH;
-	Sat, 10 May 2025 23:36:53 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1uDuz3-00000006aBT-1MvM;
+	Sun, 11 May 2025 00:56:01 +0000
+Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDtiL-00000006UhB-1dVb
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 May 2025 23:34:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1746920081; x=1778456081;
-  h=date:from:to:cc:subject:message-id;
-  bh=dcbnjm4Yq4ZaLYfTx0XMh1VRjdpM7/X4MN0Bd2d5lLo=;
-  b=V8VDl0eEUUArvAq9t2K3AVq0mw4BS6/ez0q6SRsujOPJgSwVCkzt/HXo
-   5fx0NbmFN+/O0o6aZergFd4aPgBrcD03NLOh4ca14vqyElfr7K2pf29Yl
-   S6wVk3ZutEPVq0OvdBBB3dPHobqOtB3h/EC80cex3V88rBtL7EGSMq+Bj
-   d823JGdQgsbHMSEnC1LuL8XuKwZHFBLbe47ZS37FGHuIwps/hEC4zojt8
-   ktwlEUoU1aAqNCpWWttTA1iiasdw4Ng0h4mOBYOm0LJ8fqfj+bI2eAkKI
-   dWV0CBwyvB3+Fc2yr7t3vJgWyNyIcVu9RuwGlsIrZSv9BEumG6ZeCsdXf
-   g==;
-X-CSE-ConnectionGUID: fmVn7mobQ1eA4S1mCnKq8g==
-X-CSE-MsgGUID: M+8kgI8HSr6wTgrHK0qBGA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11429"; a="66271646"
-X-IronPort-AV: E=Sophos;i="6.15,278,1739865600"; 
-   d="scan'208";a="66271646"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 May 2025 16:34:35 -0700
-X-CSE-ConnectionGUID: OlHZG0xdSmOiFexJ70m6rg==
-X-CSE-MsgGUID: GsWkenWsQ9+g9YhTDuKi2A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,278,1739865600"; 
-   d="scan'208";a="136929825"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 10 May 2025 16:34:34 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uDtiB-000DTB-32;
-	Sat, 10 May 2025 23:34:31 +0000
-Date: Sun, 11 May 2025 07:33:56 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/arm] BUILD SUCCESS
- a6e160ead8e7fc8d22ed16cff721c05723c38926
-Message-ID: <202505110747.DiZpwG3N-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	id 1uDux1-00000006a5S-1Zfu;
+	Sun, 11 May 2025 00:53:56 +0000
+Received: by mail-il1-x129.google.com with SMTP id e9e14a558f8ab-3d965c64d53so15258905ab.1;
+        Sat, 10 May 2025 17:53:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746924834; x=1747529634; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Pa7DMuZzl2EIMYYyYKxq35O7uGK+xt8eCno9bPDFjZs=;
+        b=WK27ZhcHduTgJ2Sk74J0fiM0YqUF8+khM7mXbyZMinPEmDS3RpfB/d3do4TJmVCJj7
+         PQLq+ggpmar+lD5YX7h7hKk72m2770msWtgwMmKRp+r9IFqJYLSX3VVmvsW5oAkraqCy
+         PsoseEgXNmwK1lLSHBKMpd4j4QQwNSeoyyFFmsg5VwNPTiM/IflBDEYjqvAjzIxuJszn
+         ecAjmm1fPQLF1fC+CrDfs6yPvQ+tP7EnAKFTH5f27F6HMcO9ufbyiPA8P/Oxu75dH9g8
+         zcqZu2T6dC6SAp6DSaze0rAi2KKmfhDQEWCHvujLie7oaCx8oni88mJLvcvJuGMSYhIi
+         3kSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746924834; x=1747529634;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Pa7DMuZzl2EIMYYyYKxq35O7uGK+xt8eCno9bPDFjZs=;
+        b=flpO28McNqHICB5ahfEPuU/3evifn60XcqSTMfW3EIcET2gqZ4Wbaf0tHmg5X6vR9c
+         FmmkXpQnhbVP7nChDfexCN4Ju1QqVlJ20tju9DiTIqrHvzG85l6ORt44OkqKnLQHdfFP
+         eUKqe8ZqmuJdm5ZaAFEnfjzL67ws5LisiFmFuW3x3FpF1Q0w2vXvN2sx6uQoJAoJn4a0
+         OIAo4VNCj/Da79mZASNd1rQ856sC+nMnZIihEkPvfyUrU0i3FbMt8thKiyC/AcBuCouV
+         IX1ZLS0AXVnok83K1O8Ik+kzZ5sNdz/QUrtZv5nMbB8O3XJXgQGM+bGCdbRBt14UXLEM
+         W39g==
+X-Forwarded-Encrypted: i=1; AJvYcCWZZTEiHJQ7fcn8F3Ik5BKqKOsOBY4+LWQeyoJPO+MfBzWOFaR/5w+sL8AP0JQUgW3zcW9VZicDJrCe1shojPI=@lists.infradead.org, AJvYcCXgPbDvdcSCQyVzFD6FGQrwekfieTKVKN2LDCUlrUoa4MYvas5xDhO2ZaVWoRHNLot8loQ/BwvyIqoFZgbyGzVh@lists.infradead.org
+X-Gm-Message-State: AOJu0YwkplfEQ3s87qwv+ArkDLmN7BelD5tIdWR5auMkZ78cAG3JgOis
+	IA8kLGkFC8sJ3SQo2JfcTfGDRyEClXKpaIhmvF5VlPfztas8tGWk
+X-Gm-Gg: ASbGncvFLjOsJgl06A7RZFXGHOnRRG/k0q6k8kTBoyJq1I3D4IRUqagkgKj/nn5HwJ+
+	+yPmxze/nHmj1fmIVHqsSdZ5ETrFBv5eNDMukws2vSn57hCzTl8cauAEOkh05ueu5/muMdxJ3EZ
+	gKB5REQQ6H4EFBCT3ntSHcf2abyX2+tdOTADNLYqVGNsDE0hSAllT2gcHAyEsSL8r4jbnC4M5FN
+	5KcZJ4g0fH+dMLvDqGDAl+Dn2e20SEM1L9xjd5yR/ePyejt/VdN5sSboktRCcQ4rxePVWGxcdg2
+	PR6NpjSWPGJJr/Gfx1vBdqTiBcRNPqnv+3PxhE/9D90lIvUydnN195sIS+y3+4D9DkKel9vVYGf
+	nOF/7ZMfVjHXZL90RDdf+3HV9ZXkSmOF9NWc/LvonsnPxaMo=
+X-Google-Smtp-Source: AGHT+IGEQzPqFW2zBqw6OV63v5ytbUdgLh5lo5yyZnTnsFyes2HBpCZ9g5H+1HLo0WORfxLp+t9xCw==
+X-Received: by 2002:a05:6e02:3c81:b0:3cf:bc71:94f5 with SMTP id e9e14a558f8ab-3da7e2174a8mr113697555ab.22.1746924833664;
+        Sat, 10 May 2025 17:53:53 -0700 (PDT)
+Received: from localhost.localdomain (2605-4A80-B00B-5AD0-0-FF-FE00-0-dynamic.midco.net. [2605:4a80:b00b:5ad0:0:ff:fe00:0])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4fa224de1c4sm1001724173.37.2025.05.10.17.53.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 10 May 2025 17:53:52 -0700 (PDT)
+From: Samuel Williams <sam8641@gmail.com>
+To: 
+Cc: sam8641@gmail.com,
+	Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Deren Wu <deren.wu@mediatek.com>,
+	Ming Yen Hsieh <mingyen.hsieh@mediatek.com>,
+	David Ruth <druth@chromium.org>,
+	Allan Wang <allan.wang@mediatek.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Leon Yen <leon.yen@mediatek.com>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] wifi: mt76: mt7921: add 160 MHz AP for mt7922 device
+Date: Sat, 10 May 2025 19:53:09 -0500
+Message-ID: <20250511005316.1118961-1-sam8641@gmail.com>
+X-Mailer: git-send-email 2.47.2
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250510_163441_466734_21C6C9B8 
-X-CRM114-Status: UNSURE (   4.96  )
+X-CRM114-CacheID: sfid-20250510_175355_438599_24173035 
+X-CRM114-Status: UNSURE (   9.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,33 +111,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/arm
-branch HEAD: a6e160ead8e7fc8d22ed16cff721c05723c38926  Merge tag 'arm-gpio-set-conversion-for-v6.16-rc1' of https://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux into soc/arm
+This allows mt7922 in hostapd mode to transmit up to 1.4 Gbps.
 
-elapsed time: 774m
+Signed-off-by: Samuel Williams <sam8641@gmail.com>
+---
+ drivers/net/wireless/mediatek/mt76/mt7921/main.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-configs tested: 13
-configs skipped: 126
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7921/main.c b/drivers/net/wireless/mediatek/mt76/mt7921/main.c
+index 826c48a2ee69..1fffa43379b2 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7921/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7921/main.c
+@@ -83,6 +83,11 @@ mt7921_init_he_caps(struct mt792x_phy *phy, enum nl80211_band band,
+ 			he_cap_elem->phy_cap_info[9] |=
+ 				IEEE80211_HE_PHY_CAP9_TX_1024_QAM_LESS_THAN_242_TONE_RU |
+ 				IEEE80211_HE_PHY_CAP9_RX_1024_QAM_LESS_THAN_242_TONE_RU;
++
++			if (is_mt7922(phy->mt76->dev)) {
++				he_cap_elem->phy_cap_info[0] |=
++					IEEE80211_HE_PHY_CAP0_CHANNEL_WIDTH_SET_160MHZ_IN_5G;
++			}
+ 			break;
+ 		case NL80211_IFTYPE_STATION:
+ 			he_cap_elem->mac_cap_info[1] |=
+-- 
+2.47.2
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
-
-tested configs:
-arm                  allmodconfig    gcc-14.2.0
-arm                   allnoconfig    clang-21
-arm                  allyesconfig    gcc-14.2.0
-arm       randconfig-001-20250510    gcc-10.5.0
-arm       randconfig-002-20250510    clang-21
-arm       randconfig-003-20250510    gcc-10.5.0
-arm       randconfig-004-20250510    gcc-7.5.0
-openrisc              allnoconfig    clang-21
-parisc                allnoconfig    clang-21
-powerpc               allnoconfig    clang-21
-riscv                 allnoconfig    clang-21
-s390                  allnoconfig    clang-21
-um                    allnoconfig    clang-21
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
