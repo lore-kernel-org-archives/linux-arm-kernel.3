@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A33C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 16:39:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F8BBC3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 16:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RnOmp9vqB0RVVDdSdYPGFCoZOJTwVv6/eQpaDqVmnwY=; b=2rFZ5ac009cExALrWzqDqZMgFM
-	N9dgpSijN3WcZ5uYRxFxmOsjcxg0TCJgbxEp/bavlWiR9U/DhB9agJPmKeZ6s/9U9VkDrq5knlNzm
-	B+RfZm31FazuKh3UErqBu9jxU0F0/Cvj39EHezvzGwswayxg6uIMEGSU6pWK5jXaBXmJvaZHzwRWh
-	OdC1ggcBNTHAeqggFaHdgm/5EYZW/lq638t6a2qH0+6rbdYCsrCs/v83o4bEYBMKUEzR9f6pRYpQM
-	gPrz/om0uOdGtpFWPj2lUbXws9150f0jFVoAPoW7GbWXxsgyzUKhA+y37CeCC6NMRUxjS3Q5mLTRa
-	DPWnXk0Q==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aV31C/PSmnYZr6vn4CCQ6KI3WLviTXrOVrHd4rpTG5U=; b=F2yKgatA4uaIuWJy7UBChwXtt9
+	gmPihUuT1KNihHr0uWQYzrUioDBKPevECSXfRjyDgVhrS9wIhJtDS5pAMwS6yDk4tfmBrw7em4K6s
+	YKJ2VChMB9WNQIhGrtqA0OrSEQhR8s2f+e2QDnXFZTxlhgCF+U12gvJTr3EFATuja7/GNeSJBtwJ1
+	G4UIDE/F3l/bImos9OVYKigqQ99wYVNu9Ac81W3C1juP8LdaVmwTbKQWMKi6A6mkID4Qf3mTxCqF2
+	EoTHvJ9jiy+PLolAbWGKpcJrZpImQvUzs90J2L2YB9TBsrvJ/wu3M2TzGIRPUTAaYdULEM3M+mKug
+	AA2QyI+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE9hc-00000007Wn1-2Lut;
-	Sun, 11 May 2025 16:39:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uE9jb-00000007Wzj-15Om;
+	Sun, 11 May 2025 16:41:03 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE9eD-00000007WIA-1sGr
+	id 1uE9eC-00000007WHr-2ZEu
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 11 May 2025 16:35:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1B25160EDF;
-	Sun, 11 May 2025 16:35:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFA92C4CEE4;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0E5CB5C25CC;
+	Sun, 11 May 2025 16:33:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F22E4C4CEE7;
 	Sun, 11 May 2025 16:35:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746981326;
-	bh=Ly0ycxk5mViKXGJnV6ik8fNXIyzCE67TE4MNRvRYDU0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=d1W9G37zJPqqF4f/mBIHCXsvdjTkI8imS4jliuc8YuPQRmtNxTQw81Qxqx6/ZCgu2
-	 TIl+MjJE/s6o10aNnCaGefD8tGR13H6Zt78ZJHNqQbLUfkpC/AKLxNLytcAqVm43dk
-	 Arb7dAQhQ6V8ggMJaTl4LEN8kSMQ4Whr4NRat7Xgg0SzI/Qhby4CxgdEIQTZ6x+D9A
-	 UdaIQ64NWs8M4ogTKUgbuIP1XgSbNjXfNpJluJD3/qIQFjo4KWiSGdexP8ex3zwHNg
-	 jVgxhatzD0m9F5KoztUc5ZQVkEpFSe/DSfML5gYjHFWzqsOIO3kLj5Nm4vm1aLkJWA
-	 jyOFENw/AfJpQ==
+	s=k20201202; t=1746981327;
+	bh=GaOQnEbLL9GZs6ot00bxwo1vTakAiiwicLKpRgJPfmY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=fTTKFRdM3VnzPD88jFOf2OV/Rw99Y5XQlU1eZ6IgHDHKwj6ZnakTwEXRbIWvqGMFQ
+	 qJsyHuz6iw2qAOIeJylFbITR9Ls2d3geAGDGwJ4aQLjQGYG7vNLm96albse7nEdLje
+	 wESOJmauQV1z8L3epNxV85hxSCVp2SC3PZAf+jtlWoSQjlnab9xG+JXr/jnGJNteL2
+	 67f2x0zVBwuUb/m+3LMKlsu80JJGqH2Tn9l+nZ2yt7oqTtCFV/xt3zDU2vnlus6pCI
+	 guT6JyN6qv6lvLzDPrJarxXzRgSlp6ZE6yPZ3qx6yibhOD9KkfLsLK+RyTxXZeb0EC
+	 TksPyGnhgkvgA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uE9e8-00Dt22-En;
+	id 1uE9e8-00Dt22-L7;
 	Sun, 11 May 2025 17:35:24 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: linux-kernel@vger.kernel.org,
@@ -55,16 +55,21 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Sascha Bischoff <sascha.bischoff@arm.com>,
 	Timothy Hayes <timothy.hayes@arm.com>
-Subject: [PATCH 0/4] genirq/msi: Fix device MSI prepare/alloc sequencing
-Date: Sun, 11 May 2025 17:35:16 +0100
-Message-Id: <20250511163520.1307654-1-maz@kernel.org>
+Subject: [PATCH 1/4] genirq/msi: Add .msi_teardown() callback as the reverse of .msi_prepare()
+Date: Sun, 11 May 2025 17:35:17 +0100
+Message-Id: <20250511163520.1307654-2-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250511163520.1307654-1-maz@kernel.org>
+References: <20250511163520.1307654-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, tglx@linutronix.de, lpieralisi@kernel.org, sascha.bischoff@arm.com, timothy.hayes@arm.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250511_093528_740088_C52EE82C 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,47 +84,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While reviewing (and debugging) the GICv5 code, it became obvious that
-there was something pretty fishy about the way MSI allocation was
-taking place in respect to the msi_prepare() callback.
+While the MSI ops do have a .msi_prepare() callback that is
+responsible for setting up the relevant (usually per-device)
+allocation, we don't have a callback reversing this setup.
 
-There is a strong (though not 100% explicit) requirement that the
-.msi_prepare() callback must take place exactly once during the lifetime
-of an MSI domain, before any MSI is allocated. Sadly, that's not how the
-core code behaves, leading to all sorts of odd bad issues with MBIGEN or
-the GICv5 IWB.
+For this purpose, let's a .msi_teardown() callback. This is
+reliying on the msi_domain_info structure having a non-NULL
+alloc_data field.
 
-The fix is both simple and surprisingly convoluted. The first course
-of action would be to hoist the "prepare" action before we allocate
-any MSI, adding new tracking for the msi_alloc_info_t structure.
+Nobody is populating this field yet, so there is no change
+in behaviour yet.
 
-But this unveils another issue that the core code has been papering
-over, which is that there is no pendant to the .msi_prepare() callback
-that would be called on irqdomain destruction, and that at least the
-ITS code has been using some crap heuristics to work around it.
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ include/linux/msi.h | 10 ++++++++--
+ kernel/irq/msi.c    | 12 ++++++++++++
+ 2 files changed, 20 insertions(+), 2 deletions(-)
 
-So this needs to be addressed first, and that's the point of the first
-two patches, introducing and implementing the .msi_teardown() callback.
-
-The last patch remove a gross hack in the ITS msi-parent code, which
-was papering over the broken use of the "prepare" callback.
-
-This has been tested on a GICv4 system with MBIGEN, patches on top of
-6.15-rc5.
-
-Marc Zyngier (4):
-  genirq/msi: Add .msi_teardown() callback as the reverse of
-    .msi_prepare()
-  irqchip/gic-v3-its: Implement .msi_teardown() callback
-  genirq/msi: Move prepare() call to per-device allocation
-  irqchip/gic-v3-its: Use allocation size from the prepare call
-
- drivers/irqchip/irq-gic-v3-its-msi-parent.c | 29 ++++-------
- drivers/irqchip/irq-gic-v3-its.c            | 56 +++++++++++++--------
- include/linux/msi.h                         | 12 ++++-
- kernel/irq/msi.c                            | 51 +++++++++++++++++--
- 4 files changed, 101 insertions(+), 47 deletions(-)
-
+diff --git a/include/linux/msi.h b/include/linux/msi.h
+index 86e42742fd0fb..0a44a2cba3105 100644
+--- a/include/linux/msi.h
++++ b/include/linux/msi.h
+@@ -420,6 +420,7 @@ struct msi_domain_info;
+  * @msi_init:		Domain specific init function for MSI interrupts
+  * @msi_free:		Domain specific function to free a MSI interrupts
+  * @msi_prepare:	Prepare the allocation of the interrupts in the domain
++ * @msi_teardown:	Reverse the effects of @msi_prepare
+  * @prepare_desc:	Optional function to prepare the allocated MSI descriptor
+  *			in the domain
+  * @set_desc:		Set the msi descriptor for an interrupt
+@@ -435,8 +436,9 @@ struct msi_domain_info;
+  * @get_hwirq, @msi_init and @msi_free are callbacks used by the underlying
+  * irqdomain.
+  *
+- * @msi_check, @msi_prepare, @prepare_desc and @set_desc are callbacks used by the
+- * msi_domain_alloc/free_irqs*() variants.
++ * @msi_check, @msi_prepare, @msi_teardown, @prepare_desc and
++ * @set_desc are callbacks used by the msi_domain_alloc/free_irqs*()
++ * variants.
+  *
+  * @domain_alloc_irqs, @domain_free_irqs can be used to override the
+  * default allocation/free functions (__msi_domain_alloc/free_irqs). This
+@@ -458,6 +460,8 @@ struct msi_domain_ops {
+ 	int		(*msi_prepare)(struct irq_domain *domain,
+ 				       struct device *dev, int nvec,
+ 				       msi_alloc_info_t *arg);
++	void		(*msi_teardown)(struct irq_domain *domain,
++					msi_alloc_info_t *arg);
+ 	void		(*prepare_desc)(struct irq_domain *domain, msi_alloc_info_t *arg,
+ 					struct msi_desc *desc);
+ 	void		(*set_desc)(msi_alloc_info_t *arg,
+@@ -486,6 +490,7 @@ struct msi_domain_ops {
+  * @handler:		Optional: associated interrupt flow handler
+  * @handler_data:	Optional: associated interrupt flow handler data
+  * @handler_name:	Optional: associated interrupt flow handler name
++ * @alloc_data:		Optional: associated interrupt allocation data
+  * @data:		Optional: domain specific data
+  */
+ struct msi_domain_info {
+@@ -498,6 +503,7 @@ struct msi_domain_info {
+ 	irq_flow_handler_t		handler;
+ 	void				*handler_data;
+ 	const char			*handler_name;
++	msi_alloc_info_t		*alloc_data;
+ 	void				*data;
+ };
+ 
+diff --git a/kernel/irq/msi.c b/kernel/irq/msi.c
+index c05ba7ca00faa..a65ccf19b15d9 100644
+--- a/kernel/irq/msi.c
++++ b/kernel/irq/msi.c
+@@ -796,6 +796,11 @@ static int msi_domain_ops_prepare(struct irq_domain *domain, struct device *dev,
+ 	return 0;
+ }
+ 
++static void msi_domain_ops_teardown(struct irq_domain *domain,
++				    msi_alloc_info_t *arg)
++{
++}
++
+ static void msi_domain_ops_set_desc(msi_alloc_info_t *arg,
+ 				    struct msi_desc *desc)
+ {
+@@ -821,6 +826,7 @@ static struct msi_domain_ops msi_domain_ops_default = {
+ 	.get_hwirq		= msi_domain_ops_get_hwirq,
+ 	.msi_init		= msi_domain_ops_init,
+ 	.msi_prepare		= msi_domain_ops_prepare,
++	.msi_teardown		= msi_domain_ops_teardown,
+ 	.set_desc		= msi_domain_ops_set_desc,
+ };
+ 
+@@ -842,6 +848,8 @@ static void msi_domain_update_dom_ops(struct msi_domain_info *info)
+ 		ops->msi_init = msi_domain_ops_default.msi_init;
+ 	if (ops->msi_prepare == NULL)
+ 		ops->msi_prepare = msi_domain_ops_default.msi_prepare;
++	if (ops->msi_teardown == NULL)
++		ops->msi_teardown = msi_domain_ops_default.msi_teardown;
+ 	if (ops->set_desc == NULL)
+ 		ops->set_desc = msi_domain_ops_default.set_desc;
+ }
+@@ -1088,6 +1096,10 @@ void msi_remove_device_irq_domain(struct device *dev, unsigned int domid)
+ 
+ 	dev->msi.data->__domains[domid].domain = NULL;
+ 	info = domain->host_data;
++
++	if (info->alloc_data)
++		info->ops->msi_teardown(domain, info->alloc_data);
++
+ 	if (irq_domain_is_msi_device(domain))
+ 		fwnode = domain->fwnode;
+ 	irq_domain_remove(domain);
 -- 
 2.39.2
 
