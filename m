@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BA4AC3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 17:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D64B3C3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 May 2025 17:08:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l1o8V806NFIConNLc8885KE8QTfy5R2bUMg4nOs6tmA=; b=NWPZCueaJHsJkmMt+PIlWcWrKL
-	U26nDI/rs9dThDojEGzO3XogslAc29T7FKd2ayhzJ/ov10cgWH0z6O/s06ad3KX+kf7ZPwLELkiVo
-	ECyn2vff+XcbPadEWaydbwj1yNWxmB/+mEJGzjWxLfd42eV3UTKExnssheoWXgnnteEs+xKh2qHHx
-	zFTrq9kThqUOfk1W8MG0DsXB6jzMCFUZfU16A31lF3GPrIEz75b+7lnJSDrHBghGrK+MJVdFEsDKB
-	DtFIroaOo4ZcGgiA0aZZeA+nloUqxzGh3PirUvdXf8oiIcNEZTV4XWyxC4yWWiVKLBEJwB3Od4fhd
-	YTAxE1Pg==;
+	bh=SeoAHDIH23gFXGyKcKHI7nDG1fKj5EZdsLV0fsLEv9Y=; b=3F1EKHt+5c9MnDCwV+xwKeTrYJ
+	4WF6x+op9xRKVapGCUnhJCXqtgW8JJymVyR4En01APfWAynrqFUGSNzHIoAI3/1hOxZ/zb9QjBfcj
+	Cvv8eIfQeFWXF7JfIeYDmVo8Q5PY2MQs+erKXhdzzztqLvue8P1WiWam8bW6d3r1cVHPxZ5WFy6b5
+	1DMxOKuWAodqa3se00kEOPSaB3bK9LYRQxx6NkfaX9dGO9H+UTQ7tYhoBRUGb0UFMbwwtrz/t6PeO
+	0xb8h5dLypu0Pxp4DiZSbAgemAeZzddHBa1Wuli1tQiF3y1h4HKTm5YoESXz/rWLZJ8zsorZTs7IW
+	EN761qyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEA7R-00000007ZTn-0dXw;
-	Sun, 11 May 2025 17:05:41 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uEA9s-00000007ZdT-0zOQ;
+	Sun, 11 May 2025 17:08:12 +0000
+Received: from out-186.mta0.migadu.com ([91.218.175.186])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE9nq-00000007XtX-33NX;
-	Sun, 11 May 2025 16:45:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=l1o8V806NFIConNLc8885KE8QTfy5R2bUMg4nOs6tmA=; b=RU5qdjuYx/ZXxe1RsvJ5AAlyqQ
-	rS5lQCz+T06UioQDRdgpCw+rL42X4dSMWmftAwOIhOulLbeweA1hCKgpeeNtpV/3mjtns7eAMoKpz
-	GZXzCNb9pRwoyrF/HlZflmUxf5ppnbNEdwVnWr+aE1p2S4gofevRViv0nhFrppycwpAA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uE9nc-00CGLD-HX; Sun, 11 May 2025 18:45:12 +0200
-Date: Sun, 11 May 2025 18:45:12 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Frank Wunderlich <linux@fw-web.de>
-Cc: Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
+	id 1uE9tX-00000007YRV-33St
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 11 May 2025 16:51:21 +0000
+Date: Sun, 11 May 2025 12:51:12 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1746982277;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SeoAHDIH23gFXGyKcKHI7nDG1fKj5EZdsLV0fsLEv9Y=;
+	b=wgL3cOypWMiXkr9it1pxC/4m9VSuGKQURmq2hX4dI9imvGcAa+rZft30xDqz7Uvuctg6aw
+	iSXHNE1QQcYQ7qQ0jJ05KEvtUsQcqtUGne6LjZFNr1BpbuGZ/4/3he38YxPL3u6eAQTXU7
+	7SWBd4GpKwuayuXzWonj6gESUbJ6+Dno/VHdlSIGnrmbtzqUa21VYWohtCYgNWMgLIDqH1
+	nC1CtYQ2QGWPh+BkYFhGwYr0NZrH/RxikGTCnefEoNwrUPEFzCigkafaBQuTMfpe/WrtIH
+	P4QzBQ2UagN1QTDpbrQcoyQuZ7IxtE4LMsWkcuPwzi6vr5CFC+cUX/F24YUSXQ==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+To: sven@svenpeter.dev
+Cc: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+	Hector Martin <marcan@marcan.st>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	=?utf-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
-	Landen Chao <Landen.Chao@mediatek.com>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v1 02/14] dt-bindings: net: dsa: mediatek,mt7530: add
- dsa-port definition for mt7988
-Message-ID: <88d93b58-84f3-4394-80ed-9adf67d525f4@lunn.ch>
-References: <20250511141942.10284-1-linux@fw-web.de>
- <20250511141942.10284-3-linux@fw-web.de>
- <043d1a0a-1932-42f3-bcd8-17fad10c5543@lunn.ch>
+	Sebastian Reichel <sre@kernel.org>, Lee Jones <lee@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+Subject: Re: [PATCH v5 05/10] mfd: Add Apple Silicon System Management
+ Controller
+Message-ID: <aCDVgI4_LtE6OfO-@blossom>
+References: <20250511-smc-6-15-v5-0-f5980bdb18bd@svenpeter.dev>
+ <20250511-smc-6-15-v5-5-f5980bdb18bd@svenpeter.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <043d1a0a-1932-42f3-bcd8-17fad10c5543@lunn.ch>
+In-Reply-To: <20250511-smc-6-15-v5-5-f5980bdb18bd@svenpeter.dev>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_094526_763523_C19F8BA4 
-X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-CacheID: sfid-20250511_095119_924584_FE35DF06 
+X-CRM114-Status: UNSURE (   5.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,19 +82,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 11, 2025 at 06:34:30PM +0200, Andrew Lunn wrote:
-> On Sun, May 11, 2025 at 04:19:18PM +0200, Frank Wunderlich wrote:
-> > From: Frank Wunderlich <frank-w@public-files.de>
-> > 
-> > Add own dsa-port binding for SoC with internal switch where only phy-mode
-> > 'internal' is valid.
-> 
-> So these internal PHYs don't have LEDs?
+> +struct apple_smc_key_info {
+> +	u8 size;
+> +	u32 type_code;
+> +	u8 flags;
+> +};
 
-Ah, i got that wrong, sorry.
+This still has the padding problem from v4. With that fixed,
 
-What i don't know about here is if you should be defining your own
-ds-port binding, or taking the existing binding and add a constraint.
-
-	Andrew
+Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 
