@@ -4,154 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA2BC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 11:25:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1CEFC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 11:27:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xDlN6ZmHeE38wM5rEw8R3pNs+sPGXzidrKmPhaUd09A=; b=K31aU6VRThnRRKZ+ASFE+r/71y
-	MlkI6bjc9ACDx1o0tPqmmnNqLYW8WewRAK2gU1dBBu1wPNiltpFPaLVy+i1j5ZB9lVIchb6az8AH7
-	EPNz9YHoXNRT029PKJ/pf3B5qivNvYYzExndSORv2cjGtpJjHhECJnp5QhggmX9O9KLSwz0D9+wP7
-	7s37rZYcR9xCRWgG3+Rs3On6yP1AbzCFyWkSL9MaAaXjIK3HDuCdDpKph1PbPBgrWlldzjPIfjynz
-	F+NotVcXjUg/GELpxyzcQHd6bq1CGDGMKC5ybvZBgm5eBPobpTN8gxb0/5wc1Y00S+9A2n97BWoM1
-	A5rlGvew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=w8l+QaBTlwmrF3HXfFvnB+cP65SG0RGLM+MaZqPRFmU=; b=C0PyX2E6JIWfV+
+	PABo/5k5alE0Ow30lccGhSSxlU/08sqn9KnvRHxudWBaKRtLNv8nezUi5HRfbmFgEdemzZ7VhJH41
+	CDog5frK7RnjwrhDhZmnXY2GAfAyJZFGCCvTnL2R8iIre4W1RpRE8AqYItvGiIuuxwBNQzIteImvH
+	hOQiJSYIp6bcoKNejTyw/oINn/d7meTzgHA1KtXNcnIlZ76f8myQamA2PsvnI6RKYZs/Tl6muYQHw
+	3Gvzt/v072kczA/LNvXExV5fTH1mYkkCxHLUrJhhUoa5ysMRBHtU08MlN994vQBxkFRmDuX2vPd2o
+	uWysmusKzxZamaVwbkLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uERHh-00000009FRI-1Z2p;
-	Mon, 12 May 2025 11:25:25 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uERJh-00000009Fgd-12Am;
+	Mon, 12 May 2025 11:27:29 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uER0Z-00000009CrM-0oiu
+	id 1uER4L-00000009DJ4-3XDm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 11:07:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1747048062;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=xDlN6ZmHeE38wM5rEw8R3pNs+sPGXzidrKmPhaUd09A=;
-	b=G3GNj5Ev2fvfOKe+xopOQKBjdXvaWim6IR9faXhqLMje2FbvAbGSg2QL5XFP1hu1ZVGT86
-	Dy1N1jbmUj6L8HYnRDGg1Whi+ewyYHCp2mXGoDjVZfdjzptrm624WnLxY2RblNd1BbdAgc
-	cVa3FlNIhWg4qKdR6HMbPptwVAfxk18=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-645-ZCYP1c7cM8CPhKUIOuCokg-1; Mon, 12 May 2025 07:07:40 -0400
-X-MC-Unique: ZCYP1c7cM8CPhKUIOuCokg-1
-X-Mimecast-MFC-AGG-ID: ZCYP1c7cM8CPhKUIOuCokg_1747048060
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-43e9b0fd00cso21085735e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 04:07:40 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747048059; x=1747652859;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=xDlN6ZmHeE38wM5rEw8R3pNs+sPGXzidrKmPhaUd09A=;
-        b=c/NjrjXpPZGeljupE+1FYgpgvgBiekMvfRNAtnIalzOzfsF8NWAeDaBVE45nDE1/nI
-         tqMHOAzQ6QEOC3k8W/DQFnc3agSd/BOuOO4X/4YDqpjZ/sDgXQjhdHL/fOI7b8daH2R4
-         CQtlMNdYVnunEzPL9Vindgs9gAVZYdlBktpxB1Ai7aRXucehooPsAQEXrZCTmoqEoBU7
-         CM0YbPD4xHnVxEq9zlke6CBEzRPNi8DW+6lzDuEKD/0uoZyiMIWr+6knbnJIWH7Tedtq
-         FXdg3nsE2x8r7cbQ7VTJUOuLXGYAEJVQA3y9bwswyakinQCDXSA8rkWAqA+UhzlqAmwo
-         VFGA==
-X-Gm-Message-State: AOJu0YyLTo8LRNOCPfrEtQ9oF518zo2zhRusEQkLuhtydOk147aUY2Yb
-	+plX07wCSL2v+tB6B191cp3cCqnZMgRZvwAn4ohN+yHtEsCagRw7upFejIzJHipt22CS5VNkCrX
-	ilu3QrcZYEYX2Tq13JObWI8XpdC2ZjAW5owEZjkCs0YKuK2IyqyT7tkTwDf2EGxohIc33ImLRWV
-	8cO8FeY7Q=
-X-Gm-Gg: ASbGncuCltPNGXzq9Ijqp083m5wNdbZ+/H01fTyv/LYBtzPQdm1VbBrUFKoIpDAeEZq
-	2HrUilyuZoh4ukKO4bHjJvtCQSf3/B0c6O9/X56YHopTcUy4plmy0rz2wL5Lc4LVznyABAwPq6p
-	mgugQpQlUYtrGW71hQYYCuUggiEp4edCXm8QP048DszNJi7sYQP+UBHQ/geTziP9qLEJ/f4OL5l
-	XXWVp9Lf6S35yF//eStFzy3n4+e1/DpCFH1j4I1D2mF7+HAkb4cyhM+iAmG6Lv+TRVlfQQAchll
-	iKEH6Gx4DyI8L1ERWT2yjv5YbUlT+WYwiipH7+ylgQg/pBB8jxt3MHIPe9PAGft/SrA2JfZtYUU
-	Ol70NvwlMOkTs8oyFf59KXyG+7hSC6YuwCdWIbDQ=
-X-Received: by 2002:a7b:c4d5:0:b0:439:8490:d1e5 with SMTP id 5b1f17b1804b1-442d02c9a5amr100535285e9.4.1747048059556;
-        Mon, 12 May 2025 04:07:39 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHE4oaKoxPHh6f8ScLGzX7lbN9OG659i54zYiWg/nRmD6o59W4m9TYPnhguyqPdJHuZJ3Dd/g==
-X-Received: by 2002:a7b:c4d5:0:b0:439:8490:d1e5 with SMTP id 5b1f17b1804b1-442d02c9a5amr100535065e9.4.1747048059043;
-        Mon, 12 May 2025 04:07:39 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f4a:5800:f1ae:8e20:d7f4:51b0? (p200300d82f4a5800f1ae8e20d7f451b0.dip0.t-ipconnect.de. [2003:d8:2f4a:5800:f1ae:8e20:d7f4:51b0])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442d67d5c2asm122443655e9.1.2025.05.12.04.07.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 May 2025 04:07:38 -0700 (PDT)
-Message-ID: <001dfd4f-27f2-407f-bd1c-21928a754342@redhat.com>
-Date: Mon, 12 May 2025 13:07:37 +0200
+	Mon, 12 May 2025 11:11:39 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54C9SR2u028882;
+	Mon, 12 May 2025 11:11:23 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=w8l+QaBTlwmrF3HXfFvnB+
+	cP65SG0RGLM+MaZqPRFmU=; b=gikR/UgWyG9fY/+t9zHJR/4fm604Yk8qPsn9DM
+	L4t7jEPW+6dEtcIUMffcf2ElsPa2KemKXNyqrAc2qtQu0QpPUWLGEwLiwSQPcgpy
+	Xi4eoFCmsVChskhbj5Ajm24MngVp2ggEsu3J8KXfX773A4oX/fWk2a/YyLVfBmve
+	HXKbr2BmFY3dXtLOHt5iVPyA4cg+ld5YuizkhSDRG7GmQ/kVH9RehbX6BH/fNajP
+	9dBbK8UdAafpPzKz6Vi1JdhdnxAwoxSraX08re4wgdHRP9US9+TTiSHxv9wAaFTf
+	keVazUtoU4a/YKAl5SBMuor6Umo8afm3YqWeZ/fUhfk5p5KQ==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46hv5qcce8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 12 May 2025 11:11:22 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 54CBBLSI029673
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 12 May 2025 11:11:21 GMT
+Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Mon, 12 May 2025 04:11:18 -0700
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Subject: [PATCH v5 0/2] coresight: Add Coresight Trace Network On Chip
+ driver
+Date: Mon, 12 May 2025 19:10:36 +0800
+Message-ID: <20250512-trace-noc-v5-0-f2ef070baee5@quicinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/mm: Disable barrier batching in interrupt contexts
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org,
- syzbot+5c0d9392e042f41d45c5@syzkaller.appspotmail.com
-References: <20250512102242.4156463-1-ryan.roberts@arm.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <20250512102242.4156463-1-ryan.roberts@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 5OKCWlYndy70W-4Yk3BK7FPrQmMHqKk6uhB09nhWIZQ_1747048060
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACzXIWgC/3WQS07EMBBErzLyeoz8adttVtwDsfCvGS9IIBki0
+ Ch3x4lAyhBlWS2/eiXf2FiGWkb2eLqxoUx1rH3XgjmfWLqE7rXwmltmSigjQGh+HUIqvOsTJ1R
+ oo25XLKy9fx8K1a+16/ml5Usdr/3wvVZPcrkysBa0QM8jYubgc+KxCMNdJBGjkoTgnj4+a6pde
+ kj9G1t6Jr2yvwvcZsGkueAGoqesQg7k79jz32op/zOSpM+ZnPU+7n1w6IPGerQQKGlwEQ98Zsc
+ 47zVSyZRx7zOHPtNY7chpmQhKLHvWblncsnb5G2WTlUEJR/aenef5B8EUVrf8AQAA
+X-Change-ID: 20250403-trace-noc-f8286b30408e
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>
+CC: <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        Yuanfang Zhang
+	<quic_yuanfang@quicinc.com>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747048277; l=2245;
+ i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
+ bh=FI4fHXTigwGwniHI+YHv/YtmYhKfZ1v6wbRpBi5fe/g=;
+ b=pylPWcizTRa6hQalcFc+aJb/xN9YqSjzSpXyERI4qBUSexrpy1EcDVE7toX7slseZh2bqSGCQ
+ kRS1/84DXsQCQuiCenNj+MJ4T3i9ZrqZqOjMJxExxuRTIChHivOLe6F
+X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
+ pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=DqtW+H/+ c=1 sm=1 tr=0 ts=6821d75a cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=VwQbUJbxAAAA:8
+ a=COk6AnOGAAAA:8 a=mTvmQVt1wvC56TrAcpsA:9 a=QEXdDO2ut3YA:10
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: _DDEcYGFIHsEbDcbK5G5GK19OWpfwbNU
+X-Proofpoint-GUID: _DDEcYGFIHsEbDcbK5G5GK19OWpfwbNU
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTEyMDExNyBTYWx0ZWRfX52KGBtdRCcnU
+ QCJXAdhZhddWsDWa+RunrY9BsJHRFq9hGT9wR3UC9EgGlFuzeKJWGsz18JyAH7UeeGju4BeaY/1
+ qt8CHYACh1VrFsL5z1ItlTa2HxKffoHf/ip7sGgzAcRo05jGPQuuSMwJKOhgORu4sohf7XxycBA
+ fBZAbdFL+RCY6bhGO0uyxS3+Fbjf+/4Fz10ffg0l2D2g4U34uvqCnJHF7SGKa9ngt7V5wOHJ8B+
+ s2K9iVU8dQzIMNUFA/b2PxYCDs4Z57M+ET69kFY2ZFetVbqY0Li4jT9asQBRRiyRPmt/0hQ+7ij
+ 6NoXT6mRPRYI2/f5viZkadCP2bUyp8nalEeaICpes4cqkJg+QWY9ZNKFbYydv0XD0v3/s7oFvaK
+ tThSmXkyfAruYQrNjvJVkmdfwlV+Oa+CJ78rBciRMbtUP/KDb6+5emlyl0aTtmZ/Qxh1E9Re
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-12_04,2025-05-09_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ mlxscore=0 bulkscore=0 phishscore=0 clxscore=1011 adultscore=0
+ lowpriorityscore=0 impostorscore=0 spamscore=0 mlxlogscore=999 malwarescore=0
+ suspectscore=0 priorityscore=1501 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2504070000 definitions=main-2505120117
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_040743_312428_69A9F7E2 
-X-CRM114-Status: GOOD (  33.78  )
+X-CRM114-CacheID: sfid-20250512_041138_098778_9436486B 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,114 +135,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12.05.25 12:22, Ryan Roberts wrote:
-> Commit 5fdd05efa1cd ("arm64/mm: Batch barriers when updating kernel
-> mappings") enabled arm64 kernels to track "lazy mmu mode" using TIF
-> flags in order to defer barriers until exiting the mode. At the same
-> time, it added warnings to check that pte manipulations were never
-> performed in interrupt context, because the tracking implementation
-> could not deal with nesting.
-> 
-> But it turns out that some debug features (e.g. KFENCE, DEBUG_PAGEALLOC)
-> do manipulate ptes in softirq context, which triggered the warnings.
-> 
-> So let's take the simplest and safest route and disable the batching
-> optimization in interrupt contexts. This makes these users no worse off
-> than prior to the optimization. Additionally the known offenders are
-> debug features that only manipulate a single PTE, so there is no
-> performance gain anyway.
-> 
-> There may be some obscure case of encrypted/decrypted DMA with the
-> dma_free_coherent called from an interrupt context, but again, this is
-> no worse off than prior to the commit.
-> 
-> Some options for supporting nesting were considered, but there is a
-> difficult to solve problem if any code manipulates ptes within interrupt
-> context but *outside of* a lazy mmu region. If this case exists, the
-> code would expect the updates to be immediate, but because the task
-> context may have already been in lazy mmu mode, the updates would be
-> deferred, which could cause incorrect behaviour. This problem is avoided
-> by always ensuring updates within interrupt context are immediate.
-> 
-> Fixes: 5fdd05efa1cd ("arm64/mm: Batch barriers when updating kernel mappings")
-> Reported-by: syzbot+5c0d9392e042f41d45c5@syzkaller.appspotmail.com
-> Closes: https://lore.kernel.org/linux-arm-kernel/681f2a09.050a0220.f2294.0006.GAE@google.com/
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> ---
-> 
-> Hi Will,
-> 
-> I've tested before and after with KFENCE enabled and it solves the issue. I've
-> also run all the mm-selftests which all continue to pass.
-> 
-> Catalin suggested a Fixes patch targetting the SHA as it is in for-next/mm was
-> the preferred approach, but shout if you want something different. I'm hoping
-> that with this fix we can still make it for this cycle, subject to not finding
-> any more issues.
-> 
-> Thanks,
-> Ryan
-> 
-> 
->   arch/arm64/include/asm/pgtable.h | 16 ++++++++++++++--
->   1 file changed, 14 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index ab4a1b19e596..e65083ec35cb 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -64,7 +64,11 @@ static inline void queue_pte_barriers(void)
->   {
->   	unsigned long flags;
-> 
-> -	VM_WARN_ON(in_interrupt());
-> +	if (in_interrupt()) {
-> +		emit_pte_barriers();
-> +		return;
-> +	}
-> +
->   	flags = read_thread_flags();
-> 
->   	if (flags & BIT(TIF_LAZY_MMU)) {
-> @@ -79,7 +83,9 @@ static inline void queue_pte_barriers(void)
->   #define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
->   static inline void arch_enter_lazy_mmu_mode(void)
->   {
-> -	VM_WARN_ON(in_interrupt());
-> +	if (in_interrupt())
-> +		return;
-> +
->   	VM_WARN_ON(test_thread_flag(TIF_LAZY_MMU));
-> 
->   	set_thread_flag(TIF_LAZY_MMU);
-> @@ -87,12 +93,18 @@ static inline void arch_enter_lazy_mmu_mode(void)
-> 
->   static inline void arch_flush_lazy_mmu_mode(void)
->   {
-> +	if (in_interrupt())
-> +		return;
-> +
->   	if (test_and_clear_thread_flag(TIF_LAZY_MMU_PENDING))
->   		emit_pte_barriers();
->   }
-> 
->   static inline void arch_leave_lazy_mmu_mode(void)
->   {
-> +	if (in_interrupt())
-> +		return;
-> +
->   	arch_flush_lazy_mmu_mode();
->   	clear_thread_flag(TIF_LAZY_MMU);
->   }
+The Trace Network On Chip (TNOC) is an integration hierarchy which is a
+hardware component that integrates the functionalities of TPDA and
+funnels. It collects trace from subsystems and transfers it to coresight
+sink.
 
-I guess in all cases we could optimize out the in_interrupt() check on 
-!debug configs.
+In addition to the generic TNOC mentioned above, there is also a special type
+of TNOC called Interconnect TNOC. Unlike the generic TNOC, the Interconnect
+TNOC doesn't need ATID. Its primary function is to connect the source of
+subsystems to the Aggregator TNOC. Its driver is different from this patch and
+will describe it and upstream its driver separately.
 
-Hm, maybe there is an elegant way to catch all of these "problematic" users?
+Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+---
+Changes in v5:
+- update cover-letter to describe the Interconnect TNOC.
+- Link to v4: https://lore.kernel.org/r/20250415-trace-noc-v4-0-979938fedfd8@quicinc.com
 
+Changes in v4:
+- Fix dt_binding warning.
+- update mask of trace_noc amba_id.
+- Modify driver comments.
+- rename TRACE_NOC_SYN_VAL to TRACE_NOC_SYNC_INTERVAL.
+- Link to v3: https://lore.kernel.org/r/20250411-trace-noc-v3-0-1f19ddf7699b@quicinc.com
+
+Changes in v3:
+- Remove unnecessary sysfs nodes.
+- update commit messages.
+- Use 'writel' instead of 'write_relaxed' when writing to the register for the last time.
+- Add trace_id ops.
+- Link to v2: https://lore.kernel.org/r/20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com
+
+Changes in v2:
+- Modified the format of DT binging file.
+- Fix compile warnings.
+- Link to v1: https://lore.kernel.org/r/46643089-b88d-49dc-be05-7bf0bb21f847@quicinc.com
+
+---
+Yuanfang Zhang (2):
+      dt-bindings: arm: Add device Trace Network On Chip definition
+      coresight: add coresight Trace Network On Chip driver
+
+ .../bindings/arm/qcom,coresight-tnoc.yaml          | 111 ++++++++++++
+ drivers/hwtracing/coresight/Kconfig                |  13 ++
+ drivers/hwtracing/coresight/Makefile               |   1 +
+ drivers/hwtracing/coresight/coresight-tnoc.c       | 191 +++++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-tnoc.h       |  34 ++++
+ 5 files changed, 350 insertions(+)
+---
+base-commit: a2cc6ff5ec8f91bc463fd3b0c26b61166a07eb11
+change-id: 20250403-trace-noc-f8286b30408e
+
+Best regards,
 -- 
-Cheers,
-
-David / dhildenb
+Yuanfang Zhang <quic_yuanfang@quicinc.com>
 
 
