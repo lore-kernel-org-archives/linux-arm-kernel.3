@@ -4,87 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0721C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 12:56:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 185D6C3ABCD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 12:59:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tJUy7lLmXYcF7E6mCCr7BGqQ9L4GgJNGI82AWY3FskM=; b=ztamtrVymPnO5DmdStJeMZuE2S
-	dF35h/VDV0sH2WTgmnx6ad8Z4jAoEsvjBhKMlv6gaIHQLcqKbjZIIBwT5SRzHnNQ8b6qZLxjaQaug
-	l1H8w3bNsZvupZ9qPkJNyTfQqhSlw66nJf9xqM3Y2FjDVd9CcXOrj+s9YJfkY+xkrXroemBXFOFMv
-	ApHeIlL3wRAdRZyzXSHnW+yDueSMiucUml021GI1n1NtveBqjqdiwFcEmFskKY8JV7ijm/I3wGPiK
-	Z0o1irGRDitpi9F/PQ/K5WI1j+OpAKmPFYRcc28pdFsfXLSnDLLsxTi/QJ1CP6EE+LMpPlrI3Zj22
-	LreROX/g==;
+	bh=3ZOXapXSxILsz0tz3iKOuTxStanObmjL2mIFLW0SH88=; b=Dcu8AvuzugQ8QZ6stx0nkaOlbd
+	s/DYnjshSi7V65fL0ZjXqs43uSSyO/D4vuaO7COEgup9CP3x6MIVRMrzODK/TPkgt117UlAI0SX5R
+	jAKDSLFXs7zus0ApyRN+8s2vjF600fqL5FD/2QjAdmIYRvt9l/H8MLENrf643C6kjjizpUpDuPW3f
+	UkgX6EaNtsRf92O78H9Q3Y0ZWOxdesRvhdrmMn/iTTKRRjBW+EK1g7DkauCKviAvYzvmMzEsFRdnE
+	lzHuQJOs4A8JWjQrLyo0+kd/8kJJFrE9F2Q/KD4t/7n5EJwGMjAGnAkW4gTBCviWPBx4ytyKX5EI3
+	0NbuGMbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uESi2-00000009Scb-2gz2;
-	Mon, 12 May 2025 12:56:42 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uESHj-00000009Niu-3ql5
+	id 1uESk8-00000009T2R-2UGC;
+	Mon, 12 May 2025 12:58:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uESLd-00000009OAh-2bVn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 12:29:33 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-54fcffd6b9dso1873462e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 05:29:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747052970; x=1747657770; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tJUy7lLmXYcF7E6mCCr7BGqQ9L4GgJNGI82AWY3FskM=;
-        b=KEy6Hes6iGuZCU2t65htA8a1Z/OjTbfFTFn4/ewBVXgWj1/iq0BT4KgGlEq5c52B86
-         lDgO9MdGLMyJ44psypmNBZmkxB887Ta1CT9vftEAnTQKtQQJ/OaTVYpFwnUzYtXF6Wxp
-         Xi8hlRHwMhgu477lObAo6zkKdKWfgwBNfqqOXf2DvjhNeBauaXVSe+sjToGh+Vu9oEtd
-         +LofKQhrnRLAypD9sL0dItjrrqMb7qKh4tFO0x4LanerRkVV73XlTfVsP8bhoQsn6Kbn
-         Jc/deEfneQUMTFuToP53d7p++OZ0AKkZIgrk5q+UiF0aGd1HUZCUZTrn56Wn5dO1xh4q
-         QQgw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747052970; x=1747657770;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tJUy7lLmXYcF7E6mCCr7BGqQ9L4GgJNGI82AWY3FskM=;
-        b=hRzTbtgHtkDKVvXD30KGTeveGk4e6sqNvki2rjl4KtEo7ebzHzWu/aM9WKOswC+eG5
-         dQTHKZOG29bnn4eYmcalVDc/LG1+Oy9gSIW2pLjfHnil5VItNhXr7G7fUK0w4raLWy+n
-         nDD7n/rtiQko8dqjTeWi0cRZuuxdT7Kqv6aD/HTIXpwiWZ728kc1dxOIOkVFKJe9jR2X
-         J3R/AjsUYhM9YT6LaPP+BDqh6sv4/rGlg1UKf/hCqyIY093yOYAYcfbPeI+ugNAJcJTX
-         A+513IEmWRjR7+rQjNWvH4akmMZ+gBfTMiwj2GjSJspLKhd/o6208e+GtE+kEfbC6JbK
-         m3Yg==
-X-Forwarded-Encrypted: i=1; AJvYcCXn0c4hcqb8j5b+kPzn5S382TzQrg7NTzohSWr0IOWwTteBANTM2pjbx/LqjNZVpHMOreGtdpzXthcSxIDSJBC4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7O30adlo3Ga+pKuwDDh+33qyVT00tF52PZhoofcwegWB9OqLt
-	qyaLnYIPa7g+MLci6WICUpGHHKqF0kKzWkiEu5JyPcgYo2Ct1p2n56w7hWTtG7wSLLu2DGA9BX6
-	WnWCLWqWYmWmDxzfQEBEc+MhbEPbcXuJgy6tfQg==
-X-Gm-Gg: ASbGncsmXzvX7y3DERUoH1QW5leVNs6DtuxweSiKWCt2R2GsEIl0fGaGSRlCBdO47ve
-	QdsE1/zNVBZ0g2Wno+bYqJZRinznr2q0WAP569dC5TwRHQEFm/U/UAShIZznpOQ0IGvKkE1BgcD
-	Tuq39fEUvFV3LyUGHf5zqMdfEJ7OI9U+1WSQ7P81nFZIw=
-X-Google-Smtp-Source: AGHT+IH5teHFpZT2DOrcAB+txD7/G79w+37iktbttp2yohMQWhCCqnOPjEwdESmtjygl2sxgr8fUwJazQYzfyOJpzag=
-X-Received: by 2002:a05:6512:6816:b0:549:5c5f:c0c0 with SMTP id
- 2adb3069b0e04-54fc67e28e2mr4791732e87.41.1747052969843; Mon, 12 May 2025
- 05:29:29 -0700 (PDT)
+	Mon, 12 May 2025 12:33:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8AC20150C;
+	Mon, 12 May 2025 05:33:21 -0700 (PDT)
+Received: from [10.57.90.222] (unknown [10.57.90.222])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1098A3F673;
+	Mon, 12 May 2025 05:33:29 -0700 (PDT)
+Message-ID: <20e6ac75-6c4b-499b-ba26-cc1a2110509e@arm.com>
+Date: Mon, 12 May 2025 13:33:28 +0100
 MIME-Version: 1.0
-References: <20250508211043.3388702-1-vladimir.oltean@nxp.com>
-In-Reply-To: <20250508211043.3388702-1-vladimir.oltean@nxp.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 12 May 2025 14:29:18 +0200
-X-Gm-Features: AX0GCFuVB3OcEUGN1FzLQPrl4GJJ-z0JMr3VodsFOFwKqSoHqyxxq7JqSWnGH4k
-Message-ID: <CACRpkdY58DH9O5g35Ai5PjE2gDSSbF1GodDNj94-xhPKfHURkw@mail.gmail.com>
-Subject: Re: [PATCH net-next] net: ixp4xx_eth: convert to ndo_hwtstamp_get()
- and ndo_hwtstamp_set()
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: netdev@vger.kernel.org, =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>, 
-	Linus Walleij <linusw@kernel.org>, Imre Kaloz <kaloz@openwrt.org>, 
-	linux-arm-kernel@lists.infradead.org, Andrew Lunn <andrew@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Richard Cochran <richardcochran@gmail.com>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/mm: Disable barrier batching in interrupt contexts
+Content-Language: en-GB
+To: David Hildenbrand <david@redhat.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org,
+ syzbot+5c0d9392e042f41d45c5@syzkaller.appspotmail.com
+References: <20250512102242.4156463-1-ryan.roberts@arm.com>
+ <001dfd4f-27f2-407f-bd1c-21928a754342@redhat.com>
+ <e37d5e61-54e7-4425-837f-25a13f5a68b5@arm.com>
+ <836f2574-cb60-44c5-865c-7f13a90779ec@redhat.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <836f2574-cb60-44c5-865c-7f13a90779ec@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_052931_962447_29AED249 
-X-CRM114-Status: GOOD (  18.60  )
+X-CRM114-CacheID: sfid-20250512_053333_747741_E7B89823 
+X-CRM114-Status: GOOD (  22.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,37 +77,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 8, 2025 at 11:12=E2=80=AFPM Vladimir Oltean <vladimir.oltean@nx=
-p.com> wrote:
+On 12/05/2025 13:05, David Hildenbrand wrote:
+> 
+>>>>    static inline void arch_leave_lazy_mmu_mode(void)
+>>>>    {
+>>>> +    if (in_interrupt())
+>>>> +        return;
+>>>> +
+>>>>        arch_flush_lazy_mmu_mode();
+>>>>        clear_thread_flag(TIF_LAZY_MMU);
+>>>>    }
+>>>
+>>> I guess in all cases we could optimize out the in_interrupt() check on !debug
+>>> configs.
+>>
+>> I think that assumes we can easily and accurately identify all configs that
+>> cause this? We've identified 2 but I'm not confident that it's a full list.
+> 
+> Agreed. I was wondering if we could convert the ones to use different pte
+> helpers, whereby these helpers would not be available without CONFIG_WHATEVER.
+> Then, make these features select CONFIG_WHATEVER.
 
-> New timestamping API was introduced in commit 66f7223039c0 ("net: add
-> NDOs for configuring hardware timestamping") from kernel v6.6. It is
-> time to convert the intel ixp4xx ethernet driver to the new API, so that
-> the ndo_eth_ioctl() path can be removed completely.
->
-> hwtstamp_get() and hwtstamp_set() are only called if netif_running()
-> when the code path is engaged through the legacy ioctl. As I don't
-> want to make an unnecessary functional change which I can't test,
-> preserve that restriction when going through the new operations.
->
-> When cpu_is_ixp46x() is false, the execution of SIOCGHWTSTAMP and
-> SIOCSHWTSTAMP falls through to phy_mii_ioctl(), which may process it in
-> case of a timestamping PHY, or may return -EOPNOTSUPP. In the new API,
-> the core handles timestamping PHYs directly and does not call the netdev
-> driver, so just return -EOPNOTSUPP directly for equivalent logic.
->
-> A gratuitous change I chose to do anyway is prefixing hwtstamp_get() and
-> hwtstamp_set() with the driver name, ipx4xx. This reflects modern coding
-> sensibilities, and we are touching the involved lines anyway.
->
-> The remainder of eth_ioctl() is exactly equivalent to
-> phy_do_ioctl_running(), so use that.
->
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+Trouble is, in KFENCE's case, there is quite a bit of code between the general
+API it calls and the pte manipulations:
 
-Overall looks good to me:
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+ arch_enter_lazy_mmu_mode arch/arm64/include/asm/pgtable.h:82 [inline] (P)
+ apply_to_pte_range mm/memory.c:2936 [inline] (P)
+ apply_to_pmd_range mm/memory.c:2985 [inline] (P)
+ apply_to_pud_range mm/memory.c:3021 [inline] (P)
+ apply_to_p4d_range mm/memory.c:3057 [inline] (P)
+ __apply_to_page_range+0xdb4/0x13e4 mm/memory.c:3093 (P)
+ apply_to_page_range+0x4c/0x64 mm/memory.c:3112
+ __change_memory_common+0xac/0x3f8 arch/arm64/mm/pageattr.c:64
+ set_memory_valid+0x68/0x7c arch/arm64/mm/pageattr.c:-1
+ kfence_protect_page arch/arm64/include/asm/kfence.h:17 [inline]
+ kfence_protect mm/kfence/core.c:247 [inline]
+ kfence_guarded_free+0x278/0x5a8 mm/kfence/core.c:565
+ __kfence_free+0x104/0x198 mm/kfence/core.c:1187
+ kfence_free include/linux/kfence.h:187 [inline]
+ slab_free_hook mm/slub.c:2318 [inline]
+ slab_free mm/slub.c:4642 [inline]
+ kfree+0x268/0x474 mm/slub.c:4841
+ slab_free_after_rcu_debug+0x78/0x2f4 mm/slub.c:4679
+ rcu_do_batch kernel/rcu/tree.c:2568 [inline]
+ rcu_core+0x848/0x17a4 kernel/rcu/tree.c:2824
+ rcu_core_si+0x10/0x1c kernel/rcu/tree.c:2841
+ handle_softirqs+0x328/0xc88 kernel/softirq.c:579
+ __do_softirq+0x14/0x20 kernel/softirq.c:613
 
-Yours,
-Linus Walleij
+> 
+> VM_WARN_ON_* would be used to catch any violations / wrong use of pte helpers.
+> 
+>> Also, KFENCE isn't really a debug config (despite me calling it that in the
+>> commit log) - it's supposed to be something that can be enabled in production
+>> builds.
+> 
+> Agreed. Even Fedora has it.
+> 
+>>
+>>>
+>>> Hm, maybe there is an elegant way to catch all of these "problematic" users?
+>>
+>> I'm all ears if you have any suggestions? :)
+>>
+>>
+>> It actaully looks like x86/XEN tries to solves this problem in a similar way:
+> 
+> Heh, yes. Good old xen ...
+> 
+>>
+>> enum xen_lazy_mode xen_get_lazy_mode(void)
+>> {
+>>     if (in_interrupt())
+>>         return XEN_LAZY_NONE;
+>>
+>>     return this_cpu_read(xen_lazy_mode);
+>> }
+>>
+>> Although I'm not convinced it's fully robust. It also has:
+>>
+>> static inline void enter_lazy(enum xen_lazy_mode mode)
+>> {
+>>     BUG_ON(this_cpu_read(xen_lazy_mode) != XEN_LAZY_NONE);
+>>
+>>     this_cpu_write(xen_lazy_mode, mode);
+>> }
+>>
+>> which is called as part of its arch_enter_lazy_mmu_mode() implementation. If a
+>> task was already in lazy mmu mode when an interrupt comes in and causes the
+>> nested arch_enter_lazy_mmu_mode() that we saw in this bug report, surely that
+>> BUG_ON() should trigger?
+> 
+> Hm, good point. But that code is old, so probably something seems to be
+> preventing that?
+> 
+> 
+> In any case, just a thought on the in_interrupt() check, I think this commit is
+> good enough as is.
+
+OK thanks. I'll leave it as-is then in the absence of other feedback :)
+
 
