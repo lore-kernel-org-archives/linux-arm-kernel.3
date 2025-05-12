@@ -4,107 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3822FC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 18:27:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D7A6C3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 18:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fWaQ2unDnoX2epZ5aWfA8UXS6z4UogKfTjShB0NZNqU=; b=LzeEBwBF8WconkUrMzRF7V0KvV
-	MlWD9yWTLjwAs3mM2oYtGbXGkKhLMK29VllbkBY/3rMak/8T0KqqradgfUWItZRlTG4o7b5jpeOVp
-	K7+biK3NZRLr05+rNM9UPGB0uhAziF1HoQM3DXBSno3Se/5zUHoLPI3AaPmN/wyxQIpo6GmXrRaHG
-	ZomN6HJvE4uo68d83f85mT0dz15h85RN5XkuPI1yZieWVZUNZIrG4g46PvQmtTtsk9KomnnAkSLmS
-	wjepPfrvNbcKxaPefQj7PwzEzRWqi5GOTXr1ho4Ng+oJFI7fbo5d/1nN0Dq9nuxg3mrnyf9/ffMDV
-	9yO4hZlQ==;
+	bh=TqGdI0u7r+KY5CbJScsuboirtiZOmF2NseWC3BorEbo=; b=U0tC+iyULjNOQCysYzLFwkpg7K
+	OZq3PjOR+2pnoxtQtdTSSW+0z0HjMXGbltXeYf1G4xFJpmW2h2Nm8rRU9uKj+jbPrCe5F7m2cHrcB
+	nxSrBkfmLWRjSqHnrK9Psj9FRWBZjj2BQRXbXQkD16tms/TwX5KVDfXn0i/s7SVJk4vWZIRiO7LiK
+	YKGLDp0/mdgUNyOJqZ+7mb9mW9qPXVHBTRz8VIhkelfwEs5d0jvP0uaAbmS9FnCTjOnn2fs7OVzVo
+	E3F6Ou2YucMtsPgySWGwyctIf1xhxkMQ73V2M3suRzVsR/Rbxg9KCUOueneJ8T7dSjVgTUXgKVdhd
+	I+1l5U3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEXs8-0000000ANqw-0S7W;
-	Mon, 12 May 2025 18:27:28 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uEXu9-0000000AOEq-0Vek;
+	Mon, 12 May 2025 18:29:33 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEXWS-0000000AHTw-1mou
+	id 1uEXaK-0000000AIXq-26Bo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 18:05:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1747073103;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fWaQ2unDnoX2epZ5aWfA8UXS6z4UogKfTjShB0NZNqU=;
-	b=N0Box8E7pu4pDJbavegpEYkXoRJhGEBzd4yvlFYNqVdbgiUB2cXTnfVP3ZzGGyB5qwq4j6
-	RWwjUK4v74SYQ1ueNQ2HOYtsQKuyvBbiSQXIU6iudaLzjB/e1n0AkCEHdjEGF/Meak+UHu
-	s1rQMLNO7Py0Kz1us1O2t2HEx/3Qk6Y=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-638-O_xTPgJeM7iHJqPcQlJ7xA-1; Mon,
- 12 May 2025 14:05:02 -0400
-X-MC-Unique: O_xTPgJeM7iHJqPcQlJ7xA-1
-X-Mimecast-MFC-AGG-ID: O_xTPgJeM7iHJqPcQlJ7xA_1747073098
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DC5941800446;
-	Mon, 12 May 2025 18:04:57 +0000 (UTC)
-Received: from intellaptop.lan (unknown [10.22.80.5])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 3A5D930001A1;
-	Mon, 12 May 2025 18:04:52 +0000 (UTC)
-From: Maxim Levitsky <mlevitsk@redhat.com>
-To: kvm@vger.kernel.org
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Sebastian Ott <sebott@redhat.com>,
-	Shusen Li <lishusen2@huawei.com>,
-	Waiman Long <longman@redhat.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	linux-arm-kernel@lists.infradead.org,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Anup Patel <anup@brainfault.org>,
-	Will Deacon <will@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexander Potapenko <glider@google.com>,
-	kvmarm@lists.linux.dev,
-	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	x86@kernel.org,
-	Marc Zyngier <maz@kernel.org>,
-	Sean Christopherson <seanjc@google.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	linux-riscv@lists.infradead.org,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-kernel@vger.kernel.org,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	kvm-riscv@lists.infradead.org,
-	Maxim Levitsky <mlevitsk@redhat.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH v5 6/6] RISC-V: KVM: use kvm_trylock_all_vcpus when locking all vCPUs
-Date: Mon, 12 May 2025 14:04:07 -0400
-Message-ID: <20250512180407.659015-7-mlevitsk@redhat.com>
-In-Reply-To: <20250512180407.659015-1-mlevitsk@redhat.com>
-References: <20250512180407.659015-1-mlevitsk@redhat.com>
+	Mon, 12 May 2025 18:09:05 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43ce70f9afbso50569875e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 11:09:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747073342; x=1747678142; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=TqGdI0u7r+KY5CbJScsuboirtiZOmF2NseWC3BorEbo=;
+        b=ZWwoV1tJ6Z59Z7TpEOIuosMLgRBDp2+xnq9FJ2xuZfA+IUf3GXjPUW7Sew2KTQ3Bn8
+         z/+p/Ro5S3Vq3s5g4v5gY974hmhVZ+ppkqE2nudlb3CtVTkdVwpJsprFV8pomSxivEc2
+         OPzGMqyRaTJmKENUr4sXSDb7KPhqIYWl37pqSDnC01HLyruW6wY7oz4ORJmtn7aw13zW
+         U8EAyGrDxdFrAlXkgTkpW8PR+I/vXBYbODmzsc3jOjRo+DVF0k+tRzWMGEQU4VQIfkuj
+         rwRKpjdSJwv9nIBVt1Ygkbm1u2lY4/kyc8GdikQsbc3KDoHXbLquX2Sf7R8hdvFw2FR/
+         RgQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747073342; x=1747678142;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=TqGdI0u7r+KY5CbJScsuboirtiZOmF2NseWC3BorEbo=;
+        b=CP5Bla509QJWehlGijGsPQVUWwe66QCV6jGF1xD5+H2qEhQla/xoVF1f/smcSThpDx
+         WBlLZz3SOGEzDb4PHi3BP7l0sNhNB2z10nPbtYRIbuIi83mWng11nVF0CqdQ7Xle0TRm
+         mPj2SLFKQKxW4wtT2dDL/IsLdqjCBIJEcfimlVTJs+9Q/peoCNuzuM/q7HkM0Lhgh8je
+         KKvZaV++6fu/YvvPYuG+FAhGxdU6DmghZDuKRqB02l2vo/cChKQMRYe4AmuQ8r+XID86
+         HfTM+pY/JODPngMvKQInv4UanSzpzbkVAD8CO6lQL4w0IxvlMf5ypWHlX4pXM5stFs+T
+         xh7w==
+X-Forwarded-Encrypted: i=1; AJvYcCWUFa8MylAxK/BFivKLK/EYWxUmJvnlLHGkcUlQpB8GK4QIHQzTZ/cGX+4XQ027a/opEUmtzEcY1l3kHASUmqKj@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/kGOopjBJm6HbBueSOfraqmKFH9Yd/vsVmLjyxqtOo4sigZkf
+	g5QX380DYVj5YuQT/ZFe3EaZvdZw0eOheqsl4u1PeNI0RbiBpqdM
+X-Gm-Gg: ASbGncvrNwu3vkcxsEmmwXtdtNP5vDOoqZDHbmV14XI/oXDPTFBkyHUW13In8eMtHgw
+	SHvkZKQLnY8lPYscmEu6lEMKqNmhcDItSMhazJCXVnydQxHbHq44B2pKRZE+oFSg5sj4lajMA5l
+	tWc4sXray0ASoifLRvQZ6MriFVrblhSRoPTgHS7SxAhfAesEwQv1YB+fpXhOt+OKYRjjFO7PFWW
+	ke8XoGLSNgtvkgAq6mgXsXKykYhmo+Eh1lcWjglMLnYk559ZpImOyhTz61k47P7Q+EKt6Byd8M2
+	kABJKVnquvKoEUNytWpJB7yTrAQ6gIUX3YeNLEaoSMhNgceTrcQduzqA4UoVLAo=
+X-Google-Smtp-Source: AGHT+IFw+AkbDnKjFZClxNbYQI+3I+tTSTGJnGpv7ufV8y5CAq7nGPHM3nF5qWIrKS5j7UeyFSkz5A==
+X-Received: by 2002:adf:cf03:0:b0:3a1:f6fd:da50 with SMTP id ffacd0b85a97d-3a1f6fddab1mr8230689f8f.46.1747073342301;
+        Mon, 12 May 2025 11:09:02 -0700 (PDT)
+Received: from [192.168.1.121] ([176.206.99.211])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f57dde6bsm13417967f8f.13.2025.05.12.11.09.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 May 2025 11:09:01 -0700 (PDT)
+Message-ID: <fdab2ea2-824b-4b52-b880-0b097fd29086@gmail.com>
+Date: Mon, 12 May 2025 20:09:01 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/3] arm: fix imx_* defconfig
+To: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Russell King <linux@armlinux.org.uk>, Shawn Guo <shawnguo@kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20250510011806.13470-1-benato.denis96@gmail.com>
+ <aCGPMvP6F6r-57KF@pengutronix.de>
+Content-Language: en-US, it-IT, en-US-large
+From: Denis Benato <benato.denis96@gmail.com>
+In-Reply-To: <aCGPMvP6F6r-57KF@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_110504_545722_00E08568 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20250512_110904_546391_D3D0F8C4 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,77 +102,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use kvm_trylock_all_vcpus instead of a custom implementation when locking
-all vCPUs of a VM.
 
-Compile tested only.
+On 5/12/25 08:03, Sascha Hauer wrote:
+> Hi Denis,
+>
+> On Sat, May 10, 2025 at 03:18:03AM +0200, Denis Benato wrote:
+>> Compiling the kernel using affected imx defconfigs lead
+>> to a hard CPU crash that reaches a state where each register,
+>> including PC ends up in 0xDEADBEEF.
+>>
+>> That is because the SoC support depending on CONFIG_ARCH_MXC
+>> gets disabled since CONFIG_ARCH_NXP is not defined while
+>> said feature depends on it.
+>>
+>> The default arm defconfig is unaffected as it defines
+>> CONFIG_ARCH_NXP=y correctly as excepted.
+>>
+>> These patches solve the crash causing my confusion:
+>> https://lore.kernel.org/all/c84e8246-8104-4409-8d95-389d61bc07af@gmail.com
+> In this mail you say you want to start a ARMv8 i.MX8MM board. The
+> configs you are changing are for old 32bit ARMv4-7 SoCs.
+> arch/arm64/configs/defconfig is for you.
 
-Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
-Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
----
- arch/riscv/kvm/aia_device.c | 34 ++--------------------------------
- 1 file changed, 2 insertions(+), 32 deletions(-)
+Hello and thanks for both of your answers.
 
-diff --git a/arch/riscv/kvm/aia_device.c b/arch/riscv/kvm/aia_device.c
-index 39cd26af5a69..6315821f0d69 100644
---- a/arch/riscv/kvm/aia_device.c
-+++ b/arch/riscv/kvm/aia_device.c
-@@ -12,36 +12,6 @@
- #include <linux/kvm_host.h>
- #include <linux/uaccess.h>
- 
--static void unlock_vcpus(struct kvm *kvm, int vcpu_lock_idx)
--{
--	struct kvm_vcpu *tmp_vcpu;
--
--	for (; vcpu_lock_idx >= 0; vcpu_lock_idx--) {
--		tmp_vcpu = kvm_get_vcpu(kvm, vcpu_lock_idx);
--		mutex_unlock(&tmp_vcpu->mutex);
--	}
--}
--
--static void unlock_all_vcpus(struct kvm *kvm)
--{
--	unlock_vcpus(kvm, atomic_read(&kvm->online_vcpus) - 1);
--}
--
--static bool lock_all_vcpus(struct kvm *kvm)
--{
--	struct kvm_vcpu *tmp_vcpu;
--	unsigned long c;
--
--	kvm_for_each_vcpu(c, tmp_vcpu, kvm) {
--		if (!mutex_trylock(&tmp_vcpu->mutex)) {
--			unlock_vcpus(kvm, c - 1);
--			return false;
--		}
--	}
--
--	return true;
--}
--
- static int aia_create(struct kvm_device *dev, u32 type)
- {
- 	int ret;
-@@ -53,7 +23,7 @@ static int aia_create(struct kvm_device *dev, u32 type)
- 		return -EEXIST;
- 
- 	ret = -EBUSY;
--	if (!lock_all_vcpus(kvm))
-+	if (kvm_trylock_all_vcpus(kvm))
- 		return ret;
- 
- 	kvm_for_each_vcpu(i, vcpu, kvm) {
-@@ -65,7 +35,7 @@ static int aia_create(struct kvm_device *dev, u32 type)
- 	kvm->arch.aia.in_kernel = true;
- 
- out_unlock:
--	unlock_all_vcpus(kvm);
-+	kvm_unlock_all_vcpus(kvm);
- 	return ret;
- }
- 
--- 
-2.46.0
 
+Yes, I have made the mistake of using that defconfig for arm while building an arm64 kernel.
+
+
+I am sorry and thank you both for correcting me.
+
+Please, ignore these patches.
+
+Denis B.
+
+> Sascha
+>
+>> Denis Benato (3):
+>>   ARM: imx_v4_v5_defconfig: define CONFIG_ARCH_NXP
+>>   ARM: imx_v6_v7_defconfig: define CONFIG_ARCH_NXP
+>>   ARM: imxrt_defconfig: define CONFIG_ARCH_NXP
+>>
+>>  arch/arm/configs/imx_v4_v5_defconfig | 1 +
+>>  arch/arm/configs/imx_v6_v7_defconfig | 1 +
+>>  arch/arm/configs/imxrt_defconfig     | 1 +
+>>  3 files changed, 3 insertions(+)
+>>
+>> -- 
+>> 2.49.0
+>>
+>>
 
