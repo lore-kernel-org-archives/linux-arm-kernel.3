@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8643C3ABCD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 12:46:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC1BC3ABCD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 12:48:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DKwUVvc+iOKDYk1QWb3QJdUETVrnhqOOYR4QXnF7Ha8=; b=r2dmLq5yr7h1HHp9WKkRwOrsJL
-	M5MfUQ7QOnTnY+KWep3Cr2PbNvCG9F2Rn3wr9bu+vsIrQnIetw5Okm0gA6MWfj+U1ch0PxwCLdKhn
-	/3kQwqpnMY+H4htT5YYUGFeR4cfxF/DYHkCD955iXqXZJbvoqt5YiVGhqRN3Dr9FuysCg58uCTYA4
-	U7sy5DblK7gFZvqGjyZ9TMbxUdHeUSzgaMhQEuZ2DL+xFFWbildNgj++60L9N3fme/L9Iwf5SLMrR
-	5jdLokV4y5f1Bzt/TxSafYrs+DZ6dTl+OHni4d/4NZVRvyCUMWho3GySBrPiG0nWojfa+VdsaLytT
-	BR/WfECA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OIzn1mPnTSPLZjpB6j7XRj/AFW6cs5zlnmrS1IKRsKI=; b=Z+nHFddA4cwmP6Vt/JxZw1mGt8
+	033fNFWJ/5k6SKHiyMVVYOHIkEMaP231M7McYKsiHZJSpNlYlqOcaYhI1lFa1cPqA8whqNPVOhwf6
+	PA5Hnqdxwbw+FqcZ44yjpyQx1ZWxAy12odk4+VvcDE2nJZ9TJNnOqxrd0PF/2cW0hox1sNKevPrXe
+	Np0iuR4iu2z/pACCsM7QOVqngvItk1agTCTRjes64ZYo1sXJPkSi9w/TMVD3wC/l0WXyg/zTFvXqv
+	V1SfsJS03P4UH+VcpXy3mgh297MQs/icwowkDhud6hA7vxVfcGNWBOy7luhSvuZhjT1MVi8ceVivG
+	fqEf0uMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uESXb-00000009QE4-2Aez;
-	Mon, 12 May 2025 12:45:55 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uESZg-00000009QpY-10GQ;
+	Mon, 12 May 2025 12:48:04 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uERyO-00000009Laq-0Ndh
+	id 1uES0Y-00000009Luf-3Kza
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 12:09:33 +0000
+	Mon, 12 May 2025 12:11:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E92FBA4172B;
-	Mon, 12 May 2025 12:09:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E736C4CEE7;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 23F9F5C6424;
 	Mon, 12 May 2025 12:09:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2AADC4CEE7;
+	Mon, 12 May 2025 12:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747051770;
-	bh=xE99g38G05kWVWQVsEMeTHQ9yIJhHcnUagPODqbgZOg=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=RGOHXBEyhlL/RenWdnEwRHp4GPMF3l/O7Myx9N6q/RAyYvnDMHr8sQI2RJI442eAD
-	 zElNcSxvAYgxHpdDUiZqLoE1Ym+qXiAlCvIugJeCGqXhzXGfn/bcIXAuHdW5dJL8+s
-	 npsLsnrHI29OzhIwCAh0EEuRd+doMgd33N80EHT52lX5QBApwHrr77yInbLITnt8VC
-	 304GObjTuHaR62aYAc08rfb9dmlWwBVeIuohv2A2DInmB7v6is4GxdSXnBsBm/U3my
-	 yuZnC69785WoPNilRc8RMyv25iVqQGbd8IjrbtFl3iKq49YHw+BOXeQAYqaCtK5Yr/
-	 MxWp8lP1iAhgw==
+	s=k20201202; t=1747051904;
+	bh=OIzn1mPnTSPLZjpB6j7XRj/AFW6cs5zlnmrS1IKRsKI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pXQUd8a9pbhwP2kR2m3LdSR8Eo636ZyBTl977P0+jodT/APhlh++OfPy+q40Zr++q
+	 A7HeU+/IxQuwBLqbj8uWkmNS5STfJoxMZy6Gt4P5yV9f/+4JSQSj7YAUyMGxyIpmOM
+	 z+yb50PYdw1v7QJbwiAOM0urByyiZz0EOFAQLtHwVU9CIxWQTn/DED+7bg3WfY7Bqa
+	 Q2usjiip4zWsnUrdnTKmwrOzpGtNcoWNNz9ghRBS8eFXsE9ZPF/YbUUV7UZuRJpx70
+	 shZFJ3t/znt3ob3UFGdyu9MHLIBsQww892qr9CHVX/n9sHP2MhFslkJE1iS6cxs3eN
+	 sMXp/ydGhdgPA==
+Date: Mon, 12 May 2025 21:11:40 +0900
 From: Mark Brown <broonie@kernel.org>
-To: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Varshini Rajendran <varshini.rajendran@microchip.com>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, linux-spi@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Len Brown <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Danilo Krummrich <dakr@kernel.org>, Alexander Dahl <ada@thorsis.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20250327195928.680771-2-csokas.bence@prolan.hu>
-References: <20250327195928.680771-2-csokas.bence@prolan.hu>
-Subject: Re: [PATCH v6 0/2] Add more devm_ functions to fix PM imbalance in
- spi/atmel-quadspi.c
-Message-Id: <174705176600.71095.8384606721205945217.b4-ty@kernel.org>
-Date: Mon, 12 May 2025 21:09:26 +0900
+To: Patrice Chotard <patrice.chotard@foss.st.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4] spi: stm32-ospi: Make usage of
+ reset_control_acquire/release() API
+Message-ID: <aCHlfED7b-W0pGXY@finisterre.sirena.org.uk>
+References: <20250512-b4-upstream_ospi_reset_update-v4-1-982c6f7886ef@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.15-dev-c25d1
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Up6TTTXwV3c9rzJk"
+Content-Disposition: inline
+In-Reply-To: <20250512-b4-upstream_ospi_reset_update-v4-1-982c6f7886ef@foss.st.com>
+X-Cookie: Well begun is half done.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_050932_192944_141F87BD 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20250512_051146_893892_D335860F 
+X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,46 +79,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Mar 2025 20:59:25 +0100, Bence Csókás wrote:
-> The probe() function of the atmel-quadspi driver got quite convoluted,
-> especially since the addition of SAMA7G5 support, that was forward-ported
-> from an older vendor kernel. During the port, a bug was introduced, where
-> the PM get() and put() calls were imbalanced. To alleivate this - and
-> similar problems in the future - an effort was made to migrate as many
-> functions as possible, to their devm_ managed counterparts. The few
-> functions, which did not yet have a devm_ variant, are added in patch 1 of
-> this series. Patch 2 then uses these APIs to fix the probe() function.
-> 
-> [...]
 
-Applied to
+--Up6TTTXwV3c9rzJk
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+On Mon, May 12, 2025 at 09:01:04AM +0200, Patrice Chotard wrote:
+> As ospi reset is consumed by both OMM and OSPI drivers, use the reset
+> acquire/release mechanism which ensure exclusive reset usage.
 
-Thanks!
+This doesn't apply against current code, please check and resend.
 
-[1/2] pm: runtime: Add new devm functions
-      (no commit info)
-[2/2] spi: atmel-quadspi: Fix unbalanced pm_runtime by using devm_ API
-      commit: 8856eafcc05ecf54d6dd2b6c67804fefd276472c
+--Up6TTTXwV3c9rzJk
+Content-Type: application/pgp-signature; name="signature.asc"
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+-----BEGIN PGP SIGNATURE-----
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmgh5XsACgkQJNaLcl1U
+h9CakQf+Lpn5673L+a+Kd8BDCJp+K0LSEk6Gm4jTSeW4OQokDsRA9bfIlOjLdgzV
+ORMqH5XETEjmrOXd9mXLWBQKn0v6qd0oRNx4NS47Guka1G1cWRgZN07vPz6TtS/j
+yIPNVBaSJdcbTt+vq8Hi39KyW1v6+Bfltd83BwLFfF6VZSlr1JG5wJ9QLOfYBYx3
+eZ+/8Uq9O0ZKBmoLOT32s0VqfoT82snwGrh4GPKJ52cFJ4UT8PQ2ijxB82pQK6Ni
+9W2yxwEqiIyRF7V5UT1SLGH3mTkQXxf+ehJY/s8wgdVv4FdxJ/qcTWFkXBmMm4DS
+DZoG5cAUB75NzruPspH29ac7txNyXw==
+=OXiw
+-----END PGP SIGNATURE-----
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+--Up6TTTXwV3c9rzJk--
 
