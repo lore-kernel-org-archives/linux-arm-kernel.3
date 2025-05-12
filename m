@@ -4,60 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81E39C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 23:10:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C5AC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 23:28:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gSu69Pr4HjX8HDspEYl2pdfijF2goO2kW9FG1X+WHeI=; b=ZuxYIEOswLmYUyjQrgrhRWuYc1
-	uyFaEVrPFPQ7oMKONLw+geHquMaW+279hkoudJeX63KCgc4dzwYfVITOiwevucfdiwta8dngKfp+W
-	+P21XoeQ/IRG/SlLU0//NhGEQg1nkpbr3mk5kWYtzDd89OixQTm8LDU6+mbAMg2iiwi6Ql2s0RNyg
-	ka2obdKnwk7sZdOpDmLwBdlbt6hIzmbr0ZXu62vd+yoLiK1nlBY2Pc3uF4D6yCuxSJUi9UBbGiorz
-	coZRojK0XQVSTbi9fpisgsSZw6GZ2+Vh7bBK5gZN2ugW5DaW8PPRh7GhPTx55nMY02zcbetugFGpk
-	Xe8uPAyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WqKhY1RojEvRb14HYurQbKAHljhMzz4IMUcpGdu0eJY=; b=l0PAdWJ/aeucCIw+DPQFYaYiT4
+	bRiFkZerG8IxBUe7QlhJWOonSs2NwDzXhs1AaWZl8aC6njOqWVA0EtGrm1AbZPMeEA/RTVmokkBxd
+	3TMzuVXb3vs2O80AwyxOPWwNSDSRmtP7gpLvtv2LfvC0JIx0mrT0HPIH2GA6/ON08Klem1u3pC8Rq
+	dMPgTCORS+FrPkNkXQaBMthxDWWXXpT4DNbGE6mtaPakzCnsOXp0F2AUoLODzejpmxat0nKewFEEG
+	hvhGZ6N7qCqs6+0Q1p39OkU7zo5+cz5DB7kwH0PzDI0uw0MsSINTJ/0jRaY1qIK56Mbna3yEc7CSx
+	3y3Jk0NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEcHx-0000000Au5O-2EuH;
-	Mon, 12 May 2025 23:10:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uEcZ7-0000000Av2b-1KII;
+	Mon, 12 May 2025 23:28:09 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEcFR-0000000Atse-0xrg
+	id 1uEcX5-0000000Auvc-43Mu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 23:07:49 +0000
+	Mon, 12 May 2025 23:26:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A7EA2629D8;
-	Mon, 12 May 2025 23:07:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8AFBC4CEE7;
-	Mon, 12 May 2025 23:07:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1747091268;
-	bh=mLVqZ/5YEgc5I+OtAVcP0zFUZRpKAoMmvvxTlxPz18o=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=HVRgBjCN+owyIIX2LdiVtsMZPE1XhoigL58bK7gd1UHu7lMiaauZLLfW+YQ+eDnuK
-	 lvATaRFwnzkmyYAZt+vyyhalou05HdebpZU6NA6ri6BJoeoMTM1BkbFGwXyR5nAP/h
-	 /dL6EEyUqBdHdZzAII1hM4ypAOaJi5pMiNfVGxzw=
-Date: Mon, 12 May 2025 16:07:47 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: <catalin.marinas@arm.com>, <will@kernel.org>, <dianders@chromium.org>,
- <sumit.garg@linaro.org>, <kernelfans@gmail.com>,
- <lecopzer.chen@mediatek.com>, <tglx@linutronix.de>, <song@kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <jonathan.cameron@huawei.com>,
- <zhanjie9@hisilicon.com>, <prime.zeng@hisilicon.com>,
- <yangyicong@hisilicon.com>, <linuxarm@huawei.com>
-Subject: Re: [PATCH v2 1/2] watchdog/perf: Provide function for adjusting
- the event period
-Message-Id: <20250512160747.7c70fac79f4ecd929bf6b255@linux-foundation.org>
-In-Reply-To: <20250512130919.23915-2-yangyicong@huawei.com>
-References: <20250512130919.23915-1-yangyicong@huawei.com>
-	<20250512130919.23915-2-yangyicong@huawei.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7556F5C57C5;
+	Mon, 12 May 2025 23:23:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FD71C4CEE7;
+	Mon, 12 May 2025 23:26:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747092360;
+	bh=ocrZSi8DrO1EDikoZUP7oF3uAlxlKAV4CCYK0E7ESY8=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=G/miODGVrcGeq496mvoRikgxy5uBNnOkysR4Bjkvdh99lpImJjlM0Q5BY/YOvD2eX
+	 Tphg+iiW8oLW9MrYAirmoLLIf+pWgv0NN0Zk9AcXiXyDOzLVLNem6tdFThiaJGVPmN
+	 15PcatmTdyI7Ze3ctlGjCRzcnYK33f2W6MXt7KXMSpKfzycAYk0STYuZkp3uKIuVUI
+	 k+diB3b7yfILzHv2GmGN/ceT6plbGrTysUtzmgENfnumE3CYdoWsmKvoxqQfNfc46P
+	 D1nIFgQTzLfQuUP5n0LDuCL/V7cexibccQXFb3mQqBCAeX6jGDDqlvTPgrFGHqhPOg
+	 KR1Fk1UXvw5pQ==
+Date: Mon, 12 May 2025 18:25:58 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Tommaso Merciai <tomm.merciai@gmail.com>, Liu Ying <victor.liu@nxp.com>, 
+ Benjamin Mugnier <benjamin.mugnier@foss.st.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Dan Carpenter <dan.carpenter@linaro.org>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>, devicetree@vger.kernel.org, 
+ Dongcheng Yan <dongcheng.yan@intel.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Ross Burton <ross.burton@arm.com>, Will Deacon <will@kernel.org>, 
+ Eric Biggers <ebiggers@google.com>, 
+ Julien Massot <julien.massot@collabora.com>, linux-media@vger.kernel.org, 
+ =?utf-8?q?N=C3=ADcolas_F_=2E_R_=2E_A_=2E_Prado?= <nfraprado@collabora.com>, 
+ Taniya Das <quic_tdas@quicinc.com>, Mark Brown <broonie@kernel.org>, 
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+ linux-staging@lists.linux.dev, Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Ricardo Ribalda <ribalda@chromium.org>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Zhi Mao <zhi.mao@mediatek.com>, 
+ Cosmin Tanislav <cosmin.tanislav@analog.com>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Hans Verkuil <hverkuil@xs4all.nl>, 
+ linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, 
+ Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Kieran Bingham <kieran.bingham@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Liam Girdwood <lgirdwood@gmail.com>, 
+ Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, 
+ Conor Dooley <conor+dt@kernel.org>
+To: Cosmin Tanislav <demonsingur@gmail.com>
+In-Reply-To: <20250512212832.3674722-15-demonsingur@gmail.com>
+References: <20250512212832.3674722-1-demonsingur@gmail.com>
+ <20250512212832.3674722-15-demonsingur@gmail.com>
+Message-Id: <174709235870.686179.16618194990565341079.robh@kernel.org>
+Subject: Re: [PATCH v3 14/19] dt-bindings: media: i2c: add MAX9296A,
+ MAX96716A, MAX96792A
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250512_162604_111910_BE823CF1 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,53 +102,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 12 May 2025 21:09:18 +0800 Yicong Yang <yangyicong@huawei.com> wrote:
 
-> From: Yicong Yang <yangyicong@hisilicon.com>
+On Tue, 13 May 2025 00:28:23 +0300, Cosmin Tanislav wrote:
+> The MAX9296A deserializer converts single or dual serial inputs to MIPI
+> CSI-2 outputs. The GMSL2 links operate at a fixed rate of 3Gbps or 6Gbps
+> in the forward direction and 187.5Mbps in the reverse direction.
+> In GMSL1 mode, each serial link can be paired with 3.12Gbps or 1.5Gbps
+> GMSL1 serializers or operate up to 4.5Gbps with GMSL2 serializers with
+> GMSL1 backward compatibility. The MAX9296A supports mixed GMSL2 and
+> GMSL1 links. The serial inputs operate independently, allowing videos
+> with different timings and resolutions to be received on each input.
 > 
-> Architecture's using perf events for hard lockup detection needs to
-> convert the watchdog_thresh to the event's period, some architecture
-> for example arm64 perform this conversion using the CPU's maximum
-> frequency which will be acquired by cpufreq. However by the time
-> the lockup detector's initialized the cpufreq driver may not be
-> initialized, thus launch a watchdog with inaccurate period. Provide
-> a function hardlockup_detector_perf_adjust_period() to allowing
-> adjust the event period. Then architecture can update with more
-> accurate period if cpufreq is initialized.
+> MAX96716A supports both tunnel and pixel mode.
+> MAX96792A supports both tunnel and pixel mode, and has two GMSL3 links.
 > 
-> ...
->  
-> +/**
-> + * hardlockup_detector_perf_adjust_period - Adjust the event period due
-> + *                                          to cpu frequency change
-> + * @cpu: The CPU whose event period will be adjusted
-> + * @period: The target period to be set
-> + */
-> +void hardlockup_detector_perf_adjust_period(int cpu, u64 period)
-> +{
-> +	struct perf_event *event = per_cpu(watchdog_ev, cpu);
-> +
-> +	if (!(watchdog_enabled & WATCHDOG_HARDLOCKUP_ENABLED))
-> +		return;
+> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
+> ---
+>  .../bindings/media/i2c/maxim,max9296a.yaml    | 242 ++++++++++++++++++
+>  MAINTAINERS                                   |   6 +
+>  2 files changed, 248 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/media/i2c/maxim,max9296a.yaml
+> 
 
-Is this the right thing to do?  Would it be better to proceed with the
-alteration of the period so that the state is correct if
-WATCHDOG_HARDLOCKUP_ENABLED is later enabled?  (If that's possible).
+My bot found errors running 'make dt_binding_check' on your patch:
 
+yamllint warnings/errors:
 
-> +	if (!event)
-> +		return;
-> +
-> +	if (event->attr.sample_period == period)
-> +		return;
-> +
-> +	if (perf_event_period(event, period))
-> +		pr_err("failed to change period to %llu\n", period);
-> +}
-> +
->  /**
->   * hardlockup_detector_perf_stop - Globally stop watchdog events
->   *
-> -- 
-> 2.24.0
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max9296a.example.dtb: serializer@40 (maxim,max96717): compatible: 'oneOf' conditional failed, one must be fixed:
+	['maxim,max96717'] is too short
+	'maxim,max96717' is not one of ['maxim,max9295a', 'maxim,max96717f']
+	from schema $id: http://devicetree.org/schemas/media/i2c/maxim,max96717.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max9296a.example.dtb: serializer@40 (maxim,max96717): compatible: 'oneOf' conditional failed, one must be fixed:
+	['maxim,max96717'] is too short
+	'maxim,max96717' is not one of ['maxim,max9295a', 'maxim,max96717f']
+	from schema $id: http://devicetree.org/schemas/media/i2c/maxim,max96717.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250512212832.3674722-15-demonsingur@gmail.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
