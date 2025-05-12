@@ -4,114 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B1AC3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 16:12:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BBDCC3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 16:14:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A/ri/6ZjxW7RCFovjRl8X2bDl9rq/UBNCApnh0pl15I=; b=KFjS04FbmIzVzOQcLK1g1xwBNr
-	o3iMaqqMnC/UTJW/kobDjUAcTNTeXOCuLNxor/aX5z4nP9nwKzY9Q4uNTL0YRQS/5dfBN+TivXuBL
-	X0xVkE8GQddakZgfyNjxAUiEuhFBlYl7qsK/+/tfvptflxUWv1ENDKNTtz9oTG30L3ZmGdBflQ7Zg
-	Bb8Yg3fzdh7ZK8PXm4aQ6ewUrNxsquUFqWZN3Kx+QGNnSOTDaw4/QmXHLRnHa3MCJXMP5KllslEgV
-	FesxJg5U1mlwLcXGFHXvxtFPSOQqQQ24sVywzSKr6iIcD6VVVMc3SDWTcFs7lD5bfCfIsiCmzu/Hv
-	BdhjQqmw==;
+	bh=T6MXrnT3gf4UCix4NRHlqZt6S+pEnfTMsanMdKfJUb8=; b=JByfDviE+nXmeCD+iSrFzdugoD
+	iOA93FQooovH3QoAonNliAbMfltdjrKIt6jiYRUPIXQ6PtYZ+COBhhleSoPyoTrhtn3ZVPrXUa4Kc
+	A3EE+3jMKFThXvP+QPI44L+DSFfmhDtxtblUsBVWWglCf4NuUhQa+Cuv06awioQ6WLZuSYJ/kVxvk
+	+6SFoM0oZJe4ksLShW0QQ4HWBxby3ZCOLbVSXzCCY6o5SiTer+85ELLwPoNm0aqM2yYelr6fakNAJ
+	9ScBTNFj4JoaE/LOmXPZn/GBcHcVwOL27vf9wEEkg2nOP46ITNVR0g06UzE4BdnxbGKssC/iZI5b2
+	tUwM4bgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEVl6-00000009zBP-2rDz;
-	Mon, 12 May 2025 16:12:04 +0000
-Received: from fhigh-b1-smtp.messagingengine.com ([202.12.124.152])
+	id 1uEVnC-00000009zbb-15Ks;
+	Mon, 12 May 2025 16:14:14 +0000
+Received: from out-170.mta0.migadu.com ([91.218.175.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEVHw-00000009ukD-331a
+	id 1uEVQS-00000009wRJ-3xLC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 15:41:58 +0000
-Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 21A5925400D8;
-	Mon, 12 May 2025 11:41:54 -0400 (EDT)
-Received: from phl-imap-12 ([10.202.2.86])
-  by phl-compute-04.internal (MEProxy); Mon, 12 May 2025 11:41:54 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
-	 t=1747064513; x=1747150913; bh=A/ri/6ZjxW7RCFovjRl8X2bDl9rq/UBN
-	CApnh0pl15I=; b=jL8JZhYU/eNhS1Dbxm8P0HfZ5uJ0f9c89R1Xokb5AT19RPm5
-	+UMawNHN9e+gdyVjzbmeX0UKUI35c234NQmPyK/mQN1vlgMpkP+3fQ+z7WYvLzUG
-	sceVXAUgUxkf5tiVfvmbw4vMxinru9KcJcufIOr8wRBYK0VIpTg7cCnCpCXG63Oh
-	vRv1TLt6VN54bh03c1nN2wI8LocK8MRenPos2cZSlGgVs0sErjULY+GDJ7MKSHHr
-	MDBkG0xm/dhyS/UpDBDXBJbUcXF6tYYybOXiIpQERyDgr5NDKJVU6fdAOl8WkyH8
-	3uRz2iYtOXuvSg6H7fpRdeXvD8iDbLPr8R4dyQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1747064513; x=
-	1747150913; bh=A/ri/6ZjxW7RCFovjRl8X2bDl9rq/UBNCApnh0pl15I=; b=p
-	xC6oByaTqzWJwlrUULPV7S5tdE3lUUlVajj+ozI2sdYQCKWMgpFqxhnNp6sQ/y3Y
-	p8bnDHQOwqQ/WqZdvo8+vkHIsA/pUzAxfOWQGRR/Q9tRWYXCfq/j+OiIDeBLGjhh
-	FMWtTGLYAZ7nbIeleqlohvHNw1IbFxAGLbJ3fIDKY8rUEoV1BOx2+vDkyBtq5QAM
-	O2wvUDSEmgPxFwTiea0QShiLok1j9VwG5slUFcddocxg18gYxzdxeDIiDJtd/lNa
-	KyTyG0FwUBWoJY3cwKOADqIRnwYgcZvdbmg3E3j2hGR7cK1GVhqQec4Ws4V2Zwk9
-	RT1cigP76djJ9Yz+g6hHg==
-X-ME-Sender: <xms:wBYiaFNvahD2L0uAISA-4GNPY-XHMqVkfJCBRUPL7Uvkv83DCo0tOA>
-    <xme:wBYiaH8U0H8aSWHE257TqtISn56uYU87w7rZURaBjDJPUK09AVw70q4qCmQh_L5Oj
-    b1V3uXVnZJoZL6QUHI>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeftdduieegucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedfufhvvghnucfrvghtvghrfdcuoehsvhgvnhesshhvvghnphgvth
-    gvrhdruggvvheqnecuggftrfgrthhtvghrnhepleefteeugeduudeuudeuhfefheegveek
-    ueefffdvffektdffffelveffvddvueffnecuvehluhhsthgvrhfuihiivgeptdenucfrrg
-    hrrghmpehmrghilhhfrhhomhepshhvvghnsehsvhgvnhhpvghtvghrrdguvghvpdhnsggp
-    rhgtphhtthhopeduledpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprhhmkhdokh
-    gvrhhnvghlsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepsghrghhlsegs
-    ghguvghvrdhplhdprhgtphhtthhopehsvggsrghsthhirghnrdhrvghitghhvghlsegtoh
-    hllhgrsghorhgrrdgtohhmpdhrtghpthhtohepnhgvrghlsehgohhmphgrrdguvghvpdhr
-    tghpthhtohepjhesjhgrnhhnrghurdhnvghtpdhrtghpthhtoheptghonhhorhdoughtse
-    hkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhr
-    ghdprhgtphhtthhopehlvggvsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrgiise
-    hkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:wBYiaEQsd1xvdtdJJ1WfCDmYgfhkFuWZm0lxil1__WEgKGWQUR0-5A>
-    <xmx:wBYiaBtdFny8lKddpw7XUOJHW7bSUw9R_n012ooBLLVM6JlUq0Nj3A>
-    <xmx:wBYiaNeqU2j49KazqgorE4hyn67K84YsrCQN126k-JyVdi2Ck_kauQ>
-    <xmx:wBYiaN2DNwhMgAxOfYxgOmMN8aQfZCmK0CIhYyyTJgzfnV1YBPVl9A>
-    <xmx:wRYiaDO07QpmSUH25G9IVJMjlkEKU2glNIRaTFN6QHOUrCApyau3cbWu>
-Feedback-ID: i51094778:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id B65281C20067; Mon, 12 May 2025 11:41:52 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 12 May 2025 15:50:46 +0000
+Message-ID: <2ca5f592-74d3-41ff-8282-4359cb5ec171@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1747065042;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=T6MXrnT3gf4UCix4NRHlqZt6S+pEnfTMsanMdKfJUb8=;
+	b=jky+qgtETsFb0biTW/1lR9LNg39rCYhPgORR6TnNYv4JuW/iyHLT3hSsmBwFCXNEYk+YPH
+	wQ6Ense3mid4zlO4UAPyAPWAU6XKuNVFxljw6h5ZZTx5zj+HOHaSMWR+7l0Q1nN43lUoZr
+	rthZf0zrQvIMq1CkLxUeovin6kWcx+k=
+Date: Mon, 12 May 2025 16:50:35 +0100
 MIME-Version: 1.0
-X-ThreadId: Tee5e6786d5fc82a3
-Date: Mon, 12 May 2025 17:41:32 +0200
-From: "Sven Peter" <sven@svenpeter.dev>
-To: "Sebastian Reichel" <sebastian.reichel@collabora.com>
-Cc: "Janne Grunau" <j@jannau.net>, "Alyssa Rosenzweig" <alyssa@rosenzweig.io>,
- "Neal Gompa" <neal@gompa.dev>, "Hector Martin" <marcan@marcan.st>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Bartosz Golaszewski" <brgl@bgdev.pl>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Lee Jones" <lee@kernel.org>,
- "Marc Zyngier" <maz@kernel.org>, "Russell King" <rmk+kernel@armlinux.org.uk>,
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org
-Message-Id: <438dc401-a531-4b07-b77c-92748acadf85@app.fastmail.com>
-In-Reply-To: <2mhqiy6twurcidtwe7rhtobq5mivb2meoq6ik3dt45zwerkwrd@ebudw64trryq>
-References: <20250511-smc-6-15-v5-0-f5980bdb18bd@svenpeter.dev>
- <20250511-smc-6-15-v5-7-f5980bdb18bd@svenpeter.dev>
- <2mhqiy6twurcidtwe7rhtobq5mivb2meoq6ik3dt45zwerkwrd@ebudw64trryq>
-Subject: Re: [PATCH v5 07/10] power: reset: macsmc-reboot: Add driver for rebooting via
- Apple SMC
-Content-Type: text/plain
+Subject: Re: [PATCH net-next] net: stmmac: convert to ndo_hwtstamp_get() and
+ ndo_hwtstamp_set()
+To: Vladimir Oltean <vladimir.oltean@nxp.com>, netdev@vger.kernel.org
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, Russell King <linux@armlinux.org.uk>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Richard Cochran <richardcochran@gmail.com>,
+ Furong Xu <0x1207@gmail.com>
+References: <20250512143607.595490-1-vladimir.oltean@nxp.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+In-Reply-To: <20250512143607.595490-1-vladimir.oltean@nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_084157_307914_D54D50E3 
-X-CRM114-Status: GOOD (  25.47  )
+X-CRM114-CacheID: sfid-20250512_085045_148680_CE492226 
+X-CRM114-Status: GOOD (  29.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,121 +77,272 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+On 12/05/2025 15:36, Vladimir Oltean wrote:
+> New timestamping API was introduced in commit 66f7223039c0 ("net: add
+> NDOs for configuring hardware timestamping") from kernel v6.6. It is
+> time to convert the stmmac driver to the new API, so that the
+> ndo_eth_ioctl() path can be removed completely.
 
-thanks for the review!
+The conversion to the new API looks good, but stmmac_ioctl() isn't
+removed keeping ndo_eth_ioctl() path in place. Did I miss something in
+the patch?
 
-On Mon, May 12, 2025, at 00:16, Sebastian Reichel wrote:
-> Hi,
->
-> On Sun, May 11, 2025 at 08:18:42AM +0000, Sven Peter via B4 Relay wrote:
->> From: Hector Martin <marcan@marcan.st>
->> 
->> This driver implements the reboot/shutdown support exposed by the SMC
->> on Apple Silicon machines, such as Apple M1 Macs.
->> 
->> Signed-off-by: Hector Martin <marcan@marcan.st>
->> Signed-off-by: Sven Peter <sven@svenpeter.dev>
->> ---
->>  MAINTAINERS                         |   1 +
->>  drivers/power/reset/Kconfig         |  11 ++
->>  drivers/power/reset/Makefile        |   1 +
->>  drivers/power/reset/macsmc-reboot.c | 363 ++++++++++++++++++++++++++++++++++++
->>  4 files changed, 376 insertions(+)
->> 
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index fa3a5f9ee40446bcc725c9eac2a36651e6bc7553..84f7a730eb2260b7c1e0487d18c8eb3de82f5206 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -2303,6 +2303,7 @@ F:	drivers/mfd/macsmc.c
->>  F:	drivers/nvme/host/apple.c
->>  F:	drivers/nvmem/apple-efuses.c
->>  F:	drivers/pinctrl/pinctrl-apple-gpio.c
->> +F:	drivers/power/reset/macsmc-reboot.c
->>  F:	drivers/pwm/pwm-apple.c
->>  F:	drivers/soc/apple/*
->>  F:	drivers/spi/spi-apple.c
->> diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
->> index 60bf0ca64cf395cd18238fc626611c74d29844ee..6e8dfff64fdc001d09b6c00630cd8b7e2fafdd8e 100644
->> --- a/drivers/power/reset/Kconfig
->> +++ b/drivers/power/reset/Kconfig
->> @@ -128,6 +128,17 @@ config POWER_RESET_LINKSTATION
->>  
->>  	  Say Y here if you have a Buffalo LinkStation LS421D/E.
->>  
->> +config POWER_RESET_MACSMC
->> +	tristate "Apple SMC reset/power-off driver"
->> +	depends on ARCH_APPLE || COMPILE_TEST
->> +	depends on MFD_MACSMC
->> +	depends on OF
->
-> This can also be 'OF || COMPILE_TEST'. But I would expect this
-> driver to just have 'depends on MFD_MACSMC' and then manage the
-> checks for ARCH_APPLE and OF in the MFD Kconfig.
+> 
+> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+> ---
+>   drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  2 +-
+>   .../net/ethernet/stmicro/stmmac/stmmac_main.c | 80 +++++++++----------
+>   2 files changed, 37 insertions(+), 45 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+> index 1686e559f66e..cda09cf5dcca 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+> @@ -301,7 +301,7 @@ struct stmmac_priv {
+>   	unsigned int mode;
+>   	unsigned int chain_mode;
+>   	int extend_desc;
+> -	struct hwtstamp_config tstamp_config;
+> +	struct kernel_hwtstamp_config tstamp_config;
+>   	struct ptp_clock *ptp_clock;
+>   	struct ptp_clock_info ptp_clock_ops;
+>   	unsigned int default_addend;
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index a19b6f940bf3..c090247d2a29 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -568,18 +568,19 @@ static void stmmac_get_rx_hwtstamp(struct stmmac_priv *priv, struct dma_desc *p,
+>   /**
+>    *  stmmac_hwtstamp_set - control hardware timestamping.
+>    *  @dev: device pointer.
+> - *  @ifr: An IOCTL specific structure, that can contain a pointer to
+> - *  a proprietary structure used to pass information to the driver.
+> + *  @config: the timestamping configuration.
+> + *  @extack: netlink extended ack structure for error reporting.
+>    *  Description:
+>    *  This function configures the MAC to enable/disable both outgoing(TX)
+>    *  and incoming(RX) packets time stamping based on user input.
+>    *  Return Value:
+>    *  0 on success and an appropriate -ve integer on failure.
+>    */
+> -static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
+> +static int stmmac_hwtstamp_set(struct net_device *dev,
+> +			       struct kernel_hwtstamp_config *config,
+> +			       struct netlink_ext_ack *extack)
+>   {
+>   	struct stmmac_priv *priv = netdev_priv(dev);
+> -	struct hwtstamp_config config;
+>   	u32 ptp_v2 = 0;
+>   	u32 tstamp_all = 0;
+>   	u32 ptp_over_ipv4_udp = 0;
+> @@ -590,34 +591,30 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
+>   	u32 ts_event_en = 0;
+>   
+>   	if (!(priv->dma_cap.time_stamp || priv->adv_ts)) {
+> -		netdev_alert(priv->dev, "No support for HW time stamping\n");
+> +		NL_SET_ERR_MSG_MOD(extack, "No support for HW time stamping\n");
+>   		priv->hwts_tx_en = 0;
+>   		priv->hwts_rx_en = 0;
+>   
+>   		return -EOPNOTSUPP;
+>   	}
+>   
+> -	if (copy_from_user(&config, ifr->ifr_data,
+> -			   sizeof(config)))
+> -		return -EFAULT;
+> -
+>   	netdev_dbg(priv->dev, "%s config flags:0x%x, tx_type:0x%x, rx_filter:0x%x\n",
+> -		   __func__, config.flags, config.tx_type, config.rx_filter);
+> +		   __func__, config->flags, config->tx_type, config->rx_filter);
+>   
+> -	if (config.tx_type != HWTSTAMP_TX_OFF &&
+> -	    config.tx_type != HWTSTAMP_TX_ON)
+> +	if (config->tx_type != HWTSTAMP_TX_OFF &&
+> +	    config->tx_type != HWTSTAMP_TX_ON)
+>   		return -ERANGE;
+>   
+>   	if (priv->adv_ts) {
+> -		switch (config.rx_filter) {
+> +		switch (config->rx_filter) {
+>   		case HWTSTAMP_FILTER_NONE:
+>   			/* time stamp no incoming packet at all */
+> -			config.rx_filter = HWTSTAMP_FILTER_NONE;
+> +			config->rx_filter = HWTSTAMP_FILTER_NONE;
+>   			break;
+>   
+>   		case HWTSTAMP_FILTER_PTP_V1_L4_EVENT:
+>   			/* PTP v1, UDP, any kind of event packet */
+> -			config.rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_EVENT;
+> +			config->rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_EVENT;
+>   			/* 'xmac' hardware can support Sync, Pdelay_Req and
+>   			 * Pdelay_resp by setting bit14 and bits17/16 to 01
+>   			 * This leaves Delay_Req timestamps out.
+> @@ -631,7 +628,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
+>   
+>   		case HWTSTAMP_FILTER_PTP_V1_L4_SYNC:
+>   			/* PTP v1, UDP, Sync packet */
+> -			config.rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_SYNC;
+> +			config->rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_SYNC;
+>   			/* take time stamp for SYNC messages only */
+>   			ts_event_en = PTP_TCR_TSEVNTENA;
+>   
+> @@ -641,7 +638,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
+>   
+>   		case HWTSTAMP_FILTER_PTP_V1_L4_DELAY_REQ:
+>   			/* PTP v1, UDP, Delay_req packet */
+> -			config.rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_DELAY_REQ;
+> +			config->rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_DELAY_REQ;
+>   			/* take time stamp for Delay_Req messages only */
+>   			ts_master_en = PTP_TCR_TSMSTRENA;
+>   			ts_event_en = PTP_TCR_TSEVNTENA;
+> @@ -652,7 +649,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
+>   
+>   		case HWTSTAMP_FILTER_PTP_V2_L4_EVENT:
+>   			/* PTP v2, UDP, any kind of event packet */
+> -			config.rx_filter = HWTSTAMP_FILTER_PTP_V2_L4_EVENT;
+> +			config->rx_filter = HWTSTAMP_FILTER_PTP_V2_L4_EVENT;
+>   			ptp_v2 = PTP_TCR_TSVER2ENA;
+>   			/* take time stamp for all event messages */
+>   			snap_type_sel = PTP_TCR_SNAPTYPSEL_1;
+> @@ -663,7 +660,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
+>   
+>   		case HWTSTAMP_FILTER_PTP_V2_L4_SYNC:
+>   			/* PTP v2, UDP, Sync packet */
+> -			config.rx_filter = HWTSTAMP_FILTER_PTP_V2_L4_SYNC;
+> +			config->rx_filter = HWTSTAMP_FILTER_PTP_V2_L4_SYNC;
+>   			ptp_v2 = PTP_TCR_TSVER2ENA;
+>   			/* take time stamp for SYNC messages only */
+>   			ts_event_en = PTP_TCR_TSEVNTENA;
+> @@ -674,7 +671,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
+>   
+>   		case HWTSTAMP_FILTER_PTP_V2_L4_DELAY_REQ:
+>   			/* PTP v2, UDP, Delay_req packet */
+> -			config.rx_filter = HWTSTAMP_FILTER_PTP_V2_L4_DELAY_REQ;
+> +			config->rx_filter = HWTSTAMP_FILTER_PTP_V2_L4_DELAY_REQ;
+>   			ptp_v2 = PTP_TCR_TSVER2ENA;
+>   			/* take time stamp for Delay_Req messages only */
+>   			ts_master_en = PTP_TCR_TSMSTRENA;
+> @@ -686,7 +683,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
+>   
+>   		case HWTSTAMP_FILTER_PTP_V2_EVENT:
+>   			/* PTP v2/802.AS1 any layer, any kind of event packet */
+> -			config.rx_filter = HWTSTAMP_FILTER_PTP_V2_EVENT;
+> +			config->rx_filter = HWTSTAMP_FILTER_PTP_V2_EVENT;
+>   			ptp_v2 = PTP_TCR_TSVER2ENA;
+>   			snap_type_sel = PTP_TCR_SNAPTYPSEL_1;
+>   			if (priv->synopsys_id < DWMAC_CORE_4_10)
+> @@ -698,7 +695,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
+>   
+>   		case HWTSTAMP_FILTER_PTP_V2_SYNC:
+>   			/* PTP v2/802.AS1, any layer, Sync packet */
+> -			config.rx_filter = HWTSTAMP_FILTER_PTP_V2_SYNC;
+> +			config->rx_filter = HWTSTAMP_FILTER_PTP_V2_SYNC;
+>   			ptp_v2 = PTP_TCR_TSVER2ENA;
+>   			/* take time stamp for SYNC messages only */
+>   			ts_event_en = PTP_TCR_TSEVNTENA;
+> @@ -710,7 +707,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
+>   
+>   		case HWTSTAMP_FILTER_PTP_V2_DELAY_REQ:
+>   			/* PTP v2/802.AS1, any layer, Delay_req packet */
+> -			config.rx_filter = HWTSTAMP_FILTER_PTP_V2_DELAY_REQ;
+> +			config->rx_filter = HWTSTAMP_FILTER_PTP_V2_DELAY_REQ;
+>   			ptp_v2 = PTP_TCR_TSVER2ENA;
+>   			/* take time stamp for Delay_Req messages only */
+>   			ts_master_en = PTP_TCR_TSMSTRENA;
+> @@ -724,7 +721,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
+>   		case HWTSTAMP_FILTER_NTP_ALL:
+>   		case HWTSTAMP_FILTER_ALL:
+>   			/* time stamp any incoming packet */
+> -			config.rx_filter = HWTSTAMP_FILTER_ALL;
+> +			config->rx_filter = HWTSTAMP_FILTER_ALL;
+>   			tstamp_all = PTP_TCR_TSENALL;
+>   			break;
+>   
+> @@ -732,18 +729,18 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
+>   			return -ERANGE;
+>   		}
+>   	} else {
+> -		switch (config.rx_filter) {
+> +		switch (config->rx_filter) {
+>   		case HWTSTAMP_FILTER_NONE:
+> -			config.rx_filter = HWTSTAMP_FILTER_NONE;
+> +			config->rx_filter = HWTSTAMP_FILTER_NONE;
+>   			break;
+>   		default:
+>   			/* PTP v1, UDP, any kind of event packet */
+> -			config.rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_EVENT;
+> +			config->rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_EVENT;
+>   			break;
+>   		}
+>   	}
+> -	priv->hwts_rx_en = ((config.rx_filter == HWTSTAMP_FILTER_NONE) ? 0 : 1);
+> -	priv->hwts_tx_en = config.tx_type == HWTSTAMP_TX_ON;
+> +	priv->hwts_rx_en = config->rx_filter != HWTSTAMP_FILTER_NONE;
+> +	priv->hwts_tx_en = config->tx_type == HWTSTAMP_TX_ON;
+>   
+>   	priv->systime_flags = STMMAC_HWTS_ACTIVE;
+>   
+> @@ -756,31 +753,30 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
+>   
+>   	stmmac_config_hw_tstamping(priv, priv->ptpaddr, priv->systime_flags);
+>   
+> -	memcpy(&priv->tstamp_config, &config, sizeof(config));
+> +	priv->tstamp_config = *config;
+>   
+> -	return copy_to_user(ifr->ifr_data, &config,
+> -			    sizeof(config)) ? -EFAULT : 0;
+> +	return 0;
+>   }
+>   
+>   /**
+>    *  stmmac_hwtstamp_get - read hardware timestamping.
+>    *  @dev: device pointer.
+> - *  @ifr: An IOCTL specific structure, that can contain a pointer to
+> - *  a proprietary structure used to pass information to the driver.
+> + *  @config: the timestamping configuration.
+>    *  Description:
+>    *  This function obtain the current hardware timestamping settings
+>    *  as requested.
+>    */
+> -static int stmmac_hwtstamp_get(struct net_device *dev, struct ifreq *ifr)
+> +static int stmmac_hwtstamp_get(struct net_device *dev,
+> +			       struct kernel_hwtstamp_config *config)
+>   {
+>   	struct stmmac_priv *priv = netdev_priv(dev);
+> -	struct hwtstamp_config *config = &priv->tstamp_config;
+>   
+>   	if (!(priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp))
+>   		return -EOPNOTSUPP;
+>   
+> -	return copy_to_user(ifr->ifr_data, config,
+> -			    sizeof(*config)) ? -EFAULT : 0;
+> +	*config = priv->tstamp_config;
+> +
+> +	return 0;
+>   }
+>   
+>   /**
+> @@ -6228,12 +6224,6 @@ static int stmmac_ioctl(struct net_device *dev, struct ifreq *rq, int cmd)
+>   	case SIOCSMIIREG:
+>   		ret = phylink_mii_ioctl(priv->phylink, rq, cmd);
+>   		break;
+> -	case SIOCSHWTSTAMP:
+> -		ret = stmmac_hwtstamp_set(dev, rq);
+> -		break;
+> -	case SIOCGHWTSTAMP:
+> -		ret = stmmac_hwtstamp_get(dev, rq);
+> -		break;
+>   	default:
+>   		break;
+>   	}
+> @@ -7172,6 +7162,8 @@ static const struct net_device_ops stmmac_netdev_ops = {
+>   	.ndo_bpf = stmmac_bpf,
+>   	.ndo_xdp_xmit = stmmac_xdp_xmit,
+>   	.ndo_xsk_wakeup = stmmac_xsk_wakeup,
+> +	.ndo_hwtstamp_get = stmmac_hwtstamp_get,
+> +	.ndo_hwtstamp_set = stmmac_hwtstamp_set,
+>   };
+>   
+>   static void stmmac_reset_subtask(struct stmmac_priv *priv)
 
-Makes sense, it'll just depend on MFD_MACSMC then and I'll move the ARCH_APPLE,
-OF, etc. depends to the MFD Kconfig.
-
->
-[...]
->> +#include <linux/delay.h>
->> +#include <linux/mfd/core.h>
->> +#include <linux/mfd/macsmc.h>
->> +#include <linux/module.h>
->> +#include <linux/nvmem-consumer.h>
->> +#include <linux/of.h>
->
-> Once of_get_child_by_name() is no lnger used the correct include for
-> the remaining 'struct of_device_id' is <linux/mod_devicetable.h>
-> instead of <linux/of.h>.
-
-Fixed.
-
->
-[...]
->> +
->> +	pdev->dev.of_node = of_get_child_by_name(pdev->dev.parent->of_node, "reboot");
->
-> Why is this needed? The of_node should already be set correctly when
-> probed via the of_match_table.
-
-Leftovers from a previous version that didn't use of_match_table.
-I'll remove it.
-
->
-[...]
->> +
->> +	if (device_create_file(&pdev->dev, &dev_attr_ac_power_mode))
->> +		dev_warn(&pdev->dev, "could not create sysfs file\n");
->
-> custom sysfs files must be documented in Documentation/ABI.
-
-This sysfs file allows to configure if the system reboots automatically after
-power loss. But now that I'm looking at this again I'm not sure this driver
-is even the proper place for this (the nvmem cell is kinda unrelated to SMC)
-or if we need this at all in the kernel since the nvmem cell is already
-exposed to sysfs just with a less convenient interface at 
-/sys/bus/nvmem/devices/spmi_nvmem0/cells/pm-setting@d001,0.
-
-I'm going to drop it for now and revisit this later.
-
-
->
->> +
-[...]
->> +MODULE_LICENSE("Dual MIT/GPL");
->> +MODULE_DESCRIPTION("Apple SMC reboot/poweroff driver");
->> +MODULE_AUTHOR("Hector Martin <marcan@marcan.st>");
->> +MODULE_ALIAS("platform:macsmc-reboot");
->
-> Why is the MODULE_ALIAS needed?
-
-No idea, my best guess is it was copy/pasted without a good reason.
-I'll drop it.
-
-
-Thanks,
-
-
-Sven
 
