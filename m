@@ -4,76 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EDCCC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 17:39:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A58C7C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 17:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fOnx2nS8BUGOff4qxVjsY99Ec3z57H2RyW27rvY/0bw=; b=KGVNSZ7WnQZ/woGuQmc3k8UmBX
-	+5V2+/6FGcWOV1uziDW/d5+5E7zJRoXs6DCq4REizL73vFCVHrfUfs4ASwfN4+f5LAKxbIybYWuiR
-	q1sB2+36mrnUdENq5GGnQuKsFCT/3YkouD9q5hmcLscEFU44IMDvwvtuDADrwW7CGpOfprxcaKklp
-	tgvE72tHwLvn/V3WGMxMlR5FciiYabbxUhRIVcEpRbWghVtCInnnxlfaF7QQ8g1S8aEC6FIHLKN3D
-	eN2Bk3cxNs6kyTvdA1Ovs5w5AEVXNrl9e5RoXUwIOzdhnbEOh/M8jn+B2hd4waYGulUC6xm49at90
-	9DxIii6A==;
+	bh=agBj1Oj+HZoy7ZieZW7PiYBsW88KoSoWswOv+iUWnyQ=; b=ML/xotsoVFbgJvE2booxYWBoPA
+	WhSAvRRahE4T36J4xxenbxmVAlfuQHlBdZe54ucjDcK3Gz4S78Smj5HyhgvBZF3UvvCmbC9+epebZ
+	qVC77nRC7fRcLFUTgEQ6Q5WZZlaGjqxRzhPtAhbL9I3DWY985AFiwKk7/COAZ/nS4AkucJ8mJpMXf
+	A2SDTff2mM+5GiwxWRqrB+9wMK4tRfwnC66BC3yLI1ExtQ09ZPOK69N5qQ7sL1aSfjhpW3AedDoJW
+	i5vx2TXuzhJCacxFbtQzgnhKJTzaJEMzkMOYiSgF1GACQ29cp4Fr3m5RYRl8jVkyug0ZQrP7fQtuN
+	gVpU/ScQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEX7f-0000000AELT-1OQC;
-	Mon, 12 May 2025 17:39:27 +0000
-Received: from mxout2.routing.net ([2a03:2900:1:a::b])
+	id 1uEX9k-0000000AEkM-2dBk;
+	Mon, 12 May 2025 17:41:36 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEX1p-0000000ADam-2kgh;
-	Mon, 12 May 2025 17:33:26 +0000
-Received: from mxbox3.masterlogin.de (unknown [192.168.10.78])
-	by mxout2.routing.net (Postfix) with ESMTP id 6EBA6601D8;
-	Mon, 12 May 2025 17:33:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1747071203;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fOnx2nS8BUGOff4qxVjsY99Ec3z57H2RyW27rvY/0bw=;
-	b=kE/5vxOHk4WeXfDsBzUVJQU1s7TuLuM8EKYi/1mLuGdaNckHloGXV27dRjex99Aw/g9tCf
-	5sOD403GIqwnucydRJ13DZ2OjWkkVt4yPY5+KBN9PYb5IZDHQ8v5WcKJLQ47B1i3U8Utt0
-	p6Te9xqfKW9dvjVR2RoENhB4uVrdvXg=
-Received: from [127.0.0.1] (fttx-pool-194.15.84.99.bambit.de [194.15.84.99])
-	by mxbox3.masterlogin.de (Postfix) with ESMTPSA id 238C6360303;
-	Mon, 12 May 2025 17:33:22 +0000 (UTC)
-Date: Mon, 12 May 2025 19:33:22 +0200
-From: Frank Wunderlich <linux@fw-web.de>
-To: Conor Dooley <conor@kernel.org>
-CC: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Frank Wunderlich <frank-w@public-files.de>,
- =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
- Landen Chao <Landen.Chao@mediatek.com>, DENG Qingfang <dqfext@gmail.com>,
- Sean Wang <sean.wang@mediatek.com>, Daniel Golle <daniel@makrotopia.org>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v1_01/14=5D_dt-bindings=3A_n?=
- =?US-ASCII?Q?et=3A_mediatek=2Cnet=3A_update_for_mt7988?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <20250512-nibble-freemason-69e0279f2f99@spud>
-References: <20250511141942.10284-1-linux@fw-web.de> <20250511141942.10284-2-linux@fw-web.de> <20250512-nibble-freemason-69e0279f2f99@spud>
-Message-ID: <05760B5E-955E-4E0E-9B69-E762783CC37B@fw-web.de>
+	id 1uEX6i-0000000AEEo-0wBi;
+	Mon, 12 May 2025 17:38:29 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-22e09f57ed4so60285845ad.0;
+        Mon, 12 May 2025 10:38:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747071507; x=1747676307; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=agBj1Oj+HZoy7ZieZW7PiYBsW88KoSoWswOv+iUWnyQ=;
+        b=GfPO7iurtgIIGCCI6npaeQSGsTFXWNy8YJhHRMEHjqolVczcn5iXFcybh9faJysKvz
+         Bcwhkp3Oix/fipvGUwFDwTjXYBU+a1nBa+4ndidYyTkEtN0MgzDM9Se8FvTkxrnkn/+i
+         kDkuQtmtYKrElTta0aLS7DYDj9yAFG1fst2P7FlLBrqPuE4JJ88ocxOAxcr2N8rok8Bg
+         yqBrsC3lGEDdyRPRMHMHNuX7mHZpX7n02R2w/7+SiFWD7GWD0g7QSejUyjB5xoXku7aT
+         RlpaKPK0J/3Afd2vmMttKs67L1RY2gvHEnWqOb0VCicOUysQ3DfN2VEXEYvX3WHFStAE
+         wRSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747071507; x=1747676307;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=agBj1Oj+HZoy7ZieZW7PiYBsW88KoSoWswOv+iUWnyQ=;
+        b=pWW6T242+WkFNLNFCym4TKmCvvbnz4E12RziDj9zkuC9nHqQVfmX2ZXaOQqETQi+nA
+         DDW62W4qyp4WPp1NTOoDXI7cpKRrGIDNwl0wBj4104Sq4fhnAnhCHkWfalHaTqz3nBy6
+         8XKA6ogLurV+ejaEzzA/fUTTzONYf6qCxE6Z7ub5bH2gCbEkuXJUkM8Gw0WkQEMSC3gR
+         hiqq45nD+7IzuQn5T9EhVuIR7b88aGdokeNtuRAP+h+fwvXxyf6hgMwYvuq8w/cUq8HP
+         BmgWBPmc9JpgPr4sEb9EWj8IOkg2CONwW6cSIa731v+VZLBQ+ytKGPHJWVTMI9YQ0bWe
+         59SQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV7RVGf6H+nYn97PfEcNAbrPmfjI0aUqd1IX2ZqmuKwFaFMTVEtPvTtt53ZTuiTnQ5pB4K/NcTZD41syeV8PaIg@lists.infradead.org, AJvYcCXMUQWOpn/O8q99TWAhWOyRmeoLOFVPoz/pGhF6XW0uYGQ0KXu01UuBw3lExRV2es49WsXrGAIPq+Dwrwt+Wxij7Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywce/7PMbGllUfvxkxV/WxrExHk1DVMNNSLqsmzKKUlvdbx0DSK
+	Z6JBSh8xCcJNVFfMBJhszjeknY2ydBBNubOgRQNR05kjORzgR9eP/+8yOw==
+X-Gm-Gg: ASbGncsGltfzn4l+aZ6OVfcEeSJMFV8PR8i3YiDw9g/Bb9U3hr2OwlVVfMO0bjsINh4
+	qSa55nGUdrR5K3JR/+FYR5MZ3QzJip4BE4nSsA1PjaugtX3BcyKMTWO6RVHMtVD+1msqbBmFITL
+	syzHtEYXU4Ey3m6dKZWLyDGh6B1MQ0YNTpaQBpEQfSfU7dV7DzW87ka47CBNTHIE2mEsAt8mdUe
+	9Js/0QmlTpXkp0055vOCDqhwnrSLnEsELR5IVLFXQoBd22Lr2jx5/rNIwluuUu8wrQzHNxcvD+J
+	gaXnOUSk2mfTDn6Y2JV1xse+Z5QqHacJ/WXwiN6CQA59gZMEgoauPWEh5Tbfoeq9
+X-Google-Smtp-Source: AGHT+IHQ7QSKHLeCHc3i6ANYoaeCnxFeiKS26unigu1BpiSeyWlgVDCMwVdGWqKDeoN5OkQN+yGMfg==
+X-Received: by 2002:a17:903:1252:b0:22e:457d:3989 with SMTP id d9443c01a7336-2317c40892amr5417005ad.0.1747071506647;
+        Mon, 12 May 2025 10:38:26 -0700 (PDT)
+Received: from localhost.localdomain ([123.16.133.44])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc773e87csm65912945ad.64.2025.05.12.10.38.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 May 2025 10:38:26 -0700 (PDT)
+From: Nam Tran <trannamatk@gmail.com>
+To: andy@kernel.org
+Cc: lee@kernel.org,
+	geert@linux-m68k.org,
+	pavel@ucw.cz,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	christophe.jaillet@wanadoo.fr,
+	corbet@lwn.net,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	florian.fainelli@broadcom.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v8 0/5] auxdisplay: add support for TI LP5812 4x3 Matrix LED driver
+Date: Tue, 13 May 2025 00:38:00 +0700
+Message-Id: <20250512173800.6767-1-trannamatk@gmail.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <aCGPuKtfprIvwADa@smile.fi.intel.com>
+References: <aCGPuKtfprIvwADa@smile.fi.intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Mail-ID: 374a0106-a2a0-463f-a626-6a3e8e2d7734
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_103325_850661_8FBD5B64 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20250512_103828_262776_1E3B9B60 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,67 +110,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 12=2E Mai 2025 18:21:45 MESZ schrieb Conor Dooley <conor@kernel=2Eorg>:
->On Sun, May 11, 2025 at 04:19:17PM +0200, Frank Wunderlich wrote:
->> From: Frank Wunderlich <frank-w@public-files=2Ede>
->>=20
->> Update binding for mt7988 which has 3 gmac and 2 reg items=2E
->>=20
->> Signed-off-by: Frank Wunderlich <frank-w@public-files=2Ede>
->> ---
->>  Documentation/devicetree/bindings/net/mediatek,net=2Eyaml | 9 +++++++-=
--
->>  1 file changed, 7 insertions(+), 2 deletions(-)
->>=20
->> diff --git a/Documentation/devicetree/bindings/net/mediatek,net=2Eyaml =
-b/Documentation/devicetree/bindings/net/mediatek,net=2Eyaml
->> index 9e02fd80af83=2E=2E5d249da02c3a 100644
->> --- a/Documentation/devicetree/bindings/net/mediatek,net=2Eyaml
->> +++ b/Documentation/devicetree/bindings/net/mediatek,net=2Eyaml
->> @@ -28,7 +28,8 @@ properties:
->>        - ralink,rt5350-eth
->> =20
->>    reg:
->> -    maxItems: 1
->> +    minItems: 1
->> +    maxItems: 2
->
->This should become an items list, with an explanation of what each of
->the reg items represents=2E
+On Mon, 12 May 2025 Andy Shevchenko wrote:
 
-I would change to this
+> On Sat, May 10, 2025 at 02:48:02PM +0700, Nam Tran wrote:
+> > On Thu, 8 May 2025 Lee Jones wrote:
+> > > On Thu, 08 May 2025, Andy Shevchenko wrote:
+> > > > On Thu, May 8, 2025 at 5:27 PM Nam Tran <trannamatk@gmail.com> wrote:
+> > > > > On Thu, 8 May 2025 Lee Jones wrote:
+> > > > > > On Thu, 08 May 2025, Andy Shevchenko wrote:
 
-  reg:
-    items:
-      - description: Register for accessing the MACs=2E
-      - description: SoC internal SRAM used for DMA operations=2E
-    minItems: 1
+...
 
-Would this be OK this way?
+> > I think setting PWM also same as brightness_set API. However, there are
+> > many PWM config for a LED and it is one of other config to make autonomous mode work.
+> > Therefore, standard led API can use in some use cases only.
+> > 
+> > Please see the link below for a better visualization of how to configure the LP5812.
+> > https://dev.ti.com/gallery/view/LED/LP581x/ver/0.10.0/
+> 
+> To me it sounds like you should start from the small steps, i.e. do not
+> implement everything at once. And starting point of the 4 RGB LEDs sounds
+> the best approach to me. Then, if needed, you can always move on with
+> fancy features of this hardware on top of the existing code.
 
->> =20
->>    clocks:
->>      minItems: 2
->> @@ -381,8 +382,12 @@ allOf:
->>              - const: xgp2
->>              - const: xgp3
->> =20
->> +        reg:
->> +          minItems: 2
->> +          maxItems: 2
->> +
->>  patternProperties:
->> -  "^mac@[0-1]$":
->> +  "^mac@[0-2]$":
->>      type: object
->>      unevaluatedProperties: false
->>      allOf:
->> --=20
->> 2=2E43=2E0
->>=20
+Thanks for the suggestion.
+I understand your point and agree that starting with standard LED APIs is the preferred approach.
 
-Hi Conor
+However, the LP5812 hardware offers more advanced features, and I’d like to support end users all
+features as shown in the link: https://dev.ti.com/gallery/view/LED/LP581x/ver/0.10.0/.
+It is easy for end user to investigate and use driver.
 
-Thank you for review=2E
-regards Frank
+If I want to keep the current driver interface to meet this expectation, would it be acceptable
+to move it to the misc subsystem to better support the hardware?
+
+Best regards,
+Nam Tran
 
