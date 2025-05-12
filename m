@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B229C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 17:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06005C3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 17:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZsoOSBEUkLIzUVfGDo4G6MOsHBPcjlEZci+jnZLqqqM=; b=oZNDfhbRCMLMhVwPXQlsnQ9m8m
-	V4iyunnUXb2zEs19rhFCeFv7W+VrBn9yGPEDs8uIyvORHbdrMlck5RphEpGXoFGH8nQsuYpCCYnQZ
-	1picYwiUG3ZbhQrCJrXoNhE1AEQdmoKnJNwI57IGujM1NC/fj9zzgI9qulMyV8tfP+AeLDj6e1tGT
-	6cAKP13ZxoSJxNXC/iCvfLzRTJIRLJrIifvouKqDlsGsWcozq6u4/I+mq7IROjX6n4IPQAH1HoxkN
-	zmZcv4ochuidqzbVXRnbbHTV0mlfLooXwAvaHA6/xfxRHCnQvtMVrCXEPJQeBePvtIXD2gMALBI85
-	gN7P5r9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FBGQ4dL6mRz4agiTt0D4ib2rg0LUW5HyTTZk9Q21lpk=; b=Tky8QwF8oLq2KN9yKs+VZlHhPb
+	6nQw6cG+AL4FAveq3+O4ZHKG/k1W1PTk45GFjDSgY11yYiFFV8Rwt4FfmtNk/hzlAkHQCqNahTlFK
+	rpj3jIrMWtUvH6ct1AvzjpBNkAZQCKtkyPML1j38iow1Jq3qhHV1GGridihhNKCu4CIIIXWu4cD0z
+	SvVeuVdVofrStw9nEtW9YplN3GvQlBgcdEeP1EXNQ78vpSRMfGY36f/Od3RNyAAkbq8TZVSTcQ+tm
+	5xF68LZUpnTns2NSgbyp38pmdXksj525JJeYrtP5/Fbl5ZaNpxiVQXxdQHsmB6yUxlFfk2WQLeXzn
+	pimQInlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEWdV-0000000AA9d-1hPn;
-	Mon, 12 May 2025 17:08:17 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uEWfY-0000000AASA-0Yuw;
+	Mon, 12 May 2025 17:10:24 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEVkz-00000009zA0-15HD
+	id 1uEVt9-0000000A0lo-3YUE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 16:11:58 +0000
+	Mon, 12 May 2025 16:20:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0B6D15C4947;
-	Mon, 12 May 2025 16:09:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0DF8C4CEEE;
-	Mon, 12 May 2025 16:11:55 +0000 (UTC)
-Received: from wens.tw (localhost [127.0.0.1])
-	by wens.tw (Postfix) with ESMTP id 6C9195FCCA;
-	Tue, 13 May 2025 00:11:53 +0800 (CST)
-From: Chen-Yu Tsai <wens@csie.org>
-To: Maxime Ripard <mripard@kernel.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Simona Vetter <simona.vetter@ffwll.ch>, 
- Ryan Walklin <ryan@testtoast.com>
-Cc: Andre Przywara <andre.przywara@arm.com>, 
- Chris Morgan <macroalpha82@gmail.com>, 
- Hironori KIKUCHI <kikuchan98@gmail.com>, 
- Philippe Simons <simons.philippe@gmail.com>, 
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, 
- linux-clk@vger.kernel.org, Dmitry Baryshkov <lumag@kernel.org>
-In-Reply-To: <20250511104042.24249-1-ryan@testtoast.com>
-References: <20250511104042.24249-1-ryan@testtoast.com>
-Subject: Re: (subset) [PATCH v10 00/11] drm: sun4i: add Display Engine 3.3
- (DE33) support
-Message-Id: <174706631341.3565911.17660791573528353464.b4-ty@csie.org>
-Date: Tue, 13 May 2025 00:11:53 +0800
+	by dfw.source.kernel.org (Postfix) with ESMTP id 09D455C547B;
+	Mon, 12 May 2025 16:18:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4096C4CEE7;
+	Mon, 12 May 2025 16:20:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747066823;
+	bh=b5ymMBBwucx7+JF/datxr1WkwzE4Zs8iDCFOHv48tqI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VjysGgJzJJLphZ0edNmXQywCsu+ffDslXm+r0ytGgaxUaypHawC+Te0sEGQSW5FE7
+	 h3Yn0kU5FjnoN3Iv2zwNmeQ3Q6+QEx5Nq6V3uqKl2GXXvTCsYJEe8E8WtH2Z/2CVnY
+	 a5O3iLfMe/AlsxVbEq8ZCx76qgd6PfwXLxEgeuJLMOBX3tOY/ipPdnMeABgONzb8hc
+	 r7Rvuwv/dd/b/arkXtedAVynMIsTqGMWPNZr5o5557B82zTv5tmPiLHmBpU+QS+jqU
+	 kSX7rsdTwW+G7Dfj7eZzGfnPnhL0/Svge1/cY6g/ZpUcHacq2l6HCbF6ah+D8fvL16
+	 D9MQqxMB1ee/A==
+Date: Mon, 12 May 2025 17:20:17 +0100
+From: Conor Dooley <conor@kernel.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 1/3] dt-bindings: firmware: nxp,imx95-scmi-pinctrl:
+ Introduce nxp,iomuxc-daisy-off
+Message-ID: <20250512-mongoose-vacation-f81a56dd6c5d@spud>
+References: <20250512-pin-v1-0-d9f1555a55ad@nxp.com>
+ <20250512-pin-v1-1-d9f1555a55ad@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="p3X005M6v+zmT/88"
+Content-Disposition: inline
+In-Reply-To: <20250512-pin-v1-1-d9f1555a55ad@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_091157_350086_CFDA8A22 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250512_092023_978948_3071BB63 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,26 +83,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 11 May 2025 22:31:09 +1200, Ryan Walklin wrote:
-> v10 of this patch series adding support for the Allwinner DE33 display engine. This version is largely based on the previous v8 patch, with Chris's changes to the mixer bindings in particular from v9 to add names for the new register blocks. As discussed, the H616 LCD support patchset (which are largely device-tree now that the clock/reset binding definitions from v9 have been taken as a subset) will be sent separately with the rest of Chris' updates.
-> 
-> As noted previously the new YUV support in the DE3/DE33 and RCQ/DMA shadowing in the DE33 requires more work and discussion, so that support was removed from v8 and this patch supports RGB output only.
-> 
-> Regards,
-> 
-> Ryan
-> 
-> [...]
 
-Applied to sunxi/clk-for-6.16 in local tree, thanks!
+--p3X005M6v+zmT/88
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-[06/11] dt-bindings: allwinner: add H616 DE33 clock binding
-        commit: ab1a94b504b6f19c294786b5920574fb374fb5cc
-[08/11] clk: sunxi-ng: ccu: add Display Engine 3.3 (DE33) support
-        commit: be0e9a3727872783bad0752dc82e0857f4776049
+On Mon, May 12, 2025 at 10:14:14AM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+>=20
+> The IOMUX Controller in i.MX9 family has Daisy chain that multi pads drive
+> same module input pin. Each SoC has its own register offset, so
+> introduce "nxp,iomuxc-daisy-off" property to specify the daisy register
+> offset. With this property being parsed by driver, there is no need
+> to hardcode the offset in pinctrl driver for each new SoC.
+>=20
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  .../devicetree/bindings/firmware/nxp,imx95-scmi-pinctrl.yaml      | 8 ++=
+++++++
+>  1 file changed, 8 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi-pi=
+nctrl.yaml b/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi-pinc=
+trl.yaml
+> index a96fc6cce502c10ab415e0b26bff1be8c3bc82f5..b5b2a9c8688a7f6525cdb6a32=
+db22681f4f1a0b9 100644
+> --- a/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi-pinctrl.y=
+aml
+> +++ b/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi-pinctrl.y=
+aml
+> @@ -13,6 +13,11 @@ maintainers:
+>  allOf:
+>    - $ref: /schemas/pinctrl/pinctrl.yaml
+> =20
+> +properties:
+> +  nxp,iomuxc-daisy-off:
 
-Best regards,
--- 
-Chen-Yu Tsai <wens@csie.org>
+Same comment here as was left on the driver.
+I also don't get why there's a property being introduced from something
+you can determine based on the soc.
 
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description: Specify the IOMUX Controller first Daisy register's off=
+set
+> +
+>  patternProperties:
+>    'grp$':
+>      type: object
+> @@ -51,3 +56,6 @@ patternProperties:
+>        - fsl,pins
+> =20
+>  additionalProperties: true
+> +
+> +required:
+> +  - nxp,iomuxc-daisy-off
+>=20
+> --=20
+> 2.37.1
+>=20
+
+--p3X005M6v+zmT/88
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaCIfwQAKCRB4tDGHoIJi
+0khFAQC5DQ545yCr9AEOhKd8i29tmIKpIty6ZUOCeKl1lWVjdgD/ZzV9eDXWsx6D
+TpQsgh7YeLJOZL4WeO+YJ6gCuuFgHwk=
+=StPd
+-----END PGP SIGNATURE-----
+
+--p3X005M6v+zmT/88--
 
