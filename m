@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3DFAC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 09:31:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C434AC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 09:33:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k2kAnr/rDtN9bEn+nMeXwAS2lV4DpQj7+1ksUkX70CA=; b=aiFBeaoIX8ab6rMOvN+kqIY+9E
-	yaHxQEqha4XBosL0Yzhc7ULggK4FqJ4Lb6BoqcF/Fdp9ncPVJwKCVdIyF2dlxTZ36X2xuh8iIBtEm
-	lkh9Xdq01XJGapE7ts6NGzjzhRB4rLVhodTXQ25/q4XSD2zQtbfZQCyAA4FmKF4TWmN31AP6I9Oqn
-	tiZheZN78tRqQqDkjup7WgagXsalAIvSUIcvjCcq3Wsl2qC2Cs7PuYy/gn35KJ+lf5g9uceci42MW
-	RUEY4B7Hn5FyVzI4xcMImbkFnYRbubuzq6KGDa1R/mdWa4T2UrQa8uE8gncC6Wm2k70xFE4m12m3v
-	0HW2lzPg==;
+	bh=m+IUEz94ha9tzpIf5diXNYx0EEgvKeMrSzQ2Gsv9lsg=; b=1vbJBb9B6uEoO6vSw+SZNxvAZ4
+	YoC7FAkZqUsNfLaZhv99Q1MqZ3TKbAn300MqDjqqL8/je0YkscAV5+dy1Pa4c5NtKvEdXZ5d4euL+
+	YeSJx+PK18O45p23rzhE2Rinq+bf2VCxyQjP91yE+3aeRCuBZ0ucHhgcRW5p9o7iJoviNvGne2JQe
+	k9AoB2biLD43mswMhc7UezNlhVpb3EYgt78SiU9bLIquq3guPCy0B+ghEqTiZebg6z5wM8x8HipwE
+	QNtJpFJyzBooyA4LTVOx9tn+77bUqWXFVrOxyKnX33UqM6LiqUSKOczwAl/Mlewog65Qk00USM0qY
+	bB3TGRrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEPV0-00000008wS3-1msH;
-	Mon, 12 May 2025 09:31:02 +0000
+	id 1uEPX0-00000008ww8-39op;
+	Mon, 12 May 2025 09:33:06 +0000
 Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEPNG-00000008uEB-3alL;
+	id 1uEPNH-00000008uCg-0vu8;
 	Mon, 12 May 2025 09:23:04 +0000
-X-UUID: b137c7802f1211f08d385d50fb11b32d-20250512
+X-UUID: b19c2c482f1211f08d385d50fb11b32d-20250512
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=k2kAnr/rDtN9bEn+nMeXwAS2lV4DpQj7+1ksUkX70CA=;
-	b=idpaq5jD1U/KuDxXQquC1GUIctdbcXh4SjbGYFYHVZ0aHKT96qf9xWEujDiSx1Z16gw5iq3OSn3MPv4Uqx/7bXiX8OdpLs8iuozUwWYSc75Ymfnc1LtovBF3AKdOzbVs7+ZH/oa7r2PUF0LcuRbee8cZwCP+RnQf60q/c/xs/nk=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=m+IUEz94ha9tzpIf5diXNYx0EEgvKeMrSzQ2Gsv9lsg=;
+	b=aPQm2zhLsadUH5ybnqNLZYcfQK2hOi6UjCSVAU51sti7Za46BYzldUcsYtSd/YuLEHkSFBLqN1MYI07SQcne42toO+E2JMdvHkPTm8bj8LKT+6t4Aub+mAHaZq9higgVWZNjoHHzU/lpPrjMFABJb9gHJsPBzjq8gRY/9iD3zzU=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:846d9865-b368-479f-9335-39cbe6f912df,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:aa889cb7-5e6b-4d0f-a080-a5e9cb36bea6,B
+X-CID-O-INFO: VERSION:1.2.1,REQID:622a0439-4007-411b-8264-fe375167a419,IP:0,UR
+	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:-5
+X-CID-META: VersionHash:0ef645f,CLOUDID:efb5dce0-512b-41ef-ab70-9303a9a81417,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
 	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
 	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0
 X-CID-BAS: 0,_,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: b137c7802f1211f08d385d50fb11b32d-20250512
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
+X-UUID: b19c2c482f1211f08d385d50fb11b32d-20250512
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
 	(envelope-from <jason-jh.lin@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1008781017; Mon, 12 May 2025 02:22:57 -0700
+	with ESMTP id 2038460982; Mon, 12 May 2025 02:22:58 -0700
 Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.2.1258.39; Mon, 12 May 2025 17:22:53 +0800
 Received: from mtksitap99.mediatek.inc (10.233.130.16) by
@@ -69,9 +69,9 @@ CC: Matthias Brugger <matthias.bgg@gmail.com>, Jason-JH Lin
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>
-Subject: [PATCH RESEND v5 07/20] soc: mediatek: mtk-cmdq: Remove shift_pa parameter from cmdq_pkt_jump()
-Date: Mon, 12 May 2025 17:19:29 +0800
-Message-ID: <20250512092252.905629-8-jason-jh.lin@mediatek.com>
+Subject: [PATCH RESEND v5 11/20] mailbox: mtk-cmdq: Add GCE hardware virtualization configuration
+Date: Mon, 12 May 2025 17:19:33 +0800
+Message-ID: <20250512092252.905629-12-jason-jh.lin@mediatek.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250512092252.905629-1-jason-jh.lin@mediatek.com>
 References: <20250512092252.905629-1-jason-jh.lin@mediatek.com>
@@ -80,8 +80,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_022302_895885_F54D580B 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20250512_022303_280275_E004EB88 
+X-CRM114-Status: GOOD (  21.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,115 +96,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since shift_pa will be stored in the cmdq_mbox_priv structure within
-cmdq_pkt, all shift_pa parameters in CMDQ helper APIs can be removed.
+The GCE hardware virtualization configuration supports the isolation of
+GCE hardware resources across different OS environments. Each OS is
+treated as a virtual machine (VM) for GCE purposes.
+There are 6 VMs and 1 host VM. The host VM has main control over the
+GCE virtualization settings for all VMs.
 
-Remove the shift_pa parameters from cmdq_pkt_jump(), cmdq_pkt_jump_abs(),
-and cmdq_pkt_jump_rel().
+To properly access the GCE thread registers, it is necessary to
+configure access permissions for specific GCE threads assigned to
+different VMs.
+Currently, since only the host VM is being used, it is required to
+enable access permissions for all GCE threads for the host VM.
 
-Fixes: ade176534112 ("soc: mediatek: cmdq: Add parameter shift_pa to cmdq_pkt_jump()")
+There are 2 VM configurations:
+1. VM_ID_MAP
+There are 4 registers to allocate 32 GCE threads across different VMs:
+VM_ID_MAP0 for threads 0-9, VM_ID_MAP1 for threads 10-19,
+VM_ID_MAP2 for threads 20-29, and VM_ID_MAP3 for threads 30-31.
+Each thread has a 3-bit configuration, where setting all bits to 1
+configures the thread for the host VM.
+
+2. VM_CPR_GSIZE
+It is used to allocate the CPR SRAM size to each VM. Each VM has 4-bit
+configuration, where setting bit 0-3 to configures the size of host VM.
+This setting must be configured before the VM configuration to prevent
+resource leakage.
+
 Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
 ---
- drivers/soc/mediatek/mtk-cmdq-helper.c |  8 ++++----
- include/linux/soc/mediatek/mtk-cmdq.h  | 20 ++++++++------------
- 2 files changed, 12 insertions(+), 16 deletions(-)
+ drivers/mailbox/mtk-cmdq-mailbox.c | 52 ++++++++++++++++++++++++++++++
+ 1 file changed, 52 insertions(+)
 
-diff --git a/drivers/soc/mediatek/mtk-cmdq-helper.c b/drivers/soc/mediatek/mtk-cmdq-helper.c
-index 8feeaa320359..a40919555d4d 100644
---- a/drivers/soc/mediatek/mtk-cmdq-helper.c
-+++ b/drivers/soc/mediatek/mtk-cmdq-helper.c
-@@ -494,22 +494,22 @@ int cmdq_pkt_assign(struct cmdq_pkt *pkt, u16 reg_idx, u32 value)
- }
- EXPORT_SYMBOL(cmdq_pkt_assign);
+diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmdq-mailbox.c
+index b18808855680..c946766c215a 100644
+--- a/drivers/mailbox/mtk-cmdq-mailbox.c
++++ b/drivers/mailbox/mtk-cmdq-mailbox.c
+@@ -43,6 +43,13 @@
+ #define GCE_CTRL_BY_SW				GENMASK(2, 0)
+ #define GCE_DDR_EN				GENMASK(18, 16)
  
--int cmdq_pkt_jump_abs(struct cmdq_pkt *pkt, dma_addr_t addr, u8 shift_pa)
-+int cmdq_pkt_jump_abs(struct cmdq_pkt *pkt, dma_addr_t addr)
++#define GCE_VM_ID_MAP(n)		(0x5018 + (n) / 10 * 4)
++#define GCE_VM_ID_MAP_THR_FLD_SHIFT(n)		((n) % 10 * 3)
++#define GCE_VM_ID_MAP_HOST_VM			GENMASK(2, 0)
++#define GCE_VM_CPR_GSIZE		0x50c4
++#define GCE_VM_CPR_GSIZE_FLD_SHIFT(vm_id)	((vm_id) * 4)
++#define GCE_VM_CPR_GSIZE_MAX			GENMASK(3, 0)
++
+ #define CMDQ_THR_ACTIVE_SLOT_CYCLES	0x3200
+ #define CMDQ_THR_ENABLED		0x1
+ #define CMDQ_THR_DISABLED		0x0
+@@ -89,6 +96,7 @@ struct gce_plat {
+ 	u8 shift;
+ 	bool control_by_sw;
+ 	bool sw_ddr_en;
++	bool gce_vm;
+ 	u32 gce_num;
+ };
+ 
+@@ -110,6 +118,47 @@ void cmdq_get_mbox_priv(struct mbox_chan *chan, struct cmdq_mbox_priv *priv)
+ }
+ EXPORT_SYMBOL(cmdq_get_mbox_priv);
+ 
++static void cmdq_vm_toggle(struct cmdq *cmdq, bool enable)
++{
++	int i;
++	u32 vm_cpr_gsize = 0, vm_id_map = 0;
++	u32 *vm_map = NULL;
++
++	if (!cmdq->pdata->gce_vm)
++		return;
++
++	vm_map = kcalloc(cmdq->pdata->thread_nr, sizeof(*vm_map), GFP_KERNEL);
++	if (!vm_map)
++		return;
++
++	if (enable) {
++		/* only configure the max CPR SRAM size to host vm (vm_id = 0) currently */
++		vm_cpr_gsize = GCE_VM_CPR_GSIZE_MAX << GCE_VM_CPR_GSIZE_FLD_SHIFT(0);
++
++		/* set all thread mapping to host vm currently */
++		for (i = 0; i < cmdq->pdata->thread_nr; i++)
++			vm_map[i] = GCE_VM_ID_MAP_HOST_VM << GCE_VM_ID_MAP_THR_FLD_SHIFT(i);
++	}
++
++	/* set the amount of CPR SRAM to allocate to each VM */
++	writel(vm_cpr_gsize, cmdq->base + GCE_VM_CPR_GSIZE);
++
++	/* config CPR_GSIZE before setting VM_ID_MAP to avoid data leakage */
++	for (i = 0; i < cmdq->pdata->thread_nr; i++) {
++		vm_id_map |= vm_map[i];
++		/* config every 10 threads, e.g., thread id=0~9, 10~19, ..., into one register */
++		if ((i + 1) % 10 == 0) {
++			writel(vm_id_map, cmdq->base + GCE_VM_ID_MAP(i));
++			vm_id_map = 0;
++		}
++	}
++	/* config remaining threads settings */
++	if (cmdq->pdata->thread_nr % 10 != 0)
++		writel(vm_id_map, cmdq->base + GCE_VM_ID_MAP(cmdq->pdata->thread_nr - 1));
++
++	kfree(vm_map);
++}
++
+ static void cmdq_gctl_value_toggle(struct cmdq *cmdq, bool ddr_enable)
  {
- 	struct cmdq_instruction inst = {
- 		.op = CMDQ_CODE_JUMP,
- 		.offset = CMDQ_JUMP_ABSOLUTE,
--		.value = addr >> shift_pa
-+		.value = addr >> pkt->priv.shift_pa
- 	};
- 	return cmdq_pkt_append_command(pkt, inst);
+ 	u32 val = cmdq->pdata->control_by_sw ? GCE_CTRL_BY_SW : 0;
+@@ -154,6 +203,7 @@ static void cmdq_init(struct cmdq *cmdq)
+ 
+ 	WARN_ON(clk_bulk_enable(cmdq->pdata->gce_num, cmdq->clocks));
+ 
++	cmdq_vm_toggle(cmdq, true);
+ 	cmdq_gctl_value_toggle(cmdq, true);
+ 
+ 	writel(CMDQ_THR_ACTIVE_SLOT_CYCLES, cmdq->base + CMDQ_THR_SLOT_CYCLES);
+@@ -327,6 +377,7 @@ static int cmdq_runtime_resume(struct device *dev)
+ 	if (ret)
+ 		return ret;
+ 
++	cmdq_vm_toggle(cmdq, true);
+ 	cmdq_gctl_value_toggle(cmdq, true);
+ 	return 0;
  }
- EXPORT_SYMBOL(cmdq_pkt_jump_abs);
+@@ -336,6 +387,7 @@ static int cmdq_runtime_suspend(struct device *dev)
+ 	struct cmdq *cmdq = dev_get_drvdata(dev);
  
--int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa)
-+int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset)
- {
- 	struct cmdq_instruction inst = {
- 		.op = CMDQ_CODE_JUMP,
--		.value = (u32)offset >> shift_pa
-+		.value = (u32)offset >> pkt->priv.shift_pa
- 	};
- 	return cmdq_pkt_append_command(pkt, inst);
- }
-diff --git a/include/linux/soc/mediatek/mtk-cmdq.h b/include/linux/soc/mediatek/mtk-cmdq.h
-index 67fd0924747b..ee4ec64a7322 100644
---- a/include/linux/soc/mediatek/mtk-cmdq.h
-+++ b/include/linux/soc/mediatek/mtk-cmdq.h
-@@ -350,17 +350,15 @@ int cmdq_pkt_poll_addr(struct cmdq_pkt *pkt, dma_addr_t addr, u32 value, u32 mas
-  *			 contains more instruction.
-  * @pkt:        the CMDQ packet
-  * @addr:       absolute physical address of target instruction buffer
-- * @shift_pa:	shift bits of physical address in CMDQ instruction. This value
-- *		is got by cmdq_get_shift_pa().
-  *
-  * Return: 0 for success; else the error code is returned
-  */
--int cmdq_pkt_jump_abs(struct cmdq_pkt *pkt, dma_addr_t addr, u8 shift_pa);
-+int cmdq_pkt_jump_abs(struct cmdq_pkt *pkt, dma_addr_t addr);
- 
- /* This wrapper has to be removed after all users migrated to jump_abs */
--static inline int cmdq_pkt_jump(struct cmdq_pkt *pkt, dma_addr_t addr, u8 shift_pa)
-+static inline int cmdq_pkt_jump(struct cmdq_pkt *pkt, dma_addr_t addr)
- {
--	return cmdq_pkt_jump_abs(pkt, addr, shift_pa);
-+	return cmdq_pkt_jump_abs(pkt, addr);
- }
- 
- /**
-@@ -370,17 +368,15 @@ static inline int cmdq_pkt_jump(struct cmdq_pkt *pkt, dma_addr_t addr, u8 shift_
-  *			 target address should contains more instruction.
-  * @pkt:	the CMDQ packet
-  * @offset:	relative offset of target instruction buffer from current PC.
-- * @shift_pa:	shift bits of physical address in CMDQ instruction. This value
-- *		is got by cmdq_get_shift_pa().
-  *
-  * Return: 0 for success; else the error code is returned
-  */
--int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa);
-+int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset);
- 
- /* This wrapper has to be removed after all users migrated to jump_rel */
- static int cmdq_pkt_jump_rel_temp(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa)
- {
--	return cmdq_pkt_jump_rel(pkt, addr, shift_pa);
-+	return cmdq_pkt_jump_rel(pkt, addr);
- }
- 
- /**
-@@ -497,17 +493,17 @@ static inline int cmdq_pkt_poll_addr(struct cmdq_pkt *pkt, dma_addr_t addr, u32
- 	return -EINVAL;
- }
- 
--static inline int cmdq_pkt_jump_abs(struct cmdq_pkt *pkt, dma_addr_t addr, u8 shift_pa)
-+static inline int cmdq_pkt_jump_abs(struct cmdq_pkt *pkt, dma_addr_t addr)
- {
- 	return -EINVAL;
- }
- 
--static inline int cmdq_pkt_jump(struct cmdq_pkt *pkt, dma_addr_t addr, u8 shift_pa)
-+static inline int cmdq_pkt_jump(struct cmdq_pkt *pkt, dma_addr_t addr)
- {
- 	return -EINVAL;
- }
- 
--static inline int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa)
-+static inline int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset)
- {
- 	return -EINVAL;
+ 	cmdq_gctl_value_toggle(cmdq, false);
++	cmdq_vm_toggle(cmdq, false);
+ 	clk_bulk_disable(cmdq->pdata->gce_num, cmdq->clocks);
+ 	return 0;
  }
 -- 
 2.43.0
