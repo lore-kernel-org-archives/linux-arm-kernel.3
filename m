@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95BC9C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 16:23:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5655CC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 16:25:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=td/cmAwJ5vdOc4Vpk7VrZsMxPNggJcX6NMwL29L+8Bc=; b=uqXq+2H+6hjqiJZSvttubyBN0o
-	E7JCc4sU8/wtakkrtfJLURIB8WeN3PzSprOZILfrSYxZW9eYvE/yjwwv52jJO3xhM6G70/cCCbKsZ
-	jxeNcxdg7CjYbe7gFrBaR1yns8h+ASXukvnZKt8fgpAv9hg8PHpEkIY49UHCZDm1c3H4boFPKot9l
-	PEmn6Z0bBSRalO2Zivj+TsnWueIMZyVgsM1lJeZKOSI+7PxeW1wPHnMySyFy1GA9ZKv1R6XatKt5T
-	dF3pRtGWgM8rQckg/zLEowEoV4ldpON1Jmht2NI8j56yFvhvaqAxNlXn87cmaRToi/cwB37b57L1Y
-	ZQdeAnXQ==;
+	bh=OYGTPvprh2yHBjev45QriTsPEU8EWl6pESotRhWCUCk=; b=e55e6pD8N5t+b6FdsvknK4OS4H
+	tI2dbGlebW+qpMZvd5FNF/PvR2G8BxWluih7vkCorhod0tN5OdZV0/xMX5RFruyre+kiMVUI/Q3X6
+	c+vD4waYybuLKUb2UD6ReHWfW/64BFiy8r9OXNETDBXDfVEoXLJbwZqx684gNpYiRD7DTvNah+IFb
+	Nu22nmaakF9fiQQInk02TN/zSf9k/1nYsRGvwpfmVQNOYHn0/5JQHwa2LaYuQSnWd1YFHwCkMcoXz
+	6XOnzGx2ParsnlhTNTmcqq1BsmhOAaeae1i97FVx4TgQygfgnug/Ic3Uk4SFrDx8R7k0iVodaC18l
+	oLYyJU/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEVvd-0000000A1P5-1WGq;
-	Mon, 12 May 2025 16:22:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uEVxk-0000000A1p9-0Vs1;
+	Mon, 12 May 2025 16:25:08 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEVV9-00000009xA8-1OkP
+	id 1uEVWa-00000009xO5-3o6B
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 15:55:36 +0000
+	Mon, 12 May 2025 15:57:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DEF9E4AA8C;
-	Mon, 12 May 2025 15:55:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7DEAC4CEF1;
-	Mon, 12 May 2025 15:55:34 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2CC2CA4D84F;
+	Mon, 12 May 2025 15:57:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0B32C4CEEF;
+	Mon, 12 May 2025 15:57:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747065334;
-	bh=9oH64TA/cPDc+bTwTS/UrRp0io3FdvKt4QRGJTRhPtY=;
+	s=k20201202; t=1747065423;
+	bh=vIJFy1J5IitTiA0zWWnMwAXixJjGYXx9yRIC4TtCy9Y=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=D/WYmqdulX8dzExpOzgURZMbBxBmPx9D3guBxSirAv77HZmH0H5KoD4qrTaIL89XA
-	 74Ntwz8YWVUEg5beI9p5zPUmfb/5nyLEIo9V10SJ1Bzaf58kpy46fZwwVZ/UGYWNAj
-	 UJJGcugWliGu7Wh0cfkx4yuXuZGerZk2M/+8PQCYmartSqxGOdPydM1SFqX5NCCD0u
-	 VGMJWe+WVcVk1LSRcbqh/cFoy37KYujwH2HofWu5+CqIcvuXTBXq9SxKswOU6FduYm
-	 etHb06T4uvTvNkqORaDtjKM6OvoulLHYKaQFpc687n2BWpvJOZUEi1e011yDpWKa9N
-	 C7vD0kxcnemwg==
+	b=cJilTLEzWJ+5/y/u6z/HiA2WABgTOZS+kDBIWyxXNQ9S8F0u5VUcSDqSd0dmfDjdU
+	 /oEmw7yBQMJ4ttM1993SPmSECYK9szAuh/vwTtkQh96XzsvGyugingJXYGyWqSALbm
+	 edeGk/SoxtjTZ1HzqcfNrp8T93fsNg7ouDzRfR53T4QxjKJocHj8tIboenGYx//J2T
+	 qgVBtzL/FlweuDhwKv5KGg8VWSd5WoMO/eUxEu+x3TF8x6UVT8TH9d44Mx57eb6z3b
+	 qacoxTFdyq1Y6QCfUILmPmBzRpR0+WUMFvInHLpjUN5/K6ngCQuL9SuAObmYr7UyTn
+	 WhzuegTndAoLA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uEVV6-00EBVM-Gg;
-	Mon, 12 May 2025 16:55:32 +0100
-Date: Mon, 12 May 2025 16:55:31 +0100
-Message-ID: <86v7q5g6x8.wl-maz@kernel.org>
+	id 1uEVWX-00EBWw-LB;
+	Mon, 12 May 2025 16:57:01 +0100
+Date: Mon, 12 May 2025 16:57:00 +0100
+Message-ID: <86tt5pg6ur.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Thomas Gleixner <tglx@linutronix.de>
 Cc: linux-kernel@vger.kernel.org,
@@ -58,11 +58,11 @@ Cc: linux-kernel@vger.kernel.org,
 	Sascha Bischoff
  <sascha.bischoff@arm.com>,
 	Timothy Hayes <timothy.hayes@arm.com>
-Subject: Re: [PATCH 3/4] genirq/msi: Move prepare() call to per-device allocation
-In-Reply-To: <87jz6llxeg.ffs@tglx>
+Subject: Re: [PATCH 1/4] genirq/msi: Add .msi_teardown() callback as the reverse of .msi_prepare()
+In-Reply-To: <87h61plx64.ffs@tglx>
 References: <20250511163520.1307654-1-maz@kernel.org>
-	<20250511163520.1307654-4-maz@kernel.org>
-	<87jz6llxeg.ffs@tglx>
+	<20250511163520.1307654-2-maz@kernel.org>
+	<87h61plx64.ffs@tglx>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -73,8 +73,8 @@ X-SA-Exim-Rcpt-To: tglx@linutronix.de, linux-kernel@vger.kernel.org, linux-arm-k
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_085535_422426_15897A64 
-X-CRM114-Status: GOOD (  36.21  )
+X-CRM114-CacheID: sfid-20250512_085705_082431_09DA2336 
+X-CRM114-Status: GOOD (  27.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,101 +89,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 12 May 2025 15:24:39 +0100,
+On Mon, 12 May 2025 15:29:39 +0100,
 Thomas Gleixner <tglx@linutronix.de> wrote:
 > 
 > On Sun, May 11 2025 at 17:35, Marc Zyngier wrote:
-> > The current device MSI infrastructure is subtly broken, as it
-> > will issue an .msi_prepare() callback into the MSI controller
-> > driver every time it needs to allocate an MSI. That's pretty wrong,
-> > as the contract between the MSI controller and the core code is that
-> > .msi_prepare() is called exactly once per device.
 > 
-> That contract is nowhere written in stone.
-
-It was *definitely* there the first place, and a baked in assumption
-since the ITS code was merged. You're welcome to come up with a new
-scheme, but the way the HW works requires this prepare phase to take
-place once per device.
-
-If we can't have that, maybe we should consider reverting the GICv3/v4
-code back to the pre-6.10 scheme that doesn't suffer from this issue.
-
-> There are some MSI controller which get confused about that, but that's
-> a problem of said controllers
-
-No. It's an infrastructure problem. This model worked before for a
-whole class of HW, until it was mutated into something else.
-
+> > While the MSI ops do have a .msi_prepare() callback that is
+> > responsible for setting up the relevant (usually per-device)
+> > allocation, we don't have a callback reversing this setup.
 > 
-> > diff --git a/include/linux/msi.h b/include/linux/msi.h
-> > index 0a44a2cba3105..68a8b2d03eba9 100644
-> > --- a/include/linux/msi.h
-> > +++ b/include/linux/msi.h
-> > @@ -513,12 +513,14 @@ struct msi_domain_info {
-> >   * @chip:	Interrupt chip for this domain
-> >   * @ops:	MSI domain ops
-> >   * @info:	MSI domain info data
-> > + * @arg:	MSI domain allocation data (arch specific)
+> ..., there is no callback reversing ...
 > 
-> arg is a horrible name. Can this please be alloc_info or such?
-
-Because that's the name every single function that takes it as a
-parameter uses? But sure, whatever name you want.
-
+> > For this purpose, let's a .msi_teardown() callback. This is
 > 
-> > @@ -1025,6 +1026,7 @@ bool msi_create_device_irq_domain(struct device *dev, unsigned int domid,
-> >  	bundle->info.ops = &bundle->ops;
-> >  	bundle->info.data = domain_data;
-> >  	bundle->info.chip_data = chip_data;
-> > +	bundle->info.alloc_data = &bundle->arg;
-> >  
-> >  	pops = parent->msi_parent_ops;
-> >  	snprintf(bundle->name, sizeof(bundle->name), "%s%s-%s",
-> > @@ -1053,21 +1055,28 @@ bool msi_create_device_irq_domain(struct device *dev, unsigned int domid,
-> >  	msi_lock_descs(dev);
-> 
-> Please work against tip irq/msi which carries the guard() replacement
-> for msi_lock_descs(). This patch heavily conflicts with the queued
-> changes.
-> 
-> > +static int __populate_alloc_info(struct irq_domain *domain, struct device *dev,
-> > +				 unsigned int nirqs, msi_alloc_info_t *arg)
-> > +{
-> 
-> Why does this need double underscores?
-
-Because it doesn't look that out of place in this file?
-
-> 
-> > +	struct msi_domain_info *info = domain->host_data;
-> > +	int ret = 0;
-> > +
-> > +	/*
-> > +	 * If the caller has provided a template alloc info, use that. Once
-> > +	 * all users of msi_create_irq_domain() have been eliminated, this
-> > +	 * should be the only source of allocation information, and the
-> > +	 * prepare call below should be finally removed.
-> 
-> That's only a matter of decades :)
+> 'let's a ...' is not a sentence. Just say: add a .... calback.
 >
-> > +	 */
-> > +	if (info->alloc_data)
-> > +		*arg = *info->alloc_data;
-> > +	else
-> > +		ret = msi_domain_prepare_irqs(domain, dev, nirqs, arg);
-> > +
-> > +	return ret;
+> > reliying on the msi_domain_info structure having a non-NULL
 > 
-> 	if (!info->alloc_data)
->         	return msi_domain_prepare_irqs(domain, dev, nirqs, arg);
-> 
-> 	*arg = *info->alloc_data;
->         return 0;
-> 
-> perhaps?
+>   ^^^^^ spell check is your friend.
 
-Sure.
+I rely on humans for that. But maybe I should ask someone to put these
+recommendations into one of these AI bots, and generate the stuff
+automatically. It will be devoid of any actual reasoning, but at least
+it will have the "officially sanctioned" verbiage.
+
+> 
+> > alloc_data field.
+> >
+> > Nobody is populating this field yet, so there is no change
+> 
+> No driver is ..
+
+No. There is definitely no driver populating this, nor there will ever
+be. That's 100% MSI infrastructure.
+
+> 
+> >  
+> > +static void msi_domain_ops_teardown(struct irq_domain *domain,
+> > +				    msi_alloc_info_t *arg)
+> 
+> No line break required.
+
+You mean...
+
+> 
+> > +{
+> > +}
+> > +
+> >  static void msi_domain_ops_set_desc(msi_alloc_info_t *arg,
+> >  				    struct msi_desc *desc)
+
+... not like this?
+
+> >  {
+> > @@ -821,6 +826,7 @@ static struct msi_domain_ops msi_domain_ops_default = {
+> >  	.get_hwirq		= msi_domain_ops_get_hwirq,
+> >  	.msi_init		= msi_domain_ops_init,
+> >  	.msi_prepare		= msi_domain_ops_prepare,
+> > +	.msi_teardown		= msi_domain_ops_teardown,
+> >  	.set_desc		= msi_domain_ops_set_desc,
+> >  };
+> >  
+> > @@ -842,6 +848,8 @@ static void msi_domain_update_dom_ops(struct msi_domain_info *info)
+> >  		ops->msi_init = msi_domain_ops_default.msi_init;
+> >  	if (ops->msi_prepare == NULL)
+> >  		ops->msi_prepare = msi_domain_ops_default.msi_prepare;
+> > +	if (ops->msi_teardown == NULL)
+> > +		ops->msi_teardown = msi_domain_ops_default.msi_teardown;
+> >  	if (ops->set_desc == NULL)
+> >  		ops->set_desc = msi_domain_ops_default.set_desc;
+> >  }
+> > @@ -1088,6 +1096,10 @@ void msi_remove_device_irq_domain(struct device *dev, unsigned int domid)
+> >  
+> >  	dev->msi.data->__domains[domid].domain = NULL;
+> >  	info = domain->host_data;
+> > +
+> > +	if (info->alloc_data)
+> > +		info->ops->msi_teardown(domain, info->alloc_data);
+> 
+> Hmm, that's weird.
+> 
+> Why not call it unconditionally. The empty teardown() default callback
+> does not care about @arg being NULL. No?
+
+Because at this point, nothing populates that pointer. It is only
+after patch 3 that this pointer is valid. After patch 2, we get a
+non-default callback, which should never be presented with a NULL
+allocation context.
+
+And since I value keeping things bisectable, it has to happen in this
+order.
+
+Thanks,
 
 	M.
 
