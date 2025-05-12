@@ -4,87 +4,210 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 976A0C3ABCD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 10:21:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92DF1C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 10:23:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kz0JGfTJTERLChUrg3jav5uxYTK15vOcxgvAJY6QsQk=; b=G0nQ8w2dtoVk8z14CZW3P3S0KG
-	8DQCjm5W7NkkLFn6smw3KoJn+oTrmjA64gzV11UxSGhXlB46FrW5aymLOLtTOJvYHTyqzclFchmkc
-	K/ZNcKuU4+c3Y8HS0xdjUSqfNKDu/pAFS5M5dJuqjRAuf/xqiRWzIOIAgvlecbEuCbTBbkXkZCZY6
-	hmT/+Hduv3n77r2EFIFSgSf9Hc274rVmKztl6VJNa3697Jb/rgLwmTXcut1RdRZu4m1vimZmv32lx
-	8jHG4wEjX2blbdFBxcqgLYOCkduLlzOKVwmyrK61a77cgzpwVaZlPOGlRbmMTT4R52HMLpXRpV8+0
-	JeW+XrhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mFP+yRzKuZ0vbYh7xZCPnqAdlKVWOOBhBhzJVxmT9dA=; b=413JnWlKNK47V7lXI4JwXtQYYV
+	e+TpU+KCOyKXoyAHnK59e13c1REQdD5DuC03u+NTH4gvaVjnmDaZBAHJRasThA5IWEZ5CCdHZWIt/
+	rDMariMh4INpv0WjVuf2skO+7i8VNw1jLCjSlxti0Xj8UrUGBiFlw0/ZRivhzkc9jfg9Z/wVeOIu4
+	uEpqkWZ6VZ4qmfWjaDPsjP0cfJiYnQnYyKJgMD/6cFDycFAa0OzajCsBuJUbu9iDdtiZOUu31NXit
+	i735yVVIF6bsMMYqcxjJWdn7An7bZXZPivJkBq2xlCpMFwXfrBez93RPjtMEXK3VFwEcV5+s6ol60
+	Swk+nd3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEQHP-0000000959n-3bUq;
-	Mon, 12 May 2025 10:21:03 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uEQJQ-000000095Tv-0hYS;
+	Mon, 12 May 2025 10:23:08 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEPdE-00000008yDh-15Zo;
-	Mon, 12 May 2025 09:39:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1747042769;
-	bh=8pIofJX98o0cdPyYqZkkS+G0EsgCpIFSgSko0exkC/A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cLePiQvHIO7Or+Bk1M9a799SsIP2jkdNVY5Yma0C2x0XderpsBMLejrR+Xpp+qymN
-	 ytpRRUVP3+rDC2jknnWTB6NvWKfO+vkRQj0E0PlekQPT8Pav03OV9efpX+IoDJ82Ia
-	 rdZbzAWR7WcGb5/S+vG+eOqVuhQlid4f4NaLHPi8IgMv+wcpWkMedftHdyvyBKnqMl
-	 jbolJjGDV8+TXEi5jFP843u9qKahOIAIB9SbwrOufMcvoGPx9pSS+eBBHx3IVV9vJF
-	 RELmmQ5kacueviEq1rKW4weL+Eiju9OgzdT5jkUfPhkUW8THOdNd1C3XRF7SjYadve
-	 Wd9K47Oibm+QQ==
-Received: from [10.40.0.100] (185-251-200-162.lampert.tv [185.251.200.162])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: mriesch)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6D32017E049F;
-	Mon, 12 May 2025 11:39:28 +0200 (CEST)
-Message-ID: <b9135684-5623-4d87-94ea-b9699b7fec44@collabora.com>
-Date: Mon, 12 May 2025 11:39:27 +0200
-MIME-Version: 1.0
+	id 1uEPdv-00000008yOY-2b4T
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 May 2025 09:40:16 +0000
+Received: from pps.filterd (m0246630.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54C7fqVC017479;
+	Mon, 12 May 2025 09:39:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2025-04-25; bh=mFP+yRzKuZ0vbYh7xZCPnqAdlKVWOOBhBhzJVxmT9dA=; b=
+	Yqs7n+gD2GJqRxxRp3YOKDv23/wdAQdnq/jMSrrfU1bgHlPbjA7VvW7B+0nljh05
+	zerFWZEvcdt2qnIIhlKKVqRjfBdU7Qc7SqQpkZrOVPZuWM4vNddrDRbwzB3SIpq2
+	2a5hXzaUj8BynJwLBS8ktpyfv2imDSyo8wTfEoVN4yVTyz6V+25eMZ95kPduZEOC
+	rJaY8FPOavb9Id8DgU/EESNMQWift/oGxvJ9cSl3gXAs9wsjlAlB1ff/r/tywGND
+	0UctGIEg1Q6OPzhQbop66Z1e3zbMW/p/WdTfTgV5ZUz/vMemlW3jLXedkJeIi3km
+	1qpeELkEp/wvGsXMVzF2nQ==
+Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.appoci.oracle.com [130.35.103.27])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 46j11c22qq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 12 May 2025 09:39:47 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 54C8KvHl036207;
+	Mon, 12 May 2025 09:39:46 GMT
+Received: from ch5pr02cu005.outbound.protection.outlook.com (mail-northcentralusazlp17012051.outbound.protection.outlook.com [40.93.20.51])
+	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 46hw875nvf-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 12 May 2025 09:39:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tf+R1E1zQHcYguKA26mNcWjmIhD52btBQOyg6AgZ/wGr8Vp/uj4We7rQSUktbFf0vOhm4UZLpmLXAZrhAjskvOIUxGyknGflGxQNNLyiS++wS3P2HUjZSTLdHa6TXAwHETuSZByBj6AnekfnBDCslSrTUPeTqBi3Co5CROJGeO/ZKb5zaTseRCuWyV1i+pI2T4MPGbQpOhOxF/250/X6HBq84THoWeneJIQ3sMkKdsNtXmyDrjdJMIdrCFqB7OPLhruSNWgOu5z+TEdeN/n42ihx0PVRy23lykCx+qxfRAsRQ4snNlz7V/kWADeirTmPJ3+i+zcWhxDTuRJSzy/SQg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mFP+yRzKuZ0vbYh7xZCPnqAdlKVWOOBhBhzJVxmT9dA=;
+ b=ZkDaU0RSoV1grHP7AAQvVJP1OzXRpIGG0O3tuDvfpzHjEn2AN8oweFXMWgEACI3QNM8C4OTrZTu/uyRSNVJ8zd3dJONnVNHvw/sr5Gx1/AIVC8eka+0aB5TgAd3wk0FCfJ1TSo+mYkPKto3Q5akaMvAGfFPWWVAiaK/vxW80Pxdm2+WNl4JEQe1obbuHM/La3gw42+mhaIqD0zG6wrYxIsvYFWdopSxI1iPl8AZA2WNS6yTFIEEGTNcLpW0rsgfE5rqH2fzz7l8uXkfE/FWny9pP1CH4qbJwgEhIOcTfxScHRYCDKexJqe5HjddgL5kfi9+uwYE1ovWrL/tZQoSWsQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mFP+yRzKuZ0vbYh7xZCPnqAdlKVWOOBhBhzJVxmT9dA=;
+ b=lBGIvCrjmaGZMY4mKRWvHR7EvQvp4a7CRyWLjyasOibPbBe8z3Q9LfxuvhbUvoSBEiIvpGwoxX+1QdcxVOC2lrX5P8bNutLJv1A0f35FZE+IwGjAiQ1mYg8bCeRgdCukQj2ltdSmyALWoRafGtwgfHNA1Ajij8//VxA/4Q1ad0E=
+Received: from BLAPR10MB5315.namprd10.prod.outlook.com (2603:10b6:208:324::8)
+ by MN2PR10MB4333.namprd10.prod.outlook.com (2603:10b6:208:199::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.29; Mon, 12 May
+ 2025 09:39:44 +0000
+Received: from BLAPR10MB5315.namprd10.prod.outlook.com
+ ([fe80::7056:2e10:874:f3aa]) by BLAPR10MB5315.namprd10.prod.outlook.com
+ ([fe80::7056:2e10:874:f3aa%5]) with mapi id 15.20.8699.024; Mon, 12 May 2025
+ 09:39:44 +0000
+Message-ID: <323ecc55-d829-4c74-8cb6-7b3a77dd3351@oracle.com>
+Date: Mon, 12 May 2025 15:09:30 +0530
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 06/13] media: rockchip: add a driver for the rockchip
- camera interface
-To: Mehdi Djait <mehdi.djait@linux.intel.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Hans Verkuil <hans@jjverkuil.nl>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
- =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
- Gerald Loacker <gerald.loacker@wolfvision.net>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Kever Yang <kever.yang@rock-chips.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Collabora Kernel Team <kernel@collabora.com>,
- Paul Kocialkowski <paulk@sys-base.io>,
- Alexander Shiyan <eagle.alexander923@gmail.com>,
- Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- Michael Riesch <michael.riesch@wolfvision.net>,
- Mehdi Djait <mehdi.djait@bootlin.com>
-References: <20240220-rk3568-vicap-v6-0-d2f5fbee1551@collabora.com>
- <20240220-rk3568-vicap-v6-6-d2f5fbee1551@collabora.com>
- <fx5zweayuzo2vcov7i5d6itlizw4bwmr3wwbd4m6mdjsiou5zb@osl3u2ijv3uj>
- <90192c74-f5ca-404b-8b95-3df0819e4bc9@collabora.com>
- <pmjd65zzypo7kyi3mkpqd4pf6dqz5ssxxhwnicav57trzxt3ni@ph665okjfo2s>
+Subject: Re: [PATCH hyperv-next v2 3/4] arch: hyperv: Get/set SynIC
+ synth.registers via paravisor
+To: Roman Kisel <romank@linux.microsoft.com>, arnd@arndb.de, bp@alien8.de,
+        catalin.marinas@arm.com, corbet@lwn.net, dave.hansen@linux.intel.com,
+        decui@microsoft.com, haiyangz@microsoft.com, hpa@zytor.com,
+        kys@microsoft.com, mingo@redhat.com, tglx@linutronix.de,
+        wei.liu@kernel.org, will@kernel.org, x86@kernel.org,
+        linux-hyperv@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-arch@vger.kernel.org
+Cc: apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
+        sunilmut@microsoft.com
+References: <20250511230758.160674-1-romank@linux.microsoft.com>
+ <20250511230758.160674-4-romank@linux.microsoft.com>
 Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <pmjd65zzypo7kyi3mkpqd4pf6dqz5ssxxhwnicav57trzxt3ni@ph665okjfo2s>
-Content-Type: text/plain; charset=UTF-8
+From: ALOK TIWARI <alok.a.tiwari@oracle.com>
+In-Reply-To: <20250511230758.160674-4-romank@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TYAPR01CA0021.jpnprd01.prod.outlook.com (2603:1096:404::33)
+ To DS7PR10MB5328.namprd10.prod.outlook.com (2603:10b6:5:3a6::12)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BLAPR10MB5315:EE_|MN2PR10MB4333:EE_
+X-MS-Office365-Filtering-Correlation-Id: 67550d8f-02b0-48db-3986-08dd9138ec8f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Z1dQakR4ZEMwakJFNmU4NDBDS3J1cHpLbytxTERMcUNkUkUySjR6TDRlOVFw?=
+ =?utf-8?B?czBjVVE3aVVPMGhPUFZYUWtlNlZDdjRQY3U0bHFPd3VMSHZiZEJwaVIwaDlH?=
+ =?utf-8?B?NjZ3eFVta21ueEQrV0dqSmZXWG1NK0Y3bXN0NHEyc29yRUhIQ09rYzFWUUJ4?=
+ =?utf-8?B?dk5WcnVXR0NUSUlGaUFmQlhsc0dub0M5NVZRSWtUMngzOVJBbXZYSlFyN0FV?=
+ =?utf-8?B?YmlQREV5bWZ1UXIvVjVFazZENlczTWd2MmREdG5sbVVLTUJhcDNXK1h1THJB?=
+ =?utf-8?B?UGdIN2ZLeUEzYjF6Y045WTl3VmM3Vi9KT2JRUDhQL2hxNjJ2QTh1dWR1a25m?=
+ =?utf-8?B?RXZtMm5aSTI4anMvQ3paN3FtdHlRZWV3RWhXU0J0aUNFNmJRSDVteG0xcDI0?=
+ =?utf-8?B?TU9BOXZEYUk1Nm1qbWNoUkN1ZWF2Ylc2aERGL2tNdENDQzE5Zk1pSmpDZ2NT?=
+ =?utf-8?B?aHZZOXY0WGxzR1pDckorV2RUTlhhYVdFejNUMkZrTXVwbklXN29jTlBEbTFE?=
+ =?utf-8?B?UDg4d3BFa0E0VU9OTXZGcGloa21TR3VkakNKSDI2Vk9TNXAzOGZHUVUvWkhF?=
+ =?utf-8?B?anlSNTRmelJydHVaOUlobFFkOWRlejVOMnJpbTdablorZUFzVlIyMUZSL0Ez?=
+ =?utf-8?B?UWZJUTJzU2EwN1Z0ZFdITFBmZWxudWlqZHVrUjBpaTFpUFRGRFlDM0JUVTlG?=
+ =?utf-8?B?b2NPUGhBOHBIL1gwcllVaHdXUmI5cDdtVUNNbVZEaEpUcUVkNVNrVFN0Tmdq?=
+ =?utf-8?B?WWdlWW5YUG1oUUpxVkk5V2FjQzVVZk1Ib3F2NEI0aGtmWWtNQmowT0ExUFZ6?=
+ =?utf-8?B?VVRQUGpHWEJCbE5VbjY4YTgzRHZDcGNZK3dmaHczcU9lRnloQkJnc1VKdnZS?=
+ =?utf-8?B?L0UybWhmY3dYd0I0MVU0TnpmbUFpUSs0a0p2WVhaZkJvSkxLamRpQUQzaDRX?=
+ =?utf-8?B?a1htK0t5ck5TWk51QkZLMDFGaVFrYnNUMERNTDAvcHVyRk9MWE1CVkpNc1hJ?=
+ =?utf-8?B?WElRYnFERGJDTlpLQmluWVlVMVhlUytBUHpPRWlsVVNXWHJDRXR5MnRROHp4?=
+ =?utf-8?B?TFJ4WFZzZWVJdzVKMzdDcnRtSGRUbC9MQ25sV3FZbnd5QkVTdU9OUzA5Uzdi?=
+ =?utf-8?B?S1IwL3pvbVk5QUpuYkRzc3o1ZENxaVhMUDM0UWVjVVdCMFh0YWpZWUZFbFhn?=
+ =?utf-8?B?ZjlVWVMxeThwbCtWTkRxaVdBWU1ZQ2wzS0pOZXhNU1pvZE9aZGVjM2RhTm03?=
+ =?utf-8?B?WkYvZ3J1VVNPcGRWUXlwZHZQa0o1VmIxblJHby9zKzBxRy9yd0hxeHlOMVhk?=
+ =?utf-8?B?Ky9QNWFrNlZObWdRVm1UeW9MdDF2d0VHbVdKUFlNTm9rdTJDR3V2ZklCWHFu?=
+ =?utf-8?B?RkFieUJMbjUydS9yRHNaV01CQzAydVZ6TERPcks2blZwSmxVTXFEWjE4bG00?=
+ =?utf-8?B?T29NSkZTMGNsY3VPaUc3QUlRdGZUb0tvWkZaSUZpKyt5Zk16UytBSm53a3dV?=
+ =?utf-8?B?Y1hwNVU4MW5QdGJHc1hSUFp0UmNrTXBTMFpHcXBCT2xCVEJla1Y2emhwNkgr?=
+ =?utf-8?B?dDdYMjRxalR6NndmbG5ucXNIejE0akVLb0FKZlAvUjRpNkJ1c0s3b1dpL1ZI?=
+ =?utf-8?B?RmFMaDdWcDkydVRhcXpWTnpLNlh1NFBkQTBOdytwNUptLzkzc2ZyUWc2SHA4?=
+ =?utf-8?B?Y21kMzdzRGxsR1IycUMyR3Y4SEl6UEVSZTRJTkhtVWI1NjdINmdqd2hXcU1n?=
+ =?utf-8?B?eUZoa2lFU1J0ekRXMDI0eVBpWEF1MXRURkt2Q2liTFJ3UzcvaWRpYmRFeURi?=
+ =?utf-8?B?RW9USVdRWk8vWUdYLzJyZDB0dnlCZ0Q1dGhXcWJaRStIWkczL0hkVXFyM2tL?=
+ =?utf-8?B?S0R5NW45cDF2L0w0YkwyZDdXOGwrNmZUUmZQN0tJWTNwaVk2dlFsUHVNN3RC?=
+ =?utf-8?Q?pO6vPFcBxcYaNOtDtqohfnOGv2x1KSvx?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BLAPR10MB5315.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MDc4OEt2QWRuTzczbXNoM2lOajErcmdhTHJ5aFJrc09WcUc2a1lEdmd6OFN1?=
+ =?utf-8?B?MnNEU1htUWdweEtydG5SRUZDMzVPeVc4cW1NZzdRdXgyYUFUYmR3a0ljQkVp?=
+ =?utf-8?B?VkZTbkJabXF1RFIrYnUyazViM1hQemJVdVYwZTFOWlJORHI0NzNaTTlJZ2VZ?=
+ =?utf-8?B?SXlndXRPK0EwMERwNTExcWZscThhOHpYZ2VtOXRwNkVMbUVNcGsvL0lFWlNj?=
+ =?utf-8?B?ZndtNzY3VFdnMjEzOEs5VkdoZUUrS3NwQi9WYmdXVytLa0xBMU9VWjVQOHdQ?=
+ =?utf-8?B?V0o0UWpXRFJVd2NiVzRTV0Zybkx4cG9lOFVWdUVvTWF5ZDYwL3l1Zy9UeWJZ?=
+ =?utf-8?B?RzNtZGI0UHJXQmFLb0svM21idnRKQWpuRTFDaUFWbmdXcUg2bDJpTzFOWDd2?=
+ =?utf-8?B?SU5SbDVsd3RpWVVsaXhiN1UyN2pidXROaW5UUUQzRXFzZGhhZXNZdnhOMUUz?=
+ =?utf-8?B?bjFsM3JjbGFLWUhXNkJNWjhtQk5GeGJoYXY0YTdFaHdtVVFORjdaZGtaWHpT?=
+ =?utf-8?B?UDREcjBEeTdtK0FZNXF0SVBsaFZkTzI0N3hEYkRUbHZOR3d4Y2xZY0VoU2Ro?=
+ =?utf-8?B?azhIc2F0Rk03ckZ3OUVQYTcwL3ltOFhHWHVmS2pCWjNNVW1FQzhrV1d1TzZx?=
+ =?utf-8?B?N25QK3M3TkxldVhCY2xIaG0vUHNnZE9hUWpLeVNpRHBWUHZEbnJiYnZHdnVM?=
+ =?utf-8?B?QzQzRWp3bExJWkovUUVUVUtlNGw0WHVwU2QxWU5CamliUDY2cmlpSE83N2hV?=
+ =?utf-8?B?Y0RXUHgxMjY1L1ZXRUl5VUNvUWdIOExIeUh4VEJxVVo5L1FJakpFMkc0eVRq?=
+ =?utf-8?B?YWRBSjlmQ3diLzhzQnNWekxMMFlhZ0dPZm5jcmJXWXNLOXBJRWRqRVM0RkNQ?=
+ =?utf-8?B?Q0MvRjlNbFgyRHFiamNreTRYOFRSMFhrVUtvWFFBT01SYXRzWkhaaFJvWjgz?=
+ =?utf-8?B?N0kwd3pRWnFoVWdZUVJ4ekNHa0RVRk9INWUzYlVpeVZrN3NKWVlKVmV6Vkl1?=
+ =?utf-8?B?NTBZcEttcmJCRjlPTHY3cmozY3ZJbTZqOWNwc0tuVjhTZ0tHVG4xTk5TcGNQ?=
+ =?utf-8?B?S0R3Z2JQL3lEN0VUYUN0NWhrYXpXS2p5b0JweHNvQ2Q2dzRaQnVUTDlXTVl3?=
+ =?utf-8?B?UlhFMUJFL0RpQmZjTXNncXBxMmY1VTV5TndGaVN6aHNoV1FKeHA3b3lIWi85?=
+ =?utf-8?B?UWtXTnVNaDJiN1V5M0NWREpZY2p3czIzYmxnQUNxQmltRGs5Nko4MTIzR1ho?=
+ =?utf-8?B?aG9lMTVER1pZVXBxWi83N0s1em9zdS9OTXZMVU1nNW1VVnhaVkphMUQ1Q0Vx?=
+ =?utf-8?B?bFFLcHNlazVpWktkOVNvbDhib1RqZTVOTTMwSzRlSDRsd1gwcEVpRDZHSitX?=
+ =?utf-8?B?dGZJVVhFQ0hzQmJkcVJVNERYUTVLTEJ2emJjRWhWd1VpWkJWQWZieDhsakI5?=
+ =?utf-8?B?ZFk1a3NvZVJlRXdHekhvRWJUZEREK1hjNkVBZDA2SCtlei9OdmFSUTFkc3Zq?=
+ =?utf-8?B?UzZMeWNhR2NNV09kNUZEWG5xVXY2dHdNa2FCVkZFUitFQXlneHF6M2xKbEdC?=
+ =?utf-8?B?Tmp5THk3SHJOdGZZeUJGLzdWUkNzZnFHQ2dqNE5mSWt4dVpka3MxalMvVThs?=
+ =?utf-8?B?a29tcjdOM2Y0MG1Nc0xiU2NIZzRIaHYyQ2FrSGo3cENMdWFDaWxtMGJ3Q2tt?=
+ =?utf-8?B?dnhVLzVoSzR0NTJrc1hsc1BIT1NxWVpENnQzV0Y3NzhDSWJZQ3djY3NjVnBJ?=
+ =?utf-8?B?cTJyWm9kT2MrYVplMG81ajNYK1BNR2FKM0wvSTdKUmVSMUREV2VENXUycVlJ?=
+ =?utf-8?B?U0cxV2IvUERSNi9ZZmo0RDZMbTBKT0tzeS9rS3BDazEvS1FRS0VmcnJHYUo1?=
+ =?utf-8?B?eHc4K1RPSERVZlFaVzZYazBHQ3F2cDIzSGNQa0dJTjNGWTlQZEo4ckxXWFVa?=
+ =?utf-8?B?c2srV2hJRlROM2JHYXdyTHNXSkVPS3pXLzA1OFlaeVdiS3NUZGFuVEJDVFF2?=
+ =?utf-8?B?NU1DUldXT25pcG4wdit2NTc0NitsQ2NxK3d0U3VTZmhhaFlQaVRabHFtZ2Fo?=
+ =?utf-8?B?U3dpQXR5UWJjSjhhci83ZEJ2R3FKbUlIMFlxaGNNc0s4N0tSemVaTlA1RzZP?=
+ =?utf-8?B?Ukk0aVh1ZEFjeVJqdG9mLy9GRHRBcnlINnhRc3YxT2NlditGMHFqdHpUNm5j?=
+ =?utf-8?B?UWc9PQ==?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: yyfOjFnqWY3GS8M5bKhjop8BEbXwa0sQ1MOQg2UmIh3p/d8ze3D/xysn8I1K/c7LaJIMEnAy2uKCYviO9X8GCfdkLUivHvz6mdO8F0yDMpOw1GeGn51b1Y8zmcXWVNm/lBrs4MBHszbFehPmZ0fq2ijulLsKMb9By0hJC6SijcetC+AOtFJhA22Th6z60LP0yfoHY/YAtb/X/RSuD6S92Tc8IQxw95zK86ILMT1Vvd6HmKQl0se9d35OC1SXgUE+sazE6gXyyZCccEtR/dmjNP1s+pa7Qin/q/+d65JzHtbTfmnAJU1boD5o/78RF7lynycHMSEVViBmJgMJbZPj2DdSQ0GQZoHN1II/EZYv3aZpP2RHmA9hJKN3cIwynx/D02X1tYZj3gnMD30kHgzHhz/B0555VgG+/au9i5T6ayPDg5EStxJqq2mdku9CBlxDYp3u4l2Xp4zFoHn2Gwok+7mIXmcpFt2VlfFu3NwGvnjtmu250pK4fh4BjRewxhl3b9QTdixcPsccz2R8bO7saIcXvlt/2Ritaum2NZoF2TnJFMCKgwus+3v2q3xb7BmNTjh6O61rX3xTQq6GTpuyCKN9kpC5CyIfLl5ddG3y/Nk=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 67550d8f-02b0-48db-3986-08dd9138ec8f
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR10MB5328.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2025 09:39:44.3051
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1FgsbF7oW2gUfLzvjdMIAOI3OIvlgZMwHtSTrQFcnn/N19HMbvqSyd1r4htRf2uTpbSLJ9T9YfPJ02cvOeaNIQJwZbqmsMrDK5wPqKST5ww=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR10MB4333
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-12_03,2025-05-09_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 malwarescore=0
+ spamscore=0 mlxlogscore=999 phishscore=0 adultscore=0 bulkscore=0
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2504070000 definitions=main-2505120101
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTEyMDEwMSBTYWx0ZWRfX+9HrgRKe4bHv YBfpxHFK4gEq1rKAbfhc9c0Hs/kJvZ0tCGMHusK6uQuvt2vHd14LUDL2yaS5S5n+unsvmsPxC6c 2dPv1/mhZ5k52NCNTYiOpH3N+c5T/pKG0HkbHZK1gOarhJ6yMupMGfihvk3h9VbASmcLRSwD8Hp
+ 4DP3abfXx5wrOKg1LJQ4TGLXjlV+H3VPt8PVPt4FErpku4SPRmYL1qAR0SB/it2EnI4asjpOTv/ KQZgc6gdVFQIY/vRn7NkNawkCW8FVSvABbfn/ZWnsaKmwUTFBSjz3OZfF89HbS2iwQwwGxH8+Ts xraXbvxd4AlABr7tPATorzOnn35QHmk40bFob8uY48WzJ9Ab6w2NGql+vo018hX4lYtLWC691tO
+ rc+MDcfmjPktX582MV4rJjsnIgjwAHiMbTzEsAVcaPpyQb7DlxJbd+UvdzD27BQGx1bs+D4U
+X-Authority-Analysis: v=2.4 cv=YJ2fyQGx c=1 sm=1 tr=0 ts=6821c1e3 b=1 cx=c_pps a=qoll8+KPOyaMroiJ2sR5sw==:117 a=qoll8+KPOyaMroiJ2sR5sw==:17 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19
+ a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=GoEa3M9JfhUA:10 a=gRteV8TEMhhfuH8V2V4A:9 a=QEXdDO2ut3YA:10 cc=ntf awl=host:13186
+X-Proofpoint-GUID: cr7udnuJ2D_Amje5_ii1mY8oY16ye-7q
+X-Proofpoint-ORIG-GUID: cr7udnuJ2D_Amje5_ii1mY8oY16ye-7q
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_023932_617328_E5724B5E 
-X-CRM114-Status: GOOD (  46.01  )
+X-CRM114-CacheID: sfid-20250512_024015_781566_904438E6 
+X-CRM114-Status: GOOD (  15.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,432 +222,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mehdi,
 
-On 5/7/25 11:36, Mehdi Djait wrote:
-> Hi Michael,
-> 
-> On Tue, May 06, 2025 at 10:32:59PM +0200, Michael Riesch wrote:
->> Hi Mehdi,
->>
->> Thanks for your review!
->>
->> On 5/6/25 12:37, Mehdi Djait wrote:
->>> Hi Michael,
->>>
->>> Thank you for the patch!
->>>
->>> Is it possible to sent the v4l2-compliance output in the next version ?
 
-Missed that remark. Yes, I'll take care to send the output (maybe as
-reply to v7, though).
+On 12-05-2025 04:37, Roman Kisel wrote:
+> +/*
+> + * Not every paravisor supports getting SynIC registers, and
+> + * this function may fail. The caller has to make sure that this function
+> + * runs on the CPU of interest.
+> + */
 
->>>
->>> On Wed, Apr 30, 2025 at 11:15:55AM +0200, Michael Riesch via B4 Relay wrote:
->>>> From: Michael Riesch <michael.riesch@wolfvision.net>
->>>>
->>>
->>> SNIP
->>>
->>>> +irqreturn_t rkcif_dvp_isr(int irq, void *ctx)
->>>> +{
->>>> +	struct device *dev = ctx;
->>>> +	struct rkcif_device *rkcif = dev_get_drvdata(dev);
->>>> +	struct rkcif_stream *stream;
->>>> +	u32 intstat, lastline, lastpix, cif_frmst;
->>>> +	irqreturn_t ret = IRQ_NONE;
->>>> +
->>>> +	if (!rkcif->match_data->dvp)
->>>> +		return ret;
->>>> +
->>>> +	intstat = cif_dvp_read(rkcif, RKCIF_DVP_INTSTAT);
->>>> +	cif_frmst = cif_dvp_read(rkcif, RKCIF_DVP_FRAME_STATUS);
->>>> +	lastline = RKCIF_FETCH_Y(cif_dvp_read(rkcif, RKCIF_DVP_LAST_LINE));
->>>> +	lastpix = RKCIF_FETCH_Y(cif_dvp_read(rkcif, RKCIF_DVP_LAST_PIX));
->>>> +
->>>> +	if (intstat & RKCIF_INTSTAT_FRAME_END) {
->>>> +		cif_dvp_write(rkcif, RKCIF_DVP_INTSTAT,
->>>> +			      RKCIF_INTSTAT_FRAME_END_CLR |
->>>> +				      RKCIF_INTSTAT_LINE_END_CLR);
->>>> +
->>>> +		stream = &rkcif->interfaces[RKCIF_DVP].streams[RKCIF_ID0];
->>>> +
->>>> +		if (stream->stopping) {
->>>> +			cif_dvp_stop_streaming(stream);
->>>> +			wake_up(&stream->wq_stopped);
->>>> +			return IRQ_HANDLED;
->>>> +		}
->>>> +
->>>> +		if (lastline != stream->pix.height) {
->>>> +			v4l2_err(&rkcif->v4l2_dev,
->>>> +				 "bad frame, irq:%#x frmst:%#x size:%dx%d\n",
->>>> +				 intstat, cif_frmst, lastpix, lastline);
->>>> +
->>>> +			cif_dvp_reset_stream(rkcif);
->>>> +		}
->>>> +
->>>> +		rkcif_stream_pingpong(stream);
->>>> +
->>>> +		ret = IRQ_HANDLED;
->>>
->>> just return IRQ_HANDLED like above ?
->>
->> I think I'll go along Bryan's suggestion to make it more consistent.
->>
->>>
->>>> +	}
->>>> +
->>>> +	return ret;
->>>> +}
->>>> +
->>>> +int rkcif_dvp_register(struct rkcif_device *rkcif)
->>>> +{
->>>> +	struct rkcif_interface *interface;
->>>> +	int ret, i;
->>>> +
->>>> +	if (!rkcif->match_data->dvp)
->>>> +		return 0;
->>>> +
->>>> +	interface = &rkcif->interfaces[RKCIF_DVP];
->>>> +	interface->index = RKCIF_DVP;
->>>> +	interface->type = RKCIF_IF_DVP;
->>>> +	interface->in_fmts = rkcif->match_data->dvp->in_fmts;
->>>> +	interface->in_fmts_num = rkcif->match_data->dvp->in_fmts_num;
->>>> +	interface->set_crop = rkcif_dvp_set_crop;
->>>> +	ret = rkcif_interface_register(rkcif, interface);
->>>> +	if (ret)
->>>> +		return 0;
->>> 		|
->>> 		+-> Copy-paste error ?
->>
->> Hm. It's not a mistake. But maybe it is a bit misleading.
->>
->> The point here is that if something fails with registering the DVP, the
->> driver may continue to register other entities, such as the MIPI capture
->> thing.
-> 
-> what if you want to register the DVP interface and it fails ? Maybe two
-> separate function for rkcif_{dvp,mipi}_interface_register(), call one of
-> them based on match_data and verify the ret code --> fail if non-zero ?
+Title and Intent: Clearly state the purpose of the function in the first 
+sentence
+/*
+  * Attempt to get the SynIC register value.
+  *
+  * Not all paravisors support reading SynIC registers, so this function
+  * may fail. The caller must ensure that it is executed on the target
+  * CPU.
+  *
+  * Returns: The SynIC register value or ~0ULL on failure.
+  * Sets err to -ENODEV if the provided register is not a valid SynIC
+  * MSR.
+  */
 
-Seems I prepared everything in rkcif-dev.c, but failed to complete it in
-rkcif_{dvp,mipi}_capture :-/
+> +u64 hv_pv_get_synic_register(unsigned int reg, int *err)
+> +{
+> +	if (!hv_is_synic_msr(reg)) {
+> +		*err = -ENODEV;
+> +		return !0ULL;
+> +	}
+> +	return native_read_msr_safe(reg, err);
+> +}
+> +EXPORT_SYMBOL_GPL(hv_pv_get_synic_register);
+> +
+> +/*
+> + * Not every paravisor supports setting SynIC registers, and
+> + * this function may fail. The caller has to make sure that this function
+> + * runs on the CPU of interest.
+> + */
 
-rkcif_register() in rkcif-dev.c tolerates -ENODEV, so if e.g. DVP is not
-available on a board, the function will proceed to call
-rkcif_mipi_register. So we should return ret; here. Sounds reasonable?
+ditto.
 
-> 
->>
->> I'll have another look over this mechanism and will try to make it more
->> comprehensible.
->>
->>>
->>>> +
->>>> +	if (rkcif->match_data->dvp->setup)
->>>> +		rkcif->match_data->dvp->setup(rkcif);
->>>> +
->>>> +	interface->streams_num = rkcif->match_data->dvp->has_ids ? 4 : 1;
->>>> +	for (i = 0; i < interface->streams_num; i++) {
->>>> +		struct rkcif_stream *stream = &interface->streams[i];
->>>> +
->>>> +		stream->id = i;
->>>> +		stream->interface = interface;
->>>> +		stream->out_fmts = rkcif->match_data->dvp->out_fmts;
->>>> +		stream->out_fmts_num = rkcif->match_data->dvp->out_fmts_num;
->>>> +		stream->queue_buffer = cif_dvp_queue_buffer;
->>>> +		stream->start_streaming = cif_dvp_start_streaming;
->>>> +		stream->stop_streaming = cif_dvp_stop_streaming;
->>>> +
->>>> +		ret = rkcif_stream_register(rkcif, stream);
->>>> +		if (ret)
->>>> +			goto err_streams_unregister;
->>>> +	}
->>>> +	return 0;
->>>> +
->>>> +err_streams_unregister:
->>>> +	for (; i >= 0; i--)
->>>> +		rkcif_stream_unregister(&interface->streams[i]);
->>>> +	rkcif_interface_unregister(interface);
->>>> +
->>>> +	return ret;
->>>> +}
->>>> +
->>>
->>> SNIP
->>>
->>>> +static inline struct rkcif_buffer *to_rkcif_buffer(struct vb2_v4l2_buffer *vb)
->>>> +{
->>>> +	return container_of(vb, struct rkcif_buffer, vb);
->>>> +}
->>>> +
->>>> +static inline struct rkcif_stream *to_rkcif_stream(struct video_device *vdev)
->>>> +{
->>>> +	return container_of(vdev, struct rkcif_stream, vdev);
->>>> +}
->>>> +
->>>> +static struct rkcif_buffer *rkcif_stream_pop_buffer(struct rkcif_stream *stream)
->>>> +{
->>>> +	struct rkcif_buffer *buffer = NULL;
->>>> +	unsigned long lock_flags;
->>>> +
->>>> +	spin_lock_irqsave(&stream->driver_queue_lock, lock_flags);
->>>
->>> guard(spinlock_irqsave)(&stream->driver_queue_lock) will simplify this function.
->>
->> I'll guard up these methods in v7.
->>
->>>
->>>> +
->>>> +	if (list_empty(&stream->driver_queue))
->>>> +		goto err_empty;
->>>> +
->>>> +	buffer = list_first_entry(&stream->driver_queue, struct rkcif_buffer,
->>>> +				  queue);
->>>> +	list_del(&buffer->queue);
->>>> +
->>>> +err_empty:
->>>> +	spin_unlock_irqrestore(&stream->driver_queue_lock, lock_flags);
->>>> +	return buffer;
->>>> +}
->>>> +
->>>> +static void rkcif_stream_push_buffer(struct rkcif_stream *stream,
->>>> +				     struct rkcif_buffer *buffer)
->>>> +{
->>>> +	unsigned long lock_flags;
->>>> +
->>>> +	spin_lock_irqsave(&stream->driver_queue_lock, lock_flags);
->>>> +	list_add_tail(&buffer->queue, &stream->driver_queue);
->>>> +	spin_unlock_irqrestore(&stream->driver_queue_lock, lock_flags);
->>>> +}
->>>> +
->>>> +static inline void rkcif_stream_return_buffer(struct rkcif_buffer *buffer,
->>>> +					      enum vb2_buffer_state state)
->>>> +{
->>>> +	struct vb2_v4l2_buffer *vb = &buffer->vb;
->>>> +
->>>> +	vb2_buffer_done(&vb->vb2_buf, state);
->>>> +}
->>>> +
->>>> +static void rkcif_stream_complete_buffer(struct rkcif_stream *stream,
->>>> +					 struct rkcif_buffer *buffer)
->>>> +{
->>>> +	struct vb2_v4l2_buffer *vb = &buffer->vb;
->>>> +
->>>> +	vb->vb2_buf.timestamp = ktime_get_ns();
->>>> +	vb->sequence = stream->frame_idx;
->>>> +	vb2_buffer_done(&vb->vb2_buf, VB2_BUF_STATE_DONE);
->>>> +	stream->frame_idx++;
->>>> +}
->>>> +
->>>> +void rkcif_stream_pingpong(struct rkcif_stream *stream)
->>>> +{
->>>> +	struct rkcif_buffer *buffer;
->>>> +
->>>> +	buffer = stream->buffers[stream->frame_phase];
->>>> +	if (!buffer->is_dummy)
->>>> +		rkcif_stream_complete_buffer(stream, buffer);
->>>
->>> You can actually keep this frame dropping mechanism without using the
->>> dummy buffer.
->>>
->>> You can set a drop flag to TRUE: keep overwriting the buffer you already have
->>> without returning it to user-space until you can get another buffer, set
->>> the flag again to FALSE and resume returning the buffers to user-space.
->>
->> The approach you describe is what the downstream driver does and I am
->> not really happy with it. A perfectly fine frame is sacrificed in a
->> buffer starvation situation.
-> 
-> Oh I thought the downstream driver does it with the dummy buffer.
-> 
->>
->> The approach in the patch series at hand follows the example in the
->> rkisp1 driver, which should be a good reference.
-> 
-> Ack.
+> +int hv_pv_set_synic_register(unsigned int reg, u64 val)
+> +{
+> +	if (!hv_is_synic_msr(reg))
+> +		return -ENODEV;
+> +	return wrmsrl_safe(reg, val);
+> +}
+> +EXPORT_SYMBOL_GPL(hv_pv_set_synic_register);
 
-Just FWIW: after some discussions off-list I am not sure anymore that
-the dummy buffer approach is a good idea. However, maybe we can defer
-this -- this is something that can be changed anytime once the initial
-driver is mainline.
-
-> 
->>
->>>> +
->>>> +	buffer = rkcif_stream_pop_buffer(stream);
->>>> +	if (buffer) {
->>>> +		stream->buffers[stream->frame_phase] = buffer;
->>>> +		stream->buffers[stream->frame_phase]->is_dummy = false;
->>>> +	} else {
->>>> +		stream->buffers[stream->frame_phase] = &stream->dummy.buffer;
->>>> +		stream->buffers[stream->frame_phase]->is_dummy = true;
->>>> +		dev_warn(stream->rkcif->dev,
->>>> +			 "no buffer available, frame will be dropped\n");
->>>
->>> This warning can quickly flood the kernel logs if the user-space is too slow in
->>> enqueuing the buffers.
->>
->> True. dev_warn_ratelimited(...)?
->>
-> 
-> Does frame dropping deserve a warning ? If you don't think so, maybe a
-> debug or info ?
-
-_dbg sounds reasonable for that.
-
-> 
->>>
->>>> +	}
->>>> +
->>>> +	if (stream->queue_buffer)
->>>> +		stream->queue_buffer(stream, stream->frame_phase);
->>>
->>> is this if statement really needed ?
->>
->> I find it good practice to check the callbacks before calling them. But
->> this is a matter of taste, of course.
->>
->>>
->>>> +
->>>> +	stream->frame_phase = 1 - stream->frame_phase;
->>>> +}
->>>> +
->>>> +static int rkcif_stream_init_buffers(struct rkcif_stream *stream)
->>>> +{
->>>> +	struct v4l2_pix_format_mplane *pix = &stream->pix;
->>>> +	int i;
->>>> +
->>>> +	stream->buffers[0] = rkcif_stream_pop_buffer(stream);
->>>> +	if (!stream->buffers[0])
->>>> +		goto err_buff_0;
->>>> +
->>>> +	stream->buffers[1] = rkcif_stream_pop_buffer(stream);
->>>> +	if (!stream->buffers[1])
->>>> +		goto err_buff_1;
->>>> +
->>>> +	if (stream->queue_buffer) {
->>>> +		stream->queue_buffer(stream, 0);
->>>> +		stream->queue_buffer(stream, 1);
->>>> +	}
->>>> +
->>>> +	stream->dummy.size = pix->num_planes * pix->plane_fmt[0].sizeimage;
->>>> +	stream->dummy.vaddr =
->>>> +		dma_alloc_attrs(stream->rkcif->dev, stream->dummy.size,
->>>> +				&stream->dummy.buffer.buff_addr[0], GFP_KERNEL,
->>>> +				DMA_ATTR_NO_KERNEL_MAPPING);
->>>> +	if (!stream->dummy.vaddr)
->>>> +		goto err_dummy;
->>>> +
->>>> +	for (i = 1; i < pix->num_planes; i++)
->>>> +		stream->dummy.buffer.buff_addr[i] =
->>>> +			stream->dummy.buffer.buff_addr[i - 1] +
->>>> +			pix->plane_fmt[i - 1].bytesperline * pix->height;
->>>> +
->>>> +	return 0;
->>>> +
->>>> +err_dummy:
->>>> +	rkcif_stream_return_buffer(stream->buffers[1], VB2_BUF_STATE_QUEUED);
->>>> +	stream->buffers[1] = NULL;
->>>> +
->>>> +err_buff_1:
->>>> +	rkcif_stream_return_buffer(stream->buffers[0], VB2_BUF_STATE_QUEUED);
->>>> +	stream->buffers[0] = NULL;
->>>> +err_buff_0:
->>>> +	return -EINVAL;
->>>> +}
->>>> +
->>>
->>> SNIP
->>>
->>>> +static int rkcif_stream_init_vb2_queue(struct vb2_queue *q,
->>>> +				       struct rkcif_stream *stream)
->>>> +{
->>>> +	q->type = V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
->>>> +	q->io_modes = VB2_MMAP | VB2_DMABUF;
->>>> +	q->drv_priv = stream;
->>>> +	q->ops = &rkcif_stream_vb2_ops;
->>>> +	q->mem_ops = &vb2_dma_contig_memops;
->>>> +	q->buf_struct_size = sizeof(struct rkcif_buffer);
->>>> +	q->min_queued_buffers = CIF_REQ_BUFS_MIN;
->>>
->>> If I recall correctly min_queued_buffers should be the strict minimum
->>> number of buffers you need to start streaming. So in this case it should
->>> be 3 = 2 pingpong buffers + 1 dummy buffer.
->>
->> The dummy buffer is allocated separately and does not need to be
->> accounted for.
->>
->> Two pingpong buffers is what the hardware can queue, but in practice, to
->> start (and, above all, keep on) streaming you'll need more.
->>
->>> VIDIOC_REQBUFS will allocate min_queued_buffers + 1 and user-space will
->>> probably allocate even more anyway.
->>
->> Is that so? I found that user space relies too much on this minimum
->> buffer count and experienced several buffer starvation situations
->> because kernel AND user space were to cheap in terms of buffer count.
->> Maybe 8 is too many, but in practice four buffers are required at least
->> for a decent 2160p stream (one ready for DMA write, one ongoing DMA
->> write, one stable for processing (maybe DRM scanout or whatever the
->> application is), one spare).
->>
->> I am open to suggestions but please keep real life situations in mind
->> and move away from theoretical stand-alone-capture-hw setups.
-> 
-> so the documentation says:
-> --------------------------------------------------------------------------
-> min_queued_buffers is used when a DMA engine cannot be started unless at
-> least this number of buffers have been queued into the driver.
-> --------------------------------------------------------------------------
-> 
-> and:
-> --------------------------------------------------------------------------
-> VIDIOC_REQBUFS will ensure at least @min_queued_buffers + 1
-> buffers will be allocated.
-> --------------------------------------------------------------------------
-> 
-> I also found theses patches:
-> https://lore.kernel.org/linux-media/20231211133251.150999-1-benjamin.gaignard@collabora.com/
-> https://lore.kernel.org/all/20241007124225.63463-1-jacopo.mondi@ideasonboard.com/
-> 
-> If I understood correctly there is a difference between:
-> 
-> - the minimal number of buffers to be allocated with VIDIOC_REQBUFS
-> - the minimal number of buffers to make it possible to start streaming
-> 
-> what you are setting is the latter, which means you need 8 buffers to
-> even start streaming which should not be the case for rkcif, which
-> should only need two (of course when using pingpong)
-> 
-> what you mentioned with the minimum number of buffers for a decent stream seems
-> to point more towards @min_reqbufs_allocation:
-> --------------------------------------------------------------------------
-> Drivers can set this if there has to be a certain number of
-> buffers available for the hardware to work effectively.
-> --------------------------------------------------------------------------
-> 
-> of course this being said I am not the expert here so feel free to ask
-> @Laurent @Hans
-
-Thanks a lot for digging out all this info. In particular, the pointer
-to Jacopo's change to the rkisp1 is interesting. I feel kind of stupid
-now because I stumbled over this exact issue when I tried to capture a
-single frame with the rkisp1 driver.
-
-So in general we should let user space decide, as user space knows best
-about the exact application (one-shot capture, stream capture, stream
-capture with extended postprocessing = deeper pipeline, ...).
-
-And following Jacopo's reasoning for the rkisp1 we should set the value
-to 1 here, as we also have a dummy buffer approach.
-
-Best regards,
-Michael
-
-> 
-> --
-> Kind Regards
-> Mehdi Djait
+Thanks,
+Alok
 
 
