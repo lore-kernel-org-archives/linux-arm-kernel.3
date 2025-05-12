@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07F98C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 21:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A239EC3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 21:30:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d33HsV9Q2ExG4jEFNJ1KZZxRs5i/Rdno5huB+BNquRs=; b=Gs+nTK3G8XiK6IrqIQhrnX3OGl
-	KDqlZomKfs7dKw9eTf9lby88IieDt5ZI39xI9rIA3JVXE2R2rdiPfg/ZYdIrjAxjSl6b4cE3yjF6Y
-	MOyQVSc4WOB+dbiubgYWOIRAc9qApqVg1UawIthYy1lbkUVCJJi+gj5Svi78hMF013H25VOCDhicY
-	H/0yu8WSiEsIBxbDDIjBXkyj+Y+VJJoZxSsFEzxW1Bb908VyvMQAZAI4BLuP5DMjaZYoxPp9U9A9D
-	xUPILGz8yTKmDeMpIpGN1mBpMeWslsimWlFRZSx5dOkSDyoKi/sOTANNq8lJmCvgVE784iikq2isx
-	sRTNQ2ng==;
+	bh=AfQpXa3tBlUEYjokNIxHFziqeEJgVAZbUffZzLdfAGE=; b=WLZ33IihMlBgUvCsjHciKOrOg5
+	qUa+9NvoO6hlJvPU5U6S4Ypkzb5z6T8mkZkls8mIb2JrSwmCOZY7R5Q0wpL9OwsXgwoQ1ujgVxhUR
+	qDWTfynmwYZXY/AgnTUkwfJrYZ4YyVu7WcTAhTSD5W2tmHrKcxcd3TR0peJ3TJ3Vj3j6KG0dhgZSf
+	czQpvj2clx1/acqgJV5W7o9UXEXjjWo4/LVD4ozTUyrd/+e4GsZSBpHKTkty29uTri33oQeJB1plN
+	uwp0vM0VSsQAFEvDSLivJaozfJ8tomrL5sECO7NgEjUFTDrTaumW5rhnCNhBAVZxzHfODd8+LTUsf
+	WswAuwiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEae3-0000000AiNo-2tTd;
-	Mon, 12 May 2025 21:25:07 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uEajS-0000000AjAe-2okX;
+	Mon, 12 May 2025 21:30:42 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEab4-0000000Ai7T-1Dog
+	id 1uEahO-0000000Aibh-3vwO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 21:22:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 25B5FA4C875;
-	Mon, 12 May 2025 21:22:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1944EC4CEE7;
-	Mon, 12 May 2025 21:21:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747084920;
-	bh=aFYcDwYxXrLjIDCIgnPMduQEvVa991+JxlfnAmkMZbo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=L3ZZ5w5cHA2B336NXZh4FoaRl+FdmeJtSBYbt4pp3Tv7SIFI0B7Yz8au7yDFPZ51/
-	 1R4LXgUzBO0OAqu/1Dqc5zVkqo15Qzh/kYoVbtpiMeV7C1LDp53W5k7nUCc+OUhlNh
-	 HrK/B72mGkZko5InZEXAjc6yoqNWt9c7XNTghlZ9IrCWjtgfRH9+GrBrT29Y0m4X/S
-	 XlVTAFahKkNf/qTZqibff9MDui4wQYEhgIhdt8H5F50B2BFu4NDTDb6Kz0Cg5nW5XM
-	 I0V9GN6vJkez6x0k4KwkSLnfb04d7AYmcBR8ANa4hrDaMSprQsz3iMrRoku6ftGr/B
-	 XvbhP7M9NPVJQ==
-Date: Mon, 12 May 2025 23:21:56 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Francesco Dolcini <francesco@dolcini.it>
-Cc: Dong Aisheng <aisheng.dong@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Emanuele Ghidoli <emanuele.ghidoli@toradex.com>, 
-	linux-i2c@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Francesco Dolcini <francesco.dolcini@toradex.com>, 
-	Carlos Song <carlos.song@nxp.com>
-Subject: Re: [PATCH v2] i2c: lpi2c: implement master_xfer_atomic callback
-Message-ID: <ay6kzvpilixtbiki4z7splkvp3dukhocuxlpmawcrakzdrwedj@qmgb5aiv5ud7>
-References: <20250509140949.56324-1-francesco@dolcini.it>
+	Mon, 12 May 2025 21:28:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=AfQpXa3tBlUEYjokNIxHFziqeEJgVAZbUffZzLdfAGE=; b=vOSg6E9hchsbTwy4bBgAN2i9am
+	RY+v8KoYMRNADVKOAGMzuZ9rejgNNyeCrYc99dHyX0+xDAWrGAY73O0jlz6QfxLektakpmcsKsE+3
+	Km3Jdlx7BihLma0y1eCeL4Wyh8fgYvm5LfGSnJ4k24DM4zi/x7O02cxiMYFh9I4mEe3k=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uEahF-00CNqq-On; Mon, 12 May 2025 23:28:25 +0200
+Date: Mon, 12 May 2025 23:28:25 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Gabor Juhos <j4g8y7@gmail.com>
+Cc: Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	Imre Kaloz <kaloz@openwrt.org>
+Subject: Re: [PATCH 1/7] pinctrl: armada-37xx: use correct OUTPUT_VAL
+ register for GPIOs > 31
+Message-ID: <d5fa1e79-8204-464c-b12d-de8e59411146@lunn.ch>
+References: <20250512-pinctrl-a37xx-fixes-v1-0-d470fb1116a5@gmail.com>
+ <20250512-pinctrl-a37xx-fixes-v1-1-d470fb1116a5@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250509140949.56324-1-francesco@dolcini.it>
+In-Reply-To: <20250512-pinctrl-a37xx-fixes-v1-1-d470fb1116a5@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_142202_397060_2C73F016 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20250512_142834_978165_369F0978 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,28 +74,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Francesco,
-
-On Fri, May 09, 2025 at 04:09:49PM +0200, Francesco Dolcini wrote:
-> From: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+On Mon, May 12, 2025 at 04:22:37PM +0200, Gabor Juhos wrote:
+> The controller has two consecutive OUTPUT_VAL registers and both
+> holds output value for 32 GPIOs. Due to a missing adjustment, the
+> current code always uses the first register while setting the
+> output value whereas it should use the second one for GPIOs > 31.
 > 
-> Rework the read and write code paths in the driver to support operation
-> in atomic contexts. To achieve this, the driver must not rely on IRQs
-> or perform any scheduling, e.g., via a sleep or schedule routine. Even
-> jiffies do not advance in atomic contexts, so timeouts based on them
-> are substituted with delays.
+> Add the missing armada_37xx_update_reg() call to adjust the register
+> according to the 'offset' parameter of the function to fix the issue.
 > 
-> Implement atomic, sleep-free, and IRQ-less operation. This increases
-> complexity but is necessary for atomic I2C transfers required by some
-> hardware configurations, e.g., to trigger reboots on an external PMIC chip.
-> 
-> Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
-> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-> Reviewed-by: Carlos Song <carlos.song@nxp.com>
+> Cc: stable@vger.kernel.org
+> Fixes: 6702abb3bf23 ("pinctrl: armada-37xx: Fix direction_output() callback behavior")
+> Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+> Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
 
-merged to i2c/i2c-host.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Thanks and thanks Carlos for your review!
-
-Andi
+    Andrew
 
