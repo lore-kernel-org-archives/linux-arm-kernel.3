@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5918C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 15:35:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B2FEC3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 15:35:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qA4c873aAVyx8lV3+U1OKyUnt9VrihjZK+lZcde/Hjc=; b=cxaTk7ywrOwvPmf/wX1+Hn3YI+
-	BSPLALY7WiILJcZhkbOeyRlgd1ppr4AIbRsBqz4vRT280ZPH1AZazZzkkdSRRio9v4FiyOovMZGtS
-	LI5Tq6eL8V8KP5tneIqmONeTz2+ls+K/DupIYt2xlGNWBsn0MHjuZcdTAKlQeRF4f6RHSOorFscIb
-	n4HLlS+jx7gdBbmdFU0TlU4paw3J84dWSYwYoyd1yHxEdkZ/rFaeduIlZh0auKIm2Js9kUM4c6CyE
-	DyXOFertNxvQUtySSp/VhNF1ZfnwUqWdLrJXUXw645XfUv+zQBEZf8noKoxHcUIsMQWaJ7hBJrKWk
-	2jRsrZbw==;
+	bh=mBAPoRnu79Kki7ZV6VFllJxIv4+SrHJ+sjXGWIyDWqc=; b=0iV5KaWsO4+1q4YJNpc+TUw4+s
+	ut6xwtS5ztAwK5TyzV0bP5cTuNYxJ2q20avHtVN+ixv/hfGdPh9k+UeTaNY8r9ZW4bh940IibWfPI
+	L71KX8snlwmPVjOdzcp41yRcOq+ws14Ck8kyrKN99OzZ6ra/saLr2QZm6L4XesoquXqFCvFLKdz/x
+	NJtWyycTPPNU0ovwGW5XKdIhzY49MhZkLGFgzpPmjxSq4ir/Sh79J7Q4IGZ6WsHiHlfsc/LwpAHgz
+	vpArV8KwOhEDQiK6lIBn1Czun5thkemQpBk5/4uZKgEZQZtKV9Wczq6+PxloqP809T7nR87nQwMAj
+	xANbqxIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEVBb-00000009t6I-3sYV;
-	Mon, 12 May 2025 15:35:23 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uEVBd-00000009t7K-14tk;
+	Mon, 12 May 2025 15:35:25 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEURV-00000009mvE-3P1a
+	id 1uEURw-00000009n32-1eHv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 14:47:47 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54CElcY22022622;
-	Mon, 12 May 2025 09:47:38 -0500
+	Mon, 12 May 2025 14:48:14 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 54CEm7oc2039866
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 12 May 2025 09:48:07 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1747061259;
-	bh=qA4c873aAVyx8lV3+U1OKyUnt9VrihjZK+lZcde/Hjc=;
+	s=ti-com-17Q1; t=1747061287;
+	bh=mBAPoRnu79Kki7ZV6VFllJxIv4+SrHJ+sjXGWIyDWqc=;
 	h=Date:From:To:CC:Subject;
-	b=tu6QReio2UDWSa10tmE6vULdqvHbWEpF7hvhH9dC6VTCoZPVYq0amG50npOsSunnd
-	 5d+8q+Z6dasQYdZlpKl1uE/xpytU3vzSuDyLWVKJXz//x2qLXpoxdq6NpHGxtqCy22
-	 DYvm8zjUpfuFRobXUyoRsGGDzf6ODDeGApU48MbU=
-Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54CElc031169308
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 12 May 2025 09:47:38 -0500
-Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+	b=KKIUftop43zQv9e6yVFSaVg9FJHJEXe4zwCkx2rATj6nHFeYnnIwxX/AwUwrMyoYN
+	 y1qq+2Af2ql9msdgXCGiaRQbXWrEeYEa1r8gtViVRMy/PjA+GR65eXbVtve/wvsJM5
+	 PBzGDuZ29oUQUhEhqQSvvXD3gzwILpvbPhFlW6lM=
+Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 54CEm7C1077865
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 12 May 2025 09:48:07 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 12
- May 2025 09:47:38 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
+ May 2025 09:48:07 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 12 May 2025 09:47:38 -0500
+ Frontend Transport; Mon, 12 May 2025 09:48:07 -0500
 Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 54CElcfY040746;
-	Mon, 12 May 2025 09:47:38 -0500
-Date: Mon, 12 May 2025 09:47:38 -0500
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 54CEm7Xi015641;
+	Mon, 12 May 2025 09:48:07 -0500
+Date: Mon, 12 May 2025 09:48:07 -0500
 From: Nishanth Menon <nm@ti.com>
 To: Arnd Bergmann <arnd@arndb.de>, SoC list <soc@lists.linux.dev>
 CC: SoC <soc@kernel.org>, <arm@kernel.org>,
@@ -61,18 +62,16 @@ CC: SoC <soc@kernel.org>, <arm@kernel.org>,
  Kristo <kristo@kernel.org>,
         Vignesh Raghavendra <vigneshr@ti.com>, Nishanth
  Menon <nm@ti.com>
-Subject: [GIT PULL 2/3] arm64: defconfig: Updates for TI K3 platforms for
- v6.16
-Message-ID: <20250512144738.dv63fd4fyuly3s44@diocese>
+Subject: [GIT PULL 3/3] arm64: dts: ti: K3 devicetree updates for v6.16
+Message-ID: <20250512144807.yn64klchtmjjl6ac@protrude>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="cfdheb7zkavebeha"
+	protocol="application/pgp-signature"; boundary="ugjf7cm6tlk43njq"
 Content-Disposition: inline
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_074745_940567_E1FC0531 
-X-CRM114-Status: UNSURE (   9.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250512_074812_545032_1B96B4F8 
+X-CRM114-Status: GOOD (  18.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,81 +86,425 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---cfdheb7zkavebeha
+--ugjf7cm6tlk43njq
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
 Hi,
-Please pull:
 
+This PR has the usual 75 char warnings around pinctrl usage and couple
+of other places which I have chosen to ignore in favor of readability,
+couple of places where regex related eeprom compatible lookup failed
+(but dtbs_check passes).
+
+More importantly, J721S2 GPU commits are based off drm-next tree
+commit 2c01d9099859 which has been in the queue for a few weeks
+now - so this warns for commit 2c01d9099859 not being present and
+compatibles img,img-axe-1-16m, img,img-bxs-4-64, ti,j721s2-gpu,
+img,img-rogue not being present. I chose to pick them up considering
+the benefit our community has with the driver support now being
+enabled in upstream.
+
+This PR also has fixes that finally makes the ti dts tree almost clear
+of all dtbs_check warnings (pending one fixup in the serdes binding
+which is pending to be picked up).
+
+Please let me know if there are concerns, else:
+
+Please pull:
 The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
 
   Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git tags/ti-k3-c=
-onfig-for-v6.16
+  https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git tags/ti-k3-d=
+t-for-v6.16
 
-for you to fetch changes up to 42cfb00c919e5951ba5c4067a058c7e2cf2ccbc0:
+for you to fetch changes up to 6a9d340b1f9910f0f88e0819c464938b91610765:
 
-  arm64: defconfig: Enable TPIC2810 GPIO expander (2025-05-02 08:14:39 -050=
-0)
-
-----------------------------------------------------------------
-TI K3 defconfig updates for v6.16
-
-- Enable Cadence DSI and PHY driver support for DSI support on BeagleBone-A=
-I64,
-  BeaglePlay, BeagleY-AI, All TI EVMs etc.
-- Enable hardware spinlock and Quadrature Encoder Pulse (QEP) support for
-  AM64-SK and other boards.
-- Enable TMP102 driver to support Phytec phyCORE-AM68x/TDA4x and the
-  phyGATE-Tauri-L-iMX8MM
-- Enable TPIC2810 for AM64-SK LED GPIO control.
+  arm64: dts: ti: k3-j722s-evm: Add overlay for TEVI OV5640 (2025-05-09 06:=
+21:57 -0500)
 
 ----------------------------------------------------------------
-Dominik Haller (1):
-      arm64: defconfig: Enable TMP102 as module
+TI K3 device tree updates for v6.16
+
+Generic Fixups/Cleanups:
+* am62*: emmc - drop disable-wp, Add bootphase tags to support MMC boot
+
+SoC Specific features and Fixes:
+AM62Ax:
+* C7x and R5F support added
+* Bug fix for emmc clock to point to default
+* CPUFreq thermal throttling on thermal alert
+
+AM62P5:
+* Add RNG Node (common to J722s)
+* Bug fix for emmc clock to point to default (common to J722S)
+
+AM625:
+* Wakeup R5 node
+* Bug fix for emmc clock to point to default
+* PRUSS-M support
+* New GPU bindings
+
+AM64:
+* Switch to 64-bit address space for PCIe0
+* Add PCIe control nodes for main_conf region
+* Reserve timer nodes used by MCU F/w.
+
+AM65:
+* MMC: Add missing delay timing values for SDR and legacy modes
+* Add compatible for AM65x syscon and PCIe control properties
+  (dtbs_check fixes)
+
+J7200:
+* PCIe control node to scm_conf, switch to 64-bit address space for PCIe1.
+
+J721E:
+* PCIe control node to scm_conf, switch to 64-bit address space for PCIe0,1.
+
+J721S2:
+* GPU node for Imagination Tech Rouge BXS GPU.
+* PCIe control node to scm_conf, switch to 64-bit address space for PCIe1.
+
+J722s/AM67A:
+* Switch serdes status to be enabled by board file than at SoC level.
+* Switch to 64-bit address space for PCIe0.
+
+J784S4/J742S2/AM69:
+* Add ASPCIE0 and enable output for PCIe1
+* Fix length of serdes_ln_ctrl.
+* Switch to 64-bit address space for PCIe0,1.
+
+Board Specific:
+AM62Ax:
+* SK: co-processors C7x, R5, PWM support added
+* phycore-som: co-processors C7x, R5
+
+AM62P5:
+* Add Toradex Verdin AM62P boards with Dahlia, Ivy, Mallow and Yavia suppor=
+t.
+* SK: Add remote processor support, PWM
+
+AM625:
+* Add BeagleBoard.org PocketBeagle-2 support
+* phycore-som: Enable R5F support
+* Verdin: Add eeprom compatible fallback
+* SK: Enable PWM, voltage supplies, clock, i2cmux rename for camera overlays
+  (dtbs_check fixes)
+* BeaglePlay: Add voltage supplies for camera overlays (dtbs_check fixes)
+* phyboard-lyra: Add cooling maps for fan
+* emmc bug fixes: add non-removable flag for eMMC.
+
+AM65:
+* EVM: Add missing power supply description ofr Rocktech panel
+  (dtbs_check fixes)
+
+J721E:
+* EVM: Enable OSPI1
+* EVM/SK: Dt nodes description for mandatory power suplpies for panel and
+  sensors (dtbs_check fixes)
+
+J721S2/AM68:
+* Add phyBOARD-Izar-AM68x
+* am68-SK: Fix regulator hierarchy
+
+J722s/AM67A:
+* EVM: Add mux controls for CSI2, power regulator nodes and add overlays for
+  quad IMX219 and TEVI OV5640.
+* BeagleY-AI: Add bootph for main_gpio1
+
+J784S4/J742S2/AM69:
+* usxgmii expansion board: Drop un-necessary pinctrl-names
+* evm: Add overlay for USB0 Type-A option
+
+----------------------------------------------------------------
+Andrew Davis (7):
+      dt-bindings: soc: ti: ti,j721e-system-controller: Add PCIe ctrl prope=
+rty
+      arm64: dts: ti: k3-j721e: Add PCIe ctrl node to scm_conf region
+      arm64: dts: ti: k3-j7200: Add PCIe ctrl node to scm_conf region
+      arm64: dts: ti: k3-j721s2: Add PCIe ctrl node to scm_conf region
+      arm64: dts: ti: k3-am64: Add PCIe ctrl node to main_conf region
+      dt-bindings: mfd: ti,j721e-system-controller: Add compatible string f=
+or AM654
+      arm64: dts: ti: am65x: Add missing power-supply for Rocktech-rk101 pa=
+nel
+
+Daniel Schultz (6):
+      arm64: dts: ti: k3-am62a: Enable CPU freq throttling on thermal alert
+      arm64: dts: ti: k3-am62x-phyboard-lyra-gpio-fan: Update cooling maps
+      arm64: dts: ti: k3-am62-phycore-som: Enable Co-processors
+      arm64: dts: ti: k3-am62a-phycore-som: Enable Co-processors
+      arm64: dts: ti: k3-am62a-phycore-som: Reserve main_rti4 for C7x DSP
+      arm64: dts: ti: k3-am62a-phycore-som: Reserve main_timer2 for C7x DSP
+
+Devarsh Thakkar (3):
+      arm64: dts: ti: k3-am62a-wakeup: Add R5F device node
+      arm64: dts: ti: k3-am62a7-sk: Enable IPC with remote processors
+      arm64: dts: ti: k3-am62p5-sk: Enable IPC with remote processors
+
+Dominik Haller (2):
+      dt-bindings: arm: ti: Add bindings for PHYTEC AM68x based hardware
+      arm64: dts: ti: Add basic support for phyBOARD-Izar-AM68x
+
+Francesco Dolcini (7):
+      arm64: dts: ti: k3-am625-verdin: Add EEPROM compatible fallback
+      dt-bindings: arm: ti: Add Toradex Verdin AM62P
+      arm64: dts: ti: Add Toradex Verdin AM62P
+      arm64: dts: ti: am62p-verdin: Add dahlia
+      arm64: dts: ti: am62p-verdin: Add mallow
+      arm64: dts: ti: am62p-verdin: Add yavia
+      arm64: dts: ti: am62p-verdin: Add ivy
+
+Hari Nagalla (6):
+      arm64: dts: ti: k3-am62-wakeup: Add wakeup R5F node
+      arm64: dts: ti: k3-am62a-mcu: Add R5F remote proc node
+      arm64: dts: ti: k3-am62x-sk-common: Enable IPC with remote processors
+      arm64: dts: ti: k3-am62a7-sk: Reserve main_timer2 for C7x DSP
+      arm64: dts: ti: k3-am62a7-sk: Reserve main_rti4 for C7x DSP
+      arm64: dts: ti: k3-am64: Reserve timers used by MCU FW
+
+Jai Luthra (1):
+      arm64: dts: ti: k3-am62a-main: Add C7xv device node
+
+Jan Kiszka (1):
+      arm64: dts: ti: k3-am65-main: Add system controller compatible
 
 Jayesh Choudhary (1):
-      arm64: defconfig: Add CDNS_DSI and CDNS_PHY config
+      arm64: dts: ti: k3-j721e-common-proc-board-infotainment: Update to co=
+mply with device tree schema
 
-Judith Mendez (1):
-      arm64: defconfig: Enable hwspinlock and eQEP for K3
+Judith Mendez (11):
+      arm64: dts: ti: k3-am62p5-sk: Enable PWM
+      arm64: dts: ti: k3-am62a7-sk: Enable PWM
+      arm64: dts: ti: k3-am625-sk: Enable PWM
+      arm64: dts: ti: k3-am6*: Add boot phase flag to support MMC boot
+      arm64: dts: ti: k3-am62*: Add non-removable flag for eMMC
+      arm64: dts: ti: k3-am6*: Remove disable-wp for eMMC
+      arm64: dts: ti: k3-am62-main: Set eMMC clock parent to default
+      arm64: dts: ti: k3-am62a-main: Set eMMC clock parent to default
+      arm64: dts: ti: k3-am62p-j722s-common-main: Set eMMC clock parent to =
+default
+      arm64: dts: ti: k3-am65-main: Add missing taps to sdhci0
+      arm64: dts: ti: k3-am62: Add ATCM and BTCM cbass ranges
+
+Kishon Vijay Abraham I (1):
+      arm64: dts: ti: k3-am62-main: Add PRUSS-M node
+
+Matt Coster (2):
+      arm64: dts: ti: k3-am62: New GPU binding details
+      arm64: dts: ti: k3-j721s2: Add GPU node
+
+Michael Walle (1):
+      arm64: dts: ti: k3-am62p-j722s: Add rng node
 
 Nishanth Menon (1):
-      arm64: defconfig: Enable TPIC2810 GPIO expander
+      arm64: dts: ti: k3-am67a-beagley-ai: Add bootph for main_gpio1
 
- arch/arm64/configs/defconfig | 6 ++++++
- 1 file changed, 6 insertions(+)
+Prasanth Babu Mantena (1):
+      arm64: dts: ti: k3-j721e-common-proc-board: Enable OSPI1 on J721E
 
+Rishikesh Donadkar (6):
+      arm64: dts: ti: k3-am62p5-sk: Add regulator nodes for AM62P
+      arm64: dts: ti: k3-am62x: Add required voltage supplies for IMX219
+      arm64: dts: ti: k3-am62x: Add required voltage supplies for OV5640
+      arm64: dts: ti: k3-am62x: Add required voltage supplies for TEVI-OV56=
+40
+      arm64: dts: ti: k3-am625-beagleplay: Add required voltage supplies fo=
+r OV5640
+      arm64: dts: ti: k3-am625-beagleplay: Add required voltage supplies fo=
+r TEVI-OV5640
+
+Robert Nelson (2):
+      dt-bindings: arm: ti: Add PocketBeagle2
+      arm64: dts: ti: Add k3-am62-pocketbeagle2
+
+Siddharth Vadapalli (16):
+      arm64: dts: ti: k3-j784s4-evm-usxgmii-exp1-exp2: drop pinctrl-names
+      arm64: dts: ti: k3-j722s-evm: Enable "serdes_wiz0" and "serdes_wiz1"
+      arm64: dts: ti: k3-j722s-main: Disable "serdes_wiz0" and "serdes_wiz1"
+      arm64: dts: ti: k3-j722s-main: Don't disable serdes0 and serdes1
+      arm64: dts: ti: k3-j722s-evm: Drop redundant status within serdes0/se=
+rdes1
+      arm64: dts: ti: k3-j784s4-j742s2-evm: Add overlay to enable USB0 Type=
+-A
+      arm64: dts: ti: k3-j784s4-j742s2-main-common: Fix length of serdes_ln=
+_ctrl
+      arm64: dts: ti: k3-am64-main: Switch to 64-bit address space for PCIe0
+      arm64: dts: ti: k3-j7200-main: Switch to 64-bit address space for PCI=
+e1
+      arm64: dts: ti: k3-j721e: Add ranges for PCIe0 DAT1 and PCIe1 DAT1
+      arm64: dts: ti: k3-j721e-main: Switch to 64-bit address space for PCI=
+e0 and PCIe1
+      arm64: dts: ti: k3-j721s2-main: Switch to 64-bit address space for PC=
+Ie1
+      arm64: dts: ti: k3-j722s-main: Switch to 64-bit address space for PCI=
+e0
+      arm64: dts: ti: k3-j784s4-j742s2-main-common: Switch to 64-bit addres=
+s space for PCIe0 and PCIe1
+      arm64: dts: ti: k3-j784s4-j742s2-main-common: Add ACSPCIE0 node
+      arm64: dts: ti: k3-j784s4-j742s2-evm-common: Enable ACSPCIE0 output f=
+or PCIe1
+
+Vaishnav Achath (2):
+      arm64: dts: ti: k3-j722s-evm: Add overlay for quad IMX219
+      arm64: dts: ti: k3-j722s-evm: Add overlay for TEVI OV5640
+
+Yemike Abhilash Chandra (9):
+      arm64: dts: ti: k3-j721e-sk: Add DT nodes for power regulators
+      arm64: dts: ti: k3-am68-sk: Fix regulator hierarchy
+      arm64: dts: ti: k3-j721e-sk: Remove clock-names property from IMX219 =
+overlay
+      arm64: dts: ti: k3-j721e-sk: Add requiried voltage supplies for IMX219
+      arm64: dts: ti: k3-am62x: Remove clock-names property from IMX219 ove=
+rlay
+      arm64: dts: ti: k3-am62x: Rename I2C switch to I2C mux in IMX219 over=
+lay
+      arm64: dts: ti: k3-am62x: Rename I2C switch to I2C mux in OV5640 over=
+lay
+      arm64: dts: ti: j722s-evm: Add DT nodes for power regulators
+      arm64: dts: ti: j722s-evm: Add MUX to control CSI2RX
+
+ Documentation/devicetree/bindings/arm/ti/k3.yaml   |   32 +
+ .../soc/ti/ti,j721e-system-controller.yaml         |   23 +
+ arch/arm64/boot/dts/ti/Makefile                    |   28 +
+ arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts           |   12 +
+ arch/arm64/boot/dts/ti/k3-am62-main.dtsi           |   96 +-
+ arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi    |   36 +-
+ arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts   |  521 ++++++++
+ arch/arm64/boot/dts/ti/k3-am62-verdin-dahlia.dtsi  |    2 +-
+ arch/arm64/boot/dts/ti/k3-am62-verdin-yavia.dtsi   |    2 +-
+ arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi         |   25 +
+ arch/arm64/boot/dts/ti/k3-am62.dtsi                |    8 +-
+ .../dts/ti/k3-am625-beagleplay-csi2-ov5640.dtso    |   31 +
+ .../ti/k3-am625-beagleplay-csi2-tevi-ov5640.dtso   |   31 +
+ arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts     |    2 +-
+ arch/arm64/boot/dts/ti/k3-am62a-main.dtsi          |   14 +-
+ arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi           |   25 +
+ arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi   |  107 +-
+ arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi       |   57 +-
+ arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi        |   25 +
+ arch/arm64/boot/dts/ti/k3-am62a7-sk.dts            |  149 ++-
+ arch/arm64/boot/dts/ti/k3-am62a7.dtsi              |    4 +
+ .../boot/dts/ti/k3-am62p-j722s-common-main.dtsi    |   11 +-
+ arch/arm64/boot/dts/ti/k3-am62p-verdin-dahlia.dtsi |  228 ++++
+ arch/arm64/boot/dts/ti/k3-am62p-verdin-dev.dtsi    |  245 ++++
+ arch/arm64/boot/dts/ti/k3-am62p-verdin-ivy.dtsi    |  629 +++++++++
+ arch/arm64/boot/dts/ti/k3-am62p-verdin-mallow.dtsi |  213 +++
+ .../arm64/boot/dts/ti/k3-am62p-verdin-nonwifi.dtsi |   15 +
+ arch/arm64/boot/dts/ti/k3-am62p-verdin-wifi.dtsi   |   31 +
+ arch/arm64/boot/dts/ti/k3-am62p-verdin-yavia.dtsi  |  219 +++
+ arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi        | 1404 ++++++++++++++++=
+++++
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts            |  128 +-
+ .../dts/ti/k3-am62p5-verdin-nonwifi-dahlia.dts     |   22 +
+ .../boot/dts/ti/k3-am62p5-verdin-nonwifi-dev.dts   |   22 +
+ .../boot/dts/ti/k3-am62p5-verdin-nonwifi-ivy.dts   |   22 +
+ .../dts/ti/k3-am62p5-verdin-nonwifi-mallow.dts     |   22 +
+ .../boot/dts/ti/k3-am62p5-verdin-nonwifi-yavia.dts |   22 +
+ .../boot/dts/ti/k3-am62p5-verdin-wifi-dahlia.dts   |   22 +
+ .../boot/dts/ti/k3-am62p5-verdin-wifi-dev.dts      |   22 +
+ .../boot/dts/ti/k3-am62p5-verdin-wifi-ivy.dts      |   22 +
+ .../boot/dts/ti/k3-am62p5-verdin-wifi-mallow.dts   |   22 +
+ .../boot/dts/ti/k3-am62p5-verdin-wifi-yavia.dts    |   22 +
+ .../dts/ti/k3-am62x-phyboard-lyra-gpio-fan.dtso    |   14 +-
+ arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi     |   76 +-
+ .../arm64/boot/dts/ti/k3-am62x-sk-csi2-imx219.dtso |   34 +-
+ .../arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso |   34 +-
+ .../boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso  |   34 +-
+ arch/arm64/boot/dts/ti/k3-am64-main.dtsi           |   13 +-
+ arch/arm64/boot/dts/ti/k3-am642-evm-pcie0-ep.dtso  |    2 +-
+ arch/arm64/boot/dts/ti/k3-am642-evm.dts            |   21 +-
+ arch/arm64/boot/dts/ti/k3-am642-sk.dts             |   20 +
+ arch/arm64/boot/dts/ti/k3-am65-main.dtsi           |    4 +-
+ .../k3-am654-base-board-rocktech-rk101-panel.dtso  |   12 +
+ arch/arm64/boot/dts/ti/k3-am654-base-board.dts     |    1 -
+ .../dts/ti/k3-am6548-iot2050-advanced-common.dtsi  |    1 -
+ arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts     |    1 +
+ arch/arm64/boot/dts/ti/k3-am68-phyboard-izar.dts   |  575 ++++++++
+ arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi    |  601 +++++++++
+ .../dts/ti/k3-am68-sk-base-board-pcie1-ep.dtso     |    2 +-
+ arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts   |   13 +-
+ arch/arm64/boot/dts/ti/k3-am69-sk.dts              |    1 -
+ arch/arm64/boot/dts/ti/k3-j7200-evm-pcie1-ep.dtso  |    2 +-
+ arch/arm64/boot/dts/ti/k3-j7200-main.dtsi          |   13 +-
+ .../k3-j721e-common-proc-board-infotainment.dtso   |   57 +-
+ .../boot/dts/ti/k3-j721e-common-proc-board.dts     |    7 +-
+ arch/arm64/boot/dts/ti/k3-j721e-evm-pcie0-ep.dtso  |    2 +-
+ arch/arm64/boot/dts/ti/k3-j721e-evm-pcie1-ep.dtso  |    2 +-
+ arch/arm64/boot/dts/ti/k3-j721e-main.dtsi          |   40 +-
+ .../boot/dts/ti/k3-j721e-sk-csi2-dual-imx219.dtso  |   35 +-
+ arch/arm64/boot/dts/ti/k3-j721e-sk.dts             |   31 +
+ arch/arm64/boot/dts/ti/k3-j721e.dtsi               |    2 +
+ arch/arm64/boot/dts/ti/k3-j721s2-evm-pcie1-ep.dtso |    2 +-
+ arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi         |   27 +-
+ .../ti/k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso  |  329 +++++
+ .../dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso |  323 +++++
+ arch/arm64/boot/dts/ti/k3-j722s-evm.dts            |   46 +-
+ arch/arm64/boot/dts/ti/k3-j722s-main.dtsi          |   14 +-
+ .../dts/ti/k3-j784s4-evm-usxgmii-exp1-exp2.dtso    |    1 -
+ .../boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi   |    6 +
+ .../dts/ti/k3-j784s4-j742s2-evm-usb0-type-a.dtso   |   29 +
+ .../boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi  |   19 +-
+ 80 files changed, 6886 insertions(+), 133 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p-verdin-dahlia.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p-verdin-dev.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p-verdin-ivy.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p-verdin-mallow.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p-verdin-nonwifi.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p-verdin-wifi.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p-verdin-yavia.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-nonwifi-dahlia.=
+dts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-nonwifi-dev.dts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-nonwifi-ivy.dts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-nonwifi-mallow.=
+dts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-nonwifi-yavia.d=
+ts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-wifi-dahlia.dts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-wifi-dev.dts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-wifi-ivy.dts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-wifi-mallow.dts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-wifi-yavia.dts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am68-phyboard-izar.dts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-rpi-cam-i=
+mx219.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov56=
+40.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-usb0-type-a=
+=2Edtso
 --=20
 Regards,
 Nishanth Menon
 Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5=
  849D 1736 249D
 
---cfdheb7zkavebeha
+--ugjf7cm6tlk43njq
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCgAdFiEE+KKGk1TrgjIXoxo03bWEnRc2JJ0FAmgiCgAACgkQ3bWEnRc2
-JJ3DQw//aXvm4zB+oAiQY85ggQLaVA0iEPn5l7TPc/HAqjAiuKoFqtF1JEYEmMwO
-8oY6/91lR/rxUWDF5d9zy+8uCNCEZd1qVq3G4HoPtpFA//Y/n8aPb+V2OPchM+Zb
-6b+BLJk3xsLLZRUq81chgroYPENAIargTTM7WOMKHVRjq8GTrRiOLABQy2DJ80Ls
-BF1iMGAoN3mO7msWGycyZjqs/UoUrB4l9RFtGJlnZDocnHzaXUY8J5TxQHAQDtrJ
-W1+q+1+zqqe4aN3qERV8ZbW4Vd1C8JSX6N4izMLu7vpO2lt09bfLVfnSLXKdWDuM
-ky/YpVOh6zHnYaQxPcHfZjfzxf1/KWJvqFCW9rXJc37SzdlIRHQfwVNuF9gYYhhA
-G20Wvm/6+Rjxa0Ve+clUgFWBaYzdu5Bv2w7yh2gzmJwqeIaQ9YCu1lNvygQjlWm0
-/pLM9hjS1juhEkaMAI93wknyQ5sUQ5KnYdtb2uF816CmYWENMvfVWMQdyDfHL9SH
-XUz3eoUS8f/wwM8bRel5+2xC2Qft68k7zdC5TRqbRqyIF54hX65Rc3GPauqbST8d
-MIAoNBbKZkdDvCpcf871UnD0kQdd9CvoIyeVFsWu6QJCxAuFhCZ6yQWc39lfy8wZ
-mOdRz2sEsQV7nzYWlJe3okJd7QmzPwBxGUJbpnTIuGwe3GUjP20=
-=AVfw
+iQIzBAABCgAdFiEE+KKGk1TrgjIXoxo03bWEnRc2JJ0FAmgiCh4ACgkQ3bWEnRc2
+JJ3gEBAArMScgAhCl89T6Mcu3xbWoXkA7edgjKpKGaSz+ZlAtsp7xUVZUNU/rIQZ
+a4bFOkcevkILRTn+DmunusUfa4vTwXXCcq5MXyIzhthOl0zY6rSw1QqnM5Oqs4Y0
+TvDR7CQRb54nEh3X2qg/Kr7/XXMutfRnxVYB4jnjr95VEy3ZKryGkjK4eA67LIRV
+SqkkSXhK6HTCOkXK+EGbI1edTdc/Xqnew2aTQUXgx9m9f1lsqM/68TjFvddXDy+C
+E6AaILXUofWS3ZXMHtio0JGcwQcrwC99MhlGo40+SNWHNZH2Qi0cF0fQiOzFCf69
+yjCwXkSBx56ZURO5CoZEbFOWAEmsnD/lBB3toV6oCZf3ipit85Upj0Xhec1AKlTb
+3NmQW1CsGgWpam5fdZdatSwG/19oXKmvkVsL7d/zimDRfDAo3bId6pEY2XXZQvUP
+xCvLgXM7r7spk6lsZiRRyeohBi9qMt26w8BiN6uipf4IaZucS5wGfkdNb1MiTsQP
+hCkwEA1J4awZRkjnzP86JJko04jMiFCOHWTbrlR81cdOHwq/b4EQ19SflTMOm2wD
+5/CCH+9Y1HIJCKEW0AFJ4Ho3piCUQTTKHcbiiugmDfykWgdZk3f6a476nWNI789E
+uj2pMN0aLPMGp6uZbfuyfzIT7G2VUMei37N2ZKPYKlEebMWMS/k=
+=UPnO
 -----END PGP SIGNATURE-----
 
---cfdheb7zkavebeha--
+--ugjf7cm6tlk43njq--
 
