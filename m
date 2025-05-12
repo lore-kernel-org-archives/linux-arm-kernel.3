@@ -4,80 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34309C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 17:29:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38358C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 17:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IWthP+Ib3SVx7umpmrHH2RcoinbjSGfn+wE3DW45NRM=; b=XfhYioMg8iz1GiWYolsojoHUZI
-	pgrrh28kMPv8Yo5tKN3f0PLIk59CtaUnO22tyH+YL5FqPY5iw+GgOpn1ccRwzjGs15OoHJ1GsrXNQ
-	MTkXZudxwkjqkLwno5qsNvgcNm2aZn1pIFEjqTFlmhz6qlwgWCwzvCjEh3U2X4ud1TR5FC5kXpkaG
-	kG+roVqCfgweXFb0HRCWe91LQGTAzW0YyFVX3GWmPMscIRFlvJRtlRZGj+0Qpo7nN7sg7J7K8SZDF
-	Ts4CB2Krd7oCQPN7tXTXKJl3ltAYaV0I9mD/Jcge2RV0a5iwN2oyuVfgY1BQEVbGK4zWnPsDZ4BSk
-	qcX3ydPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kRaZ17DJJlEqu3Uxs3m0Hm73XE3B7Y6ZlEk5mFWVWxY=; b=R4QvShEVGtlSNt82Z16XSLX46H
+	jORYZwUjBKigAdzauDJu3lT1t3zA9wfWwR0ws5xB9bL1QyvnL3I+51Vq6KswuN/RO0a1MxSTiUTSP
+	jY3MC/TDWN7tP/K+uDvWlRxHJ0HbBmw1//BM6HXBY69jUjBjVwFFQiSnJYAeubwC+nzqNddDE9LCo
+	R1fEgvEHfjnM3YYJCAJ1kiMJeud/J45Aq438Ajh+Je3/vjMPJT8FFC7QYGKa3QFGnDhWPcIZY/Vbi
+	+1AnHtvfKsMuUNbjQ3zk8LqV+ZbjXHGb3+RoCaqxbJ2G0wG72P+pGdmWTM4Pm7WG+2nvZB7n0el2h
+	lEjSkPhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEWxe-0000000AD2p-1qtG;
-	Mon, 12 May 2025 17:29:06 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEWh6-0000000AAcD-00Hi
+	id 1uEWze-0000000ADKx-21qf;
+	Mon, 12 May 2025 17:31:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uEWh9-0000000AAdO-1d0h
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 17:12:01 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98.2)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1uEWau-000000006LH-25Hs;
-	Mon, 12 May 2025 17:11:32 +0000
-Date: Mon, 12 May 2025 18:11:25 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Sean Anderson <sean.anderson@linux.dev>
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>, upstream@airoha.com,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Simon Horman <horms@kernel.org>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Clark Wang <xiaoning.wang@nxp.com>,
-	Claudiu Beznea <claudiu.beznea@microchip.com>,
-	Claudiu Manoil <claudiu.manoil@nxp.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ioana Ciornei <ioana.ciornei@nxp.com>,
-	Jonathan Corbet <corbet@lwn.net>, Joyce Ooi <joyce.ooi@intel.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Madalin Bucur <madalin.bucur@nxp.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Robert Hancock <robert.hancock@calian.com>,
-	Saravana Kannan <saravanak@google.com>,
-	UNGLinuxDriver@microchip.com,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Wei Fang <wei.fang@nxp.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [net-next PATCH v4 00/11] Add PCS core support
-Message-ID: <aCIrvTAGP5ukmwnb@makrotopia.org>
-References: <20250512161013.731955-1-sean.anderson@linux.dev>
+	Mon, 12 May 2025 17:12:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 90F6D14BF;
+	Mon, 12 May 2025 10:11:49 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C7D993F7A6;
+	Mon, 12 May 2025 10:11:59 -0700 (PDT)
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org
+Cc: mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] perf/arm-cmn: Initialise cmn->cpu earlier
+Date: Mon, 12 May 2025 18:11:54 +0100
+Message-Id: <b12fccba6b5b4d2674944f59e4daad91cd63420b.1747069914.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250512161013.731955-1-sean.anderson@linux.dev>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_101200_038887_1C52A0C1 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20250512_101203_474558_C2119F77 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,14 +62,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 12, 2025 at 12:10:02PM -0400, Sean Anderson wrote:
-> This series adds support for creating PCSs as devices on a bus with a
-> driver (patch 3). As initial users,
-> 
-> - The Lynx PCS (and all of its users) is converted to this system (patch 5)
-> - The Xilinx PCS is broken out from the AXI Ethernet driver (patches 6-8)
-> - The Cadence MACB driver is converted to support external PCSs (namely
->   the Xilinx PCS) (patches 9-10).
+For all the complexity of handling affinity for CPU hotplug, what we've
+apparently managed to overlook is that arm_cmn_init_irqs() has in fact
+always been setting the *initial* affinity of all IRQs to CPU 0, not the
+CPU we subsequently choose for event scheduling. Oh dear.
 
-Are those changes tested on real hardware?
+Cc: stable@vger.kernel.org
+Fixes: 0ba64770a2f2 ("perf: Add Arm CMN-600 PMU driver")
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+ drivers/perf/arm-cmn.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+index aa2908313558..e385f187a084 100644
+--- a/drivers/perf/arm-cmn.c
++++ b/drivers/perf/arm-cmn.c
+@@ -2558,6 +2558,7 @@ static int arm_cmn_probe(struct platform_device *pdev)
+ 
+ 	cmn->dev = &pdev->dev;
+ 	cmn->part = (unsigned long)device_get_match_data(cmn->dev);
++	cmn->cpu = cpumask_local_spread(0, dev_to_node(cmn->dev));
+ 	platform_set_drvdata(pdev, cmn);
+ 
+ 	if (cmn->part == PART_CMN600 && has_acpi_companion(cmn->dev)) {
+@@ -2585,7 +2586,6 @@ static int arm_cmn_probe(struct platform_device *pdev)
+ 	if (err)
+ 		return err;
+ 
+-	cmn->cpu = cpumask_local_spread(0, dev_to_node(cmn->dev));
+ 	cmn->pmu = (struct pmu) {
+ 		.module = THIS_MODULE,
+ 		.parent = cmn->dev,
+-- 
+2.39.2.101.g768bb238c484.dirty
+
 
