@@ -4,67 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98BE7C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F53C3ABD4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:24:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r+5toUI4y0KMw1CziMpifeSN6gk9PCJMVtW+CLhVslE=; b=SBt+5RY9etRL3zwvolXzKvVMeP
-	F1sLod1H3b1gjnItPZL9M0e7sc9HACdpfxLbcuqxkwXi0ppncniFQw1xJVkAPqKjbgPLcAC8K8jG7
-	g63DgjavpJTf7IgCyGpLS2kocWwOaTEz74jKFKR4XzNl10ySDLOv1+P+hAiuJWxieEl8df+YtKEMA
-	GZZweb7TDK49Nl5pe2LgFRkPXAF5zp9s8/RMuTX9xihC1Aw4iE1QWwhx1yOLPJrOXLhdDNHH40Cz6
-	hUSVIDAAwS3XLOJnC4msqwUcYP476B8md4wsbKx42XJC3C6X2etwYTNOpFtY8Ev4DNeeZwRMxaHRj
-	tFXEYP8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CrpU8YxLS+4Al6Udh0YnCVnyLmsN5nb6vSk+X5R1cE0=; b=dgEMup/8t4/wAWVd1HbvGO/mrl
+	mHPL/5wqXodu2LmCRpBeE9iOITFDxTAZ1PwpE8w8LJFrvth5Xs1W3MZ/3Y/crc86JzkYmHlBn2sPz
+	aT/sZ4bkvM4AnVSJ17WAujUWLjrIexMdIBpAgffqCN6BH/gA6P2t2y42UPq5jr0Bfb4DOQvShfA8z
+	BF84FRKyI7e84D6w4X6dZ6zUm+QqYYBf95IVlizv4NhTaL20CG7tDJ67dfMfQ2qwkJPj58f94jCfl
+	sgGLdMXvoI8EPkcu23MkdWHd7c2KPhh2LQqzMGtD44EQMwaidGimfHybJ9Q6CrRFt5hJJzbMTha81
+	7yKYBgwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEU2f-00000009hdF-2Xyt;
-	Mon, 12 May 2025 14:22:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uETJF-00000009Zhb-1zWZ
+	id 1uEU4l-00000009i0b-2KZZ;
+	Mon, 12 May 2025 14:24:15 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uETQb-00000009b2c-1eH0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 13:35:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 814DF150C;
-	Mon, 12 May 2025 06:34:56 -0700 (PDT)
-Received: from [10.57.90.222] (unknown [10.57.90.222])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E57BB3F5A1;
-	Mon, 12 May 2025 06:35:02 -0700 (PDT)
-Message-ID: <99079d56-428b-4bc4-b20a-dc10032f2a2f@arm.com>
-Date: Mon, 12 May 2025 14:35:01 +0100
+	Mon, 12 May 2025 13:42:46 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 77C721F38C;
+	Mon, 12 May 2025 13:42:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1747057362; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CrpU8YxLS+4Al6Udh0YnCVnyLmsN5nb6vSk+X5R1cE0=;
+	b=zP5U3VrW3t8DldETQ2m3ra/g9SR/7BfZECcIwt1ffozAv53i4FQNTbZqDlArwMGydwaBj6
+	rtCzxLUs79hYV9o0Zzc4IUjfIraGG048FWChP1WvdFVRQhYgY2kGiXmYA2HbBvn4MP7iQJ
+	GSdeERGDIVxWiZR/A6vqbWOAeUUfRIU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1747057362;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CrpU8YxLS+4Al6Udh0YnCVnyLmsN5nb6vSk+X5R1cE0=;
+	b=gvKon7yMqsoG257e/+tjFmrYEyugtB0QHKk7RcncstuvNHkWJgUu0gzu6xzHS1AJNvI2QX
+	OVlRskUcVxR7BmBg==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1747057361; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CrpU8YxLS+4Al6Udh0YnCVnyLmsN5nb6vSk+X5R1cE0=;
+	b=mrNRbP0beD+FA3kIigtZ4Axve0L82Sl8oc2EvXufjmPE8pwINqFDZxkHovVpcbgQ/vNB0m
+	vqZplir1glSp40FziCgR2C0aHfwbrJD8wBoBU9Cl2dt07JUr0xad4PyPKPg0CEt0K23we7
+	KQHa5h307RnZsk+FTfdGFKXqvDVJ65I=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1747057361;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CrpU8YxLS+4Al6Udh0YnCVnyLmsN5nb6vSk+X5R1cE0=;
+	b=a5UtLZDe1eN/4R0G6f8q7lUB9f46NVeH/gmYLEhqmnN5Pvsl5Tq/jEozyj/EDghnESjMQr
+	YROgoHf7h4tvWhAA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 539C613A30;
+	Mon, 12 May 2025 13:42:41 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 2MYKEtH6IWi/LQAAD6G6ig
+	(envelope-from <iivanov@suse.de>); Mon, 12 May 2025 13:42:41 +0000
+Date: Mon, 12 May 2025 16:42:40 +0300
+From: "Ivan T. Ivanov" <iivanov@suse.de>
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: linus.walleij@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, florian.fainelli@broadcom.com,
+	andrea.porta@suse.com, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Arend van Spriel <aspriel@gmail.com>, kernel-list@raspberrypi.com
+Subject: Re: [PATCH 6/7] arm64: dts: broadcom: bcm2712: Add second SDHCI
+ controller node
+Message-ID: <20250512134240.hg4we6sxemxeufka@localhost.localdomain>
+References: <20240731062814.215833-1-iivanov@suse.de>
+ <20240731062814.215833-7-iivanov@suse.de>
+ <a563971a-45f4-4404-a622-21c940d96250@gmx.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH v6 1/3] arm64: Add BBM Level 2 cpu feature
-Content-Language: en-GB
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
- yang@os.amperecomputing.com, corbet@lwn.net, jean-philippe@linaro.org,
- robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org,
- paulmck@kernel.org, mark.rutland@arm.com, joey.gouly@arm.com,
- maz@kernel.org, james.morse@arm.com, broonie@kernel.org,
- oliver.upton@linux.dev, baohua@kernel.org, david@redhat.com,
- ioworker0@gmail.com, jgg@ziepe.ca, nicolinc@nvidia.com, mshavit@google.com,
- jsnitsel@redhat.com, smostafa@google.com, kevin.tian@intel.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
-References: <20250428153514.55772-2-miko.lenczewski@arm.com>
- <20250428153514.55772-4-miko.lenczewski@arm.com>
- <20250506142508.GB1197@willie-the-truck>
- <78fec33d-fe66-4352-be11-900f456c9af3@arm.com>
- <20250509134904.GA5707@willie-the-truck> <aB4nqtMJuvvp7Vwm@arm.com>
- <015746d7-ca46-4978-a441-09fba781fdd4@arm.com>
- <4709ff5a-f89c-426e-ae95-f8356808f4f5@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <4709ff5a-f89c-426e-ae95-f8356808f4f5@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a563971a-45f4-4404-a622-21c940d96250@gmx.net>
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_TLS_ALL(0.00)[];
+	ARC_NA(0.00)[];
+	MISSING_XM_UA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	TAGGED_RCPT(0.00)[dt];
+	RCPT_COUNT_TWELVE(0.00)[12];
+	FREEMAIL_TO(0.00)[gmx.net];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.net];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[linaro.org,kernel.org,broadcom.com,suse.com,vger.kernel.org,lists.infradead.org,gmail.com,raspberrypi.com];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,imap1.dmz-prg2.suse.org:helo]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_063509_607783_4A7394D5 
-X-CRM114-Status: GOOD (  28.93  )
+X-CRM114-CacheID: sfid-20250512_064245_579317_A2BE912E 
+X-CRM114-Status: GOOD (  20.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,126 +136,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/05/2025 14:24, Suzuki K Poulose wrote:
-> On 12/05/2025 14:07, Ryan Roberts wrote:
->> On 09/05/2025 17:04, Catalin Marinas wrote:
->>> On Fri, May 09, 2025 at 02:49:05PM +0100, Will Deacon wrote:
->>>> On Tue, May 06, 2025 at 03:52:59PM +0100, Ryan Roberts wrote:
->>>>> On 06/05/2025 15:25, Will Deacon wrote:
->>>>>> This penalises large homogeneous systems and it feels unnecessary given
->>>>>> that we have the ability to check this per-CPU. Can you use
->>>>>> ARM64_CPUCAP_BOOT_CPU_FEATURE instead of ARM64_CPUCAP_SYSTEM_FEATURE
->>>>>> to solve this?
->>>>>
->>>>> We are trying to solve for the case where the boot CPU has BBML2 but a
->>>>> secondary
->>>>> CPU doesn't. (e.g. hetrogeneous system where boot CPU is big and secondary is
->>>>> little and does not advertise the feature. I can't remember if we proved there
->>>>> are real systems with this config - I have vague recollection that we did
->>>>> but my
->>>>> memory is poor...).
->>>>>
->>>>> My understanding is that for ARM64_CPUCAP_BOOT_CPU_FEATURE, "If the boot CPU
->>>>> has enabled this feature already, then every late CPU must have it". So that
->>>>> would exclude any secondary CPUs without BBML2 from coming online?
->>>>
->>>> Damn, yes, you're right. However, it still feels horribly hacky to iterate
->>>> over the online CPUs in has_bbml2_noabort() -- the cpufeature framework
->>>> has the ability to query features locally and we should be able to use
->>>> that. We're going to want that should the architecture eventually decide
->>>> on something like BBML3 for this.
->>>>
->>>> What we have with BBML2_NOABORT seems similar to an hwcap in that we only
->>>> support the capability if all CPUs have it (rejecting late CPUs without it
->>>> in that case) but we can live without it if not all of the early CPUs
->>>> have it. Unlikely hwcaps, though, we shouldn't be advertising this to
->>>> userspace and we can't derive the capability solely from the sanitised
->>>> system registers.
->>>>
->>>> I wonder if we could treat it like an erratum in some way instead? That
->>>> is, invert things so that CPUs which _don't_ have BBML2_NOABORT are
->>>> considered to have a "BBM_CONFLICT_ABORT" erratum (which we obviously
->>>> wouldn't shout about). Then we should be able to say:
->>>>
->>>>    - If any of the early CPUs don't have BBML2_NOABORT, then the erratum
->>>>      would be enabled and we wouln't elide BBM.
->>>>
->>>>    - If a late CPU doesn't have BBML2_NOABORT then it can't come online
->>>>      if the erratum isn't already enabled.
->>>>
->>>> Does that work? If not, then perhaps the cpufeature/cpuerrata code needs
->>>> some surgery for this.
->>>
->>> Ah, I should have read this thread in order. I think we can treat this
->>> as BBML2_NOABORT available as default based on ID regs and use the
->>> allow/deny-list as an erratum.
->>>
->>
->> Just to make sure I've understood all this, I think what you are both saying is
->> we can create a single capability called ARM64_HAS_NO_BBML2_NOABORT of type
->> ARM64_CPUCAP_LOCAL_CPU_ERRATUM. Each CPU will then check it has BBML2 and is in
->> the MIDR allow list; If any of those conditions are not met, the CPU is
->> considered to have ARM64_HAS_NO_BBML2_NOABORT.
-> 
-> I guess we need two caps.
-> 
-> 1. SYSTEM cap -> ARM64_HAS_BBML2. Based on the ID registers
-> 2. An erratum -> ARM64_BBML2_ABORTS. Based on BBLM2==1 && !in_midr_list()
+Hi,
 
-I don't think we *need* two caps; I was suggesting to consider both of these
-conditions for the single cap. You are suggesting to separate them. But I think
-both approaches give the same result?
+I am sorry so long delayed answer. Shifting priorities.
 
-I'm easy either way, but keen to understand why 2 caps are preferred?
+On 08-02 21:01, Stefan Wahren wrote:
+> 
+> Hi,
+> 
+> [add Arend and Raspberry Pi devs]
+> 
+> Am 31.07.24 um 08:28 schrieb Ivan T. Ivanov:
+> > Add SDIO2 node. On RPi5 it is connected to WiFi chip.
+> > Add related pin, gpio and regulator definitions and
+> > add WiFi node. With this and firmware already provided by
+> > distributions, at least on openSUSE Tumbleweed, this is
+> > sufficient to make WiFi operational on RPi5 \o/.
+> > 
+> > Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
+> > ---
+> >   .../boot/dts/broadcom/bcm2712-rpi-5-b.dts     | 55 +++++++++++++++++++
+> >   arch/arm64/boot/dts/broadcom/bcm2712.dtsi     | 13 +++++
+> >   2 files changed, 68 insertions(+)
+> > 
+> > diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> > index 06e926af16b7..b6bfe0abb774 100644
+> > --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> > +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> > @@ -46,6 +46,20 @@ sd_vcc_reg: sd-vcc-reg {
+> >   		gpios = <&gio_aon 4 GPIO_ACTIVE_HIGH>;
+> >   	};
+> > 
+> > +	wl_on_reg: wl-on-reg {
+> > +		compatible = "regulator-fixed";
+> > +		regulator-name = "wl-on-regulator";
+> > +		regulator-min-microvolt = <3300000>;
+> > +		regulator-max-microvolt = <3300000>;
+> > +		pinctrl-0 = <&wl_on_pins>;
+> > +		pinctrl-names = "default";
+> > +
+> > +		gpio = <&gio 28 GPIO_ACTIVE_HIGH>;
+> > +
+> > +		startup-delay-us = <150000>;
+> > +		enable-active-high;
+> > +	};
+> I don't think this GPIO is a regulator from hardware perspective. I
+> guess it's the same reset pin we have on the older Raspberry Pis. Please
+> look at bcm283x-rpi-wifi-bt.dtsi for the wifi power sequence.
 
-Perhaps for my version it would be better to refer to it as
-ARM64_CPUCAP_BOOT_RESTRICTED_CPU_LOCAL_FEATURE instead of
-ARM64_CPUCAP_LOCAL_CPU_ERRATUM (they both have the exact same semantics under
-the hood AFAICT).
+FWICS, "mmc-pwrseq-simple" is more about proper reset sequence while
+here we need power to be applied to the connected device.
 
-Thanks,
-Ryan
+And this is not a precedent. Just grep for "vmmc-supply = <&wlan"
 
-> 
-> 
-> And then:
-> 
-> 
->>
->> Then we have this helper:
->>
->> static inline bool system_supports_bbml2_noabort(void)
->> {
->>     return system_capabilities_finalized() &&
->         alternative_has_cap_unlikely(ARM64_HAS_BBML2) &&
->         !alternative_has_cap_unlikely(!ARM64_HAS_BBML2_ABORTS)
-> 
-> Without (1), we may enable BBML2 on a (system with) CPU that doesn't
-> have BBML2 feature.
-> 
-> And (1) can prevent any non-BBML2 capable CPUs from booting or (2) can prevent
-> anything that aborts with BBML2.
-> 
-> 
-> Suzuki
-> 
-> 
->>            !alternative_has_cap_unlikely(ARM64_HAS_NO_BBML2_NOABORT);
-> 
-> 
->> }
->>
->> system_capabilities_finalized() is there to ensure an early call to this helper
->> returns false (i.e. the safe value before we have evaluated on all CPUs).
->> Because ARM64_HAS_NO_BBML2_NOABORT is inverted it would otherwise return true
->> prior to finalization.
->>
->> I don't believe we need any second (SYSTEM or BOOT) feature. This is sufficient
->> on its own?
->>
->> Thanks,
->> Ryan
->>
-> 
+> > +
+> >   	pwr-button {
+> >   		compatible = "gpio-keys";
+> > 
+> > @@ -80,6 +94,25 @@ &sdio1 {
+> >   	cd-gpios = <&gio_aon 5 GPIO_ACTIVE_LOW>;
+> >   };
+> > 
+> > +/* SDIO2 drives the WLAN interface */
+> > +&sdio2 {
+> > +	pinctrl-0 = <&sdio2_30_pins>;
+> > +	pinctrl-names = "default";
+> > +	bus-width = <4>;
+> > +	vmmc-supply = <&wl_on_reg>;
+> > +	sd-uhs-ddr50;
+> > +	non-removable;
+> > +	status = "okay";
+> > +	#address-cells = <1>;
+> > +	#size-cells = <0>;
+> > +
+> > +	wifi: wifi@1 {
+> > +		reg = <1>;
+> > +		compatible = "brcm,bcm4329-fmac";
+> > +		local-mac-address = [00 00 00 00 00 00];
+> I think we can drop this?
+
+Sure.
+
+Regards,
+Ivan
 
 
