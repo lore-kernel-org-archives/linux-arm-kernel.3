@@ -4,62 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 057F0C3ABCD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 11:50:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66B2CC3ABCD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 11:55:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PNOa2mcqso+WJV1d4ZtK+LmbslnOY5yGWhK4YwToORg=; b=r33oqya6IFKLmTAAQjJX+049Zq
-	S0RXFpj5vr4fZk8rV03zL+rIasxCjYWdjSyoq7FXGJikt4rbrQ/JQLnUXVzj03ytOyF0+PusZMwM3
-	YNcMWXe5s+/Bl9CH58LJxNLvP/V/N5DHB4IsyFn28yT4I/aRej2IFpZhljkaSJziQc/HsBppq3CKZ
-	UN7KwWaNniPq9SNIST8UlaB43zPY6/YqNMrWI4IEU+p7tK2oddTJ+TKiJtTILf5L1tqda2p+brJTx
-	XGYGaYXXPDFxEe3Z84N95TBHaGGSbEP9uLGauiqvdigMdixBzAp4IJ+mMaVCGw/PN20Bf6WSOunND
-	+0qE8pmw==;
+	bh=VlcV0kRPaTfk5YK6ZyqecQK16+pijh8il4Op3fbctew=; b=s9dWKYoN5CZ1p84EVDMUDjbq+C
+	ww7zxTEooctU+NaVzo/M5PkSvicWsBLhY6eNQC2tSTRngE/y7MexmYHzuAqPSTItDzp005JRicu7u
+	UU8eHe2YytBcJ9fqCKF98GR5QHXS4rc8SVXw/VQplVkvC9XcmELOGk3raojj5+1DQlVPaYS+4enMl
+	rX2UJlo+ToOCDZT06U5UpLM3m5uEJ8flN/r7F3fU7fPAzhcUq+uaCIUvph1kx8rukZUm0lQ56HDtw
+	WYbOWnMKnU4jAWH1ACCcM7bp9mSMFcKih+Z5sdjdJIiI+ZRv3iMDd+yRmdqmZBXkTf6CIKl7DqmUi
+	2kFZd92w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uERfQ-00000009ITH-2boz;
-	Mon, 12 May 2025 11:49:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uERXi-00000009HB5-1LIA
+	id 1uERko-00000009JK4-00DF;
+	Mon, 12 May 2025 11:55:30 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uERik-00000009Ixa-3X5f
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 11:41:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DD15B150C;
-	Mon, 12 May 2025 04:41:43 -0700 (PDT)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 64EE03F5A1;
-	Mon, 12 May 2025 04:41:52 -0700 (PDT)
-From: Ben Horgan <ben.horgan@arm.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	pbonzini@redhat.com,
-	shuah@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Cc: james.morse@arm.com,
-	Ben Horgan <ben.horgan@arm.com>
-Subject: [RFC PATCH v2 3/3] KVM: selftests: Confirm exposing MTE_frac does not break migration
-Date: Mon, 12 May 2025 12:41:12 +0100
-Message-ID: <20250512114112.359087-4-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250512114112.359087-1-ben.horgan@arm.com>
-References: <20250512114112.359087-1-ben.horgan@arm.com>
+	Mon, 12 May 2025 11:53:24 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54CAeG2P004639;
+	Mon, 12 May 2025 13:53:14 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	VlcV0kRPaTfk5YK6ZyqecQK16+pijh8il4Op3fbctew=; b=vS+LrQswgnOdeU02
+	AJAX5CoLB1+iKNrpHnJt8/1j647MTkFSFqx+2CkI6Dc301/Gv5dTTTI/5CVH5lgf
+	i8wQk6r8wybepprii5hAgzr/BYZxpJ8rPhs4vCj4dQsBPxjgfvzgspGvkmhsKw39
+	y8lJLeC0My7w1b+xgrSKFDq42ph5CGnJIJOZ6nwuENGFmPA1MhE7aN/uxS2p+din
+	iDHaXHpq7MOnu0zeCs/TxSoRHLgtkHJGf9y7fzIZjawNr0k1LjnXEkZJvNqEjFzy
+	ogG+4Hx7F1pGtvaU90RBlSI56DVeYCApMr7SSLfvknTEw95aEQwufvmPa3ImN3if
+	bUlbVg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46jgc44ne6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 12 May 2025 13:53:14 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 93CB84004A;
+	Mon, 12 May 2025 13:52:18 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id BBB1CAF5655;
+	Mon, 12 May 2025 13:51:47 +0200 (CEST)
+Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 12 May
+ 2025 13:51:47 +0200
+Message-ID: <a5c0f081-b3e1-42c0-980f-2e4ad1d766df@foss.st.com>
+Date: Mon, 12 May 2025 13:51:47 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 0/3] arm64: dts: st: Add SPI NOR support for
+ stm32mp257f-ev1
+To: Patrice Chotard <patrice.chotard@foss.st.com>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250512-upstream_omm_ospi_dts-v10-0-fca0fbe6d10a@foss.st.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20250512-upstream_omm_ospi_dts-v10-0-fca0fbe6d10a@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-12_04,2025-05-09_01,2025-02-21_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_044158_446444_21A59BDA 
-X-CRM114-Status: GOOD (  16.78  )
+X-CRM114-CacheID: sfid-20250512_045323_405942_1E7A5737 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,141 +98,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When MTE is supported but MTE_ASYMM is not (ID_AA64PFR1_EL1.MTE == 2)
-ID_AA64PFR1_EL1.MTE_frac == 0xF indicates MTE_ASYNC is unsupported
-and MTE_frac == 0 indicates it is supported.
+Hi Patrice
 
-As MTE_frac was previously unconditionally read as 0 from the guest
-and user-space, check that using SET_ONE_REG to set it to 0 succeeds
-but does not change MTE_frac from unsupported (0xF) to supported (0).
-This is required as values originating from KVM from user-space must
-be accepted to avoid breaking migration.
+On 5/12/25 08:29, Patrice Chotard wrote:
+> Add SPI NOR support for stm32mp257f-ev1 board by adding:
+>    _ Octo memory Manager node in stm32mp251.dtsi
+>    _ OSPI port1 pinctrl entries in stm32mp25-pinctrl.dtsi
+>    _ Add SPI NOR support for stm32mp257f-ev1.dts
+> 
+> To: Rob Herring <robh@kernel.org>
+> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> To: Conor Dooley <conor+dt@kernel.org>
+> To: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+> To: Alexandre Torgue <alexandre.torgue@foss.st.com>
+> Cc: devicetree@vger.kernel.org
+> Cc: linux-stm32@st-md-mailman.stormreply.com
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+> 
+> Changes in v10:
+> - rebase on top of next-20250509 to fix DTB warnings.
+> - Link to v9: https://lore.kernel.org/r/20250428-upstream_omm_ospi_dts-v9-0-62522b1b0922@foss.st.com
+> 
+> Changes in v9:
+>    - split patchset by susbsystem, current one include only DTS related
+>      patches.
+>    - Link to v8: https://lore.kernel.org/r/20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com
+> 
+> ---
+> Patrice Chotard (3):
+>        arm64: dts: st: Add OMM node on stm32mp251
+>        arm64: dts: st: Add ospi port1 pinctrl entries in stm32mp25-pinctrl.dtsi
+>        arm64: dts: st: Add SPI NOR flash support on stm32mp257f-ev1 board
+> 
+>   arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 51 +++++++++++++++++++++++++
+>   arch/arm64/boot/dts/st/stm32mp251.dtsi        | 54 +++++++++++++++++++++++++++
+>   arch/arm64/boot/dts/st/stm32mp257f-ev1.dts    | 32 ++++++++++++++++
+>   3 files changed, 137 insertions(+)
+> ---
+> base-commit: ed61cb3d78d585209ec775933078e268544fe9a4
+> change-id: 20250410-upstream_omm_ospi_dts-04b97cc02e52
+> 
+> Best regards,
 
-Also, to allow this MTE field to be tested, enable KVM_ARM_CAP_MTE
-for the set_id_regs test. No effect on existing tests is expected.
+Series applied on stm32-next.
 
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
----
- .../testing/selftests/kvm/arm64/set_id_regs.c | 77 ++++++++++++++++++-
- 1 file changed, 76 insertions(+), 1 deletion(-)
-
-diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index 322b9d3b0125..34f4174e7285 100644
---- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-+++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -15,6 +15,8 @@
- #include "test_util.h"
- #include <linux/bitfield.h>
- 
-+bool have_cap_arm_mte;
-+
- enum ftr_type {
- 	FTR_EXACT,			/* Use a predefined safe value */
- 	FTR_LOWER_SAFE,			/* Smaller value is safe */
-@@ -543,6 +545,70 @@ static void test_user_set_mpam_reg(struct kvm_vcpu *vcpu)
- 		ksft_test_result_fail("ID_AA64PFR1_EL1.MPAM_frac value should not be ignored\n");
- }
- 
-+#define MTE_IDREG_TEST 1
-+static void test_user_set_mte_reg(struct kvm_vcpu *vcpu)
-+{
-+	uint64_t masks[KVM_ARM_FEATURE_ID_RANGE_SIZE];
-+	struct reg_mask_range range = {
-+		.addr = (__u64)masks,
-+	};
-+	uint64_t val;
-+	uint64_t mte;
-+	uint64_t mte_frac;
-+	int idx, err;
-+
-+	if (!have_cap_arm_mte) {
-+		ksft_test_result_skip("MTE capability not supported, nothing to test\n");
-+		return;
-+	}
-+
-+	/* Get writable masks for feature ID registers */
-+	memset(range.reserved, 0, sizeof(range.reserved));
-+	vm_ioctl(vcpu->vm, KVM_ARM_GET_REG_WRITABLE_MASKS, &range);
-+
-+	idx = encoding_to_range_idx(SYS_ID_AA64PFR1_EL1);
-+	if ((masks[idx] & ID_AA64PFR1_EL1_MTE_frac_MASK) == ID_AA64PFR1_EL1_MTE_frac_MASK) {
-+		ksft_test_result_skip("ID_AA64PFR1_EL1.MTE_frac is officially writable, nothing to test\n");
-+		return;
-+	}
-+
-+	/*
-+	 * When MTE is supported but MTE_ASYMM is not (ID_AA64PFR1_EL1.MTE == 2)
-+	 * ID_AA64PFR1_EL1.MTE_frac == 0xF indicates MTE_ASYNC is unsupported
-+	 * and MTE_frac == 0 indicates it is supported.
-+	 *
-+	 * As MTE_frac was previously unconditionally read as 0, check
-+	 * that the set to 0 succeeds but does not change MTE_frac
-+	 * from unsupported (0xF) to supported (0).
-+	 *
-+	 */
-+	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR1_EL1));
-+
-+	mte = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE), val);
-+	mte_frac = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE_frac), val);
-+	if (mte != ID_AA64PFR1_EL1_MTE_MTE2 ||
-+	    mte_frac != ID_AA64PFR1_EL1_MTE_frac_NI) {
-+		ksft_test_result_skip("MTE_ASYNC or MTE_ASYMM are supported, nothing to test\n");
-+		return;
-+	}
-+
-+	/* Try to set MTE_frac=0. */
-+	val &= ~ID_AA64PFR1_EL1_MTE_frac_MASK;
-+	val |= FIELD_PREP(ID_AA64PFR1_EL1_MTE_frac_MASK, 0);
-+	err = __vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR1_EL1), val);
-+	if (err) {
-+		ksft_test_result_fail("ID_AA64PFR1_EL1.MTE_frac=0 was not accepted\n");
-+		return;
-+	}
-+
-+	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR1_EL1));
-+	mte_frac = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE_frac), val);
-+	if (mte_frac == ID_AA64PFR1_EL1_MTE_frac_NI)
-+		ksft_test_result_pass("ID_AA64PFR1_EL1.MTE_frac=0 accepted and still 0xF\n");
-+	else
-+		ksft_test_result_pass("ID_AA64PFR1_EL1.MTE_frac no longer 0xF\n");
-+}
-+
- static void test_guest_reg_read(struct kvm_vcpu *vcpu)
- {
- 	bool done = false;
-@@ -673,6 +739,14 @@ static void test_reset_preserves_id_regs(struct kvm_vcpu *vcpu)
- 	ksft_test_result_pass("%s\n", __func__);
- }
- 
-+void kvm_arch_vm_post_create(struct kvm_vm *vm)
-+{
-+	if (vm_check_cap(vm, KVM_CAP_ARM_MTE)) {
-+		vm_enable_cap(vm, KVM_CAP_ARM_MTE, 0);
-+		have_cap_arm_mte = true;
-+	}
-+}
-+
- int main(void)
- {
- 	struct kvm_vcpu *vcpu;
-@@ -701,7 +775,7 @@ int main(void)
- 		   ARRAY_SIZE(ftr_id_aa64pfr1_el1) + ARRAY_SIZE(ftr_id_aa64mmfr0_el1) +
- 		   ARRAY_SIZE(ftr_id_aa64mmfr1_el1) + ARRAY_SIZE(ftr_id_aa64mmfr2_el1) +
- 		   ARRAY_SIZE(ftr_id_aa64zfr0_el1) - ARRAY_SIZE(test_regs) + 3 +
--		   MPAM_IDREG_TEST;
-+		   MPAM_IDREG_TEST + MTE_IDREG_TEST;
- 
- 	ksft_set_plan(test_cnt);
- 
-@@ -709,6 +783,7 @@ int main(void)
- 	test_vcpu_ftr_id_regs(vcpu);
- 	test_vcpu_non_ftr_id_regs(vcpu);
- 	test_user_set_mpam_reg(vcpu);
-+	test_user_set_mte_reg(vcpu);
- 
- 	test_guest_reg_read(vcpu);
- 
--- 
-2.43.0
-
+Cheers
+Alex
 
