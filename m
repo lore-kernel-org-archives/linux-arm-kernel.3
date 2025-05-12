@@ -4,77 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15720C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 16:42:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C36A8C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 16:46:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BBVk2oo5ady6BFVtBDvrg6Jt6Hsz+CdB2psG6bRhYqQ=; b=B6+iN1MlSIgaCvTdMCY+5BmQS3
-	k/u1YNqhpquj2iVU1NzfotRhBrZ7gIPdNjFnmawSDzz0kVnVr2lnbjRQvOqEmikphMSypToeeT8wF
-	AYojJtI+BaaM9ZKhVItF/eN5Au+XctSCart9S5QLFaZv+v7NyXNPbCgMddSspcG8ZcMIzKBMxzR9S
-	Ns9hA88jF70gqwRFfhdbt0ZToJ27nIYcuYSh5Z+yDXlFXv1y2C/0Mswpomt9ESBD1WE+IZ/8qR9EV
-	ZDZmeWufLVEPIJnotRhKZ6QalbGIBByqwWs2odyRScNypb3MsszGx9jg0qZ/wGKFy9f4/48zgQXoy
-	ebwiXGOw==;
+	bh=SysFyUs14YLUrxpDggJRT0n8GSqZz6w5DrYu8j3hIbc=; b=f4bsv+Rc3v2/DS+RUvz9QzLtPX
+	cApuOhRPSvZCPIUApI+Y+F92NUKT0/DftKOmjKlBueNm82R4jcLkcRGK6aAftARSp8Vh+z0pD8mTu
+	B8uSvKV5fUaggsP+zgCyIGHIg8cJ+N6F+p+8DmsldREf6WVAgQ+Gcd+YO+n92oh1nR6/NRG6EkXTP
+	/MI7HdsEhJ1AnUPjT6JnkKzDZeXU44PPp9XO4JsiKru6tjbGZigV7EEyDQFOPUYOy44oVy6gS9PGP
+	SqS8zmNKYNHQS4OLqkGaJ+5t8RNnqA97DPi1J504ERX9yBLkkb5OeNL0aGEfpEbDfLYkwH0zXfoYG
+	Iq10i5Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEWEV-0000000A5SB-1Ama;
-	Mon, 12 May 2025 16:42:27 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uEWIi-0000000A6nc-29IR;
+	Mon, 12 May 2025 16:46:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEVjA-00000009ykm-1UJT
+	id 1uEW3T-0000000A3GA-4217
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 16:10:05 +0000
+	Mon, 12 May 2025 16:31:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 35FFB5C4AA4;
-	Mon, 12 May 2025 16:07:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CDA2C4CEE7;
-	Mon, 12 May 2025 16:10:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 519FF436FA;
+	Mon, 12 May 2025 16:31:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8833BC4CEEE;
+	Mon, 12 May 2025 16:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747066203;
-	bh=iL2V/bvrYGW9bbo4sD+uM9MvWXY78cNQRMuPYip5Pf4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=o0uxskyoOjACJ12rcKa0ajOh1RM/FYNmekNIeB1lXBSkFcMTmF7izyYVHP8mgKsxE
-	 BenwT/plXzUpPoq4okelpfKHVfMunDBorTUMD0Ki4UcGhcyf4oPvRkuqrzkAQWdis8
-	 4c1VxVVRAtY6KGuwigB0YMH/1EN74jR9mkTMCfn54HbHxBjDh6dgUaEMk5dD+M02+H
-	 ayuM7ICDbqxuViEjLFabEhoSy5bpqiwgrfMlfAcdBj5NurZr+/1R2cdgKtL3r6EN5R
-	 MltFcTky9GZOrPZ6/Zgj/dWhISEDp68P/uqFtns4+yIhEY1ZW4gRXTYKHduyz96to5
-	 gR/zfCFzwG/OQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uEVj6-00EBmE-W1;
-	Mon, 12 May 2025 17:10:01 +0100
-Date: Mon, 12 May 2025 17:09:59 +0100
-Message-ID: <86sel9g694.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sascha Bischoff
- <sascha.bischoff@arm.com>,
+	s=k20201202; t=1747067463;
+	bh=yuUA8tc5ZQqaQNeKWPw3vq4fpyzsoAnPGRVVajrP1Ro=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=W9giMf73LsTUzZNJr9gPt9p1NMj5cDbRqADZxoP2tAfFMC77oInW8wkwnv/SqAp+B
+	 nFV7yonnJvuO83Jm3OEwh3lCBSCuinNfJGTawYqXETtzQ1/aRVY/5Wr8mZfx4MRU7X
+	 HGXQi7Z3swtqFnN/8LCa8DeZ2dgEQNIQen7LOszdERpG1ishKTHCjdAIDnqbODWsEX
+	 3WC/NL6rk+4hWMiQbAFEfgsUfKsjBg/jr/nBpTfGQbZqK609ezrE6kS6ol2PAb8g9r
+	 MlAQVRzg7/coHkJl6iUpvhj6KYqzikE67F93aji/tDg5HQqeNUwIgIapOfO7ehrDs2
+	 HeGc8Ymw6rF6A==
+Date: Mon, 12 May 2025 18:30:58 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
 	Timothy Hayes <timothy.hayes@arm.com>
-Subject: Re: [PATCH 2/4] irqchip/gic-v3-its: Implement .msi_teardown() callback
-In-Reply-To: <87ecwtlwx8.ffs@tglx>
+Subject: Re: [PATCH 2/4] irqchip/gic-v3-its: Implement .msi_teardown()
+ callback
+Message-ID: <aCIiQmfDUNrOCC2y@lpieralisi>
 References: <20250511163520.1307654-1-maz@kernel.org>
-	<20250511163520.1307654-3-maz@kernel.org>
-	<87ecwtlwx8.ffs@tglx>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tglx@linutronix.de, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, lpieralisi@kernel.org, sascha.bischoff@arm.com, timothy.hayes@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+ <20250511163520.1307654-3-maz@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250511163520.1307654-3-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_091004_480442_E3F84671 
-X-CRM114-Status: GOOD (  30.61  )
+X-CRM114-CacheID: sfid-20250512_093104_042124_BAB94F70 
+X-CRM114-Status: GOOD (  37.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,70 +75,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 12 May 2025 15:34:59 +0100,
-Thomas Gleixner <tglx@linutronix.de> wrote:
+On Sun, May 11, 2025 at 05:35:18PM +0100, Marc Zyngier wrote:
+> We currently nuke the structure representing an endpoint device
+> translating via an ITS on freeing the last LPI allocated for it.
 > 
-> On Sun, May 11 2025 at 17:35, Marc Zyngier wrote:
-> > We currently nuke the structure representing an endpoint device
+> That's an unfortunate state of affair, as it is pretty common for
+> a driver to allocate a single MSI, do something clever, teardown
+> this MSI, and reallocate a whole bunch of them. The nvme driver
+> does exactly that, amongst others.
 > 
-> How is we? We means nothing as you know :)
-
-We means a lot to *me*.
-
+> What happens in that case is that the core code is buggy enough
+> to issue another .msi_prepare() call, even if it shouldn't.
+> This luckily cancels the above behaviour and hides the problem.
 > 
-> > translating via an ITS on freeing the last LPI allocated for it.
-> >
-> > That's an unfortunate state of affair, as it is pretty common for
-> > a driver to allocate a single MSI, do something clever, teardown
-> > this MSI, and reallocate a whole bunch of them. The nvme driver
-> > does exactly that, amongst others.
-> >
-> > What happens in that case is that the core code is buggy enough
-> > to issue another .msi_prepare() call, even if it shouldn't.
-> > This luckily cancels the above behaviour and hides the problem.
-> >
-> > In order to fix the core code, let's start by implementing the new
+> In order to fix the core code, let's start by implementing the new
+> .msi_teardown() callback. Nothing calls it yet, so a side effect
+> is that the its_dev structure will not be freed and that the DID
+> will stay mapped. Not a big deal, and this will be solved in the
+> following patch.
 > 
-> s/let's//
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  drivers/irqchip/irq-gic-v3-its-msi-parent.c | 10 ++++
+>  drivers/irqchip/irq-gic-v3-its.c            | 56 +++++++++++++--------
+>  2 files changed, 45 insertions(+), 21 deletions(-)
+
+First off, thanks a lot for putting this together, it makes an awful
+lot of sense to me.
+
+> index 0115ad6c82593..3472b97477104 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -3620,8 +3620,43 @@ static int its_msi_prepare(struct irq_domain *domain, struct device *dev,
+>  	return err;
+>  }
+>  
+> +static void its_msi_teardown(struct irq_domain *domain, msi_alloc_info_t *info)
+> +{
+> +	struct msi_domain_info *msi_info;
+> +	struct its_device *its_dev;
+> +	struct its_node *its;
+> +	u32 dev_id;
+> +
+> +	dev_id = info->scratchpad[0].ul;
+
+I have just managed to get to a keyboard :), I don't think the dev_id
+makes it to this point, we overwrite it with the its_dev pointer in
+its_msi_prepare() (could use second scratchpad for the pointer maybe ?).
+
+I was bitten by this while removing the old IWB code into the new one
+(unrelated to this code but that's how I noticed scratchpad is a union).
+
+Ignore me if I am mistaken, just reading the code, have not tested it
+(but I am about to do it for v5).
+
+Thanks,
+Lorenzo
+
+> +
+> +	msi_info = msi_get_domain_info(domain);
+> +	its = msi_info->data;
+> +
+> +	guard(mutex)(&its->dev_alloc_lock);
+> +
+> +	its_dev = its_find_device(its, dev_id);
+> +
+> +	/* If the device is shared, keep everything around */
+> +	if (its_dev->shared)
+> +		return;
+> +
+> +	/* LPIs should have been already unmapped at this stage */
+> +	if (WARN_ON_ONCE(!bitmap_empty(its_dev->event_map.lpi_map,
+> +				       its_dev->event_map.nr_lpis)))
+> +		return;
+> +
+> +	its_lpi_free(its_dev->event_map.lpi_map,
+> +		     its_dev->event_map.lpi_base,
+> +		     its_dev->event_map.nr_lpis);
+> +
+> +	/* Unmap device/itt, and get rid of the tracking */
+> +	its_send_mapd(its_dev, 0);
+> +	its_free_device(its_dev);
+> +}
+> +
+>  static struct msi_domain_ops its_msi_domain_ops = {
+>  	.msi_prepare	= its_msi_prepare,
+> +	.msi_teardown	= its_msi_teardown,
+>  };
+>  
+>  static int its_irq_gic_domain_alloc(struct irq_domain *domain,
+> @@ -3722,7 +3757,6 @@ static void its_irq_domain_free(struct irq_domain *domain, unsigned int virq,
+>  {
+>  	struct irq_data *d = irq_domain_get_irq_data(domain, virq);
+>  	struct its_device *its_dev = irq_data_get_irq_chip_data(d);
+> -	struct its_node *its = its_dev->its;
+>  	int i;
+>  
+>  	bitmap_release_region(its_dev->event_map.lpi_map,
+> @@ -3736,26 +3770,6 @@ static void its_irq_domain_free(struct irq_domain *domain, unsigned int virq,
+>  		irq_domain_reset_irq_data(data);
+>  	}
+>  
+> -	mutex_lock(&its->dev_alloc_lock);
+> -
+> -	/*
+> -	 * If all interrupts have been freed, start mopping the
+> -	 * floor. This is conditioned on the device not being shared.
+> -	 */
+> -	if (!its_dev->shared &&
+> -	    bitmap_empty(its_dev->event_map.lpi_map,
+> -			 its_dev->event_map.nr_lpis)) {
+> -		its_lpi_free(its_dev->event_map.lpi_map,
+> -			     its_dev->event_map.lpi_base,
+> -			     its_dev->event_map.nr_lpis);
+> -
+> -		/* Unmap device/itt */
+> -		its_send_mapd(its_dev, 0);
+> -		its_free_device(its_dev);
+> -	}
+> -
+> -	mutex_unlock(&its->dev_alloc_lock);
+> -
+>  	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
+>  }
+>  
+> -- 
+> 2.39.2
 > 
-> I really have to understand why everyone is so fond of "let's". It only
-> makes limited sense when the patch is proposed, but in a change log it
-> does not make sense at all.
-> 
-> > .msi_teardown() callback. Nothing calls it yet, so a side effect
-> > is that the its_dev structure will not be freed and that the DID
-> > will stay mapped. Not a big deal, and this will be solved in the
-> > following patch.
-> 
-> Now I see why you added this incomprehensible condition into the core
-> code. Bah.
-> 
-> Why don't you add this callback once you changed the prepare muck, which
-> introduces info::alloc_data?
-
-Changing prepare first breaks nvme and igbxe, amongst other things,
-for the reasons explained just above, so you need to implement
-teardown first, plug the MSI controller into it, and only then you can
-switch prepare.
-
-What I can do is:
-
-(1) introduce teardown without the call site in msi_remove_device_irq_domain()
-
-(2) add its implementation in the ITS driver
-
-(3) move the prepare crap
-
-(4) add the teardown call to msi_remove_device_irq_domain(), without
-    the check on info->alloc_data
-
-With that order, everything will keep working, with a temporary leak
-of ITTs in the ITS driver between patches (2) and (4).
-
-Is that something you can live with?
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
