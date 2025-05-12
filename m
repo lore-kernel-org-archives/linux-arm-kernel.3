@@ -4,57 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FD3BC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF375C3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qyGlqeoaX018wK20EkYJAUZufA8oVkUeenZJQTWOTzk=; b=h+ogLYRoiiRmpREPugDO3JNV2a
-	wnEj0jUIHNmYruhiKFHUINrP7Y1tOImtSgwzNH1NDYhcV8HXsiwQ151pXvRuMbCnHLgC0c6fQBqN/
-	/E2xYv4tVlwMBY4Q4ICfgsgPXBc4laYtL+EYj+xDmAd1U6niZZfuo93bdHbzOIbJRv91en53Vjtmv
-	BPtD98DT/5Oq5Es8KC/fPD1P4kNL7yK7ps/yGBNnRHVJ1TZgMUbHjIdeCCwN18HlPI8VJIeuvgDNf
-	VHU2gFEJpNaE8TFD3naZcm7NwpIQ0xXmGGmw5FebVeB3bPm4jBeMTpKgDUidTZBnSyAmpftcyJoJ9
-	6cDS9TsQ==;
+	bh=VdmpLh9tDvI8Vr+JAYH7q4woCyy5u2PNY/n2JW/KaSg=; b=BRTMoY8k3/Turo56Ec45iKZY42
+	HfpdI5D8mhvRej6pVF5fgkIqXPlWYdjw2jIuBzYAjmEJIbN6AnVeUGxCwV5VOMqxloI7Zt6mNzQC6
+	hiJr/Iw/972tS/or25HR1i65YjGtliuzHDw0emueFAy3/JNhnH53zGC0VqqNYc7EMFP4/Ndzw81dk
+	YhZltZauNawoOcCfsJZZ/sAbLJcEPFQm1QSAnHEdMShOkOTGfqIGIF56bMkUlxym1IJ7zDt7YWR3C
+	plDie2W68tg1qg2ETdR9qycDswc9y6bLYSpWITvXPtwHZX6DY8ClQnLNNYG7NaXJnjVJ2zs3EbGV5
+	HGO/UorA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEThh-00000009eVd-3MSy;
-	Mon, 12 May 2025 14:00:25 +0000
-Received: from mx1.emlix.com ([178.63.209.131])
+	id 1uETjm-00000009ery-2WVe;
+	Mon, 12 May 2025 14:02:34 +0000
+Received: from mail-am7eur03on20627.outbound.protection.outlook.com ([2a01:111:f403:260e::627] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uET19-00000009VSF-2XR9
+	id 1uET2k-00000009Vio-2iY8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 13:16:28 +0000
-Received: from mailer.emlix.com (p5098be52.dip0.t-ipconnect.de [80.152.190.82])
-	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.emlix.com (Postfix) with ESMTPS id 10ECB5FE9E;
-	Mon, 12 May 2025 15:16:17 +0200 (CEST)
-From: Rolf Eike Beer <eb@emlix.com>
-To: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>
-Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
- Bert Karwatzki <spasswolf@web.de>, Lu Baolu <baolu.lu@linux.intel.com>,
- Jerry Snitselaar <jsnitsel@redhat.com>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Tomasz Jeznach <tjeznach@rivosinc.com>, Nick Kossifidis <mick@ics.forth.gr>,
- Sebastien Boeuf <seb@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Robin Murphy <robin.murphy@arm.com>,
- linux-arm-kernel@lists.infradead.org, Jason Gunthorpe <jgg@ziepe.ca>,
- Kevin Tian <kevin.tian@intel.com>
-Subject: [PATCHv3 0/6] make vendor specific subdirectory inclusion conditional
-Date: Mon, 12 May 2025 15:07:27 +0200
-Message-ID: <1926170.CQOukoFCf9@devpool92.emlix.com>
-Organization: emlix GmbH
+	Mon, 12 May 2025 13:18:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FvD9NLuBobng1+mE6D45YEvm784meBn9P38zT76XQqNozARSy46h5ICQY+SvtC5KksqVnnDaefG6E9vuPSs0vdYtHUdnENQL1AMZNdSneRxdGVg+P0Rv1Pid/OFynG9XUgN9GtARdNZxy50rhvkbGgQG9GjFHdl/t6Ore8NrK3ApeF2wLW/lhGGWiM6WEIGTrbL0ZJe92TNXTtK7o8pkpa4dqq32QbIkCv7jlEpg9zRkN36q/8wdfnZxvfH9X8k/1GgKeP+TmlfCfd69vGAFPGHt+recVIeMJnR4sMjV2MG1sTWGtMnqRgHyEfut8glYsV+tl4XxmJP84oPq2NKJNA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VdmpLh9tDvI8Vr+JAYH7q4woCyy5u2PNY/n2JW/KaSg=;
+ b=m1Mek5qt4Af5pBoy5aQ7dsjZKQTXJLg+RKYjko3N504PH3OJy7GAhz571dnaQjJ89MG/E9mmanCJlZTCLYiYcAflKG/ZXnpZ4VMr/GoSVIg0yZip6EY6zJrQ41bdbgE7KE0hF8t1Y92/LLZ3hAYS0bdqr+5UXCvRYJBBP/fRAgx22YkHTkGEpbxMOYdPHX4VZS1qFqjsjke9A9Zvhlu/nOOyeQcg5iadbT8mUmAzqv+SRnb22LZCOihvCwBfgE2/AthvfmFtsQdxJ7gixbGP3jQ7JgPnmNRCPGlFa3pnvcizQseW1cMwn/sejrZuzHyCMWW+ETMvg4nQJoyUSEbqQA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VdmpLh9tDvI8Vr+JAYH7q4woCyy5u2PNY/n2JW/KaSg=;
+ b=C7fBWiF0vZFw5dl0H6/12GAtVBj2scKBHaV4DjqeOCDBzQGCzYjK8kUjHR3oz4gWXg5V/d2DN8PEHi6sMO2i4XTc3zH3T9dCFbWS8W7jPtX35MrRIba8UGRD6LSAdbWdT6zvoyRHNSGAL6Ga+6zREYDbGrtAqGO+kKMrF2A3MsY7gjTUYdsnhfxSIwXyA/sUkPr7cyOD2bPNmLpitNVFvsrMLZSg6pi/CFelMeIsGDA3jZq5YFMCqWut5T/XwbLtLalBoz5zNULjyJ9g+uecOiYPHLebfLCAguhyUfZNQlIJXastTGj8wveYOR9Ah1MlQ1K8q794OFgZdtlTXEDGIA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
+ by AS8PR04MB7720.eurprd04.prod.outlook.com (2603:10a6:20b:299::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.29; Mon, 12 May
+ 2025 13:18:03 +0000
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2%4]) with mapi id 15.20.8722.027; Mon, 12 May 2025
+ 13:18:03 +0000
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: netdev@vger.kernel.org
+Cc: =?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+	Jason Xing <kernelxing@tencent.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] docs: networking: timestamping: improve stacked PHC sentence
+Date: Mon, 12 May 2025 16:17:51 +0300
+Message-ID: <20250512131751.320283-1-vladimir.oltean@nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: VI1PR0502CA0023.eurprd05.prod.outlook.com
+ (2603:10a6:803:1::36) To AM8PR04MB7779.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24b::14)
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart23936481.6Emhk5qWAg";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|AS8PR04MB7720:EE_
+X-MS-Office365-Filtering-Correlation-Id: ef7e3b36-2eb0-4473-2c77-08dd91576cb4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?b8hKz3WTfHBr+fkT5hxiiJaxhW8tPOrYhlbWpQkjpwiaf8akDNfdDv2yROg4?=
+ =?us-ascii?Q?5hSjtnBZG65m+309TjIOzVD+2VE94Ool1FdWcVrsGHCRHFj2MHDlucpzSpAb?=
+ =?us-ascii?Q?bhP4vMU3j56LB87yDsAYR2k5/M7ImDc92W8PVZ/em2S2sy7vvNmEzDO85vLr?=
+ =?us-ascii?Q?5NNw08oeaQaNu9XLrCsyEEjPiQptHW62X8FHpYMPwnekVRNk49j1zT1931Wd?=
+ =?us-ascii?Q?UWSDHB4W2j/OXX3GaMx62WUoqm7mYo7pwNmXhpDFsomZJjbT9tvqfwSSY1OZ?=
+ =?us-ascii?Q?pqMDyXd3Cd2O2FJAyCx4KAdX3H0idM4rJCuYY0Zds0m4SVkJb8sZ/vjlXwvw?=
+ =?us-ascii?Q?KQC9Gfi3IM/6vZ1jTqMDJJ1oaspzjQniR3QAP0LMpceXmr0HTXPISVjADaYv?=
+ =?us-ascii?Q?xO+Tfdtf3PNCU0XktkzbKp2Qqq50DMkv7MgDWkh1IwFy584fkQuW+CyZj/yG?=
+ =?us-ascii?Q?NIscU+cbqYrHaCBxCeTclaFiKIIP54yXslre7YmCs2sekAro26I05knmNB6W?=
+ =?us-ascii?Q?tiLdPduK0iNABjIYIGnGSiUNjDvjZf83C2XmwiJLE/tpzO5X6cIH8wyTSkiF?=
+ =?us-ascii?Q?jGVkhjf4R8BNz9Q/djNMl8MXOan0xFbjvr9PhWsdiHbpZLyyzULoZ2470jVv?=
+ =?us-ascii?Q?hRMVgNBx5tbF7POFeUUbBev4CE03lRjudVUVpwG4X6ObtoeOwEY0z6D53gPS?=
+ =?us-ascii?Q?1PqOBs4ibS7TYZtqiL0KQQy74QW5MRgg6ShmLEgEZQRx7a8RLTSWlDJLwri5?=
+ =?us-ascii?Q?PGEIn0k96u73T+34s/HYi2lwZCPeDn1eT4NdA6KNzuk4DCmdnWFEfi2CHCqq?=
+ =?us-ascii?Q?la8Y2JEiLiwaxyTU4YfU1o/pNz4O4UKeeNFcodZaXIiQ1WS1pHXyKOAqfFJo?=
+ =?us-ascii?Q?3msJ5gBsg0OxCrfFyNUzF3dkxIxrmKGYe9iPRD158aF9MawMC7mfvVqUzH7P?=
+ =?us-ascii?Q?eGdZqN18Ydp4tFYmyyNt8n56MSFqgm0opx6JNvnJkUN8HxtZ3ICByvxHqjFY?=
+ =?us-ascii?Q?92+ocH8K5a26tqZ+d3oSXq2hpKA3rlGHRRpydOq721FHEuShtuS4lsMudZEk?=
+ =?us-ascii?Q?H6PXq0hMGHrKEgtH/BIJ6MhZFpqwWMwPwZ6MxmZrSc1ay08hdRh0+JoyXfEq?=
+ =?us-ascii?Q?nRRrHTuh3geL/glJDJkmVMkm6RZlIWno6sw5zuu2WO93pbA/PKPSpKqTaTQW?=
+ =?us-ascii?Q?n+o0/f47/giVXHCImOWvd54Iuv4Dj2nnO5jLmnCucRkOi7zmDZwwVfsU1gtI?=
+ =?us-ascii?Q?3+2OAbX0B5RrBDvZKhqdjPNpHVbrxdltp3FjilfvSi/crTc5a/htZwBaWmb3?=
+ =?us-ascii?Q?hzPZERe1D1jY4eNAeV7Ndm3Cn/qPwX1mvD3PHr5Q7Eb6ahmdHBaoZH2NaDdT?=
+ =?us-ascii?Q?AI9Bnw/cWS1kHtiE5aZosWbmKRNmT2BnfOwai7Z6zvzUcxW6E6nnXkeBTd06?=
+ =?us-ascii?Q?jHnOGjidkwgXE31NwIhixciLa01z2ofmxbWqZLc01nL7j1rb2SMFjg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UDFAb5l0KXQ4TiUhql45/skFXVvSLcp5y4OFm3xPhb9n3jCpDh069oY2+nYw?=
+ =?us-ascii?Q?xohJwCENAG0Tba3o2a/HWQQpVmeO2PIjiVFxVaJHlYsU/LO23nzskEZeW5x3?=
+ =?us-ascii?Q?h0D/ShoElUl09ODMW26ejGmoR7oEZmwToEOUGn5gPr++6PhFz2IwnZ8nPB4g?=
+ =?us-ascii?Q?QG5rpu8T87+ddXkYimeNSBiaOCx2cQMnNz7vwMIj/xvksqjkO1aC7bTRkM3I?=
+ =?us-ascii?Q?yG1fmZX/kR94Fg3UeyF3mzxLW+3axHQetutFxElovFUoAT7Lyk1bP1cf/TGR?=
+ =?us-ascii?Q?Ztxz5Mvx/DMQA5jZn6RFe11mXZFe1muFnRBUNpZz2m8ShyL5iGyxfDpg9nAu?=
+ =?us-ascii?Q?pUIdz/HNkdXPZ9lSRXBbR+fZP3zgJ5KX/zbpq5zRfGbmf0tVzQMl3ISbOpFA?=
+ =?us-ascii?Q?s5rZwtosegUsHcJGphlBx6Wf2jZ2dHMvvkx4m3nSfT3NulZEWCdXjEeqMh9Y?=
+ =?us-ascii?Q?s9G4C1jsrokImg8pzWrYJIVUxZ7VpE50jvj2pACDQ0c5M3uvKHHiu2LAxtU3?=
+ =?us-ascii?Q?Ay8J98Ksul9MgaclsJuXWpQMomRRKv+S3EdaAFNFX2CCaO6OxEFpFJv4e6LR?=
+ =?us-ascii?Q?ugvWLGb+sS7Q+l1UjtrKsHjtWM1QDwT8cPfHzLT14LFElFmiT/fUU5+cRb3F?=
+ =?us-ascii?Q?QTrPnC86oi+G70KD1ei9RlqdgLj0Ijef1fb/XGtsOdmsq58j/JYJV/VtZTmP?=
+ =?us-ascii?Q?upJlwatMPknZElbhz/9OEnaDh69XRlVVId1jo9L7eMX1ZkzcVp+W6GgqbNEv?=
+ =?us-ascii?Q?5sEzMqeEqrxRKOW6tXy1nzImCQIfgoGuUfy+EmS36zUmaVUdAWlfl48hURRK?=
+ =?us-ascii?Q?x7Mhlh+jgx1kXiKm7zzJhywg924fhI1qwMz4qWkEZ4soNvVO9JTF24cxXG8t?=
+ =?us-ascii?Q?+F4NI4HchQ8VJlXjdMmI21vjgcFpWprxPhEha/lq1p3Nhyu1ffQ0dF3iGyKJ?=
+ =?us-ascii?Q?ww2bR85hqV/ty4Dwi0A0RMDmmJHORr//GV4bgNfpFiRoYKnkKnme66s2Nuuz?=
+ =?us-ascii?Q?5+jT3KbARW75fTGrgoNGl2j4db0W0EbVCkBi/v90CVj8P9efsVdJ98+1ioMt?=
+ =?us-ascii?Q?2EzFi0k85r3IdOGYj7TTZH0lF0xVk6p8KF537ZCzPT1Q7PGsU2kkURXRNHfA?=
+ =?us-ascii?Q?dwHH0Sx4VwpwUq5QPcl1nzxotqT3RCWmhuUnSvSMqaPLXXtT0PlzIJuB0gF6?=
+ =?us-ascii?Q?dVDCbMV+nej//KycpZcDzQOUfCh9Xfkc1Hzm/NeFhEFOnxehV7R1kEJCN4fo?=
+ =?us-ascii?Q?0VLKHM0rSfUXpX9MX6xNvq38NSkSnn3TtidVXFCvtOVIPYjvxwoujs952614?=
+ =?us-ascii?Q?yqmAf5cmufqHJNKVvEzdtyYoviMv4fW8/g6GaEUQuBZGEF3tIhZDfOIWRHCc?=
+ =?us-ascii?Q?htc/D/iiO5SVF6pOykjf14dsJf3fL3XcOO+38TPwYijSg3QdmwUrp11tZhmC?=
+ =?us-ascii?Q?i9+2u2OFRBZhf/7v2bOpJkwsAyPgTCnft+7hOHKFpMaO5sGBcHQ8zzKt9gsZ?=
+ =?us-ascii?Q?Kdn5WXIpEWaFHdKOcHmMOFwinB8RyzhnXtS73bpXznOlZOPkjn0vemqJNfKI?=
+ =?us-ascii?Q?NxLWZiwnZiQjcby4gtGVx7dSRx5sYutBXJfGqo1QYSCulWgimKFlyXmjRKN4?=
+ =?us-ascii?Q?xg=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ef7e3b36-2eb0-4473-2c77-08dd91576cb4
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2025 13:18:03.0571
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UTDBqXcOayFocnOudCg/xTbEs7NCK1RlDeeSw+egrwbNDjpghCjWnRHpbJIMkp/jc+jr4JB5xHjxxMQlWiVmXQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7720
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_061627_791687_42A75EC1 
-X-CRM114-Status: UNSURE (   8.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250512_061806_705197_0F508A77 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,69 +166,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart23936481.6Emhk5qWAg
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Rolf Eike Beer <eb@emlix.com>
-To: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>
-Date: Mon, 12 May 2025 15:07:27 +0200
-Message-ID: <1926170.CQOukoFCf9@devpool92.emlix.com>
-Organization: emlix GmbH
-MIME-Version: 1.0
+The first paragraph makes no grammatical sense. I suppose a portion of
+the intended sentece is missing: "[The challenge with ] stacked PHCs
+(...) is that they uncover bugs".
 
-I found it strange that the vendor specific subdirectories were uncondition=
-ally=20
-added. Everything in these directories obviously depends on the specific Kc=
-onfig=20
-option. This series cleans this up by making the directory itself depend on=
-=20
-the respective option which looks more natural to me.
+Rephrase, and at the same time simplify the structure of the sentence a
+little bit, it is not easy to follow.
 
-I must confess that I am too lazy to find a good solution for the "arm/"=20
-directory, so I left it as is.
+Fixes: 94d9f78f4d64 ("docs: networking: timestamping: add section for stacked PHC devices")
+Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+---
+ Documentation/networking/timestamping.rst | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
 
-Regards,
-
-Eike
-
-=2D--
-Changes in v3:
-=2D added Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
-=2D rebased on top of 2e9b2ee2ba403cbe270a8256b8794ef5ad19b38d
-
-Changes in v2:
-=2D clean up subdirectory Makefiles to use obj-y now
-=2D add arm/arm-smmu-v3 and iommufd patches
-=2D-=20
-Rolf Eike Beer
-
-emlix GmbH
-Headquarters: Berliner Str. 12, 37073 G=C3=B6ttingen, Germany
-Phone +49 (0)551 30664-0, e-mail info@emlix.com
-District Court of G=C3=B6ttingen, Registry Number HR B 3160
-Managing Directors: Heike Jordan, Dr. Uwe Kracke
-VAT ID No. DE 205 198 055
-Office Berlin: Panoramastr. 1, 10178 Berlin, Germany
-Office Bonn: Bachstr. 6, 53115 Bonn, Germany
-http://www.emlix.com
-
-emlix - your embedded Linux partner
---nextPart23936481.6Emhk5qWAg
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iLMEAAEIAB0WIQQ/Uctzh31xzAxFCLur5FH7Xu2t/AUCaCHyjwAKCRCr5FH7Xu2t
-/NGvBACQ++ncU9h70pXINUzTwksmp8QYS7bw5uht6BV/o0aqHCaFisMsBu5xsT/N
-Q6AEn+ablK7oufZX2TqX8jKVZlPoEZYW6SEebCOytttzFqk/EFtoCNvLO66wISBe
-vPSrcpiktcbYyuPMd9/rsvKiEkvYwwrY/Hs4eYWkS+DU6ppKRA==
-=7yC0
------END PGP SIGNATURE-----
-
---nextPart23936481.6Emhk5qWAg--
-
-
+diff --git a/Documentation/networking/timestamping.rst b/Documentation/networking/timestamping.rst
+index b8fef8101176..7aabead90648 100644
+--- a/Documentation/networking/timestamping.rst
++++ b/Documentation/networking/timestamping.rst
+@@ -811,11 +811,9 @@ Documentation/devicetree/bindings/ptp/timestamper.txt for more details.
+ 3.2.4 Other caveats for MAC drivers
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 
+-Stacked PHCs, especially DSA (but not only) - since that doesn't require any
+-modification to MAC drivers, so it is more difficult to ensure correctness of
+-all possible code paths - is that they uncover bugs which were impossible to
+-trigger before the existence of stacked PTP clocks.  One example has to do with
+-this line of code, already presented earlier::
++The use of stacked PHCs may uncover MAC driver bugs which were impossible to
++trigger without them. One example has to do with this line of code, already
++presented earlier::
+ 
+       skb_shinfo(skb)->tx_flags |= SKBTX_IN_PROGRESS;
+ 
+-- 
+2.43.0
 
 
