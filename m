@@ -4,124 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F53C3ABD4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:24:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 734C3C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:28:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CrpU8YxLS+4Al6Udh0YnCVnyLmsN5nb6vSk+X5R1cE0=; b=dgEMup/8t4/wAWVd1HbvGO/mrl
-	mHPL/5wqXodu2LmCRpBeE9iOITFDxTAZ1PwpE8w8LJFrvth5Xs1W3MZ/3Y/crc86JzkYmHlBn2sPz
-	aT/sZ4bkvM4AnVSJ17WAujUWLjrIexMdIBpAgffqCN6BH/gA6P2t2y42UPq5jr0Bfb4DOQvShfA8z
-	BF84FRKyI7e84D6w4X6dZ6zUm+QqYYBf95IVlizv4NhTaL20CG7tDJ67dfMfQ2qwkJPj58f94jCfl
-	sgGLdMXvoI8EPkcu23MkdWHd7c2KPhh2LQqzMGtD44EQMwaidGimfHybJ9Q6CrRFt5hJJzbMTha81
-	7yKYBgwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bs0KT0uEopTREFIV09FXprEMp4r+yb1cp38ev0pRS7o=; b=uRJAtduEv92Y7TXpDMbu9Qy+Az
+	xz4pmFbACRuBPnjXaLGOgeNt4JDLIFYwBZL6pS4v3JPXhIX9evAS0To94sKP8CVcK1IknUraR5rI/
+	5s8+2Hy1bZK0cNi1GIYT4C2pRvGtPQZtIBTo+JKCOPmLiXnPZkSejw5q67HrTGhLr+4rH0iDv5qg6
+	08oXt0Y42HY9EMLa0SXlGnnatXaT90D0Av0I6dRyGsNAuh8n7gtbe4p/0yhMPst8wd2FlY9VOm6ph
+	t4GJJ66Czu2Rb5a/+SiMhCus5m5qUWlhvFx0UCzLyUUJkXgFl10dWUtq16FW1tnWNqYDfm5/C7OHS
+	GRq51gvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEU4l-00000009i0b-2KZZ;
-	Mon, 12 May 2025 14:24:15 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1uEU8F-00000009jFb-0PM0;
+	Mon, 12 May 2025 14:27:51 +0000
+Received: from smtp-fw-6001.amazon.com ([52.95.48.154])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uETQb-00000009b2c-1eH0
+	id 1uETqP-00000009fnm-1naN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 13:42:46 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 77C721F38C;
-	Mon, 12 May 2025 13:42:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1747057362; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CrpU8YxLS+4Al6Udh0YnCVnyLmsN5nb6vSk+X5R1cE0=;
-	b=zP5U3VrW3t8DldETQ2m3ra/g9SR/7BfZECcIwt1ffozAv53i4FQNTbZqDlArwMGydwaBj6
-	rtCzxLUs79hYV9o0Zzc4IUjfIraGG048FWChP1WvdFVRQhYgY2kGiXmYA2HbBvn4MP7iQJ
-	GSdeERGDIVxWiZR/A6vqbWOAeUUfRIU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1747057362;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CrpU8YxLS+4Al6Udh0YnCVnyLmsN5nb6vSk+X5R1cE0=;
-	b=gvKon7yMqsoG257e/+tjFmrYEyugtB0QHKk7RcncstuvNHkWJgUu0gzu6xzHS1AJNvI2QX
-	OVlRskUcVxR7BmBg==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1747057361; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CrpU8YxLS+4Al6Udh0YnCVnyLmsN5nb6vSk+X5R1cE0=;
-	b=mrNRbP0beD+FA3kIigtZ4Axve0L82Sl8oc2EvXufjmPE8pwINqFDZxkHovVpcbgQ/vNB0m
-	vqZplir1glSp40FziCgR2C0aHfwbrJD8wBoBU9Cl2dt07JUr0xad4PyPKPg0CEt0K23we7
-	KQHa5h307RnZsk+FTfdGFKXqvDVJ65I=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1747057361;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CrpU8YxLS+4Al6Udh0YnCVnyLmsN5nb6vSk+X5R1cE0=;
-	b=a5UtLZDe1eN/4R0G6f8q7lUB9f46NVeH/gmYLEhqmnN5Pvsl5Tq/jEozyj/EDghnESjMQr
-	YROgoHf7h4tvWhAA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 539C613A30;
-	Mon, 12 May 2025 13:42:41 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 2MYKEtH6IWi/LQAAD6G6ig
-	(envelope-from <iivanov@suse.de>); Mon, 12 May 2025 13:42:41 +0000
-Date: Mon, 12 May 2025 16:42:40 +0300
-From: "Ivan T. Ivanov" <iivanov@suse.de>
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: linus.walleij@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, florian.fainelli@broadcom.com,
-	andrea.porta@suse.com, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Arend van Spriel <aspriel@gmail.com>, kernel-list@raspberrypi.com
-Subject: Re: [PATCH 6/7] arm64: dts: broadcom: bcm2712: Add second SDHCI
- controller node
-Message-ID: <20250512134240.hg4we6sxemxeufka@localhost.localdomain>
-References: <20240731062814.215833-1-iivanov@suse.de>
- <20240731062814.215833-7-iivanov@suse.de>
- <a563971a-45f4-4404-a622-21c940d96250@gmx.net>
+	Mon, 12 May 2025 14:09:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
+  t=1747058965; x=1778594965;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=bs0KT0uEopTREFIV09FXprEMp4r+yb1cp38ev0pRS7o=;
+  b=gMhoXRZT0w47mGR7MWU8SfXV94xT5m/5BXnqjeYtpYxzzKKL0+gHyduy
+   cHLJrybG9b04H0T2RaBzuKZMyK8DTro8Mptzk0DpqFPTghrmH4A0Ds6bU
+   f9gP904Sn81qO5VXEqvU+RmK9kOG4VojAjRseKA1JlpwA/v+afjcvJbtc
+   1Uxwc43OC9DaWngLVxDXDR00oXHNfPZQYuC9jXS5SgK1MMz97c639TgDM
+   ETIS1xjJ+KAP8l8Q782ZxJWgs72fYdYmPk/uc1RQB9x2ml0OfcDb+Bb4c
+   l0uGaBAvPcL0kEl/ZermZsTLDaWi7ywMcd6NJKekAwaQMBAHajVydjmPc
+   w==;
+X-IronPort-AV: E=Sophos;i="6.15,282,1739836800"; 
+   d="scan'208";a="489002478"
+Received: from iad12-co-svc-p1-lb1-vlan2.amazon.com (HELO smtpout.prod.us-east-1.prod.farcaster.email.amazon.dev) ([10.43.8.2])
+  by smtp-border-fw-6001.iad6.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 May 2025 14:09:19 +0000
+Received: from EX19MTAEUA002.ant.amazon.com [10.0.10.100:46847]
+ by smtpin.naws.eu-west-1.prod.farcaster.email.amazon.dev [10.0.21.215:2525] with esmtp (Farcaster)
+ id d1c2ccfc-6936-4d2e-9e97-d566a0803f65; Mon, 12 May 2025 14:09:19 +0000 (UTC)
+X-Farcaster-Flow-ID: d1c2ccfc-6936-4d2e-9e97-d566a0803f65
+Received: from EX19D023EUB003.ant.amazon.com (10.252.51.5) by
+ EX19MTAEUA002.ant.amazon.com (10.252.50.124) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Mon, 12 May 2025 14:09:18 +0000
+Received: from dev-dsk-dssauerw-1b-2c5f429c.eu-west-1.amazon.com
+ (10.13.238.31) by EX19D023EUB003.ant.amazon.com (10.252.51.5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
+ 15.2.1544.14; Mon, 12 May 2025 14:09:13 +0000
+From: David Sauerwein <dssauerw@amazon.de>
+To: <jingzhangos@google.com>
+CC: <andre.przywara@arm.com>, <coltonlewis@google.com>, <eauger@redhat.com>,
+	<jiangkunkun@huawei.com>, <joey.gouly@arm.com>, <kvm@vger.kernel.org>,
+	<kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<lishusen2@huawei.com>, <maz@kernel.org>, <oupton@google.com>,
+	<pbonzini@redhat.com>, <rananta@google.com>, <suzuki.poulose@arm.com>,
+	<yuzenghui@huawei.com>, <graf@amazon.com>, <nh-open-source@amazon.com>
+Subject: Re: [PATCH v4 5/5] KVM: arm64: vgic-its: Clear ITE when DISCARD frees an ITE
+Date: Mon, 12 May 2025 14:09:09 +0000
+Message-ID: <20250512140909.3464-1-dssauerw@amazon.de>
+X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20241107214137.428439-6-jingzhangos@google.com>
+References: <20241107214137.428439-6-jingzhangos@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a563971a-45f4-4404-a622-21c940d96250@gmx.net>
-X-Spamd-Result: default: False [-2.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_TLS_ALL(0.00)[];
-	ARC_NA(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	TAGGED_RCPT(0.00)[dt];
-	RCPT_COUNT_TWELVE(0.00)[12];
-	FREEMAIL_TO(0.00)[gmx.net];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.net];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[linaro.org,kernel.org,broadcom.com,suse.com,vger.kernel.org,lists.infradead.org,gmail.com,raspberrypi.com];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,imap1.dmz-prg2.suse.org:helo]
+X-Originating-IP: [10.13.238.31]
+X-ClientProxiedBy: EX19D036UWC003.ant.amazon.com (10.13.139.214) To
+ EX19D023EUB003.ant.amazon.com (10.252.51.5)
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_064245_579317_A2BE912E 
-X-CRM114-Status: GOOD (  20.45  )
+X-CRM114-CacheID: sfid-20250512_070925_628562_1835F862 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,88 +93,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Jing,
 
-I am sorry so long delayed answer. Shifting priorities.
+After pulling this patch in via the v6.6.64 and v5.10.226 LTS releases, I see
+NULL pointer dereferences in some guests. The dereference happens in different
+parts of the kernel outside of the GIC driver (file systems, NVMe driver,
+etc.). The issue only appears once every few hundred DISCARDs / guest boots.
+Reverting the commit does fix the problem. I have seen multiple different guest
+kernel versions (4.14, 5.15) and distributions exhibit this issue.
 
-On 08-02 21:01, Stefan Wahren wrote:
-> 
-> Hi,
-> 
-> [add Arend and Raspberry Pi devs]
-> 
-> Am 31.07.24 um 08:28 schrieb Ivan T. Ivanov:
-> > Add SDIO2 node. On RPi5 it is connected to WiFi chip.
-> > Add related pin, gpio and regulator definitions and
-> > add WiFi node. With this and firmware already provided by
-> > distributions, at least on openSUSE Tumbleweed, this is
-> > sufficient to make WiFi operational on RPi5 \o/.
-> > 
-> > Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
-> > ---
-> >   .../boot/dts/broadcom/bcm2712-rpi-5-b.dts     | 55 +++++++++++++++++++
-> >   arch/arm64/boot/dts/broadcom/bcm2712.dtsi     | 13 +++++
-> >   2 files changed, 68 insertions(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-> > index 06e926af16b7..b6bfe0abb774 100644
-> > --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-> > +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-> > @@ -46,6 +46,20 @@ sd_vcc_reg: sd-vcc-reg {
-> >   		gpios = <&gio_aon 4 GPIO_ACTIVE_HIGH>;
-> >   	};
-> > 
-> > +	wl_on_reg: wl-on-reg {
-> > +		compatible = "regulator-fixed";
-> > +		regulator-name = "wl-on-regulator";
-> > +		regulator-min-microvolt = <3300000>;
-> > +		regulator-max-microvolt = <3300000>;
-> > +		pinctrl-0 = <&wl_on_pins>;
-> > +		pinctrl-names = "default";
-> > +
-> > +		gpio = <&gio 28 GPIO_ACTIVE_HIGH>;
-> > +
-> > +		startup-delay-us = <150000>;
-> > +		enable-active-high;
-> > +	};
-> I don't think this GPIO is a regulator from hardware perspective. I
-> guess it's the same reset pin we have on the older Raspberry Pis. Please
-> look at bcm283x-rpi-wifi-bt.dtsi for the wifi power sequence.
+The issue looks like some kind of race. I think the guest re-uses the memory
+allocated for the ITT before the hypervisor is actually done with the DISCARD
+command, i.e. before it zeros the ITE. From what I can tell, the guest should
+wait for the command to finish via its_wait_for_range_completion(). I tried
+locking reads to its->cwriter in vgic_mmio_read_its_cwriter() and its->creadr
+in vgic_mmio_read_its_creadr() with its->cmd_lock in the hypervisor kernel, but
+that did not help. I also instrumented the guest kernel both via printk() and
+trace events. In both cases the issue disappears once the instrumentation is in
+place, so I'm not able to fully observe what is happening on the guest side.
 
-FWICS, "mmc-pwrseq-simple" is more about proper reset sequence while
-here we need power to be applied to the connected device.
+Do you have an idea of what might cause the issue?
 
-And this is not a precedent. Just grep for "vmmc-supply = <&wlan"
+David
 
-> > +
-> >   	pwr-button {
-> >   		compatible = "gpio-keys";
-> > 
-> > @@ -80,6 +94,25 @@ &sdio1 {
-> >   	cd-gpios = <&gio_aon 5 GPIO_ACTIVE_LOW>;
-> >   };
-> > 
-> > +/* SDIO2 drives the WLAN interface */
-> > +&sdio2 {
-> > +	pinctrl-0 = <&sdio2_30_pins>;
-> > +	pinctrl-names = "default";
-> > +	bus-width = <4>;
-> > +	vmmc-supply = <&wl_on_reg>;
-> > +	sd-uhs-ddr50;
-> > +	non-removable;
-> > +	status = "okay";
-> > +	#address-cells = <1>;
-> > +	#size-cells = <0>;
-> > +
-> > +	wifi: wifi@1 {
-> > +		reg = <1>;
-> > +		compatible = "brcm,bcm4329-fmac";
-> > +		local-mac-address = [00 00 00 00 00 00];
-> I think we can drop this?
 
-Sure.
 
-Regards,
-Ivan
+Amazon Web Services Development Center Germany GmbH
+Tamara-Danz-Str. 13
+10243 Berlin
+Geschaeftsfuehrung: Christian Schlaeger, Jonathan Weiss
+Eingetragen am Amtsgericht Charlottenburg unter HRB 257764 B
+Sitz: Berlin
+Ust-ID: DE 365 538 597
 
 
