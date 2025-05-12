@@ -4,155 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F788C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 12:10:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 211A3C3ABCD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 12:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wdJlzktGGrJqFesVqic51nFN+xlPwzqlSYZMp8S0TxI=; b=w1aePPCpjV5S3mHk0rRxyRxChe
-	SDAqeAN6JPyPSFERTB0mQH0ecJ9LXvj/O0jpEn/4VNz/LPAV6InV/TdZV8wE7VJgeClg1/FohXZq2
-	lT3IVJawvH3TWbyavk0nXGbfQtAKGNLWxhoGIcC9AhmqFgZFszM+F36H+UgT19RWToPB7+VWpoLdb
-	CUApO6XeZp8ljF9wnFiz1FQ+YCoGcchukeqxYnAgEgRkNxw8pMl7GQO8kt2rVdjp7W4tzVciTI9We
-	ybMmUVkExnYk8Mlfe6j4ToIGCnCwkDxHWyp9gwaeQCqLUp9VsYLxbK3yqtDS8l0aupvbwYrBamJTD
-	61zBUY+w==;
+	bh=SkP0iqtAV8ORY1eZgH6I8IG6wC09KK/zaOfIkhxn6iI=; b=ZcHRVvOMQZx7hoKlpclAk+Gw5/
+	xu+sfCmsg1+4ujxGrlpVOK8yGaEkQoRX9AbOKCUElxgv2sCOex6gQryDZdyGVzxhcjinwTVTH5ZSW
+	qyDfoTi6ON6k19QAatN3gyh20/QQlDN2u6Ory3t2AUr8OBIgKLduvbI6YKSHWQhmiV2dvNGL0oGIj
+	pDpBgZNErjk7CcnS+uOHb6qLzxCayAKFDqOLaCIzg0ltSCFl1Ay1EgBRllgCX+Zlvt3MEz5ctXkOi
+	WBPdn3wX/GdZsv+u01Fmb36ebhWiDgq18fsay4ZfR2EtTyXahX9cR3oL2q62LLyIGqd7lLrUR45mP
+	d69GjQWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uERyt-00000009Lfx-079a;
-	Mon, 12 May 2025 12:10:03 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uES0t-00000009LxP-35cx;
+	Mon, 12 May 2025 12:12:07 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uERup-00000009KqB-3UW6
+	id 1uERur-00000009Kqe-0SnR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 12:05:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1747051550;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=wdJlzktGGrJqFesVqic51nFN+xlPwzqlSYZMp8S0TxI=;
-	b=ga3hbYI0WOQkoVq+oUOKoATenGHOHkeqv2IN2WpJRdDX6qpy8sL0PwnDzs7V0GKb1YEAqJ
-	Xo5p0YrAQdbcOLXgaJEmrqyrgb2/Bcd7yEEVxL1v6nMEHXP7cUY9EkOFx8W6zQ0GSE+fAF
-	qU4IOOEt/y9fJHu45+OaLbR0eKMpVBQ=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-122-uyn6xxrXNReCTOuDDcFZOg-1; Mon, 12 May 2025 08:05:48 -0400
-X-MC-Unique: uyn6xxrXNReCTOuDDcFZOg-1
-X-Mimecast-MFC-AGG-ID: uyn6xxrXNReCTOuDDcFZOg_1747051547
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3a0b7ceaa20so1392775f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 05:05:48 -0700 (PDT)
+	Mon, 12 May 2025 12:05:54 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-54d3ee30af1so4383779e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 05:05:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747051551; x=1747656351; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SkP0iqtAV8ORY1eZgH6I8IG6wC09KK/zaOfIkhxn6iI=;
+        b=eZ8LhgxRe2phEyKi6kQphpcrRQNbDl5Q9+/YwaEW7mgmxEwAfwavnrXYqWnzQtUf0M
+         d/U4O46AIPkrV6uzvmCU5LvMArNZ2c4SzQADzCkyECLFrw0oAbsopVkz53SZJ2hjJZ37
+         kt4dXV/zowU+xJKBC7aVoEPIXc5eP8nMoqwvQqakskJRbUe7UcqG8N739RMdIUiz98OR
+         ZHacktv96+xwfgJWLQLRbT9Q5O8LfmM5u0taS3bfYtDOzdvkFgdGHMj3m34+ZW/QgsR0
+         ghY2QevH34C4vddJI74yRJ/X0j228f9RT6is9ll5p5etRR3rrM2H+ipE2S3jM5HEUCog
+         KW7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747051547; x=1747656347;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=wdJlzktGGrJqFesVqic51nFN+xlPwzqlSYZMp8S0TxI=;
-        b=g1nJ/X62gkPveij23mJu4sQDd6ukk1QhHmzVqjhj8u6dNNprYZvjUPl/SqVnQ8mkyW
-         YCeDby4yLmGmNPDX7rFjAYwhHt9CdWtV99Gv/IRNXaZycrDZ9KG9aivGd7mgb7okBKYX
-         zceVA06FsNG4mv97ZtuZiGVHB/Ok4xDrm+w3F6BmGKi0/0dYru5ozqXIt4FYhmwO5qoU
-         dtj53F8UZR0TT6F1tjvPWWZ1Fhx5X4zxIb5GfRdsOd2cXyEkZZcPK/TjMjOScecxCnph
-         nzMFCL5n7KN9RxL21AVjqDHUHsAwY9LivYqxHchuCjQ1hBPBOxo5+x57lOduTELPOnDy
-         uU/A==
-X-Gm-Message-State: AOJu0YzH4W7QaZ0Uq0NZpj3SBAByPcxqNiSjAMwajxandJkWYDUo6w1M
-	WkCLIC39JA8yZQmR29vnlD4Iw+DwvxncNF76EwuWnHqvEY5ufrgUU9w+bQQe9ctgI8wXYC8MG1t
-	Mm7jE3HSuXLxaBSSOcKEJ/4xvpyJ83coy+TlBhGGVgtlcYHGf7PyKBekTNGjFCZ1GLkDgRBI3
-X-Gm-Gg: ASbGncu9Jm/Zm2n7Y3NhKhDPA+Ia5S4YdqLbvCQ91yefuLDHuChenZOpCjqHZpxSqwl
-	NhwOckADrB4TtCD/W8OnU1bstUjJ6kip0949Gdh7wVp8DguuRIgGafhYY92fphfU9pl6Z+dWPQ9
-	9te90u32wRNFD+RYFUkCDVKup+pU82R+ugM43wsAnD0NMDt1dIpeoiN2UqMLavZfGCN/G2bTFZY
-	Dd37ggfwsks3hbBgbjqToPFEvsPimyE0HPAEQBe1a08NHlfFtgucUYyzKp3qSXbhybP7wLy0Cdt
-	j00uV20g8L7XSMjA4PO2oCllxnnVzjg33rwIvqKAWUJ5eCdqGKmDrH+Q/NiS3R+PIsS2gsjzeTa
-	fSGBc5SDIF7OPkVzmMAC0KMiwh5I9ts7vQbff1y0=
-X-Received: by 2002:a05:6000:2a1:b0:3a0:b733:f262 with SMTP id ffacd0b85a97d-3a1f64ab58bmr10472085f8f.51.1747051547081;
-        Mon, 12 May 2025 05:05:47 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFASPPotExaPDA1hbZyCJdrcf7Y8GXHdAS7ODG1uszxEfWE0IHpAxbF5G0Tk+V/yx8Uk0/lbA==
-X-Received: by 2002:a05:6000:2a1:b0:3a0:b733:f262 with SMTP id ffacd0b85a97d-3a1f64ab58bmr10472042f8f.51.1747051546618;
-        Mon, 12 May 2025 05:05:46 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f4a:5800:f1ae:8e20:d7f4:51b0? (p200300d82f4a5800f1ae8e20d7f451b0.dip0.t-ipconnect.de. [2003:d8:2f4a:5800:f1ae:8e20:d7f4:51b0])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f57de100sm12085800f8f.2.2025.05.12.05.05.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 May 2025 05:05:46 -0700 (PDT)
-Message-ID: <836f2574-cb60-44c5-865c-7f13a90779ec@redhat.com>
-Date: Mon, 12 May 2025 14:05:45 +0200
+        d=1e100.net; s=20230601; t=1747051551; x=1747656351;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=SkP0iqtAV8ORY1eZgH6I8IG6wC09KK/zaOfIkhxn6iI=;
+        b=FrWQr29/S8+RXdUTSn/mGWX5l8Z8vxeufcxM4n+tzYHEsD8cNIwO6ZKb+UJ/aPtpP2
+         8148Cc7bdERB8D3h0yoDNqcEhsJW9rO7vT1qfdYCOWOpx2Zq7yr4evDQUxSJaRmc/3oQ
+         FP9TMLwkrK6ot8uy3uLV2KXt8sXhfmSfu1IETUJQKeCQ2dxvcUpyNsVIIiljWeEKBUX3
+         rNGN1XnD/mvwGJUEqMtYmTWXZ05K/rVrLrRw80nTBjS6eI+Z+81kB+Rj4/6ik6oiTnDo
+         p41scibsh8nY7a7MILL5fZFyEOuw/nVshsHS0S7oJplsGeIxW+Qi0kBribHnWNeVbjPZ
+         ZvGw==
+X-Forwarded-Encrypted: i=1; AJvYcCVexLoLwQYd3ft4zMkGWtk4T8YC1cmjNB3uvKuUxmUm+xVy2T3SVic8SXnwA3j14ascvu6Jb7Ak/pNBnGZO6SzR@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvxbGl6AUs4oGjr1evzpCajmEflJ6lT4Bw24jaEvdtfpJw0YgF
+	khPPr2MlLjnY1hFenmqZvl2LrBuC3G+V96sLuiDxZqZujN3WKtcSHnmpW4Ceohs=
+X-Gm-Gg: ASbGncvBCgZ5v1+B1LAc2mgHr8D9jc3uRPGDcnm1iByFZ21+X31XXIiufrHLGieYrMP
+	u3F+CpuIDkLE258QxD86pff7E2eIb1jjLI1KgdINd5ObZpcWquUlfLJOBosPV1xR6KbEcXuuvIQ
+	7weTQ4E9QWo8kuZSNd+6qyWzs/63HmX3h7/HWVZ0Aab4fk83xRCGIiw1x11Cf49ZuA9vZoMyhdT
+	eSVBLPpWWp+GeJAqpaa2ivQ3jWgZdnMxDo9TaO/NM1oa7sj/8KKtrLmzQ484Pf8ybQJbvf60VZJ
+	CPejwaRetApLrYQangxKNGAY6l1MXKyqYaX7aeBdzW9A3w5AHbIgqCTNDfW8Re51ltwckoxz
+X-Google-Smtp-Source: AGHT+IFR9Nx1JFMLBQ2HkT2lwCOY+IxKJSVXbedntzV9xfWGZUYC+w6s/M2ra/sM9ro0Y82w+A8WvQ==
+X-Received: by 2002:a05:6512:695:b0:54f:c1ce:9bbb with SMTP id 2adb3069b0e04-54fc67ecf35mr4581782e87.47.1747051551149;
+        Mon, 12 May 2025 05:05:51 -0700 (PDT)
+Received: from [192.168.1.140] ([85.235.12.238])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54fc64bf8a3sm1466033e87.189.2025.05.12.05.05.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 May 2025 05:05:50 -0700 (PDT)
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Mon, 12 May 2025 14:05:47 +0200
+Subject: [PATCH v3 01/12] ARM: dts: bcm6878: Correct UART0 IRQ number
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/mm: Disable barrier batching in interrupt contexts
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org,
- syzbot+5c0d9392e042f41d45c5@syzkaller.appspotmail.com
-References: <20250512102242.4156463-1-ryan.roberts@arm.com>
- <001dfd4f-27f2-407f-bd1c-21928a754342@redhat.com>
- <e37d5e61-54e7-4425-837f-25a13f5a68b5@arm.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <e37d5e61-54e7-4425-837f-25a13f5a68b5@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: miyjuWzpP57grYyBJTPivkyUW9J2_JIblSwl-f85H88_1747051547
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250512-bcmbca-peripherals-arm-v3-1-86f97ab4326f@linaro.org>
+References: <20250512-bcmbca-peripherals-arm-v3-0-86f97ab4326f@linaro.org>
+In-Reply-To: <20250512-bcmbca-peripherals-arm-v3-0-86f97ab4326f@linaro.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ William Zhang <william.zhang@broadcom.com>, 
+ Anand Gore <anand.gore@broadcom.com>, 
+ Kursad Oney <kursad.oney@broadcom.com>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Olivia Mackall <olivia@selenic.com>, Ray Jui <rjui@broadcom.com>, 
+ Scott Branden <sbranden@broadcom.com>, 
+ Florian Fainelli <f.fainelli@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-crypto@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_050551_942416_0D46C1DD 
-X-CRM114-Status: GOOD (  22.99  )
+X-CRM114-CacheID: sfid-20250512_050553_174220_67F7AEBE 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,79 +108,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+According to the vendor file 6878_intr.h the UART0 has IRQ
+92, not 32.
 
->>>    static inline void arch_leave_lazy_mmu_mode(void)
->>>    {
->>> +    if (in_interrupt())
->>> +        return;
->>> +
->>>        arch_flush_lazy_mmu_mode();
->>>        clear_thread_flag(TIF_LAZY_MMU);
->>>    }
->>
->> I guess in all cases we could optimize out the in_interrupt() check on !debug
->> configs.
-> 
-> I think that assumes we can easily and accurately identify all configs that
-> cause this? We've identified 2 but I'm not confident that it's a full list.
+Assuming this is a copy-and-paste error.
 
-Agreed. I was wondering if we could convert the ones to use different 
-pte helpers, whereby these helpers would not be available without 
-CONFIG_WHATEVER. Then, make these features select CONFIG_WHATEVER.
+Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+---
+ arch/arm/boot/dts/broadcom/bcm6878.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-VM_WARN_ON_* would be used to catch any violations / wrong use of pte 
-helpers.
-
-> Also, KFENCE isn't really a debug config (despite me calling it that in the
-> commit log) - it's supposed to be something that can be enabled in production
-> builds.
-
-Agreed. Even Fedora has it.
-
-> 
->>
->> Hm, maybe there is an elegant way to catch all of these "problematic" users?
-> 
-> I'm all ears if you have any suggestions? :)
-> 
-> 
-> It actaully looks like x86/XEN tries to solves this problem in a similar way:
-
-Heh, yes. Good old xen ...
-
-> 
-> enum xen_lazy_mode xen_get_lazy_mode(void)
-> {
-> 	if (in_interrupt())
-> 		return XEN_LAZY_NONE;
-> 
-> 	return this_cpu_read(xen_lazy_mode);
-> }
-> 
-> Although I'm not convinced it's fully robust. It also has:
-> 
-> static inline void enter_lazy(enum xen_lazy_mode mode)
-> {
-> 	BUG_ON(this_cpu_read(xen_lazy_mode) != XEN_LAZY_NONE);
-> 
-> 	this_cpu_write(xen_lazy_mode, mode);
-> }
-> 
-> which is called as part of its arch_enter_lazy_mmu_mode() implementation. If a
-> task was already in lazy mmu mode when an interrupt comes in and causes the
-> nested arch_enter_lazy_mmu_mode() that we saw in this bug report, surely that
-> BUG_ON() should trigger?
-
-Hm, good point. But that code is old, so probably something seems to be 
-preventing that?
-
-
-In any case, just a thought on the in_interrupt() check, I think this 
-commit is good enough as is.
+diff --git a/arch/arm/boot/dts/broadcom/bcm6878.dtsi b/arch/arm/boot/dts/broadcom/bcm6878.dtsi
+index 70cf23a65fdb5ac7ed9eabc986f4ebb4df263c43..43eb678e14d04be487af39c9365186b6fb919cf3 100644
+--- a/arch/arm/boot/dts/broadcom/bcm6878.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm6878.dtsi
+@@ -137,7 +137,7 @@ nandcs: nand@0 {
+ 		uart0: serial@12000 {
+ 			compatible = "arm,pl011", "arm,primecell";
+ 			reg = <0x12000 0x1000>;
+-			interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&uart_clk>, <&uart_clk>;
+ 			clock-names = "uartclk", "apb_pclk";
+ 			status = "disabled";
 
 -- 
-Cheers,
-
-David / dhildenb
+2.49.0
 
 
