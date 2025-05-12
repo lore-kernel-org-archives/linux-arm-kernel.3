@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 301CBC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 08:33:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72425C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 08:35:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zUI6/+oT1FHR4SfNlppiLPSKMO6vzJzmhadob6t+PrA=; b=F9hkMm9HzsIfJewEtWN2ySzqqv
-	ux7HJ+a9pZuoXLm+2MHT4qDcmH29lj2oVoJA/Kn4OS90bCYNeduN5v1TOKU6okme8wSpaBtzA/dQ1
-	LEOaszTDHjB6inYFBeN1dDO6ebBsfQBIkX6Yaqyc7m8Z2Hi9u4NAju345FWJXf6P6yVxT7Zh2vFQI
-	r8dXCZ1SuB9+cAS2vsn3XjMZZjQufdFWayFS4Kd4zNSh1h8OEyQGhJeOrmOSiwTtMksvndetHGen9
-	bz3xBRfav05Q/5xosySVGrZUlZJCEva+VCpb9SUqHR5aXbxS78MbCd/5K9J3LqdL515gbppWvRv4R
-	ffXNGj/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oKf9j4izYTToqxyJBnoPFJwtfX8Vyf7TI0IyG8+OfBo=; b=ooiGM8rNDcCR1qctRxhqOLihc4
+	gyloMT7gJNMpgc7QDGwgKZI0f9uxirMPW69GHMzfrN1dC3YgGYAPBgsZJhAPC5TBaDJ0YWzVvK/cJ
+	PuQyOY82tCws3DllhdXiotqEAOi3LOjH+fWah9YiOfPaxtO/6eu/wQSOVYrb5x6kq5vKGXRgJSQTQ
+	sydQJIXGOPHmL8CrVX4QruPBDw8Fxazlsg+9hACA/qcrmpOP3SsyG4Aelt9pzinxtq3eMJuqBjEen
+	sEBy5jr8cc480EOQvpmwwsPx08nX0SFOD6IVY2a9ddZvMFrdF+vf23IWg8CuM33E6a+yj9dsHdo2P
+	BKHaDWeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEOb1-00000008lSt-0lmF;
-	Mon, 12 May 2025 08:33:11 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uEOd0-00000008luW-3SQM;
+	Mon, 12 May 2025 08:35:14 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEOVy-00000008kTe-1SZv
+	id 1uEOXi-00000008kxE-1k3j
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 08:27:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 93D02A4C805;
-	Mon, 12 May 2025 08:27:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32C4EC4CEE7;
-	Mon, 12 May 2025 08:27:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747038477;
-	bh=foL6Xem9CuBv60/odwYwPM/LICxRkGWLh1HoI9B+9hQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=COXvj/n/lGafd9If+jgBkNCvHKMU0efW8jaBs4dmWfGerY8XVfFKuSvPR/+XItlmd
-	 p2EzelamKg7qq/76j6pRBD3toEZ0vX9ZuNW2J/npfSYyLwA6kwKMFcvTPOBozSYWIJ
-	 XqdeOC5DkITmfs12+mzxaiY16usfA9MJwfYNk2qhgueOJRWAS0ebqOqkpdsJuYUk/4
-	 U5m2JyztXdJa8omEIr7u/r6vIyu4G6a6NlDIvzktMlt1uIJTt0AUoXwqvZbkYfVSwh
-	 DlYKKgkUlb4AiKBmSLSP30dXedisMgNJsH2EJLDlczkkmkVFTxjaK/U8nSEJhW+JkK
-	 ghVsz9GcxxNoA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uEOVu-00E2gE-OX;
-	Mon, 12 May 2025 09:27:54 +0100
-Date: Mon, 12 May 2025 09:27:54 +0100
-Message-ID: <86y0v2fd2t.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
+	Mon, 12 May 2025 08:29:48 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3a0b9e2d640so3803213f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 01:29:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1747038585; x=1747643385; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=oKf9j4izYTToqxyJBnoPFJwtfX8Vyf7TI0IyG8+OfBo=;
+        b=kyDGt443Lb0nGE7uq1fXEM2GQJwUrity8iSSQVkWHeRP0uYIK5zirQRsaLINrGqbwH
+         L98E+k/mcPVFHwtYK5S/kqLOfzlBSWKt2FCBT36drQZgWjx94379i01ACFSV6GkuNYsm
+         ooSI/oWSKQn4hlyQdStNeUvEzbzEEF30QeHCZroLBQvaap0as8xzIP+edI7v/AWKR33m
+         eU3/DF8/RVFwyOQJO8GkyzhWedCgOY7GXeDF4l8nnsx5sAyW39QRKPNF4MZdTmouEKwd
+         +Zw/2YZuIH+bFLMboWxoFmftbRfgi1tz7XuVSRN/DWZpjx/pdoveT0d7lHtp4jbUxXbq
+         pWPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747038585; x=1747643385;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=oKf9j4izYTToqxyJBnoPFJwtfX8Vyf7TI0IyG8+OfBo=;
+        b=Z1oSNY1gNLvXReXE7UVQUvl8uMPk/XXPS8EdHn5m3l0XKsBPD8fVWDGpkJloKberN4
+         UETCrjZPjnQzinLAQhLf+rrjjk5oX2JhObAmobwvkT3OLlC/KRLsPPkdtStUZtl4IXfo
+         9o0C85o8KhMB/MFMypHaG0N9iEa8wGK9kfsuc33SWFIpGUorS6ylPQWT5LJ8nU8ckah8
+         T+LlxHMCmLMCGSYCmTJDgDtZe0NkuNFPvuDpwDXR32Mwgu7ZXMijFIstPc51LuKAMyVM
+         9ehin23X2XJURQl3B05iWc7ad8KPzy01BwLrqseBL6XUF5pjThQ4D16vuVjCrYvYlQRH
+         IBMg==
+X-Forwarded-Encrypted: i=1; AJvYcCV8r7XEVD0MEUKyJjXoUSOqwa/hpJqLDyRL3qhY/WO5TWkDHs26QvYV5VOOr+rmm4PgcXH4zTgV1/TfppqNUhjw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpRIZBLwqyJyr478rGeZl7cRNY9ZJjEBIwGbnzhx1XGissu2We
+	ZzvTxBLBj1gh/7Om11AJSFVvY3Sv9yNtRK3biCw7CcZ5vIz3/wJbBTFM5XiHIe0=
+X-Gm-Gg: ASbGnct99UgXfQkU+SZZE83Q0TqB0sP+QPCSvplIcSJYlrvfDPfNdYoqtWs3AQio04Y
+	ZkTKIjLaNr/QYZvkohZa52kpQ6Ms4yK4rehucK+VTautfnqOT3jb5tTTralI77cHvo0vky5mjrr
+	CADj4xzFq/2InWGyGZZZ2kg1ZytUAqnxJTwn6imFb4VEA4w1s2WvqA8kBrbl1cQP/zzi6KWCZy4
+	TvBu1kud5VtPi9LXGr1BgYi9+f2Kt39VV1hTN4JSBdzfIuFM27X36frDLr7QtIugn3bJFdY7JDb
+	IQCRuRmxt79i2MBcHn75Mx+u9x4lpYtFZKAkmC+902VFEu7a7d2gMzBDZk8L5ukQZMM1a5+7BI8
+	83QyafY3PHgymtfaVHg==
+X-Google-Smtp-Source: AGHT+IGjXf4Unrsm51GneUC4EPZLhzeiZxLlsfKl0xT/3O5OvpeiW/E4y6GXvGgQgbxcg2NnnSkTSw==
+X-Received: by 2002:a05:6000:2dc4:b0:3a0:7b07:157 with SMTP id ffacd0b85a97d-3a1f643a5b4mr9645069f8f.9.1747038584869;
+        Mon, 12 May 2025 01:29:44 -0700 (PDT)
+Received: from localhost (p200300f65f00780800000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f00:7808::1b9])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3a1f5a4c78fsm11763007f8f.97.2025.05.12.01.29.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 May 2025 01:29:44 -0700 (PDT)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: MyungJoo Ham <myungjoo.ham@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: linux-pm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 20/25] irqchip/gic-v5: Add GICv5 PPI support
-In-Reply-To: <aByLHdktOLUk8HCN@lpieralisi>
-References: <20250506-gicv5-host-v3-0-6edd5a92fd09@kernel.org>
-	<20250506-gicv5-host-v3-20-6edd5a92fd09@kernel.org>
-	<87zffpn5rk.ffs@tglx>
-	<86a57ohjey.wl-maz@kernel.org>
-	<87ecx0mt9p.ffs@tglx>
-	<867c2sh6jx.wl-maz@kernel.org>
-	<874ixwmpto.ffs@tglx>
-	<aBxgceQBRA6vBK7o@lpieralisi>
-	<864ixvh4ss.wl-maz@kernel.org>
-	<aByLHdktOLUk8HCN@lpieralisi>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, sascha.bischoff@arm.com, timothy.hayes@arm.com, Liam.Howlett@oracle.com, mark.rutland@arm.com, jirislaby@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-sunxi@lists.linux.dev,
+	oe-kbuild-all@lists.linux.dev,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH] PM / devfreq: sun8i-a33-mbus: Fix misconversion to devm_clk_rate_exclusive_get()
+Date: Mon, 12 May 2025 10:29:37 +0200
+Message-ID: <20250512082938.97110-2-u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.47.2
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1235; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=nsQ1fQPsHSZmJleoO7Mt48MPFFf+ROc5x7XavMNRl9c=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBoIbFyhHzB+aUSUSLbeEfCi7zZNiGMzqylXq1y6 BZtbx09WSaJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCaCGxcgAKCRCPgPtYfRL+ TjvxCACXb0Ra2nxVT2aRbH4y33njLOk77dLGEOKSuZuC6RvYPXBRJaYPERDFCcN8ThbkctuNlcB 8MzqXk64dU729rhg9d3XRtlK8VVh979WSWXCBdoOQDvYkql6JPq+kvKedRHNWQdqBQ5l+9ZTWGO rqLBa/EzAjtJmrqVKUyiwRgZXCeQapTIvA3sBZh9pDq9WPZKdohivdRkiJ9572ecLjtOAKpnunI feKUi0eYyknRJf/pSh7PMO5sablBeN0xTRGlHaFJwIK2Gb6PpyCjuGQTxIfzcx294uLUdyAopWr NinBeJr4sSRu6NxXB7DatG/3cZGftmm94Nn5KjdyGAIQw12T
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_012758_524491_958F324A 
-X-CRM114-Status: GOOD (  55.68  )
+X-CRM114-CacheID: sfid-20250512_012946_617056_3CC13D4D 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,140 +106,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 08 May 2025 11:44:45 +0100,
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> 
-> On Thu, May 08, 2025 at 09:42:27AM +0100, Marc Zyngier wrote:
-> > On Thu, 08 May 2025 08:42:41 +0100,
-> > Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> > > 
-> > > On Wed, May 07, 2025 at 04:57:07PM +0200, Thomas Gleixner wrote:
-> > > > On Wed, May 07 2025 at 14:52, Marc Zyngier wrote:
-> > > > > On Wed, 07 May 2025 14:42:42 +0100,
-> > > > > Thomas Gleixner <tglx@linutronix.de> wrote:
-> > > > >> 
-> > > > >> On Wed, May 07 2025 at 10:14, Marc Zyngier wrote:
-> > > > >> > On Tue, 06 May 2025 16:00:31 +0100,
-> > > > >> > Thomas Gleixner <tglx@linutronix.de> wrote:
-> > > > >> >> 
-> > > > >> >> How does this test distinguish between LEVEL_LOW and LEVEL_HIGH? It only
-> > > > >> >> tests for level, no? So the test is interesting at best ...
-> > > > >> >
-> > > > >> > There is no distinction between HIGH and LOW, RISING and FALLING, in
-> > > > >> > any revision of the GIC architecture.
-> > > > >> 
-> > > > >> Then pretending that there is a set_type() functionality is pretty daft
-> > > > >
-> > > > > You still need to distinguish between level and edge when this is
-> > > > > programmable (which is the case for a subset of the PPIs).
-> > > > 
-> > > > Fair enough, but can we please add a comment to this function which
-> > > > explains this oddity.
-> > > 
-> > > Getting back to this, I would need your/Marc's input on this.
-> > > 
-> > > I think it is fair to remove the irq_set_type() irqchip callback for
-> > > GICv5 PPIs because there is nothing to set, as I said handling mode
-> > > for these IRQs is fixed. I don't think this can cause any trouble
-> > > (IIUC a value within the IRQF_TRIGGER_MASK should be set on requesting
-> > > an IRQ to "force" the trigger to be programmed and even then core code
-> > > would not fail if the irq_set_type() irqchip callback is not
-> > > implemented).
-> > > 
-> > > I am thinking about *existing* drivers that request GICv3 PPIs with
-> > > values in IRQF_TRIGGER_MASK set (are there any ? Don't think so but you
-> > > know better than I do), when we switch over to GICv5 we would have no
-> > > irq_set_type() callback for PPIs but I think we are still fine, not
-> > > implementing irqchip.irq_set_type() is correct IMO.
-> > 
-> > Nobody seems to use a hardcoded trigger (well, there is one exception,
-> > but that's to paper over a firmware bug).
-> 
-> That's what I get if I remove the PPI irq_set_type() callback (just one
-> timer, removed others because they add nothing) and enable debug for
-> kernel/irq/manage.c (+additional printout):
-> 
->  genirq: No set_type function for IRQ 70 (GICv5-PPI)
->   __irq_set_trigger+0x13c/0x180
->   __setup_irq+0x3d8/0x7c0
->   __request_percpu_irq+0xbc/0x114
->   arch_timer_register+0x84/0x140
->   arch_timer_of_init+0x180/0x1d0
->   timer_probe+0x74/0x124
->   time_init+0x18/0x58
->   start_kernel+0x198/0x384
->   __primary_switched+0x88/0x90
-> 
->  arch_timer: check_ppi_trigger irq 70 flags 8
->  genirq: enable_percpu_irq irq 70 type 8
->  genirq: No set_type function for IRQ 70 (GICv5-PPI)
->   __irq_set_trigger+0x13c/0x180
->   enable_percpu_irq+0x100/0x140
->   arch_timer_starting_cpu+0x54/0xb8
->   cpuhp_issue_call+0x254/0x3a8
->   __cpuhp_setup_state_cpuslocked+0x208/0x2c8
->   __cpuhp_setup_state+0x50/0x74
->   arch_timer_register+0xc4/0x140
->   arch_timer_of_init+0x180/0x1d0
->   timer_probe+0x74/0x124
->   time_init+0x18/0x58
->   start_kernel+0x198/0x384
->   __primary_switched+0x88/0x90
-> 
-> I noticed that, if the irq_set_type() function is not implemented,
-> we don't execute (in __irq_set_trigger()):
-> 
-> irq_settings_set_level(desc);
-> irqd_set(&desc->irq_data, IRQD_LEVEL);
-> 
-> which in turn means that irqd_is_level_type(&desc->irq_data) is false
-> for PPIs (ie arch timers, despite being level interrupts).
-> 
-> An immediate side effect is that they show as edge in:
-> 
-> /proc/interrupts
-> 
-> but that's just what I could notice.
-> 
-> Should I set them myself in PPI translate/alloc functions ?
+The patch converting the driver to make more use of devm functions got
+one conversion wrong making the driver not compilable any more. I have
+no excuse, mea culpa!
 
-When I say "do it in alloc", I mean "do whatever is needed to set
-things up so that we can safely ignore the absence of the
-.irq_set_type() callback -- this may even include some slight
-modification of the core code, but that's not big deal".
+Fix this by adding the needed device parameter.
 
-> Removing the irq_set_type() for PPIs does not seem so innocuous, it is a
-> bit complex to check all ramifications, please let me know if you spot
-> something I have missed.
+Reported-by: kernel test robot <lkp@intel.com>
+Link: https://lore.kernel.org/all/202412070231.MzXdNrLv-lkp@intel.com
+Fixes: bc253b28a365 ("PM / devfreq: sun8i-a33-mbus: Simplify by using more devm functions")
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+ drivers/devfreq/sun8i-a33-mbus.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-See above.
-
-> 
-> > > On the other hand, given that on GICv5 PPI handling mode is fixed,
-> > > do you think that in the ppi_irq_domain_ops.translate() callback,
-> > > I should check the type the firmware provided and fail the translation
-> > > if it does not match the HW hardcoded value ?
-> > 
-> > Why? The fact that the firmware is wrong doesn't change the hardware
-> > integration. It just indicates that whoever wrote the firmware didn't
-> > read the documentation.
-> > 
-> > Even more, I wonder what the benefit of having that information in the
-> > firmware tables if the only thing that matters in the immutable HW
-> > view. Yes, having it in the DT/ACPI simplifies the job of the kernel
-> > (only one format to parse). But it is overall useless information.
-> 
-> Yes, that I agree but it would force firmware bindings to special case
-> PPIs to remove the type (#interrupt-cells and co.).
-> 
-> From what I read I understand I must ignore the PPI type provided by
-> firmware.
-
-You could warn on spotting that is inconsistent, but the HW view is
-the only one that actually matters.
-
-	M.
-
+diff --git a/drivers/devfreq/sun8i-a33-mbus.c b/drivers/devfreq/sun8i-a33-mbus.c
+index f99af530211d..4bd5657558d6 100644
+--- a/drivers/devfreq/sun8i-a33-mbus.c
++++ b/drivers/devfreq/sun8i-a33-mbus.c
+@@ -381,7 +381,7 @@ static int sun8i_a33_mbus_probe(struct platform_device *pdev)
+ 		return dev_err_probe(dev, ret, "failed to lock dram clock rate\n");
+ 
+ 	/* Lock the MBUS clock rate to keep MBUS_TMR_PERIOD in sync. */
+-	ret = devm_clk_rate_exclusive_get(priv->clk_mbus);
++	ret = devm_clk_rate_exclusive_get(dev, priv->clk_mbus);
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "failed to lock mbus clock rate\n");
+ 
 -- 
-Without deviation from the norm, progress is not possible.
+2.47.2
+
 
