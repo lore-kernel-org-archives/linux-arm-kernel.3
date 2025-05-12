@@ -4,50 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9354C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 13:58:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FD3BC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:00:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fhfslcpHdUhNNXRQ4ogp+r7QeP4J398JLM+1yQpy6jY=; b=ISsjEifcL07kHMg0PxKFzbiiZY
-	zt6kLWCLi2xQDzEqe5b8Bj0YCAgJNKI68HmVMwUFNWoRTp5lKY1Sno9418i1/Pjl86HHw58g19jPo
-	AF8HgUg1kMrr1slqZs9ig75sbbpA46Ce/SCubFLY19sZFZLZYvbrJBPBd/NTyrz+9egIqxcik+Ekq
-	/io0b4GtCIrQuwgJdvKS1Jl/8dJD699Yvwtzb0QusI2O8u6vtbht0Y1z+E/x3Kur5gF+7U7GV7d+M
-	CjBGbqPaKyu/+qKs6P4ks9HU1IQ77qPqKvjwYLwencusAxfULwabwppHrxnz1CaUSyFoJT34GbH6g
-	qcE6xtpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qyGlqeoaX018wK20EkYJAUZufA8oVkUeenZJQTWOTzk=; b=h+ogLYRoiiRmpREPugDO3JNV2a
+	wnEj0jUIHNmYruhiKFHUINrP7Y1tOImtSgwzNH1NDYhcV8HXsiwQ151pXvRuMbCnHLgC0c6fQBqN/
+	/E2xYv4tVlwMBY4Q4ICfgsgPXBc4laYtL+EYj+xDmAd1U6niZZfuo93bdHbzOIbJRv91en53Vjtmv
+	BPtD98DT/5Oq5Es8KC/fPD1P4kNL7yK7ps/yGBNnRHVJ1TZgMUbHjIdeCCwN18HlPI8VJIeuvgDNf
+	VHU2gFEJpNaE8TFD3naZcm7NwpIQ0xXmGGmw5FebVeB3bPm4jBeMTpKgDUidTZBnSyAmpftcyJoJ9
+	6cDS9TsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uETfb-00000009e4h-09IU;
-	Mon, 12 May 2025 13:58:15 +0000
+	id 1uEThh-00000009eVd-3MSy;
+	Mon, 12 May 2025 14:00:25 +0000
 Received: from mx1.emlix.com ([178.63.209.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uET11-00000009VPw-2yEB
+	id 1uET19-00000009VSF-2XR9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 13:16:21 +0000
+	Mon, 12 May 2025 13:16:28 +0000
 Received: from mailer.emlix.com (p5098be52.dip0.t-ipconnect.de [80.152.190.82])
 	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mx1.emlix.com (Postfix) with ESMTPS id 54AF75F954;
-	Mon, 12 May 2025 15:16:15 +0200 (CEST)
+	by mx1.emlix.com (Postfix) with ESMTPS id 10ECB5FE9E;
+	Mon, 12 May 2025 15:16:17 +0200 (CEST)
 From: Rolf Eike Beer <eb@emlix.com>
 To: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>
-Cc: iommu@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 5/6] iommu: make inclusion of arm/arm-smmu-v3 directory conditional
-Date: Mon, 12 May 2025 15:14:46 +0200
-Message-ID: <2434059.NG923GbCHz@devpool92.emlix.com>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Bert Karwatzki <spasswolf@web.de>, Lu Baolu <baolu.lu@linux.intel.com>,
+ Jerry Snitselaar <jsnitsel@redhat.com>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Tomasz Jeznach <tjeznach@rivosinc.com>, Nick Kossifidis <mick@ics.forth.gr>,
+ Sebastien Boeuf <seb@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Robin Murphy <robin.murphy@arm.com>,
+ linux-arm-kernel@lists.infradead.org, Jason Gunthorpe <jgg@ziepe.ca>,
+ Kevin Tian <kevin.tian@intel.com>
+Subject: [PATCHv3 0/6] make vendor specific subdirectory inclusion conditional
+Date: Mon, 12 May 2025 15:07:27 +0200
+Message-ID: <1926170.CQOukoFCf9@devpool92.emlix.com>
 Organization: emlix GmbH
-In-Reply-To: <1926170.CQOukoFCf9@devpool92.emlix.com>
-References: <1926170.CQOukoFCf9@devpool92.emlix.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: multipart/signed; boundary="nextPart23936481.6Emhk5qWAg";
+ micalg="pgp-sha256"; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_061619_891005_0789DA90 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20250512_061627_791687_42A75EC1 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,44 +69,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Nothing in there is active if CONFIG_ARM_SMMU_V3 is not enabled, so the who=
-le
-directory can depend on that switch as well.
+--nextPart23936481.6Emhk5qWAg
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Rolf Eike Beer <eb@emlix.com>
+To: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>
+Date: Mon, 12 May 2025 15:07:27 +0200
+Message-ID: <1926170.CQOukoFCf9@devpool92.emlix.com>
+Organization: emlix GmbH
+MIME-Version: 1.0
 
-=46ixes: e86d1aa8b60f ("iommu/arm-smmu: Move Arm SMMU drivers into their ow=
-n subdirectory")
-Signed-off-by: Rolf Eike Beer <eb@emlix.com>
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+I found it strange that the vendor specific subdirectories were uncondition=
+ally=20
+added. Everything in these directories obviously depends on the specific Kc=
+onfig=20
+option. This series cleans this up by making the directory itself depend on=
+=20
+the respective option which looks more natural to me.
+
+I must confess that I am too lazy to find a good solution for the "arm/"=20
+directory, so I left it as is.
+
+Regards,
+
+Eike
+
 =2D--
- drivers/iommu/arm/Makefile             | 3 ++-
- drivers/iommu/arm/arm-smmu-v3/Makefile | 2 +-
- 2 files changed, 3 insertions(+), 2 deletions(-)
+Changes in v3:
+=2D added Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+=2D rebased on top of 2e9b2ee2ba403cbe270a8256b8794ef5ad19b38d
 
-diff --git a/drivers/iommu/arm/Makefile b/drivers/iommu/arm/Makefile
-index 0f9efeab709ff..35a7e13eef344 100644
-=2D-- a/drivers/iommu/arm/Makefile
-+++ b/drivers/iommu/arm/Makefile
-@@ -1,2 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0
-=2Dobj-y +=3D arm-smmu/ arm-smmu-v3/
-+obj-y +=3D arm-smmu/
-+obj-$(CONFIG_ARM_SMMU_V3) +=3D arm-smmu-v3/
-diff --git a/drivers/iommu/arm/arm-smmu-v3/Makefile b/drivers/iommu/arm/arm=
-=2Dsmmu-v3/Makefile
-index 493a659cc66bb..6cc7c8557b9ea 100644
-=2D-- a/drivers/iommu/arm/arm-smmu-v3/Makefile
-+++ b/drivers/iommu/arm/arm-smmu-v3/Makefile
-@@ -1,5 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
-=2Dobj-$(CONFIG_ARM_SMMU_V3) +=3D arm_smmu_v3.o
-+obj-y +=3D arm_smmu_v3.o
- arm_smmu_v3-y :=3D arm-smmu-v3.o
- arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_IOMMUFD) +=3D arm-smmu-v3-iommufd.o
- arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_SVA) +=3D arm-smmu-v3-sva.o
-=2D-=20
-2.49.0
-
-
+Changes in v2:
+=2D clean up subdirectory Makefiles to use obj-y now
+=2D add arm/arm-smmu-v3 and iommufd patches
 =2D-=20
 Rolf Eike Beer
 
@@ -114,6 +116,22 @@ Office Bonn: Bachstr. 6, 53115 Bonn, Germany
 http://www.emlix.com
 
 emlix - your embedded Linux partner
+--nextPart23936481.6Emhk5qWAg
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iLMEAAEIAB0WIQQ/Uctzh31xzAxFCLur5FH7Xu2t/AUCaCHyjwAKCRCr5FH7Xu2t
+/NGvBACQ++ncU9h70pXINUzTwksmp8QYS7bw5uht6BV/o0aqHCaFisMsBu5xsT/N
+Q6AEn+ablK7oufZX2TqX8jKVZlPoEZYW6SEebCOytttzFqk/EFtoCNvLO66wISBe
+vPSrcpiktcbYyuPMd9/rsvKiEkvYwwrY/Hs4eYWkS+DU6ppKRA==
+=7yC0
+-----END PGP SIGNATURE-----
+
+--nextPart23936481.6Emhk5qWAg--
+
 
 
 
