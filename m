@@ -4,68 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 014D2C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 17:37:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EDCCC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 17:39:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eDJUHhhqlHmX/9Qz4a9DSn2EZNRQrJ/PdWLbr1/TTeE=; b=hnKaxgz6tFn4MXkokL3Ng1dvDH
-	JAPrZG5p+z2PK2Y1bZTHcsy2NhbeJqlY07pj3w404lXC2mRETr/HrXRfNqX5QID82N5kmybTiXJad
-	u9DOuK9YwtIWXCuAGyuYBx7ha+sxmhn0GGawxdW23pPZQk4EjIY597Glw2KetIQzejwmc5O9PLYCL
-	LCJsFYaH8XjQebtRghqmtSR8CT/R0QOpi1L4KAgK3EBJbdnsFDyt7NaOnZhxEOpYP/e1UnLIsamMI
-	tpK/mkTyUcuWe8p9/P7aBvOZT6jhJH7uEG3ht2vELFa+6bKrZZ6GQGd3okd8x2X/rzP3hKFh31X8H
-	p82K5mqA==;
+	bh=fOnx2nS8BUGOff4qxVjsY99Ec3z57H2RyW27rvY/0bw=; b=KGVNSZ7WnQZ/woGuQmc3k8UmBX
+	+5V2+/6FGcWOV1uziDW/d5+5E7zJRoXs6DCq4REizL73vFCVHrfUfs4ASwfN4+f5LAKxbIybYWuiR
+	q1sB2+36mrnUdENq5GGnQuKsFCT/3YkouD9q5hmcLscEFU44IMDvwvtuDADrwW7CGpOfprxcaKklp
+	tgvE72tHwLvn/V3WGMxMlR5FciiYabbxUhRIVcEpRbWghVtCInnnxlfaF7QQ8g1S8aEC6FIHLKN3D
+	eN2Bk3cxNs6kyTvdA1Ovs5w5AEVXNrl9e5RoXUwIOzdhnbEOh/M8jn+B2hd4waYGulUC6xm49at90
+	9DxIii6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEX5f-0000000AE8X-2pef;
-	Mon, 12 May 2025 17:37:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uEX7f-0000000AELT-1OQC;
+	Mon, 12 May 2025 17:39:27 +0000
+Received: from mxout2.routing.net ([2a03:2900:1:a::b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEWqp-0000000AC9q-14Dw
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 17:22:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 93110445CC;
-	Mon, 12 May 2025 17:22:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01D2DC4CEE7;
-	Mon, 12 May 2025 17:22:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747070522;
-	bh=soJO4A4AjQPFXEEm8Vly+9M2b9nOAfW43rupkSUMSm8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=H800bMg9hqnv8v4VunViEWyxpF50Txz38vqJV4wqjgqkT2GMc+bvhjjfbDC3MQy6m
-	 Km+rrH7e3IAP1TXIkFgg2lhUj8Km6xdpcPjsJJpr8Tb8LQ6RGLKXThqMgr5KG5gBRH
-	 nJNNeqd3U9ltFLsSyXfiTUt3vQPR6oDCiVpCORJog11+UHcE8hLnl9UFGvGwkhDSRq
-	 F+4HQfrDryePQ7z4LGqJejC5OPcKaJNLayof8ygKBMpPIeOotQt04MepQQRGJVtcsj
-	 QoI8bVW24RVdRcmz4R9eCXWwMPffw6ZnG9mxSHshIZBfwVkMNg4jBnBudov/2XHGku
-	 a1oJc3O8R/vnw==
-Date: Mon, 12 May 2025 10:22:01 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: netdev@vger.kernel.org, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, Russell King <linux@armlinux.org.uk>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Vadim Fedorenko
- <vadim.fedorenko@linux.dev>, Richard Cochran <richardcochran@gmail.com>,
- Furong Xu <0x1207@gmail.com>
-Subject: Re: [PATCH net-next] net: stmmac: convert to ndo_hwtstamp_get() and
- ndo_hwtstamp_set()
-Message-ID: <20250512102201.01a695c4@kernel.org>
-In-Reply-To: <20250512143607.595490-1-vladimir.oltean@nxp.com>
-References: <20250512143607.595490-1-vladimir.oltean@nxp.com>
+	id 1uEX1p-0000000ADam-2kgh;
+	Mon, 12 May 2025 17:33:26 +0000
+Received: from mxbox3.masterlogin.de (unknown [192.168.10.78])
+	by mxout2.routing.net (Postfix) with ESMTP id 6EBA6601D8;
+	Mon, 12 May 2025 17:33:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1747071203;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fOnx2nS8BUGOff4qxVjsY99Ec3z57H2RyW27rvY/0bw=;
+	b=kE/5vxOHk4WeXfDsBzUVJQU1s7TuLuM8EKYi/1mLuGdaNckHloGXV27dRjex99Aw/g9tCf
+	5sOD403GIqwnucydRJ13DZ2OjWkkVt4yPY5+KBN9PYb5IZDHQ8v5WcKJLQ47B1i3U8Utt0
+	p6Te9xqfKW9dvjVR2RoENhB4uVrdvXg=
+Received: from [127.0.0.1] (fttx-pool-194.15.84.99.bambit.de [194.15.84.99])
+	by mxbox3.masterlogin.de (Postfix) with ESMTPSA id 238C6360303;
+	Mon, 12 May 2025 17:33:22 +0000 (UTC)
+Date: Mon, 12 May 2025 19:33:22 +0200
+From: Frank Wunderlich <linux@fw-web.de>
+To: Conor Dooley <conor@kernel.org>
+CC: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Frank Wunderlich <frank-w@public-files.de>,
+ =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
+ Landen Chao <Landen.Chao@mediatek.com>, DENG Qingfang <dqfext@gmail.com>,
+ Sean Wang <sean.wang@mediatek.com>, Daniel Golle <daniel@makrotopia.org>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v1_01/14=5D_dt-bindings=3A_n?=
+ =?US-ASCII?Q?et=3A_mediatek=2Cnet=3A_update_for_mt7988?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <20250512-nibble-freemason-69e0279f2f99@spud>
+References: <20250511141942.10284-1-linux@fw-web.de> <20250511141942.10284-2-linux@fw-web.de> <20250512-nibble-freemason-69e0279f2f99@spud>
+Message-ID: <05760B5E-955E-4E0E-9B69-E762783CC37B@fw-web.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Mail-ID: 374a0106-a2a0-463f-a626-6a3e8e2d7734
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_102203_318310_D51B7FD2 
-X-CRM114-Status: UNSURE (   6.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250512_103325_850661_8FBD5B64 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,15 +88,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 12 May 2025 17:36:07 +0300 Vladimir Oltean wrote:
-> -		netdev_alert(priv->dev, "No support for HW time stamping\n");
-> +		NL_SET_ERR_MSG_MOD(extack, "No support for HW time stamping\n");
+Am 12=2E Mai 2025 18:21:45 MESZ schrieb Conor Dooley <conor@kernel=2Eorg>:
+>On Sun, May 11, 2025 at 04:19:17PM +0200, Frank Wunderlich wrote:
+>> From: Frank Wunderlich <frank-w@public-files=2Ede>
+>>=20
+>> Update binding for mt7988 which has 3 gmac and 2 reg items=2E
+>>=20
+>> Signed-off-by: Frank Wunderlich <frank-w@public-files=2Ede>
+>> ---
+>>  Documentation/devicetree/bindings/net/mediatek,net=2Eyaml | 9 +++++++-=
+-
+>>  1 file changed, 7 insertions(+), 2 deletions(-)
+>>=20
+>> diff --git a/Documentation/devicetree/bindings/net/mediatek,net=2Eyaml =
+b/Documentation/devicetree/bindings/net/mediatek,net=2Eyaml
+>> index 9e02fd80af83=2E=2E5d249da02c3a 100644
+>> --- a/Documentation/devicetree/bindings/net/mediatek,net=2Eyaml
+>> +++ b/Documentation/devicetree/bindings/net/mediatek,net=2Eyaml
+>> @@ -28,7 +28,8 @@ properties:
+>>        - ralink,rt5350-eth
+>> =20
+>>    reg:
+>> -    maxItems: 1
+>> +    minItems: 1
+>> +    maxItems: 2
+>
+>This should become an items list, with an explanation of what each of
+>the reg items represents=2E
 
-coccinelle says:
+I would change to this
 
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:594:29-64: WARNING avoid newline at end of message in NL_SET_ERR_MSG_MOD
+  reg:
+    items:
+      - description: Register for accessing the MACs=2E
+      - description: SoC internal SRAM used for DMA operations=2E
+    minItems: 1
 
-Feel free to repost without the 24h wait.
--- 
-pw-bot: cr
+Would this be OK this way?
+
+>> =20
+>>    clocks:
+>>      minItems: 2
+>> @@ -381,8 +382,12 @@ allOf:
+>>              - const: xgp2
+>>              - const: xgp3
+>> =20
+>> +        reg:
+>> +          minItems: 2
+>> +          maxItems: 2
+>> +
+>>  patternProperties:
+>> -  "^mac@[0-1]$":
+>> +  "^mac@[0-2]$":
+>>      type: object
+>>      unevaluatedProperties: false
+>>      allOf:
+>> --=20
+>> 2=2E43=2E0
+>>=20
+
+Hi Conor
+
+Thank you for review=2E
+regards Frank
 
