@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB70DC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 09:39:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D0BBC3ABCD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 09:41:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xe2XBrrtNpTWWH4VufOJigZ8hod/OFS9cB8agzNiSY0=; b=kqXZQcZegJTl3dHpkBqME1TOP2
-	hZNt5amwR04jgge0nndkekHvQ1/vo/mwtoji9zBh3+cEsbY/J5vQpCRmXxOiEa61lIC/wTQHd33ZI
-	wrunsDsfJ+3m+J4q9a0DyOYZFk8Gu7DfEx5zBXAHYW7Ia/FODTz0A9VcB9eEGuZOgeUDsNUrMAGLB
-	xNra3B5/7V1Hs6jU2jbKSBDU6O9+6RX71fzFjMRcOx97qewjYlttoXZqRSYGW3sqOs8ewIflLzACo
-	tug8oPaSGnWcqOxBFFu/X2tAM1dFrPpnE4cuKe99ARALMqUZefKHe/V67id13/DAy6FrgSvfx/NKF
-	wHc8QfyQ==;
+	bh=bh5Z1ALnGT2OTCxHYSFxo4rT9loyEKBYt2YJgLhlwPM=; b=wIzCv5IjxxeXyx++5OEqroSz9O
+	2yQVD6LsKgmnENQFR1o2iKBGD6/by4YUKlkdpJh8cIbmIzw2kf7UUt69wWd02ko9eTAIAnJa34aUw
+	v/pZCBLfWV1AXxdwfX0Zeuwm0MZFWrAWqy9I6d4lCeX9zXa58n3AMY1MRvZQOwsTzwNhoqRcDjwnC
+	sXuvd8YiCzYf/7jvHHMJWISpDlMdmVk/1PR3ov8xrZk+Q7fNzTltIrV0SAsi33PIbAcacg3dWiNq9
+	5divDb2YR0bP7tD1cfA3UCkCOwDyZ29mj+qJ7Tsjn4AOr1ZMJ5ttz5dR0qosbyspwxjmUzuoND2ob
+	+mi9H/+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEPd3-00000008yA0-3KOH;
-	Mon, 12 May 2025 09:39:21 +0000
+	id 1uEPf4-00000008ydc-1oPI;
+	Mon, 12 May 2025 09:41:26 +0000
 Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEPNI-00000008uCg-20iy;
-	Mon, 12 May 2025 09:23:05 +0000
-X-UUID: b1cfcb5c2f1211f08d385d50fb11b32d-20250512
+	id 1uEPNI-00000008uG9-3Z1n;
+	Mon, 12 May 2025 09:23:06 +0000
+X-UUID: b1980f002f1211f08d385d50fb11b32d-20250512
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=xe2XBrrtNpTWWH4VufOJigZ8hod/OFS9cB8agzNiSY0=;
-	b=fZtJxNLZmLmGxUj1p1XHlXaE1KJnp+GUxUkIBBcFEFhOBFPasdAk1R0WYi1fG6oWZ1xz0ihO6Ed1Im5nWVIWKm/A4QiIVPBMocDnwRLS++RzgGaVvwWi3XPzs76a/tAZiq9Tm8aU6qGVVujtT1jMm8m2RsT1oEiI+c3pAFJQTNc=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=bh5Z1ALnGT2OTCxHYSFxo4rT9loyEKBYt2YJgLhlwPM=;
+	b=UAXC6M7E6Dbdly4F01kpwunQrvcovSRbHT5XLYuU5ACRZ0ZhkduWbf+wCMvKoIruhIMbJI/SgAj0fw9mxcRp0MoRT5vPmNgK1xWCr3PmeORkSWab6k0N8KsWRj851wDGgHUYNNc/Pk2OENd1+arRqqiDV98G628mw7yUnO6iZYs=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:196fcc5a-6724-4437-9304-f052bc93a594,IP:0,UR
+X-CID-O-INFO: VERSION:1.2.1,REQID:07a6f3e6-de25-4b51-93f1-de747ccfc273,IP:0,UR
 	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
 	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:f1b5dce0-512b-41ef-ab70-9303a9a81417,B
+X-CID-META: VersionHash:0ef645f,CLOUDID:edb5dce0-512b-41ef-ab70-9303a9a81417,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
 	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
 	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0
 X-CID-BAS: 0,_,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: b1cfcb5c2f1211f08d385d50fb11b32d-20250512
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
+X-UUID: b1980f002f1211f08d385d50fb11b32d-20250512
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
 	(envelope-from <jason-jh.lin@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1681935058; Mon, 12 May 2025 02:22:58 -0700
+	with ESMTP id 99460251; Mon, 12 May 2025 02:22:58 -0700
 Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.2.1258.39; Mon, 12 May 2025 17:22:53 +0800
 Received: from mtksitap99.mediatek.inc (10.233.130.16) by
@@ -69,9 +69,9 @@ CC: Matthias Brugger <matthias.bgg@gmail.com>, Jason-JH Lin
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>
-Subject: [PATCH RESEND v5 08/20] media: platform: mtk-mdp3: Use cmdq_pkt_jump_rel() without shift_pa
-Date: Mon, 12 May 2025 17:19:30 +0800
-Message-ID: <20250512092252.905629-9-jason-jh.lin@mediatek.com>
+Subject: [PATCH RESEND v5 13/20] mailbox: mtk-cmdq: Add driver data to support for MT8196
+Date: Mon, 12 May 2025 17:19:35 +0800
+Message-ID: <20250512092252.905629-14-jason-jh.lin@mediatek.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250512092252.905629-1-jason-jh.lin@mediatek.com>
 References: <20250512092252.905629-1-jason-jh.lin@mediatek.com>
@@ -80,8 +80,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_022304_549915_34187AFC 
-X-CRM114-Status: GOOD (  15.05  )
+X-CRM114-CacheID: sfid-20250512_022304_901498_35111601 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,58 +96,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the removal of the shift_pa parameter, cmdq_pkt_jump_rel_temp()
-can be replaced by the new cmdq_pkt_jump_rel() without shift_pa.
+MT8196 has 2 new hardware configuration compared with the previous SoC,
+which correspond to the 2 new driver data:
 
-Then, remove the cmdq_shift_pa variable in the mdp_dev structure for
-each mbox client.
+1. mminfra_offset: For GCE data path control
+   Since GCE has been moved into mminfra, GCE needs to append the
+   mminfra offset to the DRAM address when accessing the DRAM.
 
-Fixes: ade176534112 ("soc: mediatek: cmdq: Add parameter shift_pa to cmdq_pkt_jump()")
+2. gce_vm: For GCE hardware virtualization control
+   Currently, the first version of the mt8196 mailbox controller only
+   requires setting the VM-related registers to enable the permissions
+   of a host VM.
+
 Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
 ---
- drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c | 2 +-
- drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c | 2 --
- drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h | 1 -
- 3 files changed, 1 insertion(+), 4 deletions(-)
+ drivers/mailbox/mtk-cmdq-mailbox.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c
-index aa245bf7e7c4..c4e0d376a055 100644
---- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c
-+++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c
-@@ -628,7 +628,7 @@ static struct mdp_cmdq_cmd *mdp_cmdq_prepare(struct mdp_dev *mdp,
- 		goto err_free_path;
- 	}
- 	cmdq_pkt_eoc(&cmd->pkt);
--	cmdq_pkt_jump_rel_temp(&cmd->pkt, CMDQ_INST_SIZE, mdp->cmdq_shift_pa[pp_idx]);
-+	cmdq_pkt_jump_rel(&cmd->pkt, CMDQ_INST_SIZE);
+diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmdq-mailbox.c
+index 45de11e51088..e543b26dbba9 100644
+--- a/drivers/mailbox/mtk-cmdq-mailbox.c
++++ b/drivers/mailbox/mtk-cmdq-mailbox.c
+@@ -14,6 +14,7 @@
+ #include <linux/module.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
++#include <linux/sizes.h>
+ #include <linux/mailbox_controller.h>
+ #include <linux/mailbox/mtk-cmdq-mailbox.h>
+ #include <linux/of.h>
+@@ -844,6 +845,16 @@ static const struct gce_plat gce_plat_mt8195 = {
+ 	.gce_num = 2
+ };
  
- 	for (i = 0; i < num_comp; i++) {
- 		s32 inner_id = MDP_COMP_NONE;
-diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
-index f571f561f070..5e94ff0d0756 100644
---- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
-+++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
-@@ -312,8 +312,6 @@ static int mdp_probe(struct platform_device *pdev)
- 			ret = PTR_ERR(mdp->cmdq_clt[i]);
- 			goto err_mbox_destroy;
- 		}
--
--		mdp->cmdq_shift_pa[i] = cmdq_get_shift_pa(mdp->cmdq_clt[i]->chan);
- 	}
- 
- 	init_waitqueue_head(&mdp->callback_wq);
-diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h
-index 05cade1d098e..430251f63754 100644
---- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h
-+++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h
-@@ -126,7 +126,6 @@ struct mdp_dev {
- 	u32					id_count;
- 	struct ida				mdp_ida;
- 	struct cmdq_client			*cmdq_clt[MDP_PP_MAX];
--	u8					cmdq_shift_pa[MDP_PP_MAX];
- 	wait_queue_head_t			callback_wq;
- 
- 	struct v4l2_device			v4l2_dev;
++static const struct gce_plat gce_plat_mt8196 = {
++	.thread_nr = 32,
++	.shift = 3,
++	.mminfra_offset = SZ_2G,
++	.control_by_sw = true,
++	.sw_ddr_en = true,
++	.gce_vm = true,
++	.gce_num = 2
++};
++
+ static const struct of_device_id cmdq_of_ids[] = {
+ 	{.compatible = "mediatek,mt6779-gce", .data = (void *)&gce_plat_mt6779},
+ 	{.compatible = "mediatek,mt8173-gce", .data = (void *)&gce_plat_mt8173},
+@@ -852,6 +863,7 @@ static const struct of_device_id cmdq_of_ids[] = {
+ 	{.compatible = "mediatek,mt8188-gce", .data = (void *)&gce_plat_mt8188},
+ 	{.compatible = "mediatek,mt8192-gce", .data = (void *)&gce_plat_mt8192},
+ 	{.compatible = "mediatek,mt8195-gce", .data = (void *)&gce_plat_mt8195},
++	{.compatible = "mediatek,mt8196-gce", .data = (void *)&gce_plat_mt8196},
+ 	{}
+ };
+ MODULE_DEVICE_TABLE(of, cmdq_of_ids);
 -- 
 2.43.0
 
