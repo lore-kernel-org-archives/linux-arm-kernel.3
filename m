@@ -4,61 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33D80C3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 17:25:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48986C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 17:27:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fkv+15KBtcnl2E13JZiWWqtK49x1De9sFTdRuCeQqnE=; b=Ipr17TuuZ9QLa3TnIxw8oZOlDo
-	1TYclfSj+74bdC0lfePkPeSVWfAutx4W93kWWb4CGJj6oDgRYjaYlUIb2yDgHQLAZohHhuZ6Y/Imn
-	jT3RW0aONRA91EFuGKU+76g1M0VQ3BqvqSyh4VZOPyM7BhEYYeJ6jCS0gCdD+ZqT8HyD+mAE6bFbF
-	KWmj7wASdj4t4Nk+jRp3D1kDcK55/fs3IsptHFjBm9EI9BLvgq+tS8kpZ+2dIfzv+p31m/JgiRv0R
-	/VthFQQjRTIvqtfEM12708BZFQoSGNTIYFvGa7nIVwe8VO8nF0v+GiuPPcEJjV9O9jEqDxBCQribA
-	o3ALTuNQ==;
+	bh=eYsokUvc+ceaNMognbK0jdOi9adANycZGtIjljbCPgA=; b=J9WURhorz7c0CRRcI7G4ZsS81y
+	QuzhqnTIBEQYjpXLKIMZGv4d2fh8SFFXOZUJPfBbhvu/IZZNI20M2NIF3dQLMfRXbDvifcrqdnsss
+	1eA5Jov2YGMNtpThy0A2hLJiA5u72ClEP8c6+ERjW8+6jZnNA68zWXLA3dYZLcsk9ItpjCUENyl6M
+	ditSag0xVen1HqRw5sPt9hKvIbOc+OANu7D4dgIhEk/nYvzyUcsNI5nU8tFlpaa97agzsIyUDIyDT
+	q0NY16pAxP+CfiCuxsUjFZCaiTR22A3EVimSNN9zzjVJlmzgeedRDgIlxfwU0TPS335aMgLHkFRh8
+	5v4Brong==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEWtd-0000000ACYW-0po9;
-	Mon, 12 May 2025 17:24:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uEWvf-0000000ACsV-17KE;
+	Mon, 12 May 2025 17:27:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEWQL-0000000A7xQ-0iMc
+	id 1uEWW5-0000000A9QM-1jqf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 16:54:42 +0000
+	Mon, 12 May 2025 17:00:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5CD545C0774;
-	Mon, 12 May 2025 16:52:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC02CC4CEE7;
-	Mon, 12 May 2025 16:54:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AF169449C8;
+	Mon, 12 May 2025 17:00:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B6F2C4CEF0;
+	Mon, 12 May 2025 17:00:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747068880;
-	bh=DOkieu2c/As5OFutbPhmnXPXloxqiulZTsFGw/r3wro=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vJoJ5l++Z+dcFY6SizXnpd6EHzB6naYhpvlSsblZ51SAuS6wfPtcPLCkRGQR0s4h8
-	 5v97FKgpO3NAs8jDNfdQWdsmDSYYLH/CF4l4rAOjzeQTZlcAAIm4LKRvCgKkwqZFtZ
-	 NfTlv9g9LbWEypPlT9nxKjw4zIJ/6T+RZP+BNaxqpY7SpQQpb+W8jMZH7Su0TcCCmt
-	 shXg7d08i3t/ttvGQEtWpA2bjIakKI0vlj47i8w6shFrdkl20vuTEmepWLuVI/YkRc
-	 vBuw0jNMChoLvzO2yxPGltjbQHgmfi1EDH4iAJ4/QjRr4+KCOT4yauk2ecxXOIIdaq
-	 1CEwRKbhN2i0w==
-Date: Mon, 12 May 2025 18:54:39 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ioana Ciornei <ioana.ciornei@nxp.com>
-Cc: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, shawnguo@kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, vladimir.oltean@nxp.com
-Subject: Re: [PATCH v2 1/6] dt-bindings: mfd: add bindings for QIXIS CPLD
-Message-ID: <20250512-festive-aquamarine-junglefowl-572f90@kuoka>
-References: <20250509152940.2004660-1-ioana.ciornei@nxp.com>
- <20250509152940.2004660-2-ioana.ciornei@nxp.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250509152940.2004660-2-ioana.ciornei@nxp.com>
+	s=k20201202; t=1747069236;
+	bh=KQIZyE7ntXiGJDC5dfeopzXGz3HkaLlbEgheY2J+Wks=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=JpIjjeX4Nc3b9HvWSd7Hsi0oBARYSvVuUV29uiy+gWXB671StuJLvvY4icxonTtGt
+	 Oven5nTGHOYj/gubMRpX+uBgDdgYWwEvPIv2BSU9jZxcUMdFSHsA35mN3tUh8YvVEc
+	 EQQBawp2bRuzLue9LeBXIqZR9aHqSjJ+DuzsIKlk1j39493cWjU5sjoXDK1IMoxO/8
+	 VKh3a2M8xTcO4RzReOClEFtzpb5zLvhfvaO0Ez8V9tQhd01lj3BiQ/sELMq1znP2ry
+	 SPPOhA/hu5rZeUYPG6rgqPkYVFvrb5sN21yWp4g3rL0CubctJvzVJ8uOhOyETlGCcF
+	 llKkKBRIJPD+g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uEWW2-00ED1E-EE;
+	Mon, 12 May 2025 18:00:34 +0100
+Date: Mon, 12 May 2025 18:00:33 +0100
+Message-ID: <86r00tg3wu.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>
+Subject: Re: [PATCH 2/4] irqchip/gic-v3-its: Implement .msi_teardown() callback
+In-Reply-To: <aCIiQmfDUNrOCC2y@lpieralisi>
+References: <20250511163520.1307654-1-maz@kernel.org>
+	<20250511163520.1307654-3-maz@kernel.org>
+	<aCIiQmfDUNrOCC2y@lpieralisi>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, tglx@linutronix.de, sascha.bischoff@arm.com, timothy.hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_095441_253919_5B8377F7 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20250512_100037_498785_4316013C 
+X-CRM114-Status: GOOD (  39.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,71 +88,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 09, 2025 at 06:29:35PM GMT, Ioana Ciornei wrote:
-> This adds device tree bindings for the board management controller -
-
-"Add devicetree bindings...."
-
-Please do not use "This commit/patch/change", but imperative mood. See
-longer explanation here:
-https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/submitting-patches.rst#L95
-
-> QIXIS CPLD - found on some Layerscape based boards such as LX2162A-QDS,
-> LX2160AQDS, LS1028AQDS etc.
+On Mon, 12 May 2025 17:30:58 +0100,
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
 > 
+> On Sun, May 11, 2025 at 05:35:18PM +0100, Marc Zyngier wrote:
+> > We currently nuke the structure representing an endpoint device
+> > translating via an ITS on freeing the last LPI allocated for it.
+> > 
+> > That's an unfortunate state of affair, as it is pretty common for
+> > a driver to allocate a single MSI, do something clever, teardown
+> > this MSI, and reallocate a whole bunch of them. The nvme driver
+> > does exactly that, amongst others.
+> > 
+> > What happens in that case is that the core code is buggy enough
+> > to issue another .msi_prepare() call, even if it shouldn't.
+> > This luckily cancels the above behaviour and hides the problem.
+> > 
+> > In order to fix the core code, let's start by implementing the new
+> > .msi_teardown() callback. Nothing calls it yet, so a side effect
+> > is that the its_dev structure will not be freed and that the DID
+> > will stay mapped. Not a big deal, and this will be solved in the
+> > following patch.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  drivers/irqchip/irq-gic-v3-its-msi-parent.c | 10 ++++
+> >  drivers/irqchip/irq-gic-v3-its.c            | 56 +++++++++++++--------
+> >  2 files changed, 45 insertions(+), 21 deletions(-)
+> 
+> First off, thanks a lot for putting this together, it makes an awful
+> lot of sense to me.
+> 
+> > index 0115ad6c82593..3472b97477104 100644
+> > --- a/drivers/irqchip/irq-gic-v3-its.c
+> > +++ b/drivers/irqchip/irq-gic-v3-its.c
+> > @@ -3620,8 +3620,43 @@ static int its_msi_prepare(struct irq_domain *domain, struct device *dev,
+> >  	return err;
+> >  }
+> >  
+> > +static void its_msi_teardown(struct irq_domain *domain, msi_alloc_info_t *info)
+> > +{
+> > +	struct msi_domain_info *msi_info;
+> > +	struct its_device *its_dev;
+> > +	struct its_node *its;
+> > +	u32 dev_id;
+> > +
+> > +	dev_id = info->scratchpad[0].ul;
+> 
+> I have just managed to get to a keyboard :), I don't think the dev_id
+> makes it to this point, we overwrite it with the its_dev pointer in
+> its_msi_prepare() (could use second scratchpad for the pointer maybe ?).
+> 
+> I was bitten by this while removing the old IWB code into the new one
+> (unrelated to this code but that's how I noticed scratchpad is a union).
 
-...
+Gah, this is missing the fixup I had on top and that I didn't squash:
 
-> +title: NXP's QIXIS CPLD board management controller
-> +
-> +maintainers:
-> +  - Ioana Ciornei <ioana.ciornei@nxp.com>
-> +
-> +description: |
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index d8c4d3b8256f3..7e0e7f0160936 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -3622,19 +3622,9 @@ static int its_msi_prepare(struct irq_domain *domain, struct device *dev,
+ 
+ static void its_msi_teardown(struct irq_domain *domain, msi_alloc_info_t *info)
+ {
+-	struct msi_domain_info *msi_info;
+-	struct its_device *its_dev;
+-	struct its_node *its;
+-	u32 dev_id;
+-
+-	dev_id = info->scratchpad[0].ul;
+-
+-	msi_info = msi_get_domain_info(domain);
+-	its = msi_info->data;
+-
+-	guard(mutex)(&its->dev_alloc_lock);
++	struct its_device *its_dev = info->scratchpad[0].ptr;
+ 
+-	its_dev = its_find_device(its, dev_id);
++	guard(mutex)(&its_dev->its->dev_alloc_lock);
+ 
+ 	/* If the device is shared, keep everything around */
+ 	if (its_dev->shared)
 
-Do not need '|' unless you need to preserve formatting.
 
-> +  The board management controller found on some Layerscape boards contains
-> +  different IP blocks like GPIO controllers, interrupt controllers, reg-muxes
-> +  etc. The QIXIS CPLD on these boards presents itself as an I2C device.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - fsl,ls1028a-qds-qixis-cpld
-> +      - fsl,lx2160a-qds-qixis-cpld
-> +      - fsl,lx2162a-qds-qixis-cpld
+So no need for another scratchpad entry -- the device structure has
+everything we need. I'll repost things with tglx's comments addressed
+and this fix correctly squashed in.
 
-I think my question why existing compatibles cannot work is still valid.
-If you responded to that and I missed reply, please point me, but I see
-I replied on 7th May and you sent it later - on 9th May.
+Sorry for the noise,
 
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#address-cells":
-> +    const: 1
-> +
-> +  "#size-cells":
-> +    const: 0
-> +
-> +patternProperties:
-> +  '^mux-controller(@[a-f0-9]+)?$':
+	M.
 
-Either children have bus addressing or not. This should not be flexible,
-because rarely devices differ. If devices differ, then you need separate
-schema most likely.
-
-> +    $ref: /schemas/mux/reg-mux.yaml#
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - "#address-cells"
-> +  - "#size-cells"
-
-Best regards,
-Krzysztof
-
+-- 
+Without deviation from the norm, progress is not possible.
 
