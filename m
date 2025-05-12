@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5430BC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 21:53:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 468A1C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 21:55:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Az28+HlcLM0sL1av0MSi/fM4ZT2oYYKjFc0IsJNfl4=; b=WCQIJE9YeDqVLP8D3W3+e/aO96
-	BGnhr8Vuet+kwyUbQDj8lsB+tFwyTBlP8W1N7gt0vvrOgT+lZG0AqqBnybvjq0T9WRWCWHYEzzrvf
-	YcylWvIiGWD+oBsTMlFvOWMZTzvjYavbh79LDZjI82yuxL+/TjPcalBO6paIJ9RwqVkOi/hXOJaDP
-	lR5yJScTJYE+QqizuMhmi9g7Cz8/rC/SQEC4hfF+u76a2NiopTPEP7pmr2gjA9/APOzB9+bvB8cTS
-	YJONljDwz0a/upIkMUpr8lc58X8gs1xO9pysrtqsJc2IgMU9ppQfy2R+6OyreZcO9r/k8fg5Mwf2l
-	ePgTevSw==;
+	bh=aCEGd5QmXaIoIGtIYkIMv7CgoQZabDj2tjwmcFG2bWw=; b=uiuNuZt8SK0sJbWkZ7oDUZx+FC
+	YN0R0qJk5gfLtdPGCrh50TsIb8vtT9HX3skbWp2CU5M7AWL5HdFrUzSB2Tvmakm/slUNoDqTueM6H
+	RLSbHecHdovOJvqeJSuViYTUR+1L+zmuq0rew2WfP+wa9je4SpfcyqH+Tf1i6YoJvq6T0uG6slyIu
+	65XNNpuHCG3Cz7MgwBUqc/IksAFf/TJ2x1SGQm6MCajyW45CzRh8AR2p2iD6rTwvNMNIc8aKd8wHm
+	KGBMp5bTuLVRBIr/clLKT+rYZwN1yoEqqU5+UaeyRtm2zQOFDlP/iLXHZGIP0fsHDWeHSJAT5XiaJ
+	XzEEPg/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEb5X-0000000AmQc-0BPw;
-	Mon, 12 May 2025 21:53:31 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1uEb7X-0000000AmgL-3aBA;
+	Mon, 12 May 2025 21:55:35 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEai5-0000000AinA-2nnj
+	id 1uEai8-0000000AioP-2dpo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 21:29:18 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5f62d3ed994so1543499a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 14:29:17 -0700 (PDT)
+	Mon, 12 May 2025 21:29:21 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-ace94273f0dso948640766b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 14:29:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747085356; x=1747690156; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1747085359; x=1747690159; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+Az28+HlcLM0sL1av0MSi/fM4ZT2oYYKjFc0IsJNfl4=;
-        b=ZU0AemqxsQ4lQ4tTm4Fhonc6q6vL9xijmqxIn8si09xvZi5QWLPH0u65jBdGIskHmS
-         MVxpWnMlrF/9EwbrJOJXx5zGZL5TcodpqLFIt2xVMfzGsljhv/DslcVi5LO0NhOZ/gKf
-         n7aGU6vq6LUOoFATwMt7ckASkeFlQxmSRjGRSoLw6LT/ENG56w/1DykiGEdHk4emXN4m
-         AnDx3o4R4DlOuFXgE75J3F2qVcCrpjXtU4PpttiAvas9Yr62ZZnaJ7Kgy3lnBeZhbGTL
-         ytqstti/0tRAiG/rFCiflL+suJBYR3LoVbG5KVOSHfmB8CKV/2hNnQ4Zn8I61sQZexzj
-         7zyA==
+        bh=aCEGd5QmXaIoIGtIYkIMv7CgoQZabDj2tjwmcFG2bWw=;
+        b=a7x+ncdP3O+X78aOVkxbJGNFGi72Wn/VdAQfz7FfU0NtaJQXmDIeyPWoLnKd2ZbNXy
+         fVKvnR2pgd9oW2RfhZ2fbTwzArH4lShTfNhi/fjGTCJdmYJ7zrH3Ak/9dVjW3haZ3KBe
+         W9BNMK5NhIe652Dpj0syZF7Ls24hU6M72+jlf10reTkwU5bKXM2II2z2Ws1Gx+637wzu
+         h65sF1o/bZ7s0zG4vlE1Yo73sDFs0in5QOSxjnHU+DnN2Apkg+BfexKv72n5kVfStBvl
+         D9q2/TZ/40Q9nn+EzEPpoNDbIbyL4bvpPS2syblIUxyY1ULjFUcvszWg71s6Mbhs71vh
+         ocFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747085356; x=1747690156;
+        d=1e100.net; s=20230601; t=1747085359; x=1747690159;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=+Az28+HlcLM0sL1av0MSi/fM4ZT2oYYKjFc0IsJNfl4=;
-        b=TLlH5vDhqJwU2xRanoLWnOY34DSvb10lh4/zBBjh8FWNYuXW4Y2dZkZxBBLoVzKJy8
-         +qlkYfBa4hJ/wFgWohTY6ndtNPM10TttCt46ayjg5+G67BH56IhaSgL+PlRo8n4Vnb+I
-         pRUx2JVT6xynU/+EbEAoBriKkkBbzbCBzkedbe9hnhPtHbmdgFwwbusSdLhu8PUwT7tQ
-         AKqxCxmHfVMxrysytcVWdcj2nakL+mfqNCv7iYIhzuNV8CdyrY14XgMv5MY/5bARdUTv
-         uB4+QxNE9hdrRnyTnP1uAejylWJBBlVKgIZMhLqhoG+5sWZw5itMWj5LoCOMLNB3CaA5
-         ngUg==
-X-Forwarded-Encrypted: i=1; AJvYcCWZ6am+hxlXO5ts5H0evnmqBXEB9eZeomZ7fpIkexJqfc04c6V9Ldde5q2RsHLc2YQfHatAauF9ncis06Uc22na@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjSfJr2x/HebLAia2G1Wkcow9rJZottxbB76j+wsdj3UQHN8Gg
-	yAPm42E7FwYtcbMo0qYBB8B0zYyDHaj0VmR6Q/5JqxaWbAWzQ+hH
-X-Gm-Gg: ASbGncuNpOJa26ouqzSMJ57gZ0E8Po3h1BgSyFvmsEdTh52jikdVN4HgzSbxHnx13h/
-	o0a59s5mecHdRwOHvqA0Q6jxVuer3zk73FRsICjknQPgbBK0tp3FKJA7OLqoYVDspMTtJK3IIRn
-	UbWMgxMb5pU3NCU7fFqSouUYbjGOAlVLV+zMHL6tv7Rc+/4TZvfBqQvOl3mhbhWLiZeu1D6EtXS
-	JMQAoLY15kb5zzvr1OLDqTEjJy1hFM0UwAycPWua8v2c0/htyavB/HPSBSD8KnZftkufTX6b6Nc
-	nALngHbwe9FzYqDprF4p095sgLlCuJRnsURs+rWjEyByJLJ08KMHcYeAUgstxmI=
-X-Google-Smtp-Source: AGHT+IHxZimkUK3H+FypaTOTN70zLrjfhJRz1zTX6CpTIj/ujzs/pJwUigs4Bc+mQ5Ey6V2j7ED66A==
-X-Received: by 2002:a05:6402:40d6:b0:5fe:e999:e553 with SMTP id 4fb4d7f45d1cf-5fee999e5b8mr1117281a12.23.1747085355831;
-        Mon, 12 May 2025 14:29:15 -0700 (PDT)
+        bh=aCEGd5QmXaIoIGtIYkIMv7CgoQZabDj2tjwmcFG2bWw=;
+        b=lJoFTdPqNx8S33koT8vE4RdbhtzvXs/EWqOjork2+iizbMnB+lv8WHKe3cfEoThESz
+         xF1Smxy7bQwkA2h11snzCFPW++xV9/0NJ5czBz9ovvEEZM6J0WWMZ9063HkAZC8f6qQD
+         Za78XbERuC9FlIikIdhvdaKF4vkoRrm0CtSIEJ20fJmeqKQvK6tnueEb6rETuOMxc9cM
+         XObArxZft4zpk3MLIa3sMf33JN/0cIOWzMJ99oRZEqS4mh0KPW9qq8RrLRtQ1rb6Hdmz
+         MvNfrXJGj38vLth6yJ9r7aXbUMGF7moBnSIeO/6/6bdfju7idTPnaKbaGyBaiaAx/RLV
+         Qk/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVySaxGBcH7H5bLryYEBaOJiD6HsKKl2CjKx5hKoeqAd4EZArfhOTfvYDfh+bKXFfqoYmawFJDryVADOnsuiGSC@lists.infradead.org
+X-Gm-Message-State: AOJu0YxI8U43rBiMvu5Kbtc1ZL+BPsZ5DL559cMs9G8hzPbXlRDriPBj
+	yORV3ocZfmYggpQ+QykeP3qz7NtHCYOtEVLo5SZJLQhNYpdcavu/
+X-Gm-Gg: ASbGncv7X1VeQBhmVH5Pd8eVRGCkyVue4N3WUUvYkiBg1vkGE1aMXJqy9p5JZZReMpd
+	AxQzpBksEhqK3VAlTTSDXnqZUEw4rMdEe6KvYJpCrO+sXeeiDIiX7A1MoxGLwYRdL49F98nXjxi
+	A+DpY6KPfDMn/RJGJrUnLi51LRQEqxFkn7U2IWh9FJUCwHxQzZ+JSM0/7GvObBrFhlAbjfFTd8X
+	dGzoIrKChSTTz2jCuMlqiMUGVQZs5DIPoNftnWg/wF463xZVSbtAb1XKLOZtWEkZ1zg7Ry/imCt
+	O0KNo5yRmXLZwttcIitoJ7keg2tmeYsFuv9rtDcG3lZrASPcyxTwAOOVId+CRTw=
+X-Google-Smtp-Source: AGHT+IFOVZsqKkUnHrG+Z2T30gLqj4jyTC304lPRcXNoZpYwifO2FrYbU1VK0myyirrCmWtQYAce4Q==
+X-Received: by 2002:a17:907:72c6:b0:ad4:d5be:8329 with SMTP id a640c23a62f3a-ad4d5be83d9mr91960066b.3.1747085358761;
+        Mon, 12 May 2025 14:29:18 -0700 (PDT)
 Received: from demon-pc.localdomain ([188.27.128.5])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad23a5552a6sm472861466b.30.2025.05.12.14.29.13
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad23a5552a6sm472861466b.30.2025.05.12.14.29.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 May 2025 14:29:15 -0700 (PDT)
+        Mon, 12 May 2025 14:29:18 -0700 (PDT)
 From: Cosmin Tanislav <demonsingur@gmail.com>
 To: 
 Cc: Cosmin Tanislav <cosmin.tanislav@analog.com>,
@@ -112,17 +112,17 @@ Cc: Cosmin Tanislav <cosmin.tanislav@analog.com>,
 	linux-staging@lists.linux.dev,
 	linux-gpio@vger.kernel.org,
 	Cosmin Tanislav <demonsingur@gmail.com>
-Subject: [PATCH v3 10/19] dt-bindings: media: i2c: max96712: deprecate enable-gpios
-Date: Tue, 13 May 2025 00:28:19 +0300
-Message-ID: <20250512212832.3674722-11-demonsingur@gmail.com>
+Subject: [PATCH v3 11/19] dt-bindings: media: i2c: max96712: add support for MAX96724F/R
+Date: Tue, 13 May 2025 00:28:20 +0300
+Message-ID: <20250512212832.3674722-12-demonsingur@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250512212832.3674722-1-demonsingur@gmail.com>
 References: <20250512212832.3674722-1-demonsingur@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_142917_711968_FF82D17B 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20250512_142920_668894_F41F5F77 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,48 +137,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MAX96712 actually has a GPIO named PWDNB, which will put the chip
-in reset state when held low. Esentially, it works as an enable GPIO,
-but the naming is different.
-
-Deprecate the enable-gpios property, and add powerdown-gpios as the
-rest of the GMSL chips.
-
-Change the example to use powerdown-gpios.
+MAX96724F/MAX96724R are a lower capability variant of the MAX96724 which
+only support a fixed rate of 3Gbps in the forward direction.
 
 Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
 ---
- .../devicetree/bindings/media/i2c/maxim,max96712.yaml  | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+ .../devicetree/bindings/media/i2c/maxim,max96712.yaml        | 5 +++++
+ 1 file changed, 5 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
-index b345305acc4c..e38213209973 100644
+index e38213209973..0adda5574714 100644
 --- a/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
 +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
-@@ -35,7 +35,13 @@ properties:
-     description: I2C device address
-     maxItems: 1
+@@ -24,12 +24,17 @@ description: |
+   MAX96712 can be paired with first-generation 3.12Gbps or 1.5Gbps GMSL1
+   serializers or operate up to 3.12Gbps with GMSL2 serializers in GMSL1 mode.
  
--  enable-gpios: true
-+  enable-gpios:
-+    maxItems: 1
-+    deprecated: true
++  MAX96724F and MAX96724R only support a fixed rate of 3Gbps in the forward
++  direction.
 +
-+  powerdown-gpios:
-+    maxItems: 1
-+    description: Specifier for the GPIO connected to the PWDNB pin.
+ properties:
+   compatible:
+     items:
+       - enum:
+           - maxim,max96712
+           - maxim,max96724
++          - maxim,max96724f
++          - maxim,max96724r
  
-   i2c-alias-pool:
-     maxItems: 4
-@@ -128,7 +134,7 @@ examples:
-             gmsl0: gmsl-deserializer@49 {
-                     compatible = "maxim,max96712";
-                     reg = <0x49>;
--                    enable-gpios = <&pca9654_a 0 GPIO_ACTIVE_HIGH>;
-+                    powerdown-gpios = <&pca9654_a 0 GPIO_ACTIVE_LOW>;
- 
-                     ports {
-                             #address-cells = <1>;
+   reg:
+     description: I2C device address
 -- 
 2.49.0
 
