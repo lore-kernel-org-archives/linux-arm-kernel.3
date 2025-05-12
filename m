@@ -4,97 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B78EC3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:15:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4950AC3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6O0jvL9bp0RhLH3gFStx+IoQOSIzReGN6we6Sj8t7oo=; b=s+WgjQ9qPCblmFKtS4thPmJtPb
-	WpB3nh6jbOrziIaPJNEmksqGIR2hwq9ldv/fBvgJjuNpbSv7y6u/QdjJkoPUJBgTmZnQFz0IV8e6E
-	r20QaJcDcvlzRzUZWBfc4tU2alY9lPXtrI2Iv6kheGYSorUtINNPV2OMUvuxFeQT3MLRG4P/t/tfr
-	XqhScIDYbo2wR207hK7MmE4Fcw55V+onfzONuln1VTUcy7FAA+wIHfp5IAEe1SRMA9ab87qwoDizc
-	II0t7hpz5saZxYdhkfhfdVwX2YQ9Si+/u6OjHzGguoBGWIBp5bJRLzzrpoORr+TjCEcrwe8fH0e6Y
-	1r9mfM8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O+V+RCvpoAaGRFT4GZBhiApWS5v7S4yG0iss69ry+Po=; b=NfZipF4uSrw8p+al6MX5oURxEb
+	hILJqeV8Zma8L0miuRoyRdJA1CkR5YCxB8MYrQo/fImHCtDSnMxPk5uBsneUV3ZmN/6TFguByS0Mz
+	mMCAwqd3m9oJxS/EbqwNdwLgG4cyzW2/RE/H6JDTn16LN/Wk7dYxkO+YMilnWrgq2xpJ05TMv7bE3
+	zVWcNOkMl7ih12fcfOTcxDU9DHcL64X/DU+3cAfS6dTT5RM+5O+CfFicPvtCmmEQmzIM3zgu0f7EK
+	I2SpFLmnrBeFS47SdZgy2Wuabdh2/YUo9imA45+uGsYci7mZQdsRJAil+DLTFVcA1hekFiF1oOVNf
+	2dHu3ZIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uETwN-00000009goS-0dlL;
-	Mon, 12 May 2025 14:15:36 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1uETyR-00000009h9R-1hCZ;
+	Mon, 12 May 2025 14:17:43 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uETEX-00000009Yqn-20dd
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 13:30:19 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43cfe63c592so46658055e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 06:30:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=csie.ntu.edu.tw; s=google; t=1747056613; x=1747661413; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=6O0jvL9bp0RhLH3gFStx+IoQOSIzReGN6we6Sj8t7oo=;
-        b=E4FkGBw2+W6QDTXVoWmgziiZ2qP1zCfPt2d8SAKZYQ+6560jmPculc62EH1l6F8VSm
-         NSp/NnB6P96f8SV4CyMm28nuiD3H6+1odVHxCSUZRYNUJLz7IbdC1Ms0CGXMbMzH5+iV
-         p9CXs8lCuffYFha42KaKwXqiY80U4T2SDp6DceB//LTy5+UrrToVWfuQTuVgBYlOjkOd
-         NOGwPS3u6mKrL18D7mNsYyTD6HyLoQagitVDNzWWzercok30t4a7s2eq364Ffc6CE6BR
-         9LwuHzT37GEHT9imsIQ8lw/QIzxwEV5p+IxnDlUy5Zek04I1vGVGWM6LnBBciVTD4V2E
-         7Fow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747056613; x=1747661413;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6O0jvL9bp0RhLH3gFStx+IoQOSIzReGN6we6Sj8t7oo=;
-        b=nNE3R3XYL6oeUjjfBsDMJhIB988CLRXJR/SvnyD4xgZzGroFNS1X8HFL7vER2ZXoV1
-         wxgL4DKj8ht4fIfrjfSFrYwMH5F+zcGYntgzHYT1NcIhUO6wOkaseKJ8Z29jSQv6eaMh
-         68nZbimSGdDlzBDNazxj47xlMUTYxnN2nSE+iqzQ3e5k1UxAeOdoWBCkLHfpjBR6DtAU
-         j1urAiW24pvJMocxEs0lU1rZL70f6pXTOzFdqJjVD30Hh8n7Qqxo8GcTS1EzYEYaKEte
-         F2hUUKpD/wmTarhzuSZA6Yj6xVfiHiDaRxSj03Zfgid6wRi/YDh4AQd8/92zX9vpFwA5
-         imqw==
-X-Forwarded-Encrypted: i=1; AJvYcCWnV4iBOo4Or4DLAoVIxzpftpGo7yw+WQCXGVejJQeh/TCrg8Gb6rje3ORaXTg3DPpykyLuW8KN9/QDxV2VHCVZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzARcxTyQKLyb8ENH6HXEx2nswtoN7LLVnUqejaK2f7viDArqbV
-	zDlz7hIrCeu/MW4heu41eriJKoYsIqeXdXvNe9mbhZM0fWFtZ0hvzgGHRMir18DGFjZKPqH59YF
-	Oxbb5LGlVmcRvNlKqLBdBT1+XlhBSO9Dcf6REbXu1LWJ98VNZWWZ3cccvdAxJYMWEiNc3GcSMax
-	TXzQdJKy1tSWY=
-X-Gm-Gg: ASbGncsaFBqaB8fSPugcjK4sklYtUXpDiud3xtNsxT0fpFeDEBJPatpsR3zQVZKB4Kw
-	IsnmvZ+Nl4gqdtzzQTp4waJjsz1r9KznwgtDph7RDREQ437XVtdByZIt3R/uSpsA5hZHu8PTqKR
-	Vwc6jcl8+vZuZiJwiDXp891psrkkXsaIqGcdo+8pEAD4uGqFqV/5tfhE+gIu42aeFeBTgoVVatt
-	izA2Pinh6Fx4UZQ7UfbdGPcOhEbxR/IJlzQyMcBl+i8raJlgy25EAprVZ98GkNhqP45UEVylud+
-	088NHacD79vZykeHWYtHRFUMsmBsw07Qh41NX8nrGEYaYMMtgP5uUVpi/UI0zJDS1r0H2i8x
-X-Google-Smtp-Source: AGHT+IGvjNxhAX66VVq4W0wV6STryscjMOGjWiI63Myou666P8Evc1sc/t303qv3kgeVp110Hjntxg==
-X-Received: by 2002:a05:600c:5250:b0:43c:ea1a:720c with SMTP id 5b1f17b1804b1-442d6d6ad52mr105665795e9.18.1747056612621;
-        Mon, 12 May 2025 06:30:12 -0700 (PDT)
-Received: from localhost.localdomain ([213.157.19.150])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442d67ee33bsm125593325e9.20.2025.05.12.06.30.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 May 2025 06:30:12 -0700 (PDT)
-From: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jintack Lim <jintack@cs.columbia.edu>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
-Subject: [PATCH] KVM: arm64: nv: Remove clearing of ICH_LR<n>.EOI if ICH_LR<n>.HW == 1
-Date: Mon, 12 May 2025 21:32:23 +0800
-Message-ID: <20250512133223.866999-1-r09922117@csie.ntu.edu.tw>
-X-Mailer: git-send-email 2.49.0
+	id 1uETFu-00000009Z9k-2mS6;
+	Mon, 12 May 2025 13:31:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=O+V+RCvpoAaGRFT4GZBhiApWS5v7S4yG0iss69ry+Po=; b=Co6n9zSvwNUsxs6gnNNk3Jo6KX
+	xK5oFL4yQV10FygzxSVW0Lc9tRJk7exKi9G5xm2wAlQXL4BVmCeMdoc2Cw50s/XYPw5+hoEAz/Jh9
+	HMfEey7XQqTz+Yt9jo6VIYtS8bziHyuO67q8DSaFZWsJH5erR2/8vTPEi6flXiM1bPXC9uFZVfKsa
+	GrH7rIRVtUiGinhT8ZV/LUq+kDmXJRasTmq//5IT06hbOkOj8YJNbFyKazqHA5HpNekXp4+1z0wab
+	2/9t/z5auo5hpJXvVA5VzCyuO3NALLe3R8vDuGqhk4E0H3uFMcFJJSEewW296QKk7sEArOw/w1Vd1
+	YsgwY3Qw==;
+Received: from i53875a50.versanet.de ([83.135.90.80] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uETFV-0006NF-9J; Mon, 12 May 2025 15:31:17 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: robh@kernel.org, chainsx@foxmail.com
+Cc: chainsx@foxmail.com, conor+dt@kernel.org, krzk+dt@kernel.org,
+ sfr@canb.auug.org.au, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v1 0/2] Add support for Firefly Station-M3/ROC-RK3588S-PC
+Date: Mon, 12 May 2025 15:31:16 +0200
+Message-ID: <3612514.V25eIC5XRa@diego>
+In-Reply-To: <tencent_D5C17F39C684CD6491505763B23BACCE5106@qq.com>
+References: <tencent_D5C17F39C684CD6491505763B23BACCE5106@qq.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Gm-Spam: 0
-X-Gm-Phishy: 0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_063017_808190_E7D6955C 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250512_063142_717220_22216A6B 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,31 +73,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the case of ICH_LR<n>.HW == 1, bit 41 of LR is just a part of pINTID
-without EOI meaning, and bit 41 will be zeroed by the subsequent clearing
-of ICH_LR_PHYS_ID_MASK anyway.
-No functional changes intended.
+Hi,
 
-Signed-off-by: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
----
- arch/arm64/kvm/vgic/vgic-v3-nested.c | 3 ---
- 1 file changed, 3 deletions(-)
+Am Montag, 12. Mai 2025, 15:20:48 Mitteleurop=C3=A4ische Sommerzeit schrieb=
+ chainsx@foxmail.com:
+> From: Hsun Lai <chainsx@foxmail.com>
+>=20
+> This series add support for Firefly Station-M3/ROC-RK3588S-PC.
+>=20
+> Info of device can be found at:
+> https://wiki.t-firefly.com/en/Station-M3/index.html
+>=20
+> Changes in v1:
+> - Add support for Firefly ROC-RK3588S-PC
+>=20
+> Hsun Lai (2):
+>   dt-bindings: arm: rockchip: Add Firefly ROC-RK3588S-PC
+>   arm64: dts: rockchip: add DTs for Firefly ROC-RK3588S-PC
 
-diff --git a/arch/arm64/kvm/vgic/vgic-v3-nested.c b/arch/arm64/kvm/vgic/vgic-v3-nested.c
-index bfa5bde1f106..4f6954c30674 100644
---- a/arch/arm64/kvm/vgic/vgic-v3-nested.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3-nested.c
-@@ -240,9 +240,6 @@ static void vgic_v3_create_shadow_lr(struct kvm_vcpu *vcpu,
- 			goto next;
- 		}
- 
--		/* It is illegal to have the EOI bit set with HW */
--		lr &= ~ICH_LR_EOI;
--
- 		/* Translate the virtual mapping to the real one */
- 		lr &= ~ICH_LR_PHYS_ID_MASK;
- 		lr |= FIELD_PREP(ICH_LR_PHYS_ID_MASK, (u64)irq->hwintid);
--- 
-2.49.0
+hmm, you seem to be using git-send-email, but your mails did not
+get in-reply-to headers. Normally git-send-email should detect the
+cover-letter + patches thing and tie them together to a mail thread
+when you send them with a "git send-email *.patch" or similar .
+
+
+Heiko
+
 
 
