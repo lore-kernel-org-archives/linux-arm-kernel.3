@@ -4,56 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFAA8C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 16:09:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B1AC3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 16:12:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z8aNxhPCyC86suPEEBWsn5Vq8NVKcSSCktf0eV6nOpA=; b=cg+Ea/dhlkrfTUZ8Hc/qPSiJJ9
-	z/uHt4EtAs2vfJ1yTl/IGsVWAnZY7BIygCjOrj6365vIsTUVE+N3umgD7DuEbhsYqVt+xXka8cnHQ
-	+N+RBDa/CO1JHxqLHDdcLevUjSCwBmfs6uMfYGKcXQS3ZPRA6FgveAFFGNusNsG/olf7yor5wH0GU
-	I4+jamwCiUAPmLcfD15xJgR7gns5eTBnIyMSb6irnURBYOdFd4Rw6tOY+T0gZjZu5zdJcJWl+tEJM
-	IDQiw3+QElrdsU30Iwq2v4CKtiZpeVdzWNpr0zCbop8AShKX+FWw02VwUGolmSO5teL8lIajRUcQz
-	caXgHtxA==;
+	bh=A/ri/6ZjxW7RCFovjRl8X2bDl9rq/UBNCApnh0pl15I=; b=KFjS04FbmIzVzOQcLK1g1xwBNr
+	o3iMaqqMnC/UTJW/kobDjUAcTNTeXOCuLNxor/aX5z4nP9nwKzY9Q4uNTL0YRQS/5dfBN+TivXuBL
+	X0xVkE8GQddakZgfyNjxAUiEuhFBlYl7qsK/+/tfvptflxUWv1ENDKNTtz9oTG30L3ZmGdBflQ7Zg
+	Bb8Yg3fzdh7ZK8PXm4aQ6ewUrNxsquUFqWZN3Kx+QGNnSOTDaw4/QmXHLRnHa3MCJXMP5KllslEgV
+	FesxJg5U1mlwLcXGFHXvxtFPSOQqQQ24sVywzSKr6iIcD6VVVMc3SDWTcFs7lD5bfCfIsiCmzu/Hv
+	BdhjQqmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEViz-00000009yiG-3zed;
-	Mon, 12 May 2025 16:09:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEVHS-00000009ucr-3qM6
+	id 1uEVl6-00000009zBP-2rDz;
+	Mon, 12 May 2025 16:12:04 +0000
+Received: from fhigh-b1-smtp.messagingengine.com ([202.12.124.152])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uEVHw-00000009ukD-331a
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 15:41:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A30641F60;
-	Mon, 12 May 2025 08:41:15 -0700 (PDT)
-Received: from e132581.cambridge.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 620A93F63F;
-	Mon, 12 May 2025 08:41:25 -0700 (PDT)
-From: Leo Yan <leo.yan@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Mao Jinlong <quic_jinlmao@quicinc.com>,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v1 5/5] coresight: Refine error handling for device registration
-Date: Mon, 12 May 2025 16:41:08 +0100
-Message-Id: <20250512154108.23920-6-leo.yan@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250512154108.23920-1-leo.yan@arm.com>
-References: <20250512154108.23920-1-leo.yan@arm.com>
+	Mon, 12 May 2025 15:41:58 +0000
+Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 21A5925400D8;
+	Mon, 12 May 2025 11:41:54 -0400 (EDT)
+Received: from phl-imap-12 ([10.202.2.86])
+  by phl-compute-04.internal (MEProxy); Mon, 12 May 2025 11:41:54 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
+	 t=1747064513; x=1747150913; bh=A/ri/6ZjxW7RCFovjRl8X2bDl9rq/UBN
+	CApnh0pl15I=; b=jL8JZhYU/eNhS1Dbxm8P0HfZ5uJ0f9c89R1Xokb5AT19RPm5
+	+UMawNHN9e+gdyVjzbmeX0UKUI35c234NQmPyK/mQN1vlgMpkP+3fQ+z7WYvLzUG
+	sceVXAUgUxkf5tiVfvmbw4vMxinru9KcJcufIOr8wRBYK0VIpTg7cCnCpCXG63Oh
+	vRv1TLt6VN54bh03c1nN2wI8LocK8MRenPos2cZSlGgVs0sErjULY+GDJ7MKSHHr
+	MDBkG0xm/dhyS/UpDBDXBJbUcXF6tYYybOXiIpQERyDgr5NDKJVU6fdAOl8WkyH8
+	3uRz2iYtOXuvSg6H7fpRdeXvD8iDbLPr8R4dyQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1747064513; x=
+	1747150913; bh=A/ri/6ZjxW7RCFovjRl8X2bDl9rq/UBNCApnh0pl15I=; b=p
+	xC6oByaTqzWJwlrUULPV7S5tdE3lUUlVajj+ozI2sdYQCKWMgpFqxhnNp6sQ/y3Y
+	p8bnDHQOwqQ/WqZdvo8+vkHIsA/pUzAxfOWQGRR/Q9tRWYXCfq/j+OiIDeBLGjhh
+	FMWtTGLYAZ7nbIeleqlohvHNw1IbFxAGLbJ3fIDKY8rUEoV1BOx2+vDkyBtq5QAM
+	O2wvUDSEmgPxFwTiea0QShiLok1j9VwG5slUFcddocxg18gYxzdxeDIiDJtd/lNa
+	KyTyG0FwUBWoJY3cwKOADqIRnwYgcZvdbmg3E3j2hGR7cK1GVhqQec4Ws4V2Zwk9
+	RT1cigP76djJ9Yz+g6hHg==
+X-ME-Sender: <xms:wBYiaFNvahD2L0uAISA-4GNPY-XHMqVkfJCBRUPL7Uvkv83DCo0tOA>
+    <xme:wBYiaH8U0H8aSWHE257TqtISn56uYU87w7rZURaBjDJPUK09AVw70q4qCmQh_L5Oj
+    b1V3uXVnZJoZL6QUHI>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeftdduieegucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
+    tddtnecuhfhrohhmpedfufhvvghnucfrvghtvghrfdcuoehsvhgvnhesshhvvghnphgvth
+    gvrhdruggvvheqnecuggftrfgrthhtvghrnhepleefteeugeduudeuudeuhfefheegveek
+    ueefffdvffektdffffelveffvddvueffnecuvehluhhsthgvrhfuihiivgeptdenucfrrg
+    hrrghmpehmrghilhhfrhhomhepshhvvghnsehsvhgvnhhpvghtvghrrdguvghvpdhnsggp
+    rhgtphhtthhopeduledpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprhhmkhdokh
+    gvrhhnvghlsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepsghrghhlsegs
+    ghguvghvrdhplhdprhgtphhtthhopehsvggsrghsthhirghnrdhrvghitghhvghlsegtoh
+    hllhgrsghorhgrrdgtohhmpdhrtghpthhtohepnhgvrghlsehgohhmphgrrdguvghvpdhr
+    tghpthhtohepjhesjhgrnhhnrghurdhnvghtpdhrtghpthhtoheptghonhhorhdoughtse
+    hkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhr
+    ghdprhgtphhtthhopehlvggvsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrgiise
+    hkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:wBYiaEQsd1xvdtdJJ1WfCDmYgfhkFuWZm0lxil1__WEgKGWQUR0-5A>
+    <xmx:wBYiaBtdFny8lKddpw7XUOJHW7bSUw9R_n012ooBLLVM6JlUq0Nj3A>
+    <xmx:wBYiaNeqU2j49KazqgorE4hyn67K84YsrCQN126k-JyVdi2Ck_kauQ>
+    <xmx:wBYiaN2DNwhMgAxOfYxgOmMN8aQfZCmK0CIhYyyTJgzfnV1YBPVl9A>
+    <xmx:wRYiaDO07QpmSUH25G9IVJMjlkEKU2glNIRaTFN6QHOUrCApyau3cbWu>
+Feedback-ID: i51094778:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id B65281C20067; Mon, 12 May 2025 11:41:52 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ThreadId: Tee5e6786d5fc82a3
+Date: Mon, 12 May 2025 17:41:32 +0200
+From: "Sven Peter" <sven@svenpeter.dev>
+To: "Sebastian Reichel" <sebastian.reichel@collabora.com>
+Cc: "Janne Grunau" <j@jannau.net>, "Alyssa Rosenzweig" <alyssa@rosenzweig.io>,
+ "Neal Gompa" <neal@gompa.dev>, "Hector Martin" <marcan@marcan.st>,
+ "Linus Walleij" <linus.walleij@linaro.org>,
+ "Bartosz Golaszewski" <brgl@bgdev.pl>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Lee Jones" <lee@kernel.org>,
+ "Marc Zyngier" <maz@kernel.org>, "Russell King" <rmk+kernel@armlinux.org.uk>,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org
+Message-Id: <438dc401-a531-4b07-b77c-92748acadf85@app.fastmail.com>
+In-Reply-To: <2mhqiy6twurcidtwe7rhtobq5mivb2meoq6ik3dt45zwerkwrd@ebudw64trryq>
+References: <20250511-smc-6-15-v5-0-f5980bdb18bd@svenpeter.dev>
+ <20250511-smc-6-15-v5-7-f5980bdb18bd@svenpeter.dev>
+ <2mhqiy6twurcidtwe7rhtobq5mivb2meoq6ik3dt45zwerkwrd@ebudw64trryq>
+Subject: Re: [PATCH v5 07/10] power: reset: macsmc-reboot: Add driver for rebooting via
+ Apple SMC
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_084126_997915_368B466E 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20250512_084157_307914_D54D50E3 
+X-CRM114-Status: GOOD (  25.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,90 +126,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When error happens in a device registration, the coresight_unregister()
-function is invoked for cleanup.  coresight_unregister() includes the
-complete flow for unregisteration a CoreSight device, it causes
-redundant operations for some errors.
+Hi Sebastian,
 
-This commit changes to invoke more specific functions for cleanup
-resources for each error.  This can allow the cleanup flow in better
-granularity.
+thanks for the review!
 
-As a result, the local "registered" variable is not used anymore, remove
-it.
+On Mon, May 12, 2025, at 00:16, Sebastian Reichel wrote:
+> Hi,
+>
+> On Sun, May 11, 2025 at 08:18:42AM +0000, Sven Peter via B4 Relay wrote:
+>> From: Hector Martin <marcan@marcan.st>
+>> 
+>> This driver implements the reboot/shutdown support exposed by the SMC
+>> on Apple Silicon machines, such as Apple M1 Macs.
+>> 
+>> Signed-off-by: Hector Martin <marcan@marcan.st>
+>> Signed-off-by: Sven Peter <sven@svenpeter.dev>
+>> ---
+>>  MAINTAINERS                         |   1 +
+>>  drivers/power/reset/Kconfig         |  11 ++
+>>  drivers/power/reset/Makefile        |   1 +
+>>  drivers/power/reset/macsmc-reboot.c | 363 ++++++++++++++++++++++++++++++++++++
+>>  4 files changed, 376 insertions(+)
+>> 
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index fa3a5f9ee40446bcc725c9eac2a36651e6bc7553..84f7a730eb2260b7c1e0487d18c8eb3de82f5206 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -2303,6 +2303,7 @@ F:	drivers/mfd/macsmc.c
+>>  F:	drivers/nvme/host/apple.c
+>>  F:	drivers/nvmem/apple-efuses.c
+>>  F:	drivers/pinctrl/pinctrl-apple-gpio.c
+>> +F:	drivers/power/reset/macsmc-reboot.c
+>>  F:	drivers/pwm/pwm-apple.c
+>>  F:	drivers/soc/apple/*
+>>  F:	drivers/spi/spi-apple.c
+>> diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
+>> index 60bf0ca64cf395cd18238fc626611c74d29844ee..6e8dfff64fdc001d09b6c00630cd8b7e2fafdd8e 100644
+>> --- a/drivers/power/reset/Kconfig
+>> +++ b/drivers/power/reset/Kconfig
+>> @@ -128,6 +128,17 @@ config POWER_RESET_LINKSTATION
+>>  
+>>  	  Say Y here if you have a Buffalo LinkStation LS421D/E.
+>>  
+>> +config POWER_RESET_MACSMC
+>> +	tristate "Apple SMC reset/power-off driver"
+>> +	depends on ARCH_APPLE || COMPILE_TEST
+>> +	depends on MFD_MACSMC
+>> +	depends on OF
+>
+> This can also be 'OF || COMPILE_TEST'. But I would expect this
+> driver to just have 'depends on MFD_MACSMC' and then manage the
+> checks for ARCH_APPLE and OF in the MFD Kconfig.
 
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- drivers/hwtracing/coresight/coresight-core.c | 26 ++++++++------------
- 1 file changed, 10 insertions(+), 16 deletions(-)
+Makes sense, it'll just depend on MFD_MACSMC then and I'll move the ARCH_APPLE,
+OF, etc. depends to the MFD Kconfig.
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 4fc82206b326..1eb4f6f0fe40 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1297,7 +1297,6 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
- {
- 	int ret;
- 	struct coresight_device *csdev;
--	bool registered = false;
- 
- 	csdev = kzalloc(sizeof(*csdev), GFP_KERNEL);
- 	if (!csdev) {
-@@ -1362,27 +1361,23 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
- 	    csdev->type == CORESIGHT_DEV_TYPE_LINKSINK) {
- 		ret = etm_perf_add_symlink_sink(csdev);
- 
--		if (ret) {
--			device_unregister(&csdev->dev);
-+		if (ret)
- 			/*
- 			 * As with the above, all resources are free'd
- 			 * explicitly via coresight_device_release() triggered
- 			 * from put_device(), which is in turn called from
- 			 * function device_unregister().
- 			 */
--			goto out_unlock;
--		}
-+			goto out_unregister_device;
- 	}
--	/* Device is now registered */
--	registered = true;
- 
- 	ret = coresight_create_conns_sysfs_group(csdev);
- 	if (ret)
--		goto out_unlock;
-+		goto out_del_symlink_sink;
- 
- 	ret = coresight_fixup_orphan_conns(csdev);
- 	if (ret)
--		goto out_unlock;
-+		goto out_remove_conns;
- 
- 	mutex_unlock(&coresight_mutex);
- 
-@@ -1390,15 +1385,14 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
- 		cti_assoc_ops->add(csdev);
- 	return csdev;
- 
-+out_remove_conns:
-+	coresight_remove_conns_sysfs_group(csdev);
-+out_del_symlink_sink:
-+	etm_perf_del_symlink_sink(csdev);
-+out_unregister_device:
-+	device_unregister(&csdev->dev);
- out_unlock:
- 	mutex_unlock(&coresight_mutex);
--
--	/* Unregister the device if needed */
--	if (registered) {
--		coresight_unregister(csdev);
--		return ERR_PTR(ret);
--	}
--
- err_out:
- 	/* Cleanup the connection information */
- 	coresight_release_platform_data(NULL, csdev->dev.parent, desc->pdata);
--- 
-2.34.1
+>
+[...]
+>> +#include <linux/delay.h>
+>> +#include <linux/mfd/core.h>
+>> +#include <linux/mfd/macsmc.h>
+>> +#include <linux/module.h>
+>> +#include <linux/nvmem-consumer.h>
+>> +#include <linux/of.h>
+>
+> Once of_get_child_by_name() is no lnger used the correct include for
+> the remaining 'struct of_device_id' is <linux/mod_devicetable.h>
+> instead of <linux/of.h>.
 
+Fixed.
+
+>
+[...]
+>> +
+>> +	pdev->dev.of_node = of_get_child_by_name(pdev->dev.parent->of_node, "reboot");
+>
+> Why is this needed? The of_node should already be set correctly when
+> probed via the of_match_table.
+
+Leftovers from a previous version that didn't use of_match_table.
+I'll remove it.
+
+>
+[...]
+>> +
+>> +	if (device_create_file(&pdev->dev, &dev_attr_ac_power_mode))
+>> +		dev_warn(&pdev->dev, "could not create sysfs file\n");
+>
+> custom sysfs files must be documented in Documentation/ABI.
+
+This sysfs file allows to configure if the system reboots automatically after
+power loss. But now that I'm looking at this again I'm not sure this driver
+is even the proper place for this (the nvmem cell is kinda unrelated to SMC)
+or if we need this at all in the kernel since the nvmem cell is already
+exposed to sysfs just with a less convenient interface at 
+/sys/bus/nvmem/devices/spmi_nvmem0/cells/pm-setting@d001,0.
+
+I'm going to drop it for now and revisit this later.
+
+
+>
+>> +
+[...]
+>> +MODULE_LICENSE("Dual MIT/GPL");
+>> +MODULE_DESCRIPTION("Apple SMC reboot/poweroff driver");
+>> +MODULE_AUTHOR("Hector Martin <marcan@marcan.st>");
+>> +MODULE_ALIAS("platform:macsmc-reboot");
+>
+> Why is the MODULE_ALIAS needed?
+
+No idea, my best guess is it was copy/pasted without a good reason.
+I'll drop it.
+
+
+Thanks,
+
+
+Sven
 
