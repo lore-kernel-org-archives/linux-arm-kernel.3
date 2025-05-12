@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B37B7C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 15:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B00C3ABD7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 15:35:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=M1dbos3NxQKuT6QnfwRY9+hyVJpSnhTDpepVkHM/iHk=; b=LlgL/TAncoFgQGuhNhy/zy1u7R
-	XdrRLm/nWhLgjOefJAMDCN8BRNh/vNDsmmNcP9VsVQ64zt2M1wMjjOI2dD8IZllxhwCLay8/CbCKQ
-	EIXjk9miQaLJkY9Z26Dw7syLtgHPKaLKFHclCCVqe85+GC19NG7eWPG/pvN+N/C8NbzlBliRXT8AB
-	IZyjf3I1/X0usCQ0Un01l95pmFKK/JDXr4UuDtSwlPQWBOXTZZB+1hNOVbIm17a3w4ATHLcAR2U3b
-	ws+dbRdba4fd9ccVFNYbjpJbOOzHnUJl1ZlC4HiHm1RJUYthnhWoW/XLK6NcskWZpTEFFE4xI0xAq
-	ecfYNM/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sEyJs0qHGAKHwQtCEKBcGNZxaoxHOLtxUnBbPM+PW34=; b=0YOYhr/F/waja4LQzSb4jxEWb4
+	GPzNfj4040DPrUUpoeNdb79ozzk3nD+qnsDuo8hf4hgld9d/ElCMr6nk52HvxN9uYVIZXvFVMf0FY
+	OP+lxEZXQC8U2Dtvpx2iWn27gYP4B8KtEq7623hbWNH+T57dFg5I/5vHXSBq0ghowsOb7DBFeLwvj
+	K77tK6Gqn2KsWUvprsr4+J7ymYCXVSeQsucEtT0G6NHMfs7GXCd+FPXSMkKS4P8G7UbFIPCQr9r5K
+	hDPR1gYOkG3v8i6DWjVKA9LBV9dWZ4vMfGHuyzAPbZmL6GTovcy4y+SrLWNATebRH2Af/iEp879sE
+	Flb28VVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEVBb-00000009t5l-19OK;
-	Mon, 12 May 2025 15:35:23 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEURS-00000009mto-0QXY
+	id 1uEVBZ-00000009t4Z-3cCk;
+	Mon, 12 May 2025 15:35:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uEUPS-00000009mIn-1v30
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 14:47:43 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54CElKsf2039818;
-	Mon, 12 May 2025 09:47:20 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1747061240;
-	bh=M1dbos3NxQKuT6QnfwRY9+hyVJpSnhTDpepVkHM/iHk=;
-	h=Date:From:To:CC:Subject;
-	b=eh9q3YJcKoHptui5NWsC6ktYlxkMLiUYlZFeq4cyyd7E1o0d3YKitdXZN+WI2Y0I9
-	 vi1lOCaukMwRYkfcak3RdIRdzdZ0qDSekQQ/KdF1GPvxaEpcDTP6U5+uh1yckCLq7i
-	 6mKv+biTUCCjzl167yI02EpQVwjR3rNQLAnmLCfU=
-Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54CElKMV1169212
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 12 May 2025 09:47:20 -0500
-Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 12
- May 2025 09:47:19 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE102.ent.ti.com
- (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 12 May 2025 09:47:19 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 54CElJAm040488;
-	Mon, 12 May 2025 09:47:19 -0500
-Date: Mon, 12 May 2025 09:47:19 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Arnd Bergmann <arnd@arndb.de>, SoC list <soc@lists.linux.dev>
-CC: Santosh Shilimkar <ssantosh@kernel.org>, Tony Lindgren <tony@atomide.com>,
-        SoC <soc@kernel.org>, <arm@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Tero
- Kristo <kristo@kernel.org>,
-        Vignesh Raghavendra <vigneshr@ti.com>, Nishanth
- Menon <nm@ti.com>
-Subject: [GIT PULL 1/3] soc: ti: Driver updates for v6.16
-Message-ID: <20250512144719.mpkyw2jbyzslb5hy@yearly>
+	Mon, 12 May 2025 14:45:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0CD6014BF;
+	Mon, 12 May 2025 07:45:27 -0700 (PDT)
+Received: from [10.57.21.218] (unknown [10.57.21.218])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9D8883F673;
+	Mon, 12 May 2025 07:45:33 -0700 (PDT)
+Message-ID: <805af62d-1d3a-4084-8f71-17b58ff0089f@arm.com>
+Date: Mon, 12 May 2025 15:45:31 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="vnuongetbvaxpj52"
-Content-Disposition: inline
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 16/43] arm64: RME: Handle realm enter/exit
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>
+References: <20250416134208.383984-1-steven.price@arm.com>
+ <20250416134208.383984-17-steven.price@arm.com>
+ <82c0ee14-65fb-4f34-892a-a3820d8d0f97@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <82c0ee14-65fb-4f34-892a-a3820d8d0f97@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_074742_302870_D950D00E 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20250512_074538_588467_48D42487 
+X-CRM114-Status: GOOD (  27.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,88 +76,243 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---vnuongetbvaxpj52
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 07/05/2025 11:26, Suzuki K Poulose wrote:
+> On 16/04/2025 14:41, Steven Price wrote:
+>> Entering a realm is done using a SMC call to the RMM. On exit the
+>> exit-codes need to be handled slightly differently to the normal KVM
+>> path so define our own functions for realm enter/exit and hook them
+>> in if the guest is a realm guest.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> Changes since v7:
+>>   * A return of 0 from kvm_handle_sys_reg() doesn't mean the register has
+>>     been read (although that can never happen in the current code). Tidy
+>>     up the condition to handle any future refactoring.
+>> Changes since v6:
+>>   * Use vcpu_err() rather than pr_err/kvm_err when there is an associated
+>>     vcpu to the error.
+>>   * Return -EFAULT for KVM_EXIT_MEMORY_FAULT as per the documentation for
+>>     this exit type.
+>>   * Split code handling a RIPAS change triggered by the guest to the
+>>     following patch.
+>> Changes since v5:
+>>   * For a RIPAS_CHANGE request from the guest perform the actual RIPAS
+>>     change on next entry rather than immediately on the exit. This allows
+>>     the VMM to 'reject' a RIPAS change by refusing to continue
+>>     scheduling.
+>> Changes since v4:
+>>   * Rename handle_rme_exit() to handle_rec_exit()
+>>   * Move the loop to copy registers into the REC enter structure from the
+>>     to rec_exit_handlers callbacks to kvm_rec_enter(). This fixes a bug
+>>     where the handler exits to user space and user space wants to modify
+>>     the GPRS.
+>>   * Some code rearrangement in rec_exit_ripas_change().
+>> Changes since v2:
+>>   * realm_set_ipa_state() now provides an output parameter for the
+>>     top_iap that was changed. Use this to signal the VMM with the correct
+>>     range that has been transitioned.
+>>   * Adapt to previous patch changes.
+>> ---
+>>   arch/arm64/include/asm/kvm_rme.h |   3 +
+>>   arch/arm64/kvm/Makefile          |   2 +-
+>>   arch/arm64/kvm/arm.c             |  19 +++-
+>>   arch/arm64/kvm/rme-exit.c        | 170 +++++++++++++++++++++++++++++++
+>>   arch/arm64/kvm/rme.c             |  19 ++++
+>>   5 files changed, 207 insertions(+), 6 deletions(-)
+>>   create mode 100644 arch/arm64/kvm/rme-exit.c
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/
+>> asm/kvm_rme.h
+>> index b916db8565a2..d86051ef0c5c 100644
+>> --- a/arch/arm64/include/asm/kvm_rme.h
+>> +++ b/arch/arm64/include/asm/kvm_rme.h
+>> @@ -101,6 +101,9 @@ void kvm_realm_destroy_rtts(struct kvm *kvm, u32
+>> ia_bits);
+>>   int kvm_create_rec(struct kvm_vcpu *vcpu);
+>>   void kvm_destroy_rec(struct kvm_vcpu *vcpu);
+>>   +int kvm_rec_enter(struct kvm_vcpu *vcpu);
+>> +int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_status);
+>> +
+>>   void kvm_realm_unmap_range(struct kvm *kvm,
+>>                  unsigned long ipa,
+>>                  unsigned long size,
+>> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+>> index 2ebc66812d49..c4b10012faa3 100644
+>> --- a/arch/arm64/kvm/Makefile
+>> +++ b/arch/arm64/kvm/Makefile
+>> @@ -24,7 +24,7 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o
+>> pvtime.o \
+>>        vgic/vgic-mmio.o vgic/vgic-mmio-v2.o \
+>>        vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
+>>        vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-v3-nested.o \
+>> -     rme.o
+>> +     rme.o rme-exit.o
+>>     kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
+>>   kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
+>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>> index 7c0bb1b05f4c..cf707130ef66 100644
+>> --- a/arch/arm64/kvm/arm.c
+>> +++ b/arch/arm64/kvm/arm.c
+>> @@ -1263,7 +1263,10 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+>>           trace_kvm_entry(*vcpu_pc(vcpu));
+>>           guest_timing_enter_irqoff();
+>>   -        ret = kvm_arm_vcpu_enter_exit(vcpu);
+>> +        if (vcpu_is_rec(vcpu))
+>> +            ret = kvm_rec_enter(vcpu);
+>> +        else
+>> +            ret = kvm_arm_vcpu_enter_exit(vcpu);
+>>             vcpu->mode = OUTSIDE_GUEST_MODE;
+>>           vcpu->stat.exits++;
+>> @@ -1319,10 +1322,13 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu
+>> *vcpu)
+>>             local_irq_enable();
+>>   -        trace_kvm_exit(ret, kvm_vcpu_trap_get_class(vcpu),
+>> *vcpu_pc(vcpu));
+>> -
+>>           /* Exit types that need handling before we can be preempted */
+>> -        handle_exit_early(vcpu, ret);
+>> +        if (!vcpu_is_rec(vcpu)) {
+>> +            trace_kvm_exit(ret, kvm_vcpu_trap_get_class(vcpu),
+>> +                       *vcpu_pc(vcpu));
+>> +
+>> +            handle_exit_early(vcpu, ret);
+>> +        }
+> 
+> minor nit: Looks like we loose the kvm_exit trace. Could we add
+> something in handle_rec_exit ?
 
-Hi,
+I dropped the trace because we can't provide the PC value. I'm not sure
+what's best here:
 
-This PR has a couple of minor checkpatch warnings on 75 characters,
-which I have opted to ignore due to breaking URL or warning message.
+ (1). Provide kvm_exit trace but with a bogus PC.
+ (2). Introduce a new 'kvm_rec_exit'.
+ (3). Wait until someone comes along with a use-case and hope they
+      implement what they need.
 
-Please pull:
+Obviously my preference is 3 ;)
 
-The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
+In practice I haven't actually dropped kvm_entry (so that has a bogus
+PC), so for now I guess I'll go with (1).
 
-  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
+>>             preempt_enable();
+>>   @@ -1345,7 +1351,10 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu
+>> *vcpu)
+>>               ret = ARM_EXCEPTION_IL;
+>>           }
+>>   -        ret = handle_exit(vcpu, ret);
+>> +        if (vcpu_is_rec(vcpu))
+>> +            ret = handle_rec_exit(vcpu, ret);
+>> +        else
+>> +            ret = handle_exit(vcpu, ret);
+>>       }
+>>         /* Tell userspace about in-kernel device output levels */
+>> diff --git a/arch/arm64/kvm/rme-exit.c b/arch/arm64/kvm/rme-exit.c
+>> new file mode 100644
+>> index 000000000000..a1adf5610455
+>> --- /dev/null
+>> +++ b/arch/arm64/kvm/rme-exit.c
+>> @@ -0,0 +1,170 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only
+>> +/*
+>> + * Copyright (C) 2023 ARM Ltd.
+>> + */
+>> +
+>> +#include <linux/kvm_host.h>
+>> +#include <kvm/arm_hypercalls.h>
+>> +#include <kvm/arm_psci.h>
+>> +
+>> +#include <asm/rmi_smc.h>
+>> +#include <asm/kvm_emulate.h>
+>> +#include <asm/kvm_rme.h>
+>> +#include <asm/kvm_mmu.h>
+>> +
+>> +typedef int (*exit_handler_fn)(struct kvm_vcpu *vcpu);
+>> +
+>> +static int rec_exit_reason_notimpl(struct kvm_vcpu *vcpu)
+>> +{
+>> +    struct realm_rec *rec = &vcpu->arch.rec;
+>> +
+>> +    vcpu_err(vcpu, "Unhandled exit reason from realm (ESR: %#llx)\n",
+>> +         rec->run->exit.esr);
+>> +    return -ENXIO;
+>> +}
+>> +
+>> +static int rec_exit_sync_dabt(struct kvm_vcpu *vcpu)
+>> +{
+>> +    return kvm_handle_guest_abort(vcpu);
+>> +}
+>> +
+>> +static int rec_exit_sync_iabt(struct kvm_vcpu *vcpu)
+>> +{
+>> +    struct realm_rec *rec = &vcpu->arch.rec;
+>> +
+>> +    vcpu_err(vcpu, "Unhandled instruction abort (ESR: %#llx).\n",
+>> +         rec->run->exit.esr);
+>> +    return -ENXIO;
+>> +}
+>> +
+>> +static int rec_exit_sys_reg(struct kvm_vcpu *vcpu)
+>> +{
+>> +    struct realm_rec *rec = &vcpu->arch.rec;
+>> +    unsigned long esr = kvm_vcpu_get_esr(vcpu);
+>> +    int rt = kvm_vcpu_sys_get_rt(vcpu);
+>> +    bool is_write = !(esr & 1);
+>> +    int ret;
+>> +
+>> +    if (is_write)
+>> +        vcpu_set_reg(vcpu, rt, rec->run->exit.gprs[0]);
+>> +
+>> +    ret = kvm_handle_sys_reg(vcpu);
+>> +    if (ret > 0 && !is_write)
+>> +        rec->run->enter.gprs[0] = vcpu_get_reg(vcpu, rt);
+>> +
+>> +    return ret;
+>> +}
+>> +
+>> +static exit_handler_fn rec_exit_handlers[] = {
+>> +    [0 ... ESR_ELx_EC_MAX]    = rec_exit_reason_notimpl,
+>> +    [ESR_ELx_EC_SYS64]    = rec_exit_sys_reg,
+>> +    [ESR_ELx_EC_DABT_LOW]    = rec_exit_sync_dabt,
+>> +    [ESR_ELx_EC_IABT_LOW]    = rec_exit_sync_iabt
+>> +};
+>> +
+>> +static int rec_exit_psci(struct kvm_vcpu *vcpu)
+>> +{
+>> +    struct realm_rec *rec = &vcpu->arch.rec;
+>> +    int i;
+>> +
+>> +    for (i = 0; i < REC_RUN_GPRS; i++)
+>> +        vcpu_set_reg(vcpu, i, rec->run->exit.gprs[i]);
+>> +
+>> +    return kvm_smccc_call_handler(vcpu);
+>> +}
+>> +
+>> +static int rec_exit_ripas_change(struct kvm_vcpu *vcpu)
+>> +{
+>> +    struct kvm *kvm = vcpu->kvm;
+>> +    struct realm *realm = &kvm->arch.realm;
+>> +    struct realm_rec *rec = &vcpu->arch.rec;
+>> +    unsigned long base = rec->run->exit.ripas_base;
+>> +    unsigned long top = rec->run->exit.ripas_top;
+>> +    unsigned long ripas = rec->run->exit.ripas_value;
+>> +
+>> +    if (!kvm_realm_is_private_address(realm, base) ||
+>> +        !kvm_realm_is_private_address(realm, top - 1)) {
+>> +        vcpu_err(vcpu, "Invalid RIPAS_CHANGE for %#lx - %#lx, ripas:
+>> %#lx\n",
+>> +             base, top, ripas);
+> 
+> Do we need to set the RMI_REJECT for run->enter.flags
+> REC_ENTER_FLAG_RIPAS_RESPONSE ?
 
-are available in the Git repository at:
+Makes sense, will add.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git tags/ti-driv=
-er-soc-for-v6.16
+Thanks,
+Steve
 
-for you to fetch changes up to 877afe1ee34df54ea62ca9746aafbb1cac946bf5:
+> Rest looks fine to me.
+> 
+> Suzuki
 
-  soc: ti: wkup_m3_ipc: Use dev_err_probe (2025-05-09 06:34:27 -0500)
-
-----------------------------------------------------------------
-TI SoC driver updates for v6.16
-
-- ti_sci: Bug fix in CPU latency conversion from us to ms for TISCI protocol
-- k3-socinfo: Add JTAG ID for AM62LX
-- Code cleanups: wkup_m3_ipc: Use dev_err_probe, k3-ringacc: use
-  device_match_of_probe and knav_qmss_queue: drop unnecessary NULL check
-
-----------------------------------------------------------------
-Alexander Stein (1):
-      soc: ti: wkup_m3_ipc: Use dev_err_probe
-
-Chen Ni (1):
-      soc: ti: knav_qmss_queue: Remove unnecessary NULL check before free_p=
-ercpu()
-
-Kendall Willis (1):
-      firmware: ti_sci: Convert CPU latency constraint from us to ms
-
-Tang Dongxing (1):
-      soc: ti: k3-ringacc: Use device_match_of_node()
-
-Vignesh Raghavendra (1):
-      soc: ti: k3-socinfo: Add JTAG ID for AM62LX
-
- drivers/firmware/ti_sci.c        | 14 +++++++++++---
- drivers/soc/ti/k3-ringacc.c      |  2 +-
- drivers/soc/ti/k3-socinfo.c      |  2 ++
- drivers/soc/ti/knav_qmss_queue.c |  3 +--
- drivers/soc/ti/wkup_m3_ipc.c     |  8 +++-----
- 5 files changed, 18 insertions(+), 11 deletions(-)
-
---=20
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5=
- 849D 1736 249D
-
---vnuongetbvaxpj52
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE+KKGk1TrgjIXoxo03bWEnRc2JJ0FAmgiCe8ACgkQ3bWEnRc2
-JJ3VSg//cqLAq2iGAboinXq/KGwV3tdz8mR0MH7jjlrDV9hHTT1TDFa6UnasJmsl
-YNafSVifHYlBxi3vIMXOJ8sOt9nETw7AWPTP/YTyVaoyosw3XlkzNKoWyTYJKwzm
-uvBOb3jCBYqwqfYwCsXq8awszoN8fPxpAWJmg8NhlwJjORZICjnyBB63m8ApLB1e
-5cH/H8lhtT92fM7F1PrNI4/62woJ0srLH7sgegq24vSh0pqYdy64QFSk+ya1ZQRi
-wKAGhehUHGe7o4QQZ+BJcy9I0PJCfejJB2ZRTphtT8HMWjQhP0Aw34BZacmBtIRO
-cy3aJ0Wwc8DAtKW+yV5D1cNy4w+BuFKDgyK6XsPjVmIqaX21G+05zFePiB6bIEO4
-sbs7HlxsS5YMbor6UMMX1YLvkms1ku91lrDpyV1z/o0iN79sbXyAxPj0piDKa13r
-cLdNzIYhiOdiBCtXLxYa6y2GeZq42SNQee7XhEbLS1bhfLYLH4+cJ7MGAboJse/0
-nVG7+VoFwUUMpMl18mK6dITyr9sRz6R5tqWFV5iDJx3cklhdsowlydP1MoELJuEF
-jVcqgpFuqygrJam1qy8NDFC4xqr2ZwvDFXK9MnjcmePF2EWZmouSKROFjxr6rHNA
-QfT4hNUM8iMn4glklKPM+dNMggAmyDB1+zbdyGJdi0rw7I2vP4s=
-=npRl
------END PGP SIGNATURE-----
-
---vnuongetbvaxpj52--
 
