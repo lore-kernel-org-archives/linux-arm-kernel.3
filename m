@@ -4,76 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3601CC3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 22:24:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C801BC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 22:26:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p39rJHQ8AzeK+WJsX2y7EKX2VVM4p/4mCnZmjamECbI=; b=fbyjzDBAdADIw8HFp3+hGtlthD
-	wkgNYOYwata3wGCI0Ymgfl5lTZ0u8f+lIVxoA6JBJQd+wVT8TYKdf9o9OLW90DJ3MAOOkLuj65lTs
-	ht1a2v7y29inHhhUpTmf1CAgh+AVzAnmiUU7pZwebJBcsUk8f3HrSHhzq/w5zHCKcfwgnd03/G6Yc
-	FGO52jJq4eQUNqW/UVgMuX3UC1oXwp8rFRKySfL6+49Nq00jSJU/8hBbB8ebbyrS0S3mNKEojuIKP
-	vQD8SmJgsMFJgd4Fq5mDq7hIgjEbXs4tp6LxRN3mD+YNUSNvX2NZUKMo5pwm8Iy8YKyRPTlSxgkDQ
-	/HILj/rQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7uEhCIePExxYdeEFo86ngpZnGd6c8uwRE4+wkzGVHu8=; b=ODhPU0xdzGYRnRZ2xHf4ld/JaW
+	XzibIw1J0YLFqM3C/jiZjEdP37uygi8c3vRe3uVbumBQqXECN9rdoUQiGvSVHjuNMoINdUGaNJ4u1
+	hol/aYM+zZ0IpfXNVull72aVZz+ASK06r3NVzCKvSJiNmMYHZqEICH32+fg5Nv4Mruoo9Yp3/e6n/
+	CYBA48nCeDq9BA4CGDAihzEXIwXP9nVinDYXD0vUGVEdheH6zdVP4teBOQrZkPiJXFt56pU5Oa9d5
+	vE7B7NOy6gQ3jV8P4JFNU2xgTqg0YmboMoJZ9WbLbr61oxFgA93lFFlaStpFUwb2H4mETh/3rQTU1
+	4pQxY+1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEbZk-0000000Apwh-09KG;
-	Mon, 12 May 2025 22:24:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uEbbk-0000000Aq7b-3GV9;
+	Mon, 12 May 2025 22:26:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEami-0000000Ajsr-3utE
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 12 May 2025 21:34:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=p39rJHQ8AzeK+WJsX2y7EKX2VVM4p/4mCnZmjamECbI=; b=jEPSmdv22NTadNGeMPN8XsAd3a
-	lj2lANC+GSmjLZjWP1/vB/DhZCfeAR9rTnD/ziTZMW+CSL/gCiMo+YNCTIf42uTKUOnA/dOeaF4sD
-	cQthebx1TVQYm6nehBv0Z6K7ufYMocCJf6NhkcdZXT+ObiDNYbVF9LH2qghevIWOnQ+RSUdLBIGxC
-	9WirXLIwCYVs5xL2xedVZoQMdm44BECyjHhTdyrg0dedTp7U4+AXQ9ocU/EpTKxXMUddaOlJ3nO1O
-	IqHm3rl18YEa5G15E4nMchFtQ6pSPYRaGys82AX/xRJa6Rl5zHcJGRVvQCLNxt+BCh2qQFr+9dhKU
-	dsysRbdA==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uEamf-0000000GqDQ-1xT2
+	id 1uEb1W-0000000AlvJ-14zp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 21:34:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=p39rJHQ8AzeK+WJsX2y7EKX2VVM4p/4mCnZmjamECbI=; b=ehK2iGAcS5aPnTGjJTnqU6Q0ia
-	/Tg53DNuq7cZrXR5U7SzHUX7OGIz+MHMTrU7+Sgyj1+8qPbu499qwB1/3fTMmllnT7TrJvPzc9hI+
-	qEnntpwsYvzv3s31StaJBYfkvvxsIiEcplmapZIeRSlP8ApHKaIBUzUmKFOOQlUPctJ4=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uEamZ-00CNux-OT; Mon, 12 May 2025 23:33:55 +0200
-Date: Mon, 12 May 2025 23:33:55 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Gabor Juhos <j4g8y7@gmail.com>
-Cc: Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
-	Imre Kaloz <kaloz@openwrt.org>
-Subject: Re: [PATCH 0/7] pinctrl: armada-37xx: a couple of small fixes
-Message-ID: <60ef3803-4f8b-4d9b-bef8-6cf3708af057@lunn.ch>
-References: <20250512-pinctrl-a37xx-fixes-v1-0-d470fb1116a5@gmail.com>
+	Mon, 12 May 2025 21:49:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2F260614BA;
+	Mon, 12 May 2025 21:49:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F874C4CEF3;
+	Mon, 12 May 2025 21:49:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747086559;
+	bh=C3G81qrv7/1vX1M5v42kE//YoE6ndcm9EiYPLOoN2Ls=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=QEtubNxr+eEj63xi/ebEFe0eRwKoZZwIZFOt7BxtLa4kB9MWXlJOptYAbNhEq1xWc
+	 TgxQOjUGcl0+ztD0HEMgcHbwn8rp5P3vMdaZywMT4+WpJgoFwXqoYKlyvdG9X1v9lW
+	 VSYgw1AmVVa9nsB1gklZy1gFsQcUoehjrIIuoroauhyR8psHOQFfT8Cifh7s4XTNPa
+	 JiCofIyn7VPc+CU7CdTxtmEUJRrDghrVuPkDShxi7B1F7m7KDru/RJHsof04DYbOpV
+	 VHeLDUihKXSscRaEzAXCIH/W60foyvlC7FJUvnUrWbtXk6zD+E3cxw2B5OxH2jlX/t
+	 H4w7lzNpyhZlg==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Konrad Dybcio <konradybcio@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Stanislav Jakubek <stano.jakubek@gmail.com>
+Cc: linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	phone-devel@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/4] Moto G (2013) DTS updates
+Date: Mon, 12 May 2025 22:48:53 +0100
+Message-ID: <174708642735.3671.12706246098012962690.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <cover.1746711762.git.stano.jakubek@gmail.com>
+References: <cover.1746711762.git.stano.jakubek@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250512-pinctrl-a37xx-fixes-v1-0-d470fb1116a5@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_223401_966253_E5855CB1 
-X-CRM114-Status: UNSURE (   8.32  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,13 +76,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 12, 2025 at 04:22:36PM +0200, Gabor Juhos wrote:
-> The series contains several small patches to fix various
-> issues in the pinctrl driver for Armada 3700.
 
-I'm not sure all these should be for stable. Some are clear bugs, but
-not propagating the errors has not bothered anybody so far, a
-requirement for stable.
+On Thu, 08 May 2025 16:11:05 +0200, Stanislav Jakubek wrote:
+> This series improves the accuracy of motorola-falcon's DTS.
+> 
+> As a side note, I wanted to ask how to describe the Hall effect sensor's
+> vdd-supply. The sensor's currently described as part of the gpio-keys node.
+> According to the schematic it's powered by pm8226_lvs1, but I don't see a way
+> to describe this as part of the gpio-keys node (maybe it's always-on because
+> of this? Downstream describes it as gpio-keys too). Any tips?
+> 
+> [...]
 
-	    Andrew
+Applied, thanks!
+
+[1/4] ARM: dts: qcom: msm8226-motorola-falcon: add clocks, power-domain to simpleFB
+      commit: cbcd04ab82c61dc777a4b56014292b9467f10c4e
+[2/4] ARM: dts: qcom: msm8226-motorola-falcon: add I2C clock frequencies
+      commit: db6e3f2ba0bf6ad069347050ff62f29ef0d88b14
+[3/4] ARM: dts: qcom: msm8226-motorola-falcon: limit TPS65132 to 5.4V
+      commit: 7bce56fd73ee7264ed04418dab1719164e42f113
+[4/4] ARM: dts: qcom: msm8226-motorola-falcon: specify vddio_disp output voltage
+      commit: e41ece7cd173486f6767de050deb2d8f0882a82a
+
+Best regards,
+-- 
+Bjorn Andersson <andersson@kernel.org>
 
