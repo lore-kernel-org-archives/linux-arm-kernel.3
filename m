@@ -4,91 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A102C3ABD7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:58:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FEC6C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 15:01:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RKMd5G0cFDMucPOpi+tWbuy3t/lyFnn71icIWCgXypM=; b=hf8dcwhX9OJ5vLTCvMsS65BITm
-	xhjOjJvVeBmXXv34eUdeGI3EJMSxGKLbIgsIFaotGi1J5OAoV6C8QIK3YVKl8r4IQQjlvEaYIUeRB
-	TeFI3DF2rdDzl3/vuUc06d7WLBemHpN1MAKeAg2MUiM2B+UJxkaWBRM5KQo+y7tU6DA8jrHWR2UCR
-	W9ist8mtAZf8HXPvD/AS9I9Rbmz0uLT9HOzeWgEWDx3AptUp+Z7QZJGq9rpzCXhpcptp6La3HsR+t
-	OPWL24z7uMUn5GPeXQoFMWp2uUbrkRvL+xly4fn15Y0QKhhfynBYBdevR5zQjA2eR3fh+RMDpLXn4
-	EAgGj2fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bulm+OAY6G9mwFtOIOO/nNbm8lthx9J/UosG91L7fxY=; b=MjBn3UMCUBnxFN7dcG/P4uRlRv
+	7FmGrGG/J8dGebxZFWKYg2D3aU0+/iILWFqKu97xfIYH/WnMlbf0CjN+UJWYNfQHj5282khwxytO9
+	oHvU+YaEjOvyLzVvZbqWzN8C7fzEq2tbgzFJ7abpMoxsVSwTBR2TMTVJ+mHzUQqBPe5rmXJBVhURI
+	xrv3fcMgx6RZtXT06V7Ya0QWmPFG/4lW2sZhkCvbHtWHy+fgCEkmb1eYEY52mKMY73Menq8MtocxU
+	30+N29ZlGcKj6C7RdoK/DsVYoVgHKLLiDrMeKqY1iuGQVFmh+E/pvQLmk6Al2RLjUglnLMpMzBc5/
+	EbS+/gag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEUc8-00000009ogM-3nA6;
-	Mon, 12 May 2025 14:58:45 +0000
-Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
+	id 1uEUeE-00000009pL3-2TCn;
+	Mon, 12 May 2025 15:00:54 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEU7M-00000009j5D-3Bgz
+	id 1uEUA2-00000009jcG-2OFy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 14:26:57 +0000
-Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-6f0c30a1cf8so78298416d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 07:26:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=libre.computer; s=google; t=1747060015; x=1747664815; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=RKMd5G0cFDMucPOpi+tWbuy3t/lyFnn71icIWCgXypM=;
-        b=CqkBG29zhpmE/M5FtIvKXpzPZtqM8vrIwCT/V++MzR8Nhtb0t2P7RvpEsBz5pGRR8N
-         CG56T42k5U81rAnWWkdwCVWK+2Aaj8lD23ifnXy+6BpFr2SZUHc9TxbRq4t1VEYWdB8x
-         /js3fYdyv5XazW6YmYZlF1OAnLaV0WkgFviX5op2Wa4sVNoim1rbceHchd/vQPBNwNse
-         VqCZI7LInIJbWafujFxCh5SVK0mlqvUxmLL/VX4ZmZLEYUtqT2Bg4/mBqLkaEW34IXCG
-         P9v0TC0blr5Wodn3FZCVGG0Nh1C9HjROO7UBXqR1g0lrGxZ4JGaVu3CVA3kpxP3dBFch
-         8ThQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747060015; x=1747664815;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=RKMd5G0cFDMucPOpi+tWbuy3t/lyFnn71icIWCgXypM=;
-        b=J1VVSlETc6pcAlaozaLvLLqsCAtzn+FfJpQgaBMZwUe0eBqlSwoxphEok8mHsz0Nb6
-         riTF0rSvrIZveyU/dPkR+iDQijhtxUqwbQUMrJe8KfgZyNauvXlE//buK6nDiWXGHlA1
-         B2FxRJ3jzpGM0RAEpsYAEniu60U5UvtnyfLzwOU43Yo5doDNkm5wiVqEgkl3Q6nIfZZc
-         Fi4DhzkOEyKe4PXoAtardJmPnU+KYQ711CgWzvAdl7cfRkysxpRxffx9nwstxJAMjG4f
-         FxlivvYONhwonxdjZ9xgOqE4uqMnhDCqYUEUDJeKKMSw898twG2Tz0KmMH54pJfXHLcC
-         qP8w==
-X-Forwarded-Encrypted: i=1; AJvYcCUQGeADnFAGICN3Uwr67kNjqc+8/ymCBPmwLtDpjWutSqkWivsVjba1cpV/bJUAIhqdCBmM35SLpxJchIoxrJy9@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtZfd550Fwdn3v1q11XQ5jzEueEaiRGMes0IS8zGHT2WkOUm68
-	dO83oan4ZueeVgBk1DgTCyaMROyQ1aLAucOm71UKvMRELBD6gSdOG/5vQgH4sg==
-X-Gm-Gg: ASbGncsl2Xd6lSANokCPHB/bC6QZ3V7G+E54RGYtBcHr5yXpwkLqc8wTgrDPRpW1KiY
-	/GGpVu3AO/s3MstEzbEvnX3Lgskbuh8/62tgqn994Y53sBiHMD98dQ29EUB8Z9n4BkLSmd02Iam
-	5IVVohbM6oo3M7nh+94cm0c9hN9rAVMpIPjFJ+jgPpTAWAfv5Hu3K9AHVl43JiXmFpw7LKo8v3M
-	zdRU16y68M7nPOkOO5H6xE9AZG3y0YjssySkH/9dKlCmjtgSUGmeYj1LIZJ968XdjdPrhNS5QOf
-	sxmI7nIL+gG2EAvfh/1qfn3JQG/ksTX1n9RgdVnS66HB5evt
-X-Google-Smtp-Source: AGHT+IHwLWxHT8fQlj2kksRDBg+A0JhtXKo+AreGOwt+ETP5hLx/Dy37l3apsuA9OkV+nl0kGKBq4w==
-X-Received: by 2002:a05:6214:300e:b0:6cb:ee08:c1e8 with SMTP id 6a1803df08f44-6f6e47fa918mr229336596d6.23.1747060013390;
-        Mon, 12 May 2025 07:26:53 -0700 (PDT)
-Received: from localhost ([2607:fb91:214c:42a4:3793:dd95:dfa1:719a])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6f6e393df31sm53362726d6.0.2025.05.12.07.26.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 May 2025 07:26:53 -0700 (PDT)
-From: Da Xue <da@libre.computer>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: Da Xue <da@libre.computer>,
-	stable@vger.kernel.org,
-	linux-amlogic@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] clk: meson-g12a: add missing fclk_div2 to spicc
-Date: Mon, 12 May 2025 10:26:16 -0400
-Message-Id: <20250512142617.2175291-1-da@libre.computer>
-X-Mailer: git-send-email 2.39.5
+	Mon, 12 May 2025 14:29:43 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1747060180;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Bulm+OAY6G9mwFtOIOO/nNbm8lthx9J/UosG91L7fxY=;
+	b=4rinRmW/uHX018N9DTYr1SW3h7Gu25O2gbpdwtFNhPlVbNQvUwcr9VHWmVpF3nfsYzqqmc
+	KVce5f4CcEK9fIKVKT0LGr1vwauRVdMqo6Zeosa4WxKBPuKdxrWmxXQWRU53sNvP4Eg04H
+	bdMUpaO2SBM1JzYM/GpCWzXbxomu1h5XIHxQAIktWV1ZeTSoz1iq1xqYBBv+ZH1YyXah0c
+	ml30ow+kz8VjwD9/kmNpLQGMa5ssSvMRjk6UjPiYbiTCyp3Wx908+6gCvMd5QKcf9Kfrev
+	mFrJwvC8ijh/viUhHQRt3bhXB22TGZ6tSwCvbt5Szvg+Di3gbkrMvnnSP4OEEg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1747060180;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Bulm+OAY6G9mwFtOIOO/nNbm8lthx9J/UosG91L7fxY=;
+	b=hdgwawyoaz9LAbwRHhGPcvSIjfXofFwW37OX343vDtRGeIc57x8igVldAwumhSllL9Gpi1
+	3YktCIBb4sSGy1Bg==
+To: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Sascha Bischoff
+ <sascha.bischoff@arm.com>, Timothy Hayes <timothy.hayes@arm.com>
+Subject: Re: [PATCH 1/4] genirq/msi: Add .msi_teardown() callback as the
+ reverse of .msi_prepare()
+In-Reply-To: <20250511163520.1307654-2-maz@kernel.org>
+References: <20250511163520.1307654-1-maz@kernel.org>
+ <20250511163520.1307654-2-maz@kernel.org>
+Date: Mon, 12 May 2025 16:29:39 +0200
+Message-ID: <87h61plx64.ffs@tglx>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_072656_915551_AC47716D 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20250512_072942_757452_EB7071ED 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,34 +77,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SPICC is missing fclk_div2 which causes the spicc module to output sclk at
-2.5x the expected rate. Adding the missing fclk_div2 resolves this.
+On Sun, May 11 2025 at 17:35, Marc Zyngier wrote:
 
-Fixes: a18c8e0b7697 ("clk: meson: g12a: add support for the SPICC SCLK Source clocks")
-Cc: <stable@vger.kernel.org> # 6.1
-Signed-off-by: Da Xue <da@libre.computer>
----
-Changelog:
+> While the MSI ops do have a .msi_prepare() callback that is
+> responsible for setting up the relevant (usually per-device)
+> allocation, we don't have a callback reversing this setup.
 
-v2 -> v3: remove gp0
-v1 -> v2: add Fixes as an older version of the patch was sent as v1
----
- drivers/clk/meson/g12a.c | 1 +
- 1 file changed, 1 insertion(+)
+..., there is no callback reversing ...
 
-diff --git a/drivers/clk/meson/g12a.c b/drivers/clk/meson/g12a.c
-index 4f92b83965d5a..b72eebd0fa474 100644
---- a/drivers/clk/meson/g12a.c
-+++ b/drivers/clk/meson/g12a.c
-@@ -4099,6 +4099,7 @@ static const struct clk_parent_data spicc_sclk_parent_data[] = {
- 	{ .hw = &g12a_clk81.hw },
- 	{ .hw = &g12a_fclk_div4.hw },
- 	{ .hw = &g12a_fclk_div3.hw },
-+	{ .hw = &g12a_fclk_div2.hw },
- 	{ .hw = &g12a_fclk_div5.hw },
- 	{ .hw = &g12a_fclk_div7.hw },
- };
--- 
-2.39.5
+> For this purpose, let's a .msi_teardown() callback. This is
 
+'let's a ...' is not a sentence. Just say: add a .... calback.
+
+> reliying on the msi_domain_info structure having a non-NULL
+
+  ^^^^^ spell check is your friend.
+
+> alloc_data field.
+>
+> Nobody is populating this field yet, so there is no change
+
+No driver is ..
+
+>  
+> +static void msi_domain_ops_teardown(struct irq_domain *domain,
+> +				    msi_alloc_info_t *arg)
+
+No line break required.
+
+> +{
+> +}
+> +
+>  static void msi_domain_ops_set_desc(msi_alloc_info_t *arg,
+>  				    struct msi_desc *desc)
+>  {
+> @@ -821,6 +826,7 @@ static struct msi_domain_ops msi_domain_ops_default = {
+>  	.get_hwirq		= msi_domain_ops_get_hwirq,
+>  	.msi_init		= msi_domain_ops_init,
+>  	.msi_prepare		= msi_domain_ops_prepare,
+> +	.msi_teardown		= msi_domain_ops_teardown,
+>  	.set_desc		= msi_domain_ops_set_desc,
+>  };
+>  
+> @@ -842,6 +848,8 @@ static void msi_domain_update_dom_ops(struct msi_domain_info *info)
+>  		ops->msi_init = msi_domain_ops_default.msi_init;
+>  	if (ops->msi_prepare == NULL)
+>  		ops->msi_prepare = msi_domain_ops_default.msi_prepare;
+> +	if (ops->msi_teardown == NULL)
+> +		ops->msi_teardown = msi_domain_ops_default.msi_teardown;
+>  	if (ops->set_desc == NULL)
+>  		ops->set_desc = msi_domain_ops_default.set_desc;
+>  }
+> @@ -1088,6 +1096,10 @@ void msi_remove_device_irq_domain(struct device *dev, unsigned int domid)
+>  
+>  	dev->msi.data->__domains[domid].domain = NULL;
+>  	info = domain->host_data;
+> +
+> +	if (info->alloc_data)
+> +		info->ops->msi_teardown(domain, info->alloc_data);
+
+Hmm, that's weird.
+
+Why not call it unconditionally. The empty teardown() default callback
+does not care about @arg being NULL. No?
+
+Thanks,
+
+        tglx
 
