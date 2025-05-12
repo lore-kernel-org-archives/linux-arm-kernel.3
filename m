@@ -4,71 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06005C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 17:10:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19428C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 17:12:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FBGQ4dL6mRz4agiTt0D4ib2rg0LUW5HyTTZk9Q21lpk=; b=Tky8QwF8oLq2KN9yKs+VZlHhPb
-	6nQw6cG+AL4FAveq3+O4ZHKG/k1W1PTk45GFjDSgY11yYiFFV8Rwt4FfmtNk/hzlAkHQCqNahTlFK
-	rpj3jIrMWtUvH6ct1AvzjpBNkAZQCKtkyPML1j38iow1Jq3qhHV1GGridihhNKCu4CIIIXWu4cD0z
-	SvVeuVdVofrStw9nEtW9YplN3GvQlBgcdEeP1EXNQ78vpSRMfGY36f/Od3RNyAAkbq8TZVSTcQ+tm
-	5xF68LZUpnTns2NSgbyp38pmdXksj525JJeYrtP5/Fbl5ZaNpxiVQXxdQHsmB6yUxlFfk2WQLeXzn
-	pimQInlA==;
+	bh=EkN0dlLALC2UeplpaazKbGrH2/hD5LNonlphlZCYZk4=; b=gFefDDKHfcJS6Rc/YGF93pBGQv
+	HwUwXocwMQScZR1mtmUH6nnNtRM0SY2N8rk2W2IWbcobNRmjNw4PfWy+7wP+/KhOULVofVOdSsnPJ
+	q9f+P5RC0XvS0i+1Y5QFGg/p+jGoBwcLKNvUmDb4MHGRZRe9/Fz/gurZV88WEKLS3RXphXbEgXOQ8
+	JidC0FOKeLeUF7WgLgqz0+P1OUFl/rlT0JmdBQqD8FD863Y5YVglONizVBj8YnTTM2hSUOtmzHqVt
+	eTXOzluWwjFIPczwV4wphTUJ0YPY3q1gPQ++k2LZFEFcsNxCrdviBwFlk7JZdPV19hOeK82mO7d82
+	9yKdhvhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEWfY-0000000AASA-0Yuw;
-	Mon, 12 May 2025 17:10:24 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEVt9-0000000A0lo-3YUE
+	id 1uEWhY-0000000AAiP-3sDp;
+	Mon, 12 May 2025 17:12:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uEVtw-0000000A0x4-03fL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 16:20:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 09D455C547B;
-	Mon, 12 May 2025 16:18:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4096C4CEE7;
-	Mon, 12 May 2025 16:20:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747066823;
-	bh=b5ymMBBwucx7+JF/datxr1WkwzE4Zs8iDCFOHv48tqI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VjysGgJzJJLphZ0edNmXQywCsu+ffDslXm+r0ytGgaxUaypHawC+Te0sEGQSW5FE7
-	 h3Yn0kU5FjnoN3Iv2zwNmeQ3Q6+QEx5Nq6V3uqKl2GXXvTCsYJEe8E8WtH2Z/2CVnY
-	 a5O3iLfMe/AlsxVbEq8ZCx76qgd6PfwXLxEgeuJLMOBX3tOY/ipPdnMeABgONzb8hc
-	 r7Rvuwv/dd/b/arkXtedAVynMIsTqGMWPNZr5o5557B82zTv5tmPiLHmBpU+QS+jqU
-	 kSX7rsdTwW+G7Dfj7eZzGfnPnhL0/Svge1/cY6g/ZpUcHacq2l6HCbF6ah+D8fvL16
-	 D9MQqxMB1ee/A==
-Date: Mon, 12 May 2025 17:20:17 +0100
-From: Conor Dooley <conor@kernel.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 1/3] dt-bindings: firmware: nxp,imx95-scmi-pinctrl:
- Introduce nxp,iomuxc-daisy-off
-Message-ID: <20250512-mongoose-vacation-f81a56dd6c5d@spud>
-References: <20250512-pin-v1-0-d9f1555a55ad@nxp.com>
- <20250512-pin-v1-1-d9f1555a55ad@nxp.com>
+	Mon, 12 May 2025 16:21:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 842AA14BF
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 09:20:58 -0700 (PDT)
+Received: from e110455-lin.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 47BDC3F63F
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 09:21:09 -0700 (PDT)
+Date: Mon, 12 May 2025 17:21:03 +0100
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Leo Yan <leo.yan@arm.com>
+Subject: Re: [PATCH v2 1/3] arm64: dts: fvp: Add system timer for broadcast
+ during CPU idle
+Message-ID: <aCIf71dwiloB-Mrm@e110455-lin.cambridge.arm.com>
+References: <20250509154640.836093-1-sudeep.holla@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="p3X005M6v+zmT/88"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250512-pin-v1-1-d9f1555a55ad@nxp.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250509154640.836093-1-sudeep.holla@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_092023_978948_3071BB63 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20250512_092112_094208_8221B192 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,76 +65,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, May 09, 2025 at 04:46:38PM +0100, Sudeep Holla wrote:
+> Introduce a system-level timer node in the FVP device tree to act as
+> a broadcast timer when CPUs are in context losing idle states where
+> the local timer stops on entering such low power states.
+> 
+> This change complements recent CPU idle state additions.
+> 
+> Tested-by: Leo Yan <leo.yan@arm.com>
+> Message-Id: <20250508103225.354925-2-sudeep.holla@arm.com>
+> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 
---p3X005M6v+zmT/88
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+For the whole series:
 
-On Mon, May 12, 2025 at 10:14:14AM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
->=20
-> The IOMUX Controller in i.MX9 family has Daisy chain that multi pads drive
-> same module input pin. Each SoC has its own register offset, so
-> introduce "nxp,iomuxc-daisy-off" property to specify the daisy register
-> offset. With this property being parsed by driver, there is no need
-> to hardcode the offset in pinctrl driver for each new SoC.
->=20
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
+
+Best regards,
+Liviu
+
 > ---
->  .../devicetree/bindings/firmware/nxp,imx95-scmi-pinctrl.yaml      | 8 ++=
-++++++
->  1 file changed, 8 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi-pi=
-nctrl.yaml b/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi-pinc=
-trl.yaml
-> index a96fc6cce502c10ab415e0b26bff1be8c3bc82f5..b5b2a9c8688a7f6525cdb6a32=
-db22681f4f1a0b9 100644
-> --- a/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi-pinctrl.y=
-aml
-> +++ b/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi-pinctrl.y=
-aml
-> @@ -13,6 +13,11 @@ maintainers:
->  allOf:
->    - $ref: /schemas/pinctrl/pinctrl.yaml
-> =20
-> +properties:
-> +  nxp,iomuxc-daisy-off:
-
-Same comment here as was left on the driver.
-I also don't get why there's a property being introduced from something
-you can determine based on the soc.
-
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: Specify the IOMUX Controller first Daisy register's off=
-set
+>  arch/arm64/boot/dts/arm/fvp-base-revc.dts | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
+> v1->v2:
+> 	- Dropped clock-frequency property
+> 	- Fixed #size-cell to 1 as expected by the schema
+> 	- Also update the ranges property and the frame reg property
+> 
+> diff --git a/arch/arm64/boot/dts/arm/fvp-base-revc.dts b/arch/arm64/boot/dts/arm/fvp-base-revc.dts
+> index 9e10d7a6b5a2..50b5993a2460 100644
+> --- a/arch/arm64/boot/dts/arm/fvp-base-revc.dts
+> +++ b/arch/arm64/boot/dts/arm/fvp-base-revc.dts
+> @@ -217,6 +217,19 @@ timer {
+>  			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
+>  	};
+>  
+> +	timer@2a810000 {
+> +		compatible = "arm,armv7-timer-mem";
+> +		reg = <0x0 0x2a810000 0x0 0x10000>;
+> +		ranges = <0 0x0 0x2a820000 0x20000>;
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		frame@2a830000 {
+> +			frame-number = <1>;
+> +			interrupts = <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>;
+> +			reg = <0x10000 0x10000>;
+> +		};
+> +	};
 > +
->  patternProperties:
->    'grp$':
->      type: object
-> @@ -51,3 +56,6 @@ patternProperties:
->        - fsl,pins
-> =20
->  additionalProperties: true
-> +
-> +required:
-> +  - nxp,iomuxc-daisy-off
->=20
-> --=20
-> 2.37.1
->=20
+>  	pmu {
+>  		compatible = "arm,armv8-pmuv3";
+>  		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
+> -- 
+> 2.34.1
+> 
 
---p3X005M6v+zmT/88
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaCIfwQAKCRB4tDGHoIJi
-0khFAQC5DQ545yCr9AEOhKd8i29tmIKpIty6ZUOCeKl1lWVjdgD/ZzV9eDXWsx6D
-TpQsgh7YeLJOZL4WeO+YJ6gCuuFgHwk=
-=StPd
------END PGP SIGNATURE-----
-
---p3X005M6v+zmT/88--
+-- 
+====================
+| I would like to |
+| fix the world,  |
+| but they're not |
+| giving me the   |
+ \ source code!  /
+  ---------------
+    ¯\_(ツ)_/¯
 
