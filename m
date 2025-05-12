@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4950AC3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:17:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB62C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O+V+RCvpoAaGRFT4GZBhiApWS5v7S4yG0iss69ry+Po=; b=NfZipF4uSrw8p+al6MX5oURxEb
-	hILJqeV8Zma8L0miuRoyRdJA1CkR5YCxB8MYrQo/fImHCtDSnMxPk5uBsneUV3ZmN/6TFguByS0Mz
-	mMCAwqd3m9oJxS/EbqwNdwLgG4cyzW2/RE/H6JDTn16LN/Wk7dYxkO+YMilnWrgq2xpJ05TMv7bE3
-	zVWcNOkMl7ih12fcfOTcxDU9DHcL64X/DU+3cAfS6dTT5RM+5O+CfFicPvtCmmEQmzIM3zgu0f7EK
-	I2SpFLmnrBeFS47SdZgy2Wuabdh2/YUo9imA45+uGsYci7mZQdsRJAil+DLTFVcA1hekFiF1oOVNf
-	2dHu3ZIg==;
+	bh=AASHpsRHnOZG9zKaO4b8aEY6Wtqtt0rsAjyKr+LKDW0=; b=SqL9jQPQq+EeLzO/hUZrI0VWhg
+	HQBZHtrV2SfhAMTQ7Fb4YRE986DqKZeAc8SlfE3HbXqe/g9tX8fpGMtmVMJyFwrAqU/8E1Chc7A6p
+	6fdiRQN1JqDW95/uzU6HG/eUU9RibH79lDslGrP1hBAPJCEOJ80fqWunPaoZnnRdp/q51g7ot6AWP
+	oaSOkVpFBoyTUyacB8qYa4C2hasgQRvMqq/Afr61x8/33bD/yuHIBXzaWQwk3p0r2IPMpmmyKX45+
+	0GJCWVOh0HVhkPUmnDIwtCI4hM+uxmEDt39S9Xrd43lh5Y9ZPhKjxI2MPX9XhlXN4fj9vkYv+hwuv
+	yDTe83ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uETyR-00000009h9R-1hCZ;
-	Mon, 12 May 2025 14:17:43 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uEU0Y-00000009hM4-20hn;
+	Mon, 12 May 2025 14:19:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uETFu-00000009Z9k-2mS6;
-	Mon, 12 May 2025 13:31:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=O+V+RCvpoAaGRFT4GZBhiApWS5v7S4yG0iss69ry+Po=; b=Co6n9zSvwNUsxs6gnNNk3Jo6KX
-	xK5oFL4yQV10FygzxSVW0Lc9tRJk7exKi9G5xm2wAlQXL4BVmCeMdoc2Cw50s/XYPw5+hoEAz/Jh9
-	HMfEey7XQqTz+Yt9jo6VIYtS8bziHyuO67q8DSaFZWsJH5erR2/8vTPEi6flXiM1bPXC9uFZVfKsa
-	GrH7rIRVtUiGinhT8ZV/LUq+kDmXJRasTmq//5IT06hbOkOj8YJNbFyKazqHA5HpNekXp4+1z0wab
-	2/9t/z5auo5hpJXvVA5VzCyuO3NALLe3R8vDuGqhk4E0H3uFMcFJJSEewW296QKk7sEArOw/w1Vd1
-	YsgwY3Qw==;
-Received: from i53875a50.versanet.de ([83.135.90.80] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uETFV-0006NF-9J; Mon, 12 May 2025 15:31:17 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: robh@kernel.org, chainsx@foxmail.com
-Cc: chainsx@foxmail.com, conor+dt@kernel.org, krzk+dt@kernel.org,
- sfr@canb.auug.org.au, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v1 0/2] Add support for Firefly Station-M3/ROC-RK3588S-PC
-Date: Mon, 12 May 2025 15:31:16 +0200
-Message-ID: <3612514.V25eIC5XRa@diego>
-In-Reply-To: <tencent_D5C17F39C684CD6491505763B23BACCE5106@qq.com>
-References: <tencent_D5C17F39C684CD6491505763B23BACCE5106@qq.com>
+	id 1uETHw-00000009ZRV-0zl2;
+	Mon, 12 May 2025 13:33:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 04F855C6550;
+	Mon, 12 May 2025 13:31:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A5B9C4CEE7;
+	Mon, 12 May 2025 13:33:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747056827;
+	bh=OSuhz6e6dWLHgaJVphGkxlbYoGHl5jGwOBDIywZ3Y+0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sTxn49JHIXPhIbCuuiv+9AmgFbzDFHaISnc8qvXkrAFUEKgumncOY6oMUsqAGbaYw
+	 7cZtl41uGkvMgncv8oLMjGidAWp2Ldjkj2nsM9OHDxTdFhxjXzq6G8rrqE7+1iSa36
+	 NFl23db7pTc/PBBGp+YylsBcHHiv7RC6TlsTm1m2HHz7goXJnD/MevXpx2nhQ4uFgb
+	 bzQn+T+60WJYVEiawF4RFFKz9t7zA0sSelsQ3AZ1UMsnz/JH7EhZe+1iOGjjgo51Zn
+	 Nu361r8xEoe52fIPJfRpkWjfCARz7khX954eeyHpkWrKFA5dB6rxnWf8KwPQQkHu4q
+	 kgnWRv2Bt7Nrw==
+Date: Mon, 12 May 2025 14:33:42 +0100
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH net-next v2 2/2] net: airoha: Add the capability to
+ allocate hw buffers in SRAM
+Message-ID: <20250512133342.GB3339421@horms.kernel.org>
+References: <20250509-airopha-desc-sram-v2-0-9dc3d8076dfb@kernel.org>
+ <20250509-airopha-desc-sram-v2-2-9dc3d8076dfb@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250509-airopha-desc-sram-v2-2-9dc3d8076dfb@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_063142_717220_22216A6B 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20250512_063348_356875_7F1DD3DF 
+X-CRM114-Status: GOOD (  20.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,31 +80,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, May 09, 2025 at 04:51:34PM +0200, Lorenzo Bianconi wrote:
+> In order to improve packet processing and packet forwarding
+> performances, EN7581 SoC supports allocating buffers for hw forwarding
+> queues in SRAM instead of DRAM if available on the system.
+> Rely on SRAM for buffers allocation if available on the system and use
+> DRAM as fallback.
+> 
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-Am Montag, 12. Mai 2025, 15:20:48 Mitteleurop=C3=A4ische Sommerzeit schrieb=
- chainsx@foxmail.com:
-> From: Hsun Lai <chainsx@foxmail.com>
->=20
-> This series add support for Firefly Station-M3/ROC-RK3588S-PC.
->=20
-> Info of device can be found at:
-> https://wiki.t-firefly.com/en/Station-M3/index.html
->=20
-> Changes in v1:
-> - Add support for Firefly ROC-RK3588S-PC
->=20
-> Hsun Lai (2):
->   dt-bindings: arm: rockchip: Add Firefly ROC-RK3588S-PC
->   arm64: dts: rockchip: add DTs for Firefly ROC-RK3588S-PC
+Reviewed-by: Simon Horman <horms@kernel.org>
 
-hmm, you seem to be using git-send-email, but your mails did not
-get in-reply-to headers. Normally git-send-email should detect the
-cover-letter + patches thing and tie them together to a mail thread
-when you send them with a "git send-email *.patch" or similar .
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 57 +++++++++++++++++++++++++++-----
+>  1 file changed, 48 insertions(+), 9 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
 
+...
 
-Heiko
+> @@ -1088,12 +1091,45 @@ static int airoha_qdma_init_hfwd_queues(struct airoha_qdma *qdma)
+>  
+>  	airoha_qdma_wr(qdma, REG_FWD_DSCP_BASE, dma_addr);
+>  
+> -	size = AIROHA_MAX_PACKET_SIZE * HW_DSCP_NUM;
+> -	qdma->hfwd.q = dmam_alloc_coherent(eth->dev, size, &dma_addr,
+> -					   GFP_KERNEL);
+> -	if (!qdma->hfwd.q)
+> +	name = devm_kasprintf(eth->dev, GFP_KERNEL, "qdma%d-buf", id);
+> +	if (!name)
+>  		return -ENOMEM;
+>  
+> +	index = of_property_match_string(eth->dev->of_node,
+> +					 "memory-region-names", name);
+> +	if (index >= 0) { /* buffers in sram */
+> +		struct reserved_mem *rmem;
+> +		struct device_node *np;
+> +		void *q;
+> +
+> +		np = of_parse_phandle(eth->dev->of_node, "memory-region",
+> +				      index);
+> +		if (!np)
+> +			return -ENODEV;
+> +
+> +		rmem = of_reserved_mem_lookup(np);
+> +		of_node_put(np);
+> +
+> +		/* SRAM is actual memory and supports transparent access just
+> +		 * like DRAM. Hence we don't require __iomem being set and
+> +		 * we don't need to use accessor routines to read from or write
+> +		 * to SRAM.
+> +		 */
 
+Thanks for this comment. IMHO It is really useful.
 
+> +		q = (void __force *)devm_ioremap(eth->dev, rmem->base,
+> +						 rmem->size);
+> +		if (!q)
+> +			return -ENOMEM;
+> +
+> +		qdma->hfwd.q = q;
+> +		dma_addr = rmem->base;
+> +	} else {
+> +		size = AIROHA_MAX_PACKET_SIZE * HW_DSCP_NUM;
+> +		qdma->hfwd.q = dmam_alloc_coherent(eth->dev, size, &dma_addr,
+> +						   GFP_KERNEL);
+> +		if (!qdma->hfwd.q)
+> +			return -ENOMEM;
+> +	}
+> +
+>  	airoha_qdma_wr(qdma, REG_FWD_BUF_BASE, dma_addr);
+>  
+>  	airoha_qdma_rmw(qdma, REG_HW_FWD_DSCP_CFG,
+
+...
 
