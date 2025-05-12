@@ -4,163 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C026C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 03:49:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 283AEC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 03:57:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bRdXLm2J5pQQHgcBLJseImvGOJ85of8HYr/z3girkwg=; b=loH/MbQmPbYri5wynZvvlELroZ
-	DQGO4KhJaLXP5qMss+t/aSV2odnlzqQunxbRks19GmV0q9m495qe7R75zvcMX4AU/lF0jLS7F/2Is
-	XbwrEMWq1I+Rjzir4lG7gVSDMT0Ws+yU0drqHlrBkb1O52sV5Fthe35lpohnbLZcGv5xzsZOroocW
-	YYuoQZwC1LUCQK4uPEDFZdOa17PV55malPEW21QzZKIiWBw0CKyxG6e0Keg2KshtDgRbyYE9EZ56o
-	esYacQvaftMz5JHXzimyAKoYMbao7rD0f5iaKRpVACVYZQ1ynM9z6pca+Vl/iyai3xqL62VdfmYpj
-	kzlFVrDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QKYhG73DgTzdzGbCDN3buAMRRvqorJzXDUPZ8hgusWg=; b=Uaho5ixDt48DX5+5X34FdhPNeF
+	3oHYDr40bSgIar/nyqeHgJC96tGVM1ef1GJOniWsFY3n6mDkqGOArlp7S8ZHMNheGZ2h0l8zxxKbw
+	j7BYhui06CmlkS4WMuQZAgj5rM5xhsRf6k7l//QwQfbbVKTblSHHkUEdGcyXMMHf1r73jQ+NmCE5I
+	WoN+pi2OGPrwWi3AYXsbUmjPNn4Tfc3BowvmChpZYW+d6Z95xEuBt/AgS5DE40+9YbbtOgS9EczS7
+	ghqYRIrZfkhL36Sd7dSAamh9YIgvM9RPgYM/XfIlUxUEN2xBuqWrENymVDuqU5Z/YxiqHId61CHYW
+	tP/tCNsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEKA8-00000008ItU-29JQ;
-	Mon, 12 May 2025 03:49:08 +0000
-Received: from mail-db5eur02on20603.outbound.protection.outlook.com ([2a01:111:f403:2608::603] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	id 1uEKHe-00000008JGu-3Ubo;
+	Mon, 12 May 2025 03:56:54 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEK84-00000008Im0-1KcE
+	id 1uEKFb-00000008J5N-0SnP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 03:47:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=E7M3nzejX61p0cmYLUF0N/ED83Hs57q9oRACGPtT0ucnEfkrmXE1ATDi1QtadxcQX/Gg/LMpElxSsRTQPIa6Dc7IdImbZ+TElX477mQucTk6mIeKK1EMRD/Vr+YW7X6RwqtDdZSNGzOgDBmd7SJtFJNQkolT7dzz7iQz62HIizEwUu6wCYE53O4zkk/yW0H4ug7Gn6KfOVcMJSHqv+bv3eI/+z230abiooX3fnGkBugUweLk3CZeqZIZOlu0p+kcnpOobYcDyxkw6x10L8ex4yPYfPAiXae6KsUXl3JCNQ2c4MmowitEJnwg42Ee2+M5O96DgXMdj1Mp1rA4cLRLGQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bRdXLm2J5pQQHgcBLJseImvGOJ85of8HYr/z3girkwg=;
- b=ZVH+TrONFaP2ibGMUCHH15e7bJ2zaldjZjtdIlW1pl/7u3+QIoneXpTg49ygaXhRw91ZCbN0bMwtldxCcl6olZBufuzqV0MrnTpotBTYfO7MKwkkWiYyzVnah+/DyQ+3z6Isb3NQw7wLpGk7v19O0zN7j1INJ0sy2YExN+bxbxZT/n+KJsUNQ2ijr0rCWuoAiTFxoBYibeW7odoE8vQvmfD4iJRacmN1LdIwc3ljLtlrbf0OC9ful70rh4SbgF8eWAZTW78/3cv14YNC6nnFZMF2hWCQ9UwM/nDI1gLbRPjQ7OAJ6piYBzCiVthGHNWAMoYFfnehG78RlKGr7uMSWQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bRdXLm2J5pQQHgcBLJseImvGOJ85of8HYr/z3girkwg=;
- b=haAQlFS627gcLyRgp/Axn930RW4hvGuEHBMptxPFg/PiOVwnUiPXnnpfDb5T+IFezssaFkqyfbChtYrydHqiimvTqyUO4N5OhtAnvhVwpkEEPKSsE5rgjeiUR9H/IGpw5ECp5+ffdcOvIGPrGWFd5jtkyo15ad/NpJZ67IsI67W8RE9xW1pBwYNtYpB0NtIlYyhgmsittvaxBoCtbI+vKxNujtg5WsQGSuvlqBfE5IE8ToTy0ZOYTam+clxYZN1Kby8VySy0cATH5nYi30gnxN2NtVIbzryOGXueMQIy/5OXu3dhHdMKTjuLsCEkQIiNaknecqxjDdppNDAhY9UdgQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PA4PR04MB7696.eurprd04.prod.outlook.com (2603:10a6:102:f1::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.29; Mon, 12 May
- 2025 03:46:53 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8722.027; Mon, 12 May 2025
- 03:46:53 +0000
-Date: Mon, 12 May 2025 12:56:13 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Hiago De Franco <hiagofranco@gmail.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	linux-pm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	daniel.baluta@nxp.com, iuliana.prodan@oss.nxp.com,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v2 3/3] remoteproc: imx_rproc: add power mode check for
- remote core attachment
-Message-ID: <20250512045613.GB31197@nxa18884-linux>
-References: <20250507160056.11876-1-hiagofranco@gmail.com>
- <20250507160056.11876-4-hiagofranco@gmail.com>
- <CAPDyKFrHD1hVCfOK-JV5FJM+Cd9DoKKZGKcC94fxx6_9Bsri1g@mail.gmail.com>
- <20250508202826.33bke6atcvqdkfa4@hiago-nb>
- <CAPDyKFr3yF=yYZ=Xo5FicvSbDPOTx7+fMwc8dMCLYKPBMEtCKA@mail.gmail.com>
- <20250509191308.6i3ydftzork3sv5c@hiago-nb>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250509191308.6i3ydftzork3sv5c@hiago-nb>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SGXP274CA0010.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::22)
- To PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+	Mon, 12 May 2025 03:54:48 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54BIftvB020816;
+	Mon, 12 May 2025 03:54:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=QKYhG7
+	3DgTzdzGbCDN3buAMRRvqorJzXDUPZ8hgusWg=; b=piKulDmQFceuNnPByx+JJK
+	NFwRc//jrMpfzH/+Qi7AKY8dTwt7IvHZAzjz5sm4FzEo5nHu57rvHkRK2sJDuwEH
+	4NlwIvp9uVrYEHZgK2CuZnrtx4dLEd96ro1txixgXCE7G6EKaUI1NJZBkwJzGH1c
+	lYUPWw9D9wblqlgR0b5DqVnBJWgQcIUrOkS7M7EotdhjtEsCxzDEoAJ2z2lW0ncb
+	I/6Fq56SFaOFS+hS9gZQnSd5r5XIovYcUfaiF3MpkjRU9bHDSVzEHjbTyt8oDgzn
+	Y7NDrlQqumZ0GbPngQfuv/U3YcuGcle3LZRCPQc3p21dbhvL7EqZSxaJSyYgVvPA
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46jue6a1yd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 12 May 2025 03:54:23 +0000 (GMT)
+Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 54C3lJmk029084;
+	Mon, 12 May 2025 03:54:23 GMT
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46jue6a1ya-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 12 May 2025 03:54:23 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 54C0UGDc024537;
+	Mon, 12 May 2025 03:54:22 GMT
+Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 46jjmkv3ev-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 12 May 2025 03:54:22 +0000
+Received: from smtpav05.dal12v.mail.ibm.com (smtpav05.dal12v.mail.ibm.com [10.241.53.104])
+	by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 54C3sKRD21234270
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 12 May 2025 03:54:21 GMT
+Received: from smtpav05.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A6BC958052;
+	Mon, 12 May 2025 03:54:20 +0000 (GMT)
+Received: from smtpav05.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A404258056;
+	Mon, 12 May 2025 03:54:12 +0000 (GMT)
+Received: from [9.61.250.60] (unknown [9.61.250.60])
+	by smtpav05.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Mon, 12 May 2025 03:54:12 +0000 (GMT)
+Message-ID: <fb39efbc-9045-4fbd-a5d6-ababc320b9ef@linux.ibm.com>
+Date: Mon, 12 May 2025 09:24:10 +0530
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PA4PR04MB7696:EE_
-X-MS-Office365-Filtering-Correlation-Id: b9dd607c-b7ec-4f67-194e-08dd9107a1ae
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qNLj4IdpKvLTlAGblBTcfI5DqcH/iGx/BdtgnrjRJMhDp73XXOi8/3JU4oM6?=
- =?us-ascii?Q?b/r2CyPHhHihlwUSdMdzM3IT6AIvqSDn2XMHssNjnJw340gLFA/zbM+krU03?=
- =?us-ascii?Q?vgS6WUpwr5SFlplPD8/vGMTfn4+2egMGlmiEZCudVnWCklvPppZWvONIt2iy?=
- =?us-ascii?Q?e0CDZpWou8QEPkjcATZBv+J6H7u/9PxFjx4JFUVmThnqjIQjtqhabwZNGC3u?=
- =?us-ascii?Q?8xkRuiyh/EqTzIwSmebyhnBhmy/BT8hEEPYVFJ694XY+AFSiYnlA1tsj2pnB?=
- =?us-ascii?Q?rmcHXw2Pcy8Ugj1mYWuK/Lk+MuTpG/s3Y9BhIhW9769Y89bCy5nR3YG/43gD?=
- =?us-ascii?Q?GbW9GEwQA5mFmH/JAnM+Q+5kyWFquH9P3Du0qmmXEwxZufIzv1CwLBFdVbuY?=
- =?us-ascii?Q?TjiJ3ArqKbN6fZr0aKvtBfk760d6BOOm0Hc1cPvNdZExiAtnT4hT5J8mlRZe?=
- =?us-ascii?Q?OoXcvOrkvupkZ6CrbuzbpiEqwJAgkCI+bibfdQGnC0+eqIfijYZRq2BnwlmY?=
- =?us-ascii?Q?/00tMXt2nXjgng5lllKtfLFDOUhkfON/uKGEv8W4XLFmdDdIlhQzqs9zLIFh?=
- =?us-ascii?Q?TOu6069f3kdW4sTCjXrQezWB/UB2XmYIhyDwQT+RGm1b9dqYad6seUZoHNlD?=
- =?us-ascii?Q?F3mtAs3NqJ8M+HAGyusA5I23WpLUDebZmQ4ftW9bxKG+llujHfL7YP8TP251?=
- =?us-ascii?Q?HIjvitmHk0ehxgLh6rdLEJUB4tYulxC1sQcrr0Jzk1Dp5+mS/ia/le8gsSsW?=
- =?us-ascii?Q?9cjDxvKUkTcgrmtNXsvq8NkHzbFSow2mJjrISmiIOzZxw12ppojuGMjkZqI4?=
- =?us-ascii?Q?S6Z5Oxmu4ymfzXeMhGfn6AXuf9EqQ0e/wbS6BmpDAyLKkjrE7QaA4fvODupd?=
- =?us-ascii?Q?sYJj6m8ASAYcBD0fWvX0htuoyxWZ0E8YLJZkN2i5Li/Ttdh+5Bm8Sth4XmMO?=
- =?us-ascii?Q?MNKVEXNnofOMcAJlHPzuTcQk9vrd3slsRmJFUSrGmUsADb4P6y82BgBsBiEA?=
- =?us-ascii?Q?o1TyVSfwYVhs4YfUazvixEOgzYl0Na+Tcdxoz1QaNtLjwDlG+Q81HQIn3vaW?=
- =?us-ascii?Q?M+gtW3z2XSgf1jfo50m0+3zMf8pjM6f8Li4BMRTRR5AjDqh2klttcukgjefI?=
- =?us-ascii?Q?gHwcPIL695yyMFKxw4vUxMa1utEq7xhsFgefmKcBkzDUHZeR/ZEOEwH1yZUC?=
- =?us-ascii?Q?02XT5CnnKndySq62V9XiSepNtUjDGDRug6lGRqXyWdQaNuyVZc4KAKzW1uPX?=
- =?us-ascii?Q?dARvTcIBCnsHL/KLz01DYSrzkevb0Z48SHQNTpBmHI86q5+xXIl9GWxIFzUT?=
- =?us-ascii?Q?Bz1s1G9+vuxq3H7PgLtJJ2IAfk5pHMwKgkVc/pBkl7h5UyVqMShdCv2dEKRd?=
- =?us-ascii?Q?dcMKcyxEnD9bCkLEEitLFRcNwDcu3VQIQPmBMIzPTKmoneEYJypej3bWLiNo?=
- =?us-ascii?Q?O7qE3IneK4YDNegZGSEETqk4kB9ZdIBwZjA7GnnL06j0uQx0v5aGnI9HA6fo?=
- =?us-ascii?Q?ydU5rnd4ORNvBH0=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eT/S4rN9qlVuNZfQaZnE2729hE6NrNzwx6G66bXHKO9VfqeDrS/EKsPwDjU9?=
- =?us-ascii?Q?20ORVZbW7yhMa6HtB1yKzHPy4qYGmuSSqX3ZSS4jziTBn+zRYipuAmqu3Cvc?=
- =?us-ascii?Q?0lUIxBmTuyRusZhkbltNFqZUjrs6yg/oNp2qp5SoNP0hJzqDZkEg5hWRJhXK?=
- =?us-ascii?Q?fCeOXhF3n7wzc5DJGtWeGxCSEtjQ6WMX3pgk5wT8vWIBadhnSByRubI/7O31?=
- =?us-ascii?Q?UuNtqG7zESn1eWhvSaP3kR17XSNoFaYmja/cawJ6PgMhpSIaxhoyBa57gjzy?=
- =?us-ascii?Q?s7RDjaaMXYRV3VBzaVE3OoSCtAjNsKCat4012Ltt2RYrBYeo+C/2mYo1uX7G?=
- =?us-ascii?Q?CJXmWjA/7nCgLKYfhQe9aGsfmkd7s7NP2asEOwvDadRDVWO4xdM8MVV/hoJb?=
- =?us-ascii?Q?JvECUi0YarcOdBTcV1HMp7/PlLu8sFFES0JQ30YPxIVV8rtk5l0I6tZB8A/3?=
- =?us-ascii?Q?kgzHlcxdJat8Of1UoEP6GC6+yk0k/XGB2pkz63xyUciSOKNZp8FfYpWA+aOt?=
- =?us-ascii?Q?GpIQ1BEQFVX7YDyj9+oOhynbeHqH4HkQNeKm6mZr1cOx1zJvS0QFYFvKhTFk?=
- =?us-ascii?Q?L9fwNJz4KR9Vv55dYfOj6YSZIa2BH7kkwA7KTNhp6A+A2B2kQTbsIrIg3/5R?=
- =?us-ascii?Q?k6m0RWXIddBua/wz3FS7Vx1Zwf24hMByERkPolNITqZpqqkCiuWMYlJSE81h?=
- =?us-ascii?Q?CbuOy3GyXmbMcL4mCnGLgCTveLFnuenrMd5S6oEXkZwMJHP+3zPUFkzmPcCw?=
- =?us-ascii?Q?buQeQ43XXyUC4kYNSHkBj9O8j4rtJq2ge4uT+449CYWSiFrj619yv+8gEG8E?=
- =?us-ascii?Q?hk0FYozE5eiRTJ0nmi6XcxzKHyoyn9yjcaGgk1ftH/2onY/vQGjLvm/qMqD0?=
- =?us-ascii?Q?li0uPzHlQROocFPurdx+vO78ecC8rwKNy+e1eY6eG2sNfz+X+y7pNtVWsW37?=
- =?us-ascii?Q?z/6CRdISHaJUsOOE+PrhlmBb6nqDX6Uxpd23xzS8iwsdXyv7UMDgQb07VpJW?=
- =?us-ascii?Q?w7WH3aO+5yWJluw/AzM00dM3+BY4VUBdAvaQCupW8r379S6o6ojE6QANtc5p?=
- =?us-ascii?Q?K5AuBeIJOGCZXW+JO3vwaRtxM9xzoxu6ztkEZHUP8YHtQ1B/1KdOtD7ee7fe?=
- =?us-ascii?Q?80NeYw6LEcUUXSNIQNFHW3pSjIKUKGTCW087CCJhd851KxL5rwNylbPDwQic?=
- =?us-ascii?Q?ljCMDrPdvPVxwgtG7ZkS6v/Xn8ta0DmRWYGSToyGZLKLyb4D8+GOsQfL6AnC?=
- =?us-ascii?Q?71C5SPJWn72GmbjbpTB1VjEKKIsrms2WXkf8gHMSvSBtwhS/jc5rCBYLKmvV?=
- =?us-ascii?Q?UAHagF5cOrNWD3ZPHUHi0c9wA55QGxOFiR9JsyaAXPRl3LiGq8p0niKa8eh9?=
- =?us-ascii?Q?zGFIUhtju6k4hm03/nTUa4uT2ANhTfzCEnDvUxVYcZ02rxXnTfwCV2xg+Y7u?=
- =?us-ascii?Q?1TyquXRs5phQv6LoHWxlR5WaM4z63vxkYeMi5WbScrR14zSdgSyQxGZEx8nI?=
- =?us-ascii?Q?UP5NF0MxxukTy18+E8v9Xlk7XiR9hgfnb2T3xotPJ4NJxSpoYhtyFsw1Wie6?=
- =?us-ascii?Q?IZfud0xSvnyrsrkFSEmnsfBXhu+zT7WZilg42NXV?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b9dd607c-b7ec-4f67-194e-08dd9107a1ae
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2025 03:46:53.7166
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: b5niVtcMJdM47iozMvbA1SRz1R6YSEaYSBF1qmdqKF7SorinixxLrwnC+QnvdDfrLWsJBSFj3TwZ6FngigxBUw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7696
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] selftests/bpf: Fix bpf selftest build error
+Content-Language: en-GB
+To: Saket Kumar Bhaskar <skb99@linux.ibm.com>, bpf@vger.kernel.org,
+        linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-stm32@st-md-mailman.stormreply.com, linux-next@vger.kernel.org
+Cc: ast@kernel.org, hbathini@linux.ibm.com, maddy@linux.ibm.com,
+        andrii@kernel.org, daniel@iogearbox.net, mykolal@fb.com,
+        martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev,
+        john.fastabend@gmail.com, kpsingh@kernel.org, sdf@fomichev.me,
+        haoluo@google.com, jolsa@kernel.org, shuah@kernel.org
+References: <20250509122348.649064-1-skb99@linux.ibm.com>
+From: Venkat Rao Bagalkote <venkat88@linux.ibm.com>
+In-Reply-To: <20250509122348.649064-1-skb99@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: dwbpe1-9DBWSf9jxrLtyGxDhLR4w5eDv
+X-Authority-Analysis: v=2.4 cv=TbmWtQQh c=1 sm=1 tr=0 ts=682170ef cx=c_pps a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8 a=rOUgymgbAAAA:8 a=CcSt_Cs7RvpnTRKdI0oA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=MP9ZtiD8KjrkvI0BhSjB:22
+X-Proofpoint-GUID: SeUpvmWKQ7SNL2oqQIzFx069GANDB4xi
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTEyMDAzNSBTYWx0ZWRfX3J8rMnm/4r9H a0X0lU/EeRTB1mLTX2WUe+0QgUN24/RoQqRhs0vDdGXUqwTH8/+iz1Ua0KqbDUcJTds7p/U7QzT +LOPZE8lLZ2ukU2lmI2LSuln9WJorDH68S4U64NIMm2fFORAGCWIsxtVC8Awm5lja8kefPVK2DS
+ 5s4aVMViIYF9KhffoOMF3xMo/rB/Qk8EiobUYCWvElyT3TXqn36hHcQJjmXd8RnOyq4KAunfKsM JUzo3Oqe5gketyDlF/2f0wqwmg9fWMzl1XbhjE5yRQ9DYG5w4+BCIdraYT4u6IWhpPX7iAYqto6 22QraxsSY620kNR1hv6Eq3h1bS/SBOcJlDVDMv4cuVB3Y4WS9OSnZevp+nPoR+sXTX9W/uoNH6P
+ TeCleuUGv/7/4MCJV5YaavhL1dCPphxr44dIEgQdvHVRPwohTAWsN4Bb6lvmqGC5YSqkNIzj
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-12_01,2025-05-09_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 clxscore=1011
+ malwarescore=0 phishscore=0 priorityscore=1501 impostorscore=0
+ adultscore=0 spamscore=0 mlxlogscore=999 bulkscore=0 suspectscore=0
+ lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2505120035
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_204700_587789_0F539D4F 
-X-CRM114-Status: GOOD (  45.42  )
+X-CRM114-CacheID: sfid-20250511_205447_362778_1BA1B7D1 
+X-CRM114-Status: GOOD (  22.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,165 +125,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 09, 2025 at 04:13:08PM -0300, Hiago De Franco wrote:
->On Fri, May 09, 2025 at 12:37:02PM +0200, Ulf Hansson wrote:
->> On Thu, 8 May 2025 at 22:28, Hiago De Franco <hiagofranco@gmail.com> wrote:
->> >
->> > Hello,
->> >
->> > On Thu, May 08, 2025 at 12:03:33PM +0200, Ulf Hansson wrote:
->> > > On Wed, 7 May 2025 at 18:02, Hiago De Franco <hiagofranco@gmail.com> wrote:
->> > > >
->> > > > From: Hiago De Franco <hiago.franco@toradex.com>
->> > > >
->> > > > When the remote core is started before Linux boots (e.g., by the
->> > > > bootloader), the driver currently is not able to attach because it only
->> > > > checks for cores running in different partitions. If the core was kicked
->> > > > by the bootloader, it is in the same partition as Linux and it is
->> > > > already up and running.
->> > > >
->> > > > This adds power mode verification through the SCU interface, enabling
->> > > > the driver to detect when the remote core is already running and
->> > > > properly attach to it.
->> > > >
->> > > > Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
->> > > > Suggested-by: Peng Fan <peng.fan@nxp.com>
->> > > > ---
->> > > > v2: Dropped unecessary include. Removed the imx_rproc_is_on function, as
->> > > > suggested.
->> > > > ---
->> > > >  drivers/remoteproc/imx_rproc.c | 13 +++++++++++++
->> > > >  1 file changed, 13 insertions(+)
->> > > >
->> > > > diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
->> > > > index 627e57a88db2..9b6e9e41b7fc 100644
->> > > > --- a/drivers/remoteproc/imx_rproc.c
->> > > > +++ b/drivers/remoteproc/imx_rproc.c
->> > > > @@ -949,6 +949,19 @@ static int imx_rproc_detect_mode(struct imx_rproc *priv)
->> > > >                         if (of_property_read_u32(dev->of_node, "fsl,entry-address", &priv->entry))
->> > > >                                 return -EINVAL;
->> > > >
->> > > > +                       /*
->> > > > +                        * If remote core is already running (e.g. kicked by
->> > > > +                        * the bootloader), attach to it.
->> > > > +                        */
->> > > > +                       ret = imx_sc_pm_get_resource_power_mode(priv->ipc_handle,
->> > > > +                                                               priv->rsrc_id);
->> > > > +                       if (ret < 0)
->> > > > +                               dev_err(dev, "failed to get power resource %d mode, ret %d\n",
->> > > > +                                       priv->rsrc_id, ret);
->> > > > +
->> > > > +                       if (ret == IMX_SC_PM_PW_MODE_ON)
->> > > > +                               priv->rproc->state = RPROC_DETACHED;
->> > > > +
->> > > >                         return imx_rproc_attach_pd(priv);
->> > >
->> > > Why is it important to potentially set "priv->rproc->state =
->> > > RPROC_DETACHED" before calling imx_rproc_attach_pd()?
->> > >
->> > > Would it be possible to do it the other way around? First calling
->> > > imx_rproc_attach_pd() then get the power-mode to know if
->> > > RPROC_DETACHED should be set or not?
->> > >
->> > > The main reason why I ask, is because of how we handle the single PM
->> > > domain case. In that case, the PM domain has already been attached
->> > > (and powered-on) before we reach this point.
->> >
->> > I am not sure if I understood correcly, let me know if I missed
->> > something. From my understanding in this case it does not matter, since
->> > the RPROC_DETACHED will only be a flag to trigger the attach callback
->> > from rproc_validate(), when rproc_add() is called inside
->> > remoteproc_core.c.
->> 
->> Okay, I see.
->> 
->> To me, it sounds like we should introduce a new genpd helper function
->> instead. Something along the lines of this (drivers/pmdomain/core.c)
->> 
->> bool dev_pm_genpd_is_on(struct device *dev)
->> {
->>         struct generic_pm_domain *genpd;
->>         bool is_on;
->> 
->>         genpd = dev_to_genpd_safe(dev);
->>         if (!genpd)
->>                 return false;
->> 
->>         genpd_lock(genpd);
->>         is_on = genpd_status_on(genpd);
->>         genpd_unlock(genpd);
->> 
->>         return is_on;
->> }
->> 
->> After imx_rproc_attach_pd() has run, we have the devices that
->> correspond to the genpd(s). Those can then be passed as in-parameters
->> to the above function to get the power-state of their PM domains
->> (genpds). Based on that, we can decide if priv->rproc->state should be
->> to RPROC_DETACHED or not. Right?
+
+On 09/05/25 5:53 pm, Saket Kumar Bhaskar wrote:
+> On linux-next, build for bpf selftest displays an error due to
+> mismatch in the expected function signature of bpf_testmod_test_read
+> and bpf_testmod_test_write.
 >
->Got your idea, I think it should work yes, I am not so sure how. From
->what I can see these power domains are managed by
->drivers/pmdomain/imx/scu-pd.c and by enabling the debug messages I can
->see the power mode is correct when the remote core is powered on:
+> Commit 97d06802d10a ("sysfs: constify bin_attribute argument of bin_attribute::read/write()")
+> changed the required type for struct bin_attribute to const struct bin_attribute.
 >
->[    0.317369] imx-scu-pd system-controller:power-controller: cm40-pid0 : IMX_SC_PM_PW_MODE_ON
+> To resolve the error, update corresponding signature for the callback.
 >
->and powered off:
+> Reported-by: Venkat Rao Bagalkote <venkat88@linux.ibm.com>
+> Closes: https://lore.kernel.org/all/e915da49-2b9a-4c4c-a34f-877f378129f6@linux.ibm.com/
+> Signed-off-by: Saket Kumar Bhaskar <skb99@linux.ibm.com>
+> ---
+>   tools/testing/selftests/bpf/test_kmods/bpf_testmod.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
 >
->[    0.314953] imx-scu-pd system-controller:power-controller: cm40-pid0 : IMX_SC_PM_PW_MODE_OFF
->
->But I cannot see how to integrate this into the dev_pm_genpd_is_on() you
->proposed. For a quick check, I added this function and it always return
->NULL at dev_to_genpd_safe(). Can you help me to understand this part?
+> diff --git a/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c b/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
+> index 2e54b95ad898..194c442580ee 100644
+> --- a/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
+> +++ b/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
+> @@ -385,7 +385,7 @@ int bpf_testmod_fentry_ok;
+>   
+>   noinline ssize_t
+>   bpf_testmod_test_read(struct file *file, struct kobject *kobj,
+> -		      struct bin_attribute *bin_attr,
+> +		      const struct bin_attribute *bin_attr,
+>   		      char *buf, loff_t off, size_t len)
+>   {
+>   	struct bpf_testmod_test_read_ctx ctx = {
+> @@ -465,7 +465,7 @@ ALLOW_ERROR_INJECTION(bpf_testmod_test_read, ERRNO);
+>   
+>   noinline ssize_t
+>   bpf_testmod_test_write(struct file *file, struct kobject *kobj,
+> -		      struct bin_attribute *bin_attr,
+> +		      const struct bin_attribute *bin_attr,
+>   		      char *buf, loff_t off, size_t len)
+>   {
+>   	struct bpf_testmod_test_write_ctx ctx = {
 
-Ulf's new API dev_pm_genpd_is_on needs to run after power domain attached.
 
-But if run after power domain attached, there is no API to know whether
-M4 is kicked by bootloader or now.
-
-Even imx_rproc_attach_pd has a check for single power domain, but I just
-give a look again on current i.MX8QM/QX, all are using two power domain
-entries.
-
->
->> 
->> In this way we don't need to export unnecessary firmware functions
->> from firmware/imx/misc.c, as patch1/3 does.
+Tested this patch by applying on top of next-20250508 and if fixes the 
+build issue. Hence,
 
 
-I think still need to export firmware API. My idea is
-1. introduce a new firmware API and put under firmware/imx/power.c
-2. Use this new firmware API in imx_rproc.c
-3. Replace scu-pd.c to use this new firmware API.
+Tested-by: Venkat Rao Bagalkote <venkat88@linux.ibm.com>
 
-Or
-1. Export the API in scu-pd.c
-2. Use the API in imx_rproc.c
 
-With approach two, you need to handle them in three trees in one patchset:
-imx/pd/rproc.
+commit f48887a98b78880b7711aca311fbbbcaad6c4e3b (tag: next-20250508, 
+origin/master, origin/HEAD, bpf_arena)
+Author: Stephen Rothwell <sfr@canb.auug.org.au>
+Date:   Thu May 8 18:45:50 2025 +1000
 
-With approach one, you need to handle two trees in one patchset: imx/rproc tree,
-then after done, pd tree
+     Add linux-next specific files for 20250508
+
+
+After this patch:
+
+
+   TEST-OBJ [test_progs-cpuv4] xdp_flowtable.test.o
+   TEST-OBJ [test_progs-cpuv4] xdp_info.test.o
+   TEST-OBJ [test_progs-cpuv4] xdp_link.test.o
+   TEST-OBJ [test_progs-cpuv4] xdp_metadata.test.o
+   TEST-OBJ [test_progs-cpuv4] xdp_noinline.test.o
+   TEST-OBJ [test_progs-cpuv4] xdp_perf.test.o
+   TEST-OBJ [test_progs-cpuv4] xdp_synproxy.test.o
+   TEST-OBJ [test_progs-cpuv4] xdp_vlan.test.o
+   TEST-OBJ [test_progs-cpuv4] xdpwall.test.o
+   TEST-OBJ [test_progs-cpuv4] xfrm_info.test.o
+   BINARY   bench
+   BINARY   test_maps
+   BINARY   test_progs
+   BINARY   test_progs-no_alu32
+   BINARY   test_progs-cpuv4
+
+
+
+Before this patch:
+
+
+   CLANG 
+/root/linux-next/tools/testing/selftests/bpf/tools/build/bpftool/profiler.bpf.o
+bpf_testmod.c:494:17: error: initialization of ‘ssize_t (*)(struct file 
+*, struct kobject *, const struct bin_attribute *, char *, loff_t,  
+size_t)’ {aka ‘long int (*)(struct file *, struct kobject *, const 
+struct bin_attribute *, char *, long long int,  long unsigned int)’} 
+from incompatible pointer type ‘ssize_t (*)(struct file *, struct 
+kobject *, struct bin_attribute *, char *, loff_t, size_t)’ {aka ‘long 
+int (*)(struct file *, struct kobject *, struct bin_attribute *, char *, 
+long long int,  long unsigned int)’} [-Wincompatible-pointer-types]
+   494 |         .read = bpf_testmod_test_read,
+       |                 ^~~~~~~~~~~~~~~~~~~~~
+bpf_testmod.c:494:17: note: (near initialization for 
+‘bin_attr_bpf_testmod_file.read’)
+bpf_testmod.c:495:18: error: initialization of ‘ssize_t (*)(struct file 
+*, struct kobject *, const struct bin_attribute *, char *, loff_t,  
+size_t)’ {aka ‘long int (*)(struct file *, struct kobject *, const 
+struct bin_attribute *, char *, long long int,  long unsigned int)’} 
+from incompatible pointer type ‘ssize_t (*)(struct file *, struct 
+kobject *, struct bin_attribute *, char *, loff_t, size_t)’ {aka ‘long 
+int (*)(struct file *, struct kobject *, struct bin_attribute *, char *, 
+long long int,  long unsigned int)’} [-Wincompatible-pointer-types]
+   495 |         .write = bpf_testmod_test_write,
+       |                  ^~~~~~~~~~~~~~~~~~~~~~
+bpf_testmod.c:495:18: note: (near initialization for 
+‘bin_attr_bpf_testmod_file.write’)
+make[4]: *** [/root/linux-next/scripts/Makefile.build:203: 
+bpf_testmod.o] Error 1
+make[3]: *** [/root/linux-next/Makefile:2009: .] Error 2
+make[2]: *** [Makefile:248: __sub-make] Error 2
+make[1]: *** [Makefile:18: all] Error 2
+make: *** [Makefile:282: test_kmods/bpf_testmod.ko] Error 2
+
 
 Regards,
-Peng
->> 
->> If you think it can work, I can help to cook a formal patch for the
->> above helper that you can fold into your series. Let me know.
->> 
->> >
->> > With that we can correcly attach to the remote core running, which was
->> > not possible before, where the function returns at "return
->> > imx_rproc_attach_pd(priv);" with the RPROC_OFFLINE state to
->> > rproc_validate().
->> 
->> I see, thanks for clarifying!
->> 
->> Kind regards
->> Uffe
->
->Thank you!
->Hiago.
+
+Venkat.
+
 
