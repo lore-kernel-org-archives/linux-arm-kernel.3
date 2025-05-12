@@ -4,94 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 494D9C3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 08:39:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54266C3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 08:41:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gOxsIYETfewY7pG7XnvOArKPmnj5HPOh1URE715L4Go=; b=TN+nMUav/x16bC4nLaYdPk6b9l
-	Uy7dCFBfquMpag4lIFm73X3yJ4UtUcNrBg/MZKr3+Y9qjRrd7+6WK+Q5ngkMD+2S1hwdSqN1/hnR8
-	q/HvS1hY/7/SFltauhmL9kIdHngSw0bK/DCi9tCRRBEFdAWeXsBkMBOouSh2Q4KKU6LqjiwDSlGox
-	JkMFE7lAoGklrTByhWPpINeYJrQ/FQ5ghKfyihDFapITbxXLtNG85u2Usk9Pq8ek7s7dehGRB8j4E
-	QxWhDYHDYktkjJDmzLNCeKZfzI9JHSioFnYHz5W/iEMy0UpdGHSdGQS9dPP7FBOle1UJ9K5GDAAeg
-	bUsojkNw==;
+	bh=wTzHIKjFiKmyPbI4xGH6KvZ5G+KJhLs/y1YftexbnRA=; b=xySCpQndWUL5xlsLUEiWWTIMwv
+	/4StGsxX6HtXbDrwdgxoGdFY/AS6OWg2y2yerbId/jeLxcBwcyQa0RepyIQXyM3B35OHutLKzYtDq
+	7RZ1a650rZJNI+6PpC9sIP2JH/D/+iwOPj5gWaZAq0hdthoBsqTK01BfTn4cr8vmozQtkdb79POxy
+	i3f2uR+0Ou8wS0TkbhsntPZhiVcJJ+tsUR21zznG7DqcMLNVWp0qoNuZim9syVaM9+rHasm/6VT48
+	f1V6l8mdsvYhAqge6XcFFrEayS7Izail/fSOmy4aacCMWH1kJ1YgN/m9ob1BhlQz9s5XaeHIk7n8g
+	kSwNevWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEOh0-00000008mWH-0VsE;
-	Mon, 12 May 2025 08:39:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uEOiz-00000008mrG-0gFI;
+	Mon, 12 May 2025 08:41:25 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEOal-00000008lR9-0WNt
+	id 1uEOb7-00000008lVP-2s9Y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 08:32:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D28C84A22D;
-	Mon, 12 May 2025 08:32:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8B78C4CEE7;
-	Mon, 12 May 2025 08:32:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747038774;
-	bh=3E+9roOzG0uDBJJlhQpnjD/rLvYcI1x7SJ02lswokIY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=F/Z06Vmf14lo5BA+l5yANEOuRLz+FeA5JPYog63df1VgYCivcLb+baKzjUZ4QRqBA
-	 +Ud++cIOyR+Og5tQgXbIhS1uJiJwDn34aSWPEjqLgJLzE9/5T2ljeMN1PP1VTK2JCy
-	 SZqlxO6BNBKEM6wzzJVBzFXSh/hnETtHJXFQofhYXdaLSt4VdH3XWtefBlnI3HWTHu
-	 Hi1akeCIT48l6ZjxppvpgsmOryuZ2hHeP7Bd5vbRRl28egnS2ViXsOzbSHa9AZ27sS
-	 kr0IWWgck8eoIlvJH8K1qWrLmvjQRTbFkIpH0yVQgW+8xpLp12o9DAPTaZmiRYwFVD
-	 /0k1wOSIzrm/Q==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uEOai-00E2lX-HX;
-	Mon, 12 May 2025 09:32:52 +0100
-Date: Mon, 12 May 2025 09:32:52 +0100
-Message-ID: <86wmamfcuj.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 20/25] irqchip/gic-v5: Add GICv5 PPI support
-In-Reply-To: <aB2+TRSiGYL2eTWH@lpieralisi>
-References: <20250506-gicv5-host-v3-20-6edd5a92fd09@kernel.org>
-	<87zffpn5rk.ffs@tglx>
-	<86a57ohjey.wl-maz@kernel.org>
-	<87ecx0mt9p.ffs@tglx>
-	<867c2sh6jx.wl-maz@kernel.org>
-	<874ixwmpto.ffs@tglx>
-	<aBxgceQBRA6vBK7o@lpieralisi>
-	<864ixvh4ss.wl-maz@kernel.org>
-	<aByLHdktOLUk8HCN@lpieralisi>
-	<aB230INCy2h7X1KY@lpieralisi>
-	<aB2+TRSiGYL2eTWH@lpieralisi>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, sascha.bischoff@arm.com, timothy.hayes@arm.com, Liam.Howlett@oracle.com, mark.rutland@arm.com, jirislaby@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 12 May 2025 08:33:19 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43cfebc343dso27301285e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 01:33:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747038795; x=1747643595; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wTzHIKjFiKmyPbI4xGH6KvZ5G+KJhLs/y1YftexbnRA=;
+        b=WnA0aJ3iB+E6ZVL/jiC2TqIY0GM7T2Jxe8vSJfdUJT6CdjuO7Jgwj4jUD4cX9mhz6d
+         O6VpEjm7hoSpHCnz2MJvC2EsscnBSu3IKX1E6QGlGHoneJtMNirxHWyy18R55ZL8Ldja
+         QgoT39WTHhDCuQo4nEfdnjHytVMY+zBRUn21me4CZJ98aY0YvswOutA+MmLcpZxHTfHC
+         CjtIahLyEbiZIL80hTtz+Qq5vbUBTlM9aP++D6xt/I38d3MvOOZe3iiWOz76HktX7dnJ
+         x7iauVn7lAMeXfK4ZCPBrota4YWxOelpFVnM6kF6MPbW+3QUUrY1a1LKlTuZFXDnDvF3
+         h2/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747038795; x=1747643595;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=wTzHIKjFiKmyPbI4xGH6KvZ5G+KJhLs/y1YftexbnRA=;
+        b=gjr8wM5XwXUMbkcw/w1nG/ag1/6WCkYl7mJejDrIHuEXUM/Cx7YWnU1sM3IiAnRpid
+         TtQZMOC0Ae+OWy9AnQA94zhPJPgMi0QKxgLzaBrXB+B11KB0Jx6Jy3r+jqgFWajXiwIO
+         vhIR/iMK4AxJnhdReR5aw/YUKA/nNvJjZjuIoqsnjou48eajt8wpTEfadeNdfCBTvpeD
+         ekeBdMibKahfVXF/pc4yEfdJcLQIrQ+EbgkvPE+JVrwN5SXuiV3Yi5FzpCxfxQeZpuia
+         uPu0y4jlwch6IlPZZUuJUYJ250NRWaJlEcVRGYa65DV1E5DGSZOJRxoLteOXUXbe9N6Z
+         1lDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV8ypWoGS2CFNMztGDgwVHvMEumoieY+zTgGKxndH60P2VfGSISUHf5LnhpWh3UgqtqKGKJgSRLGNxJWN52NL0+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw795GIvzX/U+EBcXFmAEV28eIflf72FiV0Hpxd558qy3bqMDr8
+	a7d+TWHAfOflmVSuriHODEDWFFJlmuMXIF6u7ZXCvWnx9+AT5ChfvEy57Zo/Row=
+X-Gm-Gg: ASbGncv2uobCYQSeQO7617WFxIdMjuk76u8hWUD1XweLWxLl1ut5MTfQPmHXdZ/QI0n
+	o2w3GwsjGO/hyuijD2XbVwgt5ur8Ox9xBU5jK01XTs3fzKxr56jZuHUjbj23ON/RjcmYyGStDDL
+	LMGg7Om41gmwa27MjJTJCaXlCqzZuSuKYhf6s4spZSvaJHIvuslxIv0kc03qBI/R5YsNhH7Eo75
+	BjQF2PCdq17ty3/yH74vZyXAHT3J3gvWqNrF1p1i9o3ukGHTVnfiTGuB3ndcWRanRUv2QMa29Bk
+	Ww5SXY1b14T0Rr5WATN/IhbsxJzm7y5yJ1FsgCWtfWaSCfU2iKV97AxBdEaizc6zsnk/krTHFQe
+	OYSXfO3torsLxT/41UAjIDo8cZ164
+X-Google-Smtp-Source: AGHT+IFuQDvMvD9YeofWnuHOmfxKE1aBgD/3Qr8iHneAgHf//6SuN6jkgPv2gPV91PBlbLB7la43DA==
+X-Received: by 2002:a05:600c:8012:b0:43b:cc42:c54f with SMTP id 5b1f17b1804b1-442d6d3e6e8mr115012785e9.14.1747038795575;
+        Mon, 12 May 2025 01:33:15 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:3d9:2080:a88a:91be:2fd8:4f9f? ([2a01:e0a:3d9:2080:a88a:91be:2fd8:4f9f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442cd3b7b83sm156129235e9.33.2025.05.12.01.33.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 May 2025 01:33:15 -0700 (PDT)
+Message-ID: <9d72fe73-3b71-4f40-a34e-fc7bdb907cc6@linaro.org>
+Date: Mon, 12 May 2025 10:33:14 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v2] clk: meson-g12a: fix missing spicc clks to clk_sel
+To: Da Xue <da@libre.computer>, Jerome Brunet <jbrunet@baylibre.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: stable@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250511173926.1468374-1-da@libre.computer>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20250511173926.1468374-1-da@libre.computer>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_013255_212630_F9BBD9AC 
-X-CRM114-Status: GOOD (  26.62  )
+X-CRM114-CacheID: sfid-20250512_013317_727381_954DC9D3 
+X-CRM114-Status: GOOD (  19.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,51 +128,59 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 09 May 2025 09:35:25 +0100,
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+Hi,
+
+On 11/05/2025 19:39, Da Xue wrote:
+> HHI_SPICC_CLK_CNTL bits 25:23 controls spicc clk_sel.
+
+This sentence can be removed, this patch doesn't change anything in this= regard.
+
 > 
-> On Fri, May 09, 2025 at 10:07:44AM +0200, Lorenzo Pieralisi wrote:
-> > On Thu, May 08, 2025 at 12:44:45PM +0200, Lorenzo Pieralisi wrote:
-> > 
-> > [...]
-> > 
-> > > I noticed that, if the irq_set_type() function is not implemented,
-> > > we don't execute (in __irq_set_trigger()):
-> > > 
-> > > irq_settings_set_level(desc);
-> > > irqd_set(&desc->irq_data, IRQD_LEVEL);
-> > 
-> > I don't get why the settings above are written only if the irqchip
-> > has an irq_set_type() method, maybe they should be updated in
-> > irqdomain code (?) where:
-> > 
-> > irqd_set_trigger_type()
-> > 
-> > is executed after creating the fwspec mapping ?
-> > 
-> > Is it possible we never noticed because we have always had irqchips that
-> > do implement irq_set_type() ?
-> > 
-> > Again, I don't know the history behind the IRQD_LEVEL flag so it is just
-> > a question, I'd need to get this clarified though please if I remove the
-> > PPI irq_set_type() callback.
+> It is missing fclk_div 2 and gp0_pll which causes the spicc module to
+> output the incorrect clocks for spicc sclk at 2.5x the expected rate.
+
+The sentence is not correct, the spicc sclk will be at the freq computed but CCF,
+it simply can't achieve the requested rate without the missing parents.
+
+But I'm against adding the GP0 PLL since this PLL is required to drive DSI panels.
+
+And GP0 isn't needed since on G12, the SPICC has the "enhance_clk_div" which should be
+able to to reach much more rates with the fclk_divX clocks.
+
+Neil
+
 > 
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/powerpc/platforms/52xx/mpc52xx_pic.c?h=v6.15-rc5#n218
+> Add the missing clocks resolves this.
 > 
-> There are other examples in powerpc, this does not look right to me.
+> Fixes: a18c8e0b7697 ("clk: meson: g12a: add support for the SPICC SCLK Source clocks")
+> Cc: <stable@vger.kernel.org> # 6.1
+> Signed-off-by: Da Xue <da@libre.computer>
+> ---
+> Changelog:
+> 
+> v1 -> v2: add Fixes as an older version of the patch was incorrectly sent as v1
+> ---
+>   drivers/clk/meson/g12a.c | 2 ++
+>   1 file changed, 2 insertions(+)
+> 
+> diff --git a/drivers/clk/meson/g12a.c b/drivers/clk/meson/g12a.c
+> index 4f92b83965d5a..892862bf39996 100644
+> --- a/drivers/clk/meson/g12a.c
+> +++ b/drivers/clk/meson/g12a.c
+> @@ -4099,8 +4099,10 @@ static const struct clk_parent_data spicc_sclk_parent_data[] = {
+>   	{ .hw = &g12a_clk81.hw },
+>   	{ .hw = &g12a_fclk_div4.hw },
+>   	{ .hw = &g12a_fclk_div3.hw },
+> +	{ .hw = &g12a_fclk_div2.hw },
+>   	{ .hw = &g12a_fclk_div5.hw },
+>   	{ .hw = &g12a_fclk_div7.hw },
+> +	{ .hw = &g12a_gp0_pll.hw, },
+>   };
+>   
+>   static struct clk_regmap g12a_spicc0_sclk_sel = {
 
-I don't see what's wrong with this, given that PPC is about 15 years
-behind the curve when it comes to interrupt management. Better than
-Sparc or Alpha, though. So they do whatever was possible at the time
-this code was written.
-
-It doesn't mean that you need to align with the worse we have in the tree!
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
