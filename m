@@ -4,180 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16732C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 02:24:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE3AFC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 02:26:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zhedAhPZbthe7zSS9blxXQgYi0aZHCEPwCNN9HItPjs=; b=mGJPlB+fJzLvLUZwIuia5lcfny
-	WrR/PxOdGyMR87bhOcfkaTRjjKtazq3BrlP4w3uAay4xw46EkjWhpmzgJSHrzJ/M77Bp+/i+1IEBe
-	/waGfhqIB/VMqF3y/j8880lB+6OUtIiRG05OLwsWxpMg/R884vShCvVyBVhH7rmj4tBwvPFEWxiaX
-	xJ4rsze0F3GjxemJFvU9zUmWBvnabSGZGGClHg9LXVu/jjbyUMhD05curFXJCM00G9W0j8/ny3gj/
-	5mzWYIgKjPLcU1hL+lA6nkxntvFdQ5u694DFBX+gnNcFRr22ghwgxyxK6kgzbFslByKaZVh9KI1Cj
-	m1PnhHGA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vi6JmBsUiQwzpELzr0JfmhLaYm7ePw61f93+FbZ/SI8=; b=JuxhEcY2U9EdzM
+	q6lb4WXwfC0R6JXh5SZ7CYEA1qHKdvFlu6D+1WUvAuE9EH18JWm1yjSnxuDj2Syho5xq6j1LgCcLi
+	4bfeAM8KzuPH1eY9hwSerd33930trZszFrE+E3M5T6ZZ99e6Lw1eTbRMG7mcbCHqZNzCPRvk+LCon
+	3KDg7nZmtxws95QsIdid+TC3oZkFXWn3u+uF0Cgk58A5nhDO1gVHimFIR7ZqB/ud/+rDE1rJEleNL
+	Li7Ifb2xmEVw0v3TIaltP92w9E75KHYOa6m7/8IbA1cW7kutDGu8F1mFH0U//k3Feb/Cqzo0TaIv+
+	axo1jXmaFdy7wjkn4PJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEIpi-00000008C18-3t1O;
-	Mon, 12 May 2025 02:23:58 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1uEIre-00000008CCz-3NRZ;
+	Mon, 12 May 2025 02:25:58 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEIhz-00000008BEr-2Ecz
+	id 1uEIjG-00000008BQY-1u5u
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 02:16:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=m7fuCixm+vZKk3SPlXJBpXyOXGGd6r1jY3rKm/m4a7hXiUFolc+d7p6iM6EmZDxNaQUhERX9X0LNlv18OjmY1/+KJAEhpwjZ/gOaZKUm+ULSH5z0rI74i4OLub0svgnf3Y53cDHdsABQTnX6SLU6F7XyRAOaXJzySEXJwLIZCVxsBurXUdT0CXbyHmHpbk5qgVdLWhv4WHMVcl7fSIYakudF91H23B3NuhBvg9UetKWKsljBRac1jIzKZQv1bz4sI3YbC3IjELEje7mUSB8QAsETfNjx1O2DqYBcbasDacxVmLi6swY+n74FekiPo88IbSuJBhNYf55F+DJC7Kk9Hg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zhedAhPZbthe7zSS9blxXQgYi0aZHCEPwCNN9HItPjs=;
- b=oDQXbEf+wPI5cFaM1nnrcHG7t/42HRd8DG+tasrLibyknWxActzaje1H6J6MTOV5DsbvsllW47gDfNbCAoiFfSbSwNGwo6tccQ4WOKsRlZaWBM07++NYPoXaTgr939yQkBotLbBDt7y+na8FRbZy28UvIu5A/sTP/EUuadEbiN7Mk6xCD/vI4VPd1KYP5SFVFS69mgMuxDLV+TpozcccdlfKqFdrgsLYZUwdss6fLZBxVSFs1eTaxhvYf2aXn+lf6dMNGn2/Qp6+j2/9IcZPuLUHcjPIzk2bK0qkqCSfVHbfvozZvvBZwhBgz+0OKmXdKffODSaFj49pTd3pDpyW4A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zhedAhPZbthe7zSS9blxXQgYi0aZHCEPwCNN9HItPjs=;
- b=DBdS2KfFcGNT5mUKAtHSszEmZTIqjVgAQ7pLq5pD4ZWHPCQxgL5K6Zw9WNvf20tyPF7KccS2eEhABXUMGVQ4D+2CmIIGZKYEXPCRn/M1kw/j+9q9JJjBZnnnbcChI8tLePpjLsGSDIjKUYt2G6xUv1+xeQ5rlqWf5UleJtQTZaScp9I7gU59v/s2JE3AEbVVR/ozQWLm5FcdbwohlKnb/+JT+uUWgFOelVBl9xYnjkgn3ImkkKHb2vDpIGysy1s8FOL1qq2u1eurSxfNFOFIPdMXcd5VV0Jtz2k4McoTtn8jJ5GQ/X+5/t5MmjTu5pNDdDUZrVgLKdbhcOOMT+VuOA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AS1PR04MB9240.eurprd04.prod.outlook.com (2603:10a6:20b:4c4::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.26; Mon, 12 May
- 2025 02:15:56 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8722.027; Mon, 12 May 2025
- 02:15:56 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Mon, 12 May 2025 10:14:16 +0800
-Subject: [PATCH 3/3] arm64: dts: imx95: Add property nxp,iomuxc-daisy-off
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250512-pin-v1-3-d9f1555a55ad@nxp.com>
-References: <20250512-pin-v1-0-d9f1555a55ad@nxp.com>
-In-Reply-To: <20250512-pin-v1-0-d9f1555a55ad@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>, 
- Jacky Bai <ping.bai@nxp.com>, NXP S32 Linux Team <s32@nxp.com>, 
- Linus Walleij <linus.walleij@linaro.org>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-gpio@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747016064; l=694;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=PncbpgH/3A84sgqVuG04OU2adO1KXIgE+pPtr9uu7RU=;
- b=4uiDb3YEXRByJ0CDGX1+6i92o2ITrjsA5hPvF+PXhCMp/m1ktxqmIYe5MiCTJabPkp43GcQjc
- MlGuGPOmQeNDms9aFPTOjfiZRW/PzYqCAl5vsUPcryTj3w74Q9i9aqG
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: SG2PR02CA0042.apcprd02.prod.outlook.com
- (2603:1096:3:18::30) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Mon, 12 May 2025 02:17:20 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4ZwjrJ3xSDz1d0rp;
+	Mon, 12 May 2025 10:15:44 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id A01A51800B2;
+	Mon, 12 May 2025 10:17:07 +0800 (CST)
+Received: from kwepemn100009.china.huawei.com (7.202.194.112) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 12 May 2025 10:17:07 +0800
+Received: from [10.67.121.59] (10.67.121.59) by kwepemn100009.china.huawei.com
+ (7.202.194.112) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 12 May
+ 2025 10:17:06 +0800
+Message-ID: <8ef46e21-4ad0-46ef-bfb3-fc56094ef79d@huawei.com>
+Date: Mon, 12 May 2025 10:17:05 +0800
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AS1PR04MB9240:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8390326d-75ba-4db2-a7d8-08dd90faedfc
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eWpSRFloMGJxdFdraVlzdzRORkpRTm9CQlNxcnc3RFZaZHl3SkZYOVZQcXlS?=
- =?utf-8?B?OWZQbXR5UVlrMDRSN1gxQUFTa0o3aUtMcW1KekNFS1JaZkcraVZJVmhBcXg2?=
- =?utf-8?B?TVVBR1dLdXVyVVh0ejBkekRYTmNIN2dYMjhFUmJaanBJc0hxTm1veHc4N3gx?=
- =?utf-8?B?SzFyQXkxTE9IWE5jRVBWaCsrWWpxTVFVQUZRQ1BOanlscHlkaWF4cWxwTkxV?=
- =?utf-8?B?UU5JSWRveVgwRllGbDZEdnFVQnI2dkI3RU1jZ3loVjNXNlFQRjBmR0ZFeGE4?=
- =?utf-8?B?QXNSTGhPbVhyalVhOTlpeS8yZlVkcmJ4ZnI1aTRGeEJZcnFWb3ZFK2p1bU1M?=
- =?utf-8?B?Qlk0RHdkUzJWZkVLRXA0RHRXWGNBMjZHamRMYXE3em05MnhJQ2ZZSDA1MUNL?=
- =?utf-8?B?Q1JFNFlkYTB5NXlQdXl3RlJTa0ttRVk3YXd3WVBnRTVMc0Z0bllHYkpOYWNT?=
- =?utf-8?B?VGdTZmgxUlpuTGFwbUhuczFXNFVwTzdDZDlWNlIwaHM5Uk9DTDlQUThyTzRk?=
- =?utf-8?B?Q2VoUEQ5c2VSakFwa1FXeWpHd3FpNmp2eDhlT3F6T1owTmZ3ek93UHRoTWts?=
- =?utf-8?B?MmFTYXM3RG52R3h5cnFXdCtGR1pwU1Y5MkVoa0hGZ1ZUbFBEekIwTTRJZEh4?=
- =?utf-8?B?TG5sY2F2dUkrQ0hEQWVtSDRNZlhXM1RVbitqUzJQd2MvemJDUUdqYkUvZDFa?=
- =?utf-8?B?V2g5RDYxSDZaWEh4aXhoZnUrVVNNOXk2Z2NtbHFRb0grV2dyaTFsT0hreFJK?=
- =?utf-8?B?WjVxRnJhWHFqSzBnOTk0WTVKVXBRT3ZKZFAveVFBMERpeFRpVjkvdy9kTk5T?=
- =?utf-8?B?azdSSVlJTU9jS2ZCTCtBNS9EZ0w5ZXZZTVNRTVBZQ0pFNzU5dFVwazMrN2g0?=
- =?utf-8?B?dk43RGU0RkFTWDZDZk9ZZjA5WVNUYnlOMzRwODI0TkI4Q0h5Qllib2dscTVS?=
- =?utf-8?B?Z0xQanpaMDFSVnhOaHpEb1FPdTZSQ2FFdEZ3d01WUFF5bzJyaEtDMnA4MXAy?=
- =?utf-8?B?bkJ1MkZVdXVOYmxLSEx5aTlVVnhhNHZNdERkeVo0cFp1K3Q5cXRmWUhQVHVt?=
- =?utf-8?B?NG54YlBzd1dmNi9GWStRaXBCbVVHMUlxK0pOdit1YXFTYjdJc3VKRUhnOEhs?=
- =?utf-8?B?Nk1VQzRJelpYd2ROenlzb2ZiclRQZ2NrVTg2TE5KdWtUMU1MSmFBSTZMbXhL?=
- =?utf-8?B?TG1VMTJMV21JUkNpTlNGdE5uLzE4ZDRtMlJHNWFOUUhzNUcwQ3dTOXBkcE9O?=
- =?utf-8?B?OXFwS1B1WnRFc0VsK3k1OCtlK0Z6emZkeHJ1OGpPdm1HQ2h6QTlwNnZaRklw?=
- =?utf-8?B?QmYvQjFLTUxueUo1Y29YRStNSC9tUGJIWWUwWVZWTkRGTUNnMVJ2Yzh2cW5r?=
- =?utf-8?B?QU1mQmEwMjZ6TzhuSTBkcGdsa3R3Z05lVnlGdmp3dFMya2dXZTd5VHUvSkov?=
- =?utf-8?B?d2U5U3krR21DY0NTaCt4TWs2QWx2UlpqOWJDS3k0UmRTTEZRSDR0SHV3S2lz?=
- =?utf-8?B?a0Uxd09OdlRVaW1yTzlnQTJwemdSWFFwb1VLZ3MwSWJrVlVwVDQrM09FVzZl?=
- =?utf-8?B?cmNKbWc1MVl2Y0JKT3VEQ0taL2hBMXFQTEowQ0QxbXUwbGY5NWsweU1WTmM0?=
- =?utf-8?B?R3ZQUkpjUU9aWkFTZzZjNXBQUzZ0bDJ4amUrYjl5MWJaQkE2T0NPVzBML3di?=
- =?utf-8?B?b2c0Z08xaEhFcXlKeXRmMjZzeUdoWHZJb2tJUlNMWjYyeENXR2I1NkRGN2g3?=
- =?utf-8?B?YmlONzBPeXhiTEEvL2FoTCtlVU91VXpiTXowQlNBMGd0Z3c2YUkydjM4MXc3?=
- =?utf-8?B?eEdWNmYxNm5aNnZMWFlYa0xFTDdxTTRxb3NadlM5bENjdWp6V0xMeXhGMzdF?=
- =?utf-8?B?aUhTVURFWnZFZVYrRWJHRDZUcG1VUnJmb015bG1uZE1PcnJhK1cwMXhidWo0?=
- =?utf-8?B?RlFEYkoyY2RGelRsUWJBL3JWa2MxTkFvRVRwWXovYlpMS0wwRi9zczF4NDZj?=
- =?utf-8?Q?4n+vUDoq7CvKT319HfWszZAEwu018o=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Rk9FbE5QVFZNVWprRzhtQ3hWNmZDdnRlMmFXUE1Sckk2blBGMEVPN0RrL2hR?=
- =?utf-8?B?bU1TejNEVVFZQjhjZG1icGF1T05YSjhvd291dUQwWGtkVk1jblFlbkh5OTFn?=
- =?utf-8?B?MFRrM2ZUZDBFUVl6Q2FtMTBLa0V1ZUNjYWhuUEwwTGlaZGlxamVtS2QzRGpL?=
- =?utf-8?B?RDhCQ0VyWjFDalRHTU5oNHI4eXB5cGFEUkJlb3NnYlRTRThzSW9YWUE4d05x?=
- =?utf-8?B?OFRhNTdtaDVOODJLa3NsZno0ZDFRdmt3aFVMY3I4dHdid05oQm1DRGVhbFVy?=
- =?utf-8?B?WjdCQXRRYTZ3YnVFVXhoZDc2ajl4T3JSdTBmMnhZeXBpM1VYbU13SHBIb1pU?=
- =?utf-8?B?YUJuYXh4cFRCTEJEQ0xxNy8xRE5PcVJLbkVIWGxqM0t5QTdyNUgzMHA0bGlp?=
- =?utf-8?B?Q3Z0NEpIZEdtWlNscEUxVzVyNFd0OTJQZXk4aUhUd0R2QXJGRHVMT2tFUDBK?=
- =?utf-8?B?RTU1b21mRnBFY25JeGQwNkJaQksxY3NkYzcraG13V2V1bG5GU2lSbG5HWkps?=
- =?utf-8?B?bUF0MDJkbVVrVCtna3pHQVBUamNDKzJMOWp6WlgxaDAvL1RZa0RVSlNSLzZr?=
- =?utf-8?B?YW8zZVpHNEpDL3VTcTFuVFo2L0hJQ2x6Smd3WU9sME0xLythRENUVEU0Tk10?=
- =?utf-8?B?MXpjay9BWlF2clJRTVkyWFRTbEVaYmZyK1JOVWU3OGZMekI1bVA0VWZPU2h3?=
- =?utf-8?B?ZVErS2dDMWdESk1zdXUxdENNSzA0ZlNoTWpHNHkyY1JRUWhFMjM0dE5EdWNq?=
- =?utf-8?B?a2xxTkpicmIxeHlWVytsRW5XdTZ6UmlnTkVROWJKdzA4eElobWZQSkNGY29w?=
- =?utf-8?B?L0FUQ3Q2dUxualNVUVNveStrM1RjZ212QW5wR2srSndqZjBYSTV2V1NGMXhj?=
- =?utf-8?B?ZFpBYy9jcXBVU3BVU3RBNkdvQ0VsU2R3NGxRV0tneVlFcEpBTnNyRFZHc0o1?=
- =?utf-8?B?Qm8yVVRzemZUYjkwdU1IOFFGd0hTWW5tNW5HWWVwVlltMVlZSVFJSGd0WHZo?=
- =?utf-8?B?TUZkVWlVWThIcVNhU1RoNnNyaU8wSmJuWUtFUUxzbThsNU0xaitBU3JGS1J3?=
- =?utf-8?B?enRQTGROYmNFTldFOXJwYjZDMmhqSC9XTmVpaHgrcUpWU2NQZVB1bnNSTE5H?=
- =?utf-8?B?TFBsQnJVN3UwUXQ0U0txa0IwMWNCa1NsVFhQbE1FUUc0OU5OSitiYmM3b2dl?=
- =?utf-8?B?VjlUbE5MRlc1SjczSnhESVRnakhjdk1OVk9aVGp5UlNXczhkdk5Sa3Vra1Ew?=
- =?utf-8?B?cFJyOGpLMDRRelM5QTlqcDRUUVJqRzc0M1lnYWFCVWlHbWFYcnUxREp1SEJF?=
- =?utf-8?B?UVhKcjRXUTNuYmNPNTE0S2M1SStleFJEV3RvZkhTVllPRFZrQjY0NFQzQ2s2?=
- =?utf-8?B?bnZXVGJ6b0h4ZFJ1WDlFdEJLMUJBMTZjOG9OVmh3a2pjZDU2dzgySmlkaysv?=
- =?utf-8?B?dEdyOUNTOFdRSmhzNHV4WW9UTStwcWZkNTJ0bnplMVBaeUJObTZGSXAwdFE5?=
- =?utf-8?B?TDAvbkY5SGNGemxwaWRnQytzeWgzM2NOQVg2YTJQMk0vNzMyRXRYVFUydklV?=
- =?utf-8?B?b0RzdStPL2VXbHhmKytXU3YzNE9wdSs5RGcvZ1dObllBNnRhZ1FtS3hGbjJa?=
- =?utf-8?B?NWZIdEYzRWIwWlQwVm4vL3lWTUdHSlYwaEEwa3dUZkZ4aFA4S1c3RjZoUFl4?=
- =?utf-8?B?Q1ZZNllWTk56MmxIeEcraXZ3VTdsOCtiUVh0ZlFjU3RNQWUxNzFYUEhva1gz?=
- =?utf-8?B?eHJLM1d0dVpObFFkaStzNXZPeHJqZGNqTkZ5UUVYK3c0cktXZ01yVG00T0Zm?=
- =?utf-8?B?WlE3U0RDODhKaGlyNHV4UjkxTlVjWVNtZkQzTkRZWG9wY0NKS1laaEdENmMy?=
- =?utf-8?B?TkhMVGZuQ281OHRsMVk2eitFRENURk5MODgvT3FMeWh4YVNsb0hNSkpkbGM3?=
- =?utf-8?B?Qlp5TGR6NXlBRmF2ajVWZnYxYXplM3ZOZllWZU9UMWQ1b2ZLZzNyUDV1bzBy?=
- =?utf-8?B?RFZvMWIyT01sc1RXUmMrUG9DczQyQlJzZUVnTUJvOGdPUlluYzFxSFhXVmox?=
- =?utf-8?B?WGYzaWRmc0tlRmR2cjVKb0h2Qmg2VERydm1NWjhRamJHUDBZQkxPNEN5TkMw?=
- =?utf-8?Q?byUYR6+ceqDzVWG6x2iCwEGa1?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8390326d-75ba-4db2-a7d8-08dd90faedfc
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2025 02:15:56.6575
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hlB2c4vXi+rw3r2kcbTBRAbTAhxSpDXpDJK0Njc7Tjw0LyVEC1X6k1npxkbyEzL1Zf2OP2R2Sj/8I6q2U5F8zg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9240
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] PM / devfreq: Add HiSilicon uncore frequency scaling
+ driver
+To: Jie Zhan <zhanjie9@hisilicon.com>, <myungjoo.ham@samsung.com>,
+	<kyungmin.park@samsung.com>, <cw00.choi@samsung.com>
+References: <20250506021434.944386-1-zhanjie9@hisilicon.com>
+From: "lihuisong (C)" <lihuisong@huawei.com>
+In-Reply-To: <20250506021434.944386-1-zhanjie9@hisilicon.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.59]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ kwepemn100009.china.huawei.com (7.202.194.112)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_191559_576778_9F24D21B 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250511_191718_810880_D211F839 
+X-CRM114-Status: GOOD (  36.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,32 +71,471 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: yubowen8@huawei.com, zhenglifeng1@huawei.com, linux-pm@vger.kernel.org, liwei728@huawei.com, linuxarm@huawei.com, prime.zeng@hisilicon.com, jonathan.cameron@huawei.com, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+Hi Jie,
 
-i.MX95 IOMUXC Daisy register offset is at IOMUXC offset 0x408, set it.
+There are some trivia advice. please have a look.
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx95.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+/Huisong
+在 2025/5/6 10:14, Jie Zhan 写道:
+> Add the HiSilicon uncore frequency scaling driver for Kunpeng SoCs based on
+> the devfreq framework.  The uncore domain contains shared computing
+> resources, including system interconnects and L3 cache.  The uncore
+> frequency significantly impacts the system-wide performance as well as
+> power consumption.  This driver adds support for runtime management of
+> uncore frequency from kernel and userspace.  The main function includes
+> setting and getting frequencies, changing frequency scaling policies, and
+> querying the list of CPUs whose performance is significantly related to
+> this uncore frequency domain, etc.  The driver communicates with a platform
+> controller through an ACPI PCC mailbox to take the actual actions of
+> frequency scaling.
+>
+> Co-developed-by: Lifeng Zheng <zhenglifeng1@huawei.com>
+> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
+> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
+> ---
+>   drivers/devfreq/Kconfig            |  11 +
+>   drivers/devfreq/Makefile           |   1 +
+>   drivers/devfreq/hisi_uncore_freq.c | 722 +++++++++++++++++++++++++++++
+>   3 files changed, 734 insertions(+)
+>   create mode 100644 drivers/devfreq/hisi_uncore_freq.c
+>
+> diff --git a/drivers/devfreq/Kconfig b/drivers/devfreq/Kconfig
+> index 3c4862a752b5..7ab09739bf21 100644
+> --- a/drivers/devfreq/Kconfig
+> +++ b/drivers/devfreq/Kconfig
+> @@ -90,6 +90,17 @@ config ARM_EXYNOS_BUS_DEVFREQ
+>   	  and adjusts the operating frequencies and voltages with OPP support.
+>   	  This does not yet operate with optimal voltages.
+>   
+> +config ARM_HISI_UNCORE_DEVFREQ
+> +	tristate "HiSilicon uncore DEVFREQ Driver"
+> +	depends on (PCC && ACPI && ACPI_PPTT) || COMPILE_TEST
+> +	select DEVFREQ_GOV_PERFORMANCE
+> +	select DEVFREQ_GOV_USERSPACE
+> +	help
+> +	  This adds a DEVFREQ driver that manages uncore frequency scaling for
+> +	  HiSilicon Kunpeng SoCs. This enables runtime management of uncore
+> +	  frequency scaling from kernel and userspace. The uncore domain
+> +	  contains system interconnects and L3 cache.
+> +
+>   config ARM_IMX_BUS_DEVFREQ
+>   	tristate "i.MX Generic Bus DEVFREQ Driver"
+>   	depends on ARCH_MXC || COMPILE_TEST
+> diff --git a/drivers/devfreq/Makefile b/drivers/devfreq/Makefile
+> index bf40d04928d0..404179d79a9d 100644
+> --- a/drivers/devfreq/Makefile
+> +++ b/drivers/devfreq/Makefile
+> @@ -9,6 +9,7 @@ obj-$(CONFIG_DEVFREQ_GOV_PASSIVE)	+= governor_passive.o
+>   
+>   # DEVFREQ Drivers
+>   obj-$(CONFIG_ARM_EXYNOS_BUS_DEVFREQ)	+= exynos-bus.o
+> +obj-$(CONFIG_ARM_HISI_UNCORE_DEVFREQ)	+= hisi_uncore_freq.o
+>   obj-$(CONFIG_ARM_IMX_BUS_DEVFREQ)	+= imx-bus.o
+>   obj-$(CONFIG_ARM_IMX8M_DDRC_DEVFREQ)	+= imx8m-ddrc.o
+>   obj-$(CONFIG_ARM_MEDIATEK_CCI_DEVFREQ)	+= mtk-cci-devfreq.o
+> diff --git a/drivers/devfreq/hisi_uncore_freq.c b/drivers/devfreq/hisi_uncore_freq.c
+> new file mode 100644
+> index 000000000000..c093ada438f0
+> --- /dev/null
+> +++ b/drivers/devfreq/hisi_uncore_freq.c
+> @@ -0,0 +1,722 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * HiSilicon uncore frequency scaling driver
+> + *
+> + * Copyright (c) 2025 HiSilicon Co., Ltd
+> + */
+> +
+> +#include <linux/acpi.h>
+> +#include <linux/bits.h>
+> +#include <linux/devfreq.h>
+> +#include <linux/device.h>
+> +#include <linux/dev_printk.h>
+> +#include <linux/errno.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/kernel.h>
+> +#include <linux/ktime.h>
+> +#include <linux/mailbox_client.h>
+> +#include <linux/module.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/mutex.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_opp.h>
+> +#include <linux/property.h>
+> +#include <linux/topology.h>
+> +#include <linux/units.h>
+> +#include <acpi/pcc.h>
+> +
+> +#include "governor.h"
+> +
+> +struct hisi_uncore_pcc_data {
+> +	u16 status;
+> +	u16 resv;
+> +	u32 data;
+> +};
+> +
+> +struct hisi_uncore_pcc_shmem {
+> +	struct acpi_pcct_shared_memory head;
+> +	struct hisi_uncore_pcc_data pcc_data;
+> +};
+> +
+> +enum hisi_uncore_pcc_cmd_type {
+> +	HUCF_PCC_CMD_GET_CAP = 0,
+> +	HUCF_PCC_CMD_GET_FREQ,
+> +	HUCF_PCC_CMD_SET_FREQ,
+> +	HUCF_PCC_CMD_GET_MODE,
+> +	HUCF_PCC_CMD_SET_MODE,
+> +	HUCF_PCC_CMD_GET_PLAT_FREQ_NUM,
+> +	HUCF_PCC_CMD_GET_PLAT_FREQ_BY_IDX,
+> +	HUCF_PCC_CMD_MAX = 256,
+> +};
+> +
+> +static int hisi_platform_gov_usage;
+> +static DEFINE_MUTEX(hisi_platform_gov_usage_lock);
+> +
+> +enum hisi_uncore_freq_mode {
+> +	HUCF_MODE_PLATFORM = 0,
+> +	HUCF_MODE_OS,
+> +	HUCF_MODE_MAX,
+> +};
+> +
+> +#define HUCF_CAP_PLATFORM_CTRL	BIT(0)
+> +
+> +/**
+> + * struct hisi_uncore_freq - hisi uncore frequency scaling device data
+> + * @dev:		device of this frequency scaling driver
+> + * @cl:			mailbox client object
+> + * @pchan:		PCC mailbox channel
+> + * @pcc_shmem_addr:	PCC shared memory base address
+> + * @chan_id:		PCC channel ID
+> + * @last_cmd_cmpl_time:	timestamp of the last completed PCC command
+> + * @pcc_lock:		PCC channel lock
+> + * @devfreq:		devfreq data of this hisi_uncore_freq device
+> + * @related_cpus:	CPUs whose performance is majorly affected by this
+> + *			uncore frequency domain
+> + * @cap:		capabililty flag
+> + */
+> +struct hisi_uncore_freq {
+> +	struct device *dev;
+> +	struct mbox_client cl;
+> +	struct pcc_mbox_chan *pchan;
+> +	void __iomem *pcc_shmem_addr;
+> +	int chan_id;
+> +	ktime_t last_cmd_cmpl_time;
+> +	struct mutex pcc_lock;
+> +	struct devfreq *devfreq;
+> +	struct cpumask related_cpus;
+> +	u32 cap;
+> +};
+> +
+> +/* PCC channel timeout = PCC nominal latency * NUM */
+> +#define HUCF_PCC_POLL_TIMEOUT_NUM	1000
+> +#define HUCF_PCC_POLL_INTERVAL_US	5
+> +
+> +/* Default polling interval in ms for devfreq governors*/
+> +#define DEFAULT_POLLING_MS 100
+> +
+> +static int hisi_uncore_request_pcc_chan(struct hisi_uncore_freq *uncore)
+> +{
+> +	struct pcc_mbox_chan *pcc_chan;
+> +	int rc;
+> +
+> +	uncore->cl = (struct mbox_client) {
+> +		.dev = uncore->dev,
+> +		.tx_block = false,
+> +		.knows_txdone = true,
+> +	};
+> +
+> +	pcc_chan = pcc_mbox_request_channel(&uncore->cl, uncore->chan_id);
+> +	if (IS_ERR(pcc_chan)) {
+> +		dev_err(uncore->dev, "Failed to request PCC channel %u\n",
+> +			uncore->chan_id);
+> +		return -ENODEV;
+> +	}
+> +
+> +	if (!pcc_chan->shmem_base_addr) {
+> +		dev_err(uncore->dev, "Invalid PCC shared memory address\n");
+> +		rc = -EINVAL;
+> +		goto err_pcc_chan_free;
+> +	}
+> +
+> +	if (pcc_chan->shmem_size < sizeof(struct hisi_uncore_pcc_shmem)) {
+> +		dev_err(uncore->dev, "Invalid PCC shared memory size (%lluB)\n",
+> +			pcc_chan->shmem_size);
+> +		rc = -EINVAL;
+> +		goto err_pcc_chan_free;
+> +	}
+> +
+> +	uncore->pcc_shmem_addr = ioremap(pcc_chan->shmem_base_addr,
+> +					 pcc_chan->shmem_size);
+Now driver doesn't need to ioremap repeatly because of Sudeep's work.
+Please see the patch:
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fa362ffafa51b08cf8e2fcca38e056332f6b9b05 
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-index 632631a2911224cadc16a943cdb467e091e43384..9b60bbe3b5c679331d38c86e2aca4b0b9d4340c8 100644
---- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-@@ -348,6 +348,7 @@ scmi_sensor: protocol@15 {
- 
- 			scmi_iomuxc: protocol@19 {
- 				reg = <0x19>;
-+				nxp,iomuxc-daisy-off = <0x408>;
- 			};
- 
- 			scmi_bbm: protocol@81 {
+> +	if (!uncore->pcc_shmem_addr) {
+> +		rc = -ENOMEM;
+> +		goto err_pcc_chan_free;
+> +	}
+> +
+> +	mutex_init(&uncore->pcc_lock);
+> +	uncore->pchan = pcc_chan;
+> +
+> +	return 0;
+> +
+> +err_pcc_chan_free:
+> +	pcc_mbox_free_channel(pcc_chan);
+> +
+> +	return rc;
+> +}
+> +
+> +static void hisi_uncore_free_pcc_chan(struct hisi_uncore_freq *uncore)
+> +{
+> +	if (uncore->pchan) {
+> +		guard(mutex)(&uncore->pcc_lock);
+> +		pcc_mbox_free_channel(uncore->pchan);
+> +		uncore->pchan = NULL;
+> +	}
+> +}
+> +
+> +static acpi_status hisi_uncore_pcc_reg_scan(struct acpi_resource *res,
+> +					    void *ctx)
+> +{
+> +	struct acpi_resource_generic_register *reg;
+> +	struct hisi_uncore_freq *uncore;
+> +
+> +	if (!res || res->type != ACPI_RESOURCE_TYPE_GENERIC_REGISTER)
+> +		return AE_OK;
+> +
+> +	reg = &res->data.generic_reg;
+> +	if (reg->space_id != ACPI_ADR_SPACE_PLATFORM_COMM)
+> +		return AE_OK;
+> +
+> +	if (!ctx)
+> +		return AE_ERROR;
+> +
+> +	uncore = ctx;
+> +	/* PCC subspace ID stored in Access Size */
+> +	uncore->chan_id = reg->access_size;
+> +
+> +	return AE_CTRL_TERMINATE;
+> +}
+> +
+> +static int hisi_uncore_init_pcc_chan(struct hisi_uncore_freq *uncore)
+> +{
+> +	acpi_handle handle = ACPI_HANDLE(uncore->dev);
+> +	acpi_status status;
+> +
+> +	uncore->chan_id = -1;
+> +	status = acpi_walk_resources(handle, METHOD_NAME__CRS,
+> +				     hisi_uncore_pcc_reg_scan, uncore);
+> +	if (ACPI_FAILURE(status) || uncore->chan_id < 0) {
+> +		dev_err(uncore->dev, "Failed to get a PCC channel\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	return hisi_uncore_request_pcc_chan(uncore);
+> +}
+> +
+> +static int hisi_uncore_cmd_send(struct hisi_uncore_freq *uncore,
+> +				u8 cmd, u32 *data)
+> +{
+> +	struct hisi_uncore_pcc_shmem __iomem *addr;
+> +	struct hisi_uncore_pcc_shmem shmem;
+> +	struct pcc_mbox_chan *pchan;
+> +	unsigned int mrtt;
+> +	s64 time_delta;
+> +	u16 status;
+> +	int rc;
+> +
+> +	guard(mutex)(&uncore->pcc_lock);
+> +
+> +	pchan = uncore->pchan;
+> +	addr = uncore->pcc_shmem_addr;
+> +
+> +	if (!pchan || !addr)
+> +		return -ENODEV;
+This parameter validation seems redundant. From driver point, it always 
+be ok.
+> +
+> +	/* Handle the Minimum Request Turnaround Time (MRTT) */
+> +	mrtt = pchan->min_turnaround_time;
+> +	time_delta = ktime_us_delta(ktime_get(),
+> +				    uncore->last_cmd_cmpl_time);
+> +	if (mrtt > time_delta)
+> +		udelay(mrtt - time_delta);
+> +
+> +	/* Copy data */
+> +	shmem.head = (struct acpi_pcct_shared_memory) {
+> +		.signature = PCC_SIGNATURE | uncore->chan_id,
+> +		.command = cmd,
+> +		.status = 0,
+> +	};
+> +	shmem.pcc_data.data = *data;
+> +	memcpy_toio(addr, &shmem, sizeof(shmem));
+> +
+> +	/* Ring doorbell */
+> +	rc = mbox_send_message(pchan->mchan, &cmd);
+> +	if (rc < 0) {
+> +		dev_err(uncore->dev, "Failed to send mbox message, %d\n", rc);
+> +		return rc;
+> +	}
+> +
+> +	/* Wait status */
+> +	rc = readw_poll_timeout(&addr->head.status, status,
+> +				status & (PCC_STATUS_CMD_COMPLETE |
+> +					  PCC_STATUS_ERROR),
+> +				HUCF_PCC_POLL_INTERVAL_US,
+> +				pchan->latency * HUCF_PCC_POLL_TIMEOUT_NUM);
+> +	if (rc) {
+> +		dev_err(uncore->dev, "PCC channel response timeout, cmd=%u\n", cmd);
+> +		goto exit;
+> +	}
+> +
+> +	if (status & PCC_STATUS_ERROR) {
+> +		dev_err(uncore->dev, "PCC cmd error, cmd=%u\n", cmd);
+> +		rc = -EIO;
+> +		goto exit;
+> +	}
+> +
+> +exit:
+> +	uncore->last_cmd_cmpl_time = ktime_get();
+> +
+> +	/* Copy data back */
+> +	memcpy_fromio(data, &addr->pcc_data.data, sizeof(*data));
+> +
+> +	/* Clear mailbox active req */
+> +	mbox_client_txdone(pchan->mchan, rc);
+> +
+> +	return rc;
+> +}
+> +
+> +static int hisi_uncore_target(struct device *dev, unsigned long *freq,
+> +			      u32 flags)
+> +{
+> +	struct hisi_uncore_freq *uncore = dev_get_drvdata(dev);
+> +	struct dev_pm_opp *opp;
+> +	u32 data;
+> +
+> +	/*
+> +	 * ->target() might be called after drv->remove() and before governor
+> +	 * stopped, so it's necessary to check here, but no need to warn.
+> +	 */
+> +	if (!uncore || !uncore->pchan)
+> +		return 0;
+If have the following tips, this check can be removed, right?
+> +
+> +	opp = devfreq_recommended_opp(dev, freq, flags);
+> +	if (IS_ERR(opp)) {
+> +		dev_err(dev, "Failed to get opp for freq %lu hz\n", *freq);
+> +		return PTR_ERR(opp);
+> +	}
+> +	dev_pm_opp_put(opp);
+> +
+> +	data = (u32)(dev_pm_opp_get_freq(opp) / HZ_PER_MHZ);
+> +
+> +	return hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_SET_FREQ, &data);
+> +}
+> +
+<...>
+> +
+> +static int hisi_uncore_devfreq_register(struct hisi_uncore_freq *uncore)
+> +{
+> +	struct devfreq_dev_profile *profile;
+> +	unsigned long freq;
+> +	u32 data;
+> +	int rc;
+> +
+> +	rc = hisi_uncore_get_cur_freq(uncore->dev, &freq);
+> +	if (rc) {
+> +		dev_err(uncore->dev, "Failed to get plat init freq (%d)\n", rc);
+> +		return rc;
+> +	}
+> +
+> +	profile = devm_kzalloc(uncore->dev, sizeof(*profile), GFP_KERNEL);
+> +	if (!profile)
+> +		return -ENOMEM;
+> +
+> +	profile->initial_freq = freq;
+> +	profile->polling_ms = DEFAULT_POLLING_MS;
+> +	profile->timer = DEVFREQ_TIMER_DELAYED;
+> +	profile->target = hisi_uncore_target;
+> +	profile->get_dev_status = hisi_uncore_get_dev_status;
+> +	profile->get_cur_freq = hisi_uncore_get_cur_freq;
+> +
+> +	rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_GET_MODE, &data);
+> +	if (rc) {
+> +		dev_err(uncore->dev, "Failed to get operate mode (%d)\n", rc);
+> +		return rc;
+> +	}
+> +
+> +	if (data == HUCF_MODE_PLATFORM)
+> +		uncore->devfreq = devm_devfreq_add_device(uncore->dev, profile,
+> +							  hisi_platform_governor.name, NULL);
+> +	else
+> +		uncore->devfreq = devm_devfreq_add_device(uncore->dev, profile,
+> +							  DEVFREQ_GOV_PERFORMANCE, NULL);
+This code creates sysfs file which will be freed after .remove() executed.
+However, the PCC channel is released in .remove().
+This may lead to UAF issue.
+We have tow options:
+*option 1:*
+hisi_uncore_free_pcc_chan() also move to the last release instead of the 
+.remove() by devm_add_action_or_reset() or devm_add_action().
+*option 2:*
+Use devfreq_add_device() to replace devm_devfreq_add_device() and 
+.remove() in driver call devfreq_remove_device() to delete these sysfs 
+files.
 
--- 
-2.37.1
+There are the resources  dependency between these interfaces. And there 
+is a potential release sequence in .remove, devm_xxx, and even the 
+devm_xxx release inside.
+I prefer to explicitly free interfaces that have resource dependencies 
+in driver.
 
+
+> +	if (IS_ERR(uncore->devfreq)) {
+> +		dev_err(uncore->dev, "Failed to add devfreq device\n");
+> +		return PTR_ERR(uncore->devfreq);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+<...>
+> +
+> +	rc = hisi_uncore_init_dev_interface(uncore);
+> +	if (rc) {
+> +		dev_err(uncore->dev, "Failed to init custom device interfaces (%d)\n", rc);
+> +		goto err_remove_platform_gov;
+> +	}
+> +
+> +	return 0;
+> +
+> +err_remove_platform_gov:
+> +	hisi_uncore_remove_platform_gov(uncore);
+> +
+> +err_free_opp:
+> +	dev_pm_opp_remove_all_dynamic(uncore->dev);
+> +
+> +err_free_pcc_chan:
+> +	hisi_uncore_free_pcc_chan(uncore);
+> +
+> +	return rc;
+> +}
+> +
+> +static void hisi_uncore_freq_remove(struct platform_device *pdev)
+> +{
+> +	struct hisi_uncore_freq *uncore = platform_get_drvdata(pdev);
+> +
+> +	hisi_uncore_remove_dev_interface(uncore);
+> +	hisi_uncore_remove_platform_gov(uncore);
+> +	dev_pm_opp_remove_all_dynamic(uncore->dev);
+> +	hisi_uncore_free_pcc_chan(uncore);
+> +}
+> +
+<...>
 
