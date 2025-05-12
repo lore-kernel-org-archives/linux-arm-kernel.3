@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38D63C3ABCD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 12:33:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26933C3ABCD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 12:35:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iMHCBS0if0cnlwKmMIsceybB2DKlEexq99G6FWGTcxI=; b=YOTNY7hySy5fuDNd+aglbI8r+I
-	s9uxE7MFC1tOQVBHmubHSRBgYsOUUPnLTWSnpV7D+8NcSo9HzFBil564ujqsKnPRjvBK+D7Xs1zvi
-	hXmRPwnbVqoP69UgqbKoj1pC6j2h+cCqYWrlNPbuo9CaIKk+0wIFElnoFXwzQUpcagwAVRUNxGbDw
-	oU0yCWFFflM+mv0vSTRwvG9pLNpZs9F32P2NAH4e8fyOITNiOpCJouQOB6w5R7/vH8vIt7XgJ4wuq
-	gjc7k1k3Z0VTWXm5SkwzZirBT5lgUJL4imoc1FJ7scFSVnuQoU/59jraz6VoNVbeqqL4KB/xubMKD
-	RCIROMnQ==;
+	bh=/MYiew/7MjE/NSPkg8zeewtIqLpitjfhqjwjRNOSYf0=; b=UDAlYVWTaZXr48rq/fs3ILTmtK
+	y6rEEp4z5mE0R3slScQCmeL3HMvI9Lrm8J3a343gswH9D9s7khvLeltDgWHDbiWK62+j2P7++0slq
+	nfWoGWyPYfaD1yfFocUDkIw7vmbJqZUVOtTk5iqDyIF2yfIpaTGOv+0wcvezbq8RL8y2nEi5ZozWV
+	+EBbkGbYy3L5/99wN0ghnpODAeytCdaxthMwN59m+uYZO2txYhK3svoHLFp3hOhtoca+JfrZxwREU
+	1cGTgYCySKfJ7jshjIxw20ijVND8Bl/+At4OuNwf0j1n+K88091R+BcU72f6160Nj5Id+SEaGhKU/
+	A9VB23PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uESL5-00000009O6l-0V84;
-	Mon, 12 May 2025 12:32:59 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1uESN9-00000009Oh7-3dwv;
+	Mon, 12 May 2025 12:35:07 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uERv3-00000009Kxb-1tdc
+	id 1uERv4-00000009KyV-2CWV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 12:06:06 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-54e98f73850so4964883e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 05:06:05 -0700 (PDT)
+	Mon, 12 May 2025 12:06:07 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-54fd1650b83so1667561e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 05:06:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747051564; x=1747656364; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1747051565; x=1747656365; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=iMHCBS0if0cnlwKmMIsceybB2DKlEexq99G6FWGTcxI=;
-        b=a99Q/tlGfY+HyT0a5C7h1zz9HJhlerJMCHPMLisfsgQnVqvV4M9kNAtly83oRAN+45
-         UnrrJ0tYS+LkGfbWZQep84vzXEs9yBqCDQ4J9nj973/6qXh0RxSExzfOfoPUMt+BCobD
-         hspla2RUX+BjLXryU1y5c10UmgM8mIYny3+I11M83wvJKWdao1OiaiMwJVoVkQP39HH7
-         i4dB1WXpZZqC1jWNX1N3xPVvEaB2H7uyUiwnTazd9mZINDDvG5R1mpF33V36thbVythB
-         lfShoIDOWEUmjJHPrTV9yBMGjZTCEH+sTa+n6qm5jQrGK4H3NsqccBoP6qcQxWDwxCtK
-         VZqA==
+        bh=/MYiew/7MjE/NSPkg8zeewtIqLpitjfhqjwjRNOSYf0=;
+        b=e0kcIwFYD7C0j+eOEorGAuQVHrydW9BZ2kZh//HOq+64IyimXvvHSD+rZf9NpQjFWQ
+         Om4RR61h2Mc39rllW69EuOhLzlk1C4aHprtfF8GIIxyJIlussD8YLu8/T+JZs/5atV3o
+         wO7DpXUqBh5fn+rxm2OZ/xZKMhxFx5CqZ7dKXACy5YTe2mNaxk5S9TB1ZY3tunrCYFFr
+         sRLa0uq52GXdJ93Z8DDx4RjpcGdBcpIT4zlqOR8FgTo74LDe5986nLbrrr3fPNoM/xij
+         GbWpmeJLCA9PzuSca+tchGd5dG0BaBDjVMcL4LlkG1RjO0ZJ5oV1LcJ0tn8PR6WRVK0s
+         +GxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747051564; x=1747656364;
+        d=1e100.net; s=20230601; t=1747051565; x=1747656365;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iMHCBS0if0cnlwKmMIsceybB2DKlEexq99G6FWGTcxI=;
-        b=N32hEHbkKpSZ0dq0LDqs7FY+aRRWHi3ABye3FOEW7qwlT1xP3e5/7a89Pm0otC1KHz
-         NQl8bvTUqJ7USnvrRWrCKBmIYs/PccDaZT7vR6DZE/KdSilj1Wyd1QKnAzazKbyQo8LV
-         PGgwj+CY0EnKQ5mdvMmCh2Wo/MxYAwjkJHYLbakMh2F2W5hR2YaOoliPtedYQaT8rJui
-         E4V32hyaYSKRkEqMTEhS84NcighNA2iA50k/Hv3+798fGvgJwRh3Nfkc/NEmjQCrOEiE
-         SfWmydJuG5+XlalPKMeDgLBYNLDPaGe5N6Rx57+jFrc0fc/1kWKv8O6oo6Sria/q7tG/
-         S3GQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX3DUo7/h31vxn2AoxMvan/5GZ3tKjCXE/lqaOEO+B9uc8ZTU62vM/u/I7QUnk7vr3ddSym2FNtFXN5jGdFNUHH@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXOVMKtwpk1ls0mN7158HnKSHRLRlNsl+ijRsIl3VAa0i5b/lY
-	5u7LRqWcdKh4ecb1wFrBhGVILxombznuUP/pGsnw8SNVFsYaJK7uURt5Jz0/F+I=
-X-Gm-Gg: ASbGncsPeW2aacS02vM8G3KyA7T8+O5W2jLoYUa0zngdqFtCFuC+8Wg0yBY1mEa3VtX
-	rrYz8bm81Jq5ksxliEzpIp1OAxyZHFmy+mFafTCl6VKcN7AbKM85+xRcHEyMyWGU5mw6mKYBiIV
-	bOIwNpeEf+CqjEjBwNf2TEuESn+SoPWbcblhGonyCFk2gaBW7186nzixz0ZI2RsGz6R46L9W1bh
-	AQNwyCxX5tAg+EkCdyEIxgbg9skRY2dGi62FQIATp3E6X6Flwyfiuo7Tpv+xSDot49xDU7xRGHG
-	SLikfBnRr6/BGlEHvd17IIvqh2EXIS4m55g0w5E0LdSOTQWdA67scjAAWGKt2Bz4fr55TYLE
-X-Google-Smtp-Source: AGHT+IFKLyv7PHn6Lok1bEUkjovUWReFWptxKqF+Zjq8PYbN39Dl2AbUjj1cgZazNFL5Lv8ZsKYfRA==
-X-Received: by 2002:a05:6512:3b86:b0:54f:c5bc:3cfd with SMTP id 2adb3069b0e04-54fc67e4cfdmr3762780e87.39.1747051563829;
-        Mon, 12 May 2025 05:06:03 -0700 (PDT)
+        bh=/MYiew/7MjE/NSPkg8zeewtIqLpitjfhqjwjRNOSYf0=;
+        b=Ao8htsZwjgWVZHZH/noDp7uzfLY/nAdT4iskYFVUBv3J1V3NCLQ9o6gKsWwzJjm7Z+
+         Bwen8KUc0jAnr8/qWL0IuXxcsifwMP9c7Jhxq6pFHLLRW16FfLei7jYdVNas1MigoYfC
+         7K0Lt9xgv3SrjeW0s95f/afV0M5/q9XcDjepysDU/hSFHyDarVUY56jz6yPHhq2V7Ytn
+         cM4Dsssbk/MoeyCtoqpTo73UEi/Co2tj5ObNn2kP+K3v6mcUKNEqXdJ8wAnj6aADdSOF
+         IdxC+5c/ScfAsKYZIsssOYGmze6JZkbInrLoQcyL0KVn6VKey+6Ht5NMfe8HoNZ2mlmk
+         9L9g==
+X-Forwarded-Encrypted: i=1; AJvYcCU5nhVIV0OeYWVW6szIHqbEH5pFxOHjPnrfdihTzWgYLMRGwVk9j3/EuLJBnZDOvbLKODx9gYOcWU58F5p697p9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3vzQICFmOiBeKIkli33LQuYKdIZLec2w78jKot2q0XPyBhnhG
+	fwhElopgpqy30d41PHVgBj68OqGgPa8E8bbqYFBFk+NLo+Xy6T16sxHjSa7FigY=
+X-Gm-Gg: ASbGnctNTa7TA6ACoFlA0xWaYjrfTyBwjOc8K+ZIjmw8GCdFylr6W3rP3g4+6cbmXBd
+	fP+uyPvI5a2EMEeClnZk6eKRrOOfXfSTpvdTmTXFFioARqF4mfIGmxIqiAGRo+/Za0wsDMmYIIV
+	Mdd3mtQyvg7BCITa9YTe22pnEmUsBqKOvsKIWYgaURC8MHNB87SLX7i9OeAVawRhGLUh6sffR5j
+	5B7F25GxYdYsbZPAimnmhX+SE7fiEuZgVAgmTpkXyY48ZJh/7JuZGDc81kF4ImWDx+rCQkc6SNs
+	Ki9zo/lR+C5DhFJM2uDIu32EJarJoo5IOe0b6i0OxqzftLAaTShWohL1ppZ7VQ==
+X-Google-Smtp-Source: AGHT+IEEk2VZG3z9Te9sVeOPNqXXigxd1r+ev72HZog3PhTFGJpu9Bl5l1Tn1D8zxgukbGbiw9kC3g==
+X-Received: by 2002:a05:6512:4381:b0:54d:6981:4b83 with SMTP id 2adb3069b0e04-54fc67cb105mr4892037e87.24.1747051564927;
+        Mon, 12 May 2025 05:06:04 -0700 (PDT)
 Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54fc64bf8a3sm1466033e87.189.2025.05.12.05.06.02
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54fc64bf8a3sm1466033e87.189.2025.05.12.05.06.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 May 2025 05:06:03 -0700 (PDT)
+        Mon, 12 May 2025 05:06:04 -0700 (PDT)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 12 May 2025 14:05:56 +0200
-Subject: [PATCH v3 10/12] ARM64: dts: bcm6856: Add BCMBCA peripherals
+Date: Mon, 12 May 2025 14:05:57 +0200
+Subject: [PATCH v3 11/12] ARM64: dts: bcm6858: Add BCMBCA peripherals
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250512-bcmbca-peripherals-arm-v3-10-86f97ab4326f@linaro.org>
+Message-Id: <20250512-bcmbca-peripherals-arm-v3-11-86f97ab4326f@linaro.org>
 References: <20250512-bcmbca-peripherals-arm-v3-0-86f97ab4326f@linaro.org>
 In-Reply-To: <20250512-bcmbca-peripherals-arm-v3-0-86f97ab4326f@linaro.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -92,8 +92,8 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-crypto@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_050605_514365_465D4395 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20250512_050606_573422_4F8E3F61 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,26 +111,26 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 All the BCMBCA SoCs share a set of peripherals at 0xff800000,
 albeit at slightly varying memory locations on the bus and
 with varying IRQ assignments. ARM64 SoCs have additional
-peripherals at 0xff858000. Extend the BCM6856 the PERF window
-to 0x400000 and add the DMA block at offset 0x59000.
+peripherals at 0xff858000. Extend the peripheral window range
+to 0x400000 and add the DMA controller at offset 0x59000.
 
 Add the watchdog, GPIO blocks, RNG, LED, second UART and DMA
-blocks for the BCM6856 based on the vendor files 6856_map_part.h
-and 6856_intr.h from the "bcmopen-consumer" code drop.
+blocks for the BCM6858 based on the vendor files 6858_map_part.h
+and 6858_intr.h from the "bcmopen-consumer" code drop.
 
 This SoC has up to 256 possible GPIOs due to having 8
 registers with 32 GPIOs in each available.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm64/boot/dts/broadcom/bcmbca/bcm6856.dtsi | 130 ++++++++++++++++++++++-
- 1 file changed, 129 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/broadcom/bcmbca/bcm6858.dtsi | 119 ++++++++++++++++++++++-
+ 1 file changed, 118 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcmbca/bcm6856.dtsi b/arch/arm64/boot/dts/broadcom/bcmbca/bcm6856.dtsi
-index 00c62c1e5df00c722884a7adfcb7be08a43c0dc3..dcbd0fdd33d25fa340c417e8284826801ebc00bb 100644
---- a/arch/arm64/boot/dts/broadcom/bcmbca/bcm6856.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/bcmbca/bcm6856.dtsi
-@@ -93,11 +93,103 @@ gic: interrupt-controller@1000 {
+diff --git a/arch/arm64/boot/dts/broadcom/bcmbca/bcm6858.dtsi b/arch/arm64/boot/dts/broadcom/bcmbca/bcm6858.dtsi
+index caeaf428dc15db3089bf4dc62c4a272782c22c3f..c105a734a64897e714ed107e0ddccc5eebd415da 100644
+--- a/arch/arm64/boot/dts/broadcom/bcmbca/bcm6858.dtsi
++++ b/arch/arm64/boot/dts/broadcom/bcmbca/bcm6858.dtsi
+@@ -111,11 +111,12 @@ gic: interrupt-controller@1000 {
  		};
  	};
  
@@ -139,20 +139,15 @@ index 00c62c1e5df00c722884a7adfcb7be08a43c0dc3..dcbd0fdd33d25fa340c417e828482680
  		compatible = "simple-bus";
  		#address-cells = <1>;
  		#size-cells = <1>;
--		ranges = <0x0 0x0 0xff800000 0x800000>;
+-		ranges = <0x0 0x0 0xff800000 0x62000>;
 +		ranges = <0x0 0x0 0xff800000 0x400000>;
-+
-+		watchdog@480 {
-+			compatible = "brcm,bcm6345-wdt";
-+			reg = <0x480 0x10>;
-+		};
-+
-+		watchdog@4c0 {
-+			compatible = "brcm,bcm6345-wdt";
-+			reg = <0x4c0 0x10>;
-+			status = "disabled";
-+		};
-+
+ 
+ 		twd: timer-mfd@400 {
+ 			compatible = "brcm,bcm4908-twd", "simple-mfd", "syscon";
+@@ -136,6 +137,86 @@ watchdog@28 {
+ 			};
+ 		};
+ 
 +		/* GPIOs 0 .. 31 */
 +		gpio0: gpio@500 {
 +			compatible = "brcm,bcm6345-gpio";
@@ -232,10 +227,11 @@ index 00c62c1e5df00c722884a7adfcb7be08a43c0dc3..dcbd0fdd33d25fa340c417e828482680
 +			#gpio-cells = <2>;
 +			status = "disabled";
 +		};
- 
++
  		uart0: serial@640 {
  			compatible = "brcm,bcm6345-uart";
-@@ -108,6 +200,29 @@ uart0: serial@640 {
+ 			reg = <0x640 0x18>;
+@@ -145,6 +226,29 @@ uart0: serial@640 {
  			status = "disabled";
  		};
  
@@ -265,7 +261,7 @@ index 00c62c1e5df00c722884a7adfcb7be08a43c0dc3..dcbd0fdd33d25fa340c417e828482680
  		hsspi: spi@1000 {
  			#address-cells = <1>;
  			#size-cells = <0>;
-@@ -133,5 +248,18 @@ nandcs: nand@0 {
+@@ -170,5 +274,18 @@ nandcs: nand@0 {
  				reg = <0>;
  			};
  		};
