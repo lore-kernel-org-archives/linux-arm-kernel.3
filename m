@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0A38C3ABCD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 12:43:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8643C3ABCD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 12:46:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7CKmsvauDc0q8NWP+HLO/2UN2L/FIYQsPE5ctif+Wxg=; b=JsvvToMIZY8X6AarCJyEEXSAYh
-	LiybuDI4VRdZRJ4ws68WxnCy2Vhy7E3WpBlATw/vHC3jkKpOxMT4+TjdRZGHbn5VJ3raPCHrfBPn9
-	5796ExemfaIeX3LbNSoc0mVaimBoidSRmWbHKXJ/OqkEGn/Sgu3euwBMU+oe3LafTqa+BUemdusw9
-	IRTkzNmDciN5rwaP0vbMruX/3+bV2yzf1KTHKwhmz2z4TYCixhNJ+z6hXCR9gheAuPjJmbjE88Eyz
-	74Pe5vzNVA1ALnwseq4knRfNw2WMg+d9wSv12EELWzkcqnflGR+Y5stgd1IIl3PTDWgXCJkvP1PJ0
-	qPLAgGtw==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DKwUVvc+iOKDYk1QWb3QJdUETVrnhqOOYR4QXnF7Ha8=; b=r2dmLq5yr7h1HHp9WKkRwOrsJL
+	M5MfUQ7QOnTnY+KWep3Cr2PbNvCG9F2Rn3wr9bu+vsIrQnIetw5Okm0gA6MWfj+U1ch0PxwCLdKhn
+	/3kQwqpnMY+H4htT5YYUGFeR4cfxF/DYHkCD955iXqXZJbvoqt5YiVGhqRN3Dr9FuysCg58uCTYA4
+	U7sy5DblK7gFZvqGjyZ9TMbxUdHeUSzgaMhQEuZ2DL+xFFWbildNgj++60L9N3fme/L9Iwf5SLMrR
+	5jdLokV4y5f1Bzt/TxSafYrs+DZ6dTl+OHni4d/4NZVRvyCUMWho3GySBrPiG0nWojfa+VdsaLytT
+	BR/WfECA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uESVW-00000009PxH-0i8k;
-	Mon, 12 May 2025 12:43:46 +0000
-Received: from out203-205-221-242.mail.qq.com ([203.205.221.242])
+	id 1uESXb-00000009QE4-2Aez;
+	Mon, 12 May 2025 12:45:55 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uERyB-00000009LY8-41yD;
-	Mon, 12 May 2025 12:09:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
-	s=s201512; t=1747051756;
-	bh=7CKmsvauDc0q8NWP+HLO/2UN2L/FIYQsPE5ctif+Wxg=;
-	h=From:To:Cc:Subject:Date;
-	b=exc1w/gKAtWJ3sSvZ4M6YZAjrmmbjTHWuV0nB8bMCfBOmwtJD8H0fd2hcrdI7EIJX
-	 5NbNwwQx8TM1v3+SoouQpYTgtGzYki28esxMswjYMXfPGjfZgW9X4Eq3iaugXA1BFU
-	 9sV/68RNFx0HIZwxrGPNHeTz2du7ukFijm7eox+4=
-Received: from localhost.localdomain ([116.249.112.84])
-	by newxmesmtplogicsvrszb21-0.qq.com (NewEsmtp) with SMTP
-	id 2359703F; Mon, 12 May 2025 20:08:53 +0800
-X-QQ-mid: xmsmtpt1747051733tj987rezy
-Message-ID: <tencent_5236EB88E1BF1243C286A768AC4B24391905@qq.com>
-X-QQ-XMAILINFO: MmPNY57tR1XnXYXlfrFDWzpe97pRfIDW0PFyQw7LDr1JC8m5UvghYLPZRLn8OW
-	 nJZEo4XDeN1rtphaQmE09D5/UWynH8zQczD0OaC/Tn/rnMIwMrjSaVk+03SYRXdcpaw0X5yWzoGQ
-	 Oxs50Zpx4/5B7Hi/HHKeKU8J1VgjO9YL6kSk3wuAZEjNMuckHwTwCEhMSfE4XYeEMn1cgYks9O6o
-	 qoB+1ORIkqEHv/pJIOc//xsqHm6nHzhtJxER0rNc7UIxqami6bkny9cYT+gkqN4eJgmRrP6L/9b5
-	 9dg8wJW3/rmfuztfAC+Cel+p8lSty7PXlrgC0zMHgFfvwQ3KaudtuCNoFhVS9gmKLekyNo7uDQgC
-	 K8w2i9jAvCmhbP0p9mv7plAmW6wetw49aoy+wbYMpR0Vj/o/yKuknhHMQXWzPbUQ8X5f11nzxNRt
-	 wF8uZOhrA/wR3t0bu3BN0TNmkwMIWazahDS/OitozRc1nZ6r0fvbAW1eo9phW3iEaaGtOzH5FbTn
-	 sm9u6bKyQL4HoSwJXkR5IB54ZofjcldGBi0L9XLN4LiQ2Hm8yB+0LuyBHPkbNxS6HLtgSiJ6CLug
-	 DMgSfix6PrgjSaiHx9RiZ2nT5sxzPx4xvuCngvkOAcMdBmh2WobjKlcUX4ZkVlAgk+80eAtXazTA
-	 tS38IxV5qX3+3pb1FM7QfbFDpLMG4G20SjVc1MtPROCzgROjmB23PQLif57hQh9oxVwVg+o9DeVk
-	 RpEBY+lT7U9wLBYeT+1ENFJRULEFwycGu2qqCrwOmd+x12Tp+1OoBJFQ7aRN8J10nwUTdFO6SlxN
-	 RmiTsKgM3OBu/uA4TfNOYUJ+l6ciXSlT/6oq/Ag//SR2mM66qdjgJdwuv+DL8VqyTvOu/LMDc1nu
-	 zfGOMBEFu4LShLS7sHSVuIkTc7xJKFuTukWNehJxbOK4878QR0jBesHW/IcmFHZzqMyndknyIheZ
-	 tf71rrnHCCZIAzFQ56ScjWiWd/hMPj+krdAR+y6DEv0QUR4DJJfU7qyTwHXVjI1eaXedXTJYyEvF
-	 ZgguMeySC/I2bRv7DHZvYsCqOu0mc=
-X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
-From: chainsx@foxmail.com
-To: f.blogs@napier.co.nz
-Cc: chainsx@foxmail.com,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	krzk+dt@kernel.org,
-	robh@kernel.org,
-	sfr@canb.auug.org.au,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH v1 1/2] dt-bindings: arm: rockchip: Add Firefly ROC-RK3588S-PC
-Date: Mon, 12 May 2025 20:08:49 +0800
-X-OQ-MSGID: <20250512120849.312547-1-chainsx@foxmail.com>
-X-Mailer: git-send-email 2.34.1
+	id 1uERyO-00000009Laq-0Ndh
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 May 2025 12:09:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E92FBA4172B;
+	Mon, 12 May 2025 12:09:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E736C4CEE7;
+	Mon, 12 May 2025 12:09:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747051770;
+	bh=xE99g38G05kWVWQVsEMeTHQ9yIJhHcnUagPODqbgZOg=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=RGOHXBEyhlL/RenWdnEwRHp4GPMF3l/O7Myx9N6q/RAyYvnDMHr8sQI2RJI442eAD
+	 zElNcSxvAYgxHpdDUiZqLoE1Ym+qXiAlCvIugJeCGqXhzXGfn/bcIXAuHdW5dJL8+s
+	 npsLsnrHI29OzhIwCAh0EEuRd+doMgd33N80EHT52lX5QBApwHrr77yInbLITnt8VC
+	 304GObjTuHaR62aYAc08rfb9dmlWwBVeIuohv2A2DInmB7v6is4GxdSXnBsBm/U3my
+	 yuZnC69785WoPNilRc8RMyv25iVqQGbd8IjrbtFl3iKq49YHw+BOXeQAYqaCtK5Yr/
+	 MxWp8lP1iAhgw==
+From: Mark Brown <broonie@kernel.org>
+To: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Varshini Rajendran <varshini.rajendran@microchip.com>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, linux-spi@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Len Brown <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Danilo Krummrich <dakr@kernel.org>, Alexander Dahl <ada@thorsis.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>
+In-Reply-To: <20250327195928.680771-2-csokas.bence@prolan.hu>
+References: <20250327195928.680771-2-csokas.bence@prolan.hu>
+Subject: Re: [PATCH v6 0/2] Add more devm_ functions to fix PM imbalance in
+ spi/atmel-quadspi.c
+Message-Id: <174705176600.71095.8384606721205945217.b4-ty@kernel.org>
+Date: Mon, 12 May 2025 21:09:26 +0900
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.15-dev-c25d1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_050920_312461_737678E7 
-X-CRM114-Status: UNSURE (   7.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250512_050932_192944_141F87BD 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,35 +82,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hsun Lai <chainsx@foxmail.com>
+On Thu, 27 Mar 2025 20:59:25 +0100, Bence Csókás wrote:
+> The probe() function of the atmel-quadspi driver got quite convoluted,
+> especially since the addition of SAMA7G5 support, that was forward-ported
+> from an older vendor kernel. During the port, a bug was introduced, where
+> the PM get() and put() calls were imbalanced. To alleivate this - and
+> similar problems in the future - an effort was made to migrate as many
+> functions as possible, to their devm_ managed counterparts. The few
+> functions, which did not yet have a devm_ variant, are added in patch 1 of
+> this series. Patch 2 then uses these APIs to fix the probe() function.
+> 
+> [...]
 
-This documents Firefly ROC-RK3588S-PC which is a SBC based on RK3588S SoC.
+Applied to
 
-Link: https://wiki.t-firefly.com/en/Station-M3/index.html
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
-Signed-off-by: Hsun Lai <chainsx@foxmail.com>
----
+Thanks!
 
- Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
- 1 file changed, 5 insertions(+)
+[1/2] pm: runtime: Add new devm functions
+      (no commit info)
+[2/2] spi: atmel-quadspi: Fix unbalanced pm_runtime by using devm_ API
+      commit: 8856eafcc05ecf54d6dd2b6c67804fefd276472c
 
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index 455fbb290..13d5dcbc7 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -258,6 +258,11 @@ properties:
-           - const: firefly,rk3566-roc-pc
-           - const: rockchip,rk3566
- 
-+      - description: Firefly Station M3
-+        items:
-+          - const: firefly,rk3588s-roc-pc
-+          - const: rockchip,rk3588s
-+
-       - description: Firefly Station P2
-         items:
-           - const: firefly,rk3568-roc-pc
--- 
-2.34.1
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
