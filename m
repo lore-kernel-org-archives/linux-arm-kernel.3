@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71D76C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 08:20:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60897C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 08:22:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YqVIaBbsTDNl5HoWxqg9uCVxIH0A8/djW9HPYMI1S00=; b=Tn5g3Hin+IusJxXZjDXj6IVG1u
-	qMetUA12Mzn1JfR3EUVwSbxUFjr253LTadSMLZCinJkFNQO7R4y1U59iZb7XaO/AIFhAIwucvJ7vB
-	437eIAdPE9+5w9UEKZuW3yCvf5J9iacxGcV0lh408DqSuLkMkCXEVB05rQrIcBhNNmdpUKbjZJ/dV
-	XWKrWr0x4YlvA75KFPbV36RzfjrR/Mqcsd47br5UhUsqahIZKxwPLxC6UFkifZqGJoMBM4MV5QV0B
-	VwC/cPsKLrewtE82dxzNo+ST2jdEDeo2/w41KJesT5PaU9Mj+GhLCyQQo2AfJ1o+uHEPsK6iXb9DP
-	s/La/Bjw==;
+	bh=nkN8UI9MTDoQPmfDG9QQthOuD0s0/NDLWl6EBndVAz4=; b=VvVdH4pNth+SbsFGeeqa6a16Iu
+	qdGzpF3vcL5p5vrKy2D8fwaD4QyUR7lPb03GB1DUWY/cGVlIO1nozAMLj1z8UJEPgnJ6oGXLVzWeZ
+	IqswNiYOncqK7YkxFIRCfd4jPxMorwr/YmOaYRYahRk01VeahXNOCYR3v8Tw7OXMTRnrvhV+4wVsI
+	BMvFHATzwskvtDuRNTJIlBTz6LxlYtscPQlT1Vzspr3ZhIVQLWxfBUJmiHeCNBKeABGi+gNZXltfd
+	iDYYC+9ckSlm60oMdZAFhcSthbUnJSUBwFVsrXOU/Wvm/iX8x/oWrg2lL4DjtUIVqzaM8qkU0bcMT
+	Y6mRpZEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEOOb-00000008j6Y-2U80;
-	Mon, 12 May 2025 08:20:21 +0000
+	id 1uEOQd-00000008jM1-1MtM;
+	Mon, 12 May 2025 08:22:27 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEOEa-00000008hZy-1dss
+	id 1uEOFA-00000008hfX-2jCn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 08:10:01 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Zwsbf6JXNz6M4jB;
-	Mon, 12 May 2025 16:05:18 +0800 (CST)
+	Mon, 12 May 2025 08:10:38 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZwsfW0mLTz6L57s;
+	Mon, 12 May 2025 16:07:47 +0800 (CST)
 Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6469C1402F4;
-	Mon, 12 May 2025 16:09:57 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 7DF321402FC;
+	Mon, 12 May 2025 16:10:29 +0800 (CST)
 Received: from a2303103017.china.huawei.com (10.47.30.10) by
  frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Mon, 12 May 2025 10:09:56 +0200
+ 15.1.2507.39; Mon, 12 May 2025 10:10:28 +0200
 From: Alireza Sanaee <alireza.sanaee@huawei.com>
 To: <devicetree@vger.kernel.org>
-Subject: [PATCH v3 5/7] perf/arm-dsu: refactor cpu id retrieval via new API of_cpu_phandle_to_id
-Date: Mon, 12 May 2025 09:07:13 +0100
-Message-ID: <20250512080715.82-6-alireza.sanaee@huawei.com>
+Subject: [PATCH v3 6/7] arm64: of: handle multiple threads in ARM cpu node
+Date: Mon, 12 May 2025 09:07:14 +0100
+Message-ID: <20250512080715.82-7-alireza.sanaee@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250512080715.82-1-alireza.sanaee@huawei.com>
 References: <20250512080715.82-1-alireza.sanaee@huawei.com>
@@ -52,8 +52,8 @@ X-Originating-IP: [10.47.30.10]
 X-ClientProxiedBy: lhrpeml500001.china.huawei.com (7.191.163.213) To
  frapeml500003.china.huawei.com (7.182.85.28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_011000_570408_EB344A3D 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20250512_011036_979656_345BC040 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,32 +69,162 @@ Cc: mark.rutland@arm.com, robh@kernel.org, dianders@chromium.org, gshan@redhat.c
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update arm-dsu to use the new API, where both "cpus" and "cpu"
-properties are supported.
+Update `of_parse_and_init_cpus` to parse reg property of CPU node as
+an array based as per spec for SMT threads.
+
+Spec v0.4 Section 3.8.1:
+The value of reg is a <prop-encoded-**array**> that defines a unique
+CPU/thread id for the CPU/threads represented by the CPU node.  **If a CPU
+supports more than one thread (i.e.  multiple streams of execution) the
+reg property is an array with 1 element per thread**.  The address-cells
+on the /cpus node specifies how many cells each element of the array
+takes. Software can determine the number of threads by dividing the size
+of reg by the parent node's address-cells.
+
+An accurate example of 1 core with 2 SMTs:
+
+	cpus {
+		#size-cells = <0x00>;
+		#address-cells = <0x01>;
+
+		cpu@0 {
+			phandle = <0x8000>;
+			**reg = <0x00 0x01>;**
+			enable-method = "psci";
+			compatible = "arm,cortex-a57";
+			device_type = "cpu";
+		};
+	};
+
+Instead of:
+
+	cpus {
+		#size-cells = <0x00>;
+		#address-cells = <0x01>;
+
+		cpu@0 {
+			phandle = <0x8000>;
+			reg = <0x00>;
+			enable-method = "psci";
+			compatible = "arm,cortex-a57";
+			device_type = "cpu";
+		};
+
+		cpu@1 {
+			phandle = <0x8001>;
+			reg = <0x01>;
+			enable-method = "psci";
+			compatible = "arm,cortex-a57";
+			device_type = "cpu";
+		};
+	};
+
+which is **NOT** accurate.
 
 Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
 ---
- drivers/perf/arm_dsu_pmu.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ arch/arm64/kernel/smp.c | 74 +++++++++++++++++++++++------------------
+ 1 file changed, 41 insertions(+), 33 deletions(-)
 
-diff --git a/drivers/perf/arm_dsu_pmu.c b/drivers/perf/arm_dsu_pmu.c
-index cb4fb59fe04b..7ef204d39173 100644
---- a/drivers/perf/arm_dsu_pmu.c
-+++ b/drivers/perf/arm_dsu_pmu.c
-@@ -596,11 +596,9 @@ static int dsu_pmu_dt_get_cpus(struct device *dev, cpumask_t *mask)
- 	n = of_count_phandle_with_args(dev->of_node, "cpus", NULL);
- 	if (n <= 0)
- 		return -ENODEV;
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 3b3f6b56e733..8dd3b3c82967 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -689,53 +689,61 @@ static void __init acpi_parse_and_init_cpus(void)
+ static void __init of_parse_and_init_cpus(void)
+ {
+ 	struct device_node *dn;
++	u64 hwid;
++	u32 tid;
+ 
+ 	for_each_of_cpu_node(dn) {
+-		u64 hwid = of_get_cpu_hwid(dn, 0);
++		tid = 0;
+ 
+-		if (hwid & ~MPIDR_HWID_BITMASK)
+-			goto next;
++		while (1) {
++			hwid = of_get_cpu_hwid(dn, tid++);
++			if (hwid == ~0ULL)
++				break;
+ 
+-		if (is_mpidr_duplicate(cpu_count, hwid)) {
+-			pr_err("%pOF: duplicate cpu reg properties in the DT\n",
+-				dn);
+-			goto next;
+-		}
++			if (hwid & ~MPIDR_HWID_BITMASK)
++				goto next;
+ 
+-		/*
+-		 * The numbering scheme requires that the boot CPU
+-		 * must be assigned logical id 0. Record it so that
+-		 * the logical map built from DT is validated and can
+-		 * be used.
+-		 */
+-		if (hwid == cpu_logical_map(0)) {
+-			if (bootcpu_valid) {
+-				pr_err("%pOF: duplicate boot cpu reg property in DT\n",
+-					dn);
++			if (is_mpidr_duplicate(cpu_count, hwid)) {
++				pr_err("%pOF: duplicate cpu reg properties in the DT\n",
++				       dn);
+ 				goto next;
+ 			}
+ 
+-			bootcpu_valid = true;
+-			early_map_cpu_to_node(0, of_node_to_nid(dn));
+-
+ 			/*
+-			 * cpu_logical_map has already been
+-			 * initialized and the boot cpu doesn't need
+-			 * the enable-method so continue without
+-			 * incrementing cpu.
++			 * The numbering scheme requires that the boot CPU
++			 * must be assigned logical id 0. Record it so that
++			 * the logical map built from DT is validated and can
++			 * be used.
+ 			 */
+-			continue;
+-		}
++			if (hwid == cpu_logical_map(0)) {
++				if (bootcpu_valid) {
++					pr_err("%pOF: duplicate boot cpu reg property in DT\n",
++					       dn);
++					goto next;
++				}
 +
- 	for (; i < n; i++) {
--		cpu_node = of_parse_phandle(dev->of_node, "cpus", i);
--		if (!cpu_node)
--			break;
--		cpu = of_cpu_node_to_id(cpu_node);
-+		cpu = of_cpu_phandle_to_id(dev->of_node, &cpu_node, i);
- 		of_node_put(cpu_node);
- 		/*
- 		 * We have to ignore the failures here and continue scanning
++				bootcpu_valid = true;
++				early_map_cpu_to_node(0, of_node_to_nid(dn));
++
++				/*
++				 * cpu_logical_map has already been
++				 * initialized and the boot cpu doesn't need
++				 * the enable-method so continue without
++				 * incrementing cpu.
++				 */
++				continue;
++			}
+ 
+-		if (cpu_count >= NR_CPUS)
+-			goto next;
++			if (cpu_count >= NR_CPUS)
++				goto next;
+ 
+-		pr_debug("cpu logical map 0x%llx\n", hwid);
+-		set_cpu_logical_map(cpu_count, hwid);
++			pr_debug("cpu logical map 0x%llx\n", hwid);
++			set_cpu_logical_map(cpu_count, hwid);
+ 
+-		early_map_cpu_to_node(cpu_count, of_node_to_nid(dn));
++			early_map_cpu_to_node(cpu_count, of_node_to_nid(dn));
+ next:
+-		cpu_count++;
++			cpu_count++;
++		}
+ 	}
+ }
+ 
 -- 
 2.34.1
 
