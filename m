@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF14C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 21:47:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5AE6C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 21:49:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rwu29EMYbHZnZ2ingPRlXQV8GOHy8olFZlFGRco0m+E=; b=fUerR8MUIAqblyxODEP46jUPNv
-	nPzmqQsecoHF58NBazFv0BfToTotKJb2LuSj0zc8OtAvyASVp0SQvnDe++kgADNpl6PhKd2265C63
-	xnDQ1+SU47din+3H/g5iNe8EPhVTJ/KrHLZpS90svE9ckyPgTRIoADH60pyNGMJPh5Sgk0Z2DRWWW
-	BQ4HG4PMP2M1nWEhyFN7NkXTfAxuO1KpPa87bjCXV68tLkfgtm9WhRSKMn2Hniprw9dqFEsj9Kv7j
-	CSOg03j8PwmkRoIiXurU4mi4qkgAJKPFqpkgQvQ5ksuAXHU76c2Oh9fhrh3WNfYDwSmwoBEQMaBk9
-	Rez5bMKQ==;
+	bh=eHff/oT7sQk2aOClrUOYHK15KjAUKpAGfLp7PK5vDVQ=; b=HqKaNyN0KUkRvRYTN9TvG5ytzA
+	fjcckMTcUtELHQgVXw3z5K1GGN+XHVSBEgAWm7On7cRiHuhW8U0x2asynqfpeI5nxSHwhDZLEWjGp
+	rH44yzE6KIZIjJ4rWdKaY2QLjJbgic0PgZZHOZdL6uWhB3XtGFtY2QI98zfhMp8ThM0OgjoYldhjd
+	Kk19WS2TNRjbGqBOlCtFTZGATh5Nz/YVoKu5AViwzQbMmSXik0nYXrBo3RLGskabc5/7+Zzya/xdJ
+	LxFUCAmZEZIslfPBgteHx5A6jsGfpwsFmZTcX2sNFGnG96ZXhrB2Ysz96/9YbdpkLjPF6su2Hg1BT
+	ukdM5G7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEazV-0000000Aljl-3WRl;
-	Mon, 12 May 2025 21:47:17 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1uEb1W-0000000AlvQ-2YO3;
+	Mon, 12 May 2025 21:49:22 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEahz-0000000AilV-27IS
+	id 1uEai2-0000000AimH-1nBW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 21:29:12 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5fc9c49c8adso4923115a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 14:29:11 -0700 (PDT)
+	Mon, 12 May 2025 21:29:15 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5f62d3ed994so1543447a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 14:29:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747085350; x=1747690150; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1747085353; x=1747690153; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=rwu29EMYbHZnZ2ingPRlXQV8GOHy8olFZlFGRco0m+E=;
-        b=L8dO6G6ySHTwXyiGQKJ98FFq8iEOdezYRl9aN0rxZ9t/UhrqI01TjFoXccfUGWHsiJ
-         3ByD9Us1hkDW0gFmxwJrI+kZeKLKYauZf6jbjL7zeS8o2jU+GlKW66Wtf4ZqhJRk53CH
-         wvxBVrf4Q8HJig6pY3zT0BUbTIcx8bJ34onDClzEYWp0M/HIIldqsunRhUwIOgPctlDS
-         Gsiopg8YP9NYTrEkmP7I83iUQmHcDDqZu5DOZqweXTa8dM4W7DxBwc48SazVYm+GMbu2
-         Y1FQtyyOLNy3/jXivFMZNsr55YMnkDU2d4+XHBnxe1cfD+TfmFPYbuIYamctOvH5QkYw
-         qBSQ==
+        bh=eHff/oT7sQk2aOClrUOYHK15KjAUKpAGfLp7PK5vDVQ=;
+        b=VBYsLKid3UQ8tr8LZnOmVbeB9U096PszJegXHiQLZ7d3w89GIH/fmyFIPpNvM9B3/z
+         MxtbUPQVDmMl8wuRGeqkvYMdR2zJE6lcGxLp5cfjSjTqRQLmuonHGhkMYXJ+6FWXwIYK
+         FkSVW0a17TivOYP1zVMeZiquHs29h6hgNQGXWo/9KNmo/7df2VWdKvLbe8CtKRlvP6pb
+         kjUeRHe61m1nitfdNqZf7g87dJz6upxZx60t6jBPwQjp69dwskDy6weGdol0y4csrlTI
+         6NJgrTkKDbW7Qz+F9HRnus6Pse/O6hbWkW3w/+a4WuodxN13nMCfgMWhfHY8M25AfMHD
+         g8pQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747085350; x=1747690150;
+        d=1e100.net; s=20230601; t=1747085353; x=1747690153;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=rwu29EMYbHZnZ2ingPRlXQV8GOHy8olFZlFGRco0m+E=;
-        b=QDYmSZUbA6lYCaDDwMI+MY5971ayPpNKE30onEHEOGsXWJkRbUTPy+hx9nVD5ogxoM
-         UgfeoKKPruiZbC5WM5/FaIcVzgKdgxrUlh08IZsK1CriNNruLtI9+scH7Eu+w7BD0DO5
-         hWE8RH2i5vb3J0pI3dof/LQf7mMbCbye8gi/AaNzfv2YgtqrifglJB/RBwimYql14WhF
-         kRoeajEScyxwwldJoAcXPLHxNczt752ECyqy+xpqMIHo2M2A8/rEiQXYg5FdTMfcJEh3
-         P/o8Gjrsz2aplZR7ZwGra/g63ZBX5IUsqCtfiXkH8nao/dm51LfDUgUGFdWzsyoSzEuM
-         wksw==
-X-Forwarded-Encrypted: i=1; AJvYcCUqv8t2h1dKq3amjDg/Iscxd1AGhh+6poulLsRUJ/P8vuOnWeO8uo0SZGqRDn6WUYaXA2u0pUUOPu+F1F+RT3lC@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHjKIhSWEMDbMSzKl8xG505C2Ficl/3Va4Tas+FTnf1D2O4k7G
-	87ymd9Twzz1H9+JHmrlwfBIzJ7gdhiSiN4q3W0rPBJROJNbfpRMm
-X-Gm-Gg: ASbGncs9eN6DjnDbX13ZuAmcStxxtXHM7oHOs1pTe5GScLsCo1WVTiZfngJjL5smnVX
-	Voa/2HfoP4zWl1uAezUjcJzwRav2W0+OAcf9i9SgeEJ9AwOYNsO9xJVOAWAxPTCCG2a1c9z7fRC
-	3pEoUnPKQghovGqyxJJLkd1phtW8W3RH5cndrY6JJgF2icgOrO4NdB7jQYs0K5nBuH49ZZfitVX
-	BMdYJ1PeaeOXA2XjTbpzfdkShVVKfwM2RAujo47xCzbJguTz0guunn+OChcF/eERMKNDcdOEknj
-	WdH5iN7hecF+Qd9rAidV7SH14M7uDFkX6jImF42IxvXuEXIACNLJvFNndy+7A5k=
-X-Google-Smtp-Source: AGHT+IFh9UpWB73Gif9/RG0hEasXz8yA7Q30IuXmnkfuwvL7LMAjJqRJGSW/yg1R6sWeJzfxK/H2Rg==
-X-Received: by 2002:a17:907:1c17:b0:ad2:455e:6ec0 with SMTP id a640c23a62f3a-ad2455e72bdmr811477866b.20.1747085349950;
-        Mon, 12 May 2025 14:29:09 -0700 (PDT)
+        bh=eHff/oT7sQk2aOClrUOYHK15KjAUKpAGfLp7PK5vDVQ=;
+        b=V4j6O/BoS9FTPkjB3GnfzE0WbeqqLTyIPlu3x/qWf+GbrE02K1+WrzJj4q0v+B8ElE
+         2E3UA11R3Dv0et72Q4PQBzOltUErnpmfsLq6QFsgrp+eCrS9bp2j9GS6GwPTmlm4TGZe
+         Vtpi6UAgMDiAHfPoWk1/z56Fp9YwguiKloMRxre/FnqtB2+w2DKh2TwWustBian/KSr2
+         al9t0IoS7Mnd7auGTfSEykhk75A6N/3VHtF9lIqk555UAigzdZZLRoJP3ihBcYjGRJEt
+         nC2Rdo0sDOsxP8ppwoC3o349gOPukSbs4IMQde7LF6YqE08S+Ex2hRfx8T5Q7fUNUYvT
+         LQRw==
+X-Forwarded-Encrypted: i=1; AJvYcCW246Kos46zw+SprLwRgCS3E7Mqsgukm4o8WCgxlQbld3er4geN0Hgf8wqoMEByTDkvlR9RCF4X486Wd2Yi56s6@lists.infradead.org
+X-Gm-Message-State: AOJu0YysnKJcxZ+YnWrR6HcdwQy33+q+PuNQ1eHxuj15K4zLVoNWnb0+
+	We93Bcg8hSaplCTlyAFvJoftc62wpGXN44owx75U8BVbZSPYrBLA
+X-Gm-Gg: ASbGncubKNPwBF8Zk47GTStqaGgW2bM+RfZRD0xBx1KpCJVpJmDROgkoidxtfjicHX+
+	p1+WGwU7aiF7iFWusVsPkyMEyuxzU0O/hGWItjA2bDpY+i4dpDVDvHsIWNCp1MyErGN4SYIv8Mk
+	3HMxC8P43HhVkArtHwcXLBnqECOjeYM94eHNhgw22KIaOOoO6lc3RUh4hiT5w5i1gSRJWAFYmR1
+	0+TWZYdFMP9kXy26fS4KgorelI98CMtPDdJve1z4osrmxaiXH1Fe59YcLHsVEO6N/OLqnvXWqKA
+	Fp6SJ27ngNjmogU5IYPWbL8DzU0Q0eoDxI2JD48l8kukVPqtsAtUqcxYSl3PCCs=
+X-Google-Smtp-Source: AGHT+IEn/Ow2gvZ4FE7aKd+7Z9RkGF19BSAk0UsqyhXis2AK9rexBmvFZbe0MFYZuKP4CsSSd+al+A==
+X-Received: by 2002:a17:907:6a13:b0:ace:f2c2:5a4 with SMTP id a640c23a62f3a-ad218f072e0mr1388653166b.13.1747085352861;
+        Mon, 12 May 2025 14:29:12 -0700 (PDT)
 Received: from demon-pc.localdomain ([188.27.128.5])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad23a5552a6sm472861466b.30.2025.05.12.14.29.07
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad23a5552a6sm472861466b.30.2025.05.12.14.29.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 May 2025 14:29:09 -0700 (PDT)
+        Mon, 12 May 2025 14:29:12 -0700 (PDT)
 From: Cosmin Tanislav <demonsingur@gmail.com>
 To: 
 Cc: Cosmin Tanislav <cosmin.tanislav@analog.com>,
@@ -112,17 +112,17 @@ Cc: Cosmin Tanislav <cosmin.tanislav@analog.com>,
 	linux-staging@lists.linux.dev,
 	linux-gpio@vger.kernel.org,
 	Cosmin Tanislav <demonsingur@gmail.com>
-Subject: [PATCH v3 08/19] dt-bindings: media: i2c: max96712: add support for I2C ATR
-Date: Tue, 13 May 2025 00:28:17 +0300
-Message-ID: <20250512212832.3674722-9-demonsingur@gmail.com>
+Subject: [PATCH v3 09/19] dt-bindings: media: i2c: max96712: add support for POC supplies
+Date: Tue, 13 May 2025 00:28:18 +0300
+Message-ID: <20250512212832.3674722-10-demonsingur@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250512212832.3674722-1-demonsingur@gmail.com>
 References: <20250512212832.3674722-1-demonsingur@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_142911_539970_178F40EA 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20250512_142914_467258_799E6813 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,71 +137,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MAX96712 and MAX96724 have more than one GMSL2 link, and each link is
-capable of connecting to a separate serializer. If these serializers
-have the same CFG pins configuration, they will also have the same I2C
-address, causing conflicts unless the deserializer changes the address
-of the connected serializers.
-
-The MAX96712 and MAX96724 support changing the I2C address of the
-connected serializers.
+The GMSL links can carry power to the serializer when using coaxial
+cables.
 
 Document this capability.
 
 Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
 ---
- .../bindings/media/i2c/maxim,max96712.yaml    | 31 +++++++++++++++++++
- 1 file changed, 31 insertions(+)
+ .../devicetree/bindings/media/i2c/maxim,max96712.yaml         | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
-index f712d7cfc35f..758c0223977d 100644
+index 758c0223977d..b345305acc4c 100644
 --- a/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
 +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
-@@ -37,6 +37,30 @@ properties:
+@@ -96,6 +96,10 @@ properties:
+       - required: [port@6]
+       - required: [port@7]
  
-   enable-gpios: true
- 
-+  i2c-alias-pool:
-+    maxItems: 4
++patternProperties:
++  '^port[0-3]-poc-supply$':
++    description: Regulator providing Power over Coax for GMSL ports
 +
-+  i2c-atr:
-+    type: object
-+    additionalProperties: false
-+
-+    properties:
-+      '#address-cells':
-+        const: 1
-+
-+      '#size-cells':
-+        const: 0
-+
-+    patternProperties:
-+      '^i2c@[0-3]$':
-+        $ref: /schemas/i2c/i2c-controller.yaml#
-+        unevaluatedProperties: false
-+        properties:
-+          reg:
-+            items:
-+              minimum: 0
-+              maximum: 3
-+
-   ports:
-     $ref: /schemas/graph.yaml#/properties/ports
- 
-@@ -79,6 +103,13 @@ required:
- 
- additionalProperties: false
- 
-+allOf:
-+  - $ref: /schemas/i2c/i2c-atr.yaml#
-+
-+dependentRequired:
-+  i2c-atr: [i2c-alias-pool]
-+  i2c-alias-pool: [i2c-atr]
-+
- examples:
-   - |
-     #include <dt-bindings/gpio/gpio.h>
+ required:
+   - compatible
+   - reg
 -- 
 2.49.0
 
