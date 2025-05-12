@@ -4,88 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED286C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 18:12:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F56AC3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 18:15:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iSoxyHvUrLiSc3/psAWBZmLYF3TjkhwktVK+c+jvBxs=; b=t64Z3qFzLSmYkEPY/xm4lu1QZo
-	B6PC4/5zsg9oOOWKqqhJDltalHiDl46gOdnpJMWv10blnLZxWmn72yLU68aKsuLBpUQu6KsWtNc76
-	pKXZti5JAxAyF29QsrP4Fv7ONGQZLCxkOLI8gwJsaXFSQ9pyRp9eOpBawPV/jnQDP33feJBqSk65c
-	Z3tW9WADAfA75FMu9KLPcYHZASwNgrd7bZnFR/8vCN3cwrDYP1bZr7ySsPt7+TccMLQ8tdCWEt0x4
-	KMTqDZfH/XYKOHOeUjArXwkhO7LAPZDAjGwPoyV+SL0w4+Z9GdK2l6uiQ5uBt0bEydqU//IEvXkME
-	lGtQkfRQ==;
+	MIME-Version:Content-Type:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Jzez9beQL600E+agH2Z2p3TWupq3wuiKJM0KPUz5arQ=; b=GMsnzTfEq6LnzTge+9QrDi0pfg
+	VHKk6owW06dY2/XWrKMfQayda5oCg4F+66r6AR03Hbf/4uLhoyvHXAS7AiGYHJtCl5ev87fY182D0
+	3QB36uXqJCGFA5j6DmGNLoFbNoqvsWNvvuIWVp5rkUmw3Q1BaDOv0uqBV7T6kcb62t4p8JTZqIO4W
+	HXxYg/kSL7DlxIoEyhJjwNCCSrPkRr2hC4TngkHvxZXCAdb02RkAMA5ejF2wnSpB7uuN/5+e9GfSC
+	PAQ8Zi2OeQGniRVKTZB95i0u3TWzdMDUps5zao3GU0jExpAitn9+RVqIfRjzUNVrjXeTkPduJL1m7
+	asfk4EWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEXdv-0000000AJgl-3pJq;
-	Mon, 12 May 2025 18:12:47 +0000
-Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	id 1uEXfz-0000000AKHY-0zCh;
+	Mon, 12 May 2025 18:14:55 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEXIV-0000000AGA3-3Cvj;
-	Mon, 12 May 2025 17:50:40 +0000
-Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-476af5479feso56262411cf.2;
-        Mon, 12 May 2025 10:50:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747072238; x=1747677038; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iSoxyHvUrLiSc3/psAWBZmLYF3TjkhwktVK+c+jvBxs=;
-        b=F6AQlC03YZ3SztuEvCGaHDD61ZItXOyBBocv4fsLh1DZCPwZQBYJ4g1R6k0g/eBabn
-         KeRAwsUHNrcxgIJyxn02cG7293l095JQHbk3UekrKUfLZhoHepyclxj1sxxTSA2pm1QY
-         NPKcATfoQTlOqkGayf4iofJ8YvUZ7/wO+89MU4wplaVH2vzOplFCfWCUXpkDuzBoBsxe
-         uoXBpSmuAl3/8dYXdULwZWR58w6fYkfJRdm4mOBwxSMsaNChOs0ax6N6VM1meu0TC4f/
-         vovpvwSPFjQG9zCjP9/sPDf87KnW7Tg9kNlFfOOstYDR0KOMN3skoY85ZxUnl1b4FMoD
-         A4qg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747072238; x=1747677038;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=iSoxyHvUrLiSc3/psAWBZmLYF3TjkhwktVK+c+jvBxs=;
-        b=ohA0FLDHT+u05AkGmmQj6ADEF1ZA5eDRa1qDpRxa0AGLtFVhvpm2e6NE5q8KyNJ67W
-         XpljoGgYGescPP2/bKNHmu+n8kbbIQ8Ps6uwYQf4GBiK9HdTcRB6L9Cz0Ji/4lBS8gpF
-         G01xVPiWmHA9F//i23elesr8uu3Shr1kE4jXk4uCCDix5MgWzrJEs5BY1AWG1VaPjf/2
-         fAlMUJBuy08YF27r9eSchqpesJe6/3TgwFYe2gDA9uPHIMoVAruoBM/fewQOg7UzZ+mq
-         0hu79qMtidosJndXeoIs+8TdPFFWvgQnId+sRwW8l4einN2EnYSGjONhuAVZAqrN9mXW
-         VyHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV+zgnANBE4wnmDpReyJZeoHvSC3dFcKEUJB7GJqkaG4DX5TWZ10ar/0Qm6CthDfD8Jj5vdNiVU3gDp7dHlkvXO@lists.infradead.org, AJvYcCXg+E9jKVuuOeRIyg93epeWa+0jXy4guCGKax0gnhCrDMXZghl2R9nYnxSPZE7tMrulQPbwpz9Zbc5D@lists.infradead.org
-X-Gm-Message-State: AOJu0YxN+5/BhRpzFiZ7AnTnNjfQpdwNbvT8feyL9Ky6jpp94k8JqLd1
-	asqdhzFj7Y4g4bTuX959V2efEWPKksYRu2nunwfZKXe4vnNZcmSFuRP/6ab7sEQ8licL43hjurS
-	I9w98f0RBsUl3JrEsKnc/3HNhCHU=
-X-Gm-Gg: ASbGncsHOyIeBRLFPlfCTm44QxpxcNkxmyZdWJ99DCMOhb98ZH6fmiCpvajxz59iF1U
-	d95EEnfOmp8hRlHu6OLufcqr88FyWhi3ZNJrp/Ik8ZJanY2UGfRzv/C+a3iH/wW74dOl1cdtt8A
-	jn7vuMC7ZAPMkrb+DQKc4tkEBA3n9WKKI=
-X-Google-Smtp-Source: AGHT+IGkeH40cXRztWXpSrCJ5q6XKPbNvx7k9EkmvL+Je1u1a0S2VQUWKi48NLpznn1NHqP6LSPKlLPZSwHilThRqUc=
-X-Received: by 2002:ac8:5f91:0:b0:476:a895:7e87 with SMTP id
- d75a77b69052e-494527f40e7mr184965391cf.48.1747072237855; Mon, 12 May 2025
- 10:50:37 -0700 (PDT)
+	id 1uEXVt-0000000AHDh-3ggm
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 May 2025 18:04:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1747073067;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Jzez9beQL600E+agH2Z2p3TWupq3wuiKJM0KPUz5arQ=;
+	b=V8F4QJe59ykqnfEiGTgloV1W9QpVYkAT/gji7ZkLvAX2NY75areriaiDqrIhWjNFsHxZwf
+	vDnMi/8BIThAivEUenzm3yPMjMxK4Ccd4Hx8ZJ3PxF0FQU+tZWp5+tD5GtlUXewRCu3TkL
+	YPhVZPcPqRE2mTvNB/HUcZC3YZG73qU=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-617-Mc8z2qJpM0WcOmyyGPFIow-1; Mon,
+ 12 May 2025 14:04:25 -0400
+X-MC-Unique: Mc8z2qJpM0WcOmyyGPFIow-1
+X-Mimecast-MFC-AGG-ID: Mc8z2qJpM0WcOmyyGPFIow_1747073061
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7837C1800263;
+	Mon, 12 May 2025 18:04:17 +0000 (UTC)
+Received: from intellaptop.lan (unknown [10.22.80.5])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B909630002D4;
+	Mon, 12 May 2025 18:04:08 +0000 (UTC)
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: kvm@vger.kernel.org
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Sebastian Ott <sebott@redhat.com>,
+	Shusen Li <lishusen2@huawei.com>,
+	Waiman Long <longman@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Anup Patel <anup@brainfault.org>,
+	Will Deacon <will@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexander Potapenko <glider@google.com>,
+	kvmarm@lists.linux.dev,
+	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	x86@kernel.org,
+	Marc Zyngier <maz@kernel.org>,
+	Sean Christopherson <seanjc@google.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	linux-riscv@lists.infradead.org,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-kernel@vger.kernel.org,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	kvm-riscv@lists.infradead.org,
+	Maxim Levitsky <mlevitsk@redhat.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: [PATCH v5 0/6] KVM: lockdep improvements
+Date: Mon, 12 May 2025 14:04:01 -0400
+Message-ID: <20250512180407.659015-1-mlevitsk@redhat.com>
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-References: <20250510-wmt-sflash-v1-0-02a1ac6adf12@gmail.com>
- <20250510-wmt-sflash-v1-2-02a1ac6adf12@gmail.com> <mafs01psu89sx.fsf@kernel.org>
-In-Reply-To: <mafs01psu89sx.fsf@kernel.org>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Mon, 12 May 2025 21:50:26 +0400
-X-Gm-Features: AX0GCFuTn2-A7ifRuVywFd5v331R4uCu7HoPZVJQ7gQFF2XE3zSvat71MlVoTDs
-Message-ID: <CABjd4YyRScBgDbi8Sk0D3vxcmLF8+YBetUdkfhrS_4Y7M+gS1g@mail.gmail.com>
-Subject: Re: [PATCH 2/3] mtd: spi-nor: Add a driver for the VIA/WonderMedia
- serial flash controller
-To: Pratyush Yadav <pratyush@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Michael Walle <mwalle@kernel.org>, 
-	Miquel Raynal <miquel.raynal@bootlin.com>, Richard Weinberger <richard@nod.at>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Krzysztof Kozlowski <krzk@kernel.org>, linux-spi@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_105039_806312_FC58197B 
-X-CRM114-Status: GOOD (  26.44  )
+X-CRM114-CacheID: sfid-20250512_110430_000348_B0C066E2 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,64 +117,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pratyush,
+This is	a continuation of my 'extract lock_all_vcpus/unlock_all_vcpus'=0D
+patch series.=0D
+=0D
+Implement the suggestion of using lockdep's "nest_lock" feature=0D
+when locking all KVM vCPUs by adding mutex_trylock_nest_lock() and=0D
+mutex_lock_killable_nest_lock() and use these functions	in the=0D
+implementation of the=0D
+kvm_trylock_all_vcpus()/kvm_lock_all_vcpus()/kvm_unlock_all_vcpus().=0D
+=0D
+Those changes allow removal of a custom workaround that was needed to=0D
+silence the lockdep warning in the SEV code and also stop lockdep from=0D
+complaining in case of ARM and RISC-V code which doesn't include the above=
+=0D
+mentioned workaround.=0D
+=0D
+Finally, it's worth noting that this patch series removes a fair=0D
+amount of duplicate code by implementing the logic in one place.=0D
+=0D
+V5: addressed review feedback.=0D
+=0D
+Best regards,=0D
+	Maxim Levitsky=0D
+=0D
+Maxim Levitsky (6):=0D
+  locking/mutex: implement mutex_trylock_nested=0D
+  locking/mutex: implement mutex_lock_killable_nest_lock=0D
+  KVM: add kvm_lock_all_vcpus and kvm_trylock_all_vcpus=0D
+  x86: KVM: SVM: use kvm_lock_all_vcpus instead of a custom=0D
+    implementation=0D
+  KVM: arm64: use kvm_trylock_all_vcpus when locking all vCPUs=0D
+  RISC-V: KVM: use kvm_trylock_all_vcpus when locking all vCPUs=0D
+=0D
+ arch/arm64/include/asm/kvm_host.h     |  3 --=0D
+ arch/arm64/kvm/arch_timer.c           |  4 +-=0D
+ arch/arm64/kvm/arm.c                  | 43 ----------------=0D
+ arch/arm64/kvm/vgic/vgic-init.c       |  4 +-=0D
+ arch/arm64/kvm/vgic/vgic-its.c        |  8 +--=0D
+ arch/arm64/kvm/vgic/vgic-kvm-device.c | 12 ++---=0D
+ arch/riscv/kvm/aia_device.c           | 34 +------------=0D
+ arch/x86/kvm/svm/sev.c                | 72 ++-------------------------=0D
+ include/linux/kvm_host.h              |  4 ++=0D
+ include/linux/mutex.h                 | 32 ++++++++++--=0D
+ kernel/locking/mutex.c                | 21 +++++---=0D
+ virt/kvm/kvm_main.c                   | 59 ++++++++++++++++++++++=0D
+ 12 files changed, 126 insertions(+), 170 deletions(-)=0D
+=0D
+-- =0D
+2.46.0=0D
+=0D
 
-On Mon, May 12, 2025 at 1:20=E2=80=AFPM Pratyush Yadav <pratyush@kernel.org=
-> wrote:
->
-> Hi Alexey,
->
-> On Sat, May 10 2025, Alexey Charkov wrote:
->
-> > The controller is tailored to SPI NOR flash memory and abstracts away a=
-ll
-> > SPI communications behind a small set of MMIO registers and a physical
-> > memory mapping of the actual chip contents.
-> >
-> > It doesn't expose chip probing functions beyond reading the ID though, =
-so
-> > use lower level chip opcodes via the "programmable command mode" of the
-> > controller and the kernel's SPI NOR framework to avoid hard-coding chip
-> > parameters for each ID the way the vendor kernel does it.
-> >
-> > Currently tested on a WonderMedia WM8950 SoC with a Macronix MX25L4005A
-> > flash chip (APC Rock board), but should work on all VIA/WonderMedia SoC=
-s
-> >
-> > Signed-off-by: Alexey Charkov <alchark@gmail.com>
-> > ---
-> >  MAINTAINERS                                  |   1 +
-> >  drivers/mtd/spi-nor/controllers/Kconfig      |  14 +
-> >  drivers/mtd/spi-nor/controllers/Makefile     |   1 +
-> >  drivers/mtd/spi-nor/controllers/wmt-sflash.c | 525 +++++++++++++++++++=
-++++++++
->
-> Drivers in drivers/mtd/spi-nor/controllers/ are deprecated, and we want
-> to eventually get rid of the API. The expected way is for drivers to use
-> SPI MEM (drivers/spi/spi-mem.c). SPI MEM drivers are usually more
-> general and not tailored specifically to SPI NOR flashes, so it might be
-> a bit tricky to write drivers for specialized hardware with it. But I
-> think the drivers/spi/spi-intel.c driver is written for similar kind of
-> hardware so it should be possible.
-
-Oops. I've had a look at spi-mem, and it seems like it's not a
-particularly fitting abstraction for this controller.
-
-From what I understood, spi-mem primarily expects to be talking SPI
-opcodes to the controller, and for the controller/driver to bring
-their own chip probing routines. This controller on the other hand
-abstracts the opcodes away, and wants someone to tell it what its
-flash chip can do (the controller itself can only get a chip ID in
-"normal" mode, and it needs to somehow know the chip size and
-standard/fast read capability of the chip). So pretty much the
-opposite, huh.
-
-In the end, I only need something like spi_nor_detect() and can do the
-rest directly on top of the MTD framework without touching any SPI
-opcodes after the detection is done. Is there any other non-deprecated
-framework that can provide something like this? Maybe physmap? It
-looks even older than SPI NOR though :)
-
-Best regards,
-Alexey
 
