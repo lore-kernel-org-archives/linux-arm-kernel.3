@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 306D9C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 21:34:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D97CC3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 21:37:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zniI+wfyQHBGi/dszKJTZkb9bGfPHkPMGjKY3XSq1Zw=; b=lxOC3462QWr1nvctzi2y/aCtm+
-	FjcgBS0ZfM2W4pH9EgHGxz0R/FuG1zz7u7X+CCvK7bgyMx4H8zU4BPVPQxPD3XP68zzO1Tdg6bFBw
-	gGFf9KU2TN3oNWtcGWXCwomYAatrLRjsiy5lvfQ4oJA70KnTDk4ayIDAv/hZS/qdZBGrZ4PyxyEGS
-	MFxta/0S9Io0B1oF4g2KDL4Y5KUXw7DezvrUhrwtmEIdj2jSiMNOvA17z7lldwrvTNq12rI5G4FRT
-	rKZuXLu7vmF0kUuRwZhv6iteaoN6gqfTR5WIVK7LMg3JZFh0uIP0G0frUy1PREACffhOS9n3Bj/vm
-	2xZTCc9g==;
+	bh=USSVmmnFJdOcJq4DaZtsKaThQaquXKB2SbmZfhpsh4g=; b=3Cj5IMDP2yqiPmCflxIBJzTS8x
+	n0njshW8knzC4PdDj63bc7gvrmZsspKLu1gJLwyT30+boUbC9BcO6Nq8xpnsEYGwo62bMtk+uVV6L
+	VRppSWqm03Az5LSRobXGYroT+pEgVHpsOVmQM3JdlMzv8G+MNe1sgix+zfJf7rNYheI3G0O3e0MaX
+	Rt/8JnX7mpxEOfnotHPaRK/2c514gQKlE37ZR1iCBfR6W4AgXLCfygBHU9NugNODfy324s+jIAGf2
+	tdDAkFND2l/NPOXgNo22fgXMQNtHkf2Wz1Ft4SHLTsgFpjC8Cw8SDxOdvK4Qi2teXNXcYwa8TA8SZ
+	24YF7thQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEanT-0000000Ak0X-0oax;
-	Mon, 12 May 2025 21:34:51 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1uEapT-0000000AkLh-43Cw;
+	Mon, 12 May 2025 21:36:55 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEahh-0000000Aif3-3I0J
+	id 1uEahk-0000000Aig1-4AcT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 21:28:54 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-ad1a87d93f7so761268766b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 14:28:53 -0700 (PDT)
+	Mon, 12 May 2025 21:28:58 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-ad2414a412dso353577566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 14:28:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747085332; x=1747690132; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1747085335; x=1747690135; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zniI+wfyQHBGi/dszKJTZkb9bGfPHkPMGjKY3XSq1Zw=;
-        b=Ow3qnJH8p1Ck2S05HzsdJ+SdrwrWM4j/9s03s1XkhphOvpsm1DNJHGQTqoIab90NYk
-         5pRzfpBWQ8dOQbibhM+Wmifuidr2vkRi5HI/zJb6HD6LeSenqhIl3nukx7ertwCd6CZF
-         /awvmYQwL02jz/HYAcRctENBhSzkE6/04tO4C3URnYyPFuUwhGIZGeavso8XvLbv+P/1
-         6s2hosSeDf0xLsSlXDz1aFQZvuy5pAGj5xXuCnKE7ery3Bl81MFDvU0mNuTSGUF4INxK
-         K7dABBGuXDPnOUvFOVA5K4ZMt1uu1f8tqGt5T9Y+/5XL3G8ijvIlWvxVQBb3qz5rKuhx
-         NV+w==
+        bh=USSVmmnFJdOcJq4DaZtsKaThQaquXKB2SbmZfhpsh4g=;
+        b=F5s/lUWBMHTxBUh1SzdEIZLFOE4/lfp6W5YLf3NbaZvqu9I/6ZwEAqKIaXHg32ydrV
+         4U2MnWPpwmmF7F+79voUFjigi3o0S4/2u9tpfmuPLtQkuIdB3WVQ07H0f0DSYaQjPp9j
+         kASXdKX3jf52u2uPnV8iLCMtSMD+01QR8oUOZvdmU2AkDyrOSDhUQAfvSrQ8JVwIRpNU
+         Aax7EE5fkxDhplQSxqNVTMTLfgN2GQtJ9ZOgWw5pkHpuAeIxxqLGvgj0UYy63bQtXIK9
+         /DKAWyVLm7lgzEhSDzgp5Lv8Lis4qx6waK06W/irLWeZsp4/wvyOqe9vI/pYezBTL0jm
+         cWfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747085332; x=1747690132;
+        d=1e100.net; s=20230601; t=1747085335; x=1747690135;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=zniI+wfyQHBGi/dszKJTZkb9bGfPHkPMGjKY3XSq1Zw=;
-        b=pMnAPiIh/it+NbINZJn2IiUtJeD8s6zdroBbHynqYdQz9WqBYXzHIod84QUq7D4tFE
-         yH1OT+94bTPhh4eXfmNe9jmgBOtoHgBwF7ciuTcwv3LaGcGE3xxjuQH0rXs7Dlh7vIDJ
-         tmTKoC4P1jfCpzQSL02v7aHnCskxrHz/slN5rZbLMAo/iXNY+SnnSoBWk9vhCQTKLtCk
-         y0r/X0YFKvf0xpDTz0RFCRulTUxDjQ/CjaqwXjsA4QQPQ8xT+qZLi76iP3e/vCsBIte5
-         pBeXyp6kUSrafrgEC6n3TLKgfJvhnqJYZwJ+0Idz+7nlsyUmFpUcz25Yrf16F1n1t1W7
-         RcDA==
-X-Forwarded-Encrypted: i=1; AJvYcCVhvRh2ok2b19GZqNsBrdzaCjmMn40kbs4vG9GXwvfDMwOa8UsDsb3puKcM6mq2qrWxYU+Yq3hYx8rTsn/stk/v@lists.infradead.org
-X-Gm-Message-State: AOJu0YzW4QFcWP7BeECMvPUPPNC+iPsQOFN4ogqP3WrkDd1DsMdxvMu5
-	Z7RBkpmeaotCXFZCHIKRjmdHu7ipFUnYcxASGodqvrSAvhYFyrw5
-X-Gm-Gg: ASbGncv6NQ3Zajy64SfU8gxtZxSuhTk72Ffmd57HDi+9LrL3nJADYP7GZWBd6Oec0H+
-	qUlFy5yZCDOvp2rxXiUzx/bNDbcQaQ/K6W5Ctbn3ziA6Ma0HAUWh85N2zS0qHgN33jm9qWz4e5x
-	bCsDL2sAZGuYthwzlCBp85YbBn3/oEczGfzYIHlpo2xycptgGM1rWAyWa031U55/8QEBy95HfAw
-	p/QAFy4icojfjsMZ5guese/VQCCmGvWpWpVThl0SYrD+qCb1UZ9Pkwho4HQjpKmqQ8ObtFmmv8n
-	+iqYWuqIuxtD0Fwl+pnFhsz2KZDhhJ5WFURU2Xm7f5WDllShYTddw+9wNt9S59k=
-X-Google-Smtp-Source: AGHT+IGpEtJ466hjYZxHXgDx9Wx4R13JZ1nthYkWedmbOHtDOcknWCFkgjViOloIUCaw6IMyoZqxVg==
-X-Received: by 2002:a17:907:3f97:b0:ad2:2a5d:b1a2 with SMTP id a640c23a62f3a-ad22a5db522mr1283450066b.57.1747085331905;
-        Mon, 12 May 2025 14:28:51 -0700 (PDT)
+        bh=USSVmmnFJdOcJq4DaZtsKaThQaquXKB2SbmZfhpsh4g=;
+        b=Uyez6qPnJcYE+uNjLJznhBATScKaAcgCllc+BFsPtVpsYZx7FAh26mtzBsDZD2jde+
+         Ebxr6dgPmnRM0IVv1ctJctlJ3aFd0olpCNOia2pIbnS3bptemjOpnyQy27MKSmxJYNp8
+         4jxd0AgC2tTwVuRe9bVSPME9jLXjyNY3FMpWUmqSCqUEUCi+AqqsA5fheAso7MWdvY/q
+         330qZ0NfEt/ZE+JHcUXhezKrbmcqi98SvaXSCZ8XTVEKDKmO5mJfs7JnvGE9JxPJAAGY
+         9sYpofnWAF3Qffy76402VTPfICcGa1FoRuwvm9xZguG13OoFzsjwR5feYGqmkJk8LK96
+         8lZA==
+X-Forwarded-Encrypted: i=1; AJvYcCVVGvwEOT1AYpa9alhRSUOc4teNc4/2JemYkHwgzLMI7anQhvUTs+ud3fps6lJBBhlfKUUfyRmX9rSc50GI8G11@lists.infradead.org
+X-Gm-Message-State: AOJu0YwH9gG55X7J+mG+BkFJ6CgZTs736J4osrgpwzbiZRpDvT03GMJ0
+	27l5Vw5f/TB6rFFXCKBtgoPZmBdn1Yy1uCeED0qwyuqP9QgEh7xp
+X-Gm-Gg: ASbGncuzhUA11m82lCUML47VGnKtdfyEHBkR7YRpS58otYedNtMwT3aym9T2/OH9jUL
+	uLpqSbDgKyd0HALVLdmGIUiB5nwkJ3FqxxgBWX3+C9LS+l13x/uwr3k6q7/fL/CPkuvtvEE0ina
+	sNZCvRmbZMXdyQWQafdgJlWVtlcflWXr4YldpHTpoTIxY59pPTFAMEw4qbqh8eHY+FA+6o8aWG1
+	qM/ZYIPDEq8Wlqk3khCXF9oCPi/GawEEFWWp/60ifxXzVhskFGwwn8t6ftShVIskf+ChfrtfNs1
+	f8Kv5Fa1XYzsONUieJHdYSWQ++Sl6sS6dFygIF2FEbe2YSs0qzS8VeYEd1wEdKZdUXu1V1dBsA=
+	=
+X-Google-Smtp-Source: AGHT+IGZYGO25xeU+0WuvzEPqbhgDfa90J56T8yELtvmAfLXs700qoIgre4bbS1rcOkKIGUXxI87lA==
+X-Received: by 2002:a17:907:c316:b0:ad2:52c3:2088 with SMTP id a640c23a62f3a-ad252c322f8mr489370366b.25.1747085335042;
+        Mon, 12 May 2025 14:28:55 -0700 (PDT)
 Received: from demon-pc.localdomain ([188.27.128.5])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad23a5552a6sm472861466b.30.2025.05.12.14.28.49
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad23a5552a6sm472861466b.30.2025.05.12.14.28.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 May 2025 14:28:51 -0700 (PDT)
+        Mon, 12 May 2025 14:28:54 -0700 (PDT)
 From: Cosmin Tanislav <demonsingur@gmail.com>
 To: 
 Cc: Cosmin Tanislav <cosmin.tanislav@analog.com>,
@@ -112,17 +113,17 @@ Cc: Cosmin Tanislav <cosmin.tanislav@analog.com>,
 	linux-staging@lists.linux.dev,
 	linux-gpio@vger.kernel.org,
 	Cosmin Tanislav <demonsingur@gmail.com>
-Subject: [PATCH v3 02/19] dt-bindings: media: i2c: max96717: add support for I2C ATR
-Date: Tue, 13 May 2025 00:28:11 +0300
-Message-ID: <20250512212832.3674722-3-demonsingur@gmail.com>
+Subject: [PATCH v3 03/19] dt-bindings: media: i2c: max96717: add support for pinctrl/pinconf
+Date: Tue, 13 May 2025 00:28:12 +0300
+Message-ID: <20250512212832.3674722-4-demonsingur@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250512212832.3674722-1-demonsingur@gmail.com>
 References: <20250512212832.3674722-1-demonsingur@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_142853_822923_112696C3 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20250512_142857_034874_F240DE91 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,73 +138,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MAX96717 is capable of address translation for the connected I2C slaves.
+MAX96717 is capable of configuring various pin properties.
 
-Add support for I2C ATR while keeping I2C gate for compatibility to
-support this usecase.
+Add pinctrl/pinconf properties to support this usecase.
 
 Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
 ---
- .../bindings/media/i2c/maxim,max96717.yaml    | 39 +++++++++++++++++++
- 1 file changed, 39 insertions(+)
+ .../bindings/media/i2c/maxim,max96717.yaml    | 110 ++++++++++++++++++
+ MAINTAINERS                                   |   1 +
+ 2 files changed, 111 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
-index 15ab37702a92..167c3dd50683 100644
+index 167c3dd50683..5998e2518be9 100644
 --- a/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
 +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
-@@ -92,6 +92,30 @@ properties:
-       incoming GMSL2 link. Therefore, it supports an i2c-gate
-       subnode to configure a sensor.
+@@ -121,6 +121,116 @@ required:
+   - reg
+   - ports
  
-+  i2c-alias-pool:
-+    maxItems: 2
-+
-+  i2c-atr:
++patternProperties:
++  '-pins$':
 +    type: object
 +    additionalProperties: false
 +
 +    properties:
-+      '#address-cells':
-+        const: 1
++      function:
++        enum: [gpio, rclkout]
 +
-+      '#size-cells':
-+        const: 0
++      pins: true
++      drive-open-drain: true
++      drive-push-pull: true
++      bias-disable: true
++      output-disable: true
++      output-enable: true
++      output-low: true
++      output-high: true
++      input-enable: true
 +
-+    patternProperties:
-+      '^i2c@[01]$':
-+        $ref: /schemas/i2c/i2c-controller.yaml#
-+        unevaluatedProperties: false
-+        properties:
-+          reg:
-+            items:
-+              minimum: 0
-+              maximum: 1
++      slew-rate:
++        description: |
++          Slew rate.
++          0 - Fastest
++          1 - Fast
++          2 - Slow
++          3 - Slowest
++        maximum: 3
 +
- required:
-   - compatible
-   - reg
-@@ -99,6 +123,21 @@ required:
- 
++      bias-pull-up:
++        oneOf:
++          - type: boolean
++            description: Enable regular 40kOhm pull-up
++          - enum: [ 40000, 1000000 ]
++            description: Enable either the 40kOhm or the 1MOhm pull-up
++
++      bias-pull-down:
++        oneOf:
++          - type: boolean
++            description: Enable regular 40kOhm pull-down
++          - enum: [ 40000, 1000000 ]
++            description: Enable either the 40kOhm or the 1MOhm pull-down
++
++      maxim,jitter-compensation:
++        type: boolean
++        description: Enables jitter compensation.
++
++      maxim,gmsl-tx:
++        type: boolean
++        description: Enable transmitting pin value to GMSL link.
++
++      maxim,gmsl-rx:
++        type: boolean
++        description: Enable receiving pin value from GMSL link.
++
++      maxim,gmsl-tx-id:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        description:
++          Identifier used while transmitting value to GMSL link.
++          Default value matches the pin number.
++        minimum: 0
++        maximum: 31
++
++      maxim,gmsl-rx-id:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        description:
++          Identifier used while receiving value from GMSL link.
++          Default value matches the pin number.
++        minimum: 0
++        maximum: 31
++
++      maxim,rclkout-clock:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        description: |
++          Clock value.
++          0 - XTAL / 1 = 25MHz
++          1 - XTAL / 2 = 12.5MHz
++          2 - XTAL / 4 = 6.25MHz
++          3 - Reference PLL output
++        minimum: 0
++        maximum: 3
++
++    required:
++      - pins
++      - function
++
++    allOf:
++      - $ref: /schemas/pinctrl/pincfg-node.yaml#
++      - $ref: /schemas/pinctrl/pinmux-node.yaml#
++
++      - if:
++          properties:
++            function:
++              const: gpio
++        then:
++          properties:
++            pins:
++              items:
++                enum: [mfp0, mfp1, mfp2, mfp3, mfp4, mfp5, mfp6, mfp7,
++                       mfp8, mfp9, mfp10]
++
++      - if:
++          properties:
++            function:
++              const: rclkout
++        then:
++          properties:
++            pins:
++              items:
++                enum: [mfp0, mfp1, mfp2, mfp3, mfp4, mfp7, mfp8]
++
  additionalProperties: false
  
-+allOf:
-+  - $ref: /schemas/i2c/i2c-atr.yaml#
-+
-+  - anyOf:
-+      - oneOf:
-+          - required: [i2c-atr]
-+          - required: [i2c-gate]
-+
-+      - not:
-+          required: [i2c-atr, i2c-gate]
-+
-+dependentRequired:
-+  i2c-atr: [i2c-alias-pool]
-+  i2c-alias-pool: [i2c-atr]
-+
- examples:
-   - |
-     #include <dt-bindings/gpio/gpio.h>
+ allOf:
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 8f463ebca056..f8ffb7cff9c5 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -14201,6 +14201,7 @@ M:	Julien Massot <julien.massot@collabora.com>
+ M:	Cosmin Tanislav <cosmin.tanislav@analog.com>
+ L:	linux-media@vger.kernel.org
+ S:	Maintained
++F:	Documentation/devicetree/bindings/media/i2c/maxim,max96717-pinctrl.yaml
+ F:	Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
+ F:	drivers/media/i2c/max96717.c
+ 
 -- 
 2.49.0
 
