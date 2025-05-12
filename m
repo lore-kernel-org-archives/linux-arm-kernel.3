@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F09D2C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 19:02:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 477AEC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 19:04:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jHmzi1JghzgO2lKN7GfkMIAB+j0JUv2F/ls2ddofuRY=; b=2e1Wk1RSeDp+UNWBMz9B7YGx1o
-	DCh1wSvIznB6ykXMQcDY68WMjDxbbXqtgt58Y6SeL5up3Kb1v5AirFAWTmwML/x0fcg5vgJ3H2TA1
-	0zGbTihwq8rfro4H8LlgN0Clq8Y7pn3yeXxTQamhjL11m4aQUYNmVXXflmpb2m87ljVIDxtM4HsYN
-	Zhcs7ct1+hKN4/DCurmuKxUvc3fvKWcbgMTlAqmGvgAMQbQk+Dpex3GvjjAQkZfWmr0v4Fb57Pb4r
-	2GA182QUfKkgjp/mG3CoNaYWJqJMVbRZX3V9zMjZbhoXiM/bgrHp8XIwYrVqa1aIx9GwKDpX1hTDZ
-	8Ms5Ssyg==;
+	bh=rpEj8zjhvAs9jXUiVKoz01+VLA8suZDSx1b0udIhIIk=; b=N6eFG3caS2OWaYvLHgdUl6ncwL
+	DyPnk8TE93K3Dh8/g1FLkaNVb9MKJE2OsL39ml7pceZkUvTAxb+kOKFnVmOv/oP8VfcPPGg2Z3wG1
+	AM00AfD9Dr4LsFuAL1q4sAn4VJ5B8mBj4OUaSHYbpDqGrkuD20LxVySbhOTJPr20rFccH9Af0YVe7
+	3WI8BVn5WZcwrwbU0xWxfWZ70gLRMwRgs8bthcvIREzKD/953xDbtblXaytfDCSp2P/t/DPg335lP
+	aCFyOPfoCts9e6oKQ24eL6XTkyKR3HFUNFBAqSNI+n0ThPF8+rXHKE+0BzEmbyQhjaKgzuuvOL0OL
+	VmC3S7vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEYQ5-0000000AThl-0C57;
-	Mon, 12 May 2025 19:02:33 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uEYS5-0000000AU2B-1KcT;
+	Mon, 12 May 2025 19:04:37 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEYBU-0000000AS7T-12Pu
+	id 1uEYJI-0000000AStc-2Z3B
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 18:47:29 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1747075646;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jHmzi1JghzgO2lKN7GfkMIAB+j0JUv2F/ls2ddofuRY=;
-	b=Icj9fsugE7Xl2MsWfdMVUWGJhjPTfEoe6zlNASHGY/toScPK1MHSVWzkTNkxavWwxcFwsl
-	6jYuXbpA6sx7ZOouSDUHrM8U6xt9uLpfyH8i82F5YcK3P1lKzHLgVat8kfrLjx0rHzRHMY
-	Tu/vopPk+5fGFNZR8tcYMKYsY/KHhHvXM4xyxO++gY4XqpVpNJUcZg7jRY/XRSaMEDj/DA
-	mAXBjy0aENBEe+C5U4xpjx8XkinOHSJbEymQb5ARCxTB/IcQBxYnHucr5hChS76uKfaWZn
-	nD+YLIBiE1dIR6WHm8nrNUShqBzWjJCBSJWMVMKBxJeXILgQe2dOR3s7nXJmog==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1747075646;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jHmzi1JghzgO2lKN7GfkMIAB+j0JUv2F/ls2ddofuRY=;
-	b=vtdc6rMiCftIgQQzBqx51RmevM5pbSBHVZRqyQSA7eduSZfiNZXQE2l+MYpzk5rTVx0q+j
-	ivvrWb15lFv0Z2Bw==
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Sascha Bischoff
- <sascha.bischoff@arm.com>, Timothy Hayes <timothy.hayes@arm.com>
-Subject: Re: [PATCH 2/4] irqchip/gic-v3-its: Implement .msi_teardown() callback
-In-Reply-To: <86sel9g694.wl-maz@kernel.org>
-References: <20250511163520.1307654-1-maz@kernel.org>
- <20250511163520.1307654-3-maz@kernel.org> <87ecwtlwx8.ffs@tglx>
- <86sel9g694.wl-maz@kernel.org>
-Date: Mon, 12 May 2025 20:47:26 +0200
-Message-ID: <875xi5ll8h.ffs@tglx>
+	Mon, 12 May 2025 18:55:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8CA13A4C467;
+	Mon, 12 May 2025 18:55:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98462C4CEE7;
+	Mon, 12 May 2025 18:55:28 +0000 (UTC)
+Date: Mon, 12 May 2025 19:55:25 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	David Hildenbrand <david@redhat.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64/mm: Permit lazy_mmu_mode to be nested
+Message-ID: <aCJEHY609yrmoXvW@arm.com>
+References: <20250512150333.5589-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250512150333.5589-1-ryan.roberts@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_114728_422586_4E84D20B 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20250512_115532_778998_1B86EA55 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,30 +72,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 12 2025 at 17:09, Marc Zyngier wrote:
-> On Mon, 12 May 2025 15:34:59 +0100,
-> Thomas Gleixner <tglx@linutronix.de> wrote:
->
-> Changing prepare first breaks nvme and igbxe, amongst other things,
-> for the reasons explained just above, so you need to implement
-> teardown first, plug the MSI controller into it, and only then you can
-> switch prepare.
->
-> What I can do is:
->
-> (1) introduce teardown without the call site in msi_remove_device_irq_domain()
->
-> (2) add its implementation in the ITS driver
->
-> (3) move the prepare crap
->
-> (4) add the teardown call to msi_remove_device_irq_domain(), without
->     the check on info->alloc_data
->
-> With that order, everything will keep working, with a temporary leak
-> of ITTs in the ITS driver between patches (2) and (4).
->
-> Is that something you can live with?
+On Mon, May 12, 2025 at 04:03:31PM +0100, Ryan Roberts wrote:
+> lazy_mmu_mode is not supposed to permit nesting. But in practice this
+> does happen with CONFIG_DEBUG_PAGEALLOC, where a page allocation inside
+> a lazy_mmu_mode section (such as zap_pte_range()) will change
+> permissions on the linear map with apply_to_page_range(), which
+> re-enters lazy_mmu_mode (see stack trace below).
+> 
+> The warning checking that nesting was not happening was previously being
+> triggered due to this. So let's relax by removing the warning and
+> tolerate nesting in the arm64 implementation. The first (inner) call to
+> arch_leave_lazy_mmu_mode() will flush and clear the flag such that the
+> remainder of the work in the outer nest behaves as if outside of lazy
+> mmu mode. This is safe and keeps tracking simple.
+> 
+> Code review suggests powerpc deals with this issue in the same way.
+> 
+> ------------[ cut here ]------------
+> WARNING: CPU: 6 PID: 1 at arch/arm64/include/asm/pgtable.h:89 __apply_to_page_range+0x85c/0x9f8
+> Modules linked in: ip_tables x_tables ipv6
+> CPU: 6 UID: 0 PID: 1 Comm: systemd Not tainted 6.15.0-rc5-00075-g676795fe9cf6 #1 PREEMPT
+> Hardware name: QEMU KVM Virtual Machine, BIOS 2024.08-4 10/25/2024
+> pstate: 40400005 (nZcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> pc : __apply_to_page_range+0x85c/0x9f8
+> lr : __apply_to_page_range+0x2b4/0x9f8
+> sp : ffff80008009b3c0
+> x29: ffff80008009b460 x28: ffff0000c43a3000 x27: ffff0001ff62b108
+> x26: ffff0000c43a4000 x25: 0000000000000001 x24: 0010000000000001
+> x23: ffffbf24c9c209c0 x22: ffff80008009b4d0 x21: ffffbf24c74a3b20
+> x20: ffff0000c43a3000 x19: ffff0001ff609d18 x18: 0000000000000001
+> x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000003
+> x14: 0000000000000028 x13: ffffbf24c97c1000 x12: ffff0000c43a3fff
+> x11: ffffbf24cacc9a70 x10: ffff0000c43a3fff x9 : ffff0001fffff018
+> x8 : 0000000000000012 x7 : ffff0000c43a4000 x6 : ffff0000c43a4000
+> x5 : ffffbf24c9c209c0 x4 : ffff0000c43a3fff x3 : ffff0001ff609000
+> x2 : 0000000000000d18 x1 : ffff0000c03e8000 x0 : 0000000080000000
+> Call trace:
+>  __apply_to_page_range+0x85c/0x9f8 (P)
+>  apply_to_page_range+0x14/0x20
+>  set_memory_valid+0x5c/0xd8
+>  __kernel_map_pages+0x84/0xc0
+>  get_page_from_freelist+0x1110/0x1340
+>  __alloc_frozen_pages_noprof+0x114/0x1178
+>  alloc_pages_mpol+0xb8/0x1d0
+>  alloc_frozen_pages_noprof+0x48/0xc0
+>  alloc_pages_noprof+0x10/0x60
+>  get_free_pages_noprof+0x14/0x90
+>  __tlb_remove_folio_pages_size.isra.0+0xe4/0x140
+>  __tlb_remove_folio_pages+0x10/0x20
+>  unmap_page_range+0xa1c/0x14c0
+>  unmap_single_vma.isra.0+0x48/0x90
+>  unmap_vmas+0xe0/0x200
+>  vms_clear_ptes+0xf4/0x140
+>  vms_complete_munmap_vmas+0x7c/0x208
+>  do_vmi_align_munmap+0x180/0x1a8
+>  do_vmi_munmap+0xac/0x188
+>  __vm_munmap+0xe0/0x1e0
+>  __arm64_sys_munmap+0x20/0x38
+>  invoke_syscall+0x48/0x104
+>  el0_svc_common.constprop.0+0x40/0xe0
+>  do_el0_svc+0x1c/0x28
+>  el0_svc+0x4c/0x16c
+>  el0t_64_sync_handler+0x10c/0x140
+>  el0t_64_sync+0x198/0x19c
+> irq event stamp: 281312
+> hardirqs last  enabled at (281311): [<ffffbf24c780fd04>] bad_range+0x164/0x1c0
+> hardirqs last disabled at (281312): [<ffffbf24c89c4550>] el1_dbg+0x24/0x98
+> softirqs last  enabled at (281054): [<ffffbf24c752d99c>] handle_softirqs+0x4cc/0x518
+> softirqs last disabled at (281019): [<ffffbf24c7450694>] __do_softirq+0x14/0x20
+> ---[ end trace 0000000000000000 ]---
+> 
+> Fixes: 5fdd05efa1cd ("arm64/mm: Batch barriers when updating kernel mappings")
+> Reported-by: Catalin Marinas <catalin.marinas@arm.com>
+> Closes: https://lore.kernel.org/linux-arm-kernel/aCH0TLRQslXHin5Q@arm.com/
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 
-Sounds good.
+Thanks. This works, no more warnings. The comment looks fine.
+
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
