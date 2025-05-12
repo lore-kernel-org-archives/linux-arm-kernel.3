@@ -4,125 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5AE6C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 21:49:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66EB0C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 21:51:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eHff/oT7sQk2aOClrUOYHK15KjAUKpAGfLp7PK5vDVQ=; b=HqKaNyN0KUkRvRYTN9TvG5ytzA
-	fjcckMTcUtELHQgVXw3z5K1GGN+XHVSBEgAWm7On7cRiHuhW8U0x2asynqfpeI5nxSHwhDZLEWjGp
-	rH44yzE6KIZIjJ4rWdKaY2QLjJbgic0PgZZHOZdL6uWhB3XtGFtY2QI98zfhMp8ThM0OgjoYldhjd
-	Kk19WS2TNRjbGqBOlCtFTZGATh5Nz/YVoKu5AViwzQbMmSXik0nYXrBo3RLGskabc5/7+Zzya/xdJ
-	LxFUCAmZEZIslfPBgteHx5A6jsGfpwsFmZTcX2sNFGnG96ZXhrB2Ysz96/9YbdpkLjPF6su2Hg1BT
-	ukdM5G7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x5XbTPT9ktX1zk54qFhJAtK3gzja6m/tnN4R9IXWUSY=; b=TLRhUNOnooIjC3rsPQ97PeS3BH
+	r+AGYI9c1U9LijCJaHyTwhz3jxhJRMDHSKZTUbXMo6sq+TfZeLZDHhhncZItDy5IJFiQVrRZYQU2p
+	+szasQJ8JDPo7cxUkpRmHvs9sqo84oU1HjZiJFse+Nwedw9X0dTcNA+Qi9DVhMGGaxpzYeTMi1H6A
+	MKCdFxWDJIvcHuYKRrz7EnOiFWwqEOubG7CjHr8U613heWIdmArDRopUAKg8+otvVhjPCJQQhsdQ7
+	tOKp9kQUjSZs5bUCbh9JIGbm7qxYvdEZdYUvVG8cQKi0pDuO7Jejh07rEf+b+UahX06v/ovFzWcvo
+	C4SWiTtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEb1W-0000000AlvQ-2YO3;
-	Mon, 12 May 2025 21:49:22 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1uEb3W-0000000AmCp-1Wsx;
+	Mon, 12 May 2025 21:51:26 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEai2-0000000AimH-1nBW
+	id 1uEai5-0000000Aimw-0JYJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 21:29:15 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5f62d3ed994so1543447a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 14:29:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747085353; x=1747690153; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eHff/oT7sQk2aOClrUOYHK15KjAUKpAGfLp7PK5vDVQ=;
-        b=VBYsLKid3UQ8tr8LZnOmVbeB9U096PszJegXHiQLZ7d3w89GIH/fmyFIPpNvM9B3/z
-         MxtbUPQVDmMl8wuRGeqkvYMdR2zJE6lcGxLp5cfjSjTqRQLmuonHGhkMYXJ+6FWXwIYK
-         FkSVW0a17TivOYP1zVMeZiquHs29h6hgNQGXWo/9KNmo/7df2VWdKvLbe8CtKRlvP6pb
-         kjUeRHe61m1nitfdNqZf7g87dJz6upxZx60t6jBPwQjp69dwskDy6weGdol0y4csrlTI
-         6NJgrTkKDbW7Qz+F9HRnus6Pse/O6hbWkW3w/+a4WuodxN13nMCfgMWhfHY8M25AfMHD
-         g8pQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747085353; x=1747690153;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=eHff/oT7sQk2aOClrUOYHK15KjAUKpAGfLp7PK5vDVQ=;
-        b=V4j6O/BoS9FTPkjB3GnfzE0WbeqqLTyIPlu3x/qWf+GbrE02K1+WrzJj4q0v+B8ElE
-         2E3UA11R3Dv0et72Q4PQBzOltUErnpmfsLq6QFsgrp+eCrS9bp2j9GS6GwPTmlm4TGZe
-         Vtpi6UAgMDiAHfPoWk1/z56Fp9YwguiKloMRxre/FnqtB2+w2DKh2TwWustBian/KSr2
-         al9t0IoS7Mnd7auGTfSEykhk75A6N/3VHtF9lIqk555UAigzdZZLRoJP3ihBcYjGRJEt
-         nC2Rdo0sDOsxP8ppwoC3o349gOPukSbs4IMQde7LF6YqE08S+Ex2hRfx8T5Q7fUNUYvT
-         LQRw==
-X-Forwarded-Encrypted: i=1; AJvYcCW246Kos46zw+SprLwRgCS3E7Mqsgukm4o8WCgxlQbld3er4geN0Hgf8wqoMEByTDkvlR9RCF4X486Wd2Yi56s6@lists.infradead.org
-X-Gm-Message-State: AOJu0YysnKJcxZ+YnWrR6HcdwQy33+q+PuNQ1eHxuj15K4zLVoNWnb0+
-	We93Bcg8hSaplCTlyAFvJoftc62wpGXN44owx75U8BVbZSPYrBLA
-X-Gm-Gg: ASbGncubKNPwBF8Zk47GTStqaGgW2bM+RfZRD0xBx1KpCJVpJmDROgkoidxtfjicHX+
-	p1+WGwU7aiF7iFWusVsPkyMEyuxzU0O/hGWItjA2bDpY+i4dpDVDvHsIWNCp1MyErGN4SYIv8Mk
-	3HMxC8P43HhVkArtHwcXLBnqECOjeYM94eHNhgw22KIaOOoO6lc3RUh4hiT5w5i1gSRJWAFYmR1
-	0+TWZYdFMP9kXy26fS4KgorelI98CMtPDdJve1z4osrmxaiXH1Fe59YcLHsVEO6N/OLqnvXWqKA
-	Fp6SJ27ngNjmogU5IYPWbL8DzU0Q0eoDxI2JD48l8kukVPqtsAtUqcxYSl3PCCs=
-X-Google-Smtp-Source: AGHT+IEn/Ow2gvZ4FE7aKd+7Z9RkGF19BSAk0UsqyhXis2AK9rexBmvFZbe0MFYZuKP4CsSSd+al+A==
-X-Received: by 2002:a17:907:6a13:b0:ace:f2c2:5a4 with SMTP id a640c23a62f3a-ad218f072e0mr1388653166b.13.1747085352861;
-        Mon, 12 May 2025 14:29:12 -0700 (PDT)
-Received: from demon-pc.localdomain ([188.27.128.5])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad23a5552a6sm472861466b.30.2025.05.12.14.29.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 May 2025 14:29:12 -0700 (PDT)
-From: Cosmin Tanislav <demonsingur@gmail.com>
-To: 
-Cc: Cosmin Tanislav <cosmin.tanislav@analog.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?UTF-8?q?Niklas=20S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
-	Julien Massot <julien.massot@collabora.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
+	Mon, 12 May 2025 21:29:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=x5XbTPT9ktX1zk54qFhJAtK3gzja6m/tnN4R9IXWUSY=; b=AJmpw6jsmkNJM33wxWXjUp3mgx
+	9lCtZyKYbsGIB04QB50S1SNKwLQ6m832AoDiOWi+By6LBJaFPbm7xgbFQJdNiT8YjHZ6uNR6TZnJ0
+	Z+j0fv2S1Y7A2RzRJC2lOwoqikTSnDyjvzPVw5vx/CO3hmx5x5EPezzgnla/Ck80MO4k=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uEai2-00CNrX-PA; Mon, 12 May 2025 23:29:14 +0200
+Date: Mon, 12 May 2025 23:29:14 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Gabor Juhos <j4g8y7@gmail.com>
+Cc: Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	=?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?= <nfraprado@collabora.com>,
-	Taniya Das <quic_tdas@quicinc.com>,
-	Liu Ying <victor.liu@nxp.com>,
-	Ross Burton <ross.burton@arm.com>,
-	Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Zhi Mao <zhi.mao@mediatek.com>,
-	Dongcheng Yan <dongcheng.yan@intel.com>,
-	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Tommaso Merciai <tomm.merciai@gmail.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Ricardo Ribalda <ribalda@chromium.org>,
-	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-staging@lists.linux.dev,
-	linux-gpio@vger.kernel.org,
-	Cosmin Tanislav <demonsingur@gmail.com>
-Subject: [PATCH v3 09/19] dt-bindings: media: i2c: max96712: add support for POC supplies
-Date: Tue, 13 May 2025 00:28:18 +0300
-Message-ID: <20250512212832.3674722-10-demonsingur@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250512212832.3674722-1-demonsingur@gmail.com>
-References: <20250512212832.3674722-1-demonsingur@gmail.com>
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	Imre Kaloz <kaloz@openwrt.org>
+Subject: Re: [PATCH 2/7] pinctrl: armada-37xx: propagate error from
+ armada_37xx_gpio_direction_output()
+Message-ID: <8945ab39-cca2-46e5-821a-df24bb6d9218@lunn.ch>
+References: <20250512-pinctrl-a37xx-fixes-v1-0-d470fb1116a5@gmail.com>
+ <20250512-pinctrl-a37xx-fixes-v1-2-d470fb1116a5@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250512-pinctrl-a37xx-fixes-v1-2-d470fb1116a5@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_142914_467258_799E6813 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20250512_142917_114080_95680DB0 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,32 +75,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GMSL links can carry power to the serializer when using coaxial
-cables.
+On Mon, May 12, 2025 at 04:22:38PM +0200, Gabor Juhos wrote:
+> The regmap_update_bits() function can fail, so propagate its error
+> up to the stack instead of silently ignoring that.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: 6702abb3bf23 ("pinctrl: armada-37xx: Fix direction_output() callback behavior")
+> Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+> Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
 
-Document this capability.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
----
- .../devicetree/bindings/media/i2c/maxim,max96712.yaml         | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
-index 758c0223977d..b345305acc4c 100644
---- a/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
-+++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
-@@ -96,6 +96,10 @@ properties:
-       - required: [port@6]
-       - required: [port@7]
- 
-+patternProperties:
-+  '^port[0-3]-poc-supply$':
-+    description: Regulator providing Power over Coax for GMSL ports
-+
- required:
-   - compatible
-   - reg
--- 
-2.49.0
-
+    Andrew
 
