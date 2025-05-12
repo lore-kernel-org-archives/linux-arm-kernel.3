@@ -4,70 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C86FC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 19:06:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D28C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 19:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Azf6t9lF8YGj1nwYXP2uxYqJhH+jrHZ4tidk+Nnije8=; b=Y5B5Cweo8RK1+LmI7dOv6yzuH1
-	KzxFFf1k/qUu6ArQksV3OeaZODuExj9vpvyC8qaANJvTDh7vAnep5fUnLSRdZNPheq357+inji6Jx
-	3J//s2lWUocLGQwy95SfziU1m2ogPZYFFfg3KvCyl+UK35lLqCW4H/FTsvNRfZ5vn9q2kAmfq8+Db
-	7jbMmN7HLCHumLDHGhGxyf5qw7nH0fDGSw7aP8vG7NU/gmNsgpdjqbmZHkzLTFYpwUumI03Z2ubib
-	zd9RZAz9Y2+0zk3uQwdclXIagasx1KX5I1DNyE3DZBd2SMi/b8JJQE0jXGBxx4sPstgOO8T0y0CAE
-	GpKppP9A==;
+	bh=eiEiTEq+b3iVlYOxIWTl7/lZJrwXV1uqoAKgh97ggZ8=; b=k60LKwSR8lHpQ9eEbTQTuuCHzF
+	5N9ylJFjMw1d1GUIzyAmAjBB5q8f3I95gKIrz26igVY5LTbSBr4LkVL5b6vU3/1UHErwF/a4wS91T
+	6x1uc+G2xidASlh27qbKHK6B/D/zynf8dfQaUw3EeyupQAbA5HZgonMuY9RNzI2Xz16oZ3JZc9Ven
+	p+Sajv+M5KGbwEUkYg8xHEhQa8sGOGnLUmGKBLW2GGC+dZUyj+WrPLCi1X2Pi12oiiD5+634r55Bo
+	+bgpCD2gSbL25C912h4YvzpZ1VtfiWRs85j2kgWbeZDYT85/Uy4fc2CkAEXRGsw6doWJuEh87qrSO
+	Kqi4yPqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEYU6-0000000AUJU-0SJa;
-	Mon, 12 May 2025 19:06:42 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uEYsN-0000000AXkd-1jJY;
+	Mon, 12 May 2025 19:31:47 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEYLF-0000000AT6I-2pWh
+	id 1uEYqJ-0000000AXJ3-21ro
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 18:57:35 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 54CIvSK42098516
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 12 May 2025 13:57:28 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1747076248;
-	bh=Azf6t9lF8YGj1nwYXP2uxYqJhH+jrHZ4tidk+Nnije8=;
-	h=From:To:CC:Subject:Date;
-	b=rMgxsB8gc8siM/0VHDiLFaMXxJCH6JnMt6D/TOsWZ8TsGALb6T4aAtAnlcz6u72tH
-	 wrarc5dM5s4TruJXZyh3cFvgmjk1YhBkv8jlz6g/ZsZxcCotgZ+GAnPABu6hqQGLVA
-	 zwEzb+GuJG3RsbRXX+g0guWa/H7gmvE9EUOXiyxE=
-Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 54CIvSsQ018055
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 12 May 2025 13:57:28 -0500
-Received: from DFLE115.ent.ti.com (10.64.6.36) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 12
- May 2025 13:57:28 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 12 May 2025 13:57:28 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 54CIvSZA072749;
-	Mon, 12 May 2025 13:57:28 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        Nishanth Menon <nm@ti.com>
-Subject: [PATCH] regulator: gpio: Use dev_err_probe
-Date: Mon, 12 May 2025 13:57:27 -0500
-Message-ID: <20250512185727.2907411-1-nm@ti.com>
-X-Mailer: git-send-email 2.47.0
+	Mon, 12 May 2025 19:29:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1747078179; x=1778614179;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=Sdl1gDmVvVhvI5vO5ld0fmlqgs4/bpMSz4SEZl51ot0=;
+  b=JlXoSyXqd/1d1NAvxH+gnwlzWfokNbG5MCXU9h3+MrVtixiQgC9xCB3D
+   RiCYmzrW9C2+Fec5xDAuXkFMuLGN/kStQhfeyebDDtOU4sRZKcoL1/qaf
+   sC/YcWtCgD98NkXfcCvS/nOQcvNhrTobUGiry4YZ2rS+ePVV98hqhELQY
+   89isgzko/en+QxL0Jyz1Yx1yvOx4pwZYcBJV5LO8Y77NYGdXzfUUwjeQU
+   VqpLX2AWc1gupkwqd+wq/Lj8WSOzTjO7P0P1XA2FzSd88TpVRltt1XLWf
+   L1CNYylzMu4TxthAgKA6W90/g6OAie05PQCqdCH8C7JDXBD1pQHzt2lvm
+   g==;
+X-CSE-ConnectionGUID: hYKpzzHaRPOvLPNNOvU8gw==
+X-CSE-MsgGUID: dl60q0MJRZCfEkOp56V1ig==
+X-IronPort-AV: E=Sophos;i="6.15,283,1739862000"; 
+   d="scan'208";a="209006606"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 May 2025 12:29:36 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Mon, 12 May 2025 12:28:56 -0700
+Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.44 via Frontend Transport; Mon, 12 May 2025 12:28:56 -0700
+From: <Ryan.Wanner@microchip.com>
+To: <herbert@gondor.apana.org.au>, <davem@davemloft.net>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+	<olivia@selenic.com>
+CC: <linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Ryan
+ Wanner" <Ryan.Wanner@microchip.com>
+Subject: [PATCH 0/9] SAMA7D65 Add support for Crypto, CAN and PWM
+Date: Mon, 12 May 2025 12:27:26 -0700
+Message-ID: <cover.1747077616.git.Ryan.Wanner@microchip.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_115733_803987_1FB1C545 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20250512_122939_754204_5898CB51 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,50 +86,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During probe the gpio driver may not yet be available. Use
-dev_err_probe to provide just the pertinent log.
+From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-Since dev_err_probe takes care of reporting the error value,
-drop the redundant ret variable while at it.
+This set adds support for the SAMA7D65 SoC crypto subsystem and enabling
+them in the device tree. This set also adds PWM to the device tree, and
+adds and enables the CAN bus system for the SAMA7D65 SoC.
 
-Signed-off-by: Nishanth Menon <nm@ti.com>
----
-Testing based on next-20250512 (includes additional patch) on AM62a7-sk
-Before: https://gist.github.com/nmenon/be94f21e83b4260ad3f89e1ae8f0d188#file-before-L851
-After: https://gist.github.com/nmenon/be94f21e83b4260ad3f89e1ae8f0d188#file-after-L806
+Ryan Wanner (9):
+  dt-bindings: crypto: add sama7d65 in Atmel AES
+  dt-bindings: crypto: add sama7d65 in Atmel SHA
+  dt-bindings: crypto: add sama7d65 in Atmel TDES
+  dt-bindings: rng: atmel,at91-trng: add sama7d65 TRNG
+  crypto: atmel - add support for AES and SHA IPs available on sama7d65
+    SoC
+  ARM: dts: microchip: sama7d65: Add crypto support
+  ARM: dts: microchip: sama7d65: Add PWM support
+  ARM: dts: microchip: sama7d65: Add CAN bus support
+  ARM: dts: microchip: sama7d65: Enable CAN bus
 
- drivers/regulator/gpio-regulator.c | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
+ .../crypto/atmel,at91sam9g46-aes.yaml         |   4 +-
+ .../crypto/atmel,at91sam9g46-sha.yaml         |   4 +-
+ .../crypto/atmel,at91sam9g46-tdes.yaml        |   4 +-
+ .../bindings/rng/atmel,at91-trng.yaml         |   1 +
+ .../dts/microchip/at91-sama7d65_curiosity.dts |  35 +++++
+ arch/arm/boot/dts/microchip/sama7d65.dtsi     | 128 ++++++++++++++++++
+ drivers/crypto/atmel-aes.c                    |   1 +
+ drivers/crypto/atmel-sha.c                    |   1 +
+ 8 files changed, 175 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/regulator/gpio-regulator.c b/drivers/regulator/gpio-regulator.c
-index 65927fa2ef16..75bd53445ba7 100644
---- a/drivers/regulator/gpio-regulator.c
-+++ b/drivers/regulator/gpio-regulator.c
-@@ -240,7 +240,7 @@ static int gpio_regulator_probe(struct platform_device *pdev)
- 	struct regulator_config cfg = { };
- 	struct regulator_dev *rdev;
- 	enum gpiod_flags gflags;
--	int ptr, ret, state, i;
-+	int ptr, state, i;
- 
- 	drvdata = devm_kzalloc(dev, sizeof(struct gpio_regulator_data),
- 			       GFP_KERNEL);
-@@ -345,11 +345,9 @@ static int gpio_regulator_probe(struct platform_device *pdev)
- 		return PTR_ERR(cfg.ena_gpiod);
- 
- 	rdev = devm_regulator_register(dev, &drvdata->desc, &cfg);
--	if (IS_ERR(rdev)) {
--		ret = PTR_ERR(rdev);
--		dev_err(dev, "Failed to register regulator: %d\n", ret);
--		return ret;
--	}
-+	if (IS_ERR(rdev))
-+		return dev_err_probe(dev, PTR_ERR(rdev),
-+				     "Failed to register regulator\n");
- 
- 	platform_set_drvdata(pdev, drvdata);
- 
 -- 
-2.47.0
+2.43.0
 
 
