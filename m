@@ -4,91 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0D00C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 06:48:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED542C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 06:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m54qQDPPwUYYIp+I0ulLXNvjU7U+yLbsnGmwxSAZCM0=; b=Xorae4ArYhC0qUgPy1rFy9E3BH
-	4wZiiVkLUwDvn7p51irowCtZaQsU4l95x6cKu88L1bA47rYO9QWnIeYzInWg+FquVnGaY+Y+5iK5B
-	AL6f8glM0APGYjdqLneVFqWv7WWyIt36IksxBuAEs1HfxOID/9s/ysm2Yu8datzVKeNwfpwvtBX6P
-	mOCQw2BrRgD3d/7ly6gc8Y+BMEC+PYMculfdeVO9xsG8whazeAk3+0dUF8/nHkKIL0B8tj02CwEtF
-	skO4XtQeyS74PXOJxF6WsKBBZrj1pkEa2QA9bSUrE3Nko2aWdIU3ZDrj1gsEO5lx6A7L+cnopHx3I
-	MWIR0Igw==;
+	bh=EJjA/FXfjTD2FQE71QWuHDCBdzjs/ZNL3lM7sCOkk4k=; b=dwERcbjSh9/F66/Xj+Db2w6atT
+	ozJNKOGJgStqjTN6gptrAFzVxdpWATB8x3QpLzyizrvBLH3bpdQkOY38z7VIxIH6swuem1PnzRh2O
+	cKzpwSZFmuBpqYq+dBGMITVHNSBtQMIhcQ8Sri61VZHkSMJmyrtCJOaG1L4WlcAwWGTsyCrNkRJGD
+	cs0qYf6iozgC1fGwjJKa8Dx7s1cEgK5I22yB96OAGnRL1UamdZ60WjN25XTGOIR5tmh/LdHVUHXxY
+	qsqjk/VBKobsk5iYnaRGPWoQPZkUsINElw9iqLURmKTGKMElX4/SgYBnKFpANmaJg7RU3BEAIUtKd
+	uhmxwFEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEMxp-00000008YlE-1iR5;
-	Mon, 12 May 2025 06:48:37 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1uEMzp-00000008Yy2-1mwd;
+	Mon, 12 May 2025 06:50:41 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEMoC-00000008WVJ-3EAh
+	id 1uEMoJ-00000008WXx-1pzX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 06:38:42 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5fbd898dfc9so438915a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 May 2025 23:38:40 -0700 (PDT)
+	Mon, 12 May 2025 06:38:48 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-ad241d7680eso3081166b.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 May 2025 23:38:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747031919; x=1747636719; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1747031926; x=1747636726; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=m54qQDPPwUYYIp+I0ulLXNvjU7U+yLbsnGmwxSAZCM0=;
-        b=FsZpIuQ6DZcI6jy762wv6Quneyx06AEn55KxVTwd3wfv3wnPOqh30lWTwI/FgFGfYh
-         CKIu3ukTKFlnXSj8eJR9pNhhS77C2DdnqpBFiPpu584o6MCGv+i9RbaWNq1J7SDpLFsZ
-         XIFPjpdqcnSnzSocyPN1BWm5i+liScdl6s1QnCESS5gULcT1AWvetWvE/lE68T/VOOUl
-         CYynsJWwfuL7IpJvrU8pO4MDkHXNoAZ4Jldvhn5zSP5CclXqVseEgM36GMljRog9oVtQ
-         jPcNW8CjA0rkz2gxjsiogM5YrxgS/1b3odS+xIJt0iT4o1ivoiYWh6xIcPPCIFHSf56f
-         fsow==
+        bh=EJjA/FXfjTD2FQE71QWuHDCBdzjs/ZNL3lM7sCOkk4k=;
+        b=yAv0IOhq9abUWdZR6leuh+fj0yxegCWt2zmpH8leRDApxNbLvRmDVwmAyU7zXZ/0dE
+         O1XMpTjX5E5vAGWBXlOOQGDSVjt2JD0IoLrgmyywNTmafa2S43P2HJSRe5+xVR48FRKY
+         Q14kzKO+ddsy9Bb/+ccd86lf9vi/gjJMIlx/hxzb0xyZ2soJZk+8ROC7PcxbWoVxXI8D
+         Drt5fEh1kbJDrcWcBYJjd4qoHVQBxWRYeHfrvrxpecVMlI7uO0mx22iQy7AMNyeoxkK7
+         7aG7zXj61eTXGzn1wOGo1WTnjCRv4S44pF61/66kMQkMmfDHkQX9lKEE9GXAMsMEALUM
+         TLKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747031919; x=1747636719;
+        d=1e100.net; s=20230601; t=1747031926; x=1747636726;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=m54qQDPPwUYYIp+I0ulLXNvjU7U+yLbsnGmwxSAZCM0=;
-        b=Zw+QcyAk0vnWkcBR4bNTjIhPRgEhO2878adtCQ/vU7VWvR9BhQzSGd9vMejM3EMUn7
-         D1+01advYUeg6M1QSbSzdHn/eat2u8UQO5LatLI+R/OS9hM8eiFT4BVRiFx59Z2NjZmj
-         IPWTaXU2ipTtSTv14XmhD9d3bFOFRmY3oOVYQPri7dgsd1w3JqJ0i9d44ENcyDCN4GX7
-         +knK+w6xGnU1GUscvaXEIFfXtJH+XnYIlDYgjLtgXCLKTYcRi5jpkI1ffGE60VlmzL79
-         nfi9rN0125Y7bYI0GYWqu6yVsVZ41iOl+bDnH4mB0CM43nNpXnqBRNqopJSen4H29ZJr
-         /ALw==
-X-Forwarded-Encrypted: i=1; AJvYcCWAlfz5bkECzXCbXDxVVgv7cSfqqm9D1xINBbWlZmDcmBRHh8O+siZA9FMQqFQ8dzxL9E+XrJ7G8rsFlDXP54bK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyu7P54EwXVJAs1nWm++oGCDAruVWKb5XBTo0IQcuNoCPy4PtrW
-	Fp8j1ByB/Nyygwn49csiwqvUcxVK/BJjMPrWhKBzV4I70u9G04xMiExcg5tTu58=
-X-Gm-Gg: ASbGncsvr3As8/Xq4kxRAEY29nl1BhQC6nPoLwRo/JDDFOlhKXS/9Wgt6kJDRmP7+2X
-	28sbHSugSWBcMiKXbtTFhl6ygcy4zBTrJFTFloFY2+aG0lFU4cBs0M86eOTXJIFrqydG+HWVHFg
-	1J2JEo3CjvUZLNJk8ZxqFZ9ueZwycuh4aV+DYLZUJOnEL6+7CWVLAlDwW5oS3ufTjWl5fswBI00
-	HXPhOf72SxWIYDZBN1kd/yUtCgXFYmzGDY1Odhpx3ohSIfKWqvqcxuh6jsXM29Bb/opbhAOZVzA
-	wiRENgEGUlHqFgNS1xjhMIXy3I2u2+Z6c4A4nxrZw8MpjeqJ1OtzbfXVf7HkWxOUOiDcl64=
-X-Google-Smtp-Source: AGHT+IFllBd+sniRuVcx7zlk+9/gEDgyoPcBo885hliuUygqoRqkFUwovnLuRvDW0FgmF20AaaF4RA==
-X-Received: by 2002:a05:6402:26d2:b0:5fc:4043:dade with SMTP id 4fb4d7f45d1cf-5fca0793fa6mr4040273a12.5.1747031919022;
-        Sun, 11 May 2025 23:38:39 -0700 (PDT)
+        bh=EJjA/FXfjTD2FQE71QWuHDCBdzjs/ZNL3lM7sCOkk4k=;
+        b=qTfQWOlzxJvOig1kT8au8xtQ0hvgJbwHxfcIVmqOWLTBad2YV4d/VLi0T7shGZ3SZE
+         xLWix+4pI6i/BxV4E7tFk1GVzRgdSsqvmmeTmqvmFmw+lynur0dNcfdOeeIw5O+ac7iL
+         eMWAKnXIJXjOCWZLeaztWx+Wa8NPX6JaZrR0OYsVPOX8nvRFAn4TLRsrE8cUIN0y0M0r
+         qlwndeqRA+z9tVXZaQUxvsNU3XxyH4oDqM8TWnYuliW9gvHi4lZeotklg1sdNKi5ywsF
+         5aMdzWe8klVnYpmUeka1mvuoCWrZz1zgOEBmij7qoWljjlNCp1LVsetrN4EAiwrWhF21
+         C+FQ==
+X-Gm-Message-State: AOJu0YzMNfsi1yt0T6Z8aPtkzoKsVU2jksCKPG/8Cs/YSpbx74OvNQ4D
+	IU/4HUFK5OtCefnd1XruiuMfkcbg4XlrlSq3oLTgfWYbvw2OQcoujyqUZ6t8iA4=
+X-Gm-Gg: ASbGncvfk5rn/214pvbYK1Tx47nvnUzSsDM7w5wiJO1U/LclOdEOIqBsx3xvy1jQIZT
+	PmPvGCdC+NhDpiPT/MJRnRXWjK0B7uUhra+JZ+aZXU5y4TO03QAYo3ORBR8MjQieBpAnO3wLZCi
+	hoW6BsLKnCmhEWEyJ5B7i3/uPUoJZ2Ru5MbdctC5fpRq8DRggY++YlioKFwYI60y80Okvo2zMxs
+	tyuV71Y8zJnzFOsAw8f8k5263KwHs1OKUSlxJ8gyZm1Fd0JFzH1xgFQnYo+dojbPIbmxz55Dess
+	YQLDXOMbLr//j1+TEjGvnpBTffdv6vRNg74ht2z35Pg2PlbWviph0gf2Bg+Urac/WD3HuCg=
+X-Google-Smtp-Source: AGHT+IHbNmFFgqP2TaNoo3r8XCJ2lXf2VHRvee7H9H7Ew0FqMOfSppy5wk3G+RtUy3MhkVtZA75gyQ==
+X-Received: by 2002:a17:907:2894:b0:acb:7dde:d88f with SMTP id a640c23a62f3a-ad21975a11fmr359134666b.5.1747031925716;
+        Sun, 11 May 2025 23:38:45 -0700 (PDT)
 Received: from [192.168.1.29] ([178.197.222.234])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5fc9d700e92sm5210075a12.55.2025.05.11.23.38.37
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad219851314sm565951966b.161.2025.05.11.23.38.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 May 2025 23:38:38 -0700 (PDT)
+        Sun, 11 May 2025 23:38:45 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Patrice Chotard <patrice.chotard@foss.st.com>, 
- Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Christophe Kerello <christophe.kerello@foss.st.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-In-Reply-To: <cover.1746781081.git.dan.carpenter@linaro.org>
-References: <cover.1746781081.git.dan.carpenter@linaro.org>
-Subject: Re: [PATCH 0/2] memory: stm32_omm: Fix error handling bugs
-Message-Id: <174703191772.30920.1274669600667314405.b4-ty@linaro.org>
-Date: Mon, 12 May 2025 08:38:37 +0200
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Alexey Charkov <alchark@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org
+In-Reply-To: <20250507-vt8500-timer-updates-v2-4-65e5d1b0855e@gmail.com>
+References: <20250507-vt8500-timer-updates-v2-0-65e5d1b0855e@gmail.com>
+ <20250507-vt8500-timer-updates-v2-4-65e5d1b0855e@gmail.com>
+Subject: Re: (subset) [PATCH v2 4/4] ARM: dts: vt8500: list all four timer
+ interrupts
+Message-Id: <174703192445.30990.13638059295757874601.b4-ty@linaro.org>
+Date: Mon, 12 May 2025 08:38:44 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_233840_828898_AD3FB231 
-X-CRM114-Status: UNSURE (   7.31  )
+X-CRM114-CacheID: sfid-20250511_233847_503456_22273AE3 
+X-CRM114-Status: UNSURE (   9.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,22 +106,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 09 May 2025 14:04:19 +0300, Dan Carpenter wrote:
-> These are a couple bugs which were detected using the Smatch static
-> checker.
+On Wed, 07 May 2025 10:58:33 +0400, Alexey Charkov wrote:
+> VIA/WonderMedia SoC timer can generate up to four interrupts corresponding
+> to four timer match registers (firing when the 32-bit freerunning clock
+> source counter matches either of the match registers, respectively).
 > 
-> Dan Carpenter (2):
->   memory: stm32_omm: Fix error handling in stm32_omm_configure()
->   memory: stm32_omm: Fix NULL vs IS_ERR() check in probe()
+> List all four interrupts in device trees.
+> 
+> This also enables the system event timer to use a match register other
+> than 0, which can then in turn be used as a system watchdog (watchdog
+> function is not available on other channels)
 > 
 > [...]
 
 Applied, thanks!
 
-[1/2] memory: stm32_omm: Fix error handling in stm32_omm_configure()
-      https://git.kernel.org/krzk/linux-mem-ctrl/c/d44eeb20d9bedce11297a09628ba5dd39db236be
-[2/2] memory: stm32_omm: Fix NULL vs IS_ERR() check in probe()
-      https://git.kernel.org/krzk/linux-mem-ctrl/c/0169a24036848cf18205301673259bb6879eef97
+[4/4] ARM: dts: vt8500: list all four timer interrupts
+      https://git.kernel.org/krzk/linux-dt/c/e58afb3e1f365badd69aad6f0d53a2c66a63f689
 
 Best regards,
 -- 
