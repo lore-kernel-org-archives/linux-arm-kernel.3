@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21C21C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 13:43:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 965CCC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 13:45:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UTPm4XK9Oh5D9BexMGzF4hp67V/86j7iIY8aSHhmOSw=; b=j9j1k3q+l94uavUOSGzEqQz+k+
-	t2Qs6/pB7KqR4nJAz7RWoUm7OLHc5SteR6UlX+tbKpK++INHhzRycIctcCJspvWkp7uNP9LMP2R/j
-	Tk148dSZHLdR3W7xIlrEqAUlHT0sN5VFe2j2+ikWanQm7NiWnaGh/CYpV+mH7GMmFOgT//Ke/yrCu
-	OosUWX0vHF6cHNqlv1Gx5OP7Y4I1m+CRehKTwp+8c9VCq1RkGYb1Z+VEdNbdyOix/7+uaVgCCbHT7
-	exVY4w5k++0JGWIRSnlLmqOWRx5sGQtc+FzisdHMLj/3yjQ+L5Y39r7NITaokV5jUK2UZivZGv1Ka
-	n0ExrI4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8MiKRKwV6GD72E2G0mY4Wnu3PX7wqYIAIiXYF7IZ6Hg=; b=33VXZO6pEkkc06HQv/ogJDbQ1V
+	K3qsqmZ/7KN+YSpWXlt8d0QXgNlPoixA1jIgJNigfe7WKzHJV5TxORCB+D2Enf7wFg6JexNP1wIyx
+	v7RLwb2pWmkzYbatSG/VzRw+oc3F10/SSOrUv8wIf/ERjCdq/Pdohg1TV5ae9XpyI3qlGuBk9bmw4
+	lkcypgZoy+nswEgo7MA8yQCUiWeBUm6x4STveZ51hVHcXEda0UQeQ3e3cyN5mfhUKho8XYbiXArGX
+	tZ0JxBjDA8A2BqTR1ItZFg/55ORSMULLbjUihpTke/I4QICqT1T+SWmng1N1UQEaSY4hUBglDM/tQ
+	Z9x0gRVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uETR0-00000009b4n-1RJL;
-	Mon, 12 May 2025 13:43:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uESsk-00000009UGR-3C0a
+	id 1uETT5-00000009bX7-0DBX;
+	Mon, 12 May 2025 13:45:19 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uESue-00000009UU9-3TIR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 13:07:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2706C150C;
-	Mon, 12 May 2025 06:07:35 -0700 (PDT)
-Received: from [10.57.90.222] (unknown [10.57.90.222])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7962D3F5A1;
-	Mon, 12 May 2025 06:07:41 -0700 (PDT)
-Message-ID: <015746d7-ca46-4978-a441-09fba781fdd4@arm.com>
-Date: Mon, 12 May 2025 14:07:39 +0100
+	Mon, 12 May 2025 13:09:46 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4Zx0KB1bkCz1d1FW;
+	Mon, 12 May 2025 21:08:14 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id DB693140132;
+	Mon, 12 May 2025 21:09:37 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 12 May 2025 21:09:37 +0800
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 12 May 2025 21:09:36 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <akpm@linux-foundation.org>,
+	<dianders@chromium.org>, <sumit.garg@linaro.org>, <kernelfans@gmail.com>,
+	<lecopzer.chen@mediatek.com>, <tglx@linutronix.de>, <song@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <jonathan.cameron@huawei.com>, <zhanjie9@hisilicon.com>,
+	<prime.zeng@hisilicon.com>, <yangyicong@hisilicon.com>, <linuxarm@huawei.com>
+Subject: [PATCH v2 1/2] watchdog/perf: Provide function for adjusting the event period
+Date: Mon, 12 May 2025 21:09:18 +0800
+Message-ID: <20250512130919.23915-2-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20250512130919.23915-1-yangyicong@huawei.com>
+References: <20250512130919.23915-1-yangyicong@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH v6 1/3] arm64: Add BBM Level 2 cpu feature
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
- suzuki.poulose@arm.com, yang@os.amperecomputing.com, corbet@lwn.net,
- jean-philippe@linaro.org, robin.murphy@arm.com, joro@8bytes.org,
- akpm@linux-foundation.org, paulmck@kernel.org, mark.rutland@arm.com,
- joey.gouly@arm.com, maz@kernel.org, james.morse@arm.com, broonie@kernel.org,
- oliver.upton@linux.dev, baohua@kernel.org, david@redhat.com,
- ioworker0@gmail.com, jgg@ziepe.ca, nicolinc@nvidia.com, mshavit@google.com,
- jsnitsel@redhat.com, smostafa@google.com, kevin.tian@intel.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
-References: <20250428153514.55772-2-miko.lenczewski@arm.com>
- <20250428153514.55772-4-miko.lenczewski@arm.com>
- <20250506142508.GB1197@willie-the-truck>
- <78fec33d-fe66-4352-be11-900f456c9af3@arm.com>
- <20250509134904.GA5707@willie-the-truck> <aB4nqtMJuvvp7Vwm@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <aB4nqtMJuvvp7Vwm@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_060746_899306_089F8A8D 
-X-CRM114-Status: GOOD (  23.55  )
+X-CRM114-CacheID: sfid-20250512_060945_177791_5A05EA42 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,80 +77,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/05/2025 17:04, Catalin Marinas wrote:
-> On Fri, May 09, 2025 at 02:49:05PM +0100, Will Deacon wrote:
->> On Tue, May 06, 2025 at 03:52:59PM +0100, Ryan Roberts wrote:
->>> On 06/05/2025 15:25, Will Deacon wrote:
->>>> This penalises large homogeneous systems and it feels unnecessary given
->>>> that we have the ability to check this per-CPU. Can you use
->>>> ARM64_CPUCAP_BOOT_CPU_FEATURE instead of ARM64_CPUCAP_SYSTEM_FEATURE
->>>> to solve this?
->>>
->>> We are trying to solve for the case where the boot CPU has BBML2 but a secondary
->>> CPU doesn't. (e.g. hetrogeneous system where boot CPU is big and secondary is
->>> little and does not advertise the feature. I can't remember if we proved there
->>> are real systems with this config - I have vague recollection that we did but my
->>> memory is poor...).
->>>
->>> My understanding is that for ARM64_CPUCAP_BOOT_CPU_FEATURE, "If the boot CPU
->>> has enabled this feature already, then every late CPU must have it". So that
->>> would exclude any secondary CPUs without BBML2 from coming online?
->>
->> Damn, yes, you're right. However, it still feels horribly hacky to iterate
->> over the online CPUs in has_bbml2_noabort() -- the cpufeature framework
->> has the ability to query features locally and we should be able to use
->> that. We're going to want that should the architecture eventually decide
->> on something like BBML3 for this.
->>
->> What we have with BBML2_NOABORT seems similar to an hwcap in that we only
->> support the capability if all CPUs have it (rejecting late CPUs without it
->> in that case) but we can live without it if not all of the early CPUs
->> have it. Unlikely hwcaps, though, we shouldn't be advertising this to
->> userspace and we can't derive the capability solely from the sanitised
->> system registers.
->>
->> I wonder if we could treat it like an erratum in some way instead? That
->> is, invert things so that CPUs which _don't_ have BBML2_NOABORT are
->> considered to have a "BBM_CONFLICT_ABORT" erratum (which we obviously
->> wouldn't shout about). Then we should be able to say:
->>
->>   - If any of the early CPUs don't have BBML2_NOABORT, then the erratum
->>     would be enabled and we wouln't elide BBM.
->>
->>   - If a late CPU doesn't have BBML2_NOABORT then it can't come online
->>     if the erratum isn't already enabled.
->>
->> Does that work? If not, then perhaps the cpufeature/cpuerrata code needs
->> some surgery for this.
-> 
-> Ah, I should have read this thread in order. I think we can treat this
-> as BBML2_NOABORT available as default based on ID regs and use the
-> allow/deny-list as an erratum.
-> 
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-Just to make sure I've understood all this, I think what you are both saying is
-we can create a single capability called ARM64_HAS_NO_BBML2_NOABORT of type
-ARM64_CPUCAP_LOCAL_CPU_ERRATUM. Each CPU will then check it has BBML2 and is in
-the MIDR allow list; If any of those conditions are not met, the CPU is
-considered to have ARM64_HAS_NO_BBML2_NOABORT.
+Architecture's using perf events for hard lockup detection needs to
+convert the watchdog_thresh to the event's period, some architecture
+for example arm64 perform this conversion using the CPU's maximum
+frequency which will be acquired by cpufreq. However by the time
+the lockup detector's initialized the cpufreq driver may not be
+initialized, thus launch a watchdog with inaccurate period. Provide
+a function hardlockup_detector_perf_adjust_period() to allowing
+adjust the event period. Then architecture can update with more
+accurate period if cpufreq is initialized.
 
-Then we have this helper:
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+---
+ include/linux/nmi.h    |  2 ++
+ kernel/watchdog_perf.c | 23 +++++++++++++++++++++++
+ 2 files changed, 25 insertions(+)
 
-static inline bool system_supports_bbml2_noabort(void)
-{
-	return system_capabilities_finalized() &&
-	       !alternative_has_cap_unlikely(ARM64_HAS_NO_BBML2_NOABORT);
-}
-
-system_capabilities_finalized() is there to ensure an early call to this helper
-returns false (i.e. the safe value before we have evaluated on all CPUs).
-Because ARM64_HAS_NO_BBML2_NOABORT is inverted it would otherwise return true
-prior to finalization.
-
-I don't believe we need any second (SYSTEM or BOOT) feature. This is sufficient
-on its own?
-
-Thanks,
-Ryan
+diff --git a/include/linux/nmi.h b/include/linux/nmi.h
+index e78fa535f61d..0a6d8a8d2d5b 100644
+--- a/include/linux/nmi.h
++++ b/include/linux/nmi.h
+@@ -103,10 +103,12 @@ void watchdog_hardlockup_check(unsigned int cpu, struct pt_regs *regs);
+ extern void hardlockup_detector_perf_stop(void);
+ extern void hardlockup_detector_perf_restart(void);
+ extern void hardlockup_config_perf_event(const char *str);
++extern void hardlockup_detector_perf_adjust_period(int cpu, u64 period);
+ #else
+ static inline void hardlockup_detector_perf_stop(void) { }
+ static inline void hardlockup_detector_perf_restart(void) { }
+ static inline void hardlockup_config_perf_event(const char *str) { }
++static inline void hardlockup_detector_perf_adjust_period(int cpu, u64 period) { }
+ #endif
+ 
+ void watchdog_hardlockup_stop(void);
+diff --git a/kernel/watchdog_perf.c b/kernel/watchdog_perf.c
+index 75af12ff774e..41c299e63fab 100644
+--- a/kernel/watchdog_perf.c
++++ b/kernel/watchdog_perf.c
+@@ -186,6 +186,29 @@ void watchdog_hardlockup_disable(unsigned int cpu)
+ 	}
+ }
+ 
++/**
++ * hardlockup_detector_perf_adjust_period - Adjust the event period due
++ *                                          to cpu frequency change
++ * @cpu: The CPU whose event period will be adjusted
++ * @period: The target period to be set
++ */
++void hardlockup_detector_perf_adjust_period(int cpu, u64 period)
++{
++	struct perf_event *event = per_cpu(watchdog_ev, cpu);
++
++	if (!(watchdog_enabled & WATCHDOG_HARDLOCKUP_ENABLED))
++		return;
++
++	if (!event)
++		return;
++
++	if (event->attr.sample_period == period)
++		return;
++
++	if (perf_event_period(event, period))
++		pr_err("failed to change period to %llu\n", period);
++}
++
+ /**
+  * hardlockup_detector_perf_stop - Globally stop watchdog events
+  *
+-- 
+2.24.0
 
 
