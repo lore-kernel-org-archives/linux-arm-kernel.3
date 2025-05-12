@@ -4,94 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E642C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 15:35:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AAEBC3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 15:35:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dLb+JRGLVFS0BSqKTkNSyQIkAQdMTPXYGYGh/OuIIrg=; b=QJfI6ArK9vzhKEI+iM5yItTm8s
-	sLVIJGLq667V3KNlpq8q9wn4zspd5oLTjmVvI1MVsq50iPmDJTy37+KSRVzh0iDE5rEOnGC9auox7
-	Cf43GR/zv14Gfru0sGL3AUCxSe5Ou6cifp73VuGtSAh/+7Ev5bp+53FgPdlGvq9JrpC2WUfGnBC1I
-	+swbwbA/nMVgGqe0iy5WYiK5SbtMUnR3VguHXcltIDCKKDOCGvb928N/Nr4n6ddliqvr7FB/RdEa3
-	29fOFWX1wA1vdp3J5QWvkrDFydj6nT93KiZSTeLQG74gaP0PxOpQUhdsRE+UbQmZQb+vVEQr+YR16
-	m7N+MF6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m14oScEaTjZatQKNom70YWJQE9ioUexgQ6aHqmSRsUg=; b=o3dvd+anych2sOAYWrEOgbtZUi
+	D63KVBkqGfALGWATEShGhTX/Y4NHde8p79MzJjJHlYVhqMbIZb10FlY9a6d5cMC1scfNgAsnyblTI
+	/A0R9PDwyGl9TXPjGJtjdWVlfYdUkaaVCs7Mfyun0RzKvoWoN8WZkdNjwrp+Ndslao1uyVElC5Cmv
+	cBUY/dqovAai5NQg7UIMgQXwREaJoYyNW++vTx3Cnz7CoJ8ZL8Q2AczTjbDwuLGt12cb2Ica3E3+j
+	ONL8WNU3Xk8tiFhegVCjarw6m8eFyytbVVJumdktjHCY946eHRr/2SxOmb2V2sJxNjjtsCd0gy3xH
+	0zedj8zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEVBY-00000009t3D-08OZ;
-	Mon, 12 May 2025 15:35:20 +0000
-Received: from mail-oa1-x2c.google.com ([2001:4860:4864:20::2c])
+	id 1uEVBa-00000009t5C-2IYd;
+	Mon, 12 May 2025 15:35:22 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uETl4-00000009f16-1M9T
+	id 1uEUR7-00000009mme-0PxN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 14:03:56 +0000
-Received: by mail-oa1-x2c.google.com with SMTP id 586e51a60fabf-2c873231e7bso3502759fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 07:03:53 -0700 (PDT)
+	Mon, 12 May 2025 14:47:22 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5fc5bc05f99so8766919a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 07:47:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747058633; x=1747663433; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=dLb+JRGLVFS0BSqKTkNSyQIkAQdMTPXYGYGh/OuIIrg=;
-        b=BaH0JYMEQcmi/3EN0IaSwn13EhkB0Pgw+5jCTNhDFRncma9DOJJLJ0mPcAD3ogPTN7
-         1Vd95/i8u2w3nGYQYN6u5cO0O6HupAd8LTGUSkNBGLiimEjZ2Rwgb7yXw/4gmUWaztOH
-         aKS0yT3PDpU12yY6wdH14k438FLxZcBP8zHJi/Xmq+0SLaDI9AmJKdkEZy4hVqBj/lbF
-         qOcYfmXTJAFTjouxblCMxeuh4gZkKdkTfJSA1bfFDBxv96iHQ4OHqBIOZO0rjluDxJYN
-         XldkbzCKYy/aFNBVMs1QsgwvJIzg9uxDfjfP7O7Lv2nhJozwNG+ehEEcdz+Fb+WQZJx+
-         4yTg==
+        d=tuxon.dev; s=google; t=1747061239; x=1747666039; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=m14oScEaTjZatQKNom70YWJQE9ioUexgQ6aHqmSRsUg=;
+        b=UEEMydf9wach2U7kotCRHOql71DA25dH46rZrE/WCLbPjrFlX5icryNfxccvs0vOmW
+         rxs/arj3rbfJbk/4TRAhc+Tw2yu1Rxxl5ay0XMAH5ZXM12SwtiszbJVVsfN3lu8h4ptQ
+         Kwq92rI+tpGV4Ku6xbE+tbyCK10AiJsNNZjOUxbUqDhEjer0V4wsxKBmvfFiJm7hhB5O
+         5RLMLlIR7QHZQ9XkFFRWYY0x6+kPfuKz7q4bMk2wgN+3E6sW1rkCkmVhXh1GUjS4sb2m
+         sjrlNSBRxtVG+78L76pf5LoxcePoZ0wXfQps7FWyQn/SVpAhrhwYQmT0TGnPmVaAQ+cX
+         ablA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747058633; x=1747663433;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dLb+JRGLVFS0BSqKTkNSyQIkAQdMTPXYGYGh/OuIIrg=;
-        b=B4hK3TpDrVtXzUwtINPzsBNxudyb1nfkWUAx0YTGvkDnuz2hiOJq861/KhmsqUDUhK
-         ReDi/Xu33VmHijebatMjFBS1IPsZN4wzpq7/yJQLbnYsikpX2DfdAiZyAxMNIoZaZfRR
-         OeKWPdHxu/tDz+LeS2SIMkTS6vO/7xhWFP27PqayA+cCZXsBgtCiOeNE7FPaM7zApkXy
-         jX5r30WvTbJ2lwYjfsKKwdiOWfdv3SAfXSimJrc7fr9aUnHNVNjFkwh5uF2XK37n+vmh
-         eCyXhvwQZNsHPafnFH88MggSkf2Cbw8M8K/Up2UVHycGFA4fOrwx9G9cZGdO0JXXzp0b
-         bbCg==
-X-Forwarded-Encrypted: i=1; AJvYcCVfGYNwlBhrI3RwlWk7NMfolD0RtXqMhTgoeWB2B8R6xSeUy0HjXdUiODOyOxOLXPUfd5SEFIOWnZYjExLJrg/l@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkTyUQESfwbfO4muJ20+oP4imQZuNSTIVedkuXf0SRJKECBXXx
-	SN0d/iTOPwfnTYoze8+xdYaYYsnlkT+TBuRRx3FDgxEti1KwDFxw
-X-Gm-Gg: ASbGncsULu5s8gD2JzyjICGtH+qcLUOxRrAAx4xDdwhjTwT5h38EhOch3a8IgE4OzNM
-	iWAqKgo5Ijj5SGMwjV0aLWxkcvm7+XQCRITDNjJHJuGM6NTQtcAw/Kqgr2rf+Y2rmZ5q1il2QuD
-	yKlvpuyrEjQA1ybWEoQg0Sm9oEmKpAuD5P6ap+K5kynO9819VFi/81WMofsBtznMgynzikigiHb
-	upDB6UuPvUpP5KCaApWD/YUIfLHcNnzSxTmdT6/fK9pSYV2le3/Bbm/CIfooJa+D7m3iKjIThH2
-	V5y/848lsSXgdnojj2vfwz3mzlG0Bb59qzSQQMkKgqdLiIynsH0yWg0Ty3t8XRC8TeIyqN0=
-X-Google-Smtp-Source: AGHT+IF1tkZYqYyXXtjmaPTB+Gkqq74Inf49XWAK+PjfZ2RlQ2OoYywpaAUFYYJ6wzuQTsDoXjEWhA==
-X-Received: by 2002:a05:6870:5246:b0:2c8:34df:8c4f with SMTP id 586e51a60fabf-2dba453cc52mr7464382fac.37.1747058628114;
-        Mon, 12 May 2025 07:03:48 -0700 (PDT)
-Received: from hoboy.vegasvil.org ([2600:1700:2430:6f6f:e2d5:5eff:fea5:802f])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-732264d59e1sm1553171a34.34.2025.05.12.07.03.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 May 2025 07:03:46 -0700 (PDT)
-Date: Mon, 12 May 2025 07:03:43 -0700
-From: Richard Cochran <richardcochran@gmail.com>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: netdev@vger.kernel.org,
-	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
-	Jason Xing <kernelxing@tencent.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] docs: networking: timestamping: improve stacked PHC
- sentence
-Message-ID: <aCH_v3fSZXROUHpD@hoboy.vegasvil.org>
-References: <20250512131751.320283-1-vladimir.oltean@nxp.com>
+        d=1e100.net; s=20230601; t=1747061239; x=1747666039;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=m14oScEaTjZatQKNom70YWJQE9ioUexgQ6aHqmSRsUg=;
+        b=ELza3VDP/HVNTtBqX49BN4s8fHeR4QqR4pejFolpawjc71tN92UVPip7n6CgPprvIo
+         IpMP7SfWBXce713NZUFIJGofy54e2N3c+QlmyhnpHyXnpi2q3G/vqgNWk/PmMtMfJJc6
+         2dAJJ44Sw1v22VbWmJhAxE6tc24TTEeGy4VX4g+pkmzjWbyzVapovTD3LWhuULj5Yixv
+         cg7wM4EV0n6tbZGFOhOVr9EPtgfULtr8FH73c/yUZuCJC1W+T3CJnbeLBBFTsT6p6Lky
+         dSRZtC+UYUPEAUdM1+RxxDgtjhiUf33WYc9EUYf0+gvTpmowIrMUVEZkLH/CpWgJJ8x4
+         ZVbg==
+X-Forwarded-Encrypted: i=1; AJvYcCXxbpEjNfo9Of62li5uhXCbZ4v+hXyhmDZls+KJG1JC0YLbI0BM9+eGFm3bny+QpqESJQRi/Fkph4tmUmSqG3yh@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvYS/BU1aect6fW/A6wGimRDds+OkfgFV/WpkGcHNsPM5efZc3
+	WAnNgBgekCmoyArrg6lE4JweNZYdh4R50UvhkvbT3hv7d6MOtXoxjO830OEEkAU=
+X-Gm-Gg: ASbGncsVN5/hKW+Jt6Robs99HM8TYSYiFy3sicrKMbopFzAByryW9E2R52y/x6bJhRt
+	aqzYFBUlm1CGAs3hvZd0bCVYtqSTERx4s+bUzk0j8Jv7b+Hi3H+9a2vm6ytU7uenzJmguVgI78L
+	XCqiNnw69MZ2pv0T0KEiQ6YVj6Z9qEZWCs48Q26Ta7bHn9qsZpiYVN8HzstZN/PMFM+iGatnNlN
+	oJC1Kq5zxXs2bS6r/sUCFKnLhf8rioHFYMcdA39nTocjl2zl5bQ5q/wo4HiSQM5KHfo5s8gLJ7M
+	TXplTVm0DAKIEfeFKSJL1b+AhEIa8LOa3J5EYxgQOV4ZUGSOtpDTOE06JG8=
+X-Google-Smtp-Source: AGHT+IE/hLZQy5Y7DCvbr4+of/4o1aU9oPBRNPSjrbd3z0hNDt9f/aX/QapKka7eYc2tafxRyG/spA==
+X-Received: by 2002:a05:6402:42c9:b0:5fc:954e:efb6 with SMTP id 4fb4d7f45d1cf-5fca073136fmr10674228a12.6.1747061238595;
+        Mon, 12 May 2025 07:47:18 -0700 (PDT)
+Received: from [192.168.50.4] ([82.78.167.50])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5fc9cc26483sm5844513a12.22.2025.05.12.07.47.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 May 2025 07:47:18 -0700 (PDT)
+Message-ID: <bcf3089b-04d3-40ad-8673-db0e727fa72e@tuxon.dev>
+Date: Mon, 12 May 2025 17:47:16 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250512131751.320283-1-vladimir.oltean@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/4] clk: at91: sama7d65: Add missing clk_hw to
+ parent_data
+To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, mturquette@baylibre.com, sboyd@kernel.org
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+References: <cover.1746561722.git.Ryan.Wanner@microchip.com>
+ <41611e4b1eb2abd867523f707791292c6cdbc8b5.1746561722.git.Ryan.Wanner@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <41611e4b1eb2abd867523f707791292c6cdbc8b5.1746561722.git.Ryan.Wanner@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_070354_367104_A5D23840 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20250512_074721_328031_5A4F7B90 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,16 +103,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 12, 2025 at 04:17:51PM +0300, Vladimir Oltean wrote:
-> The first paragraph makes no grammatical sense. I suppose a portion of
-> the intended sentece is missing: "[The challenge with ] stacked PHCs
-> (...) is that they uncover bugs".
-> 
-> Rephrase, and at the same time simplify the structure of the sentence a
-> little bit, it is not easy to follow.
-> 
-> Fixes: 94d9f78f4d64 ("docs: networking: timestamping: add section for stacked PHC devices")
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+Hi, Ryan,
 
-Acked-by: Richard Cochran <richardcochran@gmail.com>
+On 06.05.2025 23:04, Ryan.Wanner@microchip.com wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+> 
+> The main_xtal clk_hw struct is not passed into parent_data.hw causing
+> the main_osc to not have a parent causing a corrupted clock tree.
+> Passing the main_xtal struct into the parent_data struct will
+> ensure the correct parent structure for main_osc and a correct clock
+> tree.
+> 
+> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+> ---
+>  drivers/clk/at91/sama7d65.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/clk/at91/sama7d65.c b/drivers/clk/at91/sama7d65.c
+> index a5d40df8b2f2..1e9d3c393883 100644
+> --- a/drivers/clk/at91/sama7d65.c
+> +++ b/drivers/clk/at91/sama7d65.c
+> @@ -1100,7 +1100,7 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
+>  	struct regmap *regmap;
+>  	struct clk_hw *hw, *main_rc_hw, *main_osc_hw, *main_xtal_hw;
+>  	struct clk_hw *td_slck_hw, *md_slck_hw;
+> -	static struct clk_parent_data parent_data;
+> +	static struct clk_parent_data parent_data = {0};
+>  	struct clk_hw *parent_hws[10];
+>  	bool bypass;
+>  	int i, j;
+> @@ -1138,6 +1138,7 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
+>  
+>  	parent_data.name = main_xtal_name;
+>  	parent_data.fw_name = main_xtal_name;
+> +	parent_data.hw = main_xtal_hw;
+
+Is this line still needed with the initialization of parent data above:
+
+	static struct clk_parent_data parent_data = {0};
+
+>  	main_osc_hw = at91_clk_register_main_osc(regmap, "main_osc", NULL,
+>  						 &parent_data, bypass);
+>  	if (IS_ERR(main_osc_hw))
+
 
