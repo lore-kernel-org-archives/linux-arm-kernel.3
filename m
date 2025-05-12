@@ -4,66 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D6D7C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 16:33:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41284C3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 16:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=04VoAZX1Pkj/3n7T0vHI9PPCpvGqL4ubX0zX6JWFyfs=; b=cgOluU3cO9H1SSGVOCgZVUmnAQ
-	/f+sXx5GwPc1fT5/zMAxGlb153DX0V3Ohst+S/CdFVfwKwve5Z8obUi/zBN24PNlpBe/sPgVgZ+LX
-	n9Hp2lPmfNmkVJP8XSq1DgA6tYohx6SDLqvWCptPmtxieKd0xDr52UgHf03xrQT6VNJ04dL6CFiZD
-	l0xYB0CEt6C14BCjZloW6RzeDW6WQHteYw7BXrLEvraOpuNQSWi7MS78VaA5UwSrnrmPp2b1TiQwz
-	9lyleOZJwfRQHiDYhcwURr6PLBTXd9hpzCAHOHz+2Z37mz2+qqwQsCdgtbX82G4NMPMlIqB8C4CCX
-	CmPGImEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gjuiOwwQHu+rcHsTjjiW2/bdZQPmxS8dNT6++eP6SOA=; b=ZXb6fXIk+PvQYGl76Qcq2cq90J
+	YEbnZ51q3b+/mEx7dn0Vi90q2Jxq/TnL5fWS8xewlfzZ5pAS63e/jI3rgG4TL4ASTj35q2vGXc2u3
+	Uu4IrAtvyCpF9VXD87FnbZ7orsFxJ7/WdS+hFaZX9su7l2gqVBedBrRuezcfl8F/G1kFa3ltA13OS
+	clvVYA8JzwRW5kWtRSvi0grop0aF+BL7lsIvr+HD0cN1ydpem2TrGh4HRv6vlZgz4dK2eIBO/5xtc
+	GgzpFIPoUi4aAK9A6+2NNmRjIif2rmOftLcMH4wfra34AAo0Cosl2367pzArwzBbY/BJXJgJAV8ue
+	ij2PdLJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEW67-0000000A3pe-0LZo;
-	Mon, 12 May 2025 16:33:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEVbu-00000009y3W-3nr8
+	id 1uEW8C-0000000A4CX-3Jw2;
+	Mon, 12 May 2025 16:35:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uEVdj-00000009yDW-3W1C
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 16:02:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5E12A4A212;
-	Mon, 12 May 2025 16:02:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E78F8C4CEE7;
-	Mon, 12 May 2025 16:02:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747065754;
-	bh=TCE6Uw7LiVPLM8NbyISS0pYOwHNQf36YyFcNYjE50+s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=q2fAoPc3oOidpqW2oxA1Nde74ERkCSXCK24/ljWYm+Eo+1nRNRqalv9bNLoxASorO
-	 hfGrJOfu78egh50rDYD5YArzBmCDAzs8O0R5lSnJKfUidw2OHNrRVrhbTHWcKgCooY
-	 V1pwpvywTIJuEEPraQRqeXLTcc89FpM8trEfhReW4pJUUwNA23cx7ASD3wF4DoTzAc
-	 Xr7fHguA5SL6YyPl9vRpEunmR9KGkIdhpdWEIUyzmFpiNxLBpM5WCHSQ3wNQzc8v8Y
-	 TPU3SRRPw7+F3XsTT/ebKZ0yvaDYxwcCs/ArxU6IAHcXpea3+9ZlNe6dtB0B5A4JxS
-	 X8oJGBnWh75qQ==
-Date: Mon, 12 May 2025 17:02:29 +0100
-From: Conor Dooley <conor@kernel.org>
-To: leo.jt.wang@gmail.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	george.kw.lee@fii-foxconn.com, leo.jt.wang@fii-foxconn.com
-Subject: Re: [dt-bindings: arm: aspeed: add Meta Clemente board] dt-bindings:
- arm: aspeed: add Meta Clemente board
-Message-ID: <20250512-activism-dispute-e2549ab2b210@spud>
-References: <20250512113026.264785-1-LeoWang>
- <6821dbfb.170a0220.3b15e.aba8@mx.google.com>
+	Mon, 12 May 2025 16:04:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C846914BF;
+	Mon, 12 May 2025 09:04:15 -0700 (PDT)
+Received: from e133380.cambridge.arm.com (e133380.arm.com [10.1.197.52])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4E1363F63F;
+	Mon, 12 May 2025 09:04:26 -0700 (PDT)
+From: Dave Martin <Dave.Martin@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Mark Rutland <mark.rutland@arm.com>
+Subject: [boot-wrapper] [RESEND] Makefile: Ensure initrd parameters in /chosen are up-to-date
+Date: Mon, 12 May 2025 17:04:19 +0100
+Message-Id: <20250512160419.43751-1-Dave.Martin@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="EEzvPtStEzaz9LSn"
-Content-Disposition: inline
-In-Reply-To: <6821dbfb.170a0220.3b15e.aba8@mx.google.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_090234_967603_77C3D171 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20250512_090427_919384_DEB2167B 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,59 +59,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The initrd parameters in the FDT /chosen node are fixed when the device
+tree blob is generated, so it is important to regenerate the device
+tree if the initrd image has been updated.
 
---EEzvPtStEzaz9LSn
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Currently this does not happen, so the parameters can be stale.
+In particular, if the initrd image is bigger than it was when the
+device tree was first generated then the value of the linux,initrd-end
+parameter is too small, leading to truncation of the initrd image on
+boot even though the whole image is present in linux-system.axf.
 
-On Mon, May 12, 2025 at 07:30:26PM +0800, leo.jt.wang@gmail.com wrote:
-> From: Leo Wang <leo.jt.wang@fii-foxconn.com>
->=20
-> Document the new compatibles used on Meta Clemente.
->=20
-> Signed-off-by: Leo Wang <leo.jt.wang@fii-foxconn.com>
+Make $(FILESYSTEM) a dependency of fdt.dtb so that the parameters are
+refreshed properly based on the current initrd image (if any).
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Without --with-initrd, FILESYSTEM is the empty string and the
+dependency evaporates, which is just fine.
 
-Please fix your subject lines for future submissions.
-[dt-bindings: arm: aspeed: add Meta Clemente board] dt-bindings: arm: aspee=
-d: add Meta Clemente board
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-None of this looks like standard output from git.
-Take a look at what other patches and the kernel docs do.
+Signed-off-by: Dave Martin <Dave.Martin@arm.com>
+---
 
-> ---
->  Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/D=
-ocumentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> index a3736f134130..4416a40dcd86 100644
-> --- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> +++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> @@ -81,6 +81,7 @@ properties:
->                - asus,x4tf-bmc
->                - facebook,bletchley-bmc
->                - facebook,catalina-bmc
-> +              - facebook,clemente-bmc
->                - facebook,cloudripper-bmc
->                - facebook,elbert-bmc
->                - facebook,fuji-bmc
-> --=20
-> 2.43.0
->=20
+This is the same patch as [1], with the missing [boot-wrapper] prefix
+added to the subject line.  (Oops.)
 
---EEzvPtStEzaz9LSn
-Content-Type: application/pgp-signature; name="signature.asc"
+Those who already saw that patch, feel free to ignore.
 
------BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaCIblQAKCRB4tDGHoIJi
-0naYAP0YicZzkSoOLCHibdodAKfacK/bNJ38DYRNkT10N/l7XwD7B0kGA/gb7PRD
-fZiB0rMbZNOPNyKk+FZszA5zj5HCpw4=
-=t6md
------END PGP SIGNATURE-----
+[1] https://lore.kernel.org/linux-arm-kernel/20250512150944.38322-1-Dave.Martin@arm.com/
 
---EEzvPtStEzaz9LSn--
+
+ Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index a8d5c1b..0178e5d 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -185,7 +185,7 @@ model.lds: $(LD_SCRIPT) Makefile
+ DTC_NOWARN  = $(call test-dtc-option,-Wno-clocks_property)
+ DTC_NOWARN += $(call test-dtc-option,-Wno-gpios_property)
+ 
+-fdt.dtb: $(KERNEL_DTB) Makefile
++fdt.dtb: $(KERNEL_DTB) Makefile $(FILESYSTEM)
+ 	( $(DTC) -O dts -I dtb $(KERNEL_DTB) ; echo "/ { $(CHOSEN_NODE) $(PSCI_NODE) }; $(CPU_NODES)" ) | $(DTC) -O dtb -o $@ $(DTC_NOWARN) -
+ 
+ # The filesystem archive might not exist if INITRD is not being used
+-- 
+2.34.1
+
 
