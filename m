@@ -4,53 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19428C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 17:12:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EEC1C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 17:14:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EkN0dlLALC2UeplpaazKbGrH2/hD5LNonlphlZCYZk4=; b=gFefDDKHfcJS6Rc/YGF93pBGQv
-	HwUwXocwMQScZR1mtmUH6nnNtRM0SY2N8rk2W2IWbcobNRmjNw4PfWy+7wP+/KhOULVofVOdSsnPJ
-	q9f+P5RC0XvS0i+1Y5QFGg/p+jGoBwcLKNvUmDb4MHGRZRe9/Fz/gurZV88WEKLS3RXphXbEgXOQ8
-	JidC0FOKeLeUF7WgLgqz0+P1OUFl/rlT0JmdBQqD8FD863Y5YVglONizVBj8YnTTM2hSUOtmzHqVt
-	eTXOzluWwjFIPczwV4wphTUJ0YPY3q1gPQ++k2LZFEFcsNxCrdviBwFlk7JZdPV19hOeK82mO7d82
-	9yKdhvhg==;
+	bh=eyNqE7JyafZ8qHZu8yrzPJ6UuI9o22K67HXsQlZvY0k=; b=ZhT4VHn61H7xvzX01vPzI1TzzY
+	rBftuf1C8kVF7Xo0P8bH5aauul+ACh6KIeMospjYAb3fv7j1qxC6681llUBg/QTcl3b6AIatuojJQ
+	kgAx00yZAxKQ/cfYENzTsfVtB3ezn0hlT2ns6VdCWBGuV3d5U3P8HjyJcIPAlnJ02JgWKwprGzLoB
+	nTbeEyQ6v9jYshMKWcG9tI5kxSrPzzOlf3edKIFBQiaXDQnLNZbtmLdOwdNpmGvriR7UCCyv6E6J4
+	GpY4SwfJaPiPS5cRhOQ4ng8tLcNejpLrINmbggcljB2mo6nirQZKXJWRU/6R6XTN7RW0AWlrc1eRD
+	ITwTJpsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEWhY-0000000AAiP-3sDp;
-	Mon, 12 May 2025 17:12:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEVtw-0000000A0x4-03fL
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 16:21:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 842AA14BF
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 09:20:58 -0700 (PDT)
-Received: from e110455-lin.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 47BDC3F63F
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 09:21:09 -0700 (PDT)
-Date: Mon, 12 May 2025 17:21:03 +0100
-From: Liviu Dudau <liviu.dudau@arm.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Leo Yan <leo.yan@arm.com>
-Subject: Re: [PATCH v2 1/3] arm64: dts: fvp: Add system timer for broadcast
- during CPU idle
-Message-ID: <aCIf71dwiloB-Mrm@e110455-lin.cambridge.arm.com>
-References: <20250509154640.836093-1-sudeep.holla@arm.com>
+	id 1uEWja-0000000AB6E-2V9K;
+	Mon, 12 May 2025 17:14:34 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uEVub-0000000A157-0aC0;
+	Mon, 12 May 2025 16:21:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2B9DC5C0648;
+	Mon, 12 May 2025 16:19:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E3D0C4CEE7;
+	Mon, 12 May 2025 16:21:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747066912;
+	bh=Cw16mLp8GBEQCcOKwuFSOtn+PoZCJYu4QwEC/5THH6Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qjWDW5ipMKXBnBTQnDL//oE57mzcvjgoU1Ton8qgojjwFyPxcD/zG/sLf/+qoX0WA
+	 onl7eoXYzFz98ul7cCauOz3vwSqHsjTMNXxy4MHoHFByrilbQ4G9jTZ/dSzd5XRBlq
+	 JoPfIQU7+w81uzvYu3dFmIRKPmCaTWTq9D31Lnn704gy42p4Ipyte1Djh82MKghM+d
+	 lJri9FOcBdfu27jie/UdYAgPVIehCS1Pmqyq5mrNMpXxxVOcM8CBzesTbQcOolL+JT
+	 /aI2JhND0tKPf20Mk8yLGONCN8t52y6fENYrsyoMvnIGT34Ki8SDew58BKGAfMIC7E
+	 P+tql2ye6ipcQ==
+Date: Mon, 12 May 2025 17:21:45 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Frank Wunderlich <linux@fw-web.de>
+Cc: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Frank Wunderlich <frank-w@public-files.de>,
+	=?utf-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
+	Landen Chao <Landen.Chao@mediatek.com>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v1 01/14] dt-bindings: net: mediatek,net: update for
+ mt7988
+Message-ID: <20250512-nibble-freemason-69e0279f2f99@spud>
+References: <20250511141942.10284-1-linux@fw-web.de>
+ <20250511141942.10284-2-linux@fw-web.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="BeH6zc2zJClOlCJ9"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250509154640.836093-1-sudeep.holla@arm.com>
+In-Reply-To: <20250511141942.10284-2-linux@fw-web.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_092112_094208_8221B192 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20250512_092153_268707_F238FD59 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,68 +90,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 09, 2025 at 04:46:38PM +0100, Sudeep Holla wrote:
-> Introduce a system-level timer node in the FVP device tree to act as
-> a broadcast timer when CPUs are in context losing idle states where
-> the local timer stops on entering such low power states.
-> 
-> This change complements recent CPU idle state additions.
-> 
-> Tested-by: Leo Yan <leo.yan@arm.com>
-> Message-Id: <20250508103225.354925-2-sudeep.holla@arm.com>
-> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 
-For the whole series:
+--BeH6zc2zJClOlCJ9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
-
-Best regards,
-Liviu
-
+On Sun, May 11, 2025 at 04:19:17PM +0200, Frank Wunderlich wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
+>=20
+> Update binding for mt7988 which has 3 gmac and 2 reg items.
+>=20
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 > ---
->  arch/arm64/boot/dts/arm/fvp-base-revc.dts | 13 +++++++++++++
->  1 file changed, 13 insertions(+)
-> 
-> v1->v2:
-> 	- Dropped clock-frequency property
-> 	- Fixed #size-cell to 1 as expected by the schema
-> 	- Also update the ranges property and the frame reg property
-> 
-> diff --git a/arch/arm64/boot/dts/arm/fvp-base-revc.dts b/arch/arm64/boot/dts/arm/fvp-base-revc.dts
-> index 9e10d7a6b5a2..50b5993a2460 100644
-> --- a/arch/arm64/boot/dts/arm/fvp-base-revc.dts
-> +++ b/arch/arm64/boot/dts/arm/fvp-base-revc.dts
-> @@ -217,6 +217,19 @@ timer {
->  			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
->  	};
->  
-> +	timer@2a810000 {
-> +		compatible = "arm,armv7-timer-mem";
-> +		reg = <0x0 0x2a810000 0x0 0x10000>;
-> +		ranges = <0 0x0 0x2a820000 0x20000>;
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		frame@2a830000 {
-> +			frame-number = <1>;
-> +			interrupts = <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>;
-> +			reg = <0x10000 0x10000>;
-> +		};
-> +	};
-> +
->  	pmu {
->  		compatible = "arm,armv8-pmuv3";
->  		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
-> -- 
-> 2.34.1
-> 
+>  Documentation/devicetree/bindings/net/mediatek,net.yaml | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/net/mediatek,net.yaml b/Do=
+cumentation/devicetree/bindings/net/mediatek,net.yaml
+> index 9e02fd80af83..5d249da02c3a 100644
+> --- a/Documentation/devicetree/bindings/net/mediatek,net.yaml
+> +++ b/Documentation/devicetree/bindings/net/mediatek,net.yaml
+> @@ -28,7 +28,8 @@ properties:
+>        - ralink,rt5350-eth
+> =20
+>    reg:
+> -    maxItems: 1
+> +    minItems: 1
+> +    maxItems: 2
 
--- 
-====================
-| I would like to |
-| fix the world,  |
-| but they're not |
-| giving me the   |
- \ source code!  /
-  ---------------
-    ¯\_(ツ)_/¯
+This should become an items list, with an explanation of what each of
+the reg items represents.
+
+> =20
+>    clocks:
+>      minItems: 2
+> @@ -381,8 +382,12 @@ allOf:
+>              - const: xgp2
+>              - const: xgp3
+> =20
+> +        reg:
+> +          minItems: 2
+> +          maxItems: 2
+> +
+>  patternProperties:
+> -  "^mac@[0-1]$":
+> +  "^mac@[0-2]$":
+>      type: object
+>      unevaluatedProperties: false
+>      allOf:
+> --=20
+> 2.43.0
+>=20
+
+--BeH6zc2zJClOlCJ9
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaCIgGQAKCRB4tDGHoIJi
+0kdJAQD7lUldL2lyECoq6kz6Xgzpc9L4CU21TH0X3mhKWLc3KAEAkBFq4G5y02M6
+M2qDeF8a2MAP3H9Vr3AIiT3T4ZG04gg=
+=Vo8k
+-----END PGP SIGNATURE-----
+
+--BeH6zc2zJClOlCJ9--
 
