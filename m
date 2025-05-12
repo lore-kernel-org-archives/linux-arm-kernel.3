@@ -4,75 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF9FC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 00:57:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD41FC3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 02:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5iR+nNQxhbLawkimlT1BIMdnZYenkTULSBylDSaYpDU=; b=yDOMSqCDpavskLlc0nXzQSOzpk
-	XJh7bKHQ5xFN5FkifpsI3lRqRrgSmCkHTtjYrOVQQuz+xz6ahJ3/ao0hn4S7gHjgYdwAY8+QQkAHS
-	5kGbf0E9Ozb1IhEMAEO4ccfjUeeuoFzKXhDwg5J9MKif5ZhXl9Sa0W3yDO07QXeY5kJEXRwTdKRvu
-	hCaEozAwS/078BVW2TAiXwfr21XOydwJLever00FZzqQGDu/BNIpiFDkk8h7LXga+zXCiCoXhiR8k
-	BVoP7AbQzthgoZFWbn4IJ3WXw7VZCFsYWXzLCRHk9lro6cN8YCYv3AinuAQr1KvDenK/5hOxwm8AQ
-	CkMriqnQ==;
+	bh=dEFvcPhqTe3Tu3yifFuRtV59t0yPCPBZbmzH94nDWkU=; b=rcJ7o+6UaJQN8oTlin0AuPCzOd
+	2TwM59BhNC4T84DFLH9ewvcMRsyopyVfiEiIaNzuiwccZilZ++lgQm6IM8RnOVgonLzuTOWI7Wt8c
+	7iETdNtp7h4Un95MBo9KoKj0SKPlpzGn5Zm+Q2g9BJwS54JEqTttZk5Q+BxIVbdv1CXNyEWFYiL7q
+	bXOCLlBRVBOBiBdnc/DFrv7ScmTQ3eWYdJqZyyliJWxfwapfq/RsVwCrUAOHn0wR1RPlb8IoNYvHE
+	Llh/5Gfehq/kNJEbosX80cY587UArM5Af2q4vQM0vpnbw3yS835IqjkZ+wHZIkn9q9tgG52WM/Ffc
+	fJsl8bxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEHTp-000000085Zu-1DU3;
-	Mon, 12 May 2025 00:57:17 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1uEIX5-00000008AXm-1If9;
+	Mon, 12 May 2025 02:04:43 +0000
+Received: from mail-vi1eur05on20609.outbound.protection.outlook.com ([2a01:111:f403:2613::609] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEHRm-000000085TP-2AwS
+	id 1uEIV6-00000008ASP-3ItR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 00:55:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1747011310; x=1778547310;
-  h=date:from:to:cc:subject:message-id:mime-version:
-   content-transfer-encoding;
-  bh=yQ0oCgOE3Dm5ka7Kx2Ns7S7D+qbr/clFtJ5iA71kvi4=;
-  b=lOHqoPGdqckvavRDMi1bkv9L7LAkYe1aKktjduSpKkCtNEMqIPsc2hmM
-   sPy0NOiVtWespxM+8MSrkxELphWJPRYE65ANifnNA/NsfO4ubqXhPbMay
-   CAGTm34O63SjzOhw2PS0PpH2z1Bb08IYS6JzPtBbk4Ww8Z6LrSLTVEg9b
-   xBJn1Y6shug7r+Q4+FAD0c+n6QoiDKrt+3wVi0xHurHA3H3/M7UchzSXh
-   FtbGm/YLPuBzz4+89iqE7AVYWfpkhgFIvr/PTZsO9xx2arRmiy6hc8LC/
-   DuG8UD23zVbaVyIfW2PA/x1AALQZEI1S0TYXzQ11dYvReYkmc9KWKZiqU
-   w==;
-X-CSE-ConnectionGUID: EWVDgjR9RLOMWbOi1hX6hQ==
-X-CSE-MsgGUID: u6auookpQT6Cmrdlkex8RA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11430"; a="47907968"
-X-IronPort-AV: E=Sophos;i="6.15,281,1739865600"; 
-   d="scan'208";a="47907968"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 May 2025 17:55:04 -0700
-X-CSE-ConnectionGUID: 4KbfH5tsTvSPdsqUzf7mdA==
-X-CSE-MsgGUID: 84sLgkYaSXOUqPaaABKqwg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,281,1739865600"; 
-   d="scan'208";a="160470582"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 11 May 2025 17:55:01 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uEHRa-000E5f-1e;
-	Mon, 12 May 2025 00:54:58 +0000
-Date: Mon, 12 May 2025 08:54:27 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:irq/msi-parent-arm64 5/11]
- drivers/irqchip/irq-bcm2712-mip.c:14:10: fatal error: irq-msi-lib.h: No such
- file or directory
-Message-ID: <202505120801.EulKUbgx-lkp@intel.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+	Mon, 12 May 2025 02:02:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VO1gFQ2+ndmruW/MRHAQdWuA9sBcWDvCAhYZ26YO9nFUIexyJEW7BgdHny0VxDZT+vzMQFLq1ghYSS9daY4lvX+EC6GxrXYbxlNROKVN2QgxUlS32E+BLL3kUASIAC4UtK/Ld0qX2mh8vnhDD2EqkagHZt6bL6QIuRa/493JOSeuhtrGvQGyAJPqtgI2odsdNxuAYmx9v9LsdwNrSrRJtBWnXmkNk3b18xA78/6EMlgBNbhGQWxpnREcSn3mf3PRzsXJV9AuFJEZAwSpAE1NWMicJ3zsWtFzqeohr0aMGiaFFqnMCUvFziZux1x+qp4084IS3yQ7OOSiu/qch7fPFQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dEFvcPhqTe3Tu3yifFuRtV59t0yPCPBZbmzH94nDWkU=;
+ b=AIMJ4q7a+bIPabTACezthrDi6o3Fc8pUq+AgAYgTBWjqOe1F2x4PlSOYyH+juPwhDJeGKonIwTbf+OIWfV0bFndUy5niKq8pYEAj7JSkHm00Cw93DZpwxr6o419+HomGSixa1tr9Hq7meJTnVeQiHw75tHzHDQeX4tJ3xvEy78IsSGZCrUhQSykydAIx0Hdr+wdiTzb+d90rEsUyksPe9wdKi6nHAYzrKa1i0mawpn+CFqgRXxnHNzkPSqfR4MdaxWmMxJVz2Zykc1afli7+nSbiLXFvEIwWQc1JIoe/LPaTQA7k7SOPKT5n6TkHrD0fNYnTUbY3qG01yK72WF9oUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dEFvcPhqTe3Tu3yifFuRtV59t0yPCPBZbmzH94nDWkU=;
+ b=gnZBkS3NZ9movt6Bq8yriv/wvVEu7vRqp3iZbI1xI4NK/fiv+xwAl6/UkvS6sGwaj/5hjxtXIMPiBDpnjENEgFUKvr8VsS49V9XCM3ktcckUMWSovBL5wCbYMo2tFdHBtLkr+hxqWt5HVmuX6KJWs/U5/re/YDA+TUdj/zf51EcUxqFdOCEP4RxUJv7vMQyiy0CkcNgSb2cAR5ezYtYvI7TH4as6VvleymwYFYGnqeMChXndhoXwU7HtMtigQrfEEKCRlIQXExZ6cuNzzbagtFmkmUaXnb3jUtDMxUV6M9Ir1B93kMQ80CsFIrLBMAqGdNS1JmXJh0W6d3BrkKqqOw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+ by PAXPR04MB9229.eurprd04.prod.outlook.com (2603:10a6:102:2bd::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.29; Mon, 12 May
+ 2025 02:02:34 +0000
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87%6]) with mapi id 15.20.8722.024; Mon, 12 May 2025
+ 02:02:34 +0000
+From: ming.qian@oss.nxp.com
+To: mchehab@kernel.org,
+	hverkuil-cisco@xs4all.nl
+Cc: nicolas@ndufresne.ca,
+	sebastian.fricke@collabora.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-imx@nxp.com,
+	xiahong.bao@nxp.com,
+	eagle.zhou@nxp.com,
+	imx@lists.linux.dev,
+	linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v4] media: amphion: Add H264 and HEVC profile and level control
+Date: Mon, 12 May 2025 10:01:36 +0800
+Message-ID: <20250512020137.211-1-ming.qian@oss.nxp.com>
+X-Mailer: git-send-email 2.48.1.windows.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SG2PR06CA0181.apcprd06.prod.outlook.com (2603:1096:4:1::13)
+ To PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|PAXPR04MB9229:EE_
+X-MS-Office365-Filtering-Correlation-Id: 79689685-d8c5-41ce-65aa-08dd90f90f74
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ro79S5xVRQtLCXWWpzs+frJHlWiiXupqWalCb26K6qgfQ5NN1WnpzDBedg9E?=
+ =?us-ascii?Q?7sLLxq6DinBsMJgUWseG5T73U96PUWMgTtuLmza1Kr8zgZoD6tb87P0OH4mB?=
+ =?us-ascii?Q?8oY+iaiwGnwqTdAz7SLQoSHXgfcJzEqPXU5hmI7Q6ol5Wcnav3FWLtAOw9Yn?=
+ =?us-ascii?Q?rsRzO6k+4qTGnNGNtHpv/pytlTg+qviDVU7bROD3FzwyATbnlBDBledQjl29?=
+ =?us-ascii?Q?HNAQqJJMb1/jayi/boWuZWjF8uWPsmdoWkZCyrkJj4DUPvVNP2I9Rr5yWIE6?=
+ =?us-ascii?Q?zriW0W2r2QhgJncuSgnk0ojrIQ6GF1cM9gl6sG8Wnum2VVYvuEmbB9gh0qUW?=
+ =?us-ascii?Q?PKGi6UBfMyuvCx2tixUKS0Z5SaLp4/3+lOK2QiXaBLCVJiQ0ap1eSAz3+e1s?=
+ =?us-ascii?Q?gQ5ldnhwtlPzTGTjka0saREgJ2XVg/2TRZJLZ0S1Bv3atQDhpQ4od3CABfXM?=
+ =?us-ascii?Q?2YX/McrV/VeCDI0m9EFz1joqcB2M+dbKSCzwfuhypDg4/voXX2MVVWNeZZCa?=
+ =?us-ascii?Q?grq7ilVFfQunqiwVH4+Te7Wy1yqhcsvZ00uC9WVjKsHQsZb3pMH3VjoNFU2z?=
+ =?us-ascii?Q?PKp4DTVxfNmUpDaC21QFKdnoNPaWjdbnHqmzWcQkiYTseu5o+RyTxihF7Kty?=
+ =?us-ascii?Q?ULLUxnPUNoKASzbKABgLiOw6qDePmKfhm3Q3wt16PbRklxOzyGuWglguEhZs?=
+ =?us-ascii?Q?VN3EqHKF8CGgDqtFuFA5+PFiJYu15ukqFmkEXG2T9+HOCtvcsNDqgZrxMEvs?=
+ =?us-ascii?Q?1IlWl0snGdM6h9Jc4wednxuxxTlugKj3p7SQD+obnIp7+4Ix7AZXAm6AEBDs?=
+ =?us-ascii?Q?eNKXfRDBiqOUPFj8kTtQNWZW619dWZAXzR/UM4JmJCBGXhdliNupyJSm9QyO?=
+ =?us-ascii?Q?4mar1nkG766h7kasW4wHQoLhZwSsNum8Njs1COlD8jzlWJUD5gqUMAbxAqbC?=
+ =?us-ascii?Q?iftf5OLZbe7DXlGbRnqLoaO1hF8939cAFgYW1HcmqINk9VkR4AlpX3yHqAAT?=
+ =?us-ascii?Q?8O1tNlq08xBkVMC0nOVDbgPgFwmS17T8X64jq7VDNpGI+SYj76HV/WAJQXlh?=
+ =?us-ascii?Q?fZC05jlIfR0a5AHAUXCisQ9rc+CjcopRxm9zXTFGulS5zmXF0MSdoaikCKsf?=
+ =?us-ascii?Q?2Fxg+XGGcmEPQJRf0Yl4d4x/3qpyMNYR4tFooFaGtc7O+mpFrXACz1MlEJzr?=
+ =?us-ascii?Q?Fa3JS3YFakHRVIkPVZTyP8KBQk7/HIvEcr/xxp0VDHp2blPu3eR7LrdkbKxg?=
+ =?us-ascii?Q?Z1ac8iBmy/zvBrwmTsruv4imAIDDLBP5yTICODiGqcsH9+95kvOHcIoVmvJd?=
+ =?us-ascii?Q?Mqa2TdPZYsi40gqwUDg61DrHCOz5MnJc2wowYo2bVlHuFqup4WHzm9MmMp3v?=
+ =?us-ascii?Q?+rGGa+7rsj3bQXmvgxW5Sl/a9r2HQdzMFGc1EbXeVGgqqF5ojg2VqjCVJKLI?=
+ =?us-ascii?Q?BjMUUTc6LRph7GkmHa+zSnQ5MkLuuGNdcY7A0copars3kXBENcfUSA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6l5YPGzBKFuw1v2PJZmrjKIOVe3UPhVx45Jx5tGWKQSamJ4H2p+HNRTwxzF5?=
+ =?us-ascii?Q?2sGE4JOmpIpg8WUZkRPVEMXM6Thqy0HFs+Nfd7mYmRq9+Cnx8ZDwMSuhLLgq?=
+ =?us-ascii?Q?m+SMbYPiNP/5kVcsB2SJvtGZTrhhlauVPzNZxPXpKgDIDB06f0HR9l2CUI54?=
+ =?us-ascii?Q?fV9o6xAQ2um1v+NeBiYDYDxXZwQ6C7TAYCrIRCwQ41rcqGs/ZJYM9A7/Ksli?=
+ =?us-ascii?Q?GMB/mPN06cqeC5ddpoH9tyrWUJgFk/TRf1z//Kc9yBrz6lRWMPgEHoR+kyGj?=
+ =?us-ascii?Q?um0/yVy2NvuR6VeMI/uak2dAEwLhjoNZuqXXTRBwHbx/aSyF1rRBk92ZkTSl?=
+ =?us-ascii?Q?/88MyeF4jbzckI8qffrsobn4INgA9xOzdxzLWEmJgQIAo5HXZ3sXsPJjyhpM?=
+ =?us-ascii?Q?q3JHEAnDn7G5vOkE9Vr2WRqBPxVfOp6WQ1a6h5DUhkJDOF+ZgEibwL3I6Ki+?=
+ =?us-ascii?Q?AuwQOrbNDWbCV9OTuerNxNevqBr016YYDX0BzK5252TVZA7DtdM77IsbEQSx?=
+ =?us-ascii?Q?ECWpuq0QyGcFSixU2EsCC7/ZiriZ3aszvJktzfuiL7i3Cw0Bs/dr9hbIvo6g?=
+ =?us-ascii?Q?7csEQx/swbE9RtyjxKdmgSEmPWpxcwCuIsjpHxy5EnQSIJdKLeNlbKCryG7S?=
+ =?us-ascii?Q?LUUMwA/EaJruHk7aJC4jHsyLRkWR2nRNeMUcYVM8AiEjgjXbA+oT/6fMHGAM?=
+ =?us-ascii?Q?GT87tM/qlSEDErbARIx1+lRtpP7XDS8S/AF4LKD/kIfkgtHiRMIjyV3liu4V?=
+ =?us-ascii?Q?qpNcsOk0D6DSzzfNu86mgRq+Ru0Zhjx2kWcXskhEHmH22DCiknCQQSb1cAox?=
+ =?us-ascii?Q?594v4WAmyiGCp+vwDbZiRjRaah7vmLiRieM/lHnM4nZDId5ul5w+rs2/4r+Z?=
+ =?us-ascii?Q?VCa27+E8ymrXS13glXnkLCELTFAhRep2U+dTjg+dH0J8b4112XfgPUyAjILE?=
+ =?us-ascii?Q?L895KuSjogXKdPUho8Od3Nmpl0muGWR/Ou2rDvEQWLDftg4PR7/4u39T1ueb?=
+ =?us-ascii?Q?jQR/MWVd4WAXztXKo2uUFzmZ/rY68kqZ54EryjDjT3o7GYLI70d/kJIi9c7Y?=
+ =?us-ascii?Q?DdQ2+X7XMWXngHIF/UqAxPp5IpYy0np8dU4WWKdm1DIXW8XpS6LEOLEgN3O0?=
+ =?us-ascii?Q?IUkU4vP10KeEJ46O95Jg+4fHa6x8O3WFO0XXgB6naNjc+drQexB+74nUVzwN?=
+ =?us-ascii?Q?czDl2YK+Iu67U8jBcNYHddH/Yjw+N6+QckihDvdjhofpuaZdAQa/2dYymvDD?=
+ =?us-ascii?Q?3ujhOSEVR2t8ouRBfXBAIH3872LdA9yW/vAZ3fAc8yveitdE0f2XFP+kh7DR?=
+ =?us-ascii?Q?jniKise0Jbk3dlELEqCKqNC/mV0yV4ljbgTX6iq2xk9wTTig2r0L7dhoaXud?=
+ =?us-ascii?Q?hD915IYLHOGmzf43nxLFRyMZQV9QmXJ41cZTEUVTxnpBNqyhhPkhmLCL5nnp?=
+ =?us-ascii?Q?k5EZbkxErbkgES4z0WSYNQYAB4o4ddKecB2OienK/o7UnkqDzG7wgnXYIpyF?=
+ =?us-ascii?Q?oKrlldmLigd5rlg/kokxd52c0mUtXocN7s2Za5dJ20zozAqOszm5iMafRjwm?=
+ =?us-ascii?Q?3L/Y5+cPt5rKp0ZOHskcgGP3WvJYRlyjLwS0IRQh?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 79689685-d8c5-41ce-65aa-08dd90f90f74
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2025 02:02:33.9481
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Op/FkjjqeR4NLRuMmcpn+zEY6DFjJDXUdXm6xeh1RSoKSsdPuUvddH339aVv9oM8u0zVkemsbyOFlQkKFXGhJg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9229
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_175510_608616_1C959026 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20250511_190241_021447_9FA354F6 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,43 +168,327 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+From: Ming Qian <ming.qian@oss.nxp.com>
 
-FYI, the error/warning was bisected to this commit, please ignore it if it's irrelevant.
+For format H264 and HEVC, the firmware can report the parsed profile idc
+and level idc to driver, these information may be useful.
+Implement the H264 and HEVC profile and level control to report them.
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git irq/msi-parent-arm64
-head:   ad9406b84a59ce51931ed2a57adca122498a1aff
-commit: 10ecc3941341b39efc3ce403206045d873c3f978 [5/11] irqchip: Make irq-msi-lib.h globally available
-config: arm-randconfig-001-20250512 (https://download.01.org/0day-ci/archive/20250512/202505120801.EulKUbgx-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 7.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250512/202505120801.EulKUbgx-lkp@intel.com/reproduce)
+Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+---
+v4
+- Fix a building warning reported by kernel test robot
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505120801.EulKUbgx-lkp@intel.com/
+v3
+- Check H264 Constrained Baseline Profile
+- Check H264 Level 1b
+- Remove support for V4L2_MPEG_VIDEO_H264_PROFILE_MULTIVIEW_HIGH
+- Remove support for V4L2_MPEG_VIDEO_H264_PROFILE_STEREO_HIGH
 
-All errors (new ones prefixed by >>):
+v2
+- Add support for V4L2_MPEG_VIDEO_H264_PROFILE_CONSTRAINED_BASELINE
+---
+ drivers/media/platform/amphion/vdec.c        |  59 +++++++++
+ drivers/media/platform/amphion/vpu_defs.h    |  12 ++
+ drivers/media/platform/amphion/vpu_helpers.c | 123 +++++++++++++++++++
+ drivers/media/platform/amphion/vpu_helpers.h |   7 ++
+ drivers/media/platform/amphion/vpu_malone.c  |   5 +-
+ 5 files changed, 205 insertions(+), 1 deletion(-)
 
->> drivers/irqchip/irq-bcm2712-mip.c:14:10: fatal error: irq-msi-lib.h: No such file or directory
-    #include "irq-msi-lib.h"
-             ^~~~~~~~~~~~~~~
-   compilation terminated.
+diff --git a/drivers/media/platform/amphion/vdec.c b/drivers/media/platform/amphion/vdec.c
+index 85d518823159..55067d9405c2 100644
+--- a/drivers/media/platform/amphion/vdec.c
++++ b/drivers/media/platform/amphion/vdec.c
+@@ -232,6 +232,35 @@ static int vdec_ctrl_init(struct vpu_inst *inst)
+ 			  V4L2_CID_MPEG_VIDEO_DEC_DISPLAY_DELAY_ENABLE,
+ 			  0, 1, 1, 0);
+ 
++	v4l2_ctrl_new_std_menu(&inst->ctrl_handler, NULL,
++			       V4L2_CID_MPEG_VIDEO_H264_PROFILE,
++			       V4L2_MPEG_VIDEO_H264_PROFILE_MULTIVIEW_HIGH,
++			       ~((1 << V4L2_MPEG_VIDEO_H264_PROFILE_BASELINE) |
++				 (1 << V4L2_MPEG_VIDEO_H264_PROFILE_CONSTRAINED_BASELINE) |
++				 (1 << V4L2_MPEG_VIDEO_H264_PROFILE_MAIN) |
++				 (1 << V4L2_MPEG_VIDEO_H264_PROFILE_EXTENDED) |
++				 (1 << V4L2_MPEG_VIDEO_H264_PROFILE_HIGH)),
++			       V4L2_MPEG_VIDEO_H264_PROFILE_MAIN);
++
++	v4l2_ctrl_new_std_menu(&inst->ctrl_handler, NULL,
++			       V4L2_CID_MPEG_VIDEO_H264_LEVEL,
++			       V4L2_MPEG_VIDEO_H264_LEVEL_6_2,
++			       0,
++			       V4L2_MPEG_VIDEO_H264_LEVEL_4_0);
++
++	v4l2_ctrl_new_std_menu(&inst->ctrl_handler, NULL,
++			       V4L2_CID_MPEG_VIDEO_HEVC_PROFILE,
++			       V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10,
++			       ~((1 << V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN) |
++				 (1 << V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10)),
++			       V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN);
++
++	v4l2_ctrl_new_std_menu(&inst->ctrl_handler, NULL,
++			       V4L2_CID_MPEG_VIDEO_HEVC_LEVEL,
++			       V4L2_MPEG_VIDEO_HEVC_LEVEL_6_2,
++			       0,
++			       V4L2_MPEG_VIDEO_HEVC_LEVEL_4);
++
+ 	ctrl = v4l2_ctrl_new_std(&inst->ctrl_handler, &vdec_ctrl_ops,
+ 				 V4L2_CID_MIN_BUFFERS_FOR_CAPTURE, 1, 32, 1, 2);
+ 	if (ctrl)
+@@ -1166,6 +1195,35 @@ static void vdec_clear_slots(struct vpu_inst *inst)
+ 	}
+ }
+ 
++static void vdec_update_v4l2_ctrl(struct vpu_inst *inst, u32 id, u32 val)
++{
++	struct v4l2_ctrl *ctrl = v4l2_ctrl_find(&inst->ctrl_handler, id);
++
++	if (ctrl)
++		v4l2_ctrl_s_ctrl(ctrl, val);
++}
++
++static void vdec_update_v4l2_profile_level(struct vpu_inst *inst, struct vpu_dec_codec_info *hdr)
++{
++	switch (inst->out_format.pixfmt) {
++	case V4L2_PIX_FMT_H264:
++	case V4L2_PIX_FMT_H264_MVC:
++		vdec_update_v4l2_ctrl(inst, V4L2_CID_MPEG_VIDEO_H264_PROFILE,
++				      vpu_get_h264_v4l2_profile(hdr));
++		vdec_update_v4l2_ctrl(inst, V4L2_CID_MPEG_VIDEO_H264_LEVEL,
++				      vpu_get_h264_v4l2_level(hdr));
++		break;
++	case V4L2_PIX_FMT_HEVC:
++		vdec_update_v4l2_ctrl(inst, V4L2_CID_MPEG_VIDEO_HEVC_PROFILE,
++				      vpu_get_hevc_v4l2_profile(hdr));
++		vdec_update_v4l2_ctrl(inst, V4L2_CID_MPEG_VIDEO_HEVC_LEVEL,
++				      vpu_get_hevc_v4l2_level(hdr));
++		break;
++	default:
++		return;
++	}
++}
++
+ static void vdec_event_seq_hdr(struct vpu_inst *inst, struct vpu_dec_codec_info *hdr)
+ {
+ 	struct vdec_t *vdec = inst->priv;
+@@ -1189,6 +1247,7 @@ static void vdec_event_seq_hdr(struct vpu_inst *inst, struct vpu_dec_codec_info
+ 	vdec_init_crop(inst);
+ 	vdec_init_mbi(inst);
+ 	vdec_init_dcp(inst);
++	vdec_update_v4l2_profile_level(inst, hdr);
+ 	if (!vdec->seq_hdr_found) {
+ 		vdec->seq_tag = vdec->codec_info.tag;
+ 		if (vdec->is_source_changed) {
+diff --git a/drivers/media/platform/amphion/vpu_defs.h b/drivers/media/platform/amphion/vpu_defs.h
+index 428d988cf2f7..f56245ae2205 100644
+--- a/drivers/media/platform/amphion/vpu_defs.h
++++ b/drivers/media/platform/amphion/vpu_defs.h
+@@ -134,6 +134,7 @@ struct vpu_dec_codec_info {
+ 	u32 decoded_height;
+ 	struct v4l2_fract frame_rate;
+ 	u32 dsp_asp_ratio;
++	u32 profile_idc;
+ 	u32 level_idc;
+ 	u32 bit_depth_luma;
+ 	u32 bit_depth_chroma;
+@@ -147,6 +148,17 @@ struct vpu_dec_codec_info {
+ 	u32 mbi_size;
+ 	u32 dcp_size;
+ 	u32 stride;
++	union {
++		struct {
++			u32 constraint_set5_flag : 1;
++			u32 constraint_set4_flag : 1;
++			u32 constraint_set3_flag : 1;
++			u32 constraint_set2_flag : 1;
++			u32 constraint_set1_flag : 1;
++			u32 constraint_set0_flag : 1;
++		};
++		u32 constraint_set_flags;
++	};
+ };
+ 
+ struct vpu_dec_pic_info {
+diff --git a/drivers/media/platform/amphion/vpu_helpers.c b/drivers/media/platform/amphion/vpu_helpers.c
+index d12310af9ebc..886d5632388e 100644
+--- a/drivers/media/platform/amphion/vpu_helpers.c
++++ b/drivers/media/platform/amphion/vpu_helpers.c
+@@ -509,3 +509,126 @@ const char *vpu_codec_state_name(enum vpu_codec_state state)
+ 	}
+ 	return "<unknown>";
+ }
++
++struct codec_id_mapping {
++	u32 id;
++	u32 v4l2_id;
++};
++
++static struct codec_id_mapping h264_profiles[] = {
++	{66,  V4L2_MPEG_VIDEO_H264_PROFILE_BASELINE},
++	{77,  V4L2_MPEG_VIDEO_H264_PROFILE_MAIN},
++	{88,  V4L2_MPEG_VIDEO_H264_PROFILE_EXTENDED},
++	{100, V4L2_MPEG_VIDEO_H264_PROFILE_HIGH}
++};
++
++static struct codec_id_mapping h264_levels[] = {
++	{10,  V4L2_MPEG_VIDEO_H264_LEVEL_1_0},
++	{9,   V4L2_MPEG_VIDEO_H264_LEVEL_1B},
++	{11,  V4L2_MPEG_VIDEO_H264_LEVEL_1_1},
++	{12,  V4L2_MPEG_VIDEO_H264_LEVEL_1_2},
++	{13,  V4L2_MPEG_VIDEO_H264_LEVEL_1_3},
++	{20,  V4L2_MPEG_VIDEO_H264_LEVEL_2_0},
++	{21,  V4L2_MPEG_VIDEO_H264_LEVEL_2_1},
++	{22,  V4L2_MPEG_VIDEO_H264_LEVEL_2_2},
++	{30,  V4L2_MPEG_VIDEO_H264_LEVEL_3_0},
++	{31,  V4L2_MPEG_VIDEO_H264_LEVEL_3_1},
++	{32,  V4L2_MPEG_VIDEO_H264_LEVEL_3_2},
++	{40,  V4L2_MPEG_VIDEO_H264_LEVEL_4_0},
++	{41,  V4L2_MPEG_VIDEO_H264_LEVEL_4_1},
++	{42,  V4L2_MPEG_VIDEO_H264_LEVEL_4_2},
++	{50,  V4L2_MPEG_VIDEO_H264_LEVEL_5_0},
++	{51,  V4L2_MPEG_VIDEO_H264_LEVEL_5_1},
++	{52,  V4L2_MPEG_VIDEO_H264_LEVEL_5_2},
++	{60,  V4L2_MPEG_VIDEO_H264_LEVEL_6_0},
++	{61,  V4L2_MPEG_VIDEO_H264_LEVEL_6_1},
++	{62,  V4L2_MPEG_VIDEO_H264_LEVEL_6_2}
++};
++
++static struct codec_id_mapping hevc_profiles[] = {
++	{1,   V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN},
++	{2,   V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10}
++};
++
++static struct codec_id_mapping hevc_levels[] = {
++	{30,  V4L2_MPEG_VIDEO_HEVC_LEVEL_1},
++	{60,  V4L2_MPEG_VIDEO_HEVC_LEVEL_2},
++	{63,  V4L2_MPEG_VIDEO_HEVC_LEVEL_2_1},
++	{90,  V4L2_MPEG_VIDEO_HEVC_LEVEL_3},
++	{93,  V4L2_MPEG_VIDEO_HEVC_LEVEL_3_1},
++	{120, V4L2_MPEG_VIDEO_HEVC_LEVEL_4},
++	{123, V4L2_MPEG_VIDEO_HEVC_LEVEL_4_1},
++	{150, V4L2_MPEG_VIDEO_HEVC_LEVEL_5},
++	{153, V4L2_MPEG_VIDEO_HEVC_LEVEL_5_1},
++	{156, V4L2_MPEG_VIDEO_HEVC_LEVEL_5_2},
++	{180, V4L2_MPEG_VIDEO_HEVC_LEVEL_6},
++	{183, V4L2_MPEG_VIDEO_HEVC_LEVEL_6_1},
++	{186, V4L2_MPEG_VIDEO_HEVC_LEVEL_6_2}
++};
++
++static u32 vpu_find_v4l2_id(u32 id, struct codec_id_mapping *array, u32 array_sz)
++{
++	u32 i;
++
++	if (!array || !array_sz)
++		return 0;
++
++	for (i = 0; i < array_sz; i++) {
++		if (id == array[i].id)
++			return array[i].v4l2_id;
++	}
++
++	return 0;
++}
++
++u32 vpu_get_h264_v4l2_profile(struct vpu_dec_codec_info *hdr)
++{
++	if (!hdr)
++		return 0;
++
++	/*
++	 * In H.264 Document section A.2.1.1 Constrained Baseline profile
++	 * Conformance of a bitstream to the Constrained Baseline profile is indicated by
++	 * profile_idc being equal to 66 with constraint_set1_flag being equal to 1.
++	 */
++	if (hdr->profile_idc == 66 && hdr->constraint_set1_flag)
++		return V4L2_MPEG_VIDEO_H264_PROFILE_CONSTRAINED_BASELINE;
++
++	return vpu_find_v4l2_id(hdr->profile_idc, h264_profiles, ARRAY_SIZE(h264_profiles));
++}
++
++u32 vpu_get_h264_v4l2_level(struct vpu_dec_codec_info *hdr)
++{
++	if (!hdr)
++		return 0;
++
++	/*
++	 * In H.264 Document section 7.4.2.1.1 Sequence parameter set data semantics
++	 * If profile_idc is equal to 66, 77, or 88 and level_idc is equal to 11,
++	 * constraint_set3_flag equal to 1 indicates that the coded video sequence
++	 * obeys all constraints specified in Annex A for level 1b
++	 * and constraint_set3_flag equal to 0 indicates that the coded video sequence
++	 * obeys all constraints specified in Annex A for level 1.1.
++	 */
++	if (hdr->level_idc == 11 && hdr->constraint_set3_flag &&
++	    (hdr->profile_idc == 66 || hdr->profile_idc == 77 || hdr->profile_idc == 88))
++		return V4L2_MPEG_VIDEO_H264_LEVEL_1B;
++
++	return vpu_find_v4l2_id(hdr->level_idc, h264_levels, ARRAY_SIZE(h264_levels));
++}
++
++u32 vpu_get_hevc_v4l2_profile(struct vpu_dec_codec_info *hdr)
++{
++	if (!hdr)
++		return 0;
++
++	return vpu_find_v4l2_id(hdr->profile_idc, hevc_profiles, ARRAY_SIZE(hevc_profiles));
++}
++
++u32 vpu_get_hevc_v4l2_level(struct vpu_dec_codec_info *hdr)
++{
++	if (!hdr)
++		return 0;
++
++	return vpu_find_v4l2_id(hdr->level_idc, hevc_levels, ARRAY_SIZE(hevc_levels));
++}
+diff --git a/drivers/media/platform/amphion/vpu_helpers.h b/drivers/media/platform/amphion/vpu_helpers.h
+index 0eaddb07190d..6c0554ccf3b3 100644
+--- a/drivers/media/platform/amphion/vpu_helpers.h
++++ b/drivers/media/platform/amphion/vpu_helpers.h
+@@ -6,6 +6,8 @@
+ #ifndef _AMPHION_VPU_HELPERS_H
+ #define _AMPHION_VPU_HELPERS_H
+ 
++#include "vpu_defs.h"
++
+ struct vpu_pair {
+ 	u32 src;
+ 	u32 dst;
+@@ -70,4 +72,9 @@ int vpu_color_get_default(u32 primaries, u32 *ptransfers, u32 *pmatrix, u32 *pfu
+ 
+ int vpu_find_dst_by_src(struct vpu_pair *pairs, u32 cnt, u32 src);
+ int vpu_find_src_by_dst(struct vpu_pair *pairs, u32 cnt, u32 dst);
++
++u32 vpu_get_h264_v4l2_profile(struct vpu_dec_codec_info *hdr);
++u32 vpu_get_h264_v4l2_level(struct vpu_dec_codec_info *hdr);
++u32 vpu_get_hevc_v4l2_profile(struct vpu_dec_codec_info *hdr);
++u32 vpu_get_hevc_v4l2_level(struct vpu_dec_codec_info *hdr);
+ #endif
+diff --git a/drivers/media/platform/amphion/vpu_malone.c b/drivers/media/platform/amphion/vpu_malone.c
+index feca7d4220ed..ba688566dffd 100644
+--- a/drivers/media/platform/amphion/vpu_malone.c
++++ b/drivers/media/platform/amphion/vpu_malone.c
+@@ -908,7 +908,8 @@ static void vpu_malone_unpack_seq_hdr(struct vpu_rpc_event *pkt,
+ 	info->frame_rate.numerator = 1000;
+ 	info->frame_rate.denominator = pkt->data[8];
+ 	info->dsp_asp_ratio = pkt->data[9];
+-	info->level_idc = pkt->data[10];
++	info->profile_idc = (pkt->data[10] >> 8) & 0xff;
++	info->level_idc = pkt->data[10] & 0xff;
+ 	info->bit_depth_luma = pkt->data[13];
+ 	info->bit_depth_chroma = pkt->data[14];
+ 	info->chroma_fmt = pkt->data[15];
+@@ -925,6 +926,8 @@ static void vpu_malone_unpack_seq_hdr(struct vpu_rpc_event *pkt,
+ 		info->pixfmt = V4L2_PIX_FMT_NV12M_10BE_8L128;
+ 	else
+ 		info->pixfmt = V4L2_PIX_FMT_NV12M_8L128;
++	if (pkt->hdr.num > 28)
++		info->constraint_set_flags = pkt->data[28];
+ 	if (info->frame_rate.numerator && info->frame_rate.denominator) {
+ 		unsigned long n, d;
+ 
 
-
-vim +14 drivers/irqchip/irq-bcm2712-mip.c
-
-32c6c054661a9b Stanimir Varbanov 2025-02-24  13  
-32c6c054661a9b Stanimir Varbanov 2025-02-24 @14  #include "irq-msi-lib.h"
-32c6c054661a9b Stanimir Varbanov 2025-02-24  15  
-
-:::::: The code at line 14 was first introduced by commit
-:::::: 32c6c054661a9b454837e3df409e9bd8fe9ba5f9 irqchip: Add Broadcom BCM2712 MSI-X interrupt controller
-
-:::::: TO: Stanimir Varbanov <svarbanov@suse.de>
-:::::: CC: Krzysztof Wilczyński <kwilczynski@kernel.org>
-
+base-commit: b64b134942c8cf4801ea288b3fd38b509aedec21
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0-rc1
+
 
