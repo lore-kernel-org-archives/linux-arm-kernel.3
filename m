@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AAEBC3ABD8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 253D9C3ABC3
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 15:35:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,83 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m14oScEaTjZatQKNom70YWJQE9ioUexgQ6aHqmSRsUg=; b=o3dvd+anych2sOAYWrEOgbtZUi
-	D63KVBkqGfALGWATEShGhTX/Y4NHde8p79MzJjJHlYVhqMbIZb10FlY9a6d5cMC1scfNgAsnyblTI
-	/A0R9PDwyGl9TXPjGJtjdWVlfYdUkaaVCs7Mfyun0RzKvoWoN8WZkdNjwrp+Ndslao1uyVElC5Cmv
-	cBUY/dqovAai5NQg7UIMgQXwREaJoYyNW++vTx3Cnz7CoJ8ZL8Q2AczTjbDwuLGt12cb2Ica3E3+j
-	ONL8WNU3Xk8tiFhegVCjarw6m8eFyytbVVJumdktjHCY946eHRr/2SxOmb2V2sJxNjjtsCd0gy3xH
-	0zedj8zA==;
+	bh=LI4CXmwfkUBuHNzkkeGcyn8vqgVoXk3iadfVRqdZ1ak=; b=TI3GK+q6aJpFUWlQps6eTAHZt8
+	8yLAtHTXeNPo5loXaXNKi9BWM8lqdphuu54/ZwubDoo5Xaw3gwQ8m78N7caZ7dMjdTRtbt/a5rS2e
+	qJdnrwXvHXytWm7memfZA1bYFDaFXWv5eeMdefPSjF0yCrbzRvjs11oeP/X0YdC+D79/DVMzEXEyd
+	8zGgZH72oZUXKFBl/itwosLmunY3WcsdZeWEx6a9RtMeVUv85VtWrCXljURkGc0tvEiCY/Wh3gt66
+	w67ADt8dSqa2znp9ZgSiTGXPGQw/iKRDJFCfaICtUfmffQ4YXEYUtg2SaBp9HmrrR9m7tAY8OpaMM
+	y8w68jpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEVBa-00000009t5C-2IYd;
-	Mon, 12 May 2025 15:35:22 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEUR7-00000009mme-0PxN
+	id 1uEVBX-00000009t2z-22Mi;
+	Mon, 12 May 2025 15:35:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uETak-00000009cuo-43Ka
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 14:47:22 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5fc5bc05f99so8766919a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 07:47:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1747061239; x=1747666039; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=m14oScEaTjZatQKNom70YWJQE9ioUexgQ6aHqmSRsUg=;
-        b=UEEMydf9wach2U7kotCRHOql71DA25dH46rZrE/WCLbPjrFlX5icryNfxccvs0vOmW
-         rxs/arj3rbfJbk/4TRAhc+Tw2yu1Rxxl5ay0XMAH5ZXM12SwtiszbJVVsfN3lu8h4ptQ
-         Kwq92rI+tpGV4Ku6xbE+tbyCK10AiJsNNZjOUxbUqDhEjer0V4wsxKBmvfFiJm7hhB5O
-         5RLMLlIR7QHZQ9XkFFRWYY0x6+kPfuKz7q4bMk2wgN+3E6sW1rkCkmVhXh1GUjS4sb2m
-         sjrlNSBRxtVG+78L76pf5LoxcePoZ0wXfQps7FWyQn/SVpAhrhwYQmT0TGnPmVaAQ+cX
-         ablA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747061239; x=1747666039;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=m14oScEaTjZatQKNom70YWJQE9ioUexgQ6aHqmSRsUg=;
-        b=ELza3VDP/HVNTtBqX49BN4s8fHeR4QqR4pejFolpawjc71tN92UVPip7n6CgPprvIo
-         IpMP7SfWBXce713NZUFIJGofy54e2N3c+QlmyhnpHyXnpi2q3G/vqgNWk/PmMtMfJJc6
-         2dAJJ44Sw1v22VbWmJhAxE6tc24TTEeGy4VX4g+pkmzjWbyzVapovTD3LWhuULj5Yixv
-         cg7wM4EV0n6tbZGFOhOVr9EPtgfULtr8FH73c/yUZuCJC1W+T3CJnbeLBBFTsT6p6Lky
-         dSRZtC+UYUPEAUdM1+RxxDgtjhiUf33WYc9EUYf0+gvTpmowIrMUVEZkLH/CpWgJJ8x4
-         ZVbg==
-X-Forwarded-Encrypted: i=1; AJvYcCXxbpEjNfo9Of62li5uhXCbZ4v+hXyhmDZls+KJG1JC0YLbI0BM9+eGFm3bny+QpqESJQRi/Fkph4tmUmSqG3yh@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvYS/BU1aect6fW/A6wGimRDds+OkfgFV/WpkGcHNsPM5efZc3
-	WAnNgBgekCmoyArrg6lE4JweNZYdh4R50UvhkvbT3hv7d6MOtXoxjO830OEEkAU=
-X-Gm-Gg: ASbGncsVN5/hKW+Jt6Robs99HM8TYSYiFy3sicrKMbopFzAByryW9E2R52y/x6bJhRt
-	aqzYFBUlm1CGAs3hvZd0bCVYtqSTERx4s+bUzk0j8Jv7b+Hi3H+9a2vm6ytU7uenzJmguVgI78L
-	XCqiNnw69MZ2pv0T0KEiQ6YVj6Z9qEZWCs48Q26Ta7bHn9qsZpiYVN8HzstZN/PMFM+iGatnNlN
-	oJC1Kq5zxXs2bS6r/sUCFKnLhf8rioHFYMcdA39nTocjl2zl5bQ5q/wo4HiSQM5KHfo5s8gLJ7M
-	TXplTVm0DAKIEfeFKSJL1b+AhEIa8LOa3J5EYxgQOV4ZUGSOtpDTOE06JG8=
-X-Google-Smtp-Source: AGHT+IE/hLZQy5Y7DCvbr4+of/4o1aU9oPBRNPSjrbd3z0hNDt9f/aX/QapKka7eYc2tafxRyG/spA==
-X-Received: by 2002:a05:6402:42c9:b0:5fc:954e:efb6 with SMTP id 4fb4d7f45d1cf-5fca073136fmr10674228a12.6.1747061238595;
-        Mon, 12 May 2025 07:47:18 -0700 (PDT)
-Received: from [192.168.50.4] ([82.78.167.50])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5fc9cc26483sm5844513a12.22.2025.05.12.07.47.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 May 2025 07:47:18 -0700 (PDT)
-Message-ID: <bcf3089b-04d3-40ad-8673-db0e727fa72e@tuxon.dev>
-Date: Mon, 12 May 2025 17:47:16 +0300
+	Mon, 12 May 2025 13:53:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 59A05150C;
+	Mon, 12 May 2025 06:53:03 -0700 (PDT)
+Received: from [10.57.90.222] (unknown [10.57.90.222])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B76E63F673;
+	Mon, 12 May 2025 06:53:11 -0700 (PDT)
+Message-ID: <7852c047-e8da-44d4-8220-68c2ebca5206@arm.com>
+Date: Mon, 12 May 2025 14:53:10 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] clk: at91: sama7d65: Add missing clk_hw to
- parent_data
-To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, mturquette@baylibre.com, sboyd@kernel.org
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
-References: <cover.1746561722.git.Ryan.Wanner@microchip.com>
- <41611e4b1eb2abd867523f707791292c6cdbc8b5.1746561722.git.Ryan.Wanner@microchip.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <41611e4b1eb2abd867523f707791292c6cdbc8b5.1746561722.git.Ryan.Wanner@microchip.com>
+Subject: Re: [PATCH] arm64/mm: Disable barrier batching in interrupt contexts
+Content-Language: en-GB
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Pasha Tatashin
+ <pasha.tatashin@soleen.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ David Hildenbrand <david@redhat.com>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ syzbot+5c0d9392e042f41d45c5@syzkaller.appspotmail.com
+References: <20250512102242.4156463-1-ryan.roberts@arm.com>
+ <aCH0TLRQslXHin5Q@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <aCH0TLRQslXHin5Q@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_074721_328031_5A4F7B90 
-X-CRM114-Status: GOOD (  17.14  )
+X-CRM114-CacheID: sfid-20250512_065315_101318_9EF52051 
+X-CRM114-Status: GOOD (  21.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,47 +74,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Ryan,
-
-On 06.05.2025 23:04, Ryan.Wanner@microchip.com wrote:
-> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+On 12/05/2025 14:14, Catalin Marinas wrote:
+> On Mon, May 12, 2025 at 11:22:40AM +0100, Ryan Roberts wrote:
+>> @@ -79,7 +83,9 @@ static inline void queue_pte_barriers(void)
+>>  #define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
+>>  static inline void arch_enter_lazy_mmu_mode(void)
+>>  {
+>> -	VM_WARN_ON(in_interrupt());
+>> +	if (in_interrupt())
+>> +		return;
+>> +
+>>  	VM_WARN_ON(test_thread_flag(TIF_LAZY_MMU));
 > 
-> The main_xtal clk_hw struct is not passed into parent_data.hw causing
-> the main_osc to not have a parent causing a corrupted clock tree.
-> Passing the main_xtal struct into the parent_data struct will
-> ensure the correct parent structure for main_osc and a correct clock
-> tree.
+> I still get this warning trigger with some debugging enabled (more
+> specifically, CONFIG_DEBUG_PAGEALLOC). Patch applied on top of the arm64
+> for-kernelci.
+
+Thanks for the report...
+
+I'll admit I didn't explicitly test CONFIG_DEBUG_PAGEALLOC since I thought we
+concluded when talking that the failure mode was the same as KFENCE in that it
+was due to pte manipulations in the interrupt context.
+
+But that's not what this trace shows...
+
+The warning is basically saying we have nested lazy mmu mode regions, both in
+task context, which is completely illegal as far as lazy mmu is concerned.
+
+Looks like the first nest is zap_pte_range(), which is batching with mmu_gather
+and that allocates memory in tlb_next_batch(). And when CONFIG_DEBUG_PAGEALLOC
+is enabled, it calls into the arch to make the allocated page valid in the
+linear map. arm64 does that with apply_to_page_range(), which does a second lazy
+mmu nest.
+
+I need to have a think about what the right fix is. Will get back to you shortly.
+
+Thanks,
+Ryan
+
 > 
-> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-> ---
->  drivers/clk/at91/sama7d65.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+> Is it because the unmap code uses arch_enter_lazy_mmu_mode() already and
+> __apply_to_page_range() via __kernel_map_pages() is attempting another
+> nested call? I think it's still safe, we just drop the optimisation in
+> the outer code and issue the barriers immediately. So maybe drop this
+> warning as well but add a comment on how nesting works.
 > 
-> diff --git a/drivers/clk/at91/sama7d65.c b/drivers/clk/at91/sama7d65.c
-> index a5d40df8b2f2..1e9d3c393883 100644
-> --- a/drivers/clk/at91/sama7d65.c
-> +++ b/drivers/clk/at91/sama7d65.c
-> @@ -1100,7 +1100,7 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
->  	struct regmap *regmap;
->  	struct clk_hw *hw, *main_rc_hw, *main_osc_hw, *main_xtal_hw;
->  	struct clk_hw *td_slck_hw, *md_slck_hw;
-> -	static struct clk_parent_data parent_data;
-> +	static struct clk_parent_data parent_data = {0};
->  	struct clk_hw *parent_hws[10];
->  	bool bypass;
->  	int i, j;
-> @@ -1138,6 +1138,7 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
->  
->  	parent_data.name = main_xtal_name;
->  	parent_data.fw_name = main_xtal_name;
-> +	parent_data.hw = main_xtal_hw;
-
-Is this line still needed with the initialization of parent data above:
-
-	static struct clk_parent_data parent_data = {0};
-
->  	main_osc_hw = at91_clk_register_main_osc(regmap, "main_osc", NULL,
->  						 &parent_data, bypass);
->  	if (IS_ERR(main_osc_hw))
+> ------------[ cut here ]------------
+> WARNING: CPU: 6 PID: 1 at arch/arm64/include/asm/pgtable.h:89 __apply_to_page_range+0x85c/0x9f8
+> Modules linked in: ip_tables x_tables ipv6
+> CPU: 6 UID: 0 PID: 1 Comm: systemd Not tainted 6.15.0-rc5-00075-g676795fe9cf6 #1 PREEMPT 
+> Hardware name: QEMU KVM Virtual Machine, BIOS 2024.08-4 10/25/2024
+> pstate: 40400005 (nZcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> pc : __apply_to_page_range+0x85c/0x9f8
+> lr : __apply_to_page_range+0x2b4/0x9f8
+> sp : ffff80008009b3c0
+> x29: ffff80008009b460 x28: ffff0000c43a3000 x27: ffff0001ff62b108
+> x26: ffff0000c43a4000 x25: 0000000000000001 x24: 0010000000000001
+> x23: ffffbf24c9c209c0 x22: ffff80008009b4d0 x21: ffffbf24c74a3b20
+> x20: ffff0000c43a3000 x19: ffff0001ff609d18 x18: 0000000000000001
+> x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000003
+> x14: 0000000000000028 x13: ffffbf24c97c1000 x12: ffff0000c43a3fff
+> x11: ffffbf24cacc9a70 x10: ffff0000c43a3fff x9 : ffff0001fffff018
+> x8 : 0000000000000012 x7 : ffff0000c43a4000 x6 : ffff0000c43a4000
+> x5 : ffffbf24c9c209c0 x4 : ffff0000c43a3fff x3 : ffff0001ff609000
+> x2 : 0000000000000d18 x1 : ffff0000c03e8000 x0 : 0000000080000000
+> Call trace:
+>  __apply_to_page_range+0x85c/0x9f8 (P)
+>  apply_to_page_range+0x14/0x20
+>  set_memory_valid+0x5c/0xd8
+>  __kernel_map_pages+0x84/0xc0
+>  get_page_from_freelist+0x1110/0x1340
+>  __alloc_frozen_pages_noprof+0x114/0x1178
+>  alloc_pages_mpol+0xb8/0x1d0
+>  alloc_frozen_pages_noprof+0x48/0xc0
+>  alloc_pages_noprof+0x10/0x60
+>  get_free_pages_noprof+0x14/0x90
+>  __tlb_remove_folio_pages_size.isra.0+0xe4/0x140
+>  __tlb_remove_folio_pages+0x10/0x20
+>  unmap_page_range+0xa1c/0x14c0
+>  unmap_single_vma.isra.0+0x48/0x90
+>  unmap_vmas+0xe0/0x200
+>  vms_clear_ptes+0xf4/0x140
+>  vms_complete_munmap_vmas+0x7c/0x208
+>  do_vmi_align_munmap+0x180/0x1a8
+>  do_vmi_munmap+0xac/0x188
+>  __vm_munmap+0xe0/0x1e0
+>  __arm64_sys_munmap+0x20/0x38
+>  invoke_syscall+0x48/0x104
+>  el0_svc_common.constprop.0+0x40/0xe0
+>  do_el0_svc+0x1c/0x28
+>  el0_svc+0x4c/0x16c
+>  el0t_64_sync_handler+0x10c/0x140
+>  el0t_64_sync+0x198/0x19c
+> irq event stamp: 281312
+> hardirqs last  enabled at (281311): [<ffffbf24c780fd04>] bad_range+0x164/0x1c0
+> hardirqs last disabled at (281312): [<ffffbf24c89c4550>] el1_dbg+0x24/0x98
+> softirqs last  enabled at (281054): [<ffffbf24c752d99c>] handle_softirqs+0x4cc/0x518
+> softirqs last disabled at (281019): [<ffffbf24c7450694>] __do_softirq+0x14/0x20
+> ---[ end trace 0000000000000000 ]---
+> 
 
 
