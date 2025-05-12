@@ -4,87 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A5CC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 18:41:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CCECC3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 18:48:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:MIME-Version:In-Reply-To:References:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GR1SmufUaPiWEXFHc0KFstlMijZ2yz1xe3AwQJtJkZg=; b=tf+dRbD76rWOUSNkK5sf19G9wE
-	H/s3iW8gvjuPWkp0RlWoKHcud4W4zZmba7XKlhqoy8pQf4YfPJ4xHvHa487NVWfoWhgv2Bz0ZFMw7
-	KzTYm6nVSYgrx3e177MsGiyMeJP5FZVeQk55/YWaBcDXrc6o5NE23iMYBWuzqhaNQmrqr+SFO7WvN
-	bYLB1xqtpf7c+o5HgTymMw0Gd8UuaYyhV7+k72nNduKu3qFdQr41PBV+ikfCfi+HJcBUjwD9PLUaC
-	RdSqXqS+n1kjHrIcdxzfdJmk1ZuAW9pHxVgoFd6hgz2/segi1OhEaaQ5FsTRUXCMCrE2gzFU3XKVC
-	lMXhC7wQ==;
+	bh=6Y1sPHlTIStQX3fBK7jCyI2uTnCpt0HKC4mKadxmyR0=; b=oVMTdFrIULijR6PAxlyLLBNUnY
+	hhTq4dSVZugh8jC96PQtn0+R//p3Zbj3I93JTu4vXUzYNR9lxkQ3ZB0sZcnOWOJrG/kQ9E25JuMK4
+	wwVmEOVrhjhJEkBtWQ0tJaCfWgFB9d1P3aD1YQBKoQsPKc9CJBeuH2OLiwizdThI20P5vJGh5XzmV
+	e4VGBeNQQGsdaSF+bLdknTj27ABorIo6h0GCtkQRQ0Q/HQWg0hBspf4cLKjFWIRj2v3mxgY7joSDl
+	mLI2404Yntt8cOcdWRyyzc4EaxDJ+akcXfNXmfRCHn8ukUZjdcv6glEKOKRm2W0hepYW+DI5g5k4V
+	eU2Uu0MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEY62-0000000AQzN-2Ay9;
-	Mon, 12 May 2025 18:41:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uEYC4-0000000ASDS-2t3p;
+	Mon, 12 May 2025 18:48:04 +0000
+Received: from mail-vs1-xe2c.google.com ([2607:f8b0:4864:20::e2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEY1m-0000000AQBz-21G8
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 12 May 2025 18:37:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:MIME-Version:In-Reply-To:References:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=GR1SmufUaPiWEXFHc0KFstlMijZ2yz1xe3AwQJtJkZg=; b=ScELX0wUlKwDTZOetjVNSuPCWJ
-	YKlSaMl+N3HRKnWD48WV+lCjq2PR6QfP3FUL7J7lJIbXv4EIcFXKMygoY8UYjv+vm3WspS3Pa9yZU
-	ZMfKIEHGmOAZYKeRpFRvo/HNROu5s05JuwqNISg62gMpkt0ofgBmfPvUfA3sFS3lyFx6IqsdZj0UB
-	KN5aefQuwwOHzi+lHevuwsZUleeLsYrydC0YpD2UbYeB5G/LzdwHK1eHZUEgAK4xcykGNIEq8TFQi
-	fDvz+XAYG5BPBqkZZ2Zw4g2SobtxKhkLfEf5BxJQP748fdL2V8m4vfVWtQtvA7JQARgZZ2mFTxsVP
-	dP/2ovBA==;
-Received: from mail-vs1-xe2f.google.com ([2607:f8b0:4864:20::e2f])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uEY1R-0000000Gngg-3E3C
+	id 1uEY3h-0000000AQbM-0rJj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 18:37:19 +0000
-Received: by mail-vs1-xe2f.google.com with SMTP id ada2fe7eead31-4deec18dd83so2016116137.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 11:37:04 -0700 (PDT)
+	Mon, 12 May 2025 18:39:26 +0000
+Received: by mail-vs1-xe2c.google.com with SMTP id ada2fe7eead31-4ddac386a29so1908565137.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 11:39:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1747075023; x=1747679823; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1747075164; x=1747679964; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:thread-index:mime-version:in-reply-to
          :references:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=GR1SmufUaPiWEXFHc0KFstlMijZ2yz1xe3AwQJtJkZg=;
-        b=hz6z02p2lS/Lz9kQ6KZoWY+R7VuuvdGPC7/i1amVNQV08OxDi7MW0gh7oMuoP8i3a/
-         h/reXNNe1JSCi74SzB6bbJyws9UAi3r2GY+Ur8RunBIpjfxgFHLwXsyg4VrRGoViGgXb
-         q4y1qyce/2m/OxVURn258KwS91yVSyFiLBN84=
+        bh=6Y1sPHlTIStQX3fBK7jCyI2uTnCpt0HKC4mKadxmyR0=;
+        b=TUBwar5WaZD8qMQIpl+EqRmxJ1p1RDLT6TBWblW0o8q6vixnhbSdk6sNXEhE4zuNho
+         mOQ9sF+xEFHNgBaDqwfr/X40UudX2DRKz/mXZYBWzJKMdOiFU7NiNqwoNbTS/kXsJo0u
+         7lwKjuHvXd6kSGyDEZckAJtQCr/gJx87cen8Q=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747075023; x=1747679823;
+        d=1e100.net; s=20230601; t=1747075164; x=1747679964;
         h=cc:to:subject:message-id:date:thread-index:mime-version:in-reply-to
          :references:from:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=GR1SmufUaPiWEXFHc0KFstlMijZ2yz1xe3AwQJtJkZg=;
-        b=foGH4T1xj1Jkq6fK7mm3PgP+HkVH+D1Id5ganGYV/QpoUPZApmFwFsXzyiZxz1SmlW
-         fNjR6EL6ygUXuNEKIDW7/O79lo7giH/uRnqJkbKXV7nV+n56kaTOVtv8HiEK1GqEZYl0
-         x46krGe4gq4DK9JFNa7Akz9bXbqVv4RDQYFmWQy+W0JqACSiALlyudTo0lcFbE6zpAM4
-         KtjMQeuw8l59T17LRvICjEHLbJ2+X7O2bmVsWbi6DSFt/Qom83v+t4uZiohMdwJHT2se
-         1yT0z/AtUdDTfdlxDnHnA2/5yvQQ4WlvAByYQ8nN6Lsh8bekWFMvaLtOjNyi6o4UlqeT
-         TYVA==
-X-Forwarded-Encrypted: i=1; AJvYcCXxlXgfXnQwrpNcg6leIyJf6+usumxaelH86V/rOIBBLOCQypbm4CMvDsWaXZhEv4obTulkEx3eXMRO5wan+14f@lists.infradead.org
-X-Gm-Message-State: AOJu0YxaB97d/3/j5UalHZgCT9GAvLn3ebffYyl1KyRO0ReAwdr0BrWI
-	tZlMSi2IbVrQoBmkbD/PqFch6i8mgdLvBI1R6uhN9qfJsWzVvOOFy2MDnFAf4GMH6pKH9EKoHYq
-	FyA7iMIWOBLiC0r9kwu2cA2Z2LQ+lIz9ZO/+Q
-X-Gm-Gg: ASbGncstc0vwhA1pIyEV6Y9hxtu3u3o5YjCsqvmGgZ0TJC82b/f7Eny+8FLGrHu8HqS
-	xTx0Jg/FOBbhWvoI69SRwSzBO2PDvscTBjUQa3VOqKJFMLa4VhDZS/+nt/0q5tzoZ5G5MXjdb7l
-	jjQ6tuRvoC9PnIuFXzTyP6k1DZaZg12QkeDg==
-X-Google-Smtp-Source: AGHT+IGZ5T3QWqo6nj8+PITUCc45X3DBtkjjR9zN8N0FyzDG2RtpW7PkRxkz23NhI/tl79y+M8WmAU4EMk7ImOpkTLE=
-X-Received: by 2002:a05:6102:3c9c:b0:4c1:935a:2446 with SMTP id
- ada2fe7eead31-4deed3cf786mr11839710137.19.1747075023110; Mon, 12 May 2025
- 11:37:03 -0700 (PDT)
+        bh=6Y1sPHlTIStQX3fBK7jCyI2uTnCpt0HKC4mKadxmyR0=;
+        b=CfXtwVdxqBNubAsS8let3f/8IgmGcsQ3rXkj0p/lTyM2HCJFKv6CL90FFI5lXgtpZU
+         Fzmu1JXY/ZSJasJ7/vhZyeqxYRq1g3+v1xEIga5/vZSkvOytqo+ItWGglxo44UdsOBKn
+         6fdKySNRxKULPV8Z7qp1ym1WnEGD/XaChDwRsj4YdjoDuL8679LA9xJdExp9Zt2PX4Y2
+         DC0hjQhoqkKg2STyo3deYFPEAR8/8WdR9RX4FXmFCDelSR0aB9Diiyo7xloeNYmFjpdZ
+         BpI7nvIN7fs7pb2k1FV0VCXV309Fo36vpOfuyzNjb21oPg3AX7zuLpSoi3iiTnmkFzxQ
+         VHCA==
+X-Forwarded-Encrypted: i=1; AJvYcCXPLutwE52x4H636a7HrfJvyaP89QuOq1qkqFmZR1ip6fl/P3V2DsTVzSr3LoCNzkfDUM03il5u2alUVKApO7li@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzp/SMeRdSRguG62sc7/zCfxOJZxLfFaT5siE6tiFsLv7foUHLC
+	vbDQDiepQVnujyfwdcsaTSa3MHfESTt+jawMk7KZbN4zRFffxEocEiBhWa/PFS91gGqvTaQcJ35
+	SXCo5ybdVkyT36uD7boKs3vAvEVvWwr9/6lkv
+X-Gm-Gg: ASbGncvSzcrzb8vvWRrp8JW2puPAmet5H/lJyATrts9vUYoGerxhmIPpEzNzUzr6r/J
+	eQoFUF4/Gvqb4ZAji/ps6Vr6P5r+kjW+1laInWhhj4akS+5ccSBqKPtlJtW5OmhM8HSDHqe9e1c
+	6nP14x9qewuzd4T/F6pnt7rg99gU7f6or5cQ==
+X-Google-Smtp-Source: AGHT+IF8yBLmIVs/uai0rTlrdKlrPoBWEH7Ut/KQpDt1HTLQ/M1sGx4e+jSrrFWcJuNKUf290PJqgx23+6crx3Rsi1s=
+X-Received: by 2002:a05:6102:3ca5:b0:4db:154b:cb3b with SMTP id
+ ada2fe7eead31-4deed32e27bmr12704924137.3.1747075163867; Mon, 12 May 2025
+ 11:39:23 -0700 (PDT)
 From: William Zhang <william.zhang@broadcom.com>
-References: <20250512-bcmbca-peripherals-arm-v3-0-86f97ab4326f@linaro.org> <20250512-bcmbca-peripherals-arm-v3-5-86f97ab4326f@linaro.org>
-In-Reply-To: <20250512-bcmbca-peripherals-arm-v3-5-86f97ab4326f@linaro.org>
+References: <20250512-bcmbca-peripherals-arm-v3-0-86f97ab4326f@linaro.org> <20250512-bcmbca-peripherals-arm-v3-8-86f97ab4326f@linaro.org>
+In-Reply-To: <20250512-bcmbca-peripherals-arm-v3-8-86f97ab4326f@linaro.org>
 MIME-Version: 1.0
 X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQHRV/QBxSS57P/922lUlscQxKMBIAJL5Dk7s9HKlGA=
-Date: Mon, 12 May 2025 11:37:05 -0700
-X-Gm-Features: AX0GCFsLNmVXL8i6B3RXUodJ5RiTpGoXEr8witT2yNkxCn5Li-0P2h88sWd_YRQ
-Message-ID: <3235b2fd5105727a072b1589f0af124f@mail.gmail.com>
-Subject: RE: [PATCH v3 05/12] ARM: dts: bcm6878: Add BCMBCA peripherals
+Thread-Index: AQHRV/QBxSS57P/922lUlscQxKMBIAKqkQCMs87V6dA=
+Date: Mon, 12 May 2025 11:39:27 -0700
+X-Gm-Features: AX0GCFsfA_1dVqEo6zR4a62gDbg8BrFaIKalXQhZiWiZiBB2lUdXYr_bfcqSAjE
+Message-ID: <b9d49c5623bec0518e6fb4246391bdf9@mail.gmail.com>
+Subject: RE: [PATCH v3 08/12] ARM: dts: bcm63178: Add BCMBCA peripherals
 To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
 	Anand Gore <anand.gore@broadcom.com>, Kursad Oney <kursad.oney@broadcom.com>, 
@@ -95,10 +80,10 @@ To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-crypto@vger.kernel.org
 Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="0000000000002b75630634f49a15"
+	boundary="0000000000008f4b500634f4a22c"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_193705_987628_9C595369 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20250512_113925_247873_25FDCC21 
+X-CRM114-Status: GOOD (  20.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,7 +98,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---0000000000002b75630634f49a15
+--0000000000008f4b500634f4a22c
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
@@ -135,46 +120,39 @@ l>;
 > Cc: devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
 > linux-
 > crypto@vger.kernel.org; Linus Walleij <linus.walleij@linaro.org>
-> Subject: [PATCH v3 05/12] ARM: dts: bcm6878: Add BCMBCA peripherals
+> Subject: [PATCH v3 08/12] ARM: dts: bcm63178: Add BCMBCA peripherals
 >
 > All the BCMBCA SoCs share a set of peripherals at 0xff800000,
 > albeit at slightly varying memory locations on the bus and
 > with varying IRQ assignments.
 >
-> Add the first and second watchdog, GPIO, RNG, LED and
-> DMA blocks for the BCM6878 based on the vendor files
-> 6878_map_part.h and 6878_intr.h from the "bcmopen-consumer"
-> code drop.
+> Add the watchdog, GPIO, RNG, LED and DMA blocks for the
+> BCM63178 based on the vendor files 63178_map_part.h and
+> 63178_intr.h from the "bcmopen-consumer" code drop.
 >
 > This SoC has up to 256 possible GPIOs due to having 8
 > registers with 32 GPIOs in each available.
 >
 > Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 > ---
->  arch/arm/boot/dts/broadcom/bcm6878.dtsi | 118
-> ++++++++++++++++++++++++++++++++
->  1 file changed, 118 insertions(+)
+>  arch/arm/boot/dts/broadcom/bcm63178.dtsi | 112
+> +++++++++++++++++++++++++++++++
+>  1 file changed, 112 insertions(+)
 >
-> diff --git a/arch/arm/boot/dts/broadcom/bcm6878.dtsi
-> b/arch/arm/boot/dts/broadcom/bcm6878.dtsi
+> diff --git a/arch/arm/boot/dts/broadcom/bcm63178.dtsi
+> b/arch/arm/boot/dts/broadcom/bcm63178.dtsi
 > index
-> 43eb678e14d04be487af39c9365186b6fb919cf3..dd837bf693905736a7b8ef9cfe
-> fea8368e6df6ed 100644
-> --- a/arch/arm/boot/dts/broadcom/bcm6878.dtsi
-> +++ b/arch/arm/boot/dts/broadcom/bcm6878.dtsi
-> @@ -108,6 +108,111 @@ bus@ff800000 {
+> 6d8d33498983acfc0c65ee155f64ddedc4a6b376..430750b3030f2534d6bf0468d8
+> 95ca565007a53f 100644
+> --- a/arch/arm/boot/dts/broadcom/bcm63178.dtsi
+> +++ b/arch/arm/boot/dts/broadcom/bcm63178.dtsi
+> @@ -117,6 +117,97 @@ bus@ff800000 {
 >  		#size-cells =3D <1>;
 >  		ranges =3D <0 0xff800000 0x800000>;
 >
 > +		watchdog@480 {
 > +			compatible =3D "brcm,bcm6345-wdt";
 > +			reg =3D <0x480 0x10>;
-> +		};
-> +
-> +		watchdog@4c0 {
-> +			compatible =3D "brcm,bcm6345-wdt";
-> +			reg =3D <0x4c0 0x10>;
-> +			status =3D "disabled";
 > +		};
 > +
 > +		/* GPIOs 0 .. 31 */
@@ -260,30 +238,30 @@ l>;
 > +		rng@b80 {
 > +			compatible =3D "brcm,iproc-rng200";
 > +			reg =3D <0xb80 0x28>;
-> +			interrupts =3D <GIC_SPI 85 IRQ_TYPE_LEVEL_HIGH>;
-> +		};
-> +
-> +		leds: led-controller@700 {
-> +			#address-cells =3D <1>;
-> +			#size-cells =3D <0>;
-> +			compatible =3D "brcm,bcm63138-leds";
-> +			reg =3D <0x700 0xdc>;
-> +			status =3D "disabled";
+> +			interrupts =3D <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
 > +		};
 > +
 >  		hsspi: spi@1000 {
 >  			#address-cells =3D <1>;
 >  			#size-cells =3D <0>;
-> @@ -134,6 +239,19 @@ nandcs: nand@0 {
+> @@ -143,6 +234,27 @@ nandcs: nand@0 {
 >  			};
 >  		};
 >
+> +		leds: led-controller@3000 {
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			compatible =3D "brcm,bcm63138-leds";
+> +			reg =3D <0x3000 0xdc>;
+> +			status =3D "disabled";
+> +		};
+> +
 > +		pl081_dma: dma-controller@11000 {
 > +			compatible =3D "arm,pl081", "arm,primecell";
 > +			// The magic B105F00D info is missing
 > +			arm,primecell-periphid =3D <0x00041081>;
 > +			reg =3D <0x11000 0x1000>;
-> +			interrupts =3D <GIC_SPI 30 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupts =3D <GIC_SPI 85 IRQ_TYPE_LEVEL_HIGH>;
 > +			memcpy-burst-size =3D <256>;
 > +			memcpy-bus-width =3D <32>;
 > +			clocks =3D <&periph_clk>;
@@ -300,7 +278,7 @@ l>;
 
 Reviewed-by: William Zhang <william.zhang@broadcom.com>
 
---0000000000002b75630634f49a15
+--0000000000008f4b500634f4a22c
 Content-Type: application/pkcs7-signature; name="smime.p7s"
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="smime.p7s"
@@ -371,14 +349,14 @@ VhYAxZlzj7tSjUIM7G7IhyfqPC46GKJ/4x+Amz1Z6YxNGy71L68kYD6hIbBcA5AM42QBUufly6Oa
 urb/KlmDGfVrIRYDbL0ckhGQIP5c6L+kSQZ2sHnQK0e0WgIaZYxaPYeY5u0GLCOze+3vyRMxggJg
 MIICXAIBATBrMFsxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMTEwLwYD
 VQQDEyhHbG9iYWxTaWduIEdDQyBSMyBQZXJzb25hbFNpZ24gMiBDQSAyMDIwAgwxuh2XG3FXRL1W
-JOEwDQYJYIZIAWUDBAIBBQCggccwLwYJKoZIhvcNAQkEMSIEIHbvXtU5tLZKCdRRkVy/wBNnxwAD
-X+rmeYWa0D22b3YGMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1
-MDUxMjE4MzcwM1owXAYJKoZIhvcNAQkPMU8wTTALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsG
+JOEwDQYJYIZIAWUDBAIBBQCggccwLwYJKoZIhvcNAQkEMSIEIMZv8d4GdY3bPSkdAofDRePEW6WN
+qX3Un/NLuz4Sf1/UMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1
+MDUxMjE4MzkyNFowXAYJKoZIhvcNAQkPMU8wTTALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsG
 CWCGSAFlAwQBAjAKBggqhkiG9w0DBzALBgkqhkiG9w0BAQcwCwYJYIZIAWUDBAIBMA0GCSqGSIb3
-DQEBAQUABIIBAMTds5FdzsQEFFlAt9zdfdKREwclHXbURA99wgIJS1QiaW8tCsl3b62ABDvOr7qL
-A32hQopB6aggM5+O/3VjBP51Vse3V7nD6WXUUUXdNZNTxuaO+26/lunjAbGenPqcI8wV9GSGotjX
-BBkN+rAOdkeuu9OrmovcJ0PAGiMhRAP/tw1GzJGNEccpLYIyCNoYRqVcl6cTV0c9UIYMEgXeqnc/
-v6K4o7fFUnUxcckyKihaOdhe6VnhdtnJZimU0Ho9N96G42zrQUjJ6+9SoftNI1DlCuiovwpSZnGU
-BioHEngvf8pamu3oLuHIHoYOOWbRdfdT43lVP4kDoVMfAc8tjJw=
---0000000000002b75630634f49a15--
+DQEBAQUABIIBABPn+s3HS84ssoUKxq3dmc8mprIeoJ9LFWiWO1ZWRCeYYjeO1Kb315gBihfmUiUZ
+yA8oEBEuzuJnTxi80U9RV7cyWhd6q5hGVMk4DjFsZ4ArWPKLlXkjRjhbYRlAonDb3k5X4kBYhp+i
+Y2oOx3wXQlABZ9+yQfB8z393G+FF4IZ+/+HpsmP18VXJZTZcL5W+PyMre/d+jmpnofHn92xq69xQ
+nZdqF9A6JU1qI0T8exH+uV7SZjZus9mSb3mRBkcSEVvjltPUjOpOvNMt/8CApXsz/kkZPGpnIVgm
+fquhlBYdK8SgFMCrbLLKQbs7tv2SmXzi2S4pTAKHX7GHBI+AaW4=
+--0000000000008f4b500634f4a22c--
 
