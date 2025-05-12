@@ -4,78 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 165BDC3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 15:35:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7059EC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 15:37:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bBjTi1B9hV8EDP4qeKjKLlNHxO+R3STx7X3P7zX2p60=; b=yxznmirS2WuXqO63oobmduShz4
-	aYImuMmtZhOgM0JvlQsKJ1jUdu1AZRaefi9u5eDTadhK7+mHToclyvIsT3IcmSNQmCoNHPZmfoYbK
-	lvN989oA6NSrwzOyeAMZUIBl2awWnXHCPt/t4PQZEiCeVg2MjHzu7HF1A1EjGkPqysnEeHX0TXLoY
-	AAYVpP02pVwff3A5b2S5WicsxrXOhJ6m5E5uNBz75IAohrMvmmMO7odq0tTzKAjaGSuvGxA38bYSi
-	1ocbj7abnnQ4Tjcxii1bI6372+D2yqYe8EzNm+oVe+Wo7p4BGRlgfICFprswRPD9LWEO6hT0fCmHT
-	O7yrSQZg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=98z8Wq8rGc/HvQzBTlCAaoEBAP/YbEKzkmb0WEjlRSQ=; b=CEeQR9aSAAdYZguIMk/4MWVlYw
+	0LcCCjuCwA1QME+cuk8AWgACI1WiG8sbkVN3CkI+p9wa0YvmWzEBI7DcDtn14OdhXXfiavNcoLdHr
+	4cw+m2hnGhDQGQrERbI4xfWs/sOOICD1nvYAGAzvZMr/WbtrByP++JUTSu6CjnbNe6Abu/9vzeYwe
+	a6PDifGPqe9Lfh02Fr4ggvh3sgyIZMayAmLWfMHR4owGCGOFQf7dICubogHcW43cdRQ6pBj+MQWkR
+	Gh6KvFtBLQxgSnuvg8tqJa9sZjYRdZQWo1dz2tZH7bHsbREvurbFwmlCD+cpjhXCdxsLnMd/p/TEW
+	EVpoPbNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEVBj-00000009tDK-3dpi;
-	Mon, 12 May 2025 15:35:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEUeN-00000009pMR-2Ggy;
-	Mon, 12 May 2025 15:01:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7D6365C6677;
-	Mon, 12 May 2025 14:58:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DCD5C4CEEE;
-	Mon, 12 May 2025 15:01:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747062062;
-	bh=5C7uw2IAzf+0ahfXX4uyiw4RInjyFvh4Zkir6Ku/wHo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=gYvK4ft2GqhQv20+FT1wp5aUuEc6T1B9JqsClPd9XNOJneKgc1yFmDSf23LIZyAbw
-	 2X4Bdb+dAvMrvelWtS4qmVUkXAHIqHrlMo/XelGJmbk/jHgiXfxgve41fE3vHkN3Ie
-	 9PduUHH2Rv1ycZsMB7rLXT5O/SVYAk3ma1/ZqwKBJf8KNKAT1QC5dFEXtjVxRMthtc
-	 U7LV5qSbK1I4eYHvdFqEmvM13kTSuC1xSeabn7mX/J3x7V8VNL6gB0hRRrFZ6HHsbv
-	 8Pgw6s+yK8EOa8ZHIqjVJBMp1ugHny5zvwWfkdnZTpMZeZz83MMdSN6xD03y7iDNiC
-	 bcGm0et8s6h7A==
-Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-5f6fb95f431so10753841a12.0;
-        Mon, 12 May 2025 08:01:02 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUnwPxxXSbV5Nvj8+zAe2+0KVSA5bygdDyu09jvZeW0W9Sl3mV3tWnC4Wl/F/+VYW+/RuQvaGfZhZ28MO++jzgR@lists.infradead.org, AJvYcCWkOJNlhUdyfb1RT+ybP262EgwOdOtx2LQV725npEDlphRp/Km4LIbcng39Jdv6uPZKNnab1KXANYgAKpTOkzIvZw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQw6TmkyRdOHbYlncJA9sHpX4UFE0y3TmscTR5SbMjjNGjK1lb
-	YQv8jWn+WHz5wvEE86igcPZaHiKNx972vQCUfP9pZ4EVJbwr35zLDsEDL1tCbUyczAGQ9KtozMQ
-	XPfbZWIs2+Vk+mNK6bkWx+xolkA==
-X-Google-Smtp-Source: AGHT+IFZbfWKF0hU1sr3jQtNq4U5pRwRKJjmtoMDmn21t01KNRswIOplfLvn34abEZt/poBPFf25QG0+oFit4G41q2A=
-X-Received: by 2002:a17:906:f142:b0:ad2:1255:d95a with SMTP id
- a640c23a62f3a-ad21255f466mr1132229266b.30.1747062061044; Mon, 12 May 2025
- 08:01:01 -0700 (PDT)
+	id 1uEVDe-00000009u6k-19om;
+	Mon, 12 May 2025 15:37:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uEUgz-00000009phF-2igC
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 May 2025 15:03:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 01C1814BF;
+	Mon, 12 May 2025 08:03:34 -0700 (PDT)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 147DB3F63F;
+	Mon, 12 May 2025 08:03:42 -0700 (PDT)
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	David Hildenbrand <david@redhat.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64/mm: Permit lazy_mmu_mode to be nested
+Date: Mon, 12 May 2025 16:03:31 +0100
+Message-ID: <20250512150333.5589-1-ryan.roberts@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20250509222815.7082-1-james.quinlan@broadcom.com> <20250509222815.7082-2-james.quinlan@broadcom.com>
-In-Reply-To: <20250509222815.7082-2-james.quinlan@broadcom.com>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 12 May 2025 10:00:49 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqKrbCtiMdxCusBwX8-xewQbi1_X6V8rTN+2vfxh4e=Hjw@mail.gmail.com>
-X-Gm-Features: AX0GCFuumEiFtgCX1SqyapCoe6c8e5kN11_tTXkwoByqbbccTk1WS35qw-28a4Y
-Message-ID: <CAL_JsqKrbCtiMdxCusBwX8-xewQbi1_X6V8rTN+2vfxh4e=Hjw@mail.gmail.com>
-Subject: Re: [PATCH 1/2] dt-bindings: PCI: brcm,stb-pcie: Add num-lanes property
-To: Jim Quinlan <james.quinlan@broadcom.com>
-Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, 
-	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, 
-	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_080103_671241_3F1C0BD6 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20250512_080345_781478_FFEFB51B 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,30 +73,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 9, 2025 at 5:28=E2=80=AFPM Jim Quinlan <james.quinlan@broadcom.=
-com> wrote:
->
-> Add optional num-lanes property Broadcom STB PCIe host controllers.
->
-> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
-> ---
->  Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml b/D=
-ocumentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> index 29f0e1eb5096..f31d654ac3a0 100644
-> --- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> @@ -107,6 +107,8 @@ properties:
->        - const: bridge
->        - const: swinit
->
-> +  num-lanes: true
+lazy_mmu_mode is not supposed to permit nesting. But in practice this
+does happen with CONFIG_DEBUG_PAGEALLOC, where a page allocation inside
+a lazy_mmu_mode section (such as zap_pte_range()) will change
+permissions on the linear map with apply_to_page_range(), which
+re-enters lazy_mmu_mode (see stack trace below).
 
-Why do you need this? It is already allowed by the referenced schemas.
-Though maybe you don't support 16 lanes and need to limit this to
-something less? I would also set 'default' if you do that.
+The warning checking that nesting was not happening was previously being
+triggered due to this. So let's relax by removing the warning and
+tolerate nesting in the arm64 implementation. The first (inner) call to
+arch_leave_lazy_mmu_mode() will flush and clear the flag such that the
+remainder of the work in the outer nest behaves as if outside of lazy
+mmu mode. This is safe and keeps tracking simple.
 
-Rob
+Code review suggests powerpc deals with this issue in the same way.
+
+------------[ cut here ]------------
+WARNING: CPU: 6 PID: 1 at arch/arm64/include/asm/pgtable.h:89 __apply_to_page_range+0x85c/0x9f8
+Modules linked in: ip_tables x_tables ipv6
+CPU: 6 UID: 0 PID: 1 Comm: systemd Not tainted 6.15.0-rc5-00075-g676795fe9cf6 #1 PREEMPT
+Hardware name: QEMU KVM Virtual Machine, BIOS 2024.08-4 10/25/2024
+pstate: 40400005 (nZcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : __apply_to_page_range+0x85c/0x9f8
+lr : __apply_to_page_range+0x2b4/0x9f8
+sp : ffff80008009b3c0
+x29: ffff80008009b460 x28: ffff0000c43a3000 x27: ffff0001ff62b108
+x26: ffff0000c43a4000 x25: 0000000000000001 x24: 0010000000000001
+x23: ffffbf24c9c209c0 x22: ffff80008009b4d0 x21: ffffbf24c74a3b20
+x20: ffff0000c43a3000 x19: ffff0001ff609d18 x18: 0000000000000001
+x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000003
+x14: 0000000000000028 x13: ffffbf24c97c1000 x12: ffff0000c43a3fff
+x11: ffffbf24cacc9a70 x10: ffff0000c43a3fff x9 : ffff0001fffff018
+x8 : 0000000000000012 x7 : ffff0000c43a4000 x6 : ffff0000c43a4000
+x5 : ffffbf24c9c209c0 x4 : ffff0000c43a3fff x3 : ffff0001ff609000
+x2 : 0000000000000d18 x1 : ffff0000c03e8000 x0 : 0000000080000000
+Call trace:
+ __apply_to_page_range+0x85c/0x9f8 (P)
+ apply_to_page_range+0x14/0x20
+ set_memory_valid+0x5c/0xd8
+ __kernel_map_pages+0x84/0xc0
+ get_page_from_freelist+0x1110/0x1340
+ __alloc_frozen_pages_noprof+0x114/0x1178
+ alloc_pages_mpol+0xb8/0x1d0
+ alloc_frozen_pages_noprof+0x48/0xc0
+ alloc_pages_noprof+0x10/0x60
+ get_free_pages_noprof+0x14/0x90
+ __tlb_remove_folio_pages_size.isra.0+0xe4/0x140
+ __tlb_remove_folio_pages+0x10/0x20
+ unmap_page_range+0xa1c/0x14c0
+ unmap_single_vma.isra.0+0x48/0x90
+ unmap_vmas+0xe0/0x200
+ vms_clear_ptes+0xf4/0x140
+ vms_complete_munmap_vmas+0x7c/0x208
+ do_vmi_align_munmap+0x180/0x1a8
+ do_vmi_munmap+0xac/0x188
+ __vm_munmap+0xe0/0x1e0
+ __arm64_sys_munmap+0x20/0x38
+ invoke_syscall+0x48/0x104
+ el0_svc_common.constprop.0+0x40/0xe0
+ do_el0_svc+0x1c/0x28
+ el0_svc+0x4c/0x16c
+ el0t_64_sync_handler+0x10c/0x140
+ el0t_64_sync+0x198/0x19c
+irq event stamp: 281312
+hardirqs last  enabled at (281311): [<ffffbf24c780fd04>] bad_range+0x164/0x1c0
+hardirqs last disabled at (281312): [<ffffbf24c89c4550>] el1_dbg+0x24/0x98
+softirqs last  enabled at (281054): [<ffffbf24c752d99c>] handle_softirqs+0x4cc/0x518
+softirqs last disabled at (281019): [<ffffbf24c7450694>] __do_softirq+0x14/0x20
+---[ end trace 0000000000000000 ]---
+
+Fixes: 5fdd05efa1cd ("arm64/mm: Batch barriers when updating kernel mappings")
+Reported-by: Catalin Marinas <catalin.marinas@arm.com>
+Closes: https://lore.kernel.org/linux-arm-kernel/aCH0TLRQslXHin5Q@arm.com/
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+---
+
+Hi Will,
+
+I'm sending this as an additional fix to the one I provided this morning. They
+are both required for correct operation. This one goes on top of the first.
+
+Sorry again for all the hassle here. At least I now have 2 new debug KConfigs in
+my test setup.
+
+Thanks,
+Ryan
+
+ arch/arm64/include/asm/pgtable.h | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index e65083ec35cb..43457940a388 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -83,11 +83,21 @@ static inline void queue_pte_barriers(void)
+ #define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
+ static inline void arch_enter_lazy_mmu_mode(void)
+ {
++	/*
++	 * lazy_mmu_mode is not supposed to permit nesting. But in practice this
++	 * does happen with CONFIG_DEBUG_PAGEALLOC, where a page allocation
++	 * inside a lazy_mmu_mode section (such as zap_pte_range()) will change
++	 * permissions on the linear map with apply_to_page_range(), which
++	 * re-enters lazy_mmu_mode. So we tolerate nesting in our
++	 * implementation. The first call to arch_leave_lazy_mmu_mode() will
++	 * flush and clear the flag such that the remainder of the work in the
++	 * outer nest behaves as if outside of lazy mmu mode. This is safe and
++	 * keeps tracking simple.
++	 */
++
+ 	if (in_interrupt())
+ 		return;
+
+-	VM_WARN_ON(test_thread_flag(TIF_LAZY_MMU));
+-
+ 	set_thread_flag(TIF_LAZY_MMU);
+ }
+
+--
+2.43.0
+
 
