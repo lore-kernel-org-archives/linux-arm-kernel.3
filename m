@@ -4,68 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02627C3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 16:55:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8590CC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 16:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DkRgW7e0QdD7J6wFeWQPqFYapV51VCgMtlZzL5iTo6o=; b=cqn45k7Ep5ouz9d6WNTYwS19lN
-	U8cjJHwuuAq+D5R+3043IxWaxxv9xxsXeMKvIPqv1OUMHBRkzlKNXTk+vKnmYHgiEqa07tPuMPcz8
-	Poi04gDKaNOjuydYnzSuTMY2cvuOu2/T3JfaYcK/4aaSoFiyjySgbwSQJ9fI+cAW3pDlMTj3c+pIU
-	Mh6sWp773Xil9XZ5ACoq1XI7KlV99LOZ2IPni83uUOE7giey0OeyB3qyLxDTswQCueSZZJUoEP9Z9
-	dfYo+P33sJroAijJfixaRrNLWtUNKycdMgmht/J5hU+9lK+7zMdQBknkiI8C7topL278YXm4v0K4x
-	7DDcWgJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kr3jWOCGeen6mhPU6fQ82uGqo7KISN3OGotI9WEfvvg=; b=PPdHxxyJnX7bUMlUuYrTu6fEve
+	rAhVI7ADkf3cos8LZbMHAU5oQMlQnZ9OAatKEeHDeiWP1x5JAXETxjfyrG1M8fXp+R1LRgDLnl1t5
+	A4dlKXaqk2DCPWJ982OkzkhH3BIssvVKil99KUxzcuqxVzWKLtgV49IonzpAr+bT8SRk6dGnDdNLy
+	D1WncDraHN3gqaTXXzcn3D/7Ye7A12RZSHVR7X8bjsJx5CNjR9mpvbFLvsB/MyjayYsnmmRIm6OsY
+	d38bjJ3rYeURP+nVtGZj8c2m2+QYjn8xQH9Wochs7VYTxQxNPgUurFxNm26WU4jQSLln1jBFi3caA
+	vjO+Fwvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEWR3-0000000A8B8-2sS4;
-	Mon, 12 May 2025 16:55:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uEWT8-0000000A8eN-1oqK;
+	Mon, 12 May 2025 16:57:34 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEWCa-0000000A533-1Xpk
+	id 1uEWCp-0000000A56c-00ss
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 16:40:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C1437629D1;
-	Mon, 12 May 2025 16:40:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A356C4CEE7;
-	Mon, 12 May 2025 16:40:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747068027;
-	bh=6tcoJxQNycyS+g+UuadukNx5hqQX0eM1s0P5TP7QSpU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NmyYf+UTzTUMyJDclwm9Ra8k0Vriwlze7yPBcvq/W4d4jQNjgwbz6C6z9RkxsfCct
-	 owjG9TO+GLMSpIeCLcCmV5Zv5ZCJFcmB8PE7TDHxqW4ZVr5wo8S6dE8qzqPb9sFptK
-	 RLk0YrbmJYZWjicM8Kcoqc91EyxrN5VD2JNu9xsCgPapu9zpMl4Pio9E/2DYKNKNfo
-	 wwdjaMZteB5o1I7hWPGDWKiH2U1KpdMr0pFZSERvdhxoKDGcfj6KLsZS371rnAIPRS
-	 ayFTAgV5wRwtR9wwHybcCqKU+X92fGrR4/tFFU6ICJbZczo0ypwXUKk7QKECwJNNrT
-	 vbsMPzcjNGWCw==
-Date: Mon, 12 May 2025 11:40:25 -0500
-From: Rob Herring <robh@kernel.org>
-To: Lukasz Majewski <lukma@denx.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Stefan Wahren <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>
-Subject: Re: [net-next v11 1/7] dt-bindings: net: Add MTIP L2 switch
- description
-Message-ID: <20250512164025.GA3454904-robh@kernel.org>
-References: <20250504145538.3881294-1-lukma@denx.de>
- <20250504145538.3881294-2-lukma@denx.de>
+	Mon, 12 May 2025 16:40:44 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54C9uuPM018756
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 16:40:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	kr3jWOCGeen6mhPU6fQ82uGqo7KISN3OGotI9WEfvvg=; b=JLWsQO1zK5h+kY+3
+	XgMugpyth20ltJzSLsi4BAavGHPJ7W5PKT/gAoHNW461/cYPAnIr4xQv8KMsSn/e
+	+oKmNPd4D7B/F2j92WHykFvslMQ5BWUUsvHzTtl2UZy0bAEbpcMwhg3nrfKVn+b7
+	F18qCj7u4Jk+6R40GikdoBn2iGhTP0mDBLaq35T3PXtvuBUniBUebVabz1H87XUe
+	QcatAHQP7nUhbDmgx0hdZ6SSUbEsZrO+B1M6f023V3pLH70taUWrYplSglw67tFn
+	wX5Of4Nh7+WYBYNTWQxRWeupBddVxn1akWstUbin948ZK2s2KqEL788oJ5jtXuzo
+	aEI0cQ==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46hyynvuus-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 16:40:41 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-7c545ac340aso42063985a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 09:40:40 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747068040; x=1747672840;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kr3jWOCGeen6mhPU6fQ82uGqo7KISN3OGotI9WEfvvg=;
+        b=V/97NdzzubIaFqXSRPI1vw6zPuhofml2+RwyMPDMkem1TL59mzDW4QM2833r3VhIL4
+         fLE15DpDkBLNPyhasHrEDJ90yWwGLFNMinVRyDW11I14sG7yf44Dwc7TTU1+rtGW81CA
+         Sl43ikZtd0ucAeGiRRJCDRWWea5xZ3998aWhTgjkIkPvIJocsZDLtsJtlhRU+jTtFoUY
+         60G+EzMIh6G7Nx5ZREbkV0vyMHG/uCt1Zj3T6k/d+ElTfBtAYqs4a6Uz+RoMqWTd/6X/
+         cyaV69l56449EZz7ksYp0aE14TicktlIVLneSnNVd/CdK/EKj4xpDCeF5eIabqdiqYGq
+         Yfrw==
+X-Forwarded-Encrypted: i=1; AJvYcCWB0c+y+qfhRfFoMEzbuZ5XkpY+D+GVb9NvuIfZyanOTRqxSRRo65IDZfHFhUZuLWyzXsqsFpYUjoKKzAEBxwS6@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXwTZtsMlnkPonufDNAvsUvE9fUw8X2jDqDKKP2PDEjCrHMQ5O
+	zhvOUiQ2Mtw1/GT3fKxJP79S9atDQScrlzmoJmgAmCOwZ6Vo8qgeXqxNKSb2xSQrFzbh44P7cPT
+	mt3tP5fT+npE7S6lbuDUCKJGhjZAtew8bBUmjQG/L19Y/TOas2heWU5NVTr4bx/rkbUJYrW78kQ
+	==
+X-Gm-Gg: ASbGncv8SUDV08gbsle9kbr5cg4udyRUKL6OTzSJ9NhfGszQa2/NRWP+4LsGCi5seg/
+	IQ2wyZTQ3bPpWfqQOV2JO/3CH7kgmDeRWu6BnnlQZ4FHNOz8A5wuF2aBsysIPIrCO04PZg/meBO
+	zqKPVBYGiEw2aZxJ0YYakkdEeWmxjrek0exscpDu8SR2WNWLmrzwrrYXs1gfg4cMe8u9pig07Qs
+	oLiK2DHjjPlTyGEOT79GN0b+iqgeLnxjyfasdo8Usqqe2idRGqumjI7bwhmXqrKsOOKUZiZKq+x
+	41fkcaWEwcw0dlZJB8o0jLmG0GngRHz0eAy7rzXTFdLW8ieXK9++2/lyT1dqPFExohE=
+X-Received: by 2002:a05:620a:4442:b0:7c0:bd67:7dd9 with SMTP id af79cd13be357-7cd0113e87bmr724491585a.11.1747068039511;
+        Mon, 12 May 2025 09:40:39 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEYboUn9LFZ6zKugg484tI2Fmt+H6eRADnHp8J2TCCgkIo9QNbZ938v2XB0JB1jPwZubnycuw==
+X-Received: by 2002:a05:620a:4442:b0:7c0:bd67:7dd9 with SMTP id af79cd13be357-7cd0113e87bmr724490685a.11.1747068039202;
+        Mon, 12 May 2025 09:40:39 -0700 (PDT)
+Received: from [192.168.65.222] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad21947a13dsm638882166b.83.2025.05.12.09.40.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 May 2025 09:40:38 -0700 (PDT)
+Message-ID: <3c7ddb25-1d76-4f85-a058-abdf887dc0dc@oss.qualcomm.com>
+Date: Mon, 12 May 2025 18:40:36 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250504145538.3881294-2-lukma@denx.de>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/2] coresight: add coresight Trace Network On Chip
+ driver
+To: Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+ <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: kernel@oss.qualcomm.com, linux-arm-msm@vger.kernel.org,
+        coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250512-trace-noc-v5-0-f2ef070baee5@quicinc.com>
+ <20250512-trace-noc-v5-2-f2ef070baee5@quicinc.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20250512-trace-noc-v5-2-f2ef070baee5@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTEyMDE3MSBTYWx0ZWRfX7BERdvgTevz6
+ xwGdJOtRZZJxh44dnemSas1GhG+nES3eVvXgdIY341ZD0md0Na/zHb57zI0VvScKxq1LuS/dcWA
+ f2BrF2J6DX0pLq1gT+NRDZ03sMSIzxlQdBlKeEqTBfrgSDfAcFhtzEp5d3KenrEQNMGezWZWtSW
+ gQCFjOFmbibs937NfJn9+8fFV3LIz25IGp2HrmvHqYAoz2gRMTnUNLHqjbU5xdVtmz+78ffgkyI
+ kkugA8XEH2FoZlY/7KKT17tbCig1LAOWN4LCvycmdPnsYw8oJfDmYrP2ff9alAQ3NzKR+wGpS4Q
+ ERHw4GmuiKeFmdfzJJ5pmOQ36mOrpG0USQ9D6FiJ3tRAemGA9iTZKw8vc2u05KyOe6CnEJkCypW
+ AfvS7wiMxmK1/4YpHIwPnldHhLNDB7fywH6L8Lijpl+xoYqe1AeCCbeJFlgQ9qrvUZ6NeC2m
+X-Proofpoint-ORIG-GUID: 3Kad0yYjvLddCJtgn5-orC-kxOSE8tlC
+X-Authority-Analysis: v=2.4 cv=Uo9jN/wB c=1 sm=1 tr=0 ts=68222489 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=IWLDPTm1b9FEelM1JeoA:9
+ a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-GUID: 3Kad0yYjvLddCJtgn5-orC-kxOSE8tlC
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-12_05,2025-05-09_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 phishscore=0 mlxscore=0 adultscore=0
+ impostorscore=0 suspectscore=0 bulkscore=0 spamscore=0 mlxlogscore=999
+ lowpriorityscore=0 priorityscore=1501 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2504070000 definitions=main-2505120171
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250512_094043_060104_507C5219 
+X-CRM114-Status: GOOD (  17.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,229 +140,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 04, 2025 at 04:55:32PM +0200, Lukasz Majewski wrote:
-> This patch provides description of the MTIP L2 switch available in some
-> NXP's SOCs - e.g. imx287.
+On 5/12/25 1:10 PM, Yuanfang Zhang wrote:
+> Add a driver to support Coresight device Trace Network On Chip (TNOC),
+> which is an integration hierarchy integrating functionalities of TPDA
+> and funnels. It aggregates the trace and transports to coresight trace
+> bus.
 > 
-> Signed-off-by: Lukasz Majewski <lukma@denx.de>
-> Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
-> 
-> ---
-> Changes for v2:
-> - Rename the file to match exactly the compatible
->   (nxp,imx287-mtip-switch)
-> 
-> Changes for v3:
-> - Remove '-' from const:'nxp,imx287-mtip-switch'
-> - Use '^port@[12]+$' for port patternProperties
-> - Drop status = "okay";
-> - Provide proper indentation for 'example' binding (replace 8
->   spaces with 4 spaces)
-> - Remove smsc,disable-energy-detect; property
-> - Remove interrupt-parent and interrupts properties as not required
-> - Remove #address-cells and #size-cells from required properties check
-> - remove description from reg:
-> - Add $ref: ethernet-switch.yaml#
-> 
-> Changes for v4:
-> - Use $ref: ethernet-switch.yaml#/$defs/ethernet-ports and remove already
->   referenced properties
-> - Rename file to nxp,imx28-mtip-switch.yaml
-> 
-> Changes for v5:
-> - Provide proper description for 'ethernet-port' node
-> 
-> Changes for v6:
-> - Proper usage of
->   $ref: ethernet-switch.yaml#/$defs/ethernet-ports/patternProperties
->   when specifying the 'ethernet-ports' property
-> - Add description and check for interrupt-names property
-> 
-> Changes for v7:
-> - Change switch interrupt name from 'mtipl2sw' to 'enet_switch'
-> 
-> Changes for v8:
-> - None
-> 
-> Changes for v9:
-> - Add GPIO_ACTIVE_LOW to reset-gpios mdio phandle
-> 
-> Changes for v10:
-> - None
-> 
-> Changes for v11:
-> - None
-> ---
->  .../bindings/net/nxp,imx28-mtip-switch.yaml   | 149 ++++++++++++++++++
->  1 file changed, 149 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml b/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
-> new file mode 100644
-> index 000000000000..35f1fe268de7
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
-> @@ -0,0 +1,149 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/nxp,imx28-mtip-switch.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: NXP SoC Ethernet Switch Controller (L2 MoreThanIP switch)
-> +
-> +maintainers:
-> +  - Lukasz Majewski <lukma@denx.de>
-> +
-> +description:
-> +  The 2-port switch ethernet subsystem provides ethernet packet (L2)
-> +  communication and can be configured as an ethernet switch. It provides the
-> +  reduced media independent interface (RMII), the management data input
-> +  output (MDIO) for physical layer device (PHY) management.
-> +
-> +properties:
-> +  compatible:
-> +    const: nxp,imx28-mtip-switch
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  phy-supply:
-> +    description:
-> +      Regulator that powers Ethernet PHYs.
-> +
-> +  clocks:
-> +    items:
-> +      - description: Register accessing clock
-> +      - description: Bus access clock
-> +      - description: Output clock for external device - e.g. PHY source clock
-> +      - description: IEEE1588 timer clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: ipg
-> +      - const: ahb
-> +      - const: enet_out
-> +      - const: ptp
-> +
-> +  interrupts:
-> +    items:
-> +      - description: Switch interrupt
-> +      - description: ENET0 interrupt
-> +      - description: ENET1 interrupt
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: enet_switch
-> +      - const: enet0
-> +      - const: enet1
-> +
-> +  pinctrl-names: true
-> +
-> +  ethernet-ports:
-> +    type: object
-> +    $ref: ethernet-switch.yaml#/$defs/ethernet-ports/patternProperties
 
-'patternProperties' is wrong. Drop.
+just a couple nits that you can feel free to skip
 
-> +    additionalProperties: true
+[...]
 
-Drop.
+> +static void trace_noc_enable_hw(struct trace_noc_drvdata *drvdata)
+> +{
+> +	u32 val;
+> +
+> +	/* Set ATID */
+> +	writel_relaxed(drvdata->atid, drvdata->base + TRACE_NOC_XLD);
+> +
+> +	/* Set the data word count between 'SYNC' packets */
+> +	writel_relaxed(TRACE_NOC_SYNC_INTERVAL, drvdata->base + TRACE_NOC_SYNCR);
+> +
+> +	/* Set the Control register:
+> +	 * - Set the FLAG packets to 'FLAG' packets
+> +	 * - Set the FREQ packets to 'FREQ_TS' packets
+> +	 * - Enable generation of output ATB traffic
+> +	 */
+> +
+> +	val = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
+> +
+> +	val = val & ~TRACE_NOC_CTRL_FLAGTYPE;
+> +	val = val | TRACE_NOC_CTRL_FREQTYPE;
+> +	val = val | TRACE_NOC_CTRL_PORTEN;
 
-> +
-> +    patternProperties:
-> +      '^ethernet-port@[12]$':
-> +        type: object
-> +        additionalProperties: true
-> +        properties:
-> +          reg:
-> +            items:
-> +              - enum: [1, 2]
-> +            description: MTIP L2 switch port number
-> +
-> +        required:
-> +          - reg
-> +          - label
+FWIW 'x &= ~foo' and 'x |= foo' are what one usually expects
 
-'label' shouldn't ever be required because s/w shouldn't care what the 
-value is.
+[...]
 
-> +          - phy-mode
-> +          - phy-handle
+> +static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
+> +{
+> +	struct device *dev = &adev->dev;
+> +	struct coresight_platform_data *pdata;
+> +	struct trace_noc_drvdata *drvdata;
+> +	struct coresight_desc desc = { 0 };
+> +	int ret;
 > +
-> +  mdio:
-> +    type: object
-> +    $ref: mdio.yaml#
-> +    unevaluatedProperties: false
-> +    description:
-> +      Specifies the mdio bus in the switch, used as a container for phy nodes.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - interrupts
-> +  - interrupt-names
-> +  - mdio
-> +  - ethernet-ports
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include<dt-bindings/interrupt-controller/irq.h>
-> +    #include<dt-bindings/gpio/gpio.h>
-> +    switch@800f0000 {
-> +        compatible = "nxp,imx28-mtip-switch";
-> +        reg = <0x800f0000 0x20000>;
-> +        pinctrl-names = "default";
-> +        pinctrl-0 = <&mac0_pins_a>, <&mac1_pins_a>;
-> +        phy-supply = <&reg_fec_3v3>;
-> +        interrupts = <100>, <101>, <102>;
-> +        interrupt-names = "enet_switch", "enet0", "enet1";
-> +        clocks = <&clks 57>, <&clks 57>, <&clks 64>, <&clks 35>;
-> +        clock-names = "ipg", "ahb", "enet_out", "ptp";
-> +
-> +        ethernet-ports {
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +
-> +            mtip_port1: ethernet-port@1 {
-> +                reg = <1>;
-> +                label = "lan0";
-> +                local-mac-address = [ 00 00 00 00 00 00 ];
-> +                phy-mode = "rmii";
-> +                phy-handle = <&ethphy0>;
-> +            };
-> +
-> +            mtip_port2: ethernet-port@2 {
-> +                reg = <2>;
-> +                label = "lan1";
-> +                local-mac-address = [ 00 00 00 00 00 00 ];
-> +                phy-mode = "rmii";
-> +                phy-handle = <&ethphy1>;
-> +            };
-> +        };
-> +
-> +        mdio_sw: mdio {
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +
-> +            reset-gpios = <&gpio2 13 GPIO_ACTIVE_LOW>;
-> +            reset-delay-us = <25000>;
-> +            reset-post-delay-us = <10000>;
-> +
-> +            ethphy0: ethernet-phy@0 {
-> +                reg = <0>;
-> +            };
-> +
-> +            ethphy1: ethernet-phy@1 {
-> +                reg = <1>;
-> +            };
-> +        };
-> +    };
-> -- 
-> 2.39.5
-> 
+> +	desc.name = coresight_alloc_device_name(&trace_noc_devs, dev);
+> +	if (!desc.name)
+> +		return -ENOMEM;
+
+it's good to add a newline after return statements
+
+Konrad
 
