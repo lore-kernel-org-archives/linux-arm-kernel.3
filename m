@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C28B3C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 19:49:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E0EBC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 19:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:MIME-Version:In-Reply-To:References:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HIOcoRas6WCIh/fu/MTEg+LjXE2W0ZCSpf5Tn73Wx3g=; b=B4SUNjk2LIWUoFIF2hjj2ql+GD
-	Qj51V/c9cQKGmTHK4XEmzO1xF3gI4uKF+9OSvn9UyefVlq8HRoe4WS/cE3uuWX3tttjKoCNZdt7os
-	/xI4iBcSfP9R+ldWfbVMMf0dV0h530AMxJ8dLOxivCgetdYxCpq4r+hPuuxKo8ddnzbrfG7Zg9A1y
-	/XcyLbRm8ggKk0d+RaCAktcs0IOjduHfLF5i8oX7lvIG04shsJkg45h7HutmhFK5proEYviLs8mmi
-	FZYCdtpnePHvpL9TKYyxZpIF9iMM31qr7wnN531Ct2E2wrI9iKsFsDIjpkkOLauLpebMY3KujGPZI
-	FBFGYphQ==;
+	bh=9N3rtByvj6fgpoFdwHlFEjt7fTP5AxO1foSnGaHJlcM=; b=PDeNfaJ986TOjRRfvqHg6/tdcD
+	n4xTKRgWC9FTaqKRMXBkAdMWGzQEs9ReF3vdJD78auTStRIcoNdhAU+uXtZDL6B0ds9bsm9Dooclv
+	eK5gyAZ3iLVmIxKpIaHrpkH7DxUaDcQ48Qy+TJKou/G9T3iJ2yYzNIBtG8/kMPLU2BGdSalhLQhO+
+	VTWnbS2YzxeorH8HmmME5OsmZ1xf2K4Ep70TCdi8yrzX0ChffuhODjmOwZZwUrr2mERtRO0Xc/9Sa
+	p/lna//vr3x2OreXNt3TWmHubHaw7RMxV4Iwd0B1z8bANhiV78K7ZEaUPmiZpLFNuinx87s79KmtR
+	elB+U2nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEZ90-0000000AZuu-3RBp;
-	Mon, 12 May 2025 19:48:58 +0000
-Received: from mail-vk1-xa2d.google.com ([2607:f8b0:4864:20::a2d])
+	id 1uEZ91-0000000AZvO-261v;
+	Mon, 12 May 2025 19:48:59 +0000
+Received: from mail-ua1-x932.google.com ([2607:f8b0:4864:20::932])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEXxv-0000000APRe-1vo6
+	id 1uEY2Q-0000000AQPj-3YrT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 18:33:29 +0000
-Received: by mail-vk1-xa2d.google.com with SMTP id 71dfb90a1353d-52934f4fb23so3951032e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 11:33:26 -0700 (PDT)
+	Mon, 12 May 2025 18:38:08 +0000
+Received: by mail-ua1-x932.google.com with SMTP id a1e0cc1a2514c-877d7fa49e0so3224927241.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 11:38:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1747074806; x=1747679606; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1747075085; x=1747679885; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:thread-index:mime-version:in-reply-to
          :references:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=HIOcoRas6WCIh/fu/MTEg+LjXE2W0ZCSpf5Tn73Wx3g=;
-        b=PRnjA3g8VON1TzvWmwsSVdwHiy/D8qXoYf4JeR91Qja58tme3eQfY7AwtLhD+/a2IM
-         nSmTRv7A8hXtpihHJ1yn4TYoVyYSXibzEaLR24FiCoYO1bTFKLTCxNOC8KrzVTfZk+uZ
-         cnbU3ojIdWmYR9NWTHn6KOJWe1dMrsQoeEioI=
+        bh=9N3rtByvj6fgpoFdwHlFEjt7fTP5AxO1foSnGaHJlcM=;
+        b=FY/bihduEQNJA+bRs/iCWbaYkCOdfrVKHtlSjZlOw4Sl1WecAPhoF0nRe1JvyL9EkR
+         olioiAmf4AhXvppA1TFs2Eq6mKur4o7i1RSoSfAuzKh3D4rYkMDFSf2+NlETOAQFFkaf
+         eh7yt3wPhM2SsQ+wbY+AsQayun9z0p1D+zo5M=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747074806; x=1747679606;
+        d=1e100.net; s=20230601; t=1747075085; x=1747679885;
         h=cc:to:subject:message-id:date:thread-index:mime-version:in-reply-to
          :references:from:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=HIOcoRas6WCIh/fu/MTEg+LjXE2W0ZCSpf5Tn73Wx3g=;
-        b=PSn3ZJwimp9aQGcac/6HHtR21i4Id7tRZjFeKBypBopzXqCd3X7FJkLKgK1tPZU6Vk
-         wY1ebYLpHvrMJigRyYqCVJaxSGZPChodCI/APVFBdsn+nG4w0ItSxNj0udI1LtibJjZG
-         I2Te751E3Q/aoi98d2udYAZ5pH1sE59VjIiMIhedbzHhTR40ZsnGzYzP/cFFOstmpT+w
-         Sp6t1ksmCH+x/36DbWs3ejxwSyexOAgZokAUU0zc9pedqjKlptqr1+dCnLP65GupCY1N
-         Zei0ACrthpy37Wi/UWAEWVxjI0mB4rGo0TmWLF7CYqqc4tSIRSo+1VkhWZkTaOE2ingU
-         dFpA==
-X-Forwarded-Encrypted: i=1; AJvYcCXNOs1Hvap+XkmS5sQG12rlZExw/9hXA0quxKJ0tDmH/SyBcf+dr+t/ewdNRbapXRPNUryH9CICq0TYGaexr3/W@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWe/QL/RkfNge+FOMTMCni+ZwKg7wBwRHqfjQZHr6W8dRcg8r+
-	25BxGGS+Ks57HyRaIRGt97sH2unEGwx06NXn8i+nAoIb42Ni20sxfkbSYMZHTH6UoSANMM+kY3v
-	ppTt42+lCKz2YYnRwJqUUNZj9aTEr6GoJgIgb
-X-Gm-Gg: ASbGnctf6JIbPLDPqacFSmuQ2latD3hz7FB5Kjy5/xwonDSkpvHGbvtaW9TUrBaqj29
-	jSV6JZ+q9QMU5F24CXBcx9w9T1nTdm1pvZMYZrVaPv74o3jXGtbq2jpC7ptyM7yORMJgvhE5XUy
-	ld3zwugnSrugFnPpaEdJqV0Rn5k4XPxzCPHQ==
-X-Google-Smtp-Source: AGHT+IHylLeFiX0/jOjc7tZLG1SWJHnHRO5fCNoH+2OPd+5ggJlukXJ3UYv0a9Yraf1DcZcmuj8KAoPiMX8SYalxd58=
-X-Received: by 2002:a05:6122:7d0:b0:529:2644:676f with SMTP id
- 71dfb90a1353d-52c53dc0a0cmr10668772e0c.8.1747074805701; Mon, 12 May 2025
- 11:33:25 -0700 (PDT)
+        bh=9N3rtByvj6fgpoFdwHlFEjt7fTP5AxO1foSnGaHJlcM=;
+        b=H/pdoujJ/8aeE/uaC3HU4CFyI3VzY+oCQFh4UKpoa0rlmjzSyOv5MBViqysF459V06
+         U3241HETKk+6DRj2YtXu+7x2HqfM56c2FADlFoT+gmKJmRbiIlQDFfXxa72YMuPB1VD0
+         xnFP94OMnSNbjkkfYlUZmCJOX15IU62nSo0wUXaioM5VVShpC8QBy+kcVJrsXfcX/cqA
+         GjHSU5C5BN2XDgTkjnLF2mt0VeK1T0aV2bNvLlCSv7vg/VPa3gXtSvweZim9Mys+QFL7
+         UDIHPa5VNzUDKqoEimGluuI11i/y9LMczyzqOCfDvitEV3081pfLbi+DSSamRVCqCF6Z
+         32pA==
+X-Forwarded-Encrypted: i=1; AJvYcCUe4LN7zegcWSyspVfIpdyo/67Q0GHdgamjiikmu4hIad4+DQgEoW8kKt5IpND7E4ChlxgQLCCE4sgE/ljVAR01@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkrhGKPI7yjrbLuqiWfBmA/HZOJ2utMcU2XQo7d8sSXXhp+2U+
+	LKIbW6mQrtftK2j3j9glW7+6zRsi5bM6qBZQ/dFIMYUELMzZYsWC2y9Ffk1hJpcOlRXrWdWKeGx
+	rOcjHIqMxMJTKqdLpEsMqe40XeiflJ8W+TRbv
+X-Gm-Gg: ASbGncsa6PZ5WyRPR0dS2xq8TkeHu8KxG0VdFQP/MNfVI1AsTX7Si9tv/LbWwsJlwzZ
+	vKM4kClYln8ObUOTgfaDYLnAnw8jEWktwP+csLI0v2fQCIrxOb/Hz+GD/QJGx5LI5d8OhUYgPYy
+	A/p09cd3m1wHE5MMTc3wgnfwyJjz8ipKieIg==
+X-Google-Smtp-Source: AGHT+IF0l1XIFMiD5ruF2lSZ6uORA5ReBa6AdYiYCzvB9lxFvGsKkN6xIL+Xowz9Eex9vOkIgAlD/ZLyLXPY5hoGEjc=
+X-Received: by 2002:a67:e7cc:0:b0:4c1:83c4:8562 with SMTP id
+ ada2fe7eead31-4deed36db85mr11825119137.13.1747075085444; Mon, 12 May 2025
+ 11:38:05 -0700 (PDT)
 From: William Zhang <william.zhang@broadcom.com>
-References: <20250512-bcmbca-peripherals-arm-v3-0-86f97ab4326f@linaro.org> <20250512-bcmbca-peripherals-arm-v3-1-86f97ab4326f@linaro.org>
-In-Reply-To: <20250512-bcmbca-peripherals-arm-v3-1-86f97ab4326f@linaro.org>
+References: <20250512-bcmbca-peripherals-arm-v3-0-86f97ab4326f@linaro.org> <20250512-bcmbca-peripherals-arm-v3-6-86f97ab4326f@linaro.org>
+In-Reply-To: <20250512-bcmbca-peripherals-arm-v3-6-86f97ab4326f@linaro.org>
 MIME-Version: 1.0
 X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQHRV/QBxSS57P/922lUlscQxKMBIAIzb36Ls9KKdhA=
-Date: Mon, 12 May 2025 11:33:28 -0700
-X-Gm-Features: AX0GCFsvvJjo7lZGW1XDf5kkTQRQuOqq2eUt2YqkCbrc2gnYY-IwjX3SxDadsDo
-Message-ID: <c7e0d00a7593151a6ada898a2438e941@mail.gmail.com>
-Subject: RE: [PATCH v3 01/12] ARM: dts: bcm6878: Correct UART0 IRQ number
+Thread-Index: AQHRV/QBxSS57P/922lUlscQxKMBIAHxw9EDs9Sb9PA=
+Date: Mon, 12 May 2025 11:38:07 -0700
+X-Gm-Features: AX0GCFvFTIMl4G9YOO5NI5m-hLIsTGeRv-4WDwppcl2QI9TcvcE0DSCJ6QAO5YI
+Message-ID: <706a72182e4d34a5c2523c7ef1bbb80e@mail.gmail.com>
+Subject: RE: [PATCH v3 06/12] ARM: dts: bcm63138: Add BCMBCA peripherals
 To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
 	Anand Gore <anand.gore@broadcom.com>, Kursad Oney <kursad.oney@broadcom.com>, 
@@ -80,10 +80,10 @@ To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-crypto@vger.kernel.org
 Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="00000000000034fc9e0634f48db5"
+	boundary="000000000000e1cc470634f49db0"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_113327_524944_11C9CC22 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20250512_113806_892325_0BC1B0C8 
+X-CRM114-Status: GOOD (  21.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,7 +98,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---00000000000034fc9e0634f48db5
+--000000000000e1cc470634f49db0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
@@ -120,41 +120,148 @@ l>;
 > Cc: devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
 > linux-
 > crypto@vger.kernel.org; Linus Walleij <linus.walleij@linaro.org>
-> Subject: [PATCH v3 01/12] ARM: dts: bcm6878: Correct UART0 IRQ number
+> Subject: [PATCH v3 06/12] ARM: dts: bcm63138: Add BCMBCA peripherals
 >
-> According to the vendor file 6878_intr.h the UART0 has IRQ
-> 92, not 32.
+> All the BCMBCA SoCs share a set of peripherals at 0xff800000,
+> albeit at slightly varying memory locations on the bus and
+> with varying IRQ assignments.
 >
-> Assuming this is a copy-and-paste error.
+> Extend the peripheral interrupt window to 0x10000 as it need
+> to fit the DMA block.
+>
+> Add the GPIO, RNG and LED and DMA blocks for the
+> BCM63138 based on the vendor files 63138_map_part.h and
+> 63138_intr.h from the "bcmopen-consumer" code drop.
+>
+> This SoC has up to 160 possible GPIOs due to having 5
+> registers with 32 GPIOs in each available.
 >
 > Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 > ---
->  arch/arm/boot/dts/broadcom/bcm6878.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  arch/arm/boot/dts/broadcom/bcm63138.dtsi | 79
+> +++++++++++++++++++++++++++++++-
+>  1 file changed, 78 insertions(+), 1 deletion(-)
 >
-> diff --git a/arch/arm/boot/dts/broadcom/bcm6878.dtsi
-> b/arch/arm/boot/dts/broadcom/bcm6878.dtsi
+> diff --git a/arch/arm/boot/dts/broadcom/bcm63138.dtsi
+> b/arch/arm/boot/dts/broadcom/bcm63138.dtsi
 > index
-> 70cf23a65fdb5ac7ed9eabc986f4ebb4df263c43..43eb678e14d04be487af39c936
-> 5186b6fb919cf3 100644
-> --- a/arch/arm/boot/dts/broadcom/bcm6878.dtsi
-> +++ b/arch/arm/boot/dts/broadcom/bcm6878.dtsi
-> @@ -137,7 +137,7 @@ nandcs: nand@0 {
->  		uart0: serial@12000 {
->  			compatible =3D "arm,pl011", "arm,primecell";
->  			reg =3D <0x12000 0x1000>;
-> -			interrupts =3D <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupts =3D <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
->  			clocks =3D <&uart_clk>, <&uart_clk>;
->  			clock-names =3D "uartclk", "apb_pclk";
+> e74ba6bf370da63d3c115e38b4f20c71baff2116..4ec568586b14c89daceddea8f1
+> 7381f72f512a93 100644
+> --- a/arch/arm/boot/dts/broadcom/bcm63138.dtsi
+> +++ b/arch/arm/boot/dts/broadcom/bcm63138.dtsi
+> @@ -184,13 +184,69 @@ ubus@fffe8000 {
+>  		compatible =3D "simple-bus";
+>  		#address-cells =3D <1>;
+>  		#size-cells =3D <1>;
+> -		ranges =3D <0 0xfffe8000 0x8100>;
+> +		ranges =3D <0 0xfffe8000 0x10000>;
+>
+>  		timer: timer@80 {
+>  			compatible =3D "brcm,bcm6328-timer", "syscon";
+>  			reg =3D <0x80 0x3c>;
+>  		};
+>
+> +		/* GPIOs 0 .. 31 */
+> +		gpio0: gpio@100 {
+> +			compatible =3D "brcm,bcm6345-gpio";
+> +			reg =3D <0x100 0x04>, <0x114 0x04>;
+> +			reg-names =3D "dirout", "dat";
+> +			gpio-controller;
+> +			#gpio-cells =3D <2>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		/* GPIOs 32 .. 63 */
+> +		gpio1: gpio@104 {
+> +			compatible =3D "brcm,bcm6345-gpio";
+> +			reg =3D <0x104 0x04>, <0x118 0x04>;
+> +			reg-names =3D "dirout", "dat";
+> +			gpio-controller;
+> +			#gpio-cells =3D <2>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		/* GPIOs 64 .. 95 */
+> +		gpio2: gpio@108 {
+> +			compatible =3D "brcm,bcm6345-gpio";
+> +			reg =3D <0x108 0x04>, <0x11c 0x04>;
+> +			reg-names =3D "dirout", "dat";
+> +			gpio-controller;
+> +			#gpio-cells =3D <2>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		/* GPIOs 96 .. 127 */
+> +		gpio3: gpio@10c {
+> +			compatible =3D "brcm,bcm6345-gpio";
+> +			reg =3D <0x10c 0x04>, <0x120 0x04>;
+> +			reg-names =3D "dirout", "dat";
+> +			gpio-controller;
+> +			#gpio-cells =3D <2>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		/* GPIOs 128 .. 159 */
+> +		gpio4: gpio@110 {
+> +			compatible =3D "brcm,bcm6345-gpio";
+> +			reg =3D <0x110 0x04>, <0x124 0x04>;
+> +			reg-names =3D "dirout", "dat";
+> +			gpio-controller;
+> +			#gpio-cells =3D <2>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		rng@300 {
+> +			compatible =3D "brcm,iproc-rng200";
+> +			reg =3D <0x300 0x28>;
+> +			interrupts =3D <GIC_SPI 85 IRQ_TYPE_LEVEL_HIGH>;
+> +		};
+> +
+>  		serial0: serial@600 {
+>  			compatible =3D "brcm,bcm6345-uart";
+>  			reg =3D <0x600 0x1b>;
+> @@ -209,6 +265,14 @@ serial1: serial@620 {
 >  			status =3D "disabled";
+>  		};
+>
+> +		leds: led-controller@700 {
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			compatible =3D "brcm,bcm63138-leds";
+> +			reg =3D <0x700 0xdc>;
+> +			status =3D "disabled";
+> +		};
+> +
+>  		hsspi: spi@1000 {
+>  			#address-cells =3D <1>;
+>  			#size-cells =3D <0>;
+> @@ -248,6 +312,19 @@ bootlut: bootlut@8000 {
+>  			reg =3D <0x8000 0x50>;
+>  		};
+>
+> +		pl081_dma: dma-controller@d000 {
+> +			compatible =3D "arm,pl081", "arm,primecell";
+> +			// The magic B105F00D info is missing
+> +			arm,primecell-periphid =3D <0x00041081>;
+> +			reg =3D <0xd000 0x1000>;
+> +			interrupts =3D <GIC_SPI 23 IRQ_TYPE_LEVEL_HIGH>;
+> +			memcpy-burst-size =3D <256>;
+> +			memcpy-bus-width =3D <32>;
+> +			clocks =3D <&periph_clk>;
+> +			clock-names =3D "apb_pclk";
+> +			#dma-cells =3D <2>;
+> +		};
+> +
+>  		reboot {
+>  			compatible =3D "syscon-reboot";
+>  			regmap =3D <&timer>;
 >
 > --
 > 2.49.0
 
 Reviewed-by: William Zhang <william.zhang@broadcom.com>
 
---00000000000034fc9e0634f48db5
+--000000000000e1cc470634f49db0
 Content-Type: application/pkcs7-signature; name="smime.p7s"
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="smime.p7s"
@@ -225,14 +332,14 @@ VhYAxZlzj7tSjUIM7G7IhyfqPC46GKJ/4x+Amz1Z6YxNGy71L68kYD6hIbBcA5AM42QBUufly6Oa
 urb/KlmDGfVrIRYDbL0ckhGQIP5c6L+kSQZ2sHnQK0e0WgIaZYxaPYeY5u0GLCOze+3vyRMxggJg
 MIICXAIBATBrMFsxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMTEwLwYD
 VQQDEyhHbG9iYWxTaWduIEdDQyBSMyBQZXJzb25hbFNpZ24gMiBDQSAyMDIwAgwxuh2XG3FXRL1W
-JOEwDQYJYIZIAWUDBAIBBQCggccwLwYJKoZIhvcNAQkEMSIEIKL2RQO2+6ZDvtLAXF69QDzb8jsR
-l7bxNCh1U83bcX5NMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1
-MDUxMjE4MzMyNVowXAYJKoZIhvcNAQkPMU8wTTALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsG
+JOEwDQYJYIZIAWUDBAIBBQCggccwLwYJKoZIhvcNAQkEMSIEIH6fhHOST5BvqEcvFJo+Lga+fAiC
+L1/BWzeYLwusqZrWMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1
+MDUxMjE4MzgwNVowXAYJKoZIhvcNAQkPMU8wTTALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsG
 CWCGSAFlAwQBAjAKBggqhkiG9w0DBzALBgkqhkiG9w0BAQcwCwYJYIZIAWUDBAIBMA0GCSqGSIb3
-DQEBAQUABIIBAI1Lz5oyEyPpB6mPsoPArtyPiJVW0F88NkRM9Gc816EORtw8SF48TYxJTN63Bkpd
-hv4KOEmB8i/OjwGAaEWrmc8YhhvkbfCtmy+qEvKmiPK8QAFZ0AZ3lhHLeHCeQZjyL8zo7WbwtZEj
-GC1IJSjhr6Vy47Mhc7pu3KFBDre2ZPa9xKGIM1S0n0/YXpmDWqRAY7c52C2RssmygPL9QAkZo40P
-G10W+GiselvX/Ka41fa2kaURgm8m+jBFFGYaFaTwhGTTXrNgZ4xQU7BChHqLNliogcvdkG9w5reF
-QpbABFRZDHVo46kZnAjzoZoxfBkZJaYhIN5sqCDCw8r4e3ovUw0=
---00000000000034fc9e0634f48db5--
+DQEBAQUABIIBABWVCJUe+7uL7sXs16KD0W3uSex/85Nqp96BYUMgsvThoaD1ghTB1jsqAhkOfshO
+oElNTCHp6GO9t09sKap7ud1tpa6qB/9IV0qoovjd3/v8pNuB8Y0i6AugFeB5jpnoDZXIviMplHOb
+h9eV5RwnaPQOPfNdZtjj18FILB2XWnhZxpIAgdNx1o1dQ13/Nozp0o6SdTZs4FLRD9Qj+m+o1qSt
+kc7bjuH6pMuUe973szjtjQu7vtXeIJw8CZPRTpx5CTchMB0HbSBVFUK45qD6ZrMw8i0tKgyPFxiz
+cYvSf4wnzdxA4tOgPmtQfdRxkeKazaiyw5Mfb1n0bKZfZivO/IM=
+--000000000000e1cc470634f49db0--
 
