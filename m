@@ -4,105 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30EA4C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 06:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22BC0C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 06:44:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cKDVNqlk2rHttF0G3OpFF4+elq7qAY27L4XwGWgmg8Q=; b=vuo6AITf7Wl8gqScX4r94Kk0qh
-	KVYw6s0raHEXKYkzoskWokZ47OG3ZvbAU/IX3qRtYwyhCZyeUe/zkSONQLrEOkmhOZxAt7++sZ02B
-	YCUb1DYoHDkz4sW1m5K457OZQuym3W7r2I1GigmSs+7ZJjAKFhhEFCpl5420lhPzbs62s/Yyt1cKt
-	4LnrT3ZKt2L1I7o6HbtZhYSMEBA+sglVrM8LxpCIe8DtdRlZn/x/sTbJpDeFXFXD+kvo11kODuNub
-	+JwfZs75upZwBsqEfrsJqkd7ytpRQamakzuTDLQsl77WFCnMMwdhfwda1H44lv40Cd/ROn3VfdsFE
-	lBEm9n/A==;
+	bh=gs9qjJWfXtPIqCNTFhtaejIkA6pnbjDMF0lYDQwceAc=; b=MpVQG/oDTFvPYGgWS9a3zvWpsU
+	G9S6PcHDZ3qOAswIlvrTVx/rwhRDNEXFX7F8bA+VINGBxiMSdkMY2qgou1UhMmsNU8vkAIaLnqAJD
+	a7HbdtX/v3E5EYuGQ2GJyO7PraNgLs26oJ08mLCHzM2aX5Hl5AuD8CpVrX4fcz02Hg74LrLKV8uhO
+	Y0W4CqDp+W6x+R+EHSsrbNPfL5ELbwgo2tPKsIdjIhxELtB/dtsfnGSnv96ntdlCetALLZFGEfMnb
+	JZEGEm99OseXTprEUDWGSvUMyYgi+u7NYnK/d5wIU36+lkibFsgCy/DmrkBqOQy4pZt66jR/AA9cJ
+	fJLuywqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEMrm-00000008X31-02Pe;
-	Mon, 12 May 2025 06:42:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uEMtm-00000008XNe-3E2r;
+	Mon, 12 May 2025 06:44:26 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEMk3-00000008Vun-1vH3
+	id 1uEMnx-00000008WSj-1uzR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 06:34:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 877A45C5CE0;
-	Mon, 12 May 2025 06:32:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 278C7C4CEE9;
-	Mon, 12 May 2025 06:34:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747031662;
-	bh=84JCFKh7alnv7LYtJsUdYBxSyvpfdgMCZTfdLCREGq0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=h9ybiF8B8XxT5TXMebdlAAYh6h8Km5VxbH9kWdMl4crdEJHl0OFEkBM84Ebm3QSsO
-	 DxzTw3TY7UeNpiR1xph2Y5AnQIkqgeb3mitwtjsJlXjKxQKQ7dfDU/13vIVY2e1vmY
-	 Z2QxbriII2wQ0jlQ9VWCxPbgOlnFzmzHrjKN2Goaas0YYvyol/fUEV1DDdX2GY7x6t
-	 fHvJMJVKhq3xM0gkuFjwg1jE1QVLkxVYtN3P5m+JEOsQR7YmSgGvajooky+4im5iAq
-	 Jyu/voOuzbW/2l5RASbAjLunAw4z3WMz2jMTmD4dVijuB3SNpYBwcCnUBbbi0K5Bio
-	 NinCDHyamMFKA==
-Message-ID: <2006c4aa-7d4e-48de-9c27-46ddb359ac48@kernel.org>
-Date: Mon, 12 May 2025 08:34:19 +0200
+	Mon, 12 May 2025 06:38:26 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-ad218ed3cf3so44894466b.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 May 2025 23:38:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747031904; x=1747636704; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gs9qjJWfXtPIqCNTFhtaejIkA6pnbjDMF0lYDQwceAc=;
+        b=C80FbWvy2Gbms7FqRJBWjqcHJQptN42Zqa9POcVYxhXIroYnmJDLyhSU8fwTZEnyt+
+         wfR20NJwJmFnJcw3fAYIPRkEWVV9G0UuZ6yoAWw/BxpBT1dl1ZOuLjSLdkKXTsQqVE1G
+         FYy1gFMxKOipL/lbEZixw2HmVUnBBC1ilczifqcY0CF14ECH/Q1DBFdqA9/7jYcjs5LR
+         La7SlXptPHiEt86GX1fMZ5iyv4fynnkMcUrAL/bxLHe3mgbaKT4HsvL5igHg6HnyRK3n
+         w8qRgRBbd7ZLftzI9dpPJw4Hv9MwKnWKX+qq8lFcinH/1+IdGQb/UpebtU0a3vbH5c48
+         k7Aw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747031904; x=1747636704;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gs9qjJWfXtPIqCNTFhtaejIkA6pnbjDMF0lYDQwceAc=;
+        b=o/uqM/m8U8lBSdOI/3AKwNXUAjw+qiHBqTT3CkYGce4TPcTN88GN38N4z5crkmPJ/0
+         MGTYcmKAfCJv/jwQ9CcFaIb4/27oWcjX7VbeUyNZHmZFu5roPOg8AZEUkbHgL0v2Uvyw
+         CYxWE+S485af5kxhI3J1UcjpO4SbRXC+ADZRqXpHTAbYDTnN7xc5MkRUTssYDW+wojL8
+         ykKGLQNAx2MDWL4vkP3s1EHRwwsvgwe8u7+6WPQYMaRfX5yXEZ5IyIgJvGQWb7zSYRIM
+         Dno1p0ASgJhxqsk5KtehOiTnxvY1kD48WraiDZZeW9XXfMVhi8G0X+1YmTa/DGAMfIBy
+         9WZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVmFBeN4chAJOldFRaq7mG3ZoDXVqnGh6bVK/xH/CLNo402Qpl89oPeqckU+brJNqLcWCLkKcfxMlCj9em4BDbq@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWrNdlpoR8kjyBHQgURyqhfQiMqsl/lDMY6IigX6eO0l1ha9E+
+	17snRU4niUOzFTq3XiNld7QpWWdNl1CKM1F6Yd3jGUg4tvaLGp8A8p/z4OAMxb8=
+X-Gm-Gg: ASbGncv+hbjsRW5SEYV/E6HXcrYCbRAshDlcvXjmOIlbfbbl1g9964r0G7aoWnMj2h4
+	jI+Tr95DPeg6lbXG25iDLRLOGBt0kVeDekrQziHLAl+YwbMcLhxJd2Ik24E5M/8rmijaICG6qct
+	Bg9UVeEP3Ty+RW5m9jl/rHMQmXkUedbydbMzFmmydpvt2YNlFsr6YPdePOoXuGoJjR0WmeuOH6L
+	JeuXGFwRoWNGPORQdK6yRFmP6cChxJSs5yEZlXb/1C34jkU9FcmNagoo/oORCTHa6Jc3GkQVjda
+	kcLJrtdqibU8pByTUdx81RuXlVBPTs7qzhexbCQZuUQG/ff2IJhysbZQ68cz0KcwwKEtT7IBHdv
+	okxlcpQ==
+X-Google-Smtp-Source: AGHT+IHvnruoQf/zsWKz811qCbdXO6vDPHDtBmgtxIKDoHCWYrcOhWQOhDK0kiHkWvqsK39CY/vV6A==
+X-Received: by 2002:a17:906:81c5:b0:ad2:20bb:1cf4 with SMTP id a640c23a62f3a-ad220bb20abmr329227966b.15.1747031903658;
+        Sun, 11 May 2025 23:38:23 -0700 (PDT)
+Received: from [192.168.1.29] ([178.197.222.234])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad21985342dsm560597966b.169.2025.05.11.23.38.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 11 May 2025 23:38:22 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com, 
+ alim.akhtar@samsung.com, mturquette@baylibre.com, sboyd@kernel.org, 
+ sunyeal.hong@samsung.com, Pritam Manohar Sutar <pritam.sutar@samsung.com>
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ rosa.pila@samsung.com, dev.tailor@samsung.com, faraz.ata@samsung.com, 
+ stable <stable@kernel.org>
+In-Reply-To: <20250506080154.3995512-1-pritam.sutar@samsung.com>
+References: <CGME20250506075413epcas5p2ce0db6da9f359e9c3bb16b03c1a5eb4f@epcas5p2.samsung.com>
+ <20250506080154.3995512-1-pritam.sutar@samsung.com>
+Subject: Re: [PATCH v2] clk: samsung: correct clock summary for hsi1 block
+Message-Id: <174703190180.30824.7869810440516124016.b4-ty@linaro.org>
+Date: Mon, 12 May 2025 08:38:21 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: linux-next: duplicate patch in the dt-krzk tree
-To: Stephen Rothwell <sfr@canb.auug.org.au>, Arnd Bergmann <arnd@arndb.de>
-Cc: ARM <linux-arm-kernel@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Linux Next Mailing List <linux-next@vger.kernel.org>
-References: <20250512145955.617fd207@canb.auug.org.au>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250512145955.617fd207@canb.auug.org.au>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_233423_590224_5C520FD2 
-X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-CacheID: sfid-20250511_233825_539316_AC8EAB47 
+X-CRM114-Status: UNSURE (   6.98  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,21 +105,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/05/2025 06:59, Stephen Rothwell wrote:
-> Hi all,
-> 
-> The following commit is also in the arm-soc tree as a different commit
-> (but the same patch):
-> 
->   b112d9ffaa65 ("ARM: dts: vt8500: use correct ohci/ehci node names")
-> 
-> This is commit
-> 
->   7dc891191e64 ("ARM: dts: vt8500: use correct ohci/ehci node names")
 
-I will drop mine, but I am surprised that this patch appeared in
-arm-soc. soc@ was not Cced on the patchset.
+On Tue, 06 May 2025 13:31:54 +0530, Pritam Manohar Sutar wrote:
+> clk_summary shows wrong value for "mout_hsi1_usbdrd_user".
+> It shows 400Mhz instead of 40Mhz as below.
+> 
+> dout_shared2_div4           1 1 0 400000000 0 0 50000 Y ...
+>   mout_hsi1_usbdrd_user     0 0 0 400000000 0 0 50000 Y ...
+>     dout_clkcmu_hsi1_usbdrd 0 0 0 40000000  0 0 50000 Y ...
+> 
+> [...]
+
+Applied, thanks!
+
+[1/1] clk: samsung: correct clock summary for hsi1 block
+      https://git.kernel.org/krzk/linux/c/81214185e7e1fc6dfc8661a574c457accaf9a5a4
 
 Best regards,
-Krzysztof
+-- 
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
 
