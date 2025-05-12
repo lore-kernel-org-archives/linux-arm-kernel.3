@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 697C2C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:38:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1141BC3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:40:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=I7U/7TFFzbKxLXCoN9cY2hp8Xdg5JA+fD81iTA/+0bg=; b=f0f3v7Wa7ihFHI
-	UKzHtC5PQpdMQJqVF/mNdAxHxDgS+5d4R/enzzpFR86Q0k0Xoy4XF+K5SJUMrimeNJwwZB4VkEgM/
-	OaGmjzkWkNJi9Sa4Hglcoa2OwKLVXeHyiH2dgRzhpJmE0jW6WyWsk6wTlKHHwPAKqtgJKoM44Dil2
-	yRo+hrAkj63gu6SdPyT7QjDlFsTdSjoqE8+7eBP5PHvJSYxJy93s+7z/g4QLyr7AO6ydIbbwJ0RXV
-	H9nRWp3mSgXDcw1VqO/wB80KkDNrP++OVR5kJF8wVOL0bAdsYJmZfWj6pqOVepU18VQFL7WMx++KH
-	wpGsQeVPyP9S7mg64ybw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=77V/U3O+cTLaLaQfV/pKGfAWbRyDYwBVlD6FPlR2wRI=; b=Y/jgdMaYV6hoNUQfmzF1YsJjMa
+	vsFNKFMje5fhXKAh4qPJqqx+JZI0MlMpt1SS/5xv2q62Y3mBdB9wwsGUjCXIbkUpRMyNmQyTy+Y4Y
+	b5TGXQXNWGl/wXjgBEdvoeu/3L6kesg6yVqlvmp+r1qJWZMbOe3hwBcuWqrqJlNiyXyqH8WOLo0WI
+	i6NI0Biyn7fHSpP1K4q99NLRceyzLtnaeGe5pJzPyTbW1beUdhhIISrAtGL+ckAmyx7Efl8M1cJNS
+	zPl3msCOqLRFoVdCSaDGHBhyIwymjR7gckKTjEztgyvg+VjrQTeRRFPaM8w9XuxwqhqBAPqHHW1ID
+	tpg6D6+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEUIi-00000009lFG-3Yy8;
-	Mon, 12 May 2025 14:38:40 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1uEUKo-00000009lVr-32zI;
+	Mon, 12 May 2025 14:40:50 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEU3d-00000009hmv-1cpz
+	id 1uEU3e-00000009hmy-119f
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 14:23:06 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-ad21cc2594eso481137066b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 07:23:04 -0700 (PDT)
+	Mon, 12 May 2025 14:23:07 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ad2440926adso275642966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 07:23:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747059783; x=1747664583; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=I7U/7TFFzbKxLXCoN9cY2hp8Xdg5JA+fD81iTA/+0bg=;
-        b=I9OR9C5Vll0L0YHAiYQAKWGnQKtaTjQHYPdkpiLwGEWpIxoxZu8uoFPwpQtEysmaOg
-         qeoxqh27gT1tdPhdobdie85x8MmyEC6BejV0Cxhs6MO0KhM4NEoVZkfK2I7/YWNTaDkY
-         LiT1PHA0OzJMWUbGaD7BubNz88+FPEKH3HDffLhbGz25C22quyszn7AoIe9fZSfBFy5P
-         A4698NdqZH8FglQxVczOcPRnhZRP2Y17sswBvM7bAmy+hu9S5qMVcP0exM1UQ+zv4qxR
-         3lOgM8fF348e6Kd5Y9d0LhkXfldyVJRQZKrmDBHTSzUbSsRyQmx4ypExY3wb1QyneDwH
-         uudA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747059783; x=1747664583;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20230601; t=1747059784; x=1747664584; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=I7U/7TFFzbKxLXCoN9cY2hp8Xdg5JA+fD81iTA/+0bg=;
-        b=s2b+bplZpsnkk8u8CKyLaZALA3Ase67Ce5M9OmTl9gR2tMrzoZUqJbdH30qjB/hqem
-         G5/hnOopmpgAuqsnikoJ10DS4igf/ZyfjfE4qNBjXXwD2kPp5sWrgk170ebgdTM6MRdY
-         jzziTVUbv82vYtjWoBWZY0hup0GT9QCL4//oAy+LZcaw+hxDXHWfxHy/0nykNw2OQiim
-         HWL9nl+Cny2NYOQ15K2taGyP5viCdDqezVcaovW4JEcDLkWa70DkWzcY15aRbE+00GFB
-         Mk9nrY5PJz1fBoP5zTdvRpEdF+uRz0TvOuz9qIVowmXoC9fETwMYEPQ1RO4xsAWi5tw4
-         XqoA==
-X-Gm-Message-State: AOJu0YwbA4e6cdU6GTAswa40EC/QHRgPhgqb6VR729AgCXETlF/nZIWk
-	NHEQBX0Dzd72OsidLsITZQsUNqeGmsLA47p1vsxbXcBgJ4BXxQ7YqwzSAw==
-X-Gm-Gg: ASbGnctrHeksU+Nw78vRHUIqcOD7UFLlQi5cE2K5ezaU8ZuI1D+HGozZ04+tr+qOEFm
-	7L9CTHyH42aBU7GprABcru39Yle4HXkdpT0CUHQISY6AHu6MGNnuE4fa9Oj2N+whOLtXi75kUy1
-	ZrmOBFYkwac5kQ9FL06Out/luFFdzF/h0gULw8AEYUvjwgLDxn4XCx3/IW3GQMFJjJvLAzkbYFR
-	TdM/B4uZ15pD3ehELuy5N8An736A97CMnuduEvAXpbD4BE4Ki7WFFqJn9FcFVESiBe5NY48lQxG
-	ZHlOy45XxaQFIHDDmgovNtbxZr7tHANVwQU9oOhhCZd5OsQF0dzXKb6TJ+EwG7+NcjQ7ES7/Aok
-	1FS5d
-X-Google-Smtp-Source: AGHT+IH5BZ0mIdqP6PVPdn96FQfatjAkMNwjVngyRgQXInUcRxpFy4UFr4q/qRntr7dbIFUCIXMbWw==
-X-Received: by 2002:a17:907:c243:b0:ad2:5198:d710 with SMTP id a640c23a62f3a-ad25198d7aemr440934166b.20.1747059783141;
-        Mon, 12 May 2025 07:23:03 -0700 (PDT)
+        bh=77V/U3O+cTLaLaQfV/pKGfAWbRyDYwBVlD6FPlR2wRI=;
+        b=KZNo6zKhmYKwRPeCECpv0du/S9bSRpTyImQppMqYNg47zWFOwa92n3NvKPH/Ty1H2S
+         PJQjiTE8cjKL1cvjmfegs5ZAysNnatIhiD2maue+qc5WwgXqRHkJAiL+MasE8BDeW3GB
+         eq5T+HTGPtkrZ5bO4jNBgSzVelpFSQRtHeWR5GiTvOd9OsYslEnwcg8LSCuRjQsFPxay
+         D3XDmNPhjotUP3u74dY2K+RjwwqG4ZQFwjymXRmZGCvN+pbHEoHT+HmsFGX7GtcLlCDV
+         rL1YTPJGWGy1hKjwJRFCSo3Q4f7rbjStZg3O5HXauH1Gqn+6+uAnRpurTgncdiUeF7ic
+         wkvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747059784; x=1747664584;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=77V/U3O+cTLaLaQfV/pKGfAWbRyDYwBVlD6FPlR2wRI=;
+        b=GAXA1I/JrZjSJsk1nd5Zc/VpElCLcj8pheR5FXyEu5RIpTSbF9fg0GDQu5pc1pfVBO
+         faZeN5eX8aBkKRVmelY3Mhs5lODAX78Z3ykqd1w5PhZPgeYgq+5EZbV+uSJ3B31OJ4a/
+         1CD5I1vHeAp6X2pLymoHRJg8dMqSV+L5J/A9qY9GAccWJ9ND+yM7zZEh+RJ4H8a8ypka
+         OM7//f1vKTBZif7AaiyR/ZUHBJq8sPliUdafbHnQ+161vh/MHziG1ySwGVt9l45aHY/i
+         up3gwbilhMtahASmBa08rYL6ZGGxI70N+Pg7a3TcnD/XtHqd/5Ye42z5Dmqoe+0gZNwo
+         wilQ==
+X-Gm-Message-State: AOJu0Yzh3+cTMcbyLjvlXldJTu10k1y6s9wS6ZL93Ho8wKkbKm4rXP9y
+	fLnZ0NK7sA659Rv8widUBskFyLN+WqXd8D8I1Q2251v6kxqyuflFo0HwTQ==
+X-Gm-Gg: ASbGncsN3LYdqq00Li/qaNSHyN868RDOWSWGUFtqUiFN0SbZ8UZANjsX5DYA+0HCVKP
+	ISEobsik6rYet7jF7oC6oPWEwWJo6IJfENeNqvyYDQtfD6hJ4ETjb8OptwN984sMbBVJdqugydF
+	QwcYGxqffQXaK2+An1lrkEMiJCfBp+AgD9jbXw3DPtz5PKE2OaAnh2ck4/s1W5PvQu8NRBNrnaO
+	9Ez1ex5dqT4KSq49NKGByYQglZQTNruuR8j/dwTQr2WyA6X3k4jOvZD0YY2jyn1eF2aDkXPVuOS
+	Qum+yv3Gx7RUXGNnxKYKEs1rHukBGYJ8hE0QdWXt6MejqTeIYPAcMRVqJjcfBVgemBb4j4ay4v6
+	yevrM
+X-Google-Smtp-Source: AGHT+IGkK/w/ZuLuBloF3PZd71dqrbQ/RypwZRAUlWpdxXu8MgumDQHdx4Av9Rps6vM9mbswRaiYOg==
+X-Received: by 2002:a17:907:7208:b0:ad4:d0ba:ef93 with SMTP id a640c23a62f3a-ad4d0baefd5mr32106266b.11.1747059784452;
+        Mon, 12 May 2025 07:23:04 -0700 (PDT)
 Received: from [192.168.0.253] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
-        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-ad2197be0c5sm619626866b.153.2025.05.12.07.23.01
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-ad2197be0c5sm619626866b.153.2025.05.12.07.23.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 May 2025 07:23:02 -0700 (PDT)
+        Mon, 12 May 2025 07:23:03 -0700 (PDT)
 From: Gabor Juhos <j4g8y7@gmail.com>
-Subject: [PATCH 0/7] pinctrl: armada-37xx: a couple of small fixes
-Date: Mon, 12 May 2025 16:22:36 +0200
-Message-Id: <20250512-pinctrl-a37xx-fixes-v1-0-d470fb1116a5@gmail.com>
+Date: Mon, 12 May 2025 16:22:37 +0200
+Subject: [PATCH 1/7] pinctrl: armada-37xx: use correct OUTPUT_VAL register
+ for GPIOs > 31
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIACwEImgC/x3LTQqAIBBA4avIrBtIS/q5SrRQm2ogLDRCkO6et
- Px4vAyRAlOEUWQI9HDk0xfISoDbjd8IeSkGVStda6nwYu/ucKBpupRw5UQRh3411rXaWSmhnFe
- gP5Rxmt/3A8vr7AxlAAAA
-X-Change-ID: 20250512-pinctrl-a37xx-fixes-98fabc45cb11
+Message-Id: <20250512-pinctrl-a37xx-fixes-v1-1-d470fb1116a5@gmail.com>
+References: <20250512-pinctrl-a37xx-fixes-v1-0-d470fb1116a5@gmail.com>
+In-Reply-To: <20250512-pinctrl-a37xx-fixes-v1-0-d470fb1116a5@gmail.com>
 To: Andrew Lunn <andrew@lunn.ch>, 
  Gregory Clement <gregory.clement@bootlin.com>, 
  Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
@@ -88,9 +88,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
  stable@vger.kernel.org, Imre Kaloz <kaloz@openwrt.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_072305_428386_2AB47A6B 
-X-CRM114-Status: UNSURE (   8.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250512_072306_294769_94D010FF 
+X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,28 +104,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The series contains several small patches to fix various
-issues in the pinctrl driver for Armada 3700.
+The controller has two consecutive OUTPUT_VAL registers and both
+holds output value for 32 GPIOs. Due to a missing adjustment, the
+current code always uses the first register while setting the
+output value whereas it should use the second one for GPIOs > 31.
 
+Add the missing armada_37xx_update_reg() call to adjust the register
+according to the 'offset' parameter of the function to fix the issue.
+
+Cc: stable@vger.kernel.org
+Fixes: 6702abb3bf23 ("pinctrl: armada-37xx: Fix direction_output() callback behavior")
 Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
 ---
-Gabor Juhos (7):
-      pinctrl: armada-37xx: use correct OUTPUT_VAL register for GPIOs > 31
-      pinctrl: armada-37xx: propagate error from armada_37xx_gpio_direction_output()
-      pinctrl: armada-37xx: set GPIO output value before setting direction
-      pinctrl: armada-37xx: propagate error from armada_37xx_gpio_get()
-      pinctrl: armada-37xx: propagate error from armada_37xx_pmx_gpio_set_direction()
-      pinctrl: armada-37xx: propagate error from armada_37xx_gpio_get_direction()
-      pinctrl: armada-37xx: propagate error from armada_37xx_pmx_set_by_name()
+ drivers/pinctrl/mvebu/pinctrl-armada-37xx.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
- drivers/pinctrl/mvebu/pinctrl-armada-37xx.c | 35 ++++++++++++++++-------------
- 1 file changed, 20 insertions(+), 15 deletions(-)
----
-base-commit: 82f2b0b97b36ee3fcddf0f0780a9a0825d52fec3
-change-id: 20250512-pinctrl-a37xx-fixes-98fabc45cb11
+diff --git a/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c b/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
+index 335744ac831057576473dd62c5533168b243a656..43034d29292687e875136aafa530b62479dc55ec 100644
+--- a/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
++++ b/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
+@@ -417,6 +417,7 @@ static int armada_37xx_gpio_direction_output(struct gpio_chip *chip,
+ 					     unsigned int offset, int value)
+ {
+ 	struct armada_37xx_pinctrl *info = gpiochip_get_data(chip);
++	unsigned int val_offset = offset;
+ 	unsigned int reg = OUTPUT_EN;
+ 	unsigned int mask, val, ret;
+ 
+@@ -429,6 +430,8 @@ static int armada_37xx_gpio_direction_output(struct gpio_chip *chip,
+ 		return ret;
+ 
+ 	reg = OUTPUT_VAL;
++	armada_37xx_update_reg(&reg, &val_offset);
++
+ 	val = value ? mask : 0;
+ 	regmap_update_bits(info->regmap, reg, mask, val);
+ 
 
-Best regards,
 -- 
-Gabor Juhos <j4g8y7@gmail.com>
+2.49.0
 
 
