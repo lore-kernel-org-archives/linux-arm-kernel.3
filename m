@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB62C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:20:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98BE7C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AASHpsRHnOZG9zKaO4b8aEY6Wtqtt0rsAjyKr+LKDW0=; b=SqL9jQPQq+EeLzO/hUZrI0VWhg
-	HQBZHtrV2SfhAMTQ7Fb4YRE986DqKZeAc8SlfE3HbXqe/g9tX8fpGMtmVMJyFwrAqU/8E1Chc7A6p
-	6fdiRQN1JqDW95/uzU6HG/eUU9RibH79lDslGrP1hBAPJCEOJ80fqWunPaoZnnRdp/q51g7ot6AWP
-	oaSOkVpFBoyTUyacB8qYa4C2hasgQRvMqq/Afr61x8/33bD/yuHIBXzaWQwk3p0r2IPMpmmyKX45+
-	0GJCWVOh0HVhkPUmnDIwtCI4hM+uxmEDt39S9Xrd43lh5Y9ZPhKjxI2MPX9XhlXN4fj9vkYv+hwuv
-	yDTe83ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r+5toUI4y0KMw1CziMpifeSN6gk9PCJMVtW+CLhVslE=; b=SBt+5RY9etRL3zwvolXzKvVMeP
+	F1sLod1H3b1gjnItPZL9M0e7sc9HACdpfxLbcuqxkwXi0ppncniFQw1xJVkAPqKjbgPLcAC8K8jG7
+	g63DgjavpJTf7IgCyGpLS2kocWwOaTEz74jKFKR4XzNl10ySDLOv1+P+hAiuJWxieEl8df+YtKEMA
+	GZZweb7TDK49Nl5pe2LgFRkPXAF5zp9s8/RMuTX9xihC1Aw4iE1QWwhx1yOLPJrOXLhdDNHH40Cz6
+	hUSVIDAAwS3XLOJnC4msqwUcYP476B8md4wsbKx42XJC3C6X2etwYTNOpFtY8Ev4DNeeZwRMxaHRj
+	tFXEYP8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEU0Y-00000009hM4-20hn;
-	Mon, 12 May 2025 14:19:54 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uETHw-00000009ZRV-0zl2;
-	Mon, 12 May 2025 13:33:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 04F855C6550;
-	Mon, 12 May 2025 13:31:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A5B9C4CEE7;
-	Mon, 12 May 2025 13:33:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747056827;
-	bh=OSuhz6e6dWLHgaJVphGkxlbYoGHl5jGwOBDIywZ3Y+0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sTxn49JHIXPhIbCuuiv+9AmgFbzDFHaISnc8qvXkrAFUEKgumncOY6oMUsqAGbaYw
-	 7cZtl41uGkvMgncv8oLMjGidAWp2Ldjkj2nsM9OHDxTdFhxjXzq6G8rrqE7+1iSa36
-	 NFl23db7pTc/PBBGp+YylsBcHHiv7RC6TlsTm1m2HHz7goXJnD/MevXpx2nhQ4uFgb
-	 bzQn+T+60WJYVEiawF4RFFKz9t7zA0sSelsQ3AZ1UMsnz/JH7EhZe+1iOGjjgo51Zn
-	 Nu361r8xEoe52fIPJfRpkWjfCARz7khX954eeyHpkWrKFA5dB6rxnWf8KwPQQkHu4q
-	 kgnWRv2Bt7Nrw==
-Date: Mon, 12 May 2025 14:33:42 +0100
-From: Simon Horman <horms@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v2 2/2] net: airoha: Add the capability to
- allocate hw buffers in SRAM
-Message-ID: <20250512133342.GB3339421@horms.kernel.org>
-References: <20250509-airopha-desc-sram-v2-0-9dc3d8076dfb@kernel.org>
- <20250509-airopha-desc-sram-v2-2-9dc3d8076dfb@kernel.org>
+	id 1uEU2f-00000009hdF-2Xyt;
+	Mon, 12 May 2025 14:22:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uETJF-00000009Zhb-1zWZ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 May 2025 13:35:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 814DF150C;
+	Mon, 12 May 2025 06:34:56 -0700 (PDT)
+Received: from [10.57.90.222] (unknown [10.57.90.222])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E57BB3F5A1;
+	Mon, 12 May 2025 06:35:02 -0700 (PDT)
+Message-ID: <99079d56-428b-4bc4-b20a-dc10032f2a2f@arm.com>
+Date: Mon, 12 May 2025 14:35:01 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250509-airopha-desc-sram-v2-2-9dc3d8076dfb@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH v6 1/3] arm64: Add BBM Level 2 cpu feature
+Content-Language: en-GB
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
+ yang@os.amperecomputing.com, corbet@lwn.net, jean-philippe@linaro.org,
+ robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org,
+ paulmck@kernel.org, mark.rutland@arm.com, joey.gouly@arm.com,
+ maz@kernel.org, james.morse@arm.com, broonie@kernel.org,
+ oliver.upton@linux.dev, baohua@kernel.org, david@redhat.com,
+ ioworker0@gmail.com, jgg@ziepe.ca, nicolinc@nvidia.com, mshavit@google.com,
+ jsnitsel@redhat.com, smostafa@google.com, kevin.tian@intel.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
+References: <20250428153514.55772-2-miko.lenczewski@arm.com>
+ <20250428153514.55772-4-miko.lenczewski@arm.com>
+ <20250506142508.GB1197@willie-the-truck>
+ <78fec33d-fe66-4352-be11-900f456c9af3@arm.com>
+ <20250509134904.GA5707@willie-the-truck> <aB4nqtMJuvvp7Vwm@arm.com>
+ <015746d7-ca46-4978-a441-09fba781fdd4@arm.com>
+ <4709ff5a-f89c-426e-ae95-f8356808f4f5@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <4709ff5a-f89c-426e-ae95-f8356808f4f5@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_063348_356875_7F1DD3DF 
-X-CRM114-Status: GOOD (  20.86  )
+X-CRM114-CacheID: sfid-20250512_063509_607783_4A7394D5 
+X-CRM114-Status: GOOD (  28.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,78 +79,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 09, 2025 at 04:51:34PM +0200, Lorenzo Bianconi wrote:
-> In order to improve packet processing and packet forwarding
-> performances, EN7581 SoC supports allocating buffers for hw forwarding
-> queues in SRAM instead of DRAM if available on the system.
-> Rely on SRAM for buffers allocation if available on the system and use
-> DRAM as fallback.
+On 12/05/2025 14:24, Suzuki K Poulose wrote:
+> On 12/05/2025 14:07, Ryan Roberts wrote:
+>> On 09/05/2025 17:04, Catalin Marinas wrote:
+>>> On Fri, May 09, 2025 at 02:49:05PM +0100, Will Deacon wrote:
+>>>> On Tue, May 06, 2025 at 03:52:59PM +0100, Ryan Roberts wrote:
+>>>>> On 06/05/2025 15:25, Will Deacon wrote:
+>>>>>> This penalises large homogeneous systems and it feels unnecessary given
+>>>>>> that we have the ability to check this per-CPU. Can you use
+>>>>>> ARM64_CPUCAP_BOOT_CPU_FEATURE instead of ARM64_CPUCAP_SYSTEM_FEATURE
+>>>>>> to solve this?
+>>>>>
+>>>>> We are trying to solve for the case where the boot CPU has BBML2 but a
+>>>>> secondary
+>>>>> CPU doesn't. (e.g. hetrogeneous system where boot CPU is big and secondary is
+>>>>> little and does not advertise the feature. I can't remember if we proved there
+>>>>> are real systems with this config - I have vague recollection that we did
+>>>>> but my
+>>>>> memory is poor...).
+>>>>>
+>>>>> My understanding is that for ARM64_CPUCAP_BOOT_CPU_FEATURE, "If the boot CPU
+>>>>> has enabled this feature already, then every late CPU must have it". So that
+>>>>> would exclude any secondary CPUs without BBML2 from coming online?
+>>>>
+>>>> Damn, yes, you're right. However, it still feels horribly hacky to iterate
+>>>> over the online CPUs in has_bbml2_noabort() -- the cpufeature framework
+>>>> has the ability to query features locally and we should be able to use
+>>>> that. We're going to want that should the architecture eventually decide
+>>>> on something like BBML3 for this.
+>>>>
+>>>> What we have with BBML2_NOABORT seems similar to an hwcap in that we only
+>>>> support the capability if all CPUs have it (rejecting late CPUs without it
+>>>> in that case) but we can live without it if not all of the early CPUs
+>>>> have it. Unlikely hwcaps, though, we shouldn't be advertising this to
+>>>> userspace and we can't derive the capability solely from the sanitised
+>>>> system registers.
+>>>>
+>>>> I wonder if we could treat it like an erratum in some way instead? That
+>>>> is, invert things so that CPUs which _don't_ have BBML2_NOABORT are
+>>>> considered to have a "BBM_CONFLICT_ABORT" erratum (which we obviously
+>>>> wouldn't shout about). Then we should be able to say:
+>>>>
+>>>>    - If any of the early CPUs don't have BBML2_NOABORT, then the erratum
+>>>>      would be enabled and we wouln't elide BBM.
+>>>>
+>>>>    - If a late CPU doesn't have BBML2_NOABORT then it can't come online
+>>>>      if the erratum isn't already enabled.
+>>>>
+>>>> Does that work? If not, then perhaps the cpufeature/cpuerrata code needs
+>>>> some surgery for this.
+>>>
+>>> Ah, I should have read this thread in order. I think we can treat this
+>>> as BBML2_NOABORT available as default based on ID regs and use the
+>>> allow/deny-list as an erratum.
+>>>
+>>
+>> Just to make sure I've understood all this, I think what you are both saying is
+>> we can create a single capability called ARM64_HAS_NO_BBML2_NOABORT of type
+>> ARM64_CPUCAP_LOCAL_CPU_ERRATUM. Each CPU will then check it has BBML2 and is in
+>> the MIDR allow list; If any of those conditions are not met, the CPU is
+>> considered to have ARM64_HAS_NO_BBML2_NOABORT.
 > 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-
-Reviewed-by: Simon Horman <horms@kernel.org>
-
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.c | 57 +++++++++++++++++++++++++++-----
->  1 file changed, 48 insertions(+), 9 deletions(-)
+> I guess we need two caps.
 > 
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+> 1. SYSTEM cap -> ARM64_HAS_BBML2. Based on the ID registers
+> 2. An erratum -> ARM64_BBML2_ABORTS. Based on BBLM2==1 && !in_midr_list()
 
-...
+I don't think we *need* two caps; I was suggesting to consider both of these
+conditions for the single cap. You are suggesting to separate them. But I think
+both approaches give the same result?
 
-> @@ -1088,12 +1091,45 @@ static int airoha_qdma_init_hfwd_queues(struct airoha_qdma *qdma)
->  
->  	airoha_qdma_wr(qdma, REG_FWD_DSCP_BASE, dma_addr);
->  
-> -	size = AIROHA_MAX_PACKET_SIZE * HW_DSCP_NUM;
-> -	qdma->hfwd.q = dmam_alloc_coherent(eth->dev, size, &dma_addr,
-> -					   GFP_KERNEL);
-> -	if (!qdma->hfwd.q)
-> +	name = devm_kasprintf(eth->dev, GFP_KERNEL, "qdma%d-buf", id);
-> +	if (!name)
->  		return -ENOMEM;
->  
-> +	index = of_property_match_string(eth->dev->of_node,
-> +					 "memory-region-names", name);
-> +	if (index >= 0) { /* buffers in sram */
-> +		struct reserved_mem *rmem;
-> +		struct device_node *np;
-> +		void *q;
-> +
-> +		np = of_parse_phandle(eth->dev->of_node, "memory-region",
-> +				      index);
-> +		if (!np)
-> +			return -ENODEV;
-> +
-> +		rmem = of_reserved_mem_lookup(np);
-> +		of_node_put(np);
-> +
-> +		/* SRAM is actual memory and supports transparent access just
-> +		 * like DRAM. Hence we don't require __iomem being set and
-> +		 * we don't need to use accessor routines to read from or write
-> +		 * to SRAM.
-> +		 */
+I'm easy either way, but keen to understand why 2 caps are preferred?
 
-Thanks for this comment. IMHO It is really useful.
+Perhaps for my version it would be better to refer to it as
+ARM64_CPUCAP_BOOT_RESTRICTED_CPU_LOCAL_FEATURE instead of
+ARM64_CPUCAP_LOCAL_CPU_ERRATUM (they both have the exact same semantics under
+the hood AFAICT).
 
-> +		q = (void __force *)devm_ioremap(eth->dev, rmem->base,
-> +						 rmem->size);
-> +		if (!q)
-> +			return -ENOMEM;
-> +
-> +		qdma->hfwd.q = q;
-> +		dma_addr = rmem->base;
-> +	} else {
-> +		size = AIROHA_MAX_PACKET_SIZE * HW_DSCP_NUM;
-> +		qdma->hfwd.q = dmam_alloc_coherent(eth->dev, size, &dma_addr,
-> +						   GFP_KERNEL);
-> +		if (!qdma->hfwd.q)
-> +			return -ENOMEM;
-> +	}
-> +
->  	airoha_qdma_wr(qdma, REG_FWD_BUF_BASE, dma_addr);
->  
->  	airoha_qdma_rmw(qdma, REG_HW_FWD_DSCP_CFG,
+Thanks,
+Ryan
 
-...
+> 
+> 
+> And then:
+> 
+> 
+>>
+>> Then we have this helper:
+>>
+>> static inline bool system_supports_bbml2_noabort(void)
+>> {
+>>     return system_capabilities_finalized() &&
+>         alternative_has_cap_unlikely(ARM64_HAS_BBML2) &&
+>         !alternative_has_cap_unlikely(!ARM64_HAS_BBML2_ABORTS)
+> 
+> Without (1), we may enable BBML2 on a (system with) CPU that doesn't
+> have BBML2 feature.
+> 
+> And (1) can prevent any non-BBML2 capable CPUs from booting or (2) can prevent
+> anything that aborts with BBML2.
+> 
+> 
+> Suzuki
+> 
+> 
+>>            !alternative_has_cap_unlikely(ARM64_HAS_NO_BBML2_NOABORT);
+> 
+> 
+>> }
+>>
+>> system_capabilities_finalized() is there to ensure an early call to this helper
+>> returns false (i.e. the safe value before we have evaluated on all CPUs).
+>> Because ARM64_HAS_NO_BBML2_NOABORT is inverted it would otherwise return true
+>> prior to finalization.
+>>
+>> I don't believe we need any second (SYSTEM or BOOT) feature. This is sufficient
+>> on its own?
+>>
+>> Thanks,
+>> Ryan
+>>
+> 
+
 
