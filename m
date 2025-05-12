@@ -4,91 +4,212 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 078ADC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 10:25:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 528E2C3ABD4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 10:27:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ms1fXKBupaGUiTVwfpWkhQXNp7DZ3MoY67STQUr4Cz0=; b=m6AuI8oCLtPYDeTAE93zluHaqV
-	i4sF/8fYNH9voYYSQ1nb4yKt1dgnuQ12jJqCCqPONh6D9oWcc3ZQVKJXdh8hgeAYD6dRM7PVSgllK
-	YSE5h2xFWN+igm0oFtqJ+PyZlpNeydV3KOeXMXGs8X61mKYBN/riTvvU6rGgaPk3KXvEsryU+pwIq
-	ZFuoURdmgMN5Oo7wTIpb8tcdtg1B77U8SMGQ0C09hD2Ad3dd8vuV8zgYMZiaycI/nIXvBf3oUBzvT
-	x3L8abw11NEhp9CgWBub1N7p6L00KEVlgMUsiDhnW0/k2wIHcQQHgfkllxYQQ3WlrMeSbjJ61fpw9
-	Dp569qxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GsjW0y7Zi9jkrbpRnT9lN5egQzkonS6NvDyS/31crk4=; b=tsHH7z/XIAO/H6ybEto/1QwHZu
+	xxEYkp/svSIJGnVYARwJFx5T2IrHGF6L4g4VO7uvpRgXZGNySVAAWgrzKrG55Dbi/CbDku5zH9bRk
+	2eYyma1QqEsgPA57lBcIshr/q4AjfURd1VqskFG6Ud+wfoJoGFsR4mfRiFTbf6qGtLmWIQeexeetC
+	YmL/eEAKT6+GFbymzEtdcvfV/X/nPfX2/VAYNbgreg6fu8hzJhiZwrQjHTj555QkZp8tihhTP5TRF
+	G+5dQA50uHZXM460KIswJO/bggA++Uy01K/KDENB8omcOR3eRciW/ACeBE5J1FqnmUR48EQ3V4xT0
+	zYzoFEEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEQLQ-000000095kK-1dXL;
-	Mon, 12 May 2025 10:25:12 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uEQNR-000000095wa-1dYz;
+	Mon, 12 May 2025 10:27:17 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEPlJ-00000008zMJ-30mW
+	id 1uEPnt-00000008zzE-1jKa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 09:47:55 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54C89UDZ025832;
-	Mon, 12 May 2025 11:47:42 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	Ms1fXKBupaGUiTVwfpWkhQXNp7DZ3MoY67STQUr4Cz0=; b=Ch9GgUxcId6fh8Xc
-	XJy6kWTfTo6e0vHXJT3NUg9ODni8+jIS/QH2/6yWN1W6Qz2TtyZoc9cbKlsH5smy
-	60vb5l9FLxVIubuvqaQTSitfCj0DuLrd4iP6XLxERxahAudIurp6crhLigYk+wIB
-	nJcv3O8PpXRFJXN32k7CFD3ydXKc9HA9U2mNb5sUg91aFNzga+aJJ/GBRr8i1wu6
-	82tte6GhGgbrmcUytT1rLg9rSJIBxQXrRYdzoSf/41wN4tMVD0dw4WlBM5xU75Cp
-	lmZPjqm+dWSvSe6DofUy0xWDq/FGsGS+Epx2zeBOaTroAEir/DhBBafe/c9pJeKc
-	9u0lXQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46hv7kphdc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 12 May 2025 11:47:41 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B8A5740081;
-	Mon, 12 May 2025 11:46:31 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 92923ABE2DA;
-	Mon, 12 May 2025 11:45:18 +0200 (CEST)
-Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 12 May
- 2025 11:45:17 +0200
-Message-ID: <66fb604a-ce90-41c4-9ce9-26fa1d81e0d2@foss.st.com>
-Date: Mon, 12 May 2025 11:45:17 +0200
-MIME-Version: 1.0
+	Mon, 12 May 2025 09:50:34 +0000
+Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54C7g0sW006674;
+	Mon, 12 May 2025 09:50:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2025-04-25; bh=GsjW0y7Zi9jkrbpRnT9lN5egQzkonS6NvDyS/31crk4=; b=
+	f1dwzUd6pLgfG3eDqTyiUvNqIzOLqCJt3xr8NXFsbgw5MmdFSwBB1gkhnyZhQh8c
+	X6yUrJV9Mmj9PcW9m7wCe33SJrt+4VFpnejXLFelMNPCXIg8fUX6Y1KHrqLclsR0
+	Z/vYuwIwEmNaXzBbL0ULPVETQ7uvTnhrxDehwx7ZBmMNN20zSRTXtD3LF4gEYNSG
+	DwRHApsLTlShvfgX78oKXzwSr0mnXEA3wefDSBOlXRQs1wGqr+54MwqXNbpe5M2b
+	toaiqwEdRSiZNGRMcxAKfKvT+lSbib6BMWErjuS6Gxk6chmQucicDuF68UGBwlwp
+	Z4+rBy8BQUzD4C+fC7AYZg==
+Received: from iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta01.appoci.oracle.com [130.35.100.223])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 46j16625g8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 12 May 2025 09:50:12 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 54C8hNQq002646;
+	Mon, 12 May 2025 09:50:11 GMT
+Received: from sj2pr03cu002.outbound.protection.outlook.com (mail-westusazlp17013078.outbound.protection.outlook.com [40.93.1.78])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 46hw8dp0vm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 12 May 2025 09:50:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KJMJnnMkNbnlUbinDnPKlt85G/sHKE3jdA9gBNQ+cV2jVEuYaHoalmS4lMvJgmBjgeqQ6OedVe3xn70gaTW4QtZXz/UA6bFxb7QdDGvodmWQ4ESOznHgFLFEat++ctCUDc2m48T3QHg0aFmCf1C0cKGJ/+yikn74zf2WjuJ1SDCXjy9UuIEN44ran/34JvXTjZ7CQo5tIGT+uu92zrZ+59w/FGFkdJidkCW1BCnac27oL3fksmc1fiqaVCTD/u+Yu0Mpgg2rigMPa1+W72i2lgFe0DAP3Bs7WbAbLh8ltyCZZHkgKOzDq1b20oT29sh5odwIYg3NnBg/kinkH0pq0A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GsjW0y7Zi9jkrbpRnT9lN5egQzkonS6NvDyS/31crk4=;
+ b=uy2oxAayqdbkRypYNUZfldW9HeSMZUpBzUXap/WcWQ7ZDE2W64WkKJR+UuouREK38q6gVDaD4Ky8/gMeoxPSLXBcQy4Qv2Pm4w0cBvcxxOY4Ml+f2o9Q3u6vFgl4WXW1c2QXLbi4TvvM1PZBZ03CZxie0FphheNh1L63Yv2j7eL+RMwwyIA6FkWHNPRFfThJvlnDrGQ2saOuarW2KKwKCuHPgk59XNpXMZMEf8x6IRVss0he+fs/XeuoA5RbIp0u06qrccD3WrPLdWyBjrS2dJO+MJE4Md8Or0Prn4nzc+CG8ub/P23bJeOn0lj29SIzj6hPTH7A9kT9P9dwkkoxZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GsjW0y7Zi9jkrbpRnT9lN5egQzkonS6NvDyS/31crk4=;
+ b=I1ydP+PofqytDSxjJ1tEUzXJ8pSF9UYaLMzdYpEpaWZoCpUi41ulFkv82GEp5EQKWOshDX6NlAaE0HvRXnV00lg2ob/7V4ew3RNTXBm3dwEAkH46WgoFyeiRbEmMnZxX85M6VIYZsU9aoOilLxu8keXi2Ggpt1UjCsOaoDafIW8=
+Received: from BLAPR10MB5315.namprd10.prod.outlook.com (2603:10b6:208:324::8)
+ by CYYPR10MB7567.namprd10.prod.outlook.com (2603:10b6:930:be::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.29; Mon, 12 May
+ 2025 09:50:08 +0000
+Received: from BLAPR10MB5315.namprd10.prod.outlook.com
+ ([fe80::7056:2e10:874:f3aa]) by BLAPR10MB5315.namprd10.prod.outlook.com
+ ([fe80::7056:2e10:874:f3aa%5]) with mapi id 15.20.8699.024; Mon, 12 May 2025
+ 09:50:08 +0000
+Message-ID: <d93bebbf-2e0d-4de4-a258-c32159dd1541@oracle.com>
+Date: Mon, 12 May 2025 15:19:54 +0530
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 4/4] ARM: dts: stm32: add initial support for
- stm32mp157-ultra-fly-sbc board
-To: Goran Radenovic <goran.radni@gmail.com>, Andrew Lunn <andrew@lunn.ch>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        =?UTF-8?B?QsO2cmdlIFN0csO8bXBmZWw=?=
-	<boerge.struempfel@gmail.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250505115827.29593-1-goran.radni@gmail.com>
- <20250505115827.29593-5-goran.radni@gmail.com>
- <2d0ff289-06f6-4bde-a238-097d22573d4e@lunn.ch>
- <63665c17-da37-4b5b-9c2d-28d5a669680f@gmail.com>
- <3a7ef1bd-2c0e-4637-b0b6-2c0b73388618@lunn.ch>
- <35c08d79-1473-4c1e-b605-627c4ff00a92@gmail.com>
+Subject: Re: [PATCH hyperv-next v2 2/4] drivers: hyperv: VMBus protocol
+ version 6.0
+To: Roman Kisel <romank@linux.microsoft.com>, arnd@arndb.de, bp@alien8.de,
+        catalin.marinas@arm.com, corbet@lwn.net, dave.hansen@linux.intel.com,
+        decui@microsoft.com, haiyangz@microsoft.com, hpa@zytor.com,
+        kys@microsoft.com, mingo@redhat.com, tglx@linutronix.de,
+        wei.liu@kernel.org, will@kernel.org, x86@kernel.org,
+        linux-hyperv@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-arch@vger.kernel.org
+Cc: apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
+        sunilmut@microsoft.com
+References: <20250511230758.160674-1-romank@linux.microsoft.com>
+ <20250511230758.160674-3-romank@linux.microsoft.com>
 Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <35c08d79-1473-4c1e-b605-627c4ff00a92@gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
+From: ALOK TIWARI <alok.a.tiwari@oracle.com>
+In-Reply-To: <20250511230758.160674-3-romank@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TYCP286CA0051.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:2b5::14) To BLAPR10MB5315.namprd10.prod.outlook.com
+ (2603:10b6:208:324::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BLAPR10MB5315:EE_|CYYPR10MB7567:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2828728b-e278-4993-a055-08dd913a6107
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|921020|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Rk12OTltV3FzZ24wUTZjOTJXb1l1c01raVErdzdSNkFRb3R4ekkwWXFuMWdY?=
+ =?utf-8?B?dGhvNUxOMzdMd1BXNkZWMmFudHlEeGJ2elZrU1V4S2U4ZjJaZFRNb0hUWWdY?=
+ =?utf-8?B?NVV2QTcrdURXaUV6NUJmUTEwaEMwOU5RNVR5OEU1U0lYT0NkMy9mbFdNb0Mx?=
+ =?utf-8?B?bUM1UUJuZ1RadjYrUUJPS3BwZk9xOTFUSlZJY2orbFJRZDhjOTViSGM0c1M0?=
+ =?utf-8?B?Wk1VeTRiUWg4T0ZZSmZPQlRlcVJZY3NJSjJ6VnI0RlN1RnVCZlNvc0xPc1hs?=
+ =?utf-8?B?LzdHcktrTjVOSjVhaWl3ZnVpckJwZHVPcHVOanBoOVVNUTlkOHFFSFRHR0Fl?=
+ =?utf-8?B?VUZiUnYrc3JQWWxJbVdhVFE5SGRsaGt4V3ltRXRHWHFSSXZrSVZnS1VyYS9t?=
+ =?utf-8?B?cVpOMld4NmpJMFdXTlJqbEhaMHduZDRmS2t5L0N1VURINjRxU1NXV0lRVDk3?=
+ =?utf-8?B?Mjd2Nk1UMkxFdmNpSVZsem4xVFFTTWZnMUJ2aW9lZFFIZzBsdkhPUm9hY0lk?=
+ =?utf-8?B?QXZtcTVTZjdscldXUkoybVlZQ1Z1ZW1ZTzNUYWIrUlpjRFBoZmg1U0dIemty?=
+ =?utf-8?B?WGE4b1R6T25oUW1LKy9IV3dKQ3dqQ2pKTTVhK2hzdS9LcXkvbmc0ZWlwRy9L?=
+ =?utf-8?B?Y2pYMHllakV5ejFNSXVoMUd5aENiWThIb3lFWVJHWFBkalREV0lseE1Rdita?=
+ =?utf-8?B?WVJhMFN0OVRaUjBGZ2gzbk56U3FaNUhPUUI4S2VxL210RVlEL21OVzlDRjQr?=
+ =?utf-8?B?NjJWVDhiNEdsMExXS0g5VnA0SlZCL0NITGd2SW9Pb3E1cDAxdG8xVm1HKzdw?=
+ =?utf-8?B?TUxtQU0vTlozV2NBRktMLzBIZW1DWEYwUUs2STlaUlNaTS9LR0s4QkxTU3Va?=
+ =?utf-8?B?cndPSWt2ZW8yVlhhdGIyMUthTWJzV0JaYytVa1lwKzMxUFB5NlJUeXZJV3hm?=
+ =?utf-8?B?QThGTVFVMG01K2sydzgreDA2VElyWnNLZnFTdGJoWXBSY1pHeUIrS2RJRUhv?=
+ =?utf-8?B?Nk1MMTByd0JVZ2w2eHRGcHlneWRibm1wby9GRjFZS2lHUjlQODFQd1dWeG5C?=
+ =?utf-8?B?ZWY1cll3OFpKRjgwVFY2MFpncnM2WHAveVZMN3VzVHFVaHJma1FUdmF6WjNr?=
+ =?utf-8?B?MzJ3NHY4QkhpR3BWOWxXK1M1WStpNWtZWFBKaFVFWXhQL09hWVBvYmhDN3o3?=
+ =?utf-8?B?OXE4dFBQNnRwTGpZeDVobEFYWUVNNDB1WTFad3dHRDJyTFc5ZUpiWFo4YXc0?=
+ =?utf-8?B?bnVLSGlmMnlOaGRUNzVBKzV0Um1IN3kyamE5NUtMQXJtY3VJRW9hN3dNQTdk?=
+ =?utf-8?B?UFVHUGNMLzRQUVZXbW5kK083WWc5L2dCdFFiVzRUZGlmejRhaWV6cjhlREZ6?=
+ =?utf-8?B?OVFmT2c3UG5rRkVKTW9mWDk0UHlXUUt1VzB6MGF2K2ZmeFMrQ3RhaWhTak9n?=
+ =?utf-8?B?aDdvemdreVBYUDFES2t1YnpRSzhBaHVVc3JLcVN1YmJjSUdycC9tWGwzcW8x?=
+ =?utf-8?B?d0RCdzJvMSszTTBna0U0bGg2WHozSWFTaEg5S1RiT3FRUFFHa3hLUXplM2lF?=
+ =?utf-8?B?OEJsMWNzcGFZL3dQZGpyU2RxSlBUZk94T2lrWjZML2xieXNkakxjSlF5SSs1?=
+ =?utf-8?B?aytMYkUzenN4a0QyM1c0YXFhRFRxRTByYVM0eWVQWG5samhnZ1o2bWF1YXlT?=
+ =?utf-8?B?aFJ1SnkrU2JYeE5mOCtUaDhzU0U5dmxUb2tYUi9MUkh4b2dNV1dDQSt2czBv?=
+ =?utf-8?B?SThzNTRIWFdaK25qUi92dTdhcW5DWklpdFowdzE2N3Q1RDNBSFdHazdqU1A3?=
+ =?utf-8?B?V2c3WFEvQVgyYVZVUHdjZngzTFhxRlEya2NHd2Z2TGowRDBXcThtbmxxbC9D?=
+ =?utf-8?B?OHRTRURhT1N4ZHY0Um1pd0RCdGYzMlJnTjdZbFFHZmlLYk5qZE91a3l2Q3pZ?=
+ =?utf-8?B?Tm5ZWmZyRFZkTDM1aGFQWG9PL0NoQVhlem5aU2dpckoxZ0RwWTBuaGVHSE1P?=
+ =?utf-8?B?b21kSFduRHF3PT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BLAPR10MB5315.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(921020)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NVo4SXVlNC9BZmczUjF0L0lYT2Z0Vkp4c0lXeWxLM3ptcGtGVVJ0WGw2SERK?=
+ =?utf-8?B?cW1JeFJuZDdML0xUUlBSbWZEZStRM0tTN2lTbVhtOVorcDBDREtqczU1SGs1?=
+ =?utf-8?B?NHJsNW0xZENoZ0tFMWdWYmgxQkQ3YWV2eDV0S0Ixc01GZTBpc1VucTg5ellh?=
+ =?utf-8?B?eXFuMFFzSENEbTEyU0pJa0RyRnJaLzd2dTc5QTlmR1l0VGt1azZVallyQ3VJ?=
+ =?utf-8?B?clZYcjdhb251NVdGbXZuTFBvU1RHc2ZiR1BuMDF0RFo4M0pyYWtOOUZzdERS?=
+ =?utf-8?B?UEwzRFB0OHJDQmV1R3dpY3RKY3RYR1BSQU9wRTdzbVR6Mk40cWpSYXJmYnlo?=
+ =?utf-8?B?VDd4RFZPZGg2RVg2ZnhOU2M2ZjIrZWdXSk5wRHZOMmdRUHRYbHdtYWRyWUdn?=
+ =?utf-8?B?REcwYXBxMjBQTnhMa05wK1pVb2IremFxQ1FnbFFwNEptM09hb0UxSERxSXpj?=
+ =?utf-8?B?clFxSWs3T0FzWDFqMHdNR1hHNWJIR1dpWlBXeVhsb0NRM1VNckU0VEE5Tlgr?=
+ =?utf-8?B?VC83RmdrQWxZdWRLN3pJMHVPa21mMEordzdwWkJWQ3ZSOVhONCtHcHlPYmd6?=
+ =?utf-8?B?NStYNDY1NU1ZU0Z2b0grQmNWYzI0MlVYQ0YvdGVBZ0hxUGk0SEU0T3ZxM1pw?=
+ =?utf-8?B?d2U2VWtaRkJsbWRCVCtYNm56aUdJTnh2bjY4OENCNkJpOUZ0SGx4TGtWWk05?=
+ =?utf-8?B?NWZ3anRFWkIvY1ZsbFpQSFg3RUtFVnlia01wVWl5ZkpXOVpodmVpZUZscW16?=
+ =?utf-8?B?WFpSUUZjYU93aG80ZDNUU2pJdXJKa3hNaGJSVVhZUDR0RUN1dGtkUXhXbjh5?=
+ =?utf-8?B?VWNlOTl5QWZGaE1ubXVFaFRKUEE5RTlGMUttcUNiZzYrM1pnRmc5SkpqRGZL?=
+ =?utf-8?B?Wjgxc0ZwNDBoY3lzYWQxTVhhb004QitHbUhqQitGdE1NOFo5Z2lFK3U1QW91?=
+ =?utf-8?B?N0JNdG9YN2R0WUQvZ3JaL0tqZTZlVllieTBieTJQTEFtcFJmL1pGYW51dkR5?=
+ =?utf-8?B?azIwdTYxTzR2bndrRWphVVdQMmppTzhvUFp6NkhLRkdXL2xWU2xNdklvZW02?=
+ =?utf-8?B?bnZlVThGVnFQS2FJWHZjdnVxZTBlNFpzVGthaWwzbTEyU2VUODRQRTdqeDRs?=
+ =?utf-8?B?amNnYWRZZVVkcWEwNWpjcW9ucTJsekVBWkpzRU9rczZXVTcrZUVZV1FwZlFo?=
+ =?utf-8?B?ckpjOEdUN3RNcElwaVFRN2xLemM4TjFhN3g4aE9idFlDQ3ZUYllZUENRTldX?=
+ =?utf-8?B?SWFWTUc2SXdOcjNOc2N3NU5wUUVRVExoZzg3SDExeFEvUkp2QThtOVpHeCti?=
+ =?utf-8?B?ai9DT0Q5eTlYOWo1bUEvNGxSUTZBUW5Ya0NtUTVWNnVUb0FNLzNENTVvanZP?=
+ =?utf-8?B?akhnRzFvRGRhdDBSOUw3eXU3eFBIR0pzclg3RW9pejdlRzhQc2hUa1RVaEZ3?=
+ =?utf-8?B?dWMzWERhaVpCazhROS9ya2lKQkZjSVBQZmtiN21XcnVyaGdTem9SeDliWHNj?=
+ =?utf-8?B?a05tYmV6ck5zUVdZSDMxRC9Eb2U2bzNQQTEzQ2NHcVdNM3BnbHVacUswdWFH?=
+ =?utf-8?B?OFQzSU5DTkNzZ2d5N1J6N0FGVnU4elRiRm8wc2hPcWhBaVNsZ2ZIbFp5OXpR?=
+ =?utf-8?B?cDdVZ0FlUzNVcVdCbERKNkN5d0pDeFpLNlNNY2VnRXowc3lEblN3ZWM2SHA3?=
+ =?utf-8?B?OXd3blROT3JaTzJuY3o0MW9xbjZiZiszZFpRaVBUbS8ySGNON2lXY1YyQ3c2?=
+ =?utf-8?B?Rlk0UDB0dVQ2VDNpb1FxZGIyQStJT2gyTXJ0SEtBOXB4bk5VMWNCUDdNOHA4?=
+ =?utf-8?B?YktkMVI3cXNKZy9ncko0NGtKR0F0TlprWmZFeHlsN0NHWG1MUWFvakxISVRF?=
+ =?utf-8?B?YUo2Yy82K1N6c002c1ZHQitrNmhGQTlmVFUvaElTUG12VXlGYmpFWWtjcGk2?=
+ =?utf-8?B?WTViNWdGakVZbDlISmxSWmFQTCt3NU5td05oaXhIQ1RwYWg2WTNlbENKVmQ1?=
+ =?utf-8?B?OUx5SGJLN1lGV0RIbmROUytXYU5EelE3ZXA1TVdkcjhSUWwwVDFFRzY2dVJ3?=
+ =?utf-8?B?bHIxWUNjT2l5L1pFZTJxb3lqUDhwa2xQU1VUeFlhbFRTUDBhdlYrWmd4YWJj?=
+ =?utf-8?B?aDFWS1lwZUlRbk1wa2szL0VWdnFrVjc1QjBwRDNhcWZjQmdjV2ZTQWhEUHpL?=
+ =?utf-8?B?MWc9PQ==?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: BRTsQljnFQFmPMpSf+ievImlUtqzGtE8Hyh84VX37ZDrOvgMYcF16FEQTexpKOuv74gphjLkk0Qr6iJGCrzIvgYTkjAYqOIqYt81E07JKnhwm3Ze6oxUVc/fMpJacHWFHm4Y6a7c0AXUdmTpiPvW5ou9j94JK0511KSTH0hvAqi2pEhpcFn37FLU1b1DwfgNMxTlp1OucvXMImaXFNlggEJliJEg6qhJeJNpKHONFui1LTT3076uAFwKsDsR0MyteoroQ+xRS7tdD47jl1wkjmsgZYkJ+R/JXzYjqY/cvf4Z/a8Xa9WM0vVzZ/Qt9B8XBqO2FA5zOo37T5xCbB0C0AkNYYLp0cq1bsxmV59YVWjgzbO74elRnHPgpnEV5o2vluKKMZU/CVC65o2AMdIZ/6wkiqZ3ne6g4b1U9S5NKLnK+R5HwMkYcqJ4PphM0STfKKr9l+gzsr8z82VFRjMDJFZjD+TsG4wtuYLLB8KWA1zwjyWX5w69wi+OCSKQg6Q1H4KM5vVPFPVIb8MYLbYJCbwyxvAA2HVye4+GznZkskQhedIDrDfAyYdPWO9XohgGefdM1O3tasNyKBstt1S3LzIIP2/1CoWZuA+wk/JpIT0=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2828728b-e278-4993-a055-08dd913a6107
+X-MS-Exchange-CrossTenant-AuthSource: BLAPR10MB5315.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2025 09:50:08.2811
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: DlbYe3aUgenejDLlsYxEdZtvm0eKXb/YIrNrRK197iPlMORTVQVbRmNNjTiWYh7VymwFXkSNESxJPhJgUwIWTbxcYw88ujXVIcXbw42Zc9U=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR10MB7567
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-05-12_03,2025-05-09_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0 phishscore=0 suspectscore=0
+ adultscore=0 bulkscore=0 mlxlogscore=999 mlxscore=0 malwarescore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2504070000
+ definitions=main-2505120102
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTEyMDEwMiBTYWx0ZWRfX2DraSPL1kLR9 08ccXxuwfUPAZjcqmH6cHdpd7bVNXgITyOGIOOvEuLC2FDeDtRRepgttECZFHwxtFXDdNJnR4A0 oKrWwesjPivPMkMd7WSKvWToKBNyE//5p52imQ1CZ3olSrcP22jO/Sa3O2Ra4aY4MAVutgiRhlB
+ 2Znu/nKBaStHdSOiVWLjMsCQ142++PvGH/HsNA12G0RMBPEZt//UnGFraoeftIMMkEDWH+aErZ9 OXMjaqFk6E92CZR5hCNL5uG4HUoCmsdGmRkHWlCkDhrsHmFf+HUhVMKEzUY4xBerfj365tjrglj sKU1SIdFRdjIvP/KPYtm6cRxudc1QaaHF35sR4EgUNPrOc3VCl95GsQ4jcrQfJq2V+2kFbDp7mX
+ l1Mpq0tvhMUgLQ02NME1T7+yRsiAoVzVwApphUP1Iiz4/Y+AS9Zv2O9GJlMj40S9vcFBgURG
+X-Authority-Analysis: v=2.4 cv=VMDdn8PX c=1 sm=1 tr=0 ts=6821c454 b=1 cx=c_pps a=zPCbziy225d3KhSqZt3L1A==:117 a=zPCbziy225d3KhSqZt3L1A==:17 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19
+ a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=GoEa3M9JfhUA:10 a=yMhMjlubAAAA:8 a=Nh1n-laePfJC8WIratMA:9 a=QEXdDO2ut3YA:10 cc=ntf awl=host:13185
+X-Proofpoint-ORIG-GUID: tGRyU5xid-SlgANjP0n5cOFFis5uIX5c
+X-Proofpoint-GUID: tGRyU5xid-SlgANjP0n5cOFFis5uIX5c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_024754_588000_1533A238 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20250512_025033_454555_098CC3B6 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,60 +224,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Goran
 
-On 5/8/25 15:10, Goran Radenovic wrote:
-> Hi Andrew,
-> 
-> thank You once again for helpful hint.
-> 
-> Andrew Lunn wrote:
->>>>> +    phy-handle = <&phy1>;
->>>>> +
->>>>> +    mdio {
->>>>> +        #address-cells = <1>;
->>>>> +        #size-cells = <0>;
->>>>> +        compatible = "snps,dwmac-mdio";
->>>>> +        phy1: ethernet-phy@1 {
->>>>> +            reg = <1>;
->>>>> +            interrupt-parent = <&gpiod>;
->>>>> +            interrupts = <0 IRQ_TYPE_EDGE_FALLING>;
->>>> PHY interrupts are 99% time level, not edge.
->>> That is correct, but I am facing strange behavior, when I set
->>> IRQ_TYPE_LEVEL_LOW.
->>> My board stops booting at:
->>>
->>> [    2.343233] Waiting for root device /dev/mmcblk0p4...
->>> [   12.638818] platform 5a006000.usbphyc: deferred probe pending
->>> [   12.643192] platform 49000000.usb-otg: deferred probe pending
->>> [   12.649029] platform 48003000.adc: deferred probe pending
->>> [   12.654277] platform 5800d000.usb: deferred probe pending
->>> [   12.659744] platform 5800c000.usb: deferred probe pending
->>> [   12.665089] amba 58005000.mmc: deferred probe pending
->>> [   12.670239] amba 58007000.mmc: deferred probe pending
->>> [   12.675185] platform 50025000.vrefbuf: deferred probe pending
->>>
->>> I must investigate this. If You have any idea, You are welcome to 
->>> share it.
->> Could be an interrupt storm. The interrupt is not getting cleared
->> because of something missing in the PHY driver, so it just fires again
->> and again.
-> 
-> After a brief investigation, I tend to agree with your assessment that 
-> the issue lies in the driver—likely the stmmac driver — which is outside 
-> the scope of my changes.
 
-No, the mdio node is driven by stmmac driver. The issue was maybe more 
-linked between pinctrl driver / exti driver where the level trigger is 
-probably not well managed (gpio is level but exti driver manage edge 
-interrupt). When saw those defering probes, EXTI drivers and pinctrl 
-drivers were well probed ?
+On 12-05-2025 04:37, Roman Kisel wrote:
+> The confidential VMBus is supported starting from the protocol
+> version 6.0 onwards.
+> 
+> Update the relevant definitions, provide a function that returns
+> whether VMBus is condifential or not.
+
+typo condifential -> confidential
 
 > 
-> Therefore, I would suggest keeping IRQ_TYPE_EDGE_FALLING for now, or 
-> alternatively not using a hardware IRQ at all and falling back to 
-> polling, as done in stm32mp15xx-dkx.dtsi.
+> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+> ---
+>   drivers/hv/vmbus_drv.c         | 12 ++++++
+>   include/asm-generic/mshyperv.h |  1 +
+>   include/linux/hyperv.h         | 71 +++++++++++++++++++++++++---------
+>   3 files changed, 65 insertions(+), 19 deletions(-)
 > 
-> Best regards,
-> Goran
+> diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
+> index 1d5c9dcf712e..e431978fa408 100644
+> --- a/drivers/hv/vmbus_drv.c
+> +++ b/drivers/hv/vmbus_drv.c
+> @@ -56,6 +56,18 @@ static long __percpu *vmbus_evt;
+>   int vmbus_irq;
+>   int vmbus_interrupt;
+>   
+> +/*
+> + * If the Confidential VMBus is used, the data on the "wire" is not
+> + * visible to either the host or the hypervisor.
+> + */
+> +static bool is_confidential;
+> +
+> +bool vmbus_is_confidential(void)
+> +{
+> +	return is_confidential;
+> +}
+> +EXPORT_SYMBOL_GPL(vmbus_is_confidential);
+> +
+>   /*
+>    * The panic notifier below is responsible solely for unloading the
+>    * vmbus connection, which is necessary in a panic event.
+> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+> index 6c51a25ed7b5..96e0723d0720 100644
+> --- a/include/asm-generic/mshyperv.h
+> +++ b/include/asm-generic/mshyperv.h
+> @@ -377,6 +377,7 @@ static inline int hv_call_create_vp(int node, u64 partition_id, u32 vp_index, u3
+>   	return -EOPNOTSUPP;
+>   }
+>   #endif /* CONFIG_MSHV_ROOT */
+> +bool vmbus_is_confidential(void);
+>   
+>   #if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
+>   u8 __init get_vtl(void);
+> diff --git a/include/linux/hyperv.h b/include/linux/hyperv.h
+> index 1f310fbbc4f9..3cf48f29e6b4 100644
+> --- a/include/linux/hyperv.h
+> +++ b/include/linux/hyperv.h
+> @@ -265,16 +265,19 @@ static inline u32 hv_get_avail_to_write_percent(
+>    * Linux kernel.
+>    */
+>   
+> -#define VERSION_WS2008  ((0 << 16) | (13))
+> -#define VERSION_WIN7    ((1 << 16) | (1))
+> -#define VERSION_WIN8    ((2 << 16) | (4))
+> -#define VERSION_WIN8_1    ((3 << 16) | (0))
+> -#define VERSION_WIN10 ((4 << 16) | (0))
+> -#define VERSION_WIN10_V4_1 ((4 << 16) | (1))
+> -#define VERSION_WIN10_V5 ((5 << 16) | (0))
+> -#define VERSION_WIN10_V5_1 ((5 << 16) | (1))
+> -#define VERSION_WIN10_V5_2 ((5 << 16) | (2))
+> -#define VERSION_WIN10_V5_3 ((5 << 16) | (3))
+> +#define VMBUS_MAKE_VERSION(MAJ, MIN)	((((u32)MAJ) << 16) | (MIN))
+> +#define VERSION_WS2008					VMBUS_MAKE_VERSION(0, 13)
+> +#define VERSION_WIN7					VMBUS_MAKE_VERSION(1, 1)
+> +#define VERSION_WIN8					VMBUS_MAKE_VERSION(2, 4)
+> +#define VERSION_WIN8_1					VMBUS_MAKE_VERSION(3, 0)
+> +#define VERSION_WIN10					VMBUS_MAKE_VERSION(4, 0)
+> +#define VERSION_WIN10_V4_1				VMBUS_MAKE_VERSION(4, 1)
+> +#define VERSION_WIN10_V5				VMBUS_MAKE_VERSION(5, 0)
+> +#define VERSION_WIN10_V5_1				VMBUS_MAKE_VERSION(5, 1)
+> +#define VERSION_WIN10_V5_2				VMBUS_MAKE_VERSION(5, 2)
+> +#define VERSION_WIN10_V5_3				VMBUS_MAKE_VERSION(5, 3)
+> +#define VERSION_WIN_IRON				VERSION_WIN10_V5_3
+> +#define VERSION_WIN_COPPER				VMBUS_MAKE_VERSION(6, 0)
+>   
+>   /* Make maximum size of pipe payload of 16K */
+>   #define MAX_PIPE_DATA_PAYLOAD		(sizeof(u8) * 16384)
+> @@ -335,14 +338,22 @@ struct vmbus_channel_offer {
+>   } __packed;
+>   
+>   /* Server Flags */
+> -#define VMBUS_CHANNEL_ENUMERATE_DEVICE_INTERFACE	1
+> -#define VMBUS_CHANNEL_SERVER_SUPPORTS_TRANSFER_PAGES	2
+> -#define VMBUS_CHANNEL_SERVER_SUPPORTS_GPADLS		4
+> -#define VMBUS_CHANNEL_NAMED_PIPE_MODE			0x10
+> -#define VMBUS_CHANNEL_LOOPBACK_OFFER			0x100
+> -#define VMBUS_CHANNEL_PARENT_OFFER			0x200
+> -#define VMBUS_CHANNEL_REQUEST_MONITORED_NOTIFICATION	0x400
+> -#define VMBUS_CHANNEL_TLNPI_PROVIDER_OFFER		0x2000
+> +#define VMBUS_CHANNEL_ENUMERATE_DEVICE_INTERFACE		0x0001
+> +/*
+> + * This flag indicates that the channel is offered by the paravisor, and must
+> + * use encrypted memory for the channel ring buffer.
+> + */
+> +#define VMBUS_CHANNEL_CONFIDENTIAL_RING_BUFFER			0x0002
+> +/*
+> + * This flag indicates that the channel is offered by the paravisor, and must
+> + * use encrypted memory for GPA direct packets and additional GPADLs.
+> + */
+> +#define VMBUS_CHANNEL_CONFIDENTIAL_EXTERNAL_MEMORY		0x0004
+> +#define VMBUS_CHANNEL_NAMED_PIPE_MODE					0x0010
+> +#define VMBUS_CHANNEL_LOOPBACK_OFFER					0x0100
+> +#define VMBUS_CHANNEL_PARENT_OFFER						0x0200
+> +#define VMBUS_CHANNEL_REQUEST_MONITORED_NOTIFICATION	0x0400
+> +#define VMBUS_CHANNEL_TLNPI_PROVIDER_OFFER				0x2000
+>   
+>   struct vmpacket_descriptor {
+>   	u16 type;
+> @@ -621,6 +632,12 @@ struct vmbus_channel_relid_released {
+>   	u32 child_relid;
+>   } __packed;
+>   
+> +/*
+> + * Used by the paravisor only, means that the encrypted ring buffers and
+> + * the encrypted external memory are supported
+
+Clearly convey the purpose of the flag, similar to the previous one
+For example ->"Indicates support for encrypted ring buffers and external 
+memory, used exclusively by the paravisor."
+
+> + */
+> +#define VMBUS_FEATURE_FLAG_CONFIDENTIAL_CHANNELS	0x10
+> +
+>   struct vmbus_channel_initiate_contact {
+>   	struct vmbus_channel_message_header header;
+>   	u32 vmbus_version_requested;
+> @@ -630,7 +647,8 @@ struct vmbus_channel_initiate_contact {
+>   		struct {
+>   			u8	msg_sint;
+>   			u8	msg_vtl;
+> -			u8	reserved[6];
+> +			u8	reserved[2];
+> +			u32 feature_flags; /* VMBus version 6.0 */
+>   		};
+>   	};
+>   	u64 monitor_page1;
+> @@ -1002,6 +1020,11 @@ struct vmbus_channel {
+>   
+>   	/* The max size of a packet on this channel */
+>   	u32 max_pkt_size;
+> +
+> +	/* The ring buffer is encrypted */
+> +	bool confidential_ring_buffer;
+> +	/* The external memory is encrypted */
+> +	bool confidential_external_memory;
+>   };
+>   
+
+Thanks,
+Alok
+
 
