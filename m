@@ -4,101 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 949E2C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:34:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B852BC3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2OJlnvMBtd1Qdxb8D4i8PT0Scjad8idgDm1fH/AmWto=; b=xKDBSfaQsXwFGVhtmpT51GehOF
-	Xhk2/++OBCRCGBjFA6LH2Fj1xi33WO/aaI8pVHVL3glp+IslzvdqRir6H8F8VSyHUWXAthh9PcvMe
-	JaUlvKgEq8z5SdMuqKJHjTN7DvTzf/N4Gz8T4Mq37JLCyJ5pvu6f1iNKHqWo+aCfz76O+XE+j17Li
-	VGGlFboczma1c9YybYn/lwYyBITWxXUOfqTj5kcPGG9QqzmZaA5S6uvuuJQ/FB57PhJWEUj4zm/ET
-	/KQ5fUaq35hsAklItUWiPEwwQlsSykJKVE/CR9y3tVlhv3vhDRweD3vzPkHvFCj3DQJzi3ZFvXANa
-	MfNfQKRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dj/nEIzK+oAHaOwA4i1++4RCYLNztbF9KBcZKY70iWg=; b=BMDRWj8P0tX0hHDo/aVeyq+oXP
+	dkFzEikuFnkfWM03RRKPqqRVzDew1M5gRqS8hAo8qfUVuclthXiNLQWM7SWJeRtPWW1eiTEpT6T5z
+	IWU2Ph2eMYpOIHqDp/UjZHsKWTnTU2kT79Qj1SZTJKbpvB6UE6+gh/J037EptmMq5ZLncDT8SboLF
+	TGuvpUcALK+zPCDNg56GAF+dWvecYASDgY336TKsX2ZTH0gt2wyMuJ0N+AJDRn9VYdBjGj+l4jCLs
+	X3BrV769TibMEcilrl3QxPUQ3j+KfwyyKa3mfEZjs5/xzHyNg8cyBG974vTZorLlvxcj2O0mhgpeg
+	dnol6nLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEUEV-00000009kLw-2gfD;
-	Mon, 12 May 2025 14:34:19 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uETua-00000009gTz-2qOt
+	id 1uEUGc-00000009kiH-1hIc;
+	Mon, 12 May 2025 14:36:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uETvF-00000009gbd-0M3R
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 14:13:45 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-306b6ae4fb2so4136545a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 07:13:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747059223; x=1747664023; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=2OJlnvMBtd1Qdxb8D4i8PT0Scjad8idgDm1fH/AmWto=;
-        b=EJexbqLO8vCt33fTcZAmkQHuTBo+/oyC78k5QqDtrJRGbYrJvGIBBhb41dvUt2jqd2
-         QQwqdV4cGeOX57sy2EF4M/1uAxIVERIKlPs8ekI1vq8jVH+SpBLcbTlTymOodwSzh2ZT
-         Z4Jw4Pw+XAbAZWDQqqRjzJHvCSWyGYFJ/b0RL/tfJgCNZgfvvXnvGvf9cH5adaSPPj6t
-         TZvNYk/pbmUGlzi7HPIbrZfqKgynveR3nSqehUEjZjg8rU5U816XaMKFpC0Gfa+GetLh
-         Pm6mh1EFd/3kHIfHDDPkfYR5HotYwTbCGUC3R2UHX7Cxw3zOtwynPcVSFqWcBIkqCp+p
-         4sBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747059223; x=1747664023;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2OJlnvMBtd1Qdxb8D4i8PT0Scjad8idgDm1fH/AmWto=;
-        b=EuNyOGaCtPDMDOsL9ANXGEhkpkIib5Bvx4BY0jauQv3afb54FrFVfsBnYT5vG/2/jD
-         pO4tyU61JE/qO359iVE1iwvv19a3/WyUPeilCT+lvKLsJXOUcODVcjV6po/yegXOOEDm
-         3Yejxx5KitmygMepFx987gNAWfJ6YLqCfsn6jT2ah9/H+dNRmGdzvFoOL8IQe4RcmRti
-         YKOayzG3S63pjy6k6WnsCdrhL1f40HNiOUSdkP0lFGDmvK3Qi7HA8wdn5N5BMz+0phV2
-         abeLgWPj3jeZXAIfRoZdqCkGb/iCvdGGDHzuzIhywKOUzCzZVI29VFrAYwmnp0rmCdEC
-         1axQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWEqVyg8SsmROdXq+qm+bHv+u5+5Vyf0NcnxefVcxVFd/CDAylTkdsTO8RfTH0W1G3Wc96NtNYJT+aaR4e1rNqK@lists.infradead.org
-X-Gm-Message-State: AOJu0YywS5nljnAwBF0eMKvItKc194+huvdAQTvzkgDXXA0RBTmk6NV1
-	S4mvYkfcBr4uhBM+SnCamXofgySEWclxCwMgXLN03FOhLKh7lFnM
-X-Gm-Gg: ASbGncsUHb6Xd66mkYU0gxoOOQ2isk18t3tUn7fjrYXK5P6hRF6FhQDjEGhGXvhIZgg
-	gVKCht7yKgV5R+4SG5r2hoec+TrsOcdxMDUS0Uv9DSmB1uqnOPNZOyUvpqy0JdKh7OtdcmjNHDQ
-	jrqYXpJtf/VqfVD/KVNI+zmbKjVQvNz6RVUtTBzw7L00XMKxqWvql/TP4+hlC6TbVAKAmz0KxlI
-	s6K0mFL/kAP31ffAaqrL4Xd9uI8tlhYUTlsAyXuNgO5WQo2bNDexJMwTOw6ppoLkXPefDXLsfsM
-	+XSpdibUx0HJ9xImnk2oxBHhZaOvua3nZ/5kyq/e8llu2uFeDw==
-X-Google-Smtp-Source: AGHT+IH5gUoco7N8sKGHqASp+t6n1KYZvtsdLBTVel5nTdgyJkB/lYXE+HXry+XviOclf5k9LSJ5pA==
-X-Received: by 2002:a17:90b:3e4e:b0:2ee:c2b5:97a0 with SMTP id 98e67ed59e1d1-30c3d62e4c5mr22364395a91.25.1747059223077;
-        Mon, 12 May 2025 07:13:43 -0700 (PDT)
-Received: from hiago-nb ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-30c39df09dbsm6650922a91.26.2025.05.12.07.13.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 May 2025 07:13:42 -0700 (PDT)
-Date: Mon, 12 May 2025 11:13:36 -0300
-From: Hiago De Franco <hiagofranco@gmail.com>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	linux-pm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	daniel.baluta@nxp.com, iuliana.prodan@oss.nxp.com,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v2 3/3] remoteproc: imx_rproc: add power mode check for
- remote core attachment
-Message-ID: <20250512141336.b72ga37qtlrvgaut@hiago-nb>
-References: <20250507160056.11876-1-hiagofranco@gmail.com>
- <20250507160056.11876-4-hiagofranco@gmail.com>
- <CAPDyKFrHD1hVCfOK-JV5FJM+Cd9DoKKZGKcC94fxx6_9Bsri1g@mail.gmail.com>
- <20250508202826.33bke6atcvqdkfa4@hiago-nb>
- <CAPDyKFr3yF=yYZ=Xo5FicvSbDPOTx7+fMwc8dMCLYKPBMEtCKA@mail.gmail.com>
- <20250509191308.6i3ydftzork3sv5c@hiago-nb>
- <20250512045613.GB31197@nxa18884-linux>
+	Mon, 12 May 2025 14:14:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8F7D3150C;
+	Mon, 12 May 2025 07:14:13 -0700 (PDT)
+Received: from [10.57.90.222] (unknown [10.57.90.222])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1F1693F673;
+	Mon, 12 May 2025 07:14:21 -0700 (PDT)
+Message-ID: <08f2e23f-f67e-4d41-ae0b-143df6731977@arm.com>
+Date: Mon, 12 May 2025 15:14:20 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250512045613.GB31197@nxa18884-linux>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/mm: Disable barrier batching in interrupt contexts
+Content-Language: en-GB
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Pasha Tatashin
+ <pasha.tatashin@soleen.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ David Hildenbrand <david@redhat.com>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ syzbot+5c0d9392e042f41d45c5@syzkaller.appspotmail.com
+References: <20250512102242.4156463-1-ryan.roberts@arm.com>
+ <aCH0TLRQslXHin5Q@arm.com> <7852c047-e8da-44d4-8220-68c2ebca5206@arm.com>
+In-Reply-To: <7852c047-e8da-44d4-8220-68c2ebca5206@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_071344_734097_6184B7E7 
-X-CRM114-Status: GOOD (  19.37  )
+X-CRM114-CacheID: sfid-20250512_071425_219217_DFCA422B 
+X-CRM114-Status: GOOD (  29.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,52 +74,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
+On 12/05/2025 14:53, Ryan Roberts wrote:
+> On 12/05/2025 14:14, Catalin Marinas wrote:
+>> On Mon, May 12, 2025 at 11:22:40AM +0100, Ryan Roberts wrote:
+>>> @@ -79,7 +83,9 @@ static inline void queue_pte_barriers(void)
+>>>  #define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
+>>>  static inline void arch_enter_lazy_mmu_mode(void)
+>>>  {
+>>> -	VM_WARN_ON(in_interrupt());
+>>> +	if (in_interrupt())
+>>> +		return;
+>>> +
+>>>  	VM_WARN_ON(test_thread_flag(TIF_LAZY_MMU));
+>>
+>> I still get this warning trigger with some debugging enabled (more
+>> specifically, CONFIG_DEBUG_PAGEALLOC). Patch applied on top of the arm64
+>> for-kernelci.
+> 
+> Thanks for the report...
+> 
+> I'll admit I didn't explicitly test CONFIG_DEBUG_PAGEALLOC since I thought we
+> concluded when talking that the failure mode was the same as KFENCE in that it
+> was due to pte manipulations in the interrupt context.
+> 
+> But that's not what this trace shows...
+> 
+> The warning is basically saying we have nested lazy mmu mode regions, both in
+> task context, which is completely illegal as far as lazy mmu is concerned.
+> 
+> Looks like the first nest is zap_pte_range(), which is batching with mmu_gather
+> and that allocates memory in tlb_next_batch(). And when CONFIG_DEBUG_PAGEALLOC
+> is enabled, it calls into the arch to make the allocated page valid in the
+> linear map. arm64 does that with apply_to_page_range(), which does a second lazy
+> mmu nest.
+> 
+> I need to have a think about what the right fix is. Will get back to you shortly.
+> 
+> Thanks,
+> Ryan
+> 
+>>
+>> Is it because the unmap code uses arch_enter_lazy_mmu_mode() already and
+>> __apply_to_page_range() via __kernel_map_pages() is attempting another
+>> nested call? I think it's still safe, we just drop the optimisation in
+>> the outer code and issue the barriers immediately. So maybe drop this
+>> warning as well but add a comment on how nesting works.
 
-On Mon, May 12, 2025 at 12:56:13PM +0800, Peng Fan wrote:
->
-> Ulf's new API dev_pm_genpd_is_on needs to run after power domain attached.
->
-> But if run after power domain attached, there is no API to know whether
-> M4 is kicked by bootloader or now.
->
-> Even imx_rproc_attach_pd has a check for single power domain, but I just
-> give a look again on current i.MX8QM/QX, all are using two power domain
-> entries.
->
-> >
-> >>
-> >> In this way we don't need to export unnecessary firmware functions
-> >> from firmware/imx/misc.c, as patch1/3 does.
->
->
-> I think still need to export firmware API. My idea is
-> 1. introduce a new firmware API and put under firmware/imx/power.c
-> 2. Use this new firmware API in imx_rproc.c
-> 3. Replace scu-pd.c to use this new firmware API.
->
-> Or
-> 1. Export the API in scu-pd.c
-> 2. Use the API in imx_rproc.c
->
-> With approach two, you need to handle them in three trees in one patchset:
-> imx/pd/rproc.
->
-> With approach one, you need to handle two trees in one patchset: imx/rproc tree,
-> then after done, pd tree
+Sorry Catalin, I completely missed this propsal on first read!
 
-This patch series is already implementing approach one, as I understand,
-right?
+Yes that's what is happening, yes it is still safe, and yes we just drop the
+optimization.
 
-The difference is I moved this API from drivers/pmdomain/imx/scu-pd.c to
-firmware/imx/misc.c, and exported it there. But you think I should
-create this new file firmware/imx/power.c and move the API from scu-pd.c
-to power.c, is my understanding correct?
+But it's an ugly solution IMHO.
 
->
-> Regards,
-> Peng
+The real problem is that arm64 has chosen to use apply_to_page_range() as part
+of it's implementation of __kernel_map_pages(), and apply_to_page_range()
+expects to be able to use lazy mmu.
 
-Best Regards,
-Hiago.
+lazy mmu spec says "Nesting is not permitted and the mode cannot be used in
+interrupt context." Clearly neither of those things are true :)
+
+Looking at the powerpc lazy mmu implementation, I think it will do exactly what
+you are suggesting we do here, which is just terminate the optimization early.
+So I guess that's the most pragmatic approach. I'll re-send this patch. Sigh.
+
+Thanks,
+Ryan
+
+
+>>
+>> ------------[ cut here ]------------
+>> WARNING: CPU: 6 PID: 1 at arch/arm64/include/asm/pgtable.h:89 __apply_to_page_range+0x85c/0x9f8
+>> Modules linked in: ip_tables x_tables ipv6
+>> CPU: 6 UID: 0 PID: 1 Comm: systemd Not tainted 6.15.0-rc5-00075-g676795fe9cf6 #1 PREEMPT 
+>> Hardware name: QEMU KVM Virtual Machine, BIOS 2024.08-4 10/25/2024
+>> pstate: 40400005 (nZcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>> pc : __apply_to_page_range+0x85c/0x9f8
+>> lr : __apply_to_page_range+0x2b4/0x9f8
+>> sp : ffff80008009b3c0
+>> x29: ffff80008009b460 x28: ffff0000c43a3000 x27: ffff0001ff62b108
+>> x26: ffff0000c43a4000 x25: 0000000000000001 x24: 0010000000000001
+>> x23: ffffbf24c9c209c0 x22: ffff80008009b4d0 x21: ffffbf24c74a3b20
+>> x20: ffff0000c43a3000 x19: ffff0001ff609d18 x18: 0000000000000001
+>> x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000003
+>> x14: 0000000000000028 x13: ffffbf24c97c1000 x12: ffff0000c43a3fff
+>> x11: ffffbf24cacc9a70 x10: ffff0000c43a3fff x9 : ffff0001fffff018
+>> x8 : 0000000000000012 x7 : ffff0000c43a4000 x6 : ffff0000c43a4000
+>> x5 : ffffbf24c9c209c0 x4 : ffff0000c43a3fff x3 : ffff0001ff609000
+>> x2 : 0000000000000d18 x1 : ffff0000c03e8000 x0 : 0000000080000000
+>> Call trace:
+>>  __apply_to_page_range+0x85c/0x9f8 (P)
+>>  apply_to_page_range+0x14/0x20
+>>  set_memory_valid+0x5c/0xd8
+>>  __kernel_map_pages+0x84/0xc0
+>>  get_page_from_freelist+0x1110/0x1340
+>>  __alloc_frozen_pages_noprof+0x114/0x1178
+>>  alloc_pages_mpol+0xb8/0x1d0
+>>  alloc_frozen_pages_noprof+0x48/0xc0
+>>  alloc_pages_noprof+0x10/0x60
+>>  get_free_pages_noprof+0x14/0x90
+>>  __tlb_remove_folio_pages_size.isra.0+0xe4/0x140
+>>  __tlb_remove_folio_pages+0x10/0x20
+>>  unmap_page_range+0xa1c/0x14c0
+>>  unmap_single_vma.isra.0+0x48/0x90
+>>  unmap_vmas+0xe0/0x200
+>>  vms_clear_ptes+0xf4/0x140
+>>  vms_complete_munmap_vmas+0x7c/0x208
+>>  do_vmi_align_munmap+0x180/0x1a8
+>>  do_vmi_munmap+0xac/0x188
+>>  __vm_munmap+0xe0/0x1e0
+>>  __arm64_sys_munmap+0x20/0x38
+>>  invoke_syscall+0x48/0x104
+>>  el0_svc_common.constprop.0+0x40/0xe0
+>>  do_el0_svc+0x1c/0x28
+>>  el0_svc+0x4c/0x16c
+>>  el0t_64_sync_handler+0x10c/0x140
+>>  el0t_64_sync+0x198/0x19c
+>> irq event stamp: 281312
+>> hardirqs last  enabled at (281311): [<ffffbf24c780fd04>] bad_range+0x164/0x1c0
+>> hardirqs last disabled at (281312): [<ffffbf24c89c4550>] el1_dbg+0x24/0x98
+>> softirqs last  enabled at (281054): [<ffffbf24c752d99c>] handle_softirqs+0x4cc/0x518
+>> softirqs last disabled at (281019): [<ffffbf24c7450694>] __do_softirq+0x14/0x20
+>> ---[ end trace 0000000000000000 ]---
+>>
+> 
+
 
