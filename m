@@ -4,63 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0CFDC3ABD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 12:05:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15994C3ABCD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 12:08:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S5UaF3+FoZTnT060SdYShB3m84yokX+Uw/fn5I55XiU=; b=AjnoSDbrx7moJAVPlg2rmRGv4L
-	9EvmFSgH0gCNg9oz/kcw4WWXksCllSZ6ksOHc+IuN/bpNrGdbulRnZV+aqNqEem81j2TwDo25lpt1
-	9wO60RBHKttdefoWTcBVS2heL4jEh+Uy0XR/1/QeqZblKi5cP2bWg6ttj5rrb/0RY0/c5NpTowFpI
-	U3mCmQYpXh2wmUNbUP/FiiFle5NbAOjSNXVAd+PJoAA4RsaQf0T0g0m5s6pUhNZbBjn2/aL1FUv5G
-	mByMjolUGAEaLvOkgvq6e3XRfpKv4gqze4ZXninHRwz/H3r56Wgyw2Z8W2JeRVPOoAzALMYaKI7Zg
-	a4HGWKMg==;
+	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XiZXeriwtNmD0C5rumTsjv/pcxn0w65lxRr71QDYu34=; b=II1p3pmHgO18W4GtslsGj4z3nU
+	Y4J2DOBeMdll5isT6qBeAbwsf/ujdiqJ/q56BMS0/8hsocTDKT9w804Nu+w8AOCWNIn8EZnCe/AKR
+	H3Q7tNgWOn5pOVdppAMdIjmCdmUP9v17W5fL6CjeSa5wpUgAyoRhfnHcFOep3RM7poBmewEUc5IP+
+	XLEgbxWJESld8JUFLhaU0gpHhyMwHgcFOhz4tjknfii8fVHP+lNVy7sB0WaztuzjHsMtsHgyUH1Oy
+	lGBv6LdsubJ9gSmrg5XfpxxMkB6Hfy5syAUVH2HMooPlciHo3/09rb8vAS9Ad4/Y4FaZShn/IxqET
+	ptDsWdGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uERur-00000009KrO-0ZNJ;
-	Mon, 12 May 2025 12:05:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uERpK-00000009K8p-3WpV
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 12:00:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 391E1150C;
-	Mon, 12 May 2025 04:59:59 -0700 (PDT)
-Received: from [10.57.90.222] (unknown [10.57.90.222])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 881C03F673;
-	Mon, 12 May 2025 05:00:07 -0700 (PDT)
-Message-ID: <e37d5e61-54e7-4425-837f-25a13f5a68b5@arm.com>
-Date: Mon, 12 May 2025 13:00:05 +0100
+	id 1uERws-00000009LML-3wRk;
+	Mon, 12 May 2025 12:07:58 +0000
+Received: from xmbghk7.mail.qq.com ([43.163.128.50])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uERtN-00000009Kce-0Gg4;
+	Mon, 12 May 2025 12:04:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
+	s=s201512; t=1747051449;
+	bh=XiZXeriwtNmD0C5rumTsjv/pcxn0w65lxRr71QDYu34=;
+	h=From:To:Cc:Subject:Date;
+	b=iOjMF7pthxChJdSW3O5nLo0A6fE6ejodJD00jYsDVuXM8A/T/x0PUZ7zqLqkzZQ9A
+	 3+Z9oHs1el+fGV3ZHsFC6UJijxxy3ypCfXTD14nZKUmgp01fJE1AHdZYg5q/NkLzFx
+	 88y35CFUUfik0u1VsEjKbDcqI51QQk2PBmBbXHMI=
+Received: from localhost.localdomain ([116.249.112.84])
+	by newxmesmtplogicsvrsza36-0.qq.com (NewEsmtp) with SMTP
+	id EEBE0F2; Mon, 12 May 2025 20:03:46 +0800
+X-QQ-mid: xmsmtpt1747051426tikm1o32c
+Message-ID: <tencent_198C6C928AA0BA4E932560238E0CFE073109@qq.com>
+X-QQ-XMAILINFO: NEW4AM7T0EBsyYRwy7F7xKNKE1tnYRdimiWvJz02wiuzbc88/Xz92wEqnUEoHa
+	 nIY6Ml9xgBjxjzxhhUdxFN7WCcXupbz+XRQpb7ndOCxVymXXJCIbRxj327K6hdVmFgzhRVCdDAkU
+	 0QI0Np7STwTCSSgwveSGyq2MlOn9IC2omOFI6yk4CiqMBdUCHTMdaSV1S65Qk7X1J61MVrqFzqs3
+	 Z7rnB0RDahifL9Az9ffD0ss79ar04QQoE70VWKT5CerDeVBxZhUqv6jTRs1gZZMwejXOWcLWx6sg
+	 k+n1v0fWNwXwnW/2zXUK6UIQQpzwMipLYRelYDwBikFm+UfaePgwAmSbmRf5HEqYVxhUTQXCwksZ
+	 CXN8b7OuDU92wMJl0lIHvq69FLSS6+2Q4MGqp/N14YW2dTv5rXDVLrY0u7Bn674VyCUy7XN4Nslj
+	 3pEVQpyunv5+MvtPSwN/YhU3cFRSXVf6rczJ08UMrxqkpVvsmj9CkL1Uf9sQSQybzKOc+1b6gp3B
+	 gDpjLTZ9GhMT8A4zLO2OaUcB4PNH2IFmOcrNNgdVYaLZkVDhDP8PNUGDF7bpelQ/B5eojg/Qw22S
+	 0J3j1PkUPzSk+Az6qz/Q1+iAwGooXy57mK4NiLof+20NxiROMu4pCs2Q59afTtQbU+/gmjLperVu
+	 l1JQIzPb0hZarYDCJOgJbrdyqmNO8xH879VkygZJb2jpEqSTnpodwuAm4tgLAL9/8CE3BV0eEHx2
+	 ta/V+7qBJ/DezSLCCf49r/LAs+bAYKgP1RYN4T+V6bLHzpWzXE51ZLsp/WTK23MNpbVmaMZAhu1W
+	 1Y56yqzzeGlCoz5yQ4UP7P1JjZqzeaBtwn885tHjdukuz9TVYdygd5SD+r+IAS78chJbnD0TeToJ
+	 dFNsJ5f9KKg1dOhZRFiLWiS47P4+cACDrzX5fzSR02VdFmeQH6AIwROJlXJ5qZ66oj8fkdrZj4me
+	 gVz+KgFVgOIe1ZGfCT+TSgttlYgxvZfNTOo9nbO/x2/Qh3aH5bt8DPf0d3pHsVKNE7X0ynjvPvQu
+	 2zDwWqxAUMlU6aUrmJ3ebUEP3Mz1l7y4OfE1CyP4QXm/1A79utCHUwFpyXSCzIn+Ir1FU3YvKlBQ
+	 n3T9cR
+X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
+From: chainsx@foxmail.com
+To: Fred Bloggs <f.blogs@napier.co.nz>
+Cc: Hsun Lai <chainsx@foxmail.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Stephen Rothwell <sfr@canb.auug.org.au>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH v1 0/2] Add support for Firefly Station-M3/ROC-RK3588S-PC
+Date: Mon, 12 May 2025 20:03:36 +0800
+X-OQ-MSGID: <20250512120338.312496-1-chainsx@foxmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/mm: Disable barrier batching in interrupt contexts
-Content-Language: en-GB
-To: David Hildenbrand <david@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org,
- syzbot+5c0d9392e042f41d45c5@syzkaller.appspotmail.com
-References: <20250512102242.4156463-1-ryan.roberts@arm.com>
- <001dfd4f-27f2-407f-bd1c-21928a754342@redhat.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <001dfd4f-27f2-407f-bd1c-21928a754342@redhat.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_050010_973844_4AC4A787 
-X-CRM114-Status: GOOD (  28.67  )
+X-CRM114-CacheID: sfid-20250512_050421_462384_EBBFE8BD 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,148 +90,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/05/2025 12:07, David Hildenbrand wrote:
-> On 12.05.25 12:22, Ryan Roberts wrote:
->> Commit 5fdd05efa1cd ("arm64/mm: Batch barriers when updating kernel
->> mappings") enabled arm64 kernels to track "lazy mmu mode" using TIF
->> flags in order to defer barriers until exiting the mode. At the same
->> time, it added warnings to check that pte manipulations were never
->> performed in interrupt context, because the tracking implementation
->> could not deal with nesting.
->>
->> But it turns out that some debug features (e.g. KFENCE, DEBUG_PAGEALLOC)
->> do manipulate ptes in softirq context, which triggered the warnings.
->>
->> So let's take the simplest and safest route and disable the batching
->> optimization in interrupt contexts. This makes these users no worse off
->> than prior to the optimization. Additionally the known offenders are
->> debug features that only manipulate a single PTE, so there is no
->> performance gain anyway.
->>
->> There may be some obscure case of encrypted/decrypted DMA with the
->> dma_free_coherent called from an interrupt context, but again, this is
->> no worse off than prior to the commit.
->>
->> Some options for supporting nesting were considered, but there is a
->> difficult to solve problem if any code manipulates ptes within interrupt
->> context but *outside of* a lazy mmu region. If this case exists, the
->> code would expect the updates to be immediate, but because the task
->> context may have already been in lazy mmu mode, the updates would be
->> deferred, which could cause incorrect behaviour. This problem is avoided
->> by always ensuring updates within interrupt context are immediate.
->>
->> Fixes: 5fdd05efa1cd ("arm64/mm: Batch barriers when updating kernel mappings")
->> Reported-by: syzbot+5c0d9392e042f41d45c5@syzkaller.appspotmail.com
->> Closes: https://lore.kernel.org/linux-arm-
->> kernel/681f2a09.050a0220.f2294.0006.GAE@google.com/
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->> ---
->>
->> Hi Will,
->>
->> I've tested before and after with KFENCE enabled and it solves the issue. I've
->> also run all the mm-selftests which all continue to pass.
->>
->> Catalin suggested a Fixes patch targetting the SHA as it is in for-next/mm was
->> the preferred approach, but shout if you want something different. I'm hoping
->> that with this fix we can still make it for this cycle, subject to not finding
->> any more issues.
->>
->> Thanks,
->> Ryan
->>
->>
->>   arch/arm64/include/asm/pgtable.h | 16 ++++++++++++++--
->>   1 file changed, 14 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->> index ab4a1b19e596..e65083ec35cb 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -64,7 +64,11 @@ static inline void queue_pte_barriers(void)
->>   {
->>       unsigned long flags;
->>
->> -    VM_WARN_ON(in_interrupt());
->> +    if (in_interrupt()) {
->> +        emit_pte_barriers();
->> +        return;
->> +    }
->> +
->>       flags = read_thread_flags();
->>
->>       if (flags & BIT(TIF_LAZY_MMU)) {
->> @@ -79,7 +83,9 @@ static inline void queue_pte_barriers(void)
->>   #define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
->>   static inline void arch_enter_lazy_mmu_mode(void)
->>   {
->> -    VM_WARN_ON(in_interrupt());
->> +    if (in_interrupt())
->> +        return;
->> +
->>       VM_WARN_ON(test_thread_flag(TIF_LAZY_MMU));
->>
->>       set_thread_flag(TIF_LAZY_MMU);
->> @@ -87,12 +93,18 @@ static inline void arch_enter_lazy_mmu_mode(void)
->>
->>   static inline void arch_flush_lazy_mmu_mode(void)
->>   {
->> +    if (in_interrupt())
->> +        return;
->> +
->>       if (test_and_clear_thread_flag(TIF_LAZY_MMU_PENDING))
->>           emit_pte_barriers();
->>   }
->>
->>   static inline void arch_leave_lazy_mmu_mode(void)
->>   {
->> +    if (in_interrupt())
->> +        return;
->> +
->>       arch_flush_lazy_mmu_mode();
->>       clear_thread_flag(TIF_LAZY_MMU);
->>   }
-> 
-> I guess in all cases we could optimize out the in_interrupt() check on !debug
-> configs.
+From: Hsun Lai <chainsx@foxmail.com>
 
-I think that assumes we can easily and accurately identify all configs that
-cause this? We've identified 2 but I'm not confident that it's a full list.
-Also, KFENCE isn't really a debug config (despite me calling it that in the
-commit log) - it's supposed to be something that can be enabled in production
-builds.
+This series add support for Firefly Station-M3/ROC-RK3588S-PC.
 
-> 
-> Hm, maybe there is an elegant way to catch all of these "problematic" users?
+Info of device can be found at:
+https://wiki.t-firefly.com/en/Station-M3/index.html
 
-I'm all ears if you have any suggestions? :)
+Changes in v1:
+- Add support for Firefly ROC-RK3588S-PC
 
+Hsun Lai (2):
+  dt-bindings: arm: rockchip: Add Firefly ROC-RK3588S-PC
+  arm64: dts: rockchip: add DTs for Firefly ROC-RK3588S-PC
 
-It actaully looks like x86/XEN tries to solves this problem in a similar way:
+ .../devicetree/bindings/arm/rockchip.yaml     |   5 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../boot/dts/rockchip/rk3588s-roc-pc.dts      | 911 ++++++++++++++++++
+ 3 files changed, 917 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-roc-pc.dts
 
-enum xen_lazy_mode xen_get_lazy_mode(void)
-{
-	if (in_interrupt())
-		return XEN_LAZY_NONE;
-
-	return this_cpu_read(xen_lazy_mode);
-}
-
-Although I'm not convinced it's fully robust. It also has:
-
-static inline void enter_lazy(enum xen_lazy_mode mode)
-{
-	BUG_ON(this_cpu_read(xen_lazy_mode) != XEN_LAZY_NONE);
-
-	this_cpu_write(xen_lazy_mode, mode);
-}
-
-which is called as part of its arch_enter_lazy_mmu_mode() implementation. If a
-task was already in lazy mmu mode when an interrupt comes in and causes the
-nested arch_enter_lazy_mmu_mode() that we saw in this bug report, surely that
-BUG_ON() should trigger?
-
-Thanks,
-Ryan
+-- 
+2.34.1
 
 
