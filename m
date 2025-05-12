@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60897C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 08:22:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC566C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 08:24:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nkN8UI9MTDoQPmfDG9QQthOuD0s0/NDLWl6EBndVAz4=; b=VvVdH4pNth+SbsFGeeqa6a16Iu
-	qdGzpF3vcL5p5vrKy2D8fwaD4QyUR7lPb03GB1DUWY/cGVlIO1nozAMLj1z8UJEPgnJ6oGXLVzWeZ
-	IqswNiYOncqK7YkxFIRCfd4jPxMorwr/YmOaYRYahRk01VeahXNOCYR3v8Tw7OXMTRnrvhV+4wVsI
-	BMvFHATzwskvtDuRNTJIlBTz6LxlYtscPQlT1Vzspr3ZhIVQLWxfBUJmiHeCNBKeABGi+gNZXltfd
-	iDYYC+9ckSlm60oMdZAFhcSthbUnJSUBwFVsrXOU/Wvm/iX8x/oWrg2lL4DjtUIVqzaM8qkU0bcMT
-	Y6mRpZEg==;
+	bh=VDsf1xNr2AkYRENv7eJrAIHxeW+ubiP0N6KggGEIn/k=; b=QmC1cgQ/yHvUkT1Z2Xo6c6Ezsw
+	Ihlkxu9xYNi7/dMJllzBwta/3yEHB5AeUcmyEmVJb/u2/ykmlT/u4EdXBZHT5JvuB90rKwdU+xoF8
+	hkNX498vQxz5MbsV2KRBm3bIONNIWVwtX+6UdDEDE3ZiMGDXkrg8rGErsDwaj3H6QRX0YDiO4We/d
+	UlwlsfJ5a9n/cHHBv7MXpCb2firwsYN21iBRUPW2Sq1q55kgLNUastFn2dyrnzAA1D3gLyO71/EMT
+	QbBspVA/lnMdqec1IKcEvQWkTgU+fYkZ1dCLdHNYPxVsk+QqLgzWOBwoKjcfqcWMMTF34USqyXHd2
+	KXAUD6sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEOQd-00000008jM1-1MtM;
-	Mon, 12 May 2025 08:22:27 +0000
+	id 1uEOSd-00000008jpB-25V2;
+	Mon, 12 May 2025 08:24:31 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEOFA-00000008hfX-2jCn
+	id 1uEOFc-00000008hmx-3Un3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 08:10:38 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZwsfW0mLTz6L57s;
-	Mon, 12 May 2025 16:07:47 +0800 (CST)
+	Mon, 12 May 2025 08:11:06 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Zwscv1Lntz6M4gh;
+	Mon, 12 May 2025 16:06:23 +0800 (CST)
 Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7DF321402FC;
-	Mon, 12 May 2025 16:10:29 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id BE8E41402F4;
+	Mon, 12 May 2025 16:11:01 +0800 (CST)
 Received: from a2303103017.china.huawei.com (10.47.30.10) by
  frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Mon, 12 May 2025 10:10:28 +0200
+ 15.1.2507.39; Mon, 12 May 2025 10:11:00 +0200
 From: Alireza Sanaee <alireza.sanaee@huawei.com>
 To: <devicetree@vger.kernel.org>
-Subject: [PATCH v3 6/7] arm64: of: handle multiple threads in ARM cpu node
-Date: Mon, 12 May 2025 09:07:14 +0100
-Message-ID: <20250512080715.82-7-alireza.sanaee@huawei.com>
+Subject: [PATCH v3 7/7] of: of_cpu_phandle_to_id to support SMT threads
+Date: Mon, 12 May 2025 09:07:15 +0100
+Message-ID: <20250512080715.82-8-alireza.sanaee@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250512080715.82-1-alireza.sanaee@huawei.com>
 References: <20250512080715.82-1-alireza.sanaee@huawei.com>
@@ -52,8 +52,8 @@ X-Originating-IP: [10.47.30.10]
 X-ClientProxiedBy: lhrpeml500001.china.huawei.com (7.191.163.213) To
  frapeml500003.china.huawei.com (7.182.85.28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_011036_979656_345BC040 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20250512_011105_153405_B7E03DA0 
+X-CRM114-Status: GOOD (  19.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,162 +69,116 @@ Cc: mark.rutland@arm.com, robh@kernel.org, dianders@chromium.org, gshan@redhat.c
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update `of_parse_and_init_cpus` to parse reg property of CPU node as
-an array based as per spec for SMT threads.
+Enhance the API to support SMT threads, this will allow sharing
+resources among multiple SMT threads.
 
-Spec v0.4 Section 3.8.1:
-The value of reg is a <prop-encoded-**array**> that defines a unique
-CPU/thread id for the CPU/threads represented by the CPU node.  **If a CPU
-supports more than one thread (i.e.  multiple streams of execution) the
-reg property is an array with 1 element per thread**.  The address-cells
-on the /cpus node specifies how many cells each element of the array
-takes. Software can determine the number of threads by dividing the size
-of reg by the parent node's address-cells.
+Enabled the sharing of resources, such as L1 Cache and clocks, between
+SMT threads. It introduces a fix that uses thread IDs to match each CPU
+thread in the register array within the cpu-node. This ensures that the
+cpu-map or any driver relying on this API is fine even when SMT threads
+share resources.
 
-An accurate example of 1 core with 2 SMTs:
+Additionally, I have tested this for CPU based on the discussions in
+[1], I adopted the new cpu-map layout, where the first parameter is a
+phandle and the second is the local thread index, as shown below:
 
-	cpus {
-		#size-cells = <0x00>;
-		#address-cells = <0x01>;
+    core0 {
+      thread0 {
+        cpu = <&cpu0 0>;
+      };
+      thread1 {
+        cpu = <&cpu0 1>;
+      };
+    };
 
-		cpu@0 {
-			phandle = <0x8000>;
-			**reg = <0x00 0x01>;**
-			enable-method = "psci";
-			compatible = "arm,cortex-a57";
-			device_type = "cpu";
-		};
-	};
+Also, there are devices such as below that are a bit different.
 
-Instead of:
+    arm_dsu@0 {
+      compatible = "arm,dsu";
+      cpus = <&cpu0 &cpu1 &cpu2 &cpu3>;
+    }
 
-	cpus {
-		#size-cells = <0x00>;
-		#address-cells = <0x01>;
+In these cases, we can also point to a CPU thread as well like the
+following:
 
-		cpu@0 {
-			phandle = <0x8000>;
-			reg = <0x00>;
-			enable-method = "psci";
-			compatible = "arm,cortex-a57";
-			device_type = "cpu";
-		};
+    arm_dsu@0 {
+      compatible = "arm,dsu";
+        cpus = <&cpu0 5 &cpu1 9 &cpu2 1 &cpu3 0>;
+    }
 
-		cpu@1 {
-			phandle = <0x8001>;
-			reg = <0x01>;
-			enable-method = "psci";
-			compatible = "arm,cortex-a57";
-			device_type = "cpu";
-		};
-	};
-
-which is **NOT** accurate.
+It should be possible to know how many arguments a phandle might
+require, and this information is encoded in another variable in the dt
+called #cpu-cells in cpu node.
 
 Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
----
- arch/arm64/kernel/smp.c | 74 +++++++++++++++++++++++------------------
- 1 file changed, 41 insertions(+), 33 deletions(-)
 
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 3b3f6b56e733..8dd3b3c82967 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -689,53 +689,61 @@ static void __init acpi_parse_and_init_cpus(void)
- static void __init of_parse_and_init_cpus(void)
+[1] https://lore.kernel.org/devicetree-spec/CAL_JsqK1yqRLD9B+G7UUp=D8K++mXHq0Rmv=1i6DL_jXyZwXAw@mail.gmail.com/
+---
+ drivers/of/cpu.c | 41 +++++++++++++++++++++++++++++++++--------
+ 1 file changed, 33 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/of/cpu.c b/drivers/of/cpu.c
+index fba17994fc20..cf54ef47f029 100644
+--- a/drivers/of/cpu.c
++++ b/drivers/of/cpu.c
+@@ -189,16 +189,41 @@ int of_cpu_phandle_to_id(const struct device_node *node,
+ 			 struct device_node **cpu_np,
+ 			 uint8_t cpu_idx)
  {
- 	struct device_node *dn;
-+	u64 hwid;
-+	u32 tid;
- 
- 	for_each_of_cpu_node(dn) {
--		u64 hwid = of_get_cpu_hwid(dn, 0);
-+		tid = 0;
- 
--		if (hwid & ~MPIDR_HWID_BITMASK)
--			goto next;
-+		while (1) {
-+			hwid = of_get_cpu_hwid(dn, tid++);
-+			if (hwid == ~0ULL)
-+				break;
- 
--		if (is_mpidr_duplicate(cpu_count, hwid)) {
--			pr_err("%pOF: duplicate cpu reg properties in the DT\n",
--				dn);
--			goto next;
--		}
-+			if (hwid & ~MPIDR_HWID_BITMASK)
-+				goto next;
- 
--		/*
--		 * The numbering scheme requires that the boot CPU
--		 * must be assigned logical id 0. Record it so that
--		 * the logical map built from DT is validated and can
--		 * be used.
--		 */
--		if (hwid == cpu_logical_map(0)) {
--			if (bootcpu_valid) {
--				pr_err("%pOF: duplicate boot cpu reg property in DT\n",
--					dn);
-+			if (is_mpidr_duplicate(cpu_count, hwid)) {
-+				pr_err("%pOF: duplicate cpu reg properties in the DT\n",
-+				       dn);
- 				goto next;
- 			}
- 
--			bootcpu_valid = true;
--			early_map_cpu_to_node(0, of_node_to_nid(dn));
--
- 			/*
--			 * cpu_logical_map has already been
--			 * initialized and the boot cpu doesn't need
--			 * the enable-method so continue without
--			 * incrementing cpu.
-+			 * The numbering scheme requires that the boot CPU
-+			 * must be assigned logical id 0. Record it so that
-+			 * the logical map built from DT is validated and can
-+			 * be used.
- 			 */
--			continue;
--		}
-+			if (hwid == cpu_logical_map(0)) {
-+				if (bootcpu_valid) {
-+					pr_err("%pOF: duplicate boot cpu reg property in DT\n",
-+					       dn);
-+					goto next;
-+				}
++	bool found = false;
++	int cpu, ret = -1, i, j;
++	uint32_t local_thread, thread_index;
++	struct device_node *np;
++	struct of_phandle_args args;
++	static const char * const phandle_names[] = { "cpus", "cpu" };
++	static const char * const cpu_cells[] = { "#cpu-cells", NULL };
 +
-+				bootcpu_valid = true;
-+				early_map_cpu_to_node(0, of_node_to_nid(dn));
-+
-+				/*
-+				 * cpu_logical_map has already been
-+				 * initialized and the boot cpu doesn't need
-+				 * the enable-method so continue without
-+				 * incrementing cpu.
-+				 */
-+				continue;
-+			}
+ 	if (!node)
+-		return -1;
++		return ret;
  
--		if (cpu_count >= NR_CPUS)
--			goto next;
-+			if (cpu_count >= NR_CPUS)
-+				goto next;
- 
--		pr_debug("cpu logical map 0x%llx\n", hwid);
--		set_cpu_logical_map(cpu_count, hwid);
-+			pr_debug("cpu logical map 0x%llx\n", hwid);
-+			set_cpu_logical_map(cpu_count, hwid);
- 
--		early_map_cpu_to_node(cpu_count, of_node_to_nid(dn));
-+			early_map_cpu_to_node(cpu_count, of_node_to_nid(dn));
- next:
--		cpu_count++;
-+			cpu_count++;
+-	*cpu_np = of_parse_phandle(node, "cpu", 0);
+-	if (!*cpu_np)
+-		*cpu_np = of_parse_phandle(node, "cpus", cpu_idx);
+-			if (!*cpu_np)
+-				return -ENODEV;
++	for (i = 0; i < ARRAY_SIZE(phandle_names); i++) {
++		for (j = 0; j < ARRAY_SIZE(cpu_cells); j++) {
++			ret = of_parse_phandle_with_args(node, phandle_names[i],
++							 cpu_cells[j], cpu_idx,
++							 &args);
++				if (ret >= 0)
++					goto success;
 +		}
- 	}
- }
++	}
  
+-	return of_cpu_node_to_id(*cpu_np);
++	if (ret < 0)
++		return ret;
++success:
++	*cpu_np = args.np;
++	thread_index = args.args_count == 1 ? args.args[0] : 0;
++	for_each_possible_cpu(cpu) {
++		np = of_get_cpu_node(cpu, &local_thread);
++		found = (*cpu_np == np) && (local_thread == thread_index);
++		of_node_put(np);
++		if (found)
++			return cpu;
++	}
++
++	return -ENODEV;
+ }
+ EXPORT_SYMBOL(of_cpu_phandle_to_id);
+ 
+@@ -206,7 +231,7 @@ EXPORT_SYMBOL(of_cpu_phandle_to_id);
+  * of_get_cpu_state_node - Get CPU's idle state node at the given index
+  *
+  * @cpu_node: The device node for the CPU
+- * @index: The index in the list of the idle states
++g* @index: The index in the list of the idle states
+  *
+  * Two generic methods can be used to describe a CPU's idle states, either via
+  * a flattened description through the "cpu-idle-states" binding or via the
 -- 
 2.34.1
 
