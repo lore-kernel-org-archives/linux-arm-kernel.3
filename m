@@ -4,66 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1373DC3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:13:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B78EC3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 14:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2axHuvN3mmWehitO4qAAmzFHJ9v0Jl5cmn0ign8Fb8s=; b=vGMWtIAi60GAob8b1VPnVExuSJ
-	70K337MvESnNe+LhSf1mYmLcLfcDhKZrUqZefOcpP1pIuyR0Zey7UpsBRZJ3aP4n8L5mki1d1L6N2
-	fTZOGiU6inN4syQ2Aht8cYWFHg+zBJ0u648sVrrYjuMVfpALyXUuDxKnwvlsH58161JsXsaXNl6ol
-	sRmYFEtyhRgO4qKKkiKNgafJChfXzsG4GFoPNYursCbkQET5zrsAuxQbiAM0dGKivVsl5E3fkuvrO
-	QyJm/9xfUmbqyDYDXd4oQEHZ7Gn3a6XRVOBLLtnpmtyWi8ihnp/dlfKT19TZkWRMfiqT0rg5g/0NU
-	GUPnYTbQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6O0jvL9bp0RhLH3gFStx+IoQOSIzReGN6we6Sj8t7oo=; b=s+WgjQ9qPCblmFKtS4thPmJtPb
+	WpB3nh6jbOrziIaPJNEmksqGIR2hwq9ldv/fBvgJjuNpbSv7y6u/QdjJkoPUJBgTmZnQFz0IV8e6E
+	r20QaJcDcvlzRzUZWBfc4tU2alY9lPXtrI2Iv6kheGYSorUtINNPV2OMUvuxFeQT3MLRG4P/t/tfr
+	XqhScIDYbo2wR207hK7MmE4Fcw55V+onfzONuln1VTUcy7FAA+wIHfp5IAEe1SRMA9ab87qwoDizc
+	II0t7hpz5saZxYdhkfhfdVwX2YQ9Si+/u6OjHzGguoBGWIBp5bJRLzzrpoORr+TjCEcrwe8fH0e6Y
+	1r9mfM8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uETuG-00000009gNx-053n;
-	Mon, 12 May 2025 14:13:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uET8w-00000009XL9-2VKz
+	id 1uETwN-00000009goS-0dlL;
+	Mon, 12 May 2025 14:15:36 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uETEX-00000009Yqn-20dd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 13:24:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E22B150C;
-	Mon, 12 May 2025 06:24:17 -0700 (PDT)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C87D53F5A1;
-	Mon, 12 May 2025 06:24:22 -0700 (PDT)
-Message-ID: <4709ff5a-f89c-426e-ae95-f8356808f4f5@arm.com>
-Date: Mon, 12 May 2025 14:24:21 +0100
+	Mon, 12 May 2025 13:30:19 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43cfe63c592so46658055e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 06:30:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=csie.ntu.edu.tw; s=google; t=1747056613; x=1747661413; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=6O0jvL9bp0RhLH3gFStx+IoQOSIzReGN6we6Sj8t7oo=;
+        b=E4FkGBw2+W6QDTXVoWmgziiZ2qP1zCfPt2d8SAKZYQ+6560jmPculc62EH1l6F8VSm
+         NSp/NnB6P96f8SV4CyMm28nuiD3H6+1odVHxCSUZRYNUJLz7IbdC1Ms0CGXMbMzH5+iV
+         p9CXs8lCuffYFha42KaKwXqiY80U4T2SDp6DceB//LTy5+UrrToVWfuQTuVgBYlOjkOd
+         NOGwPS3u6mKrL18D7mNsYyTD6HyLoQagitVDNzWWzercok30t4a7s2eq364Ffc6CE6BR
+         9LwuHzT37GEHT9imsIQ8lw/QIzxwEV5p+IxnDlUy5Zek04I1vGVGWM6LnBBciVTD4V2E
+         7Fow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747056613; x=1747661413;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6O0jvL9bp0RhLH3gFStx+IoQOSIzReGN6we6Sj8t7oo=;
+        b=nNE3R3XYL6oeUjjfBsDMJhIB988CLRXJR/SvnyD4xgZzGroFNS1X8HFL7vER2ZXoV1
+         wxgL4DKj8ht4fIfrjfSFrYwMH5F+zcGYntgzHYT1NcIhUO6wOkaseKJ8Z29jSQv6eaMh
+         68nZbimSGdDlzBDNazxj47xlMUTYxnN2nSE+iqzQ3e5k1UxAeOdoWBCkLHfpjBR6DtAU
+         j1urAiW24pvJMocxEs0lU1rZL70f6pXTOzFdqJjVD30Hh8n7Qqxo8GcTS1EzYEYaKEte
+         F2hUUKpD/wmTarhzuSZA6Yj6xVfiHiDaRxSj03Zfgid6wRi/YDh4AQd8/92zX9vpFwA5
+         imqw==
+X-Forwarded-Encrypted: i=1; AJvYcCWnV4iBOo4Or4DLAoVIxzpftpGo7yw+WQCXGVejJQeh/TCrg8Gb6rje3ORaXTg3DPpykyLuW8KN9/QDxV2VHCVZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzARcxTyQKLyb8ENH6HXEx2nswtoN7LLVnUqejaK2f7viDArqbV
+	zDlz7hIrCeu/MW4heu41eriJKoYsIqeXdXvNe9mbhZM0fWFtZ0hvzgGHRMir18DGFjZKPqH59YF
+	Oxbb5LGlVmcRvNlKqLBdBT1+XlhBSO9Dcf6REbXu1LWJ98VNZWWZ3cccvdAxJYMWEiNc3GcSMax
+	TXzQdJKy1tSWY=
+X-Gm-Gg: ASbGncsaFBqaB8fSPugcjK4sklYtUXpDiud3xtNsxT0fpFeDEBJPatpsR3zQVZKB4Kw
+	IsnmvZ+Nl4gqdtzzQTp4waJjsz1r9KznwgtDph7RDREQ437XVtdByZIt3R/uSpsA5hZHu8PTqKR
+	Vwc6jcl8+vZuZiJwiDXp891psrkkXsaIqGcdo+8pEAD4uGqFqV/5tfhE+gIu42aeFeBTgoVVatt
+	izA2Pinh6Fx4UZQ7UfbdGPcOhEbxR/IJlzQyMcBl+i8raJlgy25EAprVZ98GkNhqP45UEVylud+
+	088NHacD79vZykeHWYtHRFUMsmBsw07Qh41NX8nrGEYaYMMtgP5uUVpi/UI0zJDS1r0H2i8x
+X-Google-Smtp-Source: AGHT+IGvjNxhAX66VVq4W0wV6STryscjMOGjWiI63Myou666P8Evc1sc/t303qv3kgeVp110Hjntxg==
+X-Received: by 2002:a05:600c:5250:b0:43c:ea1a:720c with SMTP id 5b1f17b1804b1-442d6d6ad52mr105665795e9.18.1747056612621;
+        Mon, 12 May 2025 06:30:12 -0700 (PDT)
+Received: from localhost.localdomain ([213.157.19.150])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442d67ee33bsm125593325e9.20.2025.05.12.06.30.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 May 2025 06:30:12 -0700 (PDT)
+From: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Jintack Lim <jintack@cs.columbia.edu>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+Subject: [PATCH] KVM: arm64: nv: Remove clearing of ICH_LR<n>.EOI if ICH_LR<n>.HW == 1
+Date: Mon, 12 May 2025 21:32:23 +0800
+Message-ID: <20250512133223.866999-1-r09922117@csie.ntu.edu.tw>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH v6 1/3] arm64: Add BBM Level 2 cpu feature
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
- yang@os.amperecomputing.com, corbet@lwn.net, jean-philippe@linaro.org,
- robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org,
- paulmck@kernel.org, mark.rutland@arm.com, joey.gouly@arm.com,
- maz@kernel.org, james.morse@arm.com, broonie@kernel.org,
- oliver.upton@linux.dev, baohua@kernel.org, david@redhat.com,
- ioworker0@gmail.com, jgg@ziepe.ca, nicolinc@nvidia.com, mshavit@google.com,
- jsnitsel@redhat.com, smostafa@google.com, kevin.tian@intel.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
-References: <20250428153514.55772-2-miko.lenczewski@arm.com>
- <20250428153514.55772-4-miko.lenczewski@arm.com>
- <20250506142508.GB1197@willie-the-truck>
- <78fec33d-fe66-4352-be11-900f456c9af3@arm.com>
- <20250509134904.GA5707@willie-the-truck> <aB4nqtMJuvvp7Vwm@arm.com>
- <015746d7-ca46-4978-a441-09fba781fdd4@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <015746d7-ca46-4978-a441-09fba781fdd4@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Gm-Spam: 0
+X-Gm-Phishy: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_062430_736025_0F7FB701 
-X-CRM114-Status: GOOD (  28.54  )
+X-CRM114-CacheID: sfid-20250512_063017_808190_E7D6955C 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,107 +109,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/05/2025 14:07, Ryan Roberts wrote:
-> On 09/05/2025 17:04, Catalin Marinas wrote:
->> On Fri, May 09, 2025 at 02:49:05PM +0100, Will Deacon wrote:
->>> On Tue, May 06, 2025 at 03:52:59PM +0100, Ryan Roberts wrote:
->>>> On 06/05/2025 15:25, Will Deacon wrote:
->>>>> This penalises large homogeneous systems and it feels unnecessary given
->>>>> that we have the ability to check this per-CPU. Can you use
->>>>> ARM64_CPUCAP_BOOT_CPU_FEATURE instead of ARM64_CPUCAP_SYSTEM_FEATURE
->>>>> to solve this?
->>>>
->>>> We are trying to solve for the case where the boot CPU has BBML2 but a secondary
->>>> CPU doesn't. (e.g. hetrogeneous system where boot CPU is big and secondary is
->>>> little and does not advertise the feature. I can't remember if we proved there
->>>> are real systems with this config - I have vague recollection that we did but my
->>>> memory is poor...).
->>>>
->>>> My understanding is that for ARM64_CPUCAP_BOOT_CPU_FEATURE, "If the boot CPU
->>>> has enabled this feature already, then every late CPU must have it". So that
->>>> would exclude any secondary CPUs without BBML2 from coming online?
->>>
->>> Damn, yes, you're right. However, it still feels horribly hacky to iterate
->>> over the online CPUs in has_bbml2_noabort() -- the cpufeature framework
->>> has the ability to query features locally and we should be able to use
->>> that. We're going to want that should the architecture eventually decide
->>> on something like BBML3 for this.
->>>
->>> What we have with BBML2_NOABORT seems similar to an hwcap in that we only
->>> support the capability if all CPUs have it (rejecting late CPUs without it
->>> in that case) but we can live without it if not all of the early CPUs
->>> have it. Unlikely hwcaps, though, we shouldn't be advertising this to
->>> userspace and we can't derive the capability solely from the sanitised
->>> system registers.
->>>
->>> I wonder if we could treat it like an erratum in some way instead? That
->>> is, invert things so that CPUs which _don't_ have BBML2_NOABORT are
->>> considered to have a "BBM_CONFLICT_ABORT" erratum (which we obviously
->>> wouldn't shout about). Then we should be able to say:
->>>
->>>    - If any of the early CPUs don't have BBML2_NOABORT, then the erratum
->>>      would be enabled and we wouln't elide BBM.
->>>
->>>    - If a late CPU doesn't have BBML2_NOABORT then it can't come online
->>>      if the erratum isn't already enabled.
->>>
->>> Does that work? If not, then perhaps the cpufeature/cpuerrata code needs
->>> some surgery for this.
->>
->> Ah, I should have read this thread in order. I think we can treat this
->> as BBML2_NOABORT available as default based on ID regs and use the
->> allow/deny-list as an erratum.
->>
-> 
-> Just to make sure I've understood all this, I think what you are both saying is
-> we can create a single capability called ARM64_HAS_NO_BBML2_NOABORT of type
-> ARM64_CPUCAP_LOCAL_CPU_ERRATUM. Each CPU will then check it has BBML2 and is in
-> the MIDR allow list; If any of those conditions are not met, the CPU is
-> considered to have ARM64_HAS_NO_BBML2_NOABORT.
+In the case of ICH_LR<n>.HW == 1, bit 41 of LR is just a part of pINTID
+without EOI meaning, and bit 41 will be zeroed by the subsequent clearing
+of ICH_LR_PHYS_ID_MASK anyway.
+No functional changes intended.
 
-I guess we need two caps.
+Signed-off-by: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+---
+ arch/arm64/kvm/vgic/vgic-v3-nested.c | 3 ---
+ 1 file changed, 3 deletions(-)
 
-1. SYSTEM cap -> ARM64_HAS_BBML2. Based on the ID registers
-2. An erratum -> ARM64_BBML2_ABORTS. Based on BBLM2==1 && !in_midr_list()
-
-
-And then:
-
-
-> 
-> Then we have this helper:
-> 
-> static inline bool system_supports_bbml2_noabort(void)
-> {
-> 	return system_capabilities_finalized() &&
-		alternative_has_cap_unlikely(ARM64_HAS_BBML2) &&
-		!alternative_has_cap_unlikely(!ARM64_HAS_BBML2_ABORTS)
-
-Without (1), we may enable BBML2 on a (system with) CPU that doesn't
-have BBML2 feature.
-
-And (1) can prevent any non-BBML2 capable CPUs from booting or (2) can 
-prevent anything that aborts with BBML2.
-
-
-Suzuki
-
-
-> 	       !alternative_has_cap_unlikely(ARM64_HAS_NO_BBML2_NOABORT);
-
-
-> }
-> 
-> system_capabilities_finalized() is there to ensure an early call to this helper
-> returns false (i.e. the safe value before we have evaluated on all CPUs).
-> Because ARM64_HAS_NO_BBML2_NOABORT is inverted it would otherwise return true
-> prior to finalization.
-> 
-> I don't believe we need any second (SYSTEM or BOOT) feature. This is sufficient
-> on its own?
-> 
-> Thanks,
-> Ryan
-> 
+diff --git a/arch/arm64/kvm/vgic/vgic-v3-nested.c b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+index bfa5bde1f106..4f6954c30674 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3-nested.c
++++ b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+@@ -240,9 +240,6 @@ static void vgic_v3_create_shadow_lr(struct kvm_vcpu *vcpu,
+ 			goto next;
+ 		}
+ 
+-		/* It is illegal to have the EOI bit set with HW */
+-		lr &= ~ICH_LR_EOI;
+-
+ 		/* Translate the virtual mapping to the real one */
+ 		lr &= ~ICH_LR_PHYS_ID_MASK;
+ 		lr |= FIELD_PREP(ICH_LR_PHYS_ID_MASK, (u64)irq->hwintid);
+-- 
+2.49.0
 
 
