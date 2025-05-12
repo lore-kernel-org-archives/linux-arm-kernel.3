@@ -4,66 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03244C3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 08:45:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F53C3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 08:48:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oJM/+YbEdfI1E9yCLpjlL6yOQ8QzwmcG8sCUzXoOm30=; b=1Wu4mxhWe7h6qlwjR2XjzytmgX
-	p5J12QsncDkIPZClAvwAtdSIGbDQOMSmrRsT4GlB7Hb0zuzfDlhXRGqVpPUk9et2l/GTSfas5iDLQ
-	hT/K7aVfSlprnSxn9hFpraItDl/liuGu0QdLDwE/DNWfvkQUc53eCrGPY9h69ypxDiBP9PNXU6bpO
-	h3WqCxJEZwnX1+s/BOlCyY71EMm76EndQwm8RAHOE4DslLUaMfqEWiiZio8rVE2sHM4Gpjzi2dp/W
-	mNnElR9tSUkg3YUnCOSQLSe4wCuUsZLeGhNtD+U5xCFgF4aUQer5/83cmCuokt7JsqUDKLzmBYWG0
-	QNFgMakQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=47l2MWO9b6CGghlDpoxkN0Z68jaY4wGa3rbK4Dd/8vY=; b=3gfLHu7S0uUpo5PJhBlKRRZxMo
+	9LFMWmufMg7yy8AW99jvt9i59MfxZIDZtQPsWsBXZTj/fEAdTmoCXlioes6otfEZ8SJiB1ck7e9dL
+	pwkXawX1sxFcNhTGJRY46jwhX2io6fynaFzaOh1z9Zd67+thGtVPb2Fa3ILTNN8uR0OYL2CRLQ40s
+	etjq1S+00rTdCaS0odND+zmPkgHnvmu1+oNdYPeFRba8r9M5qB3mJ73Ds2njj2GgEeStJeNhsbF46
+	b1R8XFriDc0HFtQU8eaPTs+b6W6MDqBVYS7ULoi+lrWq40iA9FpkWmotjGwQvi2y1uLSvkTxy8YLx
+	YXJIfTxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEOmz-00000008oNH-2QCq;
-	Mon, 12 May 2025 08:45:33 +0000
-Received: from szxga07-in.huawei.com ([45.249.212.35])
+	id 1uEOpL-00000008p60-2ywE;
+	Mon, 12 May 2025 08:47:59 +0000
+Received: from baptiste.telenet-ops.be ([2a02:1800:120:4::f00:13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEOkG-00000008nNr-23kV
+	id 1uEOmw-00000008oFf-0YDJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 08:42:47 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.163])
-	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4ZwtPs3n39zsSfk;
-	Mon, 12 May 2025 16:41:53 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 03EC4180044;
-	Mon, 12 May 2025 16:42:35 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 12 May 2025 16:42:34 +0800
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 12 May 2025 16:42:34 +0800
-CC: <yangyicong@hisilicon.com>, <hejunhao3@huawei.com>,
-	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
-	<linuxarm@huawei.com>, <wangyushan12@huawei.com>
-Subject: Re: [RESEND PATCH v3 0/8] General updates and two new drivers for
- HiSilicon Uncore PMU
-To: <will@kernel.org>, <mark.rutland@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250425090029.50786-1-yangyicong@huawei.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <e45f5183-d1ff-970b-3b15-7f7239b6b405@huawei.com>
-Date: Mon, 12 May 2025 16:42:33 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Mon, 12 May 2025 08:45:32 +0000
+Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:e731:371c:7707:a2ae])
+	by baptiste.telenet-ops.be with cmsmtp
+	id o8lN2E0044HZolA018lNU1; Mon, 12 May 2025 10:45:23 +0200
+Received: from rox.of.borg ([192.168.97.57])
+	by ramsan.of.borg with esmtp (Exim 4.97)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1uEOme-00000001PRX-2f3X;
+	Mon, 12 May 2025 10:45:22 +0200
+Received: from geert by rox.of.borg with local (Exim 4.97)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1uEOmo-00000006UfR-13Jb;
+	Mon, 12 May 2025 10:45:22 +0200
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Magnus Damm <magnus.damm@gmail.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Stephen Rothwell <sfr@canb.auug.org.au>,
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH] arm64: dts: renesas: sparrow-hawk: Disable dtc spi_bus_bridge check
+Date: Mon, 12 May 2025 10:45:12 +0200
+Message-ID: <fbad3581f297d5b95a3b2813bbae7dba25a523fd.1747039399.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-In-Reply-To: <20250425090029.50786-1-yangyicong@huawei.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- kwepemq200018.china.huawei.com (7.202.195.108)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_014244_892261_A5F51787 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20250512_014530_311134_0A7D0341 
+X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,59 +71,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-a gentle ping on this...
+make dtbs:
 
-thanks.
+    arch/arm64/boot/dts/renesas/r8a779g0.dtsi:1269.24-1283.5: Warning (spi_bus_bridge): /soc/spi@e6ea0000: incorrect #address-cells for SPI bus
+      also defined at arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts:471.9-486.3
+    arch/arm64/boot/dts/renesas/r8a779g0.dtsi:1269.24-1283.5: Warning (spi_bus_bridge): /soc/spi@e6ea0000: incorrect #size-cells for SPI bus
+      also defined at arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts:471.9-486.3
+    arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dtb: Warning (spi_bus_reg): Failed prerequisite 'spi_bus_bridge'
 
-On 2025/4/25 17:00, Yicong Yang wrote:
-> From: Yicong Yang <yangyicong@hisilicon.com>
-> 
-> Support new version of DDRC/SLLC PMU identified with updated ACPI HID and
-> register definition. In order to support this, we do a preliminary refactor
-> to initialize device of each version by using driver data of each HID
-> rather than checking the version. This will also make the driver easier to
-> maintain and extend, since only the HID specific information along
-> with the new HID will be added to support the new version without touching
-> the common logic.
-> 
-> Two new Uncore PMU drivers is also added to support the monitoring the
-> events of the system bus (by NoC PMU) and the DVM operations (by MN PMU).
-> 
-> Change since v2:
-> - Rebase on 6.15-rc1, add Jonathan's tag.
-> Link: https://lore.kernel.org/linux-arm-kernel/20250321073846.23507-1-yangyicong@huawei.com/
-> 
-> Change since v1:
-> - Fold patch which extending the struct hisi_pmu_dev_info into its user
-> - Use bit shift rather than bit mask for SLLC PMU registers configuration
-> - Address other comments by Jonathan, thanks
-> Link: https://lore.kernel.org/linux-arm-kernel/20250218092000.41641-1-yangyicong@huawei.com/
-> 
-> Junhao He (6):
->   drivers/perf: hisi: Simplify the probe process for each DDRC version
->   drivers/perf: hisi: Add support for HiSilicon DDRC v3 PMU driver
->   drivers/perf: hisi: Use ACPI driver_data to retrieve SLLC PMU
->     information
->   drivers/perf: hisi: Add support for HiSilicon SLLC v3 PMU driver
->   drivers/perf: hisi: Relax the event number check of v2 PMUs
->   drivers/perf: hisi: Add support for HiSilicon MN PMU driver
-> 
-> Yicong Yang (2):
->   drivers/perf: hisi: Support PMUs with no interrupt
->   drivers/perf: hisi: Add support for HiSilicon NoC PMU
-> 
->  Documentation/admin-guide/perf/hisi-pmu.rst   |  11 +
->  drivers/perf/hisilicon/Makefile               |   3 +-
->  drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c | 354 ++++++++--------
->  drivers/perf/hisilicon/hisi_uncore_hha_pmu.c  |   6 +-
->  drivers/perf/hisilicon/hisi_uncore_mn_pmu.c   | 355 ++++++++++++++++
->  drivers/perf/hisilicon/hisi_uncore_noc_pmu.c  | 392 ++++++++++++++++++
->  drivers/perf/hisilicon/hisi_uncore_pa_pmu.c   |   2 +-
->  drivers/perf/hisilicon/hisi_uncore_pmu.c      |  11 +-
->  drivers/perf/hisilicon/hisi_uncore_pmu.h      |   2 +
->  drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c | 220 +++++++---
->  10 files changed, 1098 insertions(+), 258 deletions(-)
->  create mode 100644 drivers/perf/hisilicon/hisi_uncore_mn_pmu.c
->  create mode 100644 drivers/perf/hisilicon/hisi_uncore_noc_pmu.c
-> 
+The Sparrow Hawk uses the MSIOF module in I2S mode instead of SPI mode,
+triggering a conflict between the SPI bus bindings and dtc:
+  - Serial engines that can be SPI controllers must use "spi" as their
+    node names,
+  - Dtc assumes nodes named "spi" are always SPI controllers.
+
+Fix this by disabling this specific warning for this board.
+
+Fixes: ca764d5321a2cee7 ("arm64: dts: renesas: sparrow-hawk: Add MSIOF Sound support")
+Reported-by: Stephen Rothwell <sfr@canb.auug.org.au>
+Closes: https://lore.kernel.org/20250506192033.77338015@canb.auug.org.au
+Suggested-by: Rob Herring <robh@kernel.org>
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+To be queued in renesas-devel for v6.16.
+
+ arch/arm64/boot/dts/renesas/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/boot/dts/renesas/Makefile b/arch/arm64/boot/dts/renesas/Makefile
+index 21baaa25346744dd..58a498059cf5f2ca 100644
+--- a/arch/arm64/boot/dts/renesas/Makefile
++++ b/arch/arm64/boot/dts/renesas/Makefile
+@@ -94,6 +94,7 @@ dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g2-white-hawk-single.dtb
+ r8a779g2-white-hawk-single-ard-audio-da7212-dtbs := r8a779g2-white-hawk-single.dtb white-hawk-ard-audio-da7212.dtbo
+ dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g2-white-hawk-single-ard-audio-da7212.dtb
+ 
++DTC_FLAGS_r8a779g3-sparrow-hawk += -Wno-spi_bus_bridge
+ dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-sparrow-hawk.dtb
+ r8a779g3-sparrow-hawk-fan-pwm-dtbs := r8a779g3-sparrow-hawk.dtb r8a779g3-sparrow-hawk-fan-pwm.dtbo
+ dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-sparrow-hawk-fan-pwm.dtb
+-- 
+2.43.0
+
 
