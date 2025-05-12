@@ -4,90 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C5AC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 23:28:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D592FC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 23:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WqKhY1RojEvRb14HYurQbKAHljhMzz4IMUcpGdu0eJY=; b=l0PAdWJ/aeucCIw+DPQFYaYiT4
-	bRiFkZerG8IxBUe7QlhJWOonSs2NwDzXhs1AaWZl8aC6njOqWVA0EtGrm1AbZPMeEA/RTVmokkBxd
-	3TMzuVXb3vs2O80AwyxOPWwNSDSRmtP7gpLvtv2LfvC0JIx0mrT0HPIH2GA6/ON08Klem1u3pC8Rq
-	dMPgTCORS+FrPkNkXQaBMthxDWWXXpT4DNbGE6mtaPakzCnsOXp0F2AUoLODzejpmxat0nKewFEEG
-	hvhGZ6N7qCqs6+0Q1p39OkU7zo5+cz5DB7kwH0PzDI0uw0MsSINTJ/0jRaY1qIK56Mbna3yEc7CSx
-	3y3Jk0NQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Date:Content-Type:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sre+pKJMo66lK7RyXZvMfKP5l8u1MZk8iy5GCVcDtzE=; b=Hh9TKErPb7OG86mZEFf0Lwm3VG
+	rtiaRVwnJFM7OfYU0KODbwFyO1lLGoJqqN+cwElRDBWV807BH4V5Fp1NGzKKdLCZdN9UEBmv6iFsi
+	q1n91P3U5GpvbYg75oJeKfVevdz5D2HCOFVpx3Tz41x+brs6ubL4menBqsDDDcYLkh0fFFXb4fq4K
+	rSjWVJr98Yz7g5E/c9BAyftOxX/EpkgJnOMQ0UOWAVymQWeHTGPuqr3r3NwGZS5t8blDfRqS2kvHK
+	L/tKncMn/9UD6yUN88NJYzEHs+n8squDvfYYpgnhHb84LZ07QLWs+y8rCbxlTIj+69yCVwAr7Vts1
+	LqCTJdNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEcZ7-0000000Av2b-1KII;
-	Mon, 12 May 2025 23:28:09 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uEcbu-0000000AvFI-0Gig;
+	Mon, 12 May 2025 23:31:02 +0000
+Received: from mail-japanwestazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c406::1] helo=OS0P286CU011.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEcX5-0000000Auvc-43Mu
+	id 1uEcZr-0000000Av7B-0ZUE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 23:26:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7556F5C57C5;
-	Mon, 12 May 2025 23:23:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FD71C4CEE7;
-	Mon, 12 May 2025 23:26:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747092360;
-	bh=ocrZSi8DrO1EDikoZUP7oF3uAlxlKAV4CCYK0E7ESY8=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=G/miODGVrcGeq496mvoRikgxy5uBNnOkysR4Bjkvdh99lpImJjlM0Q5BY/YOvD2eX
-	 Tphg+iiW8oLW9MrYAirmoLLIf+pWgv0NN0Zk9AcXiXyDOzLVLNem6tdFThiaJGVPmN
-	 15PcatmTdyI7Ze3ctlGjCRzcnYK33f2W6MXt7KXMSpKfzycAYk0STYuZkp3uKIuVUI
-	 k+diB3b7yfILzHv2GmGN/ceT6plbGrTysUtzmgENfnumE3CYdoWsmKvoxqQfNfc46P
-	 D1nIFgQTzLfQuUP5n0LDuCL/V7cexibccQXFb3mQqBCAeX6jGDDqlvTPgrFGHqhPOg
-	 KR1Fk1UXvw5pQ==
-Date: Mon, 12 May 2025 18:25:58 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 12 May 2025 23:28:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wdKa+SopaP9vEhKn/M2uV3dQPiiHWuntNpRKJHrDGCWg2vlbu+jzyyAq72XsdTxT6ddj/GFaa5iidf2rvaDQED0JJzjVYKK50F1pBNe4QPXkix4xoOBmQMqwgLjBiOPpKpbYOLLvGsow3Wasc4cyq4NVhhOUkYRijwnezxVEMzKlrf6hIbiotIcInQMHEiTbdHotuEQCcPAyBPoJd7SadOFyGcuspDoVQ4nqZ9MA49n5pG/MPkBQ81hwiETIDg0LUcOwW0Tl8Cikjv8CBvR7DqZ4WP9dJ1gmfjZwhdAGDCcxJ31ltt9nDD6Ou1jSaepDSfPCmGUFWfcy/+ppnjSh+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Sre+pKJMo66lK7RyXZvMfKP5l8u1MZk8iy5GCVcDtzE=;
+ b=rQ4LvFg1JpaUDcmHEdF6PkPGGxCSnVfAFqhDHoPj3iQAP8/xPNdcqKGRt8iSyh/i6h9i8CViJ3IYUewQAFmdhl9fYLseQ5DlE51cJWfKwnQZmDszPJffVs634/b1YPqO6TVzyoH1eSLDE4P89FW1KH/4sPK4Vem6CzPgLXAlIv9NtrSbFQ4O6BamwSUUHW3g/4D62XgzpSQs3P++tggvTbhWf0Pz1q4R1tAZpgYuPo3pmitKkdrrT7GGuTE/kA2FP0gFQ2jv9CTQs3GOxOll510pGgYUFLf759Y7BnZHEjaFgPxvpFbOwUfMa4lhseZkSYlRsYquIKwptCVh8s71bw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
+ dkim=pass header.d=renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Sre+pKJMo66lK7RyXZvMfKP5l8u1MZk8iy5GCVcDtzE=;
+ b=Nm1pxOFxxOIiNooBHHn4iUpOpOXpsKdjjdFnKDxRf9CM9e15+MjDEktTIVuLtDQ6RTPL71tcsLf47+42fHh+32tkftKa7gdLRaLhLi47x1nzdpPTlDgT08P09G6sowiHMCG0KjhVv04PZ0+bF7igAvvxeO9IigmJ6lFZ6VPdr+M=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=renesas.com;
+Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
+ (2603:1096:400:3a9::11) by OS9PR01MB15203.jpnprd01.prod.outlook.com
+ (2603:1096:604:3bb::5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.30; Mon, 12 May
+ 2025 23:28:38 +0000
+Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
+ ([fe80::c568:1028:2fd1:6e11]) by TYCPR01MB10914.jpnprd01.prod.outlook.com
+ ([fe80::c568:1028:2fd1:6e11%5]) with mapi id 15.20.8722.027; Mon, 12 May 2025
+ 23:28:37 +0000
+Message-ID: <87tt5pe7e2.wl-kuninori.morimoto.gx@renesas.com>
+From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+To: Mark Brown <broonie@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Stephen Rothwell <sfr@canb.auug.org.au>,
+	Rob Herring <robh@kernel.org>,
+	Magnus <magnus.damm@gmail.com>,
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+	Linux-ARM <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] arm64: dts: renesas: sparrow-hawk: Disable dtc spi_bus_bridge check
+In-Reply-To: <fbad3581f297d5b95a3b2813bbae7dba25a523fd.1747039399.git.geert+renesas@glider.be>
+References: <fbad3581f297d5b95a3b2813bbae7dba25a523fd.1747039399.git.geert+renesas@glider.be>
+User-Agent: Wanderlust/2.15.9 Emacs/29.3 Mule/6.0
+Content-Type: text/plain; charset=US-ASCII
+Date: Mon, 12 May 2025 23:28:37 +0000
+X-ClientProxiedBy: TYCPR01CA0166.jpnprd01.prod.outlook.com
+ (2603:1096:400:2b2::6) To TYCPR01MB10914.jpnprd01.prod.outlook.com
+ (2603:1096:400:3a9::11)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Tommaso Merciai <tomm.merciai@gmail.com>, Liu Ying <victor.liu@nxp.com>, 
- Benjamin Mugnier <benjamin.mugnier@foss.st.com>, 
- Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Dan Carpenter <dan.carpenter@linaro.org>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, devicetree@vger.kernel.org, 
- Dongcheng Yan <dongcheng.yan@intel.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Ross Burton <ross.burton@arm.com>, Will Deacon <will@kernel.org>, 
- Eric Biggers <ebiggers@google.com>, 
- Julien Massot <julien.massot@collabora.com>, linux-media@vger.kernel.org, 
- =?utf-8?q?N=C3=ADcolas_F_=2E_R_=2E_A_=2E_Prado?= <nfraprado@collabora.com>, 
- Taniya Das <quic_tdas@quicinc.com>, Mark Brown <broonie@kernel.org>, 
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
- linux-staging@lists.linux.dev, Geert Uytterhoeven <geert+renesas@glider.be>, 
- Ricardo Ribalda <ribalda@chromium.org>, 
- linux-arm-kernel@lists.infradead.org, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Bjorn Andersson <andersson@kernel.org>, 
- Vignesh Raghavendra <vigneshr@ti.com>, Zhi Mao <zhi.mao@mediatek.com>, 
- Cosmin Tanislav <cosmin.tanislav@analog.com>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Hans Verkuil <hverkuil@xs4all.nl>, 
- linux-kernel@vger.kernel.org, 
- =?utf-8?q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, 
- Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Kieran Bingham <kieran.bingham@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Liam Girdwood <lgirdwood@gmail.com>, 
- Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, 
- Conor Dooley <conor+dt@kernel.org>
-To: Cosmin Tanislav <demonsingur@gmail.com>
-In-Reply-To: <20250512212832.3674722-15-demonsingur@gmail.com>
-References: <20250512212832.3674722-1-demonsingur@gmail.com>
- <20250512212832.3674722-15-demonsingur@gmail.com>
-Message-Id: <174709235870.686179.16618194990565341079.robh@kernel.org>
-Subject: Re: [PATCH v3 14/19] dt-bindings: media: i2c: add MAX9296A,
- MAX96716A, MAX96792A
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYCPR01MB10914:EE_|OS9PR01MB15203:EE_
+X-MS-Office365-Filtering-Correlation-Id: db96d2a5-1abb-49cb-2496-08dd91acb88e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jzMXs1EYA/lVsnej6YHJ+oPUjbsiq0NOhZ0HDJEUv4FLH4nKuQfSWjR6RjVo?=
+ =?us-ascii?Q?bTkuo7/F/8SZVb/+N9s6vBmtLffZuTd5rSHNtNjOBfEaoJSsGocOqr+w+xxb?=
+ =?us-ascii?Q?fEhuY7pbmyiOmQGAyHHaQVzQ+XKWTujSjnnLdz0Z8GAS4LWK6NYLXEpb22t7?=
+ =?us-ascii?Q?we4L3YIXllOE0MXVM3EhmHqvygGjXW61WzfoITfs1iiwXhQ5P2XIqvXj+cTk?=
+ =?us-ascii?Q?GMZUkbCZvagjZBtW7jDr+M/p6sHxi7JTMJ86ONcL7GoWFAod/yn+ryLZfnfR?=
+ =?us-ascii?Q?5TCcBa/K9mENpTzV2yyQ6JpxG+8t2St4CWOKVgSIl1CShjpaNm8c4baEgtpZ?=
+ =?us-ascii?Q?DOFoD9ryCIbYP7fD1aHLEorL8mlNuximcm95Y6ffQsZ9plMwz4JhsK+sDxfA?=
+ =?us-ascii?Q?B3AqvLde7y1d4jSLbOEb2a+jj5xLAfmI+Xik7Ouy55x7OnTKWJc+W53Esdxn?=
+ =?us-ascii?Q?s/roar8ocZ1slgi6OwWoBTUn2j1nzb7Jjo0Q8/ViFj2FMMvaU6hGM2lTuE9H?=
+ =?us-ascii?Q?L3HHAPAeMpBwQjfkgulMtoiIYvePMfMmkaptVj3HScS7MihXg4Beo6tHZ6ai?=
+ =?us-ascii?Q?BUqXjwamI07kdmJxIcoHQtdASb+M3TtRv9JwtkvLLgMTd92UnSXIuq5ynXwH?=
+ =?us-ascii?Q?50daC/H24DzoMRf5VrD0+4Dd52TqSx2UTv3Z9YSPLMSjzH+Pmg23HReYGJtv?=
+ =?us-ascii?Q?IPsiGuSCaefqh7goL6MdBWOzvmE4ibPHoRhOUG9eSrOw1EnP0y4QNoF7zhM8?=
+ =?us-ascii?Q?1JkJHSP5k+h5LtTpTtOfK/p78wIlE1fqhFk0KQ/taEnhgQUubEgZPQfj8S0I?=
+ =?us-ascii?Q?Pq4HGIBkTnmDhaFbROD16dSrCvg3R29p09Bn3qxE1M2N2Iv4ej8yE+t1h2bd?=
+ =?us-ascii?Q?GSrEGiuKORRspSuXcJxhVxCDEY20ex4B06h7eiYGl6uNrRGwu5s9ItRXHgVQ?=
+ =?us-ascii?Q?z1zPa1FRe5yL9fJsEVusSLqvgx4bcTzTsJdw+bUrh9cjV2dcvP57ZZDLOJ+M?=
+ =?us-ascii?Q?3PJJ67elZSSFDh1cHgAeinZ3fdkV9G5szOM+TaMSo+KRT1kmuBasOOmSJBF8?=
+ =?us-ascii?Q?OQU7sZ4tGlZ+2spKIcfEu2416GIA+Poy6F0ZB8Q4psa4M/oR75X53/RnWFx4?=
+ =?us-ascii?Q?MUrXkTuW5qYQIGANgzlyWQEhmQFSuua6/k3S4XLo+xTsM+a+bpolJGow5UPG?=
+ =?us-ascii?Q?asqUQCOK/8MJ656c+6HUlBCR086Qvq32Lvs2cr11huOtZ23lpQ54Xp/yjL9m?=
+ =?us-ascii?Q?77nKakGyiPWJjRgqGrj051RLsX2qAQ4FR3Po424hOzNEocksjfkEu47ElIpV?=
+ =?us-ascii?Q?tHYS2DkHB0CR6PeRhJJJNPzeNbSPxYZNan3pEeuNPruNiYBw86U7DpjNrOjW?=
+ =?us-ascii?Q?nGwkgtOuFdFG4UWVrvgE9tm/Gm+qBb08UW5xdprxfH+qAmWG379VXsDhGO7h?=
+ =?us-ascii?Q?Gq+k7epZo0Wp4KM06Fhm0oUmhpqWp9hfWqDKYhXJ1vEvYPUsWH0AFjDxqhym?=
+ =?us-ascii?Q?Dopqt/UuKQplGRU=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB10914.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?x265xeLnIV8e+Iz51nEf+Y/9WHNWTB77O5u0bROWGCm+yrAchDGdWf6RWMZ2?=
+ =?us-ascii?Q?iDNa6sfIhLfYU6KXuddciVtSCxS6s4He/0x/cFKQaALcVrYboYjyzBveCRHu?=
+ =?us-ascii?Q?0pFWcPhB5bVujNYPgNKoyKi2cT/uflwNen18Z7xYXp/Jl3EKVvLycc4IErxj?=
+ =?us-ascii?Q?5pTYwLinDXrFv+D+PRyE5kdZoQmTE+c6jnHVocAlusJamsOxV8Cpnk4IDjjC?=
+ =?us-ascii?Q?ohsZdjQJ2escfvckyAPzZldYXAoHhibbe5h8fekYPT1/evkMAhDiNnyj4OzT?=
+ =?us-ascii?Q?LbVw8OKO/kohZhK9txodOh7L8D0ZrUSr7enC+2XuOaUGmos6zbjozMNM4V3q?=
+ =?us-ascii?Q?Q9RepRMc6JtroFObxL+JJOSlA9AnDCeNFd20YQUJpcsF8hlif35QWQ8ZGccl?=
+ =?us-ascii?Q?L0ix2ydT/5gwrOx2BIFqsGRTy+uS++2bkoTe5oODSpOmJcV0nz7A6ZJ+XKAj?=
+ =?us-ascii?Q?cEs36jCC7EEJP4BJ9qoKY50kgnsazQut9CeApUxAcAFgCSYR5LzJ2btbwvYi?=
+ =?us-ascii?Q?dgbF9mWaCHWVM5AvA/FWW/2gYugk/FBPl06Bop9LFouU+cUgIPrmGKFPmO+L?=
+ =?us-ascii?Q?k8G6rQHG6N5cLsLRgDSMZPOPyGMfEwSoHCUezMgm7DgITKl/6XJbdjFMPXii?=
+ =?us-ascii?Q?fmSWz3XrcurML3hidTN61sURzCq8hBPHRfHuhV6tRS+SAH0nbLJkK4nPvO9i?=
+ =?us-ascii?Q?9CIXBD5/y4PJWxAapZagprXq9TX8z9x9+wiNMVcKEyy97uFzh04uk0ZkSbFy?=
+ =?us-ascii?Q?HMKuEDBVP/3jhF2otVxuq0+WmNGYhsUa71o1v0K5aZUcjG50eodAEhiSjJ8U?=
+ =?us-ascii?Q?Q99F1Um6NZ8KrtSHRJCS8XcAHrOrEIsJ3293T7uEGFJgqM/Xv/RM/7qRZ56w?=
+ =?us-ascii?Q?ehZvYSVMqSv4QZcI4zRDlczt+aLGmGiNnd3UKbgPFmoKJKGNcJzBOhtYA7+e?=
+ =?us-ascii?Q?sPdzgkQv7ZaqqrZpj3hhknLd4ByFS6VJaHONaki5u6hFmXeFxRFop36jkEDT?=
+ =?us-ascii?Q?geKCRIDPt2PtCeWg5Z0iwl/yAJ81f041Gajo/wzaX77kmeQhmNG2hXhVjCer?=
+ =?us-ascii?Q?eeRagjz+O06//6uZMuvcV4O35g0TSIwuAVMVd8ZLmo/X1zPVCR9+JePx8qES?=
+ =?us-ascii?Q?U8KTjfM4QI3X0Sa6XpbWXZEpYtnfpKeWX4RgnfCrNLXZ+/vMrD68Zx8+nFgf?=
+ =?us-ascii?Q?OuoVaolWLHGchwtCQDp9pAKOsbJSWwBcMjqNQLuXLXI+uuvJpwik9A2VjkNC?=
+ =?us-ascii?Q?6RgmJIZosoCZ8UDc9xWqTDqKFP8rGmTKjoOwt9XJrhMPKeObOwq78hJjtwe5?=
+ =?us-ascii?Q?iezREFEYnFOtmsuY5uROHr2sEFd1DlDRHXkiTNQBFDFoXhBeLdrm65jvm5FJ?=
+ =?us-ascii?Q?upqmE4mN8CPJItoFpulqN0Gk143ySeGG06xWzk6qYTisDIelImXRsIpcz/Nn?=
+ =?us-ascii?Q?Ls+r81ID5tIKUKNzniwjx44suZdNLUwMirgKMyMeAlVM4nn+16uzz6083T6S?=
+ =?us-ascii?Q?/JwC3mEuBReDeUCucrJ0E+DAZHrtUo18T3RJOIIcwN1sYsTaK+vI1noUUTIm?=
+ =?us-ascii?Q?tAU703qFdjOX1nNrqzk7pfThfeOtrKd/ysqHptPmKvMs2St/+PSkWYbC7PQd?=
+ =?us-ascii?Q?rVj7gym4Ud/FcpRhjCpQlJs=3D?=
+Content-Transfer-Encoding: 7bit
+X-OriginatorOrg: renesas.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: db96d2a5-1abb-49cb-2496-08dd91acb88e
+X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB10914.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2025 23:28:37.4677
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aZ+JG8A4/sF8xfZKygVdKThc+NNJ+dmwdZB1v7RYTP6PApxcYRip5fGzVbexVXV/AM3QWdkpxHHk98Y7WO2RhTMSKsw05xY9nU5ZFi4qphZg3Aaztvn7KGRZWtH7USZB
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS9PR01MB15203
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_162604_111910_BE823CF1 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20250512_162855_419832_03CF26BD 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,56 +164,44 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 13 May 2025 00:28:23 +0300, Cosmin Tanislav wrote:
-> The MAX9296A deserializer converts single or dual serial inputs to MIPI
-> CSI-2 outputs. The GMSL2 links operate at a fixed rate of 3Gbps or 6Gbps
-> in the forward direction and 187.5Mbps in the reverse direction.
-> In GMSL1 mode, each serial link can be paired with 3.12Gbps or 1.5Gbps
-> GMSL1 serializers or operate up to 4.5Gbps with GMSL2 serializers with
-> GMSL1 backward compatibility. The MAX9296A supports mixed GMSL2 and
-> GMSL1 links. The serial inputs operate independently, allowing videos
-> with different timings and resolutions to be received on each input.
+Hi Geert
+To: Mark
+
+> make dtbs:
 > 
-> MAX96716A supports both tunnel and pixel mode.
-> MAX96792A supports both tunnel and pixel mode, and has two GMSL3 links.
+>     arch/arm64/boot/dts/renesas/r8a779g0.dtsi:1269.24-1283.5: Warning (spi_bus_bridge): /soc/spi@e6ea0000: incorrect #address-cells for SPI bus
+>       also defined at arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts:471.9-486.3
+>     arch/arm64/boot/dts/renesas/r8a779g0.dtsi:1269.24-1283.5: Warning (spi_bus_bridge): /soc/spi@e6ea0000: incorrect #size-cells for SPI bus
+>       also defined at arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts:471.9-486.3
+>     arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dtb: Warning (spi_bus_reg): Failed prerequisite 'spi_bus_bridge'
 > 
-> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
+> The Sparrow Hawk uses the MSIOF module in I2S mode instead of SPI mode,
+> triggering a conflict between the SPI bus bindings and dtc:
+>   - Serial engines that can be SPI controllers must use "spi" as their
+>     node names,
+>   - Dtc assumes nodes named "spi" are always SPI controllers.
+> 
+> Fix this by disabling this specific warning for this board.
+> 
+> Fixes: ca764d5321a2cee7 ("arm64: dts: renesas: sparrow-hawk: Add MSIOF Sound support")
+> Reported-by: Stephen Rothwell <sfr@canb.auug.org.au>
+> Closes: https://lore.kernel.org/20250506192033.77338015@canb.auug.org.au
+> Suggested-by: Rob Herring <robh@kernel.org>
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 > ---
->  .../bindings/media/i2c/maxim,max9296a.yaml    | 242 ++++++++++++++++++
->  MAINTAINERS                                   |   6 +
->  2 files changed, 248 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/media/i2c/maxim,max9296a.yaml
-> 
+(snip)
+> +DTC_FLAGS_r8a779g3-sparrow-hawk += -Wno-spi_bus_bridge
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Thank you for the patch.
 
-yamllint warnings/errors:
+But I still get the same warning. I'm using latest linux-next/master
++ this patch. And run this. Am I missing something ?
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max9296a.example.dtb: serializer@40 (maxim,max96717): compatible: 'oneOf' conditional failed, one must be fixed:
-	['maxim,max96717'] is too short
-	'maxim,max96717' is not one of ['maxim,max9295a', 'maxim,max96717f']
-	from schema $id: http://devicetree.org/schemas/media/i2c/maxim,max96717.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max9296a.example.dtb: serializer@40 (maxim,max96717): compatible: 'oneOf' conditional failed, one must be fixed:
-	['maxim,max96717'] is too short
-	'maxim,max96717' is not one of ['maxim,max9295a', 'maxim,max96717f']
-	from schema $id: http://devicetree.org/schemas/media/i2c/maxim,max96717.yaml#
+	> make dtbs_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/spi/renesas,sh-msiof.yaml
 
-doc reference errors (make refcheckdocs):
+Best regards
+---
+Kuninori Morimoto
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250512212832.3674722-15-demonsingur@gmail.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+-- 
 
