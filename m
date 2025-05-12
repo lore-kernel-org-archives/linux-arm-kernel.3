@@ -4,204 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2097FC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 07:39:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2043C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 07:55:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZDK08ledSaQjY5WxvodC52+bPR0xxteViA1u7jB7wgo=; b=K9L+Iy58Ldi8zG9Sg6R1E40D6Z
-	6XFKEyi3IWIfs4mG0DSajxZfm2DaB7QULQyvk3ryBtIMvuqTqtB7CdIKMa7EGCpVYKZTkdZsQadjf
-	7jJntP5f7xbYvuUgcBM1ltSAWL8IAlDs/n56mTu1Z2O8VCPnfxQaDSB+5Lmy90jCKQPfQfEvdKFlA
-	aXDkomQPKBGl0Q55lanWPIk7/kKKTAiOt1wwm9GsBoDHZTJ8vn2Ly0znPEpXOtfXJlAoFUan40yb4
-	X8uh0jELMZgvL4t7d/v5luoszaQIH4tco4OGVI//gieufvVvguqZRw1FOqMxT5rFdvXtamQw6+DvN
-	m7B/8JtA==;
+	bh=3JdVmFAPsR+3WBG7Vk3r7Za7/cXwc/fNQ3fTQWewBDY=; b=ECcy65yjI9B1bDv/fF54R5u7om
+	meEbN01gn9Ay995LIKH2yz73PFQCe7lWHVADTyYrtiraJvir2UDjeJ5O97xsyRpqoFmHcikj4SJWX
+	wGH25LDCDmOhI8ToswJnJbeGsIN7yhpLtXsVyvBi/KL2fZ91lG28qRzccIBNFFb2zcmArrbcSXtrQ
+	bpqOezOey8KOChNWYUGLpssl3YGGOKD1jKVoHPhdY9/5GxaWGfvUD09Krt6uRYG1PZvPdRaCOceyc
+	EKu7bOCJ37cNX/BXnfRjuKDqYoXma4beSUq8Yo8NS6/a0Hk/iFwqb9P/VWu7fOTGicxlGIvubmYJI
+	intG/mNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uENko-00000008dqg-0yQB;
-	Mon, 12 May 2025 07:39:14 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uEO0Z-00000008fb3-0hmB;
+	Mon, 12 May 2025 07:55:31 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uENil-00000008da7-1N2d;
-	Mon, 12 May 2025 07:37:08 +0000
-X-UUID: e2e8b4a62f0311f0bed96b30c12bc3d6-20250512
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=ZDK08ledSaQjY5WxvodC52+bPR0xxteViA1u7jB7wgo=;
-	b=R8wiRwxw05we9N2YaeIdFFwovewD05Hj9BvPVxjWdyrghu7lv5xLAoTgpZJG/NyaC4yj9LPt5VXpELvuPwsE9UDpUSuyPSmCvJUdRke2S+itakfjUeZYFWoi28DOu+AgpByKSCBLI58bPtb9tIjPU2trduuTWvIyo2XV+OX2ecE=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:11db6036-5687-4055-9c68-bc3e0cb4da94,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:1741eaf9-d2be-4f65-b354-0f04e3343627,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111,TC:nil,Conte
-	nt:0|50,EDM:-3,IP:nil,URL:99|80|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,
-	COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-UUID: e2e8b4a62f0311f0bed96b30c12bc3d6-20250512
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
-	(envelope-from <crystal.guo@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2034619382; Mon, 12 May 2025 00:36:58 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- MTKMBS14N2.mediatek.inc (172.21.101.76) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 12 May 2025 15:36:54 +0800
-Received: from HK3PR03CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 12 May 2025 15:36:52 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KleCKIhszErgcElYmwJjBEC0Tj2U8+BYgPr3t6yJwC1ryNJ5WUhkMhUvI+JG2T6qFaHsTEg3Kc7W0J6+WATJKVW/SyOm7Xvm2EJ+A+oKD39cMreo32BAg6tlJsXUjLt7ZkgJIBvP/brfo9bJ0bb3FAjAl0VPnS3zM86bvAtCu0fblrJbNINapEJ08zVdxu9qoJYKB/m6ZMT3yuBwGW5C0s0KMKbAfb4TJoD+qXJt+h7tMua71sMWiB0BE0MtaRCpfbVOjmmUdu33r5QTrWDDOdTjBQgewY1Atbz90RPziImWW2m7edotAKsKiaxvl/hiCPqAuTxAsDfjOIbIBtoFUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZDK08ledSaQjY5WxvodC52+bPR0xxteViA1u7jB7wgo=;
- b=o4fn8rD6iYe0JgOCe0s8mPtLr0etFFxZu4w2rk7Ay92trXYPo3lf8WPXVAYlcFLjDczc5RYQFUu2Fb8J5zxVRadUPaaBrV+LLidQSISZPEfdsaGj36QvrAbbNAsnCRQXW9uC6m3oSfWxdcYXBYX9lVrfg9Bbi0rb4QG8gJ8Px5Wnf1WU1zQ3bfHqmaVg6+3DLWkQ7nPRx8RTMbzQFzBK0flQrx/OjOTcNqZB6VQEnYOo8fUecOHwAAwFlHDcgaYhljLgeFnx6C+mFetz2Ag0vKqlEF5dVsCiMFIZ4kdq2LNE3V0Y6++RhcMD4cNexBXQS8AN8/KWWFdwpLVKaoRgtA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZDK08ledSaQjY5WxvodC52+bPR0xxteViA1u7jB7wgo=;
- b=pXbBM83rySIpe/AgA7LpXRNflWN2yL/vEi1Q/ADCNxOT+1erkbG15xL5McNGJVJmQrq8o3Riht7e0izh6bA6Bfzil/Qab5db0J9AC7kxPg7eIk0f7VcjFcgIySzDDt58wrFbPnBk59LeGUgX9U02R/1QEPX7v3iMhEg+AQKdQjA=
-Received: from SI2PR03MB5468.apcprd03.prod.outlook.com (2603:1096:4:104::5) by
- KUZPR03MB9381.apcprd03.prod.outlook.com (2603:1096:d10:2c::8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8722.28; Mon, 12 May 2025 07:36:53 +0000
-Received: from SI2PR03MB5468.apcprd03.prod.outlook.com
- ([fe80::28b5:41ba:aefd:a96f]) by SI2PR03MB5468.apcprd03.prod.outlook.com
- ([fe80::28b5:41ba:aefd:a96f%6]) with mapi id 15.20.8722.027; Mon, 12 May 2025
- 07:36:53 +0000
-From: =?utf-8?B?Q3J5c3RhbCBHdW8gKOmDreaZtik=?= <Crystal.Guo@mediatek.com>
-To: "krzk@kernel.org" <krzk@kernel.org>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, "robh@kernel.org"
-	<robh@kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH v4 2/2] memory/mediatek: Add an interface to get current
- DDR data rate
-Thread-Topic: [PATCH v4 2/2] memory/mediatek: Add an interface to get current
- DDR data rate
-Thread-Index: AQHbpGS4+FYAviLINkS6ddvwe1tfmLOTW7iAgAehVwCAM9toAA==
-Date: Mon, 12 May 2025 07:36:53 +0000
-Message-ID: <db549de43db09d2ab90f30d7489bb38e7c13bb1f.camel@mediatek.com>
-References: <20250403065030.22761-1-crystal.guo@mediatek.com>
-	 <20250403065030.22761-3-crystal.guo@mediatek.com>
-	 <20250404-soft-pumpkin-bettong-09abfc@shite>
-	 <5f4dfd0295c2ceb6fd774569e625cc6272d4bd76.camel@mediatek.com>
-In-Reply-To: <5f4dfd0295c2ceb6fd774569e625cc6272d4bd76.camel@mediatek.com>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SI2PR03MB5468:EE_|KUZPR03MB9381:EE_
-x-ms-office365-filtering-correlation-id: 3d918b2b-2e38-4e0c-21cf-08dd9127c3ec
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?NEJCcWMrNVhyVnlRZjZ1aUpiZkFMMUdsdzZ5WVVNNzJZWjFNS2M4Rng3UGow?=
- =?utf-8?B?OEI5RlJGdHF5Vkw1dnVQL01mYWZqQ1ZDTnNqd0Vma055d21mYzVLY3NaczJi?=
- =?utf-8?B?Skp1alJwUVBtWG9iTmtWOGJDaVV6c3lkLzliUTYya3hFanMvbTB1ZTZZTWFz?=
- =?utf-8?B?dUd1Qmk0ZGVCOVNJcFZ6L2VGV05QSERpaHNHS092QTJUN1ZNcUxEbnh0UEtM?=
- =?utf-8?B?N0M4TDlHeXdTc0ZpN0gzVkx2MjBrb3k0SEZzUzNBNEg1SXloWHJHdjZVYjJi?=
- =?utf-8?B?cTlyTDBoWDlQb01mRW8ydlR5Q1Vhdnpld0dsbHVkUVBsOWYzNTRuRFBiRXla?=
- =?utf-8?B?ZlNHeHR3a25rOG9VWTJJcEFHYUdMR3IwM21PWTNkS3Y4Y040UXNQczYwQko2?=
- =?utf-8?B?QkZvNHd3ZkE5Mk9VZ3VySUlTRW15RlZhUzhnTFExSUd2M1VHcjVVNkZyWCtq?=
- =?utf-8?B?c0xGZS9LYi9veFpoVUxXb25INHJzcXlrb3o0NVV4SmNtM05KOWRMM1I0QWsv?=
- =?utf-8?B?dWl5RjJxMVUwQlF2YTF4R3lwR1ZTN01URE80ek5MRkM3K0FnZCtGOE5EMVFn?=
- =?utf-8?B?MUFCSFZ3OXlUUlcxYWM3cVlDNnovWEtITDBaZVFPMGVhUVUvQnRvdjBlUEg5?=
- =?utf-8?B?b0xZZWtNYXVBYUo4dmplU040M2s2Ky9TR2FHYlJySWEvZ3VDS2dDZitEandn?=
- =?utf-8?B?RzN2QmZjWlRkWTcyUXBIajdEVHFYMnI5R2hMV3F3NUtjQ1VobVgyUkVabExm?=
- =?utf-8?B?clZ0MmdOOEhvKzY1Z2t2Z3J2bnl6VVlJQjl2bmgxNlBSNlFkcXd0ZUtZUytH?=
- =?utf-8?B?MS9JVXNEQ0JmTm1CRkl4V3ljNU55N3VDWmdZUGZ2L2lPakJTWGFxYlJqdEl4?=
- =?utf-8?B?MXRuWEhiWkZmY0RxNzRMQ2pFT0pjbEo2MGdJV3JRTVg4NWZ6TjFudXFtRzlX?=
- =?utf-8?B?R2ExemNKdUFxaUNsZmQweVhRNEJuWEh2Qzh5K2lSS00yZ1lqYlZOMlRIaDhW?=
- =?utf-8?B?U0gyaEZVWGtXd3V4QVpzeTNuRVZLOUxmMGZCS2Rpa2FQOWYwQ2hFZlFKYVlv?=
- =?utf-8?B?a2phd0duVUsyRzQ0T1lZUFFvSUhLTHdxMXhUbG81QVVJcmxDUStVaFlRTDFi?=
- =?utf-8?B?aUE5UzdVcWRnRzdkaEtGM0JKckQwYncyZStEZWJnNkZ6YmtRYUFsaklHN0hB?=
- =?utf-8?B?eWk2cUltS1dLYi9iMFdDNlBOWU1hWHZLTDJycGV2SlRsN2V6WGJzRzlyWndN?=
- =?utf-8?B?a1YyR0ZBeE9sSUMyaVh4L00yM3gwbjR2SUdHMER4MVV3VnY0ZHkyajd1NjdN?=
- =?utf-8?B?Q3JsVkhVelFkaEszZmY4M2kraVdSczgyUzhIcHplbysxY2QxclJxOVY1K3F6?=
- =?utf-8?B?TGE5Q2tvM3N0c3gzb0dObHJKKzgrYkFMR2hQTi9KYndXeG9lYWxXZmpNOHpv?=
- =?utf-8?B?WG0raCtBOVc2eGM3Y2dxcS9oMnUrcFZrM1RncUpTajQvM0ZUSTB2ZzhhcjlF?=
- =?utf-8?B?U056OWZCOWMwNk9aUStyZ0lVTy9FbDJYaktrYkk0eFpWZ005cm55YmlNM3g0?=
- =?utf-8?B?QnByRXNLQ05BM0QxeHNzWmtLUXdVT1VWeUg5K0lBZStQdmJuTjljMHBCY2Y3?=
- =?utf-8?B?bWJReXk2ZWc2Z2kzYlF3QlFVNWhSc0ZTWE1yTzRNbkFOK0UwL1lxRzZObUYx?=
- =?utf-8?B?cTduZU5zcEJ5MTBGay9pUFJMNml6aDhidVdsSXFGa3JWdkNzekVJclZZREVN?=
- =?utf-8?B?SXFpSExjT1Y1MCtuSUNETWNrbmZKTW1UaVo4VVdSaDNXa3dWZFlWOWg5VFBZ?=
- =?utf-8?B?b2dTUm15ZjEzV3dtR0FXT3JGdG5KcXdFL3gxd3Y2bVFJNSt3eTFVYlRoWXpo?=
- =?utf-8?B?bGQ0RWM2L01tMkhDalBRaU9NZm5xaGY4MXpHV0VmNkVtUG9xNWRIYmpid3cy?=
- =?utf-8?Q?xIE7XOdTioI=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SI2PR03MB5468.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VXl1d0c4cFNONit5a0FpeGJnR3ZiVi9BaEk5MHVWRGJpUG53QjgrVVVYU3M1?=
- =?utf-8?B?aFhIY1l1OE10RU1LaHo2REZlOFdHYmRGMVh5TEZNUzE1UUZ5dS9jZWM4ZUdk?=
- =?utf-8?B?OXhRSW9FdmVUVmlqNUYyekROemFCSy9FZTNNRXY5YUFEYkNhNEJveUpSektH?=
- =?utf-8?B?bmoxcEo4b3lUaVBxd2sxT01wRFlrVElwMHlFa2lsbjNBdytQcnU0Y3MvNkFi?=
- =?utf-8?B?OTY5UVJrRWdHSTJSNXd2czhOdTV3S2dpdVFRRXRjZFJyTTEzaHNqbHVVd2tP?=
- =?utf-8?B?OFJVdWpYb0FQQ21vNFFtUUhDQjc0OEM3b3M5akFkZVNVeEd6UktaVUNabUFx?=
- =?utf-8?B?c2ZFY0p6Z0l0RVlpeG1ycUJqaFluTU9saDkxT3RoOW9pcDlwTjRJaVpxeEZM?=
- =?utf-8?B?MFdXNFMweGk2MHpGTmZkU0pnR3lDbmJsdkFZUTV5dkFNQXVYYmxuYk9LeFZJ?=
- =?utf-8?B?WDdGcks3TEdRWldjNFU0cVFaM3Q4ZXI3eFo2VTIxUzdISlZLQXhhT2dEQm5q?=
- =?utf-8?B?YXFWSys5dVY5eFlJM2hLTWpNRDA2V3F5MHAxaDh6S1lhMTJzYXV0RVRHZmlB?=
- =?utf-8?B?MVowMjRPb1R2NUtCMjcwcDVRbmVqZTJ3KzVzVWx3QUJDYllnelZvNk1JSkh1?=
- =?utf-8?B?RUgrNU5Idi9pTGRGcjNKVEdvclBpWXpGOXdTck9jckhEUnMzZXpMMkR0b3JC?=
- =?utf-8?B?ak93RjZBaG1QY2tXL2pYWEVHYVhkS1BjZlZGMzlhRHhGRHNJeDk1aENvNER4?=
- =?utf-8?B?b0FuTnJqeWNvK0pXU2gyZW11MEQzTWZjeFE4NUdJQXlONlpuVjdIdEIyUENx?=
- =?utf-8?B?K1NqNnJwcnVSSnRsNzZ4YjZqdVZiZnREMHpTRGxtVnJsdFZ5dnNjOWxuMmYy?=
- =?utf-8?B?RHYwMUZGK0ZISFdaYW00QXhjMU9iZWtzYTRrRUJtTHZIRmplcnRITnJuN3c4?=
- =?utf-8?B?S1RueVJ1eHRBNjRqY1V1ajZJSGtEOUJPVUh2ZW5LU2NMaWZWNWo5dGZ6TFBh?=
- =?utf-8?B?NnU0NXZFc2d4OVNKYTQrRnBTQ2JmL0RHN0pEZ2ZOYm9MTm9wZHg2SHdpbXlM?=
- =?utf-8?B?NzJNRTFINWdrKzBWSHVsbDl2OGVneG4zRlZoSVN0Y0pnYmtzQlYyWFZtN2pr?=
- =?utf-8?B?Tm51U0NZL1A1U0FOWjkwUGV5TUVXSzhjMzNwRTVRcVVJWTVSN21CM2lJL0FT?=
- =?utf-8?B?RWQ1SDh2aGsrdEF6NjBxcFAxeXBzY0xTSUtBVm5oTkxjNS9ucXZtenRxbFpu?=
- =?utf-8?B?UzJGaGtHbEJxKzI0SHhHTTQwangwSFJZZ3pQakFaNHN2dUJhOHBZc3Y4ZEcw?=
- =?utf-8?B?MG5GZVF4Z2xvRmZ5SEp4emc3MTRiTVY1Mmh4K1NzSy9xTi9HQ0FWc1hXcGxT?=
- =?utf-8?B?aUJ4T0hoZ1JBeUJ6UkNpbGFVWkJxQnZiZXU1cFNRWExZdjg0S2J2U2kzNGZw?=
- =?utf-8?B?VXlqOSt6ZW9Hb2hSNlZzTTRqQ2l3Y00rZ2dFUWZBbkxPMHZ0L3FQQmk1VVZu?=
- =?utf-8?B?a0g4RHB0Q0tpbGhvYndOWStPeEVOaUprd0k0TU1tNWgyRm5wWUVMdS9Hay9W?=
- =?utf-8?B?eUJ2NG5TWENtNGxaQ3BmbXhjTU45cDhLbEU3UlFxVjJjbndMbUFzU0NTY3B5?=
- =?utf-8?B?T2wyWFJvb1lRc29YWnhyTnpRKytUanNGeEhxQlRsN3ZVQ1lLdlFBSnAyMUdu?=
- =?utf-8?B?aVNrMWZvMFFhTmgwejJKVEZxS1A5Q0Noeis3Q3Fac29yRGp2cFEzbXJBUm5M?=
- =?utf-8?B?a2FhT1RkSE9SK3ZoYzF0R3l3QU1rVHZBWWkyYWFsQ0xDVWo4OFpGN3plZXRz?=
- =?utf-8?B?YUJRb3ZzRXF5dGIyZnZkOFN4ZnJuZGRJZHdYbjhzdXVtaDNJTHVyTmoxdS8v?=
- =?utf-8?B?VEVXVU9qSyt1VUxNV2dkVlNEb0ZGUStsaC9oQjIwOURaREJQQlEwTjRUdUFB?=
- =?utf-8?B?VjJVdmxWWkJDWWxacmVKaXpUMi9FQzNPUHJFSjkxYnI0bnRHeEJvSWxnUVlj?=
- =?utf-8?B?dlpCaVJZZWs5VVlqVUw1UWZpUlNVR1AzR3F6ek1HWHB5NGVrR0VxWXZHVC9o?=
- =?utf-8?B?TDl5d2xXZWc3U2E3ZjhrMVY2aFJuamduUXZiN293emFhYlhyU2pZRmM0WUg5?=
- =?utf-8?B?eGs4MW05MDJFUEVsSVhiOVBzTU5XdER1ZWhxMzFJNXk1UlBZbXF4MUJoNkZX?=
- =?utf-8?B?VXc9PQ==?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <B65ED9CF9432ED45B1357A62A9E9FF7B@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1uENyV-00000008fFT-1XYf
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 May 2025 07:53:26 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id ECBE343A22;
+	Mon, 12 May 2025 07:53:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1747036397;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3JdVmFAPsR+3WBG7Vk3r7Za7/cXwc/fNQ3fTQWewBDY=;
+	b=bRFOCzcLVeA7kSsmluzXLv7xk0WdvNErm8O2DAc+qJ+jmWI7K5bwa1n5XMgnHJuSeoUZ4f
+	gBn2hmIWk9TJ6EZtW8NJhNgnjJTjoqEyy+Sk83cLy6YdrI/P3rs2VDXEj8fHFiPEoSGaQg
+	XK1TcdFPBD2mpZYzm7p74ZWllX0oN2k956wh1wXAV+it1+TF/u4kiruXXZL7PD3gGYwSpJ
+	LwtzBMPcOP1wCSDImlRqHAlAjvVEe/Bb0DXMeudDn3Lc/WSrh1xvSECi/LLQCor+zr/4po
+	WeVACAq3VE3W/rIW+xDoHjVEs/czub1SivH/MaNGgZdkdOz+e/ur3bc3f6fOhw==
+From: Romain Gantois <romain.gantois@bootlin.com>
+To: davem@davemloft.net, Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
+ Jakub Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>,
+ Marek =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>,
+ Oleksij Rempel <o.rempel@pengutronix.de>,
+ =?UTF-8?B?Tmljb2zDsg==?= Veronese <nicveronese@gmail.com>,
+ Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+ Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Rob Herring <robh@kernel.org>, Daniel Golle <daniel@makrotopia.org>,
+ Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: Re: [PATCH net-next v6 03/14] net: phy: Introduce PHY ports representation
+Date: Mon, 12 May 2025 09:53:09 +0200
+Message-ID: <3878435.kQq0lBPeGt@fw-rgant>
+In-Reply-To: <20250507135331.76021-4-maxime.chevallier@bootlin.com>
+References: <20250507135331.76021-1-maxime.chevallier@bootlin.com>
+ <20250507135331.76021-4-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SI2PR03MB5468.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3d918b2b-2e38-4e0c-21cf-08dd9127c3ec
-X-MS-Exchange-CrossTenant-originalarrivaltime: 12 May 2025 07:36:53.3023
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: ZZbv6H1bIuf9hb0oaBKSOrDMxOALjc5bnZ3pofKXNrvmxaFKM2WfYQurdp5/ypTDJsRnYMvv0ZOLWBohT5qcZnPIYm8TVmVT1hHCDDg2r4w=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUZPR03MB9381
+Content-Type: multipart/signed; boundary="nextPart3629297.iIbC2pHGDl";
+ micalg="pgp-sha256"; protocol="application/pgp-signature"
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeftddtjeduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkfgjfhggtgesghdtreertddtjeenucfhrhhomheptfhomhgrihhnucfirghnthhoihhsuceorhhomhgrihhnrdhgrghnthhoihhssegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpefhvdelkeevgfeijedtudeiheefffejhfelgeduuefhleetudeiudektdeiheelgfenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghlohepfhifqdhrghgrnhhtrdhlohgtrghlnhgvthdpmhgrihhlfhhrohhmpehrohhmrghinhdrghgrnhhtohhishessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedtpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrk
+ hgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: romain.gantois@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_003707_388783_34F384E0 
-X-CRM114-Status: GOOD (  22.52  )
+X-CRM114-CacheID: sfid-20250512_005324_209546_1AE7FB4D 
+X-CRM114-Status: GOOD (  37.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -216,243 +93,608 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAyMDI1LTA0LTA5IGF0IDE1OjQyICswODAwLCBjcnlzdGFsIGd1byB3cm90ZToNCj4g
-PiANCg0KPiBPbiBGcmksIDIwMjUtMDQtMDQgYXQgMTM6MTEgKzAyMDAsIEtyenlzenRvZiBLb3ps
-b3dza2kgd3JvdGU6DQo+ID4gRXh0ZXJuYWwgZW1haWwgOiBQbGVhc2UgZG8gbm90IGNsaWNrIGxp
-bmtzIG9yIG9wZW4gYXR0YWNobWVudHMNCj4gPiB1bnRpbA0KPiA+IHlvdSBoYXZlIHZlcmlmaWVk
-IHRoZSBzZW5kZXIgb3IgdGhlIGNvbnRlbnQuDQo+ID4gDQo+ID4gDQo+ID4gUGxlYXNlIHVzZSBz
-dWJqZWN0IHByZWZpeGVzIG1hdGNoaW5nIHRoZSBzdWJzeXN0ZW0uIFlvdSBjYW4gZ2V0DQo+ID4g
-dGhlbQ0KPiA+IGZvcg0KPiA+IGV4YW1wbGUgd2l0aCAnZ2l0IGxvZyAtLW9uZWxpbmUgLS0gRElS
-RUNUT1JZX09SX0ZJTEUnIG9uIHRoZQ0KPiA+IGRpcmVjdG9yeQ0KPiA+IHlvdXIgcGF0Y2ggaXMg
-dG91Y2hpbmcuIEZvciBiaW5kaW5ncywgdGhlIHByZWZlcnJlZCBzdWJqZWN0cyBhcmUNCj4gPiBl
-eHBsYWluZWQgaGVyZToNCj4gPiANCj4gDQo+IA0KaHR0cHM6Ly91cmxkZWZlbnNlLmNvbS92My9f
-X2h0dHBzOi8vd3d3Lmtlcm5lbC5vcmcvZG9jL2h0bWwvbGF0ZXN0L2RldmljZXRyZWUvYmluZGlu
-Z3Mvc3VibWl0dGluZy1wYXRjaGVzLmh0bWwqaS1mb3ItcGF0Y2gtc3VibWl0dGVyc19fO0l3ISFD
-VFJOS0E5d01nMEFSYnchaTlZbkpMeEtJX0t1YVcycHp3UFJfR2paVDhJemNaVnljc2Nvc1dLaFFq
-V3h2U291UDBMYV9ZTE5rNmxGUkxwd0RTVWJnZzhFR2JaamJPalgkDQo+ID4gDQo+ID4gbWVtb3J5
-OiBtZWRpYXRlazoNCj4gDQo+IFRoYW5rcyBmb3IgdGhlIHN1Z2dlc3Rpb24sIEkgd2lsbCB1c2Ug
-dGhlIGNvcnJlY3Qgc3ViamVjdCBwcmVmaXhlcyBpbg0KPiB0aGUgbmV4dCB2ZXJzaW9uOg0KPiAn
-bWVtb3J5OiBtZWRpYXRlazogQWRkIGFuIGludGVyZmFjZSB0byBnZXQgY3VycmVudCBERFIgZGF0
-YSByYXRlJw0KPiANCj4gPiANCj4gPiBPbiBUaHUsIEFwciAwMywgMjAyNSBhdCAwMjo0ODo0OFBN
-IEdNVCwgQ3J5c3RhbCBHdW8gd3JvdGU6DQo+ID4gPiBBZGQgTWVkaWFUZWsgRFJBTUMgZHJpdmVy
-IHRvIHByb3ZpZGUgYW4gaW50ZXJmYWNlIHRoYXQgY2FuDQo+ID4gPiBvYnRhaW4gY3VycmVudCBE
-RFIgZGF0YSByYXRlLg0KPiA+ID4gDQo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBDcnlzdGFsIEd1byA8
-Y3J5c3RhbC5ndW9AbWVkaWF0ZWsuY29tPg0KPiA+ID4gLS0tDQo+ID4gPiAgZHJpdmVycy9tZW1v
-cnkvS2NvbmZpZyAgICAgICAgICAgICAgfCAgIDEgKw0KPiA+ID4gIGRyaXZlcnMvbWVtb3J5L01h
-a2VmaWxlICAgICAgICAgICAgIHwgICAxICsNCj4gPiA+ICBkcml2ZXJzL21lbW9yeS9tZWRpYXRl
-ay9LY29uZmlnICAgICB8ICAyMCArKysNCj4gPiA+ICBkcml2ZXJzL21lbW9yeS9tZWRpYXRlay9N
-YWtlZmlsZSAgICB8ICAgMiArDQo+ID4gPiAgZHJpdmVycy9tZW1vcnkvbWVkaWF0ZWsvbXRrLWRy
-YW1jLmMgfCAyMjMNCj4gPiA+ICsrKysrKysrKysrKysrKysrKysrKysrKysrKysNCj4gPiA+ICA1
-IGZpbGVzIGNoYW5nZWQsIDI0NyBpbnNlcnRpb25zKCspDQo+ID4gPiAgY3JlYXRlIG1vZGUgMTAw
-NjQ0IGRyaXZlcnMvbWVtb3J5L21lZGlhdGVrL0tjb25maWcNCj4gPiA+ICBjcmVhdGUgbW9kZSAx
-MDA2NDQgZHJpdmVycy9tZW1vcnkvbWVkaWF0ZWsvTWFrZWZpbGUNCj4gPiA+ICBjcmVhdGUgbW9k
-ZSAxMDA2NDQgZHJpdmVycy9tZW1vcnkvbWVkaWF0ZWsvbXRrLWRyYW1jLmMNCj4gPiA+IA0KPiA+
-ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbWVtb3J5L0tjb25maWcgYi9kcml2ZXJzL21lbW9yeS9L
-Y29uZmlnDQo+ID4gPiBpbmRleCBjODJkOGQ4YTE2ZWEuLmIxNjk4NTQ5ZmY4MSAxMDA2NDQNCj4g
-PiA+IC0tLSBhL2RyaXZlcnMvbWVtb3J5L0tjb25maWcNCj4gPiA+ICsrKyBiL2RyaXZlcnMvbWVt
-b3J5L0tjb25maWcNCj4gPiA+IEBAIC0yMjcsNSArMjI3LDYgQEAgY29uZmlnIFNUTTMyX0ZNQzJf
-RUJJDQo+ID4gPiANCj4gPiA+ICBzb3VyY2UgImRyaXZlcnMvbWVtb3J5L3NhbXN1bmcvS2NvbmZp
-ZyINCj4gPiA+ICBzb3VyY2UgImRyaXZlcnMvbWVtb3J5L3RlZ3JhL0tjb25maWciDQo+ID4gPiAr
-c291cmNlICJkcml2ZXJzL21lbW9yeS9tZWRpYXRlay9LY29uZmlnIg0KPiA+IA0KPiA+IG0gZ29l
-cyBiZWZvcmUgcywgc28gdGhpcyBnb2VzIGJlZm9yZSBzYW1zdW5nIHNvdXJjZS4NCj4gPiANCj4g
-DQo+IE9rYXksIEkgd2lsbCB1cGRhdGUgaXQgaW4gdGhlIG5leHQgdmVyc2lvbi4NCj4gDQo+ID4g
-PiANCj4gPiA+ICBlbmRpZg0KPiA+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbWVtb3J5L01ha2Vm
-aWxlIGIvZHJpdmVycy9tZW1vcnkvTWFrZWZpbGUNCj4gPiA+IGluZGV4IGQyZTZjYTlhYmJlMC4u
-YzBmYWNmNTI5ODAzIDEwMDY0NA0KPiA+ID4gLS0tIGEvZHJpdmVycy9tZW1vcnkvTWFrZWZpbGUN
-Cj4gPiA+ICsrKyBiL2RyaXZlcnMvbWVtb3J5L01ha2VmaWxlDQo+ID4gPiBAQCAtMjcsNiArMjcs
-NyBAQCBvYmotJChDT05GSUdfU1RNMzJfRk1DMl9FQkkpICAgICAgICArPSBzdG0zMi0NCj4gPiA+
-IGZtYzItZWJpLm8NCj4gPiA+IA0KPiA+ID4gIG9iai0kKENPTkZJR19TQU1TVU5HX01DKSAgICAg
-Kz0gc2Ftc3VuZy8NCj4gPiA+ICBvYmotJChDT05GSUdfVEVHUkFfTUMpICAgICAgICAgICAgICAg
-Kz0gdGVncmEvDQo+ID4gPiArb2JqLSQoQ09ORklHX01FRElBVEVLX01DKSAgICArPSBtZWRpYXRl
-ay8NCj4gPiA+ICBvYmotJChDT05GSUdfVElfRU1JRl9TUkFNKSAgICs9IHRpLWVtaWYtc3JhbS5v
-DQo+ID4gPiAgb2JqLSQoQ09ORklHX0ZQR0FfREZMX0VNSUYpICArPSBkZmwtZW1pZi5vDQo+ID4g
-PiANCj4gPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL21lbW9yeS9tZWRpYXRlay9LY29uZmlnDQo+
-ID4gPiBiL2RyaXZlcnMvbWVtb3J5L21lZGlhdGVrL0tjb25maWcNCj4gPiA+IG5ldyBmaWxlIG1v
-ZGUgMTAwNjQ0DQo+ID4gPiBpbmRleCAwMDAwMDAwMDAwMDAuLmVhZGMxMWVjMGYxYw0KPiA+ID4g
-LS0tIC9kZXYvbnVsbA0KPiA+ID4gKysrIGIvZHJpdmVycy9tZW1vcnkvbWVkaWF0ZWsvS2NvbmZp
-Zw0KPiA+ID4gQEAgLTAsMCArMSwyMCBAQA0KPiA+ID4gKyMgU1BEWC1MaWNlbnNlLUlkZW50aWZp
-ZXI6IEdQTC0yLjAtb25seQ0KPiA+ID4gK2NvbmZpZyBNRURJQVRFS19NQw0KPiA+ID4gKyAgICAg
-Ym9vbCAiTWVkaWFUZWsgTWVtb3J5IENvbnRyb2xsZXIgc3VwcG9ydCINCj4gPiA+ICsgICAgIGRl
-ZmF1bHQgeQ0KPiA+IA0KPiA+IFdoeSB0aGlzIGhhcyB0byBiZSBlbmFibGVkIGZvciBldmVyeSBj
-b21waWxlIHRlc3QgYnVpbGQ/IExvb2sgaG93DQo+ID4gb3RoZXINCj4gPiBwbGF0Zm9ybXMgZG8g
-aXQuDQo+ID4gDQo+ID4gSSdsbCBmaXggdGhlIHRlZ3JhLg0KPiA+IA0KPiANCj4gT2theSwgSSB3
-aWxsIGNoYW5nZSAnZGVmYXVsdCBZJyB0byAnZGVmYXVsdCBBUkNIX01FRElBVEVLJyBpbiB0aGUN
-Cj4gbmV4dA0KPiB2ZXJzaW9uLg0KPiANCj4gPiANCj4gPiA+ICsgICAgIGRlcGVuZHMgb24gQVJD
-SF9NRURJQVRFSyB8fCBDT01QSUxFX1RFU1QNCj4gPiA+ICsgICAgIGhlbHANCj4gPiA+ICsgICAg
-ICAgVGhpcyBvcHRpb24gYWxsb3dzIHRvIGVuYWJsZSBNZWRpYVRlayBtZW1vcnkgY29udHJvbGxl
-cg0KPiA+ID4gZHJpdmVycywNCj4gPiA+ICsgICAgICAgd2hpY2ggbWF5IGluY2x1ZGUgY29udHJv
-bGxlcnMgZm9yIERSQU0gb3Igb3RoZXJzLg0KPiA+ID4gKw0KPiA+ID4gK2lmIE1FRElBVEVLX01D
-DQo+ID4gPiArDQo+ID4gPiArY29uZmlnIE1US19EUkFNQw0KPiA+ID4gKyAgICAgdHJpc3RhdGUg
-Ik1lZGlhVGVrIERSQU1DIGRyaXZlciINCj4gPiA+ICsgICAgIGRlZmF1bHQgeQ0KPiA+IA0KPiA+
-IFRoaXMgbWF0dGVycyBsZXNzLCBjb3VsZCBzdGF5IG9yIGNvdWxkIGJlIGFsc28gQVJDSF9NRElB
-VEVLLg0KPiA+IA0KPiANCj4gVW5kZXJzdG9vZCwgSSB3aWxsIGtlZXAgdGhpcyBwYXJ0IHVuY2hh
-bmdlZCBpbiB0aGUgbmV4dCB2ZXJzaW9uLiANCj4gVGhhbmsgeW91IGZvciB5b3VyIHN1Z2dlc3Rp
-b24uDQo+IA0KPiA+ID4gKyAgICAgaGVscA0KPiA+ID4gKyAgICAgICBUaGlzIGRyaXZlciBpcyBm
-b3IgdGhlIERSQU0gQ29udHJvbGxlciBmb3VuZCBpbiBNZWRpYVRlaw0KPiA+ID4gU29Dcw0KPiA+
-ID4gKyAgICAgICBhbmQgcHJvdmlkZXMgYSBzeXNmcyBpbnRlcmZhY2UgZm9yIHJlcG9ydGluZyB0
-aGUgY3VycmVudA0KPiA+ID4gRFJBTQ0KPiA+ID4gKyAgICAgICBkYXRhIHJhdGUuDQo+ID4gPiAr
-DQo+ID4gPiArZW5kaWYNCj4gPiANCj4gPiAuLi4NCj4gPiANCj4gPiA+ICsNCj4gPiA+ICtzdGF0
-aWMgdW5zaWduZWQgaW50IHJlYWRfcmVnX2ZpZWxkKHZvaWQgX19pb21lbSAqYmFzZSwgdW5zaWdu
-ZWQNCj4gPiA+IGludCBvZmZzZXQsIHVuc2lnbmVkIGludCBtYXNrKQ0KPiA+ID4gK3sNCj4gPiA+
-ICsgICAgIHVuc2lnbmVkIGludCB2YWwgPSByZWFkbChiYXNlICsgb2Zmc2V0KTsNCj4gPiA+ICsg
-ICAgIHVuc2lnbmVkIGludCBzaGlmdCA9IF9fZmZzKG1hc2spOw0KPiA+ID4gKw0KPiA+ID4gKyAg
-ICAgcmV0dXJuICh2YWwgJiBtYXNrKSA+PiBzaGlmdDsNCj4gPiA+ICt9DQo+ID4gPiArDQo+ID4g
-PiArc3RhdGljIGludCBtdGtfZHJhbWNfcHJvYmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRl
-dikNCj4gPiANCj4gPiBXZWlyZCBvcmRlcmluZy4gcHJvYmUoKSBpcyBvbmUgb2YgdGhlIGxhc3Qg
-ZnVuY3Rpb25zLiBPbmx5IG90aGVyDQo+ID4gZHJpdmVyDQo+ID4gc3RydWN0IGZ1bmN0aW9ucyAo
-bGlrZSByZW1vdmUsIHN1c3BlbmQvcmVzdW1lKSBnbyBhZnRlciwgbm90IHNvbWUNCj4gPiByZWd1
-bGFyIGNvZGUuDQo+IA0KPiBVbmRlcnN0b29kLiBJIHdpbGwgYWRqdXN0IHRoZSBvcmRlciBvZiB0
-aGUgcHJvYmUgZnVuY3Rpb24gaW4gdGhlIG5leHQNCj4gdmVyc2lvbi4NCj4gDQo+ID4gDQo+ID4g
-PiArew0KPiA+ID4gKyAgICAgc3RydWN0IG10a19kcmFtYyAqZHJhbWM7DQo+ID4gPiArICAgICBj
-b25zdCBzdHJ1Y3QgbXRrX2RyYW1jX3BkYXRhICpwZGF0YTsNCj4gPiA+ICsNCj4gPiA+ICsgICAg
-IGRyYW1jID0gZGV2bV9remFsbG9jKCZwZGV2LT5kZXYsIHNpemVvZihzdHJ1Y3QgbXRrX2RyYW1j
-KSwNCj4gPiA+IEdGUF9LRVJORUwpOw0KPiA+ID4gKyAgICAgaWYgKCFkcmFtYykNCj4gPiA+ICsg
-ICAgICAgICAgICAgcmV0dXJuIGRldl9lcnJfcHJvYmUoJnBkZXYtPmRldiwgLUVOT01FTSwgIkZh
-aWxlZA0KPiA+ID4gdG8NCj4gPiA+IGFsbG9jYXRlIG1lbW9yeVxuIik7DQo+ID4gPiArDQo+ID4g
-PiArICAgICBwZGF0YSA9IG9mX2RldmljZV9nZXRfbWF0Y2hfZGF0YSgmcGRldi0+ZGV2KTsNCj4g
-PiA+ICsgICAgIGlmICghcGRhdGEpDQo+ID4gPiArICAgICAgICAgICAgIHJldHVybiBkZXZfZXJy
-X3Byb2JlKCZwZGV2LT5kZXYsIC1FSU5WQUwsICJObw0KPiA+ID4gcGxhdGZvcm0gZGF0YSBhdmFp
-bGFibGVcbiIpOw0KPiA+IA0KPiA+IEp1c3QgcmV0dXJuLiBUaGF0J3MgaW1wb3NzaWJsZSBjb25k
-aXRpb24sIHNvIG5vIG5lZWQgZm9yIHByaW50aW5nDQo+ID4gZXJyb3JzLg0KPiANCj4gT2theSwg
-d2lsbCByZXR1cm4gZGlyZWN0bHkgaW4gdGhlIG5leHQgdmVyc2lvbi4NCj4gDQo+ID4gDQo+ID4g
-PiArDQo+ID4gPiArICAgICBkcmFtYy0+cGRhdGEgPSBwZGF0YTsNCj4gPiANCj4gPiBXaHkgZG8g
-eW91IG5lZWQgcGRhdGEgdmFyaWFibGUgaW4gdGhlIGZpcnN0IHBsYWNlPyBNYWtlIHRoaXMgY29k
-ZQ0KPiA+IHNpbXBsZSwgbm90IGNvbXBsaWNhdGVkLg0KPiANCj4gT2theSwgd2lsbCByZW1vdmUg
-cmVkdW5kYW50ICdwZGF0YScgaW4gdGhlIG5leHQgdmVyc2lvbi4NCj4gDQo+ID4gDQo+ID4gPiAr
-DQo+ID4gPiArICAgICBkcmFtYy0+YW5hcGh5X2Jhc2UgPSBkZXZtX3BsYXRmb3JtX2lvcmVtYXBf
-cmVzb3VyY2UocGRldiwNCj4gPiA+IDApOw0KPiA+ID4gKyAgICAgaWYgKElTX0VSUihkcmFtYy0+
-YW5hcGh5X2Jhc2UpKQ0KPiA+ID4gKyAgICAgICAgICAgICByZXR1cm4gZGV2X2Vycl9wcm9iZSgm
-cGRldi0+ZGV2LCBQVFJfRVJSKGRyYW1jLQ0KPiA+ID4gPiBhbmFwaHlfYmFzZSksDQo+ID4gPiAN
-Cj4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIlVuYWJsZSB0byBtYXAg
-QU5BUEhZDQo+ID4gPiBiYXNlXG4iKTsNCj4gPiA+ICsNCj4gPiA+ICsgICAgIGRyYW1jLT5kZHJw
-aHlfYmFzZSA9IGRldm1fcGxhdGZvcm1faW9yZW1hcF9yZXNvdXJjZShwZGV2LA0KPiA+ID4gMSk7
-DQo+ID4gPiArICAgICBpZiAoSVNfRVJSKGRyYW1jLT5kZHJwaHlfYmFzZSkpDQo+ID4gPiArICAg
-ICAgICAgICAgIHJldHVybiBkZXZfZXJyX3Byb2JlKCZwZGV2LT5kZXYsIFBUUl9FUlIoZHJhbWMt
-DQo+ID4gPiA+IGRkcnBoeV9iYXNlKSwNCj4gPiA+IA0KPiA+ID4gKyAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAiVW5hYmxlIHRvIG1hcCBERFJQSFkNCj4gPiA+IGJhc2VcbiIpOw0K
-PiA+ID4gKw0KPiA+ID4gKyAgICAgcGxhdGZvcm1fc2V0X2RydmRhdGEocGRldiwgZHJhbWMpOw0K
-PiA+ID4gKyAgICAgcmV0dXJuIDA7DQo+ID4gPiArfQ0KPiA+ID4gKw0KPiA+ID4gK3N0YXRpYyB1
-bnNpZ25lZCBpbnQgbXRrX2ZtZXRlcl92MShzdHJ1Y3QgbXRrX2RyYW1jICpkcmFtYykNCj4gPiA+
-ICt7DQo+ID4gPiArICAgICBjb25zdCBzdHJ1Y3QgbXRrX2RyYW1jX3BkYXRhICpwZGF0YSA9IGRy
-YW1jLT5wZGF0YTsNCj4gPiA+ICsgICAgIHVuc2lnbmVkIGludCBzaHVfbGV2ZWwsIHBsbF9zZWws
-IG9mZnNldDsNCj4gPiA+ICsgICAgIHVuc2lnbmVkIGludCBzZG1wY3csIHBvc2RpdiwgY2xrZGl2
-LCBmYmtzZWwsIHNvcGVuLA0KPiA+ID4gYXN5bmNfY2EsDQo+ID4gPiBzZXJfbW9kZTsNCj4gPiA+
-ICsgICAgIHVuc2lnbmVkIGludCBwcmVkaXZfZnJlcSwgcG9zZGl2X2ZyZXEsIHZjb19mcmVxOw0K
-PiA+ID4gKyAgICAgdW5zaWduZWQgaW50IGZpbmFsX3JhdGU7DQo+ID4gPiArDQo+ID4gPiArICAg
-ICBzaHVfbGV2ZWwgPSByZWFkX3JlZ19maWVsZChkcmFtYy0+ZGRycGh5X2Jhc2UsIHBkYXRhLQ0K
-PiA+ID4gPiByZWdzW0RSQU1DX0RQSFlfRFZGU19TVEFdLA0KPiA+ID4gDQo+ID4gPiArICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICBwZGF0YS0NCj4gPiA+ID4gbWFza3NbRFJBTUNfRFBI
-WV9EVkZTX1NIVV9MVl0pOw0KPiA+IA0KPiA+IERvbid0IGNyZWF0IHlvdXIgb3duIHdyYXBwZXJz
-LiBVc2UgZXhpc3RpbmcgRklFTERfUFJFUCBzdHVmZi4NCj4gDQo+IFNpbmNlIHRoZSBtYXNrIGlz
-IG5vdCBhIGNvbnN0YW50LCB1c2luZyBGSUVMRF9HRVQgd2lsbCByZXN1bHQgaW4gYQ0KPiBjb21w
-aWxhdGlvbiBlcnJvci4gQ2FuIEkga2VlcCB1c2luZyAncmVhZF9yZWdfZmllbGQnIGluIHRoZSBu
-ZXh0DQo+IHZlcnNpb24/DQo+IA0KPiA+IA0KPiA+ID4gKyAgICAgcGxsX3NlbCA9IHJlYWRfcmVn
-X2ZpZWxkKGRyYW1jLT5kZHJwaHlfYmFzZSwgcGRhdGEtDQo+ID4gPiA+IHJlZ3NbRFJBTUNfRFBI
-WV9EVkZTX1NUQV0sDQo+ID4gPiANCj4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICBwZGF0YS0NCj4gPiA+ID4gbWFza3NbRFJBTUNfRFBIWV9EVkZTX1BMTF9TRUxdKTsNCj4gPiA+
-IA0KPiA+ID4gKyAgICAgb2Zmc2V0ID0gcGRhdGEtPnNodWZmbGVfb2Zmc2V0ICogc2h1X2xldmVs
-Ow0KPiA+ID4gKw0KPiA+ID4gKyAgICAgc2RtcGN3ID0gcmVhZF9yZWdfZmllbGQoZHJhbWMtPmFu
-YXBoeV9iYXNlLA0KPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKChwbGxfc2Vs
-ID09IDApID8NCj4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBkYXRhLT5yZWdz
-W0RSQU1DX0FQSFlfU0hVX1BIWVBMTDJdIA0KPiA+ID4gOg0KPiA+ID4gKyAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgcGRhdGEtDQo+ID4gPiA+cmVnc1tEUkFNQ19BUEhZX1NIVV9DTFJQTEwy
-XSkNCj4gPiA+ICsgb2Zmc2V0LA0KPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-cGRhdGEtDQo+ID4gPiA+IG1hc2tzW0RSQU1DX0FQSFlfUExMMl9TRE1QQ1ddKTsNCj4gPiA+IA0K
-PiA+ID4gKyAgICAgcG9zZGl2ID0gcmVhZF9yZWdfZmllbGQoZHJhbWMtPmFuYXBoeV9iYXNlLA0K
-PiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKChwbGxfc2VsID09IDApID8NCj4g
-PiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBkYXRhLT5yZWdzW0RSQU1DX0FQSFlf
-U0hVX1BIWVBMTDNdIA0KPiA+ID4gOg0KPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgcGRhdGEtDQo+ID4gPiA+cmVnc1tEUkFNQ19BUEhZX1NIVV9DTFJQTEwzXSkNCj4gPiA+ICsg
-b2Zmc2V0LA0KPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcGRhdGEtDQo+ID4g
-PiA+IG1hc2tzW0RSQU1DX0FQSFlfUExMM19QT1NESVZdKTsNCj4gPiA+IA0KPiA+ID4gKyAgICAg
-ZmJrc2VsID0gcmVhZF9yZWdfZmllbGQoZHJhbWMtPmFuYXBoeV9iYXNlLCBwZGF0YS0NCj4gPiA+
-ID4gcmVnc1tEUkFNQ19BUEhZX1NIVV9QSFlQTEw0XSArIG9mZnNldCwNCj4gPiA+IA0KPiA+ID4g
-KyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcGRhdGEtDQo+ID4gPiA+IG1hc2tzW0RSQU1D
-X0FQSFlfUExMNF9GQktTRUxdKTsNCj4gPiA+IA0KPiA+ID4gKyAgICAgc29wZW4gPSByZWFkX3Jl
-Z19maWVsZChkcmFtYy0+YW5hcGh5X2Jhc2UsIHBkYXRhLQ0KPiA+ID4gPiByZWdzW0RSQU1DX0FQ
-SFlfQVJQSTBdICsgb2Zmc2V0LA0KPiA+ID4gDQo+ID4gPiArICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgIHBkYXRhLQ0KPiA+ID4gPm1hc2tzW0RSQU1DX0FQSFlfQVJQSTBfU09QRU5dKTsNCj4g
-PiA+ICsgICAgIGFzeW5jX2NhID0gcmVhZF9yZWdfZmllbGQoZHJhbWMtPmFuYXBoeV9iYXNlLCBw
-ZGF0YS0NCj4gPiA+ID4gcmVnc1tEUkFNQ19BUEhZX0NBX0FSRExMMV0gKyBvZmZzZXQsDQo+ID4g
-PiANCj4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcGRhdGEtDQo+ID4gPiA+
-IG1hc2tzW0RSQU1DX0FQSFlfQVJETEwxX0NLX0VOXSk7DQo+ID4gPiANCj4gPiA+ICsgICAgIHNl
-cl9tb2RlID0gcmVhZF9yZWdfZmllbGQoZHJhbWMtPmFuYXBoeV9iYXNlLCBwZGF0YS0NCj4gPiA+
-ID4gcmVnc1tEUkFNQ19BUEhZX0IwX1RYMF0gKyBvZmZzZXQsDQo+ID4gPiANCj4gPiA+ICsgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgcGRhdGEtDQo+ID4gPiA+IG1hc2tzW0RSQU1DX0FQ
-SFlfQjBfVFgwX1NFUl9NT0RFXSk7DQo+ID4gPiANCj4gPiA+ICsNCj4gPiA+ICsgICAgIGNsa2Rp
-diA9IChzZXJfbW9kZSA9PSAxKSA/IDEgOiAwOw0KPiA+ID4gKyAgICAgcG9zZGl2ICY9IH4ocGRh
-dGEtPnBvc2Rpdl9wdXJpZnkpOw0KPiA+ID4gKw0KPiA+ID4gKyAgICAgcHJlZGl2X2ZyZXEgPSBw
-ZGF0YS0+cmVmX2ZyZXFfbWh6ICogKHNkbXBjdyA+PiBwZGF0YS0NCj4gPiA+ID4gcHJlZGl2KTsN
-Cj4gPiA+IA0KPiA+ID4gKyAgICAgcG9zZGl2X2ZyZXEgPSAocHJlZGl2X2ZyZXEgPj4gcG9zZGl2
-KSA+PiAxOw0KPiA+ID4gKyAgICAgdmNvX2ZyZXEgPSBwb3NkaXZfZnJlcSA8PCBmYmtzZWw7DQo+
-ID4gPiArICAgICBmaW5hbF9yYXRlID0gdmNvX2ZyZXEgPj4gY2xrZGl2Ow0KPiA+ID4gKw0KPiA+
-ID4gKyAgICAgaWYgKHNvcGVuID09IDEgJiYgYXN5bmNfY2EgPT0gMSkNCj4gPiA+ICsgICAgICAg
-ICAgICAgZmluYWxfcmF0ZSA+Pj0gMTsNCj4gPiA+ICsNCj4gPiA+ICsgICAgIHJldHVybiBmaW5h
-bF9yYXRlOw0KPiA+ID4gK30NCj4gPiA+ICsNCj4gPiA+ICsvKioNCj4gPiA+ICsgKiBtdGtfZHJh
-bWNfZ2V0X2RhdGFfcmF0ZSAtIENhbGN1bGF0ZSB0aGUgY3VycmVudCBEUkFNIGRhdGENCj4gPiA+
-IHJhdGUNCj4gPiA+ICsgKiBAZGV2OiBEZXZpY2UgcG9pbnRlcg0KPiA+ID4gKyAqDQo+ID4gPiAr
-ICogUmV0dXJuOiBEUkFNIERhdGEgUmF0ZSBpbiBNYnBzIG9yIG5lZ2F0aXZlIG51bWJlciBmb3Ig
-ZXJyb3INCj4gPiA+ICsgKi8NCj4gPiA+ICtzdGF0aWMgdW5zaWduZWQgaW50IG10a19kcmFtY19n
-ZXRfZGF0YV9yYXRlKHN0cnVjdCBkZXZpY2UgKmRldikNCj4gPiA+ICt7DQo+ID4gPiArICAgICBz
-dHJ1Y3QgbXRrX2RyYW1jICpkcmFtYyA9IGRldl9nZXRfZHJ2ZGF0YShkZXYpOw0KPiA+ID4gKw0K
-PiA+ID4gKyAgICAgaWYgKGRyYW1jLT5wZGF0YS0+Zm1ldGVyX3ZlcnNpb24gPT0gMSkNCj4gPiAN
-Cj4gPiBEcm9wLCBpdCdzIG5vdCBwb3NzaWJsZSB0byBoYXZlIG90aGVyIGNhc2UuDQo+IA0KPiBU
-aGFuayB5b3UgZm9yIHlvdXIgc3VnZ2VzdGlvbi4NCj4gSW4gdGhlIGZ1dHVyZSwgb3RoZXIgU29D
-cyBtaWdodCB1c2UgZGlmZmVyZW50IGZtZXRlciB2ZXJzaW9uIHRvDQo+IGNhbGN1bGF0ZSB0aGUg
-RERSIGRhdGEgcmF0ZS4gSWYgd2UgcmVtb3ZlIHRoZSBmbWV0ZXJfdmVyc2lvbiBub3csDQo+IGZ1
-dHVyZSBTb0NzIHRoYXQgY2Fubm90IHNoYXJlIG10a19mbWV0ZXJfdjEgd2lsbCBzdGlsbCBuZWVk
-IHRvIGFkZA0KPiB0aGUNCj4gZm1ldGVyX3ZlcnNpb24gdmFyaWFibGUuDQo+IFRoZXJlZm9yZSwg
-Y2FuIEkga2VlcCB0aGUgY3VycmVudCBpbXBsZW1lbnRhdGlvbiBmb3Igbm93Lg0KPiANCj4gPiAN
-Cj4gPiA+ICsgICAgICAgICAgICAgcmV0dXJuIG10a19mbWV0ZXJfdjEoZHJhbWMpOw0KPiA+ID4g
-Kw0KPiA+ID4gKyAgICAgZGV2X2VycihkZXYsICJGcmVxdWVuY3kgbWV0ZXIgdmVyc2lvbiAldSBu
-b3Qgc3VwcG9ydGVkXG4iLA0KPiA+ID4gZHJhbWMtPnBkYXRhLT5mbWV0ZXJfdmVyc2lvbik7DQo+
-ID4gPiArICAgICByZXR1cm4gLUVJTlZBTDsNCj4gPiA+ICt9DQo+ID4gPiArDQo+ID4gPiArc3Rh
-dGljIHNzaXplX3QgZHJhbV9kYXRhX3JhdGVfc2hvdyhzdHJ1Y3QgZGV2aWNlICpkZXYsDQo+ID4g
-PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgZGV2aWNlX2F0dHJpYnV0
-ZSAqYXR0ciwNCj4gPiA+IGNoYXIgKmJ1ZikNCj4gPiANCj4gPiBObyBBQkkgZG9jLg0KPiA+IA0K
-PiA+IFdoeSBleGlzdGluZyBpbnRlcmNvbm5lY3QgaW50ZXJmYWNlIGlzIG5vdCBzdWl0YWJsZSBo
-ZXJlPyAgVGhpcw0KPiA+IHNob3VsZA0KPiA+IGJlIGFuIGludGVyY29ubmVjdCwgb3RoZXJ3aXNl
-IHdoYXQgaXMgdGhlIHBvaW50IG9mIHRoaXMgZHJpdmVyPw0KPiA+IFdoYXQNCj4gPiBkbw0KPiA+
-IHlvdSBleGFjdGx5IGNvbmZpZ3VyZSBoZXJlPw0KPiA+IA0KPiANCj4gVGhpcyBkcml2ZXIgc3Bl
-Y2lmaWNhbGx5IGZvY3VzZXMgb24gZGlzcGxheWluZyB0aGUgY3VycmVudCBERFIgZGF0YQ0KPiBy
-YXRlLCB3aGljaCBpcyB1c2VkIGZvciB0aGUgRFZGUyAoRHluYW1pYyBWb2x0YWdlIGFuZCBGcmVx
-dWVuY3kNCj4gU2NhbGluZykgZmVhdHVyZSB0byB2ZXJpZnkgdGhhdCBERFIgZnJlcXVlbmN5IGFk
-anVzdG1lbnRzIGFyZQ0KPiBjb3JyZWN0bHkNCj4gZXhlY3V0ZWQuIA0KPiBJIHdpbGwgYWRkIHRo
-ZSBBQkkgZG9jdW1lbnRhdGlvbiBmb3IgdGhlIGRyYW1fZGF0YV9yYXRlIGF0dHJpYnV0ZSBhcw0K
-PiBmb2xsb3dzLCBpcyB0aGlzIG9rPw0KPiANCj4gV2hhdDoJCS9zeXMvZGV2aWNlcy9wbGF0Zm9y
-bS9zb2MvWFhYWFhYWFgubWVtb3J5LQ0KPiBjb250cm9sbGVyL2RyYW1fZGF0YV9yYXRlDQo+IERh
-dGU6CQlBcHJpbCAyMDI1DQo+IEtlcm5lbFZlcnNpb246CTYuMTQNCj4gQ29udGFjdDoJQ3J5c3Rh
-bCBHdW8gPGNyeXN0YWwuZ3VvQG1lZGlhdGVrLmNvbT4NCj4gRGVzY3JpcHRpb246DQo+IAkJUmVw
-b3J0cyB0aGUgY3VycmVudCBEUkFNIGRhdGEgcmF0ZSBpbiBNYnBzLg0KPiANCj4gCQlBY2Nlc3M6
-IFJlYWQNCj4gDQoNCkhpIEtyenlzenRvZiwNCg0KU29ycnkgdG8gYm90aGVyIHlvdSwgIG1heSBJ
-IHByb2NlZWQgd2l0aCB0aGUgbmV4dCB2ZXJzaW9uIGJhc2VkIG9uIHRoZQ0KY29udGVudCBvZiBt
-eSBwcmV2aW91cyByZXNwb25zZSByZWdhcmRpbmcgeW91ciBzdWdnZXN0aW9ucz8NCg0KVGhhbmtz
-DQpDcnlzdGFsDQoNCj4gPiA+ICt7DQo+ID4gPiArICAgICByZXR1cm4gc25wcmludGYoYnVmLCBQ
-QUdFX1NJWkUsICJEUkFNIGRhdGEgcmF0ZSA9ICV1XG4iLA0KPiA+ID4gKyAgICAgICAgICAgICAg
-ICAgICAgIG10a19kcmFtY19nZXRfZGF0YV9yYXRlKGRldikpOw0KPiA+ID4gK30NCj4gPiA+ICsN
-Cj4gPiA+ICtzdGF0aWMgREVWSUNFX0FUVFJfUk8oZHJhbV9kYXRhX3JhdGUpOw0KPiA+ID4gKw0K
-PiA+ID4gK3N0YXRpYyBzdHJ1Y3QgYXR0cmlidXRlICptdGtfZHJhbWNfYXR0cnNbXSA9IHsNCj4g
-PiA+ICsgICAgICZkZXZfYXR0cl9kcmFtX2RhdGFfcmF0ZS5hdHRyLA0KPiA+ID4gKyAgICAgTlVM
-TA0KPiA+ID4gK307DQo+ID4gPiArQVRUUklCVVRFX0dST1VQUyhtdGtfZHJhbWMpOw0KPiA+ID4g
-Kw0KPiA+ID4gK3N0YXRpYyBjb25zdCBzdHJ1Y3QgbXRrX2RyYW1jX3BkYXRhIGRyYW1jX3BkYXRh
-X210ODE5NiA9IHsNCj4gPiA+ICsgICAgIC5mbWV0ZXJfdmVyc2lvbiA9IDEsDQo+ID4gPiArICAg
-ICAucmVmX2ZyZXFfbWh6ID0gMjYsDQo+ID4gPiArICAgICAucmVncyA9IG10a19kcmFtY19yZWdz
-X210ODE5NiwNCj4gPiA+ICsgICAgIC5tYXNrcyA9IG10a19kcmFtY19tYXNrc19tdDgxOTYsDQo+
-ID4gPiArICAgICAucG9zZGl2X3B1cmlmeSA9IEJJVCgyKSwNCj4gPiA+ICsgICAgIC5wcmVkaXYg
-PSA3LA0KPiA+ID4gKyAgICAgLnNodWZmbGVfb2Zmc2V0ID0gMHg3MDAsDQo+ID4gPiArfTsNCj4g
-PiA+ICsNCj4gPiA+ICtzdGF0aWMgY29uc3Qgc3RydWN0IG9mX2RldmljZV9pZCBtdGtfZHJhbWNf
-b2ZfaWRzW10gPSB7DQo+ID4gPiArICAgICB7IC5jb21wYXRpYmxlID0gIm1lZGlhdGVrLG10ODE5
-Ni1kcmFtYyIsIC5kYXRhID0NCj4gPiA+ICZkcmFtY19wZGF0YV9tdDgxOTYgfSwNCj4gPiA+ICsg
-ICAgIHsgLyogc2VudGluZWwgKi8gfQ0KPiA+ID4gK307DQo+ID4gPiArTU9EVUxFX0RFVklDRV9U
-QUJMRShvZiwgbXRrX2RyYW1jX29mX2lkcyk7DQo+ID4gPiArDQo+ID4gPiArc3RhdGljIHN0cnVj
-dCBwbGF0Zm9ybV9kcml2ZXIgbXRrX2RyYW1jX2RyaXZlciA9IHsNCj4gPiA+ICsgICAgIC5wcm9i
-ZSA9IG10a19kcmFtY19wcm9iZSwNCj4gPiA+ICsgICAgIC5kcml2ZXIgPSB7DQo+ID4gPiArICAg
-ICAgICAgICAgIC5uYW1lID0gIm10ay1kcmFtYyIsDQo+ID4gPiArICAgICAgICAgICAgIC5vZl9t
-YXRjaF90YWJsZSA9IG10a19kcmFtY19vZl9pZHMsDQo+ID4gPiArICAgICAgICAgICAgIC5kZXZf
-Z3JvdXBzID0gbXRrX2RyYW1jX2dyb3VwcywNCj4gPiA+ICsgICAgIH0sDQo+ID4gPiArfTsNCj4g
-PiA+ICttb2R1bGVfcGxhdGZvcm1fZHJpdmVyKG10a19kcmFtY19kcml2ZXIpOw0KPiA+ID4gKw0K
-PiA+ID4gK01PRFVMRV9BVVRIT1IoIkNyeXN0YWwgR3VvIDxjcnlzdGFsLmd1b0BtZWRpYXRlay5j
-b20+Iik7DQo+ID4gPiArTU9EVUxFX0RFU0NSSVBUSU9OKCJNZWRpYVRlayBEUkFNIENvbnRyb2xs
-ZXIgRHJpdmVyIik7DQo+ID4gPiArTU9EVUxFX0xJQ0VOU0UoIkdQTCIpOw0KPiA+ID4gLS0NCj4g
-PiA+IDIuMTguMA0KPiA+ID4gDQo=
+--nextPart3629297.iIbC2pHGDl
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Romain Gantois <romain.gantois@bootlin.com>
+Date: Mon, 12 May 2025 09:53:09 +0200
+Message-ID: <3878435.kQq0lBPeGt@fw-rgant>
+In-Reply-To: <20250507135331.76021-4-maxime.chevallier@bootlin.com>
+MIME-Version: 1.0
+
+Hi Maxime,
+
+On Wednesday, 7 May 2025 15:53:19 CEST Maxime Chevallier wrote:
+> Ethernet provides a wide variety of layer 1 protocols and standards for
+> data transmission. The front-facing ports of an interface have their own
+> complexity and configurability.
+> 
+...
+> +
+> +static int phy_default_setup_single_port(struct phy_device *phydev)
+> +{
+> +	struct phy_port *port = phy_port_alloc();
+> +
+> +	if (!port)
+> +		return -ENOMEM;
+> +
+> +	port->parent_type = PHY_PORT_PHY;
+> +	port->phy = phydev;
+> +	linkmode_copy(port->supported, phydev->supported);
+> +
+> +	phy_add_port(phydev, port);
+> +
+> +	/* default medium is copper */
+> +	if (!port->mediums)
+> +		port->mediums |= BIT(ETHTOOL_LINK_MEDIUM_BASET);
+
+Could this be moved to phy_port_alloc() instead? That way, you'd avoid the 
+extra conditional and the "default medium == baseT" rule would be enforced as 
+early as possible.
+
+> +
+> +	return 0;
+> +}
+> +
+> +static int of_phy_ports(struct phy_device *phydev)
+> +{
+> +	struct device_node *node = phydev->mdio.dev.of_node;
+> +	struct device_node *mdi;
+> +	struct phy_port *port;
+> +	int err;
+> +
+> +	if (!IS_ENABLED(CONFIG_OF_MDIO))
+> +		return 0;
+> +
+> +	if (!node)
+> +		return 0;
+> +
+> +	mdi = of_get_child_by_name(node, "mdi");
+> +	if (!mdi)
+> +		return 0;
+
+There are a lot of different possible failure paths here, so some specific error 
+messages would be relevant IMO.
+
+> +
+> +	for_each_available_child_of_node_scoped(mdi, port_node) {
+> +		port = phy_of_parse_port(port_node);
+> +		if (IS_ERR(port)) {
+> +			err = PTR_ERR(port);
+> +			goto out_err;
+> +		}
+> +
+> +		port->parent_type = PHY_PORT_PHY;
+> +		port->phy = phydev;
+> +		err = phy_add_port(phydev, port);
+> +		if (err)
+> +			goto out_err;
+> +	}
+> +	of_node_put(mdi);
+> +
+> +	return 0;
+> +
+> +out_err:
+> +	phy_cleanup_ports(phydev);
+> +	of_node_put(mdi);
+> +	return err;
+> +}
+> +
+> +static int phy_setup_ports(struct phy_device *phydev)
+> +{
+> +	__ETHTOOL_DECLARE_LINK_MODE_MASK(ports_supported);
+> +	struct phy_port *port;
+> +	int ret;
+> +
+> +	ret = of_phy_ports(phydev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (phydev->n_ports < phydev->max_n_ports) {
+> +		ret = phy_default_setup_single_port(phydev);
+> +		if (ret)
+> +			goto out;
+> +	}
+
+Couldn't the function return at this point if phydev->n_ports is 0? That 
+would eliminate the need for the linkmode_empty() check later.
+
+> +
+> +	linkmode_zero(ports_supported);
+> +
+> +	/* Aggregate the supported modes, which are made-up of :
+> +	 *  - What the PHY itself supports
+> +	 *  - What the sum of all ports support
+> +	 */
+> +	list_for_each_entry(port, &phydev->ports, head)
+> +		if (port->active)
+> +			linkmode_or(ports_supported, ports_supported,
+> +				    port->supported);
+> +
+> +	if (!linkmode_empty(ports_supported))
+> +		linkmode_and(phydev->supported, phydev->supported,
+> +			     ports_supported);
+> +
+> +	/* For now, the phy->port field is set as the first active port's type 
+*/
+> +	list_for_each_entry(port, &phydev->ports, head)
+> +		if (port->active)
+> +			phydev->port = phy_port_get_type(port);
+> +
+> +	return 0;
+> +
+> +out:
+> +	phy_cleanup_ports(phydev);
+> +	return ret;
+> +}
+> +
+>  /**
+>   * fwnode_mdio_find_device - Given a fwnode, find the mdio_device
+>   * @fwnode: pointer to the mdio_device's fwnode
+> @@ -3339,6 +3500,11 @@ static int phy_probe(struct device *dev)
+>  		phydev->is_gigabit_capable = 1;
+> 
+>  	of_set_phy_supported(phydev);
+> +
+> +	err = phy_setup_ports(phydev);
+> +	if (err)
+> +		goto out;
+> +
+>  	phy_advertise_supported(phydev);
+> 
+>  	/* Get PHY default EEE advertising modes and handle them as 
+potentially
+> @@ -3414,6 +3580,8 @@ static int phy_remove(struct device *dev)
+> 
+>  	phydev->state = PHY_DOWN;
+> 
+> +	phy_cleanup_ports(phydev);
+> +
+>  	sfp_bus_del_upstream(phydev->sfp_bus);
+>  	phydev->sfp_bus = NULL;
+> 
+> diff --git a/drivers/net/phy/phy_port.c b/drivers/net/phy/phy_port.c
+> new file mode 100644
+> index 000000000000..c69ba0d9afba
+> --- /dev/null
+> +++ b/drivers/net/phy/phy_port.c
+> @@ -0,0 +1,171 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/* Framework to drive Ethernet ports
+> + *
+> + * Copyright (c) 2024 Maxime Chevallier <maxime.chevallier@bootlin.com>
+> + */
+> +
+> +#include <linux/linkmode.h>
+> +#include <linux/of.h>
+> +#include <linux/phy_port.h>
+> +
+> +/**
+> + * phy_port_alloc() - Allocate a new phy_port
+> + *
+> + * Returns: a newly allocated struct phy_port, or NULL.
+> + */
+> +struct phy_port *phy_port_alloc(void)
+> +{
+> +	struct phy_port *port;
+> +
+> +	port = kzalloc(sizeof(*port), GFP_KERNEL);
+> +	if (!port)
+> +		return NULL;
+> +
+> +	linkmode_zero(port->supported);
+> +	INIT_LIST_HEAD(&port->head);
+> +
+> +	return port;
+> +}
+> +EXPORT_SYMBOL_GPL(phy_port_alloc);
+> +
+> +/**
+> + * phy_port_destroy() - Free a struct phy_port
+> + * @port: The port to destroy
+> + */
+> +void phy_port_destroy(struct phy_port *port)
+> +{
+> +	kfree(port);
+> +}
+> +EXPORT_SYMBOL_GPL(phy_port_destroy);
+> +
+> +static void ethtool_medium_get_supported(unsigned long *supported,
+> +					 enum ethtool_link_medium medium,
+> +					 int lanes)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < __ETHTOOL_LINK_MODE_MASK_NBITS; i++) {
+> +		/* Special bits such as Autoneg, Pause, Asym_pause, etc. are
+> +		 * set and will be masked away by the port parent.
+> +		 */
+> +		if (link_mode_params[i].mediums == 
+BIT(ETHTOOL_LINK_MEDIUM_NONE)) {
+> +			linkmode_set_bit(i, supported);
+> +			continue;
+
+If you change the subsequent "if" into an "else if", you'll avoid having to 
+use "continue" here, which IMO would make things a bit clearer.
+
+> +		}
+> +
+> +		/* For most cases, min_lanes == lanes, except for 10/100BaseT 
+that work
+> +		 * on 2 lanes but are compatible with 4 lanes mediums
+> +		 */
+> +		if (link_mode_params[i].mediums & BIT(medium) &&
+> +		    link_mode_params[i].lanes >= lanes &&
+> +		    link_mode_params[i].min_lanes <= lanes) {
+> +			linkmode_set_bit(i, supported);
+> +		}
+> +	}
+> +}
+> +
+> +static enum ethtool_link_medium ethtool_str_to_medium(const char *str)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < __ETHTOOL_LINK_MEDIUM_LAST; i++)
+> +		if (!strcmp(phy_mediums(i), str))
+> +			return i;
+> +
+> +	return ETHTOOL_LINK_MEDIUM_NONE;
+> +}
+> +
+> +/**
+> + * phy_of_parse_port() - Create a phy_port from a firmware representation
+> + * @dn: device_node representation of the port, following the
+> + *	ethernet-connector.yaml binding
+> + *
+> + * Returns: a newly allocated and initialized phy_port pointer, or an
+> ERR_PTR. + */
+> +struct phy_port *phy_of_parse_port(struct device_node *dn)
+> +{
+> +	struct fwnode_handle *fwnode = of_fwnode_handle(dn);
+> +	enum ethtool_link_medium medium;
+> +	struct phy_port *port;
+> +	struct property *prop;
+> +	const char *med_str;
+> +	u32 lanes, mediums = 0;
+> +	int ret;
+> +
+> +	ret = fwnode_property_read_u32(fwnode, "lanes", &lanes);
+> +	if (ret)
+> +		lanes = 0;
+
+Checking if this property exists before calling fwnode_property_read_u32() 
+would avoid masking potential error conditions where the property exists, but 
+something goes wrong while reading it.
+
+> +
+> +	ret = fwnode_property_read_string(fwnode, "media", &med_str);
+> +	if (ret)
+> +		return ERR_PTR(ret);
+> +
+> +	of_property_for_each_string(to_of_node(fwnode), "media", prop, 
+med_str) {
+> +		medium = ethtool_str_to_medium(med_str);
+> +		if (medium == ETHTOOL_LINK_MEDIUM_NONE)
+> +			return ERR_PTR(-EINVAL);
+> +
+> +		mediums |= BIT(medium);
+> +	}
+> +
+> +	if (!mediums)
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	port = phy_port_alloc();
+> +	if (!port)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	port->lanes = lanes;
+> +	port->mediums = mediums;
+> +
+> +	return port;
+> +}
+> +EXPORT_SYMBOL_GPL(phy_of_parse_port);
+> +
+> +/**
+> + * phy_port_update_supported() - Setup the port->supported field
+> + * @port: the port to update
+> + *
+> + * Once the port's medium list and number of lanes has been configured
+> based + * on firmware, straps and vendor-specific properties, this function
+> may be + * called to update the port's supported linkmodes list.
+> + *
+> + * Any mode that was manually set in the port's supported list remains set.
+> + */
+> +void phy_port_update_supported(struct phy_port *port)
+> +{
+> +	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported);
+> +	int i, lanes = 1;
+> +
+> +	/* If there's no lanes specified, we grab the default number of
+> +	 * lanes as the max of the default lanes for each medium
+> +	 */
+> +	if (!port->lanes)
+> +		for_each_set_bit(i, &port->mediums, __ETHTOOL_LINK_MEDIUM_LAST)
+> +			lanes = max_t(int, lanes, phy_medium_default_lanes(i));
+> +
+> +	for_each_set_bit(i, &port->mediums, __ETHTOOL_LINK_MEDIUM_LAST) {
+> +		linkmode_zero(supported);
+
+ethtool_medium_get_supported() can only set bits in "supported", so you could 
+just do:
+
+```
+for_each_set_bit(i, &port->mediums, __ETHTOOL_LINK_MEDIUM_LAST)
+	ethtool_medium_get_supported(port->supported, i, port->lanes);
+```
+
+unless you're wary of someone modifying ethtool_medium_get_supported() in a 
+way that breaks this in the future?
+
+> +		ethtool_medium_get_supported(supported, i, port->lanes);
+> +		linkmode_or(port->supported, port->supported, supported);
+> +	}
+> +}
+> +EXPORT_SYMBOL_GPL(phy_port_update_supported);
+> +
+> +/**
+> + * phy_port_get_type() - get the PORT_* attribut for that port.
+> + * @port: The port we want the information from
+> + *
+> + * Returns: A PORT_XXX value.
+> + */
+> +int phy_port_get_type(struct phy_port *port)
+> +{
+> +	if (port->mediums & ETHTOOL_LINK_MEDIUM_BASET)
+> +		return PORT_TP;
+> +
+> +	if (phy_port_is_fiber(port))
+> +		return PORT_FIBRE;
+> +
+> +	return PORT_OTHER;
+> +}
+> +EXPORT_SYMBOL_GPL(phy_port_get_type);
+> diff --git a/include/linux/ethtool.h b/include/linux/ethtool.h
+> index c1d805d3e02f..0d3063af5905 100644
+> --- a/include/linux/ethtool.h
+> +++ b/include/linux/ethtool.h
+> @@ -226,6 +226,10 @@ extern const struct link_mode_info link_mode_params[];
+> 
+>  extern const char ethtool_link_medium_names[][ETH_GSTRING_LEN];
+> 
+> +#define ETHTOOL_MEDIUM_FIBER_BITS (BIT(ETHTOOL_LINK_MEDIUM_BASES) | \
+> +				   BIT(ETHTOOL_LINK_MEDIUM_BASEL) | \
+> +				   BIT(ETHTOOL_LINK_MEDIUM_BASEF))
+> +
+>  static inline const char *phy_mediums(enum ethtool_link_medium medium)
+>  {
+>  	if (medium >= __ETHTOOL_LINK_MEDIUM_LAST)
+> @@ -234,6 +238,17 @@ static inline const char *phy_mediums(enum
+> ethtool_link_medium medium) return ethtool_link_medium_names[medium];
+>  }
+> 
+> +static inline int phy_medium_default_lanes(enum ethtool_link_medium medium)
+> +{
+> +	/* Let's consider that the default BaseT ethernet is BaseT4, i.e.
+> +	 * Gigabit Ethernet.
+> +	 */
+> +	if (medium == ETHTOOL_LINK_MEDIUM_BASET)
+> +		return 4;
+> +
+> +	return 1;
+> +}
+> +
+>  /* declare a link mode bitmap */
+>  #define __ETHTOOL_DECLARE_LINK_MODE_MASK(name)		\
+>  	DECLARE_BITMAP(name, __ETHTOOL_LINK_MODE_MASK_NBITS)
+> diff --git a/include/linux/phy.h b/include/linux/phy.h
+> index d62d292024bc..0180f4d4fd7d 100644
+> --- a/include/linux/phy.h
+> +++ b/include/linux/phy.h
+> @@ -299,6 +299,7 @@ static inline long rgmii_clock(int speed)
+>  struct device;
+>  struct kernel_hwtstamp_config;
+>  struct phylink;
+> +struct phy_port;
+>  struct sfp_bus;
+>  struct sfp_upstream_ops;
+>  struct sk_buff;
+> @@ -590,6 +591,9 @@ struct macsec_ops;
+>   * @master_slave_state: Current master/slave configuration
+>   * @mii_ts: Pointer to time stamper callbacks
+>   * @psec: Pointer to Power Sourcing Equipment control struct
+> + * @ports: List of PHY ports structures
+> + * @n_ports: Number of ports currently attached to the PHY
+> + * @max_n_ports: Max number of ports this PHY can expose
+>   * @lock:  Mutex for serialization access to PHY
+>   * @state_queue: Work queue for state machine
+>   * @link_down_events: Number of times link was lost
+> @@ -724,6 +728,10 @@ struct phy_device {
+>  	struct mii_timestamper *mii_ts;
+>  	struct pse_control *psec;
+> 
+> +	struct list_head ports;
+> +	int n_ports;
+> +	int max_n_ports;
+> +
+>  	u8 mdix;
+>  	u8 mdix_ctrl;
+> 
+> @@ -1242,6 +1250,27 @@ struct phy_driver {
+>  	 * Returns the time in jiffies until the next update event.
+>  	 */
+>  	unsigned int (*get_next_update_time)(struct phy_device *dev);
+> +
+> +	/**
+> +	 * @attach_port: Indicates to the PHY driver that a port is detected
+> +	 * @dev: PHY device to notify
+> +	 * @port: The port being added
+> +	 *
+> +	 * Called when a port that needs to be driven by the PHY is found. The
+> +	 * number of time this will be called depends on phydev->max_n_ports,
+> +	 * which the driver can change in .probe().
+> +	 *
+> +	 * The port that is being passed may or may not be initialized. If it 
+is
+> +	 * already initialized, it is by the generic port representation from
+> +	 * devicetree, which superseeds any strapping or vendor-specific
+> +	 * properties.
+> +	 *
+> +	 * If the port isn't initialized, the port->mediums and port->lanes
+> +	 * fields must be set, possibly according to stapping information.
+> +	 *
+> +	 * Returns 0, or an error code.
+> +	 */
+> +	int (*attach_port)(struct phy_device *dev, struct phy_port *port);
+>  };
+>  #define to_phy_driver(d) container_of_const(to_mdio_common_driver(d),		
+\
+>  				      struct phy_driver, mdiodrv)
+> @@ -1968,6 +1997,7 @@ void phy_trigger_machine(struct phy_device *phydev);
+>  void phy_mac_interrupt(struct phy_device *phydev);
+>  void phy_start_machine(struct phy_device *phydev);
+>  void phy_stop_machine(struct phy_device *phydev);
+> +
+>  void phy_ethtool_ksettings_get(struct phy_device *phydev,
+>  			       struct ethtool_link_ksettings *cmd);
+>  int phy_ethtool_ksettings_set(struct phy_device *phydev,
+> diff --git a/include/linux/phy_port.h b/include/linux/phy_port.h
+> new file mode 100644
+> index 000000000000..70aa75f93096
+> --- /dev/null
+> +++ b/include/linux/phy_port.h
+> @@ -0,0 +1,93 @@
+> +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> +
+> +#ifndef __PHY_PORT_H
+> +#define __PHY_PORT_H
+> +
+> +#include <linux/ethtool.h>
+> +#include <linux/types.h>
+> +#include <linux/phy.h>
+> +
+> +struct phy_port;
+> +
+> +/**
+> + * enum phy_port_parent - The device this port is attached to
+> + *
+> + * @PHY_PORT_PHY: Indicates that the port is driven by a PHY device
+> + */
+> +enum phy_port_parent {
+> +	PHY_PORT_PHY,
+> +};
+> +
+> +struct phy_port_ops {
+> +	/* Sometimes, the link state can be retrieved from physical,
+> +	 * out-of-band channels such as the LOS signal on SFP. These
+> +	 * callbacks allows notifying the port about state changes
+> +	 */
+> +	void (*link_up)(struct phy_port *port);
+> +	void (*link_down)(struct phy_port *port);
+> +
+> +	/* If the port acts as a Media Independent Interface (Serdes port),
+> +	 * configures the port with the relevant state and mode. When enable is
+> +	 * not set, interface should be ignored
+> +	 */
+> +	int (*configure_mii)(struct phy_port *port, bool enable, 
+phy_interface_t
+> interface); +};
+> +
+> +/**
+> + * struct phy_port - A representation of a network device physical
+> interface + *
+> + * @head: Used by the port's parent to list ports
+> + * @parent_type: The type of device this port is directly connected to
+> + * @phy: If the parent is PHY_PORT_PHYDEV, the PHY controlling that port
+> + * @ops: Callback ops implemented by the port controller
+> + * @lanes: The number of lanes (diff pairs) this port has, 0 if not
+> applicable + * @mediums: Bitmask of the physical mediums this port provides
+> access to + * @supported: The link modes this port can expose, if this port
+> is MDI (not MII) + * @interfaces: The MII interfaces this port supports, if
+> this port is MII + * @active: Indicates if the port is currently part of
+> the active link. + * @is_serdes: Indicates if this port is Serialised MII
+> (Media Independent + *	       Interface), or an MDI (Media Dependent
+> Interface).
+> + */
+> +struct phy_port {
+> +	struct list_head head;
+> +	enum phy_port_parent parent_type;
+> +	union {
+> +		struct phy_device *phy;
+> +	};
+> +
+> +	const struct phy_port_ops *ops;
+> +
+> +	int lanes;
+> +	unsigned long mediums;
+> +	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported);
+> +	DECLARE_PHY_INTERFACE_MASK(interfaces);
+> +
+> +	unsigned int active:1;
+> +	unsigned int is_serdes:1;
+> +};
+> +
+> +struct phy_port *phy_port_alloc(void);
+> +void phy_port_destroy(struct phy_port *port);
+> +
+> +static inline struct phy_device *port_phydev(struct phy_port *port)
+> +{
+> +	return port->phy;
+> +}
+> +
+> +struct phy_port *phy_of_parse_port(struct device_node *dn);
+> +
+> +static inline bool phy_port_is_copper(struct phy_port *port)
+> +{
+> +	return port->mediums == BIT(ETHTOOL_LINK_MEDIUM_BASET);
+
+BaseC is also "copper" right? Maybe this should be renamed to 
+"phy_port_is_tp"?
+
+> +}
+> +
+> +static inline bool phy_port_is_fiber(struct phy_port *port)
+> +{
+> +	return !!(port->mediums & ETHTOOL_MEDIUM_FIBER_BITS);
+> +}
+> +
+> +void phy_port_update_supported(struct phy_port *port);
+> +
+> +int phy_port_get_type(struct phy_port *port);
+> +
+> +#endif
+
+Thanks!
+
+-- 
+Romain Gantois, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
+--nextPart3629297.iIbC2pHGDl
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEEYFZBShRwOvLlRRy+3R9U/FLj284FAmghqOUACgkQ3R9U/FLj
+284NzA//aRirexrSNYDxqPN1AU2dLltouAjTNhLz4In1RqjLR1MEzy6Iu5gDZrRl
+PYZLzYIi7LzbGS846G/VCyFdJMu3eXeBBRFq0NYg9iBN/uUxgyUhru+v6QzpOVcv
+1vhIb3vazATaZqD0+vbhvcV/nKpGkQrzURlAxu7G9++Xha+zQtf2S9jmCCGdOuWX
+uLbZ2ENGE+dF3/q86evGT+CXHg+trilLEEwzM0Tdvfqs3sXsO6aaJCVd+fHof71M
+wJdq7aXzPt1liZaY8pDcbIZVDxplHc5ZJYY96jG0qRLleIWREUNNbr+IShk5D6Wd
+GsIVQjg+0uN/ju9SiL7vPF1L+dKYEOoXvMqcZLdI1ynKhP6fPff/ZW1K/5NLgSF9
+jVi004GAOb1+la83eAe2T189TceMaDeSJy0GM3Gw2AliFi3Nmy1ZsZjDEdCZbNUw
+x3sK2pyj8x1Pftb5aI2mgeZ5c7iJ/PmAIgD29AxU8IX/IDXteBk02tWzjm14VF+O
+AIH/AozrAA9A+bpKL4XdAD1Ui2bs1rYJteJoYTOMol9fj/br80UvmTOb6QlgPAI8
+OhEc8IgEYScJtkbQ1yFveOvdxdwbphiTd9hEo21sWekR7hVwOaWmkPaL7jz+IqZj
+dzWNT1p6gNeEA1iDMhEOVqU+0nA9DVfQHE0O1Ls1owRpNb6fT08=
+=tsnT
+-----END PGP SIGNATURE-----
+
+--nextPart3629297.iIbC2pHGDl--
+
+
+
 
