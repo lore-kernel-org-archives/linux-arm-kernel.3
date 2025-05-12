@@ -4,47 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41284C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 16:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72A00C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 May 2025 16:38:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gjuiOwwQHu+rcHsTjjiW2/bdZQPmxS8dNT6++eP6SOA=; b=ZXb6fXIk+PvQYGl76Qcq2cq90J
-	YEbnZ51q3b+/mEx7dn0Vi90q2Jxq/TnL5fWS8xewlfzZ5pAS63e/jI3rgG4TL4ASTj35q2vGXc2u3
-	Uu4IrAtvyCpF9VXD87FnbZ7orsFxJ7/WdS+hFaZX9su7l2gqVBedBrRuezcfl8F/G1kFa3ltA13OS
-	clvVYA8JzwRW5kWtRSvi0grop0aF+BL7lsIvr+HD0cN1ydpem2TrGh4HRv6vlZgz4dK2eIBO/5xtc
-	GgzpFIPoUi4aAK9A6+2NNmRjIif2rmOftLcMH4wfra34AAo0Cosl2367pzArwzBbY/BJXJgJAV8ue
-	ij2PdLJA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IrkCm+skgkNF6RDYYvLXHCocOvKLAgZooPpTDV9LMm0=; b=Q6QnKvTLINFB5yZbnyMNHtcgP/
+	w5zLdo+eYEAwi76o1prWNOeaYfDmtCp98F33KccoRHxoVT/VlgBwmU3M6jeoEuJwg7ZlT1rHw9A9k
+	rbZC21IRZ9+CB1lIwIjpoXqaNtFQXTmpmm68kpb0EMALp178lJ+g6jn+tw0d3Cr7sCy13UiA60UPI
+	0iI35JhEz2nfFlgKLsnoA8ijt0GFN5r0lNmAcnUVbjIYuAzQZg95Cj8qjwbVUV1kTFhfURCWhH5Wn
+	897QSxx++MPYSOrPqwBd7Ri4DCI6kphM1ZiWSH6nzf6a9aJycA4MsswWbkDypmwft2Hvt625RyX3M
+	B7stYpiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEW8C-0000000A4CX-3Jw2;
-	Mon, 12 May 2025 16:35:56 +0000
+	id 1uEWAI-0000000A4a3-1zDs;
+	Mon, 12 May 2025 16:38:06 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEVdj-00000009yDW-3W1C
+	id 1uEVhG-00000009yW6-1Xv3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 May 2025 16:04:29 +0000
+	Mon, 12 May 2025 16:08:07 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C846914BF;
-	Mon, 12 May 2025 09:04:15 -0700 (PDT)
-Received: from e133380.cambridge.arm.com (e133380.arm.com [10.1.197.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4E1363F63F;
-	Mon, 12 May 2025 09:04:26 -0700 (PDT)
-From: Dave Martin <Dave.Martin@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Mark Rutland <mark.rutland@arm.com>
-Subject: [boot-wrapper] [RESEND] Makefile: Ensure initrd parameters in /chosen are up-to-date
-Date: Mon, 12 May 2025 17:04:19 +0100
-Message-Id: <20250512160419.43751-1-Dave.Martin@arm.com>
-X-Mailer: git-send-email 2.34.1
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2D4114BF;
+	Mon, 12 May 2025 09:07:54 -0700 (PDT)
+Received: from [10.57.45.206] (unknown [10.57.45.206])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C3B543F63F;
+	Mon, 12 May 2025 09:08:04 -0700 (PDT)
+Message-ID: <77f7711d-f8e1-4c0c-af29-cdf4f4726683@arm.com>
+Date: Mon, 12 May 2025 17:08:03 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: fvp: Add ETE and TRBE nodes for Rev C
+ model
+Content-Language: en-GB
+To: Leo Yan <leo.yan@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Sudeep Holla <sudeep.holla@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+References: <20250512151149.13111-1-leo.yan@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250512151149.13111-1-leo.yan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_090427_919384_DEB2167B 
-X-CRM114-Status: GOOD (  14.43  )
+X-CRM114-CacheID: sfid-20250512_090806_456358_4B17C4F2 
+X-CRM114-Status: UNSURE (   8.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,51 +67,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The initrd parameters in the FDT /chosen node are fixed when the device
-tree blob is generated, so it is important to regenerate the device
-tree if the initrd image has been updated.
+On 12/05/2025 16:11, Leo Yan wrote:
+> The FVP Rev C model includes CoreSight ETE and TRBE support.  These
+> features can be enabled by specifying parameters when launching the
+> model:
+> 
+>    -C cluster0.has_ete: 1
+>    -C cluster1.has_ete: 1
+>    -C cluster0.has_trbe: 1
+>    -C cluster1.has_trbe: 1
+> 
+> This change adds device tree bindings for the ETE and TRBE nodes.  They
+> are disabled by default to prevent kernel warnings from failed driver
+> probes, as the model does not enable the features unless explicitly
+> specified.
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
 
-Currently this does not happen, so the parameters can be stale.
-In particular, if the initrd image is bigger than it was when the
-device tree was first generated then the value of the linux,initrd-end
-parameter is too small, leading to truncation of the initrd image on
-boot even though the whole image is present in linux-system.axf.
-
-Make $(FILESYSTEM) a dependency of fdt.dtb so that the parameters are
-refreshed properly based on the current initrd image (if any).
-
-Without --with-initrd, FILESYSTEM is the empty string and the
-dependency evaporates, which is just fine.
-
-Signed-off-by: Dave Martin <Dave.Martin@arm.com>
----
-
-This is the same patch as [1], with the missing [boot-wrapper] prefix
-added to the subject line.  (Oops.)
-
-Those who already saw that patch, feel free to ignore.
-
-
-[1] https://lore.kernel.org/linux-arm-kernel/20250512150944.38322-1-Dave.Martin@arm.com/
-
-
- Makefile.am | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/Makefile.am b/Makefile.am
-index a8d5c1b..0178e5d 100644
---- a/Makefile.am
-+++ b/Makefile.am
-@@ -185,7 +185,7 @@ model.lds: $(LD_SCRIPT) Makefile
- DTC_NOWARN  = $(call test-dtc-option,-Wno-clocks_property)
- DTC_NOWARN += $(call test-dtc-option,-Wno-gpios_property)
- 
--fdt.dtb: $(KERNEL_DTB) Makefile
-+fdt.dtb: $(KERNEL_DTB) Makefile $(FILESYSTEM)
- 	( $(DTC) -O dts -I dtb $(KERNEL_DTB) ; echo "/ { $(CHOSEN_NODE) $(PSCI_NODE) }; $(CPU_NODES)" ) | $(DTC) -O dtb -o $@ $(DTC_NOWARN) -
- 
- # The filesystem archive might not exist if INITRD is not being used
--- 
-2.34.1
-
+Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
