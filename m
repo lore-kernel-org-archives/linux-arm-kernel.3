@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11E92C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 07:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97AC1C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 07:50:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0dtWKGOdLtjSCjUODgyz50wrxJtVO6iYcLtrgM1VULA=; b=Xoe1ejoXgs6F4M/LfsYJr9goio
-	ayDJ6JTTZ2jhHyP953M0SfcJ64/0QmH7eYsWgCyenh7HvoGhO8gMpi/3YuBPV0H+a9fadATB1EpNo
-	WlLp+pe9KLcOrCv14TrVUx48To5C1cQR5kfks9YWlR9Yd22MbGCkd1+BxH0rdz1sN0BUewQlbHtKy
-	ZUIYkOSJ43CKefA29+yV/J/j0sXJOp4Rbj/lvyY1+SO/zvSl6OjYJPoBaWR00qunfzp63gyFpk+h2
-	1kaAa5yzCmaUDDfiBxW06m8UJ7es0Ilh4nDUv8EegoEh6k3iMhtfv8azPUIXocr7q0XkdUomg5ZJD
-	5f3XuP6A==;
+	bh=Htt9pb2o42rS5NtfHE2oLByYOhAuer5BGvATrE0RUjY=; b=yZ25bihFVl8HbgBG5giLm1FTxG
+	a1byun6REc5+tceMSRab+SclQlLwOrZ7tTnuSnxi3ImePnhrXzzZtGzoQdhIch4P8VikSkAPx8EPH
+	vINKcHpJKMtj3QtQI3qXUvb0F+Hb+TKYJOJbCDQ9dmEOXR/yXacJ+271lgcyvDSWSE4qFLRvqTmf7
+	iA/F1xbUI5i3KX4JB7eYGSPievLGPkW3fJ/UHFZII0aX7jLgTYmjkEVgloX5VMXLRutRef9U8w6E7
+	QvqB1ZIM3WhVGL12PMm5zePSLpybOdMNpsJ0rOwEl9zZSH5UTObj9T1oIZrWg9h00ziCjnoZr72Ly
+	UzmT2QEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEkMx-0000000BgIK-35s6;
-	Tue, 13 May 2025 07:48:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uEkOv-0000000Bge4-21sv;
+	Tue, 13 May 2025 07:50:09 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEkJY-0000000BfAY-1izG
+	id 1uEkJs-0000000BfGz-1AnG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 07:44:36 +0000
+	Tue, 13 May 2025 07:44:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 97ABF60010;
-	Tue, 13 May 2025 07:44:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C5B9C4CEE4;
-	Tue, 13 May 2025 07:44:32 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 88609A4C9DB;
+	Tue, 13 May 2025 07:44:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82282C4CEE4;
+	Tue, 13 May 2025 07:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747122275;
-	bh=So8EYAkv+topCuJPKHzoizloHPKAUlC844pl1wuMZrc=;
+	s=k20201202; t=1747122295;
+	bh=XhHpleA0OzZhqpa3rjrh6RL90cUK1WoFGX417izBmjg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=r74a3h1sEqQmFxWkOc4i9G+ecYkfigt5dkXCErBp+m1gzAVqqCnoHfhYQAIQmYmEt
-	 gal3LPDTS6BW3udBKZqPfUriOuExj8DQqMVN19aLWURSmrE4qsnXKqAwYoUGDt6vyO
-	 gahiw5G2L9SqvDeyO2D6K4JzTOYnyktqFZ1v+b5dk//tFMjYFP6vIt0dgoxMHIKL2k
-	 /EpmfNqWJzQmKP9I525OnliC3h16JnMVoTdNlyhDnuWUjsQlKd5/sY5UaTuGCQdDLH
-	 BgMc3vjwE4iLKlqIMu/+zg8c8aHYONxRPbbiZFLKPw0gDaE/dGIWqeIEIOo+PAhd1q
-	 IUd1KISwcqG8w==
-Message-ID: <cb1e6cb8-2d51-44b5-88a6-8015a011380b@kernel.org>
-Date: Tue, 13 May 2025 09:44:30 +0200
+	b=Lv1IzLJSPASGDbptJtX+eiszvazDe2Hvhd8sSg/ePoxgJtrnBHWY+qdXM83MXEqFd
+	 tzsxvYbgClJ8I5f0oz9qZxuvnT+M8cAWhTFp5ybmUmFr8tBHj+QNAQYQNkeEJpMdQL
+	 nAEB2ernE4oCIfxUIG3AUYea8AGht/YR8fasEMx+D+KJ/Z4jhBAH1SW70VwrHWY8Jb
+	 fiRtwNZa+GCpiVNNuiJXBKmdJIQwykp9v+OCJZLn99wLCdG2HtaZt61SDUUk29TWaR
+	 LQq+N713ma/a0IvYyMHf+2E6Z7IZWWFzpcU6NxS1loiLtmm3bc4V+scia5oGc45tks
+	 e+vX9oiJVHTSg==
+Message-ID: <8199958e-fd77-4037-9909-181bfa21e92c@kernel.org>
+Date: Tue, 13 May 2025 09:44:50 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] ARM: dts: aspeed: clemente: add Meta Clemente BMC
+Subject: Re: [PATCH 1/2] dt-bindings: arm: aspeed: add Meta Clemente board
 To: leo.jt.wang@gmail.com, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
@@ -54,8 +54,7 @@ To: leo.jt.wang@gmail.com, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
  george.kw.lee@fii-foxconn.com, leo.jt.wang@fii-foxconn.com
-References: <20250513031010.267994-1-LeoWang>
- <6822b851.050a0220.27a24d.d071@mx.google.com>
+References: <6822b830.050a0220.27a24d.d064@mx.google.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,9 +100,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <6822b851.050a0220.27a24d.d071@mx.google.com>
+In-Reply-To: <6822b830.050a0220.27a24d.d064@mx.google.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250513_004456_452912_5D42201F 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,14 +123,32 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 13/05/2025 05:10, leo.jt.wang@gmail.com wrote:
 > From: Leo Wang <leo.jt.wang@fii-foxconn.com>
 > 
-> Add linux device tree entry for Meta Clemente compute-tray
-> BMC using AST2600 SoC.
+> Document the new compatibles used on Meta Clemente.
 > 
 > Signed-off-by: Leo Wang <leo.jt.wang@fii-foxconn.com>
+> ---
+>  Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-Missing threading.
+<form letter>
+This is a friendly reminder during the review process.
 
-Missing versioning.
+It looks like you received a tag and forgot to add it.
+
+If you do not know the process, here is a short explanation:
+Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
+of patchset, under or above your Signed-off-by tag, unless patch changed
+significantly (e.g. new properties added to the DT bindings). Tag is
+"received", when provided in a message replied to you on the mailing
+list. Tools like b4 can help here. However, there's no need to repost
+patches *only* to add the tags. The upstream maintainer will do that for
+tags received on the version they apply.
+
+Please read:
+https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+
+If a tag was not added on purpose, please state why and what changed.
+</form letter>
 
 Best regards,
 Krzysztof
