@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CB63C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 08:06:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48E56C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 08:08:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DcS65UQA7FFYTs5bK+6Y4euPE4rS0+rTQjkMqtZppV0=; b=tjHOWydYxtQP5BtnyWijyjllQB
-	MdPgzGBFH3oC53/d58L9XE1OewUzcX/REo/qHbdo9KjiDXHhpX36dmn2fsKoTGVyvQY7SRMmfWC88
-	tTIJJ9Asyq0yDEKokns5XMNUtUo+aYE1F7bjWKq05GLzaBVyrnGWmUh3sRN6F2S3sU0a8dOMfuiPh
-	SaAz7aS99t1Nqyu/2H3SXAniIbGamGcI/2zItO/PzB1dUOMz72wr4m1aioTQ9SpmofsVJKAF4pgDQ
-	QhfajjJ8lldxWcKWHHswIM/LQdR6L/orLVMool2gFSDR7ofEz/GcOukbjRdg8aTt+Jp+AEojZW37h
-	6tIix8UA==;
+	bh=Tx/lKrp6PhsZ6cKKswPvEXVl3PLH15+7TqJQ3Pfvq4Q=; b=IGJknh+hBpMuLCPMu39MnjxgtE
+	NDj+CrAk6WdFTJCBmNT21QnwTWVtKmRYrVkz9VmcvZc7MBpguHscl/Yr3wacrFmMg3IrJxLP9Yh0s
+	S5YQPtOn1kbl2dUByfGNtq3TZ5qV8/Ydkiz2QM2lvJCuy8BfH681MQzyLhGdYbqghEQTfUmDwHaNz
+	lop8wbHhn2wetKM8Bi6cLrlRRHnMS1aUZlVdpLf4foLibTywNsRjuEz/FmKc/Yb4tcewxaLTdv38/
+	ejX0ozqeBZ3ddReoT0Kq2AzAUGSpNHlY2z5wLVRJjISPjBOj6WlxP7PoxSwvBQb2myshOMpjcnmov
+	Lv/rzbow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEkep-0000000Bj0L-3BzZ;
-	Tue, 13 May 2025 08:06:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uEkgo-0000000BjKL-0dWe;
+	Tue, 13 May 2025 08:08:38 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEkcr-0000000Bik5-1Rte;
-	Tue, 13 May 2025 08:04:33 +0000
+	id 1uEkdu-0000000Bisu-47qR;
+	Tue, 13 May 2025 08:05:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 60EC560007;
-	Tue, 13 May 2025 08:04:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 131B3C4CEE4;
-	Tue, 13 May 2025 08:04:27 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 217BAA4B770;
+	Tue, 13 May 2025 08:05:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8A92C4CEE4;
+	Tue, 13 May 2025 08:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747123472;
-	bh=7I1gwSaGTujG4gf8FypyquviBk2E4QA6iyS8EFE6L6o=;
+	s=k20201202; t=1747123537;
+	bh=sSLHepxaBasy33/TfS4tiApG1/Hq+nahx2oIe40vZas=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pYAwYSA98xROfFniPKW3Fnq8c74xOH7tQB+7DL1Y3zkoNSUZa186JCYkIIk7ybc78
-	 7AbBU7MdRy2DIyGDFmaL67xunDbaKOH+e49iBT1rl38dlT7eXLtzI7CwfKdBPKzKMz
-	 NYF9WFAsOL28v3+dWBFFLxX7AH9Bc3wffNb3cnv/7RBbOkniVAw03ynnpN42vMcEy4
-	 CqQQBhbnGtNA8ZcO3oukS9kXVQWDWe0gJRRikY2FbxSbgUiLCHbKiGxJOAtoGM+GJM
-	 tGLoKBIu5QCyByqotji/y2HAziWoVDAk2DJ7knsHN3BZxI/ELVUPPeR4oA351WZ0pU
-	 ZlYmsSP8YGZvQ==
-Date: Tue, 13 May 2025 10:04:25 +0200
+	b=fY5fXRkhQXDsTK4NVuUemu8FjDl3DpzWexI4kAdMDct6y3OvhQbuVZ76LPWS70zpp
+	 KmtY9jHHFNwUs31bDfBSdF5xxlOteIUMM+af8v5Xz6Tda48JkAwzZZ2nG5DZG2lBSu
+	 lBSm7nP+6UsJ6hcV2Q01UCFWf1zEqB1DFhrhUEvHr6iPk8s8U+VwCAExExokG0VT7A
+	 C1mW28WQJ8xMqXpKkOqpwSnxUfueGafuBDLJW4DaqkCdVgkIiScpwOlaK2PrOw/AIY
+	 WHEIMwgGhQDdee6lqrXGfyXN4zczvpVuESgwbkQqlI1Oq+8NndmrFB8DZwEGIbATCz
+	 G1wXGWDaJE9kw==
+Date: Tue, 13 May 2025 10:05:30 +0200
 From: Niklas Cassel <cassel@kernel.org>
 To: Hans Zhang <18255117159@163.com>
 Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
@@ -53,14 +53,18 @@ Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-amlogic@lists.infradead.org,
 	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v4 1/2] PCI: Configure root port MPS during host probing
-Message-ID: <aCL9CStLrGEY2MEH@ryzen>
+Subject: Re: [PATCH v4 2/2] PCI: dwc: Remove redundant MPS configuration
+Message-ID: <aCL9Stg0UKJ2AfDK@ryzen>
 References: <20250510155607.390687-1-18255117159@163.com>
- <20250510155607.390687-2-18255117159@163.com>
+ <20250510155607.390687-3-18255117159@163.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250510155607.390687-2-18255117159@163.com>
+In-Reply-To: <20250510155607.390687-3-18255117159@163.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250513_010539_088911_45F336F8 
+X-CRM114-Status: UNSURE (   7.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,37 +79,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 10, 2025 at 11:56:06PM +0800, Hans Zhang wrote:
-> Current PCIe initialization logic may leave root ports operating with
-> non-optimal Maximum Payload Size (MPS) settings. While downstream device
-> configuration is handled during bus enumeration, root port MPS values
-> inherited from firmware or hardware defaults might not utilize the full
-> capabilities supported by the controller hardware. This can result is
-> uboptimal data transfer efficiency across the PCIe hierarchy.
+On Sat, May 10, 2025 at 11:56:07PM +0800, Hans Zhang wrote:
+> The Meson PCIe controller driver manually configures maximum payload
+> size (MPS) through meson_set_max_payload, duplicating functionality now
+> centralized in the PCI core.  Deprecating redundant code simplifies the
+> driver and aligns it with the consolidated MPS management strategy,
+> improving long-term maintainability.
 > 
-> During host controller probing phase, when PCIe bus tuning is enabled,
-> the implementation now configures root port MPS settings to their
-> hardware-supported maximum values. By iterating through bridge devices
-> under the root bus and identifying PCIe root ports, each port's MPS is
-> set to 128 << pcie_mpss to match the device's maximum supported payload
-> size. The Max Read Request Size (MRRS) is subsequently adjusted through
-> existing companion logic to maintain compatibility with PCIe
-> specifications.
-> 
-> Explicit initialization at host probing stage ensures consistent PCIe
-> topology configuration before downstream devices perform their own MPS
-> negotiations. This proactive approach addresses platform-specific
-> requirements where controller drivers depend on properly initialized
-> root port settings, while maintaining backward compatibility through
-> PCIE_BUS_TUNE_OFF conditional checks. Hardware capabilities are fully
-> utilized without altering existing device negotiation behaviors.
-> 
-> Suggested-by: Niklas Cassel <cassel@kernel.org>
 > Signed-off-by: Hans Zhang <18255117159@163.com>
 > ---
 
-Looks good to me, but since this I'm the one who suggested this specific
-implementation, it would be good if someone else could review it as well.
-
+Looks good to me:
 Reviewed-by: Niklas Cassel <cassel@kernel.org>
 
