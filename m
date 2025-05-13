@@ -4,53 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E27E0C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 15:23:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEBC9C3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 15:25:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0YXXgpvbN08bPPlqF8m3WXG5KfKhy154HeLasqpKc2o=; b=z/mg9sQinRxhXZ
-	yi+CYlvkSk+CzM8spqIQJOLvwKRd749QahOaGxTeq/VwKZgz509ic4S0KSGB5oSGswKje1cqGR2P0
-	9bfhrbN7cxEWUou+ePr+XuNX18OLDHuhrAvnZyAwzp/EO9rJsg2AG+asWVkLd5Glc6u0PN4oaGs2q
-	T3QtSRJF0mVu7tOYmV1d68heSWaW/YNju7O0d1KYYXdnIr3HIiYKfs7K9z4zUO7iQdoMfDz2cCymq
-	/Rjl501AhBAIR13oe6lLwNuHG/7Zb5m4Za/iI9rM47jjo+LJZVnjUXymgp05D3L39lUcBxJDwyb2f
-	IkvFt6wKiBLzDaYb4v/Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7HOlMAg4ITw5NVtu1FU2SCoRgaRsj5LUWrw5KUtfOSU=; b=PsCYePD3UspocHZvrE3xxBGuK/
+	rJZ2gMUQUZQqxuvHdAJVk0KukbkE3By6VDEbuKcUZN1jvkuGDQsApQCmBP3HFhSAclf3W55D8hr+b
+	VhWQ3xiz6kv7v1gU4bD6R/UFNZvDGdiPdYvbHTmdlLo72jS67l4/AYzqfpxWVKYww20ty9XeQo96B
+	A3RAqxXi1y+Em+Xz2ndLzl5Fw5rFYGWkArM/0ijPDr66pY0LS0hX6Bv2y7w9H1b+8+KKcmYYjc8n8
+	nxS1iybHLlNBxIwLz8BSnPh4UHiWsD6uKuF/k8srOcLI+R8X5HBm+CgemLsk3PgqQdo857WKG3ohv
+	uXN8HrdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uErT5-0000000CltL-0jUb;
-	Tue, 13 May 2025 15:22:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uErPn-0000000CkwB-19ji
+	id 1uErVB-0000000CmK0-1jCH;
+	Tue, 13 May 2025 15:25:05 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uErSQ-0000000Cli4-2GFp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 15:19:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 713D11688;
-	Tue, 13 May 2025 08:19:19 -0700 (PDT)
-Received: from [10.1.34.195] (e137867.arm.com [10.1.34.195])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E63933F63F;
-	Tue, 13 May 2025 08:19:28 -0700 (PDT)
-Message-ID: <068c3ea3-2de3-4e5e-99c1-09a9668b80da@arm.com>
-Date: Tue, 13 May 2025 16:19:26 +0100
+	Tue, 13 May 2025 15:22:15 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43cfe63c592so59798285e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 08:22:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747149732; x=1747754532; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7HOlMAg4ITw5NVtu1FU2SCoRgaRsj5LUWrw5KUtfOSU=;
+        b=JNRb9+7hr3lqERtfypCKvIV2gexut264RpIdQ4JsGggr3dUfWV8mPTEfTL5RwsPuh7
+         /1vjQyU59wvJR568YCh8DXwa0O8jk++mF1G5vjLCQ92scmvOoLkfNaDfuARpAWnvuzHD
+         o5bkXLCc0hBf+IjWlXgxcWhCrBGMEr6EZqjSmNDGtjpT70EhrzLW36htD+mvP+GtRVgc
+         7ZBzHG86lQxOlXKZQ8h+9KmWRc4e68Ponn2IpqyncjpsfUg5wiUptWfu20iF/6Twm4JY
+         Ohu8uYBxUFxYV/qi8A0iFLrPOZy45ddPCbUoTOOHyRQ6XK5ahXGT21fwh0U+nTw9YBd+
+         /nbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747149732; x=1747754532;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7HOlMAg4ITw5NVtu1FU2SCoRgaRsj5LUWrw5KUtfOSU=;
+        b=GzTdWo7icYngiy1Wi62mzbgQtMmiAe4hixT6sBHtcLLi6A0WZBVem8QZ0G27Rt7Ykw
+         P168NazLD1YZLtnF7chk38r3qNyB4pJJrxpxuSbcRqEIUA0GI/H/3C/ravatoJU/SzzU
+         VssifIUHH6xTTMJD6CFPCMhyu2W0Vgbo1d0KKKhiX6DzIahfYvZDx+kQXNLnqbWqcJko
+         lRx775UDPEwpTAJKpOWv4+gmGYD/YEy+PTI3rLKcQUCxiJBOwLJmkIJezsb+M381Fn5D
+         NMQlKOZ0udemIGLXdRrvgZvM4vG+Rvuc0YXo1ZdRkFY4+JJL67XmG7xhIO+Kg3Bhj75s
+         EULA==
+X-Forwarded-Encrypted: i=1; AJvYcCUBLShB3CyDcBbEwyXhj7Lo7qR35o6JnBOgZx+7VAlw348Pkk1nNDknwCHpcY8o4ui3aCIkxAI/e4nkCdREzGv6@lists.infradead.org
+X-Gm-Message-State: AOJu0YwckrEjvehJepLR6mledXWq4O/Bm445Ppl4NIPvGSHEHE9FALdE
+	rU4Z0jKSGWhuYHfldL1n32c/P8JbT0XuVxIjwbUKcn/soik0ps/s
+X-Gm-Gg: ASbGncv+1IagMDOCZv3CoSKV7Zdv44rrJeeBm0eePCmKk3iIO84PxqvAFS9ms6txe6Z
+	rGeSdNuK8Q9EQcdXHxL4VNLNPxgXFq1d+VK64SXfzt3fvrPlbs+hgQbK+zggQk6YJJ9xTL9sJet
+	2xpspNhbVxamwLTaeYKY96ZmreADz2b2bjufaq+xi/1LwE54mv8qmWG36TcZuhW5Xf7wJQbcnC3
+	pJDLpQfu4kpDMliqn6+8+H3Bsu4MmwmmLOkuXXatARRFfnhEQorJwdcD6v4xR0Wj7dhp94pS+OZ
+	oLZa+Wk+LouupxxrNDp0JMKNknP1CX4HN524m4ALs5V2IYQfgRICBinLr+mPS6R6/bEQuSbn4fQ
+	7eyGuvGKVTLiLVDJF7DVPIFtr9JX/5UeSjVUk5PPciYrsZiB6sOACAqPZwg==
+X-Google-Smtp-Source: AGHT+IEg6PWgzF4jLLpPihZcPfaWsfwoK2cBnNIZhlc1AU9QDfK1ahFTXtyBWf5ovWIPZUOzXx90cQ==
+X-Received: by 2002:a05:6000:1889:b0:3a2:377:500c with SMTP id ffacd0b85a97d-3a203775382mr9139211f8f.16.1747149732220;
+        Tue, 13 May 2025 08:22:12 -0700 (PDT)
+Received: from partp-nb.corp.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f58ec0e4sm16384170f8f.40.2025.05.13.08.22.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 May 2025 08:22:11 -0700 (PDT)
+From: Parth Pancholi <parth105105@gmail.com>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: Parth Pancholi <parth.pancholi@toradex.com>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3] arm64: dts: ti: k3-j784s4-j742s2-main-common: Add ACSPCIE1 node
+Date: Tue, 13 May 2025 17:21:55 +0200
+Message-Id: <20250513152155.1590689-1-parth105105@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/11] arm64: debug: remove hook registration, split
- exception entry
-To: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
-References: <20250512174326.133905-1-ada.coupriediaz@arm.com>
- <aCM6KOHu2i0NqaBC@uudg.org>
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Content-Language: en-US
-Organization: Arm Ltd.
-In-Reply-To: <aCM6KOHu2i0NqaBC@uudg.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_081931_412106_691EBAF4 
-X-CRM114-Status: GOOD (  29.91  )
+X-CRM114-CacheID: sfid-20250513_082214_581974_2B1B4B2F 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,209 +100,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Re-sending with proper text format, apologies for the noise...
+From: Parth Pancholi <parth.pancholi@toradex.com>
 
-On 13/05/2025 13:25, Luis Claudio R. Goncalves wrote:
+The ACSPCIE1 module on TI's J784S4 SoC is capable of driving the reference
+clock required by the PCIe Endpoint device. It is an alternative to on-
+board and external reference clock generators.
+Add the device-tree node for the same.
 
-> On Mon, May 12, 2025 at 06:43:15PM +0100, Ada Couprie Diaz wrote:
->> [...]
->>
->> Single Step Exception
->> ===
->>
->> Of note, this allows us to make the single exception handling mostly
->> preemptible coming from EL0 in patch 7, fixing an issue with PREEMPT_RT[0].
->> The commit message details the reasoning on why this should be safe.
->> It is *definitely* not preemptible at EL1 in the current state, given
->> that the EL1 software step exception is handled by KGDB.
->>
->> CC-ing Luis and Sebastian as they were active on the original bug report.
-> I have been running the ssdd test in a tight loop on a kernel with your
-> patches and PREEMPT_RT enabled, on two different aarch64 boxes (8 cores and
-> 144 cores). So far, so good. The patch series seems to have solved the
-> problem I reported.
->
-> For the first 10h of tests the kernel also had LOCKDEP and locking debug
-> features enabled. Now I am running the test with a production-like
-> configuration. As soon as these tests are done I will run a few more sanity
-> tests and reply here with my test ACK.
-Hi Luis,
+Signed-off-by: Parth Pancholi <parth.pancholi@toradex.com>
+---
+v3: Split SoC support; board-specific changes to follow with Toradex Aquila AM69 upstream addition.
+v2: https://lore.kernel.org/all/20250404101234.2671147-1-parth105105@gmail.com/
+v1: https://lore.kernel.org/all/20250320122259.525613-1-parth105105@gmail.com/
+---
+ arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Thanks for taking the time to test, I'm glad it seems OK for now.
-> Is there any specific test you would like me to run on that test setup I
-> have?
+diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+index 363d68fec387..d17f365947ed 100644
+--- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+@@ -131,6 +131,11 @@ acspcie0_proxy_ctrl: clock-controller@1a090 {
+ 			compatible = "ti,j784s4-acspcie-proxy-ctrl", "syscon";
+ 			reg = <0x1a090 0x4>;
+ 		};
++
++		acspcie1_proxy_ctrl: clock-controller@1a094 {
++			compatible = "ti,j784s4-acspcie-proxy-ctrl", "syscon";
++			reg = <0x1a094 0x4>;
++		};
+ 	};
+ 
+ 	main_ehrpwm0: pwm@3000000 {
+-- 
+2.34.1
 
-There are a couple of edge-cases that might be problematic if my 
-conclusions are wrong : 1. Race between a step exception being taken, 
-and the related hardware breakpoint/watchpoint being removed 2. 
-Migration of a task stepping a CPU-bound breakpoint/watchpoint
-
-I have been stress testing them on an AMD Seattle board with 4 cores, 
-but more extensive testing is always welcome.
-
-I'll describe my testing below, but it is a bit messy and might be 
-unclear, my apologies.
-
-I have been using the following very rough program (compiled with -O0) :
-
-	#include <sys/mman.h>
-	#include <stdio.h>
-	#include <errno.h>
-	#include <string.h>
-	#include <unistd.h>
-	#include <signal.h>
-	
-	#define TEST_ADDR (void*)0x6000000000
-	
-	volatile int exit_flag = 0;
-	
-	void signal_exit(int signal) {
-		exit_flag = 1;
-	}
-	
-	int main() {
-		void *p = mmap(TEST_ADDR, sizeof(long), PROT_READ|PROT_WRITE,
-			MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0);
-		int map_err = errno;
-	
-		printf("r : %p\np : %p\n", TEST_ADDR, p);
-		// Reference to make TEST_ADDR appropriate for the address space if it fails
-		printf("main : %p\n", (void *)&main);
-	
-		if (p == MAP_FAILED) {
-			printf(strerror(map_err));
-			return -1;
-		}
-	
-		struct sigaction interrupt_handler = {
-			.sa_handler = &signal_exit,
-			.sa_mask = 0,
-			.sa_flags = SA_RESETHAND
-		};
-	
-		sigaction(SIGINT, &interrupt_handler, NULL);
-	
-		unsigned long *data = (unsigned long *)p;
-		while (!exit_flag) {
-			*data += 1;
-		}
-	
-		printf("Exiting gracefully\n");
-	
-		munmap(p, sizeof(long));
-		return 0;
-	}
-
-
-Which runs continuously, repeatedly changing a fixed addressed, so that 
-a hardware watchpoint can be set externally via perf and be CPU-bound :
-
-	perf stat -C $CPU -emem:0x6000000000/8:w
-
-
-So to test 1. I run perf in a loop, with --timeout 10 so that it 
-adds/removes the watchpoint repeatedly, one for each CPU.
-
-	while true; do perf stat --timeout 10 -C $CPU -emem:0x6000000000/8:w ; done
-
-
-My machine has 4 hardware watchpoints, so I can cover all cores and see 
-that the counts are consistent, even if the target task switches cores.
-(It is never 0 on all cores, no errors are produced, it is consistent 
-with the count when perf is ran on all-cores rather than core-by-core 
-(-a) or with the task PID (-p) )
-
-To test 2. I again set one perf monitor per CPU, this time without 
-timeout, and then load the system to try to force preemption (with ssdd 
-for example),
-similarly waiting for inconsistencies, errors, or the count stopping.
-
-However, this might be more difficult if the number of cores is much 
-greater than the number of hardware watchpoints.
-For 1. the task could be pinned to a core, but for 2. the task could be 
-limited to as many cores as the system has hardware watchpoints.
-
-
-Hopefully that makes sense, but I understand it's a bit involved.
-
-> As for the code review, I am not that well versed on ARM debug exceptions,
-> I may take a bit longer to complete the task with the required accuracy.
-No worries, any input would be appreciated !
-> Best regards,
-> Luis
-Thanks,
-Best regards
-Ada
->> Cc: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
->> Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
->>
->> [...]
->>
->> Testing examples
->> ===
->>
->> Perf (for EL1):
->> ~~~
->> Assuming that `perf` is on your $PATH and building with `kallsyms`
->>
->>    #!/bin/bash
->>    
->>    watch_addr=$(sudo cat /proc/kallsyms | grep "D jiffies$" | cut -f1 -d\  )
->>    break_addr=$(sudo cat /proc/kallsyms | grep "clock_nanosleep$" | cut -f1 -d\  )
->>    
->>    cmd="sleep 0.01"
->>    
->>    sudo perf stat -a -e mem:0x${watch_addr}/8:w -e mem:0x${break_addr}:x ${cmd}
->>
->> NB: This does /not/ test EL1 BRKs.
->>
->>
->> GDB commands (for EL0):
->> ~~~
->> The following C example, compiled with `-g -O0`
->>
->>    int main() {
->>            int add = 0xAA;
->>            int target = 0;
->>
->>            target += add;
->>
->>    #ifdef COMPAT
->>        __asm__("BKPT");
->>    #else
->>        __asm__("BRK 1");
->>    #endif
->>    
->>            return target;
->>    }
->>
->> Combined with the following GDB command-list
->>
->>    start
->>    hbreak 3
->>    watch target
->>    commands 2
->>    continue
->>    end
->>    commands 3
->>    continue
->>    end
->>    continue
->>    jump 11
->>    continue
->>    quit
->>
->> Executed as such : `gdb -x ${COMMAND_LIST_FILE} ./a.out`
->> should go through the whole program, return 0252/170/0xAA, and
->> exercise all EL0 debug exception entries.
->> By using a cross-compiler and passing and additional `-DCOMPAT` argument
->> during compilation, the `BKPT32` path can also be tested.
->> NOTE: `BKPT` *will* make GDB loop infinitely, that is expected. Sending
->> SIGINT to GDB will break the loop and the execution should complete.
->>
->> [...]
 
