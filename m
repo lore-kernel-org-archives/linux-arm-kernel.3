@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5379EC3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 12:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5BAFC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 12:38:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ikO6NxPSIIjD1kUAHzPCWxeEkTOjGoN0DmnRySn4PCk=; b=3wyaqmWl8qXfsREyelMrR0ue3o
-	ZbQVAc5ZwMz9DYFbBccl2RKdOF3Kcl0N/Xtmi0ilSJnXq/6Om4w0caqr1mHWqtr5lS00NAXZKYLpp
-	g3wr6x0T5RbnUtevtTTc0WhCnirlVVQWLG2abR+z4Jj3bUmymQPYCvpkKPoHka865l89ue/9bdFfH
-	uH8JCZ4UgGEg8/P58v+ZYoEuRBsPLQHNTz0005DfsEQM1ameihadN4OBk9ryKSok/tHRSn25IMw2p
-	D1apDAL13krUz4GLTX50R0CraOZFvRKYCbllSJncf20PxtDSr5nkKSxdG1dvoKSt68Z01TRVOcdSo
-	DyY/+L+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ANoKV/LAVfoHgJTa0rc6msgHc3vSusd6KvN8kOIQie4=; b=hdryqfKY4fqVNGYHw/YaTEPeCH
+	0XZnBAaV35MHXudY/6Le+fkLRAyDfPHchK3+1OXO0SliTf8kZ6rrbZ5MhzXk+rHeChYrjYsOzjM6d
+	mkPIX1WVlDf2WarkIeCZMAM/MF811MEEfq3wXsh37paGdnSqx+FBFvWs4cAu2C0ZcKijjSX9QzKyv
+	2sEFdi0LRf9NNbT5eJ9KiY1nJPa/eXhMAajXW57/nO2Isz+PNkKMIMWPkV4haUThcX8x2PeAlSr/U
+	s6G5nKFRzCVUkJJVTiwH/M3psq0Mv2pq/F4Hg76jqLdtHy03tY2MsixWbNLn31ovg8Ruq4tNm/kxk
+	g6hBQ35g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEorG-0000000CN6F-432v;
-	Tue, 13 May 2025 12:35:42 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEoob-0000000CMbG-0hEI;
-	Tue, 13 May 2025 12:32:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=ikO6NxPSIIjD1kUAHzPCWxeEkTOjGoN0DmnRySn4PCk=; b=sj
-	emz6n58GPUmWdFVzAHRjKI2dWuI0rPQE8SL/5bYfGaf3w24mGVb9f0MujMpWRRsD0Uf3JyFv5eIVp
-	+S43WT3eawgxo08pQ0i2Yjr8Sx3wlWf9hSC9Jm8lJCuaesVHG56wUYi9WlyHQ/d7Um/fp9Ef8n6c4
-	Upwr265iTWTKWnU=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uEooK-00CS0n-Mk; Tue, 13 May 2025 14:32:40 +0200
-Date: Tue, 13 May 2025 14:32:40 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: SkyLake Huang =?utf-8?B?KOm7g+WVn+a+pCk=?= <SkyLake.Huang@mediatek.com>
-Cc: "linux@armlinux.org.uk" <linux@armlinux.org.uk>,
-	"dqfext@gmail.com" <dqfext@gmail.com>,
-	Steven Liu =?utf-8?B?KOWKieS6uuixqik=?= <steven.liu@mediatek.com>,
-	"davem@davemloft.net" <davem@davemloft.net>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>,
-	"edumazet@google.com" <edumazet@google.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"hkallweit1@gmail.com" <hkallweit1@gmail.com>,
-	"horms@kernel.org" <horms@kernel.org>,
-	"daniel@makrotopia.org" <daniel@makrotopia.org>,
-	"kuba@kernel.org" <kuba@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>
-Subject: Re: [PATCH net-next v2 3/3] net: phy: mediatek: add driver for
- built-in 2.5G ethernet PHY on MT7988
-Message-ID: <8b67fa4c-a07a-4941-ba7b-23d4e1104451@lunn.ch>
-References: <20250219083910.2255981-1-SkyLake.Huang@mediatek.com>
- <20250219083910.2255981-4-SkyLake.Huang@mediatek.com>
- <Z7WleP9v6Igx2MjC@shell.armlinux.org.uk>
- <74ce0275952a9c60af87ded9d64ca7301fd69d0f.camel@mediatek.com>
+	id 1uEotM-0000000CNXg-36vk;
+	Tue, 13 May 2025 12:37:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uEop2-0000000CMg3-1NAS
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 May 2025 12:33:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 721171688;
+	Tue, 13 May 2025 05:33:10 -0700 (PDT)
+Received: from [10.1.25.187] (XHFQ2J9959.cambridge.arm.com [10.1.25.187])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5EB513F5A1;
+	Tue, 13 May 2025 05:33:19 -0700 (PDT)
+Message-ID: <e57613f8-333a-4de4-b1a3-2d806ac8ee4f@arm.com>
+Date: Tue, 13 May 2025 13:33:18 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <74ce0275952a9c60af87ded9d64ca7301fd69d0f.camel@mediatek.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v4 1/5] mm/readahead: Honour new_order in
+ page_cache_ra_order()
+Content-Language: en-GB
+To: "Pankaj Raghav (Samsung)" <kernel@pankajraghav.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ David Hildenbrand <david@redhat.com>, Dave Chinner <david@fromorbit.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, p.raghav@samsung.com
+References: <20250430145920.3748738-1-ryan.roberts@arm.com>
+ <20250430145920.3748738-2-ryan.roberts@arm.com>
+ <nepi5e74wtghvr6a6n26rdgqaa7tzitylyoamfnzoqu6s5gq4h@zqtve2irigd6>
+ <22e4167a-6ed0-4bda-86b8-a11c984f0a71@arm.com>
+ <pskrpcu3lflo3pgeyfvnifcn7z2o6bsieaclntsbyvefs4ab3a@cyfnf36mccvi>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <pskrpcu3lflo3pgeyfvnifcn7z2o6bsieaclntsbyvefs4ab3a@cyfnf36mccvi>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_053257_206439_949B516C 
-X-CRM114-Status: GOOD (  17.68  )
+X-CRM114-CacheID: sfid-20250513_053324_422181_D36C8E5C 
+X-CRM114-Status: GOOD (  23.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,46 +76,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 13, 2025 at 10:12:04AM +0000, SkyLake Huang (黃啟澤) wrote:
-> On Wed, 2025-02-19 at 09:33 +0000, Russell King (Oracle) wrote:
-> > 
-> > External email : Please do not click links or open attachments until
-> > you have verified the sender or the content.
-> > 
-> > 
-> > On Wed, Feb 19, 2025 at 04:39:10PM +0800, Sky Huang wrote:
-> > > +static int mt798x_2p5ge_phy_config_init(struct phy_device *phydev)
-> > > +{
-> > > +     struct pinctrl *pinctrl;
-> > > +     int ret;
-> > > +
-> > > +     /* Check if PHY interface type is compatible */
-> > > +     if (phydev->interface != PHY_INTERFACE_MODE_INTERNAL)
-> > > +             return -ENODEV;
-> > > +
-> > > +     ret = mt798x_2p5ge_phy_load_fw(phydev);
-> > > +     if (ret < 0)
-> > > +             return ret;
-> > 
-> > Firmware should not be loaded in the .config_init method. The above
-> > call will block while holding the RTNL which will prevent all other
-> > network configuration until the firmware has been loaded or the load
-> > fails.
-> > 
-> > Thanks.
-> > 
-> > --
-> > RMK's Patch system:
-> > https://urldefense.com/v3/__https://www.armlinux.org.uk/developer/patches/__;!!CTRNKA9wMg0ARbw!iV-1ViPFsUV-lLj7aIycan8nery6sQO3t6mkpdlb_GW8hswhxc4ejJozxqkU3s2WzxSizs4kfdC77yr7HGGRIuU$
-> > FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+On 09/05/2025 21:50, Pankaj Raghav (Samsung) wrote:
+>>>>  
+>>>
+>>> So we always had a fallback to do_page_cache_ra() if the size of the
+>>> readahead is less than 4 pages (16k). I think this was there because we
+>>> were adding `2` to the new_order:
+>>
+>> If this is the reason for the magic number 4, then it's a bug in itself IMHO. 4
+>> pages is only 16K when the page size is 4K; arm64 supports other page sizes. But
+>> additionally, it's not just ra->size that dictates the final order of the folio;
+>> it also depends on alignment in the file, EOF, etc.
+>>
 > 
-> Actually, I wrote fw loading flow in .probe. However, during boot time,
-> .probe is called at very early stage (about the first 2s after booting
-> into Linux Kernel). At that time, filesystem isn't ready yet and phy
-> driver can't locate /lib/firmware/mediatek/mt7988/i2p5ge-phy-pmb.bin.
+> IIRC, initially we were not able to use order-1 folios[1], so we always
+> did a fallback for any order < 2 using do_page_cache_ra(). I think that
+> is where the magic order 2 (4 pages) is coming. Please someone can
+> correct me if I am wrong.
 
-Tell Dracut or whatever you are using to build the initramfs to
-include the firmware. That is what MODULE_FIRMWARE() is for.
+Ahh, I see. That might have been where it came from, but IMHO, it still didn't
+really belong there; just because the size is bigger than 4 pages, it doesn't
+mean you would never want to use order-1 folios - there are alignment
+considerations that can cause that. The logic in page_cache_ra_order() used to
+know to avoid order-1.
 
-	Andrew
+> 
+> But we don't have that limitation for file-backed folios anymore, so the
+> fallback for ra->size < 4 is probably not needed. So the only time we do
+> a fallback is if we don't support large folios.
+> 
+>> If we remove the fallback condition completely, things will still work out. So
+>> unless someone can explain the reason for that condition (Matthew?), my vote
+>> would be to remove it entirely.
+> 
+> I am actually fine with removing the first part of this fallback condition.
+> But as I said, we still need to do a fallback if we don't support large folios.
+
+Yep agreed. I'll make this change in the next version.
+
+> 
+> --
+> Pankaj
+> 
+> [1] https://lore.kernel.org/all/ZH0GvxAdw1RO2Shr@casper.infradead.org/
+
 
