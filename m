@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E92B1C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 17:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E80FEC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 17:40:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IXARjxbJ868h4zMx6ZYJEciNDJpMwBVbX7fEfOyr9/s=; b=lQHXrYrJBf3LY6CtWWp+X7I+Vt
-	U+H4hnHSW1/yHFGWkXpgiOsTIa1AsToZKAaou9MRwb8qL4Xd1JZgQmGBmvWeHPJZ64r715efYquyR
-	XTlK2IFafjYlPCgNlWJnLWA0E8UCL6DNJ8hn2Ii0CdhxRwt6vCxk80ycI0pUZEIRD5g4rf7MT+tSl
-	scCJ6VjYpOdEKhLzewWwZQ9HA5BoPt2emOTZvBRLToa/gbnQJOH7ElJiLUYL0/E41E/qZv/2Z2oL6
-	TIfblsBY0zAa4C2/FTTs9bQNWiioRmsENmuKzJMPFGAPsn8JwxmdHs42Wky+Z141DHEZnE+gTtUgF
-	1CSV66Cw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5DAo35WTOun/7XMEPNo0eyLfq4tAc1rTiII5jVh38Hw=; b=VFJdIISet/t5fpLnmcfYtX4wwi
+	MmugQ7eQMsIQLSxMi1xdIjGApBwQ1aCTR0QzhcPY6yv1Mfn+WlNaQqGIuxpFtEdEx8qMjaQ+5oqpN
+	Al5JoYuTx8aCLvwq1ykNVLP8k9J3TLyMtSXocn/WyWT85HiAxLIvsBrNG6VRYw741vLdUhpijztHG
+	O92yJQFPUFoML795uULXhDnJb5RBUhjtLduw5jMVZlLVNNUT3AQV3nbwEs3piSb1YAnQjq64FGBfR
+	4unTzBZyOo57cfJPepOjHDIlL+uipMsCqzNR1a7hDNKf/rY2vt07W9A/MhPkXg714rEjiFbfQGVoW
+	sDCSxPSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEtaI-0000000D7QV-3hO7;
-	Tue, 13 May 2025 17:38:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uEtcN-0000000D7e5-2ztL;
+	Tue, 13 May 2025 17:40:39 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEtQd-0000000D5cB-1mY4
+	id 1uEtQd-0000000D5cA-1Lg0
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 13 May 2025 17:28:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 853F6448AD;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 56E60A4032E;
 	Tue, 13 May 2025 17:28:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C17CC4CEF0;
-	Tue, 13 May 2025 17:28:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8CF0C4CEE4;
+	Tue, 13 May 2025 17:28:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1747157310;
-	bh=S6Ff81MD23ujzW5xAirjeHQsiPS7s/q55XaQYWojlYc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jyq8BCiX/3xyRfa3lsPePerZ4XYr2gQBFZqvmeb7/qKSW75wAxFL6fUXhfVSUEUc6
-	 b/GKae5N+5Ixi29qAZpnKUICt1ts6fYpNH8l+KOb9Y0l56+4Zu8Vm/W8kk429CRNVb
-	 bBRUlQEguuK0QbspT19D7PjzXmmgNc3YdTVLYCbFax9QqHuEi7WOl9pqq3iGdY2WSs
-	 Sc1etVrBqzkn+UHZQR/yjkRhhhv4NYUcDn9FngvI1M94j/iXNbKYqkvJkXJ3DGUMQA
-	 4WEDgsbwaho1o4A0O3n8IpGC7iQIbgSKHn+DXy3W/4DNMlbIOKkLH68Gnwh0G5RYeT
-	 MG7B7f0Sj1zoA==
+	bh=hzuO87JdBmymswNxonEC6nbrBc0MKykTjXnKUUy51wU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=CxmIkhrrzIanydOQkOVr339gNDRjirbo0ae6JNHeShS3ieQNlEiqBfbr+dCu3tdGb
+	 35Y5GX9j0yq1T1OUblyUVXZ1X7EOeUGMnpnZ4nEGZ5yp255OqRDivX32045jI/pV8p
+	 ub/0fqDM1MWYYSF7+PfzuPGqxhXlNWkCm3a3XAxzJzlYEUfH9aFnXtWakaVg6r+K5O
+	 d3llmzL43BJsPNNvujxMlVHXwLK/HvlLGUMCMmbR2beSb7VtkhJ7Z6ELSzAZxyp3pS
+	 pBVNxUDZNfTRdSxm3LGg7k904c1w2FeuPpcjEGsxDWxiaJx6ulSEX7P5Oz1QRv7X+c
+	 wdo6CbXjDQxOw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uEtQa-00EbRz-AA;
-	Tue, 13 May 2025 18:28:28 +0100
+	id 1uEtQZ-00EbRz-Qu;
+	Tue, 13 May 2025 18:28:27 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,12 +64,10 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
 	Thierry Reding <thierry.reding@gmail.com>,
 	Jonathan Hunter <jonathanh@nvidia.com>
-Subject: [PATCH v2 2/9] genirq/msi: Add helper for creating MSI-parent irq domains
-Date: Tue, 13 May 2025 18:28:12 +0100
-Message-Id: <20250513172819.2216709-3-maz@kernel.org>
+Subject: [PATCH v2 0/9] irqchip: MSI parent cleanup and PCI host driver conversion
+Date: Tue, 13 May 2025 18:28:10 +0100
+Message-Id: <20250513172819.2216709-1-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250513172819.2216709-1-maz@kernel.org>
-References: <20250513172819.2216709-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -77,8 +75,8 @@ X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradea
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_102831_503763_FF1104EA 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20250513_102831_492943_DA4E00AB 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,72 +91,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Creating an irq domain that serves as an MSI parent requires
-a substantial amount of esoteric boiler-plate code, some of
-which is often provided twice (such as the bus token).
+This is v2 of a series I posted[1] a few months back before running
+out of time, energy, and interest. I have now reduced it to the stuff
+I actually care about, and got rid of all things non-arm64.
 
-To make things a bit simpler for the unsuspecting MSI tinkerer,
-provide a helper that does it for them, and serves as documentation
-of what needs to be provided.
+I've become annoyed by the couple of machines I have around that
+haven't been converted to the per-device MSI infrastructure.  At the
+same time, I've also moaned at the amount of boilerplate code required
+to make use of this infrastructure.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- include/linux/msi.h |  4 ++++
- kernel/irq/msi.c    | 26 ++++++++++++++++++++++++++
- 2 files changed, 30 insertions(+)
+This series therefore does a number of things:
 
-diff --git a/include/linux/msi.h b/include/linux/msi.h
-index 8c0ec9fc05a39..56c69d14ef4a2 100644
---- a/include/linux/msi.h
-+++ b/include/linux/msi.h
-@@ -628,6 +628,10 @@ struct irq_domain *msi_create_irq_domain(struct fwnode_handle *fwnode,
- 					 struct msi_domain_info *info,
- 					 struct irq_domain *parent);
- 
-+struct irq_domain_info;
-+struct irq_domain *msi_create_parent_irq_domain(struct irq_domain_info *info,
-+						const struct msi_parent_ops *msi_parent_ops);
-+
- bool msi_create_device_irq_domain(struct device *dev, unsigned int domid,
- 				  const struct msi_domain_template *template,
- 				  unsigned int hwsize, void *domain_data,
-diff --git a/kernel/irq/msi.c b/kernel/irq/msi.c
-index a8f7701c2929f..e702e536c8034 100644
---- a/kernel/irq/msi.c
-+++ b/kernel/irq/msi.c
-@@ -903,6 +903,32 @@ struct irq_domain *msi_create_irq_domain(struct fwnode_handle *fwnode,
- 	return __msi_create_irq_domain(fwnode, info, 0, parent);
- }
- 
-+/**
-+ * msi_create_parent_irq_domain - Create an MSI-parent interrupt domain
-+ * @info:		MSI irqdomain creation info
-+ * @msi_parent_ops:	MSI parent callbacks and configuration
-+ *
-+ * Return: pointer to the created &struct irq_domain or %NULL on failure
-+ */
-+struct irq_domain *msi_create_parent_irq_domain(struct irq_domain_info *info,
-+						const struct msi_parent_ops *msi_parent_ops)
-+{
-+	struct irq_domain *d;
-+
-+	info->hwirq_max		= max(info->hwirq_max, info->size);
-+	info->size		= info->hwirq_max;
-+	info->domain_flags	|= IRQ_DOMAIN_FLAG_MSI_PARENT;
-+	info->bus_token		= msi_parent_ops->bus_select_token;
-+
-+	d = irq_domain_instantiate(info);
-+	if (IS_ERR(d))
-+		return NULL;
-+
-+	d->msi_parent_ops = msi_parent_ops;
-+	return d;
-+}
-+EXPORT_SYMBOL_GPL(msi_create_parent_irq_domain);
-+
- /**
-  * msi_parent_init_dev_msi_info - Delegate initialization of device MSI info down
-  *				  in the domain hierarchy
+- make irq-msi-lib.h globally available, so that PCI (and other
+  subsystems) may make use of it
+
+- add a new helper (msi_create_parent_irq_domain()) that encapsulates
+  most of the magic required to create an MSI-parent domain
+
+- convert the arm64 I have access to (and *only* that)
+
+- convert the Apple, XGene and Tegra MSI drivers to the MSI-parent
+  infrastructure, which is why I came here the first place.
+
+* From v1 [1]:
+
+  - use irq_domain_info as an the holder of most information required
+    to instantiate the domain. I decided against using a specific
+    structure, because they would mostly have the same fields.
+
+  - added a patch to convert the Tegra driver, which required dealing
+    with the MSI_FLAG_NO_AFFINITY flag
+
+  - got rid of x86 and riscv patches (life is too short).
+
+[1] https://lore.kernel.org/all/20241204124549.607054-1-maz@kernel.org
+
+Marc Zyngier (9):
+  irqchip: Make irq-msi-lib.h globally available
+  genirq/msi: Add helper for creating MSI-parent irq domains
+  irqchip/gic: Convert to msi_create_parent_irq_domain() helper
+  irqchip/mvebu: Convert to msi_create_parent_irq_domain() helper
+  irqchip: Drop MSI_CHIP_FLAG_SET_ACK from unsuspecting MSI drivers
+  irqchip/msi-lib: Honour the MSI_FLAG_NO_AFFINITY flag
+  PCI: apple: Convert to MSI parent infrastructure
+  PCI: xgene: Convert to MSI parent infrastructure
+  PCI: tegra: Convert to MSI parent infrastructure
+
+ drivers/irqchip/irq-bcm2712-mip.c             |  2 +-
+ drivers/irqchip/irq-gic-v2m.c                 | 16 ++---
+ drivers/irqchip/irq-gic-v3-its-msi-parent.c   |  4 +-
+ drivers/irqchip/irq-gic-v3-its.c              | 21 +++----
+ drivers/irqchip/irq-gic-v3-mbi.c              | 15 ++---
+ drivers/irqchip/irq-imx-mu-msi.c              |  2 +-
+ drivers/irqchip/irq-loongarch-avec.c          |  2 +-
+ drivers/irqchip/irq-loongson-pch-msi.c        |  2 +-
+ drivers/irqchip/irq-msi-lib.c                 |  9 ++-
+ drivers/irqchip/irq-mvebu-gicp.c              | 18 +++---
+ drivers/irqchip/irq-mvebu-icu.c               |  2 +-
+ drivers/irqchip/irq-mvebu-odmi.c              | 18 +++---
+ drivers/irqchip/irq-mvebu-sei.c               | 18 +++---
+ drivers/irqchip/irq-riscv-imsic-platform.c    |  2 +-
+ drivers/irqchip/irq-sg2042-msi.c              |  2 +-
+ drivers/pci/controller/Kconfig                |  3 +
+ drivers/pci/controller/pci-tegra.c            | 60 ++++++------------
+ drivers/pci/controller/pci-xgene-msi.c        | 46 +++++---------
+ drivers/pci/controller/pcie-apple.c           | 62 +++++++------------
+ .../linux}/irqchip/irq-msi-lib.h              |  6 +-
+ include/linux/msi.h                           |  4 ++
+ kernel/irq/msi.c                              | 26 ++++++++
+ 22 files changed, 160 insertions(+), 180 deletions(-)
+ rename {drivers => include/linux}/irqchip/irq-msi-lib.h (84%)
+
 -- 
 2.39.2
 
