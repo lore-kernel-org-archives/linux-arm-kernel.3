@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A39CC3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 16:51:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2EADC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 16:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hlNCxhd/IUJQkMpc327D6n/Mhd1fghbTwG6zUflT1Lw=; b=I9p0B4AjEMbicEZmRofkD8xUz8
-	iq7uEuIxqHouf2PQ2+q4ie+gU66URo740cSG/YUD3QiHvqlte1DloWDIgFFVN8a9OaAmhBAflwc9J
-	npJnDWgZWYbsltInYwjBmOOpszOW2NQUQYi24AZAKgs0PG5HBcG3urOpFycwnQJoFiuOnyo2sWx7W
-	wxPIX8nNKDaCYfXLRqyem6Jmyl3+i3uuu7YdAN2urcOqPKnUTciXwx1iybx9n4ZcDEuc5k4ygxYPK
-	bW8AVzbrOGE97bbt0MvwyxWSMRoMMFYzg1+sjjXZml4HpvfcYmO99usLZWyGOAIXYnN4KolTyDnnB
-	jPwG/G6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5RkN0z+55zFtz3QXxYvvxP7CKRy4NcW9mCzf5ABPrqI=; b=Rff8oMEuO1lj7r4Y1NxQUEiEfs
+	8/4naKZ4GJOLrBWQVnLK4jJm99zM7STLUn53XuHZuFnExiGyfpMDJLBRrA2e+JLNNnuzC+ILZX0fC
+	+NqEWKoftJUDSmXFO4MKVgLwB3byAlvMVBUEkmhqWmxRL3lkBOtlF8HZBJlwo8UAB8wmml3yM40eM
+	QPowr9+iaLZTujOcaAC2lBSxqnkDvy5GFRnRDkY0NGIDLeWdjUOSdC01RtcrsoCA8JwE/4SrkZ/fr
+	qkzCMLyfJZKegj2K0wx+EKoh9W53jwyWQgbTzBnAM9DtOqVKfCR9Dml6NgbhUiEq1iXWAUJJJ7Lfm
+	/MoVttuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEsqL-0000000CzjU-03ZF;
-	Tue, 13 May 2025 16:51:01 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uEssQ-0000000D00D-3HrR;
+	Tue, 13 May 2025 16:53:10 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEsXp-0000000Cvuy-20t0
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 16:31:55 +0000
+	id 1uEsb0-0000000Cwg0-3wfd;
+	Tue, 13 May 2025 16:35:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7D9E85C6B18;
-	Tue, 13 May 2025 16:29:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 718F3C4CEEF;
-	Tue, 13 May 2025 16:31:52 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A2E38A4DA19;
+	Tue, 13 May 2025 16:35:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B460FC4CEF3;
+	Tue, 13 May 2025 16:35:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747153912;
-	bh=17/pUMQ3E5yHwJFwSxMS9cCKFYZ8IU9JtUyr4n/x9f4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gKIAKPyZNE8558Z0epfjFt5ZcJ86ATAzkd0LRVgH/k9K3aQh9Co/nhlK4dMRY6vUn
-	 AvZhb5tu72Wio6HMJqBQtu/VVP3dVo9ZFVPXtExMv8Bjem4k/og61Pf/DNGsMuYJ+1
-	 8yPxs5+mZGuqu8p3tbL/G9VIcoXr/+xpCPsoXV6D2kLg2LzROHVoSVdWjnYlkFNhEa
-	 0c3Czuh+7tsWlcmW0UI0x+MU880Usim2vVLQzpMQnzDB4Lz2Qi6Oot0BOVyQo+uoe6
-	 OSWbFcu3WHMCW35JdgExQLCD8jfgNTsAzMd/goD7ku2VilZr3a6FErGGrJYvtWMJHa
-	 zBFeoiRdtKvlA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uEsXm-00EaLc-Mi;
-	Tue, 13 May 2025 17:31:50 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>
-Subject: [PATCH v2 5/5] irqchip/gic-v3-its: Use allocation size from the prepare call
-Date: Tue, 13 May 2025 17:31:44 +0100
-Message-Id: <20250513163144.2215824-6-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250513163144.2215824-1-maz@kernel.org>
-References: <20250513163144.2215824-1-maz@kernel.org>
+	s=k20201202; t=1747154107;
+	bh=LuI21fazPCPjiw1XUPMaiVnZtrF9a5CII2+pk6dGMbc=;
+	h=From:Date:Subject:To:Cc:From;
+	b=DNeKQP8u6rZUMWUrtj4oQIwZ2DmD0fxD41mka5vzWkPcfAchWkkQpks/AxhjSCpHq
+	 ttVMhsyUDjT8i24LJc4qcNfDv9NixcCrD2jf2GyXYQ2irXVBKhD817cWZv/N0eRUce
+	 6WgyrUN012hFMHlgUzm/x+mY4vj2BUuXctfe2/ncYroTN3HtbeupOIeCGbV6q1zhyi
+	 bIpCbqCGK/Ksf+vnWFMTB53t3WrYgp2ROx4ZK/iuOxHMssl0vZr1idF8Xz7uk2xs4C
+	 3/0+6NxiSfNt+vDhkf6XBArjONNFTePiI47YPjoafkgB6IGJ2xInsYmzDParp9MZDQ
+	 LO86uFVHma8Pw==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Tue, 13 May 2025 18:34:44 +0200
+Subject: [PATCH net] net: airoha: Fix page recycling in
+ airoha_qdma_rx_process()
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, tglx@linutronix.de, lpieralisi@kernel.org, sascha.bischoff@arm.com, timothy.hayes@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250513-airoha-fix-rx-process-error-condition-v1-1-e5d70cd7c066@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAKN0I2gC/x2NMQ6DMAwAv4I8YwnShqFfqRhC4oCXGNkIISH+X
+ qvjDXd3g5EyGXy6G5RONpbmMPYd5C21lZCLM4QhxCGOL0yssiWsfKFeuKtkMkNSFcUsrfDhBVw
+ mimWJoZZ3BW/tSm78P9/5eX7p9jhmdwAAAA==
+X-Change-ID: 20250513-airoha-fix-rx-process-error-condition-b6e5db52fd4f
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Simon Horman <horms@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_093153_691902_B4FACDC6 
-X-CRM114-Status: GOOD (  14.87  )
+X-CRM114-CacheID: sfid-20250513_093511_153632_21D7395A 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +77,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that .msi_prepare() gets called at the right time and not
-with semi-random parameters, remove the ugly hack that tried
-to fix up the number of allocated vectors.
+Do not recycle the page twice in airoha_qdma_rx_process routine in case
+of error. Just run dev_kfree_skb() if the skb has been allocated and marked
+for recycling. Run page_pool_put_full_page() directly if the skb has not
+been allocated yet.
+Moreover, rely on DMA address from queue entry element instead of reading
+it from the DMA descriptor for DMA syncing in airoha_qdma_rx_process().
 
-It is now correct by construction.
-
-Signed-off-by: Marc Zyngier <maz@kernel.org>
+Fixes: e12182ddb6e71 ("net: airoha: Enable Rx Scatter-Gather")
 ---
- drivers/irqchip/irq-gic-v3-its-msi-parent.c | 19 -------------------
- 1 file changed, 19 deletions(-)
+ drivers/net/ethernet/airoha/airoha_eth.c | 22 +++++++++-------------
+ 1 file changed, 9 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/irqchip/irq-gic-v3-its-msi-parent.c b/drivers/irqchip/irq-gic-v3-its-msi-parent.c
-index 958736622fa57..6a5f64f120d4a 100644
---- a/drivers/irqchip/irq-gic-v3-its-msi-parent.c
-+++ b/drivers/irqchip/irq-gic-v3-its-msi-parent.c
-@@ -67,17 +67,6 @@ static int its_pci_msi_prepare(struct irq_domain *domain, struct device *dev,
- 	/* ITS specific DeviceID, as the core ITS ignores dev. */
- 	info->scratchpad[0].ul = pci_msi_domain_get_msi_rid(domain->parent, pdev);
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index d748dc6de92367365db9f9548f9af52a7fdac187..1e9ab65218ff144d99b47f5d4ad5ff4f9c227418 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -614,7 +614,6 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ 		struct airoha_queue_entry *e = &q->entry[q->tail];
+ 		struct airoha_qdma_desc *desc = &q->desc[q->tail];
+ 		u32 hash, reason, msg1 = le32_to_cpu(desc->msg1);
+-		dma_addr_t dma_addr = le32_to_cpu(desc->addr);
+ 		struct page *page = virt_to_head_page(e->buf);
+ 		u32 desc_ctrl = le32_to_cpu(desc->ctrl);
+ 		struct airoha_gdm_port *port;
+@@ -623,22 +622,16 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ 		if (!(desc_ctrl & QDMA_DESC_DONE_MASK))
+ 			break;
  
--	/*
--	 * @domain->msi_domain_info->hwsize contains the size of the
--	 * MSI[-X] domain, but vector allocation happens one by one. This
--	 * needs some thought when MSI comes into play as the size of MSI
--	 * might be unknown at domain creation time and therefore set to
--	 * MSI_MAX_INDEX.
--	 */
--	msi_info = msi_get_domain_info(domain);
--	if (msi_info->hwsize > nvec)
--		nvec = msi_info->hwsize;
+-		if (!dma_addr)
+-			break;
 -
- 	/*
- 	 * Always allocate a power of 2, and special case device 0 for
- 	 * broken systems where the DevID is not wired (and all devices
-@@ -151,14 +140,6 @@ static int its_pmsi_prepare(struct irq_domain *domain, struct device *dev,
- 	/* ITS specific DeviceID, as the core ITS ignores dev. */
- 	info->scratchpad[0].ul = dev_id;
- 
--	/*
--	 * @domain->msi_domain_info->hwsize contains the size of the device
--	 * domain, but vector allocation happens one by one.
--	 */
--	msi_info = msi_get_domain_info(domain);
--	if (msi_info->hwsize > nvec)
--		nvec = msi_info->hwsize;
+-		len = FIELD_GET(QDMA_DESC_LEN_MASK, desc_ctrl);
+-		if (!len)
+-			break;
 -
- 	/* Allocate at least 32 MSIs, and always as a power of 2 */
- 	nvec = max_t(int, 32, roundup_pow_of_two(nvec));
+ 		q->tail = (q->tail + 1) % q->ndesc;
+ 		q->queued--;
  
+-		dma_sync_single_for_cpu(eth->dev, dma_addr,
++		dma_sync_single_for_cpu(eth->dev, e->dma_addr,
+ 					SKB_WITH_OVERHEAD(q->buf_size), dir);
+ 
++		len = FIELD_GET(QDMA_DESC_LEN_MASK, desc_ctrl);
+ 		data_len = q->skb ? q->buf_size
+ 				  : SKB_WITH_OVERHEAD(q->buf_size);
+-		if (data_len < len)
++		if (!len || data_len < len)
+ 			goto free_frag;
+ 
+ 		p = airoha_qdma_get_gdm_port(eth, desc);
+@@ -701,9 +694,12 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ 		q->skb = NULL;
+ 		continue;
+ free_frag:
+-		page_pool_put_full_page(q->page_pool, page, true);
+-		dev_kfree_skb(q->skb);
+-		q->skb = NULL;
++		if (q->skb) {
++			dev_kfree_skb(q->skb);
++			q->skb = NULL;
++		} else {
++			page_pool_put_full_page(q->page_pool, page, true);
++		}
+ 	}
+ 	airoha_qdma_fill_rx_queue(q);
+ 
+
+---
+base-commit: 4227ea91e2657f7965e34313448e9d0a2b67712e
+change-id: 20250513-airoha-fix-rx-process-error-condition-b6e5db52fd4f
+
+Best regards,
 -- 
-2.39.2
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
