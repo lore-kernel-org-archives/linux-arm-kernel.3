@@ -4,119 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8190C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 09:58:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D883C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 10:02:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B2a2UHdYAk58d8k4bpqZnst1+U78+dixXgzNfhERVMo=; b=zdUkRL5NfyKVIYo06HeUuguOAQ
-	wlnGi3UF6Q932uvXzYQFkQrK/C7Wn8PKRQHfAlu+AzkVi7N4sjzny2kwnYNlz3Yv+V5b99H02K1jf
-	FBe+1iOTxcBH8T9RdkyPsic9NYdiZYUldORrEW/Mv41bv+9dL4gxuQiyvocM43f3XS+xRvYUOHYoE
-	DNJOBcpO/bEflWA8JTpTq15UuA5q2GOr4vxh42UFh6xOP7T6Ix7iyWxV2Z6PgkS3SwCLp2YrVox7Y
-	KNb9ZxLjO+taWOmnuxmgvz+27j7TGwie2YamCqBPXr67djYR0ZRdyrMSv3OubDJPjlBfRSSrEdPOd
-	UclAnO3A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Njp3v0VwqR8TQR2XZwY23w/e/d6JfQiVfEi+wjHazR0=; b=yWF0CoGvqZwMwZ8vEwtq6+zgXP
+	HIAygid98KZ8jISKyMuOZ8M0+jDhE4aXk2Qeq1BNRy3EBzzQM8R4AY4lzT7f38NTUECX3G8J11nwe
+	E7dIOrb+2ZCW1tPmTXCwt1tPXD0VZnr7Ww3VMxjt6S4Y7iPlR5yiw4rOMCn+7u4j/oKphqTPBLodm
+	d6olpWv+qUN9lTk2M8QRK+KKOotoXakfbFkcL3zKJR66kCbDhhftG3F5H0Vv9jPQx35tPUL54Cvxq
+	DHeJjQDWWxPjal9u9Tc45qxmwnck+sOZIyHA4l9EMPJ7RHL7Co+5K8Uxbf8Sm4yAEpimdflK+1Wgo
+	I+Jw8IhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEmOV-0000000BzfJ-0cSo;
-	Tue, 13 May 2025 09:57:51 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uEmSh-0000000C0PP-14qf;
+	Tue, 13 May 2025 10:02:11 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEmMN-0000000BzPU-2uFm
+	id 1uEmNi-0000000BzWT-41kD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 09:55:41 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43cfebc343dso36073385e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 02:55:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747130137; x=1747734937; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=B2a2UHdYAk58d8k4bpqZnst1+U78+dixXgzNfhERVMo=;
-        b=vSn8cF8CO4WlloJPyX/SvL0A+4W97amU9uM1AJ7TGD1D6BBpRmDYhNR2SGbCssY5So
-         V9ByjuAdrg9bTSmuNeSbm0CY0nurlQ+tTSOB5RL+99hv0utiIrKySQRIzm+Rlm3tTO26
-         S3muQAfmM0I34aQmSxmPq0QJX08Abfz2B7U8i0ViDKb80JYi8Aw3h9bBagf0KRBdKS4+
-         dY+vC7IeRlmUUzVLDz4A58ptqjak9gkzYk6Ta/QFiV9O+Mj39LhEefXdttQ4Z6tpJQGy
-         ezbt50ITq0Bif66fr8KsrvRk863NQ92Ul/oGDyAjfHh9CnerOTKaEsVxQNCmZzf4MUPJ
-         psqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747130137; x=1747734937;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=B2a2UHdYAk58d8k4bpqZnst1+U78+dixXgzNfhERVMo=;
-        b=DQh+vAD409A6K7NuKVyrainRHVy1UyYoqhkFMmEItutyNa2x7WhfAgLjyv6R9J8mHn
-         90WbHfG8pYNHEBQxKxhfrAVfJXuCsLGsYgznqYW26XjmUz63+o6Znh8FISLumZs3XrHM
-         NxEqWiMW1L/UqbmElnyhE5f/BjEnOdJUtoZCuTXAC/122mqccoiR+htrDQDIlT4GJ8mB
-         DhBZBOYf7WfHxFsX8Wo+8rn6dcgeVwyFUxa3TuXDUqnkgSGTnwND94mwQSVv8HL9LnP3
-         HS0UDnC4G5u0sn+Sb4kscyMM5EFT8tjNpNvY2eAnA4QIvlHbP60elOr7YSlICNcKUjc7
-         ZWSA==
-X-Forwarded-Encrypted: i=1; AJvYcCWBP/tyd/4Gcr9NDpkyIGWks3XqAkt8FIzOvIK5IskuT9yPWkuqc5GOzs7qfNQ1d9ujjY476JSqzdVgCSI+kkP0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHNOpgG5nAg66mcj+OtCLzjyTkcYFxg86I5uHdKzaSD1ueuGVl
-	NMAam8qC/0NOJgsPBiCahQEgCHg+lm/mO0pppd6wKAc473dQrcvyRuG4O43JIhE=
-X-Gm-Gg: ASbGncvS9o70MfV3xQy1DrAr+XeEr/4pTUGPWd5+6ntERskAFiNUWg5oTVAS4b4OWp1
-	SOMDsqHrfIx+yD1Km96bxdoI61cdu6a1qg+mr8yWdIN6xqTeqxsBno86vfd0GJJPg7zoeCm+j/a
-	QaZMTCxw80XtItF1CjBn6yLThM/KT10SQ5xeeWKlsWiPMJYa+ybfbgkYxHC0x9QHgQtPXF5+Ybo
-	+iLEBMwIDg/ZImt7xqD1b0yhagYCzEsaVXeLLHwhg1CfoOgYKjAAjXfHscSqrHIvEzqakaTtJC/
-	0FzhNh11jJP4M9gPdkCgtT7yOUQ465er+nKf5PRRq733BFUmmaHOAGZpGxHSPKil3NksIdYKtAC
-	Wgck8Au/mZIzl
-X-Google-Smtp-Source: AGHT+IHLCcNUV1+oQboYgA3SkbfN85gAOCapDtK/POQGga3hETjWJtXjQgemjr2/TZaqn6DWWyppTA==
-X-Received: by 2002:a05:600c:6090:b0:43b:c95f:fd9 with SMTP id 5b1f17b1804b1-442d6d18bfamr148650455e9.5.1747130137461;
-        Tue, 13 May 2025 02:55:37 -0700 (PDT)
-Received: from [10.61.1.139] (110.8.30.213.rev.vodafone.pt. [213.30.8.110])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442cd32835dsm205893815e9.6.2025.05.13.02.55.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 13 May 2025 02:55:37 -0700 (PDT)
-Message-ID: <b090cef6-5b9e-4149-872d-0316666f9e90@linaro.org>
-Date: Tue, 13 May 2025 11:55:34 +0200
+	Tue, 13 May 2025 09:57:04 +0000
+Received: from epcas2p3.samsung.com (unknown [182.195.41.55])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250513095700epoutp04f7b52e3e2f79822660ddd5b4fe2e8d74~-Da2x8o960982509825epoutp04f
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 09:57:00 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250513095700epoutp04f7b52e3e2f79822660ddd5b4fe2e8d74~-Da2x8o960982509825epoutp04f
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1747130220;
+	bh=Njp3v0VwqR8TQR2XZwY23w/e/d6JfQiVfEi+wjHazR0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=NhJOvmP/hrf4W7XFVWgrL8fikHEEBr2i1QYIU6v+pFfXeh9eTmgi+mHIwJlBgZpOU
+	 X8y0wtmMAM7bt5lQxujFktCzZpj/JdbuNu42EMSRW08KayxDZMhbeMSgM345R1m93W
+	 oT8NkAF9Du6FXguKHfIp5COA2L6z84XxG5wjCXf8=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas2p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250513095659epcas2p39e5e57064499989652855bd563dec51c~-Da2eytN_0169201692epcas2p3l;
+	Tue, 13 May 2025 09:56:59 +0000 (GMT)
+Received: from epcas2p3.samsung.com (unknown [182.195.36.70]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4ZxX232XVpz3hhTB; Tue, 13 May
+	2025 09:56:59 +0000 (GMT)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas2p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250513095658epcas2p1d35060645d06e67687ff743a330027e3~-Da1jqqxH3111131111epcas2p1H;
+	Tue, 13 May 2025 09:56:58 +0000 (GMT)
+Received: from epsmgmc1p1new.samsung.com (unknown [182.195.42.40]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250513095658epsmtrp22439b394d5444b3b813b911fee7e4a0e~-Da1i-hIK3179731797epsmtrp2P;
+	Tue, 13 May 2025 09:56:58 +0000 (GMT)
+X-AuditID: b6c32a28-46cef70000001e8a-0a-6823176aad69
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgmc1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	25.78.07818.A6713286; Tue, 13 May 2025 18:56:58 +0900 (KST)
+Received: from localhost.localdomain (unknown [10.229.9.126]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250513095658epsmtip23565f355bbae5c2f2e339f59a8f7bc79~-Da1RaFGv2395923959epsmtip2D;
+	Tue, 13 May 2025 09:56:58 +0000 (GMT)
+From: Sangwook Shin <sw617.shin@samsung.com>
+To: krzk@kernel.org, alim.akhtar@samsung.com, wim@linux-watchdog.org,
+	linux@roeck-us.net
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org, Sangwook Shin
+	<sw617.shin@samsung.com>, Kyunghwan Seo <khwan.seo@samsung.com>
+Subject: [PATCH 2/3] watchdog: s3c2410_wdt: exynosautov920: Enable
+ QUIRK_HAS_32BIT_MAXCNT
+Date: Tue, 13 May 2025 18:47:10 +0900
+Message-Id: <20250513094711.2691059-3-sw617.shin@samsung.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250513094711.2691059-1-sw617.shin@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: amlogic: Synchronous Abort with v6.15-rc6
-To: Vignesh Raman <vignesh.raman@collabora.com>,
- linux-amlogic <linux-amlogic@lists.infradead.org>
-Cc: khilman@baylibre.com, jbrunet@baylibre.com,
- martin.blumenstingl@googlemail.com, sboyd@kernel.org,
- daniels <daniels@collabora.com>, Daniel Stone <daniel@fooishbar.org>,
- lumag@kernel.org, robdclark <robdclark@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <eb9281cc-de91-48a4-bbd6-f67ddc67a9dd@collabora.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <eb9281cc-de91-48a4-bbd6-f67ddc67a9dd@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrJLMWRmVeSWpSXmKPExsWy7bCSvG6WuHKGwZR/ahYP5m1js5jffonR
+	4vz5DewWmx5fY7W4vGsOm8WM8/uYLG6s28du8WThGSaLGYtPslk8fvmP2YHLY9OqTjaPlWvW
+	sHpsXlLvsfN7A7tH35ZVjB6fN8kFsEVx2aSk5mSWpRbp2yVwZbS+fc5Y8IOzYvX3fawNjFs5
+	uhg5OSQETCSuN91l7GLk4hAS2M0o8ePAbZYuRg6ghJTEu2eWEDXCEvdbjrBC1HxglJiyoo0V
+	JMEmoCMx/R9IPSeHiECcxLH2zcwgRcwCjxglrszrYQJJCAtESlxd9YQZxGYRUJX48fQVI4jN
+	K2Ar0XHhCyPEBnmJmZe+s4Ms5hSwk/jaogwSFgIqeTdnCxNEuaDEyZlPwHYxA5U3b53NPIFR
+	YBaS1CwkqQWMTKsYJVMLinPTc5MNCwzzUsv1ihNzi0vz0vWS83M3MYJDX0tjB+O7b036hxiZ
+	OBgPMUpwMCuJ8DZuV8wQ4k1JrKxKLcqPLyrNSS0+xCjNwaIkzrvSMCJdSCA9sSQ1OzW1ILUI
+	JsvEwSnVwMR8wknEQO/K8cpr9+6a5fVvfXqgqFRx74SA1fv9D+6Ja5ys+ohZZ07/3F1Pb+ax
+	V3oLz9WW2fbp0OTMyc4zxR67zJQU2GJ73O5cRvGndQ4f3+7b98BPsXv76mU22ryXU1vPXrg0
+	SUFRRHpz8yrlinhbkc01Vy6v//qm6nVemNvhVXKmZwsaNqg8vvZ//o55VhMfX39ZvKrI5jlb
+	3boT+5aX9yjtlyjwninkne/4T+7p9KVnyox929QXa7N6X5aX+vts5SaB8/x3Knc2nt76Taxr
+	d2O/3W6vPwybrTx5HQ8prVjJYry/dd/q0/cC529ke7/hKsNF0fTtDxduF7dbuv3YEZbpl0Mc
+	V7lfL9PjndjJqMRSnJFoqMVcVJwIAOsy18PsAgAA
+X-CMS-MailID: 20250513095658epcas2p1d35060645d06e67687ff743a330027e3
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,N
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250513095658epcas2p1d35060645d06e67687ff743a330027e3
+References: <20250513094711.2691059-1-sw617.shin@samsung.com>
+	<CGME20250513095658epcas2p1d35060645d06e67687ff743a330027e3@epcas2p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_025539_730342_D08F100F 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20250513_025703_430455_899200AF 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,67 +113,40 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Enable QUIRK_HAS_32BIT_MAXCNT to ExynosAutov920 SoC which has 32-bit WTCNT.
 
-On 13/05/2025 11:41, Vignesh Raman wrote:
-> Hi,
-> 
-> The Amlogic Meson G12B (A311D) SoC board (meson-g12b-a311d-khadas-vim3) fails to boot with the following logs,
-> 
-> https://gitlab.freedesktop.org/vigneshraman/linux/-/jobs/76210200
-> 
-> 02:58:27.819: Starting kernel ...
-> 02:58:27.819: "Synchronous Abort" handler, esr 0x96000010, far 0x51000d8
-> 02:58:27.819: "Synchronous Abort" handler, esr 0x96000010, far 0x51000c8
-> 02:58:27.819: elr: 0000000001002a48 lr : 0000000001002c88 (reloc)
-> 02:58:27.819: elr: 00000000f2f26a48 lr : 00000000f2f26c88
-> 02:58:27.819: x0 : 00000000050fffc0 x1 : 0000000001004383
-> 02:58:27.819: x2 : 00000000f2f6a358 x3 : 000000000000003f
-> 02:58:27.819: x4 : 00000000f4fefffc x5 : 0000000000000010
-> 02:58:27.819: x6 : 00000000f4e5b000 x7 : 00000000050fffa0
-> 02:58:27.819: x8 : 0000000000000008 x9 : 0000000000000001
-> 02:58:27.820: x10: 0000000000000010 x11: 0000000000000004
-> 02:58:27.820: x12: 00000000f4fefc00 x13: 0000000000000000
-> 02:58:27.820: x14: 00000000f4fefc00 x15: 0000000000000000
-> 02:58:27.820: x16: 00000000f2f6d0e0 x17: 0000000000c0c0c0
-> 02:58:27.820: x18: 00000000f0f21d90 x19: 00000000050fffc0
-> 02:58:27.820: x20: 0000000000000000 x21: 000000007ffe9000
-> 02:58:27.820: x22: 0000000000001710 x23: 00000000f0f0e8c0
-> 02:58:27.820: x24: 0000000000000000 x25: 0000000000000000
-> 02:58:27.820: x26: 0000000000000000 x27: 0000000000000000
-> 02:58:27.820: x28: 00000000f0f4f790 x29: 00000000050fff60
-> 02:58:27.820: Code: a9025bf5 f9001bf7 f9400641 36000141 (f9408663)
-> 02:58:27.820: Resetting CPU ...
-> 
+Signed-off-by: Sangwook Shin <sw617.shin@samsung.com>
+Signed-off-by: Kyunghwan Seo <khwan.seo@samsung.com>
+---
+ drivers/watchdog/s3c2410_wdt.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Could you boot with earlycon enabled to at least have a clue of what's happening ?
-
-BPI-M2S (A311D) is booting fine on v6.15-rc, see https://gitlab.com/amlogic-foss/abcd-linux-test/-/jobs/10004997032
-
-But perhaps something specific to the VIM3 is breaking, do you change the kernel config for the DRM ?
-
-Neil
-
-
-> The board boots successfully in v6.14-rc7, but the issue appears starting from v6.15-rc1. These tests were run in drm-ci.
-> 
-> On bisecting the kernel, the first bad commit identified by git biscet is,
-> 
-> 59c35416f4246aee66b5f5523fdc950b83325d82 is the first bad commit
-> commit 59c35416f4246aee66b5f5523fdc950b83325d82
-> Merge: 472863ab2aca e988adcb5dee
-> Author: Linus Torvalds <torvalds@linux-foundation.org>
-> Date:   Sat Mar 29 17:23:34 2025 -0700
-> 
->      Merge tag 'clk-for-linus' of git://git.kernel.org/pub/scm/linux/kernel/git/clk/linux
-> 
-> Please could you look into this issue. Thank you.
-> 
-> Regards,
-> Vignesh
+diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
+index a13768a11f20..48819246f1ac 100644
+--- a/drivers/watchdog/s3c2410_wdt.c
++++ b/drivers/watchdog/s3c2410_wdt.c
+@@ -325,7 +325,7 @@ static const struct s3c2410_wdt_variant drv_data_exynosautov920_cl0 = {
+ 	.cnt_en_bit = 8,
+ 	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET |
+ 		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
+-		  QUIRK_HAS_DBGACK_BIT,
++		  QUIRK_HAS_DBGACK_BIT | QUIRK_HAS_32BIT_MAXCNT,
+ };
+ 
+ static const struct s3c2410_wdt_variant drv_data_exynosautov920_cl1 = {
+@@ -338,7 +338,7 @@ static const struct s3c2410_wdt_variant drv_data_exynosautov920_cl1 = {
+ 	.cnt_en_bit = 8,
+ 	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET |
+ 		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
+-		  QUIRK_HAS_DBGACK_BIT,
++		  QUIRK_HAS_DBGACK_BIT | QUIRK_HAS_32BIT_MAXCNT,
+ };
+ 
+ static const struct of_device_id s3c2410_wdt_match[] = {
+-- 
+2.40.1
 
 
