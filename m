@@ -4,59 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9551DC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 09:50:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 489D4C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 09:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cScYlwf09eDfsV/TfJvan7VzWx8u4OnQrIazqOe9x7o=; b=PjQ2q5vWSo2ouDXyC7nYI0XjL3
-	d7ETzMQnBC/WFN7XB2M1txSX/b1Xb845QNmJjbev3js8ms6Af8gKjYezZaJqmr3U43u0zHe8Q0rJv
-	eRbNt2EdF4TMdZ9hsbp10eftahKrOVQGNARZLhsRserwCIsk17pvV6l3bzBFNRtGbVWwOeqB/nskz
-	0NZx7Q6VgLL1dKHoLRlc+KAd54Y/54ocX9ygSze6p1q/9Zk3b8DZCiQKYhfPW5dTqbIL56Bp6+587
-	DzmGkw9Bcdt3qcP0dtJ3Og7/bkqpA2w/2C8h0VsKMVb8hcof0+id5PbNuebjwEz45FQcz9QIX82Vl
-	Us1LhKFg==;
+	bh=//ZVoYJE5FD18K2yMTq+UkexofBXdKxadbPDKcichro=; b=oLUmiOiz63RN9w/YXv1Ly2IgXM
+	m2T8yU8kTZY3+C+GyKDKQNYsUzCm/7QxQUcMAMjnyOD+G4lW3mSxS+IdcQxzswqtN00izC3g/NjGI
+	WZGK7jNUa0RE/tESKcly4RdOxgPXYkFi2fglfzJcUZRtJyqIERAY3l6rrzwGl3rBO3VIsGsBeD04t
+	MIaR5eKcA7p2cPH21foCr3QSy6GVYYjZ5hg1EtgjQmy8GwyjzZfTir69cSLHFm9FUJog7inci8MM9
+	4aPFYr+F6S5FXCchqJJAXkcLGAubblAJoU77THQsHhXDF1yeSwWVKfLN5m+7dwYic79yEAAFfKMGr
+	LPzNJsOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEmGv-0000000Bxku-2Sdv;
-	Tue, 13 May 2025 09:50:01 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uEmJ1-0000000ByEN-1ed6;
+	Tue, 13 May 2025 09:52:11 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEmE7-0000000Bwyb-3QF4
+	id 1uEmGY-0000000BxeX-3ETE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 09:47:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C20C05C66E3;
-	Tue, 13 May 2025 09:44:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5626C4CEE4;
-	Tue, 13 May 2025 09:47:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747129626;
-	bh=b7siKQi24yevBo11SRzBrrvRK89vCTeLTpr1jo1HuBs=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=kJvUol5df8hj1/dTrJlGoIDLbE7H2VgKjjKv0wKxLp9n9IxF2eIVxGFzC1PyH3Kpq
-	 nZ/AjmIi8OSAny/Y4xXMsbjSSogyjmSsxENhmKEgrRNgB99t4ITDkhxmKo+Jdy6yv1
-	 cEGr5EsGUM1i2LZLfmeXqGjWlP9GrAp8vIDCJJsCBoi3tinR6kpmvlGwWHOQks5h/T
-	 ClfFT1c0ZErz/8tkDffde9EjrjhA37RvfyXKRhMQgy6Xr5HiFAsDFnU5kiWyPcqtWb
-	 sfK7qkGMR6tXG5nz9AE/OZoS9xnmYccjJWIxjR+I1NGvqJaSDJ4eT+KzyEIGMR0/Al
-	 3K8BHg44+4RyA==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Nishanth Menon <nm@ti.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20250512185727.2907411-1-nm@ti.com>
-References: <20250512185727.2907411-1-nm@ti.com>
-Subject: Re: [PATCH] regulator: gpio: Use dev_err_probe
-Message-Id: <174712962358.91325.1280177002395058293.b4-ty@kernel.org>
-Date: Tue, 13 May 2025 11:47:03 +0200
+	Tue, 13 May 2025 09:49:40 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54D854pR017555;
+	Tue, 13 May 2025 11:49:24 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	//ZVoYJE5FD18K2yMTq+UkexofBXdKxadbPDKcichro=; b=IT2YzIWZjRLdKVS9
+	rlyeA1yMuLa8XBWwwcqFAxgUcIwADvUuuxavvDjRpzaEmDpI/V7NW8F1LhrVLZqX
+	2gZ+f5kLliRBXV7KHmoCvfIomLp+YlegNvHTHAAtPAVxm0OMW4S9BuHOHdod6Rbi
+	pM+7XKQHOuI2bVsSY8u8qDN8+h31XEPKNaEPXBHGKYokHObaxn2384Q+4Kv55OCS
+	vKuIgnBAurajHWSGHl4nBm0a4LKbiVjWUxsATpr3mF+SDZBdu+/jzjWeDGliqBnR
+	OiSLAeeudCEV21LJzimTxpFyigPgj9j+LtABdhFHtAPBRRL3349wOi+6EHRPCAlM
+	IlhGCQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46huxab77e-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 13 May 2025 11:49:24 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 02C8240056;
+	Tue, 13 May 2025 11:47:47 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 92747B43F56;
+	Tue, 13 May 2025 11:47:17 +0200 (CEST)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 13 May
+ 2025 11:47:17 +0200
+Message-ID: <c4a2ccb6-b052-4cce-8bfc-26bcae2a2e2a@foss.st.com>
+Date: Tue, 13 May 2025 11:47:16 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4] spi: stm32-ospi: Make usage of
+ reset_control_acquire/release() API
+To: Mark Brown <broonie@kernel.org>
+CC: Philipp Zabel <p.zabel@pengutronix.de>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        <linux-kernel@vger.kernel.org>, <linux-spi@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250512-b4-upstream_ospi_reset_update-v4-1-982c6f7886ef@foss.st.com>
+ <aCHlfED7b-W0pGXY@finisterre.sirena.org.uk>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <aCHlfED7b-W0pGXY@finisterre.sirena.org.uk>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-c25d1
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-12_07,2025-05-09_01,2025-02-21_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_024707_987653_308A3363 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20250513_024939_339737_3C85F5D2 
+X-CRM114-Status: UNSURE (   7.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,42 +99,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 12 May 2025 13:57:27 -0500, Nishanth Menon wrote:
-> During probe the gpio driver may not yet be available. Use
-> dev_err_probe to provide just the pertinent log.
+
+
+On 5/12/25 14:11, Mark Brown wrote:
+> On Mon, May 12, 2025 at 09:01:04AM +0200, Patrice Chotard wrote:
+>> As ospi reset is consumed by both OMM and OSPI drivers, use the reset
+>> acquire/release mechanism which ensure exclusive reset usage.
 > 
-> Since dev_err_probe takes care of reporting the error value,
-> drop the redundant ret variable while at it.
-> 
-> 
-> [...]
+> This doesn't apply against current code, please check and resend.
 
-Applied to
+Hi Mark
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
+This patch has been submitted on top of reset tag reset-for-v6.16
+due to dependency with new reset API devm_reset_control_array_get_exclusive_released().
 
-Thanks!
+How do you want to proceed ? Philipp can take it on its reset tree ?
 
-[1/1] regulator: gpio: Use dev_err_probe
-      commit: cad915e4515790d2e66525a86a166e7ce81e3055
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Patrice
 
