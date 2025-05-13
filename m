@@ -4,114 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C78C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 07:57:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CB63C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 08:06:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lU66Vxd/dm8SjRpIZYU7Fg8XzrbFOvJiNIpA8X7Fuwc=; b=C+VPEWY03q0XoSKV3bNmGjgvUs
-	ufSKv6dYWeecHlYgCX30ijMF1cPyxEf/D6th2+zqJCgdz+l7lVUGeQzvGOL2Cw/xSIe6yg6rBQJU5
-	yel0LcilSlFuRBsOJUwh4dK20/SVElXU8dHd8iLQYExexDp1IlsVTqLaYntv2PCqO+Eqh3OOWOSpf
-	SfAxkVRCKfRkEgSHrDMzxRMnCK4vChccBxvjjrgonalzVyI0sw9RGrxa2a1XbwroBtCDzBd1FeJFr
-	d3Q1/nhhoGRrOCKpl7Qfm77KofMrCKRKkShve1A0k85lQnXYnO4uErrK2ANmVGVPSx2wxpLHK7xUT
-	smshqfYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DcS65UQA7FFYTs5bK+6Y4euPE4rS0+rTQjkMqtZppV0=; b=tjHOWydYxtQP5BtnyWijyjllQB
+	MdPgzGBFH3oC53/d58L9XE1OewUzcX/REo/qHbdo9KjiDXHhpX36dmn2fsKoTGVyvQY7SRMmfWC88
+	tTIJJ9Asyq0yDEKokns5XMNUtUo+aYE1F7bjWKq05GLzaBVyrnGWmUh3sRN6F2S3sU0a8dOMfuiPh
+	SaAz7aS99t1Nqyu/2H3SXAniIbGamGcI/2zItO/PzB1dUOMz72wr4m1aioTQ9SpmofsVJKAF4pgDQ
+	QhfajjJ8lldxWcKWHHswIM/LQdR6L/orLVMool2gFSDR7ofEz/GcOukbjRdg8aTt+Jp+AEojZW37h
+	6tIix8UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEkVX-0000000BhkD-45vm;
-	Tue, 13 May 2025 07:56:59 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uEkep-0000000Bj0L-3BzZ;
+	Tue, 13 May 2025 08:06:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEkTX-0000000BhXo-31N0
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 07:54:57 +0000
+	id 1uEkcr-0000000Bik5-1Rte;
+	Tue, 13 May 2025 08:04:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D8BE05C6233;
-	Tue, 13 May 2025 07:52:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4C32C4CEE4;
-	Tue, 13 May 2025 07:54:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 60EC560007;
+	Tue, 13 May 2025 08:04:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 131B3C4CEE4;
+	Tue, 13 May 2025 08:04:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747122893;
-	bh=0fM2jwnSRONZtSWcc8DZ0lOZ7VuCVOzeg9GA04YlTLg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tL+53eLlhaP8yiT2OSKBzU0rwGyuFFLyrhamX0VWie7QQdvJFqoy56YPdCmVt4zuD
-	 yteZdT5tU1LZXDomdRlkIL6aIrHi55dOtjk0Uhvtn9ynJbbT2tXt44VIW36HF146hq
-	 caVZnNC1q3+e1gJH+kUaL3wl1TrMSP6XF/IqfCCdarmK36XmHpX3z+IF35vJOf7yrG
-	 meXAEj8kM/WNwxuOXlNjv4VJmGMZyuW6yMX4uHuNw4RAi0KqQMq20iLDw4nPFmzVhS
-	 NIJPSZDNLM4OoWZae8p+y/MUNa4hjHTs8uMon8kwZgAENGas0kOtJLZa9ESP8VccZB
-	 Ddt3DxDktS0og==
-Message-ID: <cff1ddb5-b438-4287-80cf-3969f7b7b767@kernel.org>
-Date: Tue, 13 May 2025 09:54:48 +0200
+	s=k20201202; t=1747123472;
+	bh=7I1gwSaGTujG4gf8FypyquviBk2E4QA6iyS8EFE6L6o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pYAwYSA98xROfFniPKW3Fnq8c74xOH7tQB+7DL1Y3zkoNSUZa186JCYkIIk7ybc78
+	 7AbBU7MdRy2DIyGDFmaL67xunDbaKOH+e49iBT1rl38dlT7eXLtzI7CwfKdBPKzKMz
+	 NYF9WFAsOL28v3+dWBFFLxX7AH9Bc3wffNb3cnv/7RBbOkniVAw03ynnpN42vMcEy4
+	 CqQQBhbnGtNA8ZcO3oukS9kXVQWDWe0gJRRikY2FbxSbgUiLCHbKiGxJOAtoGM+GJM
+	 tGLoKBIu5QCyByqotji/y2HAziWoVDAk2DJ7knsHN3BZxI/ELVUPPeR4oA351WZ0pU
+	 ZlYmsSP8YGZvQ==
+Date: Tue, 13 May 2025 10:04:25 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
+	heiko@sntech.de, manivannan.sadhasivam@linaro.org,
+	yue.wang@amlogic.com, pali@kernel.org, neil.armstrong@linaro.org,
+	robh@kernel.org, jingoohan1@gmail.com, khilman@baylibre.com,
+	jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v4 1/2] PCI: Configure root port MPS during host probing
+Message-ID: <aCL9CStLrGEY2MEH@ryzen>
+References: <20250510155607.390687-1-18255117159@163.com>
+ <20250510155607.390687-2-18255117159@163.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 2/3] memory: Add STM32 Octo Memory Manager driver
-To: Dan Carpenter <dan.carpenter@linaro.org>,
- Patrice Chotard <patrice.chotard@foss.st.com>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- christophe.kerello@foss.st.com, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250428-upstream_ospi_v6-v11-0-1548736fd9d2@foss.st.com>
- <20250428-upstream_ospi_v6-v11-2-1548736fd9d2@foss.st.com>
- <aB29hOrv0nU73RCn@stanley.mountain>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <aB29hOrv0nU73RCn@stanley.mountain>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_005455_874264_40F334C4 
-X-CRM114-Status: GOOD (  15.60  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250510155607.390687-2-18255117159@163.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,56 +75,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/05/2025 10:32, Dan Carpenter wrote:
-> On Mon, Apr 28, 2025 at 10:58:31AM +0200, Patrice Chotard wrote:
->> +static int stm32_omm_toggle_child_clock(struct device *dev, bool enable)
->> +{
->> +	struct stm32_omm *omm = dev_get_drvdata(dev);
->> +	int i, ret;
->> +
->> +	for (i = 0; i < omm->nb_child; i++) {
->> +		if (enable) {
->> +			ret = clk_prepare_enable(omm->clk_bulk[i + 1].clk);
->> +			if (ret) {
->> +				dev_err(dev, "Can not enable clock\n");
->> +				goto clk_error;
->> +			}
->> +		} else {
->> +			clk_disable_unprepare(omm->clk_bulk[i + 1].clk);
->> +		}
->> +	}
->> +
->> +	return 0;
->> +
->> +clk_error:
->> +	while (i--)
->> +		clk_disable_unprepare(omm->clk_bulk[i + 1].clk);
->> +
->> +	return ret;
->> +}
->> +
->> +static int stm32_omm_disable_child(struct device *dev)
->> +{
->> +	struct stm32_omm *omm = dev_get_drvdata(dev);
->> +	struct reset_control *reset;
->> +	int ret;
->> +	u8 i;
->> +
->> +	ret = stm32_omm_toggle_child_clock(dev, true);
->> +	if (!ret)
->             ^^^^
-> I'm pretty sure this was intended to be if (ret) and the ! is a typo.
+On Sat, May 10, 2025 at 11:56:06PM +0800, Hans Zhang wrote:
+> Current PCIe initialization logic may leave root ports operating with
+> non-optimal Maximum Payload Size (MPS) settings. While downstream device
+> configuration is handled during bus enumeration, root port MPS values
+> inherited from firmware or hardware defaults might not utilize the full
+> capabilities supported by the controller hardware. This can result is
+> uboptimal data transfer efficiency across the PCIe hierarchy.
 > 
->> +		return ret;
+> During host controller probing phase, when PCIe bus tuning is enabled,
+> the implementation now configures root port MPS settings to their
+> hardware-supported maximum values. By iterating through bridge devices
+> under the root bus and identifying PCIe root ports, each port's MPS is
+> set to 128 << pcie_mpss to match the device's maximum supported payload
+> size. The Max Read Request Size (MRRS) is subsequently adjusted through
+> existing companion logic to maintain compatibility with PCIe
+> specifications.
 > 
-> If it's not a typo please write this as:
+> Explicit initialization at host probing stage ensures consistent PCIe
+> topology configuration before downstream devices perform their own MPS
+> negotiations. This proactive approach addresses platform-specific
+> requirements where controller drivers depend on properly initialized
+> root port settings, while maintaining backward compatibility through
+> PCIE_BUS_TUNE_OFF conditional checks. Hardware capabilities are fully
+> utilized without altering existing device negotiation behaviors.
 > 
-> 	if (!ret)
-> 		return 0;
+> Suggested-by: Niklas Cassel <cassel@kernel.org>
+> Signed-off-by: Hans Zhang <18255117159@163.com>
+> ---
 
-For the record I consider this a bug report which still needs addressing
-by the authors.
+Looks good to me, but since this I'm the one who suggested this specific
+implementation, it would be good if someone else could review it as well.
 
-Best regards,
-Krzysztof
+Reviewed-by: Niklas Cassel <cassel@kernel.org>
 
