@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5C24C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 13:40:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E5D0C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 13:42:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hiuWbIBXUd6Xq9LKZkg8JFICGjBr2gwiu9cI40o9cus=; b=wpa18pPIFhnHl8jrZ9/JDCx5px
-	ndHNjDtn6A99/XNUVGyR+/mRQU8BPRsn/t6zNXJBn/mknD3KTDSBuvXv236ata3b6wRQIXQ0URg7e
-	B/ZarhL4HcI0fSXRpMkRZCpMvmrJU+yosKw0ukZW9GNKa5sB8rg196+ATZ+Kb4okwLz+rUlw06mLU
-	ur71Gll0WtU3VLc3PRuhhCc4DnGWDCMIdZpZ3V8Gy5fvlfm5gHhuUQee/LQzrK5E1YAWiW5QImgJJ
-	vGBy3dblQoyG9D/l6gR0VCyXmkEXffur+h/9BrHEGnjrlgwkk0s2BM02Pme4U0jU2c72BYkCPJtzt
-	Yq56zz9w==;
+	bh=cwLP2Es6xRfINGxgWeMS9qSQnLb8+yOJ1St5R8XeU9A=; b=IVJRvBx0OGPq6hKve9662xNcQW
+	m+M4q5NvzttO+QpF0ADRZ8wE8PtSfEKYB74Onk9Xep4EcPZ9VgbUdYgb1Eclb7rLX3zMMtehxVh3i
+	khYrMZJqXjzfqwuecqPfeu6aW01kfPoQMSp3Z3htBFxOR8zpLr4TIsVWeHNDbTyo6/rmdb1HwMGOb
+	NgobN+LNPjGiWUwQha9kD95M0yOTCbLv7JIyp+hqg4+FnUAxHJ6eBLOf/MIED+gU0Y7WYQz2GVrsb
+	Fqa+G73+fN1iIYbU0USVeYrGeUgidtslON5+95g3MWyYGfNNsfUCOUaIcf870axYbMFqsDcWCg20k
+	5BhfhdxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEprj-0000000CVyM-3K03;
-	Tue, 13 May 2025 13:40:15 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uEpto-0000000CWIN-2TZb;
+	Tue, 13 May 2025 13:42:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEpmL-0000000CV6I-0qsG
+	id 1uEpn0-0000000CVGo-4C52
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 13:34:42 +0000
+	Tue, 13 May 2025 13:35:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 572A4A4D859;
-	Tue, 13 May 2025 13:34:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5459C4CEE4;
-	Tue, 13 May 2025 13:34:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B1647445F8;
+	Tue, 13 May 2025 13:35:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BFB2C4CEE4;
+	Tue, 13 May 2025 13:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747143280;
-	bh=JSePyDEvZ/8hHryeucDGmMSmtFHmNwIJp/oCesIJaEs=;
+	s=k20201202; t=1747143322;
+	bh=NR5vZNUsuI15bl5xfksQlcz2kKOlzAQLwpEtKX4quLQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=d+XMIFVF+FMbhdcQvFwpjah0SjladCBkXikKpHBVncIuJlm4XvXC/0jSl+2i3nbUQ
-	 epDbytG+BjHXag/MWQQcKlRPdwGYQW/0wHNGmkNGIuqyt8f4gDI3LirOUsaKIHW7DN
-	 zVwo/ceW+AvTSf+FkMPs6+6FMEWQ/dkg1zIdcgcV+dNQynMuZxwBHtwYnIUCU+PipE
-	 MJN2jgq5SNMA85EsizR4kahBg2fRaE4Lp4dOISzVnM0P9zVeUozWOZ+TqIB9/bSTtD
-	 7kiON6JhaQK4V9OmPQOqpxXPdmTDO1Bg0+rKljw/ySCILHx/yYa30GBaoyzW56Gopy
-	 vMtEZNZiGp/gw==
-Message-ID: <6a28f9bb-05fa-45ff-8c0b-790c0caf3252@kernel.org>
-Date: Tue, 13 May 2025 15:34:34 +0200
+	b=e582jhuBkwm53yc/TvQ04B+vgV3RfyQ58MLJJh5FudDMuU9KygQRT2g9k8OTzFHxT
+	 07kBNaQfm0U6pfygPtz/LbQq4e6nReL8nNspZa3r3Zki3eVyFKm36x1vc8eOFlDV5J
+	 X/43K5UxNejj1+N0VfMWAR+lURYnbxQFrskxd6UBqBgt2hUbyWXxHWaNMSRPAa3tVx
+	 DJ1HTOeIWv/GT+zk+t//TtWmc++8kiQhHayHed4eY4TlfbY9ktMF8dM0GJnpH0/5q0
+	 CCC1r145SmgGkVrIBV3bUKvQO4DcMLkTZTe7jOWkhyV1LaqewHX35UUOcyBbtdorr4
+	 OMTN4u1sVt18Q==
+Message-ID: <1ec11b90-ed6d-4b41-9146-a91f0dcb8756@kernel.org>
+Date: Tue, 13 May 2025 15:35:17 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: (subset) [PATCH v12 00/19] Support spread spectrum clocking for
- i.MX8M PLLs
+Subject: Re: [PATCH v12 16/19] dt-bindings: clock: imx8m-clock: add PLLs
 To: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
- Shawn Guo <shawnguo2@yeah.net>
-Cc: Shawn Guo <shawnguo@kernel.org>, linux-kernel@vger.kernel.org,
- Peng Fan <peng.fan@nxp.com>, Stephen Boyd <sboyd@kernel.org>,
- linux-amarula@amarulasolutions.com, Conor Dooley <conor+dt@kernel.org>,
- Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
+ linux-kernel@vger.kernel.org
+Cc: Peng Fan <peng.fan@nxp.com>, Stephen Boyd <sboyd@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, linux-amarula@amarulasolutions.com,
+ Abel Vesa <abelvesa@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
  Pengutronix Kernel Team <kernel@pengutronix.de>,
  Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
  devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- Abel Vesa <abel.vesa@linaro.org>
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
 References: <20250424062154.2999219-1-dario.binacchi@amarulasolutions.com>
- <174643143452.2950397.16722215892279685541.b4-ty@linaro.org>
- <CABGWkvrkVLRocFsZs9JLni4KDZCDyYDZxMzwA9AzAwipmUyTzQ@mail.gmail.com>
- <aB3unsCzCFUkdp9i@dragon>
- <CABGWkvqfyH=dcuw6EDZaFVVebj8SZhJF0P944+mmzL5YK3-Pug@mail.gmail.com>
+ <20250424062154.2999219-17-dario.binacchi@amarulasolutions.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,12 +107,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <CABGWkvqfyH=dcuw6EDZaFVVebj8SZhJF0P944+mmzL5YK3-Pug@mail.gmail.com>
+In-Reply-To: <20250424062154.2999219-17-dario.binacchi@amarulasolutions.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_063441_389555_1E228171 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20250513_063523_078859_A31911DF 
+X-CRM114-Status: UNSURE (   6.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,27 +128,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/05/2025 14:43, Dario Binacchi wrote:
->>>
->>> Please check the remaining patches, as they are required for correctly
->>> building the
->>> ones merged by Abel. The kernel test robot has already reported build errors.
->>
->> I assume the remaining patches are DTS ones?
-> Yes
->> If so, I do not see how
->> clock drivers would require DTS change to build correctly.  Do you have
->> a pointer to the reported build errors?
+On 24/04/2025 08:21, Dario Binacchi wrote:
+> Though adding the PLLs to clocks and clock-names properties will break
+> the ABI, it is required to accurately describe the hardware. Indeed,
+> the Clock Control Module (CCM) receives clocks from the PLLs and
+> oscillators and generates clocks for on-chip peripherals.
 > 
-> https://lore.kernel.org/oe-kbuild-all/202505090537.ss8RbFln-lkp@intel.com/
-> 
-> DTC compilation fails. I think it's because of the patch
-> [16/19] dt-bindings: clock: imx8m-clock: add PLLs
-> which was merged without the corresponding DTS changes.
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-NAK, why did you create patchset forcing DTS  to be put into the driver
-subsystem? It is even beyond ABI break.
+For future version if it happens:
 
+Un-reviewed.
 
 
 Best regards,
