@@ -4,71 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D760C3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 14:34:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C32FC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 14:36:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S8HvFU+C7sIo5Yzd4dl6ojrhAT/ghV8MpikwHZzYzPM=; b=C6uW/LcYolDy6Nb+ZdDlfihAXz
-	zbXsci3J9w+ZwGM2o0xqjWJ2B2dPgk/S5067JQ9nwzeOkQj2ut1Ecrx653XFUHchNHnelU4RrbG7h
-	pVBOYP+nf+PTnJpta048B9zFMGmHlci8KyWUT5iotUuvl03fJHWx3dc7cL4LXQbpgmGf3M4qLqJBH
-	kfYjGqQj/QCtxKL/NrCfRY0uQoTtU6oFusiyl7Wu+BUkEXuMJeCRQ4baSJF1WJf9D5ynH0j+rGLmr
-	w77GvxLS6e4xKEhLlcioGvQ9DpBTLj8V4lOJwL8HMQHXsy9iIxrzf56lYGMMsTq8lsBU/yvDPNOBC
-	1E2LwZiA==;
+	bh=yyty9J7oFX8g3fubknNJuxgnKh0O3w+60/UN3l+3UkA=; b=HcVUmxRcitke/lG9a/RrbsQAse
+	FSL8yfdDKujTgm/DZ0vnsmn5du2bwiUtPc+NXWOc5umDSRN4tE9SbYwCGajFKyQ+jTe1/MFGz0MZM
+	iPnRifcbhhbqvbnnOBwk5aeZCr8xfoM/XOibNz6YfuDct4CdZ34HDgwZgmWkoAjiBCuWNn/2qCPwG
+	vWECUxCUWP8l2HqVHjrPE8sa7nFaADZ3P4M/mgt5YgV/WmcDGEfYX3gla8wFN+FG/rPj7EmqBe8OR
+	m3JvG9kWx3Nkt/EFOQ6nN2I3GLSSgRn6jRaaveKAerss3jwbMv+6qtQTIz57IfMlHXD1fE6BUHDfG
+	Fg7GlA3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEqi6-0000000CckP-1aju;
-	Tue, 13 May 2025 14:34:22 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uEqkA-0000000Cd24-2EB2;
+	Tue, 13 May 2025 14:36:30 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEqbR-0000000Cbme-3LLe;
-	Tue, 13 May 2025 14:27:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1747146434; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=ANqNFwZEb+ZFYow3aFAQoyO/1Ud2AXpFUIBSle0bCo8FVYBcNiP+i1HJVeS9GxYppl7HJpmC+qZl37HtRPkZXcPEOXkDBCQ/zrr8dgKo5uei6H47cW+QVV7ZXJHw8+jUnBeKS3gYXF9OXPTulAsAQCmtDNFdp0Tbw/DhN5W4wsg=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1747146434; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=S8HvFU+C7sIo5Yzd4dl6ojrhAT/ghV8MpikwHZzYzPM=; 
-	b=juo7qhHanaIrojtSIzpy4DRVsL0LxCZof/Ml9fpsJ0EWTj5tH9ljTvKL658u060IhnGxO0kOeBj1jr4KDs4a0RM2Ff4rELQ6Xo0dB7Amhs30S12gFTnGp+viG8MZG4T5h0EJuFWABukZ5OjIvp4EG54KMCC1prBrdmXWOVtR1t0=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1747146434;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=S8HvFU+C7sIo5Yzd4dl6ojrhAT/ghV8MpikwHZzYzPM=;
-	b=TL9bA5j1wnQEzElGt0exkEIhE0Vo7i6xr6vp0qX6xbOLsv8oU234w/eH/ZX6PJJ4
-	goH3Vq90j1+kAQio1s0ScSTAfdctQvB99CVnqDrQkokNPU2LuRPEm7T3kvOY7xyhf0T
-	oVg9Lwl4xwFaLP7+KQ2QJZqRJPmFWFuGHhXf4uT8=
-Received: by mx.zohomail.com with SMTPS id 1747146427338952.0201359300785;
-	Tue, 13 May 2025 07:27:07 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>,
- Elaine Zhang <zhangqing@rock-chips.com>,
- Finley Xiao <finley.xiao@rock-chips.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Detlev Casanova <detlev.casanova@collabora.com>, kernel@collabora.com,
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mmc@vger.kernel.org
-Subject: Re: [PATCH v3] mmc: sdhci-of-dwcmshc: add PD workaround on RK3576
-Date: Tue, 13 May 2025 16:27:02 +0200
-Message-ID: <6154950.lOV4Wx5bFT@workhorse>
-In-Reply-To: <CAPDyKFp5N23KCZwOTba6vGyk9eaS1-SjSqY52FfPDng-bahn6g@mail.gmail.com>
-References: <20250423-rk3576-emmc-fix-v3-1-0bf80e29967f@collabora.com>
- <CAPDyKFp5N23KCZwOTba6vGyk9eaS1-SjSqY52FfPDng-bahn6g@mail.gmail.com>
+	id 1uEqeu-0000000CcJe-0tHW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 May 2025 14:31:05 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43ede096d73so39856005e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 07:31:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747146663; x=1747751463; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=yyty9J7oFX8g3fubknNJuxgnKh0O3w+60/UN3l+3UkA=;
+        b=zjTN2lEJuVbAYpAu2dPbXnQQ93YhEnO9k+DSICQaKNO2YcS/pzBwAje143jTjq53t6
+         6Z69k5jcBS2FMRe3htKhLN9qXs1+BnL9M9mY/S8ASLAU/i3lBkbYsn806rHMGTFMFCR0
+         mSrKzCb+AqddCuwe7I5iffcagKOGEJNjUWGeam0rb/kj9V7cfAb69H6it3f9IiPXSDvy
+         uFddGzAUicRbB4HP0vVyOxBqlIXw86650kO+uNj96atlbYb1BTDGN/v/8VV9ogmyeGz2
+         XCe5vPoulur8Q1Q1KLRMbXRbb0fWbuLH1sLQ1xsVDDWzTnoqkL1obvBeXytAiOQV4Vhe
+         E9BQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747146663; x=1747751463;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=yyty9J7oFX8g3fubknNJuxgnKh0O3w+60/UN3l+3UkA=;
+        b=t9Kbi04t2rsbCU0DNDlcwFaAAvG87tHZRhbAt1F2GHwqspwx/QFGXQukC2Wj5T0GBs
+         WBoVD7g9QJ0saipwAR+pn9SOgh2Hg9L+pkyQZz2dVMmCEqX1gt2ZQJFxUl++GR9spHAc
+         e4GRew2Z6nEAhkVzXJ6MRr+x5lmU3tDQs/p5s6Sc6EDpEKHtebSvAEzAugkgchP+y06o
+         ZntPJqWtY9uevJ1u7meho2zrVUUMWI9sZ0SLwcB9JtzoiuqiL9xfXoMiBo12L4TRZvYR
+         4RaoCU8TLoC27pF8NGbbXZfpA1UHILARKsAY2TzGaCEumXWVGHA9+HZR1PXhAg/5pq14
+         E6PA==
+X-Forwarded-Encrypted: i=1; AJvYcCVM2daoG3yk0dMOtX4hvMlc1cWeWyJZSTqBNO0R6AqQkEuIcja02wOhx9XL2EwBX/azdBRHnI4GBpLcBqNaWH8m@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCuEflADJXVN5USh7dyfRQyUjeCXb6hTLEO+EK0VkkVrXW2JoS
+	1dqtaG4rjfseCrUmYSuxdg+/lVsUFpEHm8VrQacmSlA6PRIlA6nw3pNjEVvB6zQ=
+X-Gm-Gg: ASbGncuK3mLMqm1zMzdg38bgzEGZaG6T5NmLbFKjhLJ2lWEpDFmZ3h+re3rDXgEges5
+	iL71sD8lQFe0pMWceSA8+WG2tGWm9zTgCEqBQQ/vy+zUECY+Z5bqeeTAiSlRYZTKuK0iST8pm4G
+	o0759N8Fr9tT7RfWWAf9mxYmvd8u0EClcw6WGKVEnnyRjvQQpTelq6sQDprl7YAgvaggNe6KRgV
+	UzjASw6d9rYlelTNK1xxZ1iHOQlLDmz1Q1oCTP/ShSc0mxIWf3ZSIwus7iSmHSVBgRpikGDUONe
+	sfcl4zDlu7IFyKcJQ6lhUQETWdlymC6TSIhZubwpub3RRuiZqon/lsiJBp+bdIRThxeEhq0oyJq
+	kSDNYE4IS1P37yw==
+X-Google-Smtp-Source: AGHT+IGyf1wD89DJXcgW642MDWFrZO+pHlL+xumUMPnNlympatoSZi++X3uov9+a1oXYEtcPTWl+zw==
+X-Received: by 2002:a05:600c:a00a:b0:43d:db5:7af8 with SMTP id 5b1f17b1804b1-442d6dc7cd1mr139332205e9.21.1747146662687;
+        Tue, 13 May 2025 07:31:02 -0700 (PDT)
+Received: from mai.linaro.org (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442d6858626sm174090695e9.27.2025.05.13.07.31.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 May 2025 07:31:02 -0700 (PDT)
+Date: Tue, 13 May 2025 16:31:00 +0200
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Baruch Siach <baruch@tkos.co.il>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] dt-bindings: timer: Convert cnxt,cx92755-timer to DT
+ schema
+Message-ID: <aCNXpHegnr4_FjfT@mai.linaro.org>
+References: <20250506022232.2587186-1-robh@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250506022232.2587186-1-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_072729_903604_75BF40CC 
-X-CRM114-Status: GOOD (  26.21  )
+X-CRM114-CacheID: sfid-20250513_073104_262929_E24E1CA9 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,62 +103,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, 29 April 2025 12:06:16 Central European Summer Time Ulf Hansson wrote:
-> On Wed, 23 Apr 2025 at 09:54, Nicolas Frattaroli
-> <nicolas.frattaroli@collabora.com> wrote:
-> >
-> > RK3576's power domains have a peculiar design where the PD_NVM power
-> > domain, of which the sdhci controller is a part, seemingly does not have
-> > idempotent runtime disable/enable. The end effect is that if PD_NVM gets
-> > turned off by the generic power domain logic because all the devices
-> > depending on it are suspended, then the next time the sdhci device is
-> > unsuspended, it'll hang the SoC as soon as it tries accessing the CQHCI
-> > registers.
-> >
-> > RK3576's UFS support needed a new dev_pm_genpd_rpm_always_on function
-> > added to the generic power domains API to handle what appears to be a
-> > similar hardware design.
-> >
-> > Use this new function to ask for the same treatment in the sdhci
-> > controller by giving rk3576 its own platform data with its own postinit
-> > function. The benefit of doing this instead of marking the power domains
-> > always on in the power domain core is that we only do this if we know
-> > the platform we're running on actually uses the sdhci controller. For
-> > others, keeping PD_NVM always on would be a waste, as they won't run
-> > into this specific issue. The only other IP in PD_NVM that could be
-> > affected is FSPI0. If it gets a mainline driver, it will probably want
-> > to do the same thing.
-> >
-> > Acked-by: Adrian Hunter <adrian.hunter@intel.com>
-> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+On Mon, May 05, 2025 at 09:22:31PM -0500, Rob Herring wrote:
+> Convert the Conexant Digicolor SoCs Timer binding to DT schema format.
+> It's a straight-forward conversion.
 > 
-> Applied for next, thanks!
-> 
-> Kind regards
-> Uffe
-> 
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
 
-Hi Uffe,
+Applied, thanks!
 
-I was wondering whether we can get this into 6.15 as a fix as well, as 6.15
-should already have the genpd API additions this requires AFAIU.
+-- 
 
-Fixes tag could be something like:
+ <http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
 
-  Fixes: cfee1b507758 ("pmdomain: rockchip: Add support for RK3576 SoC")
-
-but may need some more flavorings to keep the stable robot overlords from
-trying to apply it to 6.14 and earlier and then starting the robot uprising
-in your inbox when they notice the API is missing.
-
-I originally left out the Fixes tag on the rewrite of this using the new
-API because I wanted to avoid those awkward backport scenarios for a fairly
-freshly supported SoC, but it'd be great to have this in 6.15 because that
-will be with us for a full release cycle to come.
-
-Kind regards,
-Nicolas Frattaroli
-
-
-
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
