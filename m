@@ -4,107 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1717C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 10:25:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1586BC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 10:28:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FmKO4iUFCtGPij5z8zMun04XAyBt8taBVw5kM26b2KE=; b=WwsWCkOevgmnflyHDNmDouyb+X
-	T7jdNHyS+POZiK2usgZw4rfp8nieFDEgtolv5JcJhkDuWjzB+a2VLvqcYnK8jiXj7iDHRUG25kYSt
-	VYfRXwHvUOPJf5gsVH9Kdirgz/GWqfvv9pefHdLUyl8pU28TltBQFQeDSlaOnMZcFGVvBR0rZ4KDy
-	Jn9xfhrWOBnuBnCnvb8jpejsjVVJ0Mq5XewaO5VOog1abgmH8ONNxHvmjrHgzVMO9hYan+2GlajAY
-	ZQHtnbxejG+2Xbh3eYeuXUZYNkMUHodjdOginS+u5iIrs0dQ831xLsu+RVmkjX5UZNhK34nQZG7OK
-	WvfjdmwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hx3F8VCPOnxX8264+l+zPf9MaXhpNImCftMmE/6zvYM=; b=FEQesfEea0Iv6mdOCVJYFW0TFq
+	xEmNgcFklA0BS5CDiOv5MWkYTIs3XIA0qapPyiLjA18F6AAmOrlsBYpAv2mYt/XUhpkEghKsl9/vG
+	JnTmmnnPrdMmM079L7Ot6R2rx6nEISFwqM7pgpt5W0D98Dhe6K7LYuU52TCT5zW7s0eeJLl256de4
+	SEMPGCWlELpkRCo4y5XaoxAP2YtIJh2Bw1jrG6pYAyUmH92cxKppEjJ8iZtf6FoGfb7xUBuoWyrTa
+	fRuJKbZy8wF0p9yBnuEUUINuUs3DEtuaetUn2b3UHMj3/4PPKg60glSuik87EvZPo3ofXben5ARp8
+	PbcYFhCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEmpZ-0000000C6CG-2yoi;
-	Tue, 13 May 2025 10:25:49 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1uEmre-0000000C6s2-0ij6;
+	Tue, 13 May 2025 10:27:58 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEmeL-0000000C3KC-42el
+	id 1uEmhY-0000000C45x-36we
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 13 May 2025 10:17:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=hx3F8VCPOnxX8264+l+zPf9MaXhpNImCftMmE/6zvYM=; b=PeHyxHwh44U9LobSIopsbwcME/
+	/C4tEZF+WtsnBT0tpk/MwYpO9Q9mvD8bKH5NL2SBWdfV+pi1/IBxU550EUqzIzo3PiSLVXAjm3qSA
+	pM1O8JjHDUi+Mamz6S4SaMZdnK6R7VhNZXg0J4MveQt5TnjhIY2v7SSKszwgPp99hrdPNtFFqXjY+
+	Jl82VhS0b4aJxEBo9EhxrOkFnUykpeQtvCzW39xsOsXOit4FVVvM1K3r2wn/lh52syWODCKvR0gCi
+	/uU0vCvDfR5LXy2FgwBaBcr7fD50H8/OjRSnYEIgeHXhTwb5u4DFNS3reM39feA60d1CKBawETfsh
+	y7IMianQ==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uEmhV-0000000GwDj-3VwR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 10:14:15 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-442e9c7cf0eso751465e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 03:14:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747131252; x=1747736052; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=FmKO4iUFCtGPij5z8zMun04XAyBt8taBVw5kM26b2KE=;
-        b=apfk675jeV++rRMDdumRx2aRx7IpD3JPcGdfu7wFuSzF7n4z2f84W4y4jDoe+CaNwQ
-         /r1/40sGjLGWKqV84RhI6EB22gY2CJG6nku72Xdz9Gu2xFgEkM3kHx9NWS/0/ZZ15266
-         N/OQqGRdOh/zoEr3YcZf2SFMOlMjA6h/F5SAa/iUuLYbYco+OJoD1B+pBqi2/G50mt1J
-         nzHW7VmMPbV+XOb3OxyFwpml83rjEsUvmmWX1R4Sl8anbKtCOzxkb7bpGGiORmhGSwM0
-         XBBWcvwC6bCUoNZR2uicZBZxvLSiqWDm54BQ6bbR/ZASmUZTbt9ppJc25bO/i7L+6EaJ
-         lvvA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747131252; x=1747736052;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FmKO4iUFCtGPij5z8zMun04XAyBt8taBVw5kM26b2KE=;
-        b=rOM9Ueehbph+BpxrtjG08km03f3ZcutOci3qG0ehrFDlpa04nz2oAiDpWKbGkLLDkd
-         nfMimf3kQnSRxHT97PWdMt38qn6zkC7PuIEJFdvPo3ahrjP0/hCgCAkBqH2FJYe2XuYs
-         LWJ7Kmdos+SCU1SGJ7eLmmUs0JiOLxm1ZnNa3q30nehMCSLgol8Hi/ZLPL0lClSNa7rL
-         uEzb1BiFpKegUz8yKZder/CuFPmI+wLw5gXrh7Rcp0i+OadElcaT4H+lRp6yisvcsYcu
-         P/TQf1VjtnUTtn9ncIJIZasOonv5JuChirg5f8sGSy2ZLBjVa3Oc8i1ylYqVEYkNwDit
-         B+mQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUYlInxtgOrUyVFdj0aPX4KiPyW+RyhcGo+mcJSnHXu/rCu5jQnMRWS3IKAru4IvmrPBoF6KVemn7WemQSWla6K@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZOu9UnnhTBE7WkY4qXDh6lKNcom7UO3Ojjw78jwlSBiYNFsp8
-	smhi5kOxOQTdwFYsZXsEkFk/s1YmYaukMC8IfSxUeZjaC4aPjp5U77wReVSQjow=
-X-Gm-Gg: ASbGncvnkcCQW4jjLynO4fht/ubvzhY06MihYbh6fVfuaoSBtaXIYt3SuQqTY21ZI0w
-	0X9yUPD9k0bktp9dhWi8HAGpOS4H9r7teTr7vxxypjssplsOPp8WMtH/EJhSWUzkXhjPhm5nFY3
-	iCOIZI/CVxBOZa4g90auBNaEPYAHfKgBIDiJrzdj42AilCyVO5K+lSvO3ZkF0KCpNaI1Yq/nlY8
-	8VNs3eUu3igKjCW6BBaNPUL9Yw1OI9gLYgzdZB5cXh8oK7wsAN1TVY8qusK9qIxc17cXZRXg7md
-	zausPWProKEIE5yoVR7+2NINP8wAMo1O34FdEGyAXlYnQrLL/zyYotCCIPNTO30PXRaSKQjVMup
-	xRci+rt5JO7wBDV7e1lAqQ4odvP06y4cWo9g1Ksg=
-X-Google-Smtp-Source: AGHT+IHK4ZgyRSwCAQUNKdc+qokxm+jDw3954HdRD4CSqDPQxvmPct2ZSvOSVpIzgIPcfnsOsH7saA==
-X-Received: by 2002:a05:600c:3513:b0:43b:ca39:a9b8 with SMTP id 5b1f17b1804b1-442d9c8e883mr49631055e9.2.1747131252406;
-        Tue, 13 May 2025 03:14:12 -0700 (PDT)
-Received: from kuoka.c.hoisthospitality.com (110.8.30.213.rev.vodafone.pt. [213.30.8.110])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442cd3b7f18sm211920495e9.40.2025.05.13.03.14.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 May 2025 03:14:11 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	linux-clk@vger.kernel.org,
-	Sylwester Nawrocki <snawrocki@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [GIT PULL] clk: samsung: drivers for v6.16
-Date: Tue, 13 May 2025 12:14:08 +0200
-Message-ID: <20250513101407.22233-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.45.2
+	Tue, 13 May 2025 10:17:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 873B1A4D488;
+	Tue, 13 May 2025 10:17:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A91CC4CEED;
+	Tue, 13 May 2025 10:17:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747131446;
+	bh=1gM1XLcPgvrG+ys+qc6lxYqS0BilUpTT/Xx1KYUfe40=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WGeVCKf5BhAzUcwQrQNKICGlkgCNdN3dH/UoO/2nAPKY9brPthNPn8gUGIf70g9YL
+	 TMf8n+iVRsClxw1Va7+bTGdReYr/vKD3+z2XaEWycSj0tjnfF6K4StAwWXmIEGGM2t
+	 CVdPEf7vLcUe9uiUFWZc0RtAZw6TRwAtwYOoPByVro1hqMizQnD0Ffzm5/oIR7K3EF
+	 iAtCQrA0g6iL9FD+8KfsGzSIzrcuK6tU2Q4LczOxUzE7GFd2fCdi51Xx+JUlRDQIB/
+	 yfgUiX7a4O2nR/rDMwFZ5vVlaRR8NV/dAjfW9/SNuHaOJiVEaxK9i6DkmBFFSnQfWq
+	 EoKuvHVSEYLkw==
+Date: Tue, 13 May 2025 11:17:20 +0100
+From: Lee Jones <lee@kernel.org>
+To: daniel.lezcano@linaro.org, alexandre.torgue@foss.st.com,
+	tglx@linutronix.de, Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: ukleinek@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	jic23@kernel.org, robh@kernel.org, catalin.marinas@arm.com,
+	will@kernel.org, devicetree@vger.kernel.org, wbg@kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-iio@vger.kernel.org, linux-pwm@vger.kernel.org,
+	olivier.moysan@foss.st.com
+Subject: Re: (subset) [PATCH v6 0/7] Add STM32MP25 LPTIM support: MFD, PWM,
+ IIO, counter, clocksource
+Message-ID: <20250513101720.GH2936510@google.com>
+References: <20250429125133.1574167-1-fabrice.gasnier@foss.st.com>
+ <174713127684.4157861.15977616973399970511.b4-ty@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1778; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=ULrHUwBSa4Nx57f23106q1CX/Yt3c3c/zhOPpinKUyo=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoIxtvRkenr8845Ru9521lbcHxxw4cdwiBeV80j
- l4nXPkerpeJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaCMbbwAKCRDBN2bmhouD
- 1+NbD/93RhWOMmoLrcMu+Ixi+i1CLAmMXhF5TyrC/rP1BMFqTHiOh3HfrwHoBpONqaPc1UagMkV
- jwKMRPdVrwu7GX1TfnBORAtXoCgVRepVUHNvUKl1uKFmOJlS7t83YFfq2EdXy32Wjk9q31SjkVA
- K+AtUHfNnDGk9hLDJZeJM7ZVsNlP6YUK80aZegURRAbcLVvIdXX67ogEsqsHtBNtWALr0kVmXFp
- sDoToY0r1+o8v22bM687E+RBnlYmWBHTYcl75SLsHM0NCJY/FiPNxK7nbxzdLikikMFxFqnLxvA
- jp64iju1RGqAe7vnFknUD3s/NcxnAFo7MXhSFY5J6wbJuK7/ruQWJGznhhLRi/rrT461bU03LOB
- hV+WFiTuV7G/irrmngaaDG7yfmCx8AlWS2cY8tXCEQ1G7PDqcWGzXLKQqD20oOzbURRSdG5nFcE
- 4HwQ2I5hy1zHJP6A8UYQM+XqEJ0Azgb5Y0XMdhU/vVEsz9IffzNli6k8LUkKKN4U6wkhmTIMW4z
- Kn81iZKqidUbgwmTVRgW9uXQC/V09vYfAPYuAyunpV1luJaihbm3/S/Iozz7PK2A7s2mHrRmSUI
- XsYZV6Z7c4RfJ80yxy2EJSUHCaayBiuX+gkTdZ3Voemy1nrM1iHEDe/q9hWxaQPfO1qbLFQsx/P N7L5dub2+QwjjoQ==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <174713127684.4157861.15977616973399970511.b4-ty@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_031414_005748_85D05A1C 
-X-CRM114-Status: UNSURE (   7.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250513_111730_099353_E1AD4330 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,48 +95,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
+On Tue, 13 May 2025, Lee Jones wrote:
 
-  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
+> On Tue, 29 Apr 2025 14:51:26 +0200, Fabrice Gasnier wrote:
+> > This series adds support for STM32MP25 to MFD PWM, IIO, counter and
+> > clocksource low-power timer (LPTIM) drivers.
+> > This new variant is managed by using a new DT compatible string, hardware
+> > configuration and version registers.
+> > It comes with a slightly updated register set, some new features and new
+> > interconnect signals inside the SoC.
+> > Same feature list as on STM32MP1x is supported currently.
+> > The device tree files add all instances in stm32mp251 dtsi file.
+> > 
+> > [...]
+> 
+> Applied, thanks!
+> 
+> [1/7] dt-bindings: mfd: stm32-lptimer: add support for stm32mp25
+>       commit: 3f9ce9d0760ad68a9c20167664d026d91da66879
+> [2/7] mfd: stm32-lptimer: add support for stm32mp25
+>       commit: 4f8ceb0302b36c5f78bcc8d0e7cfa2372fba134c
+> [3/7] clocksource: stm32-lptimer: add support for stm32mp25
+>       commit: 5414bc8c57c41038b1994cd21a2cc0b8415c1544
+> [4/7] pwm: stm32-lp: add support for stm32mp25
+>       commit: 3f51b232c1da8e59eb562f1d81533334827a4799
 
-are available in the Git repository at:
+In future, please match the subject format with that expected by the
+subsystem.  For this, `git log --oneline -- <subsystem>` is your friend.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-clk-6.16
+I changed them all for you this time.
 
-for you to fetch changes up to 81214185e7e1fc6dfc8661a574c457accaf9a5a4:
+The above patches have been applied and submitted for build testing.
+Once complete, I'll follow-up with an PR for the other maintainers to
+pull from.
 
-  clk: samsung: correct clock summary for hsi1 block (2025-05-12 08:30:06 +0200)
+Note to self: ib-mfd-clocksource-pwm-6.16
 
-----------------------------------------------------------------
-Samsung SoC clock drivers changes for 6.16
-
-1. ExynosAutov920:
- - Add CPU cluster CL0, CL1 and CL2 clock controllers.
- - Fix HSI1 USBDRD clock parents.
-
-2. Minor cleanup for Exynos4 drivers.
-
-----------------------------------------------------------------
-Krzysztof Kozlowski (2):
-      Merge branch 'for-v6.16/dt-bindings-clk-samsung' into next/clk
-      Merge branch 'for-v6.16/dt-bindings-clk-samsung' into next/clk
-
-Pritam Manohar Sutar (1):
-      clk: samsung: correct clock summary for hsi1 block
-
-Shin Son (5):
-      dt-bindings: clock: exynosautov920: add cpucl0 clock definitions
-      clk: samsung: exynosautov920: add cpucl0 clock support
-      dt-bindings: clock: exynosautov920: add cpucl1/2 clock definitions
-      clk: samsung: exynosautov920: add cpucl1/2 clock support
-      clk: samsung: exynosautov920: Fix incorrect CLKS_NR_CPUCL0 definition
-
-Varada Pavani (1):
-      clk: samsung: Use samsung CCF common function
-
- .../clock/samsung,exynosautov920-clock.yaml        |  69 +++++
- drivers/clk/samsung/clk-exynos4.c                  |  74 +++--
- drivers/clk/samsung/clk-exynosautov920.c           | 338 ++++++++++++++++++++-
- include/dt-bindings/clock/samsung,exynosautov920.h |  51 ++++
- 4 files changed, 499 insertions(+), 33 deletions(-)
+-- 
+Lee Jones [李琼斯]
 
