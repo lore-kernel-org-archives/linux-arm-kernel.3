@@ -4,69 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C454AC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 09:21:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4669AC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 09:27:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uMpyt4DP1Y75x9j/B+hzU7PggwWNpIYkOL2rmk5OReo=; b=ClAHPTRAQmZgSpAei4CxJ+BK6a
-	F+sjKWjH4rrvhFyBEt6+KmS0bpzOz049Rwmc4mBE6qR2urcaU9j/Or+bfb3+dnKOO9PxBPVNPNZfX
-	QnXNgS4i31xJsx8Hd4vX+8Xla+w3/E3+mwxH7rT03eOkJpDw2AfqWF0e20tPZnejERjStaQ6GHbRx
-	UkfxKNKugDtErw03c00TK/uvlMSJXcx59niKktURFE/35KhbOJhgssydxihzk5FIsXh/mQHNtIEIa
-	gxZ8SZGAVLMr33EIuZUxDTnmH8gGYAHvXx6hrh6GR146RmjCRlOzBTK9+d9eGExn+rbZGYCsNRTPq
-	9KczaGlQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Re+3xSGdbQ4YZhlD6EZmPLIe3gM/2qZ8N8p8ljr2VMI=; b=NQVd/Mbv9+k7F9SGzhMWMXoNTl
+	HodzFNASgmu/xjDyNMfSpEMZGujNc9rVeWgY4gi/+OPSSRy5vzyywXKFWahLTaRUttepUdExzB/o9
+	oQ5bFVnTDrokLX/HZi64th4Bo9z9dhz93Eb8HJ5ALUcCs47xv2LvSnKGD5b93pZ4Oo0ABSPuhp+sB
+	A0gRNpGIdAplzTrdFcU1fP1SH7BBDUvR/PZE8iDBuBRrG7DK8Ik+H0w5m/1QEpfg4HKAObob1NT0c
+	hwh9U4i/4tzi5mj0pRAd01nQKNeLq9PqngeT17VN/X5yZpElkHXCnuPG2jRRCbQyLI0ON/SIPjA19
+	Keo38CLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uElpc-0000000BtLD-1p3k;
-	Tue, 13 May 2025 09:21:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEljx-0000000Brdi-1vhi
+	id 1uElvB-0000000BuTN-0QXJ;
+	Tue, 13 May 2025 09:27:33 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uEltA-0000000BuFx-2Z9O
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 09:15:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4A734168F;
-	Tue, 13 May 2025 02:15:43 -0700 (PDT)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 925F23F673;
-	Tue, 13 May 2025 02:15:50 -0700 (PDT)
-Message-ID: <c5a74dfe-68e2-48f1-9bbb-06db8e62ffea@arm.com>
-Date: Tue, 13 May 2025 10:15:49 +0100
+	Tue, 13 May 2025 09:25:29 +0000
+Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1uElt9-0000vC-EO; Tue, 13 May 2025 11:25:27 +0200
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: soc@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	kernel@pengutronix.de,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Subject: [GIT PULL] Reset controller updates for v6.16
+Date: Tue, 13 May 2025 11:25:16 +0200
+Message-Id: <20250513092516.3331585-1-p.zabel@pengutronix.de>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH v6 1/3] arm64: Add BBM Level 2 cpu feature
-To: Catalin Marinas <catalin.marinas@arm.com>,
- Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>,
- =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
- yang@os.amperecomputing.com, corbet@lwn.net, jean-philippe@linaro.org,
- robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org,
- paulmck@kernel.org, mark.rutland@arm.com, joey.gouly@arm.com,
- maz@kernel.org, james.morse@arm.com, broonie@kernel.org,
- oliver.upton@linux.dev, baohua@kernel.org, david@redhat.com,
- ioworker0@gmail.com, jgg@ziepe.ca, nicolinc@nvidia.com, mshavit@google.com,
- jsnitsel@redhat.com, smostafa@google.com, kevin.tian@intel.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
-References: <20250428153514.55772-2-miko.lenczewski@arm.com>
- <20250428153514.55772-4-miko.lenczewski@arm.com>
- <20250506142508.GB1197@willie-the-truck>
- <78fec33d-fe66-4352-be11-900f456c9af3@arm.com>
- <20250509134904.GA5707@willie-the-truck> <aB4nqtMJuvvp7Vwm@arm.com>
- <015746d7-ca46-4978-a441-09fba781fdd4@arm.com>
- <4709ff5a-f89c-426e-ae95-f8356808f4f5@arm.com>
- <99079d56-428b-4bc4-b20a-dc10032f2a2f@arm.com> <aCIiwrA_MOeVhFre@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <aCIiwrA_MOeVhFre@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_021557_587611_B98A65EE 
-X-CRM114-Status: GOOD (  33.79  )
+X-CRM114-CacheID: sfid-20250513_022528_647215_0D530090 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,105 +64,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/05/2025 17:33, Catalin Marinas wrote:
-> On Mon, May 12, 2025 at 02:35:01PM +0100, Ryan Roberts wrote:
->> On 12/05/2025 14:24, Suzuki K Poulose wrote:
->>> On 12/05/2025 14:07, Ryan Roberts wrote:
->>>> On 09/05/2025 17:04, Catalin Marinas wrote:
->>>>> On Fri, May 09, 2025 at 02:49:05PM +0100, Will Deacon wrote:
->>>>>> I wonder if we could treat it like an erratum in some way instead? That
->>>>>> is, invert things so that CPUs which _don't_ have BBML2_NOABORT are
->>>>>> considered to have a "BBM_CONFLICT_ABORT" erratum (which we obviously
->>>>>> wouldn't shout about). Then we should be able to say:
->>>>>>
->>>>>>     - If any of the early CPUs don't have BBML2_NOABORT, then the erratum
->>>>>>       would be enabled and we wouln't elide BBM.
->>>>>>
->>>>>>     - If a late CPU doesn't have BBML2_NOABORT then it can't come online
->>>>>>       if the erratum isn't already enabled.
->>>>>>
->>>>>> Does that work? If not, then perhaps the cpufeature/cpuerrata code needs
->>>>>> some surgery for this.
->>>>>
->>>>> Ah, I should have read this thread in order. I think we can treat this
->>>>> as BBML2_NOABORT available as default based on ID regs and use the
->>>>> allow/deny-list as an erratum.
->>>>
->>>> Just to make sure I've understood all this, I think what you are both saying is
->>>> we can create a single capability called ARM64_HAS_NO_BBML2_NOABORT of type
->>>> ARM64_CPUCAP_LOCAL_CPU_ERRATUM. Each CPU will then check it has BBML2 and is in
->>>> the MIDR allow list; If any of those conditions are not met, the CPU is
->>>> considered to have ARM64_HAS_NO_BBML2_NOABORT.
->>>
->>> I guess we need two caps.
->>>
->>> 1. SYSTEM cap -> ARM64_HAS_BBML2. Based on the ID registers
->>> 2. An erratum -> ARM64_BBML2_ABORTS. Based on BBLM2==1 && !in_midr_list()
->>
->> I don't think we *need* two caps; I was suggesting to consider both of these
->> conditions for the single cap. You are suggesting to separate them. But I think
->> both approaches give the same result?
->>
->> I'm easy either way, but keen to understand why 2 caps are preferred?
-> 
-> I guess it's easier to reason about than a single, negated property but
-> the result should be identical. With two properties we can easily
-> implement the idreg override like nobbml2 since this works on the
-> sanitised ID regs. But we could also implement this differently, no need
-> to rely on the ID regs.
-> 
-> Stepping back a bit, we know that the MIDR allow-list implies
-> BBML2_NOABORT (and at least BBML2 as in the ID regs). In theory, we need
+Dear arm-soc maintainers,
 
-Please be aware that BBML2_NOABORT midr list may not always imply BBLM2 
-in ID registers (e.g., AmpereOne. But the plan is to fixup the per cpu
-ID register - struct cpuinfo_arm64 - for such cores at early boot,
-individually, before it is used for sanitisation of the system wide
-copy).
+The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
 
+  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
 
-> something like a SYSTEM_FEATURE which is the conjunction of all the
-> early CPUs. However, such system-level cap is only checked after all the
-> early CPUs booted _and_ only on the sanitised ID regs rather than MIDR.
-> 
-> We need a LOCAL_CPU feature behaviour to be called on each CPU but still
-> have the conjunction of early CPUs, more like the system one. It should
-> be permitted for late CPUs to have but not optional if already enabled.
-> 
-> So how about we introduce a WEAK_BOOT_CPU_FEATURE which gets enabled by
-> the boot CPU if it has it _but_ cleared by any secondary early CPU if it
-> doesn't (and never enabled by secondary CPUs). When the features are
-> finalised, we know if all early CPUs had it. In combination with
-> PERMITTED_FOR_LATE_CPU, we'd reject late CPUs that don't have it.
+are available in the Git repository at:
 
-That could work, but it introduces this "clearing" a capability, which
-we don't do at the moment.
+  git://git.pengutronix.de/pza/linux.git tags/reset-for-v6.16
 
-We had an offline discussion about this some time ago, with Mark
-Rutland. The best way to deal with this is to change the way we compute
-capabilities. i.e.,
+for you to fetch changes up to 1c64de886b8893c0158097edd6ba08d527a2c97a:
 
+  dt-bindings: reset: sophgo: Add SG2044 bindings. (2025-05-05 15:22:33 +0200)
 
-1. Each boot CPU run through all the capabilities and maintain a per-cpu
-    copy of the state.
-2. System wide capabilities can then be constructed from the all early
-    boot CPU capability state (e.g., ANDing all the state from all CPUs
-    for SCOPE_SYSTEM or ORing for LOCAL_CPU).
+----------------------------------------------------------------
+Reset controller updates for v6.16
 
-But this requires a drastic change to the infrastructure.
+* Add T-HEAD TH1520 and Renesas RZ/V2H(P) USB2PHY reset controller
+  drivers.
+* Add devm_reset_control_array_get_exclusive_released() variant to allow
+  using the acquire/release hand-off mechanism for exclusive reset
+  controls bundled into reset control arrays.
+* Add Sophgo SG2044 reset controller to device tree bindings.
 
-> 
-> I think if we can get the above, it would be the cleaner option than
-> trying to bend our minds around double negations like !NO_BBLM2_NOABORT.
+----------------------------------------------------------------
+Inochi Amaoto (1):
+      dt-bindings: reset: sophgo: Add SG2044 bindings.
 
-Agree, every time I come back to the thread, I have to write down the
-check and stare at it for a minute to agree with what it does. That said
-it may be ideal solution for the short term. Or stick to what we do in
-the patch currently, until we implement per-cpu capability proposal.
+Lad Prabhakar (3):
+      dt-bindings: reset: Document RZ/V2H(P) USB2PHY reset
+      reset: Add USB2PHY port reset driver for Renesas RZ/V2H(P)
+      MAINTAINERS: Add entry for Renesas RZ/V2H(P) USB2PHY Port Reset driver
 
-Cheers
-Suzuki
+Michal Wilczynski (2):
+      dt-bindings: reset: Add T-HEAD TH1520 SoC Reset Controller
+      reset: thead: Add TH1520 reset controller driver
 
-> 
+Patrice Chotard (1):
+      reset: Add devm_reset_control_array_get_exclusive_released()
 
+ .../reset/renesas,rzv2h-usb2phy-reset.yaml         |  56 +++++
+ .../bindings/reset/sophgo,sg2042-reset.yaml        |   7 +-
+ .../bindings/reset/thead,th1520-reset.yaml         |  44 ++++
+ MAINTAINERS                                        |  11 +
+ drivers/reset/Kconfig                              |  17 ++
+ drivers/reset/Makefile                             |   2 +
+ drivers/reset/reset-rzv2h-usb2phy.c                | 236 +++++++++++++++++++++
+ drivers/reset/reset-th1520.c                       | 135 ++++++++++++
+ include/dt-bindings/reset/thead,th1520-reset.h     |  16 ++
+ include/linux/reset.h                              |   6 +
+ 10 files changed, 529 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/devicetree/bindings/reset/renesas,rzv2h-usb2phy-reset.yaml
+ create mode 100644 Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
+ create mode 100644 drivers/reset/reset-rzv2h-usb2phy.c
+ create mode 100644 drivers/reset/reset-th1520.c
+ create mode 100644 include/dt-bindings/reset/thead,th1520-reset.h
 
