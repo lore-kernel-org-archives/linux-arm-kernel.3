@@ -4,91 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEBC9C3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 15:25:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4BAFC3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 15:27:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7HOlMAg4ITw5NVtu1FU2SCoRgaRsj5LUWrw5KUtfOSU=; b=PsCYePD3UspocHZvrE3xxBGuK/
-	rJZ2gMUQUZQqxuvHdAJVk0KukbkE3By6VDEbuKcUZN1jvkuGDQsApQCmBP3HFhSAclf3W55D8hr+b
-	VhWQ3xiz6kv7v1gU4bD6R/UFNZvDGdiPdYvbHTmdlLo72jS67l4/AYzqfpxWVKYww20ty9XeQo96B
-	A3RAqxXi1y+Em+Xz2ndLzl5Fw5rFYGWkArM/0ijPDr66pY0LS0hX6Bv2y7w9H1b+8+KKcmYYjc8n8
-	nxS1iybHLlNBxIwLz8BSnPh4UHiWsD6uKuF/k8srOcLI+R8X5HBm+CgemLsk3PgqQdo857WKG3ohv
-	uXN8HrdA==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e4Aq7HPeyHmZNMONnd/Qv8JQOHr8stkcWD0o0/Qj+zY=; b=11s7voMKKscEEuNc+OwsTMOdIO
+	Xe69WhIPQhriSdHkp11jZfSpbnUqCQ2tS13kZcH3l29uV4hyxy0Nvr4JnaZ3uUHTNXqRcJXIAL/SW
+	H3GqFI22IAvNSxZbh3T873eZTB7pYYdkNv6Qsnit5tg4Oqh/AxYwJ4ldYLaf2S8PLMTnoF3Ac1+NP
+	IHhjIiw+kdW4kR/0/4vxbZtQasiQDVWzQ03OL2VeYGMa22hGLnt8nMjT+NStNX/DH0HYg/u+6PFaK
+	wt2hcf9pPvJ48XMTzG9gik2O30Mjl2mi0D5EdN3d8wkbYLCgKLRSEiXaEVRtCo+mrr7Pr4zhyfgJH
+	N9z7Cw8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uErVB-0000000CmK0-1jCH;
-	Tue, 13 May 2025 15:25:05 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1uErXH-0000000Cmha-0TJy;
+	Tue, 13 May 2025 15:27:15 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uErSQ-0000000Cli4-2GFp
+	id 1uErUl-0000000CmF5-1YXs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 15:22:15 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43cfe63c592so59798285e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 08:22:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747149732; x=1747754532; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7HOlMAg4ITw5NVtu1FU2SCoRgaRsj5LUWrw5KUtfOSU=;
-        b=JNRb9+7hr3lqERtfypCKvIV2gexut264RpIdQ4JsGggr3dUfWV8mPTEfTL5RwsPuh7
-         /1vjQyU59wvJR568YCh8DXwa0O8jk++mF1G5vjLCQ92scmvOoLkfNaDfuARpAWnvuzHD
-         o5bkXLCc0hBf+IjWlXgxcWhCrBGMEr6EZqjSmNDGtjpT70EhrzLW36htD+mvP+GtRVgc
-         7ZBzHG86lQxOlXKZQ8h+9KmWRc4e68Ponn2IpqyncjpsfUg5wiUptWfu20iF/6Twm4JY
-         Ohu8uYBxUFxYV/qi8A0iFLrPOZy45ddPCbUoTOOHyRQ6XK5ahXGT21fwh0U+nTw9YBd+
-         /nbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747149732; x=1747754532;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7HOlMAg4ITw5NVtu1FU2SCoRgaRsj5LUWrw5KUtfOSU=;
-        b=GzTdWo7icYngiy1Wi62mzbgQtMmiAe4hixT6sBHtcLLi6A0WZBVem8QZ0G27Rt7Ykw
-         P168NazLD1YZLtnF7chk38r3qNyB4pJJrxpxuSbcRqEIUA0GI/H/3C/ravatoJU/SzzU
-         VssifIUHH6xTTMJD6CFPCMhyu2W0Vgbo1d0KKKhiX6DzIahfYvZDx+kQXNLnqbWqcJko
-         lRx775UDPEwpTAJKpOWv4+gmGYD/YEy+PTI3rLKcQUCxiJBOwLJmkIJezsb+M381Fn5D
-         NMQlKOZ0udemIGLXdRrvgZvM4vG+Rvuc0YXo1ZdRkFY4+JJL67XmG7xhIO+Kg3Bhj75s
-         EULA==
-X-Forwarded-Encrypted: i=1; AJvYcCUBLShB3CyDcBbEwyXhj7Lo7qR35o6JnBOgZx+7VAlw348Pkk1nNDknwCHpcY8o4ui3aCIkxAI/e4nkCdREzGv6@lists.infradead.org
-X-Gm-Message-State: AOJu0YwckrEjvehJepLR6mledXWq4O/Bm445Ppl4NIPvGSHEHE9FALdE
-	rU4Z0jKSGWhuYHfldL1n32c/P8JbT0XuVxIjwbUKcn/soik0ps/s
-X-Gm-Gg: ASbGncv+1IagMDOCZv3CoSKV7Zdv44rrJeeBm0eePCmKk3iIO84PxqvAFS9ms6txe6Z
-	rGeSdNuK8Q9EQcdXHxL4VNLNPxgXFq1d+VK64SXfzt3fvrPlbs+hgQbK+zggQk6YJJ9xTL9sJet
-	2xpspNhbVxamwLTaeYKY96ZmreADz2b2bjufaq+xi/1LwE54mv8qmWG36TcZuhW5Xf7wJQbcnC3
-	pJDLpQfu4kpDMliqn6+8+H3Bsu4MmwmmLOkuXXatARRFfnhEQorJwdcD6v4xR0Wj7dhp94pS+OZ
-	oLZa+Wk+LouupxxrNDp0JMKNknP1CX4HN524m4ALs5V2IYQfgRICBinLr+mPS6R6/bEQuSbn4fQ
-	7eyGuvGKVTLiLVDJF7DVPIFtr9JX/5UeSjVUk5PPciYrsZiB6sOACAqPZwg==
-X-Google-Smtp-Source: AGHT+IEg6PWgzF4jLLpPihZcPfaWsfwoK2cBnNIZhlc1AU9QDfK1ahFTXtyBWf5ovWIPZUOzXx90cQ==
-X-Received: by 2002:a05:6000:1889:b0:3a2:377:500c with SMTP id ffacd0b85a97d-3a203775382mr9139211f8f.16.1747149732220;
-        Tue, 13 May 2025 08:22:12 -0700 (PDT)
-Received: from partp-nb.corp.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f58ec0e4sm16384170f8f.40.2025.05.13.08.22.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 May 2025 08:22:11 -0700 (PDT)
-From: Parth Pancholi <parth105105@gmail.com>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: Parth Pancholi <parth.pancholi@toradex.com>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] arm64: dts: ti: k3-j784s4-j742s2-main-common: Add ACSPCIE1 node
-Date: Tue, 13 May 2025 17:21:55 +0200
-Message-Id: <20250513152155.1590689-1-parth105105@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 13 May 2025 15:24:42 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54DDxVGf019621;
+	Tue, 13 May 2025 17:24:28 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	e4Aq7HPeyHmZNMONnd/Qv8JQOHr8stkcWD0o0/Qj+zY=; b=6WjYTtlFh2jVpF6c
+	sAiuYst1VrwSG4Uu1J3k6lhmhRQFOjgBZAjZsSpgkJauvx9f1zwfbvNspQ7atVbd
+	iKp5tMvKZ6JFMQLPXPzQALgN9KBKwa/8OCI/Xwv6xwUYVFig7OsacuQ9vCBMgJKX
+	wGpe/oJTOWyIvZnUs83Fx9VAdQt4gETCdSELW9yHlAHIbRLFnucKgKj1VcGcxMC9
+	uMFD7keTcqOFIceCsICL89TuHQHFjgXzT0iitYSh9R3XX71dhpJ8+3LQj5Hc4fQ6
+	esm1fowNraTMATZLvrA94zjT9UakGtQJhX5aBsYUHY5rC3sEYOLwBs977cDbhAME
+	tN5OfA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46hx51cvaf-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 13 May 2025 17:24:28 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2EEF74004A;
+	Tue, 13 May 2025 17:22:54 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B4592B1D1AF;
+	Tue, 13 May 2025 17:22:02 +0200 (CEST)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 13 May
+ 2025 17:22:01 +0200
+Message-ID: <33c35580-e6d6-4c66-80b4-2f5769ce4e67@foss.st.com>
+Date: Tue, 13 May 2025 17:22:01 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 2/3] memory: Add STM32 Octo Memory Manager driver
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Dan Carpenter
+	<dan.carpenter@linaro.org>
+CC: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+        Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, <christophe.kerello@foss.st.com>,
+        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250428-upstream_ospi_v6-v11-0-1548736fd9d2@foss.st.com>
+ <20250428-upstream_ospi_v6-v11-2-1548736fd9d2@foss.st.com>
+ <aB29hOrv0nU73RCn@stanley.mountain>
+ <cff1ddb5-b438-4287-80cf-3969f7b7b767@kernel.org>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <cff1ddb5-b438-4287-80cf-3969f7b7b767@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-13_03,2025-05-09_01,2025-02-21_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_082214_581974_2B1B4B2F 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20250513_082440_090919_C0794FD4 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,39 +107,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Parth Pancholi <parth.pancholi@toradex.com>
 
-The ACSPCIE1 module on TI's J784S4 SoC is capable of driving the reference
-clock required by the PCIe Endpoint device. It is an alternative to on-
-board and external reference clock generators.
-Add the device-tree node for the same.
 
-Signed-off-by: Parth Pancholi <parth.pancholi@toradex.com>
----
-v3: Split SoC support; board-specific changes to follow with Toradex Aquila AM69 upstream addition.
-v2: https://lore.kernel.org/all/20250404101234.2671147-1-parth105105@gmail.com/
-v1: https://lore.kernel.org/all/20250320122259.525613-1-parth105105@gmail.com/
----
- arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+On 5/13/25 09:54, Krzysztof Kozlowski wrote:
+> On 09/05/2025 10:32, Dan Carpenter wrote:
+>> On Mon, Apr 28, 2025 at 10:58:31AM +0200, Patrice Chotard wrote:
+>>> +static int stm32_omm_toggle_child_clock(struct device *dev, bool enable)
+>>> +{
+>>> +	struct stm32_omm *omm = dev_get_drvdata(dev);
+>>> +	int i, ret;
+>>> +
+>>> +	for (i = 0; i < omm->nb_child; i++) {
+>>> +		if (enable) {
+>>> +			ret = clk_prepare_enable(omm->clk_bulk[i + 1].clk);
+>>> +			if (ret) {
+>>> +				dev_err(dev, "Can not enable clock\n");
+>>> +				goto clk_error;
+>>> +			}
+>>> +		} else {
+>>> +			clk_disable_unprepare(omm->clk_bulk[i + 1].clk);
+>>> +		}
+>>> +	}
+>>> +
+>>> +	return 0;
+>>> +
+>>> +clk_error:
+>>> +	while (i--)
+>>> +		clk_disable_unprepare(omm->clk_bulk[i + 1].clk);
+>>> +
+>>> +	return ret;
+>>> +}
+>>> +
+>>> +static int stm32_omm_disable_child(struct device *dev)
+>>> +{
+>>> +	struct stm32_omm *omm = dev_get_drvdata(dev);
+>>> +	struct reset_control *reset;
+>>> +	int ret;
+>>> +	u8 i;
+>>> +
+>>> +	ret = stm32_omm_toggle_child_clock(dev, true);
+>>> +	if (!ret)
+>>             ^^^^
+>> I'm pretty sure this was intended to be if (ret) and the ! is a typo.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-index 363d68fec387..d17f365947ed 100644
---- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-@@ -131,6 +131,11 @@ acspcie0_proxy_ctrl: clock-controller@1a090 {
- 			compatible = "ti,j784s4-acspcie-proxy-ctrl", "syscon";
- 			reg = <0x1a090 0x4>;
- 		};
-+
-+		acspcie1_proxy_ctrl: clock-controller@1a094 {
-+			compatible = "ti,j784s4-acspcie-proxy-ctrl", "syscon";
-+			reg = <0x1a094 0x4>;
-+		};
- 	};
- 
- 	main_ehrpwm0: pwm@3000000 {
--- 
-2.34.1
+Hi Dan
 
+You are right, it's a typo. 
+
+Thanks
+Patrice
+
+>>
+>>> +		return ret;
+>>
+>> If it's not a typo please write this as:
+>>
+>> 	if (!ret)
+>> 		return 0;
+> 
+> For the record I consider this a bug report which still needs addressing
+> by the authors.
+> 
+> Best regards,
+> Krzysztof
 
