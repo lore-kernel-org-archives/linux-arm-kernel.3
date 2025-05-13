@@ -4,82 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E8FC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 13:59:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49A36C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 14:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pvdNMKNfVdO994gBBMv5mj9apu0nbjOHK5Q4DGEIP2k=; b=odzo84mim3MPUtNOoqbPOO6mhE
-	/Ng2dwaiKzstNMI6ztqbih0D1BhkwNKlJY2Qlck31l6A6kpuuAfKewaB4ioHrupLKytmRbAuGbg45
-	zoch3hJbNK4d7N8QLYvykfKX67Sx8Mc76JtRWYGo7b2zHhO4XVZ2eEbHupFEp8cD7fRryLqhDhXeE
-	EQ+h31qCp8XM+U6CkFNC51kFhfLltLAAtR5MYjdG35PMfGjyxN0wz00YBcu1WMm0wlj2AJSPIWEPc
-	AWtDhuCT5nnZcJ6gBEZlBeqU9hI2dywTFXBKldiOJciOn6bZeNjY7QDFyJEgFYz/ErS0Li32ZOaXq
-	4PA2LIMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YBHabA+dsKPkDBhTVjTBudn+6NZzF9i93maXvsPuPYA=; b=QCxJdHRVQ8qITO7h59p1f28cqh
+	sZ1E9ejnRv0x9QrUfN3gDx2zuAt22zFyJ6T1cK3Xh0YsJWp4jVzlt1xGmhKGgKjJSQouEe5x/XfkR
+	hg5m/nFHB2U8CyY/EwIsPtu5b6i0xT1M6cOA2UUd66dpcoucd8aCkUVRGqBoejX+PuGSPL4ba8kIS
+	hNZYcIlKJBK3iSRRSbs6tYTwiAdO2FQHWmalTN3hiATtst+crMZKTMcACnYuMR+DFwIEaXHa/sCny
+	jtTXg4P2o9IN7UhS8z5gkA3POFvlvmWqs67rXm8U3D/vHiIfbkRd+CI54uALz/S5urcydX1OQSR4c
+	pE0k1yTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEqAO-0000000CYdx-1Zmb;
-	Tue, 13 May 2025 13:59:32 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEq4b-0000000CXro-3OL7
+	id 1uEqDE-0000000CZ4c-169a;
+	Tue, 13 May 2025 14:02:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uEqAi-0000000CYiG-02Tb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 13:53:35 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 0991443B08;
-	Tue, 13 May 2025 13:53:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1747144411;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pvdNMKNfVdO994gBBMv5mj9apu0nbjOHK5Q4DGEIP2k=;
-	b=FbAAkOOHb7oofcvEcbkxOSpyVepJcAwlvz1Pxcu0bQYZbAtqd9TUuacDVLKV6g59Gd2W7b
-	38mesvsylubAzEuBYo2zPkyrXWtT5E97UlqkLNmseqXabcZbdiFJwIKbE+ZYeiqeonruH+
-	IcxC4FvdjJUitD4KSbRf4XcJC8lPEggIyp9PqrlII0zatRNdbFkHIE/o3dmDZdeWeAvDSf
-	DGXo+TYbs9hRpYZ+WNmMEDpcJUU9UZ9rVKPh7hfzTG9NCehr4eaO9zq/gInwlBB1JXtyfn
-	RVOBpDLdkee8IwcVLha+9uUUBHi3lGrX4tXGHaGQ3rQJKTlQdcuVJTsB9yGQAA==
-Date: Tue, 13 May 2025 15:53:25 +0200
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
- <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, Marek
- =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
- <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
- <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
- mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
- devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Romain
- Gantois <romain.gantois@bootlin.com>, Daniel Golle <daniel@makrotopia.org>,
- Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: Re: [PATCH net-next v6 03/14] net: phy: Introduce PHY ports
- representation
-Message-ID: <20250513155325.2f423087@kmaincent-XPS-13-7390>
-In-Reply-To: <20250507135331.76021-4-maxime.chevallier@bootlin.com>
-References: <20250507135331.76021-1-maxime.chevallier@bootlin.com>
-	<20250507135331.76021-4-maxime.chevallier@bootlin.com>
-Organization: bootlin
-X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
+	Tue, 13 May 2025 13:59:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 72C44168F;
+	Tue, 13 May 2025 06:59:40 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.52])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8B27C3F5A1;
+	Tue, 13 May 2025 06:59:50 -0700 (PDT)
+Date: Tue, 13 May 2025 14:59:47 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: catalin.marinas@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] arm64: Update comment regarding values in __boot_cpu_mode
+Message-ID: <aCNQU74Qx2Cb4L9j@e133380.arm.com>
+References: <20250513124525.677736-1-ben.horgan@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeftdegvdekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertdejnecuhfhrohhmpefmohhrhicuofgrihhntggvnhhtuceokhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgfdutdefvedtudegvefgvedtgfdvhfdtueeltefffefffffhgfetkedvfeduieeinecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtudemtggsudgrmeeiudemjehfkegtmegurgehjeemfeehsggsmegttdejudemiegsvdgsnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgdurgemiedumeejfhektgemuggrheejmeefhegssgemtgdtjedumeeisgdvsgdphhgvlhhopehkmhgrihhntggvnhhtqdgirffuqddufedqjeefledtpdhmrghilhhfrhhomhepkhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedupdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpt
- hhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
-X-GND-Sasl: kory.maincent@bootlin.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250513124525.677736-1-ben.horgan@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_065334_166536_28C0A5E2 
-X-CRM114-Status: GOOD (  27.70  )
+X-CRM114-CacheID: sfid-20250513_065952_107264_62AC4F8F 
+X-CRM114-Status: GOOD (  19.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,112 +62,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed,  7 May 2025 15:53:19 +0200
-Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
+Hi,
 
-> Ethernet provides a wide variety of layer 1 protocols and standards for
-> data transmission. The front-facing ports of an interface have their own
-> complexity and configurability.
->=20
-> Introduce a representation of these front-facing ports. The current code
-> is minimalistic and only support ports controlled by PHY devices, but
-> the plan is to extend that to SFP as well as raw Ethernet MACs that
-> don't use PHY devices.
->=20
-> This minimal port representation allows describing the media and number
-> of lanes of a port. From that information, we can derive the linkmodes
-> usable on the port, which can be used to limit the capabilities of an
-> interface.
->=20
-> For now, the port lanes and medium is derived from devicetree, defined
-> by the PHY driver, or populated with default values (as we assume that
-> all PHYs expose at least one port).
->=20
-> The typical example is 100M ethernet. 100BaseT can work using only 2
-> lanes on a Cat 5 cables. However, in the situation where a 10/100/1000
-> capable PHY is wired to its RJ45 port through 2 lanes only, we have no
-> way of detecting that. The "max-speed" DT property can be used, but a
-> more accurate representation can be used :
->=20
-> mdi {
-> 	connector-0 {
-> 		media =3D "BaseT";
-> 		lanes =3D <2>;
-> 	};
-> };
->=20
-> From that information, we can derive the max speed reachable on the
-> port.
->=20
-> Another benefit of having that is to avoid vendor-specific DT properties
-> (micrel,fiber-mode or ti,fiber-mode).
->=20
-> This basic representation is meant to be expanded, by the introduction
-> of port ops, userspace listing of ports, and support for multi-port
-> devices.
->=20
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+On Tue, May 13, 2025 at 01:45:25PM +0100, Ben Horgan wrote:
+> The values stored in __boot_cpu_mode were changed without updating the
+> comment. Rectify that.
+> 
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 
-...
+FWIW,
 
-> +	for_each_available_child_of_node_scoped(mdi, port_node) {
-> +		port =3D phy_of_parse_port(port_node);
-> +		if (IS_ERR(port)) {
-> +			err =3D PTR_ERR(port);
-> +			goto out_err;
-> +		}
-> +
-> +		port->parent_type =3D PHY_PORT_PHY;
-> +		port->phy =3D phydev;
-> +		err =3D phy_add_port(phydev, port);
-> +		if (err)
-> +			goto out_err;
+Reviewed-by: Dave Martin <Dave.Martin@arm.com>
 
-I think of_node_put(port_node) is missing here.
+(I find the actual __boot_cpu_mode[] behaviour a bit of a puzzle, but
+the updated comment looks good.)
 
-...
+Cheers
+---Dave
 
-> @@ -1968,6 +1997,7 @@ void phy_trigger_machine(struct phy_device *phydev);
->  void phy_mac_interrupt(struct phy_device *phydev);
->  void phy_start_machine(struct phy_device *phydev);
->  void phy_stop_machine(struct phy_device *phydev);
-> +
-
-New empty line here?
-
-> +/**
-> + * struct phy_port - A representation of a network device physical inter=
-face
-> + *
-> + * @head: Used by the port's parent to list ports
-> + * @parent_type: The type of device this port is directly connected to
-> + * @phy: If the parent is PHY_PORT_PHYDEV, the PHY controlling that port
-> + * @ops: Callback ops implemented by the port controller
-> + * @lanes: The number of lanes (diff pairs) this port has, 0 if not
-> applicable
-> + * @mediums: Bitmask of the physical mediums this port provides access to
-> + * @supported: The link modes this port can expose, if this port is MDI =
-(not
-> MII)
-> + * @interfaces: The MII interfaces this port supports, if this port is M=
-II
-> + * @active: Indicates if the port is currently part of the active link.
-> + * @is_serdes: Indicates if this port is Serialised MII (Media Independe=
-nt
-> + *	       Interface), or an MDI (Media Dependent Interface).
-> + */
-> +struct phy_port {
-> +	struct list_head head;
-> +	enum phy_port_parent parent_type;
-> +	union {
-> +		struct phy_device *phy;
-> +	};
-
-The union is useless here?
-
-Regards,
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+> ---
+> 
+> The discrepancy was introduced in commit 828e9834e9a5 ("arm64: head:
+> create a new function for setting the boot_cpu_mode flag").
+> 
+>  arch/arm64/include/asm/virt.h | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
+> index ebf4a9f943ed..aa280f356b96 100644
+> --- a/arch/arm64/include/asm/virt.h
+> +++ b/arch/arm64/include/asm/virt.h
+> @@ -67,7 +67,8 @@
+>   * __boot_cpu_mode records what mode CPUs were booted in.
+>   * A correctly-implemented bootloader must start all CPUs in the same mode:
+>   * In this case, both 32bit halves of __boot_cpu_mode will contain the
+> - * same value (either 0 if booted in EL1, BOOT_CPU_MODE_EL2 if booted in EL2).
+> + * same value (either BOOT_CPU_MODE_EL1 if booted in EL1, BOOT_CPU_MODE_EL2 if
+> + * booted in EL2).
+>   *
+>   * Should the bootloader fail to do this, the two values will be different.
+>   * This allows the kernel to flag an error when the secondaries have come up.
+> -- 
+> 2.43.0
+> 
+> 
 
