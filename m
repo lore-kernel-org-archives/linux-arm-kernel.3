@@ -4,93 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF60CC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 10:56:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15979C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 11:02:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E5XqWRuALq+1KPuNnLLJTpIo8i27168N3j9dyvRLwpM=; b=4Uk1nmUtcHstL8kyHzlOWc3/Xd
-	2fSxAapLkAGCX5v4TPvGh0HKqxjULSZmltl4Rbtmv7vsyWcrDYFdY635Seg0+LsG8i2YOPNd4Lw1+
-	r7QeEO9hhmCT/IlfJWpjsjfxfxksigWducHtF7CYgh0A9GutnoEN3oEyGdw9y7dPI/1XcOdRn52VT
-	uPAbKE7/udME3djnJ/mb6MQGTeonzGaeqzCcwFMB9YyKXJOjslFpa3dbPieEOSLbklxWD+DRCkS+I
-	k0/psRm7L4QPxUxRBg4kRo/Sg0gMcU5XF67zIEGI8BOjXHRUQ/h5twr5p3/UU+mp5JE8dnxep++H3
-	K0xCKVIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IvRmj826ad4QUb971cjwKbsd9avSTJmnW3hYgxwozQA=; b=HnpH7H5EY1DZj6gPbnchJ7FghD
+	Y9DYFNgV4XAfITzuAYIMgIVVYQUShic6wWFfnooQ+QMFVRo8AZMlRo1za6uL9h/wMMKgsBCr9C/nz
+	PVBHFZdL1FSYysPhTxrRg2mwI80WSBIDW4YC3frTiuG4gs+pSGR5Bt1UQF67K79DqlAjhd4pCx0uS
+	tOibAVRR3fEn8EUMOcvWee/8Z2hYxdZpmCZCEhfJGXFVdgYP2ndtNxJFqL/ub64Y8chH/aLuePjDh
+	Z8Kpo0c2kwZwvIvZXWkm7X3cB/foAd2gaThCTjPhWfD0Hk3Wf1eVLAYyIjRbEgl0WtfvrUi6k4LhC
+	eCgEfETg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEnIl-0000000CC6K-10Tj;
-	Tue, 13 May 2025 10:55:59 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1uEnOd-0000000CCm9-0rhY;
+	Tue, 13 May 2025 11:02:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEnGQ-0000000CBqG-3HTN
+	id 1uEnMW-0000000CCbl-3DUL
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 13 May 2025 10:59:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=IvRmj826ad4QUb971cjwKbsd9avSTJmnW3hYgxwozQA=; b=BQl3f5poYGRws+pi8qI2uqEBfE
+	URqgCdduwd3MuZK0YppykCSygHpIrO3kP9KnvB3jCM+axPhQgr1A3tlECuGKpPM3wBPee6JLq9+uQ
+	/bAZig47HlgMfd1u9LYYgiGmz/zZ/lT2cXhXMGJWVGrqBU3t5Rux78vJfiApraneNqRw9vmb3Kkzn
+	lLCLV6Wxdb3Zr0pKo1D8OLUobItdIdsKNE84ApZG43GwgCQKsCGjIJQibdYIFl6ISVhlWmikmTdfU
+	dJJLsl+dqfPv+nvL35Y+3igU9w2kclcYFnpfP27szUJsHGb7CNvrNfoXC3p2m2uEiq1Owkz+ydh67
+	iPpURnrw==;
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uEnMS-0000000GxlA-3I0N
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 10:53:35 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-442ec3ce724so3445415e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 03:53:33 -0700 (PDT)
+	Tue, 13 May 2025 10:59:51 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3a0b4c828c1so662698f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 03:59:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747133613; x=1747738413; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=E5XqWRuALq+1KPuNnLLJTpIo8i27168N3j9dyvRLwpM=;
-        b=kAFMHMZd3IXolOawFUyZDC2Vx0Hmj7AHqBSsIZTYtxRpKqYK2LeiFYFLIrxXLSWO1l
-         QrdZve0A7PMSdgPsWuxPrbUsICxv3WwQODDAoEzYZbGrQB/NEDbJCke6syAa8LqbhCke
-         qftf+HSaiwH7RWKyC94cRnm70Ge11qK1g49es1yhHtiHHe/7CotiUEh79wX+X5gMn/AE
-         GnGz4zUUYK3LWwJMWBjQAdWc9lPwZ1/L9SW41UaM0lxCs8CBoU5yDIvdcOrXSHzqyTUu
-         Iam20HzxEiKgaorzOPoaN0ZnGhakcfPruWaefL9xWYQw5GJjhm8X8miSbQ160qGhcTr5
-         o1BA==
+        d=linaro.org; s=google; t=1747133986; x=1747738786; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=IvRmj826ad4QUb971cjwKbsd9avSTJmnW3hYgxwozQA=;
+        b=CMnh2XB66ZpGVsg+72JTsfcD0mrFu8HGyTLgC/tda2X9Onzqki9nAjhWY4ag77hbeU
+         I4/ZPYudeNYbLFYcLTGDJW65Lde7bdbetcnoUeg2dBGLHtqb887LZvQUH4cPwVy189ri
+         UXjOPwvYsL5SGrzluzoOvlKhtge7heByJqwEvKqLxyYK9IwltT1PO18hwjVmzTv03F+n
+         eClIrJZiNzeSqF/x6zjhtgEMrqk2ulVoKA2I2b+xeFtXMXvH0gI480YVycHXIoHCbsqg
+         8lSptNlUMSG5RKu4YpQTS/JC84ZMvcqLE9cPhzhpEfyhj77DtzTT1+rUT+0StHjVwZEy
+         KUpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747133613; x=1747738413;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=E5XqWRuALq+1KPuNnLLJTpIo8i27168N3j9dyvRLwpM=;
-        b=TqF4aD/4IjoqXexTwJ4qWDA1sjGj4E82yKiaFnee0jI3psRuSxVCFrnCVBMk4PlkI/
-         YE+Y5gSRFO7NxwnEfmVkBpkQ4sdnAA4fK5X+1gV1Cx3Gh6EVkhtWzH16kXX3Q3MBuFrH
-         ALf402djD9zgBYMV6OKpom1ZFaAEyy2YwogMtRMcizYG1siW6CvpyY8um6zq5bdxfs52
-         sDD5uhrT0PJuMQIgfhydtEopr1VW8W7w6TlNfuQzc26nabcNWTb+o+9F6+l9kVQeWRbX
-         9AtBNPzcMQPSvb1L4cNoigZaBjcrm5VjavdGSWoDQcPx9WCr/s2sLYyJSqEIrr9TBKcm
-         2Lkg==
-X-Forwarded-Encrypted: i=1; AJvYcCV7ZPU60474M0Q1uZbl8V22k7hGVDTIOVPRh8r+YUaNGV6wCY23aERvgqa9AIQ1WKQ4sERGEbSCzvWJSXkH3IlH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKrgB4TZQ4v69301vxrXepBjguKFfTc65EYnhau3x5VP1j0ID4
-	4Hg9GxF7LoTTXFM1zBY51Gm/8Bzv0+mFSXAt7b5hB99X4Pq3APDXauGLY5CC9w==
-X-Gm-Gg: ASbGncuVkY19jPsq6hke53gA6TlRnmeJP43NpJs5YogIUXNkh9Dq58nUQF7dKooRg9A
-	lcoFpm/7QBe1tjd2/4m6DsR/jNZEx4l9XZcWa9H8qNwmswAROjMnZPhQPnP8nLfPBEKzD80Z++L
-	fHJ0SYwxqcC4UE12uoXUdtuwTooT4SOqnpY0TEzLxlO3Ho6n/p/M+MQ14+XbbN1WJ9E/RXVdUWb
-	F7NxPg8Gn7ntc8gsLz1hwuYvBJCVVLJXRe/8481Z3O3X1LkCv3qEKl1Xics2EsyaXAU3GMr97IB
-	ROhG2VRVQOt2QATtHhP3Wpi7qwF9aiIUFvl4NGZ2huPaVF7LLdPAu8X8Xg1Ls6sqZB4d5FSXGk3
-	ovs5Yn54cJ6gvyA==
-X-Google-Smtp-Source: AGHT+IF4m8noQnB4eGSySi2oqV3PlKbLI8UICKwhBvvGk/TXUW4E0JigYf7vcXqZztR8zC1h2uVMZw==
-X-Received: by 2002:a05:600c:34d5:b0:43c:fe5e:f040 with SMTP id 5b1f17b1804b1-442d6dd21bfmr124187975e9.23.1747133612718;
-        Tue, 13 May 2025 03:53:32 -0700 (PDT)
-Received: from thinkpad (110.8.30.213.rev.vodafone.pt. [213.30.8.110])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442d67df5ecsm161692715e9.9.2025.05.13.03.53.30
+        d=1e100.net; s=20230601; t=1747133986; x=1747738786;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IvRmj826ad4QUb971cjwKbsd9avSTJmnW3hYgxwozQA=;
+        b=SMAHujrWWBMGyrzhchjNH/NvdF8KT/uE8d2/F3Y/c7TARQO65UPj/KiqoC4jEmimiY
+         71nyBboQeS4a7HAn2DjyN6B1f2uxFZvLJAvKtDylbVKw80sBxyiRz1kLTIoW2qwQZlAR
+         P4sTfjZoV4DfuhIxpoN6hfqtnmAxUc5U47+ZHb5VOTgnafpISTdkd+trZSsSBdQ1AmOu
+         bMAibfPhK1Ro6xN+Z3pQ8exO1gcH7TPIf7FZunKIJHpi/rYrgnItBF4RcgTdDthwe6Ua
+         LeRo6HPr+HB1nAnIGazC9GGIeq0V8qhxovfaGUzrj6KMhZYnJF7S6gPw62p9gM6SFz9Q
+         L2Xw==
+X-Forwarded-Encrypted: i=1; AJvYcCUYWll/UopEHTD7CUVUq/zKTvszanaZ98fYGqqZTeI4zmOwSawo6f2EksmvmlfLj3eqlidIRTo381C8s4ISmbYt@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzARPlEvtoi15U4gzKNiwvDtWFMyRO1Qfib5gPDK5ELlUycq72
+	oX+Qj3+FaFDBVR72Ioq2s/YoQpiS4/bXsznhJnKNAi+jas9qlt/IrH9f0PhPZvI=
+X-Gm-Gg: ASbGncuVjS0HT+BiJ6qpnBCfOjj+BZ35vL4tzZ8iAJMaYt+Kc0u6zMr/+HSyJZRj81K
+	k/vRP/MSzD14NS/IVoytMAXmdntPU1bRoJQjbemZyFspezwwGFca2ZCMdWCTEe1D5nUC9WouzYJ
+	WlgKcC+JOsrAV6xj98nIryNKihZ2cQpawi3M3GZCNkaFwdl9yeCHTj0yXEySUT3v7h7Asz8rRAU
+	Lp81dvBXGoBs+G7iZLOHgnlLYTXBHbNxgn0tAEgV7h5ylRmaBqXm5Y7JE6s/6ZDz0jp5ykJYr2N
+	HqMpb0cYMDksDQvYmiaEnm25hIbQ21tKIEGiqK9N72p0bLnjD+s/qCY//XqvoDZ/zrcbV4NYY4i
+	mCydRLb5v+X59/NVJpt20+xVQxO0z4ni5k9J34lo=
+X-Google-Smtp-Source: AGHT+IG5fKMxvjjltTJpP1VGWjmB/2GOQg7Z1BsjigMi3Gmj35E8GZ5+qOXlM4koXQ1T7HjcmVC4nw==
+X-Received: by 2002:a05:6000:40df:b0:3a0:782e:9185 with SMTP id ffacd0b85a97d-3a1f6423590mr4776881f8f.2.1747133986123;
+        Tue, 13 May 2025 03:59:46 -0700 (PDT)
+Received: from kuoka.c.hoisthospitality.com (110.8.30.213.rev.vodafone.pt. [213.30.8.110])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f58f3afdsm16078670f8f.60.2025.05.13.03.59.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 May 2025 03:53:32 -0700 (PDT)
-Date: Tue, 13 May 2025 11:53:29 +0100
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Krishna chaitanya chundru <quic_krichai@quicinc.com>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
-	Damien Le Moal <dlemoal@kernel.org>, Hans Zhang <18255117159@163.com>, 
-	Laszlo Fiat <laszlo.fiat@proton.me>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v2 0/4] PCI: dwc: Link Up IRQ fixes
-Message-ID: <7zcrjlv5aobb22q5tyexca236gnly6aqhmidx6yri6j7wowteh@mylkqbwehak7>
-References: <20250506073934.433176-6-cassel@kernel.org>
+        Tue, 13 May 2025 03:59:45 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Sylwester Nawrocki <snawrocki@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: [GIT PULL] pinctrl: samsung: drivers for v6.16
+Date: Tue, 13 May 2025 12:59:41 +0200
+Message-ID: <20250513105941.28448-2-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1442; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=GAD0kFJ5YJ2FK8mLZ5w9P8zRKTWeWXXWX86RwPrS390=;
+ b=owEBbAKT/ZANAwAKAcE3ZuaGi4PXAcsmYgBoIyYeXGYfRXBpOgZAbyMyM0G0gXfP7x4rVhaNG
+ ZNlW5kBi1aJAjIEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaCMmHgAKCRDBN2bmhouD
+ 1/mMD/QJrD+uVxskUSpR2WCT2iO2+zMLNh2Y105Wpicr6Ppz9U1EayRxH/yzRm4FqlVITLwSXPi
+ J7Wutiaf6sSE2g+LRG5mvicN5kctLn6jeKpgtCr7chJmHsffzJ24bC4MPO77a84H/0pItzLZYss
+ W5bzXLsjUr8VMg/22ALBMREsx+wfGlD5wzSXf/eTXoPaIWktsTOaSMC6UQ1+kC5zLgUZHXVJdW3
+ wf4gOksiN+SxVyQw1831nBdb4d3o68a5HtWw/q620FAkMOmKrur4T2Jow9E2eAaC3xjcE46cynw
+ m/FXrz42LMv6FeI+6oPdkx1gn00Eeg4pM2LRIyTK9htDCTkC5DvNZvOwTbvobADJgAxopW8riR1
+ 9yEWXP0hQOTaoLnmWmatCcKRPhvFh3mScZ7aWEML5Vh/AVRVe/2vA2tyPqBi9kxePyQbTJjAKiE
+ PkRTZ7gAgGxy2W6y4oXv85TbJgt7FYIQknSg4xPjnmkhrAcOXi77Q7hGQxDwh0bJzxL4bwgBikx
+ ZO2Zh5Yi2T2TzlEffmT/iaq5GtwUtRkOdwuK6byXJJpRAL6GFlyAVKdXqxtRJzLR1EncdtF9c2i
+ x3BO0yWGmDqHJXPZ6Ge0SoVyGhmn4vq+eo5UsX+5n6NqJwlqI5f+3YqjebieP9OZmVRz21iaKm1 VIdZZ7f5Bry/C
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250506073934.433176-6-cassel@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_035334_821627_54817183 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20250513_115949_251235_8A50D5F3 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,46 +132,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 09:39:35AM +0200, Niklas Cassel wrote:
-> Hello there,
-> 
-> Commit 8d3bf19f1b58 ("PCI: dwc: Don't wait for link up if driver can detect
-> Link Up event") added support for DWC to not wait for link up before
-> enumerating the bus. However, we cannot simply enumerate the bus after
-> receiving a Link Up IRQ, we still need to wait PCIE_T_RRS_READY_MS time
-> to allow a device to become ready after deasserting PERST. To avoid
-> bringing back an conditional delay during probe, perform the wait in the
-> threaded IRQ handler instead.
-> 
+The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
 
-This wait time is a grey area in the spec tbh. If the Readiness Notification
-(RN) is not supported, then the spec suggests waiting 1s for the device to
-become 'configuration ready'. That's why we have the 1s delay in dwc driver.
+  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
 
-Also, it has the below in r6.0, sec 6.6.1:
+are available in the Git repository at:
 
-```
-* On the completion of Link Training (entering the DL_Active state, see §
-Section 3.2 ), a component must be able to receive and process TLPs and DLLPs.
-* Following exit from a Conventional Reset of a device, within 1.0 s the device
-must be able to receive a Configuration Request and return a Successful
-Completion if the Request is valid. This period is independent of how quickly
-Link training completes. If Readiness Notifications mechanisms are used (see
-§ Section 6.22 .), this period may be shorter.
-```
+  https://git.kernel.org/pub/scm/linux/kernel/git/pinctrl/samsung.git tags/samsung-pinctrl-6.16
 
-As per the first note, once link training is completed, the device should be
-ready to accept configuration requests from the host. So no delay should be
-required.
+for you to fetch changes up to a30692b4f81ba864cf880d57e9cc6cf6278a2943:
 
-But the second note says that the 1s delay is independent of how quickly the
-link training completes. This essentially contradicts with the above point.
+  pinctrl: samsung: Add filter selection support for alive bank on gs101 (2025-04-08 20:57:51 +0200)
 
-So I think it is not required to add delay after completing the LTSSM, unless
-someone sees any issue.
+----------------------------------------------------------------
+Samsung pinctrl drivers changes for v6.16
 
-- Mani
+Refactor the driver suspend and resume to handle Google GS101 EINT GPIO
+pin banks and add the alive pin bank for that SoC.
 
--- 
-மணிவண்ணன் சதாசிவம்
+----------------------------------------------------------------
+Peter Griffin (4):
+      pinctrl: samsung: refactor drvdata suspend & resume callbacks
+      pinctrl: samsung: add dedicated SoC eint suspend/resume callbacks
+      pinctrl: samsung: add gs101 specific eint suspend/resume callbacks
+      pinctrl: samsung: Add filter selection support for alive bank on gs101
+
+ drivers/pinctrl/samsung/pinctrl-exynos-arm64.c |  52 ++---
+ drivers/pinctrl/samsung/pinctrl-exynos.c       | 300 +++++++++++++++----------
+ drivers/pinctrl/samsung/pinctrl-exynos.h       |  28 ++-
+ drivers/pinctrl/samsung/pinctrl-samsung.c      |  21 +-
+ drivers/pinctrl/samsung/pinctrl-samsung.h      |   8 +-
+ 5 files changed, 255 insertions(+), 154 deletions(-)
 
