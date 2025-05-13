@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8EAC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 06:41:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C8F4C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 06:43:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JAfYIBnKYpDLRaIrWgcSn8A7MH7EEr05jrz93Ajb9cs=; b=059fMjNUolK5iS
-	ToSJc89qw+b/pZ74AjBuGCzj/R9S3OZRLbstLg8Or3Cad79KM/ly/nFJtJkXWhQ2UZUsn0Y7kJFLi
-	fhgEqOrVUQiGmZQDfgbUrmTGy4i2j4CkA4GfstQDBgggKRW8inKPezExWeiOkVIEODrXvCSJ812Zq
-	HhT/anVe9dwj3AIBZQfRJwQ7T1Jo7WsOXaBOJpxTt1g9GltNKW+qKGWRSHmI+WEImsTMX9lbcdrOd
-	eks01Oh/2aVdT3wySfy45XjV2lMTPCQpBSERpVgM7sWO87mNmWYitRL4wKzu9Tj69g+H6/601ch45
-	RCyD5blIXd1g8dAUHbAQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q/m+/Li5pJXxIfZ18YdvYQcc+JWVJfDghRV2cswxgso=; b=3LbC+yki8nJi5Om/Ni2Zk5tDZ9
+	yFY0SlnpN9TYKl9mZjXVSKJ6lkHLR4hyqhQ1DgTK53lQw787uTLNvabw0r+sdwgc5PZtF1/A1C13N
+	qasNw/W1fLi1GmgApZQa391UZoiwFAucv63RJpsb7G/xn9zYq/SZN25BOJXWW94mdx/WkDzfvuZzg
+	lupMuJWSfNTA7r7sp9lLz9oWZZCQgodaPltWMbcvZhjyaiaIorUrIyuFr2+wf3QFWRtna4pjjRE8J
+	+c1wUK1NaDlC2OsKtzmI5r31jgxrMPXoVUpuYPIqxQ6kL75RngfcLpLiE7UWlbfBwK9EUGseWQAVC
+	6XWHCgFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEjKC-0000000BWdW-3q4i;
-	Tue, 13 May 2025 06:41:12 +0000
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	id 1uEjM9-0000000BWoe-2rax;
+	Tue, 13 May 2025 06:43:13 +0000
+Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEjFk-0000000BWCw-1xup
+	id 1uEjFo-0000000BWE3-2cTg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 06:36:37 +0000
-Received: by mail-pf1-x443.google.com with SMTP id d2e1a72fcca58-736c277331eso5554992b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 23:36:35 -0700 (PDT)
+	Tue, 13 May 2025 06:36:41 +0000
+Received: by mail-pf1-x442.google.com with SMTP id d2e1a72fcca58-7426159273fso1915219b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 23:36:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747118195; x=1747722995; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=JAfYIBnKYpDLRaIrWgcSn8A7MH7EEr05jrz93Ajb9cs=;
-        b=U8FRweR5L1lPeXMlm8udSs7QIPB6Wzm6Jc/NNDVAi1pPSYGFsgTU7IZorM6MEHxunr
-         NegKzhZpa00eFue+FRD0t3C3LTAdbQEg8A6kRqPEHRn2Yb7i/285hR5M673ATXqUiMIA
-         ESZEr4KeCKx21bOXh28IjqcIUVYlQeu8LEO8i49CZzyI6/oton/KePphr+Trdp7d9rI/
-         PMEF+Ny7grDlp2l5Je9DLsYNyaruuiZsPFCzib5d5I0QHdZ37f/ooGWTdk0c0fvoFFdI
-         WtD8funk3V75DyzyrfklTB/Ju37d/qA0bcGjSzR1+k72K9iO7aycEeyjI/qPBUVxBxy+
-         CwEA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747118195; x=1747722995;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20230601; t=1747118200; x=1747723000; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=JAfYIBnKYpDLRaIrWgcSn8A7MH7EEr05jrz93Ajb9cs=;
-        b=eava6a30CeiRH6b++CD/HJwUhQ655cv3C0R/II4gXQGWzF19MshWEZ7YQn53dQFBA+
-         PZ4Hg0UzHNv9KOBIy1d/YMuCyZAn8stPow1PhntC+goIxpFimEGXWnZc4M+yQZSofNDE
-         GVN2EuIjl8YCVQZ67fMbjxZqvE+L1y04PvXK8irtVI/N2ZnUxtJSAdT7zZq4p6SEOBBO
-         Bdme8HIl94S8bOJQ30V7n6Mq/eiZvPB/ZR7doWNZIymvF3ppgcQg4SUb6qYEMOUPdwPL
-         GaGKOhqP0JtYP+USBYGMPtJpzWaCZYMq9lRlSug8nIGRJCzXDOR0YQNfe8sJFBCfawnH
-         dcPA==
-X-Forwarded-Encrypted: i=1; AJvYcCXL1kC97XW+zTGGBtVqEAz/EuIu23otuKkFl58Y6UgbdBYbHnzlvtHa2NLJ046By3pU8qnnUYNAusRB/gnx+uTg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2sdjD6D8kFGZXTDAq3EMDLnMIS+5DOkWwEPgb7xCJdClLVB6Q
-	X+nxBXcEM6gqyjsCbu/w9H0tOvkHjnjQsBDHUxqnaFIx8OzdY520
-X-Gm-Gg: ASbGncshwOjbHzmZq4hdJ4YqaPFtnVoR9Q9NEv7LUvUdqXCpM8Lz24ETfVsBKwotEKu
-	oQznYSfZCjo8tUwCRndkdUFTjpH9RCCUA1OaVxwmsCxCa0sccUrrLpfdPqI5x7xf8IfzxWr0YYT
-	IJJ/linU9QD9sfYG0SkZNfbEKkOAiQ2JnzkcbAxViWBxAhvmJcOdas0a3NJUI2Qo6VGvd22jeyo
-	rAHiRAscJwPWQu5I2BUq7XOiXQrlJIJdGl9QNWacoRRVRTjAUdKBjQANgkQBhZPznM8vgFlDJVU
-	SKy9VjjoccXUSs1djn1x0c5uAWVCZDI2dTihEIfpt2bFjM5ZXSuVeB851tHcpSL/LQ==
-X-Google-Smtp-Source: AGHT+IHAzcJWPedcZbhkiu5M1cagox2tF+zXlSND/8z+TRNJWT8nZ3aHFKNr8Qq+zyYM82VNJEGSQg==
-X-Received: by 2002:a05:6a21:150a:b0:1ee:5fae:8f6a with SMTP id adf61e73a8af0-215eb6dbd7cmr3827294637.1.1747118194892;
-        Mon, 12 May 2025 23:36:34 -0700 (PDT)
+        bh=q/m+/Li5pJXxIfZ18YdvYQcc+JWVJfDghRV2cswxgso=;
+        b=XP2XT8YaQk3CMwfctgc9ET/pML4QX5IoKSK1eiExAOJDTD2spN1wDaQozCjAnskFqr
+         wXerLAxHUbK81mp8STQtPJJIi/vGg4TLkOCNmW9Pi+XOZF3oFpwxKUUn692zbBDNT54B
+         BDhdbaMmMED3gew/qIO7uJrvbnYWRFzw2xrEcf9M9ehHneuPjO2CsiHn4o4Dm4xRgWe5
+         2fzrQjG2N/XYu6YpFHK8BWH+BW6B30rFZ/MqqyUos/7iGlsJz1sqVpq7q2+vflrcDuTn
+         46SZFxjGVqbMvAjMTV6MAOH4ClaUL2zAJ6T6IYLMx89WUS44/BIJAQvt1+F8q8yRqIGX
+         pV2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747118200; x=1747723000;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=q/m+/Li5pJXxIfZ18YdvYQcc+JWVJfDghRV2cswxgso=;
+        b=Z8kPK0RG6FKzxaWwUSS+UTxuM7L0qftDq4bRhZU9Hfww2TKC2/Rc/Qxkm0luS0y38U
+         xb3KyphqQYo32KegO4D0O6usC7eU4nAlrOwIAcAzJAQ2ZEAGEAhoRenh6SYSvTgfKe1i
+         RPlYg8AS/V8c+9kaS3IzLOBbcrFEcrlP7HkQyPqMEb43YH0IF+alrg5DYwch4BaZTDlf
+         9BmFchB24QTE6ieitiy5Yq0MhhXJuR4TQ3xhlZhzVXNc8vBhgoUJywgSVQZ0B1vYSXW2
+         Zy5JhZF+FUuMoPI3j4PhdI8U7j71+00q45toi7yNa2NlVEqPRIYYCjxAgswc6l9hacLw
+         WvMw==
+X-Forwarded-Encrypted: i=1; AJvYcCVehp73NdrUxNIulw1/2EyPS2XTAkwm5S71YemproFgySs6qqzoDcgL+Myit+MILqJF3wdTFOUR9zQuiM6zTkw/@lists.infradead.org
+X-Gm-Message-State: AOJu0YykRgzpHc/Ra3iqvPQHtJa8p7qOEUlgNqORM+bKVmvWJrLrlEs4
+	HW/D+jDUGIz+1U06LaF9XV9fblDAGNIL8wviN3xpCYa8ApHgc6Ees9z05DN6Oto48a6s
+X-Gm-Gg: ASbGncsm5VlSBhl1mLYXYANnWvm0l3pOC5z4GmoPQpRQnq+kLC2a983nlN/ZPm9pR8S
+	4ENp+OcHxsd9ehP43kodTG+3u5n+gj0xDYV00yS0+JCY1yHc3/6d+meAn9LcBf4mke4Kfg+QVG0
+	JhglsQ5hdeRBlfY5Rnd3K6o+dV5xMtFU///9IePgpJfSrutxOMgYjiCYoGwfdYcvpDo4TJw09Re
+	XjsJVPYyp1Supzu9NNRdKFjxmsQUxMzwwNxLWnUzW/9y5bB1iQSaXdcAuXuHEN2j/FZhhK/AQxa
+	E3Bo3zxBZ4ZYxfYTiLunSNK+a8pCJ7/3u4I/CgJ/JPp1zvjxyG0VQrc=
+X-Google-Smtp-Source: AGHT+IGZ12WCZaO89aqysPWzb8ptQomhGLUKACz8fvPTEYceAq2R5hRP0UZ1mryvPQHCijtI5AB34g==
+X-Received: by 2002:a05:6a20:7fa4:b0:1f5:83da:2f9f with SMTP id adf61e73a8af0-215abaf92e9mr22671112637.12.1747118199649;
+        Mon, 12 May 2025 23:36:39 -0700 (PDT)
 Received: from [127.0.1.1] ([91.124.30.36])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b234a0b76ccsm6657936a12.27.2025.05.12.23.36.29
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b234a0b76ccsm6657936a12.27.2025.05.12.23.36.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 May 2025 23:36:34 -0700 (PDT)
+        Mon, 12 May 2025 23:36:39 -0700 (PDT)
 From: Troy Mitchell <troymitchell988@gmail.com>
-Subject: [PATCH v3 0/2] i2c: imx: guard and drop prefix
-Date: Tue, 13 May 2025 14:36:12 +0800
-Message-Id: <20250513-i2c-imx-update-v3-0-817b7426a67e@gmail.com>
+Date: Tue, 13 May 2025 14:36:13 +0800
+Subject: [PATCH v3 1/2] i2c: imx: use guard to take spinlock
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAF3oImgC/3XMyw6CMBCF4VchXVvDtJSiK9/DuEBmgEnkkhYbD
- OHdLaxIjMtzku9fhCfH5MU1WYSjwJ6HPg59SkTVln1DkjFuoVJl0kyBZFVJ7mb5HrGcSCIA5jl
- iYakQEY2Oap734P0Rd8t+Gtxn7wfY3r+pADKVANrWUGuj0dyaruTXuRo6saWCOnL7w1XkqEGRv
- mRPY/WRr+v6BbXPuUnrAAAA
+Message-Id: <20250513-i2c-imx-update-v3-1-817b7426a67e@gmail.com>
+References: <20250513-i2c-imx-update-v3-0-817b7426a67e@gmail.com>
+In-Reply-To: <20250513-i2c-imx-update-v3-0-817b7426a67e@gmail.com>
 To: Oleksij Rempel <o.rempel@pengutronix.de>, 
  Pengutronix Kernel Team <kernel@pengutronix.de>, 
  Andi Shyti <andi.shyti@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
@@ -85,19 +84,18 @@ To: Oleksij Rempel <o.rempel@pengutronix.de>,
 Cc: linux-i2c@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Troy Mitchell <troymitchell988@gmail.com>, Yongchao Jia <jyc0019@gmail.com>, 
- Frank Li <Frank.Li@nxp.com>, Ahmad Fatoum <a.fatoum@pengutronix.de>
+ Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747118187; l=1186;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747118187; l=3101;
  i=troymitchell988@gmail.com; h=from:subject:message-id;
- bh=Zc6yQyorlVRgdIL0rSi1mnvWlZcO61DoFG74OAaARg4=;
- b=q9clC7BV7yQN12t9Wb9qmMCulgBg+RP8VyfC4iP7GyDFUeDvCVNVajzQDZyDIgsMVxU8yBsdq
- blP52SIuTgBCGH3U2by9e+djgC2nV65clel6gFiWKkG+k/Bnec9xulx
+ bh=h+IkIgCUvVv5X/EgaxFnbE68t9F1Ebt3Kltz7OM6R0o=;
+ b=GEBTx6+w7HdlyIV2HGzJrrowsb4WUjf9YUDMcusHX61zNyz4tZoMS2uN2u12UPh1FXB5/cVSC
+ QhMiNEnbqgnAxvnM70de3VHUi8VKsRvt/VNeqwQ9jVbxs9ve176vtez
 X-Developer-Key: i=troymitchell988@gmail.com; a=ed25519;
  pk=2spEMGBd/Wkpd36N1aD9KFWOk0aHrhVxZQt+jxLXVC0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_233636_511307_4A3F7AAE 
-X-CRM114-Status: UNSURE (   9.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250512_233640_667656_DD5DCC4E 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,39 +110,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since this patch[1], we have new callback function names.
-Since this patch[2], we can use `guard` to call `spin_lock_irqsave`
-and release this lock when it goes out of scope.
+Use guard to automatically release the lock after going out of scope
+instead of calling it manually.
 
-Link:
-https://lore.kernel.org/all/20240706112116.24543-2-wsa+renesas@sang-engineering.com/ [1]
-https://lore.kernel.org/all/20250227221924.265259-10-lyude@redhat.com/ [2]
+i2c_imx_slave_handle() can safely be entered with the lock held.
 
+Refactored the i2c_imx_isr function so that i2c_imx_master_isr
+does not participate in the guard scope
+
+So Using scoped_guard simplifies the control flow
+by ensuring consistent and automatic unlock,
+which improves readability without affecting correctness.
+
+Co-developed-by: Yongchao Jia <jyc0019@gmail.com>
+Signed-off-by: Yongchao Jia <jyc0019@gmail.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 Signed-off-by: Troy Mitchell <troymitchell988@gmail.com>
 ---
-Changes in v3:
-- use scoped_guard
-- Link to v2: https://lore.kernel.org/r/20250427-i2c-imx-update-v2-0-d312e394b573@gmail.com
+ drivers/i2c/busses/i2c-imx.c | 37 ++++++++++++++++---------------------
+ 1 file changed, 16 insertions(+), 21 deletions(-)
 
-Changes in v2:
-- Add more details in the commit message
-- Drop a useless variable
-- Refactor the logic of i2c_imx_isr function
-- Link to v1: https://lore.kernel.org/r/20250421-i2c-imx-update-v1-0-1137f1f353d5@gmail.com
+diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+index 9e5d454d8318..5b276e007292 100644
+--- a/drivers/i2c/busses/i2c-imx.c
++++ b/drivers/i2c/busses/i2c-imx.c
+@@ -23,6 +23,7 @@
+ 
+ #include <linux/acpi.h>
+ #include <linux/clk.h>
++#include <linux/cleanup.h>
+ #include <linux/completion.h>
+ #include <linux/delay.h>
+ #include <linux/dma-mapping.h>
+@@ -891,13 +892,13 @@ static enum hrtimer_restart i2c_imx_slave_timeout(struct hrtimer *t)
+ 	struct imx_i2c_struct *i2c_imx = container_of(t, struct imx_i2c_struct,
+ 						      slave_timer);
+ 	unsigned int ctl, status;
+-	unsigned long flags;
+ 
+-	spin_lock_irqsave(&i2c_imx->slave_lock, flags);
++	guard(spinlock_irqsave)(&i2c_imx->slave_lock);
++
+ 	status = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2SR);
+ 	ctl = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
+ 	i2c_imx_slave_handle(i2c_imx, status, ctl);
+-	spin_unlock_irqrestore(&i2c_imx->slave_lock, flags);
++
+ 	return HRTIMER_NORESTART;
+ }
+ 
+@@ -1125,32 +1126,26 @@ static irqreturn_t i2c_imx_isr(int irq, void *dev_id)
+ {
+ 	struct imx_i2c_struct *i2c_imx = dev_id;
+ 	unsigned int ctl, status;
+-	unsigned long flags;
+ 
+-	spin_lock_irqsave(&i2c_imx->slave_lock, flags);
+-	status = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2SR);
+-	ctl = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
++	scoped_guard(spinlock_irqsave, &i2c_imx->slave_lock) {
++		status = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2SR);
++		ctl = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
++
++		if (!(status & I2SR_IIF))
++			return IRQ_NONE;
+ 
+-	if (status & I2SR_IIF) {
+ 		i2c_imx_clear_irq(i2c_imx, I2SR_IIF);
++
+ 		if (i2c_imx->slave) {
+-			if (!(ctl & I2CR_MSTA)) {
+-				irqreturn_t ret;
+-
+-				ret = i2c_imx_slave_handle(i2c_imx,
+-							   status, ctl);
+-				spin_unlock_irqrestore(&i2c_imx->slave_lock,
+-						       flags);
+-				return ret;
+-			}
++			if (!(ctl & I2CR_MSTA))
++				return i2c_imx_slave_handle(i2c_imx,
++							    status, ctl);
++
+ 			i2c_imx_slave_finish_op(i2c_imx);
+ 		}
+-		spin_unlock_irqrestore(&i2c_imx->slave_lock, flags);
+-		return i2c_imx_master_isr(i2c_imx, status);
+ 	}
+-	spin_unlock_irqrestore(&i2c_imx->slave_lock, flags);
+ 
+-	return IRQ_NONE;
++	return i2c_imx_master_isr(i2c_imx, status);
+ }
+ 
+ static int i2c_imx_dma_write(struct imx_i2c_struct *i2c_imx,
 
----
-Troy Mitchell (2):
-      i2c: imx: use guard to take spinlock
-      i2c: imx: drop master prefix
-
- drivers/i2c/busses/i2c-imx.c | 41 ++++++++++++++++++-----------------------
- 1 file changed, 18 insertions(+), 23 deletions(-)
----
-base-commit: 9d7a0577c9db35c4cc52db90bc415ea248446472
-change-id: 20250421-i2c-imx-update-d11d66dd87e8
-
-Best regards,
 -- 
-Troy Mitchell <troymitchell988@gmail.com>
+2.34.1
 
 
