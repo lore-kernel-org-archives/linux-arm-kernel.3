@@ -4,85 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A622C3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 13:46:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 179EEC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 13:48:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7/JV3Bh1ZMG76SNJlwEakQzpLhMGq/SyZApq5+emUOc=; b=RUULnhpxLE+r1/YgOF1GzFBph/
-	mYr2Y8cn1G6ZxGEnR1Wt2WFVs4NHR6qjaql1lvz0o8N4lo8gIRwD0WPHt4akuSNy/7F4KSLi8e7At
-	PjHyfJbq/suohBiMuVm3wih3ITcV2JTvAoVy0MFILiQ2Azdv8g7MWkgfaPdPRrMwVqKyhc1SJJWkA
-	CtVjjj0hL2voEwJelHF9YPH+4wJJu93sdgHq2CW+0gAykQAla5FXwmiCCxvN2RanPRjGtSYhVeuPq
-	PWOGTQDFVES/VK9o3MkE/4aD15Od2giLfP6hhWJBHNZQoDYIc5dc0MrXoNR0tUxuGJYQH1j2X47X7
-	4b/R0u4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PaKn8xQKBrjMDRX63gK2ViggSwbq5hYif/cSQa6yaSQ=; b=qJg4P6P8N0FZg8qYu4LqiIA426
+	c6nxQJqZSu6NP2M6KdmX6/vLT3jRo3w3eJ4Yx1aYwaQtXyzp23qoGZkapjMs2f72d7rXNF9AjmKjn
+	rKMugbL5bOJyf/5DvZwIv7MCa/vVAeQvbwx6uNdSfrogfuEV7KK/htkfq+6kkEpXHrxzKVXgsYnnk
+	dbd3MUVr+K2QOoP1mxnl6VYidFQgA7xf1V4OZPfHKROigQ2oOLXXDaX7dM4OEA4QNtv8X7e9cUuu2
+	Kvw1bO6vBxBXopdyvmOS59sOsy0nmVRF9rWCwD1D/dWohMlZM1UJGXJFYa7VBzyeNBR5XSZUGdl2E
+	qyagwoNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEpxw-0000000CWzv-4AFz;
-	Tue, 13 May 2025 13:46:41 +0000
-Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
+	id 1uEq00-0000000CXFc-3N3Z;
+	Tue, 13 May 2025 13:48:48 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEpoQ-0000000CVVH-0F4e
+	id 1uEppL-0000000CVZt-3raR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 13:36:53 +0000
-Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-e7b2c28f67eso1036505276.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 06:36:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747143409; x=1747748209; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7/JV3Bh1ZMG76SNJlwEakQzpLhMGq/SyZApq5+emUOc=;
-        b=a8n+advyMbcQYO02pScg2WLSOKWTyYSms474uLkdOWfE07vrUggCKzAObZIlBjR/AC
-         NgH1hWPiKQexlx3hplWime9BTJlu2m6MX+M7N+CEdQxddQrbavCHASq2adWo+4xMTyrV
-         1X3rGwUJC1QsFglK92kYTaM5s/+xiYSrSrAKBZdN9DSWM08GpnahPBfWxNRoTJ76xqf9
-         xsYd0Dbp4Gk9m2P1ge2F6S/4jGZcyoq5Irfsh32JflOsBl374fMJw6lHqVkGzGXOj/a3
-         K4XQexHzFvnqayUUNrYqYHxpnP1aDN1CRbsbo9JBxQZ3HnybT5zrdZhge0Q4lyidKo8J
-         M1Gg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747143409; x=1747748209;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7/JV3Bh1ZMG76SNJlwEakQzpLhMGq/SyZApq5+emUOc=;
-        b=wkTM4Vwuou9oh/S6nQnZTxS2HM1aqtxnsv+8QJ50UMLQ17Wo608Oz1ffQSQirP10Xu
-         /Q3MZJxkUtSuLfEy2DKKfXeB7Ogy7rO570Nec63gt7JLLjzOawb6AmjGuTEO5KtxblZM
-         q3DkJZ5z1mauvA8ybWGSJr+D0qWbnhzJl2de10nPfx4qmZS7zLK0JjPQag9EVBdkEKuR
-         Vge+rcMjZFzErA55JxJcKttT8Sh2lkSGadZroOtFoJBPV4OkkiCjnFsFztTAt5KmzH9v
-         LT6f4xOwmjSp6+FbsFn3uE4sRvSr3MXdXpjXtiiXUtmDc2Su1YpphT899MdFLPK4ee9L
-         7d7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVirPOd50aHo+XoCRq/6wDYb+ndyRXP9A5GSzY5QpXv9K9GgB0zj13L0iKd48/upg0zl1ORl9J5Czj/agB1+QjF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnT84gz8Hbh8Bj6xtnpPqo/AjQN8/o8h3sHPAeMZxeqLdRiS15
-	orVEFPO1ZS2ej4BCQh6bRxYt4RK84UehHdNLlnrgOfNR41Nl+llAbAbWP6otZk1T0fGNRVm+vd3
-	oy/Utll1mpv78Qt5UpRAcVQ7093kQGQXSNXUbbw==
-X-Gm-Gg: ASbGncuhY1VdiOPscBjSYtSXlsS9hAIZ/D+vfCnZtZi/+wiAY4LsaHAv10Wj8IsAHnW
-	/ag+gQ40fNWorqJWH+iSo5oK4zFVwUjQgMpfuYB7iFkjU42suBAJIWTLI0F8vPPQOAAD91sU2Nl
-	HqyVqa8Cr0PA8ptpKjJCWVKFmOYoADpxJ/
-X-Google-Smtp-Source: AGHT+IGPspzzHxed6rft90BBazRRlyKn4YRNf/+L/ffhEMrgXhwvAkFISkzPmGNOJE8q+cDfmA7yJkalBx150TF+eCU=
-X-Received: by 2002:a05:6902:2193:b0:e60:a068:a14b with SMTP id
- 3f1490d57ef6-e78fdb83501mr22863623276.4.1747143408924; Tue, 13 May 2025
- 06:36:48 -0700 (PDT)
+	Tue, 13 May 2025 13:37:49 +0000
+X-CSE-ConnectionGUID: /p5Cl903RXuF2JEsqK/Azg==
+X-CSE-MsgGUID: 1pv9HBx5Th24udAzERjSag==
+X-IronPort-AV: E=McAfee;i="6700,10204,11431"; a="51645163"
+X-IronPort-AV: E=Sophos;i="6.15,285,1739865600"; 
+   d="scan'208";a="51645163"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 May 2025 06:37:42 -0700
+X-CSE-ConnectionGUID: rBkZQB+qQwORMn0Jifto4g==
+X-CSE-MsgGUID: 43AkM+AzRQeU/pFbJg+qqQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,285,1739865600"; 
+   d="scan'208";a="174837265"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 May 2025 06:37:38 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andy@kernel.org>)
+	id 1uEppA-00000001GvW-0TdT;
+	Tue, 13 May 2025 16:37:36 +0300
+Date: Tue, 13 May 2025 16:37:35 +0300
+From: Andy Shevchenko <andy@kernel.org>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	Charles Keepax <ckeepax@opensource.cirrus.com>,
+	Richard Fitzgerald <rf@opensource.cirrus.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
+	patches@opensource.cirrus.com
+Subject: Re: [PATCH 00/12] gpio: convert more GPIO chips to using new value
+ setters - part 3 for v6.16
+Message-ID: <aCNLHxb-o3Kadpui@smile.fi.intel.com>
+References: <20250506-gpiochip-set-rv-gpio-part3-v1-0-0fbdea5a9667@linaro.org>
+ <174714214927.9467.6551553602169960677.b4-ty@linaro.org>
 MIME-Version: 1.0
-References: <20250512-pinctrl-a37xx-fixes-v1-0-d470fb1116a5@gmail.com> <60ef3803-4f8b-4d9b-bef8-6cf3708af057@lunn.ch>
-In-Reply-To: <60ef3803-4f8b-4d9b-bef8-6cf3708af057@lunn.ch>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 13 May 2025 15:36:36 +0200
-X-Gm-Features: AX0GCFtHZ-lXYmozXKJTmAfMPph60MlOaJrCz7XDyOAs3Cz7P-VVNfFyia5m6R4
-Message-ID: <CACRpkdbqPLaBheEv1=ky1gUJ-qSsPRjR0J-UXEuhXf2Oix_EzQ@mail.gmail.com>
-Subject: Re: [PATCH 0/7] pinctrl: armada-37xx: a couple of small fixes
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Gabor Juhos <j4g8y7@gmail.com>, Gregory Clement <gregory.clement@bootlin.com>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
-	Imre Kaloz <kaloz@openwrt.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <174714214927.9467.6551553602169960677.b4-ty@linaro.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_063650_098739_EDB6CE14 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20250513_063747_973475_27934E77 
+X-CRM114-Status: UNSURE (   7.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,25 +85,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 12, 2025 at 11:33=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote=
-:
-> On Mon, May 12, 2025 at 04:22:36PM +0200, Gabor Juhos wrote:
-> > The series contains several small patches to fix various
-> > issues in the pinctrl driver for Armada 3700.
->
-> I'm not sure all these should be for stable. Some are clear bugs, but
-> not propagating the errors has not bothered anybody so far, a
-> requirement for stable.
+On Tue, May 13, 2025 at 03:15:51PM +0200, Bartosz Golaszewski wrote:
+> On Tue, 06 May 2025 11:01:43 +0200, Bartosz Golaszewski wrote:
 
-So we are at -rc6 so I'm not sending these as fixes to Torvalds
-right now unless they are super-critical.
+> [12/12] gpio: ml-ioh: use new GPIO line value setter callbacks
+>         https://git.kernel.org/brgl/linux/c/d3f960365b8c35449d22b780383dc9b40d96203e
 
-I will merge this for v6.16 (-rc1) and then the stable maintainers
-will have to decide from the point it enters mainline.
+I have already picked this up.
 
-Gabor: can you look over the tags? Once you have decided
-on stable/non-stable tags I will merge the series.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Yours,
-Linus Walleij
+
 
