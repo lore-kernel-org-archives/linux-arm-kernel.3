@@ -4,68 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1C16C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 08:53:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29F03C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 08:55:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bGYDBUCEbKO/tOgJs1z9dE6i8jB+UZG7bGfdUIao3pM=; b=Onnd47AEkkE+ZkwKSO2cse2Jcm
-	wUcfJbOr45PXAjIHQCxrYQTUZxBO5iHSomw2Z+IVqAm27PlrWEafVZTboQxIhZ3SvIH807TcKhzsn
-	ojLSHpkU3E3KCiSNDNq1wc0Im/DXcp1mgV5jlcaPo19YpH6WcwaSyw5ZgUhIx81tpQNX6uDomPWLW
-	TwlyKDMz7nY22uY3XUJU0XRoPFTfqq0WmJBVo/w5942ZA7rz42bIcaWXrQ8P+8+lDiG37A+CKjm/C
-	ITbdi8AYlLTsCxe7zH0mLUkHZoY8OSIeg2iIusEyAxRB5qCYPo5xzFeY7YVBmHxH6YjyDe1vNDmpK
-	61ewGMmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ocQpK1Ybrit5d3wBvKOBVW1ESwrgzRXh0F6mH/51h7k=; b=ONkd/sMgSkz6FfKmep9FmcNFGB
+	gQn5rhh/uFaaZKwto96cU+7pl8fOMXmoZiwth5SlwNOQzIItlfbBn+67g8ei4ISMnmZmuLUJLWbcX
+	5T4Q5q+BLVT8Yj+kTxPRptJC0e597aZ6/898SkrOJcDL2+Ct6mKDIrk0FtCr3r0IIv2qcvi2I8sDN
+	DVUcBp3y93fuYaxCJzw2N3F6+0mquGBHa2VxrnQTbbAjTmyi4RHthwQnUXjwq0vUp31JddhYj9/6y
+	AzB78JS1YRO2zlyYze24RW505PhY9c3GnLhOZiTIqxGwpT0q97iuzcN8wOI0tNZ6rw61c/5b+A6z3
+	Su5FZUsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uElNs-0000000BoZC-3k2i;
-	Tue, 13 May 2025 08:53:08 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uElPz-0000000Bopc-1zYT;
+	Tue, 13 May 2025 08:55:19 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.205])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uElLt-0000000BoQh-2bIX;
-	Tue, 13 May 2025 08:51:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 679BFA4C8B7;
-	Tue, 13 May 2025 08:51:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3546C4CEE4;
-	Tue, 13 May 2025 08:51:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747126264;
-	bh=JuynMA1lFeLJ74JpIm5SB8vTf5FUAnMBpNKD71wdRG8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DT15juaJQaVe76NCzznf+i5OE8q642AWY0Bo46tPhsaMgeMNuN9vTJlQdnBbHvxNp
-	 pFAaB6Q3SQAEB73ksaZsHmcnU2FXcNy+5kM7Kc/aXZQylqqK30abrcjihfdpMCVkEb
-	 fbrpj/A5YfXJbMBQPYOqo17tFSO9RyVGIbngMCSbno52H+izNHxlDrEQT7xTmlPFU4
-	 gX5m5LLcXLBU1nlH83EMbNwDzOElzGKYUipdDtBZOvW5muVXpIg4Sheb6gBCUfrSq3
-	 HDqmfrk/a6DrXZ84BGFTQQwxBznP3uXMsMZa91JtMbGWNv9Tjzj48HFudUrxR/gFXf
-	 oVG3HnaA173TQ==
-Date: Tue, 13 May 2025 09:50:57 +0100
-From: Lee Jones <lee@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Nam Tran <trannamatk@gmail.com>, andy@kernel.org, pavel@ucw.cz,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	christophe.jaillet@wanadoo.fr, corbet@lwn.net,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, florian.fainelli@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v8 0/5] auxdisplay: add support for TI LP5812 4x3 Matrix
- LED driver
-Message-ID: <20250513085057.GB2936510@google.com>
-References: <aCGPuKtfprIvwADa@smile.fi.intel.com>
- <20250512173800.6767-1-trannamatk@gmail.com>
- <CAMuHMdWiTLbazxfe0joujONfLTQXT73WE=sq5F-4dwOq463b4g@mail.gmail.com>
+	id 1uElNI-0000000BoXt-1306
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 May 2025 08:52:33 +0000
+Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id B83A5C0003DE;
+	Tue, 13 May 2025 01:52:29 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com B83A5C0003DE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
+	s=dkimrelay; t=1747126349;
+	bh=6JaYxfdAQJiPRQ8zXP1h2w7gcM977OHUbEVJN7BCbr4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Ulz46r/t0gAYZzJQVapdPbIhLe6hnr49XYFJfAzTH1GCNETAG5h1Dq5ytb1ymj+Q7
+	 c4DFlOZwSRUdP9luneeZA0mF5cUvfOgjQHeduw9DAEH+A8ssitOnaQr6fGGgc9l1Zb
+	 Rv/VKta2gS+7+8ir+tqJ4Fp4UYZCMT9Ft+DK9BOI=
+Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 4437118000530;
+	Tue, 13 May 2025 01:52:29 -0700 (PDT)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: bcm-kernel-feedback-list@broadcom.com,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	William Zhang <william.zhang@broadcom.com>,
+	Anand Gore <anand.gore@broadcom.com>,
+	Kursad Oney <kursad.oney@broadcom.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	=?iso-8859-2?q?Rafa=B3_Mi=B3ecki?= <rafal@milecki.pl>,
+	Olivia Mackall <olivia@selenic.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>
+Cc: Florian Fainelli <f.fainelli@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org
+Subject: Re: [PATCH v3 01/12] ARM: dts: bcm6878: Correct UART0 IRQ number
+Date: Tue, 13 May 2025 01:52:28 -0700
+Message-ID: <20250513085228.2043216-1-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250512-bcmbca-peripherals-arm-v3-1-86f97ab4326f@linaro.org>
+References: <20250512-bcmbca-peripherals-arm-v3-0-86f97ab4326f@linaro.org> <20250512-bcmbca-peripherals-arm-v3-1-86f97ab4326f@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMuHMdWiTLbazxfe0joujONfLTQXT73WE=sq5F-4dwOq463b4g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_015105_728148_714650BF 
-X-CRM114-Status: GOOD (  27.01  )
+X-CRM114-CacheID: sfid-20250513_015232_383040_CA080AB9 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,50 +87,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 13 May 2025, Geert Uytterhoeven wrote:
+From: Florian Fainelli <f.fainelli@gmail.com>
 
-> Hi Nam,
+On Mon, 12 May 2025 14:05:47 +0200, Linus Walleij <linus.walleij@linaro.org> wrote:
+> According to the vendor file 6878_intr.h the UART0 has IRQ
+> 92, not 32.
 > 
-> On Mon, 12 May 2025 at 19:38, Nam Tran <trannamatk@gmail.com> wrote:
-> > On Mon, 12 May 2025 Andy Shevchenko wrote:
-> > > On Sat, May 10, 2025 at 02:48:02PM +0700, Nam Tran wrote:
-> > > > On Thu, 8 May 2025 Lee Jones wrote:
-> > > > > On Thu, 08 May 2025, Andy Shevchenko wrote:
-> > > > > > On Thu, May 8, 2025 at 5:27 PM Nam Tran <trannamatk@gmail.com> wrote:
-> > > > > > > On Thu, 8 May 2025 Lee Jones wrote:
-> > > > > > > > On Thu, 08 May 2025, Andy Shevchenko wrote:
-> >
-> > ...
-> >
-> > > > I think setting PWM also same as brightness_set API. However, there are
-> > > > many PWM config for a LED and it is one of other config to make autonomous mode work.
-> > > > Therefore, standard led API can use in some use cases only.
-> > > >
-> > > > Please see the link below for a better visualization of how to configure the LP5812.
-> > > > https://dev.ti.com/gallery/view/LED/LP581x/ver/0.10.0/
-> > >
-> > > To me it sounds like you should start from the small steps, i.e. do not
-> > > implement everything at once. And starting point of the 4 RGB LEDs sounds
-> > > the best approach to me. Then, if needed, you can always move on with
-> > > fancy features of this hardware on top of the existing code.
-> >
-> > Thanks for the suggestion.
-> > I understand your point and agree that starting with standard LED APIs is the preferred approach.
+> Assuming this is a copy-and-paste error.
 > 
-> i.e. a drivers/leds/ driver.
-> 
-> > However, the LP5812 hardware offers more advanced features, and I’d like to support end users all
-> > features as shown in the link: https://dev.ti.com/gallery/view/LED/LP581x/ver/0.10.0/.
-> > It is easy for end user to investigate and use driver.
-> >
-> > If I want to keep the current driver interface to meet this expectation, would it be acceptable
-> > to move it to the misc subsystem to better support the hardware?
-> 
-> I guess you can add custom sysfs controls for the advanced features
-> on top of the drivers/leds/ driver?
+> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+> ---
 
-Yes, exactly that.
-
--- 
-Lee Jones [李琼斯]
+Applied to https://github.com/Broadcom/stblinux/commits/devicetree/next, thanks!
+--
+Florian
 
