@@ -4,84 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4185C3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 13:30:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 014C7C3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 13:33:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lmyj3hP5CkRfmv8NZKBXt2FvgPVL/V2jgy3imsWNkMA=; b=Zx5v/d91GzSFWRz+bIscdL35Vx
-	6esMenYLht+0PxGgBm3/CEBavWyN/VgIaGXI5OiIYWI8eEvOgffeMLDSYWYuwmm3ug1wKH4azXapG
-	4+DzMJu8Ux/+XMl5EiR9x2jkb7AxfD/nZbIBx/33YxIIhtzjIDEJGkLHzQN5pASZZgX4vZEGU23G2
-	oQa48uoPNMj24BQmu0PtXMaYlTrEor8RkwOBZMXnCdrgbKfgLn6iv855ZRTRLfQjbQp38XvQ9apUO
-	Mn3QXdG84Tct+7f5F6hn0M1EvrU/JIz6ExinD0viizO9A/xyxECz2AlK+YnXlA6PCSpVcr/5RcOu1
-	kJlBy0ag==;
+	bh=ZbSaCUK374GMnM91d8JEk7TbFb0IFCzz4XNfvz7v07c=; b=4YAt+edGMJHf73vD1Mr2OIxzRC
+	JYG10JC2DtdWilLOycW4zOXle6adSJ0SwtYHDU6nuCgS3Aa1RGsyaA++wjir8UUakYpEVWyLBWIMR
+	8aq286a2gNk73f3AqE78UfFHlaeL8GUke1ovPv8frzQMUGFkvWY81Z8PZW9O/ss0MGFwqDdPU+JqE
+	1J0PB2oIGcF9PmaRCVpL7tY+Eq3RRUQNG3uDMYEXNVzt4DmfSgrRTucT7tlQXR1CYdjMiPgBy2cyr
+	0R1s7w2AVUIUb+d809zJKSA2eFWSLX6JOp+wYPnrKKrsh9c3Vp1LAv2bF3kH5tJBsXaWzgvBdXAtu
+	eBhshAMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEpi3-0000000CUbC-2O0A;
-	Tue, 13 May 2025 13:30:15 +0000
-Received: from mail-yb1-xb31.google.com ([2607:f8b0:4864:20::b31])
+	id 1uEplV-0000000CV1l-1mXE;
+	Tue, 13 May 2025 13:33:49 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEpfw-0000000CUMw-2OMq
+	id 1uEpjN-0000000CUkj-3o5f
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 13:28:05 +0000
-Received: by mail-yb1-xb31.google.com with SMTP id 3f1490d57ef6-e78f528aa8eso4730789276.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 06:28:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747142883; x=1747747683; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Lmyj3hP5CkRfmv8NZKBXt2FvgPVL/V2jgy3imsWNkMA=;
-        b=riC3+0Ph0W+ttSS/n4/4P/cbE8FXxd1aT3U/cATutXC5hZicOMgXZgIH71mtrdtYav
-         DHjmx3YllZXRkNPwkQlLzPhrAecyCU5Te3GaLL4u1ocgv8GWWLz08F8F+jLuZexPqT77
-         rC2dlrbgM+SgAxdigwm/F1z3oEnWoF3SQTtBfGYBYCmSxCufIMmpcP1pvZ70+0RuT1Tm
-         JSStb957k3K9ZxuqbpwEPut+DlaHGKfjEHsC5oIe3Tkji/BEh5w1HMEHRt6IbdjZTO4P
-         FjeIV3uGI5zV3XVd/4ARWQWF3FDLtLz+5DWgA52XPBGvOWLRPDiy+l3iYKw7yfKQkKxK
-         RawA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747142883; x=1747747683;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Lmyj3hP5CkRfmv8NZKBXt2FvgPVL/V2jgy3imsWNkMA=;
-        b=ktFVpX/Hm2d6AdERwVYTiTOTDdbp36lie0qVjA5Dkj0QtgcL9UU9w9Mbt0lqiXdfVj
-         3+NFBh3ZBQsi/VmlHvY3GamjK40rf7TBYwg3a46BiQ6UgZ5rbRza6J3PNdG8Tq1GiCCM
-         JL8kEuVEXaTS9x4TjVo5+CEzDkjrHyF15pxwa/QSBhMEJKJszq+LLg46PvkFzQxB3XuH
-         OlGoa0WvMbhDMf1AkgoZfuE3/V2d6VIzr+xDAw78kQBkIfzjjSuIfCFaoI3uxb5naOnm
-         Nidpul4Q6ogxuPAPGg+xx7Ta6Ppaer99tmFT5vHMDW025GLYmEcR+J4RSArkIex2yIEw
-         TFdw==
-X-Gm-Message-State: AOJu0YzQ06NyOZS60K07ujX/BLSlmZAxN3p/Kz9EWJac2PoWwiIBgbaq
-	jS8ftCqWV2cAzgrHa3zVYebikEQ6jiyGv6HwqdcssML8W/esO1rNvn4So3xm4vP8gWgEYI/iqEA
-	ltdqPK1sbvhlY2XVc0sXijbFJBVKyjunKuEPwaA==
-X-Gm-Gg: ASbGnctXuEBc8MexctuqM6sxQfn7Lr4uadIBneq6lbonvfvCEky/UI4h6ssXkyiXf9e
-	3tjAbesx6i73IoAXKOjTUDqsD1+emRUVyfj3cxOVf7kIZd6RV9b+x0Y0eA6aK4hxDV/ddVs3/Fj
-	YATkOd7Xu9r56yvPfKdKNi1RjvTez88Ij3
-X-Google-Smtp-Source: AGHT+IGwA9BFxyqwYNEBt7U5MGtywFT6puWcYgnlhrrQ514BRD+zuSEIuyxmPn0OaxGK/ficXJk/LrcOoaZiYWm0Zsg=
-X-Received: by 2002:a05:6902:1893:b0:e78:f395:7d01 with SMTP id
- 3f1490d57ef6-e78fdcd1532mr23000451276.28.1747142883341; Tue, 13 May 2025
- 06:28:03 -0700 (PDT)
+	Tue, 13 May 2025 13:31:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1CE7BA4D859;
+	Tue, 13 May 2025 13:31:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0309C4CEE4;
+	Tue, 13 May 2025 13:31:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747143096;
+	bh=HA7DORCAiqnIOfDsCEF57WtTIACALFhdDogTdktS7ms=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pGzAl0fGGK8pqbViCrxSGctOiFG1cOyN980h5wsLzuWySYI60sqYSqRgpJm0prKGl
+	 n5Ba3ekfhZDDfLNewl51Wa8lJtQ/Ey9YXPW/lHoXptw/IouFnigPAjgi1PGCEk0zGb
+	 JTdH+i21ZesWYriwncf769tTzjirMDRxCu1NHkJldDoG6qK0u/B4A3az0SLwxAh5Xi
+	 Y9zATRmf601pDesnV6ei0rybhwVUoxZcaNPRyucIZytLMqr/S33wm5hvhKU+S8KGGh
+	 6nvzTtbtIJbZh/50VVciqs4K1pqfG+lYzuvo+fhnQ6zWbf3kZodH4kjcR+iPzGnx01
+	 j7nRw5T8X3mig==
+Message-ID: <d421a6e8-e72c-48d9-8806-09724723b5d8@kernel.org>
+Date: Tue, 13 May 2025 15:31:30 +0200
 MIME-Version: 1.0
-References: <20250508200807.1384558-1-andriy.shevchenko@linux.intel.com>
-In-Reply-To: <20250508200807.1384558-1-andriy.shevchenko@linux.intel.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 13 May 2025 15:27:47 +0200
-X-Gm-Features: AX0GCFtjRegm5A3xop934setnF5I9P9pPbOKoUABWT9UO5DUuWgk9ya_2vMnsdg
-Message-ID: <CACRpkda+ouxrpUSbhk0OD5CRjorbQqg_1aGx0WgYw0X78eUutg@mail.gmail.com>
-Subject: Re: [PATCH v1 1/1] pinctrl: at91: Fix possible out-of-boundary access
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, 
-	Ludovic Desroches <ludovic.desroches@microchip.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 16/19] dt-bindings: clock: imx8m-clock: add PLLs
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+ Rob Herring <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>,
+ Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ linux-amarula@amarulasolutions.com, Abel Vesa <abelvesa@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org
+References: <20250424062154.2999219-1-dario.binacchi@amarulasolutions.com>
+ <20250424062154.2999219-17-dario.binacchi@amarulasolutions.com>
+ <20250509162546.GA3704130-robh@kernel.org>
+ <CABGWkvq4a73hvCWG-P_+arc3R-pnr5NVfcGPDTGEoW1doPt2qg@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <CABGWkvq4a73hvCWG-P_+arc3R-pnr5NVfcGPDTGEoW1doPt2qg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_062804_609797_C27F6C49 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20250513_063138_092902_F6913AAC 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,21 +129,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 8, 2025 at 10:08=E2=80=AFPM Andy Shevchenko
-<andriy.shevchenko@linux.intel.com> wrote:
+On 09/05/2025 20:22, Dario Binacchi wrote:
+> On Fri, May 9, 2025 at 6:25 PM Rob Herring <robh@kernel.org> wrote:
+>>
+>> On Thu, Apr 24, 2025 at 08:21:46AM +0200, Dario Binacchi wrote:
+>>> Though adding the PLLs to clocks and clock-names properties will break
+>>> the ABI, it is required to accurately describe the hardware. Indeed,
+>>> the Clock Control Module (CCM) receives clocks from the PLLs and
+>>> oscillators and generates clocks for on-chip peripherals.
+>>>
+>>> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>>
+>>> ---
+>>>
+>>> (no changes since v11)
+>>>
+>>> Changes in v11:
+>>> - Fix conflict while rebasing on master
+>>>
+>>> Changes in v7:
+>>> - Add 'Reviewed-by' tag of Krzysztof Kozlowski
+>>>
+>>> Changes in v6:
+>>> - New
+>>>
+>>>  .../bindings/clock/imx8m-clock.yaml           | 27 ++++++++++++++-----
+>>>  1 file changed, 21 insertions(+), 6 deletions(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
+>>> index 4fec55832702..e83f08abd44c 100644
+>>> --- a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
+>>> +++ b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
+>>> @@ -29,12 +29,12 @@ properties:
+>>>      maxItems: 2
+>>>
+>>>    clocks:
+>>> -    minItems: 6
+>>> -    maxItems: 7
+>>> +    minItems: 7
+>>
+>> Increasing the minimum entries looks like an ABI break to me. The .dts
+>> files not being in linux-next confirms that (from 0 warnings in
+>> mainline):
+>>
+>> arch/arm64/boot/dts/freescale:859:50
+>>     122  clock-controller@30380000 (fsl,imx8mm-ccm): clock-names: ['osc_32k', 'osc_24m', 'clk_ext1', 'clk_ext2', 'clk_ext3', 'clk_ext4'] is too short
+>>     120  clock-controller@30380000 (fsl,imx8mp-ccm): clock-names: ['osc_32k', 'osc_24m', 'clk_ext1', 'clk_ext2', 'clk_ext3', 'clk_ext4'] is too short
+>>      61  clock-controller@30360000 (fsl,imx8mm-anatop): 'clocks' is a required property
+>>      61  clock-controller@30360000 (fsl,imx8mm-anatop): 'clock-names' is a required property
+>>      60  clock-controller@30360000 (fsl,imx8mp-anatop): 'clocks' is a required property
+>>      60  clock-controller@30360000 (fsl,imx8mp-anatop): 'clock-names' is a required property
+>>      36  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[35], [36], [37], [38], [39], [40]] is too short
+>>      36  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[24], [25], [26], [27], [28], [29]] is too short
+>>      32  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[34], [35], [36], [37], [38], [39]] is too short
+>>      28  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[22], [23], [24], [25], [26], [27]] is too short
+>>      26  clock-controller@30380000 (fsl,imx8mn-ccm): clock-names: ['osc_32k', 'osc_24m', 'clk_ext1', 'clk_ext2', 'clk_ext3', 'clk_ext4'] is too short
+>>      17  clock-controller@30360000 (fsl,imx8mq-anatop): 'clocks' is a required property
+>>      17  clock-controller@30360000 (fsl,imx8mq-anatop): 'clock-names' is a required property
+>>      14  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[44], [45], [46], [47], [48], [49]] is too short
+>>      14  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[23], [24], [25], [26], [27], [28]] is too short
+>>      13  clock-controller@30360000 (fsl,imx8mn-anatop): 'clocks' is a required property
+>>      13  clock-controller@30360000 (fsl,imx8mn-anatop): 'clock-names' is a required property
+>>      12  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[26], [27], [28], [29], [30], [31]] is too short
+>>      10  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[38], [39], [40], [41], [42], [43]] is too short
+>>       8  clock-controller@30380000 (fsl,imx8mn-ccm): clocks: [[22], [23], [24], [25], [26], [27]] is too short
+>>       8  clock-controller@30380000 (fsl,imx8mn-ccm): clocks: [[20], [21], [22], [23], [24], [25]] is too short
+>>       8  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[34], [35], [36], [37], [38], [39]] is too short
+>>       8  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[28], [29], [30], [31], [32], [33]] is too short
+>>       8  bcrmf@1 (brcm,bcm4329-fmac): $nodename:0: 'bcrmf@1' does not match '^wifi(@.*)?$'
+>>       6  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[41], [42], [43], [44], [45], [46]] is too short
+>>       6  clock-controller@30380000 (fsl,imx8mn-ccm): clocks: [[24], [25], [26], [27], [28], [29]] is too short
+>>       4  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[43], [44], [45], [46], [47], [48]] is too short
+>>       4  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[40], [41], [42], [43], [44], [45]] is too short
+>>       4  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[36], [37], [38], [39], [40], [41]] is too short
+>>       4  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[35], [36], [37], [38], [39], [40]] is too short
+>>
+>> Please fix the binding or drop what's been applied so far.
+> 
+> Abel and Shawn are already aware of the issue:
 
-> at91_gpio_probe() doesn't check that given OF alias is not available or
-> something went wrong when trying to get it. This might have consequences
-> when accessing gpio_chips array with that value as an index. Note, that
-> BUG() can be compiled out and hence won't actually perform the required
-> checks.
->
-> Fixes: 6732ae5cb47c ("ARM: at91: add pinctrl support")
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
-Patch applied and hey, b4 just picked up all the extra tags for me!
-Love this tool.
+... and I objected to that ABI break:
+https://lore.kernel.org/linux-devicetree/gbymcmoya7dfmedq4nkopqpswh63d2ujxl2elc2x7x325b75bu@anp36sdya43v/
 
-Yours,
-Linus Walleij
+to which you replied "correct hardware description". Now I admit, I
+should not give the review tag, because that's really poor reason to:
+1. break ABI
+2. break users
+3. break boot as it turns out
+
+I have impression that at later stage I actually NAKed entire patchset
+on the basis of being obsolete... but never mind.
+
+I am quite picky reviewer but once I cut people slack, some poor
+explanation about ABI beak is added to commit msg but no one else cares
+and it bites back. We keep repeating that it is the platform's
+maintainer decision but apparently still people don't know it.
+
+Quite a lesson for me. Anyway, I am dissapointed, regardless of my
+review, that this patchset could not actually keep backward compatibility.
+
+My recommendation to Abel is to drop entire patchset.
+
+If there is going to be any re-submits (v13), please kindly drop my
+Reviewed-by from this and next patch breaking the ABI.
+
+
+Best regards,
+Krzysztof
 
