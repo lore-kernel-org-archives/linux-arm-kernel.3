@@ -4,158 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BACFC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 06:39:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8EAC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 06:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PKX+pxfzKL99dE22MOiQGp7IW094pkR8ChIKTSO0mCw=; b=tt2fIrX7oStuVuRU+MhpH93LUN
-	WziO/Jz3SNRJI9KF3YqlyaEx2jD43WOyPIx3Erbtm9rsWIBj0ubT9cCRqXNkdDVf5Bnr74Dxrk/Oq
-	1RpM/hBGV5vmpbe5muZUUPmxFbwmZF0wT+FMn6bVsA0Qerk1aszx0OBEbGzC7cca7Wj0Tbwq1obSQ
-	QAINmIvmNb/sduODgQ8YN6aI9bMmr4aZMV2bPKzjLteneM14J48bndLiFCoqtzgy7c7cJ8AgVLyWL
-	ldbnZUOhGXLrpRTwLLtg5BqRipGKBPRkE5Hw9MawHqmg1+mO67wTTi6RVo9kABY7AsRIbPEV7M5Cc
-	RSWsZ80A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JAfYIBnKYpDLRaIrWgcSn8A7MH7EEr05jrz93Ajb9cs=; b=059fMjNUolK5iS
+	ToSJc89qw+b/pZ74AjBuGCzj/R9S3OZRLbstLg8Or3Cad79KM/ly/nFJtJkXWhQ2UZUsn0Y7kJFLi
+	fhgEqOrVUQiGmZQDfgbUrmTGy4i2j4CkA4GfstQDBgggKRW8inKPezExWeiOkVIEODrXvCSJ812Zq
+	HhT/anVe9dwj3AIBZQfRJwQ7T1Jo7WsOXaBOJpxTt1g9GltNKW+qKGWRSHmI+WEImsTMX9lbcdrOd
+	eks01Oh/2aVdT3wySfy45XjV2lMTPCQpBSERpVgM7sWO87mNmWYitRL4wKzu9Tj69g+H6/601ch45
+	RCyD5blIXd1g8dAUHbAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEjIF-0000000BWV3-0zYH;
-	Tue, 13 May 2025 06:39:11 +0000
-Received: from mail-vi1eur02on20606.outbound.protection.outlook.com ([2a01:111:f403:2607::606] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
+	id 1uEjKC-0000000BWdW-3q4i;
+	Tue, 13 May 2025 06:41:12 +0000
+Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEjDj-0000000BVr2-2boZ
+	id 1uEjFk-0000000BWCw-1xup
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 06:34:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=h9IWNQL/Yr3+OMYZtDCPBmLQCA2Lkzquozk/ifNNwyfTt7yDFaZNP0aXd7dEHgIFCCaPXORFUPJj4VLE16Cu5E7eImT38g4DCL44FqBpIsKJ/2wzpGxDRVLmEIx/IVlX7FZz5TDnnF9proR9Nvm4i4/XfPE+9qqrMdOOtUdzfBLEBPniI6g0rh+SEvHG50Tz3X+82hiK5oRN200YJxE0ueUaSPEbfwBqN6O1lQ2iqbwUPeZa9HcUAhzoVsbJuSrgxSS1uo+UY3lJ8XjDeRVRhulwVpDX5nJEyFLEUjI4ccoKYMaL4KmcWm58mvJsrP8ZMPldK/2McU0N6qT1bWUexw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PKX+pxfzKL99dE22MOiQGp7IW094pkR8ChIKTSO0mCw=;
- b=CmX1A9sW9PrV/YJZ/Kw+H3sEOQXrd0zpSN2iKIRwMwbYovfI9wRol1Lu8iWA0lBfw5R0eisqseg//9gM6iWj6qpvFLO+OguEqch3+ibxmsCyCMWyGE9bFYHkcuZwQ73LdmkpVBKLVF7vXLUBZHWUbMbpk4zhGuUakQzdORhjdANPzaFbiOGMmX7zbtbb6VxkjSmyr0qhlUKIIg0u1OwMNONcYTHLeYbIOZ3NLXM0kyhe2DoRQKM2JUvwmV50a+RAhYgbq4ASoJi0WNtHPmzBX3xaJavsmilPNdMH0wtob+g0c5HTAYaO8BGuRYQwgCPT4acUoj36/m9eVEXayxiu4w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PKX+pxfzKL99dE22MOiQGp7IW094pkR8ChIKTSO0mCw=;
- b=Fn8YmTWNLHErUmc6XPMYB6FLqD56iSf22CL5V82+VY73fe7hVYZfLCAOUG3NvHwBno5RJ1iHI6O01pTbDw5tN9j3/HdsKmavs6+MsQ30lb5tA03ANoJIGZ3bcnLEjZXQZDKcU7k0BTqxu0QC/Yz0QjsT+xxfrzdYLc4BAlTkKKP5TewpudC37q3shec97c5fRB54UKbpWAUNZZU8lSS7qVAeQzYTa5K9P7bDNa1hZ3bP9nbO2mkEqk/Ac8zTEyQlcCrY1wTOGN2cAOE45zXUh6ocqLZ3aDpuMxOcTt0TJR95PeyCBRduUfmxd//QKgH9p55YJSHeKc2C05cDFFK9sw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DU4PR04MB10887.eurprd04.prod.outlook.com (2603:10a6:10:592::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.29; Tue, 13 May
- 2025 06:34:19 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8722.027; Tue, 13 May 2025
- 06:34:19 +0000
-Date: Tue, 13 May 2025 15:43:37 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Hiago De Franco <hiagofranco@gmail.com>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>, linux-pm@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	daniel.baluta@nxp.com, iuliana.prodan@oss.nxp.com,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: Re: [PATCH v2 1/3] firmware: imx: move get power mode function from
- scu-pd.c to misc.c
-Message-ID: <20250513073822.GA14572@nxa18884-linux>
-References: <20250507160056.11876-1-hiagofranco@gmail.com>
- <20250507160056.11876-2-hiagofranco@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250507160056.11876-2-hiagofranco@gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SI2PR06CA0009.apcprd06.prod.outlook.com
- (2603:1096:4:186::17) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Tue, 13 May 2025 06:36:37 +0000
+Received: by mail-pf1-x443.google.com with SMTP id d2e1a72fcca58-736c277331eso5554992b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 May 2025 23:36:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747118195; x=1747722995; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=JAfYIBnKYpDLRaIrWgcSn8A7MH7EEr05jrz93Ajb9cs=;
+        b=U8FRweR5L1lPeXMlm8udSs7QIPB6Wzm6Jc/NNDVAi1pPSYGFsgTU7IZorM6MEHxunr
+         NegKzhZpa00eFue+FRD0t3C3LTAdbQEg8A6kRqPEHRn2Yb7i/285hR5M673ATXqUiMIA
+         ESZEr4KeCKx21bOXh28IjqcIUVYlQeu8LEO8i49CZzyI6/oton/KePphr+Trdp7d9rI/
+         PMEF+Ny7grDlp2l5Je9DLsYNyaruuiZsPFCzib5d5I0QHdZ37f/ooGWTdk0c0fvoFFdI
+         WtD8funk3V75DyzyrfklTB/Ju37d/qA0bcGjSzR1+k72K9iO7aycEeyjI/qPBUVxBxy+
+         CwEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747118195; x=1747722995;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JAfYIBnKYpDLRaIrWgcSn8A7MH7EEr05jrz93Ajb9cs=;
+        b=eava6a30CeiRH6b++CD/HJwUhQ655cv3C0R/II4gXQGWzF19MshWEZ7YQn53dQFBA+
+         PZ4Hg0UzHNv9KOBIy1d/YMuCyZAn8stPow1PhntC+goIxpFimEGXWnZc4M+yQZSofNDE
+         GVN2EuIjl8YCVQZ67fMbjxZqvE+L1y04PvXK8irtVI/N2ZnUxtJSAdT7zZq4p6SEOBBO
+         Bdme8HIl94S8bOJQ30V7n6Mq/eiZvPB/ZR7doWNZIymvF3ppgcQg4SUb6qYEMOUPdwPL
+         GaGKOhqP0JtYP+USBYGMPtJpzWaCZYMq9lRlSug8nIGRJCzXDOR0YQNfe8sJFBCfawnH
+         dcPA==
+X-Forwarded-Encrypted: i=1; AJvYcCXL1kC97XW+zTGGBtVqEAz/EuIu23otuKkFl58Y6UgbdBYbHnzlvtHa2NLJ046By3pU8qnnUYNAusRB/gnx+uTg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2sdjD6D8kFGZXTDAq3EMDLnMIS+5DOkWwEPgb7xCJdClLVB6Q
+	X+nxBXcEM6gqyjsCbu/w9H0tOvkHjnjQsBDHUxqnaFIx8OzdY520
+X-Gm-Gg: ASbGncshwOjbHzmZq4hdJ4YqaPFtnVoR9Q9NEv7LUvUdqXCpM8Lz24ETfVsBKwotEKu
+	oQznYSfZCjo8tUwCRndkdUFTjpH9RCCUA1OaVxwmsCxCa0sccUrrLpfdPqI5x7xf8IfzxWr0YYT
+	IJJ/linU9QD9sfYG0SkZNfbEKkOAiQ2JnzkcbAxViWBxAhvmJcOdas0a3NJUI2Qo6VGvd22jeyo
+	rAHiRAscJwPWQu5I2BUq7XOiXQrlJIJdGl9QNWacoRRVRTjAUdKBjQANgkQBhZPznM8vgFlDJVU
+	SKy9VjjoccXUSs1djn1x0c5uAWVCZDI2dTihEIfpt2bFjM5ZXSuVeB851tHcpSL/LQ==
+X-Google-Smtp-Source: AGHT+IHAzcJWPedcZbhkiu5M1cagox2tF+zXlSND/8z+TRNJWT8nZ3aHFKNr8Qq+zyYM82VNJEGSQg==
+X-Received: by 2002:a05:6a21:150a:b0:1ee:5fae:8f6a with SMTP id adf61e73a8af0-215eb6dbd7cmr3827294637.1.1747118194892;
+        Mon, 12 May 2025 23:36:34 -0700 (PDT)
+Received: from [127.0.1.1] ([91.124.30.36])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b234a0b76ccsm6657936a12.27.2025.05.12.23.36.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 May 2025 23:36:34 -0700 (PDT)
+From: Troy Mitchell <troymitchell988@gmail.com>
+Subject: [PATCH v3 0/2] i2c: imx: guard and drop prefix
+Date: Tue, 13 May 2025 14:36:12 +0800
+Message-Id: <20250513-i2c-imx-update-v3-0-817b7426a67e@gmail.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DU4PR04MB10887:EE_
-X-MS-Office365-Filtering-Correlation-Id: 974c2206-8016-470c-62b9-08dd91e82fc1
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?fz4Mm+38HwIvHWN36cNktIJu3D/YjligWKYD9WQdxb4vODFPAhgAipOlxs10?=
- =?us-ascii?Q?BReFEYsXMAHZlafYWejTLO62m7/yKw8AMzYJWC+LnvdT0c2AjSf809wpr6fY?=
- =?us-ascii?Q?4nKeQQkSHKQ1coLtiC2wa7tAcIBMad5KvqoMwtYLWPFS21/ZPgPaGy7o5ZyT?=
- =?us-ascii?Q?3wpwfsYUfgsmiPjexbV6JfCKDKe+W/Fz8ALS0bEEq4U30FK3/+bUeIWUyaAh?=
- =?us-ascii?Q?f8jiIYOnmXySZQZGcA0MbbQhdcZlZwJSEYM7PY/qPXlY9y3YKxIRKvz0Z4Jz?=
- =?us-ascii?Q?tHnx91lzDDA61wick5cEWSKOrX+7q7qhAOK2XbFs/tNt+/TyDX81LgqMy6tC?=
- =?us-ascii?Q?aqRT739z+8CckrFZbqE5podBkVpYvDFu9vHItYDhPyWefSRDAOAhnDgf5LdI?=
- =?us-ascii?Q?TGLKHL4upoNWbQux7KuHtmkeWOEOmDL7TxlD+T6Q2pjQW17YvzdD5BkALCqk?=
- =?us-ascii?Q?2cxGvIO7/MRKN2Cb+E59g6P1d1sTG2AKyFsL2biSs+Y6lK1J6OoSUON5tkxr?=
- =?us-ascii?Q?XpPwzOZ5ZvYwg0FK1nXm5z6KDW3z/9OZo56ZkeP1H77RLyBof1OfeHGUQNnB?=
- =?us-ascii?Q?DlSwH1XSGgQ93TrFABDlebBD7PX8vR+W/atP/JegLfQVVrIsB+TcWeTf4a/w?=
- =?us-ascii?Q?8nZGjGvXzKDyGZnzWC0zKid0WooF/eltQk8Po3FdHOpw09K5ZJrsAZfFNE4H?=
- =?us-ascii?Q?2OLGmX0MuBIhWS3Yp5pu6KdM2rjIy4/RixUHFY2V6jSnGmGnzMo3ojgSBc6j?=
- =?us-ascii?Q?P9wErgqlMDd2FTm6SgiO3qbfL3+kR48UnNym8CHOGjDemKu0qyjxNBhRMbt8?=
- =?us-ascii?Q?ahoxcmeDKLoW1Y8hoIIV3LSvyDjT5hYf9TlQrw4+fyiGjsRhAC6g2/HoIEZF?=
- =?us-ascii?Q?at/UclxA6X0n6HclMN71UhJTqk5eW3CSE6Psn5XBWVGvoyjv8eD7eHLgq86z?=
- =?us-ascii?Q?yeyJEVAF4ccGM80/OIEQ1ax+shAVKZAQ+NVMCzHN8cnYuDSkub28+lcyj0k8?=
- =?us-ascii?Q?k62ifAf08lC4QMSm3jBc3AIJjR3VKIdfhFrbPbDF6zP8S3whgL5RcPtFNnC8?=
- =?us-ascii?Q?TvkDtEKvqt127Mpb2wJrsi/10nO0UyvvujvjEGauf62I4ZDoUrfkUdWqcUv5?=
- =?us-ascii?Q?fN2g67PED5VK7Wb0gN3cor3f6zeuq1ypo/2hPcBVjp0O6eXE/zUZ5L7FSB03?=
- =?us-ascii?Q?Mhhqq8P86ecmilwpan9Xy0oFDjfxgDNCq4ZJS6iTA6l5lQ+NXlCSoU0hFdCU?=
- =?us-ascii?Q?iB0b1oSLJaJJIiK/sFPaDfN8/sFN4pzXd2Sj68fHR4DZwKm/Ed7S3+enbffY?=
- =?us-ascii?Q?AP0JPEs0XBCFt5kCfG0ynNIivR+B2/0O550T+I4QlfdI2HOPDQaKXI8u4e7W?=
- =?us-ascii?Q?Reg9EAZjLuGxy6O7AHL1SAqsOXPcPgnb9Cx3Wxe7crf7DtvNj1earqPB5axH?=
- =?us-ascii?Q?YTKCpcqb3ZlrizVe5OJuTsLgBzyyLQXuT3HKPK1VUbXpqw3uQkUeLgVsqey4?=
- =?us-ascii?Q?W/uTehziq08vNP4=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5f/48eTIzfsdvGGgZK2dBshRXNSQ9QmfqmYq9g9i+F3PT4iAZ/NtoaevfBl+?=
- =?us-ascii?Q?vcwcNa7QWm7YjNyaHr4HX02ixCu6wCs9j02WfuA5ws2bs9k6tA+N7fyGh4Z8?=
- =?us-ascii?Q?AMaiU0xp7n94LDR4Ve+yc9FvD73B5nuj/NAZ2JjJTR5hsqI7gTqFJuaTFqOq?=
- =?us-ascii?Q?TL6luJ0My1UKBhjhacR2OqrrGx/IwS00L9UPZMFiFWqFTz6bUTTim30d7AG+?=
- =?us-ascii?Q?LkFg66BvajXmYRn3jrQA+6REr9sL02fXBfOiWx13KiSqhXh1b+vwUQ+2IkiX?=
- =?us-ascii?Q?pTXeGwgcz1r/lyffWOJEAlgG1ZJNCyV/hVXIWsCe/UoOSeRBMzrByho3bwEU?=
- =?us-ascii?Q?Bf0p/o5qc2nYsUPdBx9wJBoEAsxdvlWnYi5WNxAOFHnui/dFLsD5hJ1IGuEH?=
- =?us-ascii?Q?G4WZUSrsTYwFwSWE9le+Zp9JurNGaIWC6RG/3giJNUd9EPjcrnaBhaHPHO5/?=
- =?us-ascii?Q?KpCT11Bm3Tri6UkODo0XLdZ7GpHdi7PbUgjCozn328LYkVgtpVEnTOikpshU?=
- =?us-ascii?Q?cF1ThtNBh9kK2+DIJJ3Kv6op2a8o5I8HiEIKlxkpkiituiL1v1UMOBOQVw7E?=
- =?us-ascii?Q?TUep83dRbsSOfv1uoogyHefu6OnCjR9ZlLpSVLKyKhi34x5hrdfhYcnSrOcb?=
- =?us-ascii?Q?PWtFkPi0NfgNttFzW7rSYx6s/dx9v5yz28Gsema1ks829uDx/c1JXBPPluYX?=
- =?us-ascii?Q?Ly4WaaFAEElNgH7KfAH7hJkfa5YrzYNoiyyGQ7lRYtErCCE8Upp1ozMEtnbK?=
- =?us-ascii?Q?wcZeGHocctliqZ5TYyCIQJLmYuYQXrJAZ7JjiZBJoMbbTLO9fBfoXMdQLBME?=
- =?us-ascii?Q?5vZ0fBc5iUZM+Fnl565CejsFZd0O7gE4KxCLEFzYeSRFH2M7vZMorfeiYBZV?=
- =?us-ascii?Q?VW+IEXcYEDfASF7t6L7HAwJjtIHscy/XuY3WMCF6L0J6SbSMYBZEBAhlUfbT?=
- =?us-ascii?Q?dHQuRw475cQMIObfM7c76zBBS7pJSFXATmaQMGV3uyWQbCmnECSm3dVtRKO6?=
- =?us-ascii?Q?9w95smRtZneRC0HL2U+L0cebQZtvJgmjb0fXx9YaXnBEXQAKcuPmX+GNcVY9?=
- =?us-ascii?Q?h4mFhLRb0ZKpo0K46hg1KY/mGAET8o3ScIUerQSdDybliLjCXWSXR2iD53kM?=
- =?us-ascii?Q?PDL3g3TJdeuIic2bFdK992SMh61mt/6yxpRZR86up42i4kK6S03DtQPFym0Q?=
- =?us-ascii?Q?/kIsBcqwm9Su8sL0XPMPPyVjefPxTjE9BrqdPyZJwSBYx8F+y2Dns53hPhM2?=
- =?us-ascii?Q?yFg1SprAc4Lnlj4PkHLZpWgJXjXlSvc4qdziy2XNynGMdAI8344iywZJwALL?=
- =?us-ascii?Q?TvIlpUmh1OI4Ogf6ktsFh5+ZCdX7EexlNNXtUpxvk+vIp/LqAJmQibms0hyR?=
- =?us-ascii?Q?/MSNWd+Gxvu4O/hGSdB/OsG+u0MvPIU2FnKbDt7ND2+2agmmJutuO0RWksuu?=
- =?us-ascii?Q?FDwO7A3Ucp5WlMawd/H7mxdOLHmwRnbnoduq6WoWngh02/HNOXEMkQMSp9wv?=
- =?us-ascii?Q?uPhye97BVACf3y/XmFvQb1pcBtUB+LiERiSErT7kaSGBFNA1w5CtVw7g3yn0?=
- =?us-ascii?Q?69iJj/jVi49qhQCkGUf9C1acjQoNRJHbG8eLd43Q?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 974c2206-8016-470c-62b9-08dd91e82fc1
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2025 06:34:19.5588
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JmkJG/Y1qB3lLcg/my/PsnBPEXcN4Pz4Kw9vQg87tCRjXB7z4/FvxOI47bZhA6H5M+hp9VMM2lqetditJ/4UoQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10887
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAF3oImgC/3XMyw6CMBCF4VchXVvDtJSiK9/DuEBmgEnkkhYbD
+ OHdLaxIjMtzku9fhCfH5MU1WYSjwJ6HPg59SkTVln1DkjFuoVJl0kyBZFVJ7mb5HrGcSCIA5jl
+ iYakQEY2Oap734P0Rd8t+Gtxn7wfY3r+pADKVANrWUGuj0dyaruTXuRo6saWCOnL7w1XkqEGRv
+ mRPY/WRr+v6BbXPuUnrAAAA
+To: Oleksij Rempel <o.rempel@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Andi Shyti <andi.shyti@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
+Cc: linux-i2c@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Troy Mitchell <troymitchell988@gmail.com>, Yongchao Jia <jyc0019@gmail.com>, 
+ Frank Li <Frank.Li@nxp.com>, Ahmad Fatoum <a.fatoum@pengutronix.de>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747118187; l=1186;
+ i=troymitchell988@gmail.com; h=from:subject:message-id;
+ bh=Zc6yQyorlVRgdIL0rSi1mnvWlZcO61DoFG74OAaARg4=;
+ b=q9clC7BV7yQN12t9Wb9qmMCulgBg+RP8VyfC4iP7GyDFUeDvCVNVajzQDZyDIgsMVxU8yBsdq
+ blP52SIuTgBCGH3U2by9e+djgC2nV65clel6gFiWKkG+k/Bnec9xulx
+X-Developer-Key: i=troymitchell988@gmail.com; a=ed25519;
+ pk=2spEMGBd/Wkpd36N1aD9KFWOk0aHrhVxZQt+jxLXVC0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_233431_839489_73FF6A1B 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20250512_233636_511307_4A3F7AAE 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,189 +112,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Hiago,
+Since this patch[1], we have new callback function names.
+Since this patch[2], we can use `guard` to call `spin_lock_irqsave`
+and release this lock when it goes out of scope.
 
-On Wed, May 07, 2025 at 01:00:54PM -0300, Hiago De Franco wrote:
->From: Hiago De Franco <hiago.franco@toradex.com>
->
->Move imx_sc_get_pd_power() from pmdomain/imx/scu-pd.c to
->firmware/imx/misc.c and rename it to imx_sc_pm_get_resource_power_mode()
->to maintain the same naming logic with other functions in misc.c.
->
->This makes the API available for other use cases. For example,
->remoteproc/imx_rproc.c can now use this function to check the power mode
->of the remote core.
->
->Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
->---
->v2: moved this patch to be the first one
->---
-> drivers/firmware/imx/misc.c           | 47 +++++++++++++++++++++++++++
-> drivers/pmdomain/imx/scu-pd.c         | 29 ++++-------------
-> include/linux/firmware/imx/svc/misc.h |  8 +++++
-> 3 files changed, 62 insertions(+), 22 deletions(-)
->
->diff --git a/drivers/firmware/imx/misc.c b/drivers/firmware/imx/misc.c
->index d073cb3ce699..61fcb0066ec9 100644
->--- a/drivers/firmware/imx/misc.c
->+++ b/drivers/firmware/imx/misc.c
->@@ -37,6 +37,18 @@ struct imx_sc_msg_resp_misc_get_ctrl {
-> 	u32 val;
-> } __packed __aligned(4);
-> 
->+struct imx_sc_msg_req_get_resource_power_mode {
->+	struct imx_sc_rpc_msg hdr;
->+	union {
->+		struct {
->+			u16 resource;
->+		} req;
->+		struct {
->+			u8 mode;
->+		} resp;
->+	} data;
->+} __packed __aligned(4);
->+
-> /*
->  * This function sets a miscellaneous control value.
->  *
->@@ -135,3 +147,38 @@ int imx_sc_pm_cpu_start(struct imx_sc_ipc *ipc, u32 resource,
-> 	return imx_scu_call_rpc(ipc, &msg, true);
-> }
-> EXPORT_SYMBOL(imx_sc_pm_cpu_start);
->+
->+/*
->+ * This function gets the power mode from a given @resource
->+ *
->+ * @param[in]     ipc         IPC handle
->+ * @param[in]     resource    resource to check the power mode
->+ *
->+ * @return Returns < 0 for errors or the following for success:
->+ * IMX_SC_PM_PW_MODE_OFF  0	Power off
->+ * IMX_SC_PM_PW_MODE_STBY 1	Power in standby
->+ * IMX_SC_PM_PW_MODE_LP   2	Power in low-power
->+ * IMX_SC_PM_PW_MODE_ON   3	Power on
->+ *
->+ * These are defined under firmware/imx/svc/pm.h
->+ */
->+int imx_sc_pm_get_resource_power_mode(struct imx_sc_ipc *ipc, u32 resource)
->+{
->+	struct imx_sc_msg_req_get_resource_power_mode msg;
->+	struct imx_sc_rpc_msg *hdr = &msg.hdr;
->+	int ret;
->+
->+	hdr->ver = IMX_SC_RPC_VERSION;
->+	hdr->svc = IMX_SC_RPC_SVC_PM;
->+	hdr->func = IMX_SC_PM_FUNC_GET_RESOURCE_POWER_MODE;
->+	hdr->size = 2;
->+
->+	msg.data.req.resource = resource;
->+
->+	ret = imx_scu_call_rpc(ipc, &msg, true);
->+	if (ret)
->+		return ret;
->+
->+	return msg.data.resp.mode;
->+}
->+EXPORT_SYMBOL(imx_sc_pm_get_resource_power_mode);
->diff --git a/drivers/pmdomain/imx/scu-pd.c b/drivers/pmdomain/imx/scu-pd.c
->index 01d465d88f60..945f972e636f 100644
->--- a/drivers/pmdomain/imx/scu-pd.c
->+++ b/drivers/pmdomain/imx/scu-pd.c
->@@ -54,6 +54,7 @@
-> #include <dt-bindings/firmware/imx/rsrc.h>
-> #include <linux/console.h>
-> #include <linux/firmware/imx/sci.h>
->+#include <linux/firmware/imx/svc/misc.h>
-> #include <linux/firmware/imx/svc/rm.h>
-> #include <linux/io.h>
-> #include <linux/module.h>
->@@ -328,27 +329,6 @@ static void imx_sc_pd_get_console_rsrc(void)
-> 	imx_con_rsrc = specs.args[0];
-> }
-> 
->-static int imx_sc_get_pd_power(struct device *dev, u32 rsrc)
->-{
->-	struct imx_sc_msg_req_get_resource_power_mode msg;
->-	struct imx_sc_rpc_msg *hdr = &msg.hdr;
->-	int ret;
->-
->-	hdr->ver = IMX_SC_RPC_VERSION;
->-	hdr->svc = IMX_SC_RPC_SVC_PM;
->-	hdr->func = IMX_SC_PM_FUNC_GET_RESOURCE_POWER_MODE;
->-	hdr->size = 2;
->-
->-	msg.data.req.resource = rsrc;
->-
->-	ret = imx_scu_call_rpc(pm_ipc_handle, &msg, true);
->-	if (ret)
->-		dev_err(dev, "failed to get power resource %d mode, ret %d\n",
->-			rsrc, ret);
->-
->-	return msg.data.resp.mode;
->-}
->-
-> static int imx_sc_pd_power(struct generic_pm_domain *domain, bool power_on)
-> {
-> 	struct imx_sc_msg_req_set_resource_power_mode msg;
->@@ -438,7 +418,12 @@ imx_scu_add_pm_domain(struct device *dev, int idx,
-> 	if (imx_con_rsrc == sc_pd->rsrc)
-> 		sc_pd->pd.flags = GENPD_FLAG_RPM_ALWAYS_ON;
-> 
->-	mode = imx_sc_get_pd_power(dev, pd_ranges->rsrc + idx);
->+	mode = imx_sc_pm_get_resource_power_mode(pm_ipc_handle,
+Link:
+https://lore.kernel.org/all/20240706112116.24543-2-wsa+renesas@sang-engineering.com/ [1]
+https://lore.kernel.org/all/20250227221924.265259-10-lyude@redhat.com/ [2]
 
-I mean, not change scu-pd.c in this patchset. After
-imx_sc_pm_get_resource_power_mode landed, you could update scu-pd.c.
+Signed-off-by: Troy Mitchell <troymitchell988@gmail.com>
+---
+Changes in v3:
+- use scoped_guard
+- Link to v2: https://lore.kernel.org/r/20250427-i2c-imx-update-v2-0-d312e394b573@gmail.com
 
-Otherwise you are touch three trees which are a bit hard to manage for
-maintainers:
-scu-pd.c under linux-pm tree
-misc.c under linux-imx tree, I think using power.c should be better.
-imx_rproc.c under linux-remoteproc tree
+Changes in v2:
+- Add more details in the commit message
+- Drop a useless variable
+- Refactor the logic of i2c_imx_isr function
+- Link to v1: https://lore.kernel.org/r/20250421-i2c-imx-update-v1-0-1137f1f353d5@gmail.com
 
-My suggestion was that
-patch 1: firmware: imx: Introduce imx_sc_pm_get_resource_power_mode
-patch 2: remoteproc: imx_rproc: Detecting power mode of M4 for i.MX8QX
-Patch 3: pmdomain: scu-pd: migrate to use imx common pm API
+---
+Troy Mitchell (2):
+      i2c: imx: use guard to take spinlock
+      i2c: imx: drop master prefix
 
-Patch 3 could be separate out in future patchset to avoid handling three trees.
+ drivers/i2c/busses/i2c-imx.c | 41 ++++++++++++++++++-----------------------
+ 1 file changed, 18 insertions(+), 23 deletions(-)
+---
+base-commit: 9d7a0577c9db35c4cc52db90bc415ea248446472
+change-id: 20250421-i2c-imx-update-d11d66dd87e8
 
-Regards,
-Peng
->+						 pd_ranges->rsrc + idx);
->+	if (mode < 0)
->+		dev_err(dev, "failed to get power resource %d mode, ret %d\n",
->+			pd_ranges->rsrc + idx, mode);
->+
-> 	if (mode == IMX_SC_PM_PW_MODE_ON)
-> 		is_off = false;
-> 	else
->diff --git a/include/linux/firmware/imx/svc/misc.h b/include/linux/firmware/imx/svc/misc.h
->index 760db08a67fc..376c800a88d0 100644
->--- a/include/linux/firmware/imx/svc/misc.h
->+++ b/include/linux/firmware/imx/svc/misc.h
->@@ -55,6 +55,8 @@ int imx_sc_misc_get_control(struct imx_sc_ipc *ipc, u32 resource,
-> 
-> int imx_sc_pm_cpu_start(struct imx_sc_ipc *ipc, u32 resource,
-> 			bool enable, u64 phys_addr);
->+
->+int imx_sc_pm_get_resource_power_mode(struct imx_sc_ipc *ipc, u32 resource);
-> #else
-> static inline int imx_sc_misc_set_control(struct imx_sc_ipc *ipc,
-> 					  u32 resource, u8 ctrl, u32 val)
->@@ -73,5 +75,11 @@ static inline int imx_sc_pm_cpu_start(struct imx_sc_ipc *ipc, u32 resource,
-> {
-> 	return -ENOTSUPP;
-> }
->+
->+static inline int imx_sc_pm_get_resource_power_mode(struct imx_sc_ipc *ipc,
->+						    u32 resource)
->+{
->+	return -ENOTSUPP;
->+}
-> #endif
-> #endif /* _SC_MISC_API_H */
->-- 
->2.39.5
->
+Best regards,
+-- 
+Troy Mitchell <troymitchell988@gmail.com>
+
 
