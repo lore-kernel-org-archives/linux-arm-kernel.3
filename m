@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBB5AC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 20:50:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A2AAC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 21:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u87NdICAW/jny13v/jgpJ1UqVv+ap0izXMLDhWUKyP8=; b=S9OQTN/SPu138ke/vgdgq+WIZV
-	Y2jmQ8w8Ir8Qg0qgX/jFVj8386eQZnIyCrAwRx+PoQffhNdXdmD8tdzx/J0LXEneR/QPbIWt5/ijS
-	QloMlGCcs6U1U6SOxtHJVkZzgcP3zknxHptCcpTEg5A3Tcsz3/YbOWyAHPkP3K/6fhWMNbN4OR7Up
-	c6kVIve5h2AV+QDfptZG2T0u7dujgPZH/qnJq2/cQfLOTgPCyRXM16mSOSSpaFCyKFki6T0Gb8Nfq
-	beuhvh5JIt9ewEEa2cF4O+v5fQBF3rM/RWMlLgL+SFklaPCP3DPmbVvU/4kGdpBEK2OP0Fve/uz7Q
-	o32UXqJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AVI/9klCx5JW1JBJ4BVKJpsH2aIwTCWX7Gsjp7xslw4=; b=XLMl8vmdIehA44bat3WG2m/7yj
+	5sk3hg6mNmewssebDNu9ErDMOquVKDggXlZLLffA9Ld/TYxdAxO9dbSfDnZC/2IH+x3JO1FLJ+0bL
+	z7BqsIUbwxgAligiCOfh5MhXuSOUqqIiZSDVICT3A7HqwIx89G/R+d4vpB97a/1HbXbWRsxaEk238
+	lR1KrPMX8/V0oyetaXtI2TqUMthQdFSGeK8NBQTCtKiUJvYAZccIkwpRkdHK2XVNXkmeqypdCKhK4
+	3G8wV4wHiB1L6m0EoHh/HmF0Gww5OGJmAHFCspGF6Wi3Ta/HoX1JinTXzbLIrpBCeePHOfUerea2u
+	OhJF9/bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEwa5-0000000DWZq-3HAK;
-	Tue, 13 May 2025 20:50:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uEwlf-0000000DXGD-0sVO;
+	Tue, 13 May 2025 21:02:27 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEwWk-0000000DW3L-10Tj
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 20:47:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A6932614B6;
-	Tue, 13 May 2025 20:47:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41EFFC4CEE4;
-	Tue, 13 May 2025 20:46:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747169221;
-	bh=91T1VPpN0iD8ktDa7qsOceVNZlZJTp4gav1Jy25LnSQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WQb0qC+ym000T53oAyQDwuHJRpVGuGBoVFyShbm+el146dau8o2JDPo5yxkgxKpti
-	 LL50ws06ju3UEMaDdSS+su6PDAzv6pLH4NaZOy+obXcwx1X85nF8xUMLLePAD9g6XQ
-	 g7rY8Y1qcePT8OjIDPPCyC0u4pGh181Uey9HNrRFpxhSPr6xGxJ1QSfc3gQYofz6Kn
-	 A0N/R4uit7/ngka1Qut71KCitesZetpE/SjmhTnHFQL188qDH1P93gT/pCJwmi1JTs
-	 S1SQzOBhP7sloLPAa4ZrRSoMG7L5s3KM9G3VfLXYJDAmMsei5WDu0TIKWqVIhbXIv5
-	 BzatqSTAUTu3A==
-From: Bjorn Andersson <andersson@kernel.org>
-To: Konrad Dybcio <konradybcio@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Georgi Djakov <djakov@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	David Heidelberg <david@ixit.cz>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: (subset) [PATCH v2 00/10] ARM: qcom: fix APQ8064 schema warnings
-Date: Tue, 13 May 2025 21:46:40 +0100
-Message-ID: <174716895379.39748.10076819557208209836.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250318-fix-nexus-4-v2-0-bcedd1406790@oss.qualcomm.com>
-References: <20250318-fix-nexus-4-v2-0-bcedd1406790@oss.qualcomm.com>
+	id 1uEwjY-0000000DXAQ-44M3;
+	Tue, 13 May 2025 21:00:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1747170014;
+	bh=uXBKfrEHx7TPq4q2YOZY45n4LHW3AiqO1stybgZlRFw=;
+	h=From:Date:Subject:To:Cc:From;
+	b=doln9mqquK6hbJ3KKO3U21/pJNa5dzcIc3wNJugbujtmikJj5ghJ6UMdGMdjwWYly
+	 4r+lj37zE2TPlwBOsnp9/9jgEw6y+D4h2GGH22jIaO8bxmrQiySnO5jLpE3w2aDHBr
+	 sb50YxPfQ+/DJcrMMtMq2sifoSs+bFGbNyBWRC478I9jQLwth+DJcsFD2NPzCXXNQw
+	 zLRKvuFhhR3SitGmWKGCeUfEdnb+yHC/bZDDoRs7t/1a9eDMFt/XZK7WSdUfpRwim3
+	 7tFdwCMdKYiuyh0RNAzZJjunzle6Cvbi0BV7SJXWDs93wldKH3WfTU5A7sxE+RHrdp
+	 4v5OO9ZZxH/cQ==
+Received: from [192.168.1.63] (unknown [70.107.117.78])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E48CF17E0509;
+	Tue, 13 May 2025 23:00:12 +0200 (CEST)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Date: Tue, 13 May 2025 16:59:41 -0400
+Subject: [PATCH] arm64: defconfig: Enable configs for MediaTek Genio EVK
+ boards
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-Id: <20250513-genio-defconfig-v1-1-c3862f91b6b2@collabora.com>
+X-B4-Tracking: v=1; b=H4sIALyyI2gC/x3MQQqAIBBA0avErBuwTIuuEi3CGW02GgoRSHdPW
+ r7F/xUKZ+ECa1ch8y1FUmwY+g7cecTAKNQMoxqNMoPGwFESEnuXopeAsyVr/GInTQStujJ7ef7
+ jtr/vBygLiT5hAAAA
+X-Change-ID: 20250513-genio-defconfig-76d65f8643dd
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250513_140017_166574_1F9E05AA 
+X-CRM114-Status: UNSURE (   6.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,32 +80,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Enable the missing configs to get all devices on the MediaTek Genio
+1200, 700, 510 and 350 EVK boards probing, as indicated by the DT
+kselftest.
 
-On Tue, 18 Mar 2025 15:21:53 +0200, Dmitry Baryshkov wrote:
-> Rob's bot has reported [1] several warnings for Nexus 4 submisson,
-> however none of those warnings are specific to that device. Fix all
-> those warnings for all APQ8064 platforms by extending existing schemas,
-> adding missing schemas and making APQ8064 DT follow all the schema
-> files.
-> 
-> [1]: https://lore.kernel.org/linux-arm-msm/174221818190.3957236.3364090534153729086.robh@kernel.org/
-> 
-> [...]
+This includes support for:
 
-Applied, thanks!
+Genio 1200/700/510/350:
+* MT6359/MT6357 PMICs Auxiliary ADC
 
-[06/10] ARM: dts: qcom: apq8064: add missing clocks to the timer node
-        commit: 4b0eb149df58b6750cd8113e5ee5b3ac7cc51743
-[07/10] ARM: dts: qcom: apq8064 merge hw splinlock into corresponding syscon device
-        commit: 325c6a441ae1f8fcb1db9bb945b8bdbd3142141e
-[08/10] ARM: dts: qcom: apq8064: use new compatible for SFPB device
-        commit: 2a1282861b73a4b8e45904e079ed3279c3f1c93f
-[09/10] ARM: dts: qcom: apq8064: use new compatible for SPS SIC device
-        commit: 92c377bcafcddd43d4dca1aa60c865cdd2d1dbbb
-[10/10] ARM: dts: qcom: apq8064: move replicator out of soc node
-        commit: f2420037d90a8354594b3da541e19dcbb60c75e1
+Genio 1200/700/510:
+* MDP3 (video scaling and color space conversion IP block)
+* ITE IT5205 Type-C USB Alternate Mode Passive MUX
+* Himax HX8279 controller based KD070FHFID078 DSI panel
+
+Genio 700/510:
+* Richtek RT1715 USB Type-C PD Controller
+
+Genio 1200:
+* MediaTek PCIe PHY
+* Mediatek MT6360 USB Type-C Port Controller
+
+Genio 350:
+* STARTEK KD070FHFID015 DSI panel
+* MediaTek UART DMA controller (APDMA)
+
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+---
+Depends on [1].
+
+[1] "[PATCH v4] arm64: defconfig: mediatek: enable PHY drivers"
+https://lore.kernel.org/all/20250512131933.1247830-1-vignesh.raman@collabora.com/
+---
+ arch/arm64/configs/defconfig | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index cb3eacd6406c3a508ce9ee5f4b5c9cd6a429ed3a..cb47d7bea02025d6034093ec3dd2f9f1c6ad4bc8 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -846,6 +846,7 @@ CONFIG_VIDEO_MEDIATEK_JPEG=m
+ CONFIG_VIDEO_MEDIATEK_VCODEC=m
+ CONFIG_VIDEO_WAVE_VPU=m
+ CONFIG_VIDEO_E5010_JPEG_ENC=m
++CONFIG_VIDEO_MEDIATEK_MDP3=m
+ CONFIG_VIDEO_IMX7_CSI=m
+ CONFIG_VIDEO_IMX_MIPI_CSIS=m
+ CONFIG_VIDEO_IMX8_ISI=m
+@@ -912,6 +913,7 @@ CONFIG_DRM_PANEL_BOE_TV101WUM_NL6=m
+ CONFIG_DRM_PANEL_LVDS=m
+ CONFIG_DRM_PANEL_SIMPLE=m
+ CONFIG_DRM_PANEL_EDP=m
++CONFIG_DRM_PANEL_HIMAX_HX8279=m
+ CONFIG_DRM_PANEL_ILITEK_ILI9882T=m
+ CONFIG_DRM_PANEL_KHADAS_TS050=m
+ CONFIG_DRM_PANEL_MANTIX_MLAF057WE51=m
+@@ -919,6 +921,7 @@ CONFIG_DRM_PANEL_NOVATEK_NT36672E=m
+ CONFIG_DRM_PANEL_RAYDIUM_RM67191=m
+ CONFIG_DRM_PANEL_SAMSUNG_ATNA33XC20=m
+ CONFIG_DRM_PANEL_SITRONIX_ST7703=m
++CONFIG_DRM_PANEL_STARTEK_KD070FHFID015=m
+ CONFIG_DRM_PANEL_TRULY_NT35597_WQXGA=m
+ CONFIG_DRM_PANEL_VISIONOX_VTDR6130=m
+ CONFIG_DRM_DISPLAY_CONNECTOR=m
+@@ -1152,6 +1155,8 @@ CONFIG_USB_MASS_STORAGE=m
+ CONFIG_TYPEC=m
+ CONFIG_TYPEC_TCPM=m
+ CONFIG_TYPEC_TCPCI=m
++CONFIG_TYPEC_RT1711H=m
++CONFIG_TYPEC_MT6360=m
+ CONFIG_TYPEC_TCPCI_MAXIM=m
+ CONFIG_TYPEC_FUSB302=m
+ CONFIG_TYPEC_QCOM_PMIC=m
+@@ -1162,6 +1167,7 @@ CONFIG_TYPEC_TPS6598X=m
+ CONFIG_TYPEC_HD3SS3220=m
+ CONFIG_TYPEC_MUX_FSA4480=m
+ CONFIG_TYPEC_MUX_GPIO_SBU=m
++CONFIG_TYPEC_MUX_IT5205=m
+ CONFIG_TYPEC_MUX_NB7VPQ904M=m
+ CONFIG_TYPEC_MUX_PS883X=m
+ CONFIG_TYPEC_MUX_WCD939X_USBSS=m
+@@ -1271,6 +1277,7 @@ CONFIG_PL330_DMA=y
+ CONFIG_TEGRA186_GPC_DMA=y
+ CONFIG_TEGRA20_APB_DMA=y
+ CONFIG_TEGRA210_ADMA=m
++CONFIG_MTK_UART_APDMA=m
+ CONFIG_QCOM_BAM_DMA=y
+ CONFIG_QCOM_GPI_DMA=m
+ CONFIG_QCOM_HIDMA_MGMT=y
+@@ -1515,6 +1522,7 @@ CONFIG_EXYNOS_ADC=y
+ CONFIG_IMX8QXP_ADC=m
+ CONFIG_IMX93_ADC=m
+ CONFIG_MAX9611=m
++CONFIG_MEDIATEK_MT6359_AUXADC=m
+ CONFIG_MEDIATEK_MT6577_AUXADC=m
+ CONFIG_QCOM_SPMI_VADC=m
+ CONFIG_QCOM_SPMI_ADC5=m
+@@ -1578,6 +1586,7 @@ CONFIG_PHY_HI6220_USB=y
+ CONFIG_PHY_HISTB_COMBPHY=y
+ CONFIG_PHY_HISI_INNO_USB2=y
+ CONFIG_PHY_MVEBU_CP110_COMPHY=y
++CONFIG_PHY_MTK_PCIE=m
+ CONFIG_PHY_MTK_TPHY=y
+ CONFIG_PHY_MTK_HDMI=m
+ CONFIG_PHY_MTK_MIPI_DSI=m
+
+---
+base-commit: 0c6d548cd52870702eb4150c420d00e9289a79d2
+change-id: 20250513-genio-defconfig-76d65f8643dd
 
 Best regards,
 -- 
-Bjorn Andersson <andersson@kernel.org>
+Nícolas F. R. A. Prado <nfraprado@collabora.com>
+
 
