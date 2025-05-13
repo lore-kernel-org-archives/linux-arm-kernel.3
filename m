@@ -4,73 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AB64C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 19:38:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 768FFC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 19:40:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MXqgYnE3AepAu7OCHe6xShNfWSkRf6wZdbffLDc2GQI=; b=jtK+MQ95wEP5ca4InwmOLjpS/U
-	/8eH0/pqK/WPAxDt3WOU7xjeSyxONNYXm97cyEBPNkLVaMr50z5Faxy5qM5avqq5QvYfRpWwLRxOM
-	zB06sO2grgdxfW2rQYXjbkjt8I7qaZz0B1N66/t7fqZ2AxI2PVjLlZ5VH8TvOy3hXxkymQLv2VQSe
-	pEmdFd3UTXoAeLsqiVMIKIr9ZBgZWkxfMGd7KQpLQHIOZ1qhix/ZmPuZ6bT9qvne/lWtpY9n5M+7h
-	t/IIu0UvK8bVs2fthHTA657AtuZHnyptSB9r/AlaIEADu4YXKHtfiTCskpHkutJRjqHoVH84aNnNj
-	fzZEIOrQ==;
+	bh=3UVahQe1UPF0K+iokLjZpppnJFILmRHV+SLcIZYIH48=; b=P/EIlV5+u6O/bh9Qks+VwyW+gZ
+	qR2Y3QjQ8KqQBuQerEWu2MQBOzmZWFUFWzGoOT2vXKtzGrc35V9BCANkA1VwsQezyEmmVOOvNgIR9
+	kAd4nHkZO4JK442TEnyik86O/XwLDO0xBVxFysEj90iVSE8L6nMQ3BMWv+aAfEZIqp3t+PX+W/lVr
+	WGJOgXA1Xsdg1brL1pgcwcTZNBA5sRp0pDlrEJC0pTCEzYmXMNsp144eG29cbPVAGt9/yLOWDqmhh
+	lr9OUY9uiQNawuE5A0f7RcFolmTLF5KVGoAgrOHF8ABxnNFkn21yt/U3vS0QhCR/hcTSydn2uONtE
+	zuG1b/qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEvRy-0000000DOAS-1BiV;
-	Tue, 13 May 2025 19:38:02 +0000
-Received: from out-184.mta0.migadu.com ([2001:41d0:1004:224b::b8])
+	id 1uEvU2-0000000DORz-1gKP;
+	Tue, 13 May 2025 19:40:10 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEvEA-0000000DMOv-0Ehg
+	id 1uEvFN-0000000DMbn-2YxF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 19:23:47 +0000
-Message-ID: <7b50d202-e7f6-41cb-b868-6e6b33d4a2b9@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1747164223;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MXqgYnE3AepAu7OCHe6xShNfWSkRf6wZdbffLDc2GQI=;
-	b=VtZdYZuFJN9nYBtFV5UQzISBic9XzYAiNeQg++rh/pXLuhJcMYllZu/O2Q6GMMAQ4HuCEd
-	fGuZJB6B1v4oafU0j7h8i/qH0U8a7kaLqNm+j8GElY07h0yssh4/rb36IGjQjpJoS079Yu
-	kWKljet5kNrkLMPVphCd9wOA3iwyNO8=
-Date: Tue, 13 May 2025 15:23:32 -0400
+	Tue, 13 May 2025 19:25:02 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5fcac09313cso7388169a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 12:25:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747164300; x=1747769100; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=3UVahQe1UPF0K+iokLjZpppnJFILmRHV+SLcIZYIH48=;
+        b=V0oXCQS9RGrNWouxwzGgr5Hs+660+AwWwBfo8wjEPFo0/oCK5A9GM6omwRXeaD8wEZ
+         4cwhC8JpNryABzRF4VvqervpH7AUiYIshf8C+lmv5DDB3CE5lpVEonYTCSIUq12MErSr
+         aUBzfW2Luev/Uk3f+WmoZ+iWolcrbByTmhtGFlDhidfE5JqsWLYj2xxuk5SYOCyGXlX3
+         afUe8BlOTVjz9ZLSFpoFRG0YzDxGcLietHzMKmr/2Qh7LXEVosdWdxHOfT3JO4ciR+Sb
+         C/H5jc6cvAxQoiR3zLtIRzFBhtrzifGLV572XoE0M31V730M8/BImMom6XjkYfd7I4H9
+         GD+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747164300; x=1747769100;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=3UVahQe1UPF0K+iokLjZpppnJFILmRHV+SLcIZYIH48=;
+        b=vaWz+dpwxGArf6O8rnT1RZPjObCcv7G3KdywTL/nQ8oYgAlq26WGM+Vg4pMgEtukQS
+         IuzjACPb87CXUFOG14mZPj3Rv807Wk9GKI+BFSjQ8+3UqIlVUOh7xXKR8GUaZz3jzrJV
+         5gWYTbueGKepM/nUVKbt4SCNm2fERiXKXz9O74YXMJXOIzi7K1z7rT5TLi87MIgl9Qur
+         r1dWuMM6EIyJWUir1tL6867rN1ywMcggd3l6k8n9GW3Dh9vf32AsAP8tS0P2mJ7f7eZi
+         DFEhaOxhrfR4USV0X7NSz7K36oxZURXmR27oM9DnJ5jBduUvjykqIDg4dDUS8cIMOUzG
+         UV4g==
+X-Forwarded-Encrypted: i=1; AJvYcCVL/9/VWkWhdKnNYJqIuBYl05F+o/LNZdEQHLEtycTNeEIG3Va2EYfe1gf7IbjnlGmd5JvDkE1x77yxlN5vg0Jv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+ZlqR2iiREwrK5CgLn5r6C2yEgMXiu5x0/Y+iO6qWVEqH+tLx
+	/CKzlcSqO6CT/usaM3xie7YU/WWHzQ26M2rfByBbC0UXJsexenz9
+X-Gm-Gg: ASbGncvLp7nrewKS+t8CwttmpXg3sPJFbcKvSbYnLW274SDT/Mww4uwLFaIxhftQoAW
+	WLGI/Fq6AhckWcQgBwAOqkmie/ied/6xurfkLH+53Ltq3EtWBfLsvMo5KjXDufOFO/hqYKNqnZ4
+	95BV0nOZHgUGWPSmRsQR8xiAsuUUdSiwsdSyFoZWgMl8RqguS6HS1lodGPIGHKk7ziSzIcQ2ldV
+	gBxS2qGkfVo+gkTYsnMQkm8ItLOWg8Pxwj0eMHzQhTa5yaCrJMtc5PGS8lpw8hd14vkoobozN+/
+	aftu0xJPRDxujOION+Hyq6lIk/WGiN4KEAVYURLtfQ0cPhawyl6R1nU/PrThApOBFI5RE4FnHzi
+	BcN2wy1ptNAkYnWig
+X-Google-Smtp-Source: AGHT+IHlro9nmnM+A5vp7iF7ncinqOHIXxdhKiKiQNf42yzLvVSInDJfUeta/CfNghr1tiC9h00HEw==
+X-Received: by 2002:a17:906:6a27:b0:ad3:f3dc:e363 with SMTP id a640c23a62f3a-ad4f749f195mr77941966b.49.1747164299542;
+        Tue, 13 May 2025 12:24:59 -0700 (PDT)
+Received: from [192.168.20.170] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad21f2145d6sm785086966b.95.2025.05.13.12.24.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 13 May 2025 12:24:59 -0700 (PDT)
+Message-ID: <73bc3569-93d7-437a-9d40-0137a096f7cc@gmail.com>
+Date: Tue, 13 May 2025 21:24:58 +0200
 MIME-Version: 1.0
-Subject: Re: [net-next PATCH v4 03/11] net: phylink: introduce internal
- phylink PCS handling
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: Christian Marangi <ansuelsmth@gmail.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
- Heiner Kallweit <hkallweit1@gmail.com>, Russell King
- <linux@armlinux.org.uk>, Philipp Zabel <p.zabel@pengutronix.de>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
-References: <20250511201250.3789083-1-ansuelsmth@gmail.com>
- <20250511201250.3789083-4-ansuelsmth@gmail.com>
- <5d004048-ef8f-42ad-8f17-d1e4d495f57f@linux.dev>
- <aCOXfw-krDZo9phk@makrotopia.org>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <aCOXfw-krDZo9phk@makrotopia.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/7] pinctrl: armada-37xx: a couple of small fixes
+Content-Language: hu
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+ Gregory Clement <gregory.clement@bootlin.com>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, linux-arm-kernel@lists.infradead.org,
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, Imre Kaloz <kaloz@openwrt.org>
+References: <20250512-pinctrl-a37xx-fixes-v1-0-d470fb1116a5@gmail.com>
+ <60ef3803-4f8b-4d9b-bef8-6cf3708af057@lunn.ch>
+ <CACRpkdbqPLaBheEv1=ky1gUJ-qSsPRjR0J-UXEuhXf2Oix_EzQ@mail.gmail.com>
+ <aefa5ed3-1085-4e88-b3ec-4cf9958e7e2a@gmail.com>
+ <f638f5ca-a479-4ab2-a8ae-6300bbe0cb08@lunn.ch>
+From: Gabor Juhos <j4g8y7@gmail.com>
+In-Reply-To: <f638f5ca-a479-4ab2-a8ae-6300bbe0cb08@lunn.ch>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_122346_383394_130084D1 
-X-CRM114-Status: GOOD (  40.59  )
+X-CRM114-CacheID: sfid-20250513_122501_654135_E3423437 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,131 +108,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/13/25 15:03, Daniel Golle wrote:
-> On Tue, May 13, 2025 at 02:18:02PM -0400, Sean Anderson wrote:
->> On 5/11/25 16:12, Christian Marangi wrote:
->> > Introduce internal handling of PCS for phylink. This is an alternative
->> > to .mac_select_pcs that moves the selection logic of the PCS entirely to
->> > phylink with the usage of the supported_interface value in the PCS
->> > struct.
->> > 
->> > MAC should now provide an array of available PCS in phylink_config in
->> > .available_pcs and fill the .num_available_pcs with the number of
->> > elements in the array. MAC should also define a new bitmap,
->> > pcs_interfaces, in phylink_config to define for what interface mode a
->> > dedicated PCS is required.
->> > 
->> > On phylink_create() this array is parsed and a linked list of PCS is
->> > created based on the PCS passed in phylink_config.
->> > Also the supported_interface value in phylink struct is updated with the
->> > new supported_interface from the provided PCS.
->> > 
->> > On phylink_start() every PCS in phylink PCS list gets attached to the
->> > phylink instance. This is done by setting the phylink value in
->> > phylink_pcs struct to the phylink instance.
->> > 
->> > On phylink_stop(), every PCS in phylink PCS list is detached from the
->> > phylink instance. This is done by setting the phylink value in
->> > phylink_pcs struct to NULL.
->> > 
->> > phylink_validate_mac_and_pcs(), phylink_major_config() and
->> > phylink_inband_caps() are updated to support this new implementation
->> > with the PCS list stored in phylink.
->> > 
->> > They will make use of phylink_validate_pcs_interface() that will loop
->> > for every PCS in the phylink PCS available list and find one that supports
->> > the passed interface.
->> > 
->> > phylink_validate_pcs_interface() applies the same logic of .mac_select_pcs
->> > where if a supported_interface value is not set for the PCS struct, then
->> > it's assumed every interface is supported.
->> > 
->> > A MAC is required to implement either a .mac_select_pcs or make use of
->> > the PCS list implementation. Implementing both will result in a fail
->> > on MAC/PCS validation.
->> > 
->> > phylink value in phylink_pcs struct with this implementation is used to
->> > track from PCS side when it's attached to a phylink instance. PCS driver
->> > will make use of this information to correctly detach from a phylink
->> > instance if needed.
->> > 
->> > The .mac_select_pcs implementation is not changed but it's expected that
->> > every MAC driver migrates to the new implementation to later deprecate
->> > and remove .mac_select_pcs.
->> 
->> This introduces a completely parallel PCS selection system used by a
->> single driver. I don't think we want the maintenance burden and
->> complexity of two systems in perpetuity. So what is your plan for
->> conversion of existing drivers to your new system?
+2025. 05. 13. 20:46 keltezéssel, Andrew Lunn írta:
+> On Tue, May 13, 2025 at 06:51:35PM +0200, Gabor Juhos wrote:
+>> 2025. 05. 13. 15:36 keltezéssel, Linus Walleij írta:
+>>> On Mon, May 12, 2025 at 11:33 PM Andrew Lunn <andrew@lunn.ch> wrote:
+>>>> On Mon, May 12, 2025 at 04:22:36PM +0200, Gabor Juhos wrote:
+>>>>> The series contains several small patches to fix various
+>>>>> issues in the pinctrl driver for Armada 3700.
+>>>>
+>>>> I'm not sure all these should be for stable. Some are clear bugs, but
+>>>> not propagating the errors has not bothered anybody so far, a
+>>>> requirement for stable.
+>>>
+>>> So we are at -rc6 so I'm not sending these as fixes to Torvalds
+>>> right now unless they are super-critical.
+>>>
+>>> I will merge this for v6.16 (-rc1) and then the stable maintainers
+>>> will have to decide from the point it enters mainline.
+>>>
+>>> Gabor: can you look over the tags? Once you have decided
+>>> on stable/non-stable tags I will merge the series.
+>>
+>> Sure, I will send a v2. Just a question, shall I also remove the 'Fixes' tags
+>> along with the 'stable' ones? If I keep those, they might land up in stable
+>> trees anyway.
 > 
-> Moving functionality duplicated in many drivers to a common shared
-> implementation is nothing unsual.
-> 
-> While this series proposes the new mechanism for Airoha SoC, they are
-> immediately useful (and long awaited) also for MediaTek and Qualcomm
-> SoCs.
->
-> Also in the series you posted at least the macb driver (in "[net-next
-> PATCH v4 09/11] net: macb: Move most of mac_config to  mac_prepare")
-> would benefit from that shared implementation, as all it does in it's
-> mac_select_pcs is selecting the PCS by a given phy_interface_t, which is
-> what most Ethernet drivers which use more than one PCS are doing in
-> their implementatio of mac_select_pcs().
+> For the return values patches, i would drop the Fixes. It is just
+> really continuing development work for the driver.
 
-I generally agree. The vast majority of select_pcs implementations just
-determine the PCS based on the interface. But I don't think this is the
-right approach. This touches a lot of other areas of the code and
-reimplements much of the existing phylink machinery.
+Ok, thanks!
 
-I would prefer something more self-contained like
-
-phylink_generic_select_pcs(phylink, interface)
-{
-	for_each(pcs : phylink->available_pcss) {
-		if (test_bit(pcs->supported, interface))
-			return pcs;
-	}
-
-	return NULL;
-}
-
-which could be dropped into existing implementations in an incremental
-manner.
-
-I think the inclusion of PCS lifetime management in this patch
-complicates things significantly.
-
-> Also axienet_mac_select_pcs() from "[net-next PATCH v4 08/11] net:
-> axienet: Convert to use PCS subsystem" could obviously very easily be
-> mirated to use the phylink-internal handling of PCS selection.
-
-But the bulk of the patch remains. We still have to add the external PCS
-lookup. There still needs to be another case in mac_config to mux the
-PCS correctly. And we would need to add some code to create a list of
-PCSs. I don't know whether we win on the balance.
-
->> 
->> DSA drivers typically have different PCSs for each port. At the moment
->> these are selected with mac_select_pcs, allowing the use of a single
->> phylink_config for each port. If you need to pass PCSs through
->> phylink_config then each port will needs its own config. This may prove
->> difficult to integrate with the existing API.
-> 
-> This might be a misunderstanding. Also here there is only a single
-> phylink_config for each MAC or DSA port,
-
-My point is that while this is the case at the moment, it would not be
-the case with a "generic" select pcs. You would need to modify the
-config for each port to ensure the right PCSs are passed in.
-
-> just instead of having many
-> more or less identical implementations of .mac_select_pcs, this
-> functionality is moved into phylink. As a nice side-effect that also
-> makes managing the life-cycle of the PCS more easy, so we won't need all
-> the wrappers for all the PCS OPs.
-
-I think the wrapper approach is very obviously correct. This way has me
-worried about exciting new concurrency bugs.
-
---Sean
+-Gabor
 
