@@ -4,86 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B02E9C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 08:13:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13220C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 08:16:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5rCtnbZWFEyClftfNf+97GB/L/vNpKwxy5TFS7AwepY=; b=G9orHB/KUUTG8TempKp+XQ5PBP
-	O017AYTQOHrf65Wf1j2CRl85gIeiGa22Zpd3E5rwMXhjPOC15cGJqK1usdM60mcpILYPssWFcYF+5
-	R7SxKQd+qzCCjw5Z/lEhDhesbGuV3GRf6YonNUKIdaXeOXRGq5spJ1nwfxETQKSAt4cbRDjjzNaTB
-	VmSlkkTv9R2B+Ju0vUr5BxQUdSwMoz/IdH3V4Fp2wpC2GB1WEavqpF8nPFG8wJEYl72y/lt6PGLB6
-	yhoc/K88zw4+GrQBaCtPFeswD8geD6vaN6Ca16/P+lBVG1Pf+VX60CScJNI2a6l82a8gONHXrth3i
-	B9Of/ggA==;
+	bh=gfD8KA5bfxaU+Q1NTIOmhw+vBh6gQYcxk5fcGmeOrhI=; b=j9Go1zvahStXSsMK8yH85hguaB
+	7oSd67A3YpC5HioepZAnAJ4LnoZcs83WxYa/omTqSGhjvz+N5UMDqXyhelhwbP4VHT2fg6GkTZm4U
+	3+mFOMmODaDsOdxepkm1mJeDjiLxFCi9ZvFitIALx2NQuZvWlAQCDRJjcJoNTeVzcRRuI411UUf8d
+	Yz+GSR/ClIpZrSjyMb8xMPaoX4bSMkwRWr69AHaL1jowUuP9RBbIU7/przuzfc55ViZwZQamT4hcT
+	hk7LsF307AdY8j/VdhrY7LsHmIuqRFg0+mfEEyyvLeP+XGeVyFUIndbh5cYJltIVO9IJ69vX9J6SB
+	ZvZRcPGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEklE-0000000BjzD-0a0u;
-	Tue, 13 May 2025 08:13:12 +0000
-Received: from mail-vk1-f181.google.com ([209.85.221.181])
+	id 1uEkns-0000000BkIK-40Z4;
+	Tue, 13 May 2025 08:15:56 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEkj3-0000000BjiY-2zBG;
-	Tue, 13 May 2025 08:10:58 +0000
-Received: by mail-vk1-f181.google.com with SMTP id 71dfb90a1353d-5240a432462so3784988e0c.1;
-        Tue, 13 May 2025 01:10:56 -0700 (PDT)
+	id 1uEkls-0000000Bk9y-35G8
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 May 2025 08:13:54 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-441c0d42233so5520955e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 01:13:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747124031; x=1747728831; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gfD8KA5bfxaU+Q1NTIOmhw+vBh6gQYcxk5fcGmeOrhI=;
+        b=dyxiAlvH4jSAGJ6asL+c5YjZbkZGKmfEYN66z5/C6xi/pvMTaRGCEARIMlyKC6Of9S
+         vrU776mB8XiR1eRF+gwPKOmyppCZks7g0SYD+ki/zXVPRkG1m2TaC7r9sJ/cUnaoAMJN
+         d5RLRNu+nvGN3z+5/gDMgcJjamrdeyYXNGQMqtQYpOvzuYlkmK97nOshpGh6Irky4U4Z
+         NBQfZkgPa8pfnBJ5kCHwywQMB8t93GU73zvjHFNVFOl+0x41Pb3rQL+KTuUaoYW6S1Yh
+         2WKPnPrPA6YlB40ha340W1Q2IBgTCuWqz4sKJVzCsuYt8A+U7Z7QiByFS4799G4IjSlW
+         g7mg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747123855; x=1747728655;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1747124031; x=1747728831;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=5rCtnbZWFEyClftfNf+97GB/L/vNpKwxy5TFS7AwepY=;
-        b=vGpYuRXaT/8IbVBWDKvBNkdkGRQ4yWVf2A/gGbwPymK7c0svML8AZ95vH7mkTBM1E2
-         s/3Vi04tZ5pE53wlC8qTG9ezSrNPPuecLS5FzrqBoW38kOnJdaHvSTVXgmFyAZw0vn/y
-         +rETlRP6F8sky7Mxhce+q9AyO2c3a1nV4wFBzJPbeF2cAGlVS7GOj7pcpcIhwEqwEJf5
-         IL9664oJuRT5AIa16zx8+fW0/NERGQvjUPk9SNOZsG+4VHziajj384DfdnfmfC66ZOqQ
-         rE/dNShYlj5PxBvm8LQhjitxPB7U3xsYP/CZ+TpIkOu9QiUpAxogPFO/ASjtZOK1aqaN
-         /z9w==
-X-Forwarded-Encrypted: i=1; AJvYcCVkNEpoPFrZ95A1/rNp/ePfF3JuM0mS41fMr0oOIR1P/+2fWmaEPDCp0xC/W7ek046srWnH9pPWd23jnolKJ+QbhQ==@lists.infradead.org, AJvYcCWg9NsRgOLeE1/BH5imERFk7okFdBITO/bnKthsk5uryFjipO8EviAt3qRL06G4oy6NN1038gm1/iUUcni6jRcK@lists.infradead.org
-X-Gm-Message-State: AOJu0YyL1q3V+jnDAIUi2eUFRb3XXdkJnavG3Bhpai/4LqgEIGNcs6Hh
-	u8NUVGqIOVfNEUxhoOGy8pDpvA+keDobEZAEEXRbLPAaDuzNZJa8+2LrUJV8
-X-Gm-Gg: ASbGncvaxVpgoeYAPF/6QNsVCf1cmjmLkKXHJi4Fz1Sp3wklXomi89IhEY0yjKMqYwB
-	1LfYPAWlEcjySfaPV4J3VtFdnlfjVQjwm0qwD6XJRXNRRjTSD5V3C/4GB9fOH1pwZ4aaIiDJdfi
-	U4tPGR5xT15nY0RMfEbJeTgqbgYACAfZ6p2xtn/ZWM7InxedWi46y/m5EJDOU7TuGKBr2tJUCiT
-	wicpozZx65OXfM1wZZ/luWz+SWIseSH3kRWnOmmJtul7VXFzHsQTtLf/FBao+C5U4oFkpslS0mJ
-	EWUpEVur9TSKOc99G8Ijodd/9V9IGv/rATCyUPBjAA1tf8rTw04Mka3SkyzklLwzM0heZ8LZaRB
-	OGi0jKLZpZRij0Q==
-X-Google-Smtp-Source: AGHT+IFOmOi/RnkQHqGe4NKl4k0+SG+wm2+/P5lE413IlJmvuiSg5gj3PxmPvNsxdqG2GPYe/jWW3g==
-X-Received: by 2002:a05:6122:32c6:b0:520:4806:a422 with SMTP id 71dfb90a1353d-52c88a6d7a1mr1926521e0c.3.1747123855462;
-        Tue, 13 May 2025 01:10:55 -0700 (PDT)
-Received: from mail-ua1-f54.google.com (mail-ua1-f54.google.com. [209.85.222.54])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-52c5372fa9bsm7077377e0c.20.2025.05.13.01.10.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 13 May 2025 01:10:55 -0700 (PDT)
-Received: by mail-ua1-f54.google.com with SMTP id a1e0cc1a2514c-86d6fd581f4so4143542241.1;
-        Tue, 13 May 2025 01:10:55 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVVR6BQIsbJvthru3Ag8F7Q5QGQjlJGDC4dJR3VBfdWR/Q4CGJD6fwC85V1+SjJqFM2E/AfF3xItDnRVqw2yr32Yg==@lists.infradead.org, AJvYcCVexIh9Rw104B/Vh1DFNgX0JqcSliNAr37awSCL7jh09ax+pjUN6Yba92JV3NR1L7HduGwYiYrDhsE0fNl8IUVJ@lists.infradead.org
-X-Received: by 2002:a05:6122:3207:b0:523:6eef:af62 with SMTP id
- 71dfb90a1353d-52c88afe8b8mr1778704e0c.4.1747123855105; Tue, 13 May 2025
- 01:10:55 -0700 (PDT)
+        bh=gfD8KA5bfxaU+Q1NTIOmhw+vBh6gQYcxk5fcGmeOrhI=;
+        b=c48F1fnFAxBBFrGPtmcMePmNVxi6/2Rg6MLJNvCZoV3qEOQFJkvDvlPqSaxC16e2qJ
+         c4AvcNRaUPlE/vpbxVq2ezgIbPUNG3uAtgXcYlG3qbRmQtDK9WfZ0xW2tFpO607K3vZY
+         W5O9CnzwNnz8MUmnAc/aQuSdZjVOi41TJUMiWjeJLd+BJKxybcOdbTQnrHXhAe6Jlhme
+         DuRsPy8vuaEI0fDDHeCvXRvGuxBuI5V97Kxq5mdS50kKVIPDQ+bsvUulb0oeJIKbmnOX
+         0h3DOp+U5NzPysvWGTdMiE0Gs196ePlkkMAs9YMfeC+CAENRueNwkZXt2I6GGQQJpOel
+         0RRw==
+X-Forwarded-Encrypted: i=1; AJvYcCUyzCkO6zKHV/MFWRjlXA1YMLxFv+UDlHGMDzVykgPyA9g07zguEo4cMvvIeJ5topM9BJGWSfsiiu8j8WAiCs4Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFbWhciI59oLJQ2JLktXLrBNHhcI7563s3Bv+zkU6QgMHxNxcG
+	zkl2PZNgvWMnh327BBLbHXg3fv+M53J5S6c11nnK8ND0yG5KJjXJ7KVJCKngVCY=
+X-Gm-Gg: ASbGnctCt9iXAgrz/tReli/Aqr/O80IIkTHL8wPkogLngtWy6O4OmVKs2LpINF+TiyN
+	qR2hd5Wk0qBwvCDNU6w/N3dFZIhatZH4EJmudc3vCnwa8vdS8MOyORQG71+gL2K0gqYAUCIRv0Y
+	dxffgLSYTHkLvYI6+E7UgHllOg35uhGeyhIMp9QBueya5nXa8IicaDxMmSfuW8XBhKHem3cyQRH
+	Bpi0Q0z0802QQxL2nhBHzAWlqotRml17/mNwvORSxWYgJm/fT9dp/pw+4yGAXFxhSlDcE5+51a8
+	NQQ3EKiOMmaRjFPKp+ADJQlCJNDOCKeCzURUKg4cuOFkuxtktsndeypThyhSNCNuvFGSJQnrAZc
+	ToBx0tMuSi+/bks9uSg==
+X-Google-Smtp-Source: AGHT+IHI0BUvRWvY4Y2/8bHQXKFDvKBHupqbi0BQODrVBg+55fcuB5CxUmKYcrieaLRvHUYS/EkBCg==
+X-Received: by 2002:a05:600c:3490:b0:439:9b3f:2dd9 with SMTP id 5b1f17b1804b1-442d6ddd6a8mr47990065e9.7.1747124030617;
+        Tue, 13 May 2025 01:13:50 -0700 (PDT)
+Received: from [10.61.0.48] (110.8.30.213.rev.vodafone.pt. [213.30.8.110])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442d687bdc0sm155170805e9.39.2025.05.13.01.13.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 May 2025 01:13:49 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Peter Griffin <peter.griffin@linaro.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ tudor.ambarus@linaro.org, andre.draszik@linaro.org, willmcvicker@google.com, 
+ kernel-team@android.com
+In-Reply-To: <20250506-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v4-0-9f64a2657316@linaro.org>
+References: <20250506-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v4-0-9f64a2657316@linaro.org>
+Subject: Re: [PATCH v4 0/5] Fix gs101 CPU hotplug support
+Message-Id: <174712402896.10876.6908975403195941350.b4-ty@linaro.org>
+Date: Tue, 13 May 2025 10:13:48 +0200
 MIME-Version: 1.0
-References: <aCGPuKtfprIvwADa@smile.fi.intel.com> <20250512173800.6767-1-trannamatk@gmail.com>
-In-Reply-To: <20250512173800.6767-1-trannamatk@gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 13 May 2025 10:10:43 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWiTLbazxfe0joujONfLTQXT73WE=sq5F-4dwOq463b4g@mail.gmail.com>
-X-Gm-Features: AX0GCFvxUbYICZnIC49acrtXEhbKJaNQ34KnJ9GMWMjpL7F8L3vH5lZ8JuyNYOU
-Message-ID: <CAMuHMdWiTLbazxfe0joujONfLTQXT73WE=sq5F-4dwOq463b4g@mail.gmail.com>
-Subject: Re: [PATCH v8 0/5] auxdisplay: add support for TI LP5812 4x3 Matrix
- LED driver
-To: Nam Tran <trannamatk@gmail.com>
-Cc: andy@kernel.org, lee@kernel.org, pavel@ucw.cz, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, christophe.jaillet@wanadoo.fr, 
-	corbet@lwn.net, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org, florian.fainelli@broadcom.com, 
-	bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_011057_747042_A747F2F5 
-X-CRM114-Status: GOOD (  29.86  )
+X-CRM114-CacheID: sfid-20250513_011352_788714_FB0FA811 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,66 +104,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nam,
 
-On Mon, 12 May 2025 at 19:38, Nam Tran <trannamatk@gmail.com> wrote:
-> On Mon, 12 May 2025 Andy Shevchenko wrote:
-> > On Sat, May 10, 2025 at 02:48:02PM +0700, Nam Tran wrote:
-> > > On Thu, 8 May 2025 Lee Jones wrote:
-> > > > On Thu, 08 May 2025, Andy Shevchenko wrote:
-> > > > > On Thu, May 8, 2025 at 5:27=E2=80=AFPM Nam Tran <trannamatk@gmail=
-.com> wrote:
-> > > > > > On Thu, 8 May 2025 Lee Jones wrote:
-> > > > > > > On Thu, 08 May 2025, Andy Shevchenko wrote:
->
-> ...
->
-> > > I think setting PWM also same as brightness_set API. However, there a=
-re
-> > > many PWM config for a LED and it is one of other config to make auton=
-omous mode work.
-> > > Therefore, standard led API can use in some use cases only.
-> > >
-> > > Please see the link below for a better visualization of how to config=
-ure the LP5812.
-> > > https://dev.ti.com/gallery/view/LED/LP581x/ver/0.10.0/
-> >
-> > To me it sounds like you should start from the small steps, i.e. do not
-> > implement everything at once. And starting point of the 4 RGB LEDs soun=
-ds
-> > the best approach to me. Then, if needed, you can always move on with
-> > fancy features of this hardware on top of the existing code.
->
-> Thanks for the suggestion.
-> I understand your point and agree that starting with standard LED APIs is=
- the preferred approach.
+On Tue, 06 May 2025 21:57:26 +0100, Peter Griffin wrote:
+> As part of an effort to make suspend to RAM functional upstream on
+> Pixel 6 I noticed that CPU hotplug leads to a system hang.
+> 
+> After debugging and comparing with downstream drivers it became clear
+> that some extra register writes are required to make CPU hotplug
+> functional on these older devices which use a el3mon firmware.
+> 
+> [...]
 
-i.e. a drivers/leds/ driver.
+Applied, thanks!
 
-> However, the LP5812 hardware offers more advanced features, and I=E2=80=
-=99d like to support end users all
-> features as shown in the link: https://dev.ti.com/gallery/view/LED/LP581x=
-/ver/0.10.0/.
-> It is easy for end user to investigate and use driver.
->
-> If I want to keep the current driver interface to meet this expectation, =
-would it be acceptable
-> to move it to the misc subsystem to better support the hardware?
+[1/5] dt-bindings: soc: google: Add gs101-pmu-intr-gen binding documentation
+      https://git.kernel.org/krzk/linux/c/0475b0d8a1e0f80a47536dfb19c28dc4bb6adc05
+[2/5] dt-bindings: soc: samsung: exynos-pmu: gs101: add google,pmu-intr-gen phandle
+      https://git.kernel.org/krzk/linux/c/83b66cdb5d5b6aa4ed1f085b3b2f917af0c2890b
+[3/5] MAINTAINERS: Add google,gs101-pmu-intr-gen.yaml binding file
+      https://git.kernel.org/krzk/linux/c/20adeaca8bc6a084f2610e7c89a8601c9904a0e2
+[4/5] arm64: dts: exynos: gs101: add pmu-intr-gen syscon node
+      https://git.kernel.org/krzk/linux/c/aaf02428fdd50b818c77644bc0b8a0b282ce8ea4
+[5/5] soc: samsung: exynos-pmu: enable CPU hotplug support for gs101
+      https://git.kernel.org/krzk/linux/c/598995027b9181ada81789bf01fb8ef30d93c9dc
 
-I guess you can add custom sysfs controls for the advanced features
-on top of the drivers/leds/ driver?
+Best regards,
+-- 
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
 
