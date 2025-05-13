@@ -4,119 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A9E2C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 10:06:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9563BC3ABDA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 10:08:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DnQ9+b8org6s1pxYGa7eJ31JPvtF7h8oe1U+bvOBcuc=; b=U25Egdn+DFv2XZDunSTYFDXXi2
-	JeVYqB8K1JZUNIlkv6+fN99YThPiTpIngakUN1J/aKYLC3qcjXMEi43ApPej2pt7aDzbg7GDt8xXF
-	RveccUlUaqDx2TO3/MM7kS7cTRwFNkOdyf+0YD806M8MXlPURhwW2nIVjAa+QCjzFmKGnmeITPW5X
-	hYJw9/ZbVFpiHWpCvAFz65vW2AUS5M7Cs4S4WvjaqIVO1n8obYPV09IfpqjozApkFd1XAmUtTK2ZQ
-	GP4+Ge3RNzz5+D3SQzJQONjHeCdpwDJIhEqMIGvHXmtt8tWRIb/JuTl+5oCs//lV3iUYEVEer9ZO1
-	UaksRpJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q4w+kUTzjSApva2bK2a2HPC9Y+4o9LSgRkKn9WELS6w=; b=EfN2LEvyvGbKvFwOgMQ+u1IHxs
+	IzjSsZ+Xp+1wLjLpFI2qERTqbu8+Ea/7JY4HHXhpFax+qZkoQI/PG4L9JgFy6/jTN9RvxOz44yafb
+	gXQKm+iBlKyng2om53o0Wq/VC+jML3K7xdjBYKZs1h839zd2Sk+LZ6ugwYtJxZ8c5Oi/OeLwDHSK6
+	v7hmYJU/JzRVqJb2X5ayoyW0XDD70/N86mWnXrqloaIky8nIG81lnu9bQA1667YNKUXyitx3g5RUl
+	5jb6IyNaxEZhCFKRqR5f5672vaS8yid8S8NUMtdkHuhnrEPx+ujlggn+cYu6gvrJ2NWTZl+g95m9F
+	amVhvMbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEmWr-0000000C15k-29aB;
-	Tue, 13 May 2025 10:06:29 +0000
+	id 1uEmYx-0000000C1hF-1Id1;
+	Tue, 13 May 2025 10:08:39 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEmNs-0000000BzYQ-3qSc
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 13 May 2025 09:57:13 +0000
+	id 1uEmP4-0000000Bzmg-18tp;
+	Tue, 13 May 2025 09:58:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=DnQ9+b8org6s1pxYGa7eJ31JPvtF7h8oe1U+bvOBcuc=; b=OTKGWULXjUynMYc8mJzCyTl28D
-	s5VdKOSPfndzyecfvAXDR1Xi5wF2E24pe8w1jtWpbgUYZ259Y/3yZ1xSKQYMtDw3XJyzjcjx2Rl3J
-	ZY/s4uvtmRJoK241D37nqmPcxHkLAozKbYb+/39LdWU4oNk2/6e+0ZKlhOV6KrjgE575YS1Srx6+U
-	DgSdddu3h5+3F3ASLyb21+yb7G5bCd6dIDXzP8mWhLNeca0f05E4QSvXaXrdmD1kfAkCwTzA+IBfa
-	Rll2jnJDMdfmKDtJJdyTA8yKqLCX5GO6of3rV4K5Ge076vv94rdI+4M3vGnd/X7S+dm3biFTtmTxT
-	P+yk79ag==;
-Received: from mailout1.samsung.com ([203.254.224.24])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=q4w+kUTzjSApva2bK2a2HPC9Y+4o9LSgRkKn9WELS6w=; b=TWENEKI/b+hYscIWPAmjbUz+9C
+	DZfz8GfBMI6ujQ1axeaiF6L1pzV5C/1hMBiPBVV7SzBEqbVigvh6avX/ak55J9vOBGDoI2b6izSVU
+	hAaYEZcBwR+28ruirMAymuwKPtrbAoC7sjt/AwbI6dbEJzg/XO+aYCo84WhfWbbLvqNaFPbcebpzG
+	uL7uaeVVpOIcSO/7YutVdXUkrLy8vAIFNE/ZCDtaf34S1pItwGTG6JSGShwKwEOQjAgw3YxMAyuvW
+	ztXz2U3DEkHNnvIUy2PubhoLXhy8YOLhT/WhYRLxH/hSfmRN/d8g1wMLO28ar8cPQOCjsiqeTZXkg
+	XVVie1oA==;
+Received: from mail-am6eur05on20630.outbound.protection.outlook.com ([2a01:111:f403:2612::630] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uEmNo-0000000GuXb-0Scc
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 09:57:11 +0000
-Received: from epcas2p4.samsung.com (unknown [182.195.41.56])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250513095702epoutp011d6b35210b035530319123079ddc992e~-Da4tD3Pf1833118331epoutp01N
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 09:57:02 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250513095702epoutp011d6b35210b035530319123079ddc992e~-Da4tD3Pf1833118331epoutp01N
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1747130222;
-	bh=DnQ9+b8org6s1pxYGa7eJ31JPvtF7h8oe1U+bvOBcuc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=u1Cam7XMsSsvHHNaKz3EsUJ3+PTYvj0lbOsxJfrAjJFdMYSJjwATHvqK/KZ2VZafl
-	 nHPLOghHxiAEtoSjzEIe3TuzSRaAq9iaWn4VWnysKJofJ0N+xI1OBHBbGV54ehKadP
-	 sW5A56E1UWagsIcH/fBOZIF0KnrW5HPWX3Mk2zvA=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas2p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250513095701epcas2p3f757cc5a03c93e1b839c161b622205b1~-Da4LcN2M3204032040epcas2p3p;
-	Tue, 13 May 2025 09:57:01 +0000 (GMT)
-Received: from epcas2p1.samsung.com (unknown [182.195.36.101]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4ZxX251CFsz3hhTB; Tue, 13 May
-	2025 09:57:01 +0000 (GMT)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas2p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250513095700epcas2p33505c67ac3c3ba687ccf4a70ade10a34~-Da3HTgts3204032040epcas2p3j;
-	Tue, 13 May 2025 09:57:00 +0000 (GMT)
-Received: from epsmgmc1p1new.samsung.com (unknown [182.195.42.40]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250513095700epsmtrp12431157914af9efc70fc92756bca32ed~-Da3GYVE51976619766epsmtrp1e;
-	Tue, 13 May 2025 09:57:00 +0000 (GMT)
-X-AuditID: b6c32a28-edfbf24000001e8a-1a-6823176c5881
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgmc1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	47.78.07818.C6713286; Tue, 13 May 2025 18:57:00 +0900 (KST)
-Received: from localhost.localdomain (unknown [10.229.9.126]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250513095700epsmtip2957cf38d053f24a138e555a24906be87~-Da29BYeS2427724277epsmtip2j;
-	Tue, 13 May 2025 09:57:00 +0000 (GMT)
-From: Sangwook Shin <sw617.shin@samsung.com>
-To: krzk@kernel.org, alim.akhtar@samsung.com, wim@linux-watchdog.org,
-	linux@roeck-us.net
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org, Sangwook Shin
-	<sw617.shin@samsung.com>, Kyunghwan Seo <khwan.seo@samsung.com>
-Subject: [PATCH 3/3] watchdog: s3c2410_wdt: exynosautov9: Enable supported
- features
-Date: Tue, 13 May 2025 18:47:11 +0900
-Message-Id: <20250513094711.2691059-4-sw617.shin@samsung.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250513094711.2691059-1-sw617.shin@samsung.com>
+	id 1uEmP0-0000000Gub8-2xt6;
+	Tue, 13 May 2025 09:58:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GFjHlatWblbNI5D/YfoH3hzrWUPEinN4t4WPKVVBL8pon3SM/c8IJaE63xDYfKsE/om9F88AoDlAw3a68iWcGJ3TgtblDX0kVw6qvAnee0hom831fpm8wi1TOIMdjtfqNX9KUJayVGYUWJdNTu0SMSljqrdB3UFUlUU2C88mnCesXMqTb7RvZmYKG7luTsvs8OwyOd+ZrYkzran4elC2vlAVAJL5+7uWySZqZ1NtTCTZMPtRERFIb46CeFFbKaGoDGqXOaQhn/etNOEcmaxMdSDpazw+cCFy88Fnnas4Un1pLl97eQbTRCD/Ch1XtFHYEcV4bJ97Jm/SLXi8zyiuGw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=q4w+kUTzjSApva2bK2a2HPC9Y+4o9LSgRkKn9WELS6w=;
+ b=CtKpx+L+X3F++sTX6cfY2ycE7f5CJA++kXoj9Up81TESCWDfbrBvyVRIqOd+O4AB2f5XHZ890A+D34ZxiGthBiUQWSrQdYp+L3vNqEWlOscwwrTLTgKi5D6BDilt5Mg/f0T/4oAeE05bdm4rUM/EPHQdczAC+GwxuGw0rZrBieOJKVPuOUUeGkuKAcejXpA2jPj2jsROBY8ysyF7a+LCfTnopK36cwZEUrtZQmfSpis9iKcmz0NzhjFpRljebkp7K0QYEyWk8Bjg58/w6WSCVwZlcw9WHdrxDrt7sohz/A466OjUw1qNXBZZAWEzuf0bMfCU42XIsywjhJD4OEwPxg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=q4w+kUTzjSApva2bK2a2HPC9Y+4o9LSgRkKn9WELS6w=;
+ b=ksDwJsRxUy8QJH7UcAZ9rgwcKMyxLM4qnfcuURntSpFGZcB6MpYwgFWG4zKMlFnCQPzRSSyYlenJq2o6EpFsQbG7gQw5VwIRIH9g+2OFIhe8BWLxJVStalHocN+QaRiRLUMEChBezisLe9zk+jQyikUvKIocyW+JfZ4kPA5gnWw=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+ by PA2PR04MB10277.eurprd04.prod.outlook.com (2603:10a6:102:407::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.28; Tue, 13 May
+ 2025 09:58:11 +0000
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a%4]) with mapi id 15.20.8722.027; Tue, 13 May 2025
+ 09:58:11 +0000
+Message-ID: <2d931577-169b-4738-bf4c-4931f1d4ca47@cherry.de>
+Date: Tue, 13 May 2025 11:58:10 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6/6] arm64: dts: rockchip: add px30-pp1516 base dtsi and
+ board variants
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20250508150955.1897702-1-heiko@sntech.de>
+ <20250508150955.1897702-7-heiko@sntech.de>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20250508150955.1897702-7-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: WA0P291CA0002.POLP291.PROD.OUTLOOK.COM
+ (2603:10a6:1d0:1::29) To AS8PR04MB8897.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::20)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrOLMWRmVeSWpSXmKPExsWy7bCSvG6OuHKGwaKTEhYP5m1js5jffonR
-	4vz5DewWmx5fY7W4vGsOm8WM8/uYLG6s28du8WThGSaLGYtPslk8fvmP2YHLY9OqTjaPlWvW
-	sHpsXlLvsfN7A7tH35ZVjB6fN8kFsEVx2aSk5mSWpRbp2yVwZTSd72UrWMpd8XjBR+YGxouc
-	XYwcHBICJhL3n6Z1MXJxCAnsZpTo+nSDDSIuJfHumWUXIyeQKSxxv+UIK0TNB0aJN4c3M4Mk
-	2AR0JKb/u80CYosIxEkcaweJc3EwCzxilLgyr4cJJCEsECzxZetfZpChLAKqEveX5oGEeQVs
-	Je4s38kGsUBeYual7+wgJZwCdhJfW5RBwkJAJe/mbGGCKBeUODnzCdgqZqDy5q2zmScwCsxC
-	kpqFJLWAkWkVo2RqQXFuem6yYYFhXmq5XnFibnFpXrpecn7uJkZw2Gtp7GB8961J/xAjEwfj
-	IUYJDmYlEd7G7YoZQrwpiZVVqUX58UWlOanFhxilOViUxHlXGkakCwmkJ5akZqemFqQWwWSZ
-	ODilGpi870+uXZccdTCqSjP42EmLmSHaj7VzLrbJKyqcK+dg3fjGK4nvl5rCmvwgQdN5TVNu
-	hWwrO9LRlnr10e+fxyvuC6/ZsZpRy+ntuukNAV88lW0M5XP25AjwHS1o8Zfb7cjDyC4p2MN7
-	5O/PRoPXS+MOagivvHr18JGXwo75Piy5XGcMfENtF7W+EODMLzCe/CpPJOcgT7wF2/zNcct8
-	ZojaGKkovJh421Zf+nbDBjkxzyRGhZ3+2htWVVjday3MvKW4e4aW7d8FdQyfxXeGWr5I6v/I
-	zZ7+ecu1ghVRolyOynXCKbU/9h8ycd7A38Jjmb1y++EpXpsOt5tsS223FHaPWSvbe3Oi8qwb
-	RUvtlViKMxINtZiLihMB22VAl+oCAAA=
-X-CMS-MailID: 20250513095700epcas2p33505c67ac3c3ba687ccf4a70ade10a34
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,N
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250513095700epcas2p33505c67ac3c3ba687ccf4a70ade10a34
-References: <20250513094711.2691059-1-sw617.shin@samsung.com>
-	<CGME20250513095700epcas2p33505c67ac3c3ba687ccf4a70ade10a34@epcas2p3.samsung.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|PA2PR04MB10277:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8a42c327-0817-4a2c-e1cd-08dd9204aba9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RkdrY1dhWkJWKzQ3K2x6ZFliOEkyOUZZQnpLSEthZ0tLRkhHMEQ0M2NyUWlo?=
+ =?utf-8?B?M2F0VUhhMk0zTUZDSG1uMzUzdlVxYUg1MTdxTWNVT1czSUYvZXlTZlNmNE9T?=
+ =?utf-8?B?RDJiY08zVDU1bkF0dGRTSUhKZFBQK3ZjNWNyY25QWU00dElJL1FieXM4WXBI?=
+ =?utf-8?B?S1pWWDNBcDQxV2QzZy9NdzlSMG5XQjdKWmIrNjUwbVQyK2lQREdIVy83Sk1V?=
+ =?utf-8?B?UlRQM25sQW9tZWpkOCt1cU4va2M5Q0hWYmR4eDFnNWlCeHc0OXgybTJTRms4?=
+ =?utf-8?B?WW1OTnBEazc1eXdSaituTVhWVDRObnBGdUFJZXE1cVRTb0hKL203MXVaam4z?=
+ =?utf-8?B?N3h0VndTbmNiMmp3aWpiVkxkQlhOZE9UMWNqT0F6dkpjaVJCUjBDalF1L3Bh?=
+ =?utf-8?B?MUhoZ1loeURwQ0ZIWnZhUUx4WHkzd01uTjh2dzlXbG9NbS82blJQTTNLS0s2?=
+ =?utf-8?B?LzRxcW03L0VyNWMyRlFFT2gyb3JpR2pIWGFSbFNFcFY1MFowWTluZWJ1SThw?=
+ =?utf-8?B?eUlDZWtDSmVzeTlSTS9LUVl1TTFzaFZSd2toZk1VMmc0TmpjTWNVOXJOU0lk?=
+ =?utf-8?B?TThia0VKdWt5R0RmQjZQdmxHV0kwb0pZVmRxUEphOWNqU2hISFFtUjR5M08y?=
+ =?utf-8?B?OGk0bjF0eUFCOXh4RnhDalpUbXpTSDlqRURnaHNDem9SYW1iWDlqVytyVm83?=
+ =?utf-8?B?ZFZsWUN6Um5BeEt4TFdmdlRKSUlVTmxqZlh5SEQ5L1M3Nkd0cjh4bzJIbFBo?=
+ =?utf-8?B?eGsvWFlHc0FRSmRzMXV5NFF5WnlSWDFrTmF3S2g2Y0ppZWpJOFBpRkorTTc0?=
+ =?utf-8?B?Q1M4cEZYd2tJSmE0OForWlVoNEZUQjVWQ09SeVExZWdBTTB2MzloeTRMQTVW?=
+ =?utf-8?B?d0p5QVpYNWkvRE1PQzdVV2J6WVlSZy94UjV2Y0hMbWhIU05Da3IvYmNKOFFa?=
+ =?utf-8?B?bDJ0dkhUbWFETFlFNjF5OFR6VFJHUk9mUXlzdmpJNDFHL1U3STZ2bUlTaG9J?=
+ =?utf-8?B?eFN5Mm9HS3VMT0lmb0ZIT25TamZIcFFyUzJnVzdxdUVHbzNPaGdkK0UzRC9N?=
+ =?utf-8?B?M2pHaHNzeS9heS9Qb0FCVjNTTHQ2ditaMjk0aEcyMjZ4TThPMEpiSU1VVDRZ?=
+ =?utf-8?B?RVVuZEdoMzdrcDJrN2dHYncrMTZvZ0NKSHQvbktFaVZ0Ti9nME9LODNLL20z?=
+ =?utf-8?B?RDBoejYzaTUvbWhlYmFrM3hiMVpMUFR0UmRFdlYxUTVkblVob2ZpOWxzLzBx?=
+ =?utf-8?B?elRQU2hLaXlFR3I5Tm5iTDg3ZlozZmdlYXgySW9zQXlvZ3B1K2pjRFZIQjNs?=
+ =?utf-8?B?anRCTWZXT2NtU1Z0bFVUN0VpMlZFb29HTDdwOTlTYnRHaFk2MEM4V21xUmoz?=
+ =?utf-8?B?OXRmUC9UZU1aUnpXNGtHanVyU0ZNYUxyU1A5VlBEdVczQXVzZTFObHcwZWZr?=
+ =?utf-8?B?bzNITzliSUMwOEJwREU3R2NNcjFNcnBSaVVHUk4yTkJhV0dETkJDcFhERGls?=
+ =?utf-8?B?RWlWTVd2eTA5QjZRZ2VMeXpTR1IraDhkQjY3OTR1OFkwRkpTU2tEVFk2V3Y2?=
+ =?utf-8?B?VzhaS3RZUkU2YWJlaW5weGZJUytRTTJwVThBZVE2T1kvUFY4V3dNbHZjeTRX?=
+ =?utf-8?B?WVBZSzVxRFJoY2RSSXpLWU5VcHQrZEhWSTIrR2J6bTAzaWQyTkozUjl5eGpC?=
+ =?utf-8?B?dDUxOUF0VkJHU0dUelJ4QmJSRjJNZnFYbnBxNHVOOHJyYTF2QzZtbytjaDNH?=
+ =?utf-8?B?SmNPRGl3clRQN3ZXQWNBd205UC9GUjFRVTU4WENsUXdLL3djNVZEV1NZWXZs?=
+ =?utf-8?B?Zy9xeU5tOVJWTkxBZXMyMnVBY2REZlpZSzFmeG1CZkEvdzljRG9wZ3EzcnVG?=
+ =?utf-8?B?bjBHSE5KWEhaREpOZ081VnFPUmgwbVBva2xVTmtQRFpXUTNvQ3BiVzZrMEM4?=
+ =?utf-8?Q?DkM7yUngh3g=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dGlDWWwvTG9YeDY5OXY0MXBqdFoya3kzQ3dYUkczY1VubEFFR2ZaZkMrKy9Q?=
+ =?utf-8?B?NlNmSkRDMXNMRG1JMzlXRlBVSklaWDV2WmR3VTdtTHpNRG9vY2pMQmJaM2Vn?=
+ =?utf-8?B?NVhXWjdCOVFkUks2cFdVNXI3Wk5tdndkeE04K2RQNWRhVWFVTGpGb3dRZFlh?=
+ =?utf-8?B?MjcvbHB2N1AwdkVxKytOQlhqYkNJd1l1UDhVRUpkNmgzbkE1K1hrd0lNSnpP?=
+ =?utf-8?B?dW90YmdKSHYrVnhuRXNSY0kxRzFiMWtPTHRVc09ycmR4QkkvQVY4cXBUaG43?=
+ =?utf-8?B?OHdJU05RYXl1MWlmdEFQTWVUQ3E0a0Fpa1l4WVJybjVxS3BZRURFUEN3OTB0?=
+ =?utf-8?B?K0VDeHgwR0EwUmVZUit4V3I5Y3ZKdWJ2Sm9XcVdHUmZNT0YreG1HSFM2R1lp?=
+ =?utf-8?B?ZW5qeDYwTUNGZGMyWDArUjJjZG9tRk9FTDZrQTlwQThwRUtBckpYOU56U1Rj?=
+ =?utf-8?B?ZU5EWHo3VDJ3NWFIQnFIYXJra0ZrSXduSlB2SUJkYUtlUUZIVTNzYVF4bHJ1?=
+ =?utf-8?B?WEhUNmFFcmppNFB6NG1mYjB2U0dkVDIrdWhOQnp2NW9xWlNSUWF5c2dKWGdI?=
+ =?utf-8?B?TjFITGZ0Yk5mbkMxOEJ2Q2s3S0N6cUtTUUVMeVFIWFNzeUNtaEZ2RHE5ajdN?=
+ =?utf-8?B?cnpPdGMrTUFBNjRiMG56ZE9halJGVlRiS29rblVnc25sa2YyOFQvbTJ0RWtL?=
+ =?utf-8?B?dDA2NDM3bzV5WDVSNGU0T2JEem96OFVkQXZCTUROU1BiNWJzM3g2UXNpNHJi?=
+ =?utf-8?B?SjFhMm1SRU1XQ3dpUURFNCtMcE5LYjNPL0xZZ3hQL1pCZnhpRHZBWWxtakdi?=
+ =?utf-8?B?SFJGckFZSW0xOERyQzYrblJvdm8xVEkzVjVQMUxjTnVkTkdWajBNbTFYem1U?=
+ =?utf-8?B?NjhCVU5uMi84NEVBaExYcm9BeUQyNEYrNWVoWWNMSjRVUGVEUWV4WUZNbWdC?=
+ =?utf-8?B?M1dIbEpFQ1BpN09NaENVOEhZWjNWWXVZRGdmSmZrRGFhUE1VWUxIM2s5TWho?=
+ =?utf-8?B?bFdMbDhZZFczano3R1hvL2hxNVRnVUV6N0ZTc281anpQM00yNnM0ZkszYmpr?=
+ =?utf-8?B?cFdYVjZFVURUOXYrT2drbXlrQ1U4aFl3clEwZWVFTUg5RjN1T1I4OEtEU3Zp?=
+ =?utf-8?B?V3ZoUll2THRUNWI4bzNDeVpERWVIamUyOGIzYUhzRDBZcTZhRkdadTJ6dG14?=
+ =?utf-8?B?OGZWUlpTREZyNXpYakhEZU5lWWQ4TVY1MnpQR21IczBSMnNXbmRWaVVGTHpE?=
+ =?utf-8?B?TTNURjFiRVBBdDAxQU16QlRqMHgwWW1KY2lwMmozN0tmQmV5bG12L1VqL3Vl?=
+ =?utf-8?B?QWxNOUlRRHNDODlobXBpOU83TVpWZm5RMk9odWg3NTdTVjVlS1oxSzhKMXNl?=
+ =?utf-8?B?NHhGT3ozUkt5c1FrL2E4ZllhcjVPeWd5Z1Exd00yMldGdXUxVE9DVnN5d0tp?=
+ =?utf-8?B?bGEwZExRQjczaE9Tc2hJZzdhSGlSbXAwSitnT0RycmYzREozYUwrYTF5WnQ4?=
+ =?utf-8?B?RW9QZHNwMWUzTTQ1dHFYZVNFaENUUVVEWEd0WEo5ZkRVQkNnWC9KUW9RM0c4?=
+ =?utf-8?B?Tms2cjhtdlN6RlZwalNTS09sU0Ezb0JtUkQ2ZEpvMUV3S0RlZmNubmY3bVlp?=
+ =?utf-8?B?TFhGbVhCeWZDTUI2TGRkcUJXL05nRXdLNWlhUmpKeUc0VVh6NzlQeS9STFZy?=
+ =?utf-8?B?R1RRZ1pRWjhieGs0QTFDNUZoU3loOW9xWUt1bTR6TVRHdC9ZcUM4cWduWEFG?=
+ =?utf-8?B?ZEtvZ1MxVTFWNVEyS0hZSVlFZ25EZEpmRkd5aGNOVEduay9VZWR5NnZkVjdS?=
+ =?utf-8?B?WUF1SXpGb01PcTJoanVrK3FKcHpvSGxieUI4bmpmRDViaFhEdCtpdGQrTk4x?=
+ =?utf-8?B?cDFPYXJoMnE1c3BIa3lGRXJyTXNsZ3VFb3ovTitDa3poZEpLcElndWU1K0ZI?=
+ =?utf-8?B?T0RzM2grdlhEQWEvaTllbjZCY3BpdE85KzYxTldJWnNvQ0RnOTI0WVhOYmtF?=
+ =?utf-8?B?T1E0UThnWjZodktVNU5BcGdYV0pjbnRUQ2RhTHExNWVlZTZHSHFxVWxoalR3?=
+ =?utf-8?B?ZGhhNUFqdWlDcVJjK3Z2WDE5Q0FWdTZiaFFYMVBDOWUzQXpoV1llRUN6d2RT?=
+ =?utf-8?B?UmlqOVRXUzczZ043R0RNQVNrWk9JOTQzT2t1Z05mREhlTlFjdldWTDI4NHVQ?=
+ =?utf-8?B?MFE9PQ==?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8a42c327-0817-4a2c-e1cd-08dd9204aba9
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2025 09:58:11.5715
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rbRTBnRl9MmaU4D1kLxUt747/penMFQlvCY47DDOOCz/8XPGt3+Ot2HClncQySar1o4mob/u2XatGuw6OglfAHZg6X7wsBkcNoH0KfzbH2o=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10277
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_105708_921777_CBDC2F91 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20250513_105823_197746_EE12B0BD 
+X-CRM114-Status: GOOD (  17.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,41 +193,739 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable supported features for ExynosAutov9 SoC.
-- QUIRK_HAS_DBGACK_BIT
-- QUIRK_HAS_32BIT_MAXCNT
+Hi Heiko,
 
-Signed-off-by: Sangwook Shin <sw617.shin@samsung.com>
-Signed-off-by: Kyunghwan Seo <khwan.seo@samsung.com>
----
- drivers/watchdog/s3c2410_wdt.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+On 5/8/25 5:09 PM, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> 
+> PP1516 are Touchscreen devices built around the PX30 SoC and companion
+> devices to PX30-Cobra, again with multiple display options.
+> 
+> The devices feature an EMMC, OTG port and a 720x1280 display with a
+> touchscreen and camera
+> 
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+> ---
+>   arch/arm64/boot/dts/rockchip/Makefile         |   2 +
+>   .../rockchip/px30-pp1516-ltk050h3146w-a2.dts  |  39 ++
+>   .../dts/rockchip/px30-pp1516-ltk050h3148w.dts |  39 ++
+>   arch/arm64/boot/dts/rockchip/px30-pp1516.dtsi | 601 ++++++++++++++++++
+>   4 files changed, 681 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/rockchip/px30-pp1516-ltk050h3146w-a2.dts
+>   create mode 100644 arch/arm64/boot/dts/rockchip/px30-pp1516-ltk050h3148w.dts
+>   create mode 100644 arch/arm64/boot/dts/rockchip/px30-pp1516.dtsi
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+> index 8151e8bb1cd3..899113f88a29 100644
+> --- a/arch/arm64/boot/dts/rockchip/Makefile
+> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+> @@ -8,6 +8,8 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-engicam-px30-core-ctouch2.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-engicam-px30-core-ctouch2-of10.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-engicam-px30-core-edimm2.2.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-firefly-jd4-core-mb.dtb
+> +dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-pp1516-ltk050h3146w-a2.dtb
+> +dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-pp1516-ltk050h3148w.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-ringneck-haikou.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-ringneck-haikou-lvds-9904379.dtbo
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-ringneck-haikou-video-demo.dtbo
+> diff --git a/arch/arm64/boot/dts/rockchip/px30-pp1516-ltk050h3146w-a2.dts b/arch/arm64/boot/dts/rockchip/px30-pp1516-ltk050h3146w-a2.dts
+> new file mode 100644
+> index 000000000000..b71929bcb33e
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/rockchip/px30-pp1516-ltk050h3146w-a2.dts
+> @@ -0,0 +1,39 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (c) 2025 Cherry Embedded Solutions GmbH
+> + */
+> +
+> +/dts-v1/;
+> +#include "px30-pp1516.dtsi"
+> +
+> +/ {
+> +	model = "Theobroma Systems PP-1516 with LTK050H3146W-A2 Display";
+> +	compatible = "tsd,px30-pp1516-ltk050h3146w-a2", "tsd,px30-pp1516", "rockchip,px30";
+> +};
+> +
+> +&dsi {
+> +	status = "okay";
+> +
+> +	panel@0 {
+> +		compatible = "leadtek,ltk050h3146w-a2";
+> +		reg = <0>;
+> +		backlight = <&backlight>;
+> +		iovcc-supply = <&vcc_1v8>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&dsp_rst>;
+> +		reset-gpios = <&gpio0 RK_PB2 GPIO_ACTIVE_LOW>;
+> +		vci-supply = <&vcc_2v8>;
+> +
+> +		port {
+> +			mipi_in_panel: endpoint {
+> +				remote-endpoint = <&mipi_out_panel>;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&dsi_out {
+> +	mipi_out_panel: endpoint {
+> +		remote-endpoint = <&mipi_in_panel>;
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/rockchip/px30-pp1516-ltk050h3148w.dts b/arch/arm64/boot/dts/rockchip/px30-pp1516-ltk050h3148w.dts
+> new file mode 100644
+> index 000000000000..a9bd5936c701
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/rockchip/px30-pp1516-ltk050h3148w.dts
+> @@ -0,0 +1,39 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (c) 2025 Cherry Embedded Solutions GmbH
+> + */
+> +
+> +/dts-v1/;
+> +#include "px30-pp1516.dtsi"
+> +
+> +/ {
+> +	model = "Theobroma Systems PP-1516 with LTK050H3148W Display";
+> +	compatible = "tsd,px30-pp1516-ltk050h3148w", "tsd,px30-pp1516", "rockchip,px30";
+> +};
+> +
+> +&dsi {
+> +	status = "okay";
+> +
+> +	panel@0 {
+> +		compatible = "leadtek,ltk050h3148w";
+> +		reg = <0>;
+> +		backlight = <&backlight>;
+> +		iovcc-supply = <&vcc_1v8>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&dsp_rst>;
+> +		reset-gpios = <&gpio0 RK_PB2 GPIO_ACTIVE_LOW>;
+> +		vci-supply = <&vcc_2v8>;
+> +
+> +		port {
+> +			mipi_in_panel: endpoint {
+> +				remote-endpoint = <&mipi_out_panel>;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&dsi_out {
+> +	mipi_out_panel: endpoint {
+> +		remote-endpoint = <&mipi_in_panel>;
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/rockchip/px30-pp1516.dtsi b/arch/arm64/boot/dts/rockchip/px30-pp1516.dtsi
+> new file mode 100644
+> index 000000000000..121654b17764
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/rockchip/px30-pp1516.dtsi
+> @@ -0,0 +1,601 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (c) 2025 Cherry Embedded Solutions GmbH
+> + */
+> +
+> +/dts-v1/;
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/input/input.h>
+> +#include <dt-bindings/pinctrl/rockchip.h>
+> +#include "px30.dtsi"
+> +
+> +/ {
+> +	aliases {
+> +		mmc0 = &emmc;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial5:115200n8";
+> +	};
+> +
+> +	backlight: backlight {
+> +		compatible = "pwm-backlight";
+> +		power-supply = <&vcc5v0_sys>;
+> +		pwms = <&pwm0 0 25000 0>;
+> +	};
+> +
+> +	beeper {
+> +		compatible = "pwm-beeper";
+> +		pwms = <&pwm1 0 1000 0>;
+> +	};
+> +
+> +	emmc_pwrseq: emmc-pwrseq {
+> +		compatible = "mmc-pwrseq-emmc";
+> +		pinctrl-0 = <&emmc_reset>;
+> +		pinctrl-names = "default";
+> +		reset-gpios = <&gpio1 RK_PB3 GPIO_ACTIVE_HIGH>;
+> +	};
+> +
+> +	gpio-leds {
+> +		compatible = "gpio-leds";
+> +
+> +		/*
+> +		 * LED2 on the PCB, left of the USB-C connector.
+> +		 * Typically NOT populated.
+> +		 */
+> +		debug: led-0 {
+> +			label = "debug";
+> +			gpios = <&gpio3 RK_PC3 GPIO_ACTIVE_HIGH>;
+> +			linux,default-trigger = "none";
+> +		};
+> +
+> +		/*
+> +		 * LED14 on the PCB, left of the PX30 SoC.
+> +		 * Typically NOT populated.
+> +		 */
+> +		heartbeat: led-1 {
+> +			label = "heartbeat";
+> +			gpios = <&gpio0 RK_PA0 GPIO_ACTIVE_HIGH>;
+> +			linux,default-trigger = "heartbeat";
+> +		};
 
-diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
-index 48819246f1ac..a630d5da3ba1 100644
---- a/drivers/watchdog/s3c2410_wdt.c
-+++ b/drivers/watchdog/s3c2410_wdt.c
-@@ -274,7 +274,8 @@ static const struct s3c2410_wdt_variant drv_data_exynosautov9_cl0 = {
- 	.cnt_en_reg = EXYNOS850_CLUSTER0_NONCPU_OUT,
- 	.cnt_en_bit = 7,
- 	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET |
--		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN,
-+		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
-+		  QUIRK_HAS_DBGACK_BIT | QUIRK_HAS_32BIT_MAXCNT,
- };
- 
- static const struct s3c2410_wdt_variant drv_data_exynosautov9_cl1 = {
-@@ -286,7 +287,8 @@ static const struct s3c2410_wdt_variant drv_data_exynosautov9_cl1 = {
- 	.cnt_en_reg = EXYNOSAUTOV9_CLUSTER1_NONCPU_OUT,
- 	.cnt_en_bit = 7,
- 	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET |
--		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN,
-+		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
-+		  QUIRK_HAS_DBGACK_BIT | QUIRK_HAS_32BIT_MAXCNT,
- };
- 
- static const struct s3c2410_wdt_variant drv_data_gs101_cl0 = {
--- 
-2.40.1
+Missing a pinctrl associated with both gpios property, I assume it'll 
+need to be added to the gpio-leds parent node and not led-* nodes.
 
+> +	};
+> +
+> +	vcc1v2_sys: regulator-vcc1v2-sys {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc1v2";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <1200000>;
+> +		regulator-max-microvolt = <1200000>;
+> +	};
+> +
+
+This only exists prior to PCB v1.3 and the HW department says we only 
+need to support v1.3 as that's what made it out on the field. So you can 
+remove this one.
+
+> +	vcc5v0_sys: regulator-vccsys {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc5v0_sys";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +	};
+> +
+> +	vcc_cam_avdd: regulator-vcc-cam-avdd {
+> +		compatible  = "regulator-fixed";
+> +		regulator-name = "vcc_cam_avdd";
+> +		gpio = <&gpio3 RK_PC0 GPIO_ACTIVE_LOW>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&cam_avdd_en>;
+> +		regulator-min-microvolt = <2800000>;
+> +		regulator-max-microvolt = <2800000>;
+> +		vin-supply = <&vcc_2v8>;
+> +	};
+> +
+> +	vcc_cam_dovdd: regulator-vcc-cam-dovdd {
+> +		compatible  = "regulator-fixed";
+> +		regulator-name = "vcc_cam_dovdd";
+> +		gpio = <&gpio3 RK_PC1 GPIO_ACTIVE_LOW>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&cam_dovdd_en>;
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <1800000>;
+> +		vin-supply = <&vcc_1v8>;
+> +	};
+> +
+> +	vcc_cam_dvdd: regulator-vcc-cam-dvdd {
+> +		compatible  = "regulator-fixed";
+> +		regulator-name = "vcc_cam_dvdd";
+> +		gpio = <&gpio3 RK_PC5 GPIO_ACTIVE_HIGH>;
+> +		enable-active-high;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&cam_dvdd_en>;
+> +		regulator-min-microvolt = <1200000>;
+> +		regulator-max-microvolt = <1200000>;
+> +		vin-supply = <&vcc1v2_sys>;
+
+This should be vcc_3v3 instead starting from v1.3.
+
+> +	};
+> +
+> +	vcc_lens_afvdd: regulator-vcc-lens-afvdd {
+> +		compatible  = "regulator-fixed";
+> +		regulator-name = "vcc_lens_afvdd";
+> +		gpio = <&gpio3 RK_PB2 GPIO_ACTIVE_LOW>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&cam_afdd_en>;
+> +		regulator-min-microvolt = <2800000>;
+> +		regulator-max-microvolt = <2800000>;
+> +		vin-supply = <&vcc_2v8>;
+> +	};
+> +};
+> +
+> +&cpu0 {
+> +	cpu-supply = <&vdd_arm>;
+> +};
+> +
+> +&cpu1 {
+> +	cpu-supply = <&vdd_arm>;
+> +};
+> +
+> +&cpu2 {
+> +	cpu-supply = <&vdd_arm>;
+> +};
+> +
+> +&cpu3 {
+> +	cpu-supply = <&vdd_arm>;
+> +};
+> +
+> +&csi_dphy {
+> +	status = "okay";
+> +};
+> +
+> +&display_subsystem {
+> +	status = "okay";
+> +};
+> +
+> +&dsi_dphy {
+> +	status = "okay";
+> +};
+> +
+> +&emmc {
+> +	bus-width = <8>;
+> +	cap-mmc-highspeed;
+> +	/*
+> +	 * For hs200 support, U-Boot would have to set the RK809 DCDC4
+> +	 * rail to 1.8V from the default of 3.0V. It doesn't do that on
+> +	 * devices out in the field, so disable hs200.
+> +	 * mmc-hs200-1_8v;
+> +	 */
+> +	mmc-pwrseq = <&emmc_pwrseq>;
+> +	non-removable;
+> +	vmmc-supply = <&vcc_3v3>;
+> +	vqmmc-supply = <&vcc_emmc>;
+> +	status = "okay";
+> +};
+> +
+> +&gpu {
+> +	mali-supply = <&vdd_log>;
+> +	status = "okay";
+> +};
+> +
+> +/* I2C0 = PMIC, Touchscreen */
+> +&i2c0 {
+> +	status = "okay";
+> +
+> +	touchscreen@14 {
+> +		compatible = "goodix,gt911";
+> +		reg = <0x14>;
+> +		interrupt-parent = <&gpio0>;
+> +		interrupts = <RK_PA1 IRQ_TYPE_LEVEL_LOW>;
+> +		irq-gpios = <&gpio0 RK_PA1 GPIO_ACTIVE_HIGH>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&tch_int &tch_rst>;
+> +		reset-gpios = <&gpio0 RK_PB5 GPIO_ACTIVE_HIGH>;
+> +		AVDD28-supply = <&vcc_2v8>;
+> +		VDDIO-supply = <&vcc_3v3>;
+
+Same remark as for Cobra wrt alphanum order being case sensitive.
+
+> +	};
+> +
+> +	rk809: pmic@20 {
+> +		compatible = "rockchip,rk809";
+> +		reg = <0x20>;
+> +		#clock-cells = <0>;
+> +		clock-output-names = "xin32k";
+> +		interrupt-parent = <&gpio0>;
+> +		interrupts = <7 IRQ_TYPE_LEVEL_LOW>;
+
+Please use RK_PA7 here.
+
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pmic_int>;
+> +		wakeup-source;
+> +		rockchip,system-power-controller;
+> +
+> +		vcc1-supply = <&vcc5v0_sys>;
+> +		vcc2-supply = <&vcc5v0_sys>;
+> +		vcc3-supply = <&vcc5v0_sys>;
+> +		vcc4-supply = <&vcc5v0_sys>;
+> +		vcc5-supply = <&vcc_3v3>;
+> +		vcc6-supply = <&vcc_3v3>;
+> +		vcc7-supply = <&vcc_3v3>;
+> +		vcc9-supply = <&vcc5v0_sys>;
+> +
+> +		regulators {
+> +			vdd_log: DCDC_REG1 {
+> +				regulator-name = "vdd_log";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <950000>;
+> +				regulator-max-microvolt = <1350000>;
+> +				regulator-ramp-delay = <6001>;
+> +
+> +				regulator-state-mem {
+> +					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <950000>;
+> +				};
+> +			};
+> +
+> +			vdd_arm: DCDC_REG2 {
+> +				regulator-name = "vdd_arm";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <950000>;
+> +				regulator-max-microvolt = <1350000>;
+> +				regulator-ramp-delay = <6001>;
+> +
+> +				regulator-state-mem {
+> +					regulator-off-in-suspend;
+> +					regulator-suspend-microvolt = <950000>;
+> +				};
+> +			};
+> +
+> +			vcc_ddr: DCDC_REG3 {
+> +				regulator-name = "vcc_ddr";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +
+> +				regulator-state-mem {
+> +					regulator-on-in-suspend;
+> +				};
+> +			};
+> +
+> +			vcc_3v0_1v8: vcc_emmc: DCDC_REG4 {
+> +				regulator-name = "vcc_3v0_1v8";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <3000000>;
+> +				regulator-max-microvolt = <3000000>;
+> +
+> +				regulator-state-mem {
+> +					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <3000000>;
+> +				};
+> +			};
+> +
+> +			vcc_3v3: DCDC_REG5 {
+> +				regulator-name = "vcc_3v3";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+> +
+> +				regulator-state-mem {
+> +					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <3300000>;
+> +				};
+> +			};
+> +
+> +			vcc_1v8: LDO_REG2 {
+> +				regulator-name = "vcc_1v8";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +
+> +				regulator-state-mem {
+> +					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <1800000>;
+> +				};
+> +			};
+> +
+> +			vcc_1v0: LDO_REG3 {
+> +				regulator-name = "vcc_1v0";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <1000000>;
+> +				regulator-max-microvolt = <1000000>;
+> +
+> +				regulator-state-mem {
+> +					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <1000000>;
+> +				};
+> +			};
+> +
+> +			vcc_2v8: LDO_REG4 {
+> +				regulator-name = "vcc_2v8";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <2800000>;
+> +				regulator-max-microvolt = <2800000>;
+> +
+> +				regulator-state-mem {
+> +					regulator-off-in-suspend;
+> +					regulator-suspend-microvolt = <2800000>;
+> +				};
+> +			};
+> +
+> +			vccio_sd: LDO_REG5 {
+> +				regulator-name = "vccio_sd";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <3000000>;
+> +				regulator-max-microvolt = <3000000>;
+> +
+> +				regulator-state-mem {
+> +					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <3000000>;
+> +				};
+> +			};
+> +
+> +			vcc_sdio: LDO_REG6 {
+> +				regulator-name = "vcc_sdio";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +
+> +				regulator-state-mem {
+> +					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <1800000>;
+> +				};
+> +			};
+> +
+> +			vcc_lcd: LDO_REG7 {
+> +				regulator-name = "vcc_lcd";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <1000000>;
+> +				regulator-max-microvolt = <1000000>;
+> +
+> +				regulator-state-mem {
+> +					regulator-off-in-suspend;
+> +					regulator-suspend-microvolt = <1000000>;
+> +				};
+> +			};
+> +
+> +			vcc_1v8_lcd: LDO_REG8 {
+
+This one's named 1v8_lcd in the schematics actually.
+
+> +				regulator-name = "vcc_1v8_lcd";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +
+> +				regulator-state-mem {
+> +					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <1800000>;
+> +				};
+> +			};
+> +
+> +			vcca_1v8: LDO_REG9 {
+> +				regulator-name = "vcca_1v8";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +
+> +				regulator-state-mem {
+> +					regulator-off-in-suspend;
+> +					regulator-suspend-microvolt = <1800000>;
+> +				};
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&i2c1 {
+> +	clock-frequency = <100000>;
+> +	status = "okay";
+> +};
+> +
+> +/* I2C2 = Accelerometer + Camera */
+> +&i2c2 {
+> +	/* MEMSIC MXC4005 accelerometer is rated for I2C Fast Mode (<=400KHz) */
+> +	/* OmniVision OV5675 camera is rated for I2C Fast Mode (<=400KHz) */
+> +	clock-frequency = <400000>;
+> +	status = "okay";
+> +
+> +	focus: focus@c {
+> +		compatible = "dongwoon,dw9714";
+> +		reg = <0xc>;
+> +		vcc-supply = <&vcc_lens_afvdd>;
+> +	};
+> +
+> +	accel@15 {
+> +		compatible = "memsic,mxc4005";
+> +		reg = <0x15>;
+
+There's an interrupt line routed there: ACCEL_INT GPIO2_B4. According to 
+the MXC4005 datasheet, it's active low and is released only when the 
+interrupt register is cleared (by writing 1). Considering we have a HW 
+pull-up (R32), I guess we can have pull_cfg_none for the pinconf?
+
+> +	};
+> +
+> +	camera@36 {
+> +		compatible = "ovti,ov5675";
+> +		reg = <0x36>;
+> +		clocks = <&cru SCLK_CIF_OUT>;
+> +		assigned-clocks = <&cru SCLK_CIF_OUT>;
+> +		assigned-clock-rates = <19200000>;
+> +		avdd-supply = <&vcc_cam_avdd>;
+> +		dvdd-supply = <&vcc_cam_dvdd>;
+> +		dovdd-supply = <&vcc_cam_dovdd>;
+> +		lens-focus = <&focus>;
+> +		orientation = <0>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&cif_clkout_m0 &cam_pwdn>;
+> +		reset-gpios = <&gpio2 RK_PB0 GPIO_ACTIVE_LOW>;
+> +		rotation = <0>;
+> +
+> +		port {
+> +			ucam_out: endpoint {
+> +				remote-endpoint = <&mipi_in_ucam>;
+> +				data-lanes = <1 2>;
+> +				link-frequencies = /bits/ 64 <450000000>;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&io_domains {
+> +	vccio1-supply = <&vcc_sdio>;
+> +	vccio2-supply = <&vccio_sd>;
+> +	vccio3-supply = <&vcc_1v8>;
+> +	vccio4-supply = <&vcc_3v3>;
+> +	vccio5-supply = <&vcc_3v3>;
+> +	vccio6-supply = <&vcc_emmc>;
+> +	status = "okay";
+> +};
+> +
+> +&isp {
+> +	status = "okay";
+> +
+> +	ports {
+> +		port@0 {
+> +			mipi_in_ucam: endpoint@0 {
+> +				reg = <0>;
+> +				data-lanes = <1 2>;
+> +				remote-endpoint = <&ucam_out>;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&isp_mmu {
+> +	status = "okay";
+> +};
+> +
+> +&pinctrl {
+> +	camera {
+> +		cam_afdd_en: cam-afdd-en {
+
+afvdd and not afdd.
+
+> +			rockchip,pins =
+> +				<3 RK_PB2 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +
+> +		cam_avdd_en: cam-avdd-en {
+> +			rockchip,pins =
+> +				<3 RK_PC0 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +
+> +		cam_dovdd_en: cam-dovdd-en {
+> +			rockchip,pins =
+> +				<3 RK_PC1 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +
+> +		cam_dvdd_en: cam-dvdd-en {
+> +			rockchip,pins =
+> +				<3 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +
+> +		cam_pwdn: cam-pwdn {
+> +			rockchip,pins =
+> +				<2 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +	};
+> +
+> +	emmc {
+> +		emmc_reset: emmc-reset {
+> +			rockchip,pins =
+> +				<1 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
+
+Still no HW PU/PD, so need to check the JEDEC standard to check what's 
+expected there.
+
+> +		};
+> +	};
+> +
+> +	panel {
+> +		tch_int: tch-int {
+> +			rockchip,pins =
+> +				<0 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +
+> +		tch_rst: tch-rst {
+> +			rockchip,pins =
+> +				<0 RK_PB5 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +
+> +		dsp_rst: dsp-rst {
+> +			rockchip,pins =
+> +				<0 RK_PB2 RK_FUNC_GPIO &pcfg_pull_none>;
+
+Same remark as for Cobra, need to check the display controller 
+datasheets to figure out if we need PU/PD.
+
+> +		};
+> +	};
+> +
+> +	pmic {
+> +		pmic_int: pmic-int {
+> +			rockchip,pins =
+> +				<0 RK_PA7 RK_FUNC_GPIO &pcfg_pull_up>;
+> +		};
+> +
+> +		soc_slppin_gpio: soc-slppin {
+> +			rockchip,pins =
+> +				<0 RK_PA4 RK_FUNC_GPIO &pcfg_output_low>;
+> +		};
+> +
+> +		soc_slppin_slp: soc-slppin-slp {
+> +			rockchip,pins =
+> +				<0 RK_PA4 1 &pcfg_pull_none>;
+> +		};
+> +
+> +		soc_slppin_rst: soc-slppin-rst {
+> +			rockchip,pins =
+> +				<0 RK_PA4 2 &pcfg_pull_none>;
+> +		};
+
+Same remark as for Cobra, I don't think those soc_slppin* pinmux are 
+actually used? Maybe OP-TEE/TF-A maybe? But I don't recall we actually 
+pass the DT to those in any case?
+
+> +	};
+> +};
+> +
+> +&pmu_io_domains {
+> +	pmuio1-supply = <&vcc_3v3>;
+> +	pmuio2-supply = <&vcc_3v3>;
+> +	status = "okay";
+> +};
+> +
+> +&pwm0 {
+> +	status = "okay";
+> +};
+> +
+> +&pwm1 {
+> +	status = "okay";
+> +};
+> +
+> +&saradc {
+> +	vref-supply = <&vcc_1v8>;
+> +	status = "okay";
+> +};
+
+Doesn't hurt to have it I guess, but there's nothing routed to the ADC 
+so maybe we can simply keep SARADC disabled?
+
+Cheers,
+Quentin
 
