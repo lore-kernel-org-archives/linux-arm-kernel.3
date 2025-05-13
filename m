@@ -4,68 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4548C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 16:07:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64F2EC3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 16:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=13mKWnaxT5MXOzb611tnGX4qcvA1eYL6YYsoXT+cCMg=; b=qWGV5Ow9CkBfhI7zqhSPepOEng
-	89Hb0/Lf5hXgnkce5HVHarlhgdshI6oOm5TS22lPOTugtxWAxBfFMPpaQD1jcA03MAeodecG9x5FK
-	OWOzgUa4zZR7XNBEY+4hL0jxgTa/cknEix8cXsp6q2cX1zKxsb+K+h0NX2zzJzl3nqrfOow16DUNz
-	Wfjm4jt4o2fom8LRJwKxvSilwwsu6JuzNvwSrZU4ect2xQaclayyGTxMaQKeqQT9dMEU4cWk2+RD3
-	fBwQeFe2eRPI0BOX6MS33cDA9wjIatPwMq2nmVvZpFjONWlS7b8H9UKxt2urjCpmE+QAPRKRr1ZPV
-	7pCCmgxA==;
+	bh=mPP34a2qPJLJUDs68IjGTEbCLX34B34aXKmwHjCda18=; b=bRAcWAWGQNlvR37o9t14UbIx1T
+	VRbNILxX0fXAQbrzvUY0Ms+Ut7mOy6b3fbMZByu3Tggjadei7zx3LScrU8d87iGv5cRivxQjdr+A4
+	w/AS3o+K+uELW/YUp+QP/G8yeskQiIFevtDVqmctPdJuYyNtvC9KuwEXMgDqWnqsUTwPprZinpxu1
+	TPOxn8TUH6yhrkVV5/IZlkCb/SZrWgv5Q9VSon+FLqYu3jJ7TKWZj1kWV0zxgbkjWmexJ523tvl6o
+	yuk7rqlhXsOBme5z+zp+eFMAp8dUErFwjKqBF1cKCbhQVLttKMTqHUpO6dYjQIZ+NS2CF6dd/YPRp
+	Lp1oTzag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEs9z-0000000CsXN-2jAF;
-	Tue, 13 May 2025 16:07:15 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uEsC4-0000000Csqn-1Y1C;
+	Tue, 13 May 2025 16:09:24 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEs6L-0000000Cs9A-07zJ
+	id 1uEs6o-0000000CsD8-1fKI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 16:03:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D862AA4D9D2;
-	Tue, 13 May 2025 16:03:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11CE6C4CEE4;
-	Tue, 13 May 2025 16:03:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747152207;
-	bh=13mKWnaxT5MXOzb611tnGX4qcvA1eYL6YYsoXT+cCMg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QAt/MNrTxn0iThyD5AdDAea/tfvEikzi7gLLDWNg+JTnRnYZv9BL8rnTb4Rb+BXIg
-	 hOD6S/ILAkSW+iVMOcn5vD+dr416w/erglIQ6cWTHBPIzFobTUM5iho+39yV+bxjn0
-	 hE+gy92whnf4qQoYbsmXpCDJDzShjiyeNqlOu3rZqSVP84MHHjhUKmy7SfCfWbdH5k
-	 dRXxRNIh8/D0VBDHDezRgX7z1k0JBiDPe6PURk9FNiYmADV3Qr3+68cPIPL4Cc7zLh
-	 P3YWAJKG67QJfnHhZBpidVKLDh43rQURIx4J1iSn5R9ObjA8DgoscyEEwBGcPe1baU
-	 pcPsSpGyYXXZg==
-Date: Tue, 13 May 2025 18:03:21 +0200
-From: Mark Brown <broonie@kernel.org>
-To: Patrice CHOTARD <patrice.chotard@foss.st.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Tue, 13 May 2025 16:03:59 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-442e9c00bf4so12979835e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 09:03:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747152237; x=1747757037; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=mPP34a2qPJLJUDs68IjGTEbCLX34B34aXKmwHjCda18=;
+        b=IcjRY2wG97UUr79oV0VgjogWZ677f22Xvsse37TkBHMixKAJNeaGkppVekLrOdMpCe
+         MaXFzavEsqcq0CV2fNea4R/ailrXpBgbw+SQuZQ1NzI7gtvK2chiP9FsYcOr+nfyhqyK
+         7CJUEfdPJMNmxxiEsnSQc5HHo0w+FeaAk1uMRVrX9M2FrZKxjRnmmD/s83Yqvj8TiqfF
+         f1gJSAkI1BZ9BEvic8yJMN/qkDelVPH0JOiY+kkgoSbx9yuTreRP7gYYveqN1MzlS0lV
+         MtAisWWRWiym89EknDA2tKagQPHtfZ8aKVxGl77KFzqhNMjLT7KSuS/6OcPGhCHFCv1B
+         UYKg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747152237; x=1747757037;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mPP34a2qPJLJUDs68IjGTEbCLX34B34aXKmwHjCda18=;
+        b=SzeuhPHPlmZAu+fE+hS1Yw3RrACDK11iG0LNslM1GZj8I77kuOL/XeX/x0vLvI0buZ
+         7V1XrAVbpJJZ6RjEOV9qNK035m1MlmROQ7xD5EmdVnld7yhyj8Z3rzk7zvkiLrlYD1Br
+         xmvCzaBgxgIiSv+Fmz6BhWVCySLuqUTNGhX4chM2wwijtbd2ZaRysoeq/5OBcQqx+tIE
+         xworq2yY7//b8SjZ199L2XegBX6pduE0PU51wLE7RsKhb+cVMLouNP9RlIjiAUIIXt9g
+         I2vTqaM0mMOSMu23uBd8X7qm7ghxztMDCSBVz9IRKN1JcYrVZnYm6Taz7Lti8YRmsFvw
+         K4CQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXgjSO8EUXL8TyfFRXru6G30e1BOQ8ZqyitTS6gaLIlgbCEOHdiWyr+F8t78UWbq69B1n1HrBhskIf+8emxOo+e@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjfImgA+NQWAtONRPa6dCi4w8MbOJ/3cu5usxUOU5w2KhF7D6L
+	RQbW8I+w4jsKezS1LGylVUnJKq3l9WPXVzsqDfq/TzcUj6bv2yGVDnTnPtaaew==
+X-Gm-Gg: ASbGnctJrex0kMUvAuTYp5+8JojegHqU1VJvX00ZF616EVYX6MfARmXHl6TAAzJuarR
+	69JJOfuWBuLS46E3ODa4FssQB2ED9lNH+o5NpJnEy53DHwCnRsn0f5vYkH9LRt6x2Zq4LeFPJ7h
+	Ny1ecRHwVecPqWSXF0WaL3R0JVudzIsbYwO0pqRKcXCZgmjf6gyCDyVFyhWhZ10DgwHij8vVVVx
+	xKBanU229n5mwCreVmoTp0IVxWd5P4ausNxYtB0QGdDe0xbgQDFUS3oELi7T5mAguZh+4jpLnRT
+	tn4ny6ujJQB9UvD/bEDoR/+o3NkesOUfwaqMlPxioaGGD8n3+Fi3kPOPJypY98imojw/Ptzrqps
+	1bGlEd0x1KH6RRA==
+X-Google-Smtp-Source: AGHT+IFUs/E8lGN4Y6i35nSeqOc0zjhP+SyJASizXG0DBXcxPw4b86BdcbX5E/ih1Apnan2qlPCivQ==
+X-Received: by 2002:a05:600c:4f54:b0:442:e9eb:1b48 with SMTP id 5b1f17b1804b1-442e9eb1c1emr42627385e9.24.1747152236887;
+        Tue, 13 May 2025 09:03:56 -0700 (PDT)
+Received: from thinkpad (110.8.30.213.rev.vodafone.pt. [213.30.8.110])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442d67d5c09sm175331185e9.7.2025.05.13.09.03.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 May 2025 09:03:56 -0700 (PDT)
+Date: Tue, 13 May 2025 17:03:54 +0100
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
+	Marek Vasut <marek.vasut+renesas@gmail.com>, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
+	Shawn Lin <shawn.lin@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Alan Douglas <adouglas@cadence.com>, 
+	Wilfred Mallawa <wilfred.mallawa@wdc.com>, Damien Le Moal <dlemoal@kernel.org>, linux-pci@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4] spi: stm32-ospi: Make usage of
- reset_control_acquire/release() API
-Message-ID: <aCNtSVldu1yEO5rE@finisterre.sirena.org.uk>
-References: <20250512-b4-upstream_ospi_reset_update-v4-1-982c6f7886ef@foss.st.com>
- <aCHlfED7b-W0pGXY@finisterre.sirena.org.uk>
- <c4a2ccb6-b052-4cce-8bfc-26bcae2a2e2a@foss.st.com>
+Subject: Re: [PATCH v2 0/6] PCI: endpoint: IRQ callback fixes and cleanups
+Message-ID: <lds72okw4m4novwi2ysaomolph45dzuuyxdcyl6llpruie7a5t@4v6ol6qtu6w3>
+References: <20250513073055.169486-8-cassel@kernel.org>
+ <20250513102522.GB2003346@rocinante>
+ <aCM7lWQiwJBwamEp@ryzen>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="F0dhLWNHSbTNzAtS"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <c4a2ccb6-b052-4cce-8bfc-26bcae2a2e2a@foss.st.com>
-X-Cookie: Well begun is half done.
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aCM7lWQiwJBwamEp@ryzen>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_090329_138457_D91FF694 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20250513_090358_445976_628F8FBD 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,38 +108,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, May 13, 2025 at 02:31:17PM +0200, Niklas Cassel wrote:
+> On Tue, May 13, 2025 at 07:25:22PM +0900, Krzysztof Wilczyński wrote:
+> > Hello,
+> 
+> Hello
+> 
+> > 
+> > >   PCI: dwc: ep: Fix broken set_msix() callback
+> > >   PCI: cadence-ep: Fix broken set_msix() callback
+> > >   PCI: endpoint: cleanup get_msi() callback
+> > >   PCI: endpoint: cleanup set_msi() callback
+> > >   PCI: endpoint: cleanup get_msix() callback
+> > >   PCI: endpoint: cleanup set_msix() callback
+> > 
+> > Note that PCI prefers to capitalise first letter of the subject.
+> 
+> Do I need to resend or can some of the maintainers fix this up while applying?
 
---F0dhLWNHSbTNzAtS
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+I will fix it up while applying.
 
-On Tue, May 13, 2025 at 11:47:16AM +0200, Patrice CHOTARD wrote:
-> On 5/12/25 14:11, Mark Brown wrote:
+- Mani
 
-> > This doesn't apply against current code, please check and resend.
-
-> This patch has been submitted on top of reset tag reset-for-v6.16
-> due to dependency with new reset API devm_reset_control_array_get_exclusive_released().
-
-> How do you want to proceed ? Philipp can take it on its reset tree ?
-
-There was no mention about the dependency in the patch, please resend
-with information about this tag included.
-
---F0dhLWNHSbTNzAtS
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmgjbUYACgkQJNaLcl1U
-h9Cw0Af9GroN6ci/01CzKHevwNZB5THla+r860LWr9mzjOxwBHeDUf3Juey+6Pny
-iDYe0dNqRLZ1xyoUqEjs1z/4ATnwJuWPLwju6P77kc/OGmTCL9rV1Fr1W6vVixBl
-Fxqd0hwYGI42GoMREKv4F7bkFn2zDKy0/MKkch5/ZHORnVduiT3RAjeKmMJSbNsN
-37wzzu+RQ8Dhhabqi4RxMwZz8mwvP+WuzVhFKTcTJoN0zUOPs+DZLuVECQoTprzk
-28lFBw+xOzUUKKHKB3nu0c9yogV4a10VyaLUAkjFUqikHYz4sqn/ZP/5j1xqpreI
-DQKwo74c3UZRaWjJ0sCEX4f4eGIVcQ==
-=D6uF
------END PGP SIGNATURE-----
-
---F0dhLWNHSbTNzAtS--
+-- 
+மணிவண்ணன் சதாசிவம்
 
