@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E5D0C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 13:42:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73DC5C3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 13:44:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cwLP2Es6xRfINGxgWeMS9qSQnLb8+yOJ1St5R8XeU9A=; b=IVJRvBx0OGPq6hKve9662xNcQW
-	m+M4q5NvzttO+QpF0ADRZ8wE8PtSfEKYB74Onk9Xep4EcPZ9VgbUdYgb1Eclb7rLX3zMMtehxVh3i
-	khYrMZJqXjzfqwuecqPfeu6aW01kfPoQMSp3Z3htBFxOR8zpLr4TIsVWeHNDbTyo6/rmdb1HwMGOb
-	NgobN+LNPjGiWUwQha9kD95M0yOTCbLv7JIyp+hqg4+FnUAxHJ6eBLOf/MIED+gU0Y7WYQz2GVrsb
-	Fqa+G73+fN1iIYbU0USVeYrGeUgidtslON5+95g3MWyYGfNNsfUCOUaIcf870axYbMFqsDcWCg20k
-	5BhfhdxQ==;
+	bh=DCbPLf94BXHNzoygJn6GSarH/xoHpeTfijUGwNyPBG8=; b=kvDosniDq/8ahRMe61RI1KCZsl
+	AOUn9RfORQyn4iMXCT6MlfNcrLkwNa9xbNz+DG7KHZsNRlul0qCyxvoQJb94GgE48/BLzWAQWXEUg
+	ACI6dFpfv3ye/h88Y/C7FYSdnXfx1wvV9EFQ7z+GozaKTSLj85dsZOd0xXYpIV5eH7/RD69duEaQk
+	W3z9FfKUjXxrnxm7ynWmuwE3L7IAW4vqGaVH27kns0mkXWlfTMpEUKT5yP0eUt8K+zzKTKkhoVK9t
+	/MOO5PDgrdVjiD6e48e9kOmvFwDzH68beOBqdxsROskTFDSy6ViC93NE0eLOKtOWMkJ2p4KczGNUb
+	TnWPpQNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEpto-0000000CWIN-2TZb;
-	Tue, 13 May 2025 13:42:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uEpvs-0000000CWV1-1Dba;
+	Tue, 13 May 2025 13:44:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEpn0-0000000CVGo-4C52
+	id 1uEpnR-0000000CVLy-3IV9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 13:35:24 +0000
+	Tue, 13 May 2025 13:35:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B1647445F8;
-	Tue, 13 May 2025 13:35:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BFB2C4CEE4;
-	Tue, 13 May 2025 13:35:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2B4D9629CC;
+	Tue, 13 May 2025 13:35:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1DD9C4CEE9;
+	Tue, 13 May 2025 13:35:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747143322;
-	bh=NR5vZNUsuI15bl5xfksQlcz2kKOlzAQLwpEtKX4quLQ=;
+	s=k20201202; t=1747143348;
+	bh=vL40+R/Pc25k6Thm0RAgq45shA6v4r5ZeGAKMo3N5Ts=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=e582jhuBkwm53yc/TvQ04B+vgV3RfyQ58MLJJh5FudDMuU9KygQRT2g9k8OTzFHxT
-	 07kBNaQfm0U6pfygPtz/LbQq4e6nReL8nNspZa3r3Zki3eVyFKm36x1vc8eOFlDV5J
-	 X/43K5UxNejj1+N0VfMWAR+lURYnbxQFrskxd6UBqBgt2hUbyWXxHWaNMSRPAa3tVx
-	 DJ1HTOeIWv/GT+zk+t//TtWmc++8kiQhHayHed4eY4TlfbY9ktMF8dM0GJnpH0/5q0
-	 CCC1r145SmgGkVrIBV3bUKvQO4DcMLkTZTe7jOWkhyV1LaqewHX35UUOcyBbtdorr4
-	 OMTN4u1sVt18Q==
-Message-ID: <1ec11b90-ed6d-4b41-9146-a91f0dcb8756@kernel.org>
-Date: Tue, 13 May 2025 15:35:17 +0200
+	b=E+1MzgZQYE+00S6hDLk6HAXBtOh8bA44jLq6TaLvZ0TP5cETT+yubk90h+6AqTfcy
+	 ud/MWzVwUw/lMDS3WQujtDxEAqxezUdWbA40xjOHq6NACjerB8p9luw7uB2wpJM173
+	 UF485v4rUoLGvgXPmf/FGqLWTsM75B84VM4wry+OrCXwLfOjDxsm+PVaOWi9TvY/rz
+	 ++/53VzMm1MozGLCiQ/UnGcdMbZoQOsnzb0BItouI+KqHvdpbskB5rblpNwo8oOv+e
+	 XZ6RMMJQveKZlOe65fNBV5NdkrmNS5Uff927mOyk0A7AcSbj5Vfl23nk1QqD6RAiqj
+	 aaH5Psh4J0ljA==
+Message-ID: <04b4cea3-6cd6-4764-b277-c2e9921b70dc@kernel.org>
+Date: Tue, 13 May 2025 15:35:43 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 16/19] dt-bindings: clock: imx8m-clock: add PLLs
+Subject: Re: [PATCH v12 05/19] dt-bindings: clock: imx8m-anatop: add
+ oscillators and PLLs
 To: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
  linux-kernel@vger.kernel.org
 Cc: Peng Fan <peng.fan@nxp.com>, Stephen Boyd <sboyd@kernel.org>,
@@ -61,7 +62,7 @@ Cc: Peng Fan <peng.fan@nxp.com>, Stephen Boyd <sboyd@kernel.org>,
  devicetree@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
 References: <20250424062154.2999219-1-dario.binacchi@amarulasolutions.com>
- <20250424062154.2999219-17-dario.binacchi@amarulasolutions.com>
+ <20250424062154.2999219-6-dario.binacchi@amarulasolutions.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,13 +108,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250424062154.2999219-17-dario.binacchi@amarulasolutions.com>
+In-Reply-To: <20250424062154.2999219-6-dario.binacchi@amarulasolutions.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_063523_078859_A31911DF 
-X-CRM114-Status: UNSURE (   6.20  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,18 +126,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 24/04/2025 08:21, Dario Binacchi wrote:
-> Though adding the PLLs to clocks and clock-names properties will break
-> the ABI, it is required to accurately describe the hardware. Indeed,
+> Though adding clocks and clock-names properties will break the ABI,
+> it is required to accurately describe the hardware. Indeed, the anatop
+> module uses the input oscillators to generate various PLLs. In turn,
 > the Clock Control Module (CCM) receives clocks from the PLLs and
 > oscillators and generates clocks for on-chip peripherals.
 > 
+> Furthermore, as agreed in [1], this change represents the first step
+> toward the implementation of the anatop driver. Currently, in fact,
+> there is no dedicated anatop driver, but the CCM driver parses the
+> anatop node and registers the PLLs it produces.
+> 
+> [1] https://lore.kernel.org/imx/20241106090549.3684963-1-dario.binacchi@amarulasolutions.com/
 > Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 > Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
 For future version if it happens:
 
 Un-reviewed.
-
 
 Best regards,
 Krzysztof
