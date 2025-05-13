@@ -4,74 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4818C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 16:31:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2097C3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 16:33:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DbTjqzLb/usw4AglVSkWVEb3Jvk5PTZ2BLQp+GyDc9o=; b=Yd1aNcheIp4g8BfAdH/ZZCoEFl
-	m5fgLRd9UC5AlbHPwhcZEqDnBkQ+I9g2jzPNVOrLWr/ZFAZ2rh7jjS6Ul5v/6QO0ObYx++UxXAsmF
-	9AGZrs4eFdgdxmHX+4fTY0msWvGZrrasAjH8+TraNHLVTADcCwL+eE0i2vroM3d6L1/vIXQBNYH52
-	Z3TlwKm/9wpUhWgTttWGKLyB+FL2X5toE8ZmXRlB6YtfE/fbqKeJZoBTomCnFxyWLhRJyLrScvBS+
-	JWRRqTozNxv8bjbhvzErMJsYarxtyuT6Gxdb5f9bLdFWP1y88GURSqQbj7ypnFeBb7msih05xpBmg
-	YH0zBpQA==;
+	bh=hH3wmhIZxD0osaXnIPSs2tsiCIkYF7uD3vrtbYI+QT8=; b=VyGuOyQfP8toHfFq951D/GiGoz
+	wd8+vXRJ3SHPcsjqgVGspMSd7cw4IV4UCKTOz1RCrHB6FOFTabBVuMK+44yo+Xo4pA1G5rYyTEo8l
+	AhLfEMmg2/eFm1T7+qR1gaBh0bRkNPv1LHTzuqhwVfK3CJgiflqwmg+C5BKniWo+3b790x7NAjMUQ
+	Dqb0u0BhMXQ6s/S+r2lUk9tMDyDuhffkyFA2PltG9V3iS6RxxrOvN/CUNcJKFIj39o0wVu6DfrT36
+	fKlYx11Doq2LZ5mm1mt34uaDlcTDWzwEMBfukOii27qqoLtiOXcHhOY8UBV0tQmTMeeXSrcbH/9iG
+	9t2OlGxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEsXY-0000000CvpP-36oe;
-	Tue, 13 May 2025 16:31:36 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uEsZd-0000000CwEm-3vTX;
+	Tue, 13 May 2025 16:33:45 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEsSb-0000000CvIm-1L4m
+	id 1uEsVl-0000000Cvd1-2OO8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 16:26:30 +0000
+	Tue, 13 May 2025 16:29:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0CDF7A4DA2C
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 16:26:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AADA2C4CEED
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 16:26:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747153587;
-	bh=ga3zCv76QkUCBLxG+3obr75Z66d/dc+j2DqdsPQXh0c=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ghnA84IHlg7O22yhptVGd5Vo4K2suyTcvlb+dB5s7Xg4X6SCKx0ZtMdwAnmiIGhrH
-	 M868zaiZXQjfGDXf9pX+lD9EQ9T5uT9qwj6inycMkJOrwftBuYfzqwRkK1PToW2PZs
-	 RYNCKFYf3234mnyWthq+oKNmQQvb8i58T5ANMMw1R8pSUmTgMPX1KuXrfKOLRSumu4
-	 Y/Lg0OuxA6RGFWAgVYErB6RT1wwV+AFVxlYEKgJ6/v10H8Ksf7D8azLajSyucjEEwe
-	 mWxhdjJIYEZ+LQTq5P2LTa366AGYaAE9nvfu0kzlc/FZxK0WpLPebLv/Wk5X+aA5O9
-	 LGfIdhM7MlxpQ==
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-ac34257295dso979210966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 09:26:27 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVz5462LveX4NkU8J6A3w3EIJ7ZrdSkoTQBIWnv/HDPgJ2bru/GbfAr1hZyM2JXoXiwAkEhqOoGcoSsY8q9T7j6@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvokEmd9dHcG0Syk1CvhuNudy/TNoithSZbcasxfGMqt2vOzIG
-	+7FfP21nTl54KZkpo6dTyLpGCSKB66kfIqlquqZOh66Ic+Z3mMk428ypNELtlzaohv7pGnk8fZA
-	7iWN01HyvVVB2z5fOAtIPzfFk3WQ=
-X-Google-Smtp-Source: AGHT+IGLphKmJHdSpxiAM6EZINozmZaCBpRvN/kTcv+//ma0V7JmmF8efQr+QHrkewteuL8JarBqgc1UuBNDbXrxzSs=
-X-Received: by 2002:a17:907:d17:b0:ad4:f6d3:a188 with SMTP id
- a640c23a62f3a-ad4f755173bmr20068366b.46.1747153586566; Tue, 13 May 2025
- 09:26:26 -0700 (PDT)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B5D52A4DA2A;
+	Tue, 13 May 2025 16:29:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F7DFC4CEEF;
+	Tue, 13 May 2025 16:29:44 +0000 (UTC)
+Received: from wens.tw (localhost [127.0.0.1])
+	by wens.tw (Postfix) with ESMTP id AB3345FEDD;
+	Wed, 14 May 2025 00:29:41 +0800 (CST)
+From: Chen-Yu Tsai <wens@csie.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Andre Przywara <andre.przywara@arm.com>
+Cc: Cody Eksal <masterr3c0rd@epochal.quest>, 
+ Philippe Simons <simons.philippe@gmail.com>, devicetree@vger.kernel.org, 
+ linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20250505164729.18175-1-andre.przywara@arm.com>
+References: <20250505164729.18175-1-andre.przywara@arm.com>
+Subject: Re: [PATCH 0/3] arm64: dts: sunxi: Add Liontron H-A133L support
+Message-Id: <174715378169.4016543.2717785306714546784.b4-ty@csie.org>
+Date: Wed, 14 May 2025 00:29:41 +0800
 MIME-Version: 1.0
-References: <20250512082938.97110-2-u.kleine-koenig@baylibre.com>
-In-Reply-To: <20250512082938.97110-2-u.kleine-koenig@baylibre.com>
-From: Chanwoo Choi <chanwoo@kernel.org>
-Date: Wed, 14 May 2025 01:25:51 +0900
-X-Gmail-Original-Message-ID: <CAGTfZH2uk-6-R5QNZwsssQ1UtnqexKeo=e=SsXB26NMwqf8c9g@mail.gmail.com>
-X-Gm-Features: AX0GCFv7rFmK8zZwyel010vviBuZuUDkrqDnxqcGo43EqBsoQ0TBQM5VkdZiclQ
-Message-ID: <CAGTfZH2uk-6-R5QNZwsssQ1UtnqexKeo=e=SsXB26NMwqf8c9g@mail.gmail.com>
-Subject: Re: [PATCH] PM / devfreq: sun8i-a33-mbus: Fix misconversion to devm_clk_rate_exclusive_get()
-To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: MyungJoo Ham <myungjoo.ham@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
-	Chanwoo Choi <cw00.choi@samsung.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, linux-pm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	oe-kbuild-all@lists.linux.dev, kernel test robot <lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_092629_507302_993F64FF 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20250513_092945_674674_7E05A484 
+X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,57 +71,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, 05 May 2025 17:47:26 +0100, Andre Przywara wrote:
+> The Liontron H-A133L is an industrial development board featuring the
+> Allwinner A133 SoC.
+> Alongside the usual standard connectors like USB and Ethernet ports,
+> it contains a number of dedicated JST connectors, to connect external
+> peripherals.
+> 
+> Add support for that board with the usual patch trinity: vendor prefix,
+> board name binding, board .dts file.
+> 
+> [...]
 
-Instead of fix-up patch, I'd like you to send the v2 of patch[1].
-[1] https://patchwork.kernel.org/project/linux-pm/patch/20241111112237.3363=
-10-2-u.kleine-koenig@baylibre.com/
+Applied to sunxi/dt-for-6.16 in sunxi/linux.git, thanks!
 
+[1/3] dt-bindings: vendor-prefixes: Add Liontron name
+      https://git.kernel.org/sunxi/linux/c/9baa27a2e9fc
+[2/3] dt-bindings: arm: sunxi: Add Liontron H-A133L board name
+      https://git.kernel.org/sunxi/linux/c/d26382bb852c
+[3/3] arm64: dts: allwinner: a100: add Liontron H-A133L board support
+      https://git.kernel.org/sunxi/linux/c/b631b0bf7648
 
+Best regards,
+-- 
+Chen-Yu Tsai <wens@csie.org>
 
-On Mon, May 12, 2025 at 5:29=E2=80=AFPM Uwe Kleine-K=C3=B6nig
-<u.kleine-koenig@baylibre.com> wrote:
->
-> The patch converting the driver to make more use of devm functions got
-> one conversion wrong making the driver not compilable any more. I have
-> no excuse, mea culpa!
->
-> Fix this by adding the needed device parameter.
->
-> Reported-by: kernel test robot <lkp@intel.com>
-> Link: https://lore.kernel.org/all/202412070231.MzXdNrLv-lkp@intel.com
-> Fixes: bc253b28a365 ("PM / devfreq: sun8i-a33-mbus: Simplify by using mor=
-e devm functions")
-> Signed-off-by: Uwe Kleine-K=C3=B6nig <u.kleine-koenig@baylibre.com>
-> ---
->  drivers/devfreq/sun8i-a33-mbus.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/devfreq/sun8i-a33-mbus.c b/drivers/devfreq/sun8i-a33=
--mbus.c
-> index f99af530211d..4bd5657558d6 100644
-> --- a/drivers/devfreq/sun8i-a33-mbus.c
-> +++ b/drivers/devfreq/sun8i-a33-mbus.c
-> @@ -381,7 +381,7 @@ static int sun8i_a33_mbus_probe(struct platform_devic=
-e *pdev)
->                 return dev_err_probe(dev, ret, "failed to lock dram clock=
- rate\n");
->
->         /* Lock the MBUS clock rate to keep MBUS_TMR_PERIOD in sync. */
-> -       ret =3D devm_clk_rate_exclusive_get(priv->clk_mbus);
-> +       ret =3D devm_clk_rate_exclusive_get(dev, priv->clk_mbus);
->         if (ret)
->                 return dev_err_probe(dev, ret, "failed to lock mbus clock=
- rate\n");
->
-> --
-> 2.47.2
->
-
-
-
---=20
-Best Regards,
-Chanwoo Choi
-Samsung Electronics
 
