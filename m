@@ -4,53 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A65EEC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 12:20:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C20EC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 12:27:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jeHjagMBEEspUsIdDE65Fz9byfZ2nxM0lu31YVD7aBg=; b=312GGysamIovq44Lpd8zJIxRlg
-	4705fc+lpxhRtAZ1xuqoo+HKk0a8iH76FtVAW17QHvRPRiV78GP/X2WupZvJmY3GjOT8Zq/huZpaC
-	8wt8y5CcMZZd+gZnbGwegHfD3Wyv2Jt6e+f73eGv+J2DFvrsBYDpml5DcXLKDODwQBg24FKeuXN5L
-	Eka8Pg5W/KYaAJfJFnhZr4RWtQ/QH4omu8B25/E9/yIjAjUp95t/hWHTyB4DdOI+XcxqGVyzTx2np
-	40IT3yaShP47sXqOX9kkUEYo4oyGzVHanOFqGZO3q4mWrYABDTfiE46BKyFXcue5shJAlts1XYm6N
-	AnvqZxfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+NohZbTcDDUqcokVFsB1Rzxsn9BE+RTwvD4Eur0ZSjY=; b=xUCikrW+jj/mKDJGzbAC2m9op5
+	eX5wCUOSxyNAkLzsXwZa+mFXn02VL0dm/AqTd7+UE4DCGbZaLdPJTfBnKNApWl1Q7xkoXXeONmwTF
+	AknGILkO1OAQeneSiwu7HEJm23xtPWQ8ZhW+JdM7/E5tWAexlLQnC7j0NNlk+2r5+7j8DQOluQDJW
+	G91jN+Jv4UM8hFtxGAtKR8lZ/5iTVgx7IUnX9M3u5RZf5wrL865xClPkVWzROzpFYE/9/Zd9X/qgB
+	1Si0fLgAHGQuV6/xsBTxIgX5PGRnU/01P1UNF6Nb3gG6e1ey07+IQav07bZfbWAWjuk0MBcyskwDb
+	1uMl5xPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEocF-0000000CLM0-3krk;
-	Tue, 13 May 2025 12:20:11 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uEojN-0000000CM7r-1I6G;
+	Tue, 13 May 2025 12:27:33 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEoa9-0000000CLCC-1c90;
-	Tue, 13 May 2025 12:18:02 +0000
-Received: from pyrite.rasen.tech (unknown [IPv6:2001:861:3a80:3300:4f2f:8c2c:b3ef:17d4])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id CEE634C9;
-	Tue, 13 May 2025 14:17:41 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1747138661;
-	bh=kzUWnm5ALMAwiGJXtgFTFVyyqRwLilHLYr1CvPvTAMk=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=KgjEvzaQR0fe/RctGqjCBZ3AbQyRFjNRcXnh9BXfD0QXQLnYyZ0eTJGTLEJiMXAiT
-	 eh9MtRGIKwDvEt4wKNTpvylC/C3nOVo44il/WAPmXqNu0PsW3W/trsFG11DiNqzixQ
-	 QgFTrxP8Tx5HDI+lACBsIgCOYzUysAyJ1OPjbO8c=
-Content-Type: text/plain; charset="utf-8"
+	id 1uEohF-0000000CLoq-1EPJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 May 2025 12:25:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1747139119;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+NohZbTcDDUqcokVFsB1Rzxsn9BE+RTwvD4Eur0ZSjY=;
+	b=Z5LFr6Mwuru5pUxX68qkwDc/ngPGXUKES32LpWDYosU+BMNnFYTyHAIBiUUpmmD1uQgFCt
+	fZrTvfxYhMFBxCgqkyNX0ZsFxRznl8ZY+JmGMwKWyA3xOLXB4KydFhJBKyjDiC2wi45Ng8
+	3uX7CtR1i8QRATze+nxwDL8idwOWHms=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-125-ryTaCo-OMpGhEnoVD6gj1g-1; Tue,
+ 13 May 2025 08:25:16 -0400
+X-MC-Unique: ryTaCo-OMpGhEnoVD6gj1g-1
+X-Mimecast-MFC-AGG-ID: ryTaCo-OMpGhEnoVD6gj1g_1747139115
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 375D41956051;
+	Tue, 13 May 2025 12:25:15 +0000 (UTC)
+Received: from localhost (unknown [10.22.80.42])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 4EC5A30002E7;
+	Tue, 13 May 2025 12:25:13 +0000 (UTC)
+Date: Tue, 13 May 2025 09:25:12 -0300
+From: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Subject: Re: [PATCH v2 00/11] arm64: debug: remove hook registration, split
+ exception entry
+Message-ID: <aCM6KOHu2i0NqaBC@uudg.org>
+References: <20250512174326.133905-1-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250429-awb64-v5-2-2dc3163a8cfc@ideasonboard.com>
-References: <20250429-awb64-v5-0-2dc3163a8cfc@ideasonboard.com> <20250429-awb64-v5-2-2dc3163a8cfc@ideasonboard.com>
-Subject: Re: [PATCH v5 2/2] media: rockchip: rkisp1: Add support for AWB64
-From: Paul Elder <paul.elder@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Stefan Klug <stefan.klug@ideasonboard.com>, Jai Luthra <jai.luthra@ideasonboard.com>
-To: Dafna Hirschfeld <dafna@fastmail.com>, Heiko Stuebner <heiko@sntech.de>, Jai Luthra <jai.luthra@ideasonboard.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>
-Date: Tue, 13 May 2025 14:17:54 +0200
-Message-ID: <174713867465.233090.3756392787659343803@pyrite.rasen.tech>
-User-Agent: alot/0.0.0
+In-Reply-To: <20250512174326.133905-1-ada.coupriediaz@arm.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 3LNpPBqWHyIVn6hDAfIHKfUe-7Gi5zjv-qwfMWNQC8k_1747139115
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_051801_714437_B60CB66D 
-X-CRM114-Status: GOOD (  25.31  )
+X-CRM114-CacheID: sfid-20250513_052521_558029_816B65D0 
+X-CRM114-Status: GOOD (  44.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,637 +88,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jai,
+On Mon, May 12, 2025 at 06:43:15PM +0100, Ada Couprie Diaz wrote:
+> Hi,
+> 
+> This series simplifies the debug exception entry path by removing handler
+> registration mechanisms for the debug exception handlers, a holdover from
+> the arm kernel, as well as the break and stepping handlers.
+> This moves much of the code related to debug exceptions outside of
+> `mm/fault.c` where it didn't make much sense.
+> This allows us to split the debug exception entries: going from one common
+> path per EL for all debug exceptions to a unique one per exception and EL.
+> 
+> The result is a much simpler and fully static exception entry path, which
+> we tailor to the different exceptions and their constraints.
+> 
+> The series is structured as such :
+> 1 : related clean-up in the signle step handler
+> 2-4 : software breakpoints and single step handlers registration removal
+> 5: preparatory function duplication that gets cleaned-up in patch 11
+> 6-11 : debug exception splitting and handler registration removal
+> 
+> * Patch 2 copies and extends the `early_brk64` break handling for the
+> normal path, byassing the dynamic registration.
+> * Patch 3 does something similar for the single stepping handlers.
+> * Patches 6 through 10 split each individual debug exception from
+> the unified path by creating specific handlers, adapting them to
+> their constraints and calling into them, bypassing the dynamically
+> registered handlers used before.
+> * Patches 4 and 11 are clean-ups removing the code that has been replaced
+> and made redundant by the preceding patches.
+> 
+> Single Step Exception
+> ===
+> 
+> Of note, this allows us to make the single exception handling mostly
+> preemptible coming from EL0 in patch 7, fixing an issue with PREEMPT_RT[0].
+> The commit message details the reasoning on why this should be safe.
+> It is *definitely* not preemptible at EL1 in the current state, given
+> that the EL1 software step exception is handled by KGDB.
+> 
+> CC-ing Luis and Sebastian as they were active on the original bug report.
 
-Thanks for the patch.
+I have been running the ssdd test in a tight loop on a kernel with your
+patches and PREEMPT_RT enabled, on two different aarch64 boxes (8 cores and
+144 cores). So far, so good. The patch series seems to have solved the
+problem I reported.
 
-Quoting Jai Luthra (2025-04-29 13:41:54)
-> AWB64 is an advanced auto white-balance statistics block, present on the
-> ISP in iMX8MP. This block can calculate color statistics for a maximum
-> of 8 different (elliptical) regions, which can help the AWB algorithm in
-> calculating gains for complex lighting scenarios.
->=20
-> Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
-> ---
-> Changes in v5:
-> - No updates
-> ---
->  .../media/platform/rockchip/rkisp1/rkisp1-common.h |   2 +
->  .../media/platform/rockchip/rkisp1/rkisp1-dev.c    |   3 +-
->  .../media/platform/rockchip/rkisp1/rkisp1-params.c | 123 +++++++++++++++=
-++++++
->  .../media/platform/rockchip/rkisp1/rkisp1-regs.h   |  41 +++++++
->  .../media/platform/rockchip/rkisp1/rkisp1-stats.c  |  40 +++++++
->  include/uapi/linux/rkisp1-config.h                 | 107 +++++++++++++++=
-+++
->  6 files changed, 315 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/dri=
-vers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> index ca952fd0829ba7d923ad42fec92840ccd422b6e5..60fbf5a886c498957ba04ddd4=
-7a21b744d4ff8b1 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> @@ -118,6 +118,7 @@ enum rkisp1_isp_pad {
->   * @RKISP1_FEATURE_DMA_34BIT: The ISP uses 34-bit DMA addresses
->   * @RKISP1_FEATURE_BLS: The ISP has a dedicated BLS block
->   * @RKISP1_FEATURE_COMPAND: The ISP has a companding block
-> + * @RKISP1_FEATURE_AWB64: The ISP has an AWB64 block
->   *
->   * The ISP features are stored in a bitmask in &rkisp1_info.features and=
- allow
->   * the driver to implement support for features present in some ISP vers=
-ions
-> @@ -131,6 +132,7 @@ enum rkisp1_feature {
->         RKISP1_FEATURE_DMA_34BIT =3D BIT(4),
->         RKISP1_FEATURE_BLS =3D BIT(5),
->         RKISP1_FEATURE_COMPAND =3D BIT(6),
-> +       RKISP1_FEATURE_AWB64 =3D BIT(7),
->  };
-> =20
->  #define rkisp1_has_feature(rkisp1, feature) \
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c b/driver=
-s/media/platform/rockchip/rkisp1/rkisp1-dev.c
-> index dc65a7924f8ae6f95e7c93c4339619cd90881a62..576ed26e013add281b6d1ad40=
-1ba91c5c4128e76 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-> @@ -560,7 +560,8 @@ static const struct rkisp1_info imx8mp_isp_info =3D {
->         .isp_ver =3D RKISP1_V_IMX8MP,
->         .features =3D RKISP1_FEATURE_MAIN_STRIDE
->                   | RKISP1_FEATURE_DMA_34BIT
-> -                 | RKISP1_FEATURE_COMPAND,
-> +                 | RKISP1_FEATURE_COMPAND
-> +                 | RKISP1_FEATURE_AWB64,
->         .max_width =3D 4096,
->         .max_height =3D 3072,
->  };
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/dri=
-vers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> index dc8e827e9464117877afe679611c528b4126172f..4305f8cefa754825a07924834=
-8a218386c3df913 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> @@ -62,6 +62,7 @@ union rkisp1_ext_params_config {
->         struct rkisp1_ext_params_compand_bls_config compand_bls;
->         struct rkisp1_ext_params_compand_curve_config compand_curve;
->         struct rkisp1_ext_params_wdr_config wdr;
-> +       struct rkisp1_ext_params_awb64_meas_config awb64;
->  };
-> =20
->  enum rkisp1_params_formats {
-> @@ -676,6 +677,105 @@ rkisp1_awb_meas_enable_v12(struct rkisp1_params *pa=
-rams,
->         }
->  }
-> =20
-> +/* ISP White Balance Mode */
-> +static void
-> +rkisp1_awb64_meas_config(struct rkisp1_params *params,
-> +                        const struct rkisp1_cif_isp_awb64_meas_config *a=
-rg)
-> +{
-> +       u32 reg_val =3D
-> +               rkisp1_read(params->rkisp1, RKISP1_CIF_ISP_AWB64_MEAS_MOD=
-E);
-> +
-> +       /* Measurement mode */
-> +       if (arg->enable_median_filter)
-> +               reg_val |=3D RKISP1_CIF_ISP_AWB64_PRE_FILTER_EN;
-> +       else
-> +               reg_val &=3D ~RKISP1_CIF_ISP_AWB64_PRE_FILTER_EN;
-> +
-> +       if (arg->chrom_switch)
-> +               reg_val |=3D RKISP1_CIF_ISP_AWB64_CHROM_SWITCH;
-> +       else
-> +               reg_val &=3D ~RKISP1_CIF_ISP_AWB64_CHROM_SWITCH;
-> +
-> +       reg_val |=3D (arg->ellip_unite & RKISP1_CIF_ISP_AWB64_UNITE_MASK)
-> +                  << RKISP1_CIF_ISP_AWB64_UNITE_SHIFT;
-> +
-> +       rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_MEAS_MODE,
-> +                    reg_val);
-> +
-> +       /* Measurement window */
-> +       rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_V_OFFS,
-> +                    arg->awb_wnd.v_offs);
-> +       rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_H_OFFS,
-> +                    arg->awb_wnd.h_offs);
-> +       rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_V_SIZE,
-> +                    arg->awb_wnd.v_size);
-> +       rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_H_SIZE,
-> +                    arg->awb_wnd.h_size);
-> +
-> +       /* RGB thresholds for measurement */
-> +       rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_R_MIN_MAX,
-> +                    arg->min_max_r);
-> +       rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_G_MIN_MAX,
-> +                    arg->min_max_g);
-> +       rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_B_MIN_MAX,
-> +                    arg->min_max_b);
-> +
-> +       /* Minimum input divider threshold */
-> +       rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_MIN_DIVIDER,
-> +                    arg->min_div & RKISP1_CIF_ISP_AWB64_MIN_DIV_MASK);
-> +
-> +       /* Colorspace matrix coefficients */
-> +       for (int i =3D 0; i < 3; i++) {
-> +               for (int j =3D 0; j < 3; j++)
-> +                       rkisp1_write(params->rkisp1,
-> +                                    RKISP1_CIF_ISP_AWB64_CC_COEFF(i * 3 =
-+ j),
-> +                                    arg->cc_coeff[i][j]);
-> +       }
-> +
-> +       /* Ellipse configuration */
-> +       for (int i =3D 0; i < RKISP1_CIF_ISP_AWB64_MAX_ELLIPSE; i++) {
-> +               const struct rkisp1_cif_isp_awb64_ellip *ellip =3D &arg->=
-ellip[i];
-> +
-> +               /* Center */
-> +               rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_ELLIP_C=
-EN_X(i),
-> +                            ellip->cen_x & RKISP1_CIF_ISP_AWB64_ELLIP_CE=
-N_MASK);
-> +               rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_ELLIP_C=
-EN_Y(i),
-> +                            ellip->cen_y & RKISP1_CIF_ISP_AWB64_ELLIP_CE=
-N_MASK);
-> +               /* Radius */
-> +               rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_ELLIP_R=
-MAX(i),
-> +                            ellip->rmax & RKISP1_CIF_ISP_AWB64_ELLIP_RMA=
-X_MASK);
-> +               /* CTM */
-> +               rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_ELLIP_A=
-1(i),
-> +                            ellip->ctm[0] &
-> +                                    RKISP1_CIF_ISP_AWB64_ELLIP_A1_A3_MAS=
-K);
-> +               rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_ELLIP_A=
-2(i),
-> +                            ellip->ctm[1] &
-> +                                    RKISP1_CIF_ISP_AWB64_ELLIP_A2_A4_MAS=
-K);
-> +               rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_ELLIP_A=
-3(i),
-> +                            ellip->ctm[2] &
-> +                                    RKISP1_CIF_ISP_AWB64_ELLIP_A1_A3_MAS=
-K);
-> +               rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_ELLIP_A=
-4(i),
-> +                            ellip->ctm[3] &
-> +                                    RKISP1_CIF_ISP_AWB64_ELLIP_A2_A4_MAS=
-K);
-> +       }
-> +}
-> +
-> +static void
-> +rkisp1_awb64_meas_enable(struct rkisp1_params *params,
-> +                        const struct rkisp1_cif_isp_awb64_meas_config *a=
-rg,
+For the first 10h of tests the kernel also had LOCKDEP and locking debug
+features enabled. Now I am running the test with a production-like
+configuration. As soon as these tests are done I will run a few more sanity
+tests and reply here with my test ACK.
 
-arg looks unused.
+Is there any specific test you would like me to run on that test setup I
+have?
 
-> +                        bool en)
-> +{
-> +       if (en) {
-> +               rkisp1_param_set_bits(params, RKISP1_CIF_ISP_AWB64_MEAS_M=
-ODE,
-> +                                     RKISP1_CIF_ISP_AWB64_MEAS_EN |
-> +                                             RKISP1_CIF_ISP_AWB64_IRQ_EN=
-);
-> +       } else {
-> +               rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_AWB64_MEAS=
-_MODE,
-> +                                       RKISP1_CIF_ISP_AWB64_MEAS_EN |
-> +                                               RKISP1_CIF_ISP_AWB64_IRQ_=
-EN);
-> +       }
-> +}
-> +
->  static void
->  rkisp1_awb_gain_config_v10(struct rkisp1_params *params,
->                            const struct rkisp1_cif_isp_awb_gain_config *a=
-rg)
-> @@ -2093,6 +2193,23 @@ static void rkisp1_ext_params_wdr(struct rkisp1_pa=
-rams *params,
->                                       RKISP1_CIF_ISP_WDR_CTRL_ENABLE);
->  }
-> =20
-> +static void rkisp1_ext_params_awb64(struct rkisp1_params *params,
-> +                                   const union rkisp1_ext_params_config =
-*block)
-> +{
-> +       const struct rkisp1_ext_params_awb64_meas_config *awb64 =3D &bloc=
-k->awb64;
-> +
-> +       if (awb64->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE) {
-> +               rkisp1_awb64_meas_enable(params, &awb64->config, false);
-> +               return;
-> +       }
-> +
-> +       rkisp1_awb64_meas_config(params, &awb64->config);
-> +
-> +       if ((awb64->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE) &&
-> +           !(params->enabled_blocks & BIT(awb64->header.type)))
-> +               rkisp1_awb64_meas_enable(params, &awb64->config, true);
-> +}
-> +
->  typedef void (*rkisp1_block_handler)(struct rkisp1_params *params,
->                              const union rkisp1_ext_params_config *config=
-);
-> =20
-> @@ -2211,6 +2328,12 @@ static const struct rkisp1_ext_params_handler {
->                 .handler        =3D rkisp1_ext_params_wdr,
->                 .group          =3D RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
->         },
-> +       [RKISP1_EXT_PARAMS_BLOCK_TYPE_AWB64_MEAS] =3D {
-> +               .size           =3D sizeof(struct rkisp1_ext_params_awb64=
-_meas_config),
-> +               .handler        =3D rkisp1_ext_params_awb64,
-> +               .group          =3D RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> +               .features       =3D RKISP1_FEATURE_AWB64,
-> +       },
->  };
-> =20
->  static void rkisp1_ext_params_config(struct rkisp1_params *params,
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h b/drive=
-rs/media/platform/rockchip/rkisp1/rkisp1-regs.h
-> index 5b9de1a2c624f4ecaf451fa806bb4b1c24a2cb55..6f28d0f65edfb14e9e1ad0de3=
-e8e718f07aeed80 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
-> @@ -516,6 +516,24 @@
->  #define RKISP1_CIF_ISP_AWB_CBCR_MAX_REF                        0x000000ff
->  #define RKISP1_CIF_ISP_AWB_THRES_MAX_YC                        0x000000ff
-> =20
-> +/* AWB64 */
-> +/* ISP_AWB64_WHITE_CNT */
-> +#define RKISP1_CIF_ISP_AWB64_GET_PIXEL_CNT(x)          ((x) & 0xffffff)
-> +/* ISP_AWB64_MEAS_MODE */
-> +#define RKISP1_CIF_ISP_AWB64_MEAS_EN                   BIT(0)
-> +#define RKISP1_CIF_ISP_AWB64_PRE_FILTER_EN             BIT(1)
-> +#define RKISP1_CIF_ISP_AWB64_IRQ_EN                    BIT(2)
-> +#define RKISP1_CIF_ISP_AWB64_CHROM_SWITCH              BIT(3)
-> +#define RKISP1_CIF_ISP_AWB64_UNITE_MASK                        GENMASK(5=
-, 0)
-> +#define RKISP1_CIF_ISP_AWB64_UNITE_SHIFT               4
-> +/* ISP_AWB64_DIVIDER_MIN */
-> +#define RKISP1_CIF_ISP_AWB64_MIN_DIV_MASK              GENMASK(9, 0)
-> +/* ISP_AWB64_ELLIP */
-> +#define RKISP1_CIF_ISP_AWB64_ELLIP_CEN_MASK            GENMASK(9, 0)
-> +#define RKISP1_CIF_ISP_AWB64_ELLIP_A1_A3_MASK          GENMASK(11, 0)
-> +#define RKISP1_CIF_ISP_AWB64_ELLIP_A2_A4_MASK          GENMASK(8, 0)
-> +#define RKISP1_CIF_ISP_AWB64_ELLIP_RMAX_MASK           GENMASK(23, 0)
-> +
->  /* AE */
->  /* ISP_EXP_CTRL */
->  #define RKISP1_CIF_ISP_EXP_ENA                         BIT(0)
-> @@ -1330,6 +1348,29 @@
->  #define RKISP1_CIF_ISP_WDR_TONECURVE_SHD(n)    (RKISP1_CIF_ISP_WDR_BASE =
-+ 0x000000a0 + (n) * 4)
->  #define RKISP1_CIF_ISP_WDR_TONECURVE_YM_SHD(n) (RKISP1_CIF_ISP_WDR_BASE =
-+ 0x000000b0 + (n) * 4)
-> =20
-> +#define RKISP1_CIF_ISP_AWB64_BASE              0x00002c00
-> +#define RKISP1_CIF_ISP_AWB64_MEAS_MODE         (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x00000000)
-> +#define RKISP1_CIF_ISP_AWB64_H_OFFS            (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x00000004)
-> +#define RKISP1_CIF_ISP_AWB64_V_OFFS            (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x00000008)
-> +#define RKISP1_CIF_ISP_AWB64_H_SIZE            (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x0000000c)
-> +#define RKISP1_CIF_ISP_AWB64_V_SIZE            (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x00000010)
-> +#define RKISP1_CIF_ISP_AWB64_R_MIN_MAX         (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x00000014)
-> +#define RKISP1_CIF_ISP_AWB64_G_MIN_MAX         (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x00000018)
-> +#define RKISP1_CIF_ISP_AWB64_B_MIN_MAX         (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x0000001c)
-> +#define RKISP1_CIF_ISP_AWB64_MIN_DIVIDER       (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x00000020)
-> +#define RKISP1_CIF_ISP_AWB64_CC_COEFF(n)       (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x00000024 + (n) * 4)
-> +#define RKISP1_CIF_ISP_AWB64_ELLIP_CEN_X(n)    (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x00000048 + (n) * 8)
-> +#define RKISP1_CIF_ISP_AWB64_ELLIP_CEN_Y(n)    (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x0000004c + (n) * 8)
-> +#define RKISP1_CIF_ISP_AWB64_ELLIP_A1(n)       (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x00000088 + (n) * 16)
-> +#define RKISP1_CIF_ISP_AWB64_ELLIP_A2(n)       (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x0000008c + (n) * 16)
-> +#define RKISP1_CIF_ISP_AWB64_ELLIP_A3(n)       (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x00000090 + (n) * 16)
-> +#define RKISP1_CIF_ISP_AWB64_ELLIP_A4(n)       (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x00000094 + (n) * 16)
-> +#define RKISP1_CIF_ISP_AWB64_ELLIP_RMAX(n)     (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x00000108 + (n) * 4)
-> +#define RKISP1_CIF_ISP_AWB64_WHITE_CNT(n)      (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x00000128 + (n) * 4)
-> +#define RKISP1_CIF_ISP_AWB64_R_ACCU(n)         (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x00000148 + (n) * 12)
-> +#define RKISP1_CIF_ISP_AWB64_G_ACCU(n)         (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x0000014c + (n) * 12)
-> +#define RKISP1_CIF_ISP_AWB64_B_ACCU(n)         (RKISP1_CIF_ISP_AWB64_BAS=
-E + 0x00000150 + (n) * 12)
-> +
->  #define RKISP1_CIF_ISP_HIST_BASE_V12           0x00002c00
->  #define RKISP1_CIF_ISP_HIST_CTRL_V12           (RKISP1_CIF_ISP_HIST_BASE=
-_V12 + 0x00000000)
->  #define RKISP1_CIF_ISP_HIST_SIZE_V12           (RKISP1_CIF_ISP_HIST_BASE=
-_V12 + 0x00000004)
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-stats.c b/driv=
-ers/media/platform/rockchip/rkisp1/rkisp1-stats.c
-> index d5fdb8f82dc78b0143f71d76f36817db389921b7..de2571ac4c162a770b987e4ad=
-a469d2e8953ff7c 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-stats.c
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-stats.c
-> @@ -214,6 +214,38 @@ static void rkisp1_stats_get_awb_meas_v12(struct rki=
-sp1_stats *stats,
->                                 RKISP1_CIF_ISP_AWB_GET_MEAN_Y_G(reg_val);
->  }
-> =20
-> +static void rkisp1_stats_get_awb64_meas_imx8mp(struct rkisp1_stats *stat=
-s,
-> +                                              struct rkisp1_stat_buffer =
-*pbuf)
-> +{
-> +       struct rkisp1_device *rkisp1 =3D stats->rkisp1;
-> +       u32 white_cnt;
-> +
-> +       pbuf->meas_type |=3D RKISP1_CIF_ISP_STAT_AWB64;
-> +
-> +       for (unsigned int i =3D 0; i < RKISP1_CIF_ISP_AWB64_MAX_ELLIPSE; =
-i++) {
-> +               struct rkisp1_cif_isp_awb64_meas *count =3D
-> +                       &pbuf->params.awb64.count[i];
-> +
-> +               white_cnt =3D rkisp1_read(rkisp1,
-> +                                       RKISP1_CIF_ISP_AWB64_WHITE_CNT(i)=
-);
-> +               count->cnt =3D RKISP1_CIF_ISP_AWB64_GET_PIXEL_CNT(white_c=
-nt);
-> +
-> +               count->accu_r =3D
-> +                       rkisp1_read(rkisp1, RKISP1_CIF_ISP_AWB64_R_ACCU(i=
-));
-> +               count->accu_g =3D
-> +                       rkisp1_read(rkisp1, RKISP1_CIF_ISP_AWB64_G_ACCU(i=
-));
-> +               count->accu_b =3D
-> +                       rkisp1_read(rkisp1, RKISP1_CIF_ISP_AWB64_B_ACCU(i=
-));
-> +       }
-> +}
-> +
-> +static void rkisp1_stats_get_awb_meas_imx8mp(struct rkisp1_stats *stats,
-> +                                            struct rkisp1_stat_buffer *p=
-buf)
-> +{
-> +       rkisp1_stats_get_awb_meas_v10(stats, pbuf);
-> +       rkisp1_stats_get_awb64_meas_imx8mp(stats, pbuf);
-> +}
-> +
->  static void rkisp1_stats_get_aec_meas_v10(struct rkisp1_stats *stats,
->                                           struct rkisp1_stat_buffer *pbuf)
->  {
-> @@ -335,6 +367,12 @@ static struct rkisp1_stats_ops rkisp1_v12_stats_ops =
-=3D {
->         .get_hst_meas =3D rkisp1_stats_get_hst_meas_v12,
->  };
-> =20
-> +static const struct rkisp1_stats_ops rkisp1_imx8mp_stats_ops =3D {
-> +       .get_awb_meas =3D rkisp1_stats_get_awb_meas_imx8mp,
-> +       .get_aec_meas =3D rkisp1_stats_get_aec_meas_v10,
-> +       .get_hst_meas =3D rkisp1_stats_get_hst_meas_v10,
-> +};
-> +
->  static void
->  rkisp1_stats_send_measurement(struct rkisp1_stats *stats, u32 isp_ris)
->  {
-> @@ -404,6 +442,8 @@ static void rkisp1_init_stats(struct rkisp1_stats *st=
-ats)
-> =20
->         if (stats->rkisp1->info->isp_ver =3D=3D RKISP1_V12)
->                 stats->ops =3D &rkisp1_v12_stats_ops;
-> +       else if (stats->rkisp1->info->isp_ver =3D=3D RKISP1_V_IMX8MP)
-> +               stats->ops =3D &rkisp1_imx8mp_stats_ops;
->         else
->                 stats->ops =3D &rkisp1_v10_stats_ops;
->  }
-> diff --git a/include/uapi/linux/rkisp1-config.h b/include/uapi/linux/rkis=
-p1-config.h
-> index 59335097c01372252b296d960b39336dfb5ec197..3e34f1d0d6a20807cabaeee0c=
-2259e407023d4cd 100644
-> --- a/include/uapi/linux/rkisp1-config.h
-> +++ b/include/uapi/linux/rkisp1-config.h
-> @@ -88,6 +88,11 @@
->  #define RKISP1_CIF_ISP_AWB_MAX_GRID                1
->  #define RKISP1_CIF_ISP_AWB_MAX_FRAMES              7
-> =20
-> +/*
-> + * Automatic white balance extended block (AWB64)
-> + */
-> +#define RKISP1_CIF_ISP_AWB64_MAX_ELLIPSE           8
-> +
->  /*
->   * Gamma out
->   */
-> @@ -183,6 +188,7 @@
->  #define RKISP1_CIF_ISP_STAT_AUTOEXP       (1U << 1)
->  #define RKISP1_CIF_ISP_STAT_AFM           (1U << 2)
->  #define RKISP1_CIF_ISP_STAT_HIST          (1U << 3)
-> +#define RKISP1_CIF_ISP_STAT_AWB64         (1U << 4)
-> =20
->  /**
->   * enum rkisp1_cif_isp_version - ISP variants
-> @@ -526,6 +532,61 @@ struct rkisp1_cif_isp_awb_gain_config {
->         __u16 gain_green_b;
->  };
-> =20
-> +/**
-> + * struct rkisp1_cif_isp_awb64_ellip - Ellipse configuration for AWB64 m=
-easurement
-> + *
-> + * @rmax: Points within rmax (24-bit) squared distance from center are
-> + *        considered for white point calculations
-> + * @cen_x: X coordinate of the center of ellipse, 10-bit signed fixed-po=
-int
-> + *         number with 9 bits fractional part
-> + * @cen_y: Y coordinate of the center of ellipse, 10-bit signed fixed-po=
-int
-> + *         number with 9 bits fractional part
-> + * @ctm: Coordinate transformation matrix,
-> + *       ctm[0] and ctm[2] are 12-bit signed fixed-point with 8-bit frac=
-tional
-> + *       part ranging from -8 (0x800) to 7.996 (0x7ff),
-> + *       ctm[1] and ctm[3] are 9-bit signed fixed-point with 8-bit fract=
-ional
-> + *       part ranging from -1 (0x100) to 0.996 (0x0ff)
-> + */
-> +struct rkisp1_cif_isp_awb64_ellip {
-> +       __u32 rmax;
-> +       __u16 cen_x;
-> +       __u16 cen_y;
-> +       __u16 ctm[4];
-> +};
-> +
-> +/**
-> + * struct rkisp1_cif_isp_awb64_meas_config - Configuration for the AWB64=
- stats
-> + *
-> + * @awb_wnd: White balance measurement window (in pixels)
-> + * @ellip: Ellipse regions used for measurement
-> + * @cc_coeff: Colorspace matrix (all coefficient values are 11-bit)
-> + * @min_div: Minimum divider, if input is less than this don't do divisi=
-on
-> + *           (unsigned 10-bit fixed-point value with 10 fractional bits)
-> + * @min_max_r: Only pixels with min_r < R < max_r contribute to measurem=
-ent,
-> + *             bits 0:7 are min_r and bits 8:15 are max_r
-> + * @min_max_g: Only pixels with min_g < G < max_g contribute to measurem=
-ent,
-> + *             bits 0:7 are min_g and bits 8:15 are max_g
-> + * @min_max_b: Only pixels with min_b < B < max_b contribute to measurem=
-ent,
-> + *             bits 0:7 are min_b and bits 8:15 are max_b
-> + * @enable_median_filter: Enable median filter before AWB measurement
-> + * @ellip_unite: Bitmask to select which regions should be combined for =
-measurement,
-> + *               bits 0:2 to combine ellipse 0 with ellipse 1,2,3 and
+As for the code review, I am not that well versed on ARM debug exceptions,
+I may take a bit longer to complete the task with the required accuracy.
 
-I think adding "respectively" here would make it a bit clearer.
+Best regards,
+Luis
 
-"bits 0:2 to combine ellipse 0 with ellipse 1,2,3 respectively and"
+ 
+> Cc: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
+> Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> 
+> Testing
+> ===
+> 
+> Testing EL1 debug exceptions can only be properly done with perf.
+> A simple test of hardware breakpoints, watchpoints, and software stepping
+> can be achieved by using `perf stat sleep 0.01` and adding hardware events
+> for `jiffies` and `hrtimer_nanosleep`, which guarantees a
+> hardware watchpoint and breakpoint.
+> Inserting a `WARN()` at a convenient place will allow testing both early
+> and late software breakpoints at EL1, or using KGDB to test without
+> changing code.
+> 
+> For EL0 debug exceptions, the easiest is to setup a basic program and use
+> GDB with a list of pre-programmed commands setting hardware and software
+> breakpoints as well as watchpoints. Setpping will occur naturally when
+> encountering breakpoints.
+> 
+> All tests maintained behaviour after the patches.
+> 
+> I also tested with KASAN on, with no apparent impact.
+> 
+> See below for some testing examples.
+> 
+> Regarding [0], I tested a PREEMPT_RT kernel with the patches, running
+> `ssdd` on loop as well as some spammy GDB stepping, and some
+> hardware watchpoints on a tight loop without any issues.
+> 
+> 
+> Based on v6.15-rc6.
+> Thanks,
+> Ada
+> 
+> v2 :
+>  - Move the BP hardening call outside of the handlers to `entry-common`,
+>    as they are not needed coming from EL1.
+>  - Make the EL0 software stepping exception mostly preemptible
+>    - Move `reinstall_hw_bps()` call to `entry-common`
+>    - Don't disable preemption in `el0_softstp()`
+>    - Unmask DAIF before `do_softstep()` in `el0_softstp()`
+>    - Update comments to make sense with the changes
+>  - Simplify the single step handler, as it always returns 0 and could not
+>    trigger the `arm64_notify_die()` call.
+>  - Fix some commit messages
+> v1 : https://lore.kernel.org/linux-arm-kernel/20250425153647.438508-1-ada.coupriediaz@arm.com
+> 
+> [0]: https://lore.kernel.org/linux-arm-kernel/Z6YW_Kx4S2tmj2BP@uudg.org/
+> 
+> 
+> Testing examples
+> ===
+> 
+> Perf (for EL1):
+> ~~~
+> Assuming that `perf` is on your $PATH and building with `kallsyms`
+> 
+>   #!/bin/bash
+>   
+>   watch_addr=$(sudo cat /proc/kallsyms | grep "D jiffies$" | cut -f1 -d\  )
+>   break_addr=$(sudo cat /proc/kallsyms | grep "clock_nanosleep$" | cut -f1 -d\  )
+>   
+>   cmd="sleep 0.01"
+>   
+>   sudo perf stat -a -e mem:0x${watch_addr}/8:w -e mem:0x${break_addr}:x ${cmd}
+> 
+> NB: This does /not/ test EL1 BRKs.
+> 
+> 
+> GDB commands (for EL0):
+> ~~~
+> The following C example, compiled with `-g -O0`
+> 
+>   int main() {
+>           int add = 0xAA;
+>           int target = 0;
+> 
+>           target += add;
+> 
+>   #ifdef COMPAT
+>       __asm__("BKPT");
+>   #else
+>       __asm__("BRK 1");
+>   #endif
+>   
+>           return target;
+>   }
+> 
+> Combined with the following GDB command-list
+> 
+>   start
+>   hbreak 3
+>   watch target
+>   commands 2
+>   continue
+>   end
+>   commands 3
+>   continue
+>   end
+>   continue
+>   jump 11
+>   continue
+>   quit
+> 
+> Executed as such : `gdb -x ${COMMAND_LIST_FILE} ./a.out`
+> should go through the whole program, return 0252/170/0xAA, and
+> exercise all EL0 debug exception entries.
+> By using a cross-compiler and passing and additional `-DCOMPAT` argument
+> during compilation, the `BKPT32` path can also be tested.
+> NOTE: `BKPT` *will* make GDB loop infinitely, that is expected. Sending
+> SIGINT to GDB will break the loop and the execution should complete.
+> 
+> Ada Couprie Diaz (11):
+>   arm64: debug: clean up single_step_handler logic
+>   arm64: debug: call software break handlers statically
+>   arm64: debug: call step handlers statically
+>   arm64: debug: remove break/step handler registration infrastructure
+>   arm64: entry: Add entry and exit functions for debug exceptions
+>   arm64: debug: split hardware breakpoint exeception entry
+>   arm64: debug: split single stepping exception entry
+>   arm64: debug: split hardware watchpoint exception entry
+>   arm64: debug: split brk64 exception entry
+>   arm64: debug: split bkpt32 exception entry
+>   arm64: debug: remove debug exception registration infrastructure
+> 
+>  arch/arm64/include/asm/debug-monitors.h       |  26 ---
+>  arch/arm64/include/asm/exception.h            |   6 +-
+>  arch/arm64/include/asm/kgdb.h                 |   4 +
+>  arch/arm64/include/asm/kprobes.h              |   6 +
+>  arch/arm64/include/asm/system_misc.h          |   4 -
+>  arch/arm64/include/asm/traps.h                |   6 +
+>  arch/arm64/include/asm/uprobes.h              |   3 +
+>  arch/arm64/kernel/debug-monitors.c            | 205 +++++++-----------
+>  arch/arm64/kernel/entry-common.c              | 148 ++++++++++++-
+>  arch/arm64/kernel/hw_breakpoint.c             |  35 ++-
+>  arch/arm64/kernel/kgdb.c                      |  39 +---
+>  arch/arm64/kernel/probes/kprobes.c            |  31 +--
+>  arch/arm64/kernel/probes/kprobes_trampoline.S |   2 +-
+>  arch/arm64/kernel/probes/uprobes.c            |  18 +-
+>  arch/arm64/kernel/traps.c                     |  77 +------
+>  arch/arm64/mm/fault.c                         |  75 -------
+>  16 files changed, 294 insertions(+), 391 deletions(-)
+> 
+> 
+> base-commit: 82f2b0b97b36ee3fcddf0f0780a9a0825d52fec3
+> -- 
+> 2.43.0
+> 
+---end quoted text---
 
-> + *               bits 3:5 to combine ellipse 4 with ellipse 5,6,7
-
-Same here.
-
-
-Otherwise, looks good.
-
-Paul
-
-> + * @chrom_switch: Accumulate Q1, Q2 chromaticities instead of R, G, B
-> + */
-> +struct rkisp1_cif_isp_awb64_meas_config {
-> +       struct rkisp1_cif_isp_window awb_wnd;
-> +       struct rkisp1_cif_isp_awb64_ellip ellip[RKISP1_CIF_ISP_AWB64_MAX_=
-ELLIPSE];
-> +       __u16 cc_coeff[3][3];
-> +       __u16 min_div;
-> +       __u16 min_max_r;
-> +       __u16 min_max_g;
-> +       __u16 min_max_b;
-> +       __u8 enable_median_filter;
-> +       __u8 ellip_unite;
-> +       __u8 chrom_switch;
-> +};
-> +
->  /**
->   * struct rkisp1_cif_isp_flt_config - Configuration used by ISP filtering
->   *
-> @@ -1079,6 +1140,31 @@ struct rkisp1_cif_isp_hist_stat {
->         __u32 hist_bins[RKISP1_CIF_ISP_HIST_BIN_N_MAX];
->  };
-> =20
-> +/**
-> + * struct rkisp1_cif_isp_awb64_meas - AWB64 measured values
-> + *
-> + * @cnt: White pixel count, number of "white pixels" found during last
-> + *      measurement
-> + * @accu_r: Total value of Red within elliptical region
-> + * @accu_g: Total value of Green within elliptical region
-> + * @accu_b: Total value of Blue within elliptical region
-> + */
-> +struct rkisp1_cif_isp_awb64_meas {
-> +       __u32 cnt;
-> +       __u32 accu_r;
-> +       __u32 accu_g;
-> +       __u32 accu_b;
-> +};
-> +
-> +/**
-> + * struct rkisp1_cif_isp_awb64_stat - statistics AWB64 data
-> + *
-> + * @count: Measured pixel accumulator data for elliptical regions
-> + */
-> +struct rkisp1_cif_isp_awb64_stat {
-> +       struct rkisp1_cif_isp_awb64_meas count[RKISP1_CIF_ISP_AWB64_MAX_E=
-LLIPSE];
-> +};
-> +
->  /**
->   * struct rkisp1_cif_isp_stat - Rockchip ISP1 Statistics Data
->   *
-> @@ -1086,12 +1172,14 @@ struct rkisp1_cif_isp_hist_stat {
->   * @ae: statistics data for auto exposure
->   * @af: statistics data for auto focus
->   * @hist: statistics histogram data
-> + * @awb64: statistics data for automatic white balance 64
->   */
->  struct rkisp1_cif_isp_stat {
->         struct rkisp1_cif_isp_awb_stat awb;
->         struct rkisp1_cif_isp_ae_stat ae;
->         struct rkisp1_cif_isp_af_stat af;
->         struct rkisp1_cif_isp_hist_stat hist;
-> +       struct rkisp1_cif_isp_awb64_stat awb64;
->  };
-> =20
->  /**
-> @@ -1133,6 +1221,7 @@ struct rkisp1_stat_buffer {
->   * @RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_EXPAND: Companding expand curve
->   * @RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_COMPRESS: Companding compress c=
-urve
->   * @RKISP1_EXT_PARAMS_BLOCK_TYPE_WDR: Wide dynamic range
-> + * @RKISP1_EXT_PARAMS_BLOCK_TYPE_AWB64_MEAS: Auto white balance 64 stati=
-stics
->   */
->  enum rkisp1_ext_params_block_type {
->         RKISP1_EXT_PARAMS_BLOCK_TYPE_BLS,
-> @@ -1156,6 +1245,7 @@ enum rkisp1_ext_params_block_type {
->         RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_EXPAND,
->         RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_COMPRESS,
->         RKISP1_EXT_PARAMS_BLOCK_TYPE_WDR,
-> +       RKISP1_EXT_PARAMS_BLOCK_TYPE_AWB64_MEAS,
->  };
-> =20
->  #define RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE     (1U << 0)
-> @@ -1451,6 +1541,23 @@ struct rkisp1_ext_params_awb_meas_config {
->         struct rkisp1_cif_isp_awb_meas_config config;
->  } __attribute__((aligned(8)));
-> =20
-> +/**
-> + * struct rkisp1_ext_params_awb64_meas_config - RkISP1 extensible params=
- AWB64
-> + *                                             Meas config
-> + *
-> + * RkISP1 extensible parameters Auto-White Balance 64 Measurement config=
-uration
-> + * block. Identified by :c:type:`RKISP1_EXT_PARAMS_BLOCK_TYPE_AWB64_MEAS=
-`.
-> + *
-> + * @header: The RkISP1 extensible parameters header, see
-> + *         :c:type:`rkisp1_ext_params_block_header`
-> + * @config: Auto-White Balance 64 measure configuration, see
-> + *         :c:type:`rkisp1_cif_isp_awb64_meas_config`
-> + */
-> +struct rkisp1_ext_params_awb64_meas_config {
-> +       struct rkisp1_ext_params_block_header header;
-> +       struct rkisp1_cif_isp_awb64_meas_config config;
-> +} __attribute__((aligned(8)));
-> +
->  /**
->   * struct rkisp1_ext_params_hst_config - RkISP1 extensible params Histog=
-ram config
->   *
->=20
-> --=20
-> 2.49.0
->=20
->
 
