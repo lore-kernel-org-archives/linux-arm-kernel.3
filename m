@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB32C3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 16:27:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CB54C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 16:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hPw5Z2uvInKn7g/gZE/EvdCBuTQHsMF4h31bQ1SEDak=; b=IqBIo7P6oYJ9eDjqKvzxAjHUvv
-	VYXA6YC/M1jPxznV3oWTmcR1dNgeqzcPyFo7iXYr4+Z8TeHSAtf8WT2rrj7WpYE+MKP+wyvX04tiM
-	lNft/zE8dIIWPgLqz+SptxMK9OQ2h7axGqepNva0OlfF6QwLtKIXY42rCsUkFFljR/WkIEuCq+MaG
-	3/RVo3HS5/MdeZ55hEjuLHQzKDArGbV4WCB50DAR46IhYVV+wBbeU//jGWNdTGofTvcklk+4aJdnE
-	9xP92JLdGhF6b7WZ/vny/x66gD0+1Vyp2OXMhtNOF1QaXryBEBHSrBOUlFgKzIbtmdYFe7WvxAihc
-	rytUMM7g==;
+	bh=wbGqrd3jznqBXsIv/Ao7X40DXhDF0QHTHVA++O29sNg=; b=4Y7G+AQLPxyHE6oct+xs69FV/c
+	7kR4M1Bv7B82WAznsOsui8aGL/rEVH+Clv1JWyiHlxlJTbD1C4oiShofrn0MfDfgk3cwzGg7mfqy/
+	9xRbDyn/f2uiro75Lkl0n+9cUrJwUa24p1nYoNebctrvbIJc200bFUNraoyMUTUu2MQ64TE8357ia
+	5Xwa0wSCK+whxPjY6KZcj8f24wpBQVkmN5pozswePEdZsl7KP3aRlKiZwUPFLXERrQP/z3fYsn8jJ
+	vPQdWIcp7XVouJo5oeSoslcWZr4GxUDMJSfaI2OYG2tAJWhf4sEcn9yupO6eIX7FlxRQPCAFnG1iK
+	5QHlHj6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEsTP-0000000CvMd-049N;
-	Tue, 13 May 2025 16:27:19 +0000
+	id 1uEsVT-0000000CvZ8-0BoH;
+	Tue, 13 May 2025 16:29:27 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEsQw-0000000Cv0y-0XkW
+	id 1uEsSI-0000000CvEM-1foe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 16:24:47 +0000
+	Tue, 13 May 2025 16:26:11 +0000
 Received: from [10.137.184.60] (unknown [131.107.1.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 5A823201DB12;
-	Tue, 13 May 2025 09:24:43 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 5A823201DB12
+	by linux.microsoft.com (Postfix) with ESMTPSA id A030F201DB19;
+	Tue, 13 May 2025 09:26:08 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com A030F201DB19
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1747153483;
-	bh=hPw5Z2uvInKn7g/gZE/EvdCBuTQHsMF4h31bQ1SEDak=;
+	s=default; t=1747153568;
+	bh=wbGqrd3jznqBXsIv/Ao7X40DXhDF0QHTHVA++O29sNg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PujOiI0dqkEedcDbArZnlNr4qQUkjW6EgaOn59dT9qxC2WYV6oog4dOtjs3YNI8TE
-	 iAo+tTqsxqY0YkeqIDjtwXto1i0zsLHljx+IWZtRP3rsFwkrdIs0GdGWeX8X0pmiB1
-	 aqecwOK6IVebzWSG+HdIF3zto+Z4WMHhZemZ+tA8=
-Message-ID: <dd988a9d-edad-4362-a4c2-a6e6b1667e9b@linux.microsoft.com>
-Date: Tue, 13 May 2025 09:24:43 -0700
+	b=mVLvBknlx5yLYMPJugWxKiBOr38hquABtNek1b13DVeX0j/rXqU+OxFcuS19rqOLQ
+	 cKK52KYmmG/UfCaS96dJkhId55AeAbp25e5IXO65LlDhSAI6kZZ5H4XOUp2vv/hGXU
+	 d0j6t0LmFEHtjeaRcPLgzFAJVQ0REtuPenELASy4=
+Message-ID: <96c66528-6149-4f5b-abb1-76b557f47927@linux.microsoft.com>
+Date: Tue, 13 May 2025 09:26:08 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hyperv-next v2 1/4] Documentation: hyperv: Confidential
- VMBus
+Subject: Re: [PATCH hyperv-next v2 2/4] drivers: hyperv: VMBus protocol
+ version 6.0
 To: ALOK TIWARI <alok.a.tiwari@oracle.com>
 Cc: apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
  sunilmut@microsoft.com, arnd@arndb.de, bp@alien8.de,
@@ -54,16 +54,16 @@ Cc: apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
  linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org
 References: <20250511230758.160674-1-romank@linux.microsoft.com>
- <20250511230758.160674-2-romank@linux.microsoft.com>
- <5d21de5c-2da2-4a33-8d30-0475bc0edf4b@oracle.com>
+ <20250511230758.160674-3-romank@linux.microsoft.com>
+ <d93bebbf-2e0d-4de4-a258-c32159dd1541@oracle.com>
 Content-Language: en-US
 From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <5d21de5c-2da2-4a33-8d30-0475bc0edf4b@oracle.com>
+In-Reply-To: <d93bebbf-2e0d-4de4-a258-c32159dd1541@oracle.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_092446_219939_EC3A5F19 
-X-CRM114-Status: GOOD (  23.20  )
+X-CRM114-CacheID: sfid-20250513_092610_487016_E7D1644C 
+X-CRM114-Status: GOOD (  20.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,102 +80,163 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 5/11/2025 10:22 PM, ALOK TIWARI wrote:
+On 5/12/2025 2:49 AM, ALOK TIWARI wrote:
 > 
 > 
 > On 12-05-2025 04:37, Roman Kisel wrote:
->> Define what the confidential VMBus is and describe what advantages
->> it offers on the capable hardware.
+>> The confidential VMBus is supported starting from the protocol
+>> version 6.0 onwards.
+>>
+>> Update the relevant definitions, provide a function that returns
+>> whether VMBus is condifential or not.
+> 
+> typo condifential -> confidential
+> 
 >>
 >> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
 >> ---
->>   Documentation/virt/hyperv/vmbus.rst | 41 +++++++++++++++++++++++++++++
->>   1 file changed, 41 insertions(+)
+>>   drivers/hv/vmbus_drv.c         | 12 ++++++
+>>   include/asm-generic/mshyperv.h |  1 +
+>>   include/linux/hyperv.h         | 71 +++++++++++++++++++++++++---------
+>>   3 files changed, 65 insertions(+), 19 deletions(-)
 >>
->> diff --git a/Documentation/virt/hyperv/vmbus.rst b/Documentation/virt/ 
->> hyperv/vmbus.rst
->> index 1dcef6a7fda3..ca2b948e5070 100644
->> --- a/Documentation/virt/hyperv/vmbus.rst
->> +++ b/Documentation/virt/hyperv/vmbus.rst
->> @@ -324,3 +324,44 @@ rescinded, neither Hyper-V nor Linux retains any 
->> state about
->>   its previous existence. Such a device might be re-added later,
->>   in which case it is treated as an entirely new device. See
->>   vmbus_onoffer_rescind().
+>> diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
+>> index 1d5c9dcf712e..e431978fa408 100644
+>> --- a/drivers/hv/vmbus_drv.c
+>> +++ b/drivers/hv/vmbus_drv.c
+>> @@ -56,6 +56,18 @@ static long __percpu *vmbus_evt;
+>>   int vmbus_irq;
+>>   int vmbus_interrupt;
+>> +/*
+>> + * If the Confidential VMBus is used, the data on the "wire" is not
+>> + * visible to either the host or the hypervisor.
+>> + */
+>> +static bool is_confidential;
 >> +
->> +Confidential VMBus
->> +------------------
+>> +bool vmbus_is_confidential(void)
+>> +{
+>> +    return is_confidential;
+>> +}
+>> +EXPORT_SYMBOL_GPL(vmbus_is_confidential);
 >> +
+>>   /*
+>>    * The panic notifier below is responsible solely for unloading the
+>>    * vmbus connection, which is necessary in a panic event.
+>> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/ 
+>> mshyperv.h
+>> index 6c51a25ed7b5..96e0723d0720 100644
+>> --- a/include/asm-generic/mshyperv.h
+>> +++ b/include/asm-generic/mshyperv.h
+>> @@ -377,6 +377,7 @@ static inline int hv_call_create_vp(int node, u64 
+>> partition_id, u32 vp_index, u3
+>>       return -EOPNOTSUPP;
+>>   }
+>>   #endif /* CONFIG_MSHV_ROOT */
+>> +bool vmbus_is_confidential(void);
+>>   #if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
+>>   u8 __init get_vtl(void);
+>> diff --git a/include/linux/hyperv.h b/include/linux/hyperv.h
+>> index 1f310fbbc4f9..3cf48f29e6b4 100644
+>> --- a/include/linux/hyperv.h
+>> +++ b/include/linux/hyperv.h
+>> @@ -265,16 +265,19 @@ static inline u32 hv_get_avail_to_write_percent(
+>>    * Linux kernel.
+>>    */
+>> -#define VERSION_WS2008  ((0 << 16) | (13))
+>> -#define VERSION_WIN7    ((1 << 16) | (1))
+>> -#define VERSION_WIN8    ((2 << 16) | (4))
+>> -#define VERSION_WIN8_1    ((3 << 16) | (0))
+>> -#define VERSION_WIN10 ((4 << 16) | (0))
+>> -#define VERSION_WIN10_V4_1 ((4 << 16) | (1))
+>> -#define VERSION_WIN10_V5 ((5 << 16) | (0))
+>> -#define VERSION_WIN10_V5_1 ((5 << 16) | (1))
+>> -#define VERSION_WIN10_V5_2 ((5 << 16) | (2))
+>> -#define VERSION_WIN10_V5_3 ((5 << 16) | (3))
+>> +#define VMBUS_MAKE_VERSION(MAJ, MIN)    ((((u32)MAJ) << 16) | (MIN))
+>> +#define VERSION_WS2008                    VMBUS_MAKE_VERSION(0, 13)
+>> +#define VERSION_WIN7                    VMBUS_MAKE_VERSION(1, 1)
+>> +#define VERSION_WIN8                    VMBUS_MAKE_VERSION(2, 4)
+>> +#define VERSION_WIN8_1                    VMBUS_MAKE_VERSION(3, 0)
+>> +#define VERSION_WIN10                    VMBUS_MAKE_VERSION(4, 0)
+>> +#define VERSION_WIN10_V4_1                VMBUS_MAKE_VERSION(4, 1)
+>> +#define VERSION_WIN10_V5                VMBUS_MAKE_VERSION(5, 0)
+>> +#define VERSION_WIN10_V5_1                VMBUS_MAKE_VERSION(5, 1)
+>> +#define VERSION_WIN10_V5_2                VMBUS_MAKE_VERSION(5, 2)
+>> +#define VERSION_WIN10_V5_3                VMBUS_MAKE_VERSION(5, 3)
+>> +#define VERSION_WIN_IRON                VERSION_WIN10_V5_3
+>> +#define VERSION_WIN_COPPER                VMBUS_MAKE_VERSION(6, 0)
+>>   /* Make maximum size of pipe payload of 16K */
+>>   #define MAX_PIPE_DATA_PAYLOAD        (sizeof(u8) * 16384)
+>> @@ -335,14 +338,22 @@ struct vmbus_channel_offer {
+>>   } __packed;
+>>   /* Server Flags */
+>> -#define VMBUS_CHANNEL_ENUMERATE_DEVICE_INTERFACE    1
+>> -#define VMBUS_CHANNEL_SERVER_SUPPORTS_TRANSFER_PAGES    2
+>> -#define VMBUS_CHANNEL_SERVER_SUPPORTS_GPADLS        4
+>> -#define VMBUS_CHANNEL_NAMED_PIPE_MODE            0x10
+>> -#define VMBUS_CHANNEL_LOOPBACK_OFFER            0x100
+>> -#define VMBUS_CHANNEL_PARENT_OFFER            0x200
+>> -#define VMBUS_CHANNEL_REQUEST_MONITORED_NOTIFICATION    0x400
+>> -#define VMBUS_CHANNEL_TLNPI_PROVIDER_OFFER        0x2000
+>> +#define VMBUS_CHANNEL_ENUMERATE_DEVICE_INTERFACE        0x0001
+>> +/*
+>> + * This flag indicates that the channel is offered by the paravisor, 
+>> and must
+>> + * use encrypted memory for the channel ring buffer.
+>> + */
+>> +#define VMBUS_CHANNEL_CONFIDENTIAL_RING_BUFFER            0x0002
+>> +/*
+>> + * This flag indicates that the channel is offered by the paravisor, 
+>> and must
+>> + * use encrypted memory for GPA direct packets and additional GPADLs.
+>> + */
+>> +#define VMBUS_CHANNEL_CONFIDENTIAL_EXTERNAL_MEMORY        0x0004
+>> +#define VMBUS_CHANNEL_NAMED_PIPE_MODE                    0x0010
+>> +#define VMBUS_CHANNEL_LOOPBACK_OFFER                    0x0100
+>> +#define VMBUS_CHANNEL_PARENT_OFFER                        0x0200
+>> +#define VMBUS_CHANNEL_REQUEST_MONITORED_NOTIFICATION    0x0400
+>> +#define VMBUS_CHANNEL_TLNPI_PROVIDER_OFFER                0x2000
+>>   struct vmpacket_descriptor {
+>>       u16 type;
+>> @@ -621,6 +632,12 @@ struct vmbus_channel_relid_released {
+>>       u32 child_relid;
+>>   } __packed;
+>> +/*
+>> + * Used by the paravisor only, means that the encrypted ring buffers and
+>> + * the encrypted external memory are supported
 > 
-> The purpose and benefits of the Confidential VMBus are not clearly stated.
-> for example:
-> "Confidential VMBus provides a secure communication channel between 
-> guest and paravisor, ensuring that sensitive data is protected from 
-> hypervisor-level access through memory encryption and register state 
-> isolation."
-> 
->> +The confidential VMBus provides the control and data planes where
->> +the guest doesn't talk to either the hypervisor or the host. Instead,
->> +it relies on the trusted paravisor. The hardware (SNP or TDX) encrypts
->> +the guest memory and the register state also measuring the paravisor
-> 
-> s/alos/while and s/via using/using
-> "register state while measuring the paravisor image using the platform 
-> security"
-> 
->> +image via using the platform security processor to ensure trusted and
->> +confidential computing.
->> +
->> +To support confidential communication with the paravisor, a VMBus client
->> +will first attempt to use regular, non-isolated mechanisms for 
->> communication.
->> +To do this, it must:
->> +
->> +* Configure the paravisor SIMP with an encrypted page. The paravisor 
->> SIMP is
->> +  configured by setting the relevant MSR directly, without using GHCB 
->> or tdcall.
->> +
->> +* Enable SINT 2 on both the paravisor and hypervisor, without setting 
->> the proxy
->> +  flag on the paravisor SINT. Enable interrupts on the paravisor SynIC.
->> +
->> +* Configure both the paravisor and hypervisor event flags page.
->> +  Both pages will need to be scanned when VMBus receives a channel 
->> interrupt.
->> +
->> +* Send messages to the paravisor by calling HvPostMessage directly, 
->> without using
->> +  GHCB or tdcall.
->> +
->> +* Set the EOM MSR directly in the paravisor, without using GHCB or 
->> tdcall.
->> +
->> +If sending the InitiateContact message using non-isolated 
->> HvPostMessage fails,
->> +the client must fall back to using the hypervisor synic, by using the 
->> GHCB/tdcall
->> +as appropriate.
->> +
->> +To fall back, the client will have to reconfigure the following:
->> +
->> +* Configure the hypervisor SIMP with a host-visible page.
->> +  Since the hypervisor SIMP is not used when in confidential mode,
->> +  this can be done up front, or only when needed, whichever makes 
->> sense for
->> +  the particular implementation.
-> 
-> "SIMP is not used in confidential mode,
-> this can be done either upfront or only when needed, depending on the 
-> specific implementation."
-> 
->> +
->> +* Set the proxy flag on SINT 2 for the paravisor.
+> Clearly convey the purpose of the flag, similar to the previous one
+> For example ->"Indicates support for encrypted ring buffers and external 
+> memory, used exclusively by the paravisor."
 > 
 
-Alok, thanks for you continued interest and support! I'll incorporate
-your suggestions in the next version of the patchset, great points!
+Will do, appreciate your help!!
 
+>> + */
+>> +#define VMBUS_FEATURE_FLAG_CONFIDENTIAL_CHANNELS    0x10
+>> +
+>>   struct vmbus_channel_initiate_contact {
+>>       struct vmbus_channel_message_header header;
+>>       u32 vmbus_version_requested;
+>> @@ -630,7 +647,8 @@ struct vmbus_channel_initiate_contact {
+>>           struct {
+>>               u8    msg_sint;
+>>               u8    msg_vtl;
+>> -            u8    reserved[6];
+>> +            u8    reserved[2];
+>> +            u32 feature_flags; /* VMBus version 6.0 */
+>>           };
+>>       };
+>>       u64 monitor_page1;
+>> @@ -1002,6 +1020,11 @@ struct vmbus_channel {
+>>       /* The max size of a packet on this channel */
+>>       u32 max_pkt_size;
+>> +
+>> +    /* The ring buffer is encrypted */
+>> +    bool confidential_ring_buffer;
+>> +    /* The external memory is encrypted */
+>> +    bool confidential_external_memory;
+>>   };
 > 
 > Thanks,
 > Alok
