@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD947C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 06:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EAA3C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 06:21:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MncshJ1N3nQkNK52N5FTaCdNEcC11NmMuRNRJmKFpY8=; b=RXQstjM7P65gg0d6AIrqvrMVWS
-	c10QELWa9FWgsTBz7gAsW4hRKIiZwGe/T5mUEnc2Ml++HX7pM2DRGKVnlJJTvq11Diqj/KAMLtr5L
-	gSyDc07MUetR+9IrzBxIBD1cxKRhbKmszpPti9y2uEIbZcqkktNs6OVgSosLVBAtzbof0JbM5oQui
-	AQ72jivdIg67UyIH/KXzoFKN9a00RcpgIholVPhRiCF7Erq87N6eKtk7lyPgNqd/vD4UYfgcofSCW
-	1rjUqJjz+Rxq1aXkhn8TEml7pOonru3MA0GstuYyjE23sqk3sRbGTuBVWwMyGn2Vb/UXw/Zt5xvCb
-	oedQVEHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1wx+llxcYiTSb+k7jLA5/IQwwqFutgwerpX/Ddsqp0I=; b=QgDFGZ6HhCv+VW7t8Dzd8eQLAE
+	PBgG8cURYCN8XlqR+PhoycjfGaN/uBZYhPLg5boiXhRRYSKduekhT23OhAPlqqJEPxo7JWtqz3R7+
+	wkjro3yhRBdtO38lMKsnaAP6VqzSjOQd0dHP+GoRZVUTNoPgXi7wJ5eS+k/Xm+lT9RhDqb09iN8i7
+	VAMN9TpQJhRqFIbH0uWI21jDCdJmCWzDqIivLe7XqwParzbyyh5oYPYl2iFf8OCXKZyOe6d2E+Z9W
+	YzNZIUt/JPh1j97BIQKA6T/PAc82gQB4LtCVUI9zha0kaBHPfxFaO+kOXtjYa/cohrSrQukQ/EXAN
+	RUEl7cxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEirT-0000000BTXP-3hAR;
-	Tue, 13 May 2025 06:11:31 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEipT-0000000BT63-2pms
+	id 1uEj1S-0000000BUWR-0eko;
+	Tue, 13 May 2025 06:21:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uEizS-0000000BULu-1wHk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 06:09:29 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B21DD101F54F9;
-	Tue, 13 May 2025 08:09:21 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1747116564; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=MncshJ1N3nQkNK52N5FTaCdNEcC11NmMuRNRJmKFpY8=;
-	b=XgIlxJACCVW018Pi0FgvOmE3ybj/A0gfvBO5sbPbBVtV3RlD3DCEvISmFRHrg/u5mfvWxp
-	R8GDDioBVq6Kl3fcH9G/gZr1OlsvkjkMW95Zx9T4EGjHq34AXnR8ES0uOpOMk8z3QYpk0/
-	YmNPkIUkcdgsm2NTbRLDju8qDA5pWD6XJLiTR/efIjqFkzF+b3QK3blk3pQI45EZTucwii
-	nAjwYFmkVTQSwZZEcWiIjhaDT2a1u4UZOcxeIbfnLQaFSBl/M9n4hH6pJ5BL/Pop36cEcX
-	cJvh/pjNbllhD77gopHErZZGvDRcV8fLoPYogdLlgC3OboQb3AoijmoY85J55g==
-Date: Tue, 13 May 2025 08:09:20 +0200
-From: Lukasz Majewski <lukma@denx.de>
-To: Rob Herring <robh@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Richard Cochran
- <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
- <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>
-Subject: Re: [net-next v11 1/7] dt-bindings: net: Add MTIP L2 switch
- description
-Message-ID: <20250513080920.7c8a2a06@wsk>
-In-Reply-To: <20250512164025.GA3454904-robh@kernel.org>
-References: <20250504145538.3881294-1-lukma@denx.de>
-	<20250504145538.3881294-2-lukma@denx.de>
-	<20250512164025.GA3454904-robh@kernel.org>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Tue, 13 May 2025 06:19:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 06F68150C;
+	Mon, 12 May 2025 23:19:32 -0700 (PDT)
+Received: from [10.174.37.63] (unknown [10.174.37.63])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 87D583F5A1;
+	Mon, 12 May 2025 23:19:37 -0700 (PDT)
+Message-ID: <30799c1f-eaa1-4c32-b22d-4c7505304d69@arm.com>
+Date: Tue, 13 May 2025 11:49:33 +0530
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/szb2u=yuhhNpm=y0AkbX6Qf";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v4 1/5] mm/readahead: Honour new_order in
+ page_cache_ra_order()
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ David Hildenbrand <david@redhat.com>, Dave Chinner <david@fromorbit.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org
+References: <20250430145920.3748738-1-ryan.roberts@arm.com>
+ <20250430145920.3748738-2-ryan.roberts@arm.com>
+Content-Language: en-GB
+From: Chaitanya S Prakash <chaitanyas.prakash@arm.com>
+In-Reply-To: <20250430145920.3748738-2-ryan.roberts@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_230928_013379_F5CC1ABB 
-X-CRM114-Status: GOOD (  33.76  )
+X-CRM114-CacheID: sfid-20250512_231946_593261_F681586C 
+X-CRM114-Status: GOOD (  23.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,314 +73,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/szb2u=yuhhNpm=y0AkbX6Qf
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
 
-Hi Rob,
+On 30/04/25 20:29, Ryan Roberts wrote:
+> page_cache_ra_order() takes a parameter called new_order, which is
+> intended to express the preferred order of the folios that will be
+> allocated for the readahead operation. Most callers indeed call this
+> with their preferred new order. But page_cache_async_ra() calls it with
+> the preferred order of the previous readahead request (actually the
+> order of the folio that had the readahead marker, which may be smaller
+> when alignment comes into play).
+>
+> And despite the parameter name, page_cache_ra_order() always treats it
+> at the old order, adding 2 to it on entry. As a result, a cold readahead
+> always starts with order-2 folios.
+>
+> Let's fix this behaviour by always passing in the *new* order.
+>
+> Worked example:
+>
+> Prior to the change, mmaping an 8MB file and touching each page
+> sequentially, resulted in the following, where we start with order-2
+> folios for the first 128K then ramp up to order-4 for the next 128K,
+> then get clamped to order-5 for the rest of the file because pa_pages is
+> limited to 128K:
+>
+> TYPE    STARTOFFS     ENDOFFS       SIZE  STARTPG    ENDPG   NRPG  ORDER
+> -----  ----------  ----------  ---------  -------  -------  -----  -----
+> FOLIO  0x00000000  0x00004000      16384        0        4      4      2
+> FOLIO  0x00004000  0x00008000      16384        4        8      4      2
+> FOLIO  0x00008000  0x0000c000      16384        8       12      4      2
+> FOLIO  0x0000c000  0x00010000      16384       12       16      4      2
+> FOLIO  0x00010000  0x00014000      16384       16       20      4      2
+> FOLIO  0x00014000  0x00018000      16384       20       24      4      2
+> FOLIO  0x00018000  0x0001c000      16384       24       28      4      2
+> FOLIO  0x0001c000  0x00020000      16384       28       32      4      2
+> FOLIO  0x00020000  0x00030000      65536       32       48     16      4
+> FOLIO  0x00030000  0x00040000      65536       48       64     16      4
+> FOLIO  0x00040000  0x00060000     131072       64       96     32      5
+> FOLIO  0x00060000  0x00080000     131072       96      128     32      5
+> FOLIO  0x00080000  0x000a0000     131072      128      160     32      5
+> FOLIO  0x000a0000  0x000c0000     131072      160      192     32      5
+> ...
+>
+> After the change, the same operation results in the first 128K being
+> order-0, then we start ramping up to order-2, -4, and finally get
+> clamped at order-5:
+>
+> TYPE    STARTOFFS     ENDOFFS       SIZE  STARTPG    ENDPG   NRPG  ORDER
+> -----  ----------  ----------  ---------  -------  -------  -----  -----
+> FOLIO  0x00000000  0x00001000       4096        0        1      1      0
+> FOLIO  0x00001000  0x00002000       4096        1        2      1      0
+> FOLIO  0x00002000  0x00003000       4096        2        3      1      0
+> FOLIO  0x00003000  0x00004000       4096        3        4      1      0
+> FOLIO  0x00004000  0x00005000       4096        4        5      1      0
+> FOLIO  0x00005000  0x00006000       4096        5        6      1      0
+> FOLIO  0x00006000  0x00007000       4096        6        7      1      0
+> FOLIO  0x00007000  0x00008000       4096        7        8      1      0
+> FOLIO  0x00008000  0x00009000       4096        8        9      1      0
+> FOLIO  0x00009000  0x0000a000       4096        9       10      1      0
+> FOLIO  0x0000a000  0x0000b000       4096       10       11      1      0
+> FOLIO  0x0000b000  0x0000c000       4096       11       12      1      0
+> FOLIO  0x0000c000  0x0000d000       4096       12       13      1      0
+> FOLIO  0x0000d000  0x0000e000       4096       13       14      1      0
+> FOLIO  0x0000e000  0x0000f000       4096       14       15      1      0
+> FOLIO  0x0000f000  0x00010000       4096       15       16      1      0
+> FOLIO  0x00010000  0x00011000       4096       16       17      1      0
+> FOLIO  0x00011000  0x00012000       4096       17       18      1      0
+> FOLIO  0x00012000  0x00013000       4096       18       19      1      0
+> FOLIO  0x00013000  0x00014000       4096       19       20      1      0
+> FOLIO  0x00014000  0x00015000       4096       20       21      1      0
+> FOLIO  0x00015000  0x00016000       4096       21       22      1      0
+> FOLIO  0x00016000  0x00017000       4096       22       23      1      0
+> FOLIO  0x00017000  0x00018000       4096       23       24      1      0
+> FOLIO  0x00018000  0x00019000       4096       24       25      1      0
+> FOLIO  0x00019000  0x0001a000       4096       25       26      1      0
+> FOLIO  0x0001a000  0x0001b000       4096       26       27      1      0
+> FOLIO  0x0001b000  0x0001c000       4096       27       28      1      0
+> FOLIO  0x0001c000  0x0001d000       4096       28       29      1      0
+> FOLIO  0x0001d000  0x0001e000       4096       29       30      1      0
+> FOLIO  0x0001e000  0x0001f000       4096       30       31      1      0
+> FOLIO  0x0001f000  0x00020000       4096       31       32      1      0
+> FOLIO  0x00020000  0x00024000      16384       32       36      4      2
+> FOLIO  0x00024000  0x00028000      16384       36       40      4      2
+> FOLIO  0x00028000  0x0002c000      16384       40       44      4      2
+> FOLIO  0x0002c000  0x00030000      16384       44       48      4      2
+> FOLIO  0x00030000  0x00034000      16384       48       52      4      2
+> FOLIO  0x00034000  0x00038000      16384       52       56      4      2
+> FOLIO  0x00038000  0x0003c000      16384       56       60      4      2
+> FOLIO  0x0003c000  0x00040000      16384       60       64      4      2
+> FOLIO  0x00040000  0x00050000      65536       64       80     16      4
+> FOLIO  0x00050000  0x00060000      65536       80       96     16      4
+> FOLIO  0x00060000  0x00080000     131072       96      128     32      5
+> FOLIO  0x00080000  0x000a0000     131072      128      160     32      5
+> FOLIO  0x000a0000  0x000c0000     131072      160      192     32      5
+> FOLIO  0x000c0000  0x000e0000     131072      192      224     32      5
+> ...
+>
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 
-> On Sun, May 04, 2025 at 04:55:32PM +0200, Lukasz Majewski wrote:
-> > This patch provides description of the MTIP L2 switch available in
-> > some NXP's SOCs - e.g. imx287.
-> >=20
-> > Signed-off-by: Lukasz Majewski <lukma@denx.de>
-> > Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
-> >=20
-> > ---
-> > Changes for v2:
-> > - Rename the file to match exactly the compatible
-> >   (nxp,imx287-mtip-switch)
-> >=20
-> > Changes for v3:
-> > - Remove '-' from const:'nxp,imx287-mtip-switch'
-> > - Use '^port@[12]+$' for port patternProperties
-> > - Drop status =3D "okay";
-> > - Provide proper indentation for 'example' binding (replace 8
-> >   spaces with 4 spaces)
-> > - Remove smsc,disable-energy-detect; property
-> > - Remove interrupt-parent and interrupts properties as not required
-> > - Remove #address-cells and #size-cells from required properties
-> > check
-> > - remove description from reg:
-> > - Add $ref: ethernet-switch.yaml#
-> >=20
-> > Changes for v4:
-> > - Use $ref: ethernet-switch.yaml#/$defs/ethernet-ports and remove
-> > already referenced properties
-> > - Rename file to nxp,imx28-mtip-switch.yaml
-> >=20
-> > Changes for v5:
-> > - Provide proper description for 'ethernet-port' node
-> >=20
-> > Changes for v6:
-> > - Proper usage of
-> >   $ref: ethernet-switch.yaml#/$defs/ethernet-ports/patternProperties
-> >   when specifying the 'ethernet-ports' property
-> > - Add description and check for interrupt-names property
-> >=20
-> > Changes for v7:
-> > - Change switch interrupt name from 'mtipl2sw' to 'enet_switch'
-> >=20
-> > Changes for v8:
-> > - None
-> >=20
-> > Changes for v9:
-> > - Add GPIO_ACTIVE_LOW to reset-gpios mdio phandle
-> >=20
-> > Changes for v10:
-> > - None
-> >=20
-> > Changes for v11:
-> > - None
-> > ---
-> >  .../bindings/net/nxp,imx28-mtip-switch.yaml   | 149
-> > ++++++++++++++++++ 1 file changed, 149 insertions(+)
-> >  create mode 100644
-> > Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
-> >=20
-> > diff --git
-> > a/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
-> > b/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
-> > new file mode 100644 index 000000000000..35f1fe268de7 --- /dev/null
-> > +++
-> > b/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
-> > @@ -0,0 +1,149 @@ +# SPDX-License-Identifier: (GPL-2.0-only OR
-> > BSD-2-Clause) +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/net/nxp,imx28-mtip-switch.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: NXP SoC Ethernet Switch Controller (L2 MoreThanIP switch)
-> > +
-> > +maintainers:
-> > +  - Lukasz Majewski <lukma@denx.de>
-> > +
-> > +description:
-> > +  The 2-port switch ethernet subsystem provides ethernet packet
-> > (L2)
-> > +  communication and can be configured as an ethernet switch. It
-> > provides the
-> > +  reduced media independent interface (RMII), the management data
-> > input
-> > +  output (MDIO) for physical layer device (PHY) management.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: nxp,imx28-mtip-switch
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  phy-supply:
-> > +    description:
-> > +      Regulator that powers Ethernet PHYs.
-> > +
-> > +  clocks:
-> > +    items:
-> > +      - description: Register accessing clock
-> > +      - description: Bus access clock
-> > +      - description: Output clock for external device - e.g. PHY
-> > source clock
-> > +      - description: IEEE1588 timer clock
-> > +
-> > +  clock-names:
-> > +    items:
-> > +      - const: ipg
-> > +      - const: ahb
-> > +      - const: enet_out
-> > +      - const: ptp
-> > +
-> > +  interrupts:
-> > +    items:
-> > +      - description: Switch interrupt
-> > +      - description: ENET0 interrupt
-> > +      - description: ENET1 interrupt
-> > +
-> > +  interrupt-names:
-> > +    items:
-> > +      - const: enet_switch
-> > +      - const: enet0
-> > +      - const: enet1
-> > +
-> > +  pinctrl-names: true
-> > +
-> > +  ethernet-ports:
-> > +    type: object
-> > +    $ref:
-> > ethernet-switch.yaml#/$defs/ethernet-ports/patternProperties =20
->=20
-> 'patternProperties' is wrong. Drop.
->=20
+This looks good to me.
 
-When I do drop it, then
-make dt_binding_check DT_SCHEMA_FILES=3Dnxp,imx28-mtip-switch.yaml
+Tested-by: Chaitanya S Prakash <chaitanyas.prakash@arm.com>
 
-shows:
-
-nxp,imx28-mtip-switch.example.dtb: switch@800f0000: ethernet-ports:
-'oneOf' conditional failed, one must be fixed:
-
-'ports' is a required property=20
-'ethernet-ports' is a required property
-        from schema $id:
-        http://devicetree.org/schemas/net/nxp,imx28-mtip-switch.yaml#
-
-We do have ethernet-ports:
-and we do "include" ($ref)
-https://elixir.bootlin.com/linux/v6.14.6/source/Documentation/devicetree/bi=
-ndings/net/ethernet-switch.yaml#L77
-
-which is what we exactly need.
-
-> > +    additionalProperties: true =20
->=20
-> Drop.
->=20
-
-When removed we do have:
-nxp,imx28-mtip-switch.example.dtb: switch@800f0000: Unevaluated
-properties are not allowed ('ethernet-ports' was unexpected)
-
-or=20
-
-nxp,imx28-mtip-switch.yaml: ethernet-ports: Missing
-additionalProperties/unevaluatedProperties constraint
-
-Depending if I do remove 'patternProperties' above.
-
-To sum up - with the current code, the DT schema checks pass. It also
-looks like the $ref for ethernet-switch is used in an optimal way.
-
-I would opt for keeping the code as is for v12.
-
-> > +
-> > +    patternProperties:
-> > +      '^ethernet-port@[12]$':
-> > +        type: object
-> > +        additionalProperties: true
-> > +        properties:
-> > +          reg:
-> > +            items:
-> > +              - enum: [1, 2]
-> > +            description: MTIP L2 switch port number
-> > +
-> > +        required:
-> > +          - reg
-> > +          - label =20
->=20
-> 'label' shouldn't ever be required because s/w shouldn't care what
-> the value is.
-
-Ok, I will remove it for v12.
-
->=20
-> > +          - phy-mode
-> > +          - phy-handle
-> > +
-> > +  mdio:
-> > +    type: object
-> > +    $ref: mdio.yaml#
-> > +    unevaluatedProperties: false
-> > +    description:
-> > +      Specifies the mdio bus in the switch, used as a container
-> > for phy nodes. +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - clocks
-> > +  - clock-names
-> > +  - interrupts
-> > +  - interrupt-names
-> > +  - mdio
-> > +  - ethernet-ports
-> > +
-> > +unevaluatedProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include<dt-bindings/interrupt-controller/irq.h>
-> > +    #include<dt-bindings/gpio/gpio.h>
-> > +    switch@800f0000 {
-> > +        compatible =3D "nxp,imx28-mtip-switch";
-> > +        reg =3D <0x800f0000 0x20000>;
-> > +        pinctrl-names =3D "default";
-> > +        pinctrl-0 =3D <&mac0_pins_a>, <&mac1_pins_a>;
-> > +        phy-supply =3D <&reg_fec_3v3>;
-> > +        interrupts =3D <100>, <101>, <102>;
-> > +        interrupt-names =3D "enet_switch", "enet0", "enet1";
-> > +        clocks =3D <&clks 57>, <&clks 57>, <&clks 64>, <&clks 35>;
-> > +        clock-names =3D "ipg", "ahb", "enet_out", "ptp";
-> > +
-> > +        ethernet-ports {
-> > +            #address-cells =3D <1>;
-> > +            #size-cells =3D <0>;
-> > +
-> > +            mtip_port1: ethernet-port@1 {
-> > +                reg =3D <1>;
-> > +                label =3D "lan0";
-> > +                local-mac-address =3D [ 00 00 00 00 00 00 ];
-> > +                phy-mode =3D "rmii";
-> > +                phy-handle =3D <&ethphy0>;
-> > +            };
-> > +
-> > +            mtip_port2: ethernet-port@2 {
-> > +                reg =3D <2>;
-> > +                label =3D "lan1";
-> > +                local-mac-address =3D [ 00 00 00 00 00 00 ];
-> > +                phy-mode =3D "rmii";
-> > +                phy-handle =3D <&ethphy1>;
-> > +            };
-> > +        };
-> > +
-> > +        mdio_sw: mdio {
-> > +            #address-cells =3D <1>;
-> > +            #size-cells =3D <0>;
-> > +
-> > +            reset-gpios =3D <&gpio2 13 GPIO_ACTIVE_LOW>;
-> > +            reset-delay-us =3D <25000>;
-> > +            reset-post-delay-us =3D <10000>;
-> > +
-> > +            ethphy0: ethernet-phy@0 {
-> > +                reg =3D <0>;
-> > +            };
-> > +
-> > +            ethphy1: ethernet-phy@1 {
-> > +                reg =3D <1>;
-> > +            };
-> > +        };
-> > +    };
-> > --=20
-> > 2.39.5
-> >  =20
-
-
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/szb2u=yuhhNpm=y0AkbX6Qf
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmgi4hAACgkQAR8vZIA0
-zr2PiQf/cfG3+ozsR1UCw0lSG/JLHOpz0LUFMjubElolzz4TEfNW4ErqdBptFyNQ
-rna1NkbRl3YTxViqoBnYVyOrR3lAN25+rPAieJdWZYeKc4BOTkXVh5faZHGTQlPX
-IIHNuHnoLny6vJ8Qod38+mMiQL5LYMVVmNhq5PwxuqfTswcrEKaGp7o9AgTUL0CE
-zTzV2ah6nKRuOPTCOzpo2MJCFd0FxebpgqCHxvusVUyi+uzpy6Jl7sCHdN5Rlpb9
-9tETECoKMAxFLpoVePSYKRLdpdYJDUeSHwU1jZrm3eANglKtstNLyelNBr5MvBeQ
-0iT8FnR49zccvtTNAq2duXAbBUVbIw==
-=Cvzg
------END PGP SIGNATURE-----
-
---Sig_/szb2u=yuhhNpm=y0AkbX6Qf--
+> ---
+>   mm/readahead.c | 4 +---
+>   1 file changed, 1 insertion(+), 3 deletions(-)
+>
+> diff --git a/mm/readahead.c b/mm/readahead.c
+> index 6a4e96b69702..8bb316f5a842 100644
+> --- a/mm/readahead.c
+> +++ b/mm/readahead.c
+> @@ -479,9 +479,6 @@ void page_cache_ra_order(struct readahead_control *ractl,
+>   
+>   	limit = min(limit, index + ra->size - 1);
+>   
+> -	if (new_order < mapping_max_folio_order(mapping))
+> -		new_order += 2;
+> -
+>   	new_order = min(mapping_max_folio_order(mapping), new_order);
+>   	new_order = min_t(unsigned int, new_order, ilog2(ra->size));
+>   	new_order = max(new_order, min_order);
+> @@ -683,6 +680,7 @@ void page_cache_async_ra(struct readahead_control *ractl,
+>   	ra->size = get_next_ra_size(ra, max_pages);
+>   	ra->async_size = ra->size;
+>   readit:
+> +	order += 2;
+>   	ractl->_index = ra->start;
+>   	page_cache_ra_order(ractl, ra, order);
+>   }
 
