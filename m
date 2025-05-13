@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 611B0C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 09:13:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13052C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 09:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bb5kjvLeZ9jGxRL+GEB4U2pN7Q3O4cgcdrK2Mz1MuyQ=; b=MIuiXsliXS7dSV3u+spaFnPgCa
-	xUbattfIKvNtQjXXgGnj+wtBhSb4UysikVwP0S7jp6yEEHSsT2vN492aKHEtRJfqWoEbsNmJG617O
-	q2IkWNmVfdXSoKPDj5gkiTF0x6tLaWjntHeDFVNAXlXAeMMxc+5mu5vCIzsaEEfT4waqAPXKMxT0J
-	7KCkmnpev9+5+P88LXd5OfJStGRvIk0Xjyd61oK2KA5KdWrTkJ32lgXUN2mYFqFANpZmDwAGRoNU/
-	e1hhPhAUfXsEFs6iOleyZza8h8Uwrt1ZdYaTVPj5djdbAbcGXU7sbXBTGfR3iCemX7R8MURB0Iip/
-	gcRzc9Mw==;
+	bh=nsdJnOKqpNLYuLn6Kv9yktHx8/iLkhyv5JRu5Glsa+Y=; b=nOEjg/GtaYf5+pP/9RApmZZGuZ
+	LoVhSqiWA4CezM0/qJyUr8TggEJEJsmgvN7qof1soGja3MYt2M/xR5PsBMngEP1FrME2/EFP+BRCa
+	q5BYLzHr/TIb0sbas6q2HMtCuADEULEXkQr6/o0XG7UMXThT6+ycEn1ybwxWOsIqkUyXmrtsn+SZy
+	CBv5v5XV4UUkORKodRZWYkZ2cPW30RkTisIX0VsOJc1s8rnO9AC3eN5hBgan8IiAZ1meWUf7w/2TS
+	aBSXoqMih29nCMcH0z8gpf25ysBSzafwjh/yN9uEYv0KIK6kZVXlvlMZE3C3dgBB+Vs6B/1QMhB1y
+	nzi/UZhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uElhi-0000000BrDi-18d8;
-	Tue, 13 May 2025 09:13:38 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.205])
+	id 1uEljg-0000000Brb4-3uQM;
+	Tue, 13 May 2025 09:15:40 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uElSt-0000000BpHm-2PzT
+	id 1uElT8-0000000BpKV-1Wll
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 08:58:21 +0000
+	Tue, 13 May 2025 08:58:35 +0000
 Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id BA092C0005CE;
-	Tue, 13 May 2025 01:58:18 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com BA092C0005CE
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 869A5C002111;
+	Tue, 13 May 2025 01:58:33 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 869A5C002111
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1747126698;
-	bh=AquVq6RI37/LHdh4S9YahS+l/sW7MihF/kSyMMGnL9Y=;
+	s=dkimrelay; t=1747126713;
+	bh=uJ/Eo/HZCOs93L7AFacDxhydNK8rTPJMgLqqopN2lSg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mewtUYvPZBaEVVH5oK2Ks5CpO0K3HVninc6FjyPz7j7gLvnzszjJh66+ViV6sAIYN
-	 IIzBoicPotcbxzfc75qY1KZhs5UPHHrHYKZ4t65Q1d9HDHv7IiRUHCUTcNLAclaHIX
-	 hjM8H6NVHQ3BlU/hS6Kn+JAaUqm6pPKguE+LgapY=
+	b=BETEHyLctY4z7R0leZXw2dmh3GGwYkOaGUgGBosYAnDVTXg/6b08IkQfB3BZFW/35
+	 rSAJu3j9wKP9M7JHIoLrBCcDOokfuLtuSieejfze+Mwk+kv9khr3MBEXI1VF0aRhfL
+	 IUVBKiefJZNop87/iVDgnwTNyGy+Uafho6DrjY9k=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 486CA18000530;
-	Tue, 13 May 2025 01:58:18 -0700 (PDT)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 1563E18000530;
+	Tue, 13 May 2025 01:58:33 -0700 (PDT)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: bcm-kernel-feedback-list@broadcom.com,
 	Linus Walleij <linus.walleij@linaro.org>,
@@ -62,17 +62,17 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-crypto@vger.kernel.org
-Subject: Re: [PATCH v3 10/12] ARM64: dts: bcm6856: Add BCMBCA peripherals
-Date: Tue, 13 May 2025 01:58:17 -0700
-Message-ID: <20250513085817.2044031-1-florian.fainelli@broadcom.com>
+Subject: Re: [PATCH v3 11/12] ARM64: dts: bcm6858: Add BCMBCA peripherals
+Date: Tue, 13 May 2025 01:58:32 -0700
+Message-ID: <20250513085832.2044114-1-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250512-bcmbca-peripherals-arm-v3-10-86f97ab4326f@linaro.org>
-References: <20250512-bcmbca-peripherals-arm-v3-0-86f97ab4326f@linaro.org> <20250512-bcmbca-peripherals-arm-v3-10-86f97ab4326f@linaro.org>
+In-Reply-To: <20250512-bcmbca-peripherals-arm-v3-11-86f97ab4326f@linaro.org>
+References: <20250512-bcmbca-peripherals-arm-v3-0-86f97ab4326f@linaro.org> <20250512-bcmbca-peripherals-arm-v3-11-86f97ab4326f@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_015819_681504_E6B7FA91 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20250513_015834_476381_9A18CE7D 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,16 +89,16 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Florian Fainelli <f.fainelli@gmail.com>
 
-On Mon, 12 May 2025 14:05:56 +0200, Linus Walleij <linus.walleij@linaro.org> wrote:
+On Mon, 12 May 2025 14:05:57 +0200, Linus Walleij <linus.walleij@linaro.org> wrote:
 > All the BCMBCA SoCs share a set of peripherals at 0xff800000,
 > albeit at slightly varying memory locations on the bus and
 > with varying IRQ assignments. ARM64 SoCs have additional
-> peripherals at 0xff858000. Extend the BCM6856 the PERF window
-> to 0x400000 and add the DMA block at offset 0x59000.
+> peripherals at 0xff858000. Extend the peripheral window range
+> to 0x400000 and add the DMA controller at offset 0x59000.
 > 
 > Add the watchdog, GPIO blocks, RNG, LED, second UART and DMA
-> blocks for the BCM6856 based on the vendor files 6856_map_part.h
-> and 6856_intr.h from the "bcmopen-consumer" code drop.
+> blocks for the BCM6858 based on the vendor files 6858_map_part.h
+> and 6858_intr.h from the "bcmopen-consumer" code drop.
 > 
 > This SoC has up to 256 possible GPIOs due to having 8
 > registers with 32 GPIOs in each available.
