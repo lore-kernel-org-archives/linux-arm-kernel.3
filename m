@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8105CC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 20:48:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBB5AC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 20:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8kzLQIa8+PCGRcMRmx7ZVRk+OjI2k2fuayPHKN+v+eE=; b=PWYKX07ujjpT8MRwZidP4O4l14
-	JL2ztW8LaSu6wfpfv3EbfEp0Cf8rwmBnA5evi0UCfkBt34144Qc2Qh3kA8rcHXwjvFen5VqMhKBKy
-	0sA1HiOf1zUwddGWNSsUP0pj6cuxxVuhmpkIqlDp5I2P1Uc3kTJVvTHQ7KzIfbj+OcDi2q/ZE2w6v
-	LtpAWWX/XfVBcbHv5pz2voVXGn50b3lNpP6TJ6EXkZ4gAagxwY53+/N7CZXkLi7eZJCCv9mpfrB16
-	GKlibwbCnNlD4ACFj1KP9OV7ynPdhi7Q7J055QjKU0qB6h8fuERXCVDlN6Umy4Uy81dwAu8n51hD7
-	eJJoXUWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u87NdICAW/jny13v/jgpJ1UqVv+ap0izXMLDhWUKyP8=; b=S9OQTN/SPu138ke/vgdgq+WIZV
+	Y2jmQ8w8Ir8Qg0qgX/jFVj8386eQZnIyCrAwRx+PoQffhNdXdmD8tdzx/J0LXEneR/QPbIWt5/ijS
+	QloMlGCcs6U1U6SOxtHJVkZzgcP3zknxHptCcpTEg5A3Tcsz3/YbOWyAHPkP3K/6fhWMNbN4OR7Up
+	c6kVIve5h2AV+QDfptZG2T0u7dujgPZH/qnJq2/cQfLOTgPCyRXM16mSOSSpaFCyKFki6T0Gb8Nfq
+	beuhvh5JIt9ewEEa2cF4O+v5fQBF3rM/RWMlLgL+SFklaPCP3DPmbVvU/4kGdpBEK2OP0Fve/uz7Q
+	o32UXqJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEwY2-0000000DWHx-0Ip2;
-	Tue, 13 May 2025 20:48:22 +0000
+	id 1uEwa5-0000000DWZq-3HAK;
+	Tue, 13 May 2025 20:50:29 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEwVv-0000000DVvb-2H0P
+	id 1uEwWk-0000000DW3L-10Tj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 20:46:11 +0000
+	Tue, 13 May 2025 20:47:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC834614B6;
-	Tue, 13 May 2025 20:46:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A873AC4CEE4;
-	Tue, 13 May 2025 20:46:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A6932614B6;
+	Tue, 13 May 2025 20:47:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41EFFC4CEE4;
+	Tue, 13 May 2025 20:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747169170;
-	bh=ZrGG0MGjPQ9M+KHJmiU49QaFHPMxAGixxDOvTmXKeQU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nmR4Y/kfmtn0Wmed73+zC6gl9p+RgdyAlq7iOw/eanf+Cq4YGxcOntSUAUlrVrkD5
-	 /JTdTmJBH8ducDgUDNbg0eR0HP1wSy/cdADfacMkChwWXjmgBDWrcYjgVHWwdhh2Uo
-	 xkF6a3gTPxK9Jbio4tKD5k/Sfryr+KE+SAWvRneJ+AgOTTlCUA8r/MMuRFacp3R8TE
-	 ZxyFwU/yZDiTSDkyqGSli2izvVpe8HjQlQbTRfoAFvSHjMaNKJ0oqpVgTkpNvPl15p
-	 A5FNDAsUrZ9cHAPB5JTK7YZe6vHkD4j/ikMO4P2DXzyeOW5TfaDOUQfJMw5nxsOklg
-	 iXmEkqWlbBbQA==
-Date: Tue, 13 May 2025 21:46:04 +0100
-From: Will Deacon <will@kernel.org>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	David Hildenbrand <david@redhat.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	s=k20201202; t=1747169221;
+	bh=91T1VPpN0iD8ktDa7qsOceVNZlZJTp4gav1Jy25LnSQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=WQb0qC+ym000T53oAyQDwuHJRpVGuGBoVFyShbm+el146dau8o2JDPo5yxkgxKpti
+	 LL50ws06ju3UEMaDdSS+su6PDAzv6pLH4NaZOy+obXcwx1X85nF8xUMLLePAD9g6XQ
+	 g7rY8Y1qcePT8OjIDPPCyC0u4pGh181Uey9HNrRFpxhSPr6xGxJ1QSfc3gQYofz6Kn
+	 A0N/R4uit7/ngka1Qut71KCitesZetpE/SjmhTnHFQL188qDH1P93gT/pCJwmi1JTs
+	 S1SQzOBhP7sloLPAa4ZrRSoMG7L5s3KM9G3VfLXYJDAmMsei5WDu0TIKWqVIhbXIv5
+	 BzatqSTAUTu3A==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Konrad Dybcio <konradybcio@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Georgi Djakov <djakov@kernel.org>,
+	Lee Jones <lee@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Leo Yan <leo.yan@linux.dev>,
+	David Heidelberg <david@ixit.cz>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	syzbot+5c0d9392e042f41d45c5@syzkaller.appspotmail.com
-Subject: Re: [PATCH] arm64/mm: Disable barrier batching in interrupt contexts
-Message-ID: <20250513204603.GA9866@willie-the-truck>
-References: <20250512102242.4156463-1-ryan.roberts@arm.com>
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: (subset) [PATCH v2 00/10] ARM: qcom: fix APQ8064 schema warnings
+Date: Tue, 13 May 2025 21:46:40 +0100
+Message-ID: <174716895379.39748.10076819557208209836.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250318-fix-nexus-4-v2-0-bcedd1406790@oss.qualcomm.com>
+References: <20250318-fix-nexus-4-v2-0-bcedd1406790@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250512102242.4156463-1-ryan.roberts@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,23 +85,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 12, 2025 at 11:22:40AM +0100, Ryan Roberts wrote:
-> Commit 5fdd05efa1cd ("arm64/mm: Batch barriers when updating kernel
-> mappings") enabled arm64 kernels to track "lazy mmu mode" using TIF
-> flags in order to defer barriers until exiting the mode. At the same
-> time, it added warnings to check that pte manipulations were never
-> performed in interrupt context, because the tracking implementation
-> could not deal with nesting.
+
+On Tue, 18 Mar 2025 15:21:53 +0200, Dmitry Baryshkov wrote:
+> Rob's bot has reported [1] several warnings for Nexus 4 submisson,
+> however none of those warnings are specific to that device. Fix all
+> those warnings for all APQ8064 platforms by extending existing schemas,
+> adding missing schemas and making APQ8064 DT follow all the schema
+> files.
 > 
-> But it turns out that some debug features (e.g. KFENCE, DEBUG_PAGEALLOC)
-> do manipulate ptes in softirq context, which triggered the warnings.
+> [1]: https://lore.kernel.org/linux-arm-msm/174221818190.3957236.3364090534153729086.robh@kernel.org/
+> 
+> [...]
 
-Hmm. Do we also have to worry about the case where a softirq is triggered
-off the back of a hardirq *and* that hardirq is taken while we're in the
-middle of e.g. queue_pte_barriers()? In that case, I think we can end
-up in strange situations, such as having LAZY_MMU_PENDING set when
-LAZY_MMU is clear, although it looks like things still work even in that
-case.
+Applied, thanks!
 
-Will
+[06/10] ARM: dts: qcom: apq8064: add missing clocks to the timer node
+        commit: 4b0eb149df58b6750cd8113e5ee5b3ac7cc51743
+[07/10] ARM: dts: qcom: apq8064 merge hw splinlock into corresponding syscon device
+        commit: 325c6a441ae1f8fcb1db9bb945b8bdbd3142141e
+[08/10] ARM: dts: qcom: apq8064: use new compatible for SFPB device
+        commit: 2a1282861b73a4b8e45904e079ed3279c3f1c93f
+[09/10] ARM: dts: qcom: apq8064: use new compatible for SPS SIC device
+        commit: 92c377bcafcddd43d4dca1aa60c865cdd2d1dbbb
+[10/10] ARM: dts: qcom: apq8064: move replicator out of soc node
+        commit: f2420037d90a8354594b3da541e19dcbb60c75e1
+
+Best regards,
+-- 
+Bjorn Andersson <andersson@kernel.org>
 
