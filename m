@@ -4,113 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73DC5C3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 13:44:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A622C3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 13:46:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DCbPLf94BXHNzoygJn6GSarH/xoHpeTfijUGwNyPBG8=; b=kvDosniDq/8ahRMe61RI1KCZsl
-	AOUn9RfORQyn4iMXCT6MlfNcrLkwNa9xbNz+DG7KHZsNRlul0qCyxvoQJb94GgE48/BLzWAQWXEUg
-	ACI6dFpfv3ye/h88Y/C7FYSdnXfx1wvV9EFQ7z+GozaKTSLj85dsZOd0xXYpIV5eH7/RD69duEaQk
-	W3z9FfKUjXxrnxm7ynWmuwE3L7IAW4vqGaVH27kns0mkXWlfTMpEUKT5yP0eUt8K+zzKTKkhoVK9t
-	/MOO5PDgrdVjiD6e48e9kOmvFwDzH68beOBqdxsROskTFDSy6ViC93NE0eLOKtOWMkJ2p4KczGNUb
-	TnWPpQNA==;
+	bh=7/JV3Bh1ZMG76SNJlwEakQzpLhMGq/SyZApq5+emUOc=; b=RUULnhpxLE+r1/YgOF1GzFBph/
+	mYr2Y8cn1G6ZxGEnR1Wt2WFVs4NHR6qjaql1lvz0o8N4lo8gIRwD0WPHt4akuSNy/7F4KSLi8e7At
+	PjHyfJbq/suohBiMuVm3wih3ITcV2JTvAoVy0MFILiQ2Azdv8g7MWkgfaPdPRrMwVqKyhc1SJJWkA
+	CtVjjj0hL2voEwJelHF9YPH+4wJJu93sdgHq2CW+0gAykQAla5FXwmiCCxvN2RanPRjGtSYhVeuPq
+	PWOGTQDFVES/VK9o3MkE/4aD15Od2giLfP6hhWJBHNZQoDYIc5dc0MrXoNR0tUxuGJYQH1j2X47X7
+	4b/R0u4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEpvs-0000000CWV1-1Dba;
-	Tue, 13 May 2025 13:44:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uEpxw-0000000CWzv-4AFz;
+	Tue, 13 May 2025 13:46:41 +0000
+Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEpnR-0000000CVLy-3IV9
+	id 1uEpoQ-0000000CVVH-0F4e
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 13:35:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2B4D9629CC;
-	Tue, 13 May 2025 13:35:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1DD9C4CEE9;
-	Tue, 13 May 2025 13:35:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747143348;
-	bh=vL40+R/Pc25k6Thm0RAgq45shA6v4r5ZeGAKMo3N5Ts=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=E+1MzgZQYE+00S6hDLk6HAXBtOh8bA44jLq6TaLvZ0TP5cETT+yubk90h+6AqTfcy
-	 ud/MWzVwUw/lMDS3WQujtDxEAqxezUdWbA40xjOHq6NACjerB8p9luw7uB2wpJM173
-	 UF485v4rUoLGvgXPmf/FGqLWTsM75B84VM4wry+OrCXwLfOjDxsm+PVaOWi9TvY/rz
-	 ++/53VzMm1MozGLCiQ/UnGcdMbZoQOsnzb0BItouI+KqHvdpbskB5rblpNwo8oOv+e
-	 XZ6RMMJQveKZlOe65fNBV5NdkrmNS5Uff927mOyk0A7AcSbj5Vfl23nk1QqD6RAiqj
-	 aaH5Psh4J0ljA==
-Message-ID: <04b4cea3-6cd6-4764-b277-c2e9921b70dc@kernel.org>
-Date: Tue, 13 May 2025 15:35:43 +0200
+	Tue, 13 May 2025 13:36:53 +0000
+Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-e7b2c28f67eso1036505276.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 06:36:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747143409; x=1747748209; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7/JV3Bh1ZMG76SNJlwEakQzpLhMGq/SyZApq5+emUOc=;
+        b=a8n+advyMbcQYO02pScg2WLSOKWTyYSms474uLkdOWfE07vrUggCKzAObZIlBjR/AC
+         NgH1hWPiKQexlx3hplWime9BTJlu2m6MX+M7N+CEdQxddQrbavCHASq2adWo+4xMTyrV
+         1X3rGwUJC1QsFglK92kYTaM5s/+xiYSrSrAKBZdN9DSWM08GpnahPBfWxNRoTJ76xqf9
+         xsYd0Dbp4Gk9m2P1ge2F6S/4jGZcyoq5Irfsh32JflOsBl374fMJw6lHqVkGzGXOj/a3
+         K4XQexHzFvnqayUUNrYqYHxpnP1aDN1CRbsbo9JBxQZ3HnybT5zrdZhge0Q4lyidKo8J
+         M1Gg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747143409; x=1747748209;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7/JV3Bh1ZMG76SNJlwEakQzpLhMGq/SyZApq5+emUOc=;
+        b=wkTM4Vwuou9oh/S6nQnZTxS2HM1aqtxnsv+8QJ50UMLQ17Wo608Oz1ffQSQirP10Xu
+         /Q3MZJxkUtSuLfEy2DKKfXeB7Ogy7rO570Nec63gt7JLLjzOawb6AmjGuTEO5KtxblZM
+         q3DkJZ5z1mauvA8ybWGSJr+D0qWbnhzJl2de10nPfx4qmZS7zLK0JjPQag9EVBdkEKuR
+         Vge+rcMjZFzErA55JxJcKttT8Sh2lkSGadZroOtFoJBPV4OkkiCjnFsFztTAt5KmzH9v
+         LT6f4xOwmjSp6+FbsFn3uE4sRvSr3MXdXpjXtiiXUtmDc2Su1YpphT899MdFLPK4ee9L
+         7d7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVirPOd50aHo+XoCRq/6wDYb+ndyRXP9A5GSzY5QpXv9K9GgB0zj13L0iKd48/upg0zl1ORl9J5Czj/agB1+QjF@lists.infradead.org
+X-Gm-Message-State: AOJu0YxnT84gz8Hbh8Bj6xtnpPqo/AjQN8/o8h3sHPAeMZxeqLdRiS15
+	orVEFPO1ZS2ej4BCQh6bRxYt4RK84UehHdNLlnrgOfNR41Nl+llAbAbWP6otZk1T0fGNRVm+vd3
+	oy/Utll1mpv78Qt5UpRAcVQ7093kQGQXSNXUbbw==
+X-Gm-Gg: ASbGncuhY1VdiOPscBjSYtSXlsS9hAIZ/D+vfCnZtZi/+wiAY4LsaHAv10Wj8IsAHnW
+	/ag+gQ40fNWorqJWH+iSo5oK4zFVwUjQgMpfuYB7iFkjU42suBAJIWTLI0F8vPPQOAAD91sU2Nl
+	HqyVqa8Cr0PA8ptpKjJCWVKFmOYoADpxJ/
+X-Google-Smtp-Source: AGHT+IGPspzzHxed6rft90BBazRRlyKn4YRNf/+L/ffhEMrgXhwvAkFISkzPmGNOJE8q+cDfmA7yJkalBx150TF+eCU=
+X-Received: by 2002:a05:6902:2193:b0:e60:a068:a14b with SMTP id
+ 3f1490d57ef6-e78fdb83501mr22863623276.4.1747143408924; Tue, 13 May 2025
+ 06:36:48 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 05/19] dt-bindings: clock: imx8m-anatop: add
- oscillators and PLLs
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
- linux-kernel@vger.kernel.org
-Cc: Peng Fan <peng.fan@nxp.com>, Stephen Boyd <sboyd@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, linux-amarula@amarulasolutions.com,
- Abel Vesa <abelvesa@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
-References: <20250424062154.2999219-1-dario.binacchi@amarulasolutions.com>
- <20250424062154.2999219-6-dario.binacchi@amarulasolutions.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250424062154.2999219-6-dario.binacchi@amarulasolutions.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250512-pinctrl-a37xx-fixes-v1-0-d470fb1116a5@gmail.com> <60ef3803-4f8b-4d9b-bef8-6cf3708af057@lunn.ch>
+In-Reply-To: <60ef3803-4f8b-4d9b-bef8-6cf3708af057@lunn.ch>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 13 May 2025 15:36:36 +0200
+X-Gm-Features: AX0GCFtHZ-lXYmozXKJTmAfMPph60MlOaJrCz7XDyOAs3Cz7P-VVNfFyia5m6R4
+Message-ID: <CACRpkdbqPLaBheEv1=ky1gUJ-qSsPRjR0J-UXEuhXf2Oix_EzQ@mail.gmail.com>
+Subject: Re: [PATCH 0/7] pinctrl: armada-37xx: a couple of small fixes
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Gabor Juhos <j4g8y7@gmail.com>, Gregory Clement <gregory.clement@bootlin.com>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	Imre Kaloz <kaloz@openwrt.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250513_063650_098739_EDB6CE14 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,25 +97,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/04/2025 08:21, Dario Binacchi wrote:
-> Though adding clocks and clock-names properties will break the ABI,
-> it is required to accurately describe the hardware. Indeed, the anatop
-> module uses the input oscillators to generate various PLLs. In turn,
-> the Clock Control Module (CCM) receives clocks from the PLLs and
-> oscillators and generates clocks for on-chip peripherals.
-> 
-> Furthermore, as agreed in [1], this change represents the first step
-> toward the implementation of the anatop driver. Currently, in fact,
-> there is no dedicated anatop driver, but the CCM driver parses the
-> anatop node and registers the PLLs it produces.
-> 
-> [1] https://lore.kernel.org/imx/20241106090549.3684963-1-dario.binacchi@amarulasolutions.com/
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-For future version if it happens:
+On Mon, May 12, 2025 at 11:33=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote=
+:
+> On Mon, May 12, 2025 at 04:22:36PM +0200, Gabor Juhos wrote:
+> > The series contains several small patches to fix various
+> > issues in the pinctrl driver for Armada 3700.
+>
+> I'm not sure all these should be for stable. Some are clear bugs, but
+> not propagating the errors has not bothered anybody so far, a
+> requirement for stable.
 
-Un-reviewed.
+So we are at -rc6 so I'm not sending these as fixes to Torvalds
+right now unless they are super-critical.
 
-Best regards,
-Krzysztof
+I will merge this for v6.16 (-rc1) and then the stable maintainers
+will have to decide from the point it enters mainline.
+
+Gabor: can you look over the tags? Once you have decided
+on stable/non-stable tags I will merge the series.
+
+Yours,
+Linus Walleij
 
