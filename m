@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CB54C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 16:29:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4818C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 16:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wbGqrd3jznqBXsIv/Ao7X40DXhDF0QHTHVA++O29sNg=; b=4Y7G+AQLPxyHE6oct+xs69FV/c
-	7kR4M1Bv7B82WAznsOsui8aGL/rEVH+Clv1JWyiHlxlJTbD1C4oiShofrn0MfDfgk3cwzGg7mfqy/
-	9xRbDyn/f2uiro75Lkl0n+9cUrJwUa24p1nYoNebctrvbIJc200bFUNraoyMUTUu2MQ64TE8357ia
-	5Xwa0wSCK+whxPjY6KZcj8f24wpBQVkmN5pozswePEdZsl7KP3aRlKiZwUPFLXERrQP/z3fYsn8jJ
-	vPQdWIcp7XVouJo5oeSoslcWZr4GxUDMJSfaI2OYG2tAJWhf4sEcn9yupO6eIX7FlxRQPCAFnG1iK
-	5QHlHj6g==;
+	bh=DbTjqzLb/usw4AglVSkWVEb3Jvk5PTZ2BLQp+GyDc9o=; b=Yd1aNcheIp4g8BfAdH/ZZCoEFl
+	m5fgLRd9UC5AlbHPwhcZEqDnBkQ+I9g2jzPNVOrLWr/ZFAZ2rh7jjS6Ul5v/6QO0ObYx++UxXAsmF
+	9AGZrs4eFdgdxmHX+4fTY0msWvGZrrasAjH8+TraNHLVTADcCwL+eE0i2vroM3d6L1/vIXQBNYH52
+	Z3TlwKm/9wpUhWgTttWGKLyB+FL2X5toE8ZmXRlB6YtfE/fbqKeJZoBTomCnFxyWLhRJyLrScvBS+
+	JWRRqTozNxv8bjbhvzErMJsYarxtyuT6Gxdb5f9bLdFWP1y88GURSqQbj7ypnFeBb7msih05xpBmg
+	YH0zBpQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEsVT-0000000CvZ8-0BoH;
-	Tue, 13 May 2025 16:29:27 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEsSI-0000000CvEM-1foe
+	id 1uEsXY-0000000CvpP-36oe;
+	Tue, 13 May 2025 16:31:36 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uEsSb-0000000CvIm-1L4m
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 16:26:11 +0000
-Received: from [10.137.184.60] (unknown [131.107.1.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id A030F201DB19;
-	Tue, 13 May 2025 09:26:08 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com A030F201DB19
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1747153568;
-	bh=wbGqrd3jznqBXsIv/Ao7X40DXhDF0QHTHVA++O29sNg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mVLvBknlx5yLYMPJugWxKiBOr38hquABtNek1b13DVeX0j/rXqU+OxFcuS19rqOLQ
-	 cKK52KYmmG/UfCaS96dJkhId55AeAbp25e5IXO65LlDhSAI6kZZ5H4XOUp2vv/hGXU
-	 d0j6t0LmFEHtjeaRcPLgzFAJVQ0REtuPenELASy4=
-Message-ID: <96c66528-6149-4f5b-abb1-76b557f47927@linux.microsoft.com>
-Date: Tue, 13 May 2025 09:26:08 -0700
+	Tue, 13 May 2025 16:26:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0CDF7A4DA2C
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 16:26:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AADA2C4CEED
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 16:26:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747153587;
+	bh=ga3zCv76QkUCBLxG+3obr75Z66d/dc+j2DqdsPQXh0c=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ghnA84IHlg7O22yhptVGd5Vo4K2suyTcvlb+dB5s7Xg4X6SCKx0ZtMdwAnmiIGhrH
+	 M868zaiZXQjfGDXf9pX+lD9EQ9T5uT9qwj6inycMkJOrwftBuYfzqwRkK1PToW2PZs
+	 RYNCKFYf3234mnyWthq+oKNmQQvb8i58T5ANMMw1R8pSUmTgMPX1KuXrfKOLRSumu4
+	 Y/Lg0OuxA6RGFWAgVYErB6RT1wwV+AFVxlYEKgJ6/v10H8Ksf7D8azLajSyucjEEwe
+	 mWxhdjJIYEZ+LQTq5P2LTa366AGYaAE9nvfu0kzlc/FZxK0WpLPebLv/Wk5X+aA5O9
+	 LGfIdhM7MlxpQ==
+Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-ac34257295dso979210966b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 09:26:27 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVz5462LveX4NkU8J6A3w3EIJ7ZrdSkoTQBIWnv/HDPgJ2bru/GbfAr1hZyM2JXoXiwAkEhqOoGcoSsY8q9T7j6@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvokEmd9dHcG0Syk1CvhuNudy/TNoithSZbcasxfGMqt2vOzIG
+	+7FfP21nTl54KZkpo6dTyLpGCSKB66kfIqlquqZOh66Ic+Z3mMk428ypNELtlzaohv7pGnk8fZA
+	7iWN01HyvVVB2z5fOAtIPzfFk3WQ=
+X-Google-Smtp-Source: AGHT+IGLphKmJHdSpxiAM6EZINozmZaCBpRvN/kTcv+//ma0V7JmmF8efQr+QHrkewteuL8JarBqgc1UuBNDbXrxzSs=
+X-Received: by 2002:a17:907:d17:b0:ad4:f6d3:a188 with SMTP id
+ a640c23a62f3a-ad4f755173bmr20068366b.46.1747153586566; Tue, 13 May 2025
+ 09:26:26 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hyperv-next v2 2/4] drivers: hyperv: VMBus protocol
- version 6.0
-To: ALOK TIWARI <alok.a.tiwari@oracle.com>
-Cc: apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
- sunilmut@microsoft.com, arnd@arndb.de, bp@alien8.de,
- catalin.marinas@arm.com, corbet@lwn.net, dave.hansen@linux.intel.com,
- decui@microsoft.com, haiyangz@microsoft.com, hpa@zytor.com,
- kys@microsoft.com, mingo@redhat.com, tglx@linutronix.de, wei.liu@kernel.org,
- will@kernel.org, x86@kernel.org, linux-hyperv@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org
-References: <20250511230758.160674-1-romank@linux.microsoft.com>
- <20250511230758.160674-3-romank@linux.microsoft.com>
- <d93bebbf-2e0d-4de4-a258-c32159dd1541@oracle.com>
-Content-Language: en-US
-From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <d93bebbf-2e0d-4de4-a258-c32159dd1541@oracle.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20250512082938.97110-2-u.kleine-koenig@baylibre.com>
+In-Reply-To: <20250512082938.97110-2-u.kleine-koenig@baylibre.com>
+From: Chanwoo Choi <chanwoo@kernel.org>
+Date: Wed, 14 May 2025 01:25:51 +0900
+X-Gmail-Original-Message-ID: <CAGTfZH2uk-6-R5QNZwsssQ1UtnqexKeo=e=SsXB26NMwqf8c9g@mail.gmail.com>
+X-Gm-Features: AX0GCFv7rFmK8zZwyel010vviBuZuUDkrqDnxqcGo43EqBsoQ0TBQM5VkdZiclQ
+Message-ID: <CAGTfZH2uk-6-R5QNZwsssQ1UtnqexKeo=e=SsXB26NMwqf8c9g@mail.gmail.com>
+Subject: Re: [PATCH] PM / devfreq: sun8i-a33-mbus: Fix misconversion to devm_clk_rate_exclusive_get()
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: MyungJoo Ham <myungjoo.ham@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
+	Chanwoo Choi <cw00.choi@samsung.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, linux-pm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	oe-kbuild-all@lists.linux.dev, kernel test robot <lkp@intel.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_092610_487016_E7D1644C 
-X-CRM114-Status: GOOD (  20.90  )
+X-CRM114-CacheID: sfid-20250513_092629_507302_993F64FF 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,172 +86,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
+
+Instead of fix-up patch, I'd like you to send the v2 of patch[1].
+[1] https://patchwork.kernel.org/project/linux-pm/patch/20241111112237.3363=
+10-2-u.kleine-koenig@baylibre.com/
 
 
-On 5/12/2025 2:49 AM, ALOK TIWARI wrote:
-> 
-> 
-> On 12-05-2025 04:37, Roman Kisel wrote:
->> The confidential VMBus is supported starting from the protocol
->> version 6.0 onwards.
->>
->> Update the relevant definitions, provide a function that returns
->> whether VMBus is condifential or not.
-> 
-> typo condifential -> confidential
-> 
->>
->> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
->> ---
->>   drivers/hv/vmbus_drv.c         | 12 ++++++
->>   include/asm-generic/mshyperv.h |  1 +
->>   include/linux/hyperv.h         | 71 +++++++++++++++++++++++++---------
->>   3 files changed, 65 insertions(+), 19 deletions(-)
->>
->> diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
->> index 1d5c9dcf712e..e431978fa408 100644
->> --- a/drivers/hv/vmbus_drv.c
->> +++ b/drivers/hv/vmbus_drv.c
->> @@ -56,6 +56,18 @@ static long __percpu *vmbus_evt;
->>   int vmbus_irq;
->>   int vmbus_interrupt;
->> +/*
->> + * If the Confidential VMBus is used, the data on the "wire" is not
->> + * visible to either the host or the hypervisor.
->> + */
->> +static bool is_confidential;
->> +
->> +bool vmbus_is_confidential(void)
->> +{
->> +    return is_confidential;
->> +}
->> +EXPORT_SYMBOL_GPL(vmbus_is_confidential);
->> +
->>   /*
->>    * The panic notifier below is responsible solely for unloading the
->>    * vmbus connection, which is necessary in a panic event.
->> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/ 
->> mshyperv.h
->> index 6c51a25ed7b5..96e0723d0720 100644
->> --- a/include/asm-generic/mshyperv.h
->> +++ b/include/asm-generic/mshyperv.h
->> @@ -377,6 +377,7 @@ static inline int hv_call_create_vp(int node, u64 
->> partition_id, u32 vp_index, u3
->>       return -EOPNOTSUPP;
->>   }
->>   #endif /* CONFIG_MSHV_ROOT */
->> +bool vmbus_is_confidential(void);
->>   #if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
->>   u8 __init get_vtl(void);
->> diff --git a/include/linux/hyperv.h b/include/linux/hyperv.h
->> index 1f310fbbc4f9..3cf48f29e6b4 100644
->> --- a/include/linux/hyperv.h
->> +++ b/include/linux/hyperv.h
->> @@ -265,16 +265,19 @@ static inline u32 hv_get_avail_to_write_percent(
->>    * Linux kernel.
->>    */
->> -#define VERSION_WS2008  ((0 << 16) | (13))
->> -#define VERSION_WIN7    ((1 << 16) | (1))
->> -#define VERSION_WIN8    ((2 << 16) | (4))
->> -#define VERSION_WIN8_1    ((3 << 16) | (0))
->> -#define VERSION_WIN10 ((4 << 16) | (0))
->> -#define VERSION_WIN10_V4_1 ((4 << 16) | (1))
->> -#define VERSION_WIN10_V5 ((5 << 16) | (0))
->> -#define VERSION_WIN10_V5_1 ((5 << 16) | (1))
->> -#define VERSION_WIN10_V5_2 ((5 << 16) | (2))
->> -#define VERSION_WIN10_V5_3 ((5 << 16) | (3))
->> +#define VMBUS_MAKE_VERSION(MAJ, MIN)    ((((u32)MAJ) << 16) | (MIN))
->> +#define VERSION_WS2008                    VMBUS_MAKE_VERSION(0, 13)
->> +#define VERSION_WIN7                    VMBUS_MAKE_VERSION(1, 1)
->> +#define VERSION_WIN8                    VMBUS_MAKE_VERSION(2, 4)
->> +#define VERSION_WIN8_1                    VMBUS_MAKE_VERSION(3, 0)
->> +#define VERSION_WIN10                    VMBUS_MAKE_VERSION(4, 0)
->> +#define VERSION_WIN10_V4_1                VMBUS_MAKE_VERSION(4, 1)
->> +#define VERSION_WIN10_V5                VMBUS_MAKE_VERSION(5, 0)
->> +#define VERSION_WIN10_V5_1                VMBUS_MAKE_VERSION(5, 1)
->> +#define VERSION_WIN10_V5_2                VMBUS_MAKE_VERSION(5, 2)
->> +#define VERSION_WIN10_V5_3                VMBUS_MAKE_VERSION(5, 3)
->> +#define VERSION_WIN_IRON                VERSION_WIN10_V5_3
->> +#define VERSION_WIN_COPPER                VMBUS_MAKE_VERSION(6, 0)
->>   /* Make maximum size of pipe payload of 16K */
->>   #define MAX_PIPE_DATA_PAYLOAD        (sizeof(u8) * 16384)
->> @@ -335,14 +338,22 @@ struct vmbus_channel_offer {
->>   } __packed;
->>   /* Server Flags */
->> -#define VMBUS_CHANNEL_ENUMERATE_DEVICE_INTERFACE    1
->> -#define VMBUS_CHANNEL_SERVER_SUPPORTS_TRANSFER_PAGES    2
->> -#define VMBUS_CHANNEL_SERVER_SUPPORTS_GPADLS        4
->> -#define VMBUS_CHANNEL_NAMED_PIPE_MODE            0x10
->> -#define VMBUS_CHANNEL_LOOPBACK_OFFER            0x100
->> -#define VMBUS_CHANNEL_PARENT_OFFER            0x200
->> -#define VMBUS_CHANNEL_REQUEST_MONITORED_NOTIFICATION    0x400
->> -#define VMBUS_CHANNEL_TLNPI_PROVIDER_OFFER        0x2000
->> +#define VMBUS_CHANNEL_ENUMERATE_DEVICE_INTERFACE        0x0001
->> +/*
->> + * This flag indicates that the channel is offered by the paravisor, 
->> and must
->> + * use encrypted memory for the channel ring buffer.
->> + */
->> +#define VMBUS_CHANNEL_CONFIDENTIAL_RING_BUFFER            0x0002
->> +/*
->> + * This flag indicates that the channel is offered by the paravisor, 
->> and must
->> + * use encrypted memory for GPA direct packets and additional GPADLs.
->> + */
->> +#define VMBUS_CHANNEL_CONFIDENTIAL_EXTERNAL_MEMORY        0x0004
->> +#define VMBUS_CHANNEL_NAMED_PIPE_MODE                    0x0010
->> +#define VMBUS_CHANNEL_LOOPBACK_OFFER                    0x0100
->> +#define VMBUS_CHANNEL_PARENT_OFFER                        0x0200
->> +#define VMBUS_CHANNEL_REQUEST_MONITORED_NOTIFICATION    0x0400
->> +#define VMBUS_CHANNEL_TLNPI_PROVIDER_OFFER                0x2000
->>   struct vmpacket_descriptor {
->>       u16 type;
->> @@ -621,6 +632,12 @@ struct vmbus_channel_relid_released {
->>       u32 child_relid;
->>   } __packed;
->> +/*
->> + * Used by the paravisor only, means that the encrypted ring buffers and
->> + * the encrypted external memory are supported
-> 
-> Clearly convey the purpose of the flag, similar to the previous one
-> For example ->"Indicates support for encrypted ring buffers and external 
-> memory, used exclusively by the paravisor."
-> 
 
-Will do, appreciate your help!!
+On Mon, May 12, 2025 at 5:29=E2=80=AFPM Uwe Kleine-K=C3=B6nig
+<u.kleine-koenig@baylibre.com> wrote:
+>
+> The patch converting the driver to make more use of devm functions got
+> one conversion wrong making the driver not compilable any more. I have
+> no excuse, mea culpa!
+>
+> Fix this by adding the needed device parameter.
+>
+> Reported-by: kernel test robot <lkp@intel.com>
+> Link: https://lore.kernel.org/all/202412070231.MzXdNrLv-lkp@intel.com
+> Fixes: bc253b28a365 ("PM / devfreq: sun8i-a33-mbus: Simplify by using mor=
+e devm functions")
+> Signed-off-by: Uwe Kleine-K=C3=B6nig <u.kleine-koenig@baylibre.com>
+> ---
+>  drivers/devfreq/sun8i-a33-mbus.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/devfreq/sun8i-a33-mbus.c b/drivers/devfreq/sun8i-a33=
+-mbus.c
+> index f99af530211d..4bd5657558d6 100644
+> --- a/drivers/devfreq/sun8i-a33-mbus.c
+> +++ b/drivers/devfreq/sun8i-a33-mbus.c
+> @@ -381,7 +381,7 @@ static int sun8i_a33_mbus_probe(struct platform_devic=
+e *pdev)
+>                 return dev_err_probe(dev, ret, "failed to lock dram clock=
+ rate\n");
+>
+>         /* Lock the MBUS clock rate to keep MBUS_TMR_PERIOD in sync. */
+> -       ret =3D devm_clk_rate_exclusive_get(priv->clk_mbus);
+> +       ret =3D devm_clk_rate_exclusive_get(dev, priv->clk_mbus);
+>         if (ret)
+>                 return dev_err_probe(dev, ret, "failed to lock mbus clock=
+ rate\n");
+>
+> --
+> 2.47.2
+>
 
->> + */
->> +#define VMBUS_FEATURE_FLAG_CONFIDENTIAL_CHANNELS    0x10
->> +
->>   struct vmbus_channel_initiate_contact {
->>       struct vmbus_channel_message_header header;
->>       u32 vmbus_version_requested;
->> @@ -630,7 +647,8 @@ struct vmbus_channel_initiate_contact {
->>           struct {
->>               u8    msg_sint;
->>               u8    msg_vtl;
->> -            u8    reserved[6];
->> +            u8    reserved[2];
->> +            u32 feature_flags; /* VMBus version 6.0 */
->>           };
->>       };
->>       u64 monitor_page1;
->> @@ -1002,6 +1020,11 @@ struct vmbus_channel {
->>       /* The max size of a packet on this channel */
->>       u32 max_pkt_size;
->> +
->> +    /* The ring buffer is encrypted */
->> +    bool confidential_ring_buffer;
->> +    /* The external memory is encrypted */
->> +    bool confidential_external_memory;
->>   };
-> 
-> Thanks,
-> Alok
-> 
 
--- 
-Thank you,
-Roman
 
+--=20
+Best Regards,
+Chanwoo Choi
+Samsung Electronics
 
