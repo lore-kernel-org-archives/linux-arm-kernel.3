@@ -4,67 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F413FC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 21:43:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DD47C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 21:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2iDHl9MuMdMS7lU5+hvmQm/5Ptpfk1pIlbf0FSU8Shw=; b=St6rJXH3oeggCxaBn3QH5C+k/2
-	KYhJHJ2DJH12M5iv3n/tA08sfJHlHROQsk/h2Qg2ztcUhWMm1AQkk3QvowqlRE5pTYeQEPqOgPugo
-	vYM/bx/2FpPNzWU+/s6o+FGI2iCtZiNql4v4VZcLCpJEE7Fc2C96fZAm7ipV1Ws+Ib9dXvzxRbJLI
-	R1/QC1O4iq+og2QmrgNE8kZ2g27SS/NdIkSWW1NsncdZRmogHSzasTUcuMORTDkmyD56jXjWhrapK
-	0+bTjaPpf8KlDn1Evy2V8eVLaUXkDCG+/WDaPCfavnd0bC7zQvSJ6YaOon4lIVvyMrxcLPx3GI9ue
-	ufXgokuQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FMrFM87rAmuG/UnGteKviZfWZXINuxFQCsV17IJbRWA=; b=J+zMQ8AoWUcJO15Tt9h1J3QGvu
+	EsC5uEOF+OHlI/T+9brkPbElCfsi94ogHuViAuxsrnSFzRc/Tcn8hG8ZvnUPlVsyf+0ZhiIcr7aaQ
+	5Hos8oXk09QD2QW8iVOhCbXxl7fh9xOKNxksD86Qsz1M3bncSqohDHG4UOtjlROKazp9OhCKWHSYa
+	DnW7ezpKaSbGi6R1K5Cv282bBOiUVu9lVbKpkZ4UD5qUdnlZyF0mPdLll5qgM+MbOUBN42U0e+6jN
+	W4VTytW3gk2I1trmS5hF0/vti0alcrCKjg87GrBM3rBUMTFj6SO/8setVeV08Us0TDI+zX03dlikU
+	tj6KVQfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uExPO-0000000DZw7-0De0;
-	Tue, 13 May 2025 21:43:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uExaN-0000000DbHb-0Udu;
+	Tue, 13 May 2025 21:54:51 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uExNI-0000000DZjG-3yqx
+	id 1uExYG-0000000Dava-2J4X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 21:41:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5C9A361126;
-	Tue, 13 May 2025 21:41:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBBD5C4CEEF;
-	Tue, 13 May 2025 21:41:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747172478;
-	bh=WD8O7lX1zBmFws0ybfoUY7TTtP+oICj+25zM+HnkvPg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=klrV1gFJf3pUr/VTHNKF7qDz8+UX0JWmI5uRi2AGL+slDbUyFnXSJNR+EeiOunezG
-	 gCnLkRgoQN8qIQG6er+2FJqfTi/MQDI5nAGA7bqkYH3NbAxap4MyJFWWpUyimoFr0D
-	 BUsXrO6Wo8Mp1R00C9RR1Hd+5xdeOqCgcSDUXnugLT+C6LI1S1+V9mGAOekCX/Iq9X
-	 hc1QAmwEu4zQnOCM/xIqy3Pfjpkx0fiS47z65thlXpp02NfnaK8dkTfVPSMBkDUg4I
-	 lUPw+H0YqG4MWoEjWdHwW+Aq0BuAuepltt93piDR7/MyGSolzHbYirT8PCCvsVNPDB
-	 yLSYXsM1H/1Rg==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Luca Weiss <luca@lucaweiss.eu>,
-	Stanislav Jakubek <stano.jakubek@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	=?UTF-8?q?Matti=20Lehtim=C3=A4ki?= <matti.lehtimaki@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Rudraksha Gupta <guptarud@gmail.com>,
-	David Heidelberg <david@ixit.cz>,
-	Ivan Belokobylskiy <belokobylskij@gmail.com>,
-	Sanjay Chitroda <quic_ckantibh@quicinc.com>
-Subject: [GIT PULL] Qualcomm Arm32 DeviceTree updates for v6.16
-Date: Tue, 13 May 2025 22:41:09 +0100
-Message-ID: <20250513214111.43401-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.49.0
+	Tue, 13 May 2025 21:52:41 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-30effbfaf4aso64217871fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 14:52:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747173158; x=1747777958; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FMrFM87rAmuG/UnGteKviZfWZXINuxFQCsV17IJbRWA=;
+        b=aFUTfQbbX3uJax7TPkTfosDcy47KFeFYV3hDL9rbf1dOX6nBgoNY7xvMyBL5fy9Faa
+         wrJ+4x4WtXASqDJf0fpOZLRSlw5WEJPQUEnV8GOJoVDBD/I3te+tEKdlucMgH1IBdtI+
+         zlww44HWUmRRh7e8VugMLNgyz1leOdh+a3XcO6xqpBUvjqz8BDAsLVtK3LqfHjI4u1Nq
+         lUNBAZ9tsJTcXxw1nCYfNV7dxbSHWDuBIufLWc9nuWhMUsSXXAp2qA5j6yJsBxewFQxR
+         AGpSOab/E00quEBJLGUbzYs/q0/rcm64wClbPZimCV2GptqaDxZ4IOFNeJWGLst1ta9R
+         PEFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747173158; x=1747777958;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FMrFM87rAmuG/UnGteKviZfWZXINuxFQCsV17IJbRWA=;
+        b=Yq+7bK4+FRDOT9aqS0u+HdGMg/0Wnbgoni6R/F6GLffU5Bnp8Aeq4XWgNAXeC/46hv
+         UXETwJdGyvPPAALAXG9Zxqm5tom33SfhpxVv5qjKKgv/9n3/FZcpQztBBc8ZUUfjmJC9
+         jhYiNUPNrfapqIufXsuwskbySVlFuGJkQVL2gABHrEEuNVV+ZnQVLvht5Vwik1VEhU+e
+         QaZ6TAuxwraGsp+BuKohEAufNDucVfpxiI6n6Sa+Em3mdUYVuk7w+kOssVrhPGcVl/D9
+         8maEUCe04Ltbbiolt2GyeUIIBNoUL+XbylVpO4P5jTC0mw5vdNz2UhohOleiDSlyma7Q
+         0zKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVkXQQm30FxAFS/HDD2X90Y7f0kLSyi22zw06TnRf1uVAz6qEKrm/8BK4WvhlfK4ElURe+aQpiTA1wHqx/DSlbU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+VtLFEDz+bAH/3pmT1I38AThKU6dR+eQE1vQ+64aXLo1kRSic
+	PmG1iEtA11HKEVL0EMyUinqxIq4Nn4aaqJgmJk5jGmNAtz5LSUrMKuF/ye/Qt5k6xIsI2aKmhCt
+	q43c6INWC8fLoo04XLCX7vK5tExKlEt4EDuZDng==
+X-Gm-Gg: ASbGnctKg0ydCJD01hKYVl+Z9oyB9aed+T7+l6/8bTPOOBHEBJMeceGwjiJRU215/SQ
+	XzREIdX57SIilX9AEvePsRpKJYMDS8pwahHZshJ1gKiQ2BdXr0GMJrEqLJeE7Zox3tzo2nKtG4d
+	+dlpeaP15842PKJIW+1ELXbts1cwIIBeQk
+X-Google-Smtp-Source: AGHT+IHdxGQUgnLEP34p77bnggpFFcybep3eX0SRsxItjT7bGVq1s7hLEPXvIi67p9M416/+sOFwds+OUhyOtC4jV3I=
+X-Received: by 2002:a2e:a545:0:b0:30b:cceb:1e71 with SMTP id
+ 38308e7fff4ca-327ed0d64b0mr3515771fa.9.1747173158581; Tue, 13 May 2025
+ 14:52:38 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20250509150114.299962-2-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250509150114.299962-2-krzysztof.kozlowski@linaro.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 13 May 2025 23:52:27 +0200
+X-Gm-Features: AX0GCFuybBjzXgbZgpkhrGy02_JvRvbutbRLwY2ZvnnqoSf9SNzjLph5-OzDFPA
+Message-ID: <CACRpkdYwTcHh5LZ7j94LbGYv7BnTCtrJO33j17YbP6s_s3TeVg@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: meson: Drop unused aml_pctl_find_group_by_name()
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Xianwei Zhao <xianwei.zhao@amlogic.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, linux-amlogic@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250513_145240_603151_EF8354E9 
+X-CRM114-Status: UNSURE (   9.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,110 +100,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, May 9, 2025 at 5:01=E2=80=AFPM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
 
-The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
+> aml_pctl_find_group_by_name() is not used anywhere, as reported by W=3D1
+> clang build:
+>
+>   pinctrl-amlogic-a4.c:600:2: error: unused function 'aml_pctl_find_group=
+_by_name' [-Werror,-Wunused-function]
+>
+> Fixes: 6e9be3abb78c ("pinctrl: Add driver support for Amlogic SoCs")
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
+Patch applied!
 
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm32-for-6.16
-
-for you to fetch changes up to f2420037d90a8354594b3da541e19dcbb60c75e1:
-
-  ARM: dts: qcom: apq8064: move replicator out of soc node (2025-05-13 17:00:59 +0100)
-
-----------------------------------------------------------------
-Qualcomm Arm32 DeviceTree updates for v6.16
-
-Introduce support for the AP8064-based LG Nexus 4. MSM8226 is extended
-with modem-related features, the LTE-capable variant MSM8926 is
-introduced, and modem support is enabled on Samsung Galaxy Tab 4.
-
-Display-related clocks and power-domains are defined for the simple
-framebuffer of Motorola Moto G, to allow booting without
-clk_ignore_unused and pd_ignore_unused.
-
-On MSM8960 SDCC BAM and thermal sensor (tsens) is introduced.
-
-----------------------------------------------------------------
-Bjorn Andersson (1):
-      Merge branch 'arm32-for-6.15' into arm32-for-6.16
-
-David Heidelberg (1):
-      ARM: dts: qcom: apq8064-lg-nexus4-mako: Enable WiFi
-
-Dmitry Baryshkov (5):
-      ARM: dts: qcom: apq8064: add missing clocks to the timer node
-      ARM: dts: qcom: apq8064 merge hw splinlock into corresponding syscon device
-      ARM: dts: qcom: apq8064: use new compatible for SFPB device
-      ARM: dts: qcom: apq8064: use new compatible for SPS SIC device
-      ARM: dts: qcom: apq8064: move replicator out of soc node
-
-Ivan Belokobylskiy (1):
-      ARM: dts: qcom: Initial dts for LG Nexus 4
-
-Krzysztof Kozlowski (3):
-      ARM: dts: qcom: ipq4018: Switch to undeprecated qcom,calibration-variant
-      ARM: dts: qcom: msm8226: Use the header with DSI phy clock IDs
-      ARM: dts: qcom: msm8974: Use the header with DSI phy clock IDs
-
-Luca Weiss (4):
-      ARM: dts: qcom: msm8226: Add modem remoteproc node
-      ARM: dts: qcom: msm8226: Add BAM DMUX Ethernet/IP device
-      ARM: dts: qcom: Introduce dtsi for LTE-capable MSM8926
-      ARM: dts: qcom: msm8926-htc-memul: Enable modem
-
-Matti Lehtimäki (3):
-      ARM: dts: qcom: msm8226: Add node for TCSR halt regs
-      ARM: dts: qcom: msm8226: Add smsm node
-      ARM: dts: qcom: msm8226-samsung-matisse-common: Enable modem
-
-Rob Herring (Arm) (2):
-      ARM: dts: qcom: sdx55/sdx65: Fix CPU power-domain-names
-      ARM: dts: qcom: ipq4019: Drop redundant CPU "clock-latency"
-
-Rudraksha Gupta (2):
-      ARM: dts: qcom: msm8960: Add BAM
-      ARM: dts: qcom: msm8960: Add thermal sensor (tsens)
-
-Sanjay Chitroda (1):
-      ARM: dts: qcom: Fix indentation errors
-
-Stanislav Jakubek (4):
-      ARM: dts: qcom: msm8226-motorola-falcon: add clocks, power-domain to simpleFB
-      ARM: dts: qcom: msm8226-motorola-falcon: add I2C clock frequencies
-      ARM: dts: qcom: msm8226-motorola-falcon: limit TPS65132 to 5.4V
-      ARM: dts: qcom: msm8226-motorola-falcon: specify vddio_disp output voltage
-
- arch/arm/boot/dts/qcom/Makefile                    |   1 +
- arch/arm/boot/dts/qcom/msm8226-motorola-falcon.dts |  22 +-
- arch/arm/boot/dts/qcom/msm8926.dtsi                |  11 +
- .../dts/qcom/qcom-apq8026-samsung-matisse-wifi.dts |   1 +
- .../dts/qcom/qcom-apq8026-samsung-milletwifi.dts   |   2 +
- .../boot/dts/qcom/qcom-apq8064-lg-nexus4-mako.dts  | 359 +++++++++++++++++++++
- arch/arm/boot/dts/qcom/qcom-apq8064.dtsi           |  88 +++--
- .../arm/boot/dts/qcom/qcom-apq8074-dragonboard.dts |   4 +-
- arch/arm/boot/dts/qcom/qcom-ipq4018-ap120c-ac.dtsi |   2 +-
- arch/arm/boot/dts/qcom/qcom-ipq4018-jalapeno.dts   |   4 +-
- arch/arm/boot/dts/qcom/qcom-ipq4019-ap.dk07.1.dtsi |   2 +-
- arch/arm/boot/dts/qcom/qcom-ipq4019.dtsi           |   6 +-
- .../dts/qcom/qcom-msm8226-microsoft-common.dtsi    |   6 +-
- .../dts/qcom/qcom-msm8226-microsoft-dempsey.dts    |   1 +
- .../dts/qcom/qcom-msm8226-microsoft-makepeace.dts  |   1 +
- .../dts/qcom/qcom-msm8226-microsoft-moneypenny.dts |   1 +
- .../qcom/qcom-msm8226-samsung-matisse-common.dtsi  |  19 +-
- arch/arm/boot/dts/qcom/qcom-msm8226.dtsi           | 164 +++++++++-
- arch/arm/boot/dts/qcom/qcom-msm8926-htc-memul.dts  |  14 +-
- .../qcom/qcom-msm8926-microsoft-superman-lte.dts   |   1 +
- .../boot/dts/qcom/qcom-msm8926-microsoft-tesla.dts |   1 +
- .../dts/qcom/qcom-msm8926-motorola-peregrine.dts   |   2 +-
- .../dts/qcom/qcom-msm8926-samsung-matisselte.dts   |   5 +
- arch/arm/boot/dts/qcom/qcom-msm8960.dtsi           |  99 +++++-
- arch/arm/boot/dts/qcom/qcom-msm8974.dtsi           |  21 +-
- arch/arm/boot/dts/qcom/qcom-sdx55.dtsi             |   2 +-
- arch/arm/boot/dts/qcom/qcom-sdx65.dtsi             |   2 +-
- 27 files changed, 758 insertions(+), 83 deletions(-)
- create mode 100644 arch/arm/boot/dts/qcom/msm8926.dtsi
- create mode 100644 arch/arm/boot/dts/qcom/qcom-apq8064-lg-nexus4-mako.dts
+Yours,
+Linus Walleij
 
