@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4532BC3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 14:45:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A1F4C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 14:47:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l3QyM1DjmFDWSeP13sIro0GR4y/rY666nmRswSJJONM=; b=QSwRAHp86Lgdx+mnnLCRItpxiR
-	lzxHCWIlbR0b8hmxj+N7TSp3wQKAJM0eZFNOQQi7h38OCAcxF2xy3Zk+z1rEKWdTleQn64I6FpvNF
-	kZNWq11SPjJGQ3qUXk0xGY0ab6qV6xuak+yn3yneE+8xvvLeuvrrRh6byDqjvUMV7UB35J3XDfLBf
-	KCzOZzK1G3OTPeS5dlKVVWAbgReH9CFai9DcHJvmXmxR2EQRa+hI/rligonHuxOzAQYK9YxV9tfMG
-	dwv7+YLzo+TtcLkrvFOCoWApKtYwsi4qbynJM3Ps9Vfp+wbD0DRIjNZP4kiJ6YSsBPzWApFfNj+k4
-	0v2vu4qg==;
+	bh=7YvgXavjYk3qezCEaC35oraBxSxS0wxTaOtMKshGmeo=; b=4P3+CVmmXNfdF287HqQtbi1jGL
+	0dVoGpzKEILI1TRi2Lw4robCIOVuN8z+rRrK0bCBb/790yCwl5ltQDt+q5iSTtdibQsjdBP0GUWSZ
+	lWOqxzkqxnpZH5+4wD4SLjkBdNBC010vEbJTO4Fc1nLqzECDFrbgqFXcIg8OwKTFt3z3oblUbxC4w
+	YDXZuFmfAredmCkPLPpP0BdYO3PGzT70au7iyuWrrbUCp7d+R1XeSBsT18rhrSmnJYem3Kl9+bRC3
+	VHInmO4vwjvqkXjZtBR6ir4wTIgP1/iq1k+L0+fJeKG0pd/oGmgBpzFEMfn187PoC0B4QWKPRgwmc
+	2RODEM/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEqt2-0000000Ced4-3Gz4;
-	Tue, 13 May 2025 14:45:40 +0000
+	id 1uEqv7-0000000Cep1-21JO;
+	Tue, 13 May 2025 14:47:49 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEqph-0000000Cdt3-1M3c
+	id 1uEqqJ-0000000Ce0E-2bkN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 14:42:14 +0000
+	Tue, 13 May 2025 14:42:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 082E2113E;
-	Tue, 13 May 2025 07:42:02 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4EE00113E;
+	Tue, 13 May 2025 07:42:40 -0700 (PDT)
 Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CC1723F63F;
-	Tue, 13 May 2025 07:42:11 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1F07F3F63F;
+	Tue, 13 May 2025 07:42:49 -0700 (PDT)
 From: Sudeep Holla <sudeep.holla@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	Sudeep Holla <sudeep.holla@arm.com>
-Cc: Liviu Dudau <liviu.dudau@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH] arm64: dts: arm: Drop the clock-frequency property from timer nodes
-Date: Tue, 13 May 2025 15:42:08 +0100
-Message-Id: <174714730381.3608105.12769749620212383258.b4-ty@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Leo Yan <leo.yan@arm.com>
+Subject: Re: [PATCH v2 1/3] arm64: dts: fvp: Add system timer for broadcast during CPU idle
+Date: Tue, 13 May 2025 15:42:47 +0100
+Message-Id: <174714733954.3608361.17082559112187564341.b4-ty@arm.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250512101132.1743920-1-sudeep.holla@arm.com>
-References: <20250512101132.1743920-1-sudeep.holla@arm.com>
+In-Reply-To: <20250509154640.836093-1-sudeep.holla@arm.com>
+References: <20250509154640.836093-1-sudeep.holla@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_074213_404010_A8A5F86C 
-X-CRM114-Status: UNSURE (   6.82  )
+X-CRM114-CacheID: sfid-20250513_074251_702035_23829126 
+X-CRM114-Status: UNSURE (   7.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -67,16 +67,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 12 May 2025 11:11:32 +0100, Sudeep Holla wrote:
-> Drop the clock-frequency property from the timer nodes, since it must be
-> configured by the boot/secure firmware.
+On Fri, 09 May 2025 16:46:38 +0100, Sudeep Holla wrote:
+> Introduce a system-level timer node in the FVP device tree to act as
+> a broadcast timer when CPUs are in context losing idle states where
+> the local timer stops on entering such low power states.
+> 
+> This change complements recent CPU idle state additions.
 > 
 > 
+> [...]
 
 Applied to sudeep.holla/linux (for-next/juno/updates), thanks!
 
-[1/1] arm64: dts: arm: Drop the clock-frequency property from timer nodes
-      https://git.kernel.org/sudeep.holla/c/1fa3ed04ac55
+[1/3] arm64: dts: fvp: Add system timer for broadcast during CPU idle
+      https://git.kernel.org/sudeep.holla/c/7556a55b07c0
+[2/3] arm64: dts: fvp: Add CPU idle states for Rev C model
+      https://git.kernel.org/sudeep.holla/c/44845ea83d5e
+[3/3] arm64: dts: fvp: Reserve 64MB for the FF-A firmware in memory map
+      https://git.kernel.org/sudeep.holla/c/bbb59b3614a7
 --
 Regards,
 Sudeep
