@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B07ECC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 17:49:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B4FCC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 17:51:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t6ULvENJF3RGne8V2bQQtnlL3YafBC67ZRJPHPigIec=; b=mAlqFdIrUU2tK8dg8flInQYv19
-	5+ljNYXYsC3DwcUUZx6A0CWdz63LTe1S9aiDK2kCbWtzUwDsWf2bXh49uS89ImpNS1TXlfaci6/14
-	zLBecGbuX9voEztj/p8OSWUCTXIte+CD3ToIGTBlWFePrH2sxaAmcIrMpV1cA/SaE3rGrdEox+Op+
-	S9PSEmsTfcfJSfTCOtTHgSZI7kLpVjwSRDrYOwTKJ1DkuEI3xU2eWc/XlRbCj3nrp4gN9bRqHRVyl
-	6bSFOIm3BBvhu2EgcNHu34IlqVH6VtNd8JUGshhREgh0jHVUED1x35QPyg6N/9ZHl9vqJ3nvieg1G
-	1B09xy8Q==;
+	bh=0AJ7kQUPH9AYx8SFCEk/OR0xfB62ICgTs2tcpmfvSvA=; b=xiK2YcqwClYEXCo4fm7laE88C/
+	8sY2kx9BQkENHv/GLhiHgC/W7AzLBP6Zd6cEj9jyP+zJAABbQdt7YTtPV+VgN6ai86Xx0fFyTorub
+	97TQ7+67ndLls8mUiP/DYigN9fydV855Hd7SzQg/RuY6GKoq8qcURrpQF1kUy4EkIK4f5mLw/pBxk
+	fnuzjG9r/ZjVCUZOyYAHVfaLQkyqjgkyaNxDUTKhSY16WtzRWzxgg/FkcphIqKt3JBPKFMteS55eF
+	KocqRyLlYnrzQSaHU9b9Wcgfa80WrK7RWm1JF3T5yiO2pvulYVhitB0m3gzg418fjpgE/zV+QkRiM
+	FQl9XXsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEtkf-0000000D9DO-2oh1;
-	Tue, 13 May 2025 17:49:13 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uEtml-0000000D9rk-1gQR;
+	Tue, 13 May 2025 17:51:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEtQd-0000000D5cF-2IyE
+	id 1uEtQe-0000000D5dX-1GKY
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 13 May 2025 17:28:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C3A20A4DAB9;
-	Tue, 13 May 2025 17:28:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60828C4CEF2;
-	Tue, 13 May 2025 17:28:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9C93E4ADDF;
+	Tue, 13 May 2025 17:28:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 761AEC4CEF5;
+	Tue, 13 May 2025 17:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747157310;
-	bh=hJnEDdlO2yAeWjJZLwOK8T9TN8bPwhBcclQiZAl/tvQ=;
+	s=k20201202; t=1747157311;
+	bh=oy5+g4474/lLrvJUb110/2URSF/aJXhYc5kqF6xIKtQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=m3NXXBMEOno7S4l41KbEzkbwBRE0r32Lrlik96A7hRHsMUPQDujQ4f1z01V0wv5Lr
-	 nPmmGQAXsxOlzy58uQc78D9aWMkpIWkKXjgBrQFUDFf2w4fjWNwcADhcRQLfPW3/IU
-	 hJlq3tAZh8SulU07V3e+b5rZmlphQ9B+nhALsGlTBga75KJfCC8ijE5+XQdPI1SfBv
-	 Xffhs97gS0jM0Af3k/vvzahGfHfdX9feZpBE6Tf7Pce7w1lzVHb296s+pBUteGKZYn
-	 lqvpBmhMEP7K34siTFutWivrPR/tVQKJqQJeyaHcJBf5nskooCUgP8Y2vvNt2WTFHh
-	 kpmLq3bq7t+yw==
+	b=UznpozAf4DUO/Ks0LKeyAxdx0MYz5WwUJyeksUIdGKa6FdtLkMGssOOT/m/p2zizm
+	 w+aWJGVeyvd9URKDIhAVfuYR6QFJh+AtYBcDvMeWa4d6LS0ucVVFsc8/8592hxHqg0
+	 19J6eB+M59DBT8wgv7BnNhb90UDIyQX1wwJXABsCr+S5SnDDAXn4sXRMuFaenTsazf
+	 c1nKC2t2N9CiVOYwgJHfpJ9JH59YS36HyuKHqry93CNYhwwzZfd/vXW0Bsl5pRhSsk
+	 UewLDTFrHtg1NrWYxKn3Nvoxhlunhe2jpvt+j7dfIwkOVAn/IlJa+LvLUTSw1fL0pj
+	 eopGC/VKxe+8A==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uEtQa-00EbRz-HN;
-	Tue, 13 May 2025 18:28:28 +0100
+	id 1uEtQb-00EbRz-MW;
+	Tue, 13 May 2025 18:28:29 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,9 +64,9 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
 	Thierry Reding <thierry.reding@gmail.com>,
 	Jonathan Hunter <jonathanh@nvidia.com>
-Subject: [PATCH v2 3/9] irqchip/gic: Convert to msi_create_parent_irq_domain() helper
-Date: Tue, 13 May 2025 18:28:13 +0100
-Message-Id: <20250513172819.2216709-4-maz@kernel.org>
+Subject: [PATCH v2 8/9] PCI: xgene: Convert to MSI parent infrastructure
+Date: Tue, 13 May 2025 18:28:18 +0100
+Message-Id: <20250513172819.2216709-9-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250513172819.2216709-1-maz@kernel.org>
 References: <20250513172819.2216709-1-maz@kernel.org>
@@ -77,8 +77,8 @@ X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradea
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_102831_761157_A5C67858 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20250513_102832_383266_36CD96E4 
+X-CRM114-Status: GOOD (  18.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,111 +93,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we have a concise helper to create an MSI parent domain,
-switch the GIC family over to that.
+In an effort to move arm64 away from the legacy MSI setup,
+convert the xgene PCIe driver to the MSI-parent infrastructure
+and let each device have its own MSI domain.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/irqchip/irq-gic-v2m.c    | 12 +++++++-----
- drivers/irqchip/irq-gic-v3-its.c | 19 +++++++++----------
- drivers/irqchip/irq-gic-v3-mbi.c | 11 ++++++-----
- 3 files changed, 22 insertions(+), 20 deletions(-)
+ drivers/pci/controller/Kconfig         |  1 +
+ drivers/pci/controller/pci-xgene-msi.c | 46 ++++++++++----------------
+ 2 files changed, 18 insertions(+), 29 deletions(-)
 
-diff --git a/drivers/irqchip/irq-gic-v2m.c b/drivers/irqchip/irq-gic-v2m.c
-index 62676994d0695..9050792e3242f 100644
---- a/drivers/irqchip/irq-gic-v2m.c
-+++ b/drivers/irqchip/irq-gic-v2m.c
-@@ -268,16 +268,18 @@ static __init int gicv2m_allocate_domains(struct irq_domain *parent)
- 	if (!v2m)
- 		return 0;
+diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
+index 98a62f4559dfd..205e0e365c6b1 100644
+--- a/drivers/pci/controller/Kconfig
++++ b/drivers/pci/controller/Kconfig
+@@ -304,6 +304,7 @@ config PCI_XGENE_MSI
+ 	bool "X-Gene v1 PCIe MSI feature"
+ 	depends on PCI_XGENE
+ 	depends on PCI_MSI
++	select IRQ_MSI_LIB
+ 	default y
+ 	help
+ 	  Say Y here if you want PCIe MSI support for the APM X-Gene v1 SoC.
+diff --git a/drivers/pci/controller/pci-xgene-msi.c b/drivers/pci/controller/pci-xgene-msi.c
+index 7bce327897c93..857177ab3d30f 100644
+--- a/drivers/pci/controller/pci-xgene-msi.c
++++ b/drivers/pci/controller/pci-xgene-msi.c
+@@ -12,6 +12,7 @@
+ #include <linux/module.h>
+ #include <linux/msi.h>
+ #include <linux/irqchip/chained_irq.h>
++#include <linux/irqchip/irq-msi-lib.h>
+ #include <linux/pci.h>
+ #include <linux/platform_device.h>
+ #include <linux/of_pci.h>
+@@ -32,7 +33,6 @@ struct xgene_msi_group {
+ struct xgene_msi {
+ 	struct device_node	*node;
+ 	struct irq_domain	*inner_domain;
+-	struct irq_domain	*msi_domain;
+ 	u64			msi_addr;
+ 	void __iomem		*msi_regs;
+ 	unsigned long		*bitmap;
+@@ -44,20 +44,6 @@ struct xgene_msi {
+ /* Global data */
+ static struct xgene_msi xgene_msi_ctrl;
  
--	inner_domain = irq_domain_create_hierarchy(parent, 0, 0, v2m->fwnode,
--						   &gicv2m_domain_ops, v2m);
-+	inner_domain = msi_create_parent_irq_domain(&(struct irq_domain_info){
-+			.fwnode		= v2m->fwnode,
-+			.ops		= &gicv2m_domain_ops,
-+			.host_data	= v2m,
-+			.parent		= parent,
-+		}, &gicv2m_msi_parent_ops);
-+
- 	if (!inner_domain) {
- 		pr_err("Failed to create GICv2m domain\n");
- 		return -ENOMEM;
- 	}
- 
--	irq_domain_update_bus_token(inner_domain, DOMAIN_BUS_NEXUS);
--	inner_domain->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT;
--	inner_domain->msi_parent_ops = &gicv2m_msi_parent_ops;
- 	return 0;
+-static struct irq_chip xgene_msi_top_irq_chip = {
+-	.name		= "X-Gene1 MSI",
+-	.irq_enable	= pci_msi_unmask_irq,
+-	.irq_disable	= pci_msi_mask_irq,
+-	.irq_mask	= pci_msi_mask_irq,
+-	.irq_unmask	= pci_msi_unmask_irq,
+-};
+-
+-static struct  msi_domain_info xgene_msi_domain_info = {
+-	.flags	= (MSI_FLAG_USE_DEF_DOM_OPS | MSI_FLAG_USE_DEF_CHIP_OPS |
+-		  MSI_FLAG_PCI_MSIX),
+-	.chip	= &xgene_msi_top_irq_chip,
+-};
+-
+ /*
+  * X-Gene v1 has 16 groups of MSI termination registers MSInIRx, where
+  * n is group number (0..F), x is index of registers in each group (0..7)
+@@ -235,34 +221,36 @@ static void xgene_irq_domain_free(struct irq_domain *domain,
+ 	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
  }
  
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 9e6380f597488..9ea3a6723263c 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -5128,20 +5128,19 @@ static int its_init_domain(struct its_node *its)
- 	info->ops = &its_msi_domain_ops;
- 	info->data = its;
+-static const struct irq_domain_ops msi_domain_ops = {
++static const struct irq_domain_ops xgene_msi_domain_ops = {
+ 	.alloc  = xgene_irq_domain_alloc,
+ 	.free   = xgene_irq_domain_free,
+ };
  
--	inner_domain = irq_domain_create_hierarchy(its_parent,
--						   its->msi_domain_flags, 0,
--						   its->fwnode_handle, &its_domain_ops,
--						   info);
-+	inner_domain = msi_create_parent_irq_domain(&(struct irq_domain_info){
-+			.fwnode		= its->fwnode_handle,
-+			.ops		= &its_domain_ops,
-+			.host_data	= info,
-+			.domain_flags	= its->msi_domain_flags,
-+			.parent		= its_parent,
-+		}, &gic_v3_its_msi_parent_ops);
++static const struct msi_parent_ops xgene_msi_parent_ops = {
++	.supported_flags	= (MSI_GENERIC_FLAGS_MASK	|
++				   MSI_FLAG_PCI_MSIX),
++	.required_flags		= (MSI_FLAG_USE_DEF_DOM_OPS	|
++				   MSI_FLAG_USE_DEF_CHIP_OPS),
++	.bus_select_token	= DOMAIN_BUS_PCI_MSI,
++	.init_dev_msi_info	= msi_lib_init_dev_msi_info,
++};
 +
- 	if (!inner_domain) {
- 		kfree(info);
- 		return -ENOMEM;
- 	}
- 
--	irq_domain_update_bus_token(inner_domain, DOMAIN_BUS_NEXUS);
--
--	inner_domain->msi_parent_ops = &gic_v3_its_msi_parent_ops;
--	inner_domain->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT | IRQ_DOMAIN_FLAG_MSI_IMMUTABLE;
--
- 	return 0;
- }
- 
-@@ -5518,7 +5517,7 @@ static struct its_node __init *its_node_init(struct resource *res,
- 	its->base = its_base;
- 	its->phys_base = res->start;
- 	its->get_msi_base = its_irq_get_msi_base;
--	its->msi_domain_flags = IRQ_DOMAIN_FLAG_ISOLATED_MSI;
-+	its->msi_domain_flags = IRQ_DOMAIN_FLAG_ISOLATED_MSI | IRQ_DOMAIN_FLAG_MSI_IMMUTABLE;
- 
- 	its->numa_node = numa_node;
- 	its->fwnode_handle = handle;
-diff --git a/drivers/irqchip/irq-gic-v3-mbi.c b/drivers/irqchip/irq-gic-v3-mbi.c
-index e562b57923229..11fa5df9da8c7 100644
---- a/drivers/irqchip/irq-gic-v3-mbi.c
-+++ b/drivers/irqchip/irq-gic-v3-mbi.c
-@@ -208,14 +208,15 @@ static int mbi_allocate_domain(struct irq_domain *parent)
+ static int xgene_allocate_domains(struct xgene_msi *msi)
  {
- 	struct irq_domain *nexus_domain;
- 
--	nexus_domain = irq_domain_create_hierarchy(parent, 0, 0, parent->fwnode,
--						   &mbi_domain_ops, NULL);
-+	nexus_domain = msi_create_parent_irq_domain(&(struct irq_domain_info){
-+			.fwnode		= parent->fwnode,
-+			.ops		= &mbi_domain_ops,
-+			.parent		= parent,
-+		}, &gic_v3_mbi_msi_parent_ops);
-+
- 	if (!nexus_domain)
+-	msi->inner_domain = irq_domain_add_linear(NULL, NR_MSI_VEC,
+-						  &msi_domain_ops, msi);
++	msi->inner_domain = msi_create_parent_irq_domain(&(struct irq_domain_info){
++			.fwnode		= of_node_to_fwnode(msi->node),
++			.ops		= &xgene_msi_domain_ops,
++			.size		= NR_MSI_VEC,
++			.host_data	= msi,
++		}, &xgene_msi_parent_ops);
+ 	if (!msi->inner_domain)
  		return -ENOMEM;
  
--	irq_domain_update_bus_token(nexus_domain, DOMAIN_BUS_NEXUS);
--	nexus_domain->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT;
--	nexus_domain->msi_parent_ops = &gic_v3_mbi_msi_parent_ops;
+-	msi->msi_domain = pci_msi_create_irq_domain(of_node_to_fwnode(msi->node),
+-						    &xgene_msi_domain_info,
+-						    msi->inner_domain);
+-
+-	if (!msi->msi_domain) {
+-		irq_domain_remove(msi->inner_domain);
+-		return -ENOMEM;
+-	}
+-
  	return 0;
  }
  
+ static void xgene_free_domains(struct xgene_msi *msi)
+ {
+-	if (msi->msi_domain)
+-		irq_domain_remove(msi->msi_domain);
+ 	if (msi->inner_domain)
+ 		irq_domain_remove(msi->inner_domain);
+ }
 -- 
 2.39.2
 
