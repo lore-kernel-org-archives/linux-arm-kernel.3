@@ -4,157 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3597C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 06:50:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D24BC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 06:53:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rgIWSxI49N0edLzGykwXj9H+T/Sdhd4ujMSuZIOEexA=; b=QkjttBgZpDfnHNK2xAuD6hK6bt
-	Bvm7VLPQE/nGhFIQuudC3BuOsFN977nOkCRJVLOFacbVKHDJdm+q30ZeULKw6L8m7MtVoGfpX/1ev
-	Jk32PiGB7wB18WXTweOpauV93e/KnYR9vO46fMiK6dnPuDSqi8AF+b5Rr7bNLn1AA7lIyMOk1vFUi
-	I4iqmdjPwwb2hqtEajQTVOf93BPRbF35FGFrQ0YldLtVlQI9cT5DXLCGRl7gEd2e5MMHDiX4KqECn
-	YvDYJlsl1ipaodqwyHe4sveMUCQGZJMBM/h5SYG6AGgtZAwfrUzehHNhohILyUE4lcltEqZCnPjpa
-	huPShrZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xnWdzCsn1nlRc6iuM9H0ibjxeQVRnrEakscBkjfXWF4=; b=QPfGIYEaWT2NyKvUhGQfN/9eYd
+	NOaKG+qej3sJtHCf8umsd6TO52w6M3B87xi7ibrimoE/Ufj3kxxP38A7XiXpmfBbqsi5ae3Dx/zoc
+	WfPxmyN1+p6IJ4mV7p/FkRYaMn+VA3kL8BRwbxGzbfsFfHtQgJYiPOGRsOqh9Suhog/tTQMya6Sw/
+	R+T5pj4LzD5Zgp1oLh1Og/QIFEuDY/6FkwpYc7vE743528/aIeE5aU9khu8EfvDpIH1ckx1oulF/X
+	ojooHb14aaqQhJaUPRQba8Ra9Tq8hh+wDwTs6p1Ono5PHbFyI93z2ESSjPUSdKUm5jXXflkjD0eh/
+	n9kVZtpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEjT3-0000000BY1F-1DTs;
-	Tue, 13 May 2025 06:50:21 +0000
-Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1uEjVq-0000000BYIc-2edg;
+	Tue, 13 May 2025 06:53:14 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEjQ6-0000000BXcr-4BSu
+	id 1uEjTq-0000000BY98-2RQC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 06:47:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AaGypkQmYW1JTPP62XPDW1wOODLjCiEAA16B9Nj6lmBmSvPz6aZY91Giwr5Uq5w5YqrGl0mvQ5L4fojtOsJC7to1LElz5M9SYrniPFiPap8eU7fZbzvPbtjrPzn2iXYZ3lHur7s3SOAFxOK9Y2+Nv4AkgExenF2sJ7HPDWVoOp7ULjDCLTT7Gg+p6SlPOA3nDz8Pv4VoBaseV9ZTgTTws8AjGsRXqLPR5ToR37Nq15PauV/RBQziLEx+/fSwRUOWcIV1aHGYzKtniV2midAQt4vt942Eod404nnwN2q2igGeXQo/7MhSLiKzHeCQn9VAI7vdv9CrZMhqExIOaePKdA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rgIWSxI49N0edLzGykwXj9H+T/Sdhd4ujMSuZIOEexA=;
- b=k3+PA28g0URwJexNwpqoFOiA6poYHYsw+mnDBeNAcNJ4GU1v1rx7i4qLRs+SM0x3f45HfeUfw/S4ttlrTW6njQY/R6TEJwWLC10bTG/vWfuMnVPQFhvFlzRt/sQAZr2c2qIndQuS/CQ9ltOBP7nbjn53lRvXR9QfX2acpv1EzsdFYz91qGUc0WA2hSyUj6Ylks6tBmdyjWVygNu9DiIDgaKX99SNotkziXyBx6z1hHW7h4Sn5SkPN3062ugFCBA02CyhZzPncSlYSPj7cB+Xo7yIIPTTK3KekbvblEwhpgZLhVrbQkPkw5yH1nkVCEKiWTci6NYVBq35zsxLacd1bg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rgIWSxI49N0edLzGykwXj9H+T/Sdhd4ujMSuZIOEexA=;
- b=e6nf3a/xkWUSsSg2+mAh9lgDA/yUiluiyb1PW4Pl7Rjo9rIFe1VeX5J8lce2J1wj0nvfnrUKhvSBZHQWBm2Qv5+ZnNe1F+fpN9y4nJby5JrMFwctpjEb+YjzvPZJ7qCh5G3GFUAhycyV90lv2NviwrvkGGyAUfTSk/GHFPEp0fb/ng0Cj4bS+4cxqdwjXEgxzh+XWncJ3bidwU75opxtTUBpofI01/nSIYQ8gtil+MIfM71zo+AYyPf1rvF8MoahFweFyaQWkcPkazdejf5OguLCvVT0h0ljO1ay7+bJMK43+hZVyp4phZPTQgpMR4FdLjwROGoC9Oi1LGo6Et3/Ag==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM9PR04MB8338.eurprd04.prod.outlook.com (2603:10a6:20b:3ec::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.30; Tue, 13 May
- 2025 06:47:14 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8722.027; Tue, 13 May 2025
- 06:47:14 +0000
-Date: Tue, 13 May 2025 15:56:38 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 2/3] pinctrl: imx-scmi: Get daisy register offset from DT
-Message-ID: <20250513075638.GC14572@nxa18884-linux>
-References: <20250512-pin-v1-0-d9f1555a55ad@nxp.com>
- <20250512-pin-v1-2-d9f1555a55ad@nxp.com>
- <aCGShsaItUTf2Z14@pengutronix.de>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aCGShsaItUTf2Z14@pengutronix.de>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SG2PR02CA0041.apcprd02.prod.outlook.com
- (2603:1096:3:18::29) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Tue, 13 May 2025 06:51:12 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4ZxRt44RJDznfgv;
+	Tue, 13 May 2025 14:49:48 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id C9CE01800B2;
+	Tue, 13 May 2025 14:51:05 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 13 May 2025 14:51:05 +0800
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 13 May 2025 14:51:04 +0800
+CC: <yangyicong@hisilicon.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<dianders@chromium.org>, <sumit.garg@linaro.org>, <kernelfans@gmail.com>,
+	<lecopzer.chen@mediatek.com>, <tglx@linutronix.de>, <song@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <jonathan.cameron@huawei.com>,
+	<zhanjie9@hisilicon.com>, <prime.zeng@hisilicon.com>, <linuxarm@huawei.com>
+Subject: Re: [PATCH v2 0/2] Update the watchdog period according to real CPU
+ frequency
+To: Andrew Morton <akpm@linux-foundation.org>
+References: <20250512130919.23915-1-yangyicong@huawei.com>
+ <20250512160612.c10464075df3c7842b13da11@linux-foundation.org>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <3d9ef0c0-11b3-6ce2-5a48-5a01dbc9bf58@huawei.com>
+Date: Tue, 13 May 2025 14:51:04 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM9PR04MB8338:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2037c4d2-691e-4aed-2d54-08dd91e9fee7
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?XF0+PuXBgjTJ/iZQ3uV3pzESaRtWRovsq0qwHEMVh4ojm6ynAV2jwBgmQ+5C?=
- =?us-ascii?Q?wCnG947Ns1omlbIU/3Hk+gYwM4MJM//hwvJYVjxtypbNTaUvBa8Vw1/yZhkh?=
- =?us-ascii?Q?uKajOA1dGG3fmyRgJsebDI3lXAVNfun+3MfMEdMUrXHps4q/Qn94ZKUKIA1U?=
- =?us-ascii?Q?P3q5A9QiqDQjD/B08ofvldLB1UWo85Msi2vHML/IU7IOanITnNVGi1AuIrJr?=
- =?us-ascii?Q?RP487S/L3PP2dx+Yh64K+FUvEOpCbKcTSGCq7XGImDVUz1CtZrTgG6OfYdHR?=
- =?us-ascii?Q?AJtHjD+st/Vf1rzGYynpU6E+546CP9Rzbbc/hX09lJHr5uxrsq1MRqcofIYW?=
- =?us-ascii?Q?bQO95MN4cpBlaJ7F8Woz0il/22iVNUWmkIQujNhK8dftBs+spuQEecdG6hUX?=
- =?us-ascii?Q?+DBDcI4lq2OHhCq35yHer4JUAHI+cDtckW/tVXdukiMxZxO3koLxI8OSIAXo?=
- =?us-ascii?Q?sRPE2hOB6GdswYUnQmPFfk4jFKKILjJe+EFAur0AUsAeL3pJ2yDtQW4dQ+2q?=
- =?us-ascii?Q?qUBvVxWD5hRfEqE3p+/jUoWlOdmXHZ6qVXof8PpKLk+xxqj4xNxOtk8tUlSS?=
- =?us-ascii?Q?cW1E9x5roE4SJZsMXJpewBHWUf9BVuwtHHyPEoSZvHT7DrUnK9jkcZNuZVKQ?=
- =?us-ascii?Q?s0wIuPc4nIE7m57GY6cIwac6fNF67yu6LMVN6NdCuLlINKMktFKjtLzyxsks?=
- =?us-ascii?Q?gkQLLMMAwsUYNaAknfBdeL7NAi8YfPJGaIt2sLh0rBFxyY3nNuy+95DRlU5N?=
- =?us-ascii?Q?IyXyB18K9qkfnzQm7mfn8NCc1i5d/ppyqMbaR6hGC7cl8goR5WaLS40NUCq8?=
- =?us-ascii?Q?DYkLt/L1FbYnXBp4g0byUjvS9bdjTSyAv7anAl8zdU4EglpQMpO4jyc+UG4J?=
- =?us-ascii?Q?LreolQ16HJAfAs44by+TtATiISOGbzVi5Q9xI3nl1VUKg03f9j9NFAfUrY5G?=
- =?us-ascii?Q?xPKgVvat/gIVSwL6mpfuU96wymxqGwGRHiQRPeABIfJQ7u5kCLFvx7OgBWvZ?=
- =?us-ascii?Q?khMD4ZJlzm4zIBkD8Y6IygyTL+OHTgkY37mr1jtO9UqE23lYvVfLNgErRjHb?=
- =?us-ascii?Q?cdQHH2/PM/B7ddyiydmge+LNhhKOL3nwBbu9iNXECZfrUkYpmOiliAabB/IN?=
- =?us-ascii?Q?MnTqRPD338S+YknQvYCCPvPc5UY2SdHMxC9uilNZ31CngxNeIm/hcLiroqmK?=
- =?us-ascii?Q?wcVbYyFhqSjMPaSG32CZqKJx4gWziw7kXpeS2UPDPd+lM99LOYbRjE+Skjho?=
- =?us-ascii?Q?aYKvOdj3G4t31b2EbesFBpeUiV6eK9UhFu2llQYIadLMa0RL9IdQFTb+VBZ6?=
- =?us-ascii?Q?8vvim2qzJLA/Gc2oNGsEAXIJTa2OGv6gilNe8T1dV/x/zT6cQyQBHL5114Sm?=
- =?us-ascii?Q?FGiQwWFeOyB7L/dXtwxNKW0gBVhV2jw8zc4AB8OPL+lRRx/IwHgvpVoCV6Xi?=
- =?us-ascii?Q?FtaGUaL8qic=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EyhQ/GUyueSj+u+MxyTjcuv/e4dIh4ZIUBhya2UXsEyj5yIKX/Q17duIgnHY?=
- =?us-ascii?Q?YKoiPIHR0rzgNaYYCOXbu6EmJLWrjySFjxlZ9eqhblbG8fEtleyAonITMEGD?=
- =?us-ascii?Q?84bhT/7fJCwPhIwqUaJYTqQINmEzMHTOs8ICEHhFwcml3HhB+sok+iyjdFEO?=
- =?us-ascii?Q?fg2+zZiI2ex0Q/LaKBtGAxVe1TFFQqoduAaYvETOfDEhwA/fEC5S8H5xutQF?=
- =?us-ascii?Q?Af1HYuieJ5PfE80+RBqeNDn6LX+8IQBBn7CaV4Iis0pibNmqYITajsqWsrqj?=
- =?us-ascii?Q?6hIH2YO9YhpW874SyqqbTcj8QGl39ONuScHJiEKoMnsBc8oGI/F1zvwiA9ca?=
- =?us-ascii?Q?QM80sHTT8J4jNQAl7vDmHyJ81k08ejxop9M5fp2DNJltkH/UtvznaWcNpPlB?=
- =?us-ascii?Q?jrtgz+PXHcrOB83lVq9hOqcRfJVCnoJnUY2+Oj5OcIo84LG6/aRSLQiNhtx3?=
- =?us-ascii?Q?JI8E0rjVK698KrpuicfVHwFgshelhjdPg9d/tWEAis2JCMOyUCuHaXxP4GOC?=
- =?us-ascii?Q?rtTdjKnHTzTLSduW51pusFc0drDb1qag2jsdb04HHpB+uZJVD3grPfcSaY5S?=
- =?us-ascii?Q?yOifoSBBeXbF1Qxnx4eK7aBV8A/CMEiIv6cIX7I6J86uzhvJjqLFHGoDpwe3?=
- =?us-ascii?Q?2npIhl6Dr9sO0XqnqWagSfakYd7S1yB1FrldS0EKegQmZ/03BI0B7q+ygOl0?=
- =?us-ascii?Q?Kt0PS894xsWYQR+qSPYKDBMI2I6WSlsN+oJhhhxsAbdjlm/aoEpm69oeVi5f?=
- =?us-ascii?Q?xVzp7d2zPN8zf2QWbBj8qfJpI+QGDT1trZkRbzhWx5cRzhl9wTrirezz02It?=
- =?us-ascii?Q?cb5U8gupEJttr3VYmOTdNOElTGBhdlMiO7WBgsEmEYKDpXE6Jz1QbVGtnudr?=
- =?us-ascii?Q?vAyZSf99Jl6nzOasS/78X2jBg9Y0nG0FgjGOPNjxXaIPuhywz6s2OoTtt1sO?=
- =?us-ascii?Q?XaUz8tEVwpnyqB0qbIk8WlL1IAZFwAR8YPzvjXpUmcWz5XYnc777AqteTWci?=
- =?us-ascii?Q?dNak9gEmqTcHM+SQ9XZefOZIXXvr9jkyVgM20k9nOFMiaCZJJznjBOgIHWq9?=
- =?us-ascii?Q?DKWcgUvanx6VWsu7SH4dNpEhv7q+est4SonezjfRwxvwNSp1Gi3sDrmIg43m?=
- =?us-ascii?Q?HzfOydGk5dkNAXi/Lk8uDkQSV6zoAAtWf46pX22n4Zc8to5TS/xg2nbJq+MN?=
- =?us-ascii?Q?1407z00E3Z6jF6/sJEwICAQAXv25cCBTqprhSjup1yuq+3JE3JgPQVahBMDb?=
- =?us-ascii?Q?rNl8hkIWgo1odD/CSg3TCn27jbG9n3R7z3Aev3GUuN9jtKwQSbpJU8FA7ZgX?=
- =?us-ascii?Q?yuU/CNdqAyL4/rlLhYNteU6vYgGwHNZmKltcRHwIFR2I+XwAMm+GAKIxtcac?=
- =?us-ascii?Q?jjxmssDnBz35z9zmGe42p9Ufaho2tPekVfKrGhzQf0S4wRxPwZ/c70RsyevR?=
- =?us-ascii?Q?UR6de3FhUpYf5Tdj6KTFZf+Ew1OB5glRKYVl2CY+uN63riqXnj3UiSJkeHpL?=
- =?us-ascii?Q?BaRQOS9BUW1W2SyK+NDtH+mrYSSS9wQW1PguMl6EQRKNV8vJ9pVEvgVxX6yY?=
- =?us-ascii?Q?AVf201Yd7TbWtn3FU7UmBe3ALcWr1n2WJOKRnyal?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2037c4d2-691e-4aed-2d54-08dd91e9fee7
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2025 06:47:14.8060
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uhGPL/l00LRTo3b3/m9lLXv5o/spxtSjrHRtG2edh11lGTkNxHRc119hvG7Y0oPAYXecEykCdxOT1sDpKIvnAw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8338
+In-Reply-To: <20250512160612.c10464075df3c7842b13da11@linux-foundation.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_234719_036397_9292627F 
-X-CRM114-Status: GOOD (  15.62  )
+X-CRM114-CacheID: sfid-20250512_235110_936517_C01A76A4 
+X-CRM114-Status: GOOD (  25.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,41 +80,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 12, 2025 at 08:17:42AM +0200, Sascha Hauer wrote:
->On Mon, May 12, 2025 at 10:14:15AM +0800, Peng Fan (OSS) wrote:
->> From: Peng Fan <peng.fan@nxp.com>
->> 
->> Parsing the "nxp,iomuxc-daisy-off" to get the daisy register offset,
->> then no need to hardcode the register offset in driver for new SoCs.
->> 
->> To keep backwards comatibility, still keep the register offset for i.MX95.
->> 
->> Signed-off-by: Peng Fan <peng.fan@nxp.com>
->> ---
->>  drivers/pinctrl/freescale/pinctrl-imx-scmi.c | 26 +++++++++++++++-----------
->>  1 file changed, 15 insertions(+), 11 deletions(-)
->> 
->> @@ -315,6 +307,18 @@ static int scmi_pinctrl_imx_probe(struct scmi_device *sdev)
->>  	if (!pmx)
->>  		return -ENOMEM;
->>  
->> +	ret = device_property_read_u32(dev, "nxp,iomuxc-daisy-off", &pmx->daisy_off);
->
->"off" is really a poor acronym for "offset" as it unnecessarily confuses
->the reader by suggesting this is about turning some feature off. Please
->add the three bytes and just call it offset.
+On 2025/5/13 7:06, Andrew Morton wrote:
+> On Mon, 12 May 2025 21:09:17 +0800 Yicong Yang <yangyicong@huawei.com> wrote:
+> 
+>> From: Yicong Yang <yangyicong@hisilicon.com>
+>>
+>> watchdog perf needs architecture to provide method for converting the watchdog
+>> thresh to counter period. For arm64 we're using the max CPU frequency for
+>> doing the conversion which is from cpufreq driver. But some cpufreq driver
+>> are registered lately, for example cppc_cpufreq will be registered at late
+>> initcall which is after the initialization of watchdog perf (initialized in
+>> armv8_pmuv3 of device initcall). In such case the period of watchdog will not
+>> be accurate enough. Fix this by registering a cpufreq notifier and update the
+>> watchdog period once the cpufreq driver is initialized.
+>>
+> 
+> Thanks.  Thoughts.
+> 
+> 1: What is the impact of this change?  Is the current code causing
+>    problems?  If so, what are they?  How is the end-user experience
+>    improved by this change?  Important info!
+> 
 
-I will use "nxp,iomuxc-daisy-offset" in V2.
+This will make NMI watchdog (hardlockup detector) work more accurately. HARDLOCKUP_DETECTOR_PERF
+is driven by the PMU sample interrupts of cpu cycle event with period related to the watchdog
+threshold.  User will set the watchdog threshold in seconds (e.g. 10s by default) and for
+HARDLOCKUP_DETECTOR_PERF we need to convert the seconds to cycles to setup the PMU counter.
+The coversion method is provided by the arhitecture by implementing hw_nmi_get_sample_period().
+For arm64 it's using max_cpufreq to do the conversion:
+cycle_event_period = threshold(s) * max_cpufreq(hz)
 
-Thanks,
-Peng
+Since arm64 doesn't have an arthictectural way to get the max_cpufreq, we use cpufreq_driver
+to get it. If cpufreq_driver is not available, currently we use a safe max_cpufreq as 5GHz.
+Without this patchset, if the cpufreq_driver is initialized after the hardlockup detector we'll
+use 5GHz for calculating the event period. It's my case here as described in the coverletter.
+That means in the default case (10s threshold) if the real max_cpufreq is 2.5GHz, the NMI watchdog
+is actually working in a 20s period. With this patchset the period can be calibrated after
+the cpufreq driver is initialized, much more accurate.
 
->
->Sascha
->
->-- 
->Pengutronix e.K.                           |                             |
->Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
->31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
->Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+> 2: As far as I can tell, this patchset impacts arm64 only.  Do you
+>    think that other architectures should implement this?
+
+It's highly depends on the architecure's implementation of their HARDLOCKUP_DETECTOR_PERF (the
+implementation of hw_nmi_get_sample_period()). If other architectures can gain the max_cpufreq
+without cpufreq driver they don't have this problems (seems x86 implement in another way
+and can gain the cpufreq by some arhitectural way).
+
+> 
+> 3: As far as I can tell, this patchset affects all cpufreq drivers
+>    which use late_initcall() (on arm64, of course).  Is this correct?
+> 
+
+cpufreq drivers are not touched. we registered a notifier block to the cpufreq framework
+so the changes to the cpufreq will notify us to see whether it's needed to modify the
+event period.
+
+
+> 4: It is asserted that we should use the *maximum* possible CPU
+>    frequency for this calculation.  Why?  I assume this is because we
+>    care about the minimum watchdog period?
+> 
+
+I think it may because it's impossbile to use the current frequency for calculating the counter
+period as it may change at any time. Using maximum frequency will make the real period as close
+as possible to the expected watchdog thresh in a simplest way.
+
+> Can I assume that the ARM maintainers will be handling this?
+> .
+
+I think yes since it only affects the arm64's implementation of HARDLOCKUP_DETECTOR_PERF.
+
+Thanks.
+
 
