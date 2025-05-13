@@ -4,84 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C77CC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 15:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C81A1C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 15:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fkwdOn5n0SYL4gFgl3/rMnyEKOjKxd4O0ZvjvmC/+0A=; b=PUvAW3wVuerj8YZxaCvWvThUdv
-	Hn0Vp1Kr+zt6V/yHxe4yu0erD8aU2XKRSL1rMPhY/jzbBamFkGxLWt3NsTp8brAOElUlBuQwor6pP
-	wwRPzHZ1eRa39u/5ZQOtHpBf2+va52AZqs0+FyHqjXnnjqpp++71iNmxq7qVkPa+TROvaeG6g/99+
-	Ywe3LumcEDSdUQ5I9zu93CwAHBtkDzbghcEXNbSPWnzMbujyXFuGXjHFSvr3xhhrI228b0GBNnJSe
-	T7qCVEvHd0TtuGtu6Ydm0DhttBwuV2k+gJjoguzcJTIb4WMNk3BKN+vvJ/9BPzYfdcNfVOOysF9/1
-	njF+roJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=39bn3xk0Q75/p6z3qnAmNSpcXd8S/ZEQ0QV03qD/MaU=; b=aQvb4f6lwngio6kzv/XcqBJQiR
+	1b6c26T8QfvYQ5P9bNRE1ZdMr/LRsd1Dj0pRoUvstfhehY3wcJjYNBs+22Bbcj33pSiiMDktZscik
+	aPKhRFGt+ylceQUYd0zUuMfsEI5gpwinFJz5JEJoKB0Kex3NYno4RkW5BUtPzLpLrECThHzRHbLwO
+	81/W7irqtt11ewP/6Apt+iVOXdTJf03BbOheJYxEISKXC/2JUysqCG8oyAP8fJnmu2AunlM3mS94u
+	TR7HETZLtlrIQnDhiJISWT3zK7081kZcXopu4K7JolzSoy3lYuael0DaJWaYRlnuwn2Go7Dn2urtB
+	jw2aQYGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uErOu-0000000Ckkq-18Ui;
-	Tue, 13 May 2025 15:18:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEr9m-0000000ChlE-1dza
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 13 May 2025 15:02:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=fkwdOn5n0SYL4gFgl3/rMnyEKOjKxd4O0ZvjvmC/+0A=; b=pmjtmzi/1sZUg6WJWrzGXxok3f
-	MYGWsX4oQGMe8VkZnSXqGy1li2IcMH23CwpZpR2Td5CBcOXHqcNgGYztZG5SQcNvkmMnrnrLKts/i
-	FAWf/Y5wk6Q94FQA9asAmS3uN2ZH8/QKmuJJvQK3rHQGoNNFIpVphHzBep/+iCNFLhb1fSkgbbxxY
-	hmgqJEaBTkDcOpyBH0Nvx2Uaeo/KNThCL7NZ4Xhb45k8yU0TGOoAgUM3u0idH8ywjKrEfpsjGDtyK
-	GD20paF0HQE39cTgSM6BEDEqR9i2yT+ZVIyjObFEcv3jHb53gh34A7nqpSnlfiS0xEYejin+rpNR7
-	vt4fwmrg==;
+	id 1uErQz-0000000ClBC-0QNr;
+	Tue, 13 May 2025 15:20:45 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uEr9j-0000000GzyZ-0EJe
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 15:02:57 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uErCg-0000000CiRT-2pEE;
+	Tue, 13 May 2025 15:05:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=fkwdOn5n0SYL4gFgl3/rMnyEKOjKxd4O0ZvjvmC/+0A=; b=p62HqCjvIbL9XCbvEHKv8qdeGu
-	HTunAre0nqDOI72blUMU1ky+rJlmewv1XfMvrmqYcAQIFa2EavIvFJ2wNKNZJgj+pcHAesYKgyHhA
-	TCc2bqaOOXcWZCQrQfA9n2eUGSrSEXN6VNG4kMxJaUGV7obTdYVDYu7i33uKUV3ZfA3o8vzDCpU1V
-	M+6uTybs3s2dTVY1Lzs7H77OEFQR+GpSjM8rwPo0UcVehortM+WCKRk03dOagKoUn2jMeUcX1QHuD
-	UN1prPDCHE3yGJX6HNZ0RGWkCBZbNimdp2h4niJxmamh/sgIvC0KGcycQsrl4NJ+2IndJ63Rc4Vhr
-	ywQ4Betg==;
-Received: from i53875a50.versanet.de ([83.135.90.80] helo=localhost.localdomain)
+	bh=39bn3xk0Q75/p6z3qnAmNSpcXd8S/ZEQ0QV03qD/MaU=; b=AIU85UpFy9HfLAFaxI9Up0boxk
+	e9imu3J7aIVXC9K4DiHNYwFIz+GjY5u3SurXxDfKanIWfzTdyLRm8QQWwlXuuyQbtr6iG/9ajvUIP
+	z1gvnRM661wz/7Qixvjc4eghmguVGtxJ72ZBX4RRPCyoZucC3jgKSEDkXzztd6QPZfJmNzJUpMP+J
+	5FeJ6485TNPwWnSka/wcDRcBhkTcVdL52pcc9Ep44iLPDyVd1qlBEtYiVGhCxOxj967f+8ta+8MS5
+	xrbXGNY/O2Lu5ek7mq2ycJMjxM8eupBTldURHNFR2Ip/+06GsvZq3fFRVMceRiMkpgf5ixk5tukcW
+	5hRLoOxQ==;
+Received: from i53875a50.versanet.de ([83.135.90.80] helo=diego.localnet)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1uEr9c-0008L7-Oq; Tue, 13 May 2025 17:02:48 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: heiko@sntech.de
-Cc: quentin.schulz@cherry.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Heiko Stuebner <heiko.stuebner@cherry.de>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v2 5/6] dt-bindings: arm: rockchip: add PX30-PP1516 boards from Theobroma Systems
-Date: Tue, 13 May 2025 17:02:33 +0200
-Message-ID: <20250513150234.2331221-6-heiko@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250513150234.2331221-1-heiko@sntech.de>
-References: <20250513150234.2331221-1-heiko@sntech.de>
+	id 1uErCf-0008UM-9E; Tue, 13 May 2025 17:05:57 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ quentin.schulz@cherry.de, krzk+dt@kernel.org, devicetree@vger.kernel.org,
+ conor+dt@kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/6] Add two board-families from Theobroma-Systems
+Date: Tue, 13 May 2025 17:05:56 +0200
+Message-ID: <3311886.aV6nBDHxoP@diego>
+In-Reply-To: <174679984943.3368422.9645324507043955723.robh@kernel.org>
+References: <20250508150955.1897702-1-heiko@sntech.de>
+ <174679984943.3368422.9645324507043955723.robh@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_160255_418132_7FF71B77 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250513_080558_718260_5EE4FCA9 
+X-CRM114-Status: GOOD (  26.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,41 +73,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@cherry.de>
+Am Freitag, 9. Mai 2025, 16:16:58 Mitteleurop=C3=A4ische Sommerzeit schrieb=
+ Rob Herring (Arm):
+>=20
+> On Thu, 08 May 2025 17:09:49 +0200, Heiko Stuebner wrote:
+> > Both the Cobra and PP1516 boards are based around the PX30 SoC and can =
+be
+> > found with a variety of display options.
+> >=20
+> > As new boards should not use the deprecated snps,reset-* properties
+> > in the gmac node, I also added a core mdio-node for the gmac and
+> > converted the Theobroma Ringneck board over.
+> >=20
+> > Testing with the new node both before and after converting Ringneck
+> > showed the board finding its network both when booting locally and
+> > from the tftp/nfs.
+> >=20
+> >=20
+> > Heiko Stuebner (6):
+> >   arm64: dts: rockchip: add basic mdio node to px30
+> >   arm64: dts: rockchip: move reset to dedicated eth-phy node on ringneck
+> >   dt-bindings: arm: rockchip: add PX30-Cobra boards from Theobroma
+> >     Systems
+> >   arm64: dts: rockchip: add px30-cobra base dtsi and board variants
+> >   dt-bindings: arm: rockchip: add PX30-PP1516 boards from Theobroma
+> >     Systems
+> >   arm64: dts: rockchip: add px30-pp1516 base dtsi and board variants
+> >=20
+> >  .../devicetree/bindings/arm/rockchip.yaml     |  18 +
+> >  arch/arm64/boot/dts/rockchip/Makefile         |   6 +
+> >  .../rockchip/px30-cobra-ltk050h3146w-a2.dts   |  39 ++
+> >  .../dts/rockchip/px30-cobra-ltk050h3146w.dts  |  39 ++
+> >  .../dts/rockchip/px30-cobra-ltk050h3148w.dts  |  39 ++
+> >  .../dts/rockchip/px30-cobra-ltk500hd1829.dts  |  58 ++
+> >  arch/arm64/boot/dts/rockchip/px30-cobra.dtsi  | 570 +++++++++++++++++
+> >  .../rockchip/px30-pp1516-ltk050h3146w-a2.dts  |  39 ++
+> >  .../dts/rockchip/px30-pp1516-ltk050h3148w.dts |  39 ++
+> >  arch/arm64/boot/dts/rockchip/px30-pp1516.dtsi | 601 ++++++++++++++++++
+> >  .../boot/dts/rockchip/px30-ringneck.dtsi      |  22 +-
+> >  arch/arm64/boot/dts/rockchip/px30.dtsi        |   6 +
+> >  12 files changed, 1473 insertions(+), 3 deletions(-)
+> >  create mode 100644 arch/arm64/boot/dts/rockchip/px30-cobra-ltk050h3146=
+w-a2.dts
+> >  create mode 100644 arch/arm64/boot/dts/rockchip/px30-cobra-ltk050h3146=
+w.dts
+> >  create mode 100644 arch/arm64/boot/dts/rockchip/px30-cobra-ltk050h3148=
+w.dts
+> >  create mode 100644 arch/arm64/boot/dts/rockchip/px30-cobra-ltk500hd182=
+9.dts
+> >  create mode 100644 arch/arm64/boot/dts/rockchip/px30-cobra.dtsi
+> >  create mode 100644 arch/arm64/boot/dts/rockchip/px30-pp1516-ltk050h314=
+6w-a2.dts
+> >  create mode 100644 arch/arm64/boot/dts/rockchip/px30-pp1516-ltk050h314=
+8w.dts
+> >  create mode 100644 arch/arm64/boot/dts/rockchip/px30-pp1516.dtsi
+> >=20
+> > --
+> > 2.47.2
+> >=20
+> >=20
+> >=20
+>=20
+>=20
+> My bot found new DTB warnings on the .dts files added or changed in this
+> series.
+>=20
+> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+> are fixed by another series. Ultimately, it is up to the platform
+> maintainer whether these warnings are acceptable or not. No need to reply
+> unless the platform maintainer has comments.
+>=20
+> If you already ran DT checks and didn't see these error(s), then
+> make sure dt-schema is up to date:
+>=20
+>   pip3 install dtschema --upgrade
+>=20
+>=20
+> This patch series was applied (using b4) to base:
+>  Base: attempting to guess base-commit...
+>  Base: tags/v6.15-rc1-1-g59529bbe642d (exact match)
+>=20
+> If this is not the correct base, please add 'base-commit' tag
+> (or use b4 which does this automatically)
+>=20
+> New warnings running 'make CHECK_DTBS=3Dy for arch/arm64/boot/dts/rockchi=
+p/' for 20250508150955.1897702-1-heiko@sntech.de:
+>=20
+> arch/arm64/boot/dts/rockchip/px30-cobra-ltk500hd1829.dtb: panel@0 (leadte=
+k,ltk500hd1829): 'port' does not match any of the regexes: '^pinctrl-[0-9]+=
+$'
+> 	from schema $id: http://devicetree.org/schemas/display/panel/leadtek,ltk=
+500hd1829.yaml#
+> arch/arm64/boot/dts/rockchip/px30-cobra-ltk050h3148w.dtb: panel@0 (leadte=
+k,ltk050h3148w): 'port' does not match any of the regexes: '^pinctrl-[0-9]+=
+$'
+> 	from schema $id: http://devicetree.org/schemas/display/panel/leadtek,ltk=
+050h3146w.yaml#
+> arch/arm64/boot/dts/rockchip/px30-pp1516-ltk050h3148w.dtb: panel@0 (leadt=
+ek,ltk050h3148w): 'port' does not match any of the regexes: '^pinctrl-[0-9]=
++$'
+> 	from schema $id: http://devicetree.org/schemas/display/panel/leadtek,ltk=
+050h3146w.yaml#
+> arch/arm64/boot/dts/rockchip/px30-cobra-ltk050h3146w.dtb: panel@0 (leadte=
+k,ltk050h3146w): 'port' does not match any of the regexes: '^pinctrl-[0-9]+=
+$'
+> 	from schema $id: http://devicetree.org/schemas/display/panel/leadtek,ltk=
+050h3146w.yaml#
+> arch/arm64/boot/dts/rockchip/px30-pp1516-ltk050h3146w-a2.dtb: panel@0 (le=
+adtek,ltk050h3146w-a2): 'port' does not match any of the regexes: '^pinctrl=
+=2D[0-9]+$'
+> 	from schema $id: http://devicetree.org/schemas/display/panel/leadtek,ltk=
+050h3146w.yaml#
+> arch/arm64/boot/dts/rockchip/px30-cobra-ltk050h3146w-a2.dtb: panel@0 (lea=
+dtek,ltk050h3146w-a2): 'port' does not match any of the regexes: '^pinctrl-=
+[0-9]+$'
+> 	from schema $id: http://devicetree.org/schemas/display/panel/leadtek,ltk=
+050h3146w.yaml#
+>=20
 
-PP1516 are Touchscreen devices built around the PX30 SoC and companion
-devices to PX30-Cobra, again with multiple display options.
+this is handled by the already applied changes to the panel bindings:
+dt-bindings: display: ltk500hd1829: add port property [0]
+dt-bindings: display: ltk050h3146w: add port property [1]
 
-The devices feature an EMMC, OTG port and a 720x1280 display with a
-touchscreen and camera
 
-Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
----
- Documentation/devicetree/bindings/arm/rockchip.yaml | 8 ++++++++
- 1 file changed, 8 insertions(+)
+[0] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/com=
+mit/?id=3De782ac936941cff4c5580bb5cc2ec0e91468068c
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/com=
+mit/?id=3Dbf0636f4348e098e2338eebbe42d7780c58a1195
 
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index 6435c724e682..58af37b4d6b8 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -1119,6 +1119,14 @@ properties:
-           - const: tsd,px30-cobra
-           - const: rockchip,px30
- 
-+      - description: Theobroma Systems PX30-PP1516
-+        items:
-+          - enum:
-+              - tsd,px30-pp1516-ltk050h3146w-a2
-+              - tsd,px30-pp1516-ltk050h3148w
-+          - const: tsd,px30-pp1516
-+          - const: rockchip,px30
-+
-       - description: Theobroma Systems PX30-uQ7 with Haikou baseboard
-         items:
-           - const: tsd,px30-ringneck-haikou
--- 
-2.47.2
+
 
 
