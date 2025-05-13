@@ -4,86 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6027CC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 13:36:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C706C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 13:38:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DolSbnwhb7CK4zMm/bekFzKF/EXyrPh2OwEX9Ve2GUk=; b=OvqSkc+yyv4ebCssLfeEZpiaaU
-	NGTVRx+RtuyNN00+UN84N9wuIPVLLkCmVb38B1UpDarxMkMthWuCbUAs4ATEICruBuJ/wLXEibAJZ
-	uz98w8qajEKofJOs3olHSCKMa8BxIPBFTLzNYyiH9qGhflBb/WdYYCLgjC3FS6UwPZ90dS7CdDM/Q
-	MpIhIKFzeWXq7Cb+VIRhbXNhHdZqTj6hq6j1rnD/eDt87s/wUHSail4hcnJuqIukoTjh7FY/3wzkL
-	wLzS+biliR4JMhbBBlXpyQPmlWukJGlLhpOydz60+bJfBCNm56uCCUFWAvj0ytELQydJBc9jPy//+
-	5n8446/w==;
+	bh=+brmTOYkx3s0L8tjkcWlWf/qoWiHyosmwEHAEKCQLsY=; b=MRFJ4GhfClrif5QO982XN06vj3
+	Qekhbjgfr2gx3Zm0zQ6eWsoDjo2H1vhyhK1NLnPpVU/HSMuRL+4A9qZ5DoSXIlhGADNethXQcZ7q4
+	f5HLqIsX0diY22n3p8/zhEouc+Dd/FTAFs1jA/JBb/jsqAwF5486yuo9D2SI4tWSAD/wh32Tc4HTj
+	/d9D04r2h1+YgLsVjIdVLtKB75CuGGgR0Z4LB1Qd/DIOLu8/qhA1CN5/CQ591fX7qZuTo7808V+Zv
+	5e8erFToHt4uDvANCkjw5qFcGsDk+jPtY3Yogi5mxNCjwF9h7uihFJ4iKB/w4cU2W7ICxwgtEFh4Q
+	Z2hqgMCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEpna-0000000CVNS-0van;
-	Tue, 13 May 2025 13:35:58 +0000
-Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
+	id 1uEppg-0000000CVdc-065C;
+	Tue, 13 May 2025 13:38:08 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEpk0-0000000CUpO-1LQO
+	id 1uEplE-0000000CUyj-1rNZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 13:32:17 +0000
-Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e78f44034ffso5059941276.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 06:32:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747143135; x=1747747935; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DolSbnwhb7CK4zMm/bekFzKF/EXyrPh2OwEX9Ve2GUk=;
-        b=Mo4Sfq5In7o40H25oGfuVQX/c/7nrTs1xmio3bc023CV8LseUKuIlEsqQ3EeLaIwrr
-         zmHKG1hfBQgg9Yyq8rrSceuYg+nY9mf3G0jrowRPCcH3bC3PsJeNxWVATeAOe2PbwsFi
-         aL8eIGNSrsS+tNIjQHO4Tm+cIz+eGknMWvwJK4YvunBHn/6Kdc5oTMF7guErWFBpOJ7d
-         7o5MNNYAkO/AOTFQjQN577uMzNfnzV85sJdgVJCgm+cW7BdolO4K685W4J0HxqLnIjZZ
-         KcCIuZL4nHdnMHlR8ckqe3WPvsi5fRZ0BGv+g+8dDcz0YHfUZDstH1IwH2c+DTMIitN4
-         UHqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747143135; x=1747747935;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DolSbnwhb7CK4zMm/bekFzKF/EXyrPh2OwEX9Ve2GUk=;
-        b=RkYAquhrYrN20VHjtQ7WLz2OkRq1QH+2Ro3ZTb2kq4zPro091H4OE3gTcLVhKjAu0K
-         +mgqa0evfxg1+bYoRiMUPciWvpkxlp7wBAtJdigX7rTovQgcG10ZuxjRikwea+hgle0q
-         g0s7T+C52ia4QLxpOHchpLoor/luyNiwsdhPFctJJVgJ4fRLT1MDEvRVGuAM0MCBs29c
-         KWPvVBm+c/B3z8W7FXUuFbMNbsZRGQYujmNcbfL6yp1GhzSXFuc+BeT8OxN37n/Ap1cC
-         d3VUuXdQ0CItyhV7ggaYHSPfUoKtuYjsRz6byLGnq0BEArbxpyacRhsqSkRtyq3vFO2w
-         B0Fg==
-X-Forwarded-Encrypted: i=1; AJvYcCUF/LIJaFNuqjS7FnEFWZUYgDJE7fyyFkGusFDvI/qXbHqXf3kWdz0W+eR2X521cl+USvhoDwgSN+Aew+CsRABo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz05BgE+vlqMR6TS2F2T/2Ss8pl+wjWzcSkSWs4RCIhDeKQpjMj
-	mrDuNR5p1XpY4gwX1Cp/FHz9JgMmUIpoc1iyBAtEYhTUXMoAM7dQHu43muJVguUacGgmK3Pd2EF
-	nzDE8YC6UT++13eCEFnq79j+CGAkISTJZLT4jIa7IZW/n+HCsppM=
-X-Gm-Gg: ASbGncvlDiFFmwQjEue00Z2SmNeN5uUU0+LNMNd4NrjM256WivPhj3X2//U2nOpdEFz
-	1imtuNCiou60N6ovVNxM3Q3VYH1WY38CQVDDL4fCTk6S+b3ZsJtO6vBVhvukufzS0I9gRf+K+Y1
-	PUohuFj55QgrWnGbWIVRzoFocOV8JDu+uK
-X-Google-Smtp-Source: AGHT+IGiybJfQ+z5Jn7pmSBhMFaRx94JyxJ/gdqDm6nzTQPskCAu2xeEpG8J7Rdc9VcKIJc2nXp+xlFh+U2qXZzoTJ8=
-X-Received: by 2002:a25:a063:0:b0:e75:607f:434e with SMTP id
- 3f1490d57ef6-e78fdd2ddc1mr16588046276.36.1747143135013; Tue, 13 May 2025
- 06:32:15 -0700 (PDT)
+	Tue, 13 May 2025 13:33:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A4631A4D876;
+	Tue, 13 May 2025 13:33:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BB19C4CEED;
+	Tue, 13 May 2025 13:33:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747143211;
+	bh=XYAR3R6cfrMhKrxMr2Ow40tAPH5rEhUgCe2jClBz23s=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=VOzb4iLnA7Y5Ds+AMG0/Js9ebVJqt6uvTs0KprecXUAd4F0MewDM+lczm2d2GX+MU
+	 mShqprcXg8ntL8zcbeHKoiz0+Kry7ZkK35/SPeCRduRwo+FyqSb0PdJrFtSJNvfpDa
+	 7CyiKFkQ+ePO9NlsdMmv1/NmCAcgrOiP70Z3CX4Cbu9D4DVtzaeINtR/CzKQ2byiI4
+	 87Z56UtYKN5HJeCOtRbgA0+3b01uia63eqogizMz1qmLjNusmqcaVJEVZmbz8u90TV
+	 wXYZbeKEfrOBLQg70qQstNiOiav33nROt/jDivkdN0vU+7tEHUpWCncYGGevUmsdds
+	 zdvNbj3NdQLvA==
+Message-ID: <afbdf05d-2306-40c8-bdcd-964d1d5d9865@kernel.org>
+Date: Tue, 13 May 2025 15:33:24 +0200
 MIME-Version: 1.0
-References: <20250511-i2c-pxa-fix-i2c-communication-v1-0-e9097d09a015@gmail.com>
- <20250511-i2c-pxa-fix-i2c-communication-v1-1-e9097d09a015@gmail.com>
-In-Reply-To: <20250511-i2c-pxa-fix-i2c-communication-v1-1-e9097d09a015@gmail.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 13 May 2025 15:32:01 +0200
-X-Gm-Features: AX0GCFtjrC7TvruGjGxJFmXvhSkIZU0U-gCg7r4ao7poGNibGwZebdwuLG5fs_4
-Message-ID: <CACRpkdYB6sjp4PwHumkj1kj48oUzSZOUFQTX1i==P8V2DJBx1A@mail.gmail.com>
-Subject: Re: [PATCH 1/3] i2c: add init_recovery() callback
-To: Gabor Juhos <j4g8y7@gmail.com>
-Cc: Wolfram Sang <wsa@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
-	Russell King <rmk+kernel@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>, 
-	Robert Marko <robert.marko@sartura.hr>, linux-i2c@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Imre Kaloz <kaloz@openwrt.org>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 16/19] dt-bindings: clock: imx8m-clock: add PLLs
+To: Abel Vesa <abel.vesa@linaro.org>,
+ Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+ Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org,
+ Peng Fan <peng.fan@nxp.com>, linux-amarula@amarulasolutions.com,
+ Abel Vesa <abelvesa@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org
+References: <20250424062154.2999219-1-dario.binacchi@amarulasolutions.com>
+ <20250424062154.2999219-17-dario.binacchi@amarulasolutions.com>
+ <20250509162546.GA3704130-robh@kernel.org>
+ <CABGWkvq4a73hvCWG-P_+arc3R-pnr5NVfcGPDTGEoW1doPt2qg@mail.gmail.com>
+ <aCNIKZrJmbpmeX+7@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <aCNIKZrJmbpmeX+7@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_063216_363374_3FDB25C9 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20250513_063332_625489_D1F65BB9 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,33 +131,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sz=C3=ADa Gabor,
+On 13/05/2025 15:24, Abel Vesa wrote:
+>>>>    clocks:
+>>>> -    minItems: 6
+>>>> -    maxItems: 7
+>>>> +    minItems: 7
+>>>
+>>> Increasing the minimum entries looks like an ABI break to me. The .dts
+>>> files not being in linux-next confirms that (from 0 warnings in
+>>> mainline):
+>>>
+>>> arch/arm64/boot/dts/freescale:859:50
+>>>     122  clock-controller@30380000 (fsl,imx8mm-ccm): clock-names: ['osc_32k', 'osc_24m', 'clk_ext1', 'clk_ext2', 'clk_ext3', 'clk_ext4'] is too short
+>>>     120  clock-controller@30380000 (fsl,imx8mp-ccm): clock-names: ['osc_32k', 'osc_24m', 'clk_ext1', 'clk_ext2', 'clk_ext3', 'clk_ext4'] is too short
+>>>      61  clock-controller@30360000 (fsl,imx8mm-anatop): 'clocks' is a required property
+>>>      61  clock-controller@30360000 (fsl,imx8mm-anatop): 'clock-names' is a required property
+>>>      60  clock-controller@30360000 (fsl,imx8mp-anatop): 'clocks' is a required property
+>>>      60  clock-controller@30360000 (fsl,imx8mp-anatop): 'clock-names' is a required property
+>>>      36  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[35], [36], [37], [38], [39], [40]] is too short
+>>>      36  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[24], [25], [26], [27], [28], [29]] is too short
+>>>      32  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[34], [35], [36], [37], [38], [39]] is too short
+>>>      28  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[22], [23], [24], [25], [26], [27]] is too short
+>>>      26  clock-controller@30380000 (fsl,imx8mn-ccm): clock-names: ['osc_32k', 'osc_24m', 'clk_ext1', 'clk_ext2', 'clk_ext3', 'clk_ext4'] is too short
+>>>      17  clock-controller@30360000 (fsl,imx8mq-anatop): 'clocks' is a required property
+>>>      17  clock-controller@30360000 (fsl,imx8mq-anatop): 'clock-names' is a required property
+>>>      14  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[44], [45], [46], [47], [48], [49]] is too short
+>>>      14  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[23], [24], [25], [26], [27], [28]] is too short
+>>>      13  clock-controller@30360000 (fsl,imx8mn-anatop): 'clocks' is a required property
+>>>      13  clock-controller@30360000 (fsl,imx8mn-anatop): 'clock-names' is a required property
+>>>      12  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[26], [27], [28], [29], [30], [31]] is too short
+>>>      10  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[38], [39], [40], [41], [42], [43]] is too short
+>>>       8  clock-controller@30380000 (fsl,imx8mn-ccm): clocks: [[22], [23], [24], [25], [26], [27]] is too short
+>>>       8  clock-controller@30380000 (fsl,imx8mn-ccm): clocks: [[20], [21], [22], [23], [24], [25]] is too short
+>>>       8  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[34], [35], [36], [37], [38], [39]] is too short
+>>>       8  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[28], [29], [30], [31], [32], [33]] is too short
+>>>       8  bcrmf@1 (brcm,bcm4329-fmac): $nodename:0: 'bcrmf@1' does not match '^wifi(@.*)?$'
+>>>       6  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[41], [42], [43], [44], [45], [46]] is too short
+>>>       6  clock-controller@30380000 (fsl,imx8mn-ccm): clocks: [[24], [25], [26], [27], [28], [29]] is too short
+>>>       4  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[43], [44], [45], [46], [47], [48]] is too short
+>>>       4  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[40], [41], [42], [43], [44], [45]] is too short
+>>>       4  clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[36], [37], [38], [39], [40], [41]] is too short
+>>>       4  clock-controller@30380000 (fsl,imx8mm-ccm): clocks: [[35], [36], [37], [38], [39], [40]] is too short
+>>>
+>>> Please fix the binding or drop what's been applied so far.
+>>
+>> Abel and Shawn are already aware of the issue:
+>>
+>> https://lore.kernel.org/all/CABGWkvqfyH=dcuw6EDZaFVVebj8SZhJF0P944+mmzL5YK3-Pug@mail.gmail.com/
+> 
+> So Shawn suggested I pick up the dts patches from this series as well.
+> 
 
-k=C3=B6sz=C3=B6n=C3=B6m a patch-et!
+Sorry, I am against of it.
 
-On Sun, May 11, 2025 at 3:31=E2=80=AFPM Gabor Juhos <j4g8y7@gmail.com> wrot=
-e:
+This patchset breaks the ABI. If platform maintainer is happy with ABI
+break, it is happy with all the complains from users, all boot failures,
+all the issues. The solution is not to put DTS into driver's subsystem.
+The solution would have been not to break ABI, but if that's ok for
+platform maintainer then live with the results: broken boots.
 
-> Add a new init_recovery() callback to struct 'i2c_bus_recovery_info'
-> and modify the i2c_init_recovery() function to call that if specified
-> instead of the generic i2c_gpio_init_recovery() function.
->
-> This allows controller drivers to skip calling the generic code by
-> implementing a dummy callback function, or alternatively to run a
-> fine tuned custom implementation.
->
-> This is needed for the 'i2c-pxa' driver in order to be able to fix
-> a long standing bug for which the fix will be implemented in a
-> followup patch.
->
-> Cc: stable@vger.kernel.org # 6.3+
-> Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
-> Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
+DTS must go via arm-soc DTS branch.
 
-Clearly, since the same problems keeps appearing on other
-platforms as well, this is the right way to go!
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+> I'm waiting for another -next to get merged and if there are still
+> issues, I'll ask Stephen to ignore the pull request I already sent.
+> 
 
-Yours,
-Linus Walleij
+
+Best regards,
+Krzysztof
 
