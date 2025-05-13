@@ -4,92 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13220C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 08:16:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FDF7C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 08:37:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gfD8KA5bfxaU+Q1NTIOmhw+vBh6gQYcxk5fcGmeOrhI=; b=j9Go1zvahStXSsMK8yH85hguaB
-	7oSd67A3YpC5HioepZAnAJ4LnoZcs83WxYa/omTqSGhjvz+N5UMDqXyhelhwbP4VHT2fg6GkTZm4U
-	3+mFOMmODaDsOdxepkm1mJeDjiLxFCi9ZvFitIALx2NQuZvWlAQCDRJjcJoNTeVzcRRuI411UUf8d
-	Yz+GSR/ClIpZrSjyMb8xMPaoX4bSMkwRWr69AHaL1jowUuP9RBbIU7/przuzfc55ViZwZQamT4hcT
-	hk7LsF307AdY8j/VdhrY7LsHmIuqRFg0+mfEEyyvLeP+XGeVyFUIndbh5cYJltIVO9IJ69vX9J6SB
-	ZvZRcPGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fIuQXlKSOTLM0UZ6Crhipj/YtkXxsn86lQa1Jg9sTq4=; b=C12VaWrFDyJE3UWp/UJSRgdV/u
+	FEXQk9hpeGS+aEApUVwKJbMCH0w5IqLyMfaHm3wss7m/qmfZLSjVn5RWL6c63N4/abO9WXskknCFX
+	v49YOGgRpAX6uGEabm1dKVSYNUtKM4odRfEiPpEs8v0iRLgQzVWIsvzCobVBdOUtnlXE5yswS5mWm
+	tTOONliKi9HyIwj20dZ19tAcEhlakGhc1EU3joxX3RFnYD2uSMUNHqp0yOG2P1fDLOO7qLaq8pJAL
+	/wEhL4mSOnojd4iQRC6749ZD6UmEw8rKz/1FHW0dCeRe1ppqzoDkoJjsDXFV+OoEyhhSbH2qMTVIV
+	uzXnbcPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEkns-0000000BkIK-40Z4;
-	Tue, 13 May 2025 08:15:56 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1uEl8s-0000000BmPZ-3uKe;
+	Tue, 13 May 2025 08:37:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEkls-0000000Bk9y-35G8
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 08:13:54 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-441c0d42233so5520955e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 01:13:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747124031; x=1747728831; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gfD8KA5bfxaU+Q1NTIOmhw+vBh6gQYcxk5fcGmeOrhI=;
-        b=dyxiAlvH4jSAGJ6asL+c5YjZbkZGKmfEYN66z5/C6xi/pvMTaRGCEARIMlyKC6Of9S
-         vrU776mB8XiR1eRF+gwPKOmyppCZks7g0SYD+ki/zXVPRkG1m2TaC7r9sJ/cUnaoAMJN
-         d5RLRNu+nvGN3z+5/gDMgcJjamrdeyYXNGQMqtQYpOvzuYlkmK97nOshpGh6Irky4U4Z
-         NBQfZkgPa8pfnBJ5kCHwywQMB8t93GU73zvjHFNVFOl+0x41Pb3rQL+KTuUaoYW6S1Yh
-         2WKPnPrPA6YlB40ha340W1Q2IBgTCuWqz4sKJVzCsuYt8A+U7Z7QiByFS4799G4IjSlW
-         g7mg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747124031; x=1747728831;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gfD8KA5bfxaU+Q1NTIOmhw+vBh6gQYcxk5fcGmeOrhI=;
-        b=c48F1fnFAxBBFrGPtmcMePmNVxi6/2Rg6MLJNvCZoV3qEOQFJkvDvlPqSaxC16e2qJ
-         c4AvcNRaUPlE/vpbxVq2ezgIbPUNG3uAtgXcYlG3qbRmQtDK9WfZ0xW2tFpO607K3vZY
-         W5O9CnzwNnz8MUmnAc/aQuSdZjVOi41TJUMiWjeJLd+BJKxybcOdbTQnrHXhAe6Jlhme
-         DuRsPy8vuaEI0fDDHeCvXRvGuxBuI5V97Kxq5mdS50kKVIPDQ+bsvUulb0oeJIKbmnOX
-         0h3DOp+U5NzPysvWGTdMiE0Gs196ePlkkMAs9YMfeC+CAENRueNwkZXt2I6GGQQJpOel
-         0RRw==
-X-Forwarded-Encrypted: i=1; AJvYcCUyzCkO6zKHV/MFWRjlXA1YMLxFv+UDlHGMDzVykgPyA9g07zguEo4cMvvIeJ5topM9BJGWSfsiiu8j8WAiCs4Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFbWhciI59oLJQ2JLktXLrBNHhcI7563s3Bv+zkU6QgMHxNxcG
-	zkl2PZNgvWMnh327BBLbHXg3fv+M53J5S6c11nnK8ND0yG5KJjXJ7KVJCKngVCY=
-X-Gm-Gg: ASbGnctCt9iXAgrz/tReli/Aqr/O80IIkTHL8wPkogLngtWy6O4OmVKs2LpINF+TiyN
-	qR2hd5Wk0qBwvCDNU6w/N3dFZIhatZH4EJmudc3vCnwa8vdS8MOyORQG71+gL2K0gqYAUCIRv0Y
-	dxffgLSYTHkLvYI6+E7UgHllOg35uhGeyhIMp9QBueya5nXa8IicaDxMmSfuW8XBhKHem3cyQRH
-	Bpi0Q0z0802QQxL2nhBHzAWlqotRml17/mNwvORSxWYgJm/fT9dp/pw+4yGAXFxhSlDcE5+51a8
-	NQQ3EKiOMmaRjFPKp+ADJQlCJNDOCKeCzURUKg4cuOFkuxtktsndeypThyhSNCNuvFGSJQnrAZc
-	ToBx0tMuSi+/bks9uSg==
-X-Google-Smtp-Source: AGHT+IHI0BUvRWvY4Y2/8bHQXKFDvKBHupqbi0BQODrVBg+55fcuB5CxUmKYcrieaLRvHUYS/EkBCg==
-X-Received: by 2002:a05:600c:3490:b0:439:9b3f:2dd9 with SMTP id 5b1f17b1804b1-442d6ddd6a8mr47990065e9.7.1747124030617;
-        Tue, 13 May 2025 01:13:50 -0700 (PDT)
-Received: from [10.61.0.48] (110.8.30.213.rev.vodafone.pt. [213.30.8.110])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442d687bdc0sm155170805e9.39.2025.05.13.01.13.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 May 2025 01:13:49 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- tudor.ambarus@linaro.org, andre.draszik@linaro.org, willmcvicker@google.com, 
- kernel-team@android.com
-In-Reply-To: <20250506-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v4-0-9f64a2657316@linaro.org>
-References: <20250506-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v4-0-9f64a2657316@linaro.org>
-Subject: Re: [PATCH v4 0/5] Fix gs101 CPU hotplug support
-Message-Id: <174712402896.10876.6908975403195941350.b4-ty@linaro.org>
-Date: Tue, 13 May 2025 10:13:48 +0200
+	id 1uEl6t-0000000Bm7z-2dEK;
+	Tue, 13 May 2025 08:35:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E32E0629CC;
+	Tue, 13 May 2025 08:35:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E58DC4CEE4;
+	Tue, 13 May 2025 08:35:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747125334;
+	bh=AQsw6m7iH5by6TnMCmB9Fcyzck4JqC+iM5hS4GjSXTY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cKRyHWXQ1Ci63Evz8Btig3gSKZnRJ2oQPD64QOiVjNS+aHTHvyJl0XrXNKlyfag/Y
+	 IOstQmBNvqBol0UBuLeiZXhJsF6MuKwK3FCYmxTd32Mk949NRR06rKkdajNsXLQdVf
+	 DTDnPFDBRc43DaZei1QMHRjFhEqlRL+OMwqK+lD7RSfACwPhji6Jn4leHixc+tJRoS
+	 fSddiK2SDvfnC/3HTBT8vqH/QOxksGWXHnqrBU1fC9DqiSlYdlCF98SDSQ/yg4Pq6n
+	 8XCbpE4CUONrW8BvlicrLpW9NF7IEHcHI5pNnKFalA/D/eC2XYsD1s9nqqom+jMMuD
+	 bfxYFaLd9LTiw==
+Date: Tue, 13 May 2025 09:35:28 +0100
+From: Lee Jones <lee@kernel.org>
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: Nam Tran <trannamatk@gmail.com>, andy@kernel.org, geert@linux-m68k.org,
+	pavel@ucw.cz, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, christophe.jaillet@wanadoo.fr, corbet@lwn.net,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, florian.fainelli@broadcom.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: Re: [PATCH v8 0/5] auxdisplay: add support for TI LP5812 4x3 Matrix
+ LED driver
+Message-ID: <20250513083528.GA2936510@google.com>
+References: <aCGPuKtfprIvwADa@smile.fi.intel.com>
+ <20250512173800.6767-1-trannamatk@gmail.com>
+ <CAHp75VcXmOByVsuwm0m0+FYXoaxBc1CLKtofGgHfB4sMDg+T2A@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_011352_788714_FB0FA811 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAHp75VcXmOByVsuwm0m0+FYXoaxBc1CLKtofGgHfB4sMDg+T2A@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,32 +78,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 12 May 2025, Andy Shevchenko wrote:
 
-On Tue, 06 May 2025 21:57:26 +0100, Peter Griffin wrote:
-> As part of an effort to make suspend to RAM functional upstream on
-> Pixel 6 I noticed that CPU hotplug leads to a system hang.
+> On Mon, May 12, 2025 at 8:38 PM Nam Tran <trannamatk@gmail.com> wrote:
+> > On Mon, 12 May 2025 Andy Shevchenko wrote:
+> > > On Sat, May 10, 2025 at 02:48:02PM +0700, Nam Tran wrote:
+> > > > On Thu, 8 May 2025 Lee Jones wrote:
+> > > > > On Thu, 08 May 2025, Andy Shevchenko wrote:
+> > > > > > On Thu, May 8, 2025 at 5:27 PM Nam Tran <trannamatk@gmail.com> wrote:
+> > > > > > > On Thu, 8 May 2025 Lee Jones wrote:
+> > > > > > > > On Thu, 08 May 2025, Andy Shevchenko wrote:
 > 
-> After debugging and comparing with downstream drivers it became clear
-> that some extra register writes are required to make CPU hotplug
-> functional on these older devices which use a el3mon firmware.
+> ...
 > 
-> [...]
+> > > > I think setting PWM also same as brightness_set API. However, there are
+> > > > many PWM config for a LED and it is one of other config to make autonomous mode work.
+> > > > Therefore, standard led API can use in some use cases only.
+> > > >
+> > > > Please see the link below for a better visualization of how to configure the LP5812.
+> > > > https://dev.ti.com/gallery/view/LED/LP581x/ver/0.10.0/
+> > >
+> > > To me it sounds like you should start from the small steps, i.e. do not
+> > > implement everything at once. And starting point of the 4 RGB LEDs sounds
+> > > the best approach to me. Then, if needed, you can always move on with
+> > > fancy features of this hardware on top of the existing code.
+> >
+> > Thanks for the suggestion.
+> > I understand your point and agree that starting with standard LED APIs is the preferred approach.
+> >
+> > However, the LP5812 hardware offers more advanced features, and I’d like to support end users all
+> > features as shown in the link: https://dev.ti.com/gallery/view/LED/LP581x/ver/0.10.0/.
+> > It is easy for end user to investigate and use driver.
+> 
+> I see. Good luck then!
+> 
+> > If I want to keep the current driver interface to meet this expectation, would it be acceptable
+> > to move it to the misc subsystem to better support the hardware?
+> 
+> Don't ask me, I don't know what you want at the end and I have not so
+> much time to invest in this anymore. Only what I'm sure about I
+> already expressed in the previous replies and emails.
 
-Applied, thanks!
+Briefly spoke to Greg (now Cc:ed).  We can all discuss this together.
 
-[1/5] dt-bindings: soc: google: Add gs101-pmu-intr-gen binding documentation
-      https://git.kernel.org/krzk/linux/c/0475b0d8a1e0f80a47536dfb19c28dc4bb6adc05
-[2/5] dt-bindings: soc: samsung: exynos-pmu: gs101: add google,pmu-intr-gen phandle
-      https://git.kernel.org/krzk/linux/c/83b66cdb5d5b6aa4ed1f085b3b2f917af0c2890b
-[3/5] MAINTAINERS: Add google,gs101-pmu-intr-gen.yaml binding file
-      https://git.kernel.org/krzk/linux/c/20adeaca8bc6a084f2610e7c89a8601c9904a0e2
-[4/5] arm64: dts: exynos: gs101: add pmu-intr-gen syscon node
-      https://git.kernel.org/krzk/linux/c/aaf02428fdd50b818c77644bc0b8a0b282ce8ea4
-[5/5] soc: samsung: exynos-pmu: enable CPU hotplug support for gs101
-      https://git.kernel.org/krzk/linux/c/598995027b9181ada81789bf01fb8ef30d93c9dc
+My 2c, whilst falling short of deep-diving, is as follows:
 
-Best regards,
+1. No one is going to enjoy reviewing a 3k line submission!
+
+   - Instead, submit the smallest driver you can whilst still retaining
+     functionality.  It is not good practice to fully enable a
+     complicated driver such as this in a single submission - let alone
+     a single patch.
+
+2. Hand-rolling your own API from scratch is to be highly discouraged.
+
+   - There seems to be quite a bit of overlap in functionality between
+     your bespoke API and LED's.  The LED subsystem already supports a
+     lot of what's being implemented here.  Instead of letting the user
+     configure the device directly, why not offer some high level
+     options and attempt to infer the rest.  If possible, the complexity
+     of the device should be handed by driver, rather than placing the
+     onus on the user.
+
+3. Shoving this into Misc because you don't want to use the APIs that
+   are already offered to you is not a good approach.
+
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+Lee Jones [李琼斯]
 
