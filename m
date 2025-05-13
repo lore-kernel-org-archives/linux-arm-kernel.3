@@ -4,90 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2BA7C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 01:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02BFAC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 02:06:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2qDMGvwqOKF26JszbDrGaiZp0PfNzMy8pt7RjXzvFy8=; b=2bEoyCaA4KDRV+K4SPkNRZwDoK
-	ATFL6HujtNGNIqInDcLDlIyEqpkE90PQfTRmVUL3SIVTjZMgd3ojE+YyN8H9tUAyVQaKWWd+hz524
-	3VrJzkkivnwwMODw0pFU4CjaQlTft82uCTEXFkh4NkqDoAMjTt+Lf7xxF/cA4l/6aIhAY07lMPIUH
-	OUXRQlcPHZ/e1TWlViWLyFb7dg3btEmUnsPZpTrfXc8zjpe5PEI1yUFmK2wGCju5/INDnjU6Ky10U
-	fhEQwZ32cqjtcSAQ8zWKYhuYMEhgwCOBjkOepYP41gQo3/IwiAhSB7uQnFC1s5TlafnaiIngGA99N
-	oSuCF9wQ==;
+	bh=LVpSZdDFsCHY8ZMtKH5F1+nDRJuSrIJos7FNpfoAwZg=; b=HTqA7GUPWCs2JkpJoOOnOgeOXj
+	98YmQ1zUFwQRc8jpx7xEUJhKX/BwWIhoNvaAuke/ZbMHA4braxj5WM4aSfTIEoalFNXmMaQKZrQiP
+	/0F9MYoYqUffLVy6elk76GdIVDgXOUcYkVU9fBB3zt6y0B4irSQmYqa9Wv2KyxlRQY6Y/QzvAmkBQ
+	SBMMy7NdTB5AbxJYrv61E8GeqSjZ+sLWY/EsQad6l2zEG0s8PGtrsQiqGtgO520yGqkptR1e5llSe
+	zEGQBMxf2SfIATcmLIzEuWtxKsF9KnbIatK6PsZQVzsKUNixunJuKPsreH/ImWpXykZPXX6e+pnr3
+	zryyqYjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEeRp-0000000B3oY-00oV;
-	Tue, 13 May 2025 01:28:45 +0000
-Received: from smtpbg154.qq.com ([15.184.224.54])
+	id 1uEf1m-0000000B75x-40Ws;
+	Tue, 13 May 2025 02:05:54 +0000
+Received: from mail-eastasiaazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c400::3] helo=HK3PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEeKf-0000000B379-1c7g;
-	Tue, 13 May 2025 01:21:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1747099222;
-	bh=2qDMGvwqOKF26JszbDrGaiZp0PfNzMy8pt7RjXzvFy8=;
-	h=From:To:Subject:Date:Message-Id;
-	b=KWo3MpZynaWTM6r6Gk6nJgIgR71njuUnM3R5OPlqeHnxsfDRDV8blbhz0yjj6MKAW
-	 DHqjI9iPmS0yXqDji5KEopdoc6Qv/asiVaz5wJ5PcLD9bd0mJmIvXsPVCWskeR9U/f
-	 R8Hwq5LtjNjOOVYmlNagcXWvZh0ASzwFIqrblaDM=
-X-QQ-mid: zesmtpgz8t1747099219t219559e6
-X-QQ-Originating-IP: dyFx1sjN77jqkaicYdfiYEH7SEpZk75pP/V9gvuz6J8=
-Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 13 May 2025 09:20:17 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 1201715425475302784
-From: Chaoyi Chen <kernel@airkyi.com>
-To: Sandy Huang <hjc@rock-chips.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	dri-devel@lists.freedesktop.org,
+	id 1uEezc-0000000B6c9-2skg
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 May 2025 02:03:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yeb1BcP4bvXzi9EcneO0SSqpoh7MPTUdH7tIJjrtFrXsOzvJLZJigaEzjima/3y156YLe48IdTM3AiFVf09xppC3VfJmowGv/F6nqS5geRUkBu/aIkYs3EZT1UIBLXmB8XmdJr1vqjQoSpyF2XVqIfy4EqnP7tafJgmUBGsblSJ/TUyKbWZViYKgMUVAsXEI7JgcnXt97oY8BY9eLllJJCPQeX596zz5NQ6Hgg9AcxNznMSsaYmpK3u0S1uALd56+OOZbvJEbPzbmqg5ieJ/5UOaZxtOtl6EB8Dmq2zJhRIUo+HePefntcpqq+TYPNx01KM/1ASH4mTIGpC+WKwgRA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LVpSZdDFsCHY8ZMtKH5F1+nDRJuSrIJos7FNpfoAwZg=;
+ b=GSle4UwcyLrmfLoxoNQLd6kCNet4CF7JczwwJ0zB5YYIWHyAanu1B70fpw7sfloZ8NqzyHnSyN3ZIq7ofiMCSeqLUMY2tMBRZLPfghedz/8Mtx9vZcliRSBP67UFnNYfWsDY7cn5xkM99c1GfQVe8NgiReZV8Al0bg0Z5x1O7NN7f8zDxaOfdU8HGYH6R5HLATuesAqih9JntaUDznag/2xSBgguLDPt6xJitN0mesALweTEOwfjPK0IWteniEncMvFdGY+1nr7dzVR/ckPFAgf34qroamQH6TsZNAykWFRzRhQ92LVNultjqdU8jof3KFC8BRnMiHunQc0/b6c5yQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from TYCP286CA0032.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:29d::10)
+ by PUZPR06MB6068.apcprd06.prod.outlook.com (2603:1096:301:112::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.28; Tue, 13 May
+ 2025 02:03:28 +0000
+Received: from OSA0EPF000000C9.apcprd02.prod.outlook.com
+ (2603:1096:400:29d:cafe::a3) by TYCP286CA0032.outlook.office365.com
+ (2603:1096:400:29d::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.30 via Frontend Transport; Tue,
+ 13 May 2025 02:03:28 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000C9.mail.protection.outlook.com (10.167.240.55) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8722.18 via Frontend Transport; Tue, 13 May 2025 02:03:28 +0000
+Received: from localhost.localdomain (unknown [172.16.64.25])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 392CE41604E5;
+	Tue, 13 May 2025 10:03:27 +0800 (CST)
+From: Peter Chen <peter.chen@cixtech.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	arnd@arndb.de,
+	jassisinghbrar@gmail.com
+Cc: linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 2/2] dt-bindings: display: rockchip: Convert cdn-dp-rockchip.txt to yaml
-Date: Tue, 13 May 2025 09:19:04 +0800
-Message-Id: <20250513011904.102-3-kernel@airkyi.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20250513011904.102-1-kernel@airkyi.com>
-References: <20250513011904.102-1-kernel@airkyi.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
-X-QQ-XMAILINFO: MvW0gkkpO9Je9yv/aTNaCkxj6zjU+S5JjcuNa7z5pUxv97VxChjj+VF/
-	pR/yp7CpiYbGFgTZ7Tyv0rdisLrgwxN8Q5C57+MgNzCNVANGT/QCM2iSneRO//NrPz/VZ/n
-	5sHSCljBDUXGcinDSZC8x/6SIVeQjFlnkvP5zTcs0JHq4TJTEd8LoUjXJClXQ3Qzqa8MDyi
-	bxflTWST3QkFR+wQWa3I8C8CI9ngNoYhHEJte7DVlaMGPxg/Z3YBaNeUyUOpB72DIgj491M
-	S7Cy+cbpkThuwEhRrXnbPPy7KDNQx65hSc61uhAczcF/b0yUzXZaH52a3Ny5+77OVmJHtIR
-	5naZur474q7/dMzcUAjy4/dHx5/+rOEfDDcFqhznsoK6aeua/U4YokZ9jwUIUbQB1Dg+G4M
-	v4AcQyBZgf6BDcwIuDccw5/3mDlHRhSbrWweaXcir354J+/vrI2VFmq2Vt29Y83K5GhFmAL
-	vCmHHTtd+g8Tk43tdNu0gAoblnONlnv3QG6Ury370yHQnYVSDzl1mkqhRda/DzcDprW0syN
-	FSFZDqPqcUobcAcBL8JQYoK0C6S+9o2h8t/nkCFiH2WWa1IKuBiZYM5aUE8bHDoUOmXrYZP
-	uPkgPusv+kWzSHwci5Q8EcgxGVhEYt7VUDYvtRTxgI61m86TsINnQX+Nl/3qMbmCx9YJCua
-	GESGqFIQzrE6Arfqzv4RFT4MW+t6THg7+brpjKmmbk4Vea/4xSp4E8vPZ7h19wsbb7wWl7H
-	ClWW3V1r04kJVu5bjhBVqIznwfq5hExtdpUt1nA0C8rwJFQche1snsRXK3+zzDfWsIkPL+x
-	W2vWqo6b5ffm5oJDXiuCuR1GIzH6jjBkhTIfGsGbFc8oi5u+Jakg4ETesWslEzonLnhPp4n
-	Avv4FK3VGRHqaR8HvUnFqxUyxvbFtM80W3bEitz/IhMGkg9W2d9HwNGGKn3skA/+Jf8hHEg
-	Jbz8X7bhHzuYCDf0BkXNU4Fv34x9dT9+ua6qX10B9rDUoiT2Dr2oql6d4Y1US5qFUcKk=
-X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
-X-QQ-RECHKSPAM: 0
+	linux-kernel@vger.kernel.org,
+	cix-kernel-upstream@cixtech.com,
+	maz@kernel.org,
+	sudeep.holla@arm.com,
+	kajetan.puchalski@arm.com,
+	eballetb@redhat.com,
+	Peter Chen <peter.chen@cixtech.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Fugang Duan <fugang.duan@cixtech.com>
+Subject: [PATCH v8 1/9] dt-bindings: vendor-prefixes: Add CIX Technology Group Co., Ltd.
+Date: Tue, 13 May 2025 10:03:19 +0800
+Message-Id: <20250513020327.414017-2-peter.chen@cixtech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250513020327.414017-1-peter.chen@cixtech.com>
+References: <20250513020327.414017-1-peter.chen@cixtech.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000C9:EE_|PUZPR06MB6068:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 4a0ad82f-72ef-4cf4-9a6b-08dd91c25a5c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?A0RPJorlD5fX+JdwNRrqdUB9htyOwiWSWN4LquSgKdsoViKSWdluH76B+be/?=
+ =?us-ascii?Q?QeQt6ohuJ08CMZUu/MVQSzB62ZsdD5Xl717nCJctkYhA5fuXk9L7pigQ5HjD?=
+ =?us-ascii?Q?7HkKH42hO8wdKNp9hC5TuIpXI3pOcEOhn4R2qmrIFhxZh42wNd4cZiVXfI7T?=
+ =?us-ascii?Q?BVGJS7ykDoseTnj3dP+Ld7wG/W4sGhsD5BB/WkBh+QM4HJACJ+pkmqnH+lpO?=
+ =?us-ascii?Q?1VZqDsYhB3HGR2xZ1L8DknWwKVarA41W1/fKzFI5MwTA1owj2KGPjwCHVKlJ?=
+ =?us-ascii?Q?laagdPWLMnjjNNi451ri+Pcbs2X7ZAxlmythyEMQoHXIqBmfnAkg6+A41XSi?=
+ =?us-ascii?Q?4I4SMZUytdjM20psc1FrIcBeL5bTHPuJ99v2js2bBT1iDddEPwo9UIUJqp3/?=
+ =?us-ascii?Q?G9+2URyZFko3ppy3KCal5Pr8vbOs2o7m0FqVU95MKbFlAoyNLUPB7RZoEC9o?=
+ =?us-ascii?Q?LEq+937YTJ8752+yppIrQeKD0XFlBsetnRf7SrKNbMAtSkBGUz1ISkGYKsHy?=
+ =?us-ascii?Q?BRRNlFuCF/0t7LSRj/Fj1k2Ao0hhedT2M2Txh6B8qarmb6WgjfOvVsYB3Gr8?=
+ =?us-ascii?Q?Gr+01ZSHRcV794gCcykXCaJbrEJwMY3SJ5NGbw2Hv671vxohjcyqddWIk3G1?=
+ =?us-ascii?Q?VNO+OVNjDsTDuNuu3v6bF3WQ5Ox6IQgJTefyhdLE3X5bTrMnwa3Toi0Vj2dz?=
+ =?us-ascii?Q?RbnstcbD5CD7fwt4GCPG1fEx+lqwhlK95b/G8jsFvemgBUQzcLPtE2oyujYh?=
+ =?us-ascii?Q?nSI80/g0oQZsWsQ34jF11qZSHFzap8Gja3CqcqTfSNwsLJzBK/TUUAbbejJH?=
+ =?us-ascii?Q?2MCUPMuFQQzwS5tdyYI/dVd+VRs+936LMVrb5sbzrZmaYS8Uw1QjT0xT0n+Z?=
+ =?us-ascii?Q?mwEHoFl3VC62ChdlAHMlpTHVo/CivQnwW40vy8SqX39qoBdy9+ZIPYtNkfxL?=
+ =?us-ascii?Q?+ID98quMpE0FXKQKi/UBBCFzk5WiqtmTDH1K8EQtVSDxOwiNlfegSqoxyFRo?=
+ =?us-ascii?Q?etGHWdBWRsPZnnGAwhyDAXVnthvjnH42MmBucxoceE6dLRMyWmI1bcyotd/8?=
+ =?us-ascii?Q?ojyvLv+/lHR6wuSpYD5dq/u8/L9QUYosNHEGl4lOpD/JFIZmYTpe70EIBpAz?=
+ =?us-ascii?Q?vETBuv6KIWwGPnsUCl2v8tY+zEzRJQTmpD2bmhGcumDe7U1UtkQNQKYhOihZ?=
+ =?us-ascii?Q?Eq1yWJIFSaJwutRk5iEM2+F/pTAGg1gsGSJCtIT86OI5JBJKY2O/zgvJqxzW?=
+ =?us-ascii?Q?awC1cMTZZccpxheP1RQkuclOHZ5fRz2oBvW0RaofR++3rwybgHg2KAinzna+?=
+ =?us-ascii?Q?pFGfQShbUiVOnK1ZMcwF0dvyUdr6MbbOj0e7vjTZ88A7wP+47cQx9o0Ujj6b?=
+ =?us-ascii?Q?oj7H77gJdFEs6d64kVvmXv/wwaymLhiyCcesDpN6swif3PPwbkLitVn7uQMy?=
+ =?us-ascii?Q?PDmSl7YapQKwxfAFfbmMahbwukJdInh5FjFCgSTQARvBo3vilQ0sZg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700013);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2025 02:03:28.0143
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4a0ad82f-72ef-4cf4-9a6b-08dd91c25a5c
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C9.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB6068
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_182122_053095_612D5C31 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20250512_190340_732553_2886FA28 
+X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,281 +150,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+CIX Technology Group Co., Ltd. is a high performance Arm SoC design
+company. Link: https://www.cixtech.com/.
 
-Convert cdn-dp-rockchip.txt to yaml.
-
-Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Acked-by: Fugang Duan <fugang.duan@cixtech.com>
+Signed-off-by: Peter Chen <peter.chen@cixtech.com>
 ---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Changes in v3:
-- Add more description about phy/extcon
-- Fix some coding style
-
-Changes in v2:
-- Rename binding file name to match compatible
-- Add more description about grf/phy/extcon
-- Fix coding style
-
-
- .../display/rockchip/cdn-dp-rockchip.txt      |  74 --------
- .../rockchip/rockchip,rk3399-cdn-dp.yaml      | 165 ++++++++++++++++++
- 2 files changed, 165 insertions(+), 74 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/display/rockchip/cdn-dp-rockchip.txt
- create mode 100644 Documentation/devicetree/bindings/display/rockchip/rockchip,rk3399-cdn-dp.yaml
-
-diff --git a/Documentation/devicetree/bindings/display/rockchip/cdn-dp-rockchip.txt b/Documentation/devicetree/bindings/display/rockchip/cdn-dp-rockchip.txt
-deleted file mode 100644
-index 8df7d2e393d6..000000000000
---- a/Documentation/devicetree/bindings/display/rockchip/cdn-dp-rockchip.txt
-+++ /dev/null
-@@ -1,74 +0,0 @@
--Rockchip RK3399 specific extensions to the cdn Display Port
--================================
--
--Required properties:
--- compatible: must be "rockchip,rk3399-cdn-dp"
--
--- reg: physical base address of the controller and length
--
--- clocks: from common clock binding: handle to dp clock.
--
--- clock-names: from common clock binding:
--	       Required elements: "core-clk" "pclk" "spdif" "grf"
--
--- resets : a list of phandle + reset specifier pairs
--- reset-names : string of reset names
--		Required elements: "apb", "core", "dptx", "spdif"
--- power-domains : power-domain property defined with a phandle
--		  to respective power domain.
--- assigned-clocks: main clock, should be <&cru SCLK_DP_CORE>
--- assigned-clock-rates : the DP core clk frequency, shall be: 100000000
--
--- rockchip,grf: this soc should set GRF regs, so need get grf here.
--
--- ports: contain a port nodes with endpoint definitions as defined in
--	 Documentation/devicetree/bindings/media/video-interfaces.txt.
--	 contained 2 endpoints, connecting to the output of vop.
--
--- phys: from general PHY binding: the phandle for the PHY device.
--
--- extcon: extcon specifier for the Power Delivery
--
--- #sound-dai-cells = it must be 1 if your system is using 2 DAIs: I2S, SPDIF
--
---------------------------------------------------------------------------------
--
--Example:
--	cdn_dp: dp@fec00000 {
--		compatible = "rockchip,rk3399-cdn-dp";
--		reg = <0x0 0xfec00000 0x0 0x100000>;
--		interrupts = <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>;
--		clocks = <&cru SCLK_DP_CORE>, <&cru PCLK_DP_CTRL>,
--			 <&cru SCLK_SPDIF_REC_DPTX>, <&cru PCLK_VIO_GRF>;
--		clock-names = "core-clk", "pclk", "spdif", "grf";
--		assigned-clocks = <&cru SCLK_DP_CORE>;
--		assigned-clock-rates = <100000000>;
--		power-domains = <&power RK3399_PD_HDCP>;
--		phys = <&tcphy0_dp>, <&tcphy1_dp>;
--		resets = <&cru SRST_DPTX_SPDIF_REC>;
--		reset-names = "spdif";
--		extcon = <&fusb0>, <&fusb1>;
--		rockchip,grf = <&grf>;
--		#address-cells = <1>;
--		#size-cells = <0>;
--		#sound-dai-cells = <1>;
--
--		ports {
--			#address-cells = <1>;
--			#size-cells = <0>;
--
--			dp_in: port {
--				#address-cells = <1>;
--				#size-cells = <0>;
--				dp_in_vopb: endpoint@0 {
--					reg = <0>;
--					remote-endpoint = <&vopb_out_dp>;
--				};
--
--				dp_in_vopl: endpoint@1 {
--					reg = <1>;
--					remote-endpoint = <&vopl_out_dp>;
--				};
--			};
--		};
--	};
-diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3399-cdn-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3399-cdn-dp.yaml
-new file mode 100644
-index 000000000000..7c2225204de2
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3399-cdn-dp.yaml
-@@ -0,0 +1,165 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/rockchip/rockchip,rk3399-cdn-dp.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Rockchip RK3399 specific extensions to the CDN Display Port
-+
-+maintainers:
-+  - Andy Yan <andy.yan@rock-chip.com>
-+  - Heiko Stuebner <heiko@sntech.de>
-+  - Sandy Huang <hjc@rock-chips.com>
-+
-+allOf:
-+  - $ref: /schemas/sound/dai-common.yaml#
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: rockchip,rk3399-cdn-dp
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: DP core work clock
-+      - description: APB clock
-+      - description: SPDIF interface clock
-+      - description: GRF clock
-+
-+  clock-names:
-+    items:
-+      - const: core-clk
-+      - const: pclk
-+      - const: spdif
-+      - const: grf
-+
-+  extcon:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      maxItems: 1
-+    maxItems: 2
-+    description:
-+      List of phandle to the extcon device providing the cable state for the DP PHY.
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  phys:
-+    items:
-+      maxItems: 1
-+    maxItems: 2
-+    description: |
-+      List of phandle to the PHY device for DP output.
-+      RK3399 have two DP-TPYEC PHY, specifying one PHY which want to use,
-+      or specify two PHYs here to let the driver determine which PHY to use.
-+
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+
-+    properties:
-+      port@0:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: Input of the CDN DP
-+        properties:
-+          endpoint@0:
-+            description: Connection to the VOPB
-+          endpoint@1:
-+            description: Connection to the VOPL
-+      port@1:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: Output of the CDN DP
-+
-+    required:
-+      - port@0
-+      - port@1
-+
-+  power-domains:
-+    maxItems: 1
-+
-+  resets:
-+    maxItems: 4
-+
-+  reset-names:
-+    items:
-+      - const: spdif
-+      - const: dptx
-+      - const: apb
-+      - const: core
-+
-+  rockchip,grf:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Phandle to GRF register to control HPD.
-+
-+  "#sound-dai-cells":
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+  - phys
-+  - ports
-+  - resets
-+  - reset-names
-+  - rockchip,grf
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/rk3399-cru.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/power/rk3399-power.h>
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        dp@fec00000 {
-+            compatible = "rockchip,rk3399-cdn-dp";
-+            reg = <0x0 0xfec00000 0x0 0x100000>;
-+            assigned-clocks = <&cru SCLK_DP_CORE>;
-+            assigned-clock-rates = <100000000>;
-+            interrupts = <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>;
-+            clocks = <&cru SCLK_DP_CORE>, <&cru PCLK_DP_CTRL>, <&cru SCLK_SPDIF_REC_DPTX>,
-+                    <&cru PCLK_VIO_GRF>;
-+            clock-names = "core-clk", "pclk", "spdif", "grf";
-+            power-domains = <&power RK3399_PD_HDCP>;
-+            phys = <&tcphy0_dp>, <&tcphy1_dp>;
-+            resets = <&cru SRST_DPTX_SPDIF_REC>, <&cru SRST_P_UPHY0_DPTX>,
-+                    <&cru SRST_P_UPHY0_APB>, <&cru SRST_DP_CORE>;
-+            reset-names = "spdif", "dptx", "apb", "core";
-+            rockchip,grf = <&grf>;
-+            #sound-dai-cells = <1>;
-+
-+            ports {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+
-+                dp_in: port@0 {
-+                    reg = <0>;
-+                    #address-cells = <1>;
-+                    #size-cells = <0>;
-+
-+                    dp_in_vopb: endpoint@0 {
-+                        reg = <0>;
-+                        remote-endpoint = <&vopb_out_dp>;
-+                    };
-+
-+                    dp_in_vopl: endpoint@1 {
-+                        reg = <1>;
-+                        remote-endpoint = <&vopl_out_dp>;
-+                    };
-+                };
-+
-+                dp_out: port@1 {
-+                    reg = <1>;
-+                };
-+            };
-+        };
-+    };
---
-2.49.0
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 86f6a19b28ae..661c8c0d76b6 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -304,6 +304,8 @@ patternProperties:
+     description: Cirrus Logic, Inc.
+   "^cisco,.*":
+     description: Cisco Systems, Inc.
++  "^cix,.*":
++    description: CIX Technology Group Co., Ltd.
+   "^clockwork,.*":
+     description: Clockwork Tech LLC
+   "^cloos,.*":
+-- 
+2.25.1
 
 
