@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 659D6C3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 07:44:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58364C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 07:46:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nytmb8Alh1RnVaARczqsAx8kDXBxAOiAZx1AP1d4uMc=; b=sZC9rdS0SL0EQP+6lmwuWPBlLd
-	XmN30n35loFwyG6oAjXkErNX1v3i+xmgbbMGtwx/zZmLyl0j0U8BVP9h8tePPzaKNgqhXo/B8074d
-	VtmVfDOHAk3Ehn+gfMAFdDO3DC6TQE0Q1+YSFHRR4lqdMyXyW48hUbVwXa49Vh3ViprSTY+7hc/Bo
-	H+2hxdoxs+x157T/jbBEfLSuWjlHQfVg6ZlJCylcjugDGgQ58hHK7r+Rpyp2R7sWuxAolOx+M2r8A
-	c8EQdPQz1Hv7VGrH5Wc4zq/DmgfPfJX3POOhSpKfyCPNfgCm5gX6HXzomYRqtFgbWZi9o/x+vXahM
-	19mJwjrQ==;
+	bh=OrOHDxnbdvxcdMW8vZyHOBz4Ud60yiVhBwqlYO1A4Kg=; b=IsI24ApqmR+7kaMyaDfMbsdHrZ
+	T75xp2oXc7X73p+eRdIXt4e21xpU9o0F83Xl/j1Y9Ul+TZkXXPFYI2PPkBabYyWBXKditd6z+Kgpv
+	5QuaDUUXqSTiPNWU9s2UyCYMWgQMyFWdpfM2YsswkWczTDylCzZb9OLDQqGSImN4z8hdV8aIJwlFx
+	KY3YFDLDF1AhuNVXjxhhXv0xa4JCSJygjP9yrc7c4lhLNW3ITerH6kjINP+Zeouk7Lyao5GspjzEV
+	RlTcQwwuQCgCNVSM0NpD90VMC4SRcOeaScoZQ6AN0nooSmvDy0CSwYb7okpfmKU2tf9NLrj5fyKMw
+	DlX3wbkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEkJ2-0000000BeyK-07Tq;
-	Tue, 13 May 2025 07:44:04 +0000
+	id 1uEkKz-0000000Bfmr-3zUG;
+	Tue, 13 May 2025 07:46:05 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEkH2-0000000Beei-1WX6
+	id 1uEkIy-0000000Bexs-2g6w
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 07:42:01 +0000
+	Tue, 13 May 2025 07:44:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3FD9CA4C923;
-	Tue, 13 May 2025 07:41:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28123C4CEE4;
-	Tue, 13 May 2025 07:41:55 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id AF3ECA4C95D;
+	Tue, 13 May 2025 07:43:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A32D1C4CEE4;
+	Tue, 13 May 2025 07:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747122118;
-	bh=kKxVFd5/Lny450HTq18gSCKN2yeP+HNi+IlWTPmp39A=;
+	s=k20201202; t=1747122239;
+	bh=05PSGXPxm8T4uMcfkw55dhfsSpGEmeGikCGoTlmDtMA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Wvn5hBf/fn5+WwHlHZ3vwPyWufR+lIGYZS/NM8gvXF51GkR+JpIzLj9aqtm1BoHMX
-	 RvynBNfqD3p+6DCczvXV1i6g4WXBsrjHBvz5pr0/QUTZw5sITBCjMyVBMiI/0NocIw
-	 Irdq+k20t1aSvMfytI2fCTX7qiZBxoo80byiuZ+R9QJZtPfxh1zRQVJ8xw5aZaDqCk
-	 hRbUjDVbrj14FKJEAyidBLZG1ZtDJtF3VbH6zemUmeI8jn0fn80NQn6E5xu6nvyCBx
-	 rZW/WiaEz+mb7ZMqfKMP+A4JQuSZmUrz80zL+m1T92MynX7t/T63yQpR4z+qyAXL2F
-	 ineNDox31+c7w==
-Message-ID: <824ce42d-d7be-4a86-bfa3-b405d1d7197e@kernel.org>
-Date: Tue, 13 May 2025 09:41:54 +0200
+	b=H3SWsk3se2ELFISRDHFZRYT1BU1LkCsETW7FY8H4zIaWqeq5WFwi4GTqVqb25y6y1
+	 jPBZfSlSZ+gL3rEDzaHXdDOUxSbpkuDeOnJ+1xb6xJWUBwrAoAuSfNM3Tu+Xg1ZMgT
+	 8Uk5NJIvhkQsZeTSvinD+KTnTrT+s1W00j2/kuHN0XfmJB+Fld9v7iQv73Zg5y5bBn
+	 voK21xcUG7kYJG7bjQ+tQrXgHC+NfU7civ0zCJaV+OmF3ak//Ax5HsMWoi40XB0Jt2
+	 /Ge9m1RWW1krdcWmiy7CmSqYLs3xC7jyFIs1Xnd3MS/JVALwPzkt/kq61uwtFxmGFi
+	 xUWbhr7HhCk3Q==
+Message-ID: <732fb2d3-5843-41bc-8c62-915193815b08@kernel.org>
+Date: Tue, 13 May 2025 09:43:55 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [dt-bindings: arm: aspeed: add Meta Clemente board] dt-bindings:
- arm: aspeed: add Meta Clemente board
+Subject: Re: [ARM: dts: aspeed: clemente: add Meta Clemente BMC] ARM: dts:
+ aspeed: clemente: add Meta Clemente BMC
 To: leo.jt.wang@gmail.com, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
@@ -55,8 +55,7 @@ To: leo.jt.wang@gmail.com, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
  george.kw.lee@fii-foxconn.com, leo.jt.wang@fii-foxconn.com
-References: <20250512113026.264785-1-LeoWang>
- <6821dbfb.170a0220.3b15e.aba8@mx.google.com>
+References: <6821dbe7.170a0220.3b15e.ab77@mx.google.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,12 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <6821dbfb.170a0220.3b15e.aba8@mx.google.com>
+In-Reply-To: <6821dbe7.170a0220.3b15e.ab77@mx.google.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_004200_540271_7F6048BB 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20250513_004400_819447_F15EE80F 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,25 +124,57 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 12/05/2025 13:30, leo.jt.wang@gmail.com wrote:
 > From: Leo Wang <leo.jt.wang@fii-foxconn.com>
 > 
-> Document the new compatibles used on Meta Clemente.
+>     Add linux device tree entry for Meta(Facebook) Clemente compute-tray
+>     BMC using AST2600 SoC.
+
+
+Not really Linux coding style. Do you see existing patches with above
+format - indentation?
+
 > 
 > Signed-off-by: Leo Wang <leo.jt.wang@fii-foxconn.com>
 > ---
->  Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  arch/arm/boot/dts/aspeed/Makefile             |    1 +
+>  .../aspeed/aspeed-bmc-facebook-clemente.dts   | 1269 +++++++++++++++++
+>  2 files changed, 1270 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
 > 
-> diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> index a3736f134130..4416a40dcd86 100644
-> --- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> +++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> @@ -81,6 +81,7 @@ properties:
->                - asus,x4tf-bmc
->                - facebook,bletchley-bmc
->                - facebook,catalina-bmc
-> +              - facebook,clemente-bmc
+> diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
+> index b3170fdd3096..9d0a465cbb36 100644
+> --- a/arch/arm/boot/dts/aspeed/Makefile
+> +++ b/arch/arm/boot/dts/aspeed/Makefile
+> @@ -19,6 +19,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
+>  	aspeed-bmc-delta-ahe50dc.dtb \
+>  	aspeed-bmc-facebook-bletchley.dtb \
+>  	aspeed-bmc-facebook-catalina.dtb \
+> +	aspeed-bmc-facebook-clemente.dtb \
+>  	aspeed-bmc-facebook-cmm.dtb \
+>  	aspeed-bmc-facebook-elbert.dtb \
+>  	aspeed-bmc-facebook-fuji.dtb \
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
+> new file mode 100644
+> index 000000000000..0313150841e1
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
+> @@ -0,0 +1,1269 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +// Copyright (c) 2021 Facebook Inc.
+> +/dts-v1/;
+> +
+> +#include "aspeed-g6.dtsi"
+> +#include <dt-bindings/gpio/aspeed-gpio.h>
+> +#include <dt-bindings/usb/pd.h>
+> +#include <dt-bindings/leds/leds-pca955x.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +#include <dt-bindings/i2c/i2c.h>
+> +
+> +/ {
+> +	model = "Facebook Clemente BMC";
+> +	compatible = "facebook,clemente-bmc", "aspeed,ast2600";
 
-where is any user of this binding? Why do you send such patch alone?
-Please look at other patchsets to learn how all such patches are being sent.
+
+Missing binding or was there saeparate patch exactly for that? But why
+separate?
 
 Best regards,
 Krzysztof
