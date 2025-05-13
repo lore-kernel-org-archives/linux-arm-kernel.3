@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6024C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 19:00:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F47C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 19:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DB3tTFLWzUdI+/2k2/G0z9ItKcJmZ4ohDe0Yiw75l7E=; b=ye1olCfchTzzxS8G0nLbKEI+OE
-	/AjHij+bwFh/d9dWpNZt2fk7zVJpSXqVreUzwkT664RhJrd5wpsTWx6ohh+gvGu/Wsw/C4G0qVZdN
-	8g/fNRkI0m3UkJ5Wvq08S5cJ3yYsvQmNJD+kpxcYMKofyDMU/p62v4R63kGmhhjjtwo4HOP/WOqa6
-	5GA9CQ6ojH+8DwWhZOmAK5vQmlMdA9lmaJLy7+xdG2Umryzuxzdn48vqyZlKkOIwxLhpgzXzI43n4
-	wNAhF/IWdYjO4SihmupnlJuWXn76Yu2T0Jw1JWX64xaLHUFuMb+r/11Cxor7PnQmjKE26s8vv/xoI
-	/IBHyDZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Iwn/kA0O8CAD/ThWddzWQf+59NgObuDjwWI8/h+K/jQ=; b=MQQt4Jn7+XGxQxfF8Wqib/shf9
+	dKCOrEP0bSIIRl+Ya8Hx4jdBeUqiSY/xD6I8vKlHZV9NJi7PAKwlVTT3ZUQFnXlq4gA8BwJpPQVPj
+	nfDx8gw850h2wMr746TA/Xff1J0C1BSLZCCbMEEum3pv2dA4C0PjwTmNSV1/fsqVqv607wGbPOgEw
+	WC2tgcaMXfM0jV6/yeW6W54VK6YncsYz0gThXUCWLADlyPOIppme8v9WArM3Q1aqJ9A4Q0d6/ksyZ
+	WvFsjK66Lj5vdjbWnBt3Xo+ia/dptL6ITMEt5IosZKxd3O43YIHUza/nmMNZJoqz4nvvhwiWxsglZ
+	qYZ/QV2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEurC-0000000DJSH-1cbW;
-	Tue, 13 May 2025 19:00:02 +0000
-Received: from out-177.mta1.migadu.com ([2001:41d0:203:375::b1])
+	id 1uEutG-0000000DJk8-1ebS;
+	Tue, 13 May 2025 19:02:10 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEuD4-0000000DDkq-3CbP
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 18:18:36 +0000
-Message-ID: <53d495b1-b593-4ca1-acf3-fe1907d9a56a@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1747160311;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DB3tTFLWzUdI+/2k2/G0z9ItKcJmZ4ohDe0Yiw75l7E=;
-	b=Y3CqqPo5fnt83dlvG+F+Fhl8lzPo7gTuJydCjuOS++XEXTrJTPeU03kJWkVPJI8GvEYBrC
-	EcGSe2F8xowDLzCZg9r4twYSzTbnd91j5l6l7ik0AaCipJShu0+nngexHRBjIiJSvafxz4
-	hpepMNP0S7bEtGDSqEf7R4/ze9Icvs4=
-Date: Tue, 13 May 2025 14:18:24 -0400
+	id 1uEuI8-0000000DEOL-1rLb;
+	Tue, 13 May 2025 18:23:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=Iwn/kA0O8CAD/ThWddzWQf+59NgObuDjwWI8/h+K/jQ=; b=mfGTVucpq7HrMiOG310MZExm24
+	a2PHQpc2cZYjgQ9T/uFPXjtCeE/cxbVtmxzBJmrWoniJ1DBsk548oBUZG3MAPnhdUydoji7XVwbBv
+	ejnYHcgOhXUnhzTmfifID7w8e0r5/pYGqsiEuFKtlBFYAqe1S5PdUhgzhliR8xEiY92KCVy33Odut
+	EVQX/bcUZlGG4ld1scWlBGQ+0fQn4xV7JYULNWrechX53cTznos72AXSEbqm2ROewq2LVA0rSEvfx
+	2BIoFQMainpHwQlLFThQu0QNkufNqqt8weIqnHm2vhM/WkL/lJ5stSp81xIjnfx0yzjJktrme6EuS
+	nJy7QN5A==;
+Received: from [61.8.147.169] (helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uEuI2-0003RT-CU; Tue, 13 May 2025 20:23:42 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Nicholas Roth <nicholas@rothemail.net>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Olivier Benjamin <olivier.benjamin@bootlin.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>,
+ imx@lists.linux.dev, Olivier Benjamin <olivier.benjamin@bootlin.com>,
+ Dragan Simic <dsimic@manjaro.org>, Ondrej Jirman <megi@xff.cz>
+Subject: Re: [PATCH v3 3/4] arm64: dts: rockchip: describe I2c Bus 1 and IMX258 world
+ camera on PinePhone Pro
+Date: Tue, 13 May 2025 20:23:40 +0200
+Message-ID: <3359896.e9J7NaK4W3@phil>
+In-Reply-To: <20250509-camera-v3-3-dab2772d229a@bootlin.com>
+References: <20250509-camera-v3-0-dab2772d229a@bootlin.com>
+ <20250509-camera-v3-3-dab2772d229a@bootlin.com>
 MIME-Version: 1.0
-Subject: Re: [net-next PATCH v4 01/11] net: phy: introduce phy_interface_copy
- helper
-To: Christian Marangi <ansuelsmth@gmail.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
- Heiner Kallweit <hkallweit1@gmail.com>, Russell King
- <linux@armlinux.org.uk>, Philipp Zabel <p.zabel@pengutronix.de>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- llvm@lists.linux.dev
-References: <20250511201250.3789083-1-ansuelsmth@gmail.com>
- <20250511201250.3789083-2-ansuelsmth@gmail.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <20250511201250.3789083-2-ansuelsmth@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_111834_952734_C03C0EF0 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20250513_112348_626716_F2C989B9 
+X-CRM114-Status: GOOD (  24.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,35 +86,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/11/25 16:12, Christian Marangi wrote:
-> Introduce phy_interface_copy helper as a shorthand to copy the PHY
-> interface bitmap to a different location.
-> 
-> This is useful if a PHY interface bitmap needs to be stored in a
-> different variable and needs to be reset to an original value saved in a
-> different bitmap.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  include/linux/phy.h | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/include/linux/phy.h b/include/linux/phy.h
-> index d62d292024bc..9f0e5fb30d63 100644
-> --- a/include/linux/phy.h
-> +++ b/include/linux/phy.h
-> @@ -173,6 +173,11 @@ static inline void phy_interface_or(unsigned long *dst, const unsigned long *a,
->  	bitmap_or(dst, a, b, PHY_INTERFACE_MODE_MAX);
->  }
->  
-> +static inline void phy_interface_copy(unsigned long *dst, const unsigned long *src)
-> +{
-> +	bitmap_copy(dst, src, PHY_INTERFACE_MODE_MAX);
-> +}
-> +
->  static inline void phy_interface_set_rgmii(unsigned long *intf)
->  {
->  	__set_bit(PHY_INTERFACE_MODE_RGMII, intf);
+Hi Olivier,
 
-Reviewed-by: Sean Anderson <sean.anderson@linux.dev>
+Am Freitag, 9. Mai 2025, 23:51:39 Mitteleurop=C3=A4ische Sommerzeit schrieb=
+ Olivier Benjamin:
+> Add the description of the rear/world camera (IMX258) on the PinePhone Pro
+> to the device dts file.
+> It receives commands on the I2C Bus 1 at address 0x1a and transmits data
+> over CSI-MIPI.
+>=20
+> The I2C address for IMX258 can be found in the IMX258-0AQH5 Software
+> Reference Manual, page 24, section 2.3.1: 0b0011010 =3D 0x1a.
+> Section 3 indicates the module has 4 pairs of data lines. While 4-lane
+> mode is nominal, 2-lane mode should also be supported.
+>=20
+> The pin muxing info was extracted from the PinePhone Pro schematic v1.0
+> as well as the RK3399 datasheet revision 1.8.
+>=20
+> Table 2-3 in section 2.8 of the RK3399 datasheet contains the mapping
+> of IO functions for the SoC pins. Page 52 shows GPIO1_A0, page 54 shows
+> GPIO2_D4.
+>=20
+> For I2C power, the PinePhone Pro schematic page 11 quadrants A4 and A5:
+> RK3399_J.AA8 and RK3399_J.Y8 get power from vcaa1v8_codec, so turn it on
+>=20
+> The IMX258 also uses the following regulators, expected by its driver:
+>  - vana (2.8V analog), called AVDD2V8_DVP on P.18 q.C1 and derived from
+>    VCC1V8_S3 on P.13 q.B2
+>  - vdig (1.2V digital core), called DVDD_DVP on P.18 q.C1 and shown on
+>    P.18 q.D3 to be equivalent to VCC1V2_DVP derived from VCC3V3_SYS on
+>    P.13 q.B3. Note that this regulator's voltage is inconsistently
+>    labeled either 1.2V or 1.5V
+>=20
+> RK3399_J.AG1 is GPIO4_A1/I2C1_SDA, RK3399_J.Y6 is GPIO4_A2/I2C1_SCL
+> This is the default pinctrl "i2c1_xfer" for i2c1 from rk3399-base.
+>=20
+> For the reset (RESET) signal:
+> page 11 quadrant D2             | p.18 q.C3-4 | p.18 q.C2
+> RK3399_E.R25 -> GPIO1_A0 -> Camera_RST -> MIPI_RST0 -> IMX258.12
+>=20
+> For the powerdown (PWDN) signal:
+> page 11 quadrants B4-5          | p.18 q.C2
+> RK3399_G.AF8 -> GPIO2_D4 -> DVP_PDN1_H -> IMX258.14
+>=20
+> Helped-by: Dragan Simic <dsimic@manjaro.org>
+> Co-developed-by: Ondrej Jirman <megi@xff.cz>
+> Signed-off-by: Ondrej Jirman <megi@xff.cz>
+> Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
+
+how independent are the devicetree changes from the binding changes?
+As the binding change "only" includes other properties.
+
+Heiko
+
+
+> ---
+>  .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 94 ++++++++++++++++=
+++++++
+>  1 file changed, 94 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch=
+/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> index 04ba4c4565d0a205e2e46d7535c6a3190993621d..588e2d8a049cc649aa227c7a8=
+85bd494f23fbdf8 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> @@ -114,6 +114,16 @@ vcc3v3_sys: regulator-vcc3v3-sys {
+>  		vin-supply =3D <&vcc_sys>;
+>  	};
+> =20
+> +	avdd2v8_dvp: regulator-avdd2v8-dvp {
+> +		compatible =3D "regulator-fixed";
+> +		regulator-name =3D "avdd2v8_dvp";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt =3D <2800000>;
+> +		regulator-max-microvolt =3D <2800000>;
+> +		vin-supply =3D <&vcc3v3_sys>;
+> +	};
+> +
+>  	vcca1v8_s3: regulator-vcc1v8-s3 {
+>  		compatible =3D "regulator-fixed";
+>  		regulator-name =3D "vcca1v8_s3";
+> @@ -136,6 +146,16 @@ vcc1v8_codec: regulator-vcc1v8-codec {
+>  		vin-supply =3D <&vcc3v3_sys>;
+>  	};
+> =20
+> +	vcc1v2_dvp: regulator-vcc1v2-dvp {
+> +		compatible =3D "regulator-fixed";
+> +		regulator-name =3D "vcc1v2_dvp";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt =3D <1200000>;
+> +		regulator-max-microvolt =3D <1200000>;
+> +		vin-supply =3D <&vcca1v8_s3>;
+> +	};
+> +
+>  	wifi_pwrseq: sdio-wifi-pwrseq {
+>  		compatible =3D "mmc-pwrseq-simple";
+>  		clocks =3D <&rk818 1>;
+> @@ -312,6 +332,8 @@ vcc3v0_touch: LDO_REG2 {
+> =20
+>  			vcca1v8_codec: LDO_REG3 {
+>  				regulator-name =3D "vcca1v8_codec";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+>  				regulator-min-microvolt =3D <1800000>;
+>  				regulator-max-microvolt =3D <1800000>;
+>  			};
+> @@ -420,6 +442,46 @@ regulator-state-mem {
+>  	};
+>  };
+> =20
+> +&i2c1 {
+> +	clock-frequency =3D <400000>;
+> +	pinctrl-0 =3D <&i2c1_xfer &cif_clkouta>;
+> +	assigned-clocks =3D <&cru SCLK_CIF_OUT>;
+> +	assigned-clock-rates =3D <24000000>;
+> +	status =3D "okay";
+> +
+> +	wcam: camera@1a {
+> +		compatible =3D "sony,imx258";
+> +		reg =3D <0x1a>;
+> +		clocks =3D <&cru SCLK_CIF_OUT>; /* MIPI_MCLK0, derived from CIF_CLKO */
+> +		clock-names =3D "xvclk";
+> +		pinctrl-names =3D "default";
+> +		pinctrl-0 =3D <&wcam_rst>;
+> +		/* Note: both cameras also depend on vcca1v8_codec to power the I2C bu=
+s. */
+> +		vif-supply =3D <&vcc1v8_dvp>;
+> +		vana-supply =3D <&avdd2v8_dvp>;
+> +		vdig-supply =3D <&vcc1v2_dvp>; /* DVDD_DVP is the same as VCC1V2_DVP */
+> +		reset-gpios =3D <&gpio1 RK_PA0 GPIO_ACTIVE_LOW>;
+> +		orientation =3D <1>; /* V4L2_CAMERA_ORIENTATION_BACK */
+> +		rotation =3D <270>;
+> +		lens-focus =3D <&wcam_lens>;
+> +
+> +		port {
+> +			wcam_out: endpoint {
+> +				remote-endpoint =3D <&mipi_in_wcam>;
+> +				data-lanes =3D <1 2 3 4>;
+> +				link-frequencies =3D /bits/ 64 <636000000>;
+> +			};
+> +		};
+> +	};
+> +
+> +	wcam_lens: camera-lens@c {
+> +		compatible =3D "dongwoon,dw9714";
+> +		reg =3D <0x0c>;
+> +		/* Same I2c bus as both cameras, depends on vcca1v8_codec for power. */
+> +		vcc-supply =3D <&vcc1v8_dvp>;
+> +	};
+> +};
+> +
+>  &i2c3 {
+>  	i2c-scl-rising-time-ns =3D <450>;
+>  	i2c-scl-falling-time-ns =3D <15>;
+> @@ -462,6 +524,28 @@ &io_domains {
+>  	status =3D "okay";
+>  };
+> =20
+> +&isp1 {
+> +	status =3D "okay";
+> +
+> +	ports {
+> +		port@0 {
+> +			mipi_in_wcam: endpoint@0 {
+> +				reg =3D <0>;
+> +				remote-endpoint =3D <&wcam_out>;
+> +				data-lanes =3D <1 2 3 4>;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&mipi_dphy_rx0 {
+> +	status =3D "okay";
+> +};
+> +
+> +&isp1_mmu {
+> +	status =3D "okay";
+> +};
+> +
+>  &mipi_dsi {
+>  	status =3D "okay";
+>  	clock-master;
+> @@ -495,6 +579,10 @@ mipi_in_panel: endpoint {
+>  	};
+>  };
+> =20
+> +&mipi_dsi1 {
+> +	status =3D "okay";
+> +};
+> +
+>  &pmu_io_domains {
+>  	pmu1830-supply =3D <&vcc_1v8>;
+>  	status =3D "okay";
+> @@ -507,6 +595,12 @@ pwrbtn_pin: pwrbtn-pin {
+>  		};
+>  	};
+> =20
+> +	camera {
+> +		wcam_rst: wcam-rst {
+> +			rockchip,pins =3D <1 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +	};
+> +
+>  	leds {
+>  		red_led_pin: red-led-pin {
+>  			rockchip,pins =3D <4 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
+>=20
+>=20
+
+
+
+
 
