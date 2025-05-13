@@ -4,65 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71637C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 01:22:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C58C3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 01:24:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jVHNlNX/dXRcjSONR7k2PLFj/IcCjNjonxX0bKUHaKs=; b=X5C/CLjsnepXQdHWrJZa3J98YE
-	sdlHFmQn+epg9VJv/d/KaKinaz9GI85MxItZaq0KZHkDKmMH7FSCN3dVfGeEEh1rWmBhIO3rNxT34
-	i+bIWiocp3Z90OTvyCIfwPUw0f5g42OZEyD3z3N97PV2ddmuD7JMwXWzqavhZNDppdiCSSaVKllWO
-	kKO1x/PmnVkP5LpXOxSf1XmYbEcVx0/BPw+XQDG9EFbvtFtuTFhtvknLQr7QPzdDbfZJ9FOaEDOLp
-	kvXwMzirAYaXovC5Bc0o1cqW+LCfkoV7yqlmwUirQFxC8rC7Y0yEM1yiEJjkt+vCILOa8wSd11R5V
-	hst0CF/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=975XiWevg8IyB7+oWu6bLHHS0g5LCqgBcM0TSyV2q3I=; b=BztfB30SrKbBbp8sohRNSkMFWr
+	+nRiTI/e8VtwhBLftau/m34dYs9UjL9ltUEEImjOMxjtB4mBGXRnyZQzzDjy0AN4t6jplQ/bMIX1J
+	Y792yVcNEePOp9hkd7fFpwTongY50HMgNGjt+NOxMvixjMO4/CnLr6anwbEjbj1DVUkZyKfl2f/GY
+	L6oSBdAehDTCK232xWYHSsJwINo+wkBo0WG0fU+AG0aQwljltfxd/VpsTuhC57z8qAfLoXHoWidyM
+	r57BWo6p0HMM21rWTZbP/Bm1w4tNyllIecOenAgIKm6Fk9kAvsnsB3vrNJJUxspWHr54RlbWNQ7l8
+	a8IqVZ8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEeLc-0000000B3Iw-3MgA;
-	Tue, 13 May 2025 01:22:20 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uEeNf-0000000B3S4-2BMZ;
+	Tue, 13 May 2025 01:24:27 +0000
+Received: from smtpbg150.qq.com ([18.132.163.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEeJW-0000000B2sp-0rBD
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 01:20:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E1A0BA4CB4C;
-	Tue, 13 May 2025 01:20:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8649EC4CEE7;
-	Tue, 13 May 2025 01:20:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747099208;
-	bh=Gwv8IJluwhkLe7Hm576RB+85+3tduL9ekdWBKgtmVAc=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=K/1H3WOKXSUhEkXbxo80jO37hrPgDOaduOvljmHihT5WjyX5ImsBaU36+416bm4Eo
-	 CslRg2DZydXaMu+Rx11C79w+t7w7T5lyLLgOyvDdaq7pIG7gf5fvlSegC3SJWFHp70
-	 B1iw4R6w8zd/ZMvZOb56/W5bam0N26wD0fR4ZK5mA3ZQcbdcmEE2khXeGRdff8TwCm
-	 w1FnHebLA7rJ7nx0Jdla2hRp1MGfJmhSbQgnKIvG8FzhhvHbLxdV4/koHGYybc+gSj
-	 4o4buXd5ggzLGovqChc6k2oCoI/3PmMG9nQVB4xZKNmE6wuegyJOeZjgA51xQ7oykE
-	 V7CbEvmxblH2Q==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70D6D39D60BA;
-	Tue, 13 May 2025 01:20:47 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] net: ixp4xx_eth: convert to ndo_hwtstamp_get() and
- ndo_hwtstamp_set()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174709924600.1134434.410408698956541065.git-patchwork-notify@kernel.org>
-Date: Tue, 13 May 2025 01:20:46 +0000
-References: <20250508211043.3388702-1-vladimir.oltean@nxp.com>
-In-Reply-To: <20250508211043.3388702-1-vladimir.oltean@nxp.com>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: netdev@vger.kernel.org, kory.maincent@bootlin.com, linusw@kernel.org,
- kaloz@openwrt.org, linux-arm-kernel@lists.infradead.org, andrew@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, richardcochran@gmail.com, linux-kernel@vger.kernel.org
+	id 1uEeKY-0000000B34z-2IME;
+	Tue, 13 May 2025 01:21:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1747099217;
+	bh=975XiWevg8IyB7+oWu6bLHHS0g5LCqgBcM0TSyV2q3I=;
+	h=From:To:Subject:Date:Message-Id;
+	b=QNaS7GC/PsSBWhvDyVSDDuCwdGPrDRtWyP92G4EpAvPqHuwzDvzcS5SlcgYwzUYXw
+	 5J9dbP9YMOTf4cr9CDPKbSHiXFVYlnLqc+0XvMHLxo5f2er/33YX8EbgYA81U5jQRq
+	 dNLnz+HiC1mhIL63IGp8ylubkpaqL3DDwX5tQO8Q=
+X-QQ-mid: zesmtpgz8t1747099216t17baa3c6
+X-QQ-Originating-IP: ogzTGvVk3wO9+hitY6L5I6pPS+CPHubTZFIWMmaa6Gw=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 13 May 2025 09:20:11 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 8353147344841585000
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Sandy Huang <hjc@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 1/2] arm64: dts: rockchip: Improve coding style for rk3399 cdn_dp
+Date: Tue, 13 May 2025 09:19:03 +0800
+Message-Id: <20250513011904.102-2-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20250513011904.102-1-kernel@airkyi.com>
+References: <20250513011904.102-1-kernel@airkyi.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
+X-QQ-XMAILINFO: ODcDgdcDagQKhJLssho9/hGosYW5ev95v8/OSr20611bZjwkQeLQyN1j
+	U81tHu069WHonK3pFpn3k3xi4W0zKoE8jluM4nFQjoEKqrYJhgQNqmdRdzUAavemp64GnQi
+	FKBMeGshKsIDyeOmguLnJUkUxIftkq74uWGSWCSauQYyOH2rboGeGLiGkE16Xutsbns2ofi
+	FGVV5dTWJGlur+eCYgh9JFezvrKAnrRtYdAah+/zDitECDem0DSPz2EI6yOmkl5ML3orCdA
+	pqeleBJc1KrnU4KwbOiafdGJMFD7vHj2FTonLMwJE149NZvZVs3sfHt2RBSc6xcTROg04ix
+	cvM2BLHQMs27HRpbFg3dekfQa/gpApb8GHBDWGVLn9dijh3e7fVuEk23CS6Sh+V0HGnnuzV
+	S2oulH6aWG8ePl/GOPESbLXDyA9PPXF9JitGEErB3+yLiw9TUgIY40bS1gd/wR3AVz+oOC6
+	StDoS5xSXr9/Zexg5W382eFKlSSr+iCORnD1PcJa9mSL8Trru3I8OFr0D11rHRqXMyv7/m7
+	UBpW9U/giUIRJHap/bRl/CC7WHFyXHFhvquq9oRhXGgkYRneEs9TFHFK/8VqNKOkhwNvDfq
+	0p3fI1NEzDEgMIxEo4kkOikZjc7Y3gT0X6XnGiAMGbIHrilDQcR1NGIgJM7X37WVjLi3e7P
+	N8P8SbvfXAwwyVNUUbDuAUgfojC7dZkIUAma6Ldh+gCuQJ9Y22r7FSH3j50njembSP/idWR
+	jyYuqbnc0w7mvgB4IjrNyy86wGbbunJtewcxuE4kKexOY7JvXKkO5AxJKnz+oXlamZQAO/U
+	bxZWbVrNPBarz/Zv28tXbqd8ifXML5xypeoWS4bRfkbWmv6kp7cAYO8JrPbefOtyhzolern
+	i5HudABoKJDgrBNZHYLV8x69NzvBijpaP0tFAecmC3a/pZl7MIOTkNSMwY9Ce8fn4X59wgz
+	GTZYuSOvtll24WCp46qhmucRN
+X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_182010_325670_FAA97739 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20250512_182115_106996_118E777A 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,32 +102,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Let's make the ports nodes of cdn_dp in the same style as the other
+display interface, and match the style of ports's yaml.
 
-On Fri,  9 May 2025 00:10:42 +0300 you wrote:
-> New timestamping API was introduced in commit 66f7223039c0 ("net: add
-> NDOs for configuring hardware timestamping") from kernel v6.6. It is
-> time to convert the intel ixp4xx ethernet driver to the new API, so that
-> the ndo_eth_ioctl() path can be removed completely.
-> 
-> hwtstamp_get() and hwtstamp_set() are only called if netif_running()
-> when the code path is engaged through the legacy ioctl. As I don't
-> want to make an unnecessary functional change which I can't test,
-> preserve that restriction when going through the new operations.
-> 
-> [...]
+Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+---
 
-Here is the summary with links:
-  - [net-next] net: ixp4xx_eth: convert to ndo_hwtstamp_get() and ndo_hwtstamp_set()
-    https://git.kernel.org/netdev/net-next/c/c14e1ecefd9e
+(no changes since v1)
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+ arch/arm64/boot/dts/rockchip/rk3399-base.dtsi | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
+index 9d5f5b083e3c..e340b6df7445 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
+@@ -618,7 +618,11 @@ cdn_dp: dp@fec00000 {
+ 		status = "disabled";
+
+ 		ports {
+-			dp_in: port {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			dp_in: port@0 {
++				reg = <0>;
+ 				#address-cells = <1>;
+ 				#size-cells = <0>;
+
+@@ -632,6 +636,10 @@ dp_in_vopl: endpoint@1 {
+ 					remote-endpoint = <&vopl_out_dp>;
+ 				};
+ 			};
++
++			dp_out: port@1 {
++				reg = <1>;
++			};
+ 		};
+ 	};
+
+--
+2.49.0
 
 
