@@ -4,122 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D7CBC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 10:19:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC52BC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 10:21:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b8dBK6vbp1JpEHHLt8/xtt79SEaE3cK2HcOeapRU9QY=; b=ITZDy44KEXp9Qfp1KlCM4nx6/7
-	7E7qgLl+bIVBu16xwF7x+r0y1zd9I4EKpSbdHWx3ioP3JCwlyYzlLkFtGnq5oGWxAV8nDgXGNm6Fw
-	wWCfeRBthq8ogHpCPjpCcIMsNnbuZewD3nRc0pjH/uROKFVGVQSx8esOzgDCmI1G90jWYHBQgVH7c
-	3ekdCXIwdfWMQ4HGI+mJDLAo83PFuwkUsRBlekOugoMKGryx9NmfeDuuMx19qIpNED0sZMpSfSr59
-	NqzQfG7d8ys1M6bRGM1pDHDZJWQwCK3c5BOARTLafe1f4w6syqzNf+8peXjZn6sNQssKgyl8+y2r9
-	cFTJmRoQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JJeqmvQf3UAL4kCovc4gGHXLVQH6Y8/QOMAb9LY1twk=; b=UV4xoBxu3T3/3G
+	Wzlz08W8e8l6cKbcC1HhonmwKVlMcAdJFHCU09nfITcTwwg9183/Q4KpWWaYmXjq3mnySuL/FbsjH
+	AZ+zPKd3cqc3pKfRujGFoGw9bENdR7ermN+1UnH/x1gBLm2PaGYQsWuQY31OSUPN3XN+vw+rStCzR
+	uFWWzZIMs6hCYDwLct0gmsA86udn+xHe6rYmsm3TphpA83/FuGLoZEn9cV/x9BRETRI1Bn2bHgode
+	9ef1VMbBWeO0SfO2M+0u+PYxuY2vVjBfPqHXBIJ6kOwE7+GPTSNfbvuVOFTOW69vxA6CAWCIEZ/Ss
+	EE3WApSBDl1T6dgc93SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEmjH-0000000C4XX-21Fm;
-	Tue, 13 May 2025 10:19:19 +0000
+	id 1uEmlN-0000000C51U-2ltI;
+	Tue, 13 May 2025 10:21:29 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEmb0-0000000C2Yq-33wa
+	id 1uEmcW-0000000C2sB-46xN
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 13 May 2025 10:10:47 +0000
+	Tue, 13 May 2025 10:12:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=b8dBK6vbp1JpEHHLt8/xtt79SEaE3cK2HcOeapRU9QY=; b=hHn08TDilECWTEyt7nmS8qHInw
-	1TW+luEfJi6GNIeSEZg7INPg99AZVXL29Z9GRW61022qoGrQiyck/ph3irFlor/4i01yQuBN2f72H
-	XN20zoa7pO6CLzl52dApJ9onprlkqVTiXWeG54D8UQ2Bjc3hEgk7QdhHqpvAx+/HcrVCKoqC3O5O7
-	8WHIL1eeZEFQ/eZwaDfrArX1eyExBrE0MbczLTo8WWeE+CZsYeP9NGBANgrKtar3xjUfJsyBBCakz
-	UYVnOIVDjh04NHx8A8EeyrnpIcGynQ6q12ZGCZoneVskHlLG3o6ExCC83Mkh6GzcNP6jw8mcQTQWk
-	ivm35iDw==;
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Reply-To:Subject:From:MIME-Version:Date:Message-ID:Sender:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=JJeqmvQf3UAL4kCovc4gGHXLVQH6Y8/QOMAb9LY1twk=; b=NKYtzh2RVehTeYclf88gioHfMp
+	0cMl6Yxg8D2qFzfW1aL+SmLWo5mmAmakYdBEoCriiXFB72oDoMAh26DVPsUyukzqNCynzDTjKZ8ba
+	bAuuJAvYAFa37m69fzJeqQB9CWxuKleL9z+xPUzuqLh5gcPIvQW4S3wE06N5cM45EZZgGWus97+yx
+	gff2r0luVJ4Bj563Fv3PonuATG7GYod4QqJljL2zVHr6wjMvmI1vaiSUhny00vm1Bq3MX6zjBdJLi
+	aKXFs6O6d5XHov4bRzI3nANitANyTkNRaOPyO2ahIZEPQh2eYHoN7q8uUquZw/SjnP2O0FB2NGP9Y
+	uuTvpcdw==;
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uEmax-0000000GveN-1Wf5
+	id 1uEmcT-0000000GvnV-1brp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 10:10:45 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43cf89f81c5so4652295e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 03:10:42 -0700 (PDT)
+	Tue, 13 May 2025 10:12:19 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43d04dc73b7so58754025e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 03:12:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747131041; x=1747735841; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=b8dBK6vbp1JpEHHLt8/xtt79SEaE3cK2HcOeapRU9QY=;
-        b=tna2oMjsnxyJ2Ueg1BJk353CqP7syRqueviq/vSiABgqP1yr3G7SEU3ZC/QydIjpO4
-         XxrUyGoZu8nJm/ISFqWSpf+RzEEE2mVNafwQ08H21hlos5veTwEvRExt/3sAq1y2jARh
-         OFwdJ1YXgIeWk0s3UIg8RowlfNgJ9Xu44TSs5RzI1EUoEXWvvx9S0Iv0zTwLCMrhP3e6
-         N9RINwJ9SGz/mvZY0fVuWnQcUZhhaUCbNHc/Hw2BQPHxgTOOt5SHYjf1NlqB7ct9dSs6
-         05MzIAUXdsOF/Mk0o/iaE/Mks1k3/TluyKKxJk9IeZeqMfrx/92plxDkMsUGyFk5jRco
-         SVzw==
+        d=linaro.org; s=google; t=1747131135; x=1747735935; darn=lists.infradead.org;
+        h=content-transfer-encoding:organization:autocrypt:content-language
+         :cc:to:reply-to:subject:from:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=JJeqmvQf3UAL4kCovc4gGHXLVQH6Y8/QOMAb9LY1twk=;
+        b=nbu0V2apurhO1P+o/o9/VKmZ1KxqDfJhhr8b6pSuPETpVt7YnG8wZMNxUU4aq3mzN6
+         lLvnbqwkXR7SLodXcPAyFUr/H9NSJ8EGWwTd39tb6d8TVKaxjl0ovw4t+x9lUGMFxAPX
+         HkTNNDM0F9W8GD8dpRilv15B4+shuFLl6tFDhHaMu+1Wh7+3rhr3VAA+Aioorp/ceP+h
+         VZDvXcqqCAGwmhDtLtvW6xOLU8jKYMdsaX0Zxt+whDDUsaifpXYRAhxdN5zMjehmgK5K
+         4KQ5jn5630V9cUTGWHAVhH24U7tB8He/kqDNw2ByF2M09fi94V2dQgkN7iHWWMiTXygi
+         XkSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747131041; x=1747735841;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=b8dBK6vbp1JpEHHLt8/xtt79SEaE3cK2HcOeapRU9QY=;
-        b=Gr33oCAz4NAiVtVD/z/NKkrftEypGBa36Ix2snvl0PuVK+zjDHIsPqUQVJeH0l6HEI
-         6wevy4tFwKNjB99GOMtDle1mfJkE1yQh1mRjmVUTPNZym44GSDdHjaX6x6+6Xb4niG7J
-         HXzIq8r21zHihE7zy8s+sddr+N9dvSjJnwbmWBo528j4ccXQvjwIu/6roTc1w1sp87Uy
-         5arxqqv5TS5hvWXEvoOe79CG1B9Bhrrdt0qIm4FaJg+xoCwinFoOT76beeJ24HLUf11J
-         wpQOGxLmo1wvfTli7vd4t7Yg7NH9heFrIXo/KUzYTjoRu6m4NuDYus67HEC5fbgjxhMI
-         FnkA==
-X-Forwarded-Encrypted: i=1; AJvYcCVcHSq+3pbcg4fHn68QSxmxGpV+juxk6ajCIvsM/w40bwQlVX4yTbVwBP4LrIPiv2jRKq/Gzc9ftYFJx1ahAHNz@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmjUffZuYPwH4r3nIguHRgiNN+rLnKaAjxV4zjSiNrfGEIEpHz
-	rn9YclboaBqMoA+Chi4qCjboDVijckoFG0bsNySJo3yPTxVvKAWwBrnlk4yMdkA=
-X-Gm-Gg: ASbGncsMV9DVUJ8/EmV6XpY+FYp9WJAbtDqP3piFQ6Y9SB3ga3zEcGkItPJDnCiPpQ0
-	NZfdnPfJvRQn2IT/lgHZU9Z6Isd1su2jCix6hfstp0NN1VZrEFQf5W0U7wB2xgp9QzXtc6d1xjt
-	dqAHDQXK1GYsRjwM4tl32zRPaj9hhp+ac/ugyXC4mLk/SP7Eg1YuV3C7iTicOax18myJU6t52iO
-	Eugm+MwVD2PoYR5Oweqze9xPzGhfSbo7EgMBJkDfa6AiUbug0kbffkCDEtue0ouicpQyfC+bl8f
-	V4JD2RAdwYVNhJLAuajjoPDJ4qHjl50HXIlYCc74AN4fl0Wl9z0AGGan0H1EOcAC/hvQGtOwG7T
-	a+cfo2Dohiy8hQp8SWgsgjFsFCPHuIPF6DTdSL+g=
-X-Google-Smtp-Source: AGHT+IGTa8DSyODAQzBZKZ5d4ecGtFrjDgOJkla3p4mKacsE9TPMC3VixJsrixwN7OQ/qL+vFjc8kQ==
-X-Received: by 2002:a05:600c:4f43:b0:43e:94fa:4aef with SMTP id 5b1f17b1804b1-442d6de7911mr53186185e9.8.1747131041032;
-        Tue, 13 May 2025 03:10:41 -0700 (PDT)
-Received: from kuoka.c.hoisthospitality.com (110.8.30.213.rev.vodafone.pt. [213.30.8.110])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442d67df574sm159683635e9.11.2025.05.13.03.10.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 May 2025 03:10:39 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Arnd Bergmann <arnd@arndb.de>,
-	soc@lists.linux.dev
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH PULL 4/4] ARM: s3c: stop including gpio.h
-Date: Tue, 13 May 2025 12:10:25 +0200
-Message-ID: <20250513101023.21552-8-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250513101023.21552-5-krzysztof.kozlowski@linaro.org>
-References: <20250513101023.21552-5-krzysztof.kozlowski@linaro.org>
+        d=1e100.net; s=20230601; t=1747131135; x=1747735935;
+        h=content-transfer-encoding:organization:autocrypt:content-language
+         :cc:to:reply-to:subject:from:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=JJeqmvQf3UAL4kCovc4gGHXLVQH6Y8/QOMAb9LY1twk=;
+        b=nFuvm2H5esYtT2gG6AUe1JlFK4xNXm181N4o5TFZO+0eJkqpJc9tHnbMPsmloPy/KK
+         HrVxYsT/X334rwnQnHyOFAMkkYLaonve9fprmx+9+rIh+CHpTzORP3DLZiRMdkgIlvuq
+         avS/SAINHbPWkdLhBBNtTiVeQb6DfwDRXYX/sk7hoZJ6crxbPept1JmIJYwgit3aO7nR
+         wnQG1KYovYy0w1094YelVMSZMnj0t6NECS/J93u7BAaqQxPfKdubr8E97bl1s3OLUni0
+         XT9e2e5HP6SgEjEvowHBcFWg2yyXaF/hD//P/QNPsd57e7haehkEwmNvMrYlEP2dfDHq
+         OS/A==
+X-Forwarded-Encrypted: i=1; AJvYcCUh0DUxdIeiwySK6ISYSQLWeQ2INabVv9YmIkG6rb8uOxFGchCtN+xgLEa9EmlC5QEQQeoOoCHkCOn8/FxgRo4s@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzveo7oJcCgdlZ9nc3Zp+4PiMxpPHotW1X1mTT1kEZs9ZmBtATn
+	6NyHf4OKTtNZpalPNpZlEfkU25M4p8SwXJTEN9b0p1rqJqGOiP6ifXavTv/Boes=
+X-Gm-Gg: ASbGncv8aGTFtpI7izHUPoh5qtHdsPIZtyvSb2L1Vucg3k079s/wdXXa+4SzcueyubX
+	It3zvrnWGYIG96iqh3GEXIIY7KWBB7NBFwGzGF5O9pXkdV8XNJoKPc4Fe9JHVB5v1D34/TpUhbQ
+	Jh+YVqKCikyIbUC52WEuWJ2mfvmQtx9W7woXvvUROWUj5omcM5SEh9BmN8kyjHjK7cTmwPNu2b0
+	SgCJghAoIbvmEudaFWQ1ph9ewVVyAuzq7R5u6fuFiW0H7S5IY17qoFkDYc1qC7Qv2DVZYL0Pb0Y
+	9khLY9MWsXH7Hc3sh39R3jRDHb/+RVdFU7ElEB/iZ+ZVKuCUAIKiYzgnTCrdGOzdwMYPZmj5teI
+	gkBXzSUBMnqYm
+X-Google-Smtp-Source: AGHT+IGkA3sY3L4MfFT9frruBvb5if6+w/Gw4kde8Il5ntffLfGLugxuM3zv1UQFvt6KFoEpgM+QbQ==
+X-Received: by 2002:a05:600c:4e90:b0:442:e147:bea7 with SMTP id 5b1f17b1804b1-442e17571eemr76287125e9.29.1747131134966;
+        Tue, 13 May 2025 03:12:14 -0700 (PDT)
+Received: from [10.61.1.139] (110.8.30.213.rev.vodafone.pt. [213.30.8.110])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442cd3aeb6esm207550715e9.25.2025.05.13.03.12.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 13 May 2025 03:12:14 -0700 (PDT)
+Message-ID: <838c5305-5c5b-4232-b7fe-86598dc50ace@linaro.org>
+Date: Tue, 13 May 2025 12:12:13 +0200
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=887; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=bTvi/Wlka4LN1Gko7gZZp6DhLneFC3PKb0/XbChbsbs=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoIxqSgi9HNbWtstkm3Z3A0GUl00WkCIY7pKtqv
- bOCMTw2E8GJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaCMakgAKCRDBN2bmhouD
- 13MxD/9Aw74xNyjJwRIgwVKUPalXjz/+g5Z7eOUhQTnCoclouaD8LEGtCRL7rDaSMf3Fj5HOrRF
- 6lN6J281zgiiZHHer1bQCt0E/t0WFZ9DdXEPX5pKwWAE7A3jaeLJ4AVucC1qI1d0OOZdiol2Rqf
- 1Ps/nAHELq/COxJZphBGSZbJMOBGNzCT2RqsaC1vRkmyvKMYk4Geew5gr8Ur/pQLlqJD60kiXFv
- W6vRDLbj7LaP/Z9dgQ2btHNyR40NUB6BfzlRCgjZCXhUK7C8sfPmP8yAXaq3TbE3USOpjGL6sgC
- T/E4Fy61CArIUzY5UIDC8xnwjBI115aKmPsMgepiTD85MULQEfXG4Npc/qkc1z7e9O04mL0Jmxc
- Mp43csEyv4c2AW4dBCXR6z8OtUfFDjwfaaRASPpVic2yC8ZVcgnKa5eiNI+TMtqinWVZ041HbfO
- HH2J0vWo23OP/Nxgb/2RXU7Hn6iMPt99J6A21D/hm7snJDKN0H6OLEQ03/h4nAZBIHSa4BAUlFD
- lWkh7n0jYysRA9MPDkft0Z1nr1A/F2yL8A2dElslb7W5+dI7oEOBWqpyLFYqGEkeTe3YCY2a1GU
- ZH4kn80kZQZ7Tb9nzielaVffA+2B6THw15avhLmVp3jFCMj1U6tzHXquaQifcJim8pbEv6FlLm/ bldpnWXxn1iVXDw==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: [GIT PULL] amlogic ARM DT updates for v6.16
+To: soc@kernel.org, arm@kernel.org
+Cc: linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_111043_661724_CDC423CB 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20250513_111217_564835_CD34335E 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,36 +134,54 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Hi,
 
-The driver does not use legacy GPIO API, stop including this header.
+Here's ARM Dt changes for Amlogic SoCs, setting pull-up for UART RX/TX lines by
+default for avoid issues with debug connectors, and introducing the Meson8 based
+TCU Fernsehfee 3.0 board.
 
-Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Link: https://lore.kernel.org/r/20250331093650.4028999-1-andriy.shevchenko@linux.intel.com
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- arch/arm/mach-s3c/gpio-samsung.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thanks,
+Neil
 
-diff --git a/arch/arm/mach-s3c/gpio-samsung.c b/arch/arm/mach-s3c/gpio-samsung.c
-index 87daaa09e2c3..79fdb52c4a6b 100644
---- a/arch/arm/mach-s3c/gpio-samsung.c
-+++ b/arch/arm/mach-s3c/gpio-samsung.c
-@@ -11,9 +11,9 @@
- // Samsung - GPIOlib support
- 
- #include <linux/kernel.h>
-+#include <linux/gpio/driver.h>
- #include <linux/irq.h>
- #include <linux/io.h>
--#include <linux/gpio.h>
- #include <linux/init.h>
- #include <linux/spinlock.h>
- #include <linux/module.h>
--- 
-2.45.2
+The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
 
+   Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
+
+are available in the Git repository at:
+
+   https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git tags/amlogic-arm-dt-for-v6.16
+
+for you to fetch changes up to 2c1879a440315e0b292bbff0fa63a73bd8a52e34:
+
+   ARM: dts: amlogic: meson8-fernsehfee3: Describe regulators (2025-05-09 17:37:05 +0200)
+
+----------------------------------------------------------------
+Amlogic ARM DT for v6.16:
+- UART RX/TX pull-up pinconf properties for all SoCs
+- New Boards:
+   - Meson8 TCU Fernsehfee 3.0
+
+----------------------------------------------------------------
+J. Neuschäfer (4):
+       dt-bindings: vendor-prefixes: Add TC Unterhaltungselektronik AG
+       dt-bindings: arm: amlogic: Add TCU Fernsehfee 3.0 board
+       ARM: dts: amlogic: Add TCU Fernsehfee 3.0
+       ARM: dts: amlogic: meson8-fernsehfee3: Describe regulators
+
+Martin Blumenstingl (2):
+       ARM: dts: amlogic: meson8: enable UART RX and TX pull up by default
+       ARM: dts: amlogic: meson8b: enable UART RX and TX pull up by default
+
+  Documentation/devicetree/bindings/arm/amlogic.yaml |   1 +
+  .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+  arch/arm/boot/dts/amlogic/Makefile                 |   1 +
+  arch/arm/boot/dts/amlogic/meson8-fernsehfee3.dts   | 306 +++++++++++++++++++++
+  arch/arm/boot/dts/amlogic/meson8.dtsi              |  22 +-
+  arch/arm/boot/dts/amlogic/meson8b.dtsi             |   4 +-
+  6 files changed, 332 insertions(+), 4 deletions(-)
+  create mode 100644 arch/arm/boot/dts/amlogic/meson8-fernsehfee3.dts
 
