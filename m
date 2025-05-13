@@ -4,96 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 768FFC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 19:40:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF84C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 19:44:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3UVahQe1UPF0K+iokLjZpppnJFILmRHV+SLcIZYIH48=; b=P/EIlV5+u6O/bh9Qks+VwyW+gZ
-	qR2Y3QjQ8KqQBuQerEWu2MQBOzmZWFUFWzGoOT2vXKtzGrc35V9BCANkA1VwsQezyEmmVOOvNgIR9
-	kAd4nHkZO4JK442TEnyik86O/XwLDO0xBVxFysEj90iVSE8L6nMQ3BMWv+aAfEZIqp3t+PX+W/lVr
-	WGJOgXA1Xsdg1brL1pgcwcTZNBA5sRp0pDlrEJC0pTCEzYmXMNsp144eG29cbPVAGt9/yLOWDqmhh
-	lr9OUY9uiQNawuE5A0f7RcFolmTLF5KVGoAgrOHF8ABxnNFkn21yt/U3vS0QhCR/hcTSydn2uONtE
-	zuG1b/qg==;
+	bh=oORfCjjMp0fnf0bcbRrrnwFPePQZmNvhaaRtgbRBFe0=; b=gP5HV28Lsn6ZFke/KD6Zv4DT/a
+	rqPt3J+dxgxe+cOzk+ei5xJt6ini7vcp7l2IxDhDMYLoPl3bH5q6kXNER5kiyCrfWLJUVquaLzxvg
+	DUn6CyVxAsqTb5tLB7Y7sUsgBGFfCTmQ212EAIdHwvpmXQhRAgC32Na5GqTz06/WJiWmOVcmGDzvz
+	jNaQk7QF3rmo7PInswQOHRgb0GvpBZAPaXGpkIVHGfP0boniVSpXdeLw3s4FJIDf0v7wfp5FXKq3e
+	SK1eFZb0X8YQvp3Zu7rg0ZsRZHX3K8qYPg8+6UPb6JPEL0YO9LuobOoCE+nt7/r4JhND3z1OGZLza
+	aZ3HCKtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEvU2-0000000DORz-1gKP;
-	Tue, 13 May 2025 19:40:10 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1uEvY5-0000000DPCe-45YF;
+	Tue, 13 May 2025 19:44:21 +0000
+Received: from out-182.mta0.migadu.com ([91.218.175.182])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEvFN-0000000DMbn-2YxF
+	id 1uEvW0-0000000DOyW-2RaF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 19:25:02 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5fcac09313cso7388169a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 12:25:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747164300; x=1747769100; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=3UVahQe1UPF0K+iokLjZpppnJFILmRHV+SLcIZYIH48=;
-        b=V0oXCQS9RGrNWouxwzGgr5Hs+660+AwWwBfo8wjEPFo0/oCK5A9GM6omwRXeaD8wEZ
-         4cwhC8JpNryABzRF4VvqervpH7AUiYIshf8C+lmv5DDB3CE5lpVEonYTCSIUq12MErSr
-         aUBzfW2Luev/Uk3f+WmoZ+iWolcrbByTmhtGFlDhidfE5JqsWLYj2xxuk5SYOCyGXlX3
-         afUe8BlOTVjz9ZLSFpoFRG0YzDxGcLietHzMKmr/2Qh7LXEVosdWdxHOfT3JO4ciR+Sb
-         C/H5jc6cvAxQoiR3zLtIRzFBhtrzifGLV572XoE0M31V730M8/BImMom6XjkYfd7I4H9
-         GD+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747164300; x=1747769100;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3UVahQe1UPF0K+iokLjZpppnJFILmRHV+SLcIZYIH48=;
-        b=vaWz+dpwxGArf6O8rnT1RZPjObCcv7G3KdywTL/nQ8oYgAlq26WGM+Vg4pMgEtukQS
-         IuzjACPb87CXUFOG14mZPj3Rv807Wk9GKI+BFSjQ8+3UqIlVUOh7xXKR8GUaZz3jzrJV
-         5gWYTbueGKepM/nUVKbt4SCNm2fERiXKXz9O74YXMJXOIzi7K1z7rT5TLi87MIgl9Qur
-         r1dWuMM6EIyJWUir1tL6867rN1ywMcggd3l6k8n9GW3Dh9vf32AsAP8tS0P2mJ7f7eZi
-         DFEhaOxhrfR4USV0X7NSz7K36oxZURXmR27oM9DnJ5jBduUvjykqIDg4dDUS8cIMOUzG
-         UV4g==
-X-Forwarded-Encrypted: i=1; AJvYcCVL/9/VWkWhdKnNYJqIuBYl05F+o/LNZdEQHLEtycTNeEIG3Va2EYfe1gf7IbjnlGmd5JvDkE1x77yxlN5vg0Jv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+ZlqR2iiREwrK5CgLn5r6C2yEgMXiu5x0/Y+iO6qWVEqH+tLx
-	/CKzlcSqO6CT/usaM3xie7YU/WWHzQ26M2rfByBbC0UXJsexenz9
-X-Gm-Gg: ASbGncvLp7nrewKS+t8CwttmpXg3sPJFbcKvSbYnLW274SDT/Mww4uwLFaIxhftQoAW
-	WLGI/Fq6AhckWcQgBwAOqkmie/ied/6xurfkLH+53Ltq3EtWBfLsvMo5KjXDufOFO/hqYKNqnZ4
-	95BV0nOZHgUGWPSmRsQR8xiAsuUUdSiwsdSyFoZWgMl8RqguS6HS1lodGPIGHKk7ziSzIcQ2ldV
-	gBxS2qGkfVo+gkTYsnMQkm8ItLOWg8Pxwj0eMHzQhTa5yaCrJMtc5PGS8lpw8hd14vkoobozN+/
-	aftu0xJPRDxujOION+Hyq6lIk/WGiN4KEAVYURLtfQ0cPhawyl6R1nU/PrThApOBFI5RE4FnHzi
-	BcN2wy1ptNAkYnWig
-X-Google-Smtp-Source: AGHT+IHlro9nmnM+A5vp7iF7ncinqOHIXxdhKiKiQNf42yzLvVSInDJfUeta/CfNghr1tiC9h00HEw==
-X-Received: by 2002:a17:906:6a27:b0:ad3:f3dc:e363 with SMTP id a640c23a62f3a-ad4f749f195mr77941966b.49.1747164299542;
-        Tue, 13 May 2025 12:24:59 -0700 (PDT)
-Received: from [192.168.20.170] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad21f2145d6sm785086966b.95.2025.05.13.12.24.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 13 May 2025 12:24:59 -0700 (PDT)
-Message-ID: <73bc3569-93d7-437a-9d40-0137a096f7cc@gmail.com>
-Date: Tue, 13 May 2025 21:24:58 +0200
+	Tue, 13 May 2025 19:42:13 +0000
+Message-ID: <7ac6c796-cf4e-47ba-bde3-0f8c6203fea0@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1747165329;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=oORfCjjMp0fnf0bcbRrrnwFPePQZmNvhaaRtgbRBFe0=;
+	b=cxLMPGYWVPzTxFMRw78DNhHqfwOH3hxsXpMukZ4w8AqwLDGm3QNvqpFXuCYpUPl8Ye4YHw
+	D9q800LclkE2zLFSqN1vKgNYLywjbcPtFStoJFUWpGqZlOsWDzKC4Eky3H/KZLoExeAsBE
+	t6rTt50Rl0eNCU1ijMLdKJnfD61xUMk=
+Date: Tue, 13 May 2025 15:42:04 -0400
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/7] pinctrl: armada-37xx: a couple of small fixes
-Content-Language: hu
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- Gregory Clement <gregory.clement@bootlin.com>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>, linux-arm-kernel@lists.infradead.org,
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, Imre Kaloz <kaloz@openwrt.org>
-References: <20250512-pinctrl-a37xx-fixes-v1-0-d470fb1116a5@gmail.com>
- <60ef3803-4f8b-4d9b-bef8-6cf3708af057@lunn.ch>
- <CACRpkdbqPLaBheEv1=ky1gUJ-qSsPRjR0J-UXEuhXf2Oix_EzQ@mail.gmail.com>
- <aefa5ed3-1085-4e88-b3ec-4cf9958e7e2a@gmail.com>
- <f638f5ca-a479-4ab2-a8ae-6300bbe0cb08@lunn.ch>
-From: Gabor Juhos <j4g8y7@gmail.com>
-In-Reply-To: <f638f5ca-a479-4ab2-a8ae-6300bbe0cb08@lunn.ch>
+Subject: Re: [net-next PATCH v4 03/11] net: phylink: introduce internal
+ phylink PCS handling
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+To: Daniel Golle <daniel@makrotopia.org>
+Cc: Christian Marangi <ansuelsmth@gmail.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
+References: <20250511201250.3789083-1-ansuelsmth@gmail.com>
+ <20250511201250.3789083-4-ansuelsmth@gmail.com>
+ <5d004048-ef8f-42ad-8f17-d1e4d495f57f@linux.dev>
+ <aCOXfw-krDZo9phk@makrotopia.org>
+ <7b50d202-e7f6-41cb-b868-6e6b33d4a2b9@linux.dev>
+Content-Language: en-US
+In-Reply-To: <7b50d202-e7f6-41cb-b868-6e6b33d4a2b9@linux.dev>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_122501_654135_E3423437 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20250513_124212_773496_A8FF2902 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,35 +86,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-2025. 05. 13. 20:46 keltezéssel, Andrew Lunn írta:
-> On Tue, May 13, 2025 at 06:51:35PM +0200, Gabor Juhos wrote:
->> 2025. 05. 13. 15:36 keltezéssel, Linus Walleij írta:
->>> On Mon, May 12, 2025 at 11:33 PM Andrew Lunn <andrew@lunn.ch> wrote:
->>>> On Mon, May 12, 2025 at 04:22:36PM +0200, Gabor Juhos wrote:
->>>>> The series contains several small patches to fix various
->>>>> issues in the pinctrl driver for Armada 3700.
->>>>
->>>> I'm not sure all these should be for stable. Some are clear bugs, but
->>>> not propagating the errors has not bothered anybody so far, a
->>>> requirement for stable.
->>>
->>> So we are at -rc6 so I'm not sending these as fixes to Torvalds
->>> right now unless they are super-critical.
->>>
->>> I will merge this for v6.16 (-rc1) and then the stable maintainers
->>> will have to decide from the point it enters mainline.
->>>
->>> Gabor: can you look over the tags? Once you have decided
->>> on stable/non-stable tags I will merge the series.
->>
->> Sure, I will send a v2. Just a question, shall I also remove the 'Fixes' tags
->> along with the 'stable' ones? If I keep those, they might land up in stable
->> trees anyway.
+On 5/13/25 15:23, Sean Anderson wrote:
+> On 5/13/25 15:03, Daniel Golle wrote:
+>> On Tue, May 13, 2025 at 02:18:02PM -0400, Sean Anderson wrote:
+>>> DSA drivers typically have different PCSs for each port. At the moment
+>>> these are selected with mac_select_pcs, allowing the use of a single
+>>> phylink_config for each port. If you need to pass PCSs through
+>>> phylink_config then each port will needs its own config. This may prove
+>>> difficult to integrate with the existing API.
+>> 
+>> This might be a misunderstanding. Also here there is only a single
+>> phylink_config for each MAC or DSA port,
 > 
-> For the return values patches, i would drop the Fixes. It is just
-> really continuing development work for the driver.
+> My point is that while this is the case at the moment, it would not be
+> the case with a "generic" select pcs. You would need to modify the
+> config for each port to ensure the right PCSs are passed in.
 
-Ok, thanks!
+I reread dsa_port_phylink_create and I think I missed the ds/dp
+distinction the first time around.
 
--Gabor
+--Sean
+
 
