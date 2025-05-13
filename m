@@ -4,69 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09A3FC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 07:04:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A280C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 07:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4sViLI8RntaOLa10WapKCx2LzcmOjxe4Dc6R9zXvCEU=; b=U9PUfIUXgSvg2+mclS395wqFc2
-	PDC7rB4/XRq5ZcsM31H0anjrd45k0X3Sg0Cy4GfJ0QR2u40MXXsmoYzm2cK/kKOlejGVnkedoKGdk
-	81fsj6W2Jd8eZcX8ezCId+qW8GaW1webULCwPunVUla2HKXC+PV1RlS+6DnnBN7Ws1aAyU9aspdgw
-	dZpZ2Dq3/+3ocyqmsFxvv9YpGbgUAirzhmHdfsr5P0i5d6Van3XPHA++vsv7y4biOyBIbxsQlcvSp
-	cyedY4QhD4yhcJn8FYVhZ9YiH+EhspJMv2kuYv0pfF8GFQBdvm3Ia0xvy7zYrM5SUPiCy863cZp4M
-	FSbPxjew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hzDVo4FQ6ah48v90Cg2f4xDKatHzBs1SUP5exMwf8H0=; b=Dn0ws13rbxoUdmQjD+XjVfme13
+	NxtdRDCwcKKeIb8alwz8/EF4rv0UqKzkIhVJGeFN8CjmBAWpLx6T0ZsEAyhx1LnuI8FVw2DMLzfPU
+	1Vm+zyqD+iynvZZboY0+8SIZD6/ZI9yf0OU57FND0L3LiPgrEXI3H1uSFytXAt691mAqVGbARftHb
+	kA2U4gIwGOs7XWJjwwUdcOD76liqg22LFGlkzvXtjhdEeWsX0eIWUdtfck14hSYHIQCkvxkl2Vp5Q
+	S54gsDJyfsB1kNMwr2WOQW/LwMJ6e10CTS4ekXy3qyuPtSA1FOd4dxkG7n9lbBUAWjMlupxEuLUYN
+	wlsVmgFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEjgd-0000000Ba3t-21PK;
-	Tue, 13 May 2025 07:04:23 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1uEju6-0000000BbE7-05sR;
+	Tue, 13 May 2025 07:18:18 +0000
+Received: from mail-vk1-f176.google.com ([209.85.221.176])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEjed-0000000BZpo-10Tu
+	id 1uEjs6-0000000Bb53-1LUc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 07:02:21 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4ZxS6n1Qcnz13LcD;
-	Tue, 13 May 2025 15:00:49 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id EB1101402EB;
-	Tue, 13 May 2025 15:02:13 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 13 May 2025 15:02:13 +0800
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 13 May 2025 15:02:12 +0800
-CC: <yangyicong@hisilicon.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<dianders@chromium.org>, <sumit.garg@linaro.org>, <kernelfans@gmail.com>,
-	<lecopzer.chen@mediatek.com>, <tglx@linutronix.de>, <song@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <jonathan.cameron@huawei.com>,
-	<zhanjie9@hisilicon.com>, <prime.zeng@hisilicon.com>, <linuxarm@huawei.com>
-Subject: Re: [PATCH v2 1/2] watchdog/perf: Provide function for adjusting the
- event period
-To: Andrew Morton <akpm@linux-foundation.org>
-References: <20250512130919.23915-1-yangyicong@huawei.com>
- <20250512130919.23915-2-yangyicong@huawei.com>
- <20250512160747.7c70fac79f4ecd929bf6b255@linux-foundation.org>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <e4b0395f-5bbf-3661-f3c9-fbd3bca3e700@huawei.com>
-Date: Tue, 13 May 2025 15:02:12 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Tue, 13 May 2025 07:16:15 +0000
+Received: by mail-vk1-f176.google.com with SMTP id 71dfb90a1353d-52413efd0d3so1969653e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 00:16:13 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747120572; x=1747725372;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hzDVo4FQ6ah48v90Cg2f4xDKatHzBs1SUP5exMwf8H0=;
+        b=Z5KipAYKlJrhGrmWpBEkJdqDrKgH/7mfZPRV4L9sDiN8GBsG1gflUturVvY6Bn8VOn
+         /wvFQ3w2+KzBGaSW1gclbtIq47sirv/hraCPI87/hH8+OX6cs3qpmzMtVEwNlBTxU8qZ
+         CA49mbey16tQZzoFWcB1qhU4VYsAr3WyCF9Kf2ru0/0FQXqoiGwNMte883OEuJT29I/d
+         aMAx5zNAPEw496rvXkp8ahPW4IonaUzchSacBRovhp1wjaC5EtJjteFY7xA44IOWTazg
+         TdONLnlD1ey2FzTa6Addqo7UtN0dw+QXrS73/4I+I/BZD4lLSnNsemZuArlYsL4ZapKP
+         FKzA==
+X-Forwarded-Encrypted: i=1; AJvYcCVeHG+xoesjL9u7Db3yG6JNSa22gPU9U8Y+tkW2h831eeMgoJs/61K+WsbAN+RJhTpZCzagPCW43z4X2Z3rA/X8@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGgDyKdICMIrp7VabT7/pMuywrfRm3QKSxXVjpmktOD2Y2wDy9
+	936wkrt7i73gQ83Uh+LQxTMuaEGET3l/94MZk5WvO18MAhWdpGr1afx8QVDF
+X-Gm-Gg: ASbGnct2zpmW4qlA5g6RIy0rUUDNIBHo3ypVbVINEyFnCtKZxC+RT5UrBTXCO4U6Vp5
+	BUaKBt88+JLM2vE35YVm0ZQreDocINFl5grbFFMYackIqptejRIY9FLWSY2apiQ7yHB/JgMVPoq
+	wG+er+GbQ957ZsJNkpA42fUt8cMbVWYrJU3zWXDqrp26el1SK3AYeOJE8x8H086twsqcp347CVA
+	CLwAHE8avg0FhyOD8pI5T2pHNYsQMruu4ULqvTrkmSsYGiknkQ8zdFHsO1K/juJ74bvMPcpe9UR
+	qA1P1ecqyUaqrX7T1tXsmt30tbs7S0vnCyGljLQVI9Y4aKQ39bROWoITIT0IX3NMFh2jTDYZGys
+	q49GyNgUFDuE0KVszrfBcKn1N
+X-Google-Smtp-Source: AGHT+IEpce9tMeGEaXWwJKIrzvjP3vB8qTPAtUKHRARuqYpPjFXaS7OIljlLtgGf4eUH4dFG6h6cOA==
+X-Received: by 2002:a05:6122:17aa:b0:52c:3a36:a82d with SMTP id 71dfb90a1353d-52c53b96f0emr10324308e0c.5.1747120572208;
+        Tue, 13 May 2025 00:16:12 -0700 (PDT)
+Received: from mail-ua1-f49.google.com (mail-ua1-f49.google.com. [209.85.222.49])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-52c538a71a8sm6985261e0c.47.2025.05.13.00.16.11
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 13 May 2025 00:16:11 -0700 (PDT)
+Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-8783a6b9d6eso1387928241.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 00:16:11 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUcuFJLo/s/41nkGf7nTtbVXSEYhZYK2Cmf+e0KAMsF5NU0es3lZ3oRCOdLCPoLdGRkRgodV2DwyY0CADoX9fAG@lists.infradead.org
+X-Received: by 2002:a05:6102:15a0:b0:4dd:bb2c:491a with SMTP id
+ ada2fe7eead31-4deed3f138fmr12982135137.25.1747120571798; Tue, 13 May 2025
+ 00:16:11 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20250512160747.7c70fac79f4ecd929bf6b255@linux-foundation.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- kwepemq200018.china.huawei.com (7.202.195.108)
+References: <fbad3581f297d5b95a3b2813bbae7dba25a523fd.1747039399.git.geert+renesas@glider.be>
+ <87tt5pe7e2.wl-kuninori.morimoto.gx@renesas.com>
+In-Reply-To: <87tt5pe7e2.wl-kuninori.morimoto.gx@renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 13 May 2025 09:16:00 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWwm=t96Bw+d7xVpuDX_Oa1wU1zA673RRGvcBa08AWiqQ@mail.gmail.com>
+X-Gm-Features: AX0GCFsefrB6ygaM3MFjCWcwsnMA4Lwk2o225dXj78YXf5bP8dqT7Njk6kmGVW0
+Message-ID: <CAMuHMdWwm=t96Bw+d7xVpuDX_Oa1wU1zA673RRGvcBa08AWiqQ@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: renesas: sparrow-hawk: Disable dtc
+ spi_bus_bridge check
+To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: Mark Brown <broonie@kernel.org>, Stephen Rothwell <sfr@canb.auug.org.au>, 
+	Rob Herring <robh@kernel.org>, Magnus <magnus.damm@gmail.com>, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
+	Linux-ARM <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_000219_575890_AAD77A39 
-X-CRM114-Status: GOOD (  17.86  )
+X-CRM114-CacheID: sfid-20250513_001614_363096_97EEA142 
+X-CRM114-Status: GOOD (  26.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,66 +98,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/5/13 7:07, Andrew Morton wrote:
-> On Mon, 12 May 2025 21:09:18 +0800 Yicong Yang <yangyicong@huawei.com> wrote:
-> 
->> From: Yicong Yang <yangyicong@hisilicon.com>
->>
->> Architecture's using perf events for hard lockup detection needs to
->> convert the watchdog_thresh to the event's period, some architecture
->> for example arm64 perform this conversion using the CPU's maximum
->> frequency which will be acquired by cpufreq. However by the time
->> the lockup detector's initialized the cpufreq driver may not be
->> initialized, thus launch a watchdog with inaccurate period. Provide
->> a function hardlockup_detector_perf_adjust_period() to allowing
->> adjust the event period. Then architecture can update with more
->> accurate period if cpufreq is initialized.
->>
->> ...
->>  
->> +/**
->> + * hardlockup_detector_perf_adjust_period - Adjust the event period due
->> + *                                          to cpu frequency change
->> + * @cpu: The CPU whose event period will be adjusted
->> + * @period: The target period to be set
->> + */
->> +void hardlockup_detector_perf_adjust_period(int cpu, u64 period)
->> +{
->> +	struct perf_event *event = per_cpu(watchdog_ev, cpu);
->> +
->> +	if (!(watchdog_enabled & WATCHDOG_HARDLOCKUP_ENABLED))
->> +		return;
-> 
-> Is this the right thing to do?  Would it be better to proceed with the
-> alteration of the period so that the state is correct if
-> WATCHDOG_HARDLOCKUP_ENABLED is later enabled?  (If that's possible).
-> 
+Hi Morimoto-san,
 
-This is just a check to see whether we need to proceed. WATCHDOG_HARDLOCKUP_ENABLED
-will be set if:
-1. hardlockup is supported
-2. user doesn't disable it by cmdline/sysctl
+On Tue, 13 May 2025 at 01:28, Kuninori Morimoto
+<kuninori.morimoto.gx@renesas.com> wrote:
+> > make dtbs:
+> >
+> >     arch/arm64/boot/dts/renesas/r8a779g0.dtsi:1269.24-1283.5: Warning (spi_bus_bridge): /soc/spi@e6ea0000: incorrect #address-cells for SPI bus
+> >       also defined at arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts:471.9-486.3
+> >     arch/arm64/boot/dts/renesas/r8a779g0.dtsi:1269.24-1283.5: Warning (spi_bus_bridge): /soc/spi@e6ea0000: incorrect #size-cells for SPI bus
+> >       also defined at arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts:471.9-486.3
+> >     arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dtb: Warning (spi_bus_reg): Failed prerequisite 'spi_bus_bridge'
+> >
+> > The Sparrow Hawk uses the MSIOF module in I2S mode instead of SPI mode,
+> > triggering a conflict between the SPI bus bindings and dtc:
+> >   - Serial engines that can be SPI controllers must use "spi" as their
+> >     node names,
+> >   - Dtc assumes nodes named "spi" are always SPI controllers.
+> >
+> > Fix this by disabling this specific warning for this board.
+> >
+> > Fixes: ca764d5321a2cee7 ("arm64: dts: renesas: sparrow-hawk: Add MSIOF Sound support")
+> > Reported-by: Stephen Rothwell <sfr@canb.auug.org.au>
+> > Closes: https://lore.kernel.org/20250506192033.77338015@canb.auug.org.au
+> > Suggested-by: Rob Herring <robh@kernel.org>
+> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> > ---
+> (snip)
+> > +DTC_FLAGS_r8a779g3-sparrow-hawk += -Wno-spi_bus_bridge
+>
+> Thank you for the patch.
+>
+> But I still get the same warning. I'm using latest linux-next/master
+> + this patch. And run this. Am I missing something ?
+>
+>         > make dtbs_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/spi/renesas,sh-msiof.yaml
 
-If WATCHDOG_HARDLOCKUP_ENABLED is not set the hardlockup detector won't be initialized
-as well (in watchdog_enable()), then we don't need to adjust the period as well.
+Works for me:
 
-> 
->> +	if (!event)
->> +		return;
->> +
->> +	if (event->attr.sample_period == period)
->> +		return;
->> +
->> +	if (perf_event_period(event, period))
->> +		pr_err("failed to change period to %llu\n", period);
->> +}
->> +
->>  /**
->>   * hardlockup_detector_perf_stop - Globally stop watchdog events
->>   *
->> -- 
->> 2.24.0
-> 
-> .
-> 
+$ git checkout next-20250512
+$ rm -f arch/arm64/boot/dts/renesas/r8a779g3-*dtb; ARCH=arm64
+CROSS_COMPILE=aarch64-linux-gnu- make -j 12 defconfig dtbs_check
+DT_SCHEMA_FILES=Documentation/devicetree/bindings/spi/renesas,sh-msiof.yaml
+[...]
+arch/arm64/boot/dts/renesas/r8a779g0.dtsi:1269.24-1283.5: Warning
+(spi_bus_bridge): /soc/spi@e6ea0000: incorrect #address-cells for SPI
+bus
+  also defined at
+arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts:471.9-486.3
+arch/arm64/boot/dts/renesas/r8a779g0.dtsi:1269.24-1283.5: Warning
+(spi_bus_bridge): /soc/spi@e6ea0000: incorrect #size-cells for SPI bus
+  also defined at
+arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts:471.9-486.3
+arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dtb: Warning
+(spi_bus_reg): Failed prerequisite 'spi_bus_bridge'
+[...]
+$ git am 20250512_geert_renesas_arm64_dts_renesas_sparrow_hawk_disable_dtc_spi_bus_bridge_check.mbx
+$ rm -f arch/arm64/boot/dts/renesas/r8a779g3-*dtb; ARCH=arm64
+CROSS_COMPILE=aarch64-linux-gnu- make -j 12 defconfig dtbs_check
+DT_SCHEMA_FILES=Documentation/devicetree/bindings/spi/renesas,sh-msiof.yaml
+[... no warning]
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
