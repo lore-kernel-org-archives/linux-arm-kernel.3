@@ -4,62 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 258CFC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 19:25:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A9A2C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 19:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/OBINtI0SAZP2fUdQnW19FOxjYjmq02Jp24p47V1i4U=; b=cSX3Xo/wLMqdI9VDLvI0831chv
-	irgazscbRzFm2XN3AUvusbHNTrFOHtt85plcj2wG3toxQ2Iw2wRkEQaZUOf0lG6ygK5d1S/jBSYCg
-	/S+4ygp91B4YVGBTYjT9/mDV525DltkQ08gizgkk/CzXcKJdHq8ewqKrmXnUFuY5BTewZ7JGjcqUz
-	rpyY88Mc5LZnE2B0luNwuxmdodpD61px7lG9DgcMwTGszM2SnhgCmSwn3Jqge23PaKvX+rmn7B2Tg
-	guno2qsjdnMOH6C7hxnBHDZP4wtCZq2jVOI3VRA/jWGjhwYwP2Xzxq57HdvZbwxj5CPqkTUq/iKUE
-	Hcznd21Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v02MlTjPuKP4Y2/Qe6D/comJgBivOdHhNOC4o8MeDjc=; b=34Zp2JFOOUXp5QlQMy6YkbcxJt
+	3RgMBlUGXdN21xHlOXDFq91pLp6HU2iYK1E0cPxJHFtUiVKsz48z7t5rHUiPvjMoqxdXoqfEX74V6
+	JtbLmxtAnBvObXMOQwrBHMtXcS/olIyQNswHsOuZbQFhRuqOGm5XcMSGTMPS5+ArNL5pOqvIA4ktz
+	9ms1CkPQYWbSHWcIIwgfR2tnozumytsARV4Qrd9jIbThUxKOR86/fp92QTQc+RduT5TD4aAFYIeIc
+	+W8IBDcirqeYsTw4YBF6BzKhz8KJUrlslQ2e3n1WmPg06ZP+FgubCofSWqbBod7usCG1YVntmbWg9
+	PR1AtM7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEvFY-0000000DMdo-1kfQ;
-	Tue, 13 May 2025 19:25:12 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uEvHd-0000000DN78-0iKb;
+	Tue, 13 May 2025 19:27:21 +0000
+Received: from out-184.mta0.migadu.com ([2001:41d0:1004:224b::b8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEubv-0000000DHEm-41SM;
-	Tue, 13 May 2025 18:44:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=/OBINtI0SAZP2fUdQnW19FOxjYjmq02Jp24p47V1i4U=; b=N1MArj0DxnQLp1gnjOJp7tC7Yi
-	9upVlge54nLsV6IlChGDVcNBfiltmQWCdo7msRylE6vERsX8YOWC566zrpDtt2BRdQJ80VBhwAbMC
-	6vGnv2yUYRLGHo+ciUKU8b9Y56fziOS5LCBa2HqAoJird5xIlQMbVpv7HI265ICDT+T9EAGRmYpAt
-	9mNmOGzJcm1Aq8tKeWhG855fyQaEL38UBnXHMVn21/sFIb2PM15uvPvyvQiJwaE84w8Dql9BLUzyP
-	cfn9ngGz78gBZrHxUpOAJMJfnFLIDH0M87ajaIYlaBKH772g9+3eJyGhk8N7nG9vHMxM+MzxbZ4X3
-	y6Bj3Xnw==;
-Received: from [61.8.147.169] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uEubM-0003sw-Um; Tue, 13 May 2025 20:43:41 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Fred Bloggs <f.blogs@napier.co.nz>, Hsun Lai <i@chainsx.cn>
-Cc: Hsun Lai <i@chainsx.cn>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- Stephen Rothwell <sfr@canb.auug.org.au>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v1 3/3] arm64: dts: rockchip: add DTs for Sakura Pi RK3308B
-Date: Tue, 13 May 2025 20:43:39 +0200
-Message-ID: <2678259.iZASKD2KPV@phil>
-In-Reply-To: <20250513163515.177472-4-i@chainsx.cn>
-References: <20250513163515.177472-1-i@chainsx.cn> <20250513163515.177472-4-i@chainsx.cn>
+	id 1uEucW-0000000DHQv-1UuY;
+	Tue, 13 May 2025 18:44:54 +0000
+Message-ID: <bb2a379e-c701-4b50-932a-20dcfbb0ebea@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1747161888;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=v02MlTjPuKP4Y2/Qe6D/comJgBivOdHhNOC4o8MeDjc=;
+	b=vJ6nDT005BmhxrNYGRvgIO27rdBpIdn0ygjz1B3IGq9kYoPpRsGiZ3iVRFkTdKnew/D7s8
+	1V3JyVzOhj77HQPocNG+eJ6pyuGYyGTQTqkojHPO1hGqkRtik13SSX2567/RPy+PoULIJ5
+	ENGe3Fe1y2vg27H+ZLguzuobLSOW51k=
+Date: Tue, 13 May 2025 14:44:42 -0400
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Subject: Re: [net-next PATCH v4 08/11] net: phylink: add .pcs_link_down PCS OP
+To: Christian Marangi <ansuelsmth@gmail.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ llvm@lists.linux.dev
+References: <20250511201250.3789083-1-ansuelsmth@gmail.com>
+ <20250511201250.3789083-9-ansuelsmth@gmail.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <20250511201250.3789083-9-ansuelsmth@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_114416_022604_FE6B911B 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20250513_114452_793281_F3175AA2 
+X-CRM114-Status: GOOD (  20.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,207 +81,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 5/11/25 16:12, Christian Marangi wrote:
+> Permit for PCS driver to define specific operation to torn down the link
+> between the MAC and the PCS.
+> 
+> This might be needed for some PCS that reset counter
 
-Am Dienstag, 13. Mai 2025, 18:35:14 Mitteleurop=C3=A4ische Sommerzeit schri=
-eb Hsun Lai:
+Counters must be preserved across link u/down.
 
-> +	vcc5v0_sys: vcc5v0-sys {
+> or require special
+> reset to correctly work if the link needs to be restored later.
 
-preferred node-names for regulators is regulator-foo, so here please
-regulator-vcc5v0-sys (phandle can stay as it is).
+Can you describe this in more detail?
 
-Same for all the other fixed-/pwm- regulators below.
+> On phylink_link_down() call, the additional phylink_pcs_link_down() will
+> be called before .mac_link_down to torn down the link.
 
-> +		compatible =3D "regulator-fixed";
-> +		regulator-name =3D "vcc5v0_sys";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt =3D <5000000>;
-> +		regulator-max-microvolt =3D <5000000>;
-> +	};
+tear
+
+> PCS driver will need to define .pcs_link_down to make use of this.
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+>  drivers/net/phy/phylink.c | 8 ++++++++
+>  include/linux/phylink.h   | 2 ++
+>  2 files changed, 10 insertions(+)
+> 
+> diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+> index 1a4df0d24aa2..39cd15e30598 100644
+> --- a/drivers/net/phy/phylink.c
+> +++ b/drivers/net/phy/phylink.c
+> @@ -1009,6 +1009,12 @@ static void phylink_pcs_link_up(struct phylink_pcs *pcs, unsigned int neg_mode,
+>  		pcs->ops->pcs_link_up(pcs, neg_mode, interface, speed, duplex);
+>  }
+>  
+> +static void phylink_pcs_link_down(struct phylink_pcs *pcs)
+> +{
+> +	if (pcs && pcs->ops->pcs_link_down)
+> +		pcs->ops->pcs_link_down(pcs);
+> +}
 > +
-> +	vdd_core: vdd-core {
-> +		compatible =3D "pwm-regulator";
-> +		pwms =3D <&pwm0 0 5000 1>;
-> +		regulator-name =3D "vdd_core";
-> +		regulator-min-microvolt =3D <827000>;
-> +		regulator-max-microvolt =3D <1340000>;
-> +		regulator-init-microvolt =3D <1015000>;
-> +		regulator-settling-time-up-us =3D <250>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		pwm-supply =3D <&vcc5v0_sys>;
-> +	};
+>  static void phylink_pcs_disable_eee(struct phylink_pcs *pcs)
+>  {
+>  	if (pcs && pcs->ops->pcs_disable_eee)
+> @@ -1686,6 +1692,8 @@ static void phylink_link_down(struct phylink *pl)
+>  
+>  	phylink_deactivate_lpi(pl);
+>  
+> +	phylink_pcs_link_down(pl->pcs);
 > +
-> +	vdd_log: vdd-log {
-> +		compatible =3D "regulator-fixed";
-> +		regulator-name =3D "vdd_log";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt =3D <1050000>;
-> +		regulator-max-microvolt =3D <1050000>;
-> +		vin-supply =3D <&vcc5v0_sys>;
-> +	};
-> +
-> +	vcc_ddr: vcc-ddr {
-> +		compatible =3D "regulator-fixed";
-> +		regulator-name =3D "vcc_ddr";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt =3D <1500000>;
-> +		regulator-max-microvolt =3D <1500000>;
-> +		vin-supply =3D <&vcc5v0_sys>;
-> +	};
-> +
-> +	vcc_1v8: vcc-1v8 {
-> +		compatible =3D "regulator-fixed";
-> +		regulator-name =3D "vcc_1v8";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt =3D <1800000>;
-> +		regulator-max-microvolt =3D <1800000>;
-> +		vin-supply =3D <&vcc_io>;
-> +	};
-> +
-> +	vcc_io: vcc-io {
-> +		compatible =3D "regulator-fixed";
-> +		regulator-name =3D "vcc_io";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt =3D <3300000>;
-> +		regulator-max-microvolt =3D <3300000>;
-> +		vin-supply =3D <&vcc5v0_sys>;
-> +	};
-> +
-> +	vcc_phy: vcc-phy-regulator {
-> +		compatible =3D "regulator-fixed";
-> +		regulator-name =3D "vcc_phy";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +	};
-> +
-> +	vcc5v0_otg: vcc5v0-otg {
-> +		compatible =3D "regulator-fixed";
-> +		regulator-name =3D "vcc5v0_otg";
-> +		regulator-always-on;
-> +		gpio =3D <&gpio0 RK_PC5 GPIO_ACTIVE_HIGH>;
-> +		enable-active-high;
-> +		pinctrl-names =3D "default";
-> +		pinctrl-0 =3D <&otg_vbus_drv>;
-> +		vin-supply =3D <&vcc5v0_sys>;
-> +	};
-> +
-> +};
+>  	pl->mac_ops->mac_link_down(pl->config, pl->act_link_an_mode,
+>  				   pl->cur_interface);
+>  	phylink_info(pl, "Link is Down\n");
+> diff --git a/include/linux/phylink.h b/include/linux/phylink.h
+> index c5496c063b6a..8b3d1dfb83a1 100644
+> --- a/include/linux/phylink.h
+> +++ b/include/linux/phylink.h
+> @@ -494,6 +494,7 @@ struct phylink_pcs {
+>   * @pcs_an_restart: restart 802.3z BaseX autonegotiation.
+>   * @pcs_link_up: program the PCS for the resolved link configuration
+>   *               (where necessary).
+> + * @pcs_link_down: torn down link between MAC and PCS.
 
+ops documentation should use imperative verbs.
 
-> +&i2c1 {
+You are also missing the longer documentation below.
 
-empty i2c controller? I guess it is routed to the external pins?
-If so, could use a comment explaining that.
-
-
-> +/* SPI0 for external gpio pin */
-> +&spi0 {
-> +	status =3D "okay";
-> +
-> +	spi_dev@0 {
-> +		compatible =3D "spidev";
-
-having a generic spidev is not allowed. If there is an actual
-device connected there, it should have a real compatible.
-If that isn't a real device, this could be handled in an overlay.
-
-
-> +		reg =3D <0>;
-> +		spi-max-frequency =3D <0x2faf080>;
-> +	};
-> +};
-> +
-> +/* SPI1 for ws2812*/
-> +&spi1 {
-> +	status =3D "okay";
-> +
-> +	spi_dev@0 {
-> +		compatible =3D "spidev";
-
-same as above, please no generic spidev
-
-> +		reg =3D <0>;
-> +		spi-max-frequency =3D <0x2faf080>;
-> +	};
-> +};
-> +
-> +&pinctrl {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&rtc_32k>;
-> +
-> +	usb {
-
-please sort these nodes alphabetically
-
-> +		otg_vbus_drv: otg-vbus-drv {
-> +			rockchip,pins =3D <0 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
-> +
-> +	sdio-pwrseq {
-> +		wifi_enable_h: wifi-enable-h {
-> +			rockchip,pins =3D <0 RK_PA2 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
-> +
-> +	wifi {
-> +		wifi_host_wake: wifi-host-wake {
-> +			rockchip,pins =3D <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_down>;
-> +		};
-> +	};
-> +
-> +	bluetooth {
-> +		bt_reg_on: bt-reg-on {
-> +			rockchip,pins =3D <4 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +
-> +		bt_wake_host: bt-wake-host {
-> +			rockchip,pins =3D <4 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +
-> +		host_wake_bt: host-wake-bt {
-> +			rockchip,pins =3D <4 RK_PB2 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
-> +};
-> +
-> +&pwm0 {
-> +	status =3D "okay";
-
-status as last property
-
-> +	pinctrl-0 =3D <&pwm0_pin_pull_down>;
-> +};
-> +
-> +&saradc {
-> +	vref-supply =3D <&vcc_1v8>;
-> +	status =3D "okay";
-> +};
-> +
-> +&pwm3 {
-
-please sort phandles alphabetically
-
-> +	status =3D "okay";
-> +};
-> +
-> +&i2c1 {
-
-same
-
-> +	status =3D "okay";
-> +};
-
-
-Thanks
-Heiko
-
+>   * @pcs_disable_eee: optional notification to PCS that EEE has been disabled
+>   *		     at the MAC.
+>   * @pcs_enable_eee: optional notification to PCS that EEE will be enabled at
+> @@ -521,6 +522,7 @@ struct phylink_pcs_ops {
+>  	void (*pcs_an_restart)(struct phylink_pcs *pcs);
+>  	void (*pcs_link_up)(struct phylink_pcs *pcs, unsigned int neg_mode,
+>  			    phy_interface_t interface, int speed, int duplex);
+> +	void (*pcs_link_down)(struct phylink_pcs *pcs);
+>  	void (*pcs_disable_eee)(struct phylink_pcs *pcs);
+>  	void (*pcs_enable_eee)(struct phylink_pcs *pcs);
+>  	int (*pcs_pre_init)(struct phylink_pcs *pcs);
 
 
