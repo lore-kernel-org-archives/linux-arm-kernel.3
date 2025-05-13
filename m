@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DB6BC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 14:32:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D760C3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 14:34:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UciMYhsvMeMMfLe+Y/mDOx+WHbPK1DbI23j1lE0C4r8=; b=Qy2dZwC+qHweOqfEEn7SqW7RAG
-	3DctooIZPPUpNorvWgTr0iw+70B9uINgofE9vSQntQx5K3Jq1QpWSH0+dFikP/V4GHoXMD3WwkKxu
-	/eM4DvOLmLsQESxYfZd51xPXsDuvUPXRX0/jdHS1/Bt2tCWXeqxvQ23DDA3xmvS1+ROzavDYkTnAt
-	RG8Uy/J18pyOedC/YRTlYL6Mq2YUfkT7MXH97Fdd3+d7LKOd7WEMWi4p3B+KLd1SsgV42wiUCRMc3
-	K7RcRga4Ab2O1w1hgNyKaP3gbQenI0jCX+nRnlWBPNu5MqYkCqta3JD9lP1MwrMfZaKZTzfogVA2j
-	WGd3fLbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S8HvFU+C7sIo5Yzd4dl6ojrhAT/ghV8MpikwHZzYzPM=; b=C6uW/LcYolDy6Nb+ZdDlfihAXz
+	zbXsci3J9w+ZwGM2o0xqjWJ2B2dPgk/S5067JQ9nwzeOkQj2ut1Ecrx653XFUHchNHnelU4RrbG7h
+	pVBOYP+nf+PTnJpta048B9zFMGmHlci8KyWUT5iotUuvl03fJHWx3dc7cL4LXQbpgmGf3M4qLqJBH
+	kfYjGqQj/QCtxKL/NrCfRY0uQoTtU6oFusiyl7Wu+BUkEXuMJeCRQ4baSJF1WJf9D5ynH0j+rGLmr
+	w77GvxLS6e4xKEhLlcioGvQ9DpBTLj8V4lOJwL8HMQHXsy9iIxrzf56lYGMMsTq8lsBU/yvDPNOBC
+	1E2LwZiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEqg2-0000000CcTK-2i2v;
-	Tue, 13 May 2025 14:32:14 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uEqi6-0000000CckP-1aju;
+	Tue, 13 May 2025 14:34:22 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEqaj-0000000Cbgk-1bui;
-	Tue, 13 May 2025 14:26:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1747146402;
-	bh=qYsRr27KyrzorRZGruY/mzik8/noi2HJgHEFtl9lCDw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NaqflHUzrjEmu83Eqdfz5vLp3EilaB2O8KPNvY/sTINp3b2J4o5wHRZqljmqVRHPx
-	 TeVF5AcuzpPhIVekv8CFOpJOZ9DOfuwDUzBHhM/yXBOyG8bx/Zvr5nho2SVKiTx1ql
-	 /qNsZl1ujKNzhm96njzQwruku+sC32EX2KPdD5XeoG5tSvTdRCWR1cVBy7YuYY05mR
-	 Q75J20j6QqMg10Zbv486KCoDTgxHE/fTppHbI+92pKiCxTSeCDw4jczEDWxeoD4wU8
-	 2jBNrGQfXx8Jqu516PEzb6+Hqk7ZoYYyb3jnsY3FCmjHnDzionLtLxHko5F/rl2Hsr
-	 P/KZgNU5s1ZdA==
-Received: from [192.168.50.250] (unknown [171.76.80.110])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: vignesh)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4A75C17E07E4;
-	Tue, 13 May 2025 16:26:40 +0200 (CEST)
-Message-ID: <714a719a-9e56-4158-a8ce-118b7ddb97b3@collabora.com>
-Date: Tue, 13 May 2025 19:56:29 +0530
+	id 1uEqbR-0000000Cbme-3LLe;
+	Tue, 13 May 2025 14:27:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1747146434; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ANqNFwZEb+ZFYow3aFAQoyO/1Ud2AXpFUIBSle0bCo8FVYBcNiP+i1HJVeS9GxYppl7HJpmC+qZl37HtRPkZXcPEOXkDBCQ/zrr8dgKo5uei6H47cW+QVV7ZXJHw8+jUnBeKS3gYXF9OXPTulAsAQCmtDNFdp0Tbw/DhN5W4wsg=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1747146434; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=S8HvFU+C7sIo5Yzd4dl6ojrhAT/ghV8MpikwHZzYzPM=; 
+	b=juo7qhHanaIrojtSIzpy4DRVsL0LxCZof/Ml9fpsJ0EWTj5tH9ljTvKL658u060IhnGxO0kOeBj1jr4KDs4a0RM2Ff4rELQ6Xo0dB7Amhs30S12gFTnGp+viG8MZG4T5h0EJuFWABukZ5OjIvp4EG54KMCC1prBrdmXWOVtR1t0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1747146434;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=S8HvFU+C7sIo5Yzd4dl6ojrhAT/ghV8MpikwHZzYzPM=;
+	b=TL9bA5j1wnQEzElGt0exkEIhE0Vo7i6xr6vp0qX6xbOLsv8oU234w/eH/ZX6PJJ4
+	goH3Vq90j1+kAQio1s0ScSTAfdctQvB99CVnqDrQkokNPU2LuRPEm7T3kvOY7xyhf0T
+	oVg9Lwl4xwFaLP7+KQ2QJZqRJPmFWFuGHhXf4uT8=
+Received: by mx.zohomail.com with SMTPS id 1747146427338952.0201359300785;
+	Tue, 13 May 2025 07:27:07 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>,
+ Elaine Zhang <zhangqing@rock-chips.com>,
+ Finley Xiao <finley.xiao@rock-chips.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Detlev Casanova <detlev.casanova@collabora.com>, kernel@collabora.com,
+ linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mmc@vger.kernel.org
+Subject: Re: [PATCH v3] mmc: sdhci-of-dwcmshc: add PD workaround on RK3576
+Date: Tue, 13 May 2025 16:27:02 +0200
+Message-ID: <6154950.lOV4Wx5bFT@workhorse>
+In-Reply-To: <CAPDyKFp5N23KCZwOTba6vGyk9eaS1-SjSqY52FfPDng-bahn6g@mail.gmail.com>
+References: <20250423-rk3576-emmc-fix-v3-1-0bf80e29967f@collabora.com>
+ <CAPDyKFp5N23KCZwOTba6vGyk9eaS1-SjSqY52FfPDng-bahn6g@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: amlogic: Synchronous Abort with v6.15-rc6
-To: Neil Armstrong <neil.armstrong@linaro.org>,
- linux-amlogic <linux-amlogic@lists.infradead.org>
-Cc: khilman@baylibre.com, jbrunet@baylibre.com,
- martin.blumenstingl@googlemail.com, sboyd@kernel.org,
- daniels <daniels@collabora.com>, Daniel Stone <daniel@fooishbar.org>,
- lumag@kernel.org, robdclark <robdclark@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <eb9281cc-de91-48a4-bbd6-f67ddc67a9dd@collabora.com>
- <b090cef6-5b9e-4149-872d-0316666f9e90@linaro.org>
-Content-Language: en-US
-From: Vignesh Raman <vignesh.raman@collabora.com>
-In-Reply-To: <b090cef6-5b9e-4149-872d-0316666f9e90@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_072645_580363_74BC41A9 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20250513_072729_903604_75BF40CC 
+X-CRM114-Status: GOOD (  26.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,129 +83,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Neil,
-
-On 13/05/25 15:25, neil.armstrong@linaro.org wrote:
-> Hi,
+On Tuesday, 29 April 2025 12:06:16 Central European Summer Time Ulf Hansson wrote:
+> On Wed, 23 Apr 2025 at 09:54, Nicolas Frattaroli
+> <nicolas.frattaroli@collabora.com> wrote:
+> >
+> > RK3576's power domains have a peculiar design where the PD_NVM power
+> > domain, of which the sdhci controller is a part, seemingly does not have
+> > idempotent runtime disable/enable. The end effect is that if PD_NVM gets
+> > turned off by the generic power domain logic because all the devices
+> > depending on it are suspended, then the next time the sdhci device is
+> > unsuspended, it'll hang the SoC as soon as it tries accessing the CQHCI
+> > registers.
+> >
+> > RK3576's UFS support needed a new dev_pm_genpd_rpm_always_on function
+> > added to the generic power domains API to handle what appears to be a
+> > similar hardware design.
+> >
+> > Use this new function to ask for the same treatment in the sdhci
+> > controller by giving rk3576 its own platform data with its own postinit
+> > function. The benefit of doing this instead of marking the power domains
+> > always on in the power domain core is that we only do this if we know
+> > the platform we're running on actually uses the sdhci controller. For
+> > others, keeping PD_NVM always on would be a waste, as they won't run
+> > into this specific issue. The only other IP in PD_NVM that could be
+> > affected is FSPI0. If it gets a mainline driver, it will probably want
+> > to do the same thing.
+> >
+> > Acked-by: Adrian Hunter <adrian.hunter@intel.com>
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 > 
-> On 13/05/2025 11:41, Vignesh Raman wrote:
->> Hi,
->>
->> The Amlogic Meson G12B (A311D) SoC board (meson-g12b-a311d-khadas- 
->> vim3) fails to boot with the following logs,
->>
->> https://gitlab.freedesktop.org/vigneshraman/linux/-/jobs/76210200
->>
->> 02:58:27.819: Starting kernel ...
->> 02:58:27.819: "Synchronous Abort" handler, esr 0x96000010, far 0x51000d8
->> 02:58:27.819: "Synchronous Abort" handler, esr 0x96000010, far 0x51000c8
->> 02:58:27.819: elr: 0000000001002a48 lr : 0000000001002c88 (reloc)
->> 02:58:27.819: elr: 00000000f2f26a48 lr : 00000000f2f26c88
->> 02:58:27.819: x0 : 00000000050fffc0 x1 : 0000000001004383
->> 02:58:27.819: x2 : 00000000f2f6a358 x3 : 000000000000003f
->> 02:58:27.819: x4 : 00000000f4fefffc x5 : 0000000000000010
->> 02:58:27.819: x6 : 00000000f4e5b000 x7 : 00000000050fffa0
->> 02:58:27.819: x8 : 0000000000000008 x9 : 0000000000000001
->> 02:58:27.820: x10: 0000000000000010 x11: 0000000000000004
->> 02:58:27.820: x12: 00000000f4fefc00 x13: 0000000000000000
->> 02:58:27.820: x14: 00000000f4fefc00 x15: 0000000000000000
->> 02:58:27.820: x16: 00000000f2f6d0e0 x17: 0000000000c0c0c0
->> 02:58:27.820: x18: 00000000f0f21d90 x19: 00000000050fffc0
->> 02:58:27.820: x20: 0000000000000000 x21: 000000007ffe9000
->> 02:58:27.820: x22: 0000000000001710 x23: 00000000f0f0e8c0
->> 02:58:27.820: x24: 0000000000000000 x25: 0000000000000000
->> 02:58:27.820: x26: 0000000000000000 x27: 0000000000000000
->> 02:58:27.820: x28: 00000000f0f4f790 x29: 00000000050fff60
->> 02:58:27.820: Code: a9025bf5 f9001bf7 f9400641 36000141 (f9408663)
->> 02:58:27.820: Resetting CPU ...
->>
+> Applied for next, thanks!
 > 
-> Could you boot with earlycon enabled to at least have a clue of what's 
-> happening ?
-
-There is a synchronous abort right after 'Starting kernel...'. Maybe 
-this prevents any early console logs from appearing.
-
-https://gitlab.freedesktop.org/vigneshraman/linux/-/jobs/76243455
-
-13:54:02.013: => setenv bootargs 'console=ttyAML0,115200n8 root=/dev/nfs 
-rw 
-nfsroot=192.168.201.1:/var/lib/lava/dispatcher/tmp/18641665/extract-nfsrootfs-h2fjsmdc,tcp,hard,v3 
-init=/init rootwait usbcore.quirks=0bda:8153:k earlycon=meson,0xff803000 
-keep_bootcon  ip=dhcp'
-13:54:02.014: $ booti 0x1080000 - 0x1000000
-13:54:02.014: => booti 0x1080000 - 0x1000000
-13:54:02.014: Moving Image from 0x1080000 to 0x1200000, end=5160000
-13:54:02.014: ## Flattened Device Tree blob at 01000000
-13:54:02.014:    Booting using the fdt blob at 0x1000000
-13:54:02.014: Working FDT set to 1000000
-13:54:02.014: ERROR: reserving fdt memory region failed (addr=5000000 
-size=300000 flags=4)
-13:54:02.014:    Loading Device Tree to 000000007ffe9000, end 
-000000007ffff57c ... OK
-13:54:02.014: Working FDT set to 7ffe9000
-13:54:02.014: Starting kernel ...
-13:54:02.014: "Synchronous Abort" handler, esr 0x96000010, far 0x51000d8
-13:54:02.014: "Synchronous Abort" handler, esr 0x96000010, far 0x51000c8
-13:54:02.014: elr: 0000000001002a48 lr : 0000000001002c88 (reloc)
-13:54:02.014: elr: 00000000f2f26a48 lr : 00000000f2f26c88
-13:54:02.014: x0 : 00000000050fffc0 x1 : 0000000001004383
-13:54:02.014: x2 : 00000000f2f6a358 x3 : 000000000000003f
-13:54:02.014: x4 : 00000000f4fefffc x5 : 0000000000000010
-13:54:02.014: x6 : 00000000f4e5b000 x7 : 00000000050fffa0
-13:54:02.014: x8 : 0000000000000008 x9 : 0000000000000001
-13:54:02.014: x10: 0000000000000010 x11: 0000000000000004
-13:54:02.014: x12: 00000000f4fefc00 x13: 0000000000000000
-13:54:02.014: x14: 00000000f4fefc00 x15: 0000000000000000
-13:54:02.014: x16: 00000000f2f6d0e0 x17: 0000000000c0c0c0
-13:54:02.014: x18: 00000000f0f21d90 x19: 00000000050fffc0
-13:54:02.014: x20: 0000000000000000 x21: 000000007ffe9000
-13:54:02.014: x22: 0000000000001710 x23: 00000000f0f0e8c0
-13:54:02.014: x24: 0000000000000000 x25: 0000000000000000
-13:54:02.014: x26: 0000000000000000 x27: 0000000000000000
-13:54:02.014: x28: 00000000f0f566a0 x29: 00000000050fff60
-13:54:02.014: Code: a9025bf5 f9001bf7 f9400641 36000141 (f9408663)
-13:54:02.014: Resetting CPU ...
-
-Successful logs with v6.14-rc7,
-https://gitlab.freedesktop.org/vigneshraman/linux/-/jobs/76248143
-
+> Kind regards
+> Uffe
 > 
-> BPI-M2S (A311D) is booting fine on v6.15-rc, see https://gitlab.com/ 
-> amlogic-foss/abcd-linux-test/-/jobs/10004997032
-> 
-> But perhaps something specific to the VIM3 is breaking, do you change 
-> the kernel config for the DRM ?
 
-Yes, we change the config. Please see the config used to build the kernel,
-https://gitlab.freedesktop.org/vigneshraman/linux/-/jobs/76243439/artifacts/file/artifacts/testing:arm64_config
+Hi Uffe,
 
-Regards,
-Vignesh
+I was wondering whether we can get this into 6.15 as a fix as well, as 6.15
+should already have the genpd API additions this requires AFAIU.
 
-> 
-> Neil
-> 
-> 
->> The board boots successfully in v6.14-rc7, but the issue appears 
->> starting from v6.15-rc1. These tests were run in drm-ci.
->>
->> On bisecting the kernel, the first bad commit identified by git biscet 
->> is,
->>
->> 59c35416f4246aee66b5f5523fdc950b83325d82 is the first bad commit
->> commit 59c35416f4246aee66b5f5523fdc950b83325d82
->> Merge: 472863ab2aca e988adcb5dee
->> Author: Linus Torvalds <torvalds@linux-foundation.org>
->> Date:   Sat Mar 29 17:23:34 2025 -0700
->>
->>      Merge tag 'clk-for-linus' of git://git.kernel.org/pub/scm/linux/ 
->> kernel/git/clk/linux
->>
->> Please could you look into this issue. Thank you.
->>
->> Regards,
->> Vignesh
-> 
+Fixes tag could be something like:
+
+  Fixes: cfee1b507758 ("pmdomain: rockchip: Add support for RK3576 SoC")
+
+but may need some more flavorings to keep the stable robot overlords from
+trying to apply it to 6.14 and earlier and then starting the robot uprising
+in your inbox when they notice the API is missing.
+
+I originally left out the Fixes tag on the rewrite of this using the new
+API because I wanted to avoid those awkward backport scenarios for a fairly
+freshly supported SoC, but it'd be great to have this in 6.15 because that
+will be with us for a full release cycle to come.
+
+Kind regards,
+Nicolas Frattaroli
+
+
 
 
