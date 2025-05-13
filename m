@@ -4,63 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7176AC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 17:32:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E7E2C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 17:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3EFmPqz0R+//0J57U9zzjvN2dG+u5xnDk4rfzK+O2vY=; b=Q7OX31C9ofUfc2vRxxDhG+E5qr
-	3jxT14Mk7d3M13PW7fQpt0m5gitNXqs1qKQuysu0RS6suEL1eixXA1D3lxFBXqPctngc5Feaxjp8t
-	Wq01fjO2tozk3elrIwmxTizMVrAicpsV/dvf7GJ/Jx/R2aLOiyhpQU7i8bFsxIifiYqiqK9XDoZu0
-	h3X3F+F17tPHBuBh4XU6+rxiRkJqSR388ByXlhFRwaJlu6Le8pPs8wf1NOZbvWCVRlZo/u2lI12Bx
-	xVfUPTQCi8WpmyEiMNy2fNfbCyl7CqnQ99XYisR3EUU99oqTQNKrxC3KNXvsQXHZFzoZx4g0CidSa
-	C6N094DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VwNHHFkKkpugnXsLzIFZqwmrlvXoDWAFqw7h4dczRBU=; b=n4LcW2FnHm6CXXCuWY3xO7MwYv
+	Wv84TlMCBwjMq9N3VLqP2g7fWQ34ZlIAvxTrJn6tzq82iQrW9qc+644umi+W9OEsydC9OkMVTRkXz
+	CmbOu2nh9AAo9b6J5lrHhlc2A+wU+rmr+7nuway+JdZ40PCVBQB51WfytcCZUqL3Y8zBqE7B6F4NO
+	6yGJnuWLKgwmBRDgkuKCd40+ul22w+sHu+/RugSL+gjcHccTvKeAws1gPkOzcz+k3u/77xQCeM4Vf
+	R+4EGZ/0aDHq5/x8KksSqnlsWir+ZAaBTLkniRkgWynu0wDtEKn+MoDeXF6wnZugHO3rxxnm9dutQ
+	N3n7hxOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEtU3-0000000D6Ty-40Dh;
-	Tue, 13 May 2025 17:32:03 +0000
+	id 1uEtW8-0000000D6u4-1dG0;
+	Tue, 13 May 2025 17:34:12 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEtOl-0000000D5K9-3uDe;
-	Tue, 13 May 2025 17:26:36 +0000
+	id 1uEtQe-0000000D5dD-0Svv
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 May 2025 17:28:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C1ED9629FB;
-	Tue, 13 May 2025 17:26:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5D66C4CEE4;
-	Tue, 13 May 2025 17:26:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6AE3D629FB;
+	Tue, 13 May 2025 17:28:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11A5AC4AF0C;
+	Tue, 13 May 2025 17:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747157194;
-	bh=XZgV1QhYSzMi+mWphJqQXwlDvh4uyqmyqWtHN4e9RH4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hG94Lgo80sRFtjwwMGBmTwEXXng+JnM53gX3BWiYYC3Gzm/ECanYocLNIWj8k1rGA
-	 rWLThq9KpGk7mRcYwxDTWEuG1psrUaos0d+WGZx5VFbenjoXA+JvMbFBqIp3IJDFHa
-	 mc0cyQkiLmoagHYGJ8Lt6jg8i5l9zZ3m5O++34j1N3tIH9ILHtebDSdPmjwhMBmzoJ
-	 1HegOkvcWgbix37heFeUwvOef3P9SqQMOwrM/h+VMNKSBx6Pk12pzPpv9FnYfDiJHN
-	 1ZFkvV1cZ5AUPo4Yv2vrhW1Zwwvd0tqkwdrZXLGwHMBU+Z3LssQXxOkLDk2crfM2/8
-	 feF/bizRpq0EA==
-Date: Tue, 13 May 2025 19:26:31 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	William Breathitt Gray <wbg@kernel.org>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	Kever Yang <kever.yang@rock-chips.com>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-pwm@vger.kernel.org, linux-iio@vger.kernel.org, kernel@collabora.com, 
-	Jonas Karlman <jonas@kwiboo.se>, Detlev Casanova <detlev.casanova@collabora.com>
-Subject: Re: [PATCH 5/7] pwm: Add rockchip PWMv4 driver
-Message-ID: <zg47we7oopvuayi7wyosq6j7uuzz4numystbmluezsim2pxg4g@zvtm3pwzkice>
-References: <20250408-rk3576-pwm-v1-0-a49286c2ca8e@collabora.com>
- <20250408-rk3576-pwm-v1-5-a49286c2ca8e@collabora.com>
+	s=k20201202; t=1747157311;
+	bh=5BoSY6I4E3zhXcU/3IAaz838Ni4OzdDS8jPXJzV6qg4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Dm8fnhbb1HXn9Xj7HTUoE8BQAcuWlp0sNhyErxY9mHhVVE0lAMWqRBK5LDrxmjB0W
+	 BS5PshtG6OQFNM0XU9LNbzNgGHixp9rMcaBz1q/oJGMJSGReYcm8NwfdtY1/I6M4C7
+	 m+hnhYBkHPddwowLFrZ9QmEsoGOvnPZsTG1FXaVfc4DHU/lC6x5dNiYAWVTvfbk3hw
+	 rILWiC4xmuFJ/brRqRagFPQKNRidwiQITQfBJnwg3Vzvwwf9d3yF8zKNZN0Gd4Gdj8
+	 /StB4Cng0CwOX8TfoNfXeSYyA1ch6cQ0tTg1iWwdj10ajEWztRiu18loLqYfddn4Uv
+	 dXn5Kn/l5w7XQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uEtQb-00EbRz-7F;
+	Tue, 13 May 2025 18:28:29 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Toan Le <toan@os.amperecomputing.com>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>
+Subject: [PATCH v2 6/9] irqchip/msi-lib: Honour the MSI_FLAG_NO_AFFINITY flag
+Date: Tue, 13 May 2025 18:28:16 +0100
+Message-Id: <20250513172819.2216709-7-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250513172819.2216709-1-maz@kernel.org>
+References: <20250513172819.2216709-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bywnufiblausx7ms"
-Content-Disposition: inline
-In-Reply-To: <20250408-rk3576-pwm-v1-5-a49286c2ca8e@collabora.com>
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, tglx@linutronix.de, andrew@lunn.ch, gregory.clement@bootlin.com, sebastian.hesselbarth@gmail.com, lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org, bhelgaas@google.com, toan@os.amperecomputing.com, alyssa@rosenzweig.io, thierry.reding@gmail.com, jonathanh@nvidia.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,513 +90,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Bad MSI implementations multiplex MSIs onto a single downstream
+interrupt, meaning they have no concept of individual affinity.
 
---bywnufiblausx7ms
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 5/7] pwm: Add rockchip PWMv4 driver
-MIME-Version: 1.0
+The old MSI code did a reasonable job at this by honouring the
+MSI_FLAG_NO_AFFINITY, but the new shiny device MSI code doesn't.
 
-Hello Nicolas,
+Teach it about the sad reality of existing hardware.
 
-On Tue, Apr 08, 2025 at 02:32:17PM +0200, Nicolas Frattaroli wrote:
-> The Rockchip RK3576 brings with it a new PWM IP, in downstream code
-> referred to as "v4". This new IP is different enough from the previous
-> Rockchip IP that I felt it necessary to add a new driver for it, instead
-> of shoehorning it in the old one.
->=20
-> Add this new driver, based on the PWM core's waveform APIs. Its platform
-> device is registered by the parent mfpwm driver, from which it also
-> receives a little platform data struct, so that mfpwm can guarantee that
-> all the platform device drivers spread across different subsystems for
-> this specific hardware IP do not interfere with each other.
->=20
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->  MAINTAINERS                   |   1 +
->  drivers/pwm/Kconfig           |  13 ++
->  drivers/pwm/Makefile          |   1 +
->  drivers/pwm/pwm-rockchip-v4.c | 336 ++++++++++++++++++++++++++++++++++++=
-++++++
->  4 files changed, 351 insertions(+)
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index e6a9347be1e7889089e1d9e655cb23c2d8399b40..3ddd245fd4ad8d9ed2e762910=
-a7a1f6436f93e34 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -20891,6 +20891,7 @@ L:	linux-rockchip@lists.infradead.org
->  L:	linux-pwm@vger.kernel.org
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/pwm/rockchip,rk3576-pwm.yaml
-> +F:	drivers/pwm/pwm-rockchip-v4.c
->  F:	drivers/soc/rockchip/mfpwm.c
->  F:	include/soc/rockchip/mfpwm.h
-> =20
-> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> index 4731d5b90d7edcc61138e4a5bf7e98906953ece4..242039f62ab091cea337bf27e=
-f310bcf696b6ed0 100644
-> --- a/drivers/pwm/Kconfig
-> +++ b/drivers/pwm/Kconfig
-> @@ -540,6 +540,19 @@ config PWM_ROCKCHIP
->  	  Generic PWM framework driver for the PWM controller found on
->  	  Rockchip SoCs.
-> =20
-> +config PWM_ROCKCHIP_V4
-> +	tristate "Rockchip PWM v4 support"
-> +	depends on ARCH_ROCKCHIP || COMPILE_TEST
-> +	depends on ROCKCHIP_MFPWM
-> +	depends on HAS_IOMEM
-> +	help
-> +	  Generic PWM framework driver for the PWM controller found on
-> +	  later Rockchip SoCs such as the RK3576.
-> +
-> +	  Uses the Rockchip Multi-function PWM controller driver infrastructure
-> +	  to guarantee fearlessly concurrent operation with other functions of
-> +	  the same device implemented by drivers in other subsystems.
-> +
->  config PWM_RZ_MTU3
->  	tristate "Renesas RZ/G2L MTU3a PWM Timer support"
->  	depends on RZ_MTU3
-> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> index 539e0def3f82fcb866ab83a0346a15f7efdd7127..b5aca7ff58ac83f844581df52=
-6624617025291de 100644
-> --- a/drivers/pwm/Makefile
-> +++ b/drivers/pwm/Makefile
-> @@ -49,6 +49,7 @@ obj-$(CONFIG_PWM_RASPBERRYPI_POE)	+=3D pwm-raspberrypi-=
-poe.o
->  obj-$(CONFIG_PWM_RCAR)		+=3D pwm-rcar.o
->  obj-$(CONFIG_PWM_RENESAS_TPU)	+=3D pwm-renesas-tpu.o
->  obj-$(CONFIG_PWM_ROCKCHIP)	+=3D pwm-rockchip.o
-> +obj-$(CONFIG_PWM_ROCKCHIP_V4)	+=3D pwm-rockchip-v4.o
->  obj-$(CONFIG_PWM_RZ_MTU3)	+=3D pwm-rz-mtu3.o
->  obj-$(CONFIG_PWM_SAMSUNG)	+=3D pwm-samsung.o
->  obj-$(CONFIG_PWM_SIFIVE)	+=3D pwm-sifive.o
-> diff --git a/drivers/pwm/pwm-rockchip-v4.c b/drivers/pwm/pwm-rockchip-v4.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..980b27454ef9b930bef0496ca=
-528533cf419fa0e
-> --- /dev/null
-> +++ b/drivers/pwm/pwm-rockchip-v4.c
-> @@ -0,0 +1,336 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * Copyright (c) 2025 Collabora Ltd.
-> + *
-> + * A Pulse-Width-Modulation (PWM) generator driver for the generators fo=
-und in
-> + * Rockchip SoCs such as the RK3576, internally referred to as "PWM v4".=
- Uses
-> + * the MFPWM infrastructure to guarantee exclusive use over the device w=
-ithout
-> + * other functions of the device from different drivers interfering with=
- its
-> + * operation while it's active.
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ drivers/irqchip/irq-msi-lib.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-Can you please add a "Limitations" paragraph here similar to the other
-newer drivers that explains how the hardware behave on disable
-(inactive? High-Z? freeze?), if there are glitches possible when
-settings are changed or if the currently running period is completed on
-reconfiguration.
+diff --git a/drivers/irqchip/irq-msi-lib.c b/drivers/irqchip/irq-msi-lib.c
+index 2a61c06c4da07..246c30205af40 100644
+--- a/drivers/irqchip/irq-msi-lib.c
++++ b/drivers/irqchip/irq-msi-lib.c
+@@ -105,8 +105,13 @@ bool msi_lib_init_dev_msi_info(struct device *dev, struct irq_domain *domain,
+ 	 * MSI message into the hardware which is the whole purpose of the
+ 	 * device MSI domain aside of mask/unmask which is provided e.g. by
+ 	 * PCI/MSI device domains.
++	 *
++	 * The exception to the rule is when the underlying domain
++	 * tells you that affinity is not a thing -- for example when
++	 * everything is muxed behind a single interrupt.
+ 	 */
+-	chip->irq_set_affinity = msi_domain_set_affinity;
++	if (!chip->irq_set_affinity && !(info->flags & MSI_FLAG_NO_AFFINITY))
++		chip->irq_set_affinity = msi_domain_set_affinity;
+ 	return true;
+ }
+ EXPORT_SYMBOL_GPL(msi_lib_init_dev_msi_info);
+-- 
+2.39.2
 
-> + *
-> + * Authors:
-> + *     Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> + */
-> +
-> +#include <linux/platform_device.h>
-> +#include <linux/pwm.h>
-> +#include <soc/rockchip/mfpwm.h>
-> +
-> +struct rockchip_pwm_v4 {
-> +	struct rockchip_mfpwm_func *pwmf;
-> +	struct pwm_chip chip;
-> +};
-> +
-> +struct rockchip_pwm_v4_wf {
-> +	u32 period;
-> +	u32 duty;
-> +	u32 offset;
-> +	u8 enable;
-> +};
-> +
-> +static inline struct rockchip_pwm_v4 *to_rockchip_pwm_v4(struct pwm_chip=
- *chip)
-> +{
-> +	return pwmchip_get_drvdata(chip);
-> +}
-> +
-> +/**
-> + * rockchip_pwm_v4_round_single - convert a PWM parameter to hardware
-> + * @rate: clock rate of the PWM clock, as per clk_get_rate
-> + * @in_val: parameter in nanoseconds to convert
-> + * @out_val: pointer to location where converted result should be stored.
-> + *
-> + * If @out_val is %NULL, no calculation is performed.
-> + *
-> + * Return:
-> + * * %0          - Success
-> + * * %-EOVERFLOW - Result too large for target type
-> + */
-> +static int rockchip_pwm_v4_round_single(unsigned long rate, u64 in_val,
-> +					u32 *out_val)
-> +{
-> +	u64 tmp;
-> +
-> +	if (!out_val)
-> +		return 0;
-
-This is never hit, so better drop it.
-
-> +	tmp =3D mult_frac(rate, in_val, NSEC_PER_SEC);
-> +	if (tmp > U32_MAX)
-> +		return -EOVERFLOW;
-
-Is it clear that this cannot overflow the u64?
-
-> +	*out_val =3D tmp;
-> +
-> +	return 0;
-> +}
-> +
-> +/**
-> + * rockchip_pwm_v4_round_params - convert PWM parameters to hardware
-> + * @rate: PWM clock rate to do the calculations at
-> + * @duty: PWM duty cycle in nanoseconds
-> + * @period: PWM period in nanoseconds
-> + * @offset: PWM offset in nanoseconds
-> + * @out_duty: pointer to where the rounded duty value should be stored
-> + *            if NULL, don't calculate or store it
-> + * @out_period: pointer to where the rounded period value should be stor=
-ed
-> + *              if NULL, don't calculate or store it
-> + * @out_offset: pointer to where the rounded offset value should be stor=
-ed
-> + *              if NULL, don't calculate or store it
-> + *
-> + * Convert nanosecond-based duty/period/offset parameters to the PWM har=
-dware's
-> + * native rounded representation in number of cycles at clock rate @rate=
-=2E If an
-> + * out_ parameter is a NULL pointer, the corresponding parameter will no=
-t be
-> + * calculated or stored. Should an overflow error occur for any of the
-> + * parameters, assume the data at all the out_ locations is invalid and =
-may not
-> + * even have been touched at all.
-> + *
-> + * Return:
-> + * * %0          - Success
-> + * * %-EOVERFLOW - One of the results is too large for the PWM hardware
-> + */
-> +static int rockchip_pwm_v4_round_params(unsigned long rate, u64 duty,
-> +					u64 period, u64 offset, u32 *out_duty,
-> +					u32 *out_period, u32 *out_offset)
-> +{
-> +	int ret;
-> +
-> +	ret =3D rockchip_pwm_v4_round_single(rate, duty, out_duty);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret =3D rockchip_pwm_v4_round_single(rate, period, out_period);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret =3D rockchip_pwm_v4_round_single(rate, offset, out_offset);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return 0;
-> +}
-> +
-> +static int rockchip_pwm_v4_round_wf_tohw(struct pwm_chip *chip,
-> +					 struct pwm_device *pwm,
-> +					 const struct pwm_waveform *wf,
-> +					 void *_wfhw)
-> +{
-> +	struct rockchip_pwm_v4 *pc =3D to_rockchip_pwm_v4(chip);
-> +	struct rockchip_pwm_v4_wf *wfhw =3D _wfhw;
-> +	unsigned long rate;
-> +	int ret =3D 0;
-> +
-> +	/* We do not want chosen_clk to change out from under us here */
-> +	ret =3D mfpwm_acquire(pc->pwmf);
-> +	if (ret)
-> +		return ret;
-> +
-> +	rate =3D mfpwm_clk_get_rate(pc->pwmf->parent);
-> +
-> +	ret =3D rockchip_pwm_v4_round_params(rate, wf->duty_length_ns,
-> +					   wf->period_length_ns,
-> +					   wf->duty_offset_ns, &wfhw->duty,
-> +					   &wfhw->period, &wfhw->offset);
-> +
-> +	if (wf->period_length_ns > 0)
-> +		wfhw->enable =3D PWMV4_EN_BOTH_MASK;
-> +	else
-> +		wfhw->enable =3D 0;
-> +
-> +	dev_dbg(&chip->dev, "tohw: duty =3D %u, period =3D %u, offset =3D %u, r=
-ate %lu\n",
-> +		wfhw->duty, wfhw->period, wfhw->offset, rate);
-> +
-> +	mfpwm_release(pc->pwmf);
-> +	return ret;
-
-This is wrong. If a too high value for (say) period_length_ns is
-requested, you're supposed to configure the maximal possible
-period_length and not return a failure.
-
-> +}
-> +
-> +static int rockchip_pwm_v4_round_wf_fromhw(struct pwm_chip *chip,
-> +					   struct pwm_device *pwm,
-> +					   const void *_wfhw,
-> +					   struct pwm_waveform *wf)
-> +{
-> +	struct rockchip_pwm_v4 *pc =3D to_rockchip_pwm_v4(chip);
-> +	const struct rockchip_pwm_v4_wf *wfhw =3D _wfhw;
-> +	unsigned long rate;
-> +	int ret =3D 0;
-> +
-> +	/* We do not want chosen_clk to change out from under us here */
-
-This is also true while the PWM is enabled.=20
-
-> +	ret =3D mfpwm_acquire(pc->pwmf);
-> +	if (ret)
-> +		return ret;
-> +
-> +	rate =3D mfpwm_clk_get_rate(pc->pwmf->parent);
-
-Why isn't that a proper clock that you can call clk_get_rate() (and
-clk_rate_exclusive_get()) for?
-
-> +	/* Let's avoid a cool division-by-zero if the clock's busted. */
-> +	if (!rate) {
-> +		ret =3D -EINVAL;
-> +		goto out_mfpwm_release;
-> +	}
-> +
-> +	wf->duty_length_ns =3D mult_frac(wfhw->duty, NSEC_PER_SEC, rate);
-> +
-> +	if (pwmv4_is_enabled(wfhw->enable))
-> +		wf->period_length_ns =3D mult_frac(wfhw->period, NSEC_PER_SEC,
-> +						 rate);
-> +	else
-> +		wf->period_length_ns =3D 0;
-> +
-> +	wf->duty_offset_ns =3D mult_frac(wfhw->offset, NSEC_PER_SEC, rate);
-> +
-> +	dev_dbg(&chip->dev, "fromhw: duty =3D %llu, period =3D %llu, offset =3D=
- %llu\n",
-> +		wf->duty_length_ns, wf->period_length_ns, wf->duty_offset_ns);
-
-In my experience it't helpful to include rate in the output here.
-
-> +out_mfpwm_release:
-> +	mfpwm_release(pc->pwmf);
-> +	return ret;
-> +}
-> +
-> +static int rockchip_pwm_v4_read_wf(struct pwm_chip *chip, struct pwm_dev=
-ice *pwm,
-> +				   void *_wfhw)
-> +{
-> +	struct rockchip_pwm_v4 *pc =3D to_rockchip_pwm_v4(chip);
-> +	struct rockchip_pwm_v4_wf *wfhw =3D _wfhw;
-> +	int ret =3D 0;
-> +
-> +
-> +	ret =3D mfpwm_acquire(pc->pwmf);
-> +	if (ret)
-> +		return ret;
-> +
-> +	wfhw->period =3D mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_PERIOD);
-> +	wfhw->duty =3D mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_DUTY);
-> +	wfhw->offset =3D mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_OFFSET);
-> +	wfhw->enable =3D mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_ENABLE) & PWM=
-V4_EN_BOTH_MASK;
-> +
-> +	mfpwm_release(pc->pwmf);
-> +
-> +	return 0;
-> +}
-> +
-> +static int rockchip_pwm_v4_write_wf(struct pwm_chip *chip, struct pwm_de=
-vice *pwm,
-> +				    const void *_wfhw)
-> +{
-> +	struct rockchip_pwm_v4 *pc =3D to_rockchip_pwm_v4(chip);
-> +	const struct rockchip_pwm_v4_wf *wfhw =3D _wfhw;
-> +	bool was_enabled =3D false;
-> +	int ret =3D 0;
-> +
-> +	ret =3D mfpwm_acquire(pc->pwmf);
-> +	if (ret)
-> +		return ret;
-> +
-> +	was_enabled =3D pwmv4_is_enabled(mfpwm_reg_read(pc->pwmf->base,
-> +						      PWMV4_REG_ENABLE));
-> +
-> +	/*
-> +	 * "But Nicolas", you ask with valid concerns, "why would you enable the
-> +	 * PWM before setting all the parameter registers?"
-
-Funny, I had this thought alread for mfpwm_acquire() above. Do you also
-need that if wfhw->enable =3D=3D 0?
-
-> +	 * Excellent question, Mr. Reader M. Strawman! The RK3576 TRM Part 1
-> +	 * Section 34.6.3 specifies that this is the intended order of writes.
-> +	 * Doing the PWM_EN and PWM_CLK_EN writes after the params but before
-> +	 * the CTRL_UPDATE_EN, or even after the CTRL_UPDATE_EN, results in
-> +	 * erratic behaviour where repeated turning on and off of the PWM may
-> +	 * not turn it off under all circumstances. This is also why we don't
-> +	 * use relaxed writes; it's not worth the footgun.
-> +	 */
-> +	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
-> +			REG_UPDATE_WE(wfhw->enable, 0, 1));
-> +
-> +	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_PERIOD, wfhw->period);
-> +	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_DUTY, wfhw->duty);
-> +	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_OFFSET, wfhw->offset);
-> +
-> +	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_CTRL, PWMV4_CTRL_CONT_FLAGS);
-> +
-> +	/* Commit new configuration to hardware output. */
-> +	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
-> +			PWMV4_CTRL_UPDATE_EN(1));
-
-PWMV4_CTRL_UPDATE_EN is always only used with 1 as parameter, so maybe
-simplify the definition to BIT(2)?
-
-> +	if (pwmv4_is_enabled(wfhw->enable)) {
-> +		if (!was_enabled) {
-> +			dev_dbg(&chip->dev, "enabling PWM output\n");
-> +			ret =3D mfpwm_pwmclk_enable(pc->pwmf);
-> +			if (ret)
-> +				goto err_mfpwm_release;
-> +
-> +			/*
-> +			 * Output should be on now, acquire device to guarantee
-> +			 * exclusion with other device functions while it's on.
-> +			 */
-> +			ret =3D mfpwm_acquire(pc->pwmf);
-> +			if (ret)
-> +				goto err_mfpwm_release;
-
-Alternatively to calling mfpwm_acquire once more, you could also skip
-the mfpwm_release() below. That makes the code a bit more complicated,
-but also reduces the number of possible failing points.
-
-> +		}
-> +	} else if (was_enabled) {
-> +		dev_dbg(&chip->dev, "disabling PWM output\n");
-> +		mfpwm_pwmclk_disable(pc->pwmf);
-> +		/* Output is off now, extra release to balance extra acquire */
-> +		mfpwm_release(pc->pwmf);
-> +	}
-> +
-> +err_mfpwm_release:
-> +	mfpwm_release(pc->pwmf);
-> +
-> +	return ret;
-> +}
-> +
-> +/* We state the PWM chip is atomic, so none of these functions should sl=
-eep. */
-> +static const struct pwm_ops rockchip_pwm_v4_ops =3D {
-> +	.sizeof_wfhw =3D sizeof(struct rockchip_pwm_v4_wf),
-> +	.round_waveform_tohw =3D rockchip_pwm_v4_round_wf_tohw,
-> +	.round_waveform_fromhw =3D rockchip_pwm_v4_round_wf_fromhw,
-> +	.read_waveform =3D rockchip_pwm_v4_read_wf,
-> +	.write_waveform =3D rockchip_pwm_v4_write_wf,
-> +};
-> +
-> +static int rockchip_pwm_v4_probe(struct platform_device *pdev)
-> +{
-> +	struct rockchip_mfpwm_func *pwmf =3D dev_get_platdata(&pdev->dev);
-> +	struct rockchip_pwm_v4 *pc;
-> +	struct pwm_chip *chip;
-> +	int ret;
-> +
-> +	chip =3D devm_pwmchip_alloc(&pdev->dev, 1, sizeof(*pc));
-> +	if (IS_ERR(chip))
-> +		return PTR_ERR(chip);
-> +
-> +	pc =3D to_rockchip_pwm_v4(chip);
-> +	pc->pwmf =3D pwmf;
-> +
-> +	platform_set_drvdata(pdev, pc);
-> +
-> +	chip->ops =3D &rockchip_pwm_v4_ops;
-> +	chip->atomic =3D true;
-> +
-
-If the PWM is already enabled you better call mfpwm_acquire() here?
-
-> +	ret =3D pwmchip_add(chip);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret, "failed to add PWM chip\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static void rockchip_pwm_v4_remove(struct platform_device *pdev)
-> +{
-> +	struct rockchip_pwm_v4 *pc =3D platform_get_drvdata(pdev);
-
-	pwmchip_remove()?
-
-> +	mfpwm_remove_func(pc->pwmf);
-
-Maybe make this a devm function?
-
-> +}
-> +
-> +static const struct platform_device_id rockchip_pwm_v4_ids[] =3D {
-> +	{ .name =3D "pwm-rockchip-v4", },
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(platform, rockchip_pwm_v4_ids);
-> +
-> +static struct platform_driver rockchip_pwm_v4_driver =3D {
-> +	.probe =3D rockchip_pwm_v4_probe,
-> +	.remove =3D rockchip_pwm_v4_remove,
-> +	.driver =3D {
-> +		.name =3D "pwm-rockchip-v4",
-> +	},
-> +	.id_table =3D rockchip_pwm_v4_ids,
-> +};
-> +module_platform_driver(rockchip_pwm_v4_driver);
-> +
-> +MODULE_AUTHOR("Nicolas Frattaroli <nicolas.frattaroli@collabora.com>");
-> +MODULE_DESCRIPTION("Rockchip PWMv4 Driver");
-> +MODULE_LICENSE("GPL");
-> +MODULE_IMPORT_NS("ROCKCHIP_MFPWM");
-
-There are different tastes, but if you ask me that MODULE_IMPORT_NS can
-go into the header declaring the functions from that namespace.
-
-Best regards
-Uwe
-
---bywnufiblausx7ms
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmgjgMQACgkQj4D7WH0S
-/k7Qlgf+O/l7HDymMM5t36I+KPbPhBTm3xQiphlueFh5o/aHfTcHa7UVk4s9hfXn
-CvXm/O5Qb3axq4iXTrCfcycMC8OKtK7DrtUyDxE49Vs3tRt4iGLerK2mOw4t2AEw
-Gm54pelJMAZPgyj1fwkklLA5C5aIWTYStQBOPErOUBAzF6OWNyOqkc3DjBkrO0Sd
-M2gbxSC2zHScBZVXGDimSQILTHxImSrUtISjqt/BTPMxL+SjlB3k1e4yHdGaRcJA
-Gh7TIwGSKlQ8I7URIcVqFL6bGU8XRwdoqlhzg4Qu1CP9Az3a6kkNGCA4+yMbvBSf
-7dVgTLnngGri45ELhcCJWdYw/znhHQ==
-=ibLa
------END PGP SIGNATURE-----
-
---bywnufiblausx7ms--
 
