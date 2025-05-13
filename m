@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33802C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 03:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63F86C3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 03:19:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q8W8qfwh8NxnjZiNXhyA9RyEchXuGPe2F2HUcz7ww6k=; b=EL6G6qKM/fK6bM+OJ5D5ydWWlE
-	5vPDh7yYHGujttpr5UYISwE8q59tVytlXWjo95KzV3IyLFcMlrDnEZ7JEz1ddcIXpjr8Q/YAE4AM5
-	YfsvndnTfSDJLO34q2wdvThq/XjAwElL61acQMWRCu4dLnu324GbzL96UB/qXMAy5QEdzx1436s/i
-	hKlH7HqT9mNu+xkV6C4W7k+C32OewKZPxGNA7ufH9BPCHyrS/6mSQyZaNL6W30maPzNGJnqnutKZ7
-	b8BhAxin+Uii6+InTu3Dc9CNH6n8ehTm1EqdTBwHoJ6CBI141pxuANYIantvW45mg87AVZ76AmfCZ
-	1PPAiXbw==;
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Q8W8qfwh8NxnjZiNXhyA9RyEchXuGPe2F2HUcz7ww6k=; b=0OKAEOKRuwrkSKO0YCc1AsZmW+
+	gUsHzDWpW7Lq24ISNCzsfBycOe0Tp2AvKU/innfosHAXcH12hdi1NfEb6IANLwgFQK8jBdo6exXyY
+	lwS7ReOHF301kI3DmYnSKy64RNZYkKMKDF5m0Q1gSE/ZHpbd1TrnwagKZLuXTbzcX6bTF6zUJyrrb
+	0K07eIT32QGhMA8Qj0vBJhLwqy7H8fKf1vv/vUfHJdLswem8Te6KTMuaK+9f5KLzQTqolid3M50z+
+	tD3coswguuexMgmtEZBFGCWwgS9Upn18itPqx9IulGHLMKbNVgXIl2yYu/4WcEeN4s2RYd7WkD9cI
+	wfpZXsng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEg8k-0000000BEjM-3jUm;
-	Tue, 13 May 2025 03:17:10 +0000
+	id 1uEgAp-0000000BEvW-3gum;
+	Tue, 13 May 2025 03:19:19 +0000
 Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEg3B-0000000BDpl-1gYj
+	id 1uEg59-0000000BE6E-3l7n
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 03:11:27 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4ZxLzR6Kz6z1R7m9;
-	Tue, 13 May 2025 11:09:07 +0800 (CST)
-Received: from kwepemg200004.china.huawei.com (unknown [7.202.181.31])
-	by mail.maildlp.com (Postfix) with ESMTPS id 647CB1A016C;
+	Tue, 13 May 2025 03:13:29 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4ZxM1w2McHz1R7lv;
 	Tue, 13 May 2025 11:11:16 +0800 (CST)
+Received: from kwepemg200006.china.huawei.com (unknown [7.202.181.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id D1D92140142;
+	Tue, 13 May 2025 11:13:24 +0800 (CST)
 Received: from dggpemf500008.china.huawei.com (7.185.36.156) by
- kwepemg200004.china.huawei.com (7.202.181.31) with Microsoft SMTP Server
+ kwepemg200006.china.huawei.com (7.202.181.33) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 13 May 2025 11:11:15 +0800
+ 15.2.1544.11; Tue, 13 May 2025 11:13:24 +0800
 Received: from dggpemf500008.china.huawei.com ([7.185.36.156]) by
  dggpemf500008.china.huawei.com ([7.185.36.156]) with mapi id 15.02.1544.011;
- Tue, 13 May 2025 11:11:15 +0800
+ Tue, 13 May 2025 11:13:24 +0800
 From: Zhangxiquan <zhangxiquan@hisilicon.com>
-To: "Will Deacon " <IMCEAMAILTO-will+40kernel+2Eorg@huawei.com>
+To: "will@kernel.org" <will@kernel.org>
 CC: "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "corbet@lwn.net"
 	<corbet@lwn.net>, "linux-arm-kernel@lists.infradead.org"
 	<linux-arm-kernel@lists.infradead.org>, "linux-doc@vger.kernel.org"
@@ -49,18 +49,13 @@ CC: "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "corbet@lwn.net"
 	<linux-kernel@vger.kernel.org>, "maz@kernel.org" <maz@kernel.org>,
 	Zhengbingyang <zhengbingyang@hisilicon.com>, "Zhangyu(curtain,Babbage)"
 	<zhangyu550@huawei.com>, "wangkai (CF)" <wangkai113@huawei.com>
-Subject: =?gb2312?B?tPC4tDogW1BBVENIXSBEb2N1bWVudGF0aW9uIChhcm02NCk6QWR2YW5jZWQg?=
- =?gb2312?Q?SIMD_and_floating_point_support_condition?=
-Thread-Topic: [PATCH] Documentation (arm64):Advanced SIMD and floating point
- support condition
-Thread-Index: AQHbuQg949jaHUBo+0OHD38f08bHYrPGl37wgAlXc8CAAAcTYA==
-Date: Tue, 13 May 2025 03:11:15 +0000
-Message-ID: <8d9400dcdf9442de82f43c484e82e7f2@hisilicon.com>
-References: <20250408031309.2095-1-zhangxiquan@hisilicon.com>
- <20250429131116.GA25912@willie-the-truck>
- <0acdf18f6c2748919dcbeb943e4ced3e@hisilicon.com>
- <a90e072198c344e3a4ae0ed0cb8bbe62@huawei.com>
-In-Reply-To: <a90e072198c344e3a4ae0ed0cb8bbe62@huawei.com>
+Subject: ReSent in case the last mail not arrived//////Re: [PATCH]
+ Documentation (arm64):Advanced SIMD and floating point support condition
+Thread-Topic: ReSent in case the last mail not arrived//////Re: [PATCH]
+ Documentation (arm64):Advanced SIMD and floating point support condition
+Thread-Index: AdvDtPi9Mm+WJIeIS/WYPsp7WKkbFw==
+Date: Tue, 13 May 2025 03:13:24 +0000
+Message-ID: <c544a845dc334f30afcb98f7c34e2f7c@hisilicon.com>
 Accept-Language: zh-CN, en-US
 Content-Language: zh-CN
 X-MS-Has-Attach: 
@@ -70,8 +65,8 @@ Content-Type: text/plain; charset="gb2312"
 Content-Transfer-Encoding: base64
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_201125_755653_3115E722 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20250512_201328_234842_802CB5D6 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
