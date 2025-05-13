@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94756C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 22:10:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5801C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 22:12:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PaXp3+Nc4om8rc2bk8qplk5oP4MocCsaSbkZb3DsCtw=; b=V3xzXNmKfYzpFp5NlK9iUxk50d
-	MocgHSnVCTgWbCYMr0u0tsRqJCh7bjHGkkJ3wTelswx+JVMbkTWuWwxx6LEKjDUEROe5Y5IeXkaii
-	UMyStjunGNdShpZbvMtzaBeue9dvaYuxUsSZzHu2O0rpR9ei7MkkWEFau8EwKCBFm066tNZKyiXHH
-	23NGc8SQOc6gwtV738o1t/y91WWWQY3BZzTWu8uFcMn4YjaaRsMMn+6WbUA2jIYI73ih9ekHTwrPi
-	eLg0qIj603tS8lA/b15vpQ+llNt2/eNh75+MxJPBTwOLUWusKvWv39FyuDNKYS1pm72A9y6VUA50z
-	wtWkKkRA==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jnHT8pxDxVP+7w5heuoy29BHYqRqmLa4rbZcp55hLz8=; b=JbCqIy+ntqm9uapPen3F9V1nxi
+	A7a/bzOUTghLNLfnlkD5WsP714WN0zGm7WAqu69N9eFwnulJB/2zjawR3BgNMCSt6bJu6bnfY95Wk
+	fxgGToedcqxUj1MOhOV4vNre0IbJ+OxEB8d0P3jGwpE8rzntKpS6sJw6OQOH7GbiUE55YLxxaYpJp
+	CRetDiWMWRbDlu8DjxcCuARSN2o9mj+z12rllWIgg+djD1EvNGgKZX4exV2aX+mTRK0goQ9YwafXM
+	KZxdAmQ/3P8+I0p51RJSVeL76Ua2UKNLda/MA3MCJcAux5FZX6ATEL6vLxS/28Ux/gU5zpXRk4X43
+	vu1ZyJVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uExpW-0000000DdXn-49Mr;
-	Tue, 13 May 2025 22:10:30 +0000
+	id 1uExrb-0000000Ddtu-3QVk;
+	Tue, 13 May 2025 22:12:39 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uExfH-0000000DcQe-2xVv
+	id 1uExfH-0000000DcQf-3ZAv
 	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 13 May 2025 21:59:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=PaXp3+Nc4om8rc2bk8qplk5oP4MocCsaSbkZb3DsCtw=; b=SNIyAbVSbWAdhYjbjtYP3D1Cx+
-	9Hx4539cpWmKAXevqQWD61dcJRRJgaiiKik6mvRsL7mhXtERTxAUTgfBvHoTssnVOJSVqHn1UxSnL
-	FXViYi1uk6AP3mS3WIi7AhfzWTlC4zd5wANj/TEdiYBijSAu2dJFzGYuiKmSzXb30g0UONfVpNO8a
-	y6s7FJLN1dOYpFHzVQJpEbOjRz7p5xlWQEYoxOUEA/VIXntgReeGJ5FqA6UlDg0Km579iipcclOxW
-	gHjh+c6KYxfcFwU0aikeOamxypf7VWwyF83T9xVL73KKZlR4Ir6HJnt7CD6wuecBTYcnVZeKBgunX
-	XaKsogSQ==;
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=jnHT8pxDxVP+7w5heuoy29BHYqRqmLa4rbZcp55hLz8=; b=U2t4pTq8+pxJyQcLSz26GoF7I2
+	3/eLaMyGT/m7S25v8YnTCh2tMkHCcBUT69MwEIEu0cX/bg9sO/QYIAqzH9/c/wbeB3GGljCyITcmd
+	huXgAOgGc8R1j+RTERSTiVcYVUqgj+duyW6oxwTLnA9VulnHOnxHJz4xJOOICYSQ3qTwDaJlmhQ0R
+	E6X+MXX/+ECA547i2wnrBxVoD5u6qHGlBPM53KEOh9aQtmifK26JJ45UPrmnwySSZbyxoDPnnzyBE
+	U/7G9s93bdTIB3qJbY7ewdeAdNexVG4xZnlU11LCEaAnLCuOPetA/+8ZCwCNMEvk7lwZhtxo1hL9g
+	Pmx44NHg==;
 Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uExfD-0000000H2la-1kdg
+	id 1uExfD-0000000H2lZ-3A5i
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 13 May 2025 21:59:54 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54DLxaCl2431444;
-	Tue, 13 May 2025 16:59:36 -0500
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 54DLxZs22431440
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 13 May 2025 16:59:35 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1747173576;
-	bh=PaXp3+Nc4om8rc2bk8qplk5oP4MocCsaSbkZb3DsCtw=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=xtoa2PHH8NNnlNIvxtJ0iTBfsGyJcMXfl8yIJK0einXWti5e0cubP7ZTzilM75ENp
-	 g2WwLiyouRLtfK6UkaueaGGSk1b3AZHHBwQM7Y+rMuzNGRq96l+5K/YBaqE/6HsIIO
-	 LVIxl45889/QWNR6mwFp38foUMwOC5bTRXUmKrHA=
-Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54DLxZON1005889
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	s=ti-com-17Q1; t=1747173575;
+	bh=jnHT8pxDxVP+7w5heuoy29BHYqRqmLa4rbZcp55hLz8=;
+	h=From:To:CC:Subject:Date;
+	b=ERIPej2xrbzviCKtULWnltF915ieOQyQ737wTjYJ3yrGmUpTP4MagUxPdM8O0F1Pt
+	 EbklfBSl+HoN5NdjbmKOLjpTXimwonpHNs1xOKiqdUj5SdD12gZFIeRATv9Jfavpnm
+	 2HmrTZKeOXO4CeBS5q2InDFhaOwDku6AnqMAYj5Y=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 54DLxZQb033002
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
 	Tue, 13 May 2025 16:59:35 -0500
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 13
- May 2025 16:59:35 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ May 2025 16:59:34 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 13 May 2025 16:59:35 -0500
+ Frontend Transport; Tue, 13 May 2025 16:59:34 -0500
 Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 54DLxYdI111031;
-	Tue, 13 May 2025 16:59:35 -0500
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 54DLxYdB111031;
+	Tue, 13 May 2025 16:59:34 -0500
 From: Judith Mendez <jm@ti.com>
 To: Judith Mendez <jm@ti.com>,
         Greg Kroah-Hartman
@@ -84,20 +85,17 @@ CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Andrew Davis <afd@ti.com>, <linux-kernel@vger.kernel.org>,
         <linux-serial@vger.kernel.org>, <devicetree@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH 7/7] DONOTMERGE: arm64: dts: ti: k3-am62x-sk: Enable PRU UART
-Date: Tue, 13 May 2025 16:59:34 -0500
-Message-ID: <20250513215934.933807-8-jm@ti.com>
+Subject: [PATCH 0/7] Introduce PRU UART driver
+Date: Tue, 13 May 2025 16:59:27 -0500
+Message-ID: <20250513215934.933807-1-jm@ti.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250513215934.933807-1-jm@ti.com>
-References: <20250513215934.933807-1-jm@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_225951_974467_A72CFD1C 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250513_225952_828878_EC358F6A 
+X-CRM114-Status: GOOD (  16.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,56 +110,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is one PRU UART module in the PRU subsystem for am62 SoC.
+The PRU_ICSSG subsystems in am64x SoC, the PRU subsystem in am62 SoC, and
+PRU_ICSS subsystem in am335x SoC include a UART sub-module. This patch
+series introduces the driver and the corresponding binding documentation
+for this UART sub-module.
 
-UART RX/TX signals for PRU UART in PRU subsystem can be routed from/to
-the user expansion header J3 (pins 10/8) on am62x SK, so enable
-pruss_uart by default and add pinmux node.
+The DTS patches for adding PRU UART nodes and enabling PRU UART is added
+in this v1 version, but marked as DONOTMERGE since the patches only add
+context to this series.
 
-Signed-off-by: Judith Mendez <jm@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+This driver version has been tested on the following boards: am64x SK and
+am62x SK.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-index ee8337bfbbfd..c474e1d1a74d 100644
---- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-@@ -15,6 +15,7 @@ aliases {
- 		serial0 = &wkup_uart0;
- 		serial1 = &mcu_uart0;
- 		serial2 = &main_uart0;
-+		serial3 = &pruss_uart;
- 		mmc0 = &sdhci0;
- 		mmc1 = &sdhci1;
- 		mmc2 = &sdhci2;
-@@ -181,6 +182,13 @@ AM62X_IOPAD(0x1b0, PIN_OUTPUT, 2) /* (A20/D16) MCASP0_ACLKR.UART1_TXD */
- 		>;
- 	};
- 
-+	pruss_uart_pins: pruss-uart-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x01d8, PIN_INPUT, 6) /* (C15) MCAN0_TX.PR0_UART0_RXD */
-+			AM62X_IOPAD(0x01dc, PIN_OUTPUT, 6) /* (E15) MCAN0_RX.PR0_UART0_TXD */
-+		>;
-+	};
-+
- 	main_i2c0_pins_default: main-i2c0-default-pins {
- 		pinctrl-single,pins = <
- 			AM62X_IOPAD(0x1e0, PIN_INPUT_PULLUP, 0) /* (B16/E12) I2C0_SCL */
-@@ -370,6 +378,12 @@ &main_uart1 {
- 	pinctrl-0 = <&main_uart1_pins_default>;
- };
- 
-+&pruss_uart {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pruss_uart_pins>;
-+	status = "okay";
-+};
-+
- &main_i2c0 {
- 	status = "okay";
- 	pinctrl-names = "default";
+The RFC version of this driver has been previously tested on am335x SK as
+well. DTS patches for enabling PRU UART for am335x SK will be sent as a
+separate series once this series is merged.
+
+Changes since RFC:
+- Add DTS patches 3-6
+- Fix include list
+- Switch to platform_get_resource & uart_read_port_properties
+- Remove custom speed hack in pruss8250_get_divisor
+- Use port->serial_out functions provided by core driver instead of
+  local writel() functions
+- Switch to UPIO_MEM32 since largest UART register is 18 bits in length
+- Cleanup whitspace, comments, variable/structure names, error paths
+  and GPL licensing
+
+Link to RFC:
+https://lore.kernel.org/all/20250501003113.1609342-1-jm@ti.com/
+
+Bin Liu (2):
+  dt-bindings: serial: add binding documentation for TI PRUSS UART
+  serial: 8250: Add PRUSS UART driver
+
+Judith Mendez (5):
+  dt-bindings: soc: ti: pruss: Add documentation for PRU UART support
+  DONOTMERGE: arm64: dts: ti: k3-am64-main: Add PRU UART nodes
+  DONOTMERGE: arm64: dts: ti: k3-am642-sk: Enable PRU UART
+  DONOTMERGE: arm64: dts: ti: k3-am62-main: Add PRU UART node
+  DONOTMERGE: arm64: dts: ti: k3-am62x-sk: Enable PRU UART
+
+ .../bindings/serial/ti,pruss-uart.yaml        |  54 ++++++
+ .../devicetree/bindings/soc/ti/ti,pruss.yaml  |   7 +
+ arch/arm64/boot/dts/ti/k3-am62-main.dtsi      |   9 +
+ .../arm64/boot/dts/ti/k3-am62x-sk-common.dtsi |  14 ++
+ arch/arm64/boot/dts/ti/k3-am64-main.dtsi      |  18 ++
+ arch/arm64/boot/dts/ti/k3-am642-sk.dts        |  16 ++
+ drivers/tty/serial/8250/8250_pruss.c          | 178 ++++++++++++++++++
+ drivers/tty/serial/8250/Kconfig               |  11 ++
+ drivers/tty/serial/8250/Makefile              |   1 +
+ 9 files changed, 308 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/serial/ti,pruss-uart.yaml
+ create mode 100644 drivers/tty/serial/8250/8250_pruss.c
+
+
+base-commit: edef457004774e598fc4c1b7d1d4f0bcd9d0bb30
 -- 
 2.49.0
 
