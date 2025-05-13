@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 887A8C3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 12:33:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5379EC3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 12:35:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L4xnz2KBAZ1cRnmXtpCfuHKm+HxPnyYY9r57217yglo=; b=guD2NjSKwmhBl9wgk6TVD/KDLS
-	QxzW3965JXGtwEsYN97D7R2dJZu68U+nYm3Kj4dX+1oQ/EUxSreunvqQQpVUNFffbtmqLfDWBpuWc
-	jZnu0sxzuGDu5ga456TFL4wbkGrash9+5e4D+k7n85AkfUQLoaOAsGUohzLpllbPr1/QWcAf+vUht
-	OzPGqgsG/WlMvH2+aw3QPBdivlAFbkV131afFjjl+VFtj3kgnDhUb54HJbxAfY2T3g1O9mUygTxeL
-	CMFCX5rXp5EsaixuVhdVlwQf78O51HkR1b63qfKWU+qGQe3hrSbPbK9iYTCcLp24Ql52eS5KwNndM
-	P6d3x9xA==;
+	bh=ikO6NxPSIIjD1kUAHzPCWxeEkTOjGoN0DmnRySn4PCk=; b=3wyaqmWl8qXfsREyelMrR0ue3o
+	ZbQVAc5ZwMz9DYFbBccl2RKdOF3Kcl0N/Xtmi0ilSJnXq/6Om4w0caqr1mHWqtr5lS00NAXZKYLpp
+	g3wr6x0T5RbnUtevtTTc0WhCnirlVVQWLG2abR+z4Jj3bUmymQPYCvpkKPoHka865l89ue/9bdFfH
+	uH8JCZ4UgGEg8/P58v+ZYoEuRBsPLQHNTz0005DfsEQM1ameihadN4OBk9ryKSok/tHRSn25IMw2p
+	D1apDAL13krUz4GLTX50R0CraOZFvRKYCbllSJncf20PxtDSr5nkKSxdG1dvoKSt68Z01TRVOcdSo
+	DyY/+L+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEopC-0000000CMjR-2V8H;
-	Tue, 13 May 2025 12:33:34 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uEorG-0000000CN6F-432v;
+	Tue, 13 May 2025 12:35:42 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEon7-0000000CMXY-01EZ;
-	Tue, 13 May 2025 12:31:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 197DCA4D477;
-	Tue, 13 May 2025 12:31:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 320A0C4CEE4;
-	Tue, 13 May 2025 12:31:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747139483;
-	bh=DeY+hySG4/vlZF1lPxJl4qMkf2CDQ8EAbK3bVeOGHAc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LVlriGcxrn6kEgjdgOKyrKHwccz1+cZOFXkU2nKKKywUk1pIXfEI+8YAh7XYN8+6n
-	 cHFlQ84+FvT8uZ9L/b5bMWKYaGszXZOqB06nHo6I3iOmjTHEq0KK1ZN5IIxNjMQaJK
-	 P13Zgszs/BO2TBJoaEI6mgL9rhVSSWD6uIybhNty0g4OrSlUxHULUuF+zUPI5bKLUK
-	 AYQzG1ojTNtKzWNEj2p//dlGBQZ6C/q1aPJNmu15pE2mCVKfV9XWctceIymB5nqkZE
-	 xHLRjDxxlym0TadfaNEQgQRSMz5Ev3ipIT1huPuK/MQfaRHpQIzOLX4u6GnPzdXE61
-	 MorJGUO+o8mkA==
-Date: Tue, 13 May 2025 14:31:17 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Marek Vasut <marek.vasut+renesas@gmail.com>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Alan Douglas <adouglas@cadence.com>,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Damien Le Moal <dlemoal@kernel.org>, linux-pci@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 0/6] PCI: endpoint: IRQ callback fixes and cleanups
-Message-ID: <aCM7lWQiwJBwamEp@ryzen>
-References: <20250513073055.169486-8-cassel@kernel.org>
- <20250513102522.GB2003346@rocinante>
+	id 1uEoob-0000000CMbG-0hEI;
+	Tue, 13 May 2025 12:32:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=ikO6NxPSIIjD1kUAHzPCWxeEkTOjGoN0DmnRySn4PCk=; b=sj
+	emz6n58GPUmWdFVzAHRjKI2dWuI0rPQE8SL/5bYfGaf3w24mGVb9f0MujMpWRRsD0Uf3JyFv5eIVp
+	+S43WT3eawgxo08pQ0i2Yjr8Sx3wlWf9hSC9Jm8lJCuaesVHG56wUYi9WlyHQ/d7Um/fp9Ef8n6c4
+	Upwr265iTWTKWnU=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uEooK-00CS0n-Mk; Tue, 13 May 2025 14:32:40 +0200
+Date: Tue, 13 May 2025 14:32:40 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: SkyLake Huang =?utf-8?B?KOm7g+WVn+a+pCk=?= <SkyLake.Huang@mediatek.com>
+Cc: "linux@armlinux.org.uk" <linux@armlinux.org.uk>,
+	"dqfext@gmail.com" <dqfext@gmail.com>,
+	Steven Liu =?utf-8?B?KOWKieS6uuixqik=?= <steven.liu@mediatek.com>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"edumazet@google.com" <edumazet@google.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"hkallweit1@gmail.com" <hkallweit1@gmail.com>,
+	"horms@kernel.org" <horms@kernel.org>,
+	"daniel@makrotopia.org" <daniel@makrotopia.org>,
+	"kuba@kernel.org" <kuba@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>
+Subject: Re: [PATCH net-next v2 3/3] net: phy: mediatek: add driver for
+ built-in 2.5G ethernet PHY on MT7988
+Message-ID: <8b67fa4c-a07a-4941-ba7b-23d4e1104451@lunn.ch>
+References: <20250219083910.2255981-1-SkyLake.Huang@mediatek.com>
+ <20250219083910.2255981-4-SkyLake.Huang@mediatek.com>
+ <Z7WleP9v6Igx2MjC@shell.armlinux.org.uk>
+ <74ce0275952a9c60af87ded9d64ca7301fd69d0f.camel@mediatek.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250513102522.GB2003346@rocinante>
+In-Reply-To: <74ce0275952a9c60af87ded9d64ca7301fd69d0f.camel@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_053125_113451_EA76F4B7 
-X-CRM114-Status: UNSURE (   7.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250513_053257_206439_949B516C 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,20 +86,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 13, 2025 at 07:25:22PM +0900, Krzysztof Wilczyński wrote:
-> Hello,
-
-Hello
-
+On Tue, May 13, 2025 at 10:12:04AM +0000, SkyLake Huang (黃啟澤) wrote:
+> On Wed, 2025-02-19 at 09:33 +0000, Russell King (Oracle) wrote:
+> > 
+> > External email : Please do not click links or open attachments until
+> > you have verified the sender or the content.
+> > 
+> > 
+> > On Wed, Feb 19, 2025 at 04:39:10PM +0800, Sky Huang wrote:
+> > > +static int mt798x_2p5ge_phy_config_init(struct phy_device *phydev)
+> > > +{
+> > > +     struct pinctrl *pinctrl;
+> > > +     int ret;
+> > > +
+> > > +     /* Check if PHY interface type is compatible */
+> > > +     if (phydev->interface != PHY_INTERFACE_MODE_INTERNAL)
+> > > +             return -ENODEV;
+> > > +
+> > > +     ret = mt798x_2p5ge_phy_load_fw(phydev);
+> > > +     if (ret < 0)
+> > > +             return ret;
+> > 
+> > Firmware should not be loaded in the .config_init method. The above
+> > call will block while holding the RTNL which will prevent all other
+> > network configuration until the firmware has been loaded or the load
+> > fails.
+> > 
+> > Thanks.
+> > 
+> > --
+> > RMK's Patch system:
+> > https://urldefense.com/v3/__https://www.armlinux.org.uk/developer/patches/__;!!CTRNKA9wMg0ARbw!iV-1ViPFsUV-lLj7aIycan8nery6sQO3t6mkpdlb_GW8hswhxc4ejJozxqkU3s2WzxSizs4kfdC77yr7HGGRIuU$
+> > FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 > 
-> >   PCI: dwc: ep: Fix broken set_msix() callback
-> >   PCI: cadence-ep: Fix broken set_msix() callback
-> >   PCI: endpoint: cleanup get_msi() callback
-> >   PCI: endpoint: cleanup set_msi() callback
-> >   PCI: endpoint: cleanup get_msix() callback
-> >   PCI: endpoint: cleanup set_msix() callback
-> 
-> Note that PCI prefers to capitalise first letter of the subject.
+> Actually, I wrote fw loading flow in .probe. However, during boot time,
+> .probe is called at very early stage (about the first 2s after booting
+> into Linux Kernel). At that time, filesystem isn't ready yet and phy
+> driver can't locate /lib/firmware/mediatek/mt7988/i2p5ge-phy-pmb.bin.
 
-Do I need to resend or can some of the maintainers fix this up while applying?
+Tell Dracut or whatever you are using to build the initramfs to
+include the firmware. That is what MODULE_FIRMWARE() is for.
+
+	Andrew
 
