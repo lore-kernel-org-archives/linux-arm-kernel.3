@@ -4,88 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DD47C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 21:54:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DEB9C3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 May 2025 21:59:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FMrFM87rAmuG/UnGteKviZfWZXINuxFQCsV17IJbRWA=; b=J+zMQ8AoWUcJO15Tt9h1J3QGvu
-	EsC5uEOF+OHlI/T+9brkPbElCfsi94ogHuViAuxsrnSFzRc/Tcn8hG8ZvnUPlVsyf+0ZhiIcr7aaQ
-	5Hos8oXk09QD2QW8iVOhCbXxl7fh9xOKNxksD86Qsz1M3bncSqohDHG4UOtjlROKazp9OhCKWHSYa
-	DnW7ezpKaSbGi6R1K5Cv282bBOiUVu9lVbKpkZ4UD5qUdnlZyF0mPdLll5qgM+MbOUBN42U0e+6jN
-	W4VTytW3gk2I1trmS5hF0/vti0alcrCKjg87GrBM3rBUMTFj6SO/8setVeV08Us0TDI+zX03dlikU
-	tj6KVQfg==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kGr8K/Jrp1tAGA/eJJa9wlMW/rBqmhnQFVrb9DVGZWA=; b=WswQDxmRVKfK1molkXgTP/7D12
+	T6JxEtc+lCwc3emVoIOXWTKfQ30aeAvEYfshfq0FgDx92bPDLtBx7376N7xm595e3O7+Qa5F+L2Rl
+	YaV3bhv2C5eZCiGF7/dDHZD7nBu0dOYZSpvMdMy9/U8pf8mbyb6KAOXpnbx3xtiwoPu72UQTpGHUb
+	NtIM+EYuh3Ub752n0o1lQSvsLPcpCgL+QSfqkn0Gk4S1jUALg8eA77+t2MBCN0HZdwkHhTM/S8rB3
+	CZkXKY0TKmaEpOJgSiLfwqhceuoejf08CypBz+76jo0Yw446Gp5hZvVwbwg5yiScs1fYnEnGepjN/
+	qDZaiyMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uExaN-0000000DbHb-0Udu;
-	Tue, 13 May 2025 21:54:51 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1uExeb-0000000DcJ7-0TgQ;
+	Tue, 13 May 2025 21:59:13 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uExYG-0000000Dava-2J4X
+	id 1uExcU-0000000Dc6y-2CjB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 May 2025 21:52:41 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-30effbfaf4aso64217871fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 14:52:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747173158; x=1747777958; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FMrFM87rAmuG/UnGteKviZfWZXINuxFQCsV17IJbRWA=;
-        b=aFUTfQbbX3uJax7TPkTfosDcy47KFeFYV3hDL9rbf1dOX6nBgoNY7xvMyBL5fy9Faa
-         wrJ+4x4WtXASqDJf0fpOZLRSlw5WEJPQUEnV8GOJoVDBD/I3te+tEKdlucMgH1IBdtI+
-         zlww44HWUmRRh7e8VugMLNgyz1leOdh+a3XcO6xqpBUvjqz8BDAsLVtK3LqfHjI4u1Nq
-         lUNBAZ9tsJTcXxw1nCYfNV7dxbSHWDuBIufLWc9nuWhMUsSXXAp2qA5j6yJsBxewFQxR
-         AGpSOab/E00quEBJLGUbzYs/q0/rcm64wClbPZimCV2GptqaDxZ4IOFNeJWGLst1ta9R
-         PEFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747173158; x=1747777958;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FMrFM87rAmuG/UnGteKviZfWZXINuxFQCsV17IJbRWA=;
-        b=Yq+7bK4+FRDOT9aqS0u+HdGMg/0Wnbgoni6R/F6GLffU5Bnp8Aeq4XWgNAXeC/46hv
-         UXETwJdGyvPPAALAXG9Zxqm5tom33SfhpxVv5qjKKgv/9n3/FZcpQztBBc8ZUUfjmJC9
-         jhYiNUPNrfapqIufXsuwskbySVlFuGJkQVL2gABHrEEuNVV+ZnQVLvht5Vwik1VEhU+e
-         QaZ6TAuxwraGsp+BuKohEAufNDucVfpxiI6n6Sa+Em3mdUYVuk7w+kOssVrhPGcVl/D9
-         8maEUCe04Ltbbiolt2GyeUIIBNoUL+XbylVpO4P5jTC0mw5vdNz2UhohOleiDSlyma7Q
-         0zKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVkXQQm30FxAFS/HDD2X90Y7f0kLSyi22zw06TnRf1uVAz6qEKrm/8BK4WvhlfK4ElURe+aQpiTA1wHqx/DSlbU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+VtLFEDz+bAH/3pmT1I38AThKU6dR+eQE1vQ+64aXLo1kRSic
-	PmG1iEtA11HKEVL0EMyUinqxIq4Nn4aaqJgmJk5jGmNAtz5LSUrMKuF/ye/Qt5k6xIsI2aKmhCt
-	q43c6INWC8fLoo04XLCX7vK5tExKlEt4EDuZDng==
-X-Gm-Gg: ASbGnctKg0ydCJD01hKYVl+Z9oyB9aed+T7+l6/8bTPOOBHEBJMeceGwjiJRU215/SQ
-	XzREIdX57SIilX9AEvePsRpKJYMDS8pwahHZshJ1gKiQ2BdXr0GMJrEqLJeE7Zox3tzo2nKtG4d
-	+dlpeaP15842PKJIW+1ELXbts1cwIIBeQk
-X-Google-Smtp-Source: AGHT+IHdxGQUgnLEP34p77bnggpFFcybep3eX0SRsxItjT7bGVq1s7hLEPXvIi67p9M416/+sOFwds+OUhyOtC4jV3I=
-X-Received: by 2002:a2e:a545:0:b0:30b:cceb:1e71 with SMTP id
- 38308e7fff4ca-327ed0d64b0mr3515771fa.9.1747173158581; Tue, 13 May 2025
- 14:52:38 -0700 (PDT)
+	Tue, 13 May 2025 21:57:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 67EBEA4DBB2;
+	Tue, 13 May 2025 21:57:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBEC0C4CEE4;
+	Tue, 13 May 2025 21:56:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747173421;
+	bh=ifsMEznsU97LMq4Eq2UBEmojQKdA/27+wMDcWhlnn6Q=;
+	h=From:To:Cc:Subject:Date:From;
+	b=gKgFkHRqYouv8V6DFWoEDD6fimfsv3H77RNMCkPMV5ZxYIG0qIpLl0kjIHeXJ4kGU
+	 kgPj5SuBd+HAMgRzALqbOv/hpekNrk1iBJeja0ZNJBX6HucE1g8sFXUAgG70HoFS8O
+	 A4I/V573s7zayAwHPnM46I0xgryGG0e26Dcehcu6NMqKw8VVlOWE2wmK0Z/yIObOZE
+	 /57Y5GD4E7/83yOhTLQe9/9PMAngQ7cClHpHVfGEPIOyHoSgk7IZ/6tnxn9LWIXRf+
+	 D0Wty/VU1Ob9411cidso2MBaDHjKYnY7AkhUAEuCKKhK90dNDwrj3+yRA2e59hOTAY
+	 px/sQBfn85Qgg==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Melody Olvera <melody.olvera@oss.qualcomm.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Johan Hovold <johan+linaro@kernel.org>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Aleksandrs Vinarskis <alex.vinarskis@gmail.com>,
+	=?UTF-8?q?Barnab=C3=A1s=20Cz=C3=A9m=C3=A1n?= <barnabas.czeman@mainlining.org>,
+	Danila Tikhonov <danila@jiaxyga.com>,
+	Jens Reidel <adrian@mainlining.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Unnathi Chalicheemala <unnathi.chalicheemala@oss.qualcomm.com>
+Subject: [GIT PULL] Qualcomm driver updates for v6.16
+Date: Tue, 13 May 2025 22:56:53 +0100
+Message-ID: <20250513215656.44448-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-References: <20250509150114.299962-2-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250509150114.299962-2-krzysztof.kozlowski@linaro.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 13 May 2025 23:52:27 +0200
-X-Gm-Features: AX0GCFuybBjzXgbZgpkhrGy02_JvRvbutbRLwY2ZvnnqoSf9SNzjLph5-OzDFPA
-Message-ID: <CACRpkdYwTcHh5LZ7j94LbGYv7BnTCtrJO33j17YbP6s_s3TeVg@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: meson: Drop unused aml_pctl_find_group_by_name()
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Xianwei Zhao <xianwei.zhao@amlogic.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, linux-amlogic@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_145240_603151_EF8354E9 
-X-CRM114-Status: UNSURE (   9.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250513_145702_696845_F3C3A380 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,20 +82,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 9, 2025 at 5:01=E2=80=AFPM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
 
-> aml_pctl_find_group_by_name() is not used anywhere, as reported by W=3D1
-> clang build:
->
->   pinctrl-amlogic-a4.c:600:2: error: unused function 'aml_pctl_find_group=
-_by_name' [-Werror,-Wunused-function]
->
-> Fixes: 6e9be3abb78c ("pinctrl: Add driver support for Amlogic SoCs")
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
 
-Patch applied!
+  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
 
-Yours,
-Linus Walleij
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-6.16
+
+for you to fetch changes up to 2c04e58e30ce858cc2be531298312c67c7d55fc3:
+
+  soc: qcom: llcc-qcom: Add support for SM8750 (2025-05-12 22:26:21 +0100)
+
+----------------------------------------------------------------
+Qualcomm driver updates for v6.16
+
+Allow list QSEECOM for EFI variable services on on the Asus Zenbook A14,
+and block list TZMEM on the SM7150 platform to avoid issues with rmtfs.
+
+Extend the last-level cache (llcc) driver to support version 6 of the
+hardware and enable SM8750 support.
+Also add socinfo for the SM8750 platform.
+
+Re-enable UCSI support on SC8280XP, now that the reported crash has been
+dealt with, and filter the altmode notifications to avoid spurious
+hotplug events being propagated to user space.
+
+Add SM7150 support to pd-mapper.
+
+----------------------------------------------------------------
+Aleksandrs Vinarskis (1):
+      firmware: qcom: scm: Allow QSEECOM on Asus Zenbook A14
+
+Barnabás Czémán (1):
+      soc: qcom: smp2p: Fix fallback to qcom,ipc parse
+
+Danila Tikhonov (1):
+      firmware: qcom: tzmem: disable sm7150 platform
+
+Dmitry Baryshkov (2):
+      dt-bindings: soc: qcom,rpm: add missing clock-controller node
+      dt-bindings: soc: qcom: qcom,rpm: add missing clock/-names properties
+
+Jens Reidel (1):
+      soc: qcom: pd-mapper: Add support for SM7150
+
+Johan Hovold (2):
+      soc: qcom: pmic_glink: enable UCSI on sc8280xp
+      soc: qcom: pmic_glink_altmode: fix spurious DP hotplug events
+
+Konrad Dybcio (1):
+      dt-bindings: soc: qcom,rpmh-rsc: Limit power-domains requirement
+
+Melody Olvera (3):
+      dt-bindings: cache: qcom,llcc: Document SM8750 LLCC block
+      soc: qcom: llcc-qcom: Add support for LLCC V6
+      soc: qcom: llcc-qcom: Add support for SM8750
+
+Mukesh Ojha (2):
+      dt-bindings: arm: qcom,ids: add SoC ID for SM8750
+      soc: qcom: socinfo: add SM8750 SoC ID
+
+Unnathi Chalicheemala (1):
+      soc: qcom: smem: Update max processor count
+
+ .../devicetree/bindings/cache/qcom,llcc.yaml       |   2 +
+ .../devicetree/bindings/soc/qcom/qcom,rpm.yaml     |  15 +
+ .../bindings/soc/qcom/qcom,rpmh-rsc.yaml           |  24 +-
+ drivers/firmware/qcom/qcom_scm.c                   |   2 +
+ drivers/firmware/qcom/qcom_tzmem.c                 |   1 +
+ drivers/soc/qcom/llcc-qcom.c                       | 497 ++++++++++++++++++++-
+ drivers/soc/qcom/pmic_glink.c                      |   4 -
+ drivers/soc/qcom/pmic_glink_altmode.c              |  30 +-
+ drivers/soc/qcom/qcom_pd_mapper.c                  |  11 +
+ drivers/soc/qcom/smem.c                            |   2 +-
+ drivers/soc/qcom/smp2p.c                           |   2 +-
+ drivers/soc/qcom/socinfo.c                         |   1 +
+ include/dt-bindings/arm/qcom,ids.h                 |   1 +
+ include/linux/soc/qcom/llcc-qcom.h                 |   8 +
+ 14 files changed, 577 insertions(+), 23 deletions(-)
 
