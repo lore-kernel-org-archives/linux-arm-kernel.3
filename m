@@ -4,74 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4A25C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 15:04:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E84FFC3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 15:04:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fNpgEokCPRFeDwjUBUmb0olF781KiYx0T9YrAF4Kizo=; b=X0TP9ojpKNWsOHiW1gDgnKyIZU
-	4olX7ALflJYyhqUzhjPGzES9bb4CJx7nE5jKvIzP8I9t+4bwPSRBf06TmGZ+Dg9vJusmdnVtC/LMf
-	mLyYdd16BmMoWlhy1EOMyE7esSzD87cQTeHmNf98vcI7zONlA18qJpu63su4TX3KnfqUlPnafXAaB
-	PIEhARdzQOJKOE+ip9AL21L1bfqQxgF/or6sObPk0FMjF7fwxQ0fYO0OPSOtbyB1ERZC0xvdzzOL/
-	jqNIrwfpDD/w5R+RH7pGGoUkiOMJV9UamDwWcL7Z+Q6263FxGB3J2RS2z/igwy9RNTFs7YrMAXZZR
-	FfKx6+ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4gHVbEGXZVtjPiVkVCkcCuVN57D4fP/atcqdnyaqM2Q=; b=G2n3+ojdI819xo8PLm8Y17B8Iy
+	MSXZYTOM4KGPXpq8bEv0ZegwPebdbUHjBP0KyEejK4hASVjR5avhpELF0CdcWQY3PUwSGRSJX7a84
+	5H3pk+V/pJ4l4WH/KExNuUkKwsxoBx33fyr26nnV6HkcbnhEWH+6TSkbASXZYy5zQ5Q2Lh4m1tIuS
+	xgkTD6un+NdPhaqErD9sVExS7H8TeY6QgWGbwCdpa5x025E7Isf8bfytPORYRtdyMUg8DbcSNJn6/
+	PPpEkIc+07IFl0Z6XwmxnxQcZpYb0B6+tCIU3B50RG6q8XakHXeRW2FTJQS0GVnFwbY4dkZWpPTWN
+	qojM9etw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFDee-0000000FVOf-0Vln;
-	Wed, 14 May 2025 15:04:20 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uFDef-0000000FVPw-0AwP;
+	Wed, 14 May 2025 15:04:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFBLa-0000000F6lX-12yK;
-	Wed, 14 May 2025 12:36:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1747226188;
-	bh=wvsdiJsKD6QmRj9PJvvy8ci556EOSrI0fkrAAdKIOKw=;
-	h=From:Date:Subject:To:Cc:From;
-	b=ZAGp3nc+C+oM1pLvBZf1p1hJ50zvG+FWZ2DUD1ve3bBQIqFDmdBdNPaimrjLxr+XA
-	 FoIb2Nfubsbu35iLBy2PMx7JNFL0dxqI5boaMh5GUCoS5lHlPLnnZOWWKnIMK5jdML
-	 b/Nsrf/V1a+DJhA0QzVJ2XJYIerYfHPiQTQJVdSg8Vx9sdMwb0scKCIzUlLJQQVRxx
-	 f9OYr9Vb5q2Oppo8JhTMpwGJVkYEFJ1rcdkfmIRRHHTjWfV3e6Y1TOLMTVdF9hU5PO
-	 Ynt2WZmumt8xQrEk1hVLyCARePli78UyZDa8TnErutCk7x7OlgZLORL1vmM0rDl3ND
-	 ZdR5Lxa819lJA==
-Received: from [192.168.1.63] (unknown [70.107.117.78])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0B10217E090E;
-	Wed, 14 May 2025 14:36:24 +0200 (CEST)
-From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Wed, 14 May 2025 08:36:06 -0400
-Subject: [PATCH] regulator: dt-bindings: mt6357: Drop fixed compatible
- requirement
+	id 1uFBsS-0000000FARw-4BT1;
+	Wed, 14 May 2025 13:10:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=4gHVbEGXZVtjPiVkVCkcCuVN57D4fP/atcqdnyaqM2Q=; b=J0LVn7GX0m1bWUIrPTdFYscy6y
+	fHz0Xf70YyyzkaH1LRFqVIyqA3AOBzyeLJc7/oJAIoNByMRmDgIaITVsakVP4ZQm94SjrD1LT701f
+	+LS6ueMM+06Zdkw4w5Doi9bSyv5SzmcsH38lMhtTxuOQ47jxAk8Oim0htIq3w2p6i51Co8RSytef7
+	xi+mgnH6+JsAl/C+9b0uPT/3y58VVarD9p511dpgSX4j3BZT/bcYPG52O0VLP2yMP8frKTgZxIDjg
+	gx3+ulWzTfhKNgrliIe6CA45ZKus9dCC1tvk/raOJtcdGFhXEF02Gi2EM5MbgsgL31UGX1NIpGBfG
+	qOUpEY9A==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uFBsP-0000000HAZb-49WZ;
+	Wed, 14 May 2025 13:10:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A3D56439CA;
+	Wed, 14 May 2025 13:10:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4698CC4CEED;
+	Wed, 14 May 2025 13:10:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747228224;
+	bh=YSHixMfBQIo2tsjE+RpfvwcFjHExWTXe3JSwBkN0y4I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UQY79gmHrxHRzHRhbVSBxQuv2MeZQvOdiwhA8wR0F3LXhBMnynNTPK2FM+JI4V3hr
+	 hHpdlDw8v/KzzwpiRPwKoLyRSPLNi1pBkS1S3ZSxgkbuJOHym2N4xp/LWsCwRKgbO1
+	 kRVlDYQXUj3wXNUsIvEceZfuTb78sbFxuypS8LB3h1o6DgB9VvxOBcREbSQZtO/5E3
+	 zKfQSybkNvfLgjedVEOI3qdP8XEZfNgFEvZYiMaWufJgQ6ORK4WuXbyoV0yf0ehQlR
+	 7EjHltYo4aem46Q+6rz3FUXpE4fEWbZrNu6S1TGtJZfHWdMrNSHDNbS7TI4MeXL++L
+	 rlBxpyhdR7aig==
+Date: Wed, 14 May 2025 08:10:22 -0500
+From: Rob Herring <robh@kernel.org>
+To: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 6/8] dts: arm64: amlogic: add S7 pinctrl node
+Message-ID: <20250514131022.GA1833633-robh@kernel.org>
+References: <20250514-s6-s7-pinctrl-v1-0-39d368cad250@amlogic.com>
+ <20250514-s6-s7-pinctrl-v1-6-39d368cad250@amlogic.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250514-mt6357-regulator-fixed-compatibles-removal-bindings-v1-1-2421e9cc6cc7@collabora.com>
-X-B4-Tracking: v=1; b=H4sIADWOJGgC/xWNywqDMBBFf0Vm3QGjRkt/pbiIZkwH8pBJKgXx3
- xuXh8u554RMwpTh1ZwgdHDmFCuoRwPrx0RHyLYydG2nW616DGXs9YRC7utNSYIb/8jimsJuCi+
- ect1COozHhaPl6DJqGtVmBtLPYYL6vAvd1l19z9f1B4DEtDqFAAAA
-X-Change-ID: 20250513-mt6357-regulator-fixed-compatibles-removal-bindings-5e61fa4e5847
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Chen Zhong <chen.zhong@mediatek.com>, 
- Fabien Parent <fabien.parent@linaro.org>, 
- Alexandre Mergnat <amergnat@baylibre.com>
-Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250514-s6-s7-pinctrl-v1-6-39d368cad250@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_053630_440684_6EF3178A 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250514_141026_330248_2E472703 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,123 +93,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some of the regulators on the MT6357 PMIC currently reference the
-fixed-regulator dt-binding, which enforces the presence of a
-regulator-fixed compatible. However since all regulators on the MT6357
-PMIC are handled by a single mt6357-regulator driver, probed through
-MFD, the compatibles don't serve any purpose. In fact they cause
-failures in the DT kselftest since they aren't probed by the fixed
-regulator driver as would be expected. Furthermore this is the only
-dt-binding in this family like this: mt6359-regulator and
-mt6358-regulator don't require those compatibles.
+On Wed, May 14, 2025 at 03:01:33PM +0800, Xianwei Zhao wrote:
+> Add pinctrl device to support Amlogic S7.
+> 
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> ---
+>  arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi | 81 +++++++++++++++++++++++++++++
+>  1 file changed, 81 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
+> index f0c172681bd1..924f10aff269 100644
+> --- a/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
+> +++ b/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
+> @@ -6,6 +6,7 @@
+>  #include <dt-bindings/interrupt-controller/irq.h>
+>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+>  #include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/pinctrl/amlogic,pinctrl.h>
+>  
+>  / {
+>  	cpus {
+> @@ -94,6 +95,86 @@ uart_b: serial@7a000 {
+>  				clock-names = "xtal", "pclk", "baud";
+>  				status = "disabled";
+>  			};
+> +
+> +			periphs_pinctrl: pinctrl {
 
-Commit d77e89b7b03f ("arm64: dts: mediatek: mt6357: Drop regulator-fixed
-compatibles") removed the compatibles from Devicetree, but missed
-updating the binding, which still requires them, introducing dt-binding
-errors. Remove the compatible requirement by referencing the plain
-regulator dt-binding instead to fix the dt-binding errors.
+If you have non-boolean ranges, then this should have a unit address 
+(@4000).
 
-Fixes: d77e89b7b03f ("arm64: dts: mediatek: mt6357: Drop regulator-fixed compatibles")
-Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
----
- .../bindings/regulator/mediatek,mt6357-regulator.yaml        | 12 +-----------
- 1 file changed, 1 insertion(+), 11 deletions(-)
+> +				compatible = "amlogic,pinctrl-s7";
+> +				#address-cells = <2>;
+> +				#size-cells = <2>;
 
-diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6357-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6357-regulator.yaml
-index 6327bb2f6ee080a178ff3e982768c5eb0595e771..698266c09e25359a516d969a0487cc94444b842d 100644
---- a/Documentation/devicetree/bindings/regulator/mediatek,mt6357-regulator.yaml
-+++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6357-regulator.yaml
-@@ -33,7 +33,7 @@ patternProperties:
- 
-   "^ldo-v(camio18|aud28|aux18|io18|io28|rf12|rf18|cn18|cn28|fe28)$":
-     type: object
--    $ref: fixed-regulator.yaml#
-+    $ref: regulator.yaml#
-     unevaluatedProperties: false
-     description:
-       Properties for single fixed LDO regulator.
-@@ -112,7 +112,6 @@ examples:
-           regulator-enable-ramp-delay = <220>;
-         };
-         mt6357_vfe28_reg: ldo-vfe28 {
--          compatible = "regulator-fixed";
-           regulator-name = "vfe28";
-           regulator-min-microvolt = <2800000>;
-           regulator-max-microvolt = <2800000>;
-@@ -125,14 +124,12 @@ examples:
-           regulator-enable-ramp-delay = <110>;
-         };
-         mt6357_vrf18_reg: ldo-vrf18 {
--          compatible = "regulator-fixed";
-           regulator-name = "vrf18";
-           regulator-min-microvolt = <1800000>;
-           regulator-max-microvolt = <1800000>;
-           regulator-enable-ramp-delay = <110>;
-         };
-         mt6357_vrf12_reg: ldo-vrf12 {
--          compatible = "regulator-fixed";
-           regulator-name = "vrf12";
-           regulator-min-microvolt = <1200000>;
-           regulator-max-microvolt = <1200000>;
-@@ -157,14 +154,12 @@ examples:
-           regulator-enable-ramp-delay = <264>;
-         };
-         mt6357_vcn28_reg: ldo-vcn28 {
--          compatible = "regulator-fixed";
-           regulator-name = "vcn28";
-           regulator-min-microvolt = <2800000>;
-           regulator-max-microvolt = <2800000>;
-           regulator-enable-ramp-delay = <264>;
-         };
-         mt6357_vcn18_reg: ldo-vcn18 {
--          compatible = "regulator-fixed";
-           regulator-name = "vcn18";
-           regulator-min-microvolt = <1800000>;
-           regulator-max-microvolt = <1800000>;
-@@ -183,7 +178,6 @@ examples:
-           regulator-enable-ramp-delay = <264>;
-         };
-         mt6357_vcamio_reg: ldo-vcamio18 {
--          compatible = "regulator-fixed";
-           regulator-name = "vcamio";
-           regulator-min-microvolt = <1800000>;
-           regulator-max-microvolt = <1800000>;
-@@ -212,28 +206,24 @@ examples:
-           regulator-always-on;
-         };
-         mt6357_vaux18_reg: ldo-vaux18 {
--          compatible = "regulator-fixed";
-           regulator-name = "vaux18";
-           regulator-min-microvolt = <1800000>;
-           regulator-max-microvolt = <1800000>;
-           regulator-enable-ramp-delay = <264>;
-         };
-         mt6357_vaud28_reg: ldo-vaud28 {
--          compatible = "regulator-fixed";
-           regulator-name = "vaud28";
-           regulator-min-microvolt = <2800000>;
-           regulator-max-microvolt = <2800000>;
-           regulator-enable-ramp-delay = <264>;
-         };
-         mt6357_vio28_reg: ldo-vio28 {
--          compatible = "regulator-fixed";
-           regulator-name = "vio28";
-           regulator-min-microvolt = <2800000>;
-           regulator-max-microvolt = <2800000>;
-           regulator-enable-ramp-delay = <264>;
-         };
-         mt6357_vio18_reg: ldo-vio18 {
--          compatible = "regulator-fixed";
-           regulator-name = "vio18";
-           regulator-min-microvolt = <1800000>;
-           regulator-max-microvolt = <1800000>;
+Doesn't look like you need 64-bits of address and size. 1 cell is 
+enough.
 
----
-base-commit: edef457004774e598fc4c1b7d1d4f0bcd9d0bb30
-change-id: 20250513-mt6357-regulator-fixed-compatibles-removal-bindings-5e61fa4e5847
-
-Best regards,
--- 
-Nícolas F. R. A. Prado <nfraprado@collabora.com>
+> +				ranges = <0x0 0x0 0x0 0x4000 0x0 0x340>;
 
 
