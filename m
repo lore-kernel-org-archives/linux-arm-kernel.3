@@ -4,117 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AF0BC3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 18:52:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74BA7C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 18:52:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J49uDkCb9HKOce56BSBOkcrkK/RKgG1QwXA27OlhT64=; b=Z7OUV3PnF3Rmlppjqz1wsyAVUS
-	ogExVhDq2FdN+KY3hrGtUQ2X6ewy5B2XpwLt8LHkpi9TFCx1aHDnH4kk02E0zpFupnswEKgYH/BSe
-	8GCC0PLn/QRt9TJPa+GeY2EFa0e2ame1sXE2Osah3wq06EvqTmfC+ANTfIXNSQdWoQ5WSPShZzhh5
-	N/goe9rK7wp+VTkRJsA2hM0o89J9HQDbfKCia/FDmygI+GeLQ8kjFxmRtgQV52Drv8f33PoWLM6h0
-	i/9KDqC/eGIWB5gTGDMB+oEoyxDPO0/ugFq//Ln/mmrv3mYDBSXKMhdBzDlGLoaRM3Q+YRhTVCysK
-	vdS1hrfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Eu8bFObBj+haMxNUguP+f/nkoiU54kn7JFVy4YKbt2Y=; b=iVl8l5KM3tmGk3br0z9pJUZJU9
+	MKuQw21EnvTU5SSj1b2JgpyZjy2SZOpVZxsUJ7D+ra9zXArWECYzbBftX4rkrNB7W6BqEA1uXoNhV
+	SpX2sonH4tT/hgMqJ5rHl6z5ywGgyfPW6D85o8lzE2VzE44o18NSN3GoxjHJgDBv9lZcDO59f4j24
+	JqXAg2pJRHXQE98yCfpY5sTRtomyZ65jvl7IiuCQAOSu2U7AESRJybzQr5Jjp637ExuOFjf3yKo8Z
+	CrdfqDMZYlpQ7zPXjDVoD/tKNY0NuhVBy6dGsYeiaKspGqph2WIjhJGVerwoRYdrlQ8Ftcpb1G3bE
+	Cetsh1Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFHDf-0000000G5dS-1Oh9;
-	Wed, 14 May 2025 18:52:43 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uFHDg-0000000G5eM-09ia;
+	Wed, 14 May 2025 18:52:44 +0000
+Received: from mail-dm6nam04on2062f.outbound.protection.outlook.com ([2a01:111:f403:2409::62f] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFGmu-0000000G1Iz-3gHm;
-	Wed, 14 May 2025 18:25:06 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54EAug9i020138;
-	Wed, 14 May 2025 18:24:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	J49uDkCb9HKOce56BSBOkcrkK/RKgG1QwXA27OlhT64=; b=fXq7yA6qg3X9LptV
-	4MUsBu3fv6pYXkzdpX886aCRYl7rz40evf8YpVgY4Lv3HPZynN8rrcwM1K19KOtu
-	A3+a8r/+k2Bg9jex7GogUNc0U0bF0N1SPBXnlPSMJk4h46dKfCXFPneTgszGmv3U
-	mGqmV22doQk8dXtRet/Zf6IbgzIb/LMQZEKNFRWrxAOO5P9t/ylV03lnVu+FUuF4
-	0eChBUsGUQ/fFMFgA21WM60PePO4zI+rwkNsq05zH7nc5Gj1R4nzhIjOVGVTa51T
-	PwMhfUQdXBsnqmgwZc823/yhz1VD4TdbTG771ysuEGL4ePE2ijf0HhclvskY9duw
-	+dItcw==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46mbcnknqy-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 14 May 2025 18:24:55 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 54EIOsvs026769
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 14 May 2025 18:24:54 GMT
-Received: from [10.71.113.47] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 14 May
- 2025 11:24:53 -0700
-Message-ID: <5183b76b-8043-4309-b25d-e1ae505f929e@quicinc.com>
-Date: Wed, 14 May 2025 11:24:48 -0700
+	id 1uFGnx-0000000G1TE-1S1p
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 May 2025 18:26:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tUfOtMMt9SXKqRPIOOzJc48T+yrVfjUrSZzTYqe9//HZSlVCHiF80714TVhRGd0vq7RtSrQ8JL2dt2LUlJ0RlEKoZoM1MLY6qBr1IWKrPK3827kWkqoG2l1K/h8X0eIQfjp6abN44ND4naKtj7kre8LUixT6/Un0cNzvKp3DABAUucQ5LX3MJqNMLXLYltoe187GPlmzd+0pMYAFLatC7sPnLhwICCo/32daYfv2gEOUKExH01ipXbYkiIU+bE0gpo8pko0pLX3AIlAyKm78hAHiZY9WAoSqZcAVpMMV/eCHc9902SZlrNXmHceIikLTPmyExWBc9X95e6TGiRLyKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Eu8bFObBj+haMxNUguP+f/nkoiU54kn7JFVy4YKbt2Y=;
+ b=FS/+Eu+kaOovVd6S/uilQHxEe50szd+mEm/+yqgNKMgLiuNsSlNvVGq2lPdkmKQFGhGW83hJR3Y9H0hIeMxmdGuNF0xOkc+eYJDknkXaqLd8bndd1eMkoX4ioEJTuoB4xkRwfCEctNBU7hLLvmuHgA3OfTi5xQT+gc2Kkb5CBQ+BHC+qrCajaErfDVjQnUcGgmmK8dZUKIuKhoU0X1amUx1bxUwyZ0p3sL7uGHroEeLDt5OWa5VDY3pISeJye5Hr/zlLjdJJu4914bs5HIYraFS9VDTBwBIteOe/acd7IQTao78BTSljCjLl+sRrZ0unDjvylRTofft9+9S415wMfA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Eu8bFObBj+haMxNUguP+f/nkoiU54kn7JFVy4YKbt2Y=;
+ b=Xr9UuwF+H09Evikkq/1f9M1lV+4sigz7vSWjrB0eNKxZNYw6GUB3irmOmHh8KKZGlLZapCe6SbISJ8aA9FvpE8pt9UNea4q8TgmLo/1mGPvRnLkbSyGU33ibs1yHqepwgFweAJQTbsquYaXu/P2AOrfE2tcWlbsd3aUndTtyDFsxMmRZHxuCSYuEMCXloJyjzgvqsIsodL9wKT+U3BYQLiSuhX4QcUt/n4JVC3OeKnloWEaBsGN3la8m8NtRkTsgqtEpHoC+5AAWEs+WZ8YyBzqoFgvhQsOROre61UgHNjnGOcKRbn8FXA6ysOjwIWfI9BVToLY9TU4Ry4dGMKdsiQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by CY5PR12MB6033.namprd12.prod.outlook.com (2603:10b6:930:2f::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.23; Wed, 14 May
+ 2025 18:26:02 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8722.027; Wed, 14 May 2025
+ 18:26:02 +0000
+Date: Wed, 14 May 2025 15:26:00 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
+	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
+	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
+	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
+	praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
+Subject: Re: [PATCH v4 06/23] iommufd/driver: Add iommufd_struct_destroy to
+ revert iommufd_viommu_alloc
+Message-ID: <20250514182600.GF382960@nvidia.com>
+References: <cover.1746757630.git.nicolinc@nvidia.com>
+ <fd387a4e4efda1905e270d28986e4563dfee52d5.1746757630.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <fd387a4e4efda1905e270d28986e4563dfee52d5.1746757630.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: BL1PR13CA0068.namprd13.prod.outlook.com
+ (2603:10b6:208:2b8::13) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 06/10] phy: qcom: Add M31 based eUSB2 PHY driver
-To: Vinod Koul <vkoul@kernel.org>
-CC: Melody Olvera <melody.olvera@oss.qualcomm.com>,
-        Kishon Vijay Abraham I
-	<kishon@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        "Bjorn
- Andersson" <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-usb@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250409-sm8750_usb_master-v4-0-6ec621c98be6@oss.qualcomm.com>
- <20250409-sm8750_usb_master-v4-6-6ec621c98be6@oss.qualcomm.com>
- <Z/exOF4T+0vNLQwg@vaman> <0517c37d-b1ba-466e-bffd-9f47b0d458d5@quicinc.com>
- <aCRVaNDQP/PdAXPR@vaman>
-Content-Language: en-US
-From: Wesley Cheng <quic_wcheng@quicinc.com>
-In-Reply-To: <aCRVaNDQP/PdAXPR@vaman>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: F8I7biqEH_-DftRpl4rk57BfXlJJqFGt
-X-Authority-Analysis: v=2.4 cv=aIbwqa9m c=1 sm=1 tr=0 ts=6824dff8 cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=VwQbUJbxAAAA:8
- a=_9SOoMVj05wlhOc5M30A:9 a=QEXdDO2ut3YA:10 a=aM5GUTHLM7wA:10
- a=AkvdQnL7tdoA:10
-X-Proofpoint-GUID: F8I7biqEH_-DftRpl4rk57BfXlJJqFGt
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTE0MDE2NyBTYWx0ZWRfX4isQh/phoKL7
- gNDYG3ctyr8fuuqzZFPj6IggNXhjWBDL5ogCgcNsGwC5wuF+88+7gNzdLw6ayLccV+mT3DjgQls
- q5FJwXv5IjmwnnKB+bjItELeLBl3E0HuA8FM5mv4PzZH8goauI610a46plxlu2bVGmgmBmC1xY3
- BBLUhgfJOrB0pmILepR+8HMOwaJ5eVBHslVs0Lq9ouIg+blN+QljpxL4Q3WslkpHD4/TM4JQmgp
- mNlbsbLaYxiLV+PRn9OxC1hPkXfHJn8v1QOCSNM1FeCBd6SkrA9fZJ8eZLb7y6uud8boMHxBt3I
- NgbWnscTxcheU1x99B9dCiesQF/QaCRpgU+jVh5hwd7sldVgBkKUlYAnh9u/UWJ9oVFsE+80asp
- 3Ko7aMXimriZxwIetQjAUS2CM4ZpVb31IK0YKwgNdGFb9SCDTnD7asGXB9wjpl2oemknpOhC
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-14_04,2025-05-14_03,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 mlxlogscore=999 malwarescore=0 bulkscore=0 impostorscore=0
- clxscore=1011 phishscore=0 suspectscore=0 mlxscore=0 spamscore=0
- lowpriorityscore=0 priorityscore=1501 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505070000 definitions=main-2505140167
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CY5PR12MB6033:EE_
+X-MS-Office365-Filtering-Correlation-Id: c12ef82a-395c-404c-fc65-08dd9314c7db
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?B+QXQZhI1zgI8cv+QkQVtHIFyQmTxvg1748KPMD5vPttv7FDJKrI9zGZQffO?=
+ =?us-ascii?Q?uUKQlqBja9jUo54HnuBXwYVRL9GqOFEShcbVEviztyOUVBUdkYFg7f3VVrD8?=
+ =?us-ascii?Q?X+AUqTZMi6CxOCID3/91KX9llWuf3IKVEbDhu152U6TkCXRIneEsRgm7rSli?=
+ =?us-ascii?Q?gpwwsP7lvmYRI9nR9TakhUfbOQEiIeCdoolarFgZu/U6JjidR8k6IcSOPXiJ?=
+ =?us-ascii?Q?BlSyMsOZ189csn1IV+HP+HaPGPy9RmiJ2prYNsEOO5rfyH/2GAghGO5hXDYz?=
+ =?us-ascii?Q?ZJ4IkILbEPRuP1BS8hrc1zBLaGN5ghuvBTnaIxN2qSVnljOHL2tfv0w4ctw2?=
+ =?us-ascii?Q?8u0rQuPS+MWDJoAPVeK6YzSp0fhOJQns3oigFY4bPGAgeMEQ0xQ41nryvg7o?=
+ =?us-ascii?Q?NEdboDXp+oXN9SSQEYH9Qp3IWG9dJpkLDOg0DUgSW6hy5LFwWmYmCmtNQ48P?=
+ =?us-ascii?Q?KXvNvRxEZFPzkDJEbhtpRtenpy2gJfDXSTjHIE4/gF5Y4V0BuaItRE5DTQ5q?=
+ =?us-ascii?Q?0W4ee8mY8G7+TKhbtuNTkd/UBdSgFXTFCOK8+Zqxv0MR+h3LAYT0wnBZlIYx?=
+ =?us-ascii?Q?QLgVP66vFgFI46T1PpyiIVpm+nSE3WWoVkJGGfpWo+25Y/I0qFEWWLWb1pv5?=
+ =?us-ascii?Q?Kvv86FDjk1lQHPvTDE1VzgMql4Ntmm9blwhTMMD3s/626LRCPFhoFG8n6wJd?=
+ =?us-ascii?Q?nO3VvkOnndRsZ9ezo2KPt8J49FndHzrW/4S3ji2UDxpUSEwWl8ZPCcxkqERC?=
+ =?us-ascii?Q?lgHx7+qoaah0p9LanZqCfPk+E++pkWcUX7A012BEnT7SZNMQ1xIyH+9OPKlh?=
+ =?us-ascii?Q?+s76eKeaI0Te+t/UV0nrVAypR5DFvJNlM3zZdTm2UX/XDZNnoU/sT0p9ZQYs?=
+ =?us-ascii?Q?Of9TG92IiRq1NaX2yqO9zvyLMzebdnMbBnTup0fqoMU6OJsl+YYZlh9xDtIb?=
+ =?us-ascii?Q?PJQa5SPMvjkf8c0qkBS+9bnCX6vOqQJdGL42SyE7yTI+f9p/7TIBjCcQ5sYw?=
+ =?us-ascii?Q?B5w2cV9CJr/c/wAg39WSarcbKSbyeO2sT+CkDY7lAGD+BHbpKnVwOvIIm2Aa?=
+ =?us-ascii?Q?WuWxxDgpZFq6huAA0rO7/ddSgUNvkZ68YYaCBPF2Vyg7q69+jcz2nSgOmjro?=
+ =?us-ascii?Q?njvLWxbxv4PrvhJLmtqGKyV/JSdkwlinEbBs+BarL/NKuwSG9Tj8AyxzIoCe?=
+ =?us-ascii?Q?0xyejMfWFYJaPHrzFKllPGrcNNRQOKPDOOp45w+9D47LPdHp7zmjydi5D2gn?=
+ =?us-ascii?Q?B1k+0vprVkcxKoUWWFPBj0z/F2G38BMUHpcZ04+q1AkRRgJBLZsog5pg+RKh?=
+ =?us-ascii?Q?X4Uzy8jt9Fdzgei37lf7oOarot7Wa5PDE+SF/fgm8mWfRcIgY0XimHbXgk1l?=
+ =?us-ascii?Q?RMIx7mzS8CKP52s6hhP8tIceVPOMbLGhSfF6kMNrCn9ufVV0aw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cd7e/Cr8MQ3Cxe1bLYlKMBFoe2er16xufz6V/QRlCxLM8iRudm5nDLT/8szw?=
+ =?us-ascii?Q?zTUaV7oA4bi73IfALrzzNQnZ60pOyuvBTw2u6icKT71cCOvpAVMwVf1UVWBw?=
+ =?us-ascii?Q?RRKWLkhuy3n2xTU4VoFFFkNmHFd6hQX8Go4RK60Zh6Q44EXbGEQi+Tn9EGhG?=
+ =?us-ascii?Q?s0b5bKQ5R4SbbsVJ8defzenld1SaNHKwdSZn7r7HPGg192W9HP9o1m0bvVSR?=
+ =?us-ascii?Q?D3WecEXVz3ITM67PN22iNsb+rkFTYx8FIuyC2jjAGy8FZyhNUPV8Jy5wS2p7?=
+ =?us-ascii?Q?V6zX+cxW9hnWPyxFfKmcOudTZ62SPOddxlAGepSRCNZBse2cSlu4iPe4Lxkl?=
+ =?us-ascii?Q?WKBxosF4m5W2xCjotIaw9lmH1Cmfj5WZyT6y3ilXgSzYw3dalu2Q6cfPAH8G?=
+ =?us-ascii?Q?gi1ocwHJjFwi8KE9gdtXFuSPG8Tw382B1VT5xHU7iUcT9bwi4WE1OJZDLiSE?=
+ =?us-ascii?Q?geBJbqcpipACnud0IdoBQrBG9yfFH5Dg/d7tkUG///HFProQwZTTJ7KSTl0v?=
+ =?us-ascii?Q?guHFmdzOA9B3KASmZQkGv4mluILxkL7NBfdd0o9O9l6RD3REJowo/jSqF8qA?=
+ =?us-ascii?Q?dMIR5rXSovfbX0Qs78VYjr1Y+qiA1hJXG1RDkmboBOJQh58mDTzMZY0uPXVz?=
+ =?us-ascii?Q?IHhrZgz+94SNktfhvY7Z1/YbNlABZZRwZJ1q0myziWtbxAt2UD2FxKw6jN8h?=
+ =?us-ascii?Q?FVer9e966KhPHEokEkbJjYR0mb0jQ/AP6rjtk+RHXTAAyZ8Kw6jP6VBfIN93?=
+ =?us-ascii?Q?umJJ/pQ0tOzjMJXprLbKFODjlL5NAvSfq6IEhR9K4nDtNnmDVxXEAUVTd3tS?=
+ =?us-ascii?Q?xB3p9NiE6uGOi/yymFzq17T0YCf0xjRn3o14OJ7dI5N73RbqTklHjpy18FYO?=
+ =?us-ascii?Q?9GgQvxhpas0it9KtTAkAqHxv07huOsEreVyYgxX0jcoLcG0nrtL5krSh2DjP?=
+ =?us-ascii?Q?D2+QwKmMtRlsPMYMRoFp/nAdfY8T7X5SfaO99S7ggHwd8CN6+7Hlpa+9frxw?=
+ =?us-ascii?Q?JCEPxzVTrIN8nDHJ82ZG9/uh8X5M5d/lhsb4FqOi+4wHWf3K/e6XOO02gwOs?=
+ =?us-ascii?Q?W8VNgyOMlzDBvAiHT0eJeUi8sTEa+0bEmKzSiM7DNLDEfRJ81Z5A3OzVoIxR?=
+ =?us-ascii?Q?y7RkSaeFBg04hHLyldRW8X4Nup1wZ8JCRLtSjygDicvDT+k3ICfJ6Q9QDOVE?=
+ =?us-ascii?Q?TE2nUuH4f6w38qgU4ZHuYyD/Yehyy/YBigKIJYfMHUFD6Yuz02GCSVKEW7C7?=
+ =?us-ascii?Q?15f6ax2ijTcK9l673aZv9HkgBE8fVPWY9VUV+uoYy8sViZQCFvxvjtym0x69?=
+ =?us-ascii?Q?VFTKlkOgpQatBiXPCJNm+C+yiWV3zwDjeXyIWqWIPQTRGZs/WbB18Oud02pa?=
+ =?us-ascii?Q?ZIAQR2OGR7djgbvxnAuhFNFaT8imjjGGSxwVL7gDmUwJ//XHn3jvqJ5E88AJ?=
+ =?us-ascii?Q?SDZy+1qhUCnRgdpsfe8B4GrCKGbrmwpkyffhGkpCdL8E6fTqwl2Cfh1mJALB?=
+ =?us-ascii?Q?Df+/fTEAR+F6KnCM6pYrqTS83q6gEirmbCHUUcBb06e6o7ZoFwzNupClW44O?=
+ =?us-ascii?Q?z/Zi2SmUUtVQQWj94NxdjBgrJtje43f5dXZlQnv0?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c12ef82a-395c-404c-fc65-08dd9314c7db
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 May 2025 18:26:02.1112
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kyXjWbZufhTyed3RULG5xk6WIxKTuURFkIRnVhcz8rK/g3wRAjLdrzpFOG76Lr9Z
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6033
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_112505_047368_E0F0A97F 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20250514_112609_379734_B8667820 
+X-CRM114-Status: GOOD (  24.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,52 +165,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vinod,
-
-On 5/14/2025 1:33 AM, Vinod Koul wrote:
-> On 16-04-25, 15:45, Wesley Cheng wrote:
->> Hi Vinod,
->>
->> On 4/10/2025 4:53 AM, Vinod Koul wrote:
->>> On 09-04-25, 10:48, Melody Olvera wrote:
->>>
->>>> +static int m31eusb2_phy_write_readback(void __iomem *base, u32 offset,
->>>> +					const u32 mask, u32 val)
->>>> +{
->>>> +	u32 write_val;
->>>> +	u32 tmp;
->>>> +
->>>> +	tmp = readl_relaxed(base + offset);
->>>> +	tmp &= ~mask;
->>>> +	write_val = tmp | val;
->>>> +
->>>> +	writel_relaxed(write_val, base + offset);
->>>> +
->>>> +	tmp = readl_relaxed(base + offset);
->>>
->>> Why are you using _relaxed version here?
->>>
->>
->> No particular reason.  I think someone pointed this out previously, and I
->> was open to use the non-relaxed variants, but I assume using the relaxed vs
->> non-relaxed apis comes down to preference in this case.
+On Thu, May 08, 2025 at 08:02:27PM -0700, Nicolin Chen wrote:
+> An IOMMU driver that allocated a vIOMMU may want to revert the allocation,
+> if it encounters an internal error after the allocation. So, there needs a
+> destroy helper for drivers to use. For instance:
 > 
-> Nope you cant! There _needs_ to be a specific reasons!
-> When you are doing read, modify, write, it is very important to know the
-> right version to use...
+> static my_viommu_alloc()
+> {
+> 	...
+> 	my_viommu = iommufd_viommu_alloc(viomm, struct my_viommu, core);
+> 	...
+> 	ret = init_my_viommu();
+> 	if (ret) {
+> 		/* Need to destroy the my_viommu->core */
+> 		return ERR_PTR(ret);
+> 	}
+> 	return &my_viommu->core;
+> }
 > 
+> Move iommufd_object_abort() to the driver.c file and the public header, to
+> introduce common iommufd_struct_destroy() helper that will abort all kinds
+> of driver structures, not confined to iommufd_viommu but also the new ones
+> being added in the future.
+> 
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>  drivers/iommu/iommufd/iommufd_private.h |  1 -
+>  include/linux/iommufd.h                 | 16 ++++++++++++++++
+>  drivers/iommu/iommufd/driver.c          | 14 ++++++++++++++
+>  drivers/iommu/iommufd/main.c            | 13 -------------
+>  4 files changed, 30 insertions(+), 14 deletions(-)
 
-I mean, its a write readback, which ensures the bus transaction is complete
-based on [1], hence why **in this situation** it is up to preference.
+One idea that struck me when I was looking at this was to copy the
+technique from rdma.
 
-Otherwise, w/o the readback then we'd need to ensure writes are made
-depending on the required sequencing (in spots where the sequence is
-strictly defined), and that can be enforced using barriers.  If you feel
-like using the non-relaxed variant is preferred let me know.  I can replace
-it and remove the readback.
+When an object is allocated we keep track of it in the struct
+iommufd_ucmd.
 
-Thanks
-Wesley Cheng
+Then when the command is over the core code either aborts or finalizes
+the objects in the iommufd_ucmd. This way you don't have to expose
+abort and related to drivers.
 
-[1] - https://www.kernel.org/doc/html/latest/driver-api/io_ordering.html
+Something like this:
+
+diff --git a/drivers/iommu/iommufd/driver.c b/drivers/iommu/iommufd/driver.c
+index 2d2695e2562d02..289dd19eec90f1 100644
+--- a/drivers/iommu/iommufd/driver.c
++++ b/drivers/iommu/iommufd/driver.c
+@@ -36,6 +36,16 @@ struct iommufd_object *_iommufd_object_alloc(struct iommufd_ctx *ictx,
+ }
+ EXPORT_SYMBOL_NS_GPL(_iommufd_object_alloc, "IOMMUFD");
+ 
++struct iommufd_object *_iommufd_object_alloc_ucmd(struct iommufd_ucmd *ucmd,
++						  size_t size,
++						  enum iommufd_object_type type)
++{
++	if (ucmd->alloced_obj)
++		return ERR_PTR(-EBUSY);
++	ucmd->alloced_obj = _iommufd_object_alloc(ucmd->ictx, size, type);
++	return ucmd->alloced_obj;
++}
++
+ /* Undo _iommufd_object_alloc() if iommufd_object_finalize() was not called */
+ void iommufd_object_abort(struct iommufd_ctx *ictx, struct iommufd_object *obj)
+ {
+diff --git a/drivers/iommu/iommufd/eventq.c b/drivers/iommu/iommufd/eventq.c
+index f39cf079734769..f109948a81ac8c 100644
+--- a/drivers/iommu/iommufd/eventq.c
++++ b/drivers/iommu/iommufd/eventq.c
+@@ -473,7 +473,7 @@ int iommufd_fault_alloc(struct iommufd_ucmd *ucmd)
+ 	if (cmd->flags)
+ 		return -EOPNOTSUPP;
+ 
+-	fault = __iommufd_object_alloc(ucmd->ictx, fault, IOMMUFD_OBJ_FAULT,
++	fault = __iommufd_object_alloc_ucmd(ucmd, fault, IOMMUFD_OBJ_FAULT,
+ 				       common.obj);
+ 	if (IS_ERR(fault))
+ 		return PTR_ERR(fault);
+@@ -483,10 +483,8 @@ int iommufd_fault_alloc(struct iommufd_ucmd *ucmd)
+ 
+ 	fdno = iommufd_eventq_init(&fault->common, "[iommufd-pgfault]",
+ 				   ucmd->ictx, &iommufd_fault_fops);
+-	if (fdno < 0) {
+-		rc = fdno;
+-		goto out_abort;
+-	}
++	if (fdno < 0)
++		return fdno;
+ 
+ 	cmd->out_fault_id = fault->common.obj.id;
+ 	cmd->out_fault_fd = fdno;
+@@ -494,7 +492,6 @@ int iommufd_fault_alloc(struct iommufd_ucmd *ucmd)
+ 	rc = iommufd_ucmd_respond(ucmd, sizeof(*cmd));
+ 	if (rc)
+ 		goto out_put_fdno;
+-	iommufd_object_finalize(ucmd->ictx, &fault->common.obj);
+ 
+ 	fd_install(fdno, fault->common.filep);
+ 
+@@ -502,9 +499,6 @@ int iommufd_fault_alloc(struct iommufd_ucmd *ucmd)
+ out_put_fdno:
+ 	put_unused_fd(fdno);
+ 	fput(fault->common.filep);
+-out_abort:
+-	iommufd_object_abort_and_destroy(ucmd->ictx, &fault->common.obj);
+-
+ 	return rc;
+ }
+ 
+diff --git a/drivers/iommu/iommufd/iommufd_private.h b/drivers/iommu/iommufd/iommufd_private.h
+index c87326d7ecfccb..94cafae86d271c 100644
+--- a/drivers/iommu/iommufd/iommufd_private.h
++++ b/drivers/iommu/iommufd/iommufd_private.h
+@@ -152,6 +152,7 @@ struct iommufd_ucmd {
+ 	void __user *ubuffer;
+ 	u32 user_size;
+ 	void *cmd;
++	struct iommufd_object *alloced_obj;
+ };
+ 
+ int iommufd_vfio_ioctl(struct iommufd_ctx *ictx, unsigned int cmd,
+@@ -258,6 +259,15 @@ iommufd_object_put_and_try_destroy(struct iommufd_ctx *ictx,
+ #define iommufd_object_alloc(ictx, ptr, type) \
+ 	__iommufd_object_alloc(ictx, ptr, type, obj)
+ 
++#define __iommufd_object_alloc_uctx(uctx, ptr, type, obj)                      \
++	container_of(_iommufd_object_alloc_ucmd(                               \
++			     uctx,                                             \
++			     sizeof(*(ptr)) + BUILD_BUG_ON_ZERO(               \
++						      offsetof(typeof(*(ptr)), \
++							       obj) != 0),     \
++			     type),                                            \
++		     typeof(*(ptr)), obj)
++
+ /*
+  * The IO Address Space (IOAS) pagetable is a virtual page table backed by the
+  * io_pagetable object. It is a user controlled mapping of IOVA -> PFNs. The
+diff --git a/drivers/iommu/iommufd/main.c b/drivers/iommu/iommufd/main.c
+index 1d7f3584aea0f7..0bc9c02f6bfc4f 100644
+--- a/drivers/iommu/iommufd/main.c
++++ b/drivers/iommu/iommufd/main.c
+@@ -408,6 +408,14 @@ static long iommufd_fops_ioctl(struct file *filp, unsigned int cmd,
+ 	if (ret)
+ 		return ret;
+ 	ret = op->execute(&ucmd);
++
++	if (ucmd.alloced_obj) {
++		if (ret)
++			iommufd_object_abort_and_destroy(ictx,
++							 ucmd.alloced_obj);
++		else
++			iommufd_object_finalize(ictx, ucmd.alloced_obj);
++	}
+ 	return ret;
+ }
+ 
 
