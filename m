@@ -4,68 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB1B0C3DA4A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 17:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE70C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 17:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=w4cPfXtu/36KJ7d3kTTSCLSd63SmospMQ3mRMjbyoKo=; b=mymBaWldpLXifhhv92E4CnG0f3
-	8VCp3v+15PGIjDfiihtIm9uFqguZ/+aOwPp3DyGx96ZXEowcSoklhzl/erNnesiWDxMIVWD0ElQZV
-	tTlXFpz84rDf27QkfHtrmUfC1rWKf/iMfWjvhELMfTtuosKtvXlxwQ7bkD6oWz6mKqgeap9HrprES
-	S60X27/f0nNRAao6vYh25YxdQ8Szoh0cxdHG6Z4erXNWUlwZJVaekPklPrA7JRIIusmuUayCQWt3W
-	GelMl6mhl0UWHCEAfwsZzepQE2VJueBva7zrvn7OKvwtrNitNP79tPBfCCIDGX2tvXWgR7ApF2iQl
-	yWdA2YOw==;
+	bh=An4/G8IyR5zczajLSLE48BcXq+SdoujNgPdRSq3otg4=; b=ujVQUIFT7FE91NagtvlbD7n6Cl
+	vwS6+HEGjDpPIA9Iskz58uNISEY7DHBhAiau9/cnEnEWB9/17CyBD7aarrFby8or3+7MeSWeJfIcy
+	TYNosSw9en/CwkK/1+83u/rmMNv9inxS2ADLj6z0hpXyXaVGIa7DvYdeQvSBOWzfWv+jHYbxXvxdo
+	xtJTCDjceXl8rW0dR9gSrhOw/E9iRPvCMzL9iiHHx//Mxd+plZbC8QPPY1ttTU4skVELzYyYAqWMb
+	cM9J/vZ8neZryX3qpRdTkzl9TzqEYCWJ/nrOgjErYHABbbygpVvyM3ZbTbayZrTalTw+D7l+wrWB0
+	SpTDbLBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFGC6-0000000FunY-02SC;
-	Wed, 14 May 2025 17:47:02 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFEoK-0000000Fihy-2bxO
+	id 1uFGCA-0000000FuvA-3GNU;
+	Wed, 14 May 2025 17:47:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uFEoo-0000000Fin2-463L
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 16:18:26 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 4ED2AA033A;
-	Wed, 14 May 2025 18:18:12 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=mail; bh=w4cPfXtu/36KJ7d3kTTSCLSd63SmospMQ3mRMjbyoKo=; b=
-	ry8VG5OcuPJBHR+i//bwjxyo9xo1z/joraaXLlw2pHbcgVnYShecYYDaR99bR/Q5
-	+2emwNuXuHFE2G8WPp2DJSF2wxnxxVgudIb52miKCt3Dc6JshapMQMG2v1TG/YOe
-	JNzvcAM/HR+F8Ee2qXFD0SQc1GAIneR2sGdMaaAnQAWJu4E1fsJMUzr/1VGlWPSV
-	com2HeicAcgc4aVmWARvdWmHmvo4IW+1s5yvTm4FS3rAhrlf3zO/8F/tMWwDYxxD
-	wv4xJaR2jk6M5drE+D9uQS+AVTnDnoCw+RA4dd7Bf/XFKihEPmnexpfUZ8WL6dS4
-	ybBi+gRO/RgkXH2xH0Ley7xFSLStfSOhySYfP+oOHHsYV8NDWatcoMjbFo8jwseC
-	HUfppXWhOrJc9zjXzUXcUUzlTpXEa/xGDUq8OQsQMYsfsnUB0MjsC0SdEItWZ6cg
-	wCVS6JUiPsMzABDHJDExj8nxu6l4UodOMZNs/VZPpU4LrNLI0tNBWBbMZo/vOWrE
-	bwKUdu76EgKQUC2gHQOnBjnpN3ILm7eJtLlWhmUqhWmc4ehw8zOvFrRluxmctDoa
-	ywOloa/8Qkv9gMNHaPzmkWouAha6YpnuPoklx/wwnDqeg0syjmqS6VxgIKzfh6ic
-	omHC23bLXgGfKWF4I4WfAEEUMWzHnK33jHnx9agDFdo=
-From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-To: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Chen-Yu
- Tsai" <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, "Chen-Yu
- Tsai" <wens@csie.org>, Julian Calaby <julian.calaby@gmail.com>, Vinod Koul
-	<vkoul@kernel.org>, Samuel Holland <samuel@sholland.org>
-Subject: [PATCH v9] dma-engine: sun4i: Simplify error handling in probe()
-Date: Wed, 14 May 2025 18:18:01 +0200
-Message-ID: <20250514161803.229600-1-csokas.bence@prolan.hu>
-X-Mailer: git-send-email 2.43.0
+	Wed, 14 May 2025 16:18:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 58DC1150C;
+	Wed, 14 May 2025 09:18:39 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4063A3F63F;
+	Wed, 14 May 2025 09:18:49 -0700 (PDT)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: suzuki.poulose@arm.com,
+	mike.leach@linaro.org,
+	james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com,
+	leo.yan@arm.com
+Cc: oresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v6 0/3] coresight: prevent deactivate active config while enabling the config
+Date: Wed, 14 May 2025 17:18:44 +0100
+Message-Id: <20250514161847.3427497-1-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1747239491;VERSION=7991;MC=2098525897;ID=2622337256;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A296767155D617160
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_091825_126728_31EB0D81 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20250514_091855_060888_7C1D2559 
+X-CRM114-Status: UNSURE (   6.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,134 +67,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Clean up error handling by using devm functions and dev_err_probe(). This
-should make it easier to add new code, as we can eliminate the "goto
-ladder" in sun4i_dma_probe().
+While enable active config via cscfg_csdev_enable_active_config(),
+active config could be deactivated via configfs' sysfs interface.
+This could make UAF issue in below scenario:
 
-Suggested-by: Chen-Yu Tsai <wens@kernel.org>
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-Acked-by: Chen-Yu Tsai <wens@csie.org>
-Reviewed-by: Julian Calaby <julian.calaby@gmail.com>
-Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
----
+CPU0                                          CPU1
+(sysfs enable)                                load module
+                                              cscfg_load_config_sets()
+                                              activate config. // sysfs
+                                              (sys_active_cnt == 1)
+...
+cscfg_csdev_enable_active_config()
+lock(csdev->cscfg_csdev_lock)
+// here load config activate by CPU1
+unlock(csdev->cscfg_csdev_lock)
 
-Notes:
-    Changes in v2:
-    * rebase on current next
-    Changes in v3:
-    * rebase on current next
-    * collect Jernej's tag
-    Changes in v4:
-    * rebase on current next
-    * collect Chen-Yu's tag
-    Changes in v5:
-    * reformat msg to 75 cols
-    * keep `\n`s in error messages
-    Changes in v6:
-    * remove redundant braces
-    * break lines to stay under 85 cols
-    * reword subject and message
-    Changes in v7:
-    * rebase onto current next
-    * collect Julian's tag
-    Changes in v8:
-    * rebase onto current next
-    Changes in v9:
-    * rebase onto current next
+                                              deactivate config // sysfs
+                                              (sys_activec_cnt == 0)
+                                              cscfg_unload_config_sets()
+                                              unload module
 
- drivers/dma/sun4i-dma.c | 46 ++++++++++++-----------------------------
- 1 file changed, 13 insertions(+), 33 deletions(-)
+// access to config_desc which freed
+// while unloading module.
+cfs_csdev_enable_config
 
-diff --git a/drivers/dma/sun4i-dma.c b/drivers/dma/sun4i-dma.c
-index 24796aaaddfa..00d2fd38d17f 100644
---- a/drivers/dma/sun4i-dma.c
-+++ b/drivers/dma/sun4i-dma.c
-@@ -1249,11 +1249,10 @@ static int sun4i_dma_probe(struct platform_device *pdev)
- 	if (priv->irq < 0)
- 		return priv->irq;
- 
--	priv->clk = devm_clk_get(&pdev->dev, NULL);
--	if (IS_ERR(priv->clk)) {
--		dev_err(&pdev->dev, "No clock specified\n");
--		return PTR_ERR(priv->clk);
--	}
-+	priv->clk = devm_clk_get_enabled(&pdev->dev, NULL);
-+	if (IS_ERR(priv->clk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(priv->clk),
-+				     "Couldn't start the clock\n");
- 
- 	if (priv->cfg->has_reset) {
- 		priv->rst = devm_reset_control_get_exclusive_deasserted(&pdev->dev, NULL);
-@@ -1328,12 +1327,6 @@ static int sun4i_dma_probe(struct platform_device *pdev)
- 		vchan_init(&vchan->vc, &priv->slave);
- 	}
- 
--	ret = clk_prepare_enable(priv->clk);
--	if (ret) {
--		dev_err(&pdev->dev, "Couldn't enable the clock\n");
--		return ret;
--	}
--
- 	/*
- 	 * Make sure the IRQs are all disabled and accounted for. The bootloader
- 	 * likes to leave these dirty
-@@ -1343,33 +1336,23 @@ static int sun4i_dma_probe(struct platform_device *pdev)
- 
- 	ret = devm_request_irq(&pdev->dev, priv->irq, sun4i_dma_interrupt,
- 			       0, dev_name(&pdev->dev), priv);
--	if (ret) {
--		dev_err(&pdev->dev, "Cannot request IRQ\n");
--		goto err_clk_disable;
--	}
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret, "Cannot request IRQ\n");
- 
--	ret = dma_async_device_register(&priv->slave);
--	if (ret) {
--		dev_warn(&pdev->dev, "Failed to register DMA engine device\n");
--		goto err_clk_disable;
--	}
-+	ret = dmaenginem_async_device_register(&priv->slave);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Failed to register DMA engine device\n");
- 
- 	ret = of_dma_controller_register(pdev->dev.of_node, sun4i_dma_of_xlate,
- 					 priv);
--	if (ret) {
--		dev_err(&pdev->dev, "of_dma_controller_register failed\n");
--		goto err_dma_unregister;
--	}
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Failed to register translation function\n");
- 
- 	dev_dbg(&pdev->dev, "Successfully probed SUN4I_DMA\n");
- 
- 	return 0;
--
--err_dma_unregister:
--	dma_async_device_unregister(&priv->slave);
--err_clk_disable:
--	clk_disable_unprepare(priv->clk);
--	return ret;
- }
- 
- static void sun4i_dma_remove(struct platform_device *pdev)
-@@ -1380,9 +1363,6 @@ static void sun4i_dma_remove(struct platform_device *pdev)
- 	disable_irq(priv->irq);
- 
- 	of_dma_controller_free(pdev->dev.of_node);
--	dma_async_device_unregister(&priv->slave);
--
--	clk_disable_unprepare(priv->clk);
- }
- 
- static struct sun4i_dma_config sun4i_a10_dma_cfg = {
+To address this,
+  Patch #1 fix missing disable config when etm4 device is disabled via sysfs
+  Patch #2 holding cscfg_csdev_lock while removing config from cscfg_csdsev_list
+  Patch #3 add wrapper to prevent deactivation of config whlie enabling it
 
-base-commit: 3c018bf5a0ee3abe8d579d6a0dda616c3858d7b2
--- 
-2.43.0
+Patch History
+==============
+From v5 to v6:
+  - add fixes tag.
+  - using guard for locking.
+  - https://lore.kernel.org/all/20250513170622.3071637-1-yeoreum.yun@arm.com/
 
+From v4 to v5
+  - separate patch set (from Leo Yan)
+  - https://lore.kernel.org/all/20250324191740.64964-1-yeoreum.yun@arm.com/
+
+
+Yeoreum Yun (3):
+  coresight/etm4: fix missing disable active config
+  coresight: holding cscfg_csdev_lock while removing cscfg from csdev
+  coresight: prevent deactivate active config while enabling the config
+
+ .../hwtracing/coresight/coresight-config.h    |  2 +-
+ .../coresight/coresight-etm4x-core.c          |  3 ++
+ .../hwtracing/coresight/coresight-syscfg.c    | 51 +++++++++++++------
+ 3 files changed, 40 insertions(+), 16 deletions(-)
+
+--
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
