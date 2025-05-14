@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6BB0C3ABDA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 19:45:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73B1BC3ABDA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 19:47:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s3CSQ6PBMOqGVYj+xqhMBfKnGOIDEpoWfmf6grdNY9M=; b=e9d7zM8dnN98KMiJivW7B6Uc52
-	AROdeolNWIIEctORh+wx7WDrUpBMnT0Kt6OV8setFxtKchYjdMiczxN+//LZ2EozHee4cjH3Iyr2S
-	LR8jat3IOOryqH6pLBnEqsYwKeG0Vv9LlUHOc4hX2Nnj/YaD9Rn1qN2Tg+EDJGNctXvohwpTqblaR
-	a2MgoCmJdJZwOrdkbpB4gMdFsAOytfS0/1DEDWGfy6z8yaCv4w5t0X0FHti2/fTq0b8QFrcXmPyAN
-	WC1oQfVtrwRtilpXE7+yzEL4ynL9/UbpNO+OWWhKoMveULRiiY7n2Gpps1jTocVV6sGo9IOe7ZlqH
-	UIJf5/YQ==;
+	bh=WT+FHDlU1iZJkcCa0Mzn6UbQckv6b/KOTgsr7yC0fFQ=; b=ZSgwV/X/Oo2K8PksIGpT9rfu0g
+	txLMvgIZWq82FV7uEriWiJKpuzrw2L6+G+MiX2xgy8GVxrP8+5kFP/Uyme54C/Mp6zd1Qgk5tbol1
+	JB8UL4DdnP20ONhNAJyO9h/CQeu3aNLPeAqLCoLINURoNgrwwlLa7adlITJx6piXp2uQ0bkl4TE9P
+	R6InYZ8AdZgrARV8DLFP9wLOInjjxo0BpQnNzSsDpdtJV9fFlGUDSWQjrkLOu9NbHy0ersGO+FGOq
+	Lgt4Q0CbCDcxaD6BBBXBlvwdsMbcmkNSLMatIX/i566WPYGEZa05N9nRpsLM9TsyqisdtFix1qzko
+	2Ave1Fuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFI2u-0000000GCb2-2F06;
-	Wed, 14 May 2025 19:45:40 +0000
-Received: from mail-io1-xd4a.google.com ([2607:f8b0:4864:20::d4a])
+	id 1uFI4u-0000000GCwF-1zTg;
+	Wed, 14 May 2025 19:47:44 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFHgB-0000000GA2u-0TG8
+	id 1uFHpA-0000000GBJ3-2huw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 19:22:12 +0000
-Received: by mail-io1-xd4a.google.com with SMTP id ca18e2360f4ac-85c552b10b9so13799339f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 12:22:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1747250530; x=1747855330; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=s3CSQ6PBMOqGVYj+xqhMBfKnGOIDEpoWfmf6grdNY9M=;
-        b=lImh0+AB385SEutdejT6gJ7uTp/tq9XYgTXADahszSE9nuRr1bx2ZTaizgCg1G6q2D
-         lUlP0FmDCJgM1EBFl0wzcBPrp/C1Bmwl6ZudPoJJwFKWpGfzg++y0pV2K+cN203ImBGs
-         M/O6b6+4qqLkX0Ck/POxfhCDdGddfntINuVc2U7+FPW4lKDp6mMRS5jB3x+I9nfqaQlf
-         Nn418kgT9HcHW2XN8sVslm7TKbmhC6d8QcAiglT562EjJZGu3HCI05fPv2E521xzLxxk
-         oqcRezyLSiiME8K1dRyGr2iZwLrbaSQmsUaM42NM+S8aOrLe5u512nhne5Rzx/7g5KBT
-         5aFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747250530; x=1747855330;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=s3CSQ6PBMOqGVYj+xqhMBfKnGOIDEpoWfmf6grdNY9M=;
-        b=QavDkvcgSs+KZxHREr/tHXBMjMBvtYo4ZiEFg0uJimAvTizyZF1K6eGSL0aQSY0ta8
-         gnvRojoaL2fLBKbiyaukuiWzgQS5SQ2CcHfzNnrVZl9rsjNItM2Lzd4d1qaFvxD3zAa/
-         JScJkdX+B8BPxj1xVMS1eK+rMnomtBCviSidpXTDymN6+S8TWJv8+WwkQLo9r3Yyhnc0
-         01y1OKoEjYFJGITILTOR7b79ir/J0u8M9FDoDInwVlmQz8BaGsRMjCwimR1TcXmrmIbW
-         l+9P4bDecBPOhDzfsWBn6mcyjNNeJvzVPRK3LXbnPmdSOxYlQocoyOQ60E+6ZOoZ0Li/
-         ULqg==
-X-Forwarded-Encrypted: i=1; AJvYcCWa+XlIKGvhaJD5b055hk/2obyWlcr/pRwG7aYAocPnr10bCsahE1Zt1EXGADipIEvGztGLLyQltKOfxpvphvP+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8cNvxWsaXDKDcpf3Va+VrBKROe1260fBZ+fWo4SfHUGaoXc6r
-	ycP1A2CE80wI3V6+G0bH57iZ0/0+KBqeKHubo7kFYpW6DCtHjMF04XGMJzS2fCr7rGNvI6+uYAK
-	ts79b7A==
-X-Google-Smtp-Source: AGHT+IGg18AnCuBF63uwtJjiLbr7/IX5pN6tnMFQzW8sojexBjp+3ynRNR8yhYl88WVyZs8zmM6M9UEXqLY6
-X-Received: from ilbby14.prod.google.com ([2002:a05:6e02:260e:b0:3d8:1a1e:8c05])
- (user=rananta job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6602:36c8:b0:85b:3791:b2ed
- with SMTP id ca18e2360f4ac-86a08ded21cmr611062639f.8.1747250528149; Wed, 14
- May 2025 12:22:08 -0700 (PDT)
-Date: Wed, 14 May 2025 19:21:59 +0000
-In-Reply-To: <20250514192159.1751538-1-rananta@google.com>
-Mime-Version: 1.0
-References: <20250514192159.1751538-1-rananta@google.com>
-X-Mailer: git-send-email 2.49.0.1101.gccaa498523-goog
-Message-ID: <20250514192159.1751538-4-rananta@google.com>
-Subject: [PATCH 3/3] KVM: selftests: Extend vgic_init to test GICv4 config attr
-From: Raghavendra Rao Ananta <rananta@google.com>
-To: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>
-Cc: Raghavendra Rao Anata <rananta@google.com>, Mingwei Zhang <mizhang@google.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 14 May 2025 19:31:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D422BA4DF7B;
+	Wed, 14 May 2025 19:31:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D6BBC4CEE3;
+	Wed, 14 May 2025 19:31:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747251087;
+	bh=prqn5Sx99GKjaup3K45kEwrx2MjZ0zoK5fYZeZeYwLA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TCAqMPUKzRjQlVOpZ/5t8utZHHoRuBzqN48mWTHKv/Hql3kfalT1IP2AqIMb08wuw
+	 aFeoNjI156ewl1VP+NztGIRAZbBI8tDQ5reQA3Up4TD5bjLCVVg3y3T0u7B7WHbwdR
+	 M+ffnoViS1+8krR3rL54F5xiGyPdhOoDi7IYjzs0wGKhrymm1edipYq0OprVbK+Tfi
+	 KpHGgd21AN8EKuDeo27vK9/7CZ+5TYXF+RUbMG8FI3SV+yGYTxGJgSzPq5IBa6HRGK
+	 x71PcqLHusY4fBjcek1ZBdFVTyi+M6oxdtexi5RpEQ5Aex2Rg8F575I54UqEBdoYuH
+	 BMHhMI2aa6ymg==
+Date: Wed, 14 May 2025 14:31:25 -0500
+From: Rob Herring <robh@kernel.org>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 5/8] dt-bindings: memory: Add Tegra264 definitions
+Message-ID: <20250514193125.GA2845766-robh@kernel.org>
+References: <20250507143802.1230919-1-thierry.reding@gmail.com>
+ <20250507143802.1230919-6-thierry.reding@gmail.com>
+ <b6d4f40d-9ad2-48c7-a5a1-55b2ebc4e21d@kernel.org>
+ <apxlsl54wyigk7yovtrb2tadhhsad5ti7hdvueisjcdjzfk443@4q3fv6pjaac5>
+ <f346c140-52f6-4209-b62e-53dfa2c8c7c4@kernel.org>
+ <hitexxuelppvbdd3hyxf3qoncdizj6mvhiuhp63s7qpgkgqd6f@63xybk6n6dfn>
+ <ca0680d6-f846-49af-8470-3fe10d4f8610@kernel.org>
+ <prjmur3ih7kbf2hapdzp4vtbt5cd3coophsm24d2liykosvuda@nwxbvabp2m2m>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <prjmur3ih7kbf2hapdzp4vtbt5cd3coophsm24d2liykosvuda@nwxbvabp2m2m>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_122211_150450_40A05D17 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20250514_123128_824122_AA0BB73B 
+X-CRM114-Status: GOOD (  28.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,93 +79,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend the arm64 vgic_init test to check KVM_DEV_ARM_VGIC_CONFIG_GICV4
-attribute. This includes testing the interface with various
-configurations when KVM has vGICv4 enabled (kvm-arm.vgic_v4_enable=1
-cmdline) and disabled.
+On Thu, May 08, 2025 at 11:09:12AM +0200, Thierry Reding wrote:
+> On Thu, May 08, 2025 at 10:45:29AM +0200, Krzysztof Kozlowski wrote:
+> > On 08/05/2025 10:02, Thierry Reding wrote:
+> > >>
+> > >>
+> > >>> how much more you'd like me to make it based on that. Do you expect me
+> > >>> to add the nvidia, prefix? In that case it would be inconsistent with
+> > >>> all of the 8 other Tegra MC includes that we have in that directory.
+> > >>
+> > >>
+> > >> Same story as for every other case, why this would be different? All of
+> > >> them - amlogic, mediatek, samsung, qcom, every soc - move to new style
+> > >> since some years, why this one should be different?
+> > > 
+> > > Because we've used exactly this naming convention for more than a
+> > > decade. I get that it's nice to have consistency, but do you really want
+> > > me to go and churn all of these files just so we can add a vendor-prefix
+> > > and drop a redundant suffix?
+> > No, I want new files. Look:
+> > 1. Some time ago tegra-1.h was added.
+> > 2. Someone spotted that there was tegra-1.h, so added now tegra-2.h.
+> > 3. Now this is a pattern so of course next person, even if asked to use
+> > vendor prefix, will not, right? Because it would break the pattern. So
+> > we have tegra-3.h
+> > 4. tegra.4 - no vendor prefix, because you have already three cases.
+> > 5. You see where I am going?
+> > 
+> > All of above - amlogic, mediatek, samsung, qcom - had decade of such
+> > convention. I asked to changed, they used the same argument as you
+> > ("decade") and then changed.
+> > 
+> > Why this is different case than decade in amlogic, mediatek, samsung and
+> > qcom?
+> 
+> It's a matter of principle. One convention is as good as another. There
+> are no clear advantages of one over another. It's pointless and frankly
+> there are more important things than changing filenames that everybody
+> has been okay with for the last 10 years.
 
-Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
----
- tools/testing/selftests/kvm/arm64/vgic_init.c | 58 +++++++++++++++++++
- 1 file changed, 58 insertions(+)
+The issue is one convention is consistent for you and only you, the 
+other is consistent for *everyone*. And then we'll have someone argue 
+they are just following the same convention as Tegra...
 
-diff --git a/tools/testing/selftests/kvm/arm64/vgic_init.c b/tools/testing/selftests/kvm/arm64/vgic_init.c
-index b3b5fb0ff0a9..adcfaf461b2b 100644
---- a/tools/testing/selftests/kvm/arm64/vgic_init.c
-+++ b/tools/testing/selftests/kvm/arm64/vgic_init.c
-@@ -675,6 +675,63 @@ static void test_v3_its_region(void)
- 	vm_gic_destroy(&v);
- }
- 
-+static void test_v3_vgicv4_config(void)
-+{
-+	struct kvm_vcpu *vcpus[NR_VCPUS];
-+	uint8_t gicv4_config;
-+	struct vm_gic v;
-+	int ret;
-+
-+	v = vm_gic_create_with_vcpus(KVM_DEV_TYPE_ARM_VGIC_V3, NR_VCPUS, vcpus);
-+	if (__kvm_has_device_attr(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
-+					KVM_DEV_ARM_VGIC_CONFIG_GICV4))
-+		return;
-+
-+	kvm_device_attr_get(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
-+				KVM_DEV_ARM_VGIC_CONFIG_GICV4, &gicv4_config);
-+
-+	if (gicv4_config == KVM_DEV_ARM_VGIC_CONFIG_GICV4_UNAVAILABLE) {
-+		gicv4_config = KVM_DEV_ARM_VGIC_CONFIG_GICV4_DISABLE;
-+		ret = __kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
-+				KVM_DEV_ARM_VGIC_CONFIG_GICV4, &gicv4_config);
-+		TEST_ASSERT(ret && errno == ENXIO,
-+			"vGICv4 allowed to be disabled even though it's unavailable");
-+
-+		gicv4_config = KVM_DEV_ARM_VGIC_CONFIG_GICV4_ENABLE;
-+		ret = __kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
-+				KVM_DEV_ARM_VGIC_CONFIG_GICV4, &gicv4_config);
-+		TEST_ASSERT(ret && errno == ENXIO,
-+			"vGICv4 allowed to be enabled even though it's unavailable");
-+	} else { /* kvm-arm.vgic_v4_enable=1 */
-+		TEST_ASSERT(gicv4_config == KVM_DEV_ARM_VGIC_CONFIG_GICV4_ENABLE,
-+				"Expected vGICv4 to be enabled by default");
-+
-+		gicv4_config = KVM_DEV_ARM_VGIC_CONFIG_GICV4_DISABLE;
-+		kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
-+				KVM_DEV_ARM_VGIC_CONFIG_GICV4, &gicv4_config);
-+
-+		gicv4_config = KVM_DEV_ARM_VGIC_CONFIG_GICV4_ENABLE;
-+		kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
-+				KVM_DEV_ARM_VGIC_CONFIG_GICV4, &gicv4_config);
-+
-+		gicv4_config = KVM_DEV_ARM_VGIC_CONFIG_GICV4_ENABLE + 1;
-+		ret = __kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
-+			KVM_DEV_ARM_VGIC_CONFIG_GICV4, &gicv4_config);
-+		TEST_ASSERT(ret && errno == EINVAL,
-+			"vGICv4 allowed to be configured with unknown value");
-+
-+		kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
-+					KVM_DEV_ARM_VGIC_CTRL_INIT, NULL);
-+		gicv4_config = KVM_DEV_ARM_VGIC_CONFIG_GICV4_DISABLE;
-+		ret = __kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
-+			KVM_DEV_ARM_VGIC_CONFIG_GICV4, &gicv4_config);
-+		TEST_ASSERT(ret && errno == EBUSY,
-+			"Changing vGICv4 config allowed after vGIC initialization");
-+	}
-+
-+	vm_gic_destroy(&v);
-+}
-+
- /*
-  * Returns 0 if it's possible to create GIC device of a given type (V2 or V3).
-  */
-@@ -730,6 +787,7 @@ void run_tests(uint32_t gic_dev_type)
- 		test_v3_last_bit_single_rdist();
- 		test_v3_redist_ipa_range_check_at_vcpu_run();
- 		test_v3_its_region();
-+		test_v3_vgicv4_config();
- 	}
- }
- 
--- 
-2.49.0.1101.gccaa498523-goog
+If you had several drivers and add a new one, would you argue that the 
+new one should follow the conventions of the old drivers rather than 
+current conventions? No, you wouldn't.
 
+Rob
 
