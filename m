@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1660DC3ABD8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C6D2C3ABCC
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 15:04:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,61 +12,77 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f27OiLGZ47vvW0NTfr16vxC8ZXYHbNNP3KSKzgpu3h8=; b=B0h7J4/MLeJqMkZzYOTSyW1ut5
-	oUIx43efPGTDzVnXR9BPefIeVEcQr2J/z9hFl6SeQjsXnvzPqnDafIAVHXNQbg+QkVN8qkqIaTHaQ
-	mlXgvCGX7QRbWLgFzLcNvGPIJn03GwQSr1zgso8XQOnWPswP6sIT0z5YMAERzGUhV6dZVWlLDBhAK
-	2J02I30Fo5FXG5OqYCqYtmAmosCx1EMmORZPYORxd9/0MrEIKxEVq7u4478XUWqj0Plf+ClPbvH45
-	Fk+dp/4JHhEcQeD8vZtaktPSyiEpAVdJivFXM6fkSpl8mibvWdiZXEjnGEmIpTrIDoHyVQGLI0rj1
-	Ah1s/1dw==;
+	bh=COVORC5ZoG0XS3GIF+uUhDSRdHT+B3/GMEUBt0JkK9A=; b=a8v6aMEeUdOJtr4Rie1KFQDAeV
+	B4v2NKOZxYgFSZrpI3C2yCjp6VjHEpyWLMpJLSvFiov0eSpb9H071ZBFRENusqovqZ5k0yhsI3gWZ
+	yTRvH3ujyjb+DM+t/eGlE6JJbwgKWF97/Mzx4DI1c5l9uswf7BHkbX6bk306TvvxJzAh8a5vViwOY
+	WQumLtbUaJqgPw8EuWteFPcErfvNbqTjZTewVPY76JFFfnnlyI1ycO8aiS++BqtM3SLMd2W5d0q1S
+	r0sqGk9oiknWWBPjpQ5Q9gZm6h6bQVZ1xVCMXLcWE6Qi7wx3JuTjLF8gEppKxuwgaoo+dM7jr6C47
+	WX9Fq/vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFDec-0000000FVLt-1Hsz;
-	Wed, 14 May 2025 15:04:18 +0000
+	id 1uFDeb-0000000FVLB-2vz2;
+	Wed, 14 May 2025 15:04:17 +0000
 Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFB8K-0000000F5ar-2ado
+	id 1uFB7D-0000000F5OO-1Gsy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 12:22:49 +0000
-X-CSE-ConnectionGUID: qRA6NGTqR1SR9bXQEBmITg==
-X-CSE-MsgGUID: TNXeHadfTM6hVy8HSlO+Kw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11433"; a="66526242"
+	Wed, 14 May 2025 12:21:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1747225299; x=1778761299;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=EoXutM9PbRThg+M3pY+4biVE8gUy8AVfCsmM3x3cWtE=;
+  b=LFyB6TpEmyR42RhjG30hgnWj2H5u6NIgfmZO99Oc9T16qcQ74SddN3NF
+   qSbOJ/aIs0NEPeNzgXEO987gekoJmCmKeU0C2KDh5Hl8o7g7Dkus9IPb8
+   KTbnwbJArS3AsvBQrB4BNnUZL1dF3PPexevi+yqVSov6DrvRdHrR+L42B
+   FwBrFV8uDZAL4EB6eJpDlMfC4ph1O64UBO4BzUmPLTMgpUWuxVxM5EwW3
+   NdCGjVkfdMa9VfoM9lzfiymgE+Bk8TFqgtBO7DVsEsRYZo0SPJMauvWCz
+   ga4R8niu6ok2rtfc+aMR7zNrWlmHeKbGFg5t0uzW0Pwa0G0myqNTj63Rz
+   A==;
+X-CSE-ConnectionGUID: WSdpzipgQjqq91EItBww5A==
+X-CSE-MsgGUID: Lj3NzsUdSIm/zJxkzRJOMg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11433"; a="66526129"
 X-IronPort-AV: E=Sophos;i="6.15,288,1739865600"; 
-   d="scan'208";a="66526242"
+   d="scan'208";a="66526129"
 Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 05:22:48 -0700
-X-CSE-ConnectionGUID: jVh6CU3DTDishg36Z2t4Xg==
-X-CSE-MsgGUID: ywqvxL3qQsahLY7v8B01SQ==
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 05:21:38 -0700
+X-CSE-ConnectionGUID: dCU4ZW5WSYWQffXhrmD5IA==
+X-CSE-MsgGUID: jUhGvMw4T0OxK6yb6BEz7w==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.15,288,1739865600"; 
-   d="scan'208";a="138946955"
+   d="scan'208";a="138946674"
 Received: from smile.fi.intel.com ([10.237.72.52])
-  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 05:22:45 -0700
+  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 05:21:35 -0700
 Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andy@kernel.org>)
-	id 1uFB8D-00000001Y1g-3TVL;
-	Wed, 14 May 2025 15:22:41 +0300
-Date: Wed, 14 May 2025 15:22:41 +0300
-From: Andy Shevchenko <andy@kernel.org>
-To: Chen Ni <nichen@iscas.ac.cn>
-Cc: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	u.kleine-koenig@baylibre.com, robh@kernel.org, tglx@linutronix.de,
-	jirislaby@kernel.org, linux-iio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: adc: stm32-adc: Fix race in installing chained IRQ
- handler
-Message-ID: <aCSLEZoeafOporMf@smile.fi.intel.com>
-References: <20250514085138.3221059-1-nichen@iscas.ac.cn>
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1uFB76-00000001Y0G-1JFE;
+	Wed, 14 May 2025 15:21:32 +0300
+Date: Wed, 14 May 2025 15:21:32 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Judith Mendez <jm@ti.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>, Bin Liu <b-liu@ti.com>,
+	Andrew Davis <afd@ti.com>, linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 3/7] serial: 8250: Add PRUSS UART driver
+Message-ID: <aCSKzFHGl5ua3rrP@smile.fi.intel.com>
+References: <20250513215934.933807-1-jm@ti.com>
+ <20250513215934.933807-4-jm@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250514085138.3221059-1-nichen@iscas.ac.cn>
+In-Reply-To: <20250513215934.933807-4-jm@ti.com>
 Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_052248_695240_7E9E0815 
-X-CRM114-Status: UNSURE (   8.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250514_052139_409667_5692A7AE 
+X-CRM114-Status: GOOD (  24.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,12 +97,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 14, 2025 at 04:51:38PM +0800, Chen Ni wrote:
-> Fix a race where a pending interrupt could be received and the handler
-> called before the handler's data has been setup, by converting to
-> irq_set_chained_handler_and_data().
+On Tue, May 13, 2025 at 04:59:30PM -0500, Judith Mendez wrote:
+> From: Bin Liu <b-liu@ti.com>
+> 
+> This adds a new serial 8250 driver that supports the UART in PRUSS or
+> PRU_ICSS*.
+> 
+> The UART sub-module is based on the industry standard TL16C550 UART
+> controller, which has 16-bytes FIFO and supports 16x and 13x over
+> samplings.
 
-Sounds like it needs a Fixes tag.
+...
+
++ bits.h
+
+> +#include <linux/clk.h>
+
++ math.h
+
+> +#include <linux/module.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/serial_reg.h>
+> +#include <linux/serial_core.h>
+
+Can you keep them sorted?
+
+
+
+...
+
+> +static int pruss8250_startup(struct uart_port *port)
+> +{
+> +	int ret;
+> +
+> +	port->serial_out(port, PRUSS_UART_PEREMU_MGMT, 0);
+> +
+> +	ret = serial8250_do_startup(port);
+
+Please, use standard pattern, i.e.
+
+	if (ret)
+		return ret;
+	...
+	return 0;
+
+I believe I have told this previously. Can you double check that you read and
+addressed all of the comments?
+
+> +	if (!ret)
+> +		port->serial_out(port, PRUSS_UART_PEREMU_MGMT, PRUSS_UART_TX_EN |
+> +							       PRUSS_UART_RX_EN |
+> +							       PRUSS_UART_FREE_RUN);
+> +
+> +	return ret;
+> +}
+
+...
+
+> +static unsigned int pruss8250_get_divisor(struct uart_port *port,
+> +					  unsigned int baud,
+> +					  unsigned int *frac)
+> +{
+> +	unsigned int uartclk = port->uartclk;
+> +	unsigned int div_13, div_16;
+> +	unsigned int abs_d13, abs_d16;
+> +	u16 quot;
+> +
+> +	div_13 = DIV_ROUND_CLOSEST(uartclk, 13 * baud);
+> +	div_16 = DIV_ROUND_CLOSEST(uartclk, 16 * baud);
+> +	div_13 = div_13 ? : 1;
+> +	div_16 = div_16 ? : 1;
+> +
+> +	abs_d13 = abs(baud - uartclk / 13 / div_13);
+> +	abs_d16 = abs(baud - uartclk / 16 / div_16);
+> +
+> +	if (abs_d13 >= abs_d16) {
+
+Isn't this something like abs_diff() ?
+
+> +		*frac = PRUSS_UART_MDR_16X_MODE;
+> +		quot = div_16;
+> +	} else {
+> +		*frac = PRUSS_UART_MDR_13X_MODE;
+> +		quot = div_13;
+> +	}
+> +
+> +	return quot;
+> +}
+
+> +static int pruss8250_probe(struct platform_device *pdev)
+> +{
+> +	struct uart_8250_port port8250;
+> +	struct uart_port *port = &port8250.port;
+> +	struct device *dev = &pdev->dev;
+> +	struct pruss8250_data *data;
+> +	struct resource *res;
+> +	int ret;
+> +
+> +	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
+
+Needs device/devres.h.
+
+> +	if (!data)
+> +		return -ENOMEM;
+
+Needs err.h (actually errno.h, but that's not enough for the following IS_ERR()
+et al.)
+
+> +	memset(&port8250, 0, sizeof(port8250));
+
+Instead of having dependency on string.h (which is missed) just assign it to {}
+in the definition.
+
+> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> +	if (!res) {
+> +		dev_err(&pdev->dev, "Failed to get resource");
+> +		return -EINVAL;
+
+	return dev_err_probe();
+
+> +	}
+
+> +	if (!port->uartclk) {
+> +		data->clk = devm_clk_get(dev, NULL);
+> +		if (IS_ERR(data->clk)) {
+> +			dev_err(dev, "Failed to get clock!\n");
+> +			return -ENODEV;
+> +		} else {
+> +			port->uartclk = clk_get_rate(data->clk);
+> +			devm_clk_put(dev, data->clk);
+
+I think you completely ignored my review I have done in previous version...
+
+> +		}
+> +	}
+
+Should be done after uart_read_properties().
+
+> +	port->dev = dev;
+> +	port->mapbase = res->start;
+> +	port->mapsize = resource_size(res);
+> +	port->type = PORT_16550A;
+> +	port->flags = UPF_BOOT_AUTOCONF | UPF_FIXED_PORT | UPF_FIXED_TYPE |
+> +		      UPF_IOREMAP;
+> +	port->startup = pruss8250_startup;
+> +	port->rs485_config = serial8250_em485_config;
+> +	port->get_divisor = pruss8250_get_divisor;
+> +	port->set_divisor = pruss8250_set_divisor;
+> +
+> +	ret = uart_read_port_properties(port);
+> +	if (ret)
+> +		return ret;
+> +
+> +	port->iotype = UPIO_MEM32;
+> +	port->regshift = 2;
+> +
+> +	spin_lock_init(&port8250.port.lock);
+> +	port8250.capabilities = UART_CAP_FIFO | UART_CAP_AFE;
+> +
+> +	ret = serial8250_register_8250_port(&port8250);
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "Unable to register 8250 port.\n");
+> +
+> +	data->line = ret;
+> +	platform_set_drvdata(pdev, data);
+> +	return 0;
+> +}
 
 -- 
 With Best Regards,
