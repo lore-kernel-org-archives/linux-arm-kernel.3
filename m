@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8877C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 17:46:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A997C3DA4A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 17:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NYm5ir7LkLJDnjv+SaAFsFrJ7Hx7YQhrcQHfD+xKsD0=; b=mtagQuYCNqcjtXVuAWpu5eo9XY
-	/PlAuJ0uIwRt9z3nJk43C9wwjk65MwJWtfVO5Cz/9NGoU4PpRXrvRjINHaCyJybbtEdJ9UOb6ogPG
-	jMJb2KoLkOFM64mwbRouFR2cg1volTNrxcCIkE+1IK15E+oVQELeujRzooSegcUcqjX+ziFCuAPbq
-	uQxq0VI/cozB5pYPf+jfvd2ADqmxOGse1onEqO5dIRiq5OEyfE9KowLBhhCZw6v0qJjZfO5FDJzQ0
-	aMaUvXxPu1viaxwLKBBnCIYJO2CkiCaFAytYjWYf1q9YvRZ0jfalr8b/Cv2EeC/QeQdHdNc2jVPDo
-	BCvwZHHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=caXrbM+IErpcuhLJrqj4Tmos5fSW8Ki2R+zotzaxsxg=; b=WgOEZojVgEJoF2h3SqewD7hhAb
+	kL3m+Xy8MVWgpsMK48DgpqAEZX/UCjQOhuO1xVFDrvZVlWI/Wt5Er2Rl+iwrKNMlquk+ExFqS3wN7
+	yBQ2vmvwTn7SvABMuJTCe7WbLldlBwehj79gnnGotmv+ZE90tfXSsiBXr9WauH4vpptHzlr6rzUDq
+	jP8sFUE66yZnUXPqxRM5j/rnyNsd8NbrL/TnAx577G3+SHy9N4xQ0SHyH5nsvSTy5JGyCJp2SfxDl
+	UnhjrrBRO5Hcfa2l0Fs4GeyNEqR77iTsbJgBoEBuk9hKxyQoY83V7pX/1GAcgdtu7l0BZQzPTIaoX
+	hvx1wb8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFGBN-0000000Ftid-1ecC;
-	Wed, 14 May 2025 17:46:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uFGBP-0000000Ftjm-359c;
+	Wed, 14 May 2025 17:46:19 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFDip-0000000FWfS-0YD2
+	id 1uFDnu-0000000FXmE-0JJg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 15:08:40 +0000
+	Wed, 14 May 2025 15:13:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D60B04A2FD;
-	Wed, 14 May 2025 15:08:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BEBEC4CEE3;
-	Wed, 14 May 2025 15:08:37 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B28885C1017;
+	Wed, 14 May 2025 15:11:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0152AC4CEE3;
+	Wed, 14 May 2025 15:13:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747235318;
-	bh=dkUlkhBMN1t5KmsuDVUB+kb6HjGenkUO4srDC9L1fQ0=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
-	b=TzaJryF4QEbqCY9JT5vXe7oyF7HcBzwcsyH8Dy8zfU1XzVYj0rUfz7AAI4slg/IKW
-	 k19zDKyuLgxgcmcG9Hc2NoKOliC1Xhhok1Dfd3/x9niP13rJYiiRf8qCNdLsYjmRx5
-	 rx1NmjYLze6uOKuSr5K/ptr5f0epDCoNDpvjiUB43rdUaUecMqy6YKdHj/XSGHSSnr
-	 x02MaB7brWzbHBl5ye48rg98iPOxwlJdgtrx3qKqArufS7ATM9VCcwxd+AEjvuXKSx
-	 S/6L+hpht9awAX4As2CKVy2Yv5lXW8AwgGx8PJs0UuBebJFab5v82GFpoP6cFGtzwl
-	 74tFcd5pmyqPA==
-Message-ID: <a509a73e96ff6875c9c5d09b6f12d35e@kernel.org>
-Date: Wed, 14 May 2025 15:08:35 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Ryan Walklin" <ryan@testtoast.com>
-Subject: Re: [PATCH v10 01/11] drm: sun4i: de2/de3: add mixer version enum
-In-Reply-To: <20250511104042.24249-2-ryan@testtoast.com>
-References: <20250511104042.24249-2-ryan@testtoast.com>
-Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-sunxi@lists.linux.dev, "Andre
- Przywara" <andre.przywara@arm.com>, "Chen-Yu Tsai" <wens@csie.org>, "Chris
- Morgan" <macroalpha82@gmail.com>, "Conor Dooley" <conor+dt@kernel.org>, "Daniel
- Vetter" <daniel@ffwll.ch>, "David Airlie" <airlied@gmail.com>, "Dmitry
- Baryshkov" <dmitry.baryshkov@linaro.org>, "Hironori KIKUCHI" <kikuchan98@gmail.com>, "Jernej
- Skrabec" <jernej.skrabec@gmail.com>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, "Philippe Simons" <simons.philippe@gmail.com>, "Rob
- Herring" <robh@kernel.org>, "Samuel Holland" <samuel@sholland.org>, "Stephen
- Boyd" <sboyd@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>
-Content-Transfer-Encoding: 7bit
+	s=k20201202; t=1747235632;
+	bh=O1lz6Q1yfa8CYrEI5GX8mlyJMW/kVMWyCbTcUdCC5eM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DW+Lzp9HdPWLoHdkJz7iOn+k+Z1Cetdo1F/t4kgwns9ANb8hZ2oHNjsL6dcpj0nb2
+	 TKKuLdr/tyJ4ukjNShLQQ2ZaWdvXybQKk5k0WolzqgvDjiVb+SWQIt4aSKSeo3/S/1
+	 crz3L+LskPut0T8BbdoJMAQ689QSTlbYc2AIf+rIR/dEcFcFEHAhKrWKzIKi6JJpMQ
+	 OjJNXHtw6YTAZyMJX5OnWmekoc4Oy63ZSvAljoqu9p3m0ZXFtRVmRBPob4IJobVyNv
+	 abktZzol5yoSlbzDhCxx4gC/a9SgkkWq9caWAbRKmbe3DlQK3PbRPqFky6OBSYk1Wo
+	 +ZdxE+6/cLK7g==
+Date: Wed, 14 May 2025 16:13:46 +0100
+From: Will Deacon <will@kernel.org>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	David Hildenbrand <david@redhat.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	syzbot+5c0d9392e042f41d45c5@syzkaller.appspotmail.com
+Subject: Re: [PATCH] arm64/mm: Disable barrier batching in interrupt contexts
+Message-ID: <20250514151345.GA10762@willie-the-truck>
+References: <20250512102242.4156463-1-ryan.roberts@arm.com>
+ <20250513204603.GA9866@willie-the-truck>
+ <8d4e66ef-a292-45ff-9c4a-0248aff44fd3@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8d4e66ef-a292-45ff-9c4a-0248aff44fd3@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_080839_189909_4EACD1FA 
-X-CRM114-Status: UNSURE (   6.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250514_081354_166800_729F2A6F 
+X-CRM114-Status: GOOD (  25.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,17 +86,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 11 May 2025 22:31:10 +1200, Ryan Walklin wrote:
-> From: Jernej Skrabec <jernej.skrabec@gmail.com>
+On Wed, May 14, 2025 at 10:29:17AM +0100, Ryan Roberts wrote:
+> On 13/05/2025 21:46, Will Deacon wrote:
+> > On Mon, May 12, 2025 at 11:22:40AM +0100, Ryan Roberts wrote:
+> >> Commit 5fdd05efa1cd ("arm64/mm: Batch barriers when updating kernel
+> >> mappings") enabled arm64 kernels to track "lazy mmu mode" using TIF
+> >> flags in order to defer barriers until exiting the mode. At the same
+> >> time, it added warnings to check that pte manipulations were never
+> >> performed in interrupt context, because the tracking implementation
+> >> could not deal with nesting.
+> >>
+> >> But it turns out that some debug features (e.g. KFENCE, DEBUG_PAGEALLOC)
+> >> do manipulate ptes in softirq context, which triggered the warnings.
+> > 
+> > Hmm. Do we also have to worry about the case where a softirq is triggered
+> > off the back of a hardirq *and* that hardirq is taken while we're in the
+> > middle of e.g. queue_pte_barriers()? In that case, I think we can end
+> > up in strange situations, such as having LAZY_MMU_PENDING set when
+> > LAZY_MMU is clear, although it looks like things still work even in that
+> > case.
 > 
-> The Allwinner DE2 and DE3 display engine mixers are currently identified
-> by a simple boolean flag. This will not scale to support additional DE
-> variants.
+> I don't see any problem here. This change ensures that we always behave the
+> "old" way in interrupt context. So the interrupt context will never even look at
+> those TIF flags, so it doesn't matter that the task context is midway through
+> changing the flags when the interrupt comes in.
 > 
-> [ ... ]
+> (although somehow I feel like I should be bracing for a zinger :)
 
-Acked-by: Maxime Ripard <mripard@kernel.org>
+Ha, for some reason, I was looking at the code _without_ your fix
+applied. Although it's quite hard to think about, I couldn't spot any
+other issues with nesting beyond the one you call out at the end of the
+commit message. Your patch makes all of this a lot simpler, though, so
+I'll pick it up (along with the other one).
 
-Thanks!
-Maxime
+Thanks,
+
+Will
 
