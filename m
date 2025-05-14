@@ -4,97 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29CF5C3ABDA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 22:12:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53DDAC3ABDA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 22:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wc0A1p7mdRd30i4t63QQJzevb0CTvreBT6v3OrGsVWA=; b=NqfUw39W1MI4dlI5hOHTMCzCXi
-	8bjzSuCvcdwrC3kxvn2pMPUEMpG91oTrJWf5b4BPvdNWSqKGy6ycLjGNYm4cPim6qd6GlZHthi8P0
-	8phS8oBmp2EZM7kEwUP+3veLu0tFYIPU57qIGhdcLMPa8VTe6b5kGIjxoBYj2U2LE7vdMXNQLzHlw
-	qkEvhV/xXI9R9tVmlaznLP0c479fXyZk6ybEpxauxADiai0HtlNRxV36aw3sjKuDDc5MJoKuMFIRd
-	1uW++ugPKcWU36aeml/7E7/tShKSiQ84iIStsjAlBSJBMJwbyHxS3tmJpmV7rByEJuaKP60MM4LLM
-	PjzyAXBw==;
+	bh=fI2zMJOmV0A0dLVKe1Xqy+6wNFiGQyubOlW4Xt8XN6U=; b=cmXJ80/5VG7/Z5/TwBHGNVHSy4
+	6fftbTkKvnrAzEUiFbhR/2D8cMNO42VgCM0465Ss78OP6GGpY8obQDZqEW0czUKQpL/LeGkHfbvXK
+	zryXkhHhyhWjFWUN2XfZYttu8H91LWAYer2m3oXmJ/WA94Z7pGCofnmVby1qLCyHN3oR3pUbPcnqj
+	BH3cGMnVNXUTfGFVZ/DVxZm9pFcgNhXBZZOlTb8dcXtLUe0Tvas7/uhoEgrXf9zl6CGLZLlNZrSeM
+	U2rTZrWM48dz+kYUU52KGPmGVHE3j0yAEc38ebEY0ULBWytTveF9RGu9HNTu3+DVx0schzMHVxj5R
+	fx8JUwXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFKL3-0000000GTi4-1E9f;
-	Wed, 14 May 2025 22:12:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uFKN3-0000000GTvw-4BVh;
+	Wed, 14 May 2025 22:14:38 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFKD2-0000000GS6m-2b7e
+	id 1uFKDR-0000000GSF2-1fh9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 22:04:17 +0000
+	Wed, 14 May 2025 22:04:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CB3044A9DF;
-	Wed, 14 May 2025 22:04:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 756E9C4CEEF;
-	Wed, 14 May 2025 22:04:15 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id AF879A4E2AE;
+	Wed, 14 May 2025 22:04:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FFF9C4CEED;
+	Wed, 14 May 2025 22:04:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747260255;
-	bh=kSYN5wSnAW3gZ+9G6lJ65RsA0L1GRRokgz8LEmwge8I=;
+	s=k20201202; t=1747260280;
+	bh=VF/6ptY3YAA/WhG9VLCXpoTM5T1oQlAmB00KMlDK8LQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UF4woT/PdK5/zYCNEqorTNCUe/N1+BoNjs3pgsYXQuukwOstmZoDbUxS7Rm7nq8KT
-	 wCApHTnyhWsv8YVBvX2mTKGT7gfAY7iY9SLqJF3dhZkS/HdNf4JTOHRG2VUXFQViaV
-	 Q/81W/B9Bc29AxdKGJ9kLJhqEZTogfMZ+dP70Q35UQs4X9W2iu+VlLwv9596fFaQ/P
-	 Cetobslyxg/fVJ6XpjZ2BroXp6QCY5SMWy8lI0rJ3KlGe7tal5IFRhemOa9kfjgvHb
-	 2BChcdGELMAm+P/DUho+o0GQ3Ho31ZWZJlf4ajL7h+tRO7bzrNrq+90VcJ39nab4p1
-	 Pn0EtQOi7+TQQ==
-Date: Wed, 14 May 2025 17:04:13 -0500
+	b=SZvDOd5IsEj3W7FooGL26wkWPwWGxk8bH/xzhj85q0rf1OJ0umY1BbrW2e2cubOq9
+	 FZbQ1zAV1yAdrPaWE658yaUur5UHhW85U8fQJNQI+eJmXigtQT+P77QHGj/zoMHVh9
+	 U8rQqKcZti+UbL9XHXJjj3VmMdqmm32ZrR40hEI4/elboe1ZSuNpjvimNHLBVz9LMw
+	 mGeYfLKOIl0+4MetZAh5uzPZYG8pEmSQRYi3x4pElF6d8o6b5aKGi/SDM9Vj1ySsBL
+	 5lXS3v3eRMGysVRbj6BDqp8WcIrUggMWqKiqDnbOtD641TOh0qjOsdbz2KT7je2B+R
+	 tMA7KQOKqYiNA==
+Date: Wed, 14 May 2025 17:04:38 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Cosmin Tanislav <demonsingur@gmail.com>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+Cc: Ross Burton <ross.burton@arm.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
 	Eric Biggers <ebiggers@google.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Will Deacon <will@kernel.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Ross Burton <ross.burton@arm.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
 	Dongcheng Yan <dongcheng.yan@intel.com>,
 	Julien Massot <julien.massot@collabora.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	linux-media@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Cosmin Tanislav <cosmin.tanislav@analog.com>,
-	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
-	Taniya Das <quic_tdas@quicinc.com>,
-	linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
-	Ricardo Ribalda <ribalda@chromium.org>,
-	linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
-	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Liam Girdwood <lgirdwood@gmail.com>, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, Liu Ying <victor.liu@nxp.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Liu Ying <victor.liu@nxp.com>,
-	=?iso-8859-1?Q?N=EDcolas_F_=2E_R_=2E_A_=2E?= Prado <nfraprado@collabora.com>,
-	linux-gpio@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Tommaso Merciai <tomm.merciai@gmail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Zhi Mao <zhi.mao@mediatek.com>,
+	=?iso-8859-1?Q?N=EDcolas_F_=2E_R_=2E_A_=2E?= Prado <nfraprado@collabora.com>,
 	Bjorn Andersson <andersson@kernel.org>,
-	Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v3 07/19] dt-bindings: media: i2c: max96712: use pattern
- properties for ports
-Message-ID: <174726025353.3123437.1360215980060366369.robh@kernel.org>
+	Mark Brown <broonie@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Hans Verkuil <hverkuil@xs4all.nl>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	linux-staging@lists.linux.dev,
+	Linus Walleij <linus.walleij@linaro.org>,
+	linux-media@vger.kernel.org,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>,
+	Cosmin Tanislav <cosmin.tanislav@analog.com>,
+	Ricardo Ribalda <ribalda@chromium.org>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Taniya Das <quic_tdas@quicinc.com>,
+	Tommaso Merciai <tomm.merciai@gmail.com>,
+	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 08/19] dt-bindings: media: i2c: max96712: add support
+ for I2C ATR
+Message-ID: <174726027793.3124111.7562097751443784673.robh@kernel.org>
 References: <20250512212832.3674722-1-demonsingur@gmail.com>
- <20250512212832.3674722-8-demonsingur@gmail.com>
+ <20250512212832.3674722-9-demonsingur@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250512212832.3674722-8-demonsingur@gmail.com>
+In-Reply-To: <20250512212832.3674722-9-demonsingur@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_150416_680501_5EA4E527 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20250514_150441_503262_C3E86043 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,16 +109,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 13 May 2025 00:28:16 +0300, Cosmin Tanislav wrote:
-> The MAX96712 and MAX96724 support up to 4 separate PHYs, depending on
-> the selected PHY configuration. Use patternProperties to document this.
+On Tue, 13 May 2025 00:28:17 +0300, Cosmin Tanislav wrote:
+> MAX96712 and MAX96724 have more than one GMSL2 link, and each link is
+> capable of connecting to a separate serializer. If these serializers
+> have the same CFG pins configuration, they will also have the same I2C
+> address, causing conflicts unless the deserializer changes the address
+> of the connected serializers.
 > 
-> The input ports are all the same, use patternProperties for them.
+> The MAX96712 and MAX96724 support changing the I2C address of the
+> connected serializers.
+> 
+> Document this capability.
 > 
 > Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
 > ---
->  .../bindings/media/i2c/maxim,max96712.yaml    | 29 +++++++------------
->  1 file changed, 10 insertions(+), 19 deletions(-)
+>  .../bindings/media/i2c/maxim,max96712.yaml    | 31 +++++++++++++++++++
+>  1 file changed, 31 insertions(+)
 > 
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
