@@ -4,92 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74EF1C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 22:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5025C3ABDA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 22:06:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=COLxGQOVY8yt2fr7J5AtRemZ8VM27w02vgM7FuSdjVM=; b=tdUdQhf5QqX4voLbjzfG8ZrMSX
-	VQtP2mwuJdYyfW/qFC0CIkGTkiW858UDEAz26h84nlnU5x82038IxfcNykTe2IVdv3Dz2tpS9pWg+
-	yiqSYVGAMNTxUwDuZnDFgrDFC3ZYECk3wwMDKUarUQzX3LjzIecfHq13bXF5sNpn70BGluGJL12nv
-	/3bOvIivDJTJlqFOGs13BDeof5SLaTUYqbbZQcHYgkExkuK8HldcLGkgAF5HiLGF0o0dVEQtVvzTf
-	piv8ygQFfHgBd7FsXZgYhFu5xtesY+OFrdAlBiUWoRwmgMGwCgevVv67A9/BRHnzxW2IbdYpl8pLQ
-	4fzeaqRA==;
+	bh=GnoLzcOalNEGfB6bC4U/GG0uqW8KtqGG0WUQtJf8iiY=; b=brogx53H695607DyztJ+YPPedN
+	Y6LNqNScUGfjSwFt9PYxxIc7GaChmJy2aN+k3aOEI0TGDLwcS1K9/HtljqbZiDMbP1kdHHXOrlrHc
+	RA60AdokvdcZsDWeTMWeklKXZ31R79PK5GC6iyniP7TN6jnQThpFdLnLOkLScER5vQBtXViCAxMiO
+	2BMb46GLuigPeYlMHzKmio3lK8uFl+OEZ4I/rpWmMxiH/lxoWrmSYuuEO/qXYDPLgUYDlvvQSrZQ8
+	k7d4qyG5cxzYDRm7YHtjMNarrE5q52PER//MpL7qhX2b9Lsr9VI19sYnaco4UwsvTGKRNjPjiQnw8
+	mE0+tqpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFKD2-0000000GS6q-1ijQ;
-	Wed, 14 May 2025 22:04:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uFKF3-0000000GSer-0hsp;
+	Wed, 14 May 2025 22:06:21 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFKAO-0000000GRiG-1bDT
+	id 1uFKAw-0000000GRls-38qx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 22:01:32 +0000
+	Wed, 14 May 2025 22:02:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5D787629E4;
-	Wed, 14 May 2025 22:01:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5AC3C4CEE3;
-	Wed, 14 May 2025 22:01:30 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2736A5C6848;
+	Wed, 14 May 2025 21:59:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0848C4CEE3;
+	Wed, 14 May 2025 22:02:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747260091;
-	bh=MyzjnthvybELOM4JvFy1xzr8PF39cyQLUmn5pDE6Ihw=;
+	s=k20201202; t=1747260125;
+	bh=bBCMDxAQqB223GvdKm9yHRzBPrInid0txIiE0L/rdLk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VyXr+1Vq93LQsdNac7iCM7MAdHJtBYJE3PYL1oocxeEjvmEWQL+dF1/8+ROuUCvFK
-	 dY5QplCKRZO9ty72rWusWC/7wJbeDaxSfXfqSI6zdjaL9NNmxtYF289fODYD91OMmg
-	 IJtsvT7FswkQj1bEMhC7fxVPFqnnjAHNqCZKDfrVyynZ0/xJXm2KeRL3AYxILtc+GB
-	 sA6y2STbAzTbGL/FmxFS3qg01TnzB3GZ9jxQB4E26LeqYvfW0LhAISYclCngk8XLD7
-	 3JSBmPEvSRiHAcPqgmQ2MJqYa8KYJSJnf2VBvu7eS7h+vGzr/pffM/XT7Zqedcxx9X
-	 SxL1hABJnE2yA==
-Date: Wed, 14 May 2025 17:01:28 -0500
-From: Rob Herring <robh@kernel.org>
+	b=Wlt6WydL4OlmyBn1uPevsmGDaJwHta+vKvolkNv5JmwU7YG1xolTibG0Sa62P+wMc
+	 CAB9rSiSGyooqzKWWut3SciuoToVo8kC4olRP6xQ27WCWtBCyeH5fHXVtFC967YrlE
+	 71fLEC/Hb7Ygn5kxZH4YK5so4WOs98TzJhJD7K1d0pMCLKbD+4UTHkVVCBKStLPxCs
+	 F8HwjxUiZU+g/aNh09z28uunT1Va7moIR4TvvYeU/UNAQg0E9dHqt2U+Wa0qd9cc80
+	 3jBVst83TxjAR26sTbP/BL6tE6K+B/hxe6ZLKufhi/7Lh1zPfudUNP8GZGbiMjLiAE
+	 V3XbroG1u97Yw==
+Date: Wed, 14 May 2025 17:02:03 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Cosmin Tanislav <demonsingur@gmail.com>
-Cc: Cosmin Tanislav <cosmin.tanislav@analog.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+Cc: Dan Carpenter <dan.carpenter@linaro.org>, devicetree@vger.kernel.org,
+	Liu Ying <victor.liu@nxp.com>,
+	Dongcheng Yan <dongcheng.yan@intel.com>,
 	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
 	Julien Massot <julien.massot@collabora.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	=?iso-8859-1?Q?N=EDcolas_F_=2E_R_=2E_A_=2E?= Prado <nfraprado@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
+	Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>,
+	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
+	linux-kernel@vger.kernel.org, Eric Biggers <ebiggers@google.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Taniya Das <quic_tdas@quicinc.com>, Will Deacon <will@kernel.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
 	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Ross Burton <ross.burton@arm.com>,
+	Hans Verkuil <hverkuil@xs4all.nl>, Zhi Mao <zhi.mao@mediatek.com>,
+	linux-staging@lists.linux.dev,
+	Tommaso Merciai <tomm.merciai@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Mark Brown <broonie@kernel.org>,
+	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
+	Conor Dooley <conor+dt@kernel.org>, linux-media@vger.kernel.org,
 	Bjorn Andersson <andersson@kernel.org>,
 	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Cosmin Tanislav <cosmin.tanislav@analog.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Vignesh Raghavendra <vigneshr@ti.com>,
-	=?iso-8859-1?Q?N=EDcolas_F_=2E_R_=2E_A_=2E?= Prado <nfraprado@collabora.com>,
-	Taniya Das <quic_tdas@quicinc.com>, Liu Ying <victor.liu@nxp.com>,
-	Ross Burton <ross.burton@arm.com>,
-	Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Zhi Mao <zhi.mao@mediatek.com>,
-	Dongcheng Yan <dongcheng.yan@intel.com>,
-	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Tommaso Merciai <tomm.merciai@gmail.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
 	Ricardo Ribalda <ribalda@chromium.org>,
-	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-staging@lists.linux.dev, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v3 03/19] dt-bindings: media: i2c: max96717: add support
- for pinctrl/pinconf
-Message-ID: <20250514220128.GA3111478-robh@kernel.org>
+	Liam Girdwood <lgirdwood@gmail.com>
+Subject: Re: [PATCH v3 04/19] dt-bindings: media: i2c: max96717: add support
+ for MAX9295A
+Message-ID: <174726012257.3116712.4544442889949224547.robh@kernel.org>
 References: <20250512212832.3674722-1-demonsingur@gmail.com>
- <20250512212832.3674722-4-demonsingur@gmail.com>
+ <20250512212832.3674722-5-demonsingur@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250512212832.3674722-4-demonsingur@gmail.com>
+In-Reply-To: <20250512212832.3674722-5-demonsingur@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250514_150206_850501_2C2742F2 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,154 +105,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 13, 2025 at 12:28:12AM +0300, Cosmin Tanislav wrote:
-> MAX96717 is capable of configuring various pin properties.
+
+On Tue, 13 May 2025 00:28:13 +0300, Cosmin Tanislav wrote:
+> MAX9295A is an older variant of the MAX96717 which does not support
+> tunnel mode.
 > 
-> Add pinctrl/pinconf properties to support this usecase.
+> Document the compatibility.
 > 
 > Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
 > ---
->  .../bindings/media/i2c/maxim,max96717.yaml    | 110 ++++++++++++++++++
->  MAINTAINERS                                   |   1 +
->  2 files changed, 111 insertions(+)
+>  .../devicetree/bindings/media/i2c/maxim,max96717.yaml      | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
-> index 167c3dd50683..5998e2518be9 100644
-> --- a/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
-> +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
-> @@ -121,6 +121,116 @@ required:
->    - reg
->    - ports
->  
-> +patternProperties:
-> +  '-pins$':
-> +    type: object
-> +    additionalProperties: false
-> +
-> +    properties:
-> +      function:
-> +        enum: [gpio, rclkout]
-> +
-> +      pins: true
-> +      drive-open-drain: true
-> +      drive-push-pull: true
-> +      bias-disable: true
-> +      output-disable: true
-> +      output-enable: true
-> +      output-low: true
-> +      output-high: true
-> +      input-enable: true
-> +
-> +      slew-rate:
-> +        description: |
-> +          Slew rate.
-> +          0 - Fastest
-> +          1 - Fast
-> +          2 - Slow
-> +          3 - Slowest
-> +        maximum: 3
-> +
-> +      bias-pull-up:
-> +        oneOf:
-> +          - type: boolean
-> +            description: Enable regular 40kOhm pull-up
-> +          - enum: [ 40000, 1000000 ]
-> +            description: Enable either the 40kOhm or the 1MOhm pull-up
-> +
-> +      bias-pull-down:
-> +        oneOf:
-> +          - type: boolean
-> +            description: Enable regular 40kOhm pull-down
-> +          - enum: [ 40000, 1000000 ]
-> +            description: Enable either the 40kOhm or the 1MOhm pull-down
-> +
-> +      maxim,jitter-compensation:
-> +        type: boolean
-> +        description: Enables jitter compensation.
-> +
-> +      maxim,gmsl-tx:
-> +        type: boolean
-> +        description: Enable transmitting pin value to GMSL link.
-> +
-> +      maxim,gmsl-rx:
-> +        type: boolean
-> +        description: Enable receiving pin value from GMSL link.
-> +
-> +      maxim,gmsl-tx-id:
-> +        $ref: /schemas/types.yaml#/definitions/uint32
-> +        description:
-> +          Identifier used while transmitting value to GMSL link.
-> +          Default value matches the pin number.
-> +        minimum: 0
-> +        maximum: 31
-> +
-> +      maxim,gmsl-rx-id:
-> +        $ref: /schemas/types.yaml#/definitions/uint32
-> +        description:
-> +          Identifier used while receiving value from GMSL link.
-> +          Default value matches the pin number.
-> +        minimum: 0
-> +        maximum: 31
-> +
-> +      maxim,rclkout-clock:
-> +        $ref: /schemas/types.yaml#/definitions/uint32
-> +        description: |
-> +          Clock value.
-> +          0 - XTAL / 1 = 25MHz
-> +          1 - XTAL / 2 = 12.5MHz
-> +          2 - XTAL / 4 = 6.25MHz
-> +          3 - Reference PLL output
-> +        minimum: 0
-> +        maximum: 3
-> +
-> +    required:
-> +      - pins
-> +      - function
-> +
-> +    allOf:
-> +      - $ref: /schemas/pinctrl/pincfg-node.yaml#
-> +      - $ref: /schemas/pinctrl/pinmux-node.yaml#
-> +
-> +      - if:
-> +          properties:
-> +            function:
-> +              const: gpio
-> +        then:
-> +          properties:
-> +            pins:
-> +              items:
-> +                enum: [mfp0, mfp1, mfp2, mfp3, mfp4, mfp5, mfp6, mfp7,
-> +                       mfp8, mfp9, mfp10]
-> +
-> +      - if:
-> +          properties:
-> +            function:
-> +              const: rclkout
-> +        then:
-> +          properties:
-> +            pins:
-> +              items:
-> +                enum: [mfp0, mfp1, mfp2, mfp3, mfp4, mfp7, mfp8]
-> +
->  additionalProperties: false
->  
->  allOf:
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 8f463ebca056..f8ffb7cff9c5 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -14201,6 +14201,7 @@ M:	Julien Massot <julien.massot@collabora.com>
->  M:	Cosmin Tanislav <cosmin.tanislav@analog.com>
->  L:	linux-media@vger.kernel.org
->  S:	Maintained
-> +F:	Documentation/devicetree/bindings/media/i2c/maxim,max96717-pinctrl.yaml
 
-Don't think you need this...
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
->  F:	Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
->  F:	drivers/media/i2c/max96717.c
->  
-> -- 
-> 2.49.0
-> 
 
