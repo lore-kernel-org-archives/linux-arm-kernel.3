@@ -4,82 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D24EC3ABDF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42730C3ABDE
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 12:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=r1a+Jd1mXikhLLAztwlCMEIW/Owqmg6EjmP4qjavAao=; b=WxXQZXgs9bF1tEM9tOZLsPOsjb
-	xK23+5b3TOuZ3aSDrtIfnf90bBxQAXzod+kL9H8HW52DJ8QNeXPIY82RXv8mslowitW0xr5NxtipM
-	5RDyxS47TdNW7/M7k8lRWOzc/dADsTSebtsMa5R9TYimnBWOyusNfRkvv7b9nTL+8Q2KKSWv/ixf5
-	6sc3WB3IymFaPVrtiyxrumJQQPOEQtmX2//YjIBBtGe+pz2xTKSUJjxDZ7ec3w5mNcJnfWWrYI4Sc
-	SrJhKwXVeAtVaPz7MYZh3CDRczQQAKbG/pnSMsGaOi8KjFIiu5JwQELjSJB8Y3b5wkOhy69uRWuju
-	vqnENjMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q8OI1ZU7AHmHhbA3+QuG7FVXXKsV9VE0DWdSjUFONw4=; b=aZ03mLFMF2j/AEG+L1xofeESpB
+	c8arNu8EcIWLTKEPr85ekr4xQ7ue3cnQxIBvv1OKy6vZQlOJXI3IaU0lvmkgk8AyX9DEal6OSPNb7
+	HsT1c5ej3qDJvrSDaOSZLNYSo2lMegRvafHIyASoEUnsFHdcW7xHRCa0kIeX1OpGSEGo8bJ+IXQVO
+	NLJqRdnKFRGHOcjX+9Yc4y85E7Exkpi6y0y3v13nfbzFVIExV/S6w+5fJSEZWqYmzRK2+64sJp781
+	Oig2n/Q3251BQG6A/h45jD/QInakXakyMk1LjvMrSbOGaeDzpJO2nUX1ya4b8Op59B6gZdPxhl6t7
+	NHJIeqHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFB3h-0000000F03A-1wxl;
-	Wed, 14 May 2025 12:18:01 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF8Gt-0000000EddG-2r38
+	id 1uFB3f-0000000F01I-1ktE;
+	Wed, 14 May 2025 12:17:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uF83G-0000000Ebl3-0eYj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 09:19:29 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54E7wArm013217;
-	Wed, 14 May 2025 11:18:59 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=r1a+Jd1mXikhLLAztwlCME
-	IW/Owqmg6EjmP4qjavAao=; b=R8qmEiQVSrLNiSQdVDH4qte/3nM3EBjSnabKos
-	J2pUwU63NM/AeBqq2Ff16HrzRoDAF6bXq8HHoPawB87lOu562oaKreznxYrdQ8UK
-	p5gUsFG9Q+fR6siqXVKRPlnD/NTvMsvPEkUix/e9/VWAN7lY3kYns7mWGrrCvaO1
-	FJZyqF2sANNHyXJZWT98O//LLgpOUN4OGg8o8KO1H9xuOhhyd4biiEu2onyPqou/
-	oWaT4S6uVak2nexQK65RQCLPduUYO2X3MGDWT4M6bQGbrtgFZ42S9SNWxqiJMNjI
-	HvXysMPKW+owgoPPvh2zoqQrMLbSErxbPHf8nPT+8hxJLjxQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46mbdw2rx8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 14 May 2025 11:18:59 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C0E7C40050;
-	Wed, 14 May 2025 11:17:31 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A5977B41E02;
-	Wed, 14 May 2025 11:16:20 +0200 (CEST)
-Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 14 May
- 2025 11:16:20 +0200
-From: Christian Bruel <christian.bruel@foss.st.com>
-To: <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>, <kw@linux.com>,
-        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-        <p.zabel@pengutronix.de>, <thippeswamy.havalige@amd.com>,
-        <shradha.t@samsung.com>, <quic_schintav@quicinc.com>,
-        <cassel@kernel.org>, <johan+linaro@kernel.org>
-CC: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v9 0/9] Add STM32MP25 PCIe drivers
-Date: Wed, 14 May 2025 11:15:21 +0200
-Message-ID: <20250514091530.3249364-1-christian.bruel@foss.st.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 14 May 2025 09:05:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC237169C;
+	Wed, 14 May 2025 02:05:07 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 82E663F5A1;
+	Wed, 14 May 2025 02:05:18 -0700 (PDT)
+Date: Wed, 14 May 2025 10:05:13 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: suzuki.poulose@arm.com, mike.leach@linaro.org, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/3] coresight/etm4: fix missing disable active config
+Message-ID: <20250514090513.GC26114@e132581.arm.com>
+References: <20250513170622.3071637-1-yeoreum.yun@arm.com>
+ <20250513170622.3071637-2-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-14_03,2025-05-14_02,2025-02-21_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250513170622.3071637-2-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_021927_992677_05768E06 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20250514_020522_234257_E510861E 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,102 +64,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changes in v9:
-   - Describe atu and dbi2 shadowed registers in pcie_ep node
-   Address RC and EP drivers comments from Manivanna:
-   - Use dev_error_probe() for pm_runtime_enable() calls
-   - Reword Kconfig help message
-   - Move pm_runtime_get_noresume() before devm_pm_runtime_enable()
+On Tue, May 13, 2025 at 06:06:20PM +0100, Yeoreum Yun wrote:
+> When etm4 device is disabled via sysfs, it should disable its active
+> count.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 
-Changes in v8:
-   - Whitespace in comment
-   
-Changes in v7:
-   - Use device_init_wakeup to enable wakeup
-   - Fix comments (Bjorn)
+With adding fix tag:
 
-Changes in v6:
-   - Call device_wakeup_enable() to fix WAKE# wakeup.
-   Address comments from Manivanna:
-   - Fix/Add Comments
-   - Fix DT indents
-   - Remove dw_pcie_ep_linkup() in EP start link
-   - Add PCIE_T_PVPERL_MS delay in RC PERST# deassert
-   
-Changes in v5:
-   Address driver comments from Manivanna:
-   - Use dw_pcie_{suspend/resume}_noirq instead of private ones.
-   - Move dw_pcie_host_init() to probe
-   - Add stm32_remove_pcie_port cleanup function
-   - Use of_node_put in stm32_pcie_parse_port
-   - Remove wakeup-source property
-   - Use generic dev_pm_set_dedicated_wake_irq to support wake# irq
-   
-Changes in v4:
-   Address bindings comments Rob Herring
-   - Remove phy property form common yaml
-   - Remove phy-name property
-   - Move wake_gpio and reset_gpio to the host root port
-   
-Changes in v3:
-   Address comments from Manivanna, Rob and Bjorn:
-   - Move host wakeup helper to dwc core (Mani)
-   - Drop num-lanes=<1> from bindings (Rob)
-   - Fix PCI address of I/O region (Mani)
-   - Moved PHY to a RC rootport subsection (Bjorn, Mani)
-   - Replaced dma-limit quirk by dma-ranges property (Bjorn)
-   - Moved out perst assert/deassert from start/stop link (Mani)
-   - Drop link_up test optim (Mani)
-   - DT and comments rephrasing (Bjorn)
-   - Add dts entries now that the combophy entries has landed
-   - Drop delaying Configuration Requests
+Fixes: 7ebd0ec6cf94 ("coresight: configfs: Allow configfs to activate configuration")
 
-Changes in v2:
-   - Fix st,stm32-pcie-common.yaml dt_binding_check	
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 
-Changes in v1:
-   Address comments from Rob Herring and Bjorn Helgaas:
-   - Drop st,limit-mrrs and st,max-payload-size from this patchset
-   - Remove single reset and clocks binding names and misc yaml cleanups
-   - Split RC/EP common bindings to a separate schema file
-   - Use correct PCIE_T_PERST_CLK_US and PCIE_T_RRS_READY_MS defines
-   - Use .remove instead of .remove_new
-   - Fix bar reset sequence in EP driver
-   - Use cleanup blocks for error handling
-   - Cosmetic fixes
-
-Christian Bruel (9):
-  dt-bindings: PCI: Add STM32MP25 PCIe Root Complex bindings
-  PCI: stm32: Add PCIe host support for STM32MP25
-  dt-bindings: PCI: Add STM32MP25 PCIe Endpoint bindings
-  PCI: stm32: Add PCIe Endpoint support for STM32MP25
-  MAINTAINERS: add entry for ST STM32MP25 PCIe drivers
-  arm64: dts: st: add PCIe pinctrl entries in stm32mp25-pinctrl.dtsi
-  arm64: dts: st: Add PCIe Root Complex mode on stm32mp251
-  arm64: dts: st: Add PCIe Endpoint mode on stm32mp251
-  arm64: dts: st: Enable PCIe on the stm32mp257f-ev1 board
-
- .../bindings/pci/st,stm32-pcie-common.yaml    |  33 ++
- .../bindings/pci/st,stm32-pcie-ep.yaml        |  67 +++
- .../bindings/pci/st,stm32-pcie-host.yaml      | 112 +++++
- MAINTAINERS                                   |   7 +
- arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi |  20 +
- arch/arm64/boot/dts/st/stm32mp251.dtsi        |  57 +++
- arch/arm64/boot/dts/st/stm32mp257f-ev1.dts    |  21 +
- drivers/pci/controller/dwc/Kconfig            |  24 +
- drivers/pci/controller/dwc/Makefile           |   2 +
- drivers/pci/controller/dwc/pcie-stm32-ep.c    | 411 ++++++++++++++++++
- drivers/pci/controller/dwc/pcie-stm32.c       | 364 ++++++++++++++++
- drivers/pci/controller/dwc/pcie-stm32.h       |  16 +
- 12 files changed, 1134 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
- create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
- create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
- create mode 100644 drivers/pci/controller/dwc/pcie-stm32-ep.c
- create mode 100644 drivers/pci/controller/dwc/pcie-stm32.c
- create mode 100644 drivers/pci/controller/dwc/pcie-stm32.h
-
--- 
-2.34.1
-
+> ---
+>  drivers/hwtracing/coresight/coresight-etm4x-core.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index 2b8f10463840..f008f87f0801 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -1020,6 +1020,9 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+>  	smp_call_function_single(drvdata->cpu, etm4_disable_hw, drvdata, 1);
+>  
+>  	raw_spin_unlock(&drvdata->spinlock);
+> +
+> +	cscfg_csdev_disable_active_config(csdev);
+> +
+>  	cpus_read_unlock();
+>  
+>  	/*
+> -- 
+> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+> 
 
