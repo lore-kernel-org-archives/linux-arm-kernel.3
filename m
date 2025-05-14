@@ -4,92 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E57D4C3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 16:19:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5094C3DA4A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 16:19:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+wkf8rb/WvEcawzV/eYsPzEKfwzwmCl8b0fe0pKNAHM=; b=fRY263jn76BpUyZZg6vunaZ530
-	YGvI/ZF6R19bBfQIWdeiDY15YMbEhSptVU3PEibHbExEMxab0LVWI5zvC3lKX3JNAM/wIdGm4ksZG
-	3GgqqGR7S2tvXAQEIeQqrc8AzN9wzJDgURgnKgXw3O3aUlnn3qycj0aqTBEN5GjMlW5qeE5xsd5We
-	XcAJ8EZwAPyPH+FpdWfenlQWvN/K4lMYO/kaJ2v7FP+Y/ccL3Rjt7Zv4K9QuzXHWEGX6nZvMExgPn
-	xa00gmXZqpx5Ll7NeYzqqkxX/vV3kPzJD9tC1F8Ncrqo80XStO0Z1rX4Ya4h12Z+iQMfr8UM2qZk4
-	R3h3DO0A==;
+	bh=isHYbpJza2Ae1ZNKibh17YuOLZWP6w8PKiMzsq60cpU=; b=Hri0ZuHDfkI+e6Bh45EMZEz9Xu
+	aghFk6hYSRtjty5G4vm0ULp8e8o5dDbXaiCqFwEbLE/tx8ZEZ9IfOhkQdjQXXawP/4GepGp8+++6l
+	nZxLlEyWR0Qo5SlGEyXsQOYUS4WzfWXLzeEF45UvHgaPtNAUehyHiaLGuEtzl9hjMIv3czMq6fSZb
+	xCMQDaQXMEm9p/4q2+0Rzzf1aZjbTDGopQgBk1aHzhvjDK6mYhQGo3vuTnvF8KdZlT3QvhlVE25uK
+	5URy70OR8Rqdgsvid80XzQCChlM22qzJGDPZu26b3c2wdqTAT/IMba/jJl70RS7y9qc9ptWumb9fP
+	u6gi1XzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFEp8-0000000Fir6-3aQK;
-	Wed, 14 May 2025 16:19:14 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1uFEpX-0000000Fj0n-42B9;
+	Wed, 14 May 2025 16:19:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFDUq-0000000FU63-2jkM
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 14:54:14 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5fd32c133ccso5512503a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 07:54:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747234451; x=1747839251; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+wkf8rb/WvEcawzV/eYsPzEKfwzwmCl8b0fe0pKNAHM=;
-        b=wGT81Z+C1O9B8sR8E4I9kpcSjRQL4JOEZUrh+R/LggTiTADkZqutdcSDoifmG5tgFP
-         /RGcKfXsGMS1JN2rb2Ik36usd3mwzWzr7x37a6fc+JY7ZWwJpyhVnmffw+788GWvEp/H
-         wC+4YK+Rtzwf7hlDbAKtWbxnPDkL6hnjKJTKdy5J19knSLjV7zCQqaiplyLgNVH1o1qW
-         nMuaTP7Xj45FOmhTAVpPlwqZMqqzLT0czq+QP6yUW352eLDP6K111ZZXJ00b0SsRc04l
-         kNvOeX4ohvSHHuo/jeQB7Jx3FmORiilybGyLRD2SEks9BORn9FZYmHPuMx3+LIDJlDqi
-         gw7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747234451; x=1747839251;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+wkf8rb/WvEcawzV/eYsPzEKfwzwmCl8b0fe0pKNAHM=;
-        b=VcCMMXXIkBydAI6iPQGYAJHnQxBi7hyWL0rGMZIUshl4xPElOqSx7vHESfyv98z5I9
-         DMzzXqQ1V0EuxB2RWbUksMUyPUjdznRvgSsYDwtJOfSMvLB8az1fOl+w+M86iceaG0Ds
-         UWhHxXGkq6A2SEL/uSXdVqu1JIfpZ0ENmF6qMRI/P4jW994fQa60QDDPA42X0eeYIzwR
-         /fZNOE83EsNGaRfVJwXCkHMYmG3LlcOWvCzrvWvAAJnIz17SZqq3mN/YkL6yqvgJFACk
-         SS4CK5VtGIcC4X0rkm49iNTE23hiUxr8cD8XQwud2U8vYJd3RVt/ldzTkl+Hb0rfQUIW
-         pM3g==
-X-Forwarded-Encrypted: i=1; AJvYcCXdZ4Okx26bR4w8AMODHqkZ5V7gQE0McamLqR2iVw/74s01k0L1HfeBrRZYF9MYHdkX4xUZW3qXF2PdzHHYonCN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxK8BQ1pE7/Qmo11QAS+M2ujeMVi/Jjlnn2JcsyB6NTRG7lBAK7
-	CnVNRpJK1oOQwxpWXPP/THJy28uDuok8FfycwwQv4Ruq8lPMYWGL2OVsP5fKO2Q=
-X-Gm-Gg: ASbGncsnFn4hgmpFVt/GrC7Usxuyk70fIt8in6GvtWT06hMddmbYes9E4+txN8zWWmk
-	xqmwlXC+IU3rNSOOHAWaCmYGDr1t0JrLWAJazr5jr/HD6WPplgmUa37aFt28kq1THlvTc0tVJPz
-	lfPdaLrNsimSCP/79ChmLdLvf9/hLVct9uawlhg+dQEEXSmTleG9F4x5Tr0VSPzqnn+4t4AC1mb
-	BO71IhhZsOUIdBioId6+dVcDhq9vGySYIS0tQC1xO+l7U/QsmcsjOlvJgYVD6nsy2B+Dy7bEUJn
-	y0Q40gqjHtBz+pzJD1U5KLz8KvUrNsDJTfhmoiTqX8kmbEkN6QA3fNn7emndM715cyhZNW5cQwV
-	6Og5tGF9eRA8k
-X-Google-Smtp-Source: AGHT+IHisVoXhE3+Euo/Kfj1mcUaVq8+QWNTO5B+q59E7ELxOHelWmYLRUFGUoCsEikCXUP0Pehyfw==
-X-Received: by 2002:a17:907:9727:b0:ace:8398:b772 with SMTP id a640c23a62f3a-ad4f7113f45mr438476666b.14.1747234450892;
-        Wed, 14 May 2025 07:54:10 -0700 (PDT)
-Received: from [192.168.2.1] (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-ad2197bde09sm944356866b.125.2025.05.14.07.54.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 14 May 2025 07:54:10 -0700 (PDT)
-Message-ID: <bdbf5357-beae-4e01-9a9e-f02d21f30eae@linaro.org>
-Date: Wed, 14 May 2025 16:54:04 +0200
+	id 1uFEPx-0000000FeQA-0Ezf;
+	Wed, 14 May 2025 15:53:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Content-ID:Content-Description;
+	bh=isHYbpJza2Ae1ZNKibh17YuOLZWP6w8PKiMzsq60cpU=; b=bkg9Q7Y0GEvY+FLb/3cScMvryK
+	buFs/FJz68lyDTm5ElZekyaoxGyNppGbM4+WsGwiJYQWOMGALwTW8L+bPkZwC8Kgi8AaPrnQT133P
+	x3hTcs4nwec/RiY6tVFCSVe1j/a6h0M7NKprIXAZOS26Gp+hKFHBk7Kw5tEYzrauTgYfO6SOtxz1Z
+	+3vbxEqBZLPPHMB0xYEsy/aGJXqj5WsUeHC0WuQ++CEhTqXflf2Zpc4xhY2+9kD59xxm46W3GR9Ts
+	mB1SkH2zdg65MZprGjc0sh2pspzGqkVKND07Cnvaib7PCaICHzi7weHO9yjwdi9tYLq+9GvCXMH/f
+	nAOMJUdA==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uFEPr-0000000HF3C-1Wu5;
+	Wed, 14 May 2025 15:53:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2BBFE4A889;
+	Wed, 14 May 2025 15:53:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C06BCC4CEF2;
+	Wed, 14 May 2025 15:53:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747237982;
+	bh=DtIQlJAmE4+DMDfr5uQRmYHCQxD/D4QVVzTZ2CMwypg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=r0A+WOzLNkoqKAcHS1bl8repQ6Hh+7mJLG/fiAFHADRgoi9yeamzScGtQtyAWlW3J
+	 LN+xCAKljVYxwaARHhkMMAMuNmSbQmf3baQsuQRJj2Mr0m4g5Q/XjxBKA1wecBwqYw
+	 uhgLNic2QEcDZdH9sFvRnc4g8RXsRqMULYar1CCaXYvhBO/DOIA71sHL5dOObtUJ3E
+	 8j9x/1LZfIQ84DZ8kLHOmpLNudRYIliRBEaqAgMirG8aH6AcxW9cKm+sDixvVk05+F
+	 UmouXQ8cbOh4UZXEi2WaFsPGWV49oVjXb2Xms+wjx3UdFCe+131viC+j3Y1nK7A0p4
+	 lH1EtArK2ibZQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B699AC54754;
+	Wed, 14 May 2025 15:53:02 +0000 (UTC)
+From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
+Date: Wed, 14 May 2025 17:41:04 +0200
+Subject: [PATCH v7 03/14] media: dt-bindings: add rockchip px30 vip
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] dt-bindings: timer: via,vt8500-timer: Convert to YAML
-To: Alexey Charkov <alchark@gmail.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250506-via_vt8500_timer_binding-v3-1-88450907503f@gmail.com>
- <aCNqCrBqGSxRGMKd@mai.linaro.org>
- <CABjd4YyQ1wg4Esd0ZGO-2+WGXkzrqfbhxLMWJ9N8eXTDr4BBgg@mail.gmail.com>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <CABjd4YyQ1wg4Esd0ZGO-2+WGXkzrqfbhxLMWJ9N8eXTDr4BBgg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20240220-rk3568-vicap-v7-3-7581fd96a33a@collabora.com>
+References: <20240220-rk3568-vicap-v7-0-7581fd96a33a@collabora.com>
+In-Reply-To: <20240220-rk3568-vicap-v7-0-7581fd96a33a@collabora.com>
+To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Gerald Loacker <gerald.loacker@wolfvision.net>, 
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
+ Markus Elfring <Markus.Elfring@web.de>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Collabora Kernel Team <kernel@collabora.com>, 
+ Paul Kocialkowski <paulk@sys-base.io>, 
+ Alexander Shiyan <eagle.alexander923@gmail.com>, 
+ Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, 
+ Michael Riesch <michael.riesch@wolfvision.net>, 
+ Michael Riesch <michael.riesch@collabora.com>, 
+ Mehdi Djait <mehdi.djait@bootlin.com>
+X-Mailer: b4 0.12.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747237265; l=4307;
+ i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
+ bh=F4reHUYJmgG6HWFPyn6O1n3cL5RvLs6miCivCTB9A1Y=;
+ b=Mbhd6IlS5+KOsSdVSlo5iE+JpWN62HR/8KV/amn/Bwtbq6W9rip8GskUYqJ0iQBmKXbLnWyni
+ w4imxqHuz+YCjkYSVY/dj09ntgctnB9uF8MzWlcrmgKjCJTYb0RY4Yu
+X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
+ pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
+X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
+ with auth_id=371
+X-Original-From: Michael Riesch <michael.riesch@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_075412_701667_C02D5C09 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20250514_165308_323599_617D7A6D 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,64 +118,167 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/13/25 18:08, Alexey Charkov wrote:
-> On Tue, May 13, 2025 at 7:49 PM Daniel Lezcano
-> <daniel.lezcano@linaro.org> wrote:
->>
->> On Tue, May 06, 2025 at 04:16:32PM +0400, Alexey Charkov wrote:
->>> Rewrite the textual description for the VIA/WonderMedia timer
->>> as YAML schema.
->>>
->>> The IP can generate up to four interrupts from four respective match
->>> registers, so reflect that in the schema.
->>>
->>> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
->>> Signed-off-by: Alexey Charkov <alchark@gmail.com>
->>> ---
->>> Changes in v3:
->>> - Added Rob's review tag (thanks Rob)
->>> - Rebased on top of next-20250506 to pull in MAINTAINERS updates
->>> - Link to v2: https://lore.kernel.org/r/20250418-via_vt8500_timer_binding-v2-1-3c125568f028@gmail.com
->>>
->>> Changes in v2:
->>> - split out this binding change from the big series affecting multiple
->>>    subsystems unnecessarily (thanks Rob)
->>> - added description for the four possible interrupts (thanks Rob)
->>> - added overall description of the IC block
->>>
->>> Link to v1: https://lore.kernel.org/all/20250416-wmt-updates-v1-6-f9af689cdfc2@gmail.com/
->>> ---
->>
->> The patch does not apply.
->>
->> --- MAINTAINERS
->> +++ MAINTAINERS
->> @@ -3467,6 +3467,7 @@ F:        Documentation/devicetree/bindings/hwinfo/via,vt8500-scc-id.yaml
->>   F:     Documentation/devicetree/bindings/i2c/i2c-wmt.txt
->>   F:     Documentation/devicetree/bindings/interrupt-controller/via,vt8500-intc.yaml
->>   F:     Documentation/devicetree/bindings/pwm/via,vt8500-pwm.yaml
->>
->>          ^^^^^^ those bindings are not in my tree
-> 
-> This series is based on next-20250506. Happy to rebase onto 6.15-rc1,
-> but these will result in a (trivial) conflict when merging the
-> different trees into -next and to master. Please let me know if that's
-> better.
+From: Mehdi Djait <mehdi.djait@bootlin.com>
 
-Usually the conflicts are solved from bottom to top when trees are pulled.
+Add documentation for the Rockchip PX30 Video Input Processor (VIP).
 
-If I solve the conflict at my level, it is probable another conflict 
-will happen when the tree is pulled
+Signed-off-by: Mehdi Djait <mehdi.djait@bootlin.com>
+[revised description]
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+---
+ .../bindings/media/rockchip,px30-vip.yaml          | 122 +++++++++++++++++++++
+ MAINTAINERS                                        |   1 +
+ 2 files changed, 123 insertions(+)
 
-Please rebase against v6.15-rc5
+diff --git a/Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml b/Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
+new file mode 100644
+index 000000000000..9f7ab6965636
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
+@@ -0,0 +1,122 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/rockchip,px30-vip.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Rockchip PX30 Video Input Processor (VIP)
++
++maintainers:
++  - Mehdi Djait <mehdi.djait@linux.intel.com>
++  - Michael Riesch <michael.riesch@collabora.com>
++
++description:
++  The Rockchip PX30 Video Input Processor (VIP) receives the data from a camera
++  sensor or CCIR656 encoder and transfers it into system main memory by AXI bus.
++
++properties:
++  compatible:
++    const: rockchip,px30-vip
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: ACLK
++      - description: HCLK
++      - description: PCLK
++
++  clock-names:
++    items:
++      - const: aclk
++      - const: hclk
++      - const: pclk
++
++  resets:
++    items:
++      - description: AXI
++      - description: AHB
++      - description: PCLK IN
++
++  reset-names:
++    items:
++      - const: axi
++      - const: ahb
++      - const: pclkin
++
++  power-domains:
++    maxItems: 1
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description: input port on the parallel interface
++
++        properties:
++          endpoint:
++            $ref: video-interfaces.yaml#
++            unevaluatedProperties: false
++
++            properties:
++              bus-type:
++                enum: [5, 6]
++
++            required:
++              - bus-type
++
++    required:
++      - port@0
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - ports
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/px30-cru.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/media/video-interfaces.h>
++    #include <dt-bindings/power/px30-power.h>
++
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        video-capture@ff490000 {
++            compatible = "rockchip,px30-vip";
++            reg = <0x0 0xff490000 0x0 0x200>;
++            interrupts = <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>;
++            clocks = <&cru ACLK_CIF>, <&cru HCLK_CIF>, <&cru PCLK_CIF>;
++            clock-names = "aclk", "hclk", "pclk";
++            power-domains = <&power PX30_PD_VI>;
++            resets = <&cru SRST_CIF_A>, <&cru SRST_CIF_H>, <&cru SRST_CIF_PCLKIN>;
++            reset-names = "axi", "ahb", "pclkin";
++
++            ports {
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                port@0 {
++                    reg = <0>;
++
++                    cif_in: endpoint {
++                        remote-endpoint = <&tw9900_out>;
++                        bus-type = <MEDIA_BUS_TYPE_BT656>;
++                    };
++                };
++            };
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index dcfef77c3037..c71ba2de8e71 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -21008,6 +21008,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
+ L:	linux-media@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/admin-guide/media/rkcif*
++F:	Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
+ 
+ ROCKCHIP CRYPTO DRIVERS
+ M:	Corentin Labbe <clabbe@baylibre.com>
 
 -- 
-<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+2.39.5
 
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
+
 
