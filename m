@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 048FDC3ABDA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 19:29:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B8B0C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 19:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/w5xa3ncgd49kFJyT9bhO/chzYmHK3SV50+YzkQ82VU=; b=gz/uITP2y5495wwZpxUOf2tyF7
-	whDTM2mai7Pgnpq5Om0jpWRi+yaSkLYPPN1vbKdS+rWD7WWGKCipRKVMMNcNqinlDlA+DBGzSxj0M
-	U7OMQ7593nVjWW8phv2HFWEEt7WdPjP8+4YokS3xdwesK3S2xUlw4HHkbU9C9K+De72aPI5CptAtj
-	sJuv4woq2qJQhCHicO4wkNql4CMc2jRL92uIW0Z/9ywW6dJcbqtjHT8qxDhKv8Ws+RyZgeLWjlyEl
-	eKYoximBXhPWSswKuWiDIVX6WoULJwMm9SUvvC9m5qIYK0PlCUKbgNIc9Fi++YEwNSEBe470ZC4IJ
-	u5ISbmsQ==;
+	bh=RZSG2e6Oo70EYCNnyg2ytHClvaVnzvr6s5xKl7gP7ks=; b=YWyCmNLH/oZdTSIjqZvXnswV4t
+	nDGaCeQwA3D73o//LLavasBvT6vED2f4545O9J62r6iZ3XlEudN1XTlR6P/HoCRt0MK2c/5cDwmEV
+	JpGeVhABxBde91otUDFE8TxNpAWFTq2m222z/xgQAaf+TCep9pcmluq5yadjszU2w1bJwrgZvhO8x
+	tkWbj4wcjJj9EH0xdqUCfIHvthMzSkFqyMkO4da5Ei8+PY4+eHn+V6s9qQy4zqZP/8XhijRPfn0rw
+	4+PCfmlSWHsp6MDBbPWcvN5n5nkeTRg+kcrzUoUT6sjsCeR10/4kn10aHll7dT1LNskdgxNO6YiL/
+	xNdcvF9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFHmw-0000000GB6U-39c6;
-	Wed, 14 May 2025 19:29:10 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1uFHow-0000000GBHP-1qI9;
+	Wed, 14 May 2025 19:31:14 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFHcy-0000000G9VI-3C8Z
+	id 1uFHd0-0000000G9Vq-1oXr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 19:18:53 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3a1fb17bb8cso94966f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 12:18:52 -0700 (PDT)
+	Wed, 14 May 2025 19:18:55 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43cebe06e9eso1193535e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 12:18:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747250331; x=1747855131; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1747250333; x=1747855133; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=/w5xa3ncgd49kFJyT9bhO/chzYmHK3SV50+YzkQ82VU=;
-        b=a1O5+vCHYxd+teIxNzwdh178hULF9Zui5JNzy2qdQveAkb9SwTX3Mo6a8sXDdC8r2t
-         Kke0wzQNm5C+fMf08qjQ3+WQpAt4lE4OG3g1ByxtdOY1vv9i1/Puf2ff5UIMg6wfllYk
-         jHkjQao8UWXqIca0xHGA9HFZJU4Dp4KjDkL5zuEGtZ854gLsUAaMc/+4Rjtgby9l6QIf
-         egKe5dnOoKipjIwE2x61gKA77AZ7t0ybbcop+LUnPDhofLIHFv+SK+PC+O4yghne/bX1
-         fymoN78H8r6E1Fq8ddthGQfdlAhSQaAuIleMIRChthAOxFnePXFPwSntBplnvzxZAIS/
-         uazw==
+        bh=RZSG2e6Oo70EYCNnyg2ytHClvaVnzvr6s5xKl7gP7ks=;
+        b=XcJ7EkTFAC3rhkttOAIic0ArQBpVUVegSH+1hC+5ybl2u70XxQicJZ6Q/vzBOy+T3e
+         MbpUBRVqQTrZmZw7SZiBnYLFY6VjXgQYypqqfGkOqsjzBGXB0JFhz3kaMXcW6j88HCfA
+         kDeTMKfRPgE+KYiLlFr7RxoDPzqR+vk7iTladWBXu3yrFUsME4vC6ALcEQonPh3SfKbi
+         H/5cpdgquMAa8B2W8mcH1cGF8Gge9o/3YOvX1+Ja2P2xCCK9eqNHu2Kcg3Qz4i9GCtLp
+         CAG1SMwp0bPfgaUh40/ky7L3L4AvgK/NwgTZROEGNp6hMJg8WEsjiuS63ygiRCJfHesq
+         efgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747250331; x=1747855131;
+        d=1e100.net; s=20230601; t=1747250333; x=1747855133;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=/w5xa3ncgd49kFJyT9bhO/chzYmHK3SV50+YzkQ82VU=;
-        b=BMM/uD4Nm9UokQVrT3ZpCKg6C2+zGcVodeUDPhDA5U6KjsWi7K7t1NcRVTsdmvw/pW
-         jQPhT3W6E1JmbEdvCvFO22dNzTWu2hNv50SlXk4O1i742lGWOlxYu4MM6aOpNJSvp1Sd
-         njbBSLt43Ub15Tzbyi+rlMOLi1ooF19A+bltOJkg8CAasfJJNI0+Wt5P/WuLEUE81kZ7
-         g5FggHro/d0WfX10kQfvVVw2TTzwHL1H0U7eJ1znWM206Ze2HbWvJxl+ohh4z8nQel/9
-         GsmmKldCPZu8LFLaMDuYJpesPFuEI/tB5grkcqsg6LplAlRU13Q04zjPnxwf/6twDzfx
-         jtQg==
-X-Forwarded-Encrypted: i=1; AJvYcCXn0/2fA0jrDA4+5icLSdeptYclaqe4QKyDyAOybvB2nmP4UNMxJHlibI3HLzu5EJr7zD6WtxcAqi6rN0Z8ZK+7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEkcTLkFv45r7UGIFHo53BLuo6b2VjV9f92mbcjD95rPbHAqeL
-	wF9xGCVSlyAoMP5bkKE0SvFNiIkdtSkawHkpC8KcUfUIoufIgRia
-X-Gm-Gg: ASbGncvl6xXml6VjeM0lIGgGf6GjWYVgT9gQZ5PVZX+/DtNcNzrhsS+jTWSWwlbRXLr
-	IKe17LcGt/GsvQe+F8/F+UhEyQiiNiNirUAaKkSLDG5SIVXEe5qTbLhTxX6sfvPRHvXU3ltKFHJ
-	yoyEM+rsprNu0aTmzbIHpdXKGOqZRZurKd7XjOU/2L1vJ56UGTdbMFvEDExZ4nvJd/XHgK6F4dD
-	XVqKpRZcRZ2fVSdc+J2h9XA1k29R4RUNT+KaeouBRzA4Jldc7V8PVkoBJFp9YvFol15odKr5Fip
-	N5fLwmABvb4iTCRhpUlLG1d4l9Es1mzdy9RNl1wWOXJhQgZg2EzARpteUM3kWXk4Afh4eT6udFm
-	rU0q3
-X-Google-Smtp-Source: AGHT+IEgJuTYC7ocCZO4XzaB8x9Uw4o8jNbva79UgC8DZ96g+uMc/4dsrtA/ArSqnVslHqk6qc2TAg==
-X-Received: by 2002:a05:6000:4382:b0:39e:f9e8:d07d with SMTP id ffacd0b85a97d-3a3496a497emr4133973f8f.20.1747250331033;
-        Wed, 14 May 2025 12:18:51 -0700 (PDT)
+        bh=RZSG2e6Oo70EYCNnyg2ytHClvaVnzvr6s5xKl7gP7ks=;
+        b=JXODS9rQ2pr68EbsoEL4Cg7Q9hEsY8sXUdxsKwK3Hlc64dpY28drjvnWKF5PhOPBMb
+         6Lq+OtADB4XRAqQi82nG24zD7glJYkb2UR8ndhYJD8bWGM+cALOnoE55jpzDuvUSCUYe
+         VeengZ+v4+lrsMaeXpN5DfClv2O05Nid8X5SY+CuIVTIi4nykDf4VwU+KEU+CAYM/neN
+         hEDWQCrNHpEAEGEPP33YmYZV1/vKXg1nIxNUdqezXBWLRsCyLDUc/hv7/TmaCaYIwoab
+         KKe7QBxK05TstvhA/ytjWXvu8xQZiWCoF/zL/L19Ke5eULz/Be343ZuPiLkWrjdOJVcP
+         zfBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWyETolnQi58JurUiy5BnNMHHVeVknwhr4qLon186HlvKXguLWQB9JvYm3OTVoRgsjz2pwwlP0PCJsj5NMiMeLM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxjgZ7ICuunRTvKxTSUTUSjbtWAGjT8XpO0dIoeDElYCOqYxaTU
+	aTxyyHbpEL4isfdswoO5k71NPV+JlzPvVGxEJ2QrpwDEgQHn2jqK
+X-Gm-Gg: ASbGnctt+njKjFr+QOwEJ3XQYtQVAxOPRyd+87dNzBecPlZxETGrAsGIjDOvtDlfj3n
+	yd1AktoSfNCn4qfW+pldR4+BaKMu5NiFoGL17NlLy0+oYIzKWQ0jbRMvKzRxBDXwQyyJ4DSR7pE
+	8iYZmy7J2sUQgQz+lQ3FRVh3KuWAIQP1TSt3GaA5T2oZ+nEFZ5waBMJI43WFXqF06qZzjzdH+z8
+	Uk7lPAyDL7AnHbk43U5alq72SqL/szYYEhYqQUoL7cj60cxBsmU34UT3j4QULKG+hXyrgSuoLXE
+	UtbyHBfKWO0tYPOPor9mj5puqXl3hvTnqUlqJknzBm/phhnOT8cfNWTfHF/+Zbxdm3X24o2JgO6
+	Imz8Z
+X-Google-Smtp-Source: AGHT+IE/FzeiZP6erIxPU2QEOlCFHyMatTZe9U11qci64whMI6XJiG749EI5iSektYWhvPKKGSJZ6g==
+X-Received: by 2002:a05:600c:c059:20b0:441:b3eb:570a with SMTP id 5b1f17b1804b1-442f285d105mr24526685e9.2.1747250332437;
+        Wed, 14 May 2025 12:18:52 -0700 (PDT)
 Received: from [192.168.0.253] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-442f39ef811sm38707525e9.35.2025.05.14.12.18.49
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-442f39ef811sm38707525e9.35.2025.05.14.12.18.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 May 2025 12:18:50 -0700 (PDT)
+        Wed, 14 May 2025 12:18:52 -0700 (PDT)
 From: Gabor Juhos <j4g8y7@gmail.com>
-Date: Wed, 14 May 2025 21:18:35 +0200
-Subject: [PATCH v2 4/7] pinctrl: armada-37xx: propagate error from
- armada_37xx_gpio_get()
+Date: Wed, 14 May 2025 21:18:36 +0200
+Subject: [PATCH v2 5/7] pinctrl: armada-37xx: propagate error from
+ armada_37xx_pmx_gpio_set_direction()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250514-pinctrl-a37xx-fixes-v2-4-07e9ac1ab737@gmail.com>
+Message-Id: <20250514-pinctrl-a37xx-fixes-v2-5-07e9ac1ab737@gmail.com>
 References: <20250514-pinctrl-a37xx-fixes-v2-0-07e9ac1ab737@gmail.com>
 In-Reply-To: <20250514-pinctrl-a37xx-fixes-v2-0-07e9ac1ab737@gmail.com>
 To: Andrew Lunn <andrew@lunn.ch>, 
@@ -89,8 +89,8 @@ Cc: Imre Kaloz <kaloz@openwrt.org>, linux-arm-kernel@lists.infradead.org,
  Gabor Juhos <j4g8y7@gmail.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_121852_805399_08848A07 
-X-CRM114-Status: GOOD (  14.87  )
+X-CRM114-CacheID: sfid-20250514_121854_473658_353F67AE 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,8 +105,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The regmap_read() function can fail, so propagate its error up to
-the stack instead of silently ignoring that.
+The armada_37xx_gpio_direction_{in,out}put() functions can fail, so
+propagate their error values back to the stack instead of silently
+ignoring those.
 
 Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
@@ -117,29 +118,34 @@ Changes in v2:
   - add 'Reviewed-by' tag from Andrew
   - reorder 'Signed-off-by' tags (result of 'b4 trailers -u')
 ---
- drivers/pinctrl/mvebu/pinctrl-armada-37xx.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ drivers/pinctrl/mvebu/pinctrl-armada-37xx.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c b/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
-index 8d93d36af63ab9496376219454214c05db30971f..2e88a0399d1a205064b58890db6477e2202bf311 100644
+index 2e88a0399d1a205064b58890db6477e2202bf311..aed0069b085ced5867993e95e0244df7ccda556d 100644
 --- a/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
 +++ b/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
-@@ -440,11 +440,14 @@ static int armada_37xx_gpio_get(struct gpio_chip *chip, unsigned int offset)
- 	struct armada_37xx_pinctrl *info = gpiochip_get_data(chip);
- 	unsigned int reg = INPUT_VAL;
- 	unsigned int val, mask;
+@@ -472,16 +472,17 @@ static int armada_37xx_pmx_gpio_set_direction(struct pinctrl_dev *pctldev,
+ {
+ 	struct armada_37xx_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
+ 	struct gpio_chip *chip = range->gc;
 +	int ret;
  
- 	armada_37xx_update_reg(&reg, &offset);
- 	mask = BIT(offset);
+ 	dev_dbg(info->dev, "gpio_direction for pin %u as %s-%d to %s\n",
+ 		offset, range->name, offset, input ? "input" : "output");
  
--	regmap_read(info->regmap, reg, &val);
-+	ret = regmap_read(info->regmap, reg, &val);
-+	if (ret)
-+		return ret;
+ 	if (input)
+-		armada_37xx_gpio_direction_input(chip, offset);
++		ret = armada_37xx_gpio_direction_input(chip, offset);
+ 	else
+-		armada_37xx_gpio_direction_output(chip, offset, 0);
++		ret = armada_37xx_gpio_direction_output(chip, offset, 0);
  
- 	return (val & mask) != 0;
+-	return 0;
++	return ret;
  }
+ 
+ static int armada_37xx_gpio_request_enable(struct pinctrl_dev *pctldev,
 
 -- 
 2.49.0
