@@ -4,69 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A5CC3ABC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 03:41:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 079C1C3ABC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 05:01:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WUHVWRSz6bAK679c/45owLGBEZBTPE2TOhEFGW6p+qU=; b=OWlPZlyiDXNWV187ta4jOe/BzB
-	Sk3+33MN0V098WoSYyC5f13VTwE5kbMQwjKx/dfmwozzwglQIvKgv5rqhXYbuIdO45GDW74a+jrYz
-	kTpEWwr1n6iEjtxb2RA/AjhzqreHiZCxhl/4CDKhfzffLSA9mBrgPxQM7vcZSF4xMX8oyElbLhLav
-	qj5j5zXyEN23u3qdwO2APG+bfmbkRf9LEBtLdZcDxsv/Z28B0ktluvFbzyFCPU2lgs4OOEPH6juLG
-	u14PKlGVNoQFKDevtuf+Cro/HvXKS6WScVoWuoi9K8CLSFRc2kB6Jo8d3bKrQcus+8FIBN0/MSZCt
-	io2r5FZQ==;
+	bh=3r4be1ycuideZs+OiC0M2O3UfYCEUyFCGXty1I5JkLw=; b=xGdO8hOi4EPe429pV31pO+eETf
+	Ha4SEi84yyNeFVXCpyF6pVPA/nyBD6jAqmGoTzZADpVcxFiKJyI+oGoinnR7N+xKQaJkMMtoFpP0D
+	DzHWnkaw5bRoMlJPf7k4jF6M2JtF/Pszz5mXx49UuCWrrnKaj4iUh9ndyzUnguTG1SvDulXpEnWsU
+	pjPMYSUjL68IY/lrFiF/8QbpQN7g3MFEWhR5xMVc8deOwJDDmTQCFuJKqAwzZURP+zD/2W7q1QNLn
+	aAi+8CnxLV3+v+reN4Pd31L1AsDFnWMKx8ajPzxIm4dpXbgZCOdBPq52XTdhyO3dCmZF8Y4P0Fl9A
+	lQgWNldA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF2zW-0000000Dxfh-0cvG;
-	Wed, 14 May 2025 03:41:10 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1uF4FW-0000000E2Rd-0qZE;
+	Wed, 14 May 2025 05:01:46 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF2xT-0000000DxXL-2ZB8
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 03:39:04 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.174])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4ZxzYT67c1zxTSP;
-	Wed, 14 May 2025 11:37:17 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id B9A2D1402E0;
-	Wed, 14 May 2025 11:38:43 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 14 May 2025 11:38:43 +0800
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 14 May 2025 11:38:42 +0800
-CC: <yangyicong@hisilicon.com>, <jonathan.cameron@huawei.com>,
-	<hejunhao3@huawei.com>, <linuxarm@huawei.com>, <wangyushan12@huawei.com>,
-	<caijingtao@huawei.com>, <xueshan2@huawei.com>, <prime.zeng@hisilicon.com>
-Subject: Re: [PATCH v2 0/3] Add support for SPE Data Source packet on
- HiSilicon HIP12
-To: <acme@kernel.org>, <namhyung@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <peterz@infradead.org>, <mingo@redhat.com>,
-	<mark.rutland@arm.com>, <jolsa@kernel.org>, <john.g.garry@oracle.com>,
-	<james.clark@linaro.org>, <leo.yan@linux.dev>, <irogers@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>
-References: <20250425033845.57671-1-yangyicong@huawei.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <d06b1e86-b6b8-3909-65bb-45b7cd70d263@huawei.com>
-Date: Wed, 14 May 2025 11:38:42 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	id 1uF4DT-0000000E2FU-05St;
+	Wed, 14 May 2025 04:59:41 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 2C24A4394D;
+	Wed, 14 May 2025 04:59:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1747198774;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3r4be1ycuideZs+OiC0M2O3UfYCEUyFCGXty1I5JkLw=;
+	b=Oggjx/AW2K4r6PCB9AgV7IuR40Uu4pC449YNDeZqQBdgVhyoepkqwSCv4GlzvLRpbTEYVv
+	jeUkYGXdufujAn9ettXx0pgnnvYQav5fRN0WqHeE3EfebDZdjntO3Q3vg0PVR+zQ+TannR
+	d5KzsfxLPrmKfS2uoc0M+OYKT+j0K/4yWBh/ns0rEGH2MwmAyOIi3oh2RD0upAYku8392h
+	2ryLhRRlIdnG2J3vEDQtmAqR2vrc44Wsh1msPCRuzE3PoDYkHtSM6VXVhSewm6W+M68lGK
+	wlVeFkovE+i7DlQPZl4dfQyY452EPDjzVzAkQP29Nizkmhe+iBPrKMwmJCY7mA==
+Message-ID: <e8af352a-bfcf-4aa5-b113-e8b845c3a2c6@bootlin.com>
+Date: Wed, 14 May 2025 06:59:30 +0200
 MIME-Version: 1.0
-In-Reply-To: <20250425033845.57671-1-yangyicong@huawei.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- kwepemq200018.china.huawei.com (7.202.195.108)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/4] arm64: dts: rockchip: describe I2c Bus 1 and
+ IMX258 world camera on PinePhone Pro
+To: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Nicholas Roth <nicholas@rothemail.net>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>,
+ imx@lists.linux.dev, Dragan Simic <dsimic@manjaro.org>,
+ Ondrej Jirman <megi@xff.cz>
+References: <20250509-camera-v3-0-dab2772d229a@bootlin.com>
+ <20250509-camera-v3-3-dab2772d229a@bootlin.com> <3359896.e9J7NaK4W3@phil>
+Content-Language: en-US
+From: Olivier Benjamin <olivier.benjamin@bootlin.com>
+In-Reply-To: <3359896.e9J7NaK4W3@phil>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeftdeiuddtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomhepqfhlihhvihgvrhcuuegvnhhjrghmihhnuceoohhlihhvihgvrhdrsggvnhhjrghmihhnsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeelgfelieetjeekgffhffekkeefvddtveelheegleejgeffjeelgeehlefftdekueenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegvfeegmegvtgefkeemvdegvgdtmehfhegtvgemfhefgedvmeeiheekjeemfheiheeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegvfeegmegvtgefkeemvdegvgdtmehfhegtvgemfhefgedvmeeiheekjeemfheiheeipdhhvghloheplgfkrfggieemvdgrtddumegvfeegmegvtgefkeemvdegvgdtmehfhegtvgemfhefgedvmeeiheekjeemfheiheeingdpmhgrihhlfhhrohhmpeholhhivhhivghrrdgsvghnjhgrmhhinhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddvpdhrtghpthhtohephhgvihhkohesshhnthgvtghhrdguvgdprhgtphhtthhopehrohgsh
+ heskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehjrggtohhpohdrmhhonhguihesihguvggrshhonhgsohgrrhgurdgtohhmpdhrtghpthhtohepnhhitghhohhlrghssehrohhthhgvmhgrihhlrdhnvghtpdhrtghpthhtohepmhgthhgvhhgrsgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshgrkhgrrhhirdgrihhluhhssehlihhnuhigrdhinhhtvghlrdgtohhm
+X-GND-Sasl: olivier.benjamin@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_203903_792121_7E4B2678 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20250513_215939_820851_58430013 
+X-CRM114-Status: GOOD (  23.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,33 +90,232 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-a gentle ping on this..
 
-Thanks.
 
-On 2025/4/25 11:38, Yicong Yang wrote:
-> From: Yicong Yang <yangyicong@hisilicon.com>
+On 5/13/25 20:23, Heiko Stuebner wrote:
+> Hi Olivier,
 > 
-> Add support for Data Source packet on HIP12. Support counting L2 HITM for c2c
-> statistic since it was missing.
+Hello Heiko, thanks for having a look!
+
+> Am Freitag, 9. Mai 2025, 23:51:39 Mitteleuropäische Sommerzeit schrieb Olivier Benjamin:
+>> Add the description of the rear/world camera (IMX258) on the PinePhone Pro
+>> to the device dts file.
+>> It receives commands on the I2C Bus 1 at address 0x1a and transmits data
+>> over CSI-MIPI.
+>>
+>> The I2C address for IMX258 can be found in the IMX258-0AQH5 Software
+>> Reference Manual, page 24, section 2.3.1: 0b0011010 = 0x1a.
+>> Section 3 indicates the module has 4 pairs of data lines. While 4-lane
+>> mode is nominal, 2-lane mode should also be supported.
+>>
+>> The pin muxing info was extracted from the PinePhone Pro schematic v1.0
+>> as well as the RK3399 datasheet revision 1.8.
+>>
+>> Table 2-3 in section 2.8 of the RK3399 datasheet contains the mapping
+>> of IO functions for the SoC pins. Page 52 shows GPIO1_A0, page 54 shows
+>> GPIO2_D4.
+>>
+>> For I2C power, the PinePhone Pro schematic page 11 quadrants A4 and A5:
+>> RK3399_J.AA8 and RK3399_J.Y8 get power from vcaa1v8_codec, so turn it on
+>>
+>> The IMX258 also uses the following regulators, expected by its driver:
+>>   - vana (2.8V analog), called AVDD2V8_DVP on P.18 q.C1 and derived from
+>>     VCC1V8_S3 on P.13 q.B2
+>>   - vdig (1.2V digital core), called DVDD_DVP on P.18 q.C1 and shown on
+>>     P.18 q.D3 to be equivalent to VCC1V2_DVP derived from VCC3V3_SYS on
+>>     P.13 q.B3. Note that this regulator's voltage is inconsistently
+>>     labeled either 1.2V or 1.5V
+>>
+>> RK3399_J.AG1 is GPIO4_A1/I2C1_SDA, RK3399_J.Y6 is GPIO4_A2/I2C1_SCL
+>> This is the default pinctrl "i2c1_xfer" for i2c1 from rk3399-base.
+>>
+>> For the reset (RESET) signal:
+>> page 11 quadrant D2             | p.18 q.C3-4 | p.18 q.C2
+>> RK3399_E.R25 -> GPIO1_A0 -> Camera_RST -> MIPI_RST0 -> IMX258.12
+>>
+>> For the powerdown (PWDN) signal:
+>> page 11 quadrants B4-5          | p.18 q.C2
+>> RK3399_G.AF8 -> GPIO2_D4 -> DVP_PDN1_H -> IMX258.14
+>>
+>> Helped-by: Dragan Simic <dsimic@manjaro.org>
+>> Co-developed-by: Ondrej Jirman <megi@xff.cz>
+>> Signed-off-by: Ondrej Jirman <megi@xff.cz>
+>> Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
 > 
-> Change since v2:
-> - split the kernel/userspace changes into different patch
-> - revise some mem_snoop decoding according to the discussion
-> - count missing L2 HITM for c2c statistic
-> Link: https://lore.kernel.org/linux-perf-users/20250408122809.37884-1-yangyicong@huawei.com/
+> how independent are the devicetree changes from the binding changes?
+> As the binding change "only" includes other properties.
 > 
-> Yicong Yang (3):
->   arm64: cputype: Add cputype definition for HIP12
->   perf arm-spe: Add support for SPE Data Source packet on HiSilicon
->     HIP12
->   perf mem: Count L2 HITM for c2c statistic
+They are pretty independent: the binding changes are only needed to 
+suppress warnings on the devicetree.
+However, the changes to the devicetree are the motivation for the 
+changes to the binding: the other properties are not strictly necessary 
+otherwise.
+
+> Heiko
 > 
->  arch/arm64/include/asm/cputype.h              |  2 +
->  tools/arch/arm64/include/asm/cputype.h        |  2 +
->  .../util/arm-spe-decoder/arm-spe-decoder.h    | 17 ++++
->  tools/perf/util/arm-spe.c                     | 96 +++++++++++++++++++
->  tools/perf/util/mem-events.c                  |  5 +-
->  5 files changed, 121 insertions(+), 1 deletion(-)
 > 
+>> ---
+>>   .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 94 ++++++++++++++++++++++
+>>   1 file changed, 94 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+>> index 04ba4c4565d0a205e2e46d7535c6a3190993621d..588e2d8a049cc649aa227c7a885bd494f23fbdf8 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+>> @@ -114,6 +114,16 @@ vcc3v3_sys: regulator-vcc3v3-sys {
+>>   		vin-supply = <&vcc_sys>;
+>>   	};
+>>   
+>> +	avdd2v8_dvp: regulator-avdd2v8-dvp {
+>> +		compatible = "regulator-fixed";
+>> +		regulator-name = "avdd2v8_dvp";
+>> +		regulator-always-on;
+>> +		regulator-boot-on;
+>> +		regulator-min-microvolt = <2800000>;
+>> +		regulator-max-microvolt = <2800000>;
+>> +		vin-supply = <&vcc3v3_sys>;
+>> +	};
+>> +
+>>   	vcca1v8_s3: regulator-vcc1v8-s3 {
+>>   		compatible = "regulator-fixed";
+>>   		regulator-name = "vcca1v8_s3";
+>> @@ -136,6 +146,16 @@ vcc1v8_codec: regulator-vcc1v8-codec {
+>>   		vin-supply = <&vcc3v3_sys>;
+>>   	};
+>>   
+>> +	vcc1v2_dvp: regulator-vcc1v2-dvp {
+>> +		compatible = "regulator-fixed";
+>> +		regulator-name = "vcc1v2_dvp";
+>> +		regulator-always-on;
+>> +		regulator-boot-on;
+>> +		regulator-min-microvolt = <1200000>;
+>> +		regulator-max-microvolt = <1200000>;
+>> +		vin-supply = <&vcca1v8_s3>;
+>> +	};
+>> +
+>>   	wifi_pwrseq: sdio-wifi-pwrseq {
+>>   		compatible = "mmc-pwrseq-simple";
+>>   		clocks = <&rk818 1>;
+>> @@ -312,6 +332,8 @@ vcc3v0_touch: LDO_REG2 {
+>>   
+>>   			vcca1v8_codec: LDO_REG3 {
+>>   				regulator-name = "vcca1v8_codec";
+>> +				regulator-always-on;
+>> +				regulator-boot-on;
+>>   				regulator-min-microvolt = <1800000>;
+>>   				regulator-max-microvolt = <1800000>;
+>>   			};
+>> @@ -420,6 +442,46 @@ regulator-state-mem {
+>>   	};
+>>   };
+>>   
+>> +&i2c1 {
+>> +	clock-frequency = <400000>;
+>> +	pinctrl-0 = <&i2c1_xfer &cif_clkouta>;
+>> +	assigned-clocks = <&cru SCLK_CIF_OUT>;
+>> +	assigned-clock-rates = <24000000>;
+>> +	status = "okay";
+>> +
+>> +	wcam: camera@1a {
+>> +		compatible = "sony,imx258";
+>> +		reg = <0x1a>;
+>> +		clocks = <&cru SCLK_CIF_OUT>; /* MIPI_MCLK0, derived from CIF_CLKO */
+>> +		clock-names = "xvclk";
+>> +		pinctrl-names = "default";
+>> +		pinctrl-0 = <&wcam_rst>;
+>> +		/* Note: both cameras also depend on vcca1v8_codec to power the I2C bus. */
+>> +		vif-supply = <&vcc1v8_dvp>;
+>> +		vana-supply = <&avdd2v8_dvp>;
+>> +		vdig-supply = <&vcc1v2_dvp>; /* DVDD_DVP is the same as VCC1V2_DVP */
+>> +		reset-gpios = <&gpio1 RK_PA0 GPIO_ACTIVE_LOW>;
+>> +		orientation = <1>; /* V4L2_CAMERA_ORIENTATION_BACK */
+>> +		rotation = <270>;
+>> +		lens-focus = <&wcam_lens>;
+>> +
+>> +		port {
+>> +			wcam_out: endpoint {
+>> +				remote-endpoint = <&mipi_in_wcam>;
+>> +				data-lanes = <1 2 3 4>;
+>> +				link-frequencies = /bits/ 64 <636000000>;
+>> +			};
+>> +		};
+>> +	};
+>> +
+>> +	wcam_lens: camera-lens@c {
+>> +		compatible = "dongwoon,dw9714";
+>> +		reg = <0x0c>;
+>> +		/* Same I2c bus as both cameras, depends on vcca1v8_codec for power. */
+>> +		vcc-supply = <&vcc1v8_dvp>;
+>> +	};
+>> +};
+>> +
+>>   &i2c3 {
+>>   	i2c-scl-rising-time-ns = <450>;
+>>   	i2c-scl-falling-time-ns = <15>;
+>> @@ -462,6 +524,28 @@ &io_domains {
+>>   	status = "okay";
+>>   };
+>>   
+>> +&isp1 {
+>> +	status = "okay";
+>> +
+>> +	ports {
+>> +		port@0 {
+>> +			mipi_in_wcam: endpoint@0 {
+>> +				reg = <0>;
+>> +				remote-endpoint = <&wcam_out>;
+>> +				data-lanes = <1 2 3 4>;
+>> +			};
+>> +		};
+>> +	};
+>> +};
+>> +
+>> +&mipi_dphy_rx0 {
+>> +	status = "okay";
+>> +};
+>> +
+>> +&isp1_mmu {
+>> +	status = "okay";
+>> +};
+>> +
+>>   &mipi_dsi {
+>>   	status = "okay";
+>>   	clock-master;
+>> @@ -495,6 +579,10 @@ mipi_in_panel: endpoint {
+>>   	};
+>>   };
+>>   
+>> +&mipi_dsi1 {
+>> +	status = "okay";
+>> +};
+>> +
+>>   &pmu_io_domains {
+>>   	pmu1830-supply = <&vcc_1v8>;
+>>   	status = "okay";
+>> @@ -507,6 +595,12 @@ pwrbtn_pin: pwrbtn-pin {
+>>   		};
+>>   	};
+>>   
+>> +	camera {
+>> +		wcam_rst: wcam-rst {
+>> +			rockchip,pins = <1 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>;
+>> +		};
+>> +	};
+>> +
+>>   	leds {
+>>   		red_led_pin: red-led-pin {
+>>   			rockchip,pins = <4 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
+>>
+>>
+> 
+> 
+> 
+> 
+> 
+
+-- 
+Olivier Benjamin, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
