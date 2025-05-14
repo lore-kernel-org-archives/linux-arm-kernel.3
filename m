@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B67C3ABD9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 09:13:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A112CC3ABDA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 09:15:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CU3p2HZazfv/x9pcuc+uTWk5M51PePRd/7turTCqc5k=; b=i2B0Y/4sawDBMygqTpOckYxGNT
-	lkUd7Okam/SCWwe+3gwT/WKrFT894rudLt4P68WUppgC7N02gIfT9wjREsJznXwO5aJAV2zk8HXW/
-	wf+9LZv5kG+LEZe9selqjAQ7SVbhABr/hT66jIKu7zB5L7lmgBxWV2Brc1a8LNQyY9kw2cOG+C5Yb
-	iww7JRKItzlewJSlg9UcEtJPu1ZTkDrvDkLQh3JuYKjLHz5re/LqJnwlgHt3sBw+J3wwm+QQABN0u
-	/UDQLG92ZQPNg+CXFYahEjkTzq7cVXam+ENWPenQFkrtg6aBx3+sSvI2HTTvIcDGhfOfU2vEdU1z1
-	aygzIOxQ==;
+	bh=CYagY+dR/IQMge1Auis5M2jpDPCa31Qjss93MGAu7M0=; b=FjRckOLvHhVcR6qpV5UeJPJ4aa
+	AUHSttd0LgF+x773OQFtfLLaSMOXJ3RgUn42X9DcYJqssrQfNttLEv79CdsrQBxcfRWY/XzJMqrFD
+	Y+GRSfieouibe5a2GoZtJVoy8oOD29jDbcgzmoV9xzK1rzNs5+n7SEM0HjxMxW8OAIsGdTUdItCfF
+	odIfYyAgA74XNDpqgT+tRjl2jWPXpY7CO8Jk6o12ulev2j2a7L3Udz8U46NHjblF9keSqB8t34/Yb
+	rMeqtnX3+UPvl1W9KFMPqM6ApumDvSn9frLFFsah7Ua2uZhzZLjDwsJCqizAAqz5q4UQFVBLMz/1Q
+	oth9V+Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF8BI-0000000Ed2y-3Jpe;
-	Wed, 14 May 2025 09:13:40 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1uF8DI-0000000EdJr-230G;
+	Wed, 14 May 2025 09:15:44 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF7QU-0000000EUdr-2RCr
+	id 1uF7QW-0000000EUeC-063p
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 08:25:19 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43cfba466b2so73309855e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 01:25:18 -0700 (PDT)
+	Wed, 14 May 2025 08:25:21 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-441d437cfaaso39990585e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 01:25:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1747211117; x=1747815917; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1747211118; x=1747815918; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=CU3p2HZazfv/x9pcuc+uTWk5M51PePRd/7turTCqc5k=;
-        b=i3NxziAY4YyqCdh14mwR1Ogdi30I3F8UTTUAZjiK36VKCQcuDqWfca+uNwxXw00kyd
-         4ePD+Z4jHLPUSb8WyAeIMPcUkHRpCdQzB1Ry/2o20A5NaEDUINn6fmlspse/g8DQjMgh
-         unEbbm6mZrUSNIxr+kpv3yp/5qGUYOjjUcAh0=
+        bh=CYagY+dR/IQMge1Auis5M2jpDPCa31Qjss93MGAu7M0=;
+        b=emYiA3WF4HJkAzRQrbgelDN2uIEkeLD6KquXNH9bHKOj0tv+ockOWA5oaABz4j/jXZ
+         /NslVhdG61mkOp2UXu3Q/0BhD3COCzQYt1nQVSKzu0ol6pdhlBOje0krk33NkywElKzJ
+         d61isg4hv1tuEpgv75RUp2o8SUo6hfAIbilMw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747211117; x=1747815917;
+        d=1e100.net; s=20230601; t=1747211118; x=1747815918;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=CU3p2HZazfv/x9pcuc+uTWk5M51PePRd/7turTCqc5k=;
-        b=V/hgAeQVu7mVzlm0io1xjWSzfUshtMPnEZgzLTOvJ9OeP4+BIBpMc8kd2fKHFo86xl
-         yG6vzZF8kI/tgFQ02vMfs8gO3fQOcPfyrZ5yb1JjoYQWo9OdI5hU5drOr5/e+KyRW0sz
-         2qhYAKuWHRbvB73sMbKkLXABZ4uEuU+dPjIBXEKvizZzJt6YFFz3nOMhxphTMj46Z1/4
-         npZX40dhocJMCpnvvjdXND4H2f8Y1VkMmCGJT/Q8rAC4FtQs2PcWtcLJhFeN/D3CeVgN
-         +0ab9MTzFz7hmuhIWsroptWk5d7mPNZ1JGCv53AXZunMUa+7iTIYPwcEwkcCL4+RhVK2
-         yoSA==
-X-Forwarded-Encrypted: i=1; AJvYcCV/NVbQQJ27KD2Gq13S+2E15Gb+UEkohyz71dwRTc4VkV+dHRCJ3Onq8PhNfMwEpMpZLbZFxNNze/CQ9vYgQ1Q/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxw88QmwlNrprzawKdyQ/f1Efvud8IKAJwm62AVO6ILH3CC7iT5
-	isixzj57KALlu5UN28cLx2p3dEn08MfowpoKFLZAOUuAr1UmD0L3lVcWN5dURkU=
-X-Gm-Gg: ASbGncvXK4I1y3SVFREnouf3OZfb22iwwq0fZeRioxIe5Fim4wWAahmFvZxXXGiDeFR
-	MngDXaj8iBvru1KujMYqo+sw0lsxTNvwbWaBp45JacX/jO6IRO8KduW7zz82pJemeQKPZ1B7S35
-	TCMbJbriPN68w83ZAoOwh7qoPQpHpC4gVDW8SLCj0qpmhLb2sMzRUOHCnXvyHBQzBUw/TLCye0a
-	BPuQlE5ruXzKw+KvHAM+Lk87mm3qEGVlzRRpuL5EsKK3VauWYySC5M1/iKPqt4tplFUGCDQy7Qm
-	O4yLKGskVeOiIYCpDZpc+ZrW9nKgI3XYoDSm04NqPbnqzKyNnPARl2/cD0Wh12A/QAjWRtc54Bn
-	BhvaBj72wjbxNsW5uaXn1gSTiIQPFN47o86hDArq4zoA=
-X-Google-Smtp-Source: AGHT+IH06rcSnfaOB2OZhMFuSXU3getNgBYXw3VlOzykqn2k2DHIALSzS9mBkCxcxDKGZiq9xxXxLQ==
-X-Received: by 2002:a05:600c:1da5:b0:43c:fd72:f039 with SMTP id 5b1f17b1804b1-442f20dc6e7mr19271805e9.11.1747211117060;
-        Wed, 14 May 2025 01:25:17 -0700 (PDT)
+        bh=CYagY+dR/IQMge1Auis5M2jpDPCa31Qjss93MGAu7M0=;
+        b=T+la6/9rVEpry/dbuF6Np5QmmvSGeTsKUV9hPBr7JasoKAxK93lGCpl/Yt0rhoiOAk
+         867JWeO0XfOffhhvF5zgR/0CJfc3JGxm8Xy5evyYnk2kE6XHeZvGGFOlpYjLNBm1pqxX
+         8jqK7f43zz3+Dnw2GJ8ZUtvO1s/E1i2saOgJQDAxiegVhrZ+yR+c6p0B76TQ8tUbel/B
+         B6QS4UquPdoiYO3ALTQ9qnRayo1ATOJ98UlawZv6bb224H+hgoA7lHro4QD5mCq0ghgg
+         tRqz2g+BT3WRSS+WPhMx0GXqibuqKWFfVfNY93RVkvUvN7y9RL5YDggVwQ6vuugBIZNG
+         cm5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUzhQ2qVzharYnNlM8YhlTCT7O58pBOlg/+Is4zlvlhTu2kwNxEiHE5ayHjP43X0JQ6vraFq0APlNbcxRTjicdH@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHrQM967ZyL7Wi2jrQgoOc7Bk592GonoKYJyXc6GAzULGWS1Eh
+	SDUyIP6pJnA0pqeKlvGCYDsIv1Y8YtWh/mSWym9rb1pGvcoAhtwQHPKuqBlquS8=
+X-Gm-Gg: ASbGncsXLNVhY88RxGa9CONTxNC46pobA0Sw4j0LsCCa6OewPqlbPxgaiqiekGHPCnm
+	Khg+B5oozFo12NUmnUVywfT5upVzLQn2LUeYsd530AOflzgomoElhaxAXfn+DI1LWjbMkMSg3Ca
+	s8LixQWBgYoOEmrt+P3gW6IkHSHpmDuYwjpIIjYhJ06EUCs+lhK1cl2EsUl92/BxTq9bOGoKtZG
+	GEow4wdEoV7WwchAJtY/Ju8McBaPhqk7yoikKtmeNpCLlzbMsBKZjPrxuaKF2aLzADgu1O+qMw7
+	V/kSVdDgf1/6un7FnLPvZsxRuXETSF4kFQ2MmCq25Vwl5rMRSh6ZCv3FCzw442tLO65pWR4q65W
+	OQ9+heyqFXR8R3IaZB8kvGdq2KLF88MlkODFYivrhIas=
+X-Google-Smtp-Source: AGHT+IFleRd326SrUnZHoqkzu6suoQz94DWWC/XeS2n9NtmmwCPboKZ/eBmAx4ZEBG6Ntfy5At/YEg==
+X-Received: by 2002:a05:600c:a09:b0:43c:f513:958a with SMTP id 5b1f17b1804b1-442f20d65f9mr19154735e9.13.1747211118349;
+        Wed, 14 May 2025 01:25:18 -0700 (PDT)
 Received: from dario-ThinkPad-T14s-Gen-2i.client.m3-hotspots.de ([46.189.28.43])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442ebda7d2csm30987365e9.3.2025.05.14.01.25.15
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442ebda7d2csm30987365e9.3.2025.05.14.01.25.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 May 2025 01:25:16 -0700 (PDT)
+        Wed, 14 May 2025 01:25:18 -0700 (PDT)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: Simon Holesch <simon.holesch@bshg.com>,
@@ -84,17 +84,17 @@ Cc: Simon Holesch <simon.holesch@bshg.com>,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 4/9] arm64: dts: imx8mn-bsh-smm-s2-common: Enable GPU for smms2 and smms2pro
-Date: Wed, 14 May 2025 10:24:58 +0200
-Message-ID: <20250514082507.1983849-5-dario.binacchi@amarulasolutions.com>
+Subject: [PATCH 5/9] arm64: dts: imx8mn-bsh-smm-s2-common: Pull Up Console UART pins
+Date: Wed, 14 May 2025 10:24:59 +0200
+Message-ID: <20250514082507.1983849-6-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250514082507.1983849-1-dario.binacchi@amarulasolutions.com>
 References: <20250514082507.1983849-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_012518_617787_72EDBBC1 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20250514_012520_059842_8305DF50 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,34 +109,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Karthikdatt Anantharamrao <karthikdatt.anantharamrao@in.bosch.com>
+From: Simon Holesch <simon.holesch@bshg.com>
 
-GPU is enabled in order to use image processing so it must not depend on
-display
+The UART pins are floating, if nothing is connected. This can trigger a
+Magic SysRq (e.g. reset).
 
-Signed-off-by: Karthikdatt Anantharamrao <karthikdatt.anantharamrao@in.bosch.com>
-Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
+Signed-off-by: Simon Holesch <simon.holesch@bshg.com>
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 ---
 
- arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi
-index a983072fb835..de70cd3a392f 100644
+index de70cd3a392f..fd12b97525d1 100644
 --- a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi
 +++ b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi
-@@ -77,6 +77,10 @@ ethphy0: ethernet-phy@0 {
- 	};
- };
+@@ -386,8 +386,8 @@ MX8MN_IOMUXC_ECSPI1_SS0_UART3_DCE_RTS_B		0x040
  
-+&gpu {
-+	status = "okay";
-+};
-+
- &i2c1 {
- 	clock-frequency = <400000>;
- 	pinctrl-names = "default";
+ 	pinctrl_uart4: uart4grp {
+ 		fsl,pins = <
+-			MX8MN_IOMUXC_UART4_RXD_UART4_DCE_RX		0x040
+-			MX8MN_IOMUXC_UART4_TXD_UART4_DCE_TX		0x040
++			MX8MN_IOMUXC_UART4_RXD_UART4_DCE_RX		0x140
++			MX8MN_IOMUXC_UART4_TXD_UART4_DCE_TX		0x140
+ 		>;
+ 	};
+ 
 -- 
 2.43.0
 
