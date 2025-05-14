@@ -4,104 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 240DAC3ABCC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B931C3ABDE
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 13:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Qg8cccbFqUOc2UTuMr4PQBF5rx3CZxXMxNVXLkP9iM=; b=qg4EVYS9vvPa5SDbL9kON7cGo+
-	S8xRfsLs0AThTT0AlOUGG4u22uiTAjTZzmDA+ANPEOKn5SFp3pYNwNzT6885gELXVcjAQsiZ2M9hX
-	cRKRV89G14+O/ETn+XJQLvAIFj6Ok0l42hopYDesbj28U4/w8S32uF6ULCBUcIGVq1pvSenJeeOBh
-	ViotcEd2aSXPuqpyZmQIyfxLEnLSLpbUXGcO3BJh9vuHErMYbCfJmWRLgtFOFrZZhXvrPzNuUfNTq
-	L+gyy/lUBj3OZCIAOTIW2ViYSgxxb8B1CLor8vPgxjQwmTcfbgoXqjrcZ6mmJ4tixbID4RtD2X26r
-	ns7/+JeA==;
+	bh=fYRPErwghAuJrUrMATVK0z7mk+Z1fYVjT+iN10KULs4=; b=beoIEkR6LHJc3Q4re7x3qY2XtK
+	mbqj2IBH2mO9k1SC5AnIE1+rhx8Jy11BfoB9PKNs8q9qTuIP4cdjJ6isOZ000dbSCQtByzUwGJ+xF
+	kIHXOdsAIMwvXDx0WmXn/zsBgYMy5vZhA6jYA6SVuArqFXc8r+9cpV7GKAvVX0K4zq1rwIIuesQwq
+	HvyrCWEiq2t9JUhG2fJreTyLLRIa/c0S25GinzurNAuoZX2au76HmnbZgy6BYAuz58y1oBWnr8f2K
+	0+I0Mqvx4oX7/I4qIbYRiCvccqTet2B9YlkWq4WKa10hW/f3pUANB1lJNSaEqUg56x2VGfUD8VU+X
+	iMQ2DOhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFCXh-0000000FGqM-3B7D;
-	Wed, 14 May 2025 13:53:05 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1uFCXj-0000000FGrn-0kZM;
+	Wed, 14 May 2025 13:53:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF8o4-0000000Eizk-1jjK
+	id 1uF9S7-0000000Enng-2Y0B
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 09:53:46 +0000
-Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250514095340epoutp03a076ea93f527164a4071fccf588d8b25~-XBPExtkX1470714707epoutp03_
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 09:53:40 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250514095340epoutp03a076ea93f527164a4071fccf588d8b25~-XBPExtkX1470714707epoutp03_
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1747216420;
-	bh=9Qg8cccbFqUOc2UTuMr4PQBF5rx3CZxXMxNVXLkP9iM=;
+	Wed, 14 May 2025 10:35:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0FB8260008;
+	Wed, 14 May 2025 10:35:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1942C4CEF2;
+	Wed, 14 May 2025 10:35:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747218906;
+	bh=wqa/hPQI/dzLM4fwrGkpZyGhz9VCScqC+REjDpgrRJ8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qLKYGqoNZWCpEPswjKSiL/jwZdfg6hKG8BNcTBVvm1RhAxDecxaNguhe/3/u7MbJe
-	 nKWqNduRqYJm6mzpWQ9Bb1sGjKkSbuSC9lZwTwSz6A3+VEVTOmxtNFsdsxOvjGekIn
-	 JZiYHE5P4jODE8PT4xIyT9c2ejiFARr/4kvve7yM=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas2p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250514095340epcas2p35d5b5b07e4af0e655a1fcef524752925~-XBOxpJeW1373113731epcas2p3D;
-	Wed, 14 May 2025 09:53:40 +0000 (GMT)
-Received: from epcas2p2.samsung.com (unknown [182.195.36.88]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4Zy7vl51Whz3hhTC; Wed, 14 May
-	2025 09:53:39 +0000 (GMT)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas2p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250514095339epcas2p1c0c174b1d2d5aba23899363d2fd5928a~-XBNzkFCu0288702887epcas2p1y;
-	Wed, 14 May 2025 09:53:39 +0000 (GMT)
-Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250514095339epsmtrp1e4c02d91f25a0d152e7254ebea3b5f81~-XBNyzjhC1996219962epsmtrp1P;
-	Wed, 14 May 2025 09:53:39 +0000 (GMT)
-X-AuditID: b6c32a29-566fe7000000223e-45-68246822f3b2
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	A8.AB.08766.22864286; Wed, 14 May 2025 18:53:38 +0900 (KST)
-Received: from localhost.localdomain (unknown [10.229.9.126]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250514095338epsmtip18d6f3b10cccf8ea5db315f0b6ce9c3ef~-XBNnLVxT3233232332epsmtip1W;
-	Wed, 14 May 2025 09:53:38 +0000 (GMT)
-From: Sangwook Shin <sw617.shin@samsung.com>
-To: krzk@kernel.org, alim.akhtar@samsung.com, wim@linux-watchdog.org,
-	linux@roeck-us.net
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org, Sangwook Shin
-	<sw617.shin@samsung.com>, Kyunghwan Seo <khwan.seo@samsung.com>
-Subject: [PATCH v2 2/5] watchdog: s3c2410_wdt: Fix max_timeout being
- calculated larger
-Date: Wed, 14 May 2025 18:42:17 +0900
-Message-Id: <20250514094220.1561378-3-sw617.shin@samsung.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250514094220.1561378-1-sw617.shin@samsung.com>
+	b=n+49bAkWp6w7dUeRULiMRUxI/amLZ33F6lo5cIkghR8TDRwCRxn98O/VXGFJk2oQm
+	 wVB7+9OSZBzMPZhWb2XJEtUF95vF+80j8XrKkSx2kyLbQz6X4cjU5dH5daELqtrHZy
+	 BfMqQpMr2LZki5NR34iQULzNhFjeABVDrYjXbtmtgFzI5WodcLufA4h4nwrg9I3b3n
+	 MdYdEpqZD1Npn94s+ac2n2nk4Ez8uOQTd9jroz+iueLhmBY2ZGXX2xiTQ48aH/os0D
+	 e4NiawAnOkSI8/zYsfvCmpbq2pmAgXjAQwcOvNDLIpIxlME09yOnaIfSRQfw+xgemW
+	 Gn935fEPZiSHg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uF9S4-00Eos3-Nr;
+	Wed, 14 May 2025 11:35:04 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+Subject: [PATCH v4 03/17] KVM: arm64: nv: Extract translation helper from the AT code
+Date: Wed, 14 May 2025 11:34:46 +0100
+Message-Id: <20250514103501.2225951-4-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250514103501.2225951-1-maz@kernel.org>
+References: <20250514103501.2225951-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrBLMWRmVeSWpSXmKPExsWy7bCSnK5ShkqGwYyTVhYP5m1js5jffonR
-	4vz5DewWmx5fY7W4vGsOm8WM8/uYLG6s28du8WThGSaLGYtPslk8fvmP2YHLY9OqTjaPlWvW
-	sHpsXlLvsfN7A7tH35ZVjB6fN8kFsEVx2aSk5mSWpRbp2yVwZexf2MlYsJ6rYulNpQbGJxxd
-	jJwcEgImEo+Pr2DpYuTiEBLYzShxcft51i5GDqCElMS7Z5YQNcIS91uOsELUfGCUOHmwiRkk
-	wSagIzH9320WEFtEIE7iWPtmZpAiZoFHjBJX5vUwgSSEBcIkDq45DmazCKhKLDx2gw3E5hWw
-	ldjz7jYTxAZ5iZmXvrOD2JwCdhJzW1rZQI4QAqpp2u4BUS4ocXLmE7BdzEDlzVtnM09gFJiF
-	JDULSWoBI9MqRsnUguLc9NxiwwLDvNRyveLE3OLSvHS95PzcTYzgwNfS3MG4fdUHvUOMTByM
-	hxglOJiVRHivZylnCPGmJFZWpRblxxeV5qQWH2KU5mBREucVf9GbIiSQnliSmp2aWpBaBJNl
-	4uCUamCaZjvnoFH7hqWzal+JNj74vneDusH/tf21N38UJBxjTv0sc/yCY9/UDpnN5rN8WpeV
-	JlWwqxkI8x37t9aRL85E8nH+rsTq2clMutc+GGuqPXav/bVi2Zp9lhsufjZvb353RvLcpyV1
-	E572iU7xfc7THPRKtTTjzo/7Qj2rz6z/uqaYb/oEiYVpvCc+7nX6LfPchbckxUOQ72J3ySyO
-	nydyw1s3K/uotlQ9MJrF3KIzXyD7X2r7hzcpvYsZwoWYTCO+3CnIuLel6YvItiTVV7eXlt/x
-	qt6j+0K+OP77KRaGp/EyXxg2vhXU5v4x/9fVkxG5d6p/71NX9WW1bv6wpHlawaaMcoGqlDWq
-	ClqLMh8rsRRnJBpqMRcVJwIALDGlEOsCAAA=
-X-CMS-MailID: 20250514095339epcas2p1c0c174b1d2d5aba23899363d2fd5928a
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,N
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250514095339epcas2p1c0c174b1d2d5aba23899363d2fd5928a
-References: <20250514094220.1561378-1-sw617.shin@samsung.com>
-	<CGME20250514095339epcas2p1c0c174b1d2d5aba23899363d2fd5928a@epcas2p1.samsung.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_025344_777999_AB3FB2BE 
-X-CRM114-Status: GOOD (  16.89  )
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com, gankulkarni@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,35 +84,226 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix the issue of max_timeout being calculated larger than actual value.
-The calculation result of freq / (S3C2410_WTCON_PRESCALE_MAX + 1) /
-S3C2410_WTCON_MAXDIV is smaller than the actual value because the remainder
-is discarded during the calculation process. This leads to a larger
-calculated value for max_timeout compared to the actual settable value.
-A ceiling operation is applied in the calculation process to resolve this.
+The address translation infrastructure is currently pretty tied to
+the AT emulation.
 
-Signed-off-by: Sangwook Shin <sw617.shin@samsung.com>
-Signed-off-by: Kyunghwan Seo <khwan.seo@samsung.com>
+However, we also need to features that require the use of VAs, such
+as VNCR_EL2 (and maybe one of these days SPE), meaning that we need
+a slightly more generic infrastructure.
+
+Start this by introducing a new helper (__kvm_translate_va()) that
+performs a S1 walk for a given translation regime, EL and PAN
+settings.
+
+Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/watchdog/s3c2410_wdt.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/kvm_nested.h | 54 ++++++++++++++++
+ arch/arm64/kvm/at.c                 | 96 +++++++++++------------------
+ 2 files changed, 91 insertions(+), 59 deletions(-)
 
-diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
-index 228f86d83663..c6166d927155 100644
---- a/drivers/watchdog/s3c2410_wdt.c
-+++ b/drivers/watchdog/s3c2410_wdt.c
-@@ -379,8 +379,8 @@ static inline unsigned int s3c2410wdt_max_timeout(struct s3c2410_wdt *wdt)
- {
- 	const unsigned long freq = s3c2410wdt_get_freq(wdt);
- 
--	return S3C2410_WTCNT_MAXCNT / (freq / (S3C2410_WTCON_PRESCALE_MAX + 1)
--				       / S3C2410_WTCON_MAXDIV);
-+	return S3C2410_WTCNT_MAXCNT / DIV_ROUND_UP(freq,
-+		(S3C2410_WTCON_PRESCALE_MAX + 1) * S3C2410_WTCON_MAXDIV);
+diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+index 692f403c1896e..c8a779b393c28 100644
+--- a/arch/arm64/include/asm/kvm_nested.h
++++ b/arch/arm64/include/asm/kvm_nested.h
+@@ -245,4 +245,58 @@ static inline unsigned int ps_to_output_size(unsigned int ps)
+ 	}
  }
  
- static int s3c2410wdt_disable_wdt_reset(struct s3c2410_wdt *wdt, bool mask)
++enum trans_regime {
++	TR_EL10,
++	TR_EL20,
++	TR_EL2,
++};
++
++struct s1_walk_info {
++	u64	     		baddr;
++	enum trans_regime	regime;
++	unsigned int		max_oa_bits;
++	unsigned int		pgshift;
++	unsigned int		txsz;
++	int 	     		sl;
++	bool			as_el0;
++	bool	     		hpd;
++	bool			e0poe;
++	bool			poe;
++	bool			pan;
++	bool	     		be;
++	bool	     		s2;
++};
++
++struct s1_walk_result {
++	union {
++		struct {
++			u64	desc;
++			u64	pa;
++			s8	level;
++			u8	APTable;
++			bool	UXNTable;
++			bool	PXNTable;
++			bool	uwxn;
++			bool	uov;
++			bool	ur;
++			bool	uw;
++			bool	ux;
++			bool	pwxn;
++			bool	pov;
++			bool	pr;
++			bool	pw;
++			bool	px;
++		};
++		struct {
++			u8	fst;
++			bool	ptw;
++			bool	s2;
++		};
++	};
++	bool	failed;
++};
++
++int __kvm_translate_va(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
++		       struct s1_walk_result *wr, u64 va);
++
+ #endif /* __ARM64_KVM_NESTED_H */
+diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+index 7a5267f43b51f..71406908d4f44 100644
+--- a/arch/arm64/kvm/at.c
++++ b/arch/arm64/kvm/at.c
+@@ -10,56 +10,6 @@
+ #include <asm/kvm_hyp.h>
+ #include <asm/kvm_mmu.h>
+ 
+-enum trans_regime {
+-	TR_EL10,
+-	TR_EL20,
+-	TR_EL2,
+-};
+-
+-struct s1_walk_info {
+-	u64	     		baddr;
+-	enum trans_regime	regime;
+-	unsigned int		max_oa_bits;
+-	unsigned int		pgshift;
+-	unsigned int		txsz;
+-	int 	     		sl;
+-	bool	     		hpd;
+-	bool			e0poe;
+-	bool			poe;
+-	bool			pan;
+-	bool	     		be;
+-	bool	     		s2;
+-};
+-
+-struct s1_walk_result {
+-	union {
+-		struct {
+-			u64	desc;
+-			u64	pa;
+-			s8	level;
+-			u8	APTable;
+-			bool	UXNTable;
+-			bool	PXNTable;
+-			bool	uwxn;
+-			bool	uov;
+-			bool	ur;
+-			bool	uw;
+-			bool	ux;
+-			bool	pwxn;
+-			bool	pov;
+-			bool	pr;
+-			bool	pw;
+-			bool	px;
+-		};
+-		struct {
+-			u8	fst;
+-			bool	ptw;
+-			bool	s2;
+-		};
+-	};
+-	bool	failed;
+-};
+-
+ static void fail_s1_walk(struct s1_walk_result *wr, u8 fst, bool s1ptw)
+ {
+ 	wr->fst		= fst;
+@@ -145,20 +95,15 @@ static void compute_s1poe(struct kvm_vcpu *vcpu, struct s1_walk_info *wi)
+ 	}
+ }
+ 
+-static int setup_s1_walk(struct kvm_vcpu *vcpu, u32 op, struct s1_walk_info *wi,
++static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
+ 			 struct s1_walk_result *wr, u64 va)
+ {
+ 	u64 hcr, sctlr, tcr, tg, ps, ia_bits, ttbr;
+ 	unsigned int stride, x;
+-	bool va55, tbi, lva, as_el0;
++	bool va55, tbi, lva;
+ 
+ 	hcr = __vcpu_sys_reg(vcpu, HCR_EL2);
+ 
+-	wi->regime = compute_translation_regime(vcpu, op);
+-	as_el0 = (op == OP_AT_S1E0R || op == OP_AT_S1E0W);
+-	wi->pan = (op == OP_AT_S1E1RP || op == OP_AT_S1E1WP) &&
+-		  (*vcpu_cpsr(vcpu) & PSR_PAN_BIT);
+-
+ 	va55 = va & BIT(55);
+ 
+ 	if (wi->regime == TR_EL2 && va55)
+@@ -319,7 +264,7 @@ static int setup_s1_walk(struct kvm_vcpu *vcpu, u32 op, struct s1_walk_info *wi,
+ 
+ 	/* R_BNDVG and following statements */
+ 	if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR2_EL1, E0PD, IMP) &&
+-	    as_el0 && (tcr & (va55 ? TCR_E0PD1 : TCR_E0PD0)))
++	    wi->as_el0 && (tcr & (va55 ? TCR_E0PD1 : TCR_E0PD0)))
+ 		goto transfault_l0;
+ 
+ 	/* AArch64.S1StartLevel() */
+@@ -1155,7 +1100,12 @@ static u64 handle_at_slow(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
+ 	bool perm_fail = false;
+ 	int ret, idx;
+ 
+-	ret = setup_s1_walk(vcpu, op, &wi, &wr, vaddr);
++	wi.regime = compute_translation_regime(vcpu, op);
++	wi.as_el0 = (op == OP_AT_S1E0R || op == OP_AT_S1E0W);
++	wi.pan = (op == OP_AT_S1E1RP || op == OP_AT_S1E1WP) &&
++		 (*vcpu_cpsr(vcpu) & PSR_PAN_BIT);
++
++	ret = setup_s1_walk(vcpu, &wi, &wr, vaddr);
+ 	if (ret)
+ 		goto compute_par;
+ 
+@@ -1457,3 +1407,31 @@ void __kvm_at_s12(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
+ 	par = compute_par_s12(vcpu, par, &out);
+ 	vcpu_write_sys_reg(vcpu, par, PAR_EL1);
+ }
++
++/*
++ * Translate a VA for a given EL in a given translation regime, with
++ * or without PAN. This requires wi->{regime, as_el0, pan} to be
++ * set. The rest of the wi and wr should be 0-initialised.
++ */
++int __kvm_translate_va(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
++		       struct s1_walk_result *wr, u64 va)
++{
++	int ret;
++
++	ret = setup_s1_walk(vcpu, wi, wr, va);
++	if (ret)
++		return ret;
++
++	if (wr->level == S1_MMU_DISABLED) {
++		wr->ur = wr->uw = wr->ux = true;
++		wr->pr = wr->pw = wr->px = true;
++	} else {
++		ret = walk_s1(vcpu, wi, wr, va);
++		if (ret)
++			return ret;
++
++		compute_s1_permissions(vcpu, wi, wr);
++	}
++
++	return 0;
++}
 -- 
-2.40.1
+2.39.2
 
 
