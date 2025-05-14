@@ -4,153 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E720EC54756
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 18:52:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1BCAC3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 19:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=erh6r1hq2y2CNOCp4Zj7SQ1T2+Z3vYkyt6ut4YnBwx0=; b=jUZJeEYtE7XfH/32y8TcVFWAkk
-	QIuCxy8tgJZmh8c51oAOZaoMBHqCp9NWsDJ4ApWcrSY8HTiJP+cURIc14n/hSeXVZWW+tDZzixcZh
-	eths3DFwo6mBfPuZvdDieOa2FtqfztaSbvWoK9jKCGkZMY06cII7W61c2qcDhxtEGAZmjgwWRB0iz
-	LN1G62oExW4abHdDtBmaKRa80ooVDhhIvr7BylGz2+f+hUI1PBRuw+aQty74tv6qk/w3/6xljVw+I
-	s7vwx9dHBqdamTj68P5IcUN3xjAoYG/AHj/EV7/2X8ymCoayF8mvvcagBPfVwLXf8lgs3HLb+m0xT
-	42xPlm0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5BtbSxTybdtcFtS1jNyktVMyxuW9cSflR46MX/L5XT0=; b=ibB6aO//Qvoh8u
+	2AAfP1RCszaM4b/wzF//LXit8RQXpEs1jiGGLv53e54MONTTbcsDI+PqnKWOhYJ4zbI3ibFKkA7qX
+	fSLVTHpgPnwvKqZ+0Tj4dvYAO1llMZB8DkPL7gTOv/cn9Jhc2UDvJp+x7R5HI1w2isJQ0wShvkaoy
+	sykgE0JnulboPU9veXXHkF66P2h9WvHaRdcm4PyY8XXeg1/zstydRf+/wF6ZGMr2Hn+dqU+VavDxu
+	+W+191Mdwm4f7i+LK1VN+4GB+N3/ugBTVdO+X9yLu/JWM+BEJ54hrHqASeXHwaH23djC/OoV84FdU
+	p7U9PEO3T0lR2WSZeodg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFHDi-0000000G5ht-2yyf;
-	Wed, 14 May 2025 18:52:46 +0000
-Received: from mail-mw2nam12on20613.outbound.protection.outlook.com ([2a01:111:f403:200a::613] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1uFHew-0000000G9rY-3dPI;
+	Wed, 14 May 2025 19:20:54 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFH6Z-0000000G4il-3H2H
+	id 1uFHct-0000000G9U5-0Jml
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 18:45:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VrGo+NKXC1y95sRx0tn1FMMnBv+kax4uwk0bOQf51I+fZl/vOfu+FIRVOE5oB2xOucqS+dKmYPkC6inTGoSUNzegb1vQk09Oe/vBKQcJG/c7k2cidizBJRr7M1XP2/zjmyfP5YapYMz3rMcPpqkl8abycsWG5yLQWkPpyXwIFzj+P3nz5xaBa6K5p3e13ZnbRA++F8vJnRc0sAywXbGAEPKmoNOlQVnQDXhwawjb4qbukjtR5b/xYWvOkAdds18E+LgzuRBBj+cL8/73UyzapWaH9zs8DlI58LgtRJKMNBjZ9DAtYP7PhfsjwEgz1jewQjgRA9o21jiRmIrb5a6KPw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=erh6r1hq2y2CNOCp4Zj7SQ1T2+Z3vYkyt6ut4YnBwx0=;
- b=oyzjR25pFsiPvydYgpS7jmALfzf8xJPztXp5/seDJ+33QxoyG+GWUr08UrrLJUTPvvfpSLxQ67ws6a+5pHKDMg96Jec7hQ/wvXRZwejiOX5Y/csZkid1gDyhQK+Duc3V1UbPj6ygEMK2FJQ72clyvluCGxwdVMS9meiQGddhgf2cBdaizpCDMgdmRUvhu0hFd5L8ZPV4qQU0riMSdHGoXY/zWgs+zSDT3eOZMidOfyD7pYG7o+AKqhXc+onf5MNddymbSzIXePavluGR/qMGx+XPKRsKqbQUIqrY6PZyBNvLx/SR1jlmEgUm/TaolpqgaNixm8BDhcql363xmcXK+A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=erh6r1hq2y2CNOCp4Zj7SQ1T2+Z3vYkyt6ut4YnBwx0=;
- b=tNmPvTsIUWTd0D+tHu4wZsRxGKHBLDaRy8DpU568fOqcUzRdg22A8lUh5x+pSzO87nDuyKoYXrEZX8xaHJPqpU+qGIQjQqY7a0UrB7F+C1YqdpQlbM94p40IU415OjVEjbi2oPFlanAiHiJq15qu5Y0Z7g3v5nAjQqzDg8gy4HrSFf/tUe00S6fQBC14HwnE3rOKdGmPsXT4enjH/HjWCqpcdvLPOOCO7nnVgr91M512xYymNi++jCsWXBGCiw2ckD8XF+oBdi66pxOc0zm2mBSNYfzXR7e+ejNIsK9P1n5dgRXxW3Q+LCeK1ihTejA+9Xre4qsxKEk1u2SiL0Fckw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by DS7PR12MB8251.namprd12.prod.outlook.com (2603:10b6:8:e3::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8722.30; Wed, 14 May 2025 18:45:17 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8722.027; Wed, 14 May 2025
- 18:45:16 +0000
-Date: Wed, 14 May 2025 15:45:15 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
-	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
-	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
-	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
-	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
-	praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
-Subject: Re: [PATCH v4 09/23] iommufd: Abstract iopt_pin_pages and
- iopt_unpin_pages helpers
-Message-ID: <20250514184515.GG382960@nvidia.com>
-References: <cover.1746757630.git.nicolinc@nvidia.com>
- <88a0b17337897de8ca170afa1e9be26ff7442437.1746757630.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <88a0b17337897de8ca170afa1e9be26ff7442437.1746757630.git.nicolinc@nvidia.com>
-X-ClientProxiedBy: BLAPR03CA0131.namprd03.prod.outlook.com
- (2603:10b6:208:32e::16) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Wed, 14 May 2025 19:18:48 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43cf257158fso1131845e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 12:18:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747250325; x=1747855125; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5BtbSxTybdtcFtS1jNyktVMyxuW9cSflR46MX/L5XT0=;
+        b=Z/P9os6LKRgx+k6iDXwWLWJ6zazP730Bs+Zm4RXfeqeRNMA/BzT3TMPyPxLtZ8h5sI
+         m1Qpz9Oz6d6s8YXEh/VqvdliJKdZxtMrDMO68TRhPARvfHmW6i/trU8iRKAROQ8ibZMa
+         dVMkUFphrJECHDLAVCeBxFboXEnZmI/kC1goM2Hf4JAmF++LCsq2iJQ4hO9P1p3ueLjs
+         4E1mEQqdJdWKzj7vwSItXqsPjkWym6QEmF3c6FjdOw615eQOYTAPxhMqomoUTEtmtcW0
+         qCJYYx5jmj5WxNoYcjh1gp35GUTVi2OK70xkrasODyQg5KDJvka+ETy9ecxQky5XFxIn
+         b91Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747250325; x=1747855125;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5BtbSxTybdtcFtS1jNyktVMyxuW9cSflR46MX/L5XT0=;
+        b=Oz4r3vOdUr5jnBL2sqJ8VWUhiV+gutOtmmx7vyPg5lWTyf+5M5FJ6D2aURFF0htcf0
+         JpxOeVv9hJNOr06CkiNNj6iBCNebJfky10VTAvmwGt6pYevwg5ZqGtsehuR/1ow2Yo+P
+         1Fiixm2mjzSqQ1elvc9Ci62LY+LmaKVJqa5QGT8hwhQzt+NyM4zL7gXRTx94xqDkvlUg
+         H9fE0Hs5+xXrg1mN7G8hHX8A920+UrKzNiR1ymUkpeBbHKgsf8urNWXQnwP2y3sAoucv
+         WZyerzYN0Q+XCPnH7Bw9TgxEB7fOWG9Mdy6ao+OG8stuPQ7LKQ49Hl0GSZpaLzEzqN2n
+         kIng==
+X-Forwarded-Encrypted: i=1; AJvYcCVKmrMpTItxBj+UUsK6ds3m6tLBFm/dJJnIjiJmkQU9HhKcQEO+VhnD/a5e7rMq8VUd7Fr3Zw3XnTq4kVw6qDkX@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIRZcAkzE0wvvDTBx6NAkL+PN6ZjJP/dKvTYWJdUwJVhtI81kS
+	glZQRlVo9z4/W1hVNDjDONIv06MZFYCegpsbLSc+5PQZDKMs6HtR
+X-Gm-Gg: ASbGncvE/iabece6q86njz4jlaSjB4Zg4cIaMV/vDyxxFADV/8UvoDh9U4KP9PRxbYs
+	CaZUIbsdjrjdGsVVNLSgPtYPiJBRbqEsIEnI8a4hEL+EQwWO4x7yC9d3JYIXyQCTb3C0tg9YJXP
+	FuZN3Iw507RjVIn9leFbKlVI6odEFk9WeH9HLq8wFqFy+44ivueLGvA/ztOYd1xbxtuxYe8SzBi
+	IYPsvGacGXVowyHorOFtsIzFY7KxlQVWlends5mhpccasS8EmGaE14mkNXu6Nrr7L+rkfa0KgXT
+	rV2FuJBKX+QeJ4NvsAln+NDli+enrd377573LhBnIo8ho2bt8tC68nDTuQ41YjU/oiY6LvwQDel
+	38ON7
+X-Google-Smtp-Source: AGHT+IFKFToRN7zXhbHdXQ/cdww5PsgDL/Kla5r5RaA5iyZqqiHLzqal1BkIz+g9xpxoUT2qzwYoxw==
+X-Received: by 2002:a05:600c:3483:b0:43c:eeee:b706 with SMTP id 5b1f17b1804b1-442f2168b73mr39019935e9.24.1747250324619;
+        Wed, 14 May 2025 12:18:44 -0700 (PDT)
+Received: from [192.168.0.253] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-442f39ef811sm38707525e9.35.2025.05.14.12.18.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 May 2025 12:18:44 -0700 (PDT)
+From: Gabor Juhos <j4g8y7@gmail.com>
+Subject: [PATCH v2 0/7] pinctrl: armada-37xx: a couple of small fixes
+Date: Wed, 14 May 2025 21:18:31 +0200
+Message-Id: <20250514-pinctrl-a37xx-fixes-v2-0-07e9ac1ab737@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DS7PR12MB8251:EE_
-X-MS-Office365-Filtering-Correlation-Id: 222e14c0-c0fb-4d53-fd7b-08dd93177803
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?pqigW8aUxplymXoG/kc13Tvx86AY/ywtsY7HZFimna91L6Cp+xYPD8/1t3Ay?=
- =?us-ascii?Q?tguQLpVnKm7/UPAtt9x7TU09lAeUW/Jkf1RTWFpQYEnzLjybQ4w5WRGCiXyJ?=
- =?us-ascii?Q?en+avIkQLPyavinaSKoQ65ENDOaBsI3fJnxYK6buRCHsNvNtbi7Kaknhjycn?=
- =?us-ascii?Q?JxE6HCzdTs1BxUTpBc+z282x/91F8/oi/W5y7mxUPROcLVXbK/psV5EhyKwX?=
- =?us-ascii?Q?iQBXsIzjYwLpqwoNjW7R+vznaGbbwngZCBxhCXP/X1d//+SfRE0gmtYe8X6k?=
- =?us-ascii?Q?R4wT/wgYo9U22NNpwT9YISnJVDWQrnBrEv+1MxwMu8DFxCXkp4dtK/XO0tKv?=
- =?us-ascii?Q?l+8CCZKfjjwSUGxBYs7VwEq44ZsPqsocEdCBtYW5zZw6jWEaTBHb8mRSshPA?=
- =?us-ascii?Q?dlmYlRaqfC+kkMm8vNxdNOpTlinQt0U9mCQipjH3SdRc5WgrZLO9MNVp0ioI?=
- =?us-ascii?Q?niIh6uyv020zq3LNs4FdacO+Uysx9L03rPWjlxPIXIhpZBqy+7RmKV1MLaQr?=
- =?us-ascii?Q?J9OgqFTdhjpjNT1nZsYZyTW0ha8PPK0GUfyuVoS5RlLwDq0SGEZkn/V3kNmC?=
- =?us-ascii?Q?bB4eGWeFEc5ZONVI7I83nbh1bUk7T1pCoBBHVYePNQFVnqND8GhB3Wgfi545?=
- =?us-ascii?Q?1SjYPISqnSqMRIsDm7BAGh6kqRo+W0golKYjNJyDnbcaMkUMchkBebqW2BFm?=
- =?us-ascii?Q?U7ussjQnh734jj/dFfnORLhSaKXaxvZCbQadDYytPzEHBoR1Da/tFNuOP5Z1?=
- =?us-ascii?Q?DSFVOfJdQmNWPv/bvHEbtomZqp4Yk6j+YdKH3frHTbuh4WQ14AXRAAfOHuqL?=
- =?us-ascii?Q?ffv10canmuMbeS/Wkxdp3jdFwnQ0bGCQCHsvfXrgQxUHEhANw6Vz9bBHNbUo?=
- =?us-ascii?Q?dWj/Q79b/KOqDs00hXhlcY1/ry0AS9zfRD9N9oVk3zuE4BTFpqCvKwnHth/x?=
- =?us-ascii?Q?OR4oVJeMspYKiWE7bPrDfU7Qn/9l9yG+qYczTo+gNpRLJOeyaOijSaauR3rV?=
- =?us-ascii?Q?Gx21Xzzs6YJlIVXQDuYxch70oquukabGvJXtYcvJGjv6h2Tj83ts4dE7I2gJ?=
- =?us-ascii?Q?SksmjeDqPsVUgdinxMvW03HDQIZJ3T2t5HGsLnLOtpR6j5X2aTjTq3QVNLoi?=
- =?us-ascii?Q?1KDRCbNqas+/f8zY7kNPxGw4JGp1zK7fm3vrUD+mje7cF1pFbhPgCFjxnFk6?=
- =?us-ascii?Q?BT3sSpdJupLc/JiRbm5wmyrz6QgiDck+Bxq/G7Pkzr7TVhjfg/ZWuYkoF4wh?=
- =?us-ascii?Q?952f6M+aHmMDSoyb1F4vsDu+lgLUD8U49VTtMOfxQYGV3zG3ch8GvDGqD9GY?=
- =?us-ascii?Q?mrUvd5hsF6u/XFFgLn8fEz1GPH1wZp8ogETvEHU16SXc9oTAwAw2Gq+0SbMs?=
- =?us-ascii?Q?oy7GBoXnMgEHM5DZNt/1ESrjX4RpIMk4mbdUF9VPeRWKk4zqK6DXtRf5SBoz?=
- =?us-ascii?Q?PZgClzR8Nxg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LR104xwuOFQax99hytjcdLpdRGiV3w4bHlSKYkbCa7/+WUk3eXTULQ9ZOBRq?=
- =?us-ascii?Q?0/QagBsSnl23K53oTFv7SivAF/I4w6EHkIPzZY5RcShdV2dnVctpYEhSdoTl?=
- =?us-ascii?Q?s+XMg7CsfvJ6rV/uddIgG7J8D7Hrz2+QGDygvWlOHErYzTFRSPb8DMGAeNhF?=
- =?us-ascii?Q?SkDJ2q8T4W1LxX+GlR9o3qq5SEuS8xxDKqe6E23xnD3oonB677SuPGC3aqmB?=
- =?us-ascii?Q?LlSfOKFQegsDoqQeRgPxRnPFjhPEHeTUByDoh4ciC56mmkn8xZG/peaDMhI7?=
- =?us-ascii?Q?dDPGzpuFyr+4oaXMTfuYIuv8wq3pU/Ck9LRs7D2y+g1eezzH0zILAJ5fqcXg?=
- =?us-ascii?Q?p6dWauVA0Nv9TRQ3DvSM79QAQJH4ljk8AlEDPiNQ4xzPVMaM0WbLTfN+ZXd+?=
- =?us-ascii?Q?lCYAcZEjeHiaercMJ0I0VQ1akURR2jEGx1n1mZfqrfJ4yrMCwdW6z5mMFkPJ?=
- =?us-ascii?Q?gRfhq2sr0csz/AaxOrdqQsv7EWGwiapGIxXux1t5avUlSDrQage6N6aniPwG?=
- =?us-ascii?Q?HqTyuEvbGpqarlGgTcu6rZ9y3rfi8kHPHf+KFYMJ3A6OdzK/OZnHXTTCGGol?=
- =?us-ascii?Q?ylUxo0qp0/oMvqadDlwmowGU2hCnLvmPP+uPZUP3S85BPlDNhGe//VADUPAq?=
- =?us-ascii?Q?ZXAZYJ/cUTHs/hnMLJEdIwgYRWZse+p43PIgokvp4scuGL80Pi4+eNZIbtg4?=
- =?us-ascii?Q?TvFdElOoUlqw3qrXluv5/ayZNLkO9vKEJU0XDUJ8rOPRiLXU62WEMBcOsOns?=
- =?us-ascii?Q?Jss5ayGeJl1XieY4KKFwjVTubuGu3+KN1b98w8Cy8WIU3dIGIjfkGmPtYwsU?=
- =?us-ascii?Q?Vlk8q2zpEvpsTCMmUdKjSMuUMbwFxB502XP0/6yCB1jhrgG9+xTegBGoKY+t?=
- =?us-ascii?Q?c/6jPMLzVgQ/QXgNGkJxgrxHiruWNlz+ooaACeSJn/cv5cYGuWhWFPYgR5Q4?=
- =?us-ascii?Q?H7JSqStGl3p+Go6J/CZ3jzhZTBXM+qKgDOLaVrn06kAagMTHxeehpAm/f5XM?=
- =?us-ascii?Q?8wII8V9uSEoeamr9D4koQKwWgWnDSgMCKxFTcsDYDorULfq/ujdHJ1yTC6lh?=
- =?us-ascii?Q?3tNsa3PX3Df7+WnEEeYBdnZ6KTE2T1gv+MuGvsEFSI86+Y59lbjCgCxu25xo?=
- =?us-ascii?Q?8xziZHHiyDpiC4Ut6y6tYhJebvioeKz5DdyIFLQzr/ZW0frAZCERUsH8it5u?=
- =?us-ascii?Q?ZiDXUJV0Ols63cACtvYcDhFAr6/8NtLetNkvWeDQGmiwW8MjRvWuU28NAVyL?=
- =?us-ascii?Q?ItxVljQnFhRuNpn8iU+tUTc7I/BXyItcdB9JWsonugAAHrdxmxBG+eSADpVr?=
- =?us-ascii?Q?+kla0o67O1FzJB3Dv1yWWdXObSqPqgjhXwtq752l/w+ddvSzy5eFCLZ+m9Yc?=
- =?us-ascii?Q?ApTH30r9ycj038OtcZvKC3/F/RjN1Zlw0qkxMq9bnggcDswV9kcLWOsON1z9?=
- =?us-ascii?Q?c3loaWwiI1lmZImAEjbabTgD5TKJjlUHGksJyli+3apP9oqdR/ol41dIp1qJ?=
- =?us-ascii?Q?g1N+1O4dveLK2tDFAgWDVmcb1cqPT5HFWp7Btn9gxT397l/Jcc3CVIo//842?=
- =?us-ascii?Q?Y9nNtcV8lEvNqL2wQd8wgX5WydE/1vkb7fOuG+2w?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 222e14c0-c0fb-4d53-fd7b-08dd93177803
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 May 2025 18:45:16.6187
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: A2nOLRoEbszC386RrwBFHG+7ytOlGxIqwZb7SHqXm+l7CMim0WjPjileBgo5Cg/O
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB8251
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIfsJGgC/32NQQ6DIBREr2L+ur8BKrV11Xs0LhBBf6JiwBAaw
+ 91LPUCXbyZv5oBgPJkAbXWAN5ECubWAuFSgJ7WOBmkoDIIJySQXuNGqdz+jujUpoaVkAj4fVvW
+ 6lrrnHIq5eXMWRXx3hScKu/Of8yTyX/p/L3JkONQNs2WQ35V8jYui+ardAl3O+Qvqep+CtgAAA
+ A==
+X-Change-ID: 20250512-pinctrl-a37xx-fixes-98fabc45cb11
+To: Andrew Lunn <andrew@lunn.ch>, 
+ Gregory Clement <gregory.clement@bootlin.com>, 
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Imre Kaloz <kaloz@openwrt.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Gabor Juhos <j4g8y7@gmail.com>, stable@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_114523_813122_F922BD52 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20250514_121847_138613_C840942B 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,31 +106,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 08, 2025 at 08:02:30PM -0700, Nicolin Chen wrote:
-> The new HW QUEUE object will be added for HW to access the guest queue for
-> HW-accelerated virtualization feature. It needs to ensure the guest memory
-> pages are pinned when HW accesses them and they are contiguous in physical
-> address space.
-> 
-> This is very like the existing iommufd_access_pin_pages() that outputs the
-> pinned page list for the caller to test its contiguity.
-> 
-> Move those code from iommufd_access_pin/unpin_pages() and related function
-> for a pair of iopt helpers that can be shared with the HW QUEUE allocator.
-> 
-> Rename check_area_prot() to align with the existing iopt_area helpers, and
-> inline it to the header since iommufd_access_rw() still uses it.
-> 
-> Reviewed-by: Pranjal Shrivastava <praan@google.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/iommufd/io_pagetable.h    |   8 ++
->  drivers/iommu/iommufd/iommufd_private.h |   6 ++
->  drivers/iommu/iommufd/device.c          | 117 ++----------------------
->  drivers/iommu/iommufd/io_pagetable.c    |  95 +++++++++++++++++++
->  4 files changed, 117 insertions(+), 109 deletions(-)
+The series contains several small patches to fix various
+issues in the pinctrl driver for Armada 3700.
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+---
+Changes in v2:
+  - remove 'stable' and 'Fixes' tags from the error propagating patches
+  - collect 'Reviewed-by' tags from Andrew
+  - swap patches 2 and 3 so the bug fix in the latter can be applied cleanly
+    without depending on the change in the former
+  - Link to v1: https://lore.kernel.org/r/20250512-pinctrl-a37xx-fixes-v1-0-d470fb1116a5@gmail.com
 
-Jason
+---
+Gabor Juhos (7):
+      pinctrl: armada-37xx: use correct OUTPUT_VAL register for GPIOs > 31
+      pinctrl: armada-37xx: set GPIO output value before setting direction
+      pinctrl: armada-37xx: propagate error from armada_37xx_gpio_direction_output()
+      pinctrl: armada-37xx: propagate error from armada_37xx_gpio_get()
+      pinctrl: armada-37xx: propagate error from armada_37xx_pmx_gpio_set_direction()
+      pinctrl: armada-37xx: propagate error from armada_37xx_gpio_get_direction()
+      pinctrl: armada-37xx: propagate error from armada_37xx_pmx_set_by_name()
+
+ drivers/pinctrl/mvebu/pinctrl-armada-37xx.c | 35 ++++++++++++++++-------------
+ 1 file changed, 20 insertions(+), 15 deletions(-)
+---
+base-commit: 82f2b0b97b36ee3fcddf0f0780a9a0825d52fec3
+change-id: 20250512-pinctrl-a37xx-fixes-98fabc45cb11
+
+Best regards,
+-- 
+Gabor Juhos <j4g8y7@gmail.com>
+
 
