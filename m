@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AD95C3ABD9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 09:11:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B67C3ABD9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 09:13:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X/m+AYqPg8A8mlOIVXAz+KE+GHEig3We9H42iLfgbKU=; b=e73aHT+uxvIzclkBNQbIshECxf
-	XPjQRe/uOE+F0DH7FxIeonHEGK/k8BDNycOpGfyRRJ9eLXGPf6cDnelewmA1Q9I4x8nsypaR2b0ea
-	gzzrzoFlxPSZpOt7/0VEj54PruXea9sz9OGOrf2yWioooa2Dwd/cLL0+CZYYodVnHuA5NJbaAAicB
-	2rm7t7GmzGJg5ejQ70G4biMSkehUbhlie5uccQM9P63UBeL3ix2toezugtaw5mV0YEvLbtG4GXuTY
-	LhIVQsi8JtkpBYl57rqKy0kiMG55k9WlNZiSRp9yzg2ZxAtndVe4Blu5/XilQB4zBJnmOhQmoZ048
-	lrOj0dOA==;
+	bh=CU3p2HZazfv/x9pcuc+uTWk5M51PePRd/7turTCqc5k=; b=i2B0Y/4sawDBMygqTpOckYxGNT
+	lkUd7Okam/SCWwe+3gwT/WKrFT894rudLt4P68WUppgC7N02gIfT9wjREsJznXwO5aJAV2zk8HXW/
+	wf+9LZv5kG+LEZe9selqjAQ7SVbhABr/hT66jIKu7zB5L7lmgBxWV2Brc1a8LNQyY9kw2cOG+C5Yb
+	iww7JRKItzlewJSlg9UcEtJPu1ZTkDrvDkLQh3JuYKjLHz5re/LqJnwlgHt3sBw+J3wwm+QQABN0u
+	/UDQLG92ZQPNg+CXFYahEjkTzq7cVXam+ENWPenQFkrtg6aBx3+sSvI2HTTvIcDGhfOfU2vEdU1z1
+	aygzIOxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF89I-0000000Ecji-3rjD;
-	Wed, 14 May 2025 09:11:36 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uF8BI-0000000Ed2y-3Jpe;
+	Wed, 14 May 2025 09:13:40 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF7QT-0000000EUdX-0aYQ
+	id 1uF7QU-0000000EUdr-2RCr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 08:25:18 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43ede096d73so44979375e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 01:25:16 -0700 (PDT)
+	Wed, 14 May 2025 08:25:19 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43cfba466b2so73309855e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 01:25:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1747211116; x=1747815916; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1747211117; x=1747815917; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=X/m+AYqPg8A8mlOIVXAz+KE+GHEig3We9H42iLfgbKU=;
-        b=gVk/GKSoEshdKoy+iMB02s27ej7LbLxRa0CGhQi9GU+mGpxO7Y6IwWKKk/+HxOCJYG
-         +JOIisNnpT0EyoFNf7Z/abujCE6JG+Avx/GSl+VAMTIeFwxTckqQFh0fNXFPr/wPEzZw
-         tm1pAsWs/mmRorReX25mpNTRt9GUfDJNbzixs=
+        bh=CU3p2HZazfv/x9pcuc+uTWk5M51PePRd/7turTCqc5k=;
+        b=i3NxziAY4YyqCdh14mwR1Ogdi30I3F8UTTUAZjiK36VKCQcuDqWfca+uNwxXw00kyd
+         4ePD+Z4jHLPUSb8WyAeIMPcUkHRpCdQzB1Ry/2o20A5NaEDUINn6fmlspse/g8DQjMgh
+         unEbbm6mZrUSNIxr+kpv3yp/5qGUYOjjUcAh0=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747211116; x=1747815916;
+        d=1e100.net; s=20230601; t=1747211117; x=1747815917;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=X/m+AYqPg8A8mlOIVXAz+KE+GHEig3We9H42iLfgbKU=;
-        b=fykx69JtOAyqXdNez9wRwXx5PPee0qVxc0TU1Veggk3yQQ5k8au1lb5cwc6QDDeGgX
-         pYDrPcP/K4ZKQAnXrd4Rbgdj+pmKyVNJw2yTkGP4uydV7FuAq2tUBk8s5fGx+4z6GzP/
-         iK3g8fpGK58nsqL8JYgwpmRTiO/D0Bc877p8NvhPCzW3vRJaRwc06fn+nh5K3xqOZWOn
-         EKfdLLg0LLDnHRIoarydbn66Edz7Pdc7kWskjufP6RzTcL/Rxevk3E6U0S3Zo/vJVR80
-         DR+lIHRLxAQZnJ9M+PqB4GyPnDsnerBFKzStvRKrmXDj1Zsn3FlD+bKMnieEzN3AbHvA
-         pZPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXhGgnX15iE2O5HBp4NhsLuknteP9OkouiRtimuF3LeJ18HIIhQPdsQG914KrYEBwgRrLKZGVPktgPibJGJmBqQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoDZtcPE2ovxjnvlRX4aZLvc1q7thL6McHPEqmCm9qs+PhaTXM
-	psK1KZXSVwX6s+M+lOyINUqDBkNAPgLYhTa4RNK278d1cFp7SVb/qEbkmljn+mc=
-X-Gm-Gg: ASbGnctNFjNwMsPLtKPITh0Xoz5gH2yDhCSM2wN5He0Bf4+8OhH3dKEmJJiErEk7oq+
-	Ej1PykCwxIqhJXlqwPuk6ux15LDFIblzOBXev26LqNQfbcBakX7S7I+s9uZrbkaCDyBnoSEyzC9
-	eeOXh0v57ghVSyDm/w3B27sGHZce5JOJxotIOSdkNpYLW8UDicQCw8u4neOzeB4qOjvojasTCIC
-	8KwYIgsT5wDiBsRxcN/hBwEMSo0gdwryBBV5aMUVlWfoCwxsExWWLtvgegZv53sVV2zOaxhbRbP
-	LexD8P9oNEZ2T9n9tWPdv/RH3r9onI4TNrbraMEquRGrquhwnS2Uxf6CxsxpciuOFpusYW1//+g
-	Rls0fg0lfDgI3/P7EwGDg7JYxdFJWfuEZNhaAQi9EGXY=
-X-Google-Smtp-Source: AGHT+IFtHHcd+lejXopr8LfFGaQVmOfL/UNHCcWzihISzr8hDJtjbOrZphMkMM72/aDayUzTnZnf0A==
-X-Received: by 2002:a05:600c:609a:b0:43c:fc04:6d48 with SMTP id 5b1f17b1804b1-442f1dd31f4mr24755195e9.0.1747211115603;
-        Wed, 14 May 2025 01:25:15 -0700 (PDT)
+        bh=CU3p2HZazfv/x9pcuc+uTWk5M51PePRd/7turTCqc5k=;
+        b=V/hgAeQVu7mVzlm0io1xjWSzfUshtMPnEZgzLTOvJ9OeP4+BIBpMc8kd2fKHFo86xl
+         yG6vzZF8kI/tgFQ02vMfs8gO3fQOcPfyrZ5yb1JjoYQWo9OdI5hU5drOr5/e+KyRW0sz
+         2qhYAKuWHRbvB73sMbKkLXABZ4uEuU+dPjIBXEKvizZzJt6YFFz3nOMhxphTMj46Z1/4
+         npZX40dhocJMCpnvvjdXND4H2f8Y1VkMmCGJT/Q8rAC4FtQs2PcWtcLJhFeN/D3CeVgN
+         +0ab9MTzFz7hmuhIWsroptWk5d7mPNZ1JGCv53AXZunMUa+7iTIYPwcEwkcCL4+RhVK2
+         yoSA==
+X-Forwarded-Encrypted: i=1; AJvYcCV/NVbQQJ27KD2Gq13S+2E15Gb+UEkohyz71dwRTc4VkV+dHRCJ3Onq8PhNfMwEpMpZLbZFxNNze/CQ9vYgQ1Q/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxw88QmwlNrprzawKdyQ/f1Efvud8IKAJwm62AVO6ILH3CC7iT5
+	isixzj57KALlu5UN28cLx2p3dEn08MfowpoKFLZAOUuAr1UmD0L3lVcWN5dURkU=
+X-Gm-Gg: ASbGncvXK4I1y3SVFREnouf3OZfb22iwwq0fZeRioxIe5Fim4wWAahmFvZxXXGiDeFR
+	MngDXaj8iBvru1KujMYqo+sw0lsxTNvwbWaBp45JacX/jO6IRO8KduW7zz82pJemeQKPZ1B7S35
+	TCMbJbriPN68w83ZAoOwh7qoPQpHpC4gVDW8SLCj0qpmhLb2sMzRUOHCnXvyHBQzBUw/TLCye0a
+	BPuQlE5ruXzKw+KvHAM+Lk87mm3qEGVlzRRpuL5EsKK3VauWYySC5M1/iKPqt4tplFUGCDQy7Qm
+	O4yLKGskVeOiIYCpDZpc+ZrW9nKgI3XYoDSm04NqPbnqzKyNnPARl2/cD0Wh12A/QAjWRtc54Bn
+	BhvaBj72wjbxNsW5uaXn1gSTiIQPFN47o86hDArq4zoA=
+X-Google-Smtp-Source: AGHT+IH06rcSnfaOB2OZhMFuSXU3getNgBYXw3VlOzykqn2k2DHIALSzS9mBkCxcxDKGZiq9xxXxLQ==
+X-Received: by 2002:a05:600c:1da5:b0:43c:fd72:f039 with SMTP id 5b1f17b1804b1-442f20dc6e7mr19271805e9.11.1747211117060;
+        Wed, 14 May 2025 01:25:17 -0700 (PDT)
 Received: from dario-ThinkPad-T14s-Gen-2i.client.m3-hotspots.de ([46.189.28.43])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442ebda7d2csm30987365e9.3.2025.05.14.01.25.14
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442ebda7d2csm30987365e9.3.2025.05.14.01.25.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 May 2025 01:25:15 -0700 (PDT)
+        Wed, 14 May 2025 01:25:16 -0700 (PDT)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: Simon Holesch <simon.holesch@bshg.com>,
@@ -84,17 +84,17 @@ Cc: Simon Holesch <simon.holesch@bshg.com>,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 3/9] arm64: dts: imx8mn-bsh-smm-s2-common: Keep wifi enable during suspend
-Date: Wed, 14 May 2025 10:24:57 +0200
-Message-ID: <20250514082507.1983849-4-dario.binacchi@amarulasolutions.com>
+Subject: [PATCH 4/9] arm64: dts: imx8mn-bsh-smm-s2-common: Enable GPU for smms2 and smms2pro
+Date: Wed, 14 May 2025 10:24:58 +0200
+Message-ID: <20250514082507.1983849-5-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250514082507.1983849-1-dario.binacchi@amarulasolutions.com>
 References: <20250514082507.1983849-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_012517_179463_BB5739B0 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20250514_012518_617787_72EDBBC1 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,31 +109,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Michael Trimarchi <michael@amarulasolutions.com>
+From: Karthikdatt Anantharamrao <karthikdatt.anantharamrao@in.bosch.com>
 
-Allow the wifi to be enabled during suspend. Use case is needed in most
-of the devices deployed in the field
+GPU is enabled in order to use image processing so it must not depend on
+display
 
+Signed-off-by: Karthikdatt Anantharamrao <karthikdatt.anantharamrao@in.bosch.com>
 Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 ---
 
- arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi
-index 0d343ffdb7f9..a983072fb835 100644
+index a983072fb835..de70cd3a392f 100644
 --- a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi
 +++ b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi
-@@ -277,6 +277,8 @@ &usdhc2 {
- 	mmc-pwrseq = <&usdhc2_pwrseq>;
- 	bus-width = <4>;
- 	non-removable;
-+	keep-power-in-suspend;
-+
- 	status = "okay";
+@@ -77,6 +77,10 @@ ethphy0: ethernet-phy@0 {
+ 	};
+ };
  
- 	brcmf: bcrmf@1 {
++&gpu {
++	status = "okay";
++};
++
+ &i2c1 {
+ 	clock-frequency = <400000>;
+ 	pinctrl-names = "default";
 -- 
 2.43.0
 
