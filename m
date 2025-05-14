@@ -4,98 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98D86C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 17:58:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 417F4C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 18:00:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EFdlJ6N6MHe++MwGWkILbc9+cPIo/XiWxbVEpXS+OnQ=; b=bqK3FEbovb4VhQ7Fm+XSmvgYo8
-	nTGYv+7jqA9zLxhQRAV8Y/ZGfTuo0bm5VH/HlarbQ42Ul7Gh4Yw4IDAh24EORNGQAY6QDvQWyhv4k
-	3mJigpRPQLAAAhVmgV4QAoXT6oYreUiJz7kxF1Q1z5dlHA+sJFo0dzqN9eVjLFc9vdLjGBL9GpikI
-	Ezrm4hxYSdEYXskHsujcSTLlusEPLg+2CMwpRNdYgVPcgDcuEf25piVYbCpxSWGvwuRSJQWpeTvr9
-	rKEkxsDKDIfRNvZBPW3lvCZvq9C1o/bl/8aPiSgAQG+4VZFH/T9XljuIGzUc07toWzXwI6eSBBmyQ
-	8n0iME9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B14NVkvhs11fRsNVrEthNlvxBAltrCCqiAMAETfxaNU=; b=vKIvQMhSubjSfyjk0lJafQ0Rzj
+	VO4C+v0aMsrI9LacBtBqJeJIJKG5jNy0IWFLITP0vvaKEaftb7GOHYA6tRxXh7HiNwA5UJ2QykpBK
+	tb04PoFQgw40NLiLj7CvqDut1CKNXewVq3XG4MKYz34kpWS2ipI25aLIQQuKCuPx9/dVOrwCOlQp7
+	v46PtMIKorVoQsC5nBDNCPMDXrSSSDCJCGfeTAvZeMpNLiTLO/c3yvRbqgUVjuChXhMmKOc8hrvM/
+	Y2wWEvPu6RKV46Ah46pOW0rTzygt12odNZAKTSn8U/VsxFTXF1uVZwSMqajjeR0hQgJiwnf3ioIJ2
+	hX9aebGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFGNO-0000000FySQ-0CEF;
-	Wed, 14 May 2025 17:58:42 +0000
-Received: from mail-ed1-x541.google.com ([2a00:1450:4864:20::541])
+	id 1uFGPO-0000000FyqQ-2AGM;
+	Wed, 14 May 2025 18:00:46 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFG0d-0000000Fs4Y-1Wvi
+	id 1uFG3D-0000000FsKl-1x5A
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 17:35:12 +0000
-Received: by mail-ed1-x541.google.com with SMTP id 4fb4d7f45d1cf-5efe8d9ebdfso135252a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 10:35:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747244109; x=1747848909; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=EFdlJ6N6MHe++MwGWkILbc9+cPIo/XiWxbVEpXS+OnQ=;
-        b=l9ZKOdXwKookM0IAZA8qyA88EgW6jz8QByW/m6acNtrUvsIuAYBMD8eqOzLQeXf7Zy
-         VeimoMEQWSuC8UvlQpqTL6ughi/52ApzpuvYyKwQWtk8qo4WFtUzKdj7ueYVsIxXn20E
-         8tPsFBhqfEQGwMAFMrAWwyDPEQeB6uBS/mn6M2UkfrxZHFUdZI65UnyZsTbTCzaU1bkx
-         9qNMvsUc7DOROQbZxEu6vwlnwW1AvDcL4Op4IT5bMB8wDXf3bX3ywYxKQveile1XKn+5
-         nO7RZtzguLt24WkuYzJ06ogIT+Empn5SWonEDUwO9q7TIoW/8OZC0cgqaEU53In18Acs
-         nawA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747244109; x=1747848909;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=EFdlJ6N6MHe++MwGWkILbc9+cPIo/XiWxbVEpXS+OnQ=;
-        b=Tp1FjJd9JL3qU5Jw556tU1NJps2Zl2d8Riadi9DqTsZV/6qG/LURlcebOlxlhad2oX
-         RyZu8HQYpYUth6HVlAjZMMeuUDiyLB3PiRyEgR6Oy79ZhAD7DMv4JehxkOhjNb3XKvv7
-         LA3YTqKJ1KnUhAwmRQg9jaSHBibmZcmUFe78FIkFNjFbV3bnw/LgMBAiKVSbgvdSWYtm
-         M3Fv77dDFBfEFKItrPRCOUfK4V2w1cZ4ot8aUdaljUFvBosD0lmRmCIl7dA1jYUncJft
-         awowMKoFxIo9MzKWaSZGxmUgttJtxWVK4X+WA1R+L1OBoPgHMNP1yY3ib9Uy0iIkGoUR
-         6EEQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUi6UBxWXuhI9h2lYND+WK5pq2genGtDrAM4E2MWXpdFF25WKQrojfq+23ay7zGbaYD3mADf+Ss4EIwK0lFdcPk@lists.infradead.org
-X-Gm-Message-State: AOJu0YysnXoXJiiAsaSsjiwSLn84uY3tLE13lbEFe9I3tZRNR6aawjNj
-	2zJujUHhBOaAum/lwGC+i16Pg02WcgEZS//V1jWCnHRpZScAOSWGOpobJCXG006FJTlE6aU1nj9
-	PBOdYMie5cW8MDV5JlRcJSnQwuzc=
-X-Gm-Gg: ASbGncsSvsSBDNihcbEPDCJfV+EIX9mppnWLpUzVVHG/Jed4u4jaWxUupoDHzM7OmyR
-	QIz7wsadjYkalEDnBupkyLu7qGCFcEIq7Qp91XQg1o1OzkSZ+ZZJ8C0YiFwwv8CypL7DYHPOBAo
-	teQftrfKk/wbxZATFNvShz2xeLjGgIwcovTOBT2b06591Bhb+l
-X-Google-Smtp-Source: AGHT+IE+VwudLGlVqV7MTPJNv/2IatRwQ5fmgPNY2cQCAUPG/OX3YqdyDUfjFCe1H9Ew0BhHDSRLrN8kqa+WikFcqEc=
-X-Received: by 2002:a17:907:8747:b0:ad2:4787:f1f4 with SMTP id
- a640c23a62f3a-ad4f7114433mr410241466b.15.1747244109100; Wed, 14 May 2025
- 10:35:09 -0700 (PDT)
+	Wed, 14 May 2025 17:37:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4D90A5C046D;
+	Wed, 14 May 2025 17:35:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B571C4CEED;
+	Wed, 14 May 2025 17:37:48 +0000 (UTC)
+Date: Wed, 14 May 2025 13:38:15 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ jstultz@google.com, qperret@google.com, will@kernel.org,
+ kernel-team@android.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 00/24] Tracefs support for pKVM
+Message-ID: <20250514133815.78bc2599@gandalf.local.home>
+In-Reply-To: <20250506164820.515876-1-vdonnefort@google.com>
+References: <20250506164820.515876-1-vdonnefort@google.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20250501073603.1402960-1-luis.gerhorst@fau.de>
- <20250501073603.1402960-12-luis.gerhorst@fau.de> <CAP01T76jeSg3W-OyfBfSbAjpEhBr_h8rbS-Hubk6gDdrkeEj_Q@mail.gmail.com>
- <87ecwr14mt.fsf@fau.de>
-In-Reply-To: <87ecwr14mt.fsf@fau.de>
-From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Date: Wed, 14 May 2025 13:34:32 -0400
-X-Gm-Features: AX0GCFtOVfH8muGhMGHBFxUVlaXx-8L6TgNxC77DPS2kBNNOVj7O1t8HiDkeHPo
-Message-ID: <CAP01T75xiWn56dtpS06Vm9sMRfCBv+uHNe47Fh5hqu+4xCxOiw@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v3 11/11] bpf: Fall back to nospec for sanitization-failures
-To: Luis Gerhorst <luis.gerhorst@fau.de>
-Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
-	Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Hari Bathini <hbathini@linux.ibm.com>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
-	Henriette Herzog <henriette.herzog@rub.de>, Saket Kumar Bhaskar <skb99@linux.ibm.com>, 
-	Cupertino Miranda <cupertino.miranda@oracle.com>, Jiayuan Chen <mrpre@163.com>, 
-	Matan Shachnai <m.shachnai@gmail.com>, Dimitar Kanaliev <dimitar.kanaliev@siteground.com>, 
-	Shung-Hsi Yu <shung-hsi.yu@suse.com>, Daniel Xu <dxu@dxuuu.xyz>, bpf@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-kselftest@vger.kernel.org, 
-	Maximilian Ott <ott@cs.fau.de>, Milan Stephan <milan.stephan@fau.de>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_103511_408101_95BD45E1 
-X-CRM114-Status: GOOD (  39.32  )
+X-CRM114-CacheID: sfid-20250514_103751_591003_A92C9C1A 
+X-CRM114-Status: GOOD (  36.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,86 +66,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 14 May 2025 at 13:30, Luis Gerhorst <luis.gerhorst@fau.de> wrote:
->
-> Kumar Kartikeya Dwivedi <memxor@gmail.com> writes:
->
-> (including relevant part from other message)
->
-> > On Thu, 1 May 2025 at 04:00, Luis Gerhorst <luis.gerhorst@fau.de> wrote:
-> >
-> >> +static bool error_recoverable_with_nospec(int err)
-> >> +{
-> >> +       /* Should only return true for non-fatal errors that are allowed to
-> >> +        * occur during speculative verification. For these we can insert a
-> >> +        * nospec and the program might still be accepted. Do not include
-> >> +        * something like ENOMEM because it is likely to re-occur for the next
-> >> +        * architectural path once it has been recovered-from in all speculative
-> >> +        * paths.
-> >> +        */
-> >> +       return err == -EPERM || err == -EACCES || err == -EINVAL;
-> >> +}
-> >
-> > Why can't we unconditionally do this? So the path with speculation
-> > that encounters an error (even if EFAULT) is not explored for the
-> > remaining pushed speculative states. If the error remains regardless
-> > of speculation normal symbolic execution will encounter it. The
-> > instructions only explored as part of speculative execution are not
-> > marked as seen (see: sanitize_mark_insn_seen), so they'll be dead code
-> > eliminated and the code doesn't reach the JIT, so no "unsafe gadget"
-> > remains in the program where execution can be steered.
-> >
-> > So the simplest thing (without having to reason about these three
-> > error codes, I'm sure things will get out of sync or we'll miss
-> > potential candidates) is probably to just unconditionally mark
-> > cur_aux(env)->nospec.
->
-> [...]
->
-> > Hm, now looking at this and thinking more about this, I think
-> > recoverable error logic is probably ok as is.
-> > Scratch my earlier suggestion about unconditional handling. I guess
-> > what would be better would be
-> > handling everything except fatal ones. In case of fatal ones we should
-> > really quit verification and return.
-> > We may make partial changes to verifier state / env and try to bail
-> > out using -ENOMEM and -EFAULT.
-> > So unconditional continuation would be problematic as we'd act in a
-> > partial state never meant to be seen.
-> >
-> > The logic otherwise looks ok, so:
-> >
-> > Acked-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
->
-> Thank you very much for having a look, so then I will leave it as is if
-> I understand you correctly.
->
-> Please let me know if "what would be better would be handling everything
-> except fatal ones" was meant literally. Such a deny-list approach would
-> likely be:
->
->   return err != -ENOMEM && err != -EFAULT;
->
-> I initially decided to limit it to -EPERM, -EACCES, and -EINVAL as I was
-> relatively confident all their cases were safe to "catch" and because it
-> already had the desired effect for most real-world programs. However, if
-> you find the deny-list approach easier to reason about, I can also do
-> that. In that case, I will review the remaining errors (besides -EPERM,
-> -EACCES, and -EINVAL) and make sure they can be caught.
->
-> Also, thanks for the pointer regarding sanitize_check_bounds() (sorry
-> for the delay; the message is still on my to-do list). I will address it
-> in v4 if it is safe or send a separate fix if it is indeed a bug.
+On Tue,  6 May 2025 17:47:56 +0100
+Vincent Donnefort <vdonnefort@google.com> wrote:
 
-Yeahl, that's correct.
+> The growing set of features supported by the hypervisor in protected
+> mode necessitates debugging and profiling tools. Tracefs is the
+> ideal candidate for this task:
+>=20
+>   * It is simple to use and to script.
+>=20
+>   * It is supported by various tools, from the trace-cmd CLI to the
+>     Android web-based perfetto.
+>=20
+>   * The ring-buffer, where are stored trace events consists of linked
+>     pages, making it an ideal structure for sharing between kernel and
+>     hypervisor.
+>=20
+> This series first introduces a new generic way of creating remote events =
+and
+> remote buffers. Then it adds support to the pKVM hypervisor.
+>=20
+> 1. ring-buffer
+> --------------
+>=20
+> To setup the per-cpu ring-buffers, a new interface is created:
+>=20
+>   ring_buffer_remote:	Describes what the kernel needs to know about the
+> 			remote writer, that is, the set of pages forming the
+> 			ring-buffer and a callback for the reader/head
+> 			swapping (enables consuming read)
+>=20
+>   ring_buffer_remote():	Creates a read-only ring-buffer from a
+> 			ring_buffer_remote.
+>=20
+> To keep the internals of `struct ring_buffer` in sync with the remote,
+> the meta-page is used. It was originally introduced to enable user-space
+> mapping of the ring-buffer [1]. In this case, the kernel is not the
+> producer anymore but the reader. The function to read that meta-page is:
+>=20
+>   ring_buffer_poll_remote():
+> 			Update `struct ring_buffer` based on the remote
+> 			meta-page. Wake-up readers if necessary.
+>=20
+> The kernel has to poll the meta-page to be notified of newly written
+> events.
+>=20
+> 2. Tracefs
+> ----------
+>=20
+> This series introduce a new trace_remote that does the link between
+> tracefs and the remote ring-buffer.
+>=20
+> The interface is found in the remotes/ directory at the root of the
+> tracefs mount point. Each remote is like an instance and you'll find
+> there a subset of the regular Tracefs user-space interface:
+>=20
+>   remotes/test/
+>      buffer_size_kb
+>      trace_clock
+>      trace_pipe
+>      trace
+>      per_cpu/
+>              cpuX/
+>                  trace
+>                  trace_pipe
+>      events/
+>=20
+>             test/
+>                 selftest/
+>                           enable
+>                           id
+>=20
+> Behind the scenes, kernel/trace/trace_remote.c creates this tracefs
+> hierarchy without relying on kernel/trace/trace.c. This is due to
+> fundamental differences:
+>=20
+>   * Remote tracing doesn't support trace_array's system-specific
+>     features (snapshots, tracers, etc.).
+>=20
+>   * Logged event formats differ (e.g., no PID for remote events).
+>=20
+>   * Buffer operations require specific remote interactions.
+>=20
+> 3. Simple Ring-Buffer
+> ---------------------
+>=20
+> As the current ring-buffer.c implementation has too many dependencies to
+> be used directly by the pKVM hypervisor. A new simple implementation is
+> created and can be found in kernel/trace/simple-ring-buffer.c.
+>=20
+> This implementation is write-only and is used by both the pKVM
+> hypervisor and a trace_remote test module.
+>=20
+> 4. Events
+> ---------
+>=20
+> A new REMOTE_EVENT() macro is added to simplify the creation of events
+> on the kernel side. As remote tracing buffer are read only, only the
+> event structure and a way of printing must be declared. The prototype of
+> the macro is very similar to the well-known TRACE_EVENT()
+>=20
+>  REMOTE_EVENT(my_event, id,
+>      RE_STRUCT(
+>          re_field(u64, foobar)
+>      ),
+>      RE_PRINTK("foobar=3D%lld", __entry->foobar)
+>      )
+>   )
+>=20
+> 5. pKVM
+> -------
+>=20
+> The pKVM support simply creates a "hypervisor" trace_remote on the
+> kernel side and inherits from simple-ring-buffer.c on the hypervisor
+> side.
+>=20
+> A new event macro is created HYP_EVENT() that is under the hood re-using
+> REMOTE_EVENT() (defined in the previous paragaph) as well as generate
+> hypervisor specific struct and trace_<event>() functions.
+>=20
+> 5. Limitations:
+> ---------------
+>=20
+> Non-consuming reading of the buffer isn't supported (i.e. cat trace ->
+> -EPERM) due to current the lack of support in the ring-buffer meta-page.
+>=20
+> [1] https://tracingsummit.org/ts/2022/hypervisortracing/
+> [2] https://lore.kernel.org/all/20240510140435.3550353-1-vdonnefort@googl=
+e.com/
+>=20
 
-My only concern was if things shift around we return -EBUSY or whatever
-(even though it's unlikely, but you get the idea) it will be missed
-and we may break use cases we were permitting? Definitely need to be
-careful either way, but I guess the surface of interaction for unpriv programs
-is relatively set in stone so it won't matter too much.
+BTW,  I tried to build this series and it fails.
 
-It's probably better since you've audited paths returning that error
-which do not leave things in a partial state. So I guess we should be
-conservative and stick to the three you have right now.
+  CALL    /work/git/test-linux.git/scripts/checksyscalls.sh
+  CC      kernel/trace/simple_ring_buffer.o
+In file included from ./arch/x86/include/generated/asm/rwonce.h:1,
+                 from /work/git/test-linux.git/include/linux/compiler.h:390,
+                 from /work/git/test-linux.git/arch/x86/include/asm/atomic.=
+h:5,
+                 from /work/git/test-linux.git/include/linux/atomic.h:7,
+                 from /work/git/test-linux.git/kernel/trace/simple_ring_buf=
+fer.c:7:
+/work/git/test-linux.git/kernel/trace/simple_ring_buffer.c: In function =E2=
+=80=98simple_rb_move_tail=E2=80=99:
+/work/git/test-linux.git/include/asm-generic/rwonce.h:55:37: error: assignm=
+ent to =E2=80=98struct list_head *=E2=80=99 from =E2=80=98long unsigned int=
+=E2=80=99 makes pointer from integer without a cast [-Wint-conversion]
+   55 |         *(volatile typeof(x) *)&(x) =3D (val);                     =
+       \
+      |                                     ^
+/work/git/test-linux.git/include/asm-generic/rwonce.h:61:9: note: in expans=
+ion of macro =E2=80=98__WRITE_ONCE=E2=80=99
+   61 |         __WRITE_ONCE(x, val);                                      =
+     \
+      |         ^~~~~~~~~~~~
+/work/git/test-linux.git/arch/x86/include/asm/barrier.h:63:9: note: in expa=
+nsion of macro =E2=80=98WRITE_ONCE=E2=80=99
+   63 |         WRITE_ONCE(*p, v);                                         =
+     \
+      |         ^~~~~~~~~~
+/work/git/test-linux.git/include/asm-generic/barrier.h:172:55: note: in exp=
+ansion of macro =E2=80=98__smp_store_release=E2=80=99
+  172 | #define smp_store_release(p, v) do { kcsan_release(); __smp_store_r=
+elease(p, v); } while (0)
+      |                                                       ^~~~~~~~~~~~~=
+~~~~~~
+/work/git/test-linux.git/kernel/trace/simple_ring_buffer.c:129:17: note: in=
+ expansion of macro =E2=80=98smp_store_release=E2=80=99
+  129 |                 smp_store_release(&new_tail->list.next,
+      |                 ^~~~~~~~~~~~~~~~~
+make[5]: *** [/work/git/test-linux.git/scripts/Makefile.build:203: kernel/t=
+race/simple_ring_buffer.o] Error 1
+make[4]: *** [/work/git/test-linux.git/scripts/Makefile.build:461: kernel/t=
+race] Error 2
+make[3]: *** [/work/git/test-linux.git/scripts/Makefile.build:461: kernel] =
+Error 2
+make[2]: *** [/work/git/test-linux.git/Makefile:2004: .] Error 2
+make[1]: *** [/work/git/test-linux.git/Makefile:248: __sub-make] Error 2
+make[1]: Leaving directory '/work/build/trace/nobackup/debiantesting-x86-64'
+
+Even when I fixed this, it then failed with the building of the sample modu=
+le.
+
+I think you need something like:
+
+obj-$(CONFIG_TRACE_REMOTE_TEST) +=3D remote_test_mod.o
+
+remote_test_mod-y :=3D simple_ring_buffer.o remote_test.o trace_remote.o
+
+If the module needs more than one object file. Then the module should be
+called something that doesn't have a .c file and use that name with ".o" to
+add all the objects.
+
+I think this could work, but this still had issues with functions not expor=
+ted.
+
+-- Steve
 
