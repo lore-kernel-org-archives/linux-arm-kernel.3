@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D738C3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 12:59:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1C83C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 13:07:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NgEvng60eATnMI4BVnU7kV+KBHy0r5XgWKzSDSIdJKA=; b=gUuiboGhf6EXNX9XlchRJUjQAV
-	cphn+fbAezE+zu8IeTkKOdzyt3wMvZxDFb/6Ugnmjy7Pd4bn9ijCLafPsRrHcRqTeUE9c5t6IKM62
-	NGXz3FJ8fcBRrmLPwAa1T9V58F52wADARzwB1DzMiDyGDcddmudJNUmyPeCU5G1RhBp5+05HiQQjk
-	wcA/d2Zq/7M/kf0tpyhBkuTIlIJi2WhlFnr3zaJw32trw6snhqzvdXRON5lcw3VWI/7XXUsHeXhkG
-	0+nIg89GBrh0vTiCxrnlemrTdAIMrigLWMkAZ3Ja/beIh93Pggq5ooxlGlqu6iiVUKHHr5cr9FhuN
-	MgGAOUOw==;
+	bh=bup6NhA6evSSr2vJWZ/rxyhkcFN8+wVdFF6iyZzNxv0=; b=Jr77MR/4WfuBp3ecaLDYGid+o7
+	4hvqnrg4c0nNWJ7JjKN0AqcygJhN4VJxrI/7EOhYOHW8SaV/KiwX8bDEAQMqfmCFMGmSLtBEdnGfD
+	iHdeoxEbR4JgXRGFL+KYWKftT1sH/cpnbCBU9vbJuUWO4xNUgScLaWWOyahFpieVFKWFZp8vZ9Cs6
+	Zc6/S71gcdP3459AKIE5csAyV6n4VOjA+JAj+ldD3C/RLJ3wZ45cMgTj+pU1bAMi/SDnaPeH6LTis
+	J8VDY5eb2gg19ocryTqahnx+fbXEfq5wtg97ySQdniWYqWOi75M+sPN7sXXzI0oLX/zjmM52KsB8i
+	/yIJAAmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFBhi-0000000F9CK-3jT8;
-	Wed, 14 May 2025 12:59:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uFBpg-0000000FA2t-28RO;
+	Wed, 14 May 2025 13:07:36 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFAQE-0000000EuOY-2QHf;
-	Wed, 14 May 2025 11:37:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C605560008;
-	Wed, 14 May 2025 11:37:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1907C4CEE9;
-	Wed, 14 May 2025 11:37:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747222633;
-	bh=t1bXaEu9EXQ94m0cdh4MSItJJeYMDzLla+FRFBaaVOA=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=NwpkfIl6MZt3iRQolb75+B6HpoTZyfFuUyBOU3iCCdWyF2d3ukbkHyrA8zIFib9nc
-	 EOHXQ7yVKndC1xfuBDcWhVcVzOVrhwiAPM3NNJ7jzA//MeUd8ZZIcpVIDb/GFpCwED
-	 pbNpd+NMu5yoxzB18tUGerttcXQ2a1yO5VC4uJGUYaiAtMf/iNa53FZ+fmxhi1HcH4
-	 HBydiR7YPq5TnLsV4f26kN1qn2853JpHGEcof10JzSLaUY/ke7xyTcZKX793Z70uM6
-	 SKT6RyfToz9+K5wt2nSCKVyNtoz/OwuA/7bc29ll3fokyUQg+QlfOc0fknmmeQCV6m
-	 CXvTdBKQ4rgqg==
-From: Vinod Koul <vkoul@kernel.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
- Chunfeng Yun <chunfeng.yun@mediatek.com>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Frank Wunderlich <linux@fw-web.de>
-Cc: Frank Wunderlich <frank-w@public-files.de>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
- Daniel Golle <daniel@makrotopia.org>, Sean Wang <sean.wang@mediatek.com>, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-phy@lists.infradead.org
-In-Reply-To: <20250422132438.15735-1-linux@fw-web.de>
-References: <20250422132438.15735-1-linux@fw-web.de>
-Subject: Re: (subset) [PATCH v4 0/8] Add Bananapi R4 variants and add xsphy
-Message-Id: <174722262951.85510.8563581978956288115.b4-ty@kernel.org>
-Date: Wed, 14 May 2025 12:37:09 +0100
+	id 1uFAvK-0000000Eyzl-1x7m;
+	Wed, 14 May 2025 12:09:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=bup6NhA6evSSr2vJWZ/rxyhkcFN8+wVdFF6iyZzNxv0=; b=Kn5WA/IgtVwya2trKCfDWwBt4L
+	Ax8KEO0MFmCad8uHSBjVGREVqgK9JppRgf9qN1yx/iR/dc1UXV8hUvFsBqM5N+kuN3KRdlGZtNxA+
+	kEMLBspjNg/2GcRjfKUaIhWRd/jwUJCTYSwv1bHXcrXwdIugoWIA8OIxa6E9wHfkuVmonl5g1Bt7E
+	axhbBtp0o7sbKJC/yFfy2KS83rCPhbQo6JiuVDLG6EFbk/Kjww14En+c5PI4s5PQA2RRrHpOPyhDU
+	sj0X6rFjHZ/VRRlZ7zUJL7e4wLzZ3fEnCwCFd1p4Ed7SVbpBnrbxFvL2EJUmpCR97PexiFdpjRiYK
+	A3xCtekg==;
+Received: from i53875a50.versanet.de ([83.135.90.80] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uFAvI-0005f9-VP; Wed, 14 May 2025 14:09:21 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: quentin.schulz@cherry.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: [PATCH v3 2/6] arm64: dts: rockchip: move reset to dedicated eth-phy node on ringneck
+Date: Wed, 14 May 2025 14:09:02 +0200
+Message-ID: <20250514120906.2412588-3-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250514120906.2412588-1-heiko@sntech.de>
+References: <20250514120906.2412588-1-heiko@sntech.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250514_050922_518313_6D07105A 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,31 +78,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-On Tue, 22 Apr 2025 15:24:23 +0200, Frank Wunderlich wrote:
-> With this series i continue the mt7988/bananapi-r4 dts upstream work
-> 
-> changes in v4:
-> - changes based on review comments in v3 (mostly bindings)
-> - changed topmisc unit address to match reg
-> 
-> Daniel Golle (1):
->   phy: mediatek: xsphy: support type switch by pericfg
-> 
-> [...]
+Using snps,reset-* properties to handle the ethernet-phy resets is
+deprecated and instead a real phy node should be used.
 
-Applied, thanks!
+Move the Ringneck phy-reset properties to such a node
 
-[3/8] dt-bindings: phy: mtk-xs-phy: Add mt7988 compatible
-      commit: 117d09e2830d6ff6c1bb2dc5629f972504fde51e
-[4/8] dt-bindings: phy: mtk-xs-phy: support type switch by pericfg
-      commit: b484b25a486962b568ada1f55c1b96dfd96b912d
-[6/8] phy: mediatek: xsphy: support type switch by pericfg
-      commit: f85eb659a48cc2f0c98a122e760552b69e56c06f
+Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+Tested-by: Quentin Schulz <quentin.schulz@cherry.de>
+---
+ .../boot/dts/rockchip/px30-ringneck.dtsi      | 22 ++++++++++++++++---
+ 1 file changed, 19 insertions(+), 3 deletions(-)
 
-Best regards,
+diff --git a/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi b/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi
+index 142244d52706..ab232e5c7ad6 100644
+--- a/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi
++++ b/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi
+@@ -83,9 +83,7 @@ &emmc {
+ 
+ /* On-module TI DP83825I PHY but no connector, enable in carrierboard */
+ &gmac {
+-	snps,reset-gpio = <&gpio3 RK_PB0 GPIO_ACTIVE_LOW>;
+-	snps,reset-active-low;
+-	snps,reset-delays-us = <0 50000 50000>;
++	phy-handle = <&dp83825>;
+ 	phy-supply = <&vcc_3v3>;
+ 	clock_in_out = "output";
+ };
+@@ -344,6 +342,18 @@ &io_domains {
+ 	status = "okay";
+ };
+ 
++&mdio {
++	dp83825: ethernet-phy@0 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <0x0>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&phy_rst>;
++		reset-assert-us = <50000>;
++		reset-deassert-us = <50000>;
++		reset-gpios = <&gpio3 RK_PB0 GPIO_ACTIVE_LOW>;
++	};
++};
++
+ &pinctrl {
+ 	emmc {
+ 		emmc_reset: emmc-reset {
+@@ -351,6 +361,12 @@ emmc_reset: emmc-reset {
+ 		};
+ 	};
+ 
++	ethernet {
++		phy_rst: phy-rst {
++			rockchip,pins = <3 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	leds {
+ 		module_led_pin: module-led-pin {
+ 			rockchip,pins = <1 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
 -- 
-~Vinod
-
+2.47.2
 
 
