@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFD62C3ABDA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 08:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A056DC3ABDE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 08:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HrEby8X97oMS/rj+guNPUJDiVtS8KqyTeO4FfPyEZHU=; b=KZiLBzmnoR5uDr3VCPh37ugXnX
-	1v2xPSjLYKJet8rUxaRWp9N1hgfk5t28QqhbDRSSzMekFt096gx+A0hQ5QkVK84nV2DeMnIQOEu1N
-	ICLwOMD93CW/aeliBGTn3iGS5H+zq0w8hOmyJGzrGbJvSEvTyZZA7pKt4GmKOeDtB/1n5vjL8Oe6D
-	AyQB5etpXbENLYPIXmypiiG3AOLrg24oJVp/xuUbcSskLKXsSwUm5O9akIdBmLI8TdoLF8acHpxy+
-	13sQ6RCB+SVWumTGinogw5qYQSH9pkoOaw8TttYrXuZl2DZsCsriUHXBSGQKoSq1K29aG5+UO6YSj
-	xJ5/Ulvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OXtyqhKAYQ7rzIf1VKLFznWJ4YGo/ohp21RFYJSCNLc=; b=1zlx8p2HG/N/noho5Osg4uwKRl
+	wqhYOKsZkad463+5arKmp40P4aJ51Z5MxwiJ2RYSPUfix07hTzyVOwdlYNDjTa8VfWb4m154754dV
+	90cJNOEQFDvmo1fTF6SmckVqLPUK8D659/ZYrDE5wtURnvS/I+10rCZ5scxc6+n1A1g3QTguzUh32
+	bMrj3aH7yI2AVCDJO52LzB3KS2N7sIT6zHRbz6ErQbYH6Et7PD4vRFvhKYTrhb7f0RxWQum8I35js
+	/xp1LgOz/lkk84g5HDwa5YxpmbeXWnDmPzAh2eY9862xmg29H+jVZ0IxDM3zJrG9Hbwh9nLZKkZGE
+	6tS/JkpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF7qt-0000000EZeF-15GP;
-	Wed, 14 May 2025 08:52:35 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uF7tK-0000000EaGt-2sZp;
+	Wed, 14 May 2025 08:55:06 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF7J2-0000000ET7t-2rBS;
-	Wed, 14 May 2025 08:17:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BB768A4365A;
-	Wed, 14 May 2025 08:17:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3E50C4CEE9;
-	Wed, 14 May 2025 08:17:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747210655;
-	bh=HrEby8X97oMS/rj+guNPUJDiVtS8KqyTeO4FfPyEZHU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=O31B7HzEyj3Nh4DAAJoFtHFRHPDbN7/g83eRGt9BVOdIa407ZQsTtrzwDXm08UiHf
-	 au9g7acBtuIWljLhpr1LVdKmuA8eumou+3pxY2wx3+y4tNi2Da0cT7MJesdUQoTz9M
-	 x3xxKgtVuJl2rvXx+koXEHh2vjGBnY7kezCh1XkcOUJx3DdswXJ0KhNUIt7N7AvEDZ
-	 rI9bK1c389FzNXR/9nABj8vY3s7LJ2xWKNrLciHhrbc0NFCR3BrPv935Avf+Fzw7u4
-	 T0XJMfje25BR4bZ5c1G189g5NyRAtkKpL1STKWQFKkrsIWLPUncgYk1ehmnKyxJOhp
-	 VoQMI5UaLWtjg==
-Date: Wed, 14 May 2025 10:17:30 +0200
-From: Mark Brown <broonie@kernel.org>
-To: "Darren.Ye" <darren.ye@mediatek.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v3 04/10] ASoC: mediatek: mt8196: support ADDA in
- platform driver
-Message-ID: <aCRRmk2Vqplbbusn@finisterre.sirena.org.uk>
-References: <20250514081125.24475-1-darren.ye@mediatek.com>
- <20250514081125.24475-5-darren.ye@mediatek.com>
+	id 1uF7LV-0000000EThn-3NL6;
+	Wed, 14 May 2025 08:20:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1747210808;
+	bh=eVS8ASAPWXFPs7zmXnVv2z4AjK5YrBRmxmYDS53TpiE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=VuKgwCUPuoiMh63fAsWJcXFb+WTCyzT4zkxvrNgRY9oEZFDc9cmfr2oKNbD4dKlbQ
+	 2KWMQka1r81eUxmi4+Fpss7PUUi5XIy8XEFbnwEbeuB3cI+7cFSpwEKWNV4oX/puZC
+	 ERSGUAucgOHC5yL4wIornVzg5z8bpXuFnh+To4fJHnsdXJ0M9Z0wYf7gdJIqkblSM2
+	 mRhdQ1D9oyGxnUcIRH+0e2zIyRYqPgIWwUsYhZlrNqqJ2vDlXIy1ZpKgwuUCa0AcfP
+	 ocVCkuCm50Q6JLHXBXOEpJKS+D08SlNucQJKi7C7PK2XCCpM4sWB9SprBVGBVJS1CV
+	 212ICctrS7Nkg==
+Received: from apertis-1.home (2a01cb0892F2D600c8F85Cf092d4AF51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: jmassot)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2729417E07C9;
+	Wed, 14 May 2025 10:20:07 +0200 (CEST)
+From: Julien Massot <julien.massot@collabora.com>
+Date: Wed, 14 May 2025 10:19:56 +0200
+Subject: [PATCH v2 1/3] dt-bindings: mfd: mediatek: mt6397: Add
+ #sound-dai-cells property
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="1Ucd00qPZdK+Pv3F"
-Content-Disposition: inline
-In-Reply-To: <20250514081125.24475-5-darren.ye@mediatek.com>
-X-Cookie: Well begun is half done.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250514-mt8395-dtb-errors-v2-1-d67b9077c59a@collabora.com>
+References: <20250514-mt8395-dtb-errors-v2-0-d67b9077c59a@collabora.com>
+In-Reply-To: <20250514-mt8395-dtb-errors-v2-0-d67b9077c59a@collabora.com>
+To: kernel@collabora.com, Sen Chu <sen.chu@mediatek.com>, 
+ Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
+ Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
+ Hui Liu <hui.liu@mediatek.com>, Yong Wu <yong.wu@mediatek.com>, 
+ Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, 
+ Tinghan Shen <tinghan.shen@mediatek.com>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, iommu@lists.linux.dev, 
+ Julien Massot <julien.massot@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_011736_787318_5B288D6C 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20250514_012010_729256_E10EF71B 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,37 +88,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The 'mt6359.dtsi' file already uses the '#sound-dai-cells' property.
+Add the corresponding property to the binding to fix the following
+dtb-check error:
 
---1Ucd00qPZdK+Pv3F
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+mediatek/mt8395-radxa-nio-12l.dtb: pmic: '#sound-dai-cells', 'mt6359rtc' do not match any of the regexes: 'pinctrl-[0-9]+'
+from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
 
-On Wed, May 14, 2025 at 04:11:06PM +0800, Darren.Ye wrote:
+Fixes: 9bc8353be720 ("arm64: dts: mt6359: Add #sound-dai-cells property")
+Signed-off-by: Julien Massot <julien.massot@collabora.com>
+---
+ Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-> +#include <linux/regmap.h>
-> +#include <linux/delay.h>
-> +#include "mt8196-afe-clk.h"
-> +#include "mt8196-afe-common.h"
-> +#include "mt8196-interconnection.h"
-> +
-> +#define MTKAIF4
+diff --git a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
+index 6a89b479d10fad3c8b61cab5a3af1453baca4d1a..9580c4ec1ae00f1dd1182357d8b0a5035a1b7f82 100644
+--- a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
++++ b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
+@@ -30,6 +30,9 @@ description: |
+   See the following for pwrap node definitions:
+   Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
+ 
++allOf:
++  - $ref: /schemas/sound/dai-common.yaml#
++
+ properties:
+   compatible:
+     oneOf:
+@@ -53,6 +56,9 @@ properties:
+   "#interrupt-cells":
+     const: 2
+ 
++  '#sound-dai-cells':
++    const: 1
++
+   rtc:
+     type: object
+     $ref: /schemas/rtc/rtc.yaml#
 
-This define is there unconditionally, what's it for?
+-- 
+2.49.0
 
---1Ucd00qPZdK+Pv3F
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmgkUZoACgkQJNaLcl1U
-h9DiUwf8CeXyIw1furK0nf9QfBubUYFQ3DjxWzlkFbKAyVnUb3qF3V4vkrVIRC2P
-HYiWu0j8HLfZE/o+6cFkU0RIhzDgC/TGdMp/8ZlCLG3PpX8n124t3GsigTEOv+ZP
-13p4rzmwS4GdMZD5uY7yI5mg1ScK69kNmb6ah4DeOTo92/GJQTITnJXq8B3UegXr
-P5rk8qlBWvgKL4ebpRSGbCztpZZ+rDkUzaNutwIk0I4mzdmGwfJ/u/kBk1oUNhoD
-+dvn4qemKwDA8J9QV/sDzEu964KbUx+iWz1AryHn3TwKzF6kO1I2nirfld6rrqqK
-0vtfqUZc+p2IdLOgN8NnSiL0/t3h4Q==
-=xV1N
------END PGP SIGNATURE-----
-
---1Ucd00qPZdK+Pv3F--
 
