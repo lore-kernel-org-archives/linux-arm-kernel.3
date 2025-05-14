@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DDA9C3ABD9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 14:04:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4491EC3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 14:04:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SywIgVZ5ki37fpvEs3Za7rXaxD1amf+VenIKyJpYJGU=; b=dhiGalCBwo4AQAs5whOvRGhCpV
-	k1RLRnDmmAp+apqFIs86V0z1eP0LjS9xMbc5JQ9OE7lMQlJye/p9p2p1pYz1al8D1XSBKXDbPgv5t
-	oO+kSkkrHCVPTKWDphewnexvDm5BuTiZTlTVlQvBkGlnOPgYaiD7nBOLtQDaD3aPTFna1jv8AQpCq
-	4Lz/VfqtMsLn31TcIWvBNzhMVrcpSmXBEKKtPleHlf2/BRExg/Phgnn2TOoOYZ+5c8W32ZQSHBXCH
-	1NOYpMu7UZzp4xieuf9J0wY8upyCKqzEN1PtQYPcJdQd1l70x+3VMl8LfiPaN9ftf54kPAiTVnPUa
-	NjIB7gkg==;
+	bh=KjuA7rmWgAGZCSV96vRmSS0VcsR/4uag37CYLdTx0nI=; b=nmMZ6c2fUmmUEb1jNfi6vEU7U+
+	4sOZ5asoy8JMhNOqtzHatyyoStOG9dy0ToHC2cO1cQMtZRQVvBg5csjoHCJYO3lU044f6qnmkNfHK
+	J7cgtaAm7ZVwSsqjz61TJiLPiEdcFbnX99C2FpCX2HD9pkv/wo67j7IIRnXqi1TFFuO+Db3QuUfnZ
+	J7IrK5Tf6wfb7vMd8edAbfCgbjMYd8ZImnwITHqLkqzs9HBEeABQ6p95OA/hc/x64bfuX1zX7p0Kg
+	T9r+lP+YF+yI0AbEFL5k6VmBl6/Fg7/czQhtXIV5g/iuJXXZ3Bdi5szT1tJclxJiurOHu//uGNEos
+	+OkCZCcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFCiT-0000000FMFs-2yeI;
-	Wed, 14 May 2025 14:04:13 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uFCiW-0000000FMIA-1wqv;
+	Wed, 14 May 2025 14:04:16 +0000
+Received: from mail-m155101.qiye.163.com ([101.71.155.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFAQH-0000000EuOk-1YN6;
-	Wed, 14 May 2025 11:37:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6BA005C33C4;
-	Wed, 14 May 2025 11:34:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0020CC4CEF2;
-	Wed, 14 May 2025 11:37:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747222636;
-	bh=IT/rqqrN2B02eom0BK/jGdQZGK6p0WHtvFi4frRfS/8=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=G9dyxvtHbzkDZp37KAkz/bk9eZrJuA4owLh1i0aK7CCyKTwVbSIa/hmSbYRCuI8mK
-	 H4awQBdyBtq8MsSxrJw3EO0X3dzioCUT0kc0oCUZomfrT70yFrF3aTraEyUgg8zfMr
-	 O8AeU9F11KMojNH+jHg7N4V6HH5uUHZ7jZcNQg7e558Vhc9XC/ljwLQswKCAaPCb48
-	 gpRoZdVgCcJ6CrMjFTJFodr6Mjll3O6w1ulintDW8sje5eG/LntgU406ON6LlnerJb
-	 I7ccDsDCcWDvUYtt5yd7Uj16dsJaGwMbst0k0u3XuDDaW/PJqeQxd2LBBzDNaJ661f
-	 I1jLaMQJkD3Zg==
-From: Vinod Koul <vkoul@kernel.org>
-To: kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
- conor+dt@kernel.org, sjakhade@cadence.com, yamonkar@cadence.com, 
- Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- srk@ti.com
-In-Reply-To: <20250411055743.623135-1-s-vadapalli@ti.com>
-References: <20250411055743.623135-1-s-vadapalli@ti.com>
-Subject: Re: [PATCH] dt-bindings: phy: cadence-torrent: enable
- PHY_TYPE_USXGMII
-Message-Id: <174722263362.85510.16134406396198337787.b4-ty@kernel.org>
-Date: Wed, 14 May 2025 12:37:13 +0100
+	id 1uFAnd-0000000Exyz-3DjT;
+	Wed, 14 May 2025 12:01:27 +0000
+Received: from localhost.localdomain (unknown [119.122.215.244])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 15068bee2;
+	Wed, 14 May 2025 20:01:18 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: chainsx@foxmail.com
+Cc: conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	heiko@sntech.de,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Subject: Re: [PATCH v1 2/2] arm64: dts: rockchip: add DTs for Firefly ROC-RK3588S-PC
+Date: Wed, 14 May 2025 20:00:24 +0800
+Message-Id: <20250514120024.609948-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <tencent_9922367945B45D45C938B0B947EEFFCE1808@qq.com>
+References: <tencent_9922367945B45D45C938B0B947EEFFCE1808@qq.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZQksZVk5LGR9ITR1OQktDTlYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKTlVJT09ZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE5VSktLVU
+	pCS0tZBg++
+X-HM-Tid: 0a96ceaba7c903a2kunm15068bee2
+X-HM-MType: 10
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OCI6Ajo5LzE3ED44CE4WFTQu
+	FClPFD5VSlVKTE9MSUlPS0xCSktIVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUpK
+	QlVKSUlVSUpOVUlPT1lXWQgBWUFPSU5JNwY+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_043717_454275_028EDEE7 
-X-CRM114-Status: UNSURE (   5.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250514_050126_013281_055995E6 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,23 +73,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On Fri, 11 Apr 2025 11:27:43 +0530, Siddharth Vadapalli wrote:
-> The Cadence Torrent SERDES supports USXGMII protocol. Hence, update the
-> bindings to allow PHY_TYPE_USXGMII. Since PHY_TYPE_USXGMII has the value
-> of "12" while the existing maximum allowed PHY TYPE is "9", switch back to
-> using "enum" property in the bindings to account for this discontinuity.
-> 
-> 
+> <snip>
+> +	leds: leds {
 
-Applied, thanks!
+No aliases needed.
 
-[1/1] dt-bindings: phy: cadence-torrent: enable PHY_TYPE_USXGMII
-      commit: e00c9aea31035f46b04a13effaa801f8b3419d2a
+> +		compatible = "gpio-leds";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&leds_gpio>;
+> +
+> +		power_led: power {
+> +			label = ":power";
 
-Best regards,
--- 
-~Vinod
+Please use standard LED binding.
+e.g.
+```
+color = <LED_COLOR_ID_BLUE>;
+function = LED_FUNCTION_POWER;
+```
 
+> +			linux,default-trigger = "heartbeat";
+> +			default-state = "on";
+
+default-state is not needed.
+
+> +			gpios = <&gpio1 RK_PD5 GPIO_ACTIVE_HIGH>;
+> +		};
+> +
+> +		user_led: user {
+> +			label = ":user";
+> +			linux,default-trigger = "ir-user-click";
+
+This LED should be user-defined?
+
+> +			default-state = "off";
+> +			gpios = <&gpio3 RK_PB2 GPIO_ACTIVE_HIGH>;
+> +		};
+> +
+> +		user1_led: user1 {
+> +			label = ":user1";
+> +			default-state = "off";
+> +			gpios = <&gpio3 RK_PC0 GPIO_ACTIVE_HIGH>;
+> +		};
+> +	};
+
+> <snip>
+> +	vcc3v3_pcie20: regulator-vcc3v3-pcie20 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc3v3_pcie20";
+> +		regulator-always-on;
+
+Why does this regulator require always-on?
+
+> <snip>
+> +	vcc5v0_host: regulator-vcc5v0-host {
+> +		regulator-name = "vcc5v0_host";
+> +		regulator-boot-on;
+> +		regulator-always-on;
+
+Why does this regulator require always-on and boot-on?
+
+> +		vin-supply = <&vcc5v0_sys>;
+
+The vendor dts says it's from vcc5v0_usb?
+
+> +	vbus5v0_typec_pwr_en: vbus5v0-typec-pwr-en-regulator {
+> +		regulator-name = "vbus5v0_typec_pwr_en";
+
+Please use the name from schematics.
+
+> +		regulator-boot-on;
+> +		regulator-always-on;
+
+Why does this regulator require always-on and boot-on?
+
+> +		vin-supply = <&vcc5v0_sys>;
+
+The vendor dts says it's from vcc5v0_usb?
+
+> <snip>
+> +&cpu_l0 {
+> +	cpu-supply = <&vdd_cpu_lit_s0>;
+> +};
+> +
+> +&cpu_b0 {
+> +	cpu-supply = <&vdd_cpu_big0_s0>;
+> +};
+> +
+> +&cpu_b2 {
+> +	cpu-supply = <&vdd_cpu_big1_s0>;
+> +};
+
+Please add other cpu nodes: cpu_l1-l3, cpu_b1-b3
+
++&gmac1 {
++	clock_in_out = "output";
++	phy-handle = <&rgmii_phy1>;
++	phy-mode = "rgmii-rxid";
++	tx_delay = <0x43>;
+
+Please try using rgmii-id and remove the delay.
+
+> <snip>
+> +&i2c2 {
+> +	status = "okay";
+> +	pinctrl-0 = <&i2c2m0_xfer>;
+
+status should be placed behind.
+
+> +	hym8563: rtc@51 {
+> +		compatible = "haoyu,hym8563";
+> +		reg = <0x51>;
+> +		interrupt-parent = <&gpio0>;
+> +		interrupts = <RK_PB0 IRQ_TYPE_LEVEL_LOW>;
+> +		#clock-cells = <0>;
+> +		clock-output-names = "hym8563";
+
+clock should be placed before interrupt.
+
+> +	usbc0: usb-typec@22 {
+
+This node should be placed before vdd_npu_s0.
+
+> <snip>
+> +&mdio1 {
+> +	rgmii_phy1: ethernet-phy@1 {
+> +		compatible = "ethernet-phy-id001c.c916";
+
+The phy used in this board is RTL8211FVD, not RTL8211F.
+Please use "ethernet-phy-ieee802.3-c22" instead of hardcoding.
+
+> <snip>
+> +&sdhci {
+> +	bus-width = <8>;
+> +	max-frequency = <200000000>;
+
+max-frequency is already defined in rk3588-base.dtsi
+
+> <snip>
+> +&sdmmc {
+> +	bus-width = <4>;
+> +	cap-mmc-highspeed;
+> +	no-sdio;
+> +	no-mmc;
+
+The sdmmc controller supports sdio devices.
+If no-mmc is defined, cap-mmc-highspeed is useless.
+
+> <snip>
+> +&spi2 {
+> +	status = "okay";
+
+status should be placed behind.
+
+> +		pinctrl-0 = <&pmic_pins>, <&rk806_dvs1_null>,
+> +				<&rk806_dvs2_null>, <&rk806_dvs3_null>;
+
+Align Indent.
+
+> <snip>
+> +&uart7 {
+> +	pinctrl-0 = <&uart7m2_xfer>;
+> +	status = "okay";
+> +};
+
+It seems that uart2 (default serial port) is missing?
+
+--
+2.25.1
 
 
