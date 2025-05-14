@@ -4,66 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DFDBC3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 12:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87970C3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 12:20:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Efv2+D3fngzLhVRyNKVL2x7Q6UIjL8RLlym8T6LHZaE=; b=wF++6V/LgpgBZ6Vie/ANhQsxCC
-	ujlXiJPoOlvnlPSUmvOwOiMm+0RSdW/fGk6Fksc3CTw/8Iqgl3U/C3q0AEYWdOoP4TfUn54GAXV6C
-	AVYKRgGKfXKUbTzNdH0SiI4s8eJB0eAuxqUR69ZrJvoGbguQpBVYnFtTzV4bzGE7QBdzNTikuAVCO
-	nBNOLgyOPUEsS6tlMiIBspWQY9N/GnBRCbddqTg/WCdUfwOm2ZO15lOl4ioo56BLkHEcEtahRdw9b
-	nLyEEO8HE4HVvIP9mXOq75utSUrA+kOlBCKQujhm6dTneZY/vGKnEkMhl2u+2gvUP/8+uFV3fDdxF
-	EtYMz9zQ==;
+	bh=fU4PVewcc9MxNH8+f8DwyzdamtEdKDmr83HGRbxUgQA=; b=H16wVyUpb/LpJCkW3BgwKBl2ZU
+	Uc+TNU0yT5OsTt3LICRH6fK9t2yXNlXarkM2Xh1Uf/awtfDnTwlL+9a8PsxM1NiMIL3TGWI/rrrqK
+	IdCndNECs73jganG94najKDZyu2Al+82fRSp1n7tSTjtcqhTJ+r87cmlyzpSPiY/Uafurq3XLJdWI
+	CQ4WR3ceryHBkles96Qje1ip7AE+OJN/z2OPPcbUk6ZIVuoKUTHOligXxqoaOoniUhwT5So+3+x+N
+	W4vL90NmuBQykyLRix/tKLvU70Zu+0N3rgE+0XDfQkdWHvkC0o0SEtRHNcDeHJapgwlwOJXjlHESm
+	2lpaKN8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFB5o-0000000F3d7-1qLO;
-	Wed, 14 May 2025 12:20:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF9Hf-0000000EmJq-3F0K
+	id 1uFB5u-0000000F3k7-1Iwc;
+	Wed, 14 May 2025 12:20:18 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uF9MX-0000000En5A-2Fy2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 10:24:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6673E14BF;
-	Wed, 14 May 2025 03:24:05 -0700 (PDT)
-Received: from [10.57.24.82] (unknown [10.57.24.82])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A00C53F673;
-	Wed, 14 May 2025 03:24:12 -0700 (PDT)
-Message-ID: <36c46f16-85c2-43f8-b460-942f34631e0d@arm.com>
-Date: Wed, 14 May 2025 11:24:10 +0100
+	Wed, 14 May 2025 10:29:22 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3a0b646eff7so5724647f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 03:29:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1747218560; x=1747823360; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fU4PVewcc9MxNH8+f8DwyzdamtEdKDmr83HGRbxUgQA=;
+        b=cdoGc0XwjZnYRHiKKcAqV7iN9vQvHrjx6nbqbAlDtQ09IlH76kbodd0VeJ8F/PMnSs
+         IASnPi0S6gpn5HzM91i8AWZ6t7r5bmLK0bLhozvPgdU4nybcPo2+oae3WQ4ID/5WwALY
+         yVEq+vMw+gZpOVd+RtGaffSwpr0yXoK17PB1TjNwIUhkSeSZA62B1bQQeHaKHqmzQxQx
+         VIAm4mkN9M7b4gPjCstWLn5F/ONDp8S9t7l6XNjgHvVRMg9Y3WU/SBFHsjmpxg2PaktI
+         Bj22jGv72Gqf4HBYpXcG3+5y+t+oT7ZSHsGeu3n8rs5uhfRZt8TtuVd8bWCGUVcI/VZB
+         JWsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747218560; x=1747823360;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fU4PVewcc9MxNH8+f8DwyzdamtEdKDmr83HGRbxUgQA=;
+        b=RsGTiwgJHjS1wJxjgIlvZHBnuYF2iMCUAtsETfmraECu8oABYgvurWkXhCBj+qQqhS
+         WcCu2m78rGWzP5KnI1PtEgOiRfDcihkVBBIGyKloS2hjxDbBEqPr6uKwvGS/RfRTqW2J
+         qqVDLqPl5XHgH3N2MGp1PhsfYfUvNlL31q3rzxG8KaJ2oOY/RQP3awWqfXb8CyvXL04z
+         KouLuiAlbaIfuAef/oqO1tm7SpzKiaMXEGaH49BhJlJbmnWVLOnuOuxxtY2b904QV6fs
+         nAOaN0pCXMwr4x2fjZDhkY59HyJbB8eA4opMZxssEviEbdRC40Drz22jFMQODa21atWz
+         +ntQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVXu7xtPkaUVFkHPLcAzhC0idIZXBuLeplR724w8HrbDRs3KxUjq4TFER9Xc9HQMP27iI9hlfXYVrIhrBOg4WpX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzi0/M+w81WrElTOKgfdyeepON5jA5LPYPup12Ek+qb+uxpYyIz
+	UTeAAzX3g/qar8R7EwBAFLPpO3XiGEnlPN2wXpuCoSZmylPtS7Xo9R8NDJ1OI7w=
+X-Gm-Gg: ASbGnctgn5bzY1qCvpEM2HPmBcSkyhxuRWCUpAY/ArakhPYA5EwPG0FmGkMMWKPfoZw
+	WgzSAyuskeARN9V6JhTV98/KWnJERlJ8d7l6zmApy0NRQdPMu3EpajT6o1yhd9qAiwA0FDJKMSr
+	HWpcPBI49F6PI9AcCRN3U9YRyKFw4lyy+5BqDypc20ojjGClI7k044YVu11yHIWfkr5wxK3nCB5
+	dLTGqNO6nYr2mbUcM40m1KntnB57vTYj2eBfpEeEUIhMszjdZe1zOcWSZ9Lg5hMIVUkyPlLNmUA
+	cpqrkIo9GGKKjt0/IQ9U+1HfdeL3TzD/k3MmnjeeQea84duwqnaEgk/eItY=
+X-Google-Smtp-Source: AGHT+IGyw3NxozgVzbMrkAVh72sdE2V/yiO6fwgF41eG84LxNtgGijn9Y7vFEYBwAZhyZjVRwxqXEQ==
+X-Received: by 2002:a05:6000:400c:b0:3a0:aeba:23b1 with SMTP id ffacd0b85a97d-3a349946a98mr1835187f8f.49.1747218559944;
+        Wed, 14 May 2025 03:29:19 -0700 (PDT)
+Received: from [192.168.50.4] ([82.78.167.58])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a22ea7a53asm7334492f8f.23.2025.05.14.03.29.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 14 May 2025 03:29:19 -0700 (PDT)
+Message-ID: <e470715b-6f76-4b65-b1af-7a24e0432a30@tuxon.dev>
+Date: Wed, 14 May 2025 13:29:17 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 15/43] arm64: RME: Allow VMM to set RIPAS
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>
-References: <20250416134208.383984-1-steven.price@arm.com>
- <20250416134208.383984-16-steven.price@arm.com>
- <83071e55-cbe4-4786-b60e-d26ce16368b3@arm.com>
- <f4ee678d-112d-46d1-8b87-70e55d6617e1@arm.com>
- <d0cbb637-6ba1-4858-b326-31271e9949ea@arm.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <d0cbb637-6ba1-4858-b326-31271e9949ea@arm.com>
+Subject: Re: [PATCH 5/8] PCI: rzg3s-host: Add Initial PCIe Host Driver for
+ Renesas RZ/G3S SoC
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com,
+ manivannan.sadhasivam@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, geert+renesas@glider.be, magnus.damm@gmail.com,
+ mturquette@baylibre.com, sboyd@kernel.org, saravanak@google.com,
+ p.zabel@pengutronix.de, linux-pci@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+References: <20250512203851.GA1127434@bhelgaas>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <20250512203851.GA1127434@bhelgaas>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_032419_912306_41FCB62B 
-X-CRM114-Status: GOOD (  32.71  )
+X-CRM114-CacheID: sfid-20250514_032921_576462_CBD2A0B7 
+X-CRM114-Status: GOOD (  21.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,154 +106,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/05/2025 11:43, Suzuki K Poulose wrote:
-> On 12/05/2025 15:45, Steven Price wrote:
->> On 06/05/2025 14:23, Suzuki K Poulose wrote:
->>> Hi Steven
+Hi, Bjorn,
+
+On 12.05.2025 23:38, Bjorn Helgaas wrote:
+> On Fri, May 09, 2025 at 01:29:40PM +0300, Claudiu Beznea wrote:
+>> On 05.05.2025 14:26, Claudiu Beznea wrote:
+>>> On 01.05.2025 23:12, Bjorn Helgaas wrote:
+>>>> On Wed, Apr 30, 2025 at 01:32:33PM +0300, Claudiu wrote:
+>>>>> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+>>>>>
+>>>>> The Renesas RZ/G3S features a PCIe IP that complies with the PCI Express
+>>>>> Base Specification 4.0 and supports speeds of up to 5 GT/s. It functions
+>>>>> only as a root complex, with a single-lane (x1) configuration. The
+>>>>> controller includes Type 1 configuration registers, as well as IP
+>>>>> specific registers (called AXI registers) required for various adjustments.
+>>>>>
+>>>>> Other Renesas RZ SoCs (e.g., RZ/G3E, RZ/V2H) share the same AXI registers
+>>>>> but have both Root Complex and Endpoint capabilities. As a result, the PCIe
+>>>>> host driver can be reused for these variants with minimal adjustments.
+>> ...
+> 
+>>>>> +static void rzg3s_pcie_update_bits(void __iomem *base, u32 offset, u32 mask, u32 val)
+>>>>> +{
+>>>>> +	u32 tmp;
+>>>>> +
+>>>>> +	tmp = readl(base + offset);
+>>>>> +	tmp &= ~mask;
+>>>>> +	tmp |= val & mask;
+>>>>> +	writel(tmp, base + offset);
+>>>>> +}
+>>>>
+>>>> Nothing rzg3s-specific here.
+>>>>
+>>>> I think u32p_replace_bits() (include/linux/bitfield.h) is basically this.
 >>>
->>> On 16/04/2025 14:41, Steven Price wrote:
-
-[...]
-
+>>> I wasn't aware of it. I'll use it in the next version. Thank for pointing it.
+>>
+>> I look into changing to u32p_replace_bits() but this one needs a mask that
+>> can be verified at build time. It cannot be used directly in this function.
+>> Would you prefer me to replace all the calls to rzg3s_pcie_update_bits() with:
+>>
+>> tmp = readl();
+>> u32p_replace_bits(&tmp, ...)
+>> writel(tmp);
 > 
->>
->>>> +    }
->>>> +
->>>> +    realm_fold_rtt_level(realm, get_start_level(realm) + 1,
->>>> +                 start, end);
->>>
->>> We don't seem to be reclaiing the RTTs from shared mapping case ?
->>
->> I'm not sure I follow: realm_fold_rtt_level() will free any RTTs that
->> are released.
->>
->> Or are you referring to the fact that we don't (yet) fold the shared
->> range? I have been purposefully leaving that for now as normally we'd
+> It seems like this is the prevailing way it's used.
 > 
-> sorry it was a bit vague. We don't seem to be reclaiming the RTTs in
-> realm_unmap_shared_range(), like we do for the private range.
-
-Ah, you mean we potentially leave empty RTTs which are only reclaimed
-when destroying the realm. Whereas in the private range we
-opportunistically fold which will (usually) cause these to be freed.
-
->> follow the page size in the VMM to choose the page size on the guest,
->> but that doesn't work when the RMM might have a different page size to
->> the host. So my reasons for leaving it for later are:
->>
->>   * First huge pages is very much a TODO in general.
->>
->>   * When we support >4K host pages then a huge page on the host may not
->>     be available in the RMM, so we can't just follow the VMM.
->>
->>   * We don't have support in realm_unmap_shared_range() to split a block
->>     mapping up - it could be added, but it's not clear to me if it's best
->>     to split a block mapping, or remove the whole and refault as
->>     required.
->>
->>   * guest_memfd might well be able to provide some good hints here, but
->>     we'll have to wait for that series to settle.
+> You have ~20 calls, so it seems like it might be excessive to replace
+> each with readl/u32p_replace_bits/writel.
 > 
-> I am not sure I follow. None of this affects folding, once we have
-> "unmapped". For that matter, we could easily DESTROY the RTTs in
-> shared side without unmapping, but we can do that later as an
-> optimisation.
+> But maybe you could use u32p_replace_bits() inside
+> rzg3s_pcie_update_bits().
 
-Yeah, ignore the above - like you say it's not relevant to unmapping, I
-hadn't understood your point ;)
+I tried it like:
 
-I'll stick a call to realm_fold_rtt_level() at the end of
-realm_unmap_shared_range() which should opportunistically free unused
-RTTs. Like you say there's a optimisation to just straight to destroying
-the RTTs in the shared region - but I think that's best left until later.
+#define rzg3s_pcie_update_bits(base, offset, mask, val)	\
+	do {						\
+		u32 tmp = readl((base) + (offset));	\
+		u32p_replace_bits(&tmp, (val), (mask));	\
+		writel(tmp, (base) + (offset));		\
+	} while (0)
 
->>
->>>> +}
->>>> +
->>>> +void kvm_realm_unmap_range(struct kvm *kvm, unsigned long start,
->>>> +               unsigned long size, bool unmap_private)
->>>> +{
->>>> +    unsigned long end = start + size;
->>>> +    struct realm *realm = &kvm->arch.realm;
->>>> +
->>>> +    end = min(BIT(realm->ia_bits - 1), end);
->>>> +
->>>> +    if (realm->state == REALM_STATE_NONE)
->>>> +        return;
->>>> +
->>>> +    realm_unmap_shared_range(kvm, find_map_level(realm, start, end),
->>>> +                 start, end);
->>>> +    if (unmap_private)
->>>> +        realm_unmap_private_range(kvm, start, end);
->>>> +}
->>>> +
->>>> +static int realm_init_ipa_state(struct realm *realm,
->>>> +                unsigned long ipa,
->>>> +                unsigned long end)
->>>> +{
->>>> +    phys_addr_t rd_phys = virt_to_phys(realm->rd);
->>>> +    int ret;
->>>> +
->>>> +    while (ipa < end) {
->>>> +        unsigned long next;
->>>> +
->>>> +        ret = rmi_rtt_init_ripas(rd_phys, ipa, end, &next);
->>>> +
->>>> +        if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
->>>> +            int err_level = RMI_RETURN_INDEX(ret);
->>>> +            int level = find_map_level(realm, ipa, end);
->>>> +
->>>> +            if (WARN_ON(err_level >= level))
->>>
->>> I am wondering if WARN_ON() is required here. A buggy VMM could trigger
->>> the WARN_ON(). (e.g, INIT_IPA after POPULATE, where L3 table is
->>> created.). The only case where it may be worth WARNING is if the level
->>> == 3.
->>
->> I have to admit I've struggled to get my head round this ;)
->>
->> init_ripas will fail with ERROR_RTT in three cases:
->>
->>   1. (base_align) The base address isn't aligned for the level reached.
->>
->>   2. (rtt_state) The rtte state is !UNASSIGNED.
->>
->>   3. (no_progress) base==walk_top - the while condition should prevent
->>      this.
->>
->> So I think case 1 is the case we're expecting, and creating RTTs should
->> resolve it.
->>
->> Case 2 is presumably the case you are concerned about, although it's not
->> because tables have been created, but because INIT_RIPAS is invalid on
->> areas that have been populated already.
-> 
-> Correct, this is the case I was referring to.
-> 
->>
->> If my reading of the spec is correct, then level == 3 isn't a possible
->> result, so beyond potentially finding RMM bugs I don't think a WARN for
-> 
-> It is almost certainly possible, with L3 page mapping created for
-> POPULATE and a follow up INIT_RIPAS with 2M or even 1G alignment, could
-> lead us to expect that only L1 or L2 is required (find_map_level) but
-> the RTT walk reached L3 and failed. This is not a case of RMM bug, but
-> a VMM not following the rules.
+But the mask may still depend on runtime variable. E.g. there is this call
+in the driver (and other similar):
 
-Sorry, I wasn't clear. I mean "level == 3" isn't something that we
-should be WARNing on.
+static void rzg3s_pcie_msi_irq_mask(struct irq_data *d)
+{
+        struct rzg3s_pcie_msi *msi = irq_data_get_irq_chip_data(d);
+        struct rzg3s_pcie_host *host = rzg3s_msi_to_host(msi);
+        u8 reg_bit = d->hwirq % RZG3S_PCI_MSI_INT_PER_REG;
+        u8 reg_id = d->hwirq / RZG3S_PCI_MSI_INT_PER_REG;
 
->> that is very interesting. So for now I'll just drop the WARN_ON here
->> altogether.
-> 
-> Thanks, that is much safer
+        guard(raw_spinlock_irqsave)(&host->hw_lock);
 
-Ack.
+        rzg3s_pcie_update_bits(host->axi, RZG3S_PCI_MSIRM(reg_id),
+                               BIT(reg_bit), BIT(reg_bit));
 
-Thanks,
-Steve
+}
 
-> Suzuki
-> 
+reg_id is a runtime variable and cannot be checked at compile time thus the
+compilation of u32p_replace_bits() fails with:
 
+../include/linux/bitfield.h:166:3: error: call to ‘__bad_mask’ declared
+with attribute error: bad bitfield mask
+  166 |   __bad_mask();
+      |   ^~~~~~~~~~~~
+
+Please let me know if you have other suggestions.
+
+Thank you,
+Claudiu
 
