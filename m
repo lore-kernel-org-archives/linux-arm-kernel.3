@@ -4,86 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71188C54756
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 18:33:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC97C54795
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 18:33:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+4yJ06SsolOKo0n1KNhATc5mR4LtStAPg8hMk/tROHY=; b=mjA4ZjE/eLtTMOghHSLp0iqiUf
-	xPMG1mkUolB7xsBJ8IRI/OKcVdKWbq+soOOvki9eA/j+TRnF833xpzYOPyxp52FNmDP61lq5Uyfvx
-	LqPsKnYexzHQBTqIeffmWWKQhXV0Wld7qbit2kZn44K/pVMEzK+5C3E33lO50Zy9Oa1wvQiw+jFXY
-	BfjnB/6uOW3UcOVc8gzHxI3l5Ou3IeZpQGGSfKEo+i8Z7P1eWOhq/heHiOYCDUtu4iWAJ9dEoYjwV
-	J415LIVbsogzIvR0IG53xrXX6NynG0KKfQuk5w/PRBIi7xt0FdSlCALKOOUN6850sL7FC8YwRnXeY
-	1yWETcLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D3joKKQQeIZmQE4kJSA51zMSWECAKvTydbD+tuMEGFg=; b=SUZ9YALO6jS7pGQt24nOSeDFLk
+	yDf3CCuCLBnYCqjkXPUYYeCL98BWDNHZ/elzQjCJg9P2rOHs2RUX4kR/Lc81EzXXd6eN8jx8zAoQk
+	e4M1T5QtoTvasY4j59pnOFw8ht/tT5JpxumRPPc63738NgcfNW0QXwvnz5g7mDMEmdsCuC4DaJrdR
+	dQwA3R3q0CFAKwCfZpc76iKqCMnhGlZLo5uhV6wxt0XAnD1dmvk1rP+HIFUswoUell62wlkzsG0+p
+	A9iMOLPEg4rSNnmQRZjR71WYpz4FCefnY4zRJfpNSBDJQkUPJiSmhjKzL5hlzE71E0vuaGTbHuU/f
+	6a3Y/GcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFGvK-0000000G1sr-0oxX;
-	Wed, 14 May 2025 18:33:46 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1uFGvP-0000000G1wg-3WF2;
+	Wed, 14 May 2025 18:33:51 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFF8O-0000000FmQw-3dfX;
-	Wed, 14 May 2025 16:39:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1747240749; x=1778776749;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=BQxpe1gKe+N60hkJWYTw2nQy3pGjcVIp7WcxAHzbnzc=;
-  b=gOoKzFqaGqIP5tvw+sTVyyRreemau6IV/NqaYvfvd0QaEauf0RV7pbOj
-   r1VZ/jDw1f/gvkw72ph2Dx7KaqSSqO/QIZk6X8nQfuVf4TM8amKXFM7hK
-   iRzQ3kGtkf+/c8rSyyk1Yqc74OgisCIYgAtnM5Oh7U8eOYZuoRq0nMV3V
-   8kJ7jLwwqCLAD9Bs3cngRR58MflJwb2iHcf7RNhmP4LmxFKSETfI8VJLB
-   +6NM737cbG56l7YC4oZcvE45sv0J2eoZuhFSAIaRIv0obD+cABai7Y6r5
-   uoLqKIjM2EwQchiazvQEsMyOVXdamgHqtXNiyDoCmByv8NoQj3YKAqoJ1
-   A==;
-X-CSE-ConnectionGUID: rCVbW9RRSyeUhpJEjSSRiQ==
-X-CSE-MsgGUID: 9vaPSy5RSUCD63rq8KRtMg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11433"; a="49223603"
-X-IronPort-AV: E=Sophos;i="6.15,288,1739865600"; 
-   d="scan'208";a="49223603"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 09:39:07 -0700
-X-CSE-ConnectionGUID: dL1HJHziTNqYT0Ugnl+VeQ==
-X-CSE-MsgGUID: HT6VqRyKSneRimqS3nA3iA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,288,1739865600"; 
-   d="scan'208";a="138511665"
-Received: from mgoodin-mobl3.amr.corp.intel.com (HELO [10.124.222.100]) ([10.124.222.100])
-  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 09:39:06 -0700
-Message-ID: <d46bd014-02d9-44ec-a29d-b925f268ee03@linux.intel.com>
-Date: Wed, 14 May 2025 09:39:05 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/5] PCI/ERR: Remove misleading TODO regarding kernel
- panic
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
- Oliver O'Halloran <oohall@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>,
- Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Marc Zyngier <maz@kernel.org>,
- Conor Dooley <conor.dooley@microchip.com>,
- Daire McNamara <daire.mcnamara@microchip.com>
-Cc: dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>,
- Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
- linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
-References: <20250508-pcie-reset-slot-v4-0-7050093e2b50@linaro.org>
- <20250508-pcie-reset-slot-v4-1-7050093e2b50@linaro.org>
-Content-Language: en-US
-From: Sathyanarayanan Kuppuswamy <sathyanarayanan.kuppuswamy@linux.intel.com>
-In-Reply-To: <20250508-pcie-reset-slot-v4-1-7050093e2b50@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	id 1uFG9E-0000000Ft2p-3Gn7
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 May 2025 17:44:05 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-442dc702850so477255e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 10:44:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1747244643; x=1747849443; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=D3joKKQQeIZmQE4kJSA51zMSWECAKvTydbD+tuMEGFg=;
+        b=jOBYME0AMwbIDBfOCx42YYVfqummRAHvlYDK6T4s50h30bH8qicQrDSikYANkMEf4x
+         cMl3tO8JT4ipTvHj9LYNPSWi1S0nk8rl9B5g4Gx9CvOm+RmsqUc8qQcy1iSjZVefCSUH
+         ghWrw4v8iMLilxh4Z3SnQ8TWE8wlwoPgqr5qJlPxEKz/OZlyPBZO4H3wrJra0twdMP57
+         YSw/PPrZ4CynwBbPtoI20wdrIDEokXw0xOwYED29adFh/sqNOvhGkP6lRniA/6JGMetR
+         rgMCy9e6ClDpI0Sq57+XBDM061br7X8kk1BbMO0RBWcikLz3UiRYVa6b+LAtwVzWzPvc
+         MF1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747244643; x=1747849443;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=D3joKKQQeIZmQE4kJSA51zMSWECAKvTydbD+tuMEGFg=;
+        b=JqxBe0XnDRSUiyRqoeVaEsw+rmqs9Q7xDob3SQi5dUPBmkGkORxJya4uNxxdZ3cH38
+         v7WFc+9xYHXFVCU7EUXEPvILzkLCDhpvK7LofR+Rh8PrWITVRqnS2KMRO88vxJiXHS8v
+         GTn+oQP7bkuOn7b89gYKcrKg7sRnHbzVqZcWdt75dfgj4W2e6s5SsEU+zvMV6e5k7muH
+         C5MwCCBVhwqXTNznzBMLcukjAOZoNPvWwgIKPzyXWxqn5B0Hvfuo+xZU78RmDL2YjOoK
+         rOPWHy2y6y6QUx2JWWUE7woCbDsHUicO+cKjPxqa5uEvUZIJ6o9bNNSHb1uyDtDsD3W9
+         pAlQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXj4QfL8OAgLuC/EWNEqoAC41QwdSrDjkVoUyC0EwehKLXV9QnwccVkP3ZrMmtOuoLrHhOjDORPv4xWLdaSrSrM@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJHmPq0TXqEq9McPm2b1TdCoyEP/3TMX6isOf/Vk6lm9xcniHo
+	pBp7UdUbqlwppix4TkcdNfOqOjhG47Jy3j0jpigVVWgXb6WQlYdBJYBiLnbafFSmuTrSRA==
+X-Google-Smtp-Source: AGHT+IEb+8/c9BiVGl1VreAZ1QbOIrYHfFd06gIJ4WYvdQgg+dQ9aQ2nVaMRaSnJ1H83VLXljFnK3HOA
+X-Received: from wrgb2.prod.google.com ([2002:a05:6000:3c2:b0:39d:7be5:b8fa])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:420c:b0:3a1:fcd9:f300
+ with SMTP id ffacd0b85a97d-3a3499224cbmr4177122f8f.39.1747244643209; Wed, 14
+ May 2025 10:44:03 -0700 (PDT)
+Date: Wed, 14 May 2025 19:43:44 +0200
+In-Reply-To: <20250514174339.1834871-9-ardb+git@google.com>
+Mime-Version: 1.0
+References: <20250514174339.1834871-9-ardb+git@google.com>
+X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+X-Developer-Signature: v=1; a=openpgp-sha256; l=902; i=ardb@kernel.org;
+ h=from:subject; bh=B/kHgdOpjuIm/yGgjP0zTXGcP6XnGaz+vciWyr3djVs=;
+ b=owGbwMvMwCFmkMcZplerG8N4Wi2JIUPlWkj9BO3u3gnr2ypE5E2uvsxuvTddxnHDnQ7TowlXD
+ uj/FmPqKGVhEONgkBVTZBGY/ffdztMTpWqdZ8nCzGFlAhnCwMUpABOZo83wT9ddzsGtYhv3rz/7
+ NOWs9zVYcR/I3iEhJNXOMquLS2aWN8P/rHDfI4ztPNuVmsOTZFLuFfz8f7KhK/XA42jhh4384g+ ZAQ==
+X-Mailer: git-send-email 2.49.0.1101.gccaa498523-goog
+Message-ID: <20250514174339.1834871-13-ardb+git@google.com>
+Subject: [RFC PATCH 4/7] arm64/fpsimd: Don't warn when EFI execution context
+ is preemptible
+From: Ard Biesheuvel <ardb+git@google.com>
+To: linux-efi@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Ard Biesheuvel <ardb@kernel.org>, Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Peter Zijlstra <peterz@infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_093908_947825_3984FF74 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20250514_104404_824967_7AFF4DD0 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,36 +96,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Ard Biesheuvel <ardb@kernel.org>
 
-On 5/8/25 12:10 AM, Manivannan Sadhasivam wrote:
-> A PCI device is just another peripheral in a system. So failure to
-> recover it, must not result in a kernel panic. So remove the TODO which
-> is quite misleading.
->
-> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> ---
+Kernel mode FP/SIMD no longer requires preemption to be disabled, so
+only warn on uses of FP/SIMD from preemptible context if the fallback
+path is taken for cases where kernel mode NEON would not be allowed
+otherwise.
 
-Reviewed-by: Kuppuswamy Sathyanarayanan 
-<sathyanarayanan.kuppuswamy@linux.intel.com>
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+---
+ arch/arm64/kernel/fpsimd.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
->   drivers/pci/pcie/err.c | 1 -
->   1 file changed, 1 deletion(-)
->
-> diff --git a/drivers/pci/pcie/err.c b/drivers/pci/pcie/err.c
-> index 31090770fffcc94e15ba6e89f649c6f84bfdf0d5..de6381c690f5c21f00021cdc7bde8d93a5c7db52 100644
-> --- a/drivers/pci/pcie/err.c
-> +++ b/drivers/pci/pcie/err.c
-> @@ -271,7 +271,6 @@ pci_ers_result_t pcie_do_recovery(struct pci_dev *dev,
->   
->   	pci_uevent_ers(bridge, PCI_ERS_RESULT_DISCONNECT);
->   
-> -	/* TODO: Should kernel panic here? */
->   	pci_info(bridge, "device recovery failed\n");
->   
->   	return status;
->
+diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+index ae2ea0196030..47a8706e26b7 100644
+--- a/arch/arm64/kernel/fpsimd.c
++++ b/arch/arm64/kernel/fpsimd.c
+@@ -1975,11 +1975,11 @@ void __efi_fpsimd_begin(void)
+ 	if (!system_supports_fpsimd())
+ 		return;
+ 
+-	WARN_ON(preemptible());
+-
+ 	if (may_use_simd()) {
+ 		kernel_neon_begin();
+ 	} else {
++		WARN_ON(preemptible());
++
+ 		/*
+ 		 * If !efi_sve_state, SVE can't be in use yet and doesn't need
+ 		 * preserving:
 -- 
-Sathyanarayanan Kuppuswamy
-Linux Kernel Developer
+2.49.0.1101.gccaa498523-goog
 
 
