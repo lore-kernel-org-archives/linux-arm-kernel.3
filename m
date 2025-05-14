@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6412C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 13:53:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43042C3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 13:53:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q9dADvexMZBriprQYqYlggk1XY2t86MtpJOU1D6Rop0=; b=dliIthPz5EAUVRlt76BeDtRl/o
-	iiNsbwdROjBZu3tDYKvSOK3l44KFqRIbsUBLmWda9MQKwac1AXudbfo5INj+UjiJGJQOtmCQ8LzrB
-	ie+6xsmbHNMfbQoNM1k062gj3xCGS7/ziIhNwGsAmfZR9cFlKl3gW+2zcRaUwXG3iOoJLH8tqxIJF
-	gjQQsZFSzLBBR76wVwBm9MuAz8HcRQBrGltbl+9vbXd4GGh2e6vQeqBSiZZoUnU0esWR7jkmx11nn
-	OOYSA7tq4KqJmwmHlKG7K9XaAJiXvROMYCEJQ8jyXo61jPvt65bwI6nGUYLNu020Jh7aOeP0wEJYZ
-	bnH4Y1qg==;
+	bh=irKK2bAr8EMeminD6huGLx2duPwb4l64CYId8gZhN1k=; b=Oj8GRZoEWH5eyt/7z7gV4VTpD/
+	CQXQffGYIY633tEpiodqQ2PRFLP/OkHYjrt+QbDy9/pJ8DnsbuNIS2zdBKWRfa0iP3yBjteDgIKUK
+	U0WScGLPwgF4ppzfJ9ohAedQ0EaQtzuJ379/Wtd1I5fdsk/QVeFJ7Kk1a2Ez78IZ2dRAnYsSzoZ9Z
+	FPZJALGOokn/0XXzKy7IY6SX3jhSj2biggYuRDZq8S0QZirxIj5dFk2HAHqhm7zYpz2c0OqgDmTts
+	JZhLpJOoUrarjhJnUUNF6Y36Y0bHGi+0zsEM0D81hRUfrK2xuAo+9AiFiCDVswBMkZE6vWpgIUBV5
+	iZ3sC+lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFCXj-0000000FGse-4BWD;
+	id 1uFCXk-0000000FGtI-38Xx;
 	Wed, 14 May 2025 13:53:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF9S6-0000000EnnP-3BIw
+	id 1uF9S8-0000000EnoL-0cjZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 10:35:07 +0000
+	Wed, 14 May 2025 10:35:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B0E544F8D;
-	Wed, 14 May 2025 10:35:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E6B7C4CEE9;
-	Wed, 14 May 2025 10:35:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 71F5A61126;
+	Wed, 14 May 2025 10:35:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2683BC4CEEB;
+	Wed, 14 May 2025 10:35:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747218906;
-	bh=jSgGzdta8ZXQcXWfdhPT721GAmbclZgONOJn80ZUs0g=;
+	s=k20201202; t=1747218907;
+	bh=8+XdFyrg3jdFCFbcepfTStu3SnK+HZn4Io5Q3v/8QsQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uN67G47qak7AqHbgy5SLmG6j/LQ/6794EcaPUGwNUeQkPERRDdSUofDnkoKi/fRt9
-	 YeDHvF/++BtEOzlkBsjfaJ7jvz5p2g7Vq6Q9R7t8/76hxb/sPtdweheZQ6CtIrCuIs
-	 fSu5ScgIMroeIwAyiutb1dM3aVXa940+K/N+Y5sUc1FXQRzTe7YR9l9mgcwMURlMAO
-	 oAu9g16tPKtMuPndfRiomBFp0wNHGo39ywfpkraP7CUA58pvqqrTogv49d7wpegnR6
-	 u6gQyxDBE1ejUK+M7rWF6hlmG7vd/r4kS9D0zRdQR+CB7d4suOzxRAdNLSXB7n85ob
-	 HS03l7/djUTtA==
+	b=PSUlOqbiRYNnnCFYmNXjiu3F/ll4FtCCSyn2ETfbHw9f9fT1CLtxunlZeJHqh4BCE
+	 jaDQWipdj0adHgp9AzJv5TExolMiGrQhn1cOKGKLLoVHKNClXkqHTSeKEo5aasMxdm
+	 UDTtshRsYbGKjQUvGyhZN6dpjyuNAcLNRJ48WU/mRM9oG+3/6+vz8gKIYiTAp2H6Ky
+	 bccUPfhIYxfA6cjMc3lTkD5KWQKYAkw7HPwqtIhESbOlUnfL7TZHhffcsouPdfnTwO
+	 KLbbn9MCjF4F85dYX8DymtcAiIMXLiSWvn1TsfS07IQe32WEpKQEn9mfgKPOxHVJrG
+	 ipZQMOgfYx68A==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uF9S4-00Eos3-9I;
-	Wed, 14 May 2025 11:35:04 +0100
+	id 1uF9S5-00Eos3-7J;
+	Wed, 14 May 2025 11:35:05 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Eric Auger <eric.auger@redhat.com>,
 	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Subject: [PATCH v4 01/17] arm64: sysreg: Add layout for VNCR_EL2
-Date: Wed, 14 May 2025 11:34:44 +0100
-Message-Id: <20250514103501.2225951-2-maz@kernel.org>
+Subject: [PATCH v4 05/17] KVM: arm64: nv: Move TLBI range decoding to a helper
+Date: Wed, 14 May 2025 11:34:48 +0100
+Message-Id: <20250514103501.2225951-6-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250514103501.2225951-1-maz@kernel.org>
 References: <20250514103501.2225951-1-maz@kernel.org>
@@ -70,9 +70,6 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com, gankulkarni@os.amperecomputing.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_033506_818990_D9573781 
-X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,44 +84,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we're about to emulate VNCR_EL2, we need its full layout.
-Add it to the sysreg file.
+As we are about to expand out TLB invalidation capabilities to support
+recursive virtualisation, move the decoding of a TLBI by range into
+a helper that returns the base, the range and the ASID.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/sysreg.h | 1 -
- arch/arm64/tools/sysreg         | 6 ++++++
- 2 files changed, 6 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/kvm_nested.h | 32 +++++++++++++++++++++++++++++
+ arch/arm64/kvm/sys_regs.c           | 24 ++--------------------
+ 2 files changed, 34 insertions(+), 22 deletions(-)
 
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index 2639d3633073d..b8842e092014a 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -521,7 +521,6 @@
- #define SYS_VTTBR_EL2			sys_reg(3, 4, 2, 1, 0)
- #define SYS_VTCR_EL2			sys_reg(3, 4, 2, 1, 2)
+diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+index 4ba3780cb7806..9d56fd946e5ef 100644
+--- a/arch/arm64/include/asm/kvm_nested.h
++++ b/arch/arm64/include/asm/kvm_nested.h
+@@ -231,6 +231,38 @@ static inline u64 kvm_encode_nested_level(struct kvm_s2_trans *trans)
+ 		shift;							\
+ 	})
  
--#define SYS_VNCR_EL2			sys_reg(3, 4, 2, 2, 0)
- #define SYS_HAFGRTR_EL2			sys_reg(3, 4, 3, 1, 6)
- #define SYS_SPSR_EL2			sys_reg(3, 4, 4, 0, 0)
- #define SYS_ELR_EL2			sys_reg(3, 4, 4, 0, 1)
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index bdf044c5d11b6..5a3190600a0b3 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -2971,6 +2971,12 @@ Sysreg	SMCR_EL2	3	4	1	2	6
- Fields	SMCR_ELx
- EndSysreg
- 
-+Sysreg	VNCR_EL2	3	4	2	2	0
-+Field	63:57	RESS
-+Field	56:12	BADDR
-+Res0	11:0
-+EndSysreg
++static inline u64 decode_range_tlbi(u64 val, u64 *range, u16 *asid)
++{
++	u64 base, tg, num, scale;
++	int shift;
 +
- Sysreg	GCSCR_EL2	3	4	2	5	0
- Fields	GCSCR_ELx
- EndSysreg
++	tg	= FIELD_GET(GENMASK(47, 46), val);
++
++	switch(tg) {
++	case 1:
++		shift = 12;
++		break;
++	case 2:
++		shift = 14;
++		break;
++	case 3:
++	default:		/* IMPDEF: handle tg==0 as 64k */
++		shift = 16;
++		break;
++	}
++
++	base	= (val & GENMASK(36, 0)) << shift;
++
++	if (asid)
++		*asid = FIELD_GET(TLBIR_ASID_MASK, val);
++
++	scale	= FIELD_GET(GENMASK(45, 44), val);
++	num	= FIELD_GET(GENMASK(43, 39), val);
++	*range	= __TLBI_RANGE_PAGES(num, scale) << shift;
++
++	return base;
++}
++
+ static inline unsigned int ps_to_output_size(unsigned int ps)
+ {
+ 	switch (ps) {
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 005ad28f73068..26e02e1723911 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -3546,8 +3546,7 @@ static bool handle_ripas2e1is(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ {
+ 	u32 sys_encoding = sys_insn(p->Op0, p->Op1, p->CRn, p->CRm, p->Op2);
+ 	u64 vttbr = vcpu_read_sys_reg(vcpu, VTTBR_EL2);
+-	u64 base, range, tg, num, scale;
+-	int shift;
++	u64 base, range;
+ 
+ 	if (!kvm_supported_tlbi_ipas2_op(vcpu, sys_encoding))
+ 		return undef_access(vcpu, p, r);
+@@ -3557,26 +3556,7 @@ static bool handle_ripas2e1is(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 	 * of the guest's S2 (different base granule size, for example), we
+ 	 * decide to ignore TTL and only use the described range.
+ 	 */
+-	tg	= FIELD_GET(GENMASK(47, 46), p->regval);
+-	scale	= FIELD_GET(GENMASK(45, 44), p->regval);
+-	num	= FIELD_GET(GENMASK(43, 39), p->regval);
+-	base	= p->regval & GENMASK(36, 0);
+-
+-	switch(tg) {
+-	case 1:
+-		shift = 12;
+-		break;
+-	case 2:
+-		shift = 14;
+-		break;
+-	case 3:
+-	default:		/* IMPDEF: handle tg==0 as 64k */
+-		shift = 16;
+-		break;
+-	}
+-
+-	base <<= shift;
+-	range = __TLBI_RANGE_PAGES(num, scale) << shift;
++	base = decode_range_tlbi(p->regval, &range, NULL);
+ 
+ 	kvm_s2_mmu_iterate_by_vmid(vcpu->kvm, get_vmid(vttbr),
+ 				   &(union tlbi_info) {
 -- 
 2.39.2
 
