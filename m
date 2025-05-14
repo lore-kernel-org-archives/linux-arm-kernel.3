@@ -4,81 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B07C3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 12:57:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D738C3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 12:59:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+cKQ+3lzotKN4mEFBqwaY+q0XUCpuo5fqL038dEMJqM=; b=XzGBmMbwe6hBAT3JV2M6GS/Phv
-	Ox1WQgi612pHp+hN8WYB1JvxfkJHEnBJ7BRU86Q69ipeGkMIz5PmuWuk/7uatAO84t5hfYURQAZUg
-	EUPT660mucIxMf5PPi2f6PCvcaDPRHSvrPjdIOltM7/rRZQPyoWW3H2fHZLnSNgWik6+dXZ5/gLSu
-	A1nuqyBd4p/hlztHRaht6/E70qug5p3GyCn/WdJluqtE9M5yB9nIE3LhCpwrhtSsnpk8dkaDBiIGs
-	kRLZlyqdbNXJyS84mYyNCVkRLcY39UudGWxIIiCkz5etTuSkfybcDYXqGrLxYK1USI5VjDwDygKlN
-	cLg9GKgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NgEvng60eATnMI4BVnU7kV+KBHy0r5XgWKzSDSIdJKA=; b=gUuiboGhf6EXNX9XlchRJUjQAV
+	cphn+fbAezE+zu8IeTkKOdzyt3wMvZxDFb/6Ugnmjy7Pd4bn9ijCLafPsRrHcRqTeUE9c5t6IKM62
+	NGXz3FJ8fcBRrmLPwAa1T9V58F52wADARzwB1DzMiDyGDcddmudJNUmyPeCU5G1RhBp5+05HiQQjk
+	wcA/d2Zq/7M/kf0tpyhBkuTIlIJi2WhlFnr3zaJw32trw6snhqzvdXRON5lcw3VWI/7XXUsHeXhkG
+	0+nIg89GBrh0vTiCxrnlemrTdAIMrigLWMkAZ3Ja/beIh93Pggq5ooxlGlqu6iiVUKHHr5cr9FhuN
+	MgGAOUOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFBfj-0000000F90u-0GFk;
-	Wed, 14 May 2025 12:57:19 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uFBhi-0000000F9CK-3jT8;
+	Wed, 14 May 2025 12:59:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF9o6-0000000EqNP-0mV5;
-	Wed, 14 May 2025 10:57:54 +0000
-X-UUID: 451924bc30b211f08d385d50fb11b32d-20250514
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=+cKQ+3lzotKN4mEFBqwaY+q0XUCpuo5fqL038dEMJqM=;
-	b=OUjQoCVKVhCGzCLhJcgL7BRZRTKpH4nTi2seRUJ7nssgmT4h21mE+ua6IrolWoH0qBoSxrprtqwmNH85IDyXy9DLE4w/F/7jD60Wp/9fuvNKixpvEZqvFzDUhOItGZuNHfH57TzD/mxHhu8NX6vzFcXRNM40IlARW0EPT7qPT6Q=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:57151b96-d1e2-4149-ba06-ba6019d64fa2,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:0ef645f,CLOUDID:f61bc173-805e-40ad-809d-9cec088f3bd8,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 451924bc30b211f08d385d50fb11b32d-20250514
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
-	(envelope-from <skylake.huang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2036449550; Wed, 14 May 2025 03:57:47 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Wed, 14 May 2025 18:57:43 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Wed, 14 May 2025 18:57:43 +0800
-From: Sky Huang <SkyLake.Huang@mediatek.com>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Daniel Golle
-	<daniel@makrotopia.org>, Qingfang Deng <dqfext@gmail.com>, SkyLake Huang
-	<SkyLake.Huang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	balika011 <balika011@gmail.com>, <linux-kernel@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-CC: Steven Liu <Steven.Liu@mediatek.com>, Sky Huang
-	<skylake.huang@mediatek.com>
-Subject: [PATCH net-next v3 1/2] net: phy: mediatek: Sort config and file names in Kconfig and Makefile
-Date: Wed, 14 May 2025 18:57:37 +0800
-Message-ID: <20250514105738.1438421-2-SkyLake.Huang@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250514105738.1438421-1-SkyLake.Huang@mediatek.com>
-References: <20250514105738.1438421-1-SkyLake.Huang@mediatek.com>
+	id 1uFAQE-0000000EuOY-2QHf;
+	Wed, 14 May 2025 11:37:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C605560008;
+	Wed, 14 May 2025 11:37:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1907C4CEE9;
+	Wed, 14 May 2025 11:37:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747222633;
+	bh=t1bXaEu9EXQ94m0cdh4MSItJJeYMDzLla+FRFBaaVOA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=NwpkfIl6MZt3iRQolb75+B6HpoTZyfFuUyBOU3iCCdWyF2d3ukbkHyrA8zIFib9nc
+	 EOHXQ7yVKndC1xfuBDcWhVcVzOVrhwiAPM3NNJ7jzA//MeUd8ZZIcpVIDb/GFpCwED
+	 pbNpd+NMu5yoxzB18tUGerttcXQ2a1yO5VC4uJGUYaiAtMf/iNa53FZ+fmxhi1HcH4
+	 HBydiR7YPq5TnLsV4f26kN1qn2853JpHGEcof10JzSLaUY/ke7xyTcZKX793Z70uM6
+	 SKT6RyfToz9+K5wt2nSCKVyNtoz/OwuA/7bc29ll3fokyUQg+QlfOc0fknmmeQCV6m
+	 CXvTdBKQ4rgqg==
+From: Vinod Koul <vkoul@kernel.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Frank Wunderlich <linux@fw-web.de>
+Cc: Frank Wunderlich <frank-w@public-files.de>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
+ Daniel Golle <daniel@makrotopia.org>, Sean Wang <sean.wang@mediatek.com>, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-phy@lists.infradead.org
+In-Reply-To: <20250422132438.15735-1-linux@fw-web.de>
+References: <20250422132438.15735-1-linux@fw-web.de>
+Subject: Re: (subset) [PATCH v4 0/8] Add Bananapi R4 variants and add xsphy
+Message-Id: <174722262951.85510.8563581978956288115.b4-ty@kernel.org>
+Date: Wed, 14 May 2025 12:37:09 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_035750_227488_85BD57D5 
-X-CRM114-Status: GOOD (  11.87  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,69 +78,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sky Huang <skylake.huang@mediatek.com>
 
-Sort config and file names in Kconfig and Makefile in
-drivers/net/phy/mediatek/ according to sequence in MAINTAINERS.
+On Tue, 22 Apr 2025 15:24:23 +0200, Frank Wunderlich wrote:
+> With this series i continue the mt7988/bananapi-r4 dts upstream work
+> 
+> changes in v4:
+> - changes based on review comments in v3 (mostly bindings)
+> - changed topmisc unit address to match reg
+> 
+> Daniel Golle (1):
+>   phy: mediatek: xsphy: support type switch by pericfg
+> 
+> [...]
 
-Signed-off-by: Sky Huang <skylake.huang@mediatek.com>
----
- drivers/net/phy/mediatek/Kconfig  | 28 ++++++++++++++--------------
- drivers/net/phy/mediatek/Makefile |  2 +-
- 2 files changed, 15 insertions(+), 15 deletions(-)
+Applied, thanks!
 
-diff --git a/drivers/net/phy/mediatek/Kconfig b/drivers/net/phy/mediatek/Kconfig
-index 4308002bb82c..3abf23e37b4b 100644
---- a/drivers/net/phy/mediatek/Kconfig
-+++ b/drivers/net/phy/mediatek/Kconfig
-@@ -1,18 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0-only
--config MTK_NET_PHYLIB
--	tristate
--
--config MEDIATEK_GE_PHY
--	tristate "MediaTek Gigabit Ethernet PHYs"
--	select MTK_NET_PHYLIB
--	help
--	  Supports the MediaTek non-built-in Gigabit Ethernet PHYs.
--
--	  Non-built-in Gigabit Ethernet PHYs include mt7530/mt7531.
--	  You may find mt7530 inside mt7621. This driver shares some
--	  common operations with MediaTek SoC built-in Gigabit
--	  Ethernet PHYs.
--
- config MEDIATEK_GE_SOC_PHY
- 	tristate "MediaTek SoC Ethernet PHYs"
- 	depends on ARM64 || COMPILE_TEST
-@@ -26,3 +12,17 @@ config MEDIATEK_GE_SOC_PHY
- 	  the MT7981 and MT7988 SoCs. These PHYs need calibration data
- 	  present in the SoCs efuse and will dynamically calibrate VCM
- 	  (common-mode voltage) during startup.
-+
-+config MTK_NET_PHYLIB
-+	tristate
-+
-+config MEDIATEK_GE_PHY
-+	tristate "MediaTek Gigabit Ethernet PHYs"
-+	select MTK_NET_PHYLIB
-+	help
-+	  Supports the MediaTek non-built-in Gigabit Ethernet PHYs.
-+
-+	  Non-built-in Gigabit Ethernet PHYs include mt7530/mt7531.
-+	  You may find mt7530 inside mt7621. This driver shares some
-+	  common operations with MediaTek SoC built-in Gigabit
-+	  Ethernet PHYs.
-diff --git a/drivers/net/phy/mediatek/Makefile b/drivers/net/phy/mediatek/Makefile
-index 814879d0abe5..ff13205d614f 100644
---- a/drivers/net/phy/mediatek/Makefile
-+++ b/drivers/net/phy/mediatek/Makefile
-@@ -1,4 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_MEDIATEK_GE_SOC_PHY)	+= mtk-ge-soc.o
- obj-$(CONFIG_MTK_NET_PHYLIB)		+= mtk-phy-lib.o
- obj-$(CONFIG_MEDIATEK_GE_PHY)		+= mtk-ge.o
--obj-$(CONFIG_MEDIATEK_GE_SOC_PHY)	+= mtk-ge-soc.o
+[3/8] dt-bindings: phy: mtk-xs-phy: Add mt7988 compatible
+      commit: 117d09e2830d6ff6c1bb2dc5629f972504fde51e
+[4/8] dt-bindings: phy: mtk-xs-phy: support type switch by pericfg
+      commit: b484b25a486962b568ada1f55c1b96dfd96b912d
+[6/8] phy: mediatek: xsphy: support type switch by pericfg
+      commit: f85eb659a48cc2f0c98a122e760552b69e56c06f
+
+Best regards,
 -- 
-2.45.2
+~Vinod
+
 
 
