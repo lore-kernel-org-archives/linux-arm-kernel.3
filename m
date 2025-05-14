@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57F1EC3ABD9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 08:59:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B794FC3ABD9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 09:01:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r3itLzVr3wcAGurgHi5vW7zv37HilRwYyZn5aQsLd+k=; b=QTi/gOVRKGXs366/BCwn60f4nJ
-	jjQhiJymKTCw4G0Q0AOHHNWwcWn7iQxyUGLrjucjbuDW0ebY6jUVNXJ2TjEJHzmUB66ouTaG48hRt
-	xb3nl/P9i0f1h+To1T3j0oztH98eJ+kI0NfZNylNcJjnfWnr8wFfobL6lqY77ASqXO3Ibw21Z+dHA
-	Ex+dhvB7Xx9+tyvM6wcg86yEUlr+DK4/oGSxUlsLuge8eIZXZPAGeUvo8xvpUWSSI/vXdhpAQtAEl
-	zMDG5ZGOdyzob9e1tiwH2XUtBBpxpJSmBfkxTdP2rI0vtd8qsCYRKvB0sVKZmb6e/TfJi50MqV9Kl
-	M5n8Jjhg==;
+	bh=SyxChBA+d+I3ViLgnsP60/dj4azpOkMd+snSzYzQLzg=; b=taI3zBz6uffb9XsCCNtJsi3nG1
+	DN3X6DkoZzzNSBHC9leTlof/LuuWJJThu/ToQxyYwu/NheQJuLut+nxGaryyfOhoZJen8CYssz7N3
+	fA+IWl607eIXTAcLOrwn86w0DiFdR1+Yo9zoMmiHzjMKg3ERzMl8+FsgmN5nE4fy6tPZb6OMfvo5J
+	Nq2v3d2cTyQ08IReIdrCeFvTt3YH7PcXpOoMD10A4DkwDsk75XCA8jOwofM9Ap5K2ey6U0e+ZGYuo
+	UVcJH7WBYL+bZEe6Rxi3TTGnIuB1qdqo9hg7sw+JEybJIqBUItK3yHROj6z1PKxwBiqzTIddaZpjY
+	S2KEjhlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF7xJ-0000000Eaqc-1hbd;
-	Wed, 14 May 2025 08:59:13 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uF7zJ-0000000Eb8H-2U6j;
+	Wed, 14 May 2025 09:01:17 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF7LX-0000000ETjB-3yjG;
-	Wed, 14 May 2025 08:20:13 +0000
+	id 1uF7Oq-0000000EUOX-08kR;
+	Wed, 14 May 2025 08:23:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1747210810;
-	bh=Zu2ghSu2kt9/8uiiXqMjSaX/ZzpuEjE3fucBPzK/Mh8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=FbIksy41gayjGfbnDbwUgJ+VWVum8h3wOBQf5wn6CT0+RkA6RtNGoEIoyARNVoT9f
-	 aY2uJHsQpxCoXJ2cl2Gz9BB7zh/VYW6LaF+ISC36AtiB3isxMeYFew++lgGjf/wYyF
-	 Ea5XT71ZmbC9dMIQFN9X2W5DbOYbfWvb44TXZkmKsKzifZ3O17pAlnNTOfIH9OqDRu
-	 zKa47yzPfoO/8vHu+FDKulWmJKI0ZiLFP65rEMjr1v6RfX6fYy1PEHRDEvrStTpQh7
-	 eDBdWVnEb9VuBr57i6QwzsX9Cl8J98BJUeaqlT0QUSRReiZ0dmQ2WrmFtcmSh+aRUk
-	 /6xZMFokYMTeQ==
-Received: from apertis-1.home (2a01cb0892F2D600c8F85Cf092d4AF51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	s=mail; t=1747211014;
+	bh=TBytcNs6FKDZ35AsCgJO/0ul5mShvUrDsvFdhjjy6J0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=E+A7igkFqNNN53OBFsXGTmN+URMDOWMnwhBRLkWwbOwqjzNX0Nz5Q2iuezPyVt4wq
+	 Awb6Vd1u/esp2YL//5HJ5A7XChXdFaUvrR842Gxuj969r0xWVlGSSzI/CflKTn39WC
+	 DlVJlbgbKJ10ZVp6ceP9MDZa0PO4U3lbmbyq4W9mhWQYD61fCnOb67O+uMXeXpCYVx
+	 AcnaB0CHXkvhxjB9NcyDGRrvfio53S+qCVYxQYYjxbTYRhe6xHMAqkY5yxjWT47gaR
+	 X8WexRE+AZkU3Y/+TjIpiKm0Ld+Xv9K6mWt97ru/WqI6mczXifCnXjpPNkp9z3EZPP
+	 5uLT1Zpc5d3yw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
-	(Authenticated sender: jmassot)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8B75117E361D;
-	Wed, 14 May 2025 10:20:09 +0200 (CEST)
-From: Julien Massot <julien.massot@collabora.com>
-Date: Wed, 14 May 2025 10:19:58 +0200
-Subject: [PATCH v2 3/3] arm64: dts: mt6359: Rename RTC node to match
- binding expectations
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3EF9D17E05F0;
+	Wed, 14 May 2025 10:23:34 +0200 (CEST)
+Message-ID: <ed7ad534-a517-4005-b61e-c8f2e82f1b27@collabora.com>
+Date: Wed, 14 May 2025 10:23:33 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [GIT,PULL,1/2] MediaTek ARM64 DTS updates for v6.16
+To: Arnd Bergmann <arnd@arndb.de>, arm <arm@kernel.org>, soc <soc@kernel.org>
+Cc: matthias.bgg@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20250506091736.125733-1-angelogioacchino.delregno@collabora.com>
+ <7e8718b0-df78-44a6-a102-89529d6abcce@app.fastmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <7e8718b0-df78-44a6-a102-89529d6abcce@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250514-mt8395-dtb-errors-v2-3-d67b9077c59a@collabora.com>
-References: <20250514-mt8395-dtb-errors-v2-0-d67b9077c59a@collabora.com>
-In-Reply-To: <20250514-mt8395-dtb-errors-v2-0-d67b9077c59a@collabora.com>
-To: kernel@collabora.com, Sen Chu <sen.chu@mediatek.com>, 
- Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
- Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
- Hui Liu <hui.liu@mediatek.com>, Yong Wu <yong.wu@mediatek.com>, 
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, 
- Tinghan Shen <tinghan.shen@mediatek.com>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, iommu@lists.linux.dev, 
- Julien Massot <julien.massot@collabora.com>
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_012012_152015_5FA8128B 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20250514_012336_223619_8DB483B5 
+X-CRM114-Status: GOOD (  20.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,34 +75,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename the node 'mt6359rtc' to 'rtc', as required by the binding.
+Il 09/05/25 22:54, Arnd Bergmann ha scritto:
+> On Tue, May 6, 2025, at 11:17, AngeloGioacchino Del Regno wrote:
+> 
+>>     - Since SCP firmwares are available on linux-firmware, the
+>>       necessary nodes for the dual-core SCP were added to devicetree
+>>       along with the firmware-name property in mt8390-genio-common,
+>>       enabling hardware video encoders and decoders on the MediaTek
+>>       Genio 510 and Genio 700 EVKs.
+> 
+> This looks wrong to me: the devicetree should never care about
+> particular file names in a Linux repository.
+> 
+> Usually what happens is that the device driver must work with
+> a particular firmware version, so the driver is the one that
+> constructs a name based on what firmware is knows and what
+> hardware it is running on, so a newer version of the driver
+> can attempt to load a newer firmware that may be incompatible
+> with the old driver.
+> 
+> The other patches in the branch all look fine to me.
+> 
+> Can you resend the pull request without these patches and
+> try to come up with a different approach?
+> 
+>       Arnd
 
-Fix the following dtb-check error:
+Uhm, I'm not sure if there was a misunderstanding - not only the MediaTek
+devicetrees do that, but also Qualcomm ones are doing the same with their
+adsp, cdsp, modem and adreno zap firmwares...
 
-mediatek/mt8395-radxa-nio-12l.dtb: pmic: 'mt6359rtc' do not match
-any of the regexes: 'pinctrl-[0-9]+'
+....not sure, should I drop those commits for now?
 
-Fixes: 3b7d143be4b7 ("arm64: dts: mt6359: add PMIC MT6359 related nodes")
-Signed-off-by: Julien Massot <julien.massot@collabora.com>
----
- arch/arm64/boot/dts/mediatek/mt6359.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/mediatek/mt6359.dtsi b/arch/arm64/boot/dts/mediatek/mt6359.dtsi
-index 0c479404b3fe3adc9789386e34bda4dc580b5abd..467d8a4c2aa7f16ade92a287ecdeed5089302045 100644
---- a/arch/arm64/boot/dts/mediatek/mt6359.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt6359.dtsi
-@@ -300,7 +300,7 @@ mt6359_vsram_others_sshub_ldo: ldo_vsram_others_sshub {
- 			};
- 		};
- 
--		mt6359rtc: mt6359rtc {
-+		mt6359rtc: rtc {
- 			compatible = "mediatek,mt6358-rtc";
- 		};
- 	};
-
--- 
-2.49.0
-
+Thanks,
+Angelo
 
