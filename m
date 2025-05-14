@@ -4,155 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C41DC3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 14:49:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0EEC3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 14:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LaxRGIQrP34CUkAlAciKqn87vwhT8jZEGDiR24kHil4=; b=GAcasx0+GjVhDiITgWeCTaK02O
-	1aAxd61lpWQVeKxx75D2JCXiRnkDzxN2HFexmUK9jBbYg7qX8Tqf2Jgb9scR0oWYabP7EQ87nC6Nn
-	uENVZWYkNLcgBGWd4M3TytjRjCmLc6tatH6FhBrswdaQdiVFGVrG6ptyJUCeanpB3TfCD5X31it6O
-	+Hqes2eAuqrKz41jtA/U3P+pcdtDIraTIJn2HWaoW8E6R//oKVqtTFNvxo+ZqGEiGs1bWCeMlBIyx
-	aky9t1lRI9f39HyS8RMxLz2KFv9OZzuHbz15MKdKFxjEibJ7Fuzz2F4DtEPi3w3wky60Pp19PfYhU
-	9PPWJqSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jlu2VRrBqc+sWbmBDvpfmKi7EGi8p2tPIIEHbOtQl/0=; b=u4y1t85pDDBq4Ppu0BX4EeIlUB
+	Ro4qrS9MnOsPECJPnb401FzD73kBJi8tyX4XOALWpG34C3AYxEFrA3Ff8PIxxFJpW/vNKpA21TBjr
+	J+lDHFjo7WgKmAmUUwpBbrJf3kczWxfHdW/rMu4H7Pvk9s0lGOp9H4YxwB0h+YMMgII4pIxxm9m88
+	ehk2g2XWgYadZESo6fQOuxGX7eY06XLtucHKMXPNiunmnSutLsQ51tP9aJ6aSdcyEcsexV63XWo7X
+	0i1Fq/+56vvAkkBeoibh/4eK3vgxTbna4szsggXy8YQwF3pEDKKElC8O0b3x8NDaMfuLx/pinVDLX
+	IsFuSK9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFDQJ-0000000FTGk-2EmX;
-	Wed, 14 May 2025 14:49:31 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1uFDSJ-0000000FTjh-1OhF;
+	Wed, 14 May 2025 14:51:35 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFDAW-0000000FQK8-2dBU
+	id 1uFDOs-0000000FSvN-32DG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 14:33:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wHbII64SwEmFE+RSj5PSyagzr7Jx5mtRdd3XyOH3VcROa4BKXmOeWYDmkCao/bldZDakrgmgT9Y9qv9w8v0GCZMtnCWyCiY5IKQEtxQ4zAspbLkW/eKLQdnM7s7sZgQlR/uEDbKYDhc4HjR/MxHGPA3MJvU9Zu7BebcGTl6oHMDKqhXZBI8eCZTFLBlIz6dmAeCu4tEQXgSmiuITov7sPLSN3i1iPnpvQI7GmusmjB4kqRFk0cyaaAI+sDvFw7zDp+KIQh0W3q1ZrRDtTgb2KEESMdJi+lqCx+U12iviCG3RrbdteQMXUgArdfjdBV/d9bAOgBx23W36jpvZ24Qq8A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LaxRGIQrP34CUkAlAciKqn87vwhT8jZEGDiR24kHil4=;
- b=M5vYQ+VuZXArsMY7J0CN+iSjFAQj4wdvbxQkmJbQ2Bn+yWs+h+k0vj70kkAmq9ssqG8qfgSfrZfABEVHSomEefa0PZB8jH2QNcfU+vk4+zq7LSuCXVdS0JWYK4syJcr8ZeN8miqWi+9Se88qa+G3m3uQZW7ulywH00/Cbx82YfNcjCgdpERdt/46XIQhqZ756PJZ/Uw7ionobLek0x42LMh2xYebQKcKi/Ov7RFWzy+I1tXq2hA9F7NSw0uDAqcv+0lIQFIF790sX8kBvsw8qoWY6JYvEcNvssPKi4kye7mn0RT85JYsZFVMA17RbOfZ8asRRZD4TlrkmXEnkhtkGQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LaxRGIQrP34CUkAlAciKqn87vwhT8jZEGDiR24kHil4=;
- b=A3KNRO57o8DzE1mxjCqGCI/i/PJ7r6oAGgcEYKmYJ2/t8DO5/Y1K51b8guy1mtmdnwj8KuinTbPPW1NMkRDRpfBY573QtDkJu5OZrnez5bIkOxKlx9Nv2qBDhpF0EzVrd+esV8Dz96co9Enlsiu+Kkd8Asqk7BVQhuVJJU0kDJQwtaJjTUhI0c0dtaBeJ9heWaCC1+JIXiXd8ymSuRlBqb6OkBwYifCCM/0Oap4xsa0I3y2BwiALO+FlJWM1Ob2icRn1ECSAFzoJn8R715rW+w06HcO4DRM14IkrCS3sL/WJQyenOfQucI3FgTGHJys1G7Lt4dS5ysuFwEng5soggQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
- by AM7PR04MB7013.eurprd04.prod.outlook.com (2603:10a6:20b:116::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.30; Wed, 14 May
- 2025 14:33:00 +0000
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::7417:d17f:8d97:44d2%4]) with mapi id 15.20.8722.027; Wed, 14 May 2025
- 14:33:00 +0000
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: netdev@vger.kernel.org
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Russell King <linux@armlinux.org.uk>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Furong Xu <0x1207@gmail.com>
-Subject: [PATCH v2 net-next] net: stmmac: convert to ndo_hwtstamp_get() and ndo_hwtstamp_set()
-Date: Wed, 14 May 2025 17:32:49 +0300
-Message-ID: <20250514143249.1808377-1-vladimir.oltean@nxp.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 14 May 2025 14:48:04 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54EDDNKV014107;
+	Wed, 14 May 2025 16:47:47 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=jlu2VRrBqc+sWbmBDvpfmK
+	i7EGi8p2tPIIEHbOtQl/0=; b=1rt9Z9KXMPEx+/IL02gfKnAtKkb8VRhDWlCaTR
+	7//AQSzkyFFx2r1VIn4xHL22sdPtssPBzhXEvl1tHLpPFBZL826qnyW3UfFPMecz
+	DO+zLRaHtGKZK3E/a7FaccQpXDMXGbHAi0COVNMKP/0I4b8NV6xWxnYXAj1/QvAe
+	IYn+u8T4pStZLBCXvgn50q87Q6lmaH17DXcq8kUF52WeYkgcUGqqg38h8AnUSFSY
+	BKJWaNl2EuPXa5paWVckLVuZMW6rb+xJzXDwPUkc+3a01pEczg2zVHBFhBI1YRi0
+	2G0vGaN4L8KKk/vNt7TZo6HmML7rUW2AaXw6PY+GMbdXDAQQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46mbds4b40-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 14 May 2025 16:47:47 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5125F40055;
+	Wed, 14 May 2025 16:46:20 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 7A36CAF0535;
+	Wed, 14 May 2025 16:44:32 +0200 (CEST)
+Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 14 May
+ 2025 16:44:32 +0200
+From: Christian Bruel <christian.bruel@foss.st.com>
+To: <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>, <kw@linux.com>,
+        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <p.zabel@pengutronix.de>, <thippeswamy.havalige@amd.com>,
+        <shradha.t@samsung.com>, <quic_schintav@quicinc.com>,
+        <cassel@kernel.org>, <johan+linaro@kernel.org>
+CC: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v10 0/9] Add STM32MP25 PCIe drivers
+Date: Wed, 14 May 2025 16:44:19 +0200
+Message-ID: <20250514144428.3340709-1-christian.bruel@foss.st.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: VI1PR0102CA0072.eurprd01.prod.exchangelabs.com
- (2603:10a6:803::49) To AM8PR04MB7779.eurprd04.prod.outlook.com
- (2603:10a6:20b:24b::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|AM7PR04MB7013:EE_
-X-MS-Office365-Filtering-Correlation-Id: c588c90a-599f-4a8e-4f3a-08dd92f43a48
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|52116014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?lW8Wah1IqCApRfz0LU0iQH4OKBwu4Q1cuL+YP9moHQ2gMinRtY/hbQzR9GBB?=
- =?us-ascii?Q?owuiBOUDHelr+so9evQ7Tqd5J7AXpG87SCJjErsna/4N0OWQjauMAw9HenMP?=
- =?us-ascii?Q?V3ZxWRYZE1bO9pdnLtICtu+h67S6goW7T+saw1H0Q+IVEdrHNfWJ6LI2HK2Z?=
- =?us-ascii?Q?y/eFwRkw5Fhukjfh02k6lRCVHInx4p0hmrReeQWUFHwYRxMYRW+9sqdwegOu?=
- =?us-ascii?Q?Uqowy1RrfMNtKEuJkzb+LL3zElxjmRK5MyQCIivy8c6L+fgdnoLI0NPgPtM9?=
- =?us-ascii?Q?jG9vKsEgp2IxBq5NiW6wUWHY0p1X8gDfcN4vwDZ/8hCXgCFtVR4zQl34Use8?=
- =?us-ascii?Q?RASr8n6ndJ8UZSpESC8qGz1UYzYPEg1AP7KKeCcWr27cXUHsdCLphwz7lMC4?=
- =?us-ascii?Q?b90Fzku1wsNHT5eg6UrxXOsY41ehtzFBw6dC191B9SqxdWqsvFW83tFXtArJ?=
- =?us-ascii?Q?zFdSvGsvM1jWrsjnWYNvnBAU2petwreLq7NRMA2P5iCJvpOBrP+9uyYFIJhy?=
- =?us-ascii?Q?4fCYtTDqZ2Qpps7O1if3r0HO7iGSZQPJaDVcszczoQzQj+6ob+w578s4QTZ2?=
- =?us-ascii?Q?H2PDPH0XI+lnb5XOORcglzCGr8MFpowaAsN3tdQq0IwQGu6axHPNYHroHqgZ?=
- =?us-ascii?Q?iueffNlDfo8ZeReYeZeNOpZ2ZpbkHNngq53sFaE9anB2FdNabY2Q8x1eKB11?=
- =?us-ascii?Q?7a/gwavJfpRwcHUTMdyCZbhJNshdhpDsSpc5j2/pRjSO399JSkJSqZiuBdpw?=
- =?us-ascii?Q?Gxgod3LnmWdgKuTJ5mTwQaa9Qow7X2dTk16sOafxM/KBHI4H1Mp3a7pwkmHY?=
- =?us-ascii?Q?hbanQXQ7XpLBErwdde1KrCrHg/tJuQ5QP+U+xidM5hOkDk3/8CIrcIJSO/Q7?=
- =?us-ascii?Q?BypcbPPYQU0q9yAGR9KCp9GhTINh8sHZ727ibnZu9EyVXcOf3v33eq16QTwR?=
- =?us-ascii?Q?2Ik+li7bfO7WEnnsap/G7aHcfw2bJ99ZSa/pGu8OsUXKFlNpLJwsri3TVmtv?=
- =?us-ascii?Q?LbqcZEi0pleTx9CpB59sUGqMO3uE7japjvfaSAmqE7K9zQcJd2HeDmbXd0N1?=
- =?us-ascii?Q?gTJHqRmpe5yqW45jOAQjyhMcblAehxITxKMbpUvNcw71en/EMd1i7gWoPJnX?=
- =?us-ascii?Q?g4zbBkrKjzCM1wQBI6FbgwFvxv1KmJZpRSMcJsHI2w03lSEnbAz2xqkOTniZ?=
- =?us-ascii?Q?QY5wq9AuKYsqohBtw2dISwc7XUMRaobqfz+Q4f2R0mGRSFuwLjFanOSau7uo?=
- =?us-ascii?Q?Hv3f02oLitDfJsQJO0p/sntBREVOuIYD+IfuFIqFcYrO2XW2+Csyi/37ChDf?=
- =?us-ascii?Q?Fpe2QnW1BIf0K2/RLeZLjEjld/9A+RsZ8Zh0i6GH8/Mtn4HDGCcSBhzmqhqu?=
- =?us-ascii?Q?A9sj/Z54rvd74nDSQ9Udf9KPOtTCoyZPMDYjEzYvJXBDWmaJBIKxRscdCBnc?=
- =?us-ascii?Q?T4I1jer43tBD+kK7QYuYod23Ep2Z7DCK18fFA+WBkLPTIhdNHzTtqA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AZ0a5aND1fT6wvQlWLCF3CyV72p+AW22JzeAH3zpN4SKBvCQoy1vnO2OWTFd?=
- =?us-ascii?Q?ctNI0DAVC8blF1OctkoZJaC+ZRDatQE59kwuxPxAkeQ18JQgBem8rSTy/4KQ?=
- =?us-ascii?Q?fl7Iu+AvSXfyupolUvMrhBdoRQAy0w2RmHR5lDvraj6R+OBbvuUFyRt1dXQE?=
- =?us-ascii?Q?cO4hFLH/QsbknFOybPXt2vYpRnBO4ozzvbJqdl/XGEAGbZQ8rq310SwZIK2t?=
- =?us-ascii?Q?ERxs8/nxhKb8TjP535kRLa9S6D14GBi4uDSiwYhJNZaSy0+a7tuFiECHFkEm?=
- =?us-ascii?Q?S7+noWLebx3kQaEILStGT5cedwRvQF9DtJEIoEKTQyIwFtT9STK9eKAPOiPd?=
- =?us-ascii?Q?3rCUi6CTL2ETrDcj3jA8hgUMfqd2zJ7zqlJRz9CVdEb9e8VT4DrVCB5D1kdJ?=
- =?us-ascii?Q?0dc15ahx1c8J2cX9XMLg16MlkgAVKng5CZw/fuB3jSgtFB5z1vtH0tMvFtE7?=
- =?us-ascii?Q?HVOT51LIirA+e1Mj6AhRwGJ1pXXSxts6+hMRl4Ayhg4dFny0p+PHduxMVsEw?=
- =?us-ascii?Q?je43wNuQcgG3sryrjBUHB3yT0QjcfWEwwohsCaLKaa1k5PdM8UY+jFR28+oJ?=
- =?us-ascii?Q?9hWRsN9r/7QDN9gBMBopsu0GQFVeWCyCh816GYNMwanzn5rSwgoxrDGykc2R?=
- =?us-ascii?Q?jjEefqlrWHfLfxlJRFV/NXrJ0VQIN4Bmc3KhcLPrLhksCYtE9V9ixILspaBK?=
- =?us-ascii?Q?ebLp613Jj7U/wh0GwbM14C3JNKwLCSyjLeaEzqaVYkOeawK+iBKe0Z+8WfiQ?=
- =?us-ascii?Q?rMQgUBXdR3i/GT2axRtD60bew4o+g9D2bd59wwhrfUa4nNvspwBfHXds9E/S?=
- =?us-ascii?Q?eFO1Hi69ZHb3rQ/5h4OpFqOClTf20i9YT6r2W03zlbAXAKG5ZjRyiKQhT/pI?=
- =?us-ascii?Q?mNF7obp90mwWGF1FYDvWBYUrsGKqsMNWKLrPubFHnT+pPKpkDi4xUvosc3Ty?=
- =?us-ascii?Q?ykpFI1u5SnX3ZZS0dAaURSGNHQGYfVEy7O0X5rtzmlmvr/lXXvWUhtK+LNE1?=
- =?us-ascii?Q?qoBeTX8W4xMFMAa0fw/MjxkaqX9GIYUkX5z8xi/DXY9AUVx04fwWv6JJnHod?=
- =?us-ascii?Q?w3PVfih1KNzTXoE4sYi7csi57QCynklSL9o74NoIBrc0eTC2b23b3OCBjtGt?=
- =?us-ascii?Q?0IIrYKGpcLSPLBB3Zc5+owrGxSs/brqZeCQK3lrJQz8kSjCgiUP1wNrteYSI?=
- =?us-ascii?Q?/d+Yph07I06Er10nYtCe84UjKfsyYuXbfK+BXeaWUHVhiJ9ScrBdWjE6KOCp?=
- =?us-ascii?Q?GTIquL7eIIC8h2ZNNqoiVBp+NISEJlxL+nplBYlAiQCqujlbqgypHvdZwqly?=
- =?us-ascii?Q?ap+CTkidrXeWuL4GOdXkbA3Hs+KPJkdcWbOpGgFNcN3WEjgo4s5J2xDGDri1?=
- =?us-ascii?Q?MxPG5BZRHhfCEQLF/4L+akjv13PDXll0JNDXuOAn0JT6Nf7EN8oClkhus3vs?=
- =?us-ascii?Q?d3LzlVKMEnvUTQ5QY+SCAAO9ZzVNKPdG3i5oL7agvcgz6d5wquaBTPwlN7US?=
- =?us-ascii?Q?ENErzgN0nL7uAEjZBP5QR1upP+EPEyxIQJc9IdKl77eSvVJISBax3RZODc8q?=
- =?us-ascii?Q?5chbjM1o0Q5PJ5gROzSK45+A4P74kbtp4yW5S7APwmSbRNhW3Jff1Ihuw4/0?=
- =?us-ascii?Q?NA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c588c90a-599f-4a8e-4f3a-08dd92f43a48
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 May 2025 14:33:00.5843
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KYEvktkVN55GohHCoLlsdfvR+EeEHDUcwfaDsnrj+sl1QR13BhPT9BO0QEhvjpymjZcUk9StpcBO0r7Yi5SYZA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7013
+X-Originating-IP: [10.130.77.120]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-14_04,2025-05-14_03,2025-02-21_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_073312_827011_D2FAB67F 
-X-CRM114-Status: GOOD (  23.01  )
+X-CRM114-CacheID: sfid-20250514_074803_033989_97B84FC4 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,286 +94,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-New timestamping API was introduced in commit 66f7223039c0 ("net: add
-NDOs for configuring hardware timestamping") from kernel v6.6.
+Changes in v10;
+   - Update pcie_ep bindings with dbi2 and atu regs,
+     thus remove Reviewed-by and Acked-by.
+   
+Changes in v9:
+   - Describe atu and dbi2 shadowed registers in pcie_ep node
+   Address RC and EP drivers comments from Manivanna:
+   - Use dev_error_probe() for pm_runtime_enable() calls
+   - Reword Kconfig help message
+   - Move pm_runtime_get_noresume() before devm_pm_runtime_enable()
 
-It is time to convert the stmmac driver to the new API, so that
-timestamping configuration can be removed from the ndo_eth_ioctl()
-path completely.
+Changes in v8:
+   - Whitespace in comment
+   
+Changes in v7:
+   - Use device_init_wakeup to enable wakeup
+   - Fix comments (Bjorn)
 
-The existing timestamping calls are guarded by netif_running(). For
-stmmac_hwtstamp_get() that is probably unnecessary, since no hardware
-access is performed. But for stmmac_hwtstamp_set() I've preserved it,
-since at least some IPs probably need pm_runtime_resume_and_get() to
-access registers, which is otherwise called by __stmmac_open().
+Changes in v6:
+   - Call device_wakeup_enable() to fix WAKE# wakeup.
+   Address comments from Manivanna:
+   - Fix/Add Comments
+   - Fix DT indents
+   - Remove dw_pcie_ep_linkup() in EP start link
+   - Add PCIE_T_PVPERL_MS delay in RC PERST# deassert
+   
+Changes in v5:
+   Address driver comments from Manivanna:
+   - Use dw_pcie_{suspend/resume}_noirq instead of private ones.
+   - Move dw_pcie_host_init() to probe
+   - Add stm32_remove_pcie_port cleanup function
+   - Use of_node_put in stm32_pcie_parse_port
+   - Remove wakeup-source property
+   - Use generic dev_pm_set_dedicated_wake_irq to support wake# irq
+   
+Changes in v4:
+   Address bindings comments Rob Herring
+   - Remove phy property form common yaml
+   - Remove phy-name property
+   - Move wake_gpio and reset_gpio to the host root port
+   
+Changes in v3:
+   Address comments from Manivanna, Rob and Bjorn:
+   - Move host wakeup helper to dwc core (Mani)
+   - Drop num-lanes=<1> from bindings (Rob)
+   - Fix PCI address of I/O region (Mani)
+   - Moved PHY to a RC rootport subsection (Bjorn, Mani)
+   - Replaced dma-limit quirk by dma-ranges property (Bjorn)
+   - Moved out perst assert/deassert from start/stop link (Mani)
+   - Drop link_up test optim (Mani)
+   - DT and comments rephrasing (Bjorn)
+   - Add dts entries now that the combophy entries has landed
+   - Drop delaying Configuration Requests
 
-Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-Reviewed-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
----
-v1->v2:
-- remove \n from extack message
-- preserve netif_running() check for stmmac_hwtstamp_set()
+Changes in v2:
+   - Fix st,stm32-pcie-common.yaml dt_binding_check	
 
- drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  2 +-
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 84 +++++++++----------
- 2 files changed, 42 insertions(+), 44 deletions(-)
+Changes in v1:
+   Address comments from Rob Herring and Bjorn Helgaas:
+   - Drop st,limit-mrrs and st,max-payload-size from this patchset
+   - Remove single reset and clocks binding names and misc yaml cleanups
+   - Split RC/EP common bindings to a separate schema file
+   - Use correct PCIE_T_PERST_CLK_US and PCIE_T_RRS_READY_MS defines
+   - Use .remove instead of .remove_new
+   - Fix bar reset sequence in EP driver
+   - Use cleanup blocks for error handling
+   - Cosmetic fixes
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index 1686e559f66e..cda09cf5dcca 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -301,7 +301,7 @@ struct stmmac_priv {
- 	unsigned int mode;
- 	unsigned int chain_mode;
- 	int extend_desc;
--	struct hwtstamp_config tstamp_config;
-+	struct kernel_hwtstamp_config tstamp_config;
- 	struct ptp_clock *ptp_clock;
- 	struct ptp_clock_info ptp_clock_ops;
- 	unsigned int default_addend;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index a19b6f940bf3..3c88c0ed35f8 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -568,18 +568,19 @@ static void stmmac_get_rx_hwtstamp(struct stmmac_priv *priv, struct dma_desc *p,
- /**
-  *  stmmac_hwtstamp_set - control hardware timestamping.
-  *  @dev: device pointer.
-- *  @ifr: An IOCTL specific structure, that can contain a pointer to
-- *  a proprietary structure used to pass information to the driver.
-+ *  @config: the timestamping configuration.
-+ *  @extack: netlink extended ack structure for error reporting.
-  *  Description:
-  *  This function configures the MAC to enable/disable both outgoing(TX)
-  *  and incoming(RX) packets time stamping based on user input.
-  *  Return Value:
-  *  0 on success and an appropriate -ve integer on failure.
-  */
--static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
-+static int stmmac_hwtstamp_set(struct net_device *dev,
-+			       struct kernel_hwtstamp_config *config,
-+			       struct netlink_ext_ack *extack)
- {
- 	struct stmmac_priv *priv = netdev_priv(dev);
--	struct hwtstamp_config config;
- 	u32 ptp_v2 = 0;
- 	u32 tstamp_all = 0;
- 	u32 ptp_over_ipv4_udp = 0;
-@@ -590,34 +591,36 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
- 	u32 ts_event_en = 0;
- 
- 	if (!(priv->dma_cap.time_stamp || priv->adv_ts)) {
--		netdev_alert(priv->dev, "No support for HW time stamping\n");
-+		NL_SET_ERR_MSG_MOD(extack, "No support for HW time stamping");
- 		priv->hwts_tx_en = 0;
- 		priv->hwts_rx_en = 0;
- 
- 		return -EOPNOTSUPP;
- 	}
- 
--	if (copy_from_user(&config, ifr->ifr_data,
--			   sizeof(config)))
--		return -EFAULT;
-+	if (!netif_running(dev)) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "Cannot change timestamping configuration while up");
-+		return -ENODEV;
-+	}
- 
- 	netdev_dbg(priv->dev, "%s config flags:0x%x, tx_type:0x%x, rx_filter:0x%x\n",
--		   __func__, config.flags, config.tx_type, config.rx_filter);
-+		   __func__, config->flags, config->tx_type, config->rx_filter);
- 
--	if (config.tx_type != HWTSTAMP_TX_OFF &&
--	    config.tx_type != HWTSTAMP_TX_ON)
-+	if (config->tx_type != HWTSTAMP_TX_OFF &&
-+	    config->tx_type != HWTSTAMP_TX_ON)
- 		return -ERANGE;
- 
- 	if (priv->adv_ts) {
--		switch (config.rx_filter) {
-+		switch (config->rx_filter) {
- 		case HWTSTAMP_FILTER_NONE:
- 			/* time stamp no incoming packet at all */
--			config.rx_filter = HWTSTAMP_FILTER_NONE;
-+			config->rx_filter = HWTSTAMP_FILTER_NONE;
- 			break;
- 
- 		case HWTSTAMP_FILTER_PTP_V1_L4_EVENT:
- 			/* PTP v1, UDP, any kind of event packet */
--			config.rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_EVENT;
-+			config->rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_EVENT;
- 			/* 'xmac' hardware can support Sync, Pdelay_Req and
- 			 * Pdelay_resp by setting bit14 and bits17/16 to 01
- 			 * This leaves Delay_Req timestamps out.
-@@ -631,7 +634,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
- 
- 		case HWTSTAMP_FILTER_PTP_V1_L4_SYNC:
- 			/* PTP v1, UDP, Sync packet */
--			config.rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_SYNC;
-+			config->rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_SYNC;
- 			/* take time stamp for SYNC messages only */
- 			ts_event_en = PTP_TCR_TSEVNTENA;
- 
-@@ -641,7 +644,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
- 
- 		case HWTSTAMP_FILTER_PTP_V1_L4_DELAY_REQ:
- 			/* PTP v1, UDP, Delay_req packet */
--			config.rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_DELAY_REQ;
-+			config->rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_DELAY_REQ;
- 			/* take time stamp for Delay_Req messages only */
- 			ts_master_en = PTP_TCR_TSMSTRENA;
- 			ts_event_en = PTP_TCR_TSEVNTENA;
-@@ -652,7 +655,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
- 
- 		case HWTSTAMP_FILTER_PTP_V2_L4_EVENT:
- 			/* PTP v2, UDP, any kind of event packet */
--			config.rx_filter = HWTSTAMP_FILTER_PTP_V2_L4_EVENT;
-+			config->rx_filter = HWTSTAMP_FILTER_PTP_V2_L4_EVENT;
- 			ptp_v2 = PTP_TCR_TSVER2ENA;
- 			/* take time stamp for all event messages */
- 			snap_type_sel = PTP_TCR_SNAPTYPSEL_1;
-@@ -663,7 +666,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
- 
- 		case HWTSTAMP_FILTER_PTP_V2_L4_SYNC:
- 			/* PTP v2, UDP, Sync packet */
--			config.rx_filter = HWTSTAMP_FILTER_PTP_V2_L4_SYNC;
-+			config->rx_filter = HWTSTAMP_FILTER_PTP_V2_L4_SYNC;
- 			ptp_v2 = PTP_TCR_TSVER2ENA;
- 			/* take time stamp for SYNC messages only */
- 			ts_event_en = PTP_TCR_TSEVNTENA;
-@@ -674,7 +677,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
- 
- 		case HWTSTAMP_FILTER_PTP_V2_L4_DELAY_REQ:
- 			/* PTP v2, UDP, Delay_req packet */
--			config.rx_filter = HWTSTAMP_FILTER_PTP_V2_L4_DELAY_REQ;
-+			config->rx_filter = HWTSTAMP_FILTER_PTP_V2_L4_DELAY_REQ;
- 			ptp_v2 = PTP_TCR_TSVER2ENA;
- 			/* take time stamp for Delay_Req messages only */
- 			ts_master_en = PTP_TCR_TSMSTRENA;
-@@ -686,7 +689,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
- 
- 		case HWTSTAMP_FILTER_PTP_V2_EVENT:
- 			/* PTP v2/802.AS1 any layer, any kind of event packet */
--			config.rx_filter = HWTSTAMP_FILTER_PTP_V2_EVENT;
-+			config->rx_filter = HWTSTAMP_FILTER_PTP_V2_EVENT;
- 			ptp_v2 = PTP_TCR_TSVER2ENA;
- 			snap_type_sel = PTP_TCR_SNAPTYPSEL_1;
- 			if (priv->synopsys_id < DWMAC_CORE_4_10)
-@@ -698,7 +701,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
- 
- 		case HWTSTAMP_FILTER_PTP_V2_SYNC:
- 			/* PTP v2/802.AS1, any layer, Sync packet */
--			config.rx_filter = HWTSTAMP_FILTER_PTP_V2_SYNC;
-+			config->rx_filter = HWTSTAMP_FILTER_PTP_V2_SYNC;
- 			ptp_v2 = PTP_TCR_TSVER2ENA;
- 			/* take time stamp for SYNC messages only */
- 			ts_event_en = PTP_TCR_TSEVNTENA;
-@@ -710,7 +713,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
- 
- 		case HWTSTAMP_FILTER_PTP_V2_DELAY_REQ:
- 			/* PTP v2/802.AS1, any layer, Delay_req packet */
--			config.rx_filter = HWTSTAMP_FILTER_PTP_V2_DELAY_REQ;
-+			config->rx_filter = HWTSTAMP_FILTER_PTP_V2_DELAY_REQ;
- 			ptp_v2 = PTP_TCR_TSVER2ENA;
- 			/* take time stamp for Delay_Req messages only */
- 			ts_master_en = PTP_TCR_TSMSTRENA;
-@@ -724,7 +727,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
- 		case HWTSTAMP_FILTER_NTP_ALL:
- 		case HWTSTAMP_FILTER_ALL:
- 			/* time stamp any incoming packet */
--			config.rx_filter = HWTSTAMP_FILTER_ALL;
-+			config->rx_filter = HWTSTAMP_FILTER_ALL;
- 			tstamp_all = PTP_TCR_TSENALL;
- 			break;
- 
-@@ -732,18 +735,18 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
- 			return -ERANGE;
- 		}
- 	} else {
--		switch (config.rx_filter) {
-+		switch (config->rx_filter) {
- 		case HWTSTAMP_FILTER_NONE:
--			config.rx_filter = HWTSTAMP_FILTER_NONE;
-+			config->rx_filter = HWTSTAMP_FILTER_NONE;
- 			break;
- 		default:
- 			/* PTP v1, UDP, any kind of event packet */
--			config.rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_EVENT;
-+			config->rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_EVENT;
- 			break;
- 		}
- 	}
--	priv->hwts_rx_en = ((config.rx_filter == HWTSTAMP_FILTER_NONE) ? 0 : 1);
--	priv->hwts_tx_en = config.tx_type == HWTSTAMP_TX_ON;
-+	priv->hwts_rx_en = config->rx_filter != HWTSTAMP_FILTER_NONE;
-+	priv->hwts_tx_en = config->tx_type == HWTSTAMP_TX_ON;
- 
- 	priv->systime_flags = STMMAC_HWTS_ACTIVE;
- 
-@@ -756,31 +759,30 @@ static int stmmac_hwtstamp_set(struct net_device *dev, struct ifreq *ifr)
- 
- 	stmmac_config_hw_tstamping(priv, priv->ptpaddr, priv->systime_flags);
- 
--	memcpy(&priv->tstamp_config, &config, sizeof(config));
-+	priv->tstamp_config = *config;
- 
--	return copy_to_user(ifr->ifr_data, &config,
--			    sizeof(config)) ? -EFAULT : 0;
-+	return 0;
- }
- 
- /**
-  *  stmmac_hwtstamp_get - read hardware timestamping.
-  *  @dev: device pointer.
-- *  @ifr: An IOCTL specific structure, that can contain a pointer to
-- *  a proprietary structure used to pass information to the driver.
-+ *  @config: the timestamping configuration.
-  *  Description:
-  *  This function obtain the current hardware timestamping settings
-  *  as requested.
-  */
--static int stmmac_hwtstamp_get(struct net_device *dev, struct ifreq *ifr)
-+static int stmmac_hwtstamp_get(struct net_device *dev,
-+			       struct kernel_hwtstamp_config *config)
- {
- 	struct stmmac_priv *priv = netdev_priv(dev);
--	struct hwtstamp_config *config = &priv->tstamp_config;
- 
- 	if (!(priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp))
- 		return -EOPNOTSUPP;
- 
--	return copy_to_user(ifr->ifr_data, config,
--			    sizeof(*config)) ? -EFAULT : 0;
-+	*config = priv->tstamp_config;
-+
-+	return 0;
- }
- 
- /**
-@@ -6228,12 +6230,6 @@ static int stmmac_ioctl(struct net_device *dev, struct ifreq *rq, int cmd)
- 	case SIOCSMIIREG:
- 		ret = phylink_mii_ioctl(priv->phylink, rq, cmd);
- 		break;
--	case SIOCSHWTSTAMP:
--		ret = stmmac_hwtstamp_set(dev, rq);
--		break;
--	case SIOCGHWTSTAMP:
--		ret = stmmac_hwtstamp_get(dev, rq);
--		break;
- 	default:
- 		break;
- 	}
-@@ -7172,6 +7168,8 @@ static const struct net_device_ops stmmac_netdev_ops = {
- 	.ndo_bpf = stmmac_bpf,
- 	.ndo_xdp_xmit = stmmac_xdp_xmit,
- 	.ndo_xsk_wakeup = stmmac_xsk_wakeup,
-+	.ndo_hwtstamp_get = stmmac_hwtstamp_get,
-+	.ndo_hwtstamp_set = stmmac_hwtstamp_set,
- };
- 
- static void stmmac_reset_subtask(struct stmmac_priv *priv)
+Christian Bruel (9):
+  dt-bindings: PCI: Add STM32MP25 PCIe Root Complex bindings
+  PCI: stm32: Add PCIe host support for STM32MP25
+  dt-bindings: PCI: Add STM32MP25 PCIe Endpoint bindings
+  PCI: stm32: Add PCIe Endpoint support for STM32MP25
+  MAINTAINERS: add entry for ST STM32MP25 PCIe drivers
+  arm64: dts: st: add PCIe pinctrl entries in stm32mp25-pinctrl.dtsi
+  arm64: dts: st: Add PCIe Root Complex mode on stm32mp251
+  arm64: dts: st: Add PCIe Endpoint mode on stm32mp251
+  arm64: dts: st: Enable PCIe on the stm32mp257f-ev1 board
+
+ .../bindings/pci/st,stm32-pcie-common.yaml    |  33 ++
+ .../bindings/pci/st,stm32-pcie-ep.yaml        |  73 ++++
+ .../bindings/pci/st,stm32-pcie-host.yaml      | 112 +++++
+ MAINTAINERS                                   |   7 +
+ arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi |  20 +
+ arch/arm64/boot/dts/st/stm32mp251.dtsi        |  59 +++
+ arch/arm64/boot/dts/st/stm32mp257f-ev1.dts    |  21 +
+ drivers/pci/controller/dwc/Kconfig            |  24 +
+ drivers/pci/controller/dwc/Makefile           |   2 +
+ drivers/pci/controller/dwc/pcie-stm32-ep.c    | 411 ++++++++++++++++++
+ drivers/pci/controller/dwc/pcie-stm32.c       | 364 ++++++++++++++++
+ drivers/pci/controller/dwc/pcie-stm32.h       |  16 +
+ 12 files changed, 1142 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
+ create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
+ create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
+ create mode 100644 drivers/pci/controller/dwc/pcie-stm32-ep.c
+ create mode 100644 drivers/pci/controller/dwc/pcie-stm32.c
+ create mode 100644 drivers/pci/controller/dwc/pcie-stm32.h
+
+
+base-commit: aa94665adc28f3fdc3de2979ac1e98bae961d6ca
 -- 
-2.43.0
+2.34.1
 
 
