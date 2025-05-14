@@ -4,109 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F5CC3ABD9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 07:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1372EC3ABD9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 08:01:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kzdTMooCqa1ypmINEmlgL2G2QWjmPcr5NoyztBa2Ur4=; b=vrOzO9fKYa0UeM6r1R9r8Erd1U
-	ixau5LklKJgwDgjrj9vlURb0BYZ/gClwYY+U2ya0Cra3PCZSbGUZhjAsidpRo+Nfv/TvLz/v47q5R
-	1bfBSvYvmZ5f8jVVZXBxC9a/76d5Z1JA/GwTOUnk3If3lqOq+RzwXxKyuxhaPLasVCdd4Lc8imyxw
-	SBy70j00V7jD2RCpsT8HZRpdOsbw83azYXjdKeyLxaUPWMiOXdiIefWYz7wJGGPSCvKNfTKZOC4bV
-	lAgmXYv2mgp7twJx1L/Qkv7XHxnnUY+t0IUhGEpMAIFTZeKnSnVoD5aJlpkb+KSaHCugX4uibYYE0
-	/ZevaZDA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=92xl50fngLlPA0742ShEZlboPbwBLkdA9nm8h1sBxyY=; b=atETX+Dx9hhJ+41GrtCSl+/L+7
+	ynWvWg5ds24CWePKdyrmwMQ4MTuYOzHQqzQ9i5QYxCuwypm35CB7EOx7nREP3B5tl+vz6xdrVbOzI
+	Y7dcH8NHkcNHNi0QU3TIBKUfiVH5UFMDPPAc8V6M/raJFdJKHdXhBcQGc/kLUgHyyec8TR5by+rvi
+	bJ++CYC4zgXRCSySHl90o3Ga8vL72BS0yrJi3iPadj+Zxq7YDAs5QQ6FBvnAMeJ6krly4fUfekmS4
+	SljHNHp85IoyDOSRi3J107OA+hRf7EfaE1gJQfZpO3Fm3iyB2USnc2s5lCT7X7RJiVwEejFAIUN3A
+	OUzy/4rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF70u-0000000EPh4-2exS;
-	Wed, 14 May 2025 07:58:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uF72u-0000000EPzM-1eMQ;
+	Wed, 14 May 2025 08:00:56 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF6yj-0000000EPLr-40Jq
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 14 May 2025 07:56:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=kzdTMooCqa1ypmINEmlgL2G2QWjmPcr5NoyztBa2Ur4=; b=CJYX9+fYs0XEFI72eiPB5Y++T2
-	mE2GiBQBWjhsTFLW6JYkhyhz+K/GVDCZxgi2qYNYJYxAWXeKaa2sAKAJsWlZublRJaxKzye8Eg74e
-	z8stgwqbVLcwjRBQ6wOHcYvuzBnB8Z6nKKtrY8c2UX/ECaaJmrPl2OAsfrqsdv/JCPGpGn3HJrCD7
-	KJbcibORZTTsAQnKSSYZ630hrjYKnCW2yYx2Fm1DbUrYH4gSpQYBAGzRBXoqUh/yL2VdMZ+m1zwt1
-	QEDycaarZRHaCgvlhWwSiDG631yCsGOhmElKRevwoBZ/flK1MPEXGqzQqkKhrBgzTtZcx+GauUQf8
-	YH2TRwWA==;
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uF6yg-0000000H6sS-1lf6
+	id 1uF70p-0000000EPg7-2gCh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 07:56:36 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3a0b5b90b7aso782744f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 00:56:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747209392; x=1747814192; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kzdTMooCqa1ypmINEmlgL2G2QWjmPcr5NoyztBa2Ur4=;
-        b=j+OReD/uJuigITQYRyjGwsUJn9IB/NgInOPeZrwSmbnbdx3iKe1Klwn+myP+YNKMkl
-         fcqmXdYgs8dkqbumJfaaPUV1TL8CmEVkKylDyLZlwt1cc6F9uqO8Ei34LvqOBjjiVUb2
-         NaQgv0Ap9lKSHctyjdcv03u+shhuTmYZc5ScNwduwpdUtronYX8N0ZazsxSFDtvS1PTu
-         7UzwvUsjOfQYxy5wV0XBx8EVZLyDXnybwAgnT1G+X6mgL1kB4v24wc9hsTC9oRMBK8f1
-         PZq2kwsX770FVE326bObL4WFtmPErOghz2PfQXUt/t2dMEoxizecatRq4NLnLUiJm71+
-         gt6Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747209392; x=1747814192;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kzdTMooCqa1ypmINEmlgL2G2QWjmPcr5NoyztBa2Ur4=;
-        b=kooiYOxcbm5baoAwdtVyNoCySLf/M/6Q3Ir2FeREGeTqVecRisItM8clLXxTu4DOIc
-         GPM70MimdTtHBJA73evgkLpYrU6lyrzak61XjWpDCHa0fMQ/GxfheCkYet3vVigJ32am
-         M9+9IP1hVa3vgalg3ySCqxVik2iNKToDS//F9KoYDCNLjAtBuvkSip8rkowPU4zsPRO7
-         TJblA3ZDzu39fOQBAN0NdsUV+GAsAGvzjH7zTzuVQk46atnWKD5gEPcEejHYiaSzCYN1
-         e2Aycr6FGjH/jjrlmVLzHzi1zeI/+mDo5wuri0HWVikeAu2X7jgflWC26N1zCX1JT6kZ
-         h9Tw==
-X-Forwarded-Encrypted: i=1; AJvYcCX8/lu52jETHXOtHllndT/1W7b/pEvImDVfMMkYH/9mpGXjAZ6WzqgTgTaDg/aNJWFmyEH9f9w68P9X7Tq6UQxj@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjzZuHAZABO+r3ri7AraHbVgAnWVRHBjcnl9ETRAI4ysvJR0bt
-	S2txdZnSgvBwJjVCO6iyY+3anVeYsa8r6uDk/cZbBtfscxq5sc9nM494fjU/iwNgNH2BWl8+G7w
-	iOrM=
-X-Gm-Gg: ASbGncssc6jgAP0eb7rw6/yNAplyBgAan2jT+Px1MJ1rUyhvYo8dHfVDv6HEKRf/kJ8
-	JsiU8t2f+MdI6Q6ge8+XzCwoKPMmYzNXgvlwfSLKRq4tQA2VzS+/2vyE+2udUNjxzIjIrSeFeMr
-	JxFQc1DPhvcIyTT1+ri8LDPCUhibgKR2ZNQtZLHgYN5HryL+9dletQIXqr2GQfNABmtnQCMouEG
-	M9lRHQa3HVqPBspGsS2LO5eEO7ZdgikvG4FXhMHJrHQ92AuUqVDjP0aDAxl37GYtTFdCKv8PXQe
-	0HiQriidr8021RnAyxqu4MAi27Fnm2dsRt6vPakh3g76uiTbRuuxjVJx2x/E1UV1drlNrpajQVx
-	hfzRbjzXsaWzbeC6kow==
-X-Google-Smtp-Source: AGHT+IHHtmTfTDqpI8/MhLKS2/FzVY2p3LpVRtEE1jaQ17ol8rPj7ZAtenjeKA2K6/4xZEMzO4yRQg==
-X-Received: by 2002:a05:6000:4007:b0:3a0:75ff:2d94 with SMTP id ffacd0b85a97d-3a349699c5bmr668843f8f.1.1747209391885;
-        Wed, 14 May 2025 00:56:31 -0700 (PDT)
-Received: from [10.61.0.48] (110.8.30.213.rev.vodafone.pt. [213.30.8.110])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f58ebd75sm19067112f8f.34.2025.05.14.00.56.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 May 2025 00:56:31 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Christophe Kerello <christophe.kerello@foss.st.com>, 
- Patrice Chotard <patrice.chotard@foss.st.com>
-Cc: linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20250513-stm32_omm_fix_typo-v1-1-5b90ec8b52e7@foss.st.com>
-References: <20250513-stm32_omm_fix_typo-v1-1-5b90ec8b52e7@foss.st.com>
-Subject: Re: [PATCH] memory: stm32_omm: Fix error handling in
- stm32_omm_disable_child()
-Message-Id: <174720939065.5575.14505161452787178403.b4-ty@linaro.org>
-Date: Wed, 14 May 2025 09:56:30 +0200
+	Wed, 14 May 2025 07:58:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 70BA35C1D94;
+	Wed, 14 May 2025 07:56:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D513DC4CEE9;
+	Wed, 14 May 2025 07:58:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747209526;
+	bh=6tM6IvYJ+UJwErZFj2ILocGq36fJgFxr2ZEBz5WWSCg=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=QCWqqDjQJGp4+GtEMpwBpBJeJri1buuxkh2vT6h+qKn+WBBpQPZ91Y8skd0TUhBWt
+	 cF3cmslw8xMzAaM7lb50sQ2Mh4YgXiFmGcCA2tDG3CvhyhJwJRriPVJcdzUO5u6llq
+	 pq/vE07SDfNeQjGO9lw7Ui8M6hf0IbjW34io2ur1yzqZ6hkDbsgaVIAYvmUO1HKUjy
+	 lFC6SggYHzscyo8OBrHW7LQ7mX3IUvPcuUxeIaPJ4t+GYSXJrlcjylxNd7eMbvInb7
+	 VyNgJtvyRzkZRvZb+Jg6UlnWScYBJRL776cLNGfR2cRVpmuD03nzCy1pbxGiul09SF
+	 5uPhX8pxLVOcw==
+Message-ID: <ae19e684-4f46-42b7-bb4e-fc6bb13ed153@kernel.org>
+Date: Wed, 14 May 2025 09:58:39 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH 3/5] dt-bindings: media: allegrodvt: add decoder
+ dt-bindings for Gen3 IP
+To: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>,
+ Michael Tretter <m.tretter@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner
+ <heiko@sntech.de>, Junhao Xie <bigfoot@classfun.cn>,
+ Aradhya Bhatia <a-bhatia1@ti.com>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?=
+ <rafal@milecki.pl>, Manivannan Sadhasivam
+ <manivannan.sadhasivam@linaro.org>, Kever Yang <kever.yang@rock-chips.com>,
+ Hans Verkuil <hverkuil@xs4all.nl>,
+ Sebastian Fricke <sebastian.fricke@collabora.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Gaosheng Cui <cuigaosheng1@huawei.com>,
+ Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+ Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
+ Ricardo Ribalda <ribalda@chromium.org>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250513083609.328422-1-yassine.ouaissa@allegrodvt.com>
+ <20250513083609.328422-4-yassine.ouaissa@allegrodvt.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250513083609.328422-4-yassine.ouaissa@allegrodvt.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_085634_753815_A3FFDBA2 
-X-CRM114-Status: UNSURE (   6.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250514_005847_771527_EB380C1C 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,20 +136,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 13 May 2025 17:34:31 +0200, Patrice Chotard wrote:
-> Fix stm32_omm_toggle_child_clock() return value test, we should exit
-> only on non zero value.
+On 13/05/2025 10:35, Yassine Ouaissa wrote:
+> Add compatible for video decoder on allegrodvt Gen 3 IP.
 > 
+> Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
+
+How is this resend? You already sent patches, so this is v2 or v3.
+Version your patches correctly or just use b4 for that.
+
+
+> ---
+>  .../bindings/media/allegrodvt,al300-vdec.yaml | 83 +++++++++++++++++++
+>  1 file changed, 83 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.yaml
 > 
+> diff --git a/Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.yaml b/Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.yaml
+> new file mode 100644
+> index 000000000000..4218892d6950
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.yaml
+> @@ -0,0 +1,83 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/allegrodvt,al300-vdec.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Allegro DVT Video IP Decoder Gen 3
+> +
+> +maintainers:
+> +  - Yassine OUAISSA <yassine.ouaissa@allegrodvt.com>
+> +
+> +description:
+> +  The al300-vdec represents the latest generation of Allegro DVT IP decoding
+> +  technology, offering significant advancements over its predecessors.
+> +  This new decoder features enhanced processing capabilities with improved
+> +  throughput and reduced latency.
+> +
+> +  Communication between the host driver software and the MCU is implemented
+> +  through a specialized mailbox interface mechanism. This mailbox system
+> +  provides a structured channel for exchanging commands, parameters, and
+> +  status information between the host CPU and the MCU controlling the codec
+> +  engines.
+> +
+> +properties:
+> +  compatible:
+> +    const: allegrodvt,al300-vdec
+> +
+> +  reg:
+> +    items:
+> +      - description: The registers
+> +      - description: the MCU APB register
+> +
+> +  reg-names:
+> +    items:
+> +      - const: regs
+> +      - const: apb
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: MCU clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: mcu_clk
 
-Applied, thanks!
-
-[1/1] memory: stm32_omm: Fix error handling in stm32_omm_disable_child()
-      https://git.kernel.org/krzk/linux-mem-ctrl/c/388d0cc33cc6fc876e053644d6af694b9d5c639f
+Nothing improved.
 
 Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+Krzysztof
 
