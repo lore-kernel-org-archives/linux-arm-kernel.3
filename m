@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D42BDC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 17:46:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 711E5C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 17:47:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E3QT4BphJvQW+6QEX8hy6zBGAnegnS8iTWfqQnfzwBQ=; b=QXfr9Ww90z5aCtd1qTrSdww1/x
-	955e5d4N+YIpYyBKgJe0/UUS8DTJNL1oMik70Ysjgt1dJ3PbD0XGR1mRZIYX60q130O8eHYA4tyAM
-	om/sXnnOfq+4z2BJ16r1WKdUHM5Ew/FKFvYW4aZ6HbdqnFym+elgw3gInKtIzFBiRDPVQikg+5pBi
-	8P59z7vd5iXS97Z5rEBFFHU1KUIR1NaLc5Nk18iVmSKMyuP2x+0CBBtHXjjml1l429ClBPmL/Ehgi
-	Ga+Y40S7lqBq1u1JSthlpGC2eIF68hcjh2t+4JaYytcbeBNJu0v7IfrBWdmDxdnoIK9/gzQeLUW4B
-	NiYwCaWw==;
+	bh=yFX44yPNnHoY8IRIVNI3J4R5DCBXgA5sjpYq4Aa429E=; b=w6BAQwNcvTgMm7h4ilAPJgwsmV
+	Wh3WQvwjHYmimXG4eIqQpWocqOIs2cscf/aBvKPb/cl+LyhlPz5c9lsQmS6IPGM/+0KpSZaX7z82E
+	KzYULfxqhojHQN5/ztx0iN+uIdZI5bbVyTtqaFItT9ZTqn9dEeTTu3NwC7EoGId5CXIrLteJOswZO
+	ZDNNip7q3wZtpwULljktJtYaLtNThfMvG7S3qPLzcwWCMn5j21UwdrMbriXbqL/aWeHdFrH2DqrNk
+	/BvVTIjj6L7S6CPQ+0GsdY7e4ncZ4Ql5U8d0f/wb4ZyCZb4llx/pJhxjv0K5E/MjEIVOzFHC2OLZD
+	zKev4mkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFGBp-0000000FuNq-2JvA;
-	Wed, 14 May 2025 17:46:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uFGBt-0000000FuTl-33Ch;
+	Wed, 14 May 2025 17:46:49 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFEji-0000000FhxQ-03DM
+	id 1uFEnX-0000000FibI-14Zo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 16:13:39 +0000
+	Wed, 14 May 2025 16:17:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B617A44E60;
-	Wed, 14 May 2025 16:13:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AD5BC4CEED;
-	Wed, 14 May 2025 16:13:37 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4C2AC5C573A;
+	Wed, 14 May 2025 16:15:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20A84C4CEE3;
+	Wed, 14 May 2025 16:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747239217;
-	bh=Phg8+ypjVqBp7Sk/MuFz+VsF0MAkDYbthSArEEDQB9g=;
+	s=k20201202; t=1747239454;
+	bh=ynRgYDoQpROaSqMAtdzPR1ZOmRAM2GDU/bHhpMLKkJI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bDCZOFY9FgzewU3rnwJkCExFndVN4XW5nLv1ALwzbNn1W4kuDa9XhScwfub6JkOF/
-	 qRiv9t3uRmy3NmCFP3CmfnJlk8CTfF6lB1/diZOWwKn/gkOI2GJ9oWnOKmp6aN6IXE
-	 MGc14EsV9wBQ4S7sET8xEInr10adLCyHIEjWopQILKNmwn8IEp/lYbpZt4rrbyxoed
-	 8Uoh21ZJjgkWnIJg3l56jwEsScTp4aBuOPlusisiBya6nHman7K4PDJApJO8mpj252
-	 HmEDOeoqfSq5lvrQpcNulBaCAUvIh/5yO9Q5e4i8MsoHzdt+1tsLw8RBlf4QTLRCvO
-	 TWrNSLy3u3aRw==
-Date: Wed, 14 May 2025 11:13:35 -0500
+	b=ssoiA7zZ32W+g4oZ8nSfZ0GStHHA0K6AkMc2UkiJAkJ/prvS6zi7RoRNb5i8SeaJW
+	 MK42Q20UfDZpt0dGcOUpQLr+8Vlh1GfdlXrBmKGin/VnvGpwv0k/ElKHmZAYh9xGOS
+	 lylN7EANwTRxqvSR1BLQpcbbQgzH2RDqqr76s6n3+8zRdkJFa4OVi/7rbKdQNqnN/U
+	 hKdIDBZMZGMpfFCJRL+XM4fbT+AyoByXjKM0unGuyMhJu2zUC0ZWOOeAW8BPYQuQts
+	 gUAU5RLesGgveUQidXd62yHU7LE2KRDFuMqAhuCQAbaTIKwhqeLKSjO7WQo3tEm3YX
+	 amgH6H8YW4wZg==
+Date: Wed, 14 May 2025 11:17:32 -0500
 From: Rob Herring <robh@kernel.org>
 To: Thierry Reding <thierry.reding@gmail.com>
 Cc: Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 02/11] dt-bindings: mailbox: tegra-hsp: Bump number of
- shared interrupts
-Message-ID: <20250514161335.GA2456913-robh@kernel.org>
+Subject: Re: [PATCH 03/11] dt-bindings: mailbox: tegra-hsp: Properly sort
+ compatible string list
+Message-ID: <20250514161732.GA2492164-robh@kernel.org>
 References: <20250506133118.1011777-1-thierry.reding@gmail.com>
- <20250506133118.1011777-3-thierry.reding@gmail.com>
+ <20250506133118.1011777-4-thierry.reding@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250506133118.1011777-3-thierry.reding@gmail.com>
+In-Reply-To: <20250506133118.1011777-4-thierry.reding@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_091338_079205_5787C7D2 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20250514_091735_337237_B45A8EB1 
+X-CRM114-Status: GOOD (  15.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,67 +73,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 03:31:09PM +0200, Thierry Reding wrote:
+On Tue, May 06, 2025 at 03:31:10PM +0200, Thierry Reding wrote:
 > From: Thierry Reding <treding@nvidia.com>
 > 
-> It turns out that some instances of the HSP block on Tegra264 can have
-> up to 16 shared interrupts, so bump the maximum number of allowed
-> interrupts.
+> We want these strings to be sorted in order of release date of the
+> chips, so the Tegra264 entry should go after the Tegra234 entry.
 > 
 > Signed-off-by: Thierry Reding <treding@nvidia.com>
 > ---
->  .../bindings/mailbox/nvidia,tegra186-hsp.yaml | 21 ++++++++++++++++++-
->  1 file changed, 20 insertions(+), 1 deletion(-)
+>  .../devicetree/bindings/mailbox/nvidia,tegra186-hsp.yaml        | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
 > diff --git a/Documentation/devicetree/bindings/mailbox/nvidia,tegra186-hsp.yaml b/Documentation/devicetree/bindings/mailbox/nvidia,tegra186-hsp.yaml
-> index 2d14fc948999..df6784a7c96a 100644
+> index df6784a7c96a..cbc02b2a156a 100644
 > --- a/Documentation/devicetree/bindings/mailbox/nvidia,tegra186-hsp.yaml
 > +++ b/Documentation/devicetree/bindings/mailbox/nvidia,tegra186-hsp.yaml
-> @@ -76,7 +76,7 @@ properties:
->  
->    interrupts:
->      minItems: 1
-> -    maxItems: 9
-> +    maxItems: 17
->  
->    interrupt-names:
+> @@ -66,10 +66,10 @@ properties:
 >      oneOf:
-> @@ -84,6 +84,25 @@ properties:
+>        - const: nvidia,tegra186-hsp
+>        - const: nvidia,tegra194-hsp
+> -      - const: nvidia,tegra264-hsp
 >        - items:
->            - const: doorbell
->  
-> +      - items:
-> +          - const: doorbell
-> +          - pattern: "^shared[1]?[0-9]$"
+>            - const: nvidia,tegra234-hsp
+>            - const: nvidia,tegra194-hsp
+> +      - const: nvidia,tegra264-hsp
 
-shared1?[0-9] works
+The preference here is really to put all the single entry cases into 1 
+enum. Order by release would be okay, but not something the DT 
+maintainers know or can remember which bindings do that. So alphanumeric 
+order is preferred.
 
-Though really it should be: "^shared([0-9]|1[0-5])$"
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-With that,
-
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-
-> +          - pattern: "^shared[1]?[0-9]$"
-> +          - pattern: "^shared[1]?[0-9]$"
-> +          - pattern: "^shared[1]?[0-9]$"
-> +          - pattern: "^shared[1]?[0-9]$"
-> +          - pattern: "^shared[1]?[0-9]$"
-> +          - pattern: "^shared[1]?[0-9]$"
-> +          - pattern: "^shared[1]?[0-9]$"
-> +          - pattern: "^shared[1]?[0-9]$"
-> +          - pattern: "^shared[1]?[0-9]$"
-> +          - pattern: "^shared[1]?[0-9]$"
-> +          - pattern: "^shared[1]?[0-9]$"
-> +          - pattern: "^shared[1]?[0-9]$"
-> +          - pattern: "^shared[1]?[0-9]$"
-> +          - pattern: "^shared[1]?[0-9]$"
-> +          - pattern: "^shared[1]?[0-9]$"
-> +
->        - items:
->            - const: doorbell
->            - pattern: "^shared[0-7]$"
-> -- 
-> 2.49.0
-> 
+Rob
 
