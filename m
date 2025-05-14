@@ -4,96 +4,196 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 206E8C3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 05:41:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCBABC3ABC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 05:44:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:CC:To:Subject:
+	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rRHcD4o64kpkrmiebc0+P3XyihTjZVS84d+OLMuKgu0=; b=yYkV+NBziarZfEa5C4aWgXIX2q
-	5PpSj6MM0bfEtQwmHCoud1TzhHPdUxabjGZBFpUb5VXqDUZlFZlg3b2FJUOTg/d0UXullHs7vbYNp
-	8al3wgGuofAwfAWwJFydM0BdpsTqScfEpcjnkFt68oK/tDsaWruyZYeOOqOaKxicH/UCMfnOsPoGb
-	+W+SohhFd/q2DDPuGaXsh4pCX1AHaPDvcpanRwZ5uW1W60ntMr1BLuu1xNgGw/HIQGfWdg2L2TtJZ
-	4GTIvAdbkzOWjf/SdlO10seOaGzM6RnGv/4VOVdPql3CPAB26S/BqsWDlyc3v7dHe4XrRF+FFZMUj
-	Nv2ckffg==;
+	bh=O65VM6f0IQs1i/o2lRWX8RoNfF/0MFl55bjhwDdBb3M=; b=iGe503xjLsbGECQRFLpMZ+Vkqe
+	xd6aW0UESfs2pCJ562ZXQgliXqYc45dUtj83YrxFLFezefCqcUA6sfr6aIN7CM9axxDMM/3nPkNc+
+	Dsup+xeCVXkVn9mOClecC+KswExaejIjUjsxhduUkyvBALHt1kFsxD5hkFEZp4Vqo2LU09+4rIm1H
+	a9HZCkoQQwwukA6GYjVUITkd34Zhh3dreflN0iHb33nvHOMhFjG6/fQkxu1uY5qecBV2L7vYylSmp
+	sqek1CLTqi+XjNVnv+j/cZPf/eRiSAP1QqAcpa6VJlW6sn8LWw4RgphJ7c321rul0SlSYJmtw7232
+	ZwYllhPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF4re-0000000E5z1-192o;
-	Wed, 14 May 2025 05:41:10 +0000
-Received: from mail-ed1-x544.google.com ([2a00:1450:4864:20::544])
+	id 1uF4uq-0000000E6If-0UF4;
+	Wed, 14 May 2025 05:44:28 +0000
+Received: from mail-vi1eur05on20724.outbound.protection.outlook.com ([2a01:111:f403:2613::724] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF4pb-0000000E5pG-0ugp
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 05:39:04 +0000
-Received: by mail-ed1-x544.google.com with SMTP id 4fb4d7f45d1cf-5f6fb95f431so1002897a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 22:39:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747201141; x=1747805941; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=rRHcD4o64kpkrmiebc0+P3XyihTjZVS84d+OLMuKgu0=;
-        b=eEkzd5EJe2UqLWoW3jgLsABdrwO4cuYZtwXLG8HZrmBHWCVqWJjWa6aek8FTASi6VI
-         U0M/yswePsejwcVoP1fVsmdPeoeHHJtJthsY9G3rGCXBfYUyREIpa6fal6N8ByjqacNe
-         iECaKYrB7MSWRCdgLXJLJChAOKGl/TC825zESz71iJcXJZJr866VvYEh3QDpCU3aj6mZ
-         9+ijWdgdpDPn+qmqglE1Ks/r33YK1sfgxUoPjTZDCwwhnhNUsCvE0gqtCt/E61mzKZva
-         hOjg81quFslWwJ2I5HAWwVqNOW3/zpNSX7HQ/61auzwAI0eKPAgw6auMNh2ldSAV/nEa
-         KlVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747201141; x=1747805941;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rRHcD4o64kpkrmiebc0+P3XyihTjZVS84d+OLMuKgu0=;
-        b=t3JmFCmoYByRoU3WTki/7PCrw6fSNCBZQ2ioU+82Zc5DFnlU/3bHeE5pU9X95Z10Vs
-         3kyU/+DYneOCZvdkbpx2Zt8KRHtrKo+FnNxPVCGqwNsa5/O4bapcNIN73zU22fBKvKgx
-         kPo8Ics+0oJNoquMiweftFhIwq+L60JR7XZIHbi1KGFPzD03FF2vTj6rCx3AkRMFGkhs
-         Flah0L66ioJjtTn0QNFBGPytkcle078w0k+giTSKHK5PWpq9s2FUu6aEJkQdiTBdZUbA
-         Oi2yZe+DSSiKbA9Iy34tFy+aCKNH8FONyi6hEX70ckRqcFm0ZrnQNPGdAR3c2UrlnTyP
-         YS3g==
-X-Forwarded-Encrypted: i=1; AJvYcCWUrPYBXqP+5U+yzVL+m8LZo8LWWB6qBiX0vDku5WBh0JBaNpP4+Kp3YHzQI6oVi8Ew+Ya8pef8wtmhCSbNUbkk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3pDU/aC1LlpRJgz288JNP+BRL5w4jhY4DpDf69h7hWM7bUqcs
-	XjuENOPv2ll1ILTLz3H6IuvM47pT5LOYJgj8eUuALkt2VjvcjAryEd3GSs+clbKtbrMtFiqEVML
-	LT8I7INOYVwzrYjU6U01FpbAa2EY=
-X-Gm-Gg: ASbGncv1E/wJX/daSazGibhYgp2Sw3IsQtCTqU0hCTVfkE2DfWhjTGbdS1TVgQ7pUzv
-	jPfIaLIga0/K9AKyJa3CGe97Z1sWRWx7hwNqIXvBTCYYz17wd6dS0Sj2teCqhugvMcRUCBFHzSK
-	X0rK/E119U4DO71yD7rlp499YDdIaM95A=
-X-Google-Smtp-Source: AGHT+IE1CqX0NBMok/Qu/kKHdiB+296j6U4L2iZuYAqefZDP7cDedLQUlSzfA5SJyR8b9OMIRCnTZEuWb3yEfQO1HXk=
-X-Received: by 2002:a17:907:1c9c:b0:ad1:ff5f:1460 with SMTP id
- a640c23a62f3a-ad4d4cd6334mr650602666b.6.1747201140708; Tue, 13 May 2025
- 22:39:00 -0700 (PDT)
+	id 1uF4sn-0000000E65J-1UAa;
+	Wed, 14 May 2025 05:42:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=b57LHRpjkOKIEbTkXRPDrjH/Q/UhLfIwdVnWhuZVmQXiqlB+jHjJQRUSI+ZILtd2Z36OvroJSE5UTEX7I7opL29moFNNY1+7XYY+sMaW7xHFkEJ9BrBMz6m/iBQgcc8YvrvXfYwrXsxVOxIhuvRrry5W6W3DW4KpReOdAztQS7DSFxltdfbhrb2d5kgBTb06wWPLhCqjFBorL7gyqtcE1VYExdXfqt9ItVkIFfsq/wrN1QHPxFg6/qPX9EYBSAE/oj1bL2hhP9QrNMZaiRlvbOxUohfwuoGEDNHsFZPObS391wMYd1SxKC8PbZTrg+MTJNfnm4SoTUybz2r5Jg86uA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=O65VM6f0IQs1i/o2lRWX8RoNfF/0MFl55bjhwDdBb3M=;
+ b=TGqmj6J2IN7UHpfjYYR3jfM642A+aZhN7uVztHWD+lSRTTR936VIq07XHqF+ErwSVrm7OVl70xtCtJfB7Si45l9+p7dfPke6yCcaMCxghRzzVRXV/WvyORdrAMCAjEy15R3gwi0IjLOGcweWvGF8T9GjgRZO1xdWDBLAFrsLlr41Y66d/j4mgiBoPXliuiKElVVMP+5Q5cZdD0RPnYEVbizOY6CNTAls7Wt6krQxadYW3aO6NFPrVQY8ppPbWg/PAJQXr+C4WVK5qhsFgDqjL0gDH3rrM7aoIfkQioJbB/tDCp5mufwXJVViYjocA91czm9m0PQqy1p+gwSBw1Q0Ug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 13.93.42.39) smtp.rcpttodomain=amd.com smtp.mailfrom=topic.nl; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=topic.nl;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=topic.nl; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=O65VM6f0IQs1i/o2lRWX8RoNfF/0MFl55bjhwDdBb3M=;
+ b=lmQBa074ynCjqcu5xN5JIjXwv08TY1F6TNMDXgQ5V4/0UQZIfJ2SL20IZTicOqpsbuV1Z7x/TfDc3Qc8D0yOchWUFhAU3TKJKJoOexR6W9oMYJIqNoGP6/NWeSqGyhmBULdLZkgwUDdRTcIknatFkrm850uABsS9yYFks3V50bsawxqWDRqZI2KrRP2afTmP6CM3Ai6WGS/iZl1qvgH9dfDsiP6+swbrjN1ZGoGg4a4F4Bxlxi4cFBPgeKdmqDocrYw0w1pXJ5S/Czic1Y1IjnO/xHJuz/Nxph0yobV4Q3Lc+PXsvnhTrWADNBTY2ZvJzDtROtC/RiIo7hJlGooPgA==
+Received: from DB7PR02CA0027.eurprd02.prod.outlook.com (2603:10a6:10:52::40)
+ by AS8PR04MB9112.eurprd04.prod.outlook.com (2603:10a6:20b:44b::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.29; Wed, 14 May
+ 2025 05:42:09 +0000
+Received: from DB3PEPF0000885B.eurprd02.prod.outlook.com
+ (2603:10a6:10:52:cafe::21) by DB7PR02CA0027.outlook.office365.com
+ (2603:10a6:10:52::40) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.21 via Frontend Transport; Wed,
+ 14 May 2025 05:42:08 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 13.93.42.39)
+ smtp.mailfrom=topic.nl; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=topic.nl;
+Received-SPF: Pass (protection.outlook.com: domain of topic.nl designates
+ 13.93.42.39 as permitted sender) receiver=protection.outlook.com;
+ client-ip=13.93.42.39; helo=westeu12-emailsignatures-cloud.codetwo.com; pr=C
+Received: from westeu12-emailsignatures-cloud.codetwo.com (13.93.42.39) by
+ DB3PEPF0000885B.mail.protection.outlook.com (10.167.242.6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8722.18 via Frontend Transport; Wed, 14 May 2025 05:42:08 +0000
+Received: from EUR05-AM6-obe.outbound.protection.outlook.com (104.47.18.109) by westeu12-emailsignatures-cloud.codetwo.com with CodeTwo SMTP Server (TLS12) via SMTP; Wed, 14 May 2025 05:42:07 +0000
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=topic.nl;
+Received: from AS8PR04MB8644.eurprd04.prod.outlook.com (2603:10a6:20b:42b::12)
+ by VI1PR04MB7103.eurprd04.prod.outlook.com (2603:10a6:800:123::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.29; Wed, 14 May
+ 2025 05:42:05 +0000
+Received: from AS8PR04MB8644.eurprd04.prod.outlook.com
+ ([fe80::e86d:f110:534e:480a]) by AS8PR04MB8644.eurprd04.prod.outlook.com
+ ([fe80::e86d:f110:534e:480a%6]) with mapi id 15.20.8722.027; Wed, 14 May 2025
+ 05:42:04 +0000
+Message-ID: <c399c68b-ee60-4d54-b901-a40e744f287c@topic.nl>
+Date: Wed, 14 May 2025 07:42:04 +0200
+User-Agent: Mozilla Thunderbird
+From: Mike Looijmans <mike.looijmans@topic.nl>
+Subject: Re: [PATCH v2] phy-zynqmp: Postpone getting clock rate until actually
+ needed
+To: Michal Simek <michal.simek@amd.com>, linux-phy@lists.infradead.org,
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+ "Katakam, Harini" <harini.katakam@amd.com>
+CC: Kishon Vijay Abraham I <kishon@kernel.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Vinod Koul <vkoul@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.298e943d-5a80-491d-b36f-77b3b9a86df9@emailsignatures365.codetwo.com>
+ <20250428063648.22034-1-mike.looijmans@topic.nl>
+ <c71408b5-2ead-4408-83b3-dad30f153d2d@amd.com>
+Content-Language: nl, en-US
+Organization: TOPIC
+In-Reply-To: <c71408b5-2ead-4408-83b3-dad30f153d2d@amd.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-ClientProxiedBy: AM0PR01CA0171.eurprd01.prod.exchangelabs.com
+ (2603:10a6:208:aa::40) To AS8PR04MB8644.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42b::12)
 MIME-Version: 1.0
-References: <20250501073603.1402960-1-luis.gerhorst@fau.de> <20250501073603.1402960-9-luis.gerhorst@fau.de>
-In-Reply-To: <20250501073603.1402960-9-luis.gerhorst@fau.de>
-From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Date: Wed, 14 May 2025 01:38:24 -0400
-X-Gm-Features: AX0GCFsZdtgAVwNSl7_yfp7bxkIRg361n-aA3yvBc34WlsCAzIMW4XH9M0yyf_U
-Message-ID: <CAP01T75y4GuYp-X9x1eGA2s1+eGnVNFoCrf_o5f22Qs-MNAo6A@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v3 08/11] bpf: Fall back to nospec for Spectre v1
-To: Luis Gerhorst <luis.gerhorst@fau.de>
-Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
-	Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Hari Bathini <hbathini@linux.ibm.com>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
-	Henriette Herzog <henriette.herzog@rub.de>, Saket Kumar Bhaskar <skb99@linux.ibm.com>, 
-	Cupertino Miranda <cupertino.miranda@oracle.com>, Jiayuan Chen <mrpre@163.com>, 
-	Matan Shachnai <m.shachnai@gmail.com>, Dimitar Kanaliev <dimitar.kanaliev@siteground.com>, 
-	Shung-Hsi Yu <shung-hsi.yu@suse.com>, Daniel Xu <dxu@dxuuu.xyz>, bpf@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-kselftest@vger.kernel.org, 
-	Maximilian Ott <ott@cs.fau.de>, Milan Stephan <milan.stephan@fau.de>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8644:EE_|VI1PR04MB7103:EE_|DB3PEPF0000885B:EE_|AS8PR04MB9112:EE_
+X-MS-Office365-Filtering-Correlation-Id: bfe200e6-0ed7-4eec-b8b5-08dd92aa1136
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?eVY4WW5pM2piNTRyWTFqaHgvK05CYmZ2bmNJelRna0MwaE04dnFPU2V4cDlI?=
+ =?utf-8?B?bmVrdGJadUlvUnBXckl2MmtySTJmbWQ2cXU1MDYwckRKaVk5U0dhdTBzelgz?=
+ =?utf-8?B?WXN5SncvV0xEWXRKSy9KYWROZCtqbWl3UTFmaHhuRzVNVUZIQms5Y2J1V0p0?=
+ =?utf-8?B?VnVzVis3NFpSdnJnQ2UzT3NNaXNHbU1aSURRenZOUmtJeXJwMGE0c0doQ0xF?=
+ =?utf-8?B?MlJTZUl2cE90ZVpUdk1XdTR1WnM0TXQyK2h0UXBiU0xmTmp6MDgrbXBpMXBQ?=
+ =?utf-8?B?VmNCK0pNU21odGJJVWZOUEE3WEdhK0dDNlpTVHhGNktQOVBZZlZtRDFyRko1?=
+ =?utf-8?B?NlZvcTl6bWlQd0ZxSnBwNklRczZkRGtwbTFMbXF1eUpqNmJKc1RDYTVXNGc0?=
+ =?utf-8?B?Ump4M0RGc1JjVGRrQ09ia1BNdEZsYVd0NjdYajkrN0w4dGRyT3ZkUEhuaXR4?=
+ =?utf-8?B?cWhFVEVZaWhFak53eEpjZlBHUytpQkpwVWFPakVTSE5uYTBnMVE2UjJsNnpS?=
+ =?utf-8?B?RXdiUjdDTS9TN1cwdHM4SEhuOTVxRE5mNHFFRlhXTlp6TkViM2pJY0FLZVNT?=
+ =?utf-8?B?NGNBV1lVYitzeHJzYzdQTTFmaGVxd29XQ2FBQi8rcE5xemlYQm9Ibm1nR25r?=
+ =?utf-8?B?bUQrYlBGbC9IUkdnc1BmNGdkZzV6ang3eXUreTNNckF5L1dQdFZkcXRyQ0tQ?=
+ =?utf-8?B?MmxDRnhWVElNaVlobnBoc0I3ZDN5NXMrbS8wY01VOTZhWDdPWXRXQm9JVDBZ?=
+ =?utf-8?B?M3pVK2gySzVjM25sTGRac0poZm12UW5YWWNMc05WZ3dhSFpaNHFNSDYwQVph?=
+ =?utf-8?B?M0R3RUVsMDE0cVJETDBYeVNKSjZpZDlZWit5aHg2cU90YjZQd0NKSUs0Sm56?=
+ =?utf-8?B?Nmh5M0JtcnJYV3hDdXdRM1dEc3pRY0hZeHRLdlNIVWRsM1E4VDlhWDZvbGcw?=
+ =?utf-8?B?VFZFMmZLMytBUWNRNjBZZXlyY05OVXNNRkdBRnU4N0JRcE9TVFRjT051Ylk5?=
+ =?utf-8?B?M08yMHBVNDhnVnpnZVlhZForcW5HVHA3WUwrS3JOK1lCMWE1N0dLMHphakt5?=
+ =?utf-8?B?eEFUNXZqNGVQU0lrenhzL25LV2RLVklwL2hCVnZSbXJoQm1MOXlTYlNQdUIy?=
+ =?utf-8?B?Ymk2WndlT0dpalJkSk1aNERtYVYwd2EyNzFZeHlyZTRWZjBwQURNNUNJd1p5?=
+ =?utf-8?B?azRlSUd0TEJHeDdRT2wxYmpXdDVRdGhPLytmaXJCTGRiQXByYk43aGpFN2Z3?=
+ =?utf-8?B?emErYUhGMmlEMUNpT3pneUw4ZnZFczZTYjI0d2JxWjRQWHhZelMrWDJnaHN5?=
+ =?utf-8?B?b1BrUmhDeVAvU0FNcE5Jb1B5Vldvcm9BT004czhqVnJIN0UvWVowRmVlQkJJ?=
+ =?utf-8?B?MFRjdlN2VFVyK2I4SFpIcDhZMlQ5VXg4aXgxdjd2bjdGcFZnN2pITmFwVC9z?=
+ =?utf-8?B?TEZsRk5QK1F0R216MSsrV1IzQzlYNGpDWkpwb25zdit3a0dUdTBFeFhHcEUx?=
+ =?utf-8?B?Y2Y0QStsdWw2M1VjbkNvRlVSZW1aR1h4Z3E1NGsvMi9kMGxCQzZwWW1uVUZC?=
+ =?utf-8?B?QllkclFpRGRoNHYxSFI2TmhXWHl4TnRBcHN6ME5YRGNKTUhYWk1IZDE0aGF3?=
+ =?utf-8?B?MUVIK0RmMk53bWdqWmludlJPTXlUZ3VlS1JCNjhKSGNSQUNnVU1WRXhlb3RE?=
+ =?utf-8?B?Qzh0SWVxRG45OWhUdEd6dHFDeGxHaXgzdkkzQzhqcmhKbmcvcXUvOVFUU0U4?=
+ =?utf-8?B?YjNlanhPSThaVDRSY1crYUJBZmp1aXVQbVpLNWthRnByeTcwYk5sVStVa1FK?=
+ =?utf-8?B?QXdkMnFZa3IyK01mTENaZGZ6TmllUnB5SS9ERFAxM2VTZG9Obms4cGFIdVhW?=
+ =?utf-8?B?bkFKZDl2anZxdU1xQ2p2SDN0elFLZ1dQaExrVjhPaXMxcUVLSU1LaEk0RjV4?=
+ =?utf-8?Q?FzYIRa1r/hU=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1102;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7103
+X-CodeTwo-MessageID: be8c07b2-7d09-4270-b1c9-4981b8bf0a58.20250514054207@westeu12-emailsignatures-cloud.codetwo.com
+X-CodeTwoProcessed: true
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB3PEPF0000885B.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 74ef8924-7ce3-4504-ca62-08dd92aa0eba
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|35042699022|1800799024|14060799003|82310400026|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZHpVWUc4dGJmZEN2K3RKbTlYWlhLSTNHZHRZcDZvL0taTlJnTHd6MUlYZ1cy?=
+ =?utf-8?B?ZXg1bVN3VDhGOXlsNVdiUmJFMnM5YWZnRjVHRGowU3p0ckpKdkhDRnlBMDFl?=
+ =?utf-8?B?MWVZTlpyd0JlbXoySFFKQXdlVzBzOFVzVVdjRUZ4d2JGc3BjdTNwRGc4NmdM?=
+ =?utf-8?B?cUx4K0JxNUZCQUh6Q1F6WEZkQmdheG9yak1uQkdFcTErbzhsTk1OUDVXTVg0?=
+ =?utf-8?B?R3JyKytybWlmMlBXM2ZoQ3YwVFBUc1VvSFEzNGpZZzhBZTR4eWVmS1JPSjFx?=
+ =?utf-8?B?VThRaE9XTzJVakhPMXJWQTBSY1RPQVc0dTZHZEFjajNjam5Ud3ZJeTkxUHo5?=
+ =?utf-8?B?elo4cG0zb2F0U3ZCS3YrR2hUTDFvdzV3aXRpT0kzZWNSMlQ0UjViRVRHZUNW?=
+ =?utf-8?B?a1J3TTBMTnp6L0FCaTJzdWJSZm9semlONDZYalZkdU8wZ3VEM0krL1MzUkxl?=
+ =?utf-8?B?UitCdmRCVzdUZ05vUGZDYVc1UzlzMy9JNGRocGh4Yk51TC9ZeHpBV3JET1FI?=
+ =?utf-8?B?WU4zRVFJY0tSOUFTbUY1TjNFbXcwcnhyV2hrOERxU1Uvd2YrZ29tdnFqR2Qx?=
+ =?utf-8?B?ODVsVFhJSURzejlka01YVUNyUWE0cVhIVm1kK2RwdFFkblVOREpxWWtYV01u?=
+ =?utf-8?B?TGFQTDJFb2tqRWxvb1dla05qYU1ZWDFGZm9HL2hVZGtmUjI3QW1Ja2NZMWxC?=
+ =?utf-8?B?bzAyNUZsQnBLTys4OWllUzB3Z1Q4QVZYSitkWEpIWnBTR1Y3alQ4czdSQlo2?=
+ =?utf-8?B?cGZkQjJaVFFmcDNOUXQ0a3dxZXk3a1poakE4bThjT0xhZG1rWVNsb0FXUkdw?=
+ =?utf-8?B?V0dWZ2R0aEdSeVhFcGFqbE5MSWgvcEVWM2crbzhSTERIWitDZ3JhWGViMlRw?=
+ =?utf-8?B?TFpiclBjcjN4TXQyU2FJWXc0RE5xYU5Bc1FXbjBRWXRMOTVGZFhFTEFxTDN5?=
+ =?utf-8?B?YmZOcW1CWWhMV2JnNkR6Skh4Z1ZSVjZFTTA1ZTFFZXJUSEFrT2pWQU16a2cx?=
+ =?utf-8?B?NUIvVmhRUkNpOEx4aTZJMWVxSWJ6R0tXQVhQcWJWeUQwMVZJUFVUYVR0UzdV?=
+ =?utf-8?B?K05TSE1KWHJQY0xEN0VtQ0I4WlBZTVdMeVIwSGVuNWJXbVBHNUhDaGN3Zk9y?=
+ =?utf-8?B?YzdpTmdtdnRESWNwNnlQYlMzbmt0Mlk1NnlyOUxPTVR6OURTQm02UUVZeFZT?=
+ =?utf-8?B?TWdHUzJZb01QOWtBdUtKUHFIRjE0NnM0MUhISHp4TkpEanJjTEkzRWVlbDYy?=
+ =?utf-8?B?K3FVTXAzN1ZDYUoxSHVkVnhJdi9xcjJPcUNkeSsyUFhmTW1ZaXB6cWhHd3JJ?=
+ =?utf-8?B?S0RncC9hOFhpYUI4VGZQQlpORVU0cFhCbVlLcVFKc2xqUDk2djBFL1djYzJv?=
+ =?utf-8?B?ZW5ZdlJnRFhnbDhIY3V5cDl3cFdBUHBCeWlvMG1wYTNwMCtxVCtTRTQ3amhJ?=
+ =?utf-8?B?dXpha1FPZEpjajE1TGZjd0VDUE9JWkR3eHNxSkViblJmVU5GYWVLdktJK2lG?=
+ =?utf-8?B?U2NmREZGb2RCZWk2MVJDdTNsUzc2Uyt1eE1wckd2TzlqTFh2dFp3bWdFbXNZ?=
+ =?utf-8?B?VkhTNDBFQ2xFZkxEOTR6eWpPcXRFdmVFT3JvdkpBbitXVnd4Y1dvOHRTYWdG?=
+ =?utf-8?B?TzhMTWh3RlB3cWZUam51ZVl0blhaZGM4VitDQW1TTkZMbmI2TWV4RnpLN2V6?=
+ =?utf-8?B?SDhyek1ycmtKZGlTTTRjdStOc0p6NnhSRjV2aHU3UG5kZ2hQQjdxakg4MnJZ?=
+ =?utf-8?B?bzhObWpxT1dEUXdxRDFuWE8yR1NZZzc1UjVYR2MwdkJhNWdIODUyVkIzRHZH?=
+ =?utf-8?B?VkY2dzFDc1JxQk51VmhJNFoxYktNMGRKSUp2YmxOZXpXQ2Qxajh0R1laSy9M?=
+ =?utf-8?B?N0RLREVoRHBpSDJCYVFBOFlJNkZHNTh0cU1hN1VmZUJXbGtFeTkvUWlsU0VJ?=
+ =?utf-8?B?U1Z5eU1sYVllNmhsZVhMQjVRUjIxTU92MjN4UGswa25zK05zeURTdE5xYUgr?=
+ =?utf-8?B?bm4vQWZSOVM0R1N2NEtaeEt2RjlsK04wTzhTdktEbUpxYThBZXNxbWRCNTBa?=
+ =?utf-8?Q?gtyDmq?=
+X-Forefront-Antispam-Report: CIP:13.93.42.39;CTRY:NL;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:westeu12-emailsignatures-cloud.codetwo.com;PTR:westeu12-emailsignatures-cloud.codetwo.com;CAT:NONE;SFS:(13230040)(36860700013)(35042699022)(1800799024)(14060799003)(82310400026)(376014);DIR:OUT;SFP:1102;
+X-OriginatorOrg: topic.nl
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 May 2025 05:42:08.5765
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bfe200e6-0ed7-4eec-b8b5-08dd92aa1136
+X-MS-Exchange-CrossTenant-Id: 449607a5-3517-482d-8d16-41dd868cbda3
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=449607a5-3517-482d-8d16-41dd868cbda3;Ip=[13.93.42.39];Helo=[westeu12-emailsignatures-cloud.codetwo.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885B.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9112
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_223903_265064_1108A224 
-X-CRM114-Status: GOOD (  58.44  )
+X-CRM114-CacheID: sfid-20250513_224221_854874_56DB9B81 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,347 +208,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 1 May 2025 at 04:00, Luis Gerhorst <luis.gerhorst@fau.de> wrote:
+On 29-04-2025 10:36, Michal Simek wrote:
+> + Radhey, Harini
 >
-> This implements the core of the series and causes the verifier to fall
-> back to mitigating Spectre v1 using speculation barriers. The approach
-> was presented at LPC'24 [1] and RAID'24 [2].
+> On 4/28/25 08:35, Mike Looijmans wrote:
+>> At probe time the driver would display the following error and abort:
+>> =C2=A0=C2=A0 xilinx-psgtr fd400000.phy: Invalid rate 0 for reference clo=
+ck 0
+>>
+>> At probe time, the associated GTR driver (e.g. SATA or PCIe) hasn't
+>> initialized the clock yet, so clk_get_rate() likely returns 0 if the clo=
+ck
+>> is programmable. So this driver only works if the clock is fixed.
+>>
+>> The PHY driver doesn't need to know the clock frequency at probe yet, so
+>> wait until the associated driver initializes the lane before requesting =
+the
+>> clock rate setting.
+>>
+>> In addition to allowing the driver to be used with programmable clocks,
+>> this also reduces the driver's runtime memory footprint by removing an
+>> array of pointers from struct xpsgtr_phy.
+>>
+>> Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
+>> ---
+>>
+>> Changes in v2:
+>> Explain the issue and the fix better in the commit text
+>> Propagate errors (as reported by Laurent Pinchart)
+>>
+>> =C2=A0 drivers/phy/xilinx/phy-zynqmp.c | 70 +++++++++++++++++-----------=
+-----
+>> =C2=A0 1 file changed, 37 insertions(+), 33 deletions(-)
+>>
+>> diff --git a/drivers/phy/xilinx/phy-zynqmp.c b/drivers/phy/xilinx/phy-zy=
+nqmp.c
+>> index 05a4a59f7c40..fe6b4925d166 100644
+>> --- a/drivers/phy/xilinx/phy-zynqmp.c
+>> +++ b/drivers/phy/xilinx/phy-zynqmp.c
+>> @@ -222,7 +222,6 @@ struct xpsgtr_phy {
+>> =C2=A0=C2=A0 * @siou: siou base address
+>> =C2=A0=C2=A0 * @gtr_mutex: mutex for locking
+>> =C2=A0=C2=A0 * @phys: PHY lanes
+>> - * @refclk_sscs: spread spectrum settings for the reference clocks
+>> =C2=A0=C2=A0 * @clk: reference clocks
+>> =C2=A0=C2=A0 * @tx_term_fix: fix for GT issue
+>> =C2=A0=C2=A0 * @saved_icm_cfg0: stored value of ICM CFG0 register
+>> @@ -235,7 +234,6 @@ struct xpsgtr_dev {
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 void __iomem *siou;
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct mutex gtr_mutex; /* mutex for lock=
+ing */
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct xpsgtr_phy phys[NUM_LANES];
+>> -=C2=A0=C2=A0=C2=A0 const struct xpsgtr_ssc *refclk_sscs[NUM_LANES];
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct clk *clk[NUM_LANES];
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 bool tx_term_fix;
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unsigned int saved_icm_cfg0;
+>> @@ -398,13 +396,40 @@ static int xpsgtr_wait_pll_lock(struct phy *phy)
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return ret;
+>> =C2=A0 }
+>> =C2=A0 +/* Get the spread spectrum (SSC) settings for the reference cloc=
+k rate */
+>> +static const struct xpsgtr_ssc *xpsgtr_find_sscs(struct xpsgtr_phy *gtr=
+_phy)
+>> +{
+>> +=C2=A0=C2=A0=C2=A0 unsigned long rate;
+>> +=C2=A0=C2=A0=C2=A0 struct clk *clk;
+>> +=C2=A0=C2=A0=C2=A0 unsigned int i;
+>> +
+>> +=C2=A0=C2=A0=C2=A0 clk =3D gtr_phy->dev->clk[gtr_phy->refclk];
+>> +=C2=A0=C2=A0=C2=A0 rate =3D clk_get_rate(clk);
+>> +
+>> +=C2=A0=C2=A0=C2=A0 for (i =3D 0 ; i < ARRAY_SIZE(ssc_lookup); i++) {
+>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 /* Allow an error of 100 ppm=
+ */
+>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unsigned long error =3D ssc_=
+lookup[i].refclk_rate / 10000;
+>> +
+>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (abs(rate - ssc_lookup[i]=
+.refclk_rate) < error)
+>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 retu=
+rn &ssc_lookup[i];
+>> +=C2=A0=C2=A0=C2=A0 }
+>> +
+>> +=C2=A0=C2=A0=C2=A0 dev_err(gtr_phy->dev->dev, "Invalid rate %lu for ref=
+erence clock %u\n",
+>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 rate, gtr_phy->refclk);
+>> +
+>> +=C2=A0=C2=A0=C2=A0 return NULL;
+>> +}
+>> +
+>> =C2=A0 /* Configure PLL and spread-sprectrum clock. */
+>> -static void xpsgtr_configure_pll(struct xpsgtr_phy *gtr_phy)
+>> +static int xpsgtr_configure_pll(struct xpsgtr_phy *gtr_phy)
+>> =C2=A0 {
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 const struct xpsgtr_ssc *ssc;
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u32 step_size;
+>> =C2=A0 -=C2=A0=C2=A0=C2=A0 ssc =3D gtr_phy->dev->refclk_sscs[gtr_phy->re=
+fclk];
+>> +=C2=A0=C2=A0=C2=A0 ssc =3D xpsgtr_find_sscs(gtr_phy);
+>> +=C2=A0=C2=A0=C2=A0 if (!ssc)
+>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return -EINVAL;
+>> +
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 step_size =3D ssc->step_size;
+>> =C2=A0 =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 xpsgtr_clr_set(gtr_phy->dev, PLL_R=
+EF_SEL(gtr_phy->lane),
+>> @@ -446,6 +471,8 @@ static void xpsgtr_configure_pll(struct xpsgtr_phy=20
+>> *gtr_phy)
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 xpsgtr_clr_set_phy(gtr_phy, L0_PLL_SS_STE=
+P_SIZE_3_MSB,
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0 STEP_SIZE_3_MASK, (step_size & STEP_SIZE_3_MASK) |
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0 FORCE_STEP_SIZE | FORCE_STEPS);
+>> +
+>> +=C2=A0=C2=A0=C2=A0 return 0;
+>> =C2=A0 }
+>> =C2=A0 =C2=A0 /* Configure the lane protocol. */
+>> @@ -658,7 +685,10 @@ static int xpsgtr_phy_init(struct phy *phy)
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 * Configure the PLL, the lane proto=
+col, and perform protocol-specific
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 * initialization.
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 */
+>> -=C2=A0=C2=A0=C2=A0 xpsgtr_configure_pll(gtr_phy);
+>> +=C2=A0=C2=A0=C2=A0 ret =3D xpsgtr_configure_pll(gtr_phy);
+>> +=C2=A0=C2=A0=C2=A0 if (ret)
+>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 goto out;
+>> +
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 xpsgtr_lane_set_protocol(gtr_phy);
+>> =C2=A0 =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 switch (gtr_phy->protocol) {
+>> @@ -823,8 +853,7 @@ static struct phy *xpsgtr_xlate(struct device *dev,
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
+>> =C2=A0 =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 refclk =3D args->args[3];
+>> -=C2=A0=C2=A0=C2=A0 if (refclk >=3D ARRAY_SIZE(gtr_dev->refclk_sscs) ||
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 !gtr_dev->refclk_sscs[refclk=
+]) {
+>> +=C2=A0=C2=A0=C2=A0 if (refclk >=3D ARRAY_SIZE(gtr_dev->clk)) {
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_err(dev, "Inv=
+alid reference clock number %u\n", refclk);
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return ERR_PTR(-E=
+INVAL);
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
+>> @@ -928,9 +957,7 @@ static int xpsgtr_get_ref_clocks(struct xpsgtr_dev=20
+>> *gtr_dev)
+>> =C2=A0 {
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unsigned int refclk;
+>> =C2=A0 -=C2=A0=C2=A0=C2=A0 for (refclk =3D 0; refclk < ARRAY_SIZE(gtr_de=
+v->refclk_sscs); ++refclk) {
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unsigned long rate;
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unsigned int i;
+>> +=C2=A0=C2=A0=C2=A0 for (refclk =3D 0; refclk < ARRAY_SIZE(gtr_dev->clk)=
+; ++refclk) {
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct clk *clk;
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 char name[8];
+>> =C2=A0 @@ -946,29 +973,6 @@ static int xpsgtr_get_ref_clocks(struct xpsg=
+tr_dev=20
+>> *gtr_dev)
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 continue;
+>> =C2=A0 =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 gtr_dev->c=
+lk[refclk] =3D clk;
+>> -
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 /*
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 * Get the spread spect=
+rum (SSC) settings for the reference
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 * clock rate.
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 */
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 rate =3D clk_get_rate(clk);
+>> -
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 for (i =3D 0 ; i < ARRAY_SIZ=
+E(ssc_lookup); i++) {
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 /* A=
+llow an error of 100 ppm */
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unsi=
+gned long error =3D ssc_lookup[i].refclk_rate / 10000;
+>> -
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (=
+abs(rate - ssc_lookup[i].refclk_rate) < error) {
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0 gtr_dev->refclk_sscs[refclk] =3D &ssc_lookup[i];
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0 break;
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
+>> -
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (i =3D=3D ARRAY_SIZE(ssc_=
+lookup)) {
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_=
+err(gtr_dev->dev,
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0 "Invalid rate %lu for reference clock %u\n",
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0 rate, refclk);
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 retu=
+rn -EINVAL;
+>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
+>> =C2=A0 =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return 0;
 >
-> If we find any forbidden behavior on a speculative path, we insert a
-> nospec (e.g., lfence speculation barrier on x86) before the instruction
-> and stop verifying the path. While verifying a speculative path, we can
-> furthermore stop verification of that path whenever we encounter a
-> nospec instruction.
+> Sorry for delay.
+> Radhey/Harini: Please test this but I have read that code and changes loo=
+ks=20
+> good to me.
 >
-> A minimal example program would look as follows:
+> Acked-by: Michal Simek <michal.simek@amd.com>
 >
->         A = true
->         B = true
->         if A goto e
->         f()
->         if B goto e
->         unsafe()
-> e:      exit
+> Thanks,
+> Michal
 >
-> There are the following speculative and non-speculative paths
-> (`cur->speculative` and `speculative` referring to the value of the
-> push_stack() parameters):
->
-> - A = true
-> - B = true
-> - if A goto e
->   - A && !cur->speculative && !speculative
->     - exit
->   - !A && !cur->speculative && speculative
->     - f()
->     - if B goto e
->       - B && cur->speculative && !speculative
->         - exit
->       - !B && cur->speculative && speculative
->         - unsafe()
->
-> If f() contains any unsafe behavior under Spectre v1 and the unsafe
-> behavior matches `state->speculative &&
-> error_recoverable_with_nospec(err)`, do_check() will now add a nospec
-> before f() instead of rejecting the program:
->
->         A = true
->         B = true
->         if A goto e
->         nospec
->         f()
->         if B goto e
->         unsafe()
-> e:      exit
->
-> Alternatively, the algorithm also takes advantage of nospec instructions
-> inserted for other reasons (e.g., Spectre v4). Taking the program above
-> as an example, speculative path exploration can stop before f() if a
-> nospec was inserted there because of Spectre v4 sanitization.
->
-> In this example, all instructions after the nospec are dead code (and
-> with the nospec they are also dead code speculatively).
->
-> On x86_64, this depends on the following property of lfence [3]:
->
->         An LFENCE instruction or a serializing instruction will ensure that no
->         later instructions execute, even speculatively, until all prior
->         instructions complete locally. [...] Inserting an LFENCE instruction
->         after a bounds check prevents later operations from executing before
->         the bound check completes.
->
-> Regarding the example, this implies that `if B goto e` will not execute
-> before `if A goto e` completes. Once `if A goto e` completes, the CPU
-> should find that the speculation was wrong and continue with `exit`.
->
-> If there is any other path that leads to `if B goto e` (and therefore
-> `unsafe()`) without going through `if A goto e`, then a nospec will
-> still be needed there. However, this patch assumes this other path will
-> be explored separately and therefore be discovered by the verifier even
-> if the exploration discussed here stops at the nospec.
->
-> This patch furthermore has the unfortunate consequence that Spectre v1
-> mitigations now only support architectures which implement BPF_NOSPEC.
-> Before this commit, Spectre v1 mitigations prevented exploits by
-> rejecting the programs on all architectures. Because some JITs do not
-> implement BPF_NOSPEC, this patch therefore may regress unpriv BPF's
-> security to a limited extent:
->
-> * The regression is limited to systems vulnerable to Spectre v1, have
->   unprivileged BPF enabled, and do NOT emit insns for BPF_NOSPEC. The
->   latter is not the case for x86 64- and 32-bit, arm64, and powerpc
->   64-bit and they are therefore not affected by the regression.
->   According to commit a6f6a95f2580 ("LoongArch, bpf: Fix jit to skip
->   speculation barrier opcode"), LoongArch is not vulnerable to Spectre
->   v1 and therefore also not affected by the regression.
->
-> * To the best of my knowledge this regression may therefore only affect
->   MIPS. This is deemed acceptable because unpriv BPF is still disabled
->   there by default. As stated in a previous commit, BPF_NOSPEC could be
->   implemented for MIPS based on GCC's speculation_barrier
->   implementation.
->
-> * It is unclear which other architectures (besides x86 64- and 32-bit,
->   ARM64, PowerPC 64-bit, LoongArch, and MIPS) supported by the kernel
->   are vulnerable to Spectre v1. Also, it is not clear if barriers are
->   available on these architectures. Implementing BPF_NOSPEC on these
->   architectures therefore is non-trivial. Searching GCC and the kernel
->   for speculation barrier implementations for these architectures
->   yielded no result.
->
-> * If any of those regressed systems is also vulnerable to Spectre v4,
->   the system was already vulnerable to Spectre v4 attacks based on
->   unpriv BPF before this patch and the impact is therefore further
->   limited.
->
-> As an alternative to regressing security, one could still reject
-> programs if the architecture does not emit BPF_NOSPEC (e.g., by removing
-> the empty BPF_NOSPEC-case from all JITs except for LoongArch where it
-> appears justified). However, this will cause rejections on these archs
-> that are likely unfounded in the vast majority of cases.
->
-> In the tests, some are now successful where we previously had a
-> false-positive (i.e., rejection). Change them to reflect where the
-> nospec should be inserted (using __xlated_unpriv) and modify the error
-> message if the nospec is able to mitigate a problem that previously
-> shadowed another problem (in that case __xlated_unpriv does not work,
-> therefore just add a comment).
->
-> Define SPEC_V1 to avoid duplicating this ifdef whenever we check for
-> nospec insns using __xlated_unpriv, define it here once. This also
-> improves readability. PowerPC can probably also be added here. However,
-> omit it for now because the BPF CI currently does not include a test.
->
-> Briefly went through all the occurrences of EPERM, EINVAL, and EACCESS
-> in the verifier in order to validate that catching them like this makes
-> sense.
->
-> [1] https://lpc.events/event/18/contributions/1954/ ("Mitigating
->     Spectre-PHT using Speculation Barriers in Linux eBPF")
-> [2] https://arxiv.org/pdf/2405.00078 ("VeriFence: Lightweight and
->     Precise Spectre Defenses for Untrusted Linux Kernel Extensions")
-> [3] https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/technical-documentation/runtime-speculative-side-channel-mitigations.html
->     ("Managed Runtime Speculative Execution Side Channel Mitigations")
->
-> Signed-off-by: Luis Gerhorst <luis.gerhorst@fau.de>
-> Acked-by: Henriette Herzog <henriette.herzog@rub.de>
-> Cc: Maximilian Ott <ott@cs.fau.de>
-> Cc: Milan Stephan <milan.stephan@fau.de>
-> ---
+Any further comments? Anything I need to do?
 
-Some comments below, but:
+M.
 
-Acked-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 
->  include/linux/bpf_verifier.h                  |  1 +
->  kernel/bpf/verifier.c                         | 78 ++++++++++++++++++-
->  tools/testing/selftests/bpf/progs/bpf_misc.h  |  4 +
->  .../selftests/bpf/progs/verifier_and.c        |  8 +-
->  .../selftests/bpf/progs/verifier_bounds.c     | 61 ++++++++++++---
->  .../selftests/bpf/progs/verifier_movsx.c      | 16 +++-
->  .../selftests/bpf/progs/verifier_unpriv.c     |  8 +-
->  .../bpf/progs/verifier_value_ptr_arith.c      | 16 +++-
->  .../selftests/bpf/verifier/dead_code.c        |  3 +-
->  tools/testing/selftests/bpf/verifier/jmp32.c  | 33 +++-----
->  tools/testing/selftests/bpf/verifier/jset.c   | 10 +--
->  11 files changed, 184 insertions(+), 54 deletions(-)
->
-> diff --git a/include/linux/bpf_verifier.h b/include/linux/bpf_verifier.h
-> index cebb67becdad..f1573e093120 100644
-> --- a/include/linux/bpf_verifier.h
-> +++ b/include/linux/bpf_verifier.h
-> @@ -576,6 +576,7 @@ struct bpf_insn_aux_data {
->         u64 map_key_state; /* constant (32 bit) key tracking for maps */
->         int ctx_field_size; /* the ctx field size for load insn, maybe 0 */
->         u32 seen; /* this insn was processed by the verifier at env->pass_cnt */
-> +       bool nospec; /* do not execute this instruction speculatively */
->         bool nospec_result; /* result is unsafe under speculation, nospec must follow */
->         bool zext_dst; /* this insn zero extends dst reg */
->         bool needs_zext; /* alu op needs to clear upper bits */
-> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-> index 1e1eca85b7a6..db26b477dd45 100644
-> --- a/kernel/bpf/verifier.c
-> +++ b/kernel/bpf/verifier.c
-> @@ -2014,6 +2014,18 @@ static int pop_stack(struct bpf_verifier_env *env, int *prev_insn_idx,
->         return 0;
->  }
->
-> +static bool error_recoverable_with_nospec(int err)
-> +{
-> +       /* Should only return true for non-fatal errors that are allowed to
-> +        * occur during speculative verification. For these we can insert a
-> +        * nospec and the program might still be accepted. Do not include
-> +        * something like ENOMEM because it is likely to re-occur for the next
-> +        * architectural path once it has been recovered-from in all speculative
-> +        * paths.
-> +        */
-> +       return err == -EPERM || err == -EACCES || err == -EINVAL;
-> +}
 
-Why can't we unconditionally do this? So the path with speculation
-that encounters an error (even if EFAULT) is not explored for the
-remaining pushed speculative states. If the error remains regardless
-of speculation normal symbolic execution will encounter it. The
-instructions only explored as part of speculative execution are not
-marked as seen (see: sanitize_mark_insn_seen), so they'll be dead code
-eliminated and the code doesn't reach the JIT, so no "unsafe gadget"
-remains in the program where execution can be steered.
 
-So the simplest thing (without having to reason about these three
-error codes, I'm sure things will get out of sync or we'll miss
-potential candidates) is probably to just unconditionally mark
-cur_aux(env)->nospec.
-
-> +
->  static struct bpf_verifier_state *push_stack(struct bpf_verifier_env *env,
->                                              int insn_idx, int prev_insn_idx,
->                                              bool speculative)
-> @@ -11160,7 +11172,7 @@ static int check_get_func_ip(struct bpf_verifier_env *env)
->         return -ENOTSUPP;
->  }
->
-> -static struct bpf_insn_aux_data *cur_aux(struct bpf_verifier_env *env)
-> +static struct bpf_insn_aux_data *cur_aux(const struct bpf_verifier_env *env)
->  {
->         return &env->insn_aux_data[env->insn_idx];
->  }
-> @@ -13997,7 +14009,9 @@ static int retrieve_ptr_limit(const struct bpf_reg_state *ptr_reg,
->  static bool can_skip_alu_sanitation(const struct bpf_verifier_env *env,
->                                     const struct bpf_insn *insn)
->  {
-> -       return env->bypass_spec_v1 || BPF_SRC(insn->code) == BPF_K;
-> +       return env->bypass_spec_v1 ||
-> +               BPF_SRC(insn->code) == BPF_K ||
-> +               cur_aux(env)->nospec;
->  }
->
->  static int update_alu_sanitation_state(struct bpf_insn_aux_data *aux,
-> @@ -19687,10 +19701,41 @@ static int do_check(struct bpf_verifier_env *env)
->                 sanitize_mark_insn_seen(env);
->                 prev_insn_idx = env->insn_idx;
->
-> +               /* Reduce verification complexity by stopping speculative path
-> +                * verification when a nospec is encountered.
-> +                */
-> +               if (state->speculative && cur_aux(env)->nospec)
-> +                       goto process_bpf_exit;
-> +
->                 err = do_check_insn(env, insn, &do_print_state);
-> -               if (err < 0) {
-> +               if (state->speculative && error_recoverable_with_nospec(err)) {
-> +                       /* Prevent this speculative path from ever reaching the
-> +                        * insn that would have been unsafe to execute.
-> +                        */
-> +                       cur_aux(env)->nospec = true;
-> +                       /* If it was an ADD/SUB insn, potentially remove any
-> +                        * markings for alu sanitization.
-> +                        */
-> +                       cur_aux(env)->alu_state = 0;
-> +                       goto process_bpf_exit;
-> +               } else if (err < 0) {
->                         return err;
->                 } else if (err == PROCESS_BPF_EXIT) {
-> +                       goto process_bpf_exit;
-> +               }
-> +               WARN_ON_ONCE(err);
-> +
-> +               if (state->speculative && cur_aux(env)->nospec_result) {
-> +                       /* If we are on a path that performed a jump-op, this
-> +                        * may skip a nospec patched-in after the jump. This can
-> +                        * currently never happen because nospec_result is only
-> +                        * used for the write-ops
-> +                        * `*(size*)(dst_reg+off)=src_reg|imm32` which must
-> +                        * never skip the following insn. Still, add a warning
-> +                        * to document this in case nospec_result is used
-> +                        * elsewhere in the future.
-> +                        */
-> +                       WARN_ON_ONCE(env->insn_idx != prev_insn_idx + 1);
-
-Nice!
-
->  process_bpf_exit:
->                         mark_verifier_state_scratched(env);
->                         update_branch_counts(env, env->cur_state);
-> @@ -19709,7 +19754,6 @@ static int do_check(struct bpf_verifier_env *env)
->                                 continue;
->                         }
->                 }
-> -               WARN_ON_ONCE(err);
->         }
->
->         return 0;
-> @@ -20838,6 +20882,29 @@ static int convert_ctx_accesses(struct bpf_verifier_env *env)
->                 bpf_convert_ctx_access_t convert_ctx_access;
->                 u8 mode;
->
-> +               if (env->insn_aux_data[i + delta].nospec) {
-> +                       WARN_ON_ONCE(env->insn_aux_data[i + delta].alu_state);
-> +                       struct bpf_insn patch[] = {
-> +                               BPF_ST_NOSPEC(),
-> +                               *insn,
-> +                       };
-> +
-> +                       cnt = ARRAY_SIZE(patch);
-> +                       new_prog = bpf_patch_insn_data(env, i + delta, patch, cnt);
-> +                       if (!new_prog)
-> +                               return -ENOMEM;
-> +
-> +                       delta    += cnt - 1;
-> +                       env->prog = new_prog;
-> +                       insn      = new_prog->insnsi + i + delta;
-> +                       /* This can not be easily merged with the
-> +                        * nospec_result-case, because an insn may require a
-> +                        * nospec before and after itself. Therefore also do not
-> +                        * 'continue' here but potentially apply further
-> +                        * patching to insn. *insn should equal patch[1] now.
-> +                        */
-> +               }
-> +
->                 if (insn->code == (BPF_LDX | BPF_MEM | BPF_B) ||
->                     insn->code == (BPF_LDX | BPF_MEM | BPF_H) ||
->                     insn->code == (BPF_LDX | BPF_MEM | BPF_W) ||
-> @@ -20888,6 +20955,9 @@ static int convert_ctx_accesses(struct bpf_verifier_env *env)
->
->                 if (type == BPF_WRITE &&
->                     env->insn_aux_data[i + delta].nospec_result) {
-> +                       /* nospec_result is only used to mitigate Spectre v4 and
-> +                        * to limit verification-time for Spectre v1.
-> +                        */
->                         struct bpf_insn patch[] = {
->                                 *insn,
->                                 BPF_ST_NOSPEC(),
-> diff --git a/tools/testing/selftests/bpf/progs/bpf_misc.h b/tools/testing/selftests/bpf/progs/bpf_misc.h
-> index 863df7c0fdd0..97c727ab81be 100644
-> --- a/tools/testing/selftests/bpf/progs/bpf_misc.h
-> +++ b/tools/testing/selftests/bpf/progs/bpf_misc.h
-> @@ -230,4 +230,8 @@
->  #define CAN_USE_LOAD_ACQ_STORE_REL
->  #endif
->
-> +#if defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86)
-> +#define SPEC_V1
-> +#endif
-> +
->  #endif
-> [...]
 
