@@ -4,54 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 417F4C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 18:00:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39D07C3ABDA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 18:33:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B14NVkvhs11fRsNVrEthNlvxBAltrCCqiAMAETfxaNU=; b=vKIvQMhSubjSfyjk0lJafQ0Rzj
-	VO4C+v0aMsrI9LacBtBqJeJIJKG5jNy0IWFLITP0vvaKEaftb7GOHYA6tRxXh7HiNwA5UJ2QykpBK
-	tb04PoFQgw40NLiLj7CvqDut1CKNXewVq3XG4MKYz34kpWS2ipI25aLIQQuKCuPx9/dVOrwCOlQp7
-	v46PtMIKorVoQsC5nBDNCPMDXrSSSDCJCGfeTAvZeMpNLiTLO/c3yvRbqgUVjuChXhMmKOc8hrvM/
-	Y2wWEvPu6RKV46Ah46pOW0rTzygt12odNZAKTSn8U/VsxFTXF1uVZwSMqajjeR0hQgJiwnf3ioIJ2
-	hX9aebGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=boDTYex1lGVFUTPNG/sgRHlgfXXJKbL9Vs7B81Qt9yQ=; b=ZoHdik8eB+Rmwjz+jHzBuiN0pC
+	BcpVKzrdul1pBukwQzDuBClmCar91nhyCfiXhlqYa/cyvMCTXHgQRMeESiCgRuFsUM/eGsDwll/gQ
+	SBPpFz75TSxHAyYvu9S8VIkbCfBYuCUW/2K+PdqcvGkTPdUS32Wl+SGeqYoK6aCwv/K/snzu16FWH
+	ayOKCzZoZEU0I6qBEU5lVddGOQfDtsj5hbLD2xlBaR15KnPuwDGOfFz4iweMUKOciO4NCzq8v59JX
+	PfQdW1qGHPMF3gZRV7S/BrJm16N5lJ4EkPh8QtCU9i1SoYt3qJ1d4eVQF83JElGy/08nCQqijiqFz
+	GvPHa+iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFGPO-0000000FyqQ-2AGM;
-	Wed, 14 May 2025 18:00:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uFGvM-0000000G1tT-1beT;
+	Wed, 14 May 2025 18:33:48 +0000
+Received: from mail-co1nam11on2062b.outbound.protection.outlook.com ([2a01:111:f403:2416::62b] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFG3D-0000000FsKl-1x5A
+	id 1uFFZ8-0000000Fpmc-2JW9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 17:37:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4D90A5C046D;
-	Wed, 14 May 2025 17:35:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B571C4CEED;
-	Wed, 14 May 2025 17:37:48 +0000 (UTC)
-Date: Wed, 14 May 2025 13:38:15 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
- linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
- joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
- kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- jstultz@google.com, qperret@google.com, will@kernel.org,
- kernel-team@android.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 00/24] Tracefs support for pKVM
-Message-ID: <20250514133815.78bc2599@gandalf.local.home>
-In-Reply-To: <20250506164820.515876-1-vdonnefort@google.com>
-References: <20250506164820.515876-1-vdonnefort@google.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Wed, 14 May 2025 17:06:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pgdFkVcaLmFHpbxPgHz4jhU6GQhflTjaFkd3p808Q4UiTxqNurbb52B6fUrXJU6wV2IUVAKiWqWTxJwVVg8lNDFW5Mhm+Q11RnW15+vISbQyey/vinJMQqIqRtP3haw8StvDdVsXILBL7IyRsOSWew+NvYCK+phvVeff75ZIrUPZg1RsL8FtN80LhEhPa7Y0hmAlAzvT/5/6OcbDsr1XHDPuGOtT+rWRa30iDUeP7b47GXnsaX0OuzW8gZu8QrmoYo1IIsY3QIjNjbh4y2xeSn660CYuG1ryd6IiStXwRaGpqz3yc1aZrYad/M7K8tnX+RKczJJ3ACj5OQ9prB7Iaw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=boDTYex1lGVFUTPNG/sgRHlgfXXJKbL9Vs7B81Qt9yQ=;
+ b=SmtkniDa0eARU97X3h/hdMxgvjcnbpkTvvdVLWYtzA82tmT/YHldBswz/490Ex+0ZlQef69Lg0wOoX0d0gmsIACashFzWtX79GPCDwEJEIkTdeSHcPkKeHfZwWxn5IeHSgJJ+B/44ZVcKO7KHU3DcxKADrseEDhvgFvnnEmTDgmLHsBNZRa+xxEHyrJ8dVfov6TNlMUjXMxj1QjeDUyDfJb59ecjrBWO8g/dAvnEFaNZsYCvhB9GR+ebeWdfYJVpwvKeedqh4uDsXoHErwTWWuW1bC52OkYCVA0ib6C8Zdzsgb6s1NQoW1MpysfjwT4+Kr42hqHhw9xLZ5SNxGh5EQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=boDTYex1lGVFUTPNG/sgRHlgfXXJKbL9Vs7B81Qt9yQ=;
+ b=g4yZ8YQazJ9c0z95vlTdFsquZj405ERW6YOO4eWvdlpmxnPrKhH6Eh26o77gdd/obmKzjjkE9sKeMQ63jqya1lJofEfQIuLccYceMybqBCkTOzoyXuD7dTVWgQkp21DqbVagbJUKH0jjnzTwkQmMR1OLj5CWEqwREsV9en24mjlf7a/6ktgfGQHzBQ9Dw0GGOVwsUSCEVApw5cH69lM0+tKBrR2buH4ELCgNEGGX2/kb9sW0Sv7tuqCrfpMVWsIqJqSKeS7DUIjQV9Ks0un4hDTMz8/3Dw/kN7u/d8RrxpCNNQquFcjh62y5J+u7cPcvetpZAhVM+XI1cNFc3PXfxw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by DM4PR12MB6088.namprd12.prod.outlook.com (2603:10b6:8:af::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.32; Wed, 14 May
+ 2025 17:06:39 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8722.027; Wed, 14 May 2025
+ 17:06:39 +0000
+Date: Wed, 14 May 2025 14:06:37 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
+	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
+	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
+	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
+	praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
+Subject: Re: [PATCH v4 05/23] iommufd/driver: Let iommufd_viommu_alloc helper
+ save ictx to viommu->ictx
+Message-ID: <20250514170637.GE382960@nvidia.com>
+References: <cover.1746757630.git.nicolinc@nvidia.com>
+ <5288cec9804e7e394be3b7de6b246d8ca9c4792a.1746757630.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5288cec9804e7e394be3b7de6b246d8ca9c4792a.1746757630.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: BN0PR07CA0002.namprd07.prod.outlook.com
+ (2603:10b6:408:141::17) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DM4PR12MB6088:EE_
+X-MS-Office365-Filtering-Correlation-Id: d12614a0-92e9-4f02-9da9-08dd9309b125
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?e7nP6Aujz5RyM0yAf6IofbyfE48ng15JZwjAOMgtPXt32GcaDpVkuQUJw8NR?=
+ =?us-ascii?Q?1/lkEGeLi9Zps17SSQV0/w+LU+1LlA3VtZs/AALz8+/lLg+KF49p67gDdJZG?=
+ =?us-ascii?Q?re34pW/vu5wWRUF28AMf4l4a1Pf1+SJ4o9JdT/UmRmnBx68XdPsUUqf8U68z?=
+ =?us-ascii?Q?PmiQsco7aMO4rmcLfsSCNfjtjl0tPb07f6wJrOIcjR4PLn8Jk642vuhU+IPM?=
+ =?us-ascii?Q?qNNNrkKwuCUorrjdNS/lwXeDK7eFzCWK7AzK3KD1ODS7E1jPPolYE/zVL5lh?=
+ =?us-ascii?Q?l7AymGtusaKMDtwCfuYjxrtTcCm76Lrjcijogvs71mBYkvlXt9TrCkNqECPX?=
+ =?us-ascii?Q?rhotg0IVnu5aZA6SEvJHu18/yeZp7BBRE8oEfyeTFfqbs86kedXjg4GNDizP?=
+ =?us-ascii?Q?slsbmwFvzcuPih7OBHXDK0vk2vW3QVjhiLP0wyToDVD/V/QtqntwGbZ3T/j9?=
+ =?us-ascii?Q?oUxfZyf7yce1qnDTezqiO2oNyDgVCN79fkQMU0DF1OucMiVbfA3AzHYpq7Nt?=
+ =?us-ascii?Q?gI66wS5Y6fK3Dx52rX4Vo2bbCtEg4pppJCLghwJ1J1Ms71ObtGXSrdq+Phrr?=
+ =?us-ascii?Q?lkYAH0p4558DTm9qCXZWyrCgL5gw1J2xD7tXVliBs8qFebeLQF96/BPCNtvn?=
+ =?us-ascii?Q?Z9myijHTA0O19azWbqB9Vl3LdSSunvo/GmHkD5zeftTsK7dcqpgTQnhl3qFt?=
+ =?us-ascii?Q?j7hbHG/ME5ANKKFwNo0ns4x8cowyftlMfmXJNs0EtBDMXOODvwNvZ6pWOSm6?=
+ =?us-ascii?Q?cOviBmbp/8VIL5Mi+eOHryrisWj0dxp8ZpyR+PlxJy6x7gpQR2y44qRTNHTt?=
+ =?us-ascii?Q?L9C/EuBXJ3NI5h4Yj8b0BUgFuoA11XrshNheR2hdc2/n/edk4yAh8fLzgjAF?=
+ =?us-ascii?Q?fy0k6uciAffEj686jSnAIvf/uIg/SN/5y+4p+akGXKrWIfu4bSDzOJNXo0w3?=
+ =?us-ascii?Q?7mDv/HK3hEPWYBFSwlBoLJDKel/3cF5b3HyyL3k4IJkfelVfXQ06rwxIu09n?=
+ =?us-ascii?Q?sX+yOYZd8g+7adA/+vxuTlAISEDxgNwnEqWE6wEKi/SCjWBPPi5QhoyWe1h1?=
+ =?us-ascii?Q?xnX1tQfIXMwcie9pWTxKw2T3jmthajxVratDoT54W9Q/y+tOxPWxeXT2GKG1?=
+ =?us-ascii?Q?AlMHLAeKhFVjimPfMSc0mUlhblok/BRfnCVGh3HxKd6xBL8E7QWZ1xFFsxBb?=
+ =?us-ascii?Q?KTmKUEWJ9opOuullYt93dPJKQ7jpU+8bnwwW8IPb17HI2IIgrTdTcXP0Ad3v?=
+ =?us-ascii?Q?oYgKVlTxwPdK4dOyIH7Jx+SnzjiOBfuOSF1C+eDK95WCmdkbiX2xzzwUb4Ll?=
+ =?us-ascii?Q?P61KV3hL/uew/3gM4gcdcIOrKRg/gJrRk4zLCKnHo+S/xW7vr5iujQtBBDvD?=
+ =?us-ascii?Q?Ppe3WkvBgOH70M/TwfWfj56YiHZ0R5KOHfCrRcVRz6tSKbJAixize0S2cweO?=
+ =?us-ascii?Q?ET5aOSXwf5Q=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YS81NMjnu+/uWDW9OO4IMIGLVOaA6cxflTMoExJH2o7aWZZifpeKkgEKucUk?=
+ =?us-ascii?Q?jGN6Ljm1bqI8D/G/31QQ7hRJddwEYN9YzzXi0jxHtFpS0w49u4qXUIO6fKcD?=
+ =?us-ascii?Q?C2hxpgtjFSIXmBUQO0h8u6lEYyyuZMxOK6Kc7WmpN6qYXRg5119Xq66hTpzl?=
+ =?us-ascii?Q?GTyd8IZHuflMfu4hNfZhRis93D0J1FvG0QGoPBSaPEmb6nEIIJB1g3EoKSqJ?=
+ =?us-ascii?Q?DErnHRMkV1dqqBpUFtEXAOPi0epDuMpOKCLsCaKY10H/sITESUiQZYmrZdFX?=
+ =?us-ascii?Q?H5mwkQ56CQa1zJUdbo0ZtS7UFB8ZwqtBkOCiwGMl+vJMrltjxDZ17N7WWj+t?=
+ =?us-ascii?Q?9O74ksJVTl+PinXjscXEC0DYw8qwHhJ/NEZQNkgGL374b7568s/e9WytwgUs?=
+ =?us-ascii?Q?xTUAxhJ2Rd1xy9y9fxj9TK9nLFLAUTJsIqWVIgxHfDxIoTA52O4UauXSoeCE?=
+ =?us-ascii?Q?u5/+0KAEC324SA4Y0UueGgpm/F9FcBZamnPvxRJ8ogG1WswgAzIVt4MRvyh3?=
+ =?us-ascii?Q?zfROSxxQn73upTeGwd5GsR7z6zdbNgOEKfmdSKnUSv9lwxvu+7wpwJ28z3UD?=
+ =?us-ascii?Q?c9A3p9uKcYyZoAm3c/N6KUrTfB6p5d6RUlpb7U9Rt36I/OQ1fywYoQS/K2lS?=
+ =?us-ascii?Q?JWRkU6DsjBr9Pk50fDSU6AGOF2Fswg/nk4cGZRsPK/r9bwfmRqOcRuNYTH+x?=
+ =?us-ascii?Q?n0lXbQkgkCPVaTz//ijuxIUZn0ckxemm/JsyzvcMr0UWV+kZTZ0s038ebsTl?=
+ =?us-ascii?Q?qes4SKLRhLP5Rz3GJLY2IvKHj5Cw345XQOL3dV73ggY8OZmIJks+XN/DYk0B?=
+ =?us-ascii?Q?/ldzMV1RZHs/nypxJAr40zloKx2i7k+ZqPm01QH7GwV+kcTrgEPIheLZiMfi?=
+ =?us-ascii?Q?gK8igLEKAkLiI+QU3LHrI95/2+K9YQYlG5Om8DwhCRNST8euwjteF8s0Uq5b?=
+ =?us-ascii?Q?mqLIfdR4uxXhQI2QBCM88Vcq9VQ35oXX7xU08yOoQbBKqiFjpb6DjmR9A2V1?=
+ =?us-ascii?Q?xAjLTto2o2JQw1ab9G2rWpvPfkqIVqLZdbT465NrFEsPSipDYlFz3zGLYcMS?=
+ =?us-ascii?Q?r82oQpDurmdYhWZNflB7LiDGT4H10dQv23DNs03XK5v5CNYOgaAUeB1whrVw?=
+ =?us-ascii?Q?BbxOwhQrquZWhtMrBr0svP6ViWIoeIXbWKpYHwiW3XqWrE02pK6TcQDhcmoF?=
+ =?us-ascii?Q?MzhfWb8C375tr6MatXLiZYYo4EijxInWWPf1ODQusY+JNh6lYd036yK/HadZ?=
+ =?us-ascii?Q?mhGzZBUrjamwnPhT7h4NA8sZNi8huwZ1sbr/FJUuvN7SBd/yo50oks8XxlCV?=
+ =?us-ascii?Q?K7yO7w5dwBTL4FKYteyhVGXFBLM59AmHA7i8V50REGHewEcNGfZlr0D0buzw?=
+ =?us-ascii?Q?xKlOerCkRyzhSASUnFC+mS2m3wtYO3BNOhLizHatPxweFFyukNx+HD0LieG9?=
+ =?us-ascii?Q?ibqVezBheeIDF6SXhAmfLOh3UtksVFPBYneRl2yhoFlJhrpG858it9cGaUzm?=
+ =?us-ascii?Q?Av1AMIX7ebLn5k20GyKyIVaUM0+uKYv7Dq0LLFvtxbAU+ZV2ExYeLlujwvAh?=
+ =?us-ascii?Q?wAWgiHKAZU7RN70ozdM5cwSGCuzGGEC2frhETn3G?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d12614a0-92e9-4f02-9da9-08dd9309b125
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 May 2025 17:06:39.5201
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jTz9RWbXeOt625LIqVe8FC3dbULJlnm8Tk60SeVoEO5mbhLau85lt0Yzr6CdBEFg
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_103751_591003_A92C9C1A 
-X-CRM114-Status: GOOD (  36.32  )
+X-CRM114-CacheID: sfid-20250514_100646_607938_84C9DCDF 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,200 +166,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue,  6 May 2025 17:47:56 +0100
-Vincent Donnefort <vdonnefort@google.com> wrote:
+On Thu, May 08, 2025 at 08:02:26PM -0700, Nicolin Chen wrote:
+> When an IOMMU driver calls iommufd_viommu_alloc(), it must pass in an ictx
+> pointer as the underlying _iommufd_object_alloc() helper function requires
+> that to allocate a new object. However, neither the iommufd_viommu_alloc()
+> nor its underlying _iommufd_object_alloc() saves the ictx in the allocated
+> viommu object, although viommu could hold an ictx pointer.
+> 
+> When the IOMMU driver wants to use another iommufd function passing in the
+> allocated viommu, it could have avoided passing in the ictx pointer again,
+> if viommu->ictx is valid.
+> 
+> Save ictx to viommu->ictx in the iommufd_viommu_alloc(), in order to ease
+> a new vIOMMU-based helper that would then get the ictx from viommu->ictx.
+> 
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>  include/linux/iommufd.h | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 
-> The growing set of features supported by the hypervisor in protected
-> mode necessitates debugging and profiling tools. Tracefs is the
-> ideal candidate for this task:
->=20
->   * It is simple to use and to script.
->=20
->   * It is supported by various tools, from the trace-cmd CLI to the
->     Android web-based perfetto.
->=20
->   * The ring-buffer, where are stored trace events consists of linked
->     pages, making it an ideal structure for sharing between kernel and
->     hypervisor.
->=20
-> This series first introduces a new generic way of creating remote events =
-and
-> remote buffers. Then it adds support to the pKVM hypervisor.
->=20
-> 1. ring-buffer
-> --------------
->=20
-> To setup the per-cpu ring-buffers, a new interface is created:
->=20
->   ring_buffer_remote:	Describes what the kernel needs to know about the
-> 			remote writer, that is, the set of pages forming the
-> 			ring-buffer and a callback for the reader/head
-> 			swapping (enables consuming read)
->=20
->   ring_buffer_remote():	Creates a read-only ring-buffer from a
-> 			ring_buffer_remote.
->=20
-> To keep the internals of `struct ring_buffer` in sync with the remote,
-> the meta-page is used. It was originally introduced to enable user-space
-> mapping of the ring-buffer [1]. In this case, the kernel is not the
-> producer anymore but the reader. The function to read that meta-page is:
->=20
->   ring_buffer_poll_remote():
-> 			Update `struct ring_buffer` based on the remote
-> 			meta-page. Wake-up readers if necessary.
->=20
-> The kernel has to poll the meta-page to be notified of newly written
-> events.
->=20
-> 2. Tracefs
-> ----------
->=20
-> This series introduce a new trace_remote that does the link between
-> tracefs and the remote ring-buffer.
->=20
-> The interface is found in the remotes/ directory at the root of the
-> tracefs mount point. Each remote is like an instance and you'll find
-> there a subset of the regular Tracefs user-space interface:
->=20
->   remotes/test/
->      buffer_size_kb
->      trace_clock
->      trace_pipe
->      trace
->      per_cpu/
->              cpuX/
->                  trace
->                  trace_pipe
->      events/
->=20
->             test/
->                 selftest/
->                           enable
->                           id
->=20
-> Behind the scenes, kernel/trace/trace_remote.c creates this tracefs
-> hierarchy without relying on kernel/trace/trace.c. This is due to
-> fundamental differences:
->=20
->   * Remote tracing doesn't support trace_array's system-specific
->     features (snapshots, tracers, etc.).
->=20
->   * Logged event formats differ (e.g., no PID for remote events).
->=20
->   * Buffer operations require specific remote interactions.
->=20
-> 3. Simple Ring-Buffer
-> ---------------------
->=20
-> As the current ring-buffer.c implementation has too many dependencies to
-> be used directly by the pKVM hypervisor. A new simple implementation is
-> created and can be found in kernel/trace/simple-ring-buffer.c.
->=20
-> This implementation is write-only and is used by both the pKVM
-> hypervisor and a trace_remote test module.
->=20
-> 4. Events
-> ---------
->=20
-> A new REMOTE_EVENT() macro is added to simplify the creation of events
-> on the kernel side. As remote tracing buffer are read only, only the
-> event structure and a way of printing must be declared. The prototype of
-> the macro is very similar to the well-known TRACE_EVENT()
->=20
->  REMOTE_EVENT(my_event, id,
->      RE_STRUCT(
->          re_field(u64, foobar)
->      ),
->      RE_PRINTK("foobar=3D%lld", __entry->foobar)
->      )
->   )
->=20
-> 5. pKVM
-> -------
->=20
-> The pKVM support simply creates a "hypervisor" trace_remote on the
-> kernel side and inherits from simple-ring-buffer.c on the hypervisor
-> side.
->=20
-> A new event macro is created HYP_EVENT() that is under the hood re-using
-> REMOTE_EVENT() (defined in the previous paragaph) as well as generate
-> hypervisor specific struct and trace_<event>() functions.
->=20
-> 5. Limitations:
-> ---------------
->=20
-> Non-consuming reading of the buffer isn't supported (i.e. cat trace ->
-> -EPERM) due to current the lack of support in the ring-buffer meta-page.
->=20
-> [1] https://tracingsummit.org/ts/2022/hypervisortracing/
-> [2] https://lore.kernel.org/all/20240510140435.3550353-1-vdonnefort@googl=
-e.com/
->=20
+It is OK, but please think carefully if the ictx is actually
+needed. The reason most objects don't have an ictx in them is because
+their contexts are always inside an ioctl so they get the ictx from
+there.
 
-BTW,  I tried to build this series and it fails.
+We don't have a lot of viommu allocations so it isn't such a big deal,
+but just generally that is how it was built that the ictx comes from
+the ioctl not the object.
 
-  CALL    /work/git/test-linux.git/scripts/checksyscalls.sh
-  CC      kernel/trace/simple_ring_buffer.o
-In file included from ./arch/x86/include/generated/asm/rwonce.h:1,
-                 from /work/git/test-linux.git/include/linux/compiler.h:390,
-                 from /work/git/test-linux.git/arch/x86/include/asm/atomic.=
-h:5,
-                 from /work/git/test-linux.git/include/linux/atomic.h:7,
-                 from /work/git/test-linux.git/kernel/trace/simple_ring_buf=
-fer.c:7:
-/work/git/test-linux.git/kernel/trace/simple_ring_buffer.c: In function =E2=
-=80=98simple_rb_move_tail=E2=80=99:
-/work/git/test-linux.git/include/asm-generic/rwonce.h:55:37: error: assignm=
-ent to =E2=80=98struct list_head *=E2=80=99 from =E2=80=98long unsigned int=
-=E2=80=99 makes pointer from integer without a cast [-Wint-conversion]
-   55 |         *(volatile typeof(x) *)&(x) =3D (val);                     =
-       \
-      |                                     ^
-/work/git/test-linux.git/include/asm-generic/rwonce.h:61:9: note: in expans=
-ion of macro =E2=80=98__WRITE_ONCE=E2=80=99
-   61 |         __WRITE_ONCE(x, val);                                      =
-     \
-      |         ^~~~~~~~~~~~
-/work/git/test-linux.git/arch/x86/include/asm/barrier.h:63:9: note: in expa=
-nsion of macro =E2=80=98WRITE_ONCE=E2=80=99
-   63 |         WRITE_ONCE(*p, v);                                         =
-     \
-      |         ^~~~~~~~~~
-/work/git/test-linux.git/include/asm-generic/barrier.h:172:55: note: in exp=
-ansion of macro =E2=80=98__smp_store_release=E2=80=99
-  172 | #define smp_store_release(p, v) do { kcsan_release(); __smp_store_r=
-elease(p, v); } while (0)
-      |                                                       ^~~~~~~~~~~~~=
-~~~~~~
-/work/git/test-linux.git/kernel/trace/simple_ring_buffer.c:129:17: note: in=
- expansion of macro =E2=80=98smp_store_release=E2=80=99
-  129 |                 smp_store_release(&new_tail->list.next,
-      |                 ^~~~~~~~~~~~~~~~~
-make[5]: *** [/work/git/test-linux.git/scripts/Makefile.build:203: kernel/t=
-race/simple_ring_buffer.o] Error 1
-make[4]: *** [/work/git/test-linux.git/scripts/Makefile.build:461: kernel/t=
-race] Error 2
-make[3]: *** [/work/git/test-linux.git/scripts/Makefile.build:461: kernel] =
-Error 2
-make[2]: *** [/work/git/test-linux.git/Makefile:2004: .] Error 2
-make[1]: *** [/work/git/test-linux.git/Makefile:248: __sub-make] Error 2
-make[1]: Leaving directory '/work/build/trace/nobackup/debiantesting-x86-64'
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-Even when I fixed this, it then failed with the building of the sample modu=
-le.
-
-I think you need something like:
-
-obj-$(CONFIG_TRACE_REMOTE_TEST) +=3D remote_test_mod.o
-
-remote_test_mod-y :=3D simple_ring_buffer.o remote_test.o trace_remote.o
-
-If the module needs more than one object file. Then the module should be
-called something that doesn't have a .c file and use that name with ".o" to
-add all the objects.
-
-I think this could work, but this still had issues with functions not expor=
-ted.
-
--- Steve
+Jason
 
