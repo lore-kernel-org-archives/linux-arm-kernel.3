@@ -4,68 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03E59C3ABD8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25AA7C3ABD9
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 15:04:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=avCCqmE7kuFuDbsPlYm1SxK/weGyl9uo4TZeRAsOn/4=; b=W/syPib/vhGVvSHefTWFk87m3g
-	3QJJ/tF8pUKQsUU3bYdm368hGfGjB2jPEruXmcbZXY4c0K880dMpNI9oEOZEyPI8NTjjBujlgtvcX
-	wHprXVGPgjRhNLBbf1MCpbhTueO1uY20Lrc0QY5mtytnOocerPHCp8HF7fvEyHQQruMSL/cenRZzs
-	H5Ob9I0uwEazviOJqDMrDT4doDXN4OjMFECMvvLMHakR3ndje91FzzRE94UzHX2SacLvryqGWpNBH
-	QRssLBUniLB21NyjUq9IYqhOpc52+xjUZovVHjSBNmXF7ch8JtXKSomeSsWywuXoYPJzgBoG4+AxH
-	q4TOQKBw==;
+	bh=VHP5+n9HxK/y9xAc2G7dW0BgFqLGBRVS1GetAZA9o5Q=; b=062ClRS3iAZfnmpQtn4uFl593v
+	k9o/jgaM2MBvBQ+9y04BaNN7+UIAnJ+6NnkHsh6SWOl+s4mjpgR08yifiGuC6nA6GAjcNeoOSYr/l
+	0plelW9Dy1U6jLOqOQSQHkkmeAK8m0M+O1zQl+F6pONKUpPtfi4aSyihi9IV4OeiOw/Su3GeaaeQs
+	8hAxNlEVAycdpC1mhX7b3+aKdKuVW13odZ6XgEcyTa4P2wqDU7QrqtV1Im+ZGvwdgJia5N/V3u6X9
+	k/c4uq87DkJNY+J2ajV5OXDQrDu5y81IspblFZARMcZ7TC4pRZasBi8Fbp3QGvHoZlEjKTuK7He+w
+	ZKdOl6JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFDeY-0000000FVIK-3eQ6;
-	Wed, 14 May 2025 15:04:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uFDed-0000000FVO6-3Oq7;
+	Wed, 14 May 2025 15:04:19 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFAQo-0000000EuYo-3Bzx;
-	Wed, 14 May 2025 11:37:51 +0000
+	id 1uFBKO-0000000F6gD-0kGY
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 May 2025 12:35:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7967244731;
-	Wed, 14 May 2025 11:37:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 659AAC4CEF7;
-	Wed, 14 May 2025 11:37:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2623D5C5610;
+	Wed, 14 May 2025 12:32:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BBAFC4CEE9;
+	Wed, 14 May 2025 12:35:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747222670;
-	bh=0F01DWP26YYgS1PPdTSuMQtQtJxshmUQ6mSt4A+utgY=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=BRQnb8WftKdlkP5oGSf5HoMasCRIMWeAvcu3TQDmCOC3I9ljErJZ6RTN1Tqu4i+Vs
-	 i4F2roBZZ+D9qHJGbxdxmzsmC6KD7WYptbl8TWIeHpqeoc2EH4X4yhvuyHbGOY0pj5
-	 +ILAZpFMrQ1kulgAj/8Dd+0RSQhCSyMG2OFC+fZkuKpqOh8LJQ+zc677t773QaoniU
-	 WQEO0JRWkvSUBF1O+IMYIGYw8py4zu3KxAVkyos+kgAljVYff/qYTcfUIZWwRkuJWs
-	 V4bR6U3I2USosOjHLPK/CMWSPfIcna51PUKDvLFc4SjA/bKbUbwHN+8B3mEq87Fn7L
-	 iZJmK7OEQWd2A==
-From: Vinod Koul <vkoul@kernel.org>
-To: Kishon Vijay Abraham I <kishon@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: linux-phy@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20250504144527.1723980-1-ivo.ivanov.ivanov1@gmail.com>
-References: <20250504144527.1723980-1-ivo.ivanov.ivanov1@gmail.com>
-Subject: Re: [PATCH v5 00/10] phy: samsung: add Exynos2200 SNPS eUSB2
- driver
-Message-Id: <174722266707.85510.6309026442043319817.b4-ty@kernel.org>
-Date: Wed, 14 May 2025 12:37:47 +0100
+	s=k20201202; t=1747226115;
+	bh=FqKEEgh2CgxDQgoHYR3IHgfrOAxC4C3q34QQPyLKnZ8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Z8OGSJ2P078kwQym6+Q0t6XZ7/BkHTLvacYqtwtaqh6zLjr3vykRQheOYWMikz1Vp
+	 I7BiYZ8xBbUyWfllKKWFSRmbRLAOfVo6JX5Ddfa3k1SHGloLnuBq9yimw2ZaXdzplI
+	 DIVfCI7M++0cJZUhr+Kd6B6v205QCP4SzaAUN/w0uAHCuPd+qp2nxs2ZwrukR8RJah
+	 svSgMWEXaO39PvS67G4taKdyVQvENyV91gXN06V/FZtsFxNa3mmho+1BjCdwK7Qfoe
+	 sHRu/NLnnbELbpwRhq88cf7/CiMx15OO1OSKIHB5w7BNIExTlewEn8ZD6pbDVOmE6h
+	 mMODW+VzqWd7g==
+Message-ID: <3f989f5c-312c-4fac-8cc0-f387de84925a@kernel.org>
+Date: Wed, 14 May 2025 14:35:09 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/7] dt-bindings: soc: ti: pruss: Add documentation for
+ PRU UART support
+To: Judith Mendez <jm@ti.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
+ Santosh Shilimkar <ssantosh@kernel.org>,
+ Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+ Bin Liu <b-liu@ti.com>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Andrew Davis <afd@ti.com>, linux-kernel@vger.kernel.org,
+ linux-serial@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250513215934.933807-1-jm@ti.com>
+ <20250513215934.933807-3-jm@ti.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250513215934.933807-3-jm@ti.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_043750_824604_E4D7FF13 
-X-CRM114-Status: UNSURE (   7.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250514_053516_337303_EB9F6FB2 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,47 +125,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sun, 04 May 2025 17:45:17 +0300, Ivaylo Ivanov wrote:
-> Hey folks,
+On 13/05/2025 23:59, Judith Mendez wrote:
+> Add documentation for PRU UART node which is for PRU serial UART
+> based-off the industry standard TL16C550 asynchronous communications
+> element.
 > 
-> This patchset adds Exynos2200 support to the existing eUSB2 phy driver,
-> as well as USBDRD support for that SoC.
+> Signed-off-by: Judith Mendez <jm@ti.com>
+> ---
+>  Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml | 7 +++++++
+>  1 file changed, 7 insertions(+)
 > 
-> The SoC features the same (as far as I can tell from comparing code)
-> USBDRD 3.2 4nm block that Exynos2400 has, hence the common denominator.
-> It consists of a SEC USB link controller, Synopsys eUSB2 and Synopsys
-> USBDP combophy, which are independent underlying hardware blocks of
-> the USBDRD controller.
-> 
-> [...]
 
-Applied, thanks!
+Nothing in cover letter explains dependency and this the most important
+part of cover letter. Otherwise how maintainers are supposed to guess
+what they can take and what cannot?
 
-[01/10] dt-bindings: phy: add exynos2200 eusb2 phy support
-        commit: 59cf7546079e3d08d105369c48f8834970290082
-[02/10] dt-bindings: phy: samsung,usb3-drd-phy: add exynos2200 support
-        commit: e4c9a7b475e5d0d9b2440ee48f91d1364eabd6cb
-[03/10] phy: move phy-qcom-snps-eusb2 out of its vendor sub-directory
-        commit: 8d3b5f6375466ffcd2cd98a0c84d31295470fe9d
-[04/10] phy: phy-snps-eusb2: refactor constructs names
-        commit: 93dbe9b5b3a265c7e5466c7b6ada439b01577de5
-[05/10] phy: phy-snps-eusb2: split phy init code
-        commit: 3983b4e9746da1b6091f1d9083f44ed3f12717cb
-[06/10] phy: phy-snps-eusb2: make repeater optional
-        commit: d460be705ae599c0cbfc1ee4ba6a41b225525609
-[07/10] phy: phy-snps-eusb2: make reset control optional
-        commit: aba7a966b50d11deeb3e2f1a66182d150eeb7843
-[08/10] phy: phy-snps-eusb2: refactor reference clock init
-        commit: e36a5d1ecc5f2bda92e4f954f41d65d1ddd5728e
-[09/10] phy: phy-snps-eusb2: add support for exynos2200
-        commit: c4098f3e6134e79e070ec44c58976e1f00d9bfad
-[10/10] phy: exynos5-usbdrd: support Exynos USBDRD 3.2 4nm controller
-        commit: cc52a697f87e8b2d88298827aca3f81398385572
+Squash the patch with previous in such case.
+
+> diff --git a/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml b/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
+> index 927b3200e29e..54397297cbf5 100644
+> --- a/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
+> +++ b/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
+> @@ -324,6 +324,13 @@ patternProperties:
+>      $ref: /schemas/net/ti,davinci-mdio.yaml#
+>      type: object
+>  
+> +  serial@[a-f0-9]+$:
+> +    description: |
+
+Do not need '|' unless you need to preserve formatting.
 
 Best regards,
--- 
-~Vinod
-
-
+Krzysztof
 
