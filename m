@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE70C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 17:47:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF467C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 17:47:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=An4/G8IyR5zczajLSLE48BcXq+SdoujNgPdRSq3otg4=; b=ujVQUIFT7FE91NagtvlbD7n6Cl
-	vwS6+HEGjDpPIA9Iskz58uNISEY7DHBhAiau9/cnEnEWB9/17CyBD7aarrFby8or3+7MeSWeJfIcy
-	TYNosSw9en/CwkK/1+83u/rmMNv9inxS2ADLj6z0hpXyXaVGIa7DvYdeQvSBOWzfWv+jHYbxXvxdo
-	xtJTCDjceXl8rW0dR9gSrhOw/E9iRPvCMzL9iiHHx//Mxd+plZbC8QPPY1ttTU4skVELzYyYAqWMb
-	cM9J/vZ8neZryX3qpRdTkzl9TzqEYCWJ/nrOgjErYHABbbygpVvyM3ZbTbayZrTalTw+D7l+wrWB0
-	SpTDbLBA==;
+	bh=An4/G8IyR5zczajLSLE48BcXq+SdoujNgPdRSq3otg4=; b=j4fPb0Wjj6L1+rgS90OyhyJzvi
+	fexNm0DccGhy/SvltVB4SRLoiZoi7MQ0guoaciS4+81IQmzcl2uWBrF1n77aes9oqh3VvXepM6Hda
+	+S/bbT6PGV2/Sq1KkhAxf/JD/YX4szXnUYoxhHmY3Bi0R+lKNCITieqjNfKcHhe4/CNpFIV1ECV9n
+	9d9o01ocxtYyxZdD3WXpR5aorepiDNHEujOnzFaKy3s8DFDDoT7XBYruf5YbuUIW0YgPztfRBa4yr
+	hZ2IeKbJj2vXHqNtHlWBKsaEuf5f03LcI8Bygu9uCnDJYCpJNN+j4BwmXWpLKvRkwuEGVsL6/wLye
+	hH1koFPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFGCA-0000000FuvA-3GNU;
-	Wed, 14 May 2025 17:47:06 +0000
+	id 1uFGCE-0000000Fv1f-1uHQ;
+	Wed, 14 May 2025 17:47:10 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFEoo-0000000Fin2-463L
+	id 1uFEpt-0000000FjBO-0NOh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 16:18:56 +0000
+	Wed, 14 May 2025 16:20:02 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 58DC1150C;
-	Wed, 14 May 2025 09:18:39 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 13A5D150C;
+	Wed, 14 May 2025 09:19:49 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4063A3F63F;
-	Wed, 14 May 2025 09:18:49 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id F07143F63F;
+	Wed, 14 May 2025 09:19:58 -0700 (PDT)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: suzuki.poulose@arm.com,
 	mike.leach@linaro.org,
 	james.clark@linaro.org,
 	alexander.shishkin@linux.intel.com,
 	leo.yan@arm.com
-Cc: oresight@lists.linaro.org,
+Cc: coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Yeoreum Yun <yeoreum.yun@arm.com>
 Subject: [PATCH v6 0/3] coresight: prevent deactivate active config while enabling the config
-Date: Wed, 14 May 2025 17:18:44 +0100
-Message-Id: <20250514161847.3427497-1-yeoreum.yun@arm.com>
+Date: Wed, 14 May 2025 17:19:48 +0100
+Message-Id: <20250514161951.3427590-1-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_091855_060888_7C1D2559 
-X-CRM114-Status: UNSURE (   6.94  )
+X-CRM114-CacheID: sfid-20250514_092001_442900_9BDC997B 
+X-CRM114-Status: UNSURE (   6.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
