@@ -4,110 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2976C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 12:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A9B1C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 12:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l8ttO90O2cSxY03eU1ceb1snmErGtfKBpgAXR3prMn8=; b=lWv1le6GIZ8GthcR95IAEOOxim
-	WHuUVSfpHKH+JJ8h7rG6nB9Lm/iJyj9HE9igD1u4TfxvryGYcnhehUnJkZurk4KMPx72nomyICclY
-	sWIOWJE9dDp4E8mOvDUEc0B+Oe/LnJTbyyNfviI2uDPni66EkxojKXfYJQQoEZ9AAXqNn0q6tiyOf
-	Adrcex2Oc7CTMU8lHp+5L4e/Zb+WxLx03BwCdbOrr5+Kp0efDjEap7U2ecNZEB4DfvcCXTCx42BiO
-	LXM4iXoemWVYRNN/beBRpTdBO6pVKjoXa+xai5KxkAuoIFJXy8uqVB3aG/MBs5MVfvhRoILKLruOG
-	N1DYm9fQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Y4E8aOwQAaUdRX1dyEnehNt0cEoTdcyb+vzWwLzLf9I=; b=lVCtk3BmnOifPPCEQP7UD7uKY8
+	Dmw5htgn+uGW6fWD1qRLXeO7ofNeKxUcUunZQouG1uqXn/lmsQF0eKRz7vS7ozJ8WP0Ogu+F0vf2C
+	wucgfuBN2tHf7kywFUQUsXLnesFFQh5C3GBELdbHrcyCKksTsPMRmnNeivB/jqiMCKbO0hyWViiyj
+	801806c6ACSDH/WPMuTfWnsngmdtuK+TBuB1El8LDUduOtzoYQUlg2LdtV8Mdm92YIbwrNqugm106
+	rUU7gb3jLrRO45zbC0KzJfacK1kt7QjuDX/1mL9tqINM5vo56iwrNoB9K8e/ZZ/JG0LxRFhQjqFlg
+	rrsQ2S8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFBZk-0000000F8Kc-1ETZ;
-	Wed, 14 May 2025 12:51:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uFBbk-0000000F8en-08DY;
+	Wed, 14 May 2025 12:53:12 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF9kh-0000000Eq6K-1cL8;
-	Wed, 14 May 2025 10:54:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7A67160008;
-	Wed, 14 May 2025 10:54:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C348C4CEE9;
-	Wed, 14 May 2025 10:54:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747220057;
-	bh=5C0Di50yZg3ty4QVTSTQB3iKbWQP64UKAoZRv5/Vnm8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ldsy8J/pJGV5VEi08QDYMpAMPTnsoY09dAYYi7nPToxlDhNYYhovz1Aymg5iHKLxn
-	 2qpcL02TN07fuVobHfT3EkzvwkM/3sDjVixJh9ZoA3QZyqUANutNZsn+2DQwa2K5TZ
-	 mt6km69+IS5Ns/TR0UKcgsh+0syJ/AfMe7qGiaqCXYdl1IbIlkr+vT2XQYzu8WynkT
-	 E5d8nFienaJ4TTylUPRu6NEn+6O5yfNc4n0h81jS1XEISzP34nOvoLasQomy/EC7/l
-	 azgXWH4tVZ76xtyGGLX9W8rwovxMMUD4VQwpSyvO/fpfXcwgmibj4DCoX6sv1P9itJ
-	 jtXFRPHY7ZtpA==
-Message-ID: <e74d82b3-ed4a-433b-9305-a80b68130a6f@kernel.org>
-Date: Wed, 14 May 2025 12:54:12 +0200
+	id 1uF9nU-0000000EqK5-3y7s
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 May 2025 10:57:14 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3a0b201faedso603153f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 03:57:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747220231; x=1747825031; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Y4E8aOwQAaUdRX1dyEnehNt0cEoTdcyb+vzWwLzLf9I=;
+        b=UUVO3WqQjKKMbZKcrLsZqsH+Pe2JDI+xIdb9ykYXXtJq4cz9liUkrJT9+wl/LG1/wn
+         U0WC717a9SZC0iGOpwt3UdzaZQWGnoaADY7F1Lq6xKgpzxzCD7UOM6yOf4VchmXiatZO
+         qXL18TbnVfDY8gPnyrNJkYeGH0hBjH7BX7YOwhzZnaJQajFPoltYSRq0VM5rdTjVvVCF
+         iz+EG0dc/TzKXdROR3cKnZHFEBoviBRSWHzVdVV1qWSZFeY/G5u4yNUywxOPMOuN0guW
+         VJ7+d3lGRHWf0uv3cWfLLSoXYGPbY9jiABBY4typ0cWNAx71dvvO9CtdBPJesmAswbXc
+         1GMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747220231; x=1747825031;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Y4E8aOwQAaUdRX1dyEnehNt0cEoTdcyb+vzWwLzLf9I=;
+        b=pCrNTUH0dqgs9kOhG+zDfKNI1F6ldlYhyIHRcKBYhV0Pi0v85uLQ7SmErPlj0Lcmd/
+         8/hdFo7LVvlhJZ7QsR/HTbQ1MhLS7B7HF3et8Knxy90J9NViabfz957HeXmqrLNgqvXy
+         YFXrblAgsLKADQjr65uUetiad5HaevuDJnrqK96wmj5IJlRktWEFD3P9wrPlRlnZ66gF
+         rCxqOf0dJJdNkglvzIJ1D34UAzCpVbbPo0WZg3Q1MxUQ/GVgFWIvZUH71DL1aKUsevs5
+         URuDblXTZ2bpyysFVy2BuRN3PsF6B1S4BQmqIDwjnmz3Dhk2CHNYb/LvfZLHSowsWWWl
+         lizQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVzscqc4GfrROkzZdRncNlYQdo3FaTDDbx83lS1YM8RWmgjn3UkdK8kITCPaDd+sZpmtjeySQ+1RDKeMXR3cGSi@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQFkxfhugTKl4Kjhwv1AFF7J/RDBnnlDUuA1DxJtu99s28GlIu
+	ZGiYZ1dIiY2it91b5a1+UP3l5OPzIyw3VtiDQXRvgxkC6JU1Tb87Dxdmq+ok76E=
+X-Gm-Gg: ASbGncslkibYl1dexFh2BkQulqHsMB4zNONrECafwy1K1iYrbBmXhqInaN6PfXuEyAq
+	0zfmyIbGMH7tXr573nMiMx3Mra/f4C2Uls/80C+8xW+pnVhxu6JtYb8I/ueLKzvenYQVYW4jGD1
+	QbE73K2iv/OdVc9+K86hX59OvK3E4QA8Ga8wcnS/kGSas1gVB1gktHzUkbJpNoWCppfTIKLVvnF
+	Hjpwq5YzJBd4hFjUGidrFYa6UcKr+VPdqumiPT9uOuUbtyG9ioMqoqmcqOTgmTDQb/y+N81uJQ2
+	zsePCA60I1Hj3u93CgVvQGAi+aXxMqQYkKgVd04bYpl392ij9pXSphUpNpSylv32qLP6kM5U5yg
+	TPuQEgEuYXMKCDGiS8NFS2BqKiQxYLsrZWTSlfyGDELizVt9Sxg==
+X-Google-Smtp-Source: AGHT+IFtksBMN8N0y1ipHv0ssNQ0FUDjeBMyouJ1A0vX+2sBsa+p6vm/UIeQxO60xKTk6b6EFmeb6w==
+X-Received: by 2002:a05:6000:2207:b0:38d:b090:a0c4 with SMTP id ffacd0b85a97d-3a34991c966mr848096f8f.10.1747220231062;
+        Wed, 14 May 2025 03:57:11 -0700 (PDT)
+Received: from kuoka.c.hoisthospitality.com (110.8.30.213.rev.vodafone.pt. [213.30.8.110])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442f3368f36sm27362985e9.1.2025.05.14.03.57.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 May 2025 03:57:10 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Trevor Wu <trevor.wu@mediatek.com>,
+	Jiaxin Yu <jiaxin.yu@mediatek.com>,
+	linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] ASoC: dt-bindings: mediatek: Simplify mediatek,clk-provider
+Date: Wed, 14 May 2025 12:57:03 +0200
+Message-ID: <20250514105702.28622-2-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 08/10] ASoC: dt-bindings: mediatek,mt8196-afe: add
- audio AFE document
-To: "Darren.Ye" <darren.ye@mediatek.com>, Liam Girdwood
- <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org
-References: <20250514081125.24475-1-darren.ye@mediatek.com>
- <20250514081125.24475-9-darren.ye@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250514081125.24475-9-darren.ye@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1814; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=Io3JrD/y03dOQPQAcqJF5SS7b20bby4BHdbd1e9wLMA=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoJHb+RsGueHOitBQYXiszb3Mpl2m/RCzDn6fka
+ rPIPq97lmOJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaCR2/gAKCRDBN2bmhouD
+ 11y6D/9EcflOTi1PXfiKHcWkO2TQd8AiHmKdLSSurf7WcaMBXn8Fbwo73+EJ/2olcQAcj7XZf9D
+ 8JwECXhe1ztAZeht1jIcW49QiQRkkUoTkN2KRL4dooNvkTgUY3vgNyA87MXPGPjLmL/JcvJsnsW
+ Jry1/y+WGGXJTxvj453+yAfKNDgE2FtURccAdIPzhniUnS4RmnYp2nABLMgdTYv0aBqZbV20rqq
+ jOWXfCbRAbLEWCIeZ+nQerpgM8fHM0eTYOuV5MHzhs27OoJkYOLMLAny5qoLl7Zpm7QIs6Sf0TQ
+ 411wb3xmZHUvPljW+odA5kp7vNu74ORgeg4sifz8NSK3UY7wfPBnAVDcUwbazT4UPZjVlvd6oJB
+ M/oQZ5PI5OZXBBFcvbfNpTspmnlUpx2dl92iNd+EU3tV1ULUHEe7fMMDPmDWuya2uC0byBeV+NX
+ KHdBSm5X6JTGBik2vPT29CmY9aUOtWDqcOvbX9/mXZDAkw7FrXY3gbcj83aIpGUxHsXct9+Fp1D
+ jjQE9JCq4VNnydAnG14Q7NBEgujHn3urNMS5sHe0sb456zjEw7cQsrs0W6/JmpSTxRQ6N6UrSJU
+ AUkb7dxGDDDx+k5ZgmIRFW0TnxfwnBQbiJBYrXSPQny28+3lgQEWgXSN8AGE4cuB9MzdnPo8ura jtDQQXfb+Vlto8A==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250514_035712_988991_C83C79A4 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,57 +121,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/05/2025 10:11, Darren.Ye wrote:
-> From: Darren Ye <darren.ye@mediatek.com>
-> 
-> Add mt8196 audio AFE document.
+"mediatek,clk-provider" property is a string, not an string array, thus
+"items" is not really correct.
 
-A nit, subject: drop second/last, redundant "document".
-See also:
-https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ .../devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml  | 7 +++----
+ .../bindings/sound/mt8186-mt6366-da7219-max98357.yaml      | 7 +++----
+ 2 files changed, 6 insertions(+), 8 deletions(-)
 
-> 
-> Signed-off-by: Darren Ye <darren.ye@mediatek.com>
+diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
+index 76d5a437dc8f..7ba2ea2dfa0b 100644
+--- a/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
++++ b/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
+@@ -96,10 +96,9 @@ patternProperties:
+       mediatek,clk-provider:
+         $ref: /schemas/types.yaml#/definitions/string
+         description: Indicates dai-link clock master.
+-        items:
+-          enum:
+-            - cpu
+-            - codec
++        enum:
++          - cpu
++          - codec
+ 
+     additionalProperties: false
+ 
+diff --git a/Documentation/devicetree/bindings/sound/mt8186-mt6366-da7219-max98357.yaml b/Documentation/devicetree/bindings/sound/mt8186-mt6366-da7219-max98357.yaml
+index cbc641ecbe94..037f21443ad1 100644
+--- a/Documentation/devicetree/bindings/sound/mt8186-mt6366-da7219-max98357.yaml
++++ b/Documentation/devicetree/bindings/sound/mt8186-mt6366-da7219-max98357.yaml
+@@ -124,10 +124,9 @@ patternProperties:
+       mediatek,clk-provider:
+         $ref: /schemas/types.yaml#/definitions/string
+         description: Indicates dai-link clock master.
+-        items:
+-          enum:
+-            - cpu
+-            - codec
++        enum:
++          - cpu
++          - codec
+ 
+     required:
+       - link-name
+-- 
+2.45.2
 
-
-...
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - mediatek,vlpcksys
-> +  - power-domains
-> +  - memory-region
-> +  - clocks
-> +  - clock-names
-
-
-Keep the same order as in properties:.
-
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-<form letter>
-This is an automated instruction, just in case, because many review tags
-are being ignored. If you know the process, you can skip it (please do
-not feel offended by me posting it here - no bad intentions intended).
-If you do not know the process, here is a short explanation:
-
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
-of patchset, under or above your Signed-off-by tag, unless patch changed
-significantly (e.g. new properties added to the DT bindings). Tag is
-"received", when provided in a message replied to you on the mailing
-list. Tools like b4 can help here. However, there's no need to repost
-patches *only* to add the tags. The upstream maintainer will do that for
-tags received on the version they apply.
-
-Full context and explanation:
-https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
-</form letter>
-
-
-Best regards,
-Krzysztof
 
