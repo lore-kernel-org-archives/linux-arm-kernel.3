@@ -4,85 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A97C3ABDE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 12:18:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3599DC3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 12:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=99SNtvnMFqK7qNsbPspBqDAiBIpPQhzr7yAu4VDBnp8=; b=D96VniHH+1JD46WgpRM8gL3jUm
-	3VM9sC4Y2edZeTBzw039JJxApZHtDOwuOq9IcRzBSr3XRbjbpo5Px3PTXS/qIFGRj3zEPTWg15V2O
-	Ix58vqMLveam8XXiob0YLG2QB1cCRD3LvrvvCnet4ZCoChQz48I/UE3uVAMkA1y5iLSjhd6xRI/Ny
-	P1l1g5dIbridJ9IXa0qz1561xLnkiLau8bm8up6V9Qrmn98taraF3y9chqxzJXlDXsfpKRqYN14Oy
-	4Yd4irj8jgXtafXmlQaECnhJS2JOLeQOWPKTUo/Ya2UlickxDjHmFv6IZNpUgzFqtx5BTG5Mofx5C
-	69HIJnLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+Wfij9hA7R0rNms9sfnvDpMM7XnUiN9P47Th3VdFtLI=; b=r3lx9xQ3g+RsaSEzsUTvY0iK3B
+	rSR9GQtz1TIe0g17VNK/fnVr6aZC5nYb2r0SG/L9EJAr3n/JJfdSvIv3loKtSQ+KA3UKiJCAiWl/t
+	ryyCgoAIPMa+97d5d0f/N48eW84/d5a1dO3FEBlsZB2LKyJUIpqkmaDRPwYecvjKW0xH+OEHX/cvA
+	HJXkSDO8H5uu0Se5ns527veYNLthUmdX8ZOz52gxPufFM9pQGbNQkU7SSBvjkk0LvjOKg0GNVT2Mf
+	uzUuQ4ep+SBV6ep8p57JDm0KMEAWrtj2tsj3R8Aeym2G7RbB/lVHngytHFI0y3b4nF9DXNnvxBre7
+	LMj33L6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFB3p-0000000F0D6-0PCL;
-	Wed, 14 May 2025 12:18:09 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uFB3v-0000000F0NK-45Tk;
+	Wed, 14 May 2025 12:18:15 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF8Im-0000000EeBZ-03Tm
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 09:21:25 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54E7w8pW023322;
-	Wed, 14 May 2025 11:21:09 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	99SNtvnMFqK7qNsbPspBqDAiBIpPQhzr7yAu4VDBnp8=; b=BlZjdebhX5jqrVHb
-	VNH2gIrtZp6/CWej+WSDKFR8rDQ/+uw/hmRiSrnBfECN+47hpxo4YaaS5t/TnK7O
-	0dWSgI+8FYvFnupDGloJSq9XFifgbfTc1R3iId7GlPX08pjIs9Au7DOr0DVKrttF
-	xsV0jYCm+GQ9sHA+2pabxuu7h4hMnNhtA8zjyEnwBF9bSilF8nX++g1lxbb1wx57
-	gyDf2C5wUy5T1CCaL4A3VV+0tuOtgRhCcAh+9btinErWgKzZtI6HFlYSM56AEf7B
-	/GtE4k2R+qki+BrZZa74TluH+KWSxSXo3eigYMx/9jujnpDHOUQXM3l9LjLhg2Pn
-	Rz99MA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46mbds2s3n-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 14 May 2025 11:21:09 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 7B8AE40047;
-	Wed, 14 May 2025 11:19:37 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0F5A0B48E9E;
-	Wed, 14 May 2025 11:18:20 +0200 (CEST)
-Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 14 May
- 2025 11:18:19 +0200
-From: Christian Bruel <christian.bruel@foss.st.com>
-To: <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>, <kw@linux.com>,
-        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-        <p.zabel@pengutronix.de>, <thippeswamy.havalige@amd.com>,
-        <shradha.t@samsung.com>, <quic_schintav@quicinc.com>,
-        <cassel@kernel.org>, <johan+linaro@kernel.org>
-CC: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v9 9/9] arm64: dts: st: Enable PCIe on the stm32mp257f-ev1 board
-Date: Wed, 14 May 2025 11:15:30 +0200
-Message-ID: <20250514091530.3249364-10-christian.bruel@foss.st.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250514091530.3249364-1-christian.bruel@foss.st.com>
-References: <20250514091530.3249364-1-christian.bruel@foss.st.com>
+	id 1uF8KT-0000000Eebp-27S0;
+	Wed, 14 May 2025 09:23:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1747214588;
+	bh=3oP+sXzBifYxFBF4SGDb4wLTHsf6AsJAT8aubEwsuoA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=U0+11kFAAisqULu24JiHete1De9FBeai9DmTfPutCACRxV7aKFLfHmCANafkDbErB
+	 Cy90YyA3RZEAaxxo3C/a1hETf3dhlZN6PKV9uWq6Bx91i5DyQqDckv8mvMKjTi1r7e
+	 gBBIdrEWJ+Y8+S/kfTViqOESpwNl4SbhDkfwWwtRoP9IJaJercKP5NnW0T5D9RT6gY
+	 eUPK8e7RzN8g6yK1SN23ovcJLYPijfDrVvlN8/eHsF0oHOQjx3SXSzo87siXKe70D7
+	 onm0DDGSnv6VN0yDjDeEdCiWufoo6/gm2V8Kng9MsXgXjHAI9qF/CUblqJmmjmsqrW
+	 9FMv0Pp1EF4jA==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7AF1D17E07F2;
+	Wed, 14 May 2025 11:23:07 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: robh@kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Chun-Kuang Hu <chunkuang.hu@mediatek.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v2 2/3] dt-bindings: media: mediatek: mdp3: Add compatibles for MT8188 MDP3
+Date: Wed, 14 May 2025 11:22:58 +0200
+Message-ID: <20250514092259.47035-2-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250514092259.47035-1-angelogioacchino.delregno@collabora.com>
+References: <20250514092259.47035-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-14_03,2025-05-14_02,2025-02-21_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_022124_328436_0DC9E5F4 
-X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-CacheID: sfid-20250514_022309_689721_3A5F3B71 
+X-CRM114-Status: UNSURE (   9.17  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,47 +80,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add PCIe RC and EP support on stm32mp257f-ev1 board.
-Default to RC mode.
+Add compatible strings for the FG, HDR, RSZ, STITCH, TCC, TDSHP
+and WROT hardware components found in MediaTek's MT8188 SoC.
 
-Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+This hardware is compatible with MT8195.
+
+Acked-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- arch/arm64/boot/dts/st/stm32mp257f-ev1.dts | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ .../devicetree/bindings/media/mediatek,mdp3-fg.yaml       | 8 ++++++--
+ .../devicetree/bindings/media/mediatek,mdp3-hdr.yaml      | 8 ++++++--
+ .../devicetree/bindings/media/mediatek,mdp3-rsz.yaml      | 1 +
+ .../devicetree/bindings/media/mediatek,mdp3-stitch.yaml   | 8 ++++++--
+ .../devicetree/bindings/media/mediatek,mdp3-tcc.yaml      | 8 ++++++--
+ .../devicetree/bindings/media/mediatek,mdp3-tdshp.yaml    | 8 ++++++--
+ .../devicetree/bindings/media/mediatek,mdp3-wrot.yaml     | 1 +
+ 7 files changed, 32 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-index 9d1a1155e36c..85f99a1ca154 100644
---- a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-@@ -257,6 +257,27 @@ scmi_vdd_sdcard: regulator@23 {
- 	};
- };
+diff --git a/Documentation/devicetree/bindings/media/mediatek,mdp3-fg.yaml b/Documentation/devicetree/bindings/media/mediatek,mdp3-fg.yaml
+index 03f31b009085..40fda59fa8a8 100644
+--- a/Documentation/devicetree/bindings/media/mediatek,mdp3-fg.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek,mdp3-fg.yaml
+@@ -16,8 +16,12 @@ description:
  
-+&pcie_ep {
-+	pinctrl-names = "default", "init";
-+	pinctrl-0 = <&pcie_pins_a>;
-+	pinctrl-1 = <&pcie_init_pins_a>;
-+	reset-gpios = <&gpioj 8 GPIO_ACTIVE_LOW>;
-+	status = "disabled";
-+};
-+
-+&pcie_rc {
-+	pinctrl-names = "default", "init", "sleep";
-+	pinctrl-0 = <&pcie_pins_a>;
-+	pinctrl-1 = <&pcie_init_pins_a>;
-+	pinctrl-2 = <&pcie_sleep_pins_a>;
-+	status = "okay";
-+
-+	pcie@0,0 {
-+		 reset-gpios = <&gpioj 8 GPIO_ACTIVE_LOW>;
-+		 wake-gpios = <&gpioh 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-+	};
-+};
-+
- &sdmmc1 {
- 	pinctrl-names = "default", "opendrain", "sleep";
- 	pinctrl-0 = <&sdmmc1_b4_pins_a>;
+ properties:
+   compatible:
+-    enum:
+-      - mediatek,mt8195-mdp3-fg
++    oneOf:
++      - enum:
++          - mediatek,mt8195-mdp3-fg
++      - items:
++          - const: mediatek,mt8188-mdp3-fg
++          - const: mediatek,mt8195-mdp3-fg
+ 
+   reg:
+     maxItems: 1
+diff --git a/Documentation/devicetree/bindings/media/mediatek,mdp3-hdr.yaml b/Documentation/devicetree/bindings/media/mediatek,mdp3-hdr.yaml
+index d4609bba6578..d9f926c20220 100644
+--- a/Documentation/devicetree/bindings/media/mediatek,mdp3-hdr.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek,mdp3-hdr.yaml
+@@ -16,8 +16,12 @@ description:
+ 
+ properties:
+   compatible:
+-    enum:
+-      - mediatek,mt8195-mdp3-hdr
++    oneOf:
++      - enum:
++          - mediatek,mt8195-mdp3-hdr
++      - items:
++          - const: mediatek,mt8188-mdp3-hdr
++          - const: mediatek,mt8195-mdp3-hdr
+ 
+   reg:
+     maxItems: 1
+diff --git a/Documentation/devicetree/bindings/media/mediatek,mdp3-rsz.yaml b/Documentation/devicetree/bindings/media/mediatek,mdp3-rsz.yaml
+index f5676bec4326..8124c39d73e9 100644
+--- a/Documentation/devicetree/bindings/media/mediatek,mdp3-rsz.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek,mdp3-rsz.yaml
+@@ -20,6 +20,7 @@ properties:
+           - mediatek,mt8183-mdp3-rsz
+       - items:
+           - enum:
++              - mediatek,mt8188-mdp3-rsz
+               - mediatek,mt8195-mdp3-rsz
+           - const: mediatek,mt8183-mdp3-rsz
+ 
+diff --git a/Documentation/devicetree/bindings/media/mediatek,mdp3-stitch.yaml b/Documentation/devicetree/bindings/media/mediatek,mdp3-stitch.yaml
+index d815bea29154..1d8e7e202c42 100644
+--- a/Documentation/devicetree/bindings/media/mediatek,mdp3-stitch.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek,mdp3-stitch.yaml
+@@ -16,8 +16,12 @@ description:
+ 
+ properties:
+   compatible:
+-    enum:
+-      - mediatek,mt8195-mdp3-stitch
++    oneOf:
++      - enum:
++          - mediatek,mt8195-mdp3-stitch
++      - items:
++          - const: mediatek,mt8188-mdp3-stitch
++          - const: mediatek,mt8195-mdp3-stitch
+ 
+   reg:
+     maxItems: 1
+diff --git a/Documentation/devicetree/bindings/media/mediatek,mdp3-tcc.yaml b/Documentation/devicetree/bindings/media/mediatek,mdp3-tcc.yaml
+index 14ea556d4f82..6cff7c073ce4 100644
+--- a/Documentation/devicetree/bindings/media/mediatek,mdp3-tcc.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek,mdp3-tcc.yaml
+@@ -17,8 +17,12 @@ description:
+ 
+ properties:
+   compatible:
+-    enum:
+-      - mediatek,mt8195-mdp3-tcc
++    oneOf:
++      - enum:
++          - mediatek,mt8195-mdp3-tcc
++      - items:
++          - const: mediatek,mt8188-mdp3-tcc
++          - const: mediatek,mt8195-mdp3-tcc
+ 
+   reg:
+     maxItems: 1
+diff --git a/Documentation/devicetree/bindings/media/mediatek,mdp3-tdshp.yaml b/Documentation/devicetree/bindings/media/mediatek,mdp3-tdshp.yaml
+index 8ab7f2d8e148..cdfa27324738 100644
+--- a/Documentation/devicetree/bindings/media/mediatek,mdp3-tdshp.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek,mdp3-tdshp.yaml
+@@ -16,8 +16,12 @@ description:
+ 
+ properties:
+   compatible:
+-    enum:
+-      - mediatek,mt8195-mdp3-tdshp
++    oneOf:
++      - enum:
++          - mediatek,mt8195-mdp3-tdshp
++      - items:
++          - const: mediatek,mt8188-mdp3-tdshp
++          - const: mediatek,mt8195-mdp3-tdshp
+ 
+   reg:
+     maxItems: 1
+diff --git a/Documentation/devicetree/bindings/media/mediatek,mdp3-wrot.yaml b/Documentation/devicetree/bindings/media/mediatek,mdp3-wrot.yaml
+index 53a679338402..b6269f4f9fd6 100644
+--- a/Documentation/devicetree/bindings/media/mediatek,mdp3-wrot.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek,mdp3-wrot.yaml
+@@ -20,6 +20,7 @@ properties:
+           - mediatek,mt8183-mdp3-wrot
+       - items:
+           - enum:
++              - mediatek,mt8188-mdp3-wrot
+               - mediatek,mt8195-mdp3-wrot
+           - const: mediatek,mt8183-mdp3-wrot
+ 
 -- 
-2.34.1
+2.49.0
 
 
