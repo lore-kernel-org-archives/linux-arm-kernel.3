@@ -4,99 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E7DDC54756
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 18:34:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 647E0C3ABDA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 18:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AOckZ8P9OykpU46zTLvu6zDFwY48KuX591SKzhfoGSE=; b=TFaXq+DrglyRuqwnWpmD4Z9lwU
-	YV6sH28dK1QXekAstek1YS2IVvO0n+RoK5c1qUvHXkPi5SU3eXSFbLoxC7eUa13iwjBFdBYsrGNR5
-	XPHbJnUAXHLw3BcTIhG8B9rW8BN76mYzIp64d6G/YzvXT4n/c5NG/4aP4k6Nea1bYPbMTKkYecvBF
-	puSYDnj9314phQauF8qwurZoFqgVHTC4z94njf4oWH20pK4eYJkLcotwpUOH6may4IIZHpYjel/lm
-	PXkkHTeMAsEu2bn2lPBNj3opbnI93SK9IN/w79GZ/VHALJqYqujBF/9SeNCXqY2JnjKNkg9G9AVn3
-	BFqJ6mXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tTRZYELUxikHuZrnr6hjy5+oWoL6AQWZaZWVaCTTMUs=; b=pR0/RtInKdS3EUeOCEPgXIhkqO
+	Ly9FrBMmJhasNGM8sM0iLdkM3y2BoKHrnGi4IfgDZi04zHmhmeTg781lf8phr1cMCQciIWMqMCoFs
+	V1Vk09GKaRPqQ3ozGPHkyxYB6cGc3QZEyTnDQ6WLdHdBZrQj4u6MtzlL5BciG/Cu0CvdN4+Ko+gCb
+	SiqxJ/4mh2GcWAnE9iMIo9fkoe/fzTRP1Luy8mmflo5bz8LhaKX325oaUIk1UWqlsvDZki68hZ8Gg
+	zFNX0BKy1NIQd6GZHeE7O1dpI639E7ue46kVTydfSfcUAzKR9YfDj3vmrV3e6pFR52EcH8msSiHWk
+	eoIbe17w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFGvJ-0000000G1si-0XBB;
-	Wed, 14 May 2025 18:33:45 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1uFGvL-0000000G1tG-1CEq;
+	Wed, 14 May 2025 18:33:47 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFF4S-0000000Flqg-1h6I
+	id 1uFFVf-0000000Fp3Y-2ewh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 16:35:05 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3a0b9af89f2so4263060f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 09:35:04 -0700 (PDT)
+	Wed, 14 May 2025 17:03:13 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-30ac24ede15so122800a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 10:03:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747240503; x=1747845303; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=AOckZ8P9OykpU46zTLvu6zDFwY48KuX591SKzhfoGSE=;
-        b=Joh321GTET8F4rZPbzBvkud1hxuvEnNVWys2l1ZiWUMU7P/2nRsnVTEFgcxg3q507I
-         BoPc8dnxx9FF5uZnirXj8EL3psA/CL/9/9sVRVdeyWXJHBlU7vmp1N4Zp2F9+mhoN0wH
-         CKk2rIu7UhEA89rEQO0NaSz6vTmKqryxsFGmIauLPh+DDnOJzYMfyoy5cMc0tehahsRW
-         GKm/Y3Y8cJLCJithdBapDPrb+2Q8tIPcbCBibkkMgNeulS/lXqwt1MDbKZ+htk5ZpPUy
-         ZeMCg/4zx1eGu2jZ6x44QAolbJ8c8k3agxlmEFjSxuzD9fmpuRJBOWmQHZbQ4jFrtKWL
-         eT7A==
+        d=gmail.com; s=20230601; t=1747242190; x=1747846990; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tTRZYELUxikHuZrnr6hjy5+oWoL6AQWZaZWVaCTTMUs=;
+        b=RlucaG9NFewoIyEm8dVaO3FpJMRMaTgnD5SDUshJ70D4L61JzE3nQ9r6KydGB8JSBI
+         RTaSs7335Qcr8rELPdNYaqjPOnwkbAU7+vAdVvV0ruF3evNG4ThRQcXRia03vqMdi4rx
+         K9egkrF+mSFGTGzO+uZObOZbh0sgjIlAvhJ5562I4SrfcxLOwFq6K2vp2uWN+R7Kzr2U
+         /ZWnopuy7wVafUR9ZyEfl1NU5HLIJhhiFq1UhC+lH59d8jDqU2x4vslKg/hygk9W3wDp
+         F6WzwZJpcolZ2GYLgkRGFOVi8aWqAn9sR1YI+bD2MyOJvEryKYoqGyv43fBiqKRRUqvT
+         lFfg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747240503; x=1747845303;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=AOckZ8P9OykpU46zTLvu6zDFwY48KuX591SKzhfoGSE=;
-        b=dNV6lb+d74Rr8Dj0Lx05PC/HuJQZ+vJsEC1N+mjIP7x7Hm/HPrywK2vwENE3rszDYk
-         Grg4Y/+tcyvNLVzzx3NMfZXK8sye5fp2yXDu4HtdPVwM+UOF3BnFHrerP+XWgd1w6VR6
-         wf5umxM54Qa8BeSFtESwgloZapl+Eon6FENHuO3aJ2PD8+Wpu6gtXMtv/ieco44BmiS7
-         xydPdh94kcxf0R0EU0gymk50W+Rk7Hhx+ZOna6WgNPURRwUDSIFEEtbVb4+qKfaQupxf
-         0L0ovgNKIauSpHiZWjrM/QqmHv1nVC6YlqMVtz//SgDYOOZi+9xoBjiChFv+HcxwDgXS
-         LVnA==
-X-Forwarded-Encrypted: i=1; AJvYcCXqVS2+YmcD3H6QT8aLiLjX4L3DhSNAY582Qy/N5k3EqIGk/fzQL3zI1JY2rhb43BQqzTNtZUpzXlODOrr80bJZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMjOZJq/7GJOy2biY9QIg8QIB2MPm2chheNgOotatgwKstD5gz
-	klrtsFcQrPFK8ghhSzhyo3JRLXxa7rkro971Z3oZ614FKQO/bAbdkSysxI9w7g==
-X-Gm-Gg: ASbGncv48dORGbakQJy56HuKNPVOwlGuOwdgqZGwJ3ygvN3zUZBQy5ohER3JTye36yZ
-	vcPfEBHHyOlA44bRDfF3abAv2aGtiPetEsovkyjwN4gQ++T7Xna1ZaR8vdKs2rp4MzVCUsWVu6W
-	PawochuJG/PUpEs/0PP9opYjIqBHZHVa3f5s920bfVuXJopX0M9l99jgP895O9bGF+gVO1W0ZJs
-	09wc+0zZYV0XJeBkrrloVK0C8HLrjluV5d3jiN4YNbOATa5lpKNR3uVpMFVDEe2VzvYINibcZnu
-	prHZjSkBRuX7HtYWfFQ3KPWLk7zMeIrJKQkezGV1FwsX8ecu6rnJiLsqbF6SRR6l4945+ggqGTp
-	g0QkQPjRsISsb3A==
-X-Google-Smtp-Source: AGHT+IGj3+htGnEIyMivpivIivCnjfIy6Tideg6ovbKdF3ZUejVVtTS1+sX05zRZKNfgj9Ou9ozS3A==
-X-Received: by 2002:a05:6000:1848:b0:3a0:b4f1:8bb8 with SMTP id ffacd0b85a97d-3a3496c38b8mr3799664f8f.34.1747240502599;
-        Wed, 14 May 2025 09:35:02 -0700 (PDT)
-Received: from thinkpad (112.8.30.213.rev.vodafone.pt. [213.30.8.112])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f5a2d2d3sm20577369f8f.63.2025.05.14.09.35.01
+        d=1e100.net; s=20230601; t=1747242190; x=1747846990;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tTRZYELUxikHuZrnr6hjy5+oWoL6AQWZaZWVaCTTMUs=;
+        b=bnVcdoWsovUPBlZKaDS3Im9oH2aChwfuBl3T5+PxFCppnpFs7dpU3NCenaqZnJ9HgS
+         jYaCckC/dvmP9SJ13DEEBHgzFa9Ig0V/mSA3T93a96BjtOAGNsTP3QtUxFpbB9qBvVeq
+         hGlrm5483LveVTN05lx2US0B7k1P7lN72pDYmma2eNz/aRPWY3VqVa3yd8SYJI4rUatM
+         eSOdcV02o9Ed15YD05jIb6iWecEi5jH73u9vGdYeZroLf1Kox1/rw8UnGThsHd/eDrjD
+         8X73B2bM6tBrep4Z8po/1qbuhtVvSyMpf429fzFOOsIi55NpK4NJwC4yxl/8Lw/O8Ksg
+         0P/w==
+X-Forwarded-Encrypted: i=1; AJvYcCWJGGjXnSXolN7VBVHwhEGtIUj5jEh1YBsaTSxztVso692QQ7VzAmSoN/WOm9gq5wlXuZqidPhuuxItFirl1QWK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwendyNPBEGAkbVUHj6F707KULnEoSLEmP2IVPTA31+IRKIvhAC
+	B0rQLTMNslTt5RfEdeL8AJW1rKlXNpW3ahOJM2V+KUhL0xFLlOUd
+X-Gm-Gg: ASbGncs9YSJO8/Sr9tRHQG/VmgX1slAZzchs3r9dDes/hiKq0+1K590SLEvkMb6J4ex
+	QaQa+LEy+ltAY2P1zJC/c4ThL8LZHQruQFWUNsRJR0lS4SMBR80/x2jLdqHdCEcGcGUzA7rKpNm
+	NY/gtjxGRvkcL48bvBzznh4UvhBCfqHZJR2Cbfl31NowSUqobIBgesJtaBtOacRpLYIJhKgkknz
+	RLvaxOoIJYJkDqwSISWq0R7JUalTzhoqcB+ZwwScB+WUqo6YIyX6XzNTyZAshfaEKQJWzDDEiKN
+	dKej3hi0MDX+MEZsd275G/Xq4jj5rSJY08LUZYTSR82ZLVe1u6eypiYVfn8JhWy7YU8WxGaQtR5
+	NS8phYKJMTf2j6lqBQGaSFgNqQw==
+X-Google-Smtp-Source: AGHT+IG+/kVgSThsJVSjiF3uCAxUrBjb1zbLg+VbmolSv8I7lQK3Z+fmpPdwjzXJNN06J8fdXZzhsg==
+X-Received: by 2002:a17:90b:51c5:b0:2fe:a79e:f56f with SMTP id 98e67ed59e1d1-30e2e5bb68cmr7472695a91.13.1747242190032;
+        Wed, 14 May 2025 10:03:10 -0700 (PDT)
+Received: from localhost ([2a00:79e0:3e00:2601:3afc:446b:f0df:eadc])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2350ddbafdsm7966273a12.53.2025.05.14.10.03.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 May 2025 09:35:02 -0700 (PDT)
-Date: Wed, 14 May 2025 17:35:00 +0100
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Cc: Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
-	Oliver O'Halloran <oohall@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
-	Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>, 
-	Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Marc Zyngier <maz@kernel.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
-	dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>, 
-	linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 5/5] PCI: qcom: Add support for resetting the slot due
- to link down event
-Message-ID: <sotge26h35mcijcu3eqkbf7aimkwnxzhbgltoz74nfnefc7fjd@xct54hpv5ane>
-References: <20250508-pcie-reset-slot-v4-0-7050093e2b50@linaro.org>
- <20250508-pcie-reset-slot-v4-5-7050093e2b50@linaro.org>
- <1b4b7ee5-1d7e-573c-0647-44aad654354a@oss.qualcomm.com>
+        Wed, 14 May 2025 10:03:09 -0700 (PDT)
+From: Rob Clark <robdclark@gmail.com>
+To: dri-devel@lists.freedesktop.org
+Cc: freedreno@lists.freedesktop.org,
+	linux-arm-msm@vger.kernel.org,
+	Connor Abbott <cwabbott0@gmail.com>,
+	Rob Clark <robdclark@chromium.org>,
+	Abhinav Kumar <quic_abhinavk@quicinc.com>,
+	=?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	=?UTF-8?q?Barnab=C3=A1s=20Cz=C3=A9m=C3=A1n?= <barnabas.czeman@mainlining.org>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <ckoenig.leichtzumerken@gmail.com>,
+	Christopher Snowhill <chris@kode54.net>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Eugene Lepshy <fekz115@gmail.com>,
+	iommu@lists.linux.dev (open list:IOMMU SUBSYSTEM),
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Jessica Zhang <quic_jesszhan@quicinc.com>,
+	Joao Martins <joao.m.martins@oracle.com>,
+	Jonathan Marek <jonathan@marek.ca>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	linaro-mm-sig@lists.linaro.org (moderated list:DMA BUFFER SHARING FRAMEWORK:Keyword:\bdma_(?:buf|fence|resv)\b),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM SMMU DRIVERS),
+	linux-kernel@vger.kernel.org (open list),
+	linux-media@vger.kernel.org (open list:DMA BUFFER SHARING FRAMEWORK:Keyword:\bdma_(?:buf|fence|resv)\b),
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Sean Paul <sean@poorly.run>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH v4 00/40] drm/msm: sparse / "VM_BIND" support
+Date: Wed, 14 May 2025 09:58:59 -0700
+Message-ID: <20250514170118.40555-1-robdclark@gmail.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <1b4b7ee5-1d7e-573c-0647-44aad654354a@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_093504_466294_E31E7E10 
-X-CRM114-Status: GOOD (  40.00  )
+X-CRM114-CacheID: sfid-20250514_100311_678946_E47397E9 
+X-CRM114-Status: GOOD (  21.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,183 +123,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 14, 2025 at 11:52:13AM +0530, Krishna Chaitanya Chundru wrote:
-> 
-> 
-> On 5/8/2025 12:40 PM, Manivannan Sadhasivam wrote:
-> > The PCIe link can go down under circumstances such as the device firmware
-> > crash, link instability, etc... When that happens, the PCIe slot needs to
-> > be reset to make it operational again. Currently, the driver is not
-> > handling the link down event, due to which the users have to restart the
-> > machine to make PCIe link operational again. So fix it by detecting the
-> > link down event and resetting the slot.
-> > 
-> > Since the Qcom PCIe controllers report the link down event through the
-> > 'global' IRQ, enable the link down event by setting PARF_INT_ALL_LINK_DOWN
-> > bit in PARF_INT_ALL_MASK register.
-> > 
-> > Then in the case of the event, call pci_host_handle_link_down() API
-> > in the handler to let the PCI core handle the link down condition. Note
-> > that both link up and link down events could be set at a time when the
-> > handler runs. So always handle link down first.
-> > 
-> > The API will internally call, 'pci_host_bridge::reset_slot()' callback to
-> > reset the slot in a platform specific way. So implement the callback to
-> > reset the slot by first resetting the PCIe core, followed by reinitializing
-> > the resources and then finally starting the link again.
-> > 
-> Only one comment see below.
-> > Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> Reviewed-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> > ---
-> >   drivers/pci/controller/dwc/Kconfig     |   1 +
-> >   drivers/pci/controller/dwc/pcie-qcom.c | 112 ++++++++++++++++++++++++++++++---
-> >   2 files changed, 105 insertions(+), 8 deletions(-)
-> > 
-> > diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-> > index d9f0386396edf66ad0e514a0f545ed24d89fcb6c..ce04ee6fbd99cbcce5d2f3a75ebd72a17070b7b7 100644
-> > --- a/drivers/pci/controller/dwc/Kconfig
-> > +++ b/drivers/pci/controller/dwc/Kconfig
-> > @@ -296,6 +296,7 @@ config PCIE_QCOM
-> >   	select PCIE_DW_HOST
-> >   	select CRC8
-> >   	select PCIE_QCOM_COMMON
-> > +	select PCI_HOST_COMMON
-> >   	help
-> >   	  Say Y here to enable PCIe controller support on Qualcomm SoCs. The
-> >   	  PCIe controller uses the DesignWare core plus Qualcomm-specific
-> > diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-> > index dc98ae63362db0422384b1879a2b9a7dc564d091..e577619d0f8ceddf0955139ae6b939842f8cb7be 100644
-> > --- a/drivers/pci/controller/dwc/pcie-qcom.c
-> > +++ b/drivers/pci/controller/dwc/pcie-qcom.c
-> > @@ -34,6 +34,7 @@
-> >   #include <linux/units.h>
-> >   #include "../../pci.h"
-> > +#include "../pci-host-common.h"
-> >   #include "pcie-designware.h"
-> >   #include "pcie-qcom-common.h"
-> > @@ -55,6 +56,7 @@
-> >   #define PARF_INT_ALL_STATUS			0x224
-> >   #define PARF_INT_ALL_CLEAR			0x228
-> >   #define PARF_INT_ALL_MASK			0x22c
-> > +#define PARF_STATUS				0x230
-> >   #define PARF_SID_OFFSET				0x234
-> >   #define PARF_BDF_TRANSLATE_CFG			0x24c
-> >   #define PARF_DBI_BASE_ADDR_V2			0x350
-> > @@ -130,9 +132,14 @@
-> >   /* PARF_LTSSM register fields */
-> >   #define LTSSM_EN				BIT(8)
-> > +#define SW_CLEAR_FLUSH_MODE			BIT(10)
-> > +#define FLUSH_MODE				BIT(11)
-> >   /* PARF_INT_ALL_{STATUS/CLEAR/MASK} register fields */
-> > -#define PARF_INT_ALL_LINK_UP			BIT(13)
-> > +#define INT_ALL_LINK_DOWN			1
-> > +#define INT_ALL_LINK_UP				13
-> > +#define PARF_INT_ALL_LINK_DOWN			BIT(INT_ALL_LINK_DOWN)
-> > +#define PARF_INT_ALL_LINK_UP			BIT(INT_ALL_LINK_UP)
-> >   #define PARF_INT_MSI_DEV_0_7			GENMASK(30, 23)
-> >   /* PARF_NO_SNOOP_OVERRIDE register fields */
-> > @@ -145,6 +152,9 @@
-> >   /* PARF_BDF_TO_SID_CFG fields */
-> >   #define BDF_TO_SID_BYPASS			BIT(0)
-> > +/* PARF_STATUS fields */
-> > +#define FLUSH_COMPLETED				BIT(8)
-> > +
-> >   /* ELBI_SYS_CTRL register fields */
-> >   #define ELBI_SYS_CTRL_LT_ENABLE			BIT(0)
-> > @@ -169,6 +179,7 @@
-> >   						PCIE_CAP_SLOT_POWER_LIMIT_SCALE)
-> >   #define PERST_DELAY_US				1000
-> > +#define FLUSH_TIMEOUT_US			100
-> >   #define QCOM_PCIE_CRC8_POLYNOMIAL		(BIT(2) | BIT(1) | BIT(0))
-> > @@ -274,11 +285,14 @@ struct qcom_pcie {
-> >   	struct icc_path *icc_cpu;
-> >   	const struct qcom_pcie_cfg *cfg;
-> >   	struct dentry *debugfs;
-> > +	int global_irq;
-> >   	bool suspended;
-> >   	bool use_pm_opp;
-> >   };
-> >   #define to_qcom_pcie(x)		dev_get_drvdata((x)->dev)
-> > +static int qcom_pcie_reset_slot(struct pci_host_bridge *bridge,
-> > +				  struct pci_dev *pdev);
-> >   static void qcom_ep_reset_assert(struct qcom_pcie *pcie)
-> >   {
-> > @@ -1263,6 +1277,8 @@ static int qcom_pcie_host_init(struct dw_pcie_rp *pp)
-> >   			goto err_assert_reset;
-> >   	}
-> > +	pp->bridge->reset_slot = qcom_pcie_reset_slot;
-> > +
-> >   	return 0;
-> >   err_assert_reset:
-> > @@ -1517,6 +1533,74 @@ static void qcom_pcie_icc_opp_update(struct qcom_pcie *pcie)
-> >   	}
-> >   }
-> > +static int qcom_pcie_reset_slot(struct pci_host_bridge *bridge,
-> > +				  struct pci_dev *pdev)
-> > +{
-> > +	struct pci_bus *bus = bridge->bus;
-> > +	struct dw_pcie_rp *pp = bus->sysdata;
-> > +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> > +	struct qcom_pcie *pcie = to_qcom_pcie(pci);
-> > +	struct device *dev = pcie->pci->dev;
-> > +	u32 val;
-> > +	int ret;
-> > +
-> > +	/* Wait for the pending transactions to be completed */
-> > +	ret = readl_relaxed_poll_timeout(pcie->parf + PARF_STATUS, val,
-> > +					 val & FLUSH_COMPLETED, 10,
-> > +					 FLUSH_TIMEOUT_US);
-> > +	if (ret) {
-> > +		dev_err(dev, "Flush completion failed: %d\n", ret);
-> > +		goto err_host_deinit;
-> > +	}
-> > +
-> > +	/* Clear the FLUSH_MODE to allow the core to be reset */
-> > +	val = readl(pcie->parf + PARF_LTSSM);
-> > +	val |= SW_CLEAR_FLUSH_MODE;
-> > +	writel(val, pcie->parf + PARF_LTSSM);
-> > +
-> > +	/* Wait for the FLUSH_MODE to clear */
-> > +	ret = readl_relaxed_poll_timeout(pcie->parf + PARF_LTSSM, val,
-> > +					 !(val & FLUSH_MODE), 10,
-> > +					 FLUSH_TIMEOUT_US);
-> > +	if (ret) {
-> > +		dev_err(dev, "Flush mode clear failed: %d\n", ret);
-> > +		goto err_host_deinit;
-> > +	}
-> > +
-> > +	qcom_pcie_host_deinit(pp);
-> > +
-> > +	ret = qcom_pcie_host_init(pp);
-> > +	if (ret) {
-> > +		dev_err(dev, "Host init failed\n");
-> > +		return ret;
-> > +	}
-> > +
-> > +	ret = dw_pcie_setup_rc(pp);
-> > +	if (ret)
-> > +		goto err_host_deinit;
-> > +
-> > +	/*
-> > +	 * Re-enable global IRQ events as the PARF_INT_ALL_MASK register is
-> > +	 * non-sticky.
-> > +	 */
-> > +	if (pcie->global_irq)
-> > +		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_ALL_LINK_DOWN |
-> > +			       PARF_INT_MSI_DEV_0_7, pcie->parf + PARF_INT_ALL_MASK);
-> > +
-> > +	qcom_pcie_start_link(pci);
-> > +	if (!dw_pcie_wait_for_link(pci))
-> > +		qcom_pcie_icc_opp_update(pcie);
-> This icc opp update can we removed as this can updated from the global
-> IRQ.
+From: Rob Clark <robdclark@chromium.org>
 
-Right. I forgot to remove it after keeping link up IRQ change. Removed it while
-applying.
+Conversion to DRM GPU VA Manager[1], and adding support for Vulkan Sparse
+Memory[2] in the form of:
 
-- Mani
+1. A new VM_BIND submitqueue type for executing VM MSM_SUBMIT_BO_OP_MAP/
+   MAP_NULL/UNMAP commands
+
+2. A new VM_BIND ioctl to allow submitting batches of one or more
+   MAP/MAP_NULL/UNMAP commands to a VM_BIND submitqueue
+
+I did not implement support for synchronous VM_BIND commands.  Since
+userspace could just immediately wait for the `SUBMIT` to complete, I don't
+think we need this extra complexity in the kernel.  Synchronous/immediate
+VM_BIND operations could be implemented with a 2nd VM_BIND submitqueue.
+
+The corresponding mesa MR: https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/32533
+
+Changes in v4:
+- Various locking/etc fixes
+- Optimize the pgtable preallocation.  If userspace sorts the VM_BIND ops
+  then the kernel detects ops that fall into the same 2MB last level PTD
+  to avoid duplicate page preallocation.
+- Add way to throttle pushing jobs to the scheduler, to cap the amount of
+  potentially temporary prealloc'd pgtable pages.
+- Add vm_log to devcoredump for debugging.  If the vm_log_shift module
+  param is set, keep a log of the last 1<<vm_log_shift VM updates for
+  easier debugging of faults/crashes.
+- Link to v3: https://lore.kernel.org/all/20250428205619.227835-1-robdclark@gmail.com/
+
+Changes in v3:
+- Switched to seperate VM_BIND ioctl.  This makes the UABI a bit
+  cleaner, but OTOH the userspace code was cleaner when the end result
+  of either type of VkQueue lead to the same ioctl.  So I'm a bit on
+  the fence.
+- Switched to doing the gpuvm bookkeeping synchronously, and only
+  deferring the pgtable updates.  This avoids needing to hold any resv
+  locks in the fence signaling path, resolving the last shrinker related
+  lockdep complaints.  OTOH it means userspace can trigger invalid
+  pgtable updates with multiple VM_BIND queues.  In this case, we ensure
+  that unmaps happen completely (to prevent userspace from using this to
+  access free'd pages), mark the context as unusable, and move on with
+  life.
+- Link to v2: https://lore.kernel.org/all/20250319145425.51935-1-robdclark@gmail.com/
+
+Changes in v2:
+- Dropped Bibek Kumar Patro's arm-smmu patches[3], which have since been
+  merged.
+- Pre-allocate all the things, and drop HACK patch which disabled shrinker.
+  This includes ensuring that vm_bo objects are allocated up front, pre-
+  allocating VMA objects, and pre-allocating pages used for pgtable updates.
+  The latter utilizes io_pgtable_cfg callbacks for pgtable alloc/free, that
+  were initially added for panthor. 
+- Add back support for BO dumping for devcoredump.
+- Link to v1 (RFC): https://lore.kernel.org/dri-devel/20241207161651.410556-1-robdclark@gmail.com/T/#t
+
+[1] https://www.kernel.org/doc/html/next/gpu/drm-mm.html#drm-gpuvm
+[2] https://docs.vulkan.org/spec/latest/chapters/sparsemem.html
+[3] https://patchwork.kernel.org/project/linux-arm-kernel/list/?series=909700
+
+Rob Clark (40):
+  drm/gpuvm: Don't require obj lock in destructor path
+  drm/gpuvm: Allow VAs to hold soft reference to BOs
+  drm/gem: Add ww_acquire_ctx support to drm_gem_lru_scan()
+  drm/sched: Add enqueue credit limit
+  iommu/io-pgtable-arm: Add quirk to quiet WARN_ON()
+  drm/msm: Rename msm_file_private -> msm_context
+  drm/msm: Improve msm_context comments
+  drm/msm: Rename msm_gem_address_space -> msm_gem_vm
+  drm/msm: Remove vram carveout support
+  drm/msm: Collapse vma allocation and initialization
+  drm/msm: Collapse vma close and delete
+  drm/msm: Don't close VMAs on purge
+  drm/msm: drm_gpuvm conversion
+  drm/msm: Convert vm locking
+  drm/msm: Use drm_gpuvm types more
+  drm/msm: Split out helper to get iommu prot flags
+  drm/msm: Add mmu support for non-zero offset
+  drm/msm: Add PRR support
+  drm/msm: Rename msm_gem_vma_purge() -> _unmap()
+  drm/msm: Drop queued submits on lastclose()
+  drm/msm: Lazily create context VM
+  drm/msm: Add opt-in for VM_BIND
+  drm/msm: Mark VM as unusable on GPU hangs
+  drm/msm: Add _NO_SHARE flag
+  drm/msm: Crashdump prep for sparse mappings
+  drm/msm: rd dumping prep for sparse mappings
+  drm/msm: Crashdec support for sparse
+  drm/msm: rd dumping support for sparse
+  drm/msm: Extract out syncobj helpers
+  drm/msm: Use DMA_RESV_USAGE_BOOKKEEP/KERNEL
+  drm/msm: Add VM_BIND submitqueue
+  drm/msm: Support IO_PGTABLE_QUIRK_NO_WARN_ON
+  drm/msm: Support pgtable preallocation
+  drm/msm: Split out map/unmap ops
+  drm/msm: Add VM_BIND ioctl
+  drm/msm: Add VM logging for VM_BIND updates
+  drm/msm: Add VMA unmap reason
+  drm/msm: Add mmu prealloc tracepoint
+  drm/msm: use trylock for debugfs
+  drm/msm: Bump UAPI version
+
+ drivers/gpu/drm/drm_gem.c                     |   14 +-
+ drivers/gpu/drm/drm_gpuvm.c                   |   15 +-
+ drivers/gpu/drm/msm/Kconfig                   |    1 +
+ drivers/gpu/drm/msm/Makefile                  |    1 +
+ drivers/gpu/drm/msm/adreno/a2xx_gpu.c         |   25 +-
+ drivers/gpu/drm/msm/adreno/a2xx_gpummu.c      |    5 +-
+ drivers/gpu/drm/msm/adreno/a3xx_gpu.c         |   17 +-
+ drivers/gpu/drm/msm/adreno/a4xx_gpu.c         |   17 +-
+ drivers/gpu/drm/msm/adreno/a5xx_debugfs.c     |    4 +-
+ drivers/gpu/drm/msm/adreno/a5xx_gpu.c         |   22 +-
+ drivers/gpu/drm/msm/adreno/a5xx_power.c       |    2 +-
+ drivers/gpu/drm/msm/adreno/a5xx_preempt.c     |   10 +-
+ drivers/gpu/drm/msm/adreno/a6xx_gmu.c         |   32 +-
+ drivers/gpu/drm/msm/adreno/a6xx_gmu.h         |    2 +-
+ drivers/gpu/drm/msm/adreno/a6xx_gpu.c         |   49 +-
+ drivers/gpu/drm/msm/adreno/a6xx_gpu_state.c   |    6 +-
+ drivers/gpu/drm/msm/adreno/a6xx_preempt.c     |   10 +-
+ drivers/gpu/drm/msm/adreno/adreno_device.c    |    4 -
+ drivers/gpu/drm/msm/adreno/adreno_gpu.c       |   99 +-
+ drivers/gpu/drm/msm/adreno/adreno_gpu.h       |   23 +-
+ .../drm/msm/disp/dpu1/dpu_encoder_phys_wb.c   |   14 +-
+ drivers/gpu/drm/msm/disp/dpu1/dpu_formats.c   |   18 +-
+ drivers/gpu/drm/msm/disp/dpu1/dpu_formats.h   |    2 +-
+ drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c       |   18 +-
+ drivers/gpu/drm/msm/disp/dpu1/dpu_plane.c     |   14 +-
+ drivers/gpu/drm/msm/disp/dpu1/dpu_plane.h     |    4 +-
+ drivers/gpu/drm/msm/disp/mdp4/mdp4_crtc.c     |    6 +-
+ drivers/gpu/drm/msm/disp/mdp4/mdp4_kms.c      |   28 +-
+ drivers/gpu/drm/msm/disp/mdp4/mdp4_plane.c    |   12 +-
+ drivers/gpu/drm/msm/disp/mdp5/mdp5_crtc.c     |    4 +-
+ drivers/gpu/drm/msm/disp/mdp5/mdp5_kms.c      |   19 +-
+ drivers/gpu/drm/msm/disp/mdp5/mdp5_plane.c    |   12 +-
+ drivers/gpu/drm/msm/dsi/dsi_host.c            |   14 +-
+ drivers/gpu/drm/msm/msm_drv.c                 |  184 +--
+ drivers/gpu/drm/msm/msm_drv.h                 |   35 +-
+ drivers/gpu/drm/msm/msm_fb.c                  |   18 +-
+ drivers/gpu/drm/msm/msm_fbdev.c               |    2 +-
+ drivers/gpu/drm/msm/msm_gem.c                 |  494 +++---
+ drivers/gpu/drm/msm/msm_gem.h                 |  247 ++-
+ drivers/gpu/drm/msm/msm_gem_prime.c           |   15 +
+ drivers/gpu/drm/msm/msm_gem_shrinker.c        |  104 +-
+ drivers/gpu/drm/msm/msm_gem_submit.c          |  295 ++--
+ drivers/gpu/drm/msm/msm_gem_vma.c             | 1471 ++++++++++++++++-
+ drivers/gpu/drm/msm/msm_gpu.c                 |  214 ++-
+ drivers/gpu/drm/msm/msm_gpu.h                 |  144 +-
+ drivers/gpu/drm/msm/msm_gpu_trace.h           |   14 +
+ drivers/gpu/drm/msm/msm_iommu.c               |  302 +++-
+ drivers/gpu/drm/msm/msm_kms.c                 |   18 +-
+ drivers/gpu/drm/msm/msm_kms.h                 |    2 +-
+ drivers/gpu/drm/msm/msm_mmu.h                 |   38 +-
+ drivers/gpu/drm/msm/msm_rd.c                  |   62 +-
+ drivers/gpu/drm/msm/msm_ringbuffer.c          |   10 +-
+ drivers/gpu/drm/msm/msm_submitqueue.c         |   96 +-
+ drivers/gpu/drm/msm/msm_syncobj.c             |  172 ++
+ drivers/gpu/drm/msm/msm_syncobj.h             |   37 +
+ drivers/gpu/drm/scheduler/sched_entity.c      |   16 +-
+ drivers/gpu/drm/scheduler/sched_main.c        |    3 +
+ drivers/iommu/io-pgtable-arm.c                |   27 +-
+ include/drm/drm_gem.h                         |   10 +-
+ include/drm/drm_gpuvm.h                       |   12 +-
+ include/drm/gpu_scheduler.h                   |   13 +-
+ include/linux/io-pgtable.h                    |    8 +
+ include/uapi/drm/msm_drm.h                    |  149 +-
+ 63 files changed, 3484 insertions(+), 1251 deletions(-)
+ create mode 100644 drivers/gpu/drm/msm/msm_syncobj.c
+ create mode 100644 drivers/gpu/drm/msm/msm_syncobj.h
 
 -- 
-மணிவண்ணன் சதாசிவம்
+2.49.0
+
 
