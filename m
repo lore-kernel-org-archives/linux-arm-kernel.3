@@ -4,73 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5D5DC3DA4A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C98A9C54754
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 12:18:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vgwx1Wi1bjtud8Ity9kexboyQtg7d6Zl3hDxQTxL41s=; b=K7MdMf70xg3p459kL+IYNhNvsu
-	zpWxlBLpanI3Aye62ENkYs3lnGOFO9Mr5sRYmBKU2nQ5iBqiVNtqUsd+0dkSW/9pQ1B5QUl9uPcOR
-	Ta+RRlfGbsh0cC6ippQQTLIofN4gUIdTcyLhU6p0iKwjiaXrp8IsWZ9nX95SN6sMN5IabBRMD8S1U
-	4wCvLYYyW0W+qT0cS5pG278m0a6n5xd4KJBDApJEmhV1uuHbMKDdMLrohOvDm0VvRR/XVFQvSeGfT
-	WFqaQGnSO5ppngZcHJuPuTuPAj46oBxzzBsZ+5QDvxuxFWGrO+RaTbg0V8MdnF/BilqfGV2Tr2WCT
-	CCE2lqJA==;
+	bh=IzV24CKy9+GByv4nV3URGiNxMvyLfi5b2XJFt9IvXeI=; b=jC6ws9Trwea+//DlzLpwC7w4zn
+	yo5mIhi1RUh/PxC2tBqUdTLBz9uzdoJ27NBB4IDb9Eq33jgAZUteiKiFJzii9SvKaHQfPkGyMO45b
+	RDdhs4IZEO26yPW8qArJXNqzPtwO3nzd44NB4GnfkUoHnbLoq5Xux00s+9XsGSVFnt4jxLlty7m0b
+	Xe9CWyc82kS9TspdFIEVabgEA//oTDprmPJ0RUbIVcJlWgy/4wJuUn4Jmz8+CKXEX7zm5ARpKVs1r
+	l/uo2JOjbeYhWUJDudy6IXRSo/mb1C2G0FqNlx1ltEOzrCUozOqDdUFPSNBT0xsHBUTjVtTQtSK8y
+	/pmzOsrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFB3Z-0000000Ezw9-3NpK;
-	Wed, 14 May 2025 12:17:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uFB3g-0000000F02P-2iHv;
+	Wed, 14 May 2025 12:18:00 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF7qt-0000000EZeW-3vRp
+	id 1uF8Gn-0000000EddR-0A56
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 08:52:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A2D4B43923;
-	Wed, 14 May 2025 08:52:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4064C4CEE9;
-	Wed, 14 May 2025 08:52:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747212755;
-	bh=dFrSsSDv6HrvySvJEPFuOaEYOApN+I+8GqE8ME7PSIY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OQLWfLPIgAtN/UINC5qfLYZscirwfpKFmXpNlYP7OLGGeO1nsbs5mVonYezcTz8n/
-	 15mSHUKRfo5nM76Ok2O6QGJA+CWEli8QdoEUGm7alBbMGpSrS3nC3G7AamHe863njJ
-	 9drZ+71BFpEqI2cbAnT5IG+1q4Axbq52J5/TVG9Me9tzMWkJoK0XhHBhZ3UALB41kd
-	 J4Euc7d62Y+sVWkxH0XO2EK1oYNK6VL6mKAj+XTKxJhk2hodNz423ypmUIYyHcDIPf
-	 1ThHtUTOdr4u1dVYX5DIa3SIhSsqX/pPQEK6ew8+OFXVA9Lehcx2/EuZsfq9UW33Z7
-	 4+FaY1vAH01RQ==
-Date: Wed, 14 May 2025 10:52:31 +0200
-From: Mark Brown <broonie@kernel.org>
-To: Lee Jones <lee@kernel.org>
-Cc: Artur Weber <aweber.kernel@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Stanislav Jakubek <stano.jakubek@gmail.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	~postmarketos/upstreaming@lists.sr.ht
-Subject: Re: [PATCH v8 4/9] mfd: bcm590xx: Add support for multiple device
- types + BCM59054 compatible
-Message-ID: <aCRZzwW0w8oVWLUp@finisterre.sirena.org.uk>
-References: <20250430-bcm59054-v8-0-e4cf638169a4@gmail.com>
- <20250430-bcm59054-v8-4-e4cf638169a4@gmail.com>
- <20250509140957.GD2492385@google.com>
+	Wed, 14 May 2025 09:19:22 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54E7w6uK022085;
+	Wed, 14 May 2025 11:18:58 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	IzV24CKy9+GByv4nV3URGiNxMvyLfi5b2XJFt9IvXeI=; b=TSE6teBofQdjXXmD
+	tGtUZIJQ4ly4GUTKU7ArgJZoDi35G+7qK1o//rIt9duaDAU1F+WWlMLnVqHlNl8B
+	QgJNhyBRxh5xZ3R7owUBOWNpuT7ugZtxafCZsFgd+aSrGHaZvnGp4edfNFJCIAxb
+	CsK+32j4jgQCNvMiiHigTEH2bZz4dpqfYOiNrsWQQtzdWgX5G0CXoPYahhmL98IA
+	z9Eqt4OOYWOCLfBHYieCuZ3KThz8Fjw/kFj4s2fTmw7ZtPwMoCHk4avc45mcOBof
+	hIckvDxuElLovJsgn1ll8ZRp7ftIH4rMKu2r15MNTFE7eBV/qlrwU0C3qjSCgipa
+	a5SNbw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46mbdrau7g-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 14 May 2025 11:18:58 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C249340044;
+	Wed, 14 May 2025 11:17:26 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 65FDBB41E05;
+	Wed, 14 May 2025 11:16:26 +0200 (CEST)
+Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 14 May
+ 2025 11:16:26 +0200
+From: Christian Bruel <christian.bruel@foss.st.com>
+To: <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>, <kw@linux.com>,
+        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <p.zabel@pengutronix.de>, <thippeswamy.havalige@amd.com>,
+        <shradha.t@samsung.com>, <quic_schintav@quicinc.com>,
+        <cassel@kernel.org>, <johan+linaro@kernel.org>
+CC: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v9 1/9] dt-bindings: PCI: Add STM32MP25 PCIe Root Complex bindings
+Date: Wed, 14 May 2025 11:15:22 +0200
+Message-ID: <20250514091530.3249364-2-christian.bruel@foss.st.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250514091530.3249364-1-christian.bruel@foss.st.com>
+References: <20250514091530.3249364-1-christian.bruel@foss.st.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Gq8+2GgzFjfqwkiK"
-Content-Disposition: inline
-In-Reply-To: <20250509140957.GD2492385@google.com>
-X-Cookie: Well begun is half done.
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.130.77.120]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-14_03,2025-05-14_02,2025-02-21_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_015236_001903_9D13D409 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20250514_021921_379741_FCF641B5 
+X-CRM114-Status: GOOD (  14.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,38 +97,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Document the bindings for STM32MP25 PCIe Controller configured in
+root complex mode with one root port.
 
---Gq8+2GgzFjfqwkiK
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Supports 4 INTx and MSI interrupts from the ARM GICv2m controller.
 
-On Fri, May 09, 2025 at 03:09:57PM +0100, Lee Jones wrote:
-> On Wed, 30 Apr 2025, Artur Weber wrote:
+STM32 PCIe may be in a power domain which is the case for the STM32MP25
+based boards.
 
-> > ---
-> >  drivers/mfd/bcm590xx.c       | 12 +++++++++++-
-> >  include/linux/mfd/bcm590xx.h |  7 +++++++
-> >  2 files changed, 18 insertions(+), 1 deletion(-)
+Supports WAKE# from wake-gpios
 
-> I can't merge this until Mark has provided the Regulator Acks.
+Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+---
+ .../bindings/pci/st,stm32-pcie-common.yaml    |  33 ++++++
+ .../bindings/pci/st,stm32-pcie-host.yaml      | 112 ++++++++++++++++++
+ 2 files changed, 145 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
+ create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
 
-Could you be more explicit what you're looking for here, the diffstat is
-entirely MFD?
+diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
+new file mode 100644
+index 000000000000..5adbff259204
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
+@@ -0,0 +1,33 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pci/st,stm32-pcie-common.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: STM32MP25 PCIe RC/EP controller
++
++maintainers:
++  - Christian Bruel <christian.bruel@foss.st.com>
++
++description:
++  STM32MP25 PCIe RC/EP common properties
++
++properties:
++  clocks:
++    maxItems: 1
++    description: PCIe system clock
++
++  resets:
++    maxItems: 1
++
++  power-domains:
++    maxItems: 1
++
++  access-controllers:
++    maxItems: 1
++
++required:
++  - clocks
++  - resets
++
++additionalProperties: true
+diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
+new file mode 100644
+index 000000000000..443bfe2cdc98
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
+@@ -0,0 +1,112 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pci/st,stm32-pcie-host.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: STMicroelectronics STM32MP25 PCIe Root Complex
++
++maintainers:
++  - Christian Bruel <christian.bruel@foss.st.com>
++
++description:
++  PCIe root complex controller based on the Synopsys DesignWare PCIe core.
++
++allOf:
++  - $ref: /schemas/pci/snps,dw-pcie.yaml#
++  - $ref: /schemas/pci/st,stm32-pcie-common.yaml#
++
++properties:
++  compatible:
++    const: st,stm32mp25-pcie-rc
++
++  reg:
++    items:
++      - description: Data Bus Interface (DBI) registers.
++      - description: PCIe configuration registers.
++
++  reg-names:
++    items:
++      - const: dbi
++      - const: config
++
++  msi-parent:
++    maxItems: 1
++
++patternProperties:
++  '^pcie@[0-2],0$':
++    type: object
++    $ref: /schemas/pci/pci-pci-bridge.yaml#
++
++    properties:
++      reg:
++        maxItems: 1
++
++      phys:
++        maxItems: 1
++
++      reset-gpios:
++        description: GPIO controlled connection to PERST# signal
++        maxItems: 1
++
++      wake-gpios:
++        description: GPIO used as WAKE# input signal
++        maxItems: 1
++
++    required:
++      - phys
++      - ranges
++
++    unevaluatedProperties: false
++
++required:
++  - interrupt-map
++  - interrupt-map-mask
++  - ranges
++  - dma-ranges
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
++    #include <dt-bindings/gpio/gpio.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/phy/phy.h>
++    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
++
++    pcie@48400000 {
++        compatible = "st,stm32mp25-pcie-rc";
++        device_type = "pci";
++        reg = <0x48400000 0x400000>,
++              <0x10000000 0x10000>;
++        reg-names = "dbi", "config";
++        #interrupt-cells = <1>;
++        interrupt-map-mask = <0 0 0 7>;
++        interrupt-map = <0 0 0 1 &intc 0 0 GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
++                        <0 0 0 2 &intc 0 0 GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
++                        <0 0 0 3 &intc 0 0 GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
++                        <0 0 0 4 &intc 0 0 GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>;
++        #address-cells = <3>;
++        #size-cells = <2>;
++        ranges = <0x01000000 0x0 0x00000000 0x10010000 0x0 0x10000>,
++                 <0x02000000 0x0 0x10020000 0x10020000 0x0 0x7fe0000>,
++                 <0x42000000 0x0 0x18000000 0x18000000 0x0 0x8000000>;
++        dma-ranges = <0x42000000 0x0 0x80000000 0x80000000 0x0 0x80000000>;
++        clocks = <&rcc CK_BUS_PCIE>;
++        resets = <&rcc PCIE_R>;
++        msi-parent = <&v2m0>;
++        access-controllers = <&rifsc 68>;
++        power-domains = <&CLUSTER_PD>;
++
++        pcie@0,0 {
++            device_type = "pci";
++            reg = <0x0 0x0 0x0 0x0 0x0>;
++            phys = <&combophy PHY_TYPE_PCIE>;
++            wake-gpios = <&gpioh 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
++            reset-gpios = <&gpioj 8 GPIO_ACTIVE_LOW>;
++            #address-cells = <3>;
++            #size-cells = <2>;
++            ranges;
++        };
++    };
+-- 
+2.34.1
 
---Gq8+2GgzFjfqwkiK
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmgkWc4ACgkQJNaLcl1U
-h9DoJgf9HRWiZlDu8zMbaXMf3cFnPAmtyMLpsYum8wbNl8UYDQPsaKNxBdsGvoEQ
-EF4H43BjGG8lu8v/LBXIUcfCbIYPfMIsts0806x9W+fops51dqsS01kW38FW6KYB
-6sYN74rPwEuUWFuLIe9GeFymNrFr57By7LbMOPYiiuJSk4AKolbu5lOqAAmr8n5O
-f55jGKXEB9TEykCvjxWgM8df4Lo54DvGvGjxLDVi3iZDRzBh5l58/oHWg0imQFI4
-VQcjXJmQXQkPSHUY7WBjvEWU1mFlwh9PLR9JX95A1XdVYfiN7kXDELZWtqOIIEeu
-pJUbUA83LtHBigPKZOC5Jvl6ziMqSA==
-=VFDd
------END PGP SIGNATURE-----
-
---Gq8+2GgzFjfqwkiK--
 
