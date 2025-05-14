@@ -4,134 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE68C3ABC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 06:49:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF669C3ABC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 06:51:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3OYdEv51QzKfvKyl8ZgwIQYfMr0WzoPUqWedNGx4V8o=; b=1F31fwuFCVvjoRgtNkvGOe3L4v
-	BNggFvTgITO55Voj6/m0qVaaOv7m2qD+4lc6ixBZqIKfATpmgp9lJslP7rxAamssxrPvNrE7wp7w7
-	MiqU49AieQzMU3xrcWG+JegB4HeQb1T2wfaQw29YsF7FmoSQdGO+UDkOnFxybGn7UgeZsLLoCtRHu
-	q7CQDv6mVKjBJbEH7xZys5SFYlHc9ouNcOIUJgrP/gpVEQvOQ6zVy5DdqZiXXx1Y5KRwfqu9PE24H
-	j8K5gQg8OXpduzIpHhpcJ14D1O7eYm6iPUWbE4tQM6Is51VBQxDTvxKiIgKpUj+McraY/QEffRAW4
-	VEjPo6Fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HGZdJZIHRL1GtxweWrW4A40ao0eooBXQDxu8kYszvsY=; b=oEpK6AUCn1+d+CagJjkCXCCrVF
+	qdp4MSARoL41eD/Xo9mlyKO91Vx4JkW5qfaUak/WfHeHXsdpfj5/X2LPz61pClrluzPWz0qfkeLII
+	v7g03R79H1eamgFuljmL8NdiDVWpap6hICkWp3qiTFt6o8+zX1h6SnzwKLhX6+hhIpTrenPMZ+ZVQ
+	+0/kL4k9VeOo6HEh5NfhVOYzDrzaLDm/qpEClEa0bWQnUAJeTh7uCqx/k/+bb46iG2O9Cp7y/1bXL
+	V4siXIFIO42thGkw43ypu9nQ0hYIMQG9w8E2DsoEOWMBCLIorhnVnH2RCrerlBUgv0HalOfXiXbVE
+	IcoUS4gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF5gC-0000000EBAq-1OYg;
-	Wed, 14 May 2025 06:33:24 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uF5xD-0000000EDuI-3Msb;
+	Wed, 14 May 2025 06:50:59 +0000
+Received: from mail-ej1-x642.google.com ([2a00:1450:4864:20::642])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF5dG-0000000EAT8-44mn
+	id 1uF5uh-0000000EDZf-0chj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 06:30:24 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54E3XK4I026151
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 06:30:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	3OYdEv51QzKfvKyl8ZgwIQYfMr0WzoPUqWedNGx4V8o=; b=drMN6nqjFRSig3yV
-	lDvbbLMYcz3VTLwBtALpmrmgjWr5A7C2sAmiLc0n9G9J3Cb9gZRrbvt2OA9MSndH
-	8kEPalU6Wrlkl7vGymmxcj69V074a1+ztfi8sgZbIuVT6J52RKRzv7D9yprM6hxK
-	i2NCka/ruOjlQH8AHhLBokDsg5dvMvZ71aB1sQ35yFnbdGx9tSFLLhRJno5g8/4i
-	5uahPUKstKk8F+r1jupge0AQ1Xp6E785gcp39Y9lE7KE6+mSyIFMVN5J+xMcyZan
-	aws38upccg/H3Eu5bdD3y4N4o4xsBLielPV3xSj6TOoOlAdoPaUzKxiWO2DXlWQ2
-	oz5gFQ==
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46mbew1msb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 06:30:21 +0000 (GMT)
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-7425168cfb9so3048340b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 23:30:21 -0700 (PDT)
+	Wed, 14 May 2025 06:48:24 +0000
+Received: by mail-ej1-x642.google.com with SMTP id a640c23a62f3a-ad24ee085a8so505484766b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 23:48:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747205301; x=1747810101; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=HGZdJZIHRL1GtxweWrW4A40ao0eooBXQDxu8kYszvsY=;
+        b=c7t93oOdvL3E3kxrw6+Kf6dPX1etIjq9GT2pWQftjDRr8kCc7ZuEII+fOHbEuPChZH
+         4QBdIdRmt8cqgH8rPt0bQVXyqOQ4n+F19U3uGijvSjDtdyQ+I9IBEhxeTrhcnmVYyNW6
+         djWyETJaP/1JPdAEgQQkPoZhulFsZRUMDDHmRIZvPP6vVVhXAsKK/iToHfNkJv+r4SDy
+         fJeeVrhP9TAKgE67+2roNpRRzSigYNhrgoDFThsyOspMi97enT85SebZnz2u59khLNWy
+         yNrLKy2EafoMZ5cPmufkYeePnQmCpGsty0YHGZZeduJxi+yuO/tJAqx2OOJMxj6YxWQr
+         zO4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747204220; x=1747809020;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3OYdEv51QzKfvKyl8ZgwIQYfMr0WzoPUqWedNGx4V8o=;
-        b=NmHY4FHzFjXiUiLANtAjRljLt3HcFZxwNqb0xXXUX9lgbb6RPJJyAN2IvG7iAuaPwl
-         kzBKhinK6f0Mhwy9QyGnvlz/4xKrUfbyWsCrlrUwjaKbxxEDFgLPe4Kec8CLILan9J+l
-         r6RhNMc0ONsEq4EWZtbq6lHgW+WdRQTf5OgHnw+s1NjP7oA4CMDMINI/Dkk/4SQ5yFbS
-         kpLkacB3c8id0MpVS2QZxFMvATFmFfGPhtmEXMmWWSHnRKKydf8CuUVpCYKqBjkPaejO
-         t9nxAOzgLd/QDMXFxcaBgzcnnepKl4Lk5P1kYvBXZCCOytX76D9d2wQHsIYXSSpeTao4
-         wmqA==
-X-Forwarded-Encrypted: i=1; AJvYcCWHKRhEUkLryz0Tp4nuzd1pGDbYHFrWtqrRP9+SzlmN8HUllqFzbFhlXNw+452QtuZ5eIAtZGn78QFRsVEsnbAK@lists.infradead.org
-X-Gm-Message-State: AOJu0YytL+CWQHIlssxvI5Kz/C0yZQ/ia9DezV/R/DQ7QqMyoBUuJPFi
-	v+BZ+2sKnSS44cJn3OUG7hzCAjdramiX1e+o29BkYNsY6xqLIyHR3IfP5NtbyvOT6cg3QCfyQBA
-	mCqHB6yP0+d3etqbD+Mmt8CyiLNW8Op5qrsiFqOcKS57c336CJrakMWffZtZpi7bCQcHzWbK0Lg
-	==
-X-Gm-Gg: ASbGnctY1bNeVQaeo6dKNJu7yNwFYPWngeabV76cPfoRiUdwXdGdasW+29Kqigvoth7
-	3fkHSvY1r4DhJv0o7+Va08tyPymoeNsM1NQAKL9dnBjSS9c1V/ZBet3RvzaEkUi1cJXR3Zyid5y
-	v/8OUD/NvyBs6gOtZvbiJritDgPkmrngqetO0nJNhPfniI3w1pzOpOPTJaYilrF482RsUOtuklH
-	eoy0XRboh08b5wk7U/LbM/A1JRTwHnVcawUdk3azhSqHQ4h1AszGDLptAXY7hkvDi2FypYJXr+s
-	ybNZAzvpQaoi3GpvcbW+pQwL4quKfWrKTEGjVe5qhQ==
-X-Received: by 2002:a05:6a00:849:b0:740:6f69:dce9 with SMTP id d2e1a72fcca58-7428915208cmr2991305b3a.0.1747204220400;
-        Tue, 13 May 2025 23:30:20 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEo6KctwAue9F+Vx18ACg2bqMflRXZkaB6cash8mo/C9AGwxsZu65dw2flirVj1uPaGevYVIQ==
-X-Received: by 2002:a05:6a00:849:b0:740:6f69:dce9 with SMTP id d2e1a72fcca58-7428915208cmr2991254b3a.0.1747204219961;
-        Tue, 13 May 2025 23:30:19 -0700 (PDT)
-Received: from [10.92.214.105] ([202.46.23.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74237704ba3sm8811721b3a.31.2025.05.13.23.30.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 13 May 2025 23:30:19 -0700 (PDT)
-Message-ID: <8006a0ae-b45d-d22f-65a9-20a65f3224b0@oss.qualcomm.com>
-Date: Wed, 14 May 2025 12:00:11 +0530
+        d=1e100.net; s=20230601; t=1747205301; x=1747810101;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HGZdJZIHRL1GtxweWrW4A40ao0eooBXQDxu8kYszvsY=;
+        b=dNKDxfPWulIdnzJ9puX0D756g5VZ++vaIGij1LrsKQyyrbTCrJSz8PBmftXXdDwtk1
+         NycRV17VjiOdnWSZoiY+pGf6Km+P+BJiifXRXSPumKPQghzQI37iQsTbupRsWrQCi30B
+         7hxNrPVTYUDCVeBp4xlQl1iB/g74kZp5I4dI6xCflKT0FiimDhvEIgyTSxgFEuKEFru9
+         JOIVF2n176xVx6OUln9S02uUjHCSqs2QAV2Hp++Y9n5G07FqRHZDIgf9Lku/Hi5mo6X3
+         FOuWhtTCprspc6+IS8kAAJ4N4hUVVxur5M7h2+71XTIiK2UEFYE0TYPn8nkIQuXwDjrw
+         ZntQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWX9l1uJj4pwcXByqWm5H8j6op8gsIEnLLxDqUZceaMT7qtdktyLJewG0418QbdNL9jV6WR5SIpFzYqwbtVCG48@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTrJv2u0afrAjpdp+82CYlCnTSZwkPZhehLJS4dABvEkhH/f8L
+	Lqfn+YoB/UwUlAHokKvRU8JVpBcYJnW9t5+4gx7sMM9yYyK/udw9XBzk0PhVfvz4qVCJGvCNNu2
+	npirwrKsJp3jhqWiDDdS7PSTmfjc=
+X-Gm-Gg: ASbGncukUcVe3MnX9rhqYcApOG2WkBPlAFNhNWpD4gbmW8pMZ636Ed3PyrAl5a8J3xg
+	lSOdz2bzgF2oW4EgNDxnzcBrkQoxzW+0GwBbAHxaUlg7pBlxKfRbn5b7xN+7YHfP4dOibQMy3Hs
+	479UOV6tJlFI1XRMl32DB7UNrGRbbXZ4yu8Usfv7xE6g==
+X-Google-Smtp-Source: AGHT+IHR4iBb/I4Enb7BPpeT9sltrJqA0gSsnQXL1n3QG7K11/B1K1G20PjKfwnEwjCdCRskmsSlv58eOyHiQdilNDc=
+X-Received: by 2002:a17:906:3bc8:b0:ad2:404d:cade with SMTP id
+ a640c23a62f3a-ad4f72411e0mr183082466b.27.1747205301209; Tue, 13 May 2025
+ 23:48:21 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Subject: Re: [PATCH v4 4/5] PCI: host-common: Add link down handling for host
- bridges
-Content-Language: en-US
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-        Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
-        Oliver O'Halloran <oohall@gmail.com>,
-        Bjorn Helgaas <bhelgaas@google.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        =?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kw@linux.com>,
-        Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>,
-        Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>,
-        Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-        Marc Zyngier <maz@kernel.org>,
-        Conor Dooley <conor.dooley@microchip.com>,
-        Daire McNamara <daire.mcnamara@microchip.com>
-Cc: dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>,
-        linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
-References: <20250508-pcie-reset-slot-v4-0-7050093e2b50@linaro.org>
- <20250508-pcie-reset-slot-v4-4-7050093e2b50@linaro.org>
-From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-In-Reply-To: <20250508-pcie-reset-slot-v4-4-7050093e2b50@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: uUfmkhRrJPpypD7pkz-WvsmAiH3m0s1w
-X-Proofpoint-ORIG-GUID: uUfmkhRrJPpypD7pkz-WvsmAiH3m0s1w
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTE0MDA1NSBTYWx0ZWRfX8DHk0u66OnTJ
- EeA34cCJPwf995RmJmaY9I1R1a1j3ipO3QX8WBkx/FW48kzl3XQt3MzzBvXpcUzQjWb50ZCNHuf
- 6IiV7WMF3zFXVzwIrv1bU126InMNmlVSmYFR2KDjI5N1JVYHUnKoKes3JC+SBC/0338RPFgpAkF
- F+YGVaUgKlNmzwMyxP3brH2uplH+7rqbH2+qhj7g2XfyLb35sjd6HP43w3Kxq7HGnCqWTB9o2Sm
- COad+nHBeZryEspIQf30i6mZPMnBDRRs8RuvuTHgwXQtH3cVM6brQ1En7pinsEYQP1j1I8TF6tc
- ii4uElHk74ivh2jUzVtIBhve80kz4/avs2wxZXq9QVZh2GMMeekvJpS0ZKOkY+gcW0bOmpPmEms
- I2KdRbuO8gTqmBkagjFxtyFYqHSJ1cpdL9PVW5b6HOYExEA3ftHGO/LxEAHPZjxceqROqrf4
-X-Authority-Analysis: v=2.4 cv=LOFmQIW9 c=1 sm=1 tr=0 ts=6824387d cx=c_pps
- a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
- a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=KKAkSRfTAAAA:8 a=WP6hIalcOMfy4p2eL3AA:9
- a=QEXdDO2ut3YA:10 a=IoOABgeZipijB_acs4fv:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-14_02,2025-05-14_02,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 spamscore=0 adultscore=0 priorityscore=1501 suspectscore=0
- mlxscore=0 malwarescore=0 mlxlogscore=999 impostorscore=0 bulkscore=0
- clxscore=1015 phishscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505070000
- definitions=main-2505140055
+References: <20250501073603.1402960-1-luis.gerhorst@fau.de> <20250501073603.1402960-12-luis.gerhorst@fau.de>
+In-Reply-To: <20250501073603.1402960-12-luis.gerhorst@fau.de>
+From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Date: Wed, 14 May 2025 02:47:44 -0400
+X-Gm-Features: AX0GCFun9-2MfM8_J1zhSkgZ3q4nYAOUK-g_v7fEm1Fc1hj9Yjf5b4J_glq1BvA
+Message-ID: <CAP01T76jeSg3W-OyfBfSbAjpEhBr_h8rbS-Hubk6gDdrkeEj_Q@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v3 11/11] bpf: Fall back to nospec for sanitization-failures
+To: Luis Gerhorst <luis.gerhorst@fau.de>
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Hari Bathini <hbathini@linux.ibm.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
+	Henriette Herzog <henriette.herzog@rub.de>, Saket Kumar Bhaskar <skb99@linux.ibm.com>, 
+	Cupertino Miranda <cupertino.miranda@oracle.com>, Jiayuan Chen <mrpre@163.com>, 
+	Matan Shachnai <m.shachnai@gmail.com>, Dimitar Kanaliev <dimitar.kanaliev@siteground.com>, 
+	Shung-Hsi Yu <shung-hsi.yu@suse.com>, Daniel Xu <dxu@dxuuu.xyz>, bpf@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-kselftest@vger.kernel.org, 
+	Maximilian Ott <ott@cs.fau.de>, Milan Stephan <milan.stephan@fau.de>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_233023_162972_2A02EB6F 
-X-CRM114-Status: GOOD (  32.31  )
+X-CRM114-CacheID: sfid-20250513_234823_186839_B609AD06 
+X-CRM114-Status: GOOD (  20.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,150 +108,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 1 May 2025 at 04:10, Luis Gerhorst <luis.gerhorst@fau.de> wrote:
+>
+> ALU sanitization was introduced to ensure that a subsequent ptr access
+> can never go OOB, even under speculation. This is required because we
+> currently allow speculative scalar confusion. Spec. scalar confusion is
+> possible because Spectre v4 sanitization only adds a nospec after
+> critical stores (e.g., scalar overwritten with a pointer).
+>
+> If we add a nospec before the ALU op, none of the operands can be
+> subject to scalar confusion. As an ADD/SUB can not introduce scalar
+> confusion itself, the result will also not be subject to scalar
+> confusion. Therefore, the subsequent ptr access is always safe.
+>
+> We directly fall back to nospec for the sanitization errors
+> REASON_BOUNDS, _TYPE, _PATHS, and _LIMIT, even if we are not on a
+> speculative path.
+>
+> For REASON_STACK, we return the error -ENOMEM directly now. Previously,
+> sanitize_err() returned -EACCES for this case but we change it to
+> -ENOMEM because doing so prevents do_check() from falling back to a
+> nospec if we are on a speculative path. This would not be a serious
+> issue (the verifier would probably run into the -ENOMEM again shortly on
+> the next non-speculative path and still abort verification), but -ENOMEM
+> is more fitting here anyway. An alternative would be -EFAULT, which is
+> also returned for some of the other cases where push_stack() fails, but
+> this is more frequently used for verifier-internal bugs.
 
+Hm, now looking at this and thinking more about this, I think
+recoverable error logic is probably ok as is.
+Scratch my earlier suggestion about unconditional handling. I guess
+what would be better would be
+handling everything except fatal ones. In case of fatal ones we should
+really quit verification and return.
+We may make partial changes to verifier state / env and try to bail
+out using -ENOMEM and -EFAULT.
+So unconditional continuation would be problematic as we'd act in a
+partial state never meant to be seen.
 
-On 5/8/2025 12:40 PM, Manivannan Sadhasivam wrote:
-> The PCI link, when down, needs to be recovered to bring it back. But that
-> cannot be done in a generic way as link recovery procedure is specific to
-> host bridges. So add a new API pci_host_handle_link_down() that could be
-> called by the host bridge drivers when the link goes down.
-> 
-> The API will iterate through all the slots and calls the pcie_do_recovery()
-> function with 'pci_channel_io_frozen' as the state. This will result in the
-> execution of the AER Fatal error handling code. Since the link down
-> recovery is pretty much the same as AER Fatal error handling,
-> pcie_do_recovery() helper is reused here. First the AER error_detected
-> callback will be triggered for the bridge and the downstream devices. Then,
-> pci_host_reset_slot() will be called for the slot, which will reset the
-> slot using 'reset_slot' callback to recover the link. Once that's done,
-> resume message will be broadcasted to the bridge and the downstream devices
-> indicating successful link recovery.
-> 
-> In case if the AER support is not enabled in the kernel, only
-> pci_bus_error_reset() will be called for each slots as there is no way we
-> could inform the drivers about link recovery.
-> 
-> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> ---
->   drivers/pci/controller/pci-host-common.c | 58 ++++++++++++++++++++++++++++++++
->   drivers/pci/controller/pci-host-common.h |  1 +
->   drivers/pci/pci.c                        |  1 +
->   drivers/pci/pcie/err.c                   |  1 +
->   4 files changed, 61 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-> index f93bc7034e697250711833a5151f7ef177cd62a0..f916f0a874a61ddfbfd99f96975c00fb66dd224c 100644
-> --- a/drivers/pci/controller/pci-host-common.c
-> +++ b/drivers/pci/controller/pci-host-common.c
-> @@ -12,9 +12,11 @@
->   #include <linux/of.h>
->   #include <linux/of_address.h>
->   #include <linux/of_pci.h>
-> +#include <linux/pci.h>
->   #include <linux/pci-ecam.h>
->   #include <linux/platform_device.h>
->   
-> +#include "../pci.h"
->   #include "pci-host-common.h"
->   
->   static void gen_pci_unmap_cfg(void *ptr)
-> @@ -96,5 +98,61 @@ void pci_host_common_remove(struct platform_device *pdev)
->   }
->   EXPORT_SYMBOL_GPL(pci_host_common_remove);
->   
-> +#if IS_ENABLED(CONFIG_PCIEAER)
-> +static pci_ers_result_t pci_host_reset_slot(struct pci_dev *dev)
-> +{
-> +	int ret;
-> +
-> +	ret = pci_bus_error_reset(dev);
-> +	if (ret) {
-> +		pci_err(dev, "Failed to reset slot: %d\n", ret);
-> +		return PCI_ERS_RESULT_DISCONNECT;
-> +	}
-> +
-> +	pci_info(dev, "Slot has been reset\n");
-> +
-> +	return PCI_ERS_RESULT_RECOVERED;
-> +}
-> +
-> +static void pci_host_recover_slots(struct pci_host_bridge *host)
-> +{
-> +	struct pci_bus *bus = host->bus;
-> +	struct pci_dev *dev;
-> +
-> +	for_each_pci_bridge(dev, bus) {
-> +		if (!pci_is_root_bus(bus))
-bus here is always constant here, we may need to have check
-for dev here like if (!pci_is_root_bus(dev->bus))
-> +			continue;
-> +
-> +		pcie_do_recovery(dev, pci_channel_io_frozen,
-> +				 pci_host_reset_slot);
-> +	}
-> +}
-> +#else
-> +static void pci_host_recover_slots(struct pci_host_bridge *host)
-> +{
-> +	struct pci_bus *bus = host->bus;
-> +	struct pci_dev *dev;
-> +	int ret;
-> +
-> +	for_each_pci_bridge(dev, bus) {
-> +		if (!pci_is_root_bus(bus))Same comment as above.
+The logic otherwise looks ok, so:
 
-- Krishna Chaitanya.
-> +			continue;
-> +
-> +		ret = pci_bus_error_reset(dev);
-> +		if (ret)
-> +			pci_err(dev, "Failed to reset slot: %d\n", ret);
-> +		else
-> +			pci_info(dev, "Slot has been reset\n");
-> +	}
-> +}
-> +#endif
-> +
-> +void pci_host_handle_link_down(struct pci_host_bridge *bridge)
-> +{
-> +	dev_info(&bridge->dev, "Recovering slots due to Link Down\n");
-> +	pci_host_recover_slots(bridge);
-> +}
-> +EXPORT_SYMBOL_GPL(pci_host_handle_link_down);
-> +
->   MODULE_DESCRIPTION("Common library for PCI host controller drivers");
->   MODULE_LICENSE("GPL v2");
-> diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
-> index d8be024ca68d43afb147fd9104d632b907277144..904698c1a2695888a0fc9c2fac360e456116eb1d 100644
-> --- a/drivers/pci/controller/pci-host-common.h
-> +++ b/drivers/pci/controller/pci-host-common.h
-> @@ -12,5 +12,6 @@
->   
->   int pci_host_common_probe(struct platform_device *pdev);
->   void pci_host_common_remove(struct platform_device *pdev);
-> +void pci_host_handle_link_down(struct pci_host_bridge *bridge);
->   
->   #endif
-> diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-> index 13709bb898a967968540826a2b7ee8ade6b7e082..4d396bbab4a8f33cae0ffe8982da120a9f1d92c9 100644
-> --- a/drivers/pci/pci.c
-> +++ b/drivers/pci/pci.c
-> @@ -5781,6 +5781,7 @@ int pci_bus_error_reset(struct pci_dev *bridge)
->   	mutex_unlock(&pci_slot_mutex);
->   	return pci_bus_reset(bridge->subordinate, PCI_RESET_DO_RESET);
->   }
-> +EXPORT_SYMBOL_GPL(pci_bus_error_reset);
->   
->   /**
->    * pci_probe_reset_bus - probe whether a PCI bus can be reset
-> diff --git a/drivers/pci/pcie/err.c b/drivers/pci/pcie/err.c
-> index b834fc0d705938540d3d7d3d8739770c09fe7cf1..3e3084bb7cb7fa06b526e6fab60e77927aba0ad0 100644
-> --- a/drivers/pci/pcie/err.c
-> +++ b/drivers/pci/pcie/err.c
-> @@ -270,3 +270,4 @@ pci_ers_result_t pcie_do_recovery(struct pci_dev *dev,
->   
->   	return status;
->   }
-> +EXPORT_SYMBOL_GPL(pcie_do_recovery);
-> 
+Acked-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+
+>
+> [...]
+>
 
