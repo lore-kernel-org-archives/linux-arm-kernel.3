@@ -4,75 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6082C3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 13:53:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 929B6C3ABDF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 13:53:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/CR2ZXenoxWCZFBOd+n+M3JOTsCVcCZW/A24+saUigk=; b=n9jm3GyW5zcdEx0jDjmcYcqEEf
-	3pwYNkujkTYS3Rf5Oic8XbISZDqjAUvfgh+PTCoq/gGWIv7UFsTgzdmWmjqLyR+8ZS2XPmCrihJYd
-	8asjpRql21F5cmLpbHaqIFCmYR4bk/4deQU/9W/fGQVlFaNKaQDiISLuKfUEVQ1X9QV1n7BSKvSwm
-	tu1A9wgGIlFJtAYIElwBdFHZvQVKMdDsWAhE7pnJugka2v8Eb+H+jPbsp6MT1/H/J/vU19bTuzbqc
-	Xz/WjxIYqJSfmIeSfrotzVXleSs4UPKCzl+a4fP7J9rj3P7BXzTJbW9U2gXzMbOBy4aEl2zUI0ZAy
-	yyPT8xxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=rzfjBDdCV1bMbhaN4veuqL28+nSEvMmCnFpMP9vcanM=; b=FoBUIfX/OWtOi4RR7Cqvc43aoZ
+	OwnGfNGhchDBHwBmP/NlZnUjyUXDL6PSdE3F+v3GdLMmn2NUOylTdHjT6ed4J/k2arveAf51fZnYA
+	NCX0SWlq5Lh8TDS0/UN60txw4UZSFlmnACLNigtFO04AiHyIAflxrrzs6ZbF5yzFb4amf6cnLTJBT
+	KYmbl4PH/4x9mABWDhdeOGksd3Z/SLcpGV0HlVWV7x1//rBQfAuq+qNuQ72hul4v7unx64nOz1/8y
+	PwaFPjl1KEXX0qCxcoolJAhvrAWQHRWCTZL52MAhUiQg6phrhGn8AgR1Gr6ljBnSvKgEGRbNQA0JW
+	e+88OYGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFCXf-0000000FGns-02MB;
-	Wed, 14 May 2025 13:53:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uFCXg-0000000FGp0-1tlW;
+	Wed, 14 May 2025 13:53:04 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF8iR-0000000EiK5-2vk1
+	id 1uF8o0-0000000Eiwz-0hdy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 09:47:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D7F7B5C5E81;
-	Wed, 14 May 2025 09:45:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6073C4CEE9;
-	Wed, 14 May 2025 09:47:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747216074;
-	bh=TG0IqLi9AgL0Uh4OwoVqyFUkBSVCDzsr00L7JqscPGg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BKJ/NDQPzgPL2kV4gUS/qrUj3/e/JZ7/nyykwXtI6FqNNyNXs935nu4z/ooJg3J5c
-	 tEBCioUOB9edyD7uC3jIWaeWbbijfow+7XjykDk93CGOEpEizatuq2nl8r+xxbSUSW
-	 YYZ5EY8e812ArH0NDML5JRrwOEuwLTG292L352l0uivzM0TmE7goUKA+8+MWrdYSsL
-	 PUgOjzCTnK4g2pHVQnwTEx8eoXNLQU5bYPoOXkHdK1oQuePJ7WG7fj7+PGdElKN8zJ
-	 B8J6oeAHKEp9Kr2d34DMtyG3vR0DsfplHKVpVe1tS6zFBJ/y7zs7DkxkoKW+JgLsr3
-	 l983tbEQPg8ng==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uF8iO-00Eo8b-Pz;
-	Wed, 14 May 2025 10:47:52 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Marc Zyngier <maz@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	D Scott Phillips <scott@os.amperecomputing.com>
-Subject: Re: [PATCH 0/3] KVM: arm64: Address Translation fixes
-Date: Wed, 14 May 2025 10:47:48 +0100
-Message-Id: <174721605556.2224247.6675762921692651616.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250422122612.2675672-1-maz@kernel.org>
-References: <20250422122612.2675672-1-maz@kernel.org>
+	Wed, 14 May 2025 09:53:42 +0000
+Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250514095333epoutp04e832802daac479c51c9c1a2e62f87c83~-XBItL62l0360003600epoutp04E
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 09:53:33 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250514095333epoutp04e832802daac479c51c9c1a2e62f87c83~-XBItL62l0360003600epoutp04E
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1747216413;
+	bh=rzfjBDdCV1bMbhaN4veuqL28+nSEvMmCnFpMP9vcanM=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=N0Db7/Fo5XU7Fd0VgOAREVIIj/KC/Gz7Q60spdghuJ8DJ9HNc4VL1SKh73hkQjOBU
+	 2YPF5/ZO1zGVCmgkYYltO0wTWL2iv7C5x3Du5V/rtRUq+scYXGijMP7dspBv+hubZL
+	 MlHBnh/IIoS3DotgPKeLvl7Zk8kNjfUYoDscjpMI=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250514095333epcas2p2e4f261863a747b91ce04e7400387a839~-XBIczive2406324063epcas2p2g;
+	Wed, 14 May 2025 09:53:33 +0000 (GMT)
+Received: from epcas2p2.samsung.com (unknown [182.195.36.100]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4Zy7vc5CrJz2SSKm; Wed, 14 May
+	2025 09:53:32 +0000 (GMT)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250514095332epcas2p4ab71a73ab68e55f0e5e34cd9c4c7b483~-XBHdTRKJ3207832078epcas2p4W;
+	Wed, 14 May 2025 09:53:32 +0000 (GMT)
+Received: from epsmgmc1p1new.samsung.com (unknown [182.195.42.40]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250514095332epsmtrp196f32a0b5e6edcf2b367aaf70c3297f4~-XBHcl-ma1996119961epsmtrp1K;
+	Wed, 14 May 2025 09:53:32 +0000 (GMT)
+X-AuditID: b6c32a28-46cef70000001e8a-04-6824681cc9d5
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgmc1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	E6.C4.07818.C1864286; Wed, 14 May 2025 18:53:32 +0900 (KST)
+Received: from localhost.localdomain (unknown [10.229.9.126]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250514095331epsmtip13fc246ce0f9b028881178be751c13600~-XBHO_1A23233232332epsmtip1S;
+	Wed, 14 May 2025 09:53:31 +0000 (GMT)
+From: Sangwook Shin <sw617.shin@samsung.com>
+To: krzk@kernel.org, alim.akhtar@samsung.com, wim@linux-watchdog.org,
+	linux@roeck-us.net
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org, Sangwook Shin
+	<sw617.shin@samsung.com>
+Subject: [PATCH v2 0/5] Increase max timeout value of s3c2410 watchdog
+Date: Wed, 14 May 2025 18:42:15 +0900
+Message-Id: <20250514094220.1561378-1-sw617.shin@samsung.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, scott@os.amperecomputing.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrDLMWRmVeSWpSXmKPExsWy7bCSnK5MhkqGwZ2zHBYP5m1jszh/fgO7
+	xabH11gtLu+aw2Yx4/w+Josb6/axWzxZeIbJYsbik2wWj1/+Y3bg9Ni0qpPNY+WaNawem5fU
+	e+z83sDu0bdlFaPH501yAWxRXDYpqTmZZalF+nYJXBk9S04yFrzhrNj60LyBcRpHFyMnh4SA
+	icSdN1vYuxi5OIQEdjNKHLrzjbmLkQMoISXx7pklRI2wxP2WI6wQNR8YJWbs/8cGkmAT0JGY
+	/u82C4gtIhAncax9MzNIEbPATkaJlum/mUESwgJuEk83vmICsVkEVCWOnL8GZvMK2EosO9LH
+	BLFBXmLmpe/sEHFBiZMzn4ANZQaKN2+dzTyBkW8WktQsJKkFjEyrGCVTC4pz03OTDQsM81LL
+	9YoTc4tL89L1kvNzNzGCA1hLYwfju29N+ocYmTgYDzFKcDArifBez1LOEOJNSaysSi3Kjy8q
+	zUktPsQozcGiJM670jAiXUggPbEkNTs1tSC1CCbLxMEp1cCUI7CbM9rVMf3F00OB5xN47lz4
+	rWsYtNbmq+f3hEtP/+0PvJCy2L6KPXTZx6LeNp3T/47+vi3YEJ7y7hGfZ35J6vPG1JunTz+K
+	KD/gs1q/V1XnqIzFmuN6vJv2fRJZNVv0meX0ZakCbkdv9AtLPNhR4LLzcF+r5MLkjy/P73nH
+	zDbz+hHdCY+fTXa3jNx8Ud/3tL7th9LPXgcv1/wuk5nsrXTDucjwjPc+gSXbFhQVcQQukDwq
+	m7Vu7x1Lg98/db9we3zrv3e48v6hnFrhdytvpTrcrNztPc/+SFh3zM2ClP0N+1ovcBidObzn
+	h5P/juk7J7Wf66qtc5yxY/Yit/W676TSPkVIck+6lHw/7T77ZCWW4oxEQy3mouJEAP5kI7DP
+	AgAA
+X-CMS-MailID: 20250514095332epcas2p4ab71a73ab68e55f0e5e34cd9c4c7b483
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,N
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250514095332epcas2p4ab71a73ab68e55f0e5e34cd9c4c7b483
+References: <CGME20250514095332epcas2p4ab71a73ab68e55f0e5e34cd9c4c7b483@epcas2p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_024755_779511_C002071F 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20250514_025340_842630_BC3C35D7 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,30 +113,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 22 Apr 2025 13:26:09 +0100, Marc Zyngier wrote:
-> Here's a small series of fixes for KVM's implementation of address
-> translation (aka the AT S1* instructions), addressing a number of
-> issues in increasing levels of severity:
-> 
-> - We misreport PAR_EL1.PTW in a number of occasions, including state
->   that is not possible as per the architecture definition
-> 
-> [...]
+The ExynosAutoV9 and ExynosAutoV920 SoCs have a 32-bit counter register,
+but due to code constraints, only 16-bit values could be used.
+This series enables these SoCs to use the 32-bit counter.
+Additionally, it addresses the issue where the ExynosAutoV9 SoC supports
+the DBGACK bit but it was not set.
 
-Applied to next, thanks!
+V1->V2:
+  - Modify the max_timeout calculation considering overflow
+  - Separate tha max_timeout calculation into a separate patch
+  - Add max_cnt in struct s3c2410_wdt
+  - Set max_cnt once in probe function
+  - Add patch that uses S3C2410_WTCON_PRESCALE_MAX instead of hardcoded one
+  - Remove unnecessary inner parentheses
+  - Link to v1:
+    https://lore.kernel.org/linux-watchdog/20250513094711.2691059-1-sw617.shin@samsung.com/
 
-[1/3] KVM: arm64: Fix PAR_EL1.{PTW,S} reporting on AT S1E*
-      commit: 493b01de726d02e835c510d01df6880fa28d41b7
-[2/3] KVM: arm64: Teach address translation about access faults
-      commit: ed648ab8043aab3135490d6c01f1c889c4bac62c
-[3/3] KVM: arm64: Don't feed uninitialised data to HCR_EL2
-      commit: 3e4d597220587593dba505f5a7e932309155c54d
+Sangwook Shin (5):
+  watchdog: s3c2410_wdt: Replace hardcoded values with macro definitions
+  watchdog: s3c2410_wdt: Fix max_timeout being calculated larger
+  watchdog: s3c2410_wdt: Increase max timeout value of watchdog
+  watchdog: s3c2410_wdt: exynosautov920: Enable QUIRK_HAS_32BIT_MAXCNT
+  watchdog: s3c2410_wdt: exynosautov9: Enable supported features
 
-Cheers,
+ drivers/watchdog/s3c2410_wdt.c | 37 +++++++++++++++++++++++-----------
+ 1 file changed, 25 insertions(+), 12 deletions(-)
 
-	M.
 -- 
-Without deviation from the norm, progress is not possible.
-
+2.40.1
 
 
