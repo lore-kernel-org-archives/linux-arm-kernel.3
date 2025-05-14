@@ -4,97 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED20EC3ABCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 06:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 960A5C3ABDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 06:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TcDZQwTmMdtyKKt05qTa4r45+8RvNA2opPyhd5OidXw=; b=Pd9ItoUaIVHIk2/xalSKTpPHW6
-	A/l5/4PZC3UDuWrT73CQj6G79lknBASPsYkrEBdlkzEYdwh7t6YXEzCH2QufuQipDBuQbwVzyGGir
-	pzg07BEZ8Hl9m3FjMppI5ObLrLecZgk0n+oUpKn8ke4lKG73RguviwqY8zCov+IahYp46lE5Sp30T
-	cJll30BI+xDiD/KxBjVT+ZMtAr5/uQR1pEALdO1BPqQ64X+fneFaEiSEEj9tBCYB7EIWM+tdzyBV1
-	+K60Zwp9LfDOgBf8w8/dCzrU+4HGJd9vPA1Cn9wtbIpURY9f/6Gk8TKpMBhVLnmbyvekBGno4wOLB
-	L7B6FY/Q==;
+	bh=CeOrCazQgWasIx+R1NhHIp8oejPIkkSczimNI/oUFf4=; b=J9nezjthavSqBuA3U0XKw5xT17
+	5L7TjTHcIyNBXheb26yvPeBTMEILtAGVjzsKwx1aWjf1foh/4tvsYjRn+LD6GRcZOGmXZpR4CZcEF
+	LLpz/zCAQT8AXcqgzMMLwDS5B9uXP1HtN3JRPCkrw/Znb5BmFmSqVCU5aAOO2qbDLCkHYeJ1hU6WR
+	bOExVfaHx1ASQVm/gvNtWtNhuCJi4SaKwJsoymm/Jh3H8bOtk7HZ4b52BELPvmWCQfhJjCalL5qIt
+	oC7trTBD63MjJoPmiP9vbZ4UQF+r2VZnqmnFETjGLzN6BG6BzYG3Ar9lZdXN17+E88nv8XMgW8b+/
+	hBCvBgfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF5tE-0000000EDKg-1V2Z;
-	Wed, 14 May 2025 06:46:52 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1uF5kR-0000000EBie-1cV1;
+	Wed, 14 May 2025 06:37:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF5rD-0000000ED8v-1uCu
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 06:44:48 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-7424ccbef4eso3873400b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 23:44:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747205086; x=1747809886; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:date
-         :subject:cc:to:from:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TcDZQwTmMdtyKKt05qTa4r45+8RvNA2opPyhd5OidXw=;
-        b=nMkqTHiDgqG+kpEo7keVsKM7yyrS38W874oQEnsuFd3YyL9BG4iQNrgdgZzgYfsbt3
-         nYq+Bsj2YSIji81B0FwEXip+k0oji67MXXKRQayNxjNJYR1+JKS6oiVosPAvGT4qsEUS
-         UGuvVtLhl0cHXrVcY0pgTd7SfDjVVem+/ef1I+chwo/1Dnnw1BGtvXmsxlc6/CTaTt/I
-         xjlR3TlXM9arnLkmGgV2EGHFjistIGTlgHrkWaFpSDcdPzSdxIWxeR/UFF+n4aqukSSC
-         1UqYg4f0Tw34VNc9Cw4e6iDjL/PRZESYWVEt6YKCn1lrSOTq+BZygPt01VpIK5SzBstS
-         a0QA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747205086; x=1747809886;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:date
-         :subject:cc:to:from:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=TcDZQwTmMdtyKKt05qTa4r45+8RvNA2opPyhd5OidXw=;
-        b=R5wF5yQuO30p51hl/dAniNLmQVbdgrPuhfIivgoTbcuSbcBAM0Lm6hZJjDjFN1ZT2H
-         od6fP6ZC0lbeqzu6iRc+xtWHlYz2i3kFN9J4liY6V0pjL3+HBNrCAOXnVAP/RJN7/0cf
-         JBPdhKBYlAggpjiolFhNPQMCIdOwYHIIZI7BhtJJp3XwJ0kp3L9bguUoN0BPSZTHk7hy
-         Qj2HRtMeo89sOqC9HurUnwyw/JBzsLBHGwnSqE2tk/ijArKo6sA9P6F4nEzFhCU5gkuT
-         Msq6DS5hdi6/6kexjZ8ZX1JaC8j9EMtYj0zMNuScZ1zgDu1OavanLjEjk1yFgbJZGZhA
-         RMmw==
-X-Forwarded-Encrypted: i=1; AJvYcCUCiTDzCAxUuHg2+Dakxo6vyDHUARcbGvDQE5i8krXRkQ3Ys8boTTa+oOSrl4rKJxq/Cu3iF6Hj02uJjw8/Pglu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyf6K5zXYxAcGLUXkyNonWH5WHlaUY7BsmSvMCGtKexpIE+giJS
-	g+1BbOrsmVDUuv3wmZDs6fyWeT1DMGzwVlX+9EAs8UQhVDG0SvcX9vg53A==
-X-Gm-Gg: ASbGncusNcZasLIqiNqoPCkI5xJte/rILxHCLHUePHGspsVRhBNpsCyl4ZX8xgL+Xa2
-	JWmMjhvfOUrA16/eFWtDRH/35oao4C0EVNmDd+OrUfy/CXZblxSHF9ASrauNuTJurH6nGo/GmZp
-	G5eSEhpaI3ioorbKG8BZSJVYTyBR8RLT37i0tq7VqvNuTbvdWMk1w0oyxuqQPHWkoKdaRH39yno
-	DkqrwYeIaGYTlbMczdV0bnodshhuvrEpBNqSz9KksHnEDxBpD28qvGNje9c6YjFkGrpj/CmB579
-	Yj8VWlM8bhjSndwDiUPMq/72O6GwvZ4q9o/GEGLUz6rkML1tbphJZxtxE4MVqEDQn1cRxquN
-X-Google-Smtp-Source: AGHT+IFwIZrYPD3WbXFDRklDUuXUJrldwY/u0s/EqxIvE+gIjhV/Huxd9CKq/cSzMKDp1d6ZGWTLgw==
-X-Received: by 2002:a05:6a20:729f:b0:1f5:9024:3246 with SMTP id adf61e73a8af0-215ff0eba21mr2915171637.17.1747205086397;
-        Tue, 13 May 2025 23:44:46 -0700 (PDT)
-Received: from dea88b1475bb.. (125-227-29-20.hinet-ip.hinet.net. [125.227.29.20])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc7742d13sm92517375ad.90.2025.05.13.23.44.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 May 2025 23:44:46 -0700 (PDT)
-Message-ID: <68243bde.170a0220.12d995.13f9@mx.google.com>
-X-Google-Original-Message-ID: <20250514064430.284576-1-LeoWang>
-From: leo.jt.wang@gmail.com
-X-Google-Original-From: LeoWang
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	george.kw.lee@fii-foxconn.com,
-	leo.jt.wang@fii-foxconn.com,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH V2 1/2] dt-bindings: arm: aspeed: add Meta Clemente board
-Date: Wed, 14 May 2025 14:44:30 +0800
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <6822b830.050a0220.27a24d.d064@mx.google.com>
-References: <6822b830.050a0220.27a24d.d064@mx.google.com>
+	id 1uF5i5-0000000EBOT-1RMZ;
+	Wed, 14 May 2025 06:35:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 84BD1443E7;
+	Wed, 14 May 2025 06:35:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70B39C4CEE9;
+	Wed, 14 May 2025 06:35:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747204520;
+	bh=3HYaE0yEblyTc0/tXc2/SMe0XXjeXvoaNBUMDbiP0Ns=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FzdGXUz5sn8pggwimVnoZToZXJduzY7CR1FxsPlY9Wu/tcOwmHm7cCydW7UM189G7
+	 53jld+YSdar0VXMUTxRcK3Qg4EyipXAv4hhfSaceZJNzanzBZCIWP8vO/Goe6Hm2KD
+	 9A2tVeJPSDwd9IPF0hhZl6V1Dc5X9JbrJthQB5tcwvNLzOxOCkwEaZAAQTcBjkEJ/c
+	 vm5bS83d6xSE4f66LzTKcN8EsR1uJ0pnnRvVaUcW8KmFNMktiKLNM0fkdiY8rqnG12
+	 H/MczNgATS6XC3UrHY9Hz1uUiHpeIl4Bho72u74MDGGbZwigJo14kszdhkVikvkf+z
+	 u15ADghnHSOHQ==
+Message-ID: <953f3082-2379-40d6-bc1e-0bc0197d531d@kernel.org>
+Date: Wed, 14 May 2025 15:35:10 +0900
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/6] PCI: endpoint: cleanup get_msi() callback
+To: Niklas Cassel <cassel@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ Jingoo Han <jingoohan1@gmail.com>,
+ Marek Vasut <marek.vasut+renesas@gmail.com>,
+ Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+ Shawn Lin <shawn.lin@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>,
+ Kishon Vijay Abraham I <kishon@kernel.org>
+Cc: Wilfred Mallawa <wilfred.mallawa@wdc.com>, stable+noautosel@kernel.org,
+ linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20250513073055.169486-8-cassel@kernel.org>
+ <20250513073055.169486-11-cassel@kernel.org>
+From: Damien Le Moal <dlemoal@kernel.org>
+Content-Language: en-US
+Organization: Western Digital Research
+In-Reply-To: <20250513073055.169486-11-cassel@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_234447_483700_516F5816 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250513_233521_414345_029D72C1 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,29 +84,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Leo Wang <leo.jt.wang@fii-foxconn.com>
+On 5/13/25 16:30, Niklas Cassel wrote:
+> The kdoc for pci_epc_get_msi() says:
+> "Invoke to get the number of MSI interrupts allocated by the RC"
+> the kdoc for the callback pci_epc_ops->get_msi() says:
+> "ops to get the number of MSI interrupts allocated by the RC from
+> the MSI capability register"
+> 
+> pci_epc_ops->get_msi() does however return the number of interrupts
+> in the encoding as defined by the MME Multiple Message Enable field.
+> 
+> Nowhere in the kdoc does it say that the returned number of interrupts
+> is in MME encoding.
+> 
+> Thus, it is very confusing that the wrapper function (pci_epc_get_msi())
+> and the callback function (pci_epc_ops->get_msi()) don't return the same
+> value.
+> 
+> Cleanup the API so that the wrapper function and the callback function
+> will have the same semantics.
 
-Document the new compatibles used on Meta Clemente.
+Nit: please mention which semantic this patch changes the API to use, that is,
+to follow the kdoc and return the number of interrupts, regardless of the
+internal encoding of that value.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Leo Wang <leo.jt.wang@fii-foxconn.com>
----
- Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
- 1 file changed, 1 insertion(+)
+Other than that, looks good to me.
 
-diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-index a3736f134130..4416a40dcd86 100644
---- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-+++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-@@ -81,6 +81,7 @@ properties:
-               - asus,x4tf-bmc
-               - facebook,bletchley-bmc
-               - facebook,catalina-bmc
-+              - facebook,clemente-bmc
-               - facebook,cloudripper-bmc
-               - facebook,elbert-bmc
-               - facebook,fuji-bmc
+Reviewed-by: Damien Le Moal <dlemoal@kernel.org>]
+
 -- 
-2.43.0
-
+Damien Le Moal
+Western Digital Research
 
