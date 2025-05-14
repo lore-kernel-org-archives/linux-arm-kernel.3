@@ -4,66 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1A79C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 18:33:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71188C54756
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 18:33:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W9xxmlQ5OirnKDnUcb/sodn6X6Ht/IT9AvPaOVIy9X8=; b=3CGGXklmjHr89OeaRe0utE3bGn
-	KG3O0B7p3gQEJX974FwTWSx+6CUUrk9csl8hFxbIT/OXY841n9p2yXBrj9z7/HWKZkp5UR+sVQJy5
-	Ccaq9aQsBEt9EjkcUAv6SfMsU2yTB5YcunYfpJRjharHb+of6SwRJQ6GSjIobBr+7orbtDF4QP65J
-	k7jiNt3H8YGmnYT0FczncqLbmBRMoYEdPNXFvPDX1xZ6ME/n8VH+sltDWBmZN6tkXzj4EcUw1QExw
-	5gHA+s61uOlo9P/T91MGJVtHB+QanilAAS4kwfTAtg6kqQffRxKAXX9kvIKpEAvlUGXV28kqahNIC
-	6VmJhoPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+4yJ06SsolOKo0n1KNhATc5mR4LtStAPg8hMk/tROHY=; b=mjA4ZjE/eLtTMOghHSLp0iqiUf
+	xPMG1mkUolB7xsBJ8IRI/OKcVdKWbq+soOOvki9eA/j+TRnF833xpzYOPyxp52FNmDP61lq5Uyfvx
+	LqPsKnYexzHQBTqIeffmWWKQhXV0Wld7qbit2kZn44K/pVMEzK+5C3E33lO50Zy9Oa1wvQiw+jFXY
+	BfjnB/6uOW3UcOVc8gzHxI3l5Ou3IeZpQGGSfKEo+i8Z7P1eWOhq/heHiOYCDUtu4iWAJ9dEoYjwV
+	J415LIVbsogzIvR0IG53xrXX6NynG0KKfQuk5w/PRBIi7xt0FdSlCALKOOUN6850sL7FC8YwRnXeY
+	1yWETcLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFGvJ-0000000G1sm-2mPs;
-	Wed, 14 May 2025 18:33:45 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uFGvK-0000000G1sr-0oxX;
+	Wed, 14 May 2025 18:33:46 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFF7o-0000000FmJ0-0bHA
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 16:38:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 235C0A4DF47;
-	Wed, 14 May 2025 16:38:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADDBDC4CEE3;
-	Wed, 14 May 2025 16:38:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747240710;
-	bh=bzbDzI4Ez8wa1Uh1GkwX2f0BYckJ+tBjU0J9J8XVnqo=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=h7cZzGoaqjPpJdyg15oYzhuZ2x8bT9ukTM3eWexgL59cNwzjAn/koIZduJL8epF++
-	 E5mJ1q6Qa+Y3i0C/KJU2yrKwPcrisjqyhyLMK/TPjRDPg1FlBvsdeCimSr8xpObAJL
-	 PUTrtBmWE39sdId4lL/Y8SzPdgDVH3Yk5MmOAI7aeOhDgW+6kouq5JHDFmSo2C2rwK
-	 0lnxnpU3gPz3dTnjrfHnnh0cT8r1Ms8KxlrRrp5VklSCiBW0c+UxnchHrNICb577HK
-	 NYSqzesr+IjG33WLNqfb7cM8DAOfSgqe1mlf8iWyAV90ND8wnnoAtp8PKMj/DIBBu4
-	 hR39vEmvfCz3A==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 39AB7380AA66;
-	Wed, 14 May 2025 16:39:09 +0000 (UTC)
-Subject: Re: [GIT PULL] soc: fixes for 6.15, part 2
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <660e30e8-7ae7-4a55-a136-9b0aa4e5ad0b@app.fastmail.com>
-References: <660e30e8-7ae7-4a55-a136-9b0aa4e5ad0b@app.fastmail.com>
-X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
-X-PR-Tracked-Message-Id: <660e30e8-7ae7-4a55-a136-9b0aa4e5ad0b@app.fastmail.com>
-X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.15-2
-X-PR-Tracked-Commit-Id: 15eaaa71e8ef142b122942b35653d513cfb90050
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 00f281fd9d8ddc1a83d3b188c087edac2116a089
-Message-Id: <174724074813.2432206.562898073472288541.pr-tracker-bot@kernel.org>
-Date: Wed, 14 May 2025 16:39:08 +0000
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+	id 1uFF8O-0000000FmQw-3dfX;
+	Wed, 14 May 2025 16:39:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1747240749; x=1778776749;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=BQxpe1gKe+N60hkJWYTw2nQy3pGjcVIp7WcxAHzbnzc=;
+  b=gOoKzFqaGqIP5tvw+sTVyyRreemau6IV/NqaYvfvd0QaEauf0RV7pbOj
+   r1VZ/jDw1f/gvkw72ph2Dx7KaqSSqO/QIZk6X8nQfuVf4TM8amKXFM7hK
+   iRzQ3kGtkf+/c8rSyyk1Yqc74OgisCIYgAtnM5Oh7U8eOYZuoRq0nMV3V
+   8kJ7jLwwqCLAD9Bs3cngRR58MflJwb2iHcf7RNhmP4LmxFKSETfI8VJLB
+   +6NM737cbG56l7YC4oZcvE45sv0J2eoZuhFSAIaRIv0obD+cABai7Y6r5
+   uoLqKIjM2EwQchiazvQEsMyOVXdamgHqtXNiyDoCmByv8NoQj3YKAqoJ1
+   A==;
+X-CSE-ConnectionGUID: rCVbW9RRSyeUhpJEjSSRiQ==
+X-CSE-MsgGUID: 9vaPSy5RSUCD63rq8KRtMg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11433"; a="49223603"
+X-IronPort-AV: E=Sophos;i="6.15,288,1739865600"; 
+   d="scan'208";a="49223603"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 09:39:07 -0700
+X-CSE-ConnectionGUID: dL1HJHziTNqYT0Ugnl+VeQ==
+X-CSE-MsgGUID: HT6VqRyKSneRimqS3nA3iA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,288,1739865600"; 
+   d="scan'208";a="138511665"
+Received: from mgoodin-mobl3.amr.corp.intel.com (HELO [10.124.222.100]) ([10.124.222.100])
+  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 09:39:06 -0700
+Message-ID: <d46bd014-02d9-44ec-a29d-b925f268ee03@linux.intel.com>
+Date: Wed, 14 May 2025 09:39:05 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/5] PCI/ERR: Remove misleading TODO regarding kernel
+ panic
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
+ Oliver O'Halloran <oohall@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>,
+ Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Marc Zyngier <maz@kernel.org>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Daire McNamara <daire.mcnamara@microchip.com>
+Cc: dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>,
+ Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
+ linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
+References: <20250508-pcie-reset-slot-v4-0-7050093e2b50@linaro.org>
+ <20250508-pcie-reset-slot-v4-1-7050093e2b50@linaro.org>
+Content-Language: en-US
+From: Sathyanarayanan Kuppuswamy <sathyanarayanan.kuppuswamy@linux.intel.com>
+In-Reply-To: <20250508-pcie-reset-slot-v4-1-7050093e2b50@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_093832_252869_CEE15E0E 
-X-CRM114-Status: UNSURE (   4.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250514_093908_947825_3984FF74 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,16 +98,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Wed, 14 May 2025 10:07:54 +0200:
 
-> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.15-2
+On 5/8/25 12:10 AM, Manivannan Sadhasivam wrote:
+> A PCI device is just another peripheral in a system. So failure to
+> recover it, must not result in a kernel panic. So remove the TODO which
+> is quite misleading.
+>
+> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> ---
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/00f281fd9d8ddc1a83d3b188c087edac2116a089
+Reviewed-by: Kuppuswamy Sathyanarayanan 
+<sathyanarayanan.kuppuswamy@linux.intel.com>
 
-Thank you!
-
+>   drivers/pci/pcie/err.c | 1 -
+>   1 file changed, 1 deletion(-)
+>
+> diff --git a/drivers/pci/pcie/err.c b/drivers/pci/pcie/err.c
+> index 31090770fffcc94e15ba6e89f649c6f84bfdf0d5..de6381c690f5c21f00021cdc7bde8d93a5c7db52 100644
+> --- a/drivers/pci/pcie/err.c
+> +++ b/drivers/pci/pcie/err.c
+> @@ -271,7 +271,6 @@ pci_ers_result_t pcie_do_recovery(struct pci_dev *dev,
+>   
+>   	pci_uevent_ers(bridge, PCI_ERS_RESULT_DISCONNECT);
+>   
+> -	/* TODO: Should kernel panic here? */
+>   	pci_info(bridge, "device recovery failed\n");
+>   
+>   	return status;
+>
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+Sathyanarayanan Kuppuswamy
+Linux Kernel Developer
+
 
