@@ -4,90 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0A1CC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 12:18:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45DC0C3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 12:18:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TNCvFcvWwltndRrRe0jUv88V8Pga/agvOTssJvAUPj0=; b=RX5RE3Hh+MtfW668LuYd7t5d+u
-	9BefEtZxS903UQJDo/isfoclwJm8WU+8T3ZoQ9/1iJqPJutDp9DWUxOo4S2wFHe1YzVj6U3BLOoNc
-	zmpi/W+/3icS7nqMuTh7aLlREDXHneFd6LjSxJafyY6mRn8kZRtf5sjIIwq1bktg7JKwQBbs1aOua
-	I5dEcfFTe6czhgqCKWUZOmyfOZosRT+eoBOjhBZN+hAHpEQXOmJmulBCENP1/oRzZ0fQoe0HQuPEU
-	3GuG3WT56kiYU4CsDgwdPtULF3IzkTJ2Cnwjd267dYEk/mfwvCVc3M6Cbviynw0zSApcJXawstb5i
-	pWBl7bcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9/VeKMjuCYG6Gpq/xcJu24SbGNN8ogv7ZVkWvFOa9IU=; b=fy7YVWsQ96HK2ZU7bMGB8tQ8fb
+	4I9vv9mfQnlQOzTHBmN+GIn1YKZD4UP5FUC0IZi+c2w7ffPs2tUXUjD74ItzVhjB6xPvVuvDifWaE
+	Z0ZKReu11V8/T2f5j4LlQMThpsytiM3H4x0a73O60EwjBmpEQc9DN1O14WYHs6ylDyB3Ra3+L2aIi
+	wT9DtTglmcapblo1XjB2Kax5QMGn3DDfSr5bmsJDn3lhsKSwdbwOgBWaSFztoYGgEF4b4dngtb+Bk
+	J3FKZknqG5N6EW6dQGLAE4zSZq1hYIe96RQi2vPzlouNvdmGn73NOo0al81inzx+n0T06HEkZXoEf
+	VhDyg0Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFB4C-0000000F0u8-3rrb;
-	Wed, 14 May 2025 12:18:32 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uFB4F-0000000F0yN-1GMZ;
+	Wed, 14 May 2025 12:18:35 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF8Ts-0000000Eg1D-0Fmg
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 09:32:53 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54E7vvBU024075;
-	Wed, 14 May 2025 11:32:44 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	TNCvFcvWwltndRrRe0jUv88V8Pga/agvOTssJvAUPj0=; b=yov7gtOgC6HysJ3s
-	NeUP3A11E0TVcJ1EkNxohtbr9VRJYKNWEhGF/kI+Z46TQ+hqDJkk05OybEZzrvOK
-	WMEcNzjJu/07dZmnQGhjPkX5egGPMCWkgWc3rPk8WA8CehMptQw3nDUoCiI4vB/7
-	/JaJ2mZCXm0Ne4GvkLHvCBfVJAjivs5aonSaOO0G5uTwKH7NbeV5FbbrCKRu+P57
-	AOsMMiAKEHjtR1GVcNesoJSzj2dvifAM7nWNcfgO2IChTrmzpV0BmLCfof0/kj77
-	lkGesp4pPC6bWevkZZcIcXNY7+gaKo0iZtfStAwoF/nf17phWUzViLffTC9XA970
-	lhW0Cw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46mbdx2u2t-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 14 May 2025 11:32:43 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id A909F40055;
-	Wed, 14 May 2025 11:31:44 +0200 (CEST)
-Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 9006DB4E912;
-	Wed, 14 May 2025 11:30:28 +0200 (CEST)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
- (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 14 May
- 2025 11:30:28 +0200
-Received: from [10.48.86.222] (10.48.86.222) by SAFDAG1NODE1.st.com
- (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 14 May
- 2025 11:30:27 +0200
-Message-ID: <4b641513-ff2e-43ab-8074-ba6b521875e2@foss.st.com>
-Date: Wed, 14 May 2025 11:30:26 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/8] pwm: stm32: add support for stm32mp25
-To: <ukleinek@kernel.org>
-CC: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <wbg@kernel.org>, <jic23@kernel.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
-        <olivier.moysan@foss.st.com>, <lee@kernel.org>,
-        <alexandre.torgue@foss.st.com>
-References: <20250110091922.980627-1-fabrice.gasnier@foss.st.com>
- <20250110091922.980627-5-fabrice.gasnier@foss.st.com>
-Content-Language: en-US
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-In-Reply-To: <20250110091922.980627-5-fabrice.gasnier@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.222]
-X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-14_03,2025-05-14_02,2025-02-21_01
+	id 1uF8Ut-0000000EgDZ-0epl;
+	Wed, 14 May 2025 09:33:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4E5FB5C6443;
+	Wed, 14 May 2025 09:31:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45060C4CEE9;
+	Wed, 14 May 2025 09:33:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747215234;
+	bh=001qyor2xDVXczQ1I1uPsfetah7D3sKu1ILOVywqFnk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=oAqFqcpmzH/13hbR8m/oQ4XroGsKo3tle3aJJsWrsQtLYro2z+PLvjOsuG88n/OxJ
+	 34FvuHxK9/XH2rEkDkqevKA3Zm4RLx3TeYfuRmhdCmm/8LPM9f2joGVL1/H9yAQ2w7
+	 qw+hk6NEElGhiwaleELGFNnRJkOZ8sTl5xHlheBLypOX+6C8a5S5AV5fGR3Ea5F2Iz
+	 3/OiHuAPYPcgR16yDChngd6pC8mELRDahRp+jzf2AFxHuz/0wOYB28RUt92XcHMVGT
+	 V5A4ofsYMhlnn1DcsOUps8IUWyew4W6IuckFhHB5U55kOM/su9P9yW9kj58iy2KjS3
+	 ibRlwfrHxQdpg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uF8Up-00Ennz-DL;
+	Wed, 14 May 2025 10:33:51 +0100
+Date: Wed, 14 May 2025 10:33:50 +0100
+Message-ID: <86o6vvfse9.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Maxim Levitsky <mlevitsk@redhat.com>
+Cc: kvm@vger.kernel.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Sebastian Ott <sebott@redhat.com>,
+	Shusen Li <lishusen2@huawei.com>,
+	Waiman Long <longman@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Anup Patel <anup@brainfault.org>,
+	Will Deacon <will@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexander Potapenko <glider@google.com>,
+	kvmarm@lists.linux.dev,
+	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	x86@kernel.org,
+	Sean Christopherson <seanjc@google.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	linux-riscv@lists.infradead.org,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-kernel@vger.kernel.org,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	kvm-riscv@lists.infradead.org,
+	Ingo Molnar <mingo@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH v5 3/6] KVM: add kvm_lock_all_vcpus and kvm_trylock_all_vcpus
+In-Reply-To: <20250512180407.659015-4-mlevitsk@redhat.com>
+References: <20250512180407.659015-1-mlevitsk@redhat.com>
+	<20250512180407.659015-4-mlevitsk@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mlevitsk@redhat.com, kvm@vger.kernel.org, suzuki.poulose@arm.com, jingzhangos@google.com, hpa@zytor.com, sebott@redhat.com, lishusen2@huawei.com, longman@redhat.com, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, bhelgaas@google.com, bp@alien8.de, anup@brainfault.org, will@kernel.org, palmer@dabbelt.com, glider@google.com, kvmarm@lists.linux.dev, keisuke.nishimura@inria.fr, yuzenghui@huawei.com, peterz@infradead.org, atishp@atishpatra.org, joey.gouly@arm.com, x86@kernel.org, seanjc@google.com, andre.przywara@arm.com, jiangkunkun@huawei.com, linux-riscv@lists.infradead.org, rdunlap@infradead.org, pbonzini@redhat.com, boqun.feng@gmail.com, catalin.marinas@arm.com, alex@ghiti.fr, linux-kernel@vger.kernel.org, dave.hansen@linux.intel.com, oliver.upton@linux.dev, kvm-riscv@lists.infradead.org, mingo@redhat.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_023252_381819_29528BE2 
-X-CRM114-Status: GOOD (  27.94  )
+X-CRM114-CacheID: sfid-20250514_023355_278041_886038AA 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,137 +119,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/10/25 10:19, Fabrice Gasnier wrote:
-> Add support for STM32MP25 SoC. Use newly introduced compatible to handle
-> new features along with registers and bits diversity.
-> The MFD part of the driver fills in ipidr, so it is used to check the
-> hardware configuration register, when available to gather the number
-> of PWM channels and complementary outputs.
+On Mon, 12 May 2025 19:04:04 +0100,
+Maxim Levitsky <mlevitsk@redhat.com> wrote:
 > 
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> ---
-> Changes in v2:
-> Address Uwe review comments:
-> - Make MAX_PWM_OUTPUT definition less generic: STM32_PWM_MAX_OUTPUT
-> - No need to initialize 'npwm'
-> - refactor code, for *num_enabled to use same code path
-> ---
->  drivers/pwm/pwm-stm32.c | 42 ++++++++++++++++++++++++++++++++++-------
->  1 file changed, 35 insertions(+), 7 deletions(-)
-
-Hi Uwe,
-
-I think this patch still miss some reviews.
-The first patches of this series have been merged.
-
-Is it ok for you to merge, or shall I resend separately ?
-
-Please advise,
-BR,
-Fabrice
-
+> In a few cases, usually in the initialization code, KVM locks all vCPUs
+> of a VM to ensure that userspace doesn't do funny things while KVM performs
+> an operation that affects the whole VM.
 > 
-> diff --git a/drivers/pwm/pwm-stm32.c b/drivers/pwm/pwm-stm32.c
-> index 17e591f61efb..b9aadc473280 100644
-> --- a/drivers/pwm/pwm-stm32.c
-> +++ b/drivers/pwm/pwm-stm32.c
-> @@ -19,6 +19,7 @@
->  #define CCMR_CHANNEL_SHIFT 8
->  #define CCMR_CHANNEL_MASK  0xFF
->  #define MAX_BREAKINPUT 2
-> +#define STM32_MAX_PWM_OUTPUT 4
->  
->  struct stm32_breakinput {
->  	u32 index;
-> @@ -775,10 +776,19 @@ static int stm32_pwm_probe_breakinputs(struct stm32_pwm *priv,
->  	return stm32_pwm_apply_breakinputs(priv);
->  }
->  
-> -static void stm32_pwm_detect_complementary(struct stm32_pwm *priv)
-> +static void stm32_pwm_detect_complementary(struct stm32_pwm *priv, struct stm32_timers *ddata)
->  {
->  	u32 ccer;
->  
-> +	if (ddata->ipidr) {
-> +		u32 val;
-> +
-> +		/* Simply read from HWCFGR the number of complementary outputs (MP25). */
-> +		regmap_read(priv->regmap, TIM_HWCFGR1, &val);
-> +		priv->have_complementary_output = !!FIELD_GET(TIM_HWCFGR1_NB_OF_DT, val);
-> +		return;
-> +	}
-> +
->  	/*
->  	 * If complementary bit doesn't exist writing 1 will have no
->  	 * effect so we can detect it.
-> @@ -790,22 +800,39 @@ static void stm32_pwm_detect_complementary(struct stm32_pwm *priv)
->  	priv->have_complementary_output = (ccer != 0);
->  }
->  
-> -static unsigned int stm32_pwm_detect_channels(struct regmap *regmap,
-> +static unsigned int stm32_pwm_detect_channels(struct stm32_timers *ddata,
->  					      unsigned int *num_enabled)
->  {
-> +	struct regmap *regmap = ddata->regmap;
->  	u32 ccer, ccer_backup;
->  
-> +	regmap_read(regmap, TIM_CCER, &ccer_backup);
-> +	*num_enabled = hweight32(ccer_backup & TIM_CCER_CCXE);
-> +
-> +	if (ddata->ipidr) {
-> +		u32 hwcfgr;
-> +		unsigned int npwm;
-> +
-> +		/* Deduce from HWCFGR the number of outputs (MP25). */
-> +		regmap_read(regmap, TIM_HWCFGR1, &hwcfgr);
-> +
-> +		/*
-> +		 * Timers may have more capture/compare channels than the
-> +		 * actual number of PWM channel outputs (e.g. TIM_CH[1..4]).
-> +		 */
-> +		npwm = FIELD_GET(TIM_HWCFGR1_NB_OF_CC, hwcfgr);
-> +
-> +		return npwm < STM32_MAX_PWM_OUTPUT ? npwm : STM32_MAX_PWM_OUTPUT;
-> +	}
-> +
->  	/*
->  	 * If channels enable bits don't exist writing 1 will have no
->  	 * effect so we can detect and count them.
->  	 */
-> -	regmap_read(regmap, TIM_CCER, &ccer_backup);
->  	regmap_set_bits(regmap, TIM_CCER, TIM_CCER_CCXE);
->  	regmap_read(regmap, TIM_CCER, &ccer);
->  	regmap_write(regmap, TIM_CCER, ccer_backup);
->  
-> -	*num_enabled = hweight32(ccer_backup & TIM_CCER_CCXE);
-> -
->  	return hweight32(ccer & TIM_CCER_CCXE);
->  }
->  
-> @@ -820,7 +847,7 @@ static int stm32_pwm_probe(struct platform_device *pdev)
->  	unsigned int i;
->  	int ret;
->  
-> -	npwm = stm32_pwm_detect_channels(ddata->regmap, &num_enabled);
-> +	npwm = stm32_pwm_detect_channels(ddata, &num_enabled);
->  
->  	chip = devm_pwmchip_alloc(dev, npwm, sizeof(*priv));
->  	if (IS_ERR(chip))
-> @@ -841,7 +868,7 @@ static int stm32_pwm_probe(struct platform_device *pdev)
->  		return dev_err_probe(dev, ret,
->  				     "Failed to configure breakinputs\n");
->  
-> -	stm32_pwm_detect_complementary(priv);
-> +	stm32_pwm_detect_complementary(priv, ddata);
->  
->  	ret = devm_clk_rate_exclusive_get(dev, priv->clk);
->  	if (ret)
-> @@ -911,6 +938,7 @@ static DEFINE_SIMPLE_DEV_PM_OPS(stm32_pwm_pm_ops, stm32_pwm_suspend, stm32_pwm_r
->  
->  static const struct of_device_id stm32_pwm_of_match[] = {
->  	{ .compatible = "st,stm32-pwm",	},
-> +	{ .compatible = "st,stm32mp25-pwm", },
->  	{ /* end node */ },
->  };
->  MODULE_DEVICE_TABLE(of, stm32_pwm_of_match);
+> Until now, all these operations were implemented using custom code,
+> and all of them share the same problem:
+> 
+> Lockdep can't cope with simultaneous locking of a large number of locks of
+> the same class.
+> 
+> However if these locks are taken while another lock is already held,
+> which is luckily the case, it is possible to take advantage of little known
+> _nest_lock feature of lockdep which allows in this case to have an
+> unlimited number of locks of same class to be taken.
+> 
+> To implement this, create two functions:
+> kvm_lock_all_vcpus() and kvm_trylock_all_vcpus()
+> 
+> Both functions are needed because some code that will be replaced in
+> the subsequent patches, uses mutex_trylock, instead of regular mutex_lock.
+> 
+> Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
+> Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
+
+Acked-by: Marc Zyngier <maz@kernel.org>
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
