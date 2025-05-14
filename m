@@ -4,78 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 079C1C3ABC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 05:01:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 206E8C3ABCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 05:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3r4be1ycuideZs+OiC0M2O3UfYCEUyFCGXty1I5JkLw=; b=xGdO8hOi4EPe429pV31pO+eETf
-	Ha4SEi84yyNeFVXCpyF6pVPA/nyBD6jAqmGoTzZADpVcxFiKJyI+oGoinnR7N+xKQaJkMMtoFpP0D
-	DzHWnkaw5bRoMlJPf7k4jF6M2JtF/Pszz5mXx49UuCWrrnKaj4iUh9ndyzUnguTG1SvDulXpEnWsU
-	pjPMYSUjL68IY/lrFiF/8QbpQN7g3MFEWhR5xMVc8deOwJDDmTQCFuJKqAwzZURP+zD/2W7q1QNLn
-	aAi+8CnxLV3+v+reN4Pd31L1AsDFnWMKx8ajPzxIm4dpXbgZCOdBPq52XTdhyO3dCmZF8Y4P0Fl9A
-	lQgWNldA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rRHcD4o64kpkrmiebc0+P3XyihTjZVS84d+OLMuKgu0=; b=yYkV+NBziarZfEa5C4aWgXIX2q
+	5PpSj6MM0bfEtQwmHCoud1TzhHPdUxabjGZBFpUb5VXqDUZlFZlg3b2FJUOTg/d0UXullHs7vbYNp
+	8al3wgGuofAwfAWwJFydM0BdpsTqScfEpcjnkFt68oK/tDsaWruyZYeOOqOaKxicH/UCMfnOsPoGb
+	+W+SohhFd/q2DDPuGaXsh4pCX1AHaPDvcpanRwZ5uW1W60ntMr1BLuu1xNgGw/HIQGfWdg2L2TtJZ
+	4GTIvAdbkzOWjf/SdlO10seOaGzM6RnGv/4VOVdPql3CPAB26S/BqsWDlyc3v7dHe4XrRF+FFZMUj
+	Nv2ckffg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF4FW-0000000E2Rd-0qZE;
-	Wed, 14 May 2025 05:01:46 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1uF4re-0000000E5z1-192o;
+	Wed, 14 May 2025 05:41:10 +0000
+Received: from mail-ed1-x544.google.com ([2a00:1450:4864:20::544])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF4DT-0000000E2FU-05St;
-	Wed, 14 May 2025 04:59:41 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 2C24A4394D;
-	Wed, 14 May 2025 04:59:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1747198774;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3r4be1ycuideZs+OiC0M2O3UfYCEUyFCGXty1I5JkLw=;
-	b=Oggjx/AW2K4r6PCB9AgV7IuR40Uu4pC449YNDeZqQBdgVhyoepkqwSCv4GlzvLRpbTEYVv
-	jeUkYGXdufujAn9ettXx0pgnnvYQav5fRN0WqHeE3EfebDZdjntO3Q3vg0PVR+zQ+TannR
-	d5KzsfxLPrmKfS2uoc0M+OYKT+j0K/4yWBh/ns0rEGH2MwmAyOIi3oh2RD0upAYku8392h
-	2ryLhRRlIdnG2J3vEDQtmAqR2vrc44Wsh1msPCRuzE3PoDYkHtSM6VXVhSewm6W+M68lGK
-	wlVeFkovE+i7DlQPZl4dfQyY452EPDjzVzAkQP29Nizkmhe+iBPrKMwmJCY7mA==
-Message-ID: <e8af352a-bfcf-4aa5-b113-e8b845c3a2c6@bootlin.com>
-Date: Wed, 14 May 2025 06:59:30 +0200
+	id 1uF4pb-0000000E5pG-0ugp
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 May 2025 05:39:04 +0000
+Received: by mail-ed1-x544.google.com with SMTP id 4fb4d7f45d1cf-5f6fb95f431so1002897a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 May 2025 22:39:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747201141; x=1747805941; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=rRHcD4o64kpkrmiebc0+P3XyihTjZVS84d+OLMuKgu0=;
+        b=eEkzd5EJe2UqLWoW3jgLsABdrwO4cuYZtwXLG8HZrmBHWCVqWJjWa6aek8FTASi6VI
+         U0M/yswePsejwcVoP1fVsmdPeoeHHJtJthsY9G3rGCXBfYUyREIpa6fal6N8ByjqacNe
+         iECaKYrB7MSWRCdgLXJLJChAOKGl/TC825zESz71iJcXJZJr866VvYEh3QDpCU3aj6mZ
+         9+ijWdgdpDPn+qmqglE1Ks/r33YK1sfgxUoPjTZDCwwhnhNUsCvE0gqtCt/E61mzKZva
+         hOjg81quFslWwJ2I5HAWwVqNOW3/zpNSX7HQ/61auzwAI0eKPAgw6auMNh2ldSAV/nEa
+         KlVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747201141; x=1747805941;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rRHcD4o64kpkrmiebc0+P3XyihTjZVS84d+OLMuKgu0=;
+        b=t3JmFCmoYByRoU3WTki/7PCrw6fSNCBZQ2ioU+82Zc5DFnlU/3bHeE5pU9X95Z10Vs
+         3kyU/+DYneOCZvdkbpx2Zt8KRHtrKo+FnNxPVCGqwNsa5/O4bapcNIN73zU22fBKvKgx
+         kPo8Ics+0oJNoquMiweftFhIwq+L60JR7XZIHbi1KGFPzD03FF2vTj6rCx3AkRMFGkhs
+         Flah0L66ioJjtTn0QNFBGPytkcle078w0k+giTSKHK5PWpq9s2FUu6aEJkQdiTBdZUbA
+         Oi2yZe+DSSiKbA9Iy34tFy+aCKNH8FONyi6hEX70ckRqcFm0ZrnQNPGdAR3c2UrlnTyP
+         YS3g==
+X-Forwarded-Encrypted: i=1; AJvYcCWUrPYBXqP+5U+yzVL+m8LZo8LWWB6qBiX0vDku5WBh0JBaNpP4+Kp3YHzQI6oVi8Ew+Ya8pef8wtmhCSbNUbkk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3pDU/aC1LlpRJgz288JNP+BRL5w4jhY4DpDf69h7hWM7bUqcs
+	XjuENOPv2ll1ILTLz3H6IuvM47pT5LOYJgj8eUuALkt2VjvcjAryEd3GSs+clbKtbrMtFiqEVML
+	LT8I7INOYVwzrYjU6U01FpbAa2EY=
+X-Gm-Gg: ASbGncv1E/wJX/daSazGibhYgp2Sw3IsQtCTqU0hCTVfkE2DfWhjTGbdS1TVgQ7pUzv
+	jPfIaLIga0/K9AKyJa3CGe97Z1sWRWx7hwNqIXvBTCYYz17wd6dS0Sj2teCqhugvMcRUCBFHzSK
+	X0rK/E119U4DO71yD7rlp499YDdIaM95A=
+X-Google-Smtp-Source: AGHT+IE1CqX0NBMok/Qu/kKHdiB+296j6U4L2iZuYAqefZDP7cDedLQUlSzfA5SJyR8b9OMIRCnTZEuWb3yEfQO1HXk=
+X-Received: by 2002:a17:907:1c9c:b0:ad1:ff5f:1460 with SMTP id
+ a640c23a62f3a-ad4d4cd6334mr650602666b.6.1747201140708; Tue, 13 May 2025
+ 22:39:00 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/4] arm64: dts: rockchip: describe I2c Bus 1 and
- IMX258 world camera on PinePhone Pro
-To: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
- Nicholas Roth <nicholas@rothemail.net>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Sakari Ailus <sakari.ailus@linux.intel.com>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>,
- imx@lists.linux.dev, Dragan Simic <dsimic@manjaro.org>,
- Ondrej Jirman <megi@xff.cz>
-References: <20250509-camera-v3-0-dab2772d229a@bootlin.com>
- <20250509-camera-v3-3-dab2772d229a@bootlin.com> <3359896.e9J7NaK4W3@phil>
-Content-Language: en-US
-From: Olivier Benjamin <olivier.benjamin@bootlin.com>
-In-Reply-To: <3359896.e9J7NaK4W3@phil>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeftdeiuddtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomhepqfhlihhvihgvrhcuuegvnhhjrghmihhnuceoohhlihhvihgvrhdrsggvnhhjrghmihhnsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeelgfelieetjeekgffhffekkeefvddtveelheegleejgeffjeelgeehlefftdekueenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegvfeegmegvtgefkeemvdegvgdtmehfhegtvgemfhefgedvmeeiheekjeemfheiheeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegvfeegmegvtgefkeemvdegvgdtmehfhegtvgemfhefgedvmeeiheekjeemfheiheeipdhhvghloheplgfkrfggieemvdgrtddumegvfeegmegvtgefkeemvdegvgdtmehfhegtvgemfhefgedvmeeiheekjeemfheiheeingdpmhgrihhlfhhrohhmpeholhhivhhivghrrdgsvghnjhgrmhhinhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddvpdhrtghpthhtohephhgvihhkohesshhnthgvtghhrdguvgdprhgtphhtthhopehrohgsh
- heskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehjrggtohhpohdrmhhonhguihesihguvggrshhonhgsohgrrhgurdgtohhmpdhrtghpthhtohepnhhitghhohhlrghssehrohhthhgvmhgrihhlrdhnvghtpdhrtghpthhtohepmhgthhgvhhgrsgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshgrkhgrrhhirdgrihhluhhssehlihhnuhigrdhinhhtvghlrdgtohhm
-X-GND-Sasl: olivier.benjamin@bootlin.com
+References: <20250501073603.1402960-1-luis.gerhorst@fau.de> <20250501073603.1402960-9-luis.gerhorst@fau.de>
+In-Reply-To: <20250501073603.1402960-9-luis.gerhorst@fau.de>
+From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Date: Wed, 14 May 2025 01:38:24 -0400
+X-Gm-Features: AX0GCFsZdtgAVwNSl7_yfp7bxkIRg361n-aA3yvBc34WlsCAzIMW4XH9M0yyf_U
+Message-ID: <CAP01T75y4GuYp-X9x1eGA2s1+eGnVNFoCrf_o5f22Qs-MNAo6A@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v3 08/11] bpf: Fall back to nospec for Spectre v1
+To: Luis Gerhorst <luis.gerhorst@fau.de>
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Hari Bathini <hbathini@linux.ibm.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
+	Henriette Herzog <henriette.herzog@rub.de>, Saket Kumar Bhaskar <skb99@linux.ibm.com>, 
+	Cupertino Miranda <cupertino.miranda@oracle.com>, Jiayuan Chen <mrpre@163.com>, 
+	Matan Shachnai <m.shachnai@gmail.com>, Dimitar Kanaliev <dimitar.kanaliev@siteground.com>, 
+	Shung-Hsi Yu <shung-hsi.yu@suse.com>, Daniel Xu <dxu@dxuuu.xyz>, bpf@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-kselftest@vger.kernel.org, 
+	Maximilian Ott <ott@cs.fau.de>, Milan Stephan <milan.stephan@fau.de>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_215939_820851_58430013 
-X-CRM114-Status: GOOD (  23.85  )
+X-CRM114-CacheID: sfid-20250513_223903_265064_1108A224 
+X-CRM114-Status: GOOD (  58.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,232 +108,347 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 1 May 2025 at 04:00, Luis Gerhorst <luis.gerhorst@fau.de> wrote:
+>
+> This implements the core of the series and causes the verifier to fall
+> back to mitigating Spectre v1 using speculation barriers. The approach
+> was presented at LPC'24 [1] and RAID'24 [2].
+>
+> If we find any forbidden behavior on a speculative path, we insert a
+> nospec (e.g., lfence speculation barrier on x86) before the instruction
+> and stop verifying the path. While verifying a speculative path, we can
+> furthermore stop verification of that path whenever we encounter a
+> nospec instruction.
+>
+> A minimal example program would look as follows:
+>
+>         A = true
+>         B = true
+>         if A goto e
+>         f()
+>         if B goto e
+>         unsafe()
+> e:      exit
+>
+> There are the following speculative and non-speculative paths
+> (`cur->speculative` and `speculative` referring to the value of the
+> push_stack() parameters):
+>
+> - A = true
+> - B = true
+> - if A goto e
+>   - A && !cur->speculative && !speculative
+>     - exit
+>   - !A && !cur->speculative && speculative
+>     - f()
+>     - if B goto e
+>       - B && cur->speculative && !speculative
+>         - exit
+>       - !B && cur->speculative && speculative
+>         - unsafe()
+>
+> If f() contains any unsafe behavior under Spectre v1 and the unsafe
+> behavior matches `state->speculative &&
+> error_recoverable_with_nospec(err)`, do_check() will now add a nospec
+> before f() instead of rejecting the program:
+>
+>         A = true
+>         B = true
+>         if A goto e
+>         nospec
+>         f()
+>         if B goto e
+>         unsafe()
+> e:      exit
+>
+> Alternatively, the algorithm also takes advantage of nospec instructions
+> inserted for other reasons (e.g., Spectre v4). Taking the program above
+> as an example, speculative path exploration can stop before f() if a
+> nospec was inserted there because of Spectre v4 sanitization.
+>
+> In this example, all instructions after the nospec are dead code (and
+> with the nospec they are also dead code speculatively).
+>
+> On x86_64, this depends on the following property of lfence [3]:
+>
+>         An LFENCE instruction or a serializing instruction will ensure that no
+>         later instructions execute, even speculatively, until all prior
+>         instructions complete locally. [...] Inserting an LFENCE instruction
+>         after a bounds check prevents later operations from executing before
+>         the bound check completes.
+>
+> Regarding the example, this implies that `if B goto e` will not execute
+> before `if A goto e` completes. Once `if A goto e` completes, the CPU
+> should find that the speculation was wrong and continue with `exit`.
+>
+> If there is any other path that leads to `if B goto e` (and therefore
+> `unsafe()`) without going through `if A goto e`, then a nospec will
+> still be needed there. However, this patch assumes this other path will
+> be explored separately and therefore be discovered by the verifier even
+> if the exploration discussed here stops at the nospec.
+>
+> This patch furthermore has the unfortunate consequence that Spectre v1
+> mitigations now only support architectures which implement BPF_NOSPEC.
+> Before this commit, Spectre v1 mitigations prevented exploits by
+> rejecting the programs on all architectures. Because some JITs do not
+> implement BPF_NOSPEC, this patch therefore may regress unpriv BPF's
+> security to a limited extent:
+>
+> * The regression is limited to systems vulnerable to Spectre v1, have
+>   unprivileged BPF enabled, and do NOT emit insns for BPF_NOSPEC. The
+>   latter is not the case for x86 64- and 32-bit, arm64, and powerpc
+>   64-bit and they are therefore not affected by the regression.
+>   According to commit a6f6a95f2580 ("LoongArch, bpf: Fix jit to skip
+>   speculation barrier opcode"), LoongArch is not vulnerable to Spectre
+>   v1 and therefore also not affected by the regression.
+>
+> * To the best of my knowledge this regression may therefore only affect
+>   MIPS. This is deemed acceptable because unpriv BPF is still disabled
+>   there by default. As stated in a previous commit, BPF_NOSPEC could be
+>   implemented for MIPS based on GCC's speculation_barrier
+>   implementation.
+>
+> * It is unclear which other architectures (besides x86 64- and 32-bit,
+>   ARM64, PowerPC 64-bit, LoongArch, and MIPS) supported by the kernel
+>   are vulnerable to Spectre v1. Also, it is not clear if barriers are
+>   available on these architectures. Implementing BPF_NOSPEC on these
+>   architectures therefore is non-trivial. Searching GCC and the kernel
+>   for speculation barrier implementations for these architectures
+>   yielded no result.
+>
+> * If any of those regressed systems is also vulnerable to Spectre v4,
+>   the system was already vulnerable to Spectre v4 attacks based on
+>   unpriv BPF before this patch and the impact is therefore further
+>   limited.
+>
+> As an alternative to regressing security, one could still reject
+> programs if the architecture does not emit BPF_NOSPEC (e.g., by removing
+> the empty BPF_NOSPEC-case from all JITs except for LoongArch where it
+> appears justified). However, this will cause rejections on these archs
+> that are likely unfounded in the vast majority of cases.
+>
+> In the tests, some are now successful where we previously had a
+> false-positive (i.e., rejection). Change them to reflect where the
+> nospec should be inserted (using __xlated_unpriv) and modify the error
+> message if the nospec is able to mitigate a problem that previously
+> shadowed another problem (in that case __xlated_unpriv does not work,
+> therefore just add a comment).
+>
+> Define SPEC_V1 to avoid duplicating this ifdef whenever we check for
+> nospec insns using __xlated_unpriv, define it here once. This also
+> improves readability. PowerPC can probably also be added here. However,
+> omit it for now because the BPF CI currently does not include a test.
+>
+> Briefly went through all the occurrences of EPERM, EINVAL, and EACCESS
+> in the verifier in order to validate that catching them like this makes
+> sense.
+>
+> [1] https://lpc.events/event/18/contributions/1954/ ("Mitigating
+>     Spectre-PHT using Speculation Barriers in Linux eBPF")
+> [2] https://arxiv.org/pdf/2405.00078 ("VeriFence: Lightweight and
+>     Precise Spectre Defenses for Untrusted Linux Kernel Extensions")
+> [3] https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/technical-documentation/runtime-speculative-side-channel-mitigations.html
+>     ("Managed Runtime Speculative Execution Side Channel Mitigations")
+>
+> Signed-off-by: Luis Gerhorst <luis.gerhorst@fau.de>
+> Acked-by: Henriette Herzog <henriette.herzog@rub.de>
+> Cc: Maximilian Ott <ott@cs.fau.de>
+> Cc: Milan Stephan <milan.stephan@fau.de>
+> ---
 
+Some comments below, but:
 
-On 5/13/25 20:23, Heiko Stuebner wrote:
-> Hi Olivier,
-> 
-Hello Heiko, thanks for having a look!
+Acked-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 
-> Am Freitag, 9. Mai 2025, 23:51:39 Mitteleuropäische Sommerzeit schrieb Olivier Benjamin:
->> Add the description of the rear/world camera (IMX258) on the PinePhone Pro
->> to the device dts file.
->> It receives commands on the I2C Bus 1 at address 0x1a and transmits data
->> over CSI-MIPI.
->>
->> The I2C address for IMX258 can be found in the IMX258-0AQH5 Software
->> Reference Manual, page 24, section 2.3.1: 0b0011010 = 0x1a.
->> Section 3 indicates the module has 4 pairs of data lines. While 4-lane
->> mode is nominal, 2-lane mode should also be supported.
->>
->> The pin muxing info was extracted from the PinePhone Pro schematic v1.0
->> as well as the RK3399 datasheet revision 1.8.
->>
->> Table 2-3 in section 2.8 of the RK3399 datasheet contains the mapping
->> of IO functions for the SoC pins. Page 52 shows GPIO1_A0, page 54 shows
->> GPIO2_D4.
->>
->> For I2C power, the PinePhone Pro schematic page 11 quadrants A4 and A5:
->> RK3399_J.AA8 and RK3399_J.Y8 get power from vcaa1v8_codec, so turn it on
->>
->> The IMX258 also uses the following regulators, expected by its driver:
->>   - vana (2.8V analog), called AVDD2V8_DVP on P.18 q.C1 and derived from
->>     VCC1V8_S3 on P.13 q.B2
->>   - vdig (1.2V digital core), called DVDD_DVP on P.18 q.C1 and shown on
->>     P.18 q.D3 to be equivalent to VCC1V2_DVP derived from VCC3V3_SYS on
->>     P.13 q.B3. Note that this regulator's voltage is inconsistently
->>     labeled either 1.2V or 1.5V
->>
->> RK3399_J.AG1 is GPIO4_A1/I2C1_SDA, RK3399_J.Y6 is GPIO4_A2/I2C1_SCL
->> This is the default pinctrl "i2c1_xfer" for i2c1 from rk3399-base.
->>
->> For the reset (RESET) signal:
->> page 11 quadrant D2             | p.18 q.C3-4 | p.18 q.C2
->> RK3399_E.R25 -> GPIO1_A0 -> Camera_RST -> MIPI_RST0 -> IMX258.12
->>
->> For the powerdown (PWDN) signal:
->> page 11 quadrants B4-5          | p.18 q.C2
->> RK3399_G.AF8 -> GPIO2_D4 -> DVP_PDN1_H -> IMX258.14
->>
->> Helped-by: Dragan Simic <dsimic@manjaro.org>
->> Co-developed-by: Ondrej Jirman <megi@xff.cz>
->> Signed-off-by: Ondrej Jirman <megi@xff.cz>
->> Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
-> 
-> how independent are the devicetree changes from the binding changes?
-> As the binding change "only" includes other properties.
-> 
-They are pretty independent: the binding changes are only needed to 
-suppress warnings on the devicetree.
-However, the changes to the devicetree are the motivation for the 
-changes to the binding: the other properties are not strictly necessary 
-otherwise.
+>  include/linux/bpf_verifier.h                  |  1 +
+>  kernel/bpf/verifier.c                         | 78 ++++++++++++++++++-
+>  tools/testing/selftests/bpf/progs/bpf_misc.h  |  4 +
+>  .../selftests/bpf/progs/verifier_and.c        |  8 +-
+>  .../selftests/bpf/progs/verifier_bounds.c     | 61 ++++++++++++---
+>  .../selftests/bpf/progs/verifier_movsx.c      | 16 +++-
+>  .../selftests/bpf/progs/verifier_unpriv.c     |  8 +-
+>  .../bpf/progs/verifier_value_ptr_arith.c      | 16 +++-
+>  .../selftests/bpf/verifier/dead_code.c        |  3 +-
+>  tools/testing/selftests/bpf/verifier/jmp32.c  | 33 +++-----
+>  tools/testing/selftests/bpf/verifier/jset.c   | 10 +--
+>  11 files changed, 184 insertions(+), 54 deletions(-)
+>
+> diff --git a/include/linux/bpf_verifier.h b/include/linux/bpf_verifier.h
+> index cebb67becdad..f1573e093120 100644
+> --- a/include/linux/bpf_verifier.h
+> +++ b/include/linux/bpf_verifier.h
+> @@ -576,6 +576,7 @@ struct bpf_insn_aux_data {
+>         u64 map_key_state; /* constant (32 bit) key tracking for maps */
+>         int ctx_field_size; /* the ctx field size for load insn, maybe 0 */
+>         u32 seen; /* this insn was processed by the verifier at env->pass_cnt */
+> +       bool nospec; /* do not execute this instruction speculatively */
+>         bool nospec_result; /* result is unsafe under speculation, nospec must follow */
+>         bool zext_dst; /* this insn zero extends dst reg */
+>         bool needs_zext; /* alu op needs to clear upper bits */
+> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+> index 1e1eca85b7a6..db26b477dd45 100644
+> --- a/kernel/bpf/verifier.c
+> +++ b/kernel/bpf/verifier.c
+> @@ -2014,6 +2014,18 @@ static int pop_stack(struct bpf_verifier_env *env, int *prev_insn_idx,
+>         return 0;
+>  }
+>
+> +static bool error_recoverable_with_nospec(int err)
+> +{
+> +       /* Should only return true for non-fatal errors that are allowed to
+> +        * occur during speculative verification. For these we can insert a
+> +        * nospec and the program might still be accepted. Do not include
+> +        * something like ENOMEM because it is likely to re-occur for the next
+> +        * architectural path once it has been recovered-from in all speculative
+> +        * paths.
+> +        */
+> +       return err == -EPERM || err == -EACCES || err == -EINVAL;
+> +}
 
-> Heiko
-> 
-> 
->> ---
->>   .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 94 ++++++++++++++++++++++
->>   1 file changed, 94 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
->> index 04ba4c4565d0a205e2e46d7535c6a3190993621d..588e2d8a049cc649aa227c7a885bd494f23fbdf8 100644
->> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
->> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
->> @@ -114,6 +114,16 @@ vcc3v3_sys: regulator-vcc3v3-sys {
->>   		vin-supply = <&vcc_sys>;
->>   	};
->>   
->> +	avdd2v8_dvp: regulator-avdd2v8-dvp {
->> +		compatible = "regulator-fixed";
->> +		regulator-name = "avdd2v8_dvp";
->> +		regulator-always-on;
->> +		regulator-boot-on;
->> +		regulator-min-microvolt = <2800000>;
->> +		regulator-max-microvolt = <2800000>;
->> +		vin-supply = <&vcc3v3_sys>;
->> +	};
->> +
->>   	vcca1v8_s3: regulator-vcc1v8-s3 {
->>   		compatible = "regulator-fixed";
->>   		regulator-name = "vcca1v8_s3";
->> @@ -136,6 +146,16 @@ vcc1v8_codec: regulator-vcc1v8-codec {
->>   		vin-supply = <&vcc3v3_sys>;
->>   	};
->>   
->> +	vcc1v2_dvp: regulator-vcc1v2-dvp {
->> +		compatible = "regulator-fixed";
->> +		regulator-name = "vcc1v2_dvp";
->> +		regulator-always-on;
->> +		regulator-boot-on;
->> +		regulator-min-microvolt = <1200000>;
->> +		regulator-max-microvolt = <1200000>;
->> +		vin-supply = <&vcca1v8_s3>;
->> +	};
->> +
->>   	wifi_pwrseq: sdio-wifi-pwrseq {
->>   		compatible = "mmc-pwrseq-simple";
->>   		clocks = <&rk818 1>;
->> @@ -312,6 +332,8 @@ vcc3v0_touch: LDO_REG2 {
->>   
->>   			vcca1v8_codec: LDO_REG3 {
->>   				regulator-name = "vcca1v8_codec";
->> +				regulator-always-on;
->> +				regulator-boot-on;
->>   				regulator-min-microvolt = <1800000>;
->>   				regulator-max-microvolt = <1800000>;
->>   			};
->> @@ -420,6 +442,46 @@ regulator-state-mem {
->>   	};
->>   };
->>   
->> +&i2c1 {
->> +	clock-frequency = <400000>;
->> +	pinctrl-0 = <&i2c1_xfer &cif_clkouta>;
->> +	assigned-clocks = <&cru SCLK_CIF_OUT>;
->> +	assigned-clock-rates = <24000000>;
->> +	status = "okay";
->> +
->> +	wcam: camera@1a {
->> +		compatible = "sony,imx258";
->> +		reg = <0x1a>;
->> +		clocks = <&cru SCLK_CIF_OUT>; /* MIPI_MCLK0, derived from CIF_CLKO */
->> +		clock-names = "xvclk";
->> +		pinctrl-names = "default";
->> +		pinctrl-0 = <&wcam_rst>;
->> +		/* Note: both cameras also depend on vcca1v8_codec to power the I2C bus. */
->> +		vif-supply = <&vcc1v8_dvp>;
->> +		vana-supply = <&avdd2v8_dvp>;
->> +		vdig-supply = <&vcc1v2_dvp>; /* DVDD_DVP is the same as VCC1V2_DVP */
->> +		reset-gpios = <&gpio1 RK_PA0 GPIO_ACTIVE_LOW>;
->> +		orientation = <1>; /* V4L2_CAMERA_ORIENTATION_BACK */
->> +		rotation = <270>;
->> +		lens-focus = <&wcam_lens>;
->> +
->> +		port {
->> +			wcam_out: endpoint {
->> +				remote-endpoint = <&mipi_in_wcam>;
->> +				data-lanes = <1 2 3 4>;
->> +				link-frequencies = /bits/ 64 <636000000>;
->> +			};
->> +		};
->> +	};
->> +
->> +	wcam_lens: camera-lens@c {
->> +		compatible = "dongwoon,dw9714";
->> +		reg = <0x0c>;
->> +		/* Same I2c bus as both cameras, depends on vcca1v8_codec for power. */
->> +		vcc-supply = <&vcc1v8_dvp>;
->> +	};
->> +};
->> +
->>   &i2c3 {
->>   	i2c-scl-rising-time-ns = <450>;
->>   	i2c-scl-falling-time-ns = <15>;
->> @@ -462,6 +524,28 @@ &io_domains {
->>   	status = "okay";
->>   };
->>   
->> +&isp1 {
->> +	status = "okay";
->> +
->> +	ports {
->> +		port@0 {
->> +			mipi_in_wcam: endpoint@0 {
->> +				reg = <0>;
->> +				remote-endpoint = <&wcam_out>;
->> +				data-lanes = <1 2 3 4>;
->> +			};
->> +		};
->> +	};
->> +};
->> +
->> +&mipi_dphy_rx0 {
->> +	status = "okay";
->> +};
->> +
->> +&isp1_mmu {
->> +	status = "okay";
->> +};
->> +
->>   &mipi_dsi {
->>   	status = "okay";
->>   	clock-master;
->> @@ -495,6 +579,10 @@ mipi_in_panel: endpoint {
->>   	};
->>   };
->>   
->> +&mipi_dsi1 {
->> +	status = "okay";
->> +};
->> +
->>   &pmu_io_domains {
->>   	pmu1830-supply = <&vcc_1v8>;
->>   	status = "okay";
->> @@ -507,6 +595,12 @@ pwrbtn_pin: pwrbtn-pin {
->>   		};
->>   	};
->>   
->> +	camera {
->> +		wcam_rst: wcam-rst {
->> +			rockchip,pins = <1 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>;
->> +		};
->> +	};
->> +
->>   	leds {
->>   		red_led_pin: red-led-pin {
->>   			rockchip,pins = <4 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
->>
->>
-> 
-> 
-> 
-> 
-> 
+Why can't we unconditionally do this? So the path with speculation
+that encounters an error (even if EFAULT) is not explored for the
+remaining pushed speculative states. If the error remains regardless
+of speculation normal symbolic execution will encounter it. The
+instructions only explored as part of speculative execution are not
+marked as seen (see: sanitize_mark_insn_seen), so they'll be dead code
+eliminated and the code doesn't reach the JIT, so no "unsafe gadget"
+remains in the program where execution can be steered.
 
--- 
-Olivier Benjamin, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+So the simplest thing (without having to reason about these three
+error codes, I'm sure things will get out of sync or we'll miss
+potential candidates) is probably to just unconditionally mark
+cur_aux(env)->nospec.
 
+> +
+>  static struct bpf_verifier_state *push_stack(struct bpf_verifier_env *env,
+>                                              int insn_idx, int prev_insn_idx,
+>                                              bool speculative)
+> @@ -11160,7 +11172,7 @@ static int check_get_func_ip(struct bpf_verifier_env *env)
+>         return -ENOTSUPP;
+>  }
+>
+> -static struct bpf_insn_aux_data *cur_aux(struct bpf_verifier_env *env)
+> +static struct bpf_insn_aux_data *cur_aux(const struct bpf_verifier_env *env)
+>  {
+>         return &env->insn_aux_data[env->insn_idx];
+>  }
+> @@ -13997,7 +14009,9 @@ static int retrieve_ptr_limit(const struct bpf_reg_state *ptr_reg,
+>  static bool can_skip_alu_sanitation(const struct bpf_verifier_env *env,
+>                                     const struct bpf_insn *insn)
+>  {
+> -       return env->bypass_spec_v1 || BPF_SRC(insn->code) == BPF_K;
+> +       return env->bypass_spec_v1 ||
+> +               BPF_SRC(insn->code) == BPF_K ||
+> +               cur_aux(env)->nospec;
+>  }
+>
+>  static int update_alu_sanitation_state(struct bpf_insn_aux_data *aux,
+> @@ -19687,10 +19701,41 @@ static int do_check(struct bpf_verifier_env *env)
+>                 sanitize_mark_insn_seen(env);
+>                 prev_insn_idx = env->insn_idx;
+>
+> +               /* Reduce verification complexity by stopping speculative path
+> +                * verification when a nospec is encountered.
+> +                */
+> +               if (state->speculative && cur_aux(env)->nospec)
+> +                       goto process_bpf_exit;
+> +
+>                 err = do_check_insn(env, insn, &do_print_state);
+> -               if (err < 0) {
+> +               if (state->speculative && error_recoverable_with_nospec(err)) {
+> +                       /* Prevent this speculative path from ever reaching the
+> +                        * insn that would have been unsafe to execute.
+> +                        */
+> +                       cur_aux(env)->nospec = true;
+> +                       /* If it was an ADD/SUB insn, potentially remove any
+> +                        * markings for alu sanitization.
+> +                        */
+> +                       cur_aux(env)->alu_state = 0;
+> +                       goto process_bpf_exit;
+> +               } else if (err < 0) {
+>                         return err;
+>                 } else if (err == PROCESS_BPF_EXIT) {
+> +                       goto process_bpf_exit;
+> +               }
+> +               WARN_ON_ONCE(err);
+> +
+> +               if (state->speculative && cur_aux(env)->nospec_result) {
+> +                       /* If we are on a path that performed a jump-op, this
+> +                        * may skip a nospec patched-in after the jump. This can
+> +                        * currently never happen because nospec_result is only
+> +                        * used for the write-ops
+> +                        * `*(size*)(dst_reg+off)=src_reg|imm32` which must
+> +                        * never skip the following insn. Still, add a warning
+> +                        * to document this in case nospec_result is used
+> +                        * elsewhere in the future.
+> +                        */
+> +                       WARN_ON_ONCE(env->insn_idx != prev_insn_idx + 1);
+
+Nice!
+
+>  process_bpf_exit:
+>                         mark_verifier_state_scratched(env);
+>                         update_branch_counts(env, env->cur_state);
+> @@ -19709,7 +19754,6 @@ static int do_check(struct bpf_verifier_env *env)
+>                                 continue;
+>                         }
+>                 }
+> -               WARN_ON_ONCE(err);
+>         }
+>
+>         return 0;
+> @@ -20838,6 +20882,29 @@ static int convert_ctx_accesses(struct bpf_verifier_env *env)
+>                 bpf_convert_ctx_access_t convert_ctx_access;
+>                 u8 mode;
+>
+> +               if (env->insn_aux_data[i + delta].nospec) {
+> +                       WARN_ON_ONCE(env->insn_aux_data[i + delta].alu_state);
+> +                       struct bpf_insn patch[] = {
+> +                               BPF_ST_NOSPEC(),
+> +                               *insn,
+> +                       };
+> +
+> +                       cnt = ARRAY_SIZE(patch);
+> +                       new_prog = bpf_patch_insn_data(env, i + delta, patch, cnt);
+> +                       if (!new_prog)
+> +                               return -ENOMEM;
+> +
+> +                       delta    += cnt - 1;
+> +                       env->prog = new_prog;
+> +                       insn      = new_prog->insnsi + i + delta;
+> +                       /* This can not be easily merged with the
+> +                        * nospec_result-case, because an insn may require a
+> +                        * nospec before and after itself. Therefore also do not
+> +                        * 'continue' here but potentially apply further
+> +                        * patching to insn. *insn should equal patch[1] now.
+> +                        */
+> +               }
+> +
+>                 if (insn->code == (BPF_LDX | BPF_MEM | BPF_B) ||
+>                     insn->code == (BPF_LDX | BPF_MEM | BPF_H) ||
+>                     insn->code == (BPF_LDX | BPF_MEM | BPF_W) ||
+> @@ -20888,6 +20955,9 @@ static int convert_ctx_accesses(struct bpf_verifier_env *env)
+>
+>                 if (type == BPF_WRITE &&
+>                     env->insn_aux_data[i + delta].nospec_result) {
+> +                       /* nospec_result is only used to mitigate Spectre v4 and
+> +                        * to limit verification-time for Spectre v1.
+> +                        */
+>                         struct bpf_insn patch[] = {
+>                                 *insn,
+>                                 BPF_ST_NOSPEC(),
+> diff --git a/tools/testing/selftests/bpf/progs/bpf_misc.h b/tools/testing/selftests/bpf/progs/bpf_misc.h
+> index 863df7c0fdd0..97c727ab81be 100644
+> --- a/tools/testing/selftests/bpf/progs/bpf_misc.h
+> +++ b/tools/testing/selftests/bpf/progs/bpf_misc.h
+> @@ -230,4 +230,8 @@
+>  #define CAN_USE_LOAD_ACQ_STORE_REL
+>  #endif
+>
+> +#if defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86)
+> +#define SPEC_V1
+> +#endif
+> +
+>  #endif
+> [...]
 
