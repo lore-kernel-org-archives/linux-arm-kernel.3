@@ -4,87 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11EFDC3ABD9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 09:26:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3C5C3ABD9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 09:28:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ds5+8iM4sRf0Jo4IyqmV53NfBcmFz2cJwNiJZ/wCrmk=; b=PSZNQmoXGOnIQz2B/JJ5610riK
-	9jVOI6qxw6jMPht5D94Pgl4pxLmV+x5X1lfObVaI6X79HkFnjBHblK9neukKpp6ESYhUCWKnHqSn6
-	+OkIMl/Ej2VwLoHNKz1i0Hxw7lZmjtlaUNgdvsvFIdVjMnwSq0Pfc0j8AOEs5mWcDRi228/OgI+k4
-	WsBwAISi3425k+UbObZZx+Yki75RpyCgZzEEGuM6AUYAA/4sInexCUSL0gAabXqdA9gnrg3xLaQMS
-	JhPKThZpQiLkIDCM3YQpKwLOMIWCnR3NbU2jaswo92vM5YEL5UFf0ddwEM0FdOFmBKqywRop8grrJ
-	UWnFh9iA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Edi+mxOirOcipkYMbmpod5zEpzX0KxRpV83btYhPch4=; b=hay46hWTFPOdQTWekXyKHkOvsB
+	sSzrec+eeqyobLEzlW5QrpCfIqWjDlYBuOJcGq6hpJAI8hcUjoscsb7SI+Spd9iBq3aNevIde6Mdv
+	GJUSqI3LEQ3uY8Tskj+sn4JW8wtpQxLcnKuMnd/2e+QOpClE7UT+MW3btUQtcpGkBe1yikavSFTx/
+	pELdljaEsHdaYkUkDI/xMt3mm1nIgVgQXzF4yRFtb3Wpo5nqQngqDD4uOK5ElzjGBX1cRvzq8tN7f
+	gKT7KyAAW9zqmv2B5jiqoL3OzWDtrp0N5dGnoep+o71cm6rNZhe/89Bv8ZhVAbCSeTmM9ecDIEsIk
+	4bJ7Hf5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF8NH-0000000EfBp-0QpJ;
-	Wed, 14 May 2025 09:26:03 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uF8PG-0000000EfSL-3ONk;
+	Wed, 14 May 2025 09:28:06 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF7S0-0000000EV1M-0FoM
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 08:26:53 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54E7vtKW023076;
-	Wed, 14 May 2025 10:26:24 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	ds5+8iM4sRf0Jo4IyqmV53NfBcmFz2cJwNiJZ/wCrmk=; b=pMGlMrFN7CKCc5l+
-	/xUdEV5gxnTpRkg4FOuwGXS51BtuZ1kYDbW2LqiQMA2nhQSxwBFpjwLYCC2AhmDk
-	msfLU+TozS7alcR8HZhZhXZb623TTILmwa7sKOnjfrj5H6LqzSSBzRZvyWS96QXC
-	IWewdZXh737I31ekESxstCKDAXVXyOg1jGM5JpXfULiVEi+6tUDx4AHPQbn9ke2c
-	LGDbfmqBSsPHm40wvkDE9bbbYeAJlHl5fGiH4T7HQpRId+2j7ux8/eK9Vy/8e4s8
-	2DWJq5H67SsCDvyIICQi6YLh8xDI53BVvYN7sh5Yup55vf0X5feVmbg0IB1O8w3z
-	+IM2dA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46mbdxtj5k-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 14 May 2025 10:26:24 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C8B5240044;
-	Wed, 14 May 2025 10:25:13 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 1C3FDB3A736;
-	Wed, 14 May 2025 10:24:03 +0200 (CEST)
-Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 14 May
- 2025 10:24:02 +0200
-Message-ID: <7f79af9a-2b42-48c0-98c5-6bf2afc61206@foss.st.com>
-Date: Wed, 14 May 2025 10:24:02 +0200
+	id 1uF7Yh-0000000EVxG-3UZY;
+	Wed, 14 May 2025 08:33:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0A8C5A4AAFA;
+	Wed, 14 May 2025 08:33:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 175A2C4CEE9;
+	Wed, 14 May 2025 08:33:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747211626;
+	bh=AQgavCoFrn3p4kZpEsuTDbl2iBlKZHyz8RjR4wpvqDk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=H6ojRjkBJnyhqb+fdGrlVbRl1CkZXo09J3lhjAkNtgbF2/3sDyisvQtaep8xxk1pW
+	 ql5we5PXROfoE98FkW1DiiOwAIzJo1305qx3HV1/ni1jCVKotrsYUv7l/0/2WC3lBW
+	 mvxVJ/sJGB05lrGoZ+Q+Iuq8NtBiIkOUoE0wdLdRx8KAXNuiA4IfkUgykcaPqKSiuE
+	 q6kj2RiFfrc6c+i/EbqPqCopFiQ4d9/z5Dpnd/3XErvvNwCs8mgtsDX0vQyuxA/Uii
+	 MapWBnhHlxRj22z4I5qLxoax3VfHiEc7ewatwW0LljFq6vymzZbP8Gjnz5aBmuBn7A
+	 0raE+KVU2WzDg==
+Date: Wed, 14 May 2025 09:33:44 +0100
+From: Vinod Koul <vkoul@kernel.org>
+To: Wesley Cheng <quic_wcheng@quicinc.com>
+Cc: Melody Olvera <melody.olvera@oss.qualcomm.com>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 06/10] phy: qcom: Add M31 based eUSB2 PHY driver
+Message-ID: <aCRVaNDQP/PdAXPR@vaman>
+References: <20250409-sm8750_usb_master-v4-0-6ec621c98be6@oss.qualcomm.com>
+ <20250409-sm8750_usb_master-v4-6-6ec621c98be6@oss.qualcomm.com>
+ <Z/exOF4T+0vNLQwg@vaman>
+ <0517c37d-b1ba-466e-bffd-9f47b0d458d5@quicinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: (subset)[PATCH v6 0/7] Add STM32MP25 LPTIM support: MFD, PWM,
- IIO, counter, clocksource
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, <daniel.lezcano@linaro.org>,
-        <lee@kernel.org>, <tglx@linutronix.de>
-CC: <ukleinek@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <jic23@kernel.org>, <robh@kernel.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>, <devicetree@vger.kernel.org>, <wbg@kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
-        <olivier.moysan@foss.st.com>
-References: <20250429125133.1574167-1-fabrice.gasnier@foss.st.com>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20250429125133.1574167-1-fabrice.gasnier@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-14_02,2025-05-14_02,2025-02-21_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0517c37d-b1ba-466e-bffd-9f47b0d458d5@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_012652_621126_0716E4A7 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250514_013347_939882_CE511F14 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,27 +85,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fabrice
-
-On 4/29/25 14:51, Fabrice Gasnier wrote:
-> This series adds support for STM32MP25 to MFD PWM, IIO, counter and
-> clocksource low-power timer (LPTIM) drivers.
-> This new variant is managed by using a new DT compatible string, hardware
-> configuration and version registers.
-> It comes with a slightly updated register set, some new features and new
-> interconnect signals inside the SoC.
-> Same feature list as on STM32MP1x is supported currently.
-> The device tree files add all instances in stm32mp251 dtsi file.
+On 16-04-25, 15:45, Wesley Cheng wrote:
+> Hi Vinod,
 > 
+> On 4/10/2025 4:53 AM, Vinod Koul wrote:
+> > On 09-04-25, 10:48, Melody Olvera wrote:
+> > 
+> >> +static int m31eusb2_phy_write_readback(void __iomem *base, u32 offset,
+> >> +					const u32 mask, u32 val)
+> >> +{
+> >> +	u32 write_val;
+> >> +	u32 tmp;
+> >> +
+> >> +	tmp = readl_relaxed(base + offset);
+> >> +	tmp &= ~mask;
+> >> +	write_val = tmp | val;
+> >> +
+> >> +	writel_relaxed(write_val, base + offset);
+> >> +
+> >> +	tmp = readl_relaxed(base + offset);
+> > 
+> > Why are you using _relaxed version here?
+> > 
+> 
+> No particular reason.  I think someone pointed this out previously, and I
+> was open to use the non-relaxed variants, but I assume using the relaxed vs
+> non-relaxed apis comes down to preference in this case.
 
-Following patches are applied on stm32-next:
+Nope you cant! There _needs_ to be a specific reasons!
+When you are doing read, modify, write, it is very important to know the
+right version to use...
 
-[PATCH v6 5/7] arm64: defconfig: enable STM32 LP timer clockevent driver
-[PATCH v6 6/7] arm64: dts: st: add low-power timer nodes on stm32mp251
-[PATCH v6 7/7] arm64: dts: st: use lptimer3 as tick broadcast source on 
-stm32mp257f-ev1
-
-
-Thanks
-Alex
+-- 
+~Vinod
 
