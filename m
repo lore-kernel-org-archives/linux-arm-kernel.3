@@ -4,111 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F142C3ABDE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4A25C3ABD8
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 15:04:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UqE4Ef2oT9CukANpvWgT+Me1abu+cMl0daLaAw6Ow3c=; b=A/85c7hJC0s3rOW4XJ4tu/h/3g
-	0gkQxpzFfuMGsa6B3FiTjgRvP1ej2JXR8eKhhd5iGYuY3zaJhytnchmkOhsn5rPykZBZykqAHbZsj
-	vYMXHOL/7tzvpBIHlbjLgA374aHYy/UwllNZkmg6/gZ/kFv1HKYbud0VzBBGJEWf/+nOKEkWTjFxl
-	ig2dQEl5j3zeUm9W8rxyps4ZL27s8d3+bseA5iC4h3GWsg/vhDwgEZNlFQ1SBpqfhL7fmsYfCyH2/
-	HyjRuTQtNME+ktsORIQDyCtv55IvsITsqGGPRJuta+PftHLRjF9NrOirh6aFZDAxvbAhbtevfu4zA
-	RfqmGudA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fNpgEokCPRFeDwjUBUmb0olF781KiYx0T9YrAF4Kizo=; b=X0TP9ojpKNWsOHiW1gDgnKyIZU
+	4olX7ALflJYyhqUzhjPGzES9bb4CJx7nE5jKvIzP8I9t+4bwPSRBf06TmGZ+Dg9vJusmdnVtC/LMf
+	mLyYdd16BmMoWlhy1EOMyE7esSzD87cQTeHmNf98vcI7zONlA18qJpu63su4TX3KnfqUlPnafXAaB
+	PIEhARdzQOJKOE+ip9AL21L1bfqQxgF/or6sObPk0FMjF7fwxQ0fYO0OPSOtbyB1ERZC0xvdzzOL/
+	jqNIrwfpDD/w5R+RH7pGGoUkiOMJV9UamDwWcL7Z+Q6263FxGB3J2RS2z/igwy9RNTFs7YrMAXZZR
+	FfKx6+ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFDed-0000000FVN7-0bR9;
-	Wed, 14 May 2025 15:04:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uFDee-0000000FVOf-0Vln;
+	Wed, 14 May 2025 15:04:20 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFBFZ-0000000F6Gh-0v4o
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 12:30:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 16EEF4A712;
-	Wed, 14 May 2025 12:30:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B55CC4CEE9;
-	Wed, 14 May 2025 12:30:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747225814;
-	bh=N0xJs94j/KJlo1F/0VWrO0/MuprYI/5rbc28hnkrVQw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=g07a3AcLDIOnRiGSNzYyF/MpiN36vOgbo8aiRd0aJ6/bgEXcj5b6cv5rXSY6inhZj
-	 gOhQqzuLLF6DSXaX+bpwKHC2xSHDvXk5Af8cYr7sIABxOAC3wQiSMiY1ViHChGaIqa
-	 Bn4KXHSUgGFSnV2KvYh0CQTqMr9d7kSdPF5cGkqhJYDbCikt6ifsQm29mRq/bbi12N
-	 U64Z5MNewJku4Y9rw8pCJJA7f7r9Mu5L41gra3CDtqAOCFkXANJPKfMOiz9ximXYzr
-	 Vl73/Xks26mb7YsEmVrut2brS/CDu6mW17VGNXtN7Kx69Sp5H18CskVenhSb7WXRW3
-	 +UOwbdaF6t+bQ==
-Message-ID: <11048853-ec27-4d51-9188-7e701d84a3a1@kernel.org>
-Date: Wed, 14 May 2025 14:30:09 +0200
+	id 1uFBLa-0000000F6lX-12yK;
+	Wed, 14 May 2025 12:36:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1747226188;
+	bh=wvsdiJsKD6QmRj9PJvvy8ci556EOSrI0fkrAAdKIOKw=;
+	h=From:Date:Subject:To:Cc:From;
+	b=ZAGp3nc+C+oM1pLvBZf1p1hJ50zvG+FWZ2DUD1ve3bBQIqFDmdBdNPaimrjLxr+XA
+	 FoIb2Nfubsbu35iLBy2PMx7JNFL0dxqI5boaMh5GUCoS5lHlPLnnZOWWKnIMK5jdML
+	 b/Nsrf/V1a+DJhA0QzVJ2XJYIerYfHPiQTQJVdSg8Vx9sdMwb0scKCIzUlLJQQVRxx
+	 f9OYr9Vb5q2Oppo8JhTMpwGJVkYEFJ1rcdkfmIRRHHTjWfV3e6Y1TOLMTVdF9hU5PO
+	 Ynt2WZmumt8xQrEk1hVLyCARePli78UyZDa8TnErutCk7x7OlgZLORL1vmM0rDl3ND
+	 ZdR5Lxa819lJA==
+Received: from [192.168.1.63] (unknown [70.107.117.78])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0B10217E090E;
+	Wed, 14 May 2025 14:36:24 +0200 (CEST)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Date: Wed, 14 May 2025 08:36:06 -0400
+Subject: [PATCH] regulator: dt-bindings: mt6357: Drop fixed compatible
+ requirement
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/7] Introduce PRU UART driver
-To: Judith Mendez <jm@ti.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
- Santosh Shilimkar <ssantosh@kernel.org>,
- Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
- Bin Liu <b-liu@ti.com>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Andrew Davis <afd@ti.com>, linux-kernel@vger.kernel.org,
- linux-serial@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250513215934.933807-1-jm@ti.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250513215934.933807-1-jm@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250514-mt6357-regulator-fixed-compatibles-removal-bindings-v1-1-2421e9cc6cc7@collabora.com>
+X-B4-Tracking: v=1; b=H4sIADWOJGgC/xWNywqDMBBFf0Vm3QGjRkt/pbiIZkwH8pBJKgXx3
+ xuXh8u554RMwpTh1ZwgdHDmFCuoRwPrx0RHyLYydG2nW616DGXs9YRC7utNSYIb/8jimsJuCi+
+ ect1COozHhaPl6DJqGtVmBtLPYYL6vAvd1l19z9f1B4DEtDqFAAAA
+X-Change-ID: 20250513-mt6357-regulator-fixed-compatibles-removal-bindings-5e61fa4e5847
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Chen Zhong <chen.zhong@mediatek.com>, 
+ Fabien Parent <fabien.parent@linaro.org>, 
+ Alexandre Mergnat <amergnat@baylibre.com>
+Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_053017_301100_DD297009 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20250514_053630_440684_6EF3178A 
+X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,29 +86,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/05/2025 23:59, Judith Mendez wrote:
-> The PRU_ICSSG subsystems in am64x SoC, the PRU subsystem in am62 SoC, and
-> PRU_ICSS subsystem in am335x SoC include a UART sub-module. This patch
-> series introduces the driver and the corresponding binding documentation
-> for this UART sub-module.
-> 
-> The DTS patches for adding PRU UART nodes and enabling PRU UART is added
-> in this v1 version, but marked as DONOTMERGE since the patches only add
-> context to this series.
-> 
-> This driver version has been tested on the following boards: am64x SK and
-> am62x SK.
-> 
-> The RFC version of this driver has been previously tested on am335x SK as
-> well. DTS patches for enabling PRU UART for am335x SK will be sent as a
-> separate series once this series is merged.
-> 
-> Changes since RFC:
-So this is v2 or v3. If this is confusing, just use b4 which does it for
-you.
+Some of the regulators on the MT6357 PMIC currently reference the
+fixed-regulator dt-binding, which enforces the presence of a
+regulator-fixed compatible. However since all regulators on the MT6357
+PMIC are handled by a single mt6357-regulator driver, probed through
+MFD, the compatibles don't serve any purpose. In fact they cause
+failures in the DT kselftest since they aren't probed by the fixed
+regulator driver as would be expected. Furthermore this is the only
+dt-binding in this family like this: mt6359-regulator and
+mt6358-regulator don't require those compatibles.
 
-Otherwise how are we supposed to compare it with b4 diff?
+Commit d77e89b7b03f ("arm64: dts: mediatek: mt6357: Drop regulator-fixed
+compatibles") removed the compatibles from Devicetree, but missed
+updating the binding, which still requires them, introducing dt-binding
+errors. Remove the compatible requirement by referencing the plain
+regulator dt-binding instead to fix the dt-binding errors.
+
+Fixes: d77e89b7b03f ("arm64: dts: mediatek: mt6357: Drop regulator-fixed compatibles")
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+---
+ .../bindings/regulator/mediatek,mt6357-regulator.yaml        | 12 +-----------
+ 1 file changed, 1 insertion(+), 11 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6357-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6357-regulator.yaml
+index 6327bb2f6ee080a178ff3e982768c5eb0595e771..698266c09e25359a516d969a0487cc94444b842d 100644
+--- a/Documentation/devicetree/bindings/regulator/mediatek,mt6357-regulator.yaml
++++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6357-regulator.yaml
+@@ -33,7 +33,7 @@ patternProperties:
+ 
+   "^ldo-v(camio18|aud28|aux18|io18|io28|rf12|rf18|cn18|cn28|fe28)$":
+     type: object
+-    $ref: fixed-regulator.yaml#
++    $ref: regulator.yaml#
+     unevaluatedProperties: false
+     description:
+       Properties for single fixed LDO regulator.
+@@ -112,7 +112,6 @@ examples:
+           regulator-enable-ramp-delay = <220>;
+         };
+         mt6357_vfe28_reg: ldo-vfe28 {
+-          compatible = "regulator-fixed";
+           regulator-name = "vfe28";
+           regulator-min-microvolt = <2800000>;
+           regulator-max-microvolt = <2800000>;
+@@ -125,14 +124,12 @@ examples:
+           regulator-enable-ramp-delay = <110>;
+         };
+         mt6357_vrf18_reg: ldo-vrf18 {
+-          compatible = "regulator-fixed";
+           regulator-name = "vrf18";
+           regulator-min-microvolt = <1800000>;
+           regulator-max-microvolt = <1800000>;
+           regulator-enable-ramp-delay = <110>;
+         };
+         mt6357_vrf12_reg: ldo-vrf12 {
+-          compatible = "regulator-fixed";
+           regulator-name = "vrf12";
+           regulator-min-microvolt = <1200000>;
+           regulator-max-microvolt = <1200000>;
+@@ -157,14 +154,12 @@ examples:
+           regulator-enable-ramp-delay = <264>;
+         };
+         mt6357_vcn28_reg: ldo-vcn28 {
+-          compatible = "regulator-fixed";
+           regulator-name = "vcn28";
+           regulator-min-microvolt = <2800000>;
+           regulator-max-microvolt = <2800000>;
+           regulator-enable-ramp-delay = <264>;
+         };
+         mt6357_vcn18_reg: ldo-vcn18 {
+-          compatible = "regulator-fixed";
+           regulator-name = "vcn18";
+           regulator-min-microvolt = <1800000>;
+           regulator-max-microvolt = <1800000>;
+@@ -183,7 +178,6 @@ examples:
+           regulator-enable-ramp-delay = <264>;
+         };
+         mt6357_vcamio_reg: ldo-vcamio18 {
+-          compatible = "regulator-fixed";
+           regulator-name = "vcamio";
+           regulator-min-microvolt = <1800000>;
+           regulator-max-microvolt = <1800000>;
+@@ -212,28 +206,24 @@ examples:
+           regulator-always-on;
+         };
+         mt6357_vaux18_reg: ldo-vaux18 {
+-          compatible = "regulator-fixed";
+           regulator-name = "vaux18";
+           regulator-min-microvolt = <1800000>;
+           regulator-max-microvolt = <1800000>;
+           regulator-enable-ramp-delay = <264>;
+         };
+         mt6357_vaud28_reg: ldo-vaud28 {
+-          compatible = "regulator-fixed";
+           regulator-name = "vaud28";
+           regulator-min-microvolt = <2800000>;
+           regulator-max-microvolt = <2800000>;
+           regulator-enable-ramp-delay = <264>;
+         };
+         mt6357_vio28_reg: ldo-vio28 {
+-          compatible = "regulator-fixed";
+           regulator-name = "vio28";
+           regulator-min-microvolt = <2800000>;
+           regulator-max-microvolt = <2800000>;
+           regulator-enable-ramp-delay = <264>;
+         };
+         mt6357_vio18_reg: ldo-vio18 {
+-          compatible = "regulator-fixed";
+           regulator-name = "vio18";
+           regulator-min-microvolt = <1800000>;
+           regulator-max-microvolt = <1800000>;
+
+---
+base-commit: edef457004774e598fc4c1b7d1d4f0bcd9d0bb30
+change-id: 20250513-mt6357-regulator-fixed-compatibles-removal-bindings-5e61fa4e5847
 
 Best regards,
-Krzysztof
+-- 
+Nícolas F. R. A. Prado <nfraprado@collabora.com>
+
 
