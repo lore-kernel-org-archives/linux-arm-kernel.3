@@ -4,91 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E419C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 22:25:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9804DC3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 22:31:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vxkA9H2XFE2W+2BDOo18k+oLX34T0M1YflRBxsoKt3w=; b=wwdU/8gib+yGzMPaCa+QARgFo9
-	Dm8gS1Ip9KXNM0hgvYIA9/iz5VtYWEzaXnwZDR0xGIDrpIdScOHWnMZEIltmNEYMwq0y0wrchw/DP
-	HN/GaJFfKFKYRAQBRR/AvFL0Hn3T7w9yG1iqgfgD7VyulBYwQcQCLG+gNnR/KFtH27MCX/0yLGh3e
-	QEZNMu1ywBF4byek3e7Oj+Wt+2c/VmOkKmP6xSnAmiH3D1Nhi37fZHllvpoStYbYMNV6pxBFy5SGc
-	Ud/4d0OhvOMb28+p7ADyvnON2t6x9NWLCpLOpHH/fbRZjt5n7h3jArbqiPp/Uk+fBMr8sYQtrJVrJ
-	3CmYay+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ikg7uKNlFxdtInhouVVjlX/eWNb/Iocaf0FOoIsWq04=; b=PZ1LODiIJ+WtYGWwIUfI7LeYJV
+	u/8Asx/Wg0HGzziqbREv7Bau7Qb4UZN1B9Z/XVwEJVAG7xl40gcV3ZjU/LZeicx9Fq4tDrh4kr1Uc
+	TPOAqTusPPgYKQwVLy5GV5Wma5iDCITWWpvbNvwLimLtnDM64wj+AHZrKhy8nDtgllcQ8hasFUepu
+	Q6MNm8saqNHDbt+7PKYNtj7gP1TYFJHvJ9Hax4cK1TLY5snOI6GB6v17DNuvKBcU84gDkPBMrs/pX
+	Sd3nVA3NE0qeqZHTSrH7nQz03ISbiRmJ3tgd7cqHiD3Frn+y/DyENhbpxzhTO2jGFf/0pfYsvXy9g
+	vzGTK7pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFKX4-0000000GVIC-2WcI;
-	Wed, 14 May 2025 22:24:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uFKcq-0000000GVzs-1CSF;
+	Wed, 14 May 2025 22:30:56 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFKJt-0000000GTcI-14f9
+	id 1uFKah-0000000GVq7-0Aur
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 22:11:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A5EDF629E1;
-	Wed, 14 May 2025 22:11:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1F6EC4CEE3;
-	Wed, 14 May 2025 22:11:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747260680;
-	bh=4UaJQCgd2hT5pkJkwrytXoNgO3X8wC20SnyuDVFYARo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=t8oD9goZh6UuqsEju1LgX/cz+3etVU8bQZmK9BDGxyt3kRth1HC0B+pIwW0WKX/+q
-	 bavDuMc7udEHHdAp0xK4POoX7khNWR2RmN1jWJHoH+XJzEv5J2cmgFIbzjACMCmV6i
-	 ubs8GS1TwunKmx3Q0tz8Lu1BFyRBE2mqptFwaMu/Locchb2fwmOBO7QyaVGsEt5F1g
-	 pcNbcOxIblc7uacp+8QSW2nT7WhwEIAcBIcBYkGtgf2IEb0h6uRM48x8PqNNdeNV7o
-	 JhyVpUag0Fhzhhuzi04oGOedgTxstO8OxYKIRS66zMxSh9FQPeAB4q8i256PlNFhWX
-	 GBCFdHkX+XGqA==
-Date: Wed, 14 May 2025 17:11:18 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Cosmin Tanislav <demonsingur@gmail.com>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Dongcheng Yan <dongcheng.yan@intel.com>,
-	Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>,
-	Taniya Das <quic_tdas@quicinc.com>, linux-staging@lists.linux.dev,
-	=?iso-8859-1?Q?N=EDcolas_F_=2E_R_=2E_A_=2E?= Prado <nfraprado@collabora.com>,
-	Zhi Mao <zhi.mao@mediatek.com>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Ricardo Ribalda <ribalda@chromium.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Eric Biggers <ebiggers@google.com>, Liu Ying <victor.liu@nxp.com>,
-	devicetree@vger.kernel.org,
-	Julien Massot <julien.massot@collabora.com>,
-	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ross Burton <ross.burton@arm.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Tommaso Merciai <tomm.merciai@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
-	Will Deacon <will@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Cosmin Tanislav <cosmin.tanislav@analog.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>
-Subject: Re: [PATCH v3 13/19] dt-bindings: media: i2c: max96714: add support
- for MAX96714R
-Message-ID: <174726067779.3133689.811162498884437185.robh@kernel.org>
-References: <20250512212832.3674722-1-demonsingur@gmail.com>
- <20250512212832.3674722-14-demonsingur@gmail.com>
+	Wed, 14 May 2025 22:28:44 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-54ea69e9352so304184e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 15:28:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747261721; x=1747866521; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ikg7uKNlFxdtInhouVVjlX/eWNb/Iocaf0FOoIsWq04=;
+        b=WTzPiPxucFGUVXvHGdOfphCOFD2IK9XCm6UDb9cgIVGGQ8PuP0W5lawEmfMErhYvqt
+         MTK915+eruVseIIbxGDCaRiQH9ntZVPpM/IHaGAAelltKdSyrSafvI/Tqqc9jRMDKWuq
+         qiF0fHhHz2kkFP0MBJ6QB+e+PdPTF4hFl3fTaorryUQrx5W2xehanbdh+cFJep5+pcbu
+         Uxu9+mqOHUDUuo1u4UDpm0Jyz2fpzeWNBV8AP8IgUz2cEvRHRRDny4eZXNxHJQYp/eSW
+         G69x+Gwd/8jcDu68Y1sjvHvBRybuu3stX8x9Dd7CAoTeBvUkOrDsOKwNsypb/NhfpQhp
+         Fo/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747261721; x=1747866521;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ikg7uKNlFxdtInhouVVjlX/eWNb/Iocaf0FOoIsWq04=;
+        b=DlUAKHeynNajJ6aag5eCoZOhOqOMt59pNMTEqgwx+o8r3YrbCKEOoasylG2fISO1bx
+         +1DpGABjwI68hwIQj9/hrsSorjQwW49CsxIBJ5GnjReHJ1d/dM1JOfVMhhnbgIAvfFhg
+         G4nvYTEaA8ts0aHXDxthMAImTsUWz8AAMB9V4YbBEeONGEFpTP0GycPuXqzqwnx2IEbv
+         sL84ao5fTtPkBfdL/eoQ4IN9zOeJbOYz3GMhAEdohgWARoocTVxmmT03ImbJWGispqg2
+         qKz8aHrQ+NhfIeBHwMAWqRcohrWol4dJSa3ISMdEwFHy4ITN6wU48r4N81KKr1ouEU3s
+         /bug==
+X-Forwarded-Encrypted: i=1; AJvYcCVHz3t2WdRwOUjzRClJrDF9C83g8Fqjc23plL1ePzYRw/daSzOjvo/ILKUu4T62Zn4cfmZ6hX4dQIOj+DNDI2Xy@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTPPBCPrtDBCcXaWlwhptACQxkafTjLNRZu65919Cw2QsQ7RXy
+	MEiwl91y3A5NJDu0s3HVMU901bd2ubiIEOFsq52YkYJyu8JZSOjeY9lEo/jZHEkiwTHuoym4QHI
+	WbKbtvibGfjLV+1O7t3PrvzoWrT7220QcKfLG6g==
+X-Gm-Gg: ASbGnct8+4+VjTHJvatmB1jaVXiONpCQ64KKpb8QnK8circyf4UabkAMDKLXS4nuwny
+	OogZokUfjz9B4hqfO/2Tx/YEuFeJ147iSKbbp9NMxVssmLcF4h5Y9pwxjSk7WWGXMjoWUY1dSeQ
+	EREyfMzyVEUKd5PVM63CJaPHdJmn40JTXle/+Ow8TqWxM=
+X-Google-Smtp-Source: AGHT+IE1Vp4rlvI75qMKlDEVkN1t9zzD3BxyByO5SW27Vl1zUjiPYHzMEgLHLW0x21yYIa1dbtvC8PDJZuRwP2Kenrw=
+X-Received: by 2002:a05:6512:450c:b0:550:d534:2b10 with SMTP id
+ 2adb3069b0e04-550dd12aeeemr60274e87.35.1747261720610; Wed, 14 May 2025
+ 15:28:40 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250512212832.3674722-14-demonsingur@gmail.com>
+References: <20250514-pinctrl-a37xx-fixes-v2-0-07e9ac1ab737@gmail.com>
+In-Reply-To: <20250514-pinctrl-a37xx-fixes-v2-0-07e9ac1ab737@gmail.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Thu, 15 May 2025 00:28:29 +0200
+X-Gm-Features: AX0GCFsW1KstBI2jcV_icDkbitXFWIRxmcRnuAcWr-VFZ0eu8OVxn2v41gFG6Ok
+Message-ID: <CACRpkdb2Njam8GGuN5yeR+DYvi0xe11xbARaoDepoGk=gAK6GA@mail.gmail.com>
+Subject: Re: [PATCH v2 0/7] pinctrl: armada-37xx: a couple of small fixes
+To: Gabor Juhos <j4g8y7@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Imre Kaloz <kaloz@openwrt.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250514_152843_099766_66CA9179 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,17 +97,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, May 14, 2025 at 9:18=E2=80=AFPM Gabor Juhos <j4g8y7@gmail.com> wrot=
+e:
 
-On Tue, 13 May 2025 00:28:22 +0300, Cosmin Tanislav wrote:
-> MAX96714R is a lower capability variant of the MAX96714 which only
-> supports a fixed rate of 3Gbps in the forward direction.
-> 
-> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
-> ---
->  .../devicetree/bindings/media/i2c/maxim,max96714.yaml        | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
-> 
+> The series contains several small patches to fix various
+> issues in the pinctrl driver for Armada 3700.
+>
+> Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Patches applied by applying to a separate immutable branch
+and merging into my "devel" branch: we were clashing a bit
+with Bartosz rewrites so I had to help git a bit.
 
+Pushed to the autobuilders, check the result!
+
+Yours,
+Linus Walleij
 
