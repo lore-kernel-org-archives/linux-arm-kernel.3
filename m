@@ -4,71 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16AFAC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 13:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3881CC3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 13:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FAwjkj+owsYwz+FUCcF2eTflLzVptWQJubVPUO8Pr/w=; b=H576xqjr22X57aO8WyjbLFbnqg
-	30bFIVslFVWRpIZiMYd1MtQxCDFR8MzntBJzb7LdHt+SOnZ3O2Gz+fiaqffXF/HJGthJdBx6r314S
-	QLYDVY9Lkegx/U0Ey3u4Tn7d4ldvUvqfGOtQCo9E8IJTLY8OcIcDboloo6Em08hDbjCpNXbNESCLr
-	0rPLcWr/KwlEwMh7/E2fXLgGh8HmyaGiLDAunaYqIlNejeDPG/HLeB/CX3VF1Tn7xRbUcosWgt7ip
-	Xtu6KreP7g9/HjhD2pwUgZDN0dQ8eb99sOLp0C5LXbYLiR/Hfx11QF3gggZ3pFB5evTQs1CQQx4Ml
-	ulwxcFiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7yV3wcqK2ufnQ3/IUtnaL6dX+kDfgpIOFdsaeRZbahc=; b=y73OIzTo8HPn+URRu/szwc43qT
+	mbwM9yivgfzKq7iK9aU7nTv797+bUfi9oWI5x/MKWs1c+QE7aXfP9MxdDiaYT1LnBw6ha5aWp2QF1
+	Hw7+CxuCFfaokJ/ghwME6BVv0oqXpTxOPJY0HEXM4LdRM+jiLJEjtDCu4mIhaGfIpiRrTWcLYLmMj
+	RTpeLggl8A4A2JLLQQB7q8sA22MplUMMhh0OXdEpExlbVnhkyrsXZlV0RIaId7D9q4RSJo8NGkjQK
+	x+XSX9LA794Bjc5Kg1kGC6U1FKf0YRAWXozrW/Djg35Vd9W+VZyi2hq5Tg7X8CU9Bq7KiPaTPmnAX
+	bAo8Go4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFCY0-0000000FHHl-0jE3;
-	Wed, 14 May 2025 13:53:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uFCY1-0000000FHLG-3KLr;
+	Wed, 14 May 2025 13:53:25 +0000
+Received: from mail-eastasiaazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c400::3] helo=HK3PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF9WR-0000000Eohy-1y6O
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 10:39:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3E1BF5C638F;
-	Wed, 14 May 2025 10:37:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBF48C4CEE9;
-	Wed, 14 May 2025 10:39:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747219174;
-	bh=jdaKOxD2qt2jrO1zGt5BuJsLgrxKO8Tjw4sVNPmGmNE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=m2sbotfmS8yko3IJtk8XVsHgYCDFtBVsGhhCxwPZlon3shJEZXif2/gpZglkjaOir
-	 5ys+PFUjoRr4jsgRlDaOsQZ8dKT7+n2DQ97IGnxK6MKxTSqwiBvNA1sCaIc0FO4jKO
-	 R8HFtSJ2mxI+TZm+NI/LZfsx9yAGU8MaWB4qbVthLFocMpXaaVyE6mQ4dIoeH6AhS8
-	 AkaxffMkxGBqNEu15rfuGoFkQH+pKTh3/IlSITZBJzh79ateLjk3W2E0anKIbrcFy9
-	 ut4DKOO26SynEkltCKpjgN6/WkNXhY8oxCT6CZQty64AQ4cxjQ5O85YX3wNHLCYtA/
-	 WH8qs5ei9qPpA==
-Date: Wed, 14 May 2025 12:39:28 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v4 18/26] arm64: smp: Support non-SGIs for IPIs
-Message-ID: <aCRy4K/jvLr95GOp@lpieralisi>
-References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
- <20250513-gicv5-host-v4-18-b36e9b15a6c3@kernel.org>
+	id 1uF9ed-0000000Epaf-04yC;
+	Wed, 14 May 2025 10:48:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=v+ky9X/OHdjot0TmoQe6jVX7IcUn6Ls4sYAIu3bWyDoR4A2Yj6ayGrfaiVliHYMHOtu3YkQjFMyQzO49pJ/OvNb0hL9u1iH/WOIXPa0G8ajfQGVZyhJgJyi1wSn0gIJKpyc1mo86KFpx+fo5jhrb7ZomvrD0SotvugzWRhems3OjFbwXHbmmzGQ6+7Ec2bRf1f+4179lQUbZ0bu64KBHrKVClo8TboKKXAtu1N7d50CM6ZpMUF77eBIehHwc8qn0wCzrCpErYMhsZUoEjkCAHCiDPmL6FTsi695+d8VXGASJZ0c04I4Fcev1kRxp6hwBU7hen2QDGWNhdFmrCc7sNA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7yV3wcqK2ufnQ3/IUtnaL6dX+kDfgpIOFdsaeRZbahc=;
+ b=HbO4MXIaL5k20TvcNkCPvZaO9a81lzB/9pipROX73gejfXglmSTLf0l6LaDTPp+u6jdkbsgVc6SlaLg4EeJZ6GxDdgMdeCDEIwzPZ/cMtU57onIPnqi6wHuSQROMBnQmOsvg/cWJiZIRI2gSDPHlupFMIyZgXjgTvKVRGmEQz8BBIhUjlekJa84Mtu6wr+Zojg/iLzd1JIfQjdeGluF8D2Pot4NlLHy1IeAov8Ykh2cbIV02T/x63SX6Hn1lzIqzE5V9Si8BNWRIrjOHhhilE7uPStBuKIKkVreOtT+wdak+hZAtjRA6Hr04LDvVOMrhUhKI2r6prq/6lqXCql+idA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fibocom.com; dmarc=pass action=none header.from=fibocom.com;
+ dkim=pass header.d=fibocom.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=fibocomcorp.onmicrosoft.com; s=selector1-fibocomcorp-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7yV3wcqK2ufnQ3/IUtnaL6dX+kDfgpIOFdsaeRZbahc=;
+ b=Di2q+NCPGIoYscOzQujHux+QDrkSPNNSZAOYqfUAdTxDdSTNPW8YcZuDSLvMra/9lvUL/RXNDoVZBW5rdDnqVtfTcTH72rfn0utEnmRie4UoA/nUHAcBjtNKixKPoszdomz73KwcmWmo4HFC5FcNVtC2h8eMEeH+4k9zqBixq0c=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fibocom.com;
+Received: from TY0PR02MB5766.apcprd02.prod.outlook.com (2603:1096:400:1b5::6)
+ by TYSPR02MB7631.apcprd02.prod.outlook.com (2603:1096:400:469::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.29; Wed, 14 May
+ 2025 10:47:44 +0000
+Received: from TY0PR02MB5766.apcprd02.prod.outlook.com
+ ([fe80::f53d:47b:3b04:9a8b]) by TY0PR02MB5766.apcprd02.prod.outlook.com
+ ([fe80::f53d:47b:3b04:9a8b%4]) with mapi id 15.20.8722.027; Wed, 14 May 2025
+ 10:47:44 +0000
+From: Jinjian Song <jinjian.song@fibocom.com>
+To: chandrashekar.devegowda@intel.com,
+	chiranjeevi.rapolu@linux.intel.com,
+	haijun.liu@mediatek.com,
+	m.chetan.kumar@linux.intel.com,
+	ricardo.martinez@linux.intel.com,
+	loic.poulain@linaro.org,
+	ryazanov.s.a@gmail.com,
+	johannes@sipsolutions.net,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	angelogioacchino.delregno@collabora.com,
+	linux-arm-kernel@lists.infradead.org,
+	matthias.bgg@gmail.com,
+	corbet@lwn.net,
+	linux-mediatek@lists.infradead.org,
+	helgaas@kernel.org,
+	danielwinkler@google.com,
+	korneld@google.com,
+	andrew+netdev@lunn.ch,
+	horms@kernel.org,
+	rafael.wang@fibocom.com,
+	Jinjian Song <jinjian.song@fibocom.com>
+Subject: [net-next v1] net: wwan: t7xx: Parameterize data plane RX BAT and FAG count
+Date: Wed, 14 May 2025 18:47:28 +0800
+Message-Id: <20250514104728.10869-1-jinjian.song@fibocom.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR02CA0037.apcprd02.prod.outlook.com
+ (2603:1096:4:196::8) To TY0PR02MB5766.apcprd02.prod.outlook.com
+ (2603:1096:400:1b5::6)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250513-gicv5-host-v4-18-b36e9b15a6c3@kernel.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY0PR02MB5766:EE_|TYSPR02MB7631:EE_
+X-MS-Office365-Filtering-Correlation-Id: cc8150b1-9c66-417f-e9ad-08dd92d4c1ac
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jqD2UxivpthOyvK/f1MqoqCfOytmM4zWVkpI3mNf4YnonppZof1OCJhAXL19?=
+ =?us-ascii?Q?fKMbv+AAHfHtI5WallsNQAV6wVW0GVJzG/+jvoS60lITKLqu2kHnt5Gaydv8?=
+ =?us-ascii?Q?DG7LklSyNvWjH7c5oEkmTo3PfXMXPT6GBblugy0fcsFU3lAACuC/l8UgO2cg?=
+ =?us-ascii?Q?shIQ9i3er3K6sHct3S+pNeIPQyMwgpWoIKfdbypHlb1wEc30o9H7iFzgP7lJ?=
+ =?us-ascii?Q?MbVcbMnrumDfKos1OwvptJ714HuxjeBM76+yL7yodad8AwwJ8gSc1z7cOACB?=
+ =?us-ascii?Q?ptL/ydvnR+PI4ZHhb1BfGCfILFe9a8ndIWNXYGKWHMDOvQDlwZZmna3gw3ZS?=
+ =?us-ascii?Q?lCkPQTbOHNB5VBqu6KzTTMELeNSDx5fjbBXPebCXjtfBsusWwRRr8XsVA308?=
+ =?us-ascii?Q?8cfw4YDUcCoQBojNZ3WT78XrlA634f+vhCEc0dT2EIQL0lm5VPRN2PN400hn?=
+ =?us-ascii?Q?ppk/CR1WqMuDmJMvz2yHAWeBTiP10GKNZwu+Le8Umuxy8LbTVORJ93/L4sbj?=
+ =?us-ascii?Q?6oo2j4TeUweHvFoHAjFh9mA8XSy1ZM7P7a7cdC06rNVa1izEFFY+MwCW/23K?=
+ =?us-ascii?Q?pcwyXEeUn0TZySGOhBuQrpKYHhHsOnTfAIV3V8vVthti7yr43KymC800mKKX?=
+ =?us-ascii?Q?Y6Rn62oMZGxzaEBcawhK43a2gG0F/ubqJRG2mJDCwxX+WQrUUleyULQSO4TC?=
+ =?us-ascii?Q?T3kgAqQUpR3wlA5Eqc68Vznb69IPwCvMwjkq4qdWVtHMq6gXFDMrFa8KSCDB?=
+ =?us-ascii?Q?gB8igRBW/Q2CIzxxffaIL1olrs3IRA6PobSn/IkPXCVSKjlr+DURwt1OQ6q8?=
+ =?us-ascii?Q?d4bKCuZhGXNJd9vzr7CPGuDdMZoddAYhZkjmBj/dnJLfsLumJtySxCtZ7ZX4?=
+ =?us-ascii?Q?Wl2Bq8M/YjdtpQpJuunLdKSUSuF4W42NHhtpxlQidS15y1E4/NTJzYn8TdvY?=
+ =?us-ascii?Q?gIWIyTF/ay4zjPSVuxvSssKwT/7AzDlyoAxr+8XmXzt9VbwA67UWolgGlXoX?=
+ =?us-ascii?Q?scGSrgczp+dC9M1XAr4uxubCwekFlNc5R6BD9aeU003FIqmR3y+ESjbHFPC9?=
+ =?us-ascii?Q?E3gpQob3bcjWewNDnIRgRI1ZTfsJ8c1PxxsnobHfUEyb8RRLbLLnyOccWRRL?=
+ =?us-ascii?Q?0kVbEccHlaTL7a8MA1IBP+P9Q8Bakk0gErLvZ6p6yi6ZyLqnANirowwu/ws8?=
+ =?us-ascii?Q?rwRNOrVrBYXuHnJ/J0+z7A/eIjqRAHee8IKhHqH72vxB/rVKajV9RW7vm9nN?=
+ =?us-ascii?Q?8WJcW7BryTkU5M/hfCaZNXpBxrsV8FglzsbZw4/RpQm40m0yNLjLfYZ5iYE0?=
+ =?us-ascii?Q?qbRnfxaGGQgR8xP8xLRIjQC3/YfGahDz9S743kIkxR6SgmGvWmrxX7RBZHAa?=
+ =?us-ascii?Q?Q7meAS0hcbQkezLDU8FHu7VcVXG78y3NjSBzQqEBo4KsxsIX1d69pP/FiplI?=
+ =?us-ascii?Q?Db6SvWg+t7Y36+OETN3UTWuBBQOcGVFC5E5cvyL7Q8KdCgw6kD8qttYBQa27?=
+ =?us-ascii?Q?0uW3Mi+Xt5aAn9A=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY0PR02MB5766.apcprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(38350700014)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2vpNn406LM5skMEPhKL67qjhwRKQcK8gRVKuoHebXvA1pnZoTqedqbaZa00C?=
+ =?us-ascii?Q?ncfBsIo3GMy8JDePlSUJrtA2UEJfryO6THKLo3q68vsQ6wHZyGIO58Tax1wa?=
+ =?us-ascii?Q?/Sh7WV77p9wGVujU/qhP/z3o16ABpoNaTqRS+pYRKRyhTsYM8lFw04isLOSD?=
+ =?us-ascii?Q?CSeMmICv8UFcWPZM6eTdVFEjLEeLIAXNpPzvDi/mXL8eCX4+snEMXkXXIVlu?=
+ =?us-ascii?Q?iCT3kEXbUk6GI3RhQ8bvTcfO3ELvWm5PVvtLu9UvqEnYnFKos0LykyCylZ3R?=
+ =?us-ascii?Q?r7AzOKiDzBqUNstwje4hQWkKy6IEGoqL8OqhTYwoPHtGpuerbxl0H6k3bkkL?=
+ =?us-ascii?Q?FPFK5phT5zyihmcN3SOD5SL1c8c64ph7m6kmBTHvr/Y5dtE+zwO2dVKlOGi2?=
+ =?us-ascii?Q?h5B3hT/sjmN+auearqfZQiqHkW1zi+lb8iH9pRgGdHeOP9KVAvYlZtslLRqn?=
+ =?us-ascii?Q?oWZUHbndfd+befSoKHOiJHX5O87DjUx9NSAQPjYSSi3IwHPDbbDHMlpY+xgc?=
+ =?us-ascii?Q?eCw0dacbz8kTLPxHKbenVDFR3ScE97bBn7hU/KbIPA7dl+k2QernYRFnYKdI?=
+ =?us-ascii?Q?BbkhTt3ENwwL5TMm7rEoy2UwO/+jYCcRM/z0IYYs17wXpJIm7bJcnDDzYjuJ?=
+ =?us-ascii?Q?7MYJ3Yatg2UefIU/nuh3cG0IqWRtart4sdg4h79ZnxQ8HypnxaBDxNF9Hfmh?=
+ =?us-ascii?Q?iIv9MSuNVHWokpup4Z0TWTPurx0wZsZn1TD4ByhhDTWIas7KuB52c2VrM7Mx?=
+ =?us-ascii?Q?FhqMJ80rcvHQXoGWI81QNjdJzrkIh5re0xCvWOodcwlmyXKB35fpFueEQtbL?=
+ =?us-ascii?Q?NnIUw676lvcAWnTZpo3BWWz2T5kABxAcQko1cVi91qiirS2L9T9tW6PtafUV?=
+ =?us-ascii?Q?gxhsf7INpbP/pbgzc6um9ALlw1HDtjD6Bl5DeDSW04jlmPut4zO9aQGvNezs?=
+ =?us-ascii?Q?FxNnSrb49cieBXPesaJjcx8h79/YOqgJSMgmFtV0IZniwRTawXbk1fdlvqnk?=
+ =?us-ascii?Q?eVwHqoeg1L+uriHjDWOQtflAWu8oTE96lGVa2bfXJdUj4wMsN3xI70vgyWcX?=
+ =?us-ascii?Q?7WM20oaHQhRHdQv/FmiIKPWe93DTbcRXlWQANEmWpyRGoPghx6kKmX/YbhHp?=
+ =?us-ascii?Q?Uwz1R7NCo04Sgtb58QFnI4KyzeTfci3ohcvaBccgX7I548ce3lXIx58rJRmr?=
+ =?us-ascii?Q?irJATwBpIbIrw6stvCz19z2YP1QDT1r9Qp7oxLU70jJqkp/TX36evPJSiau4?=
+ =?us-ascii?Q?lQkXh309STDBp54Wm/UfoT02ndJN+Qzz8d8rNTzyJA8lH2+F+aWs9j/9KV2R?=
+ =?us-ascii?Q?2jx7dhU5hd+Faj2T3S4k9bit3BikMeMQpaSVnrz/cZnP0HMCy89utnDoWGpi?=
+ =?us-ascii?Q?J7VJS3RJZh96OVl/gDZhR2z7oSyEes9Xo4hE/XDw8fZPTEilnDYtZ5qMNjho?=
+ =?us-ascii?Q?mWHboqUaURqkinGXPntIrBStglx2EAK1WooJ7GfgoNl4wQQJ2AbO/VwnsKB0?=
+ =?us-ascii?Q?6mwL78mgu2QGCVAgz2PK5XE7QVmHFv9qV9tcYqLAiKJlwy+DYAG6J30E01vq?=
+ =?us-ascii?Q?5wxBEf2TNe80CaUwWTAuGf+gQNiYDIo6Vtc+SUrjYFQEYl5YaXT48nmJKvGE?=
+ =?us-ascii?Q?Jg=3D=3D?=
+X-OriginatorOrg: fibocom.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cc8150b1-9c66-417f-e9ad-08dd92d4c1ac
+X-MS-Exchange-CrossTenant-AuthSource: TY0PR02MB5766.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 May 2025 10:47:44.1060
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 889bfe61-8c21-436b-bc07-3908050c8236
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wmaoZhlT8Ia5E4llc/Q6LThFz19VvTPtyvktGmeCALpnVlXCaB8bQuxiLTK+TCEAGBm9zU+A2G4tdNyVzU8zuxi3jUueidnQXeBn+PCACHs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR02MB7631
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_033935_599230_536D1632 
-X-CRM114-Status: GOOD (  26.52  )
+X-CRM114-CacheID: sfid-20250514_034803_051037_2642E79F 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,244 +180,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 13, 2025 at 07:48:11PM +0200, Lorenzo Pieralisi wrote:
+The DMA buffer for data plane RX is currently fixed, being parameterized
+to allow configuration.
 
-[...]
+Signed-off-by: Jinjian Song <jinjian.song@fibocom.com>
+---
+ drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c | 12 +++++-------
+ drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.h |  3 +++
+ drivers/net/wwan/t7xx/t7xx_pci.c           | 10 ++++++++++
+ 3 files changed, 18 insertions(+), 7 deletions(-)
 
->  /*
->   * Called from the secondary holding pen, this is the secondary CPU entry point.
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index 3b3f6b56e733039cad7ff5b8995db16a68f3c762..3f3712e47c94c62836fb89cd4bfb3595fbb41557 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -83,7 +83,26 @@ enum ipi_msg_type {
->  
->  static int ipi_irq_base __ro_after_init;
->  static int nr_ipi __ro_after_init = NR_IPI;
-> -static struct irq_desc *ipi_desc[MAX_IPI] __ro_after_init;
-> +
-> +struct ipi_descs {
-> +	struct irq_desc *descs[MAX_IPI];
-> +};
-> +
-> +static DEFINE_PER_CPU(struct ipi_descs, pcpu_ipi_desc);
-> +
-> +#define get_ipi_desc(__cpu, __ipi) (per_cpu_ptr(&pcpu_ipi_desc, __cpu)->descs[__ipi])
-> +
-> +static bool percpu_ipi_descs __ro_after_init;
-> +
-> +static int ipi_to_irq(int ipi, int cpu)
-> +{
-> +	return ipi_irq_base + (cpu * nr_ipi) + ipi;
-> +}
-> +
-> +static int irq_to_ipi(int irq)
-> +{
-> +	return (irq - ipi_irq_base) % nr_ipi;
-> +}
->  
->  static bool crash_stop;
->  
-> @@ -844,7 +863,7 @@ int arch_show_interrupts(struct seq_file *p, int prec)
->  		seq_printf(p, "%*s%u:%s", prec - 1, "IPI", i,
->  			   prec >= 4 ? " " : "");
->  		for_each_online_cpu(cpu)
-> -			seq_printf(p, "%10u ", irq_desc_kstat_cpu(ipi_desc[i], cpu));
-> +			seq_printf(p, "%10u ", irq_desc_kstat_cpu(get_ipi_desc(cpu, i), cpu));
->  		seq_printf(p, "      %s\n", ipi_types[i]);
->  	}
->  
-> @@ -919,7 +938,13 @@ static void __noreturn ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs
->  
->  static void arm64_backtrace_ipi(cpumask_t *mask)
->  {
-> -	__ipi_send_mask(ipi_desc[IPI_CPU_BACKTRACE], mask);
-> +	unsigned int cpu;
-> +
-> +	if (!percpu_ipi_descs)
-> +		__ipi_send_mask(get_ipi_desc(0, IPI_CPU_BACKTRACE), mask);
-> +	else
-> +		for_each_cpu(cpu, mask)
-> +			__ipi_send_single(get_ipi_desc(cpu, IPI_CPU_BACKTRACE), cpu);
->  }
->  
->  void arch_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu)
-> @@ -944,7 +969,7 @@ void kgdb_roundup_cpus(void)
->  		if (cpu == this_cpu)
->  			continue;
->  
-> -		__ipi_send_single(ipi_desc[IPI_KGDB_ROUNDUP], cpu);
-> +		__ipi_send_single(get_ipi_desc(cpu, IPI_KGDB_ROUNDUP), cpu);
->  	}
->  }
->  #endif
-> @@ -1013,14 +1038,21 @@ static void do_handle_IPI(int ipinr)
->  
->  static irqreturn_t ipi_handler(int irq, void *data)
->  {
-> -	do_handle_IPI(irq - ipi_irq_base);
-> +	do_handle_IPI(irq_to_ipi(irq));
->  	return IRQ_HANDLED;
->  }
->  
->  static void smp_cross_call(const struct cpumask *target, unsigned int ipinr)
->  {
-> +	unsigned int cpu;
-> +
->  	trace_ipi_raise(target, ipi_types[ipinr]);
-> -	__ipi_send_mask(ipi_desc[ipinr], target);
-> +
-> +	if (!percpu_ipi_descs)
-> +		__ipi_send_mask(get_ipi_desc(0, ipinr), target);
-> +	else
-> +		for_each_cpu(cpu, target)
-> +			__ipi_send_single(get_ipi_desc(cpu, ipinr), cpu);
->  }
->  
->  static bool ipi_should_be_nmi(enum ipi_msg_type ipi)
-> @@ -1046,11 +1078,15 @@ static void ipi_setup(int cpu)
->  		return;
->  
->  	for (i = 0; i < nr_ipi; i++) {
-> -		if (ipi_should_be_nmi(i)) {
-> -			prepare_percpu_nmi(ipi_irq_base + i);
-> -			enable_percpu_nmi(ipi_irq_base + i, 0);
-> +		if (!percpu_ipi_descs) {
-> +			if (ipi_should_be_nmi(i)) {
-> +				prepare_percpu_nmi(ipi_irq_base + i);
-> +				enable_percpu_nmi(ipi_irq_base + i, 0);
-> +			} else {
-> +				enable_percpu_irq(ipi_irq_base + i, 0);
-> +			}
->  		} else {
-> -			enable_percpu_irq(ipi_irq_base + i, 0);
-> +			enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, i)));
->  		}
->  	}
->  }
-> @@ -1064,44 +1100,79 @@ static void ipi_teardown(int cpu)
->  		return;
->  
->  	for (i = 0; i < nr_ipi; i++) {
-> -		if (ipi_should_be_nmi(i)) {
-> -			disable_percpu_nmi(ipi_irq_base + i);
-> -			teardown_percpu_nmi(ipi_irq_base + i);
-> +		if (!percpu_ipi_descs) {
-> +			if (ipi_should_be_nmi(i)) {
-> +				disable_percpu_nmi(ipi_irq_base + i);
-> +				teardown_percpu_nmi(ipi_irq_base + i);
-> +			} else {
-> +				disable_percpu_irq(ipi_irq_base + i);
-> +			}
->  		} else {
-> -			disable_percpu_irq(ipi_irq_base + i);
-> +			disable_irq(irq_desc_get_irq(get_ipi_desc(cpu, i)));
->  		}
->  	}
->  }
->  #endif
->  
-> -void __init set_smp_ipi_range(int ipi_base, int n)
-> +static void ipi_setup_ppi(int ipi)
-> +{
-> +	int err, irq, cpu;
-> +
-> +	irq = ipi_irq_base + ipi;
-> +
-> +	if (ipi_should_be_nmi(irq)) {
-> +		err = request_percpu_nmi(irq, ipi_handler, "IPI", &irq_stat);
-> +		WARN(err, "Could not request IRQ %d as NMI, err=%d\n", irq, err);
-> +	} else {
-> +		err = request_percpu_irq(irq, ipi_handler, "IPI", &irq_stat);
-> +		WARN(err, "Could not request IRQ %d as IRQ, err=%d\n", irq, err);
-> +	}
-> +
-> +	for_each_possible_cpu(cpu)
-> +		get_ipi_desc(cpu, ipi) = irq_to_desc(irq);
-> +
-> +	irq_set_status_flags(irq, IRQ_HIDDEN);
-> +}
-> +
-> +static void ipi_setup_lpi(int ipi, int ncpus)
-> +{
-> +	for (int cpu = 0; cpu < ncpus; cpu++) {
-> +		int err, irq;
-> +
-> +		irq = ipi_to_irq(ipi, cpu);
-> +
-> +		err = irq_force_affinity(irq, cpumask_of(cpu));
-> +
-> +		WARN(err, "Could not force affinity IRQ %d, err=%d\n", irq, err);
-> +
-> +		err = request_irq(irq, ipi_handler, IRQF_NO_AUTOEN, "IPI",
-> +				  &irq_stat);
+diff --git a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
+index 6a7a26085fc7..7848e470432c 100644
+--- a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
++++ b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
+@@ -49,9 +49,7 @@
+ #include "t7xx_netdev.h"
+ #include "t7xx_pci.h"
+ 
+-#define DPMAIF_BAT_COUNT		8192
+-#define DPMAIF_FRG_COUNT		4814
+-#define DPMAIF_PIT_COUNT		(DPMAIF_BAT_COUNT * 2)
++#define DPMAIF_PIT_COUNT		(dpmaif_bat_count * 2)
+ 
+ #define DPMAIF_BAT_CNT_THRESHOLD	30
+ #define DPMAIF_PIT_CNT_THRESHOLD	60
+@@ -279,7 +277,7 @@ static int t7xx_frag_bat_cur_bid_check(struct dpmaif_rx_queue *rxq,
+ 	struct dpmaif_bat_request *bat_frag = rxq->bat_frag;
+ 	struct dpmaif_bat_page *bat_page;
+ 
+-	if (cur_bid >= DPMAIF_FRG_COUNT)
++	if (cur_bid >= dpmaif_frg_count)
+ 		return -EINVAL;
+ 
+ 	bat_page = bat_frag->bat_skb + cur_bid;
+@@ -448,7 +446,7 @@ static int t7xx_bat_cur_bid_check(struct dpmaif_rx_queue *rxq, const unsigned in
+ 	struct dpmaif_bat_skb *bat_skb = rxq->bat_req->bat_skb;
+ 
+ 	bat_skb += cur_bid;
+-	if (cur_bid >= DPMAIF_BAT_COUNT || !bat_skb->skb)
++	if (cur_bid >= dpmaif_bat_count || !bat_skb->skb)
+ 		return -EINVAL;
+ 
+ 	return 0;
+@@ -944,11 +942,11 @@ int t7xx_dpmaif_bat_alloc(const struct dpmaif_ctrl *dpmaif_ctrl, struct dpmaif_b
+ 
+ 	if (buf_type == BAT_TYPE_FRAG) {
+ 		sw_buf_size = sizeof(struct dpmaif_bat_page);
+-		bat_req->bat_size_cnt = DPMAIF_FRG_COUNT;
++		bat_req->bat_size_cnt = dpmaif_frg_count;
+ 		bat_req->pkt_buf_sz = DPMAIF_HW_FRG_PKTBUF;
+ 	} else {
+ 		sw_buf_size = sizeof(struct dpmaif_bat_skb);
+-		bat_req->bat_size_cnt = DPMAIF_BAT_COUNT;
++		bat_req->bat_size_cnt = dpmaif_bat_count;
+ 		bat_req->pkt_buf_sz = DPMAIF_HW_BAT_PKTBUF;
+ 	}
+ 
+diff --git a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.h b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.h
+index f4e1b69ad426..4709770fc489 100644
+--- a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.h
++++ b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.h
+@@ -22,6 +22,9 @@
+ 
+ #include "t7xx_hif_dpmaif.h"
+ 
++extern uint dpmaif_bat_count;
++extern uint dpmaif_frg_count;
++
+ #define NETIF_MASK		GENMASK(4, 0)
+ 
+ #define PKT_TYPE_IP4		0
+diff --git a/drivers/net/wwan/t7xx/t7xx_pci.c b/drivers/net/wwan/t7xx/t7xx_pci.c
+index 8bf63f2dcbbf..021a05b49225 100644
+--- a/drivers/net/wwan/t7xx/t7xx_pci.c
++++ b/drivers/net/wwan/t7xx/t7xx_pci.c
+@@ -28,6 +28,7 @@
+ #include <linux/jiffies.h>
+ #include <linux/list.h>
+ #include <linux/module.h>
++#include <linux/moduleparam.h>
+ #include <linux/mutex.h>
+ #include <linux/pci.h>
+ #include <linux/pm.h>
+@@ -54,6 +55,15 @@
+ #define PM_RESOURCE_POLL_TIMEOUT_US	10000
+ #define PM_RESOURCE_POLL_STEP_US	100
+ 
++uint dpmaif_bat_count = 8192;
++uint dpmaif_frg_count = 4814;
++
++module_param(dpmaif_bat_count, uint, 0644);
++MODULE_PARM_DESC(dpmaif_bat_count, "BAT entry count");
++
++module_param(dpmaif_frg_count, uint, 0644);
++MODULE_PARM_DESC(dpmaif_frg_count, "FRG entry count");
++
+ static const char * const t7xx_mode_names[] = {
+ 	[T7XX_UNKNOWN] = "unknown",
+ 	[T7XX_READY] = "ready",
+-- 
+2.34.1
 
-Heads-up, kbuild bot (sparse) barfed (correctly) at this, because the
-&irq_stat pointer does not match the request_irq() void *dev_id parameter
-signature (it is void __percpu *).
-
-Of course, the &irq_stat parameter is unused so this is harmless.
-
-I would just pass NULL (because AFAICS irq_stat in the action handler is
-unused), the question is why are we passing &irq_stat in
-request_percpu_irq() if that's unused in ipi_handler() ?
-
-Was it used before and we removed its usage ? Should we clean it up
-for completeness ?
-
-Thanks,
-Lorenzo
-
-> +
-> +		WARN(err, "Could not request IRQ %d, err=%d\n", irq, err);
-> +
-> +		irq_set_status_flags(irq, (IRQ_HIDDEN | IRQ_NO_BALANCING_MASK));
-> +
-> +		get_ipi_desc(cpu, ipi) = irq_to_desc(irq);
-> +	}
-> +}
-> +
-> +void __init set_smp_ipi_range_percpu(int ipi_base, int n, int ncpus)
->  {
->  	int i;
->  
->  	WARN_ON(n < MAX_IPI);
->  	nr_ipi = min(n, MAX_IPI);
->  
-> -	for (i = 0; i < nr_ipi; i++) {
-> -		int err;
-> -
-> -		if (ipi_should_be_nmi(i)) {
-> -			err = request_percpu_nmi(ipi_base + i, ipi_handler,
-> -						 "IPI", &irq_stat);
-> -			WARN(err, "Could not request IPI %d as NMI, err=%d\n",
-> -			     i, err);
-> -		} else {
-> -			err = request_percpu_irq(ipi_base + i, ipi_handler,
-> -						 "IPI", &irq_stat);
-> -			WARN(err, "Could not request IPI %d as IRQ, err=%d\n",
-> -			     i, err);
-> -		}
-> -
-> -		ipi_desc[i] = irq_to_desc(ipi_base + i);
-> -		irq_set_status_flags(ipi_base + i, IRQ_HIDDEN);
-> -	}
-> -
-> +	percpu_ipi_descs = !!ncpus;
->  	ipi_irq_base = ipi_base;
->  
-> +	for (i = 0; i < nr_ipi; i++) {
-> +		if (!percpu_ipi_descs)
-> +			ipi_setup_ppi(i);
-> +		else
-> +			ipi_setup_lpi(i, ncpus);
-> +	}
-> +
->  	/* Setup the boot CPU immediately */
->  	ipi_setup(smp_processor_id());
->  }
-> 
-> -- 
-> 2.48.0
-> 
 
