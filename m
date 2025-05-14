@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1372EC3ABD9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 08:01:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 905E6C3ABD9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 08:03:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=92xl50fngLlPA0742ShEZlboPbwBLkdA9nm8h1sBxyY=; b=atETX+Dx9hhJ+41GrtCSl+/L+7
-	ynWvWg5ds24CWePKdyrmwMQ4MTuYOzHQqzQ9i5QYxCuwypm35CB7EOx7nREP3B5tl+vz6xdrVbOzI
-	Y7dcH8NHkcNHNi0QU3TIBKUfiVH5UFMDPPAc8V6M/raJFdJKHdXhBcQGc/kLUgHyyec8TR5by+rvi
-	bJ++CYC4zgXRCSySHl90o3Ga8vL72BS0yrJi3iPadj+Zxq7YDAs5QQ6FBvnAMeJ6krly4fUfekmS4
-	SljHNHp85IoyDOSRi3J107OA+hRf7EfaE1gJQfZpO3Fm3iyB2USnc2s5lCT7X7RJiVwEejFAIUN3A
-	OUzy/4rA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wsyH6AvGNlsxOqUwJFkSgCHhHMmnm8Dh9URH7/ExlIc=; b=xciPk862e5Jw3z8XUiM5pK87bf
+	esMr4lHQwyBKIRTUh95tAcjjgcLzq5+A5m9vWU4Q6oiSr9Vyc79Qf+S5pqgaEQpTImoM7nPJoZRkd
+	6dmBwLM4RirXxJsDUUYfLN7Ec/hzyvd4EP/Xirt6HMHozlj7vzoyZk8RbnYX65RIwkfLWXg/8KHBm
+	QSazsYWrdh7U+UAF7Hf6ZwsgrgDPDR7RzBVTJQPAglOq5EIJh1O3kHg9e/GXS0WMQo29MGTtSoVdn
+	DjpjG35XKSFjMQGicTHLKns4QZ/mAWRIOKa1jkHGqXSPaJBUJhjQmS+Caxs2Nrr893kaJaDWs9yiX
+	KCW34hAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF72u-0000000EPzM-1eMQ;
-	Wed, 14 May 2025 08:00:56 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uF74u-0000000EQP0-0VzU;
+	Wed, 14 May 2025 08:03:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF70p-0000000EPg7-2gCh
+	id 1uF71p-0000000EPo8-2t72
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 07:58:48 +0000
+	Wed, 14 May 2025 07:59:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 70BA35C1D94;
-	Wed, 14 May 2025 07:56:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D513DC4CEE9;
-	Wed, 14 May 2025 07:58:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0C0A161126;
+	Wed, 14 May 2025 07:59:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29B85C4CEE9;
+	Wed, 14 May 2025 07:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747209526;
-	bh=6tM6IvYJ+UJwErZFj2ILocGq36fJgFxr2ZEBz5WWSCg=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=QCWqqDjQJGp4+GtEMpwBpBJeJri1buuxkh2vT6h+qKn+WBBpQPZ91Y8skd0TUhBWt
-	 cF3cmslw8xMzAaM7lb50sQ2Mh4YgXiFmGcCA2tDG3CvhyhJwJRriPVJcdzUO5u6llq
-	 pq/vE07SDfNeQjGO9lw7Ui8M6hf0IbjW34io2ur1yzqZ6hkDbsgaVIAYvmUO1HKUjy
-	 lFC6SggYHzscyo8OBrHW7LQ7mX3IUvPcuUxeIaPJ4t+GYSXJrlcjylxNd7eMbvInb7
-	 VyNgJtvyRzkZRvZb+Jg6UlnWScYBJRL776cLNGfR2cRVpmuD03nzCy1pbxGiul09SF
-	 5uPhX8pxLVOcw==
-Message-ID: <ae19e684-4f46-42b7-bb4e-fc6bb13ed153@kernel.org>
-Date: Wed, 14 May 2025 09:58:39 +0200
+	s=k20201202; t=1747209588;
+	bh=ckJSHWoBUdiv+yuW3Ptna22xd+nEJ6aBvFm5+ABc6VI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=A2w1b8mq7eDf6snkL93EEdVOKIHGOwo3bwfR1A3ah4aqoaGIqAQxzu82HjsOmoE01
+	 iYlKBhIN7WhyWemSwJjZGSbfwiqANaMwyM3LoVdrTs/lI/X2igPmxTGMM0ihCxXfGP
+	 yKrzxEHyR+gKOV7+83K6mOet/Il/qY/9qC3CUEpbVkN6FWDGPfymRu/rB3ONwJv1YL
+	 TGI6ARYK2Fdde2dl/jusV46t4L4a9dkoMJ4C4NlbHd77eg38zENsW2s4hMj5V6HSlG
+	 uHs1OfbUtU01d3a2aXV6yujrcyf43dRk4cNxmJs6m0N+IRl7M4DANJ1b/SweqSPyE2
+	 UZ0o2FOhIdamg==
+Message-ID: <e942e7c8-b911-4623-8971-6cf344ab408f@kernel.org>
+Date: Wed, 14 May 2025 09:59:41 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH 3/5] dt-bindings: media: allegrodvt: add decoder
- dt-bindings for Gen3 IP
-To: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>,
- Michael Tretter <m.tretter@pengutronix.de>,
+Subject: Re: [PATCH 3/3] media: allegro-dvt: Add DT-bindings for the Gen 3 IP
+To: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
+Cc: Michael Tretter <m.tretter@pengutronix.de>,
  Pengutronix Kernel Team <kernel@pengutronix.de>,
  Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>,
  Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner
- <heiko@sntech.de>, Junhao Xie <bigfoot@classfun.cn>,
- Aradhya Bhatia <a-bhatia1@ti.com>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?=
- <rafal@milecki.pl>, Manivannan Sadhasivam
- <manivannan.sadhasivam@linaro.org>, Kever Yang <kever.yang@rock-chips.com>,
- Hans Verkuil <hverkuil@xs4all.nl>,
- Sebastian Fricke <sebastian.fricke@collabora.com>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Gaosheng Cui <cuigaosheng1@huawei.com>,
+ <heiko@sntech.de>, Aradhya Bhatia <a-bhatia1@ti.com>,
+ Rafa?? Mi??ecki <rafal@milecki.pl>, Junhao Xie <bigfoot@classfun.cn>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Kever Yang <kever.yang@rock-chips.com>, Hans Verkuil <hverkuil@xs4all.nl>,
  Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+ Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>,
  Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
+ Gaosheng Cui <cuigaosheng1@huawei.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Uwe Kleine-K??nig <u.kleine-koenig@baylibre.com>,
  Ricardo Ribalda <ribalda@chromium.org>, linux-media@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
-References: <20250513083609.328422-1-yassine.ouaissa@allegrodvt.com>
- <20250513083609.328422-4-yassine.ouaissa@allegrodvt.com>
+References: <20250511144752.504162-1-yassine.ouaissa@allegrodvt.com>
+ <20250511144752.504162-4-yassine.ouaissa@allegrodvt.com>
+ <595adbaa-15b4-4917-b3ad-9bac3e2333e2@kernel.org>
+ <knnumpmyq4ewvqcfor3vqynxbplynajdlmz3p6f2ywadvmz6wo@5uz53eubbkfg>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -116,12 +116,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250513083609.328422-4-yassine.ouaissa@allegrodvt.com>
+In-Reply-To: <knnumpmyq4ewvqcfor3vqynxbplynajdlmz3p6f2ywadvmz6wo@5uz53eubbkfg>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_005847_771527_EB380C1C 
-X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,75 +133,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/05/2025 10:35, Yassine Ouaissa wrote:
-> Add compatible for video decoder on allegrodvt Gen 3 IP.
-> 
-> Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
+On 12/05/2025 10:23, Yassine Ouaissa wrote:
+>>> +    items:
+>>> +      - description: MCU clock
+>>> +
+>>> +  clock-names:
+>>> +    items:
+>>> +      - const: mcu_clk
+>>
+>> Drop clock-names, pretty obvious
+>>
+> the clock-name is a require item, it used by the driver.
 
-How is this resend? You already sent patches, so this is v2 or v3.
-Version your patches correctly or just use b4 for that.
+Then fix your driver.
 
 
-> ---
->  .../bindings/media/allegrodvt,al300-vdec.yaml | 83 +++++++++++++++++++
->  1 file changed, 83 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.yaml b/Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.yaml
-> new file mode 100644
-> index 000000000000..4218892d6950
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.yaml
-> @@ -0,0 +1,83 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/allegrodvt,al300-vdec.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Allegro DVT Video IP Decoder Gen 3
-> +
-> +maintainers:
-> +  - Yassine OUAISSA <yassine.ouaissa@allegrodvt.com>
-> +
-> +description:
-> +  The al300-vdec represents the latest generation of Allegro DVT IP decoding
-> +  technology, offering significant advancements over its predecessors.
-> +  This new decoder features enhanced processing capabilities with improved
-> +  throughput and reduced latency.
-> +
-> +  Communication between the host driver software and the MCU is implemented
-> +  through a specialized mailbox interface mechanism. This mailbox system
-> +  provides a structured channel for exchanging commands, parameters, and
-> +  status information between the host CPU and the MCU controlling the codec
-> +  engines.
-> +
-> +properties:
-> +  compatible:
-> +    const: allegrodvt,al300-vdec
-> +
-> +  reg:
-> +    items:
-> +      - description: The registers
-> +      - description: the MCU APB register
-> +
-> +  reg-names:
-> +    items:
-> +      - const: regs
-> +      - const: apb
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: MCU clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: mcu_clk
-
-Nothing improved.
 
 Best regards,
 Krzysztof
