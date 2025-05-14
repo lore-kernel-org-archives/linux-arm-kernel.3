@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C52A5C3ABDA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 20:10:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2127C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 20:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2r9cx91prR1RlUD/MerxbFSo2qyoqIcVaQSnEppgX1A=; b=4LrO661mAX1G/CvMeaTzi0U0J2
-	MIHOjW2NBIgjXFPfIwpwXVKjKA4p5sNVIR79cUWnDs3PFZvIqkGyhbkbsgXDzyXOw5KaOq/Z1WDAd
-	L1M15BG0kkXngdAfOnpQ+h1nGkNOtXHSByoEIYg+t9SBqZgu4f+pcny4QW8yJTBOaa/555EgDWFSK
-	pJo8HajfG3+SIGdHHx5BdQKVwUVQ4VfY24StfEfs2cq3sRl2d7rtQMORSyBWWVkvq2xvO1Eao6/JR
-	RNhgzw24618oFOLrJq4vArdJzkM6OhZ9+c9h8rnwGYP9L8lPiw0MzIfDd8hgt2fIkHJPqQdsTfWBh
-	4B/zcTRg==;
+	bh=cDV/O8haoOrB+ofE6rgFxaHZvrLNbVhSxRFU8YU3hTo=; b=EadvK5q48NSJSK4iCviwVw5TDi
+	HzzPgmaeOMAl8Nu5y9mGXOHYZoNcJGLj+dubnLh1EMBmJC+2mIAfOuCKUpKLX5lbKFv6NZmXLnwj3
+	EnS9oFH/08oytpC7cjAo2MKpJNlDaqCdhXBTXiBLXbDT0gb4+MEVZKI8RfZqB7niiG7th+XpOfx50
+	mP+4ZbMLUrPLiHjGhnqM+teoeOe6sW2aJET8aNODjUV5qsx759j0KpVCqTuqx/MkAZiENgheujJQE
+	vuQMT5jODXFCyoNOqkt4qlCJGp6zRhB1krORJLSuGVcKmq6WIT18OdwECvvY611cPhDujdkRmozpg
+	1mSt7P7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFIQr-0000000GFQy-1a3P;
-	Wed, 14 May 2025 20:10:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uFIV2-0000000GFr0-2FK5;
+	Wed, 14 May 2025 20:14:44 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFIOp-0000000GFAz-0NDV;
-	Wed, 14 May 2025 20:08:20 +0000
+	id 1uFIT0-0000000GFaV-1af0;
+	Wed, 14 May 2025 20:12:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CDB0045191;
-	Wed, 14 May 2025 20:08:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C649C4CEE3;
-	Wed, 14 May 2025 20:08:18 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 91B96A4E218;
+	Wed, 14 May 2025 20:12:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F10B1C4CEE3;
+	Wed, 14 May 2025 20:12:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747253298;
-	bh=3WUxiz74QfrEkVVFQDowE0+qUL29wRFq5sAQpUVQaOI=;
+	s=k20201202; t=1747253557;
+	bh=2WYpJnl1ax8rwpFL8L3G6L2FOopXlQPNK3SrFZq0AQU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=j3TDn86sJuOiIpUlS3N/aQHf1Vundgo9YCoc+bwdDkKux/jkXJacNmbXRTiW7WvdO
-	 DjSdaW+j2jJcRyK+RUx9PiHIZ0gdg90lmLKjTeaLslXtsqlPvzTTE0IG9rhB5rgot4
-	 pChbLMyxVHy46X/c90eDi5gqQ/DIz7IBBSe3bmtOl+LN9hnkJJfIWISIkmnuRMQ+Eb
-	 kuhYO8iXV1cjbYmyl55NeBqz818v1WYcoyPdGGACtrksGSMZsfSyUFiLMHoJD6HA9m
-	 aJbU1sh4FbaTyCUC7756UVtI5klo1RjldtCXLaj6gvWgtLam3ar89RAdL3oOpvvEau
-	 9wu/mJwzdA+zA==
-Date: Wed, 14 May 2025 15:08:16 -0500
-From: Rob Herring <robh@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+	b=Fbtdd/oHH/eFNDqfEXpXCkjsSKFCfZ1wdk/dFjtcP69HWJgdJQFePY3VR48iavwFx
+	 DxMP7ArmTZdZ8w/uafGAIdImGvmeQLX/2QfYkSe5tRQ+L4PMJIUDJitLWSwcpZNql5
+	 bCAbcrXyfYiGBD0ARw9z6Q7hoWkg/GOcp5jDP7zkQPt/iEYvgd0iSMEd+V2a4lUGyX
+	 L4wuz5vVpwCJln75WamZxymz+yTuZJdYgRk4inyBH5+vh7z9U0b32nLxqb8cBUbUqz
+	 r8b8xZ7Z7w5Tr++Ov2hci5iAzsq+D3dT8lmdGssACsJJOcSr5QbPM/vjYS5/MZ8LYP
+	 n24j3W6gnyK7Q==
+Date: Wed, 14 May 2025 15:12:35 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Olivier Benjamin <olivier.benjamin@bootlin.com>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v2 1/2] dt-bindings: net: airoha: Add EN7581
- memory-region property
-Message-ID: <20250514200816.GA2934563-robh@kernel.org>
-References: <20250509-airopha-desc-sram-v2-0-9dc3d8076dfb@kernel.org>
- <20250509-airopha-desc-sram-v2-1-9dc3d8076dfb@kernel.org>
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Nicholas Roth <nicholas@rothemail.net>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, Sascha Hauer <s.hauer@pengutronix.de>,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Subject: Re: [PATCH v3 1/4] dt-bindings: media: ov8858: inherit
+ video-interface-devices properties
+Message-ID: <174725355479.2958040.5700144507602583801.robh@kernel.org>
+References: <20250509-camera-v3-0-dab2772d229a@bootlin.com>
+ <20250509-camera-v3-1-dab2772d229a@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250509-airopha-desc-sram-v2-1-9dc3d8076dfb@kernel.org>
+In-Reply-To: <20250509-camera-v3-1-dab2772d229a@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_130819_143696_49DC35E0 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20250514_131238_481925_E41529B4 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,55 +86,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 09, 2025 at 04:51:33PM +0200, Lorenzo Bianconi wrote:
-> Introduce the memory-region and memory-region-names properties for the
-> ethernet node available on EN7581 SoC. In order to improve performances,
-> EN7581 SoC supports allocating buffers for hw forwarding queues in SRAM
-> instead of DRAM if available on the system.
 
-But 'reserved-memory' is generally for system memory which is DRAM 
-though we unfortunately don't enforce that. For small onchip SRAM, you 
-should be using the mmio-sram binding and the 'sram' property.
-
+On Fri, 09 May 2025 23:51:37 +0200, Olivier Benjamin wrote:
+> Update the OV8858 binding to inherit properties defined in the
+> video-interface-devices binding.
 > 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
 > ---
->  .../devicetree/bindings/net/airoha,en7581-eth.yaml          | 13 +++++++++++++
->  1 file changed, 13 insertions(+)
+>  Documentation/devicetree/bindings/media/i2c/ovti,ov8858.yaml | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
-> index 0fdd1126541774acacc783d98e4c089b2d2b85e2..6d22131ac2f9e28390b9e785ce33e8d983eafd0f 100644
-> --- a/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
-> +++ b/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
-> @@ -57,6 +57,16 @@ properties:
->        - const: hsi-mac
->        - const: xfp-mac
->  
-> +  memory-region:
-> +    items:
-> +      - description: QDMA0 buffer memory
-> +      - description: QDMA1 buffer memory
-> +
-> +  memory-region-names:
-> +    items:
-> +      - const: qdma0-buf
-> +      - const: qdma1-buf
-> +
->    "#address-cells":
->      const: 1
->  
-> @@ -140,6 +150,9 @@ examples:
->                       <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>,
->                       <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
->  
-> +        memory-region = <&qdma0_buf>, <&qdma1_buf>;
-> +        memory-region-names = "qdma0-buf", "qdma1-buf";
-> +
->          airoha,npu = <&npu>;
->  
->          #address-cells = <1>;
-> 
-> -- 
-> 2.49.0
-> 
+
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+
 
