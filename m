@@ -4,86 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE5F1C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 18:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B47AAC3ABDA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 18:35:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DujayChON/AUGWidMtNBzu42jr8bFOx+kpihLFCyMkE=; b=xxF3/XDOy5PulhVtIfDeWxywN6
-	CYv9mo32TtW8BamxdRHQqpzkAMWvUnll+DSS//SHIg6th6sr9tRw7CjUAAXDgVI+QRKEwJTI9vN8F
-	Kk4t8pkmQ18q+UQjYSl0Sa6aTFTBefqDuHrhXBL62qyDyGF2g1cqFsk8z3OSfP8IGZ5AajsmDwrfN
-	5E/JUFfhqDkMqQlvMBbUjDDiiasMYE/oXaS1f/Q9mN4PIM8dBvj1SWc+O+RFdQ9NXfuL2gaXeVF8u
-	WUudnm5juQEUL679ZH/X2Ooh98ZLlx498JJSVbwaXryEYmvPDE8ES34+rBlsj6u2jHr9QXCYL/p6+
-	S5QbuCAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xkeTH2sdqK6DTXHn/G/yGKTKdJBZg4XNBoVkJgBY/qY=; b=CSQ9Z+kN9Wd5bcVBODfwildPGV
+	9LQn7MsMG8C2F4Zs2Vkx4P7KTQ1EsCP/f0Z6bItUNGgOhD3CVkqcUoUM8jAL56rMEJE5GwVKgiGjZ
+	Md/BIQ16NZ1XDlSMg4MvDauzYnu6F0o821zn30t4KP18ZFbM2+zRJPKSC4LNnjehKDm8zqJ/8TBSI
+	echzgZATcT4guSXeQQosOzUzNrViFMeovG/jlTffrXEyn/s5k+yAfmxxbu48WRDyrGyd6VUsMjX4I
+	n27lPKUJPaH0gQlUf9aJ+8f+eMlabNhlYEpDzEsWZ51yjNvk0QFQ847ijKXL9PYs9LNivheQgJ2h9
+	sE6zTbWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFGvK-0000000G1sx-354x;
-	Wed, 14 May 2025 18:33:46 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1uFGxM-0000000G3Ii-1vGE;
+	Wed, 14 May 2025 18:35:52 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFFBV-0000000Fn4J-33fe;
-	Wed, 14 May 2025 16:42:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1747240942; x=1778776942;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=3a/AGcV2Rv7gzIvog99Z8j2jxhg8+75lupWlsqOGDM0=;
-  b=Tk1wk66NiickztNvxpnaBNXlcocHEYYVtBcZp0KO8BNVTTc/ngo7Uw1e
-   DFfQzmg3DOFuAKAZpFTBvPASodl8ggB5qpvdC6jvxD+UQUPsUELpipg2C
-   juZZP1FJCqpW7KuPi+h4s7V3et1sSzuZKE++PB5tJolMMaJhgnEJBnnbI
-   OH3B0TIVNj8KcchHjTNQuRC00CaulEdwquq1nzFhatgXSe6kNNdHtHfsF
-   e49PQjAeEw2b49xIdxZy1JXJMQa+z+M49l94N77FyA3JkmtjVVQ4/mzgV
-   19OsvbB4lxG7WxAxB4O9clLqyDp7Nv/H8fxY6TDxQx5D89fbBhZd9OLH0
-   w==;
-X-CSE-ConnectionGUID: JdOzP++cTi6+tCsDUy/3Nw==
-X-CSE-MsgGUID: WNmHyeNdQh6FiFw24G2UuA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11433"; a="48262189"
-X-IronPort-AV: E=Sophos;i="6.15,288,1739865600"; 
-   d="scan'208";a="48262189"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 09:42:20 -0700
-X-CSE-ConnectionGUID: v0zwh2NRShuM7ho+Ce271Q==
-X-CSE-MsgGUID: rxO74IssSCOLhS1RUO3Gjg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,288,1739865600"; 
-   d="scan'208";a="138154268"
-Received: from mgoodin-mobl3.amr.corp.intel.com (HELO [10.124.222.100]) ([10.124.222.100])
-  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 09:42:17 -0700
-Message-ID: <abe64cda-729e-44e2-bc1e-d43d3566980e@linux.intel.com>
-Date: Wed, 14 May 2025 09:42:16 -0700
+	id 1uFGFy-0000000Fx8S-2OAo;
+	Wed, 14 May 2025 17:51:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1747245036; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=EoJNkJknMPG0fZ/9jueeo1HtbpmKfuY9zh35qY1kV/tcCw501DQLvSyGtbUBnZ5U5ykUbFdfjCZjpxxxsa0oMML6guKaZivzHk4aI4aox8vkRLOtX49OK6auGQY0ar9fg82BD6/ZXVCQlHgXwc5ksf4XZwtcLfIzhgSXtmj3HXQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1747245036; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=xkeTH2sdqK6DTXHn/G/yGKTKdJBZg4XNBoVkJgBY/qY=; 
+	b=Qyhgt/wzZ6PDSoRoROwGVMpG2V4N6cZfLWYssRiZyeQFfOQiPxUR2SD0q3ypR3bQR5wKEMWuq4naZarWEAuhM75/cerp73J1dMjrNxDgwErH+ggTpaRjQ3Y/pAXASgU9gSfFBZ7D3kvubV8tHJE2VjQDNGdrdjAU1HFol6V7q2Y=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1747245036;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=xkeTH2sdqK6DTXHn/G/yGKTKdJBZg4XNBoVkJgBY/qY=;
+	b=FuZ9OzJ5kG/yZ52tgOfva5uf7CEWwRg/yvU8x9cAOiL6JTEvujRsEcP7/VCC0zOE
+	Xns63t4onYiD5SajuCrnXTQVKAbnLHh93IVKWRMElrsN4b66SkJgwfS/ULkkOTF2DzK
+	+d4qIAT6n/x/v1Hn6IS8YiZv+GgPqk2mhuuWA4zI=
+Received: by mx.zohomail.com with SMTPS id 1747245033926609.0078162287707;
+	Wed, 14 May 2025 10:50:33 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sumit Semwal <sumit.semwal@linaro.org>,
+ Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Jeffrey Hugo <quic_jhugo@quicinc.com>, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-doc@vger.kernel.org, linux-media@vger.kernel.org,
+ linaro-mm-sig@lists.linaro.org
+Subject: Re: [PATCH v2 1/7] dt-bindings: npu: rockchip,rknn: Add bindings
+Date: Wed, 14 May 2025 19:50:27 +0200
+Message-ID: <3628015.iIbC2pHGDl@workhorse>
+In-Reply-To: <CAAObsKAkMhgQsi6hLjbfS5wDaUz-hPQiZn7dVvn+6kDv0_jo9Q@mail.gmail.com>
+References: <20250225-6-10-rocket-v2-0-d4dbcfafc141@tomeuvizoso.net>
+ <14333638.uLZWGnKmhe@workhorse>
+ <CAAObsKAkMhgQsi6hLjbfS5wDaUz-hPQiZn7dVvn+6kDv0_jo9Q@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/5] PCI/ERR: Add support for resetting the slots in a
- platform specific way
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
- Oliver O'Halloran <oohall@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>,
- Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Marc Zyngier <maz@kernel.org>,
- Conor Dooley <conor.dooley@microchip.com>,
- Daire McNamara <daire.mcnamara@microchip.com>
-Cc: dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>,
- Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
- linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
-References: <20250508-pcie-reset-slot-v4-0-7050093e2b50@linaro.org>
- <20250508-pcie-reset-slot-v4-2-7050093e2b50@linaro.org>
-Content-Language: en-US
-From: Sathyanarayanan Kuppuswamy <sathyanarayanan.kuppuswamy@linux.intel.com>
-In-Reply-To: <20250508-pcie-reset-slot-v4-2-7050093e2b50@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_094221_781615_FD37D4C9 
-X-CRM114-Status: GOOD (  18.90  )
+X-CRM114-CacheID: sfid-20250514_105102_661587_96EC0B4D 
+X-CRM114-Status: GOOD (  54.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,86 +89,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wednesday, 14 May 2025 17:18:22 Central European Summer Time Tomeu Vizos=
+o wrote:
+> Hi Nicolas,
+>=20
+> Thanks for looking at this. Some thoughts below:
+>=20
+> On Fri, Apr 25, 2025 at 8:50=E2=80=AFPM Nicolas Frattaroli
+> <nicolas.frattaroli@collabora.com> wrote:
+> >
+> > On Tuesday, 25 February 2025 08:55:47 Central European Summer Time Tome=
+u Vizoso wrote:
+> > > Add the bindings for the Neural Processing Unit IP from Rockchip.
+> > >
+> > > v2:
+> > > - Adapt to new node structure (one node per core, each with its own
+> > >   IOMMU)
+> > > - Several misc. fixes from Sebastian Reichel
+> > >
+> > > Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+> > > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> > > ---
+> > >  .../bindings/npu/rockchip,rknn-core.yaml           | 152 +++++++++++=
+++++++++++
+> > >  1 file changed, 152 insertions(+)
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/npu/rockchip,rknn-core=
+=2Eyaml b/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml
+> > > new file mode 100644
+> > > index 0000000000000000000000000000000000000000..e8d0afe4a7d1c4f166cf1=
+3a9f4aa7c1901362a3f
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml
+> > > @@ -0,0 +1,152 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > +%YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: Neural Processing Unit IP from Rockchip
+> > > +
+> > > +maintainers:
+> > > +  - Tomeu Vizoso <tomeu@tomeuvizoso.net>
+> > > +
+> > > +description:
+> > > +  Rockchip IP for accelerating inference of neural networks, based o=
+n NVIDIA's
+> > > +  open source NVDLA IP.
+> > > +
+> > > +properties:
+> > > +  $nodename:
+> > > +    pattern: '^npu-core@[a-f0-9]+$'
+> > > +
+> > > +  compatible:
+> > > +    oneOf:
+> > > +      - items:
+> > > +          - enum:
+> > > +              - rockchip,rk3588-rknn-core-top
+> > > +          - const: rockchip,rknn-core-top
+> > > +      - items:
+> > > +          - enum:
+> > > +              - rockchip,rk3588-rknn-core
+> > > +          - const: rockchip,rknn-core
+> > > +
+> > > +  reg:
+> > > +    maxItems: 1
+> >
+> > Hi Tomeu,
+> >
+> > as you probably know, RK3576 has quite a similar NPU. This is why I'm c=
+urrently
+> > poking at this patch series. One of the differences I ran into was that=
+ the
+> > IOMMU of each NPU core now sits within the reg address space range of t=
+he core
+> > as described by the single reg item binding and assumed by the driver.
+>=20
+> But this is not a difference, right?
 
-On 5/8/25 12:10 AM, Manivannan Sadhasivam wrote:
-> Some host bridge devices require resetting the slots in a platform specific
-> way to recover them from error conditions such as Fatal AER errors, Link
-> Down etc... So introduce pci_host_bridge::reset_slot callback and call it
-> from pcibios_reset_secondary_bus() if available.
->
-> The 'reset_slot' callback is responsible for resetting the given slot
-> referenced by the 'pci_dev' pointer in a platform specific way and bring it
-> back to the working state if possible. If any error occurs during the slot
-> reset operation, relevant errno should be returned.
->
-> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> ---
+It is. E.g. on RK3588, you use reg =3D <0x0 0xfdab0000 0x0 0x9000>; for
+rknn_core_top, and rknn_mmu_top then sits at 0xfdab9000, which is just
+outside the reg range of the rknn_core_top node. That means acquiring the
+iomem as a resource succeeds for you, whereas for me it fails.
 
-Looks good to me.
+>=20
+> > This seemed weird to me at first, since I would've guessed the cores wo=
+uld be
+> > exactly the same, but I noticed that they kind of still are; the RK3588=
+'s NPU
+> > also has a "hole" between 0x2000 and 0x2fff on each core, which is wher=
+e RK3576
+> > put its IOMMU.
+>=20
+> So this is the same in both RK3576 and RK3588, right?
 
-Reviewed-by: Kuppuswamy Sathyanarayanan 
-<sathyanarayanan.kuppuswamy@linux.intel.com>
+Yes, both RK3576 and RK3588 have a hole in the same area. RK3562 also has
+the same hole. RK3568 doesn't have the offsets for the individual parts of
+the NPU in the TRM, making all the relative register offsets the TRM then
+goes on to document completely pointless as it omits what those offsets
+are based on, so we don't know if it has a hole there. I vaguely recall
+that it has the IOMMU either before or past the global range (not sure if
+I wrote these findings down anywhere?), so if it has a hole at 0x2000
+then it's unused like on the RK3588. I don't have access to the RV1106
+Part 2 TRM where the NPU is described, so I don't know whether that has a
+hole there unless we dig into the downstream code.
 
->   drivers/pci/pci.c      | 12 ++++++++++++
->   drivers/pci/pcie/err.c |  5 -----
->   include/linux/pci.h    |  1 +
->   3 files changed, 13 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-> index 4d7c9f64ea24ec754a135a2585c99489cfa641a9..13709bb898a967968540826a2b7ee8ade6b7e082 100644
-> --- a/drivers/pci/pci.c
-> +++ b/drivers/pci/pci.c
-> @@ -4982,7 +4982,19 @@ void pci_reset_secondary_bus(struct pci_dev *dev)
->   
->   void __weak pcibios_reset_secondary_bus(struct pci_dev *dev)
->   {
-> +	struct pci_host_bridge *host = pci_find_host_bridge(dev->bus);
-> +	int ret;
-> +
-> +	if (host->reset_slot) {
-> +		ret = host->reset_slot(host, dev);
-> +		if (ret)
-> +			pci_err(dev, "failed to reset slot: %d\n", ret);
-> +
-> +		return;
-> +	}
-> +
->   	pci_reset_secondary_bus(dev);
-> +
->   }
->   
->   /**
-> diff --git a/drivers/pci/pcie/err.c b/drivers/pci/pcie/err.c
-> index de6381c690f5c21f00021cdc7bde8d93a5c7db52..b834fc0d705938540d3d7d3d8739770c09fe7cf1 100644
-> --- a/drivers/pci/pcie/err.c
-> +++ b/drivers/pci/pcie/err.c
-> @@ -234,11 +234,6 @@ pci_ers_result_t pcie_do_recovery(struct pci_dev *dev,
->   	}
->   
->   	if (status == PCI_ERS_RESULT_NEED_RESET) {
-> -		/*
-> -		 * TODO: Should call platform-specific
-> -		 * functions to reset slot before calling
-> -		 * drivers' slot_reset callbacks?
-> -		 */
->   		status = PCI_ERS_RESULT_RECOVERED;
->   		pci_dbg(bridge, "broadcast slot_reset message\n");
->   		pci_walk_bridge(bridge, report_slot_reset, &status);
-> diff --git a/include/linux/pci.h b/include/linux/pci.h
-> index 0e8e3fd77e96713054388bdc82f439e51023c1bf..8d7d2a49b76cf64b4218b179cec495e0d69ddf6f 100644
-> --- a/include/linux/pci.h
-> +++ b/include/linux/pci.h
-> @@ -599,6 +599,7 @@ struct pci_host_bridge {
->   	void (*release_fn)(struct pci_host_bridge *);
->   	int (*enable_device)(struct pci_host_bridge *bridge, struct pci_dev *dev);
->   	void (*disable_device)(struct pci_host_bridge *bridge, struct pci_dev *dev);
-> +	int (*reset_slot)(struct pci_host_bridge *bridge, struct pci_dev *dev);
->   	void		*release_data;
->   	unsigned int	ignore_reset_delay:1;	/* For entire hierarchy */
->   	unsigned int	no_ext_tags:1;		/* No Extended Tags */
->
--- 
-Sathyanarayanan Kuppuswamy
-Linux Kernel Developer
+>=20
+> > This is some information I gleaned from the RK3588 TRM, specifically se=
+ction
+> > 36.4.1 "Internal Address Mapping", which shows where each "part" of the=
+ NPU core
+> > has its address space.
+> >
+> > Right now we just represent this as a single reg item per core. I've pl=
+ayed
+> > with the idea of splitting this up into the distinct ranges the TRM lis=
+ts and
+> > giving each a reg-names entry, but this would require a major rework of=
+ the
+> > driver from what I can tell, including to the auto-generated register h=
+eader.
+> >
+> > For now, my hack on RK3576 is to just ioremap the range defined by reso=
+urce
+> > start to resource end inside rocket manually if I get -EBUSY trying to =
+ioremap
+> > the resource proper. This is quite an ugly hack though, it means the IO=
+MMU node
+> > still has its address overlapping with another node in the DT, and it a=
+lso means
+> > we have an unavoidable error message printed into the kernel log. This =
+is also
+> > what the vendor driver seems to do.
+> >
+> > What do you reckon is a reg setup in the binding that is both reasonabl=
+e to
+> > implement in the driver while accurately describing the hardware?
+>=20
+> Guess we could go with some smaller granularity and have 3 register
+> areas per core, instead of 10:
+>=20
+> - CORE: PC+CNA (0x0000 ~ 0x1fff)
+> - AUX: CORE+DPU+PPU+DDMA+SDMA (0x3000 ~ 0x9fff)
+> - GLOBAL (0xf000 ~ 0xf004)
+>=20
+> So the IOMMU on all the known SoCs can have its own regmap. I have
+> chosen to call the first one CORE because these are the components
+> that are absolutely needed in any NPU that is oriented towards
+> convolutional networks (convolutions, basically). I have named the
+> second AUX because it contains hardware units that are optional and
+> are used to implement operations that may be common but that aren't as
+> computational expensive as convolutions and thus might be skipped in
+> lower-end versions of the IP.
+>=20
+> What do you think?
+
+I'm personally fine with this approach. I've floated a two-area approach
+to Sebastian Reichel before who, as far as I can recall, expressed his
+distaste for  it as it seemed like an arbitrary division. I do concur in
+that, it seems very arbitrary, so it's hard to say whether the bindings
+maintainers would let us get away with it if they get wind of it.
+Unfortunately they are Cc'd on this E-Mail, so the cat is out of the bag
+in this regard.
+
+What speaks for the 3 register area split is that anything that brings
+more holes and doubly mapped things into the AUX area is probably going
+to be so radically different it'll ideally have its own binding anyway,
+or needs more than just a compatible added to the binding.
+
+I think as far as arbitrary splits goes, the one you propose is probably
+the one most closely aligned with reality. Certain register areas do
+seem like something they'd never move away from its corresponding
+companion, whereas adding parts to the AUX area or removing from it is
+probably going to be quite common. So it can essentially be treated as
+the area where optional things will most likely land as you pointed out,
+which then don't need more bindings fiddling to add those optional things
+as explicitly named areas in the bindings as long as we treat it as just
+one opaque area s far as the binding is concerned.
+
+Also, unless there's some virtual combined sparse iomem API in the kernel
+that I'm not aware of, that's probably the easiest path forward for the
+driver as well.
+
+>=20
+> Regards,
+>=20
+> Tomeu
+
+Kind regards,
+Nicolas Frattaroli
+
+>=20
+> > The RK3568, which uses a similar NPU design has the IOMMU at an offset =
+of 0xb000
+> > from the core's start of PC, so probably after any core specifics but b=
+efore the
+> > global registers if I hazard a guess.
+> >
+> > For those without access to the TRM: splitting this up into multiple re=
+g items
+> > per core precisely the way the TRM does it would result in no less than=
+ 10 reg
+> > items on RK3588, if I count correctly.
+> >
+> > Kind regards,
+> > Nicolas Frattaroli
+> >
+> >
+>=20
+
+
+
 
 
