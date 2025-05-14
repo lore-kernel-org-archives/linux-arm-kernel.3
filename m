@@ -4,61 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A10C54754
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 07:06:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F32FDC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 07:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Z4s9ebNgSLYHeslq+8/10OLsPhL9fHFB7iQxErbUZqU=; b=DLy++XH7o8eTSuE7dE1l3S0Ijx
-	kKo7FVVnGAVm5G71VIBBW5muSg1TMkvPf5P4T6xlx4+G7TW+Z8JuT0wjjjaRstHkKy/h2oYWnG7on
-	seqOVLEqrS2N1Xf8Kxwr89bzzkMhV/B5z0ruT3JzfhWViClqCSkhlAE6n57ew/pSnLliqoCMkmxu+
-	hWFlFSqUZxQuW7plapK20eKJ+w3P21GZuXLkUn9igsjqVXfDoi6w+F6WwTEfB5zFRCy8FcGVDEkBS
-	95lgzgFeHMq5wVSCmLSXyit6AsOPsPR0O/sjyMJV3dTh2HWn5F6sHkvPa+AXx3Be3VCSqo8URV993
-	Uo4DocnA==;
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=T+tQKDNqFz0vrJcNWHZ7SWfrYWc8+05T1uWtrqP/8gg=; b=frf8mBOgYbScvlwqDfR2OLafeh
+	Mw/m+4Ffw9gRRkyYINtw0CIgVCry78xOkyXID1Qr2ZvWfsiWx1qPS01sv+VGCnuPEOsIX5dC9kTzk
+	zVoHCdSxDB8TKUh26Mp6Rk1C5phzM7p5U+V3Sl8Jhkg4gx2HmEIk4utakwA+2DhiSAuoxKTvmrT7o
+	48ybi7grC7NWW1rikn6Z5wI2e/NzXeT8pHFlO8gB2JeyOpgYfavu2jPz5ROlU0mpV3WrxKWqhiLtb
+	kTrH2aZ7UaLBtmaseCfu13ehexJYd65BwHPqPuB9k+p2gWWGoKCfB7M101eBY88172BSd3X+W14kD
+	PDcyvaVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFSfB-0000000HDti-2mYl;
-	Thu, 15 May 2025 07:05:53 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1uFShB-0000000HE2m-3vKK;
+	Thu, 15 May 2025 07:07:58 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFSUY-0000000HCan-1Hvp
+	id 1uFSYN-0000000HD9r-0cde
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 06:54:56 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4ZygsQ5DqKztR6Q;
-	Thu, 15 May 2025 14:53:30 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 84A2B140276;
-	Thu, 15 May 2025 14:54:47 +0800 (CST)
-Received: from kwepemq500001.china.huawei.com (7.202.195.224) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 15 May 2025 14:54:47 +0800
-Received: from 228-1616.huawei.com (10.67.246.68) by
- kwepemq500001.china.huawei.com (7.202.195.224) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 15 May 2025 14:54:46 +0800
-From: Nianyao Tang <tangnianyao@huawei.com>
-To: <maz@kernel.org>, <tglx@linutronix.de>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: <guoyang2@huawei.com>, <wangwudi@hisilicon.com>, <tangnianyao@huawei.com>,
-	<wangzhou1@hisilicon.com>
-Subject: [PATCH v3] irqchip/gic-v4.1: Use local 4_1 ITS to generate VSGI
-Date: Thu, 15 May 2025 14:53:59 +0000
-Message-ID: <20250515145359.2795959-1-tangnianyao@huawei.com>
-X-Mailer: git-send-email 2.30.0
+	Thu, 15 May 2025 06:58:53 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250515065843epoutp02a775d30b56c83c440e14800fcc84cc11~-oRxaWSjN1356513565epoutp02z
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 06:58:43 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250515065843epoutp02a775d30b56c83c440e14800fcc84cc11~-oRxaWSjN1356513565epoutp02z
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1747292323;
+	bh=T+tQKDNqFz0vrJcNWHZ7SWfrYWc8+05T1uWtrqP/8gg=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=gkjnkQNl/C6dvk+3lctfvTFGIxD5XWUnfpc6pxh3C0Ow/CxHtp9r5NDKQfMv6JVwr
+	 7ce5MTucoeqX/qrZxjaJY8WYwMtmZ5kfmwizEN1DFCuGziMdgB/bGykgp2KtAe8p/u
+	 9RZR0axNtI8cntL5J4ZwjsBqLKjPbGrYx7QG6QBM=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250515065842epcas5p39299e3e0ccd1f6d0c9085f006a5b8bbe~-oRwyKJUF0043300433epcas5p3C;
+	Thu, 15 May 2025 06:58:42 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.182]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4ZygzP3YH2z6B9m6; Thu, 15 May
+	2025 06:58:41 +0000 (GMT)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250514133841epcas5p1993cdc39779e2e67790c84bdcb95a161~-aFskRMwc1651716517epcas5p1x;
+	Wed, 14 May 2025 13:38:41 +0000 (GMT)
+Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250514133841epsmtrp182ecc0d6f6db8ee036d95ebc3a602f8e~-aFsjOVMD2249722497epsmtrp1v;
+	Wed, 14 May 2025 13:38:41 +0000 (GMT)
+X-AuditID: b6c32a29-566fe7000000223e-d6-68249ce06e42
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	77.3C.08766.0EC94286; Wed, 14 May 2025 22:38:40 +0900 (KST)
+Received: from bose.samsungds.net (unknown [107.108.83.9]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250514133837epsmtip211d9cfffb87f564e51c11db6b8184519~-aFppGDet2568925689epsmtip2B;
+	Wed, 14 May 2025 13:38:37 +0000 (GMT)
+From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+To: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
+	andre.draszik@linaro.org, peter.griffin@linaro.org, kauschluss@disroot.org,
+	m.szyprowski@samsung.com, s.nawrocki@samsung.com
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
+	dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
+	selvarasu.g@samsung.com, Pritam Manohar Sutar <pritam.sutar@samsung.com>
+Subject: [PATCH 0/2] initial usbdrd phy support for Exynosautov920 soc
+Date: Wed, 14 May 2025 19:18:11 +0530
+Message-Id: <20250514134813.380807-1-pritam.sutar@samsung.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.246.68]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- kwepemq500001.china.huawei.com (7.202.195.224)
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrHLMWRmVeSWpSXmKPExsWy7bCSvO6DOSoZBu/Omls8mLeNzWLLq80s
+	Fmv2nmOyuLdjGbvF/CPnWC2u3VjIbvHn33k2i6Ot/5ktXs66x2ax6fE1VovLu+awWUxY9Y3F
+	Ysb5fUwWa4/cZbc4/6KL1WLDjH8sFs/urWCz+L9nB7vFl58PmC0Ov2lntTiy/COTxc47J5gd
+	xDxOrtvM5LFpVSebx51re9g8Ni+p9+jbsorR4/MmuQC2KC6blNSczLLUIn27BK6MOXsnsBSc
+	Y63oXdLC1MB4gKWLkZNDQsBE4vKKScxdjFwcQgK7GSXeHm9kg0jISDyatpEVwhaWWPnvOTuI
+	LSTwllFi+TfLLkYODjYBU4mJexJAekUEepgknl79wQbiMAs8YpI4sOULWLOwgJvEybbZzCA2
+	i4CqxKvvTWCDeAXsJDZ+OQy1QF5i/8GzzBBxQYmTM5+AXccMFG/eOpt5AiPfLCSpWUhSCxiZ
+	VjFKphYU56bnFhsWGOallusVJ+YWl+al6yXn525iBEeRluYOxu2rPugdYmTiYDzEKMHBrCTC
+	ez1LOUOINyWxsiq1KD++qDQntfgQozQHi5I4r/iL3hQhgfTEktTs1NSC1CKYLBMHp1QD0/ke
+	SYefVdIWPxzPbfec9p+lQMA17vPV/ff0J/td7I+MXMv3oVb4SEF/1K6wBzmRLIlX+Lk+mHxO
+	fBstcMOiTO3Xntti5wO3ctlfcKjbfS61P9YwSdzqpeSu2ckPXcrSzH+pFqldMOfR/rarQdrs
+	aMpJm++zMjwYfsl/UPNdoTLX9FdG689Lj6+XVy4Omlgx/0T3+XCGGV3G6b7nTY9GporsuLRA
+	n1VcSsZ4ps3fiVuPvBJsnLXg/N3YwDdKr5/KTVC5pqrEtuKMYH9Gn6D6+psTzETeK8t1Jcy/
+	+Fum1kj570rJws5302SSXe+59sZeC+OyEjdKlfmqdUXgSMAz5gWH1p+L7jz0LGrCsXmtSizF
+	GYmGWsxFxYkAvrs9qhEDAAA=
+X-CMS-MailID: 20250514133841epcas5p1993cdc39779e2e67790c84bdcb95a161
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250514133841epcas5p1993cdc39779e2e67790c84bdcb95a161
+References: <CGME20250514133841epcas5p1993cdc39779e2e67790c84bdcb95a161@epcas5p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_235454_648336_98C2FAC8 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20250514_235851_818211_B7089291 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,74 +118,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On multi-node GICv4.1 system, VSGI senders always use one certain 4_1 ITS,
-because find_4_1_its return the first its_node in list, regardless of
-which node the VSGI sender is on. This brings guest vsgi performance drop
-when VM is not running on the same node as this returned ITS.
+This SoC has a single USB 3.1 DRD combo phy and three USB2.0
+DRD phy controllers that only support the UTMI+ interface. 
+This SoC is very similar to the existing Exynos850 support
+in this driver. We have supported only UTMI+ in this patchset.
 
-On a 2-socket environment, each with one ITS and 32 cpu, GICv4.1 enabled,
-4U8G guest, 4 vcpu is running on same socket.
-When VM on socket0, kvm-unit-tests ipi_hw result is 850ns.
-When VM on socket1, it is 750ns. The reason is VSGI sender always
-use the last reported ITS(that on socket1) to inject VSGI. The access
-from cpu to other-socket ITS will cost 100ns more compared to cpu to
-local ITS.
+The difference is that combo phy supports both UTMI+(HS) and 
+PIPE3(SS) and is out of scope in this patchset.
 
-By using a local ITS, we can get 12% reduction in IPI latency.
+Pritam Manohar Sutar (2):
+  dt-bindings: phy: samsung,usb3-drd-phy: add dt-schema for
+    ExynosAutov920
+  phy: exyons5-usbdrd: support HS phy for ExynosAutov920
 
-Modify find_4_1_its to first return per-cpu local_4_1_its, which is
-init when inherit the VPE table from the ITS or from another CPU.
-If fail to find local 4_1 ITS, return any 4_1 ITS like before.
+ .../bindings/phy/samsung,usb3-drd-phy.yaml    | 27 ++++++
+ drivers/phy/samsung/phy-exynos5-usbdrd.c      | 85 +++++++++++++++++++
+ 2 files changed, 112 insertions(+)
 
-Signed-off-by: Nianyao Tang <tangnianyao@huawei.com>
-Suggested-by: Marc Zyngier <maz@kernel.org>
----
- drivers/irqchip/irq-gic-v3-its.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 0115ad6c8259..1b1d32f746b4 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -125,6 +125,8 @@ struct its_node {
- 	int			vlpi_redist_offset;
- };
- 
-+static DEFINE_PER_CPU(struct its_node *, local_4_1_its);
-+
- #define is_v4(its)		(!!((its)->typer & GITS_TYPER_VLPIS))
- #define is_v4_1(its)		(!!((its)->typer & GITS_TYPER_VMAPP))
- #define device_ids(its)		(FIELD_GET(GITS_TYPER_DEVBITS, (its)->typer) + 1)
-@@ -2778,6 +2780,8 @@ static u64 inherit_vpe_l1_table_from_its(void)
- 		}
- 		val |= FIELD_PREP(GICR_VPROPBASER_4_1_SIZE, GITS_BASER_NR_PAGES(baser) - 1);
- 
-+		*this_cpu_ptr(&local_4_1_its) = its;
-+
- 		return val;
- 	}
- 
-@@ -2815,6 +2819,8 @@ static u64 inherit_vpe_l1_table_from_rd(cpumask_t **mask)
- 		gic_data_rdist()->vpe_l1_base = gic_data_rdist_cpu(cpu)->vpe_l1_base;
- 		*mask = gic_data_rdist_cpu(cpu)->vpe_table_mask;
- 
-+		*this_cpu_ptr(&local_4_1_its) = *per_cpu_ptr(&local_4_1_its, cpu);
-+
- 		return val;
- 	}
- 
-@@ -4180,8 +4186,9 @@ static struct irq_chip its_vpe_irq_chip = {
- 
- static struct its_node *find_4_1_its(void)
- {
--	static struct its_node *its = NULL;
-+	struct its_node *its;
- 
-+	its = *this_cpu_ptr(&local_4_1_its);
- 	if (!its) {
- 		list_for_each_entry(its, &its_nodes, entry) {
- 			if (is_v4_1(its))
 -- 
-2.30.0
+2.34.1
 
 
