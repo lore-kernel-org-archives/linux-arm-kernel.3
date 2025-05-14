@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B931C3ABDE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6412C3ABD8
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 13:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fYRPErwghAuJrUrMATVK0z7mk+Z1fYVjT+iN10KULs4=; b=beoIEkR6LHJc3Q4re7x3qY2XtK
-	mbqj2IBH2mO9k1SC5AnIE1+rhx8Jy11BfoB9PKNs8q9qTuIP4cdjJ6isOZ000dbSCQtByzUwGJ+xF
-	kIHXOdsAIMwvXDx0WmXn/zsBgYMy5vZhA6jYA6SVuArqFXc8r+9cpV7GKAvVX0K4zq1rwIIuesQwq
-	HvyrCWEiq2t9JUhG2fJreTyLLRIa/c0S25GinzurNAuoZX2au76HmnbZgy6BYAuz58y1oBWnr8f2K
-	0+I0Mqvx4oX7/I4qIbYRiCvccqTet2B9YlkWq4WKa10hW/f3pUANB1lJNSaEqUg56x2VGfUD8VU+X
-	iMQ2DOhQ==;
+	bh=Q9dADvexMZBriprQYqYlggk1XY2t86MtpJOU1D6Rop0=; b=dliIthPz5EAUVRlt76BeDtRl/o
+	iiNsbwdROjBZu3tDYKvSOK3l44KFqRIbsUBLmWda9MQKwac1AXudbfo5INj+UjiJGJQOtmCQ8LzrB
+	ie+6xsmbHNMfbQoNM1k062gj3xCGS7/ziIhNwGsAmfZR9cFlKl3gW+2zcRaUwXG3iOoJLH8tqxIJF
+	gjQQsZFSzLBBR76wVwBm9MuAz8HcRQBrGltbl+9vbXd4GGh2e6vQeqBSiZZoUnU0esWR7jkmx11nn
+	OOYSA7tq4KqJmwmHlKG7K9XaAJiXvROMYCEJQ8jyXo61jPvt65bwI6nGUYLNu020Jh7aOeP0wEJYZ
+	bnH4Y1qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFCXj-0000000FGrn-0kZM;
-	Wed, 14 May 2025 13:53:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uFCXj-0000000FGse-4BWD;
+	Wed, 14 May 2025 13:53:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF9S7-0000000Enng-2Y0B
+	id 1uF9S6-0000000EnnP-3BIw
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 14 May 2025 10:35:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0FB8260008;
-	Wed, 14 May 2025 10:35:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1942C4CEF2;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6B0E544F8D;
+	Wed, 14 May 2025 10:35:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E6B7C4CEE9;
 	Wed, 14 May 2025 10:35:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1747218906;
-	bh=wqa/hPQI/dzLM4fwrGkpZyGhz9VCScqC+REjDpgrRJ8=;
+	bh=jSgGzdta8ZXQcXWfdhPT721GAmbclZgONOJn80ZUs0g=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=n+49bAkWp6w7dUeRULiMRUxI/amLZ33F6lo5cIkghR8TDRwCRxn98O/VXGFJk2oQm
-	 wVB7+9OSZBzMPZhWb2XJEtUF95vF+80j8XrKkSx2kyLbQz6X4cjU5dH5daELqtrHZy
-	 BfMqQpMr2LZki5NR34iQULzNhFjeABVDrYjXbtmtgFzI5WodcLufA4h4nwrg9I3b3n
-	 MdYdEpqZD1Npn94s+ac2n2nk4Ez8uOQTd9jroz+iueLhmBY2ZGXX2xiTQ48aH/os0D
-	 e4NiawAnOkSI8/zYsfvCmpbq2pmAgXjAQwcOvNDLIpIxlME09yOnaIfSRQfw+xgemW
-	 Gn935fEPZiSHg==
+	b=uN67G47qak7AqHbgy5SLmG6j/LQ/6794EcaPUGwNUeQkPERRDdSUofDnkoKi/fRt9
+	 YeDHvF/++BtEOzlkBsjfaJ7jvz5p2g7Vq6Q9R7t8/76hxb/sPtdweheZQ6CtIrCuIs
+	 fSu5ScgIMroeIwAyiutb1dM3aVXa940+K/N+Y5sUc1FXQRzTe7YR9l9mgcwMURlMAO
+	 oAu9g16tPKtMuPndfRiomBFp0wNHGo39ywfpkraP7CUA58pvqqrTogv49d7wpegnR6
+	 u6gQyxDBE1ejUK+M7rWF6hlmG7vd/r4kS9D0zRdQR+CB7d4suOzxRAdNLSXB7n85ob
+	 HS03l7/djUTtA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uF9S4-00Eos3-Nr;
+	id 1uF9S4-00Eos3-9I;
 	Wed, 14 May 2025 11:35:04 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Eric Auger <eric.auger@redhat.com>,
 	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Subject: [PATCH v4 03/17] KVM: arm64: nv: Extract translation helper from the AT code
-Date: Wed, 14 May 2025 11:34:46 +0100
-Message-Id: <20250514103501.2225951-4-maz@kernel.org>
+Subject: [PATCH v4 01/17] arm64: sysreg: Add layout for VNCR_EL2
+Date: Wed, 14 May 2025 11:34:44 +0100
+Message-Id: <20250514103501.2225951-2-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250514103501.2225951-1-maz@kernel.org>
 References: <20250514103501.2225951-1-maz@kernel.org>
@@ -70,6 +70,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com, gankulkarni@os.amperecomputing.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250514_033506_818990_D9573781 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,225 +87,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The address translation infrastructure is currently pretty tied to
-the AT emulation.
-
-However, we also need to features that require the use of VAs, such
-as VNCR_EL2 (and maybe one of these days SPE), meaning that we need
-a slightly more generic infrastructure.
-
-Start this by introducing a new helper (__kvm_translate_va()) that
-performs a S1 walk for a given translation regime, EL and PAN
-settings.
+Now that we're about to emulate VNCR_EL2, we need its full layout.
+Add it to the sysreg file.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/kvm_nested.h | 54 ++++++++++++++++
- arch/arm64/kvm/at.c                 | 96 +++++++++++------------------
- 2 files changed, 91 insertions(+), 59 deletions(-)
+ arch/arm64/include/asm/sysreg.h | 1 -
+ arch/arm64/tools/sysreg         | 6 ++++++
+ 2 files changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
-index 692f403c1896e..c8a779b393c28 100644
---- a/arch/arm64/include/asm/kvm_nested.h
-+++ b/arch/arm64/include/asm/kvm_nested.h
-@@ -245,4 +245,58 @@ static inline unsigned int ps_to_output_size(unsigned int ps)
- 	}
- }
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index 2639d3633073d..b8842e092014a 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -521,7 +521,6 @@
+ #define SYS_VTTBR_EL2			sys_reg(3, 4, 2, 1, 0)
+ #define SYS_VTCR_EL2			sys_reg(3, 4, 2, 1, 2)
  
-+enum trans_regime {
-+	TR_EL10,
-+	TR_EL20,
-+	TR_EL2,
-+};
-+
-+struct s1_walk_info {
-+	u64	     		baddr;
-+	enum trans_regime	regime;
-+	unsigned int		max_oa_bits;
-+	unsigned int		pgshift;
-+	unsigned int		txsz;
-+	int 	     		sl;
-+	bool			as_el0;
-+	bool	     		hpd;
-+	bool			e0poe;
-+	bool			poe;
-+	bool			pan;
-+	bool	     		be;
-+	bool	     		s2;
-+};
-+
-+struct s1_walk_result {
-+	union {
-+		struct {
-+			u64	desc;
-+			u64	pa;
-+			s8	level;
-+			u8	APTable;
-+			bool	UXNTable;
-+			bool	PXNTable;
-+			bool	uwxn;
-+			bool	uov;
-+			bool	ur;
-+			bool	uw;
-+			bool	ux;
-+			bool	pwxn;
-+			bool	pov;
-+			bool	pr;
-+			bool	pw;
-+			bool	px;
-+		};
-+		struct {
-+			u8	fst;
-+			bool	ptw;
-+			bool	s2;
-+		};
-+	};
-+	bool	failed;
-+};
-+
-+int __kvm_translate_va(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
-+		       struct s1_walk_result *wr, u64 va);
-+
- #endif /* __ARM64_KVM_NESTED_H */
-diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-index 7a5267f43b51f..71406908d4f44 100644
---- a/arch/arm64/kvm/at.c
-+++ b/arch/arm64/kvm/at.c
-@@ -10,56 +10,6 @@
- #include <asm/kvm_hyp.h>
- #include <asm/kvm_mmu.h>
+-#define SYS_VNCR_EL2			sys_reg(3, 4, 2, 2, 0)
+ #define SYS_HAFGRTR_EL2			sys_reg(3, 4, 3, 1, 6)
+ #define SYS_SPSR_EL2			sys_reg(3, 4, 4, 0, 0)
+ #define SYS_ELR_EL2			sys_reg(3, 4, 4, 0, 1)
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index bdf044c5d11b6..5a3190600a0b3 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -2971,6 +2971,12 @@ Sysreg	SMCR_EL2	3	4	1	2	6
+ Fields	SMCR_ELx
+ EndSysreg
  
--enum trans_regime {
--	TR_EL10,
--	TR_EL20,
--	TR_EL2,
--};
--
--struct s1_walk_info {
--	u64	     		baddr;
--	enum trans_regime	regime;
--	unsigned int		max_oa_bits;
--	unsigned int		pgshift;
--	unsigned int		txsz;
--	int 	     		sl;
--	bool	     		hpd;
--	bool			e0poe;
--	bool			poe;
--	bool			pan;
--	bool	     		be;
--	bool	     		s2;
--};
--
--struct s1_walk_result {
--	union {
--		struct {
--			u64	desc;
--			u64	pa;
--			s8	level;
--			u8	APTable;
--			bool	UXNTable;
--			bool	PXNTable;
--			bool	uwxn;
--			bool	uov;
--			bool	ur;
--			bool	uw;
--			bool	ux;
--			bool	pwxn;
--			bool	pov;
--			bool	pr;
--			bool	pw;
--			bool	px;
--		};
--		struct {
--			u8	fst;
--			bool	ptw;
--			bool	s2;
--		};
--	};
--	bool	failed;
--};
--
- static void fail_s1_walk(struct s1_walk_result *wr, u8 fst, bool s1ptw)
- {
- 	wr->fst		= fst;
-@@ -145,20 +95,15 @@ static void compute_s1poe(struct kvm_vcpu *vcpu, struct s1_walk_info *wi)
- 	}
- }
- 
--static int setup_s1_walk(struct kvm_vcpu *vcpu, u32 op, struct s1_walk_info *wi,
-+static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
- 			 struct s1_walk_result *wr, u64 va)
- {
- 	u64 hcr, sctlr, tcr, tg, ps, ia_bits, ttbr;
- 	unsigned int stride, x;
--	bool va55, tbi, lva, as_el0;
-+	bool va55, tbi, lva;
- 
- 	hcr = __vcpu_sys_reg(vcpu, HCR_EL2);
- 
--	wi->regime = compute_translation_regime(vcpu, op);
--	as_el0 = (op == OP_AT_S1E0R || op == OP_AT_S1E0W);
--	wi->pan = (op == OP_AT_S1E1RP || op == OP_AT_S1E1WP) &&
--		  (*vcpu_cpsr(vcpu) & PSR_PAN_BIT);
--
- 	va55 = va & BIT(55);
- 
- 	if (wi->regime == TR_EL2 && va55)
-@@ -319,7 +264,7 @@ static int setup_s1_walk(struct kvm_vcpu *vcpu, u32 op, struct s1_walk_info *wi,
- 
- 	/* R_BNDVG and following statements */
- 	if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR2_EL1, E0PD, IMP) &&
--	    as_el0 && (tcr & (va55 ? TCR_E0PD1 : TCR_E0PD0)))
-+	    wi->as_el0 && (tcr & (va55 ? TCR_E0PD1 : TCR_E0PD0)))
- 		goto transfault_l0;
- 
- 	/* AArch64.S1StartLevel() */
-@@ -1155,7 +1100,12 @@ static u64 handle_at_slow(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
- 	bool perm_fail = false;
- 	int ret, idx;
- 
--	ret = setup_s1_walk(vcpu, op, &wi, &wr, vaddr);
-+	wi.regime = compute_translation_regime(vcpu, op);
-+	wi.as_el0 = (op == OP_AT_S1E0R || op == OP_AT_S1E0W);
-+	wi.pan = (op == OP_AT_S1E1RP || op == OP_AT_S1E1WP) &&
-+		 (*vcpu_cpsr(vcpu) & PSR_PAN_BIT);
++Sysreg	VNCR_EL2	3	4	2	2	0
++Field	63:57	RESS
++Field	56:12	BADDR
++Res0	11:0
++EndSysreg
 +
-+	ret = setup_s1_walk(vcpu, &wi, &wr, vaddr);
- 	if (ret)
- 		goto compute_par;
- 
-@@ -1457,3 +1407,31 @@ void __kvm_at_s12(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
- 	par = compute_par_s12(vcpu, par, &out);
- 	vcpu_write_sys_reg(vcpu, par, PAR_EL1);
- }
-+
-+/*
-+ * Translate a VA for a given EL in a given translation regime, with
-+ * or without PAN. This requires wi->{regime, as_el0, pan} to be
-+ * set. The rest of the wi and wr should be 0-initialised.
-+ */
-+int __kvm_translate_va(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
-+		       struct s1_walk_result *wr, u64 va)
-+{
-+	int ret;
-+
-+	ret = setup_s1_walk(vcpu, wi, wr, va);
-+	if (ret)
-+		return ret;
-+
-+	if (wr->level == S1_MMU_DISABLED) {
-+		wr->ur = wr->uw = wr->ux = true;
-+		wr->pr = wr->pw = wr->px = true;
-+	} else {
-+		ret = walk_s1(vcpu, wi, wr, va);
-+		if (ret)
-+			return ret;
-+
-+		compute_s1_permissions(vcpu, wi, wr);
-+	}
-+
-+	return 0;
-+}
+ Sysreg	GCSCR_EL2	3	4	2	5	0
+ Fields	GCSCR_ELx
+ EndSysreg
 -- 
 2.39.2
 
