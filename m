@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B211BC3ABD9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB8C1C3ABCC
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 12:20:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,28 +12,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+A53SA5CowSaFpLDG0JM+oMIstbVDogjU+2p1fPEDmc=; b=gvQ+m2W65pes9EVStW/gURwrFo
-	7URou1KVpSTcX2zScyAdUEuqASo17mTlM31QDcTiBPh2X6IF488KEEhTtvTw8wINhjrbSDu7eAQ+p
-	M5cPUoHD/Q71xQBEqJIi/Inoar7uLSe79KpTxV87AIo0rj0kmx6MJRKHINyXlQ0Fq/R5TTkPFpUK0
-	U6iYBr8reSOH0Sh/tq8A9u+tmpYE8Vk3LYSGSV32tVYRuqfbWGDaHKygCk7pQ8NPoDVRj66WQ1JjC
-	6BTCUcDyOUCuZDOzxxesymbqckt/EpVzVdXvnEO892O90RPF9oBO7G4LCPW0bkas7VfBSjGbWgTo+
-	fxf6Y2Hw==;
+	bh=kdkadukVhKosxOgplz05ETJV3GQsNBcbui5ztrZrCIg=; b=uyiHqTxg1a4mBmf8vsqzNz8aX2
+	EWByx8TpW0EfGAEIwiQL7rJkwfHa2n/+Cn+rt31vCb+PtiijXiOADmhEIPbNLwszYistOwlyRWAfq
+	8gKLTEqyJBouhgsUHHWt72gV0IG6wCSQqtVpd2G9zlfXsujZlS5HtMg/I75/FndS1J37liTwFfPM1
+	EgWAQwrsaQb3wHS7nKKRxW16sKfCYy0+P5rbjqYCcVpnrIHYA9J944k0UosIo77mYRq1PG0Sedc/I
+	gB0+4yt1RwiDSATYouMkcJZKgjUo3CYzGqsRdOQBQ7z53aoqimS48t5UD81+hIvpnDRjkuZSoO657
+	relr2hDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFB6C-0000000F4J8-2Xtc;
-	Wed, 14 May 2025 12:20:36 +0000
-Received: from mail-vi1eur03on20624.outbound.protection.outlook.com ([2a01:111:f403:260c::624] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
+	id 1uFB6A-0000000F4Gb-3OqK;
+	Wed, 14 May 2025 12:20:34 +0000
+Received: from mail-am6eur05on2061d.outbound.protection.outlook.com ([2a01:111:f403:2612::61d] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFA75-0000000EsBT-0AX0
+	id 1uFA5D-0000000Erw4-0NbU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 11:17:28 +0000
+	Wed, 14 May 2025 11:15:32 +0000
 ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=IKOOXhOEjcZKTN7dQRfFqfBpGT8wX0eMiYwKWXF7aPPbl4gVxWerzXpESCLVANdVGSqwCvL9YVeT1bCGX4qRvzBIZF+JR1mH9HkwN+2lIreUJO86em0q45DkGJ+Yd0FJgGOwyUjhZewnORmAGvg18wIxQ3iSqIyskDcmOp/miV4ILSUhVqV7HuN+vaPmED7tAVYITeNA5PK4Asklk2RkLAEj7l4FeC1ozqznXbLn7fUJ2lTwJgF9JoN9VbrA4goXjefHLrFJSIdTSN+ewe/9OSM8TaoPrgHMn5vYSk6zVtFhdFs9+nTv8pEz70sVyRtiDWkxSuZqKeH0BxdddfL1YQ==
+ b=pmMgZVoME4NBrJcdAywuTK74QWbwUJLKlp9b8IAQyUrwu9PN9G2kv32riFpz5ZC2CFuKIe4yzspTNJJLcjy/VLKGF/JAf1lAefVYaMselWn01wuaHgbgsCm6DoJrw1gEXDJysAv8zpnji5PEllqZVVbqScjklLHJiMAjKoDzDY9fWizFsAfTtSAb+QVqzwiXspEhSB3q0BhLDgixVu4ObKL1ElwqBe4rosD5M80fhzpYpvV4wAN+QWwfR5hWHGGQu0PezmB5P1KFoHw8OxfNvY54uQUsAom6S35riFoiyr6Pdq9IAFAeB6edmNZt1SCiho6/V2HDxjhUETywRcKQKA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+A53SA5CowSaFpLDG0JM+oMIstbVDogjU+2p1fPEDmc=;
- b=CM3jrGoBljiV9MSJVVQ0NKOwu6bSmZEAxQiqOqDHMSsGA9tCKC7NJrBhnWakTooTR4QFc/0I2BZDFvpx30XuYkLZkVG7HXLQ0IKMZEhnBGXXWbLkl3j+HfgQUvZuD/Nk7jB8iof60BqjjG0pyaXk0JeHmfJfsYz+/u9II7C+sGi7MDYZ33V35vfKbgYisx8mV9pi7BHkWXGfXMSL3dQDnH85jGdPHNPpF0KVLKw8hPqkOoffiL1ppavaAb7R3I8Ivr1d1TkNxRV5GpMBRw2kLlioRykeQT2ZURg3YdFQLpB7n5Nhf4mLomg3jngEP/ef4/TZvbyyzfTfeMb5QTQ06w==
+ bh=kdkadukVhKosxOgplz05ETJV3GQsNBcbui5ztrZrCIg=;
+ b=WEEjlnfFRbZDdA7jzBKh3TcQdyFroacnK+FJ5ZRDE3zLjSvE5NTu/qs9pRNU2pgzfDwfhNYHGUdlf2rlvVaPLlCg8DFmBo3jSLZsYv4sOxjTxMYDg7nvpAwnhCDzkBYf4vUP5zHzXnVBk6v7QsjOC5+ojajqIocDM1tTLXCR1I4JmYfqp465M6QT4SpXz0SWcW6J7bWvFh7K67+xwYwE+Vxf/cf+LBWWQcRhLogLBvr34bnHZZmoXztRAgw5glcwg7G8Mwzdzx/CM5f/oAY4wCi4aYjyvYMBUAscadZxDKdAA+yfNKTeFcebx921swozNmh/0FY4sZtrfUvDaXsB/w==
 ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
  4.158.2.129) smtp.rcpttodomain=linaro.org smtp.mailfrom=arm.com; dmarc=pass
  (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
@@ -42,18 +42,18 @@ ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
  dmarc=[1,1,header.from=arm.com])
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+A53SA5CowSaFpLDG0JM+oMIstbVDogjU+2p1fPEDmc=;
- b=Mg5+KU5DNEcB85h2bfLX7lFOQY249BRUlivVsD9W7V86Dhqo973TgPdYFanNr0OTWnBo92cmtmH2LYIGy9La/q2FQffNqPafiO2TLnpZ6WYDS5Ceet/PmjmNNcad80Rlf8AYUoowdD0U/kKQPMPwxZvWw4QJuE1DqZ1g8rnJw0s=
-Received: from DB9PR02CA0017.eurprd02.prod.outlook.com (2603:10a6:10:1d9::22)
- by AS8PR08MB8994.eurprd08.prod.outlook.com (2603:10a6:20b:5b3::20) with
+ bh=kdkadukVhKosxOgplz05ETJV3GQsNBcbui5ztrZrCIg=;
+ b=GNUAq2MQH4KvAFSbinJm5vGI1xsyA0Ckkdt1xQyWXuikRS5UBjWkYTF/mW3u/8JPHUjdedkmH0LETq9q4fa4RCgLHfrKSVcf30e4UH6Hr4n9nen2qGygbA4J+OnNW8Em7h/Hm3Sbga0+SAgIr4D13YJhWPGFufM2yjX5H+5NU2A=
+Received: from DU7P189CA0005.EURP189.PROD.OUTLOOK.COM (2603:10a6:10:552::8) by
+ DBBPR08MB10602.eurprd08.prod.outlook.com (2603:10a6:10:52c::10) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.30; Wed, 14 May
- 2025 11:17:18 +0000
-Received: from DU2PEPF00028D06.eurprd03.prod.outlook.com
- (2603:10a6:10:1d9:cafe::57) by DB9PR02CA0017.outlook.office365.com
- (2603:10a6:10:1d9::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.28; Wed, 14 May
+ 2025 11:15:21 +0000
+Received: from DU2PEPF0001E9C0.eurprd03.prod.outlook.com
+ (2603:10a6:10:552:cafe::1) by DU7P189CA0005.outlook.office365.com
+ (2603:10a6:10:552::8) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.8746.17 via Frontend Transport; Wed,
- 14 May 2025 11:17:17 +0000
+ 14 May 2025 11:15:21 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
  smtp.mailfrom=arm.com; dkim=pass (signature was verified)
  header.d=arm.com;dmarc=pass action=none header.from=arm.com;
@@ -61,132 +61,135 @@ Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
  4.158.2.129 as permitted sender) receiver=protection.outlook.com;
  client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
 Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU2PEPF00028D06.mail.protection.outlook.com (10.167.242.166) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.18
- via Frontend Transport; Wed, 14 May 2025 11:17:17 +0000
+ DU2PEPF0001E9C0.mail.protection.outlook.com (10.167.8.69) with Microsoft SMTP
+ Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.18 via
+ Frontend Transport; Wed, 14 May 2025 11:15:20 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jH6SNg/gHXtFO+A7cM0f5bapR31NVd09PzDGzr2O7uJOlxkCibqbK4gZwe5xi+/Pgxd73nZ3BOzsucWcK0SRVUyYh2bsZchVNMlP0x/REM5FZJ1LPh8H7yQUAtfP3C0CwhJoyWyM1houEpLgpgke1Dp7R/r448ETrHuW5qJAPop8oI4tNGPLvDcaFWKvQPZkvTl+s8d0tO0wYLZyi/XLjCaNzuks0mBdDjoKhyPgAU6pEwjzwgM/MKxEZ5YAowspOt8EYbzdKtpcANEGq3YUoIUIMKkkUF6FH2qh4B+yVHqtVaXh9Qh0+yK7s+L3kUGYdH2X9AWRPnCzF/kmGdvHug==
+ b=fPziqCeCbyE/Tu0DD5oYv/soE09tdrXd87yt931Kuaq5I0WglxX33OhfdQxfVa2lJGH+SndfntsHORCyd4TsY24I+u4OqhMwdZgvWGh4diNVU+zPJjhpGxMc6oRzms/bT5FEzaGI2+xtz5GgLsJifirB7nd/CXjp8enebflgn9IzPPKeJNEiHpq4zuZXT+reo3xPXxRU0shqFpLSzgcdrLL6HCV//49FANBWpHuzCyZofLhsmWNb7s5VpMVivnAQYkAV+2S7GQp0A/siQEx7NjYYOVqSDK+V1LkPgrA03jICcxm0isCw+bWWlhFKIHtY0vgcXd4yBRD5eP493hheVA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+A53SA5CowSaFpLDG0JM+oMIstbVDogjU+2p1fPEDmc=;
- b=Ze6wHnANHT0O+ahAFZ6Ngkx7fmWxIqa1swe9fgtZJwHmENu18VDyRrgseuweFwh6PXtpE9l1HHM0eh+bnFyQeP7CIXPVNjwmXX044POiD2edLENVnVghbIK5Tn2H3GrXKBBujw0SQFmduaGsFIDJJ5GvB9YbIJC4fahg4zTIM4mCFaT5iL0Tg6isKZDIYmomyaKmO9yd2dcJHth3yqBTWgW9B8S2HCplg3c2rLqC2nqn856fBxEuRvPL+0wLKQqfxJN4JPqgR4ZePy5/XckItv0n6M/nK8R1HQJKxfNUJE7wC2DfrKbSXDEMxFXso6RDoPEXk8uAUGrVmogkod3BhA==
+ bh=kdkadukVhKosxOgplz05ETJV3GQsNBcbui5ztrZrCIg=;
+ b=v0JcMmfU6KSvzlA81EFTfLOVDz9v9Vi4QKJKAv2OFJ68U8v6o1jwSd7+tlv+5PjrHo3O0E9sb1tI2fzplzGcXBlQI9st+CtbfCs+k7y02qDCbjXQu9/2lPlpWUePZUw+FCQwVdoPyy5xdv/p5jgPTeRLWLCqmOmz37znRSG79VUZSbO6Jyo0KTK16lEB8TFkystWf3MGAz7WfnjoFykwiWMWsCt6eG7GTjgTzcDGnJCcUaOu5EZvOu0PrA3pEb9D2pDZ/Co+8GZkBGtMjIUsxDHohgoP4hmSrwzaqmkyg8uLwYG6XMTbO6wO/EiwO+5TSlWZYQrnX2YNyB7J2nnKuA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
  header.d=arm.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+A53SA5CowSaFpLDG0JM+oMIstbVDogjU+2p1fPEDmc=;
- b=Mg5+KU5DNEcB85h2bfLX7lFOQY249BRUlivVsD9W7V86Dhqo973TgPdYFanNr0OTWnBo92cmtmH2LYIGy9La/q2FQffNqPafiO2TLnpZ6WYDS5Ceet/PmjmNNcad80Rlf8AYUoowdD0U/kKQPMPwxZvWw4QJuE1DqZ1g8rnJw0s=
+ bh=kdkadukVhKosxOgplz05ETJV3GQsNBcbui5ztrZrCIg=;
+ b=GNUAq2MQH4KvAFSbinJm5vGI1xsyA0Ckkdt1xQyWXuikRS5UBjWkYTF/mW3u/8JPHUjdedkmH0LETq9q4fa4RCgLHfrKSVcf30e4UH6Hr4n9nen2qGygbA4J+OnNW8Em7h/Hm3Sbga0+SAgIr4D13YJhWPGFufM2yjX5H+5NU2A=
 Authentication-Results-Original: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=arm.com;
 Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
  (2603:10a6:150:163::20) by GV2PR08MB8272.eurprd08.prod.outlook.com
  (2603:10a6:150:b7::5) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.29; Wed, 14 May
- 2025 11:16:45 +0000
+ 2025 11:14:49 +0000
 Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
  ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
  ([fe80::d430:4ef9:b30b:c739%5]) with mapi id 15.20.8722.027; Wed, 14 May 2025
- 11:16:45 +0000
-Date: Wed, 14 May 2025 12:16:43 +0100
+ 11:14:49 +0000
+Date: Wed, 14 May 2025 12:14:46 +0100
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: Leo Yan <leo.yan@arm.com>
-Cc: suzuki.poulose@arm.com, mike.leach@linaro.org, james.clark@linaro.org,
+Cc: mike.leach@linaro.org, james.clark@linaro.org,
 	alexander.shishkin@linux.intel.com, coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 1/3] coresight/etm4: fix missing disable active config
-Message-ID: <aCR7mwMEDPFmd8YB@e129823.arm.com>
+Subject: Re: [PATCH v5 3/3] coresight: prevent deactivate active config while
+ enabling the config
+Message-ID: <aCR7Jr0RCWvqb0iM@e129823.arm.com>
 References: <20250513170622.3071637-1-yeoreum.yun@arm.com>
  <20250513170622.3071637-2-yeoreum.yun@arm.com>
- <20250514090513.GC26114@e132581.arm.com>
+ <20250513170622.3071637-3-yeoreum.yun@arm.com>
+ <20250513170622.3071637-4-yeoreum.yun@arm.com>
+ <20250514093019.GE26114@e132581.arm.com>
+ <20250514093900.GF26114@e132581.arm.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250514090513.GC26114@e132581.arm.com>
-X-ClientProxiedBy: LO4P123CA0502.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:1ab::21) To GV1PR08MB10521.eurprd08.prod.outlook.com
+In-Reply-To: <20250514093900.GF26114@e132581.arm.com>
+X-ClientProxiedBy: LO0P123CA0013.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:354::6) To GV1PR08MB10521.eurprd08.prod.outlook.com
  (2603:10a6:150:163::20)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|GV2PR08MB8272:EE_|DU2PEPF00028D06:EE_|AS8PR08MB8994:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5aeed2bd-baf6-4fd1-ad82-08dd92d8e304
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|GV2PR08MB8272:EE_|DU2PEPF0001E9C0:EE_|DBBPR08MB10602:EE_
+X-MS-Office365-Filtering-Correlation-Id: de8ebe52-7460-4002-ca2b-08dd92d89d77
 X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
 x-checkrecipientrouted: true
 NoDisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?X1ihBK9b4zR5tIhh3PMifmt4Jocd1PvixqQPs7AwjexWiDzSYiV3WujhXQQz?=
- =?us-ascii?Q?w0GgeBAI0+9Ooq0dKTeR1GTV7q9J64haMEXog0HYfwfj1ugt0bQilh5X3W6Q?=
- =?us-ascii?Q?Q+thQwECGYn0sw5Pqc8CSn/yHAP8CuSV1hMOhF2lhYUHewF/W6UX3vOiXxyZ?=
- =?us-ascii?Q?u6XN5yokxSafAz1vR/8nCP7IwG7gc2xgjo6x26JByfCJSp6ztZ8US8FRhvhn?=
- =?us-ascii?Q?eOrA+9BQanR1zpnInCK+CauyKzj4a1OXkNa4Zl2fqsh9UhuugfwVSR6HoQog?=
- =?us-ascii?Q?/pc9sLDLdT4pRrUWs5i/5u1WvXZK1tMlJmu3eEO1RIZRDHkxZaD3MatDwaNq?=
- =?us-ascii?Q?s3viraJsgaonadKQWyfVUsh/JpK844LZ4CXa6yXpuh0INEzm+zauikbyrEwq?=
- =?us-ascii?Q?skPO3PhO5vMErw9IN67aLGXfb2DTj9DFz9RNN3jLMgeaoXQ34DTB1wQSnZ6b?=
- =?us-ascii?Q?FrEOADc9fG1zvtPTCTS1mM4LBDKbT1P9u1WLaLBM1LVuPfxVEgHq3uUfiZLM?=
- =?us-ascii?Q?JUcxIqj9968vqIYSId3+vqeRElDxAv/1mLgszVgkpzLvK8yLoJqUInby5ZEa?=
- =?us-ascii?Q?t0coJz+JL+Ns1h3jdEYhZ9SHA/dpr9eB5lIozRP1V0tmO+pQ7CA/x/+xesSP?=
- =?us-ascii?Q?fRPOiI4Z8zdDtK3y4tm1Hd2JA8kZcrNcXGQqpmZ9t/WzIcuk8Vh9zkFY9x1w?=
- =?us-ascii?Q?+JW6qmiWfhqkUD6v5zDNs7qUz4NMgh9y8pQux+UB2kDGnnH4cQtHk5/dJX85?=
- =?us-ascii?Q?G5EJ0ILIZvc684RfzporY2y+k0CGQ1ntvB3f4s0qoCjCxKDJvLzrip8o8AFT?=
- =?us-ascii?Q?3U5xJ3zCaMz7hN9aEe+ffJscgawpv1WUJVA7ygzWa5rHEIpuTC6YIL2wJ1nI?=
- =?us-ascii?Q?JE4Oug9d/VC2JwhZ1aNtjcq0Kw5XzJyc4IMaaZCe4JR93u92rKArY6sgcwiz?=
- =?us-ascii?Q?dN447RMAK6T7SYC+3+GAcI6axTu/xfyof/PsrKcbSLVp2BLWwiCxSok+caN0?=
- =?us-ascii?Q?utrZESl5IirkOFJ2PDUw6n8yRy2UEPh261xT2PEhxs7zJtRBmFO+LX5qSsDg?=
- =?us-ascii?Q?T+0RkYYASj8L9+itss53Y+p9P/B4Kk8J9Czt6paYowcs8QAsn5HflurhZ71D?=
- =?us-ascii?Q?Rf4P017qZNo9aTws+NRchp7drzXP3c/tqJ0prlVal7MK46Ci1O4rKiuuFfN0?=
- =?us-ascii?Q?zGiK3V1T2LYlseYEC/YuM3d/avqmP56gZSdoGJWvR77shvc7+nS7i3iff7ZN?=
- =?us-ascii?Q?cGgZGmgHzjeA+Zthn3PYzYHMtxJH+VHzLS7Zrp5HW4jw5W2cWXPpGPsfGEI5?=
- =?us-ascii?Q?aBFj3TmpwyPWu5A4DTwNggpfZz8cS2ECo9WqQ+lDb2IMYZrL3ILmOfJGFil5?=
- =?us-ascii?Q?iXEOpLDV4HptagWYqTcIJtJfsG0vGP4E+yXTPBqGESu5jF8I8m4xeUB3rDZp?=
- =?us-ascii?Q?WZF6Yk6uUr0=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|1800799024|4022899009|366016;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?rcDpfP5Flj/22W70igQMGADix4y6Rq24uXxmnkRcNjwA+RGWlIMgvNX2SnGp?=
+ =?us-ascii?Q?xtcqwBWK0iPPF8AZhX3GHa+jw9HeKvHnoD28MuA2BdW1LdGA1kQWQ4iHOUij?=
+ =?us-ascii?Q?xz/9d1DcMzsCxAGhWQ2EFPNagy0NXlmCPQogQ3b6L4bdRRmVN039LSa9le3X?=
+ =?us-ascii?Q?23iR+5lnGxpwY4M/Bpg3Ktrlef9kFWT0x+KPJk3lnmws405Axf/FBsFOC+Or?=
+ =?us-ascii?Q?BI9S8W3I/rpGZ/cOIv3wqLYgT7S4ElroyAsYJAvaI4SQdk/YTqfVub/Sjusb?=
+ =?us-ascii?Q?Cs7UF1CvU/43xSEo2MofTPzeu1m9pJ+u79g2t5HlK8ONVOnbNnv3phObV22f?=
+ =?us-ascii?Q?24yfwMfJ5PQTC+5eWPk+qHILl0fx84cGe1GVSvbB+kVyJMTUb1g3WeDIminz?=
+ =?us-ascii?Q?UOcWR40st/LyNxkUqWhEeXaur1ojCYT7QFgajNGEFkcvp2w0CXEOSg5NlE3n?=
+ =?us-ascii?Q?ggTLsbNaU2YX2Ccb39/kU2gsgioqn3xf5nKG+qYhDaIV57LnSsF34evu4I9M?=
+ =?us-ascii?Q?nzSd96oNd5tkTbIIvAJc/WgorYQejtgv/YniRu7pwZlV+se7WbmoZBqH3YT4?=
+ =?us-ascii?Q?At2KgkyRcUR+gLQzJgAo/fQc5NkQN0L8B1WlsW2ezfBQ/LRr2EgYLT/B8OiN?=
+ =?us-ascii?Q?4sOHKVcIAe2smULLNl6NGTz/pSDmuK6CW3RSS/Du3fwJxaPqOx403pmOOJb9?=
+ =?us-ascii?Q?i9uZx6XaeKFHm/T/rtpUBwD9GLf+7LynJgEE30feNalb3W4eIVXJ6rOp9v7g?=
+ =?us-ascii?Q?jjfHdfeJV6lCOAPm9gQ9xBFlvPWRLiT047omc0oXEGPxvqRtjigoi495kqW2?=
+ =?us-ascii?Q?lsFv3iNCpqXBp9gxyKjvBzQjly9/iP+oKdygqU5syhxFPPi/tu32z2nS8zyn?=
+ =?us-ascii?Q?bKT+H5l2bVCOqb1ejZyLI4EOrrmiZ9TTyccAb0mEk8y1FZPylABhD+WXgRBw?=
+ =?us-ascii?Q?3ec+ln0SPX401V7f1u902cY8i/2rP95xkMs0IbhOLdSbpFTUahHhxYs7vW6i?=
+ =?us-ascii?Q?iWCps4F+1ZgabqL+44v1wOme/ta4HVPiWihyS7Z6NFR3nzB/TP7FTK6xBu7E?=
+ =?us-ascii?Q?JxJuAAudn+f3jKh0fRmoqBjqf/37YVWAOmz4ksD+Zq7DT9XNfc8UCbmdaOOZ?=
+ =?us-ascii?Q?8Gm4fxMj92y4Z4sXg6b5LnOi3Ust0hCKoiIpJDbRrkjSGh3GkKtfDUubPcbJ?=
+ =?us-ascii?Q?3Q3CdpseYCmpmuxLJzGBTjwdpodqdYGr2DB+An9DjDGeiplobrcZX7qyyPYS?=
+ =?us-ascii?Q?PafSm89z1PvFOUbQRCHEV/gB10gURRlMczPIaGlOeWwr4p5j6fH3/Hvtgt2a?=
+ =?us-ascii?Q?yen6wbMaorpiznPolnyg9MHZTvYiBn8X5zvYu5j1JZdDPTO4SIipVa0fk69R?=
+ =?us-ascii?Q?oEQImMjs4rNT5+zPJPeUwiTKHqWemQFvuZsH/TW0rQhI0eb5kg=3D=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(4022899009)(366016);DIR:OUT;SFP:1101;
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB8272
 X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D06.eurprd03.prod.outlook.com
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF0001E9C0.eurprd03.prod.outlook.com
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 3b62f93e-ef31-4469-f804-08dd92d8cfd4
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|14060799003|35042699022|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?U4ZP3IYi9nXub5RsoA/J7/V2ESEOMbW3XPfmJSCvHijxW1XtBpG4h5zZf2T2?=
- =?us-ascii?Q?7QGqf0z3UItGHmk8rzE430tf5sI+gSABsWCc2erl1ujrSIjc5pEQs9u9s5Vp?=
- =?us-ascii?Q?DskGcIUJxZjKkIYoltrvQqnCrSCAm6hHsBxYdtXa/ulfUrK2RIbyVIU35Sqh?=
- =?us-ascii?Q?4tzzH08bUPP98fi2XjHhIjRGGiQqAn9E9hZyenjT7YpXIdyt+A9VmBKSGZsS?=
- =?us-ascii?Q?XMIM8w2o5XZ91YPHKuSW2LlgAAbtu+ce4nxfrRPWr2R0ZnE8AdEuM/yljodg?=
- =?us-ascii?Q?DaIhthovvltsXYxtgOiqzpQoWYN/F/q4G77+4tYx5Ky5ohuYEQT4ax7JRZPU?=
- =?us-ascii?Q?IWjtCXSrJwqep89/BxuGJfMSun5sY5aMwwHhXOlfGgmZNZ3uZ/jw6lBmAWmF?=
- =?us-ascii?Q?NWhsyfUoWHQu+adG2tnRGI8qSMZuQxjwyFngFvL6wLTZMQySnPsU42sWycVV?=
- =?us-ascii?Q?IQ3yHZjzxKoBn709hbdwbUg01qXtHbqXCQeumuV2JJfp5QBxo+H68dUkdQzV?=
- =?us-ascii?Q?X9ixBxdUbsuVFuJuHNehTc+oAZxT3SRaHMs6gWEuAhQF8bdqjP8tYB5LlgP3?=
- =?us-ascii?Q?1HFpf+EhNctB2k9mXbWSjXRJzLwoM3j1+R14m9zFcefw1WkchgPNkzSSUOsK?=
- =?us-ascii?Q?tCCeadRtjCKeoKbjj5YGj1OughszMrO8Aoa09vhilVrQyb30kGqe6rREuUlO?=
- =?us-ascii?Q?5CHDPzbhr33cFRKW82olwWwaI0CWVc6gzjIDgthnWCUmEDtjGKgXg7JBhs/q?=
- =?us-ascii?Q?U9h/5TkUSy/MirPZ7w7FvIYI7PZ7P+VVHDVn9S84o5M1kRFcz+2ulqxLmwnE?=
- =?us-ascii?Q?6EM26A68aMQUg4EiN9mcXpv/jg4BqmCxbpxwrHtmfb+8WEIuBWyqCBj406Y7?=
- =?us-ascii?Q?WxITRQ6EKLRfsXc+YXbbitYrTCithBADDQLTcW4bcPBTvQpzK7hGRAOZJxvj?=
- =?us-ascii?Q?r+mPxaTSYu8gVTqO35Oyq28PeyhAgaHWzoZE7GmfU6AK1lD3tSzSQVCenQDm?=
- =?us-ascii?Q?4eVHCQSMzvWcBQu5Y9wC0oBC4qTedeRzUWxUsDXzshNl+svteYwBUpAW4X4U?=
- =?us-ascii?Q?4d2QzEjsG0wCrU7PAnLOw+tFB2SQNfSj2a9tXbUCH/y/gvXk+wtkLkgvv5D9?=
- =?us-ascii?Q?OqIMiCoZYQh0NRzopoywk6pX/uBo5qGCwYUHo7OhwZtn1JaXMl9rpMqOAnU6?=
- =?us-ascii?Q?rxFYM2h6BsiPFK0IU0DRRiacg86xREGwZeuyFar16HgpAlcP/EKRxCURdcgT?=
- =?us-ascii?Q?4sssmyQN42xyT1NUGaN8uZWEaNb3ry2J4VUT2G66KJAwg4YcqJK8753+3biA?=
- =?us-ascii?Q?ztmGr1OFOfkCSYnPbpKhY2TQ9reDhEe8iWpKhpwTKJ+er+MMF5oiFPuKXfkk?=
- =?us-ascii?Q?e93ApQOVv4ODeKzrScUW27zWRGYeIzQNeKODr1S88API6dh1H4ScdCX0rSk2?=
- =?us-ascii?Q?qJsm3nD7Ncs4LTGcpDXJYmq2zDj/CSEIdyYwamNIiWYWZQjG5/o/SWKr/6xn?=
- =?us-ascii?Q?cGypCmqFrFqJONHooohnMDSrLGmFCBpWEokh?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(14060799003)(35042699022)(376014)(82310400026);DIR:OUT;SFP:1101;
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 0dbf9bb7-6ace-49f3-cc9a-08dd92d88a6f
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|35042699022|14060799003|1800799024|4022899009|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5UrCyCszf5uC22W6wG7LvusyexIr9ZdaXxTP4m0WPdfNTbRkRpNZgt2dV1RS?=
+ =?us-ascii?Q?u2KDD2++Dd8LQhQ2UmwPob7d3UeRcDTRX7ILHOAEFKG3pgPnaIVZa0vEeuBg?=
+ =?us-ascii?Q?77ZIDrPWeIUS8E1dKohLVWe6ebKZzmn54R7B1Z884g7Ub86D5lU8y8GVJvbA?=
+ =?us-ascii?Q?yYkCZ3uRYTTVbhG03oA3aFM56zNGbkyJEOvCQmweJ2nlCXlRkgTiP0eKSCNP?=
+ =?us-ascii?Q?KzHAakMPmkM0q2k//N1AHwGgP2QwtehkwZQfUIq54amaXF4LmbZ4BghlCo7C?=
+ =?us-ascii?Q?uLRl4o8Xxv+F07M4Ucz+RH0PYEktyniurELeHI0qOaacQhI+j0xECw/O7v2p?=
+ =?us-ascii?Q?srxTreyF0l5cyzzZCqjfU1Ukz5t2qZYxajwTgaAIolorIr2THuI9RUlOIWdW?=
+ =?us-ascii?Q?nteBlBscJYuEihVmrbugTmlRw2MuDcM/5CX8caJQtn6Ka4KQK0XD8eobPcq8?=
+ =?us-ascii?Q?kZtRo66ik/dCiZ2nIsY2tv3OU3wsLOsPUFc30RcFzsU5nF4DoediN61ZEVGT?=
+ =?us-ascii?Q?v2EBBguFV6C+rMNQCyQRM5wD3rEp7QQCLNAvA2fUdqpqsBSEYnUIoq+gYCTa?=
+ =?us-ascii?Q?UtOZuipKiOIQndm2pQ/7Bu1/Ln0UOLuFOyMDUtz8NjRgN0qwp0Xb9QZRfl1p?=
+ =?us-ascii?Q?AJofuBDtiZg5EZtgp3D9De7g3AN5yzPBNDqM+D1xuk3aEbDoMTaYvjVrksKI?=
+ =?us-ascii?Q?6hlD/eFp1xeg307klLdYRCaEMCohr3X1G6Y2t5JVOtr6ohV5qWyg8NBXz71f?=
+ =?us-ascii?Q?9Mn8SOfVQWC4njd6kM3Tm3JX//CotopN/Pvs6PvTDMrf4jXA2vwZqgK8YCMc?=
+ =?us-ascii?Q?ByMTQN+ZCBWoR+KchbKAIec0HXVZqnIXpHIlt+23cBu9e86i6yBbfCBVFHIx?=
+ =?us-ascii?Q?hATjuIDB0cFKd8qU+Bws66SYEHZQUWdypRRtRyGGkXtRtfOo8bLxNESYOwAF?=
+ =?us-ascii?Q?Z1ji2Blol6gfB9YXFl6JPAxKIkJ5driNIYJnFPSwpHnPmHxUnqDN4wLt7bT3?=
+ =?us-ascii?Q?Qpr7wXGDwHTlSiVgVHBZeF1DEInON6HCXE5t+HnalskM05k6LLa4i/o0lJvV?=
+ =?us-ascii?Q?9TukPT7eg9m7WYWRhpzLNv+OMvCbgOwA1sROP6xH5gBJjbwsBjJeP8HvdQtG?=
+ =?us-ascii?Q?5HHVPNA4rc2W2dSicN9okE2sfBg7lJXZe9DemhfFlZKho9FFYwAWqISW9A+8?=
+ =?us-ascii?Q?HzgTcnGCOH0mAbRAgVyJM/M8naHwx2dIXrDfXYkUvR3dCTcqGNlRgFjyGjLg?=
+ =?us-ascii?Q?Oo5QddnMCzu/VFTExNJv10OgL2WpuSWky9pSV04XS4BgvqH7GSitX3Fjqa0Y?=
+ =?us-ascii?Q?4YvM3sve80GvPGIJLvbLlF3CT4C/qLadLq+1oY2Ad9ccGF8chTrmMwM+UbWT?=
+ =?us-ascii?Q?ELPJqjUSVSo77NG2l3lrcxcpBvU4hFU/fikRIn10E4bm4j7SrNqqMeyWLfl8?=
+ =?us-ascii?Q?79efy5FOrn/+CGsirKPyT/H4F6llrEFg6FuJQEU1hRsbZSMRxVyNE0bKt7ao?=
+ =?us-ascii?Q?AulvoRIBzKL4uKeEWh6CeK0mpdPO9FFypW4V?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(35042699022)(14060799003)(1800799024)(4022899009)(36860700013);DIR:OUT;SFP:1101;
 X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 May 2025 11:17:17.4789
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 May 2025 11:15:20.7866
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5aeed2bd-baf6-4fd1-ad82-08dd92d8e304
+X-MS-Exchange-CrossTenant-Network-Message-Id: de8ebe52-7460-4002-ca2b-08dd92d89d77
 X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D06.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF0001E9C0.eurprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB8994
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB10602
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_041727_081788_934AFBE2 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20250514_041531_285212_9DDB8E67 
+X-CRM114-Status: GOOD (  23.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -201,41 +204,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Tue, May 13, 2025 at 06:06:20PM +0100, Yeoreum Yun wrote:
-> > When etm4 device is disabled via sysfs, it should disable its active
-> > count.
-> >
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
->
-> With adding fix tag:
->
-> Fixes: 7ebd0ec6cf94 ("coresight: configfs: Allow configfs to activate configuration")
->
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
+Hi Leo,
 
-Thanks!
+> On Wed, May 14, 2025 at 10:30:19AM +0100, Leo Yan wrote:
+> > On Tue, May 13, 2025 at 06:06:22PM +0100, Yeoreum Yun wrote:
+> > > While enable active config via cscfg_csdev_enable_active_config(),
+> > > active config could be deactivated via configfs' sysfs interface.
+> > > This could make UAF issue in below scenario:
+> > >
+> > > CPU0                                          CPU1
+> > > (sysfs enable)                                load module
+> > >                                               cscfg_load_config_sets()
+> > >                                               activate config. // sysfs
+> > >                                               (sys_active_cnt == 1)
+> > > ...
+> > > cscfg_csdev_enable_active_config()
+> > > lock(csdev->cscfg_csdev_lock)
+> > > // here load config activate by CPU1
+> > > unlock(csdev->cscfg_csdev_lock)
+> > >
+> > >                                               deactivate config // sysfs
+> > >                                               (sys_activec_cnt == 0)
+> > >                                               cscfg_unload_config_sets()
+> > >                                               unload module
+> > >
+> > > // access to config_desc which freed
+> > > // while unloading module.
+> > > cscfg_csdev_enable_config
+> > >
+> > > To address this, use cscfg_config_desc's active_cnt as a reference count
+> > >  which will be holded when
+> > >     - activate the config.
+> > >     - enable the activated config.
+> > > and put the module reference when config_active_cnt == 0.
+> > >
+> > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 >
-> > ---
-> >  drivers/hwtracing/coresight/coresight-etm4x-core.c | 3 +++
-> >  1 file changed, 3 insertions(+)
+> And please add a fix tag:
+>
+> Fixes: f8cce2ff3c04 ("coresight: syscfg: Add API to activate and enable configurations")
+
+Sorry to annoying you. Thanks ;)
+
+>
+> > > ---
+> > >  .../hwtracing/coresight/coresight-config.h    |  2 +-
+> > >  .../hwtracing/coresight/coresight-syscfg.c    | 49 +++++++++++++------
+> > >  2 files changed, 35 insertions(+), 16 deletions(-)
+> > >
+> > > diff --git a/drivers/hwtracing/coresight/coresight-config.h b/drivers/hwtracing/coresight/coresight-config.h
+> > > index b9ebc9fcfb7f..90fd937d3bd8 100644
+> > > --- a/drivers/hwtracing/coresight/coresight-config.h
+> > > +++ b/drivers/hwtracing/coresight/coresight-config.h
+> > > @@ -228,7 +228,7 @@ struct cscfg_feature_csdev {
+> > >   * @feats_csdev:references to the device features to enable.
+> > >   */
+> > >  struct cscfg_config_csdev {
+> > > -	const struct cscfg_config_desc *config_desc;
+> > > +	struct cscfg_config_desc *config_desc;
+> > >  	struct coresight_device *csdev;
+> > >  	bool enabled;
+> > >  	struct list_head node;
+> > > diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
+> > > index 5d194b9269f5..6d8c212ad434 100644
+> > > --- a/drivers/hwtracing/coresight/coresight-syscfg.c
+> > > +++ b/drivers/hwtracing/coresight/coresight-syscfg.c
+> > > @@ -870,6 +870,25 @@ void cscfg_csdev_reset_feats(struct coresight_device *csdev)
+> > >  }
+> > >  EXPORT_SYMBOL_GPL(cscfg_csdev_reset_feats);
+> > >
+> > > +static bool cscfg_config_desc_get(struct cscfg_config_desc *config_desc)
 > >
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > index 2b8f10463840..f008f87f0801 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > @@ -1020,6 +1020,9 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
-> >  	smp_call_function_single(drvdata->cpu, etm4_disable_hw, drvdata, 1);
+> > I would like to change the return type to int, so the error is handled
+> > within the function.  As a result, the caller _cscfg_activate_config()
+> > does not need to explicitly return an error value.
 > >
-> >  	raw_spin_unlock(&drvdata->spinlock);
-> > +
-> > +	cscfg_csdev_disable_active_config(csdev);
-> > +
-> >  	cpus_read_unlock();
+> > Otherwise, the patch looks good to me.
 > >
-> >  	/*
-> > --
-> > LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+> > Thanks,
+> > Leo
 > >
+> > > +{
+> > > +	if (!atomic_fetch_inc(&config_desc->active_cnt)) {
+> > > +		/* must ensure that config cannot be unloaded in use */
+> > > +		if (unlikely(cscfg_owner_get(config_desc->load_owner))) {
+> > > +			atomic_dec(&config_desc->active_cnt);
+> > > +			return false;
+> > > +		}
+> > > +	}
+> > > +
+> > > +	return true;
+> > > +}
+> > > +
+> > > +static void cscfg_config_desc_put(struct cscfg_config_desc *config_desc)
+> > > +{
+> > > +	if (!atomic_dec_return(&config_desc->active_cnt))
+> > > +		cscfg_owner_put(config_desc->load_owner);
+> > > +}
+> > > +
+> > >  /*
+> > >   * This activate configuration for either perf or sysfs. Perf can have multiple
+> > >   * active configs, selected per event, sysfs is limited to one.
+> > > @@ -893,22 +912,17 @@ static int _cscfg_activate_config(unsigned long cfg_hash)
+> > >  			if (config_desc->available == false)
+> > >  				return -EBUSY;
+> > >
+> > > -			/* must ensure that config cannot be unloaded in use */
+> > > -			err = cscfg_owner_get(config_desc->load_owner);
+> > > -			if (err)
+> > > +			if (!cscfg_config_desc_get(config_desc)) {
+> > > +				err = -EINVAL;
+> > >  				break;
+> > > +			}
+> > > +
+> > >  			/*
+> > >  			 * increment the global active count - control changes to
+> > >  			 * active configurations
+> > >  			 */
+> > >  			atomic_inc(&cscfg_mgr->sys_active_cnt);
+> > >
+> > > -			/*
+> > > -			 * mark the descriptor as active so enable config on a
+> > > -			 * device instance will use it
+> > > -			 */
+> > > -			atomic_inc(&config_desc->active_cnt);
+> > > -
+> > >  			err = 0;
+> > >  			dev_dbg(cscfg_device(), "Activate config %s.\n", config_desc->name);
+> > >  			break;
+> > > @@ -923,9 +937,8 @@ static void _cscfg_deactivate_config(unsigned long cfg_hash)
+> > >
+> > >  	list_for_each_entry(config_desc, &cscfg_mgr->config_desc_list, item) {
+> > >  		if ((unsigned long)config_desc->event_ea->var == cfg_hash) {
+> > > -			atomic_dec(&config_desc->active_cnt);
+> > >  			atomic_dec(&cscfg_mgr->sys_active_cnt);
+> > > -			cscfg_owner_put(config_desc->load_owner);
+> > > +			cscfg_config_desc_put(config_desc);
+> > >  			dev_dbg(cscfg_device(), "Deactivate config %s.\n", config_desc->name);
+> > >  			break;
+> > >  		}
+> > > @@ -1050,7 +1063,7 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+> > >  				     unsigned long cfg_hash, int preset)
+> > >  {
+> > >  	struct cscfg_config_csdev *config_csdev_active = NULL, *config_csdev_item;
+> > > -	const struct cscfg_config_desc *config_desc;
+> > > +	struct cscfg_config_desc *config_desc;
+> > >  	unsigned long flags;
+> > >  	int err = 0;
+> > >
+> > > @@ -1065,8 +1078,8 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+> > >  	raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
+> > >  	list_for_each_entry(config_csdev_item, &csdev->config_csdev_list, node) {
+> > >  		config_desc = config_csdev_item->config_desc;
+> > > -		if ((atomic_read(&config_desc->active_cnt)) &&
+> > > -		    ((unsigned long)config_desc->event_ea->var == cfg_hash)) {
+> > > +		if (((unsigned long)config_desc->event_ea->var == cfg_hash) &&
+> > > +				cscfg_config_desc_get(config_desc)) {
+> > >  			config_csdev_active = config_csdev_item;
+> > >  			csdev->active_cscfg_ctxt = (void *)config_csdev_active;
+> > >  			break;
+> > > @@ -1100,7 +1113,11 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+> > >  				err = -EBUSY;
+> > >  			raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+> > >  		}
+> > > +
+> > > +		if (err)
+> > > +			cscfg_config_desc_put(config_desc);
+> > >  	}
+> > > +
+> > >  	return err;
+> > >  }
+> > >  EXPORT_SYMBOL_GPL(cscfg_csdev_enable_active_config);
+> > > @@ -1139,8 +1156,10 @@ void cscfg_csdev_disable_active_config(struct coresight_device *csdev)
+> > >  	raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+> > >
+> > >  	/* true if there was an enabled active config */
+> > > -	if (config_csdev)
+> > > +	if (config_csdev) {
+> > >  		cscfg_csdev_disable_config(config_csdev);
+> > > +		cscfg_config_desc_put(config_csdev->config_desc);
+> > > +	}
+> > >  }
+> > >  EXPORT_SYMBOL_GPL(cscfg_csdev_disable_active_config);
+> > >
+> > > --
+> > > LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+> > >
+> > _______________________________________________
+> > CoreSight mailing list -- coresight@lists.linaro.org
+> > To unsubscribe send an email to coresight-leave@lists.linaro.org
 
 --
 Sincerely,
