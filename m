@@ -4,79 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24152C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 17:46:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3352AC54756
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 17:46:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W0gCDqdJTFluVUSBms5jh2uI7zLzEY+54pZWqVT1phY=; b=S+2Hqugg3n+cbT4fWeXd+qGG60
-	Zz6vg+TzuAoZUaSiK6sx5GQ4P/pCFR3AG9/8fYrN8MhwuU37rF35l3df+/AGklmiA6MBnnPitcnW0
-	4NiOkde2jO3GfXm7kv1sXdOvsHisuDrIkELYmS9Y023znMay/qdEiGyW9f0vTktuhXbak+uvUhcFI
-	PcDFMkfto6Usc5EQxedmLvk58UOZw5lpfWmaS5CsckKN5Ks1PteoqltWsZRAvTO85kuBclNy67IyW
-	9nzd7VwUY2uOiFmmiAkKpBSchs0dD67vxP/dEg+YGayTKVoV1jH3A1tIrHzZkdpkjea6t6t25uPYF
-	z473vSWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M3woz04Pv9OqB7s5d5XN3SM8aX7++vAPSKJ2i0HXWMg=; b=s10ukKaD9njZxEJTIa1U7ffhN4
+	8w3066CWjdj+/w/FZxhUOzqXKNqjfMM0gzAY/GZaNi4YOSRvUaugWy2Co3HosgVtnd6teSJkYkvwI
+	9GxZdgy2by4+aot75KO0JxN062BAVgax4Qt4TooIycxv5wN7KmvfwG0uq4JqNxiSxEfZZ568EqWkd
+	LtKaVX6oB27JCXTGa9z92RMCa4tqIdm0GgUwuu8/lw3B2XK743Ok3sZh/ykSzx/DhoXHLZvnMohy7
+	srX5XZl1sX+Z29UfRG1UaMfKAsmIqvqMYn4UlHgKVlJHh+/jWccKZWfZixJo3YZuNxqCKjTRJCRyT
+	/Gogfs9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFGBR-0000000FtlV-3DB3;
-	Wed, 14 May 2025 17:46:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uFGBU-0000000FtoP-0VND;
+	Wed, 14 May 2025 17:46:24 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFE58-0000000FbY7-45i8
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 14 May 2025 15:31:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=W0gCDqdJTFluVUSBms5jh2uI7zLzEY+54pZWqVT1phY=; b=O0aNOg/M0ncDorDPJ19nkSmAje
-	lhpgg0YlSONDPn5Qmpl5pMFIMl5mRjjuiM2mnOIGUG/JV9El3ripVZq6aycAjVfy3OsS0+P6w54gF
-	93TvJwiRq0XB7SMk8NUfC4NcetgPzg3IuGchAS17SeQJZMJgoTnSR3B82pMC/hiriRZWdmu169y1T
-	RaZeeZJhkQLjxNhHh/TnErPrVemE8d8vxK3knHlBjVgtqo+xu7K04hh4Un9VARo/u3CH1C2AC3WUV
-	8L/TMHJ2x/YlnfmXBHq9YxphJFZF33k8VSI4uDsO8pdRDkhRFfUTFzzXet0QXPALdDNoHeg4SeWhm
-	6xrpPXNQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uFE55-0000000HEga-1vXk
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 15:31:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D8782150C;
-	Wed, 14 May 2025 08:31:24 -0700 (PDT)
-Received: from [10.57.91.10] (unknown [10.57.91.10])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8A34F3F5A1;
-	Wed, 14 May 2025 08:31:33 -0700 (PDT)
-Message-ID: <933f4191-4075-4b02-998a-35b1711e778c@arm.com>
-Date: Wed, 14 May 2025 16:31:31 +0100
+	id 1uFENY-0000000Fe7a-0PSf;
+	Wed, 14 May 2025 15:50:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2E229A4DEC7;
+	Wed, 14 May 2025 15:50:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05264C4CEED;
+	Wed, 14 May 2025 15:50:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747237842;
+	bh=M3woz04Pv9OqB7s5d5XN3SM8aX7++vAPSKJ2i0HXWMg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Yw6lBK8wkLDW8v1I/JLiN8afunRJZg5PZW9nhqlzybGETE51+sgaGZ7d+tcW7cMhI
+	 nBTtxybN9FYVZowX+ODaqGqHiOrst8TO03GFRjiQk4nzyC6TonnBVgF5egMU11XGtP
+	 9YsDB3MeNHgg/5LJ0Ex4/cUtzS2/OBSboIB9gh/Qp6Q8okW8W6GgnlZG/kEDxmwOR2
+	 m2Jvh3omi5R2w0y4+WNRNytT+TZvZ3P+4f1oXVfi+UFg1TJv49bVNdw+r1zHmSVCxl
+	 1VZ+yfF4ymBVTewvnNpfX+2Zj3ONBRtMiNpMq65+xRmQxDyeA/NF8A7UsHkVRyxlW1
+	 YUxHqc7A/EPww==
+Date: Wed, 14 May 2025 16:50:37 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Trevor Wu <trevor.wu@mediatek.com>,
+	Jiaxin Yu <jiaxin.yu@mediatek.com>, linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] ASoC: dt-bindings: mediatek: Simplify
+ mediatek,clk-provider
+Message-ID: <20250514-stir-porridge-b52d88b50ae1@spud>
+References: <20250514105702.28622-2-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v4 5/5] mm/filemap: Allow arch to request folio size
- for exec memory
-Content-Language: en-GB
-To: Will Deacon <will@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- David Hildenbrand <david@redhat.com>, Dave Chinner <david@fromorbit.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org
-References: <20250430145920.3748738-1-ryan.roberts@arm.com>
- <20250430145920.3748738-6-ryan.roberts@arm.com>
- <20250509135223.GB5707@willie-the-truck>
- <c52861ac-9622-4d4f-899e-3a759f04af12@arm.com>
- <20250514151400.GB10762@willie-the-truck>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250514151400.GB10762@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="5CRYNW3obN/3u7l6"
+Content-Disposition: inline
+In-Reply-To: <20250514105702.28622-2-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_163139_888713_0B6CE3BD 
-X-CRM114-Status: GOOD (  18.29  )
+X-CRM114-CacheID: sfid-20250514_085044_238221_0963DFEC 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,78 +81,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/05/2025 16:14, Will Deacon wrote:
-> On Tue, May 13, 2025 at 01:46:06PM +0100, Ryan Roberts wrote:
->> On 09/05/2025 14:52, Will Deacon wrote:
->>> On Wed, Apr 30, 2025 at 03:59:18PM +0100, Ryan Roberts wrote:
->>>> diff --git a/mm/filemap.c b/mm/filemap.c
->>>> index e61f374068d4..37fe4a55c00d 100644
->>>> --- a/mm/filemap.c
->>>> +++ b/mm/filemap.c
->>>> @@ -3252,14 +3252,40 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
->>>>  	if (mmap_miss > MMAP_LOTSAMISS)
->>>>  		return fpin;
->>>>  
->>>> -	/*
->>>> -	 * mmap read-around
->>>> -	 */
->>>>  	fpin = maybe_unlock_mmap_for_io(vmf, fpin);
->>>> -	ra->start = max_t(long, 0, vmf->pgoff - ra->ra_pages / 2);
->>>> -	ra->size = ra->ra_pages;
->>>> -	ra->async_size = ra->ra_pages / 4;
->>>> -	ra->order = 0;
->>>> +	if (vm_flags & VM_EXEC) {
->>>> +		/*
->>>> +		 * Allow arch to request a preferred minimum folio order for
->>>> +		 * executable memory. This can often be beneficial to
->>>> +		 * performance if (e.g.) arm64 can contpte-map the folio.
->>>> +		 * Executable memory rarely benefits from readahead, due to its
->>>> +		 * random access nature, so set async_size to 0.
->>>
->>> In light of this observation (about randomness of instruction fetch), do
->>> you think it's worth ignoring VM_RAND_READ for VM_EXEC?
->>
->> Hmm, yeah that makes sense. Something like:
->>
->> ---8<---
->> diff --git a/mm/filemap.c b/mm/filemap.c
->> index 7b90cbeb4a1a..6c8bf5116c54 100644
->> --- a/mm/filemap.c
->> +++ b/mm/filemap.c
->> @@ -3233,7 +3233,8 @@ static struct file *do_sync_mmap_readahead(struct vm_fault
->> *vmf)
->>         if (!ra->ra_pages)
->>                 return fpin;
->>
->> -       if (vm_flags & VM_SEQ_READ) {
->> +       /* VM_EXEC case below is already intended for random access */
->> +       if ((vm_flags & (VM_SEQ_READ | VM_EXEC)) == VM_SEQ_READ) {
->>                 fpin = maybe_unlock_mmap_for_io(vmf, fpin);
->>                 page_cache_sync_ra(&ractl, ra->ra_pages);
->>                 return fpin;
->> ---8<---
-> 
-> I was thinking about the:
-> 
-> 	if (vm_flags & VM_RAND_READ)
-> 		return fpin;
 
-Yes sorry, I lost my mind when doing that patch... I intended to do it for the
-VM_RAND_READ as you suggested, but my fingers did something completely different.
+--5CRYNW3obN/3u7l6
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> 
-> code above this which bails if VM_RAND_READ is set. That seems contrary
-> to the code you're adding which says that, even for random access
-> patterns where readahead doesn't help, it's still worth sizing the folio
-> appropriately for contpte mappings.
+On Wed, May 14, 2025 at 12:57:03PM +0200, Krzysztof Kozlowski wrote:
+> "mediatek,clk-provider" property is a string, not an string array, thus
+> "items" is not really correct.
+>=20
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Anyway, I totally agree with this. So I'll avoid the early return VM_RAND_READ
-if VM_EXEC is also set.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-Thanks,
-Ryan
+--5CRYNW3obN/3u7l6
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> 
-> Will
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaCS7zQAKCRB4tDGHoIJi
+0vucAP0ZLj98/0xHcsnZq3ruzOd9P3Y0Z5wyirXAYCFjg+5G2QEA92rfx6Wpafbl
+JUg58i+SRsWf56f7tK0VKcHUSIbJPAk=
+=KTct
+-----END PGP SIGNATURE-----
+
+--5CRYNW3obN/3u7l6--
 
