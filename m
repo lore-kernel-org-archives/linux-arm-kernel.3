@@ -4,124 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92CCEC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 14:43:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDE5BC3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 14:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gCzfbZekv4htNUijIC+SbkqBGyLEFOMaleFjXJEgatk=; b=aMZaPfhgTdctWeZeQiv3dPuhF8
-	FZtNxwCSvrClb8g3466hXw8vB7dG7Ofn0WIsAmtd5Rx2xKnYYxF+H8tpFgk9TD8vt5hTlzZInW6l/
-	YdJ9M0Zl9GkYsB+87cshteSJyF/aiHpPjOfHY6nlhsn5WyWmWs3I1EM1EahI6sptiBBl08VTUG5n4
-	r5/H5hxbvfvfh/87v5aYmkWPclDcpEf9Ezu3IQ720LUXXf3bqfQnugrITfz4wAvSZarPIit5RppPV
-	2liQfb1625c6HKhqMeEQ9DiB4bCeafe0dPWXXU541KNl3FxZLhny4/eOcfeVfNTFH2xCe6FkNOEZm
-	pZxGSMiA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MHI9+PzW39sul+i6E/EGeNmor59j/M/+OWEp6c+V/+U=; b=aIX5GTQbK0gXYe
+	8LNQcQuYUNaX2G1DZ0K+cFQ3b1UT7Ds0IALEe30QJxiRk5t/Gt4sonvuVWvrSu5XkqhZFDC1sCcic
+	3uR78NpO0vPmRzFS33KHJnE1kMo9YuTauBxqW/S1eFqDOxbJq9nk5agcjlMZQ/1X9G/rxzehLi8kW
+	UscnPHGRKQTxO6UvzBBqF0m3TOGoKMMNouOdEDoJIoUAUEkZ4ki0fZmmAAb70TtcEvBdRsfsDFfU6
+	LkJlZmpSUJ6GCBBFxVi9p7aDEO6GYRzNUlOH49PfoIM7FO24Kk02XGsszHVgCrpVk55hNOkVEI/5K
+	1ND0o/rmGw8enkrIE1+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFDKK-0000000FSER-1IO3;
-	Wed, 14 May 2025 14:43:20 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uFDMI-0000000FSR3-46EI;
+	Wed, 14 May 2025 14:45:22 +0000
+Received: from mail-lj1-f181.google.com ([209.85.208.181])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFCXT-0000000FGjk-33E2
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 14 May 2025 13:52:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=gCzfbZekv4htNUijIC+SbkqBGyLEFOMaleFjXJEgatk=; b=jARUt1ksGpklSAQ1bGKH80shwo
-	9VuJhlzhxX7xuS9VYTj2DpYHipcorYvjlJansu+vaFLOz2wjpfoTdpgwUGFURfI86LJHJhZPfu6F7
-	RvU5Ydc8XV+lGolHnZdaVyWfn3mg3oGgwUNkKkn+00dc2cbaE77pr4rmM2ylNnFU6V3japZT7DVLp
-	a0L2rtwAKCwA6snUCHxXdx/FMt17Lk56tJSj1kUU5kwuZHlxw+twx5ZuKXI8rK1LbAsRF3nFUuPxY
-	Bf4TYqG0y1+gTveFX0Br2rXOsp7RB8LU5bcRB0Z9FiHCthaO77HKSMMIA8Sw5oTVnjyq1GPXZTf6E
-	GtGZhl7g==;
-Received: from mailout3.samsung.com ([203.254.224.33])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uFCXQ-0000000HCF0-199k
+	id 1uFCsx-0000000FNkL-23TB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 May 2025 13:52:50 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250514135242epoutp03de1b18e959f9b0e073229c4584317931~-aR8CbH2H2840628406epoutp03Q
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 13:52:42 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250514135242epoutp03de1b18e959f9b0e073229c4584317931~-aR8CbH2H2840628406epoutp03Q
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1747230762;
-	bh=gCzfbZekv4htNUijIC+SbkqBGyLEFOMaleFjXJEgatk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PWHXu7GU4DodhpP21c0owWh81IqdK3akqHsSTo555BlTK6RSln4LIHHSVH0bVf+FJ
-	 0b+/niCp/EE4DH/Nslvd0KkURVvHgenmh3kfh5NIywxvPsmHACnlF+nfYTAl1I+aL4
-	 DtyVhBBhJ+QoUc4L1LJC3fBMg7CyNtAhLWvO1kLg=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20250514135241epcas5p1c532029629ae732c7dd6c2ed2db26353~-aR7f6P0V0362903629epcas5p13;
-	Wed, 14 May 2025 13:52:41 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.178]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4ZyFCW6JtDz6B9m5; Wed, 14 May
-	2025 13:52:39 +0000 (GMT)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250514095242epcas5p43aab99ca456684f1689d3e37a44b0c88~-XAZkOEZN1927219272epcas5p4H;
-	Wed, 14 May 2025 09:52:42 +0000 (GMT)
-Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250514095242epsmtrp1cf1ae3b2305367497a64be3bf5ea5ed6~-XAZi_ipV1927519275epsmtrp1a;
-	Wed, 14 May 2025 09:52:42 +0000 (GMT)
-X-AuditID: b6c32a29-55afd7000000223e-73-682467eac1b0
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	11.9B.08766.AE764286; Wed, 14 May 2025 18:52:42 +0900 (KST)
-Received: from bose.samsungds.net (unknown [107.108.83.9]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250514095239epsmtip24e9d87979a0f3e94d227111f61c1db9a~-XAWwEijB1817318173epsmtip2M;
-	Wed, 14 May 2025 09:52:39 +0000 (GMT)
-From: Raghav Sharma <raghav.s@samsung.com>
-To: krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com,
-	alim.akhtar@samsung.com, mturquette@baylibre.com, sboyd@kernel.org,
-	robh@kernel.org, conor+dt@kernel.org, richardcochran@gmail.com,
-	sunyeal.hong@samsung.com, shin.son@samsung.com
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	dev.tailor@samsung.com, chandan.vn@samsung.com, karthik.sun@samsung.com,
-	Raghav Sharma <raghav.s@samsung.com>
-Subject: [PATCH v2 3/3] arm64: dts: exynosautov920: add CMU_HSI2 clock DT
- nodes
-Date: Wed, 14 May 2025 15:32:14 +0530
-Message-Id: <20250514100214.2479552-4-raghav.s@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250514100214.2479552-1-raghav.s@samsung.com>
+	Wed, 14 May 2025 14:15:04 +0000
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-326ca53a7f1so53573311fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 07:15:02 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747232099; x=1747836899;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=MHI9+PzW39sul+i6E/EGeNmor59j/M/+OWEp6c+V/+U=;
+        b=DtXf2KfsLIDkcp3yIPL0Z84wlyCOTVOxmzziD6gMCYKU9kXd657zaNZ5rqxGbj+6Kb
+         NIGNCUtWOkn86Z3AAuLfb99KJ9IAfJ900L6yieNkTG22OhASri+lj74QwBv86xPvy5np
+         PmxCfjy7u920ecM9BYOQvARvppIhtUxhwUbYJMlqpbwXpEw+bCQP/EpYFp4VslxBuJ3n
+         BTol5iior1F/9VyWF6cZ+Uy2uoN5FdUPLV+sOijr8wzo7AuAcPSIS6rWyZ3vFVtBwtJE
+         GPFhcY23R2CLdFbPQ+ZUl0kFLl9zzVpBnDdYFhVj4Zc4Z9/mXC8JmEP20QRqAPg09Dby
+         1lNg==
+X-Forwarded-Encrypted: i=1; AJvYcCX7CtEt7wiK1kNlyC0XwuqDrWHMTbWp+sclupCrxksVYmfYAJgr87024XpoKlPjwwRspmufuu4pVow3ti3Cianv@lists.infradead.org
+X-Gm-Message-State: AOJu0YwblVaTP0zHlZWhSvsbLhy1+EisZyk4mCXfomG80PNnqXX5pJkp
+	H9Th/OJEANheBihyoN+08tvf9ZODq8Skr82+ekXaGu9zOhHrZ7aRR6O1FuzM
+X-Gm-Gg: ASbGnctjus5ZFeVBtnNmfiGWAbVCVVs0A0O2i74mArWVxua+CJXp4QIjxWZgkDqNa2L
+	JMt2tIBbTlgF2TZxYyuGKXDyXcXZnwIlgm8T1gc5iglhKAqqzXsLBppqV0RyXt5lAdGLo17USw+
+	/EgIwAjNoEnoVYLBJleifpY0nE8TBBoINX6/lFeVGUXQQMwZB2/+9si5JJEJbDeKy89hIVE37Xh
+	UvaGz6At4+IYXfx/uC0f/Jibr1UrJNzH5B3tjFX8lfWmfLObSj7zLcneA3CN2mZjyvGls4Wixi8
+	zOhPXEnD3PuxGphvZbbkPGEQJBGSpjiRyEokINh8g22phPdI6cE2hmsk/dYux2XgL1/jtkmaDb8
+	F58RC/x8J
+X-Google-Smtp-Source: AGHT+IFzW1am6eaBCHPRm/CnfmAbVWsufvv/VhAdbGUoSqPT4SJTek/Z+EkncoZnOU6iwUDGzoSiuw==
+X-Received: by 2002:a05:651c:312b:b0:31a:3744:6ecd with SMTP id 38308e7fff4ca-327ed09f9f1mr14789561fa.6.1747232099125;
+        Wed, 14 May 2025 07:14:59 -0700 (PDT)
+Received: from mail-lj1-f179.google.com (mail-lj1-f179.google.com. [209.85.208.179])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-326c358acf7sm19820101fa.99.2025.05.14.07.14.58
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 14 May 2025 07:14:58 -0700 (PDT)
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-326c77c40b7so53217831fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 May 2025 07:14:58 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVlyC7Xly7idRqvUFjIBUwR8j1HwUImuKKrzidQSrQlUWkRDA0lLjPTM1F1j5h+6SG4sZZr7MnFcnixsvHwvFbP@lists.infradead.org
+X-Received: by 2002:a05:651c:144b:b0:326:db50:fa71 with SMTP id
+ 38308e7fff4ca-327ed11ecccmr16248041fa.23.1747232097790; Wed, 14 May 2025
+ 07:14:57 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFupjkeLIzCtJLcpLzFFi42LZdlhJXvdVukqGQet/E4sH87axWUz4EmGx
-	Zu85JovrX56zWtzbsYzdYv6Rc6wWjTPeMFmcP7+B3WLT42usFh977rFaXN41h81ixvl9TBYX
-	T7laHFsgZvF95R1GiyNnXjBb/N+zg93i8Jt2Vot/1zayWEw+vpbVomnZeiYHUY/3N1rZPXbO
-	usvusWlVJ5vH5iX1Hn1bVjF6fN4kF8AWxWWTkpqTWZZapG+XwJWxf3InW8EDzoqrvVvYGxjf
-	sncxcnJICJhI3Nk9jbGLkYtDSGA3o8T2PU+ZIRISEvv+/2aEsIUlVv57DtYgJPCWUWLFixwQ
-	m01AS+LK9ndsIM0iAl1MEuf+vWIBSTAL7GSSWLleAsQWFvCX2Lj8MFicRUBVYt32PlYQm1fA
-	WmL9zC8sEAvkJfYfPAu2mFPARuLri8vMEMusJVpezWGCqBeUODnzCdR8eYnmrbOZJzAKzEKS
-	moUktYCRaRWjZGpBcW56brFhgWFearlecWJucWleul5yfu4mRnCUaWnuYNy+6oPeIUYmDsZD
-	jBIczEoivNezlDOEeFMSK6tSi/Lji0pzUosPMUpzsCiJ84q/6E0REkhPLEnNTk0tSC2CyTJx
-	cEo1MK3b/HpX2G6R0pszorWnbry2MKH1zKIbQQ9WiE7tsorvD/4puyXq89sc/wtdNiHThDel
-	Wu1++33dg0XKsU7LNWRWdkrft9meu/oo+z+rllnXFwQ/P9+7dOW7mVz8tzZJZ+Ye8BNebPaw
-	/qO4nUT+vGuSfwRiZiuozcgzUz5XJN/vtvFp3WGh+eK/ru2XS0+YtuKb7Xcd05ZnzE9/aTlv
-	Fbi2bWpJq8oiRq7983rkWxWzOd5G/Tntbt33zsvzuETqbq4e89vAuCp++6eRz/f3g5hF9aLt
-	QtY3Gn9vFKheONP6Eee77+8+nQv7s4J1yS+1XS8m972YJHvnpZy9x8PuzVuv1VuFfdZcvusN
-	41sPvTlKLMUZiYZazEXFiQD/aOo/IQMAAA==
-X-CMS-MailID: 20250514095242epcas5p43aab99ca456684f1689d3e37a44b0c88
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-543,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250514095242epcas5p43aab99ca456684f1689d3e37a44b0c88
-References: <20250514100214.2479552-1-raghav.s@samsung.com>
-	<CGME20250514095242epcas5p43aab99ca456684f1689d3e37a44b0c88@epcas5p4.samsung.com>
+References: <20250505164729.18175-1-andre.przywara@arm.com> <20250505164729.18175-4-andre.przywara@arm.com>
+In-Reply-To: <20250505164729.18175-4-andre.przywara@arm.com>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Wed, 14 May 2025 22:14:42 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67JGbTgsNcqn4TZ74s_U1+9xGj_a7kYkmfGVxeygQ_Ydw@mail.gmail.com>
+X-Gm-Features: AX0GCFuDYucYLLpLUlhwE2czLbkwqRJZoUBu4cwQtabqLqc0JUaJT_1nWb9P4eE
+Message-ID: <CAGb2v67JGbTgsNcqn4TZ74s_U1+9xGj_a7kYkmfGVxeygQ_Ydw@mail.gmail.com>
+Subject: Re: [PATCH 3/3] arm64: dts: allwinner: a100: add Liontron H-A133L
+ board support
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Cody Eksal <masterr3c0rd@epochal.quest>, 
+	Philippe Simons <simons.philippe@gmail.com>, devicetree@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_145249_171992_C367F656 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20250514_071503_535252_7AA8634B 
+X-CRM114-Status: GOOD (  25.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,46 +96,290 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add required dt node for CMU_HSI2 block, which
-provides clocks to ufs and ethernet IPs
+On Tue, May 6, 2025 at 12:48=E2=80=AFAM Andre Przywara <andre.przywara@arm.=
+com> wrote:
+>
+> The H-A133L board is an industrial development board made by Liontron.
+> It contains a number of dedicated JST connectors, to connect external
+> peripherals. It features:
+>
+> - Allwinner A133 SoC (4 * Arm Cortex-A53 cores at up to 1.6 GHz)
+> - 1 GiB, 2 GiB or 4 GiB of LPDDR4 DRAM
+> - between 16 and 128 GiB eMMC flash
+> - AXP707 PMIC (compatible to AXP803)
+> - 100 Mbit/s RJ45 Ethernet socket, using an JLSemi JL1101 PHY
+> - XR829 WIFI+Bluetooth chip
+> - 2 * USB 2.0 USB-A ports, plus three sets of USB pins on connectors
+>   (connected via a USB hub connected to USB1 on the SoC)
+> - microSD card slot
+> - 3.5mm A/V port
+> - 12V power supply
+> - connectors for an LVDS or MIPI-DSI panel
+>
+> Add the devicetree describing the board's peripherals and their
+> connections.
+>
+> Despite being a devboard, the manufacturer does not publish a schematic
+> (I asked), so the PMIC rail assignments were bases on BSP dumps,
+> educated guesses and some experimentation. Dropping the always-on
+> property from any of the rails carrying it will make the board hang as
+> soon as the kernel turns off unused regulators.
+>
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  arch/arm64/boot/dts/allwinner/Makefile        |   1 +
+>  .../sun50i-a133-liontron-h-a133l.dts          | 214 ++++++++++++++++++
+>  2 files changed, 215 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-=
+a133l.dts
+>
+> diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts=
+/allwinner/Makefile
+> index 790aad3a91e86..773cc02a13d04 100644
+> --- a/arch/arm64/boot/dts/allwinner/Makefile
+> +++ b/arch/arm64/boot/dts/allwinner/Makefile
+> @@ -18,6 +18,7 @@ dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-a64-sopine-baseboa=
+rd.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-a64-teres-i.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h64-remix-mini-pc.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-a100-allwinner-perf1.dtb
+> +dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-a133-liontron-h-a133l.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h5-bananapi-m2-plus.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h5-bananapi-m2-plus-v1.2.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h5-emlid-neutis-n5-devboard.dtb
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.d=
+ts b/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
+> new file mode 100644
+> index 0000000000000..682ed15d84854
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
+> @@ -0,0 +1,211 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (c) 2025 Arm Ltd.
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "sun50i-a100.dtsi"
+> +#include "sun50i-a100-cpu-opp.dtsi"
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/leds/common.h>
+> +
+> +/{
+> +       model =3D "Liontron H-A133L";
+> +       compatible =3D "liontron,h-a133l", "allwinner,sun50i-a100";
+> +
+> +       aliases {
+> +               serial0 =3D &uart0;
+> +       };
+> +
+> +       chosen {
+> +               stdout-path =3D "serial0:115200n8";
+> +       };
+> +
+> +       leds {
+> +               compatible =3D "gpio-leds";
+> +
+> +               led {
+> +                       function =3D LED_FUNCTION_POWER;
+> +                       color =3D <LED_COLOR_ID_BLUE>;
+> +                       gpios =3D <&pio 7 16 GPIO_ACTIVE_LOW>; /* PH16 */
+> +               };
+> +       };
+> +
+> +       reg_vcc5v: vcc5v {
+> +               /* board wide 5V supply from a 12V->5V regulator */
+> +               compatible =3D "regulator-fixed";
+> +               regulator-name =3D "vcc-5v";
+> +               regulator-min-microvolt =3D <5000000>;
+> +               regulator-max-microvolt =3D <5000000>;
+> +               regulator-always-on;
+> +       };
+> +
+> +       reg_usb1_vbus: regulator-usb1-vbus {
+> +               compatible =3D "regulator-fixed";
+> +               regulator-name =3D "usb1-vbus";
+> +               regulator-min-microvolt =3D <5000000>;
+> +               regulator-max-microvolt =3D <5000000>;
+> +               vin-supply =3D <&reg_vcc5v>;
+> +               enable-active-high;
+> +               gpio =3D <&r_pio 0 8 GPIO_ACTIVE_HIGH>; /* PL8 */
+> +       };
+> +};
+> +
+> +&cpu0 {
+> +       cpu-supply =3D <&reg_dcdc2>;
+> +};
+> +
+> +&ehci0 {
+> +       status =3D "okay";
+> +};
+> +
+> +&ehci1 {
+> +       status =3D "okay";
+> +};
+> +
+> +&mmc0 {
+> +       vmmc-supply =3D <&reg_dcdc1>;
+> +       cd-gpios =3D <&pio 5 6 GPIO_ACTIVE_LOW>; /* PF6 */
+> +       bus-width =3D <4>;
+> +       status =3D "okay";
+> +};
+> +
+> +&mmc2 {
+> +       vmmc-supply =3D <&reg_dcdc1>;
+> +       vqmmc-supply =3D <&reg_eldo1>;
+> +       cap-mmc-hw-reset;
+> +       non-removable;
+> +       bus-width =3D <8>;
+> +       mmc-ddr-1_8v;
+> +       mmc-hs200-1_8v;
+> +       status =3D "okay";
+> +};
+> +
+> +&ohci0 {
+> +       status =3D "okay";
+> +};
+> +
+> +&ohci1 {
+> +       status =3D "okay";
+> +};
+> +
+> +&pio {
+> +       vcc-pb-supply =3D <&reg_dcdc1>;
+> +       vcc-pc-supply =3D <&reg_eldo1>;
+> +       vcc-pf-supply =3D <&reg_dcdc1>;
+> +       vcc-ph-supply =3D <&reg_dcdc1>;
+> +};
+> +
+> +&r_i2c0 {
+> +       status =3D "okay";
+> +
+> +       axp803: pmic@34 {
+> +               compatible =3D "x-powers,axp803";
+> +               reg =3D <0x34>;
+> +               interrupt-parent =3D <&r_intc>;
+> +               interrupts =3D <0 IRQ_TYPE_LEVEL_LOW>;
+> +       };
+> +};
+> +
+> +#include "axp803.dtsi"
+> +
+> +&ac_power_supply {
+> +       status =3D "okay";
+> +};
+> +
+> +&reg_aldo1 {
+> +       regulator-always-on;
+> +       regulator-min-microvolt =3D <1800000>;
+> +       regulator-max-microvolt =3D <1800000>;
+> +       regulator-name =3D "vcc-codec-avcc";
+> +};
+> +
+> +&reg_aldo2 {
+> +       regulator-always-on;
+> +       regulator-min-microvolt =3D <1800000>;
+> +       regulator-max-microvolt =3D <1800000>;
+> +       regulator-name =3D "vcc-dram-1";
+> +};
+> +
+> +&reg_aldo3 {
+> +       regulator-always-on;
+> +       regulator-min-microvolt =3D <3300000>;
+> +       regulator-max-microvolt =3D <3300000>;
+> +       regulator-name =3D "vcc-usb-pl";
+> +};
+> +
+> +&reg_dcdc1 {
+> +       regulator-always-on;
+> +       regulator-min-microvolt =3D <3300000>;
+> +       regulator-max-microvolt =3D <3300000>;
+> +       regulator-name =3D "vcc-io-usb-pd-emmc";
+> +};
+> +
+> +&reg_dcdc2 {
+> +       regulator-always-on;
+> +       regulator-min-microvolt =3D <810000>;
+> +       regulator-max-microvolt =3D <1200000>;
+> +       regulator-name =3D "vdd-cpux";
+> +};
+> +
+> +&reg_dcdc3 {
+> +       regulator-always-on;
+> +       regulator-min-microvolt =3D <900000>;
+> +       regulator-max-microvolt =3D <900000>;
+> +       regulator-name =3D "vdd-usb-cpus";
+> +};
+> +
+> +&reg_dcdc4 {
+> +       regulator-always-on;
+> +       regulator-min-microvolt =3D <950000>;
+> +       regulator-max-microvolt =3D <950000>;
+> +       regulator-name =3D "vdd-sys";
+> +};
+> +
+> +&reg_dcdc5 {
+> +       regulator-always-on;
+> +       regulator-min-microvolt =3D <1100000>;
+> +       regulator-max-microvolt =3D <1100000>;
+> +       regulator-name =3D "vcc-dram";
+> +};
+> +
+> +/* DCDC6 unused */
+> +/* DLDO3 unused */
+> +/* DLDO4 unused */
+> +
+> +&reg_eldo1 {
+> +       regulator-min-microvolt =3D <1800000>;
+> +       regulator-max-microvolt =3D <1800000>;
+> +       regulator-name =3D "vcc-pc-emmc";
+> +};
+> +
+> +/* ELDO2 unused */
+> +/* ELDO3 unused */
+> +
+> +&reg_fldo1 {
+> +       regulator-always-on;
+> +       regulator-min-microvolt =3D <900000>;
+> +       regulator-max-microvolt =3D <900000>;
+> +       regulator-name =3D "vdd-cpus-usb";
+> +};
+> +
+> +/* reg_drivevbus unused */
+> +/* dc1sw unused */
+> +
+> +&uart0 {
+> +       pinctrl-names =3D "default";
+> +       pinctrl-0 =3D <&uart0_pb_pins>;
+> +       status =3D "okay";
+> +};
+> +
+> +&usb_otg {
+> +       dr_mode =3D "host";       /* USB A type receptacle, always powere=
+d */
 
-Signed-off-by: Raghav Sharma <raghav.s@samsung.com>
----
- arch/arm64/boot/dts/exynos/exynosautov920.dtsi | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+                                                noticed a typo here.
 
-diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-index 2cb8041c8a9f..7890373f5da0 100644
---- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-@@ -1048,6 +1048,23 @@ pinctrl_hsi1: pinctrl@16450000 {
- 			interrupts = <GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>;
- 		};
- 
-+		cmu_hsi2: clock-controller@16b00000 {
-+			compatible = "samsung,exynosautov920-cmu-hsi2";
-+			reg = <0x16b00000 0x8000>;
-+			#clock-cells = <1>;
-+
-+			clocks = <&xtcxo>,
-+				 <&cmu_top DOUT_CLKCMU_HSI2_NOC>,
-+				 <&cmu_top DOUT_CLKCMU_HSI2_NOC_UFS>,
-+				 <&cmu_top DOUT_CLKCMU_HSI2_UFS_EMBD>,
-+				 <&cmu_top DOUT_CLKCMU_HSI2_ETHERNET>;
-+			clock-names = "oscclk",
-+				      "noc",
-+				      "ufs",
-+				      "embd",
-+				      "ethernet";
-+		};
-+
- 		pinctrl_hsi2: pinctrl@16c10000 {
- 			compatible = "samsung,exynosautov920-pinctrl";
- 			reg = <0x16c10000 0x10000>;
--- 
-2.34.1
+> +       status =3D "okay";
+> +};
+> +
+> +&usbphy {
+> +       status =3D "okay";
+> +       usb1_vbus-supply =3D <&reg_usb1_vbus>;
 
+Just noticed that these two were out of order, so I fixed both of
+them and re-pushed.
+
+ChenYu
+
+> +};
+> --
+> 2.46.3
+>
 
