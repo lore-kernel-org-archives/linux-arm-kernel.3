@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BC65C3ABD9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 13:54:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 484ABC3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 May 2025 13:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mOmMb5xN19J6ykvsE/5ffgKvq1ToxVydRERICeA+2ro=; b=zU3KK0GMaoPyGKe68vkfmWOmI3
-	DzQgEl0UpNJOpd1sR19wKWAGIWZ8EmpCfd+wTrsXgV9Z+uphBJ6+ykmBiyGGkGiBHqNvvIsmAAgV/
-	VEheCQxWlM6WPGNidvgTZWpN+hl6zHvFZsuRXe0fGws21COiEvEsuMVDXITkKv0HICrdx98VPYUzX
-	DfYZgDxr7nenAMJbDXJngr93ontJghgH46+uKAFRAW4xXvSAeDS8yrxIshTOpRUiib79d/DytGk+P
-	bX7K15UJfLLfnDgJzYwDAu4N9hOsyGYdYKg7cCsfegikSF/dzpfWI0cIsL1kzayOFcIRk5YJVtjKi
-	HNNXJCQg==;
+	bh=M3SQzoHvPrJBjTWWRxsZCniOz3j4Lr/tPx0CjhK6ulU=; b=hpET/HAYOAu6zvisg+lYxx7Bf+
+	edUiXzjbK3sl4VIBHXra6tjI8j9npZ2Q1uCmrKjsuuGwHS33mRWc6LKnbmiZuqpjiT3DEizh2PC19
+	L91hTwpx0EkRU/JIvFEfBfn6ItG4gAdweaVFZSi75QpAJvOncR+TURUzPdjAHonf/ZgdL27mTnwdh
+	JpfSFmKcsNGHlX7Meea8xHHm9Adze1l/s+Mjt4Jed5GVzcr25CEsR39n0MmRZJx/ZSDir1WLboksw
+	nRZS6YuCEMSI1lVSmBEqr+ue5flQaoR/qcloAu9TP9rwhc7heAtjM1tfluNyOitcUGol5nNlz5FMT
+	P6K6Da1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFCYa-0000000FINY-2911;
-	Wed, 14 May 2025 13:54:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uFCYk-0000000FIh4-30m3;
+	Wed, 14 May 2025 13:54:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFAQP-0000000EuRA-0JUd;
-	Wed, 14 May 2025 11:37:26 +0000
+	id 1uFAQw-0000000Euao-3gf3;
+	Wed, 14 May 2025 11:37:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CB3E64A29B;
-	Wed, 14 May 2025 11:37:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50175C4CEE9;
-	Wed, 14 May 2025 11:37:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9DAB744678;
+	Wed, 14 May 2025 11:37:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 767A9C4CEF0;
+	Wed, 14 May 2025 11:37:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747222644;
-	bh=whRcHaYLmRc/wgTuZhRzziRr5/mx4mKqhn1YvlOKatU=;
+	s=k20201202; t=1747222678;
+	bh=5OwOl0Bj2Q2twGH0ZMeTDbcw2QPkZjXjJHWmhXAwipc=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=C1Tc2Fsmdztc7wrkLG8g4Qw1VjJzyv6ONkGp80F7mHpl9kJgjuB8d/P+ffsdAblyY
-	 GzB/W49Ykc52JGnYcw0p6YUUBZ+mWI6Rw/W8cYfCBvfbejIifts5rvSGBzFVweflkf
-	 wgJBO8psGajac9THxdwmFu831I/7OUtnYm5KyT9lL+FdMMk03kBgiSKAbxhG+Upml1
-	 mtK9gD1SI0kZ8sPhNQMB5RvkORgO64tWIIWuXBEEsAlVmrzTakzlKv98ajvMxRvjCA
-	 +gGCLJuoNg6gr8F5tKjy0r8yiKApWw1uvevZgBmydn9gL2j30gx0Tp0YfMTZB8qZUQ
-	 p6AaWgtiverFQ==
+	b=r0bNqbqlC5JKePKXJVnTj53Jae5ZjZmPeBrZacpIxwF0CYDc8vf0SpIBavb9mdh/u
+	 35gySRlT0LCrghInfjVP+VQeD0dk54kkYaa37CWtAU9KZETXpNelWjbS4eiHwC7/Lv
+	 GfR7TePORiH8Npk+FpmKuwWP+kXvwvWH3CZresGMquBfYdI71XImcigraaIfQROS8g
+	 nzbT6g+zDosTSwr4LfXYBMARRt69PmRRyUlVgN0k62diJ92aNpvaJfReXYsfB1KRmr
+	 ny8LDEp8TOogjo+hLa9UjgCHtb84Ix7e3wkXsVNkpMiUuBVJs0Ztpv+l2OxDM8Hq5A
+	 f0RB++qjCNDug==
 From: Vinod Koul <vkoul@kernel.org>
-To: Kishon Vijay Abraham I <kishon@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+To: kishon@kernel.org, Heiko Stuebner <heiko@sntech.de>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org
-In-Reply-To: <20250416202419.3836688-1-robh@kernel.org>
-References: <20250416202419.3836688-1-robh@kernel.org>
-Subject: Re: [PATCH v2] dt-bindings: phy: rockchip: Convert RK3399 Type-C
- PHY to schema
-Message-Id: <174722264197.85510.7578170417818621392.b4-ty@kernel.org>
-Date: Wed, 14 May 2025 12:37:21 +0100
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20250503201512.991277-1-heiko@sntech.de>
+References: <20250503201512.991277-1-heiko@sntech.de>
+Subject: Re: (subset) [PATCH 0/3] usb-phy support for the old rk3036 soc
+Message-Id: <174722267614.85510.13471013929246898806.b4-ty@kernel.org>
+Date: Wed, 14 May 2025 12:37:56 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_043725_135536_C807AD6B 
-X-CRM114-Status: UNSURE (   6.46  )
+X-CRM114-CacheID: sfid-20250514_043758_938869_C9E5CE9C 
+X-CRM114-Status: UNSURE (   6.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,21 +75,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 16 Apr 2025 15:24:17 -0500, Rob Herring (Arm) wrote:
-> Convert the Rockchip RK3399 Type-C PHY to DT schema format. Add the
-> missing "power-domains" property and "port" and "orientation-switch"
-> properties in the child nodes.
+On Sat, 03 May 2025 22:15:09 +0200, Heiko Stuebner wrote:
+> While trying to resurrect the rk3036 board in my boardfarm, I also
+> implemented the up to now missing usb2phy support.
 > 
-> Omit the previously deprecated properties as they aren't used anywhere.
+> The implementation is quite similar to the rk3128, except the not-
+> supported charger-detection, so its addition was quite simple.
 > 
-> Drop the 2nd example which was pretty much identical to the 1st example.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] dt-bindings: phy: rockchip: Convert RK3399 Type-C PHY to schema
-      commit: 2063eedf3c9c4449fbf417c9b84ecd08251c3b34
+[1/3] dt-bindings: phy: rockchip,inno-usb2phy: add rk3036 compatible
+      commit: d78b565371314e48242cb9383d0f9d331119ab2e
+[2/3] phy: rockchip: inno-usb2: add phy definition for rk3036
+      commit: 3ca48b955bb34a3b07dd915318d73a23740de282
 
 Best regards,
 -- 
