@@ -4,86 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 530FBC54754
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 07:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A10C54754
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 07:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vsFmIkwdH9OoXCMppMf8wUNa7gtRjrtDKlbCp4u90l4=; b=oUvu6gEww+O58uxoPbhSHDKdFO
-	SStHOuCc1McMa9DSeu0/DI2BJuFobbYOE4vly90nIJmOH0JTv4gNOc/z01BeSp03JQ+nygun38CDY
-	cLaFw4njqEr98wi0fFw4jeqTZbMMpftqsYqmlEPsHv7u77/uwKD/0OP53piIO345XuCL653ZwmG2T
-	c9SYk2xuMyJ6d/aP/HBAcQglIQ21j3WEdyxwz4GIdPjLSOAa3rR8aW+H0E0mMHy8qYbX3utJpe8y/
-	zVAWlIzz8hmiPHBW5Ln5dP6vhTvmqENpv3uGJr/P2PeYLMv6MpOXQiT9rQbHJAXc2qCtv8iingQ+e
-	KM/3XbfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Z4s9ebNgSLYHeslq+8/10OLsPhL9fHFB7iQxErbUZqU=; b=DLy++XH7o8eTSuE7dE1l3S0Ijx
+	kKo7FVVnGAVm5G71VIBBW5muSg1TMkvPf5P4T6xlx4+G7TW+Z8JuT0wjjjaRstHkKy/h2oYWnG7on
+	seqOVLEqrS2N1Xf8Kxwr89bzzkMhV/B5z0ruT3JzfhWViClqCSkhlAE6n57ew/pSnLliqoCMkmxu+
+	hWFlFSqUZxQuW7plapK20eKJ+w3P21GZuXLkUn9igsjqVXfDoi6w+F6WwTEfB5zFRCy8FcGVDEkBS
+	95lgzgFeHMq5wVSCmLSXyit6AsOPsPR0O/sjyMJV3dTh2HWn5F6sHkvPa+AXx3Be3VCSqo8URV993
+	Uo4DocnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFSdC-0000000HDmI-4BH9;
-	Thu, 15 May 2025 07:03:51 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uFSfB-0000000HDti-2mYl;
+	Thu, 15 May 2025 07:05:53 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFSAE-0000000H9v0-0E0D
+	id 1uFSUY-0000000HCan-1Hvp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 06:33:55 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 54F6XcsB2840777
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 15 May 2025 01:33:38 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1747290818;
-	bh=vsFmIkwdH9OoXCMppMf8wUNa7gtRjrtDKlbCp4u90l4=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=AJuuJZmoSy+db7mgObmuNpYkkrQ0tFEJr8H+XgANp8lEmD5mFbnpK3VkuKC3KUp1C
-	 VNmn4/ashv7iKQSj7ChApECaXKrNf6xFMq/v2rtez45sqUR9OJqjQW0awtb6U7NP0J
-	 b19oC07uC/B+xhPyZiWdW4PqPy/Eup1QcZJsUc5s=
-Received: from DFLE106.ent.ti.com (dfle106.ent.ti.com [10.64.6.27])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 54F6XcZR129050
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 15 May 2025 01:33:38 -0500
-Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE106.ent.ti.com
- (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 15
- May 2025 01:33:37 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 15 May 2025 01:33:37 -0500
-Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 54F6XWVx116598;
-	Thu, 15 May 2025 01:33:33 -0500
-Message-ID: <4373351e-6dfe-428f-8253-dcc6a1374335@ti.com>
-Date: Thu, 15 May 2025 12:03:31 +0530
+	Thu, 15 May 2025 06:54:56 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4ZygsQ5DqKztR6Q;
+	Thu, 15 May 2025 14:53:30 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 84A2B140276;
+	Thu, 15 May 2025 14:54:47 +0800 (CST)
+Received: from kwepemq500001.china.huawei.com (7.202.195.224) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 15 May 2025 14:54:47 +0800
+Received: from 228-1616.huawei.com (10.67.246.68) by
+ kwepemq500001.china.huawei.com (7.202.195.224) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 15 May 2025 14:54:46 +0800
+From: Nianyao Tang <tangnianyao@huawei.com>
+To: <maz@kernel.org>, <tglx@linutronix.de>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <guoyang2@huawei.com>, <wangwudi@hisilicon.com>, <tangnianyao@huawei.com>,
+	<wangzhou1@hisilicon.com>
+Subject: [PATCH v3] irqchip/gic-v4.1: Use local 4_1 ITS to generate VSGI
+Date: Thu, 15 May 2025 14:53:59 +0000
+Message-ID: <20250515145359.2795959-1-tangnianyao@huawei.com>
+X-Mailer: git-send-email 2.30.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v10] net: ti: icssg-prueth: add TAPRIO offload
- support
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-CC: Meghana Malladi <m-malladi@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Simon Horman <horms@kernel.org>,
-        Guillaume La Roque <glaroque@baylibre.com>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Roger Quadros <rogerq@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-        Jakub Kicinski <kuba@kernel.org>, Eric
- Dumazet <edumazet@google.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <srk@ti.com>,
-        Roger
- Quadros <rogerq@ti.com>
-References: <20250502104235.492896-1-danishanwar@ti.com>
- <20250506141709.rnhvtoghn2tc47rw@skbuf>
-Content-Language: en-US
-From: MD Danish Anwar <danishanwar@ti.com>
-In-Reply-To: <20250506141709.rnhvtoghn2tc47rw@skbuf>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.67.246.68]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ kwepemq500001.china.huawei.com (7.202.195.224)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_233354_298898_6DA37738 
-X-CRM114-Status: GOOD (  22.14  )
+X-CRM114-CacheID: sfid-20250514_235454_648336_98C2FAC8 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,60 +73,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vladimir
+On multi-node GICv4.1 system, VSGI senders always use one certain 4_1 ITS,
+because find_4_1_its return the first its_node in list, regardless of
+which node the VSGI sender is on. This brings guest vsgi performance drop
+when VM is not running on the same node as this returned ITS.
 
-On 06/05/25 7:47 pm, Vladimir Oltean wrote:
-> On Fri, May 02, 2025 at 04:12:35PM +0530, MD Danish Anwar wrote:
->> From: Roger Quadros <rogerq@ti.com>
->>
->> The Time-Aware Shaper (TAS) is a key feature of the Enhanced Scheduled
->> Traffic (EST) mechanism defined in IEEE 802.1Q-2018. This patch adds TAS
->> support for the ICSSG driver by interacting with the ICSSG firmware to
->> manage gate control lists, cycle times, and other TAS parameters.
->>
->> The firmware maintains active and shadow lists. The driver updates the
->> operating list using API `tas_update_oper_list()` which,
->> - Updates firmware list pointers via `tas_update_fw_list_pointers`.
->> - Writes gate masks, window end times, and clears unused entries in the
->>   shadow list.
->> - Updates gate close times and Max SDU values for each queue.
->> - Triggers list changes using `tas_set_trigger_list_change`, which
->>   - Computes cycle count (base-time % cycle-time) and extend (base-time %
->>     cycle-time)
->>   - Writes cycle time, cycle count, and extend values to firmware memory.
->>   - base-time being in past or base-time not being a multiple of
->>     cycle-time is taken care by the firmware. Driver just writes these
->>     variable for firmware and firmware takes care of the scheduling.
->>   - If base-time is not a multiple of cycle-time, the value of extend
->>     (base-time % cycle-time) is used by the firmware to extend the last
->>     cycle.
->>   - Sets `config_change` and `config_pending` flags to notify firmware of
->>     the new shadow list and its readiness for activation.
->>   - Sends the `ICSSG_EMAC_PORT_TAS_TRIGGER` r30 command to ask firmware to
->>     swap active and shadow lists.
->> - Waits for the firmware to clear the `config_change` flag before
->>   completing the update and returning successfully.
->>
->> This implementation ensures seamless TAS functionality by offloading
->> scheduling complexities to the firmware.
->>
->> Signed-off-by: Roger Quadros <rogerq@ti.com>
->> Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
->> Reviewed-by: Simon Horman <horms@kernel.org>
->> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->> ---
-> 
-> This is not a review comment - just wanted to mention that a week ago,
-> I've added a selftest for this feature at
-> tools/testing/selftests/net/forwarding/tc_taprio.sh, and I'm wondering
-> whether you have the necessary setup to give that a run. That would give
-> maintainers a bit more confidence when merging, that things work as
-> expected.
+On a 2-socket environment, each with one ITS and 32 cpu, GICv4.1 enabled,
+4U8G guest, 4 vcpu is running on same socket.
+When VM on socket0, kvm-unit-tests ipi_hw result is 850ns.
+When VM on socket1, it is 750ns. The reason is VSGI sender always
+use the last reported ITS(that on socket1) to inject VSGI. The access
+from cpu to other-socket ITS will cost 100ns more compared to cpu to
+local ITS.
 
-I wasn't aware of this. I will check if I have the setup and try to test
-it before posting future revisions.
+By using a local ITS, we can get 12% reduction in IPI latency.
 
+Modify find_4_1_its to first return per-cpu local_4_1_its, which is
+init when inherit the VPE table from the ITS or from another CPU.
+If fail to find local 4_1 ITS, return any 4_1 ITS like before.
+
+Signed-off-by: Nianyao Tang <tangnianyao@huawei.com>
+Suggested-by: Marc Zyngier <maz@kernel.org>
+---
+ drivers/irqchip/irq-gic-v3-its.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index 0115ad6c8259..1b1d32f746b4 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -125,6 +125,8 @@ struct its_node {
+ 	int			vlpi_redist_offset;
+ };
+ 
++static DEFINE_PER_CPU(struct its_node *, local_4_1_its);
++
+ #define is_v4(its)		(!!((its)->typer & GITS_TYPER_VLPIS))
+ #define is_v4_1(its)		(!!((its)->typer & GITS_TYPER_VMAPP))
+ #define device_ids(its)		(FIELD_GET(GITS_TYPER_DEVBITS, (its)->typer) + 1)
+@@ -2778,6 +2780,8 @@ static u64 inherit_vpe_l1_table_from_its(void)
+ 		}
+ 		val |= FIELD_PREP(GICR_VPROPBASER_4_1_SIZE, GITS_BASER_NR_PAGES(baser) - 1);
+ 
++		*this_cpu_ptr(&local_4_1_its) = its;
++
+ 		return val;
+ 	}
+ 
+@@ -2815,6 +2819,8 @@ static u64 inherit_vpe_l1_table_from_rd(cpumask_t **mask)
+ 		gic_data_rdist()->vpe_l1_base = gic_data_rdist_cpu(cpu)->vpe_l1_base;
+ 		*mask = gic_data_rdist_cpu(cpu)->vpe_table_mask;
+ 
++		*this_cpu_ptr(&local_4_1_its) = *per_cpu_ptr(&local_4_1_its, cpu);
++
+ 		return val;
+ 	}
+ 
+@@ -4180,8 +4186,9 @@ static struct irq_chip its_vpe_irq_chip = {
+ 
+ static struct its_node *find_4_1_its(void)
+ {
+-	static struct its_node *its = NULL;
++	struct its_node *its;
+ 
++	its = *this_cpu_ptr(&local_4_1_its);
+ 	if (!its) {
+ 		list_for_each_entry(its, &its_nodes, entry) {
+ 			if (is_v4_1(its))
 -- 
-Thanks and Regards,
-Danish
+2.30.0
+
 
