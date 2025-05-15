@@ -4,76 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3B1AC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 09:20:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E122EC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 09:22:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BqELylo+1x+Ji/2E4BhWBaCKgU1m0gtE541IdTwDmWQ=; b=RM7vVIZl+2ruFpZHBotfw6RYXl
-	jBS6IFVVBpq5vXBV3w/tl32yYduKk6BCkcOkWSlwot3JwpYEqHgDvld7yCuh1mLjZTfidmMSteYuW
-	A1aI9Sb8qWVhzZAso541zKr4vvJAykQ9pS5MIqQ2TGRQKINsnUheWv5wF1pbai8WijunhEC52VebN
-	UU64JKIW9FcaNqLdBPCmrwQd7RjQDEQ0VHaQnrAR7r2tRCyYO6VrDgUlUvMcwRd8nAEL1409k/+WY
-	jHTha+pdY8n/MlH1QUlFZuJN4dM4FW0p00FI9M9YZgtyXnChpLciEHVGL4DYKV+9PvYaJUP4wK9tT
-	DYdLDUcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z3V5gzTsX4gPY+7P55gPPQfb0vt8QIMJnNwWN8DMMjE=; b=36b8iUrl42wie6jCDjythBMt9d
+	VIJZaUN28zwBUHeOzv0ou4fAbYzwMBZ80uhBHz9dzqQVcdiDloCvPBe4TjACwlVbURLM0lm9Ffv6f
+	ry/Z487qqaPTJnYHFr6hFUqoLnoBUgCGB2HfSSj1ZFkeZ8znQ9brSwdic+OdAyvqX4IbTYBt4Ihl+
+	rvC552ped4n7Hh/9Hv8c2Hp/C7vrNloAJfamZh8r94ch949B1nM2+H9GxIg4SnUGKf8mhEuVySpJc
+	+tM+df6A/0DshQvKAto0UU/QTRD8SMXI2EpuHon3ZBJMklD9D6LjHUVfdvPmS5Ns8pF09pqKBHhZ2
+	L+lxBzSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFUld-000000008XC-1yPj;
-	Thu, 15 May 2025 09:20:41 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1uFUnX-000000008yJ-45Ft;
+	Thu, 15 May 2025 09:22:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFUfi-0000000079N-1fKq
+	id 1uFUkx-000000007wB-2bwT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 09:14:35 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 1F6D2A0149;
-	Thu, 15 May 2025 11:14:32 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=BqELylo+1x+Ji/2E4BhW
-	BaCKgU1m0gtE541IdTwDmWQ=; b=DXhlJFfsBzh3PItI+RaXb17IizvM2dqy7JUe
-	FjbOv6zgjMSrtE9vEdkagaGnPqqSlIa7B2S8BcH39SRHH0jErj6hlN49qvadjC+r
-	ebahbAtnNnBFIngf3HZOL6jq2Yjgh8hTfoPNynGV1Nq+A6HoIQAy0T6OoG/kAAvJ
-	fHFABQIprJL4mpidvPrjfUug8QEHNrmIxfxh0RzNOnem8Cj0yARlt1iXp3ekda5G
-	6tTKmC7JI/VrrfZobjMQjBmSbplSN8q5l3ySM7zrI5LWzGAmrfD5kr/LQzx2FtuZ
-	rQQfSdJnImPpaILVFaVlLjkDywcIibj38cYtDKkAaFqvFaUkhQB97kJMf5sdfUJ7
-	SNzMZowJEq4XyylXEQlRqimOU/xyMOA80Qx5BYJl0AFvZYWPbVLg8qkEkXH5qqWY
-	CK1kY5m+ACdcPwSgYbLD826D1AJjv4gePz+4LNeGeEY/o7z/StxRz9EKGOJOun7D
-	3eTgKlF1wq71Pe/rYvTvlmkvf/tjHrvQaRFDMMtZ1yQNeDXY0ja/1f4Ca2Aw0mZY
-	4a303i3GrPao0hwqKn9hy9kgu4zjeTzdFSCytHFCPZFAD1tOG+D9LpMY8Dr+PxDa
-	CdVXbhpa2ovLWb0RfleqZtSDAB3ipA3Nd9G8ET838hr4KS28+usFZueNYYtsBVKk
-	aXu+Mp8=
-Message-ID: <e4e6c7a9-9b7a-4012-8bda-75804229ec95@prolan.hu>
-Date: Thu, 15 May 2025 11:14:22 +0200
+	Thu, 15 May 2025 09:20:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C7DFC5C068B;
+	Thu, 15 May 2025 09:17:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35E82C4CEE7;
+	Thu, 15 May 2025 09:19:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747300798;
+	bh=yAE5ZaqBHdVLWaZoDrZHlWAUy//bRfgw5fCUmaQcQXw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lN542K2tpX5KeIGgI5eh1Qj9mt3QfJDXZrQxR2X5IRG3WttDFY3pHx2Zdv28uKO9h
+	 NNRjgNVuZOptIjAmgcO8VBWBt0GFqfBETj3B2FbXWgZOXig/OF6cwo+mnAPtlNswzx
+	 ny3y2JxKtfU7xKXsFBI2fasxxM3PmQmYgbasJol+hp7J051xlDPTXTN6jv54rMgqhA
+	 wsfzNFh7LNm+pN0DgY+RcaVAKra0e0RJEoB0fpvO6yn/urlS9RCiGt0PgZYJk2AliY
+	 g5j/+ekx6LRPo+sCcwI0tJJi1GPgD/g5P8SHQmf1HyjyerWvx5BMZUuQSaR+1K6g/l
+	 LMWRL5Wcg1Ugg==
+Date: Thu, 15 May 2025 11:19:54 +0200
+From: Mark Brown <broonie@kernel.org>
+To: Patrice Chotard <patrice.chotard@foss.st.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5] spi: stm32-ospi: Make usage of
+ reset_control_acquire/release() API
+Message-ID: <aCWxusdUYgeGRaqk@finisterre.sirena.org.uk>
+References: <20250514-b4-upstream_ospi_reset_update-v5-1-7b5de0552c8c@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-Subject: Re: [PATCH v6 0/2] Add `devm_dma_request_chan()` to simplify probe
- path in atmel-quadspi.c
-To: Mark Brown <broonie@kernel.org>
-CC: <dmaengine@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, "Vinod
- Koul" <vkoul@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>, "Rafael J. Wysocki" <rafael@kernel.org>, "Tudor
- Ambarus" <tudor.ambarus@linaro.org>
-References: <20250515083132.255410-1-csokas.bence@prolan.hu>
- <aCWpjplhAXUvr9fj@finisterre.sirena.org.uk>
-Content-Language: en-US
-In-Reply-To: <aCWpjplhAXUvr9fj@finisterre.sirena.org.uk>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.254.7.14]
-X-ClientProxiedBy: sinope.intranet.prolan.hu (10.254.0.237) To
- ATLAS.intranet.prolan.hu (10.254.0.229)
-X-EsetResult: clean, is OK
-X-EsetId: 37303A296767155D617062
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="NvFxYeYGiMf1vQuJ"
+Content-Disposition: inline
+In-Reply-To: <20250514-b4-upstream_ospi_reset_update-v5-1-7b5de0552c8c@foss.st.com>
+X-Cookie: Well begun is half done.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_021434_587416_6A1B6FDF 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20250515_021959_700905_2765C40A 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,33 +78,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On 2025. 05. 15. 10:45, Mark Brown wrote:
-> On Thu, May 15, 2025 at 10:31:28AM +0200, Bence Csókás wrote:
-> 
->> Change in v4:
->> * split PM imbalance fix (now merged) and DMA cleanup (this series)
->> Change in v6:
->> * rebase to spi/for-next, see note below:
->>
->> There is currently no difference in drivers/dma/dmaengine.c between it and
->> dma/next [1], therefore PATCH 1/2 should be safe for Vinod to apply. But
->> this way PATCH 2/2 is trivial to apply. I didn't want to pull the whole
->> linux-next tree, but if any ofyou run into problems, let me know, and I'll
->> rebase the series on it instead.
-> 
-> I can't tell what the plan is here, or what the status is for the first
-> patch (since I'm not CCed).  The second patch depends on a new API
-> introduced in the first patch so it can't be merged independently.
+--NvFxYeYGiMf1vQuJ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Yes, the situation is a bit convoluted. Obviously 2/2 will be applied 
-after 1/2, in a similar vein than the former PM series.
+On Wed, May 14, 2025 at 03:56:01PM +0200, Patrice Chotard wrote:
 
-So what I was trying to say: Vinod should be able to apply 1/2 to his 
-branch (dma/next) right now, which can then be merged to spi/for-next. 
-This merged branch should be able to then cleanly apply 2/2.
+> This patch is dependent on commit 6b3754009f87
+> ("reset: Add devm_reset_control_array_get_exclusive_released()")
+> available on tag reset-for-v6.16.
 
-Bence
+When telling people about dependencies like this the standard thing is
+to also specify the repostiory, or link to a pull request.  The git
+repository is needed to actually pull the tag.  This appears to be the
+PR at:
 
+   https://lore.kernel.org/all/20250513092516.3331585-1-p.zabel@pengutronix.de/
+
+which is the full reset pull request for v6.16.  The commit you
+referenced isn't the tagged commit, it's further back in the history
+but still has a whole new reset driver backed up behind it.  I'd have
+expected that if this was expected to be pulled into other subsystems
+it'd be on a topic branch and directly tagged?
+
+--NvFxYeYGiMf1vQuJ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmglsbkACgkQJNaLcl1U
+h9ClaQf/duEFMH9ku1tjFSWXgNBEHbSEBi9hfGtmNs2Vmy0bYAFCf/Ny5aHYrPmK
+JJ7L1eHj3dfPW+ihDp5TgXjKgxHQdI5GMG2ywfUKCzT+I1Y12sb4g8F3CUWCAS1V
+Wsu2gEje4X/5agpo3BprY1CgvAcuM9/u8/ycG7/DBXBmriq7BrYjbgxYIk8oxFpK
+UAU49XCozl1o1It3RaLMSB3xnYnMyX+FaM2tMPrHXZJHLtAwuWChuCfQDo/qZIpa
+yX7DwKID+h+/Lr5+EiUuaGLutyvNqjiC/kLtCi3LhSnVkgmFtvnfXQWZyCEZRkuL
+J7OieaxVMHoILV2MPzAnMhSalQ5VGg==
+=WTr9
+-----END PGP SIGNATURE-----
+
+--NvFxYeYGiMf1vQuJ--
 
