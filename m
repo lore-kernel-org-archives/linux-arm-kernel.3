@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABAFDC54754
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 06:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BA60C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 06:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=72gnjxd8940XRDAXsejN5h3flhaS9N06qDjs/FV7GDY=; b=CPPkU0X0k0nXWi1Rs8OZJJ85sd
-	oXIqGV0MPa1HBhv3zOnE8pGkOLaLBbhCmr3iHJo+gkACS68/B+3K6dIVXVQTDdm/TwOKq/j6AJkiX
-	DcZgp3JFjmZ87Oyk9O7MaP7QYj1j19mFcuCYVLMhL1FfLaM/k1KtW43rL61+W91xSSnOJ+fn938SC
-	L05OUytdupuPEV/40NH6gRuosAOHC1TcDBpM6ILt0YGnAM3P1RB6gURPRzGdej0TBV/HxfYkYBCCq
-	i2u6r12qFdBSY4FepXJDJDgUgT5yLTfD3rAXyirEeNF9KY4HCgC4WR090OA/ppMTf3MkOyWKfR2h4
-	JTnbGVCg==;
+	bh=8Ecbvlk7Oq+jaZWmX9sSk/Z47bMXGc8G+lBQeKYEX0I=; b=Dgy7krtzrDu+82+XaCSj9W5RHi
+	GT4v3AtriknCOIpj/AZlPe345XzBHEke/fvauu92DuzeHo53e61hvfdHRi8yJCvu1G5DF9UuTdume
+	P//a5IL4wjyzO9CUU/tLDMh3yFfh6UWbgRjBILjbVLJKJM9EyrIXLOroDHKKdgBsa/CmCO9Go+a2a
+	AfBktLM28/y0XOZ3QEvjvHwwuq/rhYoBIQrpnki5uWXsEAfp1lNxaWKGdGwSV1LPgRbUpiTMvQV5j
+	g7v+U1COFouynCWVo5R41FKt9jjSrSGoivAy31w227RLAS2/shs1dffnmsKIcV46ULAs9YlF5X/LE
+	svS7uD+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFS6u-0000000H9a5-1QHh;
-	Thu, 15 May 2025 06:30:28 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uFS8t-0000000H9mT-1Hgg;
+	Thu, 15 May 2025 06:32:31 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFRyy-0000000H8Ps-10Tm
+	id 1uFRyy-0000000H8Pu-18MU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 06:22:18 +0000
+	Thu, 15 May 2025 06:22:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 04480A4C677;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3B395A4C70E;
 	Thu, 15 May 2025 06:22:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 4F25CC4CEF2;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BE5D0C4CEEF;
 	Thu, 15 May 2025 06:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1747290134;
-	bh=rk8j/Cmwc/wa16L9N0+5mRLDR8x8/Ue92XMxES+t57g=;
+	bh=J5+XTddKYL+uGoeS6U5n3vqNTVoz33EZ6TLivaXUeOs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=hgSNLiGKEwrUV7xoXuj81eIMbpXkBr2MufXDFW5GOaSVp7f766L3J04dMsT8nqVOX
-	 Iumld148DoGgbf59PUXfcfpucb0NyyuzlzhWfjP8NzUgd4ZVaz5UKZu3gS5bVqRNH2
-	 obxPhXpWHfrqYqx3fcS8ZjZ+kI7WVw3Bd613BUZTmDmDBRxY3tVOjElQLwAfqSI8xl
-	 Xk/sV1VDagjDyyJH3qDeyeCsCB7aqg/Al/JKcjf70ABTX1E4F8jviEg/+iaJcbhBFO
-	 iWY+JZhjdl6PXVPWMtF7XGupzUN4qTSZONC+9C7GqYa4rAkuntYZl13lpT0PpFkOkC
-	 tNPAbUdNCgqGQ==
+	b=FucVwOxBmZzmgCt80SOQ8pDki16kbikn7nFbn/39hegTVlG/tXe8ziBkxVJ6wk84b
+	 H2yQtCVxNXnGQLUhIw9ozxycgGEdMe14dEov+XRTS0glhSe77kQaT7LPTFGk22Bpbb
+	 WDXQ6ffTcsqlk4fq0HmeB09ZbM9JhyPU1Qw2UKUvFxggIa9dLDWkOl0CSaxYvSR+17
+	 dn33i4jszdBY0KdqD22941TVYkWpI6VlqYXjE0l51Ty8iTYOLYB9Tc0ysCRYEQQSVm
+	 2DOBUjLnQTDC0g+c/zC4pF1k5eTb2clc0qPynqd0w+7S7Rb4kcgMuyWz9pT9kuocV6
+	 +9e9OD7c4o0hA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 461A2C54756;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B48E0C2D0CD;
 	Thu, 15 May 2025 06:22:14 +0000 (UTC)
 From: Sven Peter via B4 Relay <devnull+sven.svenpeter.dev@kernel.org>
-Date: Thu, 15 May 2025 06:21:15 +0000
-Subject: [PATCH v6 03/10] dt-bindings: mfd: Add Apple Mac System Management
- Controller
+Date: Thu, 15 May 2025 06:21:22 +0000
+Subject: [PATCH v6 10/10] arm64: dts: apple: t600x: Add SMC node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250515-smc-6-15-v6-3-c47b1ef4b0ae@svenpeter.dev>
+Message-Id: <20250515-smc-6-15-v6-10-c47b1ef4b0ae@svenpeter.dev>
 References: <20250515-smc-6-15-v6-0-c47b1ef4b0ae@svenpeter.dev>
 In-Reply-To: <20250515-smc-6-15-v6-0-c47b1ef4b0ae@svenpeter.dev>
 To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
@@ -65,24 +64,24 @@ To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
  "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3518; i=sven@svenpeter.dev;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1919; i=sven@svenpeter.dev;
  h=from:subject:message-id;
- bh=24GvFN6ibXD4G73jz0oF1G3/fyuiC8WVouHqMv8StLw=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ4ZqB9fBZ2K12x/ufr+hQvX0tV3KPwXPvvxe+DexTnOPx
- ZEbS6N+dZSyMIhxMMiKKbJs329v+uThG8Glmy69h5nDygQyhIGLUwAmcusoI8PzBWcnPbpvrOZg
- sbQ06MOZY/W/j+UWMR5SqCt8Y72t+2I3w38nTdHf0+PLAt6uXb0o8rVEwH72ypx1Okbv2peYyNW
- ls7ACAA==
+ bh=/N53oOOBzb58n/OPSPSRL49kg7S7jUG56OD40+fuzWc=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ4Zqh3CXhsmiem4x9rY1d6VNMhvjfVeXXbrtwO7ydd33U
+ 35ZW450lLIwiHEwyIopsmzfb2/65OEbwaWbLr2HmcPKBDKEgYtTACbSeJiRYbJzPne/QlhOR/27
+ I+fZ9TJcsqZOPFUowPxCZ4XD0u2bGBgZjhWbPX1X4MR490rqgT2J+zf1zWtf8MRENWTViattEj9
+ c+AA=
 X-Developer-Key: i=sven@svenpeter.dev; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@svenpeter.dev/default with
  auth_id=167
 X-Original-From: Sven Peter <sven@svenpeter.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_232216_410898_A5D3EF70 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20250514_232216_459033_DD2C18FF 
+X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,118 +97,62 @@ Reply-To: sven@svenpeter.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+From: Hector Martin <marcan@marcan.st>
 
-Add a DT binding for the Apple Mac System Management Controller.
-
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Hector Martin <marcan@marcan.st>
 Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 Reviewed-by: Neal Gompa <neal@gompa.dev>
 Signed-off-by: Sven Peter <sven@svenpeter.dev>
 ---
- .../devicetree/bindings/mfd/apple,smc.yaml         | 79 ++++++++++++++++++++++
- MAINTAINERS                                        |  1 +
- 2 files changed, 80 insertions(+)
+ arch/arm64/boot/dts/apple/t600x-die0.dtsi | 35 +++++++++++++++++++++++++++++++
+ 1 file changed, 35 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/mfd/apple,smc.yaml b/Documentation/devicetree/bindings/mfd/apple,smc.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..1937fb3d2578dcf69991e83095e3e1e29958ef37
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mfd/apple,smc.yaml
-@@ -0,0 +1,79 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mfd/apple,smc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/arm64/boot/dts/apple/t600x-die0.dtsi b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
+index 110bc6719512e334e04b496fb157cb4368679957..9eb9b0656bf9c570983c90e360795b7a7c71cf90 100644
+--- a/arch/arm64/boot/dts/apple/t600x-die0.dtsi
++++ b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
+@@ -24,6 +24,41 @@ aic: interrupt-controller@28e100000 {
+ 		power-domains = <&ps_aic>;
+ 	};
+ 
++	smc: smc@290400000 {
++		compatible = "apple,t6000-smc", "apple,smc";
++		reg = <0x2 0x90400000 0x0 0x4000>,
++			<0x2 0x91e00000 0x0 0x100000>;
++		reg-names = "smc", "sram";
++		mboxes = <&smc_mbox>;
 +
-+title: Apple Mac System Management Controller
++		smc_gpio: gpio {
++			compatible = "apple,smc-gpio";
++			gpio-controller;
++			#gpio-cells = <2>;
++		};
 +
-+maintainers:
-+  - Sven Peter <sven@svenpeter.dev>
++		smc_reboot: reboot {
++			compatible = "apple,smc-reboot";
++			nvmem-cells = <&shutdown_flag>, <&boot_stage>,
++				<&boot_error_count>, <&panic_count>;
++			nvmem-cell-names = "shutdown_flag", "boot_stage",
++				"boot_error_count", "panic_count";
++		};
++	};
 +
-+description:
-+  Apple Mac System Management Controller implements various functions
-+  such as GPIO, RTC, power, reboot.
++	smc_mbox: mbox@290408000 {
++		compatible = "apple,t6000-asc-mailbox", "apple,asc-mailbox-v4";
++		reg = <0x2 0x90408000 0x0 0x4000>;
++		interrupt-parent = <&aic>;
++		interrupts = <AIC_IRQ 0 754 IRQ_TYPE_LEVEL_HIGH>,
++			<AIC_IRQ 0 755 IRQ_TYPE_LEVEL_HIGH>,
++			<AIC_IRQ 0 756 IRQ_TYPE_LEVEL_HIGH>,
++			<AIC_IRQ 0 757 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-names = "send-empty", "send-not-empty",
++			"recv-empty", "recv-not-empty";
++		#mbox-cells = <0>;
++	};
 +
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - apple,t6000-smc
-+          - apple,t8103-smc
-+          - apple,t8112-smc
-+      - const: apple,smc
-+
-+  reg:
-+    items:
-+      - description: SMC area
-+      - description: SRAM area
-+
-+  reg-names:
-+    items:
-+      - const: smc
-+      - const: sram
-+
-+  mboxes:
-+    maxItems: 1
-+
-+  gpio:
-+    $ref: /schemas/gpio/apple,smc-gpio.yaml
-+
-+  reboot:
-+    $ref: /schemas/power/reset/apple,smc-reboot.yaml
-+
-+additionalProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - mboxes
-+
-+examples:
-+  - |
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      smc@23e400000 {
-+        compatible = "apple,t8103-smc", "apple,smc";
-+        reg = <0x2 0x3e400000 0x0 0x4000>,
-+               <0x2 0x3fe00000 0x0 0x100000>;
-+        reg-names = "smc", "sram";
-+        mboxes = <&smc_mbox>;
-+
-+        smc_gpio: gpio {
-+          compatible = "apple,smc-gpio";
-+          gpio-controller;
-+          #gpio-cells = <2>;
-+        };
-+
-+        reboot {
-+          compatible = "apple,smc-reboot";
-+          nvmem-cells = <&shutdown_flag>, <&boot_stage>,
-+                        <&boot_error_count>, <&panic_count>;
-+          nvmem-cell-names = "shutdown_flag", "boot_stage",
-+                             "boot_error_count", "panic_count";
-+        };
-+      };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 3f32d028ab49994a0da9f3882f37b9c3b183f5b4..27caedc40262ee9b9fdb6478f7624422517375a7 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2275,6 +2275,7 @@ F:	Documentation/devicetree/bindings/iommu/apple,dart.yaml
- F:	Documentation/devicetree/bindings/iommu/apple,sart.yaml
- F:	Documentation/devicetree/bindings/leds/backlight/apple,dwi-bl.yaml
- F:	Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml
-+F:	Documentation/devicetree/bindings/mfd/apple,smc.yaml
- F:	Documentation/devicetree/bindings/net/bluetooth/brcm,bcm4377-bluetooth.yaml
- F:	Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
- F:	Documentation/devicetree/bindings/nvmem/apple,efuses.yaml
+ 	pinctrl_smc: pinctrl@290820000 {
+ 		compatible = "apple,t6000-pinctrl", "apple,pinctrl";
+ 		reg = <0x2 0x90820000 0x0 0x4000>;
 
 -- 
 2.34.1
