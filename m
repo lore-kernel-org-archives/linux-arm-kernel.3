@@ -4,94 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BB5BC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 16:19:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C10CC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 16:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K2RUuqM7j77YiC7O2/E2sWiPYfT3vLPzw6aLspbrJ9A=; b=TFx2oli1sl7/GS0oXCPGWE7bm2
-	ixRNrWYYjB32wQnT9aRFi+A52ycTwPukfCwTWUBEol46UsWgjDIZnTs4VV0TgdQ2wUyZVF2iuZd4t
-	Z3H7BtI3N0cUMO9opsWwHMNqqDWjNcIbiWCVG5avSfg/mWBBQceKs+V4UXVL5dhosDz/d302zHEel
-	10Z5lrjLwBqFLmh4AiKkpGpGEskLWQ6Qc3ZgmZo0uEWCIcBqTujn1SRqKBPbWma8s8wCW4dEPObjb
-	1Yv1atGkDinL4RhGEbw0W8JZAI+MDsL167l1vPLGAC0TR0gIAzP6P1vkueX6AVIZvQDK7A9rfardo
-	d5tU1qjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8zbZqR4goLgTSVRqHdKV02J3yiLXaNsS0dmfi0IcWZ4=; b=3wnSY7SPTNRFm+3Qv8Bl0L/9jm
+	uF+c4ylm7hmcbOT+SX5/DTCfejlaGnuOhSMfpELrq+mNBi7Jrk7f0IRiWw+6mpteO89YkX4SBqbB+
+	kQT4XVVrI3Kud817eu1TsWg/A8M1IC8jwKeHTdoUouUxJthDyRkBvxazJRux4PDPkCYTsNMPphiuZ
+	O1m/U6X60oaHrPM9EepAgon51E+Bb7bETb6mn0wvZHbzqGFHON/z/cV2OB5l9o75MZ8uSlr/ja3Tr
+	DoZhN74UHMoVn7SxB9Oet2VSgLmfn9i+pYbgJlE4Brh24fvi2z7IPcI5JN25SWeJSj/prVM7bvd4F
+	Cf7CFyPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFbIm-00000001EaZ-0Epz;
-	Thu, 15 May 2025 16:19:20 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uFbKn-00000001F7T-36xJ;
+	Thu, 15 May 2025 16:21:25 +0000
+Received: from mail-bn8nam11on20623.outbound.protection.outlook.com ([2a01:111:f403:2414::623] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFbAV-00000001CfP-2vj7
+	id 1uFbCl-00000001DIy-1pgI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 16:10:50 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43d04dc73b7so11784065e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 09:10:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747325446; x=1747930246; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=K2RUuqM7j77YiC7O2/E2sWiPYfT3vLPzw6aLspbrJ9A=;
-        b=YAsyrR1JuGGDrJlX2R9iDx5gax7OjMayicFY5tJnHt9ycuXK2wz5tiCGF+Dx4YXv9C
-         0QLBj5ZQBVbNLP2efYLzU8Lqq1RHushYkPmUTg0bLyTRB9djoNs6K5EQltQ2yHkOyqAZ
-         +QtP0AzQllO71rrDUT1/KPIXn5NUjOe95rfSF7OuHeP3C1vMU3tpUDHfqVeXCEId5MyR
-         QJcgzjlTU/zxjiTmtYCnHxaCEWL8NFHjyrIYbOFSVM+fSrnIqnQFMLpxsZD1KbvrRaSA
-         E5TLq+tmhWxS/jFYShgaAwC/Dx/B+/EOEOLghllOd8ub+6MsZqO5sKXrcRgFq5PQAwlW
-         00OA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747325446; x=1747930246;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=K2RUuqM7j77YiC7O2/E2sWiPYfT3vLPzw6aLspbrJ9A=;
-        b=uCSC3CP706goIAdWjWHlm2KRevk++PB88vsc1T48eHeKfEJdL4KrZ+W6uFjYuPtN5i
-         5QFoz+Kq7Fjt0tGqApLXFgDKke3CMBy3cqvH0rLMm6attrziO2hEmJUUhInyaxzvSOtT
-         JJZbwIB4pQ8HQOpvBze31G87FFpKGRpaouKMNEIKNy4Sq1d7qutqRm4Kl5+rfgufss8V
-         ykwHKMSN10qzVng8qV+JeTC0QYdoYcXNnprOgnsQBVFYoR+xa+dAWgJyJkKMKMS8aXOQ
-         ArmdWe2sjR0jbtApBfKTeXDjygl6xtNP1HWQp4KICFiRdGxgWtPsSkRzf4wytnFTU5Dl
-         hBPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWMAF0RvvOAK57Jn02GZPSIQYrun0w7RXUlTc7ueRUykWJ5Qgjyf7DZ6Y6gW1OlYVKiGRH0acJpLEccn8Y/SZnr@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUSH2j3nG2IdAH06twMPG7Y7wysXaM8FlzPjjQkM/n5jjGzXLD
-	1x62+uuKoMSGeWMEZEsHeNqlETtyEv8sSferJPb3+KQEcYVqupxSuXXbQLXOIXDu7ieew4vHbQt
-	5uJ1LxSjFRcWoOSGoDW1Uldhftd1dzvs=
-X-Gm-Gg: ASbGnctdariy+nKcf+66XmdFC+B2GKBqZSzliK1DrfOd0g+k15oOMvdqfXh9uIKf7yq
-	dGvocP/eGtp4LTsoteoJmHUBzekmxRsJxNku0RpGj6fKyqDloxDx/0svVTrrtW34QuGcQ7sEi22
-	0S92ByTZ9HufzDBQxyJUpdIA6gJ1FShjA=
-X-Google-Smtp-Source: AGHT+IFZbUVdPwHyT0Clm2bKqbykU6Hoz0divy6kyYfkhV2fc4IbIeu9yY9VFI6isbO+t3Jgv72E5GlEP9c/n5Vmv4I=
-X-Received: by 2002:a05:6000:2dc8:b0:3a0:8325:8090 with SMTP id
- ffacd0b85a97d-3a35c825b99mr373886f8f.18.1747325445358; Thu, 15 May 2025
- 09:10:45 -0700 (PDT)
+	Thu, 15 May 2025 16:13:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JRcRilOJEGyYdzuyh10eISFxIDSQORKHdP+MWEa0ADedbIukFyb8KBqnoU7m4G9Hsi4rCQnKkVgXOmaVpCESkPar5xOMQGu0GjuUu7GkKpJuMsWu60WfgamQYLkAp9gH4r4caPyBOx75RLtf5Fa0r4MSU9N8hb0Uj+YaVs/vkb/0ivt5BK/3aci/fGQndmqZbqAj4aARSwzlA9H+Oj6nEEH6duNuOq3EjkNrE5Zaba8MrBC9Re5JZ5YB78xSpsmrqFA/GOQbhPbmWsPkZbs3foL7oXsaUQuowFfowrMqYLuFPzD6JkCudQoUFbn9JNPZfQZLj9XV5MIeGnawJ1VQBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8zbZqR4goLgTSVRqHdKV02J3yiLXaNsS0dmfi0IcWZ4=;
+ b=bI3Qoh+dXYhOfI3w1K288TNeH+vAwijKHWzL7eiJRjJdQMsmJt/cd9cjh0g2brvwSmJuGP5N2V4C635zOcN2hq4D3hgtSoiR9LA8f7Zgc+yKUs2KeeWQd/ABvaOl3yN/rIp1vsmELtwvNdRkZ1oCsaT/Rq5dXyFwoY2jrtvJg9s59zlAScI7yBXVsnclyrkFZc5C6A6B+NuZ8Q8ZV3oxZJ3c8AGivnOW5813JbCMTm7BVDNXNk2pzxBzTT3V0O6hEY54XUBaeKnb7nRi3GKkCBuTMpm7s5RLIuV8eIS1ksnrwW7pYoEVY4555RqMjY55kICeflG8nlo1pdUC4r4/MQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8zbZqR4goLgTSVRqHdKV02J3yiLXaNsS0dmfi0IcWZ4=;
+ b=nzMyloEIIqzgeAKQrpPBVE+2fubA5v7Lv3LYx8LS7dl7i3+YIDrIth04rgF4NZU18LqJBAGQii4ZxbYH1T2rDAhtv2df60Rf4ggsQltUMAqbohL9nUq0SfFMHJPbI5F0C+BYCG+Ea7LgZcau74C4h36JJVCMB4FghLr/ujW+nXwSbhQ36uPKOrP5aCoMAy3mPopHwVUILVLdfA/LMLa3qyXBWIIbTOqi+IGpvh4Q3Kyuaqo5HMFCHJQ50EGkVCUFbFervfbo1Xp4rzzmg/3NBt0FHh0b5Lv12A5iP8RmhlldAO/kx/3jxPKvwoqHW8RmNv5YOu8AFR/Fs8VkwRj0sw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by DS7PR12MB6072.namprd12.prod.outlook.com (2603:10b6:8:9c::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.32; Thu, 15 May
+ 2025 16:12:55 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8722.031; Thu, 15 May 2025
+ 16:12:55 +0000
+Date: Thu, 15 May 2025 13:12:54 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
+	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
+	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
+	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
+	praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
+Subject: Re: [PATCH v4 12/23] iommufd/driver: Add
+ iommufd_hw_queue_depend/undepend() helpers
+Message-ID: <20250515161254.GK382960@nvidia.com>
+References: <cover.1746757630.git.nicolinc@nvidia.com>
+ <3ee7d54d5368ac59822da214000fb25273de0508.1746757630.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3ee7d54d5368ac59822da214000fb25273de0508.1746757630.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: YQBPR0101CA0344.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:6b::28) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-References: <20250506103152.109525-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <202505151255.rCHp8Bvu-lkp@intel.com> <CAMuHMdUh3oXniR3b_g+SuqXXeB=3YRFSVOONOth7XRNpHC=a8A@mail.gmail.com>
-In-Reply-To: <CAMuHMdUh3oXniR3b_g+SuqXXeB=3YRFSVOONOth7XRNpHC=a8A@mail.gmail.com>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Thu, 15 May 2025 17:10:19 +0100
-X-Gm-Features: AX0GCFutHTsXdF6X-UzPCdROzCLoI3M2MdWC6VhMZtfwaAYxbEp32opOSVRegW4
-Message-ID: <CA+V-a8vrLyWDprGMcnbPQ5Skt=+zcRA6nJ6APOQ2V0d17pfMog@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] clocksource/drivers/renesas-ostm: Unconditionally
- enable reprobe support
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: kernel test robot <lkp@intel.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Chris Brandt <chris.brandt@renesas.com>, llvm@lists.linux.dev, 
-	oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DS7PR12MB6072:EE_
+X-MS-Office365-Filtering-Correlation-Id: 29838ecc-cc01-4b8f-e98d-08dd93cb59d1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?pMR4p8aOaEJTnuizE0ZDcAvlO+bP2z+igqboal7XZ3urYEbkLoXZ7vXNfx4i?=
+ =?us-ascii?Q?jwVFW6+IbxOIiA6ZR4gMx3mdwkcePyMev4NcOHGHarOrqxMkTfU7ZObrutwn?=
+ =?us-ascii?Q?AMWtQtxePODaWmNQJ4cik/ZPQz3buu0CGoGaqfS9p/NCg83JhlhsSNuQ2NaK?=
+ =?us-ascii?Q?CEo3Pq6DhChWTCKs3dMSt7EF46I9YdduZRJPm9R5sHJW2IWn3HiZuij5UG7/?=
+ =?us-ascii?Q?vR4odu0x1OaTpkLAzTf5K9hjeuLxroQ6BZLCfQfK6FY4E8+iSZAVcofDO5BV?=
+ =?us-ascii?Q?nfyZuIDF/W0Aesgxope00MqRprFAsT3y0b8w3vMDuXRCvB6usVbwCiZrChhZ?=
+ =?us-ascii?Q?NEAvKJ+4Bt8UPA3Su7RIgIhaaF2BEnw6PYddNPStVv77FJhr1hHhDSYPJvAT?=
+ =?us-ascii?Q?nZmENXkHGGd+LK43HHN/2KfCHSffysyB7h6iiGAgzpjQwM7DkgHMaGRlxmQV?=
+ =?us-ascii?Q?p+WtNLcJhNJamAHTnUXXpIo9uXcKgGwMRHVllN1G3dQVj/7fsSasl8m+PoVs?=
+ =?us-ascii?Q?dclFP+tV48dqF5M/CaCy7zXoW5sw5K/m+39BRC50XFT/JmvK61uKPLe9rWtC?=
+ =?us-ascii?Q?8GjLMgxDfH9MlOB2udHfKDvZSPZFf+VWq56VqQug2y/JPgo0LEg2leq10g5M?=
+ =?us-ascii?Q?I8gDyFXlI2OpRo2qGezR+dBEWXBukPbb2ck/TZAxcg7Vf/XwrVwIXQhpb2JG?=
+ =?us-ascii?Q?pFYW300TA6TK+juXQ/TYGI6evQKBAxSoleYhFDkPnXSUixribin5LZUn2+nV?=
+ =?us-ascii?Q?4f5sV4bzQcWBSfX7P7rL5ElasfjPxLB8k5JGNFwTEP0v5wkVewz7BPKgFErr?=
+ =?us-ascii?Q?rdLaiacgVppjC4hxA26B94hB1nIyFkzfUE+iPILTFKFO19b5POmquNqTzy6u?=
+ =?us-ascii?Q?O5DxFp7FUudXMN7sZ1k2wR6jMA5Y4OksT5sX7zwFAYdel+breacFdosFvMng?=
+ =?us-ascii?Q?X1LzmA2f3vaqzfrv/sHb8nXfPLYKk1Sa3f2h/4iItAC/CMenRe3sllA4Ype8?=
+ =?us-ascii?Q?lU+2NaY1OmhsQ7Fcrzbmw4yVyvvf/p7ZIRchDq34IC0Ftx298ygSeBYuKcEV?=
+ =?us-ascii?Q?ar6gfh46nXULEqPofR2FT0t3pRthu4TMO2UTToPE6olFLnADpSvGB+buO2PS?=
+ =?us-ascii?Q?wE8NmskHqov7G9V7ZI+VAgGvVrxnvVHA1DpZYSyzcMI0jxhNAfy0JYjQdEU4?=
+ =?us-ascii?Q?dp28TVgW2D3j+ruBUrqeJM/W8O9nWMH/yUJ62WJR+Eqf63GB1mYI4YK8h1tb?=
+ =?us-ascii?Q?9rUEmVAE+ezCBJDWTHzkoTyAKq2xVDKDmBtNLXi7QNCfIw5+J7/fBhiGKOL1?=
+ =?us-ascii?Q?I1TyKmG9EoSSh1juR26xQ5QmCS+u0ZGEtne5H8ZgExGAcIbzv77kBsgkY/t7?=
+ =?us-ascii?Q?ejd+CBShJ7cDsVYO63kOe5RgvUehQ7lDZIyMmw1OyZTqRBDD8A=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HkqjxHZWXWs3SjzLLuY3Hmzp8nKXMH+AQvnq8dud4Bk/KLvYfDZYBahOSIQa?=
+ =?us-ascii?Q?RKPmDunm9/ktG9n4PIApPzMhKvoDmeXsrHvlM2SgsQPNmO7SIuALGplkEuhp?=
+ =?us-ascii?Q?Gdav63a3178KKcjo284x2/nfswQQ1h5T7NBrb/9OxsI8TA6xqF0XXuJXVijA?=
+ =?us-ascii?Q?QAABgdsuC2Xxx8OrZHfhkB5GpC3Cx9pmnsJTjNPYPAaXsJhHAfYKjDEySGro?=
+ =?us-ascii?Q?q/vBpye0qOiQa/Prf/w8wOoK4PSW/L/tmZgo/Q5RplRzohj+k+sGa6y2hRwC?=
+ =?us-ascii?Q?v42Ebp9kPwcq9zjHjUf/W/amWky+kdvFChG/xcDrYtCOVR65XAp7WAMwgmuF?=
+ =?us-ascii?Q?9TMiPFeWIKtYbYdP2koDggAjHG4ehKb4ypuzb+PDvCdRCfRdqTqnVqdDtCIA?=
+ =?us-ascii?Q?rOFUeJIV5ohjX7gIYl62R/xY1BkGVrYxEX06p2aEykEzASh7wicQCitmaU+W?=
+ =?us-ascii?Q?myZhMPmpYlb4jNlK2vEnA3bloTAHvPlmPOtTp31pMJvMrPjUqzxEdOCF47/i?=
+ =?us-ascii?Q?uE0laHzxQLgFyn3VQbPcGa1LqEAhan/DP60/r9YPR66cRKD9mnRri9atwSX7?=
+ =?us-ascii?Q?aVG8Anq2jW0v97Y7QT/5X1FCtXCIOpZu04hbo777LTMN47rukSwp7KUu9vsx?=
+ =?us-ascii?Q?RHe8wm/g8oSFi9OyfLOQu7k3mYu1W/XRVYoDDdCWoA80ND4D2fZUtXRHzUFo?=
+ =?us-ascii?Q?cBwNBeDic83xt5sfwnI3jfwVgHv7Au3XwUXn0wnEaaeV7zwS97LSc4dxp9e/?=
+ =?us-ascii?Q?CbF/jnKclRBORF3aSX+GJS27DLd0uAh95XJ/Dm0FMk2vKyN3mvbIs+oVbbcI?=
+ =?us-ascii?Q?4a3mhseR86cXBcUJ3lSttwbnbxoDWXn8FD0XmBxGMTxh9Io6s57KjBtpnTPQ?=
+ =?us-ascii?Q?cC+uOYmyt6ifZK+oqaw4PHEblwp1gzPgoB537iK7WybD9IZqQ29VKHK1olpv?=
+ =?us-ascii?Q?Npic9acj03kfdNqPHtEXhPBc4xmlJall9Trei7TK2ArrhAiaKH8xquN2qF9c?=
+ =?us-ascii?Q?pb3ldOS/ieIEJH7DP5opvsvMLLuEUhjur09u5XKwZ8MGS6sGFd9G6NF65hUT?=
+ =?us-ascii?Q?jGLT+DtSHk0SzljaAOckwzQRz7yhuO78cyFkIpoyFHAMzuYiYA1XMGIrd12Q?=
+ =?us-ascii?Q?3IILqhZ3cr5KygK1hJJwC0E8PP3LKethYzuBfN2BJ+iKcHrk/7FsdiIl63it?=
+ =?us-ascii?Q?fdzDRdLZco7r66tVKcINIB9rmbntZALkKpNTCkpay91W79PuDi4I4XuIkaMv?=
+ =?us-ascii?Q?hG9bJMbJwhhQlYcyHoB1saf6rL4e+5YT+1LQSMtnXussyFMlMXsaAsetypSK?=
+ =?us-ascii?Q?JkpT0A5WHp28uMMxgE4IiqTylUDwakjXAi6+x9WQe1xsjrpYE252BV4wBR2r?=
+ =?us-ascii?Q?umWdk759d71pbhUh2YhK9WCfPTMWnGcNkVnBWRGBpy2PnNV1J7Y2zDiO6rOk?=
+ =?us-ascii?Q?mypaXm9iBYi+fFhVMo622VXF/z7PB1svDp2MT2Y8GRgpp0IAsryXac5Wzm9h?=
+ =?us-ascii?Q?l3eZncbs0JE5lGAU9zh5nQWcyeVdoE7GxH/bTBIAnvd8w/cOk7b/bO4GBbdT?=
+ =?us-ascii?Q?Ns1lQUEJFQEdI42wSMluZCKo7aDtzXB22L8xVMqN?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 29838ecc-cc01-4b8f-e98d-08dd93cb59d1
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 May 2025 16:12:55.3104
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Xe+julpLtv7kkOBEOLE4yDl4MNHtswSq6aTNctAkSx9WKHlgFxoyOzEpiX/hWg+m
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6072
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_091047_740401_3827077C 
-X-CRM114-Status: GOOD (  29.68  )
+X-CRM114-CacheID: sfid-20250515_091307_473824_EB385A1E 
+X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,84 +166,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
+On Thu, May 08, 2025 at 08:02:33PM -0700, Nicolin Chen wrote:
 
-On Thu, May 15, 2025 at 6:59=E2=80=AFAM Geert Uytterhoeven <geert@linux-m68=
-k.org> wrote:
->
-> On Thu, 15 May 2025 at 07:04, kernel test robot <lkp@intel.com> wrote:
-> > kernel test robot noticed the following build warnings:
-> >
-> > [auto build test WARNING on tip/timers/core]
-> > [also build test WARNING on robh/for-next linus/master v6.15-rc6 next-2=
-0250514]
-> > [cannot apply to daniel-lezcano/clockevents/next]
-> > [If your patch is applied to the wrong git tree, kindly drop us a note.
-> > And when submitting patch, we suggest to use '--base' as documented in
-> > https://git-scm.com/docs/git-format-patch#_base_tree_information]
-> >
-> > url:    https://github.com/intel-lab-lkp/linux/commits/Prabhakar/dt-bin=
-dings-timer-renesas-ostm-Document-RZ-V2N-R9A09G056-support/20250506-223636
-> > base:   tip/timers/core
-> > patch link:    https://lore.kernel.org/r/20250506103152.109525-3-prabha=
-kar.mahadev-lad.rj%40bp.renesas.com
-> > patch subject: [PATCH v3 2/2] clocksource/drivers/renesas-ostm: Uncondi=
-tionally enable reprobe support
-> > config: hexagon-randconfig-001-20250513 (https://download.01.org/0day-c=
-i/archive/20250515/202505151255.rCHp8Bvu-lkp@intel.com/config)
-> > compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project=
- f819f46284f2a79790038e1f6649172789734ae8)
-> > reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci/arc=
-hive/20250515/202505151255.rCHp8Bvu-lkp@intel.com/reproduce)
-> >
-> > If you fix the issue in a separate patch/commit (i.e. not just a new ve=
-rsion of
-> > the same patch/commit), kindly add following tags
-> > | Reported-by: kernel test robot <lkp@intel.com>
-> > | Closes: https://lore.kernel.org/oe-kbuild-all/202505151255.rCHp8Bvu-l=
-kp@intel.com/
-> >
-> > All warnings (new ones prefixed by >>):
-> >
-> > >> drivers/clocksource/renesas-ostm.c:235:34: warning: unused variable =
-'ostm_of_table' [-Wunused-const-variable]
-> >      235 | static const struct of_device_id ostm_of_table[] =3D {
-> >          |                                  ^~~~~~~~~~~~~
-> >    1 warning generated.
-> >
-> >
-> > vim +/ostm_of_table +235 drivers/clocksource/renesas-ostm.c
-> >
-> > 3a3e9f23c2cae9 Biju Das 2021-11-12  234
-> > 3a3e9f23c2cae9 Biju Das 2021-11-12 @235  static const struct of_device_=
-id ostm_of_table[] =3D {
-> > 3a3e9f23c2cae9 Biju Das 2021-11-12  236         { .compatible =3D "rene=
-sas,ostm", },
-> > 3a3e9f23c2cae9 Biju Das 2021-11-12  237         { /* sentinel */ }
-> > 3a3e9f23c2cae9 Biju Das 2021-11-12  238  };
-> > 3a3e9f23c2cae9 Biju Das 2021-11-12  239
->
-> The table is unused if CONFIG_OF=3Dn due to
->
->                 .of_match_table =3D of_match_ptr(ostm_of_table),
->
-Thanks for the pointer, I'll add a __maybe_unused compiler attribute
-and send a new version.
+> +/*
+> + * Helpers for IOMMU driver to build/destroy a dependency between two sibling
+> + * structures created by one of the allocators above
+> + */
+> +#define iommufd_hw_queue_depend(dependent, depended, member)                   \
+> +	({                                                                     \
+> +		static_assert(__same_type(struct iommufd_hw_queue,             \
+> +					  dependent->member));                 \
+> +		static_assert(offsetof(typeof(*dependent), member.obj) == 0);  \
+> +		static_assert(__same_type(struct iommufd_hw_queue,             \
+> +					  depended->member));                  \
+> +		static_assert(offsetof(typeof(*depended), member.obj) == 0);   \
+> +		_iommufd_object_depend(&dependent->member.obj,                 \
+> +				       &depended->member.obj);                 \
+> +	})
 
-Cheers,
-Prabhakar
+This doesn't need the offsetof == 0 checks, it isn't an allocator. And
+you want to check that the two structs have the same type:
 
-> Gr{oetje,eeting}s,
->
->                         Geert
->
-> --
-> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m6=
-8k.org
->
-> In personal conversations with technical people, I call myself a hacker. =
-But
-> when I'm talking to journalists I just say "programmer" or something like=
- that.
->                                 -- Linus Torvalds
+static_assert(__same_type(struct iommufd_hw_queue, dependent->member));
+static_assert(__same_type(typeof(*dependent), *dependend));
+
+Jason
 
