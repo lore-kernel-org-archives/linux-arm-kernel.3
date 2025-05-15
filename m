@@ -4,186 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7389C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 11:48:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DA73C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 11:50:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lzQUaeDSdxwKzm5wHMJXr4c5yP5/S/eSnNdTZl6uY7g=; b=4P9VNw6spJFUp1KY6RlxjaaDGb
-	GpiYd6uZFvrpfSwk3Fjy5cMpKEEaBpOzNciwmH4YdvLd1Q0OD4g06EnT7n2EhTSw9KvFH7EGrKtQl
-	aTNSBZK20WnYHzHOYcoKiNjywpYwSWVnlATe18VHAWfOFXPXd+C+UR5wlcyTSa7VmbComvRH75L1k
-	/esuA8Y3XCa1tcXI6ozcTOojD3dLYyg0cFbeZ8lP7ZjCVBXxIMOUAbjb8e9IHNMpselJIa+1ZupsX
-	Mq8b2udzelWIFUKhm8hTii58A+hOFzxeYJ0xRYTWzvfAS2AYmgLAwQcNAYTdNaV/KXSWJceAs4tOO
-	UXSgMv4Q==;
+	bh=q+/bh+aOh7Xr/wNEXFbED7Z9SklSOlJbINWhikaBXIc=; b=oxZrVyWGM1Hmmwmd+gs75goKCI
+	5knysg12fwW1g5CY3LJroIt3HtGRaRTxOx3t2zL3aOEAm0taNHvxyOSok3ihg7Du6vvBDOyddfVdc
+	FmDTsqF0+7+XD32sIaWOrUWyV5GaPTAGsODA4IQWpzvF3ZXxG4OOm7+NjaXaflLnJDIp0vwUNUNxM
+	kJKRqBLEDrBJJAnhTluRxz17hsiDKB5UXlFbHQelMKq5fECyoEWcfte1hGdrwEYfFsiJISmJ+NaDj
+	cMC3+7ihd8JDQjF5d4MuwokkY9AI5V/Wh3Buu73165geVQKck6sydEUSiJSz3xP/avmqhTC5x9H+D
+	c9q8/Org==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFX4R-00000000Rx5-2BYY;
-	Thu, 15 May 2025 11:48:15 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1uFX6Y-00000000SJm-2TFi;
+	Thu, 15 May 2025 11:50:26 +0000
+Received: from smtp2-g21.free.fr ([212.27.42.2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFX21-00000000RVO-3iaw;
-	Thu, 15 May 2025 11:45:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZW772XBVOH0N/nTGb0f3KjwHmvfAGnNVKsD6bYOaNCR/NtM9qk27c6wLfv0h8BbC14nmgZ8JzOSrThSlACqoJucRt35ASpJErqntZXBhjPDP03TuPdpECCEbPFW+DKK2WqBcBYotnKrqhzzc0xqlWmwR68NL1H9jj6TMPcxRk7vJCQYNluxB6RGo1yJtdjA7aN33N3wxYhtsyILdrewDkFJIHtqlq2YxPDdGc+5Oz0yzPUEMRjU3KshN6hYWPlQIZY1r2gK+lR2PjA2Eh48nC6TMkYDgVPZoGe38Rfpl/DQfgzxllop9T75bKNEa/4gFz7HjzjKRP4nliQJm7Sc/aA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lzQUaeDSdxwKzm5wHMJXr4c5yP5/S/eSnNdTZl6uY7g=;
- b=vYIQx+tecf/FDtHi5JiRs+Zp+jtbS3zidx0HkbTCBlMzkdNe8kiQKqCoA0fMDlxba8dSrnNARdMXjp+VcwithMJQ+fcO3UTPS9hoeSoHfp1q9QurbMlm6AfFTi/9T3O7lzWltYA3BrKhaHFOSfI5lidxby4zs85fO+LFkNMKfTmheAkkdkondFp6QKIdkoJvsM0EdS3rw4cO/H9yePRJTyE33aE/+VTon51QilKzh4JBZvuWY/TIeMdR6B0INOfQsyi/laS0NLtAsXsqKcwY8Y6hpbzfrkFx8Gzdq/P221L0eOkW8qn6dd+Sbez4iswNhwA12tt9Sp1HQ33Kqasntw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wolfvision.net; dmarc=pass action=none
- header.from=wolfvision.net; dkim=pass header.d=wolfvision.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wolfvision.net;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lzQUaeDSdxwKzm5wHMJXr4c5yP5/S/eSnNdTZl6uY7g=;
- b=JYWzu5Bh3EUD0V3ymUlqhl65WsFH6Zbsk+lZQ0EOBxyWwQQgLkD3xcvg3asBdmBORwNOpMJc3mJ0Gb2vrr0Ylahwx4eyyIYjXt52GSecjCoenDf+p35lyh9y9JZBH2IU8xbMU9qdPqnTpssC9UVBxq4gXX/wVtGgo1I2qZUmj3g=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=wolfvision.net;
-Received: from DB9PR08MB7724.eurprd08.prod.outlook.com (2603:10a6:10:393::12)
- by PA6PR08MB10739.eurprd08.prod.outlook.com (2603:10a6:102:3d8::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.29; Thu, 15 May
- 2025 11:45:39 +0000
-Received: from DB9PR08MB7724.eurprd08.prod.outlook.com
- ([fe80::ef67:bfef:6aca:11e5]) by DB9PR08MB7724.eurprd08.prod.outlook.com
- ([fe80::ef67:bfef:6aca:11e5%3]) with mapi id 15.20.8722.031; Thu, 15 May 2025
- 11:45:38 +0000
-Message-ID: <9b7b54c6-568a-4534-960e-33269adbaee1@wolfvision.net>
-Date: Thu, 15 May 2025 13:45:35 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 14/14] arm64: dts: rockchip: enable vicap dvp on
- wolfvision pf5 io expander
-To: michael.riesch@collabora.com, Mehdi Djait <mehdi.djait@linux.intel.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
- Markus Elfring <Markus.Elfring@web.de>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Kever Yang <kever.yang@rock-chips.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Collabora Kernel Team <kernel@collabora.com>,
- Paul Kocialkowski <paulk@sys-base.io>,
- Alexander Shiyan <eagle.alexander923@gmail.com>,
- Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org,
- Michael Riesch <michael.riesch@wolfvision.net>
-References: <20240220-rk3568-vicap-v7-0-7581fd96a33a@collabora.com>
- <20240220-rk3568-vicap-v7-14-7581fd96a33a@collabora.com>
-From: Gerald Loacker <gerald.loacker@wolfvision.net>
-Organization: WolfVision GmbH
-In-Reply-To: <20240220-rk3568-vicap-v7-14-7581fd96a33a@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: WA2P291CA0016.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d0:1e::12) To DB9PR08MB7724.eurprd08.prod.outlook.com
- (2603:10a6:10:393::12)
+	id 1uFX4W-00000000RyH-0lar;
+	Thu, 15 May 2025 11:48:21 +0000
+Received: from localhost (unknown [82.64.135.138])
+	by smtp2-g21.free.fr (Postfix) with ESMTP id 037D52003D6;
+	Thu, 15 May 2025 13:48:08 +0200 (CEST)
+Received: by localhost (Postfix, from userid 1502)
+	id 90FFDC4D5; Thu, 15 May 2025 11:48:08 +0000 (GMT)
+Date: Thu, 15 May 2025 11:48:08 +0000
+From: Etienne Buira <etienne.buira@free.fr>
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Etienne Buira <etienne.buira@free.fr>,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] firmware/raspberrypi: raise timeout to 3s
+Message-ID: <aCXUeOmy28tqg6Oy@Z926fQmE5jqhFMgp6>
+Mail-Followup-To: Stefan Wahren <wahrenst@gmx.net>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Etienne Buira <etienne.buira@free.fr>,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <aCIiEp3CXD2o9dTw@Z926fQmE5jqhFMgp6>
+ <048fd6c5-9f09-4c06-9a23-e5821dc291d5@gmx.net>
+ <aCWMrJcldfrsNTQq@Z926fQmE5jqhFMgp6>
+ <ffeb860f-5522-4130-ae47-45a6068b17ea@gmx.net>
+ <aCW3d7tc27Awj62K@Z926fQmE5jqhFMgp6>
+ <cecda824-4f47-4e4c-bee9-1a59cd5d801c@gmx.net>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR08MB7724:EE_|PA6PR08MB10739:EE_
-X-MS-Office365-Filtering-Correlation-Id: a8c53864-c1d2-4a33-7566-08dd93a6032a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|7053199007|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ekVacWUvdCtLcGRCcmQrZ2dBNUhCUHFrclVNZEo3cXErRm1HV05EY3NkQ0Jj?=
- =?utf-8?B?VU9RNFBXVkdCSS9xWFhPV2xZNUZJK3IzaXZOWWRITmlJcFFoMS9EWW9aK2RH?=
- =?utf-8?B?eW11STl4bFgxYnBPWllSZ1J2WmpOUis3MzA3NE5zUTRDSktYaTBQU3BTcy9X?=
- =?utf-8?B?a2xjZzdsOThIV1JWK1lzY0sxZ1hRd2s5Zk5acmZPQzFQZEVhNTFhMG9QQ2lq?=
- =?utf-8?B?NEwzcTFHOUxJd1BKNXlFL3hBdjg1V2pCZldBcnJYZGRUM3hZN3FDZmtZN2hQ?=
- =?utf-8?B?ajI4M2VUZEdKTWRFRW9sZnc4bFp4QWtqZmtHRU1sSGFtaGEzUG1JWlZ6MWs0?=
- =?utf-8?B?aVMxY0wrZzNGU0JMSytJaXJ0SFBmQk04SnYvcHAwanNvTXFoSXBJN3ZCUU83?=
- =?utf-8?B?QlVkTFdONkhYaW15bWhwTjBNUGVUdzdBdUh1MHlzeHUrWWxmNkFsWWtFS1Jw?=
- =?utf-8?B?QWFpaEdWbzQ2dm5RM3NSN3g0NCtDYUE3VmVhdVpvWVg5RStZN3ZobUszY1g0?=
- =?utf-8?B?YkZ5aU5XbittRmpiczFaczhjUjFpOTZyU1NlT05aWHRuZVJSTmtPcW44M3VT?=
- =?utf-8?B?OHBYbDhzSGEyZUptaUhBRkZEcTBKU0gxVjU2MVhGeWFIM3B2M05RMG5OdzZN?=
- =?utf-8?B?bURsYndKaDY4WC9tdWF1bXNvN0dmNVJLcitJczQ5dmpWRDU0N21kYnhhalN5?=
- =?utf-8?B?dm5EYTdVSmdoSzh3L1dXc3k1YjA0eko5ZzMvVWJZTGFmNktIMHdpYmNNVmQ2?=
- =?utf-8?B?bDRjb2kwS1VvSjJyNGwzRFhwVG16SW1vM2R2S0NIZXl4Y0V5VmJrdkxMblQ1?=
- =?utf-8?B?VVlKL2RpNWhJUVR5clZtNTBpZnZTZlBLQVl0OFBjNzZoeGVOZlJvQlZOdXZq?=
- =?utf-8?B?d2hjZDd2ZEkwT0d5UkFzNXhlQ2psSGdiK1J2ekc4a0dzRktKOUw1K2g1bktC?=
- =?utf-8?B?bE13UUNQVlZSZXRZRFBaYmFLRmIzSmRTaDkzdlRlMCtzOEdXVHBJQjNIZi9O?=
- =?utf-8?B?NGYvcTljVUpINWlmK1pwN2NQNVEweGswQ3pEMThreXV3eS9TeWZROXNVVkFv?=
- =?utf-8?B?Rno2UDIwMmNmc1d5UXBUY1RkRDhkeDJKcWxwaEgyS1ZxM0JvWXdoN3IvQVNV?=
- =?utf-8?B?STFFeWxUbEhQM0xnczFrQitla3BiMzNVL0tldnpPWFJFaGxLV2twSGY1d1RX?=
- =?utf-8?B?czJLb1p0THI4UEIyeEQ5THlSRG03dWx1U0FrV3hwQnFMUGxLNERsNmxFS0F4?=
- =?utf-8?B?cXFaQzVISEhheUZEWkFFTFpYNHozekE1Tzlsa21QY3BkSEtxSmNKTTN0WjZI?=
- =?utf-8?B?ZDYrMmZleFdDTkEvNDVLQlJ1LzZxcUpDd3JkdlpPeWh2NiswVzNQenNVWFBT?=
- =?utf-8?B?d1dnQVZEOUlxZVdidU0zdTloclNyVHRQc1RGenUxZW1oN1ZUVXBpTFlFL3M2?=
- =?utf-8?B?MXNXRjdlcTZyV2NkK3BnNVdsVWhReGFnTTBTSExVRUUyU0dRNlNMNTBYeVF2?=
- =?utf-8?B?TWRoLzhPZmhYVUxCSzN5eWlMNkhmVGlWQ0o5RDRtREx5M2hWbnZjanRiWk84?=
- =?utf-8?B?cjJKbUNHelljcVhRSmhxcVJqaUhBcDVZalpVbXoyOE9jSnBkQ3JraUFnajgw?=
- =?utf-8?B?OUlGQ01qc0dKMHlRNzhvTWJsWjA2ZTJJOXhBMGxqL3NRdXY1SS8yK0Jjcitr?=
- =?utf-8?B?ckoyVGNXZUl1TzJMWnp0bVNZQzlBTE5LVWk1Q0JaY2pNL0ZOaWszOHk5d1Bv?=
- =?utf-8?B?YzdoVDhXNC96UTRxSWpFWVJrKzBURE1OTE4rdFl6WXJnamNHM3FUZFhidldI?=
- =?utf-8?B?WjQ1VUxkZ2xwenhKbHVIWk5STnFuMEx2eng4cmFCUXE0N1laMlovVXRrREJu?=
- =?utf-8?B?Y05qQXFXeWNMb2dvRTRnS0p6Ukx5b3ZOOXpXYnFSdllvaVdzZEFwSUwxa0tZ?=
- =?utf-8?B?aGJIUUNkZUE2ek96L2VaM2grVkozbXpBdGt4ckpTWGRiODZuTTlRTGVSUEdp?=
- =?utf-8?B?dFZJL1NneTh3PT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR08MB7724.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(7053199007)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dHJENGRwTDJRNkFDWldqa1hVbE41UThva2s2R2NTa0svbEw5cnJpc2lxNitT?=
- =?utf-8?B?ZXdsM3dCWEtlZ2owdkMxeE01ZVBMYVY2VlZ3VnVPSjRkanVOaEJIZmdlMW5s?=
- =?utf-8?B?UVdUYnVMRnl4UEc5VkxQV01qVE5RdnVUdEZ2UnV2UFBsRC91dmtzbWxkd1c1?=
- =?utf-8?B?NURWOEQ4bHczU2gwSUV2ZVhtWW1RN29CMEVNOEQwSHNVYk5ia3ZyWFh5a3lL?=
- =?utf-8?B?WkcwQis5MVlIYlorVmdhOTdQKzVOZkp0c2tqcjFmdGl2VnhvMkFUbVRvc1ln?=
- =?utf-8?B?bkw3bEE5aXp1RzB2TGY1UVdJUjJCalRiV1Q2ZDhkZ1RsNytYemJHeGNxeVBX?=
- =?utf-8?B?cDN5UlZnUHgvakVvT0FYbVlCMnN5K0gvaS9iWFBiTEE0OGdRTzRmQlQrMEt0?=
- =?utf-8?B?dnRaYjZEblZOYkF4SG1SaktXV2dwMUdZb2VhYVYrNmtQTmZjVjVMd0RxemY3?=
- =?utf-8?B?R1ZGMWFRTmRkYVprcm9PKzkvT1d6RjhnREk5ZlF6dHBCRFRtRGh4aFFGclVp?=
- =?utf-8?B?S3llQVFCT2VCdjFjOVNZUjB0TDdIVzNWeCt1L1pzUFh0OUI4VjIzcXlpTTla?=
- =?utf-8?B?Z2x0MTVRVGpOTmlmeFdndnhDSFY4NHloUU9hcVRhdWhRNVBLUzB6aTNzNi96?=
- =?utf-8?B?NHEzakxqRVRET280Q2J0NFBzYncwVUhLWGdZa1NWeHdnMG94aldQSHJJSWJz?=
- =?utf-8?B?aHZnUUpzTmJnNDJ5VmtJWWtWMmFDYW9tUjdUd1FEVFk0MEtDNHViTGFDNUQw?=
- =?utf-8?B?NlR6YW1oMFFoak9EMTZocGx6NWdON3cwWlMrTFRUS2EwKzQ0UHowdGpzN3Bl?=
- =?utf-8?B?QTVwMHdzRElFai9uaE5BQ2JYb2ovR0wwUFN3ZnRTS3JNMmphdUFRaEJqN25k?=
- =?utf-8?B?UUp0aDN2eUtDNEl5eWF4Q21BbVZGZktyZlpWTlVHSjN4VENYUFlhL3VKWldw?=
- =?utf-8?B?dHBXcWxOVmhzQzhGdkhLTFkxcE1jRk4zd0RjeUY4THBEbU0zd1JLWjVUbFVh?=
- =?utf-8?B?emc0Lys0Qi9OTkh1RXM5MFdCcGpvd3BCaW5BWlFUT0NjNjdYenM1SFpaZ3g2?=
- =?utf-8?B?L0c3T25mU2l6a3hWelhrK2VraVlseTRiT2t2eXkwZW4ycjV3MkEvQmVJMFlo?=
- =?utf-8?B?NThoUjlVKzlNell6QzFEM01IYktpZkZmM1pDRDVEWWdHTExVZWsxZytLdTJ6?=
- =?utf-8?B?S2FrYlVyRHQ5enFpSDg3TVh3TlBQZ3g3ZE9XT1dkL0JnZTJVcCtHb2JDUXpy?=
- =?utf-8?B?ZStrSTlUdjllaEgwU3RyRHc0aEFweXF1QWVUZW5KZWFtQzhUbVFjcEgrbTRX?=
- =?utf-8?B?WG5ZSU43M01MUFBESjZTVzJ6WlZxeVN3VFNUQmxjek95MFNWYTN3cDAxMFdE?=
- =?utf-8?B?blJJdFJVdDBzVUFSNWlaNDM3ZVVhK0pXWE1oRFpiZEdZZXI2QVlacHhCSEdK?=
- =?utf-8?B?WVUzWW5YVjdLYW9Dd2ZEczFsUUFwdUlCRlZ0N3lRM0tCdm9xWmxJNEJ5QjYr?=
- =?utf-8?B?TGpnbGFtd2VsSG9oQkFzQ3k2a2IwVG1FU3NPSTlHL0VValRhdHJaNFU3WXg4?=
- =?utf-8?B?T2xFMzYxQ3hrZnc3SThKNmEwcDNkdTltTHduK1RYYjRBWkpZMzdScm5lMndX?=
- =?utf-8?B?aFFjODNaRWVBczVZN0owQWhhajM4YTRoRXpaNUdkVVhOWVFtY0hVSmRyY0pn?=
- =?utf-8?B?RE52Z3Y5S2xuM24vTUsveHNLWlVLSGhPak5sRTR4M2tqUjg2TTFkMVgwTkdB?=
- =?utf-8?B?NG9UbkUrRjBsM2JqclJkVXJQWktDK1pBWGxzYUJOeGRNeXZnYzA4TDA2TE1h?=
- =?utf-8?B?d1E4VU5vaGxyc2l2ZmswWjhXa0FDY3EvYjVLMWhBR25HWmNpa25OVHltSUJq?=
- =?utf-8?B?c1U2YnFyMkNIK3VtTjhwLzFSNGZxWjdEQllGWUV3WmVVeEZDRXdOOE1tNFJM?=
- =?utf-8?B?WkZNMFNmNy9vaVM4QmhpOVpGZE01cG5wUVZrbkp3QThsSWxqOTNZWlVDalJl?=
- =?utf-8?B?NnBIcjFtd1BCS0sxWkViTVNLTHhHMzNYRUZnK09yZENkYi9jcnRBaE9QbmZJ?=
- =?utf-8?B?ZUhjQTVMblQrc2Y1M09YRmVSZHRMeXpGYUVoaVJtL0tVaTRpNVZUVlNNNGxm?=
- =?utf-8?B?MnlrQmNYd0VKQjBmRTZ4L28yd0FacWppbGZwdSt1TFRBdDFFVkdzMzlCa2Vr?=
- =?utf-8?B?N3c9PQ==?=
-X-OriginatorOrg: wolfvision.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: a8c53864-c1d2-4a33-7566-08dd93a6032a
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR08MB7724.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 May 2025 11:45:38.6113
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: e94ec9da-9183-471e-83b3-51baa8eb804f
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 69ObVovUQniVX6OMTkzE87ecKIRilFt24JaibFj3qB7NrfF8H96aaleaOAb53O6qkMsKodFVcXB5H87h/YLqhN+lKD/Utb45TKT1Pl/Dua0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR08MB10739
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cecda824-4f47-4e4c-bee9-1a59cd5d801c@gmx.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_044545_947172_CE84E050 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20250515_044820_362095_81A7844A 
+X-CRM114-Status: GOOD (  16.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -198,62 +78,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
+On Thu, May 15, 2025 at 12:31:38PM +0200, Stefan Wahren wrote:
+> Am 15.05.25 um 11:44 schrieb Etienne Buira:
+> > Hi Stefan, and thank you for your interest.
+> >
+> > On Thu, May 15, 2025 at 09:42:43AM +0200, Stefan Wahren wrote:
+> >> Hi Etienne,
+> >>
+> >> Am 15.05.25 um 08:41 schrieb Etienne Buira:
+> >>> On Wed, May 14, 2025 at 06:20:32PM +0200, Stefan Wahren wrote:
+> >>>> Hi Etienne,
+> >>>>
+> >>>> Am 12.05.25 um 18:30 schrieb Etienne Buira:
+> >>> ../..
+> >>>> Out of curiosity and because i never saw this issue, could you please
+> >>>> provide more details?
+> >>>> There is nothing connected to HDMI 0 & 1 ?
+> >>>> Which firmware version are you running?
+> >> Please provide the dmesg output, so we can extract the firmware version.
+> > Firmware version is 2025-02-17T20:03:07, i also attach the full gzipped
+> > dmesg, as long as a patch of extra traces used.
+> > I did not specifically test other firmware versions for the timeout
+> > issue (but i did for video output).
+> Thanks, i'll try to reproduce.
+> 
+> Sorry, i forgot but is this reproducible with a recent stable 6.12.x kernel?
 
-Am 14.05.2025 um 17:41 schrieb Michael Riesch via B4 Relay:
-> From: Michael Riesch <michael.riesch@wolfvision.net>
-> 
-> The Digital Video Port (DVP, the 16-bit variant) of the RK3568 VICAP
-> is broken out to the PF5 mainboard expansion header.
-> Enable it in the device tree overlay for the WolfVision PF5 IO
-> Expander board.
-> 
-> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
-> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
-> ---
->  .../rockchip/rk3568-wolfvision-pf5-io-expander.dtso  | 20 ++++++++++++++++++++
->  1 file changed, 20 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-wolfvision-pf5-io-expander.dtso b/arch/arm64/boot/dts/rockchip/rk3568-wolfvision-pf5-io-expander.dtso
-> index 048933de2943..8cfce71dd318 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3568-wolfvision-pf5-io-expander.dtso
-> +++ b/arch/arm64/boot/dts/rockchip/rk3568-wolfvision-pf5-io-expander.dtso
-> @@ -11,6 +11,7 @@
->  #include <dt-bindings/clock/rk3568-cru.h>
->  #include <dt-bindings/gpio/gpio.h>
->  #include <dt-bindings/interrupt-controller/irq.h>
-> +#include <dt-bindings/media/video-interfaces.h>
->  #include <dt-bindings/pinctrl/rockchip.h>
->  
->  &{/} {
-> @@ -134,3 +135,22 @@ &usb2phy0_host {
->  	phy-supply = <&usb_host_vbus>;
->  	status = "okay";
->  };
-> +
-> +&vicap {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&cif_clk &cif_dvp_clk &cif_dvp_bus16>;
-> +	status = "okay";
-> +};
-> +
-> +&vicap_dvp {
-> +	vicap_dvp_input: endpoint {
-> +		bus-type = <MEDIA_BUS_TYPE_BT656>;
-> +		bus-width = <16>;
-> +		pclk-sample = <MEDIA_PCLK_SAMPLE_DUAL_EDGE>;
-> +		rockchip,dvp-clk-delay = <10>;
-> +	};
-> +};
-> +
-> +&vicap_mmu {
-> +	status = "okay";
-> +};
-> 
+Just reproduced with pristine 6.12.28.
 
-Reviewed-by: Gerald Loacker <gerald.loacker@wolfvision.net>
-Tested-by: Gerald Loacker <gerald.loacker@wolfvision.net>
-
-Regards,
-Gerald
 
