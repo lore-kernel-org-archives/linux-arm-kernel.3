@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DCF8C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 14:43:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 307D4C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 14:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ri9Y/SB6yFac/wfpFwrvUluCA89NBfN9piZ+0WjYdE0=; b=y7Wvnj0K2zV90nboX3jCDmVnSW
-	d5jOgXXoEL0W6VjuAR/zBmisMj2qp7wSR+C3EfWwI/oPLjEIbMtXMH0u9tLuu9dvnH5M7W0E9se5Y
-	DHYnS3KSQofvG6EJHIzNeoIt4CbT4QnjKyy2cbrLu+78MlYShG6PeGzmgmgOtqEa7tHHBhUT9SPHq
-	zcPYr0h+CJSFBxPXoR8LN/6cZQ/8R0debl+LxMe/YXMpyhUE1mVC7liTTcNMSv/0y0m1tMegzhy0B
-	3mWZzZLcVJt7CHI0ugoo+ig5MQ27yHZgM0ltxKSMtwT8YlFjVlwKOISTJG7iNeqgR88DGEf0vzlsU
-	eBJ5Pzhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LqZJfVYe+6GUsihYR1Vbr5GRhctn1BkfytbpK8QvJt8=; b=fYVsvVMn8xfrvaYTiEOSN1BoEq
+	SVzF41KoyADSuzjJTqR0LoOS6OYnuNK6UXyS7V28NOUmj/DYVhYTd2nblgmEggqaQkrr7ArJ5prz1
+	QO0DmRUVvyHN+e1uqXZoTm2+nozAwRGN8f3y8EQ7i6QFCPBZlqev+B23Ub9aMG8cbe0mlypUdMu/B
+	MAvNIsh/MNy98AZfUjj0OTpNjeFSmXnfYWdn7EvWvapuYNj5hKuH7usqSLG1RuZ7ejI2OuADY1WvJ
+	89h3F0KhcLAppxD/E7hdHO3WgWG06Lf3/gM25x5qX44lsJsK15/I+7pvMbBuQ0bQptJ5BniTQ9+dY
+	zdOD4D/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFZnw-00000000v3M-1Y5D;
-	Thu, 15 May 2025 14:43:24 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uFZpx-00000000vdU-09n9;
+	Thu, 15 May 2025 14:45:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFZe9-00000000tc8-3o1z
+	id 1uFZjU-00000000uUp-3DeR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 14:33:19 +0000
+	Thu, 15 May 2025 14:38:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CFA4D5C5902;
-	Thu, 15 May 2025 14:30:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39541C4CEE7;
-	Thu, 15 May 2025 14:33:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D8ED8614BC
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 14:38:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25515C4CEF4
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 14:38:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747319596;
-	bh=aK3rHV9MtBbtgEpm1YycksMWHc3n6cne+RJGaA7nDSk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PpDzTORUkYWu9YTyP3G2LZ7vGtA3BEZ2rlgSomrVu/Qdp7QEu06jbSvRoTUVw7ETl
-	 2132dOSL1pBhWlbL4iIVF7X2tepv3AXp/CLBJmHOKzzQpfBRQudCNEwIuHpMKPbesq
-	 Q6aNfPEJFou2azINgLxWxRfz7Eq4XGO4fITkgUtc5YNkl/3J1kCjQx37SlRLdiSINS
-	 hPZo085VL/QYlszeM5vkLjzK9+5UxoN/rjy9R5I9BzcjaSolNnum29uHVz+Sk+Lb+Z
-	 209P6QhUvdxfysoe/EQKlYmfnXt2SQwSkCtXyCazKNh3Bah6NQYrUXcH6nr3PyoCRH
-	 AkDCR0a5YUUeA==
-Date: Thu, 15 May 2025 15:33:10 +0100
-From: Will Deacon <will@kernel.org>
-To: Rob Clark <robdclark@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-	linux-arm-msm@vger.kernel.org, Connor Abbott <cwabbott0@gmail.com>,
-	Rob Clark <robdclark@chromium.org>,
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Nicolin Chen <nicolinc@nvidia.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Joao Martins <joao.m.martins@oracle.com>,
-	"moderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>,
-	"open list:IOMMU SUBSYSTEM" <iommu@lists.linux.dev>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 05/40] iommu/io-pgtable-arm: Add quirk to quiet
- WARN_ON()
-Message-ID: <20250515143309.GA12165@willie-the-truck>
-References: <20250514175527.42488-1-robdclark@gmail.com>
- <20250514175527.42488-6-robdclark@gmail.com>
+	s=k20201202; t=1747319927;
+	bh=HY+qJgM0yYWWR5BRYJcoqs5QSVlkgtqqpbluFMxs0w0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=XlUNeyHgu1WgqlfjtdehqwZSsxtnbh5JxSjmDdvRvzZIC8dHMp5ZlM3q6gHbE+u0m
+	 uWXcNeLT3nQUFcAMydn4hY1VrshtDY1S2MMtFt4TdtmlkRdxfZHqHITwT+V2Ww4LJt
+	 rAWa1bPaQ6kuHRnrx7YIe9uWu2XGmjdyzgVODAirrQ0DWUxL4tMOAc7ZhA+LzEpxsb
+	 Gpk8gBy0XGQYuyEWsYVtfEZGyQes+VbSai4YAQNKM6TqY0mbEpKeyZ8EhPJ9TVeppt
+	 qSlF6NXfthVpAxgzDOezmIxq0q0mzmV78hFXz/h1H4cnZZkEeTKKG5dCxs3BH6RWP2
+	 dZ1Kf0pmIbXmg==
+Received: by mail-oo1-f43.google.com with SMTP id 006d021491bc7-609e7f27c66so414253eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 07:38:47 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUXDng8pdi4k/Y64BWNDQ/iofRDAXWHwajWJ58W1orxy3EPtoeny3wg24V3S0oUz9g74YiDeQ4OEy8U9AO1E7Em@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyu/Ug6n1Nwyp7707Nh3E0lASo+xUVt22Nc5pMnLKE2Q6ZVcuHz
+	SE1Ka7NHDGtBQMyhSJRn9GR3My/tqhRhyyadd/rVsVZxdMpeiEP5TTIpwZbpvj427O/ftK0RQGM
+	gern602SqQ4PH3NRWD8Amzgo5/gM=
+X-Google-Smtp-Source: AGHT+IHGdjpe73oLpoH8fkWYunyQ+qiWvEA5aPtzHTJu6wWW6p5XtqkX8NoQ0qeCaUyT8XvFkMDBDMNOpym6MJAH8Cs=
+X-Received: by 2002:a05:6820:98d:b0:603:fada:ac53 with SMTP id
+ 006d021491bc7-609ec1f446dmr1516987eaf.2.1747319926526; Thu, 15 May 2025
+ 07:38:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250514175527.42488-6-robdclark@gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_073318_063595_A73110FB 
-X-CRM114-Status: GOOD (  22.89  )
+References: <20250513203908.205060-2-u.kleine-koenig@baylibre.com>
+In-Reply-To: <20250513203908.205060-2-u.kleine-koenig@baylibre.com>
+From: Chanwoo Choi <chanwoo@kernel.org>
+Date: Thu, 15 May 2025 23:38:11 +0900
+X-Gmail-Original-Message-ID: <CAGTfZH2jVrD_Bfu3NZJ+vNdQCjdxo4vygxWob+h0VasyxUa4gA@mail.gmail.com>
+X-Gm-Features: AX0GCFuopvJHbf-CNvM7N5xp7U1FlvHL3EE-1-DaHwbFHrhtaHm-zDV1Ez_RZWI
+Message-ID: <CAGTfZH2jVrD_Bfu3NZJ+vNdQCjdxo4vygxWob+h0VasyxUa4gA@mail.gmail.com>
+Subject: Re: [PATCH v2] PM / devfreq: sun8i-a33-mbus: Simplify by using more
+ devm functions
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: MyungJoo Ham <myungjoo.ham@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
+	Chanwoo Choi <cw00.choi@samsung.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, linux-pm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	oe-kbuild-all@lists.linux.dev, kernel test robot <lkp@intel.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,60 +84,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 14, 2025 at 10:53:19AM -0700, Rob Clark wrote:
-> From: Rob Clark <robdclark@chromium.org>
-> 
-> In situations where mapping/unmapping sequence can be controlled by
-> userspace, attempting to map over a region that has not yet been
-> unmapped is an error.  But not something that should spam dmesg.
-> 
-> Now that there is a quirk, we can also drop the selftest_running
-> flag, and use the quirk instead for selftests.
-> 
-> Signed-off-by: Rob Clark <robdclark@chromium.org>
-> Acked-by: Robin Murphy <robin.murphy@arm.com>
-> Signed-off-by: Rob Clark <robdclark@chromium.org>
+On Wed, May 14, 2025 at 5:39=E2=80=AFAM Uwe Kleine-K=C3=B6nig
+<u.kleine-koenig@baylibre.com> wrote:
+>
+> MIME-Version: 1.0
+> Content-Type: text/plain; charset=3DUTF-8
+> Content-Transfer-Encoding: 8bit
+
+Applied it after removing the above unneeded information.
+
+Thanks,
+
+>
+> Use devm allocators for enabling the bus clock and
+> clk_rate_exclusive_get(). This simplifies error handling and the remove
+> callback.
+>
+> Reviewed-by: Chen-Yu Tsai <wens@csie.org>
+> Signed-off-by: Uwe Kleine-K=C3=B6nig <u.kleine-koenig@baylibre.com>
 > ---
->  drivers/iommu/io-pgtable-arm.c | 27 ++++++++++++++-------------
->  include/linux/io-pgtable.h     |  8 ++++++++
->  2 files changed, 22 insertions(+), 13 deletions(-)
+> Hello,
+>
+> On Wed, May 14, 2025 at 01:25:51AM +0900, Chanwoo Choi wrote in the
+> thread at
+> https://lore.kernel.org/linux-pm/CAGTfZH2uk-6-R5QNZwsssQ1UtnqexKeo=3De=3D=
+SsXB26NMwqf8c9g@mail.gmail.com:
+> > Instead of fix-up patch, I'd like you to send the v2 of patch[1].
+> > [1] https://patchwork.kernel.org/project/linux-pm/patch/20241111112237.=
+336310-2-u.kleine-koenig@baylibre.com/
+>
+> Ah, then I misunderstood. Here comes the requested v2. The changes since
+> (implicit) v1 are:
+>
+>  - Fix the build failure that I introduced by forgetting to add the dev
+>    parameter to devm_clk_rate_exclusive_get(dev, priv->clk_mbus);
+>
+>  - Added the Reviewed-by tag for Chen-Yu.
+>
+>  - Actually compile tested. I would have sworn I did that for v1
+>    already, but that is proven to be a perjury now. Don't know how that
+>    slipped through.
+>
+> Best regards and again sorry for the mess
+> Uwe
+>
+>  drivers/devfreq/sun8i-a33-mbus.c | 38 ++++++++------------------------
+>  1 file changed, 9 insertions(+), 29 deletions(-)
+>
+> diff --git a/drivers/devfreq/sun8i-a33-mbus.c b/drivers/devfreq/sun8i-a33=
+-mbus.c
+> index 7c6ae91ede1f..4bd5657558d6 100644
+> --- a/drivers/devfreq/sun8i-a33-mbus.c
+> +++ b/drivers/devfreq/sun8i-a33-mbus.c
+> @@ -360,7 +360,7 @@ static int sun8i_a33_mbus_probe(struct platform_devic=
+e *pdev)
+>         if (IS_ERR(priv->reg_mbus))
+>                 return PTR_ERR(priv->reg_mbus);
+>
+> -       priv->clk_bus =3D devm_clk_get(dev, "bus");
+> +       priv->clk_bus =3D devm_clk_get_enabled(dev, "bus");
+>         if (IS_ERR(priv->clk_bus))
+>                 return dev_err_probe(dev, PTR_ERR(priv->clk_bus),
+>                                      "failed to get bus clock\n");
+> @@ -375,24 +375,15 @@ static int sun8i_a33_mbus_probe(struct platform_dev=
+ice *pdev)
+>                 return dev_err_probe(dev, PTR_ERR(priv->clk_mbus),
+>                                      "failed to get mbus clock\n");
+>
+> -       ret =3D clk_prepare_enable(priv->clk_bus);
+> -       if (ret)
+> -               return dev_err_probe(dev, ret,
+> -                                    "failed to enable bus clock\n");
+> -
+>         /* Lock the DRAM clock rate to keep priv->nominal_bw in sync. */
+> -       ret =3D clk_rate_exclusive_get(priv->clk_dram);
+> -       if (ret) {
+> -               err =3D "failed to lock dram clock rate\n";
+> -               goto err_disable_bus;
+> -       }
+> +       ret =3D devm_clk_rate_exclusive_get(dev, priv->clk_dram);
+> +       if (ret)
+> +               return dev_err_probe(dev, ret, "failed to lock dram clock=
+ rate\n");
+>
+>         /* Lock the MBUS clock rate to keep MBUS_TMR_PERIOD in sync. */
+> -       ret =3D clk_rate_exclusive_get(priv->clk_mbus);
+> -       if (ret) {
+> -               err =3D "failed to lock mbus clock rate\n";
+> -               goto err_unlock_dram;
+> -       }
+> +       ret =3D devm_clk_rate_exclusive_get(dev, priv->clk_mbus);
+> +       if (ret)
+> +               return dev_err_probe(dev, ret, "failed to lock mbus clock=
+ rate\n");
+>
+>         priv->gov_data.upthreshold      =3D 10;
+>         priv->gov_data.downdifferential =3D  5;
+> @@ -405,10 +396,8 @@ static int sun8i_a33_mbus_probe(struct platform_devi=
+ce *pdev)
+>         priv->profile.max_state         =3D max_state;
+>
+>         ret =3D devm_pm_opp_set_clkname(dev, "dram");
+> -       if (ret) {
+> -               err =3D "failed to add OPP table\n";
+> -               goto err_unlock_mbus;
+> -       }
+> +       if (ret)
+> +               return dev_err_probe(dev, ret, "failed to add OPP table\n=
+");
+>
+>         base_freq =3D clk_get_rate(clk_get_parent(priv->clk_dram));
+>         for (i =3D 0; i < max_state; ++i) {
+> @@ -448,12 +437,6 @@ static int sun8i_a33_mbus_probe(struct platform_devi=
+ce *pdev)
+>
+>  err_remove_opps:
+>         dev_pm_opp_remove_all_dynamic(dev);
+> -err_unlock_mbus:
+> -       clk_rate_exclusive_put(priv->clk_mbus);
+> -err_unlock_dram:
+> -       clk_rate_exclusive_put(priv->clk_dram);
+> -err_disable_bus:
+> -       clk_disable_unprepare(priv->clk_bus);
+>
+>         return dev_err_probe(dev, ret, err);
+>  }
+> @@ -472,9 +455,6 @@ static void sun8i_a33_mbus_remove(struct platform_dev=
+ice *pdev)
+>                 dev_warn(dev, "failed to restore DRAM frequency: %d\n", r=
+et);
+>
+>         dev_pm_opp_remove_all_dynamic(dev);
+> -       clk_rate_exclusive_put(priv->clk_mbus);
+> -       clk_rate_exclusive_put(priv->clk_dram);
+> -       clk_disable_unprepare(priv->clk_bus);
+>  }
+>
+>  static const struct sun8i_a33_mbus_variant sun50i_a64_mbus =3D {
+>
+> base-commit: 92a09c47464d040866cf2b4cd052bc60555185fb
+> --
+> 2.47.2
+>
 
-[...]
 
-> diff --git a/include/linux/io-pgtable.h b/include/linux/io-pgtable.h
-> index bba2a51c87d2..639b8f4fb87d 100644
-> --- a/include/linux/io-pgtable.h
-> +++ b/include/linux/io-pgtable.h
-> @@ -88,6 +88,13 @@ struct io_pgtable_cfg {
->  	 *
->  	 * IO_PGTABLE_QUIRK_ARM_HD: Enables dirty tracking in stage 1 pagetable.
->  	 * IO_PGTABLE_QUIRK_ARM_S2FWB: Use the FWB format for the MemAttrs bits
-> +	 *
-> +	 * IO_PGTABLE_QUIRK_NO_WARN_ON: Do not WARN_ON() on conflicting
-> +	 *	mappings, but silently return -EEXISTS.  Normally an attempt
-> +	 *	to map over an existing mapping would indicate some sort of
-> +	 *	kernel bug, which would justify the WARN_ON().  But for GPU
-> +	 *	drivers, this could be under control of userspace.  Which
-> +	 *	deserves an error return, but not to spam dmesg.
->  	 */
->  	#define IO_PGTABLE_QUIRK_ARM_NS			BIT(0)
->  	#define IO_PGTABLE_QUIRK_NO_PERMS		BIT(1)
-> @@ -97,6 +104,7 @@ struct io_pgtable_cfg {
->  	#define IO_PGTABLE_QUIRK_ARM_OUTER_WBWA		BIT(6)
->  	#define IO_PGTABLE_QUIRK_ARM_HD			BIT(7)
->  	#define IO_PGTABLE_QUIRK_ARM_S2FWB		BIT(8)
-> +	#define IO_PGTABLE_QUIRK_NO_WARN_ON		BIT(9)
-
-This feels a bit fragile to me:
-  * IOMMU-API users of io-pgtable shouldn't be passing this quirk
-    but might end up doing so to paper over driver bugs.
-
-  * Low-level users of io-pgtable who expose page-table operations to
-    userspace need to pass the quirk, but might well not bother because
-    well-behaved userspace doesn't trigger the warning.
-
-So overall, it's all a bit unsatisfactory. Is there a way we could have
-the warnings only when invoked via the IOMMU API?
-
-Will
+--=20
+Best Regards,
+Chanwoo Choi
+Samsung Electronics
 
