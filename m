@@ -4,58 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54F00C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 14:41:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DCF8C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 14:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4pgWXPFF4dO5j5XyrOv14vAHpJ4O49nfm35Y0Nv32ko=; b=xggakYIPyGT/lsT+fSEuXdjzSB
-	F2xzy9VwhdHtZRbInGyTazAPQXKigaq7KBJsnkHZXS10Csk/WdZN0c+cqKiOtm06IJX1sttBk6wxR
-	RlU8OsC+PXeUfNvxqfkzkfB1wmcIzur3LcjrficTM0RzfPA0fv45izZQI5inAouqOnneJheBPuwtT
-	J55u+tjriGB0Vebj0VFDGP290OluNeXieblW1GORJz0LcQ23y9O9re0GRZiKH3BX812cUnzVjceUh
-	5IKnjVwVkOs6FJpO+c7kCv6IyIu8eF7ZzOmQ9MkUpJ509SXN9pGdkarGyCprZHLtyTOMANN9LaBU1
-	Eigp9vtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ri9Y/SB6yFac/wfpFwrvUluCA89NBfN9piZ+0WjYdE0=; b=y7Wvnj0K2zV90nboX3jCDmVnSW
+	d5jOgXXoEL0W6VjuAR/zBmisMj2qp7wSR+C3EfWwI/oPLjEIbMtXMH0u9tLuu9dvnH5M7W0E9se5Y
+	DHYnS3KSQofvG6EJHIzNeoIt4CbT4QnjKyy2cbrLu+78MlYShG6PeGzmgmgOtqEa7tHHBhUT9SPHq
+	zcPYr0h+CJSFBxPXoR8LN/6cZQ/8R0debl+LxMe/YXMpyhUE1mVC7liTTcNMSv/0y0m1tMegzhy0B
+	3mWZzZLcVJt7CHI0ugoo+ig5MQ27yHZgM0ltxKSMtwT8YlFjVlwKOISTJG7iNeqgR88DGEf0vzlsU
+	eBJ5Pzhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFZlw-00000000ukp-40Gj;
-	Thu, 15 May 2025 14:41:20 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
+	id 1uFZnw-00000000v3M-1Y5D;
+	Thu, 15 May 2025 14:43:24 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFZYd-00000000swH-43Z2
+	id 1uFZe9-00000000tc8-3o1z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 14:27:37 +0000
-DKIM-Signature: a=rsa-sha256; b=ZFZILwmD7YC334uJWUSSaoozvnAwB/bun/UY/j4LOLszgSK7nHJHQv5OWtnsgllixenYRk9hnWg8nMlTXhGqtTh0cLgvDYwBceYvZdCPcMMBsZkQWGM4aLSfp+KHoPkcyJC/WP9LPp0Gu9b+lTP/qCKs81AWEMZUAzCwdDBlDo3zqO1teVBRUTU2hCagpLUl/jCUk5pBPZxZQNXSdjTJzuZlGtK0JBwFgkNEd/YR5CpElj31YM00Mw1sGjJ4I56jp+tNZQ7yf33ugvNPxxsJREEY9bvrR7zRqm12VM/BLoTtKRw/Xb0/C8aVOZhzx+t2ZS7+Ecrww4fd3pdzmEJt9g==; s=purelymail1; d=purelymail.com; v=1; bh=4pgWXPFF4dO5j5XyrOv14vAHpJ4O49nfm35Y0Nv32ko=; h=Feedback-ID:Received:Date:Subject:From:To;
-Feedback-ID: 68247:10037:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -1592338441;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Thu, 15 May 2025 14:26:53 +0000 (UTC)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 15 May 2025 16:26:48 +0200
-Message-Id: <D9WSYR0CJUC1.3RCB16LZ3S6P7@mentallysanemainliners.org>
-Cc: "Kishon Vijay Abraham I" <kishon@kernel.org>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Marek Szyprowski"
- <m.szyprowski@samsung.com>, "Sylwester Nawrocki" <s.nawrocki@samsung.com>,
- "Alim Akhtar" <alim.akhtar@samsung.com>, <linux-phy@lists.infradead.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-samsung-soc@vger.kernel.org>, "Krzysztof Kozlowski"
- <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v2 0/2] USB PHY support for Exynos990 SoCs
-From: "Igor Belwon" <igor.belwon@mentallysanemainliners.org>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>, "Vinod Koul" <vkoul@kernel.org>
-X-Mailer: aerc 0.20.0
-References: <20250420-usb-resends-april-v2-0-25dc7d2e6dd4@mentallysanemainliners.org> <aCRXgpD0Ld2W4lHE@vaman> <D9VYC98LJTR0.LJXYC1H0BAKA@mentallysanemainliners.org> <aCWj4cn4y+RyfGiZ@vaman> <ea1a7a37-031f-4f81-ba09-eaa523f70761@kernel.org>
-In-Reply-To: <ea1a7a37-031f-4f81-ba09-eaa523f70761@kernel.org>
+	Thu, 15 May 2025 14:33:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CFA4D5C5902;
+	Thu, 15 May 2025 14:30:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39541C4CEE7;
+	Thu, 15 May 2025 14:33:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747319596;
+	bh=aK3rHV9MtBbtgEpm1YycksMWHc3n6cne+RJGaA7nDSk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PpDzTORUkYWu9YTyP3G2LZ7vGtA3BEZ2rlgSomrVu/Qdp7QEu06jbSvRoTUVw7ETl
+	 2132dOSL1pBhWlbL4iIVF7X2tepv3AXp/CLBJmHOKzzQpfBRQudCNEwIuHpMKPbesq
+	 Q6aNfPEJFou2azINgLxWxRfz7Eq4XGO4fITkgUtc5YNkl/3J1kCjQx37SlRLdiSINS
+	 hPZo085VL/QYlszeM5vkLjzK9+5UxoN/rjy9R5I9BzcjaSolNnum29uHVz+Sk+Lb+Z
+	 209P6QhUvdxfysoe/EQKlYmfnXt2SQwSkCtXyCazKNh3Bah6NQYrUXcH6nr3PyoCRH
+	 AkDCR0a5YUUeA==
+Date: Thu, 15 May 2025 15:33:10 +0100
+From: Will Deacon <will@kernel.org>
+To: Rob Clark <robdclark@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+	linux-arm-msm@vger.kernel.org, Connor Abbott <cwabbott0@gmail.com>,
+	Rob Clark <robdclark@chromium.org>,
+	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Nicolin Chen <nicolinc@nvidia.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Joao Martins <joao.m.martins@oracle.com>,
+	"moderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>,
+	"open list:IOMMU SUBSYSTEM" <iommu@lists.linux.dev>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v4 05/40] iommu/io-pgtable-arm: Add quirk to quiet
+ WARN_ON()
+Message-ID: <20250515143309.GA12165@willie-the-truck>
+References: <20250514175527.42488-1-robdclark@gmail.com>
+ <20250514175527.42488-6-robdclark@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250514175527.42488-6-robdclark@gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_072736_069437_7FB21406 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20250515_073318_063595_A73110FB 
+X-CRM114-Status: GOOD (  22.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,54 +82,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu May 15, 2025 at 11:14 AM CEST, Krzysztof Kozlowski wrote:
-> On 15/05/2025 10:20, Vinod Koul wrote:
->> On 14-05-25, 16:26, Igor Belwon wrote:
->>> On Wed May 14, 2025 at 10:42 AM CEST, Vinod Koul wrote:
->>>> On 20-04-25, 21:28, Igor Belwon wrote:
->>>>> Hi all!
->>>>>
->>>>> This patchset adds support for the USB 2.0 PHY of the Exynos990 SoC.
->>>>> This SoC has a combo PHY that supports highspeed, superspeed USB and
->>>>> DisplayPort, however due to my inability to test the superspeed part =
-of
->>>>> the combo phy (device always enumerated as high-speed, even on the
->>>>> vendor kernels/bootloaders) only the highspeed part is brought up.
->>>>>
->>>>> These changes have been tested and confirmed working (with the USB_ET=
-H
->>>>> gadget and telnet/ssh in a ramdisk) on a device from the hubble famil=
-y
->>>>> (x1s) and also a device from the canvas family (c1s).
->>>>
->>>> I am missing the dt patch, can you pls report the whole series if you
->>>> would like me to review and apply this
->>>
->>> Hi Vinod,
->>>
->>> I've sent the DT series a while back (before resending). Usually I
->>> propose DT changes through Krzysztof's tree. The patches are=20
->>> unchanged (they will be resent unchanged when all usb and wdt=20
->>> changes are merged).
->>=20
->> It makes sense to post bindings and driver togther and mostly these go
->> thru subsystem trees!
->>=20
-> I don't think you both speak about the same thing. DT is ambiguous here,
-> so always use DTS or DT bindings... that said bindings were here in this
-> patchset so if Vinod misses them, this has to be resent.
->
-> Best regards,
-> Krzysztof
+On Wed, May 14, 2025 at 10:53:19AM -0700, Rob Clark wrote:
+> From: Rob Clark <robdclark@chromium.org>
+> 
+> In situations where mapping/unmapping sequence can be controlled by
+> userspace, attempting to map over a region that has not yet been
+> unmapped is an error.  But not something that should spam dmesg.
+> 
+> Now that there is a quirk, we can also drop the selftest_running
+> flag, and use the quirk instead for selftests.
+> 
+> Signed-off-by: Rob Clark <robdclark@chromium.org>
+> Acked-by: Robin Murphy <robin.murphy@arm.com>
+> Signed-off-by: Rob Clark <robdclark@chromium.org>
+> ---
+>  drivers/iommu/io-pgtable-arm.c | 27 ++++++++++++++-------------
+>  include/linux/io-pgtable.h     |  8 ++++++++
+>  2 files changed, 22 insertions(+), 13 deletions(-)
 
-Hi Krzysztof, Vinod.
+[...]
 
-Krzysztof: Thank you for the clarification. I assumed somehow the
-devicetree changes were necessary for the revies. Bad judgment on my part.
-Sorry.
+> diff --git a/include/linux/io-pgtable.h b/include/linux/io-pgtable.h
+> index bba2a51c87d2..639b8f4fb87d 100644
+> --- a/include/linux/io-pgtable.h
+> +++ b/include/linux/io-pgtable.h
+> @@ -88,6 +88,13 @@ struct io_pgtable_cfg {
+>  	 *
+>  	 * IO_PGTABLE_QUIRK_ARM_HD: Enables dirty tracking in stage 1 pagetable.
+>  	 * IO_PGTABLE_QUIRK_ARM_S2FWB: Use the FWB format for the MemAttrs bits
+> +	 *
+> +	 * IO_PGTABLE_QUIRK_NO_WARN_ON: Do not WARN_ON() on conflicting
+> +	 *	mappings, but silently return -EEXISTS.  Normally an attempt
+> +	 *	to map over an existing mapping would indicate some sort of
+> +	 *	kernel bug, which would justify the WARN_ON().  But for GPU
+> +	 *	drivers, this could be under control of userspace.  Which
+> +	 *	deserves an error return, but not to spam dmesg.
+>  	 */
+>  	#define IO_PGTABLE_QUIRK_ARM_NS			BIT(0)
+>  	#define IO_PGTABLE_QUIRK_NO_PERMS		BIT(1)
+> @@ -97,6 +104,7 @@ struct io_pgtable_cfg {
+>  	#define IO_PGTABLE_QUIRK_ARM_OUTER_WBWA		BIT(6)
+>  	#define IO_PGTABLE_QUIRK_ARM_HD			BIT(7)
+>  	#define IO_PGTABLE_QUIRK_ARM_S2FWB		BIT(8)
+> +	#define IO_PGTABLE_QUIRK_NO_WARN_ON		BIT(9)
 
-Vinod: Sorry for the misunderstanding. I'll resend the patchset shortly.
+This feels a bit fragile to me:
+  * IOMMU-API users of io-pgtable shouldn't be passing this quirk
+    but might end up doing so to paper over driver bugs.
 
-Regards,
-Igor
+  * Low-level users of io-pgtable who expose page-table operations to
+    userspace need to pass the quirk, but might well not bother because
+    well-behaved userspace doesn't trigger the warning.
+
+So overall, it's all a bit unsatisfactory. Is there a way we could have
+the warnings only when invoked via the IOMMU API?
+
+Will
 
