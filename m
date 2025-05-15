@@ -4,79 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 979D2C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 13:20:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58552C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 13:22:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/EzkB4bXG/rfB+wL51aJGaxOYPuz1tcoxIa6I3pdsgo=; b=gEZpzD3GyVA7bOOl0phIEN+iXO
-	rW6KELbG89Jh/yS4Flz0FrZLKhsRofFayJZP9Wu/fxTzdAtEGzfZ2Esp6PYo6w8rd8HnJYWISLW2V
-	dnvHrRW4qsbdOF6yKwJaE12EtHe+5YiosTTIL1SgeWO/e9ShVGB9uHfIGSgbyDAMitq1OpTshTWWx
-	z4QB4bsw36VFNzqu+wYH7PzP/KtJjr+6GKDFiqvFPAZt7eu+59sop4Bcach+sDzyOQ40stsXUkhuQ
-	OIRyp8n8ejeTRp9ugz8JMmn7XdHHDTUwizvswLX10dSL4Y/i9kmtFlBuxRLLf1M599KvNv5MwgLo7
-	7QC7Vr4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pLQZAQx7JWYvk7JPinwxnPwYo7F6pB4GfYvlOtuM8X8=; b=pto8hqUp3XLxYcLNhIKF8PcIV/
+	aoYKrMTQuCf84AGQszPdYzzy7JldWJNbzKEYI8y+qcyFfECeflG1FktOd87NwTFn4xaDJzkYvadRQ
+	5brQKZeii/p+Dta2VZsCW6H1xSMvYMirIaqMK4Q2VmPJVZ2HhAEG3GfHef+r5PQqBqB1gfl8P5/vE
+	yMZ/RpnweT2Xh5giVLghLLaaVflKzGaJqKQXYSNZs3bqveopiYbcZxdLreEOzkuF28qgobUKDqX1M
+	6SFE5V18Tc5u4zLsw9pufyLWMyvt9nei28yNJfOF+9vRf1CScW5g6iYPLOM+3qDpsCq43NEwwSdwg
+	fYZWEVGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFYVU-00000000hzx-0uS5;
-	Thu, 15 May 2025 13:20:16 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uFYXU-00000000iPU-1eeK;
+	Thu, 15 May 2025 13:22:20 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFYOu-00000000gtN-2WQK
+	id 1uFYPo-00000000h0J-2VCT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 13:13:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B1BA1A4C89A;
-	Thu, 15 May 2025 13:13:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79970C4CEE7;
-	Thu, 15 May 2025 13:13:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747314807;
-	bh=Y5x0Q5wwhg5x4WNJLlfJSj3Na3CIMpE00k8kQT2PRPI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CwdgySrBFpBknjowQX5Hoxv6LObSUmuFtYmiMRQUWj5s+X6Oy28kwmAvXM9dgeFUh
-	 aMypFFt2AEPp2VpYL84MmhfFffQ/5mBFY4/cVxpYuBxhdiHpsZ0EcTn2DhcDowf1ub
-	 qmUW/bBpIMjI2vN/rIBFu8dEt9FgLc5HUQwIBkumjALsrJLzuK4EeqFya30Fpn17c6
-	 zLBIDd5DOyFcuLW5bNPAiNaGxfyDxX3X45eFzAQWxZtUtXk3YN8u1ZeJqeNKWv9LwL
-	 9rPgr6PcheBYjnKRyQ71wIieMzBIChgrPx17FUGtbor72kdQ3ci2DtM5UZWXKSRH6n
-	 sbolT6KimcIaQ==
-Date: Thu, 15 May 2025 14:13:21 +0100
-From: Lee Jones <lee@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Artur Weber <aweber.kernel@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Stanislav Jakubek <stano.jakubek@gmail.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	~postmarketos/upstreaming@lists.sr.ht
-Subject: Re: [PATCH v8 4/9] mfd: bcm590xx: Add support for multiple device
- types + BCM59054 compatible
-Message-ID: <20250515131321.GG2936510@google.com>
-References: <20250430-bcm59054-v8-0-e4cf638169a4@gmail.com>
- <20250430-bcm59054-v8-4-e4cf638169a4@gmail.com>
- <20250509140957.GD2492385@google.com>
- <aCRZzwW0w8oVWLUp@finisterre.sirena.org.uk>
- <20250515071357.GD2936510@google.com>
- <aCWfre2-n_PSuhxR@finisterre.sirena.org.uk>
- <20250515092000.GF2936510@google.com>
- <aCW0822BVpfKV2NL@finisterre.sirena.org.uk>
- <8beeddcf-1dc7-4af8-b287-4c896852b258@gmail.com>
- <aCXQUu97HL_yrH89@finisterre.sirena.org.uk>
+	Thu, 15 May 2025 13:14:26 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54FD6Ohv014139;
+	Thu, 15 May 2025 15:14:15 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=pLQZAQx7JWYvk7JPinwxnP
+	wYo7F6pB4GfYvlOtuM8X8=; b=8JIIaksp9OUdgBZRqHR9/yAioPTzkUg2dWGRQW
+	rNFzMWqAeUiwD7CojkXQlE+rENf1XgdOnQLh5P3d3kHsODrk+cTcgXUZEe2DhFEC
+	qIPqqPHVT671YsEifYI8wuCVg2hUtGFVmwK/0hWCtFPF46lJ3k/ASRG8ij0wTfyj
+	+Cm8q5JD3g9tKQfKoQ4MWidpCr2chf58qzGfN02fd9vtTVVzvdoeYLst1UM/z1RM
+	u1/FHQVXDM/RW5KqNyBC6jmnz1bezydXg3UdjIfyUq+JkoSra73TCpI5xHYObnnh
+	vo/lVEusH9XnWB8mhG9JMWGSFjSu0Xzw8zM4xfMdtJ8/1nHw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46mbdw8t72-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 15 May 2025 15:14:15 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2018B4005D;
+	Thu, 15 May 2025 15:13:20 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 3D28BB3B14D;
+	Thu, 15 May 2025 15:12:43 +0200 (CEST)
+Received: from localhost (10.48.86.182) by SHFDAG1NODE3.st.com (10.75.129.71)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 15 May
+ 2025 15:12:42 +0200
+From: Patrick Delaunay <patrick.delaunay@foss.st.com>
+To: Alexandre TORGUE <alexandre.torgue@foss.st.com>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>
+CC: Patrick Delaunay <patrick.delaunay@foss.st.com>,
+        Marc Zyngier
+	<marc.zyngier@arm.com>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>
+Subject: [PATCH 1/2] arm64: dts: st: fix timer used for ticks
+Date: Thu, 15 May 2025 15:12:39 +0200
+Message-ID: <20250515151238.1.I85271ddb811a7cf73532fec90de7281cb24ce260@changeid>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aCXQUu97HL_yrH89@finisterre.sirena.org.uk>
+Content-Type: text/plain
+X-Originating-IP: [10.48.86.182]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-15_05,2025-05-14_03,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_061328_702476_D0ACB4FE 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20250515_061425_233685_8502ECE7 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,26 +96,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 15 May 2025, Mark Brown wrote:
+Remove always-on on generic ARM timer as the clock source provided by
+STGEN is deactivated in low power mode, STOP1 by example.
 
-> On Thu, May 15, 2025 at 01:28:15PM +0200, Artur Weber wrote:
-> > On 5/15/25 11:33, Mark Brown wrote:
-> > > On Thu, May 15, 2025 at 10:20:00AM +0100, Lee Jones wrote:
-> 
-> > > > I can go with 2 in this case.  Applying in dribs-and-drabs as Acks come
-> > > > in would be sub-optimal and would likely end up in a mess.
-> 
-> > > Well, then just going a head and applying them on a branch with a tag
-> > > seems easier than delaying then.
-> 
-> > I can split the patchset into two parts (one for MFD, one for regulator)
-> > if it helps.
-> 
-> There's still a dependency on the MFD bits whatever happens.
+Fixes: 5d30d03aaf78 ("arm64: dts: st: introduce stm32mp25 SoCs family")
+Signed-off-by: Patrick Delaunay <patrick.delaunay@foss.st.com>
+---
 
-Right.  That won't help since you need to describe the deps.  Submitting
-them as a set was the correct thing to do.
+ arch/arm64/boot/dts/st/stm32mp251.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+index 8d87865850a7..74c5f85b800f 100644
+--- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+@@ -150,7 +150,7 @@ timer {
+ 			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
+ 			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
+ 			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>;
+-		always-on;
++		arm,no-tick-in-suspend;
+ 	};
+ 
+ 	soc@0 {
 -- 
-Lee Jones [李琼斯]
+2.25.1
+
 
