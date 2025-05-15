@@ -4,152 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FFF8C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 09:47:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6F65C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 09:49:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oItitg8Z5dZXMX4qx++KSjKZ15vTx3/yC4NQ+s35qp4=; b=QCUExRtAWPmlM5T7w7KeODM82x
-	nhoBvET2au015vmpyBYBG6W7QGodpJDem3y/fmCgYGxidjMcrMQbY4vkVokIvFLJ4GiQI21XILBTn
-	Yya+Z4QNJ5LBTq8IAZN/E22egfN4YyajRFoX7tf6qzSC32KXtOaun4x0dPogWt1INxPGxOpKPGpPE
-	3PLO24/ESuvglhh+c5/1HSp12+hUgC5xC8LM7s7vL8XhiS5DkB2rmhiwJgo6FlrrJyhkGuTxzQDBo
-	bOW249LqN7gImkop0Iuum+u5B3JKDkNHO1e2mBqibWYD4IxxOyxORA/k4xbU8c85fIL+uHGFQ7Z5i
-	dzyHYCfw==;
+	bh=wWaTnxgDJ26OAjNMq/hUinGBTzq0pRUQFrKLwWlGdH8=; b=ul5UEI4Zxn8aAaUIrMTkZZKsk5
+	48ITshBkd+6nyvSk7MGAHyCHPUy+prK79TQ6YbFNXIaRdCjf0FR2wgJ3kMBdSjAljIi20GmY80uP/
+	CsTfMKnKRw2u/0/XTR6vuh6FRuA6rjoNpF6c1+W0QWdvi2faeFmmDPVMnqX/2edNyFzkPdUilcKyC
+	Ju6//RI/cwDIlcFG0o3WgRhJmxUw3ZauzqahEaxTt4ZW3pwUEKgHj2/g9f4tDbWKRyYMJ1G8Zthck
+	T4KIVlXw+P4NZ1o/DAs8eCeSVn5yjv6Uehp6Lp3n5c194i/wXDtwAtbGa6RnlOHuXFjWFhEyjHlFy
+	JcMaU1rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFVBQ-00000000D5G-3IUJ;
-	Thu, 15 May 2025 09:47:20 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uFVDN-00000000DEa-2KoQ;
+	Thu, 15 May 2025 09:49:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFUx3-00000000AY1-2tgE
+	id 1uFTz7-0000000HYrC-3FJa
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 15 May 2025 08:30:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=wWaTnxgDJ26OAjNMq/hUinGBTzq0pRUQFrKLwWlGdH8=; b=pheGqvmlkvk1EjK9hHhixjzvtK
+	f027uv1y9OJoAn517UlLHqgLFXN0BYOx5o0oIy8jTGsJK6aE/FGil2abzJwTCc5GEKrEW1gsGIOdB
+	hq+nueJcRFM/pU36cShmSTukIsFxBncyZrQVTAhgeAH1oFHeRwuT56UAXl5B+8T0G9ZCZyssXq0cv
+	ZqX6B1n/RPY2Sy7h7TgTuDnYbrHVgKxM/71jWur5PuOxhvPjj/axbC/D+vBd1Kkj29W8Ye/nHjOck
+	4MfMDBmej5+Nv5Qb9U+nL7ZHh7rCfZV+MrSC48JXhXwlMrkUgh4PEhR/dM7vX0JSOf1L5832vvJoS
+	iDV5xqbw==;
+Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uFTz2-0000000HNsO-3tgP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 09:32:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1747301547;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=oItitg8Z5dZXMX4qx++KSjKZ15vTx3/yC4NQ+s35qp4=;
-	b=MVKZozNqppwRdGwTWS38151eF/fdlpwfg+DuAVQZN+C7APF3t8tH1D6/kFsgCPT7rIS47k
-	Ep4nBlPfIOMrbMHTEzGOPMONIpU/NK6t7i2p7PtdymZMG3GbpAigapGRh9m6fQK6TltjVK
-	ADzi5z19tN4DU6/seUmeDfW14oO249g=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-193-XhvYryfqPaeUUvJJYsosnQ-1; Thu, 15 May 2025 05:32:26 -0400
-X-MC-Unique: XhvYryfqPaeUUvJJYsosnQ-1
-X-Mimecast-MFC-AGG-ID: XhvYryfqPaeUUvJJYsosnQ_1747301545
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3a1c86b62e8so321095f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 02:32:25 -0700 (PDT)
+	Thu, 15 May 2025 08:30:31 +0000
+Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-7091d7244e8so6628907b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 01:30:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tomeuvizoso-net.20230601.gappssmtp.com; s=20230601; t=1747297826; x=1747902626; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wWaTnxgDJ26OAjNMq/hUinGBTzq0pRUQFrKLwWlGdH8=;
+        b=YJFjzJrQsg422Qg/7AGZ9uE/fPiMngXG9tFo313yqRMwXSDGMO9wcC5vswQjxr4Yf9
+         TTFSyQKxZMZULUZgCVr3jECQlcMUXxmvZs66tCJMVcD+W/PYUJ5LbL9cEfs1jfj8ba8g
+         BHnRBzWp3TZ+7cbHaRe9uni2Ju41YY4SatB6SdSWRpGnoB6pl8mxNRxdbzSJd0JQyy0c
+         tGYrCK143+4FT6lsl84r8lsREa6igM67tPXWQe0+oku45OKh/7lsl5IvdOjbtWmDbJAB
+         hp7IUy6piTdvyymsVWhc/63PiakMP2rCjlgVT9A8tLyV4sqYUZ7h+MWX6QvhfumTJQgC
+         FfUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747301545; x=1747906345;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=oItitg8Z5dZXMX4qx++KSjKZ15vTx3/yC4NQ+s35qp4=;
-        b=s1ilkq4Snvmi0qZf76IKbDBTcZFLW5LEHNjwDQ80tM8eNcWJ/5NLOYaFeCZq1f/BcG
-         yeIGoP2KvprxtRDQAcP5hsLywr9XfJNzXDMayVoXTO/9Pgc1MxxXG5XyJWR3v5PGp68p
-         dyrXwqSdYdZw8cUoN2y1fNeK83AIA9uhOohLEf2+xVyv8zhfR5moSTFnFdzCxEY9PkaJ
-         YHoNFiJI9AzlYgIw+eDJvO8NI4uFq9RdcatGikKMDnFHMxErnFb8E1TUQXKvtlhkjJgJ
-         XvCvzy6iGkioG7eevdsEw+/mV77kkKLXHOz2Y28R5gnb6c4JUf/5NuFzdRv07kHZ0d8F
-         kEGg==
-X-Forwarded-Encrypted: i=1; AJvYcCWQfBd7oLidyc8EFhez8fvWlV/SjlpoMWKoilZVNxNgT1Hc7tNsWayO/cVIS1PA4Cs1P1VA1ihiwLeEUOKAQEiK@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhJJ9ba+VpMSRW8CLbec+6bsVOmSx+hBRmwC1Qe7huhlk31y/P
-	fLeYprl2plmRarvxOimtzhv/CoZA/Pp7X+189sfrQsSB6+Cupr2+gHfkYaflqsaTXs1fED2G1E5
-	d9JjFIv64Hxj59Tvme0GYqgJ0XqVefESkT3NAQPOI1Zb0ym5vxYLl9cjXj3bZY0xpxAD1XQqL
-X-Gm-Gg: ASbGncvT5Yx2ZaIM90XcAAhJvJdE3R+M9XI/+qITZ0FlPSITfJNDHgqOldTUfIp7EDB
-	iIxuXLh7Kub8yMtPF3BgwRfpemZZRx2tNgCZUdBKgv+HIB9y+N4vWd5uoe17Q8EDg6ELJr+4Rud
-	X5mxeVHIl7GrQ4CI8dGErp5bAVG96LF9cAVOJbACZOB3WP/0I+cuXqyVTWHxUW3zaf/HiDnCxIF
-	HW08bsIFPlYrmGyggNpIbxCK5ligiltKxxZ9uiugks/vusxVZgv1l5Hf8wJ+EXKLz0pSLGft7L0
-	X9gs1c2+WEvTfHmuJJd6ytfM6O4scy9geRGvLt72xZIGlmqRhPwZn+v/DYvQF7RzLUEF5dG+ild
-	EOWoMojaizbL4T3Pwv87RAVvQwc9CZarQfkGv8wg=
-X-Received: by 2002:a05:6000:430d:b0:3a0:b9a8:b94c with SMTP id ffacd0b85a97d-3a34994c044mr5395635f8f.50.1747301544827;
-        Thu, 15 May 2025 02:32:24 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFcItxdHzBx5QzO1HhO++1GGOSuhmIUBDGjEXVSFkIcYwc4ODVC6maoVYAxWIGFcYbGfTAGAw==
-X-Received: by 2002:a05:6000:430d:b0:3a0:b9a8:b94c with SMTP id ffacd0b85a97d-3a34994c044mr5395607f8f.50.1747301544379;
-        Thu, 15 May 2025 02:32:24 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f4a:8900:884a:b3af:e3c9:ec88? (p200300d82f4a8900884ab3afe3c9ec88.dip0.t-ipconnect.de. [2003:d8:2f4a:8900:884a:b3af:e3c9:ec88])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f57ddd53sm22111507f8f.1.2025.05.15.02.32.23
+        d=1e100.net; s=20230601; t=1747297826; x=1747902626;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wWaTnxgDJ26OAjNMq/hUinGBTzq0pRUQFrKLwWlGdH8=;
+        b=eHT63sm8ADih6Whmox+qN070Dtuuxw2TNeUaVc7FGIzhCuHdmiL6+xiCe4HdLW3qWu
+         awQn2Nu1RCak33reBLX5NySHgb2BnQsOo5vLKDrMnNVBkI6TJE8XAnDt1aNL/HLpDzK6
+         4WvRm/Nld/7gWxIB+dlSGRpd9/n/7KbwGXXC7l8IzfxtatFCvLo5G+GxuXOeNE+9G67S
+         5I7RzHzvUeYKCjHKSN9G5xjXQlH0HaqevbatnoYtGnCxc+B/kYu2Mq1UVMNJko5OdlGD
+         jsCQPSScNyWY9yQ+6w0ZcwbP8NI+aMqAhorBl4hn5FLpo+xNaUauI2xEZ/IOZe0CN/1B
+         AlTg==
+X-Forwarded-Encrypted: i=1; AJvYcCUSEYSuLXPKuNw/F/wowR08uCcgwidJWOJg9sKpIrb6AMq+j77LEnT+vdt5EH9N3KqP8WWMX79ic+Y/0K6w5r+t@lists.infradead.org
+X-Gm-Message-State: AOJu0YyinLPEnqhEzFTyfH7KP0nSKgVSBOo52pxOAweByuztdbinUIx1
+	AnXtlFtcGuFa5uTMdBJnjXppGVLupsxOds/G0vz4vYo7RLHLBoW7Z+Sec+RwUmyULsTD0hzqttG
+	Irhc=
+X-Gm-Gg: ASbGncuCPCZgn1ckLArqXkOKgUl8/aLEOoU9n6zNOdjgrQDp7tysisPLXbn9DqqxHjd
+	JeT5zXJaq46fWjl3jAhiNz5OHoNCkYSSJr3qjkKk+pbS6PBGcriSH7RSU8abcd3CKABIS2EaCMQ
+	HaN+tTniV/TKv+jEK+8hRqfw8W2fvj04nekMt54o5+VpuiJCJXTQoTP3m8iP88DO9TQwDPcJA6z
+	4zlUxbWirTIgduCpTOEBRyiY1+Uoo5i5cR1T40d1mtXxLtXfS9OS3axNERWpiKas6uof/KfmAZR
+	koD4jogMIt3SgXYQ5zUoNuLb5XOPAvNVRYs+bPfgmjWovlCJ7FQ+8FsdzuZCl2nAYQZy4abFfJb
+	ln33XmzEJcnMg8CTC/Jk=
+X-Google-Smtp-Source: AGHT+IEufG2Wtbfo7lQN6N8SNqu5gRVaNiM7KcuQUoiCvfDOZyJ+zp71kYbZoCfUBg7DptROf8Mjzg==
+X-Received: by 2002:a05:690c:48c4:b0:702:52fb:462d with SMTP id 00721157ae682-70c947681c1mr21002057b3.29.1747297825912;
+        Thu, 15 May 2025 01:30:25 -0700 (PDT)
+Received: from mail-yb1-f182.google.com (mail-yb1-f182.google.com. [209.85.219.182])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-70b7c0ca208sm12647817b3.62.2025.05.15.01.30.25
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 15 May 2025 02:32:23 -0700 (PDT)
-Message-ID: <a005b0c3-861f-4e73-a747-91e0a15c85de@redhat.com>
-Date: Thu, 15 May 2025 11:32:22 +0200
+        Thu, 15 May 2025 01:30:25 -0700 (PDT)
+Received: by mail-yb1-f182.google.com with SMTP id 3f1490d57ef6-e733a6ff491so637574276.2;
+        Thu, 15 May 2025 01:30:25 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUOYpHxXMWI3xoZmlGTDiUc62CHf2NQ1cd0+1zkZZunj9KdtnMwpYlO5mPsRqfxIN/nQEauzMtmU7TKs5LAFTmx@lists.infradead.org, AJvYcCUrxw++4pUWr86guRVZBmYoLAH5y/7V240HaPJ5YEDzicxFSd8d2jr1Xa+s3AA0ZEmO/k7o0finHLbdkyxf/zY=@lists.infradead.org
+X-Received: by 2002:a05:6902:2611:b0:e75:bf29:8b12 with SMTP id
+ 3f1490d57ef6-e7b543312fdmr1406612276.29.1747297825420; Thu, 15 May 2025
+ 01:30:25 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: Check pxd_leaf() instead of !pxd_table() while
- tearing down page tables
-To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
-Cc: ryan.roberts@arm.com, anshuman.khandual@arm.com, mark.rutland@arm.com,
- yang@os.amperecomputing.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-References: <20250515063450.86629-1-dev.jain@arm.com>
- <332ecda7-14c4-4dc3-aeff-26801b74ca04@redhat.com>
- <4904d02f-6595-4230-a321-23327596e085@arm.com>
- <6fe7848c-485e-4639-b65c-200ed6abe119@redhat.com>
- <35ef7691-7eac-4efa-838d-c504c88c042b@arm.com>
- <c06930f0-f98c-4089-aa33-6789b95fd08f@redhat.com>
- <91fc96c3-4931-4f07-a0a9-507ac7b5ae6d@arm.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <91fc96c3-4931-4f07-a0a9-507ac7b5ae6d@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: eP96TpjJzYzRI4SpfAVlRnXdl3MWaC4enUN_WKxRGxk_1747301545
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20250225-6-10-rocket-v2-0-d4dbcfafc141@tomeuvizoso.net>
+ <14333638.uLZWGnKmhe@workhorse> <CAAObsKAkMhgQsi6hLjbfS5wDaUz-hPQiZn7dVvn+6kDv0_jo9Q@mail.gmail.com>
+ <3628015.iIbC2pHGDl@workhorse>
+In-Reply-To: <3628015.iIbC2pHGDl@workhorse>
+From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Date: Thu, 15 May 2025 10:30:14 +0200
+X-Gmail-Original-Message-ID: <CAAObsKDYpDt15NePk7DZbfwXnn5uaJxCu-pwZd-+PDEi56C73A@mail.gmail.com>
+X-Gm-Features: AX0GCFvte7AOvqPUYkPmGZ9uTpeqDK9f7fAooBtsXUmTMNrN8H6cLu-3Yl2rRvk
+Message-ID: <CAAObsKDYpDt15NePk7DZbfwXnn5uaJxCu-pwZd-+PDEi56C73A@mail.gmail.com>
+Subject: Re: [PATCH v2 1/7] dt-bindings: npu: rockchip,rknn: Add bindings
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Oded Gabbay <ogabbay@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Sumit Semwal <sumit.semwal@linaro.org>, =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, Jeffrey Hugo <quic_jhugo@quicinc.com>, 
+	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_023229_827976_45607ADC 
-X-CRM114-Status: GOOD (  20.29  )
+X-CRM114-CacheID: sfid-20250515_093029_511241_CBE243C8 
+X-CRM114-Status: GOOD (  68.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,110 +133,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15.05.25 11:27, Dev Jain wrote:
-> 
-> 
-> On 15/05/25 2:23 pm, David Hildenbrand wrote:
->> On 15.05.25 10:47, Dev Jain wrote:
->>>
->>>
->>> On 15/05/25 2:06 pm, David Hildenbrand wrote:
->>>> On 15.05.25 10:22, Dev Jain wrote:
->>>>>
->>>>>
->>>>> On 15/05/25 1:43 pm, David Hildenbrand wrote:
->>>>>> On 15.05.25 08:34, Dev Jain wrote:
->>>>>>> Commit 9c006972c3fe removes the pxd_present() checks because the
->>>>>>> caller
->>>>>>> checks pxd_present(). But, in case of vmap_try_huge_pud(), the caller
->>>>>>> only
->>>>>>> checks pud_present(); pud_free_pmd_page() recurses on each pmd
->>>>>>> through
->>>>>>> pmd_free_pte_page(), wherein the pmd may be none.
->>>>>> The commit states: "The core code already has a check for pXd_none()",
->>>>>> so I assume that assumption was not true in all cases?
->>>>>>
->>>>>> Should that one problematic caller then check for pmd_none() instead?
->>>>>
->>>>>     From what I could gather of Will's commit message, my
->>>>> interpretation is
->>>>> that the concerned callers are vmap_try_huge_pud and vmap_try_huge_pmd.
->>>>> These individually check for pxd_present():
->>>>>
->>>>> if (pmd_present(*pmd) && !pmd_free_pte_page(pmd, addr))
->>>>>       return 0;
->>>>>
->>>>> The problem is that vmap_try_huge_pud will also iterate on pte entries.
->>>>> So if the pud is present, then pud_free_pmd_page -> pmd_free_pte_page
->>>>> may encounter a none pmd and trigger a WARN.
->>>>
->>>> Yeah, pud_free_pmd_page()->pmd_free_pte_page() looks shaky.
->>>>
->>>> I assume we should either have an explicit pmd_none() check in
->>>> pud_free_pmd_page() before calling pmd_free_pte_page(), or one in
->>>> pmd_free_pte_page().
->>>>
->>>> With your patch, we'd be calling pte_free_kernel() on a NULL pointer,
->>>> which sounds wrong -- unless I am missing something important.
->>>
->>> Ah thanks, you seem to be right. We will be extracting table from a none
->>> pmd. Perhaps we should still bail out for !pxd_present() but without the
->>> warning, which the fix commit used to do.
->>
->> Right. We just make sure that all callers of pmd_free_pte_page() already
->> check for it.
->>
->> I'd just do something like:
->>
->> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->> index 8fcf59ba39db7..e98dd7af147d5 100644
->> --- a/arch/arm64/mm/mmu.c
->> +++ b/arch/arm64/mm/mmu.c
->> @@ -1274,10 +1274,8 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long
->> addr)
->>
->>           pmd = READ_ONCE(*pmdp);
->>
->> -       if (!pmd_table(pmd)) {
->> -               VM_WARN_ON(1);
->> -               return 1;
->> -       }
->> +       VM_WARN_ON(!pmd_present(pmd));
->> +       VM_WARN_ON(!pmd_table(pmd));
-> 
-> And also return 1?
+On Wed, May 14, 2025 at 7:50=E2=80=AFPM Nicolas Frattaroli
+<nicolas.frattaroli@collabora.com> wrote:
+>
+> On Wednesday, 14 May 2025 17:18:22 Central European Summer Time Tomeu Viz=
+oso wrote:
+> > Hi Nicolas,
+> >
+> > Thanks for looking at this. Some thoughts below:
+> >
+> > On Fri, Apr 25, 2025 at 8:50=E2=80=AFPM Nicolas Frattaroli
+> > <nicolas.frattaroli@collabora.com> wrote:
+> > >
+> > > On Tuesday, 25 February 2025 08:55:47 Central European Summer Time To=
+meu Vizoso wrote:
+> > > > Add the bindings for the Neural Processing Unit IP from Rockchip.
+> > > >
+> > > > v2:
+> > > > - Adapt to new node structure (one node per core, each with its own
+> > > >   IOMMU)
+> > > > - Several misc. fixes from Sebastian Reichel
+> > > >
+> > > > Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+> > > > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> > > > ---
+> > > >  .../bindings/npu/rockchip,rknn-core.yaml           | 152 +++++++++=
+++++++++++++
+> > > >  1 file changed, 152 insertions(+)
+> > > >
+> > > > diff --git a/Documentation/devicetree/bindings/npu/rockchip,rknn-co=
+re.yaml b/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml
+> > > > new file mode 100644
+> > > > index 0000000000000000000000000000000000000000..e8d0afe4a7d1c4f166c=
+f13a9f4aa7c1901362a3f
+> > > > --- /dev/null
+> > > > +++ b/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml
+> > > > @@ -0,0 +1,152 @@
+> > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > > +%YAML 1.2
+> > > > +---
+> > > > +$id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+> > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > > +
+> > > > +title: Neural Processing Unit IP from Rockchip
+> > > > +
+> > > > +maintainers:
+> > > > +  - Tomeu Vizoso <tomeu@tomeuvizoso.net>
+> > > > +
+> > > > +description:
+> > > > +  Rockchip IP for accelerating inference of neural networks, based=
+ on NVIDIA's
+> > > > +  open source NVDLA IP.
+> > > > +
+> > > > +properties:
+> > > > +  $nodename:
+> > > > +    pattern: '^npu-core@[a-f0-9]+$'
+> > > > +
+> > > > +  compatible:
+> > > > +    oneOf:
+> > > > +      - items:
+> > > > +          - enum:
+> > > > +              - rockchip,rk3588-rknn-core-top
+> > > > +          - const: rockchip,rknn-core-top
+> > > > +      - items:
+> > > > +          - enum:
+> > > > +              - rockchip,rk3588-rknn-core
+> > > > +          - const: rockchip,rknn-core
+> > > > +
+> > > > +  reg:
+> > > > +    maxItems: 1
+> > >
+> > > Hi Tomeu,
+> > >
+> > > as you probably know, RK3576 has quite a similar NPU. This is why I'm=
+ currently
+> > > poking at this patch series. One of the differences I ran into was th=
+at the
+> > > IOMMU of each NPU core now sits within the reg address space range of=
+ the core
+> > > as described by the single reg item binding and assumed by the driver=
+.
+> >
+> > But this is not a difference, right?
+>
+> It is. E.g. on RK3588, you use reg =3D <0x0 0xfdab0000 0x0 0x9000>; for
+> rknn_core_top, and rknn_mmu_top then sits at 0xfdab9000, which is just
+> outside the reg range of the rknn_core_top node. That means acquiring the
+> iomem as a resource succeeds for you, whereas for me it fails.
 
-I'll leave that to Catalin + Will.
+Ah, got it now, thanks.
 
-I'm not a friend for adding runtime-overhead for soemthing that should 
-not happen and be caught early during testing -> VM_WARN_ON_ONCE().
+> >
+> > > This seemed weird to me at first, since I would've guessed the cores =
+would be
+> > > exactly the same, but I noticed that they kind of still are; the RK35=
+88's NPU
+> > > also has a "hole" between 0x2000 and 0x2fff on each core, which is wh=
+ere RK3576
+> > > put its IOMMU.
+> >
+> > So this is the same in both RK3576 and RK3588, right?
+>
+> Yes, both RK3576 and RK3588 have a hole in the same area. RK3562 also has
+> the same hole. RK3568 doesn't have the offsets for the individual parts o=
+f
+> the NPU in the TRM, making all the relative register offsets the TRM then
+> goes on to document completely pointless as it omits what those offsets
+> are based on, so we don't know if it has a hole there. I vaguely recall
+> that it has the IOMMU either before or past the global range (not sure if
+> I wrote these findings down anywhere?), so if it has a hole at 0x2000
+> then it's unused like on the RK3588. I don't have access to the RV1106
+> Part 2 TRM where the NPU is described, so I don't know whether that has a
+> hole there unless we dig into the downstream code.
+>
+> >
+> > > This is some information I gleaned from the RK3588 TRM, specifically =
+section
+> > > 36.4.1 "Internal Address Mapping", which shows where each "part" of t=
+he NPU core
+> > > has its address space.
+> > >
+> > > Right now we just represent this as a single reg item per core. I've =
+played
+> > > with the idea of splitting this up into the distinct ranges the TRM l=
+ists and
+> > > giving each a reg-names entry, but this would require a major rework =
+of the
+> > > driver from what I can tell, including to the auto-generated register=
+ header.
+> > >
+> > > For now, my hack on RK3576 is to just ioremap the range defined by re=
+source
+> > > start to resource end inside rocket manually if I get -EBUSY trying t=
+o ioremap
+> > > the resource proper. This is quite an ugly hack though, it means the =
+IOMMU node
+> > > still has its address overlapping with another node in the DT, and it=
+ also means
+> > > we have an unavoidable error message printed into the kernel log. Thi=
+s is also
+> > > what the vendor driver seems to do.
+> > >
+> > > What do you reckon is a reg setup in the binding that is both reasona=
+ble to
+> > > implement in the driver while accurately describing the hardware?
+> >
+> > Guess we could go with some smaller granularity and have 3 register
+> > areas per core, instead of 10:
+> >
+> > - CORE: PC+CNA (0x0000 ~ 0x1fff)
+> > - AUX: CORE+DPU+PPU+DDMA+SDMA (0x3000 ~ 0x9fff)
+> > - GLOBAL (0xf000 ~ 0xf004)
+> >
+> > So the IOMMU on all the known SoCs can have its own regmap. I have
+> > chosen to call the first one CORE because these are the components
+> > that are absolutely needed in any NPU that is oriented towards
+> > convolutional networks (convolutions, basically). I have named the
+> > second AUX because it contains hardware units that are optional and
+> > are used to implement operations that may be common but that aren't as
+> > computational expensive as convolutions and thus might be skipped in
+> > lower-end versions of the IP.
+> >
+> > What do you think?
+>
+> I'm personally fine with this approach. I've floated a two-area approach
+> to Sebastian Reichel before who, as far as I can recall, expressed his
+> distaste for  it as it seemed like an arbitrary division. I do concur in
+> that, it seems very arbitrary, so it's hard to say whether the bindings
+> maintainers would let us get away with it if they get wind of it.
+> Unfortunately they are Cc'd on this E-Mail, so the cat is out of the bag
+> in this regard.
 
-> Also we should BUG_ON(!pmd_present(pmd)) to avoid the null dereference?
+Actually, after thinking a bit more about it I'm leaning towards only
+having the PC, CNA and CORE areas in the DT, as those are the only
+ones that should be accessible from the CPU.
 
-Definitely no BUG_ON :)
+The registers for the other units should be set by the PC, as it reads
+the command stream.
 
-> 
->>
->>           table = pte_offset_kernel(pmdp, addr);
->>           pmd_clear(pmdp);
->> @@ -1305,7 +1303,8 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long
->> addr)
->>           next = addr;
->>           end = addr + PUD_SIZE;
->>           do {
->> -               pmd_free_pte_page(pmdp, next);
->> +               if (pmd_present(*pmdp))
->> +                       pmd_free_pte_page(pmdp, next);
-> 
-> Ah yes, the "caller" of pmd_free_pte_page() is not only
-> vmap_try_huge_pmd but this also...my mind has been foggy lately...
-> need to solve a math problem or two to sharpen it :)
+So three register areas that can be set to wherever Rockchip has
+placed them, and we just ignore the others in the kernel, as we don't
+have any business messing with them ourselves.
 
-Haha.
+What do you think?
 
--- 
-Cheers,
+Thanks,
 
-David / dhildenb
+Tomeu
 
+> What speaks for the 3 register area split is that anything that brings
+> more holes and doubly mapped things into the AUX area is probably going
+> to be so radically different it'll ideally have its own binding anyway,
+> or needs more than just a compatible added to the binding.
+>
+> I think as far as arbitrary splits goes, the one you propose is probably
+> the one most closely aligned with reality. Certain register areas do
+> seem like something they'd never move away from its corresponding
+> companion, whereas adding parts to the AUX area or removing from it is
+> probably going to be quite common. So it can essentially be treated as
+> the area where optional things will most likely land as you pointed out,
+> which then don't need more bindings fiddling to add those optional things
+> as explicitly named areas in the bindings as long as we treat it as just
+> one opaque area s far as the binding is concerned.
+>
+> Also, unless there's some virtual combined sparse iomem API in the kernel
+> that I'm not aware of, that's probably the easiest path forward for the
+> driver as well.
+>
+> >
+> > Regards,
+> >
+> > Tomeu
+>
+> Kind regards,
+> Nicolas Frattaroli
+>
+> >
+> > > The RK3568, which uses a similar NPU design has the IOMMU at an offse=
+t of 0xb000
+> > > from the core's start of PC, so probably after any core specifics but=
+ before the
+> > > global registers if I hazard a guess.
+> > >
+> > > For those without access to the TRM: splitting this up into multiple =
+reg items
+> > > per core precisely the way the TRM does it would result in no less th=
+an 10 reg
+> > > items on RK3588, if I count correctly.
+> > >
+> > > Kind regards,
+> > > Nicolas Frattaroli
+> > >
+> > >
+> >
+>
+>
+>
+>
 
