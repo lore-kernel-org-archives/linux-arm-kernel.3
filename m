@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E2EC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 15:12:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3B7AC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 15:14:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cOPCtozXvcH8djLgpGedVUsU7rOKpccS4+X43Xzod/o=; b=rvFZpapB/NOooH2ueYFtk8zL2x
-	WFVXkfP3NWiMlpgp6bWB4RimWdMTny5DkupzsomCPAXorh2XmRfNTiG7NidoIVuDWq7b7K+1B2OiH
-	Dsip7ROSPpnHu0T47XLjA1u49y1yerYcHZa2niuvYQmiJ+bjXN1HsWxOhoustAhJ/zxfBBCf+swar
-	07Cy7uL+kKfdJDymh/uKN8nWq22nPUlD+lghy9SKU9lU3iCRNvDEGIHLT5XkzKRBtzF+gJaaTGlYQ
-	1w4SUwY0sKifNUArNDOxJ43TN0L9KTAlvEM3o4t0Xu99Y5Cv4B20k2Sce2lUSJnCVeRYQ8TC6Gq7h
-	LKRjV6Ww==;
+	bh=/HtjO48AE/shbuCncI+ImCTKXDoG8F8rOjSEW+O5Dzk=; b=qjyq6ERH/8ju+2k+3tIGfeTqpb
+	cUw84/uo9zqM+dgz+0T5iX7awKLMVFAcMkOMuickxSbcPUA852A/Wj0hZQE31cPZIIqdnnz+mfE6V
+	MyWRMiKrvinHu9KqpDLxN8k9lpzyKnQ2SI95qGj4VXWUZS+OLULMI7MIODygktAZa1cnJwIJsfXZN
+	ONwwNuDj58Xu400qa1E2DXZzcsoGX3qkA8m7xNR+C5xzgIXFD8UeMO5O/JpPoxvnaCkMCI7Y1x5iX
+	kjGLUAjUScja1DpTSBjxgfXKz38s80A7oNhXM8wkXJROZZAaGunJ9gUyZb8DpIN+Rb3320QWLwG0O
+	yalJXhzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFaFx-0000000114m-1rz5;
-	Thu, 15 May 2025 15:12:21 +0000
+	id 1uFaHx-000000011Kj-0q23;
+	Thu, 15 May 2025 15:14:25 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFaAR-00000001091-2W14
+	id 1uFaBG-000000010Pa-3soD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 15:06:40 +0000
+	Thu, 15 May 2025 15:07:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A8A33A4DF38;
-	Thu, 15 May 2025 15:06:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53B3DC4CEE7;
-	Thu, 15 May 2025 15:06:35 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 355E2A4DF38;
+	Thu, 15 May 2025 15:07:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC609C4CEE7;
+	Thu, 15 May 2025 15:07:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747321598;
-	bh=urKXtVF+8OQ4aIsSMiNubACGLVMonPp+yOm8unTAuRk=;
+	s=k20201202; t=1747321649;
+	bh=NVnU3EXlKhcA1buxaPfe5O18xcLQiBuKx4mM07IagEE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fa2XDMuI4w/GYS2stX9qIHl+35V28XFvu7nOBJp9mxJXYV1AFJiYvOrFcpP9SV+HF
-	 FDlr+DdlQ9RYF/jAKrmEoWinAR3oY5m9uAE60GqvjJiXPQkjB0WB03wkuBin1KolUx
-	 EmhBA2plJeO7bBikqw3fC3X9oSywbdpR4X3xPSM1VJUZyr8W/tzyBWnI+aIb+ZVmV4
-	 bgb8Y160ka65deKyfWq+OGRAYUAFyGOx2j9SmLjPrgCnn5NTPx38OpurquG5mYWI+c
-	 nUG4NAdUdncQtsRq0Az8JqiEGU5+wk5tABnHUasE+b9g8UvurDNIktXOxTk9b2N497
-	 rQDgsbTwsksAw==
-Date: Thu, 15 May 2025 16:06:32 +0100
-From: Will Deacon <will@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: robin.murphy@arm.com, jgg@nvidia.com, joro@8bytes.org,
-	kevin.tian@intel.com, praan@google.com, nathan@kernel.org,
-	yi.l.liu@intel.com, peterz@infradead.org, mshavit@google.com,
-	jsnitsel@redhat.com, smostafa@google.com,
-	jeff.johnson@oss.qualcomm.com, zhangzekun11@huawei.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, shameerali.kolothum.thodi@huawei.com
-Subject: Re: [PATCH v2 02/11] iommu/arm-smmu-v3: Pass in smmu/iommu_domain to
- __arm_smmu_tlb_inv_range()
-Message-ID: <20250515150629.GD12165@willie-the-truck>
-References: <cover.1744692494.git.nicolinc@nvidia.com>
- <ed8b2837e5ea63f6ee98663761d4f1ebe66a6d41.1744692494.git.nicolinc@nvidia.com>
+	b=hxiXMnlsIBdlJpTna4XVl4yd+LIHBATurggzh1gAwCvCiEltU8DzI/Npq3OdlKRKZ
+	 GKZiKlUI18UwxeyRKxIAdkxLSPr8krEUTkXzgMEItGQKXCRWjw6qFGqImPKtWJhA9a
+	 iNQ/USp2IYiv9tYezwSsca83juoSQqrZZeuEWYJOQ1YFUULVHZEButC68OLzVG0sxv
+	 hJOmtcI0HPAh3G9VLQm4Wkprc3hlcPByga66I/CQ33bgULosMJ9XbDtZsaY6ekkSH4
+	 IFrtvwA4hik9gsdQtkpLtTJ7cKOxppxpc7kbsQOPDqWKYBJFLHQ+0ooqT4Wceqfh9v
+	 qMiPRpi/rqpKw==
+Date: Thu, 15 May 2025 16:07:25 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Manikandan Muralidharan <manikandan.m@microchip.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ARM: dts: microchip: rename spi-cs-setup-ns property to
+ spi-cs-setup-delay-ns
+Message-ID: <20250515-laptop-unfixable-85dca20d1b57@spud>
+References: <20250515103251.210468-1-manikandan.m@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="YNVVBp6SZFwNB2lg"
 Content-Disposition: inline
-In-Reply-To: <ed8b2837e5ea63f6ee98663761d4f1ebe66a6d41.1744692494.git.nicolinc@nvidia.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20250515103251.210468-1-manikandan.m@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_080639_706095_80533AD3 
-X-CRM114-Status: GOOD (  19.08  )
+X-CRM114-CacheID: sfid-20250515_080731_092437_01375BC6 
+X-CRM114-Status: GOOD (  17.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,43 +75,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 09:57:37PM -0700, Nicolin Chen wrote:
-> What __arm_smmu_tlb_inv_range() really needs is the smmu and iommu_domain
-> pointers from the smmu_domain.
-> 
-> For a nest_parent smmu_domain, it will no longer store an smmu pointer as
-> it can be shared across vSMMU instances. A vSMMU structure sharing the S2
-> smmu_domain instead would hold the smmu pointer.
-> 
-> Pass them in explicitly to fit both !nest_parent and nest_parent cases.
-> 
-> While changing it, share it in the header with arm-smmu-v3-iommmufd that
-> will call it too.
-> 
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+
+--YNVVBp6SZFwNB2lg
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, May 15, 2025 at 04:02:51PM +0530, Manikandan Muralidharan wrote:
+> The naming scheme for delay properties includes "delay" in the name,
+> so renaming spi-cs-setup-ns property to spi-cs-setup-delay-ns to keep
+> that consistent.
+
+"to keep that consistent" sounds like some nice cleanup, but these
+properties appear nowhere in kernel code and therefore just do not work?
+I think the wording should reflect that and there should be a Fixes tag
+to the broken commit.
+
+>=20
+> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
 > ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  4 ++++
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 17 +++++++++--------
->  2 files changed, 13 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> index d4837a33fb81..5dbdc61558a9 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> @@ -955,6 +955,10 @@ void arm_smmu_tlb_inv_range_asid(unsigned long iova, size_t size, int asid,
->  				 struct arm_smmu_domain *smmu_domain);
->  int arm_smmu_atc_inv_domain(struct arm_smmu_domain *smmu_domain,
->  			    unsigned long iova, size_t size);
-> +void __arm_smmu_tlb_inv_range(struct arm_smmu_device *smmu,
-> +			      struct arm_smmu_cmdq_ent *cmd, unsigned long iova,
-> +			      size_t size, size_t granule,
-> +			      struct iommu_domain *domain);
+>  arch/arm/boot/dts/microchip/at91-sam9x60ek.dts        | 2 +-
+>  arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi   | 2 +-
+>  arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi | 2 +-
+>  arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts      | 2 +-
+>  4 files changed, 4 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/arch/arm/boot/dts/microchip/at91-sam9x60ek.dts b/arch/arm/bo=
+ot/dts/microchip/at91-sam9x60ek.dts
+> index cdc56b53299d..c1ff3248bd8f 100644
+> --- a/arch/arm/boot/dts/microchip/at91-sam9x60ek.dts
+> +++ b/arch/arm/boot/dts/microchip/at91-sam9x60ek.dts
+> @@ -609,7 +609,7 @@ flash@0 {
+>  		compatible =3D "jedec,spi-nor";
+>  		reg =3D <0>;
+>  		spi-max-frequency =3D <104000000>;
+> -		spi-cs-setup-ns =3D <7>;
+> +		spi-cs-setup-delay-ns =3D <7>;
+>  		spi-tx-bus-width =3D <4>;
+>  		spi-rx-bus-width =3D <4>;
+>  		m25p,fast-read;
+> diff --git a/arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi b/arch/a=
+rm/boot/dts/microchip/at91-sama5d27_som1.dtsi
+> index 8ac85dac5a96..13c28e92b17e 100644
+> --- a/arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi
+> +++ b/arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi
+> @@ -44,7 +44,7 @@ flash@0 {
+>  					compatible =3D "jedec,spi-nor";
+>  					reg =3D <0>;
+>  					spi-max-frequency =3D <104000000>;
+> -					spi-cs-setup-ns =3D <7>;
+> +					spi-cs-setup-delay-ns =3D <7>;
+>  					spi-tx-bus-width =3D <4>;
+>  					spi-rx-bus-width =3D <4>;
+>  					m25p,fast-read;
+> diff --git a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi b/arch=
+/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
+> index ef11606a82b3..9543214adc9f 100644
+> --- a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
+> +++ b/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
+> @@ -234,7 +234,7 @@ qspi1_flash: flash@0 {
+>  		compatible =3D "jedec,spi-nor";
+>  		reg =3D <0>;
+>  		spi-max-frequency =3D <104000000>;
+> -		spi-cs-setup-ns =3D <7>;
+> +		spi-cs-setup-delay-ns =3D <7>;
+>  		spi-rx-bus-width =3D <4>;
+>  		spi-tx-bus-width =3D <4>;
+>  		m25p,fast-read;
+> diff --git a/arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts b/arch/arm/=
+boot/dts/microchip/at91-sama5d2_icp.dts
+> index 9fa6f1395aa6..fbae6a9af6c3 100644
+> --- a/arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts
+> +++ b/arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts
+> @@ -714,7 +714,7 @@ flash@0 {
+>  		compatible =3D "jedec,spi-nor";
+>  		reg =3D <0>;
+>  		spi-max-frequency =3D <104000000>;
+> -		spi-cs-setup-ns =3D <7>;
+> +		spi-cs-setup-delay-ns =3D <7>;
+>  		spi-tx-bus-width =3D <4>;
+>  		spi-rx-bus-width =3D <4>;
+>  		m25p,fast-read;
+> --=20
+> 2.25.1
+>=20
 
-I don't think this function makes a particularly good "public" API --
-the caller even sets the cmd opcode!
+--YNVVBp6SZFwNB2lg
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Can we expose some TLB invalidation helpers instead rather than the
-low-level helpers?
+-----BEGIN PGP SIGNATURE-----
 
-Will
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaCYDLQAKCRB4tDGHoIJi
+0uu/AQCsh2Rrf0aLS5+M+Dn41EcWua9fjg/EU6tZYdeV5+YuvwD/cSVJLXH4dMCp
+Yo8NyZ3cszL9S8dlEsdTv2vQ6t1V3AU=
+=AvJj
+-----END PGP SIGNATURE-----
+
+--YNVVBp6SZFwNB2lg--
 
