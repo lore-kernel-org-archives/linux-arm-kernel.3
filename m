@@ -4,59 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC842C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 16:15:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71704C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 16:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6UDJyWO45WOa0YQQHmjZTeSsJXfCREXV+5pCFBeubuE=; b=UNNOePH5WZGH/d/fPv1hx9C//m
-	ALsLuXWNgbFwdejNgP2OAS9d+fjfR4CF0XZ0+57z7hi4xv4kba8yWSAGblzl583jodByTGOuoeUZn
-	LM730sTTgRA4BZWy6WVhXhz2kKKgXPu72xkTAzj1aT+KqDYtdKHUGWoqFeCTZ34aRKk5YuyLAyoPz
-	YjBo0Y1QZZocmmHR2FAJY75ugkHYlziNkKuTwmOVDxw8U2noIQrYym4dkYNU6Q9XABMCXT24VCq/E
-	aGI13bGz37DrFKs2DUGz7Zplodt8VhoYNy9PmyBUTU/EjN5tKjKicLq265Bv8+D7G7dM3KOwIOVFy
-	A+chpIxQ==;
+	bh=dQ91qb0g54QhN1jy9gzcQgMJWUdCjbl5aurLZFsTiOQ=; b=lEfM1a1wxKCrzQ9RC84Paw+Hcs
+	/ldiFuyR85sYQ7x+C+Lgo2+rDZeVEo9dJ3m9Kli1sPM+BvuaR4sUfReQYV4j/6XDsidi9jy04s6vN
+	lmMyWDLjjNmXsbft7uwrrrtmKKskpH1apH5KB6SlGlSIGVhmB1ouqVO/rCrM7SUvRjTjq87GaPZ5g
+	+tz6SY/Etamfus26Z9SP37h5WCN3aVFWmNM/F7Bx9pNofExj0LaRb7MITieEcXk6P1vr3pE1lIYN4
+	31eGPqhYsYjuiy3RmTD2Xfql6XUcJDdhdXAu7G5BBWsZW6+Z5BNuDdQTYh3sFKqIwJ0SioY7JvZO1
+	tdRmbq+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFbEm-00000001DoD-2t14;
-	Thu, 15 May 2025 16:15:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFb4U-00000001BNu-0yCh
+	id 1uFbGm-00000001EDz-1auS;
+	Thu, 15 May 2025 16:17:16 +0000
+Received: from mail-dm6nam12on20618.outbound.protection.outlook.com ([2a01:111:f403:2417::618] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uFb6M-00000001Bhd-3sLQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 16:04:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E59C14BF;
-	Thu, 15 May 2025 09:04:20 -0700 (PDT)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 431E33F5A1;
-	Thu, 15 May 2025 09:04:30 -0700 (PDT)
-Date: Thu, 15 May 2025 17:04:27 +0100
-From: Joey Gouly <joey.gouly@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <tabba@google.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>
-Subject: Re: [PATCH v4 38/43] KVM: arm64: Add sanitisation for FEAT_FGT2
- registers
-Message-ID: <20250515160427.GB118636@e124191.cambridge.arm.com>
-References: <20250506164348.346001-1-maz@kernel.org>
- <20250506164348.346001-39-maz@kernel.org>
-MIME-Version: 1.0
+	Thu, 15 May 2025 16:06:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bw5qhOkriAdc/Vi6oOuvmuRRPfxDG/EZsFO/5nzYTUBWDqr4P47m6I/IL3M3zw6u1/W3plT9toJ1wNLY7DqHufKWRMD0KONTMxNkRj+hZTzhSuw8IsAL64bPOzIFdN+n6cYcEba4Ogy/piQtRwYawsfG6LXZrXdOVyb83zwrV6wXdngItlaHd8eGsNuqfHkIISaGZfhqShUnJKLyCGJNY6TZv2sggrLlF3ftLjfapcHadcjdylhmQjLTGGr9bcWS75QHtpIsYwhRRfcGCNzyG6FmACRPqqr4YZFKi7y545hz0C2BvKzWCLGHtJIj6v10aL6BI7DBYrMwaOpXP0a+Bg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dQ91qb0g54QhN1jy9gzcQgMJWUdCjbl5aurLZFsTiOQ=;
+ b=Xp//i4/zYeTdKLOV+L/6nq2dI99Sf8+BP06XcDKLQsQf8udlDQYKDyte22POFHUbY3Ze0M4zf5NCXO+KjK/+xShzefOHeSzV3gI2dYxRQP/kT8yLYBFyrURO+nw8AtzniNMhtzmPRzO8TbI/OxY/dd/H3yLNzX41Jp6KyzxaG6q9Crkd6RVtESCQCp2gSFa+pnrLz0167hr4WzhRLXh8J0VheD8l9zQUB1mtcaMYOCf90Jh4xxt730ie2dQpXpq9372JEaGze9V40oIkCbA7XwM8M1kBQLWJKJ5HzO6WQ9XPQxyNvEio0eIHVRJbUmLmYNLyKtPEBlwN/1mCi/YdaQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dQ91qb0g54QhN1jy9gzcQgMJWUdCjbl5aurLZFsTiOQ=;
+ b=YX1CGs/OtwDhZi6uBic3/4zX6uJVR8o7hH9o7GMcI1xY8joigVGg3oxu54OpsGBxyG6xjzzCNTo/cga01JGPcRhZVka4NNHOnx0OjFJMBeU8YGBA0AnEA6bi9NJz18Kl+3XOJZOuUFIoxBHbqSCINcVzPNcewj7D55r0Y9NkLRwZjyZjHXZotJF+RnmgIU8z1oZNniGxKG39D8Ut3GkcPYVXapGdy04F3KE/B/0jgxAxFKGpPAVT3PZ1DmsAz8VDJWLVRtjbdcNcd9hPZR1IItbm1b8pNq+KQmSflaMPOM0+R5dlPE7cjpDx46RzyS3nEPSHV7nAFnJZEQKhawiXFw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by DS0PR12MB9445.namprd12.prod.outlook.com (2603:10b6:8:1a1::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.30; Thu, 15 May
+ 2025 16:06:22 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8722.031; Thu, 15 May 2025
+ 16:06:21 +0000
+Date: Thu, 15 May 2025 13:06:20 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
+	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
+	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
+	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
+	praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
+Subject: Re: [PATCH v4 11/23] iommufd/viommu: Add IOMMUFD_CMD_HW_QUEUE_ALLOC
+ ioctl
+Message-ID: <20250515160620.GJ382960@nvidia.com>
+References: <cover.1746757630.git.nicolinc@nvidia.com>
+ <f52937c027e2fd25d76bc47f4965ba46f82c77c0.1746757630.git.nicolinc@nvidia.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250506164348.346001-39-maz@kernel.org>
+In-Reply-To: <f52937c027e2fd25d76bc47f4965ba46f82c77c0.1746757630.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: YQBPR0101CA0238.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:66::18) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DS0PR12MB9445:EE_
+X-MS-Office365-Filtering-Correlation-Id: c7ee7947-1d73-4a0a-4126-08dd93ca6f4b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OJn4WNIozgy1IIHP4cIblkkeQR6utUXpjnCyLREgE7/OYbNh3nzF5gUghh6w?=
+ =?us-ascii?Q?5knXqWFYFtLRUBEmjXivYYIEoxShtzdbjPQjFY9jS+DmGCpXfT5wKQRLgqJa?=
+ =?us-ascii?Q?IFtxR37HU8GAB810ljrM6FfrBpiFc40i3hvv2/SqRL4iS+TnCOkpqUnI9SOU?=
+ =?us-ascii?Q?GZLAr7AmGckWVh2R57jUOxeVHz0IO16sbBSN7Mmd9wSUb1vSrPQ7c/W0aB0v?=
+ =?us-ascii?Q?+ffHuttz5z7DdE3CisK5qnprxRerke/I7+SxPiutQoWcdc8KX3dLLn1xKctk?=
+ =?us-ascii?Q?D3V85g9WWkjNzjl6xrbXbZ9gNc1dVwoRxWv8nkKlMM6KrzJWmhrletWhyG3x?=
+ =?us-ascii?Q?QqBl1k3E43AmVA6OV+5Xb3qnZthGNZd1uv/xrCSN5JoKmty29mUKdjJC4Tvh?=
+ =?us-ascii?Q?QEansGsdUVRfUFbBOVDtaCLfMVScJg4qe9Znjp8cAdH/NCtjbWqR90hcEv5o?=
+ =?us-ascii?Q?ZA+de9ljXVmZYETHLS+dVV0jv8/8sLtgG/ug2GXtUDI7JdJNuT/ZNoQ/W5jD?=
+ =?us-ascii?Q?QJDuey8RyJ2V/9qQkTCINry512Bhy/eu8XWM4UmuS3/y6p23W+ZKSublajIc?=
+ =?us-ascii?Q?ceE6lB9ezzgTdqS5/vW71922PLJvQlFYCnYrIwUTfAeAQOH2CtgyclWmxWIT?=
+ =?us-ascii?Q?UOhaojSXhVXvZfdlCAOc4aMPhAsIgL/baTzquFD8nVQJ7A9DRwkacFSYLxZP?=
+ =?us-ascii?Q?YwfohCjKJ+3m5ODx/xziP/pQlK2zVvpGUxVSNJrjMComL+6OwmhuaVm0Qy1F?=
+ =?us-ascii?Q?sXfgXPQaeSyAMhexplDoIZcaSvCqFoyopTuimnl0ME4L+bdFkXaW7O8xagMD?=
+ =?us-ascii?Q?NmcvMJYV4oVaN+6lRQO27x0U0ZkYrTX9hU2ZgIF6/Z29S0ss9KEBdEC6RuqK?=
+ =?us-ascii?Q?6pEBtAxYpUl237552Hy4jZ7kTy8BrmIAlKdoa9kwuRcEmPvXqvSzAcl+WN+I?=
+ =?us-ascii?Q?SEVCf+rBXHPmKl14K5Zia+FHDvhr+D7U0B0XzCJqy2MudkiK/9hK89WY8tCT?=
+ =?us-ascii?Q?ZpstVSsT9q5WCEVWHZrA4RfQzcZztIqC6rZvUDx+V3n6wOLgkQDTEEfbKBca?=
+ =?us-ascii?Q?dCLCyBwcER4mxA21+yzlZYuH46s6NNexBOxu1Wmhbg2WADq61DqAVQFYlU2E?=
+ =?us-ascii?Q?oj2uDwhRQJR0NpmKTzKwZEznOlNGH26kV7d2aXEgAS5h3TsVsnfos1WPkpYm?=
+ =?us-ascii?Q?q9J8Uj/VwQ7zz1csNxij0MiUHKnnNQXleuiUVqJc+O2Ixyh7gTkWzo1ZFZkB?=
+ =?us-ascii?Q?nCABi4JYtr9pEaSu5KzSbPV3kFCyA6LDpQSAVQ9wtUL1mBJ7KVcU0498spbR?=
+ =?us-ascii?Q?R5Yc9GIIXUdAobCwx8NXKOjfkFBd+r6UahQqyHt9KaKZU40eB6f9ZqpUtZA2?=
+ =?us-ascii?Q?dLeV6ekznP59Az0TwbkSt+WrtJb45ImnKzk5f7w0EC7GAbfKJOZC7UoFMjnp?=
+ =?us-ascii?Q?AHFCFmjFhSc=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?79YRmOnJZpuUrTN/jPKCsPHWAUhmjK/s6N0N8N/Z+q51tHRPAWgYmOw+uL4L?=
+ =?us-ascii?Q?cbFfUNhC8zuI98hy/Zm5ZM3FK0cAigm2MvF15u9rUMUWj5TT9qDJSpobYOM/?=
+ =?us-ascii?Q?Os5Irxj64ROKQbstYInL5RCF8Xu0E+UVT3W6iRWovR22NYjr+D4ktUmiF66P?=
+ =?us-ascii?Q?lJ/oN5a8sYtB5Rt3e499FR/mL62zH0S2uA7fFh7wFEOPawwPQ3vt2BgWFIxL?=
+ =?us-ascii?Q?S9t9/KJKRYeCZrrEOy8bkbM7x3OofTnoyP4cQswP57ElPvY6ejUgAqKUpweU?=
+ =?us-ascii?Q?04y6lyR7UFSQLJz8qUnCNub2irS+/Q223RQN9Fie/VlQbrOYMuPZUJnyHvn7?=
+ =?us-ascii?Q?7vjIySQL/Ez/RcdC6ZdEF4rn6jIk07uFk1LDAeNo2o3JCGTRbFvdxWhbWZi6?=
+ =?us-ascii?Q?3SHbcEDO0XPExfBkwjr4+oGQjJGCq4mjlbbDbFUnAH+hcDqCW/dnBLKilMM8?=
+ =?us-ascii?Q?fJYt9WYsE99QnOk+eDM4PBaEuE/GtDsrws2uMK7h5tP8NO/yBlzMoHVq23qA?=
+ =?us-ascii?Q?kGu2CpuDPMwr44n7/zzqZiEXsF7ySExvyy/pasAd8bDft97V//v3PPqq5oG4?=
+ =?us-ascii?Q?in3YYd1C0D+otKptILA8kszUs9TOP5T4V5tNWubH7US5bZlnGmc906DDQnQX?=
+ =?us-ascii?Q?mR/ztKfO30CLGEhY0F35/vGw1L12Znr4bGPr0FhIYXPkA5eixojoDF+JiyJO?=
+ =?us-ascii?Q?mi51mJQGQUPlOT2EWEbJ4zzzWjyk9D1A5bejjspj4L7Yb7k6jJbib9IbTmKo?=
+ =?us-ascii?Q?YPG4loLPCCL9VHmI9M5JZSJkmLdemuz+Tjhut6iipPBaVszizKWC9TsaGy+V?=
+ =?us-ascii?Q?f0TW7kkWjGIhSXLylNbU8KuYCKyDG5X0qFevwxJHivDQOEojdHQVkftASkME?=
+ =?us-ascii?Q?bEpXn5yn0zgYAK6M6RTYbhZox33iMTM8hPz7eEFD6IeUQQPprIjZC6UhbSff?=
+ =?us-ascii?Q?Cd+SvpfQhZKJV7RnD/ejHHvloccrwE9vbOF6/85gDdcON7DDI1ciw6ZLdeiM?=
+ =?us-ascii?Q?El+ap/zuQVP2CrZH0Sp3IwU2ITbKJ5B4UGnI8FYTy9mbeHdBKnfDqAd9H6ul?=
+ =?us-ascii?Q?LF8ESQ4ThQVn/00eqO+q4GK2m9oMHRNSUIY2NEVgzBiHBTzCpukLgR7L0tF2?=
+ =?us-ascii?Q?SKa0Yh4EY2GbGPcjBA/sllmV0RabteRnpotPVPr+JPugxPnoBmqRqSQTE1PE?=
+ =?us-ascii?Q?fygddJvRILSbiYkyZaZq6fVklmbOtJpocjDs4182r+sVo9aQrBSi56tGy7Ba?=
+ =?us-ascii?Q?BIQhTkGb/3yYgBi1OfDN17zHQ8b4q7WFm96qwiSzCAIQW0T7EqYyCdaMDzpp?=
+ =?us-ascii?Q?zlNss5/Mt+YO9ea28LcwzxVPfp801npic39oSq54vxeQ506CSnvcHr9zqeWm?=
+ =?us-ascii?Q?VJKwRC84+LNErhzlQEjZ0j6sa7bY5WwsuJKKUfwhJVWvox3/s6DvIFmbqC7X?=
+ =?us-ascii?Q?pCW/F+rcKBIdRabDIrGTnoCyfmy3J8r2nxkyHckGnPbElRjOD3nbU1kCCERR?=
+ =?us-ascii?Q?bS2lzpD/znLgKCLPM0XLaCGqe5u0W6JUen8e5fwg7p/duwzVKCZkkW/MVAE5?=
+ =?us-ascii?Q?yPUjxoBvOD0nHTepGic+IbQn4mbYHVD6lJ5Nvcyc?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c7ee7947-1d73-4a0a-4126-08dd93ca6f4b
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 May 2025 16:06:21.8035
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1sRFc/GFtn8r+CuS3ct7W0mzpkXPpciS0gCg2TlPu+Sae5AEM2rhyGTeWxuHoxKK
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB9445
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_090434_363610_8CA38E34 
-X-CRM114-Status: GOOD (  25.64  )
+X-CRM114-CacheID: sfid-20250515_090630_961521_229C558A 
+X-CRM114-Status: GOOD (  22.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,444 +166,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 05:43:43PM +0100, Marc Zyngier wrote:
-> Just like the FEAT_FGT registers, treat the FGT2 variant the same
-> way. THis is a large  update, but a fairly mechanical one.
-> 
-> The config dependencies are extracted from the 2025-03 JSON drop.
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+On Thu, May 08, 2025 at 08:02:32PM -0700, Nicolin Chen wrote:
+> +/**
+> + * struct iommu_hw_queue_alloc - ioctl(IOMMU_HW_QUEUE_ALLOC)
+> + * @size: sizeof(struct iommu_hw_queue_alloc)
+> + * @flags: Must be 0
+> + * @viommu_id: Virtual IOMMU ID to associate the HW queue with
+> + * @type: One of enum iommu_hw_queue_type
+> + * @index: The logical index to the HW queue per virtual IOMMU for a multi-queue
+> + *         model
+> + * @out_hw_queue_id: The ID of the new HW queue
+> + * @base_addr: Base address of the queue memory in guest physical address space
+> + * @length: Length of the queue memory in the guest physical address space
+> + *
+> + * Allocate a HW queue object for a vIOMMU-specific HW-accelerated queue, which
+> + * allows HW to access a guest queue memory described by @base_addr and @length.
+> + * Upon success, the underlying physical pages of the guest queue memory will be
+> + * pinned to prevent VMM from unmapping them in the IOAS until the HW queue gets
+> + * destroyed.
 
-As with the other patches, I didn't review every single FEAT, but had a look at
-a few random ones.
+Do we have way to make the pinning optional?
 
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+As I understand AMD's system the iommu HW itself translates the
+base_addr through the S2 page table automatically, so it doesn't need
+pinned memory and physical addresses but just the IOVA.
 
-> ---
->  arch/arm64/include/asm/kvm_host.h |  15 +++
->  arch/arm64/kvm/arm.c              |   5 +
->  arch/arm64/kvm/config.c           | 194 ++++++++++++++++++++++++++++++
->  arch/arm64/kvm/emulate-nested.c   |  22 ++++
->  arch/arm64/kvm/hyp/nvhe/switch.c  |   5 +
->  arch/arm64/kvm/nested.c           |  16 +++
->  arch/arm64/kvm/sys_regs.c         |   3 +
->  7 files changed, 260 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index abe45f97266c5..4e191c81f9aa1 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -279,6 +279,11 @@ enum fgt_group_id {
->  	HDFGWTR_GROUP = HDFGRTR_GROUP,
->  	HFGITR_GROUP,
->  	HAFGRTR_GROUP,
-> +	HFGRTR2_GROUP,
-> +	HFGWTR2_GROUP = HFGRTR2_GROUP,
-> +	HDFGRTR2_GROUP,
-> +	HDFGWTR2_GROUP = HDFGRTR2_GROUP,
-> +	HFGITR2_GROUP,
->  
->  	/* Must be last */
->  	__NR_FGT_GROUP_IDS__
-> @@ -625,6 +630,11 @@ extern struct fgt_masks hfgitr_masks;
->  extern struct fgt_masks hdfgrtr_masks;
->  extern struct fgt_masks hdfgwtr_masks;
->  extern struct fgt_masks hafgrtr_masks;
-> +extern struct fgt_masks hfgrtr2_masks;
-> +extern struct fgt_masks hfgwtr2_masks;
-> +extern struct fgt_masks hfgitr2_masks;
-> +extern struct fgt_masks hdfgrtr2_masks;
-> +extern struct fgt_masks hdfgwtr2_masks;
->  
->  extern struct fgt_masks kvm_nvhe_sym(hfgrtr_masks);
->  extern struct fgt_masks kvm_nvhe_sym(hfgwtr_masks);
-> @@ -632,6 +642,11 @@ extern struct fgt_masks kvm_nvhe_sym(hfgitr_masks);
->  extern struct fgt_masks kvm_nvhe_sym(hdfgrtr_masks);
->  extern struct fgt_masks kvm_nvhe_sym(hdfgwtr_masks);
->  extern struct fgt_masks kvm_nvhe_sym(hafgrtr_masks);
-> +extern struct fgt_masks kvm_nvhe_sym(hfgrtr2_masks);
-> +extern struct fgt_masks kvm_nvhe_sym(hfgwtr2_masks);
-> +extern struct fgt_masks kvm_nvhe_sym(hfgitr2_masks);
-> +extern struct fgt_masks kvm_nvhe_sym(hdfgrtr2_masks);
-> +extern struct fgt_masks kvm_nvhe_sym(hdfgwtr2_masks);
->  
->  struct kvm_cpu_context {
->  	struct user_pt_regs regs;	/* sp = sp_el0 */
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 8951e8693ca7b..ff1c0cf97ee53 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -2457,6 +2457,11 @@ static void kvm_hyp_init_symbols(void)
->  	kvm_nvhe_sym(hdfgrtr_masks) = hdfgrtr_masks;
->  	kvm_nvhe_sym(hdfgwtr_masks) = hdfgwtr_masks;
->  	kvm_nvhe_sym(hafgrtr_masks) = hafgrtr_masks;
-> +	kvm_nvhe_sym(hfgrtr2_masks) = hfgrtr2_masks;
-> +	kvm_nvhe_sym(hfgwtr2_masks) = hfgwtr2_masks;
-> +	kvm_nvhe_sym(hfgitr2_masks) = hfgitr2_masks;
-> +	kvm_nvhe_sym(hdfgrtr2_masks)= hdfgrtr2_masks;
-> +	kvm_nvhe_sym(hdfgwtr2_masks)= hdfgwtr2_masks;
->  
->  	/*
->  	 * Flush entire BSS since part of its data containing init symbols is read
-> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-> index b1db94057c937..666070d4ccd7f 100644
-> --- a/arch/arm64/kvm/config.c
-> +++ b/arch/arm64/kvm/config.c
-> @@ -66,7 +66,9 @@ struct reg_bits_to_feat_map {
->  #define FEAT_BRBE		ID_AA64DFR0_EL1, BRBE, IMP
->  #define FEAT_TRC_SR		ID_AA64DFR0_EL1, TraceVer, IMP
->  #define FEAT_PMUv3		ID_AA64DFR0_EL1, PMUVer, IMP
-> +#define FEAT_PMUv3p9		ID_AA64DFR0_EL1, PMUVer, V3P9
->  #define FEAT_TRBE		ID_AA64DFR0_EL1, TraceBuffer, IMP
-> +#define FEAT_TRBEv1p1		ID_AA64DFR0_EL1, TraceBuffer, TRBE_V1P1
->  #define FEAT_DoubleLock		ID_AA64DFR0_EL1, DoubleLock, IMP
->  #define FEAT_TRF		ID_AA64DFR0_EL1, TraceFilt, IMP
->  #define FEAT_AA32EL0		ID_AA64PFR0_EL1, EL0, AARCH32
-> @@ -84,8 +86,10 @@ struct reg_bits_to_feat_map {
->  #define FEAT_LS64_V		ID_AA64ISAR1_EL1, LS64, LS64_V
->  #define FEAT_LS64_ACCDATA	ID_AA64ISAR1_EL1, LS64, LS64_ACCDATA
->  #define FEAT_RAS		ID_AA64PFR0_EL1, RAS, IMP
-> +#define FEAT_RASv2		ID_AA64PFR0_EL1, RAS, V2
->  #define FEAT_GICv3		ID_AA64PFR0_EL1, GIC, IMP
->  #define FEAT_LOR		ID_AA64MMFR1_EL1, LO, IMP
-> +#define FEAT_SPEv1p4		ID_AA64DFR0_EL1, PMSVer, V1P4
->  #define FEAT_SPEv1p5		ID_AA64DFR0_EL1, PMSVer, V1P5
->  #define FEAT_ATS1A		ID_AA64ISAR2_EL1, ATS1A, IMP
->  #define FEAT_SPECRES2		ID_AA64ISAR1_EL1, SPECRES, COSP_RCTX
-> @@ -110,10 +114,23 @@ struct reg_bits_to_feat_map {
->  #define FEAT_EVT_TTLBxS		ID_AA64MMFR2_EL1, EVT, TTLBxS
->  #define FEAT_MTE2		ID_AA64PFR1_EL1, MTE, MTE2
->  #define FEAT_RME		ID_AA64PFR0_EL1, RME, IMP
-> +#define FEAT_MPAM		ID_AA64PFR0_EL1, MPAM, 1
->  #define FEAT_S2FWB		ID_AA64MMFR2_EL1, FWB, IMP
->  #define FEAT_TME		ID_AA64ISAR0_EL1, TME, IMP
->  #define FEAT_TWED		ID_AA64MMFR1_EL1, TWED, IMP
->  #define FEAT_E2H0		ID_AA64MMFR4_EL1, E2H0, IMP
-> +#define FEAT_SRMASK		ID_AA64MMFR4_EL1, SRMASK, IMP
-> +#define FEAT_PoPS		ID_AA64MMFR4_EL1, PoPS, IMP
-> +#define FEAT_PFAR		ID_AA64PFR1_EL1, PFAR, IMP
-> +#define FEAT_Debugv8p9		ID_AA64DFR0_EL1, PMUVer, V3P9
-> +#define FEAT_PMUv3_SS		ID_AA64DFR0_EL1, PMSS, IMP
-> +#define FEAT_SEBEP		ID_AA64DFR0_EL1, SEBEP, IMP
-> +#define FEAT_EBEP		ID_AA64DFR1_EL1, EBEP, IMP
-> +#define FEAT_ITE		ID_AA64DFR1_EL1, ITE, IMP
-> +#define FEAT_PMUv3_ICNTR	ID_AA64DFR1_EL1, PMICNTR, IMP
-> +#define FEAT_SPMU		ID_AA64DFR1_EL1, SPMU, IMP
-> +#define FEAT_SPE_nVM		ID_AA64DFR2_EL1, SPE_nVM, IMP
-> +#define FEAT_STEP2		ID_AA64DFR2_EL1, STEP, IMP
->  
->  static bool not_feat_aa64el3(struct kvm *kvm)
->  {
-> @@ -180,6 +197,32 @@ static bool feat_sme_smps(struct kvm *kvm)
->  		(read_sysreg_s(SYS_SMIDR_EL1) & SMIDR_EL1_SMPS));
->  }
->  
-> +static bool feat_spe_fds(struct kvm *kvm)
-> +{
+Perhaps for this reason the pinning should be done with a function
+call from the driver?
+
+> +struct iommu_hw_queue_alloc {
+> +	__u32 size;
+> +	__u32 flags;
+> +	__u32 viommu_id;
+> +	__u32 type;
+> +	__u32 index;
+> +	__u32 out_hw_queue_id;
+> +	__aligned_u64 base_addr;
+
+base addr should probably be called nesting_parent_iova  to match how
+we described the viommu hwpt:
+
+ * @hwpt_id: ID of a nesting parent HWPT to associate to
+
 > +	/*
-> +	 * Revists this if KVM ever supports SPE -- this really should
-> +	 * look at the guest's view of PMSIDR_EL1.
+> +	 * The underlying physical pages must be pinned to prevent them from
+> +	 * being unmapped (via IOMMUFD_CMD_IOAS_UNMAP) during the life cycle
+> +	 * of the HW QUEUE object.
 > +	 */
-> +	return (kvm_has_feat(kvm, FEAT_SPEv1p4) &&
-> +		(read_sysreg_s(SYS_PMSIDR_EL1) & PMSIDR_EL1_FDS));
-> +}
-> +
-> +static bool feat_trbe_mpam(struct kvm *kvm)
-> +{
-> +	/*
-> +	 * Revists this if KVM ever supports both MPAM and TRBE --
-> +	 * this really should look at the guest's view of TRBIDR_EL1.
-> +	 */
-> +	return (kvm_has_feat(kvm, FEAT_TRBE) &&
-> +		kvm_has_feat(kvm, FEAT_MPAM) &&
-> +		(read_sysreg_s(SYS_TRBIDR_EL1) & TRBIDR_EL1_MPAM));
-> +}
-> +
-> +static bool feat_ebep_pmuv3_ss(struct kvm *kvm)
-> +{
-> +	return kvm_has_feat(kvm, FEAT_EBEP) || kvm_has_feat(kvm, FEAT_PMUv3_SS);
-> +}
-> +
->  static bool compute_hcr_rw(struct kvm *kvm, u64 *bits)
->  {
->  	/* This is purely academic: AArch32 and NV are mutually exclusive */
-> @@ -589,6 +632,106 @@ static const struct reg_bits_to_feat_map hafgrtr_feat_map[] = {
->  		   FEAT_AMUv1),
->  };
->  
-> +static const struct reg_bits_to_feat_map hfgitr2_feat_map[] = {
-> +	NEEDS_FEAT(HFGITR2_EL2_nDCCIVAPS, FEAT_PoPS),
-> +	NEEDS_FEAT(HFGITR2_EL2_TSBCSYNC, FEAT_TRBEv1p1)
-> +};
-> +
-> +static const struct reg_bits_to_feat_map hfgrtr2_feat_map[] = {
-> +	NEEDS_FEAT(HFGRTR2_EL2_nPFAR_EL1, FEAT_PFAR),
-> +	NEEDS_FEAT(HFGRTR2_EL2_nERXGSR_EL1, FEAT_RASv2),
-> +	NEEDS_FEAT(HFGRTR2_EL2_nACTLRALIAS_EL1	|
-> +		   HFGRTR2_EL2_nACTLRMASK_EL1	|
-> +		   HFGRTR2_EL2_nCPACRALIAS_EL1	|
-> +		   HFGRTR2_EL2_nCPACRMASK_EL1	|
-> +		   HFGRTR2_EL2_nSCTLR2MASK_EL1	|
-> +		   HFGRTR2_EL2_nSCTLRALIAS2_EL1	|
-> +		   HFGRTR2_EL2_nSCTLRALIAS_EL1	|
-> +		   HFGRTR2_EL2_nSCTLRMASK_EL1	|
-> +		   HFGRTR2_EL2_nTCR2ALIAS_EL1	|
-> +		   HFGRTR2_EL2_nTCR2MASK_EL1	|
-> +		   HFGRTR2_EL2_nTCRALIAS_EL1	|
-> +		   HFGRTR2_EL2_nTCRMASK_EL1,
-> +		   FEAT_SRMASK),
-> +	NEEDS_FEAT(HFGRTR2_EL2_nRCWSMASK_EL1, FEAT_THE),
-> +};
-> +
-> +static const struct reg_bits_to_feat_map hfgwtr2_feat_map[] = {
-> +	NEEDS_FEAT(HFGWTR2_EL2_nPFAR_EL1, FEAT_PFAR),
-> +	NEEDS_FEAT(HFGWTR2_EL2_nACTLRALIAS_EL1	|
-> +		   HFGWTR2_EL2_nACTLRMASK_EL1	|
-> +		   HFGWTR2_EL2_nCPACRALIAS_EL1	|
-> +		   HFGWTR2_EL2_nCPACRMASK_EL1	|
-> +		   HFGWTR2_EL2_nSCTLR2MASK_EL1	|
-> +		   HFGWTR2_EL2_nSCTLRALIAS2_EL1	|
-> +		   HFGWTR2_EL2_nSCTLRALIAS_EL1	|
-> +		   HFGWTR2_EL2_nSCTLRMASK_EL1	|
-> +		   HFGWTR2_EL2_nTCR2ALIAS_EL1	|
-> +		   HFGWTR2_EL2_nTCR2MASK_EL1	|
-> +		   HFGWTR2_EL2_nTCRALIAS_EL1	|
-> +		   HFGWTR2_EL2_nTCRMASK_EL1,
-> +		   FEAT_SRMASK),
-> +	NEEDS_FEAT(HFGWTR2_EL2_nRCWSMASK_EL1, FEAT_THE),
-> +};
-> +
-> +static const struct reg_bits_to_feat_map hdfgrtr2_feat_map[] = {
-> +	NEEDS_FEAT(HDFGRTR2_EL2_nMDSELR_EL1, FEAT_Debugv8p9),
-> +	NEEDS_FEAT(HDFGRTR2_EL2_nPMECR_EL1, feat_ebep_pmuv3_ss),
-> +	NEEDS_FEAT(HDFGRTR2_EL2_nTRCITECR_EL1, FEAT_ITE),
-> +	NEEDS_FEAT(HDFGRTR2_EL2_nPMICFILTR_EL0	|
-> +		   HDFGRTR2_EL2_nPMICNTR_EL0,
-> +		   FEAT_PMUv3_ICNTR),
-> +	NEEDS_FEAT(HDFGRTR2_EL2_nPMUACR_EL1, FEAT_PMUv3p9),
-> +	NEEDS_FEAT(HDFGRTR2_EL2_nPMSSCR_EL1	|
-> +		   HDFGRTR2_EL2_nPMSSDATA,
-> +		   FEAT_PMUv3_SS),
-> +	NEEDS_FEAT(HDFGRTR2_EL2_nPMIAR_EL1, FEAT_SEBEP),
-> +	NEEDS_FEAT(HDFGRTR2_EL2_nPMSDSFR_EL1, feat_spe_fds),
-> +	NEEDS_FEAT(HDFGRTR2_EL2_nPMBMAR_EL1, FEAT_SPE_nVM),
-> +	NEEDS_FEAT(HDFGRTR2_EL2_nSPMACCESSR_EL1	|
-> +		   HDFGRTR2_EL2_nSPMCNTEN	|
-> +		   HDFGRTR2_EL2_nSPMCR_EL0	|
-> +		   HDFGRTR2_EL2_nSPMDEVAFF_EL1	|
-> +		   HDFGRTR2_EL2_nSPMEVCNTRn_EL0	|
-> +		   HDFGRTR2_EL2_nSPMEVTYPERn_EL0|
-> +		   HDFGRTR2_EL2_nSPMID		|
-> +		   HDFGRTR2_EL2_nSPMINTEN	|
-> +		   HDFGRTR2_EL2_nSPMOVS		|
-> +		   HDFGRTR2_EL2_nSPMSCR_EL1	|
-> +		   HDFGRTR2_EL2_nSPMSELR_EL0,
-> +		   FEAT_SPMU),
-> +	NEEDS_FEAT(HDFGRTR2_EL2_nMDSTEPOP_EL1, FEAT_STEP2),
-> +	NEEDS_FEAT(HDFGRTR2_EL2_nTRBMPAM_EL1, feat_trbe_mpam),
-> +};
-> +
-> +static const struct reg_bits_to_feat_map hdfgwtr2_feat_map[] = {
-> +	NEEDS_FEAT(HDFGWTR2_EL2_nMDSELR_EL1, FEAT_Debugv8p9),
-> +	NEEDS_FEAT(HDFGWTR2_EL2_nPMECR_EL1, feat_ebep_pmuv3_ss),
-> +	NEEDS_FEAT(HDFGWTR2_EL2_nTRCITECR_EL1, FEAT_ITE),
-> +	NEEDS_FEAT(HDFGWTR2_EL2_nPMICFILTR_EL0	|
-> +		   HDFGWTR2_EL2_nPMICNTR_EL0,
-> +		   FEAT_PMUv3_ICNTR),
-> +	NEEDS_FEAT(HDFGWTR2_EL2_nPMUACR_EL1	|
-> +		   HDFGWTR2_EL2_nPMZR_EL0,
-> +		   FEAT_PMUv3p9),
-> +	NEEDS_FEAT(HDFGWTR2_EL2_nPMSSCR_EL1, FEAT_PMUv3_SS),
-> +	NEEDS_FEAT(HDFGWTR2_EL2_nPMIAR_EL1, FEAT_SEBEP),
-> +	NEEDS_FEAT(HDFGWTR2_EL2_nPMSDSFR_EL1, feat_spe_fds),
-> +	NEEDS_FEAT(HDFGWTR2_EL2_nPMBMAR_EL1, FEAT_SPE_nVM),
-> +	NEEDS_FEAT(HDFGWTR2_EL2_nSPMACCESSR_EL1	|
-> +		   HDFGWTR2_EL2_nSPMCNTEN	|
-> +		   HDFGWTR2_EL2_nSPMCR_EL0	|
-> +		   HDFGWTR2_EL2_nSPMEVCNTRn_EL0	|
-> +		   HDFGWTR2_EL2_nSPMEVTYPERn_EL0|
-> +		   HDFGWTR2_EL2_nSPMINTEN	|
-> +		   HDFGWTR2_EL2_nSPMOVS		|
-> +		   HDFGWTR2_EL2_nSPMSCR_EL1	|
-> +		   HDFGWTR2_EL2_nSPMSELR_EL0,
-> +		   FEAT_SPMU),
-> +	NEEDS_FEAT(HDFGWTR2_EL2_nMDSTEPOP_EL1, FEAT_STEP2),
-> +	NEEDS_FEAT(HDFGWTR2_EL2_nTRBMPAM_EL1, feat_trbe_mpam),
-> +};
-> +
->  static const struct reg_bits_to_feat_map hcrx_feat_map[] = {
->  	NEEDS_FEAT(HCRX_EL2_PACMEn, feat_pauth_lr),
->  	NEEDS_FEAT(HCRX_EL2_EnFPM, FEAT_FPMR),
-> @@ -820,6 +963,27 @@ void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt)
->  					 ARRAY_SIZE(hafgrtr_feat_map),
->  					 0, NEVER_FGU);
->  		break;
-> +	case HFGRTR2_GROUP:
-> +		val |= compute_res0_bits(kvm, hfgrtr2_feat_map,
-> +					 ARRAY_SIZE(hfgrtr2_feat_map),
-> +					 0, NEVER_FGU);
-> +		val |= compute_res0_bits(kvm, hfgwtr2_feat_map,
-> +					 ARRAY_SIZE(hfgwtr2_feat_map),
-> +					 0, NEVER_FGU);
-> +		break;
-> +	case HFGITR2_GROUP:
-> +		val |= compute_res0_bits(kvm, hfgitr2_feat_map,
-> +					 ARRAY_SIZE(hfgitr2_feat_map),
-> +					 0, NEVER_FGU);
-> +		break;
-> +	case HDFGRTR2_GROUP:
-> +		val |= compute_res0_bits(kvm, hdfgrtr2_feat_map,
-> +					 ARRAY_SIZE(hdfgrtr2_feat_map),
-> +					 0, NEVER_FGU);
-> +		val |= compute_res0_bits(kvm, hdfgwtr2_feat_map,
-> +					 ARRAY_SIZE(hdfgwtr2_feat_map),
-> +					 0, NEVER_FGU);
-> +		break;
->  	default:
->  		BUG();
->  	}
-> @@ -868,6 +1032,36 @@ void get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg, u64 *res0, u64 *r
->  		*res0 |= hafgrtr_masks.res0;
->  		*res1 = HAFGRTR_EL2_RES1;
->  		break;
-> +	case HFGRTR2_EL2:
-> +		*res0 = compute_res0_bits(kvm, hfgrtr2_feat_map,
-> +					  ARRAY_SIZE(hfgrtr2_feat_map), 0, 0);
-> +		*res0 |= hfgrtr2_masks.res0;
-> +		*res1 = HFGRTR2_EL2_RES1;
-> +		break;
-> +	case HFGWTR2_EL2:
-> +		*res0 = compute_res0_bits(kvm, hfgwtr2_feat_map,
-> +					  ARRAY_SIZE(hfgwtr2_feat_map), 0, 0);
-> +		*res0 |= hfgwtr2_masks.res0;
-> +		*res1 = HFGWTR2_EL2_RES1;
-> +		break;
-> +	case HFGITR2_EL2:
-> +		*res0 = compute_res0_bits(kvm, hfgitr2_feat_map,
-> +					  ARRAY_SIZE(hfgitr2_feat_map), 0, 0);
-> +		*res0 |= hfgitr2_masks.res0;
-> +		*res1 = HFGITR2_EL2_RES1;
-> +		break;
-> +	case HDFGRTR2_EL2:
-> +		*res0 = compute_res0_bits(kvm, hdfgrtr2_feat_map,
-> +					  ARRAY_SIZE(hdfgrtr2_feat_map), 0, 0);
-> +		*res0 |= hdfgrtr2_masks.res0;
-> +		*res1 = HDFGRTR2_EL2_RES1;
-> +		break;
-> +	case HDFGWTR2_EL2:
-> +		*res0 = compute_res0_bits(kvm, hdfgwtr2_feat_map,
-> +					  ARRAY_SIZE(hdfgwtr2_feat_map), 0, 0);
-> +		*res0 |= hdfgwtr2_masks.res0;
-> +		*res1 = HDFGWTR2_EL2_RES1;
-> +		break;
->  	case HCRX_EL2:
->  		*res0 = compute_res0_bits(kvm, hcrx_feat_map,
->  					  ARRAY_SIZE(hcrx_feat_map), 0, 0);
-> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-> index 0b033d3a3d7a4..3312aefa095e0 100644
-> --- a/arch/arm64/kvm/emulate-nested.c
-> +++ b/arch/arm64/kvm/emulate-nested.c
-> @@ -2060,6 +2060,11 @@ FGT_MASKS(hfgitr_masks, HFGITR_EL2_RES0);
->  FGT_MASKS(hdfgrtr_masks, HDFGRTR_EL2_RES0);
->  FGT_MASKS(hdfgwtr_masks, HDFGWTR_EL2_RES0);
->  FGT_MASKS(hafgrtr_masks, HAFGRTR_EL2_RES0);
-> +FGT_MASKS(hfgrtr2_masks, HFGRTR2_EL2_RES0);
-> +FGT_MASKS(hfgwtr2_masks, HFGWTR2_EL2_RES0);
-> +FGT_MASKS(hfgitr2_masks, HFGITR2_EL2_RES0);
-> +FGT_MASKS(hdfgrtr2_masks, HDFGRTR2_EL2_RES0);
-> +FGT_MASKS(hdfgwtr2_masks, HDFGWTR2_EL2_RES0);
->  
->  static __init bool aggregate_fgt(union trap_config tc)
->  {
-> @@ -2082,6 +2087,18 @@ static __init bool aggregate_fgt(union trap_config tc)
->  		rmasks = &hfgitr_masks;
->  		wmasks = NULL;
->  		break;
-> +	case HFGRTR2_GROUP:
-> +		rmasks = &hfgrtr2_masks;
-> +		wmasks = &hfgwtr2_masks;
-> +		break;
-> +	case HDFGRTR2_GROUP:
-> +		rmasks = &hdfgrtr2_masks;
-> +		wmasks = &hdfgwtr2_masks;
-> +		break;
-> +	case HFGITR2_GROUP:
-> +		rmasks = &hfgitr2_masks;
-> +		wmasks = NULL;
-> +		break;
->  	}
->  
->  	/*
-> @@ -2141,6 +2158,11 @@ static __init int check_all_fgt_masks(int ret)
->  		&hdfgrtr_masks,
->  		&hdfgwtr_masks,
->  		&hafgrtr_masks,
-> +		&hfgrtr2_masks,
-> +		&hfgwtr2_masks,
-> +		&hfgitr2_masks,
-> +		&hdfgrtr2_masks,
-> +		&hdfgwtr2_masks,
->  	};
->  	int err = 0;
->  
-> diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-> index ae55d6d87e3d2..6947aaf117f63 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/switch.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-> @@ -39,6 +39,11 @@ struct fgt_masks hfgitr_masks;
->  struct fgt_masks hdfgrtr_masks;
->  struct fgt_masks hdfgwtr_masks;
->  struct fgt_masks hafgrtr_masks;
-> +struct fgt_masks hfgrtr2_masks;
-> +struct fgt_masks hfgwtr2_masks;
-> +struct fgt_masks hfgitr2_masks;
-> +struct fgt_masks hdfgrtr2_masks;
-> +struct fgt_masks hdfgwtr2_masks;
->  
->  extern void kvm_nvhe_prepare_backtrace(unsigned long fp, unsigned long pc);
->  
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index b633666be6df4..f6a5736ba7ef7 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -1045,6 +1045,22 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
->  	get_reg_fixed_bits(kvm, HAFGRTR_EL2, &res0, &res1);
->  	set_sysreg_masks(kvm, HAFGRTR_EL2, res0, res1);
->  
-> +	/* HFG[RW]TR2_EL2 */
-> +	get_reg_fixed_bits(kvm, HFGRTR2_EL2, &res0, &res1);
-> +	set_sysreg_masks(kvm, HFGRTR2_EL2, res0, res1);
-> +	get_reg_fixed_bits(kvm, HFGWTR2_EL2, &res0, &res1);
-> +	set_sysreg_masks(kvm, HFGWTR2_EL2, res0, res1);
-> +
-> +	/* HDFG[RW]TR2_EL2 */
-> +	get_reg_fixed_bits(kvm, HDFGRTR2_EL2, &res0, &res1);
-> +	set_sysreg_masks(kvm, HDFGRTR2_EL2, res0, res1);
-> +	get_reg_fixed_bits(kvm, HDFGWTR2_EL2, &res0, &res1);
-> +	set_sysreg_masks(kvm, HDFGWTR2_EL2, res0, res1);
-> +
-> +	/* HFGITR2_EL2 */
-> +	get_reg_fixed_bits(kvm, HFGITR2_EL2, &res0, &res1);
-> +	set_sysreg_masks(kvm, HFGITR2_EL2, res0, res1);
-> +
->  	/* TCR2_EL2 */
->  	res0 = TCR2_EL2_RES0;
->  	res1 = TCR2_EL2_RES1;
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index f24d1a7d9a8f4..8b994690bf1ad 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -5151,6 +5151,9 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
->  	compute_fgu(kvm, HFGITR_GROUP);
->  	compute_fgu(kvm, HDFGRTR_GROUP);
->  	compute_fgu(kvm, HAFGRTR_GROUP);
-> +	compute_fgu(kvm, HFGRTR2_GROUP);
-> +	compute_fgu(kvm, HFGITR2_GROUP);
-> +	compute_fgu(kvm, HDFGRTR2_GROUP);
->  
->  	set_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags);
->  out:
-> -- 
-> 2.39.2
-> 
+> +	rc = iopt_pin_pages(&hwpt->ioas->iopt, cmd->base_addr, cmd->length,
+> +			    pages, 0);
+
+I don't think this actually works like this without an unmap
+callback. unmap will break:
+
+			iommufd_access_notify_unmap(iopt, area_first, length);
+			/* Something is not responding to unmap requests. */
+			tries++;
+			if (WARN_ON(tries > 100))
+				return -EDEADLOCK;
+
+If it can't shoot down the pinning.
+
+Why did this need to change away from just a normal access? That ops
+and unmap callback are not optional things.
+
+What vcmdq would do in the unmap callback is question I'm not sure
+of..
+
+This is more reason to put the pin/access in the driver so it can
+provide an unmap callback that can fix it up. I think this should have
+been done just by using the normal access mechanism, maybe with a
+simplifying wrapper for in-driver use. ie no need for patch #9
+
+Jason
 
