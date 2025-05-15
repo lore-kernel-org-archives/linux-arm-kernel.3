@@ -4,90 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 842C5C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 11:13:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B0D4C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 11:19:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wH93pyrIEPQfVMzkjhmhq8lcyU/jh4Z97QhhnrcpdMM=; b=C3h4GZmqFy8CP11VuH/eLHw0oG
-	DAyvzavWPbsHy3xRANe/UxuSS49/ap5eRM8i7gaTUbzzMbLs91ZSz+axmaUQxbvQqhf5h4cmD9MvO
-	ELWc9HmxCbbhXdFuWA4REvcz9OpE6sX9GadalhYXGpW9aOXsR9UVzwdXy0Vjud/QHu8AWfQ/EjSrR
-	irTEGzPPHYb2NoooFLVYoGTY0Ji/iimYoIuH4D5Mv2ew1d29eytCkvqAV484gPJLO7mJwUsQbV8Fv
-	5Ng89Ua4Agu9NawTIa9XvvmLm+1h6YUi4tyVGyGr9RRIItwX5Y7n9sR40DrHF5B039JLTbsa0Dz9f
-	C3W2VuXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uANE6YtuOzoDy4yZ+j82kd7aME3T0hDL7pX3USXZ8FQ=; b=bVnJikLCcZexEBStfs9Ww3Wj/v
+	p7tiTNTD9V8n9jRlfdCV8+pYs3wYFA4enrMSeh1QJ2FT70SYX1/OEOGYDGsRlM+E1Sf57v+6reiea
+	O3zKf85JiWDACsHqHhg9zwff4TVinz7jQvIoFokmx+D9wBzRQphVgfVcfBFwl52pR2jBk3j5oE9OW
+	J1x2ZlP6jDq63ZDHlxFkodHbqm9MUNuAihMYVuLNVOgfBp+BNkHSSeCLVGeFMSOVcEfN/MYRGUL6w
+	ZI71cU4WIP9CWS2UHj+acgOS6BqwymZ8261G5WlGcuvPZHGojibRgqKMf67RJy/13kjebcB7zYQCf
+	Jf6q2DjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFWWE-00000000NHT-2K8J;
-	Thu, 15 May 2025 11:12:54 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1uFWcU-00000000NtB-370n;
+	Thu, 15 May 2025 11:19:22 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFWUC-00000000N3w-00aM
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 11:10:49 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ad4ce8cc3c1so98430866b.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 04:10:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747307446; x=1747912246; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wH93pyrIEPQfVMzkjhmhq8lcyU/jh4Z97QhhnrcpdMM=;
-        b=GAgOULPbRQHHM8ueyOo2H+OBoIDHhHXxSJ5GswLQ/vaLuR2sAQLhT2KAlPTRM+Uis9
-         LJJL6srQ8k5vPxAk9iQFTaqzXMGjnKY+F+nt+MULXKquCVqciQ6DRaxNcdJ1aO/eyd5a
-         lK5e5dqa8A4NlJLelWBMQ/1qvuJi8hqREl5t5agMVRmquRxw4eKbo63WSedscG2j9lNv
-         N0BgUBvLGj4SphessufJr145M+hBWfZqCGaZ3vgvBZadcp5NyVBNfQH03rsY7MJt4VcK
-         uQ/LBmeZSXuJnNGWn/n5Sy92TFWBFC2BRI0JnGp0HZTXxLDSzupSrd7aOBSB7YvdgfKu
-         WHIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747307446; x=1747912246;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wH93pyrIEPQfVMzkjhmhq8lcyU/jh4Z97QhhnrcpdMM=;
-        b=REmPjxV3AHSv3lNHYN4MpblyggKJOQIVus54/sXj1N4f4IjuUjPHOS9ti/bRClFmp4
-         R6mFza7ablMvf609srJkjiRZ7oJ2DvNGJVgiijL31Q0I5nukp/7eqCPRjev3pTs+DThI
-         /eIKVWWXYtcY9YmzrZ+WLowtLEb2nrUfaiGK17NnbYK/Y9Sq1kR0Ll1+5xslsWf+BPKE
-         i+snmt3BJpS0A+OXTNltFhx1vj2l8+xlvR2hNm4dDWeAIL8I4uQdF7U/rr9ctxlfhCK2
-         Nf+tmTwB2QxRxl+x1inv7yZ44y0J8F+s5/IkpvMyO7IQQ8pSb3j27Jnevv8HTBs6fqzT
-         ROGQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXwcd8WGru8+beV5VcF0NhdFspz8AmeG8qn0+NyhfPzmAuiZpH2BANvERaP2fyThdF8lLVRFoWwH1n6Gz43PqGO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx28e2xREFP1hZA2Ph8tIJI0mLvSCas+jsk06XHwbSyrlvztAp9
-	9kxtUb9COuS0u7ghG8OBLr2/W6R5EwVC+22U5QheJD+K4kpzfB42hz0n/xOUubWYXAEBYjuKNDH
-	/dajk45HjncpG0Eu/X/jda3sAwek=
-X-Gm-Gg: ASbGncukTbmNrgimckJBEBxw+4c8TXe2UG+JGBacVqwr7EYNAN5d1Es/yXymoutiTqk
-	gyEmOLF/8h1cCFyqk8cShNDM3bDKbRvEAGryQlOQL05wFu7MHGeezCBh699UJEmC02o22YGZTh7
-	sCt8twPM9fjgx2YqtjOZxfesOam0dLPjRtCylAbLYkNA==
-X-Google-Smtp-Source: AGHT+IE0xGxRoRc2hiMiqEaYs/R8BerbabBDK4/6SGlmW7kn9vsBtzHGwphHTBRO8aoYTAxznhm63Sb3LeSpgXFd/NQ=
-X-Received: by 2002:a17:906:730e:b0:ac7:e815:6e12 with SMTP id
- a640c23a62f3a-ad4f717d80dmr692300366b.33.1747307445484; Thu, 15 May 2025
- 04:10:45 -0700 (PDT)
+	id 1uFVEU-00000000DXb-0eId;
+	Thu, 15 May 2025 09:50:31 +0000
+X-UUID: e4902910316f11f08d385d50fb11b32d-20250515
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=uANE6YtuOzoDy4yZ+j82kd7aME3T0hDL7pX3USXZ8FQ=;
+	b=C5qW2huaI9F2AeSMU16Ta6g1caYMulghx+rAzdBHVNln60g+EMj8+r7vUIhVyJ7kLExpxVIMV9LhE2G6AuBdSYcH349MMCqL6IlbUKGLRiZjIwqtZKb4JrKVXtKtxC4fx5+KLZ+q1yHrKrzqOxBB2/0+y2agSGBjJN10CD78hXQ=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:07847d27-3110-43e7-ac49-b613da50321b,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:88e504c0-eade-4d5b-9f81-31d7b5452436,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: e4902910316f11f08d385d50fb11b32d-20250515
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
+	(envelope-from <paul-pl.chen@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1388628885; Thu, 15 May 2025 02:35:09 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Thu, 15 May 2025 17:35:06 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Thu, 15 May 2025 17:35:06 +0800
+From: paul-pl.chen <paul-pl.chen@mediatek.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<chunkuang.hu@kernel.org>, <angelogioacchino.delregno@collabora.com>
+CC: <matthias.bgg@gmail.com>, <p.zabel@pengutronix.de>,
+	<jason-jh.lin@mediatek.com>, <nancy.lin@mediatek.com>,
+	<singo.chang@mediatek.com>, <xiandong.wang@mediatek.com>,
+	<sirius.wang@mediatek.com>, <paul-pl.chen@mediatek.com>,
+	<sunny.shen@mediatek.com>, <fshao@chromium.org>, <treapking@chromium.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH v3 07/17] soc: mediatek: mutex: Reused the switch case for SOF ID
+Date: Thu, 15 May 2025 17:34:19 +0800
+Message-ID: <20250515093454.1729720-8-paul-pl.chen@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250515093454.1729720-1-paul-pl.chen@mediatek.com>
+References: <20250515093454.1729720-1-paul-pl.chen@mediatek.com>
 MIME-Version: 1.0
-References: <20250430123306.15072-1-linux.amoon@gmail.com> <aCR9RzGMWEuI0pxS@mai.linaro.org>
-In-Reply-To: <aCR9RzGMWEuI0pxS@mai.linaro.org>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Thu, 15 May 2025 16:40:27 +0530
-X-Gm-Features: AX0GCFs2e1Pkh4MEeMLO4mfbxvj7Hh0TOcnvMLseg8q2U30qPhgLXLwcneYB4S8
-Message-ID: <CANAwSgSA-JHMRD7-19wijOY=TSWD-sv6yyrT=mH+wkUJuvxFAw@mail.gmail.com>
-Subject: Re: [PATCH v6 0/4] Exynos Thermal code improvement
-To: Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
-	Lukasz Luba <lukasz.luba@arm.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	"open list:SAMSUNG THERMAL DRIVER" <linux-pm@vger.kernel.org>, 
-	"open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>, 
-	"moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>, 
-	"open list:CLANG/LLVM BUILD SUPPORT:Keyword:b(?i:clang|llvm)b" <llvm@lists.linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_041048_042927_103DF797 
-X-CRM114-Status: GOOD (  20.03  )
+X-CRM114-CacheID: sfid-20250515_025030_219220_6A544DDC 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,73 +91,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+From: Paul-pl Chen <paul-pl.chen@mediatek.com>
 
-On Wed, 14 May 2025 at 16:53, Daniel Lezcano <daniel.lezcano@linaro.org> wr=
-ote:
->
-> On Wed, Apr 30, 2025 at 06:02:56PM +0530, Anand Moon wrote:
-> > Hi All,
->
-> Hi Anand,
->
-> if the goal of the changes is to do cleanups, I recommend to rework
-> how the code is organized. Instead of having the data->soc check all
-> around the functions, write per platform functions and store them in
-> struct of_device_id data field instead of the soc version.
->
-> Basically get rid of exynos_map_dt_data by settings the different ops
-> in a per platform structure.
->
-> Then the initialization routine would be simpler to clean.
->
+Reused the switch case for SOF IDs.
 
-Thanks, I had previously attempted this approach.
-The goal is to split the exynos_tmu_data structure to accommodate
-SoC-specific callbacks for initialization and configuration.
+Signed-off-by: Nancy Lin <nancy.lin@mediatek.com>
+Signed-off-by: Paul-pl Chen <paul-pl.chen@mediatek.com>
+---
+ drivers/soc/mediatek/mtk-mutex.c | 81 ++++++++++++++------------------
+ 1 file changed, 36 insertions(+), 45 deletions(-)
 
-In my earlier attempt, I tried to refactor the code to achieve this.
-However, the main challenge I encountered was that the
-exynos_sensor_ops weren=E2=80=99t being correctly mapped for each SoC.
+diff --git a/drivers/soc/mediatek/mtk-mutex.c b/drivers/soc/mediatek/mtk-mutex.c
+index aaa965d4b050..47f4d9ae4bfc 100644
+--- a/drivers/soc/mediatek/mtk-mutex.c
++++ b/drivers/soc/mediatek/mtk-mutex.c
+@@ -853,43 +853,45 @@ void mtk_mutex_unprepare(struct mtk_mutex *mutex)
+ }
+ EXPORT_SYMBOL_GPL(mtk_mutex_unprepare);
+ 
+-void mtk_mutex_add_comp(struct mtk_mutex *mutex,
+-			enum mtk_ddp_comp_id id)
++static int mtk_mutex_get_output_comp_sof(enum mtk_ddp_comp_id id)
+ {
+-	struct mtk_mutex_ctx *mtx = container_of(mutex, struct mtk_mutex_ctx,
+-						 mutex[mutex->id]);
+-	unsigned int reg;
+-	unsigned int sof_id;
+-	unsigned int offset;
+-
+-	WARN_ON(&mtx->mutex[mutex->id] != mutex);
+-
+ 	switch (id) {
+ 	case DDP_COMPONENT_DSI0:
+-		sof_id = MUTEX_SOF_DSI0;
+-		break;
++		return MUTEX_SOF_DSI0;
+ 	case DDP_COMPONENT_DSI1:
+-		sof_id = MUTEX_SOF_DSI0;
+-		break;
++		return MUTEX_SOF_DSI1;
+ 	case DDP_COMPONENT_DSI2:
+-		sof_id = MUTEX_SOF_DSI2;
+-		break;
++		return MUTEX_SOF_DSI2;
+ 	case DDP_COMPONENT_DSI3:
+-		sof_id = MUTEX_SOF_DSI3;
+-		break;
++		return MUTEX_SOF_DSI3;
+ 	case DDP_COMPONENT_DPI0:
+-		sof_id = MUTEX_SOF_DPI0;
+-		break;
++		return MUTEX_SOF_DPI0;
+ 	case DDP_COMPONENT_DPI1:
+-		sof_id = MUTEX_SOF_DPI1;
+-		break;
++		return MUTEX_SOF_DPI1;
+ 	case DDP_COMPONENT_DP_INTF0:
+-		sof_id = MUTEX_SOF_DP_INTF0;
+-		break;
++		return MUTEX_SOF_DP_INTF0;
+ 	case DDP_COMPONENT_DP_INTF1:
+-		sof_id = MUTEX_SOF_DP_INTF1;
+-		break;
++		return MUTEX_SOF_DP_INTF1;
+ 	default:
++		break;
++	}
++
++	return -EINVAL;
++}
++
++void mtk_mutex_add_comp(struct mtk_mutex *mutex,
++			enum mtk_ddp_comp_id id)
++{
++	struct mtk_mutex_ctx *mtx = container_of(mutex, struct mtk_mutex_ctx,
++						 mutex[mutex->id]);
++	unsigned int reg;
++	unsigned int sof_id;
++	unsigned int offset;
++	int sof_id = mtk_mutex_get_output_comp_sof(id);
++
++	WARN_ON(&mtx->mutex[mutex->id] != mutex);
++
++	if (sof_id < 0) {
+ 		if (mtx->data->mutex_mod[id] < 32) {
+ 			offset = DISP_REG_MUTEX_MOD(mtx->data->mutex_mod_reg,
+ 						    mutex->id);
+@@ -905,8 +907,7 @@ void mtk_mutex_add_comp(struct mtk_mutex *mutex,
+ 		return;
+ 	}
+ 
+-	writel_relaxed(mtx->data->mutex_sof[sof_id],
+-		       mtx->regs +
++	writel_relaxed(mtx->data->mutex_sof[sof_id], mtx->regs +
+ 		       DISP_REG_MUTEX_SOF(mtx->data->mutex_sof_reg, mutex->id));
+ }
+ EXPORT_SYMBOL_GPL(mtk_mutex_add_comp);
+@@ -918,24 +919,10 @@ void mtk_mutex_remove_comp(struct mtk_mutex *mutex,
+ 						 mutex[mutex->id]);
+ 	unsigned int reg;
+ 	unsigned int offset;
+-
++	int sof_id = mtk_mutex_get_output_comp_sof(id);
+ 	WARN_ON(&mtx->mutex[mutex->id] != mutex);
+ 
+-	switch (id) {
+-	case DDP_COMPONENT_DSI0:
+-	case DDP_COMPONENT_DSI1:
+-	case DDP_COMPONENT_DSI2:
+-	case DDP_COMPONENT_DSI3:
+-	case DDP_COMPONENT_DPI0:
+-	case DDP_COMPONENT_DPI1:
+-	case DDP_COMPONENT_DP_INTF0:
+-	case DDP_COMPONENT_DP_INTF1:
+-		writel_relaxed(MUTEX_SOF_SINGLE_MODE,
+-			       mtx->regs +
+-			       DISP_REG_MUTEX_SOF(mtx->data->mutex_sof_reg,
+-						  mutex->id));
+-		break;
+-	default:
++	if (sof_id < 0) {
+ 		if (mtx->data->mutex_mod[id] < 32) {
+ 			offset = DISP_REG_MUTEX_MOD(mtx->data->mutex_mod_reg,
+ 						    mutex->id);
+@@ -948,8 +935,12 @@ void mtk_mutex_remove_comp(struct mtk_mutex *mutex,
+ 			reg &= ~(1 << (mtx->data->mutex_mod[id] - 32));
+ 			writel_relaxed(reg, mtx->regs + offset);
+ 		}
+-		break;
++		return;
+ 	}
++
++	writel_relaxed(MUTEX_SOF_SINGLE_MODE,
++		       mtx->regs + DISP_REG_MUTEX_SOF(mtx->data->mutex_sof_reg,
++		       mutex->id));
+ }
+ EXPORT_SYMBOL_GPL(mtk_mutex_remove_comp);
+ 
+-- 
+2.45.2
 
-Some SoC have multiple sensor
-exynos4x12
-                    tmu: tmu@100c0000
-exynos5420
-                tmu_cpu0: tmu@10060000
-                tmu_cpu1: tmu@10064000
-                tmu_cpu2: tmu@10068000
-                tmu_cpu3: tmu@1006c000
-                tmu_gpu: tmu@100a0000
- exynos5433
-                tmu_atlas0: tmu@10060000
-                tmu_atlas1: tmu@10068000
-                tmu_g3d: tmu@10070000
-exynos7
-                tmu@10060000
-
-It could be a design issue of the structure.or some DTS issue.
-So what I found in debugging it is not working correctly.
-
-static const struct thermal_zone_device_ops exynos_sensor_ops =3D {
-        .get_temp =3D exynos_get_temp,
-        .set_emul_temp =3D exynos_tmu_set_emulation,
-        .set_trips =3D exynos_set_trips,
-};
-
-The sensor callback will not return a valid pointer and soc id for the get_=
-temp.
-
-Here is my earlier version of local changes.
-[1] https://pastebin.com/bbEP04Zh exynos_tmu.c
-[2] https://pastebin.com/PzNz5yve Odroid U3 dmesg.log
-[3] https://pastebin.com/4Yjt2d2u    Odroid Xu4 dmesg.log
-
-I want to re-model the structure to improve the code.
-Once Its working condition I will send this for review.
-
-If you have some suggestions please let me know.
-
-Thanks
--Anand
 
