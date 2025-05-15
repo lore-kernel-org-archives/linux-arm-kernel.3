@@ -4,63 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3B7AC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 15:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38EBAC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 15:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/HtjO48AE/shbuCncI+ImCTKXDoG8F8rOjSEW+O5Dzk=; b=qjyq6ERH/8ju+2k+3tIGfeTqpb
-	cUw84/uo9zqM+dgz+0T5iX7awKLMVFAcMkOMuickxSbcPUA852A/Wj0hZQE31cPZIIqdnnz+mfE6V
-	MyWRMiKrvinHu9KqpDLxN8k9lpzyKnQ2SI95qGj4VXWUZS+OLULMI7MIODygktAZa1cnJwIJsfXZN
-	ONwwNuDj58Xu400qa1E2DXZzcsoGX3qkA8m7xNR+C5xzgIXFD8UeMO5O/JpPoxvnaCkMCI7Y1x5iX
-	kjGLUAjUScja1DpTSBjxgfXKz38s80A7oNhXM8wkXJROZZAaGunJ9gUyZb8DpIN+Rb3320QWLwG0O
-	yalJXhzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nr0nXxmcRsw9rEQvUzs9fjSr7Uv8dGrjViFhcLGXgAw=; b=2K3Uqwgj6qFT6WIa+viXkNjINu
+	LKr2XUrxH0s6mjrfxMwImbRihlGtNQm6gy/MKGoFFawPsWkhMpG3oIWv3qunogkhfjOanV0pIAl+7
+	MfTGlb5tUr0LlGxSAHEr95gWs9FarzYIqubQnm8r4mZq8LyzyRbS5dQC5Gj67s2ROl9jwoPWGfe6J
+	YuRJaHCQK+MO0CRsKLv4awNucS48+8/xYpa0tLGyu7uEU/yB4HhCToj4CrtrF9DtVY2oUrF8qjyTY
+	dZZjFE7v6dCItkvdHC1hcEEcEFY0c1Hzk+X8vgbF1FM1iHwvmfJq2Q91CNGxe3JVg/K4V1xQUwY0i
+	SXCHZC1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFaHx-000000011Kj-0q23;
-	Thu, 15 May 2025 15:14:25 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uFaJw-000000011af-3lmO;
+	Thu, 15 May 2025 15:16:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFaBG-000000010Pa-3soD
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 15:07:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 355E2A4DF38;
-	Thu, 15 May 2025 15:07:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC609C4CEE7;
-	Thu, 15 May 2025 15:07:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747321649;
-	bh=NVnU3EXlKhcA1buxaPfe5O18xcLQiBuKx4mM07IagEE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hxiXMnlsIBdlJpTna4XVl4yd+LIHBATurggzh1gAwCvCiEltU8DzI/Npq3OdlKRKZ
-	 GKZiKlUI18UwxeyRKxIAdkxLSPr8krEUTkXzgMEItGQKXCRWjw6qFGqImPKtWJhA9a
-	 iNQ/USp2IYiv9tYezwSsca83juoSQqrZZeuEWYJOQ1YFUULVHZEButC68OLzVG0sxv
-	 hJOmtcI0HPAh3G9VLQm4Wkprc3hlcPByga66I/CQ33bgULosMJ9XbDtZsaY6ekkSH4
-	 IFrtvwA4hik9gsdQtkpLtTJ7cKOxppxpc7kbsQOPDqWKYBJFLHQ+0ooqT4Wceqfh9v
-	 qMiPRpi/rqpKw==
-Date: Thu, 15 May 2025 16:07:25 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Manikandan Muralidharan <manikandan.m@microchip.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: dts: microchip: rename spi-cs-setup-ns property to
- spi-cs-setup-delay-ns
-Message-ID: <20250515-laptop-unfixable-85dca20d1b57@spud>
-References: <20250515103251.210468-1-manikandan.m@microchip.com>
+	id 1uFaF1-000000010zP-0Zjr;
+	Thu, 15 May 2025 15:11:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Nr0nXxmcRsw9rEQvUzs9fjSr7Uv8dGrjViFhcLGXgAw=; b=b+k1lvGk8HJWOFziRjPS4/s9O7
+	qkQaXz15iHCAvkcADXJNRBShbJD9HtARmGFcyoQgkkfGeJX6QQedJN9vS47TUIL27YtbMY8TSp1Y1
+	Pqp67n7kqx3oEKcIZGMwtsdETSnLxudoODtM5Q01/dV41IwkGnwbwtNQyjN+BoZQ+GC8JbbAap+g/
+	88JAMWwSaULySvFJZdjpWpomB3T9m7/vRP8wN+ckq5BXUtSKzN2Jus7d77ScKkafcU2r2ePiB/7V7
+	2XdtBE3kw1Qx6H/dUPtSTyR5R5xGJRfIGAkNORKO1dglsx75m9rqgU4j66BXP7HlLPrdAhtJB73zF
+	KIucQZfw==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uFaEx-0000000HUpt-2s6P;
+	Thu, 15 May 2025 15:11:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1747321874;
+	bh=X3Dg1aIIyiODeevYtcoMV/eCFObvTdGT9GPFfSk5gis=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=LReNZ4m2ieD9KPscuI37q3qPeSnhXB4sbnjqzBI/3cDxVPK/OQysaTXJDNqBiJc4W
+	 0BEQFt6ssqmEaErwYOisMATNcuGkLR1HPkDXBvGIYrCiLtGj2lZQafz89Gki3zGPOv
+	 sXmPiJ+vun1YCBkKx+u2Uia+Gbuhrz7oMu32w8b35uqORf7m8Tt7+vHHwGA2au58vO
+	 uKse1vMMbCFyWnmuCIu1BoGrV+10ijkAl8/8CxBd+87cT/m4RYFfm+yBCGA1581zwi
+	 8JzZvjt3abMvkOC1ABtbPQOfj/qFfRKq5wEwdXIkjn0s2eimCNMzXyTIxglNdGxySi
+	 /Dgg9YyEY0vEA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BFAF017E05F0;
+	Thu, 15 May 2025 17:11:13 +0200 (CEST)
+Message-ID: <cbd170a3-cbfe-4b4f-a059-efe33fed0e5d@collabora.com>
+Date: Thu, 15 May 2025 17:11:13 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="YNVVBp6SZFwNB2lg"
-Content-Disposition: inline
-In-Reply-To: <20250515103251.210468-1-manikandan.m@microchip.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: clock: mediatek: Add #reset-cells
+ property for MT8188
+To: Conor Dooley <conor@kernel.org>,
+ Julien Massot <julien.massot@collabora.com>
+Cc: kernel@collabora.com, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Garmin Chang <garmin.chang@mediatek.com>,
+ Friday Yang <friday.yang@mediatek.com>,
+ Conor Dooley <conor.dooley@microchip.com>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250515-dtb-check-mt8188-v1-0-cda383cbeb4f@collabora.com>
+ <20250515-dtb-check-mt8188-v1-1-cda383cbeb4f@collabora.com>
+ <20250515-playpen-dislodge-80245fb8b7a9@spud>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250515-playpen-dislodge-80245fb8b7a9@spud>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_080731_092437_01375BC6 
-X-CRM114-Status: GOOD (  17.15  )
+X-CRM114-CacheID: sfid-20250515_161119_891213_609D228F 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,101 +99,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Il 15/05/25 17:03, Conor Dooley ha scritto:
+> On Thu, May 15, 2025 at 03:31:43PM +0200, Julien Massot wrote:
+>> The '#reset-cells' property is required for some of the MT8188
+>> clock controllers, but not listed as a valid property.
+> 
+> "required for some" but not marked required on those platforms.
+> Why not?
+> 
 
---YNVVBp6SZFwNB2lg
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Yeah now that I read that for the third time, the wording is a bit incorrect.
 
-On Thu, May 15, 2025 at 04:02:51PM +0530, Manikandan Muralidharan wrote:
-> The naming scheme for delay properties includes "delay" in the name,
-> so renaming spi-cs-setup-ns property to spi-cs-setup-delay-ns to keep
-> that consistent.
+It's not "required", some clock controllers do have reset controllers, but it
+is facultative to actually use the latter.
 
-"to keep that consistent" sounds like some nice cleanup, but these
-properties appear nowhere in kernel code and therefore just do not work?
-I think the wording should reflect that and there should be a Fixes tag
-to the broken commit.
+I'm not sure if the ones that do have reset controllers inside should have the
+#reset-cells property as required...
 
->=20
-> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
-> ---
->  arch/arm/boot/dts/microchip/at91-sam9x60ek.dts        | 2 +-
->  arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi   | 2 +-
->  arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi | 2 +-
->  arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts      | 2 +-
->  4 files changed, 4 insertions(+), 4 deletions(-)
->=20
-> diff --git a/arch/arm/boot/dts/microchip/at91-sam9x60ek.dts b/arch/arm/bo=
-ot/dts/microchip/at91-sam9x60ek.dts
-> index cdc56b53299d..c1ff3248bd8f 100644
-> --- a/arch/arm/boot/dts/microchip/at91-sam9x60ek.dts
-> +++ b/arch/arm/boot/dts/microchip/at91-sam9x60ek.dts
-> @@ -609,7 +609,7 @@ flash@0 {
->  		compatible =3D "jedec,spi-nor";
->  		reg =3D <0>;
->  		spi-max-frequency =3D <104000000>;
-> -		spi-cs-setup-ns =3D <7>;
-> +		spi-cs-setup-delay-ns =3D <7>;
->  		spi-tx-bus-width =3D <4>;
->  		spi-rx-bus-width =3D <4>;
->  		m25p,fast-read;
-> diff --git a/arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi b/arch/a=
-rm/boot/dts/microchip/at91-sama5d27_som1.dtsi
-> index 8ac85dac5a96..13c28e92b17e 100644
-> --- a/arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi
-> +++ b/arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi
-> @@ -44,7 +44,7 @@ flash@0 {
->  					compatible =3D "jedec,spi-nor";
->  					reg =3D <0>;
->  					spi-max-frequency =3D <104000000>;
-> -					spi-cs-setup-ns =3D <7>;
-> +					spi-cs-setup-delay-ns =3D <7>;
->  					spi-tx-bus-width =3D <4>;
->  					spi-rx-bus-width =3D <4>;
->  					m25p,fast-read;
-> diff --git a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi b/arch=
-/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
-> index ef11606a82b3..9543214adc9f 100644
-> --- a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
-> +++ b/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
-> @@ -234,7 +234,7 @@ qspi1_flash: flash@0 {
->  		compatible =3D "jedec,spi-nor";
->  		reg =3D <0>;
->  		spi-max-frequency =3D <104000000>;
-> -		spi-cs-setup-ns =3D <7>;
-> +		spi-cs-setup-delay-ns =3D <7>;
->  		spi-rx-bus-width =3D <4>;
->  		spi-tx-bus-width =3D <4>;
->  		m25p,fast-read;
-> diff --git a/arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts b/arch/arm/=
-boot/dts/microchip/at91-sama5d2_icp.dts
-> index 9fa6f1395aa6..fbae6a9af6c3 100644
-> --- a/arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts
-> +++ b/arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts
-> @@ -714,7 +714,7 @@ flash@0 {
->  		compatible =3D "jedec,spi-nor";
->  		reg =3D <0>;
->  		spi-max-frequency =3D <104000000>;
-> -		spi-cs-setup-ns =3D <7>;
-> +		spi-cs-setup-delay-ns =3D <7>;
->  		spi-tx-bus-width =3D <4>;
->  		spi-rx-bus-width =3D <4>;
->  		m25p,fast-read;
-> --=20
-> 2.25.1
->=20
+Conor, what do you think?
 
---YNVVBp6SZFwNB2lg
-Content-Type: application/pgp-signature; name="signature.asc"
+Cheers,
+Angelo
 
------BEGIN PGP SIGNATURE-----
+>>
+>> Fixes: 9a5cd59640ac ("dt-bindings: clock: mediatek: Add SMI LARBs reset for MT8188")
+>> Signed-off-by: Julien Massot <julien.massot@collabora.com>
+>> ---
+>>   Documentation/devicetree/bindings/clock/mediatek,mt8188-clock.yaml | 3 +++
+>>   1 file changed, 3 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8188-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8188-clock.yaml
+>> index 2985c8c717d72888dd49f1f6249a9e2594d8a38d..5403242545ab12a7736ed4fbac26008aa955c724 100644
+>> --- a/Documentation/devicetree/bindings/clock/mediatek,mt8188-clock.yaml
+>> +++ b/Documentation/devicetree/bindings/clock/mediatek,mt8188-clock.yaml
+>> @@ -52,6 +52,9 @@ properties:
+>>     '#clock-cells':
+>>       const: 1
+>>   
+>> +  '#reset-cells':
+>> +    const: 1
+>> +
+>>   required:
+>>     - compatible
+>>     - reg
+>>
+>> -- 
+>> 2.49.0
+>>
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaCYDLQAKCRB4tDGHoIJi
-0uu/AQCsh2Rrf0aLS5+M+Dn41EcWua9fjg/EU6tZYdeV5+YuvwD/cSVJLXH4dMCp
-Yo8NyZ3cszL9S8dlEsdTv2vQ6t1V3AU=
-=AvJj
------END PGP SIGNATURE-----
-
---YNVVBp6SZFwNB2lg--
 
