@@ -4,74 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68C8FC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 13:30:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCD5DC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 13:32:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DmgkS8N8rQzLFF3Qk+NBeZfgMPXV3DlidkbB4nNL2g8=; b=y/qn/fh0+geMIwcw+xNx7CjKoR
-	qAxyQxQiUC98Xr3R0e6j6uEltItuyWWXCCgafYZ1wMJHjXPoaQ45ibkoQxIqJHCIVrExi2Qk2pkQg
-	hBU8B4wdZsR3U/wTXl9k9uZTQwT/9SXu1qChxZCNm6Kklvo+XoJsmffpYPK24chG/4HQTBySw6VKW
-	DOj04x+F+6vGsHuWkrMMDwnYcefXxtGrcvx8RKLfToeQf8T18KSLipJGXk2+WO3ZFsgiDTT0H4EEn
-	v0uWXZfEOjaMtnQ8mbROd30E7wte0DXkDJSZS+L402jeEvRLJDKhZ3fXrCJgi51De1EazEjj9tf2x
-	Z+YrhQ0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gXeqa887aZIuoR48uoN7BEsLTRu+NlEEvV/bSAfKqmQ=; b=YQIYZt2aj+Sjpu1X6SHxDLXbfK
+	tWOUl0HsDx4cPkFd1F0M1xZ3+/T4OBIhyxko4ImfQlKvpT9qeHg3Wet/mEQV221eJ27PJKOts1/I1
+	LUwidO8rH1plq9XXS4TYJie8pKXyUSw3b5lnH/P8f+Nf67342SrG2sYIWmG6EHM2QC3fwzjJrmDz/
+	q7a4VG0glsYRpufxh9ySX57U3IBmOildQ5jRUNxXkK/Q4eapBhzUcx5eXU97jO7CYwVV2FD/ABhil
+	s2KZj5IDOTlaRPy/YkRDQ3p78nFpkHZ+qidXAYgvSupbwnfeeebDLoUdLjnvF2Klkcv0xs+j84ZRt
+	+T+Vb1tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFYfT-00000000jeO-10oQ;
-	Thu, 15 May 2025 13:30:35 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uFYhT-00000000k5L-1lAg;
+	Thu, 15 May 2025 13:32:39 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFYWJ-00000000iA9-1u4z
+	id 1uFYdy-00000000jLu-3hBW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 13:21:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B9902A4C97C;
-	Thu, 15 May 2025 13:21:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9334CC4CEEF;
-	Thu, 15 May 2025 13:21:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747315266;
-	bh=JPkYbeCC/0+2C7oAcLkVgxvwJCw1QU+wPgbrczN6A7U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ULXEX8KvfmKzhiJTB9Hd7eAwANfC1BZlgWUM6t1hJ0bRn630MAm6VurvIy9r8jpMv
-	 P8420bwYR5nxut2GfVXVQDFMKw37eb5L9zAC+Lvc2MjADIccHILfOZidJCg4zVrg9d
-	 ztlRyJp81Y8h9GJBQ8F7MtMW/l5FFlq2R6LHEytAK8hJO4D52qmjNYozDkFgO5xZTU
-	 7XpeOkZCSYTjUvUkUIch2iogvEw/HV/kp2nPW8sWvO38mtWsKti/L661hX7Bdi/18x
-	 p0vUB79T0gzxVtl8orIGPgtsS0rbb95U71ta/kVU9w0UWbwMMSBU2H25ROQ1jxHDHR
-	 GX1Ig7sE95TZw==
-Date: Thu, 15 May 2025 14:21:01 +0100
-From: Will Deacon <will@kernel.org>
-To: David Hildenbrand <david@redhat.com>
-Cc: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com,
-	ryan.roberts@arm.com, anshuman.khandual@arm.com,
-	mark.rutland@arm.com, yang@os.amperecomputing.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: Check pxd_leaf() instead of !pxd_table() while
- tearing down page tables
-Message-ID: <20250515132059.GA12038@willie-the-truck>
-References: <20250515063450.86629-1-dev.jain@arm.com>
- <332ecda7-14c4-4dc3-aeff-26801b74ca04@redhat.com>
- <4904d02f-6595-4230-a321-23327596e085@arm.com>
- <6fe7848c-485e-4639-b65c-200ed6abe119@redhat.com>
- <35ef7691-7eac-4efa-838d-c504c88c042b@arm.com>
- <c06930f0-f98c-4089-aa33-6789b95fd08f@redhat.com>
- <91fc96c3-4931-4f07-a0a9-507ac7b5ae6d@arm.com>
- <a005b0c3-861f-4e73-a747-91e0a15c85de@redhat.com>
- <20250515125606.GA11878@willie-the-truck>
- <23042cdf-e0fc-4b3a-92f6-688689728cc7@redhat.com>
+	Thu, 15 May 2025 13:29:04 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-441c99459e9so6183135e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 06:29:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747315741; x=1747920541; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=gXeqa887aZIuoR48uoN7BEsLTRu+NlEEvV/bSAfKqmQ=;
+        b=ojIyGinXbhchpdzpIHIcung/GMg6WdsBwkdmFsE4+QvDzHFjdQcazFKT1iPAQSK/Uv
+         3S5w+wP5+dxAm8Vzxj1BKu/P7ug/yMbmvPR86UVL5dy7nfc9+NAEvx0wknXnFZlsH5+U
+         QZKeHeltZMwwUPqMHnQUR6pPjURW6+LvhqwQPaT1GEZ8ljanKcmv3BJQOKkO/lHnseAc
+         w/krEu1pPiYGbgYDZmipBKw6aYK2DCtupxHxWBEyi7f1mVQHraoy7wEwKVrIzb49yJ/+
+         A9196NJ2+52vfRyagEVZdeNcluynlYrOVHWSyfTcZgSBf9gUpiaKxpbMfZLX7z2zWC2S
+         Gxrg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747315741; x=1747920541;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=gXeqa887aZIuoR48uoN7BEsLTRu+NlEEvV/bSAfKqmQ=;
+        b=pI7DaGLSYdQ2+aKjKML11y6VZOte/AqkPUP42+YfZl2KvwoTN9TYtEeNKP9TLKJWin
+         6xfbZezJjJhwMNmG3ldGiOg43CQ2uNo0jEuSUURveMHkRIoict/NoKmpXUv1vq5JQxv5
+         QGGFzOQ3bW2PKyW/LJihVq6P7PmNM+qa9V4cXcTmZiIJdmCi2p2XbJlaLA/YlW560AL/
+         Q6zGEBm9iWl97PxTizIxjONMGsnlDoDBMQ81OSZhHm6lrC2+KkT5wRlQmu5/i2ZJzBMC
+         t5KBfzIb9KriIujEXsjl2hwlSt4BofuQgzVIrzxCeBDrZM97ONGSU9tCHIRfdutQENov
+         SryA==
+X-Forwarded-Encrypted: i=1; AJvYcCWjOgcGaCP4Z8i2gpTjlED4WTw9sOtPOyPlaASamgHGRcrQftWUfK3Kko3kBYE9eyEdpwDrWhu8irnOd4d1j7vA@lists.infradead.org
+X-Gm-Message-State: AOJu0YwA+0zHPUVckHcWPxdsJLl+Jp3YdCvuqhK+r1sj9tpII/79qiba
+	3gHfsyzPk4DVEXyCC9jEu2SJx5yuSoAa9qYDLLQZrjzx8Atuu9UwoPmxK3PSepA=
+X-Gm-Gg: ASbGncvMKx9KJJEroW0q7R+bMekuLRxIJ6prWXMQ5hOtCi2qHpV3BBbpujCxEE7RTIN
+	x0kmuvBP08HkblardhN3cvDWQMC/+8j+4Rce+Af7O16S3S4vtlEs06SCknxY2r8fMZiXNm0q83K
+	SZg94P5w+KKqCqBK9p/LfUqnGXRKcYYfn8LJZ2AdQ1r3rj7C7JuX+xB49bdJQ8JRCzCW0aQWKdG
+	Rs+pX9kzBhFS5Hq7L2qLp9KGvUyUIHo980nNsSXTHMLkcaAaPobqREf9gPGVNzuE2swNJd2bV7d
+	CipsCpTg/G1GjD7Rl7u0UprQguKLYDsOfgG1iJa8tMak/evrEwAfZmzkaFo7f3zU/FbGg4a13Uv
+	KLQ4fkB+NavRqeCI6+RB+ZWI=
+X-Google-Smtp-Source: AGHT+IEjQRVUhGojBwI+97YBtdmsQnt5mRPLvJ6XJl4UcLoxhfGfGLJJ2ddgeOKQqlG0CKXA5mxG9g==
+X-Received: by 2002:a05:600c:348a:b0:43c:fa0e:4713 with SMTP id 5b1f17b1804b1-442f20bb25dmr78852185e9.2.1747315741090;
+        Thu, 15 May 2025 06:29:01 -0700 (PDT)
+Received: from [192.168.2.1] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-442f3368d1csm73524575e9.8.2025.05.15.06.28.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 15 May 2025 06:28:59 -0700 (PDT)
+Message-ID: <92c2949e-2fc1-40e9-9dea-e3d9f7aa571d@linaro.org>
+Date: Thu, 15 May 2025 15:28:55 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 0/4] Exynos Thermal code improvement
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ "open list:SAMSUNG THERMAL DRIVER" <linux-pm@vger.kernel.org>,
+ "open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>,
+ "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>,
+ "open list:CLANG/LLVM BUILD SUPPORT:Keyword:b(?i:clang|llvm)b"
+ <llvm@lists.linux.dev>
+References: <20250430123306.15072-1-linux.amoon@gmail.com>
+ <aCR9RzGMWEuI0pxS@mai.linaro.org>
+ <CANAwSgSA-JHMRD7-19wijOY=TSWD-sv6yyrT=mH+wkUJuvxFAw@mail.gmail.com>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <CANAwSgSA-JHMRD7-19wijOY=TSWD-sv6yyrT=mH+wkUJuvxFAw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <23042cdf-e0fc-4b3a-92f6-688689728cc7@redhat.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_062107_628029_6DEC9BD6 
-X-CRM114-Status: GOOD (  40.52  )
+X-CRM114-CacheID: sfid-20250515_062902_920138_45CAB3FF 
+X-CRM114-Status: GOOD (  25.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,102 +114,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 15, 2025 at 03:04:50PM +0200, David Hildenbrand wrote:
-> On 15.05.25 14:56, Will Deacon wrote:
-> > On Thu, May 15, 2025 at 11:32:22AM +0200, David Hildenbrand wrote:
-> > > On 15.05.25 11:27, Dev Jain wrote:
-> > > > 
-> > > > 
-> > > > On 15/05/25 2:23 pm, David Hildenbrand wrote:
-> > > > > On 15.05.25 10:47, Dev Jain wrote:
-> > > > > > 
-> > > > > > 
-> > > > > > On 15/05/25 2:06 pm, David Hildenbrand wrote:
-> > > > > > > On 15.05.25 10:22, Dev Jain wrote:
-> > > > > > > > 
-> > > > > > > > 
-> > > > > > > > On 15/05/25 1:43 pm, David Hildenbrand wrote:
-> > > > > > > > > On 15.05.25 08:34, Dev Jain wrote:
-> > > > > > > > > > Commit 9c006972c3fe removes the pxd_present() checks because the
-> > > > > > > > > > caller
-> > > > > > > > > > checks pxd_present(). But, in case of vmap_try_huge_pud(), the caller
-> > > > > > > > > > only
-> > > > > > > > > > checks pud_present(); pud_free_pmd_page() recurses on each pmd
-> > > > > > > > > > through
-> > > > > > > > > > pmd_free_pte_page(), wherein the pmd may be none.
-> > > > > > > > > The commit states: "The core code already has a check for pXd_none()",
-> > > > > > > > > so I assume that assumption was not true in all cases?
-> > > > > > > > > 
-> > > > > > > > > Should that one problematic caller then check for pmd_none() instead?
-> > > > > > > > 
-> > > > > > > >      From what I could gather of Will's commit message, my
-> > > > > > > > interpretation is
-> > > > > > > > that the concerned callers are vmap_try_huge_pud and vmap_try_huge_pmd.
-> > > > > > > > These individually check for pxd_present():
-> > > > > > > > 
-> > > > > > > > if (pmd_present(*pmd) && !pmd_free_pte_page(pmd, addr))
-> > > > > > > >        return 0;
-> > > > > > > > 
-> > > > > > > > The problem is that vmap_try_huge_pud will also iterate on pte entries.
-> > > > > > > > So if the pud is present, then pud_free_pmd_page -> pmd_free_pte_page
-> > > > > > > > may encounter a none pmd and trigger a WARN.
-> > > > > > > 
-> > > > > > > Yeah, pud_free_pmd_page()->pmd_free_pte_page() looks shaky.
-> > > > > > > 
-> > > > > > > I assume we should either have an explicit pmd_none() check in
-> > > > > > > pud_free_pmd_page() before calling pmd_free_pte_page(), or one in
-> > > > > > > pmd_free_pte_page().
-> > > > > > > 
-> > > > > > > With your patch, we'd be calling pte_free_kernel() on a NULL pointer,
-> > > > > > > which sounds wrong -- unless I am missing something important.
-> > > > > > 
-> > > > > > Ah thanks, you seem to be right. We will be extracting table from a none
-> > > > > > pmd. Perhaps we should still bail out for !pxd_present() but without the
-> > > > > > warning, which the fix commit used to do.
-> > > > > 
-> > > > > Right. We just make sure that all callers of pmd_free_pte_page() already
-> > > > > check for it.
-> > > > > 
-> > > > > I'd just do something like:
-> > > > > 
-> > > > > diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> > > > > index 8fcf59ba39db7..e98dd7af147d5 100644
-> > > > > --- a/arch/arm64/mm/mmu.c
-> > > > > +++ b/arch/arm64/mm/mmu.c
-> > > > > @@ -1274,10 +1274,8 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long
-> > > > > addr)
-> > > > > 
-> > > > >            pmd = READ_ONCE(*pmdp);
-> > > > > 
-> > > > > -       if (!pmd_table(pmd)) {
-> > > > > -               VM_WARN_ON(1);
-> > > > > -               return 1;
-> > > > > -       }
-> > > > > +       VM_WARN_ON(!pmd_present(pmd));
-> > > > > +       VM_WARN_ON(!pmd_table(pmd));
-> > > > 
-> > > > And also return 1?
-> > > 
-> > > I'll leave that to Catalin + Will.
-> > > 
-> > > I'm not a friend for adding runtime-overhead for soemthing that should not
-> > > happen and be caught early during testing -> VM_WARN_ON_ONCE().
-> > 
-> > I definitely think we should return early if the pmd isn't a table.
-> > Otherwise, we could end up descending into God-knows-what!
+On 5/15/25 13:10, Anand Moon wrote:
+> Hi Daniel,
 > 
-> The question is: how did something that is not a table end up here, and why
-> is it valid to check exactly that at runtime. Not strong opinion, it just
-> feels a bit arbitrary to test for exactly that at runtime if it is
-> completely unexpected.
+> On Wed, 14 May 2025 at 16:53, Daniel Lezcano <daniel.lezcano@linaro.org> wrote:
+>>
+>> On Wed, Apr 30, 2025 at 06:02:56PM +0530, Anand Moon wrote:
+>>> Hi All,
+>>
+>> Hi Anand,
+>>
+>> if the goal of the changes is to do cleanups, I recommend to rework
+>> how the code is organized. Instead of having the data->soc check all
+>> around the functions, write per platform functions and store them in
+>> struct of_device_id data field instead of the soc version.
+>>
+>> Basically get rid of exynos_map_dt_data by settings the different ops
+>> in a per platform structure.
+>>
+>> Then the initialization routine would be simpler to clean.
+>>
+> 
+> Thanks, I had previously attempted this approach.
+> The goal is to split the exynos_tmu_data structure to accommodate
+> SoC-specific callbacks for initialization and configuration.
+> 
+> In my earlier attempt, I tried to refactor the code to achieve this.
+> However, the main challenge I encountered was that the
+> exynos_sensor_ops werenâ€™t being correctly mapped for each SoC.
+> 
+> Some SoC have multiple sensor
+> exynos4x12
+>                      tmu: tmu@100c0000
+> exynos5420
+>                  tmu_cpu0: tmu@10060000
+>                  tmu_cpu1: tmu@10064000
+>                  tmu_cpu2: tmu@10068000
+>                  tmu_cpu3: tmu@1006c000
+>                  tmu_gpu: tmu@100a0000
+>   exynos5433
+>                  tmu_atlas0: tmu@10060000
+>                  tmu_atlas1: tmu@10068000
+>                  tmu_g3d: tmu@10070000
+> exynos7
+>                  tmu@10060000
+> 
+> It could be a design issue of the structure.or some DTS issue.
+> So what I found in debugging it is not working correctly.
+> 
+> static const struct thermal_zone_device_ops exynos_sensor_ops = {
+>          .get_temp = exynos_get_temp,
+>          .set_emul_temp = exynos_tmu_set_emulation,
+>          .set_trips = exynos_set_trips,
+> };
+> 
+> The sensor callback will not return a valid pointer and soc id for the get_temp.
+> 
+> Here is my earlier version of local changes.
+> [1] https://pastebin.com/bbEP04Zh exynos_tmu.c
+> [2] https://pastebin.com/PzNz5yve Odroid U3 dmesg.log
+> [3] https://pastebin.com/4Yjt2d2u    Odroid Xu4 dmesg.log
+> 
+> I want to re-model the structure to improve the code.
+> Once Its working condition I will send this for review.
+> 
+> If you have some suggestions please let me know.
 
-I see it a little bit like type-checking: we could see an invalid entry,
-a leaf entry or a table entry and we should only ever dereference the
-latter. If the VM_WARN_ON() is justified, then I find it jarring to go
-ahead with the dereference regardless of the type.
+I suggest to do the conversion step by step beginning by 
+exynos4210_tmu_clear_irqs, then by exynos_map_dt_data as the first 
+cleanup iteration
 
-That said, maybe the VM_WARN_ON() should either be deleted or moved out
-to the callers in mm/vmalloc.c?
 
-Will
+-- 
+<http://www.linaro.org/> Linaro.org â”‚ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
