@@ -4,104 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81D20C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 15:56:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D397C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 15:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kOeEt0eYM8IYkFJkabJ/MjmTOkUkyJwoXYdWr19mDsw=; b=UJlcvF/UH2yk7Ug0/HBmERBZKQ
-	K8FQK3OrxSst7vJiEOt3PyO2B1ziBXydC/enMtv6MpjJKFm7yRrqbcyqNoa3wJrpPUwfjcyjzWDj8
-	aEWqFDRJpF3QN9WzNy77cdw9Oj4MY8c6XT4u9LtDn16vQqbCgbMtBamcuQg6MdH0iddoiZ7IWzmb9
-	/bYtryXKKEEPj6ZCP2J82lqYrIRxDZ9vPrQLyYz8tamk458XTYcn0tNi5P88ix2AIeF/P7Tz0lCwf
-	5yUtdx5BCjgIlJAKbFmLRQ/tL/Zmiff2Ao4tYOVcYBWfXZwBxYd/5wFCg8uOJRY38EOIabjC6Oj6F
-	BoWGlsgA==;
+	bh=8+K0vt/UsfM3vUNh3n2feDqNw5L/kOjFVTMJKG3X0A0=; b=ncgTKVx/X60rc+LKPgpXQmEPx5
+	OU0sIPTuhX3aV201nSrSljOIiKB3HCHlbu2WsXuNxKoCRPRl/IYgUqx02GAPYvnW3/LnEXUPbQ9Yt
+	w6rMBUCW/UnKBHx/yH5bp7qdLqE7pasItgJGmdZ7s5N4KDbczbETNKFrcgP0y+2ppJNDkYRdhNbGB
+	f/DMNMGrpZz+SA0xNiJGglKXL5JmNfdmIWfNOr8PRlQT2Z2fhV1ElIkgBADKWtWJMX1/+qYAEX06E
+	VdJCig6xS130n1X0enB/gEgKBDFlMbanqPHMiopeZS9eQg/FkZ3rI6bvEU5iSmwljTL899bS4yfeQ
+	pawY8lUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFawk-000000019eF-0NSc;
-	Thu, 15 May 2025 15:56:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uFayl-00000001AMG-0YCL;
+	Thu, 15 May 2025 15:58:39 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFauh-0000000194X-2CWK;
-	Thu, 15 May 2025 15:54:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E1D2B614BD;
-	Thu, 15 May 2025 15:54:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB0F0C4CEF1;
-	Thu, 15 May 2025 15:54:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747324466;
-	bh=bZ1mpdRMl97ugOlvZvcRlHoXNJ2fHIFzNKokgRFQ3eA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PcEOF7B6dhc/9Rt5gqzwOH0YuAPzB7J0a2O5RFFX2xXG56eNs/LCeFACXBWy5+wfN
-	 aTsiPeWROd8ekxs70Ew6Hq6HoLCw1o/CnoJD+PXOuj4mM2B/T9Yhe2ap2mrmiwAPMe
-	 /KZUGqT4ghW52XiCPsFnglK+JV/vRi5trCbdcbFV/eGZarVF4zmpwP+q6WgI8oe++K
-	 flIfsjG/8MnNHAqUPad6Y7ewVQ889NcbgDxA+KHfEcU8gqpLkHgNie6cAQfHs0ZDru
-	 /b1k4deb9bXX52sFr5BT8mX28rRHKuMtJbXQceYhxYwCYwK6YYGvCOh5mGs9NKr12w
-	 gf9xtqNGOwcLQ==
-Message-ID: <94e0951b-46e1-439b-9dbc-c2009a78b04b@kernel.org>
-Date: Thu, 15 May 2025 17:54:20 +0200
+	id 1uFawD-000000019Uj-1kMG
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 May 2025 15:56:02 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-48b7747f881so341421cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 08:56:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1747324559; x=1747929359; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8+K0vt/UsfM3vUNh3n2feDqNw5L/kOjFVTMJKG3X0A0=;
+        b=qWdXoOOAwSH+B3FKDRoyhrnAhlbTwL16H66Et9glEcHMmG0OmnltBg4UETmHG8lHDS
+         XWPOWS0tKZt28KIRe+jEO44NnvVRJqkZr2G7G+rCPZXYD9v3smjJI/vkPt0fAp33Xdhf
+         itwZASvsFHDTYDfbiL9M/A6DVwsFqnaJk/cVbdJOq9akr5RTJUXw5UtUcZyt3IE4Cywx
+         5RpgqtRyoi8A+u6RrgnIYJPFwSpSkb6rGTIqKSToOpk9twl2lJ/AbOVC+aRyQqBokScO
+         hBdHKRaZaIF/T/EU8r5tXII0/eo8WFFO8fJPMnMo2RtR26/MLIq6NDHji5UQt7/dERYp
+         z9vg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747324559; x=1747929359;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8+K0vt/UsfM3vUNh3n2feDqNw5L/kOjFVTMJKG3X0A0=;
+        b=gRDUZ+1nnvGk9nlkRAi2W+hW1iaM1dup9Zoelkz/FqSPwTk3S/Iwr2X+iCzbg3sv/M
+         XBYBeRRqVyou7ckOI4/iH4BkpQ/YhETj4yOUA9d+xL5KOnvZIr1HWfMNUtiwIZkZXUvg
+         0mR7wWeAE7lRIeyldSL9PMsxJRTvagxMDz+S//2pncHO9BgQd60BNWCaeqxkR4QCdD6T
+         epotLagap0au/o3XAaOXZn05qSqnJjCh6WqqVY/v3YBf6y2b3w5WlQHEtUdBNemPMYaH
+         +GMii6Lq+P0xmFPcOQrshbe/DWTEyZFqDxOB6+ferAbe+cblHjyauWdYVj0ZuoPAgk+a
+         J6Eg==
+X-Forwarded-Encrypted: i=1; AJvYcCVACtnMM9KXHVKpx55KQc38z/OpzvDvtyoXRxYfHM9Gttg/eTLyngQyLzSifdSu7dBx1v2JuGG6WLRIfHydQ7tr@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxK+NOHHT5L+gRp8oSpxdWFIZTX1R8mzocoPCEDfOMG/lt1HsG
+	0DAj7ChiOJlblxM6x0Z1aQH/EmolY0XCGqPu196+UnHzJpl7fkqJ4HUS4QgeFX4AC9UEKbvP69H
+	iVuppC8IDkkQEIiRghAYAbYnHVuf/NT3kLmAujPGY
+X-Gm-Gg: ASbGncuQU9c15F72O2EeqeffagC/Mpgf+ADuf/dfiHp3LwRAFEJYtGaw3pqmdUfZK2U
+	Fv/PN2RB5/BuoYn3kRBcdO5R2Ypt0m6/gasD2PetR583i8wNOkdfPyMP6KL+7ioumJ3lajoji14
+	xitVy6EIklFVqr43eb1m10tdO1UQkkrzHtziWOMty7ei9L4wBpfnYKl6A5h1/1lho=
+X-Google-Smtp-Source: AGHT+IGE8aOMfceY42fJdDmnr6JiZyRmyYUbEN4lifv+BrH+R9XF5r2WJo81r1w3ZWlb4E8sxeUCVV5r7958jw/lsCE=
+X-Received: by 2002:ac8:7f55:0:b0:47d:9e7:91a4 with SMTP id
+ d75a77b69052e-494a339e50cmr3395421cf.27.1747324559128; Thu, 15 May 2025
+ 08:55:59 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/rockchip: Use dev_err_probe() to simplify code
-To: long.yunjian@zte.com.cn, hjc@rock-chips.com
-Cc: heiko@sntech.de, andy.yan@rock-chips.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, fang.yumeng@zte.com.cn, mou.yi@zte.com.cn,
- xu.lifeng1@zte.com.cn, ouyang.maochun@zte.com.cn
-References: <20250515203554564-j1jBXUXR6bdiN6zARicC@zte.com.cn>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250515203554564-j1jBXUXR6bdiN6zARicC@zte.com.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250514192159.1751538-1-rananta@google.com> <5d204cf7-c6a0-455c-8706-753e1fce3777@arm.com>
+In-Reply-To: <5d204cf7-c6a0-455c-8706-753e1fce3777@arm.com>
+From: Raghavendra Rao Ananta <rananta@google.com>
+Date: Thu, 15 May 2025 08:55:47 -0700
+X-Gm-Features: AX0GCFtGa6LDhgwrs8UTR4zlPfPiOcKTMSK-2-OfwRKhnoGtsBeWQpI8tPkyL4U
+Message-ID: <CAJHc60w1rYc9guoideuKpKaukuCyvxu3S7Fidoy3Lh94+_xDiw@mail.gmail.com>
+Subject: Re: [PATCH 0/3] KVM: arm64: Allow vGICv4 configuration per VM
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, 
+	Mingwei Zhang <mizhang@google.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250515_085601_471757_9AC7FA78 
+X-CRM114-Status: GOOD (  21.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,23 +95,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/05/2025 14:35, long.yunjian@zte.com.cn wrote:
-> From: Yumeng Fang <fang.yumeng@zte.com.cn>
-> 
-> In the probe path, dev_err() can be replaced with dev_err_probe()
+On Thu, May 15, 2025 at 3:30=E2=80=AFAM Ben Horgan <ben.horgan@arm.com> wro=
+te:
+>
+> Hi,
+>
+> On 5/14/25 20:21, Raghavendra Rao Ananta wrote:
+> > Hello,
+> >
+> > When kvm-arm.vgic_v4_enable=3D1, KVM adds support for direct interrupt
+> > injection by default to all the VMs in the system, aka GICv4. A
+> > shortcoming of the GIC architecture is that there's an absolute limit o=
+n
+> > the number of vPEs that can be tracked by the ITS. It is possible that
+> > an operator is running a mix of VMs on a system, only wanting to provid=
+e
+> > a specific class of VMs with hardware interrupt injection support.
+> >
+> > To support this, introduce a GIC attribute, KVM_DEV_ARM_VGIC_CONFIG_GIC=
+V4,
+> > for the userspace to enable or disable vGICv4 for a given VM.
+> >
+> > The attribute allows the configuration only when vGICv4 is enabled in K=
+VM,
+> > else it acts a read-only attribute returning
+> > KVM_DEV_ARM_VGIC_CONFIG_GICV4_UNAVAILABLE as the value.
+> What's the reason for the cmdline enable continuing to be absolute in
+> the disable case? I wonder if this is unnecessarily restrictive.
+>
+> Couldn't KVM_DEV_ARM_VGIC_CONFIG_GICV4_UNAVAILABLE be reserved for
+> hardware that doesn't support vgic_v4 and if kvm-arm.vgic_v4_enable=3D0,
+> or omitted, on supporting hardware then default to
+> KVM_DEV_ARM_VGIC_CONFIG_GICV4_DISABLE but allow it to be overridden? I
+> don't think this changes the behaviour when your new attribute is not use=
+d.
 
-That's not probe path. I am not sure if you really understand this code.
+KVM_DEV_ARM_VGIC_CONFIG_GICV4_UNAVAILABLE is reserved for the exact
+situation that you mentioned (no GICv4 h/w support  or if cmdline is
+disabled/omitted).
+Regarding defaulting to KVM_DEV_ARM_VGIC_CONFIG_GICV4_DISABLE,
+wouldn't it change the existing expectations, i.e., vGICv4 is enabled
+if available and set by cmdline?
 
-> which will check if error code is -EPROBE_DEFER and prints the
-> error name. It also sets the defer probe reason which can be
-> checked later through debugfs.
-> 
-> Signed-off-by: Yumeng Fang <fang.yumeng@zte.com.cn>
-
-Incomplete chain.
-
-
-
-Best regards,
-Krzysztof
+Thank you.
+Raghavendra
 
