@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67D69C3DA4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 12:57:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D925C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 12:59:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M4rwDJq3pbg55Yo2g2267mrIWdXYEpDyoX3ONJqyKdA=; b=cFegllg0WG71gnzzJQOftBgQFl
-	GAq348luKfldXYID08xmkMCL2avTR4uCGMzOWx5trr5sVLoXDJaU4V7jriG61dQla/nXsTjUGEBSw
-	WP8oqmT6QZMrDT8WAdFKhZpgev8vQ83TzPTxgxC1HWD4L7W4FUO7pd20wrw64RHdBrnuyNtlCkv+G
-	GGNzGwHD2qBHccKNLwSrPkdZEOrrw/ePCJCWdEmp4/UitqfftIFLy8RQ2IV6UIx38c8N01svLYSS3
-	OJKCvLlj+yyrrojExzRj3lld5fHhCGD6juhhAEb0uRsiDJNSTdzpN4UHXXZ9IwuEPoX+CoQbp8HfP
-	JQSIx+jw==;
+	bh=QaorzZ1NhBrQjON3+nty+UxvATBO1FN3Ey2kw1dXSHA=; b=nKGN3umaMDgaz7a3L2WfHHvhtk
+	QTo7XCgAfJ4nvddTQNBhzC+4LKvPPllAEbu7tVDHX0z1ow+jgonh1/3sSLvww/o3Odh+vtnJBHz7y
+	ZvLi77hu5MNsIA7MEArU9qvrkyyJq0aZnb7mWtjA25YLHlA+ogveKipO0JWhGHm9wcsiK3LzGfER+
+	TffyDFHlAQ5O9A898S6U5D/2a6X7aFVKkjtKAu0X4JGbF3hsKzkryD9ElrFh660ikntpfVd9QxcT+
+	boACN7fH7IebmYkNHgHScFXnozpKQzyrQ0UNg7OYmDlAnSm6Yq+IbGR1B6Huohfcf/UES1rlvDnta
+	DNNyiwfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFY9Y-00000000eQL-1a9m;
-	Thu, 15 May 2025 12:57:36 +0000
+	id 1uFYBX-00000000eoJ-369D;
+	Thu, 15 May 2025 12:59:39 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFY3A-00000000cwl-49BY;
-	Thu, 15 May 2025 12:51:02 +0000
+	id 1uFY3D-00000000cxm-1yVK;
+	Thu, 15 May 2025 12:51:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=M4rwDJq3pbg55Yo2g2267mrIWdXYEpDyoX3ONJqyKdA=; b=TjRmRqag+mIisO5kJBdgCmE6K0
-	r13pxMuEsOR7Ckq4gKYUV6vxh11ScjFRAQo635hxe+soIxmLYQ4q+v2OYmMN6BEEOWUZW+/lPDnXQ
-	gODEfplZWGFjUFmMuXW+t6YGQNAj8L/dqSsMWBzRXQplTtuVQTW/WteXuEGojZV4mGiI+GVKwuOPK
-	duPBZlUIIlhp/vefZSnGOcRjYccYdPjQGGi181AJcDto6ADt2LhOcgQPPqN0pKWp1fnXwtNuKUfm6
-	nu/oZJb6T88bLXJfi0yHZAVRSTA1H7htxjlY2Gkz5hT8wnnv21GymCV1mji8kLkF/IwUSmz4mUZQV
-	L20bYLXw==;
+	bh=QaorzZ1NhBrQjON3+nty+UxvATBO1FN3Ey2kw1dXSHA=; b=QwMHcV9K3OBIS1QzeAX6NAb4vg
+	WPH/JpNo0ANxNir+AML2JbRsJV8k69cVa+APK/0gg2iDCyQEzi0w8eqb18VswH+blDAvspTSWPr/G
+	fqd1amrwEtNbXqn3t9BPsPPKpa4877g4MfcsIXXzPfY5U/4r/GfLDXz3Q2GPxUBvYAKwYMs+wuTj5
+	1/4dXyTZZZswUt9hdt8AMOgsWAlvK2/ALPsPmvT0fr2KzhAhuGPWStGK6ioyXDOVuiycEgTI6yMc5
+	yhnj4BkI2CFmHBsBzLeQfPOAu4WjiJY5l+vHw0dTibVHMDD3Lfkdv36+dzUMWFb0kXnUxLVzX7FBf
+	ltdmNQMA==;
 Received: from i53875a50.versanet.de ([83.135.90.80] helo=localhost.localdomain)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1uFY38-0004ph-Mr; Thu, 15 May 2025 14:50:58 +0200
+	id 1uFY38-0004ph-0W; Thu, 15 May 2025 14:50:58 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: Heiko Stuebner <heiko@sntech.de>
-Cc: quentin.schulz@cherry.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
+Cc: mturquette@baylibre.com,
+	sboyd@kernel.org,
+	nicolas.frattaroli@collabora.com,
+	ziyao@disroot.org,
+	linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 0/6] Add two board-families from Theobroma-Systems
-Date: Thu, 15 May 2025 14:50:44 +0200
-Message-ID: <174731343062.2524804.6752535988560416961.b4-ty@sntech.de>
+	linux-kernel@vger.kernel.org,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH 1/2] clk: rockchip: rk3576: add missing slab.h include
+Date: Thu, 15 May 2025 14:50:42 +0200
+Message-ID: <174731343064.2524804.7884388044477445638.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250514150745.2437804-1-heiko@sntech.de>
-References: <20250514150745.2437804-1-heiko@sntech.de>
+In-Reply-To: <20250515082652.2503063-1-heiko@sntech.de>
+References: <20250515082652.2503063-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_055101_023744_ADF545D3 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20250515_055103_507346_C6EEB12D 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,30 +81,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 14 May 2025 17:07:39 +0200, Heiko Stuebner wrote:
-> Both the Cobra and PP1516 boards are based around the PX30 SoC and can be
-> found with a variety of display options.
+On Thu, 15 May 2025 10:26:51 +0200, Heiko Stuebner wrote:
+> The change for auxiliary GRFs introduced kzalloc usage into the rk3576 clock
+> driver, but missed adding the header for its prototype. Add it now.
 > 
-> As new boards should not use the deprecated snps,reset-* properties
-> in the gmac node, I also added a core mdio-node for the gmac and
-> converted the Theobroma Ringneck board over.
 > 
-> [...]
 
 Applied, thanks!
 
-[1/6] arm64: dts: rockchip: add basic mdio node to px30
-      commit: ede4837a504ca7e5811217060aa8300b8d0cf7f2
-[2/6] arm64: dts: rockchip: move reset to dedicated eth-phy node on ringneck
-      commit: e463625af7f92c4a9f097f7fb87f6baaad6e762a
-[3/6] dt-bindings: arm: rockchip: add PX30-Cobra boards from Theobroma Systems
-      commit: e2a6b301ca6054fc72905810d084690ec0ee1aed
-[4/6] arm64: dts: rockchip: add px30-cobra base dtsi and board variants
-      commit: bb510ddc9d3eda3d6e1276d301e923e7021e9972
-[5/6] dt-bindings: arm: rockchip: add PX30-PP1516 boards from Theobroma Systems
-      commit: b8310e4d391ad123048de738ac023ef8b7ebdbfc
-[6/6] arm64: dts: rockchip: add px30-pp1516 base dtsi and board variants
-      commit: 56198acdbf0d57200e49311e16d6bf16498128f7
+[1/2] clk: rockchip: rk3576: add missing slab.h include
+      commit: 92da5c3cba23ee4be2c043bb63a551c89c48de18
+[2/2] clk: rockchip: rk3528: add slab.h header include
+      commit: 276036283716b9135525b195675ea42801bde204
 
 Best regards,
 -- 
