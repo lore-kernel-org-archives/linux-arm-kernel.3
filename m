@@ -4,62 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BE16C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 13:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80525C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 13:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y2E5omOBhjprL5WHE59Q51uOu1pJ0CG0ul1LIV5txU4=; b=r+Obl3cVzqnvMOG95sYnXCabZk
-	MrbswQdlDipwzBe0bQtBela1uZNUyi88rz5a/Hwxg+IkGjgWwX2u+j0gYHqB9TWRLUzKYLqFdRFfH
-	cJWCsEk8JGBhzrESP23SMlgPBXft8s0H34tGZmJALOqbaV5zbSDjXQ/dsFNu8I9LDS0yDyKOoS0Zz
-	vx6Ar9B4W1bXOPrY6vo+WgKusyrZ72e4CVUuHGN8UyZghQ9fMr2txffNR0igTWXaa0L2cLVKke1zC
-	tA4VIX2ECmak/SXcMe74twuYDDCysXItNPYWyC8xTSA047z9p2qUqZvHFreaxOWEJp/PHmG3/PDx6
-	W6yHaBsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HsRjF6iBA0jVUvpTn7ZmwcFOLlij9sfjwslA/3l3Yjg=; b=oFwMdBUCHuhoeoSBPmdmuTt7II
+	QjOkQnZp6HGo5aV95vtyE3xyjhAy3D3P7fKXq+hKe0I+bm13grqK7IQNw/KMVDCIQNhpHBGiNJ0zJ
+	ZuOVB641ucM5Hkci8WEkn30cKc19NADXRWPbJzo2XjuOAOUGGdT/jxmyTUVLw5Np9RJzl5L5VHKXC
+	x+9P8sFh7Gdq9dOfQ9mRJvmhwCnZxq4nxp2FkSFrJK/toJQJJZemjwT34Rjb1kzxUurx7F2PuZHAT
+	eNhZW3QFP0wcKzXz6Kbpp4hUfwLJEIS2VTT9NO+X3yTASnLByG/ITD0yfIKnJQa4YyU59TWkTwKmO
+	LxF49KLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFYbS-00000000ir6-35qW;
-	Thu, 15 May 2025 13:26:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFYPr-00000000h1R-3AnB
+	id 1uFYdT-00000000jEX-25R2;
+	Thu, 15 May 2025 13:28:31 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uFYS3-00000000hOe-30Fw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 13:14:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C99E91595;
-	Thu, 15 May 2025 06:14:14 -0700 (PDT)
-Received: from [10.1.32.187] (XHFQ2J9959.cambridge.arm.com [10.1.32.187])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2A4AC3F5A1;
-	Thu, 15 May 2025 06:14:25 -0700 (PDT)
-Message-ID: <bfd07631-fece-48fe-90a3-778ce9abfbf1@arm.com>
-Date: Thu, 15 May 2025 14:14:23 +0100
+	Thu, 15 May 2025 13:16:44 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-54e98f73850so844323e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 06:16:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747315001; x=1747919801; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=HsRjF6iBA0jVUvpTn7ZmwcFOLlij9sfjwslA/3l3Yjg=;
+        b=la/1ztMbfpRhaBD5IIQES3r/ekk9ssOWSl7TfZK+x2SuyxTUmBA463UnTlqutHfKP2
+         8/iEHLznK7AigL5PyZwonEihaygK1wWQ74b7ukXLHP1U1vS9C86SBWkO/zfoU0Nhqg43
+         B3VgHI66ss5NTxFV143ilThI/jGVWQUbwGL3GxS9Imgj5ympf0jQ6D+vASPO/cyQCCfW
+         YtK7efz+wV1WJ8CU7KzCfL7Yu862IG3RaGQnezSvhr/Tej4UdKFbvpZoAJGxmzwEAuJf
+         zkqpFC4DYUNp5c+DhHDw2hRILRLxFGV61Fgffp/6md5LY8efcDV9c6IYSn0aV/POGD9j
+         p/5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747315001; x=1747919801;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HsRjF6iBA0jVUvpTn7ZmwcFOLlij9sfjwslA/3l3Yjg=;
+        b=lyubF7kkHj19THWPywuyTxdqPQ+ZQXjMR2n+eJw9KR3NO0zOdQzlJOlBoYglQcRlmb
+         AyPwjTD9U9/vfilggmkhYytKBCJW+Dbp3z8VXy0NWR+eYgqTyRCjF/9NBq0yS/IlFA/s
+         GlO4ml9G57XJvRt7jipbr2lVGcndmHkgnczF2pF88awrfpLaZpZjJ3LQvcE67lHISvqD
+         8O0ZsZUHr//3H2AnXoY+NN6VAqghzHvims1mVsL5fXiC/xHFkovmLxIfsjzYX4K8Lsu/
+         Zc9BKerfGHxPv3h9kc+Fn7rtuY/KAeELG8W/L85Hr5km6M3saKyTiwS/J8BRRHsGM6pF
+         IKhg==
+X-Forwarded-Encrypted: i=1; AJvYcCVedhR7cORzqHODFZUBaBYyH5Qh82mcT82RaA1Dy/9S7wS7M+h9RlQaSEsJgW/SLoHr6szp2hB92NAEq7c8qgwa@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoFhfFAtsF9b1LYhrcshjaOPSahVfbbQ4q/n3/W8WivbhRY38F
+	cw4PR8FKza9AB/dxYG986SiZ+LXcSw0vGdq+De/zfE8ms0vODRJwZ75UeFj3LNf5glwaFWxq2o+
+	G5WY=
+X-Gm-Gg: ASbGncsbw3a+te9Ia8rctQG0pRDiEgfNgVbeL0P2/0mBJm4/JI9vOs7FsazQT2sEepB
+	D9eCp2+DnT+vlUflY3jvFvBwEOyPGZJFq+zUA5PGVr+Q6A0Fq9ED9AmLQ7PPg95OmxJiymeQrVW
+	unZ4SDur2rSbNSS9cv8JphVFniaxdw7tyC4190ww1RRy/mOIKC1Khf9IxOYMcFYSjhTD7i9dWqo
+	242BEjCUhbD+77gfHX8cABXITyKDg7vM5hyd/eAvruAq7ugZyiNWDTUVki4CEwwaFNlPlxz5NY4
+	rM4lj1UW6QZn2VlK4jmQDAZCiIRRD5W1E+5d6d2sxkRm8suwpM17RjJFh4xEAe8LtifI0MsnTS/
+	nAI4ENw==
+X-Google-Smtp-Source: AGHT+IEJPKvWe72TF7EByB4gPExTJZy2vEZ4XGn1I+zI8Qjp4rqHO9xavu6r1HaPWrHK/wY0PTR48Q==
+X-Received: by 2002:a05:6000:240a:b0:39c:30fc:20 with SMTP id ffacd0b85a97d-3a349922795mr6543267f8f.37.1747314991164;
+        Thu, 15 May 2025 06:16:31 -0700 (PDT)
+Received: from localhost (110.8.30.213.rev.vodafone.pt. [213.30.8.110])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a35c12d134sm403876f8f.47.2025.05.15.06.16.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 May 2025 06:16:30 -0700 (PDT)
+Date: Thu, 15 May 2025 16:16:28 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: long.yunjian@zte.com.cn
+Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, peng.fan@nxp.com,
+	justin.chen@broadcom.com, florian.fainelli@broadcom.com,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, fang.yumeng@zte.com.cn,
+	mou.yi@zte.com.cn, ouyang.maochun@zte.com.cn, xu.lifeng1@zte.com.cn
+Subject: Re: [PATCH] firmware: arm_scmi: Use dev_err_probe() simplify the code
+Message-ID: <21435bc6-d4d7-4576-8ff6-266ce9507799@suswa.mountain>
+References: <20250515203855146Sn9x-Uw9Teur35mOjn41C@zte.com.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: Check pxd_leaf() instead of !pxd_table() while
- tearing down page tables
-Content-Language: en-GB
-To: David Hildenbrand <david@redhat.com>, Dev Jain <dev.jain@arm.com>,
- catalin.marinas@arm.com, will@kernel.org
-Cc: anshuman.khandual@arm.com, mark.rutland@arm.com,
- yang@os.amperecomputing.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-References: <20250515063450.86629-1-dev.jain@arm.com>
- <332ecda7-14c4-4dc3-aeff-26801b74ca04@redhat.com>
- <4904d02f-6595-4230-a321-23327596e085@arm.com>
- <6fe7848c-485e-4639-b65c-200ed6abe119@redhat.com>
- <35ef7691-7eac-4efa-838d-c504c88c042b@arm.com>
- <c06930f0-f98c-4089-aa33-6789b95fd08f@redhat.com>
- <bac0d8e2-6219-4eb2-b4c8-b82b208808b5@arm.com>
- <3aeb6b8e-040c-47ae-8b46-1ef66d5f11e4@redhat.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <3aeb6b8e-040c-47ae-8b46-1ef66d5f11e4@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250515203855146Sn9x-Uw9Teur35mOjn41C@zte.com.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_061427_882586_4DB0AD6F 
-X-CRM114-Status: GOOD (  29.58  )
+X-CRM114-CacheID: sfid-20250515_061643_760126_53756ACD 
+X-CRM114-Status: GOOD (  20.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,127 +101,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/05/2025 14:01, David Hildenbrand wrote:
-> On 15.05.25 12:07, Ryan Roberts wrote:
->> On 15/05/2025 09:53, David Hildenbrand wrote:
->>> On 15.05.25 10:47, Dev Jain wrote:
->>>>
->>>>
->>>> On 15/05/25 2:06 pm, David Hildenbrand wrote:
->>>>> On 15.05.25 10:22, Dev Jain wrote:
->>>>>>
->>>>>>
->>>>>> On 15/05/25 1:43 pm, David Hildenbrand wrote:
->>>>>>> On 15.05.25 08:34, Dev Jain wrote:
->>>>>>>> Commit 9c006972c3fe removes the pxd_present() checks because the caller
->>>>>>>> checks pxd_present(). But, in case of vmap_try_huge_pud(), the caller
->>>>>>>> only
->>>>>>>> checks pud_present(); pud_free_pmd_page() recurses on each pmd through
->>>>>>>> pmd_free_pte_page(), wherein the pmd may be none.
->>>>>>> The commit states: "The core code already has a check for pXd_none()",
->>>>>>> so I assume that assumption was not true in all cases?
->>>>>>>
->>>>>>> Should that one problematic caller then check for pmd_none() instead?
->>>>>>
->>>>>>     From what I could gather of Will's commit message, my interpretation is
->>>>>> that the concerned callers are vmap_try_huge_pud and vmap_try_huge_pmd.
->>>>>> These individually check for pxd_present():
->>>>>>
->>>>>> if (pmd_present(*pmd) && !pmd_free_pte_page(pmd, addr))
->>>>>>       return 0;
->>>>>>
->>>>>> The problem is that vmap_try_huge_pud will also iterate on pte entries.
->>>>>> So if the pud is present, then pud_free_pmd_page -> pmd_free_pte_page
->>>>>> may encounter a none pmd and trigger a WARN.
->>>>>
->>>>> Yeah, pud_free_pmd_page()->pmd_free_pte_page() looks shaky.
->>>>>
->>>>> I assume we should either have an explicit pmd_none() check in
->>>>> pud_free_pmd_page() before calling pmd_free_pte_page(), or one in
->>>>> pmd_free_pte_page().
->>>>>
->>>>> With your patch, we'd be calling pte_free_kernel() on a NULL pointer,
->>>>> which sounds wrong -- unless I am missing something important.
->>>>
->>>> Ah thanks, you seem to be right. We will be extracting table from a none
->>>> pmd. Perhaps we should still bail out for !pxd_present() but without the
->>>> warning, which the fix commit used to do.
->>>
->>> Right. We just make sure that all callers of pmd_free_pte_page() already check
->>> for it.
->>>
->>> I'd just do something like:
->>
->> I just reviewed the patch and had the same feedback as David. I agree with the
->> patch below, with some small mods...
->>
->>>
->>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>> index 8fcf59ba39db7..e98dd7af147d5 100644
->>> --- a/arch/arm64/mm/mmu.c
->>> +++ b/arch/arm64/mm/mmu.c
->>> @@ -1274,10 +1274,8 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
->>>            pmd = READ_ONCE(*pmdp);
->>>   -       if (!pmd_table(pmd)) {
->>> -               VM_WARN_ON(1);
->>> -               return 1;
->>> -       }
->>> +       VM_WARN_ON(!pmd_present(pmd));
->>> +       VM_WARN_ON(!pmd_table(pmd));
->>
->> You don't need both of these warnings; pmd_table() is only true if the pmd is
->> present (well actually only if it's _valid_ which is more strict than present),
->> so the second one is sufficient on its own.
+On Thu, May 15, 2025 at 08:38:55PM +0800, long.yunjian@zte.com.cn wrote:
+> From: Yumeng Fang <fang.yumeng@zte.com.cn>
 > 
-> Ah, right.
+> In the probe path, dev_err() can be replaced with dev_err_probe()
+> which will check if error code is -EPROBE_DEFER and prints the
+> error name. It also sets the defer probe reason which can be
+> checked later through debugfs.
 > 
->>
->>>            table = pte_offset_kernel(pmdp, addr);
->>>          pmd_clear(pmdp);
->>> @@ -1305,7 +1303,8 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
->>
->> Given you are removing the runtime check and early return in
->> pmd_free_pte_page(), I think you should modify this function to use the same
->> style too.
-> 
-> BTW, the "return 1" is weird. But looking at x86, we seem to be making a private
-> copy of the page table first, to defer freeing the page tables after the TLB flush.
-> 
-> I wonder if there isn't a better way (e.g., clear PUDP + flush tlb, then walk
-> over the effectively-disconnected page table). But I'm sure there is a good
-> reason for that.
+> Signed-off-by: Yumeng Fang <fang.yumeng@zte.com.cn>
 
-As I understand it, the actual TLB entries should have been invalidated when the
-previous mappings we vfree'd. So the single page __flush_tlb_kernel_pgtable()
-calls here are to zap any table entries that may be in the walk cache. We could
-do an all-levels TLBI for the entire range, but for a system that doesn't
-support the tlbi-range operations, we would end up issuing a tlbi per page
-across the whole range which I think would be much slower than the one tlbi per
-pgtable we have here.
+When you're resending someone else's patch you need to add your own
+Signed-off-by: line to the end of the list.
 
-Things could be rearranged a bit so that we issue all the tlbis with only a
-single set of barriers (currently each __flush_tlb_kernel_pgtable() issues it's
-own barriers), but I'm not sure how important that micro-optimization is given I
-guess we never even call pud_free_pmd_page() in practice given we have had no
-reports of the warning tripping.
+Please, could you resend a v2 patch with your signature?
 
+> ---
+>  drivers/firmware/arm_scmi/transports/mailbox.c | 17 +++++++----------
+>  1 file changed, 7 insertions(+), 10 deletions(-)
 > 
->>
->>>          next = addr;
->>>          end = addr + PUD_SIZE;
->>>          do {
->>> -               pmd_free_pte_page(pmdp, next);
->>> +               if (pmd_present(*pmdp))
->>
->> question: I wonder if it is better to use !pmd_none() as the condition here? It
->> should either be none or a table at this point, so this allows the warning in
->> pmd_free_pte_page() to catch more error conditions. No strong opinion though.
+> diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm_scmi/transports/mailbox.c
+> index bd041c99b92b..816e79537935 100644
+> --- a/drivers/firmware/arm_scmi/transports/mailbox.c
+> +++ b/drivers/firmware/arm_scmi/transports/mailbox.c
+> @@ -13,6 +13,7 @@
+>  #include <linux/of_address.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/slab.h>
+> +#include <linux/dev_printk.h>
 > 
-> Same here. The existing callers check pmd_present().
+>  #include "../common.h"
+> 
+> @@ -215,10 +216,8 @@ static int mailbox_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+>  	smbox->chan = mbox_request_channel(cl, tx ? 0 : p2a_chan);
+>  	if (IS_ERR(smbox->chan)) {
+>  		ret = PTR_ERR(smbox->chan);
+> -		if (ret != -EPROBE_DEFER)
+> -			dev_err(cdev,
+> -				"failed to request SCMI %s mailbox\n", desc);
+> -		return ret;
+> +		return dev_err_probe(cdev, ret,
 
-Yeah fair let's be consistent and use pmd_present().
+It's probably better to get rid of the "ret = PTR_ERR(smbox->chan);"
+assignment as well.  Then it's a one liner:
 
-Thanks,
-Ryan
+  	if (IS_ERR(smbox->chan))
+		return dev_err_probe(cdev, PTR_ERR(smbox->chan),
+				     "failed to request SCMI %s mailbox\n", desc);
+
+Same for the others as well.
+
+regards,
+dan carpenter
+
 
 
