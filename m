@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA78DC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 13:38:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE727C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 13:41:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/JJFY9A0mPReGWr4dEQqworQbI0QyU6TVKJ+h58G0Ww=; b=ktwUDd7VSyRnAQTD4pklF4gHOz
-	xBOlVlEraHZb+AYjhWOmllTChxtDhpnlQke4EL6fMd0+5YOhKPun56XPr5FL3j0+EwFodvDZ49Jli
-	/nIJgrvgIWoIsiO6eirW0NayYn2cXx9gpA9S8nCeV8WgJs32i0D3G66Ux3tBEINESu7q1jlTYorqq
-	9ucdCeYI0oRpM3SLApJCvKQrMCLaqBOb7ls/UlV1/Q2nOGEF+VvJaUClYCNFy9fG6q8uN+9O8mn2f
-	h70kmYn2jDFMqIwojJiMlRPrGSj3/CzMR6RVCsg/w3jmbGEu4mG6RmdDWL0pRXHyQ7C43YUW1W1t+
-	Fc3ieBcw==;
+	bh=VRsV/Mmf4uLraDXUNpqoepJhEX/1ILD1zeqCVLUgR5k=; b=nMxYNb6BWCgQ28Zs85MCoSSbI2
+	YlxBwB4cg+pR37U4W5jREz9X0xRP7Nlaw7QSdMFpYtpdMCSvfMB+IJfwKoPwbmyUR95PJ3PBr9YOC
+	T5dR28aus2BOLYf6u/pNan+toVrwQdnIR/0sSAgm4h81SkzyXIMoVZBkcDkVpPKVpa1PsEc3pV8cI
+	Osd4zh895n3wIg7c9ID2wB0DRv039/295x4DGAM+ILfuyj1UEIEkwzxyY6IBDVDj9deNpLg4wV3qW
+	au3BoIbSbVK5TZ+6vWQZCajiam9XnFhodTOBwDNC9I1gNiWwJ/zo7QqVoOtbLlRjYkgxXU2Kawrzn
+	M5/QuYWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFYnS-00000000lIl-2Dcz;
-	Thu, 15 May 2025 13:38:50 +0000
+	id 1uFYpR-00000000lgd-2kma;
+	Thu, 15 May 2025 13:40:53 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFYgf-00000000juA-2kg7;
-	Thu, 15 May 2025 13:31:51 +0000
+	id 1uFYgg-00000000jui-2sQH;
+	Thu, 15 May 2025 13:31:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1747315908;
-	bh=E6HitapnSoXVXZhWdCC31t/7KXrJLpjM/uxQsFuXi7o=;
+	s=mail; t=1747315909;
+	bh=8VVU8NVRnTpjcLWUjqNAgSssaH4toawfwMWnPXvh4zU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=PKCo5cJVB6wGic0dq0bZjBjpRDl9J0G2Hvb9iKGzjFJlvY+OV2uPFHZi3oan+ESwY
-	 UYeGOpzVAoomdZmFj4NPIsDWyRVAZ+uVHZSXORtAvMYJ2L6PiWW8V1bi3I5He4KFrK
-	 hKrwumbAWn/qsUDgJw5mwqedNIzzMk01nnk3Zd17NjK9HWn62BxrlHsVSA+BNfWqUy
-	 g+Qu9ZK7fSRxhtBWA1VINdbLDUjyrLJrlvBeCGpE08tmilNo1GKzf3Gt2uny77p+Wu
-	 +WCCKqXznk2Jn97OVZuH3JFsNO/flF5Qx4+nBOnqVBY5fGIpi6tK354gXpH2uSHZST
-	 o+emaZ/modeGQ==
+	b=n1iegtnaJRMXTSutf212UUiX+v9k41CzAhn8UMiV+FHxiMozVyEhPasaFgmbDOXsf
+	 9ydE7VuFRNJi1ESO2sIOqYlgRl6+8RTzkX7XfldCKOjiPq8ZO8ZTn4iAgr7+oPxzOX
+	 zve5KuPj+UOEp8gvbWnf54YcCdK5jTUDlOb8nhAHzQwGy6WbfwE7kxUWkQMtWVbXHj
+	 tNYd9woATMW8GSRsV+4FioHg9JzBhxemu9srWBt+VZtAFVGF7n74y6g4kOdskW6c4y
+	 WK6uxnrAqQdS8joyiXWnp492ZS2TqCL18WnJ6prwN+6S6VD688b5mYZQHXxkBPHyaZ
+	 1CbpZrR9RTRTg==
 Received: from apertis-1.home (2a01cb0892f2D600c8F85cf092D4Af51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: jmassot)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8BD1F17E0630;
-	Thu, 15 May 2025 15:31:47 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 77B4017E00F0;
+	Thu, 15 May 2025 15:31:48 +0200 (CEST)
 From: Julien Massot <julien.massot@collabora.com>
-Date: Thu, 15 May 2025 15:31:44 +0200
-Subject: [PATCH 2/3] arm64: dts: mediatek: mt8188: Add missing #reset-cells
- property
+Date: Thu, 15 May 2025 15:31:45 +0200
+Subject: [PATCH 3/3] arm64: dts: mediatek: mt8188: gce: add missing
+ 'clock-names'
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250515-dtb-check-mt8188-v1-2-cda383cbeb4f@collabora.com>
+Message-Id: <20250515-dtb-check-mt8188-v1-3-cda383cbeb4f@collabora.com>
 References: <20250515-dtb-check-mt8188-v1-0-cda383cbeb4f@collabora.com>
 In-Reply-To: <20250515-dtb-check-mt8188-v1-0-cda383cbeb4f@collabora.com>
 To: kernel@collabora.com, Michael Turquette <mturquette@baylibre.com>, 
@@ -67,8 +67,8 @@ Cc: Conor Dooley <conor.dooley@microchip.com>, linux-clk@vger.kernel.org,
  Julien Massot <julien.massot@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_063149_847103_1BAD5634 
-X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-CacheID: sfid-20250515_063150_870295_66588449 
+X-CRM114-Status: UNSURE (   8.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,91 +84,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The binding now require the '#reset-cells' property but the
-devicetree has not been updated which trigger dtb-check errors.
+The 'clock-names' property is required by the dt binding.
 
-Fixes: 9a5cd59640ac ("dt-bindings: clock: mediatek: Add SMI LARBs reset for MT8188")
+Fix the following dtb-check error:
+arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dtb: mailbox@10320000: 'clock-names' is a required property
+from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+
+Fixes: 45682a4fffdd ("arm64: dts: mediatek: mt8188: Add Global Command Engine mailboxes")
 Signed-off-by: Julien Massot <julien.massot@collabora.com>
 ---
- arch/arm64/boot/dts/mediatek/mt8188.dtsi | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/mediatek/mt8188.dtsi b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-index 296090fbaf4953db8075f72073509b731dc41e51..dec6ce3e94e92c8e1e2c3680cb3584394d9058bd 100644
+index dec6ce3e94e92c8e1e2c3680cb3584394d9058bd..d5892ca35bc29f830d7894ba592aca3f58dc3bdc 100644
 --- a/arch/arm64/boot/dts/mediatek/mt8188.dtsi
 +++ b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-@@ -2647,36 +2647,42 @@ imgsys1_dip_top: clock-controller@15110000 {
- 			compatible = "mediatek,mt8188-imgsys1-dip-top";
- 			reg = <0 0x15110000 0 0x1000>;
- 			#clock-cells = <1>;
-+			#reset-cells = <1>;
+@@ -1372,6 +1372,7 @@ gce0: mailbox@10320000 {
+ 			interrupts = <GIC_SPI 226 IRQ_TYPE_LEVEL_HIGH 0>;
+ 			#mbox-cells = <2>;
+ 			clocks = <&infracfg_ao CLK_INFRA_AO_GCE>;
++			clock-names = "gce";
  		};
  
- 		imgsys1_dip_nr: clock-controller@15130000 {
- 			compatible = "mediatek,mt8188-imgsys1-dip-nr";
- 			reg = <0 0x15130000 0 0x1000>;
- 			#clock-cells = <1>;
-+			#reset-cells = <1>;
+ 		gce1: mailbox@10330000 {
+@@ -1380,6 +1381,7 @@ gce1: mailbox@10330000 {
+ 			interrupts = <GIC_SPI 228 IRQ_TYPE_LEVEL_HIGH 0>;
+ 			#mbox-cells = <2>;
+ 			clocks = <&infracfg_ao CLK_INFRA_AO_GCE2>;
++			clock-names = "gce";
  		};
  
- 		imgsys_wpe1: clock-controller@15220000 {
- 			compatible = "mediatek,mt8188-imgsys-wpe1";
- 			reg = <0 0x15220000 0 0x1000>;
- 			#clock-cells = <1>;
-+			#reset-cells = <1>;
- 		};
- 
- 		ipesys: clock-controller@15330000 {
- 			compatible = "mediatek,mt8188-ipesys";
- 			reg = <0 0x15330000 0 0x1000>;
- 			#clock-cells = <1>;
-+			#reset-cells = <1>;
- 		};
- 
- 		imgsys_wpe2: clock-controller@15520000 {
- 			compatible = "mediatek,mt8188-imgsys-wpe2";
- 			reg = <0 0x15520000 0 0x1000>;
- 			#clock-cells = <1>;
-+			#reset-cells = <1>;
- 		};
- 
- 		imgsys_wpe3: clock-controller@15620000 {
- 			compatible = "mediatek,mt8188-imgsys-wpe3";
- 			reg = <0 0x15620000 0 0x1000>;
- 			#clock-cells = <1>;
-+			#reset-cells = <1>;
- 		};
- 
- 		camsys: clock-controller@16000000 {
-@@ -2689,24 +2695,28 @@ camsys_rawa: clock-controller@1604f000 {
- 			compatible = "mediatek,mt8188-camsys-rawa";
- 			reg = <0 0x1604f000 0 0x1000>;
- 			#clock-cells = <1>;
-+			#reset-cells = <1>;
- 		};
- 
- 		camsys_yuva: clock-controller@1606f000 {
- 			compatible = "mediatek,mt8188-camsys-yuva";
- 			reg = <0 0x1606f000 0 0x1000>;
- 			#clock-cells = <1>;
-+			#reset-cells = <1>;
- 		};
- 
- 		camsys_rawb: clock-controller@1608f000 {
- 			compatible = "mediatek,mt8188-camsys-rawb";
- 			reg = <0 0x1608f000 0 0x1000>;
- 			#clock-cells = <1>;
-+			#reset-cells = <1>;
- 		};
- 
- 		camsys_yuvb: clock-controller@160af000 {
- 			compatible = "mediatek,mt8188-camsys-yuvb";
- 			reg = <0 0x160af000 0 0x1000>;
- 			#clock-cells = <1>;
-+			#reset-cells = <1>;
- 		};
- 
- 		ccusys: clock-controller@17200000 {
+ 		scp_cluster: scp@10720000 {
 
 -- 
 2.49.0
