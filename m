@@ -4,57 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D1EC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 17:37:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13442C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 17:50:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:Cc:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eMncJgSExIrvYrm15fzLzbqOrXbXjQptW5tx6rKcD4I=; b=xZh9stEdVLueLfMGEkBn7DiH6c
-	SCy8uh+hvWEewBzO0WpMhZ0mNlFrhH+Ycm6KHsDbX92uDcK0AendKnTldb7tv230hhoNHBT+/bqG0
-	F1p7Xl4/XqXkY8lqz4W4D/02h9zk2vO9ouu097itrh/18Dfo5j0FsQuyppMVC/5h4+3Zp4slg1zXo
-	4FZVeWCZDMOUFHsIhqnLKA2aO+N+zlzss3xuMFEtRq//PC1WqJN4yy1g45Ja072KGdfzUDM+ugWM1
-	Tp4hit/pLOV3DgNA27jrBmOghjx/iv2nH7PKihhqqKq41/ufQ0GCGaAV9W7O2Kl1mm3RmGEoQ9skQ
-	4iIWhePw==;
+	bh=9Bzjrt/aF1wmcItkdOAGOOGhJsKy/3Mmy3qeEpi024M=; b=Ls34718DcLJLaf/FeIp8J4L7Fi
+	828hqS+bgrM/nNHgTutF2+ECfRPYvfiJ5nez4pU3x7yugLIJ01fZ7viabtV6LtoM7a2yi/c9P7136
+	yefB6wOZecSLF4NX+Co1sTFdWWcRKMzA1bh+FljG+Xf18093X0zoDRn4mX8k6xdfuIWpBJjYv8HaN
+	TqGY0h9PN3KQ0nzT8IIPO3f7Q3VRQyGNEAc9EIuoo80DtdXHERwUs7y7b+fxG7NRgREUX2/wNr+zf
+	yBzzTbReyMhPR7m2sXZciwXWmc/y5HI0ctjR9p5gS1MuivRf/ZN7kEOysbtdEjswGZA08c9w1iflm
+	zGhz8k0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFcWA-00000001Rnu-02NK;
-	Thu, 15 May 2025 17:37:14 +0000
-Received: from mail-24426.protonmail.ch ([109.224.244.26])
+	id 1uFcil-00000001TRb-3Epx;
+	Thu, 15 May 2025 17:50:15 +0000
+Received: from mout.gmx.net ([212.227.17.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFcSs-00000001RFR-2QN9
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 17:33:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail; t=1747330426; x=1747589626;
-	bh=eMncJgSExIrvYrm15fzLzbqOrXbXjQptW5tx6rKcD4I=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector:List-Unsubscribe:List-Unsubscribe-Post;
-	b=lwSUTHmW6N+zQ/NW38uEV4P2MhL9KZS6+XrPKUKG8pmscbGxrmYDdsy2E0QY8a8Ad
-	 zloyMRqwi+ZGpgGamuodFCt08pt3kP283lyMkowlmMRZ9P+VvrktpmXv0RH+uLvAsU
-	 wUvljNwbqcP63kKVn37ILqzR0+CvoqA15NtAL8e02fFMSa6s+ktCv+p2X1RWDmtEVD
-	 XB20eYvxdMpxkjw9aRr01z+UBrcIkciJ58GM0EyF7smzzjw82G9nckk4VOH641apED
-	 WAuY/jVLa6qONkh1L0hjvaks7bvTrPkltGZfvRbG43IN7w/DOY69vaUo0vXaY+dYzA
-	 emqthYKG/HHQQ==
-Date: Thu, 15 May 2025 17:33:41 +0000
-To: Niklas Cassel <cassel@kernel.org>
-From: Laszlo Fiat <laszlo.fiat@proton.me>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, =?utf-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, Krishna chaitanya chundru <quic_krichai@quicinc.com>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, Damien Le Moal <dlemoal@kernel.org>, Hans Zhang <18255117159@163.com>, =?utf-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v2 0/4] PCI: dwc: Link Up IRQ fixes
-Message-ID: <fCMPjWu_crgW5GkH4DJd17WBjnCAsb363N9N_h6ld1i8NqNNGR9PTpQWAO9-kwv4DUL6um48dwP0GJ8GmdL4uQf-WniBepwuxTEhjmbBnug=@proton.me>
-In-Reply-To: <aCNSBqWM-HM2vX7K@ryzen>
-References: <20250506073934.433176-6-cassel@kernel.org> <7zcrjlv5aobb22q5tyexca236gnly6aqhmidx6yri6j7wowteh@mylkqbwehak7> <aCNSBqWM-HM2vX7K@ryzen>
-Feedback-ID: 130963441:user:proton
-X-Pm-Message-ID: 83d36aa26181c4d7b2012c55407c6d5d0302af1c
+	id 1uFcgj-00000001TFJ-42ds;
+	Thu, 15 May 2025 17:48:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1747331285; x=1747936085; i=wahrenst@gmx.net;
+	bh=9Bzjrt/aF1wmcItkdOAGOOGhJsKy/3Mmy3qeEpi024M=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:
+	 References:From:Cc:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=mDbhAmblAy20JhmWQ1dQeytX+gMC0aEjHCqin1DH5klyo1DIyqE+1gfjKrS6wL+8
+	 3spGNUkTPEIcHy/RMf3+CdCLsCkGkDgJxJe6FsqO1os/Kqs3yrmpTvAzADF3kb/p3
+	 z/wXRjeuIOaMQjZV/xDQsEviQBtXgmUfe9Nzo0UXgk6oKiOx+cq4mfCAUG1NP/FD3
+	 xXXXohSaPS1KERTLlvX3p4NhJ+NZiYcys8moN2mLOrlBgfTdHk0sIw2ATaLmOu4qe
+	 gvy68ysJDSPwP6ZMKxd2ifC/e+ehDYi8C3SPsAQhL1D0j19JM0ZoU0U9RZ+53gJby
+	 6/2V4FjyQDKj71gs1w==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.103] ([91.41.216.208]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MOiHf-1ucWzK2iul-00JN2F; Thu, 15
+ May 2025 19:48:05 +0200
+Message-ID: <0703ff48-e781-49b6-8a8d-7cdbec73bb92@gmx.net>
+Date: Thu, 15 May 2025 19:48:04 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware/raspberrypi: raise timeout to 3s
+To: Etienne Buira <etienne.buira@free.fr>
+References: <aCIiEp3CXD2o9dTw@Z926fQmE5jqhFMgp6>
+ <048fd6c5-9f09-4c06-9a23-e5821dc291d5@gmx.net>
+ <aCWMrJcldfrsNTQq@Z926fQmE5jqhFMgp6>
+ <ffeb860f-5522-4130-ae47-45a6068b17ea@gmx.net>
+ <aCW3d7tc27Awj62K@Z926fQmE5jqhFMgp6>
+ <cecda824-4f47-4e4c-bee9-1a59cd5d801c@gmx.net>
+ <aCXUeOmy28tqg6Oy@Z926fQmE5jqhFMgp6>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ bcm-kernel-feedback-list@broadcom.com,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org
+In-Reply-To: <aCXUeOmy28tqg6Oy@Z926fQmE5jqhFMgp6>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:g+68iJNx6FnST12fqo/EXY2IF4DdWYiZuDaXzPhQRM4V1072fy7
+ ybK5ykmDexDoZKcjo8CapV1bWzEwfK8x9fCScKw2EGvK9LBNVC4abUuberKL1blWxITaaFV
+ ofVydJqlbApls0WWuXNr87EMOCU1A19En4eRqeNbDMfyXCRheOSyDlgDF20XJ2UnT/RuohJ
+ 2MetqC6EY0/J1zC57z+6g==
+UI-OutboundReport: notjunk:1;M01:P0:+nYBk95IOFI=;aSSSDBTxUfgZDpSFcbQ1bzaBZ9Q
+ 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
+ tvbEVbHq0nPfu0glRmjWJf5pqSg/XGeE3l
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_103350_965988_E58883C1 
-X-CRM114-Status: GOOD (  30.12  )
+X-CRM114-CacheID: sfid-20250515_104810_372742_E1CE2B2B 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,122 +143,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Etienne,
 
-Hello,
+Am 15.05.25 um 13:48 schrieb Etienne Buira:
+> On Thu, May 15, 2025 at 12:31:38PM +0200, Stefan Wahren wrote:
+>> Am 15.05.25 um 11:44 schrieb Etienne Buira:
+>>> Hi Stefan, and thank you for your interest.
+>>>
+>>> On Thu, May 15, 2025 at 09:42:43AM +0200, Stefan Wahren wrote:
+>>>> Hi Etienne,
+>>>>
+>>>> Am 15.05.25 um 08:41 schrieb Etienne Buira:
+>>>>> On Wed, May 14, 2025 at 06:20:32PM +0200, Stefan Wahren wrote:
+>>>>>> Hi Etienne,
+>>>>>>
+>>>>>> Am 12.05.25 um 18:30 schrieb Etienne Buira:
+>>>>> ../..
+>>>>>> Out of curiosity and because i never saw this issue, could you plea=
+se
+>>>>>> provide more details?
+>>>>>> There is nothing connected to HDMI 0 & 1 ?
+>>>>>> Which firmware version are you running?
+>>>> Please provide the dmesg output, so we can extract the firmware versi=
+on.
+>>> Firmware version is 2025-02-17T20:03:07, i also attach the full gzippe=
+d
+>>> dmesg, as long as a patch of extra traces used.
+>>> I did not specifically test other firmware versions for the timeout
+>>> issue (but i did for video output).
+>> Thanks, i'll try to reproduce.
+>>
+>> Sorry, i forgot but is this reproducible with a recent stable 6.12.x ke=
+rnel?
+> Just reproduced with pristine 6.12.28.
+>
+okay, i've update the firmware on my older Raspberry Pi 4 to the same=20
+version as yours. But even with your configuration i don't see this kind=
+=20
+of fallout. So I think we shouldn't apply this patch until we really=20
+know what's going on.
 
-On Tuesday, May 13th, 2025 at 4:07 PM, Niklas Cassel <cassel@kernel.org> wr=
-ote:
+You don't have another Raspberry Pi 4 by any chance?
+Another cause might be the toolchain. Currently I use a not so fresh gcc=
+=20
+11.3.1 from Linaro.
 
-> Hello Mani,
->=20
-> On Tue, May 13, 2025 at 11:53:29AM +0100, Manivannan Sadhasivam wrote:
->=20
-> > This wait time is a grey area in the spec tbh. If the Readiness Notific=
-ation
-> > (RN) is not supported, then the spec suggests waiting 1s for the device=
- to
-> > become 'configuration ready'. That's why we have the 1s delay in dwc dr=
-iver.
-> >=20
-> > Also, it has the below in r6.0, sec 6.6.1:
-> >=20
-> > `* On the completion of Link Training (entering the DL_Active state, se=
-e =C2=A7 Section 3.2 ), a component must be able to receive and process TLP=
-s and DLLPs. * Following exit from a Conventional Reset of a device, within=
- 1.0 s the device must be able to receive a Configuration Request and retur=
-n a Successful Completion if the Request is valid. This period is independe=
-nt of how quickly Link training completes. If Readiness Notifications mecha=
-nisms are used (see =C2=A7 Section 6.22 .), this period may be shorter.`
-> >=20
-> > As per the first note, once link training is completed, the device shou=
-ld be
-> > ready to accept configuration requests from the host. So no delay shoul=
-d be
-> > required.
-> >=20
-> > But the second note says that the 1s delay is independent of how quickl=
-y the
-> > link training completes. This essentially contradicts with the above po=
-int.
-> >=20
-> > So I think it is not required to add delay after completing the LTSSM, =
-unless
-> > someone sees any issue.
->=20
->=20
-> If you look at the commit message in patch 1/2, the whole reason for this
-> series is that someone has seen an issue :)
->=20
-> While I personally haven't seen any issue, the user reporting that commit
-> ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can detect
-> Link Up") regressed his system so that it can no longer mount rootfs
-> (which is on a PLEXTOR PX-256M8PeGN NVMe SSD) clearly has seen an issue.
->=20
-> It is possible that his device is not following the spec.
-> I simply compared the code before and after ec9fd499b9c6, to try to
-> figure out why it was actually working before, and came up with this,
-> which made his device functional again.
->=20
-> Perhaps we should add a comment above the sleep that says that this
-> should strictly not be needed as per the spec?
-> (And also add the same comment in the (single) controller driver in
-> mainline which already does an msleep(PCIE_T_RRS_READY_MS).)
+Except of this, I noticed that your configuration doesn't enable=20
+DWC2_DUAL_ROLE and the LEDS_TRIGGER.
 
-I am the one experiencing the issue with my Orange PI 3B (RK3566, 8 GB RAM)=
- and a PLEXTOR PX-256M8PeGN NVMe SSD.=20
+Best regards
 
-I first detected the problem while upgrading from 6.13.8 to 6.14.3, that my=
- system cannot find the NVME SSD which contains the rootfs. After reverting=
- the two patches:
-
-- ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can detect =
-Link Up")
-- 0e0b45ab5d77 ("PCI: dw-rockchip: Enumerate endpoints based on dll_link_up=
- IRQ")
-
-my system booted fine again.=20
-After that I tested the patches sent by Niklas in this thread, which fixed =
-the issue, so I sent Tested-by.
-
-I did another test Today with 6.15.0-rc6, which in itself does not find my =
-SSD. Niklas asked me to test with these=20
-
-- revert ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can =
-detect Link Up")
-- revert 0e0b45ab5d77 ("PCI: dw-rockchip: Enumerate endpoints based on dll_=
-link_up IRQ")
-- apply the following patch:
-
-diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/con=
-troller/dwc/pcie-designware.c
-index b3615d125942..5dee689ecd95 100644
---- a/drivers/pci/controller/dwc/pcie-designware.c
-+++ b/drivers/pci/controller/dwc/pcie-designware.c
-@@ -692,7 +692,7 @@ int dw_pcie_wait_for_link(struct dw_pcie *pci)
-                if (dw_pcie_link_up(pci))
-                        break;
-
--               msleep(LINK_WAIT_SLEEP_MS);
-+               usleep_range(100, 200);
-        }
-
-        if (retries >=3D LINK_WAIT_MAX_RETRIES) {
-
-
-which restores the original behaviour to wait for link-up, then shorten the=
- time. This resulted again a non booting system, this time with "Phy link n=
-ever came up" error message.
-So please allow to fix the regression that is already in 6.14.x. I now so f=
-ar only I have reported this, but we cannot be sure how many SSDs have this=
- timing issue. Most users use older, distribution packaged kernels, so othe=
-rs will face this later.
-
-Bye,
-
-Laszlo Fiat
-
->=20
->=20
-> Kind regards,
-> Niklas
 
