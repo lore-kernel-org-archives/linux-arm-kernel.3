@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 439A7C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 10:24:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F3B8C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 10:26:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=50xASmVubcfjSCX8yE9N8UeaET26ZN47PtNPTWWokMo=; b=iiPke26XI3gbx4+SCSZoBMdiMw
-	h2wTxESvu/VwtxDXB3DXNCvtNZQEZXa1xZ1ZDVqyHHC10opGGtkRfUKZ3bK3qMGqw+ZKHR/kQa+hj
-	aOu3rTMd50dFi9qf/cW0E0sDjOTdz11OA4G9ppMH9hg0LcSOGkfk/aTgPBokPvkOAXiUJ4plVvtP2
-	+NVkqhHM0Cd6tvhcNn3J0n5mfUisLR+D9bS3rNdl7caKce8wVYa9vBLXExhEClrGAGw3wuT7vylFf
-	IM755SGi+tdEYwt3dfsfqDbLOMaA9ob2IQW9SfHfz/dalAcFswly+RDyopI6AV31Q3RYOjesHou6E
-	pf9Rc//Q==;
+	bh=nxPGKgHl8CDQ+wEKQDyOKmdyZ4bgpTYi2mPwNGB15/s=; b=GKjw3ddSDqMLPpfQ+b9LJ2Bs27
+	NktpMLBHnMk7738Arm6Dcde/vWz/ljkpqTf9ZI2R1nl/ihTLHyy0oJCLJ5zx8rGm93fvoQ4HiA+TA
+	8HslGlKyl13K7Hv0y5vdrqn4HkC7kmLxwwBaOknL/oEQyjoHMqTzCXYTMMxPGDw84MhY5eCLBId6x
+	LJnnljc2E2cqjvjb0AgCCE28vS+E+HHwlkdntlA/CYtOU/wUCGTF9vxJWWB0AEKlPAPKBI2/5rk3l
+	OA9tvILTHWxgH9iiBSddrlKxK5bim3YMqwNeMokEkT9C0N8/i9629O9lmmoHT7AcpZLJEFbNv5/yI
+	egHkyEsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFVlE-00000000Hgh-3Q6j;
-	Thu, 15 May 2025 10:24:20 +0000
+	id 1uFVnE-00000000Hur-0tO4;
+	Thu, 15 May 2025 10:26:24 +0000
 Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFVEV-00000000DZ2-3a8s;
-	Thu, 15 May 2025 09:50:33 +0000
-X-UUID: e7b374ee316f11f0bed96b30c12bc3d6-20250515
+	id 1uFVEX-00000000DZ2-2ADS
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 May 2025 09:50:34 +0000
+X-UUID: e5caf30a316f11f0bed96b30c12bc3d6-20250515
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=50xASmVubcfjSCX8yE9N8UeaET26ZN47PtNPTWWokMo=;
-	b=mAuyCI7EXatTxSi3fwmVuJKqDVrDX12hgAcXT9U4+stS7/VmDM6KzmrVFCDafneliloFoUfUDZuWOiY3q2mXRdebk4A2MvWWTRM7eeMcHrc1uLMKRE+DV1oi0H7oTww0gaODvO0WFMg1ixV07/zeTXy8gAtCVxJYU7DsUxrNxzc=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=nxPGKgHl8CDQ+wEKQDyOKmdyZ4bgpTYi2mPwNGB15/s=;
+	b=FtZudCx8Hrq+y6g3kmr3glyClIbJ57k2S0ZKtJdTVkCcA+dGjkXyilyiXJe5E/p3z3xn19Q5H00Zod8r1WgLlwlP8Rt7fpn7bM7u6LiEx4S3ktHyFh3PzSMgZDe2Vr/55PHjPVZhI/D5/HvIQPSQT6v7sqKx7c1trmL7CsCt5q8=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:d55c631d-252c-4c69-a801-503b1c07b902,IP:0,UR
+X-CID-O-INFO: VERSION:1.2.1,REQID:0d4c5d99-33c4-4b6a-92ac-c1b48ed01112,IP:0,UR
 	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
 	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:a697c297-7410-4084-8094-24619d975b02,B
+X-CID-META: VersionHash:0ef645f,CLOUDID:aed6093e-da74-431d-a7be-5e6761de3b64,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
 	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
 	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: e7b374ee316f11f0bed96b30c12bc3d6-20250515
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
+X-UUID: e5caf30a316f11f0bed96b30c12bc3d6-20250515
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
 	(envelope-from <paul-pl.chen@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 371124293; Thu, 15 May 2025 02:35:14 -0700
+	with ESMTP id 629077440; Thu, 15 May 2025 02:35:11 -0700
 Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 15 May 2025 17:35:11 +0800
+ 15.2.1258.39; Thu, 15 May 2025 17:35:08 +0800
 Received: from mtksitap99.mediatek.inc (10.233.130.16) by
  mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Thu, 15 May 2025 17:35:11 +0800
+ 15.2.1258.39 via Frontend Transport; Thu, 15 May 2025 17:35:08 +0800
 From: paul-pl.chen <paul-pl.chen@mediatek.com>
 To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
 	<chunkuang.hu@kernel.org>, <angelogioacchino.delregno@collabora.com>
@@ -65,9 +66,9 @@ CC: <matthias.bgg@gmail.com>, <p.zabel@pengutronix.de>,
 	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
 	<linux-arm-kernel@lists.infradead.org>,
 	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH v3 16/17] drm/mediatek: Add support for multiple mmsys in the one mediatek-drm driver
-Date: Thu, 15 May 2025 17:34:28 +0800
-Message-ID: <20250515093454.1729720-17-paul-pl.chen@mediatek.com>
+Subject: [PATCH v3 10/17] drm/mediatek: Export OVL formats definitions and format conversion API
+Date: Thu, 15 May 2025 17:34:22 +0800
+Message-ID: <20250515093454.1729720-11-paul-pl.chen@mediatek.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250515093454.1729720-1-paul-pl.chen@mediatek.com>
 References: <20250515093454.1729720-1-paul-pl.chen@mediatek.com>
@@ -75,8 +76,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_025031_899718_4D685559 
-X-CRM114-Status: GOOD (  21.92  )
+X-CRM114-CacheID: sfid-20250515_025033_559170_4C39E99D 
+X-CRM114-Status: GOOD (  22.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,1081 +92,434 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Paul-pl Chen <paul-pl.chen@mediatek.com>
+From: Nancy Lin <nancy.lin@mediatek.com>
 
-To support multiple mmsys instances in the one mediatek-drm instance,
-providing improved flexibility and scalability by the following changes:
-
-1. Add DDP_COMPONENT_DRM_OVLSYS_ADAPTOR* to probe the
-  ovlsys_adaptor drivers and support different mmsys composition.
-2. Added new component types MTK_DISP_VIRTUAL to support the
-  routing to virtual display components.
-3. Added and adjusted the existed structure or interface to extend
-  the support of multiple mmsys instances.
-4. Modified the component matching and binding logic to support
-  multiple mmsys instances.
+In upcoming SoCs, the OVL component will be divided into multiple
+smaller hardware units to enhance flexibility. To facilitate this
+transition, the OVL format definitions and format conversion API
+should be exported for reuse across these units.
 
 Signed-off-by: Nancy Lin <nancy.lin@mediatek.com>
 Signed-off-by: Paul-pl Chen <paul-pl.chen@mediatek.com>
 ---
- drivers/gpu/drm/mediatek/mtk_crtc.c     | 342 +++++++++++++++++++-----
- drivers/gpu/drm/mediatek/mtk_crtc.h     |   6 +-
- drivers/gpu/drm/mediatek/mtk_ddp_comp.c | 105 +++++---
- drivers/gpu/drm/mediatek/mtk_ddp_comp.h |   2 +
- drivers/gpu/drm/mediatek/mtk_drm_drv.c  |  86 +++---
- drivers/gpu/drm/mediatek/mtk_drm_drv.h  |  16 +-
- 6 files changed, 422 insertions(+), 135 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_disp_ovl.c | 214 ++++++++++++++----------
+ drivers/gpu/drm/mediatek/mtk_disp_ovl.h |  28 ++++
+ 2 files changed, 150 insertions(+), 92 deletions(-)
+ create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_ovl.h
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediatek/mtk_crtc.c
-index 8f6fba4217ec..4f91ffdd08ae 100644
---- a/drivers/gpu/drm/mediatek/mtk_crtc.c
-+++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
-@@ -58,13 +58,17 @@ struct mtk_crtc {
- 	wait_queue_head_t		cb_blocking_queue;
- #endif
+diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+index d0581c4e3c99..a516b7c82b5a 100644
+--- a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
++++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+@@ -3,8 +3,6 @@
+  * Copyright (c) 2015 MediaTek Inc.
+  */
  
--	struct device			*mmsys_dev;
-+	struct device			*mmsys_dev[MAX_MMSYS];
- 	struct device			*dma_dev;
--	struct mtk_mutex		*mutex;
-+	struct device			*vdisp_ao_dev;
-+	struct mtk_mutex		*mutex[MAX_MMSYS];
- 	unsigned int			ddp_comp_nr;
- 	struct mtk_ddp_comp		**ddp_comp;
-+	enum mtk_drm_mmsys		*ddp_comp_sys;
-+	bool				exist[MAX_MMSYS];
- 	unsigned int			num_conn_routes;
- 	const struct mtk_drm_route	*conn_routes;
-+	enum mtk_drm_mmsys		conn_routes_sys;
+-#include <drm/drm_blend.h>
+-#include <drm/drm_fourcc.h>
+ #include <drm/drm_framebuffer.h>
  
- 	/* lock for display hardware access */
- 	struct mutex			hw_lock;
-@@ -82,6 +86,11 @@ struct mtk_crtc_state {
- 	unsigned int			pending_vrefresh;
+ #include <linux/clk.h>
+@@ -18,6 +16,7 @@
+ #include "mtk_crtc.h"
+ #include "mtk_ddp_comp.h"
+ #include "mtk_disp_drv.h"
++#include "mtk_disp_ovl.h"
+ #include "mtk_drm_drv.h"
+ 
+ #define DISP_REG_OVL_INTEN			0x0004
+@@ -62,22 +61,15 @@
+ /* OVL_CON_RGB_SWAP works only if OVL_CON_CLRFMT_MAN is enabled */
+ #define OVL_CON_RGB_SWAP	BIT(25)
+ 
+-#define OVL_CON_CLRFMT_RGB	(1 << 12)
+-#define OVL_CON_CLRFMT_ARGB8888	(2 << 12)
+-#define OVL_CON_CLRFMT_RGBA8888	(3 << 12)
+-#define OVL_CON_CLRFMT_ABGR8888	(OVL_CON_CLRFMT_ARGB8888 | OVL_CON_BYTE_SWAP)
+-#define OVL_CON_CLRFMT_BGRA8888	(OVL_CON_CLRFMT_RGBA8888 | OVL_CON_BYTE_SWAP)
+-#define OVL_CON_CLRFMT_UYVY	(4 << 12)
+-#define OVL_CON_CLRFMT_YUYV	(5 << 12)
+-#define OVL_CON_MTX_YUV_TO_RGB	(6 << 16)
+-#define OVL_CON_CLRFMT_PARGB8888 ((3 << 12) | OVL_CON_CLRFMT_MAN)
+-#define OVL_CON_CLRFMT_PABGR8888 (OVL_CON_CLRFMT_PARGB8888 | OVL_CON_RGB_SWAP)
+-#define OVL_CON_CLRFMT_PBGRA8888 (OVL_CON_CLRFMT_PARGB8888 | OVL_CON_BYTE_SWAP)
+-#define OVL_CON_CLRFMT_PRGBA8888 (OVL_CON_CLRFMT_PABGR8888 | OVL_CON_BYTE_SWAP)
+-#define OVL_CON_CLRFMT_RGB565(ovl)	((ovl)->data->fmt_rgb565_is_0 ? \
+-					0 : OVL_CON_CLRFMT_RGB)
+-#define OVL_CON_CLRFMT_RGB888(ovl)	((ovl)->data->fmt_rgb565_is_0 ? \
+-					OVL_CON_CLRFMT_RGB : 0)
++#define OVL_CON_CLRFMT_RGB565(shift)	(0 << (shift))
++#define OVL_CON_CLRFMT_RGB888(shift)	(1 << (shift))
++#define OVL_CON_CLRFMT_ARGB8888(shift)	(2 << (shift))
++#define OVL_CON_CLRFMT_RGBA8888(shift)	(3 << (shift))
++#define OVL_CON_CLRFMT_UYVY(shift)	(4 << (shift))
++#define OVL_CON_CLRFMT_YUYV(shift)	(5 << (shift))
++#define OVL_CON_MTX_YUV_TO_RGB		(6 << 16)
++#define OVL_CON_CLRFMT_PARGB8888(shift, man) ((3 << (shift)) | (man))
++
+ #define	OVL_CON_AEN		BIT(8)
+ #define	OVL_CON_ALPHA		0xff
+ #define	OVL_CON_VIRT_FLIP	BIT(9)
+@@ -85,23 +77,7 @@
+ 
+ #define OVL_COLOR_ALPHA		GENMASK(31, 24)
+ 
+-static inline bool is_10bit_rgb(u32 fmt)
+-{
+-	switch (fmt) {
+-	case DRM_FORMAT_XRGB2101010:
+-	case DRM_FORMAT_ARGB2101010:
+-	case DRM_FORMAT_RGBX1010102:
+-	case DRM_FORMAT_RGBA1010102:
+-	case DRM_FORMAT_XBGR2101010:
+-	case DRM_FORMAT_ABGR2101010:
+-	case DRM_FORMAT_BGRX1010102:
+-	case DRM_FORMAT_BGRA1010102:
+-		return true;
+-	}
+-	return false;
+-}
+-
+-static const u32 mt8173_formats[] = {
++const u32 mt8173_ovl_formats[] = {
+ 	DRM_FORMAT_XRGB8888,
+ 	DRM_FORMAT_ARGB8888,
+ 	DRM_FORMAT_BGRX8888,
+@@ -115,7 +91,9 @@ static const u32 mt8173_formats[] = {
+ 	DRM_FORMAT_YUYV,
  };
  
-+struct mtk_crtc_comp_info {
-+	enum mtk_drm_mmsys sys;
-+	unsigned int comp_id;
-+};
+-static const u32 mt8195_formats[] = {
++const size_t mt8173_ovl_formats_len = ARRAY_SIZE(mt8173_ovl_formats);
 +
- static inline struct mtk_crtc *to_mtk_crtc(struct drm_crtc *c)
- {
- 	return container_of(c, struct mtk_crtc, base);
-@@ -130,7 +139,10 @@ static void mtk_crtc_destroy(struct drm_crtc *crtc)
- 	struct mtk_crtc *mtk_crtc = to_mtk_crtc(crtc);
- 	int i;
++const u32 mt8195_ovl_formats[] = {
+ 	DRM_FORMAT_XRGB8888,
+ 	DRM_FORMAT_ARGB8888,
+ 	DRM_FORMAT_XRGB2101010,
+@@ -139,6 +117,8 @@ static const u32 mt8195_formats[] = {
+ 	DRM_FORMAT_YUYV,
+ };
  
--	mtk_mutex_put(mtk_crtc->mutex);
-+	for (i = 0; i < MAX_MMSYS; i++)
-+		if (mtk_crtc->mutex[i])
-+			mtk_mutex_put(mtk_crtc->mutex[i]);
++const size_t mt8195_ovl_formats_len = ARRAY_SIZE(mt8195_ovl_formats);
 +
- #if IS_REACHABLE(CONFIG_MTK_CMDQ)
- 	if (mtk_crtc->cmdq_client.chan) {
- 		cmdq_pkt_destroy(&mtk_crtc->cmdq_client, &mtk_crtc->cmdq_handle);
-@@ -228,7 +240,14 @@ static int mtk_crtc_ddp_clk_enable(struct mtk_crtc *mtk_crtc)
- 	int i;
+ struct mtk_disp_ovl_data {
+ 	unsigned int addr;
+ 	unsigned int gmc_bits;
+@@ -167,6 +147,22 @@ struct mtk_disp_ovl {
+ 	void				*vblank_cb_data;
+ };
  
- 	for (i = 0; i < mtk_crtc->ddp_comp_nr; i++) {
-+		enum mtk_drm_mmsys mmsys;
-+
- 		ret = mtk_ddp_comp_clk_enable(mtk_crtc->ddp_comp[i]);
-+		if (mtk_ddp_comp_get_type(mtk_crtc->ddp_comp[i]->id) == MTK_DISP_VIRTUAL) {
-+			mmsys = mtk_crtc->ddp_comp_sys[i];
-+			ret = mtk_mmsys_ddp_clk_enable(mtk_crtc->mmsys_dev[mmsys],
-+						       mtk_crtc->ddp_comp[i]->id);
-+		}
- 		if (ret) {
- 			DRM_ERROR("Failed to enable clock %d: %d\n", i, ret);
- 			goto err;
-@@ -237,17 +256,28 @@ static int mtk_crtc_ddp_clk_enable(struct mtk_crtc *mtk_crtc)
- 
- 	return 0;
- err:
--	while (--i >= 0)
-+	while (--i >= 0) {
- 		mtk_ddp_comp_clk_disable(mtk_crtc->ddp_comp[i]);
-+		if (mtk_ddp_comp_get_type(mtk_crtc->ddp_comp[i]->id) == MTK_DISP_VIRTUAL)
-+			mtk_mmsys_ddp_clk_disable(mtk_crtc->mmsys_dev[mtk_crtc->ddp_comp_sys[i]],
-+						  mtk_crtc->ddp_comp[i]->id);
-+	}
- 	return ret;
- }
- 
- static void mtk_crtc_ddp_clk_disable(struct mtk_crtc *mtk_crtc)
- {
- 	int i;
-+	enum mtk_drm_mmsys mmsys;
- 
--	for (i = 0; i < mtk_crtc->ddp_comp_nr; i++)
-+	for (i = 0; i < mtk_crtc->ddp_comp_nr; i++) {
- 		mtk_ddp_comp_clk_disable(mtk_crtc->ddp_comp[i]);
-+		if (mtk_ddp_comp_get_type(mtk_crtc->ddp_comp[i]->id) == MTK_DISP_VIRTUAL) {
-+			mmsys = mtk_crtc->ddp_comp_sys[i];
-+			mtk_mmsys_ddp_clk_disable(mtk_crtc->mmsys_dev[mmsys],
-+						  mtk_crtc->ddp_comp[i]->id);
-+		}
-+	}
- }
- 
- static
-@@ -340,7 +370,8 @@ static int mtk_crtc_ddp_hw_init(struct mtk_crtc *mtk_crtc)
- 	struct drm_connector_list_iter conn_iter;
- 	unsigned int width, height, vrefresh, bpc = MTK_MAX_BPC;
- 	int ret;
--	int i;
-+	int i, j;
-+	enum mtk_drm_mmsys mmsys;
- 
- 	if (WARN_ON(!crtc->state))
- 		return -EINVAL;
-@@ -370,10 +401,18 @@ static int mtk_crtc_ddp_hw_init(struct mtk_crtc *mtk_crtc)
- 		return ret;
- 	}
- 
--	ret = mtk_mutex_prepare(mtk_crtc->mutex);
--	if (ret < 0) {
--		DRM_ERROR("Failed to enable mutex clock: %d\n", ret);
--		goto err_pm_runtime_put;
-+	for (i = 0; i < MAX_MMSYS; i++)
-+		if (mtk_crtc->exist[i])
-+			mtk_mmsys_top_clk_enable(mtk_crtc->mmsys_dev[i]);
-+
-+	for (i = 0; i < MAX_MMSYS; i++) {
-+		if (!mtk_crtc->mutex[i] || !mtk_crtc->exist[i])
-+			continue;
-+		ret = mtk_mutex_prepare(mtk_crtc->mutex[i]);
-+		if (ret < 0) {
-+			DRM_ERROR("Failed to enable mmsys%d mutex clock: %d\n", i, ret);
-+			goto err_pm_runtime_put;
-+		}
- 	}
- 
- 	ret = mtk_crtc_ddp_clk_enable(mtk_crtc);
-@@ -382,19 +421,36 @@ static int mtk_crtc_ddp_hw_init(struct mtk_crtc *mtk_crtc)
- 		goto err_mutex_unprepare;
- 	}
- 
-+	if (mtk_crtc->vdisp_ao_dev)
-+		mtk_mmsys_default_config(mtk_crtc->vdisp_ao_dev);
-+
-+	for (i = 0; i < MAX_MMSYS; i++)
-+		if (mtk_crtc->exist[i])
-+			mtk_mmsys_default_config(mtk_crtc->mmsys_dev[i]);
-+
- 	for (i = 0; i < mtk_crtc->ddp_comp_nr - 1; i++) {
--		if (!mtk_ddp_comp_connect(mtk_crtc->ddp_comp[i], mtk_crtc->mmsys_dev,
-+		mmsys = mtk_crtc->ddp_comp_sys[i];
-+		if (!mtk_ddp_comp_connect(mtk_crtc->ddp_comp[i], mtk_crtc->mmsys_dev[mmsys],
- 					  mtk_crtc->ddp_comp[i + 1]->id))
--			mtk_mmsys_ddp_connect(mtk_crtc->mmsys_dev,
-+			mtk_mmsys_ddp_connect(mtk_crtc->mmsys_dev[mmsys],
- 					      mtk_crtc->ddp_comp[i]->id,
- 					      mtk_crtc->ddp_comp[i + 1]->id);
--		if (!mtk_ddp_comp_add(mtk_crtc->ddp_comp[i], mtk_crtc->mutex))
--			mtk_mutex_add_comp(mtk_crtc->mutex,
-+		if (!mtk_ddp_comp_add(mtk_crtc->ddp_comp[i], mtk_crtc->mutex[mmsys]))
-+			mtk_mutex_add_comp(mtk_crtc->mutex[mmsys],
- 					   mtk_crtc->ddp_comp[i]->id);
- 	}
--	if (!mtk_ddp_comp_add(mtk_crtc->ddp_comp[i], mtk_crtc->mutex))
--		mtk_mutex_add_comp(mtk_crtc->mutex, mtk_crtc->ddp_comp[i]->id);
--	mtk_mutex_enable(mtk_crtc->mutex);
-+	mmsys = mtk_crtc->ddp_comp_sys[i];
-+	if (!mtk_ddp_comp_add(mtk_crtc->ddp_comp[i], mtk_crtc->mutex[mmsys]))
-+		mtk_mutex_add_comp(mtk_crtc->mutex[mmsys], mtk_crtc->ddp_comp[i]->id);
-+
-+	/* Need to set sof source for all mmsys mutexes in this crtc */
-+	for (j = 0; j < MAX_MMSYS; j++)
-+		if (mtk_crtc->exist[j] && mtk_crtc->mutex[j])
-+			mtk_mutex_add_comp_sof(mtk_crtc->mutex[j], mtk_crtc->ddp_comp[i]->id);
-+
-+	for (i = 0; i < MAX_MMSYS; i++)
-+		if (mtk_crtc->exist[i] && mtk_crtc->mutex[i])
-+			mtk_mutex_enable(mtk_crtc->mutex[i]);
- 
- 	for (i = 0; i < mtk_crtc->ddp_comp_nr; i++) {
- 		struct mtk_ddp_comp *comp = mtk_crtc->ddp_comp[i];
-@@ -402,7 +458,11 @@ static int mtk_crtc_ddp_hw_init(struct mtk_crtc *mtk_crtc)
- 		if (i == 1)
- 			mtk_ddp_comp_bgclr_in_on(comp);
- 
--		mtk_ddp_comp_config(comp, width, height, vrefresh, bpc, NULL);
-+		if (mtk_ddp_comp_get_type(comp->id) == MTK_DISP_VIRTUAL)
-+			mtk_mmsys_ddp_config(mtk_crtc->mmsys_dev[mtk_crtc->ddp_comp_sys[i]],
-+					     comp->id, width, height, NULL);
-+		else
-+			mtk_ddp_comp_config(comp, width, height, vrefresh, bpc, NULL);
- 		mtk_ddp_comp_start(comp);
- 	}
- 
-@@ -426,7 +486,10 @@ static int mtk_crtc_ddp_hw_init(struct mtk_crtc *mtk_crtc)
- 	return 0;
- 
- err_mutex_unprepare:
--	mtk_mutex_unprepare(mtk_crtc->mutex);
-+	while (--i >= 0)
-+		if (mtk_crtc->exist[i] && mtk_crtc->mutex[i])
-+			mtk_mutex_unprepare(mtk_crtc->mutex[i]);
-+
- err_pm_runtime_put:
- 	pm_runtime_put(crtc->dev->dev);
- 	return ret;
-@@ -437,7 +500,8 @@ static void mtk_crtc_ddp_hw_fini(struct mtk_crtc *mtk_crtc)
- 	struct drm_device *drm = mtk_crtc->base.dev;
- 	struct drm_crtc *crtc = &mtk_crtc->base;
- 	unsigned long flags;
--	int i;
-+	int i, j;
-+	enum mtk_drm_mmsys mmsys;
- 
- 	for (i = 0; i < mtk_crtc->ddp_comp_nr; i++) {
- 		mtk_ddp_comp_stop(mtk_crtc->ddp_comp[i]);
-@@ -445,27 +509,47 @@ static void mtk_crtc_ddp_hw_fini(struct mtk_crtc *mtk_crtc)
- 			mtk_ddp_comp_bgclr_in_off(mtk_crtc->ddp_comp[i]);
- 	}
- 
--	for (i = 0; i < mtk_crtc->ddp_comp_nr; i++)
--		if (!mtk_ddp_comp_remove(mtk_crtc->ddp_comp[i], mtk_crtc->mutex))
--			mtk_mutex_remove_comp(mtk_crtc->mutex,
-+	for (i = 0; i < mtk_crtc->ddp_comp_nr; i++) {
-+		mmsys = mtk_crtc->ddp_comp_sys[i];
-+		if (!mtk_ddp_comp_remove(mtk_crtc->ddp_comp[i], mtk_crtc->mutex[mmsys]))
-+			mtk_mutex_remove_comp(mtk_crtc->mutex[mtk_crtc->ddp_comp_sys[i]],
- 					      mtk_crtc->ddp_comp[i]->id);
--	mtk_mutex_disable(mtk_crtc->mutex);
-+	}
- 	for (i = 0; i < mtk_crtc->ddp_comp_nr - 1; i++) {
--		if (!mtk_ddp_comp_disconnect(mtk_crtc->ddp_comp[i], mtk_crtc->mmsys_dev,
--					     mtk_crtc->ddp_comp[i + 1]->id))
--			mtk_mmsys_ddp_disconnect(mtk_crtc->mmsys_dev,
--						 mtk_crtc->ddp_comp[i]->id,
--						 mtk_crtc->ddp_comp[i + 1]->id);
--		if (!mtk_ddp_comp_remove(mtk_crtc->ddp_comp[i], mtk_crtc->mutex))
--			mtk_mutex_remove_comp(mtk_crtc->mutex,
-+		struct mtk_ddp_comp *comp;
-+		unsigned int curr, next;
-+
-+		comp = mtk_crtc->ddp_comp[i];
-+		curr = mtk_crtc->ddp_comp[i]->id;
-+		next = mtk_crtc->ddp_comp[i + 1]->id;
-+		mmsys = mtk_crtc->ddp_comp_sys[i];
-+		if (!mtk_ddp_comp_disconnect(comp, mtk_crtc->mmsys_dev[mmsys], next))
-+			mtk_mmsys_ddp_disconnect(mtk_crtc->mmsys_dev[mmsys], curr, next);
-+		if (!mtk_ddp_comp_remove(comp, mtk_crtc->mutex[mmsys]))
-+			mtk_mutex_remove_comp(mtk_crtc->mutex[mtk_crtc->ddp_comp_sys[i]],
- 					      mtk_crtc->ddp_comp[i]->id);
-+
- 	}
--	if (!mtk_ddp_comp_remove(mtk_crtc->ddp_comp[i], mtk_crtc->mutex))
--		mtk_mutex_remove_comp(mtk_crtc->mutex, mtk_crtc->ddp_comp[i]->id);
-+
-+	mmsys = mtk_crtc->ddp_comp_sys[i];
-+	if (!mtk_ddp_comp_remove(mtk_crtc->ddp_comp[i], mtk_crtc->mutex[mmsys]))
-+		mtk_mutex_remove_comp(mtk_crtc->mutex[mmsys], mtk_crtc->ddp_comp[i]->id);
-+
-+	/* Need to remove sof source for all mmsys mutexes in this crtc */
-+	for (j = 0; j < MAX_MMSYS; j++)
-+		if (mtk_crtc->exist[j] && mtk_crtc->mutex[j])
-+			mtk_mutex_remove_comp_sof(mtk_crtc->mutex[j], mtk_crtc->ddp_comp[i]->id);
-+
- 	mtk_crtc_ddp_clk_disable(mtk_crtc);
--	mtk_mutex_unprepare(mtk_crtc->mutex);
-+	for (i = 0; i < MAX_MMSYS; i++)
-+		if (mtk_crtc->exist[i] && mtk_crtc->mutex[i])
-+			mtk_mutex_unprepare(mtk_crtc->mutex[i]);
- 
--	pm_runtime_put(drm->dev);
-+	for (i = 0; i < MAX_MMSYS; i++)
-+		if (mtk_crtc->exist[i])
-+			mtk_mmsys_top_clk_disable(mtk_crtc->mmsys_dev[i]);
-+
-+	pm_runtime_put_sync(drm->dev);
- 
- 	if (crtc->state->event && !crtc->state->active) {
- 		spin_lock_irqsave(&crtc->dev->event_lock, flags);
-@@ -589,9 +673,15 @@ static void mtk_crtc_update_config(struct mtk_crtc *mtk_crtc, bool needs_vblank)
- 		mtk_crtc->pending_async_planes = true;
- 
- 	if (priv->data->shadow_register) {
--		mtk_mutex_acquire(mtk_crtc->mutex);
-+		for (i = 0; i < MAX_MMSYS; i++)
-+			if (mtk_crtc->exist[i] && mtk_crtc->mutex[i])
-+				mtk_mutex_acquire(mtk_crtc->mutex[i]);
-+
- 		mtk_crtc_ddp_config(crtc, NULL);
--		mtk_mutex_release(mtk_crtc->mutex);
-+
-+		for (i = 0; i < MAX_MMSYS; i++)
-+			if (mtk_crtc->exist[i] && mtk_crtc->mutex[i])
-+				mtk_mutex_release(mtk_crtc->mutex[i]);
- 	}
- #if IS_REACHABLE(CONFIG_MTK_CMDQ)
- 	if (mtk_crtc->cmdq_client.chan) {
-@@ -675,6 +765,7 @@ static void mtk_crtc_update_output(struct drm_crtc *crtc,
- {
- 	int crtc_index = drm_crtc_index(crtc);
- 	int i;
-+	unsigned int mmsys;
- 	struct device *dev;
- 	struct drm_crtc_state *crtc_state = state->crtcs[crtc_index].new_state;
- 	struct mtk_crtc *mtk_crtc = to_mtk_crtc(crtc);
-@@ -687,7 +778,8 @@ static void mtk_crtc_update_output(struct drm_crtc *crtc,
- 	if (!mtk_crtc->num_conn_routes)
- 		return;
- 
--	priv = ((struct mtk_drm_private *)crtc->dev->dev_private)->all_drm_private[crtc_index];
-+	mmsys = mtk_crtc->conn_routes_sys;
-+	priv = ((struct mtk_drm_private *)crtc->dev->dev_private)->all_drm_private[mmsys];
- 	dev = priv->dev;
- 
- 	dev_dbg(dev, "connector change:%d, encoder mask:0x%x for crtc:%d\n",
-@@ -700,6 +792,8 @@ static void mtk_crtc_update_output(struct drm_crtc *crtc,
- 		if (comp->encoder_index >= 0 &&
- 		    (encoder_mask & BIT(comp->encoder_index))) {
- 			mtk_crtc->ddp_comp[mtk_crtc->ddp_comp_nr - 1] = comp;
-+			mtk_crtc->ddp_comp_sys[mtk_crtc->ddp_comp_nr - 1] = mmsys;
-+			mtk_crtc->exist[mmsys] = true;
- 			dev_dbg(dev, "Add comp_id: %d at path index %d\n",
- 				comp->id, mtk_crtc->ddp_comp_nr - 1);
- 			break;
-@@ -736,9 +830,31 @@ static void mtk_crtc_atomic_enable(struct drm_crtc *crtc,
- 	struct mtk_crtc *mtk_crtc = to_mtk_crtc(crtc);
- 	struct mtk_ddp_comp *comp = mtk_crtc->ddp_comp[0];
- 	int ret;
-+	int i, j;
-+	int mmsys_cnt = 0;
- 
- 	DRM_DEBUG_DRIVER("%s %d\n", __func__, crtc->base.id);
- 
-+	for (i = 0; i < MAX_MMSYS; i++)
-+		if (mtk_crtc->exist[i])
-+			mmsys_cnt++;
-+
-+	if (mmsys_cnt > 1) {
-+		for (i = 0; i < MAX_MMSYS; i++) {
-+			if (!mtk_crtc->exist[i])
-+				continue;
-+			ret = pm_runtime_resume_and_get(mtk_crtc->mmsys_dev[i]);
-+			if (ret < 0) {
-+				DRM_DEV_ERROR(mtk_crtc->mmsys_dev[i],
-+					      "Failed to enable power domain: %d\n", ret);
-+				for (j = i - 1; j >= 0; j--)
-+					if (mtk_crtc->exist[i])
-+						pm_runtime_put(mtk_crtc->mmsys_dev[j]);
-+				return;
-+			}
-+		}
-+	}
-+
- 	ret = mtk_ddp_comp_power_on(comp);
- 	if (ret < 0) {
- 		DRM_DEV_ERROR(comp->dev, "Failed to enable power domain: %d\n", ret);
-@@ -762,7 +878,8 @@ static void mtk_crtc_atomic_disable(struct drm_crtc *crtc,
- {
- 	struct mtk_crtc *mtk_crtc = to_mtk_crtc(crtc);
- 	struct mtk_ddp_comp *comp = mtk_crtc->ddp_comp[0];
--	int i;
-+	int i, ret;
-+	int mmsys_cnt = 0;
- 
- 	DRM_DEBUG_DRIVER("%s %d\n", __func__, crtc->base.id);
- 	if (!mtk_crtc->enabled)
-@@ -794,6 +911,22 @@ static void mtk_crtc_atomic_disable(struct drm_crtc *crtc,
- 	mtk_crtc_ddp_hw_fini(mtk_crtc);
- 	mtk_ddp_comp_power_off(comp);
- 
-+	for (i = 0; i < MAX_MMSYS; i++)
-+		if (mtk_crtc->exist[i])
-+			mmsys_cnt++;
-+
-+	if (mmsys_cnt > 1) {
-+		for (i = 0; i < MAX_MMSYS; i++) {
-+			if (mtk_crtc->exist[i]) {
-+				ret = pm_runtime_put(mtk_crtc->mmsys_dev[i]);
-+				if (ret < 0)
-+					DRM_DEV_ERROR(mtk_crtc->mmsys_dev[i],
-+						      "Failed to disable power domain: %d\n",
-+						      ret);
-+			}
-+		}
-+	}
-+
- 	mtk_crtc->enabled = false;
- }
- 
-@@ -953,49 +1086,108 @@ struct device *mtk_crtc_dma_dev_get(struct drm_crtc *crtc)
- 	return mtk_crtc->dma_dev;
- }
- 
--int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
--		    unsigned int path_len, int priv_data_index,
--		    const struct mtk_drm_route *conn_routes,
--		    unsigned int num_conn_routes)
-+int mtk_crtc_create(struct drm_device *drm_dev, enum mtk_crtc_path path_sel)
- {
- 	struct mtk_drm_private *priv = drm_dev->dev_private;
- 	struct device *dev = drm_dev->dev;
- 	struct mtk_crtc *mtk_crtc;
- 	unsigned int num_comp_planes = 0;
- 	int ret;
--	int i;
-+	int i, j, k;
- 	bool has_ctm = false;
- 	uint gamma_lut_size = 0;
- 	struct drm_crtc *tmp;
- 	int crtc_i = 0;
--
--	if (!path)
--		return 0;
--
--	priv = priv->all_drm_private[priv_data_index];
-+	struct mtk_drm_private *subsys_priv;
-+	struct mtk_crtc_comp_info path[DDP_COMPONENT_ID_MAX];
-+	unsigned int path_len = 0;
-+	const struct mtk_drm_route *conn_routes = NULL;
-+	unsigned int num_conn_routes = 0;
-+	enum mtk_drm_mmsys conn_mmsys;
- 
- 	drm_for_each_crtc(tmp, drm_dev)
- 		crtc_i++;
- 
-+	for (j = 0; j < priv->data->mmsys_dev_num; j++) {
-+		for (k = 0; k < MAX_MMSYS; k++) {
-+			const unsigned int *subsys_path;
-+			unsigned int subsys_path_len = 0;
-+			unsigned int order = 0;
-+
-+			subsys_priv = priv->all_drm_private[k];
-+			if (!subsys_priv)
-+				continue;
-+
-+			if (path_sel == CRTC_MAIN) {
-+				subsys_path = subsys_priv->data->main_path;
-+				subsys_path_len = subsys_priv->data->main_len;
-+				order = subsys_priv->data->main_order;
-+			} else if (path_sel == CRTC_EXT) {
-+				subsys_path = subsys_priv->data->ext_path;
-+				subsys_path_len = subsys_priv->data->ext_len;
-+				order = subsys_priv->data->ext_order;
-+			} else if (path_sel == CRTC_THIRD) {
-+				subsys_path = subsys_priv->data->third_path;
-+				subsys_path_len = subsys_priv->data->third_len;
-+				order = subsys_priv->data->third_order;
-+			}
-+
-+			if (subsys_priv->data->num_conn_routes) {
-+				conn_routes = subsys_priv->data->conn_routes;
-+				num_conn_routes = subsys_priv->data->num_conn_routes;
-+				conn_mmsys = subsys_priv->data->mmsys_id;
-+			}
-+
-+			if (j != order)
-+				continue;
-+			if (!subsys_path_len)
-+				continue;
-+
-+			for (i = 0; i < subsys_path_len; i++) {
-+				path[path_len].sys = subsys_priv->data->mmsys_id;
-+				path[path_len].comp_id = subsys_path[i];
-+				path_len++;
-+			}
-+		}
-+	}
-+
-+	if (!path_len)
-+		return 0;
-+
-+	if (num_conn_routes) {
-+		for (i = 0; i < num_conn_routes; i++)
-+			if (conn_routes->crtc_id == crtc_i)
-+				break;
-+		if (i == num_conn_routes) {
-+			num_conn_routes = 0;
-+			conn_routes = NULL;
-+		}
-+	}
-+
- 	for (i = 0; i < path_len; i++) {
--		enum mtk_ddp_comp_id comp_id = path[i];
-+		enum mtk_ddp_comp_id comp_id = path[i].comp_id;
- 		struct device_node *node;
- 		struct mtk_ddp_comp *comp;
- 
-+		priv = priv->all_drm_private[path[i].sys];
- 		node = priv->comp_node[comp_id];
- 		comp = &priv->ddp_comp[comp_id];
- 
- 		/* Not all drm components have a DTS device node, such as ovl_adaptor,
- 		 * which is the drm bring up sub driver
- 		 */
--		if (!node && comp_id != DDP_COMPONENT_DRM_OVL_ADAPTOR) {
-+		if (!node && comp_id != DDP_COMPONENT_DRM_OVL_ADAPTOR &&
-+		    comp_id != DDP_COMPONENT_DRM_OVLSYS_ADAPTOR0 &&
-+		    comp_id != DDP_COMPONENT_DRM_OVLSYS_ADAPTOR1 &&
-+		    comp_id != DDP_COMPONENT_DRM_OVLSYS_ADAPTOR2 &&
-+		    mtk_ddp_comp_get_type(comp_id) != MTK_DISP_VIRTUAL) {
- 			dev_info(dev,
- 				"Not creating crtc %d because component %d is disabled or missing\n",
- 				crtc_i, comp_id);
- 			return 0;
- 		}
- 
--		if (!comp->dev) {
-+		if (!comp->dev && mtk_ddp_comp_get_type(comp_id) != MTK_DISP_VIRTUAL) {
- 			dev_err(dev, "Component %pOF not initialized\n", node);
- 			return -ENODEV;
- 		}
-@@ -1005,7 +1197,9 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
- 	if (!mtk_crtc)
- 		return -ENOMEM;
- 
--	mtk_crtc->mmsys_dev = priv->mmsys_dev;
-+	for (i = 0; i < MAX_MMSYS; i++)
-+		if (priv->all_drm_private[i])
-+			mtk_crtc->mmsys_dev[i] = priv->all_drm_private[i]->mmsys_dev;
- 	mtk_crtc->ddp_comp_nr = path_len;
- 	mtk_crtc->ddp_comp = devm_kcalloc(dev,
- 					  mtk_crtc->ddp_comp_nr + (conn_routes ? 1 : 0),
-@@ -1014,19 +1208,36 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
- 	if (!mtk_crtc->ddp_comp)
- 		return -ENOMEM;
- 
--	mtk_crtc->mutex = mtk_mutex_get(priv->mutex_dev);
--	if (IS_ERR(mtk_crtc->mutex)) {
--		ret = PTR_ERR(mtk_crtc->mutex);
--		dev_err(dev, "Failed to get mutex: %d\n", ret);
--		return ret;
-+	mtk_crtc->ddp_comp_sys = devm_kmalloc_array(dev, mtk_crtc->ddp_comp_nr +
-+						    (conn_routes ? 1 : 0),
-+						    sizeof(*mtk_crtc->ddp_comp_sys), GFP_KERNEL);
-+	if (!mtk_crtc->ddp_comp_sys)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < MAX_MMSYS; i++) {
-+		if (!priv->all_drm_private[i])
-+			continue;
-+
-+		priv = priv->all_drm_private[i];
-+		mtk_crtc->mutex[i] = mtk_mutex_get(priv->mutex_dev);
-+		if (IS_ERR(mtk_crtc->mutex[i])) {
-+			ret = PTR_ERR(mtk_crtc->mutex[i]);
-+			dev_err(dev, "Failed to get mutex: %d\n", ret);
-+			return ret;
-+		}
- 	}
- 
- 	for (i = 0; i < mtk_crtc->ddp_comp_nr; i++) {
--		unsigned int comp_id = path[i];
-+		unsigned int comp_id = path[i].comp_id;
- 		struct mtk_ddp_comp *comp;
- 
-+		priv = priv->all_drm_private[path[i].sys];
- 		comp = &priv->ddp_comp[comp_id];
-+		if (mtk_ddp_comp_get_type(comp_id) == MTK_DISP_VIRTUAL)
-+			comp->id = comp_id;
- 		mtk_crtc->ddp_comp[i] = comp;
-+		mtk_crtc->ddp_comp_sys[i] = path[i].sys;
-+		mtk_crtc->exist[path[i].sys] = true;
- 
- 		if (comp->funcs) {
- 			if (comp->funcs->gamma_set && comp->funcs->gamma_get_lut_size) {
-@@ -1063,8 +1274,10 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
- 	 * In the case of ovl_adaptor sub driver, it needs to use the
- 	 * dma_dev_get function to get representative dma dev.
- 	 */
--	mtk_crtc->dma_dev = mtk_ddp_comp_dma_dev_get(&priv->ddp_comp[path[0]]);
-+	priv = priv->all_drm_private[path[0].sys];
-+	mtk_crtc->dma_dev = mtk_ddp_comp_dma_dev_get(&priv->ddp_comp[path[0].comp_id]);
- 
-+	mtk_crtc->vdisp_ao_dev = priv->vdisp_ao_dev;
- 	ret = mtk_crtc_init(drm_dev, mtk_crtc, crtc_i);
- 	if (ret < 0)
- 		return ret;
-@@ -1077,7 +1290,7 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
- 
- #if IS_REACHABLE(CONFIG_MTK_CMDQ)
- 	i = priv->mbox_index++;
--	mtk_crtc->cmdq_client.client.dev = mtk_crtc->mmsys_dev;
-+	mtk_crtc->cmdq_client.client.dev = mtk_crtc->mmsys_dev[priv->data->mmsys_id];
- 	mtk_crtc->cmdq_client.client.tx_block = false;
- 	mtk_crtc->cmdq_client.client.knows_txdone = true;
- 	mtk_crtc->cmdq_client.client.rx_callback = ddp_cmdq_cb;
-@@ -1117,6 +1330,7 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
- #endif
- 
- 	if (conn_routes) {
-+		priv = priv->all_drm_private[conn_mmsys];
- 		for (i = 0; i < num_conn_routes; i++) {
- 			unsigned int comp_id = conn_routes[i].route_ddp;
- 			struct device_node *node = priv->comp_node[comp_id];
-@@ -1133,6 +1347,7 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
- 			mtk_ddp_comp_encoder_index_set(&priv->ddp_comp[comp_id]);
- 		}
- 
-+		mtk_crtc->conn_routes_sys = conn_mmsys;
- 		mtk_crtc->num_conn_routes = num_conn_routes;
- 		mtk_crtc->conn_routes = conn_routes;
- 
-@@ -1140,5 +1355,10 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
- 		mtk_crtc->ddp_comp_nr++;
- 	}
- 
-+	for (i = 0; i < MAX_MMSYS; i++)
-+		if (mtk_crtc->exist[i])
-+			device_link_add(mtk_crtc->base.dev->dev,
-+					priv->all_drm_private[i]->mutex_dev, 0);
-+
- 	return 0;
- }
-diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.h b/drivers/gpu/drm/mediatek/mtk_crtc.h
-index 388e900b6f4d..255f2823d17a 100644
---- a/drivers/gpu/drm/mediatek/mtk_crtc.h
-+++ b/drivers/gpu/drm/mediatek/mtk_crtc.h
-@@ -15,10 +15,8 @@
- #define MTK_MIN_BPC	3
- 
- void mtk_crtc_commit(struct drm_crtc *crtc);
--int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
--		    unsigned int path_len, int priv_data_index,
--		    const struct mtk_drm_route *conn_routes,
--		    unsigned int num_conn_routes);
-+int mtk_crtc_create(struct drm_device *drm_dev,
-+		    enum mtk_crtc_path path_sel);
- int mtk_crtc_plane_check(struct drm_crtc *crtc, struct drm_plane *plane,
- 			 struct mtk_plane_state *state);
- void mtk_crtc_async_update(struct drm_crtc *crtc, struct drm_plane *plane,
-diff --git a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-index c96e027359ac..505edee09cb9 100644
---- a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-@@ -467,6 +467,7 @@ static const char * const mtk_ddp_comp_stem[MTK_DDP_COMP_TYPE_MAX] = {
- 	[MTK_DISP_PWM] = "pwm",
- 	[MTK_DISP_RDMA] = "rdma",
- 	[MTK_DISP_UFOE] = "ufoe",
-+	[MTK_DISP_VIRTUAL] = "virtual",
- 	[MTK_DISP_WDMA] = "wdma",
- 	[MTK_DP_INTF] = "dp-intf",
- 	[MTK_DPI] = "dpi",
-@@ -490,6 +491,15 @@ static const struct mtk_ddp_comp_match mtk_ddp_matches[DDP_COMPONENT_DRM_ID_MAX]
- 	[DDP_COMPONENT_COLOR0]		= { MTK_DISP_COLOR,		0, &ddp_color },
- 	[DDP_COMPONENT_COLOR1]		= { MTK_DISP_COLOR,		1, &ddp_color },
- 	[DDP_COMPONENT_DITHER0]		= { MTK_DISP_DITHER,		0, &ddp_dither },
-+	[DDP_COMPONENT_DLI_ASYNC0]      = { MTK_DISP_VIRTUAL,           -1, NULL },
-+	[DDP_COMPONENT_DLI_ASYNC1]      = { MTK_DISP_VIRTUAL,           -1, NULL },
-+	[DDP_COMPONENT_DLI_ASYNC8]      = { MTK_DISP_VIRTUAL,           -1, NULL },
-+	[DDP_COMPONENT_DLI_ASYNC21]     = { MTK_DISP_VIRTUAL,           -1, NULL },
-+	[DDP_COMPONENT_DLI_ASYNC22]     = { MTK_DISP_VIRTUAL,           -1, NULL },
-+	[DDP_COMPONENT_DLI_ASYNC23]     = { MTK_DISP_VIRTUAL,           -1, NULL },
-+	[DDP_COMPONENT_DLO_ASYNC1]      = { MTK_DISP_VIRTUAL,           -1, NULL },
-+	[DDP_COMPONENT_DLO_ASYNC2]      = { MTK_DISP_VIRTUAL,           -1, NULL },
-+	[DDP_COMPONENT_DLO_ASYNC3]      = { MTK_DISP_VIRTUAL,           -1, NULL },
- 	[DDP_COMPONENT_DP_INTF0]	= { MTK_DP_INTF,		0, &ddp_dpi },
- 	[DDP_COMPONENT_DP_INTF1]	= { MTK_DP_INTF,		1, &ddp_dpi },
- 	[DDP_COMPONENT_DPI0]		= { MTK_DPI,			0, &ddp_dpi },
-@@ -497,6 +507,7 @@ static const struct mtk_ddp_comp_match mtk_ddp_matches[DDP_COMPONENT_DRM_ID_MAX]
- 	[DDP_COMPONENT_DRM_OVL_ADAPTOR]	= { MTK_DISP_OVL_ADAPTOR,	0, &ddp_ovl_adaptor },
- 	[DDP_COMPONENT_DRM_OVLSYS_ADAPTOR0] = { MTK_DISP_OVLSYS_ADAPTOR, 0, &ddp_ovlsys_adaptor},
- 	[DDP_COMPONENT_DRM_OVLSYS_ADAPTOR1] = { MTK_DISP_OVLSYS_ADAPTOR, 1, &ddp_ovlsys_adaptor},
-+	[DDP_COMPONENT_DRM_OVLSYS_ADAPTOR2] = { MTK_DISP_OVLSYS_ADAPTOR, 2, &ddp_ovlsys_adaptor},
- 	[DDP_COMPONENT_DSC0]		= { MTK_DISP_DSC,		0, &ddp_dsc },
- 	[DDP_COMPONENT_DSC1]		= { MTK_DISP_DSC,		1, &ddp_dsc },
- 	[DDP_COMPONENT_DSI0]		= { MTK_DSI,			0, &ddp_dsi },
-@@ -513,7 +524,10 @@ static const struct mtk_ddp_comp_match mtk_ddp_matches[DDP_COMPONENT_DRM_ID_MAX]
- 	[DDP_COMPONENT_OD0]		= { MTK_DISP_OD,		0, &ddp_od },
- 	[DDP_COMPONENT_OD1]		= { MTK_DISP_OD,		1, &ddp_od },
- 	[DDP_COMPONENT_OVL0]		= { MTK_DISP_OVL,		0, &ddp_ovl },
-+	[DDP_COMPONENT_OVL0_DLO_ASYNC5] = { MTK_DISP_VIRTUAL,           -1, NULL },
-+	[DDP_COMPONENT_OVL0_DLO_ASYNC6] = { MTK_DISP_VIRTUAL,           -1, NULL },
- 	[DDP_COMPONENT_OVL1]		= { MTK_DISP_OVL,		1, &ddp_ovl },
-+	[DDP_COMPONENT_OVL1_DLO_ASYNC5] = { MTK_DISP_VIRTUAL,           -1, NULL },
- 	[DDP_COMPONENT_OVL_2L0]		= { MTK_DISP_OVL_2L,		0, &ddp_ovl },
- 	[DDP_COMPONENT_OVL_2L1]		= { MTK_DISP_OVL_2L,		1, &ddp_ovl },
- 	[DDP_COMPONENT_OVL_2L2]		= { MTK_DISP_OVL_2L,		2, &ddp_ovl },
-@@ -564,18 +578,24 @@ static int mtk_ddp_comp_find_in_route(struct device *dev,
- 	return -ENODEV;
- }
- 
-+enum mtk_ddp_comp_type mtk_ddp_comp_get_type(unsigned int comp_id)
++bool mtk_ovl_is_10bit_rgb(unsigned int fmt)
 +{
-+	return mtk_ddp_matches[comp_id].type;
++	switch (fmt) {
++	case DRM_FORMAT_XRGB2101010:
++	case DRM_FORMAT_ARGB2101010:
++	case DRM_FORMAT_RGBX1010102:
++	case DRM_FORMAT_RGBA1010102:
++	case DRM_FORMAT_XBGR2101010:
++	case DRM_FORMAT_ABGR2101010:
++	case DRM_FORMAT_BGRX1010102:
++	case DRM_FORMAT_BGRA1010102:
++		return true;
++	}
++	return false;
 +}
 +
- static bool mtk_ddp_path_available(const unsigned int *path,
- 				   unsigned int path_len,
- 				   struct device_node **comp_node)
+ static irqreturn_t mtk_disp_ovl_irq_handler(int irq, void *dev_id)
  {
- 	unsigned int i;
+ 	struct mtk_disp_ovl *priv = dev_id;
+@@ -295,7 +291,7 @@ static void mtk_ovl_set_bit_depth(struct device *dev, int idx, u32 format,
+ 	if (!ovl->data->supports_clrfmt_ext)
+ 		return;
  
--	if (!path || !path_len)
--		return false;
--
- 	for (i = 0U; i < path_len; i++) {
- 		/* OVL_ADAPTOR doesn't have a device node */
--		if (path[i] == DDP_COMPONENT_DRM_OVL_ADAPTOR)
-+		if (path[i] == DDP_COMPONENT_DRM_OVL_ADAPTOR ||
-+		    path[i] == DDP_COMPONENT_DRM_OVLSYS_ADAPTOR0 ||
-+		    path[i] == DDP_COMPONENT_DRM_OVLSYS_ADAPTOR1 ||
-+		    path[i] == DDP_COMPONENT_DRM_OVLSYS_ADAPTOR2 ||
-+		    mtk_ddp_comp_get_type(path[i]) == MTK_DISP_VIRTUAL)
- 			continue;
+-	if (is_10bit_rgb(format))
++	if (mtk_ovl_is_10bit_rgb(format))
+ 		bit_depth = OVL_CON_CLRFMT_10_BIT;
  
- 		if (!comp_node[path[i]])
-@@ -605,39 +625,52 @@ int mtk_find_possible_crtcs(struct drm_device *drm, struct device *dev)
- 	struct mtk_drm_private *private = drm->dev_private;
- 	const struct mtk_mmsys_driver_data *data;
- 	struct mtk_drm_private *priv_n;
--	int i = 0, j;
--	int ret;
-+	int i, j, count = 0, ret;
-+
-+	/* search each path in private data */
-+	for (i = 0; i < MAX_CRTC; i++) {
-+		bool found = false;
-+		int avail_mmsys_num = 0;
-+
-+		for (j = 0; j < private->data->mmsys_dev_num; j++) {
-+			const unsigned int *path = NULL;
-+			unsigned int path_len = 0;
-+
-+			priv_n = private->all_drm_private[j];
-+			data = priv_n->data;
-+
-+			if (i == CRTC_MAIN) {
-+				path = data->main_path;
-+				path_len = data->main_len;
-+			} else if (i == CRTC_EXT) {
-+				path = data->ext_path;
-+				path_len = data->ext_len;
-+			} else if (i == CRTC_THIRD) {
-+				path = data->third_path;
-+				path_len = data->third_len;
-+			}
-+
-+			/* skip if no path data in current mmsys */
-+			if (path_len == 0 || !path) {
-+				avail_mmsys_num++;
-+				continue;
-+			}
-+
-+			if (mtk_ddp_path_available(path, path_len, priv_n->comp_node))
-+				avail_mmsys_num++;
-+
-+			if (mtk_ddp_comp_find(dev, path, path_len, priv_n->ddp_comp))
-+				found = true;
-+	}
-+
-+		/* skip invalid path */
-+		if (avail_mmsys_num != private->data->mmsys_dev_num)
-+			continue;
-+
-+		if (found)
-+			return BIT(count);
+ 	mtk_ddp_write_mask(cmdq_pkt, OVL_CON_CLRFMT_BIT_DEPTH(bit_depth, idx),
+@@ -394,10 +390,8 @@ void mtk_ovl_layer_off(struct device *dev, unsigned int idx,
+ 		      DISP_REG_OVL_RDMA_CTRL(idx));
+ }
  
--	for (j = 0; j < private->data->mmsys_dev_num; j++) {
--		priv_n = private->all_drm_private[j];
--		data = priv_n->data;
--
--		if (mtk_ddp_path_available(data->main_path, data->main_len,
--					   priv_n->comp_node)) {
--			if (mtk_ddp_comp_find(dev, data->main_path,
--					      data->main_len,
--					      priv_n->ddp_comp))
--				return BIT(i);
--			i++;
--		}
--
--		if (mtk_ddp_path_available(data->ext_path, data->ext_len,
--					   priv_n->comp_node)) {
--			if (mtk_ddp_comp_find(dev, data->ext_path,
--					      data->ext_len,
--					      priv_n->ddp_comp))
--				return BIT(i);
--			i++;
--		}
--
--		if (mtk_ddp_path_available(data->third_path, data->third_len,
--					   priv_n->comp_node)) {
--			if (mtk_ddp_comp_find(dev, data->third_path,
--					      data->third_len,
--					      priv_n->ddp_comp))
--				return BIT(i);
--			i++;
--		}
-+			count++;
- 	}
- 
- 	ret = mtk_ddp_comp_find_in_route(dev,
-diff --git a/drivers/gpu/drm/mediatek/mtk_ddp_comp.h b/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
-index ef64ce7a071f..badb42bd4f7c 100644
---- a/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
-+++ b/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
-@@ -40,6 +40,7 @@ enum mtk_ddp_comp_type {
- 	MTK_DISP_PWM,
- 	MTK_DISP_RDMA,
- 	MTK_DISP_UFOE,
-+	MTK_DISP_VIRTUAL,
- 	MTK_DISP_WDMA,
- 	MTK_DPI,
- 	MTK_DP_INTF,
-@@ -47,6 +48,7 @@ enum mtk_ddp_comp_type {
- 	MTK_OVL_BLENDER,
- 	MTK_OVL_EXDMA,
- 	MTK_OVL_OUTPROC,
-+	MTK_VDISP_AO,
- 	MTK_DDP_COMP_TYPE_MAX,
- };
- 
-diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-index 4cf48fe7f0f1..1e49ca3fef80 100644
---- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-+++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-@@ -374,7 +374,7 @@ static int mtk_drm_match(struct device *dev, const void *data)
- static bool mtk_drm_get_all_drm_priv(struct device *dev)
+-static unsigned int mtk_ovl_fmt_convert(struct mtk_disp_ovl *ovl,
+-					struct mtk_plane_state *state)
++unsigned int mtk_ovl_get_blend_mode(struct mtk_plane_state *state, unsigned int blend_modes)
  {
- 	struct mtk_drm_private *drm_priv = dev_get_drvdata(dev);
--	struct mtk_drm_private *all_drm_priv[MAX_CRTC];
-+	struct mtk_drm_private *all_drm_priv[MAX_MMSYS] = {NULL};
- 	struct mtk_drm_private *temp_drm_priv;
- 	struct device_node *phandle = dev->parent->of_node;
- 	const struct of_device_id *of_id;
-@@ -402,26 +402,22 @@ static bool mtk_drm_get_all_drm_priv(struct device *dev)
- 		if (!temp_drm_priv)
- 			continue;
- 
--		if (temp_drm_priv->data->main_len)
--			all_drm_priv[CRTC_MAIN] = temp_drm_priv;
--		else if (temp_drm_priv->data->ext_len)
--			all_drm_priv[CRTC_EXT] = temp_drm_priv;
--		else if (temp_drm_priv->data->third_len)
--			all_drm_priv[CRTC_THIRD] = temp_drm_priv;
-+		all_drm_priv[temp_drm_priv->data->mmsys_id] = temp_drm_priv;
- 
- 		if (temp_drm_priv->mtk_drm_bound)
- 			cnt++;
- 
--		if (cnt == MAX_CRTC) {
-+		if (cnt == temp_drm_priv->data->mmsys_dev_num) {
- 			of_node_put(node);
- 			break;
- 		}
- 	}
- 
- 	if (drm_priv->data->mmsys_dev_num == cnt) {
--		for (i = 0; i < cnt; i++)
--			for (j = 0; j < cnt; j++)
--				all_drm_priv[j]->all_drm_private[i] = all_drm_priv[i];
-+		for (i = 0; i < MAX_MMSYS; i++)
-+			for (j = 0; j < MAX_MMSYS; j++)
-+				if (all_drm_priv[j])
-+					all_drm_priv[j]->all_drm_private[i] = all_drm_priv[i];
- 
- 		return true;
- 	}
-@@ -494,7 +490,10 @@ static int mtk_drm_kms_init(struct drm_device *drm)
- 	drm->mode_config.funcs = &mtk_drm_mode_config_funcs;
- 	drm->mode_config.helper_private = &mtk_drm_mode_config_helpers;
- 
--	for (i = 0; i < private->data->mmsys_dev_num; i++) {
-+	for (i = 0; i < MAX_MMSYS; i++) {
-+		if (!private->all_drm_private[i])
-+			continue;
-+
- 		drm->dev_private = private->all_drm_private[i];
- 		ret = component_bind_all(private->all_drm_private[i]->dev, drm);
- 		if (ret)
-@@ -517,8 +516,10 @@ static int mtk_drm_kms_init(struct drm_device *drm)
- 	 *    third path.
- 	 */
- 	for (i = 0; i < MAX_CRTC; i++) {
--		for (j = 0; j < private->data->mmsys_dev_num; j++) {
-+		for (j = 0; j < MAX_MMSYS; j++) {
- 			priv_n = private->all_drm_private[j];
-+			if (!priv_n)
-+				continue;
- 
- 			if (priv_n->data->max_width)
- 				drm->mode_config.max_width = priv_n->data->max_width;
-@@ -530,28 +531,23 @@ static int mtk_drm_kms_init(struct drm_device *drm)
- 				drm->mode_config.min_height = priv_n->data->min_height;
- 
- 			if (i == CRTC_MAIN && priv_n->data->main_len) {
--				ret = mtk_crtc_create(drm, priv_n->data->main_path,
--						      priv_n->data->main_len, j,
--						      priv_n->data->conn_routes,
--						      priv_n->data->num_conn_routes);
-+				ret = mtk_crtc_create(drm, CRTC_MAIN);
- 				if (ret)
- 					goto err_component_unbind;
- 
--				continue;
-+				break;
- 			} else if (i == CRTC_EXT && priv_n->data->ext_len) {
--				ret = mtk_crtc_create(drm, priv_n->data->ext_path,
--						      priv_n->data->ext_len, j, NULL, 0);
-+				ret = mtk_crtc_create(drm, CRTC_EXT);
- 				if (ret)
- 					goto err_component_unbind;
- 
--				continue;
-+				break;
- 			} else if (i == CRTC_THIRD && priv_n->data->third_len) {
--				ret = mtk_crtc_create(drm, priv_n->data->third_path,
--						      priv_n->data->third_len, j, NULL, 0);
-+				ret = mtk_crtc_create(drm, CRTC_THIRD);
- 				if (ret)
- 					goto err_component_unbind;
- 
--				continue;
-+				break;
- 			}
- 		}
- 	}
-@@ -570,8 +566,9 @@ static int mtk_drm_kms_init(struct drm_device *drm)
- 		goto err_component_unbind;
- 	}
- 
--	for (i = 0; i < private->data->mmsys_dev_num; i++)
--		private->all_drm_private[i]->dma_dev = dma_dev;
-+	for (i = 0; i < MAX_MMSYS; i++)
-+		if (private->all_drm_private[i])
-+			private->all_drm_private[i]->dma_dev = dma_dev;
+-	unsigned int fmt = state->pending.format;
+ 	unsigned int blend_mode = DRM_MODE_BLEND_COVERAGE;
  
  	/*
- 	 * Configure the DMA segment size to make sure we get contiguous IOVA
-@@ -589,11 +586,13 @@ static int mtk_drm_kms_init(struct drm_device *drm)
- 	return 0;
+@@ -412,52 +406,102 @@ static unsigned int mtk_ovl_fmt_convert(struct mtk_disp_ovl *ovl,
+ 	 * will get an error return from drm_plane_create_blend_mode_property() and
+ 	 * state->base.pixel_blend_mode should not be used.
+ 	 */
+-	if (ovl->data->blend_modes & BIT(DRM_MODE_BLEND_PREMULTI))
++	if (blend_modes & BIT(DRM_MODE_BLEND_PREMULTI))
+ 		blend_mode = state->base.pixel_blend_mode;
  
- err_component_unbind:
--	for (i = 0; i < private->data->mmsys_dev_num; i++)
--		component_unbind_all(private->all_drm_private[i]->dev, drm);
-+	for (i = 0; i < MAX_MMSYS; i++)
-+		if (private->all_drm_private[i])
-+			component_unbind_all(private->all_drm_private[i]->dev, drm);
- put_mutex_dev:
--	for (i = 0; i < private->data->mmsys_dev_num; i++)
--		put_device(private->all_drm_private[i]->mutex_dev);
-+	for (i = 0; i < MAX_MMSYS; i++)
-+		if (private->all_drm_private[i])
-+			put_device(private->all_drm_private[i]->mutex_dev);
- 
- 	return ret;
++	return blend_mode;
++}
++
++unsigned int mtk_ovl_fmt_convert(unsigned int fmt, unsigned int blend_mode,
++				 bool fmt_rgb565_is_0, bool color_convert,
++				 u8 clrfmt_shift, u32 clrfmt_man, u32 byte_swap, u32 rgb_swap)
++{
++	unsigned int con = 0;
++	bool need_byte_swap = false, need_rgb_swap = false;
++
+ 	switch (fmt) {
+ 	default:
+ 	case DRM_FORMAT_RGB565:
+-		return OVL_CON_CLRFMT_RGB565(ovl);
++		con = fmt_rgb565_is_0 ?
++			OVL_CON_CLRFMT_RGB565(clrfmt_shift) : OVL_CON_CLRFMT_RGB888(clrfmt_shift);
++	break;
+ 	case DRM_FORMAT_BGR565:
+-		return OVL_CON_CLRFMT_RGB565(ovl) | OVL_CON_BYTE_SWAP;
++		con = fmt_rgb565_is_0 ?
++			OVL_CON_CLRFMT_RGB565(clrfmt_shift) : OVL_CON_CLRFMT_RGB888(clrfmt_shift);
++		need_byte_swap = true;	/* RGB565 -> BGR565 */
++	break;
+ 	case DRM_FORMAT_RGB888:
+-		return OVL_CON_CLRFMT_RGB888(ovl);
++		con = fmt_rgb565_is_0 ?
++			OVL_CON_CLRFMT_RGB888(clrfmt_shift) : OVL_CON_CLRFMT_RGB565(clrfmt_shift);
++	break;
+ 	case DRM_FORMAT_BGR888:
+-		return OVL_CON_CLRFMT_RGB888(ovl) | OVL_CON_BYTE_SWAP;
++		con = fmt_rgb565_is_0 ?
++			OVL_CON_CLRFMT_RGB888(clrfmt_shift) : OVL_CON_CLRFMT_RGB565(clrfmt_shift);
++		need_byte_swap = true;	/* RGB888 -> BGR888 */
++	break;
+ 	case DRM_FORMAT_RGBX8888:
+ 	case DRM_FORMAT_RGBA8888:
+ 	case DRM_FORMAT_RGBX1010102:
+ 	case DRM_FORMAT_RGBA1010102:
+-		return blend_mode == DRM_MODE_BLEND_COVERAGE ?
+-		       OVL_CON_CLRFMT_RGBA8888 :
+-		       OVL_CON_CLRFMT_PRGBA8888;
++		if (blend_mode == DRM_MODE_BLEND_COVERAGE) {
++			con = OVL_CON_CLRFMT_RGBA8888(clrfmt_shift);
++		} else {
++			con = OVL_CON_CLRFMT_PARGB8888(clrfmt_shift, clrfmt_man);
++			need_byte_swap = true;	/* PARGB8888 -> PBGRA8888 */
++			need_rgb_swap = true;	/* PBGRA8888 -> PRGBA8888 */
++		}
++	break;
+ 	case DRM_FORMAT_BGRX8888:
+ 	case DRM_FORMAT_BGRA8888:
+ 	case DRM_FORMAT_BGRX1010102:
+ 	case DRM_FORMAT_BGRA1010102:
+-		return blend_mode == DRM_MODE_BLEND_COVERAGE ?
+-		       OVL_CON_CLRFMT_BGRA8888 :
+-		       OVL_CON_CLRFMT_PBGRA8888;
++		if (blend_mode == DRM_MODE_BLEND_COVERAGE) {
++			con = OVL_CON_CLRFMT_RGBA8888(clrfmt_shift);
++			need_byte_swap = true;	/* RGB8888 -> BGR8888 */
++		} else {
++			con = OVL_CON_CLRFMT_PARGB8888(clrfmt_shift, clrfmt_man);
++			need_byte_swap = true;	/* PARGB8888 -> PBGRA8888 */
++		}
++	break;
+ 	case DRM_FORMAT_XRGB8888:
+ 	case DRM_FORMAT_ARGB8888:
+ 	case DRM_FORMAT_XRGB2101010:
+ 	case DRM_FORMAT_ARGB2101010:
+-		return blend_mode == DRM_MODE_BLEND_COVERAGE ?
+-		       OVL_CON_CLRFMT_ARGB8888 :
+-		       OVL_CON_CLRFMT_PARGB8888;
++		if (blend_mode == DRM_MODE_BLEND_COVERAGE)
++			con = OVL_CON_CLRFMT_ARGB8888(clrfmt_shift);
++		else
++			con = OVL_CON_CLRFMT_PARGB8888(clrfmt_shift, clrfmt_man);
++	break;
+ 	case DRM_FORMAT_XBGR8888:
+ 	case DRM_FORMAT_ABGR8888:
+ 	case DRM_FORMAT_XBGR2101010:
+ 	case DRM_FORMAT_ABGR2101010:
+-		return blend_mode == DRM_MODE_BLEND_COVERAGE ?
+-		       OVL_CON_CLRFMT_ABGR8888 :
+-		       OVL_CON_CLRFMT_PABGR8888;
++		if (blend_mode == DRM_MODE_BLEND_COVERAGE) {
++			con = OVL_CON_CLRFMT_ARGB8888(clrfmt_shift);
++			need_rgb_swap = true;	/* ARGB8888 -> ABGR8888 */
++		} else {
++			con = OVL_CON_CLRFMT_PARGB8888(clrfmt_shift, clrfmt_man);
++			need_rgb_swap = true;	/* PARGB8888 -> PABGR8888 */
++		}
++	break;
+ 	case DRM_FORMAT_UYVY:
+-		return OVL_CON_CLRFMT_UYVY | OVL_CON_MTX_YUV_TO_RGB;
++		con = OVL_CON_CLRFMT_UYVY(clrfmt_shift);
++	break;
+ 	case DRM_FORMAT_YUYV:
+-		return OVL_CON_CLRFMT_YUYV | OVL_CON_MTX_YUV_TO_RGB;
++		con = OVL_CON_CLRFMT_YUYV(clrfmt_shift);
++	break;
+ 	}
++
++	if (color_convert)
++		con |= OVL_CON_MTX_YUV_TO_RGB;
++
++	if (need_byte_swap)
++		con |= byte_swap;
++
++	if (need_rgb_swap)
++		con |= rgb_swap;
++
++	return con;
  }
-@@ -657,6 +656,19 @@ static int mtk_drm_bind(struct device *dev)
+ 
+ static void mtk_ovl_afbc_layer_config(struct mtk_disp_ovl *ovl,
+@@ -504,7 +548,8 @@ void mtk_ovl_layer_config(struct device *dev, unsigned int idx,
+ 		return;
  	}
  
- 	private->mutex_dev = &pdev->dev;
-+
-+	if (private->vdisp_ao_node) {
-+		pdev = of_find_device_by_node(private->vdisp_ao_node);
-+		if (!pdev) {
-+			dev_err(dev, "Waiting for vdisp_ao device %pOF\n",
-+				private->vdisp_ao_node);
-+			of_node_put(private->mutex_node);
-+			of_node_put(private->vdisp_ao_node);
-+			return -EPROBE_DEFER;
-+		}
-+		private->vdisp_ao_dev = &pdev->dev;
-+	}
-+
- 	private->mtk_drm_bound = true;
- 	private->dev = dev;
+-	con = mtk_ovl_fmt_convert(ovl, state);
++	con = mtk_ovl_fmt_convert(fmt, blend_mode, ovl->data->fmt_rgb565_is_0, true,
++				  12, OVL_CON_CLRFMT_MAN, OVL_CON_BYTE_SWAP, OVL_CON_RGB_SWAP);
+ 	if (state->base.fb) {
+ 		con |= state->base.alpha & OVL_CON_ALPHA;
  
-@@ -669,8 +681,9 @@ static int mtk_drm_bind(struct device *dev)
- 
- 	private->drm_master = true;
- 	drm->dev_private = private;
--	for (i = 0; i < private->data->mmsys_dev_num; i++)
--		private->all_drm_private[i]->drm = drm;
-+	for (i = 0; i < MAX_MMSYS; i++)
-+		if (private->all_drm_private[i])
-+			private->all_drm_private[i]->drm = drm;
- 
- 	ret = mtk_drm_kms_init(drm);
- 	if (ret < 0)
-@@ -1132,7 +1145,7 @@ static int mtk_drm_probe(struct platform_device *pdev)
- 		private->data = mtk_drm_data;
+@@ -514,15 +559,6 @@ void mtk_ovl_layer_config(struct device *dev, unsigned int idx,
+ 		 */
+ 		if (blend_mode || state->base.fb->format->has_alpha)
+ 			con |= OVL_CON_AEN;
+-
+-		/*
+-		 * Although the alpha channel can be ignored, CONST_BLD must be enabled
+-		 * for XRGB format, otherwise OVL will still read the value from memory.
+-		 * For RGB888 related formats, whether CONST_BLD is enabled or not won't
+-		 * affect the result. Therefore we use !has_alpha as the condition.
+-		 */
+-		if (blend_mode == DRM_MODE_BLEND_PIXEL_NONE || !state->base.fb->format->has_alpha)
+-			ignore_pixel_alpha = OVL_CONST_BLEND;
  	}
  
--	private->all_drm_private = devm_kmalloc_array(dev, private->data->mmsys_dev_num,
-+	private->all_drm_private = devm_kmalloc_array(dev, MAX_MMSYS,
- 						      sizeof(*private->all_drm_private),
- 						      GFP_KERNEL);
- 	if (!private->all_drm_private)
-@@ -1170,6 +1183,12 @@ static int mtk_drm_probe(struct platform_device *pdev)
- 			continue;
- 		}
- 
-+		if (comp_type == MTK_VDISP_AO) {
-+			private->vdisp_ao_node = of_node_get(node);
-+			dev_dbg(dev, "get vdisp_ao node");
-+			continue;
-+		}
-+
- 		comp_id = mtk_ddp_comp_get_id(node, comp_type);
- 		if (comp_id < 0) {
- 			dev_warn(dev, "Skipping unknown component %pOF\n",
-@@ -1245,6 +1264,7 @@ static void mtk_drm_remove(struct platform_device *pdev)
- 	component_master_del(&pdev->dev, &mtk_drm_ops);
- 	pm_runtime_disable(&pdev->dev);
- 	of_node_put(private->mutex_node);
-+	of_node_put(private->vdisp_ao_node);
- 	for (i = 0; i < DDP_COMPONENT_DRM_ID_MAX; i++)
- 		of_node_put(private->comp_node[i]);
- }
-diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.h b/drivers/gpu/drm/mediatek/mtk_drm_drv.h
-index 54f320244511..bdd4dc5cefeb 100644
---- a/drivers/gpu/drm/mediatek/mtk_drm_drv.h
-+++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.h
-@@ -13,7 +13,8 @@
- #define DDP_COMPONENT_DRM_OVL_ADAPTOR (DDP_COMPONENT_ID_MAX + 1)
- #define DDP_COMPONENT_DRM_OVLSYS_ADAPTOR0 (DDP_COMPONENT_DRM_OVL_ADAPTOR + 1)
- #define DDP_COMPONENT_DRM_OVLSYS_ADAPTOR1 (DDP_COMPONENT_DRM_OVLSYS_ADAPTOR0 + 1)
--#define DDP_COMPONENT_DRM_ID_MAX (DDP_COMPONENT_DRM_OVLSYS_ADAPTOR1 + 1)
-+#define DDP_COMPONENT_DRM_OVLSYS_ADAPTOR2 (DDP_COMPONENT_DRM_OVLSYS_ADAPTOR1 + 1)
-+#define DDP_COMPONENT_DRM_ID_MAX (DDP_COMPONENT_DRM_OVLSYS_ADAPTOR2 + 1)
- 
- enum mtk_crtc_path {
- 	CRTC_MAIN,
-@@ -22,6 +23,14 @@ enum mtk_crtc_path {
- 	MAX_CRTC,
+ 	/*
+@@ -660,8 +696,8 @@ static const struct mtk_disp_ovl_data mt2701_ovl_driver_data = {
+ 	.gmc_bits = 8,
+ 	.layer_nr = 4,
+ 	.fmt_rgb565_is_0 = false,
+-	.formats = mt8173_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_formats),
++	.formats = mt8173_ovl_formats,
++	.num_formats = mt8173_ovl_formats_len,
  };
  
-+enum mtk_drm_mmsys {
-+	DISPSYS0,
-+	DISPSYS1,
-+	OVLSYS0,
-+	OVLSYS1,
-+	MAX_MMSYS,
-+};
-+
- struct device;
- struct device_node;
- struct drm_crtc;
-@@ -38,10 +47,13 @@ struct mtk_drm_route {
- struct mtk_mmsys_driver_data {
- 	const unsigned int *main_path;
- 	unsigned int main_len;
-+	unsigned int main_order;
- 	const unsigned int *ext_path;
- 	unsigned int ext_len;
-+	unsigned int ext_order;
- 	const unsigned int *third_path;
- 	unsigned int third_len;
-+	unsigned int third_order;
- 	const struct mtk_drm_route *conn_routes;
- 	unsigned int num_conn_routes;
+ static const struct mtk_disp_ovl_data mt8173_ovl_driver_data = {
+@@ -669,8 +705,8 @@ static const struct mtk_disp_ovl_data mt8173_ovl_driver_data = {
+ 	.gmc_bits = 8,
+ 	.layer_nr = 4,
+ 	.fmt_rgb565_is_0 = true,
+-	.formats = mt8173_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_formats),
++	.formats = mt8173_ovl_formats,
++	.num_formats = mt8173_ovl_formats_len,
+ };
  
-@@ -63,6 +75,8 @@ struct mtk_drm_private {
- 	struct device_node *mutex_node;
- 	struct device *mutex_dev;
- 	struct device *mmsys_dev;
-+	struct device_node *vdisp_ao_node;
-+	struct device *vdisp_ao_dev;
- 	struct device_node *comp_node[DDP_COMPONENT_DRM_ID_MAX];
- 	struct mtk_ddp_comp ddp_comp[DDP_COMPONENT_DRM_ID_MAX];
- 	struct mtk_mmsys_driver_data *data;
+ static const struct mtk_disp_ovl_data mt8183_ovl_driver_data = {
+@@ -678,8 +714,8 @@ static const struct mtk_disp_ovl_data mt8183_ovl_driver_data = {
+ 	.gmc_bits = 10,
+ 	.layer_nr = 4,
+ 	.fmt_rgb565_is_0 = true,
+-	.formats = mt8173_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_formats),
++	.formats = mt8173_ovl_formats,
++	.num_formats = mt8173_ovl_formats_len,
+ };
+ 
+ static const struct mtk_disp_ovl_data mt8183_ovl_2l_driver_data = {
+@@ -687,8 +723,8 @@ static const struct mtk_disp_ovl_data mt8183_ovl_2l_driver_data = {
+ 	.gmc_bits = 10,
+ 	.layer_nr = 2,
+ 	.fmt_rgb565_is_0 = true,
+-	.formats = mt8173_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_formats),
++	.formats = mt8173_ovl_formats,
++	.num_formats = mt8173_ovl_formats_len,
+ };
+ 
+ static const struct mtk_disp_ovl_data mt8192_ovl_driver_data = {
+@@ -697,11 +733,9 @@ static const struct mtk_disp_ovl_data mt8192_ovl_driver_data = {
+ 	.layer_nr = 4,
+ 	.fmt_rgb565_is_0 = true,
+ 	.smi_id_en = true,
+-	.blend_modes = BIT(DRM_MODE_BLEND_PREMULTI) |
+-		       BIT(DRM_MODE_BLEND_COVERAGE) |
+-		       BIT(DRM_MODE_BLEND_PIXEL_NONE),
+-	.formats = mt8173_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_formats),
++	.blend_modes = MTK_OVL_SUPPORT_BLEND_MODES,
++	.formats = mt8173_ovl_formats,
++	.num_formats = mt8173_ovl_formats_len,
+ };
+ 
+ static const struct mtk_disp_ovl_data mt8192_ovl_2l_driver_data = {
+@@ -710,11 +744,9 @@ static const struct mtk_disp_ovl_data mt8192_ovl_2l_driver_data = {
+ 	.layer_nr = 2,
+ 	.fmt_rgb565_is_0 = true,
+ 	.smi_id_en = true,
+-	.blend_modes = BIT(DRM_MODE_BLEND_PREMULTI) |
+-		       BIT(DRM_MODE_BLEND_COVERAGE) |
+-		       BIT(DRM_MODE_BLEND_PIXEL_NONE),
+-	.formats = mt8173_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_formats),
++	.blend_modes = MTK_OVL_SUPPORT_BLEND_MODES,
++	.formats = mt8173_ovl_formats,
++	.num_formats = mt8173_ovl_formats_len,
+ };
+ 
+ static const struct mtk_disp_ovl_data mt8195_ovl_driver_data = {
+@@ -724,11 +756,9 @@ static const struct mtk_disp_ovl_data mt8195_ovl_driver_data = {
+ 	.fmt_rgb565_is_0 = true,
+ 	.smi_id_en = true,
+ 	.supports_afbc = true,
+-	.blend_modes = BIT(DRM_MODE_BLEND_PREMULTI) |
+-		       BIT(DRM_MODE_BLEND_COVERAGE) |
+-		       BIT(DRM_MODE_BLEND_PIXEL_NONE),
+-	.formats = mt8195_formats,
+-	.num_formats = ARRAY_SIZE(mt8195_formats),
++	.blend_modes = MTK_OVL_SUPPORT_BLEND_MODES,
++	.formats = mt8195_ovl_formats,
++	.num_formats = mt8195_ovl_formats_len,
+ 	.supports_clrfmt_ext = true,
+ };
+ 
+diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl.h b/drivers/gpu/drm/mediatek/mtk_disp_ovl.h
+new file mode 100644
+index 000000000000..3f7d7d54479d
+--- /dev/null
++++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl.h
+@@ -0,0 +1,28 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (c) 2025 MediaTek Inc.
++ */
++
++#ifndef __MTK_DISP_OVL_H__
++#define __MTK_DISP_OVL_H__
++
++#include <drm/drm_blend.h>
++#include <drm/drm_fourcc.h>
++
++#define MTK_OVL_SUPPORT_BLEND_MODES \
++	(BIT(DRM_MODE_BLEND_PREMULTI) | \
++	 BIT(DRM_MODE_BLEND_COVERAGE) | \
++	 BIT(DRM_MODE_BLEND_PIXEL_NONE))
++
++extern const u32 mt8173_ovl_formats[];
++extern const size_t mt8173_ovl_formats_len;
++extern const u32 mt8195_ovl_formats[];
++extern const size_t mt8195_ovl_formats_len;
++
++bool mtk_ovl_is_10bit_rgb(unsigned int fmt);
++unsigned int mtk_ovl_get_blend_mode(struct mtk_plane_state *state, unsigned int blend_modes);
++unsigned int mtk_ovl_fmt_convert(unsigned int fmt, unsigned int blend_mode,
++				 bool fmt_rgb565_is_0, bool color_convert,
++				 u8 clrfmt_shift, u32 clrfmt_man, u32 byte_swap, u32 rgb_swap);
++
++#endif
 -- 
 2.45.2
 
