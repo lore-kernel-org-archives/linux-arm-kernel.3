@@ -4,58 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BEBFC3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 10:04:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A036C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 10:05:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R63UF0Cv+d2otOO/FOrn4/AQS0tv52Ru+oZtf40oBuw=; b=x7BCRbj0V6qHAgYDC7tfXaGkQV
-	tZ86UXi7yDibzCYY6XX27PYDKrOVVspMaz3m7SQJA6F/kzp2SkvqTZ6akPb2Wqx8hVD3FcPW1X4E+
-	QVaVNgUfZNAL1bnNI0o9rbmKc72xmmFUwcfLuF2eN5mWAiVz0v5iZ6N4ZuxBKA0f7CmOFJcoBxkoT
-	G70dpJOs1FE6vXQEaiKfVZLiOrM9jHyfWWL4EH9i6YZCue3c3Jr3hVa46fMDmz7q4f4dPd9rYjqfX
-	u3GdIGlpWC/oj4M1XcRJdyMMHcT3JBQUX7JKdz2DLbHcuTVmum54ig9sYaaq1qmgWCczI30GK2IOU
-	meLltfuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UpijhnmjCocVgZygncOLU49SwbbjYQwSUZZ1BwdKB8s=; b=EA1yk6+GHtMGoTMxXlbqgT4b/t
+	XJWcYH7LmVjoXUYiSuTtlCMeuqtvHPOIQfEIQ5/JZ0C7zWnRifB31L+Wo4aDJVI2jfDS5AEYCSR4g
+	Wl9yRCGRKws4dyI5wTnlIIg5V2yWp83f3pXjfO/JP8+zNTwvvfYoJFXtRqiRJyp3q9qsVTFcpC/DU
+	dsYeJ13m2r8iVUv8FALs7msVit1x2wRvIxtUSOszw/817DDlwnoYHk+JoaMEgfkf294+nSIGFHiRp
+	M6XRrs3XJ2RVFL6EY4PfVGMDzzq0Uc19aQXoeaCd7YAjeJfwe8Jxc3FzEgsHf5fn6emEhQGjKWoLt
+	u8dHDUVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFVRu-00000000FRq-2N99;
-	Thu, 15 May 2025 10:04:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFUFa-000000002RB-0MZv
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 08:47:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC1AC14BF;
-	Thu, 15 May 2025 01:47:21 -0700 (PDT)
-Received: from [10.162.40.26] (K4MQJ0H1H2.blr.arm.com [10.162.40.26])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 45DCD3F673;
-	Thu, 15 May 2025 01:47:30 -0700 (PDT)
-Message-ID: <35ef7691-7eac-4efa-838d-c504c88c042b@arm.com>
-Date: Thu, 15 May 2025 14:17:27 +0530
+	id 1uFVTL-00000000Fsv-3RYl;
+	Thu, 15 May 2025 10:05:51 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uFUzl-00000000Awi-2vKI;
+	Thu, 15 May 2025 09:35:19 +0000
+X-UUID: e70cb19a316f11f08d385d50fb11b32d-20250515
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=UpijhnmjCocVgZygncOLU49SwbbjYQwSUZZ1BwdKB8s=;
+	b=GTBeaLGhXSl+TBStrztr+y7/ADESzFEDNVaSmjpTdVvIOx80mdnLd5xKgk16yf0L0Cx3huWYeijyAePmqccP4RNxJKgkkeDo6T0qWSGEfE0gMgS3mkKCfaFVqrEiXH0GE0e+vxy5h5+BBIoDvH+RLodTrUOW9LNgmUDFAumh6rI=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:50f21ca1-1a53-4cee-9858-287dac9580a0,IP:0,UR
+	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-25
+X-CID-META: VersionHash:0ef645f,CLOUDID:c2d6093e-da74-431d-a7be-5e6761de3b64,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: e70cb19a316f11f08d385d50fb11b32d-20250515
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
+	(envelope-from <paul-pl.chen@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1455198470; Thu, 15 May 2025 02:35:13 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Thu, 15 May 2025 17:35:12 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Thu, 15 May 2025 17:35:12 +0800
+From: paul-pl.chen <paul-pl.chen@mediatek.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<chunkuang.hu@kernel.org>, <angelogioacchino.delregno@collabora.com>
+CC: <matthias.bgg@gmail.com>, <p.zabel@pengutronix.de>,
+	<jason-jh.lin@mediatek.com>, <nancy.lin@mediatek.com>,
+	<singo.chang@mediatek.com>, <xiandong.wang@mediatek.com>,
+	<sirius.wang@mediatek.com>, <paul-pl.chen@mediatek.com>,
+	<sunny.shen@mediatek.com>, <fshao@chromium.org>, <treapking@chromium.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH v3 17/17] drm/mediatek: Add support for MT8196 multiple mmsys
+Date: Thu, 15 May 2025 17:34:29 +0800
+Message-ID: <20250515093454.1729720-18-paul-pl.chen@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250515093454.1729720-1-paul-pl.chen@mediatek.com>
+References: <20250515093454.1729720-1-paul-pl.chen@mediatek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: Check pxd_leaf() instead of !pxd_table() while
- tearing down page tables
-To: David Hildenbrand <david@redhat.com>, catalin.marinas@arm.com,
- will@kernel.org
-Cc: ryan.roberts@arm.com, anshuman.khandual@arm.com, mark.rutland@arm.com,
- yang@os.amperecomputing.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-References: <20250515063450.86629-1-dev.jain@arm.com>
- <332ecda7-14c4-4dc3-aeff-26801b74ca04@redhat.com>
- <4904d02f-6595-4230-a321-23327596e085@arm.com>
- <6fe7848c-485e-4639-b65c-200ed6abe119@redhat.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <6fe7848c-485e-4639-b65c-200ed6abe119@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_014734_165470_F76B0C21 
-X-CRM114-Status: GOOD (  16.39  )
+X-CRM114-CacheID: sfid-20250515_023517_740902_E5E4B5A0 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,57 +91,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Nancy Lin <nancy.lin@mediatek.com>
 
+Add code to support MT8196 SOC Multi MMSYS Driver
 
-On 15/05/25 2:06 pm, David Hildenbrand wrote:
-> On 15.05.25 10:22, Dev Jain wrote:
->>
->>
->> On 15/05/25 1:43 pm, David Hildenbrand wrote:
->>> On 15.05.25 08:34, Dev Jain wrote:
->>>> Commit 9c006972c3fe removes the pxd_present() checks because the caller
->>>> checks pxd_present(). But, in case of vmap_try_huge_pud(), the caller
->>>> only
->>>> checks pud_present(); pud_free_pmd_page() recurses on each pmd through
->>>> pmd_free_pte_page(), wherein the pmd may be none.
->>> The commit states: "The core code already has a check for pXd_none()",
->>> so I assume that assumption was not true in all cases?
->>>
->>> Should that one problematic caller then check for pmd_none() instead?
->>
->>   From what I could gather of Will's commit message, my interpretation is
->> that the concerned callers are vmap_try_huge_pud and vmap_try_huge_pmd.
->> These individually check for pxd_present():
->>
->> if (pmd_present(*pmd) && !pmd_free_pte_page(pmd, addr))
->>     return 0;
->>
->> The problem is that vmap_try_huge_pud will also iterate on pte entries.
->> So if the pud is present, then pud_free_pmd_page -> pmd_free_pte_page
->> may encounter a none pmd and trigger a WARN.
-> 
-> Yeah, pud_free_pmd_page()->pmd_free_pte_page() looks shaky.
-> 
-> I assume we should either have an explicit pmd_none() check in 
-> pud_free_pmd_page() before calling pmd_free_pte_page(), or one in 
-> pmd_free_pte_page().
-> 
-> With your patch, we'd be calling pte_free_kernel() on a NULL pointer, 
-> which sounds wrong -- unless I am missing something important.
+Signed-off-by: Nancy Lin <nancy.lin@mediatek.com>
+Signed-off-by: Paul-pl Chen <paul-pl.chen@mediatek.com>
+---
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c | 119 ++++++++++++++++++++++++-
+ 1 file changed, 115 insertions(+), 4 deletions(-)
 
-Ah thanks, you seem to be right. We will be extracting table from a none 
-pmd. Perhaps we should still bail out for !pxd_present() but without the 
-warning, which the fix commit used to do.
-
-> 
->>
->>>
->>> If you were able to trigger this WARN, it's always a good idea to
->>> include the splat in the commit.
->>
->> I wasn't able to, it is just an observation from code inspection.
-> 
-> That better be included in the patch description :)
-> 
+diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+index 1e49ca3fef80..229f84a4e59c 100644
+--- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
++++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+@@ -193,6 +193,10 @@ static const struct mtk_drm_route mt8188_mtk_ddp_main_routes[] = {
+ 	{0, DDP_COMPONENT_DSI0},
+ };
+ 
++static const struct mtk_drm_route mt8196_mtk_ddp_routes[] = {
++	{2, DDP_COMPONENT_DSI0},
++};
++
+ static const unsigned int mt8192_mtk_ddp_main[] = {
+ 	DDP_COMPONENT_OVL0,
+ 	DDP_COMPONENT_OVL_2L0,
+@@ -231,6 +235,50 @@ static const unsigned int mt8195_mtk_ddp_ext[] = {
+ 	DDP_COMPONENT_DP_INTF1,
+ };
+ 
++static const unsigned int mt8196_mtk_ddp_ovl0_main[] = {
++	DDP_COMPONENT_DRM_OVLSYS_ADAPTOR0,
++	DDP_COMPONENT_OVL0_DLO_ASYNC5,
++};
++
++static const unsigned int mt8196_mtk_ddp_disp0_main[] = {
++	DDP_COMPONENT_DLI_ASYNC0,
++	DDP_COMPONENT_DLO_ASYNC1,
++};
++
++static const unsigned int mt8196_mtk_ddp_disp1_main[] = {
++	DDP_COMPONENT_DLI_ASYNC21,
++	DDP_COMPONENT_DVO0,
++};
++
++static const unsigned int mt8196_mtk_ddp_ovl0_ext[] = {
++	DDP_COMPONENT_DRM_OVLSYS_ADAPTOR1,
++	DDP_COMPONENT_OVL0_DLO_ASYNC6,
++};
++
++static const unsigned int mt8196_mtk_ddp_disp0_ext[] = {
++	DDP_COMPONENT_DLI_ASYNC1,
++	DDP_COMPONENT_DLO_ASYNC2,
++};
++
++static const unsigned int mt8196_mtk_ddp_disp1_ext[] = {
++	DDP_COMPONENT_DLI_ASYNC22,
++	DDP_COMPONENT_DP_INTF0,
++};
++
++static const unsigned int mt8196_mtk_ddp_ovl1_third[] = {
++	DDP_COMPONENT_DRM_OVLSYS_ADAPTOR2,
++	DDP_COMPONENT_OVL1_DLO_ASYNC5,
++};
++
++static const unsigned int mt8196_mtk_ddp_disp0_third[] = {
++	DDP_COMPONENT_DLI_ASYNC8,
++	DDP_COMPONENT_DLO_ASYNC3,
++};
++
++static const unsigned int mt8196_mtk_ddp_disp1_third[] = {
++	DDP_COMPONENT_DLI_ASYNC23,
++};
++
+ static const struct mtk_mmsys_driver_data mt2701_mmsys_driver_data = {
+ 	.main_path = mt2701_mtk_ddp_main,
+ 	.main_len = ARRAY_SIZE(mt2701_mtk_ddp_main),
+@@ -327,8 +375,65 @@ static const struct mtk_mmsys_driver_data mt8195_vdosys1_driver_data = {
+ 	.min_height = 1,
+ };
+ 
+-static const struct mtk_mmsys_driver_data mt8365_mmsys_driver_data = {
+-	.mmsys_dev_num = 1,
++static const struct mtk_mmsys_driver_data mt8196_dispsys0_driver_data = {
++	.main_path = mt8196_mtk_ddp_disp0_main,
++	.main_len = ARRAY_SIZE(mt8196_mtk_ddp_disp0_main),
++	.main_order = 1,
++	.ext_path = mt8196_mtk_ddp_disp0_ext,
++	.ext_len = ARRAY_SIZE(mt8196_mtk_ddp_disp0_ext),
++	.ext_order = 1,
++	.third_path = mt8196_mtk_ddp_disp0_third,
++	.third_len = ARRAY_SIZE(mt8196_mtk_ddp_disp0_third),
++	.third_order = 1,
++	.mmsys_id = DISPSYS0,
++	.mmsys_dev_num = 4,
++	.max_width = 8191,
++	.min_width = 2, /* 2-pixel align when ethdr is bypassed */
++	.min_height = 1,
++};
++
++static const struct mtk_mmsys_driver_data mt8196_dispsys1_driver_data = {
++	.main_path = mt8196_mtk_ddp_disp1_main,
++	.main_len = ARRAY_SIZE(mt8196_mtk_ddp_disp1_main),
++	.main_order = 2,
++	.ext_path = mt8196_mtk_ddp_disp1_ext,
++	.ext_len = ARRAY_SIZE(mt8196_mtk_ddp_disp1_ext),
++	.ext_order = 2,
++	.third_path = mt8196_mtk_ddp_disp1_third,
++	.third_len = ARRAY_SIZE(mt8196_mtk_ddp_disp1_third),
++	.conn_routes = mt8196_mtk_ddp_routes,
++	.num_conn_routes = ARRAY_SIZE(mt8196_mtk_ddp_routes),
++	.third_order = 2,
++	.mmsys_id = DISPSYS1,
++	.mmsys_dev_num = 4,
++	.max_width = 8191,
++	.min_width = 2, /* 2-pixel align when ethdr is bypassed */
++	.min_height = 1,
++};
++
++static const struct mtk_mmsys_driver_data mt8196_ovlsys0_driver_data = {
++	.main_path = mt8196_mtk_ddp_ovl0_main,
++	.main_len = ARRAY_SIZE(mt8196_mtk_ddp_ovl0_main),
++	.main_order = 0,
++	.ext_path = mt8196_mtk_ddp_ovl0_ext,
++	.ext_len = ARRAY_SIZE(mt8196_mtk_ddp_ovl0_ext),
++	.ext_order = 0,
++	.mmsys_id = OVLSYS0,
++	.mmsys_dev_num = 4,
++	.max_width = 8191,
++	.min_width = 2, /* 2-pixel align when ethdr is bypassed */
++	.min_height = 1,
++};
++
++static const struct mtk_mmsys_driver_data mt8196_ovlsys1_driver_data = {
++	.third_path = mt8196_mtk_ddp_ovl1_third,
++	.third_len = ARRAY_SIZE(mt8196_mtk_ddp_ovl1_third),
++	.third_order = 0,
++	.mmsys_id = OVLSYS1,
++	.mmsys_dev_num = 4,
++	.max_width = 8191,
++	.min_width = 2, /* 2-pixel align when ethdr is bypassed */
++	.min_height = 1,
+ };
+ 
+ static const struct of_device_id mtk_drm_of_ids[] = {
+@@ -358,8 +463,14 @@ static const struct of_device_id mtk_drm_of_ids[] = {
+ 	  .data = &mt8195_vdosys0_driver_data},
+ 	{ .compatible = "mediatek,mt8195-vdosys1",
+ 	  .data = &mt8195_vdosys1_driver_data},
+-	{ .compatible = "mediatek,mt8365-mmsys",
+-	  .data = &mt8365_mmsys_driver_data},
++	{ .compatible = "mediatek,mt8196-dispsys0",
++	  .data = &mt8196_dispsys0_driver_data},
++	{ .compatible = "mediatek,mt8196-dispsys1",
++	  .data = &mt8196_dispsys1_driver_data},
++	{ .compatible = "mediatek,mt8196-ovlsys0",
++	  .data = &mt8196_ovlsys0_driver_data},
++	{ .compatible = "mediatek,mt8196-ovlsys1",
++	  .data = &mt8196_ovlsys1_driver_data},
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(of, mtk_drm_of_ids);
+-- 
+2.45.2
 
 
