@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 155B7C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 09:16:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0E3FC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 09:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5JJ29TZnEd3PxFcwWMLVKSC2yhQhlOCqzZdmHCil+8I=; b=H52DLXfQqSenKjBMbYI7BxHELF
-	VnkODif0F/Mz/LvoIQ1fcmzX8FGCr8YKhD5Q4XDquEUXMNsg6k4XNWfqs8p5QTNQzdrP4JOJ2t8Gt
-	RYE7JR7/Xt/jweUGYJxd9kImYkLCofKYAIh33wv8fiNVH622NM+BOn0MEPsL9ZKFaUy/1b6aWopYm
-	Lh+71OKUFeRImpqxZ/+e4ZTf97JO/R5eU/zNEj9Oy5RDg1SGJAc+iU49PNCX8zwlbGxdDHSqTp18Q
-	lly+8HqX+u1IXYYYU6BKoxtoFPWNZBRWwZ6VL2jvDkDdTmPnQePrbFsmg1JbfsF0dI362xeO4onkL
-	rojG64CA==;
+	bh=WWY9JJsea2MM4cT81p2YlbBDX5SHYByyzR0TZm1WezQ=; b=MAB7MGp8apKoHHLYcLWmrCau/Y
+	qDtpC/uqlCi9Nn7UutUmmRRV9ZRao9iVinYL93jzBIMgCG7112xk24f0xsm1TvOSWUQbht1er2wdl
+	TuOZ311JADoYkx13LoxvMG4Sw80u3GuTMLhPbWCZ9OJHlND+iEGXnU3PTaF4W+wECQ4qlZTyJ7WNG
+	B2UZLZmFfw4HDDziqD8xzwlVTBHYGNN99minyiRJDh+S/tHKapmtdbAJg65zh870IqmtRNoGqQpz4
+	STB5uCuV5Ohwy10t0oGIqLTNUWERkqIYHQY24qqH5nro0GBg0mjgbjx5nka8YPhw6uf671UATeqxL
+	a1ARkRcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFUhD-000000007Hy-01am;
-	Thu, 15 May 2025 09:16:07 +0000
+	id 1uFUjD-000000007e5-1Pw3;
+	Thu, 15 May 2025 09:18:11 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFUZo-000000006Eo-2TIf
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 09:08:29 +0000
+	id 1uFUfL-0000000074Z-3tvl;
+	Thu, 15 May 2025 09:14:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0956D4A5B6;
-	Thu, 15 May 2025 09:08:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB226C4CEE7;
-	Thu, 15 May 2025 09:08:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5B01E44A2D;
+	Thu, 15 May 2025 09:14:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE238C4CEE7;
+	Thu, 15 May 2025 09:14:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747300107;
-	bh=XFzy7WaSOUcaOMc38XVxK8vXpVMM6q+AqJl1IFqnOFQ=;
+	s=k20201202; t=1747300451;
+	bh=TYpngpH9wek5rVMicagLihZR2ENnqZib7zF2664AZ5M=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ApKlazq5I0EropczmqCcSC3T1audi5oO7wy+wgPhViuKajHe63N+QcBR0BDSgqkzh
-	 I4I2GauFdT9UCyQNDDjL4jBUnL71flul5n45Rqh5yvK9u67fNJC51/dS4nNxfGSDbp
-	 j9QARBg8lWlxjuyM4MWYHCoL2CIXquhoie3pqULAeCDsSGATqyrDW5AeEvc6/KIBnV
-	 TBw/SFqsGL5GnC53Pje046dOzz5l+gYl34Jnuem1k7RzkuODmSRZPqqAA/nlj0L18a
-	 IuCDgz6VSoINPgpY/Z/A5YIMLKTnEM4vv7tXiSRIAIzl/ODa+z/u25EETGGxb38eDm
-	 R+aTUwWzguMNg==
-Message-ID: <56fea07e-a047-47f1-9c71-1a92cad15eb0@kernel.org>
-Date: Thu, 15 May 2025 11:08:21 +0200
+	b=Aq68XiLNPqNdboVpmBRC3g6z4Euv9NO2rVneCHmdZNaOnZYLe1lia8RINo5qL1Sdv
+	 eeIQ8XkJqY96IaHUwpUbXpVJ8hnf4useOm7mqOWsRSLCeDdVMKxfdEgcvnSPIMIQj/
+	 /T9r0Vhujtk1xJDnSKk+GhyAge86mBtVg72wGMqDIhwJ8LSHE9ua2zXY4jqG2qpOvR
+	 CwWEwv9vo2SknClvm9Qr0yOSwR3E4zKKO9lCStLyGYTQTJGFQ4XxhPotn+dMjRcf8J
+	 hXqSCxcja/ligL+Cufz1ewbn5FrtVUPUf0nAsbpcNYUX0zuxibwhd1nfc7bsM8LAUK
+	 jFL1/nIsJ2+HQ==
+Message-ID: <ea1a7a37-031f-4f81-ba09-eaa523f70761@kernel.org>
+Date: Thu, 15 May 2025 11:14:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: usb: samsung,exynos-dwc3: add dt-schema
- ExynosAutov920
-To: Pritam Manohar Sutar <pritam.sutar@samsung.com>,
- gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, alim.akhtar@samsung.com, Thinh.Nguyen@synopsys.com
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+Subject: Re: [PATCH v2 0/2] USB PHY support for Exynos990 SoCs
+To: Vinod Koul <vkoul@kernel.org>,
+ Igor Belwon <igor.belwon@mentallysanemainliners.org>
+Cc: Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Alim Akhtar <alim.akhtar@samsung.com>, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, rosa.pila@samsung.com, dev.tailor@samsung.com,
- faraz.ata@samsung.com, muhammed.ali@samsung.com, selvarasu.g@samsung.com
-References: <20250514140741.415981-1-pritam.sutar@samsung.com>
- <CGME20250514135755epcas5p41291579e7eb266d92b91b82621e0fa5d@epcas5p4.samsung.com>
- <20250514140741.415981-2-pritam.sutar@samsung.com>
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20250420-usb-resends-april-v2-0-25dc7d2e6dd4@mentallysanemainliners.org>
+ <aCRXgpD0Ld2W4lHE@vaman>
+ <D9VYC98LJTR0.LJXYC1H0BAKA@mentallysanemainliners.org>
+ <aCWj4cn4y+RyfGiZ@vaman>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,13 +106,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250514140741.415981-2-pritam.sutar@samsung.com>
+In-Reply-To: <aCWj4cn4y+RyfGiZ@vaman>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_020828_671053_04082DED 
-X-CRM114-Status: UNSURE (   5.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250515_021412_016448_D6718024 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,24 +126,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/05/2025 16:07, Pritam Manohar Sutar wrote:
-
->  
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: samsung,exynosautov920-dwusb3
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 2
-> +          maxItems: 2
-> +        clock-names:
-> +          items:
-> +            - const: ref
-> +            - const: susp_clk
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On 15/05/2025 10:20, Vinod Koul wrote:
+> On 14-05-25, 16:26, Igor Belwon wrote:
+>> On Wed May 14, 2025 at 10:42 AM CEST, Vinod Koul wrote:
+>>> On 20-04-25, 21:28, Igor Belwon wrote:
+>>>> Hi all!
+>>>>
+>>>> This patchset adds support for the USB 2.0 PHY of the Exynos990 SoC.
+>>>> This SoC has a combo PHY that supports highspeed, superspeed USB and
+>>>> DisplayPort, however due to my inability to test the superspeed part of
+>>>> the combo phy (device always enumerated as high-speed, even on the
+>>>> vendor kernels/bootloaders) only the highspeed part is brought up.
+>>>>
+>>>> These changes have been tested and confirmed working (with the USB_ETH
+>>>> gadget and telnet/ssh in a ramdisk) on a device from the hubble family
+>>>> (x1s) and also a device from the canvas family (c1s).
+>>>
+>>> I am missing the dt patch, can you pls report the whole series if you
+>>> would like me to review and apply this
+>>
+>> Hi Vinod,
+>>
+>> I've sent the DT series a while back (before resending). Usually I
+>> propose DT changes through Krzysztof's tree. The patches are 
+>> unchanged (they will be resent unchanged when all usb and wdt 
+>> changes are merged).
+> 
+> It makes sense to post bindings and driver togther and mostly these go
+> thru subsystem trees!
+> 
+I don't think you both speak about the same thing. DT is ambiguous here,
+so always use DTS or DT bindings... that said bindings were here in this
+patchset so if Vinod misses them, this has to be resent.
 
 Best regards,
 Krzysztof
