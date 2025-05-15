@@ -4,68 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07D80C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 08:57:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83201C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 08:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=v7FgsLCDjywRF5KPQTtUvLJ+BSHN64tfvbrVtXTw8Ws=; b=KHt1XISZGVyFuxw+iEIP4qsg6V
-	FoOIsVUQaJ+bcEYYpJRMxAznklvw9vCp8S8AYpFAJJp+vKpi5HYCYd4DHM1PqvvFHaCyufPqJbdS5
-	O0OljrJKFZB2n3tZD92JXc6/gTRDywiuRAk1Wnxwpg0AilVixUCtHh3vWsYjNkBNmEN/H7r1vyEZq
-	KbUtu3Zg6dmcINNP6+PSomhv9gG2huWjHLv4zoJG8fJFV4yJlhto9nkEbovVvyhINnrsTRLHYValn
-	yhjYkuJCwEi488PTwLIZp8Nr++XV3+Y+Ze6xz4+e9GNlhrEmp8YQ5UXXfz8Lafw9xsaaVYGanfVIn
-	PzGALwZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vGScZsO6r1hfc8Q2MlMDQQ72aLVQSIQQSAdD4p2qzcI=; b=k2jvzK5kMD3B4jswBBZOBFDC66
+	o/vYeK4h/GMsILKnKp8gMA/qN94307O2RDUozRLgeBXzbDHdpBbP6VoguODpOPrvQ4rVUoHi/aW72
+	dmMkVvNWAHaWB0YO8Ze/6Ykm2JB79aFw5VYQMV9U2n8M0Qqa/3M8f9EgHPCoFMZ6nc2hUZR9EUUs+
+	pcbgRxlHcPk717z5I9AuY90FUNEpy24H5cv+2PDYNG/HcjQVNNIb+ahkhBj1vyyRofpYs4j+ULBiS
+	UdsOWDeIjV1rrXcQ54ojjL6gRBR1AOrhgj4B0i4NQYr/rvP4ee7LXB5P0ZT7qsOCjb1eV4ifUNLD2
+	y4k4GrOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFUPH-000000003zg-1bf8;
-	Thu, 15 May 2025 08:57:35 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1uFURH-000000004P4-1T98;
+	Thu, 15 May 2025 08:59:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFU9R-000000001aK-08oE
+	id 1uFUDJ-0000000024j-1Bcb
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 15 May 2025 08:45:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=vGScZsO6r1hfc8Q2MlMDQQ72aLVQSIQQSAdD4p2qzcI=; b=Fta5E8m0XsCwBl1jEKt/mNC2XA
+	eWZFXVxNyOFMzHrIcAzAKFzQmEI5ZuDooNRDCPW0Gt2BSwV0MvuU9mCMTSTqUArskzb4jYAFBUTuJ
+	VJb9gZvkttSPRMkp1QNvTibjrdNZuxrSoSE2zu17PSMySwlhwlK+Y9udvjWxM4yTkvC78wKNVWocd
+	9pQxa0uAYg1okR4/uNFiU+oVriPGVkMObPyi4ICZ0UJ9+DYitKnUjzv975GNwBhcd5WUaZXzRzf3s
+	Wh8htJ3B10EpaMK3G2KokiRxOouB2ylajkSEjrITS0sumYl6CZ5J8oDN8lVHC7MMZEfaZGxEQbMos
+	R4VezK4w==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uFUDG-0000000HPSu-1fhN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 08:41:15 +0000
-Received: from localhost (unknown [124.16.138.129])
-	by APP-05 (Coremail) with SMTP id zQCowAA3dw+iqCVotbHaFQ--.49892S2;
-	Thu, 15 May 2025 16:41:06 +0800 (CST)
-From: Chen Ni <nichen@iscas.ac.cn>
-To: qiang.zhao@nxp.com,
-	christophe.leroy@csgroup.eu
-Cc: linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Chen Ni <nichen@iscas.ac.cn>
-Subject: [PATCH] soc: fsl: qe: Consolidate chained IRQ handler install/remove
-Date: Thu, 15 May 2025 16:39:19 +0800
-Message-Id: <20250515083919.3811473-1-nichen@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	Thu, 15 May 2025 08:45:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4150A5C05FD;
+	Thu, 15 May 2025 08:42:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76B22C4CEE7;
+	Thu, 15 May 2025 08:45:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747298707;
+	bh=SEgT+ObynvSN+V3bQsdKbGCKxjclg4N/cQwSPBeFXNk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RFv3CN6RVuD3ZWfspaJ6Nbe4PN+U/ZhA10RKSVE21YGj3E/0I5Jv+9TR+YVUdUAUC
+	 xSEGqo2J3PayIZLfGF8jIfq7LB7VJdgOiqVy6NJ2ldnAfkv/xnBg+ArFnTXJwOcLNS
+	 MNyJCtcDvhnQPfAmcNz445xrxRJh7yLA1h04kLSrJiLGVrPGr6Lav4jdjyp2VBPPW+
+	 G2RXqtm06alizQnWHnBxVs5TbuS2Qu/DW1jXqf7siUs0v87yyel8qVtAjpzrpwHeAQ
+	 Paz449iCB4bMwoSkIdjz3DW3ooWQJtwpsbdN0nKkE4Cy4/3qVDNyViE1wjRSv7YeEs
+	 tgX+yGPozcc4A==
+Date: Thu, 15 May 2025 10:45:02 +0200
+From: Mark Brown <broonie@kernel.org>
+To: Bence =?iso-8859-1?B?Q3Pza+Fz?= <csokas.bence@prolan.hu>
+Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Vinod Koul <vkoul@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>
+Subject: Re: [PATCH v6 0/2] Add `devm_dma_request_chan()` to simplify probe
+ path in atmel-quadspi.c
+Message-ID: <aCWpjplhAXUvr9fj@finisterre.sirena.org.uk>
+References: <20250515083132.255410-1-csokas.bence@prolan.hu>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAA3dw+iqCVotbHaFQ--.49892S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7GF1fZFWUWr1fAr17tr4UXFb_yoWkZFc_Ww
-	45X347Xr18ZasayF12ywsxAF4rZF4vqrnrCanYqFZay34fJ397AF1UtFnxur1kWF15ZF1k
-	Ary5ZrWfGrWUGjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbVxFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
-	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r4UJVWxJr1lOx8S6xCaFVCjc4AY6r
-	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AK
-	xVWUAVWUtwCY02Avz4vE14v_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
-	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
-	17CE14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
-	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
-	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
-	73UjIFyTuYvjfU00eHDUUUU
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="/tGn05cm9PgSmYgZ"
+Content-Disposition: inline
+In-Reply-To: <20250515083132.255410-1-csokas.bence@prolan.hu>
+X-Cookie: Well begun is half done.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_014113_447438_5853043F 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250515_094510_682612_12016686 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,38 +95,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Chained irq handlers usually set up handler data as well.
-irq_set_chained_handler_and_data() can set both under irq_desc->lock.
-Replace the two calls with one.
 
-Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
----
- drivers/soc/fsl/qe/qe_ic.c | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
+--/tGn05cm9PgSmYgZ
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/soc/fsl/qe/qe_ic.c b/drivers/soc/fsl/qe/qe_ic.c
-index 17e6d2377c7c..4068b501a3a3 100644
---- a/drivers/soc/fsl/qe/qe_ic.c
-+++ b/drivers/soc/fsl/qe/qe_ic.c
-@@ -450,13 +450,11 @@ static int qe_ic_init(struct platform_device *pdev)
- 
- 	qe_ic_write(qe_ic->regs, QEIC_CICR, 0);
- 
--	irq_set_handler_data(qe_ic->virq_low, qe_ic);
--	irq_set_chained_handler(qe_ic->virq_low, low_handler);
-+	irq_set_chained_handler_and_data(qe_ic->virq_low, low_handler, qe_ic);
- 
--	if (high_handler) {
--		irq_set_handler_data(qe_ic->virq_high, qe_ic);
--		irq_set_chained_handler(qe_ic->virq_high, high_handler);
--	}
-+	if (high_handler)
-+		irq_set_chained_handler_and_data(qe_ic->virq_high,
-+						 high_handler, qe_ic);
- 	return 0;
- }
- static const struct of_device_id qe_ic_ids[] = {
--- 
-2.25.1
+On Thu, May 15, 2025 at 10:31:28AM +0200, Bence Cs=F3k=E1s wrote:
 
+> Change in v4:
+> * split PM imbalance fix (now merged) and DMA cleanup (this series)
+> Change in v6:
+> * rebase to spi/for-next, see note below:
+>=20
+> There is currently no difference in drivers/dma/dmaengine.c between it and
+> dma/next [1], therefore PATCH 1/2 should be safe for Vinod to apply. But
+> this way PATCH 2/2 is trivial to apply. I didn't want to pull the whole
+> linux-next tree, but if any ofyou run into problems, let me know, and I'll
+> rebase the series on it instead.
+
+I can't tell what the plan is here, or what the status is for the first
+patch (since I'm not CCed).  The second patch depends on a new API
+introduced in the first patch so it can't be merged independently.
+
+--/tGn05cm9PgSmYgZ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmglqY0ACgkQJNaLcl1U
+h9DFVQf/RG3qVgLW9iXPcAUZnHYKemB71ZgR+Yrj0yChBw9ccK7Ns8JmX1XBzjJ6
+KHRzwnny3bbg2tsX5/n66nch3/Xfl98SRYHNnmeQQsKDAuehwMGDnCr7i5QNNzJ3
+m0H0qoCgYrjoye1vqrIWHqzYnU8lhZS5ywzOKZfzS8UXs+I+6ZIc/u2AzSMg7f+f
+YEaKmv2tch11ks57fRmyI9cqVu1nSBUrEHbn+/wxsleBaed2LURNQz0pO1547z+V
+P6Y8zAxD4wGLQvSIPlU8+/b58zLeZmhIBf3eBKFNk2pXAHI3GpBmr68i9YbmrRGz
+tH3l2/oUsumQn6krkGQ42z0TOmIddQ==
+=HOSf
+-----END PGP SIGNATURE-----
+
+--/tGn05cm9PgSmYgZ--
 
