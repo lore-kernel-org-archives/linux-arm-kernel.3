@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52BE6C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 19:05:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE90DC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 19:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=89X5cDkgwMX67Wp+mdH+TqpQpjI3cSH5Pn7YIWEV0tU=; b=ZFriaeqOpDWZpRt+Y38PVZD13w
-	M983sQnGnKTtI+poVM5re+sMM48H2NzPrsgxSXEWU4FdoCa/KgnXuPLQ3375YDH2AHNCHFhhqKp+7
-	SuGIKNkbhn/kNQ2gUd02zAmI88uDq5bwZU1wlR4yZhPcp+0lKfSWcJFGcvICMVfGEK5xNsLnTClUs
-	xMW9hgf3GOyQqf+F00wWLM10kSixhYAFqZkp9lcTfgVyWh1B+eNsjc/Q2n41hIb9LXFV2eXWQNzTZ
-	PFjM9Sne9a7hOrSaSCEJjIRSi7A0MczPs5UsQIcspOHL0PwOfYGK8LpTftmMgdqeFx9ba6rF+JB19
-	xWk5A0ag==;
+	bh=1kWPjrBd/613IEnzahoCitSYpNjnmHuaFTPRIcMwrRo=; b=RzWYpAuhqss4mMHnf666UW5c69
+	kSoNkfv2ul/OwaPGWWH9paY/8AdG1j9uyrU+++KxA/u1essrtJoo9/8Rw4V3y2jMZ63DGUfMW2tpR
+	/Kxd0557W5f1AfBPWE9tR3qgM4SDEYOBv7ykTN7B9yulwfKg66qxU2a6JihWM837EnXz3tr4CrMjt
+	jH5GLgSfkoZ6rhaMuAWFEARWWfm8vYkjMmIEUI76g+lSJ+dx2RsNCKuxaaFC7SjJ0kxBoQ4rjiIY2
+	O1AWH9Wf8istrZ3SeQVyBHrs4A4Xf+pIi3wmkyEwn15NwdtyDfWomneHtMVojFUARAJNXPb8+EebV
+	naA3pBzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFdt6-00000001daV-45XP;
-	Thu, 15 May 2025 19:05:00 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1uFdv6-00000001dsS-3G0V;
+	Thu, 15 May 2025 19:07:04 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFdjz-00000001c9C-00ri
+	id 1uFdjz-00000001c9a-49O2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 18:55:36 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-54afb5fcebaso1387171e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 11:55:34 -0700 (PDT)
+	Thu, 15 May 2025 18:55:37 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-54fd1650b83so1450019e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 11:55:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747335333; x=1747940133; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1747335334; x=1747940134; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=89X5cDkgwMX67Wp+mdH+TqpQpjI3cSH5Pn7YIWEV0tU=;
-        b=lkL4zC5/G1e80vF8W9Jx6H8WCK0BKGf+aPi/TrLXGaDZZAu2zNf3wAr5h8yOu+J8Vg
-         OsyU/YOMMshMNf3axTStzeXtc6h5p5oWJXFE3+hfs63N25jwedwBp3Dem+5+aT1XYQ6i
-         UO1Nkff8U67XQJ2Jc+QW4DncaxJJGu3ueRnREO11aLlsydl9gw4XqedDVNlzdeAjTXDQ
-         jPTJ4O2XZ0LPgVBVm+57BljogX2XcSabOLC25e2Yr/1YekdbBm43uBuApXVz7AbLUPBm
-         eNAKJEvax2zAi1F0jT9ExKMw/zp5rVFMVP+5jX5ORSRfBo5lYIr9FrheMxzdHi2OPfbt
-         c4Iw==
+        bh=1kWPjrBd/613IEnzahoCitSYpNjnmHuaFTPRIcMwrRo=;
+        b=QDZ24vlvm/jgLYWxR8UoNJWDFDJMkvLPHTwu3vNJkCjcJYnd1ayrt4+Vgf7W98Zqbu
+         21nK/87rtSF3YmgB/cG9l1KbitIQFku5oPlTwij0YLpmUSTRqHPexLllakFfiV8G33jp
+         uKgLSixeBxKIyIkMk9MqGdN5+MXIKp17iqlbydEvESIY+ez/h+43nQk9yQQQOTeuuVSY
+         HmbCnVwWPqJyZixoZasWBXGNd9zTlrCJZvmJzlIpj5daz31XB9R9TuLfBx55GM3ATdA8
+         8iwdbA8JHJFSCdHWMR8iGscp2YLaHUFakyghRtG+BVjlFqhyzvpV86pXe2Ufm+vdgx44
+         GxIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747335333; x=1747940133;
+        d=1e100.net; s=20230601; t=1747335334; x=1747940134;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=89X5cDkgwMX67Wp+mdH+TqpQpjI3cSH5Pn7YIWEV0tU=;
-        b=Eit1dfyoLSyY+s0im3mz5DnOLWqSHrU3e4r7yales8zIAfb5NOjd20I7gcSC+bvnMJ
-         5i2S+fc5QF6LaBYqs6vOgjAa+4JR+mUuI9yKNfw5+Gu24lkRqCF/WPNE2rYwSg4oTEkC
-         St+MMFIT3UYRYAgPCehsxEY4SAKVPua0k7Ig/uuGWpiEJKyTEXVyhAvJ5ygBtCkkpZoh
-         j5gnI8d9FPDago6za6gGh3HKMVMzruok6LO1DPTzNutr3HYjy7aDnBdLzLpDmE7K4wD2
-         HyS8YziL3aq5D2R7jEZR92hl6tI8TOtgaWHqyX/H0TRyZ3S2tEMDxBXNsdJVVtF5tTYn
-         COig==
-X-Gm-Message-State: AOJu0YxMjgI6DEI9yZRR/x3MMrG6c5Jeaob7FChbtn1CPubXAh47cqf5
-	aFW7VbuwDzWx+RBcaWnSdYz934O/HxggSQkwQ7YNCFMk5N/DbuPgSW+4
-X-Gm-Gg: ASbGnctZKW7/MhI/YlpiQkdHfkxs824Clv+jmmazVlb+FDirq/05gUAem5qnTMdTUwO
-	arzBJbyKcUimAUzaQThp/0GVgZqZ8ndEAaOXxq8SWFxvPD95l6QcHHpRHUMkS2fUNGEVC3ZVFsI
-	jxTvA9Wc7eQ752mkzyfvT/F9nLrIQQIc+KTnmsQAEX2QHUp7kDwoAbOenZh65mIb+/NUflBYyeQ
-	L6LwYaZq5gcjHsk9XqR5Y6lrx9KhhngX0g28pAfLPl2Bd+sqXJPJWAPa7POH7hB6Vzl3apIqFRB
-	nnc7MGX4CtZn9qr7tUFmNBO0LTG2i1bksaT2EoP8Ee9Bj4CILzYD+F8mXEFJ8U5E
-X-Google-Smtp-Source: AGHT+IFXphhaPfRYQNVaaNL19dEd3OxAeFx5dTiTdykGmgZQ7ms0RJw5IjYe+nVQU2nwQqYh4pYpSA==
-X-Received: by 2002:a05:6512:3e04:b0:54b:f33:cc16 with SMTP id 2adb3069b0e04-550e71b2359mr207965e87.16.1747335332811;
-        Thu, 15 May 2025 11:55:32 -0700 (PDT)
+        bh=1kWPjrBd/613IEnzahoCitSYpNjnmHuaFTPRIcMwrRo=;
+        b=rzC60pVv+i8HyDzTqIcmcUM/M/TlvZkycgDjuERxe57AGXElpy2+PVv7krooVYNvW2
+         s2g+DjyqTwTYXBTo7B5qDF2LLaO//BzShj75k2Hweb8Vf4t96Y8vQMf76iDShoobRtJz
+         Gu+Pfyw7581Yfn1cJ8Rf3ByTml+FM7ipvg54M02yPEx1x/mAm3b5jjuL1UboZ58uPLHs
+         GQ88EjwRRSNQJAVzuWqBfAuEVdsVGW6Sg6ahI6FKr6/JBtYutWbiys03y5KQ8NDQb7X6
+         MVOf5NsXlTtPgXR3FXtLMu4FUrRMQC6rX6cE5rtJa3iNTm5y4RjLIWsxHfOBPNXHC2Ym
+         vRzA==
+X-Gm-Message-State: AOJu0YzP8o+LjUSBTHndFHe8/bWG4fd1UEkJ0NTu31dX8nI0A0GtPbFM
+	Tg8qQ1GxqQyfLYLnaJx7hvia0Xu6hio0gpabQTsDyREElwbTLrTqUZGV
+X-Gm-Gg: ASbGncsbIihAmTsj0+5ekI36Vs7PBCPx0KVD1o+Tzu6MHRPOXixwi2gEx28rsM332ez
+	wU6Nin2E9BleR7p7r+LFgU8vnTPsOfC3erYku+bVIHWtJNTqIxUgQiFaaLE5gXnQ1yLwufrg67D
+	XSdVJHLY6t1KSGiwJ3ePMI5HAL95pNZC5Yh0txmSBFQiRr0kMxlATViHyFX+43SB65CfUBVvGPz
+	kMxeA17R5wRK38dC4Bxr5hYOgPvReVhaQKVmvnMGQ8DHHwrdcLixKY/CSe4ICpGKR8B+c06XUqW
+	40KalQ6hj54aJDI7qJ0iXVdhiD1JvjxCbs+gThWhXaPAQcqtqlUv8HF23gSZKlp5
+X-Google-Smtp-Source: AGHT+IGEs4fWZGHCmoPX8DHxcqfmeaQBK7SGcY2ZAhMdx5ivNIe71+v8W7lZ8Ob1Opu59vWYlaooiQ==
+X-Received: by 2002:a05:6512:31d2:b0:54a:cc76:ad5e with SMTP id 2adb3069b0e04-550e71981e2mr223781e87.3.1747335333916;
+        Thu, 15 May 2025 11:55:33 -0700 (PDT)
 Received: from NB-GIGA003.letovo.school ([95.167.212.10])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-550e702dd8asm60389e87.196.2025.05.15.11.55.31
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-550e702dd8asm60389e87.196.2025.05.15.11.55.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 May 2025 11:55:32 -0700 (PDT)
+        Thu, 15 May 2025 11:55:33 -0700 (PDT)
 From: Alexey Charkov <alchark@gmail.com>
-Date: Thu, 15 May 2025 21:55:28 +0300
-Subject: [PATCH v3 3/4] clocksource/drivers/timer-vt8500: Prepare for
+Date: Thu, 15 May 2025 21:55:29 +0300
+Subject: [PATCH v3 4/4] watchdog: Add support for VIA/WonderMedia SoC
  watchdog functionality
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250515-vt8500-timer-updates-v3-3-2197a1b062bd@gmail.com>
+Message-Id: <20250515-vt8500-timer-updates-v3-4-2197a1b062bd@gmail.com>
 References: <20250515-vt8500-timer-updates-v3-0-2197a1b062bd@gmail.com>
 In-Reply-To: <20250515-vt8500-timer-updates-v3-0-2197a1b062bd@gmail.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -88,16 +88,16 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-watchdog@vger.kernel.org, 
  Alexey Charkov <alchark@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747335328; l=4681;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747335328; l=6862;
  i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
- bh=QbpS/kQkJJiwh5PckUNMqicAThM5PNWf6q83MVBs0Vs=;
- b=NNBbfD5AkIXlxdWKECjLPB/BWipzyhlLO3lQ2bGgNY4WpyUStbEqnzJqvlhuzrdozgq9Wdp/4
- Rok+ZGrpZS4BrkT3pqfAh/A97GspyxUL7USnY8hmvT2cWFBEYgTAV8x
+ bh=2XFRYiD91queAeJhWuLHIGRtox7ITgkji4UZkOxOnJU=;
+ b=TCQO3le/NzI+O9M2LYnIFQZPy6L1dVDvBwVsgTeULw4pXLs/se7iBNx5Z11uwcTanQn+OeT+N
+ PalmzHKo5kvAqLiKno6ziebxGbP/kUaEgcuoAV8Kx+bhK2dIPyFI6nq
 X-Developer-Key: i=alchark@gmail.com; a=ed25519;
  pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_115535_054649_663534E2 
-X-CRM114-Status: GOOD (  23.65  )
+X-CRM114-CacheID: sfid-20250515_115536_034236_4DB41FB4 
+X-CRM114-Status: GOOD (  26.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,139 +112,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VIA/WonderMedia system timer can generate a watchdog reset when its
-clocksource counter matches the value in the match register 0 and
-watchdog function is enabled. For this to work, obvously the clock event
-device must use a different match register (1~3) and respective interrupt.
+VIA/WonderMedia SoCs can use their system timer's first channel as a
+watchdog device which will reset the system if the clocksource counter
+matches the value given in its match register 0 and if the watchdog
+function is enabled.
 
-Check if at least two interrupts are provided by the device tree, then use
-match register 1 for system clock events and reserve match register 0 for
-the watchdog. Instantiate a platform device for the watchdog and give it
-access to the MMIO registers base of the timer through platform data.
+Since the watchdog function is tightly coupled to the timer itself, it
+is implemented as a child platform device of the timer device, and just
+reuses the MMIO registers already remapped by the timer driver. This is
+similar to the approach taken by gxp-wdt.c
 
 Signed-off-by: Alexey Charkov <alchark@gmail.com>
 ---
- drivers/clocksource/timer-vt8500.c | 68 +++++++++++++++++++++++++++++++++++---
- 1 file changed, 63 insertions(+), 5 deletions(-)
+ MAINTAINERS                   |   1 +
+ drivers/watchdog/Kconfig      |  14 +++++
+ drivers/watchdog/Makefile     |   1 +
+ drivers/watchdog/vt8500-wdt.c | 116 ++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 132 insertions(+)
 
-diff --git a/drivers/clocksource/timer-vt8500.c b/drivers/clocksource/timer-vt8500.c
-index 9f28f30dcaf83ab4e9c89952175b0d4c75bd6b40..122cc046140d5e9edff20ff41a49b4e62064dd40 100644
---- a/drivers/clocksource/timer-vt8500.c
-+++ b/drivers/clocksource/timer-vt8500.c
-@@ -21,6 +21,8 @@
- #include <linux/of.h>
- #include <linux/of_address.h>
- #include <linux/of_irq.h>
-+#include <linux/of_platform.h>
+diff --git a/MAINTAINERS b/MAINTAINERS
+index b8b2843491c47182a4fc6c76f5c29b6c411830a6..d809643b76ad299ca1c08804540b08cc4a7184a6 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3446,6 +3446,7 @@ F:	drivers/tty/serial/vt8500_serial.c
+ F:	drivers/video/fbdev/vt8500lcdfb.*
+ F:	drivers/video/fbdev/wm8505fb*
+ F:	drivers/video/fbdev/wmt_ge_rops.*
++F:	drivers/watchdog/vt8500-wdt.c
+ 
+ ARM/ZYNQ ARCHITECTURE
+ M:	Michal Simek <michal.simek@amd.com>
+diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
+index 0d8d37f712e8cfb4bf8156853baa13c23a57d6d9..429e4e775f1f458fd457067a3a039a5d544b4818 100644
+--- a/drivers/watchdog/Kconfig
++++ b/drivers/watchdog/Kconfig
+@@ -2003,6 +2003,20 @@ config PIC32_DMT
+ 	  To compile this driver as a loadable module, choose M here.
+ 	  The module will be called pic32-dmt.
+ 
++config VT8500_WATCHDOG
++	tristate "VIA/WonderMedia VT8500 watchdog support"
++	depends on ARCH_VT8500 || COMPILE_TEST
++	select WATCHDOG_CORE
++	help
++	  VIA/WonderMedia SoCs can use their system timer as a hardware
++	  watchdog, as long as the first timer channel is free from other
++	  uses and respective function is enabled in its registers. To
++	  make use of it, say Y here and ensure that the device tree
++	  lists at least two interrupts for the VT8500 timer device.
++
++	  To compile this driver as a module, choose M here.
++	  The module will be called vt8500-wdt.
++
+ # PARISC Architecture
+ 
+ # POWERPC Architecture
+diff --git a/drivers/watchdog/Makefile b/drivers/watchdog/Makefile
+index c9482904bf870a085c7fce2a439ac5089b6e6fee..3072786bf226c357102be3734fe6e701f753d45b 100644
+--- a/drivers/watchdog/Makefile
++++ b/drivers/watchdog/Makefile
+@@ -101,6 +101,7 @@ obj-$(CONFIG_MSC313E_WATCHDOG) += msc313e_wdt.o
+ obj-$(CONFIG_APPLE_WATCHDOG) += apple_wdt.o
+ obj-$(CONFIG_SUNPLUS_WATCHDOG) += sunplus_wdt.o
+ obj-$(CONFIG_MARVELL_GTI_WDT) += marvell_gti_wdt.o
++obj-$(CONFIG_VT8500_WATCHDOG) += vt8500-wdt.o
+ 
+ # X86 (i386 + ia64 + x86_64) Architecture
+ obj-$(CONFIG_ACQUIRE_WDT) += acquirewdt.o
+diff --git a/drivers/watchdog/vt8500-wdt.c b/drivers/watchdog/vt8500-wdt.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..8e605c850dd9f42c90104f362b74adac63dd9fdb
+--- /dev/null
++++ b/drivers/watchdog/vt8500-wdt.c
+@@ -0,0 +1,116 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Copyright (C) 2025 Alexey Charkov <alchark@gmail.com */
++
++#include <linux/delay.h>
++#include <linux/io.h>
++#include <linux/module.h>
 +#include <linux/platform_device.h>
- 
- #define VT8500_TIMER_OFFSET	0x0100
- #define VT8500_TIMER_HZ		3000000
-@@ -55,6 +57,9 @@
- #define MIN_OSCR_DELTA		16
- 
- static void __iomem *regbase;
-+static unsigned int sys_timer_ch;	 /* which match register to use
-+					  * for the system timer
-+					  */
- 
- static u64 vt8500_timer_read(struct clocksource *cs)
- {
-@@ -81,15 +86,15 @@ static int vt8500_timer_set_next_event(unsigned long cycles,
- 	int loops = msecs_to_loops(10);
- 	u64 alarm = clocksource.read(&clocksource) + cycles;
- 
--	while (readl(regbase + TIMER_ACC_STS_REG) & TIMER_ACC_WR_MATCH(0)
-+	while (readl(regbase + TIMER_ACC_STS_REG) & TIMER_ACC_WR_MATCH(sys_timer_ch)
- 	       && --loops)
- 		cpu_relax();
--	writel((unsigned long)alarm, regbase + TIMER_MATCH_REG(0));
-+	writel((unsigned long)alarm, regbase + TIMER_MATCH_REG(sys_timer_ch));
- 
- 	if ((signed)(alarm - clocksource.read(&clocksource)) <= MIN_OSCR_DELTA)
- 		return -ETIME;
- 
--	writel(TIMER_INT_EN_MATCH(0), regbase + TIMER_INT_EN_REG);
-+	writel(TIMER_INT_EN_MATCH(sys_timer_ch), regbase + TIMER_INT_EN_REG);
- 
- 	return 0;
- }
-@@ -131,7 +136,9 @@ static int __init vt8500_timer_init(struct device_node *np)
- 		return -ENXIO;
- 	}
- 
--	timer_irq = irq_of_parse_and_map(np, 0);
-+	sys_timer_ch = of_irq_count(np) > 1 ? 1 : 0;
++#include <linux/types.h>
++#include <linux/watchdog.h>
 +
-+	timer_irq = irq_of_parse_and_map(np, sys_timer_ch);
- 	if (!timer_irq) {
- 		pr_err("%s: Missing irq description in Device Tree\n",
- 								__func__);
-@@ -140,7 +147,7 @@ static int __init vt8500_timer_init(struct device_node *np)
- 
- 	writel(TIMER_CTRL_ENABLE, regbase + TIMER_CTRL_REG);
- 	writel(TIMER_STATUS_CLEARALL, regbase + TIMER_STATUS_REG);
--	writel(~0, regbase + TIMER_MATCH_REG(0));
-+	writel(~0, regbase + TIMER_MATCH_REG(sys_timer_ch));
- 
- 	ret = clocksource_register_hz(&clocksource, VT8500_TIMER_HZ);
- 	if (ret) {
-@@ -166,4 +173,55 @@ static int __init vt8500_timer_init(struct device_node *np)
- 	return 0;
- }
- 
-+/*
-+ * This probe gets called after the timer is already up and running. This will create
-+ * the watchdog device as a child since the registers are shared.
-+ */
-+static int vt8500_timer_probe(struct platform_device *pdev)
++#define TIMER_MATCH_REG(x)	(4 * (x))
++#define TIMER_COUNT_REG		0x0010	 /* clocksource counter */
++
++#define TIMER_WATCHDOG_EN_REG	0x0018
++#define TIMER_WD_EN		BIT(0)
++
++#define TIMER_CTRL_REG		0x0020
++#define TIMER_CTRL_ENABLE	BIT(0)	 /* enable clocksource counter */
++#define TIMER_CTRL_RD_REQ	BIT(1)	 /* request counter read */
++
++#define TIMER_ACC_STS_REG	0x0024	 /* access status */
++#define TIMER_ACC_WR_MATCH(x)	BIT((x)) /* writing Match (x) value */
++#define TIMER_ACC_WR_COUNTER	BIT(4)	 /* writing clocksource counter */
++#define TIMER_ACC_RD_COUNTER	BIT(5)	 /* reading clocksource counter */
++
++#define VT8500_TIMER_HZ		3000000
++#define msecs_to_loops(t) (loops_per_jiffy / 1000 * HZ * t)
++
++struct vt8500_wdt {
++	void __iomem *regbase;
++	struct watchdog_device wdd;
++};
++
++static u64 vt8500_timer_read(void __iomem *regbase)
 +{
-+	struct platform_device *vt8500_watchdog_device;
-+	struct device *dev = &pdev->dev;
-+	int ret;
++	int loops = msecs_to_loops(10);
 +
-+	if (!sys_timer_ch) {
-+		dev_info(dev, "Not enabling watchdog: only one irq was given");
-+		return 0;
-+	}
-+
-+	if (!regbase)
-+		return dev_err_probe(dev, -ENOMEM,
-+			"Timer not initialized, cannot create watchdog");
-+
-+	vt8500_watchdog_device = platform_device_alloc("vt8500-wdt", -1);
-+	if (!vt8500_watchdog_device)
-+		return dev_err_probe(dev, -ENOMEM,
-+			"Failed to allocate vt8500-wdt");
-+
-+	/* Pass the base address as platform data and nothing else */
-+	vt8500_watchdog_device->dev.platform_data = regbase;
-+	vt8500_watchdog_device->dev.parent = dev;
-+
-+	ret = platform_device_add(vt8500_watchdog_device);
-+	if (ret)
-+		platform_device_put(vt8500_watchdog_device);
-+
-+	return ret;
++	writel(TIMER_CTRL_ENABLE | TIMER_CTRL_RD_REQ, regbase + TIMER_CTRL_REG);
++	while (readl(regbase + TIMER_ACC_STS_REG) & TIMER_ACC_RD_COUNTER
++	     && --loops)
++		cpu_relax();
++	return readl(regbase + TIMER_COUNT_REG);
 +}
 +
-+static const struct of_device_id vt8500_timer_of_match[] = {
-+	{ .compatible = "via,vt8500-timer", },
-+	{},
++static int vt8500_watchdog_start(struct watchdog_device *wdd)
++{
++	struct vt8500_wdt *drvdata = watchdog_get_drvdata(wdd);
++	u64 cycles = wdd->timeout * VT8500_TIMER_HZ;
++	u64 deadline = vt8500_timer_read(drvdata->regbase) + cycles;
++
++	writel((u32)deadline, drvdata->regbase + TIMER_MATCH_REG(0));
++	writel(TIMER_WD_EN, drvdata->regbase + TIMER_WATCHDOG_EN_REG);
++	return 0;
++}
++
++static int vt8500_watchdog_stop(struct watchdog_device *wdd)
++{
++	struct vt8500_wdt *drvdata = watchdog_get_drvdata(wdd);
++
++	writel(0, drvdata->regbase + TIMER_WATCHDOG_EN_REG);
++	return 0;
++}
++
++static const struct watchdog_ops vt8500_watchdog_ops = {
++	.start			= vt8500_watchdog_start,
++	.stop			= vt8500_watchdog_stop,
 +};
 +
-+static struct platform_driver vt8500_timer_driver = {
-+	.probe  = vt8500_timer_probe,
++static const struct watchdog_info vt8500_watchdog_info = {
++	.identity		= "VIA VT8500 watchdog",
++	.options		= WDIOF_MAGICCLOSE |
++				  WDIOF_KEEPALIVEPING |
++				  WDIOF_SETTIMEOUT,
++};
++
++static int vt8500_wdt_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct vt8500_wdt *drvdata;
++
++	drvdata = devm_kzalloc(dev, sizeof(struct vt8500_wdt), GFP_KERNEL);
++	if (!drvdata)
++		return -ENOMEM;
++
++	/*
++	 * The register area where the timer and watchdog reside is disarranged.
++	 * Hence mapping individual register blocks for the timer and watchdog
++	 * is not recommended as they would have access to each others
++	 * registers. The timer driver creates the watchdog as a child device.
++	 * During the watchdogs creation, the timer driver passes the base
++	 * address to the watchdog over the private interface.
++	 */
++
++	drvdata->regbase = (void __iomem *)dev->platform_data;
++
++	drvdata->wdd.info = &vt8500_watchdog_info;
++	drvdata->wdd.ops = &vt8500_watchdog_ops;
++	drvdata->wdd.max_hw_heartbeat_ms = -1UL / (VT8500_TIMER_HZ / 1000);
++	drvdata->wdd.parent = dev;
++
++	watchdog_set_drvdata(&drvdata->wdd, drvdata);
++
++	return devm_watchdog_register_device(dev, &drvdata->wdd);
++}
++
++static struct platform_driver vt8500_wdt_driver = {
++	.probe = vt8500_wdt_probe,
 +	.driver = {
-+		.name = "vt8500-timer",
-+		.of_match_table = vt8500_timer_of_match,
-+		.suppress_bind_attrs = true,
++		.name =	"vt8500-wdt",
 +	},
 +};
++module_platform_driver(vt8500_wdt_driver);
 +
-+builtin_platform_driver(vt8500_timer_driver);
-+
- TIMER_OF_DECLARE(vt8500, "via,vt8500-timer", vt8500_timer_init);
++MODULE_AUTHOR("Alexey Charkov <alchark@gmail.com>");
++MODULE_DESCRIPTION("Driver for the VIA VT8500 watchdog timer");
++MODULE_LICENSE("GPL");
 
 -- 
 2.49.0
