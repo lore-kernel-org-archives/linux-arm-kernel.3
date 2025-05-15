@@ -4,101 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F25C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 11:59:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B5BEC3DA4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 12:05:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8kTrvJwPYog6ibdC8R73i3/w/ryvC/QOpevsthuxZsk=; b=DaEsbbb9hKlXCsw8kR0Z80mweL
-	zYEkjep0KJSoM/DV9dnBfO3WlPisxRkQD+ykX3QIbjoMa25wQExyLvj0qq3bOxxC38WVe97t3wP0/
-	h2681weZTyV78UtLCZf7mvXuhSsw+FVjboKtx5gVIQno0IU58eLzXTmCnSfQc8idPNhFGhd3t2SLG
-	fEgnn6UrvZq6ZM6V4jmYNxeF4AUBeG7iWZY0076AjiqNXzHujH/PH4TZXLr9JkFJB/J57blG1m0oT
-	tbZlTOGi3o9yr3c5sCPKMrX4Pm6mpMbkYz0Futa6+vyxewBSbF1/0wr9DO9om0619jgyebsJTjeM9
-	qPJUw5xw==;
+	bh=J5Dm294PbrWONSf7K3CLqY0H7cYyRoYEw+bT1IPWQHo=; b=yU1LDzdum8CppYviL0EZNKxyVp
+	lhsi3ULw0LIVm1La+mONbhQvJdEUttVtp8FYki9TEp7ZN6prCeVZ5J1P20xgJhkRpSt8luLhJSG4x
+	tO6Dk2otj/Wc4MYNTz8oncWEXOU+ywU9mGqSVyfJ2PYca3J2SPecxp1Vjvf5/3qa/5UtpAfvbBJ0B
+	PdUDUku/i9EYzle6A2aJptimwY4wFeWgVNphj6Ah/QNsEl6x2lr27TI8mxzx+SA42tI0t5YJVQzjL
+	7TaoIBSWBNalFqAH/yCNV5lxcBOfglsSpI1/88A4JOezzhKDqLWQDVT+u+k2gTLje8qYwJ+O/awLb
+	+/5hcKSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFXFH-00000000Tkb-1fRV;
-	Thu, 15 May 2025 11:59:27 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1uFXLI-00000000Uih-1z2c;
+	Thu, 15 May 2025 12:05:40 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFXDH-00000000TbV-0DLb
+	id 1uFXJG-00000000UR1-3lHu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 11:57:24 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3a0b7fbdde7so755994f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 04:57:22 -0700 (PDT)
+	Thu, 15 May 2025 12:03:36 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-441ab63a415so9092405e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 05:03:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747310241; x=1747915041; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1747310613; x=1747915413; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=8kTrvJwPYog6ibdC8R73i3/w/ryvC/QOpevsthuxZsk=;
-        b=gJMP7jCb5wiX9MV0DAmkCJxa6YOjscW9v7EggbpwnG/s3gYHSA4iF4pYEAjA2KckO3
-         A5fE0VkqtoEL9kFDrfbIYjD/VuxOhiFm27jXVuyeXn6zVPsRT+yaMe1qolTuVcsea+Vy
-         Rac+F9kuJWt7EjzmmXgT4/fTPHbqhIHkUNZnqEg62yot285RB8q0yM+xg4UQBnSwCbgr
-         AxZ+aZ18CzayVNRX2D3cFoJ1ncOvehom12wTXEAsZf1oNbMzR6Dz8R/Bx6sdsLbnbHzM
-         Xb0nB0W3qhBybZlxCy+gFHukfHJKug5/n2dhQnk7nHI+tqDUrzBanL2iU17CVEBj1+T6
-         uCYg==
+        bh=J5Dm294PbrWONSf7K3CLqY0H7cYyRoYEw+bT1IPWQHo=;
+        b=KE9fAo6K2OAOP6Dr4HR4V91DBVp8iwpXiDtZY4s9nW1fdqsL3gBcdeBNH069Wx5kn5
+         jZXY/Qem0AKkKjeVxwURFj710CWL4M2k7D9kBKeh/aL6hm5YMkfru2o5jaD5UkZkmKXH
+         5wMsLNbxFdiAAdY+ADi+7HHJLLpjnd7bRGufVsNqgJlA5IP38mVnZAM/0bAh6s8OP8RF
+         Fc1lQr2btkUrMwGzT1A+XqsfabZ84/+Zh17n/vv8MSp7B4vELfI+nXyYDBiDkahfA/Cl
+         NJXSQ9Yo2X0sRwMoO0+XkspphN12HLYLSNcGOavZz1yIMTY5kKdy9NSj4aivGpusViXv
+         CYYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747310241; x=1747915041;
+        d=1e100.net; s=20230601; t=1747310613; x=1747915413;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8kTrvJwPYog6ibdC8R73i3/w/ryvC/QOpevsthuxZsk=;
-        b=voKuHy3EeZQrGqHvq6z9sSzWypCpUMgheCxxMR060DJbt+fREEjuHnGldY745qrcOB
-         A7HlNJlzrIw70zUD8nLm5hP/nHevPxrE0ipOdtuDMW/Zopps3ecsObdR7SUKBCSrKHGO
-         i45Ca1hwrre1wti9FSlyOYkhPPhjrFzvtqajrdiO3Nkk18FwZaXR7E1bVMVLtihejrGq
-         YTFT+PYvKFNCZzAnfdmz7mmEXiy3M4OfMXlS7Ky5webMIgZeT+UTX0EeWeikLRGrrocm
-         RlIWo4Rq2c/hVbSMqAlff/1mmziKShaguNLdqEiHb6XgNT/CFpJebpqwvJQAFBQUwQdv
-         gMgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWy7GTH7AqgY6i3zqB+uiqWN0K4vpZjZvB/MIZX6yR0q/ei7VvsoUfgTmOzZiRX0axIhUbuMfjWpfyn1VQcT8rs@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPQ++/WyzPPW9RPJZxK2Rrm/7/Zlynf1Qj30QnMY9xO1MWh2Kl
-	G0l8RKzA3JGZTtuHX3oywqmcecPbNGvH3t3ll1jutjdqHDfmSK33WK8Y3VuIDA==
-X-Gm-Gg: ASbGncuIjVuw2l5n4E6YOZODsrkJnmDgWGTn3lHYTjHgOP9lpwfPl+G5viY/2iCQ0cz
-	6IW249xMngRWFw43YyanrCwUPghL9eDQu2Ma86cEtFt/5I3uA3hn30Wdbrq18DfbbeID4xB/B1G
-	iEiYcq34ik4bdBMmXHfiprS0NYCVqDpfLvgzIWVl7V29nAo1UwdRUyXH1O8Jcl/uh2OOPZ5pdsI
-	jDJMKd9kWSFv4J50u9V5G2Ht8QRg4iz3agsV2IUZ+7dmfycg1hqX7Yrt8dkfhzQsnqkskTIYfYj
-	hIIoM/N/CPd/jDHZh298p5DUWZbqbflxDVHNp5w7Xy2eVXMCJTDOo14LY5QPH/E/5UF3sPa/mQI
-	WBMDUbTCaxuHd+g==
-X-Google-Smtp-Source: AGHT+IHT8sGe+qq8cIc4avwun1XMAZX5YQZUGXMdjWUKnjqYpkS2IP5Zbr/WCevnDOHJQIVwI5wV7A==
-X-Received: by 2002:a05:6000:188c:b0:3a0:a09d:b31e with SMTP id ffacd0b85a97d-3a34994f2e1mr7059180f8f.59.1747310241228;
-        Thu, 15 May 2025 04:57:21 -0700 (PDT)
+        bh=J5Dm294PbrWONSf7K3CLqY0H7cYyRoYEw+bT1IPWQHo=;
+        b=G7LHmj/Fi7tQuvTo1QRdOBqQNzF97u6Nd9kiExhebq0MSkhpahJh9SdU290mHtvbbI
+         LDvTFkBgbgO3Q7n2MpCnPJlv3APPyvOSUpHeWsQsb6SknNaubd2Fc3l6G2w9fYuWivIP
+         yb7tOigkBe8CfMNPFiacRmRpKfDbfmPoGfuuoiQr4G5d6zmZYZyQeYO/NPsMmFF3KtoY
+         IYnGtc1b/wUyXnimxdQGalP7T/c6lo7kC50qgfsLwFJgSIRFj6XFA4XPg0dwq23KJBpS
+         Bnt78l3ZZeNl1soGP8DBxVLsBPvSxvvt1QpZsiH/gIS0r4XVimRmH02MScyX4R9iQflp
+         Thuw==
+X-Forwarded-Encrypted: i=1; AJvYcCVmnwdRk85tfiEk5afsJVkvjBeXXgp6wnVyC/dXq8woOrXcGJA5S+rpaCrGa+M0ZEwQjawjGliOV8tH4PmiuPJT@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpGYaPlYH5YERqamoc8caqD4AbuMWWXw6JR0KjwmWpK76PA9sI
+	NhLlswyxTP3aVkId/KIPl/7vRSfxuEQ9+gkmVprONtntlYHSy7cZ3yi7A6VB7A==
+X-Gm-Gg: ASbGncvSrPLy0AnH0ErHOS/zrcyRY7TXGD5Tqkt7UXzPFTTfWW/ponaDgJdimwDgy4N
+	ZdxIGWpUbtCu/inisIrLOCu8438ddEHXQTfnCVFt127ZoXYI6u0Rl8SAgcVpAtwdq22IvWvEe4z
+	E0fsCAXmf7XYxTAf4woF7UiUuyWVTNpRVrB84KOfVoFKMyR4q+C/j7JxI+HINY/JviW+OUQo6HZ
+	Q4EtdoL3/UpIYR23tTRXMxmNA5/pe1sICgw3CHp9fZZuwUIpyBFsHxEgUrbrsfD9PlJLPRHt8OW
+	mYCO6bgJ0lBXL8g65s5BGWS0OcVmZMs3kWpBWpxsOVoBh+69A4V5QSIjljM5SXikbv7NRweHaGa
+	FJ2GV+aA5jU7JEg==
+X-Google-Smtp-Source: AGHT+IHlVMLx2LBOebfEdakAr7jMaTKb4vKCXk6oSYtrA1JygFEFmKNR3fFjnt2BvUb5BojRv/MYmQ==
+X-Received: by 2002:a05:600c:a42:b0:442:cd13:f15d with SMTP id 5b1f17b1804b1-442f217a65fmr61066245e9.29.1747310612978;
+        Thu, 15 May 2025 05:03:32 -0700 (PDT)
 Received: from thinkpad (110.8.30.213.rev.vodafone.pt. [213.30.8.110])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f5a4c5f6sm22405542f8f.86.2025.05.15.04.57.19
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f58f2961sm22525510f8f.45.2025.05.15.05.03.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 May 2025 04:57:20 -0700 (PDT)
-Date: Thu, 15 May 2025 12:57:18 +0100
+        Thu, 15 May 2025 05:03:32 -0700 (PDT)
+Date: Thu, 15 May 2025 13:03:30 +0100
 From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>, 
-	linux-arm-kernel@lists.infradead.org, 
-	Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, Aradhya Bhatia <a-bhatia1@ti.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Heiko Stuebner <heiko@sntech.de>, 
-	Junhao Xie <bigfoot@classfun.cn>, Kever Yang <kever.yang@rock-chips.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] dt-bindings: PCI: rcar-gen4-pci-host: Document
- optional aux clock
-Message-ID: <ne4injlr4nwvufjdg7uuisxwipqfwd5voohktnbjjvod5om3p3@eriso5cw77ov>
-References: <20250406144822.21784-1-marek.vasut+renesas@mailbox.org>
- <20250406144822.21784-2-marek.vasut+renesas@mailbox.org>
- <2ny7jhcp2g5ixo75donutncxnjdawzev3mw7cytvhbk6szl3ue@vixax5lwpycw>
- <84cc6341-a2c1-4e3c-8c9e-2bc6589c52a6@mailbox.org>
+To: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
+Cc: Hans Zhang <18255117159@163.com>, lpieralisi@kernel.org, kw@linux.com, 
+	bhelgaas@google.com, heiko@sntech.de, yue.wang@amlogic.com, neil.armstrong@linaro.org, 
+	robh@kernel.org, jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com, 
+	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v3 3/3] PCI: aardvark: Remove redundant MPS configuration
+Message-ID: <wqzay2jvimjvpsj5rzh6xwxgmrerma5qesbwa6fkjepibhdv6e@hi4dpp4kmt5u>
+References: <20250506173439.292460-1-18255117159@163.com>
+ <20250506173439.292460-4-18255117159@163.com>
+ <20250506174110.63ayeqc4scmwjj6e@pali>
+ <8a6adc24-5f40-4f22-9842-b211e1ef5008@163.com>
+ <ff6abbf6-e464-4929-96e6-16e43c62db06@163.com>
+ <20250507163620.53v5djmhj3ywrge2@pali>
+ <oy5wlkvp7nrg65hmbn6cwjcavkeq7emu65tsh4435gxllyb437@7ai23qsmpesy>
+ <20250509160025.s65aw5ix6s7533b5@pali>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <84cc6341-a2c1-4e3c-8c9e-2bc6589c52a6@mailbox.org>
+In-Reply-To: <20250509160025.s65aw5ix6s7533b5@pali>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_045723_090702_EFD5F19F 
-X-CRM114-Status: GOOD (  21.33  )
+X-CRM114-CacheID: sfid-20250515_050334_947699_B2469F43 
+X-CRM114-Status: GOOD (  54.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,45 +110,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 12, 2025 at 10:42:20PM +0200, Marek Vasut wrote:
-> On 5/9/25 9:37 PM, Manivannan Sadhasivam wrote:
-> > On Sun, Apr 06, 2025 at 04:45:21PM +0200, Marek Vasut wrote:
-> > > Document 'aux' clock which are used to supply the PCIe bus. This
-> > > is useful in case of a hardware setup, where the PCIe controller
-> > > input clock and the PCIe bus clock are supplied from the same
-> > > clock synthesiser, but from different differential clock outputs:
+On Fri, May 09, 2025 at 06:00:25PM +0200, Pali Rohár wrote:
+> On Friday 09 May 2025 12:38:48 Manivannan Sadhasivam wrote:
+> > On Wed, May 07, 2025 at 06:36:20PM +0200, Pali Rohár wrote:
+> > > On Wednesday 07 May 2025 23:06:51 Hans Zhang wrote:
+> > > > On 2025/5/7 23:03, Hans Zhang wrote:
+> > > > > On 2025/5/7 01:41, Pali Rohár wrote:
+> > > > > > On Wednesday 07 May 2025 01:34:39 Hans Zhang wrote:
+> > > > > > > The Aardvark PCIe controller enforces a fixed 512B payload size via
+> > > > > > > PCI_EXP_DEVCTL_PAYLOAD_512B, overriding hardware capabilities and PCIe
+> > > > > > > core negotiations.
+> > > > > > > 
+> > > > > > > Remove explicit MPS overrides (PCI_EXP_DEVCTL_PAYLOAD and
+> > > > > > > PCI_EXP_DEVCTL_PAYLOAD_512B). MPS is now determined by the PCI core
+> > > > > > > during device initialization, leveraging root port configurations and
+> > > > > > > device-specific capabilities.
+> > > > > > > 
+> > > > > > > Aligning Aardvark with the unified MPS framework ensures consistency,
+> > > > > > > avoids artificial constraints, and allows the hardware to operate at
+> > > > > > > its maximum supported payload size while adhering to PCIe
+> > > > > > > specifications.
+> > > > > > > 
+> > > > > > > Signed-off-by: Hans Zhang <18255117159@163.com>
+> > > > > > > ---
+> > > > > > >   drivers/pci/controller/pci-aardvark.c | 2 --
+> > > > > > >   1 file changed, 2 deletions(-)
+> > > > > > > 
+> > > > > > > diff --git a/drivers/pci/controller/pci-aardvark.c
+> > > > > > > b/drivers/pci/controller/pci-aardvark.c
+> > > > > > > index a29796cce420..d8852892994a 100644
+> > > > > > > --- a/drivers/pci/controller/pci-aardvark.c
+> > > > > > > +++ b/drivers/pci/controller/pci-aardvark.c
+> > > > > > > @@ -549,9 +549,7 @@ static void advk_pcie_setup_hw(struct
+> > > > > > > advk_pcie *pcie)
+> > > > > > >       reg = advk_readl(pcie, PCIE_CORE_PCIEXP_CAP + PCI_EXP_DEVCTL);
+> > > > > > >       reg &= ~PCI_EXP_DEVCTL_RELAX_EN;
+> > > > > > >       reg &= ~PCI_EXP_DEVCTL_NOSNOOP_EN;
+> > > > > > > -    reg &= ~PCI_EXP_DEVCTL_PAYLOAD;
+> > > > > > >       reg &= ~PCI_EXP_DEVCTL_READRQ;
+> > > > > > > -    reg |= PCI_EXP_DEVCTL_PAYLOAD_512B;
+> > > > > > >       reg |= PCI_EXP_DEVCTL_READRQ_512B;
+> > > > > > >       advk_writel(pcie, reg, PCIE_CORE_PCIEXP_CAP + PCI_EXP_DEVCTL);
+> > > > > > > -- 
+> > > > > > > 2.25.1
+> > > > > > > 
+> > > > > > 
+> > > > > > Please do not remove this code. It is required part of the
+> > > > > > initialization of the aardvark PCI controller at the specific phase,
+> > > > > > as defined in the Armada 3700 Functional Specification.
+> > > > > > 
+> > > > > > There were reported more issues with those Armada PCIe controllers for
+> > > > > > which were already sent patches to mailing list in last 5 years. But
+> > > > > > unfortunately not all fixes were taken / applied yet.
+> > > > > 
+> > > > > Hi Pali,
+> > > > > 
+> > > > > I replied to you in version v2.
+> > > > > 
+> > > > > Is the maximum MPS supported by Armada 3700 512 bytes?
+> > > 
+> > > IIRC yes, 512-byte mode is supported. And I think in past I was testing
+> > > some PCIe endpoint card which required 512-byte long payload and did not
+> > > worked in 256-byte long mode (not sure if the card was not able to split
+> > > transaction or something other was broken, it is quite longer time).
+> > > 
+> > > > > What are the default values of DevCap.MPS and DevCtl.MPS?
+> > > 
+> > > Do you mean values in the PCI-to-PCI bridge device of PCIe Root Port
+> > > type?
+> > > 
+> > > Aardvark controller does not have the real HW PCI-to-PCI bridge device.
+> > > There is only in-kernel emulation drivers/pci/pci-bridge-emul.c which
+> > > create fake kernel PCI device in the hierarchy to make kernel and
+> > > userspace happy. Yes, this is deviation from the PCIe standard but well,
+> > > buggy HW is also HW.
+> > > 
+> > > And same applies for the pci-mvebu.c driver for older Marvell PCIe HW.
+> > > 
 > > 
-> > How different is this clock from the 'reference clock'? I'm not sure what you
-> > mean by 'PCIe bus clock' here. AFAIK, endpoint only takes the reference clock
-> > and the binding already has 'ref' clock for that purpose. So I don't understand
-> > how this new clock is connected to the endpoint device.
+> > Oh. Then this patch is not going to change the MPS setting of the root bus. But
+> > that also means that there is a deviation in what the PCI core expects for a
+> > root port and what is actually programmed in the hw.
 > 
-> See the ASCII art below , CLK_DIF0 is 'ref' clock that feeds the controller
-> side, CLK_DIF1 is the bus (or 'aux') clock which feeds the bus (or endpoint)
-> side. Both clock come from the same clock synthesizer, but from two separate
-> clock outputs of the synthesizer.
+> Yes, exactly this aardvark PCIe controller deviates from the PCIe spec
+> in lot of things. That is why it is needed to be really careful about
+> such changes.
+> 
+> Same applies for pci-mvebu.c. Both are PCIe controllers on Marvell
+> hardware, but it questionable from who both these IPs and hence source
+> of the issues.
+> 
+> Also these PCIe controllers have lot of HW bugs and documented and
+> undocumented erratas (for things which should work, but does not).
+> 
+> So it is not just as "enable or disable this bit and it would work". It
+> is needed to properly check if such functionality is provided by HW and
+> whether there is not some documented/undocumented errata for this
+> feature which could say "its broken, do not try to set this bit".
+> 
+> > Even in this MPS case, if the PCI core decides to scale down the MPS value of
+> > the root port, then it won't be changed in the hw and the hw will continue to
+> > work with 512B? Shouldn't the controller driver change the hw values based on
+> > the values programmed by PCI core of the emul bridge?
+> 
+> Marvell PCIe controllers has their own ways how to configure different
+> things of PCIe HW via custom platform registers. This is something which
+> needs to be properly understood and implemented as 1:1 mapping to kernel
+> root port emulator. Drivers should do it but it is unfinished. And as I
+> already said I stopped any development in this area years ago when PCIe
+> maintainers stopped taking my fixes for these drivers. As I said I'm not
+> going to spend my free time to investigate again issues there, prepare
+> fixes for them and just let them dropped into trash as nobody is
+> interested in them. I have other more useful things to do in my free
+> time.
 > 
 
-Okay. So separate refclks are suppplied to the host and endpoint here and no,
-you should not call the other one as 'aux' clock, it is still the refclk. In
-this case, you should describe the endpoint refclk in the PCIe bridge node:
-
-		pcie@... {
-			clock = <refclk_host>;
-			...
-
-			pcie@0 {
-				device_type = "pci";
-				reg = <0x0 0x0 0x0 0x0 0x0>;
-				bus-range = <0x01 0xff>;
-				clock = <refclk_ep>;
-				...
-			};
-		};
-
-
-and use the pwrctrl driver PCI_PWRCTRL_SLOT to enable it. Right now, the slot
-pwrctrl driver is not handling the refclk, but I can submit a patch for that.
+If the patches are not related to unloading the driver which acts as a msi
+controller, I don't see issues with them ;) But I have no visibility on the past
+conversations.
 
 - Mani
 
