@@ -4,128 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03D14C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 10:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBFB4C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 10:47:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MaJ7Y9DNLBJHqz2iwf8vuXiz2idHbIlV+STRZdJtal4=; b=kYYtdb3dD2uUmV/aBpkFnjYGZA
-	TNjaj9j2iIcHe6hQQ1m5GIiduJoINYADLubQzs5Zh+jkPfG/BSnjkyqP8ziv420j7rZMQw6zaYU+Z
-	o23f9b+JBOoGJgb8CVKSqa57yzNhtEV7jqVyGihAw3Q/YC2rr8TSS7j7+iwU4Hd4OprRiQL7syaMz
-	BQZKTZjG5iUxy/t1bQYitwHL9fi0tPmlXNlprhob3c4rUw0arHq1cwFIrA1d74HImIDZr2urZOtCL
-	5g/7MNchgKmbsYAkc9cwLEixUldlEeoSa6Ux50TqDjJ7xvxaPoRlFPWvnuup7iW2DU3sHYa1K/j3X
-	mtfj5IJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vW4R+iIfQHX6LcemZgKde5LfX3QzRiBgsDPmmBk7yGM=; b=RhBZP5VG1v91lB+29MBmn8JFHI
+	w7XOLTo+02s1i/kqDl11ZzuUAm6uWLlCz2Rc4RhV7lbptmLnJfzpfAsOdKbH/z6REmptxIXShxB0a
+	pSQtlvpLrdNgNM85asViE8lOB03jDEK1dx+Qqsir2tyQj7rQanGFkdKEmhL5hcaYzLP+ZpZVpl2YZ
+	bZtnZzqVsua3DZdw/ZLhIxlLxh/ysXJR4mEiTIrUasFpdhyAUFc6OFHFHhNMFar4Exyg97vCjSFN8
+	kPERY1lbvw3/OhVrvORHfbCgm9Tmm1Mmjixn1JYKvesyu53qeg9mVw6bEsASHopbmNNtf4j3IBNCy
+	o+0wybiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFW5A-00000000KOR-0tji;
-	Thu, 15 May 2025 10:44:56 +0000
-Received: from mout.gmx.net ([212.227.17.22])
+	id 1uFW78-00000000Kb6-2X2r;
+	Thu, 15 May 2025 10:46:58 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFVsQ-00000000Ieu-38wH;
-	Thu, 15 May 2025 10:31:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1747305099; x=1747909899; i=wahrenst@gmx.net;
-	bh=MaJ7Y9DNLBJHqz2iwf8vuXiz2idHbIlV+STRZdJtal4=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=dsfPGV30oSsdt8DZK9TzJiRcztkhYW0NQ1bytPSHXBgkAiVvH0cTvi59JITj7KQO
-	 ROAW74BDcN23xycje2wA7O3B2Xgk92WOjIU2NlGJcLacBqXvIpNEuITth8vCicBRZ
-	 iBMXK76jvSfKt/dEUpS+zoLw2D/vkY0wUOoK471trwOtFZ23ssgvXW5w3n08mubNC
-	 cqL9LBdS9Ifr9IBf6YYi1Dkvk5GPJttC6usB3xc69wEjk8+tT8I/g9QScqK9cBb6z
-	 cQTn+qWFAYmUkBtN8BizGHWv34eIUD+6tzNj3rjnv29TW5puEWwR2OXEjOGWnMpI7
-	 YiMp9tts10WaftrqXA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.103] ([91.41.216.208]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1ML9yc-1uXaiu3SGA-00TL4t; Thu, 15
- May 2025 12:31:38 +0200
-Message-ID: <cecda824-4f47-4e4c-bee9-1a59cd5d801c@gmx.net>
-Date: Thu, 15 May 2025 12:31:38 +0200
+	id 1uFVuI-00000000IsJ-1c1W
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 May 2025 10:33:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1747305222; x=1778841222;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=jOy+gdB5snTg+AWaYBwU4zrEGtaSgqQCzCFFbsWkaZ4=;
+  b=Uo7oZ1DDbisXpRvmOk/+li6djIfJtxaevIZCVGy91hP28IGPRWN/ZpoN
+   Hd5vXCO2mJEkowoM2WGVmyOkdddYHzwmst7lTOezdPjO1klU9ryDhvo3E
+   gI60YCVCH0bK9oCllLplojhgU+ueHom0bRPljeu6aNC1gD+svjr0xfE+5
+   /CdjEdSzyJAv2gUpubGGsPUb2p0/uYpo54QPrA4BR7JaTM9XLfshPxPW1
+   2X3LY+9ojSPCBwxl36M00sNaDsj+0pW8O7JmAiPfL5GYuoN9nxgeHfSvA
+   J9HkZ+7hLAVTXqmvXGEU55A+GmjxmZhcPBuNrmAnrtC4l45PQF2KP660c
+   g==;
+X-CSE-ConnectionGUID: YDYKtXNcQOipD744zTQ15A==
+X-CSE-MsgGUID: ZMEcAudjRRmAFgfZqoRjuQ==
+X-IronPort-AV: E=Sophos;i="6.15,290,1739862000"; 
+   d="scan'208";a="209126771"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 15 May 2025 03:33:39 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Thu, 15 May 2025 03:33:08 -0700
+Received: from che-lt-i67131.microchip.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.44 via Frontend Transport; Thu, 15 May 2025 03:33:04 -0700
+From: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: Manikandan Muralidharan <manikandan.m@microchip.com>
+Subject: [PATCH] ARM: dts: microchip: rename spi-cs-setup-ns property to spi-cs-setup-delay-ns
+Date: Thu, 15 May 2025 16:02:51 +0530
+Message-ID: <20250515103251.210468-1-manikandan.m@microchip.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] firmware/raspberrypi: raise timeout to 3s
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
- bcm-kernel-feedback-list@broadcom.com,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Etienne Buira <etienne.buira@free.fr>, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <aCIiEp3CXD2o9dTw@Z926fQmE5jqhFMgp6>
- <048fd6c5-9f09-4c06-9a23-e5821dc291d5@gmx.net>
- <aCWMrJcldfrsNTQq@Z926fQmE5jqhFMgp6>
- <ffeb860f-5522-4130-ae47-45a6068b17ea@gmx.net>
- <aCW3d7tc27Awj62K@Z926fQmE5jqhFMgp6>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <aCW3d7tc27Awj62K@Z926fQmE5jqhFMgp6>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:/CmywX/7VEU2g4QZ6teXGi9GSuMycuTIstEUAYqzgsm6EqnZbFv
- 8UF5g624CmN772vtHKV7lX7f9cHZLyxZyeHESGX5jNx6ybI4VrT4+lXx74hFg05tYXRubSc
- AItcDSmWUrZFcHz3qUKTPZHc7jeCU/UxjxvLeS/+UC7LANtXY2cSPt3XoW5gM5rlwfpIcku
- I0VyKOfWqG4sUoUpOUu+Q==
-UI-OutboundReport: notjunk:1;M01:P0:0Qn6iHL1DwM=;bKKb9f8xgBJ6Ei5eX7Nb7JAAiEr
- 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
- AsaXGCWI0gOaw=
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_033147_106032_576F25EF 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20250515_033342_598975_A46BCB59 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,28 +85,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 15.05.25 um 11:44 schrieb Etienne Buira:
-> Hi Stefan, and thank you for your interest.
->
-> On Thu, May 15, 2025 at 09:42:43AM +0200, Stefan Wahren wrote:
->> Hi Etienne,
->>
->> Am 15.05.25 um 08:41 schrieb Etienne Buira:
->>> On Wed, May 14, 2025 at 06:20:32PM +0200, Stefan Wahren wrote:
->>>> Hi Etienne,
->>>>
->>>> Am 12.05.25 um 18:30 schrieb Etienne Buira:
->>> ../..
->>>> Out of curiosity and because i never saw this issue, could you please
->>>> provide more details?
->>>> There is nothing connected to HDMI 0 & 1 ?
->>>> Which firmware version are you running?
->> Please provide the dmesg output, so we can extract the firmware version.
-> Firmware version is 2025-02-17T20:03:07, i also attach the full gzipped
-> dmesg, as long as a patch of extra traces used.
-> I did not specifically test other firmware versions for the timeout
-> issue (but i did for video output).
-Thanks, i'll try to reproduce.
+The naming scheme for delay properties includes "delay" in the name,
+so renaming spi-cs-setup-ns property to spi-cs-setup-delay-ns to keep
+that consistent.
 
-Sorry, i forgot but is this reproducible with a recent stable 6.12.x kernel?
+Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+---
+ arch/arm/boot/dts/microchip/at91-sam9x60ek.dts        | 2 +-
+ arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi   | 2 +-
+ arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi | 2 +-
+ arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts      | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/arch/arm/boot/dts/microchip/at91-sam9x60ek.dts b/arch/arm/boot/dts/microchip/at91-sam9x60ek.dts
+index cdc56b53299d..c1ff3248bd8f 100644
+--- a/arch/arm/boot/dts/microchip/at91-sam9x60ek.dts
++++ b/arch/arm/boot/dts/microchip/at91-sam9x60ek.dts
+@@ -609,7 +609,7 @@ flash@0 {
+ 		compatible = "jedec,spi-nor";
+ 		reg = <0>;
+ 		spi-max-frequency = <104000000>;
+-		spi-cs-setup-ns = <7>;
++		spi-cs-setup-delay-ns = <7>;
+ 		spi-tx-bus-width = <4>;
+ 		spi-rx-bus-width = <4>;
+ 		m25p,fast-read;
+diff --git a/arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi b/arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi
+index 8ac85dac5a96..13c28e92b17e 100644
+--- a/arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi
++++ b/arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi
+@@ -44,7 +44,7 @@ flash@0 {
+ 					compatible = "jedec,spi-nor";
+ 					reg = <0>;
+ 					spi-max-frequency = <104000000>;
+-					spi-cs-setup-ns = <7>;
++					spi-cs-setup-delay-ns = <7>;
+ 					spi-tx-bus-width = <4>;
+ 					spi-rx-bus-width = <4>;
+ 					m25p,fast-read;
+diff --git a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi b/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
+index ef11606a82b3..9543214adc9f 100644
+--- a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
++++ b/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
+@@ -234,7 +234,7 @@ qspi1_flash: flash@0 {
+ 		compatible = "jedec,spi-nor";
+ 		reg = <0>;
+ 		spi-max-frequency = <104000000>;
+-		spi-cs-setup-ns = <7>;
++		spi-cs-setup-delay-ns = <7>;
+ 		spi-rx-bus-width = <4>;
+ 		spi-tx-bus-width = <4>;
+ 		m25p,fast-read;
+diff --git a/arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts b/arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts
+index 9fa6f1395aa6..fbae6a9af6c3 100644
+--- a/arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts
++++ b/arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts
+@@ -714,7 +714,7 @@ flash@0 {
+ 		compatible = "jedec,spi-nor";
+ 		reg = <0>;
+ 		spi-max-frequency = <104000000>;
+-		spi-cs-setup-ns = <7>;
++		spi-cs-setup-delay-ns = <7>;
+ 		spi-tx-bus-width = <4>;
+ 		spi-rx-bus-width = <4>;
+ 		m25p,fast-read;
+-- 
+2.25.1
+
 
