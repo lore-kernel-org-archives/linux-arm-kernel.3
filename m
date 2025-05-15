@@ -4,58 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EF0CC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 08:55:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07D80C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 08:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W4rTId6THWoa765N3ANlRit5ailmKTqHblTIleVnKKU=; b=cSZyHwNd6nP56byIqTZjVD7VUu
-	rriHT9GEPHENARrfi71MyVRnUXRUG/VyFlT3dKnvD1UprNHc+nMY8oyInohCsOrGJPGWUomT4wac4
-	llB5fxwFiKSQBK5cZxoneseDgvtvc4y6E9i0jQTxaUZZZmqB1LaDLiHajV0Pkx413xZl6F30YbGBI
-	aaZdkEy42UhxLsm1R9eMTAyNtKP58BNrrQoPOdP2AIFjOsRBI3JU2O0L/eUJWQidlQdvIhzooRhd5
-	nqGJBJZ9rdmtE94Pl4BeXWIb/79aUNN3N/O/6uLP0g8HHjUjf6zGpB46f6defrYHd8+Wha2DnhQ7e
-	5ANqPXOw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=v7FgsLCDjywRF5KPQTtUvLJ+BSHN64tfvbrVtXTw8Ws=; b=KHt1XISZGVyFuxw+iEIP4qsg6V
+	FoOIsVUQaJ+bcEYYpJRMxAznklvw9vCp8S8AYpFAJJp+vKpi5HYCYd4DHM1PqvvFHaCyufPqJbdS5
+	O0OljrJKFZB2n3tZD92JXc6/gTRDywiuRAk1Wnxwpg0AilVixUCtHh3vWsYjNkBNmEN/H7r1vyEZq
+	KbUtu3Zg6dmcINNP6+PSomhv9gG2huWjHLv4zoJG8fJFV4yJlhto9nkEbovVvyhINnrsTRLHYValn
+	yhjYkuJCwEi488PTwLIZp8Nr++XV3+Y+Ze6xz4+e9GNlhrEmp8YQ5UXXfz8Lafw9xsaaVYGanfVIn
+	PzGALwZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFUNI-000000003cQ-2huY;
-	Thu, 15 May 2025 08:55:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFU8U-000000001OC-2gYw
+	id 1uFUPH-000000003zg-1bf8;
+	Thu, 15 May 2025 08:57:35 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uFU9R-000000001aK-08oE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 08:40:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C79D014BF;
-	Thu, 15 May 2025 01:40:01 -0700 (PDT)
-Received: from [10.162.40.26] (K4MQJ0H1H2.blr.arm.com [10.162.40.26])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2E50B3F673;
-	Thu, 15 May 2025 01:40:09 -0700 (PDT)
-Message-ID: <73a67d06-b497-40a2-8cb2-3b80c6ba59d1@arm.com>
-Date: Thu, 15 May 2025 14:10:07 +0530
+	Thu, 15 May 2025 08:41:15 +0000
+Received: from localhost (unknown [124.16.138.129])
+	by APP-05 (Coremail) with SMTP id zQCowAA3dw+iqCVotbHaFQ--.49892S2;
+	Thu, 15 May 2025 16:41:06 +0800 (CST)
+From: Chen Ni <nichen@iscas.ac.cn>
+To: qiang.zhao@nxp.com,
+	christophe.leroy@csgroup.eu
+Cc: linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chen Ni <nichen@iscas.ac.cn>
+Subject: [PATCH] soc: fsl: qe: Consolidate chained IRQ handler install/remove
+Date: Thu, 15 May 2025 16:39:19 +0800
+Message-Id: <20250515083919.3811473-1-nichen@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: Check pxd_leaf() instead of !pxd_table() while
- tearing down page tables
-To: David Hildenbrand <david@redhat.com>, catalin.marinas@arm.com,
- will@kernel.org
-Cc: ryan.roberts@arm.com, anshuman.khandual@arm.com, mark.rutland@arm.com,
- yang@os.amperecomputing.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-References: <20250515063450.86629-1-dev.jain@arm.com>
- <332ecda7-14c4-4dc3-aeff-26801b74ca04@redhat.com>
- <4904d02f-6595-4230-a321-23327596e085@arm.com>
- <6fe7848c-485e-4639-b65c-200ed6abe119@redhat.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <6fe7848c-485e-4639-b65c-200ed6abe119@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowAA3dw+iqCVotbHaFQ--.49892S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7GF1fZFWUWr1fAr17tr4UXFb_yoWkZFc_Ww
+	45X347Xr18ZasayF12ywsxAF4rZF4vqrnrCanYqFZay34fJ397AF1UtFnxur1kWF15ZF1k
+	Ary5ZrWfGrWUGjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbVxFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
+	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r4UJVWxJr1lOx8S6xCaFVCjc4AY6r
+	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AK
+	xVWUAVWUtwCY02Avz4vE14v_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
+	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
+	17CE14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
+	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
+	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
+	73UjIFyTuYvjfU00eHDUUUU
+X-Originating-IP: [124.16.138.129]
+X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_014014_722834_FA19A4B0 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20250515_014113_447438_5853043F 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,56 +80,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Chained irq handlers usually set up handler data as well.
+irq_set_chained_handler_and_data() can set both under irq_desc->lock.
+Replace the two calls with one.
 
+Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+---
+ drivers/soc/fsl/qe/qe_ic.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
-On 15/05/25 2:06 pm, David Hildenbrand wrote:
-> On 15.05.25 10:22, Dev Jain wrote:
->>
->>
->> On 15/05/25 1:43 pm, David Hildenbrand wrote:
->>> On 15.05.25 08:34, Dev Jain wrote:
->>>> Commit 9c006972c3fe removes the pxd_present() checks because the caller
->>>> checks pxd_present(). But, in case of vmap_try_huge_pud(), the caller
->>>> only
->>>> checks pud_present(); pud_free_pmd_page() recurses on each pmd through
->>>> pmd_free_pte_page(), wherein the pmd may be none.
->>> The commit states: "The core code already has a check for pXd_none()",
->>> so I assume that assumption was not true in all cases?
->>>
->>> Should that one problematic caller then check for pmd_none() instead?
->>
->>   From what I could gather of Will's commit message, my interpretation is
->> that the concerned callers are vmap_try_huge_pud and vmap_try_huge_pmd.
->> These individually check for pxd_present():
->>
->> if (pmd_present(*pmd) && !pmd_free_pte_page(pmd, addr))
->>     return 0;
->>
->> The problem is that vmap_try_huge_pud will also iterate on pte entries.
->> So if the pud is present, then pud_free_pmd_page -> pmd_free_pte_page
->> may encounter a none pmd and trigger a WARN.
-> 
-> Yeah, pud_free_pmd_page()->pmd_free_pte_page() looks shaky.
-> 
-> I assume we should either have an explicit pmd_none() check in 
-> pud_free_pmd_page() before calling pmd_free_pte_page(), or one in 
-> pmd_free_pte_page().
-> 
-> With your patch, we'd be calling pte_free_kernel() on a NULL pointer, 
-> which sounds wrong -- unless I am missing something important.
-> 
->>
->>>
->>> If you were able to trigger this WARN, it's always a good idea to
->>> include the splat in the commit.
->>
->> I wasn't able to, it is just an observation from code inspection.
-> 
-> That better be included in the patch description :)
-
-I did, actually. My bad for not putting in spaces, I notice now that the 
-description looks horrible to the eye :)
-
-> 
+diff --git a/drivers/soc/fsl/qe/qe_ic.c b/drivers/soc/fsl/qe/qe_ic.c
+index 17e6d2377c7c..4068b501a3a3 100644
+--- a/drivers/soc/fsl/qe/qe_ic.c
++++ b/drivers/soc/fsl/qe/qe_ic.c
+@@ -450,13 +450,11 @@ static int qe_ic_init(struct platform_device *pdev)
+ 
+ 	qe_ic_write(qe_ic->regs, QEIC_CICR, 0);
+ 
+-	irq_set_handler_data(qe_ic->virq_low, qe_ic);
+-	irq_set_chained_handler(qe_ic->virq_low, low_handler);
++	irq_set_chained_handler_and_data(qe_ic->virq_low, low_handler, qe_ic);
+ 
+-	if (high_handler) {
+-		irq_set_handler_data(qe_ic->virq_high, qe_ic);
+-		irq_set_chained_handler(qe_ic->virq_high, high_handler);
+-	}
++	if (high_handler)
++		irq_set_chained_handler_and_data(qe_ic->virq_high,
++						 high_handler, qe_ic);
+ 	return 0;
+ }
+ static const struct of_device_id qe_ic_ids[] = {
+-- 
+2.25.1
 
 
