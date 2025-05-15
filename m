@@ -4,148 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B803BC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 17:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D1EC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 17:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OcCJT2n+NdwluftUBOxmhv2A5eFeAUiAZd/40z5yTxA=; b=At5zz2OI4ZtYqW/xh9mQUvoZml
-	yeicKBz9mV0etkfD4CUVotBwf6VKvAKlwQyM4DCyCI22A8hgwOCM6StyGLqLVBhwECCFpKo2srsu7
-	Dfs+2ETjqIEDPUVguI9asNez77mACRwZBgi2d2gs6g/iKQXhcAkwXIO3BQkC5IQ8W6Mmf5+pf10P3
-	Ba5Bup/kAAnCgc1ELJSWTMnAUweZufzWw21HN3LodN3+UMMnJP9/49C5t0dn7OhR7cyxgepMs02oX
-	qHrDELKtRxEtu3S5UPZmpoiqHRlcri2JaFLpMXNyyS19nvP0OqqnyoGc1ONzgoQv6QIv9yXTtfVRH
-	LOjM8tgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eMncJgSExIrvYrm15fzLzbqOrXbXjQptW5tx6rKcD4I=; b=xZh9stEdVLueLfMGEkBn7DiH6c
+	SCy8uh+hvWEewBzO0WpMhZ0mNlFrhH+Ycm6KHsDbX92uDcK0AendKnTldb7tv230hhoNHBT+/bqG0
+	F1p7Xl4/XqXkY8lqz4W4D/02h9zk2vO9ouu097itrh/18Dfo5j0FsQuyppMVC/5h4+3Zp4slg1zXo
+	4FZVeWCZDMOUFHsIhqnLKA2aO+N+zlzss3xuMFEtRq//PC1WqJN4yy1g45Ja072KGdfzUDM+ugWM1
+	Tp4hit/pLOV3DgNA27jrBmOghjx/iv2nH7PKihhqqKq41/ufQ0GCGaAV9W7O2Kl1mm3RmGEoQ9skQ
+	4iIWhePw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFcUA-00000001RS9-1IXb;
-	Thu, 15 May 2025 17:35:10 +0000
-Received: from mail-bn7nam10on20608.outbound.protection.outlook.com ([2a01:111:f403:2009::608] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1uFcWA-00000001Rnu-02NK;
+	Thu, 15 May 2025 17:37:14 +0000
+Received: from mail-24426.protonmail.ch ([109.224.244.26])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFcS8-00000001RA0-10Tr
+	id 1uFcSs-00000001RFR-2QN9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 17:33:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FyFNfkOzVBpqr8CVbIVhVYIvQOnRYrbWji9e9TSHZgVB2xiIh6FDBAmmn0LICKrWWruc2fiWk19y0wWbLUk4HYuLL7PRKsVvzjSu1VZGAbPBAKL+SArI98GJzsSwap/5OZyVemf3f9FsaWM1otlOnwJRGU0psvhLGbwzCw4z5e5Ecfv9k7m3LJ/jTOqug/NbytTCFBl1EtI1UEuzkY2rRkjP+Jph7YMTiZMtuSA1vCzuw7vzMoXrohM5K6+T+aRHME90BeGIwkX+ZrvH+eCm3RkAMoRZliKa2GI+rvL/rpV4nz8Ple5IleJRitoY/wXkD67THuz0HVKPcT0l1YWHRQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OcCJT2n+NdwluftUBOxmhv2A5eFeAUiAZd/40z5yTxA=;
- b=AphaknoYN0lbE2NDjuIMrxzuJ5YvbdqfzxTJMLisOScEo01d07kj429aOoRm6Ik8ZeVzU9EH83b1etbTJZ+qQEEaXewegnZ5P643E4eZwTnraUjPcCCw2icpifcI9Iq29e3kNDo+OZ5C3d0/bUijAS+eiUvvxT/x0xziaapLxuYchZV2J0SEV0IydkmSkfk/dMwYMV+751y/2h1nT2sVvoqR90l/BWraU3IL1+hwGk/EIhUgpQDupkCa7bwxFPE+8lczEGCTSonzlrfRLJxC57BW0jCk2O70cZT1NWQaEGk0JDKEFG+r51k9fsaqmfD8bKHIqf2lA0Wt+b1wq0jAJQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OcCJT2n+NdwluftUBOxmhv2A5eFeAUiAZd/40z5yTxA=;
- b=Puap+MfHJcvzHX5pT6SLUmPv/JBzk7nxbmKBtny0tF/VOJuQUOsXwclqo7vPsfrt3vHhgmZI1eL6esBNEbP+cOvxxr4tj3ixER4nfGzo+prtxcOKlA+n4DSc5Vd3zWAFrOOqrmMvI7Xo/ZVedDgDdXevLD+ZX3bVm/E/B5uFR/c8Dup3pCC+JJC1gkgcYnIFtraYvQf1TOsX/Lk2g8VSyg4ytOEZcEvCDzarQb47Mm+4KR4Ms/3XR+PWFsaHA3lhQ8cIqTU5NS0Ls/VmrZAPIRR+E/XM5aPqu47QJ4QtpHC8owQITiYqzsd7/uj/UIhdgzIJs9a/VUzeGhFy0YkYEw==
-Received: from BL1PR13CA0395.namprd13.prod.outlook.com (2603:10b6:208:2c2::10)
- by CY5PR12MB6381.namprd12.prod.outlook.com (2603:10b6:930:3f::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.28; Thu, 15 May
- 2025 17:32:58 +0000
-Received: from BL6PEPF0001AB55.namprd02.prod.outlook.com
- (2603:10b6:208:2c2:cafe::7b) by BL1PR13CA0395.outlook.office365.com
- (2603:10b6:208:2c2::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.16 via Frontend Transport; Thu,
- 15 May 2025 17:32:58 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- BL6PEPF0001AB55.mail.protection.outlook.com (10.167.241.7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8722.18 via Frontend Transport; Thu, 15 May 2025 17:32:58 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 15 May
- 2025 10:32:40 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Thu, 15 May 2025 10:32:40 -0700
-Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Thu, 15 May 2025 10:32:38 -0700
-Date: Thu, 15 May 2025 10:32:37 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
-	<bagasdotme@gmail.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
-	<shuah@kernel.org>, <jsnitsel@redhat.com>, <nathan@kernel.org>,
-	<peterz@infradead.org>, <yi.l.liu@intel.com>, <mshavit@google.com>,
-	<praan@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>
-Subject: Re: [PATCH v4 17/23] iommu/arm-smmu-v3-iommufd: Add vsmmu_alloc impl
- op
-Message-ID: <aCYlNROYiTFv0XCk@Asurada-Nvidia>
-References: <cover.1746757630.git.nicolinc@nvidia.com>
- <80465bf197e1920a4c763244fab7577614c34700.1746757630.git.nicolinc@nvidia.com>
- <20250515171902.GO382960@nvidia.com>
+	Thu, 15 May 2025 17:33:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail; t=1747330426; x=1747589626;
+	bh=eMncJgSExIrvYrm15fzLzbqOrXbXjQptW5tx6rKcD4I=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector:List-Unsubscribe:List-Unsubscribe-Post;
+	b=lwSUTHmW6N+zQ/NW38uEV4P2MhL9KZS6+XrPKUKG8pmscbGxrmYDdsy2E0QY8a8Ad
+	 zloyMRqwi+ZGpgGamuodFCt08pt3kP283lyMkowlmMRZ9P+VvrktpmXv0RH+uLvAsU
+	 wUvljNwbqcP63kKVn37ILqzR0+CvoqA15NtAL8e02fFMSa6s+ktCv+p2X1RWDmtEVD
+	 XB20eYvxdMpxkjw9aRr01z+UBrcIkciJ58GM0EyF7smzzjw82G9nckk4VOH641apED
+	 WAuY/jVLa6qONkh1L0hjvaks7bvTrPkltGZfvRbG43IN7w/DOY69vaUo0vXaY+dYzA
+	 emqthYKG/HHQQ==
+Date: Thu, 15 May 2025 17:33:41 +0000
+To: Niklas Cassel <cassel@kernel.org>
+From: Laszlo Fiat <laszlo.fiat@proton.me>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, =?utf-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, Krishna chaitanya chundru <quic_krichai@quicinc.com>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, Damien Le Moal <dlemoal@kernel.org>, Hans Zhang <18255117159@163.com>, =?utf-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v2 0/4] PCI: dwc: Link Up IRQ fixes
+Message-ID: <fCMPjWu_crgW5GkH4DJd17WBjnCAsb363N9N_h6ld1i8NqNNGR9PTpQWAO9-kwv4DUL6um48dwP0GJ8GmdL4uQf-WniBepwuxTEhjmbBnug=@proton.me>
+In-Reply-To: <aCNSBqWM-HM2vX7K@ryzen>
+References: <20250506073934.433176-6-cassel@kernel.org> <7zcrjlv5aobb22q5tyexca236gnly6aqhmidx6yri6j7wowteh@mylkqbwehak7> <aCNSBqWM-HM2vX7K@ryzen>
+Feedback-ID: 130963441:user:proton
+X-Pm-Message-ID: 83d36aa26181c4d7b2012c55407c6d5d0302af1c
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250515171902.GO382960@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB55:EE_|CY5PR12MB6381:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3f197e89-f440-489a-b16f-08dd93d688c4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|7416014|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?NEyHQZMq8gnssFhVGGp44Hv8sLVPum2X1mDSPa6jCa4VRTFFwiB+kvKQi4vx?=
- =?us-ascii?Q?1IwOEIAzgC5jH7z3dl0T8R9b1al0BbFjUmO4goaAmPuWt09desgfV6vPfART?=
- =?us-ascii?Q?S7htricjxjJLf7wQkKShn7zoaFkpLF09ggcbjacGVS82UHh9fSi3/2v8uMdJ?=
- =?us-ascii?Q?XsfjLWz44NbFI1pEKvA4EqoaZaaOScx+5kqKsxG+KC0qzd0zINwYLfb+uw0K?=
- =?us-ascii?Q?s1HqJ4pWTLXoLpgxNxdjfs4CJ/twJz/c1xSY2BBFk80wY99atB/6QOwOY/9k?=
- =?us-ascii?Q?kXfmveDzgJzZS7KlTCv54l9NYw3j4uk10vx8Y6wusEQRg/K4ZmP4agO9i3vG?=
- =?us-ascii?Q?lfVpSXMx+gEGyHRxtgdkryonhiSElLLGVF2mhth7sJvve+BInUCZ66N/F9s7?=
- =?us-ascii?Q?gq91w5fV1m46pCl+hoEcDFmQtSD8JtE9Tg6sUwC+0/MaM+ZhfkKZQQQzjIg+?=
- =?us-ascii?Q?4ntVHa3fv2K2jZ5MX2tDOH+4xjEDqdtJSEzBMvtrKsBQtyzEXN/SOcfINleH?=
- =?us-ascii?Q?6JpV+bgIAMIP1AsSfm5CM18cnOb1shS0LdxlsgnWMDpZ09BGl7J8mJaaq5jJ?=
- =?us-ascii?Q?X0KJQZTJ+DKnRU6BCpaYVXi3oWMPpsoMFWUlBgUNdYGNuAio4AYrflsDd47U?=
- =?us-ascii?Q?mEPAxcC8clQRDEt2jj633THhAWm52YnN3oEuVbsMKnrx/aayjgr20ojnYxwm?=
- =?us-ascii?Q?fBmw0uqDgsa3iqPW6Fvy7I9pyfKlwbR/mfvyOpoSabEaUTc9dit+FEdDcfoI?=
- =?us-ascii?Q?+M0f/dFXD4CKu4afPEflAed5Clz50h7M/0DpEiGxGsZTG933RwQqRBSGKB65?=
- =?us-ascii?Q?C2gaf2mnK2XMXf41GmMM3aXpMxxuNp/H6mzjQaLFt99K/SOg6Mk3TxqOXtDA?=
- =?us-ascii?Q?sQ4fHetSv4dBujb4hCTD+Dx2JsgMhl74NtYUBRezZLRg4wRq6p/3NkguX/jk?=
- =?us-ascii?Q?jlFEagnKzmUke1vf0+N4spuf48d+LpXkNuuE4ie7dtsAq9v5fznV+7lwM8NM?=
- =?us-ascii?Q?+sbxiNqwLGiNS5fUTL1EGOR3GmFgFucbzHiZ2tJkRCizZePhHtEkoIYGHrTW?=
- =?us-ascii?Q?TosCoMm1R4eDW1bCkzARH8e4rC5hlbEoBIdmx0TfMYC8omyx12xkrkFLlE6u?=
- =?us-ascii?Q?Hp2VLqpjSmP2h8/71jMhkM6tvb2FtWp3YuJBC3c1zkp30Pds5kv7JN7NOXuW?=
- =?us-ascii?Q?J/l6+aRg75JQiUE++xG3EDJIQ8BpMhDuLa2ARVUh9sfaNcPtJfvYRhkG6ffz?=
- =?us-ascii?Q?vDLsOq4LOgdTBv5qVhRdUU+poAwBGHyGQd5uUjfLD5MSXcC/FbEi/HrbTdOF?=
- =?us-ascii?Q?gtIjR66ZbQElGvy1ikNUL9e9uxp9nRKsX4xLWpvvoVTQrXY++krwveSnAvjg?=
- =?us-ascii?Q?q6kmW0uhhr9TJ9iR6RJVRWGJgHqyJvzjcssDdNbwBaWGRpAV5r/YSEQ9hlg1?=
- =?us-ascii?Q?BaeqC81+AC1CDG2nX1NwR+jYMtbLLVzi0fCsiJi2k1fYPUFIP8wq2hWJRdD/?=
- =?us-ascii?Q?MJZw8PfwQpQEsfHU0Nxmw4GxY4RmZAxPOgjB?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(82310400026)(7416014)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 May 2025 17:32:58.1267
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3f197e89-f440-489a-b16f-08dd93d688c4
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB55.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6381
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_103304_273320_F566CF96 
-X-CRM114-Status: GOOD (  28.14  )
+X-CRM114-CacheID: sfid-20250515_103350_965988_E58883C1 
+X-CRM114-Status: GOOD (  30.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,70 +69,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 15, 2025 at 02:19:02PM -0300, Jason Gunthorpe wrote:
-> On Thu, May 08, 2025 at 08:02:38PM -0700, Nicolin Chen wrote:
-> > An impl driver might want to allocate its own type of vIOMMU object or the
-> > standard IOMMU_VIOMMU_TYPE_ARM_SMMUV3 by setting up its own SW/HW bits, as
-> > the tegra241-cmdqv driver will add IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV.
-> > 
-> > Add a vsmmu_alloc op and prioritize it in arm_vsmmu_alloc().
-> > 
-> > Reviewed-by: Pranjal Shrivastava <praan@google.com>
-> > Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> > ---
-> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     |  6 ++++++
-> >  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c | 17 +++++++++++------
-> >  2 files changed, 17 insertions(+), 6 deletions(-)
-> > 
-> > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> > index 6b8f0d20dac3..a5835af72417 100644
-> > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> > @@ -16,6 +16,7 @@
-> >  #include <linux/sizes.h>
-> >  
-> >  struct arm_smmu_device;
-> > +struct arm_smmu_domain;
-> >  
-> >  /* MMIO registers */
-> >  #define ARM_SMMU_IDR0			0x0
-> > @@ -720,6 +721,11 @@ struct arm_smmu_impl_ops {
-> >  	int (*init_structures)(struct arm_smmu_device *smmu);
-> >  	struct arm_smmu_cmdq *(*get_secondary_cmdq)(
-> >  		struct arm_smmu_device *smmu, struct arm_smmu_cmdq_ent *ent);
-> > +	struct arm_vsmmu *(*vsmmu_alloc)(
-> > +		struct arm_smmu_device *smmu,
-> > +		struct arm_smmu_domain *smmu_domain, struct iommufd_ctx *ictx,
-> > +		unsigned int viommu_type,
-> > +		const struct iommu_user_data *user_data);
-> >  };
-> 
-> I think you should put the supported viommu type here in the ops
-> struct and match it here:
 
-OK. A single type per impl might be enough for now, so it can
-be a static one.
+Hello,
 
-> > +	/* Prioritize the impl that may support IOMMU_VIOMMU_TYPE_ARM_SMMUV3 */
-> > +	if (master->smmu->impl_ops && master->smmu->impl_ops->vsmmu_alloc)
-> > +		vsmmu = master->smmu->impl_ops->vsmmu_alloc(
-> > +			master->smmu, s2_parent, ictx, viommu_type, user_data);
-> 
-> instead of the EOPNOTSUPP dance. Either the impl_ops supports the
-> requested viommu as an extension or we are running in the normal mode?
+On Tuesday, May 13th, 2025 at 4:07 PM, Niklas Cassel <cassel@kernel.org> wr=
+ote:
 
-I think we can only do normal mode if requested viommu is the
-normal SMMUV3 type, i.e. still need to reject a type other than
-!CMDQV nor !SMMUV3, right?
+> Hello Mani,
+>=20
+> On Tue, May 13, 2025 at 11:53:29AM +0100, Manivannan Sadhasivam wrote:
+>=20
+> > This wait time is a grey area in the spec tbh. If the Readiness Notific=
+ation
+> > (RN) is not supported, then the spec suggests waiting 1s for the device=
+ to
+> > become 'configuration ready'. That's why we have the 1s delay in dwc dr=
+iver.
+> >=20
+> > Also, it has the below in r6.0, sec 6.6.1:
+> >=20
+> > `* On the completion of Link Training (entering the DL_Active state, se=
+e =C2=A7 Section 3.2 ), a component must be able to receive and process TLP=
+s and DLLPs. * Following exit from a Conventional Reset of a device, within=
+ 1.0 s the device must be able to receive a Configuration Request and retur=
+n a Successful Completion if the Request is valid. This period is independe=
+nt of how quickly Link training completes. If Readiness Notifications mecha=
+nisms are used (see =C2=A7 Section 6.22 .), this period may be shorter.`
+> >=20
+> > As per the first note, once link training is completed, the device shou=
+ld be
+> > ready to accept configuration requests from the host. So no delay shoul=
+d be
+> > required.
+> >=20
+> > But the second note says that the 1s delay is independent of how quickl=
+y the
+> > link training completes. This essentially contradicts with the above po=
+int.
+> >=20
+> > So I think it is not required to add delay after completing the LTSSM, =
+unless
+> > someone sees any issue.
+>=20
+>=20
+> If you look at the commit message in patch 1/2, the whole reason for this
+> series is that someone has seen an issue :)
+>=20
+> While I personally haven't seen any issue, the user reporting that commit
+> ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can detect
+> Link Up") regressed his system so that it can no longer mount rootfs
+> (which is on a PLEXTOR PX-256M8PeGN NVMe SSD) clearly has seen an issue.
+>=20
+> It is possible that his device is not following the spec.
+> I simply compared the code before and after ec9fd499b9c6, to try to
+> figure out why it was actually working before, and came up with this,
+> which made his device functional again.
+>=20
+> Perhaps we should add a comment above the sleep that says that this
+> should strictly not be needed as per the spec?
+> (And also add the same comment in the (single) controller driver in
+> mainline which already does an msleep(PCIE_T_RRS_READY_MS).)
 
-> Is there a reason to allocate a different viommu if the userspace does
-> not enable the implementation specific features?
+I am the one experiencing the issue with my Orange PI 3B (RK3566, 8 GB RAM)=
+ and a PLEXTOR PX-256M8PeGN NVMe SSD.=20
 
-Hmm, what is this different viommu?
+I first detected the problem while upgrading from 6.13.8 to 6.14.3, that my=
+ system cannot find the NVME SSD which contains the rootfs. After reverting=
+ the two patches:
 
-If VMM doesn't want VCMDQ, it should go with the normal SMMUV3
-type.
+- ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can detect =
+Link Up")
+- 0e0b45ab5d77 ("PCI: dw-rockchip: Enumerate endpoints based on dll_link_up=
+ IRQ")
 
-Thanks
-Nicolin
+my system booted fine again.=20
+After that I tested the patches sent by Niklas in this thread, which fixed =
+the issue, so I sent Tested-by.
+
+I did another test Today with 6.15.0-rc6, which in itself does not find my =
+SSD. Niklas asked me to test with these=20
+
+- revert ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can =
+detect Link Up")
+- revert 0e0b45ab5d77 ("PCI: dw-rockchip: Enumerate endpoints based on dll_=
+link_up IRQ")
+- apply the following patch:
+
+diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/con=
+troller/dwc/pcie-designware.c
+index b3615d125942..5dee689ecd95 100644
+--- a/drivers/pci/controller/dwc/pcie-designware.c
++++ b/drivers/pci/controller/dwc/pcie-designware.c
+@@ -692,7 +692,7 @@ int dw_pcie_wait_for_link(struct dw_pcie *pci)
+                if (dw_pcie_link_up(pci))
+                        break;
+
+-               msleep(LINK_WAIT_SLEEP_MS);
++               usleep_range(100, 200);
+        }
+
+        if (retries >=3D LINK_WAIT_MAX_RETRIES) {
+
+
+which restores the original behaviour to wait for link-up, then shorten the=
+ time. This resulted again a non booting system, this time with "Phy link n=
+ever came up" error message.
+So please allow to fix the regression that is already in 6.14.x. I now so f=
+ar only I have reported this, but we cannot be sure how many SSDs have this=
+ timing issue. Most users use older, distribution packaged kernels, so othe=
+rs will face this later.
+
+Bye,
+
+Laszlo Fiat
+
+>=20
+>=20
+> Kind regards,
+> Niklas
 
