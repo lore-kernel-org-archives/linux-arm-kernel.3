@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFE90C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 09:41:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC7F0C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 09:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LwnsrpMvLC2QSW4QUvZ69ahD/8TwjGI5Icjzo88ho0E=; b=JbVKjiJ+tcxDxpfAXYahqo57mT
-	ZUPH9kzp4/H2D+aReJOTrW8O5t1/DB+LrHmYMFfQ2PfLMNEvqOW/tWxGVxzBD81OarLY6L1ejSurW
-	g5dgWZVk7kolYmCsDLdEmOo+4YuWtORSz2lifkKuEciXHv7B3lZSIEWA5FnRxS3jYw99h+wD6/bpX
-	O6I1y3hPgzRxU91BXCyUAofuaRI5zFgCaj1IcI5nx4Zd52sfKbwAwqukEIweR3HziUtBvIxTtatmH
-	MGofYGesOwlkw4xsiwOcXGAXimBFR6Hgt8/b52Czt4+HXHWa6sXt0VqCixNCL/+J9po1VYHbRd+YF
-	SAiyXzMw==;
+	bh=P5VLAojzpnIxDBE6zPAULs5TyBvsQa4MKoJmkjGV5zA=; b=TIqqCa7GeETbJsD0x7m10PWqKk
+	UAN349tuYmWvqv5ZSY3pDokmwDkPGsSFX+tuTdDvLz2olw7hzIOVWJ6gAmCHMMyeuqyfQmYZKEmpT
+	WTXQd7H8m9HeIF1NypM+4Z/nrCYNNQCIqKHwjrXK6QhWc2VCPq7H30h8+veLXwmdRaqizHTCqopxi
+	UJtTWtU2ZR10UXAyfAVMEwym0ZBTKWX2zZuyXZ9LVd/R05JBImL2ih9WhkPaISR0sPvymh2q7irfM
+	EWb+JNXn4ItMDIgf3UZGzyIN6c1tG1iVbtUbSfy9zvRcz0uLCJ+5fIV984dPUC9AaOXX0xX84L33a
+	xIf4dTmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFV5S-00000000CFJ-2hWI;
-	Thu, 15 May 2025 09:41:10 +0000
-Received: from [203.254.224.33] (helo=mailout3.samsung.com)
+	id 1uFV7R-00000000CWc-34YU;
+	Thu, 15 May 2025 09:43:13 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFUv9-00000000A8Q-3bWp
+	id 1uFUwL-00000000APw-314L
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 09:30:35 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250515093024epoutp034c182d944feea0ff27b7a2a689bde60e~-qWNsILa52592425924epoutp031
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 09:30:24 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250515093024epoutp034c182d944feea0ff27b7a2a689bde60e~-qWNsILa52592425924epoutp031
+	Thu, 15 May 2025 09:31:47 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250515093143epoutp03b70a737f2088d5bea573c42b320b2209~-qXXGxugo2591225912epoutp03p
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 09:31:43 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250515093143epoutp03b70a737f2088d5bea573c42b320b2209~-qXXGxugo2591225912epoutp03p
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1747301424;
-	bh=LwnsrpMvLC2QSW4QUvZ69ahD/8TwjGI5Icjzo88ho0E=;
+	s=mail20170921; t=1747301503;
+	bh=P5VLAojzpnIxDBE6zPAULs5TyBvsQa4MKoJmkjGV5zA=;
 	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=Mfj/xQBSk2q1y0nv8nneqDcaNNDD+L35xHCE+dpQjT74oWb9Fpzgd0ySJFb7uChkH
-	 qyF4CDyR/4z+XqkPkqeHZQOpaaOf74Gh+G8d5xEKM3cIobL6CCUxZA0WvXQUrYYDn3
-	 Ohnhpajy1aSRPN4V1TUXFRYmFSdJXhy1VZmr4G8o=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20250515093024epcas5p1e40dc34ff2f2ca956214a06054db9ecd~-qWNVLl0H1137911379epcas5p1e;
-	Thu, 15 May 2025 09:30:24 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.181]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4ZylLR1RT0z6B9mR; Thu, 15 May
-	2025 09:30:23 +0000 (GMT)
+	b=bLTfuhwUoi/ZOLE1iXg+ioM4p54mZsCMui4ElYk/ZqXxGrIR6KbgqLLl2whkcHo7A
+	 E8qrxu7SmfAVCZ6Ha+lEnud404Fk4TPK3QGdQQDa+w+aCYQjA8yAoREeppZ54DEHFk
+	 hChpcvRxgG+pWvvDL6AkdAaODuWtaDqmYcPH0Jks=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250515093143epcas5p2409f7bc212f1f6c8fbe25b72f73f6208~-qXWuzwPM1138511385epcas5p2Q;
+	Thu, 15 May 2025 09:31:43 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.177]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4ZylMx0zR3z3hhT8; Thu, 15 May
+	2025 09:31:41 +0000 (GMT)
 Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250515093022epcas5p2bb0e66bb225d96634bc6aacf984b8921~-qWLa5I0a2807728077epcas5p23;
-	Thu, 15 May 2025 09:30:22 +0000 (GMT)
-Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250515093140epcas5p1c735205578916f52954430b1db18f5e2~-qXUKreQ80539905399epcas5p18;
+	Thu, 15 May 2025 09:31:40 +0000 (GMT)
+Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
 	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250515093022epsmtrp227032d23c4c687f60f048b99fbe39566~-qWLZ9Lgu2206622066epsmtrp2w;
-	Thu, 15 May 2025 09:30:22 +0000 (GMT)
-X-AuditID: b6c32a2a-d57fe70000002265-91-6825b42dfd88
+	20250515093140epsmtrp2e3c56fd7433b4343ddad05abbccc6505~-qXUJ1cDK2264422644epsmtrp2G;
+	Thu, 15 May 2025 09:31:40 +0000 (GMT)
+X-AuditID: b6c32a52-40bff70000004c16-78-6825b47c083d
 Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	41.F1.08805.D24B5286; Thu, 15 May 2025 18:30:21 +0900 (KST)
+	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	23.34.19478.C74B5286; Thu, 15 May 2025 18:31:40 +0900 (KST)
 Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip2.samsung.com
 	(KnoxPortal) with ESMTPA id
-	20250515093019epsmtip276ad656a8729e1e80dbc116905a54ea1~-qWIpqNm70035900359epsmtip26;
-	Thu, 15 May 2025 09:30:19 +0000 (GMT)
+	20250515093138epsmtip21ebcf2ce07b9046da78413250900fa0d~-qXR--lqR0096500965epsmtip2y;
+	Thu, 15 May 2025 09:31:38 +0000 (GMT)
 From: "Alim Akhtar" <alim.akhtar@samsung.com>
 To: "'Pritam Manohar Sutar'" <pritam.sutar@samsung.com>,
 	<gregkh@linuxfoundation.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
@@ -70,43 +70,44 @@ Cc: <linux-usb@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <rosa.pila@samsung.com>,
 	<dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
 	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
-In-Reply-To: <20250514140741.415981-3-pritam.sutar@samsung.com>
-Subject: RE: [PATCH 2/2] usb: dwc3-exynos: add support for ExynosAutov920
-Date: Thu, 15 May 2025 15:00:18 +0530
-Message-ID: <0efd01dbc57b$faaafa00$f000ee00$@samsung.com>
+In-Reply-To: <20250514140741.415981-2-pritam.sutar@samsung.com>
+Subject: RE: [PATCH 1/2] dt-bindings: usb: samsung,exynos-dwc3: add
+ dt-schema ExynosAutov920
+Date: Thu, 15 May 2025 15:01:37 +0530
+Message-ID: <0efe01dbc57c$29955270$7cbff750$@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
 X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQHb4atmIwpdDAkGWt442tTNHGskkAJ/U0NcARvjAqiztljokA==
+Thread-Index: AQHb4atmIwpdDAkGWt442tTNHGskkAKMImHcAsHMHkuzqMU0AA==
 Content-Language: en-us
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrCIsWRmVeSWpSXmKPExsWy7bCSvK7uFtUMg+szDSzW7D3HZHFvxzJ2
-	i/lHzrFaXLuxkN2iefF6NouXs+6xWWx6fI3V4vKuOWwWM87vY7JYtKyV2eL8iy5Wi2f3VrBZ
-	/N+zg93iy88HzBZHln9ksli14AC7g4DHplWdbB77565h99i8pN6jb8sqRo8t+z8zenzeJBfA
-	FsVlk5Kak1mWWqRvl8CVcX5xO3vBYbaKi5sfsTQwbmDtYuTkkBAwkXi7awJbFyMXh5DAbkaJ
-	JdvvM0MkpCWub5zADmELS6z89xzMFhJ4ziixujUBxGYT0JXYsbgNrFlEYA+jRMfCh4wgDrPA
-	fiaJab+XMUGMPcwoMfPZfLB9nAL2EpvP72IDsYUFPCX+/vkFZHNwsAioSpx/6A4S5hWwlLg/
-	vYERwhaUODnzCQuIzSygLdH7sJURxl628DXUpQoSP58uYwUZIyLgJHFzTxBEibjEy6NH2Ccw
-	Cs9CMmkWkkmzkEyahaRlASPLKkbJ1ILi3PTcYsMCo7zUcr3ixNzi0rx0veT83E2M4IjV0trB
-	uGfVB71DjEwcjIcYJTiYlUR4r2cpZwjxpiRWVqUW5ccXleakFh9ilOZgURLn/fa6N0VIID2x
-	JDU7NbUgtQgmy8TBKdXAZBZRe+PH2vv7bn1ZpFAdXpO02De/gXthVNlvFibN2jP12Q7rl6tc
-	3ijE5R+3xYN9n2PPNfF7N8K9rly7rSYvPi31RbKUIO/hVz/Mal+oWy+6uMvBObNjkRFLd+Yf
-	5QN3Ul7YLBD9eFzq4W1Jrotpp7bEGMc/YxJ5vsPXcN2ugGUtDI8i/iY6V31XejL54ZHb8+oP
-	6nomXz/tpHM53npn/ROW1UHOblM6joffvfXHMLOA9cCEk39LkqvDNx47b2wRtiQx8+H6dp9n
-	t//NOqQ+g93PJv74Fm6p1rZamY4L3Xwdwk1vbrxSCgx49sb9RfmXF/9PrL3M25TG/b6wplfJ
-	KNIsQ7lsSQ9LyaE/tcxTlViKMxINtZiLihMBl9lrLUcDAAA=
-X-CMS-MailID: 20250515093022epcas5p2bb0e66bb225d96634bc6aacf984b8921
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrEIsWRmVeSWpSXmKPExsWy7bCSvG7NFtUMg9V9shZr9p5jsri3Yxm7
+	xfwj51gtrt1YyG7RvHg9m8XLWffYLDY9vsZqcXnXHDaLGef3MVksWtbKbHH+RRerxbN7K9gs
+	/u/ZwW7x5ecDZosjyz8yWaxacIDdQcBj06pONo/9c9ewe2xeUu/Rt2UVo8eW/Z8ZPT5vkgtg
+	i+KySUnNySxLLdK3S+DKOP5Zu2ASe0XDqj7mBsZFbF2MnBwSAiYSOyf/Zu9i5OIQEtjOKLF8
+	0nlGiIS0xPWNE9ghbGGJlf+eQxU9Z5R4cucpWBGbgK7EjsVtbCAJEYE9jBIdCx8ygjjMAvuZ
+	JKb9XsYE0XKYUeLO5vssIC2cAvYSP66dAlsuLBAj0XJuOhOIzSKgKjG56STYWF4BS4mFR9vY
+	IGxBiZMzn4D1MgtoS/Q+bGWEsOUltr+dwwxxn4LEz6fLWEFsEQEniTP7+lkhasQlXh49wj6B
+	UXgWklGzkIyahWTULCQtCxhZVjGKphYU56bnJhcY6hUn5haX5qXrJefnbmIER6tW0A7GZev/
+	6h1iZOJgPMQowcGsJMJ7PUs5Q4g3JbGyKrUoP76oNCe1+BCjNAeLkjivck5nipBAemJJanZq
+	akFqEUyWiYNTqoFpcS+zi/KnTk1PAY77wq97osJz5NcvFWjKapWe4TQleLXWlt4ZnD1iKx1c
+	+zZyzenZJ7I8JDpr+mXb2PVJT88//PW7dpe5xH7fxXEmGY0BCQLnTGL13q/+XrDw4LWvq1UF
+	Fyd6rdv5af11iwupa0Nnz5hjevjYlYgTmw7MYZ3+SfDBjL2O/7WPHCo4NP2NcMeeX35bgzP3
+	li7I5hdOXWppOe9c949G9y8fr1hXuluUSdlGNUWkNP97N2211Y7YFx+XLn6/bsnLUma7gxIy
+	28O+V66Yyv+xx7p4RkdUTtF935x1ezvcHDszzfgntf7k+jLnE/MchZjT+/ffsfkd+ulwmrUc
+	6/lVziZu+x+9OL/9lhJLcUaioRZzUXEiAPTyNRRFAwAA
+X-CMS-MailID: 20250515093140epcas5p1c735205578916f52954430b1db18f5e2
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-542,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250514135757epcas5p1aab0db4b4910b689f76ad00661f2a8e9
+X-CMS-RootMailID: 20250514135755epcas5p41291579e7eb266d92b91b82621e0fa5d
 References: <20250514140741.415981-1-pritam.sutar@samsung.com>
-	<CGME20250514135757epcas5p1aab0db4b4910b689f76ad00661f2a8e9@epcas5p1.samsung.com>
-	<20250514140741.415981-3-pritam.sutar@samsung.com>
+	<CGME20250514135755epcas5p41291579e7eb266d92b91b82621e0fa5d@epcas5p4.samsung.com>
+	<20250514140741.415981-2-pritam.sutar@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_023032_514386_CFEC7CCC 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20250515_023146_075523_14D00CEF 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,29 +125,23 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hi Pritam
 
 > -----Original Message-----
-> From: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
+> From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
 > Sent: Wednesday, May 14, 2025 7:38 PM
-> To: pritam.sutar=40samsung.com; gregkh=40linuxfoundation.org;
-> robh=40kernel.org; krzk+dt=40kernel.org; conor+dt=40kernel.org;
->=20
-=5Bsnip=5D
->  static const struct of_device_id exynos_dwc3_match=5B=5D =3D =7B
->  	=7B
->  		.compatible =3D =22samsung,exynos2200-dwusb3=22, =40=40 -209,6
-> +215,9 =40=40 static const struct of_device_id exynos_dwc3_match=5B=5D =
-=3D =7B
->  	=7D, =7B
->  		.compatible =3D =22google,gs101-dwusb3=22,
->  		.data =3D &gs101_drvdata,
-> +	=7D, =7B
-> +		.compatible =3D =22samsung,exynosautov920-dwusb3=22,
-> +		.data =3D &exynosautov920_drvdata,
-
-Should go below =22 samsung,exynos2200-dwusb3=22 entry (as already pointed =
-by Thinh)
-With that fixed
-
-Reviewed-by: Alim Akhtar <alim.akhtar=40samsung.com>
-
+> To: pritam.sutar@samsung.com; gregkh@linuxfoundation.org;
+> robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
+> alim.akhtar@samsung.com; Thinh.Nguyen@synopsys.com
+> Cc: linux-usb@vger.kernel.org; devicetree@vger.kernel.org; linux-arm-
+> kernel@lists.infradead.org; linux-samsung-soc@vger.kernel.org; linux-
+> kernel@vger.kernel.org; rosa.pila@samsung.com; dev.tailor@samsung.com;
+> faraz.ata@samsung.com; muhammed.ali@samsung.com;
+> selvarasu.g@samsung.com
+> Subject: [PATCH 1/2] dt-bindings: usb: samsung,exynos-dwc3: add dt-
+> schema ExynosAutov920
+> 
+> Add a dedicated compatible for USB controller found in this SoC
+> 
+> Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+> ---
+Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
 
 
