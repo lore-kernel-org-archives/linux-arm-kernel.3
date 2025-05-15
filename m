@@ -4,72 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE727C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 13:41:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF69AC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 13:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VRsV/Mmf4uLraDXUNpqoepJhEX/1ILD1zeqCVLUgR5k=; b=nMxYNb6BWCgQ28Zs85MCoSSbI2
-	YlxBwB4cg+pR37U4W5jREz9X0xRP7Nlaw7QSdMFpYtpdMCSvfMB+IJfwKoPwbmyUR95PJ3PBr9YOC
-	T5dR28aus2BOLYf6u/pNan+toVrwQdnIR/0sSAgm4h81SkzyXIMoVZBkcDkVpPKVpa1PsEc3pV8cI
-	Osd4zh895n3wIg7c9ID2wB0DRv039/295x4DGAM+ILfuyj1UEIEkwzxyY6IBDVDj9deNpLg4wV3qW
-	au3BoIbSbVK5TZ+6vWQZCajiam9XnFhodTOBwDNC9I1gNiWwJ/zo7QqVoOtbLlRjYkgxXU2Kawrzn
-	M5/QuYWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+QtbiFCbH+XmuT6Jjm7jEJzaflb4XkygcLmfeCUCGnY=; b=i9p+qva265bKj8tQ6YXYjjy3A0
+	gYnpzaSrgAVFLx7U66mu5lVcDUJGfpctdv/NBGIb/V+p4wYWrYgXniMfRt4HAGIrjO4BgnR+zch/2
+	NaslnPgcmo+f8BhxfPyribMQXMTTICAnd88KQ+FwYJEgAqqFgAQyw5NQ+OWRvQThUJQUjFQUWughd
+	FxX4RjfSCG820b1zE4x1NDrKlW57C4aZBXbpaWIIGODk+K9bkfZfAxftGFkIv4qJ6Z2PQtR870hR0
+	C/6dHEPK/fLccBDA6yG84zg1b6/37DwXCZVQnUtrJNyLIGWnJ/AJdAB7RmncTN9XKNZxdaetSbtas
+	0HW/DpRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFYpR-00000000lgd-2kma;
-	Thu, 15 May 2025 13:40:53 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uFYrQ-00000000ltD-2fQP;
+	Thu, 15 May 2025 13:42:56 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFYgg-00000000jui-2sQH;
-	Thu, 15 May 2025 13:31:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1747315909;
-	bh=8VVU8NVRnTpjcLWUjqNAgSssaH4toawfwMWnPXvh4zU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=n1iegtnaJRMXTSutf212UUiX+v9k41CzAhn8UMiV+FHxiMozVyEhPasaFgmbDOXsf
-	 9ydE7VuFRNJi1ESO2sIOqYlgRl6+8RTzkX7XfldCKOjiPq8ZO8ZTn4iAgr7+oPxzOX
-	 zve5KuPj+UOEp8gvbWnf54YcCdK5jTUDlOb8nhAHzQwGy6WbfwE7kxUWkQMtWVbXHj
-	 tNYd9woATMW8GSRsV+4FioHg9JzBhxemu9srWBt+VZtAFVGF7n74y6g4kOdskW6c4y
-	 WK6uxnrAqQdS8joyiXWnp492ZS2TqCL18WnJ6prwN+6S6VD688b5mYZQHXxkBPHyaZ
-	 1CbpZrR9RTRTg==
-Received: from apertis-1.home (2a01cb0892f2D600c8F85cf092D4Af51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: jmassot)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 77B4017E00F0;
-	Thu, 15 May 2025 15:31:48 +0200 (CEST)
-From: Julien Massot <julien.massot@collabora.com>
-Date: Thu, 15 May 2025 15:31:45 +0200
-Subject: [PATCH 3/3] arm64: dts: mediatek: mt8188: gce: add missing
- 'clock-names'
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250515-dtb-check-mt8188-v1-3-cda383cbeb4f@collabora.com>
-References: <20250515-dtb-check-mt8188-v1-0-cda383cbeb4f@collabora.com>
-In-Reply-To: <20250515-dtb-check-mt8188-v1-0-cda383cbeb4f@collabora.com>
-To: kernel@collabora.com, Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Garmin Chang <garmin.chang@mediatek.com>, 
- Friday Yang <friday.yang@mediatek.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Julien Massot <julien.massot@collabora.com>
-X-Mailer: b4 0.14.2
+	id 1uFYni-00000000lNw-2Qtx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 May 2025 13:39:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id EC5E4A4CA91;
+	Thu, 15 May 2025 13:39:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89132C4CEE7;
+	Thu, 15 May 2025 13:39:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747316344;
+	bh=EIOxUVksE3XuviiCBzP8CgS3FaS5wIMBO/GIYyKSBRM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=cCQWAQk+En/dVTAmz1kHXi3efxDXiX0oYSk119kSLhSXMbi7EM2Yzfi+I68/MURXQ
+	 ogf7lbj82DSlyiU/3c7lDwd8w1ecpqs5UNmPUNbyRYDN61HCKcpIcgMmi4NgFxPR/k
+	 w1wUzWwjW7SpaQ2/81gElCZTq56OuK5znPQp1WT+wt4l4VV4pyO5D6B32Q/iIOHR5F
+	 aABqsVuKPMK5lVmR4KNbzeWobzPTAGNiS53YtEr/Md0zfR3n98kU6JoyWI3bLZHB/O
+	 9ieZQ8jLfqNI2o9p3Lrgv+m1YsrdDsIyPDL8fS6LHOotdvxoQKqcwlupbPssFOn973
+	 jqnP09prJgDdg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uFYne-00FFHo-Eg;
+	Thu, 15 May 2025 14:39:02 +0100
+Date: Thu, 15 May 2025 14:39:01 +0100
+Message-ID: <86ikm2f0y2.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Patrick Delaunay <patrick.delaunay@foss.st.com>
+Cc: Alexandre TORGUE <alexandre.torgue@foss.st.com>,
+	Rob Herring
+	<robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley
+	<conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	<devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>
+Subject: Re: [PATCH 1/2] arm64: dts: st: fix timer used for ticks
+In-Reply-To: <20250515151238.1.I85271ddb811a7cf73532fec90de7281cb24ce260@changeid>
+References: <20250515151238.1.I85271ddb811a7cf73532fec90de7281cb24ce260@changeid>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: patrick.delaunay@foss.st.com, alexandre.torgue@foss.st.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_063150_870295_66588449 
-X-CRM114-Status: UNSURE (   8.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250515_063906_744755_1B0F0B2C 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,40 +92,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 'clock-names' property is required by the dt binding.
+On Thu, 15 May 2025 14:12:39 +0100,
+Patrick Delaunay <patrick.delaunay@foss.st.com> wrote:
+> 
+> Remove always-on on generic ARM timer as the clock source provided by
+> STGEN is deactivated in low power mode, STOP1 by example.
+> 
+> Fixes: 5d30d03aaf78 ("arm64: dts: st: introduce stm32mp25 SoCs family")
+> Signed-off-by: Patrick Delaunay <patrick.delaunay@foss.st.com>
+> ---
+> 
+>  arch/arm64/boot/dts/st/stm32mp251.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> index 8d87865850a7..74c5f85b800f 100644
+> --- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> +++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> @@ -150,7 +150,7 @@ timer {
+>  			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
+>  			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
+>  			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>;
+> -		always-on;
+> +		arm,no-tick-in-suspend;
 
-Fix the following dtb-check error:
-arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dtb: mailbox@10320000: 'clock-names' is a required property
-from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+That's amusing, because these two properties literally describe
+opposite behaviours (from an optimisation to a HW bug).
 
-Fixes: 45682a4fffdd ("arm64: dts: mediatek: mt8188: Add Global Command Engine mailboxes")
-Signed-off-by: Julien Massot <julien.massot@collabora.com>
----
- arch/arm64/boot/dts/mediatek/mt8188.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+I'm also pretty sure 99% of the DTs in the tree that have the
+always-on property are wrong.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188.dtsi b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-index dec6ce3e94e92c8e1e2c3680cb3584394d9058bd..d5892ca35bc29f830d7894ba592aca3f58dc3bdc 100644
---- a/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-@@ -1372,6 +1372,7 @@ gce0: mailbox@10320000 {
- 			interrupts = <GIC_SPI 226 IRQ_TYPE_LEVEL_HIGH 0>;
- 			#mbox-cells = <2>;
- 			clocks = <&infracfg_ao CLK_INFRA_AO_GCE>;
-+			clock-names = "gce";
- 		};
- 
- 		gce1: mailbox@10330000 {
-@@ -1380,6 +1381,7 @@ gce1: mailbox@10330000 {
- 			interrupts = <GIC_SPI 228 IRQ_TYPE_LEVEL_HIGH 0>;
- 			#mbox-cells = <2>;
- 			clocks = <&infracfg_ao CLK_INFRA_AO_GCE2>;
-+			clock-names = "gce";
- 		};
- 
- 		scp_cluster: scp@10720000 {
+>  	};
+>  
+>  	soc@0 {
+
+I don't want to sound rude or anything, but the guy you Cc'd on an
+@arm.com will not reply (and hasn't been replying for almost 6 years).
+
+Thanks,
+
+	M.
 
 -- 
-2.49.0
-
+Without deviation from the norm, progress is not possible.
 
