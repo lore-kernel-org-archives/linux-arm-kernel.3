@@ -4,59 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8659FC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 06:40:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C547C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 06:42:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XgLNg78GhurEwHord+WlmiEQOvblmsuT4U+KllszlnY=; b=TOWMbtXtZa6OPJWAWOcOpnbOuL
-	0fNo4OmZHV5+oVwxEZEa1uPrJjTc5bqUrT3kc3/D3+5DJ8ttB/U9lKtaWNcQlug8P99YhBL9Rki97
-	CrjAxofMPljk8+dfW12ZhQ0KutvNbtyBHhYxGUZy9xQIOTaJ23lgPbtiRNdttS2lfVVKWgHnvUuJy
-	4Xz6BiDxAgtTCJqeTt8gW2QSMLJnoIhNvSYAfnKUpCByKpZpRd2WiKKrDVqZ/4YcS/CZKKihX3iZj
-	Ss10VYY/zHrPWtc0plZ8UGkZtq4aCQC16P6I8g8nX1R9fEHsU19mJWMLh0zyRwmcBHyrlotQWMmv+
-	Lkg5ww+Q==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MpJTM0b8RUMLBDKHdomS54IZinWoNL5eSEBzD1rywaQ=; b=CyrlEZUwnckHaBuSbv/ydf/KhT
+	C7mehTmQRMQi+QxtmmQGti3NWwY22Vr99iygkDInBJXDNNzds6rnZjVpyDOSxF//viNfja11Cydnf
+	pTJ4GYh8OO+EswfhlneOeWvd12wS6HpE5qR9Sa/S8EsUXBbx2P2rYzqVsO7ikVCQkt1w5EBR13C1r
+	Xtiig9qtkeNSUp88NW4SyLU8hV60LO9HMPa8eOQ2x4quHepXu5EnZT+phOPnscqKY3CHluM/FUN4g
+	/k1Sf36vsPClpbIC2fpRxiiI8bxBy4a2IMf0G2vBYa0EHiMlFVeV0nJijRVBwLc7Mvz+ZkcZE/+UN
+	bnG1KpIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFSGp-0000000HAem-0qXM;
-	Thu, 15 May 2025 06:40:43 +0000
+	id 1uFSIn-0000000HAv6-3w3J;
+	Thu, 15 May 2025 06:42:45 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFRyy-0000000H8Py-2NbN
+	id 1uFRyy-0000000H8Px-2FXl
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 15 May 2025 06:22:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 55459443E9;
-	Thu, 15 May 2025 06:22:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 2371DC4CEE7;
+	by sea.source.kernel.org (Postfix) with ESMTP id 051C94A5F1;
+	Thu, 15 May 2025 06:22:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8FEBBC4CEFE;
 	Thu, 15 May 2025 06:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1747290134;
-	bh=4zeGaBUvC1Q9ojCS6BwilpI7jNLQBxZR8OQzD04olA4=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=csVn2Z6A8Sl3SqKO3MI5MubdJCB8umTAnTFO5SMw/elfFoZzdsYdpt/RDZBpzTS+D
-	 b750TEKmduBW/BRISjdWknmxjvrJAYeRR44lbMSBNOUpiYAsSnBENfmfAX3ObU7JVQ
-	 eNW5xm5MtIbtcwh1+Z7tidGqaTMKf9Iqz2SRS7bDVweaSYrkAilHX91qq8m+CeeUiQ
-	 RNHfqKizr6VUkCFuk6znR7+3fICDvCWnHSYmIugJsJl+3L+WwdHZX9flrmZvjfN9Sg
-	 n6So2U4wZNplCdbAxlEe+FGj0Tz64KBRC80c7riOnfTgdIGurersTsNtpn4AP0Od6A
-	 QJMsL2mWgXgPA==
+	bh=9OIP/qGmUHCib1ngYhWjqsakOR/vmt9bXJsruh8BjRc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=UDJpM5Hx5GPLd9JrQZc2IiUNbfddd1kcMdbVwVOwEFXkU06jqC2xWrzCi/qu/4/Y5
+	 qat2LAQB5nIPddEU4Zb36bkejdi2oWY9tl3ks79jf0TpZlrTq3LvR7GbBHZItzm3Sc
+	 tyJ3SnrHbUVwvh7+FEWxH/WYDMps5gTFqe2G4Aoqo+8TfF5e9u++O0RXETsApKzf0s
+	 QhbmtvYHgqsAXFfAb8zF9gwsVEHseG8t1nDAc61giwY09Tqjve5ttWz6bDldD9njIv
+	 6PCF2rERStBfO58kEAv589i69ZyolUjfa9VCTMVlj2FTL8jGVeHmsqPJlR3X7l6Cdn
+	 24HXhUzRHq1MQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 16C3EC2D0CD;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 852BEC2D0CD;
 	Thu, 15 May 2025 06:22:14 +0000 (UTC)
 From: Sven Peter via B4 Relay <devnull+sven.svenpeter.dev@kernel.org>
-Subject: [PATCH v6 00/10] Apple Mac System Management Controller
-Date: Thu, 15 May 2025 06:21:12 +0000
-Message-Id: <20250515-smc-6-15-v6-0-c47b1ef4b0ae@svenpeter.dev>
+Date: Thu, 15 May 2025 06:21:19 +0000
+Subject: [PATCH v6 07/10] power: reset: macsmc-reboot: Add driver for
+ rebooting via Apple SMC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIANmHJWgC/13MQQ6CMBCF4auQWVszhU4DrriHcWHpVLoQSEsaD
- eHuFlxIXL7J/N8CkYPnCJdigcDJRz8OeehTAV1/Hx4svM0bSiwJK1QiPjuhhSThkK2WDVfSKsj
- vU2DnXzt1veXd+ziP4b3LSW3XL5KZH5KUQEGIpjGalHZdGxMPE88czpYTbFCiQyzlIaYcO2pqN
- NbI2tj/eF3XD+K8fWjhAAAA
-X-Change-ID: 20250304-smc-6-15-f0ed619e31d4
+Message-Id: <20250515-smc-6-15-v6-7-c47b1ef4b0ae@svenpeter.dev>
+References: <20250515-smc-6-15-v6-0-c47b1ef4b0ae@svenpeter.dev>
+In-Reply-To: <20250515-smc-6-15-v6-0-c47b1ef4b0ae@svenpeter.dev>
 To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
  Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
  Hector Martin <marcan@marcan.st>, Linus Walleij <linus.walleij@linaro.org>, 
@@ -67,24 +65,23 @@ To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
  "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7511; i=sven@svenpeter.dev;
- h=from:subject:message-id;
- bh=4zeGaBUvC1Q9ojCS6BwilpI7jNLQBxZR8OQzD04olA4=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ4ZqB1vgt88/QjfM+n7KTPLoEil3G/Gj/DdOiTiFbHRXb
- +BXtbzZUcrCIMbBICumyLJ9v73pk4dvBJduuvQeZg4rE8gQBi5OAZhI+RKG/2GGJdFRj9jNJ55j
- 9PSXe3i7dBmTxo+YV0G7/W+y2gQe3c/w3z28aVtD+4H+FX17jrrN3eP3p0Neq+tAh/LX2mX6/eu
- aOQA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11473;
+ i=sven@svenpeter.dev; h=from:subject:message-id;
+ bh=eEGcjekOsTplBIgG1CL55vGHSqKTNNG6XlHXDIvDXTU=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ4ZqB//nIsNM4aMxhRHLuYWnLFff9stf0ro0tGtxXP6a4
+ tOi0TwdpSwMYhwMsmKKLNv325s+efhGcOmmS+9h5rAygQxh4OIUgIlw+TMytP3IXFP37W914bsp
+ tZOE/zi8ETx4O+CR8xOVymU+YrdiyxgZdvbwhy/M9JTh4J57Vrr8bMXmqiU8SyQT/1y7KcWVJu3
+ HAQA=
 X-Developer-Key: i=sven@svenpeter.dev; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@svenpeter.dev/default with
  auth_id=167
 X-Original-From: Sven Peter <sven@svenpeter.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_232216_668169_B7CE9F65 
-X-CRM114-Status: GOOD (  26.08  )
+X-CRM114-CacheID: sfid-20250514_232216_670583_25666BCC 
+X-CRM114-Status: GOOD (  28.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,157 +97,369 @@ Reply-To: sven@svenpeter.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Hector Martin <marcan@marcan.st>
 
-This series adds support for the System Management Controller found in
-Apple Silicon devices which we model as a mfd. It also includes support
-for the GPIO block and the power/reset block as sub-devices.
+This driver implements the reboot/shutdown support exposed by the SMC
+on Apple Silicon machines, such as Apple M1 Macs.
 
-Changes between v5 and v6:
-  - Actually reorder struct members this time, start comments with an
-    uppercase letter, and use devm_ for mfd_register_devices instead of
-    dropping those fixup commits by accident
-  - Stefan's comment: Renamed ret to bfr in the reboot driver
-  - Sebastian's comments on the reboot driver:
-    - Moved Kconfig dependencies to MFD device and made reboot only
-      depend on that one
-    - Removed sysfs file to configure "reboot after power loss" for now
-      since this probably belongs in a userspace tool that directly
-      writes to nvmem instead
-    - Dropped setting pdev->dev.of_node since that's already done
-      automatically and adjusted #include to linux/mod_devicetable.h
-    - Dropped MODULE_ALIAS which was probably a leftover from a previous
-      version that did not use of_match_table
-  - Rob's comments to the dt-bindings
-    - Removed examples from sub-devices and added them to the main smc
-      binding
-    - Removed a spurious |
-
-Changes between v4 and v5:
-  - Alyssa's comments:
-    - Made the WARN_ON in the reboot driver more obvious
-    - Added missing brackets around a for loop in the reboot driver
-    - Used min instead of open-coded variant inside the gpio driver
-    - Reoder struct memebers to prevent padding inside the mfd driver
-  - Lee's comments:
-    - All comments now start with an uppercase letter
-    - Removed apple_smc_read_ioft_scaled and apple_smc_read_f32_scaled
-      since these are not yet used and likely don't belong into
-      drivers/mfd
-    - Relaced if (ret != 0) with if (ret) when possible
-    - Used devm_platform_get_and_ioremap_resource to get and map the
-      SRAM resource
-    - Used reverse Christmas-tree formating when declaring variables
-    - Dropped _platform left-overs from probe and remove functions
-    - Removed dev_dbg prints which are no long required after
-      development
-    - Reworked is_alive/is_initialized so that it's obvious how errors
-      during boot are propagated from the callback to the probe function
-    - Used dev_warn instead of dev_err in a few places
-    - Removed no-op apple_smc_rtkit_shmem_destroy; this required an
-      additional change in rtkit.c because we had a check there that's a
-      bit too strict
-    - Removed struct resource in apple_smc_rtkit_shmem_setup and
-      open-coded resource_contains instead
-    - Unwrapped lines with less than 100 chars
-    - Made sure to compile with W=1 and ran scripts/kernel-doc -v
-      on macsmc.h once and fixed any fallout
-  - Removed first_key/last_key from struct smc and moved
-    apple_smc_find_first_key_index to the gpio driver since it's only
-    used there anyway to find the index of the first GPIO key (gP00)
-  - Return -EIO when a command fails instead of whatever SMC returns
-    which does not map to Linux errnos on errors
-
-Changes between v3 and v4:
-  - Added documentation for all functions and structs
-  - Fixed dt-bindings and re-ordered commits so that the mfd one comes
-    last and can include the gpio subdevice
-  - Added the reset driver and corresponding bindings
-  - Reworked the atomic mode inside SMC since the previous implementation
-    called mutex_lock from atomic context
-  - Removed the backend split for now which lead to a quite intense discussion
-    for the previous versions which hadn't been solved as far as I could tell
-    from the old threads.
-    It's also been 2+ years and I haven't heard of any backend implementation
-    for T2 or even older macs. It's also unclear to me which sub-devices
-    are actually useful there because at least GPIO and shutdown/reboot
-    from this series will not work as-is there.
-    I'd rather have this initial version which only supports M1+ macs upstream
-    and then iterate there if any other backend is developed.
-    I'll gladly help to re-introduce backend support if it's ever required.
-
-Dependencies:
-The code and dt-bindings themselves apply cleanly to 6.15-rc1 but
-the device tree changes require the already merged SPMI controller
-and SPMI NVMEM series which will be part of 6.16.
-The series is also using the printf format specifiers which will
-land in 6.16 via the drm-misc tree.
-A tree with all dependencies for testing is available at
-https://github.com/AsahiLinux/linux/commits/smc-v6/.
-
-Merging:
-The dt-binding patches all depend on each other such that they all
-should probably go together with the mfd device itself.
-The following commits also depend on mfd due to the new header file and
-will either have to go through the mfd tree as well or we'll need an
-immutable branch there or we just wait one kernel release and I'll
-re-submit the rest then.
-I'll take the device tree updates through our tree which also has the
-previous device tree updates these depend on.
-
-v5: https://lore.kernel.org/asahi/20250511-smc-6-15-v5-0-f5980bdb18bd@svenpeter.dev/
-v4: https://lore.kernel.org/asahi/20250503-smc-6-15-v4-0-500b9b6546fc@svenpeter.dev/
-v3: https://lore.kernel.org/asahi/Y2qEpgIdpRTzTQbN@shell.armlinux.org.uk/
-v2: https://lore.kernel.org/asahi/YxdInl2qzQWM+3bs@shell.armlinux.org.uk/
-v1: https://lore.kernel.org/asahi/YxC5eZjGgd8xguDr@shell.armlinux.org.uk/
-
-Best,
-
-Sven
-
+Signed-off-by: Hector Martin <marcan@marcan.st>
+Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+Reviewed-by: Neal Gompa <neal@gompa.dev>
+Signed-off-by: Sven Peter <sven@svenpeter.dev>
 ---
-Hector Martin (5):
-      gpio: Add new gpio-macsmc driver for Apple Macs
-      power: reset: macsmc-reboot: Add driver for rebooting via Apple SMC
-      arm64: dts: apple: t8103: Add SMC node
-      arm64: dts: apple: t8112: Add SMC node
-      arm64: dts: apple: t600x: Add SMC node
+ MAINTAINERS                         |   1 +
+ drivers/power/reset/Kconfig         |   9 ++
+ drivers/power/reset/Makefile        |   1 +
+ drivers/power/reset/macsmc-reboot.c | 294 ++++++++++++++++++++++++++++++++++++
+ 4 files changed, 305 insertions(+)
 
-Russell King (Oracle) (2):
-      dt-bindings: gpio: Add Apple Mac SMC GPIO block
-      dt-bindings: mfd: Add Apple Mac System Management Controller
+diff --git a/MAINTAINERS b/MAINTAINERS
+index fa3a5f9ee40446bcc725c9eac2a36651e6bc7553..84f7a730eb2260b7c1e0487d18c8eb3de82f5206 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2303,6 +2303,7 @@ F:	drivers/mfd/macsmc.c
+ F:	drivers/nvme/host/apple.c
+ F:	drivers/nvmem/apple-efuses.c
+ F:	drivers/pinctrl/pinctrl-apple-gpio.c
++F:	drivers/power/reset/macsmc-reboot.c
+ F:	drivers/pwm/pwm-apple.c
+ F:	drivers/soc/apple/*
+ F:	drivers/spi/spi-apple.c
+diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
+index 60bf0ca64cf395cd18238fc626611c74d29844ee..82b9391307cf1a7bedafaa9e0b8e9501e64449aa 100644
+--- a/drivers/power/reset/Kconfig
++++ b/drivers/power/reset/Kconfig
+@@ -128,6 +128,15 @@ config POWER_RESET_LINKSTATION
+ 
+ 	  Say Y here if you have a Buffalo LinkStation LS421D/E.
+ 
++config POWER_RESET_MACSMC
++	tristate "Apple SMC reset/power-off driver"
++	depends on MFD_MACSMC
++	help
++	  This driver supports reset and power-off on Apple Mac machines
++	  that implement this functionality via the SMC.
++
++	  Say Y here if you have an Apple Silicon Mac.
++
+ config POWER_RESET_MSM
+ 	bool "Qualcomm MSM power-off driver"
+ 	depends on ARCH_QCOM
+diff --git a/drivers/power/reset/Makefile b/drivers/power/reset/Makefile
+index 10782d32e1da39f4b8b4566e8a885f2e13f65130..887dd9e49b7293b69b9429ddc0c1571194a153cf 100644
+--- a/drivers/power/reset/Makefile
++++ b/drivers/power/reset/Makefile
+@@ -13,6 +13,7 @@ obj-$(CONFIG_POWER_RESET_GPIO) += gpio-poweroff.o
+ obj-$(CONFIG_POWER_RESET_GPIO_RESTART) += gpio-restart.o
+ obj-$(CONFIG_POWER_RESET_HISI) += hisi-reboot.o
+ obj-$(CONFIG_POWER_RESET_LINKSTATION) += linkstation-poweroff.o
++obj-$(CONFIG_POWER_RESET_MACSMC) += macsmc-reboot.o
+ obj-$(CONFIG_POWER_RESET_MSM) += msm-poweroff.o
+ obj-$(CONFIG_POWER_RESET_MT6323) += mt6323-poweroff.o
+ obj-$(CONFIG_POWER_RESET_QCOM_PON) += qcom-pon.o
+diff --git a/drivers/power/reset/macsmc-reboot.c b/drivers/power/reset/macsmc-reboot.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..5cfbf56282452bab8d06ed7e97e9d2405d7b30c0
+--- /dev/null
++++ b/drivers/power/reset/macsmc-reboot.c
+@@ -0,0 +1,294 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * Apple SMC Reboot/Poweroff Handler
++ * Copyright The Asahi Linux Contributors
++ */
++
++#include <linux/delay.h>
++#include <linux/mfd/core.h>
++#include <linux/mfd/macsmc.h>
++#include <linux/mod_devicetable.h>
++#include <linux/module.h>
++#include <linux/nvmem-consumer.h>
++#include <linux/platform_device.h>
++#include <linux/reboot.h>
++#include <linux/slab.h>
++
++struct macsmc_reboot_nvmem {
++	struct nvmem_cell *shutdown_flag;
++	struct nvmem_cell *boot_stage;
++	struct nvmem_cell *boot_error_count;
++	struct nvmem_cell *panic_count;
++};
++
++static const char * const nvmem_names[] = {
++	"shutdown_flag",
++	"boot_stage",
++	"boot_error_count",
++	"panic_count",
++};
++
++enum boot_stage {
++	BOOT_STAGE_SHUTDOWN		= 0x00, /* Clean shutdown */
++	BOOT_STAGE_IBOOT_DONE		= 0x2f, /* Last stage of bootloader */
++	BOOT_STAGE_KERNEL_STARTED	= 0x30, /* Normal OS booting */
++};
++
++struct macsmc_reboot {
++	struct device *dev;
++	struct apple_smc *smc;
++	struct notifier_block reboot_notify;
++
++	union {
++		struct macsmc_reboot_nvmem nvm;
++		struct nvmem_cell *nvm_cells[ARRAY_SIZE(nvmem_names)];
++	};
++};
++
++/* Helpers to read/write a u8 given a struct nvmem_cell */
++static int nvmem_cell_get_u8(struct nvmem_cell *cell)
++{
++	size_t len;
++	void *bfr;
++	u8 val;
++
++	bfr = nvmem_cell_read(cell, &len);
++	if (IS_ERR(bfr))
++		return PTR_ERR(bfr);
++
++	if (len < 1) {
++		kfree(bfr);
++		return -EINVAL;
++	}
++
++	val = *(u8 *)bfr;
++	kfree(bfr);
++	return val;
++}
++
++static int nvmem_cell_set_u8(struct nvmem_cell *cell, u8 val)
++{
++	return nvmem_cell_write(cell, &val, sizeof(val));
++}
++
++/*
++ * SMC 'MBSE' key actions:
++ *
++ * 'offw' - shutdown warning
++ * 'slpw' - sleep warning
++ * 'rest' - restart warning
++ * 'off1' - shutdown (needs PMU bit set to stay on)
++ * 'susp' - suspend
++ * 'phra' - restart ("PE Halt Restart Action"?)
++ * 'panb' - panic beginning
++ * 'pane' - panic end
++ */
++
++static int macsmc_prepare_atomic(struct sys_off_data *data)
++{
++	struct macsmc_reboot *reboot = data->cb_data;
++
++	dev_info(reboot->dev, "Preparing SMC for atomic mode\n");
++
++	apple_smc_enter_atomic(reboot->smc);
++	return NOTIFY_OK;
++}
++
++static int macsmc_power_off(struct sys_off_data *data)
++{
++	struct macsmc_reboot *reboot = data->cb_data;
++
++	dev_info(reboot->dev, "Issuing power off (off1)\n");
++
++	if (apple_smc_write_u32_atomic(reboot->smc, SMC_KEY(MBSE), SMC_KEY(off1)) < 0) {
++		dev_err(reboot->dev, "Failed to issue MBSE = off1 (power_off)\n");
++	} else {
++		mdelay(100);
++		WARN_ONCE(1, "Unable to power off system\n");
++	}
++
++	return NOTIFY_OK;
++}
++
++static int macsmc_restart(struct sys_off_data *data)
++{
++	struct macsmc_reboot *reboot = data->cb_data;
++
++	dev_info(reboot->dev, "Issuing restart (phra)\n");
++
++	if (apple_smc_write_u32_atomic(reboot->smc, SMC_KEY(MBSE), SMC_KEY(phra)) < 0) {
++		dev_err(reboot->dev, "Failed to issue MBSE = phra (restart)\n");
++	} else {
++		mdelay(100);
++		WARN_ONCE(1, "Unable to restart system\n");
++	}
++
++	return NOTIFY_OK;
++}
++
++static int macsmc_reboot_notify(struct notifier_block *this, unsigned long action, void *data)
++{
++	struct macsmc_reboot *reboot = container_of(this, struct macsmc_reboot, reboot_notify);
++	u8 shutdown_flag;
++	u32 val;
++
++	switch (action) {
++	case SYS_RESTART:
++		val = SMC_KEY(rest);
++		shutdown_flag = 0;
++		break;
++	case SYS_POWER_OFF:
++		val = SMC_KEY(offw);
++		shutdown_flag = 1;
++		break;
++	default:
++		return NOTIFY_DONE;
++	}
++
++	dev_info(reboot->dev, "Preparing for reboot (%p4ch)\n", &val);
++
++	/* On the Mac Mini, this will turn off the LED for power off */
++	if (apple_smc_write_u32(reboot->smc, SMC_KEY(MBSE), val) < 0)
++		dev_err(reboot->dev, "Failed to issue MBSE = %p4ch (reboot_prepare)\n", &val);
++
++	/* Set the boot_stage to 0, which means we're doing a clean shutdown/reboot. */
++	if (reboot->nvm.boot_stage &&
++	    nvmem_cell_set_u8(reboot->nvm.boot_stage, BOOT_STAGE_SHUTDOWN) < 0)
++		dev_err(reboot->dev, "Failed to write boot_stage\n");
++
++	/*
++	 * Set the PMU flag to actually reboot into the off state.
++	 * Without this, the device will just reboot. We make it optional in case it is no longer
++	 * necessary on newer hardware.
++	 */
++	if (reboot->nvm.shutdown_flag &&
++	    nvmem_cell_set_u8(reboot->nvm.shutdown_flag, shutdown_flag) < 0)
++		dev_err(reboot->dev, "Failed to write shutdown_flag\n");
++
++	return NOTIFY_OK;
++}
++
++static void macsmc_power_init_error_counts(struct macsmc_reboot *reboot)
++{
++	int boot_error_count, panic_count;
++
++	if (!reboot->nvm.boot_error_count || !reboot->nvm.panic_count)
++		return;
++
++	boot_error_count = nvmem_cell_get_u8(reboot->nvm.boot_error_count);
++	if (boot_error_count < 0) {
++		dev_err(reboot->dev, "Failed to read boot_error_count (%d)\n", boot_error_count);
++		return;
++	}
++
++	panic_count = nvmem_cell_get_u8(reboot->nvm.panic_count);
++	if (panic_count < 0) {
++		dev_err(reboot->dev, "Failed to read panic_count (%d)\n", panic_count);
++		return;
++	}
++
++	if (!boot_error_count && !panic_count)
++		return;
++
++	dev_warn(reboot->dev, "PMU logged %d boot error(s) and %d panic(s)\n",
++		 boot_error_count, panic_count);
++
++	if (nvmem_cell_set_u8(reboot->nvm.panic_count, 0) < 0)
++		dev_err(reboot->dev, "Failed to reset panic_count\n");
++	if (nvmem_cell_set_u8(reboot->nvm.boot_error_count, 0) < 0)
++		dev_err(reboot->dev, "Failed to reset boot_error_count\n");
++}
++
++static int macsmc_reboot_probe(struct platform_device *pdev)
++{
++	struct apple_smc *smc = dev_get_drvdata(pdev->dev.parent);
++	struct macsmc_reboot *reboot;
++	int ret, i;
++
++	/* Ignore devices without this functionality */
++	if (!apple_smc_key_exists(smc, SMC_KEY(MBSE)))
++		return -ENODEV;
++
++	reboot = devm_kzalloc(&pdev->dev, sizeof(*reboot), GFP_KERNEL);
++	if (!reboot)
++		return -ENOMEM;
++
++	reboot->dev = &pdev->dev;
++	reboot->smc = smc;
++
++	platform_set_drvdata(pdev, reboot);
++
++	for (i = 0; i < ARRAY_SIZE(nvmem_names); i++) {
++		struct nvmem_cell *cell;
++
++		cell = devm_nvmem_cell_get(&pdev->dev,
++					   nvmem_names[i]);
++		if (IS_ERR(cell)) {
++			if (PTR_ERR(cell) == -EPROBE_DEFER)
++				return -EPROBE_DEFER;
++			dev_warn(&pdev->dev, "Missing NVMEM cell %s (%ld)\n",
++				 nvmem_names[i], PTR_ERR(cell));
++			/* Non fatal, we'll deal with it */
++			cell = NULL;
++		}
++		reboot->nvm_cells[i] = cell;
++	}
++
++	/* Set the boot_stage to indicate we're running the OS kernel */
++	if (reboot->nvm.boot_stage &&
++	    nvmem_cell_set_u8(reboot->nvm.boot_stage, BOOT_STAGE_KERNEL_STARTED) < 0)
++		dev_err(reboot->dev, "Failed to write boot_stage\n");
++
++	/* Display and clear the error counts */
++	macsmc_power_init_error_counts(reboot);
++
++	reboot->reboot_notify.notifier_call = macsmc_reboot_notify;
++
++	ret = devm_register_sys_off_handler(&pdev->dev, SYS_OFF_MODE_POWER_OFF_PREPARE,
++					    SYS_OFF_PRIO_HIGH, macsmc_prepare_atomic, reboot);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "Failed to register power-off prepare handler\n");
++	ret = devm_register_sys_off_handler(&pdev->dev, SYS_OFF_MODE_POWER_OFF, SYS_OFF_PRIO_HIGH,
++					    macsmc_power_off, reboot);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "Failed to register power-off handler\n");
++
++	ret = devm_register_sys_off_handler(&pdev->dev, SYS_OFF_MODE_RESTART_PREPARE,
++					    SYS_OFF_PRIO_HIGH, macsmc_prepare_atomic, reboot);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "Failed to register restart prepare handler\n");
++	ret = devm_register_sys_off_handler(&pdev->dev, SYS_OFF_MODE_RESTART, SYS_OFF_PRIO_HIGH,
++					    macsmc_restart, reboot);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret, "Failed to register restart handler\n");
++
++	ret = devm_register_reboot_notifier(&pdev->dev, &reboot->reboot_notify);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret, "Failed to register reboot notifier\n");
++
++	dev_info(&pdev->dev, "Handling reboot and poweroff requests via SMC\n");
++
++	return 0;
++}
++
++static const struct of_device_id macsmc_reboot_of_table[] = {
++	{ .compatible = "apple,smc-reboot", },
++	{}
++};
++MODULE_DEVICE_TABLE(of, macsmc_reboot_of_table);
++
++static struct platform_driver macsmc_reboot_driver = {
++	.driver = {
++		.name = "macsmc-reboot",
++		.of_match_table = macsmc_reboot_of_table,
++	},
++	.probe = macsmc_reboot_probe,
++};
++module_platform_driver(macsmc_reboot_driver);
++
++MODULE_LICENSE("Dual MIT/GPL");
++MODULE_DESCRIPTION("Apple SMC reboot/poweroff driver");
++MODULE_AUTHOR("Hector Martin <marcan@marcan.st>");
 
-Sven Peter (3):
-      dt-bindings: power: reboot: Add Apple Mac SMC Reboot Controller
-      soc: apple: rtkit: Make shmem_destroy optional
-      mfd: Add Apple Silicon System Management Controller
-
- .../devicetree/bindings/gpio/apple,smc-gpio.yaml   |  29 ++
- .../devicetree/bindings/mfd/apple,smc.yaml         |  79 ++++
- .../bindings/power/reset/apple,smc-reboot.yaml     |  40 ++
- MAINTAINERS                                        |   7 +
- arch/arm64/boot/dts/apple/t600x-die0.dtsi          |  35 ++
- arch/arm64/boot/dts/apple/t8103.dtsi               |  35 ++
- arch/arm64/boot/dts/apple/t8112.dtsi               |  35 ++
- drivers/gpio/Kconfig                               |  10 +
- drivers/gpio/Makefile                              |   1 +
- drivers/gpio/gpio-macsmc.c                         | 292 ++++++++++++
- drivers/mfd/Kconfig                                |  18 +
- drivers/mfd/Makefile                               |   1 +
- drivers/mfd/macsmc.c                               | 498 +++++++++++++++++++++
- drivers/power/reset/Kconfig                        |   9 +
- drivers/power/reset/Makefile                       |   1 +
- drivers/power/reset/macsmc-reboot.c                | 294 ++++++++++++
- drivers/soc/apple/rtkit.c                          |   3 +-
- include/linux/mfd/macsmc.h                         | 279 ++++++++++++
- 18 files changed, 1664 insertions(+), 2 deletions(-)
----
-base-commit: 5abab6ab4ebacfff5857b63bd349902a6568d2e8
-change-id: 20250304-smc-6-15-f0ed619e31d4
-
-Best regards,
 -- 
-Sven Peter <sven@svenpeter.dev>
+2.34.1
 
 
 
