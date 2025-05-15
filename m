@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5633C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 09:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 382CFC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 10:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j2J5l+xRbE31jgtqUwEDN8zj3JwEqHj0EOYwVHDuBI8=; b=3d0VbQ4UDIzAc1lpJmtpcB6F3a
-	IHvwACVIs/Roeg9g4k43ATf5BjZ28EwWw6st9nx3B2rcJ7tOri2TBCdwtgRMuHwIXDb7sbVZdG8au
-	EyEtSVI6qAxBLjL6tw1oklTAUy0/m7P9LN8G0kmz79Ld2ZNYrKkARIuoBs+hyIZO4QECkKHXEibVq
-	dwdTaJ48MOQZxpTU79ThYelnePwqT9BSs/e9KPdngO8AR0SRCcGlraoBr8dm+jWgIUg+sFFQcp72/
-	I1JrLg0fm60bfXUuazUpw/hORfDSR0INb84ut92m6UFNDc/RSZ+3C42knui5Yi4/RWk1jzMtbcL8R
-	ULGcBn6w==;
+	bh=M6gmJzsdJUvVF4bx9MOU4xf8vGZe8xcFkwSgo8UXAAk=; b=b+I9dnxmf+mLLC3hTd2z8g4mTN
+	KE0ZEsQGBhOpwCQdwnZn7SOdp717YDq9rfIQKYBxJZSaEiAsOPrZljVyRs2eVyoEpRDlfpUH5wdht
+	faS7pUr7ZpEFA26m4znxJMd5cNY6LX45nZMlBU7e8IrLY4mWFihcugrLcd+ptsKWkczkmrBQJW0aj
+	zNNQRKGLmomZ3bbXtN9Hegq/KGb/Loni93rp3a3zoXMpOIisKmYrER3/IxIXfAsmPCoAncZsbIobt
+	Vs5uxbi7REhIYJAKvLidUW3jdjKGLUqpxzGmrnmKk0KCkz/5YApwPTEUWznKXLRY94BKSphKQl63K
+	HpVsv6DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFVNM-00000000Eow-2ikP;
-	Thu, 15 May 2025 09:59:40 +0000
+	id 1uFVPL-00000000F5A-36Dt;
+	Thu, 15 May 2025 10:01:43 +0000
 Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFUzd-00000000Aqx-2b9y;
+	id 1uFUze-00000000Arx-2Ze9;
 	Thu, 15 May 2025 09:35:11 +0000
-X-UUID: e2512442316f11f08d385d50fb11b32d-20250515
+X-UUID: e35d023e316f11f08d385d50fb11b32d-20250515
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=j2J5l+xRbE31jgtqUwEDN8zj3JwEqHj0EOYwVHDuBI8=;
-	b=Xn6iv1pFbxfq/6UhNEPurDaPFOe9s1SFGb27hhuQJ69s+9a7lZWmsWpNU+NVaz4pwjPx7MHski58NYLbBVUEoMcOFW1umF1R9SH03JyfGnpN/22jbCeJ0iAG6A252Vtbix1HwxWwS87fzdddq35Ka/dJ3z+eF2ntCl7GpK3wAjs=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=M6gmJzsdJUvVF4bx9MOU4xf8vGZe8xcFkwSgo8UXAAk=;
+	b=DSlCYktbiUUicsemaNWL1wX2SHMul4daRRk7BBSTzVBr46sx8j3NVxnI7mrwD07GaB/ke5n3ScCehUsdFcVLfFUZbamu4rXr7OmUkkxCnWF2Pkr1TliI/fPyIDIXjDvfw8wUseMZx5Y0JBKLYC3NNvHtwD5a4V5uzerCb8t8PgQ=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:d91a7bf4-23a8-44ae-8de3-844c03e52a65,IP:0,UR
-	L:25,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:20
-X-CID-META: VersionHash:0ef645f,CLOUDID:2297c297-7410-4084-8094-24619d975b02,B
+X-CID-O-INFO: VERSION:1.2.1,REQID:62c0080c-f41c-4969-a490-968d0f19681a,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:2797c297-7410-4084-8094-24619d975b02,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:11|97|99|83|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0,NGT
 X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: e2512442316f11f08d385d50fb11b32d-20250515
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: e35d023e316f11f08d385d50fb11b32d-20250515
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
 	(envelope-from <paul-pl.chen@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1654214952; Thu, 15 May 2025 02:35:05 -0700
+	with ESMTP id 651143413; Thu, 15 May 2025 02:35:07 -0700
 Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 15 May 2025 17:35:02 +0800
+ 15.2.1258.39; Thu, 15 May 2025 17:35:04 +0800
 Received: from mtksitap99.mediatek.inc (10.233.130.16) by
  mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Thu, 15 May 2025 17:35:02 +0800
+ 15.2.1258.39 via Frontend Transport; Thu, 15 May 2025 17:35:04 +0800
 From: paul-pl.chen <paul-pl.chen@mediatek.com>
 To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
 	<chunkuang.hu@kernel.org>, <angelogioacchino.delregno@collabora.com>
@@ -65,9 +65,9 @@ CC: <matthias.bgg@gmail.com>, <p.zabel@pengutronix.de>,
 	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
 	<linux-arm-kernel@lists.infradead.org>,
 	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH v3 04/17] dt-bindings: display: mediatek: add OUTPROC yaml for MT8196
-Date: Thu, 15 May 2025 17:34:16 +0800
-Message-ID: <20250515093454.1729720-5-paul-pl.chen@mediatek.com>
+Subject: [PATCH v3 06/17] soc: mediatek: add mmsys support for MT8196
+Date: Thu, 15 May 2025 17:34:18 +0800
+Message-ID: <20250515093454.1729720-7-paul-pl.chen@mediatek.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250515093454.1729720-1-paul-pl.chen@mediatek.com>
 References: <20250515093454.1729720-1-paul-pl.chen@mediatek.com>
@@ -75,8 +75,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_023509_668468_F776FAD5 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20250515_023510_669323_D2416411 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,80 +91,581 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Paul-pl Chen <paul-pl.chen@mediatek.com>
+From: Nancy Lin <nancy.lin@mediatek.com>
 
-Add mediate,outproc.yaml to support OUTPROC for MT8196.
-MediaTek display overlap output processor, namely OVL_OUTPROC
-or OUTPROC,handles the post-stage of pixel processing in the
-overlapping procedure.
+Add driver data for MT8196 and add the routing table for each mmsys.
 
 Signed-off-by: Nancy Lin <nancy.lin@mediatek.com>
 Signed-off-by: Paul-pl Chen <paul-pl.chen@mediatek.com>
 ---
- .../display/mediatek/mediatek,outproc.yaml    | 54 +++++++++++++++++++
- 1 file changed, 54 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,outproc.yaml
+ drivers/soc/mediatek/mt8196-mmsys.h    | 396 +++++++++++++++++++++++++
+ drivers/soc/mediatek/mtk-mmsys.c       |  54 ++++
+ include/linux/soc/mediatek/mtk-mmsys.h |  52 ++++
+ 3 files changed, 502 insertions(+)
+ create mode 100644 drivers/soc/mediatek/mt8196-mmsys.h
 
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,outproc.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,outproc.yaml
+diff --git a/drivers/soc/mediatek/mt8196-mmsys.h b/drivers/soc/mediatek/mt8196-mmsys.h
 new file mode 100644
-index 000000000000..1292e394faaa
+index 000000000000..63b14b446d08
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,outproc.yaml
-@@ -0,0 +1,54 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/mediatek/mediatek,outproc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/soc/mediatek/mt8196-mmsys.h
+@@ -0,0 +1,396 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (c) 2014 MediaTek Inc.
++ * Author: Nancy Lin <nancy.lin@mediatek.com>
++ */
 +
-+title: MediaTek display overlap output processor
++#ifndef __SOC_MEDIATEK_MT8196_MMSYS_H
++#define __SOC_MEDIATEK_MT8196_MMSYS_H
 +
-+maintainers:
-+  - Chun-Kuang Hu <chunkuang.hu@kernel.org>
-+  - Philipp Zabel <p.zabel@pengutronix.de>
++/* DISPSYS1 */
++#define MT8196_COMP_OUT_CB6_MOUT_EN			0xd30
++#define MT8196_DISP_SPLITTER_OUT_CB_TO_MERGE_OUT_CB0		BIT(0)
++#define MT8196_COMP_OUT_CB7_MOUT_EN			0xd38
++#define MT8196_DISP_SPLITTER_OUT_CB_TO_MERGE_OUT_CB1		BIT(1)
++#define MT8196_COMP_OUT_CB8_MOUT_EN			0xd40
++#define MT8196_DISP_SPLITTER_OUT_CB_TO_MERGE_OUT_CB2		BIT(2)
++#define MT8196_MERGE_OUT_CB0_MOUT_EN			0xdcc
++#define MT8196_DISP_COMP_OUT_CB_TO_DVO0				BIT(9)
++#define MT8196_MERGE_OUT_CB1_MOUT_EN			0xdd4
++#define MT8196_MERGE_OUT_CB2_MOUT_EN			0xddc
++#define MT8196_DISP_COMP_OUT_CB_TO_DSI0				BIT(0)
++#define MT8196_DISP_COMP_OUT_CB_TO_DP_INTF0			BIT(10)
++#define MT8196_DISP_COMP_OUT_CB_TO_DP_INTF1			BIT(11)
++#define MT8196_SPLITTER_IN_CB1_MOUT_EN			0xeac
++#define MT8196_DISP_DLI_RELAY_TO_SPLITTER_OUT_CB9		BIT(5)
++#define MT8196_SPLITTER_IN_CB2_MOUT_EN			0xeb4
++#define MT8196_DISP_DLI_RELAY_TO_SPLITTER_OUT_CB10		BIT(6)
++#define MT8196_SPLITTER_IN_CB3_MOUT_EN			0xebc
++#define MT8196_DISP_DLI_RELAY_TO_SPLITTER_OUT_CB11		BIT(7)
++#define MT8196_SPLITTER_OUT_CB9_MOUT_EN			0xf64
++#define MT8196_DISP_SPLITTER_IN_CB_TO_COMP_OUT_CB6		BIT(10)
++#define MT8196_SPLITTER_OUT_CB10_MOUT_EN		0xf6c
++#define MT8196_DISP_SPLITTER_IN_CB_TO_COMP_OUT_CB7		BIT(11)
++#define MT8196_SPLITTER_OUT_CB11_MOUT_EN		0xf74
++#define MT8196_DISP_SPLITTER_IN_CB_TO_COMP_OUT_CB8		BIT(12)
++#define MT8196_OVL_RSZ_IN_CB2_MOUT_EN			0xf70
++#define MT8196_DISP_OVL_EXDMA2_1_TO_OVL_EXDMA_OUT_CB3		BIT(1)
 +
-+description:
-+  MediaTek display overlap output processor, namely OVL_OUTPROC or OUTPROC,
-+  handles the post-stage of pixel processing in the overlapping procedure.
-+  OVL_OUTPROC manages pixels for gamma correction and ensures that pixel
-+  values are within the correct range.
++/* OVLSYS */
++#define MT8196_OVL_BLENDER_OUT_CB4_MOUT_EN		0xe10
++#define MT8196_OVL_BLENDER_OUT_CB8_MOUT_EN		0xe20
++#define MT8196_DISP_OUT_BLENDER_CB_TO_OVL_OUTPROC0		BIT(0)
++#define MT8196_DISP_OUT_BLENDER_CB_TO_OVL_OUTPROC1		BIT(1)
++#define MT8196_DISP_OUT_BLENDER_CB_TO_OVL_OUTPROC2		BIT(2)
++#define MT8196_OVL_EXDMA_OUT_CB2_MOUT_EN		0xe60
++#define MT8196_OVL_EXDMA_OUT_CB3_MOUT_EN		0xe68
++#define MT8196_OVL_EXDMA_OUT_CB4_MOUT_EN		0xe70
++#define MT8196_OVL_EXDMA_OUT_CB5_MOUT_EN		0xe78
++#define MT8196_OVL_EXDMA_OUT_CB6_MOUT_EN		0xe80
++#define MT8196_OVL_EXDMA_OUT_CB7_MOUT_EN		0xe88
++#define MT8196_OVL_EXDMA_OUT_CB8_MOUT_EN		0xe90
++#define MT8196_OVL_EXDMA_OUT_CB9_MOUT_EN		0xe98
++#define MT8196_OVL_EXDMA_OUT_CB10_MOUT_EN		0xea0
++#define MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER1		BIT(2)
++#define MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER2		BIT(3)
++#define MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER3		BIT(4)
++#define MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER4		BIT(5)
++#define MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER5		BIT(6)
++#define MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER6		BIT(7)
++#define MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER7		BIT(8)
++#define MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER8		BIT(9)
++#define MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER9		BIT(10)
++#define MT8196_OVL_OUTPROC_OUT_CB0_MOUT_EN		0xf10
++#define MT8196_OVL_OUTPROC_OUT_CB1_MOUT_EN		0xf14
++#define MT8196_OVL_OUTPROC_OUT_CB2_MOUT_EN		0xf18
++#define MT8196_DISP_OVL_OUT_PROC_CB_TO_OVL_DLO_RELAY5		BIT(0)
++#define MT8196_DISP_OVL_OUT_PROC_CB_TO_OVL_DLO_RELAY6		BIT(1)
++#define MT8196_DISP_OVL_OUT_PROC_CB_TO_OVL_DLO_RELAY7		BIT(2)
 +
-+properties:
-+  compatible:
-+    const: mediatek,mt8196-outproc
++/* DISPSYS0 */
++#define MT8196_PANEL_COMP_OUT_CB1_MOUT_EN		0xd84
++#define MT8196_DISP_TO_DLO_RELAY1				BIT(1)
++#define MT8196_PANEL_COMP_OUT_CB2_MOUT_EN		0xd88
++#define MT8196_DISP_TO_DLO_RELAY2				BIT(2)
++#define MT8196_PANEL_COMP_OUT_CB3_MOUT_EN		0xd8c
++#define MT8196_DISP_TO_DLO_RELAY3				BIT(3)
++#define MT8196_PQ_IN_CB0_MOUT_EN			0xdd0
++#define MT8196_PQ_IN_CB0_TO_PQ_OUT_CB_6				BIT(2)
 +
-+  reg:
-+    maxItems: 1
++#define MT8196_PQ_IN_CB1_MOUT_EN			0xdd4
++#define MT8196_PQ_IN_CB1_TO_PQ_OUT_CB_7				BIT(3)
++#define MT8196_PQ_IN_CB8_MOUT_EN			0xdf0
++#define MT8196_PQ_IN_CB8_TO_PQ_OUT_CB_8				BIT(4)
++#define MT8196_PQ_OUT_CB6_MOUT_EN			0xe54
++#define MT8196_PQ_OUT_CB6_TO_PANEL0_COMP_OUT_CB1		BIT(1)
++#define MT8196_PQ_OUT_CB7_MOUT_EN			0xe58
++#define MT8196_PQ_OUT_CB7_TO_PANEL0_COMP_OUT_CB2		BIT(2)
++#define MT8196_PQ_OUT_CB8_MOUT_EN			0xe5c
++#define MT8196_PQ_OUT_CB8_TO_PANEL0_COMP_OUT_CB3		BIT(3)
 +
-+  clocks:
-+    maxItems: 1
++/* OVLSYS config */
++#define MT8196_OVL_INT_MERGE				0x008
++#define MT8196_OVL_DL_OUT_RELAY5_SIZE			0x29c
++#define MT8196_OVL_DL_OUT_RELAY6_SIZE			0x2a0
++#define MT8196_OVLSYS_GCE_EVENT_SEL			0x408
++#define MT8196_OVLSYS_BYPASS_MUX_SHADOW			0xca0
++#define MT8196_OVLSYS_CB_CON				0xcac
++#define MT8196_CB_BYPASS_MUX_SHADOW				(0xff << 16)
++#define MT8196_EVENT_GCE_EN					(BIT(0) | BIT(1))
 +
-+  interrupts:
-+    maxItems: 1
++/* DISPSYS config */
++#define MT8196_DISP0_DLI_RELAY0				0x200
++#define MT8196_DISP0_DLI_RELAY1				0x204
++#define MT8196_DISP0_DLI_RELAY8				0x220
++#define MT8196_DISP0_DLO_RELAY1				0x268
++#define MT8196_DISP0_DLO_RELAY2				0x26c
++#define MT8196_DISP0_DLO_RELAY3				0x270
++#define MT8196_DLI_RELAY_1T2P					BIT(30)
++#define MT8196_DISP0_BYPASS_MUX_SHADOW			0xc30
++#define MT8196_BYPASS_MUX_SHADOW				BIT(0)
++#define MT8196_OVLSYS_CB_BYPASS_MUX_SHADOW			(0xff << 16)
 +
-+required:
-+  - compatible
-+  - reg
-+  - clocks
++/* DISPSYS1 config */
++#define MT8196_DISP1_INT_MERGE				0x008
++#define MT8196_DISP1_DLI_RELAY21			0x204
++#define MT8196_DISP1_DLI_RELAY22			0x208
++#define MT8196_DISP1_DLI_RELAY23			0x20c
++#define MT8196_DISP1_GCE_FRAME_DONE_SEL0		0xa10
++#define MT8196_DISP1_GCE_FRAME_DONE_SEL1		0xa14
++#define MT8196_FRAME_DONE_DVO					25
++#define MT8196_FRAME_DONE_DP_INTF0				41
++#define MT8196_DISP1_BYPASS_MUX_SHADOW			0xcf8
 +
-+additionalProperties: false
++/* VDISP_AO config */
++#define MT8196_VDISP_AO_REG_INTEN			0x000
++#define MT8196_CPU_INTEN					BIT(0)
++#define MT8196_CPU_INT_MERGE					BIT(4)
++#define MT8196_VDISP_AO_REG_INT_SEL_G0			0x020
++#define MT8196_VDISP_AO_REG_INT_SEL_G1			0x024
++#define MT8196_VDISP_AO_REG_INT_SEL_G2			0x028
++#define MT8196_VDISP_AO_REG_INT_SEL_G3			0x02c
++#define MT8196_VDISP_AO_REG_INT_SEL_G4			0x030
++#define MT8196_VDISP_AO_REG_INT_SEL_G5			0x034
++#define MT8196_VDISP_AO_REG_INT_SEL_G6			0x038
++#define MT8196_IRQ_TABLE_OVL0_OUTPROC0				(0xa6) /* GIC 450 */
++#define MT8196_IRQ_TABLE_OVL0_OUTPROC1				(0xa7) /* GIC 451 */
++#define MT8196_IRQ_TABLE_OVL1_OUTPROC0				(0xd6) /* GIC 452 */
++#define MT8196_IRQ_TABLE_DSI0					(0x35) /* GIC 453 */
 +
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
++static const struct mtk_mmsys_async_info mmsys_mt8196_ovl0_async_comp_table[] = {
++	{DDP_COMPONENT_OVL0_DLO_ASYNC5, 0, MT8196_OVL_DL_OUT_RELAY5_SIZE, GENMASK(29, 0)},
++	{DDP_COMPONENT_OVL0_DLO_ASYNC6, 1, MT8196_OVL_DL_OUT_RELAY6_SIZE, GENMASK(29, 0)},
++};
 +
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
++static const struct mtk_mmsys_async_info mmsys_mt8196_ovl1_async_comp_table[] = {
++	{DDP_COMPONENT_OVL1_DLO_ASYNC5, 0, MT8196_OVL_DL_OUT_RELAY5_SIZE, GENMASK(29, 0)},
++	{DDP_COMPONENT_OVL1_DLO_ASYNC6, 1, MT8196_OVL_DL_OUT_RELAY6_SIZE, GENMASK(29, 0)},
++};
 +
-+        outproc0: outproc@32970000 {
-+            compatible = "mediatek,mt8196-outproc";
-+            reg = <0 0x32970000 0 0x1000>;
-+            clocks = <&ovlsys_config_clk 49>;
-+            interrupts = <GIC_SPI 450 IRQ_TYPE_LEVEL_HIGH 0>;
-+        };
-+    };
++static const struct mtk_mmsys_async_info mmsys_mt8196_disp0_async_comp_table[] = {
++	{DDP_COMPONENT_DLI_ASYNC0, 0, MT8196_DISP0_DLI_RELAY0, GENMASK(29, 0)},
++	{DDP_COMPONENT_DLI_ASYNC1, 1, MT8196_DISP0_DLI_RELAY1, GENMASK(29, 0)},
++	{DDP_COMPONENT_DLI_ASYNC8, 2, MT8196_DISP0_DLI_RELAY8, GENMASK(29, 0)},
++	{DDP_COMPONENT_DLO_ASYNC1, 3, MT8196_DISP0_DLO_RELAY1, GENMASK(29, 0)},
++	{DDP_COMPONENT_DLO_ASYNC2, 4, MT8196_DISP0_DLO_RELAY2, GENMASK(29, 0)},
++	{DDP_COMPONENT_DLO_ASYNC3, 5, MT8196_DISP0_DLO_RELAY3, GENMASK(29, 0)},
++};
++
++static const struct mtk_mmsys_async_info mmsys_mt8196_disp1_async_comp_table[] = {
++	{DDP_COMPONENT_DLI_ASYNC21, 0, MT8196_DISP1_DLI_RELAY21, GENMASK(29, 0)},
++	{DDP_COMPONENT_DLI_ASYNC22, 1, MT8196_DISP1_DLI_RELAY22, GENMASK(29, 0)},
++	{DDP_COMPONENT_DLI_ASYNC23, 2, MT8196_DISP1_DLI_RELAY23, GENMASK(29, 0)},
++};
++
++static const struct mtk_mmsys_default mmsys_mt8196_vdisp_ao_default_table[] = {
++	{MT8196_VDISP_AO_REG_INTEN, MT8196_CPU_INTEN, MT8196_CPU_INT_MERGE | MT8196_CPU_INTEN},
++	{MT8196_VDISP_AO_REG_INT_SEL_G0, MT8196_IRQ_TABLE_OVL0_OUTPROC0, GENMASK(7, 0)},
++	{MT8196_VDISP_AO_REG_INT_SEL_G0, MT8196_IRQ_TABLE_OVL0_OUTPROC1 << 8, GENMASK(15, 8)},
++	{MT8196_VDISP_AO_REG_INT_SEL_G0, MT8196_IRQ_TABLE_OVL1_OUTPROC0 << 16, GENMASK(23, 16)},
++	{MT8196_VDISP_AO_REG_INT_SEL_G0, MT8196_IRQ_TABLE_DSI0 << 24, GENMASK(31, 24)}
++};
++
++static const struct mtk_mmsys_default mmsys_mt8196_ovl0_default_table[] = {
++	{MT8196_OVLSYS_GCE_EVENT_SEL, MT8196_EVENT_GCE_EN, GENMASK(1, 0)},
++	{MT8196_OVL_INT_MERGE, 0, BIT(0)},
++	{MT8196_OVLSYS_BYPASS_MUX_SHADOW,
++	 MT8196_BYPASS_MUX_SHADOW, MT8196_BYPASS_MUX_SHADOW},
++	{MT8196_OVLSYS_CB_CON, MT8196_OVLSYS_CB_BYPASS_MUX_SHADOW,
++	 MT8196_OVLSYS_CB_BYPASS_MUX_SHADOW},
++};
++
++static const struct mtk_mmsys_default mmsys_mt8196_disp0_default_table[] = {
++	{MT8196_OVLSYS_GCE_EVENT_SEL, MT8196_EVENT_GCE_EN, GENMASK(1, 0)},
++	{MT8196_DISP0_BYPASS_MUX_SHADOW,
++	 MT8196_CB_BYPASS_MUX_SHADOW | MT8196_BYPASS_MUX_SHADOW,
++	 MT8196_CB_BYPASS_MUX_SHADOW | MT8196_BYPASS_MUX_SHADOW},
++	{MT8196_DISP0_DLI_RELAY0, MT8196_DLI_RELAY_1T2P, GENMASK(31, 30)},
++	{MT8196_DISP0_DLI_RELAY1, MT8196_DLI_RELAY_1T2P, GENMASK(31, 30)},
++	{MT8196_DISP0_DLI_RELAY8, MT8196_DLI_RELAY_1T2P, GENMASK(31, 30)},
++	{MT8196_DISP0_DLO_RELAY1, MT8196_DLI_RELAY_1T2P, GENMASK(31, 30)},
++	{MT8196_DISP0_DLO_RELAY2, MT8196_DLI_RELAY_1T2P, GENMASK(31, 30)},
++	{MT8196_DISP0_DLO_RELAY3, MT8196_DLI_RELAY_1T2P, GENMASK(31, 30)},
++};
++
++static const struct mtk_mmsys_default mmsys_mt8196_disp1_default_table[] = {
++	{MT8196_OVLSYS_GCE_EVENT_SEL, MT8196_EVENT_GCE_EN, GENMASK(1, 0)},
++	{MT8196_DISP1_INT_MERGE, 0, BIT(0)},
++	{MT8196_DISP1_BYPASS_MUX_SHADOW,
++	 MT8196_CB_BYPASS_MUX_SHADOW | MT8196_BYPASS_MUX_SHADOW,
++	 MT8196_CB_BYPASS_MUX_SHADOW | MT8196_BYPASS_MUX_SHADOW},
++	{MT8196_DISP1_DLI_RELAY21, MT8196_DLI_RELAY_1T2P, GENMASK(31, 30)},
++	{MT8196_DISP1_DLI_RELAY22, MT8196_DLI_RELAY_1T2P, GENMASK(31, 30)},
++	{MT8196_DISP1_DLI_RELAY23, MT8196_DLI_RELAY_1T2P, GENMASK(31, 30)},
++	{MT8196_DISP1_GCE_FRAME_DONE_SEL0, MT8196_FRAME_DONE_DVO, GENMASK(5, 0)},
++	{MT8196_DISP1_GCE_FRAME_DONE_SEL1, MT8196_FRAME_DONE_DP_INTF0, GENMASK(5, 0)},
++};
++
++static const struct mtk_mmsys_routes mmsys_mt8196_ovl0_routing_table[] = {
++	MMSYS_ROUTE(OVL0_EXDMA2, OVL0_BLENDER1,
++		    MT8196_OVL_RSZ_IN_CB2_MOUT_EN, MT8196_DISP_OVL_EXDMA2_1_TO_OVL_EXDMA_OUT_CB3,
++		    MT8196_DISP_OVL_EXDMA2_1_TO_OVL_EXDMA_OUT_CB3),
++	MMSYS_ROUTE(OVL0_EXDMA2, OVL0_BLENDER1,
++		    MT8196_OVL_EXDMA_OUT_CB3_MOUT_EN, MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER1,
++		    MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER1),
++	MMSYS_ROUTE(OVL0_EXDMA3, OVL0_BLENDER2,
++		    MT8196_OVL_EXDMA_OUT_CB4_MOUT_EN, MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER2,
++		    MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER2),
++	MMSYS_ROUTE(OVL0_EXDMA4, OVL0_BLENDER3,
++		    MT8196_OVL_EXDMA_OUT_CB5_MOUT_EN, MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER3,
++		    MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER3),
++	MMSYS_ROUTE(OVL0_EXDMA5, OVL0_BLENDER4,
++		    MT8196_OVL_EXDMA_OUT_CB6_MOUT_EN, MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER4,
++		    MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER4),
++	MMSYS_ROUTE(OVL0_EXDMA6, OVL0_BLENDER5,
++		    MT8196_OVL_EXDMA_OUT_CB7_MOUT_EN, MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER5,
++		    MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER5),
++	MMSYS_ROUTE(OVL0_EXDMA7, OVL0_BLENDER6,
++		    MT8196_OVL_EXDMA_OUT_CB8_MOUT_EN, MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER6,
++		    MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER6),
++	MMSYS_ROUTE(OVL0_EXDMA8, OVL0_BLENDER7,
++		    MT8196_OVL_EXDMA_OUT_CB9_MOUT_EN, MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER7,
++		    MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER7),
++	MMSYS_ROUTE(OVL0_EXDMA9, OVL0_BLENDER8,
++		    MT8196_OVL_EXDMA_OUT_CB10_MOUT_EN, MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER8,
++		    MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER8),
++	MMSYS_ROUTE(OVL0_BLENDER4, OVL0_OUTPROC0,
++		    MT8196_OVL_BLENDER_OUT_CB4_MOUT_EN, MT8196_DISP_OUT_BLENDER_CB_TO_OVL_OUTPROC0,
++		    MT8196_DISP_OUT_BLENDER_CB_TO_OVL_OUTPROC0),
++	MMSYS_ROUTE(OVL0_BLENDER8, OVL0_OUTPROC1,
++		    MT8196_OVL_BLENDER_OUT_CB8_MOUT_EN, MT8196_DISP_OUT_BLENDER_CB_TO_OVL_OUTPROC1,
++		    MT8196_DISP_OUT_BLENDER_CB_TO_OVL_OUTPROC1),
++	MMSYS_ROUTE(OVL0_OUTPROC0, OVL0_DLO_ASYNC5,
++		    MT8196_OVL_OUTPROC_OUT_CB0_MOUT_EN,
++		    MT8196_DISP_OVL_OUT_PROC_CB_TO_OVL_DLO_RELAY5,
++		    MT8196_DISP_OVL_OUT_PROC_CB_TO_OVL_DLO_RELAY5),
++	MMSYS_ROUTE(OVL0_OUTPROC1, OVL0_DLO_ASYNC6,
++		    MT8196_OVL_OUTPROC_OUT_CB1_MOUT_EN,
++		    MT8196_DISP_OVL_OUT_PROC_CB_TO_OVL_DLO_RELAY6,
++		    MT8196_DISP_OVL_OUT_PROC_CB_TO_OVL_DLO_RELAY6)
++};
++
++static const struct mtk_mmsys_routes mmsys_mt8196_ovl1_routing_table[] = {
++	MMSYS_ROUTE(OVL1_EXDMA2, OVL1_BLENDER1,
++		    MT8196_OVL_RSZ_IN_CB2_MOUT_EN, MT8196_DISP_OVL_EXDMA2_1_TO_OVL_EXDMA_OUT_CB3,
++		    MT8196_DISP_OVL_EXDMA2_1_TO_OVL_EXDMA_OUT_CB3),
++	MMSYS_ROUTE(OVL1_EXDMA2, OVL1_BLENDER1,
++		    MT8196_OVL_EXDMA_OUT_CB3_MOUT_EN, MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER1,
++		    MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER1),
++	MMSYS_ROUTE(OVL1_EXDMA3, OVL1_BLENDER2,
++		    MT8196_OVL_EXDMA_OUT_CB4_MOUT_EN, MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER2,
++		    MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER2),
++	MMSYS_ROUTE(OVL1_EXDMA4, OVL1_BLENDER3,
++		    MT8196_OVL_EXDMA_OUT_CB5_MOUT_EN, MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER3,
++		    MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER3),
++	MMSYS_ROUTE(OVL1_EXDMA5, OVL1_BLENDER4,
++		    MT8196_OVL_EXDMA_OUT_CB6_MOUT_EN, MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER4,
++		    MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER4),
++	MMSYS_ROUTE(OVL1_EXDMA6, OVL1_BLENDER5,
++		    MT8196_OVL_EXDMA_OUT_CB7_MOUT_EN, MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER5,
++		    MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER5),
++	MMSYS_ROUTE(OVL1_EXDMA7, OVL1_BLENDER6,
++		    MT8196_OVL_EXDMA_OUT_CB8_MOUT_EN, MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER6,
++		    MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER6),
++	MMSYS_ROUTE(OVL1_EXDMA8, OVL1_BLENDER7,
++		    MT8196_OVL_EXDMA_OUT_CB9_MOUT_EN, MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER7,
++		    MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER7),
++	MMSYS_ROUTE(OVL1_EXDMA9, OVL1_BLENDER8,
++		    MT8196_OVL_EXDMA_OUT_CB10_MOUT_EN, MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER8,
++		    MT8196_DISP_OVL_EXDMA_OUT_CB_TO_OVL_BLENDER8),
++	MMSYS_ROUTE(OVL1_BLENDER4, OVL1_OUTPROC0,
++		    MT8196_OVL_BLENDER_OUT_CB4_MOUT_EN, MT8196_DISP_OUT_BLENDER_CB_TO_OVL_OUTPROC0,
++		    MT8196_DISP_OUT_BLENDER_CB_TO_OVL_OUTPROC0),
++	MMSYS_ROUTE(OVL1_BLENDER8, OVL1_OUTPROC1,
++		    MT8196_OVL_BLENDER_OUT_CB8_MOUT_EN, MT8196_DISP_OUT_BLENDER_CB_TO_OVL_OUTPROC1,
++		    MT8196_DISP_OUT_BLENDER_CB_TO_OVL_OUTPROC1),
++	MMSYS_ROUTE(OVL1_OUTPROC0, OVL1_DLO_ASYNC5,
++		    MT8196_OVL_OUTPROC_OUT_CB0_MOUT_EN,
++		    MT8196_DISP_OVL_OUT_PROC_CB_TO_OVL_DLO_RELAY5,
++		    MT8196_DISP_OVL_OUT_PROC_CB_TO_OVL_DLO_RELAY5),
++	MMSYS_ROUTE(OVL1_OUTPROC1, OVL1_DLO_ASYNC6,
++		    MT8196_OVL_OUTPROC_OUT_CB1_MOUT_EN,
++		    MT8196_DISP_OVL_OUT_PROC_CB_TO_OVL_DLO_RELAY6,
++		    MT8196_DISP_OVL_OUT_PROC_CB_TO_OVL_DLO_RELAY6)
++};
++
++/*
++ * main: DLI_ASYNC0-> PQ_IN_CB0 -> PQ_OUT_CB6 -> PANEL_COMP_OUT_CB1 -> DLO_ASYNC1
++ * ext:  DLI_ASYNC1-> PQ_IN_CB1 -> PQ_OUT_CB7 -> PANEL_COMP_OUT_CB2 -> DLO_ASYNC2
++ */
++static const struct mtk_mmsys_routes mmsys_mt8196_disp0_routing_table[] = {
++	MMSYS_ROUTE(DLI_ASYNC0, DLO_ASYNC1,
++		    MT8196_PQ_IN_CB0_MOUT_EN, MT8196_PQ_IN_CB0_TO_PQ_OUT_CB_6,
++		    MT8196_PQ_IN_CB0_TO_PQ_OUT_CB_6),
++	MMSYS_ROUTE(DLI_ASYNC0, DLO_ASYNC1,
++		    MT8196_PQ_OUT_CB6_MOUT_EN, MT8196_PQ_OUT_CB6_TO_PANEL0_COMP_OUT_CB1,
++		    MT8196_PQ_OUT_CB6_TO_PANEL0_COMP_OUT_CB1),
++	MMSYS_ROUTE(DLI_ASYNC0, DLO_ASYNC1,
++		    MT8196_PANEL_COMP_OUT_CB1_MOUT_EN, MT8196_DISP_TO_DLO_RELAY1,
++		    MT8196_DISP_TO_DLO_RELAY1),
++	MMSYS_ROUTE(DLI_ASYNC1, DLO_ASYNC2,
++		    MT8196_PQ_IN_CB1_MOUT_EN, MT8196_PQ_IN_CB1_TO_PQ_OUT_CB_7,
++		    MT8196_PQ_IN_CB1_TO_PQ_OUT_CB_7),
++	MMSYS_ROUTE(DLI_ASYNC1, DLO_ASYNC2,
++		    MT8196_PQ_OUT_CB7_MOUT_EN, MT8196_PQ_OUT_CB7_TO_PANEL0_COMP_OUT_CB2,
++		    MT8196_PQ_OUT_CB7_TO_PANEL0_COMP_OUT_CB2),
++	MMSYS_ROUTE(DLI_ASYNC1, DLO_ASYNC2,
++		    MT8196_PANEL_COMP_OUT_CB2_MOUT_EN, MT8196_DISP_TO_DLO_RELAY2,
++		    MT8196_DISP_TO_DLO_RELAY2),
++	MMSYS_ROUTE(DLI_ASYNC8, DLO_ASYNC3,
++		    MT8196_PQ_IN_CB8_MOUT_EN, MT8196_PQ_IN_CB8_TO_PQ_OUT_CB_8,
++		    MT8196_PQ_IN_CB8_TO_PQ_OUT_CB_8),
++	MMSYS_ROUTE(DLI_ASYNC8, DLO_ASYNC3,
++		    MT8196_PQ_OUT_CB8_MOUT_EN, MT8196_PQ_OUT_CB8_TO_PANEL0_COMP_OUT_CB3,
++		    MT8196_PQ_OUT_CB8_TO_PANEL0_COMP_OUT_CB3),
++	MMSYS_ROUTE(DLI_ASYNC8, DLO_ASYNC3,
++		    MT8196_PANEL_COMP_OUT_CB3_MOUT_EN, MT8196_DISP_TO_DLO_RELAY3,
++		    MT8196_DISP_TO_DLO_RELAY3)
++};
++
++/*
++ * main: DLI_ASYNC21-> SPLITTER_IN_CB1-> SPLITTER_OUT_CB9-> COMP_OUT_CB6-> MERGE_OUT_CB0 -> DVO
++ * ext: DLI_ASYNC22-> SPLITTER_IN_CB2-> SPLITTER_OUT_CB10-> COMP_OUT_CB7-> MERGE_OUT_CB1 -> DP_INTF0
++ */
++static const struct mtk_mmsys_routes mmsys_mt8196_disp1_routing_table[] = {
++	MMSYS_ROUTE(DLI_ASYNC21, DVO0,
++		    MT8196_SPLITTER_IN_CB1_MOUT_EN, MT8196_DISP_DLI_RELAY_TO_SPLITTER_OUT_CB9,
++		    MT8196_DISP_DLI_RELAY_TO_SPLITTER_OUT_CB9),
++	MMSYS_ROUTE(DLI_ASYNC21, DVO0,
++		    MT8196_SPLITTER_OUT_CB9_MOUT_EN, MT8196_DISP_SPLITTER_IN_CB_TO_COMP_OUT_CB6,
++		    MT8196_DISP_SPLITTER_IN_CB_TO_COMP_OUT_CB6),
++	MMSYS_ROUTE(DLI_ASYNC21, DVO0,
++		    MT8196_COMP_OUT_CB6_MOUT_EN, MT8196_DISP_SPLITTER_OUT_CB_TO_MERGE_OUT_CB0,
++		    MT8196_DISP_SPLITTER_OUT_CB_TO_MERGE_OUT_CB0),
++	MMSYS_ROUTE(DLI_ASYNC21, DVO0,
++		    MT8196_MERGE_OUT_CB0_MOUT_EN, MT8196_DISP_COMP_OUT_CB_TO_DVO0,
++		    MT8196_DISP_COMP_OUT_CB_TO_DVO0),
++	MMSYS_ROUTE(DLI_ASYNC22, DP_INTF0,
++		    MT8196_SPLITTER_IN_CB2_MOUT_EN, MT8196_DISP_DLI_RELAY_TO_SPLITTER_OUT_CB10,
++		    MT8196_DISP_DLI_RELAY_TO_SPLITTER_OUT_CB10),
++	MMSYS_ROUTE(DLI_ASYNC22, DP_INTF0,
++		    MT8196_SPLITTER_OUT_CB10_MOUT_EN, MT8196_DISP_SPLITTER_IN_CB_TO_COMP_OUT_CB7,
++		    MT8196_DISP_SPLITTER_IN_CB_TO_COMP_OUT_CB7),
++	MMSYS_ROUTE(DLI_ASYNC22, DP_INTF0,
++		    MT8196_COMP_OUT_CB7_MOUT_EN, MT8196_DISP_SPLITTER_OUT_CB_TO_MERGE_OUT_CB1,
++		    MT8196_DISP_SPLITTER_OUT_CB_TO_MERGE_OUT_CB1),
++	MMSYS_ROUTE(DLI_ASYNC22, DP_INTF0,
++		    MT8196_MERGE_OUT_CB1_MOUT_EN, MT8196_DISP_COMP_OUT_CB_TO_DP_INTF0,
++		    MT8196_DISP_COMP_OUT_CB_TO_DP_INTF0),
++	MMSYS_ROUTE(DLI_ASYNC23, DVO0,
++		    MT8196_SPLITTER_IN_CB3_MOUT_EN, MT8196_DISP_DLI_RELAY_TO_SPLITTER_OUT_CB11,
++		    MT8196_DISP_DLI_RELAY_TO_SPLITTER_OUT_CB11),
++	MMSYS_ROUTE(DLI_ASYNC23, DVO0,
++		    MT8196_SPLITTER_OUT_CB11_MOUT_EN, MT8196_DISP_SPLITTER_IN_CB_TO_COMP_OUT_CB8,
++		    MT8196_DISP_SPLITTER_IN_CB_TO_COMP_OUT_CB8),
++	MMSYS_ROUTE(DLI_ASYNC23, DVO0,
++		    MT8196_COMP_OUT_CB8_MOUT_EN, MT8196_DISP_SPLITTER_OUT_CB_TO_MERGE_OUT_CB2,
++		    MT8196_DISP_SPLITTER_OUT_CB_TO_MERGE_OUT_CB2),
++	MMSYS_ROUTE(DLI_ASYNC23, DVO0,
++		    MT8196_MERGE_OUT_CB2_MOUT_EN, MT8196_DISP_COMP_OUT_CB_TO_DVO0,
++		    MT8196_DISP_COMP_OUT_CB_TO_DVO0),
++	MMSYS_ROUTE(DLI_ASYNC23, DP_INTF1,
++		    MT8196_SPLITTER_IN_CB3_MOUT_EN, MT8196_DISP_DLI_RELAY_TO_SPLITTER_OUT_CB11,
++		    MT8196_DISP_DLI_RELAY_TO_SPLITTER_OUT_CB11),
++	MMSYS_ROUTE(DLI_ASYNC23, DP_INTF1,
++		    MT8196_SPLITTER_OUT_CB11_MOUT_EN, MT8196_DISP_SPLITTER_IN_CB_TO_COMP_OUT_CB8,
++		    MT8196_DISP_SPLITTER_IN_CB_TO_COMP_OUT_CB8),
++	MMSYS_ROUTE(DLI_ASYNC23, DP_INTF1,
++		    MT8196_COMP_OUT_CB8_MOUT_EN, MT8196_DISP_SPLITTER_OUT_CB_TO_MERGE_OUT_CB2,
++		    MT8196_DISP_SPLITTER_OUT_CB_TO_MERGE_OUT_CB2),
++	MMSYS_ROUTE(DLI_ASYNC23, DP_INTF1,
++		    MT8196_MERGE_OUT_CB2_MOUT_EN, MT8196_DISP_COMP_OUT_CB_TO_DP_INTF1,
++		    MT8196_DISP_COMP_OUT_CB_TO_DP_INTF1),
++	MMSYS_ROUTE(DLI_ASYNC23, DSI0,
++		    MT8196_SPLITTER_IN_CB3_MOUT_EN, MT8196_DISP_DLI_RELAY_TO_SPLITTER_OUT_CB11,
++		    MT8196_DISP_DLI_RELAY_TO_SPLITTER_OUT_CB11),
++	MMSYS_ROUTE(DLI_ASYNC23, DSI0,
++		    MT8196_SPLITTER_OUT_CB11_MOUT_EN, MT8196_DISP_SPLITTER_IN_CB_TO_COMP_OUT_CB8,
++		    MT8196_DISP_SPLITTER_IN_CB_TO_COMP_OUT_CB8),
++	MMSYS_ROUTE(DLI_ASYNC23, DSI0,
++		    MT8196_COMP_OUT_CB8_MOUT_EN, MT8196_DISP_SPLITTER_OUT_CB_TO_MERGE_OUT_CB2,
++		    MT8196_DISP_SPLITTER_OUT_CB_TO_MERGE_OUT_CB2),
++	MMSYS_ROUTE(DLI_ASYNC23, DSI0,
++		    MT8196_MERGE_OUT_CB2_MOUT_EN, MT8196_DISP_COMP_OUT_CB_TO_DSI0,
++		    MT8196_DISP_COMP_OUT_CB_TO_DSI0)
++};
++#endif /* __SOC_MEDIATEK_MT8196_MMSYS_H */
+diff --git a/drivers/soc/mediatek/mtk-mmsys.c b/drivers/soc/mediatek/mtk-mmsys.c
+index f448cc09ce19..3b490b993549 100644
+--- a/drivers/soc/mediatek/mtk-mmsys.c
++++ b/drivers/soc/mediatek/mtk-mmsys.c
+@@ -24,6 +24,7 @@
+ #include "mt8188-mmsys.h"
+ #include "mt8192-mmsys.h"
+ #include "mt8195-mmsys.h"
++#include "mt8196-mmsys.h"
+ #include "mt8365-mmsys.h"
+ 
+ #define MMSYS_SW_RESET_PER_REG 32
+@@ -147,6 +148,54 @@ static const struct mtk_mmsys_driver_data mt8195_vppsys1_driver_data = {
+ 	.is_vppsys = true,
+ };
+ 
++static const struct mtk_mmsys_driver_data mt8196_dispsys0_driver_data = {
++	.clk_driver = "clk-mt8196-disp0",
++	.routes = mmsys_mt8196_disp0_routing_table,
++	.num_routes = ARRAY_SIZE(mmsys_mt8196_disp0_routing_table),
++	.async_info = mmsys_mt8196_disp0_async_comp_table,
++	.num_async_info = ARRAY_SIZE(mmsys_mt8196_disp0_async_comp_table),
++	.def_config = mmsys_mt8196_disp0_default_table,
++	.num_def_config = ARRAY_SIZE(mmsys_mt8196_disp0_default_table),
++	.num_top_clk = 1,
++};
++
++static const struct mtk_mmsys_driver_data mt8196_dispsys1_driver_data = {
++	.clk_driver = "clk-mt8196-disp1",
++	.routes = mmsys_mt8196_disp1_routing_table,
++	.num_routes = ARRAY_SIZE(mmsys_mt8196_disp1_routing_table),
++	.async_info = mmsys_mt8196_disp1_async_comp_table,
++	.num_async_info = ARRAY_SIZE(mmsys_mt8196_disp1_async_comp_table),
++	.def_config = mmsys_mt8196_disp1_default_table,
++	.num_def_config = ARRAY_SIZE(mmsys_mt8196_disp1_default_table),
++	.num_top_clk = 1,
++};
++
++static const struct mtk_mmsys_driver_data mt8196_ovlsys0_driver_data = {
++	.clk_driver = "clk-mt8196-ovl0",
++	.routes = mmsys_mt8196_ovl0_routing_table,
++	.num_routes = ARRAY_SIZE(mmsys_mt8196_ovl0_routing_table),
++	.async_info = mmsys_mt8196_ovl0_async_comp_table,
++	.num_async_info = ARRAY_SIZE(mmsys_mt8196_ovl0_async_comp_table),
++	.def_config = mmsys_mt8196_ovl0_default_table,
++	.num_def_config = ARRAY_SIZE(mmsys_mt8196_ovl0_default_table),
++};
++
++static const struct mtk_mmsys_driver_data mt8196_ovlsys1_driver_data = {
++	.clk_driver = "clk-mt8196-ovl1",
++	.routes = mmsys_mt8196_ovl1_routing_table,
++	.num_routes = ARRAY_SIZE(mmsys_mt8196_ovl1_routing_table),
++	.async_info = mmsys_mt8196_ovl1_async_comp_table,
++	.num_async_info = ARRAY_SIZE(mmsys_mt8196_ovl1_async_comp_table),
++	.def_config = mmsys_mt8196_ovl0_default_table,
++	.num_def_config = ARRAY_SIZE(mmsys_mt8196_ovl0_default_table),
++};
++
++static const struct mtk_mmsys_driver_data mt8196_vdisp_ao_driver_data = {
++	.clk_driver = "clk-mt8196-vdisp_ao",
++	.def_config = mmsys_mt8196_vdisp_ao_default_table,
++	.num_def_config = ARRAY_SIZE(mmsys_mt8196_vdisp_ao_default_table),
++};
++
+ static const struct mtk_mmsys_driver_data mt8365_mmsys_driver_data = {
+ 	.clk_driver = "clk-mt8365-mm",
+ 	.routes = mt8365_mmsys_routing_table,
+@@ -626,6 +675,11 @@ static const struct of_device_id of_match_mtk_mmsys[] = {
+ 	{ .compatible = "mediatek,mt8195-vdosys1", .data = &mt8195_vdosys1_driver_data },
+ 	{ .compatible = "mediatek,mt8195-vppsys0", .data = &mt8195_vppsys0_driver_data },
+ 	{ .compatible = "mediatek,mt8195-vppsys1", .data = &mt8195_vppsys1_driver_data },
++	{ .compatible = "mediatek,mt8196-dispsys0", .data = &mt8196_dispsys0_driver_data },
++	{ .compatible = "mediatek,mt8196-dispsys1", .data = &mt8196_dispsys1_driver_data },
++	{ .compatible = "mediatek,mt8196-ovlsys0", .data = &mt8196_ovlsys0_driver_data },
++	{ .compatible = "mediatek,mt8196-ovlsys1", .data = &mt8196_ovlsys1_driver_data },
++	{ .compatible = "mediatek,mt8196-vdisp-ao", .data = &mt8196_vdisp_ao_driver_data },
+ 	{ .compatible = "mediatek,mt8365-mmsys", .data = &mt8365_mmsys_driver_data },
+ 	{ /* sentinel */ }
+ };
+diff --git a/include/linux/soc/mediatek/mtk-mmsys.h b/include/linux/soc/mediatek/mtk-mmsys.h
+index f50f626e1840..4a0b10567581 100644
+--- a/include/linux/soc/mediatek/mtk-mmsys.h
++++ b/include/linux/soc/mediatek/mtk-mmsys.h
+@@ -29,6 +29,15 @@ enum mtk_ddp_comp_id {
+ 	DDP_COMPONENT_COLOR1,
+ 	DDP_COMPONENT_DITHER0,
+ 	DDP_COMPONENT_DITHER1,
++	DDP_COMPONENT_DLI_ASYNC0,
++	DDP_COMPONENT_DLI_ASYNC1,
++	DDP_COMPONENT_DLI_ASYNC8,
++	DDP_COMPONENT_DLI_ASYNC21,
++	DDP_COMPONENT_DLI_ASYNC22,
++	DDP_COMPONENT_DLI_ASYNC23,
++	DDP_COMPONENT_DLO_ASYNC1,
++	DDP_COMPONENT_DLO_ASYNC2,
++	DDP_COMPONENT_DLO_ASYNC3,
+ 	DDP_COMPONENT_DP_INTF0,
+ 	DDP_COMPONENT_DP_INTF1,
+ 	DDP_COMPONENT_DPI0,
+@@ -39,6 +48,7 @@ enum mtk_ddp_comp_id {
+ 	DDP_COMPONENT_DSI1,
+ 	DDP_COMPONENT_DSI2,
+ 	DDP_COMPONENT_DSI3,
++	DDP_COMPONENT_DVO0,
+ 	DDP_COMPONENT_ETHDR_MIXER,
+ 	DDP_COMPONENT_GAMMA,
+ 	DDP_COMPONENT_MDP_RDMA0,
+@@ -58,10 +68,52 @@ enum mtk_ddp_comp_id {
+ 	DDP_COMPONENT_OD0,
+ 	DDP_COMPONENT_OD1,
+ 	DDP_COMPONENT_OVL0,
++	DDP_COMPONENT_OVL0_BLENDER1,
++	DDP_COMPONENT_OVL0_BLENDER2,
++	DDP_COMPONENT_OVL0_BLENDER3,
++	DDP_COMPONENT_OVL0_BLENDER4,
++	DDP_COMPONENT_OVL0_BLENDER5,
++	DDP_COMPONENT_OVL0_BLENDER6,
++	DDP_COMPONENT_OVL0_BLENDER7,
++	DDP_COMPONENT_OVL0_BLENDER8,
++	DDP_COMPONENT_OVL0_BLENDER9,
++	DDP_COMPONENT_OVL0_DLO_ASYNC5,
++	DDP_COMPONENT_OVL0_DLO_ASYNC6,
++	DDP_COMPONENT_OVL0_EXDMA2,
++	DDP_COMPONENT_OVL0_EXDMA3,
++	DDP_COMPONENT_OVL0_EXDMA4,
++	DDP_COMPONENT_OVL0_EXDMA5,
++	DDP_COMPONENT_OVL0_EXDMA6,
++	DDP_COMPONENT_OVL0_EXDMA7,
++	DDP_COMPONENT_OVL0_EXDMA8,
++	DDP_COMPONENT_OVL0_EXDMA9,
++	DDP_COMPONENT_OVL0_OUTPROC0,
++	DDP_COMPONENT_OVL0_OUTPROC1,
+ 	DDP_COMPONENT_OVL_2L0,
+ 	DDP_COMPONENT_OVL_2L1,
+ 	DDP_COMPONENT_OVL_2L2,
+ 	DDP_COMPONENT_OVL1,
++	DDP_COMPONENT_OVL1_BLENDER1,
++	DDP_COMPONENT_OVL1_BLENDER2,
++	DDP_COMPONENT_OVL1_BLENDER3,
++	DDP_COMPONENT_OVL1_BLENDER4,
++	DDP_COMPONENT_OVL1_BLENDER5,
++	DDP_COMPONENT_OVL1_BLENDER6,
++	DDP_COMPONENT_OVL1_BLENDER7,
++	DDP_COMPONENT_OVL1_BLENDER8,
++	DDP_COMPONENT_OVL1_BLENDER9,
++	DDP_COMPONENT_OVL1_DLO_ASYNC5,
++	DDP_COMPONENT_OVL1_DLO_ASYNC6,
++	DDP_COMPONENT_OVL1_EXDMA2,
++	DDP_COMPONENT_OVL1_EXDMA3,
++	DDP_COMPONENT_OVL1_EXDMA4,
++	DDP_COMPONENT_OVL1_EXDMA5,
++	DDP_COMPONENT_OVL1_EXDMA6,
++	DDP_COMPONENT_OVL1_EXDMA7,
++	DDP_COMPONENT_OVL1_EXDMA8,
++	DDP_COMPONENT_OVL1_EXDMA9,
++	DDP_COMPONENT_OVL1_OUTPROC0,
++	DDP_COMPONENT_OVL1_OUTPROC1,
+ 	DDP_COMPONENT_PADDING0,
+ 	DDP_COMPONENT_PADDING1,
+ 	DDP_COMPONENT_PADDING2,
 -- 
 2.45.2
 
