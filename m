@@ -4,91 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7C18C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 18:04:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88CA8C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 18:19:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bNN+vfuMJJgSzRBBX1dcv69JrH0Sd8EtzpYEboDV/q8=; b=Ibw1SxrR8NVvFJWeUuk+PRHARi
-	SSQoyiUQResndF46Kis4QW/ZB3AGLaeDq9P48XQ7aKYu1kHjSr8Rq0LxFACG5S8bou8mMzpYLT09q
-	BLc4klSlx/79+1tGM9uW22puyAUFubGUSiBHeZxaqPHExrDXDNEk10kdggrCYiYo+hnMtr0D2mm9G
-	u3TrfcNYBgIZ7VSyyMCvK7G07tGrHgDr87gBD6y4SSDdKT9eKO0m2vPf3hURv9FHmqUN3XUhJ5lEx
-	vo4Z/vgfO5zDECtxJBzzlsYCVf0ALeFoqS+HwHJ3yNzg2f561ptvtF9pnhf9lo42AX34XPQDbtu+M
-	TemFNIZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BL0rwh7n7hqXXSKJfoOjCdUPj3va22sJvRsC149yYGw=; b=AbAnAL0uBD4Kj6Fkzpk+riTlcw
+	gHEltFxFL/X9w5BpZXvLR5pza24RXKclB/s/gxQTB0nmGoIvqEHWDgwsn4AQMXhXSByikCwcJn+vY
+	Vy2QvAyJtjOITroYkHcFaBuqT9nH7pXdnM8sdPGC6a1O1rC5vWZQ+cTOixevi8dx6Koozj3Aiqu9K
+	NxAk1ijxV10kEvRdSzAWkZP0zR/3rpIyAwLKfbnBSS3C4f4Fh3K8OfOV42WabUCLE4SA7NKN1ba2B
+	XQ4t1XHrvMrA3TX1/xtQ6u8oLXXUAHbs8r+vY3Z/lUHJkyGwRRPYC7iF4BeuSHZRBYOpXDH9FO8c8
+	rbtEjhug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFcwN-00000001Uv6-1Afj;
-	Thu, 15 May 2025 18:04:19 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1uFdAj-00000001Wgg-29xQ;
+	Thu, 15 May 2025 18:19:09 +0000
+Received: from mail-dm6nam11on20624.outbound.protection.outlook.com ([2a01:111:f403:2415::624] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFcuI-00000001Uir-4Biy
+	id 1uFd8g-00000001WQI-1fDh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 18:02:12 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ad21a5466f6so466985466b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 11:02:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747332129; x=1747936929; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bNN+vfuMJJgSzRBBX1dcv69JrH0Sd8EtzpYEboDV/q8=;
-        b=lM5flT3KpxtqfIG96CiRZ3lqwaMWyrd/2h1R1L5U3D4GA9grfg+nySteXOCJg5OPVA
-         pABdfYykEpGxvICjQ+Y9vRumdvmPfwD9IA7UVV+cZfuD3RPlvDeFB9syFvAgNNRDO1Zb
-         BdPQo0wYy91Wg03xNHoKoVjarmxkZ1F2dalzshy+4zilYSXmRM3BXIUZzAqA4loip22/
-         4MNKueyUdfU5yzbuCRqh1QMY5w5xBzLvUuDJE5JAOF8Oot/f7OxcrFxdgA3SPHFj4zjB
-         d/alo4PsFKkRiG6seUAyA4bbIZGOusro7GBe9ZTtIRKvLLWLLgRucS38eX9yyU7kibnI
-         ov5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747332129; x=1747936929;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bNN+vfuMJJgSzRBBX1dcv69JrH0Sd8EtzpYEboDV/q8=;
-        b=lckOPBfVRe/ALXjZoJ5sBNudTJC/q8IJwfgLNaWRo9kE7wrJJPb0ezqOvVr+enVpXd
-         1Fk2y5VjC4SYH7ZELIiF9fyyo8/YIxj7nZuEg3gIv+cAWkErxSO5Io5iF5mYTTEGT5ao
-         bl2zhhNhUkz8bY656Oq8Dsfphv03vdwYyxDHFh21B0MPycFiluyqZfyDrqvaPBKeW5dU
-         YPw9ydv1/xr64Mc4QUS6HDBelk6k21ZXZ2GS0ScvxRwIpuiS3/mi2Wx4GliblDH8wjIs
-         CKreuKHM8T8KGsv8l4n8e2EEkTfOvy2iuz0oATZ2iWqMalQAUmK7BzH37FtLNNfuLteW
-         pnRg==
-X-Forwarded-Encrypted: i=1; AJvYcCVB2a+87N6AFGLXcizKClKZ4pSIf5bjbUzGBy+AmmF2vn9GftKZywcm0oeF9X8wfgI3fmjpL7o0bPSLRI4fvjHF@lists.infradead.org
-X-Gm-Message-State: AOJu0YznnjVEJKgkIiwF1jQA83dvCuIJDR6WxSWY1Kl9j1/IunwUIKSB
-	VdxY2NHkVx5oOE+MdeLSSyVTaIu3o+JBzN1FEo7zbrXqh9O59n9rWaexonY17xHhTDPFUWfIMHW
-	hKngcqNauo71EI915z7juMl8B1MfYGG4=
-X-Gm-Gg: ASbGncuFod1WJOZQnOOQY7b44y0E1gH0a0i5UEG851DeV9awcYqD+pe3MueWbqttI+u
-	rDs2Wlg1nxt3NFKV9Y9yTwQrQ0qUGT6VBLa5JLjaQkZaCmC8BaY2EGWF8GJ1kDLQWNXBX8EKEob
-	L7jeAFkgJfaoHmS8toQi2nbAzFjus3/Wg=
-X-Google-Smtp-Source: AGHT+IGJ3VLgyC5oRyYT9SJhjLgRqlja96rlJ3f3rzeXshYp1J9lbgDhqI7B6B7Y0eDrmuUni3A/DX8mMtH0+4aqo58=
-X-Received: by 2002:a17:907:980f:b0:ad2:41ae:a1e4 with SMTP id
- a640c23a62f3a-ad50f7c4f3dmr407267966b.24.1747332128837; Thu, 15 May 2025
- 11:02:08 -0700 (PDT)
+	Thu, 15 May 2025 18:17:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=U1xHIhSZL2sKhoIEkV+DV8dSTdrbu1cFqd+sc2H35J3bheE5ReGzLMesPrI+r9D+WnAjWoSRw93j6JiHsNPZPqykw5uTqbH8rDnemCPIJwrLBIrA/ermyCh9c2v0g1f/xfSxpnHtQbGyPnUY1g20aeVO+Eajgl9twYXKYNkZSxxOi7jvEcarYbuv4yyt18kAS4cQHpYzC8l0jPodb5Gm72fmL22RUhS2+Ad2h9MX2hPTPkYIAbjQj0O25MlPLdTXg36Ttua4VMO9IQgFQzGrJCWue6YETAuR9THAfkHcc7LAo1TiSFpzzAXJck6R1W3IySocr5D1DB2tTuL5Oa1+jQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BL0rwh7n7hqXXSKJfoOjCdUPj3va22sJvRsC149yYGw=;
+ b=E6vbgB+QiEyFDln0/m7mumLDz5chT6d5qbfgjFrwph88pIF9aaY990wnmgbAmBrHuHi75RRwQQo9lPpb66MfRqnjggA5qhVLu4VCV0/EbREAUeDb3cFAuFEWuogRghSBNUP/ZFkGq3e8jQrvVqiLDNMS8q7RJNgabkpzGJNThTDjGDwh+fyEtCGX2OWo+Cg6/u9SKkKpnQS/7sfZwMoSk2otuW386u1wDn6ShNYNh+JU/PDO0tUiXbYQPH+wSpo9cXjN/p026YT9DjMuO+o2ZLYjXL8PNxPDTEATx2FYiaNPyPH4RZa/ZM4LsWHShoqUyunJ9Q6hfXOBMsyJZiFbBQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BL0rwh7n7hqXXSKJfoOjCdUPj3va22sJvRsC149yYGw=;
+ b=S1y3HevtjGA7s9hetnCwmy78EN0mIXmHUxNFjcCytYf5f69EMcKwGcUJpNqR+VYueSAEG9a4rAiLJZr28CiF4Rlla4JS0tUCf9eOcTR5VIpIFJetpDHUyQ16jYxl6pK7bYiBfDkgN7eyWmeE8Yp8aFcaaNqH9TffHvAmadfETqn8XIljKN3VqbPeqVDUE+kzG6Zo1VikU7rION001jlKsGrkGPsMgp6rXndRmGZt1ESDnKku8TvjQqeq6O15hTuIFOsMzbEQ4TwMm1FRknf5VXfuObtnygUYt3XCKOFtxu/oM3xbhYQvXZNFTymlf0RMWDTMv/TDdclgvM12cCCHgA==
+Received: from CH0PR13CA0026.namprd13.prod.outlook.com (2603:10b6:610:b1::31)
+ by BL1PR12MB5828.namprd12.prod.outlook.com (2603:10b6:208:397::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.32; Thu, 15 May
+ 2025 18:16:58 +0000
+Received: from CH3PEPF0000000F.namprd04.prod.outlook.com
+ (2603:10b6:610:b1:cafe::1d) by CH0PR13CA0026.outlook.office365.com
+ (2603:10b6:610:b1::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.16 via Frontend Transport; Thu,
+ 15 May 2025 18:16:57 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ CH3PEPF0000000F.mail.protection.outlook.com (10.167.244.40) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8722.18 via Frontend Transport; Thu, 15 May 2025 18:16:57 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 15 May
+ 2025 11:16:48 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Thu, 15 May 2025 11:16:47 -0700
+Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com
+ (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Thu, 15 May 2025 11:16:46 -0700
+Date: Thu, 15 May 2025 11:16:45 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
+	<bagasdotme@gmail.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
+	<shuah@kernel.org>, <jsnitsel@redhat.com>, <nathan@kernel.org>,
+	<peterz@infradead.org>, <yi.l.liu@intel.com>, <mshavit@google.com>,
+	<praan@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
+	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>
+Subject: Re: [PATCH v4 11/23] iommufd/viommu: Add IOMMUFD_CMD_HW_QUEUE_ALLOC
+ ioctl
+Message-ID: <aCYvjeZW+7NmUtoE@Asurada-Nvidia>
+References: <cover.1746757630.git.nicolinc@nvidia.com>
+ <f52937c027e2fd25d76bc47f4965ba46f82c77c0.1746757630.git.nicolinc@nvidia.com>
+ <20250515160620.GJ382960@nvidia.com>
 MIME-Version: 1.0
-References: <20250430123306.15072-1-linux.amoon@gmail.com> <aCR9RzGMWEuI0pxS@mai.linaro.org>
- <CANAwSgSA-JHMRD7-19wijOY=TSWD-sv6yyrT=mH+wkUJuvxFAw@mail.gmail.com> <92c2949e-2fc1-40e9-9dea-e3d9f7aa571d@linaro.org>
-In-Reply-To: <92c2949e-2fc1-40e9-9dea-e3d9f7aa571d@linaro.org>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Thu, 15 May 2025 23:31:50 +0530
-X-Gm-Features: AX0GCFsEAXplwRDB3NXZqHZ-d-ohJ2IJuxMQMC4KvVGNnVidBm-TZoRYGMggWAM
-Message-ID: <CANAwSgQryVLdRVd9KRBnaUcjtX8xR9w9BBTCvoqKH6funkj=2A@mail.gmail.com>
-Subject: Re: [PATCH v6 0/4] Exynos Thermal code improvement
-To: Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
-	Lukasz Luba <lukasz.luba@arm.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	"open list:SAMSUNG THERMAL DRIVER" <linux-pm@vger.kernel.org>, 
-	"open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>, 
-	"moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>, 
-	"open list:CLANG/LLVM BUILD SUPPORT:Keyword:b(?i:clang|llvm)b" <llvm@lists.linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250515160620.GJ382960@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF0000000F:EE_|BL1PR12MB5828:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7f85620d-de7f-45cf-3c11-08dd93dcae0b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|7416014|1800799024|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?YGqNJCdH4poLlfXBy2rW02ppaGf1c2ma5An0SX1mW9IQGXnUvxsn/6BF1Abj?=
+ =?us-ascii?Q?b9rDLKCkDvZjwVKcp1EbycKyCpjOyuZ2BWd0l023LG38b+9NSmFS45GmeDM2?=
+ =?us-ascii?Q?b3bpAeqOrfctotxSgpoOb36t0/eDTBRBJKdW/yOS/vgQnTNLk6j1h2Yi5Uav?=
+ =?us-ascii?Q?BA37k4yg+uYZ20jDXI+1ITs2PPaeoM6Y84+4HOWwjHZ/Wb/EmZ2AsJKnaE4X?=
+ =?us-ascii?Q?pnIj7oOoIcFcf8rrW9MNxn+oKl7zglaB/xHA0N0O5Da0kkXkqNoe5Pzz7LjG?=
+ =?us-ascii?Q?ECsM4rn5EWEz7TFEWBcu7irMYuz6tuhyrRba3CS+e39txTCAVWC7Ox73RObY?=
+ =?us-ascii?Q?knRskQsUwfmyESujvGrVfkhAoh+fM9HY8srGZyp03CURswp6BJ5L2rQpfM5v?=
+ =?us-ascii?Q?GLZv3me9Up+D4otWIRiOLHDwv2WY/yULsURgtGIZjoZlSSMBbTLuO2tNPY3B?=
+ =?us-ascii?Q?7t+t4TIJWlyErWrMdxiK9n2Et2sHH3PIcnE5fGpAJ5Coy5GIGAAElJI7GOqb?=
+ =?us-ascii?Q?eux/FvhuYVRUN7pQC92lUGI3f1A9tmht2666ltA7NgW5rMil9Qr6FxegpmX1?=
+ =?us-ascii?Q?+xB8CApo38JdFNW3Hjq7ds/rR9reH/e5tXegR7nxXqGY/e+BvZeZ56tWp96c?=
+ =?us-ascii?Q?XA9B8K8zw8dTOWDWyvi4uiQP5f6yETIWd/MA2p3eS9uHLNT1AW+IO4XA1Q+q?=
+ =?us-ascii?Q?Hs/P/WlnujN6acjOlDxmJG6tjUhjKjgr2cJ7T+5OznMj817N9zI65CacQVpb?=
+ =?us-ascii?Q?TE0mGMUkL4pMEMJHi5o9frScshpOZpNPInqj/Pb1cingWz3L7I4PSDpK/0jd?=
+ =?us-ascii?Q?yWgzc+zDS9U79Ju3XPeKNvUXOWTPd1volmEP/+LYLY2Jbm0X1mKJQnXo5Xzp?=
+ =?us-ascii?Q?P7sUiVY+jC2WRqI0/6Ph60kNX6Nd60VehPizwVRX8096LfYJ1rBvIVt/acf1?=
+ =?us-ascii?Q?TZXmHLvjQXr4vwHzjrreqQvs1yerqVnq8b2hek6uYGgWckKIYHIDj/NS5lUk?=
+ =?us-ascii?Q?yZAsQBKEg26iszPR1e9CLS0dbSCLvESeNT/v88zYQ2mg/MTeMi7DkkwqG5Fk?=
+ =?us-ascii?Q?YOMYbWVs12WILM6iQVkjXgVPD42eaYhZ3nsEbmvhPrJWzpsev1dHOQ0iD3Pk?=
+ =?us-ascii?Q?b88LBiOk3UsvyhPsQR2UReME04P25DU2vcIePVHvZIZZjAjDXRu4f7tGPp8D?=
+ =?us-ascii?Q?oadg/r1HI8YN5GHtZwvMpWgQkLCNtquG0oAp9fbcdWnQ2agvkgtiZo4Mjtgf?=
+ =?us-ascii?Q?EFENw1kMnPLg+RZ+uv7Q0a1xtKCJLc+9PMYUcCLmmuNufXBl/wF1QDqCXO/B?=
+ =?us-ascii?Q?GGVVd3X7LA5yhYxfPEmzbFIh+sWCUJXLOpRoqd/83hbBqPNQIz3xoXxBZVHW?=
+ =?us-ascii?Q?BsUZzT9Vj8/ZiQDNqcRety3rstJ9coFZp5etXzH7aLeGooPIbKId5CdNt6ka?=
+ =?us-ascii?Q?zILDHg6EQ4WF7f1qRIx5pqZSFL9pFgFmt/W54RHwEa/Q6Wu8f8JUnmi1yah/?=
+ =?us-ascii?Q?cuwJnC0Nia5qeeOGPH7VytowYJF2a944CUp1?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(36860700013)(7416014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 May 2025 18:16:57.7314
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7f85620d-de7f-45cf-3c11-08dd93dcae0b
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF0000000F.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5828
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_110211_039753_0669D382 
-X-CRM114-Status: GOOD (  32.02  )
+X-CRM114-CacheID: sfid-20250515_111702_443363_7097C9C9 
+X-CRM114-Status: GOOD (  36.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,97 +160,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+On Thu, May 15, 2025 at 01:06:20PM -0300, Jason Gunthorpe wrote:
+> On Thu, May 08, 2025 at 08:02:32PM -0700, Nicolin Chen wrote:
+> > +/**
+> > + * struct iommu_hw_queue_alloc - ioctl(IOMMU_HW_QUEUE_ALLOC)
+> > + * @size: sizeof(struct iommu_hw_queue_alloc)
+> > + * @flags: Must be 0
+> > + * @viommu_id: Virtual IOMMU ID to associate the HW queue with
+> > + * @type: One of enum iommu_hw_queue_type
+> > + * @index: The logical index to the HW queue per virtual IOMMU for a multi-queue
+> > + *         model
+> > + * @out_hw_queue_id: The ID of the new HW queue
+> > + * @base_addr: Base address of the queue memory in guest physical address space
+> > + * @length: Length of the queue memory in the guest physical address space
+> > + *
+> > + * Allocate a HW queue object for a vIOMMU-specific HW-accelerated queue, which
+> > + * allows HW to access a guest queue memory described by @base_addr and @length.
+> > + * Upon success, the underlying physical pages of the guest queue memory will be
+> > + * pinned to prevent VMM from unmapping them in the IOAS until the HW queue gets
+> > + * destroyed.
+> 
+> Do we have way to make the pinning optional?
+> 
+> As I understand AMD's system the iommu HW itself translates the
+> base_addr through the S2 page table automatically, so it doesn't need
+> pinned memory and physical addresses but just the IOVA.
 
-On Thu, 15 May 2025 at 18:59, Daniel Lezcano <daniel.lezcano@linaro.org> wr=
-ote:
->
-> On 5/15/25 13:10, Anand Moon wrote:
-> > Hi Daniel,
-> >
-> > On Wed, 14 May 2025 at 16:53, Daniel Lezcano <daniel.lezcano@linaro.org=
-> wrote:
-> >>
-> >> On Wed, Apr 30, 2025 at 06:02:56PM +0530, Anand Moon wrote:
-> >>> Hi All,
-> >>
-> >> Hi Anand,
-> >>
-> >> if the goal of the changes is to do cleanups, I recommend to rework
-> >> how the code is organized. Instead of having the data->soc check all
-> >> around the functions, write per platform functions and store them in
-> >> struct of_device_id data field instead of the soc version.
-> >>
-> >> Basically get rid of exynos_map_dt_data by settings the different ops
-> >> in a per platform structure.
-> >>
-> >> Then the initialization routine would be simpler to clean.
-> >>
-> >
-> > Thanks, I had previously attempted this approach.
-> > The goal is to split the exynos_tmu_data structure to accommodate
-> > SoC-specific callbacks for initialization and configuration.
-> >
-> > In my earlier attempt, I tried to refactor the code to achieve this.
-> > However, the main challenge I encountered was that the
-> > exynos_sensor_ops weren=E2=80=99t being correctly mapped for each SoC.
-> >
-> > Some SoC have multiple sensor
-> > exynos4x12
-> >                      tmu: tmu@100c0000
-> > exynos5420
-> >                  tmu_cpu0: tmu@10060000
-> >                  tmu_cpu1: tmu@10064000
-> >                  tmu_cpu2: tmu@10068000
-> >                  tmu_cpu3: tmu@1006c000
-> >                  tmu_gpu: tmu@100a0000
-> >   exynos5433
-> >                  tmu_atlas0: tmu@10060000
-> >                  tmu_atlas1: tmu@10068000
-> >                  tmu_g3d: tmu@10070000
-> > exynos7
-> >                  tmu@10060000
-> >
-> > It could be a design issue of the structure.or some DTS issue.
-> > So what I found in debugging it is not working correctly.
-> >
-> > static const struct thermal_zone_device_ops exynos_sensor_ops =3D {
-> >          .get_temp =3D exynos_get_temp,
-> >          .set_emul_temp =3D exynos_tmu_set_emulation,
-> >          .set_trips =3D exynos_set_trips,
-> > };
-> >
-> > The sensor callback will not return a valid pointer and soc id for the =
-get_temp.
-> >
-> > Here is my earlier version of local changes.
-> > [1] https://pastebin.com/bbEP04Zh exynos_tmu.c
-> > [2] https://pastebin.com/PzNz5yve Odroid U3 dmesg.log
-> > [3] https://pastebin.com/4Yjt2d2u    Odroid Xu4 dmesg.log
-> >
-> > I want to re-model the structure to improve the code.
-> > Once Its working condition I will send this for review.
-> >
-> > If you have some suggestions please let me know.
->
-> I suggest to do the conversion step by step beginning by
-> exynos4210_tmu_clear_irqs, then by exynos_map_dt_data as the first
-> cleanup iteration
->
-Ok you want IRQ handle per SoC call back functions?
-so on all the changes depending on SoC id should be moved to
-respective callback functions to reduce the code.
+Right. That's why we invented a flag, and it should be probably
+extended to cover the pin step as well.
 
-Thank  you for having a look into my changes
+> Perhaps for this reason the pinning should be done with a function
+> call from the driver?
+
+But the whole point of doing in the core was to avoid the entire
+iopt related structure/function from being exposed to the driver,
+which would otherwise hugely increase the size of the driver.o?
+
+> > +struct iommu_hw_queue_alloc {
+> > +	__u32 size;
+> > +	__u32 flags;
+> > +	__u32 viommu_id;
+> > +	__u32 type;
+> > +	__u32 index;
+> > +	__u32 out_hw_queue_id;
+> > +	__aligned_u64 base_addr;
+> 
+> base addr should probably be called nesting_parent_iova  to match how
+> we described the viommu hwpt:
+> 
+>  * @hwpt_id: ID of a nesting parent HWPT to associate to
+
+Ack.
+
+> > +	/*
+> > +	 * The underlying physical pages must be pinned to prevent them from
+> > +	 * being unmapped (via IOMMUFD_CMD_IOAS_UNMAP) during the life cycle
+> > +	 * of the HW QUEUE object.
+> > +	 */
+> > +	rc = iopt_pin_pages(&hwpt->ioas->iopt, cmd->base_addr, cmd->length,
+> > +			    pages, 0);
+> 
+> I don't think this actually works like this without an unmap
+> callback. unmap will break:
+> 
+> 			iommufd_access_notify_unmap(iopt, area_first, length);
+> 			/* Something is not responding to unmap requests. */
+> 			tries++;
+> 			if (WARN_ON(tries > 100))
+> 				return -EDEADLOCK;
+> 
+> If it can't shoot down the pinning.
+
+Hmm, I thought we want the unmap to fail until VMM releases the HW
+QUEUE first? In what case, does VMM wants to unmap while holding
+the queue pages?
+
+> Why did this need to change away from just a normal access? That ops
+> and unmap callback are not optional things.
+> 
+> What vcmdq would do in the unmap callback is question I'm not sure
+> of..
+> 
+> This is more reason to put the pin/access in the driver so it can
+> provide an unmap callback that can fix it up.
+
+As there are two types of "access" here.. you mean iommufd_access,
+i.e. vcmdq driver should hold an iommufd_access like an emulated
+vfio device driver?
+
+> I think this should have
+> been done just by using the normal access mechanism, maybe with a
+> simplifying wrapper for in-driver use. ie no need for patch #9
+
+Still, the driver.o file will be very large, unlike VFIO that just
+depends on CONFIG_IOMMUFD?
 
 Thanks
--Anand
->
-> --
-> <http://www.linaro.org/> Linaro.org =E2=94=82 Open source software for AR=
-M SoCs
->
-> Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-> <http://twitter.com/#!/linaroorg> Twitter |
-> <http://www.linaro.org/linaro-blog/> Blog
+Nicolin
 
