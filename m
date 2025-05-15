@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5CD6C3ABDA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 02:42:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F457C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 02:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WqekfboiIsksqLuqFsIEMWLUIL7bFFmX1IqYuj+qImU=; b=ayYjTETPhb9PSTq5m3M+RCIizI
-	gwfHYsbVfNSVN7KUr49HLwDDga6J+Qj760kEeP/ZNOZJz2ubaMUGVy97vnLJiXDMyoc4q4vrd5Djj
-	rseKvPuo4TbgAq9fYPVKeyX4967rdSJaSzxUEULoHugAmj1De6YG9N7p81/3JfzXahfNMoIi2A2/2
-	zsqK+rJ4UJCW5oYsHP8IOnECy0l5OxlZUZi+/oLipn7H9GCpRUMtwOX6MShLUmOvndJ8ElWxD7XPf
-	jooB7OUfXqyhmB7FHadN+a9kx2njO+rDN3bylPpfoE+bu2JIjuCF0LVZ/Wp50lG60p4w8hdWQckEX
-	BFKsoQig==;
+	bh=snI69feTUpB7gz4LWiGxCrkPcy7RU2nrxhePSwc0uXE=; b=v9kfg+g0cbx+kAhgY0POSOg39W
+	vDXOeGeBX8cBAJr6ZFIx3McurtwIINgKeWIM0HjZMR21OGDgMD7kemGT/VTd5SpAK8mY3WVOTMgCL
+	XUNm7To6tVykHPNpWlgv8Whi7imhYwXIvQ2MWD9UCpahFIvVQShDVMB9Lh7Dqg+K+ZIUYftt9IGP4
+	aDgGekjgDYB3wvk6prBEiQ//vQ+8THjbj87+NG7H2oztvIOb14ePWIxQBLm5vOhcwDS/QQSymR/no
+	WkB7a5fbq5+DeE0OCnb/BBZrdqu+gRkmWy0qvlYs68AbY6FYpZG6P7klXwBH2Sfo91Du0aTc3Lu9l
+	2+H+1aSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFOY3-0000000Gqgs-3pQc;
-	Thu, 15 May 2025 02:42:15 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uFOhg-0000000GrOQ-22g6;
+	Thu, 15 May 2025 02:52:12 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFOVv-0000000GqVF-2P1H;
-	Thu, 15 May 2025 02:40:04 +0000
+	id 1uFOfW-0000000GrBr-3qSs
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 May 2025 02:50:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 37B48A4C76D;
-	Thu, 15 May 2025 02:40:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8528C4CEE3;
-	Thu, 15 May 2025 02:40:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C81B15C1090;
+	Thu, 15 May 2025 02:47:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFC29C4CEE3;
+	Thu, 15 May 2025 02:49:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747276801;
-	bh=lrEamcmK20W/gtuxO3aHJagod68XsFUEPjGcfYzxcfI=;
+	s=k20201202; t=1747277397;
+	bh=BrML8hltOe7eGgu0ZZrHDaD0LJnVERBGsqDips0I6GI=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=BnepMtQjO9C84Nood7lwGeUpSiG055lgXjyxJj76jaoq4SSwM6/Ibq0uNIHHBJKuT
-	 +CJZC3fS/qPJmhMjTTZms3ptrsExAYDrjS42BMzdlGeVBBXG8kGuxmexWtTj/52JFB
-	 5H4kakn75HmqktEKlj80RIlfsBTXna7RjBM5iR8/Az07GhO61lDsbJpbXrOhBYfcuq
-	 +26RNZujKIDJC3/dn1ZwFKNkJHqG9cPY+qJXJyOeCCBkMwTNGqm0ERUwGyei1Fn2an
-	 EgSjhDzk9N8kAQcOcqMQKWr3+meF5mj5BoGN3EXUKbcE267J/9uI20kn3c57RHQtiB
-	 RoGD9sjsgVa1g==
+	b=d/GLZULdwCgMXggIqy7mTusn8PKGdR882i0axM89tbRoH5Ky9+I35UHAjcYm/2ZPi
+	 HNpRc/ll/NYHY06vbxCmDYnKT7341qIwLHx+ShZWH328XROuws+KC5qaBjxOpVuYc8
+	 hmhdPtB4hAA1XObWrFudevIGJx6ZlKl/IGTXdu8FIItUfY+s0ECDrlPP1j0IO9E0bG
+	 FpVEpw1rPl1AVeHduF9DoTU2wkOls+c4IewUx6rQcTAY9Uv0Lg9ULPv8yr9GVz4CF4
+	 xUeTeZlWrW0jd08A2EDNX8ESIHkqYYLmrbgLHgn1qvf1vHtcyQXoXd5c7Lct2MLv4Q
+	 DjfWkB8KvS3Eg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33DBA380AA66;
-	Thu, 15 May 2025 02:40:40 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33CAB380AA66;
+	Thu, 15 May 2025 02:50:36 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: ethernet: mtk_eth_soc: fix typo for declaration
- MT7988 ESW capability
+Subject: Re: [PATCH net-next v2 0/3] misc drivers' sw timestamp changes
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174727683900.2587108.2642829871364981642.git-patchwork-notify@kernel.org>
-Date: Thu, 15 May 2025 02:40:39 +0000
-References: <b8b37f409d1280fad9c4d32521e6207f63cd3213.1747110258.git.daniel@makrotopia.org>
-In-Reply-To: <b8b37f409d1280fad9c4d32521e6207f63cd3213.1747110258.git.daniel@makrotopia.org>
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: nbd@nbd.name, sean.wang@mediatek.com, lorenzo@kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, linux@armlinux.org.uk,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Message-Id: <174727743500.2588817.2305951558012609292.git-patchwork-notify@kernel.org>
+Date: Thu, 15 May 2025 02:50:35 +0000
+References: <20250510134812.48199-1-kerneljasonxing@gmail.com>
+In-Reply-To: <20250510134812.48199-1-kerneljasonxing@gmail.com>
+To: Jason Xing <kerneljasonxing@gmail.com>
+Cc: tariqt@nvidia.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ willemdebruijn.kernel@gmail.com, irusskikh@marvell.com, bharat@chelsio.com,
+ ayush.sawal@chelsio.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, linux-arm-kernel@lists.infradead.org,
+ netdev@vger.kernel.org, kernelxing@tencent.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_194003_691924_2F167F55 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20250514_194959_011470_9C528953 
+X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,25 +81,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello:
 
-This patch was applied to netdev/net.git (main)
+This series was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Tue, 13 May 2025 05:27:30 +0100 you wrote:
-> From: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
+On Sat, 10 May 2025 21:48:09 +0800 you wrote:
+> From: Jason Xing <kernelxing@tencent.com>
 > 
-> Since MTK_ESW_BIT is a bit number rather than a bitmap, it causes
-> MTK_HAS_CAPS to produce incorrect results. This leads to the ETH
-> driver not declaring MAC capabilities correctly for the MT7988 ESW.
-> 
-> Fixes: 445eb6448ed3 ("net: ethernet: mtk_eth_soc: add basic support for MT7988 SoC")
-> Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
-> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+> This series modified three outstanding drivers among more than 100 drivers
+> because the software timestamp generation is too early. The idea of this
+> series is derived from the brief talk[1] with Willem. In conclusion, this
+> series makes the generation of software timestamp near/before kicking the
+> doorbell for drivers.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net] net: ethernet: mtk_eth_soc: fix typo for declaration MT7988 ESW capability
-    https://git.kernel.org/netdev/net/c/1bdea6fad6fb
+  - [net-next,v2,1/3] net: atlantic: generate software timestamp just before the doorbell
+    https://git.kernel.org/netdev/net-next/c/285ad7477559
+  - [net-next,v2,2/3] net: cxgb4: generate software timestamp just before the doorbell
+    https://git.kernel.org/netdev/net-next/c/aaed2789b307
+  - [net-next,v2,3/3] net: stmmac: generate software timestamp just before the doorbell
+    https://git.kernel.org/netdev/net-next/c/33d4cc81fcd9
 
 You are awesome, thank you!
 -- 
