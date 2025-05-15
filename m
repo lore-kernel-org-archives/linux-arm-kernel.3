@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBFB4C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 10:47:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 797EAC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 10:53:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vW4R+iIfQHX6LcemZgKde5LfX3QzRiBgsDPmmBk7yGM=; b=RhBZP5VG1v91lB+29MBmn8JFHI
-	w7XOLTo+02s1i/kqDl11ZzuUAm6uWLlCz2Rc4RhV7lbptmLnJfzpfAsOdKbH/z6REmptxIXShxB0a
-	pSQtlvpLrdNgNM85asViE8lOB03jDEK1dx+Qqsir2tyQj7rQanGFkdKEmhL5hcaYzLP+ZpZVpl2YZ
-	bZtnZzqVsua3DZdw/ZLhIxlLxh/ysXJR4mEiTIrUasFpdhyAUFc6OFHFHhNMFar4Exyg97vCjSFN8
-	kPERY1lbvw3/OhVrvORHfbCgm9Tmm1Mmjixn1JYKvesyu53qeg9mVw6bEsASHopbmNNtf4j3IBNCy
-	o+0wybiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/0xZsxO2RMhKu6wMesyw510G51TrdtaJFm7j6ogn2X4=; b=OBFw0LKethcqZ+z6HqoKInrFQT
+	8zmgZ5+rqZd2ynrmuZpBkrqDnI1ORvr0xLHDtAKs671dCM/TsjPh3guM7NmerkU0azJbJGeSXxFBk
+	tFspBDYIdQCv4ZMKU1kECjcgsug1BTtJ455DT2oEPkcvYtCN+f0WwRODai1c9AAF1FAHsoN9x77pQ
+	/TRN2RUw3F5OXdC7Dkn6w8an7X6AVO1ds/HI1oswGFoZG/2c8OuaV74sqfcMiMrhvuP2k454TZDzA
+	EpfPqvLoYgpLNG6hP2GJWZTkGlsCMnJGNg69CKDr/OytwYED/FFyxzb7UB4+RipXlFLQl8j3AAo+7
+	oxQeMG6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFW78-00000000Kb6-2X2r;
-	Thu, 15 May 2025 10:46:58 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1uFWDZ-00000000Lac-2aRF;
+	Thu, 15 May 2025 10:53:37 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFVuI-00000000IsJ-1c1W
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 10:33:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1747305222; x=1778841222;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=jOy+gdB5snTg+AWaYBwU4zrEGtaSgqQCzCFFbsWkaZ4=;
-  b=Uo7oZ1DDbisXpRvmOk/+li6djIfJtxaevIZCVGy91hP28IGPRWN/ZpoN
-   Hd5vXCO2mJEkowoM2WGVmyOkdddYHzwmst7lTOezdPjO1klU9ryDhvo3E
-   gI60YCVCH0bK9oCllLplojhgU+ueHom0bRPljeu6aNC1gD+svjr0xfE+5
-   /CdjEdSzyJAv2gUpubGGsPUb2p0/uYpo54QPrA4BR7JaTM9XLfshPxPW1
-   2X3LY+9ojSPCBwxl36M00sNaDsj+0pW8O7JmAiPfL5GYuoN9nxgeHfSvA
-   J9HkZ+7hLAVTXqmvXGEU55A+GmjxmZhcPBuNrmAnrtC4l45PQF2KP660c
-   g==;
-X-CSE-ConnectionGUID: YDYKtXNcQOipD744zTQ15A==
-X-CSE-MsgGUID: ZMEcAudjRRmAFgfZqoRjuQ==
-X-IronPort-AV: E=Sophos;i="6.15,290,1739862000"; 
-   d="scan'208";a="209126771"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 15 May 2025 03:33:39 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Thu, 15 May 2025 03:33:08 -0700
-Received: from che-lt-i67131.microchip.com (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.44 via Frontend Transport; Thu, 15 May 2025 03:33:04 -0700
-From: Manikandan Muralidharan <manikandan.m@microchip.com>
-To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: Manikandan Muralidharan <manikandan.m@microchip.com>
-Subject: [PATCH] ARM: dts: microchip: rename spi-cs-setup-ns property to spi-cs-setup-delay-ns
-Date: Thu, 15 May 2025 16:02:51 +0530
-Message-ID: <20250515103251.210468-1-manikandan.m@microchip.com>
-X-Mailer: git-send-email 2.25.1
-MIME-Version: 1.0
+	id 1uFW8f-00000000Kml-1nvQ;
+	Thu, 15 May 2025 10:48:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 557895C55AC;
+	Thu, 15 May 2025 10:46:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2176DC4CEE7;
+	Thu, 15 May 2025 10:48:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747306112;
+	bh=adxalg7H3lV44b62vZBcg+BCmQflj5misd5wybzAhrk=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=u7DeagEUEiexQGncuTRbIUiVohH0r9Yv/kmqm+EZaKWZsCoK4Cfh43a3y4gqdXWtx
+	 lG6aDJSr5GlY/zwP4+xtCu2IF3yYaRcpqqFQ7pEP2YbEMl9tafTCc3Wbg1T3ZetDx+
+	 S7Dr07ViBTwbdcoPp3xMI+BYPcipOz9cYhdVQzdlCZycbA4WVjGWgZVPctUru/smxt
+	 rsHP4HksXSkcOoNoA5LazlUNOsY+b/bD3A1t5cctBTq/wTVSXxaS4xITr1QLGQBs+v
+	 cD7aJmx+dm7h97l6Jlh/aeIifn55CJmfS8E2QMtqOB7wrnd21eRq0VP1ZOklrxxBgr
+	 4Vy7hhIETPFYw==
+Date: Thu, 15 May 2025 05:48:30 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: fshao@chromium.org, devicetree@vger.kernel.org, 
+ Project_Global_Chrome_Upstream_Group@mediatek.com, 
+ xiandong.wang@mediatek.com, krzk+dt@kernel.org, 
+ dri-devel@lists.freedesktop.org, nancy.lin@mediatek.com, 
+ linux-mediatek@lists.infradead.org, sirius.wang@mediatek.com, 
+ singo.chang@mediatek.com, linux-arm-kernel@lists.infradead.org, 
+ p.zabel@pengutronix.de, treapking@chromium.org, jason-jh.lin@mediatek.com, 
+ linux-kernel@vger.kernel.org, matthias.bgg@gmail.com, conor+dt@kernel.org, 
+ chunkuang.hu@kernel.org, angelogioacchino.delregno@collabora.com, 
+ sunny.shen@mediatek.com
+To: "paul-pl.chen" <paul-pl.chen@mediatek.com>
+In-Reply-To: <20250515093454.1729720-3-paul-pl.chen@mediatek.com>
+References: <20250515093454.1729720-1-paul-pl.chen@mediatek.com>
+ <20250515093454.1729720-3-paul-pl.chen@mediatek.com>
+Message-Id: <174730611044.164934.18396756831118218280.robh@kernel.org>
+Subject: Re: [PATCH v3 02/17] dt-bindings: display: mediatek: add EXDMA
+ yaml for MT8196
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_033342_598975_A46BCB59 
-X-CRM114-Status: UNSURE (   9.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250515_034833_510858_EEF16598 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,71 +80,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The naming scheme for delay properties includes "delay" in the name,
-so renaming spi-cs-setup-ns property to spi-cs-setup-delay-ns to keep
-that consistent.
 
-Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
----
- arch/arm/boot/dts/microchip/at91-sam9x60ek.dts        | 2 +-
- arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi   | 2 +-
- arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi | 2 +-
- arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts      | 2 +-
- 4 files changed, 4 insertions(+), 4 deletions(-)
+On Thu, 15 May 2025 17:34:14 +0800, paul-pl.chen wrote:
+> From: Paul-pl Chen <paul-pl.chen@mediatek.com>
+> 
+> Add mediatek,exdma.yaml to support EXDMA for MT8196.
+> The MediaTek display overlap extended DMA engine, namely
+> OVL_EXDMA or EXDMA, primarily functions as a DMA engine
+> for reading data from DRAM with various DRAM footprints
+> and data formats.
+> 
+> Signed-off-by: Nancy Lin <nancy.lin@mediatek.com>
+> Signed-off-by: Paul-pl Chen <paul-pl.chen@mediatek.com>
+> ---
+>  .../bindings/dma/mediatek,exdma.yaml          | 68 +++++++++++++++++++
+>  1 file changed, 68 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/dma/mediatek,exdma.yaml
+> 
 
-diff --git a/arch/arm/boot/dts/microchip/at91-sam9x60ek.dts b/arch/arm/boot/dts/microchip/at91-sam9x60ek.dts
-index cdc56b53299d..c1ff3248bd8f 100644
---- a/arch/arm/boot/dts/microchip/at91-sam9x60ek.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sam9x60ek.dts
-@@ -609,7 +609,7 @@ flash@0 {
- 		compatible = "jedec,spi-nor";
- 		reg = <0>;
- 		spi-max-frequency = <104000000>;
--		spi-cs-setup-ns = <7>;
-+		spi-cs-setup-delay-ns = <7>;
- 		spi-tx-bus-width = <4>;
- 		spi-rx-bus-width = <4>;
- 		m25p,fast-read;
-diff --git a/arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi b/arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi
-index 8ac85dac5a96..13c28e92b17e 100644
---- a/arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi
-+++ b/arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi
-@@ -44,7 +44,7 @@ flash@0 {
- 					compatible = "jedec,spi-nor";
- 					reg = <0>;
- 					spi-max-frequency = <104000000>;
--					spi-cs-setup-ns = <7>;
-+					spi-cs-setup-delay-ns = <7>;
- 					spi-tx-bus-width = <4>;
- 					spi-rx-bus-width = <4>;
- 					m25p,fast-read;
-diff --git a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi b/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
-index ef11606a82b3..9543214adc9f 100644
---- a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
-+++ b/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
-@@ -234,7 +234,7 @@ qspi1_flash: flash@0 {
- 		compatible = "jedec,spi-nor";
- 		reg = <0>;
- 		spi-max-frequency = <104000000>;
--		spi-cs-setup-ns = <7>;
-+		spi-cs-setup-delay-ns = <7>;
- 		spi-rx-bus-width = <4>;
- 		spi-tx-bus-width = <4>;
- 		m25p,fast-read;
-diff --git a/arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts b/arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts
-index 9fa6f1395aa6..fbae6a9af6c3 100644
---- a/arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts
-@@ -714,7 +714,7 @@ flash@0 {
- 		compatible = "jedec,spi-nor";
- 		reg = <0>;
- 		spi-max-frequency = <104000000>;
--		spi-cs-setup-ns = <7>;
-+		spi-cs-setup-delay-ns = <7>;
- 		spi-tx-bus-width = <4>;
- 		spi-rx-bus-width = <4>;
- 		m25p,fast-read;
--- 
-2.25.1
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/dma/mediatek,exdma.example.dtb: dma-controller@32850000 (mediatek,mt8196-exdma): 'mediatek,larb' is a required property
+	from schema $id: http://devicetree.org/schemas/dma/mediatek,exdma.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250515093454.1729720-3-paul-pl.chen@mediatek.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
