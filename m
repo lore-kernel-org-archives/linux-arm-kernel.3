@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4CE8C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 19:46:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BD57C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 19:48:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1PAWbah0yZaLPKt8bN/YzgjbQx6cpILKxwG41q/VxDM=; b=B3CPqpU5cPSYpxRQh0+ABfnw7k
-	77MyogTppLwNEHs2hkc0lbFEjCjQNvJpnLhXi88xRfLW0GfOv7LhkIWj4K1TW/R2vcInKTcsb0TPZ
-	GIW7g414RN9F3M1Hdiz43Z+PCiGiW7Z9g+JaFSQ6gZDvAggteHE90YfokdgIVHxsRIvYH6EqQiFtv
-	1Myf+5spsnCBgQxt8f+zLsWP2waR5Il40hfKNXhxjK5gK+WYq3uU3okU/op4gGh0DxBSQ940227r7
-	HjjoaKdKiphe8VFm2mssCPenfJ+aoaznbuUY19BCeojMUTV4IW+rWlIAOzWBbtipQMY6a3oGa54Gb
-	6lRnxKtg==;
+	bh=ztoxRIl32pn+lHQPC8pOhD5GWYf9JmH9tkdLgFwOVZ8=; b=PlnWdGBO0tz+5jF3lMAljTxVMZ
+	fdqLOP/QQBA0f6xB9I56svIs7UcF4lu0AxXLZJqZIrG4nen1enPu+SmyIwqF7svei/k4CotSfZg07
+	Kusa7cWskJ2qrHv4H3Bk/gxfMcyMGjvps6YxcrfSdDFwkqls1qfFVHH8SimL0t34r+huR3nMXuPFO
+	gQ78afO+mpSdljtcONAMiRxuvMwAA5IgQN/uAS7bg0TJVODNIigtXafZxFNgjdJE+HKySr7l+hQQC
+	JpseDszM3CdKMNiesj7CJonHihn29F87TKT0TXcVxX+ZFxjq4AUYiIzfvusToNejqpWRUTMhcw9+E
+	Tra8Owiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFeWf-00000001iJM-3i9p;
-	Thu, 15 May 2025 19:45:53 +0000
+	id 1uFeYf-00000001iXM-2gDO;
+	Thu, 15 May 2025 19:47:57 +0000
 Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFeQg-00000001hOg-00Ft
+	id 1uFeQh-00000001hPI-1c0c
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 15 May 2025 19:39:44 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-54b10594812so1492702e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 12:39:41 -0700 (PDT)
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-54d6f93316dso1474474e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 12:39:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747337980; x=1747942780; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1747337982; x=1747942782; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=1PAWbah0yZaLPKt8bN/YzgjbQx6cpILKxwG41q/VxDM=;
-        b=hxal6eulIBSy8QJ6Gaw96YqK6UQalgj9bSxHWkNkqM78pxwXjhBFrNSWSbeM/5Wop4
-         A6GdUhrjJOjBYdeBY4WfsuEMOLtc8XzIkMSdZ87MibdotfFobLsr7eF1PeJ0jUgESOOb
-         yF/3qh3S4pgIz241tpgGmrB2l4evRciNykSlGDkXU/RswKqQ7hRzF+utwr8UUKkKxV4q
-         a8IeOoFL+c0mEsiKgYLAvadA7DUodaWWGLIejpBsbSk10jW8eCI13X4qu5WrAMm1gmwb
-         CXjkIeOzRErJ+jhMgzGEEaVPFNgJCW9jbAJyGEDNUrRFxEWDjp2WKw+FNU7xIkNjqlqn
-         3nhQ==
+        bh=ztoxRIl32pn+lHQPC8pOhD5GWYf9JmH9tkdLgFwOVZ8=;
+        b=B7qhllTgtt44EfsdmPKZEqVR/wb9O07f7aOe9vCJT2OmPn07BU0GODsQuoJPnOwK0N
+         ssiqy9e7zHSWQx1v/KHI+kQBjceYoCVPcFi6ebqlKWICFxtCm5OpamaHOjLIP/0/xJqj
+         e2zin9sWAG6zIztcaes7aojkJ5hqGfHX++Zi3c8hI2G4r/F5wRHgT/C+SBH5DKzJcHtD
+         7ORx7X+2khMj3pbUvjPoUtrb5W+pcTyhvtXJsIBjZ5IwJ8PBx5OIA2c9EniTucd34xjv
+         jffh7347DHNHw/3PvUHaESuXBZ5w7dPVTauW94LtI7sbLqjQQQpAjm+E8BWBAm9pCgSz
+         Ko1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747337980; x=1747942780;
+        d=1e100.net; s=20230601; t=1747337982; x=1747942782;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1PAWbah0yZaLPKt8bN/YzgjbQx6cpILKxwG41q/VxDM=;
-        b=YmhxFw6fjjMBAb9U6EfvUvkxEZkZ0nYub6Tq6OLOKdPCCpshou83BBRdYvqAvmSJDZ
-         jfn118MUakGRkdTdOtHm4NV5+SIVFvgMmnOxI+qLnwSbZsiheuQMdEpGbXImQqk0pVgd
-         g1qFqSm4fKM1LCZeHmvUkVTUiAZuJcnu5iKEMowYzS1wgJZhyTW9t6vAiQCDxNqSne4U
-         pexXM12VNqkSkE14qrvEyeICc2ZsW6t2hBFZkcUwwVo1xUvK35WioNvU2bZxNKihV2xc
-         ehX9e6ZihYOZO8f+jNv+65vHm86hcYAXSQq6N4e0+armSLgSoEpu/EF2qsjFwQ767qSu
-         xBCA==
-X-Gm-Message-State: AOJu0Yz5Yq/9fScBZltFG9BaOGCmwO2TxtKG+6Zn4fW4nnvO9S4REhAY
-	2ff+nytAxM8goLpNbgDUYi95aHRh3OK0+xd/8ieEagrW/xLT3zkcH+yId+YH0dIVtCWuCQ==
-X-Gm-Gg: ASbGncs457NGwRfPzTCN0Jw6XX1uxdX5dPS/kdQZKmvPNgVzUwyaoVqo74b3xyeQj0o
-	Offt8J88cTm7ivdh3A3duyc1JcOIPMCUK9rV+ErQknQPV974LgghctM/17WzzsQbfcGzj06gUw+
-	ekOP/5AWSztkPbhqGcxfY/zmwqxWQ5NVlhnkAKn03LzyJbBl4Bj5BWvL54cJLVwCgSvBYow2DJV
-	h0vnfuWN+JDotSPvx62UKGnIFu++TBMEpEKrB4mKvYB1ZOGqNYvDOoX6xnmU4+SyivHAbPcp3i8
-	exePH401vMDEJzSgmeMmzwQkFDdh8ufH9qkVG1jBMu/0WfxdyEjEixQUkUcqpIsY
-X-Google-Smtp-Source: AGHT+IHW9iddu7UpubfDwo/rYmu1JB5MK+HjOhwFmRxU0JW/4FjJ5yJH6hjkqzFW9SjhkNhU1uMdpQ==
-X-Received: by 2002:ac2:4c4a:0:b0:54a:cc04:e77e with SMTP id 2adb3069b0e04-550e7232549mr244972e87.44.1747337980004;
-        Thu, 15 May 2025 12:39:40 -0700 (PDT)
+        bh=ztoxRIl32pn+lHQPC8pOhD5GWYf9JmH9tkdLgFwOVZ8=;
+        b=VM4va6IrWzpySGVwp5DZmGrC8KWm9J1vXryvvsSF17gughAkk+GgJX8LJ19JFw2g+G
+         1eGPDLp6mRtUTaB9eEmxyxOj9nmsBbYzJ9tJy8YvrrCk6FeyFsM6vERQRZe8ZjY5+Knt
+         AkMeb8zglix15+rNB7nB2YIq4xdMpahHu4hDtblPzUXvMItx7XsE1Wju5Xytvajjp8Bk
+         Hju8cJy8M28we0cXSNY6V9rix8QtYbMDUVFquskscgq8h1F188AMesjuIKYHKn+An/5a
+         cevCYElp3dRkG29iXvHkdPD9Z5KzXA1gPLRy9eI+SCFfHGiGz7qjJvTQ2oV3Rqj8+zKm
+         7Ztw==
+X-Gm-Message-State: AOJu0YyfrDcJwPN2NPtZ44tTt7avsHKNU59jk2Ehdux87GKIs39p9E1T
+	ks+Tyww75JHWBzLqOpNqKzR1TY8UVouz+c2YJYprS1pdfEes+OFlHfcP
+X-Gm-Gg: ASbGncvrnvVZiDVJJ87VjqNctsLiJVnDc6qxkUEsIpU3AvXnDfQvXZ3miUjH8bBWt+M
+	ucPxRStZLDb/Y3aaxwaKUoebNz6Y071Nr8uWv0WJ2zfc3c+4yDl+DMqWj5+rO94o2hJqeNj0HJJ
+	/pSmwM3j80kGFlcnz8A3JaIj79yKYeaonzJ8RAzhnjmGDT543Wzk/2KE/5xS7r7OxR19tlSv2bc
+	1RKST0XuFQkVEQ3r+R+W3bXt1DoS8BUQaV3GRxemTTpp9Z4PS9DByiulRc1MgmiPqS9EX/rSEUq
+	i5aTkJ9s1FUWjUtHr8+7gw03XZRBCm3K/1EbptED9CLUCJkPPsCeKPAJ5DGMWBJK
+X-Google-Smtp-Source: AGHT+IG8cLoAANRKhgLA2jopEPXu1VbmIaAxbxB53ovg0VB8IyYML64L+msYGXFT89Y46+b8TfrE9w==
+X-Received: by 2002:a05:6512:2286:b0:545:60b:f381 with SMTP id 2adb3069b0e04-550e71d2f97mr203539e87.29.1747337981672;
+        Thu, 15 May 2025 12:39:41 -0700 (PDT)
 Received: from NB-GIGA003.letovo.school ([95.167.212.10])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-550e703f544sm72297e87.235.2025.05.15.12.39.38
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-550e703f544sm72297e87.235.2025.05.15.12.39.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 May 2025 12:39:39 -0700 (PDT)
+        Thu, 15 May 2025 12:39:41 -0700 (PDT)
 From: Alexey Charkov <alchark@gmail.com>
-Date: Thu, 15 May 2025 22:38:40 +0300
-Subject: [PATCH v2 1/5] ARM: dts: vt8500: Add node address and reg in CPU
- nodes
+Date: Thu, 15 May 2025 22:38:42 +0300
+Subject: [PATCH v2 3/5] ARM: dts: vt8500: Use generic node name for the
+ SD/MMC controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250515-wmt-dts-updates-v2-1-246937484cc8@gmail.com>
+Message-Id: <20250515-wmt-dts-updates-v2-3-246937484cc8@gmail.com>
 References: <20250515-wmt-dts-updates-v2-0-246937484cc8@gmail.com>
 In-Reply-To: <20250515-wmt-dts-updates-v2-0-246937484cc8@gmail.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -82,16 +82,16 @@ To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
 Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Alexey Charkov <alchark@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747337978; l=2587;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747337978; l=2298;
  i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
- bh=Xr/PvjPEMLBqNumA5DIM03p83Uegeyy87amuQoEaORo=;
- b=2Zj3AzCaYGXeurXVhu3IJqiWl0FbrlZy/9nVqwELkUvoCVo5Vaz62VEojoXvz/Jf7wpSyHU0f
- M+EadJAE+YLDoO55hAklrRt0i6knCbSsPkTFhuLeAFNRLfe+S/2A6n7
+ bh=msMkmhWnNvxKSFEWR1uGtz4EIsA1+5WBZuXVqWt8sas=;
+ b=eTz+eURZ11lSQBB8wLmkqX8sOrEnqqh8QQVKtBYV1rEAp9Vq40gZQCOeYddbkV+3VIZVQyCmG
+ AV5NJngmKJnDp+oavXWLfZ3WvzKSQN/l5a17x6zu540o6yLsQ7Wn/VT
 X-Developer-Key: i=alchark@gmail.com; a=ed25519;
  pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_123942_043257_6950EB88 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20250515_123943_428786_E86845CA 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,97 +106,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adjust CPU nodes according to current guidelines, including address
-and reg. Set #address-cells accordingly.
+Current guidelines recommend mmc@ node names, so use that instead.
 
 Signed-off-by: Alexey Charkov <alchark@gmail.com>
 ---
- arch/arm/boot/dts/vt8500/vt8500.dtsi | 5 +++--
- arch/arm/boot/dts/vt8500/wm8505.dtsi | 5 +++--
- arch/arm/boot/dts/vt8500/wm8650.dtsi | 5 +++--
- arch/arm/boot/dts/vt8500/wm8750.dtsi | 5 +++--
- 4 files changed, 12 insertions(+), 8 deletions(-)
+ arch/arm/boot/dts/vt8500/wm8505.dtsi | 2 +-
+ arch/arm/boot/dts/vt8500/wm8650.dtsi | 2 +-
+ arch/arm/boot/dts/vt8500/wm8750.dtsi | 2 +-
+ arch/arm/boot/dts/vt8500/wm8850.dtsi | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm/boot/dts/vt8500/vt8500.dtsi b/arch/arm/boot/dts/vt8500/vt8500.dtsi
-index d1dd37220d41becece5d24fbb19aa71b01723e35..3cd86941db90c08ae4fbd3e0b1b079623bce28a9 100644
---- a/arch/arm/boot/dts/vt8500/vt8500.dtsi
-+++ b/arch/arm/boot/dts/vt8500/vt8500.dtsi
-@@ -11,12 +11,13 @@ / {
- 	compatible = "via,vt8500";
- 
- 	cpus {
--		#address-cells = <0>;
-+		#address-cells = <1>;
- 		#size-cells = <0>;
- 
--		cpu {
-+		cpu@0 {
- 			device_type = "cpu";
- 			compatible = "arm,arm926ej-s";
-+			reg = <0x0>;
- 		};
- 	};
- 
 diff --git a/arch/arm/boot/dts/vt8500/wm8505.dtsi b/arch/arm/boot/dts/vt8500/wm8505.dtsi
-index 2b1819f0c5412648a83cd3eeb495f68d2e4100ef..34e55b8c2c8b20fe2598ccc9699551dc9c8e69a6 100644
+index 8c99374822f65352102df83a33a1ac072127ebc1..915adbf6e1e0ba69643eaf51b71222316c06ecf5 100644
 --- a/arch/arm/boot/dts/vt8500/wm8505.dtsi
 +++ b/arch/arm/boot/dts/vt8500/wm8505.dtsi
-@@ -11,12 +11,13 @@ / {
- 	compatible = "wm,wm8505";
- 
- 	cpus {
--		#address-cells = <0>;
-+		#address-cells = <1>;
- 		#size-cells = <0>;
- 
--		cpu {
-+		cpu@0 {
- 			device_type = "cpu";
- 			compatible = "arm,arm926ej-s";
-+			reg = <0x0>;
+@@ -284,7 +284,7 @@ rtc@d8100000 {
+ 			interrupts = <48>;
  		};
- 	};
  
+-		sdhc@d800a000 {
++		mmc@d800a000 {
+ 			compatible = "wm,wm8505-sdhc";
+ 			reg = <0xd800a000 0x400>;
+ 			interrupts = <20>, <21>;
 diff --git a/arch/arm/boot/dts/vt8500/wm8650.dtsi b/arch/arm/boot/dts/vt8500/wm8650.dtsi
-index 042eec78c085d19fc97d7f0f9721399c0716ff74..b42c77f99c006af31d4be8bbb985f536244edf8c 100644
+index 2daff177979b482eac7e21ec1b17ba000ea69ef3..82eef7504364484dc88e3b439bdde905085b89e1 100644
 --- a/arch/arm/boot/dts/vt8500/wm8650.dtsi
 +++ b/arch/arm/boot/dts/vt8500/wm8650.dtsi
-@@ -11,12 +11,13 @@ / {
- 	compatible = "wm,wm8650";
- 
- 	cpus {
--		#address-cells = <0>;
-+		#address-cells = <1>;
- 		#size-cells = <0>;
- 
--		cpu {
-+		cpu@0 {
- 			device_type = "cpu";
- 			compatible = "arm,arm926ej-s";
-+			reg = <0x0>;
+@@ -192,7 +192,7 @@ usb@d8007b00 {
+ 			interrupts = <43>;
  		};
- 	};
  
+-		sdhc@d800a000 {
++		mmc@d800a000 {
+ 			compatible = "wm,wm8505-sdhc";
+ 			reg = <0xd800a000 0x400>;
+ 			interrupts = <20>, <21>;
 diff --git a/arch/arm/boot/dts/vt8500/wm8750.dtsi b/arch/arm/boot/dts/vt8500/wm8750.dtsi
-index 56342aa1d993a43e7ee766f93151c6d456496262..68e325163061b11e52027fbf291953a170f39469 100644
+index 60220d299e21101ce8102b376bec5382ef5ac0d1..5342b7fe4ef89a50f0a95a8515dc1b70461dd7c4 100644
 --- a/arch/arm/boot/dts/vt8500/wm8750.dtsi
 +++ b/arch/arm/boot/dts/vt8500/wm8750.dtsi
-@@ -11,12 +11,13 @@ / {
- 	compatible = "wm,wm8750";
- 
- 	cpus {
--		#address-cells = <0>;
-+		#address-cells = <1>;
- 		#size-cells = <0>;
- 
--		cpu {
-+		cpu@0 {
- 			device_type = "cpu";
- 			compatible = "arm,arm1176jzf";
-+			reg = <0x0>;
+@@ -324,7 +324,7 @@ rtc@d8100000 {
+ 			interrupts = <48>;
  		};
- 	};
  
+-		sdhc@d800a000 {
++		mmc@d800a000 {
+ 			compatible = "wm,wm8505-sdhc";
+ 			reg = <0xd800a000 0x1000>;
+ 			interrupts = <20 21>;
+diff --git a/arch/arm/boot/dts/vt8500/wm8850.dtsi b/arch/arm/boot/dts/vt8500/wm8850.dtsi
+index 1efb8989931d0dab7b946c906b50292b09fc8bb3..f741a3e88d74ab4740f200b9b96201b3dc799bad 100644
+--- a/arch/arm/boot/dts/vt8500/wm8850.dtsi
++++ b/arch/arm/boot/dts/vt8500/wm8850.dtsi
+@@ -294,7 +294,7 @@ rtc@d8100000 {
+ 			interrupts = <48>;
+ 		};
+ 
+-		sdhc@d800a000 {
++		mmc@d800a000 {
+ 			compatible = "wm,wm8505-sdhc";
+ 			reg = <0xd800a000 0x1000>;
+ 			interrupts = <20 21>;
 
 -- 
 2.49.0
