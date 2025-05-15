@@ -4,148 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88CA8C3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 18:19:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1970C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 18:24:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BL0rwh7n7hqXXSKJfoOjCdUPj3va22sJvRsC149yYGw=; b=AbAnAL0uBD4Kj6Fkzpk+riTlcw
-	gHEltFxFL/X9w5BpZXvLR5pza24RXKclB/s/gxQTB0nmGoIvqEHWDgwsn4AQMXhXSByikCwcJn+vY
-	Vy2QvAyJtjOITroYkHcFaBuqT9nH7pXdnM8sdPGC6a1O1rC5vWZQ+cTOixevi8dx6Koozj3Aiqu9K
-	NxAk1ijxV10kEvRdSzAWkZP0zR/3rpIyAwLKfbnBSS3C4f4Fh3K8OfOV42WabUCLE4SA7NKN1ba2B
-	XQ4t1XHrvMrA3TX1/xtQ6u8oLXXUAHbs8r+vY3Z/lUHJkyGwRRPYC7iF4BeuSHZRBYOpXDH9FO8c8
-	rbtEjhug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yAQPUlazwxUoIHDbZ2y6Frkhw5As3L7EqQJ2gVvyyoY=; b=DzlYdopIIgDLqtfZJhjSv9RAz1
+	OiL9OJmEytKrHqiKuospc1rkrihNP5he3ZreemCihT0Ns2q6Gf1hvRqcW7c3RSPwXBmHiMCeiasQk
+	Qba4b57uDEApEGOUvhs1jJuCVSg0iF/Qou6PPuEBqWt4RzblkWMSQxzNIIyupXMOXGJ2ue4AUvmcD
+	xzxu2m+66IbYMMvK9lr6ay7AUL/bH4gzUGKHQ7Ah+9WA13cx9F37cHLYyaRJOteFsRk4BfM0TFcEX
+	G6NJFtIYSaj9YYApFwEXbaLafdI+f26tciKcQ8Y9JKNMcdTf98OFtNuTImqEhOPic9Ks4Z1wX/Dzw
+	8twH+J+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFdAj-00000001Wgg-29xQ;
-	Thu, 15 May 2025 18:19:09 +0000
-Received: from mail-dm6nam11on20624.outbound.protection.outlook.com ([2a01:111:f403:2415::624] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1uFdFl-00000001XvF-0lfj;
+	Thu, 15 May 2025 18:24:21 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFd8g-00000001WQI-1fDh
+	id 1uFdDh-00000001XF9-45C4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 18:17:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=U1xHIhSZL2sKhoIEkV+DV8dSTdrbu1cFqd+sc2H35J3bheE5ReGzLMesPrI+r9D+WnAjWoSRw93j6JiHsNPZPqykw5uTqbH8rDnemCPIJwrLBIrA/ermyCh9c2v0g1f/xfSxpnHtQbGyPnUY1g20aeVO+Eajgl9twYXKYNkZSxxOi7jvEcarYbuv4yyt18kAS4cQHpYzC8l0jPodb5Gm72fmL22RUhS2+Ad2h9MX2hPTPkYIAbjQj0O25MlPLdTXg36Ttua4VMO9IQgFQzGrJCWue6YETAuR9THAfkHcc7LAo1TiSFpzzAXJck6R1W3IySocr5D1DB2tTuL5Oa1+jQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BL0rwh7n7hqXXSKJfoOjCdUPj3va22sJvRsC149yYGw=;
- b=E6vbgB+QiEyFDln0/m7mumLDz5chT6d5qbfgjFrwph88pIF9aaY990wnmgbAmBrHuHi75RRwQQo9lPpb66MfRqnjggA5qhVLu4VCV0/EbREAUeDb3cFAuFEWuogRghSBNUP/ZFkGq3e8jQrvVqiLDNMS8q7RJNgabkpzGJNThTDjGDwh+fyEtCGX2OWo+Cg6/u9SKkKpnQS/7sfZwMoSk2otuW386u1wDn6ShNYNh+JU/PDO0tUiXbYQPH+wSpo9cXjN/p026YT9DjMuO+o2ZLYjXL8PNxPDTEATx2FYiaNPyPH4RZa/ZM4LsWHShoqUyunJ9Q6hfXOBMsyJZiFbBQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BL0rwh7n7hqXXSKJfoOjCdUPj3va22sJvRsC149yYGw=;
- b=S1y3HevtjGA7s9hetnCwmy78EN0mIXmHUxNFjcCytYf5f69EMcKwGcUJpNqR+VYueSAEG9a4rAiLJZr28CiF4Rlla4JS0tUCf9eOcTR5VIpIFJetpDHUyQ16jYxl6pK7bYiBfDkgN7eyWmeE8Yp8aFcaaNqH9TffHvAmadfETqn8XIljKN3VqbPeqVDUE+kzG6Zo1VikU7rION001jlKsGrkGPsMgp6rXndRmGZt1ESDnKku8TvjQqeq6O15hTuIFOsMzbEQ4TwMm1FRknf5VXfuObtnygUYt3XCKOFtxu/oM3xbhYQvXZNFTymlf0RMWDTMv/TDdclgvM12cCCHgA==
-Received: from CH0PR13CA0026.namprd13.prod.outlook.com (2603:10b6:610:b1::31)
- by BL1PR12MB5828.namprd12.prod.outlook.com (2603:10b6:208:397::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.32; Thu, 15 May
- 2025 18:16:58 +0000
-Received: from CH3PEPF0000000F.namprd04.prod.outlook.com
- (2603:10b6:610:b1:cafe::1d) by CH0PR13CA0026.outlook.office365.com
- (2603:10b6:610:b1::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.16 via Frontend Transport; Thu,
- 15 May 2025 18:16:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- CH3PEPF0000000F.mail.protection.outlook.com (10.167.244.40) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8722.18 via Frontend Transport; Thu, 15 May 2025 18:16:57 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 15 May
- 2025 11:16:48 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Thu, 15 May 2025 11:16:47 -0700
-Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Thu, 15 May 2025 11:16:46 -0700
-Date: Thu, 15 May 2025 11:16:45 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
-	<bagasdotme@gmail.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
-	<shuah@kernel.org>, <jsnitsel@redhat.com>, <nathan@kernel.org>,
-	<peterz@infradead.org>, <yi.l.liu@intel.com>, <mshavit@google.com>,
-	<praan@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>
-Subject: Re: [PATCH v4 11/23] iommufd/viommu: Add IOMMUFD_CMD_HW_QUEUE_ALLOC
- ioctl
-Message-ID: <aCYvjeZW+7NmUtoE@Asurada-Nvidia>
-References: <cover.1746757630.git.nicolinc@nvidia.com>
- <f52937c027e2fd25d76bc47f4965ba46f82c77c0.1746757630.git.nicolinc@nvidia.com>
- <20250515160620.GJ382960@nvidia.com>
+	Thu, 15 May 2025 18:22:15 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-441d1ed82faso10177715e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 11:22:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747333332; x=1747938132; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=yAQPUlazwxUoIHDbZ2y6Frkhw5As3L7EqQJ2gVvyyoY=;
+        b=IqAMtl3Ol7J9ZSomcEghhxhMG4qd0iM5z9f8iDhp1hazawGLuGLzJ7JWd/fUFMHaeI
+         V+NO6ljlOHHfbB31jHmHSdUUlK6zNEBzRUrYJmsz2ct+EIzYs2vhZfbhF4J3CE5a4QX3
+         +YlwGpZS/6T4vkhhU4J9wjcJ94VbfCiwAOi19trYto8CdHThuQHLQgt57wROZb2gHOV/
+         XZPT23Hony2EaAWk5EOM92pHoM5sfWVkJWnxoqb79u9WQeZkYb4veGk6ad4vG2CbLonH
+         CFBar11q5Q3ZRWL3DXZJDJOEGRcFhdO2G2Zci7lPvsHbUw8GV00wATELVTdB+1kjMtU0
+         4Cbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747333332; x=1747938132;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yAQPUlazwxUoIHDbZ2y6Frkhw5As3L7EqQJ2gVvyyoY=;
+        b=N30jXE7OdAIB2Yguy0MJnRh+KyV/4w07jX5R9hd8isr65j+AkEu8gbQBtbiNJJ5+ns
+         yng5gvVIAlGZHGUmLtJQPOV3jXSNFNdqEuHp9iltA4DpolprAXznxIXRliZ9M1CcvaF9
+         +rdP3u6fCCw2Dic0Ej4OP6DCzIAiwuzq0qDf5fSgttSwVedfy2HYEWGer3hZet4hlwqi
+         B5qCBuwKLnq7kZryOUSJoEIAEQNTraBYxN4eblDthQAHtXQsu8jqWxhemZSLs9SISuJO
+         wnC03tyq2vVQ95jix/5m7ZzBbJSRfD1PmR3DZCy1+gPNrQQxJdW1KQMrc6yKGUYEIcTf
+         /JSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV2AXygixRch5U8GAb3JyV/A8FfB15ESOU/vOV7TrJKP67ViZ8HCUV0YFuieYMU5/hA216K6N7gHJJd0UCpvX45@lists.infradead.org
+X-Gm-Message-State: AOJu0YykeCKks0e2uSglvTwCSp/dMDIseqzuXyDjjwC9zoPHQrFhyyyY
+	KUrurpQ2bLT9DAt/JkNFqPGu+Ivz0hP+1TrVczm6bHnch5CNIgJmNbAu
+X-Gm-Gg: ASbGncupXlrfD+YkVm8MvMn1RTX5MsRRL5hWtM2q53UeIyaTx1kHeRfN18O2CFIWh4X
+	AhwBmg5P4YCWt5cgQTwaZ9bAeLweMkRqK0TjoKm8ZEaDDZ0VeSzok5wYjT5zd4LQWaUTn6j+cW2
+	dUqDoR4X5+qPeYlNB50vzjp71Nkcn/TTBTk4dTPVw3nb07a8/OUsGQocY8uf30hlf7Y2vnBGdQB
+	hIJemmgu/GHgW3Dm3QlQUNzCWA5OW0kC/quPJPliqhoKsFbpkhPWmoMZjheq0MLct7Ey4Wwy5qB
+	IaQjv1wn3BfCGnXKeI5OlbbX6oKL5dRDn1Jn0NCxP733UvqTyHaL8NBBEP8bWTDbHfr1k1IMpWa
+	jYw4VUwKM
+X-Google-Smtp-Source: AGHT+IEdxsvYrXg4MZ9MrhFl2c/AvaYeZ00NOmpZwOccgoStuDdYQZs0PtZRXjp5OTdWelb6F0a2dQ==
+X-Received: by 2002:a05:600c:35c8:b0:43c:fabf:9146 with SMTP id 5b1f17b1804b1-442fd63cba3mr6819785e9.17.1747333332122;
+        Thu, 15 May 2025 11:22:12 -0700 (PDT)
+Received: from iku.example.org ([2a06:5906:61b:2d00:7b5:b9aa:961b:d080])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442fd4a0a5dsm5828155e9.0.2025.05.15.11.22.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 May 2025 11:22:11 -0700 (PDT)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Chris Brandt <chris.brandt@renesas.com>
+Cc: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v4 0/2] Add support for Renesas OSTM on RZ/V2N SoC
+Date: Thu, 15 May 2025 19:22:05 +0100
+Message-ID: <20250515182207.329176-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250515160620.GJ382960@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PEPF0000000F:EE_|BL1PR12MB5828:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7f85620d-de7f-45cf-3c11-08dd93dcae0b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|7416014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?YGqNJCdH4poLlfXBy2rW02ppaGf1c2ma5An0SX1mW9IQGXnUvxsn/6BF1Abj?=
- =?us-ascii?Q?b9rDLKCkDvZjwVKcp1EbycKyCpjOyuZ2BWd0l023LG38b+9NSmFS45GmeDM2?=
- =?us-ascii?Q?b3bpAeqOrfctotxSgpoOb36t0/eDTBRBJKdW/yOS/vgQnTNLk6j1h2Yi5Uav?=
- =?us-ascii?Q?BA37k4yg+uYZ20jDXI+1ITs2PPaeoM6Y84+4HOWwjHZ/Wb/EmZ2AsJKnaE4X?=
- =?us-ascii?Q?pnIj7oOoIcFcf8rrW9MNxn+oKl7zglaB/xHA0N0O5Da0kkXkqNoe5Pzz7LjG?=
- =?us-ascii?Q?ECsM4rn5EWEz7TFEWBcu7irMYuz6tuhyrRba3CS+e39txTCAVWC7Ox73RObY?=
- =?us-ascii?Q?knRskQsUwfmyESujvGrVfkhAoh+fM9HY8srGZyp03CURswp6BJ5L2rQpfM5v?=
- =?us-ascii?Q?GLZv3me9Up+D4otWIRiOLHDwv2WY/yULsURgtGIZjoZlSSMBbTLuO2tNPY3B?=
- =?us-ascii?Q?7t+t4TIJWlyErWrMdxiK9n2Et2sHH3PIcnE5fGpAJ5Coy5GIGAAElJI7GOqb?=
- =?us-ascii?Q?eux/FvhuYVRUN7pQC92lUGI3f1A9tmht2666ltA7NgW5rMil9Qr6FxegpmX1?=
- =?us-ascii?Q?+xB8CApo38JdFNW3Hjq7ds/rR9reH/e5tXegR7nxXqGY/e+BvZeZ56tWp96c?=
- =?us-ascii?Q?XA9B8K8zw8dTOWDWyvi4uiQP5f6yETIWd/MA2p3eS9uHLNT1AW+IO4XA1Q+q?=
- =?us-ascii?Q?Hs/P/WlnujN6acjOlDxmJG6tjUhjKjgr2cJ7T+5OznMj817N9zI65CacQVpb?=
- =?us-ascii?Q?TE0mGMUkL4pMEMJHi5o9frScshpOZpNPInqj/Pb1cingWz3L7I4PSDpK/0jd?=
- =?us-ascii?Q?yWgzc+zDS9U79Ju3XPeKNvUXOWTPd1volmEP/+LYLY2Jbm0X1mKJQnXo5Xzp?=
- =?us-ascii?Q?P7sUiVY+jC2WRqI0/6Ph60kNX6Nd60VehPizwVRX8096LfYJ1rBvIVt/acf1?=
- =?us-ascii?Q?TZXmHLvjQXr4vwHzjrreqQvs1yerqVnq8b2hek6uYGgWckKIYHIDj/NS5lUk?=
- =?us-ascii?Q?yZAsQBKEg26iszPR1e9CLS0dbSCLvESeNT/v88zYQ2mg/MTeMi7DkkwqG5Fk?=
- =?us-ascii?Q?YOMYbWVs12WILM6iQVkjXgVPD42eaYhZ3nsEbmvhPrJWzpsev1dHOQ0iD3Pk?=
- =?us-ascii?Q?b88LBiOk3UsvyhPsQR2UReME04P25DU2vcIePVHvZIZZjAjDXRu4f7tGPp8D?=
- =?us-ascii?Q?oadg/r1HI8YN5GHtZwvMpWgQkLCNtquG0oAp9fbcdWnQ2agvkgtiZo4Mjtgf?=
- =?us-ascii?Q?EFENw1kMnPLg+RZ+uv7Q0a1xtKCJLc+9PMYUcCLmmuNufXBl/wF1QDqCXO/B?=
- =?us-ascii?Q?GGVVd3X7LA5yhYxfPEmzbFIh+sWCUJXLOpRoqd/83hbBqPNQIz3xoXxBZVHW?=
- =?us-ascii?Q?BsUZzT9Vj8/ZiQDNqcRety3rstJ9coFZp5etXzH7aLeGooPIbKId5CdNt6ka?=
- =?us-ascii?Q?zILDHg6EQ4WF7f1qRIx5pqZSFL9pFgFmt/W54RHwEa/Q6Wu8f8JUnmi1yah/?=
- =?us-ascii?Q?cuwJnC0Nia5qeeOGPH7VytowYJF2a944CUp1?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(36860700013)(7416014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 May 2025 18:16:57.7314
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7f85620d-de7f-45cf-3c11-08dd93dcae0b
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF0000000F.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5828
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_111702_443363_7097C9C9 
-X-CRM114-Status: GOOD (  36.51  )
+X-CRM114-CacheID: sfid-20250515_112214_009219_5D3960DE 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,101 +111,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 15, 2025 at 01:06:20PM -0300, Jason Gunthorpe wrote:
-> On Thu, May 08, 2025 at 08:02:32PM -0700, Nicolin Chen wrote:
-> > +/**
-> > + * struct iommu_hw_queue_alloc - ioctl(IOMMU_HW_QUEUE_ALLOC)
-> > + * @size: sizeof(struct iommu_hw_queue_alloc)
-> > + * @flags: Must be 0
-> > + * @viommu_id: Virtual IOMMU ID to associate the HW queue with
-> > + * @type: One of enum iommu_hw_queue_type
-> > + * @index: The logical index to the HW queue per virtual IOMMU for a multi-queue
-> > + *         model
-> > + * @out_hw_queue_id: The ID of the new HW queue
-> > + * @base_addr: Base address of the queue memory in guest physical address space
-> > + * @length: Length of the queue memory in the guest physical address space
-> > + *
-> > + * Allocate a HW queue object for a vIOMMU-specific HW-accelerated queue, which
-> > + * allows HW to access a guest queue memory described by @base_addr and @length.
-> > + * Upon success, the underlying physical pages of the guest queue memory will be
-> > + * pinned to prevent VMM from unmapping them in the IOAS until the HW queue gets
-> > + * destroyed.
-> 
-> Do we have way to make the pinning optional?
-> 
-> As I understand AMD's system the iommu HW itself translates the
-> base_addr through the S2 page table automatically, so it doesn't need
-> pinned memory and physical addresses but just the IOVA.
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Right. That's why we invented a flag, and it should be probably
-extended to cover the pin step as well.
+Hi all,
 
-> Perhaps for this reason the pinning should be done with a function
-> call from the driver?
+This patch series adds support for the Renesas OS Timer (OSTM) found on
+the Renesas RZ/V2N (R9A09G056) SoC. The OSTM IP on RZ/V2N is identical to
+that on other RZ families.
 
-But the whole point of doing in the core was to avoid the entire
-iopt related structure/function from being exposed to the driver,
-which would otherwise hugely increase the size of the driver.o?
+v3->v4:
+- Added __maybe_unused to the of_device_id table to avoid build
+  warnings when CONFIG_OF is disabled.
+- Added Reviewed-by and Tested-by tags from Geert.
+- Updated commit message to clarify the change in patch 2/2.
 
-> > +struct iommu_hw_queue_alloc {
-> > +	__u32 size;
-> > +	__u32 flags;
-> > +	__u32 viommu_id;
-> > +	__u32 type;
-> > +	__u32 index;
-> > +	__u32 out_hw_queue_id;
-> > +	__aligned_u64 base_addr;
-> 
-> base addr should probably be called nesting_parent_iova  to match how
-> we described the viommu hwpt:
-> 
->  * @hwpt_id: ID of a nesting parent HWPT to associate to
+v2->v3:
+- Dropped config check and unconditionally enabled reprobe support for all
+  SoCs.
 
-Ack.
+v1->v2:
+- Inveted the logic in the dt-bindings to require the "resets" property
+- Instead of adding config for new SoC, changed the probe condition to
+  `CONFIG_ARM64`.
+- Updated commit messages
+- Added a Reviewed-by tag from Geert.
 
-> > +	/*
-> > +	 * The underlying physical pages must be pinned to prevent them from
-> > +	 * being unmapped (via IOMMUFD_CMD_IOAS_UNMAP) during the life cycle
-> > +	 * of the HW QUEUE object.
-> > +	 */
-> > +	rc = iopt_pin_pages(&hwpt->ioas->iopt, cmd->base_addr, cmd->length,
-> > +			    pages, 0);
-> 
-> I don't think this actually works like this without an unmap
-> callback. unmap will break:
-> 
-> 			iommufd_access_notify_unmap(iopt, area_first, length);
-> 			/* Something is not responding to unmap requests. */
-> 			tries++;
-> 			if (WARN_ON(tries > 100))
-> 				return -EDEADLOCK;
-> 
-> If it can't shoot down the pinning.
+v1:
+https://lore.kernel.org/all/20250501123709.56513-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
 
-Hmm, I thought we want the unmap to fail until VMM releases the HW
-QUEUE first? In what case, does VMM wants to unmap while holding
-the queue pages?
+Cheers,
+Prabhakar
 
-> Why did this need to change away from just a normal access? That ops
-> and unmap callback are not optional things.
-> 
-> What vcmdq would do in the unmap callback is question I'm not sure
-> of..
-> 
-> This is more reason to put the pin/access in the driver so it can
-> provide an unmap callback that can fix it up.
+Lad Prabhakar (2):
+  dt-bindings: timer: renesas,ostm: Document RZ/V2N (R9A09G056) support
+  clocksource/drivers/renesas-ostm: Unconditionally enable reprobe
+    support
 
-As there are two types of "access" here.. you mean iommufd_access,
-i.e. vcmdq driver should hold an iommufd_access like an emulated
-vfio device driver?
+ .../devicetree/bindings/timer/renesas,ostm.yaml      | 12 ++++++------
+ drivers/clocksource/renesas-ostm.c                   |  4 +---
+ 2 files changed, 7 insertions(+), 9 deletions(-)
 
-> I think this should have
-> been done just by using the normal access mechanism, maybe with a
-> simplifying wrapper for in-driver use. ie no need for patch #9
+-- 
+2.49.0
 
-Still, the driver.o file will be very large, unlike VFIO that just
-depends on CONFIG_IOMMUFD?
-
-Thanks
-Nicolin
 
