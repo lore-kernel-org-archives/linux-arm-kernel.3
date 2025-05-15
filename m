@@ -4,104 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E8E4C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 08:19:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30262C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 08:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=glGyEXi0QZpDgdf+QBJO5sMYl1AOPW1Yz+35AUaf0fQ=; b=f4oxF7V2FHmUR+gUufQtquf0JK
-	nACYuHHGYDwhvZ72yQS2eZePRx5g95S/45V4Gfif/zPs48T0Mc1gJzzssKrh+AmPsT6q3huJIzNaP
-	mTc06A86LjMidEmWaLQ4qx5fdE+R7D1wunyjRzqI9JZhLISQRhvKYm4R7O8R9eUDAtehgHT1VtYAM
-	2oXBFUyVan9+hUqWSoCwHfWX/MH3hUq+nw+FnqgFiZe0QIYJa1kD3aJZHeWkKxNHGRFNNgC0fTg2Q
-	bgYAOSFQltaCjHX9YePaGizFudiZzeXftGj2kokbysHJMdfl56rXt/GDany4W6so+ZMRdfFhL/voC
-	XRnyl0og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z8Exmu5AvrOliWcDcPff6Nx6i6W0J+M9TlSykMB2RBU=; b=Dld7k6saxuShODav8ZH5XlmNpZ
+	ROaUPkJaSH94/wln50rJdlwAWwZs0+UrYYibrplWsLZSTefT7gJt0GLgyWscgR17knrTx2PdVMM7P
+	kVMbnzatOV71IVob9o7CP9GLlCdm6S4X51bbUQN6HHmjqLFRO0Kf9YRakI1CrS9dniBc6BIIKP/FX
+	PMdNVxtUvfCE2Ng0YOcXy5t8LZxmBiSbHZG7102Yy3X3Vo9HLFmU80a/juTtrGV5zi62HBy4f67ho
+	xOknubHnIYCWFRG4IeUnV1VXBdhvJpNVheZMOJ41vsaggNkp4OA0mFCB+ZifEf0LcCcAnJs7ueQ+j
+	nPiC2mbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFTo9-0000000HUTi-1BqH;
-	Thu, 15 May 2025 08:19:13 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFTYl-0000000HROZ-0E7X
+	id 1uFTq8-0000000HUtb-2Hj2;
+	Thu, 15 May 2025 08:21:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uFTZo-0000000HRkD-3Z2c
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 08:03:23 +0000
-Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250515080309epoutp02411b852f96dd68379197e78280ca863c~-pKB0yFId1994419944epoutp02I
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 08:03:09 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250515080309epoutp02411b852f96dd68379197e78280ca863c~-pKB0yFId1994419944epoutp02I
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1747296189;
-	bh=glGyEXi0QZpDgdf+QBJO5sMYl1AOPW1Yz+35AUaf0fQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=d6TDFNKkUgpr2sAhv5OUZU7v6kcn61D0DMOal1wEyQlS5Kjn3JpSA0qVW8cPMEWwk
-	 XdFkLtebmE6ROuLalqadvpq+5+9yJs3N97BduRVDt0szFm71KAkZHGL2VUgyfS2575
-	 VoFx7MXD5/PLvv1WcaC4a3Ee/N/4BTiY0erQ8KgI=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas2p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250515080309epcas2p330e7b7168e831d899750bc2174a7c844~-pKBjVzxT0239902399epcas2p3s;
-	Thu, 15 May 2025 08:03:09 +0000 (GMT)
-Received: from epcas2p2.samsung.com (unknown [182.195.36.68]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4ZyjPm68NVz3hhTN; Thu, 15 May
-	2025 08:03:08 +0000 (GMT)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250515080308epcas2p23dcfda26ccbb9376d400af0017b55247~-pKAuG6Hd1485714857epcas2p2T;
-	Thu, 15 May 2025 08:03:08 +0000 (GMT)
-Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250515080308epsmtrp1083deebc5acfa82e7517bde59f074a57~-pKAoSJ3O2250622506epsmtrp1B;
-	Thu, 15 May 2025 08:03:08 +0000 (GMT)
-X-AuditID: b6c32a2a-d63ff70000002265-81-68259fbcd430
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	8E.86.08805.CBF95286; Thu, 15 May 2025 17:03:08 +0900 (KST)
-Received: from localhost.localdomain (unknown [10.229.9.126]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250515080308epsmtip2135cebdbb929a513a5543301eec0c26c~-pKAcXscJ1287212872epsmtip2n;
-	Thu, 15 May 2025 08:03:08 +0000 (GMT)
-From: Sangwook Shin <sw617.shin@samsung.com>
-To: krzk@kernel.org, alim.akhtar@samsung.com, wim@linux-watchdog.org,
-	linux@roeck-us.net
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org, Sangwook Shin
-	<sw617.shin@samsung.com>
-Subject: [PATCH v3 3/5] watchdog: s3c2410_wdt: Increase max timeout value of
- watchdog
-Date: Thu, 15 May 2025 16:53:48 +0900
-Message-Id: <20250515075350.3368635-4-sw617.shin@samsung.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250515075350.3368635-1-sw617.shin@samsung.com>
+	Thu, 15 May 2025 08:04:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B3D314BF;
+	Thu, 15 May 2025 01:04:12 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 57E9C3F673;
+	Thu, 15 May 2025 01:04:23 -0700 (PDT)
+Date: Thu, 15 May 2025 09:04:21 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: suzuki.poulose@arm.com, mike.leach@linaro.org, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 3/3] coresight: prevent deactivate active config while
+ enabling the config
+Message-ID: <20250515080421.GB412060@e132581.arm.com>
+References: <20250514161951.3427590-1-yeoreum.yun@arm.com>
+ <20250514161951.3427590-4-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrKLMWRmVeSWpSXmKPExsWy7bCSvO6e+aoZBj+nclg8mLeNzeL8+Q3s
-	FpseX2O1uLxrDpvFjPP7mCxurNvHbvFk4RkmixmLT7JZPH75j9mB02PTqk42j5Vr1rB6bF5S
-	77HzewO7R9+WVYwenzfJBbBFcdmkpOZklqUW6dslcGUcmb6AtWClSsWLnu9MDYyL5boYOTkk
-	BEwkLi9Zx9TFyMUhJLCbUWLij/vMXYwcQAkpiXfPLCFqhCXutxxhhaj5wChx9vUeFpAEm4CO
-	xPR/t8FsEYE4iWPtm5lBipgFdjJKtEz/zQySEBYIlWh48RCsiEVAVeLWyu+sIDavgK3E5nXH
-	WSE2yEvMvPSdHcTmFLCTmHhxFyOILQRUc3jPEzaIekGJkzOfgM1hBqpv3jqbeQKjwCwkqVlI
-	UgsYmVYxSqYWFOem5xYbFhjlpZbrFSfmFpfmpesl5+duYgSHvJbWDsY9qz7oHWJk4mA8xCjB
-	wawkwns9SzlDiDclsbIqtSg/vqg0J7X4EKM0B4uSOO+3170pQgLpiSWp2ampBalFMFkmDk6p
-	BqaVip3lLM8M2JayVry5rCazj9+347WyjOaURat0vLbyTefUqlU2f193Je3eY8eQb+66BTM7
-	tnQJpimtEDSp7isOVEjkqbEKOCejkdS3g9mIuTEpOPh/eJiZgtQWrbq9ZfJOC3qqDzSw5b9O
-	2JZ71NQ0ctaf7y9WrYsNL5crDCkIztNvvWt801RQ5vq5Ir+Z9Qd5lNRqmz3X8xy5+3B7fN7v
-	xRpt/1aenXRH/cXf7pkq026fUvX9n7Kc7/73X14b3shJ/3ZiP6bwKHb6rwnS7XPfhM3JqGKY
-	+8Ow4Jr/yfJZ7mZbmg1DfLsExYWz2EwmJCno/0le1mZ6vLy0MvWxypyPT4J1Z7zk2XVqgqel
-	EktxRqKhFnNRcSIAUUvpr+gCAAA=
-X-CMS-MailID: 20250515080308epcas2p23dcfda26ccbb9376d400af0017b55247
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,N
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250515080308epcas2p23dcfda26ccbb9376d400af0017b55247
-References: <20250515075350.3368635-1-sw617.shin@samsung.com>
-	<CGME20250515080308epcas2p23dcfda26ccbb9376d400af0017b55247@epcas2p2.samsung.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250514161951.3427590-4-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_010319_563669_728F3C94 
-X-CRM114-Status: GOOD (  22.43  )
+X-CRM114-CacheID: sfid-20250515_010424_974379_30246ECA 
+X-CRM114-Status: GOOD (  31.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,123 +65,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Increase max_timeout value from 55s to 3664647s (1017h 57min 27s) with
-38400000 frequency system if the system has 32-bit WTCNT register.
+On Wed, May 14, 2025 at 05:19:51PM +0100, Yeoreum Yun wrote:
+> While enable active config via cscfg_csdev_enable_active_config(),
+> active config could be deactivated via configfs' sysfs interface.
+> This could make UAF issue in below scenario:
+> 
+> CPU0                                          CPU1
+> (sysfs enable)                                load module
+>                                               cscfg_load_config_sets()
+>                                               activate config. // sysfs
+>                                               (sys_active_cnt == 1)
+> ...
+> cscfg_csdev_enable_active_config()
+> lock(csdev->cscfg_csdev_lock)
+> // here load config activate by CPU1
+> unlock(csdev->cscfg_csdev_lock)
+> 
+>                                               deactivate config // sysfs
+>                                               (sys_activec_cnt == 0)
+>                                               cscfg_unload_config_sets()
+>                                               unload module
+> 
+> // access to config_desc which freed
+> // while unloading module.
+> cscfg_csdev_enable_config
+> 
+> To address this, use cscfg_config_desc's active_cnt as a reference count
+>  which will be holded when
+>     - activate the config.
+>     - enable the activated config.
+> and put the module reference when config_active_cnt == 0.
+> 
+> Fixes: f8cce2ff3c04 ("coresight: syscfg: Add API to activate and enable configurations")
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 
-cat /sys/devices/platform/10060000.watchdog_cl0/watchdog/watchdog0/max_timeout
-3664647
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 
-[    0.302473] s3c2410-wdt 10060000.watchdog_cl0: Heartbeat: count=1099394100000, timeout=3664647, freq=300000
-[    0.302479] s3c2410-wdt 10060000.watchdog_cl0: Heartbeat: timeout=3664647, divisor=256, count=1099394100000 (fff8feac)
-[    0.302510] s3c2410-wdt 10060000.watchdog_cl0: starting watchdog timer
-[    0.302722] s3c2410-wdt 10060000.watchdog_cl0: watchdog active, reset enabled, irq disabled
-
-If system has 32-bit WTCNT, add QUIRK_HAS_32BIT_MAXCNT to its quirk flags, then
-it will operation with 32-bit counter. If not, with 16-bit counter like previous.
-
-Signed-off-by: Sangwook Shin <sw617.shin@samsung.com>
----
- drivers/watchdog/s3c2410_wdt.c | 23 +++++++++++++++++------
- 1 file changed, 17 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
-index c6166d927155..1c7299deec5d 100644
---- a/drivers/watchdog/s3c2410_wdt.c
-+++ b/drivers/watchdog/s3c2410_wdt.c
-@@ -34,6 +34,7 @@
- #define S3C2410_WTCLRINT	0x0c
- 
- #define S3C2410_WTCNT_MAXCNT	0xffff
-+#define S3C2410_WTCNT_MAXCNT_32	0xffffffff
- 
- #define S3C2410_WTCON_RSTEN		BIT(0)
- #define S3C2410_WTCON_INTEN		BIT(2)
-@@ -119,6 +120,10 @@
-  * %QUIRK_HAS_DBGACK_BIT: WTCON register has DBGACK_MASK bit. Setting the
-  * DBGACK_MASK bit disables the watchdog outputs when the SoC is in debug mode.
-  * Debug mode is determined by the DBGACK CPU signal.
-+ *
-+ * %QUIRK_HAS_32BIT_MAXCNT: WTDAT and WTCNT are 32-bit registers. With these
-+ * 32-bit registers, larger values to be set, which means that larger timeouts
-+ * value can be set.
-  */
- #define QUIRK_HAS_WTCLRINT_REG			BIT(0)
- #define QUIRK_HAS_PMU_MASK_RESET		BIT(1)
-@@ -126,6 +131,7 @@
- #define QUIRK_HAS_PMU_AUTO_DISABLE		BIT(3)
- #define QUIRK_HAS_PMU_CNT_EN			BIT(4)
- #define QUIRK_HAS_DBGACK_BIT			BIT(5)
-+#define QUIRK_HAS_32BIT_MAXCNT			BIT(6)
- 
- /* These quirks require that we have a PMU register map */
- #define QUIRKS_HAVE_PMUREG \
-@@ -194,6 +200,7 @@ struct s3c2410_wdt {
- 	struct notifier_block	freq_transition;
- 	const struct s3c2410_wdt_variant *drv_data;
- 	struct regmap *pmureg;
-+	unsigned int		max_cnt;
- };
- 
- static const struct s3c2410_wdt_variant drv_data_s3c2410 = {
-@@ -379,7 +386,7 @@ static inline unsigned int s3c2410wdt_max_timeout(struct s3c2410_wdt *wdt)
- {
- 	const unsigned long freq = s3c2410wdt_get_freq(wdt);
- 
--	return S3C2410_WTCNT_MAXCNT / DIV_ROUND_UP(freq,
-+	return wdt->max_cnt / DIV_ROUND_UP(freq,
- 		(S3C2410_WTCON_PRESCALE_MAX + 1) * S3C2410_WTCON_MAXDIV);
- }
- 
-@@ -534,7 +541,7 @@ static int s3c2410wdt_set_heartbeat(struct watchdog_device *wdd,
- {
- 	struct s3c2410_wdt *wdt = watchdog_get_drvdata(wdd);
- 	unsigned long freq = s3c2410wdt_get_freq(wdt);
--	unsigned int count;
-+	unsigned long count;
- 	unsigned int divisor = 1;
- 	unsigned long wtcon;
- 
-@@ -544,7 +551,7 @@ static int s3c2410wdt_set_heartbeat(struct watchdog_device *wdd,
- 	freq = DIV_ROUND_UP(freq, 128);
- 	count = timeout * freq;
- 
--	dev_dbg(wdt->dev, "Heartbeat: count=%d, timeout=%d, freq=%lu\n",
-+	dev_dbg(wdt->dev, "Heartbeat: count=%lu, timeout=%d, freq=%lu\n",
- 		count, timeout, freq);
- 
- 	/* if the count is bigger than the watchdog register,
-@@ -552,8 +559,8 @@ static int s3c2410wdt_set_heartbeat(struct watchdog_device *wdd,
- 	   actually make this value
- 	*/
- 
--	if (count >= 0x10000) {
--		divisor = DIV_ROUND_UP(count, 0xffff);
-+	if (count > wdt->max_cnt) {
-+		divisor = DIV_ROUND_UP(count, wdt->max_cnt);
- 
- 		if (divisor > S3C2410_WTCON_PRESCALE_MAX + 1) {
- 			dev_err(wdt->dev, "timeout %d too big\n", timeout);
-@@ -561,7 +568,7 @@ static int s3c2410wdt_set_heartbeat(struct watchdog_device *wdd,
- 		}
- 	}
- 
--	dev_dbg(wdt->dev, "Heartbeat: timeout=%d, divisor=%d, count=%d (%08x)\n",
-+	dev_dbg(wdt->dev, "Heartbeat: timeout=%d, divisor=%d, count=%lu (%08lx)\n",
- 		timeout, divisor, count, DIV_ROUND_UP(count, divisor));
- 
- 	count = DIV_ROUND_UP(count, divisor);
-@@ -764,6 +771,10 @@ static int s3c2410wdt_probe(struct platform_device *pdev)
- 	if (IS_ERR(wdt->src_clk))
- 		return dev_err_probe(dev, PTR_ERR(wdt->src_clk), "failed to get source clock\n");
- 
-+	wdt->max_cnt = S3C2410_WTCNT_MAXCNT;
-+	if ((wdt->drv_data->quirks & QUIRK_HAS_32BIT_MAXCNT))
-+		wdt->max_cnt = S3C2410_WTCNT_MAXCNT_32;
-+
- 	wdt->wdt_device.min_timeout = 1;
- 	wdt->wdt_device.max_timeout = s3c2410wdt_max_timeout(wdt);
- 
--- 
-2.40.1
-
+> ---
+>  .../hwtracing/coresight/coresight-config.h    |  2 +-
+>  .../hwtracing/coresight/coresight-syscfg.c    | 49 +++++++++++++------
+>  2 files changed, 35 insertions(+), 16 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-config.h b/drivers/hwtracing/coresight/coresight-config.h
+> index b9ebc9fcfb7f..90fd937d3bd8 100644
+> --- a/drivers/hwtracing/coresight/coresight-config.h
+> +++ b/drivers/hwtracing/coresight/coresight-config.h
+> @@ -228,7 +228,7 @@ struct cscfg_feature_csdev {
+>   * @feats_csdev:references to the device features to enable.
+>   */
+>  struct cscfg_config_csdev {
+> -	const struct cscfg_config_desc *config_desc;
+> +	struct cscfg_config_desc *config_desc;
+>  	struct coresight_device *csdev;
+>  	bool enabled;
+>  	struct list_head node;
+> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
+> index 23017612f2ea..83dad24e0116 100644
+> --- a/drivers/hwtracing/coresight/coresight-syscfg.c
+> +++ b/drivers/hwtracing/coresight/coresight-syscfg.c
+> @@ -869,6 +869,25 @@ void cscfg_csdev_reset_feats(struct coresight_device *csdev)
+>  }
+>  EXPORT_SYMBOL_GPL(cscfg_csdev_reset_feats);
+>  
+> +static bool cscfg_config_desc_get(struct cscfg_config_desc *config_desc)
+> +{
+> +	if (!atomic_fetch_inc(&config_desc->active_cnt)) {
+> +		/* must ensure that config cannot be unloaded in use */
+> +		if (unlikely(cscfg_owner_get(config_desc->load_owner))) {
+> +			atomic_dec(&config_desc->active_cnt);
+> +			return false;
+> +		}
+> +	}
+> +
+> +	return true;
+> +}
+> +
+> +static void cscfg_config_desc_put(struct cscfg_config_desc *config_desc)
+> +{
+> +	if (!atomic_dec_return(&config_desc->active_cnt))
+> +		cscfg_owner_put(config_desc->load_owner);
+> +}
+> +
+>  /*
+>   * This activate configuration for either perf or sysfs. Perf can have multiple
+>   * active configs, selected per event, sysfs is limited to one.
+> @@ -892,22 +911,17 @@ static int _cscfg_activate_config(unsigned long cfg_hash)
+>  			if (config_desc->available == false)
+>  				return -EBUSY;
+>  
+> -			/* must ensure that config cannot be unloaded in use */
+> -			err = cscfg_owner_get(config_desc->load_owner);
+> -			if (err)
+> +			if (!cscfg_config_desc_get(config_desc)) {
+> +				err = -EINVAL;
+>  				break;
+> +			}
+> +
+>  			/*
+>  			 * increment the global active count - control changes to
+>  			 * active configurations
+>  			 */
+>  			atomic_inc(&cscfg_mgr->sys_active_cnt);
+>  
+> -			/*
+> -			 * mark the descriptor as active so enable config on a
+> -			 * device instance will use it
+> -			 */
+> -			atomic_inc(&config_desc->active_cnt);
+> -
+>  			err = 0;
+>  			dev_dbg(cscfg_device(), "Activate config %s.\n", config_desc->name);
+>  			break;
+> @@ -922,9 +936,8 @@ static void _cscfg_deactivate_config(unsigned long cfg_hash)
+>  
+>  	list_for_each_entry(config_desc, &cscfg_mgr->config_desc_list, item) {
+>  		if ((unsigned long)config_desc->event_ea->var == cfg_hash) {
+> -			atomic_dec(&config_desc->active_cnt);
+>  			atomic_dec(&cscfg_mgr->sys_active_cnt);
+> -			cscfg_owner_put(config_desc->load_owner);
+> +			cscfg_config_desc_put(config_desc);
+>  			dev_dbg(cscfg_device(), "Deactivate config %s.\n", config_desc->name);
+>  			break;
+>  		}
+> @@ -1049,7 +1062,7 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+>  				     unsigned long cfg_hash, int preset)
+>  {
+>  	struct cscfg_config_csdev *config_csdev_active = NULL, *config_csdev_item;
+> -	const struct cscfg_config_desc *config_desc;
+> +	struct cscfg_config_desc *config_desc;
+>  	unsigned long flags;
+>  	int err = 0;
+>  
+> @@ -1064,8 +1077,8 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+>  	raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
+>  	list_for_each_entry(config_csdev_item, &csdev->config_csdev_list, node) {
+>  		config_desc = config_csdev_item->config_desc;
+> -		if ((atomic_read(&config_desc->active_cnt)) &&
+> -		    ((unsigned long)config_desc->event_ea->var == cfg_hash)) {
+> +		if (((unsigned long)config_desc->event_ea->var == cfg_hash) &&
+> +				cscfg_config_desc_get(config_desc)) {
+>  			config_csdev_active = config_csdev_item;
+>  			csdev->active_cscfg_ctxt = (void *)config_csdev_active;
+>  			break;
+> @@ -1099,7 +1112,11 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+>  				err = -EBUSY;
+>  			raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+>  		}
+> +
+> +		if (err)
+> +			cscfg_config_desc_put(config_desc);
+>  	}
+> +
+>  	return err;
+>  }
+>  EXPORT_SYMBOL_GPL(cscfg_csdev_enable_active_config);
+> @@ -1138,8 +1155,10 @@ void cscfg_csdev_disable_active_config(struct coresight_device *csdev)
+>  	raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+>  
+>  	/* true if there was an enabled active config */
+> -	if (config_csdev)
+> +	if (config_csdev) {
+>  		cscfg_csdev_disable_config(config_csdev);
+> +		cscfg_config_desc_put(config_csdev->config_desc);
+> +	}
+>  }
+>  EXPORT_SYMBOL_GPL(cscfg_csdev_disable_active_config);
+>  
+> -- 
+> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+> 
 
