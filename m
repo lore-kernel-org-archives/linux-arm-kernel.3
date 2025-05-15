@@ -4,69 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3564AC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 07:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A61C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 07:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=djcsMp5c+uXusuXKFCINoErIEdxrN0txK0DGwX6i8YA=; b=fkHyiZ+IJLf+xgukYIM/L7s2t3
-	4zFzP677U7nRzwIjMQykyqABbe9wsVlBmA+Glf9W7VKHoo+3OAxxpn0fLPJhCzmoJZSRiMjc1rGwB
-	3+WSLPQPobngqFbCH9UFSqZP5Ron+WtJLg27CNrdrHYKO+u5AeT/vYWf1na88OekTgi8fpOCJ+Ik7
-	TuqHf6noyL4b6LU45H46pBjn2qZwz5UErZIYN9Z7g27GQQS1qSR311vwWZARGmkIULJALg72tCtou
-	EAR8dojI3WVv+FuUS73u5iW1oFS5FmvaDbg6I1Vor8VDXG8CjXjdthZAOF78eeE0OwCNvuAFdrEl2
-	aQt8LJ6g==;
+	bh=ji/KKSHoP7yY7aJyBCvNgq977Um77Yq/cN+M0anXeoY=; b=zy47NDiVhHOlt93FBtEkeEjd3d
+	wh3DlNQvKAlHU3qxlAwXkwQu0+mg/pRZtHG3GxlpBWf2QJ5xINw06UpiA85jXsAYw5Mom0NnLDPWx
+	kabxei/QGJS6I5Mh9QxuvUQEUla43rnNnPzZGTw+liTQM3fpekNb6JDcjaBz1SOMhTuYe6kAn70VG
+	0g2JDHG8Q+L9QsjQDiAGhooKe+/WC7Mnes0cQQ44NV5MNd8oue+4ggsFhimYEML4ePatF65RvyEWU
+	VH869OHsVLd9IInJgVhhmyJkZ/syYJl1I9oUyEaYKgwLGdWhMUi0/Ul4s5lwym+GCqC4ecMhWUObk
+	qpCYWOTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFTJ1-0000000HOVr-32D2;
-	Thu, 15 May 2025 07:47:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uFTL1-0000000HOtZ-3mq3;
+	Thu, 15 May 2025 07:49:07 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFTFO-0000000HO3A-3XMO;
-	Thu, 15 May 2025 07:43:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CDC825C4D71;
-	Thu, 15 May 2025 07:41:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67F06C4CEE7;
-	Thu, 15 May 2025 07:43:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747294997;
-	bh=h1lP/XXLGAF1oDoLpaZY+0OrHUGsOnllqHLKbDeAURg=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=K+Jk8h+dtlENycXrCf9xiGgBIODRP64nCCyfmd5mwwfFiuecBzNt+8y17DbOE/Xgd
-	 WFXCvPM75xcNZQ0kk7VgG2G4G5SFydPF305XY7Z4Ox8eUI7gvz4o8JPsuRdz8iyzy/
-	 HfjxbEchRRi1LpfvbNkjZguOlrlGf+bYUzR69nbCal7J2DV5h+SqEZDN15n2iFy0PF
-	 NQ5v2LSL0DAO1d8yw2Bzh8wyUMnllANDiMc+IQ4WwVhkvzcKYctr9suI2rKjCnXhGz
-	 2P3Pa3QDBNrDFkgpnuiSfo9Htlo8zTHTmiN3BWLsN1Rt8smb1LhsGrhW8+6RpDc+4K
-	 ef6n8aMEtKYvA==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Chen Zhong <chen.zhong@mediatek.com>, 
- Fabien Parent <fabien.parent@linaro.org>, 
- Alexandre Mergnat <amergnat@baylibre.com>, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-In-Reply-To: <20250514-mt6357-regulator-fixed-compatibles-removal-bindings-v1-1-2421e9cc6cc7@collabora.com>
-References: <20250514-mt6357-regulator-fixed-compatibles-removal-bindings-v1-1-2421e9cc6cc7@collabora.com>
-Subject: Re: [PATCH] regulator: dt-bindings: mt6357: Drop fixed compatible
- requirement
-Message-Id: <174729499095.280025.830867783307923858.b4-ty@kernel.org>
-Date: Thu, 15 May 2025 09:43:10 +0200
+	id 1uFTHj-0000000HOMR-2dWn
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 May 2025 07:45:44 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-442ed8a275fso6694665e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 00:45:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747295142; x=1747899942; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ji/KKSHoP7yY7aJyBCvNgq977Um77Yq/cN+M0anXeoY=;
+        b=amffhPLrZ57y5DBotMUjNpf44jy23qjmF//wcZvbekcfmes6Pk4b0oqebonAcUiCPY
+         5qECx1jyON02HgOT3SBQzVP6Yb9Vf2M+KQFZPIPr4kgWM1z8MDA0Y31s7NE4KGScnee0
+         mr73smdGKq8h7LuMngFjjxIN1zeQBV99ElaNmX0Vjiu/bL37Vk6imBvV4d1+O01iEaMB
+         Waf/+ZFn/+iYz9PMaSrf5dXhWaAIgnIle1VNyE19KXdGR+QIaGh8FGVB7RU6wMt4Dq99
+         mU80SwamK0W9oHcD+0tYyaa0IvedfmO31i1aEmTrp5l0VQOA1XdyWOsb37Yx39E0UHfH
+         CIFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747295142; x=1747899942;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ji/KKSHoP7yY7aJyBCvNgq977Um77Yq/cN+M0anXeoY=;
+        b=uVN/xagAXe1Ai6wmYlURlvA7eJX8jp0IHpbsU/e7fzpr22vDjpw4tGhOBOjYZkfVxc
+         yLzxuOP4DZaj34qEFBj/l7+JfF6iz6sHNM+XJdjVo8lACz6pUux2Q8fV8YmZrJvb1eQB
+         GSd82iumAGTBC/JG6zw5TNu+gC7rsXKTptzqP3zBBhZjLBQerRFYAWCgZaPAqOMRjYEE
+         bowvCLBjHjPhokGu5elFbM7S2LvX4I7k05CtRqhVascjg18F1wXfABi5cuT7eY95AR86
+         PKBTd963Xp0vyFh+dUPYNHO6BrydqP4uHIoTRW8u6sd1n033V1Gxi6DAjQd+4VLf01AD
+         kYVg==
+X-Forwarded-Encrypted: i=1; AJvYcCU74Xx3Hj63lEv/9qfJoK8XwR/aPRYd9WTp26jbgFSX+o0m2EqirRwdLuS7jgtUuMy7e6hhR5S71PPeSAFNPUxD@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTgsAhbD8KE1b140VHuPTRTWNFSzpN5y8NgKrj6jaOvd5CSB7B
+	Xi7MdVJtzI5MVggJHYovY/rjCtgKz/GmN9B28V3YE9vdyE5h6Z0v
+X-Gm-Gg: ASbGncudSNNyaKtYIW2WjA+pRcrwAfSgazCpNXg0heoxdCzDR+HMGh0iMKjDlXoXvBZ
+	K/w1M2LaIdPJ+Fo14aZn/v3EQ8CAt+LJZbW9Xylijx+0t6sNf9VAR7AiEfyu6IbEJg5r5UK6Cob
+	lA2ruOS+J+uMbWwjaLvI2IeiFagdjiR7ofeT+0ZFU+J2a2qtGX7wUqWIAwzUp4fSQZi/hJuNqIv
+	b4AyMC6ek05Od+VDbrPPEbkdDjizGo/QzAmOyo/FpBnyDw9bxarZ1Cxk6O+FxC5hH9415OpQQyX
+	NGBuvqxtzcu6axfhyJeU6AcB1e5+nxLuwpIpvGIdJ/2vMSjlEpAWv3Bt+G96cux2oxrgeHqi48j
+	vmF2YwjNicFZJxwYl
+X-Google-Smtp-Source: AGHT+IEnXEKhyoqKyql7HmWJcCHO+Gr5r3eS6SUzYuWVl+B+RTKRMOQwn/WGYHQLnofQqru7Sv/AKw==
+X-Received: by 2002:a05:600c:3c85:b0:442:cab1:e092 with SMTP id 5b1f17b1804b1-442f20e5547mr55352885e9.11.1747295141986;
+        Thu, 15 May 2025 00:45:41 -0700 (PDT)
+Received: from [192.168.20.170] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442f395060esm60261815e9.17.2025.05.15.00.45.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 15 May 2025 00:45:41 -0700 (PDT)
+Message-ID: <d5083f6a-e39b-46cb-8551-ca7a5f6f6bed@gmail.com>
+Date: Thu, 15 May 2025 09:45:40 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/7] pinctrl: armada-37xx: a couple of small fixes
+Content-Language: hu
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+ Gregory Clement <gregory.clement@bootlin.com>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Imre Kaloz <kaloz@openwrt.org>,
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20250514-pinctrl-a37xx-fixes-v2-0-07e9ac1ab737@gmail.com>
+ <CACRpkdb2Njam8GGuN5yeR+DYvi0xe11xbARaoDepoGk=gAK6GA@mail.gmail.com>
+From: Gabor Juhos <j4g8y7@gmail.com>
+In-Reply-To: <CACRpkdb2Njam8GGuN5yeR+DYvi0xe11xbARaoDepoGk=gAK6GA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.15-dev-c25d1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_004318_926131_49E3577A 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20250515_004543_664874_1357B6CE 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,45 +105,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 14 May 2025 08:36:06 -0400, Nícolas F. R. A. Prado wrote:
-> Some of the regulators on the MT6357 PMIC currently reference the
-> fixed-regulator dt-binding, which enforces the presence of a
-> regulator-fixed compatible. However since all regulators on the MT6357
-> PMIC are handled by a single mt6357-regulator driver, probed through
-> MFD, the compatibles don't serve any purpose. In fact they cause
-> failures in the DT kselftest since they aren't probed by the fixed
-> regulator driver as would be expected. Furthermore this is the only
-> dt-binding in this family like this: mt6359-regulator and
-> mt6358-regulator don't require those compatibles.
+2025. 05. 15. 0:28 keltezéssel, Linus Walleij írta:
+> On Wed, May 14, 2025 at 9:18 PM Gabor Juhos <j4g8y7@gmail.com> wrote:
 > 
-> [...]
+>> The series contains several small patches to fix various
+>> issues in the pinctrl driver for Armada 3700.
+>>
+>> Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+> 
+> Patches applied by applying to a separate immutable branch
+> and merging into my "devel" branch: we were clashing a bit
+> with Bartosz rewrites so I had to help git a bit.
+> 
+> Pushed to the autobuilders, check the result!
 
-Applied to
+Checked, it is fine. Thanks!
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
-
-Thanks!
-
-[1/1] regulator: dt-bindings: mt6357: Drop fixed compatible requirement
-      commit: 9cfdd7752ba5f8cc9b8191e8c9aeeec246241fa4
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+-Gabor
 
