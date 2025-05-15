@@ -4,99 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69AFBC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 09:07:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 373E2C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 09:10:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+nMEUq5ozL3XCKx6Xei2teXG7hWWZhoXqA/EoccK2ek=; b=biUybOA/DWixpSYxUd3g8rJJdf
-	HwWnMcvo+7NOTsa9JvNsPW48R76tAiTDPgN6YvBYuzT1+sppJB09DIR4q/n9xCHC4CBMRYuzLCAUm
-	qG6apCXBzfXEY9/LYPlSNvUQ5e7rpHkHozYvkcmOqAHghqBvrG0SCs2ZVMD9xOstwp7ktIupnpaA0
-	RguC0gkshFX4J631m/omcYx9/seHXuBh/hjaBWBHFaD6GEnuiZtMq/zTDE0lF0Sgq+nwNUSBh2n4b
-	w1uaxUBXAnAoW+i2IzRpmGxZ/vVEjfoar1yQucJdC0GlWeWqggSCYNGOOq2NGSBYOyfZ63FOv4oBd
-	syOGksXA==;
+	bh=mxFMYaptLLUT//IK4P864ymdu1SsueZ98Tp1MNq3RV4=; b=2vtXb31HeGZGZ0kogAs2ojXRG3
+	LxeP1zHVrvmLviJitTOtje4+P8kQGbeN2Ok1MZLlavKI+ZnEwLb1UYMTAJfwkkX5Sq1FmntO0kLwc
+	6ijPZaWz9sDqk+g9HgwMX0hCKcQn3O3YUf41ONv50hlFwlrC3erYIg/HH8TKUhLEOtJu7vrxMnpMu
+	ZQ+7o9eC+0XJbfHgGFTYPGnLqL2DkacBPNx1kwfagn1aJi7GS6bMOfkOySs0T7rwHd/8/eM0y2z8a
+	yEDkV8PrMcCUno8PR1kXllPxWOXiCKOFm5l4pRiu3eh8babaUzwK8CDTNl91jWvocrwVcp23C98IL
+	HLbGICAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFUZF-0000000068M-1bYP;
-	Thu, 15 May 2025 09:07:53 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1uFUbF-000000006Ti-2mm3;
+	Thu, 15 May 2025 09:09:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFUKf-000000003G1-2Eoj
+	id 1uFULa-000000003NB-3QCB
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 15 May 2025 08:53:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=mxFMYaptLLUT//IK4P864ymdu1SsueZ98Tp1MNq3RV4=; b=CKw8fwcD5OcAL4Q/qil0LaVnqV
+	kkVrGnQ3XN7sVRLScGkluj8PsK/gFdspi0e33SrlCfy9zVbquSu1oQloDKedE1uC1BXxsNRwbz/G0
+	maR2/JmFB1Ji2bVTelQPxYk4/LdVV75P3FjzNwhjv8pSvPvjeOoJdvyL1G4DSgQDVsBJ+t+we+h8M
+	HWYGF2bWJXuWUI9Q26UOmm8zWJ3+JO8NhXa89bZOU5mn+d1JaLjEnrI5T/6KlhkGCqTgnTvNhV1yY
+	EIvqhA+6t4XR4jrQlJjZLLcRMvv+pc85YygR5+UtJZC6Hwo7t4XCfNkkJUUmCxDro6dPSC0kWaI5F
+	qiVVyxCQ==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uFULX-0000000HQ1W-2xPH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 08:52:50 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-549b116321aso691119e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 01:52:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747299167; x=1747903967; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+nMEUq5ozL3XCKx6Xei2teXG7hWWZhoXqA/EoccK2ek=;
-        b=Zl3Q6cvijvH7G263hmYCD5PaWZ5nUjQPeWLOJd20tSQJMLM5ivLVfOzHrDwJP3eWKn
-         gFeIPcIgioSq4AZgrmHvoklQ/H8p+lga7lW5bHEIpvfMK2TczdJmik1vH7BSBHgGIuyl
-         uZDm6ZzVNwXfLwl2Xj4pVRrc5NS51awMUQD08zrPu//6/pGEPYRWH4sxrm0qr2w4yQ22
-         Fflpi28WHYhoHcRvZx5cQJP8utn2Kc2el9CKCCmfUSE9ofDVbnlOwfdfAVUTyem9jzFi
-         intFLXoqzzTnDEfUDIlwMVrdhR5ENRNYerZ74hMErwzU6LMgIGe6t++iAHuBjXl/4i9W
-         BMkA==
+	Thu, 15 May 2025 08:53:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1747299216;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=mxFMYaptLLUT//IK4P864ymdu1SsueZ98Tp1MNq3RV4=;
+	b=XYzsaIhAvuQYvYZUCmR0QbGj8CBzSsTwDol7RBTgMMRiY7pfC1m2VJqC8VPWJURGmBwaPs
+	wQYhAZX1AAnpoSO5jqHSAcSSPhJn3l5OLdbXW5Dd5ADbtY81d6Jo+ElPTkMOJSg8NUnSI/
+	2Xk4IiVL5xr1qOKzJH1kTS8aShRyTok=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1747299216;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=mxFMYaptLLUT//IK4P864ymdu1SsueZ98Tp1MNq3RV4=;
+	b=XYzsaIhAvuQYvYZUCmR0QbGj8CBzSsTwDol7RBTgMMRiY7pfC1m2VJqC8VPWJURGmBwaPs
+	wQYhAZX1AAnpoSO5jqHSAcSSPhJn3l5OLdbXW5Dd5ADbtY81d6Jo+ElPTkMOJSg8NUnSI/
+	2Xk4IiVL5xr1qOKzJH1kTS8aShRyTok=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-593-OIbzIA-dN7iCUJ1MQJvi2Q-1; Thu, 15 May 2025 04:53:35 -0400
+X-MC-Unique: OIbzIA-dN7iCUJ1MQJvi2Q-1
+X-Mimecast-MFC-AGG-ID: OIbzIA-dN7iCUJ1MQJvi2Q_1747299206
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3a23c51816dso387261f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 01:53:34 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747299167; x=1747903967;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+nMEUq5ozL3XCKx6Xei2teXG7hWWZhoXqA/EoccK2ek=;
-        b=tleof8S6FQS4yyasdEXseF9qNnjaUmluyS+LwTKddYL90nFML7uhjU5mDAwi3ldG8r
-         TeGCLHCxd+zQ+/ORh+mM+kNFvesAsPF7rNdettoqHdGR/3ZGA4siKlfzQm6XUzlGeF6K
-         84gEIDiO+YRaJCTFGA095dvqahSN2ILjOHP/SrE5cA+6425DcA+JXESqbfKzVKmJlYlh
-         4/lIny4PTBl6eGbj5tbGQgN20ZGbHf561AaaTxxJQF//LtIaMcRJi60zjZmVQFB4IbAQ
-         hppIqBfp7Y0hTfbJP52zyWnVUqnbK0UI5qsqv2ZH4kl9gCJpl1BaB+OEziJnsKSu7I+5
-         TlrA==
-X-Forwarded-Encrypted: i=1; AJvYcCWEtS7JZ2fkP/fEJ4O/626JR3wQrOh3VPI+d1Npp8kTU21RoI7PcVQa8t83NbDrE1oj2MmteVLuOraS1rVD/DP6@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxyqQRe78Nab1aMMzcMG6LK6v+lNkgq3QsnrtW/RqBKYTf2xkz
-	mT7wyeQvaLgspfu5crG9wx/m29XCww0qF5h4tilhCO5esJlyykNi
-X-Gm-Gg: ASbGncvc8aPjgmC0r61v5T4FSs9CJN5kiAESUZanoalXMNq0Pm7BdsCSfKK4l5YgZXx
-	zXVeK/G8JRN9iSDJWO35C9bucZXFpc2KCgPlN6azAfwXUVXq1bFj83CoschOtfWgATSKOJtjM8G
-	yLD+r6p1D4C3hxHH7wSavL6FM4KXPZiTshsn82H2n7y0eDuOtvwiKzgKsoq0megZSghmp++tb+n
-	EbsJIGMyY6dAFEbVJu/vXrmx5JOG2J5nK3XbTlRny7MNHiw4PqwA/c/ibPEKAcTo4RZVzIfVv1z
-	yhBoLEOM/pCr9osB4AIUfp9nLxG7CnXbPhPDcWbATfQFmPc1zrXXxuRoK9eg6ZIdRIZOGupr0Dk
-	xximoFv3fKcaRCMf4Lr7/I6GSYTfMSJ+c
-X-Google-Smtp-Source: AGHT+IFr+Zu/wdjpllwn3ZdGFMnTZxToomXEA+mKUOQn0Jm/AWko6eEHsQCUeWofLoc5bYC55wc4SQ==
-X-Received: by 2002:a05:6512:3b9b:b0:549:39d8:51ef with SMTP id 2adb3069b0e04-550dcffc1fbmr627657e87.6.1747299167217;
-        Thu, 15 May 2025 01:52:47 -0700 (PDT)
-Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54fc64ccf20sm2530860e87.239.2025.05.15.01.52.46
+        d=1e100.net; s=20230601; t=1747299206; x=1747904006;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=mxFMYaptLLUT//IK4P864ymdu1SsueZ98Tp1MNq3RV4=;
+        b=FyC+3FBhKS9DTV6Kww91rdxIHp0lz9sgJFaK6xIx5fPjNRUBG88+vRcVJbaYR2iPVe
+         0pw/2ghOANNMRwfUAd43VKelVy8YI6xb6HEhZiHQ6jpvIKhFAr7ieau4eXQrzIDMy1NT
+         ItKUUQRKQq542Kr7hdccKH0SfBhih4/bGbMsFnuVRvXMBo5RwiUgPIpr10JOCceJjvtN
+         V/BJwYBs5r36rHi82yvybYYzgrhCfZzx0huNbL3atzLg6x2vVfkO5hNXbXKX3DgRGca+
+         x81GDN27ABHEvjNSRx7fLfw1UckWb1Ltpi/CcSilQ+NpJJmDmQ+diswxkSX0cBh8z6JT
+         ORkg==
+X-Forwarded-Encrypted: i=1; AJvYcCUEAsbpfiM1NdJ6UlFNYkKBeYpJR55tBXnNikwKTEhDoyKtwFrZeLU4kLXHPgRdGLwzl3HHJ5+B7XfnWOuhzwrP@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyRKQSH1oGF/XOHFukZUIcXc7JscuWFRSd2myUXOSYbZp7uI/n
+	YYElPdtnJ5luIXc2ez1xo02q9EsKUwidFF0/5D4JCvG/Qz/kKgmMIow646gZaQpBW1RwG8N2sVM
+	7i9ehRurHhdr0lKY0Glns0CCX/QIX+l4T8XGfrCN0TQ86PC5B9jGeudi8/oZKmWoDqZ42q4lL
+X-Gm-Gg: ASbGnct8ANEBmPxrb1wdxd48ZiZvLKnpC7S6BAhVk85Ma51guo53y3Wrnf6M7b4zNYH
+	ADi4iUcjoOroxH4Tt4/5Yc2lQhT5mDsvHoxIRF761cPbRItuTB1FEZzKNZDvTH/LtsgrypcxA+L
+	t1x0b12Gsl2tSZaJqnt96fcsyOIUf1Z2nOYu0tuLIxKEMOcZVO3GVeN5riS/JvGbfa8+NUC0va2
+	96Algke8+WrESVvOFemNST/wbX/Hubr5gu3fnvnAHHVzeCboToZ3Vics0y/97kJB0+VkkMITCMD
+	NL6vLfh5zWJYUhNwCvDREWoXay6ZPza+MsuVYI89XF5AdusSmP8d9oxs6RnJQgPLc+3vxkMDizo
+	CuSiHM1oCVCu/V0JCBemFiY0OB11QfV9IEoj1NN4=
+X-Received: by 2002:a5d:588b:0:b0:3a0:b635:ea43 with SMTP id ffacd0b85a97d-3a35374176dmr1365851f8f.33.1747299206227;
+        Thu, 15 May 2025 01:53:26 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEEsJz5zNV7+Zfbrzpouk886RkGlZnICJAg6K6r7C6mHK9QfUY97jHM/U62zf/Yv0DULdBX7w==
+X-Received: by 2002:a5d:588b:0:b0:3a0:b635:ea43 with SMTP id ffacd0b85a97d-3a35374176dmr1365828f8f.33.1747299205872;
+        Thu, 15 May 2025 01:53:25 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f4a:8900:884a:b3af:e3c9:ec88? (p200300d82f4a8900884ab3afe3c9ec88.dip0.t-ipconnect.de. [2003:d8:2f4a:8900:884a:b3af:e3c9:ec88])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f5a4c599sm22499647f8f.94.2025.05.15.01.53.24
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 15 May 2025 01:52:46 -0700 (PDT)
-Message-ID: <057c6bc2-adf9-4160-9184-6438cbe6e9d4@gmail.com>
-Date: Thu, 15 May 2025 11:52:45 +0300
+        Thu, 15 May 2025 01:53:25 -0700 (PDT)
+Message-ID: <c06930f0-f98c-4089-aa33-6789b95fd08f@redhat.com>
+Date: Thu, 15 May 2025 10:53:24 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/9] arm64: dts: imx8mn-bsh-smm-s2-common: Define suspend
- voltage threshold
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
- linux-kernel@vger.kernel.org
-Cc: Simon Holesch <simon.holesch@bshg.com>,
- Karthikdatt Anantharamrao <karthikdatt.anantharamrao@in.bosch.com>,
- michael@amarulasolutions.com, linux-amarula@amarulasolutions.com,
- Wolfgang Birkner <wolfgang.birkner@bshg.com>,
- Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20250514082507.1983849-1-dario.binacchi@amarulasolutions.com>
- <20250514082507.1983849-2-dario.binacchi@amarulasolutions.com>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <20250514082507.1983849-2-dario.binacchi@amarulasolutions.com>
+Subject: Re: [PATCH] arm64: Check pxd_leaf() instead of !pxd_table() while
+ tearing down page tables
+To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
+Cc: ryan.roberts@arm.com, anshuman.khandual@arm.com, mark.rutland@arm.com,
+ yang@os.amperecomputing.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+References: <20250515063450.86629-1-dev.jain@arm.com>
+ <332ecda7-14c4-4dc3-aeff-26801b74ca04@redhat.com>
+ <4904d02f-6595-4230-a321-23327596e085@arm.com>
+ <6fe7848c-485e-4639-b65c-200ed6abe119@redhat.com>
+ <35ef7691-7eac-4efa-838d-c504c88c042b@arm.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <35ef7691-7eac-4efa-838d-c504c88c042b@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: bc7pKPcFwpMrKt8BchejNm88gtKyW_JUTDET93rVCFE_1747299206
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_015249_592437_FCC4F97F 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20250515_095343_954303_FDEC263B 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,61 +187,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/05/2025 11:24, Dario Binacchi wrote:
-> From: Michael Trimarchi <michael@amarulasolutions.com>
+On 15.05.25 10:47, Dev Jain wrote:
 > 
-> Voltage threshold should be adjust according to the worst case.
-
-I would love to understand why these voltages are set.
-
-Could you please explain a bit further why this change is done. What 
-worst case? What happens if voltages aren't adjusted? What is the 
-current voltage (before this patch is applied?).
-
-> Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> ---
 > 
->   .../boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi  | 11 +++++++++++
->   1 file changed, 11 insertions(+)
+> On 15/05/25 2:06 pm, David Hildenbrand wrote:
+>> On 15.05.25 10:22, Dev Jain wrote:
+>>>
+>>>
+>>> On 15/05/25 1:43 pm, David Hildenbrand wrote:
+>>>> On 15.05.25 08:34, Dev Jain wrote:
+>>>>> Commit 9c006972c3fe removes the pxd_present() checks because the caller
+>>>>> checks pxd_present(). But, in case of vmap_try_huge_pud(), the caller
+>>>>> only
+>>>>> checks pud_present(); pud_free_pmd_page() recurses on each pmd through
+>>>>> pmd_free_pte_page(), wherein the pmd may be none.
+>>>> The commit states: "The core code already has a check for pXd_none()",
+>>>> so I assume that assumption was not true in all cases?
+>>>>
+>>>> Should that one problematic caller then check for pmd_none() instead?
+>>>
+>>>    From what I could gather of Will's commit message, my interpretation is
+>>> that the concerned callers are vmap_try_huge_pud and vmap_try_huge_pmd.
+>>> These individually check for pxd_present():
+>>>
+>>> if (pmd_present(*pmd) && !pmd_free_pte_page(pmd, addr))
+>>>      return 0;
+>>>
+>>> The problem is that vmap_try_huge_pud will also iterate on pte entries.
+>>> So if the pud is present, then pud_free_pmd_page -> pmd_free_pte_page
+>>> may encounter a none pmd and trigger a WARN.
+>>
+>> Yeah, pud_free_pmd_page()->pmd_free_pte_page() looks shaky.
+>>
+>> I assume we should either have an explicit pmd_none() check in
+>> pud_free_pmd_page() before calling pmd_free_pte_page(), or one in
+>> pmd_free_pte_page().
+>>
+>> With your patch, we'd be calling pte_free_kernel() on a NULL pointer,
+>> which sounds wrong -- unless I am missing something important.
 > 
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi
-> index bbb07c650da9..5a1ec2f6a552 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi
-> @@ -105,6 +105,12 @@ buck1_reg: BUCK1 {
->   				regulator-boot-on;
->   				regulator-always-on;
->   				regulator-ramp-delay = <1250>;
-> +
-> +				/* enable autosuspend threshold */
-> +				rohm,dvs-run-voltage = <850000>;
-> +				rohm,dvs-idle-voltage = <850000>;
-> +				rohm,dvs-suspend-voltage = <850000>;
-> +				rohm,no-regulator-enable-control;
+> Ah thanks, you seem to be right. We will be extracting table from a none
+> pmd. Perhaps we should still bail out for !pxd_present() but without the
+> warning, which the fix commit used to do.
 
-The commit message does not explain why the software control of the 
-regulator's enable state is changed? Maybe this should be in the 2/9?
+Right. We just make sure that all callers of pmd_free_pte_page() already check for it.
 
->   			};
->   
->   			buck2_reg: BUCK2 {
-> @@ -115,6 +121,11 @@ buck2_reg: BUCK2 {
->   				regulator-boot-on;
->   				regulator-always-on;
->   				regulator-ramp-delay = <1250>;
-> +
-> +				/* enable autosuspend threshold */
-> +				rohm,dvs-run-voltage = <960000>;
-> +				rohm,dvs-idle-voltage = <860000>;
-> +				rohm,no-regulator-enable-control;
+I'd just do something like:
 
-same here?
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 8fcf59ba39db7..e98dd7af147d5 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -1274,10 +1274,8 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
+  
+         pmd = READ_ONCE(*pmdp);
+  
+-       if (!pmd_table(pmd)) {
+-               VM_WARN_ON(1);
+-               return 1;
+-       }
++       VM_WARN_ON(!pmd_present(pmd));
++       VM_WARN_ON(!pmd_table(pmd));
+  
+         table = pte_offset_kernel(pmdp, addr);
+         pmd_clear(pmdp);
+@@ -1305,7 +1303,8 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
+         next = addr;
+         end = addr + PUD_SIZE;
+         do {
+-               pmd_free_pte_page(pmdp, next);
++               if (pmd_present(*pmdp))
++                       pmd_free_pte_page(pmdp, next);
+         } while (pmdp++, next += PMD_SIZE, next != end);
+  
+         pud_clear(pudp);
 
->   			};
->   
->   			buck3_reg: BUCK3 {
 
-Yours,
-	-- Matti
+-- 
+Cheers,
+
+David / dhildenb
+
 
