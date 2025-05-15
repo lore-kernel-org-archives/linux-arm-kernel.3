@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F6CCC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 12:30:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF523C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 12:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E2lHQlLoAJuJYsHZTLiF9IRd/5tAuuzWdTKCXeJG69c=; b=t4rdg3Qof4JFuuzpi9ZSbNH0r4
-	RNqG3rQymB6mZXA5+LVELLFoyYcgkT7pOy1x1Tx7gYO4G+eGJp6aJehGjx8vEfBMOXNu00u+atoyP
-	CLIekmylA59e7uk+4vCnfi8i88CCe8xjdI91ogUln16wlbm4Dr86VC+yM7jMrlTlxV5AjIq3GwzFT
-	IJNqKvlMtPdc9xEawp8XtqxVzUpGKF/n2BuEPC5WueFfOW3veWO5MW0a7mBBQjJijFfcQFaA+CcXB
-	+/DHeX2LjoXgLlbYGbLMVTMAC4q56A6aS1QRq55EdQUbmFvq8GLfoyVCY8c5RhxpnSGquQLSN0M8U
-	SLF1gjqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Subject:Cc:To:
+	From:Mime-Version:Message-ID:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YhN+08z20DiEUOsVSmRpU7Yv2OAxICTPgxFc3/siz9U=; b=fkk3YSUAQd3FaRB25Ervtw/8/f
+	GbT5DVKZK36hfkahXfNLOWSYjXFasf+frY/IPQGETM1dZmaHULZ2qNMjMxjMH8QtQOtMn45E0n7sN
+	F+0ptjNsHyrWoFPJrU6vQqTcr5oXVG7RECjQq+q75pDmOLc/Yq5iMdj/i2fVlJj4lRkBbvlMmFkz2
+	JkFimvD4I+rsjGkilu0hvDRkTLxN2xANeGDP0xZ9JCmkVCXdDGELgCBxp35GcQ1x2AQmd0Fqu0K43
+	cH1vtJkxyXPRGJ7ZWb0o8jNRDXAVsGUp7aCqA6OxioVtWMDj5yuDCMAQrkzu+Tof3GzexazThC+6J
+	yZDdvJcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFXit-00000000ZKC-2fia;
-	Thu, 15 May 2025 12:30:03 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uFXqo-00000000aIG-1nMn;
+	Thu, 15 May 2025 12:38:14 +0000
+Received: from mxhk.zte.com.cn ([63.216.63.35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFXgr-00000000Z5G-1cCq
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 12:27:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 95314A4B566;
-	Thu, 15 May 2025 12:27:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 193E5C4CEE7;
-	Thu, 15 May 2025 12:27:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747312076;
-	bh=F/XhtE918UetHxCqDQJYNXlwYSxyWI6CctB4Lrzut74=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hFLM7YXS0JH1RgjD49TaWZ0xEF4Mx9AetCek/EJN8P5S7316HiKQjR5KHBEdapEE4
-	 nUoMDZAH2oz7NCBZzIzVousfu93GTD7lJ2A/BHfM3gOm3lB544afA8ASpqu//YobYd
-	 09BFS9jNi2mcuI4ycBzmvDdcH8+Xh5a+krgDRZudshZ+r96j5vUBDRis4c0oxMy8My
-	 pS2ppozS7iNYDcWaggDETKEO+dtOv1EjFOM9eSSSXGER4JLsksnVLXu1xkas6TtmvY
-	 LLe+kYQ2If2HfyemKCpZvEgWrgsorBxK7Fe3KVJVXSwT9RO+/DdlLTfxQLNCrysGq8
-	 kq2ABlz8MmkCQ==
-Date: Thu, 15 May 2025 13:27:51 +0100
-From: Will Deacon <will@kernel.org>
-To: cki-project@redhat.com
-Cc: ftjahjad@redhat.com, catalin.marinas@arm.com, bgoncalv@redhat.com,
-	linux-arm-kernel@lists.infradead.org, juri.lelli@redhat.com
-Subject: Re: =?utf-8?Q?=E2=9D=8C_FAIL=3A_Test_repor?= =?utf-8?Q?t?= for
- for-kernelci (6.15.0-rc6, upstream-arm-next, c919f087)
-Message-ID: <20250515122750.GA11761@willie-the-truck>
-References: <92816.125051417421200539@us-mta-256.us.mimecast.lan>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <92816.125051417421200539@us-mta-256.us.mimecast.lan>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+	id 1uFXom-00000000ZwU-3Lla;
+	Thu, 15 May 2025 12:36:10 +0000
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4ZyqSY3sJvz5B1Gq;
+	Thu, 15 May 2025 20:35:57 +0800 (CST)
+Received: from njy2app04.zte.com.cn ([10.40.12.64])
+	by mse-fl1.zte.com.cn with SMTP id 54FCZoE7025362;
+	Thu, 15 May 2025 20:35:50 +0800 (+08)
+	(envelope-from long.yunjian@zte.com.cn)
+Received: from mapi (njy2app01[null])
+	by mapi (Zmail) with MAPI id mid201;
+	Thu, 15 May 2025 20:35:54 +0800 (CST)
+Date: Thu, 15 May 2025 20:35:54 +0800 (CST)
+X-Zmail-TransId: 2af96825dfaaffffffffa32-c85aa
+X-Mailer: Zmail v1.0
+Message-ID: <20250515203554564-j1jBXUXR6bdiN6zARicC@zte.com.cn>
+Mime-Version: 1.0
+From: <long.yunjian@zte.com.cn>
+To: <hjc@rock-chips.com>
+Cc: <heiko@sntech.de>, <andy.yan@rock-chips.com>,
+        <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
+        <tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
+        <dri-devel@lists.freedesktop.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <fang.yumeng@zte.com.cn>, <mou.yi@zte.com.cn>, <xu.lifeng1@zte.com.cn>,
+        <ouyang.maochun@zte.com.cn>
+Subject: =?UTF-8?B?W1BBVENIXSBkcm0vcm9ja2NoaXA6IFVzZSBkZXZfZXJyX3Byb2JlKCkgdG8gc2ltcGxpZnkgY29kZQ==?=
+Content-Type: text/plain;
+	charset="UTF-8"
+X-MAIL: mse-fl1.zte.com.cn 54FCZoE7025362
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6825DFAD.000/4ZyqSY3sJvz5B1Gq
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_052757_552334_E5F6DD65 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20250515_053608_990923_80564788 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,59 +77,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 14, 2025 at 09:42:05PM -0000, cki-project@redhat.com wrote:
-> Hi, we tested your kernel and here are the results:
-> 
->     Overall result: FAILED
->              Merge: OK
->            Compile: OK
->               Test: FAILED
-> 
-> 
-> Kernel information:
->     Commit message: Merge branch 'for-next/core' into for-kernelci
-> 
-> You can find all the details about the test run at
->     https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1817830955
-> 
-> One or more kernel tests failed:
->     Unrecognized or new issues:
->         Boot test
->              aarch64
->                    Logs: https://datawarehouse.cki-project.org/kcidb/tests/redhat:1817830955-aarch64-kernel_upt_4
->                    Non-passing ran subtests:
->                        ❌ FAIL distribution/kpkginstall/journalctl-check
+From: Yumeng Fang <fang.yumeng@zte.com.cn>
 
-I think that's because of this splat during boot:
+In the probe path, dev_err() can be replaced with dev_err_probe()
+which will check if error code is -EPROBE_DEFER and prints the
+error name. It also sets the defer probe reason which can be
+checked later through debugfs.
 
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: ------------[ cut here ]------------
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: WARNING: CPU: 0 PID: 1 at kernel/sched/topology.c:2411 build_sched_domains+0x268/0x940
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: Modules linked in:
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.15.0-rc6 #1 PREEMPT(voluntary) 
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: pstate: 80000009 (Nzcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: pc : build_sched_domains+0x268/0x940
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: lr : build_sched_domains+0x264/0x940
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: sp : ffff800084b4bd10
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: x29: ffff800084b4bd50 x28: ffff000800342e40 x27: ffff800082be4938
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: x26: ffff0087837c5a00 x25: ffff800083c58148 x24: 0000000000000000
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: x23: ffff0087837c5a00 x22: ffff8000836e24a8 x21: ffff800083690cc0
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: x20: 0000000000000070 x19: ffff0087823630e0 x18: 0000000000000014
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: x17: 0000000048f650fb x16: 00000000a07d7076 x15: 00000000b26727b2
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: x14: 0000000087fdd0f9 x13: 00000000c2ddb74f x12: 000000000a009718
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: x11: 0000000006e1b9d0 x10: ffff800083df69b8 x9 : ffff800083df69b0
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: x8 : ffff800083e2e4a0 x7 : 0000000000000004 x6 : ffff000000000000
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: x5 : ffff000000000000 x4 : 0000000000000003 x3 : 0000000000000002
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: x2 : 00000000000000e0 x1 : ffff800083e2e4a8 x0 : 0000000000000000
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: Call trace:
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel:  build_sched_domains+0x268/0x940 (P)
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel:  sched_init_domains+0xbc/0xd8
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel:  sched_init_smp+0x48/0xd0
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel:  kernel_init_freeable+0x194/0x218
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel:  kernel_init+0x28/0x160
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel:  ret_from_fork+0x10/0x20
-May 14 20:34:38 hpe-apollo-cn99xx-21.khw.eng.rdu2.dc.redhat.com kernel: ---[ end trace 0000000000000000 ]---
+Signed-off-by: Yumeng Fang <fang.yumeng@zte.com.cn>
+---
+ drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c | 16 ++++------------
+ 1 file changed, 4 insertions(+), 12 deletions(-)
 
-but we haven't changed anything here recently afaict...
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+index f737e7d46e66..acb59b25d928 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+@@ -213,17 +213,13 @@ static int rockchip_hdmi_parse_dt(struct rockchip_hdmi *hdmi)
 
-Will
+ 	if (IS_ERR(hdmi->ref_clk)) {
+ 		ret = PTR_ERR(hdmi->ref_clk);
+-		if (ret != -EPROBE_DEFER)
+-			dev_err(hdmi->dev, "failed to get reference clock\n");
+-		return ret;
++		return dev_err_probe(hdmi->dev, ret, "failed to get reference clock\n");
+ 	}
+
+ 	hdmi->grf_clk = devm_clk_get_optional(hdmi->dev, "grf");
+ 	if (IS_ERR(hdmi->grf_clk)) {
+ 		ret = PTR_ERR(hdmi->grf_clk);
+-		if (ret != -EPROBE_DEFER)
+-			dev_err(hdmi->dev, "failed to get grf clock\n");
+-		return ret;
++		return dev_err_probe(hdmi->dev, ret, "failed to get grf clock\n");
+ 	}
+
+ 	ret = devm_regulator_get_enable(hdmi->dev, "avdd-0v9");
+@@ -573,17 +569,13 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
+
+ 	ret = rockchip_hdmi_parse_dt(hdmi);
+ 	if (ret) {
+-		if (ret != -EPROBE_DEFER)
+-			dev_err(hdmi->dev, "Unable to parse OF data\n");
+-		return ret;
++		return dev_err_probe(hdmi->dev, ret, "Unable to parse OF data\n");
+ 	}
+
+ 	hdmi->phy = devm_phy_optional_get(dev, "hdmi");
+ 	if (IS_ERR(hdmi->phy)) {
+ 		ret = PTR_ERR(hdmi->phy);
+-		if (ret != -EPROBE_DEFER)
+-			dev_err(hdmi->dev, "failed to get phy\n");
+-		return ret;
++		return dev_err_probe(hdmi->dev, ret, "failed to get phy\n");
+ 	}
+
+ 	if (hdmi->phy) {
+-- 
+2.25.1
 
