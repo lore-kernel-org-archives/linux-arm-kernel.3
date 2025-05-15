@@ -4,203 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C462C2D0CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 06:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B20AC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 06:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zzb3+Jh/Gy82FtOV9pcY3Eg0A13wh/bsKzezd96agJA=; b=m4uygvXaK4UBjyTaHI6hpxKZ/R
-	3gTIJu2Cias1pyMKGOoXsXmJfPblEDH3WieKUjvDMTU65A0wdRf4o7ZZtlbyUBb/E+Y+1OR+VUmV7
-	HGX9zQMJzBqSS2aBmwWCUDRfEJovXH3zTEeprytlPV0t2+h0rkIpi+fQ+ek1TsloEBG6J6uJ3EogA
-	ub3n7bag/oqWiLz1Zs+XaaCU5Vx96Um4+2OaiBWH2xthSdMmt3ZH3AJcoxKANTXtVIefuhr//rsiK
-	tE/lt35zWt9k0pI/QpBXAyN/qM798wiTDpT79zJCzHIU0Cgtbj1cmyLhDatBOfcnV658tyYciKwLF
-	YJ97mjHg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pISWhi3hrukVEdbObtbAFb1W6uhcMj8hKT8ds5Yzhp0=; b=DAxevVkJ70XWCDFDes+1CIqCB4
+	rnSA/30Tvq1x4DqTbUckkKVM9ypgP1k8ZUhzZV1myLSbUVnJrNbpJ1loR3sMYqxo2/gu5zWExN/1Z
+	F2gDZvAErSeipRGNLsIwPoZi5JOJ2i8rnOJyVq1gpZ7WBKe6D1mSuXoxlvjHuhkQNU6ro3TFcdNZq
+	L588KSKUAgKpMwlO3AQ/NpK2Y7DV+a1qqxNGWf5bGwLG4rGcSvi+LnnrRMd+LTm1th7JrR9WqqD8h
+	JtgnH0GiKBOtkAJuGsPvO3IJ1ohK449nLVjV3TJ/NwVDq0uRduWDMFzZfBJDJa58pNrDFZrWX0n+T
+	o9q/V7Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFRhL-0000000H70b-3qpC;
-	Thu, 15 May 2025 06:04:03 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1uFS0y-0000000H8nf-117j;
+	Thu, 15 May 2025 06:24:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFRcR-0000000H6fw-2HIo
+	id 1uFRyy-0000000H8Q2-2xyR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 05:59:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1747288739; x=1778824739;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=qHbKNtRUneS/fEByz+5cFVgWpQwIjUpO/X0KmdyON0Y=;
-  b=HV4Z10c7wRGI4QPc8BKbs14E4gxgHmjo/Q2XBHh8n79O2k2jAJq3s+Up
-   p6xnRRwmzeyE190EcoZ3fuHki3B1jljn6bmz3590/cSSGNnEopUj8s+tE
-   6CejgWDefNpgr0rrAtwoi3ace4FlqCcKbalG/372kwuTxQxCJYjniQP8g
-   ghctTmXaR1qVlazBPVcFaZJ9QYGSh1lKN+fw3H2tEyrsafSuyTQBXxeHt
-   Qfxp5s92uG+CnoP4z+OBFbR4Vo1d2nKakvpgogQwo1G1nneWcnXCGt1mZ
-   NE1WTxU86ihcylPPKsqn/pOcOl4rVNAM/Th7CbiY0Pp+2WVmWmH84Jtga
-   Q==;
-X-CSE-ConnectionGUID: 3Jn7WpdjQC6ogW/sPLAFIQ==
-X-CSE-MsgGUID: OHPpFP/CSkaSeT6dId5p1A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11433"; a="60545816"
-X-IronPort-AV: E=Sophos;i="6.15,290,1739865600"; 
-   d="scan'208";a="60545816"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 22:58:59 -0700
-X-CSE-ConnectionGUID: 03UHA1DiTdS9vz9aPMcnOg==
-X-CSE-MsgGUID: wTaM32C/RvyRmr/sfjXNww==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,290,1739865600"; 
-   d="scan'208";a="143029344"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 22:58:58 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Wed, 14 May 2025 22:58:57 -0700
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Wed, 14 May 2025 22:58:57 -0700
-Received: from NAM02-SN1-obe.outbound.protection.outlook.com (104.47.57.47) by
- edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Wed, 14 May 2025 22:58:57 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=icvYWQmekxiFsXItMMuFuQF/y8bAjKBGkUrvpPEhlwfM2u9nb1BMznAh12Mg5bpFKBQpqVxFe6lteuAkrY883C9Iz4QDUcaEK+Yb0NOmVMRQj5/aiKRGcCox7YfvAY1svJMUo8rPOwDOCOPL194aFr1hD+MGW+/hIo6gtgcHTsE1DCeJt3MRHmKhgglljSjZ5GtH+r80oTbbRnNxHfKPepwPzmJs4Ol5LHCM7nCGq1GNtJrjUbWrj44iB4kfo1cClfm5psojHxZyp2tjzGAq4rGmOR6ifJT4hDPiO5Hm5PJZrg32oKwwDAPZ/960EXUkfqeRiK2LMSiLwhg00G5wTg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zzb3+Jh/Gy82FtOV9pcY3Eg0A13wh/bsKzezd96agJA=;
- b=PVZwvnyd+Z7/liNFU6jTWlz+qCyhjLSHI+k/cVa2VhgzproE+kPBlYSIZfUATkv4YJtGgtulKeKQRqUTuzoyTDONUEFF0yAz/qJWKEOwLT1yGbL2jUTYGcE4xznwp5WksBbhG0KVxuptGwa8J0apYCbJzSf6XLwtP8F6/BhArm0texk9wndRuh/28MLWz5hJCalyu1rKRimlBQ/L0+6PovnAqpPmBOBEnbceVvkvNnbmMWrAC56+RLIfltq0dOzGUY2xbtssF/GO5JTOC3dDvid6PGuiFAnnTIKJcvLse6gRtr7g9fAxnxLW8SL0QM4+DiCoZfVeUg2KOqkxSPBwWw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
- by PH8PR11MB8258.namprd11.prod.outlook.com (2603:10b6:510:1c1::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.29; Thu, 15 May
- 2025 05:58:41 +0000
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::b576:d3bd:c8e0:4bc1%4]) with mapi id 15.20.8722.031; Thu, 15 May 2025
- 05:58:41 +0000
-From: "Tian, Kevin" <kevin.tian@intel.com>
-To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
-	"corbet@lwn.net" <corbet@lwn.net>, "will@kernel.org" <will@kernel.org>
-CC: "bagasdotme@gmail.com" <bagasdotme@gmail.com>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
-	"thierry.reding@gmail.com" <thierry.reding@gmail.com>, "vdumpa@nvidia.com"
-	<vdumpa@nvidia.com>, "jonathanh@nvidia.com" <jonathanh@nvidia.com>,
-	"shuah@kernel.org" <shuah@kernel.org>, "jsnitsel@redhat.com"
-	<jsnitsel@redhat.com>, "nathan@kernel.org" <nathan@kernel.org>,
-	"peterz@infradead.org" <peterz@infradead.org>, "Liu, Yi L"
-	<yi.l.liu@intel.com>, "mshavit@google.com" <mshavit@google.com>,
-	"praan@google.com" <praan@google.com>, "zhangzekun11@huawei.com"
-	<zhangzekun11@huawei.com>, "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>, "patches@lists.linux.dev"
-	<patches@lists.linux.dev>, "mochs@nvidia.com" <mochs@nvidia.com>,
-	"alok.a.tiwari@oracle.com" <alok.a.tiwari@oracle.com>, "vasant.hegde@amd.com"
-	<vasant.hegde@amd.com>
-Subject: RE: [PATCH v4 10/23] iommufd/viommu: Introduce IOMMUFD_OBJ_HW_QUEUE
- and its related struct
-Thread-Topic: [PATCH v4 10/23] iommufd/viommu: Introduce IOMMUFD_OBJ_HW_QUEUE
- and its related struct
-Thread-Index: AQHbwI7/mLHDYSSXzEqugYzPZImI3bPTOyUw
-Date: Thu, 15 May 2025 05:58:41 +0000
-Message-ID: <BN9PR11MB52765915FACBF590E09EC46E8C90A@BN9PR11MB5276.namprd11.prod.outlook.com>
-References: <cover.1746757630.git.nicolinc@nvidia.com>
- <bedd9de4e24bb89f18f4b13b52c5fdb6db6bd889.1746757630.git.nicolinc@nvidia.com>
-In-Reply-To: <bedd9de4e24bb89f18f4b13b52c5fdb6db6bd889.1746757630.git.nicolinc@nvidia.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|PH8PR11MB8258:EE_
-x-ms-office365-filtering-correlation-id: def743c4-8849-4579-277d-08dd93758b1d
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|376014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?PCHvY/svDUcrI9Feip8HNp6N4KPV8oDoe/Iw4+2C5AV5acAwCci+EkBqx+Vk?=
- =?us-ascii?Q?eY5MoPBehoCcv0KUV/YjpuiMRHFdWBiK+0RUtTxQaGx++1snkFs6McUZZCmz?=
- =?us-ascii?Q?FYeV0QEL5iqijxsAl8w1KMC+OllYKb1cgRWWtXULMu7oEds0kqlFt/uEmK4d?=
- =?us-ascii?Q?6xEqbLFkLw3Xto/XDivLy17pbm9edOU55AI47UsFpTJRES91SJmIrN9X4Dqr?=
- =?us-ascii?Q?eUB9JLZI0qfSqIO1cLWsbDXcH8yieq/ZWoab8yqvoOSn5/y4HQ1jzxEnm0OM?=
- =?us-ascii?Q?lUtLy8i0GHArGRDK2q6Se4l3xxreUOKRo1Srlknh2ITqnUkjvVRbrb0bZ7Cq?=
- =?us-ascii?Q?yg0CB259yFg/neoGwtwLCXYgHHjiedrLZ4SdjYDuhCe8QKSOcWKQKndsnqlM?=
- =?us-ascii?Q?IDlzT8/TQbwrgJSKYJdlnokC3Vd6bUQCR21aJCEVKAYFpKXovMMPbTDshEAI?=
- =?us-ascii?Q?PFb/QWRGd+Z9T36CE19HWW/FCj/e0pGJ35SSq7Hf+wGU0OugUoxWFilGgr6v?=
- =?us-ascii?Q?k0dzZg3YO+bcPTIDyj1Vyf0lRb68AOx6tVnlynrkMQlTRJuPIGs12hAOj7gp?=
- =?us-ascii?Q?glzdiVmFTXOCZrogORuWDX3fynL00JOLfX54Pbu8h8EihhULwzJWE7fgAXcp?=
- =?us-ascii?Q?JWl4I/Z+FLXhFguWNnGsKkIYD/F2MKHmaHbHGwOoq6SrZrKZgbxoq13nTJ26?=
- =?us-ascii?Q?tXS0sy5QrRZVCgjOsP7Rubp9YBKWwDWhgMZ93M5v9JSmBxro7r1nhdNS6udH?=
- =?us-ascii?Q?SKrfJ9EFb6Y4nchL8/DM72oo1LTwU7VG/+a9eR7Pi3aGNMCF9Wz+/DhrIpBN?=
- =?us-ascii?Q?EnZfi+aNigx7gCUXArGi/ygGWx7lL0uNalCh9vVxrgBfcK6/EwUCKp2e4Dg1?=
- =?us-ascii?Q?+JEyYCFTNJssxeSNl7OfbzNK4aWFBfhYEtpWxsuraDy0TMOmN6jSDHDFNnfo?=
- =?us-ascii?Q?whOEtoZ+/wHw8ejZVBE8H6V+EETOfGhc1puCiekjRBuELaI26XyHbtZXW/si?=
- =?us-ascii?Q?43X0ONM0u8lv4fVW4UQ2IV3nFpJLJHaA3rYrKHHdAtmhcY0N7jYMX7mgzsWL?=
- =?us-ascii?Q?c1YjW1VYS8GCDikVWTNqePujp9aooZb5TeosIZubxetYdSSo+I3GfpZ1DotX?=
- =?us-ascii?Q?LglncrALcP7xbw0UMU7iVgTG4YproSFjw5AmBL52phx6KyhCE483o4ybP3Ie?=
- =?us-ascii?Q?qA0PSzlPqpycOoTjsrsqN2y5JLjfIufMftmMpbC+/n1Ewyvs4ChOcPInDtQf?=
- =?us-ascii?Q?xfRi9ls/sxz5Qtq0/zBLSpBlRNMUsGtybFE2bq34aUB+jYBvsB8ZTiMoyhwg?=
- =?us-ascii?Q?7+kZJGFVaw6fFGrsBAA3NuGIj47Je9keT92gYQ4yfBNygk1EBsqndJdWCRvk?=
- =?us-ascii?Q?JXz9vX6J+gEAlS3OEzDwnydtp8jHoozGQjs8Oro9OmTxIKPffQrsSIzbZgVH?=
- =?us-ascii?Q?+84X1rZ4dnszvf3Ysb1PXV81miw/GgvEUf7AL6G+jQPNIqv3utWicyFntFdy?=
- =?us-ascii?Q?sDuS4F9rCW/SD3s=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Kq1khJb+krtZv8P/pM8B6aQHlR3mzFa5IkigxQ4jxVCW+R+llLGfQctuwMGZ?=
- =?us-ascii?Q?pHlVQNn3EK/QaVvBPZxNgZhWXeimXnBvDIN3ZIW3nEH9oOmrtX6VKVjM5s7Q?=
- =?us-ascii?Q?TgBDKE/WSBs/5QhbgTHn0XjDwiCppdNLjcfROXWoUZEJ8EnnZt6Y+1s9rgUW?=
- =?us-ascii?Q?i+1AMcC2An9KowfCFSy/lSiaVUrdjwyyZRyyYyRoYSayzJlSqQM+LobYYj/J?=
- =?us-ascii?Q?mv9MDNBFJHV8IypMs0w354oDbRcJIhuAWIKtYh3gwQZ/JUyfexD6AG3yY4Uw?=
- =?us-ascii?Q?XI9nlWK61Sr6CQ0AfjuHjJ6SMd4n+x7qb4K7w52UL/DKB992H/e0NUICkvUA?=
- =?us-ascii?Q?HpXbRA0ukaoMw6OAAmE8SJsIees5oiz8n8rEKktSN7yAW6FY0iQU5hq+rUY+?=
- =?us-ascii?Q?M7hf0s+Q+pIhjQrkS+aU/+hiGoX0xb74fIMW+oizraLhBp0nE2tNkzLYEnle?=
- =?us-ascii?Q?Jm5ke1zk+3odVYGMWbe5q1CNFoYHYG6A5H89spx4Hl/D5RlK3gl/e0OaZv2o?=
- =?us-ascii?Q?cQqJr4CcvBu098bckOmGFeMUChznWOA8cyJtBH3Xm16EsBhQcQu3XtcivvFo?=
- =?us-ascii?Q?i260zYZuDkhV9z58FozrrvTmzrnubXBV+kjFbPhUd6uztRfGeSIjZ9Y9BAvJ?=
- =?us-ascii?Q?CDJGWFAvXl64dEAK+Y57bDcAhmOmflcFGT1eD0Ott8siR2blNY+M6dpKl+Mi?=
- =?us-ascii?Q?fZJ6EYCExDPqGvliK0trwQR7Esrr20TSfpJeiKTVvjKnLAuQmSS2LDceM8Pc?=
- =?us-ascii?Q?rEvhqtB/a8OthkmfyhecAXfxcgn10uPAjn7V/kRU+rlfFKU1fYEKJJU0dDAd?=
- =?us-ascii?Q?M2mEhgsYkE349VzjGEHaAaamey95JTRvc/o1IepSquxJ/Kqp36qrjeReSP4i?=
- =?us-ascii?Q?UQznYuafGKUDViYmq9dypNDvlZr/6iHzBpHQWTal0kSOrXU0kRs5G2ANLOmZ?=
- =?us-ascii?Q?vO3wHPUvs1sAl/TC2yfhgZCiF7nM3rfKhCjOVZuBwsxdLmsjE73UtxxRqn/S?=
- =?us-ascii?Q?LI08oMaytgiR0x9HRMpys6M94PAQrRORp1XYb52t3vRLvbo0VIJrKo90kulZ?=
- =?us-ascii?Q?zzb0XzDjEJPgUtN8agZavpIDI1D4+uQ8JX002EvfYA7qFnJ2S3LSkVDsRsF1?=
- =?us-ascii?Q?QXtTBSl3RGXsepy5AqIAIHFUF1MoYTci5/xXj2uVaa8sYS9Z9kkujc+SWoEv?=
- =?us-ascii?Q?QWBCq6ZdrVlGE7ashOQdzR4yA7NIVspntXBsBMRLYQjgIoOBAZgrGt4gka8T?=
- =?us-ascii?Q?JLgPm1FcCx+tmXbeipY7k4yxvHajcWEUPQUTN0aSj/Zxp3FRVCur2QHD4a7+?=
- =?us-ascii?Q?HnmgBcUF7OL1WzFFZTKanQ796EagVS6fvYPt08y6KOkJsnNUvneE+w8ttgYS?=
- =?us-ascii?Q?RqunPPhRO0pRb7umDi1k6bPouK8wmmorVGSEWZO5+qEnmC6swofuwJYFRlCF?=
- =?us-ascii?Q?xVCgOVtXQEvNc/CgmKrFSszzQ+NptpEHAl0PwO+VCUlJ1yr8JoZS67QTR3L8?=
- =?us-ascii?Q?XLSPTl7A2H84lV1OYUXcXGpkBro2+6TritNivfBovyMGxKVvo0pWVoz2eCde?=
- =?us-ascii?Q?8WYKkh8QK8HoFQ3vJv/IneLmPd3VQQF68O2iGDe5?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 15 May 2025 06:22:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D48EE629CC;
+	Thu, 15 May 2025 06:22:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 42165C4CEE9;
+	Thu, 15 May 2025 06:22:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747290134;
+	bh=L6jU3HkPzKiDD4GWaH3v8fxk1+c8tmtCkEiqjegdW4o=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=otz16wV5TeiPdznWoarn0mILd4xc4YfpVO4bnNtgqmEwfIsDuPeC+ZFYldfrwx6eI
+	 FEJGwXLpZeKOPBGuWxn4RDgOONMOQPyTgDALcwEqLX7LOllopsN6fh6SccwDXpJyY1
+	 QhoJFmVeupEnInBqluEf2ELtSJmdcBHCSxOqwoojdZn+1httuXT/fqgquX4SY+NBLE
+	 rPOeCgo6i6JYlPD4VuV6an+bRimv73JEVMnVTAJh4pYSyp5/SmrOPPaVNm32UzZM4a
+	 3NgzhJ2Ax8cLqEbv0darKnwLzoLTRHfCyp7Ew8Ypbn55A9eSFj9U4WF0DqA0tTLflJ
+	 JhmNUztB+bDhg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 371D7C3DA6D;
+	Thu, 15 May 2025 06:22:14 +0000 (UTC)
+From: Sven Peter via B4 Relay <devnull+sven.svenpeter.dev@kernel.org>
+Date: Thu, 15 May 2025 06:21:14 +0000
+Subject: [PATCH v6 02/10] dt-bindings: power: reboot: Add Apple Mac SMC
+ Reboot Controller
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: def743c4-8849-4579-277d-08dd93758b1d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 May 2025 05:58:41.0476
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: nVm6MRbwNk3nzDnxd05tsmrlLXN4r1KeUP5NQtEukYajIjrIkt0auX2f6XxWEYsmzviDMdct/zCPY8Ox0Fm69w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR11MB8258
-X-OriginatorOrg: intel.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_225859_598629_92595F17 
-X-CRM114-Status: GOOD (  15.20  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250515-smc-6-15-v6-2-c47b1ef4b0ae@svenpeter.dev>
+References: <20250515-smc-6-15-v6-0-c47b1ef4b0ae@svenpeter.dev>
+In-Reply-To: <20250515-smc-6-15-v6-0-c47b1ef4b0ae@svenpeter.dev>
+To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
+ Hector Martin <marcan@marcan.st>, Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sebastian Reichel <sre@kernel.org>, 
+ Lee Jones <lee@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2771; i=sven@svenpeter.dev;
+ h=from:subject:message-id;
+ bh=EZJ1MbR9nhGPRqj24o+bpu4vy+PDYAUMdMkr9TwOKZU=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ4ZqB+fMf047oq43XepX5+vU07hgELOdfe+dFbaKWcXdx
+ nan5O51lLIwiHEwyIopsmzfb2/65OEbwaWbLr2HmcPKBDKEgYtTACYiqs/IcE6j4qNU4JYVU+29
+ PGqj9y+4f3vhQrGPDSuurfxhoPvvlC/D//SAnK+rm7w7onN7Kqa+WWSokbaHL+TilBWm8381vX9
+ 6kgUA
+X-Developer-Key: i=sven@svenpeter.dev; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+X-Endpoint-Received: by B4 Relay for sven@svenpeter.dev/default with
+ auth_id=167
+X-Original-From: Sven Peter <sven@svenpeter.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -212,44 +90,86 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: sven@svenpeter.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: Nicolin Chen <nicolinc@nvidia.com>
-> Sent: Friday, May 9, 2025 11:03 AM
->=20
-> Add IOMMUFD_OBJ_HW_QUEUE with an iommufd_hw_queue structure,
-> representing
-> a HW-accelerated queue type of IOMMU's physical queue that can be passed
-> through to a user space VM for direct hardware control, such as:
->  - NVIDIA's Virtual Command Queue
->  - AMD vIOMMU's Command Buffer, Event Log Buffer, and PPR Log Buffer
->=20
-> Introduce an allocator iommufd_hw_queue_alloc(). And add a pair of
-> viommu
-> ops for iommufd to forward user space ioctls to IOMMU drivers.
->=20
-> Given that the first user of this HW QUEUE (tegra241-cmdqv) will need to
-> ensure the queue memory to be physically contiguous, add a flag property
-> in iommufd_viommu_ops and
-> IOMMUFD_VIOMMU_FLAG_HW_QUEUE_READS_PA to allow
-> driver to flag it so that the core will validate the physical pages of a
-> given guest queue.
+From: Sven Peter <sven@svenpeter.dev>
 
-'READS' is confusing here. What about xxx_CONTIG_PAS?
+On Apple Silicon machines a clean shutdown or reboot requires
+talking to SMC and writing to NVMEM cells. Add a binding for
+this MFD sub-device.
 
-> + * @hw_queue_alloc: Allocate a HW QUEUE object for a HW-accelerated
-> queue given
-> + *                  the @type (must be defined in include/uapi/linux/iom=
-mufd.h)
-> + *                  for the @viommu. @index carries the logical HW QUEUE=
- ID per
-> + *                  @viommu in a guest VM, for a multi-queue case; @addr=
- carries
-> + *                  the guest physical base address of the queue memory;=
-=20
+Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+Reviewed-by: Neal Gompa <neal@gompa.dev>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Sven Peter <sven@svenpeter.dev>
+---
+ .../bindings/power/reset/apple,smc-reboot.yaml     | 40 ++++++++++++++++++++++
+ MAINTAINERS                                        |  1 +
+ 2 files changed, 41 insertions(+)
 
-s/@addr/@base_addr/
+diff --git a/Documentation/devicetree/bindings/power/reset/apple,smc-reboot.yaml b/Documentation/devicetree/bindings/power/reset/apple,smc-reboot.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..38d1b6ac9b813f278e1d6c25667cc7b4b0a56c57
+--- /dev/null
++++ b/Documentation/devicetree/bindings/power/reset/apple,smc-reboot.yaml
+@@ -0,0 +1,40 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/power/reset/apple,smc-reboot.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Apple SMC Reboot Controller
++
++description:
++  The Apple System Management Controller (SMC) provides reboot functionality
++  on Apple Silicon SoCs. It uses NVMEM cells to store and track various
++  system state information related to boot, shutdown, and panic events.
++
++maintainers:
++  - Sven Peter <sven@svenpeter.dev>
++
++properties:
++  compatible:
++    const: apple,smc-reboot
++
++  nvmem-cells:
++    items:
++      - description: Flag indicating shutdown (as opposed to reboot)
++      - description: Stage at which the boot process stopped (0x30 for normal boot)
++      - description: Counter for boot errors
++      - description: Counter for system panics
++
++  nvmem-cell-names:
++    items:
++      - const: shutdown_flag
++      - const: boot_stage
++      - const: boot_error_count
++      - const: panic_count
++
++required:
++  - compatible
++  - nvmem-cells
++  - nvmem-cell-names
++
++additionalProperties: false
+diff --git a/MAINTAINERS b/MAINTAINERS
+index b53f3929b06006f9f38f5cda048516891c18c7ab..3f32d028ab49994a0da9f3882f37b9c3b183f5b4 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2281,6 +2281,7 @@ F:	Documentation/devicetree/bindings/nvmem/apple,efuses.yaml
+ F:	Documentation/devicetree/bindings/pci/apple,pcie.yaml
+ F:	Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
+ F:	Documentation/devicetree/bindings/power/apple*
++F:	Documentation/devicetree/bindings/power/reset/apple,smc-reboot.yaml
+ F:	Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
+ F:	Documentation/devicetree/bindings/spi/apple,spi.yaml
+ F:	Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
 
-Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+-- 
+2.34.1
+
+
 
