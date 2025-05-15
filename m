@@ -4,84 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 611F1C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 15:18:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60BF9C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 15:26:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NH01uZvPrEv4ksNpQ1rZoCezrf5Rv1GWIBj36FVw9g0=; b=rD20voWrPGNzmQfuLuczsvNPY7
-	uVa/rwKodSiWknw0UydeCiQ2P56zAl++sRiyz7dj2/TP6WQtgCdphhx6lJrc4+OTayMgJm1LNVY26
-	9VxBqm/RvPGA/n3XWP/LgC63eon0QIAakSsY9E5rxIE2hKx79m2vN5n0By6lrUyvqXMVHzdS9SSe7
-	mUga4ZOrZqPGWCNjn6aGwmlJjWttL4gAp8jjA8GBCfRgxDthxDy2yW+2U+yyfkM9FOyYilY98tFP6
-	0Qp362gq0Ak45dA5OIXNyQwH/OunD3D6GJNmSQpYq89cx0NUv7hr8YhXoqJKrIva+/JupODIpp/++
-	FJRfD5ag==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AxWp/bO6a/dlbN9S4ZXHuFnqObOo8qNPEmwy3SAkQvE=; b=UcPnsALOz+xr4ycHhel1G+5fLm
+	TGXuDoOUyMlSWHaLorQ8sorZp1vvqYWhbLu2gw1yjIsApM/BHbk4N/7jaPbGddhzRzUvHh9CW2uGS
+	i3AJ7jrQm8s0JiDgQzCkOjPe5XAYspnVEMZZS6FaYBTa7x1GQnu4tQfowdaw2tW5HVCzaW+wlrl0C
+	b3flmve2QPCSUQHZL7FJMWbclHd6bXnzcYFil7jmqMgGFfSsh7RYz3ahOSFLdM27UIHNmSaqabj5C
+	eR08NkXIHgpHtywpxaQ/NJwxzDoIX1/381D4RoiXllxsY7LbKoFwCnbg0NmbVVR13iNVGZMHfKg+1
+	9smZ2kfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFaLx-000000011tn-0isf;
-	Thu, 15 May 2025 15:18:33 +0000
-Received: from mail-vk1-xa2d.google.com ([2607:f8b0:4864:20::a2d])
+	id 1uFaTm-0000000136R-1OuX;
+	Thu, 15 May 2025 15:26:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFaJs-000000011Zc-0XuZ
+	id 1uFaRk-000000012pZ-1h2k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 15:16:25 +0000
-Received: by mail-vk1-xa2d.google.com with SMTP id 71dfb90a1353d-52c65c00a02so341922e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 08:16:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747322182; x=1747926982; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=NH01uZvPrEv4ksNpQ1rZoCezrf5Rv1GWIBj36FVw9g0=;
-        b=K0WkDJOG6xJvzM06sGS6NYHEQ+UEDoxP+q2RL+w2jcIWoOf6c/oHbClH88Oe9FISGv
-         A/3Prmjjz592/0pi1fge6fkXMcAUxX+7aFCgl7VG7qwqRNQO83+j4zXyaMddXXtOcFrP
-         eqDivtxQ5vEPEhnfhfPh8xc9CuikWME5urgxnOJCuDy5QPTzAIgZDCfeHFfU7Oi/aI2D
-         rCdj6xsU1JGUqjaTyfAVNS2Slqjz/ulY0pTNBeqLk9SIs/IwbznxrWKjSuuLd2M3qw8P
-         HnUyJw8B82XkGHPzXLBHDcBx8i/aMgzyV2+2gIEvm9r3jLzIwfQPSzJUrtMEoIdQGV0v
-         woQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747322182; x=1747926982;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NH01uZvPrEv4ksNpQ1rZoCezrf5Rv1GWIBj36FVw9g0=;
-        b=TDvOa38F+yWL528CVBq3CEHnoosfOph6I6kLGFWq9HqpfWO3T0E6zO+bOkw7P93ej2
-         cYT7TBFabAkx/mcOagv/XVu66oA+ursYzvW4tSbXQvpuSSLdnjMp8NuDb3gfh0ya+X3z
-         FukPM2jB1yTUe99FYwYRnyMNg+1HiLpL0PVsHGCmWjQz+kL2/aO1D9+kUSHh5mcQAsau
-         iNgbwt30c9deUaXjbKCl/nSsWMHwLY9P8jyCtz21lMPWSGqiT0Nyf5AFF1Y1/DoC+/v0
-         6bWzSrSd5UngklBOA1Ebj0WMTQA9y4R7C9ibPD9cwxQlV7QOZj6+Wto2HgY1FlTO7vER
-         LJ6g==
-X-Forwarded-Encrypted: i=1; AJvYcCW62U+XEBNemQhJeSZn7GBlRnRl5RsQIM1PMcJwF2gTFvBcdI3LzIRWa52RH82i/+lmdKJxFlrRwMHU+MwLm7uM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzbm3xb8RsGGcBfSjMsV+L5TEgiuMadgqw1SRwVSRL/si+89Fnk
-	sw96VnJOIyfRDu7DMK5dDyDeRYv89fFp2KFHfITdFGw7zTlreJ7sP7r8
-X-Gm-Gg: ASbGncvWbofNED/wHSWS44bsC+qaiev3PvuLf8Ut+dLBeVi36QS1aJpfXd/lYb08k6V
-	Gal4KU2EcI20GMoiogFyziKYqUU8F2KaoG04QB4UV83dh4vkQrNKIcAfVicicnpHtBTrgE71wT1
-	2LOq12ND6tUPIbuY7zU3c+gQua1gV/kDiHQkp++rw7OpyRUjLmaLqQjcIBxMPOFqsOp75+OR0Mq
-	nVzSBuY2iSuJ3LN+JXo/VVesI6yL2fuL2cCEAhO/zIiqCopqdZP4Eut/HOAoM+5lNnm82neNr1l
-	35BmeE4vHHTE6GAFz/992kXRfTPixeljyp1/ELRDkMEttMCqvCDm32kcODu0+B8+
-X-Google-Smtp-Source: AGHT+IFjZ/B4blQ5G/NkSANXPQoCPpd5g+P837PoEVtOgG0rCpvLM7y9f1a7IMgj8beET9AWzS4QzA==
-X-Received: by 2002:a05:6122:d82:b0:518:965c:34a with SMTP id 71dfb90a1353d-52dba803331mr48591e0c.2.1747322182377;
-        Thu, 15 May 2025 08:16:22 -0700 (PDT)
-Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:83e:4807:376c:1d4d])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-52c5372f0e0sm11537624e0c.19.2025.05.15.08.16.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 May 2025 08:16:21 -0700 (PDT)
-From: Fabio Estevam <festevam@gmail.com>
-To: arnd@kernel.org
-Cc: herbert@gondor.apana.org.au,
-	ebiggers@google.com,
-	linux-arm-kernel@lists.infradead.org,
-	Fabio Estevam <festevam@denx.de>
-Subject: [PATCH] arm64: defconfig: Ensure CRYPTO_CHACHA20_NEON is selected
-Date: Thu, 15 May 2025 12:15:48 -0300
-Message-Id: <20250515151548.431853-1-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Thu, 15 May 2025 15:24:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 76BA643593;
+	Thu, 15 May 2025 15:24:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07B7CC4CEEF;
+	Thu, 15 May 2025 15:24:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747322671;
+	bh=mThh3LiRoZ0/VEkP3K5cxEaWK3WMhF83PfhnB+8FtnE=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=UzVahxZvE4YlGy5uMUO4l9BFBqzVk9fxqsieZkED7ki6l+K/y/UXkGS3DfO9Gh8Aq
+	 xCOYAQBHu5MyRMWfCFLtoK3plPQ9HjnFCdb7h9qzu9MMagtdR/AXdHzsuLYzE3Kk4E
+	 VCdAUs4qznH8c9BKJ2Snp+AgFwPlqMakw/t9Ieni5OS/yvJZ1xzILQqDd6ZSHL0zIC
+	 5dozMPfboV+b7koxLlz6KEW43Zi7LPZr42lc0A2/hdggDsYHWb/14ADVBCmlckcRDl
+	 lEmOw0JEo7uqzNEb0e/mTEm8O5CA0R+REl4BrXdFtXJeg1vupOyjxRIyoyUlZZVP9h
+	 qIzVXcVRjdAlg==
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 05DF6120007C;
+	Thu, 15 May 2025 11:24:30 -0400 (EDT)
+Received: from phl-imap-12 ([10.202.2.86])
+  by phl-compute-05.internal (MEProxy); Thu, 15 May 2025 11:24:30 -0400
+X-ME-Sender: <xms:LQcmaPJJOrCFG73Vxqx6H7y1JwXFwVeEwJZEjK3Wilja2BT4d_GKRA>
+    <xme:LQcmaDIET7ZIqL5LeewxknQwZQtYriwgL7zNbZcFUHtwS_vcnTwNMHOwtBqXGxP1G
+    T9QMvFaXRWCmi4tKQ4>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefuddtvddvucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
+    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusehkvghrnh
+    gvlhdrohhrgheqnecuggftrfgrthhtvghrnhepjeejffetteefteekieejudeguedvgfef
+    feeitdduieekgeegfeekhfduhfelhfevnecuvehluhhsthgvrhfuihiivgeptdenucfrrg
+    hrrghmpehmrghilhhfrhhomheprghrnhguodhmvghsmhhtphgruhhthhhpvghrshhonhgr
+    lhhithihqdduvdekhedujedtvdegqddvkeejtddtvdeigedqrghrnhgupeepkhgvrhhnvg
+    hlrdhorhhgsegrrhhnuggsrdguvgdpnhgspghrtghpthhtohephedpmhhouggvpehsmhht
+    phhouhhtpdhrtghpthhtohepfhgvshhtvghvrghmseguvghngidruggvpdhrtghpthhtoh
+    epfhgvshhtvghvrghmsehgmhgrihhlrdgtohhmpdhrtghpthhtohephhgvrhgsvghrthes
+    ghhonhguohhrrdgrphgrnhgrrdhorhhgrdgruhdprhgtphhtthhopegvsghighhgvghrsh
+    esghhoohhglhgvrdgtohhmpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghl
+    sehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
+X-ME-Proxy: <xmx:LQcmaHsN4s7ffGtZMxrP4u-5NqGsS5O9vMM9efv361_0MAihyUoFyg>
+    <xmx:LQcmaIaro4rZi--wOAw9vn4PuC9Lmob3l-93GPumsUvaZbz7hjdFAw>
+    <xmx:LQcmaGYwlqNZHc6kSZOWUwq77_E3ivPRW6e5Rz2acARzzPdhkzR_NA>
+    <xmx:LQcmaMDbXCnlZRqenkGQ6yAuadhY2JG-jxdVNiBtwmtvcWLefxtSfw>
+    <xmx:LQcmaEailZGo-JefDogn8UQ4Twq0O-ZKGJDJVVYD3A28BR-Udvrh9zg_>
+Feedback-ID: i36794607:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id D0B06106005E; Thu, 15 May 2025 11:24:29 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ThreadId: Ted18243d6c85cbb9
+Date: Thu, 15 May 2025 17:24:09 +0200
+From: "Arnd Bergmann" <arnd@kernel.org>
+To: "Fabio Estevam" <festevam@gmail.com>
+Cc: "Herbert Xu" <herbert@gondor.apana.org.au>,
+ "Eric Biggers" <ebiggers@google.com>, linux-arm-kernel@lists.infradead.org,
+ "Fabio Estevam" <festevam@denx.de>
+Message-Id: <ece2df8d-acaa-4554-8c82-24ed45f3a8a4@app.fastmail.com>
+In-Reply-To: <20250515151548.431853-1-festevam@gmail.com>
+References: <20250515151548.431853-1-festevam@gmail.com>
+Subject: Re: [PATCH] arm64: defconfig: Ensure CRYPTO_CHACHA20_NEON is selected
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_081624_168561_5160B816 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20250515_082432_486072_AE0A41CB 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,41 +105,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fabio Estevam <festevam@denx.de>
+On Thu, May 15, 2025, at 17:15, Fabio Estevam wrote:
+> From: Fabio Estevam <festevam@denx.de>
+>
+> Since commit 17ec3e71ba79 ("crypto: lib/Kconfig - Hide arch options from
+> user"), the CRYPTO_CHACHA20_NEON option is no longer selected by default
+> due to changes in how crypto library options are exposed and selected.
+>
+> To restore the previous behavior and ensure CRYPTO_CHACHA20_NEON is
+> enabled, explicitly select CONFIG_CRYPTO_CHACHA20 in the defconfig. This
+> pulls in CRYPTO_LIB_CHACHA_INTERNAL and allows CRYPTO_CHACHA20_NEON to be
+> selected automatically as before.
+>
+> Fixes: 17ec3e71ba79 ("crypto: lib/Kconfig - Hide arch options from user")
+> Signed-off-by: Fabio Estevam <festevam@denx.de>
 
-Since commit 17ec3e71ba79 ("crypto: lib/Kconfig - Hide arch options from
-user"), the CRYPTO_CHACHA20_NEON option is no longer selected by default
-due to changes in how crypto library options are exposed and selected.
+Acked-by: Arnd Bergmann <arnd@arndb.de> 
 
-To restore the previous behavior and ensure CRYPTO_CHACHA20_NEON is
-enabled, explicitly select CONFIG_CRYPTO_CHACHA20 in the defconfig. This
-pulls in CRYPTO_LIB_CHACHA_INTERNAL and allows CRYPTO_CHACHA20_NEON to be
-selected automatically as before.
+in case Herbert wants to pick this up as a fix for the crypto tree,
+or I can apply this through arm-soc if you send a copy to soc@lists.linux.dev.
 
-Fixes: 17ec3e71ba79 ("crypto: lib/Kconfig - Hide arch options from user")
-Signed-off-by: Fabio Estevam <festevam@denx.de>
----
- arch/arm64/configs/defconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 04619fe7e22a..7856db7dcfca 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1723,11 +1723,11 @@ CONFIG_NLS_ISO8859_1=y
- CONFIG_SECURITY=y
- CONFIG_CRYPTO_USER=y
- CONFIG_CRYPTO_BENCHMARK=m
-+CONFIG_CRYPTO_CHACHA20=m
- CONFIG_CRYPTO_ECHAINIV=y
- CONFIG_CRYPTO_MICHAEL_MIC=m
- CONFIG_CRYPTO_ANSI_CPRNG=y
- CONFIG_CRYPTO_USER_API_RNG=m
--CONFIG_CRYPTO_CHACHA20_NEON=m
- CONFIG_CRYPTO_GHASH_ARM64_CE=y
- CONFIG_CRYPTO_SHA1_ARM64_CE=y
- CONFIG_CRYPTO_SHA512_ARM64_CE=m
--- 
-2.34.1
-
+      Arnd
 
