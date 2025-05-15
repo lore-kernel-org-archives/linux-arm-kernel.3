@@ -4,203 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ACACC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 06:47:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1947CC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 06:49:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A3En00hcE74Vi/9qXMXmp4u6hYp4crmSNQhs45rn7a4=; b=AcDeNkKcCCVDhGco/liRQBiE+d
-	izYKwVCYQp8+0/MNxr3/UNIqrEOXkrqXq/e7QwMVgH2uQYTGXvVcVY1gBmU4X4N5wxK2QpsbxpS5Z
-	ea4iKjMQeRllHG/iLUUC/iyGcLYE5rGxHxYXeYArIiWSnXXJWIHC4rHOtf07A6+uev1Ysk6D7rLYF
-	ccb3O7qPZ2NOs1UHiB7gQlQI6TryYXzCemc9XNtSr7UVCk07mjEI7aNbTZDXMfjYjFNUOJfDChrss
-	TRKnLz61eCfnbXQDxReYJ00ogJvqTkTMoZRltiX4bjkkOKSjXbUdzQl/ZusnXYpalFZVcEMdmxQNZ
-	Xyh1rorA==;
+	bh=dTu7FCPLVb1Lmds6U8zszxWLIezt2U7rDOMAZnWiCZg=; b=PcVylfybiVFZ8mNhA7ssm1DNAG
+	rnx6Dly7YhzH1e1V8+xVZd8QmO5Ji3rLUxcHQetVTJpvmGR+E/5iHxbwVMrGwGjP9Ax+OkSjdGsYl
+	vJxvu1y03MqUsXW+2bNViy3mLv+i0PeH6TTvf/ojcUquk9jW8dCIGHJZqT5kS0y10B0triS+Lv/uj
+	qhZLv5DNzyBiFPEiln8xgUEb+OmCAqPzN03hE9XIUf5vrx7W9m/hZ5pTPloNZFjvbDQXlXza2eAjh
+	zNu3JMo3C7BaPiMK4TwvPUzB4lUmkmIaWNjNqX5PvqWhPjlZGwLATZcwmfwQmH57a1HL31cWmGCSn
+	7LSfK+Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFSMl-0000000HBcT-1QUk;
-	Thu, 15 May 2025 06:46:51 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1uFSOl-0000000HBnT-0SRR;
+	Thu, 15 May 2025 06:48:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFS7i-0000000H9gs-1wHp
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 06:31:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1747290678; x=1778826678;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=uO8ZveKd0kjgJuQdJmzq7YxCTzKlLOK36Eb/Facc7T8=;
-  b=mRT8AeGNlddruvaJP3lfoTmxtFj+bSWhTXxlkumHF3bmEbf6jLgm/q70
-   yigbgBvsY8auP3L60EQEWkw/NVo3KeIiHYxF/Xok0Vg3MjYPP+7pSn4yn
-   txcOwEc/Wnmq88gu26Vba/bttSxY0TyJKWs5f/8Ifnz8jDaBbbsVmuLy6
-   FZSWznHPyPYlJNyX9dqvnwN6vZ2xhyTK0aRWgSyQj7MKfO2TwyOmlnYnI
-   pX7dO7hbaio3dQSKSuFYAnDHbwXg+YnNMti8fq94Och3ansJIAtRcHhyO
-   q3a+ddqGSZqLKb3ti/0EVOcJGwrDAOZRbXFB1zhIHlWtcVGTqo8RFaqOV
-   Q==;
-X-CSE-ConnectionGUID: panTn6WwSEGCPrY6yXAhnw==
-X-CSE-MsgGUID: vajXkI8LSb6G0YxeagxIyg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11433"; a="60549090"
-X-IronPort-AV: E=Sophos;i="6.15,290,1739865600"; 
-   d="scan'208";a="60549090"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 23:31:14 -0700
-X-CSE-ConnectionGUID: FKc3in58RiqnZjNfk7BvMw==
-X-CSE-MsgGUID: zq2K3L3+QRCWAfWAoAVM0w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,290,1739865600"; 
-   d="scan'208";a="138140192"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by orviesa010.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 23:31:14 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Wed, 14 May 2025 23:31:13 -0700
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Wed, 14 May 2025 23:31:13 -0700
-Received: from NAM10-MW2-obe.outbound.protection.outlook.com (104.47.55.47) by
- edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Wed, 14 May 2025 23:31:10 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sM4z/1IU5hwQxXFyJSeHS7a9KO8TfH/oc552diZxHLM2L84tT3skIDQcE2rm8odZxnspc1bQg9QPczhWh1+1ET6OyehUuabiJ1dUAmbQBr+v7fhQn67TmeId5m5x7gq091WI1ME6yNcr0YIp2O7hbLNukcBN+WgwydaB2WCYy7Ytk1TrHxmWQp1IRcLC8Te9fNUAB4T9O2qNUVoYp/i5pIj5uiARQuOq9hsIrap1BkwEc9yjt49HN73y+h2aLuanfSk3CVelAyBqUPexSCa4xgLNu/ewl4KOdQGLXi3pXUBIMBRDAeaLc3pGd+Wr7owS+5gla5ZRcOrIL9QrqUSIsQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=A3En00hcE74Vi/9qXMXmp4u6hYp4crmSNQhs45rn7a4=;
- b=n2QqhLUDk2B67YOOa52gIgyMB6fORkx02+HuguKolS28FI2oRHNJUVfXwCiquHYi9TW/caM7wt3V9jkVagAn3yLk4ZaCZJyh/d0Gk+0Yvrgc0dvML60XawiW4cjIPjX5SW/V1ckHH0lH6m1/zFT+3EfaruV2l5gGyQJFvfNyEfrYOl7tACiGx2CvzY3zYl24vCDuG+QpBbppyU1bur0/sDkmrdAgoenqgz7ohX9W6qoLkUZZeP0C1rIzIt/Ln/khMSo99zuogdkn5Xk95eRcKV6F0nSFzHD2VH/NZEBEeHeMYYeV94SXWlpBjEf0pnJfu0Ji3n0we4w0YU15kewb3g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
- by CO1PR11MB4770.namprd11.prod.outlook.com (2603:10b6:303:94::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.32; Thu, 15 May
- 2025 06:30:27 +0000
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::b576:d3bd:c8e0:4bc1%4]) with mapi id 15.20.8722.031; Thu, 15 May 2025
- 06:30:27 +0000
-From: "Tian, Kevin" <kevin.tian@intel.com>
-To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
-	"corbet@lwn.net" <corbet@lwn.net>, "will@kernel.org" <will@kernel.org>
-CC: "bagasdotme@gmail.com" <bagasdotme@gmail.com>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
-	"thierry.reding@gmail.com" <thierry.reding@gmail.com>, "vdumpa@nvidia.com"
-	<vdumpa@nvidia.com>, "jonathanh@nvidia.com" <jonathanh@nvidia.com>,
-	"shuah@kernel.org" <shuah@kernel.org>, "jsnitsel@redhat.com"
-	<jsnitsel@redhat.com>, "nathan@kernel.org" <nathan@kernel.org>,
-	"peterz@infradead.org" <peterz@infradead.org>, "Liu, Yi L"
-	<yi.l.liu@intel.com>, "mshavit@google.com" <mshavit@google.com>,
-	"praan@google.com" <praan@google.com>, "zhangzekun11@huawei.com"
-	<zhangzekun11@huawei.com>, "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>, "patches@lists.linux.dev"
-	<patches@lists.linux.dev>, "mochs@nvidia.com" <mochs@nvidia.com>,
-	"alok.a.tiwari@oracle.com" <alok.a.tiwari@oracle.com>, "vasant.hegde@amd.com"
-	<vasant.hegde@amd.com>
-Subject: RE: [PATCH v4 11/23] iommufd/viommu: Add IOMMUFD_CMD_HW_QUEUE_ALLOC
- ioctl
-Thread-Topic: [PATCH v4 11/23] iommufd/viommu: Add IOMMUFD_CMD_HW_QUEUE_ALLOC
- ioctl
-Thread-Index: AQHbwI8AVK9WzAglbEaPfz4i9w6907PTP58w
-Date: Thu, 15 May 2025 06:30:27 +0000
-Message-ID: <BN9PR11MB52761EF8360BEF5C19C2382F8C90A@BN9PR11MB5276.namprd11.prod.outlook.com>
-References: <cover.1746757630.git.nicolinc@nvidia.com>
- <f52937c027e2fd25d76bc47f4965ba46f82c77c0.1746757630.git.nicolinc@nvidia.com>
-In-Reply-To: <f52937c027e2fd25d76bc47f4965ba46f82c77c0.1746757630.git.nicolinc@nvidia.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|CO1PR11MB4770:EE_
-x-ms-office365-filtering-correlation-id: 1883266d-5b1c-49b8-5ea4-08dd9379fb8d
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?Tsf0O7bZ6UDLKo0zGpzCMDYdIjuYqQxl1+HT2EODnh/WVQ0yAeP0fI9iy0Lf?=
- =?us-ascii?Q?kSiD6edd0y6FUgBnPheYyvQ8jSfBIH4jkNah1Go164TqnQrbAoj6dwnyNh4O?=
- =?us-ascii?Q?yehirVbtYjb3fnEUIPRBl35hJL7ePrQK0VeK29fuk0LvvEq8hJuiSq/ltx1U?=
- =?us-ascii?Q?8b31NNXDmq8NIIlIPxzOZ89BtISMC87ROUB37L4EMAYQurym8x/9jnzueeaF?=
- =?us-ascii?Q?SHTSEXgqQPNx00jUpYEfSNARPLWt8RrLYFuqtqsuDJC2SzufV3ICanN2251T?=
- =?us-ascii?Q?QP9H0gt19lZ7IsiNkQ4veCQXLRE855LU+V7gHJ9IjjXP2brbBsbDODxc2AGQ?=
- =?us-ascii?Q?sNkyrd4OIpjxCwTVYU7CwWYvq1h7ajhKAjqerPzfGmL/4bQxQ29tQvi1Aqrc?=
- =?us-ascii?Q?MsH5lpu0C8eo5iIq1v1Oi78XjAXtuZsB4R9Rf8wMYdasr9CFDhDTabtB9Tq1?=
- =?us-ascii?Q?npatkoUftkREQELi/645BfwQJfjEbUBEMXNMcYTrRDYeNrkZpj93p0gxfa2X?=
- =?us-ascii?Q?qJk/v19j/cENypK1tvHtUxfFPVnmAgRo5ehf8vVCeMyAgNgOW7r+x+jJx35G?=
- =?us-ascii?Q?ow8KvphwORnvN4y/HCfRKzGHKh6axzD1aHLvKv7KA79J5MxA9YtIh9bEPKKr?=
- =?us-ascii?Q?LWt5sDi1s6P3r6H6E3jKIc3EatYKhdEqqrfqA0c2dgqK9zQ9wIAEJ/OGX9S9?=
- =?us-ascii?Q?nUtUC7c+dCWMDLPhSNsgyfUyRWb4ciZWCgFpkTD7UYVi0fRhHoQVO5kHeLWq?=
- =?us-ascii?Q?nUao6a1i+OIJwi2P2q18t99MKIWjh06LZfctKu64LLFhLc7Ln4BhNdE1c2r2?=
- =?us-ascii?Q?EP+UEreM7dP2CxEhrgqyY3aS+jAXzYuPOLcgT/CveHzzubMq2CS5mzCCJIwE?=
- =?us-ascii?Q?3JHGY/zGpbFySbmG3Ve7kH4gQdIgG7jEHGw3vvIQccJJlgzAWsP51fMYOBO5?=
- =?us-ascii?Q?zC1mjPNEAw+vRVyPw0OKAch7J3ZtK3N1a3C779A5KOo3Pwux1Okh5Mza1Fq1?=
- =?us-ascii?Q?XUc/bWCrDUCwSdnYYAxhYUjk34Xea5GWsPIDyad02sMRhfVix9MVcYZziLyo?=
- =?us-ascii?Q?McKjCN5Ur8e2dHM1tm9ZR6Lc4dt745PtL94854H/OFlxRVnrzbUK7P4Ka0wi?=
- =?us-ascii?Q?cUkzxeKUow9LxuQiZ4vcctlRI6R1ncrL2lpz2e9MaJVuWHZKW3/ZQKDU60M2?=
- =?us-ascii?Q?BxgFy1biMlhRyyt8mS5pe+QALtNJb4Xm6NaeTq6FZ1VqKMpb8TfYSE20GSkn?=
- =?us-ascii?Q?8UTkLA+tEC+PgUqEEvACxgbNuaLBgBmNelyzldu31+3opRlwHpcgaBNwfIaE?=
- =?us-ascii?Q?W+jzEEa8eqkZZBOwWBVdNqb2c9j0dAx0k5MIYUk2AOQij4rS72X3np1BS9Xq?=
- =?us-ascii?Q?6A8T5bwpjO166Aehi1nQw1bIXVzRZsyY9mphD4UltvPiD+WNfJvdt0iLsYUx?=
- =?us-ascii?Q?in9kUK4BgH1bJ8uGdYzfAn1zAsbaiajy9iuvqzBXETN7/4fA6lHChTEtJwHb?=
- =?us-ascii?Q?u0lglMTLgGZrU8E=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?DbVwIiQqSa6Y6aR7JQTy4w0dbgBn/MqfFWgH80kVOKmIdUJEdWcpgyjCr98k?=
- =?us-ascii?Q?MwalF6k/wlHE3S/X3l0llKgONxrWFdA0Lop8MAXsilGYzwfmwaoxePey7NIg?=
- =?us-ascii?Q?Zy/pjn0fuAMCxCtB7mlyhNhWRWhKOPC1u9ivhW61QU4xF2UeKRFWtAaTeglR?=
- =?us-ascii?Q?Gbt+DCCBLrNm1m8ddqkEwmOOffIRhmn0pC6dnaHEBmbOwqyK4ckNQS5Qkf3e?=
- =?us-ascii?Q?1AeTh/12YICJOcbrSMKogq9Fsw5W4nvKWZXulWXis+5j0GyY14sx7PEgOO8e?=
- =?us-ascii?Q?p6tSHDezG3kgPI+KEcW0WykQomQUiXQjgMGJ47OmAiXKNRtQfdHJBOzr1y+a?=
- =?us-ascii?Q?gozK93XHdqYeZEhj+++vR9ucj/MjyYoI1c4g2qEaYbrUCwE416k6geg9Udeo?=
- =?us-ascii?Q?mi5yxj+/ZHs7ysXBPUuhoRe8NcBd9Hxctf7AowNXVbgSQaEr9bildoY9meXb?=
- =?us-ascii?Q?H2GW8KjM69deMYM/AJJTyxA7yGKjUOQdvEl/l9xS+fFcr85bNURMchhgSt4O?=
- =?us-ascii?Q?eyqWn0b4HxTuE4uWRK+5PoOm1dYRpecwi2ZNfnaWPtYbk3t5CarTuywi7opR?=
- =?us-ascii?Q?RbDWGfYGXxFWtSfT/Az2oTN5fWI3PhoBACwL4KeSW/TUqBuKnhU+oqbVmDM+?=
- =?us-ascii?Q?0To/NDj/xbyS+y2meXBzkm+MEqW4fDuz31Zo2PuKZ+EQP93GRF95IkGm52gN?=
- =?us-ascii?Q?eUJs+aFY0dWf2PUwBS4OWRwvB4ODLbhtdhSgWKQXJ6aQpUI56toGK880aVt0?=
- =?us-ascii?Q?Y8kFbIO7bCLvAXOGSUx/5TKKSfXMENOfakCC12pcttSaPzP219evY0yToyto?=
- =?us-ascii?Q?qWZs/2jUbDe47lEgezCs7rieCkawF0qwpXXzBYminrJFz8zZkwsopq3PD8kI?=
- =?us-ascii?Q?KzmNjeZF7AaMag0xfS42qpR9s9gkDLUf8QkhQ/vPSPtYtezjrbd19AIHnTSt?=
- =?us-ascii?Q?YwjnB/QymU3FbPs+lRC5kBaXZjDiCs3KSPhsINyoCsQmDJtCroxk9NdWwWJ1?=
- =?us-ascii?Q?cSFekJ71tH8FX+sIKVuPn5IVJjP+clkHWhwJCUGNvhH+eWBrqWzw25+hrerr?=
- =?us-ascii?Q?pLovQ/7rOl6/BGZu8mS04k6U3+glQa79d4MeVSrB8QoE08qBpHebp83GLKzE?=
- =?us-ascii?Q?0ORGrSHbijCf0l/2bKxe5wFEDhKO7gdIDqyAvxNdvkTiN+ah9/vBU4744CSE?=
- =?us-ascii?Q?07l4cjmGUnsQNP2z1+K/7EdO4nfoMcOK/WvqLvDcDJ52mgUtGQFKtOHsQjou?=
- =?us-ascii?Q?ePgLCeKZvEI7Czcs45hY84CMgvtL6MMMHe1TiDRS7XcuI+aY43E8+95MVjWV?=
- =?us-ascii?Q?Y+wF2JiIu2l+CWQsqcgzAIUNEk+jivcxUBDHcbOrKNzCdQ+TCjlCXRoMd0D5?=
- =?us-ascii?Q?EBSlcfDyLsG4vW9T3mD1qlQNWxthob5YLut1HLvrwpMVuKCRYoyleQmt+Fg0?=
- =?us-ascii?Q?ZAQHBDmdaQfAHb50K3ZthtBO3ONZBQD+x0sKVun+MD/1SXv5E4b/Kzyqan3A?=
- =?us-ascii?Q?ekikRIRyKxazbkoIKSdYjmj6UC+RThKKS1Or8FeuwkBH5w4anPtrWGq7uIfa?=
- =?us-ascii?Q?gMgurIR9B91SrHB3ROe+WxGilVPtwCiHY6aqrwiS?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1uFS9Q-0000000H9pr-2Ida;
+	Thu, 15 May 2025 06:33:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0108D614B3;
+	Thu, 15 May 2025 06:33:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07020C4CEE7;
+	Thu, 15 May 2025 06:33:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747290783;
+	bh=dTu7FCPLVb1Lmds6U8zszxWLIezt2U7rDOMAZnWiCZg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hcU7ucYnFEIkGfgSkwONAAOY9aBvKHrsovgOpGWO2SWxch5ZCzm3Bn4Q0KAUhfjNL
+	 WvWGGYeZ7MzUhx8HJmQTnNQj8+Qum7RPuHHLqeBSGtigNROXZfpht12cboWZDRIiu6
+	 JBZpAh0DObCz5in/GQIbRK4nkBknkNaabB+JVjVFqxcpWJ+JNTpQ0Mf+TZ4myXIYVW
+	 tPFo8CQk5TspWIeNiTJWFLImEt0MEVXXsXyayubDASSsfNM/EcjqOVC18tEzEct3eV
+	 1WIkEZBssQjtRWPCCiE16qV1mbfLIuM2MPetFkP9exzPQcB6nGl2veJTT2pnm2pXOf
+	 aO7c5Bn0F9WTA==
+Date: Thu, 15 May 2025 08:33:00 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net] net: airoha: Fix page recycling in
+ airoha_qdma_rx_process()
+Message-ID: <aCWKnGVkjlS_d1I2@lore-desk>
+References: <20250513-airoha-fix-rx-process-error-condition-v1-1-e5d70cd7c066@kernel.org>
+ <20250514190917.4b0ff404@kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1883266d-5b1c-49b8-5ea4-08dd9379fb8d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 May 2025 06:30:27.6935
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: qmIFJbNa3ZOhqS5h+nt34z44pStJ+M6k0Hs5VCb1xv5eHV4MSmtOK192/r7r8zZAdD+vTcavMLYtQtjeNtNnCw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR11MB4770
-X-OriginatorOrg: intel.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_233118_525264_D4F55F66 
-X-CRM114-Status: GOOD (  23.96  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="9w4VoQ4TwqdOLLxN"
+Content-Disposition: inline
+In-Reply-To: <20250514190917.4b0ff404@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -215,160 +74,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: Nicolin Chen <nicolinc@nvidia.com>
-> Sent: Friday, May 9, 2025 11:03 AM
+
+--9w4VoQ4TwqdOLLxN
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+> On Tue, 13 May 2025 18:34:44 +0200 Lorenzo Bianconi wrote:
+> > Do not recycle the page twice in airoha_qdma_rx_process routine in case
+> > of error. Just run dev_kfree_skb() if the skb has been allocated and ma=
+rked
+> > for recycling. Run page_pool_put_full_page() directly if the skb has not
+> > been allocated yet.
+> > Moreover, rely on DMA address from queue entry element instead of readi=
+ng
+> > it from the DMA descriptor for DMA syncing in airoha_qdma_rx_process().
+> >=20
+> > Fixes: e12182ddb6e71 ("net: airoha: Enable Rx Scatter-Gather")
 >=20
-> +
-> +/**
-> + * struct iommu_hw_queue_alloc - ioctl(IOMMU_HW_QUEUE_ALLOC)
-> + * @size: sizeof(struct iommu_hw_queue_alloc)
-> + * @flags: Must be 0
-> + * @viommu_id: Virtual IOMMU ID to associate the HW queue with
-> + * @type: One of enum iommu_hw_queue_type
-> + * @index: The logical index to the HW queue per virtual IOMMU for a
-> multi-queue
-> + *         model
+> Missed your sign-off.
 
-I'm thinking of an alternative way w/o having the user to assign index
-and allowing the driver to poke object dependency (next patch).
+ops, let me fix it in v2.
 
-Let's say the index is internally assigned by the driver. so this cmd is
-just for allowing a hw queue and it's the driver to decide the allocation
-policy, e.g. in ascending order.
+Regards,
+Lorenzo
 
-Introduce a new flag in viommu_ops to indicate to core that the
-new hw queue should hold a reference to the previous hw queue.
+> --=20
+> pw-bot: cr
 
-core maintains a last_queue field in viommu. Upon success return
-from @hw_queue_alloc() the core increments the users refcnt of
-last_queue, records the dependency in iommufd_hw_queue struct,
-and update viommu->last_queue.
+--9w4VoQ4TwqdOLLxN
+Content-Type: application/pgp-signature; name=signature.asc
 
-Then the destroy order is naturally guaranteed.
+-----BEGIN PGP SIGNATURE-----
 
-> + * @out_hw_queue_id: The ID of the new HW queue
-> + * @base_addr: Base address of the queue memory in guest physical
-> address space
-> + * @length: Length of the queue memory in the guest physical address
-> space
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaCWKnAAKCRA6cBh0uS2t
+rN7HAQDQFLb17eTABm57pebhvFKxz2kZe7oY+Vv5UTosiivHLAEAkRGdFjZE+cCN
+R+BHEX1w4Vw3LFDvYR0H+gPQMhIyuQM=
+=bbGj
+-----END PGP SIGNATURE-----
 
-length is agnostic to address space.
-
-> +int iommufd_hw_queue_alloc_ioctl(struct iommufd_ucmd *ucmd)
-> +{
-> +	struct iommu_hw_queue_alloc *cmd =3D ucmd->cmd;
-> +	struct iommufd_hw_queue *hw_queue;
-> +	struct iommufd_hwpt_paging *hwpt;
-> +	struct iommufd_viommu *viommu;
-> +	struct page **pages;
-> +	int max_npages, i;
-> +	u64 end;
-> +	int rc;
-> +
-> +	if (cmd->flags || cmd->type =3D=3D IOMMU_HW_QUEUE_TYPE_DEFAULT)
-> +		return -EOPNOTSUPP;
-> +	if (!cmd->base_addr || !cmd->length)
-> +		return -EINVAL;
-> +	if (check_add_overflow(cmd->base_addr, cmd->length - 1, &end))
-> +		return -EOVERFLOW;
-> +
-> +	max_npages =3D DIV_ROUND_UP(cmd->length, PAGE_SIZE);
-
-what about [base_addr, base_addr+length) spanning two pages but
-'length' is smaller than the size of one page?=20
-
-> +	pages =3D kcalloc(max_npages, sizeof(*pages), GFP_KERNEL);
-> +	if (!pages)
-> +		return -ENOMEM;
-
-this could be moved to right before iopt_pin_pages().
-
-> +
-> +	viommu =3D iommufd_get_viommu(ucmd, cmd->viommu_id);
-> +	if (IS_ERR(viommu)) {
-> +		rc =3D PTR_ERR(viommu);
-> +		goto out_free;
-> +	}
-> +	hwpt =3D viommu->hwpt;
-> +
-> +	if (!viommu->ops || !viommu->ops->hw_queue_alloc) {
-> +		rc =3D -EOPNOTSUPP;
-> +		goto out_put_viommu;
-> +	}
-> +
-> +	/* Quick test on the base address */
-> +	if (!iommu_iova_to_phys(hwpt->common.domain, cmd->base_addr))
-> {
-> +		rc =3D -ENXIO;
-> +		goto out_put_viommu;
-> +	}
-
-this check is redundant. Actually it's not future proof, assuming that
-S2 must be pinned before the user attempts to call this cmd. But what
-if one day iommufd supports unpinned S2 (if a device is 100% PRI faultable)
-then this path will be broken.
-
-> +
-> +	/*
-> +	 * The underlying physical pages must be pinned to prevent them
-> from
-> +	 * being unmapped (via IOMMUFD_CMD_IOAS_UNMAP) during the
-> life cycle
-> +	 * of the HW QUEUE object.
-> +	 */
-> +	rc =3D iopt_pin_pages(&hwpt->ioas->iopt, cmd->base_addr, cmd-
-> >length,
-> +			    pages, 0);
-> +	if (rc)
-> +		goto out_put_viommu;
-> +
-> +	if (viommu->ops->flags &
-> IOMMUFD_VIOMMU_FLAG_HW_QUEUE_READS_PA) {
-> +		/* Validate if the underlying physical pages are contiguous */
-> +		for (i =3D 1; i < max_npages && pages[i]; i++) {
-> +			if (page_to_pfn(pages[i]) =3D=3D
-> +			    page_to_pfn(pages[i - 1]) + 1)
-> +				continue;
-> +			rc =3D -EFAULT;
-> +			goto out_unpin;
-> +		}
-> +	}
-> +
-> +	hw_queue =3D viommu->ops->hw_queue_alloc(viommu, cmd->type,
-> cmd->index,
-> +					       cmd->base_addr, cmd->length);
-> +	if (IS_ERR(hw_queue)) {
-> +		rc =3D PTR_ERR(hw_queue);
-> +		goto out_unpin;
-> +	}
-> +
-> +	hw_queue->viommu =3D viommu;
-> +	refcount_inc(&viommu->obj.users);
-> +	hw_queue->ictx =3D ucmd->ictx;
-
-viommu/ictx are already set by iommufd_hw_queue_alloc().
-
-> +	hw_queue->length =3D cmd->length;
-> +	hw_queue->base_addr =3D cmd->base_addr;
-> +	cmd->out_hw_queue_id =3D hw_queue->obj.id;
-> +	rc =3D iommufd_ucmd_respond(ucmd, sizeof(*cmd));
-> +	if (rc)
-> +		iommufd_object_abort_and_destroy(ucmd->ictx,
-> &hw_queue->obj);
-> +	else
-> +		iommufd_object_finalize(ucmd->ictx, &hw_queue->obj);
-> +	goto out_put_viommu;
-> +
-> +out_unpin:
-> +	iopt_unpin_pages(&hwpt->ioas->iopt, cmd->base_addr, cmd-
-> >length);
-> +out_put_viommu:
-> +	iommufd_put_object(ucmd->ictx, &viommu->obj);
-> +out_free:
-> +	kfree(pages);
-> +	return rc;
-> +}
-> --
-> 2.43.0
-
+--9w4VoQ4TwqdOLLxN--
 
