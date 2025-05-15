@@ -4,75 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC0A6C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 09:24:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65DA0C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 09:26:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3uopQP3QShbo2PDcrWulO+Zmr63n4lDcaFCwy7boYw0=; b=sX2XDEZfIahgEaFYqj6PSelDUk
-	p4s0XOFOvzWAX+1uND6kojELjoxL5JPgE1I404jjai20BbGIroRYKObkwD/mMiX97KmCMBdTUbkmV
-	jIvR7MtKGTcMqhu6nV7t/zY2qvCMdHELY/m6/bJ9KUqE8z+BOwR298/N4wsZZ7HqkxaVymqotACrd
-	2EfxCZFnDSz7Vbm6lm7T6msAOyk/1/b9MW8dkapXnHpxlDKNLNXtY4EN4VEgbuaEdmL3xX0Bf8ikm
-	To68bmLWi0jtzhUAO0tci0VSC7HKF1/uSHexX8Q+XAgG40aC8P1jHWt1R/cTjdlOBli+DQcr9j3Ry
-	natyhvRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tAVVRaIfque3EwxDjB599VKRD3lH9ncgbq2DZrrZMJ0=; b=KPyVrH0Wl/TtrMBEPFMrVCxOO1
+	9k6VMYJvrxJTHBQ50b0+cGNmDkhUp2eBRI53sFT7cyHjPBC6Sf3OGOB0iaY3aRxADt27luv48o6cB
+	5R73lSgNqOagRdLHQx2n/NOggGW69zPcWLF4O0eaMm5ZiNfAgrYgwlVPAPoAP3l2DtLAYUQtJrCOw
+	XF42n+I3kjLjNph8LLjPvnNiWESuq44IrZhS6Yb1NqvlnduaViYBzXrnsLgKaXdmlyGrcDMeDMwhM
+	W0JTbkYP21XDecqB4vHd+1T5YgXMKKqmaSh/UNvSb7L/279SzU6rVBUS0NUQOUwgNFW3LoBP+G8Fi
+	3LQASTLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFUpX-000000009E7-3QBH;
-	Thu, 15 May 2025 09:24:43 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uFUrX-000000009VD-25dU;
+	Thu, 15 May 2025 09:26:47 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFUl4-000000007xU-3JAb
+	id 1uFUkd-000000007sx-373C
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 09:20:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F2A9A5C47DA;
-	Thu, 15 May 2025 09:17:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 226EAC4CEE7;
-	Thu, 15 May 2025 09:20:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747300806;
-	bh=rm618sxDeCiPbi8y8NEmx3FDI0gdJMROpy9V3fCDMDQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MZOSz8X4ZqAwZlE2i4UNV3piIuYOa7FOuUZiETU8K1rG+qkCBfajGh9vnIF6NhVMj
-	 pgJsy4tLUzSAkZMM2u34obTByikyyOHn/D4XfZx6DuOaHoeLzrktc8DB6uJebYtOLw
-	 71RYOtNxXT0hBXSkQl5PjSt2HZZoBnkAVNmvIj2Uh+qvX1GP6+bWG35Em0ysD0H8Eq
-	 UsVg6nz1/2H7HunM2n3XZia+LuZCqlhI4pFKPGprfyeQ8TYmEiEMT62FkRd1OKOjY+
-	 3/HgEyi2ngq4aQgnJSecO5Pk+h9VQzQc8vZv+5okj2CKDIbMKdjsTaXgpwChXrxzPT
-	 EL2k2gcGKk7Xg==
-Date: Thu, 15 May 2025 10:20:00 +0100
-From: Lee Jones <lee@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Artur Weber <aweber.kernel@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Stanislav Jakubek <stano.jakubek@gmail.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	~postmarketos/upstreaming@lists.sr.ht
-Subject: Re: [PATCH v8 4/9] mfd: bcm590xx: Add support for multiple device
- types + BCM59054 compatible
-Message-ID: <20250515092000.GF2936510@google.com>
-References: <20250430-bcm59054-v8-0-e4cf638169a4@gmail.com>
- <20250430-bcm59054-v8-4-e4cf638169a4@gmail.com>
- <20250509140957.GD2492385@google.com>
- <aCRZzwW0w8oVWLUp@finisterre.sirena.org.uk>
- <20250515071357.GD2936510@google.com>
- <aCWfre2-n_PSuhxR@finisterre.sirena.org.uk>
+	Thu, 15 May 2025 09:19:40 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-54b1095625dso797881e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 02:19:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747300778; x=1747905578; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=tAVVRaIfque3EwxDjB599VKRD3lH9ncgbq2DZrrZMJ0=;
+        b=TmMymbT+lnaBG83FMwqzsPYG9G5hID5j3wtFOrKZGBQyZIsaKm2u6kwMCdodOXAa+g
+         ntqAVmy6GWIJm2RXnMZPvSa7dB/RNIMZ1xfOSQJ1H7dC14wy27RhvPqE96m6CUk+sZ0l
+         1kOhi3EtCI3NyZnMFvgQNL7LM+vRTmDMIPSQUwwM1hrRIITsz7zjftQT7TmqlTUmEH4V
+         NiluMLAwiyLU0N5mg1Wysx+e1+Nk2ufnqHX5xWG024jWwz+rPClWHR/9pkqSzkI96tnp
+         skQofhvRY4z33z1Km9Ldea4E+rRRNNEDCN1ZcBwXbdzd8kMTGngQ66yPsIlnQXTNsS11
+         hkUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747300778; x=1747905578;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=tAVVRaIfque3EwxDjB599VKRD3lH9ncgbq2DZrrZMJ0=;
+        b=JlzAdipM1GT5aMxR9EIS6I6uSzW0xEP2BJeuxW0fkKMACsmtKUprL6MFAFHYAnFaDz
+         scEB2lJWk1iQ+tzUsLt7rBA+EEbLvRsH5XYtxjnufQJxGp6P5vvA6qevVujg3b0Dk3A6
+         GKY6e7YMqOlPpz7IryXnahOftnbf00n9yC6ekGztm5jadrx85kbAyvZ9lDsudzLEqOA9
+         aNnOn76ny2jsb2okwWZYKeEF9Gmjffa01ccAnT7uBw4vabGQG0e6IyfF2RgQCjYHSemF
+         c+pM6uSD3On/p2wNeCnbpq0isnuiigsdhpXMvY/bJPI88dCDEjr2wVLpnyOneq1WzQnR
+         lkYw==
+X-Forwarded-Encrypted: i=1; AJvYcCWsh9mZ8SOt0sKKOr2iHifAIuJH+VJHdtIbNOTR/zMCmApXEuSMPW52SIBlvmdWBy19bW5cpBtpAtdDtWVUSLd2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwlmOWL1b4EKyQSTSAEPvy6j3Dss4YkdOJ8065XqnUJUka/J0cD
+	uztQxRCXJmIH34GmMxeGca1del1dGuVdhehvXRrQgtPiP8mi3sui
+X-Gm-Gg: ASbGncsdNLdalmVLLUZ5r4vgcU9scc5IjIBusUSx69uErmKCIkm8fyqtXfLQjFsLz/b
+	1NZFd7qAOjFus+iv1vruzAZLvudi9I7+9Ey5RNcq4dVzRRa6r4zJg3BIi8xgh8T0+Zl9KYYuoLK
+	fCcp2JUOeQbrDpPlknZI4r5vy2U5L/mhWHspFyQZZp+HzbMcFo5db/wf+a1gf4Mq4qi35DicX+D
+	fvP5gPAJmEQrC+5vqbaCHo0oxWoZj+yeckg614rpKh9SzQ0I3u6UDmhfzHFFdtfA/Q/BFyIdInx
+	LE75y3pxtnR4wPS0cbZ26Ixynr3yQPRFqge9F3P1bvRcBYFi4tggdiCDxm9DnPfAXibwl199XSG
+	NI3sFOSSnZyI4KcbgeIgEAxJ3aXDQN/Jy
+X-Google-Smtp-Source: AGHT+IFBcq4DqfKlxPbw1MrLx0fBSBJx/jI1yd+Z2wbPyp9w0D8IUldy1X/cWkz4tAEtuvuqupGZyw==
+X-Received: by 2002:a05:6512:228c:b0:545:f4b:ed58 with SMTP id 2adb3069b0e04-550d5f94684mr2399058e87.18.1747300777581;
+        Thu, 15 May 2025 02:19:37 -0700 (PDT)
+Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54fc645cee9sm2562141e87.75.2025.05.15.02.19.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 15 May 2025 02:19:36 -0700 (PDT)
+Message-ID: <7b23de30-06e3-4f02-a8a5-90791628ceed@gmail.com>
+Date: Thu, 15 May 2025 12:19:35 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aCWfre2-n_PSuhxR@finisterre.sirena.org.uk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6/9] arm64: dts: imx8mn-bsh-smm-s2-common: Set minimum
+ value for VDD_DRAM_VPU_GPU
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+ linux-kernel@vger.kernel.org
+Cc: Simon Holesch <simon.holesch@bshg.com>,
+ Karthikdatt Anantharamrao <karthikdatt.anantharamrao@in.bosch.com>,
+ michael@amarulasolutions.com, linux-amarula@amarulasolutions.com,
+ Wolfgang Birkner <wolfgang.birkner@bshg.com>,
+ Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250514082507.1983849-1-dario.binacchi@amarulasolutions.com>
+ <20250514082507.1983849-7-dario.binacchi@amarulasolutions.com>
+Content-Language: en-US, en-AU, en-GB, en-BW
+From: Matti Vaittinen <mazziesaccount@gmail.com>
+In-Reply-To: <20250514082507.1983849-7-dario.binacchi@amarulasolutions.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_022006_871878_8251EC59 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20250515_021939_785872_CFC4A46A 
+X-CRM114-Status: GOOD (  18.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,35 +111,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 15 May 2025, Mark Brown wrote:
+On 14/05/2025 11:25, Dario Binacchi wrote:
+> From: Wolfgang Birkner <wolfgang.birkner@bshg.com>
+> 
+> Buck3 is called Buck5 in the BD71847 datasheet. This buck supports
+> 0.55...1.35V. Set the minimum allowed value.
 
-> On Thu, May 15, 2025 at 08:13:57AM +0100, Lee Jones wrote:
-> > On Wed, 14 May 2025, Mark Brown wrote:
-> 
-> > > Could you be more explicit what you're looking for here, the diffstat is
-> > > entirely MFD?
-> 
-> > Okay, more explicitly, I can merge this and MFD will have no issue.
-> > However, the Regulator commits make use of 'pmu_id' introduced in this
-> > change and would therefore cause a compile break.  So we could:
-> 
-> >   1. Apply this now and merge the dependents next cycle
-> >   2. Apply this now and provide an IB
-> >   3. Wait for all Acks and apply as a unified set
-> 
-> > We usually choose 3, hence my assumptions above.
-> 
-> Well, you choose 3 - I do think it'd be a lot easier to go with option
-> 2, or with applying the rest to your tree as acks come in.  There seemed
-> to still be a reasonable amount of discussion on the MFD bits (eg,
-> there's some formatting comments still) so I was expecting this series
-> to churn some more and was waiting for a resend.
+Setting this to PMIC's minimum value has little benefits because the 
+voltage can't be set lower than it anyways.
 
-Yes, I expected to apply v9 with your Ack.
+AFICS, the idea of the regulator-min-microvolt and the 
+regulator-max-microvolt is to protect a system which can't tolerate 
+lower/higher than NNN voltage. So, basically, these properties are 
+meaningful when PMIC can go higher / lower than the system design 
+tolerates. In these cases the constrains set in device tree should be 
+strictier than the PMIC's range.
 
-I can go with 2 in this case.  Applying in dribs-and-drabs as Acks come
-in would be sub-optimal and would likely end up in a mess.
+The existing regulator-min-microvolt = <700000>; could have resulted 
+from the knowledge that the minimum voltage devices connected to the 
+BUCK3 (5 in data-sheet) can survive is 700 mV. Dropping this to 500mV 
+just because PMIC can go there might be plain wrong, and in some case 
+get the device(s) connected to BUCK3/5 upset..
 
--- 
-Lee Jones [李琼斯]
+So, please provide better (more) rationale for this change.
+
+> 
+> Signed-off-by: Wolfgang Birkner <wolfgang.birkner@bshg.com>
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> ---
+> 
+>   arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi
+> index fd12b97525d1..81fa0a8767e2 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi
+> @@ -135,7 +135,7 @@ buck2_reg: BUCK2 {
+>   			buck3_reg: BUCK3 {
+>   				/* PMIC_BUCK5 - VDD_DRAM_VPU_GPU */
+>   				regulator-name = "buck3";
+> -				regulator-min-microvolt = <700000>;
+> +				regulator-min-microvolt = <550000>;
+>   				regulator-max-microvolt = <1350000>;
+>   				regulator-boot-on;
+>   				regulator-always-on;
+
+Yours,
+	-- Matti
+
 
