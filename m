@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54635C3DA4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 11:39:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C7DAC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 11:43:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QvQvM4P2kv3S7IfEhXSovc8h9RG0ylwZ/SMTZHhGt4o=; b=x5LV489BnjQ0/AvirFUYujUu88
-	ot4nfZcYYo4ZQhUyVArUgqAOKziLsWyP1KdGb2j+RnOakwl/F9SFV3+UPx8Cl59OBri9DCQovNZ/R
-	ahrg+JHWJUsl+9uNkjFp/y/7g/TmOqVFJTzxC/XO8FoxMxcaWHHvTfsnlppXyx27J1j9xScYLK6sW
-	yVxYaaYMjBHX0eJNt4vn73neTra8qYGCE6YDfjO9B+qgyZJ0J+0GiEyZX6u8ARYgBBXBZbWA0SA6B
-	w5m9HBXTfF5UMoN47VZIgYiIgPMM2Tl3FiQrBTcGmVLdJOwTTkjxllRtsaiF0ct2Zj1TOmxEgU7LG
-	ipXV/lCQ==;
+	bh=j4QvTI9RPDnKEiJAmQecfFJxHUswBG2VAp0lLtBwF0g=; b=zFNg1DRNXs7MzSOtW6E30/yxXg
+	3hlQWyqY3K/MNzG3uY9sDImVFI9JEWkIHP9qEujhEF4HgXAIBDu1hj77Z3QL2ppGLLaHby1lkeMf3
+	eHxVe7+NscFQWrEm2uL5S3OcCyXgcBy4mAgpmPKKT6ZuZFFD30t3AhT1P5pv3HxJf+EeYaVLaTLvs
+	KU9rzwmWccOU70bg+m4X4EZukzUe4/8Rt0A4VQclkJgbBi08C8dR7sVlwBZuh1Mk4J6P/rcX0Kksm
+	pZTNgR9wvD4ysbO8FCoWS33HnYve/Hz98FN2tTmjAIS3uScpWj95JbMCndTStDbMeqt+TOxjJ0Kkv
+	8GeEGWHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFWvk-00000000QlT-0bO0;
-	Thu, 15 May 2025 11:39:16 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uFWzI-00000000R2s-03Vb;
+	Thu, 15 May 2025 11:42:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFWtQ-00000000QRj-45Ae;
-	Thu, 15 May 2025 11:36:54 +0000
+	id 1uFWxI-00000000QwE-0g8B
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 May 2025 11:40:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1102F5C06C1;
-	Thu, 15 May 2025 11:34:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C199C4CEE7;
-	Thu, 15 May 2025 11:36:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A4BF544CAC;
+	Thu, 15 May 2025 11:40:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54D59C4CEE7;
+	Thu, 15 May 2025 11:40:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747309012;
-	bh=d0iYPHhQnVy87MCQwRN3B7QhsFl6v508aPjz5n96844=;
+	s=k20201202; t=1747309251;
+	bh=AtLrKuyB/2mv1b3YAJljBOxYlY0Y4WwepVYWImQje1Q=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=diy+xgGXws2so7XTt0geI45NZbeDB9FeFQQkr59mpDDi6FlTulL64KOnf3BrGm5EN
-	 SuEY+xu42reIjAkEoH6QUmfrqzCnQxzgdJ5CokVhiZEvT/nIpr3wjpiwDao2LEuqNQ
-	 txbJ7M3wjM4Y38Q57pIFOi0Gl0BWMAfc9M8kf5+O9x2FVdc0radAzY2pbPC+Xogb/d
-	 aiWBe/DmL4zim3RVsWfn+HOryuI4douSBP5Imcou9bAxwgc3jcGqwTUoLk+rKP+IJv
-	 xghHwYcgdmQ24UFMcIbptW/gPugz8bVqS9bPQ7m86+77tmC+Wtnqmn3sCrfe9c7PCr
-	 x9Ki1RzreVVvQ==
-Date: Thu, 15 May 2025 13:36:47 +0200
-From: Mark Brown <broonie@kernel.org>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Subject: Re: Devices not instantiating on Alta
-Message-ID: <aCXRzzCM1Wp-cV7a@finisterre.sirena.org.uk>
-References: <aCRQqRucgWMOjUPj@finisterre.sirena.org.uk>
- <1jikm3y4zb.fsf@starbuckisacylon.baylibre.com>
- <aCRY5_LOGKxO4pVz@finisterre.sirena.org.uk>
+	b=TnOivIrMpnQgHRo/eEvXMJRZ6zFtOo1KqVTzjuYabmi1wOzGb6TFo2fxKlbCKAFDc
+	 Qdm7ri21X1blh4QyzFqFK5p+92yj+TEs9UNZa0/Uy/65s6S0nBkG1zBPMorZq/Wkg2
+	 XbUsf+fHGIX6dQJG7x1ZW1Chr9XEFTFG99ZyYexGRMvIqP2EcK3bdZXrhIji4OJ3Vz
+	 J82Xb8iQ1D5wAhTjJhcWs6FKCRK4yXLbALX9lF4f0cn37h2k4rfJlpVYZYcijpwFnK
+	 3EcakqZvpDzlKNDB4hy4QQcL/X6hfMqBvNND5fXbFJN/oiMM8q3t9g8jLj/dZokUv6
+	 wqjbfkQfssTYA==
+Date: Thu, 15 May 2025 13:40:44 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Emanuele Ghidoli <emanuele.ghidoli@toradex.com>, 
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Francesco Dolcini <francesco.dolcini@toradex.com>
+Subject: Re: [PATCH v1] i2c: lpi2c: implement master_xfer_atomic callback
+Message-ID: <lqspn72kegy6b7rrpefbajvomcefs3d764ndtwescwhg7jz6bx@hhu4gzkcms62>
+References: <20250319145114.50771-1-francesco@dolcini.it>
+ <tds5osuthulo4bnlck6dgx3g3aoanca3my2uczdhcipcfcxgpp@opzseflynjar>
+ <3C1EEBEB-E691-4EB7-A008-A1FE9CEE7238@dolcini.it>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="QPa03CCj7lGwQrIp"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aCRY5_LOGKxO4pVz@finisterre.sirena.org.uk>
-X-Cookie: Well begun is half done.
+In-Reply-To: <3C1EEBEB-E691-4EB7-A008-A1FE9CEE7238@dolcini.it>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_043653_066750_5E26E715 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20250515_044052_221723_21764F0F 
+X-CRM114-Status: GOOD (  19.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,49 +76,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Francesco,
 
---QPa03CCj7lGwQrIp
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Wed, May 14, 2025 at 05:51:27PM +0200, Francesco Dolcini wrote:
+> Il 14 maggio 2025 17:14:32 CEST, Andi Shyti <andi.shyti@kernel.org> ha scritto:
+> >On Wed, Mar 19, 2025 at 03:51:14PM +0100, Francesco Dolcini wrote:
+> >> Rework the read and write code paths in the driver to support operation
+> >> in atomic contexts. To achieve this, the driver must not rely on IRQs
+> >> or perform any scheduling, e.g., via a sleep or schedule routine. Even
+> >> jiffies do not advance in atomic contexts, so timeouts based on them
+> >> are substituted with delays.
+> >> 
+> >> Implement atomic, sleep-free, and IRQ-less operation. This increases
+> >> complexity but is necessary for atomic I2C transfers required by some
+> >> hardware configurations, e.g., to trigger reboots on an external PMIC chip.
+> >> 
+> >> Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+> >> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+> >
+> >this patch is causing a build regression. I'm going to revert it,
+> >please check the test report that has been reported and you are
+> >cc'ed.
+> 
+> I am looking at it, it's a warning with W=1, not a build error.
+> I would not revert this patch, just wait for a follow up patch
+> or comment that will address that warning.
 
-On Wed, May 14, 2025 at 10:48:45AM +0200, Mark Brown wrote:
-> On Wed, May 14, 2025 at 10:24:40AM +0200, Jerome Brunet wrote:
-> > On Wed 14 May 2025 at 10:13, Mark Brown <broonie@kernel.org> wrote:
->=20
-> > > For the past few days in -next I've been seeing the reset controller =
-and
-> > > audio subsystem failing to probe on Alta, I *think* the audio is a kn=
-ock
-> > > on effect of the reset controller.  I didn't spot a smoking gun in the
-> > > log:
->=20
-> > >      https://lava.sirena.org.uk/scheduler/job/1388164#L4875
->=20
-> > Maybe I missed it but where can I get the -next sha1 used and associated
-> > config used for this test ? I'd like to give it a try.
->=20
-> The SHA is in the job title at the top of the link (IIRC that log is for
-> yesterday's -next since today's isn't out yet but it's been at least
-> since Monday), the config is just a plain arm64 defconfig.
+please send a v2 already fixed I don't want to keep a regression
+even if it's a small warning.
 
-Whatever was going on appears to have resolved itself in today's -next -
-everything is regstering OK and all my tests are passing again.
+We still have time until the merge window and this patch is
+already reviewed by Carlos.
 
---QPa03CCj7lGwQrIp
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmgl0c4ACgkQJNaLcl1U
-h9DsgAf/TIKAXEqdahx+I8Ad/aN2JdESTlAS/bEvB6gX+eQpOlur2y/5q3/UxTYZ
-xiIOaA2udTknPFAhruuH1uQ+ahW0fGRfzImUCvNEri4Z/J3uT6Yfdjm3sWnGg4uc
-2th93gfSMgNW6EjI65jf+Wq4e46s7DzqrfxDHdYKrfWNARsMx2WgSCbkI06BUL6f
-NOlYuC0rKIskquj9pjjCMOEGJKg0se7KCmEO5pj9i2XxOXfpuGouCd74U2ubnJBE
-yUDG1RmqEhPQnoKyvOnDymrg7borSIWzSXOX0dn49ByV3Po1aUM3Jk3x+eRZclye
-3uxoAHxMGZQo1SkcD6g/sLoiTeFQPg==
-=ZGPK
------END PGP SIGNATURE-----
-
---QPa03CCj7lGwQrIp--
+Thanks,
+Andi
 
