@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 459BAC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 02:11:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5CD6C3ABDA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 02:42:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=opUuODg6Tb9tSSBZq48EzT4DKVXF6IVRUKtiiI894NY=; b=TKfm+dNVQLMTrWNDS0seqA46OU
-	CRuYhKXEyKuaDbgWFDM2phKQkOExBvSZW7YY9ybwBtnNoB0cI2xdiCTIfkG49gMZ+2kipvZZddZ9U
-	vaT5zF7biwthKsW3dvzLKXYL799NHB6Vylu7QgO8f7GWE5Y0YhJQ0uG6dRcnCSqGZTkira6cfJEc5
-	2rdEVkonS3mu2ZIJdmzjFCV60EzeZQdMDvBA38bb7GPn3c7Csz5konibuxyZQKg7+EgbX2yDs8H0b
-	vWqh/eyJ5HYnOiFDnWWKc7rh61iRWN+QE18fiOru9UFazbNIBUOXpm2EtaT9bHiYDbz76Ueuv4QfF
-	cN/3n1UA==;
+	bh=WqekfboiIsksqLuqFsIEMWLUIL7bFFmX1IqYuj+qImU=; b=ayYjTETPhb9PSTq5m3M+RCIizI
+	gwfHYsbVfNSVN7KUr49HLwDDga6J+Qj760kEeP/ZNOZJz2ubaMUGVy97vnLJiXDMyoc4q4vrd5Djj
+	rseKvPuo4TbgAq9fYPVKeyX4967rdSJaSzxUEULoHugAmj1De6YG9N7p81/3JfzXahfNMoIi2A2/2
+	zsqK+rJ4UJCW5oYsHP8IOnECy0l5OxlZUZi+/oLipn7H9GCpRUMtwOX6MShLUmOvndJ8ElWxD7XPf
+	jooB7OUfXqyhmB7FHadN+a9kx2njO+rDN3bylPpfoE+bu2JIjuCF0LVZ/Wp50lG60p4w8hdWQckEX
+	BFKsoQig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFO4K-0000000Gouf-3xCI;
-	Thu, 15 May 2025 02:11:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uFOY3-0000000Gqgs-3pQc;
+	Thu, 15 May 2025 02:42:15 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFO2C-0000000Gobj-1FOT;
-	Thu, 15 May 2025 02:09:21 +0000
+	id 1uFOVv-0000000GqVF-2P1H;
+	Thu, 15 May 2025 02:40:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C6FBC5C4221;
-	Thu, 15 May 2025 02:07:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B9F7C4CEE3;
-	Thu, 15 May 2025 02:09:18 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 37B48A4C76D;
+	Thu, 15 May 2025 02:40:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8528C4CEE3;
+	Thu, 15 May 2025 02:40:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747274958;
-	bh=9JLt0pzyhfvU1pbbM+JOpnBKps/nmijZ8yFfJ1YHDWs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=cuoUFVv2xlfrKtpuWX9A+DndNJWuO5Hfhrzhf9UvU/kUdxx+zhDuSZXHNYyGwloQa
-	 uEnz1djkPQnldoc1YbxIveuqyB9Qj53FgTTQX/MX3jL1ffuYX7JOROQPgcA/I2nWtC
-	 KSIwuHpyRPV7BWbW9c+bdvwUKBjp3mzEwD45/OT6zMf4puv2D2wHShyqU/4vUPIAVZ
-	 puKwkdryhfHaKu1mRH6/5LhUJ5jCDJoXbvzgepf7RfxcXNrbIeEJ0sB09IgLju3u/6
-	 yNY8tL8Ovps/7NAqZOXSh718ckMfUaV1AxqeZJ2XldLBcq5Xw9DpvdRzZvz0s5L1w/
-	 QLy/LuzJWovvQ==
-Date: Wed, 14 May 2025 19:09:17 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org
-Subject: Re: [PATCH net] net: airoha: Fix page recycling in
- airoha_qdma_rx_process()
-Message-ID: <20250514190917.4b0ff404@kernel.org>
-In-Reply-To: <20250513-airoha-fix-rx-process-error-condition-v1-1-e5d70cd7c066@kernel.org>
-References: <20250513-airoha-fix-rx-process-error-condition-v1-1-e5d70cd7c066@kernel.org>
+	s=k20201202; t=1747276801;
+	bh=lrEamcmK20W/gtuxO3aHJagod68XsFUEPjGcfYzxcfI=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=BnepMtQjO9C84Nood7lwGeUpSiG055lgXjyxJj76jaoq4SSwM6/Ibq0uNIHHBJKuT
+	 +CJZC3fS/qPJmhMjTTZms3ptrsExAYDrjS42BMzdlGeVBBXG8kGuxmexWtTj/52JFB
+	 5H4kakn75HmqktEKlj80RIlfsBTXna7RjBM5iR8/Az07GhO61lDsbJpbXrOhBYfcuq
+	 +26RNZujKIDJC3/dn1ZwFKNkJHqG9cPY+qJXJyOeCCBkMwTNGqm0ERUwGyei1Fn2an
+	 EgSjhDzk9N8kAQcOcqMQKWr3+meF5mj5BoGN3EXUKbcE267J/9uI20kn3c57RHQtiB
+	 RoGD9sjsgVa1g==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33DBA380AA66;
+	Thu, 15 May 2025 02:40:40 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] net: ethernet: mtk_eth_soc: fix typo for declaration
+ MT7988 ESW capability
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174727683900.2587108.2642829871364981642.git-patchwork-notify@kernel.org>
+Date: Thu, 15 May 2025 02:40:39 +0000
+References: <b8b37f409d1280fad9c4d32521e6207f63cd3213.1747110258.git.daniel@makrotopia.org>
+In-Reply-To: <b8b37f409d1280fad9c4d32521e6207f63cd3213.1747110258.git.daniel@makrotopia.org>
+To: Daniel Golle <daniel@makrotopia.org>
+Cc: nbd@nbd.name, sean.wang@mediatek.com, lorenzo@kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, linux@armlinux.org.uk,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_190920_387001_27B8F433 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250514_194003_691924_2F167F55 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,17 +78,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 13 May 2025 18:34:44 +0200 Lorenzo Bianconi wrote:
-> Do not recycle the page twice in airoha_qdma_rx_process routine in case
-> of error. Just run dev_kfree_skb() if the skb has been allocated and marked
-> for recycling. Run page_pool_put_full_page() directly if the skb has not
-> been allocated yet.
-> Moreover, rely on DMA address from queue entry element instead of reading
-> it from the DMA descriptor for DMA syncing in airoha_qdma_rx_process().
-> 
-> Fixes: e12182ddb6e71 ("net: airoha: Enable Rx Scatter-Gather")
+Hello:
 
-Missed your sign-off.
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Tue, 13 May 2025 05:27:30 +0100 you wrote:
+> From: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
+> 
+> Since MTK_ESW_BIT is a bit number rather than a bitmap, it causes
+> MTK_HAS_CAPS to produce incorrect results. This leads to the ETH
+> driver not declaring MAC capabilities correctly for the MT7988 ESW.
+> 
+> Fixes: 445eb6448ed3 ("net: ethernet: mtk_eth_soc: add basic support for MT7988 SoC")
+> Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+> 
+> [...]
+
+Here is the summary with links:
+  - [net] net: ethernet: mtk_eth_soc: fix typo for declaration MT7988 ESW capability
+    https://git.kernel.org/netdev/net/c/1bdea6fad6fb
+
+You are awesome, thank you!
 -- 
-pw-bot: cr
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
