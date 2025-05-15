@@ -4,83 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BA1BC3ABC3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 05:01:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DACFEC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 05:06:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=m+zxlnUKxt+MxgepQaSuKi9cGwLsvC3qdkFYAQ72HS4=; b=3VZmXpE0s1OzFijUeQU1+VkPAK
-	bBDWgdD2t6Bl7KPQS2Y0Anuf+DulM989iHlWWxB+WThoDGda4+7ZDH8RwC+1wHwIEbEVQeJUd0tGH
-	AUdm9UDYmsWulzxO7LJ1ZG6gvHRYqz2KbXSyP2U4TINNz9LCR0Fl27rK//0u69tq2+GBbVG7duS4K
-	RxpHs2P0At3NxrXICCRP7A5wZUKbQkJUQQfC4iK31V8/lvhlFL2rtyjdhiPBtMPC49BFQPGh3zvIi
-	OK9CXiQyQl5tJJjCqWszXB8BlwI2jx1pj7MerJWtRuY8FoXPdKZa9YJIMmB3j/HzbJg4JqKlfsxjT
-	6StqxU9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GWwc2lIEFiOihP0DxoRqTphIa7q/rxg5pjpoYgax4io=; b=dbxlfQKC5ppl1wZbeq9PLkfHhJ
+	dRLn5BVxes/5/1aXTUKg7VGXPJAVjD4/HFnOYXQB3laEcA6Resx8dRZJSS2S9FAeV//h3ZJYEHVQW
+	Km7LkOKpplNi4vJrlxbwM1Wx8QvTy1i7mUNZRRLwcYjOjPb0P35Rqa/p+1ftkFD79YIS5l9rNh1Jw
+	TIFDwso964w+YN1ooB5aGl6Wl/4zHfjQzMTfoWLeReGPrrHrioHqY1tJ9KGWHwlaCQNTS1+LO/sV2
+	p3BfFh8d9SSsxIvVjiHHvYqIJ3BK+dIvOBRIyzemSoz0SWyJE4vlT+WD8UM1cjnfzd6+skoCcJTXs
+	SlUih3Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFQih-0000000H1An-3VxX;
-	Thu, 15 May 2025 05:01:23 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1uFQnJ-0000000H1OS-2t30;
+	Thu, 15 May 2025 05:06:09 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFQgh-0000000H13u-0VOj
+	id 1uFQlI-0000000H1JP-49EC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 04:59:20 +0000
+	Thu, 15 May 2025 05:04:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1747285159; x=1778821159;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:to:cc;
-  bh=4VztJ67csbNOom2wQRi838Nreo1zmt+wKbfXF4TmClk=;
-  b=bPSf5B74O1Gq0NJr7rUeTZyRNBkPUxy3zxkr45B7GwPn5smVM89UvnvW
-   piHkhRoZ5plWkf/KNBkFAXSEUm6uXmCafBlY+GYxpUiEA1VWWkDizfpZJ
-   Vqq0VcMC0nivijjMvvRVuBvbJrw6ozqjPYJvar0WrWysajP/OcQXaonNI
-   XKs5KWVu4MqUp4jOke7x/88HWu5w13mNzZEcSVGXlZjcy80nwvYLd8CAh
-   cCfKdZWRV3Eh02ikx/q8Lh02wMgoC3s078nazUg+Ea1a5jybq8kQrDsiA
-   AnqIYQt53ltmT55FmDp39BHdQHsc/aRW2JzpVBKQt5GMRm5FoBedKKeXF
-   Q==;
-X-CSE-ConnectionGUID: 7SwAsoW3S9q8TSOD2TSkbQ==
-X-CSE-MsgGUID: /cROPzdaS3GrzU0lo4VFRA==
-X-IronPort-AV: E=Sophos;i="6.15,290,1739862000"; 
-   d="scan'208";a="42133405"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 May 2025 21:59:15 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Wed, 14 May 2025 21:58:35 -0700
-Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
- Transport; Wed, 14 May 2025 21:58:33 -0700
-From: Dharma Balasubiramani <dharma.b@microchip.com>
-Date: Thu, 15 May 2025 10:28:25 +0530
-Subject: [PATCH] counter: microchip-tcb-capture: Add watch validation
- support
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1747285445; x=1778821445;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=A1DT69l4hCTQvl+W6lgZGKWwC2Lyi1FbgKgW9qNW6d0=;
+  b=EhiZrRggE1GxNdX8MEaa4+NBlVVQ3ceY/J0fc5QxP9DN9VK/a0RNjSyh
+   yOWRfhTrbfx279pgagqUC2hFDmNmxgCVpgtXpvV+J/m1TxE+yJvyDmek5
+   YeBra3x8Mj6A9d2kn2x+OuBT9MbZ9RPBaWOGwF9+APLtIGyFk+EnHnfbc
+   OqG3cQ434kSGfwvkaO6fcLVb6G6WIFvZ4WDgr92glLiz9eF3KxnZml/pw
+   fDUOGCImNeRxsj39wDEulLD0GkHJCLI5qb/5zqXdul1H+qf6ROlwtPlxJ
+   67akkldR9oFJdkpGbHqY7XozdJ+HeikrKcEeCmRcFr2b02r7g9NRaij2B
+   w==;
+X-CSE-ConnectionGUID: hkrWgfnsSLucAo9BFKuFTw==
+X-CSE-MsgGUID: ljcn8XS8ThGOhrwFHvWOsw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11433"; a="66759274"
+X-IronPort-AV: E=Sophos;i="6.15,290,1739865600"; 
+   d="scan'208";a="66759274"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 22:04:02 -0700
+X-CSE-ConnectionGUID: pHVw2Ts6Ta6UMMsXsSi9uQ==
+X-CSE-MsgGUID: +zLoQS0sS7ia7mtfmnifEg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,290,1739865600"; 
+   d="scan'208";a="138754815"
+Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
+  by fmviesa010.fm.intel.com with ESMTP; 14 May 2025 22:03:58 -0700
+Received: from kbuild by 1992f890471c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uFQl9-000Hwd-1P;
+	Thu, 15 May 2025 05:03:55 +0000
+Date: Thu, 15 May 2025 13:03:07 +0800
+From: kernel test robot <lkp@intel.com>
+To: Prabhakar <prabhakar.csengg@gmail.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Chris Brandt <chris.brandt@renesas.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: Re: [PATCH v3 2/2] clocksource/drivers/renesas-ostm: Unconditionally
+ enable reprobe support
+Message-ID: <202505151255.rCHp8Bvu-lkp@intel.com>
+References: <20250506103152.109525-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250515-counter-tcb-v1-1-e547061ed80f@microchip.com>
-X-B4-Tracking: v=1; b=H4sIAHB0JWgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDU0NT3eT80ryS1CLdkuQk3SSzxFRDSxNTI0ODJCWgjoKi1LTMCrBp0bG
- 1tQCOvc6/XQAAAA==
-To: Kamel Bouhara <kamel.bouhara@bootlin.com>, William Breathitt Gray
-	<wbg@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Dharma Balasubiramani
-	<dharma.b@microchip.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747285110; l=2402;
- i=dharma.b@microchip.com; s=20240209; h=from:subject:message-id;
- bh=4VztJ67csbNOom2wQRi838Nreo1zmt+wKbfXF4TmClk=;
- b=q187hDCueE1QScVAwflXU6hvqLkWRU76EQZbtHTo2ZyqL/Jz2tvk9VZo07bPwp1m6foSk0EPM
- GrIMjrDG8boByfWV3iwXTyloEioJwZqmBA2HCtGB3WZBboYKjAGn1gx
-X-Developer-Key: i=dharma.b@microchip.com; a=ed25519;
- pk=kCq31LcpLAe9HDfIz9ZJ1U7T+osjOi7OZSbe0gqtyQ4=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250506103152.109525-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_215919_440555_3E3DC8D4 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20250514_220405_066681_B4BCBBF4 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,77 +104,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a watch validation callback to restrict supported event and
-channel combinations. This allows userspace to receive notifications only
-for valid event types and sources. Specifically, enable the following
-supported events on channels RA, RB, and RC:
+Hi Prabhakar,
 
-  - COUNTER_EVENT_CAPTURE
-  - COUNTER_EVENT_CHANGE_OF_STATE
-  - COUNTER_EVENT_OVERFLOW
-  - COUNTER_EVENT_THRESHOLD
+kernel test robot noticed the following build warnings:
 
-Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
----
- drivers/counter/microchip-tcb-capture.c | 28 +++++++++++++++++++++++++---
- 1 file changed, 25 insertions(+), 3 deletions(-)
+[auto build test WARNING on tip/timers/core]
+[also build test WARNING on robh/for-next linus/master v6.15-rc6 next-20250514]
+[cannot apply to daniel-lezcano/clockevents/next]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
-index 1de3c50b9804..179ff5595143 100644
---- a/drivers/counter/microchip-tcb-capture.c
-+++ b/drivers/counter/microchip-tcb-capture.c
-@@ -337,6 +337,27 @@ static struct counter_comp mchp_tc_count_ext[] = {
- 	COUNTER_COMP_COMPARE(mchp_tc_count_compare_read, mchp_tc_count_compare_write),
- };
- 
-+static int mchp_tc_watch_validate(struct counter_device *counter,
-+				  const struct counter_watch *watch)
-+{
-+	switch (watch->channel) {
-+	case COUNTER_MCHP_EVCHN_RA:
-+	case COUNTER_MCHP_EVCHN_RB:
-+	case COUNTER_MCHP_EVCHN_RC:
-+		switch (watch->event) {
-+		case COUNTER_EVENT_CAPTURE:
-+		case COUNTER_EVENT_CHANGE_OF_STATE:
-+		case COUNTER_EVENT_OVERFLOW:
-+		case COUNTER_EVENT_THRESHOLD:
-+			return 0;
-+		default:
-+			return -EINVAL;
-+		}
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
- static struct counter_count mchp_tc_counts[] = {
- 	{
- 		.id = 0,
-@@ -351,12 +372,13 @@ static struct counter_count mchp_tc_counts[] = {
- };
- 
- static const struct counter_ops mchp_tc_ops = {
--	.signal_read    = mchp_tc_count_signal_read,
-+	.action_read    = mchp_tc_count_action_read,
-+	.action_write   = mchp_tc_count_action_write,
- 	.count_read     = mchp_tc_count_read,
- 	.function_read  = mchp_tc_count_function_read,
- 	.function_write = mchp_tc_count_function_write,
--	.action_read    = mchp_tc_count_action_read,
--	.action_write   = mchp_tc_count_action_write
-+	.signal_read    = mchp_tc_count_signal_read,
-+	.watch_validate = mchp_tc_watch_validate,
- };
- 
- static const struct atmel_tcb_config tcb_rm9200_config = {
+url:    https://github.com/intel-lab-lkp/linux/commits/Prabhakar/dt-bindings-timer-renesas-ostm-Document-RZ-V2N-R9A09G056-support/20250506-223636
+base:   tip/timers/core
+patch link:    https://lore.kernel.org/r/20250506103152.109525-3-prabhakar.mahadev-lad.rj%40bp.renesas.com
+patch subject: [PATCH v3 2/2] clocksource/drivers/renesas-ostm: Unconditionally enable reprobe support
+config: hexagon-randconfig-001-20250513 (https://download.01.org/0day-ci/archive/20250515/202505151255.rCHp8Bvu-lkp@intel.com/config)
+compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project f819f46284f2a79790038e1f6649172789734ae8)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250515/202505151255.rCHp8Bvu-lkp@intel.com/reproduce)
 
----
-base-commit: 9f35e33144ae5377d6a8de86dd3bd4d995c6ac65
-change-id: 20250515-counter-tcb-b6ae1945210b
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202505151255.rCHp8Bvu-lkp@intel.com/
 
-Best regards,
+All warnings (new ones prefixed by >>):
+
+>> drivers/clocksource/renesas-ostm.c:235:34: warning: unused variable 'ostm_of_table' [-Wunused-const-variable]
+     235 | static const struct of_device_id ostm_of_table[] = {
+         |                                  ^~~~~~~~~~~~~
+   1 warning generated.
+
+
+vim +/ostm_of_table +235 drivers/clocksource/renesas-ostm.c
+
+3a3e9f23c2cae9 Biju Das 2021-11-12  234  
+3a3e9f23c2cae9 Biju Das 2021-11-12 @235  static const struct of_device_id ostm_of_table[] = {
+3a3e9f23c2cae9 Biju Das 2021-11-12  236  	{ .compatible = "renesas,ostm", },
+3a3e9f23c2cae9 Biju Das 2021-11-12  237  	{ /* sentinel */ }
+3a3e9f23c2cae9 Biju Das 2021-11-12  238  };
+3a3e9f23c2cae9 Biju Das 2021-11-12  239  
+
 -- 
-Dharma Balasubiramani <dharma.b@microchip.com>
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
