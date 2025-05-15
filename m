@@ -4,156 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1710FC3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 19:11:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2A41C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 19:13:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WSuqZhzgHA5wVKUrbDbyttnHwgcuaT3IDVn3MMU04hA=; b=HElnoBQO/PSpJowBFNRCV3RuMU
-	90pwxEqyiOMxCBwNLDddz8Gw0VHUqEH/KLfJpbnHm1yoTfF1d7SzeLYwEBnKT5EAKKrkqFdA/JjdS
-	a/EQcT+nfLrb//+Ndw4rhTpZnBSIz+AZ0Yg4YB93kZjBVqgAiAmLWOVVXBtZYP7+ygfXhlCNCZ0UG
-	trS7revM6Ogv58c1kJ9wI3KcbQh3QC0LALf/jGJ+uwqnWQE41WaRpaHVSnm2s2nk8V0oYqhIgNeBJ
-	kcwRJupSVnQc+sXQG2wx0S17HWhmQ+fnfEsYcZOs0j4/VCKkKgcoXhgkYC0YZhmu9xICd79j1Sr2D
-	+83oM93A==;
+	bh=Y1LDMZWzKKUnc76AV3JTXeJIaKwsx4smaIC3+XL7NXc=; b=kNSpNn5e4aia/VEGEgF+FC6CkN
+	6C3A24v3HYdRDLnbsr5OZYHU1gUvjBrC3Jy1zyxE9kYBMRcohSUg7CHJyJwon2Mv5A3PrLJsVOn4E
+	VaPyZs7gj8eW1RRUJmiDdrm+5h2DcgAfzOcxjd/GT76Yk6ac4cEB9c52WS9nbo0xG1/jOTEEXOPMT
+	5l/UTqg8lrTmROsA4u+LcXwLNRGrp3Z8awCZhXlfVASjt7KOKBI8G+7LTbiv0cba1NbLowSFT6W4J
+	5zOAwtGuW79NH/6o7WoXRxGeE6haxt6h9njzs9pA90b1cpPqS2IHkBAtqdOmqGUT0/zT6YO5XZU+J
+	SzFjCu3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFdz5-00000001eMM-02qI;
-	Thu, 15 May 2025 19:11:11 +0000
-Received: from mail-mw2nam12on2062c.outbound.protection.outlook.com ([2a01:111:f403:200a::62c] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1uFe14-00000001efv-3HEN;
+	Thu, 15 May 2025 19:13:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFdo1-00000001cwR-3Ekl
+	id 1uFds1-00000001dQc-24HE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 18:59:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=alNDMIoigcLGZDClgKvhPni7Y2SaFEnQRxUny24Mxj6bHjc6+HzgrXOi/t2updvQps1X4sCJ1Xp7sUC+pUyDxHGDSFItto/bshpO1slcoexnX4q05HP6JwoUXMHMNFDID7EZXNrNywUIhgn5gbyttstBICwtgCOR2hlOFYb2VB9BeM8cJqxZXLBw/qOB6gxJTyOyfQvaj9jWBbQncVW/TSkdQUV3RhUqwgN0PUtZD9mbuJ+Ndh7NRXQOj8J/kk3eeOtPqyJyl5rK84PLA3vmHspyBMbf2qxkzr6zLNxRMrEXb862UE6WGXDP5DyqXqpCNbJFEhPz6LMHk+KwrtgFLQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WSuqZhzgHA5wVKUrbDbyttnHwgcuaT3IDVn3MMU04hA=;
- b=rIYMdKqREQZfVI8xzv/3lFVWYGeJKghoj9DlrB9gOok3cteHogxw2YdqdrQo5zgTKxQFUo88fwoojmqLoUBbU2v8ufqAC9XgTsq4H2+Lt1VeyEju7xq4b7+VnLzc1GKfU4XsuvkHnHrPIo/VPVW4JdCxi/IukhMqOmI0xskZJFfBzRqpTBIcj4H3QK83ORKHZsLn/BJYT8g0rY+wT6eSasNlB1RgBCzpcxOh4y4Nnphl6FkxdhKj9xU2BQmj381CVAAQcMmPgO/Z+LrTeIyZ404ogi2ooyfx92vgYE5HbDtZhyb9U2Icq1r9wCupRf8DowBibZwXPj1qTOSXbh5XgA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WSuqZhzgHA5wVKUrbDbyttnHwgcuaT3IDVn3MMU04hA=;
- b=XtkBEjTpg0qFr/yaGgzEiFE8PiBiLa2MGnxdy3zco90OW55vuI57ijfe8MSRN3oXP7eMugHV6jwhU5HkKeWSt0AEKYPd1lViGI4kVG97oW3UCjxlZKqDFePFXuBlQA1XbMqG8+5vNjEhWQjHrDpchFHRAICuzt0oOCb33B+IGZW3L13eQiVL6NGU0Zax/8EUnJGRaex/OS53rRPw0/dpOspnYJazxtSlpGc1K6paz4upnBuQtzUNP+O3ocuKhNV7GGeYhi9ncv4fk6P5BK4fMC96MESBJcGBhJm8oMsYmLAZdoAzurc35UyjPwt2Zr6jBBb8vW+WgCarxt/1B87O0Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by MW4PR12MB7144.namprd12.prod.outlook.com (2603:10b6:303:21b::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.32; Thu, 15 May
- 2025 18:59:39 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8722.031; Thu, 15 May 2025
- 18:59:39 +0000
-Date: Thu, 15 May 2025 15:59:38 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
-	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
-	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
-	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
-	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
-	praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
-Subject: Re: [PATCH v4 11/23] iommufd/viommu: Add IOMMUFD_CMD_HW_QUEUE_ALLOC
- ioctl
-Message-ID: <20250515185938.GT382960@nvidia.com>
-References: <cover.1746757630.git.nicolinc@nvidia.com>
- <f52937c027e2fd25d76bc47f4965ba46f82c77c0.1746757630.git.nicolinc@nvidia.com>
- <20250515160620.GJ382960@nvidia.com>
- <aCYvjeZW+7NmUtoE@Asurada-Nvidia>
+	Thu, 15 May 2025 19:03:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 967875C5CB4;
+	Thu, 15 May 2025 19:01:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4796DC4CEED;
+	Thu, 15 May 2025 19:03:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747335832;
+	bh=VRagaSXsAIeqVRRt2t467sjr8Yeh2sZcXNEljQZBvMw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OHcQZoZoih1+JodqxsZE/ed3QeB7hprD3wT8BXY6az9msb/0XaXtL3/tJ7gny1yxY
+	 lpa10rv5j0h/05KyFtj8S7wr/jDVelySWK3ncdEizHTxSiRKzdxFIdFpxOGjOn09r8
+	 Kcah5X7qsHgrqXhiMJXXANEbR03jWO0C/HRxNiwtSvl1faUOSwDDCoUmbNOgdW4sxJ
+	 N894zZvMFCIJMk+JrEVpGJIv45FmbEYV7I/RU5Kn+54t7mPpOTn+N7ck9SBC0Apso0
+	 3HHe3IaaL6v9d/UM1ghjKFH1DKYZxhUIinhBUXqnCLEc0VVedWJmJ7bMPLBWRu7pIB
+	 PVAyX0iIN2Tsw==
+Date: Thu, 15 May 2025 12:03:50 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	herbert@gondor.apana.org.au, Ard Biesheuvel <ardb@kernel.org>
+Subject: Re: [PATCH] crypto: arm64 - Drop asm fallback macros for older
+ binutils
+Message-ID: <20250515190350.GF1411@quark>
+References: <20250515142702.2592942-2-ardb+git@google.com>
+ <20250515185254.GE1411@quark>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aCYvjeZW+7NmUtoE@Asurada-Nvidia>
-X-ClientProxiedBy: YQBPR01CA0115.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:1::15) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|MW4PR12MB7144:EE_
-X-MS-Office365-Filtering-Correlation-Id: d309a0fb-e64a-48aa-50fe-08dd93e2a4b9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TAx44Lez2HaHfoLYz5TpRgaAcUaAHM993XbcGt6RmB+mk8wXTJEhwi0SWObK?=
- =?us-ascii?Q?3onutPIQd18hiyuNjB66wFPix5PbHjDLWs76aRs7/Ra/hkdCgktPEaxPxrgi?=
- =?us-ascii?Q?Rg36rGaODZo6F7RUlGu2NIWVDsBCeIF3i1wzfDMie1PeTe/54D5pzcCYuQdb?=
- =?us-ascii?Q?2tEvQ6Pj8hHqheyUAS0MNdd4upf5BVX8fvVPcD5WTTkxKCcX56au+aByKmgc?=
- =?us-ascii?Q?YZnCCTni2m9Cl+3o5KHEfotbIgyjzJ/aunnoDKjVePTLM4J88V7sicJE5Mnh?=
- =?us-ascii?Q?bvj61GlmbvK8xQNbEAh3+RYotJBFTqzQDb5bwHw6PjPNyGJRqByLKhnjY1AD?=
- =?us-ascii?Q?f7+FZIaqlhZjzkYDH9dOyCRShmCJCxeGhGstP4XMtn4YgxyZ6QjH+RnY7RTv?=
- =?us-ascii?Q?sSSnrGIQ4hrKvtycOekX52xh15oBZqF2y6k9mpCMPdhHsZqrqRmZhyn9X8Uy?=
- =?us-ascii?Q?2BLR9ssoy12jP8K+SSXyZ8pM+lriZw7ANJBXRlIBmC6B9/zS0yIa2DPsrAKL?=
- =?us-ascii?Q?9exXZBIEwQ3KVCyhTxmq2AShHxQQzMPmo6a4JPMECm3atY7FMzQ71oNWCRG4?=
- =?us-ascii?Q?Sr2JLP7TDbYPL+JGNxo5qbhGHwrnS5eFLbI48kx7lB8XZBEEXWAQOElvMm8y?=
- =?us-ascii?Q?GvPvKi3wad03Xfplw/zLFP1CoDEKOtGXmIYSb2YLWYMOGgm+UIYs5DiNESgw?=
- =?us-ascii?Q?nzfS0WK7oph/iYWrWCrt2YBnc0b8M+fLGBDY+7Dd5VcP6jTZsbtiWawTrCpc?=
- =?us-ascii?Q?QEWmygCqSMRHKm0GYX5FErJWQW79mA7raUVHclJn5iQZnaJ69KrIPgDJLyO2?=
- =?us-ascii?Q?t3K4bjKtGiuJ4cFOo/yt1FkCqEWwwFjPTkMwn1e0qCQu5Sc+tSRZYnuU5lqh?=
- =?us-ascii?Q?bNdjmRpT8LkGEEnolxB1GdKKUond0JVJsBhgTsJK1tYIRWiHUj17eNj1/pyT?=
- =?us-ascii?Q?AXTfxA6tO6jfbndSBwiFqJdIDMyXpgCVNV4yxMbz8oJitNr/N6OJ/JKzQh1G?=
- =?us-ascii?Q?VSRbJfvTwLQtdxU5y2I3YZdR8dPie9FRGxFqtdVoyKoEN79g8hpQgFpUHVQW?=
- =?us-ascii?Q?V97dI1krWKhPaBKP8nZBrIN/HrKBtNHfDuNrixjoezwnjg/M5YI/z3fC+1Yw?=
- =?us-ascii?Q?gwzna0E3Qf3GWX/4HM8PqlR4IhGS7KO1kpdq0SNEHPXLvmlsA584tbLaUkDw?=
- =?us-ascii?Q?X0Z9IDq7PFaFjV1k4g6ReaevriHyRw0CTy4BE+229YhkSufJRFr0UnDQYO7z?=
- =?us-ascii?Q?ilOOjhOikDG2XbUFbrT9pE0NDc+CNpm2bKZmzLxtzQeCtAGU1TX6RMMhUZB1?=
- =?us-ascii?Q?7B6jDuqs1TH6pYL92yRJcArpNseeT3iwG8avECQrTMqFykh5Ju2yE1mwC+Yx?=
- =?us-ascii?Q?6sm/Ktyq2bvxXXhX9P1ttHNYToHu+cBk8afKG08GQpL+Ywno83GYjMfiR51J?=
- =?us-ascii?Q?+yteE9ajXCE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Pnl6QXCElz7qfbFPBIZY5oodZVFHKrLtsIfGWcLyt9/uCq6aDp7ghGpb9vuQ?=
- =?us-ascii?Q?K2udtaX3qncWuA3takLZtJdUr4sAfEwFzJpXk7pd5wTOQNf4KYWx5J59cxZY?=
- =?us-ascii?Q?C01mq7FIoF2kGH3PnZIbI37WdV0tW5TCRlCt61Z2tuZaI/0GXHYcutDn4BWf?=
- =?us-ascii?Q?nIQCZta52aLvJ97dQW8ZopkFHZyKOtNXeGK5nCHpvxewlqpQu8TzxQhRqLp3?=
- =?us-ascii?Q?LbzzEMASJJxnaiiZh8jiAZurhfQZGYzdqJa/skjM9vPRuAvA9JbuYn9yuLbm?=
- =?us-ascii?Q?nd7HwVMduKlQfGJGcInuPbuPx5LXr8p/v1XrRMHfhkFv+a5Gg7o9YyZemQNn?=
- =?us-ascii?Q?8soQGkIPbNzkVds+SG0QosFqIsYS3zQOQDlgCitfZTsPapQihQ1RZVGU2ORp?=
- =?us-ascii?Q?cnRqx7rSYbdU/B/ARQt1hxf5W3ZmMCR1kLaSZDiTlqQ0oB9oUkikgC9UD4nk?=
- =?us-ascii?Q?i7qDb4MNlXtFC1UGdVpnEH0uiDy6HdShvdgzmXogr8Pe5BIZm6/DnL3nhjpC?=
- =?us-ascii?Q?dd2CFDIvtJi4Aip33kEubG46SJn9Yrw6w4Yi1qi0idAFb9cjgkEi9fQRBU4i?=
- =?us-ascii?Q?Phl5VLAYIFuXut7k5hdvHFORL8ffHQLIDKR2ejrYFzXTEptmE2MdwPuUgLkh?=
- =?us-ascii?Q?w5f9F5GgWgq8YhA2WXVg1H7be8xXSy+fM5JMq8Pp8ngCZXld6HCdAh8i2dz5?=
- =?us-ascii?Q?4O8ICHM59B9+MWH6sXaWenVROloKQfUlZRxKwoMI4lF/cTGugkUjE7P2jmxx?=
- =?us-ascii?Q?eNdTEflMMo0F+hVEA2pbfNbPBg6q4epmDw8Cu6C9nzj/CBpbxb9GsQgrW625?=
- =?us-ascii?Q?UG0XJqMAXf9FhJhUSIuRhT4+2McTX02EbAxFBeG+I+96XztmLaL1dBNzZDyT?=
- =?us-ascii?Q?Du9Tm0pC452W8e7BzHhyEV9z8T/Skig5m5pfkwSJ9J724vYmMB04UPHakzTf?=
- =?us-ascii?Q?pTY7nDjeIxnf4C03HubtC+T55egjFowBLyE8FbcMXK9HjTof69eorQM2JfiR?=
- =?us-ascii?Q?pzRBBVWlNQu9vZR2fAlpjdI2bPmRCKm/WwaAbTdwn/acJlOCNjmjW1Hrjbgb?=
- =?us-ascii?Q?2TMEvaNJuHu/1+0u7oExOc4t2+UweHKvFhZcJHXOq/H/LC8E4IdLcf/kt5i1?=
- =?us-ascii?Q?zvL8Kt/cjrIIUgRU+XQanrRW5f7H0oWKV5Gc/7sKJzMHoo4qtO7ZsRMeKwX8?=
- =?us-ascii?Q?/OrL2t//C8lHu43o6293YZjFIdYsVDQ/f9/qYDF9myWPQXOncQB/U48o60Jd?=
- =?us-ascii?Q?PactsQzOXTk9s9Wp4npAPXVS2eWIX4DJ7VIbVKzTH2OOirieZwbOd3Twl8uQ?=
- =?us-ascii?Q?luVuD0VkwCfs+IfZudeoEwypgAtGlKy78zR/WQh0nlSdqAr7PAPZa4jt1ivz?=
- =?us-ascii?Q?9EzwQIu1Q466guqaR1yzw4KrJfeGcN9+hFyaLEOWZ/c4N66VmWutGGOkk/eK?=
- =?us-ascii?Q?7WvB5WYPsTvaUFUiToZhKdRAdPRBImfUyUYuhIuVr9+OxHQ24VEMPwyWz7ov?=
- =?us-ascii?Q?dBI0ioHrUtF22RdiOLv/AjrTm7363LLkAUoCm8hNZXrZBIegtgslkfotVDsp?=
- =?us-ascii?Q?zgEAPuCIM3jv6fwB/w5ptzqdNZySPLfKZzERjyy1?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d309a0fb-e64a-48aa-50fe-08dd93e2a4b9
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 May 2025 18:59:39.3634
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8EfGNr9R18gVozqWjBCTs6JfOGtjSNuLrE3sV17it+9qMshv+d8XF4RZOs+44gPn
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7144
+In-Reply-To: <20250515185254.GE1411@quark>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_115945_808417_7A72266B 
-X-CRM114-Status: GOOD (  26.17  )
+X-CRM114-CacheID: sfid-20250515_120353_618554_C61C7E8C 
+X-CRM114-Status: GOOD (  22.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,53 +73,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 15, 2025 at 11:16:45AM -0700, Nicolin Chen wrote:
-> > As I understand AMD's system the iommu HW itself translates the
-> > base_addr through the S2 page table automatically, so it doesn't need
-> > pinned memory and physical addresses but just the IOVA.
+On Thu, May 15, 2025 at 11:52:54AM -0700, Eric Biggers wrote:
+> On Thu, May 15, 2025 at 04:27:03PM +0200, Ard Biesheuvel wrote:
+> > diff --git a/arch/arm64/crypto/sha512-ce-core.S b/arch/arm64/crypto/sha512-ce-core.S
+> > index 91ef68b15fcc..deb2469ab631 100644
+> > --- a/arch/arm64/crypto/sha512-ce-core.S
+> > +++ b/arch/arm64/crypto/sha512-ce-core.S
+> > @@ -12,26 +12,7 @@
+> >  #include <linux/linkage.h>
+> >  #include <asm/assembler.h>
+> >  
+> > -	.irp		b,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19
+> > -	.set		.Lq\b, \b
+> > -	.set		.Lv\b\().2d, \b
+> > -	.endr
+> > -
+> > -	.macro		sha512h, rd, rn, rm
+> > -	.inst		0xce608000 | .L\rd | (.L\rn << 5) | (.L\rm << 16)
+> > -	.endm
+> > -
+> > -	.macro		sha512h2, rd, rn, rm
+> > -	.inst		0xce608400 | .L\rd | (.L\rn << 5) | (.L\rm << 16)
+> > -	.endm
+> > -
+> > -	.macro		sha512su0, rd, rn
+> > -	.inst		0xcec08000 | .L\rd | (.L\rn << 5)
+> > -	.endm
+> > -
+> > -	.macro		sha512su1, rd, rn, rm
+> > -	.inst		0xce608800 | .L\rd | (.L\rn << 5) | (.L\rm << 16)
+> > -	.endm
+> > +	.arch	armv8-a+sha3
 > 
-> Right. That's why we invented a flag, and it should be probably
-> extended to cover the pin step as well.
-
-Yes, no pin
- 
-> > Perhaps for this reason the pinning should be done with a function
-> > call from the driver?
+> This looked like a mistake: SHA-512 is part of SHA-2, not SHA-3.  However, the
+> current versions of binutils and clang do indeed put it under sha3.  There
+> should be a comment that mentions this unfortunate quirk.
 > 
-> But the whole point of doing in the core was to avoid the entire
-> iopt related structure/function from being exposed to the driver,
-> which would otherwise hugely increase the size of the driver.o?
-
-Ugh, yes, but also, maybe we need to figure something else out for
-this. Pass down a function pointers struct to the driver or something
-like that?
-
-> > I don't think this actually works like this without an unmap
-> > callback. unmap will break:
-> > 
-> > 			iommufd_access_notify_unmap(iopt, area_first, length);
-> > 			/* Something is not responding to unmap requests. */
-> > 			tries++;
-> > 			if (WARN_ON(tries > 100))
-> > 				return -EDEADLOCK;
-> > 
-> > If it can't shoot down the pinning.
+> However, there's also the following commit which went into binutils 2.43:
 > 
-> Hmm, I thought we want the unmap to fail until VMM releases the HW
-> QUEUE first? In what case, does VMM wants to unmap while holding
-> the queue pages?
-
-Well, if that is what we want to do then this needs to be revised
-somehow..
-
-> > This is more reason to put the pin/access in the driver so it can
-> > provide an unmap callback that can fix it up.
+>     commit 0aac62aa3256719c37be9e0ce6af8b190f45c928
+>     Author: Andrew Carlotti <andrew.carlotti@arm.com>
+>     Date:   Fri Jan 19 13:01:40 2024 +0000
 > 
-> As there are two types of "access" here.. you mean iommufd_access,
-> i.e. vcmdq driver should hold an iommufd_access like an emulated
-> vfio device driver?
+>         aarch64: move SHA512 instructions to +sha3
+> 
+>         SHA512 instructions were added to the architecture at the same time as SHA3
+>         instructions, but later than the SHA1 and SHA256 instructions.  Furthermore,
+>         implementations must support either both or neither of the SHA512 and SHA3
+>         instruction sets.  However, SHA512 instructions were originally (and
+>         incorrectly) added to Binutils under the +sha2 flag.
+> 
+>         This patch moves SHA512 instructions under the +sha3 flag, which matches the
+>         architecture constraints and existing GCC and LLVM behaviour.
+> 
+> So probably we need ".arch armv8-a+sha2+sha3" to support binutils 2.30 through
+> 2.42, as well as clang and the latest version of binutils?  (I didn't test it
+> yet, but it seems likely...)
 
-Yes.
+I see there's also a similar quirk where "sm4" enables the SM3 instructions.
+The use of that in sm3-ce-core.S could use a comment as well...
 
-Jason
+Fortunately at least in that case it looks like the instructions were always
+under "sm4" in both binutils and clang.
+
+- Eric
 
