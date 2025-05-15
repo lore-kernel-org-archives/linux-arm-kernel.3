@@ -4,79 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B0D4C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 11:19:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A268C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 11:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uANE6YtuOzoDy4yZ+j82kd7aME3T0hDL7pX3USXZ8FQ=; b=bVnJikLCcZexEBStfs9Ww3Wj/v
-	p7tiTNTD9V8n9jRlfdCV8+pYs3wYFA4enrMSeh1QJ2FT70SYX1/OEOGYDGsRlM+E1Sf57v+6reiea
-	O3zKf85JiWDACsHqHhg9zwff4TVinz7jQvIoFokmx+D9wBzRQphVgfVcfBFwl52pR2jBk3j5oE9OW
-	J1x2ZlP6jDq63ZDHlxFkodHbqm9MUNuAihMYVuLNVOgfBp+BNkHSSeCLVGeFMSOVcEfN/MYRGUL6w
-	ZI71cU4WIP9CWS2UHj+acgOS6BqwymZ8261G5WlGcuvPZHGojibRgqKMf67RJy/13kjebcB7zYQCf
-	Jf6q2DjQ==;
+	bh=Oq3luUbNQrh4sO37NnuDYHxjHPc8/KBLQt1bSPbX55c=; b=S2Vyyss/rfMHcyyTiS+klVQQoV
+	qTrFqRE6Ma4FBhhgFvczdOrK5PHtZ4cmoBsegwm3IYWUKxuPbd6AQ4WuHPpso4Um1+vKh2OdRLXh4
+	0zd92kuPgpHwpY2jIWR84WPeXRt/ncVhnZBjhih9PAUO+g4qhmW4GYtDhUf2VqZOHC4TMk5D7qG5D
+	uy8DQ85KlEIysv0qtGscKl4DEpjcYa4Jz5yEQzoKRa/qbKhu5TQJyEY59x4KJGkn+rCq3BzY5X3Yo
+	rOqslyVz4BKukA/NObQtc4wGb6q5RP5q8qB8X0E8jWLnsHoq0BRRI9ufoc6QTZuHGN1j5+F3q62cN
+	MeUxj8Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFWcU-00000000NtB-370n;
-	Thu, 15 May 2025 11:19:22 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uFWjR-00000000OZV-3TJC;
+	Thu, 15 May 2025 11:26:33 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFVEU-00000000DXb-0eId;
-	Thu, 15 May 2025 09:50:31 +0000
-X-UUID: e4902910316f11f08d385d50fb11b32d-20250515
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=uANE6YtuOzoDy4yZ+j82kd7aME3T0hDL7pX3USXZ8FQ=;
-	b=C5qW2huaI9F2AeSMU16Ta6g1caYMulghx+rAzdBHVNln60g+EMj8+r7vUIhVyJ7kLExpxVIMV9LhE2G6AuBdSYcH349MMCqL6IlbUKGLRiZjIwqtZKb4JrKVXtKtxC4fx5+KLZ+q1yHrKrzqOxBB2/0+y2agSGBjJN10CD78hXQ=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:07847d27-3110-43e7-ac49-b613da50321b,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:88e504c0-eade-4d5b-9f81-31d7b5452436,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: e4902910316f11f08d385d50fb11b32d-20250515
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
-	(envelope-from <paul-pl.chen@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1388628885; Thu, 15 May 2025 02:35:09 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 15 May 2025 17:35:06 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Thu, 15 May 2025 17:35:06 +0800
-From: paul-pl.chen <paul-pl.chen@mediatek.com>
-To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<chunkuang.hu@kernel.org>, <angelogioacchino.delregno@collabora.com>
-CC: <matthias.bgg@gmail.com>, <p.zabel@pengutronix.de>,
-	<jason-jh.lin@mediatek.com>, <nancy.lin@mediatek.com>,
-	<singo.chang@mediatek.com>, <xiandong.wang@mediatek.com>,
-	<sirius.wang@mediatek.com>, <paul-pl.chen@mediatek.com>,
-	<sunny.shen@mediatek.com>, <fshao@chromium.org>, <treapking@chromium.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH v3 07/17] soc: mediatek: mutex: Reused the switch case for SOF ID
-Date: Thu, 15 May 2025 17:34:19 +0800
-Message-ID: <20250515093454.1729720-8-paul-pl.chen@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250515093454.1729720-1-paul-pl.chen@mediatek.com>
-References: <20250515093454.1729720-1-paul-pl.chen@mediatek.com>
+	id 1uFWhP-00000000OG5-3orb
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 May 2025 11:24:29 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43ea40a6e98so8089665e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 04:24:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747308266; x=1747913066; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Oq3luUbNQrh4sO37NnuDYHxjHPc8/KBLQt1bSPbX55c=;
+        b=Sduo+vGKDZZMOV4tq9fdgsjFQPm23QP3ms8HX1cv88VTxvc39I462OeCAQOxjdlxeA
+         zJ175X/HlnVD/J2hF75FpcfPgv7YsQ8tp/z+t3WfB/LXorBXM3fBssOQKXZqsEbn10xz
+         bbeRv3dd1XGkjVbgpSFXeN4UReqr+gIj5K8oEYc12f55rG4the66VNJwRYXk0p/Wdt9j
+         VDtsv40flcvPGcyFECwXaCtFJnsL8I8dIoLI1NwZ2QUciF5zGzKGe0ln0paOuPYuNLSX
+         PHheFb9S68bjnV51YFy0KYiGCj5Bnt9y0urcuXrFOMvrMfUn8s6lxqN473AWIthQk8xd
+         3ESw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747308266; x=1747913066;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Oq3luUbNQrh4sO37NnuDYHxjHPc8/KBLQt1bSPbX55c=;
+        b=KQmmLZPz7sKCNqw0O0A+Qx3ncS1+UbcSPtqq8gh0BZbX/5s9im0oJ+U2p9HYkhnvNm
+         5LwWpgYI1a1hqXSCMSimLw1HCBuzOwcT9ErOSRn+Am8KANIePTt7kqaCSR3w7eilkwNU
+         nfblV0hkG2FqHpe34+T2nVU19Pp83doUqrHvi5f2J/VJC56ga6GGZAWtkOPlygrTbeMv
+         E/LOEKf4KlMP8SprVT+B5/PGnnkoMuSQYVbFc5HJghTVnMhvxnIjU41z5b9/+2nmIMDS
+         KO3IhRZJX8Z4ZtQrADACk6ALpFcfkwSo24IRpKTVjuxgGYc5zZcI8H8L27yMBn1k+/dz
+         vm5A==
+X-Forwarded-Encrypted: i=1; AJvYcCUYtwJxoGbjf+bzYS5D20GQsrlUn9r7Xwc0TR3dRb/tWAKQMvC1kBtDTg+NkroUekFjM8b5LACC5KL9EYiQPziL@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFZTR6RRqbS7mEubLDUKwuCGRlpywUfRvxTcfS7JTZRY28fVgo
+	B/Q/3gcG6BCzO5b7U0kNaTlY7o3cCtoYRqKm3AKe/dFwOfGHiTq1DpBTGaKm1x8=
+X-Gm-Gg: ASbGncu9SKwAIJogM1UsGE+EidCweTJjetGqrfgibiAoCDOf/YS19jY82JiaxvFF8aq
+	95942bpb0RwJT92oXlZxq/NlsK0K977PpWunq6YBQgFwaVu7HrZ5ChQOk3yRpeeyEgJHdntuD0g
+	G2zY1Pb8FW50aI185bb9uH0MP5sobi/qhkLvw1+aw5IXT/OYmsPwOazu+k5wm/JdZCzNI6R1nMJ
+	DYKzzvbOKKSmJH4CcMT93VWOgwRxt8Cd7sY5NEJjiJCpkDpz7ucU3w+knDXoL5YSzl11iS8fVrq
+	dHjai30zVvty4Evxt/eCyynmnemFnfAgTum/FyiqZnV5uCvu6PnAyOmEqZ7Alb5TM9J6pLsNuXJ
+	xeuXBmpqnzdl6sErlZEfc
+X-Google-Smtp-Source: AGHT+IHewJ1yK2km4hF4XJnukjwH9B+t5DFAbmZFcOJDYUefiqQ+fuKodfexjRPHQzwg8kOClUt6eg==
+X-Received: by 2002:a05:600c:4691:b0:43d:40b0:5b with SMTP id 5b1f17b1804b1-442f2168cc3mr58378255e9.25.1747308265655;
+        Thu, 15 May 2025 04:24:25 -0700 (PDT)
+Received: from [10.61.0.59] (110.8.30.213.rev.vodafone.pt. [213.30.8.110])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442ebd47d39sm62595095e9.1.2025.05.15.04.24.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 May 2025 04:24:25 -0700 (PDT)
+Message-ID: <7cb062aefa6f8287b30c95bb12274c83ff6df34e.camel@linaro.org>
+Subject: Re: [PATCH 2/2] phy: exyons5-usbdrd: support HS phy for
+ ExynosAutov920
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Pritam Manohar Sutar <pritam.sutar@samsung.com>, vkoul@kernel.org, 
+	kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, 	alim.akhtar@samsung.com, peter.griffin@linaro.org,
+ kauschluss@disroot.org, 	m.szyprowski@samsung.com, s.nawrocki@samsung.com
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
+ dev.tailor@samsung.com, 	faraz.ata@samsung.com, muhammed.ali@samsung.com,
+ selvarasu.g@samsung.com
+Date: Thu, 15 May 2025 12:24:23 +0100
+In-Reply-To: <20250514134813.380807-3-pritam.sutar@samsung.com>
+References: <20250514134813.380807-1-pritam.sutar@samsung.com>
+		<CGME20250514133847epcas5p41a1c413aecefa2fab32357c6c69e999c@epcas5p4.samsung.com>
+	 <20250514134813.380807-3-pritam.sutar@samsung.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.55.2-1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_025030_219220_6A544DDC 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20250515_042427_940687_E5FCB93E 
+X-CRM114-Status: GOOD (  19.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,144 +108,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Paul-pl Chen <paul-pl.chen@mediatek.com>
+Hi,
 
-Reused the switch case for SOF IDs.
+On Wed, 2025-05-14 at 19:18 +0530, Pritam Manohar Sutar wrote:
+> This SoC has a single USB 3.1 DRD combo phy and three USB2.0
+> DRD HS phy controllers those only support the UTMI+ interface.
+>=20
+> Support only UTMI+ for this SoC which is very similar to what
+> the existing Exynos850 supports.
+>=20
+> The combo phy supports both UTMI+ (HS) and PIPE3 (SS) and is
+> out of scope of this commit.
+>=20
+> Add required change in phy driver to support HS phy for this SoC.
+>=20
+> Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+> ---
+> =C2=A0drivers/phy/samsung/phy-exynos5-usbdrd.c | 85 +++++++++++++++++++++=
++++
+> =C2=A01 file changed, 85 insertions(+)
+>=20
+> diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsu=
+ng/phy-exynos5-usbdrd.c
+> index 634c4310c660..7b4b80319c5c 100644
+> --- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> +++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> @@ -177,6 +177,9 @@
+> =C2=A0#define HSPHYPLLTUNE_PLL_P_TUNE			GENMASK(3, 0)
+> =C2=A0
+> =C2=A0/* Exynos850: USB DRD PHY registers */
+> +#define EXYNOSAUTOv920_DRD_CTRL_VER		0x00
+> +#define GET_CTRL_MAJOR_VERSION(_x)		(((_x) >> 24) & 0xff)
 
-Signed-off-by: Nancy Lin <nancy.lin@mediatek.com>
-Signed-off-by: Paul-pl Chen <paul-pl.chen@mediatek.com>
----
- drivers/soc/mediatek/mtk-mutex.c | 81 ++++++++++++++------------------
- 1 file changed, 36 insertions(+), 45 deletions(-)
+I suggest using standard GENMASK() and FIELD_GET() for the version bits ins=
+tead.
 
-diff --git a/drivers/soc/mediatek/mtk-mutex.c b/drivers/soc/mediatek/mtk-mutex.c
-index aaa965d4b050..47f4d9ae4bfc 100644
---- a/drivers/soc/mediatek/mtk-mutex.c
-+++ b/drivers/soc/mediatek/mtk-mutex.c
-@@ -853,43 +853,45 @@ void mtk_mutex_unprepare(struct mtk_mutex *mutex)
- }
- EXPORT_SYMBOL_GPL(mtk_mutex_unprepare);
- 
--void mtk_mutex_add_comp(struct mtk_mutex *mutex,
--			enum mtk_ddp_comp_id id)
-+static int mtk_mutex_get_output_comp_sof(enum mtk_ddp_comp_id id)
- {
--	struct mtk_mutex_ctx *mtx = container_of(mutex, struct mtk_mutex_ctx,
--						 mutex[mutex->id]);
--	unsigned int reg;
--	unsigned int sof_id;
--	unsigned int offset;
--
--	WARN_ON(&mtx->mutex[mutex->id] != mutex);
--
- 	switch (id) {
- 	case DDP_COMPONENT_DSI0:
--		sof_id = MUTEX_SOF_DSI0;
--		break;
-+		return MUTEX_SOF_DSI0;
- 	case DDP_COMPONENT_DSI1:
--		sof_id = MUTEX_SOF_DSI0;
--		break;
-+		return MUTEX_SOF_DSI1;
- 	case DDP_COMPONENT_DSI2:
--		sof_id = MUTEX_SOF_DSI2;
--		break;
-+		return MUTEX_SOF_DSI2;
- 	case DDP_COMPONENT_DSI3:
--		sof_id = MUTEX_SOF_DSI3;
--		break;
-+		return MUTEX_SOF_DSI3;
- 	case DDP_COMPONENT_DPI0:
--		sof_id = MUTEX_SOF_DPI0;
--		break;
-+		return MUTEX_SOF_DPI0;
- 	case DDP_COMPONENT_DPI1:
--		sof_id = MUTEX_SOF_DPI1;
--		break;
-+		return MUTEX_SOF_DPI1;
- 	case DDP_COMPONENT_DP_INTF0:
--		sof_id = MUTEX_SOF_DP_INTF0;
--		break;
-+		return MUTEX_SOF_DP_INTF0;
- 	case DDP_COMPONENT_DP_INTF1:
--		sof_id = MUTEX_SOF_DP_INTF1;
--		break;
-+		return MUTEX_SOF_DP_INTF1;
- 	default:
-+		break;
-+	}
-+
-+	return -EINVAL;
-+}
-+
-+void mtk_mutex_add_comp(struct mtk_mutex *mutex,
-+			enum mtk_ddp_comp_id id)
-+{
-+	struct mtk_mutex_ctx *mtx = container_of(mutex, struct mtk_mutex_ctx,
-+						 mutex[mutex->id]);
-+	unsigned int reg;
-+	unsigned int sof_id;
-+	unsigned int offset;
-+	int sof_id = mtk_mutex_get_output_comp_sof(id);
-+
-+	WARN_ON(&mtx->mutex[mutex->id] != mutex);
-+
-+	if (sof_id < 0) {
- 		if (mtx->data->mutex_mod[id] < 32) {
- 			offset = DISP_REG_MUTEX_MOD(mtx->data->mutex_mod_reg,
- 						    mutex->id);
-@@ -905,8 +907,7 @@ void mtk_mutex_add_comp(struct mtk_mutex *mutex,
- 		return;
- 	}
- 
--	writel_relaxed(mtx->data->mutex_sof[sof_id],
--		       mtx->regs +
-+	writel_relaxed(mtx->data->mutex_sof[sof_id], mtx->regs +
- 		       DISP_REG_MUTEX_SOF(mtx->data->mutex_sof_reg, mutex->id));
- }
- EXPORT_SYMBOL_GPL(mtk_mutex_add_comp);
-@@ -918,24 +919,10 @@ void mtk_mutex_remove_comp(struct mtk_mutex *mutex,
- 						 mutex[mutex->id]);
- 	unsigned int reg;
- 	unsigned int offset;
--
-+	int sof_id = mtk_mutex_get_output_comp_sof(id);
- 	WARN_ON(&mtx->mutex[mutex->id] != mutex);
- 
--	switch (id) {
--	case DDP_COMPONENT_DSI0:
--	case DDP_COMPONENT_DSI1:
--	case DDP_COMPONENT_DSI2:
--	case DDP_COMPONENT_DSI3:
--	case DDP_COMPONENT_DPI0:
--	case DDP_COMPONENT_DPI1:
--	case DDP_COMPONENT_DP_INTF0:
--	case DDP_COMPONENT_DP_INTF1:
--		writel_relaxed(MUTEX_SOF_SINGLE_MODE,
--			       mtx->regs +
--			       DISP_REG_MUTEX_SOF(mtx->data->mutex_sof_reg,
--						  mutex->id));
--		break;
--	default:
-+	if (sof_id < 0) {
- 		if (mtx->data->mutex_mod[id] < 32) {
- 			offset = DISP_REG_MUTEX_MOD(mtx->data->mutex_mod_reg,
- 						    mutex->id);
-@@ -948,8 +935,12 @@ void mtk_mutex_remove_comp(struct mtk_mutex *mutex,
- 			reg &= ~(1 << (mtx->data->mutex_mod[id] - 32));
- 			writel_relaxed(reg, mtx->regs + offset);
- 		}
--		break;
-+		return;
- 	}
-+
-+	writel_relaxed(MUTEX_SOF_SINGLE_MODE,
-+		       mtx->regs + DISP_REG_MUTEX_SOF(mtx->data->mutex_sof_reg,
-+		       mutex->id));
- }
- EXPORT_SYMBOL_GPL(mtk_mutex_remove_comp);
- 
--- 
-2.45.2
+Cheers,
+A.
+
+> +
+> =C2=A0#define EXYNOS850_DRD_LINKCTRL			0x04
+> =C2=A0#define LINKCTRL_FORCE_RXELECIDLE		BIT(18)
+> =C2=A0#define LINKCTRL_FORCE_PHYSTATUS		BIT(17)
+> @@ -1772,6 +1775,10 @@ static const char * const exynos5_regulator_names[=
+] =3D {
+> =C2=A0	"vbus", "vbus-boost",
+> =C2=A0};
+> =C2=A0
+> +static const char * const exynosautov920_clk_names[] =3D {
+> +	"ext_xtal",
+> +};
+> +
+> =C2=A0static const struct exynos5_usbdrd_phy_drvdata exynos5420_usbdrd_ph=
+y =3D {
+> =C2=A0	.phy_cfg		=3D phy_cfg_exynos5,
+> =C2=A0	.phy_ops		=3D &exynos5_usbdrd_phy_ops,
+> @@ -1847,6 +1854,81 @@ static const struct exynos5_usbdrd_phy_drvdata exy=
+nos850_usbdrd_phy =3D {
+> =C2=A0	.n_regulators		=3D ARRAY_SIZE(exynos5_regulator_names),
+> =C2=A0};
+> =C2=A0
+> +static void exynosautov920_usbdrd_utmi_init(struct exynos5_usbdrd_phy *p=
+hy_drd)
+> +{
+> +	u32 version;
+> +
+> +	version =3D readl(phy_drd->reg_phy + EXYNOSAUTOv920_DRD_CTRL_VER);
+> +	dev_info(phy_drd->dev, "usbphy: version:0x%x\n", version);
+> +
+> +	if (GET_CTRL_MAJOR_VERSION(version) =3D=3D 0x3)
+> +		/* utmi init for exynosautov920 HS phy */
+> +		exynos850_usbdrd_utmi_init(phy_drd);
+> +}
+> +
+> +static int exynosautov920_usbdrd_phy_init(struct phy *phy)
+> +{
+> +	struct phy_usb_instance *inst =3D phy_get_drvdata(phy);
+> +	struct exynos5_usbdrd_phy *phy_drd =3D to_usbdrd_phy(inst);
+> +	int ret =3D 0;
+> +
+> +	ret =3D clk_bulk_prepare_enable(phy_drd->drv_data->n_clks, phy_drd->clk=
+s);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* UTMI or PIPE3 specific init */
+> +	inst->phy_cfg->phy_init(phy_drd);
+> +
+> +	clk_bulk_disable_unprepare(phy_drd->drv_data->n_clks, phy_drd->clks);
+> +
+> +	return 0;
+> +}
+> +
+> +static void exynosautov920_v3p1_phy_dis(struct phy *phy)
+> +{
+> +	struct phy_usb_instance *inst =3D phy_get_drvdata(phy);
+> +	struct exynos5_usbdrd_phy *phy_drd =3D to_usbdrd_phy(inst);
+> +	void __iomem *reg_phy =3D phy_drd->reg_phy;
+> +	u32 version;
+> +
+> +	version =3D readl(reg_phy + EXYNOSAUTOv920_DRD_CTRL_VER);
+> +
+> +	if (GET_CTRL_MAJOR_VERSION(version) =3D=3D 0x3)
+> +		exynos850_usbdrd_phy_exit(phy);
+> +}
+> +
+> +static int exynosautov920_usbdrd_phy_exit(struct phy *phy)
+> +{
+> +	struct phy_usb_instance *inst =3D phy_get_drvdata(phy);
+> +
+> +	if (inst->phy_cfg->id =3D=3D EXYNOS5_DRDPHY_UTMI)
+> +		exynosautov920_v3p1_phy_dis(phy);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct phy_ops exynosautov920_usbdrd_phy_ops =3D {
+> +	.init		=3D exynosautov920_usbdrd_phy_init,
+> +	.exit		=3D exynosautov920_usbdrd_phy_exit,
+> +	.owner		=3D THIS_MODULE,
+> +};
+> +
+> +static const struct exynos5_usbdrd_phy_config phy_cfg_exynosautov920[] =
+=3D {
+> +	{
+> +		.id		=3D EXYNOS5_DRDPHY_UTMI,
+> +		.phy_init	=3D exynosautov920_usbdrd_utmi_init,
+> +	},
+> +};
+> +
+> +static const struct exynos5_usbdrd_phy_drvdata exynosautov920_usb31drd_p=
+hy =3D {
+> +	.phy_cfg		=3D phy_cfg_exynosautov920,
+> +	.phy_ops		=3D &exynosautov920_usbdrd_phy_ops,
+> +	.clk_names		=3D exynosautov920_clk_names,
+> +	.n_clks			=3D ARRAY_SIZE(exynosautov920_clk_names),
+> +	.core_clk_names		=3D exynos5_core_clk_names,
+> +	.n_core_clks		=3D ARRAY_SIZE(exynos5_core_clk_names),
+> +};
+> +
+> =C2=A0static const struct exynos5_usbdrd_phy_config phy_cfg_gs101[] =3D {
+> =C2=A0	{
+> =C2=A0		.id		=3D EXYNOS5_DRDPHY_UTMI,
+> @@ -2047,6 +2129,9 @@ static const struct of_device_id exynos5_usbdrd_phy=
+_of_match[] =3D {
+> =C2=A0	}, {
+> =C2=A0		.compatible =3D "samsung,exynos850-usbdrd-phy",
+> =C2=A0		.data =3D &exynos850_usbdrd_phy
+> +	}, {
+> +		.compatible =3D "samsung,exynosautov920-usb31drd-phy",
+> +		.data =3D &exynosautov920_usb31drd_phy
+> =C2=A0	},
+> =C2=A0	{ },
+> =C2=A0};
 
 
