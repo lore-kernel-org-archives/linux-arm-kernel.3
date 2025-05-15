@@ -4,64 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30B72C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 07:37:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF0B2C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 07:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D4C2LRRzx3WDUvCvgHNz3/rWUFAajWZ0jB41S4g5t1Q=; b=OOkegWNsl5yL+rJN9GNlhlb0Rv
-	BQRFJmkmrHHmZ1Y+C8m5XYVrgxUYbeHqGDDnHsTfUiCykzZdGrDUDpOlXz+h9zD1MHcFEPgVEqb+6
-	YDazaZPhoHRjcTlmPLxB+a0o3qJu7PVNmbtKIejCSGjFy4wvCLh3nL4nFGwQhcNXAyeUQYKGQf1E/
-	1qUdQ35AxM8v4mgwI1lrWYAiVK/SQN13GLoacCM99DUDZ6kOSv2wQJhN9CwrC/01RZqCNy+XMxle3
-	Rh/nI8iFHiu5zs37k2Vlc1i20znYv4aVlX5PVk8AUf5Yp+tPLE0gLcZQpozjron2vPGNNC3WnmYWf
-	LlIgz7vg==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9+e9KzR5OZs9OOFp0dWbdBJKr7hsOOVIlpr6DtqWzfE=; b=onI/LkV7Qm2rxr8aH2HN9xlJIo
+	2wvGNKv/a/2UdIPKvd/h5CLSUfu8CU7nFbWceAj5Ze5Vd6A3WyhzDCM0krqYlValcPhwaqcuJh4PW
+	5AXTx0hQcBuUbHwWvhh5YuamTRCNhoN2sQDweQ7/xTlO0wgA04EwYiejVKWLYRR1aBK8f4PBDVd5O
+	GGBNgdl9Wx3+wIL5saP/M8cM9pnVn/fF8A+WAF/VKQzVpRwMo2ji1CllAKd0Zrw6N+jE36W53bQpd
+	JJBEm+kROhs3ALYkMul6ehHieFVxOi+2GLWX090jsmR5Pux1LgiH44rHoRFDsMar8vBSJnInK230d
+	ni+ehJVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFT9o-0000000HNGw-48Lc;
-	Thu, 15 May 2025 07:37:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uFTH1-0000000HOFe-3VWV;
+	Thu, 15 May 2025 07:44:59 +0000
+Received: from mout.gmx.net ([212.227.17.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFT7o-0000000HMu8-2n52;
-	Thu, 15 May 2025 07:35:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9CF28614B3;
-	Thu, 15 May 2025 07:35:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1552C4CEE9;
-	Thu, 15 May 2025 07:35:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747294527;
-	bh=+KJy2T+MNcXBlOneJXLi8WasNvcgLEUfdbqlEhlSagM=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=JKbDu/lsaSuMyXHGr2FudR7ulPXsrvfo4wdjpQGWb40M5hyCSuNzLRqWhKfL3jCNB
-	 SA4P/flssGjW1tQmY+EUl7Jf9ONe4Dok49kDy2GOkdjFiQTZeH6EqtDZM5NgSwxL8y
-	 R8rD8UklimLrAcj7OgWntQz1L4OcNcej2RuNQLhGIeEVXfTG40bxiuDdKD5+Ju3yjT
-	 gyMARGGAm8VfyCLpm58mtBALD5rdXy2DMGUL9EkrtbNJNmRGnjwHLo4pWQimy9dtTL
-	 64XH8YUmGIauPMQl01yOPGmmiyNe4b7TXScDHsgv1B6cQ/xVzIi435hjY6qcgRC/7g
-	 xYScWXQONwQYw==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Trevor Wu <trevor.wu@mediatek.com>, Jiaxin Yu <jiaxin.yu@mediatek.com>, 
- linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250514105702.28622-2-krzysztof.kozlowski@linaro.org>
-References: <20250514105702.28622-2-krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH] ASoC: dt-bindings: mediatek: Simplify
- mediatek,clk-provider
-Message-Id: <174729452159.272498.16252204109859942609.b4-ty@kernel.org>
-Date: Thu, 15 May 2025 09:35:21 +0200
+	id 1uFTEy-0000000HNxJ-3mq4;
+	Thu, 15 May 2025 07:42:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1747294963; x=1747899763; i=wahrenst@gmx.net;
+	bh=9+e9KzR5OZs9OOFp0dWbdBJKr7hsOOVIlpr6DtqWzfE=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=duQpicWtdghHVt50Eid4mEgGCAHSO5QvA82S+3T95mvDdXYByphd698+2WNXyOVh
+	 V0c8VDzNKamN+J66NBAvA63u2dk46WncsDBOeMHcMIWJCn1YaFRkW2whzR6uaO7d/
+	 fnEF49JAlLw0wofT6K5wg6GDIKrBFxjgzredmKrS24If0uw9mT4Zg+cRKTzo+Ub1O
+	 0mxtUZFODJEFIVXY/ygHN9VIvvCi5ca/t/Iz0vUzeMdjnwa9bhuDXrzKkQddYsyTx
+	 RLznNMF63mbb7LyjpCzuhy45cUn6/Ems8msgv/QFZusdJX1zXdPxVxVOEiq0DGvnI
+	 2es8uM+BE3sI2qd94g==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.103] ([91.41.216.208]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MpUYu-1ulF8x2k0K-00em5f; Thu, 15
+ May 2025 09:42:43 +0200
+Message-ID: <ffeb860f-5522-4130-ae47-45a6068b17ea@gmx.net>
+Date: Thu, 15 May 2025 09:42:43 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-c25d1
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware/raspberrypi: raise timeout to 3s
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+ bcm-kernel-feedback-list@broadcom.com,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Etienne Buira <etienne.buira@free.fr>, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <aCIiEp3CXD2o9dTw@Z926fQmE5jqhFMgp6>
+ <048fd6c5-9f09-4c06-9a23-e5821dc291d5@gmx.net>
+ <aCWMrJcldfrsNTQq@Z926fQmE5jqhFMgp6>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <aCWMrJcldfrsNTQq@Z926fQmE5jqhFMgp6>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:xUKADVGJvawN9EOvs1BVKQgMvs8OfwzgqQ/csHDyx0bzfA2CDel
+ RxPQ9S/b52gqD0u69d3M927HQ7UebRQsx+yX9l5vrF4/Qahg9gTRphmkiuiMrwbaUDFLOG9
+ hd02eTiQd3YJzIn69QWW8VbEpexjc8dbtH2vpqo1+5BLblFbn7VkBPwrSkaPgl7gKJr6S9b
+ BJI/DvtUEhxx9XbYugEbA==
+UI-OutboundReport: notjunk:1;M01:P0:qNUFzKS9vy8=;Mn1CvtV/peoRIncsMwDHVJoj9iI
+ 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
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250515_004253_253259_777593CA 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,38 +138,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 14 May 2025 12:57:03 +0200, Krzysztof Kozlowski wrote:
-> "mediatek,clk-provider" property is a string, not an string array, thus
-> "items" is not really correct.
-> 
-> 
+Hi Etienne,
 
-Applied to
+Am 15.05.25 um 08:41 schrieb Etienne Buira:
+> On Wed, May 14, 2025 at 06:20:32PM +0200, Stefan Wahren wrote:
+>> Hi Etienne,
+>>
+>> Am 12.05.25 um 18:30 schrieb Etienne Buira:
+> ../..
+>> Out of curiosity and because i never saw this issue, could you please
+>> provide more details?
+>> There is nothing connected to HDMI 0 & 1 ?
+>> Which firmware version are you running?
+Please provide the dmesg output, so we can extract the firmware version.
+>> Do you use a special configuration?
+In this case, i meant the kernel configuration. Do you use=20
+arm64/defconfig or arm/multi_v7_lpae_defconfig or a custom one?
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+Do you use U-Boot or not?
+> Hi Stefan
+>
+> There is nothing very special, hdmi0 is connected to a monitor, there's
+Did you tried to connect a different monitor? Does the timeout still occur=
+s?
 
-Thanks!
-
-[1/1] ASoC: dt-bindings: mediatek: Simplify mediatek,clk-provider
-      commit: 0e4e9d75899cae4e7f379c50fa3d0121eff9641f
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+Best regards
+> a (independantly powered) hdd on usb3, keyboard/mouse on usb2 ports, a
+> Gb network wire, UART, and nothing else.
+>
+> The afore-mentioned next failure is also about graphic stack (hdmi
+> signal is lost as soon as VC4 driver loads), i seeked for help here:
+> https://lists.freedesktop.org/archives/dri-devel/2025-May/505475.html
+> (btw, if you have a hint...).
+>
+> Regards.
+>
 
 
