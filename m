@@ -4,86 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A4BC54755
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 04:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BA1BC3ABC3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 05:01:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kvfcu7T2A/G2Hmbq54J3Mh0UqDMA4DYECzMCK1eoCtE=; b=Ws1OO4ljgl0A5dxvCLPRz0OFwC
-	MTp5jJj8S179t7DCNmIrH21HosSxjRWRHz+FpE/ZWc8nI//OGWDuljHfCCgsyA+6hGpWp4KG+bjuP
-	GUET9TVRKrgJ48bdXYRho3xfbBWMO29d2WkEcZ4U6+QWK++qPScbr0ltzJTbBzdqSSDDIfpUX37Jr
-	oEnLqpUSsMYyu/GEYFXkIUhSNyMs0UdiqgzlaadX5mp8xQhPIyWifuAfNLLxu2uDjrnUGQkZE73EG
-	5zgZARHP632755QHzjHbGEPy0WBsOeTETYRcd8dPT8528E6qCgGdVBkn8fM59lxqKaKucuJdEu9Sh
-	ad4WNvgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=m+zxlnUKxt+MxgepQaSuKi9cGwLsvC3qdkFYAQ72HS4=; b=3VZmXpE0s1OzFijUeQU1+VkPAK
+	bBDWgdD2t6Bl7KPQS2Y0Anuf+DulM989iHlWWxB+WThoDGda4+7ZDH8RwC+1wHwIEbEVQeJUd0tGH
+	AUdm9UDYmsWulzxO7LJ1ZG6gvHRYqz2KbXSyP2U4TINNz9LCR0Fl27rK//0u69tq2+GBbVG7duS4K
+	RxpHs2P0At3NxrXICCRP7A5wZUKbQkJUQQfC4iK31V8/lvhlFL2rtyjdhiPBtMPC49BFQPGh3zvIi
+	OK9CXiQyQl5tJJjCqWszXB8BlwI2jx1pj7MerJWtRuY8FoXPdKZa9YJIMmB3j/HzbJg4JqKlfsxjT
+	6StqxU9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFQS6-0000000H0HK-3Pe9;
-	Thu, 15 May 2025 04:44:14 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1uFQih-0000000H1An-3VxX;
+	Thu, 15 May 2025 05:01:23 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFQQ5-0000000H0AE-08eo;
-	Thu, 15 May 2025 04:42:10 +0000
+	id 1uFQgh-0000000H13u-0VOj
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 May 2025 04:59:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1747284129; x=1778820129;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=eMKbF1YyG2PQHQK5zGvXb1tw4RrftzaTI5iILQ1V+To=;
-  b=WACE7H+j2+qXRqsLnKqDJM22eVtAFqlcrzMLM/z0EdEJDFrk1NgdEH9L
-   r4WYwMqpVEKqiKPHSnfSrdRZep9mn2vHbtzutVbri9eHy5YsMMbARx3PN
-   wjpm9zvdxJhkFyfwLwMS84Uo9wujGSjR0JYx47qlxvBv7fVpvCH+Srjsh
-   4rly5X/2arOgWVGQeAh8Nrs9Mgrhwjy0oqz+yv7+VMlmvuxNyi3dov1g6
-   NOHKzeKSrqOlE3XSldKf++BnELYL1L3vGRa7GwgBlQSgzp1PFln+sAaQ+
-   m6ic0YrSFEdzNUqkTEg7UETpx6hhfY1N/db0LlZ8yer0LZSUBrjO0xB/J
-   g==;
-X-CSE-ConnectionGUID: ErInYbBlTcK1+Dbt9Npyhg==
-X-CSE-MsgGUID: GR3iPyjCQAa3MrNBjgApyw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11433"; a="36825722"
-X-IronPort-AV: E=Sophos;i="6.15,290,1739865600"; 
-   d="scan'208";a="36825722"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 21:42:00 -0700
-X-CSE-ConnectionGUID: gmMAhZyOTOWsmCZCt08MmQ==
-X-CSE-MsgGUID: /lVec4e1RMaGj5d52888vA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,290,1739865600"; 
-   d="scan'208";a="138119667"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 14 May 2025 21:41:56 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uFQPp-000HvT-1C;
-	Thu, 15 May 2025 04:41:53 +0000
-Date: Thu, 15 May 2025 12:41:50 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Darren.Ye" <darren.ye@mediatek.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: oe-kbuild-all@lists.linux.dev, linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
-	Darren Ye <darren.ye@mediatek.com>
-Subject: Re: [PATCH v3 07/10] ASoC: mediatek: mt8196: add platform driver
-Message-ID: <202505151200.uFAkmc5O-lkp@intel.com>
-References: <20250514081125.24475-8-darren.ye@mediatek.com>
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1747285159; x=1778821159;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=4VztJ67csbNOom2wQRi838Nreo1zmt+wKbfXF4TmClk=;
+  b=bPSf5B74O1Gq0NJr7rUeTZyRNBkPUxy3zxkr45B7GwPn5smVM89UvnvW
+   piHkhRoZ5plWkf/KNBkFAXSEUm6uXmCafBlY+GYxpUiEA1VWWkDizfpZJ
+   Vqq0VcMC0nivijjMvvRVuBvbJrw6ozqjPYJvar0WrWysajP/OcQXaonNI
+   XKs5KWVu4MqUp4jOke7x/88HWu5w13mNzZEcSVGXlZjcy80nwvYLd8CAh
+   cCfKdZWRV3Eh02ikx/q8Lh02wMgoC3s078nazUg+Ea1a5jybq8kQrDsiA
+   AnqIYQt53ltmT55FmDp39BHdQHsc/aRW2JzpVBKQt5GMRm5FoBedKKeXF
+   Q==;
+X-CSE-ConnectionGUID: 7SwAsoW3S9q8TSOD2TSkbQ==
+X-CSE-MsgGUID: /cROPzdaS3GrzU0lo4VFRA==
+X-IronPort-AV: E=Sophos;i="6.15,290,1739862000"; 
+   d="scan'208";a="42133405"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 May 2025 21:59:15 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Wed, 14 May 2025 21:58:35 -0700
+Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
+ Transport; Wed, 14 May 2025 21:58:33 -0700
+From: Dharma Balasubiramani <dharma.b@microchip.com>
+Date: Thu, 15 May 2025 10:28:25 +0530
+Subject: [PATCH] counter: microchip-tcb-capture: Add watch validation
+ support
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250514081125.24475-8-darren.ye@mediatek.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250515-counter-tcb-v1-1-e547061ed80f@microchip.com>
+X-B4-Tracking: v=1; b=H4sIAHB0JWgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDU0NT3eT80ryS1CLdkuQk3SSzxFRDSxNTI0ODJCWgjoKi1LTMCrBp0bG
+ 1tQCOvc6/XQAAAA==
+To: Kamel Bouhara <kamel.bouhara@bootlin.com>, William Breathitt Gray
+	<wbg@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Dharma Balasubiramani
+	<dharma.b@microchip.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747285110; l=2402;
+ i=dharma.b@microchip.com; s=20240209; h=from:subject:message-id;
+ bh=4VztJ67csbNOom2wQRi838Nreo1zmt+wKbfXF4TmClk=;
+ b=q187hDCueE1QScVAwflXU6hvqLkWRU76EQZbtHTo2ZyqL/Jz2tvk9VZo07bPwp1m6foSk0EPM
+ GrIMjrDG8boByfWV3iwXTyloEioJwZqmBA2HCtGB3WZBboYKjAGn1gx
+X-Developer-Key: i=dharma.b@microchip.com; a=ed25519;
+ pk=kCq31LcpLAe9HDfIz9ZJ1U7T+osjOi7OZSbe0gqtyQ4=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_214209_088942_C483B639 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20250514_215919_440555_3E3DC8D4 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,54 +95,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Darren.Ye,
+Introduce a watch validation callback to restrict supported event and
+channel combinations. This allows userspace to receive notifications only
+for valid event types and sources. Specifically, enable the following
+supported events on channels RA, RB, and RC:
 
-kernel test robot noticed the following build warnings:
+  - COUNTER_EVENT_CAPTURE
+  - COUNTER_EVENT_CHANGE_OF_STATE
+  - COUNTER_EVENT_OVERFLOW
+  - COUNTER_EVENT_THRESHOLD
 
-[auto build test WARNING on broonie-sound/for-next]
-[also build test WARNING on broonie-spi/for-next robh/for-next linus/master v6.15-rc6 next-20250514]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+---
+ drivers/counter/microchip-tcb-capture.c | 28 +++++++++++++++++++++++++---
+ 1 file changed, 25 insertions(+), 3 deletions(-)
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Darren-Ye/ASoC-mediatek-common-modify-mtk-afe-platform-driver-for-mt8196/20250514-161921
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
-patch link:    https://lore.kernel.org/r/20250514081125.24475-8-darren.ye%40mediatek.com
-patch subject: [PATCH v3 07/10] ASoC: mediatek: mt8196: add platform driver
-config: arm-allmodconfig (https://download.01.org/0day-ci/archive/20250515/202505151200.uFAkmc5O-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250515/202505151200.uFAkmc5O-lkp@intel.com/reproduce)
+diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
+index 1de3c50b9804..179ff5595143 100644
+--- a/drivers/counter/microchip-tcb-capture.c
++++ b/drivers/counter/microchip-tcb-capture.c
+@@ -337,6 +337,27 @@ static struct counter_comp mchp_tc_count_ext[] = {
+ 	COUNTER_COMP_COMPARE(mchp_tc_count_compare_read, mchp_tc_count_compare_write),
+ };
+ 
++static int mchp_tc_watch_validate(struct counter_device *counter,
++				  const struct counter_watch *watch)
++{
++	switch (watch->channel) {
++	case COUNTER_MCHP_EVCHN_RA:
++	case COUNTER_MCHP_EVCHN_RB:
++	case COUNTER_MCHP_EVCHN_RC:
++		switch (watch->event) {
++		case COUNTER_EVENT_CAPTURE:
++		case COUNTER_EVENT_CHANGE_OF_STATE:
++		case COUNTER_EVENT_OVERFLOW:
++		case COUNTER_EVENT_THRESHOLD:
++			return 0;
++		default:
++			return -EINVAL;
++		}
++	default:
++		return -EINVAL;
++	}
++}
++
+ static struct counter_count mchp_tc_counts[] = {
+ 	{
+ 		.id = 0,
+@@ -351,12 +372,13 @@ static struct counter_count mchp_tc_counts[] = {
+ };
+ 
+ static const struct counter_ops mchp_tc_ops = {
+-	.signal_read    = mchp_tc_count_signal_read,
++	.action_read    = mchp_tc_count_action_read,
++	.action_write   = mchp_tc_count_action_write,
+ 	.count_read     = mchp_tc_count_read,
+ 	.function_read  = mchp_tc_count_function_read,
+ 	.function_write = mchp_tc_count_function_write,
+-	.action_read    = mchp_tc_count_action_read,
+-	.action_write   = mchp_tc_count_action_write
++	.signal_read    = mchp_tc_count_signal_read,
++	.watch_validate = mchp_tc_watch_validate,
+ };
+ 
+ static const struct atmel_tcb_config tcb_rm9200_config = {
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505151200.uFAkmc5O-lkp@intel.com/
+---
+base-commit: 9f35e33144ae5377d6a8de86dd3bd4d995c6ac65
+change-id: 20250515-counter-tcb-b6ae1945210b
 
-All warnings (new ones prefixed by >>):
-
->> sound/soc/mediatek/mt8196/mt8196-dai-adda.c:384:30: warning: 'mt8196_adda_enum' defined but not used [-Wunused-const-variable=]
-     384 | static const struct soc_enum mt8196_adda_enum[] = {
-         |                              ^~~~~~~~~~~~~~~~
---
-   sound/soc/mediatek/mt8196/mt8196-dai-i2s.c: In function 'init_i2s_priv_data':
->> sound/soc/mediatek/mt8196/mt8196-dai-i2s.c:4001:21: warning: the comparison will always evaluate as 'true' for the address of 'mt8196_i2s_priv' will never be NULL [-Waddress]
-    4001 |                 if (&mt8196_i2s_priv[i]) {
-         |                     ^
-   sound/soc/mediatek/mt8196/mt8196-dai-i2s.c:3889:38: note: 'mt8196_i2s_priv' declared here
-    3889 | static const struct mtk_afe_i2s_priv mt8196_i2s_priv[DAI_I2S_NUM] = {
-         |                                      ^~~~~~~~~~~~~~~
-
-
-vim +/mt8196_adda_enum +384 sound/soc/mediatek/mt8196/mt8196-dai-adda.c
-
-640b731680b027 Darren Ye 2025-05-14  383  
-640b731680b027 Darren Ye 2025-05-14 @384  static const struct soc_enum mt8196_adda_enum[] = {
-640b731680b027 Darren Ye 2025-05-14  385  	SOC_ENUM_SINGLE_EXT(ARRAY_SIZE(mt8196_adda_off_on_str),
-640b731680b027 Darren Ye 2025-05-14  386  			    mt8196_adda_off_on_str),
-640b731680b027 Darren Ye 2025-05-14  387  };
-640b731680b027 Darren Ye 2025-05-14  388  
-
+Best regards,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Dharma Balasubiramani <dharma.b@microchip.com>
+
 
