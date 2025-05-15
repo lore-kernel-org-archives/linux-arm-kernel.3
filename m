@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3727BC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 09:33:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5D7FC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 09:35:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lN93nT2IoUTFSDaQicw10spvaC6WDUkX0PMh0MiSAfc=; b=0Ai/lN7yKETxgn00W0VohGC3r3
-	4woo9SdjvhChoymFAv1lVZ5xl+K2v9LUDrQinfGRUgsUt50X7QtlKk8eWKrG5ac8QJ+8BZvYLKkKD
-	zDPN9yeaDaRhgd3NNdZwv0A5wP8bK7VdiYdY5zDke/EEybBn8XUzG0ZJQEb+UkNE4SEQkl5T1uCHz
-	e/fUVF6tbMu7A+6/YF9Ty5/cBkFN2pjtIItyZikIccY+9mh2p9sgbsTmGHUQG7zdbo97wQ5581i2L
-	yCZR6Ttc+P+DhBU7ZCt2fMWa51g65zO4DhHRCq3e8hFhvVENM7YKPQ8u8yqAJwwBGPfX20nHKo/Uc
-	wnWx1WHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ubCfZqnUCO4PP/bK7tVaPooeXZwMddulOK5iV2CA9+w=; b=xlh8C0oQ7UxST8P8AM4K4Q4CJg
+	r1pjwsI5/hKzWkJers3TOMITfhWSjz/FUH4bKDpFNY7ZdsFVJPYfdGVfsvLX7ygkG+Y9JemF8RRJ6
+	tyc7iHOzdpT4rzrIi/A8llw3nQDb6KjzcG9ZyykTqOnf+kS0lQqaAyezAdkDRUMwqBOXWI0XWaeHZ
+	m1sBdwE4fx+4+2chh5M89Ez4+IS1MSvI0HXGoMxO17r77pHNP0QDOAFxUcDU+LZHIGcbkfwdiV8w+
+	5kmIxIAFM7XxQtsWqfyaLbvWf2jACbFAvObodywR3wpzVss5DaTXr4LSS/xdWcIZvFbYTW0edrgnk
+	dFS+osSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFUxV-00000000AcH-0g27;
-	Thu, 15 May 2025 09:32:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uFUzT-00000000Ang-3eiD;
+	Thu, 15 May 2025 09:35:00 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFUpl-000000009Fo-28NY
+	id 1uFUrk-000000009YI-0lMM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 09:24:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 52EE35C10B1;
-	Thu, 15 May 2025 09:22:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C28A3C4CEE7;
-	Thu, 15 May 2025 09:24:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747301096;
-	bh=JZp32cGnARt5v5SngWT8bwZW1Jh8iJC7PUvH3dlXTsI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=A7mU282LSWsGdpwJ5DOiLTIAyqVyxqrlhiVc/v/e9xV8IF8oplET2K7F1vaW9ndS9
-	 Tlas2OXmX6IsN+pRPlTSwvSVtCP/Cw8hsCLXnTBqvAPakVN7aP6hBug3Z5jAfSXubn
-	 ZZrk7AA4uR2EeRexTRs3IkByDiF4sfYVO8tBjoHvFYBpCuapOsYHAbkzEnbptayKPG
-	 MaoK0JqisvSZA0NJiNex8WCJ8Q3RnsW2nI/+VLG9cLM4obd3XEaUHaDi8QTplnEc1M
-	 321EnbfQT9BLZhjy61zQ22mIKJpakf9bnmHCgr0tDdiOLD7gc8Vv4jdSy+oggRK3O8
-	 BkvdzdvjkhAOg==
-Date: Thu, 15 May 2025 11:24:53 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	wbg@kernel.org, jic23@kernel.org, catalin.marinas@arm.com, will@kernel.org, 
-	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org, 
-	linux-pwm@vger.kernel.org, olivier.moysan@foss.st.com, lee@kernel.org, 
-	alexandre.torgue@foss.st.com
-Subject: Re: [PATCH v3 4/8] pwm: stm32: add support for stm32mp25
-Message-ID: <5ui74qlssllgn4h34by5jcpi5g6rknziclcsh4w27tjvznynsv@lcjtjxn6rovl>
-References: <20250110091922.980627-1-fabrice.gasnier@foss.st.com>
- <20250110091922.980627-5-fabrice.gasnier@foss.st.com>
- <4b641513-ff2e-43ab-8074-ba6b521875e2@foss.st.com>
+	Thu, 15 May 2025 09:27:01 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 780BCA0149;
+	Thu, 15 May 2025 11:26:58 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=ubCfZqnUCO4PP/bK7tVa
+	PooeXZwMddulOK5iV2CA9+w=; b=pLkczEHjHfzoDsoFPgNwkuAKJL+9PunTHLhx
+	tgUiuREirMWir6ZXaPHUPerKZST1XdJLonM2kdiuvzyaREXhUSl+whgNGA7C6crB
+	S6F5iFaPVvnU+2TEfYpgbXYmh38WdDpKb7JxweaJusQ35Mi2dIwU7ibb3uI0J+KR
+	k4mfqfl4q18OzECYimwK9zWgRTWQYruap8fcRYnhyO7aUKtiCPIUrD+oRyenU8+K
+	n/CcICixGzzaz9Gdfejusx/JrcjyIEYvd1HVCoHUpvrRSDa5mJsadMWogpO3Zlbk
+	2f8ZrDGnz8riHlG86Prpd/Um0+xe+eS+i2R1xYNsUAwHuEoWSi9Y2LlJfJ5I6nZ3
+	a7b0helHriLNUldNahETbvZCgCfLNJJMSsHaLRleW8n2yK7WrUHD3LEXsMkKDA/N
+	bmGq/Pr1XRDQSUI/sVlex1QhfLsbMLqJ3RFNjq28WbELXB7isS9RgLVgxrY83Ks+
+	vEK4cUYgOKK59B4jNHN5dzzOrePbCjGp+APfAl6TVBk4SEj+qYJWuAqtSG0Vo6vI
+	Gs9XmmzC2sae83NjO8VwEsjfimmavGYdZkmChEfwYSCGVxaQEyRNO1ZFXFW2qlo0
+	hNbvndPXTXVflP4bsDVXcaLuz5pnWkIYLPSuR9NFgBx3cU/sPOJQv6wtOL7UROuK
+	U6YQat8=
+Message-ID: <9d384301-3f73-4120-a82b-580eb5f1a4ed@prolan.hu>
+Date: Thu, 15 May 2025 11:26:57 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="dxezo4t7v65ydh54"
-Content-Disposition: inline
-In-Reply-To: <4b641513-ff2e-43ab-8074-ba6b521875e2@foss.st.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 0/2] Add `devm_dma_request_chan()` to simplify probe
+ path in atmel-quadspi.c
+To: Mark Brown <broonie@kernel.org>
+CC: <dmaengine@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, "Vinod
+ Koul" <vkoul@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>, "Rafael J. Wysocki" <rafael@kernel.org>, "Tudor
+ Ambarus" <tudor.ambarus@linaro.org>
+References: <20250515083132.255410-1-csokas.bence@prolan.hu>
+ <aCWpjplhAXUvr9fj@finisterre.sirena.org.uk>
+ <e4e6c7a9-9b7a-4012-8bda-75804229ec95@prolan.hu>
+ <aCWyXsJ2iRXRUmOi@finisterre.sirena.org.uk>
+Content-Language: en-US
+From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
+In-Reply-To: <aCWyXsJ2iRXRUmOi@finisterre.sirena.org.uk>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.254.7.14]
+X-ClientProxiedBy: sinope.intranet.prolan.hu (10.254.0.237) To
+ ATLAS.intranet.prolan.hu (10.254.0.229)
+X-EsetResult: clean, is OK
+X-EsetId: 37303A296767155D617062
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_022457_593604_B82EB67D 
-X-CRM114-Status: GOOD (  21.70  )
+X-CRM114-CacheID: sfid-20250515_022700_373603_925F5E76 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,62 +90,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---dxezo4t7v65ydh54
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 4/8] pwm: stm32: add support for stm32mp25
-MIME-Version: 1.0
+On 2025. 05. 15. 11:22, Mark Brown wrote:
+> On Thu, May 15, 2025 at 11:14:22AM +0200, Csókás Bence wrote:
+>> On 2025. 05. 15. 10:45, Mark Brown wrote:
+> 
+>>> I can't tell what the plan is here, or what the status is for the first
+>>> patch (since I'm not CCed).  The second patch depends on a new API
+>>> introduced in the first patch so it can't be merged independently.
+> 
+>> Yes, the situation is a bit convoluted. Obviously 2/2 will be applied after
+>> 1/2, in a similar vein than the former PM series.
+> 
+>> So what I was trying to say: Vinod should be able to apply 1/2 to his branch
+>> (dma/next) right now, which can then be merged to spi/for-next. This merged
+>> branch should be able to then cleanly apply 2/2.
+> 
+> I wouldn't expect to pull the whole DMA tree in, that'll have a huge
+> amount of extra stuff in it - if I was going to pull something I'd
+> expect a topic branch. 
 
-Hello Fabrice,
+Fair point.
 
-On Wed, May 14, 2025 at 11:30:26AM +0200, Fabrice Gasnier wrote:
-> On 1/10/25 10:19, Fabrice Gasnier wrote:
-> > Add support for STM32MP25 SoC. Use newly introduced compatible to handle
-> > new features along with registers and bits diversity.
-> > The MFD part of the driver fills in ipidr, so it is used to check the
-> > hardware configuration register, when available to gather the number
-> > of PWM channels and complementary outputs.
-> >=20
-> > Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> > ---
-> > Changes in v2:
-> > Address Uwe review comments:
-> > - Make MAX_PWM_OUTPUT definition less generic: STM32_PWM_MAX_OUTPUT
-> > - No need to initialize 'npwm'
-> > - refactor code, for *num_enabled to use same code path
-> > ---
-> >  drivers/pwm/pwm-stm32.c | 42 ++++++++++++++++++++++++++++++++++-------
-> >  1 file changed, 35 insertions(+), 7 deletions(-)
->=20
-> Hi Uwe,
->=20
-> I think this patch still miss some reviews.
-> The first patches of this series have been merged.
->=20
-> Is it ok for you to merge, or shall I resend separately ?
+> Wouldn't it be simpler for me to just apply both
+> patches at this point if there's no conflicts with the DMA tree?  We're
+> at -rc6 now...
 
-I have it still on my radar, no need to resend. I just have to find the
-time to look into it in more detail.
+That also works for me. I should send 1/2 to you as well, correct?
 
-Best regards
-Uwe
+Bence
 
---dxezo4t7v65ydh54
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmglstgACgkQj4D7WH0S
-/k7tvQgAr0tuQYW7a8kZHG4D+r8Ju5Etk+73ekoD+5NJcmpwe6C8Nye8E3mKfgS6
-bWCXuQS9aBsBvnmwFzIV9jkcwJrdeejQfv46EJ0IOZZFloj7b/vB3K/L/dzS3Ray
-XkPiy+M1R1rGt5B5X1U2gyUK6QRCE4KOMquhXMRCQxO7zqXlozUOk2rcmcAzgGMV
-tpQY/lDPoA9V6k4R6WL4yGAzwybvl+ASbzdrDmsjuIcW9On5Y5xDzkeVH9RSU5P0
-apvIu6hfS3bj3LvTF8QiT9emDOMQJAMU0J5t2YOeazfw/A7rFfqFQl7FA4Z2nDGZ
-wxTfL+UCcOGnVPHKb0fByZ5OKLMqrA==
-=ZB/v
------END PGP SIGNATURE-----
-
---dxezo4t7v65ydh54--
 
