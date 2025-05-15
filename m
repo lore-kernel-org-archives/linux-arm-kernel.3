@@ -4,86 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58D89C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 15:44:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AEBBC54754
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 15:49:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zEHeE/LsGpP7MauSUuR1G6rmRo9uEtgsUB/PM7XoDEM=; b=mEZK1HCHn/+uO7UJ6kOSEa17fk
-	akNVX8MVs497HHSE1E/2ni+BtYVBFPOuaInFPnyGTuLQOya3wOPdu6dvmysJak8l7VguuWh6aX9Z/
-	RHfzvYF9CAaPPXf1pYDbxWQnRY6/KmaHb3HsGffEZFNRMcxz8rz06FOu9c0xuTo4l1qPS+YSfI7Hn
-	Okb7s9XgGfWM26b1HKfr1Vw0ctAJizaM2ffTINosY/YUmIh4/8JXqmLSl7WdW+avmmWgrCPcqKQh9
-	aCyrGy/zkBxaDu1zbNoelrQTiPX/xcuVFImqXTgRxMHti22VjRVGwx430DnHYmjqv+RjGjviEsWbQ
-	G3Ahx/LQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iefSatW6oFGrk0hCOerOc6+Pe+Fjn+g47KmLI+MHu+s=; b=GSCn1JrxQWfOjS1cNJi7E/ufPD
+	3KaSPsP90i1TEy1kgPIk+F7F2JwPNQ6n0iVD+NeW9DL3H/jJxGsYUZL/Mypnzjcmcv1VyBzu3Q3xi
+	Kyf+NjfyJxSCHqWdxM5THonF4uuYUkBQ/AgSm5tYN+lxBvYCH3LqLwM5tN54NRC2134B4Qy/nBTW9
+	Kks3/Y3dzrVSotlsqQH//6RoF7Z/7cmci/JZ4n1HmJapgzmm3zZGp70SG5YxDvNWniPS0hEmTpV2X
+	xfuckEKtl77HcIy+pVNNg4IwReHazfa4QsJHzZNmE4b1c8EH/ZshgEIavYyncKm25nAQJIydoJTdN
+	z4OjmFcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFakb-000000016U6-41Yd;
-	Thu, 15 May 2025 15:44:01 +0000
-Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
+	id 1uFapK-000000017JV-3k0R;
+	Thu, 15 May 2025 15:48:54 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFaiZ-00000001629-10PF
+	id 1uFanH-000000016vE-32Zl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 15:41:56 +0000
-Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-6f544014883so6688766d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 08:41:54 -0700 (PDT)
+	Thu, 15 May 2025 15:46:49 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-54fc9e3564cso1392451e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 08:46:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747323714; x=1747928514; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=zEHeE/LsGpP7MauSUuR1G6rmRo9uEtgsUB/PM7XoDEM=;
-        b=XougXhqgMS+Ev/w5359RyV6VOAcyeoTBX5huBbrcHb7JgqYcRDTNgW1MgCIDqCwpsR
-         AdaLKRbzWgPaGsw0YTUM40YXABbw9lpHxThL99UZtLHpbNvWyxl2uc1P5O1Vkk2/UBAd
-         OgF+A1AufGQYbfxYP1FuYckTjPXGHRb/YvSK/aSm0zLQtNAVMQBiY/KdRDzOSkqlBPd0
-         2BXnXw3j+Xomy+pEBVmRNhr8JvfdGXb69rczkHGisLYNTHPXjLgYScgNy9sBQiU9bjLB
-         IpJaBxt5omaLWSdQjszZHh22uDfCzGsDluJY5PeR4cg1gjR0yifoyfkyW4w4BQbDqCKc
-         VirA==
+        d=gmail.com; s=20230601; t=1747324005; x=1747928805; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=iefSatW6oFGrk0hCOerOc6+Pe+Fjn+g47KmLI+MHu+s=;
+        b=I9yaBhUngKTE6k8riPeY7Er9sp/31gDklCHkyK0xYDF3Gthhh2W1a8KCf+auF1HVDr
+         NQOOc40hURcKN7stLlv+Hdhlqljc30jdsj1i5g02Vhsr5B8Bw0EX6MpMFvYWJWqT2Smy
+         wQz7kqo4fllNhvMu8DvnZfK9oACdf8MhSgg4tLxnEkFKSGRMIypzwjKbGyeoPwgkMlTj
+         uhqfUYBlxWk0tYidGX6VyD/BE/tmTcPkYFPreH8iCr7JY6Zw8g4Q0R6/3aTPecCbagOp
+         dTTTJPFml7OYmbV4A+KcqTMfZuKAZkQeuaGVUBKzqUhmFflOkAUWw5YR/mubFtBESu/8
+         rNhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747323714; x=1747928514;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zEHeE/LsGpP7MauSUuR1G6rmRo9uEtgsUB/PM7XoDEM=;
-        b=wm7TBIPqS0hByx+IdbknKZKE6ukvugj8/RCQBfqtPzIytXqn27y/KIboNW0B03uFPm
-         6zx0ALAQOLGEkDyylP8fzXu028aPsUu6VC1+SZxNKzqDVOoPheKG/xWx7qxAZ6LVfnc9
-         X1O7CgRTD6BkhSDcO1fPWLCye5JmwR+8Ok27a64Kg4Z1rS9LgJVfzMrZeNa+VW7BLCKK
-         TP8c0dy+gTcnVkZQy5SVhGqlKnSo9m5+fi4Q7GVk4wklmDL0PnqpBo/qhbOJQ02wyiDu
-         ZCs8TNpVaw9IbGdit1D2IzJjbMShqsiJF2mcn1rHfChGmuLI4Bae5wLsGo+nNZm3eCZc
-         wNTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXR973sM3KkPf/SJdAUcAjMtcaV34C/RfQLaB7JRLh07AAsUvtvbNuXzYqNqVBsZhdmo2lePBe8QbTcwCzJFkxR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzlgn/IS7FOAo8CP2Lbi1cIJbC/kRwB0sByc/2mytbAouWlxheD
-	Px3KVz0J6ijKANm2VeF4HN9v5eZNU9cZneLko6s8kmduyiiU2/pvaeJQ
-X-Gm-Gg: ASbGncvzHr90OSuGxi2ta2AE9vMZd/NcoatP7oS7NGT9i7MJUGiBvglU55wh2GqsHxN
-	cjD/6DIN5UBlHdtkPWDwujISQ0BgiB9iwgrHWy314RpwTTCpx7TLiHWCWaCszyQRIUHzc/4ld/F
-	yOsHnx7XnO/qpQyXxznwOOCsboTvT9BytbilzkUn0ILhdaIZ1+nQY7LnehNhLLUkLADe5yiC3bW
-	k4tUtZ6drNJ9g5dhihv0S4DfyWO0n3n6V27xXuW2yzWTmA63LjAmXHQ4tlWZ1V3oGmN2zhHDIv+
-	GioxmrgnTdUT8IVqgcfvqGDDIXxVJeh+NQmCsOP7KyTdX/pjouV0cLmzvQ8hhsGc
-X-Google-Smtp-Source: AGHT+IGDFyA8q8aqTgi49SZ0JI3d12lh/ntac+FRmn1YMbs2jnYtuoRsDMJOVw0+g1Nr6tlxa3g6Xw==
-X-Received: by 2002:a05:6214:d6f:b0:6f5:46b0:7d11 with SMTP id 6a1803df08f44-6f8b093a666mr2699706d6.36.1747323713728;
-        Thu, 15 May 2025 08:41:53 -0700 (PDT)
-Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:83e:4807:376c:1d4d])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-87bec10c9f0sm95682241.1.2025.05.15.08.41.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 May 2025 08:41:53 -0700 (PDT)
-From: Fabio Estevam <festevam@gmail.com>
-To: arnd@kernel.org
-Cc: herbert@gondor.apana.org.au,
-	ebiggers@google.com,
-	linux-arm-kernel@lists.infradead.org,
-	soc@lists.linux.dev,
-	Fabio Estevam <festevam@denx.de>,
-	Arnd Bergmann <arnd@arndb.de>
-Subject: [PATCH v2] arm64: defconfig: Ensure CRYPTO_CHACHA20_NEON is selected
-Date: Thu, 15 May 2025 12:41:36 -0300
-Message-Id: <20250515154136.435685-1-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20230601; t=1747324005; x=1747928805;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=iefSatW6oFGrk0hCOerOc6+Pe+Fjn+g47KmLI+MHu+s=;
+        b=okvbk1sJsEr1kATh/eMkAy2oCbmtT+qOL1Uxs9lTdiEzbjeWUMBuyRWz5tkdFB01QX
+         3u2lzDgU2GZR/T1A8IjHvQf0hgBxmr8y0c6ZZ5JSL5bYTk/6ENl+l8ygBjsFrR4Q7ZXg
+         T66GUirZ4oV0z2T408JWyPsxVusWTXIMcxcUy5vaKIl7HOCrxDLoUH9hUQ+1jk6fQ2Aq
+         zorl5JqEF0eVqgwGDrq4mmTuSFtPtjr3/Exhi2OIMnSpJVM+RRzZ7XKDL2vwiQJV7mVE
+         Fsl9+Wh/P0CKZeYv+zslS1PU4wWzItwuwh4llvA4IA8tRnj7iEKNcLQLnSGqcXCZE4qx
+         AdLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUt7z6fii/a2AfqZb5lBsYbB2ndNUxP3d0ZN5uuG9Ho7RDLWNSS9dTFyRXYZuEJXv516btp6+IH56/1CJAjb2lU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpdGsb8tMszF8TtVPoWlWcRODKbyY1EWx5veKAzc30CV44E27B
+	7lI1Zi/oiNamg30q9RHUJtTGhNqk66bdljUMHve+J/Til93PkW2L
+X-Gm-Gg: ASbGncv8xxGuELUrCBg/x7NfT+vQZVB2VADt4JpYfmMR43IazFIGg/LPeoiktW0JUwe
+	qsfH84AU4y5HNDSJSUs0iX4ylSnR6kVqxHjbzPHsmdPD/7y7ijucuRV09572j7GVnGxlAN24SOQ
+	fcvLFl8RyJ1UiLbY6PGZ0DOQ2GuzotENzL+4j5Lt4A5gbOfIKvXWSLto3UqbG7NyWySRJvnOD1f
+	Q+BturpiIRF81OAWzhEoaFUF6PjLDKyE45lSRblKj+v0XPNEtT0g90tWUXMInxa76ilPHCdflH4
+	5G9mOjXndM90/J1gcgTPruKhhrR56I9MSGi4oCWN01cLognJ2FBUWbhtW77sg5DmkZz/aqR03Ov
+	xpWQMbSpRKid6Q8x092RD0/Y3mFY3EjKOFEZs
+X-Google-Smtp-Source: AGHT+IEVKM7oG9wZtg8KET+lsroz9mMvLkh8FdUs5mQMfI0T7TH03Y4MtAKf9+PYXbfxDliE50H8dA==
+X-Received: by 2002:a05:6512:6099:b0:545:6fa:bf5f with SMTP id 2adb3069b0e04-550d5f7a8aamr3118415e87.2.1747324005372;
+        Thu, 15 May 2025 08:46:45 -0700 (PDT)
+Received: from [192.168.50.244] (83.11.178.15.ipv4.supernova.orange.pl. [83.11.178.15])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-550e704041csm699e87.254.2025.05.15.08.46.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 15 May 2025 08:46:45 -0700 (PDT)
+Message-ID: <6fd5ad47-8f01-43a4-aa92-e067c25ff195@gmail.com>
+Date: Thu, 15 May 2025 17:46:43 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 4/9] mfd: bcm590xx: Add support for multiple device
+ types + BCM59054 compatible
+To: Lee Jones <lee@kernel.org>, Mark Brown <broonie@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
+ <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Stanislav Jakubek <stano.jakubek@gmail.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ ~postmarketos/upstreaming@lists.sr.ht
+References: <20250430-bcm59054-v8-0-e4cf638169a4@gmail.com>
+ <20250430-bcm59054-v8-4-e4cf638169a4@gmail.com>
+ <20250509140957.GD2492385@google.com>
+ <aCRZzwW0w8oVWLUp@finisterre.sirena.org.uk>
+ <20250515071357.GD2936510@google.com>
+ <aCWfre2-n_PSuhxR@finisterre.sirena.org.uk>
+ <20250515092000.GF2936510@google.com>
+ <aCW0822BVpfKV2NL@finisterre.sirena.org.uk>
+ <8beeddcf-1dc7-4af8-b287-4c896852b258@gmail.com>
+ <aCXQUu97HL_yrH89@finisterre.sirena.org.uk>
+ <20250515131321.GG2936510@google.com>
+Content-Language: en-US
+From: Artur Weber <aweber.kernel@gmail.com>
+In-Reply-To: <20250515131321.GG2936510@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_084155_277418_1D8F74F6 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20250515_084647_765294_87A1EDCA 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,46 +118,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fabio Estevam <festevam@denx.de>
+On 5/15/25 15:13, Lee Jones wrote:
+> On Thu, 15 May 2025, Mark Brown wrote:
+> 
+>> On Thu, May 15, 2025 at 01:28:15PM +0200, Artur Weber wrote:
+>>> On 5/15/25 11:33, Mark Brown wrote:
+>>>> On Thu, May 15, 2025 at 10:20:00AM +0100, Lee Jones wrote:
+>>
+>>>>> I can go with 2 in this case.  Applying in dribs-and-drabs as Acks come
+>>>>> in would be sub-optimal and would likely end up in a mess.
+>>
+>>>> Well, then just going a head and applying them on a branch with a tag
+>>>> seems easier than delaying then.
+>>
+>>> I can split the patchset into two parts (one for MFD, one for regulator)
+>>> if it helps.
+>>
+>> There's still a dependency on the MFD bits whatever happens.
+> 
+> Right.  That won't help since you need to describe the deps.  Submitting
+> them as a set was the correct thing to do.
+> 
 
-Since commit 17ec3e71ba79 ("crypto: lib/Kconfig - Hide arch options from
-user"), the CRYPTO_CHACHA20_NEON option is no longer selected by default
-due to changes in how crypto library options are exposed and selected.
+OK then. I submitted a new version, v9, with the style nitpick
+addressed:
 
-To restore the previous behavior and ensure CRYPTO_CHACHA20_NEON is
-enabled, explicitly select CONFIG_CRYPTO_CHACHA20 in the defconfig. This
-pulls in CRYPTO_LIB_CHACHA_INTERNAL and allows CRYPTO_CHACHA20_NEON to be
-selected automatically as before.
+https://lore.kernel.org/lkml/20250515-bcm59054-v9-0-14ba0ea2ea5b@gmail.com/
 
-Fixes: 17ec3e71ba79 ("crypto: lib/Kconfig - Hide arch options from user")
-Signed-off-by: Fabio Estevam <festevam@denx.de>
-Acked-by: Arnd Bergmann <arnd@arndb.de> 
----
-Changes since v1:
-- Added Arnd's Acked-by.
-- Added soc@lists.linux.dev on Cc.
- 
- arch/arm64/configs/defconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 04619fe7e22a..7856db7dcfca 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1723,11 +1723,11 @@ CONFIG_NLS_ISO8859_1=y
- CONFIG_SECURITY=y
- CONFIG_CRYPTO_USER=y
- CONFIG_CRYPTO_BENCHMARK=m
-+CONFIG_CRYPTO_CHACHA20=m
- CONFIG_CRYPTO_ECHAINIV=y
- CONFIG_CRYPTO_MICHAEL_MIC=m
- CONFIG_CRYPTO_ANSI_CPRNG=y
- CONFIG_CRYPTO_USER_API_RNG=m
--CONFIG_CRYPTO_CHACHA20_NEON=m
- CONFIG_CRYPTO_GHASH_ARM64_CE=y
- CONFIG_CRYPTO_SHA1_ARM64_CE=y
- CONFIG_CRYPTO_SHA512_ARM64_CE=m
--- 
-2.34.1
-
+Best regards
+Artur
 
