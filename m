@@ -4,87 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38EBAC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 15:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 611F1C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 15:18:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nr0nXxmcRsw9rEQvUzs9fjSr7Uv8dGrjViFhcLGXgAw=; b=2K3Uqwgj6qFT6WIa+viXkNjINu
-	LKr2XUrxH0s6mjrfxMwImbRihlGtNQm6gy/MKGoFFawPsWkhMpG3oIWv3qunogkhfjOanV0pIAl+7
-	MfTGlb5tUr0LlGxSAHEr95gWs9FarzYIqubQnm8r4mZq8LyzyRbS5dQC5Gj67s2ROl9jwoPWGfe6J
-	YuRJaHCQK+MO0CRsKLv4awNucS48+8/xYpa0tLGyu7uEU/yB4HhCToj4CrtrF9DtVY2oUrF8qjyTY
-	dZZjFE7v6dCItkvdHC1hcEEcEFY0c1Hzk+X8vgbF1FM1iHwvmfJq2Q91CNGxe3JVg/K4V1xQUwY0i
-	SXCHZC1Q==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NH01uZvPrEv4ksNpQ1rZoCezrf5Rv1GWIBj36FVw9g0=; b=rD20voWrPGNzmQfuLuczsvNPY7
+	uVa/rwKodSiWknw0UydeCiQ2P56zAl++sRiyz7dj2/TP6WQtgCdphhx6lJrc4+OTayMgJm1LNVY26
+	9VxBqm/RvPGA/n3XWP/LgC63eon0QIAakSsY9E5rxIE2hKx79m2vN5n0By6lrUyvqXMVHzdS9SSe7
+	mUga4ZOrZqPGWCNjn6aGwmlJjWttL4gAp8jjA8GBCfRgxDthxDy2yW+2U+yyfkM9FOyYilY98tFP6
+	0Qp362gq0Ak45dA5OIXNyQwH/OunD3D6GJNmSQpYq89cx0NUv7hr8YhXoqJKrIva+/JupODIpp/++
+	FJRfD5ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFaJw-000000011af-3lmO;
-	Thu, 15 May 2025 15:16:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uFaLx-000000011tn-0isf;
+	Thu, 15 May 2025 15:18:33 +0000
+Received: from mail-vk1-xa2d.google.com ([2607:f8b0:4864:20::a2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFaF1-000000010zP-0Zjr;
-	Thu, 15 May 2025 15:11:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Nr0nXxmcRsw9rEQvUzs9fjSr7Uv8dGrjViFhcLGXgAw=; b=b+k1lvGk8HJWOFziRjPS4/s9O7
-	qkQaXz15iHCAvkcADXJNRBShbJD9HtARmGFcyoQgkkfGeJX6QQedJN9vS47TUIL27YtbMY8TSp1Y1
-	Pqp67n7kqx3oEKcIZGMwtsdETSnLxudoODtM5Q01/dV41IwkGnwbwtNQyjN+BoZQ+GC8JbbAap+g/
-	88JAMWwSaULySvFJZdjpWpomB3T9m7/vRP8wN+ckq5BXUtSKzN2Jus7d77ScKkafcU2r2ePiB/7V7
-	2XdtBE3kw1Qx6H/dUPtSTyR5R5xGJRfIGAkNORKO1dglsx75m9rqgU4j66BXP7HlLPrdAhtJB73zF
-	KIucQZfw==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uFaEx-0000000HUpt-2s6P;
-	Thu, 15 May 2025 15:11:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1747321874;
-	bh=X3Dg1aIIyiODeevYtcoMV/eCFObvTdGT9GPFfSk5gis=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LReNZ4m2ieD9KPscuI37q3qPeSnhXB4sbnjqzBI/3cDxVPK/OQysaTXJDNqBiJc4W
-	 0BEQFt6ssqmEaErwYOisMATNcuGkLR1HPkDXBvGIYrCiLtGj2lZQafz89Gki3zGPOv
-	 sXmPiJ+vun1YCBkKx+u2Uia+Gbuhrz7oMu32w8b35uqORf7m8Tt7+vHHwGA2au58vO
-	 uKse1vMMbCFyWnmuCIu1BoGrV+10ijkAl8/8CxBd+87cT/m4RYFfm+yBCGA1581zwi
-	 8JzZvjt3abMvkOC1ABtbPQOfj/qFfRKq5wEwdXIkjn0s2eimCNMzXyTIxglNdGxySi
-	 /Dgg9YyEY0vEA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BFAF017E05F0;
-	Thu, 15 May 2025 17:11:13 +0200 (CEST)
-Message-ID: <cbd170a3-cbfe-4b4f-a059-efe33fed0e5d@collabora.com>
-Date: Thu, 15 May 2025 17:11:13 +0200
+	id 1uFaJs-000000011Zc-0XuZ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 May 2025 15:16:25 +0000
+Received: by mail-vk1-xa2d.google.com with SMTP id 71dfb90a1353d-52c65c00a02so341922e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 08:16:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747322182; x=1747926982; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=NH01uZvPrEv4ksNpQ1rZoCezrf5Rv1GWIBj36FVw9g0=;
+        b=K0WkDJOG6xJvzM06sGS6NYHEQ+UEDoxP+q2RL+w2jcIWoOf6c/oHbClH88Oe9FISGv
+         A/3Prmjjz592/0pi1fge6fkXMcAUxX+7aFCgl7VG7qwqRNQO83+j4zXyaMddXXtOcFrP
+         eqDivtxQ5vEPEhnfhfPh8xc9CuikWME5urgxnOJCuDy5QPTzAIgZDCfeHFfU7Oi/aI2D
+         rCdj6xsU1JGUqjaTyfAVNS2Slqjz/ulY0pTNBeqLk9SIs/IwbznxrWKjSuuLd2M3qw8P
+         HnUyJw8B82XkGHPzXLBHDcBx8i/aMgzyV2+2gIEvm9r3jLzIwfQPSzJUrtMEoIdQGV0v
+         woQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747322182; x=1747926982;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NH01uZvPrEv4ksNpQ1rZoCezrf5Rv1GWIBj36FVw9g0=;
+        b=TDvOa38F+yWL528CVBq3CEHnoosfOph6I6kLGFWq9HqpfWO3T0E6zO+bOkw7P93ej2
+         cYT7TBFabAkx/mcOagv/XVu66oA+ursYzvW4tSbXQvpuSSLdnjMp8NuDb3gfh0ya+X3z
+         FukPM2jB1yTUe99FYwYRnyMNg+1HiLpL0PVsHGCmWjQz+kL2/aO1D9+kUSHh5mcQAsau
+         iNgbwt30c9deUaXjbKCl/nSsWMHwLY9P8jyCtz21lMPWSGqiT0Nyf5AFF1Y1/DoC+/v0
+         6bWzSrSd5UngklBOA1Ebj0WMTQA9y4R7C9ibPD9cwxQlV7QOZj6+Wto2HgY1FlTO7vER
+         LJ6g==
+X-Forwarded-Encrypted: i=1; AJvYcCW62U+XEBNemQhJeSZn7GBlRnRl5RsQIM1PMcJwF2gTFvBcdI3LzIRWa52RH82i/+lmdKJxFlrRwMHU+MwLm7uM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzbm3xb8RsGGcBfSjMsV+L5TEgiuMadgqw1SRwVSRL/si+89Fnk
+	sw96VnJOIyfRDu7DMK5dDyDeRYv89fFp2KFHfITdFGw7zTlreJ7sP7r8
+X-Gm-Gg: ASbGncvWbofNED/wHSWS44bsC+qaiev3PvuLf8Ut+dLBeVi36QS1aJpfXd/lYb08k6V
+	Gal4KU2EcI20GMoiogFyziKYqUU8F2KaoG04QB4UV83dh4vkQrNKIcAfVicicnpHtBTrgE71wT1
+	2LOq12ND6tUPIbuY7zU3c+gQua1gV/kDiHQkp++rw7OpyRUjLmaLqQjcIBxMPOFqsOp75+OR0Mq
+	nVzSBuY2iSuJ3LN+JXo/VVesI6yL2fuL2cCEAhO/zIiqCopqdZP4Eut/HOAoM+5lNnm82neNr1l
+	35BmeE4vHHTE6GAFz/992kXRfTPixeljyp1/ELRDkMEttMCqvCDm32kcODu0+B8+
+X-Google-Smtp-Source: AGHT+IFjZ/B4blQ5G/NkSANXPQoCPpd5g+P837PoEVtOgG0rCpvLM7y9f1a7IMgj8beET9AWzS4QzA==
+X-Received: by 2002:a05:6122:d82:b0:518:965c:34a with SMTP id 71dfb90a1353d-52dba803331mr48591e0c.2.1747322182377;
+        Thu, 15 May 2025 08:16:22 -0700 (PDT)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:83e:4807:376c:1d4d])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-52c5372f0e0sm11537624e0c.19.2025.05.15.08.16.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 May 2025 08:16:21 -0700 (PDT)
+From: Fabio Estevam <festevam@gmail.com>
+To: arnd@kernel.org
+Cc: herbert@gondor.apana.org.au,
+	ebiggers@google.com,
+	linux-arm-kernel@lists.infradead.org,
+	Fabio Estevam <festevam@denx.de>
+Subject: [PATCH] arm64: defconfig: Ensure CRYPTO_CHACHA20_NEON is selected
+Date: Thu, 15 May 2025 12:15:48 -0300
+Message-Id: <20250515151548.431853-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: clock: mediatek: Add #reset-cells
- property for MT8188
-To: Conor Dooley <conor@kernel.org>,
- Julien Massot <julien.massot@collabora.com>
-Cc: kernel@collabora.com, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Garmin Chang <garmin.chang@mediatek.com>,
- Friday Yang <friday.yang@mediatek.com>,
- Conor Dooley <conor.dooley@microchip.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20250515-dtb-check-mt8188-v1-0-cda383cbeb4f@collabora.com>
- <20250515-dtb-check-mt8188-v1-1-cda383cbeb4f@collabora.com>
- <20250515-playpen-dislodge-80245fb8b7a9@spud>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250515-playpen-dislodge-80245fb8b7a9@spud>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_161119_891213_609D228F 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20250515_081624_168561_5160B816 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,52 +96,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 15/05/25 17:03, Conor Dooley ha scritto:
-> On Thu, May 15, 2025 at 03:31:43PM +0200, Julien Massot wrote:
->> The '#reset-cells' property is required for some of the MT8188
->> clock controllers, but not listed as a valid property.
-> 
-> "required for some" but not marked required on those platforms.
-> Why not?
-> 
+From: Fabio Estevam <festevam@denx.de>
 
-Yeah now that I read that for the third time, the wording is a bit incorrect.
+Since commit 17ec3e71ba79 ("crypto: lib/Kconfig - Hide arch options from
+user"), the CRYPTO_CHACHA20_NEON option is no longer selected by default
+due to changes in how crypto library options are exposed and selected.
 
-It's not "required", some clock controllers do have reset controllers, but it
-is facultative to actually use the latter.
+To restore the previous behavior and ensure CRYPTO_CHACHA20_NEON is
+enabled, explicitly select CONFIG_CRYPTO_CHACHA20 in the defconfig. This
+pulls in CRYPTO_LIB_CHACHA_INTERNAL and allows CRYPTO_CHACHA20_NEON to be
+selected automatically as before.
 
-I'm not sure if the ones that do have reset controllers inside should have the
-#reset-cells property as required...
+Fixes: 17ec3e71ba79 ("crypto: lib/Kconfig - Hide arch options from user")
+Signed-off-by: Fabio Estevam <festevam@denx.de>
+---
+ arch/arm64/configs/defconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Conor, what do you think?
-
-Cheers,
-Angelo
-
->>
->> Fixes: 9a5cd59640ac ("dt-bindings: clock: mediatek: Add SMI LARBs reset for MT8188")
->> Signed-off-by: Julien Massot <julien.massot@collabora.com>
->> ---
->>   Documentation/devicetree/bindings/clock/mediatek,mt8188-clock.yaml | 3 +++
->>   1 file changed, 3 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8188-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8188-clock.yaml
->> index 2985c8c717d72888dd49f1f6249a9e2594d8a38d..5403242545ab12a7736ed4fbac26008aa955c724 100644
->> --- a/Documentation/devicetree/bindings/clock/mediatek,mt8188-clock.yaml
->> +++ b/Documentation/devicetree/bindings/clock/mediatek,mt8188-clock.yaml
->> @@ -52,6 +52,9 @@ properties:
->>     '#clock-cells':
->>       const: 1
->>   
->> +  '#reset-cells':
->> +    const: 1
->> +
->>   required:
->>     - compatible
->>     - reg
->>
->> -- 
->> 2.49.0
->>
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 04619fe7e22a..7856db7dcfca 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1723,11 +1723,11 @@ CONFIG_NLS_ISO8859_1=y
+ CONFIG_SECURITY=y
+ CONFIG_CRYPTO_USER=y
+ CONFIG_CRYPTO_BENCHMARK=m
++CONFIG_CRYPTO_CHACHA20=m
+ CONFIG_CRYPTO_ECHAINIV=y
+ CONFIG_CRYPTO_MICHAEL_MIC=m
+ CONFIG_CRYPTO_ANSI_CPRNG=y
+ CONFIG_CRYPTO_USER_API_RNG=m
+-CONFIG_CRYPTO_CHACHA20_NEON=m
+ CONFIG_CRYPTO_GHASH_ARM64_CE=y
+ CONFIG_CRYPTO_SHA1_ARM64_CE=y
+ CONFIG_CRYPTO_SHA512_ARM64_CE=m
+-- 
+2.34.1
 
 
