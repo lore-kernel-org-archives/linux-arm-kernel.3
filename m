@@ -4,73 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E12EC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 16:23:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2234C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 16:35:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+7X2Q8vkZvMJYGv9ciX4cmhh08fK2Atxda6qD5FINaY=; b=Dog6U6LKboiCfpQkf//FHahp6I
-	iLtVuGCgbVphoTM59j/2hKD1UMWnwdiYnhI0KVxW9iTs8uWoYcB8UrGsBIFECJcGbz1VUfjE30bhO
-	FhmiOFLA12JEJyxXWRFm1B3kIe2K2M81PeM0TfrhpxyDUaN9ibD1AKE9/+ugfDPAGIBmhsfWOyVdh
-	IsHQrthKF9CEPurk2bZq8fA5M//kz09igXfGpDKhAZpVgRJ2Z0fPQ14vn5omrfD74Ym+52NZ8bqj6
-	1nEI6ehpZYyd2/BexpXC7AyFcakleW2X38Os8MiVSnYNFsMKPjqjxffsXtC4TIaiNrQS5zl1uzWjN
-	JJE0T6Nw==;
+	bh=ipc7m+BQVl6X6vjTg4c6WgA8yzbue2jcMdUfgBBfHzY=; b=ri/juLfY6w0h/cBlCeL/Gju2FU
+	FdC3YJENyeau3Tpl+ApnxcZ4Lv6aehZoHT1AtDGyZFuq/mPSVltITY8vz7CMUMU0rsoHBxo7AJiN+
+	Mb2RFFpwZf/j6fiZ6lBnvc+17ayCXv3Wi5/UtkDbWClqZYGnnJUoWgf1MtLZtKwqcLv3ljoRYXnSt
+	h3R+JZJT3gyyDxOAi9PeCQJZqGgP+dQYOESWokIoxzyIV8FIuIaOar2Ycpp2XAD3ifHIYm0oJRiXJ
+	kXm/lea/L2Tx7KbPyiuXX/aV/oLp6eWHJI5ImdlxYKEPteLf/W6eekFeUt6gou+u7MTslJApxscro
+	5FUMBM0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFbMm-00000001FQr-1yUL;
-	Thu, 15 May 2025 16:23:28 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uFbYL-00000001HLO-1g4k;
+	Thu, 15 May 2025 16:35:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFbGo-00000001EEK-3Kd9;
-	Thu, 15 May 2025 16:17:19 +0000
+	id 1uFbWK-00000001H1f-14IR;
+	Thu, 15 May 2025 16:33:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 89AA25C552F;
-	Thu, 15 May 2025 16:15:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D39FC4CEE7;
-	Thu, 15 May 2025 16:17:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 41760614BD;
+	Thu, 15 May 2025 16:33:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AD5EC4CEE7;
+	Thu, 15 May 2025 16:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747325837;
-	bh=+7X2Q8vkZvMJYGv9ciX4cmhh08fK2Atxda6qD5FINaY=;
+	s=k20201202; t=1747326799;
+	bh=kKPojMJd9kqH6u8NArAZ+Lui+uo9ndwDNquYyy93G0k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ryqXIRZ8aIXBIsQZvIgxJPgFs1PncN+KvVDOmH+uoUHwdtEis7LKTx666Igqb9l2+
-	 w1X27KWHDdIFCyQrq+463y+yUdygIWW57hYvVsGtpTLH9SfqD00bTQ+QoqxLVLjOAi
-	 nF0KFM5qUzEBkTF1G9hTdIz9B9MyKrNrf4BqVhmtOgzJHC1hqLj69mViwj9Kg0nS+Z
-	 YPdbnxJwADXSe5w0jxQygGJzwfP8crEIkwEgIh3m4JMn8a19IflzA6O6W5V2md6HFN
-	 MtztHWOafakuUYJawrzRhTHqJv508PJLXBMzBuZ4PC9nD9ZMeGM3PJ4VSbcK9+G4v9
-	 GA5OS5DGSlKmA==
-Date: Thu, 15 May 2025 17:17:11 +0100
-From: Conor Dooley <conor@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Julien Massot <julien.massot@collabora.com>, kernel@collabora.com,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+	b=ESjhprCJouXAhjQr0dZG6SyTXibttfDkEXUZ8Ep+z+gy7A2IEg74Pih3DzIhR92mQ
+	 Wg1fRLZ7AahHltL5KOdUISnA+OaOb/NOKa//4TXRGsVv+rtItX6BET9OvhMNCVjW8U
+	 De/WmZChNK1Me4d3LxDTawHPD0qDmGXiVYicOpf6dOYdfucJiAUxulmuYxUjdIzoNg
+	 rv5OilXcNBVStDgu4CYEBWfv8QrLAI7K0VbMfOL+gk/FQ5MrHdl540MrndCpVvuVnX
+	 7099wIC/Jq/PwBwkwpUYCjiluxA04ZhHxA2VwN2NdOyoYvtGtPBJorxsEY9l/w9orN
+	 6Z7TkSd+Kro/w==
+Date: Thu, 15 May 2025 17:33:07 +0100
+From: Will Deacon <will@kernel.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Alim Akhtar <alim.akhtar@samsung.com>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+	Janne Grunau <j@jannau.net>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
-	Garmin Chang <garmin.chang@mediatek.com>,
-	Friday Yang <friday.yang@mediatek.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 1/3] dt-bindings: clock: mediatek: Add #reset-cells
- property for MT8188
-Message-ID: <20250515-deploy-wiring-5829acc3d82e@spud>
-References: <20250515-dtb-check-mt8188-v1-0-cda383cbeb4f@collabora.com>
- <20250515-dtb-check-mt8188-v1-1-cda383cbeb4f@collabora.com>
- <20250515-playpen-dislodge-80245fb8b7a9@spud>
- <cbd170a3-cbfe-4b4f-a059-efe33fed0e5d@collabora.com>
+	Matthew Rosato <mjrosato@linux.ibm.com>,
+	Neal Gompa <neal@gompa.dev>, Orson Zhai <orsonzhai@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rob Clark <robdclark@gmail.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Niklas Schnelle <schnelle@linux.ibm.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Krishna Reddy <vdumpa@nvidia.com>, virtualization@lists.linux.dev,
+	Chen-Yu Tsai <wens@csie.org>, Yong Wu <yong.wu@mediatek.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>, patches@lists.linux.dev
+Subject: Re: [PATCH 0/7] Remove ops.pgsize_bitmap
+Message-ID: <20250515163307.GA12396@willie-the-truck>
+References: <0-v1-7c5282b0c334+2db-iommu_rm_ops_pgsize_jgg@nvidia.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="RlwhVrUT8qkuHwJd"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cbd170a3-cbfe-4b4f-a059-efe33fed0e5d@collabora.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_091718_880044_FB4E511B 
-X-CRM114-Status: GOOD (  19.70  )
+In-Reply-To: <0-v1-7c5282b0c334+2db-iommu_rm_ops_pgsize_jgg@nvidia.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,50 +102,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Apr 29, 2025 at 11:34:10AM -0300, Jason Gunthorpe wrote:
+> Now that all drivers are using domain_alloc_paging() and dev is never
+> NULL, we can have all drivers correctly set domain.pgsize_bitmap during
+> their allocation function.
+> 
+> There are a few oddities that have accumulated here over past changes:
+> 
+>  - Some drivers always set domain.pgsize_bitmap during their
+>    domain_alloc_paging() call but still provide a value in ops. This is dead
+>    code, delete it.
+> 
+>  - Some drivers calculate a system global pgsize_bitmap in the ops, but
+>    it is now trivial to use the per-instance value instead. In several
+>    cases this is dead code, delete it. This also allows
+>    constifying the ops in these drivers as a hardening measure
+> 
+>  - Some drivers have a fixed pgsize_bitmap, put it next to setting up the
+>    geometry in their domain_alloc_paging() functions.
+> 
+>  - Finally a few drivers still use ops because they have a delayed
+>    finalize operation. Set the constant pgsize_bitmap in the
+>    domain_alloc_paging().
+> 
+> Then remove ops.pgsize_bitmap.
+> 
+> This is based on iommu next, and must go after the virtio
+> domain_alloc_paging() conversion.
+> 
+> Jason Gunthorpe (7):
+>   iommu/arm-smmu-v3: Remove iommu_ops pgsize_bitmap
+>   iommu/arm-smmu: Remove iommu_ops pgsize_bitmap
 
---RlwhVrUT8qkuHwJd
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+These two SMMU changes look correct to me:
 
-On Thu, May 15, 2025 at 05:11:13PM +0200, AngeloGioacchino Del Regno wrote:
-> Il 15/05/25 17:03, Conor Dooley ha scritto:
-> > On Thu, May 15, 2025 at 03:31:43PM +0200, Julien Massot wrote:
-> > > The '#reset-cells' property is required for some of the MT8188
-> > > clock controllers, but not listed as a valid property.
-> >=20
-> > "required for some" but not marked required on those platforms.
-> > Why not?
-> >=20
->=20
-> Yeah now that I read that for the third time, the wording is a bit incorr=
-ect.
->=20
-> It's not "required", some clock controllers do have reset controllers, bu=
-t it
-> is facultative to actually use the latter.
+Acked-by: Will Deacon <will@kernel.org>
 
-I don't think I've ever seen this word before.
+Please yell if you'd like me to pick them up separately from the rest
+of the series.
 
-> I'm not sure if the ones that do have reset controllers inside should hav=
-e the
-> #reset-cells property as required...
->=20
-> Conor, what do you think?
-
-If "required for some" in the OP was meant as "permitted for some",
-change the wording to that and it is fine.
-
---RlwhVrUT8qkuHwJd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaCYThwAKCRB4tDGHoIJi
-0norAQDSFIsJjHNXBCFJoJMHtI6qdNl7hLx+3jLSQS7DWgzSaQEA6lRLOyGnQfXt
-JBr7hEiXgg6X68diSAm5cGHvgBzY4Ag=
-=g5hp
------END PGP SIGNATURE-----
-
---RlwhVrUT8qkuHwJd--
+Will
 
