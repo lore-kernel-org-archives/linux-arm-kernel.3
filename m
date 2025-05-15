@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1970C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 18:24:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E572DC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 18:26:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yAQPUlazwxUoIHDbZ2y6Frkhw5As3L7EqQJ2gVvyyoY=; b=DzlYdopIIgDLqtfZJhjSv9RAz1
-	OiL9OJmEytKrHqiKuospc1rkrihNP5he3ZreemCihT0Ns2q6Gf1hvRqcW7c3RSPwXBmHiMCeiasQk
-	Qba4b57uDEApEGOUvhs1jJuCVSg0iF/Qou6PPuEBqWt4RzblkWMSQxzNIIyupXMOXGJ2ue4AUvmcD
-	xzxu2m+66IbYMMvK9lr6ay7AUL/bH4gzUGKHQ7Ah+9WA13cx9F37cHLYyaRJOteFsRk4BfM0TFcEX
-	G6NJFtIYSaj9YYApFwEXbaLafdI+f26tciKcQ8Y9JKNMcdTf98OFtNuTImqEhOPic9Ks4Z1wX/Dzw
-	8twH+J+g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=swfAGC4QXM6SdJxBuAXYcYtJSUnfER00xbbX38/PS04=; b=Nqd4f3ba3l1VGX+gMf94bpDIYM
+	JJ9A2tvlZMnzcYFBr51vBRHf+9BptVhccdLGW5kDKAlQw222iO/JBB/LP7UPKpO4lSbCjCs4tsHCm
+	SXMabwt0DVDWFOIEX2aHa1BgomkfTY9i7a/kegUe7Zfohzbfe9+jns7Wl70iq6AgKZNKxU/GigowF
+	29ILqqqKsu0+UNVpOv/oiAgOjWHtyE67eUOIy0kbiO77CdOWRy8p8V0OznZo2giakQV9OAAJFhfbP
+	Y+6J8ZY6j6DM5gj3wS0meom3afWJXFKs01r60t9W2d8IFjN708hkqO0979m03nQ3iT9GAu8l5kOpj
+	81I4Z2Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFdFl-00000001XvF-0lfj;
-	Thu, 15 May 2025 18:24:21 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1uFdHj-00000001YZm-3gYQ;
+	Thu, 15 May 2025 18:26:23 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFdDh-00000001XF9-45C4
+	id 1uFdDi-00000001XFO-3ekc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 18:22:15 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-441d1ed82faso10177715e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 11:22:13 -0700 (PDT)
+	Thu, 15 May 2025 18:22:16 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43cf628cb14so18644675e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 11:22:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747333332; x=1747938132; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=yAQPUlazwxUoIHDbZ2y6Frkhw5As3L7EqQJ2gVvyyoY=;
-        b=IqAMtl3Ol7J9ZSomcEghhxhMG4qd0iM5z9f8iDhp1hazawGLuGLzJ7JWd/fUFMHaeI
-         V+NO6ljlOHHfbB31jHmHSdUUlK6zNEBzRUrYJmsz2ct+EIzYs2vhZfbhF4J3CE5a4QX3
-         +YlwGpZS/6T4vkhhU4J9wjcJ94VbfCiwAOi19trYto8CdHThuQHLQgt57wROZb2gHOV/
-         XZPT23Hony2EaAWk5EOM92pHoM5sfWVkJWnxoqb79u9WQeZkYb4veGk6ad4vG2CbLonH
-         CFBar11q5Q3ZRWL3DXZJDJOEGRcFhdO2G2Zci7lPvsHbUw8GV00wATELVTdB+1kjMtU0
-         4Cbw==
+        d=gmail.com; s=20230601; t=1747333333; x=1747938133; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=swfAGC4QXM6SdJxBuAXYcYtJSUnfER00xbbX38/PS04=;
+        b=eZ+nMcImEszCADpveGv8cySxIaHa2Nl0wKLFIpjRY5ezEukpRmR5JLkKNRfdm9BQPT
+         cv61uuV8PFmMMw8tn/DkEdXspcF8+tjr5XzahzzeZAt5I1NZ/4WpiVcsA+MrNMt/AxYu
+         UOBq+aFDqfwHMwDyEwf8suvuXejQhfk/FAkFGKgIbMiwrygPKoewslgCPkq+nDML1tFy
+         JIhCGpsdCFXiCKsiNbl9yXKaMe9e6jFlUxuEqFA+KS3jPE5YQEinnqbC83vdt3X/f9us
+         q9SzU1mnNd6tcyXuUZ4InRdYJTTMhafEKRrXq0ZmiZygZMmbSD0rtPdd3K2SnZg0nkBt
+         J9Cw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747333332; x=1747938132;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=yAQPUlazwxUoIHDbZ2y6Frkhw5As3L7EqQJ2gVvyyoY=;
-        b=N30jXE7OdAIB2Yguy0MJnRh+KyV/4w07jX5R9hd8isr65j+AkEu8gbQBtbiNJJ5+ns
-         yng5gvVIAlGZHGUmLtJQPOV3jXSNFNdqEuHp9iltA4DpolprAXznxIXRliZ9M1CcvaF9
-         +rdP3u6fCCw2Dic0Ej4OP6DCzIAiwuzq0qDf5fSgttSwVedfy2HYEWGer3hZet4hlwqi
-         B5qCBuwKLnq7kZryOUSJoEIAEQNTraBYxN4eblDthQAHtXQsu8jqWxhemZSLs9SISuJO
-         wnC03tyq2vVQ95jix/5m7ZzBbJSRfD1PmR3DZCy1+gPNrQQxJdW1KQMrc6yKGUYEIcTf
-         /JSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV2AXygixRch5U8GAb3JyV/A8FfB15ESOU/vOV7TrJKP67ViZ8HCUV0YFuieYMU5/hA216K6N7gHJJd0UCpvX45@lists.infradead.org
-X-Gm-Message-State: AOJu0YykeCKks0e2uSglvTwCSp/dMDIseqzuXyDjjwC9zoPHQrFhyyyY
-	KUrurpQ2bLT9DAt/JkNFqPGu+Ivz0hP+1TrVczm6bHnch5CNIgJmNbAu
-X-Gm-Gg: ASbGncupXlrfD+YkVm8MvMn1RTX5MsRRL5hWtM2q53UeIyaTx1kHeRfN18O2CFIWh4X
-	AhwBmg5P4YCWt5cgQTwaZ9bAeLweMkRqK0TjoKm8ZEaDDZ0VeSzok5wYjT5zd4LQWaUTn6j+cW2
-	dUqDoR4X5+qPeYlNB50vzjp71Nkcn/TTBTk4dTPVw3nb07a8/OUsGQocY8uf30hlf7Y2vnBGdQB
-	hIJemmgu/GHgW3Dm3QlQUNzCWA5OW0kC/quPJPliqhoKsFbpkhPWmoMZjheq0MLct7Ey4Wwy5qB
-	IaQjv1wn3BfCGnXKeI5OlbbX6oKL5dRDn1Jn0NCxP733UvqTyHaL8NBBEP8bWTDbHfr1k1IMpWa
-	jYw4VUwKM
-X-Google-Smtp-Source: AGHT+IEdxsvYrXg4MZ9MrhFl2c/AvaYeZ00NOmpZwOccgoStuDdYQZs0PtZRXjp5OTdWelb6F0a2dQ==
-X-Received: by 2002:a05:600c:35c8:b0:43c:fabf:9146 with SMTP id 5b1f17b1804b1-442fd63cba3mr6819785e9.17.1747333332122;
+        d=1e100.net; s=20230601; t=1747333333; x=1747938133;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=swfAGC4QXM6SdJxBuAXYcYtJSUnfER00xbbX38/PS04=;
+        b=f5Oi4vY1P3IYomBk2nxooHS7ITNoG5MO7X0MqRvDXyWusSkfwFFGFZJsc2CLwZBZw2
+         B1GU5cfHAsTxJn7+smfMJOcauwV0eftbVE2H1dKLz5UsLDz7uSsNyVIeFm9CSndztPiA
+         CtRLU36iatMaJVR57Z8z3fdNr7e4L9xfPvzdgUTIghO8p8HPT9MeqKcquUxX0cW9vlIW
+         3DfweIPdZ1ZUOPugwvdWe/PDKi7UnIwtJXk1yk4petLIMuTO9OMJdl34yZXa/VlufnlV
+         gtP6N5dSFB3gsTH2U41TxgeKf1tSasReWa/sJV7imGHuiGn4Ue2oyqEfj/GrsYERX1Vi
+         alnQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXvpXOyuRxJUMMWqocValB2VinTzZH7sMGJOsIUHftv0y4ikzCTaAgCzIMianik7vaNh+PMCemA8bhiRs67Rpih@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8za0bWeNC6Hf6Hq5H2Shr+bbQ2SRaFyK3Z2okQ51+xGN4uTD3
+	51PEoemdGttodHYFqC8+Hw28utfUsSQaL9Bjn034I6hlTDp9FmxwiLdH
+X-Gm-Gg: ASbGncuTj+KbIXvBMf1jTfQDg9/JL/XDMhPROQgUzBx2WKc3m8F4ssMGnMUt3/zu644
+	bJSwlzP3mCOtiYlx/JuCtrOVdFRayhWvtKBKhxuM77VFnT3b14i++GOs0I1m2flpeYNL3z/51+e
+	LNcxAaA2qHNHr1ADZk832cCUhKRVQxPXh7xzP4FYcqu55jdjUa4yElgEgjd9jqQ6hMBX+hN5fyn
+	LeCNEo5b75HaBAlcbPPcqpPRuSIXIzaG8MxfPcW6LW1Q//LVzXF/cvqcClk18UlR4/73aJhoxPA
+	uTmD/DrppI3R5cVxbeSUSjYMc4wgdYhSGyyWZJrTLZlwZwTNNNOeZObvCLfnNSu5sVcskn75gIo
+	orOYemaFK
+X-Google-Smtp-Source: AGHT+IEo58ibA/l+aKG0G6THwqe7QoJuwHRWZ2A96BcETwONZXqlfQqLt9nEPKLoc22UgilDjkoIcA==
+X-Received: by 2002:a05:600d:19:b0:442:7c40:fda4 with SMTP id 5b1f17b1804b1-442f84c209dmr43756135e9.1.1747333332872;
         Thu, 15 May 2025 11:22:12 -0700 (PDT)
 Received: from iku.example.org ([2a06:5906:61b:2d00:7b5:b9aa:961b:d080])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442fd4a0a5dsm5828155e9.0.2025.05.15.11.22.11
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442fd4a0a5dsm5828155e9.0.2025.05.15.11.22.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 May 2025 11:22:11 -0700 (PDT)
+        Thu, 15 May 2025 11:22:12 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Geert Uytterhoeven <geert+renesas@glider.be>,
@@ -88,15 +89,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v4 0/2] Add support for Renesas OSTM on RZ/V2N SoC
-Date: Thu, 15 May 2025 19:22:05 +0100
-Message-ID: <20250515182207.329176-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v4 1/2] dt-bindings: timer: renesas,ostm: Document RZ/V2N (R9A09G056) support
+Date: Thu, 15 May 2025 19:22:06 +0100
+Message-ID: <20250515182207.329176-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250515182207.329176-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20250515182207.329176-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_112214_009219_5D3960DE 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20250515_112214_911654_5F319F41 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,44 +116,62 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Hi all,
+Document support for the Renesas OS Timer (OSTM) found on the Renesas
+RZ/V2N (R9A09G056) SoC. The OSTM IP on RZ/V2N is identical to that on
+other RZ families, so no driver changes are required as `renesas,ostm`
+will be used as fallback compatible.
 
-This patch series adds support for the Renesas OS Timer (OSTM) found on
-the Renesas RZ/V2N (R9A09G056) SoC. The OSTM IP on RZ/V2N is identical to
-that on other RZ families.
+Also update the bindings to require the "resets" property for RZ/V2N
+by inverting the logic: all SoCs except RZ/A1 and RZ/A2 now require
+the "resets" property.
 
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
 v3->v4:
-- Added __maybe_unused to the of_device_id table to avoid build
-  warnings when CONFIG_OF is disabled.
-- Added Reviewed-by and Tested-by tags from Geert.
-- Updated commit message to clarify the change in patch 2/2.
+- No changes in this version.
 
 v2->v3:
-- Dropped config check and unconditionally enabled reprobe support for all
-  SoCs.
+- Added Acked-by tag from Conor.
 
 v1->v2:
 - Inveted the logic in the dt-bindings to require the "resets" property
-- Instead of adding config for new SoC, changed the probe condition to
-  `CONFIG_ARM64`.
-- Updated commit messages
+- Updated commit message
 - Added a Reviewed-by tag from Geert.
-
-v1:
-https://lore.kernel.org/all/20250501123709.56513-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-
-Cheers,
-Prabhakar
-
-Lad Prabhakar (2):
-  dt-bindings: timer: renesas,ostm: Document RZ/V2N (R9A09G056) support
-  clocksource/drivers/renesas-ostm: Unconditionally enable reprobe
-    support
-
+---
  .../devicetree/bindings/timer/renesas,ostm.yaml      | 12 ++++++------
- drivers/clocksource/renesas-ostm.c                   |  4 +---
- 2 files changed, 7 insertions(+), 9 deletions(-)
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
+diff --git a/Documentation/devicetree/bindings/timer/renesas,ostm.yaml b/Documentation/devicetree/bindings/timer/renesas,ostm.yaml
+index 9ba858f094ab..0983c1efec80 100644
+--- a/Documentation/devicetree/bindings/timer/renesas,ostm.yaml
++++ b/Documentation/devicetree/bindings/timer/renesas,ostm.yaml
+@@ -26,6 +26,7 @@ properties:
+           - renesas,r9a07g043-ostm # RZ/G2UL and RZ/Five
+           - renesas,r9a07g044-ostm # RZ/G2{L,LC}
+           - renesas,r9a07g054-ostm # RZ/V2L
++          - renesas,r9a09g056-ostm # RZ/V2N
+           - renesas,r9a09g057-ostm # RZ/V2H(P)
+       - const: renesas,ostm        # Generic
+ 
+@@ -54,12 +55,11 @@ required:
+ if:
+   properties:
+     compatible:
+-      contains:
+-        enum:
+-          - renesas,r9a07g043-ostm
+-          - renesas,r9a07g044-ostm
+-          - renesas,r9a07g054-ostm
+-          - renesas,r9a09g057-ostm
++      not:
++        contains:
++          enum:
++            - renesas,r7s72100-ostm
++            - renesas,r7s9210-ostm
+ then:
+   required:
+     - resets
 -- 
 2.49.0
 
