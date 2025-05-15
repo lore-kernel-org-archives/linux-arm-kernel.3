@@ -4,93 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A61C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 07:49:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA7AEC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 07:52:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ji/KKSHoP7yY7aJyBCvNgq977Um77Yq/cN+M0anXeoY=; b=zy47NDiVhHOlt93FBtEkeEjd3d
-	wh3DlNQvKAlHU3qxlAwXkwQu0+mg/pRZtHG3GxlpBWf2QJ5xINw06UpiA85jXsAYw5Mom0NnLDPWx
-	kabxei/QGJS6I5Mh9QxuvUQEUla43rnNnPzZGTw+liTQM3fpekNb6JDcjaBz1SOMhTuYe6kAn70VG
-	0g2JDHG8Q+L9QsjQDiAGhooKe+/WC7Mnes0cQQ44NV5MNd8oue+4ggsFhimYEML4ePatF65RvyEWU
-	VH869OHsVLd9IInJgVhhmyJkZ/syYJl1I9oUyEaYKgwLGdWhMUi0/Ul4s5lwym+GCqC4ecMhWUObk
-	qpCYWOTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o4gAXDPxWPC44UYdGNZ32+7sdPrHxBMRVWRq1jxqHZU=; b=Wnd1pdMseE/MmTzulaBgq0d6nK
+	Qz9WIXaqdTJq8BNM6WgsTR7frV67KMcYqw92hjmPjZykhB/sqNzV3gPG/5adW7iBZs6jxO8dMMVn7
+	mGN6vmLaKagtp4ebmQLLp88dgtn6pQThjLGhjWcdg5NhSxgBvtXRP+P9H3J+8G3UhEIoNDhnYJ0Fo
+	sqXTV8qsiAAbg1g7K3lsQL3owFtChnUGrtkMEtfjfpjnHY6FCZFZ2Fuk8470Avks+SP7yIbW6TS4H
+	ISY3FweSrWFK7hTJjlA8vE5JwCoZGBzbkdPlkbRQ1IYKvRpvakY53Lmh/F0DZWZuK7B4WcCtP2tAT
+	VsaR9srQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFTL1-0000000HOtZ-3mq3;
-	Thu, 15 May 2025 07:49:07 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1uFTO7-0000000HPUW-2wFX;
+	Thu, 15 May 2025 07:52:19 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFTHj-0000000HOMR-2dWn
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 07:45:44 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-442ed8a275fso6694665e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 00:45:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747295142; x=1747899942; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ji/KKSHoP7yY7aJyBCvNgq977Um77Yq/cN+M0anXeoY=;
-        b=amffhPLrZ57y5DBotMUjNpf44jy23qjmF//wcZvbekcfmes6Pk4b0oqebonAcUiCPY
-         5qECx1jyON02HgOT3SBQzVP6Yb9Vf2M+KQFZPIPr4kgWM1z8MDA0Y31s7NE4KGScnee0
-         mr73smdGKq8h7LuMngFjjxIN1zeQBV99ElaNmX0Vjiu/bL37Vk6imBvV4d1+O01iEaMB
-         Waf/+ZFn/+iYz9PMaSrf5dXhWaAIgnIle1VNyE19KXdGR+QIaGh8FGVB7RU6wMt4Dq99
-         mU80SwamK0W9oHcD+0tYyaa0IvedfmO31i1aEmTrp5l0VQOA1XdyWOsb37Yx39E0UHfH
-         CIFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747295142; x=1747899942;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ji/KKSHoP7yY7aJyBCvNgq977Um77Yq/cN+M0anXeoY=;
-        b=uVN/xagAXe1Ai6wmYlURlvA7eJX8jp0IHpbsU/e7fzpr22vDjpw4tGhOBOjYZkfVxc
-         yLzxuOP4DZaj34qEFBj/l7+JfF6iz6sHNM+XJdjVo8lACz6pUux2Q8fV8YmZrJvb1eQB
-         GSd82iumAGTBC/JG6zw5TNu+gC7rsXKTptzqP3zBBhZjLBQerRFYAWCgZaPAqOMRjYEE
-         bowvCLBjHjPhokGu5elFbM7S2LvX4I7k05CtRqhVascjg18F1wXfABi5cuT7eY95AR86
-         PKBTd963Xp0vyFh+dUPYNHO6BrydqP4uHIoTRW8u6sd1n033V1Gxi6DAjQd+4VLf01AD
-         kYVg==
-X-Forwarded-Encrypted: i=1; AJvYcCU74Xx3Hj63lEv/9qfJoK8XwR/aPRYd9WTp26jbgFSX+o0m2EqirRwdLuS7jgtUuMy7e6hhR5S71PPeSAFNPUxD@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTgsAhbD8KE1b140VHuPTRTWNFSzpN5y8NgKrj6jaOvd5CSB7B
-	Xi7MdVJtzI5MVggJHYovY/rjCtgKz/GmN9B28V3YE9vdyE5h6Z0v
-X-Gm-Gg: ASbGncudSNNyaKtYIW2WjA+pRcrwAfSgazCpNXg0heoxdCzDR+HMGh0iMKjDlXoXvBZ
-	K/w1M2LaIdPJ+Fo14aZn/v3EQ8CAt+LJZbW9Xylijx+0t6sNf9VAR7AiEfyu6IbEJg5r5UK6Cob
-	lA2ruOS+J+uMbWwjaLvI2IeiFagdjiR7ofeT+0ZFU+J2a2qtGX7wUqWIAwzUp4fSQZi/hJuNqIv
-	b4AyMC6ek05Od+VDbrPPEbkdDjizGo/QzAmOyo/FpBnyDw9bxarZ1Cxk6O+FxC5hH9415OpQQyX
-	NGBuvqxtzcu6axfhyJeU6AcB1e5+nxLuwpIpvGIdJ/2vMSjlEpAWv3Bt+G96cux2oxrgeHqi48j
-	vmF2YwjNicFZJxwYl
-X-Google-Smtp-Source: AGHT+IEnXEKhyoqKyql7HmWJcCHO+Gr5r3eS6SUzYuWVl+B+RTKRMOQwn/WGYHQLnofQqru7Sv/AKw==
-X-Received: by 2002:a05:600c:3c85:b0:442:cab1:e092 with SMTP id 5b1f17b1804b1-442f20e5547mr55352885e9.11.1747295141986;
-        Thu, 15 May 2025 00:45:41 -0700 (PDT)
-Received: from [192.168.20.170] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442f395060esm60261815e9.17.2025.05.15.00.45.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 15 May 2025 00:45:41 -0700 (PDT)
-Message-ID: <d5083f6a-e39b-46cb-8551-ca7a5f6f6bed@gmail.com>
-Date: Thu, 15 May 2025 09:45:40 +0200
+	id 1uFTM5-0000000HP7a-1SDR;
+	Thu, 15 May 2025 07:50:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 154EEA4CB1D;
+	Thu, 15 May 2025 07:50:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACC89C4CEE7;
+	Thu, 15 May 2025 07:50:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747295411;
+	bh=okgZ71SlRI1OxrfenXbRvEK2OBzl9XmUUegqvv09zLo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=beyqb5CK1kmn8uzdSGNFRMhole3qboOUioWcddIYpIVpMkPSCd8EO5j1L8+MpL7Pp
+	 +Uxo/BtuRu1DSchP0I71oAf1NaAeChogZTdHmYDUsBAO8f3fOMoYWEf3YDQ1We6cpl
+	 9PReyas9Ctyhj0HeQdyMX5ZQQZJKg4EKs8c3CDk4o9fNsJL9rmOndQW4EETTAQQ4il
+	 oIpdtgilsh/OkjLx/9tQ5fjMMdz5K+oTpWlzG7wEZnZQycyoA0rjQ/LPHsMRS8MNsX
+	 OCD8JsxlFnuPXRXzCz2lazIS5Zt+TiB2OdsoXjV5q1dpwIHekKD0BzK+DCbpB43a4y
+	 HAU9Fob+RO6RA==
+Date: Thu, 15 May 2025 09:50:05 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Wilfred Mallawa <wilfred.opensource@gmail.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Alistair Francis <alistair@alistair23.me>,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Wilfred Mallawa <wilfred.mallawa@wdc.com>
+Subject: Re: [PATCH v3] PCI: dw-rockchip: Add support for slot reset on link
+ down event
+Message-ID: <aCWcrf4V3p7cxcpi@ryzen>
+References: <20250509-b4-pci_dwc_reset_support-v3-1-37e96b4692e7@wdc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/7] pinctrl: armada-37xx: a couple of small fixes
-Content-Language: hu
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Andrew Lunn <andrew@lunn.ch>,
- Gregory Clement <gregory.clement@bootlin.com>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Imre Kaloz <kaloz@openwrt.org>,
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20250514-pinctrl-a37xx-fixes-v2-0-07e9ac1ab737@gmail.com>
- <CACRpkdb2Njam8GGuN5yeR+DYvi0xe11xbARaoDepoGk=gAK6GA@mail.gmail.com>
-From: Gabor Juhos <j4g8y7@gmail.com>
-In-Reply-To: <CACRpkdb2Njam8GGuN5yeR+DYvi0xe11xbARaoDepoGk=gAK6GA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250509-b4-pci_dwc_reset_support-v3-1-37e96b4692e7@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_004543_664874_1357B6CE 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20250515_005013_455199_579EC3D9 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,21 +81,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-2025. 05. 15. 0:28 keltezéssel, Linus Walleij írta:
-> On Wed, May 14, 2025 at 9:18 PM Gabor Juhos <j4g8y7@gmail.com> wrote:
+On Fri, May 09, 2025 at 12:30:12PM +1000, Wilfred Mallawa wrote:
+> From: Wilfred Mallawa <wilfred.mallawa@wdc.com>
 > 
->> The series contains several small patches to fix various
->> issues in the pinctrl driver for Armada 3700.
->>
->> Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+> The PCIe link may go down in cases like firmware crashes or unstable
+> connections. When this occurs, the PCIe slot must be reset to restore
+> functionality. However, the current driver lacks link down handling,
+> forcing users to reboot the system to recover.
 > 
-> Patches applied by applying to a separate immutable branch
-> and merging into my "devel" branch: we were clashing a bit
-> with Bartosz rewrites so I had to help git a bit.
+> This patch implements the `reset_slot` callback for link down handling
+> for DWC PCIe host controller. In which, the RC is reset, reconfigured
+> and link training initiated to recover from the link down event.
 > 
-> Pushed to the autobuilders, check the result!
+> This patch by extension fixes issues with sysfs initiated bus resets.
+> In that, currently, when a sysfs initiated bus reset is issued, the
+> endpoint device is non-functional after (may link up with downgraded link
+> status). With this patch adding support for link down recovery, a sysfs
+> initiated bus reset works as intended. Testing conducted on a ROCK5B board
+> with an M.2 NVMe drive.
+> 
+> Signed-off-by: Wilfred Mallawa <wilfred.mallawa@wdc.com>
+> ---
+> base-commit: 08733088b566b58283f0f12fb73f5db6a9a9de30
+> change-id: 20250430-b4-pci_dwc_reset_support-d720dbafb7ea
+> prerequisite-change-id: 20250404-pcie-reset-slot-730bfa71a202:v4
+> prerequisite-patch-id: 2dad85eb26838d89569b12c19d70f392fa592667
+> prerequisite-patch-id: 6238a682bd8e9476e5911b7a59263c3fc618d63e
+> prerequisite-patch-id: 37cab00bc255a62b1e8396a48a3afba5e1751abd
+> prerequisite-patch-id: ff711f65cf9926374646b76cd38bdd823d576764
+> prerequisite-patch-id: 1654cca919d024b9a9190b28e90f722975c797e8
 
-Checked, it is fine. Thanks!
+Now when all the prerequisite-patches have been merged to the
+pci/slot-reset branch, any chance of getting this patch queued
+up on pci/slot-reset branch as well?
 
--Gabor
+
+Kind regards,
+Niklas
 
