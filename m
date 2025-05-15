@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA89C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 00:24:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE92C3ABDA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 01:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nc/AJGfHBul8N3gi1SChFxGzUE4KiP+XdaAIbRHymQ4=; b=RWm2N3UJTBnla8EhSSrWL4kHKz
-	d1q1h0kHnsPn5ijzVCxW2c68Q6cTIqOqdfO7CeJpMS8CQPZbiEtacl6zcLWRnj7AsAapWESQxHr5Z
-	f/JpR7UfBJawEJUFzCa593u8QsZ3IApp5B87whm7oGZbFsY3Md1oaNgL+ibxhuZVvzJPfH+FWiYyl
-	Z1AMLkq/A7H+R7hKX57slwTX6/a+V1hiPOnA7/NxG9iDX8Rpj0B2NMHgN1XQcJSI+XiFjeuMD0qCr
-	xIhNMDL6HvWptQIlEA0jelhDALC+bwu9wHM8vCRXLx8zk91NKprwVW96Eo6o23SqeUaf+O+orku2B
-	7IBK+7Kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DsGnrEn9gDYqprrXQ+yC+gSzutDgzHnWlYhqJih3kAI=; b=at61QdDHS+9J067k/ik8kOMESn
+	zwA7y9qIoAE6Grjediw/DibIjqr6mt5QV0CSuDnwWSSTEInbPWx99VcXh0lNTsL8Bw2Uxhj0wQ9WD
+	VV7yriP/lvwojt8BzSUn/wZd8G/byBSJJhGF+YcNn5VO9y9ErxH7Z2VA5gyND2BlfG2EfUYSBwf50
+	BH2YfNO2DlVGS+4aMxGaTVa3qqLW6I8KYhMxrXT/+rnph7CqdL8CsjlSUb5OD0qrarzYQbBcrHqJS
+	2HQQKrdw1Hd/PdvZTmP6HhHuZONZ7rFQKH/l2L2EtgzjAkWShdRxDtCHOqtuVbqnxY521/M63T0o2
+	pOm0IWmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFMOT-0000000Ghmb-2SzW;
-	Thu, 15 May 2025 00:24:13 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uFNhQ-0000000GnVA-2ymA;
+	Thu, 15 May 2025 01:47:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFMMG-0000000Ghgo-0Mva
+	id 1uFNfM-0000000GnJL-0kAA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 May 2025 00:22:02 +0000
+	Thu, 15 May 2025 01:45:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3441AA4E37A;
-	Thu, 15 May 2025 00:21:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7D6AC4CEE3;
-	Thu, 15 May 2025 00:21:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2DB00629E4;
+	Thu, 15 May 2025 01:45:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72AEEC4CEE3;
+	Thu, 15 May 2025 01:45:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747268514;
-	bh=iZxb2jBSDnEKEW1l8qaYvCVJkwZAk7SAXLmlCJt7lxE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=giLgSzaBsrTSQmdRgRpUok5qVyhLCBeiG1y7Q+F9QOxdTyOHZSGu3wBBs5jdwmRQd
-	 Y/dEjgXDvwC9CKdCgvIwpnWGjd2lySS6TaDlfUZoknEMD5nBADd8fMm0OWh/9GZMr3
-	 iGncaotXhTW+6uDLr/woGh7OgWk4uDrKRUhY7gkhOW+51suO/j2DAR9hjm1wOXubmb
-	 DcC4Mb7wl/hrkhz9FTBcg0+CEFl022ZyX3G92G1cCXSJP6LiIGb80NkfAkeFbwUK4a
-	 yjHIb1AAzbqy+v/TYQ308zyorknRpWQqpR5F6WVe5/Ap3cOvld6RUk3efsGxU5fBdD
-	 BNpRuEqQCkY8Q==
-From: William Breathitt Gray <wbg@kernel.org>
-To: lee@kernel.org,
-	ukleinek@kernel.org,
-	alexandre.torgue@foss.st.com,
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: William Breathitt Gray <wbg@kernel.org>,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	jic23@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	s=k20201202; t=1747273542;
+	bh=pnNBST+c9YzDalNQ25GoKXrq/N4ZaCLn+kBAH2QlzYY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aNc4tPUliPhaLP8MScTBz9lzD/DbFYbrmeQrGDWpJqBK+OQTnINZVdKbioHL6ZlaG
+	 7B0bXpM5nFKBFsjTFtIARi8xIxPPdsGvR8QSEjkD0LDsPK7paj3VIDwNhiy8qLmeS2
+	 Q4vSfcc1Q/MFQqHCSTZoL1YNd65JA6kq/y1Q4LlKsawjEVMBJatGqzWHgfCc0MW7Zm
+	 8aNhLfenXAcGTnLGqlfUzpCqVjZ+e8uT3pusUg7EVriHSdUSomg0SBSri09+p3jmmA
+	 eO5c/aiw0dn9R0/3bGlvru/Yo86J8ScWuzWm/R7NXvtQsxml1nU8VoDc2tJu0iKAur
+	 xuSFgNziuESLA==
+Date: Thu, 15 May 2025 04:45:39 +0300
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Stefano Garzarella <sgarzare@redhat.com>
+Cc: linuxppc-dev@lists.ozlabs.org, Peter Huewe <peterhuewe@gmx.de>,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	linux-integrity@vger.kernel.org,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-iio@vger.kernel.org,
-	linux-pwm@vger.kernel.org,
-	olivier.moysan@foss.st.com
-Subject: Re: (subset) [PATCH v3 3/8] counter: stm32-timer-cnt: add support for stm32mp25
-Date: Thu, 15 May 2025 09:21:44 +0900
-Message-ID: <174726846872.375413.17945727550032496363.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250110091922.980627-4-fabrice.gasnier@foss.st.com>
-References: <20250110091922.980627-1-fabrice.gasnier@foss.st.com> <20250110091922.980627-4-fabrice.gasnier@foss.st.com>
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Sumit Garg <sumit.garg@kernel.org>,
+	James Bottomley <James.Bottomley@hansenpartnership.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, linux-kernel@vger.kernel.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>
+Subject: Re: [PATCH v5 4/4] tpm/tpm_svsm: support TPM_CHIP_FLAG_SYNC
+Message-ID: <aCVHQ-LRqHeEVEAW@kernel.org>
+References: <20250514134630.137621-1-sgarzare@redhat.com>
+ <20250514134630.137621-5-sgarzare@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=630; i=wbg@kernel.org; h=from:subject:message-id; bh=OdGDVpoycRi9OLgJVrxFO0kSREUlcdbL9tUWTQlQjY0=; b=owGbwMvMwCW21SPs1D4hZW3G02pJDBmqxk0rK0SetGYe2/NbVNbk7vGd194rcnVfNZvmKK+fq uxzofRMRykLgxgXg6yYIkuv+dm7Dy6pavx4MX8bzBxWJpAhDFycAjCRrT2MDDMPdm3oZe7d43yL P/HuJlNRHv4LndeCOZdZimyW5v6+4gAjw4K73xwSPxzacXX6f0v3gChdga36XCHf71mdSLv1dbV /LDcA
-X-Developer-Key: i=wbg@kernel.org; a=openpgp; fpr=8D37CDDDE0D22528F8E89FB6B54856CABE12232B
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_172156_199458_935AC937 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250514134630.137621-5-sgarzare@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,23 +82,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 10 Jan 2025 10:19:17 +0100, Fabrice Gasnier wrote:
-> Add support for STM32MP25 SoC. There are new counter modes that may be
-> implemented in later. Still, use newly introduced compatible to handle
-> this new HW variant and avoid being blocked with existing compatible
-> in SoC dtsi file. Modes supported currently still remains compatible.
-> New timer 20 has encoder capability, add it to the list.
+On Wed, May 14, 2025 at 03:46:30PM +0200, Stefano Garzarella wrote:
+> From: Stefano Garzarella <sgarzare@redhat.com>
+> 
+> This driver does not support interrupts, and receiving the response is
+> synchronous with sending the command.
+> 
+> Enable synchronous send() with TPM_CHIP_FLAG_SYNC, which implies that
+> ->send() already fills the provided buffer with a response, and ->recv()
+> is not implemented.
+> 
+> Keep using the same pre-allocated buffer to avoid having to allocate
+> it for each command. We need the buffer to have the header required by
+> the SVSM protocol and the command contiguous in memory.
+> 
+> Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
+> ---
+> v5:
+> - changed order and parameter names to match tpm_try_transmit() [Jarkko]
+> v4:
+> - reworked commit description [Jarkko]
+> ---
+>  drivers/char/tpm/tpm_svsm.c | 27 +++++++++++----------------
+>  1 file changed, 11 insertions(+), 16 deletions(-)
+> 
+> diff --git a/drivers/char/tpm/tpm_svsm.c b/drivers/char/tpm/tpm_svsm.c
+> index 0847cbf450b4..f5ba0f64850b 100644
+> --- a/drivers/char/tpm/tpm_svsm.c
+> +++ b/drivers/char/tpm/tpm_svsm.c
+> @@ -26,37 +26,31 @@ struct tpm_svsm_priv {
+>  };
+>  
+>  static int tpm_svsm_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> -			 size_t len)
+> +			 size_t cmd_len)
+>  {
+>  	struct tpm_svsm_priv *priv = dev_get_drvdata(&chip->dev);
+>  	int ret;
+>  
+> -	ret = svsm_vtpm_cmd_request_fill(priv->buffer, 0, buf, len);
+> +	ret = svsm_vtpm_cmd_request_fill(priv->buffer, 0, buf, cmd_len);
+>  	if (ret)
+>  		return ret;
+>  
+>  	/*
+>  	 * The SVSM call uses the same buffer for the command and for the
+> -	 * response, so after this call, the buffer will contain the response
+> -	 * that can be used by .recv() op.
+> +	 * response, so after this call, the buffer will contain the response.
+> +	 *
+> +	 * Note: we have to use an internal buffer because the device in SVSM
+> +	 * expects the svsm_vtpm header + data to be physically contiguous.
+>  	 */
+> -	return snp_svsm_vtpm_send_command(priv->buffer);
+> -}
+> -
+> -static int tpm_svsm_recv(struct tpm_chip *chip, u8 *buf, size_t len)
+> -{
+> -	struct tpm_svsm_priv *priv = dev_get_drvdata(&chip->dev);
+> +	ret = snp_svsm_vtpm_send_command(priv->buffer);
+> +	if (ret)
+> +		return ret;
+>  
+> -	/*
+> -	 * The internal buffer contains the response after we send the command
+> -	 * to SVSM.
+> -	 */
+> -	return svsm_vtpm_cmd_response_parse(priv->buffer, buf, len);
+> +	return svsm_vtpm_cmd_response_parse(priv->buffer, buf, bufsiz);
+>  }
+>  
+>  static struct tpm_class_ops tpm_chip_ops = {
+>  	.flags = TPM_OPS_AUTO_STARTUP,
+> -	.recv = tpm_svsm_recv,
+>  	.send = tpm_svsm_send,
+>  };
+>  
+> @@ -85,6 +79,7 @@ static int __init tpm_svsm_probe(struct platform_device *pdev)
+>  
+>  	dev_set_drvdata(&chip->dev, priv);
+>  
+> +	chip->flags |= TPM_CHIP_FLAG_SYNC;
+>  	err = tpm2_probe(chip);
+>  	if (err)
+>  		return err;
+> -- 
+> 2.49.0
 > 
 > 
-> [...]
 
-Applied, thanks!
+I can pick this for 6.16.
 
-[3/8] counter: stm32-timer-cnt: add support for stm32mp25
-      commit: ace2cd11a27231efcb8a116a597edab2eef34957
+BR, Jarkko
 
-Best regards,
--- 
-William Breathitt Gray <wbg@kernel.org>
+BR, Jarkko
 
