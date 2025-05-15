@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C32CDC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 12:53:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10F61C3DA4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 May 2025 12:55:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lo8tkKW23+9WMFJ5yoTSmuGd48aBjFyaRNNWMBrBWOQ=; b=sl0E2BV4M7U2X+5BXHUQCufBon
-	+Dyfm42lSryrs+M468+gvfo1gze5UpFseVnlx/3K2nmbu7NB7GBQpACcG/XcgeqfD0FhY25WxDaqQ
-	U+DGp5ASIOz7xqjtj5tbKbG+171RdBCcFt+2NM041IXvbohx8JYS9UgdZV3i7mQFtao8dVrGU75R5
-	kU47jnT5/HS9uVH5QdFkEICdQNjCZCNV6IUxT8TJXxqlQGF8BtkOjTldzwX+OyVUQEYfVfZWmUKc8
-	smeV9ZD/pNOvLG1/t36/m73ODl07HGnFd34YajC+8Wmyg2wM7EjlrZxG2Nzdy8S8M0tj7xnRTe0pJ
-	P/dsinFw==;
+	bh=ld9arx90FswKTvckS4BOSrObHJezxkx22Rz8W/MXMQ0=; b=esABxSu6plkGjXdtazcNC8rIhm
+	raeNPpYJkIxt9LB0sBSm1q7A8LtxA5ZjFbc6Zwp7ELedNr+B75BXopbEsZc6Y4ixM0JkfzhJWZwbR
+	iOG7JILS7JPl7NuzFh09GrZjUjgXWPedtIyIc0ji8s4FEw3HsWkRCBPnfftkDmeeoiwUbhDH/WbAp
+	ur6Wm9ZQvMzxUJK4he42J8vMNKVgV7c6zwIXCLKCDFpx5V7Wxr5ozbrSAreL6HH9RqgSwttcmWlwk
+	LG/yeRqvPQVZtxJ8qGb1vIb/vhxw49klmsxaWdbaRni1sfBmHpxGOE+MG36/MGwcBBYoGCWgE11Jh
+	Vpp44Wtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFY5X-00000000dWa-2LDs;
-	Thu, 15 May 2025 12:53:27 +0000
+	id 1uFY7Z-00000000dyS-0rdc;
+	Thu, 15 May 2025 12:55:33 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFY39-00000000cvr-0dJT;
-	Thu, 15 May 2025 12:51:00 +0000
+	id 1uFY3A-00000000cwK-08D3;
+	Thu, 15 May 2025 12:51:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=Lo8tkKW23+9WMFJ5yoTSmuGd48aBjFyaRNNWMBrBWOQ=; b=BmvkpP6eIxfLKtQ9w3Uake6ka9
-	/9CqizimXLWD3ytdX1PUn4ITl/TGBlhGsWxTcUSzRGijga8WzU+mLIpOc3Z95TFsWEleyRh+fqqm2
-	VyNDWFGDoJ4DROR58cEpf1SEgCOP57kAbGhxX71ycOzcJaoweOmHEkJ/XfcEEgEvXluS3sGGIl/f8
-	5H3ijB5QiJZEa70fSDY2qI+ixApiYZCNQRi7vWmMiuw40RO3hQwdfBFF5Kmxsy9DhdzbZNRAeyCMI
-	2pY+duacKFQbAaQ1Zdyh+9WTu0U0gX2rm5gacCFnQ7EOIK18b1AKNMTUzCyFuW2ndhjhjJ03dOI/r
-	2ALerG/Q==;
+	bh=ld9arx90FswKTvckS4BOSrObHJezxkx22Rz8W/MXMQ0=; b=qCpCZU3mchTTrS5K0WmUB2MNeM
+	wbJTFYuKhjbTs+cSkk+7pQVcxE4BXuXfcYcYbBJyQX/RUFfOIo3FLdj/gE695TuOj90lRwjD1CsX8
+	aMkSaevpSiZNL2HzdtAF+QmWCo0xuHcs63UQyabUB+VKD83+xfIkyzpsghdXXfV5bW7aX0cYOJ3mn
+	19AaNXknKWk/OGM9fP3neVAGSl/soWJtOTMrjWpSa9/1qXKxVpYD0x6AUUXyxfBbNj5wNKMK1FAl1
+	qSYGJp+vV4Xo05B8MuKSEgr0R+UFCcAwJSP8zwoMMiNP28Bwxxd+RysmtJaXLOvMlq8xvtADz+7sO
+	F7XmxPUg==;
 Received: from i53875a50.versanet.de ([83.135.90.80] helo=localhost.localdomain)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1uFY37-0004ph-Ic; Thu, 15 May 2025 14:50:57 +0200
+	id 1uFY38-0004ph-9j; Thu, 15 May 2025 14:50:58 +0200
 From: Heiko Stuebner <heiko@sntech.de>
-To: vkoul@kernel.org,
-	kishon@kernel.org,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH 0/3] usb-phy support for the old rk3036 soc
-Date: Thu, 15 May 2025 14:50:41 +0200
-Message-ID: <174731343058.2524804.7975318323595517347.b4-ty@sntech.de>
+	linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH] arm64: dts: rockchip: move rk3528 i2c+uart aliases to board files
+Date: Thu, 15 May 2025 14:50:43 +0200
+Message-ID: <174731343058.2524804.16404184082290188449.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250503201512.991277-1-heiko@sntech.de>
-References: <20250503201512.991277-1-heiko@sntech.de>
+In-Reply-To: <20250510220106.2108414-1-heiko@sntech.de>
+References: <20250510220106.2108414-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_055059_186648_1FB1DDB8 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250515_055100_066768_6AD54EB0 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,20 +75,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 03 May 2025 22:15:09 +0200, Heiko Stuebner wrote:
-> While trying to resurrect the rk3036 board in my boardfarm, I also
-> implemented the up to now missing usb2phy support.
+On Sun, 11 May 2025 00:01:06 +0200, Heiko Stuebner wrote:
+> Even though they will be the same for all boards, i2c and uart aliases
+> are supposed to live in the individual board files, to not create
+> aliases for disabled nodes.
 > 
-> The implementation is quite similar to the rk3128, except the not-
-> supported charger-detection, so its addition was quite simple.
-> 
+> So move the newly added aliases for rk3528 over to the Radxa E20C board,
+> which is the only rk3528 board right now.
 > 
 > [...]
 
 Applied, thanks!
 
-[3/3] ARM: dts: rockchip: add rk3036 usb2phy nodes and enable them on kylin
-      commit: 9e010737dd434e3eee1fa75938abea0dc2fab8e2
+[1/1] arm64: dts: rockchip: move rk3528 i2c+uart aliases to board files
+      commit: 34d2730fbbddfdffd656d36a13f8fdb886a3b5e1
 
 Best regards,
 -- 
