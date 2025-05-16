@@ -4,83 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89032C3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 06:58:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 803AFC3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 07:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O/ARFSixLHCH8zH36NGc9YwCv2/YHy1TScRGzqv03n0=; b=UcAfC7OmoMYN0tZX7i4JJaQ6AZ
-	BMRj+s8CZ71pDZQwFT9BtDHWwzA8PgQrvQ5JNxqscSpRvgaJkpxhzJZ56a6EezyyPyBVCPD6VJ8iP
-	AYDVGl61w58mbWt+eIlr/5FRV0chgcuj5axDx7AiMleDqbKpWLBx53t5pzWaLmR302uVcc8A1khC0
-	sRs8qeyT5Z7x/9DSlm22KDe2UGwpCezPv9lrSZjS+4vpURO997K9pnPCZAAZBna2bmB3A6TrMEcWZ
-	g2rt0Xrm0KpOB4tj3HS512tX6RRjTxqPlMtkfO6DxeMekKz2XODej3jCGdBj2koOnUnrPH0A2fJq+
-	bQqyCjMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XmppFljXRZvIHKczzxdAMuT4XhNPRgoX6GAn2af4BHo=; b=2Oa7s+ghXgkxYxZzRcfxwuVa88
+	1t8uJMSmbh5/6BqkuL7Xs1JHI0p0LKnASVMvq+E73bLD5lKeycq1Ko5FEzji1VgZCLy6V4A12wW6i
+	3vYutVjS3/TL5xnPwdEzvVmDeVUsPC5iAyXVzup+qjKvFcX+65O9on74kCe6nMKFo5Yh72BG0ALoh
+	h/XEfG/dr/Cn0B9u2yqpkolSEBtXVhWga6DEtW5j3DlBHwJDakGQ7kDc6lN0kLdSKYEC3pN5j3huO
+	SvB7NLz2d6lungVTpzkuvnYmMPxbBSO0bahG4hioQH5rUSIF2p/1xabaxNzSIe1/EtjD1u+VlUKsX
+	WzmF2lJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFp1a-00000002coC-0B7j;
-	Fri, 16 May 2025 06:58:30 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1uFp6Y-00000002dCz-1zZ4;
+	Fri, 16 May 2025 07:03:38 +0000
+Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFozS-00000002cgQ-0CQy
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 06:56:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1747378578; x=1778914578;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=6rfuUKsjOTxXxT8uLY3kxtdvK2WPbv9CQZT5mG0czjU=;
-  b=luHERxmp2eK5Lpkj9wQLFLRlN6EaTZVsOTxJveG4B243wpW+Oug22JTb
-   GgddHQS7UfQ/zQaIxxCsoeWdR4yQ/58kuFXRxMcgwpwWRzR3Ap0QkWB2G
-   tOFkNTtFJyxfT3rqhH2tcVUV7HsWXmiDixWcdAAMl6rsi53e3z6VTBSiK
-   vOc1tCNj77AMo7LJ52qY7NNw5bINoTE2Hv2W0v0DBokYQEpv35T2Hy7p1
-   5RXH7YBk6iH6evOcb8EAYK60zMKDHT4KXsxkb1Uvxm/kQLZEmRd97Brjo
-   0SK/4Mok8DRPtqHRONDLGexR0CbF0+PwNDqGrK01oDQHcbthFu65VmGND
-   Q==;
-X-CSE-ConnectionGUID: MSt4LBBNSNKui3huzraRpQ==
-X-CSE-MsgGUID: Lub4OkrwSrm5IM1ploefig==
-X-IronPort-AV: E=McAfee;i="6700,10204,11434"; a="74738755"
-X-IronPort-AV: E=Sophos;i="6.15,293,1739865600"; 
-   d="scan'208";a="74738755"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 May 2025 23:56:14 -0700
-X-CSE-ConnectionGUID: O0/Va5nMQmqorCi9kxe9jw==
-X-CSE-MsgGUID: 9O/mnJV4RoG4sk0/ylvhkA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,293,1739865600"; 
-   d="scan'208";a="138345283"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 15 May 2025 23:56:11 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uFozI-000J4N-1Z;
-	Fri, 16 May 2025 06:56:08 +0000
-Date: Fri, 16 May 2025 14:55:15 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alexey Charkov <alchark@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-watchdog@vger.kernel.org, Alexey Charkov <alchark@gmail.com>
-Subject: Re: [PATCH v3 4/4] watchdog: Add support for VIA/WonderMedia SoC
- watchdog functionality
-Message-ID: <202505161430.wdURc0TG-lkp@intel.com>
-References: <20250515-vt8500-timer-updates-v3-4-2197a1b062bd@gmail.com>
+	id 1uFp4O-00000002d0v-3YfW;
+	Fri, 16 May 2025 07:01:27 +0000
+Received: from localhost.localdomain (unknown [119.122.215.244])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 15416c95d;
+	Fri, 16 May 2025 15:01:13 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: kever.yang@rock-chips.com
+Cc: conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	finley.xiao@rock-chips.com,
+	heiko@sntech.de,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Subject: Re: [PATCH v7 4/5] arm64: dts: rockchip: add core dtsi for RK3562 SoC
+Date: Fri, 16 May 2025 15:01:06 +0800
+Message-Id: <20250516070106.653870-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250509102308.761424-5-kever.yang@rock-chips.com>
+References: <20250509102308.761424-5-kever.yang@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250515-vt8500-timer-updates-v3-4-2197a1b062bd@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaTR5NVh5KSh5DSkpOS09CTlYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKTlVJT09ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSEJVSktLVU
+	pCS0tZBg++
+X-HM-Tid: 0a96d7e5a5d103a2kunm15416c95d
+X-HM-MType: 10
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NRg6Pio5LTE9PjYhLzMYOgxL
+	Tk5PChFVSlVKTE9MSExDQ0xPTUhIVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUpK
+	QlVKSUlVSUpOVUlPT1lXWQgBWUFJS0pJNwY+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_235618_100762_9D4801EA 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20250516_000125_056103_C8ED663E 
+X-CRM114-Status: UNSURE (   7.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,68 +76,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexey,
+Hi,
 
-kernel test robot noticed the following build warnings:
+I posted to the wrong thread before, so I resent this.
+Sorry for the noise.
 
-[auto build test WARNING on 92a09c47464d040866cf2b4cd052bc60555185fb]
+> <snip>
+> +		pcie2x1: pcie@ff500000 {
+> +			compatible = "rockchip,rk3562-pcie", "rockchip,rk3568-pcie";
+> +			bus-range = <0x0 0xff>;
+> <snip>
+> +			interrupt-names = "sys", "pmc", "msg", "legacy", "err", "msi";
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Alexey-Charkov/dt-bindings-timer-via-vt8500-timer-Convert-to-YAML/20250516-025729
-base:   92a09c47464d040866cf2b4cd052bc60555185fb
-patch link:    https://lore.kernel.org/r/20250515-vt8500-timer-updates-v3-4-2197a1b062bd%40gmail.com
-patch subject: [PATCH v3 4/4] watchdog: Add support for VIA/WonderMedia SoC watchdog functionality
-config: sparc-allmodconfig (https://download.01.org/0day-ci/archive/20250516/202505161430.wdURc0TG-lkp@intel.com/config)
-compiler: sparc64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250516/202505161430.wdURc0TG-lkp@intel.com/reproduce)
+I noticed that the bsp 5.10 kernel said that pcie only has 8 MSI vectors,
+[1][2] but in the bsp 6.1 kernel it changed to 32 MSI vectors [3].
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505161430.wdURc0TG-lkp@intel.com/
+The rockchip documentation also says there are only 8 MSI vectors:
 
-All warnings (new ones prefixed by >>):
+[4] Page37 8.8 "RK3528/RK3562/RK3576可分配的MSI或者MSI-X总数是8个"
+Translate into English: "The total number of MSI or MSI-X that
+can be allocated by RK3528/RK3562/RK3576 is 8"
 
-   drivers/watchdog/vt8500-wdt.c: In function 'vt8500_wdt_probe':
->> drivers/watchdog/vt8500-wdt.c:98:44: warning: conversion from 'long unsigned int' to 'unsigned int' changes value from '6148914691236517' to '3287081637' [-Woverflow]
-      98 |         drvdata->wdd.max_hw_heartbeat_ms = -1UL / (VT8500_TIMER_HZ / 1000);
-         |                                            ^
+We noticed this when supporting rk3528, so which one is correct?
 
+[1] https://github.com/rockchip-linux/kernel/commit/4f0c9ccc79c373aa97084b3b1ab0651ca4248227
+[2] https://github.com/rockchip-linux/kernel/commit/afb85c759cfadc4051c42a9703860071a9877f2e
+[3] https://github.com/coolpi-george/coolpi-kernel/commit/522b94122ec797760dcd466851250cbdfafff50f
+[4] https://github.com/ArmSoM/rk3506-rkr4.2-sdk/blob/main/docs/cn/Common/PCIe/Rockchip_Developer_Guide_PCIe_CN.pdf
 
-vim +98 drivers/watchdog/vt8500-wdt.c
+Thanks,
+Chukun
 
-    75	
-    76	static int vt8500_wdt_probe(struct platform_device *pdev)
-    77	{
-    78		struct device *dev = &pdev->dev;
-    79		struct vt8500_wdt *drvdata;
-    80	
-    81		drvdata = devm_kzalloc(dev, sizeof(struct vt8500_wdt), GFP_KERNEL);
-    82		if (!drvdata)
-    83			return -ENOMEM;
-    84	
-    85		/*
-    86		 * The register area where the timer and watchdog reside is disarranged.
-    87		 * Hence mapping individual register blocks for the timer and watchdog
-    88		 * is not recommended as they would have access to each others
-    89		 * registers. The timer driver creates the watchdog as a child device.
-    90		 * During the watchdogs creation, the timer driver passes the base
-    91		 * address to the watchdog over the private interface.
-    92		 */
-    93	
-    94		drvdata->regbase = (void __iomem *)dev->platform_data;
-    95	
-    96		drvdata->wdd.info = &vt8500_watchdog_info;
-    97		drvdata->wdd.ops = &vt8500_watchdog_ops;
-  > 98		drvdata->wdd.max_hw_heartbeat_ms = -1UL / (VT8500_TIMER_HZ / 1000);
-    99		drvdata->wdd.parent = dev;
-   100	
-   101		watchdog_set_drvdata(&drvdata->wdd, drvdata);
-   102	
-   103		return devm_watchdog_register_device(dev, &drvdata->wdd);
-   104	}
-   105	
+--
+2.25.1
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
