@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BD85C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 18:08:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B085C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 18:10:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F2n2o30Q/kVq/KYG6vVQ5aU24ZZC3guR83pv90r8Jms=; b=XVvy9kHc0tBf345TMbPKEgaP2X
-	sS0AlmZ1xv+0F+bLivE6kUoX4FA8zBtraNEHLH/reTGgE3FS8JyjgDJPp4vHYc1TTlju8y3tR7SkB
-	+Ly/UntcHwodnbpUuWsi4ypgydaY/GI0hHH9cWuelEy8R9MXqW+SmIhQGF25XBACki2wtsfCI6+IW
-	UA1CsC+7+cRXjs9yzHYYplLwl+tYCKiGuadYQmMsYfSVGQFu8yO4Ju0kJzTdnj9CVBffSRXzVle0j
-	3ZMP9jlexazkpKgQPlPZ5fgxHn5IQ/2KQJfLR5Qmov24RBG/ac1Ag0lLm9YhClcsRNcj41itjtjiY
-	UumYbZzw==;
+	bh=2gntzzHgR7hVfcxIHz+wXqJ/img6vkZtc4/PYkuXugA=; b=gxR73YFPB+SyXIbJw09cxL2a5V
+	JbS9FLSA1D52DZFKe7omgDPcR0B4FV4CUwd+IA0jzIc+CqKR7pE4a+gARYEYR/DcSP+eN0TLJxEWu
+	XC6JzdvFnFm6cojZSfSV8MR6y+nAJ08ZekUEShOiYTvwA8c+JANuYnafgkWXQsgUD6fo9Y5JMYc9X
+	PNdfkB4M2xbwsnsKfut0x8EGqdBPk9RmKE1FeFXxBFzCfalDN1XnB85YyqEDq8UnJOnrewZ/zDP52
+	g8/dvy0lx7TpgiJDWNEbCbo/LdgWmRtPsREDWFauP1BoYgGPe0nHC1UrmVNFbSkmN4DXi2OcqoOIv
+	C6b/+Fow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFzTl-00000004Gi0-1UJV;
-	Fri, 16 May 2025 18:08:17 +0000
-Received: from mxout1.routing.net ([2a03:2900:1:a::a])
+	id 1uFzVm-00000004H6a-0RAL;
+	Fri, 16 May 2025 18:10:22 +0000
+Received: from mxout3.routing.net ([2a03:2900:1:a::8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFzNh-00000004FKH-14xE;
+	id 1uFzNh-00000004FKM-1nOd;
 	Fri, 16 May 2025 18:02:03 +0000
 Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout1.routing.net (Postfix) with ESMTP id 1C40840504;
-	Fri, 16 May 2025 18:01:57 +0000 (UTC)
+	by mxout3.routing.net (Postfix) with ESMTP id BE9F0604DC;
+	Fri, 16 May 2025 18:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1747418517;
+	s=20200217; t=1747418516;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=F2n2o30Q/kVq/KYG6vVQ5aU24ZZC3guR83pv90r8Jms=;
-	b=oJwnIq5jNUeLmQxVWrKPXhVsAyly2zJgpt4ZdJged5/coNw1NBVVKaMARgKMGRZuRpo6z6
-	dvFM+whBi0n3GdIRcnVXoVn2tj4IRUE9vU1kMougYxGMFcO6muTH6+CxtUJt3uxglVTtsL
-	QElvXrSxNtQjZQY/U3oGcLhK7gaD8aA=
+	bh=2gntzzHgR7hVfcxIHz+wXqJ/img6vkZtc4/PYkuXugA=;
+	b=Lkt49FfPhgvCYAEys78J9qRvMVLYQjXftRz0aqJwwWeo8TNAF1z3aQBCxVA6c2+SEKjlsV
+	Io0jANRbvFGSujBGqBfrJGlpJVIIJw2afi9NHfN2u6q7O3o/ue2dql2Y/UPVRiSgbPB+Uu
+	yqEuvpe9lt78btCL14A6dLAbVd5BuqA=
 Received: from frank-u24.. (fttx-pool-157.180.226.139.bambit.de [157.180.226.139])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id C82BC1226D6;
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 748D41226F2;
 	Fri, 16 May 2025 18:01:56 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: Andrew Lunn <andrew@lunn.ch>,
@@ -67,17 +67,18 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 05/14] arm64: dts: mediatek: mt7988: move uart0 and spi1 pins to soc dtsi
-Date: Fri, 16 May 2025 20:01:36 +0200
-Message-ID: <20250516180147.10416-7-linux@fw-web.de>
+Subject: [PATCH v2 04/14] arm64: dts: mediatek: mt7988: add spi controllers
+Date: Fri, 16 May 2025 20:01:35 +0200
+Message-ID: <20250516180147.10416-6-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250516180147.10416-1-linux@fw-web.de>
 References: <20250516180147.10416-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_110201_441554_C64BB6B5 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20250516_110201_617906_CA3D5123 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,92 +95,70 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-In order to use uart0 or spi1 there is only 1 possible pin definition
-so move them to soc dtsi to reuse them in other boards and avoiding
-conflict if defined twice.
+Add SPI controllers for mt7988.
 
-Suggested-by: Daniel Golle <daniel@makrotopia.org>
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 ---
- .../dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi  | 14 --------------
- arch/arm64/boot/dts/mediatek/mt7988a.dtsi      | 18 ++++++++++++++++++
- 2 files changed, 18 insertions(+), 14 deletions(-)
+ arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 45 +++++++++++++++++++++++
+ 1 file changed, 45 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-index 37e541a98ee1..23b267cd47ac 100644
---- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-@@ -328,13 +328,6 @@ mux {
- 		};
- 	};
- 
--	uart0_pins: uart0-pins {
--		mux {
--			function = "uart";
--			groups =  "uart0";
--		};
--	};
--
- 	snfi_pins: snfi-pins {
- 		mux {
- 			function = "flash";
-@@ -356,13 +349,6 @@ mux {
- 		};
- 	};
- 
--	spi1_pins: spi1-pins {
--		mux {
--			function = "spi";
--			groups = "spi1";
--		};
--	};
--
- 	spi2_pins: spi2-pins {
- 		mux {
- 			function = "spi";
 diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-index 8c31935f4ab0..ab6fc09940b8 100644
+index 8f6d1dfae24a..8c31935f4ab0 100644
 --- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-@@ -209,6 +209,20 @@ mux {
- 						 "pcie_wake_n3_0";
- 				};
- 			};
-+
-+			spi1_pins: spi1-pins {
-+				mux {
-+					function = "spi";
-+					groups = "spi1";
-+				};
-+			};
-+
-+			uart0_pins: uart0-pins {
-+				mux {
-+					function = "uart";
-+					groups =  "uart0";
-+				};
-+			};
- 		};
- 
- 		pwm: pwm@10048000 {
-@@ -244,6 +258,8 @@ serial0: serial@11000000 {
- 			clocks = <&topckgen CLK_TOP_UART_SEL>,
- 				 <&infracfg CLK_INFRA_52M_UART0_CK>;
- 			clock-names = "baud", "bus";
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&uart0_pins>;
+@@ -311,6 +311,51 @@ i2c2: i2c@11005000 {
  			status = "disabled";
  		};
  
-@@ -338,6 +354,8 @@ spi1: spi@11008000 {
- 				      "hclk";
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&spi1_pins>;
- 			status = "disabled";
- 		};
- 
++		spi0: spi@11007000 {
++			compatible = "mediatek,mt7988-spi-quad", "mediatek,spi-ipm";
++			reg = <0 0x11007000 0 0x100>;
++			interrupts = <GIC_SPI 140 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&topckgen CLK_TOP_MPLL_D2>,
++				 <&topckgen CLK_TOP_SPI_SEL>,
++				 <&infracfg CLK_INFRA_104M_SPI0>,
++				 <&infracfg CLK_INFRA_66M_SPI0_HCK>;
++			clock-names = "parent-clk", "sel-clk", "spi-clk",
++				      "hclk";
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		spi1: spi@11008000 {
++			compatible = "mediatek,mt7988-spi-single", "mediatek,spi-ipm";
++			reg = <0 0x11008000 0 0x100>;
++			interrupts = <GIC_SPI 141 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&topckgen CLK_TOP_MPLL_D2>,
++				 <&topckgen CLK_TOP_SPIM_MST_SEL>,
++				 <&infracfg CLK_INFRA_104M_SPI1>,
++				 <&infracfg CLK_INFRA_66M_SPI1_HCK>;
++			clock-names = "parent-clk", "sel-clk", "spi-clk",
++				      "hclk";
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		spi2: spi@11009000 {
++			compatible = "mediatek,mt7988-spi-quad", "mediatek,spi-ipm";
++			reg = <0 0x11009000 0 0x100>;
++			interrupts = <GIC_SPI 142 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&topckgen CLK_TOP_MPLL_D2>,
++				 <&topckgen CLK_TOP_SPI_SEL>,
++				 <&infracfg CLK_INFRA_104M_SPI2_BCK>,
++				 <&infracfg CLK_INFRA_66M_SPI2_HCK>;
++			clock-names = "parent-clk", "sel-clk", "spi-clk",
++				      "hclk";
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
+ 		lvts: lvts@1100a000 {
+ 			compatible = "mediatek,mt7988-lvts-ap";
+ 			#thermal-sensor-cells = <1>;
 -- 
 2.43.0
 
