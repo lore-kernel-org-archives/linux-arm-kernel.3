@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C56D1C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 21:38:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00935C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 21:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+j2u0vAmmh0s4Y2w4ITN6mZNZR+/a6eb0bIk+MTf//4=; b=0V8DuVNvn5Sy9/JL1U59RjZwd9
-	Pe/9c2tbk085C1SGJ1vL2Q+JJvrqXRyvFiN/etWgZ5Fui7aiq+rA+iqhxGhSVdMmmiygqjofsX6Z5
-	KRnmQowXoXtUuYV/5ifwnyoaPHgtxFtdCFNAIptE6Ekb36szdhAvujVJKhuTLYZB3x9qBaopzy8/8
-	NWGjJOhZlIBXnpsV27oftVtvgRvICtSsxEyw/E0lXIALyzubPuttgGNFkL2eUoELJAYtjF92vuAMp
-	qBesmBeZrFMIaIl8SpyvEY0bXh5Vze13tkLH+saG1Pj3gjTS9DYuoBReXhMwv/xXMExcnEkKpGR7O
-	5M/fOcFA==;
+	bh=sdioJwXx3n6fA3Df1meb3RmKfvw5hV12OjOQVV7EXMs=; b=hE4RXRi7otKSt2S2HeEQz4htw4
+	cVApY5rEgUzzl46faqH3uEiPOm0f6wVfdFhsSMjtVCsRTSi7pIrmez6FnL5YnTGotJyUPzLWBDGLB
+	RevO5k2FmX3HYAoS0MZCghkWEVq9nt2z/JXBB9Qa9SvJD2D7S5KOBoPw6iayHCoosQmZEL1cneSuY
+	TO+EYmshuxyUNF96rmPjcuy84WpUjctIN8zAXWr3PYS4zsEyk+z6ghzVSuKWtieVDTIEJn1aReiE/
+	2i3X1C83Uvoamrk2ROESuvzYoV9tpvBPQExPDcdc7oZxURrHA2U5cAIWYvBc9xmE34PNpgLxrETz2
+	HKdY62iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uG2ke-00000004fLX-0xDm;
-	Fri, 16 May 2025 21:37:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uG2me-00000004flf-3tkG;
+	Fri, 16 May 2025 21:40:00 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uG2ib-00000004et3-3Qfy
+	id 1uG2if-00000004etr-0asc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 21:35:51 +0000
+	Fri, 16 May 2025 21:35:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 31161437B9;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6228AA4DF19;
+	Fri, 16 May 2025 21:35:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1ED0C4CEF1;
 	Fri, 16 May 2025 21:35:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A824C4CEE4;
-	Fri, 16 May 2025 21:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747431349;
-	bh=gNk8obhgQhIjZzvh9RUuL8tdGwi4aItMetnuFmJAOv4=;
+	s=k20201202; t=1747431352;
+	bh=2UgHvwJPsT8E4AkV26/zm26WcsJ5gFJYvbLkSa5rXKw=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=Dr6scmLrU7J2SAs93Hs8WK/xT7ajHOqXsJfhUXNU7FL8Gd6KzCfZ8q8QBiJTPkI/Z
-	 6tNHTb5N+2cBG8DrL17NsBwjvgt3ix/uYJc4vEz8Linups4IL3IRHwz/J5gOkpH1No
-	 8nMjNSCY9QTLIBtvLDfV4RnY6x/X/rzxI38/5pg84mRn/mzK0+51Edo4qObnaEseRn
-	 2dlDtDnmyGXR+Mf9uqMnRS0ri2Shqfp6tZAC5L1stdhodiGCDtVxngM6PAn16dWYJz
-	 5ANCO1wYRJgY7/m6Qkjf5yC1wEqsWOpcl8Jy4wPsdXo7GSFK/iXu2txDPTsKVen/Ft
-	 7RiqNdOTYg7ww==
-Message-ID: <982e5e2f-db79-4fe0-9a7e-31daf047de0f@kernel.org>
-Date: Fri, 16 May 2025 21:38:41 +0200
+	b=UZZX5ftjXLW2pu17oJaFvC6jTQCuF8OnbZOdf4s1NsHEzWU/Ov/AeYUp/IS2QRhjp
+	 H7RtUESYCY0ujOxPZLlZmr5ZM21/GXdMtMNV154yLrdLmNTzPsWxoNGqJWW9fZA1Jl
+	 S/3hQMNi8ViDX9EYXsWI+CMDc5vvOuTsoE+r+CzHz60MfhIoFlcBr/wtkiE788IBV2
+	 RukrlHNnTXkflAUmchoVrbDX3NHLopizHEYE0KLjPtJ0Zn4gFq1u6zcjwTQVxWuBMX
+	 pRKz/MH+Me4Ib96ujbtmzuFigt8UpVTFvhHBkKYoLzS67pMDbXhtYvKk2YeoaU7ov2
+	 oXYEgBTUT2YpQ==
+Message-ID: <59c5e3b8-09c9-486b-8e17-85fd455020a8@kernel.org>
+Date: Fri, 16 May 2025 21:40:08 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/6] dt-bindings: mfd: add bindings for QIXIS CPLD
+Subject: Re: [PATCH v3 3/6] arm64: dts: lx2160a-qds: make the QIXIS CPLD use
+ the simple-mfd-i2c.c driver
 To: Ioana Ciornei <ioana.ciornei@nxp.com>, lee@kernel.org, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, vladimir.oltean@nxp.com
 References: <20250515155628.233007-1-ioana.ciornei@nxp.com>
- <20250515155628.233007-2-ioana.ciornei@nxp.com>
+ <20250515155628.233007-4-ioana.ciornei@nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -98,13 +99,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250515155628.233007-2-ioana.ciornei@nxp.com>
+In-Reply-To: <20250515155628.233007-4-ioana.ciornei@nxp.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_143549_899147_3B2B6557 
-X-CRM114-Status: UNSURE (   5.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250516_143553_310330_26FBA41C 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,32 +120,34 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 15/05/2025 17:56, Ioana Ciornei wrote:
-> +    const: 1
-> +
-> +  "#size-cells":
-> +    const: 0
-> +
-> +patternProperties:
-> +  '^mux-controller(@[a-f0-9]+)$':
+> The MDIO mux on the LX2160A-QDS never worked in mainline. This is
+> because the on-board QIXIS FPGA does not have a driver that could probe
+> it and register an I2C regmap for it which could, afterwards, be used by
+> the child devices - such as the mux-controller.
+> 
+> There is a downstream driver for the QIXIS CPLD:
+> 
+> https://github.com/nxp-qoriq/linux/blob/lf-6.12.y/drivers/soc/fsl/qixis_ctrl.c
+> 
+> That driver is very similar to the already existing drivers/mfd/simple-mfd-i2c.c,
+> and the hardware works with the simple-mfd-i2c driver, so there isn't
+> any reason to upstream the other one.
+> 
+> Since we want the QIXIS CPLD to have child nodes with "reg" and the
+> current format lacks that, change the compatible string so that we make
+> it clear that by using the simple-mfd-i2c driver, and its
+> fsl,lx2160a-qds-qixis-cpld compatible, we expect dt nodes children with
+> the reg property.
 
-Drop ()
+We are repeating the same over and over and I am getting bored. I do not
+see any reason to change the compatible. Whether you want to use
+simple-mfd driver or not, is not relevant here. Does not matter. Whether
+device was really working or not, is not relevant either.
 
-> +    $ref: /schemas/mux/reg-mux.yaml#
-> +
-> +required
-> +  - compatible
-> +  - reg
-> +  - "#address-cells"
-
-Keep consistent quotes, either ' or "
-
-> +  - "#size-cells"
-> +
-> +additionalProperties: false
-> +
+There is a device with given compatible, explain why this compatible is
+wrong. Without arguments for that, old compatible must stay.
 
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
