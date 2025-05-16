@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C8C2C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 07:28:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31107C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 07:30:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+IrraWLimy1x05XmWcpgWWj7AES2HxIEsMNAIBePizs=; b=RJ6JkGXzzmkGaSW7nQC3lcMZRT
-	j/H7iECq7GT4rtGF0BXqk1YC5z8v+u12CsCWUZKyLJ30x1R0EvVoByBceLfcAO47UAwH6j6Wg3TGd
-	aWVukJ4Bhi2UGUbGhuMDMJwoueaVLJ6BmxM0mBnRjtRrHAqxoCPZeNgG0f3OrQHl/ijiOsKf1LFpu
-	TXrxPZJApLu75iiYGMl2Ouu4A1uL/yV7NKo5RoCJ0Gzz41uU9JRe1g65NKq+/0/SaH0B2iFAbMhPX
-	AoXQ2im6pPWVSd9VQBuHZMXDdPUfcL1wABfdQ7YtodHNEZSnixFV9F1V2Tv6vINSt/9nqrbu2fzYX
-	u78GaU/A==;
+	bh=/9Z/ul7hXCo/YIyQHv36+JlKXEGkyyfKI7Noi5V9Zw8=; b=e6iyadb3Nc69Fg7QnSYoHC3rKR
+	ztYnJPsES2VQDSs3EnBWnt6gmiZpl9toxxwbyJuWTU8W75p4eY0qtSgjSU4lf83QEmQyeUPnRJ2Tb
+	ybt8km8l+0+5ORjTJ4v1e42CRplR+q3cFscqA/hg8QQFuksx5vMdjkCSq+xcG9MANbs5eOooV3k26
+	Ox9EAWHIDdwVLN99UiAn0exfM9l7cP7uT2H+84LFpEW/6kgNsfvrJQNprlFFmQTM+ePdEpbhBD+G1
+	+L9u1rIRGMH8gCsFPwV94lO6z6J0yc2GumKQPSMsrRMUIe6YSDcyGZZ+5WBfahyjsx6cuUGsY5bPv
+	hU88J+lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFpUP-00000002f6p-1wyP;
-	Fri, 16 May 2025 07:28:17 +0000
-Received: from mail-106111.protonmail.ch ([79.135.106.111])
+	id 1uFpWX-00000002fHc-0q30;
+	Fri, 16 May 2025 07:30:29 +0000
+Received: from mail-43171.protonmail.ch ([185.70.43.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFpQC-00000002eev-28Jv
+	id 1uFpQC-00000002eeg-2eAT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 07:23:57 +0000
+	Fri, 16 May 2025 07:23:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=geanix.com;
-	s=protonmail; t=1747380234; x=1747639434;
-	bh=+IrraWLimy1x05XmWcpgWWj7AES2HxIEsMNAIBePizs=;
+	s=protonmail; t=1747380232; x=1747639432;
+	bh=/9Z/ul7hXCo/YIyQHv36+JlKXEGkyyfKI7Noi5V9Zw8=;
 	h=From:Date:Subject:Message-Id:References:In-Reply-To:To:Cc:From:To:
 	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector:
 	 List-Unsubscribe:List-Unsubscribe-Post;
-	b=XRq1syeTu67fuoUJrxO1i2+rs/1jCnRtTQvmELbFfP55EYql41aBvJIdIxSuy+65d
-	 BQaSENptZ1yCLW3xDCaMUqAjJErj0In7vU/onUJmoCL8dFp17Az1hMEjYGdCXX9uXo
-	 4/5R8/SsaGrf9CxFLnCDJMSkol7etXB4j51TvnbxmCflacEjfXZzy65Sl7TgbUxYu6
-	 1/JtE7TQFEFW2u8Dap/9lRdkx8OI6VkguTi8B4U50lSyEaxEn3YuG+yW/OXWHiO4uz
-	 GOI35lEeZkAlHN4eH5UN44vlW0JbJzZzByiuilihjrxdJLXPsfiupYrD1inb4S/ISZ
-	 /Oi7KBmht4Z5g==
+	b=DKluuhBDUVDhATMSINsGvy9ny1stdMxHBTd7Hjax9eClAsaljoozfynvP2b6tMujM
+	 idvaB9gTt4jU1KFrNl1SHzwCCIiNVgzyZyQC+qf/8kJImwFy1isSvaxtI/08vGMW3s
+	 Fnf085yZPvQTpwzWVZCJrnWdTg9fZfOH7o+F+9bmdyk+qCM01FlUPk9KB9k+k5CsKg
+	 /Xms564OOgx0DoPLvT+xcy3Bo4vzcJn3YF6yUFP2TBduNwArilr8j8kh67nuv3TQnL
+	 VC8lDH6hOJwOiDH6Z9tPVVgB8dadWwgAEUDldjFaRLwKIBpgkdJM7GIW4oHS/6v8G8
+	 6iSII+BdWsRbQ==
 From: Esben Haabendal <esben@geanix.com>
-Date: Fri, 16 May 2025 09:23:36 +0200
-Subject: [PATCH v2 2/5] rtc: isl12022: Fix initial enable_irq/disable_irq
- balance
+Date: Fri, 16 May 2025 09:23:35 +0200
+Subject: [PATCH v2 1/5] rtc: interface: Fix long-standing race when setting
+ alarm
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250516-rtc-uie-irq-fixes-v2-2-3de8e530a39e@geanix.com>
+Message-Id: <20250516-rtc-uie-irq-fixes-v2-1-3de8e530a39e@geanix.com>
 References: <20250516-rtc-uie-irq-fixes-v2-0-3de8e530a39e@geanix.com>
 In-Reply-To: <20250516-rtc-uie-irq-fixes-v2-0-3de8e530a39e@geanix.com>
 To: Alexandre Belloni <alexandre.belloni@bootlin.com>
 Cc: linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Esben Haabendal <esben@geanix.com>
+ linux-arm-kernel@lists.infradead.org, Esben Haabendal <esben@geanix.com>, 
+ stable@vger.kernel.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747380226; l=849;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747380226; l=2485;
  i=esben@geanix.com; s=20240523; h=from:subject:message-id;
- bh=GJXYiYgi48NE9t/P+NOWlO+DdVXReF8iINAhKcqVKAU=;
- b=RfXHJO4jORMcU5oC2njC9qPb5Px1CjeD/ifxPX15ITeWH9dgg65MKJWVkpcBXSnr4DX29gGvF
- TP8iMCZ3st/AMwRngwLRxCJ6zhM7SpGnnFuHluG/uj+X4KifZ1E4OAY
+ bh=vqa0dTp9C1MThd8T8OLDOwiyoMFJjfgxJl+5EjhLtc0=;
+ b=rETIVHamGkIBOoWlv8KoibC8KOoj5ZsQOY7/o/R7tT9GXokO16Ovg696kdaK+Uk4Z3iH2MGey
+ hR07gIETKZiCR3/T8NoYDRzLqz+qoNGM2Uqiy3bgu90ANZ//6Q+5bI3
 X-Developer-Key: i=esben@geanix.com; a=ed25519;
  pk=PbXoezm+CERhtgVeF/QAgXtEzSkDIahcWfC7RIXNdEk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_002356_695692_92A03C9A 
-X-CRM114-Status: UNSURE (   7.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250516_002356_822216_237C59D7 
+X-CRM114-Status: GOOD (  18.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,28 +78,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Interrupts are automatically enabled when requested, so we need to
-initialize irq_enabled accordingly to avoid causing an unbalanced enable
-warning.
+As described in the old comment dating back to
+commit 6610e0893b8b ("RTC: Rework RTC code to use timerqueue for events")
+from 2010, we have been living with a race window when setting alarm
+with an expiry in the near future (i.e. next second).
+With 1 second resolution, it can happen that the second ticks after the
+check for the timer having expired, but before the alarm is actually set.
+When this happen, no alarm IRQ is generated, at least not with some RTC
+chips (isl12022 is an example of this).
 
-Fixes: c62d658e5253 ("rtc: isl12022: Add alarm support")
+With UIE RTC timer being implemented on top of alarm irq, being re-armed
+every second, UIE will occasionally fail to work, as an alarm irq lost
+due to this race will stop the re-arming loop.
+
+For now, I have limited the additional expiry check to only be done for
+alarms set to next seconds. I expect it should be good enough, although I
+don't know if we can now for sure that systems with loads could end up
+causing the same problems for alarms set 2 seconds or even longer in the
+future.
+
+I haven't been able to reproduce the problem with this check in place.
+
+Cc: stable@vger.kernel.org
 Signed-off-by: Esben Haabendal <esben@geanix.com>
 ---
- drivers/rtc/rtc-isl12022.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/rtc/interface.c | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
-diff --git a/drivers/rtc/rtc-isl12022.c b/drivers/rtc/rtc-isl12022.c
-index 9b44839a7402c9ab7da634d95152c2520eb8552e..5fc52dc6421305e957a0c3a169009c3f6a6c7320 100644
---- a/drivers/rtc/rtc-isl12022.c
-+++ b/drivers/rtc/rtc-isl12022.c
-@@ -413,6 +413,7 @@ static int isl12022_setup_irq(struct device *dev, int irq)
- 	if (ret)
- 		return ret;
+diff --git a/drivers/rtc/interface.c b/drivers/rtc/interface.c
+index aaf76406cd7d7d2cfd5479fc1fc892fcb5efbb6b..e365e8fd166db31f8b44fac9fb923d36881b1394 100644
+--- a/drivers/rtc/interface.c
++++ b/drivers/rtc/interface.c
+@@ -443,6 +443,29 @@ static int __rtc_set_alarm(struct rtc_device *rtc, struct rtc_wkalrm *alarm)
+ 	else
+ 		err = rtc->ops->set_alarm(rtc->dev.parent, alarm);
  
-+	isl12022->irq_enabled = true;
- 	ret = devm_request_threaded_irq(dev, irq, NULL,
- 					isl12022_rtc_interrupt,
- 					IRQF_SHARED | IRQF_ONESHOT,
++	/*
++	 * Check for potential race described above. If the waiting for next
++	 * second, and the second just ticked since the check above, either
++	 *
++	 * 1) It ticked after the alarm was set, and an alarm irq should be
++	 *    generated.
++	 *
++	 * 2) It ticked before the alarm was set, and alarm irq most likely will
++	 * not be generated.
++	 *
++	 * While we cannot easily check for which of these two scenarios we
++	 * are in, we can return -ETIME to signal that the timer has already
++	 * expired, which is true in both cases.
++	 */
++	if ((scheduled - now) <= 1) {
++		err = __rtc_read_time(rtc, &tm);
++		if (err)
++			return err;
++		now = rtc_tm_to_time64(&tm);
++		if (scheduled <= now)
++			return -ETIME;
++	}
++
+ 	trace_rtc_set_alarm(rtc_tm_to_time64(&alarm->time), err);
+ 	return err;
+ }
 
 -- 
 2.49.0
