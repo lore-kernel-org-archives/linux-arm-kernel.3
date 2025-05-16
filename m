@@ -4,83 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1BCAC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 12:26:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76B0FC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 12:28:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2T7euK6avmAImJ1lsnhXrHK6M7LJBbRaZyuO9xAS7wc=; b=CdW3z+7tmCTUFimMxdqyShZNg4
-	JYjUegCS4LXdTuigcp5N0GCTjA5QZ6wHyjcgqpeJRGfQ4dM2L1JIsnSvrVAblje0plXesZ6HO1GsH
-	KBQPS96C72jz0ZevpUJ8wSx4wYFO1FzlGdt+lFpUYkxz6mPlkAVnrSkb1CFtWiY5mp4PlYqloCFcF
-	uK38DLknn2e4duEfkn8zUfilWjLZtQGybm1QBgxHKs7d9eHSByg4tok7z5r70QXlaZDHf4+m05zOm
-	N8xqh6XZuaOBFURX2YLBcHAS/JCOknwz8OAf0qxjI/MlZE5m/OMu2uY/zHZQCxuuCDWmnnn67BWn3
-	glQepiKw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=owETaTDFsD56KEw81tLwYc4HqUVeg7+HX4lEfpw3DRE=; b=mS1jCboN888OXdJwJoQDApaVYb
+	RkIzbL9s/C1pGu4aWG3zRYiOzkgo1UZAVVRM3Sn+YAcMcsAbN3RwratJbPQ+ssWp74/m4q3bH/+oE
+	X+gb+sqEYthRpj0e3M1TtI8Xr1FGXef8qR/mC4kFxIRU9vsSMN2LKflpKECYteQlOcfOyPT7BpNpn
+	h0tDp1VC75DPz0hYaQVfP7LwAX0We2O26Un4z0cbP09q/OsvTAtHDgWkAF+4pXjlN7qgLnJBLDPse
+	jbYso5Gb1cCWpM8zYQ09RK4aaMFNh3Tp3GuDqer85ZZM346qxPfY2NoYYavuotW/JS7EcgIdRHr0x
+	jJ7pEiYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFu9A-00000003Mxn-3bVD;
-	Fri, 16 May 2025 12:26:40 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uFuBA-00000003NGO-2Mx6;
+	Fri, 16 May 2025 12:28:44 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFtx6-00000003LD8-375e
+	id 1uFtxv-00000003LOC-3Qje
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 12:14:14 +0000
+	Fri, 16 May 2025 12:15:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7529DA4E758;
-	Fri, 16 May 2025 12:14:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DDD8FC4CEF4;
-	Fri, 16 May 2025 12:14:10 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id CD3CA5C06B3;
+	Fri, 16 May 2025 12:12:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE260C4CEE4;
+	Fri, 16 May 2025 12:15:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747397650;
-	bh=AbTOZo2bIHYa+AuZXgK7wBfGLHVL/DsMiueumhxEIwI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=ozuVXQL9pso3mx6vj2sKLbWCP2SVEwtcSjwdfJZBf3ZKM/qlaYB7yf/S5tOHzqaSI
-	 uAZOEJt4Sb6EMqujqKzB08x1gxx9rCJF2khiBlJ3NBzM6fAAyIJVMOwAkm4ntfLple
-	 PU2kYFTHJeGqDQ/Iko8/tvMquLLoZEFLxj7swdUJRTn88kBJSaS9RMR6opO2g+zvtM
-	 1R5YybYN8sLr1eEYqIPlynWoZ/mDvkfcycO+yifMJjpm116YZV/TFwG4k0bITVw5GN
-	 2oW5BtwVRJsM2bzXKWu0Q6dddGaf+9q0nrIWbf5onGRHsek3KZ3Eykf1sbq8SCKNT+
-	 JQb+i2Urn84Yw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D1E1EC54755;
-	Fri, 16 May 2025 12:14:10 +0000 (UTC)
-From: Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org>
-Date: Fri, 16 May 2025 12:14:03 +0000
-Subject: [PATCH v4 4/5] KVM: arm64: Bump the supported version of FF-A to
- 1.2
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250516-virtio-msg-ffa-v4-4-580ee70e5081@google.com>
-References: <20250516-virtio-msg-ffa-v4-0-580ee70e5081@google.com>
-In-Reply-To: <20250516-virtio-msg-ffa-v4-0-580ee70e5081@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kernel@vger.kernel.org, sebastianene@google.com, qperret@google.com, 
- qwandor@google.com, arve@android.com, perl@immunant.com, 
- lpieralisi@kernel.org, kernel-team@android.com, tabba@google.com, 
- james.morse@arm.com, armellel@google.com, jean-philippe@linaro.org, 
- ahomescu@google.com, Ayrton Munoz <ayrton@google.com>, 
- Per Larsen <perlarsen@google.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747397650; l=6027;
- i=perlarsen@google.com; s=20250508; h=from:subject:message-id;
- bh=CRuCyLKNFxMaf56e9Y4I4+VaRj1h0S9SBtIGcRCH7Y8=;
- b=LXvUXDce7fu7RCfcKhj2RihIzanwXdYDk53LfDW/aC5vxWH+lOcb0BKUEie3ZMvMBmKKGHBNh
- pzWxOwfuYQZAlgWXTgUhrRH5mblPsS2RiWEdqhkvVTJ65xUpgC/WZ9K
-X-Developer-Key: i=perlarsen@google.com; a=ed25519;
- pk=jjc/Ta4VmrLRmMoahP6d1mBcKzvWU+nsmdtYe2oS2kQ=
-X-Endpoint-Received: by B4 Relay for perlarsen@google.com/20250508 with
- auth_id=402
-X-Original-From: Per Larsen <perlarsen@google.com>
+	s=k20201202; t=1747397702;
+	bh=HPNAKIztu+a2440f9Kb70RnSX4lQYGJ1p1Ou2Ufnvgo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=gWOUtE7/2N7RRwb1BoUkR5QRUQnVyJ8poexLiswNHVp2UlMTD0n11qNHJxAJdNv4r
+	 pDPmNKe3PKmVwkjqcHdx7yr4rbpam16Qeh6bN8B16JkjbtVMlrX/GLbWvW8ntv7m6R
+	 +d8WXTdYeWJPJPQGYfnmhH2PEuL3kKN5u5IqLJTyIoJxa3N/L/0mu3yd3GUZH09C8Q
+	 vY9zejEHtPXox0hyVqnzoQTraUjzmEiR2nPN1PIojh13H1C9y+iqwlCPcDs1liao7R
+	 ATehvrsAk5sltNQRZKZo3RW7A5EKSJSbu2YWkdrnA1dIRFUeVjWfXduJb/wG6H9Bi+
+	 kzcG58h5XJ/ZQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uFtxs-00FXzx-Mb;
+	Fri, 16 May 2025 13:15:00 +0100
+Date: Fri, 16 May 2025 13:15:00 +0100
+Message-ID: <86bjrsg3az.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	qperret@google.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kernel-team@android.com
+Subject: Re: [PATCH v4 01/10] KVM: arm64: Handle huge mappings for np-guest CMOs
+In-Reply-To: <20250509131706.2336138-2-vdonnefort@google.com>
+References: <20250509131706.2336138-1-vdonnefort@google.com>
+	<20250509131706.2336138-2-vdonnefort@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-team@android.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_051412_924013_D4AACEDA 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20250516_051503_966212_BA0312E5 
+X-CRM114-Status: GOOD (  19.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,175 +90,71 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: perlarsen@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Per Larsen <perlarsen@google.com>
+On Fri, 09 May 2025 14:16:57 +0100,
+Vincent Donnefort <vdonnefort@google.com> wrote:
+> 
+> clean_dcache_guest_page() and invalidate_icache_guest_page() accept a
+> size as an argument. But they also rely on fixmap, which can only map a
+> single PAGE_SIZE page.
+> 
+> With the upcoming stage-2 huge mappings for pKVM np-guests, those
+> callbacks will get size > PAGE_SIZE. Loop the CMOs on a PAGE_SIZE basis
+> until the whole range is done.
+> 
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 31173c694695..23544928a637 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -219,14 +219,28 @@ static void guest_s2_put_page(void *addr)
+>  
+>  static void clean_dcache_guest_page(void *va, size_t size)
+>  {
+> -	__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)), size);
+> -	hyp_fixmap_unmap();
+> +	WARN_ON(!PAGE_ALIGNED(size));
 
-FF-A version 1.2 introduces the DIRECT_REQ2 ABI. Bump the FF-A version
-preferred by the hypervisor as a precursor to implementing the 1.2-only
-FFA_MSG_SEND_DIRECT_REQ2 and FFA_MSG_SEND_RESP2 messaging interfaces.
+What if "va" isn't aligned?
 
-We must also use SMCCC 1.2 for 64-bit SMCs if hypervisor negotiated FF-A
-1.2, so ffa_set_retval is updated and a new function to call 64-bit smcs
-using SMCCC 1.2 with fallback to SMCCC 1.1 is introduced.
+> +
+> +	while (size) {
+> +		__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
+> +					  PAGE_SIZE);
+> +		hyp_fixmap_unmap();
+> +		va += PAGE_SIZE;
+> +		size -= PAGE_SIZE;
+> +	}
 
-Update ffa_call_supported to mark FF-A 1.2 interfaces as unsupported
-lest they get forwarded.
+I know pKVM dies on WARN, but this code "looks" unsafe. Can you align
+va and size to be on page boundaries, so that we are 100% sure the
+loop terminates?
 
-Co-developed-by: Ayrton Munoz <ayrton@google.com>
-Signed-off-by: Ayrton Munoz <ayrton@google.com>
-Signed-off-by: Per Larsen <perlarsen@google.com>
----
- arch/arm64/kvm/hyp/nvhe/Makefile |  1 +
- arch/arm64/kvm/hyp/nvhe/ffa.c    | 61 ++++++++++++++++++++++++++++++++++++----
- include/linux/arm_ffa.h          |  1 +
- 3 files changed, 57 insertions(+), 6 deletions(-)
+>  }
+>  
+>  static void invalidate_icache_guest_page(void *va, size_t size)
+>  {
+> -	__invalidate_icache_guest_page(hyp_fixmap_map(__hyp_pa(va)), size);
+> -	hyp_fixmap_unmap();
+> +	WARN_ON(!PAGE_ALIGNED(size));
+> +
+> +	while (size) {
+> +		__invalidate_icache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
+> +					       PAGE_SIZE);
+> +		hyp_fixmap_unmap();
+> +		va += PAGE_SIZE;
+> +		size -= PAGE_SIZE;
+> +	}
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-index b43426a493df5a388caa920e259cc8c54d118a1b..95404ff16dac0389f45a3ee2c13a93b3ebebaf6d 100644
---- a/arch/arm64/kvm/hyp/nvhe/Makefile
-+++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-@@ -27,6 +27,7 @@ hyp-obj-y := timer-sr.o sysreg-sr.o debug-sr.o switch.o tlb.o hyp-init.o host.o
- 	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o
- hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
- 	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o
-+hyp-obj-y += ../../../kernel/smccc-call.o
- hyp-obj-$(CONFIG_LIST_HARDENED) += list_debug.o
- hyp-obj-y += $(lib-objs)
- 
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index a545d25002c85b79a8d281739479dab7838a7cd3..0b952ace29f6847b4e941262c4c1b05a5bc13e5a 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -105,6 +105,48 @@ static void ffa_set_retval(struct kvm_cpu_context *ctxt,
- 	cpu_reg(ctxt, 5) = 0;
- 	cpu_reg(ctxt, 6) = 0;
- 	cpu_reg(ctxt, 7) = 0;
-+
-+	/*
-+	 * Per DEN0077A v1.2 11.2, the caller is expected to write zeroes to
-+	 * unused parameter registers.
-+	 */
-+	if (ARM_SMCCC_IS_64(res->a0)) {
-+		/* Prevent race with CPU performing version negotiation */
-+		if (smp_load_acquire(&has_version_negotiated) &&
-+			hyp_ffa_version >= FFA_VERSION_1_2) {
-+			cpu_reg(ctxt, 8) = 0;
-+			cpu_reg(ctxt, 9) = 0;
-+			cpu_reg(ctxt, 10) = 0;
-+			cpu_reg(ctxt, 11) = 0;
-+			cpu_reg(ctxt, 12) = 0;
-+			cpu_reg(ctxt, 13) = 0;
-+			cpu_reg(ctxt, 14) = 0;
-+			cpu_reg(ctxt, 15) = 0;
-+			cpu_reg(ctxt, 16) = 0;
-+			cpu_reg(ctxt, 17) = 0;
-+		}
-+	}
-+}
-+
-+/* Call SMC64 using SMCCC 1.2 if hyp negotiated FF-A 1.2 falling back to 1.1 */
-+static void arm_smccc_1_x_smc(u64 func_id, u64 a1, u64 a2, u64 a3,
-+			      u64 a4, u64 a5, u64 a6, u64 a7,
-+			      struct arm_smccc_res *res)
-+{
-+	struct arm_smccc_1_2_regs args, regs = {0};
-+
-+	/* SMC64 only as SMC32 must preserve x8-x30 per DEN0028 1.6G Sec 2.6 */
-+	if (ARM_SMCCC_IS_64(func_id) &&
-+		hyp_ffa_version >= FFA_VERSION_1_2) {
-+		args = (struct arm_smccc_1_2_regs) { func_id, a1, a2, a3, a4,
-+						     a5, a6, a7 };
-+		arm_smccc_1_2_smc(&args, &regs);
-+		*res = (struct arm_smccc_res) { .a0 = regs.a0, .a1 = regs.a1,
-+						.a2 = regs.a2, .a3 = regs.a3 };
-+		return;
-+	}
-+
-+	arm_smccc_1_1_smc(func_id, a1, a2, a3, a4, a5, a6, a7, res);
- }
- 
- static bool is_ffa_call(u64 func_id)
-@@ -119,7 +161,7 @@ static int ffa_map_hyp_buffers(u64 ffa_page_count)
- {
- 	struct arm_smccc_res res;
- 
--	arm_smccc_1_1_smc(FFA_FN64_RXTX_MAP,
-+	arm_smccc_1_x_smc(FFA_FN64_RXTX_MAP,
- 			  hyp_virt_to_phys(hyp_buffers.tx),
- 			  hyp_virt_to_phys(hyp_buffers.rx),
- 			  ffa_page_count,
-@@ -178,7 +220,7 @@ static void ffa_mem_reclaim(struct arm_smccc_res *res, u32 handle_lo,
- 
- static void ffa_retrieve_req(struct arm_smccc_res *res, u32 len)
- {
--	arm_smccc_1_1_smc(FFA_FN64_MEM_RETRIEVE_REQ,
-+	arm_smccc_1_x_smc(FFA_FN64_MEM_RETRIEVE_REQ,
- 			  len, len,
- 			  0, 0, 0, 0, 0,
- 			  res);
-@@ -640,6 +682,12 @@ static bool ffa_call_supported(u64 func_id)
- 	case FFA_NOTIFICATION_SET:
- 	case FFA_NOTIFICATION_GET:
- 	case FFA_NOTIFICATION_INFO_GET:
-+	/* Unimplemented interfaces added in FF-A 1.2 */
-+	case FFA_MSG_SEND_DIRECT_REQ2:
-+	case FFA_MSG_SEND_DIRECT_RESP2:
-+	case FFA_CONSOLE_LOG:
-+	case FFA_PARTITION_INFO_GET_REGS:
-+	case FFA_EL3_INTR_HANDLE:
- 		return false;
- 	}
- 
-@@ -692,7 +740,7 @@ static int hyp_ffa_post_init(void)
- 	if (res.a0 != FFA_SUCCESS)
- 		return -EOPNOTSUPP;
- 
--	switch (res.a2) {
-+	switch (res.a2 & FFA_FEAT_RXTX_MIN_SZ_MASK) {
- 	case FFA_FEAT_RXTX_MIN_SZ_4K:
- 		min_rxtx_sz = SZ_4K;
- 		break;
-@@ -881,7 +929,7 @@ int hyp_ffa_init(void *pages)
- 	if (kvm_host_psci_config.smccc_version < ARM_SMCCC_VERSION_1_2)
- 		return 0;
- 
--	arm_smccc_1_1_smc(FFA_VERSION, FFA_VERSION_1_1, 0, 0, 0, 0, 0, 0, &res);
-+	arm_smccc_1_1_smc(FFA_VERSION, FFA_VERSION_1_2, 0, 0, 0, 0, 0, 0, &res);
- 	if (res.a0 == FFA_RET_NOT_SUPPORTED)
- 		return 0;
- 
-@@ -901,10 +949,11 @@ int hyp_ffa_init(void *pages)
- 	if (FFA_MAJOR_VERSION(res.a0) != 1)
- 		return -EOPNOTSUPP;
- 
--	if (FFA_MINOR_VERSION(res.a0) < FFA_MINOR_VERSION(FFA_VERSION_1_1))
-+	/* See do_ffa_guest_version before bumping maximum supported version. */
-+	if (FFA_MINOR_VERSION(res.a0) < FFA_MINOR_VERSION(FFA_VERSION_1_2))
- 		hyp_ffa_version = res.a0;
- 	else
--		hyp_ffa_version = FFA_VERSION_1_1;
-+		hyp_ffa_version = FFA_VERSION_1_2;
- 
- 	tx = pages;
- 	pages += KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE;
-diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-index 5bded24dc24fea8cdcbe42bf79c7c025c3fa5f4b..c0dd6183d956043192114a522b7eef465e7078ac 100644
---- a/include/linux/arm_ffa.h
-+++ b/include/linux/arm_ffa.h
-@@ -128,6 +128,7 @@
- #define FFA_FEAT_RXTX_MIN_SZ_4K		0
- #define FFA_FEAT_RXTX_MIN_SZ_64K	1
- #define FFA_FEAT_RXTX_MIN_SZ_16K	2
-+#define FFA_FEAT_RXTX_MIN_SZ_MASK	3
- 
- /* FFA Bus/Device/Driver related */
- struct ffa_device {
+Same here.
+
+Thanks,
+
+	M.
 
 -- 
-2.49.0.1101.gccaa498523-goog
-
-
+Without deviation from the norm, progress is not possible.
 
