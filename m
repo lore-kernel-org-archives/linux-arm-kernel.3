@@ -4,89 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B964C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 08:13:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED73DC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 08:16:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bdKztaKZj+ArxWleSUI2lI0rhw/lHk7zt8SPSV2S+Ko=; b=1Dk2bd3XR9+z/TX0yLhKtLOZeK
-	2mzZ5qtuUDFmtkRiQcOVG3h5vPVovIk+j2YQNBkX+oOScYu1SjTb8Cmc6+HmDSPc6wnwH385kJrrO
-	r/cjFOwaDcTKjLmFg/60wICpj9mYMi78N9YcbxEi/JmGonYe7wWda7ERnpoj0FRBvc6cCpBSaDiPX
-	HfjHIKobEkfC1zJ6UMWev6fAD8dmdsz4emrXBCbxNajVpUooR49ztpN3AEtwPKHTHDcr0QvBheXqN
-	ALW1ThzhfrFTHmSBOyYQAj5eqRetv/d96sUhJGvEtGs9Zm9pO7uoJbRjIE9xe+9rKmP5+zQUwB3uK
-	Harvdb+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TNQAy/3v/9QLSLFFH92xpmcRe2YVjxYAjNqCMFTN3Ec=; b=3OLepubn1ijbAyva1hlcxLa4Iw
+	kTWjOcdU1bZPr/ryLIaAVcpUqpziv/csN2cRGYyIY3mM4K3plOk/NnZI5QTmq51KrXMmlgelIwZXb
+	l4+y0gqJSB8hTTS6lm3aInui36e92uGJZY1HZ1GCNmP8zCMwmlEGS0vg+aLf1bvrjbG3ekFUi5UwR
+	vCOGBfgPtRpXdwbgdprbwsmHoK1APA4Zwc7DnD8jdsX6jCYqKoX7t281aU9ET4LNS8Wd5AElHPwbQ
+	4vMp+2kJFlKVj5fprzOP9BFD/tg5vKeB+EzfTnj9ly18gcKEm0O1gz79EfUB0YkvXDJjYhK9Qn1C8
+	d/q0x0ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFqCI-00000002lS5-01vE;
-	Fri, 16 May 2025 08:13:38 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1uFqFI-00000002mjQ-2Ygb;
+	Fri, 16 May 2025 08:16:44 +0000
+Received: from fhigh-a4-smtp.messagingengine.com ([103.168.172.155])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFq1d-00000002jpE-0qkS
+	id 1uFqDC-00000002lwe-2tPt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 08:02:38 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3a0be50048eso1735288f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 01:02:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747382555; x=1747987355; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=bdKztaKZj+ArxWleSUI2lI0rhw/lHk7zt8SPSV2S+Ko=;
-        b=cQycynq4X75irOSvESX5wKZHBK5PfV9dbVffgBiG48H0VTJRBZoJkAjFlHvZGyIB3+
-         jw/+BafZgps2q+V69KtYqWhLAs+aSUZ7ZJiukeUsvPD23dZPBlrfehuet1N/sbf5cCSq
-         qfNyfJyg8z6AlNW5Ic0v6h+qW8zrZxfb1th3IAsJv0lpiBYbguoB3Pib6fnwE1bvhZn8
-         uAzTTNm3oZCERPXy6F8yKaMJRCj+hbgovATWOdon3HesVRW26zDLqFCDS2z5Dx2KjvTg
-         S586sJE3cqjWkYCOZwD9e18U3ebsmRwXYuBac9Bax8vb2k4LjyqFXdwxTFaj7ToCXFGc
-         uTRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747382555; x=1747987355;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bdKztaKZj+ArxWleSUI2lI0rhw/lHk7zt8SPSV2S+Ko=;
-        b=a6KTn7VBpWG9w9MJAyYFjnnm0J5hKLmFTpQZTBjkcRhPWWTXRNQkUB7RaqWxM6fDud
-         jWEQnE5SN4e+B+XI/PHxpP5m+zuCOLxU0hFM/1PWJ99m6TDmq0pEYqIBq94i3FMCDsbm
-         KoosyGZn1uC26m8mXP6xUingQf4akij/GOQJYpgrFAzTd4/Z4w40m6WYks2yw/a/cmG0
-         yfPHu8x+xZ2Twd28NjEjvG6kbCyuqvv3bU7tvyofnU2lDl8hX8ZN4HUV8KiP9hhwzAnW
-         /rMmJGOMzLRAdJuMfg3u2/O+z9tg0RTA6CsD4QyLcdqNP3aY++XuwAhz07MynApKIKJW
-         GUrw==
-X-Forwarded-Encrypted: i=1; AJvYcCXZkc3oorw/nHu0vZSuoydAqChDDkil8PeoP3JqpQdRoo755ovJ/dGgnWyG9zQcfUc/OFS3E63tVHcPgivcVgR0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1PNcbun9Y9ExaK/j+xW08b9SyPaPcnMdgD1SAdCYP9TRQfH5m
-	8xe4954FM4OVTFJiiNOIf8e3zJTuVZrGkPQZNz4gvA9Ehf6nzsyABRxjlKJfpbNrURc=
-X-Gm-Gg: ASbGncvvdLHX+nKg24nmRmlIju5lby7uRw6bJP20IiC2u+GWOfASYX2E91z4BNkV5zr
-	YDiJex/YN3GVigrihmC6jfWGjBY51l8Mzr0H5HOEFBKZ4o9YADmTja4Zkw7dxt1x9iBCSJRGTna
-	hjrXs/4YHtE2xHko9PYJGw/xQn4jKaQnq3BiPlxMjHr4JiugwrrtwvJDZ9xnqltpnaDGli7AiDu
-	grte18t9JQnKU1HUhMvTpPelzCZIruUQkiO1pio32xYIxyaoKPBKAQUo0jbeUuNZzi+tK61xM58
-	tmmeNhDgxdAzoX13oQQsQ5ecxmouap+e0QuYYbS/f0txc7Qg4at+FZN7yrb88rQBXLHWfI0tRhW
-	CpGl2eTh7RHZ/5IIO
-X-Google-Smtp-Source: AGHT+IGajP2MNPkEe6N02ds5+ATpXbBcyUjkhr3oNkMVyA1PAD1v31L2wT8EjnkrVr11DTg5FBDOMA==
-X-Received: by 2002:a05:6000:2ca:b0:39a:ca05:54a9 with SMTP id ffacd0b85a97d-3a35c8263d1mr2594040f8f.29.1747382555439;
-        Fri, 16 May 2025 01:02:35 -0700 (PDT)
-Received: from localhost (110.8.30.213.rev.vodafone.pt. [213.30.8.110])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a35ca8d185sm2005730f8f.98.2025.05.16.01.02.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 May 2025 01:02:34 -0700 (PDT)
-Date: Fri, 16 May 2025 11:02:32 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: long.yunjian@zte.com.cn, sudeep.holla@arm.com, peng.fan@nxp.com,
-	justin.chen@broadcom.com, florian.fainelli@broadcom.com,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, fang.yumeng@zte.com.cn,
-	mou.yi@zte.com.cn, ouyang.maochun@zte.com.cn, xu.lifeng1@zte.com.cn
-Subject: Re: [PATCH] firmware: arm_scmi: Use dev_err_probe() simplify the code
-Message-ID: <4c970388-4b1e-4c5c-bc54-d55c2d9cd62b@suswa.mountain>
-References: <20250515203855146Sn9x-Uw9Teur35mOjn41C@zte.com.cn>
- <aCXzPGvPayVyiMHG@pluto>
+	Fri, 16 May 2025 08:14:36 +0000
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 42FFD11400EF;
+	Fri, 16 May 2025 04:14:31 -0400 (EDT)
+Received: from phl-imap-12 ([10.202.2.86])
+  by phl-compute-05.internal (MEProxy); Fri, 16 May 2025 04:14:31 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1747383271;
+	 x=1747469671; bh=TNQAy/3v/9QLSLFFH92xpmcRe2YVjxYAjNqCMFTN3Ec=; b=
+	052ekoYV6RayiTa2DxfUFA6HabKwskEGS2Tqtj0/bs7nkYANgSbIAuf727TX1cQ6
+	P928iyqi3au10lYINrEVu3QH8QD6qV5f+sR+dtRqm7ky+fs/1y28AEXystFF8z34
+	7GNVCn45I+AHO7nT7mOlBSsSw8hKr+TV0vwS8hRljWxrQuAnMGvyDCspzMD9faTH
+	auoWsAyhNzl9qkXt/ko3JnNS0tz8h+uC8uu+PerXcTS95OUE3pBq2T2dKW0LMsZt
+	/YPA85CGUUla92Kg0hFUlZlR5wJi6iu3B7EtntsGwjmqAAdr3rPANPOca9KV8hZk
+	zMj3RTNXU4PWdF5phr1aAA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1747383271; x=
+	1747469671; bh=TNQAy/3v/9QLSLFFH92xpmcRe2YVjxYAjNqCMFTN3Ec=; b=d
+	rdAYO9ahRidVZ+oA9KDWOKxoWfMZjU4euDQQmdqiwe/fw/2l5reWmiMlPUKgtORN
+	A4ac3uesbCs66B392kXrrhNbF2KvTqNfLTGldWKeKj9WmMhlNUOzqIAMnm7+DFcN
+	pB9TnP0ndwgdv+haN5uzaTa7bHFuVDkoJW7iuq8/uiLYh8aXsyapHn10xVIW2a70
+	1GyiHByZWdegATwuB1qbTcErcui7fNZo/twFLnBOlF7M27RPE1Z7RptkyCAGJUpi
+	lCGkdshhXWZVTLSLkDcrVi19M6UE1Ltk/YFfeBWR+zrHoy4zEy/eEV0Tqpw8pWp6
+	242ywdHunbRspJTC7Hg+Q==
+X-ME-Sender: <xms:5vMmaGaxVnX6-ZGYTswN4aSmYLmQ-lMxCwBc4hvycnecD5YvZAXPQA>
+    <xme:5vMmaJZISR81F_TkRhU9DLiwVhxx6qkv0nlzj8Ofn59spVch-MXn_aa35eRjIm_eb
+    Vtp7G-9t3ZhPBb7OXQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefuddvvdehucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
+    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
+    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
+    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
+    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
+    vdejpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegsphesrghlihgvnhekrdguvg
+    dprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghp
+    thhtohepmhgrrhhkrdhruhhtlhgrnhgusegrrhhmrdgtohhmpdhrtghpthhtohepnhhitg
+    holhgrshesfhhjrghslhgvrdgvuhdprhgtphhtthhopegsrhhgvghrshhtsehgmhgrihhl
+    rdgtohhmpdhrtghpthhtohepuhgsihiijhgrkhesghhmrghilhdrtghomhdprhgtphhtth
+    hopehhvghrsggvrhhtsehgohhnughorhdrrghprghnrgdrohhrghdrrghupdhrtghpthht
+    oheprghruggssehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrrhhnugeskhgvrhhnvg
+    hlrdhorhhg
+X-ME-Proxy: <xmx:5vMmaA8EEx-OxskfKuRjr9KqwyscGaSynjNvYYLiCrwTmbWD-bToJw>
+    <xmx:5vMmaIqgdVU4_r5WTwAPfvdbHYn3RYDW3ij-ah7orJFBFDb_ec2hGQ>
+    <xmx:5vMmaBobzfhKEgME9i6MR7L-msBVA1kr6N4cGHyO6v-shXK68N8ERA>
+    <xmx:5vMmaGSCjD70OA_GBpm2DaKQJhs2uNV6k2rokbq8YEFk3LnNyAWwuQ>
+    <xmx:5_MmaH_50-jHxQd0krYUtVXnXcC7JhRQ2lGKO5MUdnKqV1cmrQSgd23Q>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 0AD69106005E; Fri, 16 May 2025 04:14:30 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aCXzPGvPayVyiMHG@pluto>
+X-ThreadId: T1c7885e3064aa147
+Date: Fri, 16 May 2025 10:14:08 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Eric Biggers" <ebiggers@kernel.org>, "Arnd Bergmann" <arnd@kernel.org>
+Cc: linux-kbuild@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ "Ard Biesheuvel" <ardb@kernel.org>, "Borislav Petkov" <bp@alien8.de>,
+ "Brian Gerst" <brgerst@gmail.com>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "Herbert Xu" <herbert@gondor.apana.org.au>, "Ingo Molnar" <mingo@redhat.com>,
+ "Jonathan Corbet" <corbet@lwn.net>, "Marc Zyngier" <maz@kernel.org>,
+ "Mark Rutland" <mark.rutland@arm.com>,
+ "Masahiro Yamada" <masahiroy@kernel.org>,
+ "Nathan Chancellor" <nathan@kernel.org>,
+ "Nicolas Schier" <nicolas@fjasle.eu>, "Takashi Iwai" <tiwai@suse.com>,
+ "Thomas Gleixner" <tglx@linutronix.de>, "Uros Bizjak" <ubizjak@gmail.com>,
+ "Will Deacon" <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-crypto@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-raid@vger.kernel.org, x86@kernel.org
+Message-Id: <77dca5eb-74d6-4363-9d8b-e7b0d449dcb7@app.fastmail.com>
+In-Reply-To: <20250515182806.GD1411@quark>
+References: <20250407094116.1339199-1-arnd@kernel.org>
+ <20250407094116.1339199-2-arnd@kernel.org> <20250515182806.GD1411@quark>
+Subject: Re: [PATCH 1/4] kbuild: require gcc-8 and binutils-2.30
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_010237_254215_FDD9CA8A 
-X-CRM114-Status: GOOD (  16.09  )
+X-CRM114-CacheID: sfid-20250516_011435_439745_61B9E697 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,35 +129,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 15, 2025 at 02:59:24PM +0100, Cristian Marussi wrote:
-> On Thu, May 15, 2025 at 08:38:55PM +0800, long.yunjian@zte.com.cn wrote:
-> > From: Yumeng Fang <fang.yumeng@zte.com.cn>
-> > 
-> 
-> Hi,
-> 
-> > In the probe path, dev_err() can be replaced with dev_err_probe()
-> > which will check if error code is -EPROBE_DEFER and prints the
-> > error name. It also sets the defer probe reason which can be
-> > checked later through debugfs.
-> 
-> All true...but...if you look at the main scmi_probe() function all of these
-> failures are trapped at that level currently on the return path...
-> 
-> see the call chain from
-> 
-> scmi_probe()
-> 	....
-> 	ret = scmi_channels_setup(info); 
-> 	...
-> 
-> ...so your probe errors will be overridden there with a more generic message
-> left in debugfs at the top level.
+On Thu, May 15, 2025, at 20:28, Eric Biggers wrote:
+> On Mon, Apr 07, 2025 at 11:41:13AM +0200, Arnd Bergmann wrote:
+>
+> Later in this file, there's another mention of the binutils version that needs
+> to be updated.  (Or maybe removed since it's redundant with the table?)
+>
+>     Binutils 2.25 or newer is needed to build the kernel.
 
-Good point.  But that feels like a mistake in dev_err_probe().
-Ideally, it would print the first error message.  I bet someone
-will eventually fix this.
+Thanks for noticing, I've fixed both the English and Italian documentation
+files now.
 
-regards,
-dan carpenter
+     Arnd
 
