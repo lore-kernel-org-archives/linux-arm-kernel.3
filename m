@@ -4,60 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B42F8C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 15:58:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76FF8C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 16:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1D24s/B4kC6WfBMdmSPBL08uxFBwx3qU/fVDVMraK1E=; b=yAUuECO7hYfisfMY88K7TFul54
-	46s+/KRdFjIDWfxoDmvw5UU0WElj8Untp8i1dCkZ0yWqNBZnTN72ki4cs8vZcJ0AoWyU//B6d/dHA
-	XSXB1bLhV5UzDKvlyWZz3gLZMtnIvCZ2/gZrTxqM5OedQBCWj0N/lahyZ+QuvLd7DaYX9fizl+vNx
-	YOqptVWg6sdvF2BTguNYK3UCgalRzJOGFx1RC0B+QH1+RoQINmToSbP7nzun/99nUGB33e2MdM8W2
-	FrHRYBz7ver0nB8mfag7P2GhnTuc3IsLk3meYrmDgsJ26tBHfcT7KYQaGtiIWWcFEIJONgTNoRbo0
-	BxXBmd0A==;
+	bh=kzaVQgmUjj3yboNck6ZN7uxKTqD/GTSC4SxoAn0RljA=; b=cR4MCBnI3tgm8ejyXuS0qGPLuZ
+	mweklu0+Nnr/SogfZCmeC8hae1imOjH+BUdXM43/l+XenYDywXLTOGk6xcRvR9Avuaxar8xQeSRZb
+	rEsj74Tb7s+04Q97JUM4wbEC3tNrii3Q43HbEkC/ABPcuEHR1QnmMwH5p/ZE7hB0htfItq6bodCrH
+	oBzSq1dae80ieZH7Jv7TQDDy1LhtdbIXRKy+nawDgLR/d5DHKGgIJHqr/Fa7j+ekLtH6yrnOMcTc4
+	24TQXNIYoSPo/MAdHaiHvVgNyUK07BjBfYFv1vfUA9DxHNq3GoPLsBUdvc7Blri2xlz4E8gO4JkxF
+	er1D6L0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFxS4-00000003whw-3GIE;
-	Fri, 16 May 2025 15:58:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uFxU5-00000003xAg-28Y5;
+	Fri, 16 May 2025 16:00:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFx8F-00000003sbB-1TrS
+	id 1uFx8J-00000003scH-0FmM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 15:37:55 +0000
+	Fri, 16 May 2025 15:37:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C812262A5E;
-	Fri, 16 May 2025 15:37:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9824C4CEE4;
-	Fri, 16 May 2025 15:37:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7DCCE62A61;
+	Fri, 16 May 2025 15:37:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17F9BC4CEE4;
+	Fri, 16 May 2025 15:37:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747409874;
-	bh=z4tSAygEeJrgHxjp8RduNrZTO6ccDbYrOyWS4Ye800s=;
+	s=k20201202; t=1747409878;
+	bh=QQKk6g3yLr+R2BFA9IAkVDHQuBoMLpMsNvn/ihr3ZD0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Vc/gc3neqXrUFZIaPBCF23eZ2iLdSzCLqkb7x/tOGNiSvRqhqi5HWkfBDirL5W4X+
-	 09U0tQiOURkq9DybrHGaNSgS8DTzWs0XAsRbtBanyWkRy36YLXicFNMBe7xYk1B3Wd
-	 Wu0EeCAFCg/7pvQzUWGihu7Vhf5w7w5btfarFvtcyV6ljb8FYUkSeYLpVOAugh/mKa
-	 dAzVp1oObnxz4UaF8Rp+fgs11hcVVmMRNEekICGYKf6A01xqauQG2fQGdgo7sKzs8I
-	 FYeA3dpgbbuhetxHwTk5a7qBK9QAvrMEpV36NFJ0TU1/0icuJ9mJi8eWcfbEVAS0j3
-	 ljahUOihKYGaQ==
+	b=kWBl02GXfhE5oumlw0PWfw+NyXYGdfHVPzBrZ/+vnEOrhMIA23KwmnQGmEQO0gZXC
+	 T+U9c/dUqBJfv3k+43gfle4oGatHZ6gQBOn1xrZPp0kkZm72Oc1JMiyV0fnhVCsSpU
+	 guiZ61ZUNhP81KUVWHxdyTDuTd5Yl3m6wmvAsaLurngtyJ8YmUQvklfVd0p6iNPcSd
+	 MTP8XI5btzvyARVjhvBzAtWDZSaE1K/CA4sCQFqXNoY2A8tk0nHc0JrhyK3wf/2nuD
+	 hUpNJgA6JArfHH+2weyGdimSbr9Djv+SRKWG+spdaJO1CYax7ezrxsY30Wn3K0DEgL
+	 jzUl1G3ixOE5Q==
 From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V3] arm64/mm: Re-organise setting up FEAT_S1PIE registers PIRE0_EL1 and PIR_EL1
-Date: Fri, 16 May 2025 16:37:43 +0100
-Message-Id: <174740439712.2574974.10617041555602541143.b4-ty@kernel.org>
+To: catalin.marinas@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	Ben Horgan <ben.horgan@arm.com>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH] arm64: Update comment regarding values in __boot_cpu_mode
+Date: Fri, 16 May 2025 16:37:45 +0100
+Message-Id: <174740474202.2576553.17992016241320510860.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250429050511.1663235-1-anshuman.khandual@arm.com>
-References: <20250429050511.1663235-1-anshuman.khandual@arm.com>
+In-Reply-To: <20250513124525.677736-1-ben.horgan@arm.com>
+References: <20250513124525.677736-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -75,22 +71,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Apr 2025 10:35:11 +0530, Anshuman Khandual wrote:
-> mov_q cannot really move PIE_E[0|1] macros into a general purpose register
-> as expected if those macro constants contain some 128 bit layout elements,
-> that are required for D128 page tables. The primary issue is that for D128,
-> PIE_E[0|1] are defined in terms of 128-bit types with shifting and masking,
-> which the assembler can't accommodate.
+On Tue, 13 May 2025 13:45:25 +0100, Ben Horgan wrote:
+> The values stored in __boot_cpu_mode were changed without updating the
+> comment. Rectify that.
 > 
-> Instead pre-calculate these PIRE0_EL1/PIR_EL1 constants into asm-offsets.h
-> based PIE_E0_ASM/PIE_E1_ASM which can then be used in arch/arm64/mm/proc.S.
 > 
-> [...]
 
 Applied to arm64 (for-next/entry), thanks!
 
-[1/1] arm64/mm: Re-organise setting up FEAT_S1PIE registers PIRE0_EL1 and PIR_EL1
-      https://git.kernel.org/arm64/c/29e31da4ed26
+[1/1] arm64: Update comment regarding values in __boot_cpu_mode
+      https://git.kernel.org/arm64/c/694f574f741a
 
 Cheers,
 -- 
