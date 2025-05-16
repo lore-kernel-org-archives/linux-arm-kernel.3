@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07788C54795
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 15:56:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC01C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 15:56:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DtOqMVpDb5beeKTmS57Q+DqCN66UUqR4O4lRAPl/Pjc=; b=KLgczEi4wXuv+V8NzgdB93QVNv
-	JxuWi/wA9xo7WgTMqOPq4X8ylSxW2MYm/UGUzV142mi2CTOPHe1cni9IjlgGn16hySLwAnftXgdSy
-	urAwsV3rj/vFz424Uy3DvIsBxFZB6eVqlYOA8uZdbKU+ay3ytTshztmWKQECTzwpklPqQowdfeFT1
-	oOhytkXCiNgu6yQFvqwuh3DqfHTiZvJtWYl5IZhM5TYmZ1f890AeoM4AcivE9tRqWKbEJSU2a/+9I
-	0+4HsqGJDWUXu1ySM1p+5qzHvtFzkWephLkY13HOHkDIfF1gcTDLp7w6UGlvYPBpBoI/UqgqHLkmU
-	28pueVGw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NerZz78UKlNpCoQw7YCJwOy+/WEK1liVP1A2MrZ/GSg=; b=tdDHKwy0KDIRFLSHy0ZdJfVVxv
+	Bj0P1LBDwtYnnMv+Tl3Ic6Euwx4+WmF/yQ6yG2REXyggzzYBC9/LXmsg0+7nkJY+7Z37rbvm4Us+z
+	ItM20a2sbMi2vgaLppj8oKEoqqznrpJ+ylTSodlrhOWOnFMnCuFgzbl6vVkz36zZwcHeQ08ZrdlQG
+	BqbGr1+fPmmEoHpN9LNDfOPzTWpGNAPdWpTw10EpMc3ctLWLQ8I4352J2kVdoso/n+g7XrFd2szbD
+	Bwa2er8QhbnPQzKXnU0fhZ3AQudVOysqguCX8Z1jqLBP96i6JZLyYa0HnDTYETDpldXVQrNXl9VnH
+	J0dfPIuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFxQC-00000003vBD-0qRF;
-	Fri, 16 May 2025 15:56:29 +0000
-Received: from mail-oo1-xc32.google.com ([2607:f8b0:4864:20::c32])
+	id 1uFxQH-00000003vGn-2ePd;
+	Fri, 16 May 2025 15:56:33 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFwv8-00000003qCf-0c6F
+	id 1uFwvO-00000003qGy-2I1U
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 15:24:23 +0000
-Received: by mail-oo1-xc32.google.com with SMTP id 006d021491bc7-605f7d3215cso1343119eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 08:24:21 -0700 (PDT)
+	Fri, 16 May 2025 15:24:40 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-74251cb4a05so3224903b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 08:24:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1747409061; x=1748013861; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=DtOqMVpDb5beeKTmS57Q+DqCN66UUqR4O4lRAPl/Pjc=;
-        b=Z/Ke4th5lEFMb7/RcXD5yoeGlOpEZOb4mJv/1Az4BrJFvwU7JqZOK2iHPhzOA1FkHW
-         LfQApDUbnUQK9qBlCyxxIlDD9sPyrs8BqY8Z1cVDHBzaZxiASjUE8BsAurNZ2ozSrsuM
-         t0++wsEzoahJ2oP0CFR44BvKdJxBISssKBLKyozOQcrnw6Pco4QKvgqGefiyRdcUVac8
-         n5xZi9LfVSzkXM252HcxmPGnOljRdqWqUCURnBoXbtonvPyzq2Ar1VomFO+3yvuB6OJl
-         Ah8HojieyA6dkEPlyvQzQu6pESy3J4p/HHxHcAaS6SeNKhekBDaeTJXJDssCmmuhmPld
-         Y5aQ==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1747409078; x=1748013878; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NerZz78UKlNpCoQw7YCJwOy+/WEK1liVP1A2MrZ/GSg=;
+        b=UTXadNuwd5WUcB3SC+dISCvM5VwN5OR31oBgxMwkNnb1MFuCLldKmX+9MwyjtSTC/c
+         3eDJPe2rZWAjfbAC9nJutn7yoQb51/rw9h4/NJIHzSJp0YEjyyW1pCXgNQZL4ro3rs4w
+         HFjLBThsb2zlMD+IURW/f8onl0YlOV8XaHzKottFfbFeJqlCB2a374k0zi84STB4WcK1
+         TMqcLKswmBf7v4L0Xzrm3JtQEVhhX9/j86TJ7tyT2znJBjqxECY8LgQaHa40ELY3fOCg
+         swHQ2g2GnTYZsXAgqpq3llkmjSJLybkOTLPmKLtspBkwkxAj6RHmirN73TxMFszzx6Vn
+         eH+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747409061; x=1748013861;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DtOqMVpDb5beeKTmS57Q+DqCN66UUqR4O4lRAPl/Pjc=;
-        b=Aq/C7RYzssQCMeS9HIPz+VpKty3kG2JrJiFXY2FTWWN1wGAz+bKw+fyRzjrW30dTSB
-         2eGlb9JS1G5R5A/xnVwyehDcBURbSe20W00tVC3aPsowAmDH+E4LEeOWmPhpn9A23fca
-         HVK0k37OJYeFtCOnEAVY0aa9kwrCnNJuuG5WlDv2ZUML0hMHsTweMO6kxN8/IOPMyUNw
-         yjVLH2APO5sVDU6zAAeCXeIbmvYAJSd6Md6KkpAf9oYSGl5t1iBRMQQIv0bEaONmgwzm
-         3gjdxnqc6/ryViLmg2MsfUhOGv0hZB61moY7Ot+liKywDjky5ws0Un+/LNdZbA2i5vAR
-         abZA==
-X-Forwarded-Encrypted: i=1; AJvYcCXuJ49I4S+j75qIs4E3hPXNuqEsySku6pfSWEr/CS6Bm93B/bMEpsWUwrGi932h4gtmIZnaQkl3zMp9CCue6C+I@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvGACN2hKk3r7n2hyPPY4EJ/biDy7VQOdpYj3lZ3rbnf2fuORL
-	Tmj5GjF1aZMmivvCNDptn5oSyHl6mHgK6tmTdUXUYmwuZUiUZ54NMiCUdNE/iRJkAPouofyBvEm
-	g6MCR9hg=
-X-Gm-Gg: ASbGncu1tsK/GDMcD8hKT+S+FkAiOxQHxbwEvqED0/oXv5p218veUa8PfXEPXaOCEYX
-	GjT26wnseJ2owGeEuQSc7FFnN5+2hLTLRcuy9JyEFveck/0suJ6YiUUprLwIRHKX3hPssgVl79p
-	xC8YfI9gOfU1kpgNTxU5ym48Y3tsiIU/Smxo2m0G5YDKbWBZJorq+XUEjcSknzxcgeXTXog/KR4
-	9gDBqWWvhkzkKpO4XK5jfUuIIjXW0XmX4m/2NFvD34OUPzeEjieFeUyA5AiaS0vRhC2DeFq06ug
-	GamFy9L3JmnW7S6C6FOCPy6xZdMes+DRkRGetDlvFL84punS02cn
-X-Google-Smtp-Source: AGHT+IExb77aBo1LIezbIdH98oPYn1SbELTTVMkD5q9whj7vlwOG/qOpu/YD++YYt08LeDhnPFn1Zw==
-X-Received: by 2002:a05:6a00:894:b0:740:a921:f6de with SMTP id d2e1a72fcca58-742a98e9c0cmr4813351b3a.23.1747409050021;
-        Fri, 16 May 2025 08:24:10 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1747409078; x=1748013878;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=NerZz78UKlNpCoQw7YCJwOy+/WEK1liVP1A2MrZ/GSg=;
+        b=QZE6kjjhwjJX5p3GF125DL/KBQCqWPKUJ1l/FNRJ0JTChXaBLquMzOc8avJwbKnWPr
+         zVBXlzh5wD1mVwXmEgPFYPGf7yoc78vRmEZm0cIKF7+VLCa+JjmKBDMv35OSFRbA7i9B
+         E+bRdHNwg6sj54GdiLz8kf2eFHiX4UHOt3DHAFPEDSiiC59LkVqyL69DFfFlXRkX2uL9
+         LtVsAeUdZccmxE4X3xSerpEgX6IEYWmQfnij74biNg2O2+jFLU//+aMXLvH9nnuMDUwM
+         2GxmKj8Mt+kpOBqC/+oCZgqkx33ys1To2XgH7w5jnkgRDV19xJzVAAQsAEScPD8IC2XZ
+         +6TQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUNpn8d3f1tOZm3m9vhJNY/ARd2Wnk0yaJcH/NXBVoU23/mCfXoW44BjlmxS9SzGHr7vSyx30QncJoRfaQJzuLm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzy4a7doojwd3m4Rpdjo3r0qd2Esie5fdykgZMN8x6rAUB5wFeO
+	HSV1yQvO8UsBAVU07tCz2+7+VBAXTa76JLHnFCAvaV20mzRm6qQgwZHDSgj8PtE83L4=
+X-Gm-Gg: ASbGnctsHIL+pNm0JbTNYQoxNvNHyPBpQQjplCsxeDhf5JBqPlo7RAu758Xrv0IHWO6
+	88vgXxwL5zDCBCGzgJVWiGmdwd3BiWvdyd4CQvuUlPI9tGk4Ek/Oa/uxHQHfestdaHKaC+5SijF
+	1elChnhedkJ53Jz/Zqv3O/pWB6PhYKgLk+ArsesrR3RTVIRxB0qaX91PjO36+CpxomFIIM7VY4v
+	00t7+YZ9v+IY7B62orE+JOAkYvCy6uh31Uxi57eJazNiWwN2o2WTVi/lqFKAyw/cji2d+PiuItV
+	9eDoZrdBDUUc9lQLpZP2ZT6Y3Y1pJwrN2FXpavkhQySaSI+cGDKT0mJVas9a1xo=
+X-Google-Smtp-Source: AGHT+IHYlU3K8uJcfIKClp5Bxki/RMRZaz2vq2bBhQewH+zC4/99iinUqM/hNNbn+4ClvSR7T9fjoA==
+X-Received: by 2002:a05:6a20:6f8a:b0:218:c01:ddce with SMTP id adf61e73a8af0-2180c01de06mr3257419637.40.1747409077715;
+        Fri, 16 May 2025 08:24:37 -0700 (PDT)
 Received: from carbon-x1.. ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-742a96def68sm1666997b3a.30.2025.05.16.08.24.03
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-742a96def68sm1666997b3a.30.2025.05.16.08.24.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 May 2025 08:24:09 -0700 (PDT)
+        Fri, 16 May 2025 08:24:37 -0700 (PDT)
 From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -79,16 +79,18 @@ Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
 	Anup Patel <apatel@ventanamicro.com>,
 	Xu Lu <luxu.kernel@bytedance.com>,
 	Atish Patra <atishp@atishpatra.org>
-Subject: [PATCH v4 0/4] riscv: add support for SBI Supervisor Software Events
-Date: Fri, 16 May 2025 17:23:38 +0200
-Message-ID: <20250516152355.560448-1-cleger@rivosinc.com>
+Subject: [PATCH v4 4/4] perf: RISC-V: add support for SSE event
+Date: Fri, 16 May 2025 17:23:42 +0200
+Message-ID: <20250516152355.560448-5-cleger@rivosinc.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250516152355.560448-1-cleger@rivosinc.com>
+References: <20250516152355.560448-1-cleger@rivosinc.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_082422_184903_CB1ABE7C 
-X-CRM114-Status: GOOD (  26.24  )
+X-CRM114-CacheID: sfid-20250516_082438_601408_2642D872 
+X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,124 +105,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SBI Supervisor Software Events (SSE) extensions provides a mechanism
-to inject software events from an SBI implementation to supervisor
-software such that it preempts all other supervisor level traps and
-interrupts. This extension is introduced by the SBI v3.0 specification[1].
+In order to use SSE within PMU drivers, register a SSE handler for the
+local PMU event. Reuse the existing overflow IRQ handler and pass
+appropriate pt_regs. Add a config option RISCV_PMU_SSE to select event
+delivery via SSE events.
 
-Various events are defined and can be send asynchronously to supervisor
-software (RAS, PMU, DEBUG, Asynchronous page fault) from SBI as well
-as platform specific events. Events can be either local (per-hart) or
-global. Events can be nested on top of each other based on priority and
-can interrupt the kernel at any time.
-
-First patch adds the SSE definitions. Second one adds support for SSE
-at arch level (entry code and stack allocations) and third one at driver
-level. Finally, the last patch add support for SSE events in the SBI PMU
-driver. Additional testing for that part is highly welcomed since there
-are a lot of possible path that needs to be exercised.
-
-Amongst the specific points that needs to be handle is the interruption
-at any point of the kernel execution and more specifically at the
-beginning of exception handling. Due to the fact that the exception entry
-implementation uses the SCRATCH CSR as both the current task struct and
-as the temporary register to switch the stack and save register, it is
-difficult to reliably get the current task struct if we get interrupted
-at this specific moment (ie, it might contain 0, the task pointer or tp).
-A fixup-like mechanism is not possible due to the nested nature of SSE
-which makes it really hard to obtain the original interruption site. In
-order to retrieve the task in a reliable manner, add an additional
-__sse_entry_task per_cpu array which stores the current task. Ideally,
-we would need to modify the way we retrieve/store the current task in
-exception handling so that it does not depend on the place where it's
-interrupted.
-
-Contrary to pseudo NMI [2], SSE does not modifies the way interrupts are
-handled and does not adds any overhead to existing code. Moreover, it
-provides "true" NMI-like interrupts which can interrupt the kernel at
-any time (even in exception handling). This is particularly crucial for
-RAS errors which needs to be handled as fast as possible to avoid any
-fault propagation.
-
-While OpenSBI SSE support is already upstream, an additional patch is
-needed for the PMU perf driver to work as expected [2].
-
-Link: https://github.com/riscv-non-isa/riscv-sbi-doc/releases/download/v3.0-rc7/riscv-sbi.pdf [1]
-Link: https://github.com/rivosinc/opensbi/tree/dev/cleger/sse_pmu_irq [2]
-
+Signed-off-by: Clément Léger <cleger@rivosinc.com>
 ---
+ drivers/perf/Kconfig           |  9 +++++
+ drivers/perf/riscv_pmu.c       | 19 +++++++++
+ drivers/perf/riscv_pmu_sbi.c   | 72 +++++++++++++++++++++++++++++-----
+ include/linux/perf/riscv_pmu.h |  3 ++
+ 4 files changed, 93 insertions(+), 10 deletions(-)
 
-Changes in v4:
- - Fix a bug when using per_cpu ptr for local event (Andrew)
- - Add sse_event_disable/enable_local()
- - Add pmu_disable/pmu_enable() to disable/enable SSE event
- - Update event ID description according to the latest spec
- - Fix comment about arguments in handle_sse()
- - Added Himanchu as a SSE reviewer
- - Used SYM_DATA_*() macros instead of hardcoded labels
- - Invoke softirqs only if not returning to kernel with irqs disabled
- - Remove invalid state check for write attribute function.
- - Remove useless bneq statement in sse_entry.S
-
-Changes in v3:
- - Split arch/driver support
- - Fix potential register failure reporting
- - Set a few pr_err as pr_debug
- - Allow CONFIG_RISCV_SSE to be disabled
- - Fix build without CONFIG_RISCV_SSE
- - Remove fixup-like mechanism and use a per-cpu array
- - Fixed SSCRATCH being corrupted when interrupting the kernel in early
-   exception path.
- - Split SSE assembly from entry.S
- - Add Himanchu SSE mask/unmask and runtime PM support.
- - Disable user memory access/floating point/vector in SSE handler
- - Rebased on master
-
-v2: https://lore.kernel.org/linux-riscv/20240112111720.2975069-1-cleger@rivosinc.com/
-
-Changes in v2:
- - Implemented specification v2
- - Fix various error handling cases
- - Added shadow stack support
-
-v1: https://lore.kernel.org/linux-riscv/20231026143122.279437-1-cleger@rivosinc.com/
-
-Clément Léger (4):
-  riscv: add SBI SSE extension definitions
-  riscv: add support for SBI Supervisor Software Events extension
-  drivers: firmware: add riscv SSE support
-  perf: RISC-V: add support for SSE event
-
- MAINTAINERS                          |  15 +
- arch/riscv/include/asm/asm.h         |  14 +-
- arch/riscv/include/asm/sbi.h         |  65 +++
- arch/riscv/include/asm/scs.h         |   7 +
- arch/riscv/include/asm/sse.h         |  45 ++
- arch/riscv/include/asm/switch_to.h   |  14 +
- arch/riscv/include/asm/thread_info.h |   1 +
- arch/riscv/kernel/Makefile           |   1 +
- arch/riscv/kernel/asm-offsets.c      |  12 +
- arch/riscv/kernel/sse.c              | 132 +++++
- arch/riscv/kernel/sse_entry.S        | 169 +++++++
- drivers/firmware/Kconfig             |   1 +
- drivers/firmware/Makefile            |   1 +
- drivers/firmware/riscv/Kconfig       |  15 +
- drivers/firmware/riscv/Makefile      |   3 +
- drivers/firmware/riscv/riscv_sse.c   | 696 +++++++++++++++++++++++++++
- drivers/perf/Kconfig                 |   9 +
- drivers/perf/riscv_pmu.c             |  19 +
- drivers/perf/riscv_pmu_sbi.c         |  72 ++-
- include/linux/perf/riscv_pmu.h       |   3 +
- include/linux/riscv_sse.h            |  59 +++
- 21 files changed, 1340 insertions(+), 13 deletions(-)
- create mode 100644 arch/riscv/include/asm/sse.h
- create mode 100644 arch/riscv/kernel/sse.c
- create mode 100644 arch/riscv/kernel/sse_entry.S
- create mode 100644 drivers/firmware/riscv/Kconfig
- create mode 100644 drivers/firmware/riscv/Makefile
- create mode 100644 drivers/firmware/riscv/riscv_sse.c
- create mode 100644 include/linux/riscv_sse.h
-
+diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
+index 4e268de351c4..3462f3a21e5f 100644
+--- a/drivers/perf/Kconfig
++++ b/drivers/perf/Kconfig
+@@ -105,6 +105,15 @@ config RISCV_PMU_SBI
+ 	  full perf feature support i.e. counter overflow, privilege mode
+ 	  filtering, counter configuration.
+ 
++config RISCV_PMU_SSE
++	depends on RISCV_PMU && RISCV_SSE
++	bool "RISC-V PMU SSE events"
++	default n
++	help
++	  Say y if you want to use SSE events to deliver PMU interrupts. This
++	  provides a way to profile the kernel at any level by using NMI-like
++	  SSE events.
++
+ config STARFIVE_STARLINK_PMU
+ 	depends on ARCH_STARFIVE || COMPILE_TEST
+ 	depends on 64BIT
+diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
+index 7644147d50b4..1eb28381b80f 100644
+--- a/drivers/perf/riscv_pmu.c
++++ b/drivers/perf/riscv_pmu.c
+@@ -13,6 +13,7 @@
+ #include <linux/irqdesc.h>
+ #include <linux/perf/riscv_pmu.h>
+ #include <linux/printk.h>
++#include <linux/riscv_sse.h>
+ #include <linux/smp.h>
+ #include <linux/sched_clock.h>
+ 
+@@ -254,6 +255,22 @@ void riscv_pmu_start(struct perf_event *event, int flags)
+ 	perf_event_update_userpage(event);
+ }
+ 
++static void riscv_pmu_disable(struct pmu *pmu)
++{
++	struct riscv_pmu *rvpmu = to_riscv_pmu(pmu);
++
++	if (rvpmu->sse_evt)
++		sse_event_disable_local(rvpmu->sse_evt);
++}
++
++static void riscv_pmu_enable(struct pmu *pmu)
++{
++	struct riscv_pmu *rvpmu = to_riscv_pmu(pmu);
++
++	if (rvpmu->sse_evt)
++		sse_event_enable_local(rvpmu->sse_evt);
++}
++
+ static int riscv_pmu_add(struct perf_event *event, int flags)
+ {
+ 	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
+@@ -411,6 +428,8 @@ struct riscv_pmu *riscv_pmu_alloc(void)
+ 		.event_mapped	= riscv_pmu_event_mapped,
+ 		.event_unmapped	= riscv_pmu_event_unmapped,
+ 		.event_idx	= riscv_pmu_event_idx,
++		.pmu_enable	= riscv_pmu_enable,
++		.pmu_disable	= riscv_pmu_disable,
+ 		.add		= riscv_pmu_add,
+ 		.del		= riscv_pmu_del,
+ 		.start		= riscv_pmu_start,
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 698de8ddf895..885d04a2c338 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -17,6 +17,7 @@
+ #include <linux/irqdomain.h>
+ #include <linux/of_irq.h>
+ #include <linux/of.h>
++#include <linux/riscv_sse.h>
+ #include <linux/cpu_pm.h>
+ #include <linux/sched/clock.h>
+ #include <linux/soc/andes/irq.h>
+@@ -948,10 +949,10 @@ static void pmu_sbi_start_overflow_mask(struct riscv_pmu *pmu,
+ 		pmu_sbi_start_ovf_ctrs_sbi(cpu_hw_evt, ctr_ovf_mask);
+ }
+ 
+-static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
++static irqreturn_t pmu_sbi_ovf_handler(struct cpu_hw_events *cpu_hw_evt,
++				       struct pt_regs *regs, bool from_sse)
+ {
+ 	struct perf_sample_data data;
+-	struct pt_regs *regs;
+ 	struct hw_perf_event *hw_evt;
+ 	union sbi_pmu_ctr_info *info;
+ 	int lidx, hidx, fidx;
+@@ -959,7 +960,6 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 	struct perf_event *event;
+ 	u64 overflow;
+ 	u64 overflowed_ctrs = 0;
+-	struct cpu_hw_events *cpu_hw_evt = dev;
+ 	u64 start_clock = sched_clock();
+ 	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
+ 
+@@ -969,13 +969,15 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 	/* Firmware counter don't support overflow yet */
+ 	fidx = find_first_bit(cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS);
+ 	if (fidx == RISCV_MAX_COUNTERS) {
+-		csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
++		if (!from_sse)
++			csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
+ 		return IRQ_NONE;
+ 	}
+ 
+ 	event = cpu_hw_evt->events[fidx];
+ 	if (!event) {
+-		ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
++		if (!from_sse)
++			ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
+ 		return IRQ_NONE;
+ 	}
+ 
+@@ -990,16 +992,16 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 
+ 	/*
+ 	 * Overflow interrupt pending bit should only be cleared after stopping
+-	 * all the counters to avoid any race condition.
++	 * all the counters to avoid any race condition. When using SSE,
++	 * interrupt is cleared when stopping counters.
+ 	 */
+-	ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
++	if (!from_sse)
++		ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
+ 
+ 	/* No overflow bit is set */
+ 	if (!overflow)
+ 		return IRQ_NONE;
+ 
+-	regs = get_irq_regs();
+-
+ 	for_each_set_bit(lidx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS) {
+ 		struct perf_event *event = cpu_hw_evt->events[lidx];
+ 
+@@ -1055,6 +1057,52 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 	return IRQ_HANDLED;
+ }
+ 
++static irqreturn_t pmu_sbi_ovf_irq_handler(int irq, void *dev)
++{
++	return pmu_sbi_ovf_handler(dev, get_irq_regs(), false);
++}
++
++#ifdef CONFIG_RISCV_PMU_SSE
++static int pmu_sbi_ovf_sse_handler(uint32_t evt, void *arg,
++	struct pt_regs *regs)
++{
++	struct cpu_hw_events __percpu *hw_events = arg;
++	struct cpu_hw_events *hw_event = raw_cpu_ptr(hw_events);
++
++	pmu_sbi_ovf_handler(hw_event, regs, true);
++
++	return 0;
++}
++
++static int pmu_sbi_setup_sse(struct riscv_pmu *pmu)
++{
++	int ret;
++	struct sse_event *evt;
++	struct cpu_hw_events __percpu *hw_events = pmu->hw_events;
++
++	evt = sse_event_register(SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW, 0,
++				pmu_sbi_ovf_sse_handler, hw_events);
++	if (IS_ERR(evt))
++		return PTR_ERR(evt);
++
++	ret = sse_event_enable(evt);
++	if (ret) {
++		sse_event_unregister(evt);
++		return ret;
++	}
++
++	pr_info("using SSE for PMU event delivery\n");
++	pmu->sse_evt = evt;
++
++	return ret;
++}
++#else
++static int pmu_sbi_setup_sse(struct riscv_pmu *pmu)
++{
++	return -EOPNOTSUPP;
++}
++#endif
++
+ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
+ {
+ 	struct riscv_pmu *pmu = hlist_entry_safe(node, struct riscv_pmu, node);
+@@ -1105,6 +1153,10 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
+ 	struct cpu_hw_events __percpu *hw_events = pmu->hw_events;
+ 	struct irq_domain *domain = NULL;
+ 
++	ret = pmu_sbi_setup_sse(pmu);
++	if (!ret)
++		return 0;
++
+ 	if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
+ 		riscv_pmu_irq_num = RV_IRQ_PMU;
+ 		riscv_pmu_use_irq = true;
+@@ -1139,7 +1191,7 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
+ 		return -ENODEV;
+ 	}
+ 
+-	ret = request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_handler, "riscv-pmu", hw_events);
++	ret = request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_irq_handler, "riscv-pmu", hw_events);
+ 	if (ret) {
+ 		pr_err("registering percpu irq failed [%d]\n", ret);
+ 		return ret;
+diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
+index 701974639ff2..d4a5c55fe077 100644
+--- a/include/linux/perf/riscv_pmu.h
++++ b/include/linux/perf/riscv_pmu.h
+@@ -28,6 +28,8 @@
+ 
+ #define RISCV_PMU_CONFIG1_GUEST_EVENTS 0x1
+ 
++struct sse_event;
++
+ struct cpu_hw_events {
+ 	/* currently enabled events */
+ 	int			n_events;
+@@ -54,6 +56,7 @@ struct riscv_pmu {
+ 	char		*name;
+ 
+ 	irqreturn_t	(*handle_irq)(int irq_num, void *dev);
++	struct sse_event *sse_evt;
+ 
+ 	unsigned long	cmask;
+ 	u64		(*ctr_read)(struct perf_event *event);
 -- 
 2.49.0
 
