@@ -4,150 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A052BC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 10:05:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E7EAC3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 10:14:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=w5jKwj7VjHkZxtW15RpFotIpg23xzA74pCx86T8iq0w=; b=gbTksBYOKC5sK/E8wFW7BQClzq
-	s31p3MlU27Zwb6Suw2QYX6WmK7EK4u2LwqKDb1jMSIe2t0QQmUVtYvsLRRxk4hcIonj8SqR2nSFKi
-	Pb0GeJBxqEVFm0E3xmGaqZI/k3geI/MXAUjHyYCO0dsTyx5gG9dYTKebe5EODccyFOHzb0joRGbKd
-	iLh7Qnv9k0hnwvEWJf0pjDckgsWXPSNbNfemHq/tnK/aBhoGhLSv6SSYSJxb27nCwTnlRzmMkhUW7
-	BPb1CUit9B05gj8bbD0Ff9J2s5wt8vCWlpHW7FNQ294KFVVNdtUph0rD5cixjRFFgZO5W7FshbaIm
-	lU78XDBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BYgEmFkLzngjrAp+Ezttc9ZzVi7JvNzJScbPscBcw1k=; b=S2kp8B7z35sVwz1FdTWTJ+1bYZ
+	H9+8XoaykTwJEYm/mLgzzo52dEJ0D0j2dvYmMjw1NcYRuJslwqb09tyXFhKwIyPfV+n99CzsciYun
+	JpPdQTnaXJJ6lnE2+pr6f3C3SiX/MREd38Yiums7BcZExTBKzDbzC8FY7vxS+rxbjnO4xCU8UE6Wm
+	OTmWSl7JK0c/Yjt4KbXUXeiWg3k8dua+ttkALRiDvqrZXaTYU339s3SCAUmA8Tg3x2rrW4Scmd4GC
+	VB62iYNyZQ2Q3v/wyftd6oRDsvf9wVpIgZLxo/EkuUCw+FqeGuTWAkYzrw2a/Gkp0rW1ohJZNHjRG
+	61uli56g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFrw6-0000000359c-00iy;
-	Fri, 16 May 2025 10:05:02 +0000
-Received: from mail-am7eur03on20621.outbound.protection.outlook.com ([2a01:111:f403:260e::621] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
+	id 1uFs4z-000000036XS-133R;
+	Fri, 16 May 2025 10:14:13 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFru4-000000034qO-2g4P
+	id 1uFs2w-00000003694-0gSN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 10:02:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZNy1UjxSKeiGrxsdT96MIlct5PaqvoPBsHWA02K1d9tpGV+moTlquE//nfDbVHTw4WLhGL5JDd+AErpWJijR+1s4krdDOQjOmG2T/ZvIwxcEKLvNYXsitEKw27OYyF0LeXtZq0TF2tt2CJDAmVuVB3MPbRmDjJJlqIBi4iT4SyuXBQBcHnJxqEnhM54Kohcm4l7euF8WJ6rf2SRs9+E/Bxoc+UPlvL+JA6XlqaRR0rPgeUXTp6R0mdOGm56tl77JxtwyU/VhAWQqouFCIV3KsCBnJkjmX8sH1UIUX8V9poaALxbkI1GH1FdCyhC+qROCrg3GrYqhjK8gmEs1SpdVAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=w5jKwj7VjHkZxtW15RpFotIpg23xzA74pCx86T8iq0w=;
- b=ZISqmsKP0n3yGRvIAhy5sfxFMRlI4lMTajAeaoa4XBVhmGCHkYvkZQjJCX0wFu2+0Kru0m2En11do7BrLaPmA7xb0l/6suXwqTcc4p+49Mu2kNzqTA5QsCqhU+31FY157jR9URO7gpgVTPJCacZNWS6NANmsNT7WQ2x9cwJJSJjgwxIGK8ohoi9Fh8sbqIiacr7jgqCEgczd9oTjpUQ66qoPmGO7ZYAoXr0PmI62+QwUKIxYZmXVLTKshAyTLXMGMMOiPDgForj3nNxCiUMcH8nnf6tlL5ndXdNJ2oxiJnXQfWo73vz2hBqOTxvvfV/SHdI2rkDuvL0/SLIe/3X+mA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=w5jKwj7VjHkZxtW15RpFotIpg23xzA74pCx86T8iq0w=;
- b=OPgeP9LFwPNhBW4ZLtdAgGfVCL60XexcRQvkdppSvySR6Cb2rK3skROm4oc6q/QKXWBKe1NqX96kpMxjcC/reW+bxdcdFepy4r+aI0i46GyW2QWAVjB68cHL+OcUCl2gqN4qZh700dcshDtAKLseplS2biyqbJvLFftsvLZQDyjPZ9UBVyito51G670z/YAjAToBoC9qWqsbxMURGr+oxL9rqhOrkt0lb+YRO7ugNooEMBirR/ebPjj4PjiVdaVsn3kD8nY8GD8mh8aoS3TfNIsbVVOTfYFJPrqAV+vdi77IN34v105XH6z8YNr2oEqA12wSug80n4Z+MXHIySzQwQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
- by VI1PR04MB6848.eurprd04.prod.outlook.com (2603:10a6:803:13c::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.33; Fri, 16 May
- 2025 10:02:46 +0000
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb%5]) with mapi id 15.20.8722.027; Fri, 16 May 2025
- 10:02:46 +0000
-From: Jacky Bai <ping.bai@nxp.com>
-To: sudeep.holla@arm.com,
-	linus.walleij@linaro.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	cristian.marussi@arm.com
-Cc: aisheng.dong@nxp.com,
-	festevam@gmail.com,
-	kernel@pengutronix.de,
-	linux-gpio@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org
-Subject: [PATCH v2] pinctrl: freescale: Add support for imx943 pinctrl
-Date: Fri, 16 May 2025 18:04:23 +0800
-Message-Id: <20250516100423.1685732-1-ping.bai@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG3P274CA0008.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:be::20)
- To AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
+	Fri, 16 May 2025 10:12:07 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7426c44e014so2077481b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 03:12:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1747390325; x=1747995125; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BYgEmFkLzngjrAp+Ezttc9ZzVi7JvNzJScbPscBcw1k=;
+        b=MTelkW50o9wR7MyG35v86BtNgTCg1iwfy9ISwRc0PAfd+7VQ4wUjvFJbPY6eELtXnR
+         sxJTOyvFVRMb1U15UryNuNEGj9/p2bLOPzDLi8BdafNDfQJiXM/xVswOjRyIrudFhEQ1
+         BI6LXN28k7Dya9jES5n9Mqr3Tm2CMyTCdYh/s=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747390325; x=1747995125;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BYgEmFkLzngjrAp+Ezttc9ZzVi7JvNzJScbPscBcw1k=;
+        b=sIjAakUur0OGbA4RexQvbAeJqNS5DyUS70T2vN3Ii8jlBGmkWmRdUSPJKTuJ3w7jqA
+         8WcXSdbGq0mxpU9HhmcxDyHYOIwIKjdh9E8UzXhuyh+MMp2FHwArW74AkUKJH1t5Gzr0
+         N4+eYxXixGmv+4AvJKdLmLbpb3MOm9wmtYuNymzL8YENG3AyCqYRTYDrZBvc8AOCdc4n
+         OEc/hNajdrgTHmRINSuz+0uuYZV2B2WV2Y9zqSOndnFVprjvee7eaUzNjmZTomm5OXL4
+         xk2WzJ74sbB6nr1ARs+DLWQN7hEsFcbPtH+RwvhPM4THOosp9qEBiYZs2uN9qdohFEOQ
+         /3+g==
+X-Forwarded-Encrypted: i=1; AJvYcCUCoG38ikrIhxXhCDfvCmTjrBnlSl/mS0BWcrl6hDCqPef87kkKAd+HzDRfSwelNKbp/tak2gQzG52dErQ0ENoG@lists.infradead.org
+X-Gm-Message-State: AOJu0YzedCEaQlmjhSaQlWECwUP895xvJqxzs8SGsopucywTVUAyVTox
+	KqftXwp+7YNtsLVr7w7ZS4nRMnu8qPxVwpBLOOhW0eHSPYr/s2Vu+QODTbMqDPFlGzf9ovwRTNU
+	00RgDRXt3arxnNEnrVuJeGpT6dDvbaD2kNXi9+JPLww==
+X-Gm-Gg: ASbGnctqYJaXiGf+/JDOphAuEiP5AEecL3LAiWw/XwudUMIVO3VTgkfHuECess+te4b
+	GZKvERsgJqhTCdgIWUVscrxs9odZKm4I+X8XKMdyQBgVPDjEhhmwS9a2pSGlKZ/1+llcJemt82e
+	ZKI4fDkn3DvwAnkWhUMxcmmN8snVMLKao=
+X-Google-Smtp-Source: AGHT+IEahdby4WlhFBrzP3TTtfzK9CfL8PPGgJOtXddvjGzliwZ++ZJsevn/WphCoiZBknrEiweCADHFA4Ad2+v0G9U=
+X-Received: by 2002:a17:902:f691:b0:223:5945:ffd5 with SMTP id
+ d9443c01a7336-231d452d9e8mr35792465ad.32.1747390325218; Fri, 16 May 2025
+ 03:12:05 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8642:EE_|VI1PR04MB6848:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7d1ad467-bb8a-4799-3f57-08dd9460ce96
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?DQ55A6Pwba1weZhGZkcYxdB1S/L8TfGTp5cOmbJbm8IG+lN32lYtiLADcMJk?=
- =?us-ascii?Q?XG+2e8m/Dz5LcvMIfYDj/w+Kbas1BXV6DRyd+Vvh2nuok2k2ASa7CX6BpFde?=
- =?us-ascii?Q?sIsOOYOL9V1BUSs5hfQcuH7LrKdOew8UNfl0tDMnCnAFDAr9N7Vf5nIJN35z?=
- =?us-ascii?Q?8HNhxVm2tPOII1WHYk9vqk3BP8rRaVfpqRPHzfyUwNS9eme27jr58FBZ79xH?=
- =?us-ascii?Q?FFiYYDeuv2FEFUS4o0Sm0vIHhslrRhcZnb0CLW2/Vmnalym0ExKiYspS7OnB?=
- =?us-ascii?Q?H3Iy5xtFc/DPwKDebknmbu+pbRB8YS9Kk5DqodOAWM9mxBdxfueB4Za4GYDT?=
- =?us-ascii?Q?SwdQxOdCQxSiJI917AjaCw4ptOWDWsH1qknToZn7N7OqtXPSrThk54rGgm8C?=
- =?us-ascii?Q?YZ3G7ARH/rY0URDRWkDdFQ1NgyAGdNfswNlcN6BXV2bpzXGZz4pdJJZrkqho?=
- =?us-ascii?Q?CjMzU7/SPgk3XaMcxfYXONAQ9simt1Yy5HwEn+BK/e5eiH8371XickuWVLwW?=
- =?us-ascii?Q?c5qXSDv77CO2jxGE5B2kt/nhsbndouDcKlBUnKSUNfHXMhl5z2qAr2r6njG1?=
- =?us-ascii?Q?P52lp3DZl32OKZdBTw84LMFH5y7M8r1RL2un4Ln57T/PjtoNmfp3+9GsXsKl?=
- =?us-ascii?Q?1Y3GjiaSqnkAzDKZRy/XyGQPnUmIzdeXNn5J2JkA4HOXcMrVMOn6gGsmDkxt?=
- =?us-ascii?Q?h+xKIb1PGLlD7y/YOZMMXFEiFt5qq5y/Lnc2w3I7UN7m7ZqMEhDNaVyGLVw4?=
- =?us-ascii?Q?8b+IuL+/FO0OjwLl0Wv+OKtCdfum/CLypm33Ty4S82la0OaMFTQ49d6xYUlw?=
- =?us-ascii?Q?RGa0pvFAmM5osYVgva6age5qisR2R6uxhRIN4VkygVLejRqxMx3v2AO8iZct?=
- =?us-ascii?Q?ZEIR/7k+68F97ylAbxYEvww/RiS2Zvwhru4WyPMF+SD97Of3+NE/oKLQzPaS?=
- =?us-ascii?Q?tNLfuNGr0iDiwvfaTujKqGPQkCvHokKTXO50EHm1h3fiG0btrtbd4mKDQpOV?=
- =?us-ascii?Q?afWdV+0+5YFBVS1LK3flO7lFMvwTuxDAb+NBRaShZZPRRSEhc/NZ7bd34jIF?=
- =?us-ascii?Q?UZLseQuoUMUI/eV0lKPUzQVtgo6vCAnS8faoPOP5iSH+OBlteajab9S8yBOK?=
- =?us-ascii?Q?s/yHf7skqlH04Uj3ICodGZYyg3uqF5Vtcmf0+7z8gCJrwflqFqHMTy4k4u1Q?=
- =?us-ascii?Q?MR8/BaV6iQH8Ekz6brDFAaTVcCXCNMIC+a5XfVkhSiK8uMytSU0OS14ffAAU?=
- =?us-ascii?Q?gRUlgGaUfDXhLDq5dMP548OpJAZxoaFYj0di1FticUL+qOJrjkDQiBBfDOm+?=
- =?us-ascii?Q?6kU+zN73afu+To8e1PZrq1k46aQNV9OjLInAbFYSZidaUUPgaqY9FCviiH/G?=
- =?us-ascii?Q?TWeqm9UM8fxtR0WsFnafp6K7tg6SCfmSBtjz3Yl4Lghd0x+Q49NngdKvFdyy?=
- =?us-ascii?Q?7y+N3Va3iw7pVupgVHnfjmpVYU/a7FxsUv3Yer+p4Mn1qUm89Wji2w=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4FgLULMb6zyCkwzxIzRORFHbsdP8aOxBFtRNlzY5O3uPhAoQqCNvPOlvhGfR?=
- =?us-ascii?Q?atrD3v5Wak4KeiEIE1JjDQR4f0fpt7pYbpb9hzpgbRz0Ue0pwjIiwmhEZ6MZ?=
- =?us-ascii?Q?wmPh0VIgtRzJ3WcVq8NWemVfQqVG2XA46qbi6HUx++wDTd/1HW7vYFvN12/A?=
- =?us-ascii?Q?bhRSqK5Z84oWPPsgEjkB36WS/aG+I47yEdRjpOhu/hyP2no4FVUbfvJoBA43?=
- =?us-ascii?Q?/XHCIM6byP/TVGKhuLgTHTbQEYIok2l9B1IPcgbnI7gF4JprJgO0uW+HUNSW?=
- =?us-ascii?Q?1MXxgrawu8SelUBA1rywkQn9Yo0Pdb2hUd5y1q/Z2jDUv3ocAWjZI6XNqpZo?=
- =?us-ascii?Q?Wjph3lAX7F7yecI7EBSlu/sp1O2tZ42MmyB5YqL47zAbo48hpCrTiYz7eO3H?=
- =?us-ascii?Q?SJitPMEVWpvRT6/kb3jRW5vHj298vQRRgFuyLKc2mmJ+7VUnL9GQiBDd5Uhz?=
- =?us-ascii?Q?SbHn28Ic4Jmaf48DPLCdQTSb78j80qI8SokXeydKjItAiDbZh6lw3i2DRILP?=
- =?us-ascii?Q?q0VTS0WzEAgoFeK/PsGlbl4+zAZk/w72GFkRhg7loDm79RCq9vQPwGoekHJr?=
- =?us-ascii?Q?EQhUma04lINMmtn9SY6snWGGxZBqSqf4t6PMZftB8eLt+mEtStvm8VUjk0E4?=
- =?us-ascii?Q?iyHo4g4FE5KQ4uooVzhqQdasyvY2drd+YT3Z7VeHGeHysZxMz8e1SafZ6DzA?=
- =?us-ascii?Q?TtdgggS2yXACziXqXiV9r58Nhjl50Jxn+Zz3cn9HLarNdOBCelADEzHDorxL?=
- =?us-ascii?Q?lK2PE8eLn1CCuiuofX24kUx76abmsf94dARvGKXoAohgFJpl8+R4KQ4OWgWF?=
- =?us-ascii?Q?fGxLRkAHcWR71ZuIJ48eEvNEKJGAweav6TUrgNnJ9xN5bwQmQfYh46cEsyPy?=
- =?us-ascii?Q?ZbsbGy0x+sWGxgpYOCzR4/BU8l8lS7f/RIX5q5WYUoOeR6zxS1dwMlo2EYCH?=
- =?us-ascii?Q?Mzxap2CmkpyOoXXbmp1sXRZ740tmIRBH3Z6aNTUiY7jN+30A39HxoS0F3PCz?=
- =?us-ascii?Q?oZEqZ7Y4dmlrXJFwZA+Qr2y2H0zBOTvSJd7a1H0hxYmvCXM8TkV0F9WtpetS?=
- =?us-ascii?Q?vuG+j50xM0DwVZQJPnM+l/Ihfk3nhoUv8h22BwqtdiOmMYFcvrxZvDaEpmUg?=
- =?us-ascii?Q?rXQM6bJKkK3/pXu+NeLgaJO0lpCCSNDrjuV8bpLZQUzP2Mo6x2/QCwEKw77D?=
- =?us-ascii?Q?tBHwW9Wz83j82JaYHbmQ/G5/t7dEFO2Obek17fb7d5iQEOsscey8cdVCbhbP?=
- =?us-ascii?Q?Xs6YAW46i+cOiskU8Hs/6JWjxdKLOfwPjbLHfhqMkyQiSAS/8L9hP6KGh3Tz?=
- =?us-ascii?Q?4UTcx2X3IkGE+20f9ti2IzmcedZRzEtjgNxrCeEcaT/bzlDYaJNU5KtsZiG+?=
- =?us-ascii?Q?NKp/kedGtoiboxme9a/CYVPEvyXy6AvESoJXsUS9hwIQQ+WeH2ik3vyt4jqn?=
- =?us-ascii?Q?tduqoJBKoVvTjNyVIska01UDAnvvPlxcHTio5HNlzbVE/MB8HdbRUc+MhD/O?=
- =?us-ascii?Q?14Aj8Y7Ds80/46H1cFy9sZ8wm/ftSX1MomzkqvSku/HVeAOPLQ4zoWpiuTj+?=
- =?us-ascii?Q?jNam+cRm6KrWAKDReC9LJQH/TuM/zw1Kt8tes0Ym?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7d1ad467-bb8a-4799-3f57-08dd9460ce96
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 May 2025 10:02:46.3256
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: puShz88bmtDxeH5UrCoOLHA94kBsh86DtdXsrk6fn9Vcj8cnd7PHoUNMDs0gdT3ClSKzn2pB6Qhx++tfn+gF7g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6848
+References: <20250514070545.1868850-1-dario.binacchi@amarulasolutions.com>
+ <20250514070545.1868850-2-dario.binacchi@amarulasolutions.com> <20250516040520.GC28759@nxa18884-linux>
+In-Reply-To: <20250516040520.GC28759@nxa18884-linux>
+From: Michael Nazzareno Trimarchi <michael@amarulasolutions.com>
+Date: Fri, 16 May 2025 12:11:54 +0200
+X-Gm-Features: AX0GCFvTTvkYmZgAupUSG_j3MamO3A5m7OZvwC9De3vE2YHP6-H68MG8tQS5hHE
+Message-ID: <CAOf5uwmM=+QoaJH8vsUKL-fDab_Fmhxd1d-622pRi-hK=EXk4g@mail.gmail.com>
+Subject: Re: [PATCH 2/3] ARM: dts: imx6ulz-bsh-smm-m2: Enable uart2
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>, linux-kernel@vger.kernel.org, 
+	linux-amarula@amarulasolutions.com, 
+	Wolfgang Birkner <wolfgang.birkner@bshg.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_030256_699247_07C85AC6 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20250516_031206_198295_32F58D2A 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,64 +97,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The i.MX943 System Manager (SM) firmware supports the System Control
-Management Interface (SCMI) pinctrl protocol, similar to the i.MX95 SM.
-The base offset for the i.MX943 IOMUXC Daisy input register differs from
-that of the i.MX95. Update the pinctrl-imx-scmi driver to add support for
-i.MX943.
+Hi
 
-Signed-off-by: Jacky Bai <ping.bai@nxp.com>
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
----
- - v2 changes:
-  - refine the commit log.
----
- drivers/pinctrl/freescale/pinctrl-imx-scmi.c | 4 ++++
- drivers/pinctrl/pinctrl-scmi.c               | 1 +
- 2 files changed, 5 insertions(+)
 
-diff --git a/drivers/pinctrl/freescale/pinctrl-imx-scmi.c b/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
-index 8f15c4c4dc44..4e8ab919b334 100644
---- a/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
-+++ b/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
-@@ -51,6 +51,7 @@ struct scmi_pinctrl_imx {
- #define IMX_SCMI_PIN_SIZE	24
- 
- #define IMX95_DAISY_OFF		0x408
-+#define IMX94_DAISY_OFF		0x608
- 
- static int pinctrl_scmi_imx_dt_node_to_map(struct pinctrl_dev *pctldev,
- 					   struct device_node *np,
-@@ -70,6 +71,8 @@ static int pinctrl_scmi_imx_dt_node_to_map(struct pinctrl_dev *pctldev,
- 	if (!daisy_off) {
- 		if (of_machine_is_compatible("fsl,imx95")) {
- 			daisy_off = IMX95_DAISY_OFF;
-+		} else if (of_machine_is_compatible("fsl,imx94")) {
-+			daisy_off = IMX94_DAISY_OFF;
- 		} else {
- 			dev_err(pctldev->dev, "platform not support scmi pinctrl\n");
- 			return -EINVAL;
-@@ -289,6 +292,7 @@ scmi_pinctrl_imx_get_pins(struct scmi_pinctrl_imx *pmx, struct pinctrl_desc *des
- 
- static const char * const scmi_pinctrl_imx_allowlist[] = {
- 	"fsl,imx95",
-+	"fsl,imx94",
- 	NULL
- };
- 
-diff --git a/drivers/pinctrl/pinctrl-scmi.c b/drivers/pinctrl/pinctrl-scmi.c
-index df4bbcd7d1d5..383681041e4c 100644
---- a/drivers/pinctrl/pinctrl-scmi.c
-+++ b/drivers/pinctrl/pinctrl-scmi.c
-@@ -507,6 +507,7 @@ static int pinctrl_scmi_get_pins(struct scmi_pinctrl *pmx,
- 
- static const char * const scmi_pinctrl_blocklist[] = {
- 	"fsl,imx95",
-+	"fsl,imx94",
- 	NULL
- };
- 
--- 
-2.34.1
+On Fri, May 16, 2025 at 4:56=E2=80=AFAM Peng Fan <peng.fan@oss.nxp.com> wro=
+te:
+>
+> On Wed, May 14, 2025 at 09:05:34AM +0200, Dario Binacchi wrote:
+> >From: Wolfgang Birkner <wolfgang.birkner@bshg.com>
+> >
+> >uart2 is used as wake up source.
+> >
+> >Signed-off-by: Wolfgang Birkner <wolfgang.birkner@bshg.com>
+> >Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> >---
+> >
+> > arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts | 4 ++++
+> > 1 file changed, 4 insertions(+)
+> >
+> >diff --git a/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts b/arch/arm=
+/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts
+> >index 5c32d1e3675c..fff21f28c552 100644
+> >--- a/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts
+> >+++ b/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts
+> >@@ -37,6 +37,10 @@ &snvs_poweroff {
+> >       status =3D "okay";
+> > };
+> >
+> >+&uart2 {
+> >+      status =3D "okay";
+> >+};
+>
+> No need pinctrl settings?
+>
 
+We found out that in imx6ulz, if we don't enable wakeup on uart2 (or
+other uarts that do not conflict on pinout) we are not able to wake up
+from uart4, which is the console.
+According to the TRM and the code everything look fine but the real
+result it's we stuck in suspend
+
+Here is how we are able to resume.
+
+uart2
+echo enabled > wakeup
+uart4
+echo enabled > wakeup
+
+Michael
+
+> Regards,
+> Peng
+>
+> >+
+> > &uart3 {
+> >       pinctrl-names =3D "default";
+> >       pinctrl-0 =3D <&pinctrl_uart3>;
+> >--
+> >2.43.0
+> >
+> >base-commit: e9565e23cd89d4d5cd4388f8742130be1d6f182d
+> >branch: bsh-202505-imx6ulz_smm_m2
+>
+>
+
+
+--=20
+Michael Nazzareno Trimarchi
+Co-Founder & Chief Executive Officer
+M. +39 347 913 2170
+michael@amarulasolutions.com
+__________________________________
+
+Amarula Solutions BV
+Joop Geesinkweg 125, 1114 AB, Amsterdam, NL
+T. +31 (0)85 111 9172
+info@amarulasolutions.com
+www.amarulasolutions.com
 
