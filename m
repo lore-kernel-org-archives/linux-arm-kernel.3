@@ -4,90 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EE7EC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 08:43:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4F51C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 08:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jOVQbSyRtvHqlvBwmgwbNuyQyI33ggIazbqG1gBI7zE=; b=goMuxbJ5ucTkALPlo/HLSYx+QM
-	CvDctiMmdLwyUePRGl2+iRyJ0uKeJVTsH4aYZaYLdn/MBIsyA+IBBxMThBsjICTj/aqmOOzLbkemU
-	Z97MD5t9NNq+XA1Dk4Exu3BNbgLBPcbvh+y1ydAtYbWWLCdWHy2PJgkndwN2e4ZDV3xFQyNISs5V8
-	J2YNcOlAhqmcizD+b723upXKBrmdr72gquj5HurnornL2NLNOdQHQY+hNzVhafNZ3QtT3/9bgGNXi
-	ZLSBQUHtkuIw1TStslrNouwfDPTfEbkq14H8AV75Tsw9nEdUqKLadBMeM4Fj28a+Mgs2dhk248ABS
-	aL0G1nWg==;
+	bh=wtu7zpoEhIazPVBR9VLrQ2O+ovOuUIuW+9nEGJrTJjc=; b=xJ0KO3rVonZ7j+DmjtudCeCfcc
+	H2HJmFq/cOuD4PdxTgUVq/bsWUn7fxVuq6bT/F0XVpVUMsSWtnp2MbDUiZXBdgjM+Och4fCDWJ1Sp
+	6U3wu9rb2WpVeCJ9Gs4Jg5Nyz/UvZFAHXCC3zghe77RFyl3wjsRmVh1vJgJbJENuV3rkyCG+yEI17
+	32ts6HBvSy63Of1mxaLvSkRcpNQrIif4vn2l5Vq8Wvi9dnqRY1IoKnVpbAkKvsa5tgOIJmn/iBaOL
+	i7aOpUy+vpP0DxbeFWUuu9z+DRQAryLuH90EdwsRqzHI7KrhhacIVWozuKFQW4WkAT1nYJnVcsU0Y
+	8ihJJe7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFqeg-00000002tSb-17WI;
-	Fri, 16 May 2025 08:42:58 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uFqhm-00000002u49-0PQ3;
+	Fri, 16 May 2025 08:46:10 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFqcd-00000002tEY-0ZBt
+	id 1uFqfi-00000002tbc-0XU0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 08:40:52 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54G7PoHT028005;
-	Fri, 16 May 2025 10:40:13 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	jOVQbSyRtvHqlvBwmgwbNuyQyI33ggIazbqG1gBI7zE=; b=bV5T8TAK7sCLOU2a
-	M33BxFPl4Hm54I2NCmUuqlxss0eiqlrpXONjMgoIpqqFYl9vfMqMaiq6qtGd/vzM
-	uclxTteUpXmPMHaztuyyZt/g08HdkcZUJPPBwTdFYlt5yfQGh+0uYeu3FnQ33LBc
-	PpNV8gAuTu8Dq64zPc3NeGa1igIHNyp6GqRpfsP5ssE9mGe1nYwF2B1gkREIqFDl
-	2mG5Qw8Pwm2iwD0FUjuypOyhDZw3ezcK1msu1YhxZESXebfmFJ/vFuBxFHRlX906
-	c6aKPkBTAjFxL7spZ2AmChDAqzVt0NRJnZbJOz5QkJpvZL2+5s+6qCWpAdbLbZ0E
-	bvA56A==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46mbdy4g62-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 16 May 2025 10:40:13 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 1FCE04002D;
-	Fri, 16 May 2025 10:38:37 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8E7B0B34A7F;
-	Fri, 16 May 2025 10:37:18 +0200 (CEST)
-Received: from [10.130.77.120] (10.130.77.120) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 16 May
- 2025 10:37:17 +0200
-Message-ID: <7df0c1e5-f53b-4a44-920a-c2dfe8842481@foss.st.com>
-Date: Fri, 16 May 2025 10:37:16 +0200
+	Fri, 16 May 2025 08:44:03 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-442ea341570so11747925e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 01:44:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747385040; x=1747989840; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wtu7zpoEhIazPVBR9VLrQ2O+ovOuUIuW+9nEGJrTJjc=;
+        b=m4QUWPsqRdqVk+pJ91amGUH6qT4b2OgQEmkDE0Rjp2AAyITlYcL94upaVjjmutJGfj
+         jyP8MQZkVOzdGwo7i8GIy57c34NPDbyMIXI/UF6ZxdxvM65YrZp8ohqIM4TsTNjyM60b
+         Hr7ofozCaUmeACjr6q+IAl1Wr/NDPBonYObOy8sMdoSCf0d0ZrEd/VVIC5zQxlvBJmSF
+         Ef21KAp0GFoCwC8drJ0cYv8yg8x3KeppxcWyU+31ATYEIA4+xvGiUNO1HUCi0c+dStv+
+         xs0QPTZM0RLIsd/otva1zP/yESsAFLXL3KtMFpP1ZE4iyxT5aeSduWLhMCfeLvTZMghW
+         OKKg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747385040; x=1747989840;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wtu7zpoEhIazPVBR9VLrQ2O+ovOuUIuW+9nEGJrTJjc=;
+        b=woBuIyApmAx/ZIoHqUz4h5ir7bUwhPLnJdactnMgTPHZqITtpD/3ElLwN99mctn7UD
+         LqJWdbWcBZOa9hAybZb25Pym3Y02Wa1n+zN7lFHVf7WCKIcevJYcixHAqTLLh2vbm7NO
+         LZ0ocixfjwlJBETCp+C9wLtA2H1PyjZ+gHy750D0atPqIe6EBvp/ycWJK9NBuPTIUHyr
+         fbgS5WPEGk+J3dYNY7o6BAqkbV0UpqBe29nZXFWUd9XIOIuMT2G1TeY4uQ7QNtf/UAt0
+         R4bSCW8hYBn4gwoUsyR94saugy6ugIZ9bJuEt/I0B/WTojA0tyGVegHMKHkEJAejwu/r
+         jZAA==
+X-Forwarded-Encrypted: i=1; AJvYcCWmb1TWgp4igQXqFB85Xlvlz00zCMUVSrg0aJfLUOMPmbdPUxny+uLWvd28fR5hQJBcSBzAEpbKlA2JbMUaNKmv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9IkYW3LAENZoakunGKdFpQ+Bb4hBqf5UGv+nIdh5DY+uvu6Zu
+	sPkDApo6nk3Y9b+immyS/kKxxcmwkLTSp0IbsWiMi5WgYT1tar6pWsmK
+X-Gm-Gg: ASbGncurwFLYN+cRS6JKuqEyXfVlXWy5BUi1w9fsHJtE1oFC5+G0bDbpAwe9sO/K9eE
+	RLf03YNqrff+FusL/MloF4sH//5PnFPlzuQimeaF1N6k9raFh308X4GoKnW0uHRuy0OMNkBa9jC
+	qbuKc3FUi1/8fKXuj4m1nVxqMRfJK6qrilsZiLZZBLEc/n2YVO9rFeomaigf4e579j/ZyRqnIkZ
+	JHmNbl5v8fDLWMyozT9hcWRMPN6dcLWdVFXpAFj+IFH/aU6oXgRw3eJIKONVwT6VDNv/CMFKnd2
+	XeRhGcPhZqSbN6q4HxTRvi2QiQ6vyzDW7col6mUV5ZI1JeyZz+dQussR6A5nGHNIhCntKRqt+1S
+	4
+X-Google-Smtp-Source: AGHT+IEYZb/TzXzZVFqdhqGt3K1l/2137LORafBeymggFrs92Lp+L3YIGu5RsSNqD4chBhDRXMQG/Q==
+X-Received: by 2002:a05:600c:821b:b0:442:ccfa:18c with SMTP id 5b1f17b1804b1-442ff03c671mr12712175e9.32.1747385039900;
+        Fri, 16 May 2025 01:43:59 -0700 (PDT)
+Received: from localhost.localdomain ([213.74.214.99])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442fd50ee03sm25352005e9.14.2025.05.16.01.43.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 May 2025 01:43:59 -0700 (PDT)
+From: Can Ayberk Demir <ayberkdemir@gmail.com>
+To: netdev@vger.kernel.org
+Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Can Ayberk DEMIR <ayberkdemir@gmail.com>,
+	Suraj Gupta <suraj.gupta2@amd.com>
+Subject: [PATCH net v4] net: axienet: safely drop oversized RX frames
+Date: Fri, 16 May 2025 11:43:34 +0300
+Message-Id: <20250516084334.2463-1-ayberkdemir@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+In-Reply-To: <20250509104755.46464-1-ayberkdemir@gmail.com>
+References: <20250509104755.46464-1-ayberkdemir@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 2/9] PCI: stm32: Add PCIe host support for STM32MP25
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-CC: <lpieralisi@kernel.org>, <kw@linux.com>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-        <p.zabel@pengutronix.de>, <thippeswamy.havalige@amd.com>,
-        <shradha.t@samsung.com>, <quic_schintav@quicinc.com>,
-        <cassel@kernel.org>, <johan+linaro@kernel.org>,
-        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250423090119.4003700-1-christian.bruel@foss.st.com>
- <20250423090119.4003700-3-christian.bruel@foss.st.com>
- <gzw3rcuwuu7yswljzde2zszqlzkfsilozdfv2ebrcxjpvngpkk@hvzqb5wbjalb>
- <c01d0d72-e43c-4e10-b298-c8ed4f5d1942@foss.st.com>
- <ec33uuugief45swij7eu3mbx7htfxov6qa5miucqsrdp36z7qe@svpbhliveks4>
-From: Christian Bruel <christian.bruel@foss.st.com>
-Content-Language: en-US
-In-Reply-To: <ec33uuugief45swij7eu3mbx7htfxov6qa5miucqsrdp36z7qe@svpbhliveks4>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-16_03,2025-05-15_01,2025-03-28_01
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_014051_696118_02965B15 
-X-CRM114-Status: GOOD (  22.05  )
+X-CRM114-CacheID: sfid-20250516_014402_173138_E54E0DB7 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,139 +108,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Can Ayberk DEMIR <ayberkdemir@gmail.com>
 
+In AXI Ethernet (axienet) driver, receiving an Ethernet frame larger
+than the allocated skb buffer may cause memory corruption or kernel panic,
+especially when the interface MTU is small and a jumbo frame is received.
 
-On 5/15/25 13:29, Manivannan Sadhasivam wrote:
-> On Mon, May 12, 2025 at 05:08:13PM +0200, Christian Bruel wrote:
->> Hi Manivannan,
->>
->> On 4/30/25 09:30, Manivannan Sadhasivam wrote:
->>> On Wed, Apr 23, 2025 at 11:01:12AM +0200, Christian Bruel wrote:
->>>> Add driver for the STM32MP25 SoC PCIe Gen1 2.5 GT/s and Gen2 5GT/s
->>>> controller based on the DesignWare PCIe core.
->>>>
->>>> Supports MSI via GICv2m, Single Virtual Channel, Single Function
->>>>
->>>> Supports WAKE# GPIO.
->>>>
->>>
->>> Mostly looks good. Just a couple of comments below.
->>>
->>>> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
->>>> ---
->>>>    drivers/pci/controller/dwc/Kconfig      |  12 +
->>>>    drivers/pci/controller/dwc/Makefile     |   1 +
->>>>    drivers/pci/controller/dwc/pcie-stm32.c | 368 ++++++++++++++++++++++++
->>>>    drivers/pci/controller/dwc/pcie-stm32.h |  15 +
->>>>    4 files changed, 396 insertions(+)
->>>>    create mode 100644 drivers/pci/controller/dwc/pcie-stm32.c
->>>>    create mode 100644 drivers/pci/controller/dwc/pcie-stm32.h
->>>>
->>>
->>> [...]
->>>
->>>> +static int stm32_pcie_probe(struct platform_device *pdev)
->>>> +{
->>>> +	struct stm32_pcie *stm32_pcie;
->>>> +	struct device *dev = &pdev->dev;
->>>> +	int ret;
->>>> +
->>>> +	stm32_pcie = devm_kzalloc(dev, sizeof(*stm32_pcie), GFP_KERNEL);
->>>> +	if (!stm32_pcie)
->>>> +		return -ENOMEM;
->>>> +
->>>> +	stm32_pcie->pci.dev = dev;
->>>> +	stm32_pcie->pci.ops = &dw_pcie_ops;
->>>> +	stm32_pcie->pci.pp.ops = &stm32_pcie_host_ops;
->>>> +
->>>> +	stm32_pcie->regmap = syscon_regmap_lookup_by_compatible("st,stm32mp25-syscfg");
->>>> +	if (IS_ERR(stm32_pcie->regmap))
->>>> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->regmap),
->>>> +				     "No syscfg specified\n");
->>>> +
->>>> +	stm32_pcie->clk = devm_clk_get(dev, NULL);
->>>> +	if (IS_ERR(stm32_pcie->clk))
->>>> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->clk),
->>>> +				     "Failed to get PCIe clock source\n");
->>>> +
->>>> +	stm32_pcie->rst = devm_reset_control_get_exclusive(dev, NULL);
->>>> +	if (IS_ERR(stm32_pcie->rst))
->>>> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->rst),
->>>> +				     "Failed to get PCIe reset\n");
->>>> +
->>>> +	ret = stm32_pcie_parse_port(stm32_pcie);
->>>> +	if (ret)
->>>> +		return ret;
->>>> +
->>>> +	platform_set_drvdata(pdev, stm32_pcie);
->>>> +
->>>> +	ret = pm_runtime_set_active(dev);
->>>> +	if (ret < 0) {
->>>> +		dev_err(dev, "Failed to activate runtime PM %d\n", ret);
->>>
->>> Please use dev_err_probe() here and below.
->>
->> OK, will report this in the EP driver also.
->>
->>>
->>>> +		return ret;
->>>> +	}
->>>> +
->>>> +	ret = devm_pm_runtime_enable(dev);
->>>> +	if (ret < 0) {
->>>> +		dev_err(dev, "Failed to enable runtime PM %d\n", ret);
->>>> +		return ret;
->>>> +	}
->>>> +
->>>> +	pm_runtime_get_noresume(dev);
->>>> +
->>>
->>> I know that a lot of the controller drivers do this for no obvious reason. But
->>> in this case, I believe you want to enable power domain or genpd before
->>> registering the host bridge. Is that right?
->>
->> We call pm_runtime_enable() before stm32_add_pcie_port() and
->> dw_pcie_host_init(). This ensures that PCIe is active during the PERST#
->> sequence and before accessing the DWC registers.
->>
-> 
-> What do you mean by 'PCIe is active'? Who is activating it other than this
-> driver?
+This bug was discovered during testing on a Kria K26 platform. When an
+oversized frame is received and `skb_put()` is called without checking
+the tailroom, the following kernel panic occurs:
 
-"PCIe is active" in the sense of pm_runtime_active() and PM runtime_enabled.
+  skb_panic+0x58/0x5c
+  skb_put+0x90/0xb0
+  axienet_rx_poll+0x130/0x4ec
+  ...
+  Kernel panic - not syncing: Oops - BUG: Fatal exception in interrupt
 
-A better call point would be just before dw_host_init(), after the PCIe 
-controller is reset :
+Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ethernet driver")
 
-stm32_add_pcie_port()
-clk_prepare_enable()
-devm_pm_runtime_enable()
-dw_pcie_host_init()
+Signed-off-by: Can Ayberk DEMIR <ayberkdemir@gmail.com>
+Tested-by: Suraj Gupta <suraj.gupta2@amd.com>
+---
+Changes in v4:
+- Moved Fixes: tag before SOB as requested
+- Added Tested-by tag from Suraj Gupta
 
-with this sequence, the stm32_pcie_suspend_noirq() is well balanced. 
-does that sound better ?
+Changes in v3:
+- Fixed 'ndev' undeclared error → replaced with 'lp->ndev'
+- Added rx_dropped++ for statistics
+- Added Fixes: tag
 
-> 
->>> And the fact that you are not
->>> decrementing the runtime usage count means, you want to keep it ON all the time?
->>> Beware that your system suspend/resume calls would never get executed.
->>
->> We do not support PM runtime autosuspend, so we must notify PM runtime that
->> PCIe is always active. Without invoking pm_runtime_get_noresume(), PCIe
->> would mistakenly be marked as suspended.
-> 
-> This cannot happen unless the child devices are also suspended? Or if there are
-> no child devices connected.
+Changes in v2:
+- This patch addresses style issues pointed out in v1.
+---
+ .../net/ethernet/xilinx/xilinx_axienet_main.c | 47 +++++++++++--------
+ 1 file changed, 28 insertions(+), 19 deletions(-)
 
-If no device is connected or if one is active, without 
-pm_runtime_get_noresume(), pm_genpd_summary says "PCIe suspended" 
-despite being clocked and having accessible configuration space
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 1b7a653c1f4e..7a12132e2b7c 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -1223,28 +1223,37 @@ static int axienet_rx_poll(struct napi_struct *napi, int budget)
+ 			dma_unmap_single(lp->dev, phys, lp->max_frm_size,
+ 					 DMA_FROM_DEVICE);
+ 
+-			skb_put(skb, length);
+-			skb->protocol = eth_type_trans(skb, lp->ndev);
+-			/*skb_checksum_none_assert(skb);*/
+-			skb->ip_summed = CHECKSUM_NONE;
+-
+-			/* if we're doing Rx csum offload, set it up */
+-			if (lp->features & XAE_FEATURE_FULL_RX_CSUM) {
+-				csumstatus = (cur_p->app2 &
+-					      XAE_FULL_CSUM_STATUS_MASK) >> 3;
+-				if (csumstatus == XAE_IP_TCP_CSUM_VALIDATED ||
+-				    csumstatus == XAE_IP_UDP_CSUM_VALIDATED) {
+-					skb->ip_summed = CHECKSUM_UNNECESSARY;
++			if (unlikely(length > skb_tailroom(skb))) {
++				netdev_warn(lp->ndev,
++					    "Dropping oversized RX frame (len=%u, tailroom=%u)\n",
++					    length, skb_tailroom(skb));
++				dev_kfree_skb(skb);
++				lp->ndev->stats.rx_dropped++;
++				skb = NULL;
++			} else {
++				skb_put(skb, length);
++				skb->protocol = eth_type_trans(skb, lp->ndev);
++				/*skb_checksum_none_assert(skb);*/
++				skb->ip_summed = CHECKSUM_NONE;
++
++				/* if we're doing Rx csum offload, set it up */
++				if (lp->features & XAE_FEATURE_FULL_RX_CSUM) {
++					csumstatus = (cur_p->app2 &
++							XAE_FULL_CSUM_STATUS_MASK) >> 3;
++					if (csumstatus == XAE_IP_TCP_CSUM_VALIDATED ||
++					    csumstatus == XAE_IP_UDP_CSUM_VALIDATED) {
++						skb->ip_summed = CHECKSUM_UNNECESSARY;
++					}
++				} else if (lp->features & XAE_FEATURE_PARTIAL_RX_CSUM) {
++					skb->csum = be32_to_cpu(cur_p->app3 & 0xFFFF);
++					skb->ip_summed = CHECKSUM_COMPLETE;
+ 				}
+-			} else if (lp->features & XAE_FEATURE_PARTIAL_RX_CSUM) {
+-				skb->csum = be32_to_cpu(cur_p->app3 & 0xFFFF);
+-				skb->ip_summed = CHECKSUM_COMPLETE;
+-			}
+ 
+-			napi_gro_receive(napi, skb);
++				napi_gro_receive(napi, skb);
+ 
+-			size += length;
+-			packets++;
++				size += length;
++				packets++;
++			}
+ 		}
+ 
+ 		new_skb = napi_alloc_skb(napi, lp->max_frm_size);
+-- 
+2.39.5 (Apple Git-154)
 
-thank you,
-
-Christian
-
-> 
-> - Mani
-> 
 
