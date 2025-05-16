@@ -4,80 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50A0BC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 10:32:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF87EC3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 10:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TF1F/o0rJTyneTYhzhmN81ogXQpiQQ7j0RM2pfuG8Lc=; b=e6SprkvM4CQU6hRFHL7JCvTu/G
-	QH36JtlcsXya8LrwMy5vTwY2Nz4i3U0w61Wq1UoFCK4S0SjoTyPXVdxR8SjqRcbHgXgloW+QZ5ngq
-	YsnOh4eyfwpp1bFhY0n0DNrx+Zxfxub9QOcaarDtNtMZeQXAWXnQqkaapdhX0cqGtqGt+gKqq0yI/
-	Qqj6J7lOu+RIbK/wEHlHWXOrmC4T8A7diRwiG+hVR9vz9Uf0qVRu+MSgFwrGdXNUnBJATLITBAt82
-	zlbb6PFgL+wEyDbrjHxfeyIC0dOrlQtyPWi0GRv7ljZqNG07AHcOsMI4cbvnmkps299Xb1DqgoDlr
-	ccfxFuHQ==;
+	bh=7ufq7J+dS4vCBPvGzC6/ZAkxwKyIeNhF3xU0c1WaRyU=; b=0xOKlAwczHa/ShkyQjFEHyo7IN
+	kgcZHox0cAshM1U54UulRBikg5mkl4DtpiLlE1vAWPfIPaezXKQ+EQOk6gJezhnP3MpSw511MKSkM
+	TeSUQNTrcc3VxfJ5jgTBcQadVuTA5kHcUPXQ0WGOP3NDDmYsYc/VBSsy7XZ+xrq6D8AUY2wyrFdN/
+	MKqM6Nt5/pSxv+jXW4Cz0KbzfAZVW5gRdpqMAL40m7GtUNbkdVyr4XSschA1V5MUxJ3cS3X7RiNig
+	NUJJ2oACTGAHA+cBXSORH+aFnJ1qQsznqKXcBUps62qbNH3EEV6NXYw4bRWEbrIIHuY/QdMpFA7CD
+	Pb68e94A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFsM3-000000038ch-1qc2;
-	Fri, 16 May 2025 10:31:51 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uFsO2-000000038yW-2H8D;
+	Fri, 16 May 2025 10:33:54 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFsEX-000000037aq-2Q5A;
-	Fri, 16 May 2025 10:24:06 +0000
-X-UUID: e316cfdc323f11f0bed96b30c12bc3d6-20250516
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=TF1F/o0rJTyneTYhzhmN81ogXQpiQQ7j0RM2pfuG8Lc=;
-	b=Sa5QzPahEGZK3AGQWSX+dp7Tu51figWv/KiEkeqhQpX+zDK3m7dZcbDBZR/+WRVvnwOwwlGsOUnfyKxBuXN9Cgg963fjNkpEa57IUUUJXB/06j1pnSkyo8aQgClKymenkmW//GHXjEJGWU6udcHGubCuibRM9EtHzP1NjjojpAQ=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:a853e76d-e223-4b29-a58d-341dff06710d,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:0ef645f,CLOUDID:3732153e-da74-431d-a7be-5e6761de3b64,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: e316cfdc323f11f0bed96b30c12bc3d6-20250516
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
-	(envelope-from <skylake.huang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1442386141; Fri, 16 May 2025 03:24:02 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 16 May 2025 18:23:59 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 16 May 2025 18:23:58 +0800
-From: Sky Huang <SkyLake.Huang@mediatek.com>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Daniel Golle
-	<daniel@makrotopia.org>, Qingfang Deng <dqfext@gmail.com>, SkyLake Huang
-	<SkyLake.Huang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Steven Liu <Steven.Liu@mediatek.com>, Sky Huang
-	<skylake.huang@mediatek.com>
-Subject: [PATCH net-next v4 2/2] net: phy: mediatek: add driver for built-in 2.5G ethernet PHY on MT7988
-Date: Fri, 16 May 2025 18:23:27 +0800
-Message-ID: <20250516102327.2014531-3-SkyLake.Huang@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250516102327.2014531-1-SkyLake.Huang@mediatek.com>
-References: <20250516102327.2014531-1-SkyLake.Huang@mediatek.com>
+	id 1uFsGS-000000037zX-37HO;
+	Fri, 16 May 2025 10:26:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1747391146; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=bemhvM9pwc8lCTJ7XG1tyEEogtDBUUEZ41R2u5OYVFdWR9MOMZskgudhQ3OsgdJO9qjTiLycp/YDRQ8yMEzBwBAwIhN66m/UvH3eoL6WsNwtaduS5/XHC/BWuGmjdXY9vtyRIvW41BGUyo13vMCmBOD/rFbR6pyOkdqIOjZ0FEA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1747391146; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=7ufq7J+dS4vCBPvGzC6/ZAkxwKyIeNhF3xU0c1WaRyU=; 
+	b=bUS/5eaIuaigVKEH3qqBDvXf5I2A9R4xE8DqK+/1KGO6mC4zhLQLWCc+mDKecABgyufYYTFnZMHmWG1rf1ncsVdFk1s3JPPySHXSInhxKmIzXpf3h+DM2AGOLKRIukfrVZ+Zt/IWFxAq8fA+w725ywuw8g54OfCoLoNgMbH4FpI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1747391146;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=7ufq7J+dS4vCBPvGzC6/ZAkxwKyIeNhF3xU0c1WaRyU=;
+	b=JB1cbKT7TU5UV3Ld8nZuGxkJHP3cleYuTIvTef8FpJFjK8fYRWPCM+r/1kBImbrj
+	HVMBehTCRnncUQKVNuhcnj/F05QRYNtjQjeEH8tjJ9wuaSxKQNNuwcb+G2R4iP0yRmM
+	ACYHzsfKj0H8AQMBslE47Ai8jzFBAm6A1nehUxAk=
+Received: by mx.zohomail.com with SMTPS id 1747391144724792.7392507526358;
+	Fri, 16 May 2025 03:25:44 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sumit Semwal <sumit.semwal@linaro.org>,
+ Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Jeffrey Hugo <quic_jhugo@quicinc.com>, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-doc@vger.kernel.org, linux-media@vger.kernel.org,
+ linaro-mm-sig@lists.linaro.org
+Subject: Re: [PATCH v2 1/7] dt-bindings: npu: rockchip,rknn: Add bindings
+Date: Fri, 16 May 2025 12:25:37 +0200
+Message-ID: <6549034.lOV4Wx5bFT@workhorse>
+In-Reply-To: <CAAObsKDYpDt15NePk7DZbfwXnn5uaJxCu-pwZd-+PDEi56C73A@mail.gmail.com>
+References: <20250225-6-10-rocket-v2-0-d4dbcfafc141@tomeuvizoso.net>
+ <3628015.iIbC2pHGDl@workhorse>
+ <CAAObsKDYpDt15NePk7DZbfwXnn5uaJxCu-pwZd-+PDEi56C73A@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_032405_623148_3ED0F1D8 
-X-CRM114-Status: GOOD (  30.01  )
+X-CRM114-CacheID: sfid-20250516_032604_840253_97C36F77 
+X-CRM114-Status: GOOD (  74.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,392 +89,273 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sky Huang <skylake.huang@mediatek.com>
+On Thursday, 15 May 2025 10:30:14 Central European Summer Time Tomeu Vizoso=
+ wrote:
+> On Wed, May 14, 2025 at 7:50=E2=80=AFPM Nicolas Frattaroli
+> <nicolas.frattaroli@collabora.com> wrote:
+> >
+> > On Wednesday, 14 May 2025 17:18:22 Central European Summer Time Tomeu V=
+izoso wrote:
+> > > Hi Nicolas,
+> > >
+> > > Thanks for looking at this. Some thoughts below:
+> > >
+> > > On Fri, Apr 25, 2025 at 8:50=E2=80=AFPM Nicolas Frattaroli
+> > > <nicolas.frattaroli@collabora.com> wrote:
+> > > >
+> > > > On Tuesday, 25 February 2025 08:55:47 Central European Summer Time =
+Tomeu Vizoso wrote:
+> > > > > Add the bindings for the Neural Processing Unit IP from Rockchip.
+> > > > >
+> > > > > v2:
+> > > > > - Adapt to new node structure (one node per core, each with its o=
+wn
+> > > > >   IOMMU)
+> > > > > - Several misc. fixes from Sebastian Reichel
+> > > > >
+> > > > > Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+> > > > > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> > > > > ---
+> > > > >  .../bindings/npu/rockchip,rknn-core.yaml           | 152 +++++++=
+++++++++++++++
+> > > > >  1 file changed, 152 insertions(+)
+> > > > >
+> > > > > diff --git a/Documentation/devicetree/bindings/npu/rockchip,rknn-=
+core.yaml b/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml
+> > > > > new file mode 100644
+> > > > > index 0000000000000000000000000000000000000000..e8d0afe4a7d1c4f16=
+6cf13a9f4aa7c1901362a3f
+> > > > > --- /dev/null
+> > > > > +++ b/Documentation/devicetree/bindings/npu/rockchip,rknn-core.ya=
+ml
+> > > > > @@ -0,0 +1,152 @@
+> > > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > > > +%YAML 1.2
+> > > > > +---
+> > > > > +$id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+> > > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > > > +
+> > > > > +title: Neural Processing Unit IP from Rockchip
+> > > > > +
+> > > > > +maintainers:
+> > > > > +  - Tomeu Vizoso <tomeu@tomeuvizoso.net>
+> > > > > +
+> > > > > +description:
+> > > > > +  Rockchip IP for accelerating inference of neural networks, bas=
+ed on NVIDIA's
+> > > > > +  open source NVDLA IP.
+> > > > > +
+> > > > > +properties:
+> > > > > +  $nodename:
+> > > > > +    pattern: '^npu-core@[a-f0-9]+$'
+> > > > > +
+> > > > > +  compatible:
+> > > > > +    oneOf:
+> > > > > +      - items:
+> > > > > +          - enum:
+> > > > > +              - rockchip,rk3588-rknn-core-top
+> > > > > +          - const: rockchip,rknn-core-top
+> > > > > +      - items:
+> > > > > +          - enum:
+> > > > > +              - rockchip,rk3588-rknn-core
+> > > > > +          - const: rockchip,rknn-core
+> > > > > +
+> > > > > +  reg:
+> > > > > +    maxItems: 1
+> > > >
+> > > > Hi Tomeu,
+> > > >
+> > > > as you probably know, RK3576 has quite a similar NPU. This is why I=
+'m currently
+> > > > poking at this patch series. One of the differences I ran into was =
+that the
+> > > > IOMMU of each NPU core now sits within the reg address space range =
+of the core
+> > > > as described by the single reg item binding and assumed by the driv=
+er.
+> > >
+> > > But this is not a difference, right?
+> >
+> > It is. E.g. on RK3588, you use reg =3D <0x0 0xfdab0000 0x0 0x9000>; for
+> > rknn_core_top, and rknn_mmu_top then sits at 0xfdab9000, which is just
+> > outside the reg range of the rknn_core_top node. That means acquiring t=
+he
+> > iomem as a resource succeeds for you, whereas for me it fails.
+>=20
+> Ah, got it now, thanks.
+>=20
+> > >
+> > > > This seemed weird to me at first, since I would've guessed the core=
+s would be
+> > > > exactly the same, but I noticed that they kind of still are; the RK=
+3588's NPU
+> > > > also has a "hole" between 0x2000 and 0x2fff on each core, which is =
+where RK3576
+> > > > put its IOMMU.
+> > >
+> > > So this is the same in both RK3576 and RK3588, right?
+> >
+> > Yes, both RK3576 and RK3588 have a hole in the same area. RK3562 also h=
+as
+> > the same hole. RK3568 doesn't have the offsets for the individual parts=
+ of
+> > the NPU in the TRM, making all the relative register offsets the TRM th=
+en
+> > goes on to document completely pointless as it omits what those offsets
+> > are based on, so we don't know if it has a hole there. I vaguely recall
+> > that it has the IOMMU either before or past the global range (not sure =
+if
+> > I wrote these findings down anywhere?), so if it has a hole at 0x2000
+> > then it's unused like on the RK3588. I don't have access to the RV1106
+> > Part 2 TRM where the NPU is described, so I don't know whether that has=
+ a
+> > hole there unless we dig into the downstream code.
+> >
+> > >
+> > > > This is some information I gleaned from the RK3588 TRM, specificall=
+y section
+> > > > 36.4.1 "Internal Address Mapping", which shows where each "part" of=
+ the NPU core
+> > > > has its address space.
+> > > >
+> > > > Right now we just represent this as a single reg item per core. I'v=
+e played
+> > > > with the idea of splitting this up into the distinct ranges the TRM=
+ lists and
+> > > > giving each a reg-names entry, but this would require a major rewor=
+k of the
+> > > > driver from what I can tell, including to the auto-generated regist=
+er header.
+> > > >
+> > > > For now, my hack on RK3576 is to just ioremap the range defined by =
+resource
+> > > > start to resource end inside rocket manually if I get -EBUSY trying=
+ to ioremap
+> > > > the resource proper. This is quite an ugly hack though, it means th=
+e IOMMU node
+> > > > still has its address overlapping with another node in the DT, and =
+it also means
+> > > > we have an unavoidable error message printed into the kernel log. T=
+his is also
+> > > > what the vendor driver seems to do.
+> > > >
+> > > > What do you reckon is a reg setup in the binding that is both reaso=
+nable to
+> > > > implement in the driver while accurately describing the hardware?
+> > >
+> > > Guess we could go with some smaller granularity and have 3 register
+> > > areas per core, instead of 10:
+> > >
+> > > - CORE: PC+CNA (0x0000 ~ 0x1fff)
+> > > - AUX: CORE+DPU+PPU+DDMA+SDMA (0x3000 ~ 0x9fff)
+> > > - GLOBAL (0xf000 ~ 0xf004)
+> > >
+> > > So the IOMMU on all the known SoCs can have its own regmap. I have
+> > > chosen to call the first one CORE because these are the components
+> > > that are absolutely needed in any NPU that is oriented towards
+> > > convolutional networks (convolutions, basically). I have named the
+> > > second AUX because it contains hardware units that are optional and
+> > > are used to implement operations that may be common but that aren't as
+> > > computational expensive as convolutions and thus might be skipped in
+> > > lower-end versions of the IP.
+> > >
+> > > What do you think?
+> >
+> > I'm personally fine with this approach. I've floated a two-area approach
+> > to Sebastian Reichel before who, as far as I can recall, expressed his
+> > distaste for  it as it seemed like an arbitrary division. I do concur in
+> > that, it seems very arbitrary, so it's hard to say whether the bindings
+> > maintainers would let us get away with it if they get wind of it.
+> > Unfortunately they are Cc'd on this E-Mail, so the cat is out of the bag
+> > in this regard.
+>=20
+> Actually, after thinking a bit more about it I'm leaning towards only
+> having the PC, CNA and CORE areas in the DT, as those are the only
+> ones that should be accessible from the CPU.
 
-Add support for internal 2.5Gphy on MT7988. This driver will load
-necessary firmware and add appropriate time delay to make sure
-that firmware works stably. The firmware loading procedure takes
-about 11ms in this driver.
+That does make sense to me. I've just checked the RK3576 specific reg
+fiddling code I hacked in and it doesn't appear to be writing to any
+other areas either.
 
-Signed-off-by: Sky Huang <skylake.huang@mediatek.com>
----
- MAINTAINERS                          |   1 +
- drivers/net/phy/mediatek/Kconfig     |  11 +
- drivers/net/phy/mediatek/Makefile    |   1 +
- drivers/net/phy/mediatek/mtk-2p5ge.c | 321 +++++++++++++++++++++++++++
- 4 files changed, 334 insertions(+)
- create mode 100644 drivers/net/phy/mediatek/mtk-2p5ge.c
+>=20
+> The registers for the other units should be set by the PC, as it reads
+> the command stream.
+>=20
+> So three register areas that can be set to wherever Rockchip has
+> placed them, and we just ignore the others in the kernel, as we don't
+> have any business messing with them ourselves.
+>=20
+> What do you think?
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 241ca9e260a2..be0787810834 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -14726,6 +14726,7 @@ M:	Qingfang Deng <dqfext@gmail.com>
- M:	SkyLake Huang <SkyLake.Huang@mediatek.com>
- L:	netdev@vger.kernel.org
- S:	Maintained
-+F:	drivers/net/phy/mediatek/mtk-2p5ge.c
- F:	drivers/net/phy/mediatek/mtk-ge-soc.c
- F:	drivers/net/phy/mediatek/mtk-phy-lib.c
- F:	drivers/net/phy/mediatek/mtk-ge.c
-diff --git a/drivers/net/phy/mediatek/Kconfig b/drivers/net/phy/mediatek/Kconfig
-index 29a09d39ff6f..fbefa2aa41ed 100644
---- a/drivers/net/phy/mediatek/Kconfig
-+++ b/drivers/net/phy/mediatek/Kconfig
-@@ -1,4 +1,15 @@
- # SPDX-License-Identifier: GPL-2.0-only
-+config MEDIATEK_2P5GE_PHY
-+	tristate "MediaTek 2.5Gb Ethernet PHYs"
-+	depends on (ARM64 && ARCH_MEDIATEK) || COMPILE_TEST
-+	select MTK_NET_PHYLIB
-+	help
-+	  Supports MediaTek SoC built-in 2.5Gb Ethernet PHYs.
-+
-+	  This will load necessary firmware and add appropriate time delay.
-+	  Accelerate this procedure through internal pbus instead of MDIO
-+	  bus. Certain link-up issues will also be fixed here.
-+
- config MEDIATEK_GE_PHY
- 	tristate "MediaTek Gigabit Ethernet PHYs"
- 	select MTK_NET_PHYLIB
-diff --git a/drivers/net/phy/mediatek/Makefile b/drivers/net/phy/mediatek/Makefile
-index 14b2c17b3f8f..ac57ecc799fc 100644
---- a/drivers/net/phy/mediatek/Makefile
-+++ b/drivers/net/phy/mediatek/Makefile
-@@ -1,4 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_MEDIATEK_2P5GE_PHY)	+= mtk-2p5ge.o
- obj-$(CONFIG_MEDIATEK_GE_PHY)		+= mtk-ge.o
- obj-$(CONFIG_MEDIATEK_GE_SOC_PHY)	+= mtk-ge-soc.o
- obj-$(CONFIG_MTK_NET_PHYLIB)		+= mtk-phy-lib.o
-diff --git a/drivers/net/phy/mediatek/mtk-2p5ge.c b/drivers/net/phy/mediatek/mtk-2p5ge.c
-new file mode 100644
-index 000000000000..e147eab523ef
---- /dev/null
-+++ b/drivers/net/phy/mediatek/mtk-2p5ge.c
-@@ -0,0 +1,321 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+#include <linux/bitfield.h>
-+#include <linux/firmware.h>
-+#include <linux/module.h>
-+#include <linux/of_address.h>
-+#include <linux/of_platform.h>
-+#include <linux/pinctrl/consumer.h>
-+#include <linux/phy.h>
-+
-+#include "mtk.h"
-+
-+#define MTK_2P5GPHY_ID_MT7988		0x00339c11
-+
-+#define MT7988_2P5GE_PMB_FW		"mediatek/mt7988/i2p5ge-phy-pmb.bin"
-+#define MT7988_2P5GE_PMB_FW_SIZE	0x20000
-+#define MT7988_2P5GE_PMB_FW_BASE	0x0f100000
-+#define MT7988_2P5GE_PMB_FW_LEN		0x20000
-+#define MTK_2P5GPHY_MCU_CSR_BASE	0x0f0f0000
-+#define MTK_2P5GPHY_MCU_CSR_LEN		0x20
-+#define MD32_EN_CFG			0x18
-+#define   MD32_EN			BIT(0)
-+
-+#define BASE100T_STATUS_EXTEND		0x10
-+#define BASE1000T_STATUS_EXTEND		0x11
-+#define EXTEND_CTRL_AND_STATUS		0x16
-+
-+#define PHY_AUX_CTRL_STATUS		0x1d
-+#define   PHY_AUX_DPX_MASK		GENMASK(5, 5)
-+#define   PHY_AUX_SPEED_MASK		GENMASK(4, 2)
-+
-+/* Registers on MDIO_MMD_VEND1 */
-+#define MTK_PHY_LPI_PCS_DSP_CTRL		0x121
-+#define   MTK_PHY_LPI_SIG_EN_LO_THRESH100_MASK	GENMASK(12, 8)
-+
-+#define MTK_PHY_HOST_CMD1		0x800e
-+#define MTK_PHY_HOST_CMD2		0x800f
-+/* Registers on Token Ring debug nodes */
-+/* ch_addr = 0x0, node_addr = 0xf, data_addr = 0x3c */
-+#define AUTO_NP_10XEN				BIT(6)
-+
-+enum {
-+	PHY_AUX_SPD_10 = 0,
-+	PHY_AUX_SPD_100,
-+	PHY_AUX_SPD_1000,
-+	PHY_AUX_SPD_2500,
-+};
-+
-+static int mt798x_2p5ge_phy_load_fw(struct phy_device *phydev)
-+{
-+	struct device *dev = &phydev->mdio.dev;
-+	void __iomem *mcu_csr_base, *pmb_addr;
-+	const struct firmware *fw;
-+	int ret, i;
-+	u32 reg;
-+
-+	pmb_addr = ioremap(MT7988_2P5GE_PMB_FW_BASE, MT7988_2P5GE_PMB_FW_LEN);
-+	if (!pmb_addr)
-+		return -ENOMEM;
-+	mcu_csr_base = ioremap(MTK_2P5GPHY_MCU_CSR_BASE,
-+			       MTK_2P5GPHY_MCU_CSR_LEN);
-+	if (!mcu_csr_base) {
-+		ret = -ENOMEM;
-+		goto free_pmb;
-+	}
-+
-+	ret = request_firmware_direct(&fw, MT7988_2P5GE_PMB_FW, dev);
-+	if (ret) {
-+		dev_err(dev, "failed to load firmware: %s, ret: %d\n",
-+			MT7988_2P5GE_PMB_FW, ret);
-+		goto free;
-+	}
-+
-+	if (fw->size != MT7988_2P5GE_PMB_FW_SIZE) {
-+		dev_err(dev, "Firmware size 0x%zx != 0x%x\n",
-+			fw->size, MT7988_2P5GE_PMB_FW_SIZE);
-+		ret = -EINVAL;
-+		goto release_fw;
-+	}
-+
-+	reg = readw(mcu_csr_base + MD32_EN_CFG);
-+	if (reg & MD32_EN) {
-+		phy_set_bits(phydev, MII_BMCR, BMCR_RESET);
-+		usleep_range(10000, 11000);
-+	}
-+	phy_set_bits(phydev, MII_BMCR, BMCR_PDOWN);
-+
-+	/* Write magic number to safely stall MCU */
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, MTK_PHY_HOST_CMD1, 0x1100);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, MTK_PHY_HOST_CMD2, 0x00df);
-+
-+	for (i = 0; i < MT7988_2P5GE_PMB_FW_SIZE - 1; i += 4)
-+		writel(*((uint32_t *)(fw->data + i)), pmb_addr + i);
-+
-+	writew(reg & ~MD32_EN, mcu_csr_base + MD32_EN_CFG);
-+	writew(reg | MD32_EN, mcu_csr_base + MD32_EN_CFG);
-+	phy_set_bits(phydev, MII_BMCR, BMCR_RESET);
-+	/* We need a delay here to stabilize initialization of MCU */
-+	usleep_range(7000, 8000);
-+
-+	dev_info(dev, "Firmware date code: %x/%x/%x, version: %x.%x\n",
-+		 be16_to_cpu(*((__be16 *)(fw->data +
-+					  MT7988_2P5GE_PMB_FW_SIZE - 8))),
-+		 *(fw->data + MT7988_2P5GE_PMB_FW_SIZE - 6),
-+		 *(fw->data + MT7988_2P5GE_PMB_FW_SIZE - 5),
-+		 *(fw->data + MT7988_2P5GE_PMB_FW_SIZE - 2),
-+		 *(fw->data + MT7988_2P5GE_PMB_FW_SIZE - 1));
-+
-+release_fw:
-+	release_firmware(fw);
-+free:
-+	iounmap(mcu_csr_base);
-+free_pmb:
-+	iounmap(pmb_addr);
-+
-+	return ret;
-+}
-+
-+static int mt798x_2p5ge_phy_config_init(struct phy_device *phydev)
-+{
-+	/* Check if PHY interface type is compatible */
-+	if (phydev->interface != PHY_INTERFACE_MODE_INTERNAL)
-+		return -ENODEV;
-+
-+	phy_modify_mmd(phydev, MDIO_MMD_VEND1, MTK_PHY_LPI_PCS_DSP_CTRL,
-+		       MTK_PHY_LPI_SIG_EN_LO_THRESH100_MASK, 0);
-+
-+	/* Enable 16-bit next page exchange bit if 1000-BT isn't advertising */
-+	mtk_tr_modify(phydev, 0x0, 0xf, 0x3c, AUTO_NP_10XEN,
-+		      FIELD_PREP(AUTO_NP_10XEN, 0x1));
-+
-+	/* Enable HW auto downshift */
-+	phy_modify_paged(phydev, MTK_PHY_PAGE_EXTENDED_1,
-+			 MTK_PHY_AUX_CTRL_AND_STATUS,
-+			 0, MTK_PHY_ENABLE_DOWNSHIFT);
-+
-+	return 0;
-+}
-+
-+static int mt798x_2p5ge_phy_config_aneg(struct phy_device *phydev)
-+{
-+	bool changed = false;
-+	u32 adv;
-+	int ret;
-+
-+	ret = genphy_c45_an_config_aneg(phydev);
-+	if (ret < 0)
-+		return ret;
-+	if (ret > 0)
-+		changed = true;
-+
-+	/* Clause 45 doesn't define 1000BaseT support. Use Clause 22 instead in
-+	 * our design.
-+	 */
-+	adv = linkmode_adv_to_mii_ctrl1000_t(phydev->advertising);
-+	ret = phy_modify_changed(phydev, MII_CTRL1000, ADVERTISE_1000FULL, adv);
-+	if (ret < 0)
-+		return ret;
-+	if (ret > 0)
-+		changed = true;
-+
-+	return genphy_c45_check_and_restart_aneg(phydev, changed);
-+}
-+
-+static int mt798x_2p5ge_phy_get_features(struct phy_device *phydev)
-+{
-+	int ret;
-+
-+	ret = genphy_c45_pma_read_abilities(phydev);
-+	if (ret)
-+		return ret;
-+
-+	/* This phy can't handle collision, and neither can (XFI)MAC it's
-+	 * connected to. Although it can do HDX handshake, it doesn't support
-+	 * CSMA/CD that HDX requires.
-+	 */
-+	linkmode_clear_bit(ETHTOOL_LINK_MODE_100baseT_Half_BIT,
-+			   phydev->supported);
-+
-+	return 0;
-+}
-+
-+static int mt798x_2p5ge_phy_read_status(struct phy_device *phydev)
-+{
-+	int ret;
-+
-+	/* When MDIO_STAT1_LSTATUS is raised genphy_c45_read_link(), this phy
-+	 * actually hasn't finished AN. So use CL22's link update function
-+	 * instead.
-+	 */
-+	ret = genphy_update_link(phydev);
-+	if (ret)
-+		return ret;
-+
-+	phydev->speed = SPEED_UNKNOWN;
-+	phydev->duplex = DUPLEX_UNKNOWN;
-+	phydev->pause = 0;
-+	phydev->asym_pause = 0;
-+
-+	/* We'll read link speed through vendor specific registers down below.
-+	 * So remove phy_resolve_aneg_linkmode (AN on) & genphy_c45_read_pma
-+	 * (AN off).
-+	 */
-+	if (phydev->autoneg == AUTONEG_ENABLE && phydev->autoneg_complete) {
-+		ret = genphy_c45_read_lpa(phydev);
-+		if (ret < 0)
-+			return ret;
-+
-+		/* Clause 45 doesn't define 1000BaseT support. Read the link
-+		 * partner's 1G advertisement via Clause 22.
-+		 */
-+		ret = phy_read(phydev, MII_STAT1000);
-+		if (ret < 0)
-+			return ret;
-+		mii_stat1000_mod_linkmode_lpa_t(phydev->lp_advertising, ret);
-+	} else if (phydev->autoneg == AUTONEG_DISABLE) {
-+		linkmode_zero(phydev->lp_advertising);
-+	}
-+
-+	if (phydev->link) {
-+		ret = phy_read(phydev, PHY_AUX_CTRL_STATUS);
-+		if (ret < 0)
-+			return ret;
-+
-+		switch (FIELD_GET(PHY_AUX_SPEED_MASK, ret)) {
-+		case PHY_AUX_SPD_10:
-+			phydev->speed = SPEED_10;
-+			break;
-+		case PHY_AUX_SPD_100:
-+			phydev->speed = SPEED_100;
-+			break;
-+		case PHY_AUX_SPD_1000:
-+			phydev->speed = SPEED_1000;
-+			break;
-+		case PHY_AUX_SPD_2500:
-+			phydev->speed = SPEED_2500;
-+			break;
-+		}
-+
-+		phydev->duplex = DUPLEX_FULL;
-+		phydev->rate_matching = RATE_MATCH_PAUSE;
-+	}
-+
-+	return 0;
-+}
-+
-+static int mt798x_2p5ge_phy_get_rate_matching(struct phy_device *phydev,
-+					      phy_interface_t iface)
-+{
-+	return RATE_MATCH_PAUSE;
-+}
-+
-+static int mt798x_2p5ge_phy_probe(struct phy_device *phydev)
-+{
-+	struct pinctrl *pinctrl;
-+	int ret;
-+
-+	switch (phydev->drv->phy_id) {
-+	case MTK_2P5GPHY_ID_MT7988:
-+		/* This built-in 2.5GbE hardware only sets MDIO_DEVS_PMAPMD.
-+		 * Set the rest by this driver since PCS/AN/VEND1/VEND2 MDIO
-+		 * manageable devices actually exist.
-+		 */
-+		phydev->c45_ids.mmds_present |= MDIO_DEVS_PCS |
-+						MDIO_DEVS_AN |
-+						MDIO_DEVS_VEND1 |
-+						MDIO_DEVS_VEND2;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	ret = mt798x_2p5ge_phy_load_fw(phydev);
-+	if (ret < 0)
-+		return ret;
-+
-+	/* Setup LED */
-+	phy_set_bits_mmd(phydev, MDIO_MMD_VEND2, MTK_PHY_LED0_ON_CTRL,
-+			 MTK_PHY_LED_ON_POLARITY | MTK_PHY_LED_ON_LINK10 |
-+			 MTK_PHY_LED_ON_LINK100 | MTK_PHY_LED_ON_LINK1000 |
-+			 MTK_PHY_LED_ON_LINK2500);
-+	phy_set_bits_mmd(phydev, MDIO_MMD_VEND2, MTK_PHY_LED1_ON_CTRL,
-+			 MTK_PHY_LED_ON_FDX | MTK_PHY_LED_ON_HDX);
-+
-+	/* Switch pinctrl after setting polarity to avoid bogus blinking */
-+	pinctrl = devm_pinctrl_get_select(&phydev->mdio.dev, "i2p5gbe-led");
-+	if (IS_ERR(pinctrl))
-+		dev_err(&phydev->mdio.dev, "Fail to set LED pins!\n");
-+
-+	return 0;
-+}
-+
-+static struct phy_driver mtk_2p5gephy_driver[] = {
-+	{
-+		PHY_ID_MATCH_MODEL(MTK_2P5GPHY_ID_MT7988),
-+		.name = "MediaTek MT7988 2.5GbE PHY",
-+		.probe = mt798x_2p5ge_phy_probe,
-+		.config_init = mt798x_2p5ge_phy_config_init,
-+		.config_aneg = mt798x_2p5ge_phy_config_aneg,
-+		.get_features = mt798x_2p5ge_phy_get_features,
-+		.read_status = mt798x_2p5ge_phy_read_status,
-+		.get_rate_matching = mt798x_2p5ge_phy_get_rate_matching,
-+		.suspend = genphy_suspend,
-+		.resume = genphy_resume,
-+		.read_page = mtk_phy_read_page,
-+		.write_page = mtk_phy_write_page,
-+	},
-+};
-+
-+module_phy_driver(mtk_2p5gephy_driver);
-+
-+static struct mdio_device_id __maybe_unused mtk_2p5ge_phy_tbl[] = {
-+	{ PHY_ID_MATCH_VENDOR(0x00339c00) },
-+	{ }
-+};
-+
-+MODULE_DESCRIPTION("MediaTek 2.5Gb Ethernet PHY driver");
-+MODULE_AUTHOR("SkyLake Huang <SkyLake.Huang@mediatek.com>");
-+MODULE_LICENSE("GPL");
-+
-+MODULE_DEVICE_TABLE(mdio, mtk_2p5ge_phy_tbl);
-+MODULE_FIRMWARE(MT7988_2P5GE_PMB_FW);
--- 
-2.45.2
+This seems like a good solution. Any further reg ranges that are used in
+other variants (e.g. RK3562/RK3576 and maybe RV1106) introduce something
+called "CBUF" and I'm not yet sure if that'll need any writes to its regs
+from the driver, but if it does then it's easy to add another range for it
+in the binding for just those compatibles.
+
+>=20
+> Thanks,
+>=20
+> Tomeu
+
+Kind regards,
+Nicolas Frattaroli
+
+>=20
+> > What speaks for the 3 register area split is that anything that brings
+> > more holes and doubly mapped things into the AUX area is probably going
+> > to be so radically different it'll ideally have its own binding anyway,
+> > or needs more than just a compatible added to the binding.
+> >
+> > I think as far as arbitrary splits goes, the one you propose is probably
+> > the one most closely aligned with reality. Certain register areas do
+> > seem like something they'd never move away from its corresponding
+> > companion, whereas adding parts to the AUX area or removing from it is
+> > probably going to be quite common. So it can essentially be treated as
+> > the area where optional things will most likely land as you pointed out,
+> > which then don't need more bindings fiddling to add those optional thin=
+gs
+> > as explicitly named areas in the bindings as long as we treat it as just
+> > one opaque area s far as the binding is concerned.
+> >
+> > Also, unless there's some virtual combined sparse iomem API in the kern=
+el
+> > that I'm not aware of, that's probably the easiest path forward for the
+> > driver as well.
+> >
+> > >
+> > > Regards,
+> > >
+> > > Tomeu
+> >
+> > Kind regards,
+> > Nicolas Frattaroli
+> >
+> > >
+> > > > The RK3568, which uses a similar NPU design has the IOMMU at an off=
+set of 0xb000
+> > > > from the core's start of PC, so probably after any core specifics b=
+ut before the
+> > > > global registers if I hazard a guess.
+> > > >
+> > > > For those without access to the TRM: splitting this up into multipl=
+e reg items
+> > > > per core precisely the way the TRM does it would result in no less =
+than 10 reg
+> > > > items on RK3588, if I count correctly.
+> > > >
+> > > > Kind regards,
+> > > > Nicolas Frattaroli
+> > > >
+> > > >
+> > >
+> >
+> >
+> >
+> >
+>=20
+
+
+
 
 
