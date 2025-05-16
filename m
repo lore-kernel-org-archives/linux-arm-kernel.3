@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22872C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 11:56:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38FE7C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 11:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a06FfY8HQw+5JKSBgz8SJqOwtg4yWyo7SVcQeCzmtrc=; b=0qrlAeldfPjwnPSz56GAJhe5/9
-	VdoaVQlM1y+edEES8PB1/DXUGQ920AKIKUCWCekNnPIDDMI6sviX1yj+RH+IMiglP2WX/oPd4JcoJ
-	I6SWZcENYzZ72nVVvF/i3Ht0FrisdV7B4nbH1RtMFtkPnsKA7y426VVadVYk8Wc63gwQJF3fq38V3
-	7FFU2aAP9WLWe9GQjUDSgnY1McS4nr/hQtaPUf15Yichfh4JMiUqGcrn+MlZB3pAvz/DjDApN64H/
-	hT54qRHO1jPv7jpYw1XXyKo2VcmUYIcu95Dit9JWeBuX5ZiI3p2AiAD3x6BS+VXraw/3HkAuu+USs
-	sMp/Yldg==;
+	bh=2AqmGqN5e9uC85s7uORYRVeMii5+2Yzv/IhwZ4KrwIU=; b=VMya6Fgl3A3LsOTYDPWibyrML7
+	g5ZFcKyPD71b4LUPR66G+qMAaymDy2dZpickS+TRM7VjnYz2eU/TTRfNsT60VmWyk8/qAJD/uw3Tp
+	RgBURZjIFqEFV1hzkA6RQfdnQ4msR3auaRumkxsqUF/VqD0D1Ord9AksSLwvtOqSmO0I8VH7ICxCr
+	y3R48xThqK/VuY5KXcaiFOMlLneMnTxL+Vy7Z8Ezt/wFNyY0mv4u3d8QycwDswpqlWc7iehjqcB6u
+	kEQkXYrUDvvvjJs2OHX/On1N6GpXUTsWEEcsE5Khd9e7WgfIylE1LNNME9fBERIxhJmM505FYhpUc
+	tI/VB7SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFtfj-00000003Jd4-2KWg;
-	Fri, 16 May 2025 11:56:15 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uFtiF-00000003Jsy-1ONz;
+	Fri, 16 May 2025 11:58:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFtdg-00000003JMy-1v6g
+	id 1uFtgD-00000003JgB-04t7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 11:54:10 +0000
+	Fri, 16 May 2025 11:56:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0278BA4E74C;
-	Fri, 16 May 2025 11:54:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F951C4CEE4;
-	Fri, 16 May 2025 11:54:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 977DE445FB;
+	Fri, 16 May 2025 11:56:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFA2EC4CEE4;
+	Fri, 16 May 2025 11:56:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747396446;
-	bh=ivb/R1S6r2RO2WRrath55ToVi2bTf8rbS9vtwi1lNXo=;
+	s=k20201202; t=1747396604;
+	bh=2AqmGqN5e9uC85s7uORYRVeMii5+2Yzv/IhwZ4KrwIU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nWjwXe3M258XeEQx/NbmBcjmqJ7f1uTyDlXQ1hblDuMdCyXPQTViOIvrIFqvhEZcP
-	 UryIx2mMeA7Vy2QaXRHgCclneb503DWTx6mhc20hXp238ML3v8Yj7FH6Vz8YtPL5B+
-	 Ke6PP/AfYtcTYlYf/Xgt5BiUmzhplJZX5dTOia/xloJwWpm3Ro6PoccZKmCuoC1hkI
-	 KzuvvBZ27H+zPBvGL2Ms2PX4Vogmc0Mt4/+iQQFdobGHABnoJKkKJBLb6+vBYjAuNd
-	 vvDcUto+TIodhXnQaO5zI/GYISZ6Anhwr+BtXyPoU/t1m8NR6M70gACSaR88f2xHqP
-	 G+KmMrXNLj6gw==
-Date: Fri, 16 May 2025 13:54:03 +0200
+	b=kmiZuIehGhZXjIhOYRSZT6vMgdgMmBTy8kx1fGSxOvvtXIUteyeTc5zPjmb8vTl2A
+	 84A/Rwuh22taieqtQ4NgToC6gs635fvRsRohHCEa09i0ouB8aA7p7r5iNzQM4WIzhl
+	 BCGW7B0U0LVAJW1hXbnvRaenPTC3z+vanNuQ+AcBU5s5jl9Vl/MMI2+kBXpQeVciWl
+	 qxSqXL0EIbIMizBIhzHmddZNE2ZvHmwkQMsekoVbeOYeZDVFBf9qBgNorPNWOfhvhK
+	 0X0BXRgoBpH1Hk8RO3u5szvzNeN4hbLi1xJvPTH/90I21Xkq67a8RI7MC9pUdFqL/h
+	 iE1StynY83otA==
+Date: Fri, 16 May 2025 13:56:41 +0200
 From: Mark Brown <broonie@kernel.org>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>,
-	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	linux-amarula@amarulasolutions.com, Abel Vesa <abelvesa@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v12 11/19] clk: imx: add support for i.MX8MM anatop clock
- driver
-Message-ID: <aCcnWx_BzfuLxZ9P@finisterre.sirena.org.uk>
-References: <20250424062154.2999219-1-dario.binacchi@amarulasolutions.com>
- <20250424062154.2999219-12-dario.binacchi@amarulasolutions.com>
- <aB1f74ufYoNmXfEn@finisterre.sirena.org.uk>
+To: Artur Weber <aweber.kernel@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Stanislav Jakubek <stano.jakubek@gmail.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	~postmarketos/upstreaming@lists.sr.ht
+Subject: Re: [PATCH v9 5/8] regulator: bcm590xx: Use dev_err_probe for
+ regulator register error
+Message-ID: <aCcn-aaY6TBGszSZ@finisterre.sirena.org.uk>
+References: <20250515-bcm59054-v9-0-14ba0ea2ea5b@gmail.com>
+ <20250515-bcm59054-v9-5-14ba0ea2ea5b@gmail.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="f8trKPt590fsB1ic"
+	protocol="application/pgp-signature"; boundary="aOx5XsQqjeptAaq9"
 Content-Disposition: inline
-In-Reply-To: <aB1f74ufYoNmXfEn@finisterre.sirena.org.uk>
+In-Reply-To: <20250515-bcm59054-v9-5-14ba0ea2ea5b@gmail.com>
 X-Cookie: Well begun is half done.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_045408_558456_90262C61 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20250516_045645_078818_E2A25C52 
+X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,39 +86,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---f8trKPt590fsB1ic
+--aOx5XsQqjeptAaq9
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Fri, May 09, 2025 at 10:52:51AM +0900, Mark Brown wrote:
-> On Thu, Apr 24, 2025 at 08:21:41AM +0200, Dario Binacchi wrote:
-> > Support NXP i.MX8M anatop PLL module which generates PLLs to CCM root.
-> > By doing so, we also simplify the CCM driver code. The changes are
-> > backward compatible.
->=20
-> This patch, which has been in -next for the past few days as
-> 3cbc38cf42ca42d2, breaks boot on i.MX8MP platforms (I have the EVK and
-> Verdin).  We die with:
+On Thu, May 15, 2025 at 04:16:32PM +0200, Artur Weber wrote:
+> Instead of calling dev_err() and returning PTR_ERR(...) separately, use
+> a single "return dev_err_probe" statement.
 
-This boot break is still present in -next, and I've not seen a fix
-posted yet.  Should we just revert the relevant patches until a fix is
-available?
+Reviewed-by: Mark Brown <broonie@kernel.org>
 
---f8trKPt590fsB1ic
+--aOx5XsQqjeptAaq9
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmgnJ1oACgkQJNaLcl1U
-h9BzbQf/d3ddn7KIWiWYv5nwyTgmsfExEQyp3Lp5MbF71mb/UavAxr9ZsuPeyLix
-mgUMGE+wP9XO5FI7/vRH7k398r/pYLdJq7lYi1FFie9L/eWwcYFjDAApLxuCJViZ
-jEm7pQIi+OR013c2mVCTLByz3Ou7w4Ri4568iVf4+opqGERs0JD9Fr72mUGEz0OI
-Y3m4sfZmr47hyI1PGVU/MXvcAmiTtHkrdwzGujJkoiX6cIe9lYPZ7yKnxdZ0jqUm
-1CgokulV+6S1x0PWupckRCz/Apb//jW7/ciJ4shGOpexjKAxoreVm+WiWMZPSMDv
-vE9T37v1qmm+YAZVaxu2bpgCrlQboQ==
-=+wUm
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmgnJ/gACgkQJNaLcl1U
+h9BpQQf/VH7x+cuXZKUB2cbpP1PbxJTGJt+ciMTQ94KrX/8CMGvxkA8DivhPILpY
+xKQJ8MTXtyLQSJSS+6rVvRFQgIvmo1d29OMiPRGzzCoAxlnktD4hRRxcThDNvCLX
+OpIehzCFyyFlAERk8mIUs6MW3RuZ2+55uMmQ7c0FTMF8MwwI2wBYzrFkp4nvlDMx
+sceTQ3OvR4qQYf60tx7UlqRM1xLpQHGwULjSwFPMsEjGRMyxbHYibZMqlN8hOtlK
+Dt0j70x0QGtJI2WppmPqmCKIE3dAwcgItDoS511aE1/0WuIFHn9OfHlUNnjN4uCf
+7MZv5A6k3QLDYcuEibOxYCb3N+VT5g==
+=Hcs7
 -----END PGP SIGNATURE-----
 
---f8trKPt590fsB1ic--
+--aOx5XsQqjeptAaq9--
 
