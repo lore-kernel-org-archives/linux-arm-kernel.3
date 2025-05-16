@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0F1C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 16:21:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37054C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 16:23:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9NSMjZMNPX1nh9zeBgIwi0CAD9itDssW/9AsRtACiOk=; b=yiqbmX8hVo2ku2sWeGjd3pxJ/F
-	/4K9sdsrbilrK3YRhT1KkvAqRs4NHgxjfqxEVTUOKKxTmGuP3hyYGJToQtshGWJ56j8i9MIGHORBG
-	WVrdvbD1OAS5gS/cBUmNXpoWfAecsGfPPs81PkTAWr76PxBs4AX6OeSGHmiknNsyJn3zmCuWMyqyB
-	LQ5KG68aQFhrDyxOCaAohIKf5HmQSGQsDLDFfpTnHQoun03O4H89BloXGWg0Gi1Ym/Ho8pp0iQTxd
-	hr3QaHjWCc5b442SWR8DojT2xsh0Jj4aujVr34KzVQoEbAC8l4Flg/iOFcrnm4Ni1wrNsfDf053Ee
-	8JjYezFw==;
+	bh=6mVBQX2pIfuuLcF/bxyj8s40g2Vt/Z4GR/+mcS3BUFg=; b=Xcu5+ULlK4arp2HP/G69PVqqID
+	IN9qW781BgZCfW/yQWYXkgFHaFxFN8liVpLbIyDntviylFLNZ5mmkRHN7j85otyz0DRA6OdleojzA
+	/mu1oFt5SufiM59Oo0v3sY8huEDPHG42/nc4GthIdNiGc3D0/KZ9RSZW8iL+hcyuvUBVqkcBqLcQk
+	DNjUNWaqqwL0SeC0JHlrHVsp+aL11e3y5K6H6ug+4S21CmhR3auy69Tw5AENQGuIJ0x2PF9EXGShO
+	AlwiEv6eM7sigwkIJxulJJK3BYcapbjClOr++PMAadi1mOK7kreZPLndzg3hBZugmujUbEi5rjH89
+	Xhc7LatA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFxo9-000000040P6-20dp;
-	Fri, 16 May 2025 16:21:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFxTu-00000003x8C-0Q2v
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 16:00:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 711D4169C;
-	Fri, 16 May 2025 09:00:05 -0700 (PDT)
-Received: from [10.1.27.17] (e122027.cambridge.arm.com [10.1.27.17])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BC4D63F63F;
-	Fri, 16 May 2025 09:00:13 -0700 (PDT)
-Message-ID: <64fd76aa-10b0-4b4f-875c-6c24977464f9@arm.com>
-Date: Fri, 16 May 2025 17:00:11 +0100
+	id 1uFxqA-000000040aO-0hFU;
+	Fri, 16 May 2025 16:23:18 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uFxWQ-00000003xYT-2PVF;
+	Fri, 16 May 2025 16:02:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1747411372;
+	bh=2sRpjTjXUI2i074c5+izzfCmO5OrPoSU+VPMCR9Tems=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JvFL2HNWYLPg3wIq9VGjlr8j7PGoNnrPsL7NLMjEbTcnr+A9T5w2t1xfLVdStnWFe
+	 xPcKE9VEX3T/qyg7PsLJpZcn5vf+SWJFp3y3d9BoqQaVHbgoA7Fbd2vt8zqz2JQD1a
+	 SO+IvTLLUsxs6ljvQ2BGVDYt1OGHvJ0bo6ITkl/fkVs99atWXVT0uTmBMDL8zluUyB
+	 8MGFvFVH2nXLI5J37vxShVzoAMNfeCa8HrCUV3Dsd5ymg+KZDU/CoJbM++bLUxjBKy
+	 B9HALIY/CnPzin2CvKocUrKPwNwRAMEuszvAc+Zz4zR0iHHZ4meZPvZHo5lPASNUMG
+	 WHiR8SeMKSNNw==
+Received: from [192.168.1.90] (unknown [82.76.59.134])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4B63817E07C9;
+	Fri, 16 May 2025 18:02:52 +0200 (CEST)
+Message-ID: <9e29ef0e-c373-4f48-8f37-7111987d2dd0@collabora.com>
+Date: Fri, 16 May 2025 19:02:51 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 00/43] arm64: Support for Arm CCA in KVM
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20250416134208.383984-1-steven.price@arm.com>
- <fa874ef5-5da5-44de-a9d0-24663eb684a0@redhat.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <fa874ef5-5da5-44de-a9d0-24663eb684a0@redhat.com>
+Subject: Re: [PATCH v2] phy: phy-rockchip-samsung-hdptx: Fix PHY PLL output
+ 50.25MHz error
+To: Diederik de Haas <didi.debian@cknow.org>,
+ Algea Cao <algea.cao@rock-chips.com>, vkoul@kernel.org, kishon@kernel.org,
+ heiko@sntech.de, andy.yan@rock-chips.com
+Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250427095124.3354439-1-algea.cao@rock-chips.com>
+ <D9XP2BH2CU02.1R9E1GSXQD9JB@cknow.org>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <D9XP2BH2CU02.1R9E1GSXQD9JB@cknow.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_090018_221999_993B99A9 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20250516_090254_766707_5889102D 
+X-CRM114-Status: GOOD (  18.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,112 +78,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gavin,
+Hi Diederik,
 
-On 02/05/2025 01:46, Gavin Shan wrote:
-> On 4/16/25 11:41 PM, Steven Price wrote:
+On 5/16/25 6:36 PM, Diederik de Haas wrote:
+> Hi,
 > 
-> [...]
+> On Sun Apr 27, 2025 at 11:51 AM CEST, Algea Cao wrote:
+>> When using HDMI PLL frequency division coefficient at 50.25MHz
+>> that is calculated by rk_hdptx_phy_clk_pll_calc(), it fails to
+>> get PHY LANE lock. Although the calculated values are within the
+>> allowable range of PHY PLL configuration.
+>>
+>> In order to fix the PHY LANE lock error and provide the expected
+>> 50.25MHz output, manually compute the required PHY PLL frequency
+>> division coefficient and add it to ropll_tmds_cfg configuration
+>> table.
+>>
+>> Signed-off-by: Algea Cao <algea.cao@rock-chips.com>
+>> Reviewed-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>>
+>> ---
+>>  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 2 ++
+>>  1 file changed, 2 insertions(+)
+>>
+>> diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+>> index fe7c05748356..77236f012a1f 100644
+>> --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+>> +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+>> @@ -476,6 +476,8 @@ static const struct ropll_config ropll_tmds_cfg[] = {
+>>  	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
+>>  	{ 650000, 162, 162, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 54, 0, 16, 4, 1,
+>>  	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
+>> +	{ 502500, 84, 84, 1, 1, 7, 1, 1, 1, 1, 1, 1, 1, 11, 1, 4, 5,
+>> +	  4, 11, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
+>>  	{ 337500, 0x70, 0x70, 1, 1, 0xf, 1, 1, 1, 1, 1, 1, 1, 0x2, 0, 0x01, 5,
+>>  	  1, 1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
+>>  	{ 400000, 100, 100, 1, 1, 11, 1, 1, 0, 1, 0, 1, 1, 0x9, 0, 0x05, 0,
 > 
->>
->> The ABI to the RMM (the RMI) is based on RMM v1.0-rel0 specification[1].
->>
->> This series is based on v6.15-rc1. It is also available as a git
->> repository:
->>
->> https://gitlab.arm.com/linux-arm/linux-cca cca-host/v8
->>
->> Work in progress changes for kvmtool are available from the git
->> repository below:
->>
->> https://gitlab.arm.com/linux-arm/kvmtool-cca cca/v6
->>
->> [1] https://developer.arm.com/documentation/den0137/1-0rel0/
->> [2] https://lore.kernel.org/r/20250408105225.4002637-17-maz%40kernel.org
->>
+> I found this patch in the 'fixes' branch in linux-phy:
+> https://git.kernel.org/pub/scm/linux/kernel/git/phy/linux-phy.git/commit/?h=fixes&id=f9475055b11c0c70979bd1667a76b2ebae638eb7
 > 
-> I got a chance to try the following combination, the guest can boot using
-> qemu/kvmtool except a RCU stall is observed (more details provided below)
+> In the 'next' branch in linux-phy, I found this commit:
+> 0edf9d2bb9b4 ("phy: rockchip: samsung-hdptx: Avoid Hz<->hHz unit conversion overhead")
+> https://git.kernel.org/pub/scm/linux/kernel/git/phy/linux-phy.git/commit/?h=next&id=0edf9d2bb9b4ba7566dfdc7605883e04575129d9
 > 
-> host.tf-rmm      https://git.codelinaro.org/linaro/dcap/
-> rmm.git                      (cca/v8)
-> host.edk2        git@github.com:tianocore/
-> edk2.git                                   (edk2-stable202411)
-> host.tf-a        https://git.codelinaro.org/linaro/dcap/tf-a/trusted-
-> firmware-a.git  (cca/v4)
-> host.qemu        https://git.qemu.org/git/
-> qemu.git                                   (stable-9.2)
-> host.linux       https://git.gitlab.arm.com/linux-arm/linux-
-> cca.git                  (cca-host/v8)
-> host.buildroot   https://github.com/buildroot/
-> buildroot                              (master)
-> guest.qemu       https://git.codelinaro.org/linaro/dcap/
-> qemu.git                     (cca/latest)
-> guest.kvmtool    https://gitlab.arm.com/linux-arm/kvmtool-
-> cca                        (cca/latest)
-> guest.buildroot  https://github.com/buildroot/
-> buildroot                              (master)
+> Where the values in ropll_tmds_cfg are converted from hHz to Hz and the
+> data type changes from u32 to unsigned long long.
+> But AFAICT it does NOT convert this '502500' value, which IIUC means
+> most values are in Hz, while this one is in hHz.
 > 
-> RCU stall report
-> ----------------
-> 
-> [ 7816.381336] rcu: INFO: rcu_preempt self-detected stall on CPU
-> [ 7816.382816] rcu:     6-....: (5249 ticks this GP)
-> idle=3a4c/1/0x4000000000000000 softirq=6001/6003 fqs=2624
-> [ 7816.384399] rcu:     (t=5250 jiffies g=29821 q=47 ncpus=8)
-> [ 7816.386059] CPU: 6 UID: 0 PID: 203 Comm: qemu-system-aar Not tainted
-> 6.15.0-rc1-gavin-g78b23c56de79 #34 PREEMPT
-> [ 7816.387133] Hardware name: QEMU QEMU Virtual Machine, BIOS unknown
-> 02/02/2022
-> [ 7816.387926] pstate: 61402009 (nZCv daif +PAN -UAO -TCO +DIT -SSBS
-> BTYPE=--)
-> [ 7816.388678] pc : realm_unmap_private_range+0x19c/0x2c0
-> [ 7816.389878] lr : realm_unmap_private_range+0x94/0x2c0
-> [ 7816.390388] sp : ffff80008095bb60
-> [ 7816.390765] x29: ffff80008095bb60 x28: 000000007caef000 x27:
-> ffffba3322764000
-> [ 7816.392321] x26: 00007fffffffffff x25: 000000007caf0000 x24:
-> 0001000000000000
-> [ 7816.393168] x23: 00000000c4000155 x22: ffff8000801b5e98 x21:
-> 0000000106481000
-> [ 7816.393999] x20: 000000007caef000 x19: 0000000000000000 x18:
-> 0000000000000000
-> [ 7816.394833] x17: 0000000000000000 x16: 0000000000000000 x15:
-> 0000ffff8e997058
-> [ 7816.395668] x14: 0000000000000000 x13: 0000000000000000 x12:
-> 0000000000000000
-> [ 7816.396548] x11: 0000000038e38e39 x10: 0000000000000004 x9 :
-> ffffba33218a2564
-> [ 7816.397419] x8 : ffff8000801b5e98 x7 : 000000003fffffff x6 :
-> 0000000000000001
-> [ 7816.398243] x5 : 000000011e795000 x4 : 0000000000000002 x3 :
-> 0000000000000000
-> [ 7816.399062] x2 : 000000007caf0000 x1 : 000000011e796000 x0 :
-> 0000000000000000
-> [ 7816.400021] Call trace:
-> [ 7816.400604]  realm_unmap_private_range+0x19c/0x2c0 (P)
+> Am I missing something or should this new value also be converted?
 
-So I suspect this is because I didn't have a cond_resched_rwlock_write()
-in here - which was (as you pointed out) because I hadn't propagated
-"may_block" down. Finger's crossed this will be fixed with that change.
+Yeah, the conversion is necessary. FWIW, this has been already fixed by
+Stephen Rothwell in linux-next, while Vinod will handle it before
+sending the PR:
 
-Thanks,
-Steve
+https://lore.kernel.org/all/aCXEOGUDcnaoGKWW@vaman/
 
-> [ 7816.401347]  kvm_realm_unmap_range+0x94/0xb0
-> [ 7816.401894]  __unmap_stage2_range+0x70/0xa0
-> [ 7816.402421]  kvm_arch_post_set_memory_attributes+0x68/0xa8
-> [ 7816.403011]  kvm_vm_ioctl+0x6bc/0x1b58
-> [ 7816.403509]  __arm64_sys_ioctl+0xa4/0xe8
-> [ 7816.404020]  invoke_syscall+0x50/0x120
-> [ 7816.404562]  el0_svc_common.constprop.0+0x48/0xf0
-> [ 7816.405113]  do_el0_svc+0x24/0x38
-> [ 7816.405584]  el0_svc+0x34/0xf0
-> [ 7816.406045]  el0t_64_sync_handler+0x10c/0x138
-> [ 7816.406571]  el0t_64_sync+0x1ac/0x1b0
-> 
-> Thanks,
-> Gavin
-> 
-
+Regards,
+Cristian
 
