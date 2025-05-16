@@ -4,66 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37054C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 16:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C55C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 16:25:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6mVBQX2pIfuuLcF/bxyj8s40g2Vt/Z4GR/+mcS3BUFg=; b=Xcu5+ULlK4arp2HP/G69PVqqID
-	IN9qW781BgZCfW/yQWYXkgFHaFxFN8liVpLbIyDntviylFLNZ5mmkRHN7j85otyz0DRA6OdleojzA
-	/mu1oFt5SufiM59Oo0v3sY8huEDPHG42/nc4GthIdNiGc3D0/KZ9RSZW8iL+hcyuvUBVqkcBqLcQk
-	DNjUNWaqqwL0SeC0JHlrHVsp+aL11e3y5K6H6ug+4S21CmhR3auy69Tw5AENQGuIJ0x2PF9EXGShO
-	AlwiEv6eM7sigwkIJxulJJK3BYcapbjClOr++PMAadi1mOK7kreZPLndzg3hBZugmujUbEi5rjH89
-	Xhc7LatA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=irF7gTt08zo31ys5mqpc5hg46uqOw2cyB75qPSPUQ7c=; b=f0FMniWf4ZTqO86UTG8TYfh0K3
+	k17N2fPXUH6mBMvB7thN47qDLt0zez//wB06Q1NZ2MwIIfqpuZLX2KukW1Jk6yNR22p5L+mg5BTsU
+	WCip8R85dz4XsBd4B2HjyVgEQ/DfIlTtkPR/amJk6SsCjQdoVMPeUXT5fCmssnjqDGymkV/IybgYr
+	YB+vd0I5FDpK9Y0So4GSZVrEND9R6KgIyj2wZKnbAHgz0vvnX8DRM8QSYRs39OwT3P2Ro2nakvMqx
+	zHmsEPX2WlVAMyDWVK/xj/aA+tuvr5KZPrsAJcKKkj3seWhAansxJ/oGfKPDkBLIWlitrFMjMDpqx
+	fpNRrZKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFxqA-000000040aO-0hFU;
-	Fri, 16 May 2025 16:23:18 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFxWQ-00000003xYT-2PVF;
-	Fri, 16 May 2025 16:02:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1747411372;
-	bh=2sRpjTjXUI2i074c5+izzfCmO5OrPoSU+VPMCR9Tems=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JvFL2HNWYLPg3wIq9VGjlr8j7PGoNnrPsL7NLMjEbTcnr+A9T5w2t1xfLVdStnWFe
-	 xPcKE9VEX3T/qyg7PsLJpZcn5vf+SWJFp3y3d9BoqQaVHbgoA7Fbd2vt8zqz2JQD1a
-	 SO+IvTLLUsxs6ljvQ2BGVDYt1OGHvJ0bo6ITkl/fkVs99atWXVT0uTmBMDL8zluUyB
-	 8MGFvFVH2nXLI5J37vxShVzoAMNfeCa8HrCUV3Dsd5ymg+KZDU/CoJbM++bLUxjBKy
-	 B9HALIY/CnPzin2CvKocUrKPwNwRAMEuszvAc+Zz4zR0iHHZ4meZPvZHo5lPASNUMG
-	 WHiR8SeMKSNNw==
-Received: from [192.168.1.90] (unknown [82.76.59.134])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4B63817E07C9;
-	Fri, 16 May 2025 18:02:52 +0200 (CEST)
-Message-ID: <9e29ef0e-c373-4f48-8f37-7111987d2dd0@collabora.com>
-Date: Fri, 16 May 2025 19:02:51 +0300
+	id 1uFxsA-000000040nM-40n1;
+	Fri, 16 May 2025 16:25:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uFxbC-00000003yNh-0KPb
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 May 2025 16:07:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 02E76169C;
+	Fri, 16 May 2025 09:07:37 -0700 (PDT)
+Received: from e132581.cambridge.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D9B773F63F;
+	Fri, 16 May 2025 09:07:47 -0700 (PDT)
+From: Leo Yan <leo.yan@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Yabin Cui <yabinc@google.com>,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Leo Yan <leo.yan@arm.com>
+Subject: [PATCH v1 00/11] CoreSight: Refactor CPU PM and hotplug
+Date: Fri, 16 May 2025 17:07:31 +0100
+Message-Id: <20250516160742.1200904-1-leo.yan@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] phy: phy-rockchip-samsung-hdptx: Fix PHY PLL output
- 50.25MHz error
-To: Diederik de Haas <didi.debian@cknow.org>,
- Algea Cao <algea.cao@rock-chips.com>, vkoul@kernel.org, kishon@kernel.org,
- heiko@sntech.de, andy.yan@rock-chips.com
-Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250427095124.3354439-1-algea.cao@rock-chips.com>
- <D9XP2BH2CU02.1R9E1GSXQD9JB@cknow.org>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <D9XP2BH2CU02.1R9E1GSXQD9JB@cknow.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_090254_766707_5889102D 
-X-CRM114-Status: GOOD (  18.45  )
+X-CRM114-CacheID: sfid-20250516_090750_204672_B1721091 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,63 +64,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Diederik,
+Besides managing tracers (ETM) in CPU PM and hotplug flows, the
+CoreSight framework is found the issues below:
 
-On 5/16/25 6:36 PM, Diederik de Haas wrote:
-> Hi,
-> 
-> On Sun Apr 27, 2025 at 11:51 AM CEST, Algea Cao wrote:
->> When using HDMI PLL frequency division coefficient at 50.25MHz
->> that is calculated by rk_hdptx_phy_clk_pll_calc(), it fails to
->> get PHY LANE lock. Although the calculated values are within the
->> allowable range of PHY PLL configuration.
->>
->> In order to fix the PHY LANE lock error and provide the expected
->> 50.25MHz output, manually compute the required PHY PLL frequency
->> division coefficient and add it to ropll_tmds_cfg configuration
->> table.
->>
->> Signed-off-by: Algea Cao <algea.cao@rock-chips.com>
->> Reviewed-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->>
->> ---
->>  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 2 ++
->>  1 file changed, 2 insertions(+)
->>
->> diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
->> index fe7c05748356..77236f012a1f 100644
->> --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
->> +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
->> @@ -476,6 +476,8 @@ static const struct ropll_config ropll_tmds_cfg[] = {
->>  	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->>  	{ 650000, 162, 162, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 54, 0, 16, 4, 1,
->>  	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> +	{ 502500, 84, 84, 1, 1, 7, 1, 1, 1, 1, 1, 1, 1, 11, 1, 4, 5,
->> +	  4, 11, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->>  	{ 337500, 0x70, 0x70, 1, 1, 0xf, 1, 1, 1, 1, 1, 1, 1, 0x2, 0, 0x01, 5,
->>  	  1, 1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->>  	{ 400000, 100, 100, 1, 1, 11, 1, 1, 0, 1, 0, 1, 1, 0x9, 0, 0x05, 0,
-> 
-> I found this patch in the 'fixes' branch in linux-phy:
-> https://git.kernel.org/pub/scm/linux/kernel/git/phy/linux-phy.git/commit/?h=fixes&id=f9475055b11c0c70979bd1667a76b2ebae638eb7
-> 
-> In the 'next' branch in linux-phy, I found this commit:
-> 0edf9d2bb9b4 ("phy: rockchip: samsung-hdptx: Avoid Hz<->hHz unit conversion overhead")
-> https://git.kernel.org/pub/scm/linux/kernel/git/phy/linux-phy.git/commit/?h=next&id=0edf9d2bb9b4ba7566dfdc7605883e04575129d9
-> 
-> Where the values in ropll_tmds_cfg are converted from hHz to Hz and the
-> data type changes from u32 to unsigned long long.
-> But AFAICT it does NOT convert this '502500' value, which IIUC means
-> most values are in Hz, while this one is in hHz.
-> 
-> Am I missing something or should this new value also be converted?
+Firstly, on some hardware platforms, CoreSight links (e.g., funnels and
+replicators, etc) reside in a cluster power domain.  If the cluster is
+powered off, the link components also will lose their context.  In this
+case, Arm CoreSight drivers report errors when detect unpaired self-host
+claim tags.
 
-Yeah, the conversion is necessary. FWIW, this has been already fixed by
-Stephen Rothwell in linux-next, while Vinod will handle it before
-sending the PR:
+Secondly, if a path has been activated from per CPU's tracer (ETM) to
+links and a sink in Sysfs mode, then when the CPU is hot-plugged off,
+only the associated ETM will be disabled.  Afterwards, the links and the
+sink always keep on and no chance to be disabled.
 
-https://lore.kernel.org/all/aCXEOGUDcnaoGKWW@vaman/
+The last issue was reported by Yabin Cui (Google) that the TRBE driver
+misses to save and restore context during CPU low power states.  As a
+result, it may cause hardware lockup issue on some devices.
 
-Regards,
-Cristian
+To resolve the power management issues, this series extends CPU power
+management to cover the entire activated path, including links and
+sinks.  It moves CPU PM and hotplug notifiers from the ETMv4 driver to
+the CoreSight core layer.  The core layer has sufficient info to
+maintain activated paths and can traverse the entire path to manipulate
+CoreSight modules accordingly.
+
+Patch 01 is to fix a bug in ETMv4 save and restore callbacks.
+
+Patches 02 ~ 06 move CPU PM code from ETMv4 driver to the core layer, and
+extends to maintain activated paths and control links.
+
+Patches 07 and 08 support save and restore context for per-CPU sink
+(TRBE).  Note, for avoid long latency, system level's sinks in an
+activated path are not touched during CPU suspend and resume.
+
+Patches 09 ~ 11 move CPU hotplug notifier from ETMv4 driver to the core
+layer.  The entire path will be controlled if the corresponding CPU is
+hot-plugged on or off.
+
+This series has been verified on Hikey960 for CPUIdle and hotplug.  And
+it is tested on FVP for verifying TRBE with idle states.
+
+
+Leo Yan (10):
+  coresight: etm4x: Control the trace unit in CPU suspend
+  coresight: Set per CPU source pointer
+  coresight: Register CPU PM notifier in core layer
+  coresight: etm4x: Hook CPU PM callbacks
+  coresight: Save activated path into source device
+  coresight: Control path during CPU PM
+  coresight: Add PM callbacks in sink operation
+  coresight: Take hotplug lock in enable_source_store() for Sysfs mode
+  coresight: Move CPU hotplug callbacks to core layer
+  coresight: Manage activated paths during CPU hotplug
+
+Yabin Cui (1):
+  coresight: trbe: Save and restore state across CPU low power state
+
+ drivers/hwtracing/coresight/coresight-core.c       | 252 +++++++++++++++++++++++++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-etm3x-core.c |   2 +
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 133 ++++++----------------
+ drivers/hwtracing/coresight/coresight-priv.h       |   1 +
+ drivers/hwtracing/coresight/coresight-sysfs.c      |  12 +-
+ drivers/hwtracing/coresight/coresight-trbe.c       |  65 +++++++++++
+ include/linux/coresight.h                          |  11 ++
+ 7 files changed, 375 insertions(+), 101 deletions(-)
+
+-- 
+2.34.1
+
 
