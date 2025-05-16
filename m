@@ -4,102 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D6AAC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 17:09:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E43BAC3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 17:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hkJKBkDUJRJ7bEb2VzWEqCdNMs8+V5XyH/wwMnfIh5o=; b=fBbuCKV02cIwYfrHUVr/442owj
-	H/UZnshaUvl7gaWRqO+ucEVEBBaEcWTAo5JP4Mhl9eKWVZlvY3urDrEu3juoQspYT7Lh9ZXh2wTz3
-	Bz+EjKMexucdwlJvZkm0yzbuJ6003n2OzrmRsLagUpZ/G8w2yj0YXSAmXsvp326vztx/MUV1nhB/5
-	JJm+AiNhgaEMEPFdPiJnN16NH5YR4JL3Zm3OzbhLWL8G87FwbelZoTLwNwBjVeXpnGuWUlc1sKPgK
-	n1U/ItSrAhybQzaeX72VmnYB0pcWHevYMiofVE2tiRjRp7OG/O5wk/Plt8shu523ZdwPF94W4thGI
-	3AGBLnLg==;
+	bh=gNW+7TtMUM7lGkKFYvhyFcX7e8P3pZT4KoiVlpFjICo=; b=b4dsTOiB92JTYucbrQkbf/DuMd
+	uXkZSl0aYwyW0MoZDyhibMje7a8h2RYtBg1ZdBGkaxgn+iJ1y4lHjDWmJEcWh8+12sc+zZQwMAmyo
+	jH6mNHVUcyGStSi2OmBYEK2qPtVyc5T7y13e1hLhWk3zb5492UuzJzDJrI6rDTyVydqjQIzALX01l
+	IiPLfDFY9yTvisBwSjFiWGH2lMppu4/Ux38QiJs+1yf7RboyTDtHAjZku7m7Cp8FLjabt0y4Ky5lr
+	Tp0R5Erb269JDjE4SxxUx5SDSHHa7fAH3zUtC3lKafUyYPxkYqtIOXdBQQ5tkk2PRydJs+hmlUMl7
+	5SLF0vxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFyZ4-000000047sI-3H9d;
-	Fri, 16 May 2025 17:09:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uFyb6-000000048NO-3hRr;
+	Fri, 16 May 2025 17:11:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFyJh-000000044fT-0DgC;
-	Fri, 16 May 2025 16:53:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=hkJKBkDUJRJ7bEb2VzWEqCdNMs8+V5XyH/wwMnfIh5o=; b=qhgRouUpE5uqg465HkMjnOFbFA
-	5mZxYmMTBZgdaRY1j1J5uhEZD79hX3Ws50aLsT/cKCOdtYrRo6NuHW1cn5UfmHlMNbOdxLFOLi+QU
-	IF/tlYTTfUzwtEJJ3ET+J2vrTHxY5nJndd5CHlq8g2g3WcG86gP/twoiT3A82HkWd+ch2KVHAKQXd
-	e0Kv8eLN36ENmmIaMfytnfsuzF90cpqHLBt5iy2tityS3H6GYC2Xk6SSyRg31f7Lis/Vj+RECa3DC
-	vlrKJPqswDBysWYMuR0pyfEkP2DTJZJaXVxPDrSbX267tYjV1dHcLfQ2njBm1CT9B6G9no3ModXPP
-	V0V0/uhQ==;
-Received: from mail-wm1-f49.google.com ([209.85.128.49])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uFyJd-000000005ms-3a7O;
-	Fri, 16 May 2025 16:53:47 +0000
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-43cfba466b2so24778745e9.3;
-        Fri, 16 May 2025 09:53:44 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747414424; x=1748019224;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hkJKBkDUJRJ7bEb2VzWEqCdNMs8+V5XyH/wwMnfIh5o=;
-        b=a1pizDTif4cAorP9FLD3X35BUkhnhCun++i47cPBjcFaiaKuJXEgRCSi/tJHRMDVd6
-         9ZINEC/WLUgRlUX+x4XfE8QWy8HUdgQCL2foRvRTHt8Knj2weuNlb0nNW5iIoykJSdE2
-         mQgN0PrFlo0pf1afgFpHU3JyzpPi2XYz+yxtJFiV/Z4XjdnKhKU7Gd4aZJ9/zDfvWyxu
-         SBQTjc4fpcHTPCFy2c9no58PYwAUKr8xKaCCtyghq0fAY7D5LwsvmVZgOmh1QVDnaPHm
-         w2CW9vTd9fGXnsEy5BPWFTX7Nu4HIDN3VJ+dGdy1COuvYYj+hwKb5dFrdcc8m6SVFoBN
-         G0vg==
-X-Forwarded-Encrypted: i=1; AJvYcCWAP5X3c+YE+UxoSNgbLupoe3oJpTfb/qShi0Eo7ZMMdy3N5STFLfM+T0WSBgh0beA1jkANRneqVtLwJJAH1piH@lists.infradead.org, AJvYcCWa79SsulbJwrpaEOhfsotxOR5aqZAjw6xQtyNkQvCYVvFTxMcNOxK29AXWMZ9tlYnncg2kYJaadH9xMcYNiNI=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyyzOkKWrggDkhY0crLypyafV7uhOIpcoirt1sxSp9sTrDOUoV+
-	vN7Hwbo7naJrxFToF6Dtm2I0BF2rfNDRPSLDwjEhHW2EYbUB7bLChviK
-X-Gm-Gg: ASbGnctIitto4m3Qh1s7Tow9Y+SIWs78Mc1pMaHEZ840xzIF4krVLb5qfBay/YeGN/s
-	1Xeqi5tfboe6DMRoV4Uw4oNu+/CJUqYeDe8ar6RXhN7OhF+HGbrhw8UwyjOd276PmH+zx11Ch+N
-	3Vd7zIxwP0+iGrcYDTGkD8yEZTBhMLnbcF9wVUrvHBGkhCmlF6w1GAb5NSvt8caMLuhnuQ5GVUA
-	yHSQsARSUADFQXCdpPJo2pAaPC3ayquDwj2pJXAahK1wMAIatZLSkrl2FVoX8zvXHQ+i6p4+4YF
-	T1kPQkSkj4Up1TOtaK3j5MB33vC6tQxaNx/mSWTzV0CsW4g2n48wWVgrurOJQsiOR9GZK3OAE+A
-	u2Lx15Rou1Q==
-X-Google-Smtp-Source: AGHT+IGw5JIgx7HqIbGrEYnlEsefAk1beGSNisgnRK7qNU0koGoWWuj6HFwKCOCyrDxBWxPyXARd6A==
-X-Received: by 2002:a05:600c:3ba1:b0:43d:762:e0c4 with SMTP id 5b1f17b1804b1-442ff03bbaemr34135475e9.27.1747414423883;
-        Fri, 16 May 2025 09:53:43 -0700 (PDT)
-Received: from [10.42.0.1] (cst-prg-46-162.cust.vodafone.cz. [46.135.46.162])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442f3380498sm116511755e9.11.2025.05.16.09.53.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 May 2025 09:53:43 -0700 (PDT)
-From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Date: Fri, 16 May 2025 18:53:22 +0200
-Subject: [PATCH v3 08/10] accel/rocket: Add IOCTLs for synchronizing memory
- accesses
+	id 1uFyJh-000000044fs-1OB3
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 May 2025 16:53:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9A14E4A905
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 16:53:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C53EC4CEF9
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 16:53:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747414428;
+	bh=gNW+7TtMUM7lGkKFYvhyFcX7e8P3pZT4KoiVlpFjICo=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=K0AZM/WHkIM/qkUypevLdnzzY800HqjD+DQk3EspbBN0pK+1enPyE1noNGvw2ISAv
+	 sUGRiH8wlgjpHocu4xNNEmFGK920dEw58CkP7ulNE9K1WSfm9nNRleFZBked/yJ71K
+	 k5HSSaToM/eFv03ACXW88lKF/+e5QLQgPB4wJjEh5MdnKNulfZLYGaPkeFhI3ChvTN
+	 aQlJx2Ixr/hRimseN8QEYqtyhv04e7uwllTn6AyQgSVbUr0zk2+9uWgxBg8/okmU0R
+	 S7vAyrAOLrSNFUxD/lBG+VFxmJobAYDNnNLR4zzJRvEJh3Bx7FIezs8Rj1NiDNvH8m
+	 rcZA+KYgOakBw==
+Received: by mail-qk1-f178.google.com with SMTP id af79cd13be357-7c5e1b40f68so270392285a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 09:53:48 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXFt5J2XkJp5bqU3iXzb2FWon/+6oJZPvLask2Rjr1QrNfHf5TjGIhBr2h3QSspugxosxI0IIOX2hDg4/PH2Hhx@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWDueOJGeHrQeRvjWiugGXOQYUSwvVBE4gbXzleHkyrgi4bKf3
+	/n+l4KepBqgN37jyeLLzTCPSE29PT68H7aA+ILZFCQIMbbt2WnJoKO07U/AhdodVn/joM8Q27j7
+	xVVjWEdTgXaBcaC53RLLFXeygyVatf5Q=
+X-Google-Smtp-Source: AGHT+IFYMPM8sSmrqIW21t3SlXlT3FCCm2dJlRMJ71bVHCSHc3IMxpcI15wCR4GKjvDMf42liz3czXx0mNeec5L+ncA=
+X-Received: by 2002:a05:620a:4551:b0:7c5:5f38:b78f with SMTP id
+ af79cd13be357-7cd4673b9femr581672585a.29.1747414427420; Fri, 16 May 2025
+ 09:53:47 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250516-6-10-rocket-v3-8-7051ac9225db@tomeuvizoso.net>
-References: <20250516-6-10-rocket-v3-0-7051ac9225db@tomeuvizoso.net>
-In-Reply-To: <20250516-6-10-rocket-v3-0-7051ac9225db@tomeuvizoso.net>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Sumit Semwal <sumit.semwal@linaro.org>, 
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Jeff Hugo <jeff.hugo@oss.qualcomm.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
- linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, 
- Tomeu Vizoso <tomeu@tomeuvizoso.net>
-X-Mailer: b4 0.14.2
+References: <20250320171559.3423224-1-song@kernel.org> <Z_fhAyzPLNtPf5fG@pathway.suse.cz>
+In-Reply-To: <Z_fhAyzPLNtPf5fG@pathway.suse.cz>
+From: Song Liu <song@kernel.org>
+Date: Fri, 16 May 2025 09:53:36 -0700
+X-Gmail-Original-Message-ID: <CAPhsuW4MAcVpXmZVQauoaYe0o3tDvvZfgmCrYFFyFojYpNiWWg@mail.gmail.com>
+X-Gm-Features: AX0GCFswWuh29mi00OXRAzuYoajxd21bc-p1p3_IOZYYbVK2ROe03x1xdxnX9VM
+Message-ID: <CAPhsuW4MAcVpXmZVQauoaYe0o3tDvvZfgmCrYFFyFojYpNiWWg@mail.gmail.com>
+Subject: Re: [PATCH v3 0/2] arm64: livepatch: Enable livepatch without sframe
+To: Petr Mladek <pmladek@suse.com>
+Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-toolchains@vger.kernel.org, 
+	live-patching@vger.kernel.org, indu.bhagat@oracle.com, puranjay@kernel.org, 
+	wnliu@google.com, irogers@google.com, joe.lawrence@redhat.com, 
+	jpoimboe@kernel.org, peterz@infradead.org, roman.gushchin@linux.dev, 
+	rostedt@goodmis.org, will@kernel.org, kernel-team@meta.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_175346_403682_C9200748 
-X-CRM114-Status: GOOD (  20.25  )
+X-CRM114-CacheID: sfid-20250516_095349_385832_B909CB8D 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,212 +87,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The NPU cores have their own access to the memory bus, and this isn't
-cache coherent with the CPUs.
+On Thu, Apr 10, 2025 at 8:17=E2=80=AFAM Petr Mladek <pmladek@suse.com> wrot=
+e:
+>
+[...]
+> >
+> > [1] https://lore.kernel.org/live-patching/20250127213310.2496133-1-wnli=
+u@google.com/
+> > [2] https://lore.kernel.org/live-patching/20250129232936.1795412-1-song=
+@kernel.org/
+> > [3] https://sourceware.org/bugzilla/show_bug.cgi?id=3D32589
+> > [4] https://lore.kernel.org/linux-arm-kernel/20241017092538.1859841-1-m=
+ark.rutland@arm.com/
+> >
+> > Changes v2 =3D> v3:
+> > 1. Remove a redundant check for -ENOENT. (Josh Poimboeuf)
+> > 2. Add Tested-by and Acked-by on v1. (I forgot to add them in v2.)
+>
+> The approach and both patches look reasonable:
+>
+> Reviewed-by: Petr Mladek <pmladek@suse.com>
+>
+> Is anyone, Arm people, Mark, against pushing this into linux-next,
+> please?
 
-Add IOCTLs so userspace can mark when the caches need to be flushed, and
-also when a writer job needs to be waited for before the buffer can be
-accessed from the CPU.
+Ping.
 
-Initially based on the same IOCTLs from the Etnaviv driver.
+ARM folks, please share your thoughts on this work. To fully support
+livepatching of kernel modules, we also need [1]. We hope we can
+land this in the 6.16 kernel.
 
-v2:
-- Don't break UABI by reordering the IOCTL IDs (Jeff Hugo)
+Thanks,
+Song
 
-v3:
-- Check that padding fields in IOCTLs are zero (Jeff Hugo)
-
-Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
----
- drivers/accel/rocket/rocket_drv.c |  2 +
- drivers/accel/rocket/rocket_gem.c | 80 +++++++++++++++++++++++++++++++++++++++
- drivers/accel/rocket/rocket_gem.h |  5 +++
- include/uapi/drm/rocket_accel.h   | 37 ++++++++++++++++++
- 4 files changed, 124 insertions(+)
-
-diff --git a/drivers/accel/rocket/rocket_drv.c b/drivers/accel/rocket/rocket_drv.c
-index 18ff051c336a14b7dda72d235faffb7a55a0a8ee..75ccf6e14b2bed80005a70b8cc06925b7c3ac405 100644
---- a/drivers/accel/rocket/rocket_drv.c
-+++ b/drivers/accel/rocket/rocket_drv.c
-@@ -58,6 +58,8 @@ static const struct drm_ioctl_desc rocket_drm_driver_ioctls[] = {
- 
- 	ROCKET_IOCTL(CREATE_BO, create_bo),
- 	ROCKET_IOCTL(SUBMIT, submit),
-+	ROCKET_IOCTL(PREP_BO, prep_bo),
-+	ROCKET_IOCTL(FINI_BO, fini_bo),
- };
- 
- DEFINE_DRM_ACCEL_FOPS(rocket_accel_driver_fops);
-diff --git a/drivers/accel/rocket/rocket_gem.c b/drivers/accel/rocket/rocket_gem.c
-index 8a8a7185daac4740081293aae6945c9b2bbeb2dd..cdc5238a93fa5978129dc1ac8ec8de955160dc18 100644
---- a/drivers/accel/rocket/rocket_gem.c
-+++ b/drivers/accel/rocket/rocket_gem.c
-@@ -129,3 +129,83 @@ int rocket_ioctl_create_bo(struct drm_device *dev, void *data, struct drm_file *
- 
- 	return ret;
- }
-+
-+static inline enum dma_data_direction rocket_op_to_dma_dir(u32 op)
-+{
-+	if (op & ROCKET_PREP_READ)
-+		return DMA_FROM_DEVICE;
-+	else if (op & ROCKET_PREP_WRITE)
-+		return DMA_TO_DEVICE;
-+	else
-+		return DMA_BIDIRECTIONAL;
-+}
-+
-+int rocket_ioctl_prep_bo(struct drm_device *dev, void *data, struct drm_file *file)
-+{
-+	struct drm_rocket_prep_bo *args = data;
-+	unsigned long timeout = drm_timeout_abs_to_jiffies(args->timeout_ns);
-+	struct rocket_device *rdev = to_rocket_device(dev);
-+	struct drm_gem_object *gem_obj;
-+	struct drm_gem_shmem_object *shmem_obj;
-+	bool write = !!(args->op & ROCKET_PREP_WRITE);
-+	long ret = 0;
-+
-+	if (args->op & ~(ROCKET_PREP_READ | ROCKET_PREP_WRITE))
-+		return -EINVAL;
-+
-+	gem_obj = drm_gem_object_lookup(file, args->handle);
-+	if (!gem_obj)
-+		return -ENOENT;
-+
-+	ret = dma_resv_wait_timeout(gem_obj->resv, dma_resv_usage_rw(write),
-+				    true, timeout);
-+	if (!ret)
-+		ret = timeout ? -ETIMEDOUT : -EBUSY;
-+
-+	shmem_obj = &to_rocket_bo(gem_obj)->base;
-+
-+	for (unsigned int core = 1; core < rdev->num_cores; core++) {
-+		dma_sync_sgtable_for_cpu(rdev->cores[core].dev, shmem_obj->sgt,
-+					 rocket_op_to_dma_dir(args->op));
-+	}
-+
-+	to_rocket_bo(gem_obj)->last_cpu_prep_op = args->op;
-+
-+	drm_gem_object_put(gem_obj);
-+
-+	return ret;
-+}
-+
-+int rocket_ioctl_fini_bo(struct drm_device *dev, void *data, struct drm_file *file)
-+{
-+	struct rocket_device *rdev = to_rocket_device(dev);
-+	struct drm_rocket_fini_bo *args = data;
-+	struct drm_gem_shmem_object *shmem_obj;
-+	struct rocket_gem_object *rkt_obj;
-+	struct drm_gem_object *gem_obj;
-+
-+	if (args->reserved != 0) {
-+		drm_dbg(dev, "Reserved field in drm_rocket_fini_bo struct should be 0.\n");
-+		return -EINVAL;
-+	}
-+
-+	gem_obj = drm_gem_object_lookup(file, args->handle);
-+	if (!gem_obj)
-+		return -ENOENT;
-+
-+	rkt_obj = to_rocket_bo(gem_obj);
-+	shmem_obj = &rkt_obj->base;
-+
-+	WARN_ON(rkt_obj->last_cpu_prep_op == 0);
-+
-+	for (unsigned int core = 1; core < rdev->num_cores; core++) {
-+		dma_sync_sgtable_for_device(rdev->cores[core].dev, shmem_obj->sgt,
-+					    rocket_op_to_dma_dir(rkt_obj->last_cpu_prep_op));
-+	}
-+
-+	rkt_obj->last_cpu_prep_op = 0;
-+
-+	drm_gem_object_put(gem_obj);
-+
-+	return 0;
-+}
-diff --git a/drivers/accel/rocket/rocket_gem.h b/drivers/accel/rocket/rocket_gem.h
-index 41497554366961cfe18cf6c7e93ab1e4e5dc1886..2caa268f7f496f782996c6ad2c4eb851a225a86f 100644
---- a/drivers/accel/rocket/rocket_gem.h
-+++ b/drivers/accel/rocket/rocket_gem.h
-@@ -11,12 +11,17 @@ struct rocket_gem_object {
- 
- 	size_t size;
- 	u32 offset;
-+	u32 last_cpu_prep_op;
- };
- 
- struct drm_gem_object *rocket_gem_create_object(struct drm_device *dev, size_t size);
- 
- int rocket_ioctl_create_bo(struct drm_device *dev, void *data, struct drm_file *file);
- 
-+int rocket_ioctl_prep_bo(struct drm_device *dev, void *data, struct drm_file *file);
-+
-+int rocket_ioctl_fini_bo(struct drm_device *dev, void *data, struct drm_file *file);
-+
- static inline
- struct  rocket_gem_object *to_rocket_bo(struct drm_gem_object *obj)
- {
-diff --git a/include/uapi/drm/rocket_accel.h b/include/uapi/drm/rocket_accel.h
-index cb1b5934c201160e7650aabd1b3a2b1c77b1fd7b..b5c80dd767be56e9720b51e4a82617a425a881a1 100644
---- a/include/uapi/drm/rocket_accel.h
-+++ b/include/uapi/drm/rocket_accel.h
-@@ -13,9 +13,13 @@ extern "C" {
- 
- #define DRM_ROCKET_CREATE_BO			0x00
- #define DRM_ROCKET_SUBMIT			0x01
-+#define DRM_ROCKET_PREP_BO			0x02
-+#define DRM_ROCKET_FINI_BO			0x03
- 
- #define DRM_IOCTL_ROCKET_CREATE_BO		DRM_IOWR(DRM_COMMAND_BASE + DRM_ROCKET_CREATE_BO, struct drm_rocket_create_bo)
- #define DRM_IOCTL_ROCKET_SUBMIT			DRM_IOW(DRM_COMMAND_BASE + DRM_ROCKET_SUBMIT, struct drm_rocket_submit)
-+#define DRM_IOCTL_ROCKET_PREP_BO		DRM_IOW(DRM_COMMAND_BASE + DRM_ROCKET_PREP_BO, struct drm_rocket_prep_bo)
-+#define DRM_IOCTL_ROCKET_FINI_BO		DRM_IOW(DRM_COMMAND_BASE + DRM_ROCKET_FINI_BO, struct drm_rocket_fini_bo)
- 
- /**
-  * struct drm_rocket_create_bo - ioctl argument for creating Rocket BOs.
-@@ -39,6 +43,39 @@ struct drm_rocket_create_bo {
- 	__u64 offset;
- };
- 
-+#define ROCKET_PREP_READ        0x01
-+#define ROCKET_PREP_WRITE       0x02
-+
-+/**
-+ * struct drm_rocket_prep_bo - ioctl argument for starting CPU ownership of the BO.
-+ *
-+ * Takes care of waiting for any NPU jobs that might still use the NPU and performs cache
-+ * synchronization.
-+ */
-+struct drm_rocket_prep_bo {
-+	/** Input: GEM handle of the buffer object. */
-+	__u32 handle;
-+
-+	/** Input: mask of ROCKET_PREP_x, direction of the access. */
-+	__u32 op;
-+
-+	/** Input: Amount of time to wait for NPU jobs. */
-+	__s64 timeout_ns;
-+};
-+
-+/**
-+ * struct drm_rocket_fini_bo - ioctl argument for finishing CPU ownership of the BO.
-+ *
-+ * Synchronize caches for NPU access.
-+ */
-+struct drm_rocket_fini_bo {
-+	/** Input: GEM handle of the buffer object. */
-+	__u32 handle;
-+
-+	/** Reserved, must be zero. */
-+	__u32 reserved;
-+};
-+
- /**
-  * struct drm_rocket_task - A task to be run on the NPU
-  *
-
--- 
-2.49.0
-
+[1] https://lore.kernel.org/linux-arm-kernel/20250412010940.1686376-1-dylan=
+bhatch@google.com/
 
