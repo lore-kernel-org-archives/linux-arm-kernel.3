@@ -4,155 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07D10C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 04:23:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 728E5C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 04:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q1KKYBHCCuT6EhfHLiITzdAMZ27KwKJQpr2SReN2r5g=; b=LOBLn5sjzFVvEQ5hqUIxGs5YCk
-	WHTNyj1aTVSlnyplT5wD55brfq6Z0XvdY+sciKJMI+kI9xyA8v/+RSvy1l1oGVB0Y5vZERG2MgqDk
-	wXwS1PW8iysr4s1A6TY/NOMY9DJ48XbX7wyCynlMWz+3zhmektwu3hnZu6YaTycJg4IXYXb+Jnfzy
-	yy3+aUz1UxZ7ysvRA2agNRo4u0St86OGpsaHymq/E+Ti/gsNxRHaJLhWG1ROnsQ/gjB695PnOCzrd
-	DCuyhAro0S79alhygTL1j4iOE1aeWjTEjgSkCfrLLOFaj11+h8dyTQMzGPArbVuAvWnaPA9mS0JL1
-	FU3MUMLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=weXXrjBwJzFCh+IyTZSGZA/izzWFQ2OCenTtyAmeMy0=; b=E9RN3eU+o/D4JBOrKUdfE4z+AL
+	NwHJsGIwy1pQ9LiiQH2JLRAKYPvZEtdTrR8/gQq92RWupllVnIEEe5fuxXF4E70ldSbYeTybbmyxW
+	7ay8GUMYBS9Ne4rhN+BKzwNccXzNOc6AN8ZoDYMLGCq8UhQLQXJAxYI9XBfRL285zdHelS/+bwD2c
+	6dGH2EN18rTnVDOO/vtS1+EEE1KlMPIprONfvzh989r++tkyC/M7+3u20VBUgxXBX7R/8sgrJqHGY
+	tqyTyVdacQ1HT+D6uSyQRXjbfVkGnFmvwjL9dbawLUWpFI49XItuENsx+HoATRDItSNIfJQS3Zmr5
+	nW4wYL+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFmb5-00000002SCw-2wdd;
-	Fri, 16 May 2025 04:22:59 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1uFn5T-00000002U4H-0C0E;
+	Fri, 16 May 2025 04:54:23 +0000
+Received: from mail-mw2nam04on20605.outbound.protection.outlook.com ([2a01:111:f403:240a::605] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFmSm-00000002RX0-2XvV
+	id 1uFn3L-00000002Twa-3JxR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 04:14:25 +0000
+	Fri, 16 May 2025 04:52:13 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ah0OLnFj1T7rKTyY4HvTj3SAkJmHJvNKObWWTbe1XhRfNVFRjpmcRKyNeZ9pGC/o1/Z7mPs52RkLdcX5Rp45y/keYO3vvv5T0/gCkeMj/z8xr8/K4pkcvqyHRSk73rhtbc8Em3TVVeQouhz04UGTP5uGSmperTuExq1zTosrv94BRIcRawvUxEirDxGWs5PvgqiqF0iGq//nYTg2Xavl8zvYlxYWlOsHP7tU3iuUy7V5FnKUCRq4V5y1cfo1ScgAdR067QnLgGlm7/PrF6kJwGznCFye1+dysRpvER/75X+COc4UBmh2om/tLIfbXqXtG9rcn3fjxGmt9Ud722HP6w==
+ b=NDZSifnmbSQib6Nge6pFNUOb1AVZEWBmMGE0UuQAoU/3R9R4q0v1jh6OVDeRZKo7KjXqCdxCVaRPMGTiJ1s+MvMhMixdgm5PaFd0kZuaxBRtjxiKJNg0xxfJnGN4Yn2M1jIY0gRVAeI4QMvf2QK4EOaAXkxlsxufUYb75KngTUa86ynaLghCv/2S4712r7+VQ3k93DxYvDxACUDuYEZRJMTfuFczz8OJgA80+z+GNEi239jXzr6mS6uQG2UtJvEMM5fnIN2YihjLnb/uue0aBbHZuqd0QutSEahh37s3oqZslhvRVrCF2Wu4N008gbTo8BeGKjDcmLSBcCQraX134g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q1KKYBHCCuT6EhfHLiITzdAMZ27KwKJQpr2SReN2r5g=;
- b=nTVSfOW1aBPC4Ondh3us3XG5pB4UTNz4uR8V3kjLSCc7c0dgXVMOqepipEj5LOUhOVz+E1CH5yDjz3MK/RUsgn4c2hWCgYEJzPZMudjWeimSxCjR3jbK27b2zFwRaXfa4w+39+U2UNvgvc9NzzH7IBmOZm+TdpzUGW/mwxsRQ3BwktHBejqXE+pPT0UaZMceUyAs31bRtzmBaJyAeuJTiEkkummkv34ktEUYUI8HSuAt5HXiBF+l3W9SFErhGvkFjXdoFb1KhFnuuY5FU4ih2S+x5XjhJivpxpKEPoDODy6RBSQqCKu2SyPSSbGAlNu2s5xzd5bfQAAF/ykgndRzOA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ bh=weXXrjBwJzFCh+IyTZSGZA/izzWFQ2OCenTtyAmeMy0=;
+ b=bsicX2p66SqtSB4Epkp6ZbYanDI2dVKYTsRMHpQS34VuBGhHNbuHQUC+D5xxXDI9NFcX4GLI6DXCQBeJzrplXWzpZ3/9RXOCK6goLgH7RTR0iaY3jaeXgw3nc4jamTdI4tl1GuqBWr9rmPeBCGEH0WlSJ974cXHTo5aPsjWDKhhiO1+Cpx5jnRBj1yL23srUTQq8cY7sO1j7dEXQ0E+DFiYiQeIber4Ts24UzMhxPx0gCR2xA5E/GZYJENN7W8Jpml9BKc5JDyEYni52Qgaa76qRBDQ+VBN6XLLIgKSz2Hs+sy0HiOIvaX3HAEXGM4sCxe7yWuIoErDPddvE2CTe1Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q1KKYBHCCuT6EhfHLiITzdAMZ27KwKJQpr2SReN2r5g=;
- b=cqyhaIvcVgQg0JH2O5rrhcnahTVnKldlQkCT7uRsxBaXRTbEywPlMTr4VFvA7zy9lCZNUMjrCzx/1kU2HomV1ox9lDCak9kijhw80R3sp7YC1rDCQGJw7H45OvETZ/e2h6kgKExNY8j9jHgiIJbx//hJ+TDpfnpXxSxKl9ujznUEjcaTE3cNZNhWvdnCbIY7wK2Xc42k3kzUOEwzGHajkXwImCrkjMehg41xfr1HNIuclVnA3tUqBJpwOkXc66aQHL6Sbpjd/9/VuZNlPJrh7yEYn2JoxUC3HFl6JufHnpGAGXOBq7TDlvf48KTkZQI/C6hpoxakpYlazpFKs/Dwgg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-Received: from DM8PR03MB6230.namprd03.prod.outlook.com (2603:10b6:8:3c::13) by
- SJ2PR03MB7093.namprd03.prod.outlook.com (2603:10b6:a03:4fb::11) with
+ bh=weXXrjBwJzFCh+IyTZSGZA/izzWFQ2OCenTtyAmeMy0=;
+ b=umMAqJa6WsLEVC7zyu8+Krv1HbuAM+FaisMiL9oqqezI4ZZoEGtQLcBbG+QJtmQ6QiqjFDLjcBLj9JCbtqgATrLwggcSrO6+zDjoWQm4Qrl4pbnO/QSMjstb35Oz1rLOALDvxCdH8X7w2qQWRq5E+oX1AlkhS5wXvrzFCJePVrT0v0+9a4APDCyd5BqozUihGVCLc0GgQoCjFZOZakwgdNGuYRi0kj/nYPyNpFLq4ASz5GPje1mXQA1vSrli0A7bJPwSDkm818WNyNDy43Q2isMzsANn+HaxPLGENIz80q+rmQccLXnY8TWC6JyQZ/r6UWsnHVFvdVrg0iiCtiqgRg==
+Received: from BL1P222CA0009.NAMP222.PROD.OUTLOOK.COM (2603:10b6:208:2c7::14)
+ by SA5PPF6CDAEAF48.namprd12.prod.outlook.com (2603:10b6:80f:fc04::8cf) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.30; Fri, 16 May
- 2025 04:14:20 +0000
-Received: from DM8PR03MB6230.namprd03.prod.outlook.com
- ([fe80::c297:4c45:23cb:7f71]) by DM8PR03MB6230.namprd03.prod.outlook.com
- ([fe80::c297:4c45:23cb:7f71%7]) with mapi id 15.20.8722.031; Fri, 16 May 2025
- 04:14:20 +0000
-From: adrianhoyin.ng@altera.com
-To: dinguyen@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	maz@kernel.org,
-	tglx@linutronix.de,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: adrianhoyin.ng@altera.com,
-	Matthew Gerlach <matthew.gerlach@altrera.com>
-Subject: [PATCH 3/3] irqchip: gic-v3-its: add support for 32bit addressing
-Date: Fri, 16 May 2025 12:13:34 +0800
-Message-ID: <372f059069a5551ea1096015f855cc306dbd7cd4.1747368554.git.adrianhoyin.ng@altera.com>
-X-Mailer: git-send-email 2.49.GIT
-In-Reply-To: <cover.1747368554.git.adrianhoyin.ng@altera.com>
-References: <cover.1747368554.git.adrianhoyin.ng@altera.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR01CA0117.apcprd01.prod.exchangelabs.com
- (2603:1096:4:40::21) To DM8PR03MB6230.namprd03.prod.outlook.com
- (2603:10b6:8:3c::13)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.20; Fri, 16 May
+ 2025 04:52:02 +0000
+Received: from MN1PEPF0000ECDA.namprd02.prod.outlook.com
+ (2603:10b6:208:2c7:cafe::60) by BL1P222CA0009.outlook.office365.com
+ (2603:10b6:208:2c7::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.29 via Frontend Transport; Fri,
+ 16 May 2025 04:52:02 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ MN1PEPF0000ECDA.mail.protection.outlook.com (10.167.242.134) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8722.18 via Frontend Transport; Fri, 16 May 2025 04:52:02 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 15 May
+ 2025 21:51:45 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 15 May
+ 2025 21:51:45 -0700
+Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.8)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Thu, 15 May 2025 21:51:44 -0700
+Date: Thu, 15 May 2025 21:51:42 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
+	<bagasdotme@gmail.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
+	<shuah@kernel.org>, <jsnitsel@redhat.com>, <nathan@kernel.org>,
+	<peterz@infradead.org>, <yi.l.liu@intel.com>, <mshavit@google.com>,
+	<praan@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
+	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>
+Subject: Re: [PATCH v4 12/23] iommufd/driver: Add
+ iommufd_hw_queue_depend/undepend() helpers
+Message-ID: <aCbEXj2gHJ41+aXq@Asurada-Nvidia>
+References: <cover.1746757630.git.nicolinc@nvidia.com>
+ <3ee7d54d5368ac59822da214000fb25273de0508.1746757630.git.nicolinc@nvidia.com>
+ <20250515161254.GK382960@nvidia.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250515161254.GK382960@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM8PR03MB6230:EE_|SJ2PR03MB7093:EE_
-X-MS-Office365-Filtering-Correlation-Id: e26f84ba-0789-4d6c-2203-08dd943021d6
-X-MS-Exchange-AtpMessageProperties: SA
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000ECDA:EE_|SA5PPF6CDAEAF48:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9e86518e-698d-4973-42c0-08dd94356616
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?fhQmMGrYbhYHR4zmRWnz2/F2UNatLdYPWaRUhwsZo4K6ueLSCcJYT4cuIJpO?=
- =?us-ascii?Q?cIDJxwVBNxsSzD0YiIKwNwGOyjy/5u8uHeMHl4M+185GOfZv3SVvtKwZ5i0F?=
- =?us-ascii?Q?jVXhWYfen3khfAspjmA/vdTTSE0C43QnygEdoR5YXnY80dzsWw4o9tDxTYA3?=
- =?us-ascii?Q?EcnJvPIsYk5fjZEDrgC48ytm+jQIjil4nRkDOsrkrCoHKLL/zeIjJekdh++K?=
- =?us-ascii?Q?Q62tErOFsoQQeJ8IJZX/Dxqeow6jfF78QSQW3dNiCDc2SWNYtDBid8vv8+PY?=
- =?us-ascii?Q?0b7F1yxSwqjOZ6x0cIkd7zZ/hjynt2L3+UX30i/lJao/ccad9MeRhcfvz6u+?=
- =?us-ascii?Q?/7mtnzqPYaZq3HJeM1pVSeMbwfdsBOPVNkE/KxhJPr39B7dzbbPDF0DsPbY9?=
- =?us-ascii?Q?W+oGEmXmqotYpLGbtljYH0k+22uZ9/uhW1TUz4b0zeQe8/iaMcw3RQNAjJLx?=
- =?us-ascii?Q?2r9FQArkTi54d6zUM7iVaX0rWT9rVqolfWlQZgoY23cSj9a24Y/FbXC93/mo?=
- =?us-ascii?Q?UmnhtNeikOtKRzslNrtQ1IKNE+KTLDHlY3OjxuPDQSuPxIfwQPNWP131fQWF?=
- =?us-ascii?Q?g3O1OInXgD03IwkdlOjJrVt7qWClDzSX4e55KLp4GMING5dj3FLZP0h9ErPr?=
- =?us-ascii?Q?GJuhS7fnydXQvnfyYMKnHjDRjQriJaTd4qFgVUsDbGHSyeGbOv2tew7mnWcJ?=
- =?us-ascii?Q?0kOQTKi0rqafk+NRBGu9VyQxMKHaU+6eWVQE81p5FM/FLzz3RBM+NkBWOO/I?=
- =?us-ascii?Q?PvJBID7DJR0pm4z9OmxpF/3lHQSHSG2iM6cx3Qta2pN2nEk6+Tsc9dQBNHpz?=
- =?us-ascii?Q?nvNfSSl+43ucl6ddi7Ux4svxJNMNEDCsaaqOpIkrSEZNbudMGsMgaxZw5TLT?=
- =?us-ascii?Q?nmdurSfVnNawwK6+kyuGZLc2S8Rg4HX8oSI4K+lmXXdgidiCmQMB1i1HZWLc?=
- =?us-ascii?Q?dV48XAkqVRFlzSgoqCW1Qn4xnQOq8p7EfXn6h80kHyg3uA6Kn2ElWTgn0RiD?=
- =?us-ascii?Q?rWXNPl2JAtkqvQ+50g60jobK3DonHUQJWv+rwEcJr8rY1CW8uKE7ADGFuIa3?=
- =?us-ascii?Q?DllW3/+4aeh17xtypIQDCq2J6PnOGzseFTZW7U5G4NUyatJORtvp+L1GcTJP?=
- =?us-ascii?Q?ESqaQ9MrHi/I2jjTpxOb/7qeqcYKScPnuQHGIgWYbDFltkV/lFDyZe5g8AJp?=
- =?us-ascii?Q?XIA9V5hq2KkArqjLTdMdr3Vye4mu7CNvpZLa0oXMyu7ikH0qiOyHp6ivET6t?=
- =?us-ascii?Q?2mCIvhMy+L5tuivKmxddroqEn98Ey+zPQDdrtrAIfZQwq5aEfrz6n045pFSu?=
- =?us-ascii?Q?hyvYOVkPRSp0iJJKMmXRVJ+zfC6vTsaz0FFpKldy318hkUUnMfKSD1T2BFJ5?=
- =?us-ascii?Q?vcQjc5Kq/MhyNw54LZ+B7Ts7f6DY/kDFUs/YBulb6kwE3cIBa40vmrMFynWM?=
- =?us-ascii?Q?t88QCbxNuJ0=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM8PR03MB6230.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hL82ehgOnuYHGg5jylo/zc/R1akKGcD2QUxvBZFfYEdYlBcxjoZEjGSNf/Ri?=
- =?us-ascii?Q?4zHxlvlkn8LX0dsi0sXZrOB74HEFn5TjluOAvDl9OlO8q2JDetnLsMkz0CzC?=
- =?us-ascii?Q?qlCi0TBe99S4uuz6pRdHEe1agXPc6wZpNkVUQGZ7zhwjMDuiqUzo9/BFi6Vi?=
- =?us-ascii?Q?njs+RagslFW2jIAFy6BYHwbw6FYerYtJDyhIGfIfo7TRS0Y/B8BxjnSVfV9q?=
- =?us-ascii?Q?V37xp7SEQUNCITLWx3UZkIy+BAu2UK1xlUIJ+shTBdlaY1CwFYdpV/OKKkwR?=
- =?us-ascii?Q?JhZ9qXpRO17rEJ3IJ4FC68TFreGI1BHoAH8asL/ZFrnS6goNzMc9b42RCdNf?=
- =?us-ascii?Q?L6v84QmDvaf192u0LULjLkEphvaqcupZKAwo89G1p2GPOIHyn/BwiokIAc/5?=
- =?us-ascii?Q?qPh4cWa40gWhTeuebz+HUh0IBQLSm5i5WZRKKN4OUmwo4LLZfbMeHcNv9952?=
- =?us-ascii?Q?XW6lDPNAgjm0DJL48K/IHCLqbJa1t3ZhAAQevpEdxDzS+l3IpOWtACc9QEwv?=
- =?us-ascii?Q?y52t9GbFberEWDkba42PAuklxJBCt8HnOB2a2YUuVih1+9OMkP0MfmMAOEhF?=
- =?us-ascii?Q?AvBrndBcA7MZ1S2Vuz8GQ0mrGUt2M8ZQ8WcPA2cO9vc4UyVsZnjgdhjbbnyv?=
- =?us-ascii?Q?uqLHLSzaARDUqapf9QynEztCFXiYZwwQ1dYoeYnAJeekfMVseLgihTJGwUcD?=
- =?us-ascii?Q?Hsm0BYYnk7kozwqbLoIIj79JkHbVIY7APgDdlU24YFKnIyTpZZe0xmMYoJF6?=
- =?us-ascii?Q?i6/rbPu1hftTTxM0mQN2edF3SdhE7W/W6pe23+y3wqFwUzLMO9E1cApEJab9?=
- =?us-ascii?Q?Fp96wgB+TX15ruqbrvWHAUMdF+ffPSivDvXaaP5EFJ7ekTFSZ22nZ/TWLsUT?=
- =?us-ascii?Q?o3vEoIThXMWI4A6n6PfH8tWGCDhJzZnE9Alg/R2vf76AfH/dlpbAgFzd5nZu?=
- =?us-ascii?Q?N2DDLcYo/iCgXhUMe8CXKpPZLIvWrUV3j3K9myKH4K4ih2S3GoE5/4WGECbq?=
- =?us-ascii?Q?EF+gg5uuQqQDOARZXqTIJI81B5YVeKbEmgiXv2EI8A//hcNMYguYXm9ndkrH?=
- =?us-ascii?Q?LmlUPgqXfihuAJbioVE0nXIBSGfnUYffJPBKEJ21whH25Xn8MW/KU3biIxQ+?=
- =?us-ascii?Q?LWhus4oXRL4rhLD6vcKZ2xoHTj/dr8TjVnRhuhpjnllISyo1zSIb9PsgqtIa?=
- =?us-ascii?Q?ck4pBHf8wy8tNIkqO2lRGJskfrW8fdTvKnsG7tH4EnwNbLBIqcvF5+k648vg?=
- =?us-ascii?Q?knha8PtU8flBH7M58Yo6FdEKvQsuoeyyLi43riI2IagqLQxJbKm9yv+jNScI?=
- =?us-ascii?Q?ML7KtuxUnUhGxmbjRWD1Z0IxgHGLZN8Rj040O9nIsV1+BaqG8a1cy/IMnEOa?=
- =?us-ascii?Q?c4nQ1+1C3cb1AEgFYcd+KHfRXhuDyrevx2EyEZuspO1xKqAVm8/1ZMu0Alhd?=
- =?us-ascii?Q?dmq7ziF5B8DCfwtgiN3KZOpuNwUpy3UeHTGcc3im2nDxkXGd4dWhOoH9wDaJ?=
- =?us-ascii?Q?AXPrE8vFDU0baVGvT1ReL+8sptbZV5Gru5+NPkyz88lM61ZUxTHsxzIr8h02?=
- =?us-ascii?Q?qxowPVBshwdSF+bDpiZL9EnoZcZlvvloZ8DuwmtvkrAgWMIuFrPmIrBSRSZk?=
- =?us-ascii?Q?3g=3D=3D?=
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e26f84ba-0789-4d6c-2203-08dd943021d6
-X-MS-Exchange-CrossTenant-AuthSource: DM8PR03MB6230.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 May 2025 04:14:20.4341
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4wIBXN4RCT3XMgbdIE1qw8RtIElKtE68yS9Ic/9lKXfKbHCHeFHSPDB/Yz1U?=
+ =?us-ascii?Q?clwRBlUxSjmEng+0w81h+dYiZGfVRe3Jm0bsUYjQ0SoMr6CQR8Q35843CiAz?=
+ =?us-ascii?Q?32pO05R8QtRcWFZeTr+mTAdePKZnjJABVcJcUV+h7qIv66G7uo6fneZi0iaf?=
+ =?us-ascii?Q?c/AxJQKAaqMj6eF+X+nBfwMO4KZd3FVKV2uEfOqkm/UdDuYZX0aGTEw9klh1?=
+ =?us-ascii?Q?VKyX0YwEEAfudjVvl86naz9bsreKlFkUhNnWwpaJppNw3ahSeHzKrbgsfqEu?=
+ =?us-ascii?Q?yS0GNlq/wUIGj4tqVEGKS+ND3ydwkShIx5FNECXt8R2HMNO3d9AjymzOoHTw?=
+ =?us-ascii?Q?/NOizyUNanLqArpOLSZ1DbjY2mRaHkq5IIytXm9roqH2AUotrJsGiheNbodh?=
+ =?us-ascii?Q?fMM3RFE2nZCLxh62rPL3uJfANaynrD7mEdzfon60Vk6M4lgU+aNx+aNpsmj0?=
+ =?us-ascii?Q?tV8hSTr3Lzn4nekuMy0uSFPYOWr/BbcxWo8vevMUL/n12x1fKclP18ZGsmmU?=
+ =?us-ascii?Q?A6P0QirnTK2Sq2TLQCJqUQ8uqoWxGhtFTe82GRxa1kCYE2dCZhQ7mpIENhsn?=
+ =?us-ascii?Q?zF24yY/PJ7vUr440B+7tIYNdiF+vE+eMIYB0J9vMLHy/6QifkxMlQYU74ues?=
+ =?us-ascii?Q?+ElkpLwwpeAJy6fdQdN8zbD9uWV6ivhwaZfJhsVVAJcXMzzJpIat90gCGLny?=
+ =?us-ascii?Q?+YmNnUrltQlFH7Uc6VMYy8KvsmY/SAARYzESVTMxQV2/XNHM+Kx2RhahUWSz?=
+ =?us-ascii?Q?H/WpGjL0JTMh8raBMe7dl5EgVk7CQV3sVbCZWKppyTQT09z07UmPky2RW/KU?=
+ =?us-ascii?Q?XlO3o7AS/WWFGtOOA195fJdfJSQLVGHcsoVM/OaiYIiAg3y92I4ODQZYu+I+?=
+ =?us-ascii?Q?wv/pzD65WCOCsEu3A+q7HRAAuhoZ8j2uTZFXQZC2xbfFRDXia9yGTxJo69hv?=
+ =?us-ascii?Q?7hE3Rru3sgImegrSsWCtU66UOf+zFiRd3Y/4Wv4ZqkYMdfSw1SfcdkZHIXDe?=
+ =?us-ascii?Q?ysmtT1jxU7cQ57W1SRHT1SNkbFGpOnmhyDW6CEj7Fy9XH9fUyyDJqqhS4Dwt?=
+ =?us-ascii?Q?j+KvcXM3slRC+9CtRKOAXOo5y7byBglbJMgBsC4Gy0749pGTiG29kFtmh1ut?=
+ =?us-ascii?Q?DJxITB96Bi5aHXeb/W2VCiLNVJRLocbmPwi6t7uQdJlB3DxhlCvKdxgv1E65?=
+ =?us-ascii?Q?mxlLoU2YoQF2ud3b/2SbTGL/NW8eVv7ibhWs9A3ZRa0i73mqq2R+koZr37os?=
+ =?us-ascii?Q?nbaaWVxWL3mNJAh/YZnFJzhNWLBNXnaVcYo2NweiUG3agzBZPeTEwr2FRDYY?=
+ =?us-ascii?Q?m4D+p73ndZY04kJdd1Td/LLLyHPj+PR3EBVFXxQ01adNTk+JxQyqwkmbmd7O?=
+ =?us-ascii?Q?lPwvM32mr/8qJFxxYS7jS75dr9lXJux241tBllIOg0NqKn1tiH8LeMSDgNKj?=
+ =?us-ascii?Q?Ia0jMcIrV8TiBA9b0Ga1hT9geUkJSwKF+DVq/8Uf2ilvqooh+yIz4fITGj0p?=
+ =?us-ascii?Q?9AOA5s7a0LW+Nd1HmbTbClx8kbOJv8JMAMm8?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 May 2025 04:52:02.1265
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: REhVlRMJe5LPPY561uaSXhfiKxr1vWxJ2K8HLPnZBeKFm5FrITEevcdaeqOGXcsXodGvSxjVa7AP50nfKMuGylbB+e3dM1XNjRVatdqlAWI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR03MB7093
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9e86518e-698d-4973-42c0-08dd94356616
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000ECDA.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA5PPF6CDAEAF48
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_211424_650647_8AC05F8D 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20250515_215211_848748_90BB3CB9 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,111 +160,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Adrian Ng Ho Yin <adrianhoyin.ng@altera.com>
+On Thu, May 15, 2025 at 01:12:54PM -0300, Jason Gunthorpe wrote:
+> On Thu, May 08, 2025 at 08:02:33PM -0700, Nicolin Chen wrote:
+> 
+> > +/*
+> > + * Helpers for IOMMU driver to build/destroy a dependency between two sibling
+> > + * structures created by one of the allocators above
+> > + */
+> > +#define iommufd_hw_queue_depend(dependent, depended, member)                   \
+> > +	({                                                                     \
+> > +		static_assert(__same_type(struct iommufd_hw_queue,             \
+> > +					  dependent->member));                 \
+> > +		static_assert(offsetof(typeof(*dependent), member.obj) == 0);  \
+> > +		static_assert(__same_type(struct iommufd_hw_queue,             \
+> > +					  depended->member));                  \
+> > +		static_assert(offsetof(typeof(*depended), member.obj) == 0);   \
+> > +		_iommufd_object_depend(&dependent->member.obj,                 \
+> > +				       &depended->member.obj);                 \
+> > +	})
+> 
+> This doesn't need the offsetof == 0 checks, it isn't an allocator. And
+> you want to check that the two structs have the same type:
+> 
+> static_assert(__same_type(struct iommufd_hw_queue, dependent->member));
+> static_assert(__same_type(typeof(*dependent), *dependend));
 
-Add quirk to support limited address bus size by allocating buffers within
-a 32bit address range.
+Ack. I also added ictx comparison:
 
-Signed-off-by: Adrian Ng Ho Yin <adrianhoyin.ng@altera.com>
-Reviewed-by: Matthew Gerlach <matthew.gerlach@altrera.com>
----
- drivers/irqchip/irq-gic-v3-its.c | 23 +++++++++++++++++++----
- 1 file changed, 19 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 0115ad6c8259..7ce40b4bd189 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -54,6 +54,7 @@
- #define RD_LOCAL_MEMRESERVE_DONE                BIT(2)
- 
- static u32 lpi_id_bits;
-+static bool dma_32bit_flag;
- 
- /*
-  * We allocate memory for PROPBASE to cover 2 ^ lpi_id_bits LPIs to
-@@ -2385,6 +2386,7 @@ static int its_setup_baser(struct its_node *its, struct its_baser *baser,
- 	u32 alloc_pages, psz;
- 	struct page *page;
- 	void *base;
-+	gfp_t flags = GFP_KERNEL | __GFP_ZERO;
- 
- 	psz = baser->psz;
- 	alloc_pages = (PAGE_ORDER_TO_SIZE(order) / psz);
-@@ -2396,7 +2398,10 @@ static int its_setup_baser(struct its_node *its, struct its_baser *baser,
- 		order = get_order(GITS_BASER_PAGES_MAX * psz);
- 	}
- 
--	page = its_alloc_pages_node(its->numa_node, GFP_KERNEL | __GFP_ZERO, order);
-+	if (dma_32bit_flag)
-+		flags |= GFP_DMA32;
++#define iommufd_hw_queue_depend(dependent, depended, member)                   \
++       ({                                                                     \
++               int ret = -EINVAL;                                             \
++                                                                              \
++               static_assert(__same_type(struct iommufd_hw_queue,             \
++                                         dependent->member));                 \
++               static_assert(__same_type(typeof(*dependent), *depended));     \
++               if (!WARN_ON_ONCE(dependent->member.ictx !=                    \
++                                 depended->member.ictx))                      \
++                       ret = _iommufd_object_depend(&dependent->member.obj,   \
++                                                    &depended->member.obj);   \
++               ret;                                                           \
++       })
 +
-+	page = alloc_pages_node(its->numa_node, flags, order);
- 	if (!page)
- 		return -ENOMEM;
- 
-@@ -3367,6 +3372,7 @@ static bool its_alloc_table_entry(struct its_node *its,
- 	struct page *page;
- 	u32 esz, idx;
- 	__le64 *table;
-+	gfp_t flags = GFP_KERNEL | __GFP_ZERO;
- 
- 	/* Don't allow device id that exceeds single, flat table limit */
- 	esz = GITS_BASER_ENTRY_SIZE(baser->val);
-@@ -3382,7 +3388,10 @@ static bool its_alloc_table_entry(struct its_node *its,
- 
- 	/* Allocate memory for 2nd level table */
- 	if (!table[idx]) {
--		page = its_alloc_pages_node(its->numa_node, GFP_KERNEL | __GFP_ZERO,
-+		if (dma_32bit_flag)
-+			flags |= GFP_DMA32;
-+
-+		page = alloc_pages_node(its->numa_node, flags,
- 					    get_order(baser->psz));
- 		if (!page)
- 			return false;
-@@ -5227,9 +5236,13 @@ static int __init its_probe_one(struct its_node *its)
- 	struct page *page;
- 	u32 ctlr;
- 	int err;
-+	gfp_t flags = GFP_KERNEL | __GFP_ZERO;
- 
- 	its_enable_quirks(its);
- 
-+	if (dma_32bit_flag)
-+		flags |= GFP_DMA32;
-+
- 	if (is_v4(its)) {
- 		if (!(its->typer & GITS_TYPER_VMOVP)) {
- 			err = its_compute_its_list_map(its);
-@@ -5260,8 +5273,7 @@ static int __init its_probe_one(struct its_node *its)
- 		}
- 	}
- 
--	page = its_alloc_pages_node(its->numa_node,
--				    GFP_KERNEL | __GFP_ZERO,
-+	page = alloc_pages_node(its->numa_node, flags,
- 				    get_order(ITS_CMD_QUEUE_SZ));
- 	if (!page) {
- 		err = -ENOMEM;
-@@ -5577,6 +5589,8 @@ static int __init its_of_probe(struct device_node *node)
- 			continue;
- 		}
- 
-+		if (of_property_read_bool(np, "dma-32bit-quirk"))
-+			dma_32bit_flag = true;
- 
- 		its = its_node_init(&res, &np->fwnode, of_node_to_nid(np));
- 		if (!its)
-@@ -5811,6 +5825,7 @@ int __init its_init(struct fwnode_handle *handle, struct rdists *rdists,
- 	bool has_v4 = false;
- 	bool has_v4_1 = false;
- 	int err;
-+	dma_32bit_flag = false;
- 
- 	itt_pool = gen_pool_create(get_order(ITS_ITT_ALIGN), -1);
- 	if (!itt_pool)
--- 
-2.49.GIT
++#define iommufd_hw_queue_undepend(dependent, depended, member)                 \
++       ({                                                                     \
++               static_assert(__same_type(struct iommufd_hw_queue,             \
++                                         dependent->member));                 \
++               static_assert(__same_type(typeof(*dependent), *depended));     \
++               WARN_ON_ONCE(dependent->member.ictx != depended->member.ictx); \
++               _iommufd_object_undepend(&dependent->member.obj,               \
++                                        &depended->member.obj);               \
++       })
 
+Thanks
+Nicolin
 
