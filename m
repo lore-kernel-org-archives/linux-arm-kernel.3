@@ -4,134 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B2CC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 15:56:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40400C54756
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 15:56:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=echaWsMPgS84p2tKl50KjLXJo4dRcu5w0psGE99gbAM=; b=T7gMOTUCAJPbCnhmyux0TEpyoZ
-	5bo/ngPizSLFsD62NDbtuB32ASZJHEucMx3V2K28HVm76u3wtmef2la3Lsm0KhA0HVfLbtmfhVVWg
-	Y/HM9mDWiVVGBcy47lV5w6jJBAHOaSnj6pJ0fMGOaaPVheA1uA9utGv+uMKTN6ugov2jWG7ZeFKeE
-	4chrUki1p9ju8S2RoeVrUVurbuX0++gmhCsHHoFhhCrlQBSOicuqIIgiMu7bUhYw6hsv321W/Nk7a
-	Xxlb+GXbAD77PHxHaTLOvNPagnP8LtoikAviudps5Zxj68TWMDCmnxmfmu22eSyEezUEuPwGavsnT
-	5r92YNkw==;
+	bh=YtK7qFNtUWEuKnh+PHuLi6UhkA6KPFOVgyIBIkZ+PDU=; b=Lv/0zypC4tGtPpjg7n5ti/h+Xd
+	ilnS7FEcge5P40Rf44TNTYWgijzh1ri9/2cbgv5lpev2uwZwkktpOSOd2K2fEiie98tTBA8nBWt5o
+	JF9xPU626rimtpcl4dKJ7E14po7dbMtgi30JNQ5JzoqlfPSIzOWmiQSLmLpQMESzOxXpn/TLlc2a6
+	W54zF1riFXrz1F17Be2STn8/xbnNqyAGCRaw3v/0HLzykw6L12ySCfDTaELNwD9stvMvJrYCqnuid
+	A7pJ+9EB518nm/JCfBY/Z9vUOOK9e8X/s0Gfr1ChCMaie+yu9NJm0KK1zawd67cwq8Hc+iI/65nmF
+	HGuW6vhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFxQ8-00000003v7j-2HJF;
-	Fri, 16 May 2025 15:56:24 +0000
-Received: from mout.gmx.net ([212.227.15.18])
+	id 1uFxQF-00000003vE1-1CvB;
+	Fri, 16 May 2025 15:56:31 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFwrx-00000003pgH-0abu;
-	Fri, 16 May 2025 15:21:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1747408859; x=1748013659; i=wahrenst@gmx.net;
-	bh=echaWsMPgS84p2tKl50KjLXJo4dRcu5w0psGE99gbAM=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:
-	 References:Cc:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=JAVlELFPP+9MIMarxdcdDEkFyZo+DEM9kMQm3hLhTuEOQnl9ODaDIiOSSPr2cHrB
-	 EDVOk4xgs/e5SNTDeBvx/ABtKA8TZEX9EE/U8bo2d8pN899EuCFd1zv5tPF3oFQYM
-	 Sr8VpAFJIpYhoDymR/X/rsbCS8VBOhc+bj2IoDyaxbRMQ3dAHHXy59nCvEFgIvku+
-	 vaX4ygL/7T2EM6eRsAn3IvC0htq8CpuKhsVv+L84+sAtc+Y2ZXdFlFNHXbxMKe+dP
-	 Fd7+mfUcEoi4q0ljxp3uiTvoPIYiTQI8IUatLVh+BXvNJg26GfgCB6TvHPs3Qup/B
-	 vxW/2kd7wFmKLqkTXg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.103] ([91.41.216.208]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1N2mBa-1uz9VP1uKy-013gDB; Fri, 16
- May 2025 17:20:59 +0200
-Message-ID: <84336a0e-8758-4135-9e49-f8a106823964@gmx.net>
-Date: Fri, 16 May 2025 17:20:58 +0200
+	id 1uFwvH-00000003qF6-33Cr
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 May 2025 15:24:33 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-74237a74f15so3193303b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 08:24:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1747409071; x=1748013871; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YtK7qFNtUWEuKnh+PHuLi6UhkA6KPFOVgyIBIkZ+PDU=;
+        b=sd98b/jYpeLmxpAqLSGgPWJ7o8QMlgw61fSHul95SKi/jdJSSkN9Gg7br9F24gj/cn
+         CwzICpLbDvz7jc76ogKKJeucGIy2fgz51DgyiKj+pI3qOM+QeGt2HUEFO3B5+879D0jJ
+         e1uL5NC/EQJ18RmnUjqX6PeiLsFWJPVrOl3SGElQ6JIAwFoaTcYbgYGfCC/5dKj6dQzR
+         ZsQJPIb3CyD0/US2hwalsB9ePRkHG90/02FSpgpy6NO1HAkqAXgMNkmQlj8TYSo6BDed
+         CzBCOIplhXhMCFFbo8ceP0wn0BN0J1E/m2MMEUs1OaWJX1u/nsGdgC04v0zFczNHFfIr
+         gWvQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747409071; x=1748013871;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YtK7qFNtUWEuKnh+PHuLi6UhkA6KPFOVgyIBIkZ+PDU=;
+        b=YdNAeCGwo9mRL7NFJycEiHV+zrGOwIhd3L2s54qDHbTrF6fO4rMZrG9T/7VSkgTBGg
+         1pSCmEzss7RXdtzeeOg8Ifw1oZcC0vCQWFo08QlCjlzil2JzJBXrbfhXURWRfj5sV80Z
+         q1B7yeOtHmLkVvVTNyHybbVTsyGgIrKM9SEYgM2rsm8Qa6gTeXAN+BFQROUIXOnF2JEJ
+         gYRcN2vQf4KBviWe0ZSOGuA+h/V+jOFDUabiwzup776HS7Sw2DylhkHau/Kxo2jAdTW8
+         VkvUEIrQVe7Mor/HeVYYc509YQwi+psRGJKoMAhQ01YdBQqK6ZR93vbch2tCIQRLJY6e
+         sPmg==
+X-Forwarded-Encrypted: i=1; AJvYcCVvZ/4Uiqf0z/nx/yCfgAapnncMjnfG5DYKCknGG6P8PLEsAsqkIeMOD/Fd5xh535JPwIt6NRf86Fz06mTnfxmh@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywmjcc8bisQSse30HndBlfxwSw9YCgSOGtae3n3KH3fh/TePtNn
+	uut8xmIftCfE02rVMmeuqgnQ/pB+u6HZO0rlYrjc03XK2Evt4QqhfbRwiUneacu2Hmg=
+X-Gm-Gg: ASbGnctGTMwKf3Bf0uqwWp282LmcwbCcaToqgOG5GlfZqCBGd9bBVdiLBuB8UpkJiHh
+	4jQFTbiJvSPZrxKxX9i3IfzlyiPdyXGtJgmeYaqcSS8Dk4diheJA6TBKbcol0PKdpy24T80U/fU
+	zbuc5L4F0j84KjPITYrx36xdn1z92gG7DRqIMUabvAv1IJkyRQhaskn/coUDcQpyoye+Hl1Ouo+
+	JBR8EUslrWkQEypKDJKTFini+xeT7VDPl730jt5uAIUjY4lOiYYw0sagnAbVmn6agsBjl+QrZls
+	Oum9/o/LsQfUdmbQuD451eypOcDCxGipVr3aQcQkPbzxxFF3OkjbvXcr7U7P084=
+X-Google-Smtp-Source: AGHT+IEPb2CkS9eW8hWebbqfST2/jFMDgmMTTwCG6X9bBOczP0XiPKHLfjkQ/gmtmNVozao4oSdDLw==
+X-Received: by 2002:a05:6a00:6f57:b0:73d:b1ff:c758 with SMTP id d2e1a72fcca58-742a98abbecmr4911558b3a.18.1747409070996;
+        Fri, 16 May 2025 08:24:30 -0700 (PDT)
+Received: from carbon-x1.. ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-742a96def68sm1666997b3a.30.2025.05.16.08.24.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 May 2025 08:24:30 -0700 (PDT)
+From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Himanshu Chauhan <hchauhan@ventanamicro.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Xu Lu <luxu.kernel@bytedance.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v4 3/4] drivers: firmware: add riscv SSE support
+Date: Fri, 16 May 2025 17:23:41 +0200
+Message-ID: <20250516152355.560448-4-cleger@rivosinc.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250516152355.560448-1-cleger@rivosinc.com>
+References: <20250516152355.560448-1-cleger@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: Searching for firmware timeout cause
-To: Etienne Buira <etienne.buira@free.fr>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- Phil Elwell <phil@raspberrypi.com>
-References: <aCIiEp3CXD2o9dTw@Z926fQmE5jqhFMgp6>
- <048fd6c5-9f09-4c06-9a23-e5821dc291d5@gmx.net>
- <aCWMrJcldfrsNTQq@Z926fQmE5jqhFMgp6>
- <ffeb860f-5522-4130-ae47-45a6068b17ea@gmx.net>
- <aCW3d7tc27Awj62K@Z926fQmE5jqhFMgp6>
- <cecda824-4f47-4e4c-bee9-1a59cd5d801c@gmx.net>
- <aCXUeOmy28tqg6Oy@Z926fQmE5jqhFMgp6>
- <0703ff48-e781-49b6-8a8d-7cdbec73bb92@gmx.net>
- <aCZqVzM5h9lwbfpQ@Z926fQmE5jqhFMgp6>
- <77f25ee5-1079-4729-866c-cfdeeff1ad9a@gmx.net>
- <aCdOooM5a_zx6MO4@Z926fQmE5jqhFMgp6>
-Content-Language: en-US
-Cc: bcm-kernel-feedback-list@broadcom.com,
- linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <aCdOooM5a_zx6MO4@Z926fQmE5jqhFMgp6>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:N5GdmUkWp3qWyxrYo13MHhYZl8+9IYmyPEhadeg74yXZxa8xscR
- 4+ZW7lfDfh5+9L5ZfB/Hp656qWHKoQOZIfA3X1RQKgQWPNPomrDDLI4huhHIwoDLsne46MP
- AWVyFsYJmBvswHNMpBFMRO7R6HWkOmGVxqd0j2jhUnNvFerYdWAqmS4Kz4sKrvjgDs7/alf
- MF5RBPdpaG4Ya3mj+/IBg==
-UI-OutboundReport: notjunk:1;M01:P0:4y/UC9Kh7ro=;lUmvYGdPcVIXsCCGTTq9Uh+M32z
- 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
- y1p6qkNz4N82eE4h3FRMqFlWAz0E1g4=
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_082105_504534_FB3697AE 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20250516_082431_779420_2DC64B51 
+X-CRM114-Status: GOOD (  24.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,113 +106,883 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[add Phil & Raspberry Pi list, drop lkml]
+Add driver level interface to use RISC-V SSE arch support. This interface
+allows registering SSE handlers, and receive them. This will be used by
+PMU and GHES driver.
 
-Am 16.05.25 um 16:41 schrieb Etienne Buira:
-> On Fri, May 16, 2025 at 01:17:41PM +0200, Stefan Wahren wrote:
->> Am 16.05.25 um 00:27 schrieb Etienne Buira:
->>> Hi Stefan
->>>
->>> On Thu, May 15, 2025 at 07:48:04PM +0200, Stefan Wahren wrote:
->>>> Hi Etienne,
->>>>
->>>> Am 15.05.25 um 13:48 schrieb Etienne Buira:
->>>>> On Thu, May 15, 2025 at 12:31:38PM +0200, Stefan Wahren wrote:
->>>>>> Am 15.05.25 um 11:44 schrieb Etienne Buira:
->>>>>>> Hi Stefan, and thank you for your interest.
->>>>>>>
->>>>>>> On Thu, May 15, 2025 at 09:42:43AM +0200, Stefan Wahren wrote:
->>>>>>>> Hi Etienne,
->>>>>>>>
->>>>>>>> Am 15.05.25 um 08:41 schrieb Etienne Buira:
->>>>>>>>> On Wed, May 14, 2025 at 06:20:32PM +0200, Stefan Wahren wrote:
->>>>>>>>>> Hi Etienne,
->>>>>>>>>>
->>>>>>>>>> Am 12.05.25 um 18:30 schrieb Etienne Buira:
->>>>>>>>> ../..
->>>>>>>>>> Out of curiosity and because i never saw this issue, could you =
-please
->>>>>>>>>> provide more details?
->>>>>>>>>> There is nothing connected to HDMI 0 & 1 ?
->>>>>>>>>> Which firmware version are you running?
->>>>>>>> Please provide the dmesg output, so we can extract the firmware v=
-ersion.
->>>>>>> Firmware version is 2025-02-17T20:03:07, i also attach the full gz=
-ipped
->>>>>>> dmesg, as long as a patch of extra traces used.
->>>>>>> I did not specifically test other firmware versions for the timeou=
-t
->>>>>>> issue (but i did for video output).
->>>>>> Thanks, i'll try to reproduce.
->>>>>>
->>>>>> Sorry, i forgot but is this reproducible with a recent stable 6.12.=
-x kernel?
->>>>> Just reproduced with pristine 6.12.28.
->>>>>
->>>> okay, i've update the firmware on my older Raspberry Pi 4 to the same
->>>> version as yours. But even with your configuration i don't see this k=
-ind
->>>> of fallout. So I think we shouldn't apply this patch until we really
->>>> know what's going on.
->>> Ok, thank you, did you make sure a powered hdmi sink were connected? I
->>> noticed there is no timeout if no hdmi is plugged (but there were when
->>> monitor were powered off, maybe specific to my monitor).
->> Yes, HDMI monitor was connected to HDMI 0 and powered on. Raspberry Pi
->> OS started as expected.
->>
->> The fact that your SDIO interface triggers a warning, which I also don'=
-t
->> get let me think this is not just related to HDMI interface.
->>
->> [=C2=A0=C2=A0=C2=A0 3.603736] mmc0: sdhci: =3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D SDHCI REGISTER DUMP =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->> [=C2=A0=C2=A0=C2=A0 3.603739] mmc0: sdhci: Sys addr:=C2=A0 0x00000000 |=
- Version: 0x00009902
->> [=C2=A0=C2=A0=C2=A0 3.646852] mmc0: sdhci: Blk size:=C2=A0 0x00000000 |=
- Blk cnt: 0x00000000
->> [=C2=A0=C2=A0=C2=A0 3.646856] mmc0: sdhci: Argument:=C2=A0 0x00000000 |=
- Trn mode: 0x00000000
->> [=C2=A0=C2=A0=C2=A0 3.646859] mmc0: sdhci: Present:=C2=A0=C2=A0 0x01ff0=
-001 | Host ctl: 0x00000000
->> [=C2=A0=C2=A0=C2=A0 3.665697] mmc0: sdhci: Power:=C2=A0=C2=A0=C2=A0=C2=
-=A0 0x0000000f | Blk gap: 0x00000000
->> [=C2=A0=C2=A0=C2=A0 3.672214] mmc0: sdhci: Wake-up:=C2=A0=C2=A0 0x00000=
-000 | Clock: 0x00003947
->> [=C2=A0=C2=A0=C2=A0 3.678736] mmc0: sdhci: Timeout:=C2=A0=C2=A0 0x00000=
-000 | Int stat: 0x00000000
->> [=C2=A0=C2=A0=C2=A0 3.685254] mmc0: sdhci: Int enab:=C2=A0 0x00ff0003 |=
- Sig enab: 0x00ff0003
->> [=C2=A0=C2=A0=C2=A0 3.685257] mmc0: sdhci: ACmd stat: 0x00000000 | Slot=
- int: 0x00000000
->> [=C2=A0=C2=A0=C2=A0 3.685260] mmc0: sdhci: Caps:=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 0x00000000 | Caps_1: 0x00000000
->> [=C2=A0=C2=A0=C2=A0 3.712672] mmc0: sdhci: Cmd:=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 0x00000000 | Max curr: 0x00000001
->> [=C2=A0=C2=A0=C2=A0 3.719186] mmc0: sdhci: Resp[0]:=C2=A0=C2=A0 0x00000=
-000 | Resp[1]: 0x00000000
->> [=C2=A0=C2=A0=C2=A0 3.725708] mmc0: sdhci: Resp[2]:=C2=A0=C2=A0 0x00000=
-000 | Resp[3]: 0x00000000
->> [=C2=A0=C2=A0=C2=A0 3.732230] mmc0: sdhci: Host ctl2: 0x00000000
->> [=C2=A0=C2=A0=C2=A0 3.736724] mmc0: sdhci: =3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->> [=C2=A0=C2=A0=C2=A0 3.819205] mmc0: new high speed SDIO card at address=
- 0001
-> Hi Stefan
->
-> I think this warning is because there is nothing in SD slot (i boot from
-> usb).
-Okay, this was the reason why i wasn't able to reproduce. I usually boot=
-=20
-from SD card.
+Signed-off-by: Himanshu Chauhan <hchauhan@ventanamicro.com>
+Co-developed-by: Himanshu Chauhan <hchauhan@ventanamicro.com>
+Signed-off-by: Clément Léger <cleger@rivosinc.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ MAINTAINERS                        |  15 +
+ drivers/firmware/Kconfig           |   1 +
+ drivers/firmware/Makefile          |   1 +
+ drivers/firmware/riscv/Kconfig     |  15 +
+ drivers/firmware/riscv/Makefile    |   3 +
+ drivers/firmware/riscv/riscv_sse.c | 696 +++++++++++++++++++++++++++++
+ include/linux/riscv_sse.h          |  59 +++
+ 7 files changed, 790 insertions(+)
+ create mode 100644 drivers/firmware/riscv/Kconfig
+ create mode 100644 drivers/firmware/riscv/Makefile
+ create mode 100644 drivers/firmware/riscv/riscv_sse.c
+ create mode 100644 include/linux/riscv_sse.h
 
-After connecting my USB SD card reader to a USB 3.0 port (not USB 2.0=20
-port), I'm able to reproduce the firmware "timeout".
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 3563492e4eba..ae21147bf71d 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20892,6 +20892,13 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux.git
+ F:	Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
+ F:	drivers/iommu/riscv/
+ 
++RISC-V FIRMWARE DRIVERS
++M:	Conor Dooley <conor@kernel.org>
++L:	linux-riscv@lists.infradead.org
++S:	Maintained
++T:	git git://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git
++F:	drivers/firmware/riscv/*
++
+ RISC-V MICROCHIP FPGA SUPPORT
+ M:	Conor Dooley <conor.dooley@microchip.com>
+ M:	Daire McNamara <daire.mcnamara@microchip.com>
+@@ -20956,6 +20963,14 @@ F:	arch/riscv/boot/dts/spacemit/
+ N:	spacemit
+ K:	spacemit
+ 
++RISC-V SSE DRIVER
++M:	Clément Léger <cleger@rivosinc.com>
++R:	Himanshu Chauhan <himanshu@thechauhan.dev>
++L:	linux-riscv@lists.infradead.org
++S:	Maintained
++F:	drivers/firmware/riscv/riscv_sse.c
++F:	include/linux/riscv_sse.h
++
+ RISC-V THEAD SoC SUPPORT
+ M:	Drew Fustini <drew@pdp7.com>
+ M:	Guo Ren <guoren@kernel.org>
+diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
+index aadc395ee168..fe72e705067c 100644
+--- a/drivers/firmware/Kconfig
++++ b/drivers/firmware/Kconfig
+@@ -278,6 +278,7 @@ source "drivers/firmware/meson/Kconfig"
+ source "drivers/firmware/microchip/Kconfig"
+ source "drivers/firmware/psci/Kconfig"
+ source "drivers/firmware/qcom/Kconfig"
++source "drivers/firmware/riscv/Kconfig"
+ source "drivers/firmware/samsung/Kconfig"
+ source "drivers/firmware/smccc/Kconfig"
+ source "drivers/firmware/tegra/Kconfig"
+diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
+index 4ddec2820c96..6cdd84570ea7 100644
+--- a/drivers/firmware/Makefile
++++ b/drivers/firmware/Makefile
+@@ -34,6 +34,7 @@ obj-y				+= efi/
+ obj-y				+= imx/
+ obj-y				+= psci/
+ obj-y				+= qcom/
++obj-y				+= riscv/
+ obj-y				+= samsung/
+ obj-y				+= smccc/
+ obj-y				+= tegra/
+diff --git a/drivers/firmware/riscv/Kconfig b/drivers/firmware/riscv/Kconfig
+new file mode 100644
+index 000000000000..8056ed3262d9
+--- /dev/null
++++ b/drivers/firmware/riscv/Kconfig
+@@ -0,0 +1,15 @@
++# SPDX-License-Identifier: GPL-2.0-only
++menu "Risc-V Specific firmware drivers"
++depends on RISCV
++
++config RISCV_SSE
++	bool "Enable SBI Supervisor Software Events support"
++	depends on RISCV_SBI
++	default y
++	help
++	  The Supervisor Software Events support allow the SBI to deliver
++	  NMI-like notifications to the supervisor mode software. When enable,
++	  this option provides support to register callbacks on specific SSE
++	  events.
++
++endmenu
+diff --git a/drivers/firmware/riscv/Makefile b/drivers/firmware/riscv/Makefile
+new file mode 100644
+index 000000000000..4ccfcbbc28ea
+--- /dev/null
++++ b/drivers/firmware/riscv/Makefile
+@@ -0,0 +1,3 @@
++# SPDX-License-Identifier: GPL-2.0
++
++obj-$(CONFIG_RISCV_SSE)		+= riscv_sse.o
+diff --git a/drivers/firmware/riscv/riscv_sse.c b/drivers/firmware/riscv/riscv_sse.c
+new file mode 100644
+index 000000000000..05e4bc8dfa99
+--- /dev/null
++++ b/drivers/firmware/riscv/riscv_sse.c
+@@ -0,0 +1,696 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2024 Rivos Inc.
++ */
++
++#define pr_fmt(fmt) "sse: " fmt
++
++#include <linux/cpu.h>
++#include <linux/cpuhotplug.h>
++#include <linux/cpu_pm.h>
++#include <linux/hardirq.h>
++#include <linux/list.h>
++#include <linux/percpu-defs.h>
++#include <linux/reboot.h>
++#include <linux/riscv_sse.h>
++#include <linux/slab.h>
++
++#include <asm/sbi.h>
++#include <asm/sse.h>
++
++struct sse_event {
++	struct list_head list;
++	u32 evt_id;
++	u32 priority;
++	sse_event_handler *handler;
++	void *handler_arg;
++	/* Only valid for global events */
++	unsigned int cpu;
++
++	union {
++		struct sse_registered_event *global;
++		struct sse_registered_event __percpu *local;
++	};
++};
++
++static int sse_hp_state;
++static bool sse_available;
++static DEFINE_SPINLOCK(events_list_lock);
++static LIST_HEAD(events);
++static DEFINE_MUTEX(sse_mutex);
++
++struct sse_registered_event {
++	struct sse_event_arch_data arch;
++	struct sse_event *event;
++	unsigned long attr_buf;
++	bool is_enabled;
++};
++
++void sse_handle_event(struct sse_event_arch_data *arch_event,
++		      struct pt_regs *regs)
++{
++	int ret;
++	struct sse_registered_event *reg_evt =
++		container_of(arch_event, struct sse_registered_event, arch);
++	struct sse_event *evt = reg_evt->event;
++
++	ret = evt->handler(evt->evt_id, evt->handler_arg, regs);
++	if (ret)
++		pr_warn("event %x handler failed with error %d\n", evt->evt_id,
++			ret);
++}
++
++static struct sse_event *sse_event_get(u32 evt)
++{
++	struct sse_event *event = NULL, *tmp;
++
++	scoped_guard(spinlock, &events_list_lock) {
++		list_for_each_entry(tmp, &events, list) {
++			if (tmp->evt_id == evt)
++				return event;
++		}
++	}
++
++	return NULL;
++}
++
++static phys_addr_t sse_event_get_phys(struct sse_registered_event *reg_evt,
++				      void *addr)
++{
++	phys_addr_t phys;
++
++	if (sse_event_is_global(reg_evt->event->evt_id))
++		phys = virt_to_phys(addr);
++	else
++		phys = per_cpu_ptr_to_phys(addr);
++
++	return phys;
++}
++
++static struct sse_registered_event *sse_get_reg_evt(struct sse_event *event)
++{
++	if (sse_event_is_global(event->evt_id))
++		return event->global;
++	else
++		return per_cpu_ptr(event->local, smp_processor_id());
++}
++
++static int sse_sbi_event_func(struct sse_event *event, unsigned long func)
++{
++	struct sbiret ret;
++	u32 evt = event->evt_id;
++	struct sse_registered_event *reg_evt = sse_get_reg_evt(event);
++
++	ret = sbi_ecall(SBI_EXT_SSE, func, evt, 0, 0, 0, 0, 0);
++	if (ret.error)
++		pr_debug("Failed to execute func %lx, event %x, error %ld\n",
++			 func, evt, ret.error);
++
++	if (func == SBI_SSE_EVENT_DISABLE)
++		reg_evt->is_enabled = false;
++	else if (func == SBI_SSE_EVENT_ENABLE)
++		reg_evt->is_enabled = true;
++
++	return sbi_err_map_linux_errno(ret.error);
++}
++
++int sse_event_disable_local(struct sse_event *event)
++{
++	return sse_sbi_event_func(event, SBI_SSE_EVENT_DISABLE);
++}
++
++int sse_event_enable_local(struct sse_event *event)
++{
++	return sse_sbi_event_func(event, SBI_SSE_EVENT_ENABLE);
++}
++
++static int sse_event_attr_get_no_lock(struct sse_registered_event *reg_evt,
++				      unsigned long attr_id, unsigned long *val)
++{
++	struct sbiret sret;
++	u32 evt = reg_evt->event->evt_id;
++	unsigned long phys;
++
++	phys = sse_event_get_phys(reg_evt, &reg_evt->attr_buf);
++
++	sret = sbi_ecall(SBI_EXT_SSE, SBI_SSE_EVENT_ATTR_READ, evt,
++				     attr_id, 1, phys, 0, 0);
++	if (sret.error) {
++		pr_debug("Failed to get event %x attr %lx, error %ld\n", evt,
++			 attr_id, sret.error);
++		return sbi_err_map_linux_errno(sret.error);
++	}
++
++	*val = reg_evt->attr_buf;
++
++	return 0;
++}
++
++static int sse_event_attr_set_nolock(struct sse_registered_event *reg_evt,
++				     unsigned long attr_id, unsigned long val)
++{
++	struct sbiret sret;
++	u32 evt = reg_evt->event->evt_id;
++	unsigned long phys;
++
++	reg_evt->attr_buf = val;
++	phys = sse_event_get_phys(reg_evt, &reg_evt->attr_buf);
++
++	sret = sbi_ecall(SBI_EXT_SSE, SBI_SSE_EVENT_ATTR_WRITE, evt,
++				     attr_id, 1, phys, 0, 0);
++	if (sret.error) {
++		pr_debug("Failed to set event %x attr %lx, error %ld\n", evt,
++			 attr_id, sret.error);
++		return sbi_err_map_linux_errno(sret.error);
++	}
++
++	return 0;
++}
++
++static int sse_event_set_target_cpu_nolock(struct sse_event *event,
++					   unsigned int cpu)
++{
++	unsigned int hart_id = cpuid_to_hartid_map(cpu);
++	struct sse_registered_event *reg_evt = event->global;
++	u32 evt = event->evt_id;
++	bool was_enabled;
++	int ret;
++
++	if (!sse_event_is_global(evt))
++		return -EINVAL;
++
++	was_enabled = reg_evt->is_enabled;
++	if (was_enabled)
++		sse_event_disable_local(event);
++	do {
++		ret = sse_event_attr_set_nolock(reg_evt,
++						SBI_SSE_ATTR_PREFERRED_HART,
++						hart_id);
++	} while (ret == -EINVAL);
++
++	if (ret == 0)
++		event->cpu = cpu;
++
++	if (was_enabled)
++		sse_event_enable_local(event);
++
++	return 0;
++}
++
++int sse_event_set_target_cpu(struct sse_event *event, unsigned int cpu)
++{
++	int ret;
++
++	scoped_guard(mutex, &sse_mutex) {
++		cpus_read_lock();
++
++		if (!cpu_online(cpu))
++			return -EINVAL;
++
++		ret = sse_event_set_target_cpu_nolock(event, cpu);
++
++		cpus_read_unlock();
++	}
++
++	return ret;
++}
++
++static int sse_event_init_registered(unsigned int cpu,
++				     struct sse_registered_event *reg_evt,
++				     struct sse_event *event)
++{
++	reg_evt->event = event;
++	arch_sse_init_event(&reg_evt->arch, event->evt_id, cpu);
++
++	return 0;
++}
++
++static void sse_event_free_registered(struct sse_registered_event *reg_evt)
++{
++	arch_sse_free_event(&reg_evt->arch);
++}
++
++static int sse_event_alloc_global(struct sse_event *event)
++{
++	int err;
++	struct sse_registered_event *reg_evt;
++
++	reg_evt = kzalloc(sizeof(*reg_evt), GFP_KERNEL);
++	if (!reg_evt)
++		return -ENOMEM;
++
++	event->global = reg_evt;
++	err = sse_event_init_registered(smp_processor_id(), reg_evt, event);
++	if (err)
++		kfree(reg_evt);
++
++	return err;
++}
++
++static int sse_event_alloc_local(struct sse_event *event)
++{
++	int err;
++	unsigned int cpu, err_cpu;
++	struct sse_registered_event *reg_evt;
++	struct sse_registered_event __percpu *reg_evts;
++
++	reg_evts = alloc_percpu(struct sse_registered_event);
++	if (!reg_evts)
++		return -ENOMEM;
++
++	event->local = reg_evts;
++
++	for_each_possible_cpu(cpu) {
++		reg_evt = per_cpu_ptr(reg_evts, cpu);
++		err = sse_event_init_registered(cpu, reg_evt, event);
++		if (err) {
++			err_cpu = cpu;
++			goto err_free_per_cpu;
++		}
++	}
++
++	return 0;
++
++err_free_per_cpu:
++	for_each_possible_cpu(cpu) {
++		if (cpu == err_cpu)
++			break;
++		reg_evt = per_cpu_ptr(reg_evts, cpu);
++		sse_event_free_registered(reg_evt);
++	}
++
++	free_percpu(reg_evts);
++
++	return err;
++}
++
++static struct sse_event *sse_event_alloc(u32 evt, u32 priority,
++					 sse_event_handler *handler, void *arg)
++{
++	int err;
++	struct sse_event *event;
++
++	event = kzalloc(sizeof(*event), GFP_KERNEL);
++	if (!event)
++		return ERR_PTR(-ENOMEM);
++
++	event->evt_id = evt;
++	event->priority = priority;
++	event->handler_arg = arg;
++	event->handler = handler;
++
++	if (sse_event_is_global(evt)) {
++		err = sse_event_alloc_global(event);
++		if (err)
++			goto err_alloc_reg_evt;
++	} else {
++		err = sse_event_alloc_local(event);
++		if (err)
++			goto err_alloc_reg_evt;
++	}
++
++	return event;
++
++err_alloc_reg_evt:
++	kfree(event);
++
++	return ERR_PTR(err);
++}
++
++static int sse_sbi_register_event(struct sse_event *event,
++				  struct sse_registered_event *reg_evt)
++{
++	int ret;
++
++	ret = sse_event_attr_set_nolock(reg_evt, SBI_SSE_ATTR_PRIO,
++					event->priority);
++	if (ret)
++		return ret;
++
++	return arch_sse_register_event(&reg_evt->arch);
++}
++
++static int sse_event_register_local(struct sse_event *event)
++{
++	int ret;
++	struct sse_registered_event *reg_evt = per_cpu_ptr(event->local,
++							   smp_processor_id());
++
++	ret = sse_sbi_register_event(event, reg_evt);
++	if (ret)
++		pr_debug("Failed to register event %x: err %d\n", event->evt_id,
++			 ret);
++
++	return ret;
++}
++
++static int sse_sbi_unregister_event(struct sse_event *event)
++{
++	return sse_sbi_event_func(event, SBI_SSE_EVENT_UNREGISTER);
++}
++
++struct sse_per_cpu_evt {
++	struct sse_event *event;
++	unsigned long func;
++	atomic_t error;
++};
++
++static void sse_event_per_cpu_func(void *info)
++{
++	int ret;
++	struct sse_per_cpu_evt *cpu_evt = info;
++
++	if (cpu_evt->func == SBI_SSE_EVENT_REGISTER)
++		ret = sse_event_register_local(cpu_evt->event);
++	else
++		ret = sse_sbi_event_func(cpu_evt->event, cpu_evt->func);
++
++	if (ret)
++		atomic_set(&cpu_evt->error, ret);
++}
++
++static void sse_event_free(struct sse_event *event)
++{
++	unsigned int cpu;
++	struct sse_registered_event *reg_evt;
++
++	if (sse_event_is_global(event->evt_id)) {
++		sse_event_free_registered(event->global);
++		kfree(event->global);
++	} else {
++		for_each_possible_cpu(cpu) {
++			reg_evt = per_cpu_ptr(event->local, cpu);
++			sse_event_free_registered(reg_evt);
++		}
++		free_percpu(event->local);
++	}
++
++	kfree(event);
++}
++
++int sse_event_enable(struct sse_event *event)
++{
++	int ret = 0, cpu;
++	struct sse_per_cpu_evt cpu_evt;
++	struct sse_registered_event *reg_evt;
++
++	scoped_guard(mutex, &sse_mutex) {
++		cpus_read_lock();
++		if (sse_event_is_global(event->evt_id)) {
++			reg_evt = event->global;
++			ret = sse_event_enable_local(event);
++		} else {
++			cpu_evt.event = event;
++			atomic_set(&cpu_evt.error, 0);
++			cpu_evt.func = SBI_SSE_EVENT_ENABLE;
++			on_each_cpu(sse_event_per_cpu_func, &cpu_evt, 1);
++			ret = atomic_read(&cpu_evt.error);
++			if (ret) {
++				cpu_evt.func = SBI_SSE_EVENT_DISABLE;
++				on_each_cpu(sse_event_per_cpu_func, &cpu_evt, 1);
++			} else {
++				for_each_online_cpu(cpu) {
++
++				}
++			}
++		}
++		cpus_read_unlock();
++	}
++
++	return ret;
++}
++
++static void sse_events_mask(void)
++{
++	sbi_ecall(SBI_EXT_SSE, SBI_SSE_EVENT_HART_MASK, 0, 0, 0, 0, 0, 0);
++}
++
++static void sse_events_unmask(void)
++{
++	sbi_ecall(SBI_EXT_SSE, SBI_SSE_EVENT_HART_UNMASK, 0, 0, 0, 0, 0, 0);
++}
++
++static void sse_event_disable_nolock(struct sse_event *event)
++{
++	struct sse_per_cpu_evt cpu_evt;
++
++	if (sse_event_is_global(event->evt_id)) {
++		sse_event_disable_local(event);
++	} else {
++		cpu_evt.event = event;
++		cpu_evt.func = SBI_SSE_EVENT_DISABLE;
++		on_each_cpu(sse_event_per_cpu_func, &cpu_evt, 1);
++	}
++}
++
++void sse_event_disable(struct sse_event *event)
++{
++	scoped_guard(mutex, &sse_mutex) {
++		cpus_read_lock();
++		sse_event_disable_nolock(event);
++		cpus_read_unlock();
++	}
++}
++
++struct sse_event *sse_event_register(u32 evt, u32 priority,
++				     sse_event_handler *handler, void *arg)
++{
++	struct sse_per_cpu_evt cpu_evt;
++	struct sse_event *event;
++	int ret = 0;
++
++	if (!sse_available)
++		return ERR_PTR(-EOPNOTSUPP);
++
++	mutex_lock(&sse_mutex);
++	if (sse_event_get(evt)) {
++		pr_debug("Event %x already registered\n", evt);
++		ret = -EEXIST;
++		goto out_unlock;
++	}
++
++	event = sse_event_alloc(evt, priority, handler, arg);
++	if (IS_ERR(event)) {
++		ret = PTR_ERR(event);
++		goto out_unlock;
++	}
++
++	cpus_read_lock();
++	if (sse_event_is_global(evt)) {
++		unsigned long preferred_hart;
++
++		ret = sse_event_attr_get_no_lock(event->global,
++						 SBI_SSE_ATTR_PREFERRED_HART,
++						 &preferred_hart);
++		if (ret)
++			goto err_event_free;
++		event->cpu = riscv_hartid_to_cpuid(preferred_hart);
++
++		ret = sse_sbi_register_event(event, event->global);
++		if (ret)
++			goto err_event_free;
++
++	} else {
++		cpu_evt.event = event;
++		atomic_set(&cpu_evt.error, 0);
++		cpu_evt.func = SBI_SSE_EVENT_REGISTER;
++		on_each_cpu(sse_event_per_cpu_func, &cpu_evt, 1);
++		ret = atomic_read(&cpu_evt.error);
++		if (ret) {
++			cpu_evt.func = SBI_SSE_EVENT_UNREGISTER;
++			on_each_cpu(sse_event_per_cpu_func, &cpu_evt, 1);
++			goto err_event_free;
++		}
++	}
++	cpus_read_unlock();
++
++	scoped_guard(spinlock, &events_list_lock)
++		list_add(&event->list, &events);
++
++	mutex_unlock(&sse_mutex);
++
++	return event;
++
++err_event_free:
++	cpus_read_unlock();
++	sse_event_free(event);
++out_unlock:
++	mutex_unlock(&sse_mutex);
++
++	return ERR_PTR(ret);
++}
++
++static void sse_event_unregister_nolock(struct sse_event *event)
++{
++	struct sse_per_cpu_evt cpu_evt;
++
++	if (sse_event_is_global(event->evt_id)) {
++		sse_sbi_unregister_event(event);
++	} else {
++		cpu_evt.event = event;
++		cpu_evt.func = SBI_SSE_EVENT_UNREGISTER;
++		on_each_cpu(sse_event_per_cpu_func, &cpu_evt, 1);
++	}
++}
++
++void sse_event_unregister(struct sse_event *event)
++{
++	scoped_guard(mutex, &sse_mutex) {
++		cpus_read_lock();
++		sse_event_unregister_nolock(event);
++		cpus_read_unlock();
++
++		scoped_guard(spinlock, &events_list_lock)
++			list_del(&event->list);
++
++		sse_event_free(event);
++	}
++}
++
++static int sse_cpu_online(unsigned int cpu)
++{
++	struct sse_event *event;
++
++	scoped_guard(spinlock, &events_list_lock) {
++		list_for_each_entry(event, &events, list) {
++			if (sse_event_is_global(event->evt_id))
++				continue;
++
++			sse_event_register_local(event);
++			if (sse_get_reg_evt(event))
++				sse_event_enable_local(event);
++		}
++	}
++
++	/* Ready to handle events. Unmask SSE. */
++	sse_events_unmask();
++
++	return 0;
++}
++
++static int sse_cpu_teardown(unsigned int cpu)
++{
++	unsigned int next_cpu;
++	struct sse_event *event;
++
++	/* Mask the sse events */
++	sse_events_mask();
++
++	scoped_guard(spinlock, &events_list_lock) {
++		list_for_each_entry(event, &events, list) {
++			if (!sse_event_is_global(event->evt_id)) {
++
++				if (event->global->is_enabled)
++					sse_event_disable_local(event);
++
++				sse_sbi_unregister_event(event);
++				continue;
++			}
++
++			if (event->cpu != smp_processor_id())
++				continue;
++
++			/* Update destination hart for global event */
++			next_cpu = cpumask_any_but(cpu_online_mask, cpu);
++			sse_event_set_target_cpu_nolock(event, next_cpu);
++		}
++	}
++
++	return 0;
++}
++
++static void sse_reset(void)
++{
++	struct sse_event *event = NULL;
++
++	list_for_each_entry(event, &events, list) {
++		sse_event_disable_nolock(event);
++		sse_event_unregister_nolock(event);
++	}
++}
++
++static int sse_pm_notifier(struct notifier_block *nb, unsigned long action,
++			   void *data)
++{
++	WARN_ON_ONCE(preemptible());
++
++	switch (action) {
++	case CPU_PM_ENTER:
++		sse_events_mask();
++		break;
++	case CPU_PM_EXIT:
++	case CPU_PM_ENTER_FAILED:
++		sse_events_unmask();
++		break;
++	default:
++		return NOTIFY_DONE;
++	}
++
++	return NOTIFY_OK;
++}
++
++static struct notifier_block sse_pm_nb = {
++	.notifier_call = sse_pm_notifier,
++};
++
++/*
++ * Mask all CPUs and unregister all events on panic, reboot or kexec.
++ */
++static int sse_reboot_notifier(struct notifier_block *nb, unsigned long action,
++				void *data)
++{
++	cpuhp_remove_state(sse_hp_state);
++
++	sse_reset();
++
++	return NOTIFY_OK;
++}
++
++static struct notifier_block sse_reboot_nb = {
++	.notifier_call = sse_reboot_notifier,
++};
++
++static int __init sse_init(void)
++{
++	int cpu, ret;
++
++	if (sbi_probe_extension(SBI_EXT_SSE) <= 0) {
++		pr_err("Missing SBI SSE extension\n");
++		return -EOPNOTSUPP;
++	}
++	pr_info("SBI SSE extension detected\n");
++
++	for_each_possible_cpu(cpu)
++		INIT_LIST_HEAD(&events);
++
++	ret = cpu_pm_register_notifier(&sse_pm_nb);
++	if (ret) {
++		pr_warn("Failed to register CPU PM notifier...\n");
++		return ret;
++	}
++
++	ret = register_reboot_notifier(&sse_reboot_nb);
++	if (ret) {
++		pr_warn("Failed to register reboot notifier...\n");
++		goto remove_cpupm;
++	}
++
++	ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "riscv/sse:online",
++				sse_cpu_online, sse_cpu_teardown);
++	if (ret < 0)
++		goto remove_reboot;
++
++	sse_hp_state = ret;
++	sse_available = true;
++
++	return 0;
++
++remove_reboot:
++	unregister_reboot_notifier(&sse_reboot_nb);
++
++remove_cpupm:
++	cpu_pm_unregister_notifier(&sse_pm_nb);
++
++	return ret;
++}
++arch_initcall(sse_init);
+diff --git a/include/linux/riscv_sse.h b/include/linux/riscv_sse.h
+new file mode 100644
+index 000000000000..8653fa74ec82
+--- /dev/null
++++ b/include/linux/riscv_sse.h
+@@ -0,0 +1,59 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2024 Rivos Inc.
++ */
++
++#ifndef __LINUX_RISCV_SSE_H
++#define __LINUX_RISCV_SSE_H
++
++#include <linux/types.h>
++#include <linux/linkage.h>
++
++struct sse_event;
++struct pt_regs;
++
++typedef int (sse_event_handler)(u32 event_num, void *arg, struct pt_regs *regs);
++
++#ifdef CONFIG_RISCV_SSE
++
++struct sse_event *sse_event_register(u32 event_num, u32 priority,
++				     sse_event_handler *handler, void *arg);
++
++void sse_event_unregister(struct sse_event *evt);
++
++int sse_event_set_target_cpu(struct sse_event *sse_evt, unsigned int cpu);
++
++int sse_event_enable(struct sse_event *sse_evt);
++
++void sse_event_disable(struct sse_event *sse_evt);
++
++int sse_event_enable_local(struct sse_event *sse_evt);
++int sse_event_disable_local(struct sse_event *sse_evt);
++
++#else
++static inline struct sse_event *sse_event_register(u32 event_num, u32 priority,
++						   sse_event_handler *handler,
++						   void *arg)
++{
++	return ERR_PTR(-EOPNOTSUPP);
++}
++
++static inline void sse_event_unregister(struct sse_event *evt) {}
++
++static inline int sse_event_set_target_cpu(struct sse_event *sse_evt,
++					   unsigned int cpu)
++{
++	return -EOPNOTSUPP;
++}
++
++static inline int sse_event_enable(struct sse_event *sse_evt)
++{
++	return -EOPNOTSUPP;
++}
++
++static inline void sse_event_disable(struct sse_event *sse_evt) {}
++
++
++#endif
++
++#endif /* __LINUX_RISCV_SSE_H */
+-- 
+2.49.0
 
-@Phil Do you have a explanation why USB 3.0 Boot on Raspberry Pi 4 could=
-=20
-cause such a delayed reponse (> 1 s) for Firmware transaction 0x00030066?
-
-@Etienne Actually an empty SD card shouldn't trigger such a register=20
-dump, but that's a different issue.
 
