@@ -4,59 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76FF8C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 16:00:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE44DC3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 16:02:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kzaVQgmUjj3yboNck6ZN7uxKTqD/GTSC4SxoAn0RljA=; b=cR4MCBnI3tgm8ejyXuS0qGPLuZ
-	mweklu0+Nnr/SogfZCmeC8hae1imOjH+BUdXM43/l+XenYDywXLTOGk6xcRvR9Avuaxar8xQeSRZb
-	rEsj74Tb7s+04Q97JUM4wbEC3tNrii3Q43HbEkC/ABPcuEHR1QnmMwH5p/ZE7hB0htfItq6bodCrH
-	oBzSq1dae80ieZH7Jv7TQDDy1LhtdbIXRKy+nawDgLR/d5DHKGgIJHqr/Fa7j+ekLtH6yrnOMcTc4
-	24TQXNIYoSPo/MAdHaiHvVgNyUK07BjBfYFv1vfUA9DxHNq3GoPLsBUdvc7Blri2xlz4E8gO4JkxF
-	er1D6L0A==;
+	bh=QL6/StVhGMDxhgjk58MXzmY3ir7C4W0JcCVQ1MkroLs=; b=2O6ku6uGhVJSiWqXbufkw2lYDs
+	O2dgKBQll+kUadXX0324ohZmIJcO20H9my2hhnJoO5SgrnQy+A6U6K4AZBWrTU8ILKpBwzuCJD625
+	fHL3s4WF9lpiDLo8+6Mr8xq35FifButpbFP6iH4Vo5EQXGJRNcufp5dSodbI8sDH0oncQycTUVsax
+	WBfRNiZfcfeI+oAFVvTK55K3F9Ltl0dilpcJSRDLoC3NX9cz0JaQERaI1zHuf4nJhny8KBQOfkE5+
+	K6fKLyV+51DJXKGHJGLQy9rTPFjBMGcCWaWH972M3CIn9T9Q+zq7bW3z6ufXSG2JdASIfVD1Gzftc
+	d5b8qEoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFxU5-00000003xAg-28Y5;
-	Fri, 16 May 2025 16:00:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uFxW5-00000003xUL-31QC;
+	Fri, 16 May 2025 16:02:33 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFx8J-00000003scH-0FmM
+	id 1uFx8H-00000003sbv-2Zxd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 15:37:59 +0000
+	Fri, 16 May 2025 15:38:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7DCCE62A61;
-	Fri, 16 May 2025 15:37:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17F9BC4CEE4;
+	by nyc.source.kernel.org (Postfix) with ESMTP id D0FE8A4E8FA;
 	Fri, 16 May 2025 15:37:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED770C4CEED;
+	Fri, 16 May 2025 15:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747409878;
-	bh=QQKk6g3yLr+R2BFA9IAkVDHQuBoMLpMsNvn/ihr3ZD0=;
+	s=k20201202; t=1747409876;
+	bh=GPLWfIxhxeI+gEoZlD4EGy1WAmfKbNh7zDOUf73kHr4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kWBl02GXfhE5oumlw0PWfw+NyXYGdfHVPzBrZ/+vnEOrhMIA23KwmnQGmEQO0gZXC
-	 T+U9c/dUqBJfv3k+43gfle4oGatHZ6gQBOn1xrZPp0kkZm72Oc1JMiyV0fnhVCsSpU
-	 guiZ61ZUNhP81KUVWHxdyTDuTd5Yl3m6wmvAsaLurngtyJ8YmUQvklfVd0p6iNPcSd
-	 MTP8XI5btzvyARVjhvBzAtWDZSaE1K/CA4sCQFqXNoY2A8tk0nHc0JrhyK3wf/2nuD
-	 hUpNJgA6JArfHH+2weyGdimSbr9Djv+SRKWG+spdaJO1CYax7ezrxsY30Wn3K0DEgL
-	 jzUl1G3ixOE5Q==
+	b=tWrjbSntMZnHCoWWroihESxoAMFpKMGUBnZ83YpMR9MpmhslxLmHGbnWQZtZiJFC9
+	 jBHieqIOARhil/WWM7HWsh4XkVNku68fvwCaV2R4WnBsBlPED4nrXW0a1/ON6KX7N+
+	 zhM3dGZM2heN6iMrTpSPH7eeZvLOsN7mcT9CuNeC2IToG2nonNuuWHXrvaa2lCJfD1
+	 HsvIk75tfo617e3YeKrOAX78f0r9SkLhSNque1A78cvth+h7p7hJtUEMoD2M9pkftC
+	 2tbDRyqOZQ6wMLPTOiFBZLt7w37A0icH5f6ZfOcQjMd5D7Eai6N/d88CNyVzmuw6Zv
+	 BfxWTghSNUGOA==
 From: Will Deacon <will@kernel.org>
-To: catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	Ben Horgan <ben.horgan@arm.com>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH] arm64: Update comment regarding values in __boot_cpu_mode
-Date: Fri, 16 May 2025 16:37:45 +0100
-Message-Id: <174740474202.2576553.17992016241320510860.b4-ty@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	Ard Biesheuvel <ardb+git@google.com>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	mark.rutland@arm.com,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: Re: [PATCH v2 0/3] arm64/boot: Forbid the use of BSS symbols in startup code
+Date: Fri, 16 May 2025 16:37:44 +0100
+Message-Id: <174740792413.188921.9613065517341295309.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250513124525.677736-1-ben.horgan@arm.com>
-References: <20250513124525.677736-1-ben.horgan@arm.com>
+In-Reply-To: <20250508114328.2460610-5-ardb+git@google.com>
+References: <20250508114328.2460610-5-ardb+git@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250516_083757_726597_983557BB 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,16 +79,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 13 May 2025 13:45:25 +0100, Ben Horgan wrote:
-> The values stored in __boot_cpu_mode were changed without updating the
-> comment. Rectify that.
+On Thu, 08 May 2025 13:43:29 +0200, Ard Biesheuvel wrote:
+> Move any variables accessed or assigned by the startup code out of BSS,
+> and into .data, so that we can forbid the use of BSS variables
+> altogether, by ASSERT()'ing in the linker script that each symbol made
+> available to the startup code lives before __bss_start in the linker
+> map.
 > 
+> Changes since v1:
+> - fix build error due to missing declaration in #1
+> - work around Clang complaining about the ASSERT() expression in the
+>   linker script
 > 
+> [...]
 
-Applied to arm64 (for-next/entry), thanks!
+Applied to arm64 (for-next/mm), thanks!
 
-[1/1] arm64: Update comment regarding values in __boot_cpu_mode
-      https://git.kernel.org/arm64/c/694f574f741a
+[1/3] arm64/boot: Move init_pgdir[] and init_idmap_pgdir[] into __pi_ namespace
+      https://git.kernel.org/arm64/c/93d0d6f8a654
+[2/3] arm64/boot: Move global CPU override variables out of BSS
+      https://git.kernel.org/arm64/c/4afff6cc9a55
+[3/3] arm64/boot: Disallow BSS exports to startup code
+      https://git.kernel.org/arm64/c/90530521079e
 
 Cheers,
 -- 
