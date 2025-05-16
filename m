@@ -4,64 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 803AFC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 07:03:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B4DC3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 07:06:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XmppFljXRZvIHKczzxdAMuT4XhNPRgoX6GAn2af4BHo=; b=2Oa7s+ghXgkxYxZzRcfxwuVa88
-	1t8uJMSmbh5/6BqkuL7Xs1JHI0p0LKnASVMvq+E73bLD5lKeycq1Ko5FEzji1VgZCLy6V4A12wW6i
-	3vYutVjS3/TL5xnPwdEzvVmDeVUsPC5iAyXVzup+qjKvFcX+65O9on74kCe6nMKFo5Yh72BG0ALoh
-	h/XEfG/dr/Cn0B9u2yqpkolSEBtXVhWga6DEtW5j3DlBHwJDakGQ7kDc6lN0kLdSKYEC3pN5j3huO
-	SvB7NLz2d6lungVTpzkuvnYmMPxbBSO0bahG4hioQH5rUSIF2p/1xabaxNzSIe1/EtjD1u+VlUKsX
-	WzmF2lJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yGTBJSMqk9HRB+Yf6qBFrPnv8KFjcvEAodpnrFhjLo8=; b=0DsSrhykjyTAR5qS3cazlEIkoa
+	YX7BecFAXk0xbJsA6RGQ9Gw2vZXgH6AUvoU73j44p2xgNJmkj0XtJ/L6aFuRmMoiuboyZ7UKOr+Hn
+	GYMePPeLwHCknv600axY6qKp4LVGDwyi0WUe25l+3vVMHFtRDguAV8lgBmtvdU8jT/JdKUDabB8Br
+	Ws10HVZqJ2n3/hLxz5bAbD4fGPrMthObo7T2i5K9OMpDHb7ndc0YL//yZgebXDFOHodU/pHJxhzJb
+	mI12QSFvO6Op0RylsjhxJaWuhQnzE21lpMytuLnDHuR57DDD9soaA+FBreYQotfb3ZrAJojkRiD6s
+	X+BO/MHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFp6Y-00000002dCz-1zZ4;
-	Fri, 16 May 2025 07:03:38 +0000
-Received: from mail-m49198.qiye.163.com ([45.254.49.198])
+	id 1uFp90-00000002dRI-0xwa;
+	Fri, 16 May 2025 07:06:10 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFp4O-00000002d0v-3YfW;
-	Fri, 16 May 2025 07:01:27 +0000
-Received: from localhost.localdomain (unknown [119.122.215.244])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 15416c95d;
-	Fri, 16 May 2025 15:01:13 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: kever.yang@rock-chips.com
-Cc: conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	finley.xiao@rock-chips.com,
-	heiko@sntech.de,
+	id 1uFp6r-00000002dGD-2HN8
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 May 2025 07:03:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8981A5C3D04;
+	Fri, 16 May 2025 07:01:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78D05C4CEE4;
+	Fri, 16 May 2025 07:03:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747379036;
+	bh=BSOuz0Sa7NnM27jLiJyPK8CIt/5UN80833LDwnsMzN8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=N+Dv1/8Q1cgZN/Y++AHMGsWADynJKYdRP8jW01IKZ6dz3QrY9iC6aNokjBOa8iC6l
+	 /04aAzMecEWdquyQtHN8u2sL6c6nEE+NW+lvWw+os9sPeu2YBFPG19TeXY0DXq3zYf
+	 tPybNfh1OU/VNQMN8WNoDRWuSxcILXxK1LZ7NfByw2LLLvtwe/GQBLNSsN0QVF8a2h
+	 oG6XQahOhUEGS56gl8iI6NLCSo6pRFMklCccjeFVnH0erxDkunfbf2z53rJkMT/y+u
+	 O7mL0V1vgYPqDw1Wzz3O+nFAARBvnhMpWqHR7DHpXhFaFln8VjPrH2F4n8Oz8tsSAU
+	 U5LT5sy3KXyEA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uFp6o-00FTKu-4X;
+	Fri, 16 May 2025 08:03:54 +0100
+Date: Fri, 16 May 2025 08:03:53 +0100
+Message-ID: <86h61lf352.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: adrianhoyin.ng@altera.com
+Cc: dinguyen@kernel.org,
+	robh@kernel.org,
 	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	tglx@linutronix.de,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Chukun Pan <amadeus@jmu.edu.cn>
-Subject: Re: [PATCH v7 4/5] arm64: dts: rockchip: add core dtsi for RK3562 SoC
-Date: Fri, 16 May 2025 15:01:06 +0800
-Message-Id: <20250516070106.653870-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250509102308.761424-5-kever.yang@rock-chips.com>
-References: <20250509102308.761424-5-kever.yang@rock-chips.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaTR5NVh5KSh5DSkpOS09CTlYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKTlVJT09ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSEJVSktLVU
-	pCS0tZBg++
-X-HM-Tid: 0a96d7e5a5d103a2kunm15416c95d
-X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NRg6Pio5LTE9PjYhLzMYOgxL
-	Tk5PChFVSlVKTE9MSExDQ0xPTUhIVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUpK
-	QlVKSUlVSUpOVUlPT1lXWQgBWUFJS0pJNwY+
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/3] Add quirk to support address bus size limitation
+In-Reply-To: <cover.1747368554.git.adrianhoyin.ng@altera.com>
+References: <cover.1747368554.git.adrianhoyin.ng@altera.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: adrianhoyin.ng@altera.com, dinguyen@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_000125_056103_C8ED663E 
-X-CRM114-Status: UNSURE (   7.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250516_000357_628443_FB3383CE 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,38 +89,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, 16 May 2025 05:13:31 +0100,
+adrianhoyin.ng@altera.com wrote:
+> 
+> From: Adrian Ng Ho Yin <adrianhoyin.ng@altera.com>
+> 
+> This patch set adds support for the address bus size limitation by
+> allocating buffers with in a 32 bit address range.
+> 
+> -Add device tree binding to enable a quirk to support a limited address
+> bus size.
+> -Update ITS node for Agilex5 with dma_32bit_quirk.
+> -Add implementation to configure gfp flags to allocate buffers within
+> 32 bit addressable range when quirk is set.
 
-I posted to the wrong thread before, so I resent this.
-Sorry for the noise.
+No. Please join the pack of other totally broken integrations and
+reuse the *existing* infrastructure. You'll be in good company.
 
-> <snip>
-> +		pcie2x1: pcie@ff500000 {
-> +			compatible = "rockchip,rk3562-pcie", "rockchip,rk3568-pcie";
-> +			bus-range = <0x0 0xff>;
-> <snip>
-> +			interrupt-names = "sys", "pmc", "msg", "legacy", "err", "msi";
+	M.
 
-I noticed that the bsp 5.10 kernel said that pcie only has 8 MSI vectors,
-[1][2] but in the bsp 6.1 kernel it changed to 32 MSI vectors [3].
-
-The rockchip documentation also says there are only 8 MSI vectors:
-
-[4] Page37 8.8 "RK3528/RK3562/RK3576可分配的MSI或者MSI-X总数是8个"
-Translate into English: "The total number of MSI or MSI-X that
-can be allocated by RK3528/RK3562/RK3576 is 8"
-
-We noticed this when supporting rk3528, so which one is correct?
-
-[1] https://github.com/rockchip-linux/kernel/commit/4f0c9ccc79c373aa97084b3b1ab0651ca4248227
-[2] https://github.com/rockchip-linux/kernel/commit/afb85c759cfadc4051c42a9703860071a9877f2e
-[3] https://github.com/coolpi-george/coolpi-kernel/commit/522b94122ec797760dcd466851250cbdfafff50f
-[4] https://github.com/ArmSoM/rk3506-rkr4.2-sdk/blob/main/docs/cn/Common/PCIe/Rockchip_Developer_Guide_PCIe_CN.pdf
-
-Thanks,
-Chukun
-
---
-2.25.1
-
+-- 
+Without deviation from the norm, progress is not possible.
 
