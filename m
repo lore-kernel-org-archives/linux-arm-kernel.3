@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A857EC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 14:38:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7839C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 14:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P2EhZ3pJ/JwPlcrAeoyW+hiLBhB9l682Fgfw6iZC+EY=; b=BN9D0jdXx+UVIGZPq2L8gcqlpA
-	e229utUpKoDDpt1Jrjrb6l7WhVrjEkJgBSOv+AA8R9K0XX7cN+k87lmL/RAIUOTKt+JHdgveHvCbw
-	1W1Zmt2SVLeM1/PNl0VQ2ndWOb1sOJFW29caE+yCNOp29bXbZjMFJxjaSXSvTGhHIsjFD288Ci1mn
-	CfxDufeN1gh3UAc9gyppqgg48OUYQDL78LxNPOsFjnvH4XW5jBueFbynVAc0aJMRbPUNorMzYAyxO
-	NeYbMCjMZ04Ny6Hn5ErikA3SD5os5hGWd768QZFTvuUtsJw5Gj6j0uqmfteZFCULlnj+JWAjt202s
-	OjSetqKQ==;
+	bh=3Pk6WPRNYxZf8guy1jWy1Ciz8CqC9aV5RyAnvRPByFU=; b=Ec4rCp6vHnE4q1qFTLwq7W+suB
+	Qhlak99iGA7QcCzB69siJhV3bjfTSKhtD5sbWI1Xp8LsWWOYIyfkkdx+vcJzk4IswlJXUC3T0qjSx
+	kW8X86OLZNBKV0CJiB0WOyFFnf1HVlZ8TvKv8MaxBOC0rZoexPDNxPYXqX9Kv3kHv8aCpbNGRJant
+	84VaCyU882DKnRh1YeoSqqH229soKTnXeW4t1gBm87QBb3GmVd2OFXKHOZGb9WSKp0GJttQmnTxCF
+	g/Iif3A2g6u+das/HpTWfUO3/GWga4MoOoJDzqYmTmz54ZXiEV1JzeDUCGX9djXDWivYSUIi61QRr
+	I7R4aYZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFwD0-00000003gsp-24Ag;
-	Fri, 16 May 2025 14:38:46 +0000
+	id 1uFwF0-00000003h9O-0oHU;
+	Fri, 16 May 2025 14:40:50 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFvSC-00000003a1Y-16uE
+	id 1uFvSO-00000003a58-0dw3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 13:50:25 +0000
+	Fri, 16 May 2025 13:50:37 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BB252169C;
-	Fri, 16 May 2025 06:50:09 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9C511169C;
+	Fri, 16 May 2025 06:50:23 -0700 (PDT)
 Received: from [10.1.27.17] (e122027.cambridge.arm.com [10.1.27.17])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 73A8F3F673;
-	Fri, 16 May 2025 06:50:17 -0700 (PDT)
-Message-ID: <31bf9eac-a234-44dd-a4a3-0939092da66a@arm.com>
-Date: Fri, 16 May 2025 14:50:15 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EAE733F673;
+	Fri, 16 May 2025 06:50:30 -0700 (PDT)
+Message-ID: <c4c2d45a-0c9f-41ee-8659-d119edda457b@arm.com>
+Date: Fri, 16 May 2025 14:50:28 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v8 17/43] arm64: RME: Handle RMI_EXIT_RIPAS_CHANGE
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
  Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
  Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>
 References: <20250416134208.383984-1-steven.price@arm.com>
  <20250416134208.383984-18-steven.price@arm.com>
- <b5770d9b-4f17-4be8-95a7-1549322debb2@redhat.com>
+ <54a21b12-2b17-4e0a-9cbf-f68406fb003a@arm.com>
 From: Steven Price <steven.price@arm.com>
 Content-Language: en-GB
-In-Reply-To: <b5770d9b-4f17-4be8-95a7-1549322debb2@redhat.com>
+In-Reply-To: <54a21b12-2b17-4e0a-9cbf-f68406fb003a@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_065024_399289_A684DDDD 
-X-CRM114-Status: GOOD (  28.77  )
+X-CRM114-CacheID: sfid-20250516_065036_281495_5CEB89FA 
+X-CRM114-Status: GOOD (  32.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,8 +76,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/04/2025 13:11, Gavin Shan wrote:
-> On 4/16/25 11:41 PM, Steven Price wrote:
+On 07/05/2025 11:42, Suzuki K Poulose wrote:
+> On 16/04/2025 14:41, Steven Price wrote:
 >> The guest can request that a region of it's protected address space is
 >> switched between RIPAS_RAM and RIPAS_EMPTY (and back) using
 >> RSI_IPA_STATE_SET. This causes a guest exit with the
@@ -104,11 +104,6 @@ On 30/04/2025 13:11, Gavin Shan wrote:
 >>   arch/arm64/kvm/rme.c | 88 ++++++++++++++++++++++++++++++++++++++++++++
 >>   1 file changed, 88 insertions(+)
 >>
-> 
-> One nitpick below, either way:
-> 
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> 
 >> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
 >> index bee9dfe12e03..fe0d5b8703d2 100644
 >> --- a/arch/arm64/kvm/rme.c
@@ -140,9 +135,6 @@ On 30/04/2025 13:11, Gavin Shan wrote:
 >> +        if (RMI_RETURN_STATUS(ret) == RMI_SUCCESS) {
 >> +            ipa = next;
 >> +        } else if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
-> 
-> --->
-> 
 >> +            int walk_level = RMI_RETURN_INDEX(ret);
 >> +            int level = find_map_level(realm, ipa, end);
 >> +
@@ -156,31 +148,27 @@ On 30/04/2025 13:11, Gavin Shan wrote:
 >> +                                  level,
 >> +                                  memcache);
 >> +                /* Retry with RTTs created */
+> 
+> minor nit: Do we need to add a comment here, saying, we stop processing
+> the request if we run out of RTT pages in this go and Realm could retry
+> it.
+
+I'm not really sure this is the right place, and following Gavin's
+comment I've combined this with the INIT_RIPAS code.
+
+Also the situation at the moment isn't that we return to the guest -
+kvm_complete_ripas_change() will topup the memory cache and retry until
+the whole region is covered. There is an argument that perhaps it
+shouldn't, but I'm not sure what a guest can usefully do beyond retry in
+the case of a partial RIPAS change. In which case why have the overhead
+of returning to the guest?
+
 >> +                if (!ret)
 >> +                    continue;
 >> +            } else {
 >> +                ret = -EINVAL;
 >> +            }
 >> +
-> 
-> <--- This block of code have been existing in multiple functions. I guess
-> it would be worthy to introduce a helper for it if you agree.
-> Alternatively,
-> it's definitely something to do in the future, after this series is
-> merged :)
-
-I believe it's just two functions: realm_set_ipa_state() and
-realm_init_ipa_state(). Those two functions are going basically the same
-thing just at different stages (realm_init before the guest has started,
-and realm_set when it's running).
-
-I've had a go and combing the two functions, it's a little clunky
-because of the differences, but I think it's an improvement over the
-repeated code.
-
-Thanks,
-Steve
-
 >> +            break;
 >> +        } else {
 >> +            WARN(1, "Unexpected error in %s: %#x\n", __func__,
@@ -188,8 +176,35 @@ Steve
 >> +            ret = -ENXIO;
 >> +            break;
 >> +        }
+> 
+> minor nit: Following from Gavin's comment on another patch, could
+> switch() make the above code more readable and remove the continue; ?
+> 
+>         switch (RMI_RETURN_STATUS(ret)) {
+>         case RMI_SUCCESS:
+>             ipa = next;
+>             break;
+>         case RMI_ERROR_RTT: {
+> 
+>        
+>         }
+>             break;
+>         default:
+>             WARN(..);
+>             ret = -ENXIO;
+>             goto out;
+>         }
+> 
+> I am fine either way.
+
+Since I'm combining the two functions, I've kept just the switch()
+version of the code.
+
 >> +    }
 >> +
+> 
+> out:
+> 
 >> +    *top_ipa = ipa;
 >> +
 >> +    if (ripas == RMI_EMPTY && ipa != start)
@@ -231,21 +246,11 @@ Steve
 >> +    } while (top_ipa < top);
 >> +}
 >> +
->>   int kvm_rec_enter(struct kvm_vcpu *vcpu)
->>   {
->>       struct realm_rec *rec = &vcpu->arch.rec;
->> @@ -873,6 +958,9 @@ int kvm_rec_enter(struct kvm_vcpu *vcpu)
->>           for (int i = 0; i < REC_RUN_GPRS; i++)
->>               rec->run->enter.gprs[i] = vcpu_get_reg(vcpu, i);
->>           break;
->> +    case RMI_EXIT_RIPAS_CHANGE:
->> +        kvm_complete_ripas_change(vcpu);
->> +        break;
->>       }
->>         if (kvm_realm_state(vcpu->kvm) != REALM_STATE_ACTIVE)
 > 
-> Thanks,
-> Gavin
-> 
+> Rest looks good to me.
+
+Thanks,
+Steve
+
 
 
