@@ -4,87 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ABE8C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 13:04:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A62A0C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 13:12:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8EAaXCcBODOqPPRNoOnVtfPFAMjr1gPjPXMHsuSlMuo=; b=etayJcuQ44wW0R1psFTDeGw6vT
-	zim04VozWJ3i9lhOr2pZTiR9ptGvk/IybAUJUomKuOVHCK6eb3UavDerbtgNDT4N2MRMtLyhJsVWs
-	v9uR8nBhs0fZnG/zCkx+P3mDIFNgWv9z1CEVHnL74f+XVztHa+LX1/xyyiOT3MQ6M06vLSm/H331N
-	exMl3GBTW0FoKuB3LvPV/UCWLZ597RTEKBZ2bmJYKO715lz/EG+LlE8GR2KK3+m+QstNKcP1RA1Ax
-	a/BVjpdb3e0qjb2wIiw+kAxwGpMCHToq3S9iP8X1UfZfa4ml3U+HnI0TAoZotnxQMxd+D35TKSERn
-	QDk0ahlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9BbKECuQIgvXK9vjo86BI4yH6OnxwsJ7kCXqk8ODroQ=; b=zcPtF9Pkv5EjZuwYlqGSCqE9UN
+	rAJSNXcCuUcsRTzHZS73spNa2Dd57lT1TU2KRjtiuf+J+VVleoV20C0uh9NXtFV2l7bIOnc0EiEC7
+	88hcswPpRfzls+JXYE3Iq+1X+CpAMXHrcP/bQJwZ0PQuLxVm8KU5NKCVXKW1/psQxXn3i9RLcNikT
+	hsr8seVYmdHHN1GqGp0qZDL4Hos0IIq5PVvhU18NO2y9IhK7zwrRnvU/9gfQjf0af2GpX0ikCFgcU
+	MYEpVD3OEyAVCZ503fTYCWD4g/8Tf6Zw1vZB/7Ms8f9W0k49v7BzDmCsFhW85NgXcRGdmVLnUF1Z4
+	p/tzH2tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFujo-00000003Skx-3DNe;
-	Fri, 16 May 2025 13:04:32 +0000
-Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
+	id 1uFurJ-00000003Tjv-3qiL;
+	Fri, 16 May 2025 13:12:17 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFuhm-00000003SXp-10xv
+	id 1uFupH-00000003TQ7-2BEp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 13:02:27 +0000
-Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-476b4c9faa2so29642561cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 06:02:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747400545; x=1748005345; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8EAaXCcBODOqPPRNoOnVtfPFAMjr1gPjPXMHsuSlMuo=;
-        b=LCaRNJYgfNJ6v7/+PNJJooCdMjjbCzSM7akON3QZueYHeKUT64OO1DgKaj8v6R1TL7
-         E+df14iXImRbrCnABUisuX7uOPH5EWDMwzOeBo8mRlTnyxWCakHJUuh8xj1d+TsCtPdf
-         qTEXzGDZTgAMZ/s2MdGwr1w/0rdxY8/ZN2e1xnYcUWTOwG7JyeOpsfhe9prs0MfKbGIW
-         A014408SF1FCXU2eQH1/y7X0+7O6zrrcXoY8PUFNd2Mxyp3bQ7MRyzUPoPaEARlpQVWa
-         42rSQYhL5jHFyfUDN9+R9uj2dtALiXyQ6lapt0DTJwROdu4Q2vtCbZi329ERGKXmuS2S
-         vK3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747400545; x=1748005345;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8EAaXCcBODOqPPRNoOnVtfPFAMjr1gPjPXMHsuSlMuo=;
-        b=Rh37PEwR4tLDBHQbqySjnoQUOzw5HXR7rX/NQhD9T7iuYzUebEjRt0dQmCoSiSR/W7
-         AG49Aa25ly1SN8KBc6aKMYXpI4rh4oejIMVRNOcTDERQmLZm0FwA5KZEbou66LaDHzi7
-         qlyjg/xy1wU23AtoHR3/2q/87rhDmg6lyTkeDtS3lvZxovonifXd51Jq/QhgawLATbT9
-         pBFc6GnpJNCzv/BpfFSfvlGipGebJwE2x4kic06tpm8T0qdYLLchVXngrafSbLYE24/L
-         oPuGwLHw4q9ilPzYyE3zWLJ2LZpzVPhjrok6r06LbyUrKeDUZF/5ebijxdg7df7Tb0uv
-         5G+w==
-X-Forwarded-Encrypted: i=1; AJvYcCXStcDeL6qXedWgHcjv8Ez2AcBhJqNNBPn/XhvUOXqvDsLDM9enUxqyxw6A8zgH9aPJx/pIfIhrubdXdSNQ6V5o@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnNCVdjrA3toEsPUxuRpSfUoeas0OZOA++uz8g+kwvq2xQL46K
-	2JHot+ctRjjd3SDE1w0u2WV/KA0u6yZtn3z6KucncV3onBCTTP4VDYqnwANKRCymk0rTPWckhsK
-	UYJijQlyPGWp5AoKy1xUZimyeZxtBf10=
-X-Gm-Gg: ASbGncvgIIF/OdjRdLtF+JojYPOIMpUEqEq1F/dLq9FD6kUpTtxSUft34OASGQ2FHRw
-	ujyRoODCXQSSlaz6u34omZdXKnKo9Ajjqds4Bn5wnEsG4frQHcEccj6D8JCsBY4csGCx41c6+70
-	ITCs7I0JBkhMujcOupXn3nt3ja2tNtgS0jPYoWL39CObw=
-X-Google-Smtp-Source: AGHT+IHZyJqid//wCBlVNP3pcnUuvkjajKER+xeFHB1o8i8ij6OKhPHYHUDAmLQb9yNNQCp7v0lXFOO9XZFKzyx4pHM=
-X-Received: by 2002:ac8:6f1b:0:b0:48b:5656:bb01 with SMTP id
- d75a77b69052e-494ae352f98mr41415291cf.10.1747400544544; Fri, 16 May 2025
- 06:02:24 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250515-vt8500-timer-updates-v3-4-2197a1b062bd@gmail.com> <202505161430.wdURc0TG-lkp@intel.com>
-In-Reply-To: <202505161430.wdURc0TG-lkp@intel.com>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Fri, 16 May 2025 16:02:13 +0300
-X-Gm-Features: AX0GCFuUyfeKPyuuQKwLTH_a0JHlANkAjiXIiU8TmkAt1AD4XrUds-vQSs5nQng
-Message-ID: <CABjd4YykcZckQFfyuSpMtCJybq2nQuj9TYAP2S7RfivPLYPUnw@mail.gmail.com>
-Subject: Re: [PATCH v3 4/4] watchdog: Add support for VIA/WonderMedia SoC
- watchdog functionality
-To: kernel test robot <lkp@intel.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, 
-	oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-watchdog@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 16 May 2025 13:10:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B8E31A4E7C7;
+	Fri, 16 May 2025 13:10:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CF00C4CEE4;
+	Fri, 16 May 2025 13:10:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747401010;
+	bh=f3bSpBjDNhpmuG7CwGPUxc40Ow4uGBBx47VJXM4QwWE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=BvOyR4z9k89vA4LEiLj1r7wo8xfwWz8ngi5XkjnLeTrmDfXKR5LfcHzLx+ICH83tb
+	 fn766OyuVwFC8G7gkvwlOfmWd+rzsMZQQ+c2vyiehlT22B/8VDWocVfqBUvNfrV1oE
+	 IrsAn41sy+W5GsanX+V1llzb4GNl8InClIxuVjtTjIzWGWp1DVPZScn9csjaqpSOV0
+	 pg8TEEW0JLoPrdTPtsZbpO64B/OjtJOnfCoOxutffY9lGhtt/rjmrR7mb7bEY4KvxD
+	 KfxVHthYyX+R0MGIFwFhKd0bc+kBkEiBxeL+nuadmHZ9kiOQoMA0XYw4URmB6d6DE5
+	 iUxQjayLGu+hg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uFupD-00FYsP-P5;
+	Fri, 16 May 2025 14:10:08 +0100
+Date: Fri, 16 May 2025 14:10:06 +0100
+Message-ID: <868qmwg0r5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	qperret@google.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kernel-team@android.com
+Subject: Re: [PATCH v4 03/10] KVM: arm64: Add a range to __pkvm_host_share_guest()
+In-Reply-To: <20250509131706.2336138-4-vdonnefort@google.com>
+References: <20250509131706.2336138-1-vdonnefort@google.com>
+	<20250509131706.2336138-4-vdonnefort@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-team@android.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_060226_283277_9DD7ED82 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20250516_061011_697700_06ACADE7 
+X-CRM114-Status: GOOD (  22.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,46 +93,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 16, 2025 at 9:56=E2=80=AFAM kernel test robot <lkp@intel.com> w=
-rote:
->
-> Hi Alexey,
->
-> kernel test robot noticed the following build warnings:
->
-> [auto build test WARNING on 92a09c47464d040866cf2b4cd052bc60555185fb]
->
-> url:    https://github.com/intel-lab-lkp/linux/commits/Alexey-Charkov/dt-=
-bindings-timer-via-vt8500-timer-Convert-to-YAML/20250516-025729
-> base:   92a09c47464d040866cf2b4cd052bc60555185fb
-> patch link:    https://lore.kernel.org/r/20250515-vt8500-timer-updates-v3=
--4-2197a1b062bd%40gmail.com
-> patch subject: [PATCH v3 4/4] watchdog: Add support for VIA/WonderMedia S=
-oC watchdog functionality
-> config: sparc-allmodconfig (https://download.01.org/0day-ci/archive/20250=
-516/202505161430.wdURc0TG-lkp@intel.com/config)
-> compiler: sparc64-linux-gcc (GCC) 14.2.0
-> reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci/archi=
-ve/20250516/202505161430.wdURc0TG-lkp@intel.com/reproduce)
->
-> If you fix the issue in a separate patch/commit (i.e. not just a new vers=
-ion of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202505161430.wdURc0TG-lkp=
-@intel.com/
->
-> All warnings (new ones prefixed by >>):
->
->    drivers/watchdog/vt8500-wdt.c: In function 'vt8500_wdt_probe':
-> >> drivers/watchdog/vt8500-wdt.c:98:44: warning: conversion from 'long un=
-signed int' to 'unsigned int' changes value from '6148914691236517' to '328=
-7081637' [-Woverflow]
->       98 |         drvdata->wdd.max_hw_heartbeat_ms =3D -1UL / (VT8500_TI=
-MER_HZ / 1000);
+On Fri, 09 May 2025 14:16:59 +0100,
+Vincent Donnefort <vdonnefort@google.com> wrote:
+> 
+> In preparation for supporting stage-2 huge mappings for np-guest. Add a
+> nr_pages argument to the __pkvm_host_share_guest hypercall. This range
+> supports only two values: 1 or PMD_SIZE / PAGE_SIZE (that is 512 on a
+> 4K-pages system).
+> 
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> 
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> index 26016eb9323f..47aa7b01114f 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> @@ -39,7 +39,7 @@ int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages);
+>  int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
+>  int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
+>  int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
+> -int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu,
+> +int __pkvm_host_share_guest(u64 pfn, u64 gfn, u64 nr_pages, struct pkvm_hyp_vcpu *vcpu,
+>  			    enum kvm_pgtable_prot prot);
+>  int __pkvm_host_unshare_guest(u64 gfn, struct pkvm_hyp_vm *hyp_vm);
+>  int __pkvm_host_relax_perms_guest(u64 gfn, struct pkvm_hyp_vcpu *vcpu, enum kvm_pgtable_prot prot);
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 59db9606e6e1..4d3d215955c3 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -245,7 +245,8 @@ static void handle___pkvm_host_share_guest(struct kvm_cpu_context *host_ctxt)
+>  {
+>  	DECLARE_REG(u64, pfn, host_ctxt, 1);
+>  	DECLARE_REG(u64, gfn, host_ctxt, 2);
+> -	DECLARE_REG(enum kvm_pgtable_prot, prot, host_ctxt, 3);
+> +	DECLARE_REG(u64, nr_pages, host_ctxt, 3);
+> +	DECLARE_REG(enum kvm_pgtable_prot, prot, host_ctxt, 4);
+>  	struct pkvm_hyp_vcpu *hyp_vcpu;
+>  	int ret = -EINVAL;
+>  
+> @@ -260,7 +261,7 @@ static void handle___pkvm_host_share_guest(struct kvm_cpu_context *host_ctxt)
+>  	if (ret)
+>  		goto out;
+>  
+> -	ret = __pkvm_host_share_guest(pfn, gfn, hyp_vcpu, prot);
+> +	ret = __pkvm_host_share_guest(pfn, gfn, nr_pages, hyp_vcpu, prot);
+>  out:
+>  	cpu_reg(host_ctxt, 1) =  ret;
+>  }
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 4d269210dae0..f0f7c6f83e57 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -696,10 +696,9 @@ static enum pkvm_page_state guest_get_page_state(kvm_pte_t pte, u64 addr)
+>  	return pkvm_getstate(kvm_pgtable_stage2_pte_prot(pte));
+>  }
+>  
+> -static int __guest_check_page_state_range(struct pkvm_hyp_vcpu *vcpu, u64 addr,
+> +static int __guest_check_page_state_range(struct pkvm_hyp_vm *vm, u64 addr,
+>  					  u64 size, enum pkvm_page_state state)
+>  {
+> -	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
+>  	struct check_walk_data d = {
+>  		.desired	= state,
+>  		.get_page_state	= guest_get_page_state,
+> @@ -908,48 +907,81 @@ int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages)
+>  	return ret;
+>  }
+>  
+> -int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu,
+> +static int __guest_check_transition_size(u64 phys, u64 ipa, u64 nr_pages, u64 *size)
+> +{
+> +	if (nr_pages == 1) {
+> +		*size = PAGE_SIZE;
+> +		return 0;
+> +	}
+> +
+> +	/* We solely support PMD_SIZE huge-pages */
+> +	if (nr_pages != (1 << (PMD_SHIFT - PAGE_SHIFT)))
+> +		return -EINVAL;
 
-Will change to U32_MAX in the next version.
+I'm not really keen on the whole PxD nomenclature. What we really care
+about is a mapping level (level 2 in this instance). Can we instead
+use kvm_granule_size()?  Something like:
 
-Best regards,
-Alexey
+	if ((nr_page * PAGE_SIZE) != kvm_granule_size(2))
+		return -EINVAL;
+
+> +
+> +	if (!IS_ALIGNED(phys | ipa, PMD_SIZE))
+> +		return -EINVAL;
+> +
+> +	*size = PMD_SIZE;
+
+Similar things here. But also, should this level-2 block checking be
+moved to the patch that actually allows block mapping?
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
