@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A62A0C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 13:12:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81846C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 13:18:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9BbKECuQIgvXK9vjo86BI4yH6OnxwsJ7kCXqk8ODroQ=; b=zcPtF9Pkv5EjZuwYlqGSCqE9UN
-	rAJSNXcCuUcsRTzHZS73spNa2Dd57lT1TU2KRjtiuf+J+VVleoV20C0uh9NXtFV2l7bIOnc0EiEC7
-	88hcswPpRfzls+JXYE3Iq+1X+CpAMXHrcP/bQJwZ0PQuLxVm8KU5NKCVXKW1/psQxXn3i9RLcNikT
-	hsr8seVYmdHHN1GqGp0qZDL4Hos0IIq5PVvhU18NO2y9IhK7zwrRnvU/9gfQjf0af2GpX0ikCFgcU
-	MYEpVD3OEyAVCZ503fTYCWD4g/8Tf6Zw1vZB/7Ms8f9W0k49v7BzDmCsFhW85NgXcRGdmVLnUF1Z4
-	p/tzH2tA==;
+	bh=Hv8SkidEBXrQXpGtrDlcKH7sGC3rLo1VBE5Ufxh9jOs=; b=is9btmDZWMFdgP2uDbBELnzveW
+	N3iXveL6HNwRZicF5suTCyllhf8RkvbbXFdFMiQ0ZM98cWzDsmaj5EjS/5bPteyZ7+gm2E7pQgMDZ
+	m9//oUNQNdal1AA3QUKL6mdl9z9EU/o5TtdJEorXUwIRRFf9QD/KTgryM+JjiTdC1n7IhPJAF6y53
+	MyPPkzymHwG1kRa2+TRd1ZP35bwBEeTcMv4VXW8jsZl5nhBvoC0YE+0vvCjMxaVpFZdzphrCKSZfO
+	zPZDqwIG4gyQb+p8Grxn5oOjVgxr+pt1KrA6ZUWwqPRSV4j3TsMYVD/PC/cI7ndfskfobNx7shgoI
+	I/q1UuEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFurJ-00000003Tjv-3qiL;
-	Fri, 16 May 2025 13:12:17 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uFuwl-00000003UO2-47sK;
+	Fri, 16 May 2025 13:17:55 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFupH-00000003TQ7-2BEp
+	id 1uFuuj-00000003U9O-05og
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 13:10:12 +0000
+	Fri, 16 May 2025 13:15:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B8E31A4E7C7;
-	Fri, 16 May 2025 13:10:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CF00C4CEE4;
-	Fri, 16 May 2025 13:10:10 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C44C25C148F;
+	Fri, 16 May 2025 13:13:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B674BC4CEE4;
+	Fri, 16 May 2025 13:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747401010;
-	bh=f3bSpBjDNhpmuG7CwGPUxc40Ow4uGBBx47VJXM4QwWE=;
+	s=k20201202; t=1747401347;
+	bh=aIVuP15lLI18U0B27tPS187TYHrY2xiLduyapf9Ur+w=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=BvOyR4z9k89vA4LEiLj1r7wo8xfwWz8ngi5XkjnLeTrmDfXKR5LfcHzLx+ICH83tb
-	 fn766OyuVwFC8G7gkvwlOfmWd+rzsMZQQ+c2vyiehlT22B/8VDWocVfqBUvNfrV1oE
-	 IrsAn41sy+W5GsanX+V1llzb4GNl8InClIxuVjtTjIzWGWp1DVPZScn9csjaqpSOV0
-	 pg8TEEW0JLoPrdTPtsZbpO64B/OjtJOnfCoOxutffY9lGhtt/rjmrR7mb7bEY4KvxD
-	 KfxVHthYyX+R0MGIFwFhKd0bc+kBkEiBxeL+nuadmHZ9kiOQoMA0XYw4URmB6d6DE5
-	 iUxQjayLGu+hg==
+	b=WNzvVjlXL2rom+TaLrRhnGLzOtPPIqPH2Sbaww3H4+/4s0Qab7I7VpvL7EcI1G/RF
+	 zmDbBDdnWAQtcWwrJe5DkLutsVGA0NpDDFFXf+3ZnXVgI+f6tI92fJD1EwVyMIfsW1
+	 w+5RkzWnstATQtjzh8qEZyLM3Sqbv2fXqWqnHZdRn9fVXMCIQ7Pst+4XdkI8AZCesZ
+	 VYj45a3d2Gi4dFdKWQxiQ7dFXXCWJZbLBKW9Qq9bQua0ohw8+gKzOkOPaGcoE5tT/d
+	 0jc/vxhwoXL1VzKAAeOKplXupXTuA+rtwdNxGTShHGod077hHA1Uwss0N62W9dIrbX
+	 uDO/SeJiH+5hQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uFupD-00FYsP-P5;
-	Fri, 16 May 2025 14:10:08 +0100
-Date: Fri, 16 May 2025 14:10:06 +0100
-Message-ID: <868qmwg0r5.wl-maz@kernel.org>
+	id 1uFuuf-00FYy4-Nm;
+	Fri, 16 May 2025 14:15:45 +0100
+Date: Fri, 16 May 2025 14:15:45 +0100
+Message-ID: <867c2gg0hq.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Vincent Donnefort <vdonnefort@google.com>
 Cc: oliver.upton@linux.dev,
@@ -63,10 +63,10 @@ Cc: oliver.upton@linux.dev,
 	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	kernel-team@android.com
-Subject: Re: [PATCH v4 03/10] KVM: arm64: Add a range to __pkvm_host_share_guest()
-In-Reply-To: <20250509131706.2336138-4-vdonnefort@google.com>
+Subject: Re: [PATCH v4 07/10] KVM: arm64: Convert pkvm_mappings to interval tree
+In-Reply-To: <20250509131706.2336138-8-vdonnefort@google.com>
 References: <20250509131706.2336138-1-vdonnefort@google.com>
-	<20250509131706.2336138-4-vdonnefort@google.com>
+	<20250509131706.2336138-8-vdonnefort@google.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -77,8 +77,8 @@ X-SA-Exim-Rcpt-To: vdonnefort@google.com, oliver.upton@linux.dev, joey.gouly@arm
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_061011_697700_06ACADE7 
-X-CRM114-Status: GOOD (  22.98  )
+X-CRM114-CacheID: sfid-20250516_061549_170696_80799FF4 
+X-CRM114-Status: GOOD (  24.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,99 +93,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 09 May 2025 14:16:59 +0100,
+On Fri, 09 May 2025 14:17:03 +0100,
 Vincent Donnefort <vdonnefort@google.com> wrote:
 > 
-> In preparation for supporting stage-2 huge mappings for np-guest. Add a
-> nr_pages argument to the __pkvm_host_share_guest hypercall. This range
-> supports only two values: 1 or PMD_SIZE / PAGE_SIZE (that is 512 on a
-> 4K-pages system).
+> From: Quentin Perret <qperret@google.com>
 > 
+> In preparation for supporting stage-2 huge mappings for np-guest, let's
+> convert pgt.pkvm_mappings to an interval tree.
+> 
+> No functional change intended.
+> 
+> Suggested-by: Vincent Donnefort <vdonnefort@google.com>
+> Signed-off-by: Quentin Perret <qperret@google.com>
 > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 > 
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> index 26016eb9323f..47aa7b01114f 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> @@ -39,7 +39,7 @@ int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages);
->  int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
->  int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
->  int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
-> -int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu,
-> +int __pkvm_host_share_guest(u64 pfn, u64 gfn, u64 nr_pages, struct pkvm_hyp_vcpu *vcpu,
->  			    enum kvm_pgtable_prot prot);
->  int __pkvm_host_unshare_guest(u64 gfn, struct pkvm_hyp_vm *hyp_vm);
->  int __pkvm_host_relax_perms_guest(u64 gfn, struct pkvm_hyp_vcpu *vcpu, enum kvm_pgtable_prot prot);
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index 59db9606e6e1..4d3d215955c3 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -245,7 +245,8 @@ static void handle___pkvm_host_share_guest(struct kvm_cpu_context *host_ctxt)
+> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> index 6b9d274052c7..1b43bcd2a679 100644
+> --- a/arch/arm64/include/asm/kvm_pgtable.h
+> +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> @@ -413,7 +413,7 @@ static inline bool kvm_pgtable_walk_lock_held(void)
+>   */
+>  struct kvm_pgtable {
+>  	union {
+> -		struct rb_root					pkvm_mappings;
+> +		struct rb_root_cached				pkvm_mappings;
+>  		struct {
+>  			u32					ia_bits;
+>  			s8					start_level;
+> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> index d91bfcf2db56..da75d41c948c 100644
+> --- a/arch/arm64/include/asm/kvm_pkvm.h
+> +++ b/arch/arm64/include/asm/kvm_pkvm.h
+> @@ -173,6 +173,7 @@ struct pkvm_mapping {
+>  	struct rb_node node;
+>  	u64 gfn;
+>  	u64 pfn;
+> +	u64 __subtree_last;	/* Internal member for interval tree */
+>  };
+>  
+>  int pkvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
+> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> index 057874bbe3e1..6febddbec69e 100644
+> --- a/arch/arm64/kvm/pkvm.c
+> +++ b/arch/arm64/kvm/pkvm.c
+> @@ -5,6 +5,7 @@
+>   */
+>  
+>  #include <linux/init.h>
+> +#include <linux/interval_tree_generic.h>
+>  #include <linux/kmemleak.h>
+>  #include <linux/kvm_host.h>
+>  #include <asm/kvm_mmu.h>
+> @@ -256,80 +257,63 @@ static int __init finalize_pkvm(void)
+>  }
+>  device_initcall_sync(finalize_pkvm);
+>  
+> -static int cmp_mappings(struct rb_node *node, const struct rb_node *parent)
+> +static u64 __pkvm_mapping_start(struct pkvm_mapping *m)
 >  {
->  	DECLARE_REG(u64, pfn, host_ctxt, 1);
->  	DECLARE_REG(u64, gfn, host_ctxt, 2);
-> -	DECLARE_REG(enum kvm_pgtable_prot, prot, host_ctxt, 3);
-> +	DECLARE_REG(u64, nr_pages, host_ctxt, 3);
-> +	DECLARE_REG(enum kvm_pgtable_prot, prot, host_ctxt, 4);
->  	struct pkvm_hyp_vcpu *hyp_vcpu;
->  	int ret = -EINVAL;
->  
-> @@ -260,7 +261,7 @@ static void handle___pkvm_host_share_guest(struct kvm_cpu_context *host_ctxt)
->  	if (ret)
->  		goto out;
->  
-> -	ret = __pkvm_host_share_guest(pfn, gfn, hyp_vcpu, prot);
-> +	ret = __pkvm_host_share_guest(pfn, gfn, nr_pages, hyp_vcpu, prot);
->  out:
->  	cpu_reg(host_ctxt, 1) =  ret;
->  }
-> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> index 4d269210dae0..f0f7c6f83e57 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> @@ -696,10 +696,9 @@ static enum pkvm_page_state guest_get_page_state(kvm_pte_t pte, u64 addr)
->  	return pkvm_getstate(kvm_pgtable_stage2_pte_prot(pte));
+> -	struct pkvm_mapping *a = rb_entry(node, struct pkvm_mapping, node);
+> -	struct pkvm_mapping *b = rb_entry(parent, struct pkvm_mapping, node);
+> -
+> -	if (a->gfn < b->gfn)
+> -		return -1;
+> -	if (a->gfn > b->gfn)
+> -		return 1;
+> -	return 0;
+> +	return m->gfn * PAGE_SIZE;
 >  }
 >  
-> -static int __guest_check_page_state_range(struct pkvm_hyp_vcpu *vcpu, u64 addr,
-> +static int __guest_check_page_state_range(struct pkvm_hyp_vm *vm, u64 addr,
->  					  u64 size, enum pkvm_page_state state)
+> -static struct rb_node *find_first_mapping_node(struct rb_root *root, u64 gfn)
+> +static u64 __pkvm_mapping_end(struct pkvm_mapping *m)
 >  {
-> -	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
->  	struct check_walk_data d = {
->  		.desired	= state,
->  		.get_page_state	= guest_get_page_state,
-> @@ -908,48 +907,81 @@ int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages)
->  	return ret;
+> -	struct rb_node *node = root->rb_node, *prev = NULL;
+> -	struct pkvm_mapping *mapping;
+> -
+> -	while (node) {
+> -		mapping = rb_entry(node, struct pkvm_mapping, node);
+> -		if (mapping->gfn == gfn)
+> -			return node;
+> -		prev = node;
+> -		node = (gfn < mapping->gfn) ? node->rb_left : node->rb_right;
+> -	}
+> -
+> -	return prev;
+> +	return (m->gfn + 1) * PAGE_SIZE - 1;
 >  }
 >  
-> -int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu,
-> +static int __guest_check_transition_size(u64 phys, u64 ipa, u64 nr_pages, u64 *size)
-> +{
-> +	if (nr_pages == 1) {
-> +		*size = PAGE_SIZE;
-> +		return 0;
-> +	}
+> -/*
+> - * __tmp is updated to rb_next(__tmp) *before* entering the body of the loop to allow freeing
+> - * of __map inline.
+> - */
+> +INTERVAL_TREE_DEFINE(struct pkvm_mapping, node, u64, __subtree_last,
+> +		     __pkvm_mapping_start, __pkvm_mapping_end, static,
+> +		     pkvm_mapping);
 > +
-> +	/* We solely support PMD_SIZE huge-pages */
-> +	if (nr_pages != (1 << (PMD_SHIFT - PAGE_SHIFT)))
-> +		return -EINVAL;
+>  #define for_each_mapping_in_range_safe(__pgt, __start, __end, __map)				\
+> -	for (struct rb_node *__tmp = find_first_mapping_node(&(__pgt)->pkvm_mappings,		\
+> -							     ((__start) >> PAGE_SHIFT));	\
+> +	for (struct pkvm_mapping *__tmp = pkvm_mapping_iter_first(&(__pgt)->pkvm_mappings,	\
+> +								  __start, __end - 1);		\
+>  	     __tmp && ({									\
+> -				__map = rb_entry(__tmp, struct pkvm_mapping, node);		\
+> -				__tmp = rb_next(__tmp);						\
+> +				__map = __tmp;							\
+> +				__tmp = pkvm_mapping_iter_next(__map, __start, __end - 1);	\
+>  				true;								\
+>  		       });									\
+> -	    )											\
+> -		if (__map->gfn < ((__start) >> PAGE_SHIFT))					\
+> -			continue;								\
+> -		else if (__map->gfn >= ((__end) >> PAGE_SHIFT))					\
+> -			break;									\
+> -		else
+> +	    )
 
-I'm not really keen on the whole PxD nomenclature. What we really care
-about is a mapping level (level 2 in this instance). Can we instead
-use kvm_granule_size()?  Something like:
-
-	if ((nr_page * PAGE_SIZE) != kvm_granule_size(2))
-		return -EINVAL;
-
-> +
-> +	if (!IS_ALIGNED(phys | ipa, PMD_SIZE))
-> +		return -EINVAL;
-> +
-> +	*size = PMD_SIZE;
-
-Similar things here. But also, should this level-2 block checking be
-moved to the patch that actually allows block mapping?
+The removal of the comment worries me a bit. Is this iterator still
+safe wrt freeing of the iterator in the loop?
 
 Thanks,
 
