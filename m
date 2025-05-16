@@ -4,122 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ADADC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 11:10:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52548C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 11:12:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SPH/wuuGSMdDk2e/1NsetZyGIDEN5dTgWZ7weWTf6ag=; b=A6+/qcjA8PNnJ+Qug2LUh7Tl9Q
-	rYAn62UazyXRqbMB2mVT+B9fAcMjJOAOKosGOC62MDakP1BKRP3n6zLGhqYgFrWSafQ+tXEK/AR4L
-	zKYxCQUCvD6WokdMjaLRxrqaD8wR7/Mcayom/GihAA7VbDNu74Qz5IGGus5hJIzhWtIW3rAUJA0/p
-	nyL5VETkHvDrC1pQawzxaQ4hoqnJUDaYbfq6MJqRAz5g+xCHLQVPTap1cWrUeuxtwT+MUt3LYlDgt
-	uxWUbpoez4VVcmz37g5/hrabacWXZr3On11hQrn5VnIBwgN6e7awJIGE1ucYAAUUA7JF2Xk7lsX/N
-	/WZ5E75Q==;
+	bh=EXe+gSBPJ7cW0IT1NgPrBhBzmgnhp9f08vI4wtNFGbk=; b=3OSt4vuXTRF+h/e7Ed2+njYwaH
+	pBI/oKe8tUmbGLNSVF6B+823SLef+WYss1gQnIqN+GPdLAA/Dgu6R4Ktx4H4nVFEqFo3u0rOtX2Y8
+	d0EMOfcjPmI4L9uy1+VkB8mURRu+9DkoYnHhvJ/SmHvJJlUSXAss9IFQdqwhOq4waWSyMXHm1LML4
+	l5HpWTBJY56HkxhaNfMM1YZXFr7yauMrJSpjmioJnKVU2hcXND736nYdS1wOvQxE0IhFAYgoKAFfO
+	hCB3qlkuehKXPEc1g97gsXorslYkmYEgI5hixtdtYJg93dHm+IsSCkuUq7ebLbH6PXXaA88tADJyt
+	R4GUiwnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFsxI-00000003E8W-0zIj;
-	Fri, 16 May 2025 11:10:20 +0000
-Received: from fhigh-b8-smtp.messagingengine.com ([202.12.124.159])
+	id 1uFszH-00000003ENz-3vQ0;
+	Fri, 16 May 2025 11:12:23 +0000
+Received: from mout.gmx.net ([212.227.15.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFsgF-00000003Bja-01mk
+	id 1uFsir-00000003Byp-3d3V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 10:52:44 +0000
-Received: from phl-compute-06.internal (phl-compute-06.phl.internal [10.202.2.46])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id E0110254009B;
-	Fri, 16 May 2025 06:52:41 -0400 (EDT)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-06.internal (MEProxy); Fri, 16 May 2025 06:52:42 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm3; t=1747392761; x=
-	1747479161; bh=SPH/wuuGSMdDk2e/1NsetZyGIDEN5dTgWZ7weWTf6ag=; b=V
-	8cO4/4jd1Oo2Gyyy4YdH3j4kYVAXb5UvJKM6HcuI8GXNgiyTrUSn+c2xvvFHm4UE
-	pEClPzdI8o9T6Bk46WMb3XljNsYRmEXRVJwX5nuTA3yfCKTLx1jAsMsOTOxPSxCD
-	HLD7A028rx/q0p3yzQYGrOB6dZHhqErUbTZ95/cUyUMYh4gTKBRQNdyBtd7LMNG3
-	cbUC9aoGW1D6NgBVGN9aui+EGUTu2Rfc2EzDIpmyEvC2PcB9fRcIw/vb1g2IDg2W
-	1imbUbyFmkLgMHDq2jH4fguTbM+COMuu06yHQdw0RWlhDXZEB5D9FHEkm4WDs1YC
-	lysUraTdFALc1vMyVi1rQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1747392761; x=1747479161; bh=S
-	PH/wuuGSMdDk2e/1NsetZyGIDEN5dTgWZ7weWTf6ag=; b=NYjJvXj7K1BE/DYBb
-	u6BLWi/bE64JsV6kiHSMX56MACqtZG04d4YXfb3GCgsPngMBHoGoCyI+bsxNu5L3
-	kARfCDrgq6/hcAZEGOpX20tPKcSVioQmcVFMuux2oagpE24WHJI0BeJpgUpOiDCk
-	qG+tNz6i+fjc5sTXJizQheZlykBSH/Q1typXKzI6Z1vTBurm8zB7iw5SkMV7DWqw
-	G49qWaHkiAKTLNgCsU6ZlypRlfDPqyALE9Qw2OhGxOBndAvCHCwPza6k5FFiZ+i/
-	/5rX8A4IWnfgoXlFun8wm1vBGGl6LPBf7aXpAN9Jtyv5S2yvNuzVJp3IwQ4DUMeO
-	wzG5Q==
-X-ME-Sender: <xms:-RgnaHz_HMZZYk6M6myIyrPfgni-vaSMk4R1ZjpXDkpWBI3IDf4Hyw>
-    <xme:-RgnaPRLKL5qcgsM2RTrxp9F94ufCAgzLAr9fqB13Zmoo9MsIvNPsg7USx3vR_XkG
-    RtE-qFR_GIzwpFl4A>
-X-ME-Received: <xmr:-RgnaBXntb_rnGp0IU4zTXor5pk9OU7AOGdS7ZvMrtWlCOX1RXLUBpeyef0kEU60NVsHq80rE6IaEONn7QW4S4UtYMACn2lIMoHjrGy78D9a>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefuddvheehucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredt
-    tdenucfhrhhomheptfihrghnucghrghlkhhlihhnuceorhihrghnsehtvghsthhtohgrsh
-    htrdgtohhmqeenucggtffrrghtthgvrhhnpeffheeiffegtdfgffejteevgeefkeelieel
-    keevueetffetteduffevgeeiieehteenucevlhhushhtvghrufhiiigvpedunecurfgrrh
-    grmhepmhgrihhlfhhrohhmpehrhigrnhesthgvshhtthhorghsthdrtghomhdpnhgspghr
-    tghpthhtohepvdegpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehmrhhiphgrrh
-    gusehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifvghnshestghsihgvrdhorhhgpdhr
-    tghpthhtohepmhgrrghrthgvnhdrlhgrnhhkhhhorhhstheslhhinhhugidrihhnthgvlh
-    drtghomhdprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghp
-    thhtoheprghirhhlihgvugesghhmrghilhdrtghomhdprhgtphhtthhopegurghnihgvlh
-    esfhhffihllhdrtghhpdhrtghpthhtohepjhgvrhhnvghjrdhskhhrrggsvggtsehgmhgr
-    ihhlrdgtohhmpdhrtghpthhtohepshgrmhhuvghlsehshhholhhlrghnugdrohhrghdprh
-    gtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:-RgnaBiuT5D7c82SZbe9Hv1PVZ_ub9B3K4UbC2n5Ga-eIprm41RjVg>
-    <xmx:-RgnaJB0upJvoVTtfHZFgU_muHgb8llwE8QvOGha_bYMnrKffH1rZA>
-    <xmx:-RgnaKKdw9OzykW46A2UIAES9fUP1N69mafKzHAL8O7a2chNeASk2w>
-    <xmx:-RgnaIA73yl5Ih0axGp3IsaV6tN1PEIttC_7le2z5rH0ChslkCmi5Q>
-    <xmx:-RgnaGqs6-aWhtdXRoxRf59iPMtTSnJRKPIaX-Rkr8viAnS_2rVyDjd_>
-Feedback-ID: idc0145fc:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 16 May 2025 06:52:35 -0400 (EDT)
-From: Ryan Walklin <ryan@testtoast.com>
-To: Maxime Ripard <mripard@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Daniel Vetter <daniel@ffwll.ch>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: Andre Przywara <andre.przywara@arm.com>,
-	Chris Morgan <macroalpha82@gmail.com>,
-	Hironori KIKUCHI <kikuchan98@gmail.com>,
-	Philippe Simons <simons.philippe@gmail.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	Ryan Walklin <ryan@testtoast.com>
-Subject: [PATCH v11 8/8] drm: sun4i: de33: mixer: add mixer configuration for the H616
-Date: Fri, 16 May 2025 22:44:25 +1200
-Message-ID: <20250516105101.11650-9-ryan@testtoast.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250516105101.11650-1-ryan@testtoast.com>
-References: <20250516105101.11650-1-ryan@testtoast.com>
+	Fri, 16 May 2025 10:55:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1747392912; x=1747997712; i=wahrenst@gmx.net;
+	bh=EXe+gSBPJ7cW0IT1NgPrBhBzmgnhp9f08vI4wtNFGbk=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=Vzd7QdceK00pjfd3dlqm8HkDnkKiE6Q4NndN1NBNYOrbeh2WgUgnCkKaocJOYPCs
+	 W26jQ8Lb2WzI0V+KG+Mgm+XVahlpEsJTR7hP7uOTm0BgdfOL6tgv3fADOl+6z6QAU
+	 V00QG3gsiCCAW4w8dHei7RnIMusklIkIyNVj4cZwnZps3gDPPjmFVFyPND/uqPC1X
+	 JDn0CQfI3fFQiCclK1ggdBF9iqz/W0yTkubVa+xz+MwIhzo3g1yXlOtBd/vFAkMH3
+	 CDPerYy1PS7LlS8LRAfIRWzfSfeGwYr808G1RLMojO4Ty/JKi+r58TBejmpKITri2
+	 neGaSC65xKQjwD0kBQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.103] ([91.41.216.208]) by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MDywo-1u61Mi170G-00D6SS; Fri, 16
+ May 2025 12:55:12 +0200
+Message-ID: <c9780ba4-4f39-479a-88ff-7f0dae8179a4@gmx.net>
+Date: Fri, 16 May 2025 12:55:10 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 2/2] staging: vc04_services: Document VCHIQ character
+ device
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jonathan Corbet <corbet@lwn.net>
+Cc: Phil Elwell <phil@raspberrypi.com>,
+ Dan Carpenter <dan.carpenter@linaro.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ linux-arm-kernel@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com,
+ kernel-list@raspberrypi.com, linux-staging@lists.linux.dev,
+ linux-doc@vger.kernel.org
+References: <20250509221152.13564-1-wahrenst@gmx.net>
+ <20250509221152.13564-3-wahrenst@gmx.net>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20250509221152.13564-3-wahrenst@gmx.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:yeS/K65gMZXrFuEVJk1pFUV45DZdWDQ5Z3LColIgrvQtgPE0Zrt
+ qzbqghidHsmPH58GpuxAVSdes+4MuCqaEkiIhu7PxGK7w5BKJZy6bdDAaHTdt8gwNVB7HwA
+ Ws4neoHLWD3ALGRjA2LCLNhm+1W7OXzT0cxEgdIZrw2XSN0/4pA/qbRw2sIT5LG+bwg6R8e
+ FcM4/x+knxbXGeVaEMr5A==
+UI-OutboundReport: notjunk:1;M01:P0:+Jd0NjcXzGk=;UybtbRb5SVX9fJxGMyL64ILaryV
+ 2VEkNqsJFxPJl27WZTo7a+JWoymdYKyHpYeSncKDAObc48jm9G99y4lgri1mkRFOcfTJAQchL
+ DT82uzDG6gdzTLk40bE/kTG6F+0uJKFCmDom3muO2IIpVbqJ26+mUcbNMUwTjQL2rRE7QDwkH
+ SEj+X77WqEqSpownPn4eAxvHrywI2lc5Rt1ybEk7IHb8sT/3WTzBZ4XpM6BEasTN+BKO/WhiR
+ ARdaFHmrf9haOC8BTEQeUS3wC4+waeOzd7WfaUSh5rr/LgyYNGvf0ZVsl0crFxEc83QAOZXRS
+ thYtNJH0GPWwHDpHlD0tZyqJsP27eWO6a9VgCTKldAVMdEktRmoGV/893tUtwZzRiBgsyUbQQ
+ Gi4U5TyY57L/JStWWDB56bQNmgyXBhYE+8qzymMSvyg1W7k/OwZCshxfvbtPpT37JdAV3UjzN
+ qTjWyTkDxG/LPArAP2JQGhsOuum68DURgFmQDquclhdZCldKLiUGAHEomeANaMomGOpU9KymT
+ 7pVxCJfZvp0RQgs1Mg3Wut0Y39AIFy8TZIPlZfkwOQzrpJxUvOiVSZpuaPPfbi8iaIYUu8QGg
+ tAC7tAADkKzwGZvyStGTO/XWwLm6q66Ku1AZQfSWUACdkYIi/IJxIvHkF926ntkgb06qwkOZH
+ t0J0ylH4XW+5pvBSnZi4H+m2LUSfMpO71yBA5GioBgfvLCdTDXUwhRXpd7Cx6uePpog8RQOBR
+ BLUgBDxoHLWFc1HuPI+/FZMJUVi3Hc2EMe/PB2m9XEKa/yoDJOO6w6G8c41XqBJGzkb038HIz
+ +kCitEOB0nN3nn9M7mEBqPuC58iDCYXjdQnisACmZSl9YQbeMQ0GZLGP//KwyNxGH0mf048s2
+ /uH4wS8BUy64xbG5QzTsy3WUTLIwQHaiCM152ESrByuuEMFqEibqxqyIizJ6DpS2WuR0K6/LR
+ 5zc8Jl3tfXhmHA5sw4mkgb8n+jMKkuKrkuS0zY901bEeEN2kcCpZOPoP/2MjWQbWzhCr6/i9p
+ 1nWCHoRQ5mizMGmW1Xt2qW/6Dl678ZsiD7MCLzxlGa8+t98WXf+SkPtjozrOLz6pOVIKHKM7o
+ co6drUVLQ1AoT/jdYkgUP87ipWWAiVBc/A1zk0bXds+hT8Wd8/2Zucoxm8ehmGKWI0GVF8Dra
+ LdHd9tWNuUnPvwo0nwKaIKGPzbA3pFz3ZTwCUs3OnxV8Vm/cmVtwQauOlezgNnAbtwzdzxWTZ
+ fXcTdglMhN9wq8fGFHD8tMcuZqf8T2ThvJVGe0oRAXQrnCX3DTIoHNMjWi6zdE2paUltNH0LW
+ LokPYdzrjpt3DFikZnCV7skgciUsQuYwrur4clSP+qTfMYvwnr3AKHf7A5lvOiDoU1VY3dFC8
+ ePgdXW126wl77Ckmx1p2RwllUEx3dlWhZGjYEQ19jshqlBjDwPN7rkeTv1gVIK3AxXOY0lkta
+ kHUOqYPZV9O0LryIkita9DGvq3q4CdU3Ut+rzs/wOYjrYdo3BYr4uFAoQCQ6UVrtU95nTg2nz
+ +uBeqNoqU9Yyp7WQebjAacgWRRNPQktcErFIrSn1tuNx0qPnVZdziUaGQ/xVOdzvXruH+SWr6
+ tmMC2+h7+PR+MtWNwYtfLsqLhVQOAaewglTZMLRwbU5Qrtkd70j5QlszuYP1CxCbJtjczUz9/
+ MT0S+q8pY25KGnLAfxRA8wyik/4aDfJlszDC8GggSsR3RBfgj8SWh2Xr1YUQ4FzuJG4QPBtam
+ e4SttTCwS1yFK7Ouln1j7jLFZc8+ITNv71XMpWdzHxxP4P2PpTlV0j+iZTSrxuh07FCM/p/Wn
+ EHsVQpLGesel4lQo9gMsVWEAEqDFc05MnllvZEdecQNAD0yDIIEHludvV2/3aRRxEkflpiinB
+ VwILClDo6PI835m3Fpw8XHnKXyubj4V1oXQxgHqYs4uPxjADOEfRi/QVNyDKohHrIDkRCvt/b
+ P1giopUrQpBF2eAz7OWNHd7lF8PqNmjWO7xaTm40O9shqpMmqgu5nPi5vNR0OMcU1Ym2H4lsp
+ XvLJw42wCwYolSS3g9bfELH5n6oWy8CK4tbBO5YmS9xo9tQRjsTbkY/EfiRbF+RJ7mYuQVAQy
+ 6Lqfi/B304q864hLEf0Dk9pFZFKQUvFgLxzJeSCQictOfLD2kqop0W93wkYPquTkjgCksMJoM
+ lZgG/LcdwuRuE6BfLnpmrHl1X0jQphG5dQJUbergUyaT1U/IpQty4hjGSP5GjavWLFu3peCHD
+ /K/YU5lz6IO59zhOXhRtXsIRf06WUwDSjA8o0bgGSL+wO4xK274UeV6MgqlAgJzJEGH/i0hTG
+ HogjBB4Qz44zp/IPdtFet8n30RbKzqYwIndvzhq6vsWvL8KCdhJJUXmopb+D9QLiV7S8J/ZE9
+ GQepoTqK8v5Gij1vORpZxj8v483ZXNzQ+xDx4+vo1d4Rker9quFaAd5yKg2YM6CC5lkXdjI5z
+ oIB4+PnMnO4EHW4O2+GHnQTJQlAtE69c5uZTD1TVDGwiTK499NGivxuZ3ckVdZL9/TtP2S2lI
+ GyFswUeSnwkGk9FBYeKUMfPAuSzRQcW953BRbaV+9Kx1u+9mCd9cPqgF8+zZXp4dWFehkO+3B
+ +ZlGGiXm4illBciyULvNi3wF3UEoQ8r6prmLJsVuDDWQOiGaODBR969vqd6OKckw0gqEHxogm
+ EhIyXGshWsaOiSZ1ZAkqsV0XvCvQwkq8Ed7QF1AsT6vdMWToUgN3N7ziW3cyO9L7Lb/C9nibj
+ IDqHcKXxrEdqQkTNwSG9vqXlRHWM6Toy51qlb4Zo6Gq9Nb2grz0pEd9KEvCqmvswS31JnS3HI
+ SvqttydZD4Q/Dagv2ybRC3tIvJoaIk/eIx8WoWozdeWgK9sHBHIw6RDYub41KuxjHbxHrANai
+ ZpXBLnac7vu0IjhrGBTwfhFkhqKnf4RhI8Xgq80z9NJ9BFFgH04IE1+wASO/24RVcfI1GvJTB
+ TBRd5qDpoDiNQQaUVXG6NDDGvndEyCf1IqpwCyP/dR9XybmtZPIAwaBToqQr4p/7ALzQ/S/P/
+ 0hm0hBtURsNwyYqsk/wS7hPgMue5j6V4sqAsEN7W/NQ3sP7QHIdL0UcSbjJ6URH2A==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_035243_093911_0EE77461 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20250516_035526_206133_603F0C2C 
+X-CRM114-Status: GOOD (  28.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,62 +141,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jernej Skrabec <jernej.skrabec@gmail.com>
+Hi,
 
-The H616 (and related SoC packages sharing the same die) carry the new
-DE33 display engine.
+[add Jonathan & linux-doc]
 
-Add the mixer configuration and a compatible string for the H616 to the
-mixer.
-
-Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-Signed-off-by: Ryan Walklin <ryan@testtoast.com>
-Acked-by: Maxime Ripard <mripard@kernel.org>
-
---
-Changelog v7..v8:
-- Separate DE33 support and H616 enablement in the mixer.
-
-Changelog v10..v11:
-- Convert de_type enum to uppercase
----
- drivers/gpu/drm/sun4i/sun8i_mixer.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
-
-diff --git a/drivers/gpu/drm/sun4i/sun8i_mixer.c b/drivers/gpu/drm/sun4i/sun8i_mixer.c
-index 13e712382010..31a8409b98f4 100644
---- a/drivers/gpu/drm/sun4i/sun8i_mixer.c
-+++ b/drivers/gpu/drm/sun4i/sun8i_mixer.c
-@@ -799,6 +799,17 @@ static const struct sun8i_mixer_cfg sun50i_h6_mixer0_cfg = {
- 	.vi_num		= 1,
- };
- 
-+static const struct sun8i_mixer_cfg sun50i_h616_mixer0_cfg = {
-+	.ccsc		= CCSC_MIXER0_LAYOUT,
-+	.de_type	= SUN8I_MIXER_DE33,
-+	.mod_rate	= 600000000,
-+	.scaler_mask	= 0xf,
-+	.scanline_yuv	= 4096,
-+	.ui_num		= 3,
-+	.vi_num		= 1,
-+	.map		= {0, 6, 7, 8},
-+};
-+
- static const struct of_device_id sun8i_mixer_of_table[] = {
- 	{
- 		.compatible = "allwinner,sun8i-a83t-de2-mixer-0",
-@@ -844,6 +855,10 @@ static const struct of_device_id sun8i_mixer_of_table[] = {
- 		.compatible = "allwinner,sun50i-h6-de3-mixer-0",
- 		.data = &sun50i_h6_mixer0_cfg,
- 	},
-+	{
-+		.compatible = "allwinner,sun50i-h616-de33-mixer-0",
-+		.data = &sun50i_h616_mixer0_cfg,
-+	},
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, sun8i_mixer_of_table);
--- 
-2.49.0
+Am 10.05.25 um 00:11 schrieb Stefan Wahren:
+> From: Phil Elwell <phil@raspberrypi.com>
+>
+> Document the IOCTLs for the VCHIQ character device, which provide
+> a userspace interface to access the VideoCore VPU of the
+> Raspberry Pi. Several ARM side libraries make use of it like EGL,
+> MMAL and OpenMAX.
+>
+> Link: https://github.com/raspberrypi/linux/pull/6801
+> Signed-off-by: Phil Elwell <phil@raspberrypi.com>
+> [wahrenst@gmx.net: Rewrite commit log]
+> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+I sent this series as RFC because I don't know if this is the right=20
+place and/or form of IOCTL documentation for a staging driver.
+> ---
+>   .../vc04_services/Documentation/vchiq-cdev    | 87 +++++++++++++++++++
+>   1 file changed, 87 insertions(+)
+>   create mode 100644 drivers/staging/vc04_services/Documentation/vchiq-c=
+dev
+>
+> diff --git a/drivers/staging/vc04_services/Documentation/vchiq-cdev b/dr=
+ivers/staging/vc04_services/Documentation/vchiq-cdev
+> new file mode 100644
+> index 000000000000..99ab2567643e
+> --- /dev/null
+> +++ b/drivers/staging/vc04_services/Documentation/vchiq-cdev
+> @@ -0,0 +1,87 @@
+> +What:		/dev/vchiq
+> +Date:		October 2016
+> +KernelVersion:	4.9
+> +Contact:	kernel-list@raspberrypi.com
+> +Description:
+> +		The ioctl interface for the VCHIQ character device.
+> +		Following actions are supported:
+> +
+> +		* VCHIQ_IOC_CONNECT:
+> +		  Establish/confirm the link to the VPU peer.
+> +
+> +		* VCHIQ_IOC_SHUTDOWN:
+> +		  Close the link to the VPU peer, removing all services.
+> +
+> +		* VCHIQ_IOC_CREATE_SERVICE:
+> +		  Create a VCHIQ service with the given FOURCC, registering a
+> +		  callback. If is_open is true, attempt to connect to the same
+> +		  FOURCC on the peer. If successful, populates the handle field
+> +		  in the parameter structure, otherwise returns an error.
+> +
+> +		* VCHIQ_IOC_REMOVE_SERVICE:
+> +		  Close and remove the service indicated by the provided
+> +		  handle.
+> +
+> +		* VCHIQ_IOC_QUEUE_MESSAGE:
+> +		  Adds the given in-band message for the indicated server to
+> +		  the queue.
+> +
+> +		* VCHIQ_IOC_QUEUE_BULK_TRANSMIT:
+> +		  Adds the given out-of-band bulk message for the indicated
+> +		  service to the bulk queue.
+> +
+> +		* VCHIQ_IOC_QUEUE_BULK_RECEIVE:
+> +		  Adds the given out-of-band bulk buffer for data from the
+> +		  indicated service to the bulk queue.
+> +
+> +		* VCHIQ_IOC_AWAIT_COMPLETION:
+> +		  The in-kernel API allows direct callbacks to client code.
+> +		  Userspace clients rely on the equivalent of an RPC, with the
+> +		  parameters for each callback marshalled into structures
+> +		  called completions. This method blocks waiting for
+> +		  completions to process.
+> +
+> +		* VCHIQ_IOC_DEQUEUE_MESSAGE:
+> +		  Copy the next message for the indicated service, releasing
+> +		  the space that was occupied. Optionally blocks if no message
+> +		  is waiting.
+> +
+> +		* VCHIQ_IOC_GET_CLIENT_ID:
+> +		  Retrieve an identifier for the client. This is intended to
+> +		  allow instances of multiple services to be grouped. For
+> +		  services provided by Linux the client ID is the pid. VPU
+> +		  services have a client ID of 1.
+> +
+> +		* VCHIQ_IOC_GET_CONFIG:
+> +		  Returns various properties of the VCHIQ configuration, such
+> +		  as the maximum message size and version numbers.
+> +
+> +		* VCHIQ_IOC_CLOSE_SERVICE:
+> +		  Cause a service to disconnect from the peer, returning it to
+> +		  the closed/listening state, i.e. REMOVE_SERVICE but without
+> +		  destroying the service.
+> +
+> +		* VCHIQ_IOC_USE_SERVICE:
+> +		* VCHIQ_IOC_RELEASE_SERVICE:
+> +		  Use to mark the start and end of activity on a service. An
+> +		  active service is intended to prevent the system from
+> +		  suspending. N.B. Raspberry Pi devices that run VCHIQ do not
+> +		  implement suspend/resume.
+> +
+> +		* VCHIQ_IOC_SET_SERVICE_OPTION:
+> +		  Sets a number of per-service options: AUTOCLOSE, SLOT_QUOTA,
+> +		  MESSAGE_QUOTA, SYNCHRONOUS mode and TRACE.
+> +
+> +		* VCHIQ_IOC_DUMP_PHYS_MEM:
+> +		  No longer implemented.
+> +
+> +		* VCHIQ_IOC_LIB_VERSION:
+> +		  Notify the kernel of the version of the userspace VCHIQ
+> +		  library being used. Currently used to determine if the
+> +		  CLOSE_DELIVERED ioctl is used, and therefore whether to
+> +		  wait for the extra handshake on a close.
+> +
+> +		* VCHIQ_IOC_CLOSE_DELIVERED:
+> +		  Signal that the userspace code has finished processing the
+> +		  close. This additional handshake avoids a race on service
+> +		  closure.
 
 
