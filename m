@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA760C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 15:23:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC0E5C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 15:25:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oG2Aeo3c/OWoq8RPRO4RI+cTpPcODlviTOgMp/5mgkc=; b=e19OcS8kwvIfYOfGnK2kAVDn12
-	rqrye8vkWdzpsgkESTQzVx/PVxhO2TlEtgl8HN9P/2z2qK1GZ+Sf54dZHNvtpGEoNoskYfL1HzRS2
-	P2xMZp9I4X/C/HfPEIYWZ3NdS+9lBkpME59IlatoaVk4WRpeMN3U2VE+0lavjwCz8UPZ2/Eim9mTp
-	o5efGA4WJoTQtiaTU8fU7N1FnFCILMOX0z8mQYztxW/sbJdEpWMB0u7ijsgwLe3v49+Ut4ztkJGdk
-	tNLkHbmmoK+w6inFC0HODM2lC9eAdRrAfoEjlhdTqerzOD+W5mqBRAq16F68H7d5qtgEJjm4KrbYy
-	5/MOVPwQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OKC2LPdw3n8i6eOmbAF8IdjSTk4530z62vZdkc/GbAE=; b=PWj9s9wE+CLW/EaPVBgLRa9mo9
+	oBklIQ5Ekm3YRLd+uIkagO31b/EMIXToH2g1hNEY5PRdJWMlardCbcuPXPZ72OHjqrxRt2Hay50BW
+	XggKiTc2QKwQJbvwElZic84vkRUxl3AEYtRTVOff08JyQOYtNYpHvrYj4gKd4H+rFraAW8rG8ly1r
+	Z3SasS7G3m20iKgv5BVaPx2crXBEbAoxOcH33SqNLm/PaCTYZ1it1UsHIOQr/v/VDdTNGNfaLWdBR
+	dWXTdIWFIrYKf6XzcRW7vw0tRSqoBnSJhMjYxgkcQ0zHJ348R0kfOp+89XZFx2XO3jhp+R2fEt6AD
+	+AxzQIww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFwtu-00000003q32-1YFy;
-	Fri, 16 May 2025 15:23:06 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFw54-00000003ffY-2HLd
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 14:30:36 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 8180743A2A;
-	Fri, 16 May 2025 14:30:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1747405830;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=oG2Aeo3c/OWoq8RPRO4RI+cTpPcODlviTOgMp/5mgkc=;
-	b=f03CaVX2Z7nQPOVdGZse2tIBjf6lW2DSl52r8br1aYmPIHdFH43WeL9gB4mEX+2tuQhO3k
-	Gj4VTsFA7Uyh/4fG0dE4cj9JWaC/6MZWObI9EBEnF+G9cIf9vAwTsqjwbXGoULhenuqEEc
-	j6WA9O6bno0ZXB7PaUR+4VUmAIlkgZpyXY7egH7jUkfkcwdnZSYCJ9VxCCX2zBs4i3bx2K
-	/LkSxhKlPkElEI+2pXDwmBmQwkaJdbtO57GEg77kRlV62Il74P96HQZZFF9QKD5BuCsUC8
-	2ghkiTHVAeesplGVLF4wtCQwM250L4rXDfOGeRU9dZX0qJD8lq3OEa+cZAmM6g==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Arnd Bergmann <arnd@arndb.de>, <arm@kernel.org>, soc@kernel.org
-Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
- <sebastian.hesselbarth@gmail.com>, <linux-arm-kernel@lists.infradead.org>
-Subject: [GIT PULL] ARM: mvebu: fixes for v6.15 (#1)
-Date: Fri, 16 May 2025 16:30:29 +0200
-Message-ID: <87wmagpr0a.fsf@BLaptop.bootlin.com>
+	id 1uFwvv-00000003qMs-0xme;
+	Fri, 16 May 2025 15:25:11 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uFwTv-00000003kDX-2Qce;
+	Fri, 16 May 2025 14:56:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=OK
+	C2LPdw3n8i6eOmbAF8IdjSTk4530z62vZdkc/GbAE=; b=ZAP66Zmbdeg2ELRjmX
+	rjTqQUpbJ7br5GB/+zmH5QBtEK+FNUKBBjqyWp0gAGERH4kbAfCYsUOtC7M+Zcta
+	ikPVzOCqgxPUp4U2LC/q8elaeU7NgkS1II1B51g1RtGwskcZgjdjIGKik/XNbHEs
+	icMTj/9Vmi/JpCikJobFkV1Zk=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wCXtfDyUSdoaTNOBw--.62835S3;
+	Fri, 16 May 2025 22:55:48 +0800 (CST)
+From: Hans Zhang <18255117159@163.com>
+To: shawn.lin@rock-chips.com,
+	lpieralisi@kernel.org,
+	kw@linux.com,
+	bhelgaas@google.com,
+	heiko@sntech.de,
+	manivannan.sadhasivam@linaro.org
+Cc: robh@kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Hans Zhang <18255117159@163.com>
+Subject: [PATCH v2 1/3] PCI: rockchip-host: Fix "Unexpected Completion" log message
+Date: Fri, 16 May 2025 22:55:42 +0800
+Message-Id: <20250516145544.110516-2-18255117159@163.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250516145544.110516-1-18255117159@163.com>
+References: <20250516145544.110516-1-18255117159@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefuddvleelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkfggtgfgsehtqhertddttdejnecuhfhrohhmpefirhgvghhorhihucevnffgoffgpffvuceoghhrvghgohhrhidrtghlvghmvghnthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepteevffejteelkefhveetueeileethfekiefgvdetveevvdelgfdufedtgfeigeevnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegtsgdugeemheehieemjegrtddtmegrfeehmeelleehtdemvggttdefmeeiudehleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudegmeehheeimeejrgdttdemrgefheemleelhedtmegvtgdtfeemieduheelpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehgrhgvghhorhihrdgtlhgvmhgvnhhtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeipdhrtghpthhtoheprghrnhgusegrrhhnuggsrdguvgdprhgtphhtthhopegrrhhmsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsohgtsehkvghrnhgvlhdrohhrghdprhgtp
- hhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehsvggsrghsthhirghnrdhhvghsshgvlhgsrghrthhhsehgmhgrihhlrdgtohhmpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
-X-GND-Sasl: gregory.clement@bootlin.com
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wCXtfDyUSdoaTNOBw--.62835S3
+X-Coremail-Antispam: 1Uf129KBjvdXoW7XrWrWF4xXF4kArW3Cw1fCrg_yoWkGrcE9r
+	n8u3W7Aw45KrW3A3Wqy3yxtryrAas09a1IkayrtF1ayas2vr10q34kZ3y8JF15ur1DXF9r
+	Kw1qyr47WwnrZjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRAzV1UUUUUU==
+X-Originating-IP: [124.79.128.52]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbBDwNPo2gnTiJ5TQAAs3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_073034_870927_5771116C 
-X-CRM114-Status: UNSURE (   6.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250516_075616_036144_23C7AD8E 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,40 +80,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Fix the debug message for the PCIE_CORE_INT_UCR interrupt to clearly
+indicate "Unexpected Completion" instead of a duplicate "malformed TLP"
+message. This improves error log accuracy.
 
-Here is the first pull request for fixes for mvebu for v6.15.
+Signed-off-by: Hans Zhang <18255117159@163.com>
+---
+ drivers/pci/controller/pcie-rockchip-host.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Gregory
+diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
+index 6a46be17aa91..2804980bab86 100644
+--- a/drivers/pci/controller/pcie-rockchip-host.c
++++ b/drivers/pci/controller/pcie-rockchip-host.c
+@@ -439,7 +439,7 @@ static irqreturn_t rockchip_pcie_subsys_irq_handler(int irq, void *arg)
+ 			dev_dbg(dev, "malformed TLP received from the link\n");
+ 
+ 		if (sub_reg & PCIE_CORE_INT_UCR)
+-			dev_dbg(dev, "malformed TLP received from the link\n");
++			dev_dbg(dev, "Unexpected Completion received from the link\n");
+ 
+ 		if (sub_reg & PCIE_CORE_INT_FCE)
+ 			dev_dbg(dev, "an error was observed in the flow control advertisements from the other side\n");
+-- 
+2.25.1
 
-The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
-
-  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/gclement/mvebu.git tags/mve=
-bu-fixes-6.15-1
-
-for you to fetch changes up to b04f0d89e880bc2cca6a5c73cf287082c91878da:
-
-  arm64: dts: marvell: uDPU: define pinctrl state for alarm LEDs (2025-05-1=
-4 13:01:47 +0200)
-
-----------------------------------------------------------------
-mvebu fixes for 6.15 (part 1)
-
-Fix uDPU board LEDs by correcting pinctrl state
-
-----------------------------------------------------------------
-Gabor Juhos (1):
-      arm64: dts: marvell: uDPU: define pinctrl state for alarm LEDs
-
- arch/arm64/boot/dts/marvell/armada-3720-uDPU.dtsi | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
-
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
