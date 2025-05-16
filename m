@@ -4,80 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92F03C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 12:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2536AC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 12:11:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Or8Pe5n7HzA1l8ZLw2yh+GPLSY54zl2fflrMNfqw04=; b=Cp8+tf2W9vHflhwphOKiDmBAWC
-	ds/PngIxfiE6vEU2i1E47mgB/SjP1GQN2AewOgAGlhvPy9f0z0DPimqwfK+zeKDJVGeURuCzKT+0S
-	n762AXhBRL0uUGC+C0aLHsdJyy3yQNgbTOhL0cTRBSoh0sWW/JHSyQ0kJ8yF3uv5CN7FsmM55svta
-	/aCFj5z5JfgHk8AxCmJqUNHWcVZoA+YmB76JEen74yERRMwpMigz9TS707z+JqpxGx09ZH1tScKkV
-	OLcKlAD5TVRl/uhrKaAnbZ7NchPE3rN4ZFQbu3CLx06n/N3M5prW28VM9+aK6ezUid0/TF7A9cw7Z
-	eotG7jcQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=l7S/vG1lp5geqRglunYVLNLd5lLTAffxPlQ/qp918/4=; b=kzCC0Cb/rmg5jC0ltSxXpcrkR/
+	eCUD1EB1UnMz2eHVg89x0lGG0gasM1wotIX8f83Qmnm4PxbTYIB86mS/LKbIq2ynuLrYF/rlNjNfR
+	+Q5ikqE4eIYJcU0hah1Flu4y85vjcyqhOpRCbM8+WMLOQkjd1IAoks7IcDWONHowuxhDMm/Vgwcge
+	jEZvGF1AHYh8aivEpKMoccfvV97oQ4IRBVTW9x0cO7SLv4rZjtO4gieu1EAcOdatOUru8cofUU53x
+	mLlrMKueHQdXtbXqRFysiCPDPEudGfOKBm2plwXQ7tz8UUhA150GicHUVmkloNCqUI5WyMOiQua0+
+	a27OJk/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFts4-00000003KiV-3C01;
-	Fri, 16 May 2025 12:09:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uFtu4-00000003Ku9-1oGV;
+	Fri, 16 May 2025 12:11:04 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFtq2-00000003KVb-0g6S
+	id 1uFtrX-00000003Ke9-231H
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 12:06:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5A49349E62;
-	Fri, 16 May 2025 12:06:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35145C4CEE4;
-	Fri, 16 May 2025 12:06:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747397213;
-	bh=YVC5S9ZL3DJBFupA3JCCgZgdIfQCsHEqHZ600McfhKo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RX6+G9yCD2cqcY4Ffqv68F3AHQI1luiKN1nyR39iy7FK/dqfN6dyIykaBFIPIbu8Z
-	 TZew2gR9Jaw5f8lLGS4im/wCCP+a7obSfnE285H0ZuuPF/qaSRdPAtaJsk5htiS/Q8
-	 YlvOaP0135woHv4kqXZoaT8mR/1nlrCkJkFMOMUcc0GVHjbW+OLp5/5MYWYKyBhDRJ
-	 0VTzyCbZZdGGl2eJ3rQrrk3f/v0OSVBn40qM3izXoR5XGi+p2deUNSanBeyVv8rpu2
-	 THi/JvbD+lFYxDUW+36YALf8h6aZFNGr//O5Cz4VVZjlnYI40G2tw8IVpot9sMObTm
-	 pktOP2UHrgu0A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uFtpz-00FXq5-0g;
-	Fri, 16 May 2025 13:06:51 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jintack Lim <jintack@cs.columbia.edu>,
-	Christoffer Dall <christoffer.dall@arm.com>,
+	Fri, 16 May 2025 12:08:28 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43cf680d351so18477495e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 05:08:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747397305; x=1748002105; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=l7S/vG1lp5geqRglunYVLNLd5lLTAffxPlQ/qp918/4=;
+        b=KEMJzTiB53juMWTpB9C++fQ5CtXK4PTL5S0Lp80NMS1M+kKqFvgZmY+I/wmC0aWL/N
+         mTdfHydECG+xp4L5OP1ozXAqnfIKsBAizfSSRm0lhFGZzjDhL9pIxl09pUx3HuE2nqhs
+         2hlQ1iR4+Nhw54erEHiqr776QdtDyjtT7hmRFJf+HBkzhixkP9MTRrQtL0e9nkRMqaaw
+         kOtRXZu9iM/TbAAY2+0+YmGqD+Vyyby2WhmrcMngcKfzHMgdNUVNa/cT+UpZvaj3ReP6
+         XeK3y1BtOjgdkVZZ+qNGvp9erpO5IAoQ9Bh0G4jU7Jtl3DszixO5KVhrpKuQgr7nwI/Q
+         mssw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747397305; x=1748002105;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=l7S/vG1lp5geqRglunYVLNLd5lLTAffxPlQ/qp918/4=;
+        b=jB04ZG6KlJfhYIKv4xWdrkWi/cCYGTJFCbN6o+pjibijNUNjePhlbGJJ+s1IgMQ32E
+         8rsUiURnPcogft/0CHwChac2jmx+meLNJDJ/nqh+97HKIPn7gsaSvD0U33UJig2LAmec
+         8D4xvsgLuGTdAguGXq0Ks6R5RSpqFf9WoqtQbIa+nv80prcOafI5mNCsvoqORCci9yRh
+         1Tlq0sQKNsgL7cIcAa9eEUJgObQRsIy/3Jm30AVjnwtrGHeDVYggNKPtCjoLQLxoH1+a
+         gaF4rcyEEE0eBiphQySclQTPERTOtY8kRCQFAdH7E6XXK5Cko48oYmb0xuj7rD1RiYIy
+         q+gw==
+X-Forwarded-Encrypted: i=1; AJvYcCV5Rss0pgA5Kuw3y2LXZZqp1WVzzYfcXilvfLTzjkZ8ues3MKki4aYrTg72FrR4bl42QYsw46a4v2tp1lSTMYH0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4U5Yck+eLBcgkibs/uZZgeRuarhX/RjqpMWdcxR41upjPpiwZ
+	Bia1IOYJcqWAbpik+ojVEjeOPvCQBd0E9Epzj5+NFpxWUYy9IS9+Cir3
+X-Gm-Gg: ASbGncvq/a0HO9i26V18RQS3kHvtav9gh7Y88i0YA9wT+2nMgVYuRFG+q/y9mlDzJmd
+	yTkwXXck2P/1Ud9uw1Xf+XVTr9zu3bBcMDJHvDlczn4dFnM7uQaik+0Tm0UabHLd+5vUn5d16IG
+	0jivj/tBlbh4B91b7IMCcQG1QoY8NLAWg82q+yo8xMunNRIVHmhFicSAbGJtcZdfRdmAdTpRHz3
+	UFyHtYIsybHaam4F9v6E9eSEyHHeOxg2yVyeZIKSTP4my1Ueg2gkOjpKmTKyFjN0y0Kt4pZmU5r
+	uEkAKTxyjxnWbBIE2L7oUDv6PHnSXPF/bj4KdXbXn1A90SLnqLLPD6J5251fz2kuUN2Yx0DV9V2
+	9FT4=
+X-Google-Smtp-Source: AGHT+IETHNO4PZaxAV5fQzFYG7nB1lHUisZaUbqvlKR7l0R0thhXbB9LDnls9f0950ZGMS0nNFwq9w==
+X-Received: by 2002:a05:600c:821b:b0:43b:bfa7:c7d with SMTP id 5b1f17b1804b1-442f84c2008mr72290655e9.2.1747397304833;
+        Fri, 16 May 2025 05:08:24 -0700 (PDT)
+Received: from localhost.localdomain ([2a02:2f07:610b:a400:6472:d2f9:d536:4c30])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442f338050csm102275725e9.10.2025.05.16.05.08.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 May 2025 05:08:24 -0700 (PDT)
+From: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+To: clabbe.montjoie@gmail.com,
+	herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	linux-crypto@vger.kernel.org
+Cc: wens@csie.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: nv: Remove clearing of ICH_LR<n>.EOI if ICH_LR<n>.HW == 1
-Date: Fri, 16 May 2025 13:06:47 +0100
-Message-Id: <174739720148.2525124.8020669410674069519.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250512133223.866999-1-r09922117@csie.ntu.edu.tw>
-References: <20250512133223.866999-1-r09922117@csie.ntu.edu.tw>
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+Subject: [PATCH] crypto: sun8i-ce - move fallback ahash_request to the end of the struct
+Date: Fri, 16 May 2025 15:06:56 +0300
+Message-ID: <20250516120656.3610623-1-ovidiu.panait.oss@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: r09922117@csie.ntu.edu.tw, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, jintack@cs.columbia.edu, christoffer.dall@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_050654_221838_A743BFA3 
-X-CRM114-Status: UNSURE (   9.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250516_050827_521148_36C941EE 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,24 +103,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 12 May 2025 21:32:23 +0800, Wei-Lin Chang wrote:
-> In the case of ICH_LR<n>.HW == 1, bit 41 of LR is just a part of pINTID
-> without EOI meaning, and bit 41 will be zeroed by the subsequent clearing
-> of ICH_LR_PHYS_ID_MASK anyway.
-> No functional changes intended.
-> 
-> 
+'struct ahash_request' has a flexible array at the end, so it must be the
+last member in a struct, to avoid overwriting other struct members.
 
-Applied to next, thanks!
+Therefore, move 'fallback_req' to the end of the 'sun8i_ce_hash_reqctx'
+struct.
 
-[1/1] KVM: arm64: nv: Remove clearing of ICH_LR<n>.EOI if ICH_LR<n>.HW == 1
-      commit: 92c749e4aa90cd684d87cb5bde6a9d51e83fe6e3
+Fixes: 56f6d5aee88d ("crypto: sun8i-ce - support hash algorithms")
+Signed-off-by: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+---
+ drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Cheers,
-
-	M.
+diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h
+index 3b5c2af013d0..83df4d719053 100644
+--- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h
++++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h
+@@ -308,8 +308,8 @@ struct sun8i_ce_hash_tfm_ctx {
+  * @flow:	the flow to use for this request
+  */
+ struct sun8i_ce_hash_reqctx {
+-	struct ahash_request fallback_req;
+ 	int flow;
++	struct ahash_request fallback_req; // keep at the end
+ };
+ 
+ /*
 -- 
-Without deviation from the norm, progress is not possible.
-
+2.48.1
 
 
