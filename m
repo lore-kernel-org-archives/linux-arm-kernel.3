@@ -4,159 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEB1EC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 17:44:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9159C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 17:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VBuix9+5i4O7j2nW/2+lOP/4K0j9Eh3l3iuhLALehy8=; b=loAytc/GH/4lr10qRWn5Pz4PG9
-	CpRzo2apzGh75kg/lp/SZsqH8+8TiupudEXncFX/OofumPEF+uADzRHJ/W65P0gsqRFImtG8LFM3W
-	x1rkILlZBkKgwCFjiwz2LPuACFxsEHyoGcbiPvRUowiszX2B/x1DLiQnCxFdXJRtUAMpRBQXqAP+D
-	gyMvHYaH9uPbkrVl7jR/MLnlgWaT3UJX/RSjSi5YRPgQA4k+1qvn0ayWMKSBIFC0un+XUvpJU1GgL
-	n1nfvGWn6I4IX/0dQu5KLML1Nd2zd3GZb8pqslkh5IB7em/p8vviEbVImwlmt5vTZsvXEkOKgCggV
-	bZOZs2zw==;
+	bh=2PUV/bkg4QUBVAIj3GMyPK/efOdWpKA1GWmXkehoUR4=; b=3kOlYAbp0k3/GFLbAoQodyCv+3
+	aSHrB5s2fD388O0sqmXjXlittCYI2V6PGSpoU7hTlXjhlbbhnBTI1wl8bTJkWd7o3rHlrFGrBpvOA
+	EeoIA7u4X+0c9360fgCt9RtTEZac7xvSfSpqBBr51GnIsYmWqouX1riiKZfc+3lV4MVPdr5fnoqAx
+	Zm2b2Y8v8eup2mHvo1atQ7arjHICmfzdk6uyewOvblbGwoSgw0ROEbCaCEK1z1VE2KHSJK3+GVJDY
+	qbIzFsAY7HE8YOGcj/957Fid9WvGDDUH3FWecK9NCWzm8VbJMFBodOj8gerKaXIJfrtDr3Dbs3Ccb
+	m6auhZlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFz71-00000004D0C-3DNH;
-	Fri, 16 May 2025 17:44:47 +0000
-Received: from mail-dm6nam12on2060f.outbound.protection.outlook.com ([2a01:111:f403:2417::60f] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1uFzHZ-00000004EWd-0ctE;
+	Fri, 16 May 2025 17:55:41 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFz4q-00000004CIr-4AcU
+	id 1uFzFW-00000004EFm-3lly
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 17:42:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yBvbZdsAyyhW7cbRBIF3z9fnsU4OwRTUt/cwmJDCg8qwUzXzgcQWsi/XIuLMPqpwp+an4qgeZtYUN6jkhlq9pCWZ8wvXJRSkU/wYO6sM9iC1vJQDA8I6UZrvVStxlzSZ5NOeXKyUw4O31sWB92k2nLyHEPZAqvuDWxZDKKzZsXsGBgOz2ZaWpYpupnIKwFisRW7/f/83Uh2MYOCq6rS7spFxSrHcjGfx5wm8hx5fQ8+trYfcU0XEirH9q5AuVpGKE7ZlLnlrT5USJo0xy7KWcCag4WOeqvHfzfqBawp7n2Few8I9fqpdXmLSk4cE1o7Uy39hlT6Dt74VEXWBhlaajA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VBuix9+5i4O7j2nW/2+lOP/4K0j9Eh3l3iuhLALehy8=;
- b=vq5Avv0cVv/8pGgx94pnU5Sc1o07doIvZjoNcuHAemF/xAOzr8kjbvVMlUImFcmPuHihse/LLZJ3h49YlMxCyl4bWCfJes4Rpol9FYp7RwzchDVidabU5VEUCzbZwkZVD7/94o2wYGWScFbR1MkL80HFYSBtuRcJWY3VrajhJXx0OM6yXnaKfRxAXgOQ4N3fMs61TIYL0pFpbwZEGfbce17b/VlKk9Vyxx7sWagkfTDps1TOrfQjQnjHgxJ4ObTbMDmxxp6bxuKo0z93d5nFUkjqGtWzxuErTk9LMod9R1RUnjfxhrdbUD5C7+VcZDCeVJDiDdlInv+v+j+LUo3ZBA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VBuix9+5i4O7j2nW/2+lOP/4K0j9Eh3l3iuhLALehy8=;
- b=oQAd8iHEq+SPoeIfkCuJW6h16jEX4nMtXIpkzWFttuQgz7oXkO4n1Mw77Yb6zKQfwwtuK3Nwzo6DzG9ZPshvqtZWpFvsM0CICm0Ba/SedQOUgg9CA836OPFzu8uh5M3av4amVayLy977Cj5ywInFI+Sfl7dnw9yGNq3pO5a/6mvxNmf5xqG8H8ovggxwnVZkvMi8VXA/UQ21cB4xts8PeujlNcyW/sDfRnpV7qaoOJkQu8ShnExamVqZ0aWo/pIdhhQyde/H9J1ZuD1LFgrYOvArbOwTXsuPDeqnWn+9iEu7Ij4TVYYWGPs+d2aNee+HVYusBJHe3xOgp+ruQWP/Lg==
-Received: from SN7PR04CA0157.namprd04.prod.outlook.com (2603:10b6:806:125::12)
- by DS0PR12MB8341.namprd12.prod.outlook.com (2603:10b6:8:f8::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.32; Fri, 16 May
- 2025 17:42:27 +0000
-Received: from SN1PEPF000252A4.namprd05.prod.outlook.com
- (2603:10b6:806:125:cafe::40) by SN7PR04CA0157.outlook.office365.com
- (2603:10b6:806:125::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8722.30 via Frontend Transport; Fri,
- 16 May 2025 17:42:27 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SN1PEPF000252A4.mail.protection.outlook.com (10.167.242.11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8746.27 via Frontend Transport; Fri, 16 May 2025 17:42:27 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 16 May
- 2025 10:42:08 -0700
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Fri, 16 May
- 2025 10:42:08 -0700
-Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.9)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Fri, 16 May 2025 10:42:06 -0700
-Date: Fri, 16 May 2025 10:42:05 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: "Tian, Kevin" <kevin.tian@intel.com>, "corbet@lwn.net" <corbet@lwn.net>,
-	"will@kernel.org" <will@kernel.org>, "bagasdotme@gmail.com"
-	<bagasdotme@gmail.com>, "robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"joro@8bytes.org" <joro@8bytes.org>, "thierry.reding@gmail.com"
-	<thierry.reding@gmail.com>, "vdumpa@nvidia.com" <vdumpa@nvidia.com>,
-	"jonathanh@nvidia.com" <jonathanh@nvidia.com>, "shuah@kernel.org"
-	<shuah@kernel.org>, "jsnitsel@redhat.com" <jsnitsel@redhat.com>,
-	"nathan@kernel.org" <nathan@kernel.org>, "peterz@infradead.org"
-	<peterz@infradead.org>, "Liu, Yi L" <yi.l.liu@intel.com>,
-	"mshavit@google.com" <mshavit@google.com>, "praan@google.com"
-	<praan@google.com>, "zhangzekun11@huawei.com" <zhangzekun11@huawei.com>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>, "patches@lists.linux.dev"
-	<patches@lists.linux.dev>, "mochs@nvidia.com" <mochs@nvidia.com>,
-	"alok.a.tiwari@oracle.com" <alok.a.tiwari@oracle.com>, "vasant.hegde@amd.com"
-	<vasant.hegde@amd.com>
-Subject: Re: [PATCH v4 14/23] iommufd: Add mmap interface
-Message-ID: <aCd47XNQPL2FUx8S@Asurada-Nvidia>
-References: <cover.1746757630.git.nicolinc@nvidia.com>
- <ee9ee287264fd75eb4fc64a63f20d03e9ba18161.1746757630.git.nicolinc@nvidia.com>
- <20250515164717.GL382960@nvidia.com>
- <BN9PR11MB5276DD2F2CDC313FA04155C18C93A@BN9PR11MB5276.namprd11.prod.outlook.com>
- <20250516132956.GI613512@nvidia.com>
+	Fri, 16 May 2025 17:53:36 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43cfe574976so15926295e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 10:53:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1747418012; x=1748022812; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2PUV/bkg4QUBVAIj3GMyPK/efOdWpKA1GWmXkehoUR4=;
+        b=U46Ttn61hL1vzm1RebGteYBniC9ewrkVo62MZqTGNsmAvCwm9/c+Wl4hXgqNWTpxCm
+         1doqj5jzN6TW1kNerOm7rQgW1g5MhsqWujhLo4StAcQcT/gvZ4cmcJ1Agsvb6euJyb+d
+         LD4lfR0xwt6Hb47TKIFvooq+yqtl4VTsrDtKQGmsJwZpnhGEHcdiW29NE5/9wvgpf4M6
+         19pAmr8+ENBNHE5+HWWTUifGRBSfijp9v3PpEC33I6Jv3N8kAiOCjX5VwcncCuBZ8vh/
+         cWi0riI5XZW4BN/z9omEhtVmvD1uPlAf6PavPYIZzO0zJ4jWO1ds6tglRajl8Kr6BDVO
+         TObQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747418012; x=1748022812;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2PUV/bkg4QUBVAIj3GMyPK/efOdWpKA1GWmXkehoUR4=;
+        b=eqzCU0mzFrBqAXQw5ekucL852ZdWg7+nAweFgKXmBfEivg0Q0UWpWf1wg8eEdQmjHv
+         93RTtb/D6+qNN2HMbFLocNIIDGkUypRM32M89BPoBkJW1W5+ugySpXKIn+LeCMiXsf7h
+         wtVEW3FbW7sK/GgFH2AI5tIgM6UXcq202nQn6e/5zEA7jLQ5io3BEWfxXM8NMsTzJb/R
+         K2zEGd1BD9FXkV6b1CkhYXrlQluzMxT+8PPVr8/ZFrfKftpTC7ZWeEQCHIc98Wd4B6Gq
+         7K39L+RlGs/NIigGQlyVAxbDUibKr6qKI3lqgy2SrHejsy5YTXkpZgPVWk3RHK+xxmJp
+         x7LA==
+X-Forwarded-Encrypted: i=1; AJvYcCVbmXXosKtLNJNoNQVMpDRxsfKj6qDiCHp/1qGC7oTIFkVGb42ipDxIrbn6HHjWd5TCqLCVPAREF6B7rApHQLwG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxcwlfl1r8GZZshxdLoIJc9EsUX+2fwlgxXvIKMtho5dC/7B6rF
+	YEe7JVJh7dnk9F7Fg7PL4tsWdIv6zWwok+OiABV2CdMw10MCjpfuuQkoZQrIV0eepw==
+X-Gm-Gg: ASbGnctjL2oMnhM1+b7huyA3VBJOlZ3gvbrW3xWRAj4UlUn+CZ1jvZ5HKthveZ0rZI9
+	G0qy0zQb9fUpWvmjUKwRtYp/KAey3HUuh/qb6GBD2VoZRzrGhJwvQXjfJM6ZHDO/+xbbnt6SbUS
+	syf3MTLKEAimPrBf8RKz/ktbEbATFIbDRX9qzc5po8JubG90QQ2586YKJpR79m50yTaOsvIND/+
+	5AzQYrv7Wbn1WngQ4qPpW5P9XKH0ytODZPoLiyLf30xtsyIXA9EeArpq5Ljo4iJMDW4qkqxzj1n
+	QTTK7YudZ5QS9AhEtxK3L+Qtz0cM1oQctE6+FXkp9qgdjwiFZyZH3TcRHGZKTh4BCetGj4SwARn
+	nWgbKjSylTNaHkjrfXH7PHzNrRKI=
+X-Google-Smtp-Source: AGHT+IEv0Zz+YAfIIihBgvDHDhxHsSF6QrQSMcho8CQZS8XKX5FCrwPQKgycTnORAz6U0zTZnRbJsw==
+X-Received: by 2002:a05:600c:1e09:b0:43c:f616:f08 with SMTP id 5b1f17b1804b1-442fd624854mr45671515e9.8.1747418012214;
+        Fri, 16 May 2025 10:53:32 -0700 (PDT)
+Received: from google.com (218.131.22.34.bc.googleusercontent.com. [34.22.131.218])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442fd50b9b2sm42329115e9.12.2025.05.16.10.53.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 May 2025 10:53:31 -0700 (PDT)
+Date: Fri, 16 May 2025 18:53:27 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
+	qperret@google.com, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
+	kernel-team@android.com
+Subject: Re: [PATCH v4 01/10] KVM: arm64: Handle huge mappings for np-guest
+ CMOs
+Message-ID: <aCd7l455qd4NmOeb@google.com>
+References: <20250509131706.2336138-1-vdonnefort@google.com>
+ <20250509131706.2336138-2-vdonnefort@google.com>
+ <86bjrsg3az.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250516132956.GI613512@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF000252A4:EE_|DS0PR12MB8341:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7131b388-4b87-4d0c-e4ca-08dd94a1065d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|7416014|376014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xcrO2OwQ1sge5Un64RarzrYVdrEoowPt9m81uwqTcckXQZIl7/MpbdLewgI8?=
- =?us-ascii?Q?xkFAUVtD02/c/oKYWLZYjkDFDizD+HDyOWAqzUTYswDQvoQfFWB87sNbKxou?=
- =?us-ascii?Q?PxwzgLXOywsCorXjTec9c0MXJgbiF4YkQPhctgIhzhtrIH/KnMzhfMDUtSNc?=
- =?us-ascii?Q?PF/fimBsdtTn2r548XpYyB2O++8rSbn+0ylGrgUZWn/P1RlmRtr7YNO5YQho?=
- =?us-ascii?Q?DGfOmzBFyh7Ik/USKGMs6yX9flEHVx6rtYCKPi0nJ1AI/lhSugeW8KOquY0/?=
- =?us-ascii?Q?1RltOLmSFLzHTLq9cjDApF7xlXnPuvDLjpUeGNTe8pI1qtKwSaEXx1NHR0Mx?=
- =?us-ascii?Q?KMLYA5FBEGpuqdPekAdi13UcSoHeIsvWIY5A+1Uog8V9wDMnq4hDlXwK3dXg?=
- =?us-ascii?Q?gcUweroVgpiDiD2GFSsMCnyf4gc5chHFDh6Vt3nIR1gqYfNE57hj4tt2uFEz?=
- =?us-ascii?Q?liAQP5/w+zZEQ8cozHdI9BCD5c/b3bW3CBiKu8lFy3jQ4JfDSHFnCNSi9+xl?=
- =?us-ascii?Q?QwiFs2eCBEu7sfZ+IEBO4SvN1ZBvyOY41enGzgnr9CNnKhiKx3whiqMclk+p?=
- =?us-ascii?Q?uj4tHS9Yld8p3Oq+XtsyoxxN+SJ/p3YRnCgAMw05aEIlUHgUNji2WLbbCO/O?=
- =?us-ascii?Q?M/znRCFxvOF3lj8suJ/+hha92tocYtP7+9AK4egK0je2A6ZEe6j+EFM6pSu8?=
- =?us-ascii?Q?wB3+BFy+oYVCgXKSvRAZc3e5q5th/abQhmihARTpU72vok6lTx8gdRmifua2?=
- =?us-ascii?Q?zLCx3G0EmYsqICFEV+8wE3PK4thLck06YKEle37dDOhZpdl2NJb4u8HZWl6W?=
- =?us-ascii?Q?nTv/wwnKOtTOpRn8lNE5o9+Y7p4bsYwBa3ZI/QiDI6hMZPUuZNukB+vDXLH1?=
- =?us-ascii?Q?/Y4UJKBMkZ1o8Q1jOX1HT/93gmhUyKSPFNMbZRb7I8qdmWRTjsSXTAJwh6ES?=
- =?us-ascii?Q?z9J0h79J5lL6T3douUD8JfGskRC5RrUQg8MHfVSU3P1tvjU7LdMmj7VsEbMW?=
- =?us-ascii?Q?vvhVdZGEQZ4zgUqcUEeodqXcJLVBH5pmd75M7ORiCGnhWltwpPOITaC81VLH?=
- =?us-ascii?Q?2KgnQ3VQFbJVkCJgBMo9EeBf/T3lVly14LvPD0UkvilnPI8ijdRUpke/YurO?=
- =?us-ascii?Q?nPO4f+OVehoglUY4H9jibxQt8Dy7pMpXuVcvhNgztS3Rgw+Hn8JYy0L1qfFf?=
- =?us-ascii?Q?WrLjx+FNXnYGPmfyUJ+Bgil++QXmnlmxKi/WMi4dT3mKEHWMMkHBhihNDMrf?=
- =?us-ascii?Q?cF5OgdO0b2Rxiv18j2R1DmKwEYYKOeX8Q+zTQt3iQGxk+v7/8NkYPN9UMYUq?=
- =?us-ascii?Q?7kC4gUTZteLcZK2Oijki8xitRs2wWtzw+ua+H7izQEYV3ZDwa1Cv25tmCQDu?=
- =?us-ascii?Q?zL0vPMjtbOI7KqSuZQXePnRzJeNDEoQ2Ncl2q802wZrrfhktok1B7uMeIGk+?=
- =?us-ascii?Q?D5xzTw9CX0A3DW9UDq0UDkBdrUCUPKA4tMHRA64eyOfUFvWOeaqKA1MgvRRj?=
- =?us-ascii?Q?i5aHfmgTHGdVRS9IfOY20Bk1dNYiWO9CdmEz?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(7416014)(376014)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 May 2025 17:42:27.2542
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7131b388-4b87-4d0c-e4ca-08dd94a1065d
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000252A4.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8341
+In-Reply-To: <86bjrsg3az.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_104233_032067_422ED6D7 
-X-CRM114-Status: GOOD (  19.31  )
+X-CRM114-CacheID: sfid-20250516_105334_934309_FA6F127B 
+X-CRM114-Status: GOOD (  22.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,47 +103,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 16, 2025 at 10:29:56AM -0300, Jason Gunthorpe wrote:
-> On Fri, May 16, 2025 at 04:08:25AM +0000, Tian, Kevin wrote:
-> > > From: Jason Gunthorpe <jgg@nvidia.com>
-> > > Sent: Friday, May 16, 2025 12:47 AM
-> > > 
-> > > On Thu, May 08, 2025 at 08:02:35PM -0700, Nicolin Chen wrote:
-> > > > +	/* vma->vm_pgoff carries an index to an mtree entry (immap) */
-> > > > +	immap = mtree_load(&ictx->mt_mmap, vma->vm_pgoff);
-> > > > +	if (!immap)
-> > > > +		return -ENXIO;
-> > > > +	if (length >> PAGE_SHIFT != immap->num_pfns)
-> > > > +		return -ENXIO;
-> > > 
-> > > This needs to validate that vm_pgoff is at the start of the immap or
-> > > num_pfns is the wrong thing to validate length against.
-> > > 
+Hi,
+
+Thanks for having a look at the series.
+
+On Fri, May 16, 2025 at 01:15:00PM +0100, Marc Zyngier wrote:
+> On Fri, 09 May 2025 14:16:57 +0100,
+> Vincent Donnefort <vdonnefort@google.com> wrote:
 > > 
-> > vm_pgoff is the index into mtree. If it's wrong mtree_load() will
-> > fail already?
+> > clean_dcache_guest_page() and invalidate_icache_guest_page() accept a
+> > size as an argument. But they also rely on fixmap, which can only map a
+> > single PAGE_SIZE page.
+> > 
+> > With the upcoming stage-2 huge mappings for pKVM np-guests, those
+> > callbacks will get size > PAGE_SIZE. Loop the CMOs on a PAGE_SIZE basis
+> > until the whole range is done.
+> > 
+> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > index 31173c694695..23544928a637 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > @@ -219,14 +219,28 @@ static void guest_s2_put_page(void *addr)
+> >  
+> >  static void clean_dcache_guest_page(void *va, size_t size)
+> >  {
+> > -	__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)), size);
+> > -	hyp_fixmap_unmap();
+> > +	WARN_ON(!PAGE_ALIGNED(size));
 > 
-> I'm not sure? I thought mtree_load will return any range that
-> intersects with the given index?
+> What if "va" isn't aligned?
+
+So the only callers are either for PAGE_SIZE or PMD_SIZE with the right
+alignment addr alignment.
+
+But happy to make this more future-proof, after all an ALIGN() is quite cheap.
+
 > 
-> Otherwise what is the point of having a range based datastructure?
-
-Yea, I can confirm that providing a vm_pgoff that's in the range
-(though not the startp) could get immap too.
-
-I am adding negative test coverage for the vm_pgoff/length input
-for the following ifs:
-
-+       /* vma->vm_pgoff carries an index to an mtree entry (immap) */
-+       immap = mtree_load(&ictx->mt_mmap, vma->vm_pgoff);
-+       if (!immap)
-+               return -ENXIO;
-+       /* Validate the vm_pgoff and length against the registered region */
-+       if (vma->vm_pgoff != immap->startp)
-+               return -ENXIO;
-+       if (length != immap->num_pfns << PAGE_SHIFT)
-+               return -ENXIO;
-
-Thanks
-Nicolin
+> > +
+> > +	while (size) {
+> > +		__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
+> > +					  PAGE_SIZE);
+> > +		hyp_fixmap_unmap();
+> > +		va += PAGE_SIZE;
+> > +		size -= PAGE_SIZE;
+> > +	}
+> 
+> I know pKVM dies on WARN, but this code "looks" unsafe. Can you align
+> va and size to be on page boundaries, so that we are 100% sure the
+> loop terminates?
+> 
+> >  }
+> >  
+> >  static void invalidate_icache_guest_page(void *va, size_t size)
+> >  {
+> > -	__invalidate_icache_guest_page(hyp_fixmap_map(__hyp_pa(va)), size);
+> > -	hyp_fixmap_unmap();
+> > +	WARN_ON(!PAGE_ALIGNED(size));
+> > +
+> > +	while (size) {
+> > +		__invalidate_icache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
+> > +					       PAGE_SIZE);
+> > +		hyp_fixmap_unmap();
+> > +		va += PAGE_SIZE;
+> > +		size -= PAGE_SIZE;
+> > +	}
+> 
+> Same here.
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
