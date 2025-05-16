@@ -4,106 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E156FC3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 08:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6649C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 08:58:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=724QmPNpSoqzzfv//J0Nc9L9weI98uMGfhESILwM00Y=; b=yUGasvAznF4gk7fMvvILK6guC3
-	8eyhVEWYFHMR5tNPHT/jrw0EhaqQ5fNlHLOkj4tyjg1lvu0Ub+VktPLoot6DxU/5L4i+v2e7XOSUF
-	WGoxa5jUaJBowCl9CwkSl0xD8bs5/O3WgAraqOnZjRWJrdbzPJ4sCBhYREEa6Cl6c1dRQfgZV1uSp
-	aLXf1/WfdVYKo+NCJ/14fKkqWaK4juW2dlcX4eiCEKXgiBm3BzH1L1aeLPndMbmwbQk8kQ6jWYkg9
-	mZ9ZDRG/1AA9kqBogKiE75y3bouSopf+O06VVLjqjcp4HZBY5XGf+VRj7entppblzgY0K93TNNt4p
-	kpLxdahA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xpBkNoozJVxD0Tq1ED6D91sfOcjjeUcczIiXGsr8Xa4=; b=VXl44E/aS1EmqFOXHRWFcxOg40
+	/vT33ZafRJ380C8+J6uP39+XKIIgB6Lr60qK9yuWGTFgPqg0nknvqbEcLaYpG7pHIfrq4IGs4ic6k
+	M9E7oCSgsxlH7n+AXOmJa8AQFTt2Dfm8HLH6ts0/9BUVFP+W6L9UDB5Q/fGRpob0iKWAe7/fT/M4w
+	dyk7bnCuzFPWlD/Mn2eaFvL665g/yJtjaazhcW7Us+SBlOLuepeWSXhGAQe8UYu/9vd75QSOPfk84
+	FNMBAcBqc8gHMvSAi8g8hzBYqif6jFKb5pN79MHiAM0Dv8gmQKeo7sEwUgjyXeCXpCSZVq7HhOfxJ
+	BALWAX6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFqnm-00000002v6r-2wEs;
-	Fri, 16 May 2025 08:52:22 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1uFqtS-00000002vci-10cz;
+	Fri, 16 May 2025 08:58:14 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFqfw-00000002teQ-3hpw
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 08:44:18 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250516084411epoutp025e19b760b8808edc630231fe1288f386~-9XIwRyxF2239422394epoutp02F
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 08:44:11 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250516084411epoutp025e19b760b8808edc630231fe1288f386~-9XIwRyxF2239422394epoutp02F
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1747385051;
-	bh=724QmPNpSoqzzfv//J0Nc9L9weI98uMGfhESILwM00Y=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Uh2OE/LPHhq+gAGuYDtL0W1CT9XHI8cFuffGPPH/+ZSIZxuZU72FZfjxaPuFiv0Gc
-	 oWekol174p/FBfJ0OV4Y31nx/8tU/yOauXIBjQp+VeNdeTIqQHq9CZgG4Gx4AjLEP+
-	 mWu77xL0nj7rhmO/lEYVlXiGX20fe3BbMw2Lk/Xc=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250516084410epcas5p213d64ea27fb69d90dc7df7bae82de199~-9XIMlsup0158101581epcas5p2w;
-	Fri, 16 May 2025 08:44:10 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.175]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4ZzLGc4txZz3hhTC; Fri, 16 May
-	2025 08:44:08 +0000 (GMT)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250516070441epcas5p30fe0e218557940026f54f92b90666b3a~-8ARZjask0363603636epcas5p3u;
-	Fri, 16 May 2025 07:04:41 +0000 (GMT)
-Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250516070441epsmtrp1fb84e7519a60bbe8102eab8313fcabab~-8ARYqkIF2490724907epsmtrp1M;
-	Fri, 16 May 2025 07:04:41 +0000 (GMT)
-X-AuditID: b6c32a2a-d57fe70000002265-e8-6826e38957c1
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	96.57.08805.983E6286; Fri, 16 May 2025 16:04:41 +0900 (KST)
-Received: from bose.samsungds.net (unknown [107.108.83.9]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250516070439epsmtip28e6402f83e1abc9740249f18d3aa62ef~-8APHKTuV0739207392epsmtip2I;
-	Fri, 16 May 2025 07:04:39 +0000 (GMT)
-From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
-To: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, alim.akhtar@samsung.com, Thinh.Nguyen@synopsys.com
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, rosa.pila@samsung.com, dev.tailor@samsung.com,
-	faraz.ata@samsung.com, muhammed.ali@samsung.com, selvarasu.g@samsung.com,
-	pritam.sutar@samsung.com
-Subject: [PATCH v3 2/2] usb: dwc3-exynos: add support for ExynosAutov920
-Date: Fri, 16 May 2025 12:43:33 +0530
-Message-Id: <20250516071333.3223226-3-pritam.sutar@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250516071333.3223226-1-pritam.sutar@samsung.com>
+	id 1uFqrP-00000002vV4-2wWh;
+	Fri, 16 May 2025 08:56:09 +0000
+Date: Fri, 16 May 2025 10:55:22 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1747385764;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xpBkNoozJVxD0Tq1ED6D91sfOcjjeUcczIiXGsr8Xa4=;
+	b=aBYd6I8/V6Pks/ycPy+/9hpvymndG8CqJ3udu8r5+O0NqEyuqUjG8dV+Xilch/vOYTSS2O
+	Za0yiBEoQYer3mi17p0x/iZUvKU4c7R1GKeXbqQcimcw1rWdDsq0dyx81CRlHqgRep+F5v
+	s60YuWaabOj1Z7t472P1i7+AKQmCVDH0ZVMAFovdZeD/wxWJnfhLUdbHvqwlT3Rcm/sIEo
+	/rN8R+Iulo7vx1CdPsKGLq0KL+BTBfYxAPGftCib7K8aCN7mLOyE5arjDB8P0xwYDAIXy2
+	2CyW8fkln40Uq1Wz0hUYPqye6z2gb/K2ZZ2R1grOVtwAP/HnCVItGIc0ea6xnw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1747385764;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xpBkNoozJVxD0Tq1ED6D91sfOcjjeUcczIiXGsr8Xa4=;
+	b=6ufqT1mobYp7JSSs1K0Omsc0AhHenLEHpntMn1SMwQZs6Bqn7id7Xzyi9d/oCd+si9xvqM
+	XFCxkDCbqLKa9mDg==
+From: Nam Cao <namcao@linutronix.de>
+To: Ingo Molnar <mingo@kernel.org>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	john.ogness@linutronix.de, Petr Mladek <pmladek@suse.com>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v8 00/22] RV: Linear temporal logic monitors for RT
+ application
+Message-ID: <20250516085522.g9Uq2WBN@linutronix.de>
+References: <cover.1747046848.git.namcao@linutronix.de>
+ <aCb1kBEkiriPbMo4@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrLLMWRmVeSWpSXmKPExsWy7bCSvG7nY7UMgyV7DSwezNvGZrFm7zkm
-	i3s7lrFbzD9yjtXi2o2F7BbNi9ezWbycdY/NYtPja6wWl3fNYbOYcX4fk8WiZa3MFudfdLFa
-	PLu3gs3i/54d7BZffj5gtjiy/COTxaoFB9gdBD02repk89g/dw27x+Yl9R59W1YxemzZ/5nR
-	4/MmuQC2KC6blNSczLLUIn27BK6MqTfPMBZc4Ko4ND+6gfENRxcjJ4eEgInEzne3GbsYuTiE
-	BHYzSrzoesUGkZCReDRtIyuELSyx8t9zdoiit4wS3w4uZupi5OBgEzCVmLgnASQuIjCNUeJI
-	w34WEIdZ4DiTxJSVzYwg3cICHhJLm7vAJrEIqEpcXLgXbAOvgL3En1O/oTbIS+w/eJYZxOYU
-	cJA4+uY1WI0QUM2cni/MEPWCEidnPmEBsZmB6pu3zmaewCgwC0lqFpLUAkamVYySqQXFuem5
-	xYYFRnmp5XrFibnFpXnpesn5uZsYwTGkpbWDcc+qD3qHGJk4GA8xSnAwK4nwXs9SzhDiTUms
-	rEotyo8vKs1JLT7EKM3BoiTO++11b4qQQHpiSWp2ampBahFMlomDU6qBaan1p7CWI3dDH81l
-	+5kr68hjtd15hd+F7xfnLdUtKxSbfTCy88vBaVMEjRvuvf69++rrFcKTtGaY9JipGzze6nlt
-	9alZfj27Vm4KP1rDLP19k8zln7N/HDj/9eASl0U3neInNDfsXlq16f8FLw+uQ67rjrovidw9
-	3zLwu8ftq/2fpdnueqiJNhxhKngjYtixVOfKz9rmfX/Stm8QijXmjGO4LOJ9YQrzfZUj3buO
-	8gSb2AhXPU396/IljvFaQsWyF5xeJv8WrM/Xs5ojeWnK0ljbwjN3H27V/rKxzq3gnPX2q9Yu
-	EkePur97cX6H/P4uS9nX1qWz9yut4NeV2Dh5niafXNsFgeBNT7lF5L5OmaWtxFKckWioxVxU
-	nAgA6ynISBADAAA=
-X-CMS-MailID: 20250516070441epcas5p30fe0e218557940026f54f92b90666b3a
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250516070441epcas5p30fe0e218557940026f54f92b90666b3a
-References: <20250516071333.3223226-1-pritam.sutar@samsung.com>
-	<CGME20250516070441epcas5p30fe0e218557940026f54f92b90666b3a@epcas5p3.samsung.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aCb1kBEkiriPbMo4@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_014417_235743_278335D9 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20250516_015607_877124_86837993 
+X-CRM114-Status: UNSURE (   7.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,46 +93,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This SoC has a DWC3 compatible controllers. It needs "ref" and
-"susp_clk" for it's operation.
+On Fri, May 16, 2025 at 10:21:36AM +0200, Ingo Molnar wrote:
+> 
+> * Nam Cao <namcao@linutronix.de> wrote:
+> 
+> > Nam Cao (22):
+> >   x86/tracing: Remove redundant trace_pagefault_key
+> >   x86/tracing: Move page fault trace points to generic
+> 
+> Does the renaming of the tracepoint class from 'x86_exceptions' to
+> 'exceptions' have any negative effects on tooling?
 
-Add required changes in exynos dwc3 glue layer to support this SoC.
+No, tracepoint class name doesn't affect userspace. The tracepoints' names
+seen from userspace are the same after the patches:
+	exceptions:page_fault_kernel
+	exceptions:page_fault_user
 
-Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
-Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
----
- drivers/usb/dwc3/dwc3-exynos.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
-
-diff --git a/drivers/usb/dwc3/dwc3-exynos.c b/drivers/usb/dwc3/dwc3-exynos.c
-index 20abc6a4e824..e934f94e8fd8 100644
---- a/drivers/usb/dwc3/dwc3-exynos.c
-+++ b/drivers/usb/dwc3/dwc3-exynos.c
-@@ -187,6 +187,12 @@ static const struct dwc3_exynos_driverdata gs101_drvdata = {
- 	.suspend_clk_idx = 1,
- };
- 
-+static const struct dwc3_exynos_driverdata exynosautov920_drvdata = {
-+	.clk_names = { "ref", "susp_clk"},
-+	.num_clks = 2,
-+	.suspend_clk_idx = 1,
-+};
-+
- static const struct of_device_id exynos_dwc3_match[] = {
- 	{
- 		.compatible = "samsung,exynos2200-dwusb3",
-@@ -206,6 +212,9 @@ static const struct of_device_id exynos_dwc3_match[] = {
- 	}, {
- 		.compatible = "samsung,exynos850-dwusb3",
- 		.data = &exynos850_drvdata,
-+	}, {
-+		.compatible = "samsung,exynosautov920-dwusb3",
-+		.data = &exynosautov920_drvdata,
- 	}, {
- 		.compatible = "google,gs101-dwusb3",
- 		.data = &gs101_drvdata,
--- 
-2.34.1
-
+Best regards,
+Nam
 
