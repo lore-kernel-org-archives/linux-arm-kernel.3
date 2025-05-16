@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10728C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 20:24:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0A87C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 20:26:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wK+kLL3ofBUa9HVa+9T566UL4xro0DCdbR7BZ4cxWTE=; b=BMK8jhQ5o8rmD9mwWduquHBRg0
-	9BGL2NhLwytbylKpANPRFe9jN7vtm7753aXffhbHQYd4uVhjCM/2632rGYHWKSWwfeHIa65FciHrs
-	/atEmQUvT+GQZcxZznIBJ+i/r9LP2eVD9oeWLgNTfoz2cG55k7/LCjj1mYUdTg8sHlBKPe7FABB+o
-	qPnc4JX5sDlod9I9wzd8K6iWsZ6cJOsIDNi/GLLcA3+/YHoh+OyFlT986FyJypwOPUdDQqdkQB6hX
-	ZaQ6OTExHzE8LfN1wj9WbZHJcgHYV6ay6mc5L1AJE8Y71FB+XcFBEVfaSIUWWDLVsVlxR3nAkgkh2
-	Svgz8+MQ==;
+	bh=gYVCErEtbfJsIIDDUGBmLVM7BVuMMw68glkia5FzCNY=; b=1tc0iCg4l1L1LmDWYevgL80MSq
+	8YJaDG4Gz46xfZkUO2VE+XJIW+RR/j+/fFBl7p/Yuc/tFJl+C8tj2yEEYF4LnbQ3fvePrSbxIMzet
+	7JPWRUFNTU5FzUAN5csh3iseyRpC3k584/Y5Q6NjxgZi9hej85n/o+emsMOtjJUAPu1OquUEkGK9x
+	22fsXlP7sBTnNmRRB7qUGAP3xnPzb+KvDSBhQ5jysG+S/xYpFGoMRx66clEc0n41hqyg/3cCbMu9E
+	iWoGO2utnX+vNp2dPvb73Z+LYfbnoeAJLpsFjtU6XfhNVABMzbZKdmAsTgoFF1HDba6gLYMfxS4YR
+	lBjA/HnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uG1bc-00000004YuR-29Et;
-	Fri, 16 May 2025 20:24:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uG1de-00000004ZHF-2E5c;
+	Fri, 16 May 2025 20:26:38 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uG1Ua-00000004Y4X-2lK3;
-	Fri, 16 May 2025 20:17:17 +0000
+	id 1uG1Z4-00000004Yce-3O0Q;
+	Fri, 16 May 2025 20:21:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D8CC05C024A;
-	Fri, 16 May 2025 20:14:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C9B1C4CEE4;
-	Fri, 16 May 2025 20:17:13 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id C7F88A4EA64;
+	Fri, 16 May 2025 20:21:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24984C4CEE4;
+	Fri, 16 May 2025 20:21:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747426635;
-	bh=gdghEq68rS4dPfk9w/Dn9+8ctElaEIgaJKGdi8w2LsI=;
+	s=k20201202; t=1747426913;
+	bh=0eZbYvSMOyz0txO7McOUt7WBCXP3fLg51sadhpP/XeE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cC+TjSS/6y17tbIKaZGsUJoPoCD1aU/C16eEMGQPyvJ9FM3znQC7DENjYVkdt70Jh
-	 aFOIkPu/qJkm3eWmq1rZ2IciIRicDngFiXU/dDFBxngh3y8GA6Wvms3mKF9TBmdNFZ
-	 6Ip4GISVjxFV4aqS7OtJ3OWKMATh3yfxhYQfPgtaJF3bvXCNoXjFNAWo1/jWsdwbOj
-	 PKDyYPwhzcuV8TMg9FkaF8jKMQ6Ph4dVqc7AAl881N/gOMY4aLKf74zn5KFQuQnZ5a
-	 mlhX1lzFp+/ApepbLqGVDxBdxj0XGVweXkfe4TRVDRA5JOcUHIvUX7elCJNqi29r4C
-	 fXGzduw+HA5kg==
-Date: Fri, 16 May 2025 21:17:11 +0100
+	b=mff0oXGCBELo0hzgvl1WaEJjdXKZ7PB2yucYnPxgvfRfJtsyfndb2MF2nqpMWRNd6
+	 6QSwslLlHkotLfTgLKNJDZHKas5G61PIZ/7a43kJkNtGjgaIc8kTZS7vUdaNF6VwlI
+	 4HEg/c7NAuCUCMiawrmi2SVkxEVnd8Tkok6WC8ytZqBAw3HWVws7GIwYuklMxNJe2D
+	 RbBYKJALQSY4+ByUVtcQNY+Os6YPOLpagZk37B529LWkEru4lU5HBNRiNL+5zJEkcd
+	 e6OVlAMc47gBuo8m5D+6j5sVAzDeDPn1nm1dvDPlhVPLU/RZXeGoh1YtJZ+wGyAX+0
+	 HSJbIwqpTSQvQ==
+Date: Fri, 16 May 2025 21:21:49 +0100
 From: Simon Horman <horms@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: Lorenzo Bianconi <lorenzo@kernel.org>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
@@ -54,16 +54,16 @@ Cc: Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
 	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 Subject: Re: [PATCH v3 1/4] net: airoha: Fix an error handling path in
  airoha_alloc_gdm_port()
-Message-ID: <20250516201711.GK3339421@horms.kernel.org>
+Message-ID: <20250516202149.GL3339421@horms.kernel.org>
 References: <5c94b9b345017f29ed653e2f05d25620d128c3f0.1746715755.git.christophe.jaillet@wanadoo.fr>
- <aCZZyDvp-TZ7AFwS@lore-desk>
+ <20250516201606.GH3339421@horms.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aCZZyDvp-TZ7AFwS@lore-desk>
+In-Reply-To: <20250516201606.GH3339421@horms.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_131716_738569_D25C98B1 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20250516_132154_920790_B8B84BFB 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,7 +78,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 15, 2025 at 11:16:56PM +0200, Lorenzo Bianconi wrote:
+On Fri, May 16, 2025 at 09:16:13PM +0100, Simon Horman wrote:
+> On Thu, May 15, 2025 at 09:59:35PM +0200, Christophe JAILLET wrote:
 > > If register_netdev() fails, the error handling path of the probe will not
 > > free the memory allocated by the previous airoha_metadata_dst_alloc() call
 > > because port->dev->reg_state will not be NETREG_REGISTERED.
@@ -88,10 +89,34 @@ On Thu, May 15, 2025 at 11:16:56PM +0200, Lorenzo Bianconi wrote:
 > > 
 > > Fixes: af3cf757d5c9 ("net: airoha: Move DSA tag in DMA descriptor")
 > > Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+> > ---
+> > Changes in v3:
+> >   - None
+> > 
+> > Changes in v2:
+> >   - New patch
+> > v2: https://lore.kernel.org/all/5c94b9b3850f7f29ed653e2205325620df28c3ff.1746715755.git.christophe.jaillet@wanadoo.fr/
+> > 
+> > Compile tested only.
 > 
-> Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> Reviewed-by: Simon Horman <horms@kernel.org>
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+Sorry, I was a little too hasty.
 
+This patch looks good to me, but as this is a fix for change
+present in net it should be targeted at net.
 
+  Subject: [PATCH v4 net] ...
+
+And it should be split out from the patchset comprising the remaining
+patches in this series, which appear to be clean-ups (or at least not
+but fixes). This rump patch-set should be targeted at net-next.
+And ideally, IMHO, have a cover letter.
+
+  Subject: [PATCH v4 net-next 0/3] ...
+
+Thanks!
+
+-- 
+pw-bot: changes-requested
 
