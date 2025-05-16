@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F411C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 12:18:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6520C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 12:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KBgpumen4wqAs/XPAEFa1O1c2gNsnbjjB/W/W2vVpUM=; b=frYacu8nNh3iBtP2+xEznX14fT
-	OE43RTdGYF4fOivFqwT0GhhkaI/adFxcgDIKsYGh3XwtqOEViNymMTK0WLlBeL5h3kEBqy3nCsxLe
-	7mdkFsoGwS44Em0+0lWuFdCSwmLjVsul7qjakZVRpEwSERguTMK0vTUNzYlrL9YrNtP6zmDLv8ED4
-	TiMwJoLbwmMXrum/4ALQG7jpUF01e+jDIfqON08lCfPh4jOuawY1nseI0uN0SsW+04On5r/r3kmso
-	u+riV1/TuzFXjRaF7TBOmFWsDEJ5x772LZfhmjf8Grt+7fsuR4jl1n4P3wfZmql7p/5eXnOhlF9jE
-	hdQm2Odw==;
+	bh=Pd4WQTcSkFzvIHbZp41iSR3J75MsBXh295AA4eENFkk=; b=KRmOUMN/PhNYjH8cFSUatLF6Ne
+	ALPxCYlZ7csC0ZUg2Qedy8Owl665cr0m5Sh7l/RMAGLnqSvF0DpTXEW28wSVe4VvlfY60z2EK5dgG
+	dDQEgoLd/a8e34W2n1REAWmGuRyMmHlsKfLTK2Ag4n1P+wgtbtTgjaIL5AIdAwrf3690vWnIRvc5F
+	Xk8HSukSFcAtxNogT7ZoN2beI8RvIYD22axCOHPQ5qIwhJHw+q+U0pXT8P6jN7DReh+LbUisDEFpX
+	F9Ky3iZnrMCcoUSy0oHy2RXbMlFhg6gPykgQz3pK/awaJQyW5WtqdJL0a5gKb+Y6OlCz7AQAF5e7y
+	JQtIYs9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFu19-00000003Lr5-01Tp;
-	Fri, 16 May 2025 12:18:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uFu39-00000003MAh-33lO;
+	Fri, 16 May 2025 12:20:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFtx6-00000003LD9-18cl
+	id 1uFtx6-00000003LD5-1L9q
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 16 May 2025 12:14:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 60C7F62A01;
+	by tor.source.kernel.org (Postfix) with ESMTP id 573D1629FB;
 	Fri, 16 May 2025 12:14:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CEA5FC4CEF2;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C455DC4CEEF;
 	Fri, 16 May 2025 12:14:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1747397650;
-	bh=9U/85KTSy2soaOEUs61BjUU0CpktmnMb+qsPkLo0B5o=;
+	bh=J6h7ILB6u2p92bToPEUMc7SmKaX4SeQ7fwuvz6UJhcs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=WJ4FtaOgH+39q/9UjmhBnMooZm5KoX+Lc6xfPXvNDMNsfCAUl1pWOMLWya5iMBnLU
-	 wQHuSLJspVLnn4hZ+7Wrs6EHUyfiEcN/uxOz+R2KXldLh6DTJYyiHxhBmln8LXzWok
-	 7ectKHLZB0vpmDVhMnBdDfTzVVRZbku0PUpce2wSurbzrXTxDycqtBywlvLJT61q8K
-	 MBsDGJeSnouqRehj/aQ/ijXR3VoX2bK68XluFlyhvQqwle27WmbGw6KWo+2WDBFxsy
-	 sOax37hTqGWCACMP9df94JZGvlK03PflBQsWi8oaj2vZD2xKSx0D7gVX3pO2LyFUPH
-	 JRO3lU3n7EHZA==
+	b=pnWfOWd7x8ZqLFiLqji8GuMFYGRlkL44Gmp95jUD+8eMD3NQ85TPQOzIMJ+AT6o9P
+	 ey5w4/CL/MPwHVdoUNau8Nt3NLemauCaoUXNz36ztZTtByAwdQnfNEpz7C962QOj8o
+	 Zz6XHfh3NqZT23ql2Of7V4TYJNlV93uVz0CsbZjtEzQmyuS55PhLpEoiMtefEpmp0p
+	 YltinF5AAAPPj/5emS9I2BcUEmFaRq97oEbmYk8arufAyIKMfMCtfBhywGaO3exwfY
+	 qu8B+SlnBuB1bf5aNzbR8LglrHSq8OhSr5MKP+mc8Hw2Ksbk2tStqj3ShjyLI8akPZ
+	 77LyswhUI9MgQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C2C7CC54756;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B42EEC3DA6D;
 	Fri, 16 May 2025 12:14:10 +0000 (UTC)
 From: Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org>
-Date: Fri, 16 May 2025 12:14:02 +0000
-Subject: [PATCH v4 3/5] KVM: arm64: Mark FFA_NOTIFICATION_* calls as
- unsupported
+Date: Fri, 16 May 2025 12:14:01 +0000
+Subject: [PATCH v4 2/5] KVM: arm64: Zero x4-x7 in ffa_set_retval
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250516-virtio-msg-ffa-v4-3-580ee70e5081@google.com>
+Message-Id: <20250516-virtio-msg-ffa-v4-2-580ee70e5081@google.com>
 References: <20250516-virtio-msg-ffa-v4-0-580ee70e5081@google.com>
 In-Reply-To: <20250516-virtio-msg-ffa-v4-0-580ee70e5081@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -67,11 +66,11 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
  james.morse@arm.com, armellel@google.com, jean-philippe@linaro.org, 
  ahomescu@google.com, Per Larsen <perlarsen@google.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747397650; l=968;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747397650; l=1625;
  i=perlarsen@google.com; s=20250508; h=from:subject:message-id;
- bh=tJ9HD4wjZlLzjCNPRFEt/uGpoSjzet6nmsUHE2M2Jd8=;
- b=7xqRt3arz28xQfkhqfvJ+B+4UnOt54PAFFfiTGYmU2Bp36rkep1XJN9kBTDpFAIJFbkYVqlts
- V8tkLlIw+XJDtVSOeWXU/FptsGDEfrLiQLuC1y1FcBgYG2ZSPS91GWU
+ bh=LMpReGw/k7MiHAdq22ZI2li2EKc28upqB6Z9WwV7U10=;
+ b=N184+8YrogmptYxdr3tgUwyC5QKpJKyFjClV6vICc1bfnlLMzk27GqfoI0om0EZaAnwByKu4P
+ H0Cwk+3GMLaDSotY4mVB+EHKJ30m2U4cLwAJkAqPXCg2hkFuJbi8xcA
 X-Developer-Key: i=perlarsen@google.com; a=ed25519;
  pk=jjc/Ta4VmrLRmMoahP6d1mBcKzvWU+nsmdtYe2oS2kQ=
 X-Endpoint-Received: by B4 Relay for perlarsen@google.com/20250508 with
@@ -94,32 +93,46 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Per Larsen <perlarsen@google.com>
 
-Prevent FFA_NOTIFICATION_* interfaces from being passed through to TZ.
+FF-A 1.0 references SMCCC 1.2 (reference [4] on page xi). The results of
+an SMC32/HVC32 are returned in W1-W7 in SMCCC 1.2. However, W4-W7 must be
+preserved unless they contain results according to the function definition.
+
+ffa_set_retval is commonly used to report FFA_SUCCESS or FFA_ERROR back to
+the caller. FFA_SUCCESS requires that x2-x7 must be zero (MBZ) unless a
+register is explicitly used in the function response. FFA_ERROR requires
+x3-x7 MBZ.
+
+ffa_set_retval is also used to return results of:
+- FFA_VERSION which requires x1-x7 MBZ
+- FFA_MEM_FRAG_TX which returns FFA_MEM_FRAG_RX or FFA_ERROR.
+  FFA_MEM_FRAG_RAX always requires that x5-x7 MBZ and x4 MBZ
+  at any virtual FF-A instance (applies to kvm).
+
+Messaging interfaces such as FFA_MSG_SEND_DIRECT_{REQ,REQ2}, will not use
+ffa_set_retval.
+
+Given the above, it is safe to zero x4-x7 in ffa_set_retval.
 
 Signed-off-by: Per Larsen <perlarsen@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/ffa.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index b3d016bee404ce3f8c72cc57befb4ef4e6c1657f..a545d25002c85b79a8d281739479dab7838a7cd3 100644
+index 2c199d40811efb5bfae199c4a67d8ae3d9307357..b3d016bee404ce3f8c72cc57befb4ef4e6c1657f 100644
 --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
 +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -632,6 +632,14 @@ static bool ffa_call_supported(u64 func_id)
- 	case FFA_RXTX_MAP:
- 	case FFA_MEM_DONATE:
- 	case FFA_MEM_RETRIEVE_REQ:
-+       /* Optional notification interfaces added in FF-A 1.1 */
-+	case FFA_NOTIFICATION_BITMAP_CREATE:
-+	case FFA_NOTIFICATION_BITMAP_DESTROY:
-+	case FFA_NOTIFICATION_BIND:
-+	case FFA_NOTIFICATION_UNBIND:
-+	case FFA_NOTIFICATION_SET:
-+	case FFA_NOTIFICATION_GET:
-+	case FFA_NOTIFICATION_INFO_GET:
- 		return false;
- 	}
+@@ -101,6 +101,10 @@ static void ffa_set_retval(struct kvm_cpu_context *ctxt,
+ 	cpu_reg(ctxt, 1) = res->a1;
+ 	cpu_reg(ctxt, 2) = res->a2;
+ 	cpu_reg(ctxt, 3) = res->a3;
++	cpu_reg(ctxt, 4) = 0;
++	cpu_reg(ctxt, 5) = 0;
++	cpu_reg(ctxt, 6) = 0;
++	cpu_reg(ctxt, 7) = 0;
+ }
  
+ static bool is_ffa_call(u64 func_id)
 
 -- 
 2.49.0.1101.gccaa498523-goog
