@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D445C5475C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 14:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBFE7C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 14:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fmQwNOi/f6CluZRsIYvFpZaRwahVa9MuW5pU8l6vQl8=; b=Mz4gxmgBVuLCw0UzArOOkPkXpO
-	bjlc6xmgrBzcXdRCorWD1AwGpyVBNb34IkG1ySUCdwVz4aKmbUm6lKtKC7r2nkJPGhaKPMO51cO1i
-	E7r6FDRhIHFV5cWz8H9Hg49ramCPxOsXOXx3ML7rrmHM/7WWyGRUMZAVPjOykZlwbyx5IlfODDPzW
-	z9O+6XFZ+Tv/i5qXpIpTa7ArmGAZ8WZ+kderuof7Wy4JIS4HocOWR74vKTrAFY7eWJrKmUS2aWzNn
-	HVhVLz2+bFp2DG13vshgFSvJV3b3iUsLuRkji8V500SZfpy0wQuXBEcr1Ii1K9VVKGMGhmrcwLOl9
-	5Bc7IrMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=e2mgp3aeDNqwXac3Bt8GyZQFUnGVjU1wOzB29KvaY5Y=; b=mSMWLsRtgjfLuG
+	6oY9Sil3IM6hv+bvhOdUQvjWpgfH/BpeX5mr+s6FsF4zrRdMnLjD0NrECB7LOE7OVLgl1QY3NVGjk
+	kJoQTVFWJywWg0GCArcOBSFEWiREXFUykRlWKVRhdJAeuCYXIXraykyI5FUrsC7f6LiuwSsxFnhd8
+	w1Sv7JH3hSfSsR5Iq+SoZRp3ehFOMbvnZfX7OBtdTIViMgMN25a8XdckuoKhKQ44MsmaLx5Ws7dpd
+	FarRKxe/dXpTzBdWugDfmTKvpJNVGt4cypgiD/SlXQR/UryUnrIXSz3PRdy3IK0xu03BJ8rzmJMHt
+	CCfNpXrusWS3Msf24oqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFwL2-00000003iCE-0VVD;
-	Fri, 16 May 2025 14:47:04 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uFwN3-00000003ivQ-1YFc;
+	Fri, 16 May 2025 14:49:09 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFvgG-00000003bl1-1KKh
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 14:04:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6D5A85C5610;
-	Fri, 16 May 2025 14:02:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEE4EC4CEE4;
-	Fri, 16 May 2025 14:04:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747404295;
-	bh=AcX7tJ/ZUkuJv8Tg+tmGlLiFwaFyI1AG9s7LQ2m9uK8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FWXEi9y0sujjRRuBmABfYG8aC8Yb7Ogj/u2xJ6sng23hf5pdWO2uNgvuZ7suPU89g
-	 VuOGWbFRg0G4wOkLNGFvFjeRM03/+EX2ebf8mpM+ftoXYYW5TWTBNpKt2d1IWXM87n
-	 si6S4k12240nPIvNtouc1TuXPp7VzoppyggtYqcCCJ3Mtz/q6UHkkiovr3bA5YwQPw
-	 bvsaONlIpfUmZhIt2kfPfx/PST5Mi5+tl9UivVejq4c0RWDco1eOMGWGMEI1Phr482
-	 GSlJDRrPzIxp+85quro+fUgIgRxIDepmx0Xk9fHJjDw8nm2BxRnMiw2v+vLKc4p6Ri
-	 AHbivDFiHCJHA==
-Date: Fri, 16 May 2025 15:04:50 +0100
-From: Will Deacon <will@kernel.org>
-To: Nam Cao <namcao@linutronix.de>
-Cc: Steven Rostedt <rostedt@goodmis.org>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	john.ogness@linutronix.de,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 17/22] arm64: mm: Add page fault trace points
-Message-ID: <20250516140449.GB13612@willie-the-truck>
-References: <cover.1745999587.git.namcao@linutronix.de>
- <554038c996662282df8a9d0482ef06f8d44fccc5.1745999587.git.namcao@linutronix.de>
+	id 1uFvnf-00000003d7a-3CWP;
+	Fri, 16 May 2025 14:12:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1747404753;
+	bh=NJBXz1AbfA1GAlcdN/Q5wV2specP9Nphdtb3gDoHx0w=;
+	h=From:Subject:Date:To:Cc:From;
+	b=T/A/AYauLsmBu4sQJbPeliv7IlBOZ6fFwHkjQAa2shZHy8/PAw1oy+R2r/LldxCbt
+	 AiRvfpDNeGAFc0/YXTQeP/T3twG9+CtDfnZTYrjAOHlokBXP5aiW1NnvjOnYPuJljF
+	 7dWu31C1keUQVt9hG36WTqtHspRx8kiSo10TgHDkJo7ySAPXtF2AnyN4sOLDf0fCtz
+	 Liht9dTnNuwaTeZIjqEQuKY6HlKwPkX2JlxI6Iikj3qB9dOBaJ20fC3PZ3/J7EbXcx
+	 XofAYAsCTT8oyR7ypUcb5/KEAZsDA+RaYVlVoCh1D24pdGDfQ6Ndgyf7DYC/L07tlU
+	 hcX5le4nii21A==
+Received: from 2a01cb0892f2d600c8f85cf092d4af51.ipv6.abo.wanadoo.fr (2a01cb0892F2d600C8F85Cf092D4af51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: jmassot)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D081117E00F0;
+	Fri, 16 May 2025 16:12:32 +0200 (CEST)
+From: Julien Massot <julien.massot@collabora.com>
+Subject: [PATCH v2 0/2] mt8188: Fix missing reset DT property
+Date: Fri, 16 May 2025 16:12:12 +0200
+Message-Id: <20250516-dtb-check-mt8188-v2-0-fb60bef1b8e1@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <554038c996662282df8a9d0482ef06f8d44fccc5.1745999587.git.namcao@linutronix.de>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALxHJ2gC/32NQQ6CMBBFr0Jm7ZgWnKS68h6GRTsdpBEoaQnRE
+ O5u5QAu30v++xtkSUEy3KoNkqwhhzgVqE8VcG+np2DwhaFWNSnShH5xyL3wC8fFaGOQbEfKkye
+ +NlBmc5IuvI/koy3ch7zE9DkeVv2zf2KrRoXsbWMaduIu3Z3jMFgXkz1zHKHd9/0L/tVK47QAA
+ AA=
+X-Change-ID: 20250515-dtb-check-mt8188-5af50d5d5c93
+To: kernel@collabora.com, Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Garmin Chang <garmin.chang@mediatek.com>, 
+ Friday Yang <friday.yang@mediatek.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Julien Massot <julien.massot@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_070456_398064_773AB60B 
-X-CRM114-Status: GOOD (  17.58  )
+X-CRM114-CacheID: sfid-20250516_071235_959883_1594C465 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,47 +85,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 30, 2025 at 01:02:32PM +0200, Nam Cao wrote:
-> Add page fault trace points, which are useful to implement RV monitor which
-> watches page faults.
-> 
-> Signed-off-by: Nam Cao <namcao@linutronix.de>
-> ---
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
->  arch/arm64/mm/fault.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index ef63651099a9..e3f096b0dffd 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -44,6 +44,9 @@
->  #include <asm/tlbflush.h>
->  #include <asm/traps.h>
->  
-> +#define CREATE_TRACE_POINTS
-> +#include <trace/events/exceptions.h>
-> +
->  struct fault_info {
->  	int	(*fn)(unsigned long far, unsigned long esr,
->  		      struct pt_regs *regs);
-> @@ -559,6 +562,11 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
->  	if (kprobe_page_fault(regs, esr))
->  		return 0;
->  
-> +	if (user_mode(regs))
-> +		trace_page_fault_user(addr, regs, esr);
-> +	else
-> +		trace_page_fault_kernel(addr, regs, esr);
+Hi all,
 
-Why is this after kprobe_page_fault()?
+This patch series addresses some issues found in the MediaTek MT8188 device tree
+and its corresponding bindings:
 
-It's also a shame that the RV monitor can't hook into perf, as we
-already have a sw event for page faults that you could use instead of
-adding something new.
+The #reset-cells property was missing in the MT8188 clock controller binding and
+device tree nodes. This causes DT validation errors.
 
-Will
+Patch 1 updates the binding to declare #reset-cells as a valid property.
+Patch 2 adds #reset-cells to all affected nodes in mt8188.dtsi.
+
+To: kernel@collabora.com
+To: Michael Turquette <mturquette@baylibre.com>
+To: Stephen Boyd <sboyd@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Matthias Brugger <matthias.bgg@gmail.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Garmin Chang <garmin.chang@mediatek.com>
+To: Friday Yang <friday.yang@mediatek.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>
+Cc: linux-clk@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-mediatek@lists.infradead.org
+
+Signed-off-by: Julien Massot <julien.massot@collabora.com>
+---
+Changes in v2:
+- Change the wording for patch 1/2
+- Drop the fix tag on patch 2/2
+- Drop the former 3/3 patch in favour of another solution:
+https://lore.kernel.org/all/20240911104327.123602-1-angelogioacchino.delregno@collabora.com
+- Link to v1: https://lore.kernel.org/r/20250515-dtb-check-mt8188-v1-0-cda383cbeb4f@collabora.com
+
+---
+Julien Massot (2):
+      dt-bindings: clock: mediatek: Add #reset-cells property for MT8188
+      arm64: dts: mediatek: mt8188: Add missing #reset-cells property
+
+ .../devicetree/bindings/clock/mediatek,mt8188-clock.yaml       |  3 +++
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi                       | 10 ++++++++++
+ 2 files changed, 13 insertions(+)
+---
+base-commit: bdd609656ff5573db9ba1d26496a528bdd297cf2
+change-id: 20250515-dtb-check-mt8188-5af50d5d5c93
+
+Best regards,
+-- 
+Julien Massot <julien.massot@collabora.com>
+
 
