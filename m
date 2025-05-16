@@ -4,85 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E7EAC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 10:14:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11B28C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 10:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BYgEmFkLzngjrAp+Ezttc9ZzVi7JvNzJScbPscBcw1k=; b=S2kp8B7z35sVwz1FdTWTJ+1bYZ
-	H9+8XoaykTwJEYm/mLgzzo52dEJ0D0j2dvYmMjw1NcYRuJslwqb09tyXFhKwIyPfV+n99CzsciYun
-	JpPdQTnaXJJ6lnE2+pr6f3C3SiX/MREd38Yiums7BcZExTBKzDbzC8FY7vxS+rxbjnO4xCU8UE6Wm
-	OTmWSl7JK0c/Yjt4KbXUXeiWg3k8dua+ttkALRiDvqrZXaTYU339s3SCAUmA8Tg3x2rrW4Scmd4GC
-	VB62iYNyZQ2Q3v/wyftd6oRDsvf9wVpIgZLxo/EkuUCw+FqeGuTWAkYzrw2a/Gkp0rW1ohJZNHjRG
-	61uli56g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5cquuIZpHytMyZf4vzmIyMUUPn8YhG4lR+d2ACxt+Cc=; b=leBiG/ugEPKizc77m9J5W3pbvV
+	wAkHFmKCbKTsiqeMSuPLJQBo+OEWEkAeXUvxQidtlY25OczdSNr2/Ng3hBUl4qxgLD8ApNxByK7TC
+	S/QI8CJ1FywO/TfPRsj4Q2nV5HZC3omvey01C4mfNtUwqb/eYilDjy3DDKhgn5YnZyUnTzkQptEoD
+	ZEma+/fUxbG/mKE861jHIZeTU3ZP3Axx7OR6NsG5HBC0uoKI0nUdXBHqSwFy7vx853tQFsNx3BDZF
+	diOlndLQbkHuuZy7QI8fEtXDVJ7CCZdQtjtMsIkinRNI2xEaZJj834veRWWtYFTKcfyG+scfkreDE
+	8T2uTlEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFs4z-000000036XS-133R;
-	Fri, 16 May 2025 10:14:13 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1uFsG6-000000037vX-0s87;
+	Fri, 16 May 2025 10:25:42 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFs2w-00000003694-0gSN
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 10:12:07 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7426c44e014so2077481b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 03:12:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1747390325; x=1747995125; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BYgEmFkLzngjrAp+Ezttc9ZzVi7JvNzJScbPscBcw1k=;
-        b=MTelkW50o9wR7MyG35v86BtNgTCg1iwfy9ISwRc0PAfd+7VQ4wUjvFJbPY6eELtXnR
-         sxJTOyvFVRMb1U15UryNuNEGj9/p2bLOPzDLi8BdafNDfQJiXM/xVswOjRyIrudFhEQ1
-         BI6LXN28k7Dya9jES5n9Mqr3Tm2CMyTCdYh/s=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747390325; x=1747995125;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BYgEmFkLzngjrAp+Ezttc9ZzVi7JvNzJScbPscBcw1k=;
-        b=sIjAakUur0OGbA4RexQvbAeJqNS5DyUS70T2vN3Ii8jlBGmkWmRdUSPJKTuJ3w7jqA
-         8WcXSdbGq0mxpU9HhmcxDyHYOIwIKjdh9E8UzXhuyh+MMp2FHwArW74AkUKJH1t5Gzr0
-         N4+eYxXixGmv+4AvJKdLmLbpb3MOm9wmtYuNymzL8YENG3AyCqYRTYDrZBvc8AOCdc4n
-         OEc/hNajdrgTHmRINSuz+0uuYZV2B2WV2Y9zqSOndnFVprjvee7eaUzNjmZTomm5OXL4
-         xk2WzJ74sbB6nr1ARs+DLWQN7hEsFcbPtH+RwvhPM4THOosp9qEBiYZs2uN9qdohFEOQ
-         /3+g==
-X-Forwarded-Encrypted: i=1; AJvYcCUCoG38ikrIhxXhCDfvCmTjrBnlSl/mS0BWcrl6hDCqPef87kkKAd+HzDRfSwelNKbp/tak2gQzG52dErQ0ENoG@lists.infradead.org
-X-Gm-Message-State: AOJu0YzedCEaQlmjhSaQlWECwUP895xvJqxzs8SGsopucywTVUAyVTox
-	KqftXwp+7YNtsLVr7w7ZS4nRMnu8qPxVwpBLOOhW0eHSPYr/s2Vu+QODTbMqDPFlGzf9ovwRTNU
-	00RgDRXt3arxnNEnrVuJeGpT6dDvbaD2kNXi9+JPLww==
-X-Gm-Gg: ASbGnctqYJaXiGf+/JDOphAuEiP5AEecL3LAiWw/XwudUMIVO3VTgkfHuECess+te4b
-	GZKvERsgJqhTCdgIWUVscrxs9odZKm4I+X8XKMdyQBgVPDjEhhmwS9a2pSGlKZ/1+llcJemt82e
-	ZKI4fDkn3DvwAnkWhUMxcmmN8snVMLKao=
-X-Google-Smtp-Source: AGHT+IEahdby4WlhFBrzP3TTtfzK9CfL8PPGgJOtXddvjGzliwZ++ZJsevn/WphCoiZBknrEiweCADHFA4Ad2+v0G9U=
-X-Received: by 2002:a17:902:f691:b0:223:5945:ffd5 with SMTP id
- d9443c01a7336-231d452d9e8mr35792465ad.32.1747390325218; Fri, 16 May 2025
- 03:12:05 -0700 (PDT)
+	id 1uFsE5-000000037Sj-12nN;
+	Fri, 16 May 2025 10:23:38 +0000
+X-UUID: d1e9d060323f11f0bed96b30c12bc3d6-20250516
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=5cquuIZpHytMyZf4vzmIyMUUPn8YhG4lR+d2ACxt+Cc=;
+	b=A4GHYsishyCXFURaxdQg4Fs7SKj5vbuB8Xazt8y/RIacgoLthR6Fjx5k6Aq5cH6GfgkmxFLjvvdjR1UlRflBxX1R0UoZWMQE5gBrP7xYg1pi38Dd0cqBsksIXtQXNEO8ND+Qwb5i2JrqOHLHEUD0p4hug2o7zW1VbcCiBavbrZU=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:74c1d4d6-c2b3-471d-99cd-6fd92761bec1,IP:0,UR
+	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-25
+X-CID-META: VersionHash:0ef645f,CLOUDID:e3f3d673-805e-40ad-809d-9cec088f3bd8,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: d1e9d060323f11f0bed96b30c12bc3d6-20250516
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
+	(envelope-from <skylake.huang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 600468901; Fri, 16 May 2025 03:23:33 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Fri, 16 May 2025 18:23:30 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Fri, 16 May 2025 18:23:30 +0800
+From: Sky Huang <SkyLake.Huang@mediatek.com>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Daniel Golle
+	<daniel@makrotopia.org>, Qingfang Deng <dqfext@gmail.com>, SkyLake Huang
+	<SkyLake.Huang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+CC: Steven Liu <Steven.Liu@mediatek.com>, Sky Huang
+	<skylake.huang@mediatek.com>
+Subject: [PATCH net-next v4 0/2] Add built-in 2.5G ethernet phy support on MT7988
+Date: Fri, 16 May 2025 18:23:25 +0800
+Message-ID: <20250516102327.2014531-1-SkyLake.Huang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-References: <20250514070545.1868850-1-dario.binacchi@amarulasolutions.com>
- <20250514070545.1868850-2-dario.binacchi@amarulasolutions.com> <20250516040520.GC28759@nxa18884-linux>
-In-Reply-To: <20250516040520.GC28759@nxa18884-linux>
-From: Michael Nazzareno Trimarchi <michael@amarulasolutions.com>
-Date: Fri, 16 May 2025 12:11:54 +0200
-X-Gm-Features: AX0GCFvTTvkYmZgAupUSG_j3MamO3A5m7OZvwC9De3vE2YHP6-H68MG8tQS5hHE
-Message-ID: <CAOf5uwmM=+QoaJH8vsUKL-fDab_Fmhxd1d-622pRi-hK=EXk4g@mail.gmail.com>
-Subject: Re: [PATCH 2/3] ARM: dts: imx6ulz-bsh-smm-m2: Enable uart2
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>, linux-kernel@vger.kernel.org, 
-	linux-amarula@amarulasolutions.com, 
-	Wolfgang Birkner <wolfgang.birkner@bshg.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_031206_198295_32F58D2A 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20250516_032337_294866_7674DB43 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,81 +90,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+From: Sky Huang <skylake.huang@mediatek.com>
 
+This patchset adds support for built-in 2.5Gphy on MT7988, sort file
+and config sequence in related Kconfig and Makefile.
 
-On Fri, May 16, 2025 at 4:56=E2=80=AFAM Peng Fan <peng.fan@oss.nxp.com> wro=
-te:
->
-> On Wed, May 14, 2025 at 09:05:34AM +0200, Dario Binacchi wrote:
-> >From: Wolfgang Birkner <wolfgang.birkner@bshg.com>
-> >
-> >uart2 is used as wake up source.
-> >
-> >Signed-off-by: Wolfgang Birkner <wolfgang.birkner@bshg.com>
-> >Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> >---
-> >
-> > arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts | 4 ++++
-> > 1 file changed, 4 insertions(+)
-> >
-> >diff --git a/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts b/arch/arm=
-/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts
-> >index 5c32d1e3675c..fff21f28c552 100644
-> >--- a/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts
-> >+++ b/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts
-> >@@ -37,6 +37,10 @@ &snvs_poweroff {
-> >       status =3D "okay";
-> > };
-> >
-> >+&uart2 {
-> >+      status =3D "okay";
-> >+};
->
-> No need pinctrl settings?
->
+---
+Change in v2:
+- Add missing dt-bindings and dts node.
+- Remove mtk_phy_leds_state_init() temporarily. I'm going to add LED support
+later.
+- Remove "Firmware loading/trigger ok" log.
+- Add macro define for 0x800e & 0x800f
 
-We found out that in imx6ulz, if we don't enable wakeup on uart2 (or
-other uarts that do not conflict on pinout) we are not able to wake up
-from uart4, which is the console.
-According to the TRM and the code everything look fine but the real
-result it's we stuck in suspend
+Change in v3:
+1. Remove unnecessary headers and unnecessary print log.
+2. ioremap IO space (MT7988_2P5GE_PMB_FW_BASE/MTK_2P5GPHY_MCU_CSR_BASE)
+directly instead of of_iomap() compatible node (mediatek,2p5gphy-fw) from dtsi
+3. Call mt798x_2p5ge_phy_load_fw() from .probe instead of .config_init. This is
+tested ok with openWRT-24.10 and "mediatek/mt7988/i2p5ge-phy-pmb.bin" firmware
+is embedded into kernel image instead of rootfs image.
+4. Use request_firmware_direct instead of request_firmware. We don't want sysfs
+fallback in this driver to avoid blocking.
+5. Remove mtk_i2p5ge_phy_priv sturct since it's not used anymore.
 
-Here is how we are able to resume.
+Change in v4:
+1. Sort file and config in alphabetical order.
+2. Remove unncessary parens around macros.
+3. Arrange vars in reversed Christmas tree.
+4. Move LED settings and pinctrl request to .probe to avoid
+managed-dev structure reallocation.
+5. Replace "return __genphy_config_aneg(phydev, changed);" with
+"return genphy_c45_check_and_restart_aneg(phydev, changed);" in
+mt798x_2p5ge_phy_config_aneg()
+---
+Sky Huang (2):
+  net: phy: mediatek: Sort config and file names in Kconfig and Makefile
+  net: phy: mediatek: add driver for built-in 2.5G ethernet PHY on
+    MT7988
 
-uart2
-echo enabled > wakeup
-uart4
-echo enabled > wakeup
+ MAINTAINERS                          |   1 +
+ drivers/net/phy/mediatek/Kconfig     |  15 +-
+ drivers/net/phy/mediatek/Makefile    |   3 +-
+ drivers/net/phy/mediatek/mtk-2p5ge.c | 321 +++++++++++++++++++++++++++
+ 4 files changed, 337 insertions(+), 3 deletions(-)
+ create mode 100644 drivers/net/phy/mediatek/mtk-2p5ge.c
 
-Michael
+-- 
+2.45.2
 
-> Regards,
-> Peng
->
-> >+
-> > &uart3 {
-> >       pinctrl-names =3D "default";
-> >       pinctrl-0 =3D <&pinctrl_uart3>;
-> >--
-> >2.43.0
-> >
-> >base-commit: e9565e23cd89d4d5cd4388f8742130be1d6f182d
-> >branch: bsh-202505-imx6ulz_smm_m2
->
->
-
-
---=20
-Michael Nazzareno Trimarchi
-Co-Founder & Chief Executive Officer
-M. +39 347 913 2170
-michael@amarulasolutions.com
-__________________________________
-
-Amarula Solutions BV
-Joop Geesinkweg 125, 1114 AB, Amsterdam, NL
-T. +31 (0)85 111 9172
-info@amarulasolutions.com
-www.amarulasolutions.com
 
