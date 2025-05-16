@@ -4,64 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44077C3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 09:28:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E8A2C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 09:31:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fwVQkxbTeFhOSdLDVbu6fCe4TGHgEGD8K1leZrx35bY=; b=cvKs61FGDGzOAWspE2n+oPY0x4
-	Jkxaudt9m7AdwNIUEfnK52mJKIqDXx/x5Ds9UNA7gV8DFnDd5KwBULdQkhM15W/5sFDdXNtTPlKoL
-	rcvMOyqaBCKAe4qjUcN0ki5yT6FUv/QHBkb7f2wlcIuI1rV95Pk1KzCSkWhgQDbdM6odH+bDP3/Un
-	L9LAK37f952giGbTlPM0gTGLEN0PRAc/UsWm8HW1VpHZXDq42vivv4rFSw/LGSyuly6UTHSoSgPEv
-	Hbxqdp1YNrRdxOWrcYqk/0xPZHb9vt6dW9o+ERbvrFFzqYIa/h/AFciz3o5Z5MIZL6nmDNeLezr+Y
-	4l4lVuOA==;
+	bh=/T2nRCAfHdGdr6EWdiHvjuEKT+Y8exIVTPbqWHhSlsM=; b=PTRNfffv5/uW7FSYGT2QPcVOqo
+	u67+gMGOEkMGVx48Urxn97QEcvMJhr+tHbdJjLAKW+PUP69b1oigpXl77Oozzb3p9XuE/5gHToNUi
+	mkB1dDlIIGTKzRDtCYk1SWHf6agXNizYDTcXkIEjDEPfq4marl5c3tpfkggorl1uAg2ruCjEp8tf3
+	8MoBBW44SMQyG8EsR5NvH9P94vo7qe1vQzuhzWOJyjakr2EElj/fAXGWVYZLHaBN9RuzLgp+W79Fb
+	cyO2Hq5/R4Pem2fjuG0FauhLS9H0xHmH+KtEhmpt2pODW5wMGuReIRzyhlLi4mNGpqSq3pyS7KI5l
+	Ea/BwH+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFrMk-00000002zaF-0eeU;
-	Fri, 16 May 2025 09:28:30 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1uFrPE-00000002zxM-3hfi;
+	Fri, 16 May 2025 09:31:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFrKi-00000002zMP-21cY
+	id 1uFrND-00000002zdj-1tz3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 09:26:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=fwVQkxbTeFhOSdLDVbu6fCe4TGHgEGD8K1leZrx35bY=; b=WnRVOUnYblDd0ZN1892po1YmE/
-	enlU1zzOZj8wTZZDcseuXhiDdrL9bLTDZlGAY0/kQxtfXFOLwdxbtFTYiVzeyO0VFJMyENzS2Q0t+
-	8QhEzX/s6xTy+uOsy1kuNEYG5jrgI7RdMwROSlf+Cv534oh0dv3IG8evRvWrH2QACBqB6CWniOfY1
-	sP+j5oRgjfVN9SSEpRzhDtt4a9YHaVoKQWOuBmvOu5/Mqs4bXvdmVE6R02I/ZEAALsh4wqvoBJd7X
-	YvwD5hmCJFvxmTI3nlpIJBZKyn/WcqCrG2xypZaTyOEhXccvFtLxUhknncert0xn9UjHH5wQrRGT7
-	8lp65zPg==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1uFrKZ-006Y58-0b;
-	Fri, 16 May 2025 17:26:16 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 16 May 2025 17:26:15 +0800
-Date: Fri, 16 May 2025 17:26:15 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Fabio Estevam <festevam@gmail.com>, Eric Biggers <ebiggers@google.com>,
+	Fri, 16 May 2025 09:29:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E843343F4B;
+	Fri, 16 May 2025 09:28:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6567C4CEE4;
+	Fri, 16 May 2025 09:28:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747387738;
+	bh=C1cSy2xki2wOWUPUW6I0rnyp/Sf3WYwzapviu29pDzI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=pMoRjdwEZOifjh9RLx4oKclSMQBYE2awSKuA283WPcrDrh7dfsFNwEDomiLpDWYce
+	 2cTzVGmNcC+u5MCSy6w+ECCpum5y3zt+8Ve1O8JuJX043PuyQwk00Fi6/srzUaCm+c
+	 cP+qp+SyfuDVpVZT9UXKivzba1NVbHOQttOodqGvTDQ82ohlsgp5rbD/WAGs1J56EN
+	 6XXAbgte/IpCmA0Yz831Dxc9C5RRvgWe51Qyn7PMKed9VFHmcFgTLP/d76amFMraoi
+	 a2P1JtfJm2Xttdn4i1PXaLhFWtgkPzFGXcOkdbLHKLLpqyPw8w+IoMRape0mlLg82f
+	 0jj3A1HmU6UNQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uFrNA-00FVXj-EC;
+	Fri, 16 May 2025 10:28:56 +0100
+Date: Fri, 16 May 2025 10:28:56 +0100
+Message-ID: <86frh4gazr.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Youngmin Nam <youngmin.nam@samsung.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner
+	<tglx@linutronix.de>,
 	linux-arm-kernel@lists.infradead.org,
-	Fabio Estevam <festevam@denx.de>
-Subject: Re: [PATCH] arm64: defconfig: Ensure CRYPTO_CHACHA20_NEON is selected
-Message-ID: <aCcEtx0PWIphtW0i@gondor.apana.org.au>
-References: <20250515151548.431853-1-festevam@gmail.com>
- <ece2df8d-acaa-4554-8c82-24ed45f3a8a4@app.fastmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ece2df8d-acaa-4554-8c82-24ed45f3a8a4@app.fastmail.com>
+	linux-kernel@vger.kernel.org,
+	junhosj.choi@samsung.com,
+	hajun.sung@samsung.com,
+	joonki.min@samsung.com,
+	d7271.choe@samsung.com,
+	jkkkkk.choi@samsung.com,
+	jt1217.kim@samsung.com,
+	qperret@google.com,
+	willdeacon@google.com,
+	dhyun.cha@samsung.com,
+	kn_hong.choi@samsung.com,
+	mankyum.kim@samsung.com
+Subject: Re: [QUESTION] arch_counter_register() restricts CNTPT access when booted in EL1, even if EL2 is supported
+In-Reply-To: <aCbhBttvi8mvsyGE@perf>
+References: <CGME20250516064924epcas2p24c8f3dc1860768b2b7bed30a41528770@epcas2p2.samsung.com>
+	<aCbhBttvi8mvsyGE@perf>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: youngmin.nam@samsung.com, mark.rutland@arm.com, daniel.lezcano@linaro.org, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, junhosj.choi@samsung.com, hajun.sung@samsung.com, joonki.min@samsung.com, d7271.choe@samsung.com, jkkkkk.choi@samsung.com, jt1217.kim@samsung.com, qperret@google.com, willdeacon@google.com, dhyun.cha@samsung.com, kn_hong.choi@samsung.com, mankyum.kim@samsung.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_022624_517030_254B93E1 
-X-CRM114-Status: UNSURE (   9.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250516_022859_530198_306F5257 
+X-CRM114-Status: GOOD (  24.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,17 +100,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 15, 2025 at 05:24:09PM +0200, Arnd Bergmann wrote:
->
-> in case Herbert wants to pick this up as a fix for the crypto tree,
-> or I can apply this through arm-soc if you send a copy to soc@lists.linux.dev.
+On Fri, 16 May 2025 07:53:58 +0100,
+Youngmin Nam <youngmin.nam@samsung.com> wrote:
+>=20
+> [1  <text/plain; utf-8 (8bit)>]
+> Hi arm arch timer experts,
+>=20
+> While reviewing the arm_arch_timer code in Linux 6.12,
+> I noticed that the function arch_counter_register() restricts the
+> use of the physical counter (cntpct_el0) on systems where the kernel
+> is running in EL1, even if EL2 is supported and cntpct_el0 is
+> accessible.
+>=20
+> In our case:
+> - We are not using pKVM.
+> - The kernel is booted in EL1.
+> - We disabled VIRT_PPI and explicitly selected PHYS_NONSECURE_PPI for the=
+ timer refering to below code.
 
-Going through arm-soc should be fine.  I don't see any changes
-in my tree that should create a non-trivial conflict with this.
+That's not legal. The architecture guarantees that there is a virtual
+timer and a physical timer. No ifs, no buts.
+
+[...]
+
+> As I understand it, `is_hyp_mode_available()` checks whether the
+> kernel booted into EL2 =E2=80=94 not whether EL2 is *supported* by the
+> hardware.
+>=20
+> Therefore, even on systems where EL2 exists and `cntpct_el0` is
+> accessible from EL1, the kernel still forces the use of `cntvct_el0`
+> if the boot EL is EL1.
+
+Yes, because it isn't architecturally valid to not have a virtual
+timer. This isn't about EL2 being present of not. The switch to the
+physical timer is purely an optimisation for KVM so that it doesn't
+have to switch the virtual timer back and forth when running a guest,
+as the virtual timer is the most likely used timer.
+
+> Is this restriction to `cntvct_el0` in EL1 an architectural
+> requirement, or simply a conservative default to avoid possible
+> traps on some systems?
+
+Both. Crucially, it isn't possible to trap the virtual timer on some
+older implementations.
+
+> If the hardware clearly supports EL2 and allows CNTPT access from
+> EL1, could this restriction be relaxed?
+
+Absolutely not. Having the virtual timer is a hard requirement from
+both the architecture *and* Linux. Feel free to emulate it from EL2 if
+you want (and can trap it).
 
 Thanks,
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
