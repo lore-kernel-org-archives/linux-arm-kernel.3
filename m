@@ -4,87 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E39C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 05:55:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A795C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 05:58:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ysgHzHUJXzI0JJ26R9GmqoNNUsJzhyB8GzW0gLV0Nww=; b=zn2nhffd11p9Hs4PssgqDTRPdm
-	d7f9YwXipE8Sw1j5wBcajGmqijV7Gzk9GlGyeJ49GvOBTTrIyRKVQk31TD/W9Gm6vcMBDCUkjguN/
-	gnvn4PQg3OJRFA4iPzYDtDVqlVBCfsewAhL9q2z5TDaYp5VVZDJo0miXmWzd7fgF0j0dZ4yrJ8EqT
-	lXmZDPIaqzGziqh5GUjJZWPdXbHlPaJAkSqf3bnEh2PynkrC0Al64mCi96vXa1iSN3U6+6YEyTkTP
-	/t7gKGhAyEqj2ZEzS32c78iUS7jLdilJdRlRM4+9RN/P3G1KfqPXm+vAAkldY3t5xq99UTjJBGZp2
-	EF1YHJ5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=npw7oUOa65omh2AfzcTC00iOX1CPSJ9Fh+nCscZc5Qw=; b=KTGvs/LFPehA3UHRV/DygkJSwb
+	csACpGCyxm95S2gJ3t2wjC0IuUApno5tw7Ue/rDQBt4lhCiP05HiXPkmdYqrLDHpsLE5+crTtjLZe
+	ztKS6gNF6aTOWI1qux99dDKqJ7O4tkBt7tee/gqfO3EZkAM7ndCN/J3WhhQ6hJEtaJz8gFJxwQubE
+	fk2pZOe/tTX/+btnHuyyXFXJqvO5sKsWpH+zULVhnC8EbjZD5jZRdtbNAVEEQ0LTmaS1etLVMAOMb
+	RwUDal/uH0Yu2bn0h8/63tT1Rj7E/ZVRSnq4CzgV7I8UHjNttoezOehUZIm368EzqjUtclo/uJEpa
+	PxiPNuxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFo2t-00000002XSP-2wL1;
-	Fri, 16 May 2025 05:55:47 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1uFo50-00000002Xcw-1yUu;
+	Fri, 16 May 2025 05:57:58 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFo0l-00000002XJH-2tGg
+	id 1uFo1K-00000002XMM-0zOZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 05:53:37 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-442e9c00bf4so12071175e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 May 2025 22:53:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1747374813; x=1747979613; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ysgHzHUJXzI0JJ26R9GmqoNNUsJzhyB8GzW0gLV0Nww=;
-        b=D03VihVdrEuZoz0MrEA3ovwEQ/hxgICizPuZspq1ErQil8GezDE1CPmhd0b+25tXpj
-         1UT3B1lEKTyEbKX2VirOcfvR6+Vq/vLkNvtQ+R+0JlbA3KKeVt59MbDnnQsZNpKfyCqz
-         zsXLVHVUtzC9Qvv5+eZjIv+e0StX2QCraE9VmRHssInPaZ/4h9+DDfP6YMfL6ML+tXe6
-         70XvpVOQw2/TIQTKgO75xJNC34/PN0B+FPj6rMYmPDs3MVYjLxPS3UHyfcgmyijT8sYB
-         eA99xP9x8vN8ZZI/K93Vii6SMNsJ8HMgJGXEfxa/Q/qaIUKNi4dpdwlAbKwk4SIBznX0
-         oYTA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747374813; x=1747979613;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ysgHzHUJXzI0JJ26R9GmqoNNUsJzhyB8GzW0gLV0Nww=;
-        b=HCTAEbaRYt1gtMFhXrHlRS0d0mquTUeYJESfw9lEbnJb8W2CPEB3zllguKd0CI79tz
-         9zw4DWnloZPU393pj9zckbfFWLZ9IjgAghv4FAZzHJKAGh4MRv1Kk4+VxGh4TbTqIgqW
-         HVR8+oG5pS0VQGIt6Wcj6ow5TIrk0gJ2eJutn80MaO9RJ8mQiQ2D/0WDVOifNpunzPXt
-         /muaA9Q/sFL31WiyEBBfDm5fR8QgZTU6sJiRiwgE7duD2EXUM8mkxp3JMbrOg1L2C8zu
-         OyMZCsWGaGeWqFTT2AulCXVgaY/morvSVJpJwBn/zlENdKY2l+5tI9hpT/HugHFarPfB
-         xVXg==
-X-Gm-Message-State: AOJu0YxTzb3AwazaJGQxbym9DHn2HFxtGvUouIEG9Kk/VFkLMEok3Zk0
-	0VO/xL65G3O6SThf2/DJcY/9eJ6t4/I1PVkSJlkplWVFM6mhj+OIb6UBNccebNib6BmcP0RcgCh
-	zprsX
-X-Gm-Gg: ASbGncsLDwCjHK2vVrwPHLdsCDQcW+CYnjDBvnJFr31TW7cbh5RRjSU+9x8qtwt19vD
-	PDEgoatBgCvdHXJ2ippzqY5MCcQ1xL/PC5WroF9WcxMu5PWLjCL1RqMm/CMIJcTtc7QzkGZxBC4
-	Vf3Pkkmgxf4Lezzt77DxuvQe2UZEfXjcQa7Ll0QMBHDVf+CRnGtoNjSKPk0IVq2QIub1cHg6fi1
-	tgbZ0Gf1Skv/blWxca8sGSUUl0Nuew2iEF73jh7uXz04w7pSd3CYSFak0N4d0rdOATqe9KlLdmJ
-	N27c6CzzFrXA1xM9UUgJ88hhBKZWqsI306sxbeFGAV/yk6SmnBB1Wyd6saTi3UkPP+6ECg==
-X-Google-Smtp-Source: AGHT+IE06yhwIrfWMR3nQ7nz3IOMaiLivNnlRQajJq9CYMFATW7m0104XfpAAx5jbw6vts7hRg7ArA==
-X-Received: by 2002:a05:600c:1d28:b0:43d:ea:51d2 with SMTP id 5b1f17b1804b1-442fefee236mr8833645e9.14.1747374812978;
-        Thu, 15 May 2025 22:53:32 -0700 (PDT)
-Received: from claudiu-X670E-Pro-RS.. ([82.78.167.58])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442fd4fdcccsm21672275e9.6.2025.05.15.22.53.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 May 2025 22:53:32 -0700 (PDT)
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-To: arnd@arndb.de,
-	arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev
-Subject: [GIT PULL] Microchip AT91 DT updates for v6.16
-Date: Fri, 16 May 2025 08:53:30 +0300
-Message-ID: <20250516055330.10852-1-claudiu.beznea@tuxon.dev>
-X-Mailer: git-send-email 2.43.0
+	Fri, 16 May 2025 05:54:11 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4E9EE10397281;
+	Fri, 16 May 2025 07:54:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1747374847; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=npw7oUOa65omh2AfzcTC00iOX1CPSJ9Fh+nCscZc5Qw=;
+	b=L+lVcNK2s55ncmt8CcZOpWwgETi+D4+e9Q492CJjTyHaxO3Lbj+ZxgebA7H1rfoNlYpaPH
+	+l1IIIgb4wJruB3r8NWRzqWoxeMEV7meEznD71Lppv3BgMOJG8wY5nZuE/LkqSVyJS5JOE
+	S5FXcErYtg2hiLD8BJT4a2LelygYHAKhVemONn/kvlllsS5IGUJREfGqZr2nk/Gbz31Q/l
+	wvX1mhR7FbSD2+dl9xiSvSwUna5vLEQC9RQRX2t2isuA5soeVoyCR1EYcVI6zwiF3r6zKz
+	zaQ8j9maRTqo2EKYnwJZ/DaTnrcakhzaxLVEIgh+MpGolmiWj+g5NslaPAgXSg==
+Date: Fri, 16 May 2025 07:54:02 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
+ <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>, Andrew Lunn
+ <andrew@lunn.ch>
+Subject: Re: [net-next v11 4/7] net: mtip: The L2 switch driver for imx287
+Message-ID: <20250516075402.5104a0b6@wsk>
+In-Reply-To: <20250513073109.485fec95@wsk>
+References: <20250504145538.3881294-1-lukma@denx.de>
+	<20250504145538.3881294-5-lukma@denx.de>
+	<61ebe754-d895-47cb-a4b2-bb2650b9ff7b@redhat.com>
+	<20250513073109.485fec95@wsk>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; boundary="Sig_/ex0Iw2w7PZxxqHuvJIb/PVl";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_225335_882920_40DB2C2F 
-X-CRM114-Status: UNSURE (   9.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250515_225410_567003_C6537C4C 
+X-CRM114-Status: GOOD (  35.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,60 +81,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
+--Sig_/ex0Iw2w7PZxxqHuvJIb/PVl
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
+Hi Paolo,
 
-are available in the Git repository at:
+> Hi Paolo,
+>=20
+> > On 5/4/25 4:55 PM, Lukasz Majewski wrote: =20
+> > > +		/* This does 16 byte alignment, exactly what we
+> > > need.
+> > > +		 * The packet length includes FCS, but we don't
+> > > want to
+> > > +		 * include that when passing upstream as it
+> > > messes up
+> > > +		 * bridging applications.
+> > > +		 */
+> > > +		skb =3D netdev_alloc_skb(pndev, pkt_len +
+> > > NET_IP_ALIGN);
+> > > +		if (unlikely(!skb)) {
+> > > +			dev_dbg(&fep->pdev->dev,
+> > > +				"%s: Memory squeeze, dropping
+> > > packet.\n",
+> > > +				pndev->name);
+> > > +			pndev->stats.rx_dropped++;
+> > > +			goto err_mem;
+> > > +		} else {
+> > > +			skb_reserve(skb, NET_IP_ALIGN);
+> > > +			skb_put(skb, pkt_len);      /* Make room
+> > > */
+> > > +			skb_copy_to_linear_data(skb, data,
+> > > pkt_len);
+> > > +			skb->protocol =3D eth_type_trans(skb,
+> > > pndev);
+> > > +			napi_gro_receive(&fep->napi, skb);
+> > > +		}
+> > > +
+> > > +		bdp->cbd_bufaddr =3D
+> > > dma_map_single(&fep->pdev->dev, data,
+> > > +
+> > > bdp->cbd_datlen,
+> > > +
+> > > DMA_FROM_DEVICE);
+> > > +		if (unlikely(dma_mapping_error(&fep->pdev->dev,
+> > > +
+> > > bdp->cbd_bufaddr))) {
+> > > +			dev_err(&fep->pdev->dev,
+> > > +				"Failed to map descriptor rx
+> > > buffer\n");
+> > > +			pndev->stats.rx_errors++;
+> > > +			pndev->stats.rx_dropped++;
+> > > +			dev_kfree_skb_any(skb);
+> > > +			goto err_mem;
+> > > +		}   =20
+> >=20
+> > This is doing the mapping and ev. dropping the skb _after_ pushing
+> > the skb up the stack, you must attempt the mapping first. =20
+>=20
+> I've double check it - the code seems to be correct.
+>=20
+> This code is a part of mtip_switch_rx() function, which handles
+> receiving data.
+>=20
+> First, on probe, the initial dma memory is mapped for MTIP received
+> data.
+>=20
+> When we receive data, it is processed and afterwards it is "pushed" up
+> to the network stack.
+>=20
+> As a last step we do map memory for next, incoming data and leave the
+> function.
+>=20
+> Hence, IMHO, the order is OK and this part shall be left as is.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-dt-6.16
+Is the explanation sufficient?
 
-for you to fetch changes up to 36e9e1ab594519972b0b468aec9b8e9591ddd0ac:
+>=20
+> >  =20
+> > > +static void mtip_free_buffers(struct net_device *dev)
+> > > +{
+> > > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
+> > > +	struct switch_enet_private *fep =3D priv->fep;
+> > > +	struct sk_buff *skb;
+> > > +	struct cbd_t *bdp;
+> > > +	int i;
+> > > +
+> > > +	bdp =3D fep->rx_bd_base;
+> > > +	for (i =3D 0; i < RX_RING_SIZE; i++) {
+> > > +		skb =3D fep->rx_skbuff[i];
+> > > +
+> > > +		if (bdp->cbd_bufaddr)
+> > > +			dma_unmap_single(&fep->pdev->dev,
+> > > bdp->cbd_bufaddr,
+> > > +					 MTIP_SWITCH_RX_FRSIZE,
+> > > +					 DMA_FROM_DEVICE);
+> > > +		if (skb)
+> > > +			dev_kfree_skb(skb);   =20
+> >=20
+> > I suspect that on error paths mtip_free_buffers() can be invoked
+> > multiple consecutive times with any successful allocation in
+> > between: skb will be freed twice. Likely you need to clear
+> > fep->rx_skbuff[i] here. =20
+>=20
+> +1 - I will add it with v12.
+>=20
+> >=20
+> > Side note: this patch is way too big for a proper review: you need
+> > to break it in multiple smaller ones, introducing the basic features
+> > separately.
+> >=20
+> > Cheers,
+> >=20
+> > Paolo
+> >  =20
+>=20
+>=20
+>=20
+>=20
+> Best regards,
+>=20
+> Lukasz Majewski
+>=20
+> --
+>=20
+> DENX Software Engineering GmbH,      Managing Director: Erika Unter
+> HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+> Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email:
+> lukma@denx.de
 
-  ARM: dts: microchip: sama7g54_curiosity: Add fixed-partitions for spi-nor flash (2025-05-16 08:31:29 +0300)
 
-----------------------------------------------------------------
-Microchip AT91 device tree updates for v6.16
 
-This update includes:
-- more controllers enabled for SAMA7D65 SoC (Ethernet, Flexcoms,
-  SRAM, DRAM, RTC, RTT, GBPR)
-- cleanups and fixes for Calao boards
 
-----------------------------------------------------------------
-Mihai Sain (1):
-      ARM: dts: microchip: sama7g54_curiosity: Add fixed-partitions for spi-nor flash
+Best regards,
 
-Ryan Wanner (8):
-      ARM: dts: microchip: sama7d65: Add gmac interfaces for sama7d65 SoC
-      ARM: dts: microchip: sama7d65: Add FLEXCOMs to sama7d65 SoC
-      ARM: dts: microchip: sama7d65: Enable GMAC interface
-      ARM: dts: microchip: sama7d65: Add MCP16502 to sama7d65 curiosity
-      ARM: dts: microchip: sama7d65_curiosity: add EEPROM
-      ARM: dts: microchip: sama7d65: Add SRAM and DRAM components support
-      ARM: dts: microchip: sama7d65: Add RTT and GPBR Support for sama7d65 SoC
-      ARM: dts: microchip: sama7d65: Add RTT timer to curiosity board
+Lukasz Majewski
 
-Wolfram Sang (7):
-      ARM: dts: at91: usb_a9g20: add SPI EEPROM
-      ARM: dts: at91: usb_a9263: fix GPIO for Dataflash chip select
-      ARM: dts: at91: calao_usb: simplify memory node
-      ARM: dts: at91: usb_a9260: use 'stdout-path'
-      ARM: dts: at91: calao_usb: simplify chosen node
-      ARM: dts: at91: usb_a9g20: move wrong RTC node
-      ARM: dts: at91: at91sam9263: fix NAND chip selects
+--
 
- .../boot/dts/microchip/at91-sama7d65_curiosity.dts | 209 +++++++++++++
- .../boot/dts/microchip/at91-sama7g54_curiosity.dts |  32 ++
- arch/arm/boot/dts/microchip/at91sam9263ek.dts      |   2 +-
- arch/arm/boot/dts/microchip/sama7d65.dtsi          | 346 +++++++++++++++++++++
- arch/arm/boot/dts/microchip/tny_a9263.dts          |   2 +-
- arch/arm/boot/dts/microchip/usb_a9260.dts          |   8 -
- arch/arm/boot/dts/microchip/usb_a9260_common.dtsi  |   9 +
- arch/arm/boot/dts/microchip/usb_a9263.dts          |   4 +-
- arch/arm/boot/dts/microchip/usb_a9g20.dts          |  17 +-
- arch/arm/boot/dts/microchip/usb_a9g20_common.dtsi  |  27 --
- arch/arm/boot/dts/microchip/usb_a9g20_lpw.dts      |  10 +-
- 11 files changed, 625 insertions(+), 41 deletions(-)
- delete mode 100644 arch/arm/boot/dts/microchip/usb_a9g20_common.dtsi
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/ex0Iw2w7PZxxqHuvJIb/PVl
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmgm0voACgkQAR8vZIA0
+zr1KMwf+LbqivlaOayX4KF7BX15t/6+4VtMYl0vfPvtkhJUk16KHiMdq8jOJgd1a
+mEMSCZbdP79VOHquqMUl4dhBBt5pxa9HvHNEprTYncHrAGptXNbLkXtYzW0FCa4g
+p9/ajwh6N/Q7vl1sc41w5b48sTt1inLufkbRnSZqrW+J4eTLIzXmjJCCpot2zKgr
+nN8j4gzHwd+auHQkCP3yGhWb9Vxu+F1OAKcw5ChUuMYHw7IuJfTG5EF335HyPY2D
+NZXKP56M+xsXOdGd4jLXKrr56wiBogIThnfvaBIJBDI8mjAJN23QWsIh/RuNz5FG
+0gaOjQiU1Jb2i6tJC4Vk7PP6CGVDJQ==
+=2uYa
+-----END PGP SIGNATURE-----
+
+--Sig_/ex0Iw2w7PZxxqHuvJIb/PVl--
 
