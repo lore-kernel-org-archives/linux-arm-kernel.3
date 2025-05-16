@@ -4,96 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4F51C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 08:46:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6FAAC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 08:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wtu7zpoEhIazPVBR9VLrQ2O+ovOuUIuW+9nEGJrTJjc=; b=xJ0KO3rVonZ7j+DmjtudCeCfcc
-	H2HJmFq/cOuD4PdxTgUVq/bsWUn7fxVuq6bT/F0XVpVUMsSWtnp2MbDUiZXBdgjM+Och4fCDWJ1Sp
-	6U3wu9rb2WpVeCJ9Gs4Jg5Nyz/UvZFAHXCC3zghe77RFyl3wjsRmVh1vJgJbJENuV3rkyCG+yEI17
-	32ts6HBvSy63Of1mxaLvSkRcpNQrIif4vn2l5Vq8Wvi9dnqRY1IoKnVpbAkKvsa5tgOIJmn/iBaOL
-	i7aOpUy+vpP0DxbeFWUuu9z+DRQAryLuH90EdwsRqzHI7KrhhacIVWozuKFQW4WkAT1nYJnVcsU0Y
-	8ihJJe7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=oDUn4vGxqZ0dgmjFCUlqP7z0I19O5uz1oFEJFFgwGN0=; b=LsjJYrVDIU87RvQCm9p3o6fzrn
+	CJhHF7mqaqGJOD8AR9Sq4S1JlxLgWyCuh/tkeFFYHOp2htdCPp6bf08YvZG6z3iWgwUsF9hiIhloT
+	f1BShLH2UrqGQAi7csoAE/bXYgqDSErglBrDhMXPfN+ztP7J8AREXIaHYI2PosUqSMbdO0w2DHKfA
+	2PAalriLYM55pZFLQ8oTrrzi0M8JHHuq1t0h/QA++7nBX6c9j4iL8gs2WUbKrxJoWOuiyWHfrEGyq
+	6LTfKNDsaRfctRh46Ra7xemDkfxjId6zt0ZxQgbUJ8xuYXBEa4NoHD5u4IZG8F2PVvOI2mVX/Uzhw
+	+hbSEmAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFqhm-00000002u49-0PQ3;
-	Fri, 16 May 2025 08:46:10 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uFqjl-00000002uN5-3EOR;
+	Fri, 16 May 2025 08:48:13 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFqfi-00000002tbc-0XU0
+	id 1uFqfm-00000002tbh-1b8o
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 08:44:03 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-442ea341570so11747925e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 01:44:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747385040; x=1747989840; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wtu7zpoEhIazPVBR9VLrQ2O+ovOuUIuW+9nEGJrTJjc=;
-        b=m4QUWPsqRdqVk+pJ91amGUH6qT4b2OgQEmkDE0Rjp2AAyITlYcL94upaVjjmutJGfj
-         jyP8MQZkVOzdGwo7i8GIy57c34NPDbyMIXI/UF6ZxdxvM65YrZp8ohqIM4TsTNjyM60b
-         Hr7ofozCaUmeACjr6q+IAl1Wr/NDPBonYObOy8sMdoSCf0d0ZrEd/VVIC5zQxlvBJmSF
-         Ef21KAp0GFoCwC8drJ0cYv8yg8x3KeppxcWyU+31ATYEIA4+xvGiUNO1HUCi0c+dStv+
-         xs0QPTZM0RLIsd/otva1zP/yESsAFLXL3KtMFpP1ZE4iyxT5aeSduWLhMCfeLvTZMghW
-         OKKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747385040; x=1747989840;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wtu7zpoEhIazPVBR9VLrQ2O+ovOuUIuW+9nEGJrTJjc=;
-        b=woBuIyApmAx/ZIoHqUz4h5ir7bUwhPLnJdactnMgTPHZqITtpD/3ElLwN99mctn7UD
-         LqJWdbWcBZOa9hAybZb25Pym3Y02Wa1n+zN7lFHVf7WCKIcevJYcixHAqTLLh2vbm7NO
-         LZ0ocixfjwlJBETCp+C9wLtA2H1PyjZ+gHy750D0atPqIe6EBvp/ycWJK9NBuPTIUHyr
-         fbgS5WPEGk+J3dYNY7o6BAqkbV0UpqBe29nZXFWUd9XIOIuMT2G1TeY4uQ7QNtf/UAt0
-         R4bSCW8hYBn4gwoUsyR94saugy6ugIZ9bJuEt/I0B/WTojA0tyGVegHMKHkEJAejwu/r
-         jZAA==
-X-Forwarded-Encrypted: i=1; AJvYcCWmb1TWgp4igQXqFB85Xlvlz00zCMUVSrg0aJfLUOMPmbdPUxny+uLWvd28fR5hQJBcSBzAEpbKlA2JbMUaNKmv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9IkYW3LAENZoakunGKdFpQ+Bb4hBqf5UGv+nIdh5DY+uvu6Zu
-	sPkDApo6nk3Y9b+immyS/kKxxcmwkLTSp0IbsWiMi5WgYT1tar6pWsmK
-X-Gm-Gg: ASbGncurwFLYN+cRS6JKuqEyXfVlXWy5BUi1w9fsHJtE1oFC5+G0bDbpAwe9sO/K9eE
-	RLf03YNqrff+FusL/MloF4sH//5PnFPlzuQimeaF1N6k9raFh308X4GoKnW0uHRuy0OMNkBa9jC
-	qbuKc3FUi1/8fKXuj4m1nVxqMRfJK6qrilsZiLZZBLEc/n2YVO9rFeomaigf4e579j/ZyRqnIkZ
-	JHmNbl5v8fDLWMyozT9hcWRMPN6dcLWdVFXpAFj+IFH/aU6oXgRw3eJIKONVwT6VDNv/CMFKnd2
-	XeRhGcPhZqSbN6q4HxTRvi2QiQ6vyzDW7col6mUV5ZI1JeyZz+dQussR6A5nGHNIhCntKRqt+1S
-	4
-X-Google-Smtp-Source: AGHT+IEYZb/TzXzZVFqdhqGt3K1l/2137LORafBeymggFrs92Lp+L3YIGu5RsSNqD4chBhDRXMQG/Q==
-X-Received: by 2002:a05:600c:821b:b0:442:ccfa:18c with SMTP id 5b1f17b1804b1-442ff03c671mr12712175e9.32.1747385039900;
-        Fri, 16 May 2025 01:43:59 -0700 (PDT)
-Received: from localhost.localdomain ([213.74.214.99])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442fd50ee03sm25352005e9.14.2025.05.16.01.43.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 May 2025 01:43:59 -0700 (PDT)
-From: Can Ayberk Demir <ayberkdemir@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Michal Simek <michal.simek@amd.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Can Ayberk DEMIR <ayberkdemir@gmail.com>,
-	Suraj Gupta <suraj.gupta2@amd.com>
-Subject: [PATCH net v4] net: axienet: safely drop oversized RX frames
-Date: Fri, 16 May 2025 11:43:34 +0300
-Message-Id: <20250516084334.2463-1-ayberkdemir@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20250509104755.46464-1-ayberkdemir@gmail.com>
-References: <20250509104755.46464-1-ayberkdemir@gmail.com>
+	Fri, 16 May 2025 08:44:08 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250516084359epoutp02c46d2a8053760137f1d073a9a9866b40~-9W9ykZ4-2248522485epoutp02B
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 08:43:59 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250516084359epoutp02c46d2a8053760137f1d073a9a9866b40~-9W9ykZ4-2248522485epoutp02B
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1747385039;
+	bh=oDUn4vGxqZ0dgmjFCUlqP7z0I19O5uz1oFEJFFgwGN0=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=UoyyS/jHUfHBgn2s40CTQovf0uZEDIjk1ZbQcmnfIyarsh1XUGGVlDRHYt6u0OpWv
+	 otsyupWW1nChjaSPUyKv5ykTycdpX7qvi1I6TmqZw+BUYG9U9pvA8N5mqtvsBaX8Vf
+	 hW5KrDb1bpNe3/ZJvT9xfzi2YgeNRRyaBxsgwKTA=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250516084358epcas5p3efd61ab4296640f46f59d806c92959a9~-9W9Gz9vg0984709847epcas5p3h;
+	Fri, 16 May 2025 08:43:58 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.177]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4ZzLGN1Lchz2SSKb; Fri, 16 May
+	2025 08:43:56 +0000 (GMT)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250516070436epcas5p4204b77c1a146ab05ff897d930c32041e~-8AMna2Bk1740617406epcas5p4y;
+	Fri, 16 May 2025 07:04:36 +0000 (GMT)
+Received: from epsmgmc1p1new.samsung.com (unknown [182.195.42.40]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250516070436epsmtrp2a81743acebd8ecc647593b88a5676dd0~-8AMmgodn0262802628epsmtrp2H;
+	Fri, 16 May 2025 07:04:36 +0000 (GMT)
+X-AuditID: b6c32a28-460ee70000001e8a-95-6826e3840519
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgmc1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	27.A0.07818.483E6286; Fri, 16 May 2025 16:04:36 +0900 (KST)
+Received: from bose.samsungds.net (unknown [107.108.83.9]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250516070434epsmtip25ce2feee6b9c38117999b0188e44db32~-8AKM8aYr0738607386epsmtip2I;
+	Fri, 16 May 2025 07:04:34 +0000 (GMT)
+From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+To: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, alim.akhtar@samsung.com, Thinh.Nguyen@synopsys.com
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, rosa.pila@samsung.com, dev.tailor@samsung.com,
+	faraz.ata@samsung.com, muhammed.ali@samsung.com, selvarasu.g@samsung.com,
+	pritam.sutar@samsung.com
+Subject: [PATCH v3 0/2] initial usb support for ExynosAutov920 soc
+Date: Fri, 16 May 2025 12:43:31 +0530
+Message-Id: <20250516071333.3223226-1-pritam.sutar@samsung.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrCLMWRmVeSWpSXmKPExsWy7bCSvG7LY7UMg5MTVCwezNvGZrFm7zkm
+	i3s7lrFbzD9yjtXi2o2F7BbNi9ezWbycdY/NYtPja6wWl3fNYbOYcX4fk8WiZa3MFudfdLFa
+	PLu3gs3i/54d7BZffj5gtjiy/COTxaoFB9gdBD02repk89g/dw27x+Yl9R59W1YxemzZ/5nR
+	4/MmuQC2KC6blNSczLLUIn27BK6MbSfaWQs281S0r7nB3sB4l7OLkYNDQsBEYvom7S5GLg4h
+	gd2MEnsWvmbpYuQEistIPJq2kRXCFpZY+e85O0TRW0aJzTMusoA0swmYSkzckwASFxGYxihx
+	pGE/C4jDLHCcSWLKymZGkG5hASeJSbe3MIHYLAKqEl8+bwVr5hWwl/gyQRxigbzE/oNnmUFs
+	XgFBiZMzn4AdwQwUb946m3kCI98sJKlZSFILGJlWMUqmFhTnpucmGxYY5qWW6xUn5haX5qXr
+	JefnbmIER4SWxg7Gd9+a9A8xMnEwHmKU4GBWEuG9nqWcIcSbklhZlVqUH19UmpNafIhRmoNF
+	SZx3pWFEupBAemJJanZqakFqEUyWiYNTqoEpI0tmZuqJOe6/tNd2cv+fdqDccR3vncR8nug4
+	Z54NslX5e5c0MP7a/GH7Qgl7h3jFuI0K84Qc8jL3H22Z9FFJv351aNVd03bj4t5m3wuTL52O
+	9BFP0Giz65FWTeZp4uO6KL3o7C/mNt/Hq5an7vq0ZF1gCOefRfWn/OxXcRXO8AxOfR476/X0
+	bW3Sq5VYRf96y5xsmvlPe/om/ReCnFN+CL1oua53QdZNLdvxObfpbtdaUdaJ+2wU8vuPX11w
+	/C6r5bOPYs+U37BJMEgwvrmyVm+e5Puiv033gyeXPmfZEM/ZOr9yeWR4jt//iP7WtoByi/Bb
+	3tFJMd97Ygp/ybl9F/NSU74qe+DKH+1VD5VYijMSDbWYi4oTAWqHKu73AgAA
+X-CMS-MailID: 20250516070436epcas5p4204b77c1a146ab05ff897d930c32041e
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250516070436epcas5p4204b77c1a146ab05ff897d930c32041e
+References: <CGME20250516070436epcas5p4204b77c1a146ab05ff897d930c32041e@epcas5p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_014402_173138_E54E0DB7 
-X-CRM114-Status: GOOD (  16.98  )
+X-CRM114-CacheID: sfid-20250516_014407_055040_76B93D3C 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,104 +115,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Can Ayberk DEMIR <ayberkdemir@gmail.com>
+This SoC has a DWC3 compatible USB controller
 
-In AXI Ethernet (axienet) driver, receiving an Ethernet frame larger
-than the allocated skb buffer may cause memory corruption or kernel panic,
-especially when the interface MTU is small and a jumbo frame is received.
+The USB 3.1 DRD controller has the following features:
+    * compliant with both USB device 3.1 and USB device 2.0 standards
+    * compliant with USB host 3.1 and USB host 2.0 standards
+    * supports USB device 3.1 and USB device 2.0 interfaces
+    * supports USB host 3.1 and USB host 2.0 interfaces
+    * full-speed (12 Mbps) and high-speed (480 Mbps) modes with USB device
+      2.0 interface
+    * super-speed (5 Gbps) mode with USB device 3.1 Gen1 interface
+    * super-speed plus (10 Gbps) mode with USB device 3.1 Gen2 interface
+    * single USB port which can be used for USB 3.1 or USB 2.0
+    * on-chip USB PHY transceiver
+    * DWC3 compatible
+    * supports up to 16 bi-directional endpoints
+    * compliant with xHCI 1.1 specification
 
-This bug was discovered during testing on a Kria K26 platform. When an
-oversized frame is received and `skb_put()` is called without checking
-the tailroom, the following kernel panic occurs:
-
-  skb_panic+0x58/0x5c
-  skb_put+0x90/0xb0
-  axienet_rx_poll+0x130/0x4ec
-  ...
-  Kernel panic - not syncing: Oops - BUG: Fatal exception in interrupt
-
-Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ethernet driver")
-
-Signed-off-by: Can Ayberk DEMIR <ayberkdemir@gmail.com>
-Tested-by: Suraj Gupta <suraj.gupta2@amd.com>
----
-Changes in v4:
-- Moved Fixes: tag before SOB as requested
-- Added Tested-by tag from Suraj Gupta
-
+changelog
+----------
 Changes in v3:
-- Fixed 'ndev' undeclared error → replaced with 'lp->ndev'
-- Added rx_dropped++ for statistics
-- Added Fixes: tag
+- Added Acked-by, Reviewed-by tags.
+- Added the usb mailing list.
+  link for v2: https://lore.kernel.org/linux-usb/20250515225815.23sxkgior5wzsgsc@synopsys.com/
 
 Changes in v2:
-- This patch addresses style issues pointed out in v1.
----
- .../net/ethernet/xilinx/xilinx_axienet_main.c | 47 +++++++++++--------
- 1 file changed, 28 insertions(+), 19 deletions(-)
+- Grouped compatible string "samsung,exynosautov920-dwusb3" along with
+  the other Samsung compatibles.
+  link for v1: https://lore.kernel.org/linux-usb/20250514140741.415981-1-pritam.sutar@samsung.com/
 
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 1b7a653c1f4e..7a12132e2b7c 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -1223,28 +1223,37 @@ static int axienet_rx_poll(struct napi_struct *napi, int budget)
- 			dma_unmap_single(lp->dev, phys, lp->max_frm_size,
- 					 DMA_FROM_DEVICE);
- 
--			skb_put(skb, length);
--			skb->protocol = eth_type_trans(skb, lp->ndev);
--			/*skb_checksum_none_assert(skb);*/
--			skb->ip_summed = CHECKSUM_NONE;
--
--			/* if we're doing Rx csum offload, set it up */
--			if (lp->features & XAE_FEATURE_FULL_RX_CSUM) {
--				csumstatus = (cur_p->app2 &
--					      XAE_FULL_CSUM_STATUS_MASK) >> 3;
--				if (csumstatus == XAE_IP_TCP_CSUM_VALIDATED ||
--				    csumstatus == XAE_IP_UDP_CSUM_VALIDATED) {
--					skb->ip_summed = CHECKSUM_UNNECESSARY;
-+			if (unlikely(length > skb_tailroom(skb))) {
-+				netdev_warn(lp->ndev,
-+					    "Dropping oversized RX frame (len=%u, tailroom=%u)\n",
-+					    length, skb_tailroom(skb));
-+				dev_kfree_skb(skb);
-+				lp->ndev->stats.rx_dropped++;
-+				skb = NULL;
-+			} else {
-+				skb_put(skb, length);
-+				skb->protocol = eth_type_trans(skb, lp->ndev);
-+				/*skb_checksum_none_assert(skb);*/
-+				skb->ip_summed = CHECKSUM_NONE;
-+
-+				/* if we're doing Rx csum offload, set it up */
-+				if (lp->features & XAE_FEATURE_FULL_RX_CSUM) {
-+					csumstatus = (cur_p->app2 &
-+							XAE_FULL_CSUM_STATUS_MASK) >> 3;
-+					if (csumstatus == XAE_IP_TCP_CSUM_VALIDATED ||
-+					    csumstatus == XAE_IP_UDP_CSUM_VALIDATED) {
-+						skb->ip_summed = CHECKSUM_UNNECESSARY;
-+					}
-+				} else if (lp->features & XAE_FEATURE_PARTIAL_RX_CSUM) {
-+					skb->csum = be32_to_cpu(cur_p->app3 & 0xFFFF);
-+					skb->ip_summed = CHECKSUM_COMPLETE;
- 				}
--			} else if (lp->features & XAE_FEATURE_PARTIAL_RX_CSUM) {
--				skb->csum = be32_to_cpu(cur_p->app3 & 0xFFFF);
--				skb->ip_summed = CHECKSUM_COMPLETE;
--			}
- 
--			napi_gro_receive(napi, skb);
-+				napi_gro_receive(napi, skb);
- 
--			size += length;
--			packets++;
-+				size += length;
-+				packets++;
-+			}
- 		}
- 
- 		new_skb = napi_alloc_skb(napi, lp->max_frm_size);
+Pritam Manohar Sutar (2):
+  dt-bindings: usb: samsung,exynos-dwc3: add dt-schema ExynosAutov920
+  usb: dwc3-exynos: add support for ExynosAutov920
+
+ .../bindings/usb/samsung,exynos-dwc3.yaml        | 16 ++++++++++++++++
+ drivers/usb/dwc3/dwc3-exynos.c                   |  9 +++++++++
+ 2 files changed, 25 insertions(+)
+
 -- 
-2.39.5 (Apple Git-154)
+2.34.1
 
 
