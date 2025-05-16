@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D471C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 10:01:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66571C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 10:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QVfxvrCQXv1stWTNGX4NXG+vcy75UugbfRcy9FAUof4=; b=gxjSEVNa+wEkCcDV3zf2Mdbcw5
-	fz+GyOS/uG/InMQYCrS3pw59mjyd0/3SJdxPlVzSbY0dAQjycnw2Q41A2g7O/SrD38waoenSpMiyh
-	CvtCKo27bWGqR0HqTpIln71ou63MxzcAmdXSF9XrvuacEE05Px4Glfyme3lvI8Qkn2k+jlbSAZvsO
-	MgK7KumeucNRU/wEgmnzmTgHq90PueZ7b9fe2g0txJ06W9NuzwnIwalTEjbH0Dw57PbSEjZF+lCN8
-	Ira1jU/jBsI9z6xgHuaqgoq0wxq3zP7jthPwSnzo6I+/0pJAeiHP3ot4MKV6xy8Gf+k+VdfhIukMI
-	CzdiWFLw==;
+	bh=DilWklAStkYCxuWzUAJUGcUmzsrF1e73uj4WWbXu4Yo=; b=uywbLXceAZeKv253dxj+E27Hls
+	sizknxXEeib1mdc9m8TfN2nuyTj3dIqYw41NfrXexzUB0ocrSXqSTJNzlt1Y+3RlwZrEi+1EwyaLa
+	z04hiv0DP0qaPiRX4mIpMlGOlqUD7tm+B9ienzmaoIfZy4mnfh568pjjYYMb3R5A/ZKxozlI43Adg
+	mYMu0AJnQ6mI0lV10uxwn3AaM1VXoHCTfp6dEM9iaw/UimKTliV1B21DuZy5oDLPMuqaSrHFUmwqF
+	cFJ4tnTlXjG+bnDxKwz8+Ca9UWD2v+8vAiuOeBxP7AMM68QhCW0gxlvuJ10GdEQPuLIFhEmbqvtxH
+	IR9JO12w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFrs5-000000034bN-31W4;
-	Fri, 16 May 2025 10:00:53 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uFru5-000000034r5-333C;
+	Fri, 16 May 2025 10:02:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFrq2-000000034Jg-2W80;
-	Fri, 16 May 2025 09:58:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=QVfxvrCQXv1stWTNGX4NXG+vcy75UugbfRcy9FAUof4=; b=KyESI/2J9ezWNblBEXm8WCY5Vx
-	N0U6K8cowUXXXmvRS21Yz3CFNQF01H2tUlXEnlpnSymSWijOPM4wuA18OBysE8g3XQMj4yFYRJTBs
-	VJ6WcqCkCQK2BXggU71M67bIiMNvzg//sKECW9IUOuIFZUkbzkZWfB3XyM4iG4H+RPlX0Yw12AXFi
-	VAZkVGylkbqpe+685ZOX7YOaL+MSIrvGMk95uxNPsNxtRG18D3YZ+a5Z/HFWL1yQI+BDxJmln1pl/
-	Mtk/ViNcfB4w0c47ve5aE54sxZ+w9iBxM0roTDImQ4HzIYBlmWBVfBcx1S7RreM67pjt4/poXXeBG
-	ZqDNxL9w==;
-Received: from i53875a50.versanet.de ([83.135.90.80] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uFrpU-00016q-Dg; Fri, 16 May 2025 11:58:12 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: long.yunjian@zte.com.cn, hjc@rock-chips.com,
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: andy.yan@rock-chips.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- fang.yumeng@zte.com.cn, mou.yi@zte.com.cn, xu.lifeng1@zte.com.cn,
- ouyang.maochun@zte.com.cn
-Subject: Re: [PATCH] drm/rockchip: Use dev_err_probe() to simplify code
-Date: Fri, 16 May 2025 11:58:11 +0200
-Message-ID: <2022996.jZfb76A358@diego>
-In-Reply-To: <94e0951b-46e1-439b-9dbc-c2009a78b04b@kernel.org>
-References: <20250515203554564-j1jBXUXR6bdiN6zARicC@zte.com.cn>
- <94e0951b-46e1-439b-9dbc-c2009a78b04b@kernel.org>
+	id 1uFrrZ-000000034Wy-2tYW;
+	Fri, 16 May 2025 10:00:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B72C662A07;
+	Fri, 16 May 2025 10:00:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 557A3C4CEEB;
+	Fri, 16 May 2025 10:00:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747389620;
+	bh=EvnTkEQU2Ier/kGZtfB/eROe2plClajpDZdWnckjWIE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=in/3OQzwUowA5XfCHtWTaQ94tKRGLIvRnkbqr+XW6f0ZLzJfaGmU92+G3GmtrXxgN
+	 go+panze8ZYd9tN/Nqwtc/yI78psZtJp0MTApzk03livO6YNUH/pkl6nEzf+Io7v0S
+	 I3eWlA49pCRRk/XHS8sgZlP2isNDquCWIxk6H7ndNeAR84tKJHBE1VEJ7z2ws2wtbN
+	 Jss04WWNRlxX2YP3zG9tfdjIUhq/t8Nak/UGLJOSDjkE3iqJjTlT6X8QisjKM1UClN
+	 ed0jCaWAHl1tp3DOYny4Nip4oztzQ29CZFrL77CaUxPOSxwp9T7T2Zb9b5RFpukNS8
+	 BX5BbzxS+ta+Q==
+Date: Fri, 16 May 2025 12:00:14 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Laszlo Fiat <laszlo.fiat@proton.me>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Krishna chaitanya chundru <quic_krichai@quicinc.com>,
+	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Hans Zhang <18255117159@163.com>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v2 0/4] PCI: dwc: Link Up IRQ fixes
+Message-ID: <aCcMrtTus-QTNNiu@ryzen>
+References: <20250506073934.433176-6-cassel@kernel.org>
+ <7zcrjlv5aobb22q5tyexca236gnly6aqhmidx6yri6j7wowteh@mylkqbwehak7>
+ <aCNSBqWM-HM2vX7K@ryzen>
+ <fCMPjWu_crgW5GkH4DJd17WBjnCAsb363N9N_h6ld1i8NqNNGR9PTpQWAO9-kwv4DUL6um48dwP0GJ8GmdL4uQf-WniBepwuxTEhjmbBnug=@proton.me>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_025846_656670_87A2C028 
-X-CRM114-Status: GOOD (  14.08  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <fCMPjWu_crgW5GkH4DJd17WBjnCAsb363N9N_h6ld1i8NqNNGR9PTpQWAO9-kwv4DUL6um48dwP0GJ8GmdL4uQf-WniBepwuxTEhjmbBnug=@proton.me>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,39 +80,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 15. Mai 2025, 17:54:20 Mitteleurop=C3=A4ische Sommerzeit sch=
-rieb Krzysztof Kozlowski:
-> On 15/05/2025 14:35, long.yunjian@zte.com.cn wrote:
-> > From: Yumeng Fang <fang.yumeng@zte.com.cn>
-> >=20
-> > In the probe path, dev_err() can be replaced with dev_err_probe()
->=20
-> That's not probe path. I am not sure if you really understand this code.
+On Thu, May 15, 2025 at 05:33:41PM +0000, Laszlo Fiat wrote:
+> I am the one experiencing the issue with my Orange PI 3B (RK3566, 8 GB RAM) and a PLEXTOR PX-256M8PeGN NVMe SSD. 
+> 
+> I first detected the problem while upgrading from 6.13.8 to 6.14.3, that my system cannot find the NVME SSD which contains the rootfs. After reverting the two patches:
+> 
+> - ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can detect Link Up")
+> - 0e0b45ab5d77 ("PCI: dw-rockchip: Enumerate endpoints based on dll_link_up IRQ")
+> 
+> my system booted fine again. 
+> After that I tested the patches sent by Niklas in this thread, which fixed the issue, so I sent Tested-by.
+> 
+> I did another test Today with 6.15.0-rc6, which in itself does not find my SSD. Niklas asked me to test with these 
+> 
+> - revert ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can detect Link Up")
+> - revert 0e0b45ab5d77 ("PCI: dw-rockchip: Enumerate endpoints based on dll_link_up IRQ")
+> - apply the following patch:
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/controller/dwc/pcie-designware.c
+> index b3615d125942..5dee689ecd95 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware.c
+> @@ -692,7 +692,7 @@ int dw_pcie_wait_for_link(struct dw_pcie *pci)
+>                 if (dw_pcie_link_up(pci))
+>                         break;
+> 
+> -               msleep(LINK_WAIT_SLEEP_MS);
+> +               usleep_range(100, 200);
+>         }
+> 
+>         if (retries >= LINK_WAIT_MAX_RETRIES) {
+> 
+> 
+> which restores the original behaviour to wait for link-up, then shorten the time. This resulted again a non booting system, this time with "Phy link never came up" error message.
 
-I think that is somewhat debateable.
+That message was unexpected.
 
-dw_hdmi_rockchip_bind() is part of the rockchip-drm component device,
-so part of its probe-path. Also I think just the presence of EPROBE_DEFER
-which causes the device to re-try probing later is a nice indicator that the
-code in question is _a_ probe path. (and usage of EPROBE_DEFER is an
-established pattern to make that component device re-try probing later)
+What I expected to happen was that the link would come up, but by reducing
+delay between "link is up" and device is accessed (from 90 ms -> 100 us),
+I was that you would see the same problem on "older" kernels as you do with
+the "link up IRQ" patches (which originally had no delay, but this series
+basically re-added the same delay (PCIE_T_RRS_READY_MS, 100 ms) as we had
+before (LINK_WAIT_SLEEP_MS, 90 ms).
 
-And the parse_dt function itself is part of that path too.
+But I see the problem with the test code that I asked you to test to verify
+that this problem also existed before (if you had a shorter delay).
+(By reducing the delay, the LINK_WAIT_MAX_RETRIES also need to be bumped.)
+
+Could you please test:
+diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/controller/dwc/pcie-designware.c
+index b3615d125942..5dee689ecd95 100644
+--- a/drivers/pci/controller/dwc/pcie-designware.c
++++ b/drivers/pci/controller/dwc/pcie-designware.c
+@@ -692,7 +692,7 @@ int dw_pcie_wait_for_link(struct dw_pcie *pci)
+                if (dw_pcie_link_up(pci))
+                        break;
+ 
+-               msleep(LINK_WAIT_SLEEP_MS);
++               usleep_range(100, 200);
+        }
+ 
+        if (retries >= LINK_WAIT_MAX_RETRIES) {
+diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+index 4dd16aa4b39e..8422661b79d5 100644
+--- a/drivers/pci/controller/dwc/pcie-designware.h
++++ b/drivers/pci/controller/dwc/pcie-designware.h
+@@ -61,7 +61,7 @@
+        set_bit(DW_PCIE_CAP_ ## _cap, &(_pci)->caps)
+ 
+ /* Parameters for the waiting for link up routine */
+-#define LINK_WAIT_MAX_RETRIES          10
++#define LINK_WAIT_MAX_RETRIES          10000
+ #define LINK_WAIT_SLEEP_MS             90
+ 
+ /* Parameters for the waiting for iATU enabled routine */
 
 
-> > which will check if error code is -EPROBE_DEFER and prints the
-> > error name. It also sets the defer probe reason which can be
-> > checked later through debugfs.
-> >=20
-> > Signed-off-by: Yumeng Fang <fang.yumeng@zte.com.cn>
->=20
-> Incomplete chain.
+On top of an old kernel instead?
 
-Yep, the patch needs a 2nd Signed-off-by line from
-long.yunjian@zte.com.cn please.
+We expect the link to come up, but that you will not be able to mount rootfs.
+
+If that is the case, we are certain that the this patch series is 100% needed
+for your device to have the same functional behavior as before.
 
 
-Heiko
-
-
+Kind regards,
+Niklas
 
