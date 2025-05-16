@@ -4,81 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A69BAC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 18:35:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DB5CC3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 18:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=swK23DCVf3KYOYwkgLxTlVXj4MpCXZYzSoeROC7b2Yg=; b=Uz4srZWmKT3RS3fSv7Mf4ILQ+a
-	mzSUqE262X0jHxZ6L4A7pSLVnOtGf1gs7T3lLAkyEwMW6qVWhPHLUChUJWZUlTXnFVkjLygjKFrL/
-	CoSwDTLHEIVRDStiP9DlelQQ50x242cCFusaWr2eA7MN/YU2NynmSEr4Dg5KVh2hYWVoeK5Izn3V7
-	6mX+5cMvAQCdr0ffalyhawuwfe17ceTZI2zHqSAJ33RlwCjsMToINlMhWwDXIIlECvrMV+M8UVkeG
-	bh637HHKlmkM1u/YJISxrxy0FLOIPvg8vaG2KSJ1ThvDoqzZeKNsawpJu4LGQuwcb/vnPC7IZ4G7g
-	wtGfFGqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6K4DAi8oh2JImogQbX7MYeT2JhKWy+PA/O4SxBmk53g=; b=HznAqcO7buiFpXvZpaOexSQ/Ch
+	TcjYQmOAJYahd3+E6TTnscatIt3pg+AoQhcB7Sdbp+uA5cfLo5wY0O/CKMEvEhyUdw2otLwLy+Wbp
+	zZrykoZ5zVvOyVVWW6mmZqKWRp/Z7Y6Y1BQ/FfQ/LJKSHzoCOKMwzmvDUw5RpMWElrhVgZqLBm2I1
+	53VqSDSIjRssZbq4KUPFZbJF2nfhiDdOhwwaRk+3SXzS2kHjO1txzaUQEJCVXQeFNDCsJFcwEO6JC
+	RlDEOalRwpITOzT3YI9ygF6rn3mX1hMItVjsJjNZeeg4NGtmM76l2E2bsM3zCTNMYgYQYlKu1Buap
+	JR8bA2eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFztp-00000004LA4-2e0w;
-	Fri, 16 May 2025 18:35:13 +0000
-Received: from mxout3.routing.net ([2a03:2900:1:a::8])
+	id 1uFzvq-00000004LZC-2lbY;
+	Fri, 16 May 2025 18:37:18 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFzNn-00000004FPZ-2JPa;
-	Fri, 16 May 2025 18:02:08 +0000
-Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout3.routing.net (Postfix) with ESMTP id 8FB2E60533;
-	Fri, 16 May 2025 18:01:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1747418519;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=swK23DCVf3KYOYwkgLxTlVXj4MpCXZYzSoeROC7b2Yg=;
-	b=JfPzrZpzRR88e8jOP/gBWRtjufBvq/KYt3/YWsQsy4aLBtUfi86jwV0f9iTxpJ4C007LAc
-	fiywWS0XdkYGHmfEfBD6cOme4xlw1jwMsLmQPVl/eeJ8AY4tvKJHe2bebRowIFUDVLfIfH
-	OaEr+mHl97wLnbjlyfE1A8A1w634GbE=
-Received: from frank-u24.. (fttx-pool-157.180.226.139.bambit.de [157.180.226.139])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 3BEBF1226F2;
-	Fri, 16 May 2025 18:01:59 +0000 (UTC)
-From: Frank Wunderlich <linux@fw-web.de>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Frank Wunderlich <frank-w@public-files.de>,
-	=?UTF-8?q?Ar=C4=B1n=C3=A7=20=C3=9CNAL?= <arinc.unal@arinc9.com>,
-	Landen Chao <Landen.Chao@mediatek.com>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Felix Fietkau <nbd@nbd.name>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 12/14] arm64: dts: mediatek: mt7988a-bpi-r4: add proc-supply for cci
-Date: Fri, 16 May 2025 20:01:43 +0200
-Message-ID: <20250516180147.10416-14-linux@fw-web.de>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250516180147.10416-1-linux@fw-web.de>
-References: <20250516180147.10416-1-linux@fw-web.de>
+	id 1uFzOz-00000004FeQ-0VGN
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 May 2025 18:03:22 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-441ab63a415so25222385e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 11:03:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1747418599; x=1748023399; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=6K4DAi8oh2JImogQbX7MYeT2JhKWy+PA/O4SxBmk53g=;
+        b=wcNFYpSdFnH4WdmIzk6Bx4S5mcehje3dcrF+SIFjnbEfsW6VjXR7gGIXwTH28HG5ti
+         EL9INfg6PyI3obIrdzaD5aiW/nuGkrE+iKXBL8GPEiXpfQoXAYy1wiT4zCEYsnb+SKho
+         duECmSLkbZiQrt3kgzzProzmmIq6US1pnmIbhLdRETklok6yM6bqRc/BSgY+U4hhfTQi
+         2xC7uei5SOqJgu54T9OoTHJ54U50AjXiG2onmAIv/deNLJoW3JqdZlqwny8nOzeNma5q
+         4dMIupayGtQtOwcVwnBH+SyuBGAM4DHllpVB5WDpeNDXcIPOm6DImktXm6btiEk0AnDA
+         cFOA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747418599; x=1748023399;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6K4DAi8oh2JImogQbX7MYeT2JhKWy+PA/O4SxBmk53g=;
+        b=Wh+BAddT4sMkVMVzvGYGEQuuBfbc5IKVTt26d54+yEpk01Awzb+q6Yr0DsUaPuLj2H
+         /t16JkroO3V3GnwuHQP50FctLjK1ieHtMteD9eiQXNjUuxAjbwL8tQ81oKWvZ+3vyUW1
+         pw0cydS2nktT5W3nQeA3kkRihCicz5VUTsMwjly4yxEKYCWynYlCkozMpuUQHpsQAwQ9
+         uKCUxBbHEhvNaArslOfFKQEz+SvroA4l+MhjOAKFzdr86VDiyYk8B2TIuTcuB9B9Almn
+         zur4fqvOz8fyo4I/dm/AUMnORea49aEYEKIqHLapWR6sZciaIVw5nUaCXe4oXsyudAiN
+         J9vQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV+R7gMHT/gfdkHuMJg0WaxuYD2Xha5iHupJI61xZzAduaP+YvHdCpW1CZuRgxmaRd8LrprMUGlfKcCmBhu7yNe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yycp9QTB9+nJ+4r7s1cww5AyVpggKEF/aVt7w/cVw/SGR4IB73W
+	q/MyBwZKMBqpCuGF0WDdbn/r830NVoDn3gL0WlxPrWOwK1MYvIKoGK91n8nfbZicXg==
+X-Gm-Gg: ASbGnctWFzSA/DTcEAH5LcxMXyViECLp2sJ7931L3EMPNKNfrY199eFNLSWOMSlImVH
+	kq2ENTG9JO0xvmZvUKBBrXN/wL4Y2Ya9tE8kQAGzo+0n/xi4Tf08MgsoknksYGvvqQD2NeoDoOi
+	JARu2jfHNFukrSL/RDZncMeVfNaDihAU79m50xhNe0Em0Fvzrg4FHAv2WGqsu9+Rs/ixoIfXBTB
+	ce9cWZPngmmgo6CgN7s9s5K2UIBpE/pF1mbyP7ONF22VbKmJHVNotAn0IjjtAkvEPLbdxuT9PcT
+	qd/U3cTsFxbqFFdKHrzi/gWfqfkh4xsqrWbE66V6co7sFk8HtB5hL0yqrr9ZXMKB2+PpRv3PmqN
+	OcQ0AcBnTCj5xD7ny
+X-Google-Smtp-Source: AGHT+IFQSsiI9vrwradpXzloXrnGaAlmo3vSdM82TZe2t7ORRAfPE4k7Pcg48JUAfkH5OLuMwkRHsQ==
+X-Received: by 2002:a05:600c:1c18:b0:43d:40b0:5b with SMTP id 5b1f17b1804b1-442fd6607eamr37352735e9.25.1747418599028;
+        Fri, 16 May 2025 11:03:19 -0700 (PDT)
+Received: from google.com (218.131.22.34.bc.googleusercontent.com. [34.22.131.218])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442f3380539sm118985205e9.16.2025.05.16.11.03.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 May 2025 11:03:18 -0700 (PDT)
+Date: Fri, 16 May 2025 19:03:14 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
+	qperret@google.com, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
+	kernel-team@android.com
+Subject: Re: [PATCH v4 10/10] KVM: arm64: np-guest CMOs with PMD_SIZE fixmap
+Message-ID: <aCd94sBdThAj6jT9@google.com>
+References: <20250509131706.2336138-1-vdonnefort@google.com>
+ <20250509131706.2336138-11-vdonnefort@google.com>
+ <864ixkfynk.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <864ixkfynk.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_110207_725330_0AFCB23E 
-X-CRM114-Status: UNSURE (   9.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250516_110321_158625_330C6C60 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,31 +102,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Wunderlich <frank-w@public-files.de>
+> > +}
+> > +
+> >  static void clean_dcache_guest_page(void *va, size_t size)
+> >  {
+> >  	WARN_ON(!PAGE_ALIGNED(size));
+> >  
+> >  	while (size) {
+> > -		__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
+> > -					  PAGE_SIZE);
+> > -		hyp_fixmap_unmap();
+> > -		va += PAGE_SIZE;
+> > -		size -= PAGE_SIZE;
+> > +		size_t fixmap_size = size == PMD_SIZE ? size : PAGE_SIZE;
+> > +		void *addr = __fixmap_guest_page(va, &fixmap_size);
+> > +
+> > +		__clean_dcache_guest_page(addr, fixmap_size);
+> > +		__fixunmap_guest_page(fixmap_size);
+> > +
+> > +		size -= fixmap_size;
+> > +		va += fixmap_size;
+> 
+> Can this ever be called with a *multiple* of PMD_SIZE? In this case
+> you'd still end-up doing PAGE_SIZEd-bite CMOs until there is only
+> PMD_SIZE left, ruining the optimisation.
+> 
+> I think this needs fixing.
 
-CCI requires proc-supply. Add it on board level.
+So this can be only called with size either equal to PAGE_SIZE or PMD_SIZE. I
+wasn't sure if it was worth to make it more generic than it needs.
 
-Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
----
- arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi | 4 ++++
- 1 file changed, 4 insertions(+)
+But like for the first patch, I can make it more future-proof by handling size >
+PMD_SIZE.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-index 81ba045e0e0e..afa9e3b2b16a 100644
---- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-@@ -40,6 +40,10 @@ reg_3p3v: regulator-3p3v {
- 	};
- };
- 
-+&cci {
-+	proc-supply = <&rt5190_buck3>;
-+};
-+
- &cpu0 {
- 	proc-supply = <&rt5190_buck3>;
- };
--- 
-2.43.0
+> 
+> >  	}
+> >  }
+> >
 
+[...]
 
