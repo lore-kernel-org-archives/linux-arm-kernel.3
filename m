@@ -4,75 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E43BAC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 17:11:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04163C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 17:18:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gNW+7TtMUM7lGkKFYvhyFcX7e8P3pZT4KoiVlpFjICo=; b=b4dsTOiB92JTYucbrQkbf/DuMd
-	uXkZSl0aYwyW0MoZDyhibMje7a8h2RYtBg1ZdBGkaxgn+iJ1y4lHjDWmJEcWh8+12sc+zZQwMAmyo
-	jH6mNHVUcyGStSi2OmBYEK2qPtVyc5T7y13e1hLhWk3zb5492UuzJzDJrI6rDTyVydqjQIzALX01l
-	IiPLfDFY9yTvisBwSjFiWGH2lMppu4/Ux38QiJs+1yf7RboyTDtHAjZku7m7Cp8FLjabt0y4Ky5lr
-	Tp0R5Erb269JDjE4SxxUx5SDSHHa7fAH3zUtC3lKafUyYPxkYqtIOXdBQQ5tkk2PRydJs+hmlUMl7
-	5SLF0vxQ==;
+	bh=SfHWyDzdYdPgseWM8in4Xga6BH3ORUK0taNjKDi8WrU=; b=HtopZvfsbjjM3Lf0ew+Ba7az+9
+	0qZmgh3aEuX/74jQ7RBj10QjPDvbqdBaegC/b6E+ZQxdDzwHb3FAV8pnMgRx+NykFH+j3HbsYa2eM
+	Zo4UbrmA35+sCWbUvkpkdGnGDb3FLRQiGm5rVdWZcG0qujsJCioqLDe0kUNmRlXNps3vBz+ticvhz
+	aKwxP0eedeYX6+KrbnfHjoJd4XZ00AQ5t7mN4ljLlBDV/QufbmGGsRRiRC1xv9uw2VwMLIpDFTNyl
+	6H06sxVy6ijSwnRjNCoKGIWiKu5+HeQ5cYDVab7nTWOBudTxfbaTbBtxS3qEkRXDkAqu+NIEISbOk
+	HldC3S2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFyb6-000000048NO-3hRr;
-	Fri, 16 May 2025 17:11:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uFyhs-000000049Ku-07KZ;
+	Fri, 16 May 2025 17:18:48 +0000
+Received: from mail-wm1-f54.google.com ([209.85.128.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFyJh-000000044fs-1OB3
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 16:53:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9A14E4A905
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 16:53:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C53EC4CEF9
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 16:53:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747414428;
-	bh=gNW+7TtMUM7lGkKFYvhyFcX7e8P3pZT4KoiVlpFjICo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=K0AZM/WHkIM/qkUypevLdnzzY800HqjD+DQk3EspbBN0pK+1enPyE1noNGvw2ISAv
-	 sUGRiH8wlgjpHocu4xNNEmFGK920dEw58CkP7ulNE9K1WSfm9nNRleFZBked/yJ71K
-	 k5HSSaToM/eFv03ACXW88lKF/+e5QLQgPB4wJjEh5MdnKNulfZLYGaPkeFhI3ChvTN
-	 aQlJx2Ixr/hRimseN8QEYqtyhv04e7uwllTn6AyQgSVbUr0zk2+9uWgxBg8/okmU0R
-	 S7vAyrAOLrSNFUxD/lBG+VFxmJobAYDNnNLR4zzJRvEJh3Bx7FIezs8Rj1NiDNvH8m
-	 rcZA+KYgOakBw==
-Received: by mail-qk1-f178.google.com with SMTP id af79cd13be357-7c5e1b40f68so270392285a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 09:53:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXFt5J2XkJp5bqU3iXzb2FWon/+6oJZPvLask2Rjr1QrNfHf5TjGIhBr2h3QSspugxosxI0IIOX2hDg4/PH2Hhx@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWDueOJGeHrQeRvjWiugGXOQYUSwvVBE4gbXzleHkyrgi4bKf3
-	/n+l4KepBqgN37jyeLLzTCPSE29PT68H7aA+ILZFCQIMbbt2WnJoKO07U/AhdodVn/joM8Q27j7
-	xVVjWEdTgXaBcaC53RLLFXeygyVatf5Q=
-X-Google-Smtp-Source: AGHT+IFYMPM8sSmrqIW21t3SlXlT3FCCm2dJlRMJ71bVHCSHc3IMxpcI15wCR4GKjvDMf42liz3czXx0mNeec5L+ncA=
-X-Received: by 2002:a05:620a:4551:b0:7c5:5f38:b78f with SMTP id
- af79cd13be357-7cd4673b9femr581672585a.29.1747414427420; Fri, 16 May 2025
- 09:53:47 -0700 (PDT)
+	id 1uFyJO-000000044UO-2hdW;
+	Fri, 16 May 2025 16:53:32 +0000
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-442ec3ce724so18728165e9.0;
+        Fri, 16 May 2025 09:53:30 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747414409; x=1748019209;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=SfHWyDzdYdPgseWM8in4Xga6BH3ORUK0taNjKDi8WrU=;
+        b=o2SRV/HEVwn+06j3UJwDtoqdrPCxETEcmbCSUhMgozjo+eomAHCRmD8BILqZ1ccmsN
+         mbZDs69K3tBXRvjQOSb6bxjVnHhgJ9EE32QlntVbJnWHV2C0dugaHnKFjwkwkpMS2SXx
+         8sRC0SdafBBDmApykZsXWFViSVdwZSznRMAtlHHz9K6zvEUrJoiTGzS0utaFRz+JXO/5
+         nQdr2Y1VCBh00HXgrd+BVSzKTabyC4D2QHyBqaFX0yAWfVNmHYvrpmyS84kmJnMEbEER
+         Pn4Z8Iwh8Dk11JBvWok3XCdr9E0t23rJGAP68CVMI9XCzHyOnW6chQ9yQlt31vMJrO3O
+         jj6g==
+X-Forwarded-Encrypted: i=1; AJvYcCULjCgRqceTJ3p9D2s1dR2RC2MaO9rC+m8MdKESje95TUREEqe1dN6LmaymKL4/rUqTKhPhY7INCovPBdzy6+XR@lists.infradead.org, AJvYcCUjcgWNfH3ItfWUJug3SkrxWiFWTuPsZwp8bbU0VuPRvQuTjBD5ld7pz3wWj6IPoM52WQhRaX2+BBqGkYWZos0=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyez/ytQ2UWCqpbfzcQk7QMnp+s11ZqenQB2AHGKyK6Lfpcroar
+	9vkFZN6/exZjwKZLn8zV8yilbiMLNvZFdlx6ePXMFMPGQwYM/4/ZUrBF
+X-Gm-Gg: ASbGncswHRWnWryx7KL/NkCgk590OMdYuW7mKjeGyBQIijBEXAHOVGFc3V6oq28g5k6
+	cZEqxj+2QlYln83/EETJsYsZ3ok/pXJdJ6bZwaXf62W4dRnEnTHQ+a35Tj2B0pjf8rqvpY0qvGO
+	jMy+uJnlynTpryLsX2vDfIdOsQX3jhbu0zAJKbHNfHhKPBAw8Su6RI0jJcd01TYh29+QiKiz4kQ
+	uHLVHWboXXEG2pcjFgidnwo7nfTgPqXxCoIWlrDpGt5tow28xk7u4S9dVylUCEjpMgGowRtTHWV
+	Jg+lEEFpyHM5xAl5FHt/ys5l+ddNJUGcZf1Kmjj+RpYxYKdggoCa1WgKSfsbFu+EILwM3t1GV08
+	hEWJiM99pSt14Bx8xHI3f
+X-Google-Smtp-Source: AGHT+IEyqMrmDea7JavBMgkK3wvxNcoS+lcm9iLW6qMl0usvxOeRCVB8F+OJbgGXLnn2gpefZQpWQA==
+X-Received: by 2002:a05:600c:4f42:b0:43b:cb12:ba6d with SMTP id 5b1f17b1804b1-442fd60b543mr50449995e9.3.1747414408596;
+        Fri, 16 May 2025 09:53:28 -0700 (PDT)
+Received: from [10.42.0.1] (cst-prg-46-162.cust.vodafone.cz. [46.135.46.162])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442f3380498sm116511755e9.11.2025.05.16.09.53.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 May 2025 09:53:28 -0700 (PDT)
+From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Date: Fri, 16 May 2025 18:53:15 +0200
+Subject: [PATCH v3 01/10] dt-bindings: npu: rockchip,rknn: Add bindings
 MIME-Version: 1.0
-References: <20250320171559.3423224-1-song@kernel.org> <Z_fhAyzPLNtPf5fG@pathway.suse.cz>
-In-Reply-To: <Z_fhAyzPLNtPf5fG@pathway.suse.cz>
-From: Song Liu <song@kernel.org>
-Date: Fri, 16 May 2025 09:53:36 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW4MAcVpXmZVQauoaYe0o3tDvvZfgmCrYFFyFojYpNiWWg@mail.gmail.com>
-X-Gm-Features: AX0GCFswWuh29mi00OXRAzuYoajxd21bc-p1p3_IOZYYbVK2ROe03x1xdxnX9VM
-Message-ID: <CAPhsuW4MAcVpXmZVQauoaYe0o3tDvvZfgmCrYFFyFojYpNiWWg@mail.gmail.com>
-Subject: Re: [PATCH v3 0/2] arm64: livepatch: Enable livepatch without sframe
-To: Petr Mladek <pmladek@suse.com>
-Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-toolchains@vger.kernel.org, 
-	live-patching@vger.kernel.org, indu.bhagat@oracle.com, puranjay@kernel.org, 
-	wnliu@google.com, irogers@google.com, joe.lawrence@redhat.com, 
-	jpoimboe@kernel.org, peterz@infradead.org, roman.gushchin@linux.dev, 
-	rostedt@goodmis.org, will@kernel.org, kernel-team@meta.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net>
+References: <20250516-6-10-rocket-v3-0-7051ac9225db@tomeuvizoso.net>
+In-Reply-To: <20250516-6-10-rocket-v3-0-7051ac9225db@tomeuvizoso.net>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Jeff Hugo <jeff.hugo@oss.qualcomm.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+ linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, 
+ Tomeu Vizoso <tomeu@tomeuvizoso.net>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_095349_385832_B909CB8D 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20250516_095330_689164_464E18D5 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,39 +99,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 8:17=E2=80=AFAM Petr Mladek <pmladek@suse.com> wrot=
-e:
->
-[...]
-> >
-> > [1] https://lore.kernel.org/live-patching/20250127213310.2496133-1-wnli=
-u@google.com/
-> > [2] https://lore.kernel.org/live-patching/20250129232936.1795412-1-song=
-@kernel.org/
-> > [3] https://sourceware.org/bugzilla/show_bug.cgi?id=3D32589
-> > [4] https://lore.kernel.org/linux-arm-kernel/20241017092538.1859841-1-m=
-ark.rutland@arm.com/
-> >
-> > Changes v2 =3D> v3:
-> > 1. Remove a redundant check for -ENOENT. (Josh Poimboeuf)
-> > 2. Add Tested-by and Acked-by on v1. (I forgot to add them in v2.)
->
-> The approach and both patches look reasonable:
->
-> Reviewed-by: Petr Mladek <pmladek@suse.com>
->
-> Is anyone, Arm people, Mark, against pushing this into linux-next,
-> please?
+Add the bindings for the Neural Processing Unit IP from Rockchip.
 
-Ping.
+v2:
+- Adapt to new node structure (one node per core, each with its own
+  IOMMU)
+- Several misc. fixes from Sebastian Reichel
 
-ARM folks, please share your thoughts on this work. To fully support
-livepatching of kernel modules, we also need [1]. We hope we can
-land this in the 6.16 kernel.
+v3:
+- Split register block in its constituent subblocks, and only require
+  the ones that the kernel would ever use (Nicolas Frattaroli)
+- Group supplies (Rob Herring)
+- Explain the way in which the top core is special (Rob Herring)
 
-Thanks,
-Song
+Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ .../bindings/npu/rockchip,rknn-core.yaml           | 162 +++++++++++++++++++++
+ 1 file changed, 162 insertions(+)
 
-[1] https://lore.kernel.org/linux-arm-kernel/20250412010940.1686376-1-dylan=
-bhatch@google.com/
+diff --git a/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml b/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..4572fb777f1454d0147da29791033fc27c53b8d2
+--- /dev/null
++++ b/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml
+@@ -0,0 +1,162 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Neural Processing Unit IP from Rockchip
++
++maintainers:
++  - Tomeu Vizoso <tomeu@tomeuvizoso.net>
++
++description:
++  Rockchip IP for accelerating inference of neural networks, based on NVIDIA's
++  open source NVDLA IP.
++
++  There is to be a node per each core in the NPU. In Rockchip's design there
++  will be one core that is special and needs to be powered on before any of the
++  other cores can be used. This special core is called the top core and should
++  have the compatible string that corresponds to top cores.
++
++properties:
++  $nodename:
++    pattern: '^npu-core@[a-f0-9]+$'
++
++  compatible:
++    oneOf:
++      - items:
++          - enum:
++              - rockchip,rk3588-rknn-core-top
++      - items:
++          - enum:
++              - rockchip,rk3588-rknn-core
++
++  reg:
++    minItems: 3
++
++  reg-names:
++    minItems: 3
++    items:
++      - const: pc
++      - const: cna
++      - const: core
++
++  clocks:
++    minItems: 2
++    maxItems: 4
++
++  clock-names:
++    items:
++      - const: aclk
++      - const: hclk
++      - const: npu
++      - const: pclk
++    minItems: 2
++
++  interrupts:
++    maxItems: 1
++
++  iommus:
++    maxItems: 1
++
++  npu-supply: true
++
++  power-domains:
++    maxItems: 1
++
++  resets:
++    maxItems: 2
++
++  reset-names:
++    items:
++      - const: srst_a
++      - const: srst_h
++
++  sram-supply: true
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++  - iommus
++  - power-domains
++  - resets
++  - reset-names
++  - npu-supply
++  - sram-supply
++
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - rockchip,rknn-core-top
++    then:
++      properties:
++        clocks:
++          minItems: 4
++
++        clock-names:
++          minItems: 4
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - rockchip,rknn-core
++    then:
++      properties:
++        clocks:
++          maxItems: 2
++        clock-names:
++          maxItems: 2
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/power/rk3588-power.h>
++    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
++
++    bus {
++      #address-cells = <2>;
++      #size-cells = <2>;
++
++      rknn_core_top: npu-core@fdab0000 {
++        compatible = "rockchip,rk3588-rknn-core-top", "rockchip,rknn-core-top";
++        reg = <0x0 0xfdab0000 0x0 0x9000>;
++        assigned-clocks = <&scmi_clk SCMI_CLK_NPU>;
++        assigned-clock-rates = <200000000>;
++        clocks = <&cru ACLK_NPU0>, <&cru HCLK_NPU0>,
++                 <&scmi_clk SCMI_CLK_NPU>, <&cru PCLK_NPU_ROOT>;
++        clock-names = "aclk", "hclk", "npu", "pclk";
++        interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH 0>;
++        iommus = <&rknn_mmu_top>;
++        npu-supply = <&vdd_npu_s0>;
++        power-domains = <&power RK3588_PD_NPUTOP>;
++        resets = <&cru SRST_A_RKNN0>, <&cru SRST_H_RKNN0>;
++        reset-names = "srst_a", "srst_h";
++        sram-supply = <&vdd_npu_mem_s0>;
++      };
++
++      rknn_core_1: npu-core@fdac0000 {
++        compatible = "rockchip,rk3588-rknn-core", "rockchip,rknn-core";
++        reg = <0x0 0xfdac0000 0x0 0x9000>;
++        clocks = <&cru ACLK_NPU1>, <&cru HCLK_NPU1>;
++        clock-names = "aclk", "hclk";
++        interrupts = <GIC_SPI 111 IRQ_TYPE_LEVEL_HIGH 0>;
++        iommus = <&rknn_mmu_1>;
++        npu-supply = <&vdd_npu_s0>;
++        power-domains = <&power RK3588_PD_NPU1>;
++        resets = <&cru SRST_A_RKNN1>, <&cru SRST_H_RKNN1>;
++        reset-names = "srst_a", "srst_h";
++        sram-supply = <&vdd_npu_mem_s0>;
++      };
++    };
++...
+
+-- 
+2.49.0
+
 
