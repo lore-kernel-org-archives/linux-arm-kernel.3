@@ -4,91 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9159C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 17:55:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B7B5C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 18:04:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2PUV/bkg4QUBVAIj3GMyPK/efOdWpKA1GWmXkehoUR4=; b=3kOlYAbp0k3/GFLbAoQodyCv+3
-	aSHrB5s2fD388O0sqmXjXlittCYI2V6PGSpoU7hTlXjhlbbhnBTI1wl8bTJkWd7o3rHlrFGrBpvOA
-	EeoIA7u4X+0c9360fgCt9RtTEZac7xvSfSpqBBr51GnIsYmWqouX1riiKZfc+3lV4MVPdr5fnoqAx
-	Zm2b2Y8v8eup2mHvo1atQ7arjHICmfzdk6uyewOvblbGwoSgw0ROEbCaCEK1z1VE2KHSJK3+GVJDY
-	qbIzFsAY7HE8YOGcj/957Fid9WvGDDUH3FWecK9NCWzm8VbJMFBodOj8gerKaXIJfrtDr3Dbs3Ccb
-	m6auhZlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZJk9iIuV2ZtYqSNu6/IHDZogtwF6sWyClO8J6khSNsA=; b=wP/+0qFKnaHxhz0TZ2TVf5Q2+r
+	hDCyt3oirXAbuUpO1ZqfTpN4hHYjERjU6Oim1CIQnufkcUcA2ZXzm8S6EKstoQ3TlBhv1aUkhaWAV
+	hYd94zL89VOFm3zkXvcvgaprQsfjcIIFHCuYyY6wTqoxK2V3K5Pa9kynYwuJA0kDEoqWWMec7NvrI
+	T+RSXbSl+6VAIxr66nJ9O6AwoQHgTxEcCUaKP/863E85PTWR5K6OifWHImfgvC4etdG60nITt9JB8
+	qAMwOfELI8gOsBih6w4BRgKJQ+82zszufnJK0t0/H1Dv31gJBT0LH/qgsb2OXpbkTRqLbS2t00xT7
+	tl0kbgOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFzHZ-00000004EWd-0ctE;
-	Fri, 16 May 2025 17:55:41 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1uFzPj-00000004Foh-1PEb;
+	Fri, 16 May 2025 18:04:07 +0000
+Received: from mxout1.routing.net ([2a03:2900:1:a::a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFzFW-00000004EFm-3lly
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 17:53:36 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43cfe574976so15926295e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 10:53:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1747418012; x=1748022812; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=2PUV/bkg4QUBVAIj3GMyPK/efOdWpKA1GWmXkehoUR4=;
-        b=U46Ttn61hL1vzm1RebGteYBniC9ewrkVo62MZqTGNsmAvCwm9/c+Wl4hXgqNWTpxCm
-         1doqj5jzN6TW1kNerOm7rQgW1g5MhsqWujhLo4StAcQcT/gvZ4cmcJ1Agsvb6euJyb+d
-         LD4lfR0xwt6Hb47TKIFvooq+yqtl4VTsrDtKQGmsJwZpnhGEHcdiW29NE5/9wvgpf4M6
-         19pAmr8+ENBNHE5+HWWTUifGRBSfijp9v3PpEC33I6Jv3N8kAiOCjX5VwcncCuBZ8vh/
-         cWi0riI5XZW4BN/z9omEhtVmvD1uPlAf6PavPYIZzO0zJ4jWO1ds6tglRajl8Kr6BDVO
-         TObQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747418012; x=1748022812;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2PUV/bkg4QUBVAIj3GMyPK/efOdWpKA1GWmXkehoUR4=;
-        b=eqzCU0mzFrBqAXQw5ekucL852ZdWg7+nAweFgKXmBfEivg0Q0UWpWf1wg8eEdQmjHv
-         93RTtb/D6+qNN2HMbFLocNIIDGkUypRM32M89BPoBkJW1W5+ugySpXKIn+LeCMiXsf7h
-         wtVEW3FbW7sK/GgFH2AI5tIgM6UXcq202nQn6e/5zEA7jLQ5io3BEWfxXM8NMsTzJb/R
-         K2zEGd1BD9FXkV6b1CkhYXrlQluzMxT+8PPVr8/ZFrfKftpTC7ZWeEQCHIc98Wd4B6Gq
-         7K39L+RlGs/NIigGQlyVAxbDUibKr6qKI3lqgy2SrHejsy5YTXkpZgPVWk3RHK+xxmJp
-         x7LA==
-X-Forwarded-Encrypted: i=1; AJvYcCVbmXXosKtLNJNoNQVMpDRxsfKj6qDiCHp/1qGC7oTIFkVGb42ipDxIrbn6HHjWd5TCqLCVPAREF6B7rApHQLwG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxcwlfl1r8GZZshxdLoIJc9EsUX+2fwlgxXvIKMtho5dC/7B6rF
-	YEe7JVJh7dnk9F7Fg7PL4tsWdIv6zWwok+OiABV2CdMw10MCjpfuuQkoZQrIV0eepw==
-X-Gm-Gg: ASbGnctjL2oMnhM1+b7huyA3VBJOlZ3gvbrW3xWRAj4UlUn+CZ1jvZ5HKthveZ0rZI9
-	G0qy0zQb9fUpWvmjUKwRtYp/KAey3HUuh/qb6GBD2VoZRzrGhJwvQXjfJM6ZHDO/+xbbnt6SbUS
-	syf3MTLKEAimPrBf8RKz/ktbEbATFIbDRX9qzc5po8JubG90QQ2586YKJpR79m50yTaOsvIND/+
-	5AzQYrv7Wbn1WngQ4qPpW5P9XKH0ytODZPoLiyLf30xtsyIXA9EeArpq5Ljo4iJMDW4qkqxzj1n
-	QTTK7YudZ5QS9AhEtxK3L+Qtz0cM1oQctE6+FXkp9qgdjwiFZyZH3TcRHGZKTh4BCetGj4SwARn
-	nWgbKjSylTNaHkjrfXH7PHzNrRKI=
-X-Google-Smtp-Source: AGHT+IEv0Zz+YAfIIihBgvDHDhxHsSF6QrQSMcho8CQZS8XKX5FCrwPQKgycTnORAz6U0zTZnRbJsw==
-X-Received: by 2002:a05:600c:1e09:b0:43c:f616:f08 with SMTP id 5b1f17b1804b1-442fd624854mr45671515e9.8.1747418012214;
-        Fri, 16 May 2025 10:53:32 -0700 (PDT)
-Received: from google.com (218.131.22.34.bc.googleusercontent.com. [34.22.131.218])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442fd50b9b2sm42329115e9.12.2025.05.16.10.53.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 May 2025 10:53:31 -0700 (PDT)
-Date: Fri, 16 May 2025 18:53:27 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
-	qperret@google.com, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
-	kernel-team@android.com
-Subject: Re: [PATCH v4 01/10] KVM: arm64: Handle huge mappings for np-guest
- CMOs
-Message-ID: <aCd7l455qd4NmOeb@google.com>
-References: <20250509131706.2336138-1-vdonnefort@google.com>
- <20250509131706.2336138-2-vdonnefort@google.com>
- <86bjrsg3az.wl-maz@kernel.org>
+	id 1uFzNh-00000004FKG-14JR;
+	Fri, 16 May 2025 18:02:02 +0000
+Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
+	by mxout1.routing.net (Postfix) with ESMTP id BB00D4049F;
+	Fri, 16 May 2025 18:01:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1747418516;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZJk9iIuV2ZtYqSNu6/IHDZogtwF6sWyClO8J6khSNsA=;
+	b=QnUwKhUFaidWbBXYiwwyiskA9/vipn2T8AWnRnzWJKCxcf3gagXdoyMwBu50+DkxAlEU+V
+	tpFSjLX2CIE4JBGDDnvu7DX3txkxQBotkJzOlRwUL379QkDQ2E/AoKeal7ur0oFlWrayEZ
+	kCMlJ6JSXZNC59lPvpZqSCxaMGc+a2g=
+Received: from frank-u24.. (fttx-pool-157.180.226.139.bambit.de [157.180.226.139])
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 661CA1226D6;
+	Fri, 16 May 2025 18:01:55 +0000 (UTC)
+From: Frank Wunderlich <linux@fw-web.de>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Qingfang Deng <dqfext@gmail.com>,
+	SkyLake Huang <SkyLake.Huang@mediatek.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+	=?UTF-8?q?Ar=C4=B1n=C3=A7=20=C3=9CNAL?= <arinc.unal@arinc9.com>,
+	Landen Chao <Landen.Chao@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Felix Fietkau <nbd@nbd.name>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [net-next, PATCH v2] net: phy: mediatek: do not require syscon compatible for pio property
+Date: Fri, 16 May 2025 20:01:32 +0200
+Message-ID: <20250516180147.10416-3-linux@fw-web.de>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250516180147.10416-1-linux@fw-web.de>
+References: <20250516180147.10416-1-linux@fw-web.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86bjrsg3az.wl-maz@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_105334_934309_FA6F127B 
-X-CRM114-Status: GOOD (  22.15  )
+X-CRM114-CacheID: sfid-20250516_110201_438506_91F4193D 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,79 +95,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Frank Wunderlich <frank-w@public-files.de>
 
-Thanks for having a look at the series.
+Current implementation requires syscon compatible for pio property
+which is used for driving the switch leds on mt7988.
 
-On Fri, May 16, 2025 at 01:15:00PM +0100, Marc Zyngier wrote:
-> On Fri, 09 May 2025 14:16:57 +0100,
-> Vincent Donnefort <vdonnefort@google.com> wrote:
-> > 
-> > clean_dcache_guest_page() and invalidate_icache_guest_page() accept a
-> > size as an argument. But they also rely on fixmap, which can only map a
-> > single PAGE_SIZE page.
-> > 
-> > With the upcoming stage-2 huge mappings for pKVM np-guests, those
-> > callbacks will get size > PAGE_SIZE. Loop the CMOs on a PAGE_SIZE basis
-> > until the whole range is done.
-> > 
-> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-> > 
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> > index 31173c694695..23544928a637 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> > @@ -219,14 +219,28 @@ static void guest_s2_put_page(void *addr)
-> >  
-> >  static void clean_dcache_guest_page(void *va, size_t size)
-> >  {
-> > -	__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)), size);
-> > -	hyp_fixmap_unmap();
-> > +	WARN_ON(!PAGE_ALIGNED(size));
-> 
-> What if "va" isn't aligned?
+Replace syscon_regmap_lookup_by_phandle with of_parse_phandle and
+device_node_to_regmap to get the regmap already assigned by pinctrl
+driver.
 
-So the only callers are either for PAGE_SIZE or PMD_SIZE with the right
-alignment addr alignment.
+Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+---
 
-But happy to make this more future-proof, after all an ALIGN() is quite cheap.
+v2:
+- out of RFC
 
-> 
-> > +
-> > +	while (size) {
-> > +		__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
-> > +					  PAGE_SIZE);
-> > +		hyp_fixmap_unmap();
-> > +		va += PAGE_SIZE;
-> > +		size -= PAGE_SIZE;
-> > +	}
-> 
-> I know pKVM dies on WARN, but this code "looks" unsafe. Can you align
-> va and size to be on page boundaries, so that we are 100% sure the
-> loop terminates?
-> 
-> >  }
-> >  
-> >  static void invalidate_icache_guest_page(void *va, size_t size)
-> >  {
-> > -	__invalidate_icache_guest_page(hyp_fixmap_map(__hyp_pa(va)), size);
-> > -	hyp_fixmap_unmap();
-> > +	WARN_ON(!PAGE_ALIGNED(size));
-> > +
-> > +	while (size) {
-> > +		__invalidate_icache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
-> > +					       PAGE_SIZE);
-> > +		hyp_fixmap_unmap();
-> > +		va += PAGE_SIZE;
-> > +		size -= PAGE_SIZE;
-> > +	}
-> 
-> Same here.
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
+---
+ drivers/net/phy/mediatek/mtk-ge-soc.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/phy/mediatek/mtk-ge-soc.c b/drivers/net/phy/mediatek/mtk-ge-soc.c
+index 175cf5239bba..21975ef946d5 100644
+--- a/drivers/net/phy/mediatek/mtk-ge-soc.c
++++ b/drivers/net/phy/mediatek/mtk-ge-soc.c
+@@ -7,6 +7,7 @@
+ #include <linux/pinctrl/consumer.h>
+ #include <linux/phy.h>
+ #include <linux/regmap.h>
++#include <linux/of.h>
+ 
+ #include "../phylib.h"
+ #include "mtk.h"
+@@ -1319,6 +1320,7 @@ static int mt7988_phy_probe_shared(struct phy_device *phydev)
+ {
+ 	struct device_node *np = dev_of_node(&phydev->mdio.bus->dev);
+ 	struct mtk_socphy_shared *shared = phy_package_get_priv(phydev);
++	struct device_node *pio_np;
+ 	struct regmap *regmap;
+ 	u32 reg;
+ 	int ret;
+@@ -1336,7 +1338,13 @@ static int mt7988_phy_probe_shared(struct phy_device *phydev)
+ 	 * The 4 bits in TPBANK0 are kept as package shared data and are used to
+ 	 * set LED polarity for each of the LED0.
+ 	 */
+-	regmap = syscon_regmap_lookup_by_phandle(np, "mediatek,pio");
++	pio_np = of_parse_phandle(np, "mediatek,pio", 0);
++	if (!pio_np)
++		return -ENODEV;
++
++	regmap = device_node_to_regmap(pio_np);
++	of_node_put(pio_np);
++
+ 	if (IS_ERR(regmap))
+ 		return PTR_ERR(regmap);
+ 
+-- 
+2.43.0
+
 
