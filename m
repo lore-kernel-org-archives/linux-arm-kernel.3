@@ -4,70 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE23EC54756
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 15:03:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A30C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 15:05:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+si/UPjuJh2BckbJK0+hez0icQwi5lGfZaPv3XD6SMU=; b=YIc39yxTKyizF7OmqvkAj5kwhd
-	VUgU2x/5gYWCdpcJokmiDnpzxeiuMxE576NCIf8OWKlzHZpiCdnJX8fHjUpJHUtjVyVXviWXLNJeT
-	bHNHh/Uvy8td86JeGQ8uXmu3UGfc/f0IucdVO3v3JZlKDDKxGYzyvgb/CTmtCLBB1MJL5IFXDof6g
-	Np85uREVg2LemjlgI0kbte8Wxv4Q8IaI7N8qkB2N1PiTJvt8nzcPG9K9ykErHZyRM1RomJ7X1Uq4b
-	WGx1eo6TGOLuOLL0oM+3srGb2xDfGL4bnwmjDexJB3QnDSBfyMJ0k+gB02SmumD++OnIQeIoJ+3+y
-	nR5LUL1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FaKc4g6vhY0cRpwgN6dLnhBXH/ufkN0dVYUF6bKaMmo=; b=DV6fCkMYYavxuLOHUqPraeWF7s
+	TJN83mb/nDXOhzlZ2I+lwnLsHh4yDZCSlKbHMGcp8RuF5k8HPr1cCJrTxY6ie2qgy18iR22fpAjE8
+	XFPKXi4bfWCoqGXEBCxZcxQUu+8F+QPk+K8A9rOTnqp7n2oDpC778J75Rcj1CMMXtWjDYEKCThEnO
+	ArhT5LrW10KVF2mqWItTPHjQlLjoUB071O0/JjzBCKSrm+jFC6ThpolW7nPFPX4GxgdRu8akXLnAf
+	vKTdmVn9K4PvIP4OkQajQXncHkzshocjzz41yDmHa3mQ5JxxBBcvy2HXwYWsGOEM0RL64KroS792m
+	HK40BxVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFwaz-00000003m3W-3KnG;
-	Fri, 16 May 2025 15:03:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uFwcz-00000003mXH-0HIS;
+	Fri, 16 May 2025 15:05:37 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFw6l-00000003fsU-3sCs
+	id 1uFwD7-00000003gvJ-10YH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 14:32:21 +0000
+	Fri, 16 May 2025 14:38:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C30AE436F1;
-	Fri, 16 May 2025 14:32:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4DFCC4CEE4;
-	Fri, 16 May 2025 14:32:17 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 251665C53E7;
+	Fri, 16 May 2025 14:36:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17874C4CEE4;
+	Fri, 16 May 2025 14:38:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747405938;
-	bh=E61O55q6UktoNqtIVZI86pVw7KFKbc5kPfAwhVWnqpo=;
+	s=k20201202; t=1747406332;
+	bh=l46kwxbPoNzDDSweacWIRFfRPs/0kNJkrBDYOOUaEF4=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=RWTIhTi1MNaNFwp7zWk7ELiRpUFWnDwGbP29IoJF3McVx/FS5/ZPlas/gGFEKluBU
-	 CvrWyZP6eKDTR0gzdXgeLxRs7fPRuLdXv7VrKiCDLKzenjgC5RbU5BAnGxt2MnhVvS
-	 zagHmUmi82y54v+FZAySqjsgcXXf8EYExOXj/LCt6CAShrbnlhU/bq6Xb4IpO2N8tE
-	 V+FC/C+rzgKaNIoYEaQ/Bpb98yJRfW1QSzYCbtQaATLp2E6iKtTcDu346He/bBknju
-	 ANuLxdYuiPFXlq3EgX2lB2myUyjll+2FebCSr2WaMpfitg59e0eb2HiVYiDzxm7tOI
-	 d1nRfNd/tAYlA==
-Date: Fri, 16 May 2025 07:32:17 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: weishangjuan@eswincomputing.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, richardcochran@gmail.com, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- p.zabel@pengutronix.de, yong.liang.choong@linux.intel.com,
- rmk+kernel@armlinux.org.uk, jszhang@kernel.org, inochiama@gmail.com,
- jan.petrous@oss.nxp.com, dfustini@tenstorrent.com, 0x1207@gmail.com,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
- linmin@eswincomputing.com, lizhi2@eswincomputing.com
-Subject: Re: [PATCH v1 2/2] ethernet: eswin: Add eic7700 ethernet driver
-Message-ID: <20250516073217.115fc170@kernel.org>
-In-Reply-To: <20250516011130.818-1-weishangjuan@eswincomputing.com>
-References: <20250516010849.784-1-weishangjuan@eswincomputing.com>
-	<20250516011130.818-1-weishangjuan@eswincomputing.com>
-MIME-Version: 1.0
+	b=ZrFLqBwc+bmZgKP4ysNa27JWlVVh2fI3XBE0Q4rbGJ5tmnj7DN0xElAYQKtyHv+cD
+	 U/Qkg5apYb4d/VNOCBoN9GuU1IuQJSoxW2pLDWHET9IPNfUNxaCTsBoSPikjPQhogX
+	 cTXcFCeE+/mSMv0UVbvnb6axASj8+CsiwwfLYfUKMcGg+R3HlcBDLI05cYakndF3KG
+	 MkRyb+z+eTQgJQz7oTIROYcTHqpDX0Qk2eq4UTWhQNmQMnbyqAxqwSL+ug1uIzi4dO
+	 IShlEdMPWduVz+UaElDFaAiDDuFPo6yemYxY9hs/JRYwXj1EvngevKbZKKSBWqv214
+	 OAn0K5e6diF1Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uFwD3-00FaaK-A8;
+	Fri, 16 May 2025 15:38:49 +0100
+Date: Fri, 16 May 2025 15:38:48 +0100
+Message-ID: <8634d4fwnb.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	leo.yan@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH 01/10] arm64: sysreg: Add new PMSIDR_EL1 and PMSFCR_EL1 fields
+In-Reply-To: <20250506-james-perf-feat_spe_eft-v1-1-dd480e8e4851@linaro.org>
+References: <20250506-james-perf-feat_spe_eft-v1-0-dd480e8e4851@linaro.org>
+	<20250506-james-perf-feat_spe_eft-v1-1-dd480e8e4851@linaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: james.clark@linaro.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, peterz@infradead.org, mingo@redhat.com, acme@kernel.org, namhyung@kernel.org, alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com, corbet@lwn.net, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, leo.yan@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_073219_987269_74FF4ED3 
-X-CRM114-Status: UNSURE (   6.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250516_073853_387915_49C0A344 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,15 +104,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 16 May 2025 09:11:28 +0800 weishangjuan@eswincomputing.com
-wrote:
-> +	dwc_priv->clk_tx = devm_clk_get(&pdev->dev, "tx");
-> +	if (IS_ERR(plat_dat->pclk)) {
+On Tue, 06 May 2025 12:41:33 +0100,
+James Clark <james.clark@linaro.org> wrote:
+> 
+> Add new fields and registers that are introduced for the features
+> FEAT_SPE_CRR (call return records), FEAT_SPE_EFT (extended filtering),
+> FEAT_SPE_FPF (floating point flag), FEAT_SPE_FDS (data source
+> filtering), FEAT_SPE_ALTCLK and FEAT_SPE_SME.
+>
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  arch/arm64/tools/sysreg | 26 ++++++++++++++++++++++----
+>  1 file changed, 22 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index bdf044c5d11b..80d57c83a5f5 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -2205,11 +2205,20 @@ Field	0	RND
+>  EndSysreg
+>  
+>  Sysreg	PMSFCR_EL1	3	0	9	9	4
+> -Res0	63:19
+> +Res0	63:53
+> +Field	52	SIMDm
+> +Field	51	FPm
+> +Field	50	STm
+> +Field	49	LDm
+> +Field	48	Bm
+> +Res0	47:21
+> +Field	20	SIMD
+> +Field	19	FP
+>  Field	18	ST
+>  Field	17	LD
+>  Field	16	B
+> -Res0	15:4
+> +Res0	15:5
+> +Field	4	FDS
+>  Field	3	FnE
+>  Field	2	FL
+>  Field	1	FT
+> @@ -2226,7 +2235,12 @@ Field	15:0	MINLAT
+>  EndSysreg
+>  
+>  Sysreg	PMSIDR_EL1	3	0	9	9	7
+> -Res0	63:25
+> +Res0	63:33
+> +Field	32	SME
+> +Field	31:28	ALTCLK
+> +Field	27	FPF
+> +Field	26	EFT
+> +Field	25	CRR
 
-you're checking the wrong pointer here
+These are described as enumerations in the JSON file (see [1]).
 
-> +		dev_err(&pdev->dev, "tx clock not found.\n");
-> +		return PTR_ERR(dwc_priv->clk_tx);
+	M.
+
+[1] https://lore.kernel.org/all/20250506164348.346001-7-maz@kernel.org
+
 -- 
-pw-bot: cr
+Without deviation from the norm, progress is not possible.
 
