@@ -4,112 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AA2DC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 17:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32BBFC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 17:29:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	References:In-Reply-To:Date:Content-Type:Subject:Cc:To:From:Message-ID:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DC+LF9SGjcfT92Y5JqC02qXqj/9+0Jg/AwCb9dl45Mg=; b=JBpYctQdHk6je2Uk/QerV7XMUQ
-	K3+rxnkL+VotCW8ZwYGFwpqdWHyEP+rUzBCfWetX0RCxS9CE6zpqF9xZouZrL7FCB8yzMovSVSvWK
-	sSp9w+5RsuhUJHuRkSGD67v+YTYLhKZcgORhNVItqLnyzSZS7bxD8lQ6wHXgijf0+IWgElVmxP4Mx
-	lkkK0e22c15tGfcg3j+ZKXpBTdgD8+74niH4pPaVhUGXEQfqR8oUuRq/aZW6AHOQ/jHRypNbj+8Pk
-	cH77JlbELwl8kYTatRBHHdZgDWdAYjLGEesDFHMm+cUAikRoXPoXIsfAUilGFM5T2u17oRg65NgoI
-	K+OgHQ3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MTES7r/mz5eFe0/aHTnnGuz3oakuN7ftdgqAWEa9PoM=; b=JTI3lEI3kY2Y9iMtvs0oHii5NU
+	gVJwysGoISLI/lLRt/tshPHZh/DulZDQdB3MIUhv8MQvyw62K5UAN2rm2PUnitva44FTjYHLjijb8
+	OF0x3WolUgNOXQq/nBOEkkfGDsQnewTDNtPjPUTHMUw5eRnHyKGkdhAUNd9ziZ9KirXX1lSgicilI
+	Uc0d7bZdCp3KQ8YXnrU0MLRnCqt3RbXvkJdR9ZzQCaxVana/+K7p7iVdjFpKD2nSL74Hs4jYKIT4N
+	CIqkdcPDQ6slwSWBQk8apG/NHwFo99LDNjUHYSRGElv4IODT/uQrzG8D79EOlErPTIkig6g569Mab
+	LL6ARzbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFym9-00000004AF9-1fjc;
-	Fri, 16 May 2025 17:23:13 +0000
-Received: from mout.gmx.net ([212.227.15.19])
+	id 1uFyrk-00000004Ahk-3xsO;
+	Fri, 16 May 2025 17:29:00 +0000
+Received: from smtp-bc0d.mail.infomaniak.ch ([45.157.188.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFyk6-00000004A0F-3lf4;
-	Fri, 16 May 2025 17:21:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1747416032; x=1748020832; i=frank-w@public-files.de;
-	bh=DC+LF9SGjcfT92Y5JqC02qXqj/9+0Jg/AwCb9dl45Mg=;
-	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
-	 Content-Type:Date:In-Reply-To:References:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=CKuhJn/fNqAguZJniEVLva7cBEwPadDuOmmePr1eF/lJXa1a017rkoGim3XDhGCR
-	 GxyVvWUYIX2RqPzCWkm7F8a3Quf8hhvL6DvQ2N8gxw0DwLPu6KklYA36K8CN4eRLG
-	 4ouaBxg1J4wYSStcezbM35PUEQzQTBOMHdnD5xMLT5xDoLhPMR+5Yxauelx9nY/Vi
-	 jmkQJtxX14ZadVt3ZYgqvc+dQMB01Seyq5R8/+XDLog6XLgEM9jwAp1hjl1sNzrtW
-	 5eVRGzlKAf4Yio/bMa7/QKdxAetoRfdmmI7+MEmvSfNngaWV+YZNHYrPNobDGr1i8
-	 u+/gzx9mUS5JWYA80Q==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [100.69.124.0] ([100.69.124.0]) by
- trinity-msg-rest-gmx-gmx-live-f4858f84-lcsp7 (via HTTP); Fri, 16 May 2025
- 17:20:32 +0000
+	id 1uFypc-00000004AWA-247S
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 May 2025 17:26:50 +0000
+Received: from smtp-4-0001.mail.infomaniak.ch (smtp-4-0001.mail.infomaniak.ch [10.7.10.108])
+	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4ZzYsb3nGKzK1R;
+	Fri, 16 May 2025 19:26:43 +0200 (CEST)
+Received: from unknown by smtp-4-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4ZzYsZ1yphzSdm;
+	Fri, 16 May 2025 19:26:42 +0200 (CEST)
+From: Quentin Schulz <foss+kernel@0leil.net>
+Date: Fri, 16 May 2025 19:26:10 +0200
+Subject: [PATCH] arm64: dts: rockchip: support camera module on Haikou
+ Video Demo on PX30 Ringneck
 MIME-Version: 1.0
-Message-ID: <trinity-925f0b56-c8b6-493e-8d13-e732b3e95f48-1747416032428@trinity-msg-rest-gmx-gmx-live-f4858f84-lcsp7>
-From: Frank Wunderlich <frank-w@public-files.de>
-To: linux@fw-web.de, daniel@makrotopia.org, dqfext@gmail.com,
- SkyLake.Huang@mediatek.com, andrew@lunn.ch, hkallweit1@gmail.com,
- linux@armlinux.org.uk, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Aw: [net-next, PATCH v2] net: phy: mediatek: do not require syscon
- compatible for pio property
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 16 May 2025 17:20:32 +0000
-In-Reply-To: <20250510174933.154589-1-linux@fw-web.de>
-References: <20250510174933.154589-1-linux@fw-web.de>
-X-UI-CLIENT-META-MAIL-DROP: W10=
-X-Provags-ID: V03:K1:Rxo8HmPRzSmBNKbQ5rFnl9nKUfxp0rvBKS78WCekuxi9nxeKnhHVYbI2rw9QRRXHQlDqV
- IYTMHz6pk4JWqD/GvNFBTvGJHhnJCHF27OOTXh6RyhDi2CJa8jJBUIpyfaTFJh0pN2oc2JxgWGD3
- qfHa5ILEq2E4RV5f4IfMEiuB7A5af/3s8agff1rkuJJn8qO2PNMqMZb+9aCBXaVTjg2TW7LyXKC9
- tRPgxhfxG+9dlGYHt8WFcObR+j+TFEbKZNwsM1iLUXgIo4hRnSQLxuSsRx31cNFYMpHkTOMPZS7u
- 48xpJ3YeI/mAhHBDyFjEk5Poc7jzN2GtnSYP9c+PYWvO6F4MjNaER0yfZ29tg6jEDk=
-UI-OutboundReport: notjunk:1;M01:P0:6Rz5hPyD8c4=;H8zwI7Q3TM3lJJ2HpNOBhs9w9dy
- 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
- 43E=
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250516-ringneck-haikou-video-demo-cam-v1-1-fff23160395f@cherry.de>
+X-B4-Tracking: v=1; b=H4sIADF1J2gC/x3NTQqAIBBA4avErBswyf6uEi1MxxoiDaUIorsnL
+ b/New8kikwJhuKBSBcnDj6jKgswq/YLIdtskEIqoaoGI/vFk9lw1byFEy+2FNDSHtDoHWspmk6
+ 5uXW9gxw5Ijm+/8E4ve8HLcFN+HAAAAA=
+X-Change-ID: 20250516-ringneck-haikou-video-demo-cam-420685fb7f9f
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Quentin Schulz <quentin.schulz@cherry.de>
+X-Mailer: b4 0.14.2
+X-Infomaniak-Routing: alpha
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_102107_223301_A90D9E0D 
-X-CRM114-Status: UNSURE (   5.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250516_102648_660713_AF841736 
+X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,15 +68,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Quentin Schulz <quentin.schulz@cherry.de>
 
-i noticed my patch is in state "under review" for 2 days now without any c=
-omment and i want to make sure,=20
-it is not missed somehow.
-Imho it is a trivial patch (not much complex), unlike many other net patch=
-es :)
+The Haikou Video Demo adapter has a proprietary connector for a camera
+module which has an OV5675 camera sensor and a companion DW9714 focus
+lens driver.
 
-maybe it still has a chance to get into net-next.
+This adds support for the camera module on PX30 Ringneck module fitted
+on a Haikou devkit with the Haikou Video Demo adapter.
 
-regards Frank
+Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+---
+This adapter is also used with RK3588 Tiger, but there's currently no
+camera stack at all on RK3588, and RK3399 Puma, but:
+ - 19.2MHz is not achievable exactly, so need to patch the driver to
+   support 24MHz for example, this will come later,
+ - The camera clk is on an IO domain at 1.8V but configured at boot at
+   3.3V, and until the IO domain is properly configured, the camera
+   won't receive a clock. Based on the probe order, it is possible (and
+   empirically very likely) that the camera won't be detected at all.
+   A Linux kernel solution was attempted multiple times in the past,
+   c.f.
+   https://lore.kernel.org/linux-gpio/20230904115816.1237684-1-s.hauer@pengutronix.de/
+   https://lore.kernel.org/lkml/20220802095252.2486591-1-foss+kernel@0leil.net/
+   We'll need to figure something out this time as I won't be able to
+   upstream camera support without it :)
+
+To test, install libcamera on Debian Bookworm (or more recent I guess)
+add a file at /usr/share/libcamera/ipa/rkisp1/ov5675.yaml whose content
+is (remove one leading whitespace):
+
+ # SPDX-License-Identifier: CC0-1.0
+ %YAML 1.1
+ ---
+ version: 1
+ algorithms:
+   - Agc:
+   - Awb:
+   - BlackLevelCorrection:
+   - ColorProcessing:
+ ...
+
+then call
+
+qcam -platform eglfs -c /base/i2c@ff190000/camera@36
+
+While this is running, control the focus lens driver with:
+
+v4l2-ctl -d /dev/v4l-subdev5 -c focus_absolute=150
+
+and change the focus_absolute value to see the lens moving and the focus
+change.
+
+I'll try to have a look at libcamera's config file so I can send a
+proper one to the project instead of this dummy one.
+---
+ .../rockchip/px30-ringneck-haikou-video-demo.dtso  | 56 ++++++++++++++++++++++
+ 1 file changed, 56 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou-video-demo.dtso b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou-video-demo.dtso
+index 7d9ea5aa598486680191d52e4c87af59f7b0e579..1e3f43bbe1734e5c88d1f76f8f7a545d881df88d 100644
+--- a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou-video-demo.dtso
++++ b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou-video-demo.dtso
+@@ -94,6 +94,15 @@ video-adapter-led {
+ 	};
+ };
+ 
++&cif_clkout_m0 {
++	rockchip,pins =
++		<2 RK_PB3 1 &pcfg_pull_none_12ma>;
++};
++
++&csi_dphy {
++	status = "okay";
++};
++
+ &display_subsystem {
+ 	status = "okay";
+ };
+@@ -135,6 +144,12 @@ &i2c1 {
+ 	/* OV5675, GT911, DW9714 are limited to 400KHz */
+ 	clock-frequency = <400000>;
+ 
++	focus: focus@c {
++		compatible = "dongwoon,dw9714";
++		reg = <0xc>;
++		vcc-supply = <&cam_afvdd_2v8>;
++	};
++
+ 	touchscreen@14 {
+ 		compatible = "goodix,gt911";
+ 		reg = <0x14>;
+@@ -157,6 +172,47 @@ pca9670: gpio@27 {
+ 		pinctrl-names = "default";
+ 		reset-gpios = <&gpio0 RK_PA2 GPIO_ACTIVE_LOW>;
+ 	};
++
++	camera@36 {
++		compatible = "ovti,ov5675";
++		reg = <0x36>;
++		clocks = <&cru SCLK_CIF_OUT>;
++		assigned-clocks = <&cru SCLK_CIF_OUT>;
++		/* Only parent to get exactly 19.2MHz */
++		assigned-clock-parents = <&cru USB480M>;
++		assigned-clock-rates = <19200000>;
++		avdd-supply = <&cam_avdd_2v8>;
++		dvdd-supply = <&cam_dvdd_1v2>;
++		dovdd-supply = <&cam_dovdd_1v8>;
++		lens-focus = <&focus>;
++		orientation = <0>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&cif_clkout_m0>;
++		reset-gpios = <&pca9670 6 GPIO_ACTIVE_LOW>;
++		rotation = <180>;
++
++		port {
++			cam_out: endpoint {
++				data-lanes = <1 2>;
++				link-frequencies = /bits/ 64 <450000000>;
++				remote-endpoint = <&mipi_in_cam>;
++			};
++		};
++	};
++};
++
++&isp {
++	status = "okay";
++
++	ports {
++		port@0 {
++			mipi_in_cam: endpoint@0 {
++				reg = <0>;
++				data-lanes = <1 2>;
++				remote-endpoint = <&cam_out>;
++			};
++		};
++	};
+ };
+ 
+ &pinctrl {
+
+---
+base-commit: fee3e843b309444f48157e2188efa6818bae85cf
+change-id: 20250516-ringneck-haikou-video-demo-cam-420685fb7f9f
+
+Best regards,
+-- 
+Quentin Schulz <quentin.schulz@cherry.de>
+
 
