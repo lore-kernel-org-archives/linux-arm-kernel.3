@@ -4,73 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55F28C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 18:41:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24A34C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 18:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ip58NLkviUPod1JhaEY83D9bZunZIEqj2J9EbwOaOng=; b=w7xEGyiJBUgpkikLx59SnAYPOA
-	JZcH+HIgrdz8iQh1/p97osFkgMU4QhCqlF9zlJcYyzRz2sHzp5FoquemBbJH8VoP1XWusfcwolLIm
-	Fh9MWXN7AfF58D5/hou3q5cBb6RfcIrTIc0m/Mh/0qblfJIBCbheAJpvdM279xAxxgZS8ChFV0YN8
-	R479Q+yLEQsET7ASv2bpyEJE+Z8qOZLNSAAaBBaJdLYEpN1hGVovkYc2VdfDVm/QWEXXIexdXWeKF
-	H61jd5w5GjwkkB24TUi34/qP/K3igUuVOwyrGUWh6G5Xy3NH1BT9SSsQh4al+GOrDIX20hwttpc6L
-	fFlI8VGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LjIRRc3m/VAxY73bP0A+3mCsvKJgmOnqJyXLSLT8exU=; b=MnCAM0vGov5EUTVHlpcmnlobKF
+	Z5bXwq5lj/C7EBbJxl++35iw8HtUhmluQauqp3Y+Vzh3yinY3T9F2FmfoHUKlZvGYIZ2vuEW60iID
+	Wkc26ypWK9916fw1thonSOXXE8srGzz2uwjxdLRCl1N/OX3HVWRJlJFA+7pQsAy6smkS0f8AqfoD7
+	bHOvo2qtaV46Lz1Lr8Lk0Mc9LSWXaBJTmKIyquI6S3CWeQPx1w9oquBCt+8/KMx8VV304R09yuFpG
+	huR4Wf2pOj7wUbj2WjgEBQP0u/FTrkIuD6Yir7xWJH8kguHoKhXgS7g+3r39o1SYBKL9eTD8/PKt2
+	VmNmvjBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFzzs-00000004M5V-0Tj2;
-	Fri, 16 May 2025 18:41:28 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uG01t-00000004MKf-0TPb;
+	Fri, 16 May 2025 18:43:33 +0000
+Received: from mail-vs1-xe2b.google.com ([2607:f8b0:4864:20::e2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFzpe-00000004K5O-1TcR;
-	Fri, 16 May 2025 18:30:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0D7A8A4E800;
-	Fri, 16 May 2025 18:30:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F32DC4CEE4;
-	Fri, 16 May 2025 18:30:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747420252;
-	bh=AWPQKMivdFQ6QmrVDoYacp12BqW2VCLe3IzFWlx64xM=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=NpfJnmbWyUqyMYoLy35vtxm0N29rgijba7ENUDqS7YmsKZUjUSF9tmwKOrEJMV3sh
-	 BOJ+AttBuVq8cSt48iOr9mkb3Lh54y/rA743ERhn9bavTxA66G9K4nY+vqUMYyvrUq
-	 pMuoisg9g1acwcd2Ohpqspyw4DZ3Bs72y9MVjchH2UnMlcG7PCQmnOvi7ptszJrLzd
-	 6loH1rBQKNyR4iKiDuf1m96yLUTX/I7GK7ZCZF7FTeW+XK5ihU9YtAH7p8jresWjGY
-	 FFvdQ3mTfy2XP+gLjQR2Cvrb6Xai9RjaFlkRc6wAgftsA5qwcTnVWIpNoT5D17ix6a
-	 YQGHmGwBWpsNw==
-Date: Fri, 16 May 2025 13:30:50 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1uFzpm-00000004K86-1hyx
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 May 2025 18:31:03 +0000
+Received: by mail-vs1-xe2b.google.com with SMTP id ada2fe7eead31-4e1477fbfc7so223791137.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 11:31:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747420261; x=1748025061; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=LjIRRc3m/VAxY73bP0A+3mCsvKJgmOnqJyXLSLT8exU=;
+        b=QrUZJhizwF9CzTQrRChCyCRgVfg+zx4p8gu0KURLQ6rs3zTqvxwoO/VcHD3yisUprF
+         hcoKEWYEoo8TlIVpV0QxP6IrLYP00GF4Z+hIvO0FTVlm+fcZazCj1T7ZQpeBu6hm34n6
+         EcLypM3V/y97FyJPYAR4lqTGKZaN5+uxzrXw1gRGQSKaK/HK4qlkUUph1jUEH5hYm99W
+         enYbvdY3wUtEc7YXI1rFJpM/bxTCbmyF89ocAp62CSPl3xVOicqjoPJuD9EW15BTircS
+         6ewQ1CrhAci7yxRhXdUZQqbn+3AHJ+BsfxFDlSpnzuu0OAKG8THS6PreivC2o9BRgI1X
+         JOUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747420261; x=1748025061;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LjIRRc3m/VAxY73bP0A+3mCsvKJgmOnqJyXLSLT8exU=;
+        b=VEOYDlhyi/g4xeZzgiIYpDj0sbKw57LybpWbXIuJLW+LvxKs+jWVvP7GyRDrXTHg41
+         /WNODCrCcp99EYRVj0e0H7Vala2ufvJH1KQwjfarVHU0O/imq2p3vpaURoUZgJFmUjyt
+         jXUfRO32t1oKR27tmF06DFIWTZxgAgODRSHl0Rzo4C4ng5NSssh3u6BaLMe4sRMUkuIT
+         GNDCPRnihalotwdBMaBUR5X0FAjujJ0YQ7ymOOMZdpG2tvjowfJnwsFgCVjMKShSFx8S
+         vDrOrcy7i4LkjesjbpXKvwAiamGuV5QhJ1KkLVJ1LbxdZSsA/JN+7a2MPMYCOdG8330m
+         5/xg==
+X-Forwarded-Encrypted: i=1; AJvYcCUD+cP/Pq224ArtXZiobZSjM5tCbrmUXQuon7IpeEfBx+4B347pnS0/IXCVtDw/nRiTazcJk3YWOK7yXCW+lJsj@lists.infradead.org
+X-Gm-Message-State: AOJu0YyL8QEca8E0cjliiKvIid/gHxqzvOnjbFXAiS/yXBXNYh0Y0Ixc
+	+PTjeqiBPcYbXFi3cao3ZICn4Q2Vx6QprgcPAQkG/fjYXnD4Ixui1g//
+X-Gm-Gg: ASbGncu4RHvDO368ioDveNu44GEKnYFEKtr7k81MP+V7LjeFSdDkL5oj8nXD/opcCKt
+	fLgkdPXfu0v3uSjLiFAD9I5cYLjQcMwTKKbFruJQMXiF2knbHvmiBIs8+RGw6Ccxuyg54amRYqp
+	drQbp8RUwM9kUkcuNFflX7K8C7QvTy50aXeJTTcK4p+IFTCSknFoixTBlNrsjtxwHkQpeJOu5un
+	xUE/vG11sb2iAy/gLE/bWrFgETapWiwZDIV12gqrX58WTfOSZ46uXO5kPMxLxflP//FFBqVrf6Z
+	6j4BT/jGIO+olLG6AiYC4xyhMAUgF8z04CdZwyigG/zrJPwazO+7PyTL1c8biAC3EA==
+X-Google-Smtp-Source: AGHT+IGP2sbYwMDlV+BPtSVT09uB94OWwAidwDuga4z6Yn2RSTFy2x8+4ClJoDXh6bPPZjOSVZIjSg==
+X-Received: by 2002:a05:6102:6c2:b0:4da:e719:e7f8 with SMTP id ada2fe7eead31-4e053d6333fmr5003602137.24.1747420260003;
+        Fri, 16 May 2025 11:31:00 -0700 (PDT)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:93a1:94a9:517a:f69c])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-87bec225c3bsm2119351241.29.2025.05.16.11.30.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 May 2025 11:30:59 -0700 (PDT)
+From: Fabio Estevam <festevam@gmail.com>
+To: arnd@arndb.de
+Cc: soc@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Fabio Estevam <festevam@denx.de>
+Subject: [PATCH] MAINTAINERS: Add ARM64 defconfig to its section
+Date: Fri, 16 May 2025 15:30:35 -0300
+Message-Id: <20250516183035.685914-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: David Airlie <airlied@gmail.com>, devicetree@vger.kernel.org, 
- Thomas Zimmermann <tzimmermann@suse.de>, Maxime Ripard <mripard@kernel.org>, 
- linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
- Oded Gabbay <ogabbay@kernel.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Jonathan Corbet <corbet@lwn.net>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
- linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- Jeff Hugo <jeff.hugo@oss.qualcomm.com>, 
- Sumit Semwal <sumit.semwal@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Simona Vetter <simona@ffwll.ch>, linux-rockchip@lists.infradead.org, 
- linux-doc@vger.kernel.org
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-In-Reply-To: <20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net>
-References: <20250516-6-10-rocket-v3-0-7051ac9225db@tomeuvizoso.net>
- <20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net>
-Message-Id: <174742024812.3649303.12389396177218408388.robh@kernel.org>
-Subject: Re: [PATCH v3 01/10] dt-bindings: npu: rockchip,rknn: Add bindings
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_113054_522172_8571C18F 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20250516_113102_444374_D8ECC63D 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,69 +95,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Fabio Estevam <festevam@denx.de>
 
-On Fri, 16 May 2025 18:53:15 +0200, Tomeu Vizoso wrote:
-> Add the bindings for the Neural Processing Unit IP from Rockchip.
-> 
-> v2:
-> - Adapt to new node structure (one node per core, each with its own
->   IOMMU)
-> - Several misc. fixes from Sebastian Reichel
-> 
-> v3:
-> - Split register block in its constituent subblocks, and only require
->   the ones that the kernel would ever use (Nicolas Frattaroli)
-> - Group supplies (Rob Herring)
-> - Explain the way in which the top core is special (Rob Herring)
-> 
-> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
->  .../bindings/npu/rockchip,rknn-core.yaml           | 162 +++++++++++++++++++++
->  1 file changed, 162 insertions(+)
-> 
+Add arch/arm64/configs/defconfig to the ARM64 MAINTAINERS section so that
+changes to this file are automatically sent to the appropriate maintainers
+and mailing lists.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Signed-off-by: Fabio Estevam <festevam@denx.de>
+---
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml: properties:reg-names: 'oneOf' conditional failed, one must be fixed:
-	[{'const': 'pc'}, {'const': 'cna'}, {'const': 'core'}] is too long
-	[{'const': 'pc'}, {'const': 'cna'}, {'const': 'core'}] is too short
-	False schema does not allow 3
-	1 was expected
-	3 is greater than the maximum of 2
-	hint: "minItems" is only needed if less than the "items" list length
-	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdab0000 (rockchip,rk3588-rknn-core-top): compatible: 'oneOf' conditional failed, one must be fixed:
-	['rockchip,rk3588-rknn-core-top', 'rockchip,rknn-core-top'] is too long
-	'rockchip,rk3588-rknn-core-top' is not one of ['rockchip,rk3588-rknn-core']
-	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdab0000 (rockchip,rk3588-rknn-core-top): reg: [[0, 4255842304, 0, 36864]] is too short
-	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdac0000 (rockchip,rk3588-rknn-core): compatible: 'oneOf' conditional failed, one must be fixed:
-	['rockchip,rk3588-rknn-core', 'rockchip,rknn-core'] is too long
-	'rockchip,rk3588-rknn-core' is not one of ['rockchip,rk3588-rknn-core-top']
-	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdac0000 (rockchip,rk3588-rknn-core): reg: [[0, 4255907840, 0, 36864]] is too short
-	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 20e07e61a148..82bd864b1972 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -1937,6 +1937,7 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git
+ F:	Documentation/process/maintainer-soc*.rst
+ F:	arch/arm/boot/dts/Makefile
+ F:	arch/arm64/boot/dts/Makefile
++F:	arch/arm64/configs/defconfig
+ 
+ ARM ARCHITECTED TIMER DRIVER
+ M:	Mark Rutland <mark.rutland@arm.com>
+-- 
+2.34.1
 
 
