@@ -4,170 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D274C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 13:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B26DDC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 13:42:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cDl7Z45sqgGbLQ4Ht8v+sjoperP0vLopUjO0oEcuAhs=; b=E/tit3cTUfI3uL3eTspa08t76o
-	yty/Q3Pub5WW7CxJN1sRDEnNomg7vy2jNh0gF4HEZrDW7qdLmKZkGthKwLwFP7ar5h2DwsIXu5KDT
-	r821Ua/louaD4/wNFubD3wvGoq27TUXex+uRgyesaiJDmo7zhWkzSyuR1DXTrr26pgICI6HoqLCua
-	k1748zIsSrSzyZgEKpxpvRZnZu3E2uwScx0PB7eHK7st7L1oe4GNeFHJHqMxkY628a+kw+23vP+Ht
-	a6zqK7A1LTrUHc0QHIkGH1W2ktkoCWdvMUY3YXMDQ51ThCKjaMsc5SAybzu8FfVuK0dwn5CPafk8L
-	gkIMDP+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gFjcNM1DqPRHLRj8Hg0Ysyr3OR4VV1DA42g230FdsY4=; b=D2Cr/whRijayNH5c+/wfKQ3se8
+	YpyZAmZ7rzdzCm7Dd3L5tBPLIgXnNs25uroqAS5k84Cp9xyx9blneLMhn8+/LILbF9YAMGNzalkZ2
+	vmZu+YjB1S9LoG99h87Kxo96ZooKhopvIida2pKxJuERHPH4Lgl1CGUYMWU34G6nyVPu/aSDxfJjF
+	hHZNUlAMDPzMAKcGECjgyY6eh72ySlgqrLVmH2N1e5HsBgL199Gw1zKEWzAPDVzT8OGhEcTIBq5US
+	0xLYgK/cIGUXHDGsmptpI5biKELPEOQc1TDw3V55iycppScvbMOxYxl6rMKCB2ovorvOBIgt6VagP
+	FcGnkAOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFvDw-00000003X0J-422M;
-	Fri, 16 May 2025 13:35:40 +0000
-Received: from mail-bn8nam12on2062b.outbound.protection.outlook.com ([2a01:111:f403:2418::62b] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1uFvKl-00000003YG8-1bjJ;
+	Fri, 16 May 2025 13:42:43 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFv8U-00000003WCm-1sEM
+	id 1uFvIi-00000003XkZ-3TNk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 13:30:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oS6O4fNhR1BSqoqPoHK0LkBmgb8+cgRC9K8ddo+a8e70wMCtDd7kAPH8Ouqoz1TvgCwj7N/GQwlY7eupSmlNlM40iyyWqm9qpfPr4pemGIheIHWc1BF4m40PRuKvUxMnGklnDz4GA3UbcTp3mrLy7N79QDYSbvI0q/Kg9IYJnsY0L+EHtD/dXvkmjNR//nXM/TUnBMF4eniIMrFUuQKPAo5mvqdgYqjRJ19lw0RJF0zT9nGEf+fUoyDkcy73OC19Xs5fJudqMGT3bU4ccSNUFXlxik8Jo0zIE2/d0dRDww8KuFyErTLlZ15k+kxmVCvaHTHyY3mnzA+rutvKD9q+EQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cDl7Z45sqgGbLQ4Ht8v+sjoperP0vLopUjO0oEcuAhs=;
- b=FS1TG+DTJ3wb6+Pg9dkeYcenqt9b6zXo+++1cN2LWzMeqO1fDkSGmVWRna1+kMIX8arykn3BkvlCJFtTFuAynELWLJaD2TgWZGirVLuhl5Yl024Kb/PydH9cS272vdk8D8SAGhqan6tbAdwHaO66tKCjC5CI96pTds/ns4ocxFMoQtNg8GUadsMMKRAiS+WxYbmDTLaHXIXUK8kPVYIr74dZz+Imf0u+LncKOR6XbWt28F32JOnNPjCUaXyJeFL9oW1yFQZI2j6qsOmKXdTOSeirzc40B2/+EdZDqM+1ps6XSVDeL3SjTxcwUrCsCad0LaGrvNfdVuQucP2BfO/z9Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cDl7Z45sqgGbLQ4Ht8v+sjoperP0vLopUjO0oEcuAhs=;
- b=OkQa6Cl7z0KN5wqz60V7QkR0TlnvSE/+x2o36+ZJxHXfUjFLhNFYmXauyB/uJ9qf9bfJRQkmey7+EyxBmf2L8u24bxfYIiFGQZtmm9ZqeBy+O43MmHTt9qjHC+24S4JnpG6QpNqMF8/YYFsOLpCsJhaB/fq7sOU21BnYT95xKOA+XNUMc868S0xAYSh0xJmq7KrvE7UAx8clzjJTFPL16f4k6QAcIs6d5J65T0cmEfI+frnhesYbFlWmhkxov05qPIfH5lVyaaQB4tyhIfPPbRWUNO+P4ijtLOCybl6xCGleEG5VpN7yQa5HylEjJwnlHDT3N4jndBst2oviP9B+WA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by SA1PR12MB8743.namprd12.prod.outlook.com (2603:10b6:806:37c::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.33; Fri, 16 May
- 2025 13:29:57 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8722.031; Fri, 16 May 2025
- 13:29:57 +0000
-Date: Fri, 16 May 2025 10:29:56 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, "corbet@lwn.net" <corbet@lwn.net>,
-	"will@kernel.org" <will@kernel.org>,
-	"bagasdotme@gmail.com" <bagasdotme@gmail.com>,
-	"robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"joro@8bytes.org" <joro@8bytes.org>,
-	"thierry.reding@gmail.com" <thierry.reding@gmail.com>,
-	"vdumpa@nvidia.com" <vdumpa@nvidia.com>,
-	"jonathanh@nvidia.com" <jonathanh@nvidia.com>,
-	"shuah@kernel.org" <shuah@kernel.org>,
-	"jsnitsel@redhat.com" <jsnitsel@redhat.com>,
-	"nathan@kernel.org" <nathan@kernel.org>,
-	"peterz@infradead.org" <peterz@infradead.org>,
-	"Liu, Yi L" <yi.l.liu@intel.com>,
-	"mshavit@google.com" <mshavit@google.com>,
-	"praan@google.com" <praan@google.com>,
-	"zhangzekun11@huawei.com" <zhangzekun11@huawei.com>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"patches@lists.linux.dev" <patches@lists.linux.dev>,
-	"mochs@nvidia.com" <mochs@nvidia.com>,
-	"alok.a.tiwari@oracle.com" <alok.a.tiwari@oracle.com>,
-	"vasant.hegde@amd.com" <vasant.hegde@amd.com>
-Subject: Re: [PATCH v4 14/23] iommufd: Add mmap interface
-Message-ID: <20250516132956.GI613512@nvidia.com>
-References: <cover.1746757630.git.nicolinc@nvidia.com>
- <ee9ee287264fd75eb4fc64a63f20d03e9ba18161.1746757630.git.nicolinc@nvidia.com>
- <20250515164717.GL382960@nvidia.com>
- <BN9PR11MB5276DD2F2CDC313FA04155C18C93A@BN9PR11MB5276.namprd11.prod.outlook.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <BN9PR11MB5276DD2F2CDC313FA04155C18C93A@BN9PR11MB5276.namprd11.prod.outlook.com>
-X-ClientProxiedBy: BN9PR03CA0051.namprd03.prod.outlook.com
- (2603:10b6:408:fb::26) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SA1PR12MB8743:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0c61ece2-5bb9-4706-e941-08dd947dc03f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?yvaNZWdnwjct79F3oF5sE8ND3aYMJr49MWwm8jh2CEHZTug3aeMG6jBqXzJW?=
- =?us-ascii?Q?s+U1KhgG/NRlW1D3LnqOusIEbBU2RL+ae9a8kW5pzrTqv1DpZKwsmLlV1sYW?=
- =?us-ascii?Q?J5udLMRKkC/f5uXn+Ych+67LP3T0HX2VIrNQL1qO+rAo9xEVZAtZtBKpLiUh?=
- =?us-ascii?Q?70VrtIvxqidk0gsRbk6NlNCV/JhC7cVEs2GSV5qwLg+iEE13MP1mswNVQq1t?=
- =?us-ascii?Q?j/mQiYcVGdFhScpdU3mKUZiDufo/pEct6RsRT9HnUteMgEtqKLu/WUw79JCZ?=
- =?us-ascii?Q?jUTCIOtoz4IVg0KGr9AXHrPczfTeNXKs/7OjNENJS6bAvy71eR3lbvzmKEUQ?=
- =?us-ascii?Q?kzzbjxRQrz7T+zPgXcUPjYyTAIjvUQmrXztejx40Z96YmDgvNKgC6hmvL6In?=
- =?us-ascii?Q?AoUfaXpnfd9N3Q/9oFE8bPxWXqLF6FfW4uiuso2EEQ6zi3cI8OH9ljahPD5G?=
- =?us-ascii?Q?VEuDMJUrl6VP/D8ANOGy+os+qCzNVqJGUkiG0G6Vo9hpNJK0RPqUUXkhdF/7?=
- =?us-ascii?Q?FxfQR2dyBPJnGZiOcI8p40QlfK+yRsIHVrH9NvnZcDfJQ0cgmErDHUiWr56P?=
- =?us-ascii?Q?iNmgM9jTeyd6B1LgwjantEkpwoL04E9rE4HNQ7KsWw/uad/8C4nAt0n25TtW?=
- =?us-ascii?Q?K9tpvKGv3H+xph+itbgoPKUD4iNso5zLsWc+ktRQCu20iZrB1Za3gyFrElDk?=
- =?us-ascii?Q?krX2+hUiQ6Gv3okmlAvqXcNW5L+adfl/Ff+jhuxqgI4uUyWIbQUyY2//B1dn?=
- =?us-ascii?Q?PTFdKlN6KjewZEv1CrRhw7uZJHAcXTQzyBaxMbSdNmUedKklfKPQ+rOsoVeA?=
- =?us-ascii?Q?/MmiBJTuw1i4v7/AlxwsQrrJpcZEKjROOdTKFGhkDt5zo+0T++k+xDXINGtF?=
- =?us-ascii?Q?wVGANtw3jK8IEMLcLCGgbf9AD/rH6LeIVtMJB6fj7QlMJyITRMU1gPhSaITA?=
- =?us-ascii?Q?J/L/+yhm/elAETsQlzfFEalvpVeIoHdOCd6WMH3SN/mrG1/RQL8X8kDS8D7i?=
- =?us-ascii?Q?cPjwJ6ReCXpKcW+zauek2Ac8XbbXfsI0wfw6w571y05jSh0ux/YHFUCpeEiV?=
- =?us-ascii?Q?Hq6WJ66HSujSqwx3zy5z7c4YBNM39ddvSa5MIBvxfGuvq4QuQShPy3x5HrwX?=
- =?us-ascii?Q?cwT7ELlh2tsfzdZan8Up8Qn1AFrsTdaSCOUBjc2/91BwnvIAF8hlbyp3oS0B?=
- =?us-ascii?Q?CWOqkJGTc/ihlW2zdf0BOE5Y3A4WYz+u8DoT5DuXq53pyloeiBpKZWSr6oa4?=
- =?us-ascii?Q?MjV8oQY2bpiikg0+7qqBRJPOq3MNwdZMG95PQf7RQZNi729YE3GxK1oN5ogu?=
- =?us-ascii?Q?eCRM1nkHS/r9vyEAtQjhY8ZEfcBmJ36U41HIXLqfmYtDhPL9NEmaVRL8mqwH?=
- =?us-ascii?Q?EVxDRczuTCA+SVYk1Zc+XZtJu6G5gvCLNkjaWpgrP+ptnrB91w=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?D1QXk/E9ixXI4qu3KuvycnHyavrMHAnYbd8lOiXGrzYawO5UONtTKthPvrCX?=
- =?us-ascii?Q?IPNvT2wmrBWevR9/le3+8YOu7suWkXKoQ1+A9FLss0L9dr1UjmYkrFJ57B6/?=
- =?us-ascii?Q?O72diGZ7UnC1nV7v7/n49YDD9wzeRBHebBKGm9bfy0EodRWsDp62LDJDpUTH?=
- =?us-ascii?Q?WUJQIagR0NDSeXYoO4n7DkAkLXwU6FWeE8WkBPuR95wIC6AnnZTM4l+gg2CK?=
- =?us-ascii?Q?nh4OcAO+GxIr+IHhdwSNHukC3POZsSZ0zlJVdeUblCPTUa8urKaN1A6C4RKd?=
- =?us-ascii?Q?rLNQyDFc0fDoPunfyOszCR1cWtGv7rMiPvOgK0YJk5oH4UgZhXK13qVfM2s+?=
- =?us-ascii?Q?i8woKc0ZVS91oMSTwXAKny4kREDQLl2zVmiDdtR0cIVD5s9ZS2TQEI0C47cj?=
- =?us-ascii?Q?NaAzQIC7EosUSv02veegqoS8s2p6OuH0EeBxxonvfDw3sU6RCxc/FlTOu7Eh?=
- =?us-ascii?Q?vp3UkzIYmesnDAhp6FpAkZRBDVTjjj+tg2BVBJ0P3c9Nus3y6fVj/JK9P79u?=
- =?us-ascii?Q?AuALfnFTzJ/e5qRu+94J9Mjue29oOVHggO2qTkh13nlqdI63UGXRcD19L/wj?=
- =?us-ascii?Q?KhmYbfnzrhHUMn6bFkW/juPzUyYxjZtYJu1lFrQxN1Y19UDlXbJRJ+d1V1bj?=
- =?us-ascii?Q?6F8wTVRfqTqBGnyUVArRO7IrRc7YvxU7gFg29jqXLc7WQu3k+/fqEaevMLlG?=
- =?us-ascii?Q?dX55RRCzJ9v7mWGBLmG2D8S/VPZa9WfULN+5+y2M+RZ2/zU5IZCD2QJ7WlEW?=
- =?us-ascii?Q?TXbFJOKICV3ieVE/ie7t1Roc23hMYnaFCuVyLvg911DadEZPwqL8txT9JfTg?=
- =?us-ascii?Q?gDpEPvbjyPT0wN6nDQub3Cnt5cWQS+dFGgGw9Knnw0IwqHydHtmRyWk4HBM/?=
- =?us-ascii?Q?1BEsmp8ffwj3p9jRFqu20vVWMtm+fhBsxID9nEdZpV42luVUT9ToJ7LCjML1?=
- =?us-ascii?Q?jZ/nxvr66wbTaBMhVmAtlIawQM92aL/rjcNWDFCeKHGTD+xiOjZSVOzDAHwo?=
- =?us-ascii?Q?1RkjA3Mjjs+TAdDd+drmu9X6co79PVURj7eAOQy7OYJ8n594cpvaqy343L3s?=
- =?us-ascii?Q?LIQd1RLJH91vY+LKwQICYtYDfj/inYt5IxuGimgcEWiFv78gM4JuOLfuFFa/?=
- =?us-ascii?Q?I/wW64DQwX+mtts8dLFzxB9rRLdrm01v7wv/aeXCvUBQAMPI1/TcGH11T8hr?=
- =?us-ascii?Q?+mNWc9De5azCwmL0nRt3Kpedbenw5EDhOID/uHLUqDTnV/DsMfxJ3X1QAE5g?=
- =?us-ascii?Q?zK/3CSrB9R3Aow03/MdJkcBDqxuD2sCKzK7h4RO/z8bPus9tt/6xrL0FbgmE?=
- =?us-ascii?Q?Sg6sGGfjrq0W475ALh45UrR8WWjXosIA/875rd09fyO43Yg5KNm8aoDM8ETv?=
- =?us-ascii?Q?CCKWXL4fAAVOZnjqpAewzND3ex96rL/dvw6uoT7PcKsOUsbuobJwM7r1+/pX?=
- =?us-ascii?Q?er+lwxcegHp4F6l4DlwRefcNZf6yM8S3kJdZWfRyrCEkH6/cVGYMuDd/YF+x?=
- =?us-ascii?Q?BoRjZr7nD5qQyRJJ95Rh1mbEfODDTf+KlA7fHpKty1WJMfWtEeFtlF7v/UTO?=
- =?us-ascii?Q?Um6BQUKXfSxN1XCYxnUR7C8IivC1/Rc4ccbFDQiV?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0c61ece2-5bb9-4706-e941-08dd947dc03f
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 May 2025 13:29:57.5722
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hLdglQ5TGOHW3LhYIS5V5PTnAFfPejXgKYVIqBb544Nchyynx8VNiMKJr6GT630n
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8743
+	Fri, 16 May 2025 13:40:38 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-442d472cf7fso16834005e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 06:40:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1747402834; x=1748007634; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=gFjcNM1DqPRHLRj8Hg0Ysyr3OR4VV1DA42g230FdsY4=;
+        b=eoZ6nnfN06rfFReNujtDDUMZ3OuzVO7Q+/KF5GjkZRQ+YefRaOm43nxCHDifrauiKJ
+         PVwPros4o3D6ITeBLMXRyjDdv5HdVmELXkQzmFsYyrrshElfTv/qbSMK7+cVxEzhblei
+         2M/SHZ3nEmGK0br7JLixlu3hDXOr/z9U6BRMlUYB0EXU4WxWztKUO5hbmbwEZZfN0CoG
+         xBtO+bcGvXOTIrTaVrP07QzcUALcWDN3B/RawOpe3dZmYNT4rEhNafBv4a4slCgCUzI3
+         6khi7g//zpdSDKcOV3GuoHBVsypJ3BUW6MC0iw/hFJ5tqKbr8GceaLkdDBQldzx72H1h
+         R74A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747402834; x=1748007634;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=gFjcNM1DqPRHLRj8Hg0Ysyr3OR4VV1DA42g230FdsY4=;
+        b=u/o9TybJ0HAokMvq+bsc5aeKvjnLAvu47EKfhtB1vD5wtIq8vaWutINXOmr2O6GzdH
+         L/Ez/olt/S1uU5xNYIonDs1ehWVz15c/Kqtt8qoDCnhlYcpvzja2ig2KS40MN5xFKK+n
+         jsLoKX7dXBgmy3doJDIlwf1YqldgZCFPTB2eIr1oCGn7yjqfzxHct24/JkvWrpVJxAO4
+         sMeNu4WPUdMlmfVpoRzE+1b8cv0m9IpsOGnEG/EKl9yGAW5FwPuLWB1n3LXPvK+rzeXS
+         R1qoxsyjACIj2bSCpfEoRDodUwrJjuQ7pc36BpZSCiztJc9ji0V6uy0S29gUd8AzsyoF
+         lGAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVB2lWAsuuSRsyWKAkusvocUG9zlwZuTQZigEOT+cUIuQW4v793nSwRjinPbIuT9NUKton9H1ifqTw49Xv0zVAv@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqnkwCWU93NqRKYzbN6WoaCrXVvJmEsBXmgDUFJoI3Wha40oIs
+	cTfyqP0w4L7/3SQttbZELa8po43ePSgLhcEHJY33Lfxp/CwV/uO1Nvo56X8Z5Zc7BH2rMGbi9cc
+	h+bnh3diLN9CpzV0E4pYqRQ==
+X-Google-Smtp-Source: AGHT+IHOKmBEIjaF1gEAYGHczeF9IZs3iniqD/QvCRyWO8xSETKFmOAwCrapzHq+30c40/xw6PcyEuC1a3udRwBW
+X-Received: from wmbfj9.prod.google.com ([2002:a05:600c:c89:b0:43c:fd72:aae1])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:4ec6:b0:442:e147:bea6 with SMTP id 5b1f17b1804b1-442fd950bd4mr33356585e9.11.1747402834643;
+ Fri, 16 May 2025 06:40:34 -0700 (PDT)
+Date: Fri, 16 May 2025 14:40:06 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.49.0.1101.gccaa498523-goog
+Message-ID: <20250516134031.661124-1-vdonnefort@google.com>
+Subject: [PATCH v5 00/25] Tracefs support for pKVM
+From: Vincent Donnefort <vdonnefort@google.com>
+To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
+	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	jstultz@google.com, qperret@google.com, will@kernel.org, 
+	kernel-team@android.com, linux-kernel@vger.kernel.org, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_063002_481062_9363A854 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20250516_064036_869500_9E6D5109 
+X-CRM114-Status: GOOD (  31.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,29 +91,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 16, 2025 at 04:08:25AM +0000, Tian, Kevin wrote:
-> > From: Jason Gunthorpe <jgg@nvidia.com>
-> > Sent: Friday, May 16, 2025 12:47 AM
-> > 
-> > On Thu, May 08, 2025 at 08:02:35PM -0700, Nicolin Chen wrote:
-> > > +	/* vma->vm_pgoff carries an index to an mtree entry (immap) */
-> > > +	immap = mtree_load(&ictx->mt_mmap, vma->vm_pgoff);
-> > > +	if (!immap)
-> > > +		return -ENXIO;
-> > > +	if (length >> PAGE_SHIFT != immap->num_pfns)
-> > > +		return -ENXIO;
-> > 
-> > This needs to validate that vm_pgoff is at the start of the immap or
-> > num_pfns is the wrong thing to validate length against.
-> > 
-> 
-> vm_pgoff is the index into mtree. If it's wrong mtree_load() will
-> fail already?
+The growing set of features supported by the hypervisor in protected
+mode necessitates debugging and profiling tools. Tracefs is the
+ideal candidate for this task:
 
-I'm not sure? I thought mtree_load will return any range that
-intersects with the given index?
+  * It is simple to use and to script.
 
-Otherwise what is the point of having a range based datastructure?
+  * It is supported by various tools, from the trace-cmd CLI to the
+    Android web-based perfetto.
 
-Jason
+  * The ring-buffer, where are stored trace events consists of linked
+    pages, making it an ideal structure for sharing between kernel and
+    hypervisor.
+
+This series first introduces a new generic way of creating remote events and
+remote buffers. Then it adds support to the pKVM hypervisor.
+
+1. ring-buffer
+--------------
+
+To setup the per-cpu ring-buffers, a new interface is created:
+
+  ring_buffer_remote:	Describes what the kernel needs to know about the
+			remote writer, that is, the set of pages forming the
+			ring-buffer and a callback for the reader/head
+			swapping (enables consuming read)
+
+  ring_buffer_remote():	Creates a read-only ring-buffer from a
+			ring_buffer_remote.
+
+To keep the internals of `struct ring_buffer` in sync with the remote,
+the meta-page is used. It was originally introduced to enable user-space
+mapping of the ring-buffer [1]. In this case, the kernel is not the
+producer anymore but the reader. The function to read that meta-page is:
+
+  ring_buffer_poll_remote():
+			Update `struct ring_buffer` based on the remote
+			meta-page. Wake-up readers if necessary.
+
+The kernel has to poll the meta-page to be notified of newly written
+events.
+
+2. Tracefs
+----------
+
+This series introduce a new trace_remote that does the link between
+tracefs and the remote ring-buffer.
+
+The interface is found in the remotes/ directory at the root of the
+tracefs mount point. Each remote is like an instance and you'll find
+there a subset of the regular Tracefs user-space interface:
+
+  remotes/test/
+     buffer_size_kb
+     trace_clock
+     trace_pipe
+     trace
+     per_cpu/
+             cpuX/
+                 trace
+                 trace_pipe
+     events/
+
+            test/
+                selftest/
+                          enable
+                          id
+
+Behind the scenes, kernel/trace/trace_remote.c creates this tracefs
+hierarchy without relying on kernel/trace/trace.c. This is due to
+fundamental differences:
+
+  * Remote tracing doesn't support trace_array's system-specific
+    features (snapshots, tracers, etc.).
+
+  * Logged event formats differ (e.g., no PID for remote events).
+
+  * Buffer operations require specific remote interactions.
+
+3. Simple Ring-Buffer
+---------------------
+
+As the current ring-buffer.c implementation has too many dependencies to
+be used directly by the pKVM hypervisor. A new simple implementation is
+created and can be found in kernel/trace/simple-ring-buffer.c.
+
+This implementation is write-only and is used by both the pKVM
+hypervisor and a trace_remote test module.
+
+4. Events
+---------
+
+A new REMOTE_EVENT() macro is added to simplify the creation of events
+on the kernel side. As remote tracing buffer are read only, only the
+event structure and a way of printing must be declared. The prototype of
+the macro is very similar to the well-known TRACE_EVENT()
+
+ REMOTE_EVENT(my_event, id,
+     RE_STRUCT(
+         re_field(u64, foobar)
+     ),
+     RE_PRINTK("foobar=%lld", __entry->foobar)
+     )
+  )
+
+5. pKVM
+-------
+
+The pKVM support simply creates a "hypervisor" trace_remote on the
+kernel side and inherits from simple-ring-buffer.c on the hypervisor
+side.
+
+A new event macro is created HYP_EVENT() that is under the hood re-using
+REMOTE_EVENT() (defined in the previous paragaph) as well as generate
+hypervisor specific struct and trace_<event>() functions.
+
+5. Limitations:
+---------------
+
+Non-consuming reading of the buffer isn't supported (i.e. cat trace ->
+-EPERM) due to current the lack of support in the ring-buffer meta-page.
+
+[1] https://tracingsummit.org/ts/2022/hypervisortracing/
+[2] https://lore.kernel.org/all/20240510140435.3550353-1-vdonnefort@google.com/
+
+Changes since v4 (https://lore.kernel.org/all/20250506164820.515876-1-vdonnefort@google.com/)
+
+  - Extend meta-page with pages_touched and pages_lost
+  - Create ring_buffer_types.h
+  - Fix simple_ring_buffer build for 32-bits arch and x86
+  - Try unload buffer on reset (+ test)
+  - Minor renaming and comments
+
+Changes since v3 (https://lore.kernel.org/all/20250224121353.98697-1-vdonnefort@google.com/)
+
+  - Move tracefs support from kvm/hyp_trace.c into a generic trace_remote.c.
+  - Move ring-buffer implementation from nvhe/trace.c into  a generic
+    simple-ring-buffer.c
+  - Rebase on 6.15-rc4.
+
+Changes since v2 (https://lore.kernel.org/all/20250108114536.627715-1-vdonnefort@google.com/)
+
+  - Fix ring-buffer remote reset
+  - Fix fast-forward in rb_page_desc()
+  - Refactor nvhe/trace.c
+  - struct hyp_buffer_page more compact
+  - Add a struct_len to trace_page_desc
+  - Extend reset testing
+  - Rebase on 6.14-rc3
+
+Changes since v1 (https://lore.kernel.org/all/20240911093029.3279154-1-vdonnefort@google.com/)
+
+  - Add 128-bits mult fallback in the unlikely event of an overflow. (John)
+  - Fix ELF section sort.
+  - __always_inline trace_* event macros.
+  - Fix events/<event>/enable permissions.
+  - Rename ring-buffer "writer" to "remote".
+  - Rename CONFIG_PROTECTED_NVHE_TESTING to PKVM_SELFTEST to align with
+    Quentin's upcoming selftest
+  - Rebase on 6.13-rc3.
+
+Changes since RFC (https://lore.kernel.org/all/20240805173234.3542917-1-vdonnefort@google.com/)
+
+  - hypervisor trace clock:
+     - mult/shift computed in hyp_trace.c. (John)
+     - Update clock when it deviates from kernel boot clock. (John)
+     - Add trace_clock file.
+     - Separate patch for better readability.
+  - Add a proper reset interface which does not need to teardown the
+    tracing buffers. (Steven)
+  - Return -EPERM on trace access. (Steven)
+  - Add per-cpu trace file.
+  - Automatically teardown and free the tracing buffer when it is empty,
+    without readers and not currently tracing.
+  - Show in buffer_size_kb if the buffer is loaded in the hypervisor or
+    not.
+  - Extend tests to cover reset and unload.
+  - CC timekeeping folks on relevant patches (Marc)
+
+David Brazdil (1):
+  KVM: arm64: Add .hyp.data section
+
+Vincent Donnefort (24):
+  ring-buffer: Add page statistics to the meta-page
+  ring-buffer: Introduce ring-buffer remotes
+  tracing: Introduce trace remotes
+  tracing: Add reset to trace remotes
+  tracing: Add init callback to trace remotes
+  tracing: Add events to trace remotes
+  tracing: Add events/ root files to trace remotes
+  tracing: Add helpers to create trace remote events
+  ring-buffer: Export buffer_data_page and macros
+  tracing: Introduce simple_ring_buffer
+  tracing: Add a trace remote module for testing
+  tracing: selftests: Add trace remote tests
+  tracing: load/unload page callbacks for simple_ring_buffer
+  tracing: Check for undefined symbols in simple_ring_buffer
+  KVM: arm64: Support unaligned fixmap in the pKVM hyp
+  KVM: arm64: Add clock support for the pKVM hyp
+  KVM: arm64: Add tracing capability for the pKVM hyp
+  KVM: arm64: Add trace remote for the pKVM hyp
+  KVM: arm64: Sync boot clock with the pKVM hyp
+  KVM: arm64: Add trace reset to the pKVM hyp
+  KVM: arm64: Add event support to the pKVM hyp and trace remote
+  KVM: arm64: Add hyp_enter/hyp_exit events to pKVM hyp
+  KVM: arm64: Add selftest event support to pKVM hyp
+  tracing: selftests: Add pKVM trace remote tests
+
+ arch/arm64/include/asm/kvm_asm.h              |   8 +
+ arch/arm64/include/asm/kvm_define_hypevents.h |  21 +
+ arch/arm64/include/asm/kvm_hyp.h              |   1 -
+ arch/arm64/include/asm/kvm_hypevents.h        |  41 +
+ arch/arm64/include/asm/kvm_hyptrace.h         |  26 +
+ arch/arm64/include/asm/sections.h             |   1 +
+ arch/arm64/kernel/image-vars.h                |   6 +
+ arch/arm64/kernel/vmlinux.lds.S               |  36 +-
+ arch/arm64/kvm/Kconfig                        |  18 +
+ arch/arm64/kvm/Makefile                       |   2 +
+ arch/arm64/kvm/arm.c                          |  11 +
+ arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h   |  13 +
+ arch/arm64/kvm/hyp/include/nvhe/clock.h       |  16 +
+ .../kvm/hyp/include/nvhe/define_events.h      |  21 +
+ arch/arm64/kvm/hyp/include/nvhe/trace.h       |  60 ++
+ arch/arm64/kvm/hyp/nvhe/Makefile              |   1 +
+ arch/arm64/kvm/hyp/nvhe/clock.c               |  65 ++
+ arch/arm64/kvm/hyp/nvhe/events.c              |  36 +
+ arch/arm64/kvm/hyp/nvhe/ffa.c                 |   2 +-
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            |  86 ++
+ arch/arm64/kvm/hyp/nvhe/hyp.lds.S             |   8 +
+ arch/arm64/kvm/hyp/nvhe/mm.c                  |   2 +-
+ arch/arm64/kvm/hyp/nvhe/psci-relay.c          |   5 +-
+ arch/arm64/kvm/hyp/nvhe/setup.c               |   4 +
+ arch/arm64/kvm/hyp/nvhe/switch.c              |   5 +-
+ arch/arm64/kvm/hyp/nvhe/trace.c               | 286 ++++++
+ arch/arm64/kvm/hyp_trace.c                    | 385 ++++++++
+ arch/arm64/kvm/hyp_trace.h                    |  11 +
+ arch/arm64/kvm/pkvm.c                         |   1 +
+ include/linux/ring_buffer.h                   |  58 ++
+ include/linux/ring_buffer_types.h             |  41 +
+ include/linux/simple_ring_buffer.h            |  58 ++
+ include/linux/trace_remote.h                  |  27 +
+ include/linux/trace_remote_event.h            |  33 +
+ include/trace/define_remote_events.h          |  73 ++
+ include/uapi/linux/trace_mmap.h               |   8 +-
+ kernel/trace/Kconfig                          |  14 +
+ kernel/trace/Makefile                         |  20 +
+ kernel/trace/remote_test.c                    | 263 +++++
+ kernel/trace/remote_test_events.h             |  10 +
+ kernel/trace/ring_buffer.c                    | 259 ++++-
+ kernel/trace/simple_ring_buffer.c             | 413 ++++++++
+ kernel/trace/trace.c                          |   2 +-
+ kernel/trace/trace.h                          |   6 +
+ kernel/trace/trace_remote.c                   | 923 ++++++++++++++++++
+ .../ftrace/test.d/remotes/buffer_size.tc      |  24 +
+ .../selftests/ftrace/test.d/remotes/functions |  33 +
+ .../ftrace/test.d/remotes/pkvm/buffer_size.tc |  10 +
+ .../ftrace/test.d/remotes/pkvm/reset.tc       |  10 +
+ .../ftrace/test.d/remotes/pkvm/trace_pipe.tc  |  10 +
+ .../ftrace/test.d/remotes/pkvm/unloading.tc   |  10 +
+ .../selftests/ftrace/test.d/remotes/reset.tc  | 105 ++
+ .../ftrace/test.d/remotes/trace_pipe.tc       |  57 ++
+ .../ftrace/test.d/remotes/unloading.tc        |  40 +
+ 54 files changed, 3629 insertions(+), 56 deletions(-)
+ create mode 100644 arch/arm64/include/asm/kvm_define_hypevents.h
+ create mode 100644 arch/arm64/include/asm/kvm_hypevents.h
+ create mode 100644 arch/arm64/include/asm/kvm_hyptrace.h
+ create mode 100644 arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h
+ create mode 100644 arch/arm64/kvm/hyp/include/nvhe/clock.h
+ create mode 100644 arch/arm64/kvm/hyp/include/nvhe/define_events.h
+ create mode 100644 arch/arm64/kvm/hyp/include/nvhe/trace.h
+ create mode 100644 arch/arm64/kvm/hyp/nvhe/clock.c
+ create mode 100644 arch/arm64/kvm/hyp/nvhe/events.c
+ create mode 100644 arch/arm64/kvm/hyp/nvhe/trace.c
+ create mode 100644 arch/arm64/kvm/hyp_trace.c
+ create mode 100644 arch/arm64/kvm/hyp_trace.h
+ create mode 100644 include/linux/ring_buffer_types.h
+ create mode 100644 include/linux/simple_ring_buffer.h
+ create mode 100644 include/linux/trace_remote.h
+ create mode 100644 include/linux/trace_remote_event.h
+ create mode 100644 include/trace/define_remote_events.h
+ create mode 100644 kernel/trace/remote_test.c
+ create mode 100644 kernel/trace/remote_test_events.h
+ create mode 100644 kernel/trace/simple_ring_buffer.c
+ create mode 100644 kernel/trace/trace_remote.c
+ create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/buffer_size.tc
+ create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/functions
+ create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/pkvm/buffer_size.tc
+ create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/pkvm/reset.tc
+ create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace_pipe.tc
+ create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/pkvm/unloading.tc
+ create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/reset.tc
+ create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/trace_pipe.tc
+ create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/unloading.tc
+
+
+base-commit: 088d13246a4672bc03aec664675138e3f5bff68c
+-- 
+2.49.0.1101.gccaa498523-goog
+
 
