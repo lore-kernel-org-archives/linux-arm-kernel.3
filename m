@@ -4,81 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6649C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 08:58:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38413C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 09:04:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xpBkNoozJVxD0Tq1ED6D91sfOcjjeUcczIiXGsr8Xa4=; b=VXl44E/aS1EmqFOXHRWFcxOg40
-	/vT33ZafRJ380C8+J6uP39+XKIIgB6Lr60qK9yuWGTFgPqg0nknvqbEcLaYpG7pHIfrq4IGs4ic6k
-	M9E7oCSgsxlH7n+AXOmJa8AQFTt2Dfm8HLH6ts0/9BUVFP+W6L9UDB5Q/fGRpob0iKWAe7/fT/M4w
-	dyk7bnCuzFPWlD/Mn2eaFvL665g/yJtjaazhcW7Us+SBlOLuepeWSXhGAQe8UYu/9vd75QSOPfk84
-	FNMBAcBqc8gHMvSAi8g8hzBYqif6jFKb5pN79MHiAM0Dv8gmQKeo7sEwUgjyXeCXpCSZVq7HhOfxJ
-	BALWAX6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=in60ugGemjVltqB0vsq8GkvN3HfzICH3JQbCmYrTXHA=; b=cttUIApaydSi+w6EEaKC+pIihu
+	ZdcmvfBVzRIUQ7jD0OieoGr4woNfFxskXMchdG8WvgPGBbCKBswCE6lMX5XHCZ+xEq/yNEKsm/vQH
+	bN0UKsT0ic4bGoPqtxZ++amOKJ1XJEpIcqE6nejyPfmD7QZT2qKIfFprICV2+n+u/GRbCALd6NMBv
+	sBMSAnpdP0CKzZfVBSkA7gUIbAMvuNDzjArMrVNMcT+qEbxlLjYhmHmPu41vPkOQLFYkVivUvAIJx
+	NMPurCzZZ7RPi9MaLAH/82YK8mw8wl85sVgvqxaDEk2VHAWObMsXJf3uAZ8wsFI/4S/DjsE1tuIfe
+	v3l14cxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFqtS-00000002vci-10cz;
-	Fri, 16 May 2025 08:58:14 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uFqzc-00000002wUP-01LO;
+	Fri, 16 May 2025 09:04:36 +0000
+Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFqrP-00000002vV4-2wWh;
-	Fri, 16 May 2025 08:56:09 +0000
-Date: Fri, 16 May 2025 10:55:22 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1747385764;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xpBkNoozJVxD0Tq1ED6D91sfOcjjeUcczIiXGsr8Xa4=;
-	b=aBYd6I8/V6Pks/ycPy+/9hpvymndG8CqJ3udu8r5+O0NqEyuqUjG8dV+Xilch/vOYTSS2O
-	Za0yiBEoQYer3mi17p0x/iZUvKU4c7R1GKeXbqQcimcw1rWdDsq0dyx81CRlHqgRep+F5v
-	s60YuWaabOj1Z7t472P1i7+AKQmCVDH0ZVMAFovdZeD/wxWJnfhLUdbHvqwlT3Rcm/sIEo
-	/rN8R+Iulo7vx1CdPsKGLq0KL+BTBfYxAPGftCib7K8aCN7mLOyE5arjDB8P0xwYDAIXy2
-	2CyW8fkln40Uq1Wz0hUYPqye6z2gb/K2ZZ2R1grOVtwAP/HnCVItGIc0ea6xnw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1747385764;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xpBkNoozJVxD0Tq1ED6D91sfOcjjeUcczIiXGsr8Xa4=;
-	b=6ufqT1mobYp7JSSs1K0Omsc0AhHenLEHpntMn1SMwQZs6Bqn7id7Xzyi9d/oCd+si9xvqM
-	XFCxkDCbqLKa9mDg==
-From: Nam Cao <namcao@linutronix.de>
-To: Ingo Molnar <mingo@kernel.org>
-Cc: Steven Rostedt <rostedt@goodmis.org>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	john.ogness@linutronix.de, Petr Mladek <pmladek@suse.com>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v8 00/22] RV: Linear temporal logic monitors for RT
- application
-Message-ID: <20250516085522.g9Uq2WBN@linutronix.de>
-References: <cover.1747046848.git.namcao@linutronix.de>
- <aCb1kBEkiriPbMo4@gmail.com>
+	id 1uFqxa-00000002wEG-1MUL
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 May 2025 09:02:31 +0000
+Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-4767e969b94so31594081cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 02:02:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1747386148; x=1747990948; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=in60ugGemjVltqB0vsq8GkvN3HfzICH3JQbCmYrTXHA=;
+        b=26SlBhtWLgLnwK1je/3VrD5idc0ih9d6yacbiZ+noiMaPv8f93FwCrj2GFeJ2ls8/E
+         Z2ahfiho5pjNRu2GdlUOlJRdv5C5yWtFq+8s/n2KT7y4aXH5m797cDjQ4W0DqbHlaMMr
+         g//whL2fgEbdkVnkFAtC2dX4SEQ4qmfcmK2L0t8ZOAW2youxBSbPH6GTXFGDO49jefOs
+         B6WSbpk2MeOUidMX+YbrnhbHVQuUV6VaTIJA96lWr/MSH9lVm5h/6Fyl7HPF3iLJffzc
+         ng+gqaqCDw2ln9NY4pQQhj3VaHjWgWbtmUegFzzO9cZ7iIbVlfXuHAj5482MqKmT6aG+
+         l0mg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747386148; x=1747990948;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=in60ugGemjVltqB0vsq8GkvN3HfzICH3JQbCmYrTXHA=;
+        b=Uc2+JTRrWoGzOznoKsbefDEIesaXMRpRHrwOSjryrBd0GXCK2ayOcwbKUGBz/gsIkr
+         uarzvpfOjhhbL9fsEZBXigHSLX9NrrXECxFGgZ9kIh6j2eHEhlmTP2x6vLsYIUIuHFui
+         M8XretOAMexveg8pym7kU/o7J6vo4rGQ9r8QvTJHt1Jo1PPdalWkiJd/fHSAo4SyQWKP
+         YHQTwXqucpKXY34ubqXxF0bfPThptHveqWZrxrVP5P8hBkE+WRlARt4qv97jw7/j6/nU
+         fZcrIE5IHKcYyAM7h78EOJ39/U6c2DKhPwlXN4UzHqlu0f9rcg5wiJrvOkNGAnYy5kZ2
+         LSQg==
+X-Forwarded-Encrypted: i=1; AJvYcCU5daF2EHSdcfQL2dz7ivmHxvUhp1K5GggAgus9OFC/GZmgbto56IFlEXgbLdlt23glqCd0kQAJLtoVctodZhgs@lists.infradead.org
+X-Gm-Message-State: AOJu0YydEQSeXfBpjQ759cd7tiO+RkPFwlmdk4SZepQ6K9R2pz08MTaY
+	65r98NBPopsz+gjswIgn2ooT7ek8/UFgpFXr6VtyfTRHLS5OfztQ55YHc/XmOHpr/VpCGHOAqki
+	vMDL4pzKqfXUk82SoCDowQUB/rnaQITU3jZJRrNb7
+X-Gm-Gg: ASbGnct1Cp2c7GFQrDOMfMUFP40t1Yig2rGIG1BKZl7VuOATBb35p6TZC2vhVkx28F2
+	N3EO05Tlgc8kq5D7SSi48P/97Bj4hOr8/I04Lff1a5s1zVD19mZatQlXcquNxQ2Xo7q/rHLSdEP
+	QlxlMEm9BE/11A6AunkH4HTRDSioHOj51yABuWhmdm1Q==
+X-Google-Smtp-Source: AGHT+IFKFpZ4mx7Ab6FBiCu2VumXKtdpAlGDqqg8Aj8q1gzbtDvdx2Ql++WSEromWm41RhpIINOkMLSPD9lHuaS6/qU=
+X-Received: by 2002:a05:622a:986:b0:48d:7c95:4878 with SMTP id
+ d75a77b69052e-494b07f782bmr30946581cf.29.1747386147888; Fri, 16 May 2025
+ 02:02:27 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aCb1kBEkiriPbMo4@gmail.com>
+References: <20250509104755.46464-1-ayberkdemir@gmail.com> <20250516084334.2463-1-ayberkdemir@gmail.com>
+In-Reply-To: <20250516084334.2463-1-ayberkdemir@gmail.com>
+From: Eric Dumazet <edumazet@google.com>
+Date: Fri, 16 May 2025 02:02:16 -0700
+X-Gm-Features: AX0GCFvBaGcVFtA7dJExvGgGKSE3KqWHsolC66wfst2hICjQRgoMunWZPUzYXDk
+Message-ID: <CANn89iJ9iAP0GXk_qmzu+2MjWHi_NDOjG1QdLAiY1YSj+RjZQw@mail.gmail.com>
+Subject: Re: [PATCH net v4] net: axienet: safely drop oversized RX frames
+To: Can Ayberk Demir <ayberkdemir@gmail.com>
+Cc: netdev@vger.kernel.org, Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Michal Simek <michal.simek@amd.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Suraj Gupta <suraj.gupta2@amd.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_015607_877124_86837993 
-X-CRM114-Status: UNSURE (   7.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250516_020230_379321_FBCB8DC0 
+X-CRM114-Status: GOOD (  20.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,22 +97,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 16, 2025 at 10:21:36AM +0200, Ingo Molnar wrote:
-> 
-> * Nam Cao <namcao@linutronix.de> wrote:
-> 
-> > Nam Cao (22):
-> >   x86/tracing: Remove redundant trace_pagefault_key
-> >   x86/tracing: Move page fault trace points to generic
-> 
-> Does the renaming of the tracepoint class from 'x86_exceptions' to
-> 'exceptions' have any negative effects on tooling?
+On Fri, May 16, 2025 at 1:44=E2=80=AFAM Can Ayberk Demir <ayberkdemir@gmail=
+.com> wrote:
+>
+> From: Can Ayberk DEMIR <ayberkdemir@gmail.com>
+>
+> In AXI Ethernet (axienet) driver, receiving an Ethernet frame larger
+> than the allocated skb buffer may cause memory corruption or kernel panic=
+,
+> especially when the interface MTU is small and a jumbo frame is received.
+>
+> This bug was discovered during testing on a Kria K26 platform. When an
+> oversized frame is received and `skb_put()` is called without checking
+> the tailroom, the following kernel panic occurs:
+>
+>   skb_panic+0x58/0x5c
+>   skb_put+0x90/0xb0
+>   axienet_rx_poll+0x130/0x4ec
+>   ...
+>   Kernel panic - not syncing: Oops - BUG: Fatal exception in interrupt
+>
+> Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ether=
+net driver")
+>
+> Signed-off-by: Can Ayberk DEMIR <ayberkdemir@gmail.com>
+> Tested-by: Suraj Gupta <suraj.gupta2@amd.com>
+> ---
+> Changes in v4:
+> - Moved Fixes: tag before SOB as requested
+> - Added Tested-by tag from Suraj Gupta
+>
+> Changes in v3:
+> - Fixed 'ndev' undeclared error =E2=86=92 replaced with 'lp->ndev'
+> - Added rx_dropped++ for statistics
+> - Added Fixes: tag
+>
+> Changes in v2:
+> - This patch addresses style issues pointed out in v1.
+> ---
+>  .../net/ethernet/xilinx/xilinx_axienet_main.c | 47 +++++++++++--------
+>  1 file changed, 28 insertions(+), 19 deletions(-)
+>
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/=
+net/ethernet/xilinx/xilinx_axienet_main.c
+> index 1b7a653c1f4e..7a12132e2b7c 100644
+> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> @@ -1223,28 +1223,37 @@ static int axienet_rx_poll(struct napi_struct *na=
+pi, int budget)
+>                         dma_unmap_single(lp->dev, phys, lp->max_frm_size,
+>                                          DMA_FROM_DEVICE);
+>
+> -                       skb_put(skb, length);
+> -                       skb->protocol =3D eth_type_trans(skb, lp->ndev);
+> -                       /*skb_checksum_none_assert(skb);*/
+> -                       skb->ip_summed =3D CHECKSUM_NONE;
+> -
+> -                       /* if we're doing Rx csum offload, set it up */
+> -                       if (lp->features & XAE_FEATURE_FULL_RX_CSUM) {
+> -                               csumstatus =3D (cur_p->app2 &
+> -                                             XAE_FULL_CSUM_STATUS_MASK) =
+>> 3;
+> -                               if (csumstatus =3D=3D XAE_IP_TCP_CSUM_VAL=
+IDATED ||
+> -                                   csumstatus =3D=3D XAE_IP_UDP_CSUM_VAL=
+IDATED) {
+> -                                       skb->ip_summed =3D CHECKSUM_UNNEC=
+ESSARY;
+> +                       if (unlikely(length > skb_tailroom(skb))) {
 
-No, tracepoint class name doesn't affect userspace. The tracepoints' names
-seen from userspace are the same after the patches:
-	exceptions:page_fault_kernel
-	exceptions:page_fault_user
+If really the NIC copied more data than allowed, we already have
+corruption of kernel memory.
 
-Best regards,
-Nam
+Dropping the packet here has undetermined behavior.
+
+If the NIC only reports the big length but has not performed any DMA,
+then the skb can be recycled.
+No point freeing it, and re-allocate a new one.
 
