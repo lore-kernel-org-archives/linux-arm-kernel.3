@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DE9CC54754
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 15:29:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55BF8C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 15:31:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=b84+eY2PFKvb5YMPP6BEsx0UZiHjhkA8hcScECvXrLE=; b=sTrPsDbc7ytzRK/zgIXTyhBlY+
-	kEjQt9Ry2USF8S2so/2daxjD6/gGoYMEBfxNsO68cIG8/5AT8UQT2wodEgp47DcNDcNk9t0and018
-	uLyHS2Qjk1jlr0CVC2jMtET9q1eI8XJcB+FPWLFHC+q2Pc9DTFKVF0nJjfrXwiw7omNQzaFQI5WWe
-	PGg27/xn7aLEYgqvK6TbN4YhohPwU7/Xel6/3qyzZmasZTn98atckFU8wlMojx0T3lcxCg9dKzGsu
-	RZO2khuqnIwgoOBERM9ogQRcb4gSsnIoA/KW+0LkzrVphRAxT7YerbF1JSHeDddsnvtgGFCAGUs5C
-	OcUBRCkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/HywNmkLx1a2fIwQ1MKGECZwlag+2mOKKM/v1tKzG9U=; b=Y4NUanoRrxA/Q1Jgwmdrc3PrKB
+	+rqQbvK080PSFE6rpVeGCritbb+w5cUfvByPxjfUpOU3NMZHCBonKv1M9ABIpRBAWzIJMH8cpMGtu
+	idjfyKazuT0dsCWYuJ58QxAwUzmMMY8kx09K25uCA7dv7PeWG/oPMvtOEnHLGhQ9LS1PbkAxsLasM
+	LqzJls0IbwZLkcYajhm90OJ8D0ns7ZOiW81qBhgKZrQi30SZJVUZsOKOoFmZOSKNsyPiz4tZ3dz/V
+	oDegCt1zXSZEpDH43USXp9bhYq6LhdhkXa6CQ5UU5QA1T8zjEeyV0wmy8u7hUgnYyyCMpexJJyUlA
+	yyTkdQBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFwzv-00000003quc-38qM;
-	Fri, 16 May 2025 15:29:19 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFwTy-00000003kEl-3WwN;
-	Fri, 16 May 2025 14:56:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=b8
-	4+eY2PFKvb5YMPP6BEsx0UZiHjhkA8hcScECvXrLE=; b=YdcG1sYntyrS34MqtB
-	lIlMZF4ETqn9yMWe10z3KkidFquUDOdXALlHV43nDg+il/ggbo1b6UjSRc1JTHEd
-	Icg4dWCMxzR1w39oqZWRJM0fB1JDYzvqX90ucOPHy16qM6N/pDZbKdbbNNJg9s8H
-	pmyBg8IOqyvncKlxJrAMZtajY=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wCXtfDyUSdoaTNOBw--.62835S2;
-	Fri, 16 May 2025 22:55:47 +0800 (CST)
-From: Hans Zhang <18255117159@163.com>
-To: shawn.lin@rock-chips.com,
-	lpieralisi@kernel.org,
-	kw@linux.com,
-	bhelgaas@google.com,
-	heiko@sntech.de,
-	manivannan.sadhasivam@linaro.org
-Cc: robh@kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Hans Zhang <18255117159@163.com>
-Subject: [PATCH v2 0/3] Fix interrupt log message
-Date: Fri, 16 May 2025 22:55:41 +0800
-Message-Id: <20250516145544.110516-1-18255117159@163.com>
-X-Mailer: git-send-email 2.25.1
+	id 1uFx1x-00000003rIA-1mXm;
+	Fri, 16 May 2025 15:31:25 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uFwh2-00000003nLk-3vD8
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 May 2025 15:09:50 +0000
+Date: Fri, 16 May 2025 17:09:28 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1747408186;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/HywNmkLx1a2fIwQ1MKGECZwlag+2mOKKM/v1tKzG9U=;
+	b=DpATQzQpiMsmPc2dhSdfVki2qv6V1T1FPApCFSccA9IexCrgo2HB6JnP6pUYc3iw5MyxLZ
+	xKzvlkMvWYlaH45FAVBUTVvTU5haDKGLfNd08lgD7hrcGUzND18JozDr6Y2WjzFOaPoMKc
+	VOovosrPDxZAMpEy/HQkzkoR/pitXOdNXw/dIlChjfxH6jWf+hS1b/FhIMaQdp6SyAtA2r
+	UAlU1AGVoybWkKhjEEFINDuk7bnnuwKebThPxam1EjJkX0r5jfWQ3X3FOjRoHSjVueroZ8
+	QnGxdWjnpNnTEKgSmOr9k5GVS0zYLZEcdI/XysSksx/SrmEI1LFY3Yu1xaHTbg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1747408186;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/HywNmkLx1a2fIwQ1MKGECZwlag+2mOKKM/v1tKzG9U=;
+	b=wR/KQUOJAaOhA0xA2yD2/13hVP4puE4PEPSgv/ajVZtt+MDrPHQjqUr8yfTUyxJ89ar4PI
+	XIK0P0YYX/bvWDCQ==
+From: Nam Cao <namcao@linutronix.de>
+To: Will Deacon <will@kernel.org>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	john.ogness@linutronix.de,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 17/22] arm64: mm: Add page fault trace points
+Message-ID: <20250516150928.4Y7is6pg@linutronix.de>
+References: <cover.1745999587.git.namcao@linutronix.de>
+ <554038c996662282df8a9d0482ef06f8d44fccc5.1745999587.git.namcao@linutronix.de>
+ <20250516140449.GB13612@willie-the-truck>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wCXtfDyUSdoaTNOBw--.62835S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7tw43JFy8ZryDCw4kJFyrJFb_yoW8GrW7pF
-	ZxG3ZIyr4DGr4Fv3Z2ywnYk3W5Xan8Ja1UGr12ga4xX3W2vF10gr9agF18WFy5K395tw1Y
-	vrWUtw15Gw4qvaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zMc_-UUUUUU=
-X-Originating-IP: [124.79.128.52]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiWxFPo2gnTwJd1gAAsv
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250516140449.GB13612@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_075619_221727_9129F708 
-X-CRM114-Status: UNSURE (   8.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250516_080949_125343_6FAB6E5E 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,49 +81,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear Maintainers,
+On Fri, May 16, 2025 at 03:04:50PM +0100, Will Deacon wrote:
+> On Wed, Apr 30, 2025 at 01:02:32PM +0200, Nam Cao wrote:
+> > Add page fault trace points, which are useful to implement RV monitor which
+> > watches page faults.
+> > 
+> > Signed-off-by: Nam Cao <namcao@linutronix.de>
+> > ---
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: Will Deacon <will@kernel.org>
+> > Cc: linux-arm-kernel@lists.infradead.org
+> > ---
+> >  arch/arm64/mm/fault.c | 8 ++++++++
+> >  1 file changed, 8 insertions(+)
+> > 
+> > diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> > index ef63651099a9..e3f096b0dffd 100644
+> > --- a/arch/arm64/mm/fault.c
+> > +++ b/arch/arm64/mm/fault.c
+> > @@ -44,6 +44,9 @@
+> >  #include <asm/tlbflush.h>
+> >  #include <asm/traps.h>
+> >  
+> > +#define CREATE_TRACE_POINTS
+> > +#include <trace/events/exceptions.h>
+> > +
+> >  struct fault_info {
+> >  	int	(*fn)(unsigned long far, unsigned long esr,
+> >  		      struct pt_regs *regs);
+> > @@ -559,6 +562,11 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+> >  	if (kprobe_page_fault(regs, esr))
+> >  		return 0;
+> >  
+> > +	if (user_mode(regs))
+> > +		trace_page_fault_user(addr, regs, esr);
+> > +	else
+> > +		trace_page_fault_kernel(addr, regs, esr);
+> 
+> Why is this after kprobe_page_fault()?
 
-Detailed descriptions of interrupts can be seen from RK3399 TRM doc.
-I found two errors and cleaned up the driver by the way.
+This is me being incompetent, sorry about that. It is more logical to put
+them at the beginning.
 
-This patch series improves the logging accuracy and code cleanliness of
-the Rockchip PCIe host controller driver:
-
-Log Message Clarifications
-
-Patch 1 fixes a misleading debug message for the PCIE_CORE_INT_UCR
-interrupt, replacing a duplicated "malformed TLP" message with "Unexpected
-Completion" to reflect the actual error condition.
-
-Patch 2 corrects the terminology for non-fatal errors, renaming "no fatal
-error" to "non fatal error interrupt received" to align with PCIe interrupt
-semantics.
-
-Code Cleanup
-
-Patch 3 removes redundant header includes (e.g., unused clock/reset
-headers) to streamline the driver and reduce build dependencies.
-
-These changes enhance debug log reliability, eliminate ambiguity for
-developers.
-
----
-Changes for v2:
-- Drop patch [v1 3/4].
-- The other patches have not been modified.
----
-
-Hans Zhang (3):
-  PCI: rockchip-host: Fix "Unexpected Completion" log message
-  PCI: rockchip-host: Correct non-fatal error log message
-  PCI: rockchip-host: Remove unused header includes
-
- drivers/pci/controller/pcie-rockchip-host.c | 13 ++-----------
- 1 file changed, 2 insertions(+), 11 deletions(-)
-
-
-base-commit: 82f2b0b97b36ee3fcddf0f0780a9a0825d52fec3
--- 
-2.25.1
-
+Best regards,
+Nam
 
