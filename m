@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31107C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 07:30:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1E19C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 07:32:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/9Z/ul7hXCo/YIyQHv36+JlKXEGkyyfKI7Noi5V9Zw8=; b=e6iyadb3Nc69Fg7QnSYoHC3rKR
-	ztYnJPsES2VQDSs3EnBWnt6gmiZpl9toxxwbyJuWTU8W75p4eY0qtSgjSU4lf83QEmQyeUPnRJ2Tb
-	ybt8km8l+0+5ORjTJ4v1e42CRplR+q3cFscqA/hg8QQFuksx5vMdjkCSq+xcG9MANbs5eOooV3k26
-	Ox9EAWHIDdwVLN99UiAn0exfM9l7cP7uT2H+84LFpEW/6kgNsfvrJQNprlFFmQTM+ePdEpbhBD+G1
-	+L9u1rIRGMH8gCsFPwV94lO6z6J0yc2GumKQPSMsrRMUIe6YSDcyGZZ+5WBfahyjsx6cuUGsY5bPv
-	hU88J+lA==;
+	bh=NoyVE6dpJCpwp1H9KqJqcvA2x5V44zAwPbJ/sKD6YuU=; b=mFcB2ZtTOuQNfOyw8LG48Tdvea
+	DR/s6N7YgkFhfA3I+2oViov8BXWqae3FQn4bbKXszzYIZ0nj8ZJR7wg5OpIY5IWvzyIgdv25wGmmO
+	3DM3LsqLEv5Llq1a7lJ2zPADBBaLWBGFWuDcGPROhMzUeBo87BqmQbeD8eT3VnbSBU9u2zihD0DD9
+	KWUbg+7f+synPLFCh/BAGBEhLZizSIpC3ACpGuw5AdjP2IXNQIrKyHX//Neq27rYxKQGIirkBn9ig
+	SCQsQ1fvthBcXZ/g9zzHO5RexChWNJtLdNAblREwc0SUVbaATzVZxU7CHrsvRLtlOutDFrVF/GiPh
+	XtG+688w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFpWX-00000002fHc-0q30;
-	Fri, 16 May 2025 07:30:29 +0000
-Received: from mail-43171.protonmail.ch ([185.70.43.171])
+	id 1uFpYc-00000002fZX-48zh;
+	Fri, 16 May 2025 07:32:38 +0000
+Received: from mail-106113.protonmail.ch ([79.135.106.113])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFpQC-00000002eeg-2eAT
+	id 1uFpQE-00000002efg-0AzF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 07:23:58 +0000
+	Fri, 16 May 2025 07:23:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=geanix.com;
-	s=protonmail; t=1747380232; x=1747639432;
-	bh=/9Z/ul7hXCo/YIyQHv36+JlKXEGkyyfKI7Noi5V9Zw8=;
+	s=protonmail; t=1747380235; x=1747639435;
+	bh=NoyVE6dpJCpwp1H9KqJqcvA2x5V44zAwPbJ/sKD6YuU=;
 	h=From:Date:Subject:Message-Id:References:In-Reply-To:To:Cc:From:To:
 	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector:
 	 List-Unsubscribe:List-Unsubscribe-Post;
-	b=DKluuhBDUVDhATMSINsGvy9ny1stdMxHBTd7Hjax9eClAsaljoozfynvP2b6tMujM
-	 idvaB9gTt4jU1KFrNl1SHzwCCIiNVgzyZyQC+qf/8kJImwFy1isSvaxtI/08vGMW3s
-	 Fnf085yZPvQTpwzWVZCJrnWdTg9fZfOH7o+F+9bmdyk+qCM01FlUPk9KB9k+k5CsKg
-	 /Xms564OOgx0DoPLvT+xcy3Bo4vzcJn3YF6yUFP2TBduNwArilr8j8kh67nuv3TQnL
-	 VC8lDH6hOJwOiDH6Z9tPVVgB8dadWwgAEUDldjFaRLwKIBpgkdJM7GIW4oHS/6v8G8
-	 6iSII+BdWsRbQ==
+	b=bpvYxcmyKBKyZtEzTff+rBq5lrNHbd8ut+AbdGyrEOTFWNPX6wt6kZhg0dYJ7xF+O
+	 O4AJnstf6qgXfhbKJ/xhzqsuaK6tqzETplLwPwFZmMbKCQKyyKnm7+zCGxAzuN5o1a
+	 qAcliW8UgZVUKWvo+dWgmUUzB+QUb012o16oov5Hxl5wswCVG1rEcd+NtYrdmQ2t0x
+	 hcfIOkCKGO1fya1RXOt0Z2EGkGqhIdBsZzIZKHdoVHr94wnI5ZO+9TjcKw4K7GpzAK
+	 eXqNHO2ynDkRdhLOwnXohBqFY7JIUjqAUtEzulKoa4zmYSAAQjX86lx3uYfnD+8juk
+	 KP1h7Evv0coCg==
+X-Pm-Submission-Id: 4ZzJV26PJ3z4wx9c
 From: Esben Haabendal <esben@geanix.com>
-Date: Fri, 16 May 2025 09:23:35 +0200
-Subject: [PATCH v2 1/5] rtc: interface: Fix long-standing race when setting
- alarm
+Date: Fri, 16 May 2025 09:23:37 +0200
+Subject: [PATCH v2 3/5] rtc: cpcap: Fix initial enable_irq/disable_irq
+ balance
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250516-rtc-uie-irq-fixes-v2-1-3de8e530a39e@geanix.com>
+Message-Id: <20250516-rtc-uie-irq-fixes-v2-3-3de8e530a39e@geanix.com>
 References: <20250516-rtc-uie-irq-fixes-v2-0-3de8e530a39e@geanix.com>
 In-Reply-To: <20250516-rtc-uie-irq-fixes-v2-0-3de8e530a39e@geanix.com>
 To: Alexandre Belloni <alexandre.belloni@bootlin.com>
 Cc: linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Esben Haabendal <esben@geanix.com>, 
- stable@vger.kernel.org
+ linux-arm-kernel@lists.infradead.org, Esben Haabendal <esben@geanix.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747380226; l=2485;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747380226; l=822;
  i=esben@geanix.com; s=20240523; h=from:subject:message-id;
- bh=vqa0dTp9C1MThd8T8OLDOwiyoMFJjfgxJl+5EjhLtc0=;
- b=rETIVHamGkIBOoWlv8KoibC8KOoj5ZsQOY7/o/R7tT9GXokO16Ovg696kdaK+Uk4Z3iH2MGey
- hR07gIETKZiCR3/T8NoYDRzLqz+qoNGM2Uqiy3bgu90ANZ//6Q+5bI3
+ bh=2LUSg7Zdz1NxxCnzMbGgag78qSG7v6rups6Hg9AB3eA=;
+ b=llEZBEeeVmLuXVENteg1uyQgrCJd8ICMLUoRycqcWl+NviTZd6eJf03YYUk90h3fGrGZoj/s8
+ 0sYqYaQZH9FCNmbB6X6oqC6ECktj4JoVtm8QUj0ljcpW2Y+Vy4Q0e9b
 X-Developer-Key: i=esben@geanix.com; a=ed25519;
  pk=PbXoezm+CERhtgVeF/QAgXtEzSkDIahcWfC7RIXNdEk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_002356_822216_237C59D7 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20250516_002358_244544_2546F8D1 
+X-CRM114-Status: UNSURE (   8.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,67 +79,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As described in the old comment dating back to
-commit 6610e0893b8b ("RTC: Rework RTC code to use timerqueue for events")
-from 2010, we have been living with a race window when setting alarm
-with an expiry in the near future (i.e. next second).
-With 1 second resolution, it can happen that the second ticks after the
-check for the timer having expired, but before the alarm is actually set.
-When this happen, no alarm IRQ is generated, at least not with some RTC
-chips (isl12022 is an example of this).
+Interrupts are automatically enabled when requested, so we need to
+initialize alarm_enabled accordingly to avoid causing an unbalanced enable
+warning.
 
-With UIE RTC timer being implemented on top of alarm irq, being re-armed
-every second, UIE will occasionally fail to work, as an alarm irq lost
-due to this race will stop the re-arming loop.
-
-For now, I have limited the additional expiry check to only be done for
-alarms set to next seconds. I expect it should be good enough, although I
-don't know if we can now for sure that systems with loads could end up
-causing the same problems for alarms set 2 seconds or even longer in the
-future.
-
-I haven't been able to reproduce the problem with this check in place.
-
-Cc: stable@vger.kernel.org
 Signed-off-by: Esben Haabendal <esben@geanix.com>
 ---
- drivers/rtc/interface.c | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
+ drivers/rtc/rtc-cpcap.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/rtc/interface.c b/drivers/rtc/interface.c
-index aaf76406cd7d7d2cfd5479fc1fc892fcb5efbb6b..e365e8fd166db31f8b44fac9fb923d36881b1394 100644
---- a/drivers/rtc/interface.c
-+++ b/drivers/rtc/interface.c
-@@ -443,6 +443,29 @@ static int __rtc_set_alarm(struct rtc_device *rtc, struct rtc_wkalrm *alarm)
- 	else
- 		err = rtc->ops->set_alarm(rtc->dev.parent, alarm);
+diff --git a/drivers/rtc/rtc-cpcap.c b/drivers/rtc/rtc-cpcap.c
+index 568a89e79c11424967d4af239d252a80a073a341..682f85abfa0e9627c8410220c9cebad7371d360b 100644
+--- a/drivers/rtc/rtc-cpcap.c
++++ b/drivers/rtc/rtc-cpcap.c
+@@ -268,6 +268,7 @@ static int cpcap_rtc_probe(struct platform_device *pdev)
+ 		return err;
  
-+	/*
-+	 * Check for potential race described above. If the waiting for next
-+	 * second, and the second just ticked since the check above, either
-+	 *
-+	 * 1) It ticked after the alarm was set, and an alarm irq should be
-+	 *    generated.
-+	 *
-+	 * 2) It ticked before the alarm was set, and alarm irq most likely will
-+	 * not be generated.
-+	 *
-+	 * While we cannot easily check for which of these two scenarios we
-+	 * are in, we can return -ETIME to signal that the timer has already
-+	 * expired, which is true in both cases.
-+	 */
-+	if ((scheduled - now) <= 1) {
-+		err = __rtc_read_time(rtc, &tm);
-+		if (err)
-+			return err;
-+		now = rtc_tm_to_time64(&tm);
-+		if (scheduled <= now)
-+			return -ETIME;
-+	}
-+
- 	trace_rtc_set_alarm(rtc_tm_to_time64(&alarm->time), err);
- 	return err;
- }
+ 	rtc->alarm_irq = platform_get_irq(pdev, 0);
++	rtc->alarm_enabled = true;
+ 	err = devm_request_threaded_irq(dev, rtc->alarm_irq, NULL,
+ 					cpcap_rtc_alarm_irq,
+ 					IRQF_TRIGGER_NONE | IRQF_ONESHOT,
 
 -- 
 2.49.0
