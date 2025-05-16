@@ -4,64 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0CE1C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 21:42:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E774AC3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 21:44:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0lmpxm/InXkC7gAaYfpV9glaXAIWY25jAT39ISKPw6s=; b=LNL2niePcAjEaht1upnej4maSY
-	Aq9H8oorY7Fljef8iBuw2Sm0K9Fx9QuLmYkOH1bXVS5L57n8USY63KIiVVNA1wvaasmLgUxkUJtpM
-	Lz4hfnzO2hcpbtaTpv3s3KFFJjS4rgFGO2FQaYxhHhSYn+MvvNky5y6LJrePb05vet7EAnQQUei4a
-	tyJWWZE1mAKK5OVGQU7uIin4z+B6BVhxbH7ylOeR5sH9u0s94rs4oAvTHIoelM1/rsdkeSU34ZppH
-	BWOJXatmBmHE2cJLgJe0Tdi+NpV0V+vzGU0Az7OYwYwRBbU2aLlJ7peH1C3XZ/SYTvB/zn2EWHGX1
-	n3DUB8VA==;
+	bh=LDLedcSKceICbIwGZqtpB/KkhgJX8NlFdDAIMXA5hWA=; b=V0w1/JFK5FuNWeKT5b/lvah58G
+	1hhrrsaN6FigTKNyP8iaOkmILg2UN81g0E3DapHuPOJmD1+L4GFly6pCpXXgmMhfn9zsQ4mj2YS1d
+	UCm809eJa6tWArQfvIQjs5dJ0mKISTAOIQZYwhJwOlxgRizdjTXjf0ZKTg/Z0fMMokAO4c4LnD/y7
+	nfS+XEysOETmxD45WupaDf18g+5B2lbVhrpPeB3zXGP5WiCOn8ziFAaPGNJDOl5xv+GtqtO1JSZDp
+	r79XXK3smAZxCsvlm5gY8f8H4bstKbaU2XAWwGJ7Gvyh7g3PlRZQ4HMXOe4mQ9k0kVpUPA0z/9Sn6
+	hwV4tMSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uG2of-00000004g8V-2mwp;
-	Fri, 16 May 2025 21:42:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uG2qf-00000004gM0-1eTS;
+	Fri, 16 May 2025 21:44:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uG2ih-00000004ev0-34vb
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 21:35:57 +0000
+	id 1uG2ip-00000004exK-2HdB;
+	Fri, 16 May 2025 21:36:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 36405437B9;
-	Fri, 16 May 2025 21:35:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90F65C4CEE4;
-	Fri, 16 May 2025 21:35:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BAACF61129;
+	Fri, 16 May 2025 21:36:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90816C4CEE4;
+	Fri, 16 May 2025 21:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747431355;
-	bh=bLyZNDh57twuZ5u/SwC20jaSbr5jsZ/x4elmufChQC0=;
+	s=k20201202; t=1747431362;
+	bh=RPD/bLLACqb+T6X64CUsRDGl+msceaKHRJ1aENDoN+k=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sJ/fjkd5HQpsmR9FBzcNfeQ/H4ZUDgUgeEVkg3CnFA1D07wR5QPrWCZEWoAB/Zkeq
-	 bMXvO4zDJKbmsyRi0lyTLbG/BdwTJfP90kgMfhHV58sS63MORa7CKZF0gcsEpqEjq0
-	 dFcxnrRK/kroHB4xNmsndNh2953U7dpqscH3sWQVcGo/3HZtSHugB+kP6f9QQsqPIy
-	 3lP67LiGuER55cLqO4dTiwBCXi8i1WyNab2fGB8Lx+THgKH6+vbSNGWvpgPYx8Dy7i
-	 3Wyo9XMyE9418BuuDUKu3zfzBHkze8ckbj0hIl72IgYuY9P0QaPBZJd2hSl9QsLKZY
-	 mIh7iNa7VV7Ng==
-Message-ID: <a66eb6b7-3121-4383-b604-949090fc08d9@kernel.org>
-Date: Fri, 16 May 2025 21:44:10 +0200
+	b=ZGzaQp+CjKtPqwdWtNZ8G3KAiXE2pCgPYWd8Bzx0MIus7bmgjhnYwaAdyVddSARso
+	 Q2m5uGniT1DNjCZpMlv8CNC9+3V8EdURoIDuZvBrguU1v7e6d0Trzrm3P7TCmRb8V9
+	 5p3LU3oQd74HDJrj+UxtXxJHONcqJ+yYs8T707BUZpBMw2eGNiqY1DSoCTy5pUCa9l
+	 db4DvmsPypHn1CqXKEx9bCF3NSLzAp1nwmVUqURm6mqXvdEl56gnwnszgNrBqdFFZi
+	 B9RibjquHzvQzrVq1M9cnzKkJyIXnCLA7bpAGaWO6HE9dFhf4NTY/Na5+qEySLTHoC
+	 K5FJMUb3nVfwg==
+Message-ID: <c4eb1999-66f8-4249-b5e8-f9cbd1aa9531@kernel.org>
+Date: Fri, 16 May 2025 21:48:43 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/6] arm64: dts: ls1028a-qds: make the QIXIS CPLD use the
- simple-mfd-i2c.c driver
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: Ioana Ciornei <ioana.ciornei@nxp.com>, Lee Jones <lee@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250430153634.2971736-1-ioana.ciornei@nxp.com>
- <20250430153634.2971736-6-ioana.ciornei@nxp.com>
- <20250502-savvy-eccentric-hog-b4fed5@kuoka>
- <smfuskvhdhrfrgbpjflgymoadms6vfiwgjmipsmkrxldtor6we@tyvafv626bwr>
- <8ec115f7-1a35-4506-a20a-b4de27f10960@kernel.org>
- <z7knkmi7kjhwlqwokikozos7whwaj5vmseh7kjrdl2la3kmj5e@wwzlsxpq573v>
- <7d6b529e-ab26-4efe-8b91-1facbd041ba3@kernel.org>
- <20250507153811.ukkficut2f3jm2hg@skbuf>
+Subject: Re: [PATCH v2 1/3] dt-bindings: vendor-prefixes: Add SakuraPi prefix
+To: Hsun Lai <i@chainsx.cn>, robh@kernel.org
+Cc: conor+dt@kernel.org, heiko@sntech.de, krzk+dt@kernel.org,
+ sfr@canb.auug.org.au, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org
+References: <20250514075914.194651-1-i@chainsx.cn>
+ <20250514075914.194651-2-i@chainsx.cn>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,12 +98,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250507153811.ukkficut2f3jm2hg@skbuf>
+In-Reply-To: <20250514075914.194651-2-i@chainsx.cn>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_143555_817164_8D92756A 
-X-CRM114-Status: GOOD (  30.26  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,60 +115,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/05/2025 17:38, Vladimir Oltean wrote:
->> This sounds reasonable, thanks for providing context. Most of this (so a
->> summary) should be in the commit msg as the rationale for changing the
->> ABI, so please grow a bit the commit msg part:
->> "The MDIO mux on the LS1028A-QDS never worked in mainline because ...".
->>
->> With all this I still do not get why do you need to affect the
->> compatibles. What is wrong with the actual compatibles?
->>
->> Best regards,
->> Krzysztof
+On 14/05/2025 09:59, Hsun Lai wrote:
+> Add vendor prefix for SakuraPi.org, which produces
+> development boards like the SakuraPi-RK3308B.
 > 
-> I really care about not breaking compatibility with device trees too,
-> and that's why I occasionally report issues such as
-> https://lore.kernel.org/all/20250412001703.qbbfhtb6koofvner@skbuf/,
-> but in this case the compatibility breakage is not something to worry
-> about.
+> Signed-off-by: Hsun Lai <i@chainsx.cn>
+> ---
 > 
-> The QDS (QorIQ Development System) boards are not made to deploy any
-> production software on them, they are more fully-featured variants of
-> our RDB (Reference Design Boards) which sit in labs and are used
-> exclusively by engineers to test/prototype SoC features in order to
-> develop for other (production) platforms. Most if not all engineers use
-> TFTP to load the kernel and device tree at the same time. I think it's
-> going to be a case of a tree falling in a forest with no one to hear it.
-
-OK, this has to be clearly documented so the platform maintainer can
-understand the impact.
-
+> (no changes since v1)
 > 
-> In terms of other projects using the Linux device tree bindings - in
-> this case that would be U-Boot, which unfortunately has yet another
-> schema for the QIXIS CPLD:
-> https://github.com/u-boot/u-boot/blob/master/arch/arm/dts/fsl-ls1028a-qds.dtsi#L134
-> So not really a concern right now, but we will take it as an action item
-> to resync U-Boot with the upstream device trees for the LS1028A-QDS too,
-> like was done for the LS1028A-RDB.
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> In this case, why would changing the compatible string be preferable to
-> using the node as is? It would be nice for the QIXIS CPLD to have child
-> nodes with "reg". The current format lacks that, so we thought it would
-> be a cleaner break if we just introduced a new compatible string, to
+> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> index 3e7450c3f..744d01a76 100644
+> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> @@ -1299,6 +1299,8 @@ patternProperties:
+>    "^rve,.*":
+>      description: Recharge Véhicule Électrique (RVE) inc.
+>    "^saef,.*":
+> +    description: SakuraPi.org
+> +  "^sakurapi,.*":
+>      description: Saef Technology Limited
 
-So change the current form. I do not see any point in changing
-compatibles. Whatever your drivers are doing is not really relevant
-here, because you can change the implementation behind the ABI.
+Still broken / nothing improved.
 
-> make it easier to distinguish:
-> - "fsl,ls1028aqds-fpga", "fsl,fpga-qixis-i2c", "simple-mfd" doesn't
->   expect children with "reg"
-> - "fsl,ls1028a-qds-qixis-i2c" does.
-
-Sorry but no, we are not going to have two different compatibles for the
-same device.
+>    "^samsung,.*":
+>      description: Samsung Semiconductor
 
 
 Best regards,
