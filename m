@@ -4,69 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55BF8C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 15:31:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 947A6C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 15:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/HywNmkLx1a2fIwQ1MKGECZwlag+2mOKKM/v1tKzG9U=; b=Y4NUanoRrxA/Q1Jgwmdrc3PrKB
-	+rqQbvK080PSFE6rpVeGCritbb+w5cUfvByPxjfUpOU3NMZHCBonKv1M9ABIpRBAWzIJMH8cpMGtu
-	idjfyKazuT0dsCWYuJ58QxAwUzmMMY8kx09K25uCA7dv7PeWG/oPMvtOEnHLGhQ9LS1PbkAxsLasM
-	LqzJls0IbwZLkcYajhm90OJ8D0ns7ZOiW81qBhgKZrQi30SZJVUZsOKOoFmZOSKNsyPiz4tZ3dz/V
-	oDegCt1zXSZEpDH43USXp9bhYq6LhdhkXa6CQ5UU5QA1T8zjEeyV0wmy8u7hUgnYyyCMpexJJyUlA
-	yyTkdQBw==;
+	bh=TYDNnlexDZMrbKqXTMkALgJPeEm5+zICpIV6zR8yjtM=; b=4BMazv3zD7eQgypMD7UzijTm/7
+	GGD4rGBSAQKC0eY5D35hcfgqBigwDmzsFKFIR8B/IoWnXtkfEor+9DiUGo4Bq0kmz6nO7aEvdXHdT
+	uThsn6fGSjukaxT63weZ+/hCpnttdF7ZQ9LZ4IJ6WXEcMZ5n8G+ZIUr0MTNjmKspp3PjR5Y42dPsi
+	OpFQ6n/t7LukzbZ1CHWanFkaPDFiIsESGMZe3xnfLM8A+u9VTuuBtbON6mKyEkmbpWazh3MzEZuEG
+	1NckLXfkc94Y85kIXtLJCqRtHhsUl/wdwoUb72OjIw9wFHAYcoU3BGgw9mRPDwYeDIRm/94Q85+aR
+	QEzd2TIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFx1x-00000003rIA-1mXm;
-	Fri, 16 May 2025 15:31:25 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uFx3y-00000003rkw-1AyX;
+	Fri, 16 May 2025 15:33:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFwh2-00000003nLk-3vD8
+	id 1uFvvj-00000003eYa-30gp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 15:09:50 +0000
-Date: Fri, 16 May 2025 17:09:28 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1747408186;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/HywNmkLx1a2fIwQ1MKGECZwlag+2mOKKM/v1tKzG9U=;
-	b=DpATQzQpiMsmPc2dhSdfVki2qv6V1T1FPApCFSccA9IexCrgo2HB6JnP6pUYc3iw5MyxLZ
-	xKzvlkMvWYlaH45FAVBUTVvTU5haDKGLfNd08lgD7hrcGUzND18JozDr6Y2WjzFOaPoMKc
-	VOovosrPDxZAMpEy/HQkzkoR/pitXOdNXw/dIlChjfxH6jWf+hS1b/FhIMaQdp6SyAtA2r
-	UAlU1AGVoybWkKhjEEFINDuk7bnnuwKebThPxam1EjJkX0r5jfWQ3X3FOjRoHSjVueroZ8
-	QnGxdWjnpNnTEKgSmOr9k5GVS0zYLZEcdI/XysSksx/SrmEI1LFY3Yu1xaHTbg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1747408186;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/HywNmkLx1a2fIwQ1MKGECZwlag+2mOKKM/v1tKzG9U=;
-	b=wR/KQUOJAaOhA0xA2yD2/13hVP4puE4PEPSgv/ajVZtt+MDrPHQjqUr8yfTUyxJ89ar4PI
-	XIK0P0YYX/bvWDCQ==
-From: Nam Cao <namcao@linutronix.de>
-To: Will Deacon <will@kernel.org>
-Cc: Steven Rostedt <rostedt@goodmis.org>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	john.ogness@linutronix.de,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 17/22] arm64: mm: Add page fault trace points
-Message-ID: <20250516150928.4Y7is6pg@linutronix.de>
-References: <cover.1745999587.git.namcao@linutronix.de>
- <554038c996662282df8a9d0482ef06f8d44fccc5.1745999587.git.namcao@linutronix.de>
- <20250516140449.GB13612@willie-the-truck>
+	Fri, 16 May 2025 14:20:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E60F14A71C;
+	Fri, 16 May 2025 14:20:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D105C4CEE4;
+	Fri, 16 May 2025 14:20:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747405254;
+	bh=R7IzZ+E4n4fy5bHk20LY8LFQxi9liKPZf9W5SmiiXgY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=N1d2aH/ZymXUKtVmEKSo0wq/ORTu4b3Z+Dhp1bhYh+zsh1gNxbCqUBz9vnksrDNSn
+	 zD5Q/KVGDOZYelp1UYVIMEgWEU1t4uWjLP7H8nat1u/1BGELXdI7e736GPSoxs3ZXC
+	 0uvGxNPm+rvEUn0vyWZZGECywZZGM7SwMMphzzAwsr3G/6rKgD45IdUL/OF5hWKyHW
+	 6tfhHt6/M4vGnZ2mAEZFT7a1+tTUy3gIBpNk2BO39VqaBnNeekm+DUIGR3xlPtQo+w
+	 mstQydv5a9GdB1QRZy4zC+DyIXJ4ZX8NVQf0a0FXkmNZ0NjQont4rBPFERjX0oxxAe
+	 Ta6IkMlTRbaSw==
+Date: Fri, 16 May 2025 15:20:49 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Chris Brandt <chris.brandt@renesas.com>,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: Re: [PATCH v4 1/2] dt-bindings: timer: renesas,ostm: Document RZ/V2N
+ (R9A09G056) support
+Message-ID: <20250516-unpaid-reexamine-922bbecd4cbb@spud>
+References: <20250515182207.329176-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20250515182207.329176-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="88xPX6GY1mTCQwI+"
 Content-Disposition: inline
-In-Reply-To: <20250516140449.GB13612@willie-the-truck>
+In-Reply-To: <20250515182207.329176-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_080949_125343_6FAB6E5E 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20250516_072055_796676_E274C0BA 
+X-CRM114-Status: GOOD (  21.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,48 +87,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 16, 2025 at 03:04:50PM +0100, Will Deacon wrote:
-> On Wed, Apr 30, 2025 at 01:02:32PM +0200, Nam Cao wrote:
-> > Add page fault trace points, which are useful to implement RV monitor which
-> > watches page faults.
-> > 
-> > Signed-off-by: Nam Cao <namcao@linutronix.de>
-> > ---
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: linux-arm-kernel@lists.infradead.org
-> > ---
-> >  arch/arm64/mm/fault.c | 8 ++++++++
-> >  1 file changed, 8 insertions(+)
-> > 
-> > diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> > index ef63651099a9..e3f096b0dffd 100644
-> > --- a/arch/arm64/mm/fault.c
-> > +++ b/arch/arm64/mm/fault.c
-> > @@ -44,6 +44,9 @@
-> >  #include <asm/tlbflush.h>
-> >  #include <asm/traps.h>
-> >  
-> > +#define CREATE_TRACE_POINTS
-> > +#include <trace/events/exceptions.h>
-> > +
-> >  struct fault_info {
-> >  	int	(*fn)(unsigned long far, unsigned long esr,
-> >  		      struct pt_regs *regs);
-> > @@ -559,6 +562,11 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
-> >  	if (kprobe_page_fault(regs, esr))
-> >  		return 0;
-> >  
-> > +	if (user_mode(regs))
-> > +		trace_page_fault_user(addr, regs, esr);
-> > +	else
-> > +		trace_page_fault_kernel(addr, regs, esr);
-> 
-> Why is this after kprobe_page_fault()?
 
-This is me being incompetent, sorry about that. It is more logical to put
-them at the beginning.
+--88xPX6GY1mTCQwI+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Best regards,
-Nam
+On Thu, May 15, 2025 at 07:22:06PM +0100, Prabhakar wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>=20
+> Document support for the Renesas OS Timer (OSTM) found on the Renesas
+> RZ/V2N (R9A09G056) SoC. The OSTM IP on RZ/V2N is identical to that on
+> other RZ families, so no driver changes are required as `renesas,ostm`
+> will be used as fallback compatible.
+>=20
+> Also update the bindings to require the "resets" property for RZ/V2N
+> by inverting the logic: all SoCs except RZ/A1 and RZ/A2 now require
+> the "resets" property.
+>=20
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+> v3->v4:
+> - No changes in this version.
+>=20
+> v2->v3:
+> - Added Acked-by tag from Conor.
+
+But v3 -> v4 doesn't mention why it was dropped?
+
+>=20
+> v1->v2:
+> - Inveted the logic in the dt-bindings to require the "resets" property
+> - Updated commit message
+> - Added a Reviewed-by tag from Geert.
+> ---
+>  .../devicetree/bindings/timer/renesas,ostm.yaml      | 12 ++++++------
+>  1 file changed, 6 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/timer/renesas,ostm.yaml b/=
+Documentation/devicetree/bindings/timer/renesas,ostm.yaml
+> index 9ba858f094ab..0983c1efec80 100644
+> --- a/Documentation/devicetree/bindings/timer/renesas,ostm.yaml
+> +++ b/Documentation/devicetree/bindings/timer/renesas,ostm.yaml
+> @@ -26,6 +26,7 @@ properties:
+>            - renesas,r9a07g043-ostm # RZ/G2UL and RZ/Five
+>            - renesas,r9a07g044-ostm # RZ/G2{L,LC}
+>            - renesas,r9a07g054-ostm # RZ/V2L
+> +          - renesas,r9a09g056-ostm # RZ/V2N
+>            - renesas,r9a09g057-ostm # RZ/V2H(P)
+>        - const: renesas,ostm        # Generic
+> =20
+> @@ -54,12 +55,11 @@ required:
+>  if:
+>    properties:
+>      compatible:
+> -      contains:
+> -        enum:
+> -          - renesas,r9a07g043-ostm
+> -          - renesas,r9a07g044-ostm
+> -          - renesas,r9a07g054-ostm
+> -          - renesas,r9a09g057-ostm
+> +      not:
+> +        contains:
+> +          enum:
+> +            - renesas,r7s72100-ostm
+> +            - renesas,r7s9210-ostm
+>  then:
+>    required:
+>      - resets
+> --=20
+> 2.49.0
+>=20
+
+--88xPX6GY1mTCQwI+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaCdJwQAKCRB4tDGHoIJi
+0mvIAQDauy3Hd/nBGPUcMQK3MebaA9RozB2H7bmL2zx8VKNLSAEAgRw7hsp/2Rjh
+5C8Wbm9MLFseOKB6HArt1synqePz2wA=
+=uGiL
+-----END PGP SIGNATURE-----
+
+--88xPX6GY1mTCQwI+--
 
