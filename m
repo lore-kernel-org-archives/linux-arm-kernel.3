@@ -4,77 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B4DC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 07:06:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C37A1C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 07:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yGTBJSMqk9HRB+Yf6qBFrPnv8KFjcvEAodpnrFhjLo8=; b=0DsSrhykjyTAR5qS3cazlEIkoa
-	YX7BecFAXk0xbJsA6RGQ9Gw2vZXgH6AUvoU73j44p2xgNJmkj0XtJ/L6aFuRmMoiuboyZ7UKOr+Hn
-	GYMePPeLwHCknv600axY6qKp4LVGDwyi0WUe25l+3vVMHFtRDguAV8lgBmtvdU8jT/JdKUDabB8Br
-	Ws10HVZqJ2n3/hLxz5bAbD4fGPrMthObo7T2i5K9OMpDHb7ndc0YL//yZgebXDFOHodU/pHJxhzJb
-	mI12QSFvO6Op0RylsjhxJaWuhQnzE21lpMytuLnDHuR57DDD9soaA+FBreYQotfb3ZrAJojkRiD6s
-	X+BO/MHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0bZtQnrAbigRgok22yw4g3798mI7fLMxITNSqQuTVaw=; b=TvoRvWIdCZdCJ3OrjhVD4JvdeW
+	+1Bug0OsOFtKmp7ksamBVqBfLisyuPdMPoM8zf2xFSR8E3m1LB58sX6ys8P9stXC0bJkgxIgY2Zni
+	vEk+6mqc9g4uNUQ6FDbszlB4nr4B9GjH6n7ovtDby91iL2nMv6lrQ6XOAskUwbJlwNEwUHowacu+q
+	9NGlRRBc5lCA0+VElwv/yhkUmNYmeeFV6KMMybKBckEFiFVZ/7cHcUw+0I3kTANjlFzZWeqSTLiYI
+	Gopk1UodWGBGuyCVR4FyWoiK6DuesNfcqwrZBcZNceSXlLb9eK8Y6BXuT31VxhGCmGL4VcAX1PGuN
+	riSBfTGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFp90-00000002dRI-0xwa;
-	Fri, 16 May 2025 07:06:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uFpPU-00000002eY0-18tO;
+	Fri, 16 May 2025 07:23:12 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFp6r-00000002dGD-2HN8
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 07:03:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8981A5C3D04;
-	Fri, 16 May 2025 07:01:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78D05C4CEE4;
-	Fri, 16 May 2025 07:03:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747379036;
-	bh=BSOuz0Sa7NnM27jLiJyPK8CIt/5UN80833LDwnsMzN8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=N+Dv1/8Q1cgZN/Y++AHMGsWADynJKYdRP8jW01IKZ6dz3QrY9iC6aNokjBOa8iC6l
-	 /04aAzMecEWdquyQtHN8u2sL6c6nEE+NW+lvWw+os9sPeu2YBFPG19TeXY0DXq3zYf
-	 tPybNfh1OU/VNQMN8WNoDRWuSxcILXxK1LZ7NfByw2LLLvtwe/GQBLNSsN0QVF8a2h
-	 oG6XQahOhUEGS56gl8iI6NLCSo6pRFMklCccjeFVnH0erxDkunfbf2z53rJkMT/y+u
-	 O7mL0V1vgYPqDw1Wzz3O+nFAARBvnhMpWqHR7DHpXhFaFln8VjPrH2F4n8Oz8tsSAU
-	 U5LT5sy3KXyEA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uFp6o-00FTKu-4X;
-	Fri, 16 May 2025 08:03:54 +0100
-Date: Fri, 16 May 2025 08:03:53 +0100
-Message-ID: <86h61lf352.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: adrianhoyin.ng@altera.com
-Cc: dinguyen@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	tglx@linutronix.de,
+	id 1uFpNM-00000002eOr-0I1v;
+	Fri, 16 May 2025 07:21:01 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-22e033a3a07so18705765ad.0;
+        Fri, 16 May 2025 00:20:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747380059; x=1747984859; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0bZtQnrAbigRgok22yw4g3798mI7fLMxITNSqQuTVaw=;
+        b=DWXS+8fkSh8H4l2Ul4KcvrfxaRPynwBc+8N31l9iogoVY0ZVCEWmtjGSDcP7IsXe1F
+         YHQ0ujC7324IdZTw2pjJgmbumTuIlMDQF6p4AcfDnPSoXMdLHfGI5Dbodntn1W+jl+MH
+         Whxq5H5NzRG0OxXEltuslaBpvftMSmc1T8Hra1zgIzKa5j0X/40LbOFD5f6l9bG/8q2P
+         fziDXMdcKXxNuG4wY7JNMqRvtnNI5gnTGt+S7PcAUt5Tfh6PEmW4aOoMHu4irKZolVcz
+         OFIKaFhR/tn+5U+xCgjTHPY6lKkRZuytx1lneUvyKTmQG1YSczcvkUsMsYVsomfklnC8
+         9zzg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747380059; x=1747984859;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0bZtQnrAbigRgok22yw4g3798mI7fLMxITNSqQuTVaw=;
+        b=WnRKxS0/zB6JbwCR5UAQ3+f9NGFJNzqptKAYhpJEA+RMU4FSNNZ7EDkv7FJuiM9ull
+         NVdU2bgoZngnZXvqIKPmGknKCHBXDJnhZAmzeKfju6JcM4k92HTwbRRguMEpWymtf8mm
+         FeNr4mp7Mn+Zxa07yE89qIE6fbRt9IkHSdNeqspB9rCU/14ujZacJrRs1WIAL63wC/eN
+         jP3DkSYjSbxaj3yVerHsNVAPXsEa3x3L5wKfYsEloDYM3lpPgMhgELAxJ8BsVVontPXE
+         pkI5AvNnh6YmqpYcsfGfxX6lliWcu6EpXcXbo1zYD1CxQqW7qOkTtS1EaPMHYH5L3Va2
+         a+/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWyqSDiAhR4Avj1e3eWdKGAeKWpfSpZ+quZK9time+mMRMhAACEbktc/ZQJppMnG0zrS64UtIhbITpBMZnfbrer@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRJ0orQCRVMW9PtMb84ZupdwfUm/ANV52TL2Rog20XlE1u/t1G
+	BpK/jC9B2VbnGYXq4vysNSLDE9LSsesDmCgTNNzmJ/IXuB5msZEO46ESikI26MvB
+X-Gm-Gg: ASbGncumjc7PlT3B8LsmP0I74XMNV4dpAewYDe7xeQM2RuUa76XZXiqEOh33b/97fdJ
+	w7/mjp20b7nKpCyh/qyZxAwN63e7a2b5zrFXmjW+srGaARjvprlavQOxoyxLvf6DfQdPOySDcpX
+	pDtkjtgQlCA/mbPG1oBsMrhptbAKWsQ2alSSWpan07x6ZrW5xqPkqb8SVidgOvYwBJG2DXZ9Oz1
+	GudYsB4H4n2OY1k7A/a9hqskHniRJ0soJI/192vJ1pBAoeUAzQ8afmvpQDNzSWjgEj+Hb/+nDAb
+	BUyuq/DcKZUXpBZWXtvtSLNN/5khOR1DPBJOTfyv3uvBVpkbtEnbbt5QfZjRVhcLG7nWLT5wFAa
+	vSWPkJhSemj1FAFaWlRlX
+X-Google-Smtp-Source: AGHT+IEHgegbY/RBwhcOsjlIgozbZNU96udSDFfRZZ7XnQaa466la0CQFAVhXq7j400HqayyRJK7Ag==
+X-Received: by 2002:a17:902:e80c:b0:231:ba23:c7e5 with SMTP id d9443c01a7336-231d43d9be2mr23575485ad.6.1747380058519;
+        Fri, 16 May 2025 00:20:58 -0700 (PDT)
+Received: from fletcher-beelink.. (syn-172-090-047-185.res.spectrum.com. [172.90.47.185])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-231d4ebad0bsm8498385ad.196.2025.05.16.00.20.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 May 2025 00:20:58 -0700 (PDT)
+From: fdostie@gmail.com
+To: linux-rockchip@lists.infradead.org
+Cc: linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/3] Add quirk to support address bus size limitation
-In-Reply-To: <cover.1747368554.git.adrianhoyin.ng@altera.com>
-References: <cover.1747368554.git.adrianhoyin.ng@altera.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: adrianhoyin.ng@altera.com, dinguyen@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fletcher Dostie <fdostie@gmail.com>
+Subject: [PATCH] clk: rockchip: rk3288: Enable clock rate propagation for I2S0 output clock
+Date: Fri, 16 May 2025 00:19:58 -0700
+Message-ID: <20250516071958.837174-1-fdostie@gmail.com>
+X-Mailer: git-send-email 2.48.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_000357_628443_FB3383CE 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20250516_002100_108008_9C738550 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,25 +95,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 16 May 2025 05:13:31 +0100,
-adrianhoyin.ng@altera.com wrote:
-> 
-> From: Adrian Ng Ho Yin <adrianhoyin.ng@altera.com>
-> 
-> This patch set adds support for the address bus size limitation by
-> allocating buffers with in a 32 bit address range.
-> 
-> -Add device tree binding to enable a quirk to support a limited address
-> bus size.
-> -Update ITS node for Agilex5 with dma_32bit_quirk.
-> -Add implementation to configure gfp flags to allocate buffers within
-> 32 bit addressable range when quirk is set.
+From: Fletcher Dostie <fdostie@gmail.com>
 
-No. Please join the pack of other totally broken integrations and
-reuse the *existing* infrastructure. You'll be in good company.
+The I2S0 output clock (SCLK_I2S0_OUT) on rk3288 SoCs was missing the
+CLK_SET_RATE_PARENT flag, which prevented the clock framework from
+properly propagating rate changes to its parent. This caused the I2S0
+output clock to not function.
 
-	M.
+Add the CLK_SET_RATE_PARENT flag to ensure that when the
+I2S0 output clock rate is set, the change is correctly propagated to
+its parent clock, fixing the I2S output clock.
 
+Signed-off-by: Fletcher Dostie <fdostie@gmail.com>
+---
+ drivers/clk/rockchip/clk-rk3288.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/clk/rockchip/clk-rk3288.c b/drivers/clk/rockchip/clk-rk3288.c
+index 90d329216064..0f24060761ac 100644
+--- a/drivers/clk/rockchip/clk-rk3288.c
++++ b/drivers/clk/rockchip/clk-rk3288.c
+@@ -364,7 +364,7 @@ static struct rockchip_clk_branch rk3288_clk_branches[] __initdata = {
+ 			RK3288_CLKSEL_CON(8), 0,
+ 			RK3288_CLKGATE_CON(4), 2, GFLAGS,
+ 			&rk3288_i2s_fracmux),
+-	COMPOSITE_NODIV(SCLK_I2S0_OUT, "i2s0_clkout", mux_i2s_clkout_p, 0,
++	COMPOSITE_NODIV(SCLK_I2S0_OUT, "i2s0_clkout", mux_i2s_clkout_p, CLK_SET_RATE_PARENT,
+ 			RK3288_CLKSEL_CON(4), 12, 1, MFLAGS,
+ 			RK3288_CLKGATE_CON(4), 0, GFLAGS),
+ 	GATE(SCLK_I2S0, "sclk_i2s0", "i2s_pre", CLK_SET_RATE_PARENT,
 -- 
-Without deviation from the norm, progress is not possible.
+2.48.1
+
 
