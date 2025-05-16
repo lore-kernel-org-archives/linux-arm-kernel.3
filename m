@@ -4,57 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 269D3C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 12:57:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF934C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 13:00:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pefFKTdVb5bco4qK5SLeHfu/r/cmO59HS8qKT1Mt//E=; b=1b8WDkZd8nY3DaycGhotchPBDb
-	zmhaUQ1AWJefkbj04Omp08AIOhnU6Sn7SUri9jHh4Jd62UkCo+/kf7AdoaPA/9n6/pbQA/D7BrqBe
-	cAVOGs3AD/QYK5/AqFRyFEfcuUw7jU6JfNgnJp939zau9ny1DS1SB9rZkBxHkHnkI1KZCIGGoDDYf
-	d6QCcAW46tGDtkMU4k5LP+QpfNg/Eu3nsYmz9MJapgcbQ2WwgLhiPd6AMRjl+f5Xz0FkgEm5RJaST
-	l5pBDviRcNDR16xZgbUn0Q/3L71xtdoXE99fE88mKpHXzLhuN1d7titU2v3guWjOXBE+3WvcYsVqw
-	DZ4Lq3+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WrZr+9kvdLhQCEHYgExLyOxJH0JqtQdJZj1do8Bl26o=; b=z66gHUy2W2SKZLztj70ElQYv8/
+	ARstmsRZdW2/tuIyMkBF2MoQUqYytToj5RW/v058gHUM3E7WdzfdTFkoIO/H4i30lH1fA7AkmZ8Bl
+	IP46aNIAuW8hXtr6Zi0WcSE2E6dBkbKNxEpdYP9/r2WYfYIJV+WHYYlaqw2YcgfOuBpsajeMJ9Io8
+	vigC0KZva8gJS1O6PAYRSkYvTYdXvA58IeH7b4g7nKMYZNdNYpgqP7J3YmULaXWCyv9aMMF4uBInX
+	+JH5jqI/Xsdooseh08ZjLr+uHCGvqzGcyLeJtuQb+JXslvxt0zMHSizmd6Mn5FMFOpjvT3RKa14dc
+	kM+ybBHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFucv-00000003Rvx-2Len;
-	Fri, 16 May 2025 12:57:25 +0000
-Received: from baptiste.telenet-ops.be ([2a02:1800:120:4::f00:13])
+	id 1uFufT-00000003SKm-1dL6;
+	Fri, 16 May 2025 13:00:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFuat-00000003RmK-0KIQ
+	id 1uFudQ-00000003S1c-01DC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 12:55:21 +0000
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:b0d6:ccd4:58dc:70fd])
-	by baptiste.telenet-ops.be with cmsmtp
-	id pov82E00M3S8nz401ov8UX; Fri, 16 May 2025 14:55:09 +0200
-Received: from rox.of.borg ([192.168.97.57])
-	by ramsan.of.borg with esmtp (Exim 4.97)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1uFuaX-000000020ZE-1lBj;
-	Fri, 16 May 2025 14:55:08 +0200
-Received: from geert by rox.of.borg with local (Exim 4.97)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1uFuai-000000013QW-3I6B;
-	Fri, 16 May 2025 14:55:08 +0200
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: soc@lists.linux.dev,
-	soc <soc@kernel.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>,
+	Fri, 16 May 2025 12:57:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 304BD629F9;
+	Fri, 16 May 2025 12:57:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2798C4CEE4;
+	Fri, 16 May 2025 12:57:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747400274;
+	bh=YZxxILgmfc1qF1rrNWG6/WtUXq2234pqpZt+RioE+Oc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=c3wJ9KUewGkliyK1GQc3uMF2StFwkDkd44yXnLyqtpOXcMZY+iFDdhz1CMgJvR1JS
+	 QnxWz3HQ7VsoXpbIiUeguYfzo+JHtEjj1Sp3o7PjYG4oOGzi2thZ8XU1Sg2c9wX10g
+	 pzPgsVc5yKRXhPo0LRSO+smBm9BVkKmLcZWORBURWZO4i7gHN+Nd05jXe8PbfFPdrL
+	 IB5xV8xKWoJ5Dl6qdc69cCSvEBJK6we9xOT2fCMDD+AP/O6gT7aBINVnCXv80Jl3RU
+	 E4BSWm+viNGiy5iex/O5cn6lomBwWInw/9XIA9yJe03a3bTxekkYEPg1LjmXgzJ2IO
+	 FukrHGfuxqiVw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uFudM-00FYgz-LR;
+	Fri, 16 May 2025 13:57:52 +0100
+Date: Fri, 16 May 2025 13:57:52 +0100
+Message-ID: <86a57cg1bj.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	qperret@google.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [GIT PULL] Renesas DTS updates for v6.16 (take three)
-Date: Fri, 16 May 2025 14:55:07 +0200
-Message-ID: <cover.1747399860.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_055519_254465_9D1F44B1 
-X-CRM114-Status: GOOD (  16.37  )
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kernel-team@android.com
+Subject: Re: [PATCH v4 02/10] KVM: arm64: Introduce for_each_hyp_page
+In-Reply-To: <20250509131706.2336138-3-vdonnefort@google.com>
+References: <20250509131706.2336138-1-vdonnefort@google.com>
+	<20250509131706.2336138-3-vdonnefort@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-team@android.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,50 +90,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-	Hi SoC folks,
+On Fri, 09 May 2025 14:16:58 +0100,
+Vincent Donnefort <vdonnefort@google.com> wrote:
+> 
+> Add a helper to iterate over the hypervisor vmemmap. This will be
+> particularly handy with the introduction of huge mapping support
+> for the np-guest stage-2.
+> 
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> 
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+> index eb0c2ebd1743..676a0a13c741 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+> @@ -96,24 +96,24 @@ static inline struct hyp_page *hyp_phys_to_page(phys_addr_t phys)
+>  #define hyp_page_to_virt(page)	__hyp_va(hyp_page_to_phys(page))
+>  #define hyp_page_to_pool(page)	(((struct hyp_page *)page)->pool)
+>  
+> -static inline enum pkvm_page_state get_host_state(phys_addr_t phys)
+> +static inline enum pkvm_page_state get_host_state(struct hyp_page *p)
+>  {
+> -	return (enum pkvm_page_state)hyp_phys_to_page(phys)->__host_state;
+> +	return (enum pkvm_page_state)p->__host_state;
 
-This is my third pull request for the inclusion of Renesas SoC updates
-for v6.16, containing only fixes.
+I'm not quite sure why we have this cast the first place. If we are so
+keen on type consistency, why isn't __host_state an enum pkvm_page_state
+the first place?
 
-The following changes since commit b280613d480aa170e51029d5582bb4b666982b7c:
+>  }
+>  
+> -static inline void set_host_state(phys_addr_t phys, enum pkvm_page_state state)
+> +static inline void set_host_state(struct hyp_page *p, enum pkvm_page_state state)
+>  {
+> -	hyp_phys_to_page(phys)->__host_state = state;
+> +	p->__host_state = state;
+>  }
+>  
+> -static inline enum pkvm_page_state get_hyp_state(phys_addr_t phys)
+> +static inline enum pkvm_page_state get_hyp_state(struct hyp_page *p)
+>  {
+> -	return hyp_phys_to_page(phys)->__hyp_state_comp ^ PKVM_PAGE_STATE_MASK;
+> +	return p->__hyp_state_comp ^ PKVM_PAGE_STATE_MASK;
 
-  ARM: dts: renesas: r9a06g032-rzn1d400-eb: Enable USB host port (2025-05-08 20:23:33 +0200)
+And we don't seem that bothered here.
 
-are available in the Git repository at:
+>  }
+>  
+> -static inline void set_hyp_state(phys_addr_t phys, enum pkvm_page_state state)
+> +static inline void set_hyp_state(struct hyp_page *p, enum pkvm_page_state state)
+>  {
+> -	hyp_phys_to_page(phys)->__hyp_state_comp = state ^ PKVM_PAGE_STATE_MASK;
+> +	p->__hyp_state_comp = state ^ PKVM_PAGE_STATE_MASK;
+>  }
+>  
+>  /*
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 23544928a637..4d269210dae0 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -60,6 +60,9 @@ static void hyp_unlock_component(void)
+>  	hyp_spin_unlock(&pkvm_pgd_lock);
+>  }
+>  
+> +#define for_each_hyp_page(start, size, page)   \
+> +	for (page = hyp_phys_to_page(start); page < hyp_phys_to_page((start) + (size)); page++)
+> +
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-dts-for-v6.16-tag3
+Huh. This really should be something like:
 
-for you to fetch changes up to 1064013303c6dd59f1586656f853765c6e870f8b:
+#define for_each_hyp_page(__p, __st, __sz)   			\
+	for (struct hyp_page *__p = hyp_phys_to_page(__st),	\
+	     *__e = __p + ((__sz) >> PAGE_SHIFT);		\
+	     __p < __e; __p++)
 
-  riscv: dts: renesas: Add specific RZ/Five cache compatible (2025-05-14 13:30:06 +0200)
+so that:
 
-----------------------------------------------------------------
-Renesas DTS updates for v6.16 (take three)
+- the iterator variable comes first and looks like a normal for-loop
+- the iterator has a scope limited to the loop
+- we don't evaluate parameters multiple times
+- we don't evaluate the end of the loop multiple times
+- we try not to reuse common variable names
 
-  - Silence a DTC warning,
-  - Add an extra compatible value to avoid future issues.
+>  static void *host_s2_zalloc_pages_exact(size_t size)
+>  {
+>  	void *addr = hyp_alloc_pages(&host_s2_pool, get_order(size));
+> @@ -481,7 +484,8 @@ static int host_stage2_adjust_range(u64 addr, struct kvm_mem_range *range)
+>  		return -EAGAIN;
+>  
+>  	if (pte) {
+> -		WARN_ON(addr_is_memory(addr) && get_host_state(addr) != PKVM_NOPAGE);
+> +		WARN_ON(addr_is_memory(addr) &&
+> +			get_host_state(hyp_phys_to_page(addr)) != PKVM_NOPAGE);
+>  		return -EPERM;
+>  	}
+>  
+> @@ -507,10 +511,10 @@ int host_stage2_idmap_locked(phys_addr_t addr, u64 size,
+>  
+>  static void __host_update_page_state(phys_addr_t addr, u64 size, enum pkvm_page_state state)
+>  {
+> -	phys_addr_t end = addr + size;
+> +	struct hyp_page *page;
 
-Thanks for pulling!
+and then these extra declarations can go.
 
-----------------------------------------------------------------
-Conor Dooley (1):
-      riscv: dts: renesas: Add specific RZ/Five cache compatible
+Thanks,
 
-Geert Uytterhoeven (1):
-      arm64: dts: renesas: sparrow-hawk: Disable dtc spi_bus_bridge check
+	M.
 
- arch/arm64/boot/dts/renesas/Makefile        | 1 +
- arch/riscv/boot/dts/renesas/r9a07g043f.dtsi | 3 ++-
- 2 files changed, 3 insertions(+), 1 deletion(-)
-
-Gr{oetje,eeting}s,
-
-						Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-							    -- Linus Torvalds
+-- 
+Without deviation from the norm, progress is not possible.
 
