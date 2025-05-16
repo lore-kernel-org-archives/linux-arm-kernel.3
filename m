@@ -4,77 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F3F9C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 12:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 856C8C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 12:54:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=It4olg+vj/PaVXUOML7Uwtxb8afmv0kwgYzH/XkHr3k=; b=ggE2e95V7XVU8jcKBUz0gAFtF4
-	hKxriDMwM9v7OZhvPuMGA5OBvROEeFoXiYGY6Qr0zwJNesw2Yshsru3CdOHfww6PuWDe6jeiMwIH9
-	l0JlJjQRqThqTV78+bFp8PHvFrk2xj3iW10g83FMbtwSh9wK3eunRppSFjjVUMnVCAvRhFsPd/91B
-	nBIFHiY+g5Fum3WhyTH/vUMmBL5vCvOs9dITLx82bh2NoDWIllPXPI1yiVcl9RVrN9kXCSETusJpS
-	PGbbAw0HtfC9o80ML+2WjtANcHiCNgN4PNH6rF6P7IrwMQiO+cioN+AGTSlmFvTyUdbjYJybn0t65
-	ju6boiEQ==;
+	bh=SkhtV/yR70PbpptRrqkkbeTOl+tTltOONXJo2gqzfWw=; b=Sd1RBWWUd4TKyW5Yeckj6jbhlW
+	g9nsftmzsyk6wRPPs4an4G2/GH62wv/cGhgwiTNyqWGVXqp7hx4oDc0ioeM1ispuCboT2nY3zbIty
+	khtK5qeyGoXJF5wCyw2f/ml9461WZpM9Vb93Li0V2MnS2oZTvhmm6fkSw4H+4EIuzpbsZ6p7zoUhj
+	yU2ftRY1pHab7GdtDlJFtn1BsQqUQ3DpLgDcQhRaqd5ko1D1KO0rnfQIzHqrnmPyD2Fil/9BWKJvZ
+	kBZ7+MEyr32ZnQY9yZKMjwqNXNFI1HBV15hHG7l0RXdqL3n+K0go/lcgZRSTcglT5z1UXdY46YmjC
+	uIfuKqHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFuV7-00000003QwG-3VF4;
-	Fri, 16 May 2025 12:49:21 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1uFuZl-00000003RdW-0jng;
+	Fri, 16 May 2025 12:54:09 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFuT3-00000003QcC-0hRN
+	id 1uFuXi-00000003RIV-2bSA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 12:47:15 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-442eb5d143eso19394285e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 05:47:12 -0700 (PDT)
+	Fri, 16 May 2025 12:52:04 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-442ec3ce724so16541185e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 05:52:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1747399631; x=1748004431; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=It4olg+vj/PaVXUOML7Uwtxb8afmv0kwgYzH/XkHr3k=;
-        b=MNE78l+DPH3RDdL7dx9/PdzqMTCTDKU1jDrNhB8EYUL8kNZdLHkFm/LBcwioIVKFdu
-         k8ysof5mI4GIHyCOVvxktYGQbWdr5YAr9svSsfNK8Xny9slNYFRxKHLsPZ2J2ibtbQ0Q
-         NmvlQlcjq+M6oJGDciA3n0KMhOuBp72HK0uG1oHmX/TwEHNttc1cZfWvBrkpSpQqzrO+
-         Lk7EqK5XTXmP4fZljLtMBe338hBxbA7csxgYuXA0Yc2fd27W1Uw2ERC3zIdm07zFknsA
-         dNCRF4IsTAa9bu86M8Wv24zgxfSrCl4I/5bS0JKcGuvWEkQ104k5pU3QJAT2953fFuIq
-         31eA==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1747399921; x=1748004721; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=SkhtV/yR70PbpptRrqkkbeTOl+tTltOONXJo2gqzfWw=;
+        b=DkQNKtmwzmkVuVaUjXMAgboN2MaimSFyu7CMcf/wIAg8wzW7mQB21ofl2WyNXDTO88
+         sSA5XBsJia1icMD1MIFu62ipnpugcf1loSl6r02P7CzBWTdoxEovOlgm1MB9V2G25342
+         O4Pl2/H2u19sda0IrKYj5sw06+32Smf2JuP/wb/7ZpkHLIVe9ozI8So0ry7utq1iDL6a
+         HfUMVN+ZBoMo78y4/Z/CR3fnYheH/lOxPdBmbB8M1TT6Vndh/S9F9erljSu2Brsea+eH
+         3nG1X2fvkZWlljXAdgrzUWTMdrE/rs3JyTg/UOhk/fz3KLzCBcPgbY/ZWUnAZ8Ur7Lwm
+         fLeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747399631; x=1748004431;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1747399921; x=1748004721;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=It4olg+vj/PaVXUOML7Uwtxb8afmv0kwgYzH/XkHr3k=;
-        b=b4//HIfz1ssnHBozdhpZDMy+HkMUkHVr5mWKlSxPCJ+m0UogGqC96W2FLyNuL0eTf0
-         XGUqha+EdSdXM2vOn0S70JCMydShSooeSkiKZgMFIMxat4O+xUPrTZ76/V8nAcqeSkwZ
-         VrrsPsTtrGtd8KhdXMiBhKaCVRegyOSB1vBHgMuHrB65fHjDfYWHxGBWtBEfl0ea/R6O
-         R59LcObl3hwyI2WHHzap4J8RKDU6YJu9k6/X8o83xGs00YvRbnXMFZUPne+Dop1+ng8M
-         sJZWHML6m4xBYApr+c2PSXThzANUG1qWoFBwTxgQqQq7qywNHvx/c/Sj5VYBo3nvHvha
-         7mXA==
-X-Gm-Message-State: AOJu0YyQm6gqdsJfFxFhVhoBzeNq200kYmHxR7K8tr+Gcs+mIQkzLyge
-	FWo2edELHQE+gApJ8dLhs5sGOFmzYBnVjvb1B3EoTssRcL314B3lJFFGnlMZyDQ7mdg=
-X-Gm-Gg: ASbGnctRFGZThJwHxkwWLu3WVEF1NlMiNeg73RcqhPMwWKwqoJBmg93IA2rAf9tN+9/
-	qgRju0ifzfsvlGDm0iNCtTCZBYf1MCXXXKjj+DcsThXj7RG/MSUt7w2fbwqW0B2RWTkYAnjZdlQ
-	zejBdOKHz5W6GfMwpRD8076sOWVSEcR9+jNki2dCBGEunaUGHcVi05JwJoEMOQCgnNwg5xybTc2
-	sCoELYjHOIw+3xX61uJJHEdo+OR2Fd2AbaNf2bScTqP5vHKaCLUr/O1HfIFSeH/+yh7ChGW9dOp
-	bqbtBl8jANv8BgHfl8GJf8lnRX8jxofE+dUu/6imjtDw3J1JIhKxtfNppaHMGyabkxzMN4E1qj2
-	JSTXvJ+aUnCb/jW8=
-X-Google-Smtp-Source: AGHT+IH5gScMrCCTGF//8JROzSasDHWVQYCYlgMKE4a0wf2w3fuKAyBSQp+DJif8kHEnseMXKCoH5g==
-X-Received: by 2002:a05:6000:144c:b0:3a3:62c6:d2cd with SMTP id ffacd0b85a97d-3a362c6d48emr1641333f8f.14.1747399631142;
-        Fri, 16 May 2025 05:47:11 -0700 (PDT)
+        bh=SkhtV/yR70PbpptRrqkkbeTOl+tTltOONXJo2gqzfWw=;
+        b=qNAzRbqsKKQLGatFrZvZMizJGVxZwrg2ZDvQURUiieh7by9PmVvHjhY4bLQJaXjENr
+         o4qO16IfjlNL3Gm37KSuxjRLvsNpgiDuFNsXb9qAae4DPycCuYA5HwPzcpxT0PTiRKqG
+         8fJ/xKfk1i9FdMQmjqC1LgcwRL+zhQL9P12ua3JVqw9h3Uhb2/J41L2fZirTlvweCjYp
+         SUAEfBKMDHVwjlWpwebodiibFSBtzshv5BD/HpJBuRzXdjT2LlKBwedzmB0Tg3mzfH5l
+         DR1T3f2PHUfzUgunWdoqIipy8SMHBaJAb3H9tOcsmTDT0vfGkolSSlCVFSEIeAnYkZl0
+         IQnA==
+X-Gm-Message-State: AOJu0YwrPzz1vszVOy/Isuptgpvt8fVbnnWfoLG6ZDHPA+cRdWjSDAKq
+	NWTb1jx3nKM8jKkm30ixhejNkMu0asNbR0y15IEYWIFoTGGdjuRq/odiyn5jKKBjdKY=
+X-Gm-Gg: ASbGncvMfZu40/c6gkoUfrOBYoOHC/WTM0B5D5IekDy4hmqn706G9iBW7DRIn2dj893
+	GJUwlymIbdbzzCW3m3YJL6PbqxA4SwWb9z3rmwsTB07+TTCCNj4/9lVTXYtS4U3L6TYsEp6stbd
+	P0ul9AFfY+a0byrdVMHSqDahUGis8PdHzg8g47P5DAQ1Gp7AbrhGRBAgkLsJAyguaVgX4r5zQtM
+	1l9lrO0SfWZQeBYWovN3r2ZZ6tz2ztc1QMhtgp12pqYhMyJiZeIUSlODGAMhVQ+kA4kOTO+F0KI
+	IdiYnN9hK+q0SogXBUbmNl37BuoAW2zoXulbs0AYEn07udXoazhfrmr2oT3JQeFdekpnd4MsJtV
+	XdMH9yymrVsXwHq0=
+X-Google-Smtp-Source: AGHT+IGdhc6dnDwS4Qe34zF+uosmrtcYAXvlLyhDqwPhuUphw4e3Teapb5H1D+3BckztCOlzhLPH+g==
+X-Received: by 2002:a5d:5849:0:b0:3a1:f654:b84e with SMTP id ffacd0b85a97d-3a35c845c23mr3359297f8f.55.1747399921028;
+        Fri, 16 May 2025 05:52:01 -0700 (PDT)
 Received: from [192.168.5.157] (88-127-185-231.subs.proxad.net. [88.127.185.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a35ca62b5dsm2792986f8f.55.2025.05.16.05.47.10
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a35ca88985sm2819043f8f.63.2025.05.16.05.51.59
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 16 May 2025 05:47:10 -0700 (PDT)
-Message-ID: <70da4bf0-a36b-474c-8057-1ad056573e01@baylibre.com>
-Date: Fri, 16 May 2025 14:47:09 +0200
+        Fri, 16 May 2025 05:52:00 -0700 (PDT)
+Message-ID: <94982f07-504e-439a-89b4-02a73d69bf7c@baylibre.com>
+Date: Fri, 16 May 2025 14:51:59 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 1/3] arm64: defconfig: enable display support for
- mt8365-evk
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+From: Alexandre Mergnat <amergnat@baylibre.com>
+Subject: Re: [PATCH v8 2/3] drm/panel: startek-kd070fhfid015: add another init
+ step
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Neil Armstrong <neil.armstrong@linaro.org>,
  Jessica Zhang <quic_jesszhan@quicinc.com>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
@@ -82,21 +84,22 @@ To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
  Chun-Kuang Hu <chunkuang.hu@kernel.org>,
  Philipp Zabel <p.zabel@pengutronix.de>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+ Matthias Brugger <matthias.bgg@gmail.com>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org
 References: <20231023-display-support-v8-0-c2dd7b0fb2bd@baylibre.com>
- <20231023-display-support-v8-1-c2dd7b0fb2bd@baylibre.com>
+ <20231023-display-support-v8-2-c2dd7b0fb2bd@baylibre.com>
+ <d70b62f8-e24e-4a10-8c6b-18d2e19f1337@collabora.com>
+ <fb72f1f5-dc94-4e33-a20c-d46a081091bc@baylibre.com>
+ <1ed38e6b-8d43-4cbc-9c27-58ec3c0e4dbc@baylibre.com>
+ <d38921cc-a565-4a79-9ecb-bfba85c3ab25@collabora.com>
 Content-Language: en-US
-From: Alexandre Mergnat <amergnat@baylibre.com>
-In-Reply-To: <20231023-display-support-v8-1-c2dd7b0fb2bd@baylibre.com>
+In-Reply-To: <d38921cc-a565-4a79-9ecb-bfba85c3ab25@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_054713_445118_9D461174 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20250516_055202_692974_A38D889B 
+X-CRM114-Status: GOOD (  38.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,41 +114,272 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello
+Hi Angelo,
 
-On 20/03/2025 09:48, Alexandre Mergnat wrote:
-> Enable the DRM HDMI connector support and the MIPI-DSI display
-> Startek KD070FHFID015 panel to have HDMI and DSI display working
-> on the mt8365-evk board.
+On 15/04/2025 16:46, AngeloGioacchino Del Regno wrote:
+> Il 15/04/25 16:13, Alexandre Mergnat ha scritto:
+>> Hi Angelo,
+>>
+>> Gentle ping
+>>
+>> Let me shortly summarize my problem: I see the panel driver sending commands to the display before 
+>> it is ready. My approach to prevent that is to delay sending commands until bridge enable. Your 
+>> concern was that during the panel's .prepare() the panel driver should already be able to send 
+>> commands through the bridge. Can you please clarify what you think should be the approach to fix 
+>> that?
+>>
 > 
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
-> ---
->   arch/arm64/configs/defconfig | 2 ++
->   1 file changed, 2 insertions(+)
+> Please don't top post.
 > 
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index c62831e615863..1e2963a13500b 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -897,9 +897,11 @@ CONFIG_DRM_PANEL_NOVATEK_NT36672E=m
->   CONFIG_DRM_PANEL_RAYDIUM_RM67191=m
->   CONFIG_DRM_PANEL_SAMSUNG_ATNA33XC20=m
->   CONFIG_DRM_PANEL_SITRONIX_ST7703=m
-> +CONFIG_DRM_PANEL_STARTEK_KD070FHFID015=m
->   CONFIG_DRM_PANEL_TRULY_NT35597_WQXGA=m
->   CONFIG_DRM_PANEL_VISIONOX_VTDR6130=m
->   CONFIG_DRM_FSL_LDB=m
-> +CONFIG_DRM_DISPLAY_CONNECTOR=m
->   CONFIG_DRM_LONTIUM_LT8912B=m
->   CONFIG_DRM_LONTIUM_LT9611=m
->   CONFIG_DRM_LONTIUM_LT9611UXC=m
+> Anyway - sorry but I missed your reply, that wasn't intentional - thanks for the
+> ping (or I wouldn't have replied, duh!).
+> 
+> What is not ready? The Startek display or the MediaTek display controller?
 > 
 
-Gentle ping.
-Is that patch can be applied please ? The remaining patches in this serie
-do cleanup only, then shouldn't block this one.
+MediaTek display controller (DSI)
+
+> The display controller shall be able to send commands when the *panel*'s .prepare()
+> callback gets executed - if not, there's something wrong at the display controller
+> side (driver).
+> 
+
+It's explained at the end.
+
+> You're probably getting confused by the bridge en/disable callbacks, btw... please
+> check include/drm/drm_panel.h, struct drm_panel_funcs.
+> 
+
+panel_bridge_atomic_pre_enable => drm_panel_prepare => (drm_panel_funcs.prepare) stk_panel_prepare
+panel_bridge_atomic_enable => drm_panel_enable => (drm_panel_funcs.enable) stk_panel_enable
+
+The bridge en/disable callbacks call panel and DSI enable/disable callbacks, they are linked.
+
+> In short, the panel's prepare() should be used for whatever setup is required by
+> the panel to become available to *receive the video transmission* from the display
+> controller: this implies that if the panel needs DSI commands for setup, this is
+> allowed and it's a perfectly fine case.
+> 
+> So, if you are unable to "turn the panel on and wait for it to become ready" in
+> the panel's .prepare() callback, there's something wrong either in your panel
+> driver, on in the display controller (the DSI driver) instead.
+> 
+> Since this wasn't happening before your mtk_dsi cleanup, this probably means that
+> the cleanup is done wrong - and that removing the .start/.stop custom callbacks
+> from that driver needs you to do something more than just that in order to avoid
+> regressions.
+> 
+
+Here the current call order:
+[   13.715959] mtk_dsi_ddp_start ( => dsi poweron)
+[   13.716797] stk_panel_prepare ( => panel poweron + enable)
+[   13.939473] mtk_dsi_bridge_atomic_pre_enable ( => dsi poweron)
+[   13.939488] mtk_output_dsi_enable ( => dsi enable)
+
+As you can see, dsi poweron is called twice. According to your comment [1] asking me to remove
+custom init function in favor of DRM API call, I've removed "mtk_dsi_ddp_start". Since I don't
+find any API to poweron DSI before stk_panel_prepare call, it has been split to do enable
+sequence after DSI poweron+enable, because it requiere mipi dsi interface enabled to do
+panel enable.
+
+Patched solution:
+[   14.164136] stk_panel_prepare ( => panel poweron)
+[   14.213300] mtk_dsi_bridge_atomic_pre_enable ( => dsi poweron)
+[   14.213623] mtk_output_dsi_enable ( => dsi enable)
+[   14.215116] stk_panel_enable ( => panel enable)
+
+The prepare/enable order is fixed by the DRM framework [2]
+
+We still misaligned about the panel's prepare() should be, but even if I try to implement
+whatever setup is required by the panel to become available to *receive the video
+transmission* from the display controller, the DRM init order doesn't allow it.
+I can move stk_panel_prepare content into stk_panel_enable if you prefer, but it's less clean
+IMHO because I like to have a first callback for HW/power setup, and a second callback for SW
+setup, which fit with bridge callback descriptions.
+I don't see a better way to cleanup custom init, and my apologies for your time if I missed something.
+
+[1]: https://lore.kernel.org/all/c2154240-efa1-4c73-aabe-74e938a75af1@collabora.com/
+[2]: 
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/drm_bridge.c#n769
+
+> Unfortunately, I'm pretty busy these days, otherwise I would've gladly made some
+> research to try and give you some more hints.. but eh :-)
+> 
+> Cheers,
+> Angelo
+> 
+>> Regards,
+>> Alexandre
+>>
+>> On 21/03/2025 10:19, Alexandre Mergnat wrote:
+>>> Hi Angelo,
+>>> Thanks for the fast feedback :)
+>>>
+>>> On 20/03/2025 13:37, AngeloGioacchino Del Regno wrote:
+>>>> Il 20/03/25 09:48, Alexandre Mergnat ha scritto:
+>>>>> Currently, the panel set power, set gpio and enable the display link
+>>>>> in stk_panel_prepare, pointed by drm_panel_funcs.prepare, called by
+>>>>> panel_bridge_atomic_pre_enable, pointed by
+>>>>> drm_bridge_funcs.atomic_pre_enable. According to the drm_bridge.h,
+>>>>> atomic_pre_enable must not enable the display link
+>>>>>
+>>>>> Since the DSI driver is properly inited by the DRM, the panel try to
+>>>>> communicate with the panel before DSI is powered on.
+>>>>>
+>>>>
+>>>> The panel driver shall still be able to send commands in the .prepare() callback
+>>>> and if this is not happening anymore... well, there's a problem!
+>>>
+>>> Sorry I don't think so, according to that def:
+>>>      /**
+>>>       * @pre_enable:
+>>>       *
+>>>       * This callback should enable the bridge. It is called right before
+>>>       * the preceding element in the display pipe is enabled. If the
+>>>       * preceding element is a bridge this means it's called before that
+>>>       * bridge's @pre_enable function. If the preceding element is a
+>>>       * &drm_encoder it's called right before the encoder's
+>>>       * &drm_encoder_helper_funcs.enable, &drm_encoder_helper_funcs.commit or
+>>>       * &drm_encoder_helper_funcs.dpms hook.
+>>>       *
+>>>       * The display pipe (i.e. clocks and timing signals) feeding this bridge
+>>>       * will not yet be running when this callback is called. The bridge must
+>>>       * not enable the display link feeding the next bridge in the chain (if
+>>>       * there is one) when this callback is called.
+>>>       *
+>>>       * The @pre_enable callback is optional.
+>>>       *
+>>>       * NOTE:
+>>>       *
+>>>       * This is deprecated, do not use!
+>>>       * New drivers shall use &drm_bridge_funcs.atomic_pre_enable.
+>>>       */
+>>>      void (*pre_enable)(struct drm_bridge *bridge);
+>>>
+>>>      /**
+>>>       * @enable:
+>>>       *
+>>>       * This callback should enable the bridge. It is called right after
+>>>       * the preceding element in the display pipe is enabled. If the
+>>>       * preceding element is a bridge this means it's called after that
+>>>       * bridge's @enable function. If the preceding element is a
+>>>       * &drm_encoder it's called right after the encoder's
+>>>       * &drm_encoder_helper_funcs.enable, &drm_encoder_helper_funcs.commit or
+>>>       * &drm_encoder_helper_funcs.dpms hook.
+>>>       *
+>>>       * The bridge can assume that the display pipe (i.e. clocks and timing
+>>>       * signals) feeding it is running when this callback is called. This
+>>>       * callback must enable the display link feeding the next bridge in the
+>>>       * chain if there is one.
+>>>       *
+>>>       * The @enable callback is optional.
+>>>       *
+>>>       * NOTE:
+>>>       *
+>>>       * This is deprecated, do not use!
+>>>       * New drivers shall use &drm_bridge_funcs.atomic_enable.
+>>>       */
+>>>      void (*enable)(struct drm_bridge *bridge);
+>>>
+>>> => "The bridge must not enable the display link feeding the next bridge in the
+>>> => chain (if there is one) when this callback is called."
+>>>
+>>> Additionally, you ask for something impossible because here is the init order
+>>> fixed by the framework:
+>>>
+>>> [   10.753139] panel_bridge_atomic_pre_enable
+>>> [   10.963505] mtk_dsi_bridge_atomic_pre_enable
+>>> [   10.963518] mtk_dsi_bridge_atomic_enable
+>>> [   10.963527] panel_bridge_atomic_enable
+>>> [   10.963532] drm_panel_enable
+>>>
+>>> If panel want to use the DSI link in panel_bridge_atomic_pre_enable, nothing
+>>> will happen and  you will get a timeout.
+>>>
+>>> So, IMHO, this patch make sense.
+>>>
+>>>>
+>>>>> To solve that, use stk_panel_enable to enable the display link because
+>>>>> it's called after the mtk_dsi_bridge_atomic_pre_enable which is power
+>>>>> on the DSI.
+>>>>>
+>>>>> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
+>>>>> ---
+>>>>>   .../gpu/drm/panel/panel-startek-kd070fhfid015.c    | 25 +++++++++++++---------
+>>>>>   1 file changed, 15 insertions(+), 10 deletions(-)
+>>>>>
+>>>>> diff --git a/drivers/gpu/drm/panel/panel-startek-kd070fhfid015.c b/drivers/gpu/ 
+>>>>> drm/panel/panel-startek-kd070fhfid015.c
+>>>>> index c0c95355b7435..bc3c4038bf4f5 100644
+>>>>> --- a/drivers/gpu/drm/panel/panel-startek-kd070fhfid015.c
+>>>>> +++ b/drivers/gpu/drm/panel/panel-startek-kd070fhfid015.c
+>>>>> @@ -135,19 +135,9 @@ static int stk_panel_prepare(struct drm_panel *panel)
+>>>>>       gpiod_set_value(stk->enable_gpio, 1);
+>>>>>       mdelay(20);
+>>>>>       gpiod_set_value(stk->reset_gpio, 1);
+>>>>> -    mdelay(10);
+>>>>> -    ret = stk_panel_init(stk);
+>>>>> -    if (ret < 0)
+>>>>> -        goto poweroff;
+>>>>
+>>>> Also, you're moving both init and set_display_on to the enable callback...
+>>>> this is suboptimal.
+>>>>
+>>>> You should do the DrIC setup in .prepare() (can include SLEEP OUT), and then you
+>>>> should have a .enable() callback that calls DISP ON, a .disable() callback that
+>>>> calls DISP OFF, and .unprepare() that turns everything off.
+>>>
+>>> This is not what I understand from the pre_enable's definition above, and also
+>>> the function call order by the framework. :)
+>>>
+>>>>
+>>>> Cheers,
+>>>> Angelo
+>>>>
+>>>>> -
+>>>>> -    ret = stk_panel_on(stk);
+>>>>> -    if (ret < 0)
+>>>>> -        goto poweroff;
+>>>>>       return 0;
+>>>>> -poweroff:
+>>>>> -    regulator_disable(stk->supplies[POWER].consumer);
+>>>>>   iovccoff:
+>>>>>       regulator_disable(stk->supplies[IOVCC].consumer);
+>>>>>       gpiod_set_value(stk->reset_gpio, 0);
+>>>>> @@ -156,6 +146,20 @@ static int stk_panel_prepare(struct drm_panel *panel)
+>>>>>       return ret;
+>>>>>   }
+>>>>> +static int stk_panel_enable(struct drm_panel *panel)
+>>>>> +{
+>>>>> +    struct stk_panel *stk = to_stk_panel(panel);
+>>>>> +    int ret;
+>>>>> +
+>>>>> +    ret = stk_panel_init(stk);
+>>>>> +    if (ret < 0)
+>>>>> +        return ret;
+>>>>> +
+>>>>> +    ret = stk_panel_on(stk);
+>>>>> +
+>>>>> +    return ret;
+>>>>> +}
+>>>>> +
+>>>>>   static const struct drm_display_mode default_mode = {
+>>>>>           .clock = 163204,
+>>>>>           .hdisplay = 1200,
+>>>>> @@ -239,6 +243,7 @@ drm_panel_create_dsi_backlight(struct mipi_dsi_device *dsi)
+>>>>>   }
+>>>>>   static const struct drm_panel_funcs stk_panel_funcs = {
+>>>>> +    .enable = stk_panel_enable,
+>>>>>       .unprepare = stk_panel_unprepare,
+>>>>>       .prepare = stk_panel_prepare,
+>>>>>       .get_modes = stk_panel_get_modes,
+>>>>>
+>>>>
+>>>>
+>>>>
+>>>
+>>
+> 
 
 -- 
 Regards,
