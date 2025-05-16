@@ -4,76 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9EC3C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 16:16:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA957C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 16:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qNVVWenUO4XWo/JHN6YcXvLpUtMhhiMFX5R1egOkoa4=; b=CYz82TglkvaH+E9nR5Se5zHkam
-	kcPz4fKVLa83I9+6Exn2BQrur8vpCC03W74UtuU1UK6Dp/PpeLAqkgrxhFdgRybkLG3qu/ddKL7Fq
-	7nn7LabQLmOKb7lqVW1oj3nHTHXrwNg4xHnuMBbxYqz6Gq9JPLYZplov5pdCRE2YM+Fpwm8+UBvdT
-	ngNG+4o5d5FGV49j48J9HSvWtIyzAI3vFNGkQEG8Dtm0Dlhh2XxtnaxW6q9+DoKPlfEnQUIS9xD2R
-	C1u+65+Qlgo2S6ZYpYJVPC5dFTwm5xC8j9yqgZfsMeaOEbfsJYmmNCWOTt6+Q+nnNq8bpmZfwPIGD
-	87Plc47Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=NjSkcG8Ba/+tj528MW2v7RcxXouxjFYRzu2bxrG2VTY=; b=DNSIxccdp5q7L0pmm1QHDbaze3
+	UsVQllw/hj9+9ejWcmp+UHpjQZfqyL6uL7eAw/1sZ7WQoYsoRqCHLaoFvppz7svYHxaQi1uVpuKL+
+	GCMKJuNB/4rZ+f3Y6ZI+nt7FnKxFPq/7IKJ7EBzNMs1Isdt8EAKNNDxiUqvvJi0B/YRdWwelHQUCt
+	dm9qDhRpTuTuKHSjiDPK6KFPqb+uPOOUzuR3FCbxKpgzTdt5PKd+2bz8+BbGx4Wslqkzl3ReoZI+q
+	LZq3lg4ilFKDaZzK8sNZIrytw75OdpWwdleNjsdRMugBuAOJDoXLXYcAlkWeworXRk9KeHGlKe5Ru
+	O7qM93uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH3AI-00000009loC-35IO;
-	Mon, 19 May 2025 16:16:34 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1uH3CK-00000009mJU-1mi6;
+	Mon, 19 May 2025 16:18:40 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH2CK-00000009Zhx-3Zk9
+	id 1uH2EN-00000009a8Z-11oW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 15:14:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=qNVV
-	WenUO4XWo/JHN6YcXvLpUtMhhiMFX5R1egOkoa4=; b=g74IFDW5kTkYT00I3rBN
-	8r5S/M9tsSKrF+Ot7+LtGNVvcwqFTXHJOrZiRm+jRoDUsEHZMlL8CLMVIXJcZZSg
-	3o5VyRr2Bz43P/4OPZ5g+BQ0oYyTdVSszHySgmQARSs4DEwMxAc0eOuTdwPExQ6c
-	6d7MWXs/yE24PRrQnh/jMEIEf9px0OH1ppT8u6D4RaYGLa7ZE5m7lrhVyMM1ujRP
-	Yw7DGIDmMJkJI5j0KKJdbuDDBssmfsIEa4y/9DIkM5QamVq5+czKDGOkUZ7qkHQU
-	boCkKuGTbFG7V/rUWfTxASAGpD7KDr6dT/eY0k4J0APhBIVT7sVXHzUUunqec57c
-	aw==
-Received: (qmail 2536472 invoked from network); 19 May 2025 17:14:33 +0200
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 19 May 2025 17:14:33 +0200
-X-UD-Smtp-Session: l3s3148p1@RgO+ln41mJxZz6uL
-Date: Mon, 19 May 2025 17:14:31 +0200
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-renesas-soc@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH 1/7] arm64: dts: exynos: use proper node names for GPIO
- based I2C busses
-Message-ID: <aCtK1-Yn6u8-n8mU@shikoro>
-Mail-Followup-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-renesas-soc@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-References: <20250519121512.5657-1-wsa+renesas@sang-engineering.com>
- <20250519121512.5657-2-wsa+renesas@sang-engineering.com>
- <006ee7d6-1289-4f4a-819d-9a5e5120db99@kernel.org>
- <aCtD7BH5N_uPGkq7@shikoro>
- <3f6e1b74-5d19-4194-b98b-91ab6f10446c@kernel.org>
+	Mon, 19 May 2025 15:16:47 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250519151635epoutp04cf69df6727025959ce764a92411c342e~A9pmkwDW42517625176epoutp043
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 15:16:35 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250519151635epoutp04cf69df6727025959ce764a92411c342e~A9pmkwDW42517625176epoutp043
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1747667795;
+	bh=NjSkcG8Ba/+tj528MW2v7RcxXouxjFYRzu2bxrG2VTY=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=cAGdWTsmBTvkJZG4Rh2DK0TdJyhfL2xVFApt7LQTUtNpuQer0CMUAv1iOtsz2W6Lz
+	 sfYawBTRqBcCjbkaQZ2a55kidC+tjQebeLBy0bw+7IOE5Z5QVZRuIROxpKdA6mRKcd
+	 hCY53q/ZdmecxSfJi4PXa5NdEgY/Mto4lZHPD4m4=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250519151634epcas5p3a0e08112510553d5309c072da7dd2c71~A9pmKlQ4x1584715847epcas5p3D;
+	Mon, 19 May 2025 15:16:34 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.180]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4b1Lr06k48z3hhT7; Mon, 19 May
+	2025 15:16:32 +0000 (GMT)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250516101757epcas5p368f98b909ff50c91700358f65228e066~-_pAvExL71920919209epcas5p3O;
+	Fri, 16 May 2025 10:17:57 +0000 (GMT)
+Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250516101757epsmtrp22c1f07f88793cc19be819e06f3b2827b~-_pAt9LXe1867418674epsmtrp21;
+	Fri, 16 May 2025 10:17:57 +0000 (GMT)
+X-AuditID: b6c32a29-566fe7000000223e-37-682710d51bb8
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	33.2F.08766.5D017286; Fri, 16 May 2025 19:17:57 +0900 (KST)
+Received: from bose.samsungds.net (unknown [107.108.83.9]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250516101754epsmtip21f528a17cdd4b1f7f3d12e2cedac85fa~-_o91PBMW2836328363epsmtip2c;
+	Fri, 16 May 2025 10:17:54 +0000 (GMT)
+From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+To: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
+	andre.draszik@linaro.org, peter.griffin@linaro.org, kauschluss@disroot.org,
+	m.szyprowski@samsung.com, s.nawrocki@samsung.com
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
+	dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
+	selvarasu.g@samsung.com, pritam.sutar@samsung.com
+Subject: [PATCH v2 0/2] initial usbdrd phy support for Exynosautov920 soc
+Date: Fri, 16 May 2025 15:56:48 +0530
+Message-Id: <20250516102650.2144487-1-pritam.sutar@samsung.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="N50p7v0rMXI5QQZ1"
-Content-Disposition: inline
-In-Reply-To: <3f6e1b74-5d19-4194-b98b-91ab6f10446c@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrHLMWRmVeSWpSXmKPExsWy7bCSvO5VAfUMg9evpSwezNvGZrHl1WYW
+	izV7zzFZ3NuxjN1i/pFzrBbXbixkt/jz7zybxdHW/8wWL2fdY7PY9Pgaq8XlXXPYLCas+sZi
+	MeP8PiaLtUfuslucf9HFarFhxj8Wi2f3VrBZ/N+zg93iy88HzBaH37SzWhxZ/pHJYuedE8wO
+	Yh4n121m8ti0qpPN4861PWwem5fUe/RtWcXo8XmTXABbFJdNSmpOZllqkb5dAlfG2id2BUfZ
+	K6YsvcnawDiJrYuRk0NCwERi0rMPTF2MXBxCArsZJWa3zGWBSMhIPJq2kRXCFpZY+e85O0TR
+	W0aJ72/PAiU4ONgETCUm7kkAiYsI9DBJPL36gw3EYRY4zSSx4eMMdpBuYQFPiZ0X5jCC2CwC
+	qhI3+1qYQGxeAXuJN6fmQW2Ql9h/8CwzRFxQ4uTMJ2BXMAPFm7fOZp7AyDcLSWoWktQCRqZV
+	jJKpBcW56bnFhgWGeanlesWJucWleel6yfm5mxjBUaSluYNx+6oPeocYmTgYDzFKcDArifBe
+	z1LOEOJNSaysSi3Kjy8qzUktPsQozcGiJM4r/qI3RUggPbEkNTs1tSC1CCbLxMEp1cC0o9rK
+	/UOg2+ZsnbwXdjsNGmpDBd6lHt0+scnmW96aT0u2xl1hWi1kutD9R/W1vVMYeA8uudmyepWI
+	pVXqtTkbZUOuzf9jKrTadXqS+LsA0+zJdv332ZYsSf+v9szrxw/5ixcsp/nwF98uWX5C1ci9
+	8+LU98+OM4eIaxVd0Pj3SoC/dlqvclVAZUD2nmOLVNzPTjgvu8W38sCO5cEdvUJ3X95eOevY
+	wq2/ZH8827zm7/5LT3OjzDlyeRfHh04JkmI0q05n9jR7LpeVJMUXGN2af1S7W8qrYV3lmWUB
+	T/3++OsqVEgmLGVgXLJt+fyJiazHeJNUWmVuCnPMdHSYOlPx4XW5O8t7j61okV3QYLRFiaU4
+	I9FQi7moOBEAVMSI6hEDAAA=
+X-CMS-MailID: 20250516101757epcas5p368f98b909ff50c91700358f65228e066
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250516101757epcas5p368f98b909ff50c91700358f65228e066
+References: <CGME20250516101757epcas5p368f98b909ff50c91700358f65228e066@epcas5p3.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_081437_162103_DE98B79F 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250519_081645_517752_903EFB28 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,40 +118,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This SoC has a single USB 3.1 DRD combo phy and three USB2.0
+DRD phy controllers that only support the UTMI+ interface. 
+This SoC is very similar to the existing Exynos850 support
+in this driver. We have supported only UTMI+ in this patchset.
 
---N50p7v0rMXI5QQZ1
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+The difference is that combo phy supports both UTMI+(HS) and 
+PIPE3(SS) and is out of scope in this patchset.
 
+changelog
+----------
+Changes in v2:
+- Used standard GENMASK() and FIELD_GET() to get the major version 
+  from controller version register.
+  link for v1: https://lore.kernel.org/linux-phy/20250514134813.380807-1-pritam.sutar@samsung.com/
 
-> ... so clearly the suffix is "-foo" or "-0", as we usually prefer. This
-> should be replaced into i2c-X, by dropping "gpio", instead of using less
-> favored suffixing (one without -).
+Pritam Manohar Sutar (2):
+  dt-bindings: phy: samsung,usb3-drd-phy: add dt-schema for
+    ExynosAutov920
+  phy: exyons5-usbdrd: support HS phy for ExynosAutov920
 
-Hmm, I can't automate this because it will then need to be aligned with
-the bus numbering of other existing non-GPIO-busses. Which is highly
-individual per board. That means we need to drop this series?
+ .../bindings/phy/samsung,usb3-drd-phy.yaml    | 27 ++++++
+ drivers/phy/samsung/phy-exynos5-usbdrd.c      | 85 +++++++++++++++++++
+ 2 files changed, 112 insertions(+)
 
+-- 
+2.34.1
 
---N50p7v0rMXI5QQZ1
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmgrStcACgkQFA3kzBSg
-KbYZUQ//RQF+ICoSYNeA3SyfK3l3mO5YkFWpb1eSl1CAHUe3Bdh1xCjyYZUIa8aF
-v42eWw6HeFyz/+CUAUcM2+YCoYc8wdrQtdg8MnTgieCzd3c83h6LmaKfZd39VxJY
-iqPJ/hj9vFjd98/s3XtWXflp4Lj9MYcbMds/BJDUz4R3C0lxCr+RjOSrJsk2ElZn
-PTYx3W99n3jXAVdEb4TQbeC1Vy86wCC+kalPAZhLsmks2tWCBC7a7MBqqNNDmQwk
-7+ACg1UYA3hBKrba8/DmxMIHGyhneP/aEwLjQv4hH4Z6GFQZYZ+jotqz0wdVfGgh
-WYKtqFVKrZYzHm7KQ0P0uh1iguOzQwVFLvdtzSHeytmSRp1adWr8UgiA3WmJOuf1
-3CvIPZv/SjRvD3l1Fcv5cfiiGjKGtX1tAf9uPICQUQOqJ5skuoNWP+HCrvm9vpqn
-L6G8Yv/wQNqutzaCYiw2b3mU1NFbpLqEuLyzGjG3wPdo2uhFeGVP6YxIK92n6Ixb
-hJecCPgi2hbsUi1JbY4AlcwPOQaKLGTX4LtZjxFHaqeNqVp1ZZ79lK5mXWt1P9tT
-k2FoqxvvPaikH9HUKjPDQU3ukjFfC4ixmMJh9XZcpGMcw/dCeD3H9qKxCPW/XF2c
-eGIptUSzBXjTXZCqAM6XQbm0HS/nQhwJ3HAS2rAwHveXAuotLx8=
-=ri5t
------END PGP SIGNATURE-----
-
---N50p7v0rMXI5QQZ1--
 
