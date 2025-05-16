@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0A87C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 20:26:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 741EEC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 20:54:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gYVCErEtbfJsIIDDUGBmLVM7BVuMMw68glkia5FzCNY=; b=1tc0iCg4l1L1LmDWYevgL80MSq
-	8YJaDG4Gz46xfZkUO2VE+XJIW+RR/j+/fFBl7p/Yuc/tFJl+C8tj2yEEYF4LnbQ3fvePrSbxIMzet
-	7JPWRUFNTU5FzUAN5csh3iseyRpC3k584/Y5Q6NjxgZi9hej85n/o+emsMOtjJUAPu1OquUEkGK9x
-	22fsXlP7sBTnNmRRB7qUGAP3xnPzb+KvDSBhQ5jysG+S/xYpFGoMRx66clEc0n41hqyg/3cCbMu9E
-	iWoGO2utnX+vNp2dPvb73Z+LYfbnoeAJLpsFjtU6XfhNVABMzbZKdmAsTgoFF1HDba6gLYMfxS4YR
-	lBjA/HnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DgisP+Gadj6VKhtsyPcYohCnUrm8TyqR5blZ7Hliw4w=; b=a1hGQCTO3QpqbCksqNpCHDJoV6
+	w6hRuDewL0c9vspytNL1BBdHrYP9hmKF5lX59wmzl1GqXXZvN9L7ULzOf26Q2wAU9+wl0Mapa9ojz
+	kbbwsLqV89dH1kDPTj73fCsDTXRTgQi3/Mw66lIYyf8qcxoV7SoiEt3rvRMi/bVVZ4A1YDljHhKTW
+	dPxxTIshXmTH2TOvz3zD3YlJVRq9cWVRZRuVu3siswSJIMjFilG+lUI2tvpbQLs3rVlWMWCiUQM7Q
+	pZPcKEeXlMoc+mIpDTSv2uliyfBw2iZbsnN1bPs9SE3FqmMifKH51x3xgEbICmdakJlINVdeI7oQP
+	Qn6gmp6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uG1de-00000004ZHF-2E5c;
-	Fri, 16 May 2025 20:26:38 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uG24U-00000004bOn-3p0L;
+	Fri, 16 May 2025 20:54:22 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uG1Z4-00000004Yce-3O0Q;
-	Fri, 16 May 2025 20:21:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C7F88A4EA64;
-	Fri, 16 May 2025 20:21:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24984C4CEE4;
-	Fri, 16 May 2025 20:21:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747426913;
-	bh=0eZbYvSMOyz0txO7McOUt7WBCXP3fLg51sadhpP/XeE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mff0oXGCBELo0hzgvl1WaEJjdXKZ7PB2yucYnPxgvfRfJtsyfndb2MF2nqpMWRNd6
-	 6QSwslLlHkotLfTgLKNJDZHKas5G61PIZ/7a43kJkNtGjgaIc8kTZS7vUdaNF6VwlI
-	 4HEg/c7NAuCUCMiawrmi2SVkxEVnd8Tkok6WC8ytZqBAw3HWVws7GIwYuklMxNJe2D
-	 RbBYKJALQSY4+ByUVtcQNY+Os6YPOLpagZk37B529LWkEru4lU5HBNRiNL+5zJEkcd
-	 e6OVlAMc47gBuo8m5D+6j5sVAzDeDPn1nm1dvDPlhVPLU/RZXeGoh1YtJZ+wGyAX+0
-	 HSJbIwqpTSQvQ==
-Date: Fri, 16 May 2025 21:21:49 +0100
-From: Simon Horman <horms@kernel.org>
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH v3 1/4] net: airoha: Fix an error handling path in
- airoha_alloc_gdm_port()
-Message-ID: <20250516202149.GL3339421@horms.kernel.org>
-References: <5c94b9b345017f29ed653e2f05d25620d128c3f0.1746715755.git.christophe.jaillet@wanadoo.fr>
- <20250516201606.GH3339421@horms.kernel.org>
+	id 1uG22R-00000004bF3-2SJ1
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 May 2025 20:52:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1747428732;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=DgisP+Gadj6VKhtsyPcYohCnUrm8TyqR5blZ7Hliw4w=;
+	b=StOoA+FpbY9/RnBxWTmUSWI8UsVlrI77mDb8Zc5q/jmy8qKHmyi3iL6W685vbv1e/pE6q2
+	8uh/9jrmQ1xcYCUbJvdpA8k3ZG0zh7jBcFcbNFkwU+XLaZz2fbqeStJ8ZmVj+4rhTQx9cK
+	K62cMYUk3RTOZt39+Qygq6jYfzQC8lE=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-457-uNQ_OJ18NzWILeMbVuf5Mw-1; Fri,
+ 16 May 2025 16:52:09 -0400
+X-MC-Unique: uNQ_OJ18NzWILeMbVuf5Mw-1
+X-Mimecast-MFC-AGG-ID: uNQ_OJ18NzWILeMbVuf5Mw_1747428728
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 741E619560A1;
+	Fri, 16 May 2025 20:52:08 +0000 (UTC)
+Received: from [172.20.77.114] (unknown [10.30.44.38])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 5D9DA1800359;
+	Fri, 16 May 2025 20:52:06 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4p2M?= FAIL: Test report for for-kernelci (6.15.0-rc6,
+ upstream-arm-next, a82e9259)
+Date: Fri, 16 May 2025 20:52:06 -0000
+To: linux-arm-kernel@lists.infradead.org, mmalik@redhat.com, will@kernel.org,
+ omosnace@redhat.com, catalin.marinas@arm.com
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250516201606.GH3339421@horms.kernel.org>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+Message-Id: <40420.125051616520901114@us-mta-457.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Uy5yQw-4SpeSW8JS5MxAkpZiPfnpsC3e7uPOSarB0VU_1747428728
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_132154_920790_B8B84BFB 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20250516_135215_703328_7868C701 
+X-CRM114-Status: UNSURE (   6.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,45 +84,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 16, 2025 at 09:16:13PM +0100, Simon Horman wrote:
-> On Thu, May 15, 2025 at 09:59:35PM +0200, Christophe JAILLET wrote:
-> > If register_netdev() fails, the error handling path of the probe will not
-> > free the memory allocated by the previous airoha_metadata_dst_alloc() call
-> > because port->dev->reg_state will not be NETREG_REGISTERED.
-> > 
-> > So, an explicit airoha_metadata_dst_free() call is needed in this case to
-> > avoid a memory leak.
-> > 
-> > Fixes: af3cf757d5c9 ("net: airoha: Move DSA tag in DMA descriptor")
-> > Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-> > ---
-> > Changes in v3:
-> >   - None
-> > 
-> > Changes in v2:
-> >   - New patch
-> > v2: https://lore.kernel.org/all/5c94b9b3850f7f29ed653e2205325620df28c3ff.1746715755.git.christophe.jaillet@wanadoo.fr/
-> > 
-> > Compile tested only.
-> 
-> Reviewed-by: Simon Horman <horms@kernel.org>
+Hi, we tested your kernel and here are the results:
 
-Sorry, I was a little too hasty.
+    Overall result: FAILED
+             Merge: OK
+           Compile: OK
+              Test: FAILED
 
-This patch looks good to me, but as this is a fix for change
-present in net it should be targeted at net.
 
-  Subject: [PATCH v4 net] ...
+Kernel information:
+    Commit message: Merge branch 'for-next/core' into for-kernelci
 
-And it should be split out from the patchset comprising the remaining
-patches in this series, which appear to be clean-ups (or at least not
-but fixes). This rump patch-set should be targeted at net-next.
-And ideally, IMHO, have a cover letter.
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1821799657
 
-  Subject: [PATCH v4 net-next 0/3] ...
+One or more kernel tests failed:
+    Unrecognized or new issues:
+        selinux-policy: serge-testsuite
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:1821799657-aarch64-kernel_upt_23
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL Test
 
-Thanks!
 
--- 
-pw-bot: changes-requested
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
