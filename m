@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C37A1C3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 07:23:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8A80C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 07:26:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0bZtQnrAbigRgok22yw4g3798mI7fLMxITNSqQuTVaw=; b=TvoRvWIdCZdCJ3OrjhVD4JvdeW
-	+1Bug0OsOFtKmp7ksamBVqBfLisyuPdMPoM8zf2xFSR8E3m1LB58sX6ys8P9stXC0bJkgxIgY2Zni
-	vEk+6mqc9g4uNUQ6FDbszlB4nr4B9GjH6n7ovtDby91iL2nMv6lrQ6XOAskUwbJlwNEwUHowacu+q
-	9NGlRRBc5lCA0+VElwv/yhkUmNYmeeFV6KMMybKBckEFiFVZ/7cHcUw+0I3kTANjlFzZWeqSTLiYI
-	Gopk1UodWGBGuyCVR4FyWoiK6DuesNfcqwrZBcZNceSXlLb9eK8Y6BXuT31VxhGCmGL4VcAX1PGuN
-	riSBfTGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=I0gaAQiTCyczO3ncCezb5gyuPU+lPv2PjdLi0Zqhbqc=; b=g4QwdANABgeQ8P
+	Bt/xq8Pw3hEroObSfhDxGyzqX8Ja1F5sKni32vJg0wDqj+Tok8yAII9xGYWeE/CXwPG7GI98xtnud
+	Z/WjXgn4K8vCS57BR0Q+inm6tWzy4QBV5yBNM88ip2IVhw4ZUduOCUv2GTjphwIvwEnjm+9QwBKQK
+	XnoYICDWW8Q2CcYXuHDa4h9rv/ofRLCYaWojwXDvdw0PaxcN+s4O5aIDCPfnMN1oc6uVIycUqsnx0
+	VhI88u8mRmIwEctT7cfBFaDFhPdf2c/YuhC/diIKpR11sd7gGJBvC0bkYIAKYePeN1oRb3Cgpb4zl
+	MLeCpykI+sUqCtiZlcNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFpPU-00000002eY0-18tO;
-	Fri, 16 May 2025 07:23:12 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1uFpSK-00000002eze-3Eu0;
+	Fri, 16 May 2025 07:26:08 +0000
+Received: from mail-106112.protonmail.ch ([79.135.106.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFpNM-00000002eOr-0I1v;
-	Fri, 16 May 2025 07:21:01 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-22e033a3a07so18705765ad.0;
-        Fri, 16 May 2025 00:20:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747380059; x=1747984859; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=0bZtQnrAbigRgok22yw4g3798mI7fLMxITNSqQuTVaw=;
-        b=DWXS+8fkSh8H4l2Ul4KcvrfxaRPynwBc+8N31l9iogoVY0ZVCEWmtjGSDcP7IsXe1F
-         YHQ0ujC7324IdZTw2pjJgmbumTuIlMDQF6p4AcfDnPSoXMdLHfGI5Dbodntn1W+jl+MH
-         Whxq5H5NzRG0OxXEltuslaBpvftMSmc1T8Hra1zgIzKa5j0X/40LbOFD5f6l9bG/8q2P
-         fziDXMdcKXxNuG4wY7JNMqRvtnNI5gnTGt+S7PcAUt5Tfh6PEmW4aOoMHu4irKZolVcz
-         OFIKaFhR/tn+5U+xCgjTHPY6lKkRZuytx1lneUvyKTmQG1YSczcvkUsMsYVsomfklnC8
-         9zzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747380059; x=1747984859;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0bZtQnrAbigRgok22yw4g3798mI7fLMxITNSqQuTVaw=;
-        b=WnRKxS0/zB6JbwCR5UAQ3+f9NGFJNzqptKAYhpJEA+RMU4FSNNZ7EDkv7FJuiM9ull
-         NVdU2bgoZngnZXvqIKPmGknKCHBXDJnhZAmzeKfju6JcM4k92HTwbRRguMEpWymtf8mm
-         FeNr4mp7Mn+Zxa07yE89qIE6fbRt9IkHSdNeqspB9rCU/14ujZacJrRs1WIAL63wC/eN
-         jP3DkSYjSbxaj3yVerHsNVAPXsEa3x3L5wKfYsEloDYM3lpPgMhgELAxJ8BsVVontPXE
-         pkI5AvNnh6YmqpYcsfGfxX6lliWcu6EpXcXbo1zYD1CxQqW7qOkTtS1EaPMHYH5L3Va2
-         a+/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWyqSDiAhR4Avj1e3eWdKGAeKWpfSpZ+quZK9time+mMRMhAACEbktc/ZQJppMnG0zrS64UtIhbITpBMZnfbrer@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRJ0orQCRVMW9PtMb84ZupdwfUm/ANV52TL2Rog20XlE1u/t1G
-	BpK/jC9B2VbnGYXq4vysNSLDE9LSsesDmCgTNNzmJ/IXuB5msZEO46ESikI26MvB
-X-Gm-Gg: ASbGncumjc7PlT3B8LsmP0I74XMNV4dpAewYDe7xeQM2RuUa76XZXiqEOh33b/97fdJ
-	w7/mjp20b7nKpCyh/qyZxAwN63e7a2b5zrFXmjW+srGaARjvprlavQOxoyxLvf6DfQdPOySDcpX
-	pDtkjtgQlCA/mbPG1oBsMrhptbAKWsQ2alSSWpan07x6ZrW5xqPkqb8SVidgOvYwBJG2DXZ9Oz1
-	GudYsB4H4n2OY1k7A/a9hqskHniRJ0soJI/192vJ1pBAoeUAzQ8afmvpQDNzSWjgEj+Hb/+nDAb
-	BUyuq/DcKZUXpBZWXtvtSLNN/5khOR1DPBJOTfyv3uvBVpkbtEnbbt5QfZjRVhcLG7nWLT5wFAa
-	vSWPkJhSemj1FAFaWlRlX
-X-Google-Smtp-Source: AGHT+IEHgegbY/RBwhcOsjlIgozbZNU96udSDFfRZZ7XnQaa466la0CQFAVhXq7j400HqayyRJK7Ag==
-X-Received: by 2002:a17:902:e80c:b0:231:ba23:c7e5 with SMTP id d9443c01a7336-231d43d9be2mr23575485ad.6.1747380058519;
-        Fri, 16 May 2025 00:20:58 -0700 (PDT)
-Received: from fletcher-beelink.. (syn-172-090-047-185.res.spectrum.com. [172.90.47.185])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-231d4ebad0bsm8498385ad.196.2025.05.16.00.20.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 May 2025 00:20:58 -0700 (PDT)
-From: fdostie@gmail.com
-To: linux-rockchip@lists.infradead.org
-Cc: linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Fletcher Dostie <fdostie@gmail.com>
-Subject: [PATCH] clk: rockchip: rk3288: Enable clock rate propagation for I2S0 output clock
-Date: Fri, 16 May 2025 00:19:58 -0700
-Message-ID: <20250516071958.837174-1-fdostie@gmail.com>
-X-Mailer: git-send-email 2.48.1
+	id 1uFpQA-00000002eeI-45Hn
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 May 2025 07:23:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=geanix.com;
+	s=protonmail; t=1747380229; x=1747639429;
+	bh=I0gaAQiTCyczO3ncCezb5gyuPU+lPv2PjdLi0Zqhbqc=;
+	h=From:Subject:Date:Message-Id:To:Cc:From:To:Cc:Date:Subject:
+	 Reply-To:Feedback-ID:Message-ID:BIMI-Selector:List-Unsubscribe:
+	 List-Unsubscribe-Post;
+	b=Wfv0YyVdLchPkUnIK0M+avpJNvN58EnjNoNpSoEZTOmUCO4mjJPKAiKvi50id2lAX
+	 BY3/5NW5BLOfrYZNmr4gkwqGFe+ookF/EnRmzRbgzphtEY8lTBMPx4fMIfVXXoVIK8
+	 oBeL2/AvEZ7nQsGh3fSXNeyYC9SYh1z4ZpTyBKT62To83iIbjdBmtq0tt+FMHKZu4U
+	 Lgf57C5tCzXtlYrkABFZXNFKTfCe2ZHS7KqkuIbngH8qvd2mk5W4MUtUBew6PKsCaq
+	 HR2yhIR8bNd8wk9aRzzgtm+lcfo/xhGwmDBkWS01CwCM5wUpoARRdrlKf4mePRTzN/
+	 KRurX7U1PXbDQ==
+From: Esben Haabendal <esben@geanix.com>
+Subject: [PATCH v2 0/5] rtc: Fix problems with missing UIE irqs
+Date: Fri, 16 May 2025 09:23:34 +0200
+Message-Id: <20250516-rtc-uie-irq-fixes-v2-0-3de8e530a39e@geanix.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPbnJmgC/32NQQ6CMBBFr0Jm7Zh2MFpdcQ/DgpQpzMJWWyQYw
+ t0dOYDL93/e/ysUzsIFbtUKmWcpkqICHSrwYxcHRumVgQydLJka8+TxLRrnFwZZuGAgV7uLo94
+ EB+o9M++FavdWeZQypfzZL2b7S/+tzRYNGkvuzL6/hjo0A3dRlqNPD2i3bfsCK1lv6bMAAAA=
+X-Change-ID: 20241203-rtc-uie-irq-fixes-f2838782d0f8
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Esben Haabendal <esben@geanix.com>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747380226; l=1695;
+ i=esben@geanix.com; s=20240523; h=from:subject:message-id;
+ bh=Yy3MHZ6ARWN2zLCp0cK5heR+syKaYF14s7J8YWFEFkM=;
+ b=4D5F+hHT3AdVUK968VWXZzzw5RTJxQJ7n9KDgVYY3MaMqB+Na5Bre0xgMOSidQD0dBhHDQdMp
+ o6YY0tSz1NvDJmXcJDheZayCHRFGVTBuYxKXr6V6sbbrtl5mNjB2hNW
+X-Developer-Key: i=esben@geanix.com; a=ed25519;
+ pk=PbXoezm+CERhtgVeF/QAgXtEzSkDIahcWfC7RIXNdEk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_002100_108008_9C738550 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20250516_002355_954129_E7245BD1 
+X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,36 +80,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fletcher Dostie <fdostie@gmail.com>
+This fixes a couple of different problems, that can cause RTC (alarm)
+irqs to be missing when generating UIE interrupts.
 
-The I2S0 output clock (SCLK_I2S0_OUT) on rk3288 SoCs was missing the
-CLK_SET_RATE_PARENT flag, which prevented the clock framework from
-properly propagating rate changes to its parent. This caused the I2S0
-output clock to not function.
+The first commit fixes a long-standing problem, which has been
+documented in a comment since 2010. This fixes a race that could cause
+UIE irqs to stop being generated, which was easily reproduced by
+timing the use of RTC_UIE_ON ioctl with the seconds tick in the RTC.
 
-Add the CLK_SET_RATE_PARENT flag to ensure that when the
-I2S0 output clock rate is set, the change is correctly propagated to
-its parent clock, fixing the I2S output clock.
+The last commit ensures that RTC (alarm) irqs are enabled whenever
+RTC_UIE_ON ioctl is used.
 
-Signed-off-by: Fletcher Dostie <fdostie@gmail.com>
+The driver specific commits avoids kernel warnings about unbalanced
+enable_irq/disable_irq, which gets triggered on first RTC_UIE_ON with
+the last commit. Before this series, the same warning should be seen
+on initial RTC_AIE_ON with those drivers.
+
+Signed-off-by: Esben Haabendal <esben@geanix.com>
 ---
- drivers/clk/rockchip/clk-rk3288.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in v2:
+- Dropped patch for rtc-st-lpc driver.
+- Link to v1: https://lore.kernel.org/r/20241203-rtc-uie-irq-fixes-v1-0-01286ecd9f3f@geanix.com
 
-diff --git a/drivers/clk/rockchip/clk-rk3288.c b/drivers/clk/rockchip/clk-rk3288.c
-index 90d329216064..0f24060761ac 100644
---- a/drivers/clk/rockchip/clk-rk3288.c
-+++ b/drivers/clk/rockchip/clk-rk3288.c
-@@ -364,7 +364,7 @@ static struct rockchip_clk_branch rk3288_clk_branches[] __initdata = {
- 			RK3288_CLKSEL_CON(8), 0,
- 			RK3288_CLKGATE_CON(4), 2, GFLAGS,
- 			&rk3288_i2s_fracmux),
--	COMPOSITE_NODIV(SCLK_I2S0_OUT, "i2s0_clkout", mux_i2s_clkout_p, 0,
-+	COMPOSITE_NODIV(SCLK_I2S0_OUT, "i2s0_clkout", mux_i2s_clkout_p, CLK_SET_RATE_PARENT,
- 			RK3288_CLKSEL_CON(4), 12, 1, MFLAGS,
- 			RK3288_CLKGATE_CON(4), 0, GFLAGS),
- 	GATE(SCLK_I2S0, "sclk_i2s0", "i2s_pre", CLK_SET_RATE_PARENT,
+---
+Esben Haabendal (5):
+      rtc: interface: Fix long-standing race when setting alarm
+      rtc: isl12022: Fix initial enable_irq/disable_irq balance
+      rtc: cpcap: Fix initial enable_irq/disable_irq balance
+      rtc: tps6586x: Fix initial enable_irq/disable_irq balance
+      rtc: interface: Ensure alarm irq is enabled when UIE is enabled
+
+ drivers/rtc/interface.c    | 27 +++++++++++++++++++++++++++
+ drivers/rtc/rtc-cpcap.c    |  1 +
+ drivers/rtc/rtc-isl12022.c |  1 +
+ drivers/rtc/rtc-tps6586x.c |  1 +
+ 4 files changed, 30 insertions(+)
+---
+base-commit: 82f2b0b97b36ee3fcddf0f0780a9a0825d52fec3
+change-id: 20241203-rtc-uie-irq-fixes-f2838782d0f8
+
+Best regards,
 -- 
-2.48.1
+Esben Haabendal <esben@geanix.com>
 
 
