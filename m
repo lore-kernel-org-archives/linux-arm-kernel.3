@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 417C5C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 23:33:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EACD8C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 23:52:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=llwsbB0/SEO3VBncmuDcTCOk6TFoKsugl0/TrEZQkVA=; b=t6H8c9iERaOrpmpF0WBiPKFCw0
-	QVK3Dz5yyRiO7xCKYEP+W+LUoo8BPBZeypjXAxTSK1xFtTIZ0YSzifFFHJxd28nEAcItluKyhcNRS
-	f3c6Gs8wfDOWcJQHjjmELb2ImCNNEkShjmzb9rno5JVKcVqVkmHB6VrZ6VsU7jGV9DCVjRKX473Zf
-	sLYreDXzueVNFl1c+dGGDTXNT/zr7nT0ELaY09KRUPXNm6HLl7n9vHimJYMFktii4SKw8m7h2AoD3
-	3P1C6UHB28RoPccrD+lY7Jecc25A5dxNpugOjIUxdy0cbmeHMhGjAMUjVreqGbb5J8lgilFcsZx15
-	QW+GxEvQ==;
+	bh=tcmrTujHikIYSnIheBAwgW/QK2mlq3GiZHnRn+qVt0g=; b=Oe2YOAO9MZ+S16MLJQ4HMjaOYY
+	vEJE2k9jjKWCRafptsPGpQKS/tNtzEN4X9JqF2GUl1Rvf8CyOneNGAH3timXsE/FRQEwFYdWMLYLc
+	L4P72BHphu0vKCX5an7ArMGhAlY/rtIssI4ltWg/5htU6oRi6AobraYvWvsRi4v5OAZr+OfP5+qiT
+	J5vfKsxL1wPdVstg9OE1qCRGvc+mMgceBp7KtTz8bEtPPKkrcrsudv388tmac6hwgUEMzprrRQd4k
+	YosondQ7Dkpg8Yw2lZwIJgfAAbMBsoCEGt/e5jImz/JImT01D1xLV5XcyHJN6xKX1QeT4W+57wKAA
+	rE6OhKzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uG4YG-00000004rAd-1ht7;
-	Fri, 16 May 2025 23:33:16 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uG4qN-00000004siT-1JnJ;
+	Fri, 16 May 2025 23:51:59 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uG4WC-00000004r0D-1SE0;
-	Fri, 16 May 2025 23:31:11 +0000
+	id 1uG4oK-00000004sZu-3YIb;
+	Fri, 16 May 2025 23:49:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 72E86A4E54D;
-	Fri, 16 May 2025 23:31:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A050C4CEE4;
-	Fri, 16 May 2025 23:31:06 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B7E5C5C5772;
+	Fri, 16 May 2025 23:47:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4120C4CEE4;
+	Fri, 16 May 2025 23:49:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747438267;
-	bh=LLXZH8CcZsv0YcixDzRJ1c9l0A1zuk/pzjDX3m7p/V4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=n1gO6Z3Z7Gvk7LqDSlLPRSu67oFEX4V2NsGLnIODlWsQ4jO8W67/4of9MJ0Sx83hL
-	 kKC0+Iw5vXgsbLF34bNv2ldP2cVTmhtQKcdwNuqdmo31jBt0UVS3Ge+x2efjTc1LfH
-	 gv8XzD+AlIONXgYcBIPgpaGFOHgQQQEAUc4pzHO6vCsUqxGBcYaDBslRQ3CpyC1Ql4
-	 U/D003bt41MLHJQLF6UyM5rXoypEP0EhD8z2lxx+wo8DOKR8bttJIlhzv18CVFTRsC
-	 3G6tmIQBuM+VrQOf6ahcpWVbPhjtQZFa9m/E/JzvVceNe/piLrOBAk0DAcNXTAr5vn
-	 X8T4EYfANuXuQ==
-Date: Fri, 16 May 2025 16:31:05 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Frank Wunderlich <frank-w@public-files.de>
-Cc: Frank Wunderlich <linux@fw-web.de>, Andrew Lunn <andrew@lunn.ch>,
- Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Daniel Golle
- <daniel@makrotopia.org>, Qingfang Deng <dqfext@gmail.com>, SkyLake Huang
- <SkyLake.Huang@mediatek.com>, Heiner Kallweit <hkallweit1@gmail.com>,
- Russell King <linux@armlinux.org.uk>, =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?=
- <arinc.unal@arinc9.com>, Landen Chao <Landen.Chao@mediatek.com>, Sean Wang
- <sean.wang@mediatek.com>, Lorenzo Bianconi <lorenzo@kernel.org>, Felix
- Fietkau <nbd@nbd.name>, netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: Re: [net-next, PATCH v2] net: phy: mediatek: do not require syscon
- compatible for pio property
-Message-ID: <20250516163105.12088849@kernel.org>
-In-Reply-To: <D997C4DB-1B03-4AFD-B48C-BFA19AB6194D@public-files.de>
-References: <20250516180147.10416-1-linux@fw-web.de>
-	<20250516180147.10416-3-linux@fw-web.de>
-	<D997C4DB-1B03-4AFD-B48C-BFA19AB6194D@public-files.de>
+	s=k20201202; t=1747439391;
+	bh=b6wGr4nm8FmvhV7tpeuwJouVaFkxQSU7UDHKGORepGQ=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=JI1WicrfpAAd/Sa/1/MCZHdS33jVEdrHOV2wmp5eT9wukgNroKm2zw85ABQnMF9po
+	 SQkkVQHjTFDGxJqXyRbV5Ah2gPnvuZf0gyyCIEJxoR0wSHAxTbYgb7M+DM1OfIaxJJ
+	 +7ckNvnBJ0TZzE0qug38rEk7s4Lg1mlqAaOLC0SbpLqz6/R9C7gVfLJ5vufqADD2hX
+	 sNZUamfCL4JSsoUmZ55s9qZBQyEnG9jAGjwOnsJSq+4qkYPUqBXjcleX/BeS97SkCN
+	 Rqb+wKtAatJ4Y4xUIa9c7leAS9HfHcQ3y4gimPB+zYPkNSEqHUx+KIoQd3slFR0dJ7
+	 casHz5V5J2qow==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE0933806659;
+	Fri, 16 May 2025 23:50:29 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v2] net: airoha: Fix page recycling in
+ airoha_qdma_rx_process()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174743942851.4098936.12041671721533040373.git-patchwork-notify@kernel.org>
+Date: Fri, 16 May 2025 23:50:28 +0000
+References: <20250515-airoha-fix-rx-process-error-condition-v2-1-657e92c894b9@kernel.org>
+In-Reply-To: <20250515-airoha-fix-rx-process-error-condition-v2-1-657e92c894b9@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_163108_453723_CB603086 
-X-CRM114-Status: UNSURE (   8.00  )
+X-CRM114-CacheID: sfid-20250516_164952_942044_9713BB8F 
+X-CRM114-Status: UNSURE (   9.55  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,13 +77,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 16 May 2025 20:08:47 +0200 Frank Wunderlich wrote:
-> Sorry, resent it by accident while sending v2 of my dts series.
-> regards Frank
+Hello:
 
-Unfortunately patchwork thought this is patch 1 of the series instead
-of the bindings patch :(
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Let's wait for binding reviews and maybe you could repost patches 1-3
-for net-next without the dts ones? 
+On Thu, 15 May 2025 08:33:06 +0200 you wrote:
+> Do not recycle the page twice in airoha_qdma_rx_process routine in case
+> of error. Just run dev_kfree_skb() if the skb has been allocated and marked
+> for recycling. Run page_pool_put_full_page() directly if the skb has not
+> been allocated yet.
+> Moreover, rely on DMA address from queue entry element instead of reading
+> it from the DMA descriptor for DMA syncing in airoha_qdma_rx_process().
+> 
+> [...]
+
+Here is the summary with links:
+  - [net,v2] net: airoha: Fix page recycling in airoha_qdma_rx_process()
+    https://git.kernel.org/netdev/net/c/d6d2b0e1538d
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
