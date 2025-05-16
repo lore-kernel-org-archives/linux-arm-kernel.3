@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDE59C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 10:38:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C139AC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 10:40:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AKFCODECv+RIDFEhuXs9YRPLfS90Hd9W0nq4d89zy1Q=; b=fglXjEamH1mJ41u6RgbY/ah3+x
-	BJaJJ0AuySg6yN6piyNpZQXvcU0/4KHWa0Glr01/REOZy7bU+wfqmUrdGZ4SNifwHEE6CbMhInjs6
-	QNE77dAvRPGBL2EQgl/dfKorNnWaqT+7H9xEiQ8vsjqBoh4G3OF452ZUOHEfSASIOx3WQwp84GrGS
-	TST62saTgRTnGtgVP6szAZxzJQI8/gpR43vd64eVimxguM6AvyUpeuUDU5z0wjfmG2lprbVIhZuZQ
-	VZ2QrcYwZX7dYlCU0Mrk0dELN8aGMb/Fj/Hx0f+u+cor9MBuK4X8GTb/ABA3F6F7UDc2+hM42Xih4
-	hb1So9AA==;
+	bh=FNXHKgY/p/PBj8nWmVezncK3qsEuUPE+7qreXPSODDI=; b=MZ8MvjJB2e+aB62WE7I98PF+7y
+	n6pOd1NTjUKoDfGE6qY0BVA+l6IHHHWUQM41BgYJaYMY49XAKde3i+bGYdQhnOHdta1Rm1qx9RLwh
+	lAfcAC2grHMpTCW9GhyZWXaoymJhsIJci2Tdtxrxa327EYVoBiNEzIgvsoHrT0H7mGz3uPGnpIz5H
+	3e1yY7FI5OoC9+ZTE0FQ2nClWNO5++Nsr9r6sCzAegXCUigvLZdgDgdbH1TXCGjgqUWYFbdyDLob3
+	d+m32unLDa+IMTe/j/Fok+jsoUjeBdBp+GCYcTka2QHJmJyvvHExKtIo4IpWoujBYMpUcGryHw7mp
+	Np3Vd5zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFsS2-000000039Um-0Kcu;
-	Fri, 16 May 2025 10:38:02 +0000
-Received: from xry111.site ([89.208.246.23])
+	id 1uFsU1-000000039lG-0B7c;
+	Fri, 16 May 2025 10:40:05 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFsIH-000000038Ga-2oBI
+	id 1uFsQH-000000039It-0ZNp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 10:27:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xry111.site;
-	s=default; t=1747391277;
-	bh=AKFCODECv+RIDFEhuXs9YRPLfS90Hd9W0nq4d89zy1Q=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=DgkbtHsxkx33k2kNb/yYAtAR01gicGDKJrGWDLwfQShE4DJbYd7jXFW9zIrDPi6no
-	 f1iaRjHUno99jiuhO85kWVEE7ntmFIgkutN/YusXX4gAukPesxTq5bSRgOUwVqSVgl
-	 rmp61pspICYvnvj5yELNHaNy2Ub6PJhOg1RkO0Rw=
-Received: from [IPv6:240e:457:1000:4d1d:620b:9b2:5a59:f0a1] (unknown [IPv6:240e:457:1000:4d1d:620b:9b2:5a59:f0a1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (secp384r1) server-digest SHA384)
-	(Client did not present a certificate)
-	(Authenticated sender: xry111@xry111.site)
-	by xry111.site (Postfix) with ESMTPSA id 6F58665F62;
-	Fri, 16 May 2025 06:27:52 -0400 (EDT)
-Message-ID: <af6f08bac8cdd68d7b839cac382a7696c3cc599a.camel@xry111.site>
-Subject: Re: [PATCH v2] arm64: Add overrride for MPAM
-From: Xi Ruoyao <xry111@xry111.site>
-To: Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>, Marc
- Zyngier <maz@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>, Mingcong Bai
- <jeffbai@aosc.io>
-Date: Fri, 16 May 2025 18:27:47 +0800
-In-Reply-To: <ead19392-a8d3-4c1e-95db-d5cbf40c66fa@arm.com>
-References: <20250402031603.35411-1-xry111@xry111.site>
-	 <ead19392-a8d3-4c1e-95db-d5cbf40c66fa@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1 
+	Fri, 16 May 2025 10:36:15 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1747391769;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FNXHKgY/p/PBj8nWmVezncK3qsEuUPE+7qreXPSODDI=;
+	b=1RLxPr1Q9YViq4P+Jja3DlqdCVwBVmWrMrNcUPXvUM4KIlrHHK35QAQKQmJ+GMSHh17VD4
+	JdB0bNnjpgEO4rPTed52PZWfl/IjnniVQMUmZ0jMLj7b0f+eK/SUvhs3RCdxdBGIbkJECX
+	fHAv6ttd9E9MPHKU/BkNXnRX1bAF8rg8YRZXAZL7NHm2UhmhQe9PLUD0ZmgyviJorKbEsx
+	/RLCosFge+POjP2rFVlevwcREJ7zypSc31JDoV6OTuBui7LUMjVdJeJKCp7I2htFire8gX
+	agjaLYLAfVoAGIjD7tWFHS9m/xDCXAD3Z71oC/XsIbWvOKttr+gOntew0viVRw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1747391769;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FNXHKgY/p/PBj8nWmVezncK3qsEuUPE+7qreXPSODDI=;
+	b=0oLKTdzYeoyAQaupzKJHMQaqCATV4QiFRcxE/YtfoE7dRBBu+UjOGl26a4IIutckivtwUL
+	x+oxx97OFqNxVrDg==
+To: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>, Gregory Clement
+ <gregory.clement@bootlin.com>, Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?=
+ <kw@linux.com>, Manivannan
+ Sadhasivam <manivannan.sadhasivam@linaro.org>, Bjorn Helgaas
+ <bhelgaas@google.com>, Toan Le <toan@os.amperecomputing.com>, Alyssa
+ Rosenzweig <alyssa@rosenzweig.io>, Thierry Reding
+ <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>
+Subject: Re: [PATCH v2 3/9] irqchip/gic: Convert to
+ msi_create_parent_irq_domain() helper
+In-Reply-To: <20250513172819.2216709-4-maz@kernel.org>
+References: <20250513172819.2216709-1-maz@kernel.org>
+ <20250513172819.2216709-4-maz@kernel.org>
+Date: Fri, 16 May 2025 12:36:07 +0200
+Message-ID: <87h61kj10o.ffs@tglx>
 MIME-Version: 1.0
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_032757_748010_9DA09AA2 
-X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-CacheID: sfid-20250516_033613_311055_29C0B860 
+X-CRM114-Status: UNSURE (   8.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,28 +85,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2025-05-13 at 11:42 +0100, Ben Horgan wrote:
+On Tue, May 13 2025 at 18:28, Marc Zyngier wrote:
+>  	if (!v2m)
+>  		return 0;
+>  
+> -	inner_domain = irq_domain_create_hierarchy(parent, 0, 0, v2m->fwnode,
+> -						   &gicv2m_domain_ops, v2m);
+> +	inner_domain = msi_create_parent_irq_domain(&(struct irq_domain_info){
+> +			.fwnode		= v2m->fwnode,
+> +			.ops		= &gicv2m_domain_ops,
+> +			.host_data	= v2m,
+> +			.parent		= parent,
+> +		}, &gicv2m_msi_parent_ops);
+> +
 
-/* snip */
+This really makes my eyes bleed. 
 
-> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeat=
-ure.c
-> > index 9c4d6d552b25..44dcc0037ec2 100644
-> > --- a/arch/arm64/kernel/cpufeature.c
-> > +++ b/arch/arm64/kernel/cpufeature.c
-> > @@ -88,6 +88,7 @@
-> > =C2=A0=C2=A0 #include <asm/mte.h>
-> > =C2=A0=C2=A0 #include <asm/hypervisor.h>
-> > =C2=A0=C2=A0 #include <asm/processor.h>
-> > +#include <asm/ptrace.h>
-> Unused include?
+ 	if (!v2m)
+ 		return 0;
+ 
+-	inner_domain = irq_domain_create_hierarchy(parent, 0, 0, v2m->fwnode,
+-						   &gicv2m_domain_ops, v2m);
++	struct irq_domain_info info = {
++		.fwnode		= v2m->fwnode,
++		.ops		= &gicv2m_domain_ops,
++		.host_data	= v2m,
++		.parent		= parent,
++	};
++
++	inner_domain = msi_create_parent_irq_domain(&info, &gicv2m_msi_parent_ops);
 
-Oops, it's a leftover from v1.
+That's too readable, right?
 
-I've sent v3 to remove this and fix the typos in subject and comment:
-https://lore.kernel.org/all/20250516102556.9688-1-xry111@xry111.site/.
+No need to resend, I just hacked up a few lines of coccinelle script to
+eliminate this offense.
 
---=20
-Xi Ruoyao <xry111@xry111.site>
-School of Aerospace Science and Technology, Xidian University
+Thanks,
+
+        tglx
 
